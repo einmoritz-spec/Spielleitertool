@@ -28,6 +28,7 @@ const camp = () => window.NIGHTS.campaign;
 function parseHash(){ const p = (location.hash||"#/").slice(2).split("/"); return p; }
 window.addEventListener("hashchange", route);
 function goHome(){ location.hash = "#/"; }
+function goRegister(){ location.hash = "#/register"; }
 function goMap(){ location.hash = "#/map"; }
 function goLastCase(){ location.hash = ST.last ? ST.last : "#/case/1"; }
 async function route(){
@@ -42,6 +43,7 @@ async function route(){
     renderCase(c, p[2]==="sec" ? p[3] : (p[2]==="eisberg" ? "__eisberg" : c.sections[0].id));
   } else if(p[0]==="pages"){ renderHome(); openPageViewer(+p[1]||1, true); }
   else if(p[0]==="map") renderMap(p[1]==="dolch");
+  else if(p[0]==="register") renderRegister(p[1]||"leute");
   else renderHome();
 }
 
@@ -277,3 +279,33 @@ if("serviceWorker" in navigator) navigator.serviceWorker.register("../sw.js").ca
 try{ localStorage.setItem("gm_tool_mode_v1","paynetown"); }catch(e){}
 route();
 setTimeout(preloadAll, 800);
+
+
+/* ---------- Register: Bedrohungen/Personen/Orte + Notizenübersicht ---------- */
+var REG = null;
+async function buildRegister(){
+  if(REG) return REG;
+  const items = [], loaded = {};
+  for(const n of READY){ const c = await loadCase(n); if(!c) continue; loaded[n] = c;
+    const secOf = pg => { let b = null; for(const sc of c.sections) if(sc.page<=pg) b = sc; return b && b.id; };
+    const seen = {};
+    for(const pg in c.pages){ for(const b of (c.pages[pg].blocks||[])){ if(b.t==="threat" && b.name){ const k = b.name+"|"+pg; if(seen[k]) continue; seen[k]=1; items.push({kind:"leute", name:b.name.replace(/\s+/g," ").trim(), stars:b.stars||"", nr:n, page:+pg, sec:secOf(+pg)}); } } }
+    if(c.eisberg) for(const nd of c.eisberg.nodes) items.push({kind:"orte", name:nd.label, stars:"", nr:n, page:c.eisberg.page, sec:nd.target, layer:nd.layer});
+  }
+  REG = {items, loaded}; return REG;
+}
+function regLink(it){ return `#/case/${it.nr}/sec/${it.sec}`; }
+async function renderRegister(tab){
+  $("app").innerHTML = '<div class="missing">Lade Register …</div>';
+  const R = await buildRegister();
+  const tabs = [["leute","Bedrohungen & Personen"],["orte","Eisberg-Einträge"],["notizen","Notizen"]];
+  let h = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › Register</div><div class="case-head"><h1>Register</h1></div><div class="reg-tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" onclick="location.hash='#/register/${t[0]}'">${t[1]}</button>`).join("")}</div>`;
+  if(tab==="notizen"){
+    const rows = Object.keys(ST.notes).filter(k=>(ST.notes[k]||"").trim()).map(k=>{ const [nr,sid] = k.split(":"); const c = R.loaded[+nr]; const sec = c && c.sections.find(x=>x.id===sid); return {nr:+nr, sid, title: sec?sec.title:sid, text:ST.notes[k], page: sec?sec.page:0}; }).sort((a,b)=>a.nr-b.nr||a.page-b.page);
+    h += rows.length ? `<div class="reg-list">${rows.map(r=>`<a class="reg-note" href="#/case/${r.nr}/sec/${r.sid}"><small>${r.nr<11?"Fall "+r.nr:"Buch"} · ${esc(r.title)}</small><span>${esc(r.text)}</span></a>`).join("")}</div>` : `<div class="missing">Noch keine Notizen. Notizen schreibst du unten in jedem Kapitel.</div>`;
+  } else {
+    h += `<input class="search-input reg-filter" id="regFilter" placeholder="Filtern …" oninput="regFilter(this.value)" autocomplete="off"><div class="reg-list" id="regList">${R.items.filter(i=>i.kind===tab).sort((a,b)=>a.name.localeCompare(b.name,"de")).map(it=>`<a class="reg-row" href="${regLink(it)}" data-q="${esc(it.name.toLowerCase())}"><b>${esc(it.name)}</b><span class="stars">${esc(it.stars)}</span><small>${it.nr<11?"Fall "+it.nr:"Buch"} · Seite ${it.page}${it.layer!=null?" · Schicht "+it.layer:""}</small></a>`).join("")}</div>`;
+  }
+  $("app").innerHTML = h;
+}
+function regFilter(q){ q = q.trim().toLowerCase(); document.querySelectorAll("#regList .reg-row").forEach(r=>{ r.style.display = !q || r.dataset.q.includes(q) ? "" : "none"; }); }

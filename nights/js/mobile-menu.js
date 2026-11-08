@@ -19,6 +19,7 @@ function openMobileMenu(){
         ${item("🗂", "Kampagne", "goHome()")}
         ${item("📁", "Aktueller Fall", "goLastCase()")}
         ${item("🗺", "Stadtkarte", "goMap()")}
+        ${item("📇", "Register", "goRegister()")}
         ${item("📖", "Seitenviewer", "openPageViewer()")}
         ${item("🔎", "Suche", "openSearch()")}
       </div>

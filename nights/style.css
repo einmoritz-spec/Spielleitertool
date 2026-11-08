@@ -204,3 +204,13 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .nav-toggle{background:none;border:1px solid var(--line);border-radius:8px;color:var(--mute);width:28px!important;height:26px;padding:0!important;text-align:center!important;font-size:1rem;line-height:1;cursor:pointer;margin:6px 4px 0 0}
 .nav-toggle:hover{color:var(--cyan);border-color:var(--cyan);background:none}
 .rail{display:none}
+.reg-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.reg-tabs button{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:7px 14px;font:inherit;cursor:pointer}
+.reg-tabs button.on{border-color:var(--mag);background:linear-gradient(90deg,rgba(255,61,154,.22),rgba(51,214,255,.1))}
+.reg-filter{width:100%;max-width:520px;margin-bottom:12px}
+.reg-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.reg-row,.reg-note{display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--text);text-decoration:none}
+.reg-row:hover,.reg-note:hover{border-color:var(--cyan)}
+.reg-row b{margin-right:8px}.reg-row .stars{color:var(--amber)}
+.reg-row small,.reg-note small{display:block;color:var(--mute);font-size:.72rem}
+.reg-note span{white-space:pre-wrap}

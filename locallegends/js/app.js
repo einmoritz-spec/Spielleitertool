@@ -24,6 +24,9 @@ loadPips();
 
 function goOverview(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goDistrict(id){ state.view="district"; state.districtId=id; state.distTab="overview"; render(); window.scrollTo(0,0); }
+function goGuide(){ state.view="guide"; render(); window.scrollTo(0,0); }
+function goVillain(id){ state.view="villain"; state.villainId=id; render(); window.scrollTo(0,0); }
+function goAppendix(tab){ state.view="appendix"; state.appTab=tab||"mythoi"; state.appQ=""; render(); window.scrollTo(0,0); }
 function goCase(id){ state.view="case"; state.districtId=id; state.caseTab="overview"; render(); window.scrollTo(0,0); }
 
 /* ============================================================
@@ -35,6 +38,9 @@ function render(){
   if(state.view==="overview") app.innerHTML = renderOverview();
   else if(state.view==="district") app.innerHTML = renderDistrictView(state.districtId);
   else if(state.view==="case") app.innerHTML = renderCaseView(state.districtId);
+  else if(state.view==="guide") app.innerHTML = renderGuide();
+  else if(state.view==="villain") app.innerHTML = renderVillain(state.villainId);
+  else if(state.view==="appendix") app.innerHTML = renderAppendix();
   buildGlossList();
   buildRulesList();
   const caseBtn = document.getElementById("tb-case-btn");
@@ -54,7 +60,7 @@ function markLongTexts(){
 }
 
 function renderOverview(){
-  let tiles = DISTRICTS.map(d=>{
+  let tiles = DISTRICTS.filter(d=>!d.hidden).map(d=>{
     if(d.status==="ready"){
       return `<button class="tile clickable" onclick="goDistrict('${d.id}')">
         <div class="num">BEZIRK ${String(d.num).padStart(2,"0")}</div>
@@ -76,9 +82,84 @@ function renderOverview(){
       <p>Neun Bezirke der Stadt jenseits von Downtown und Industriegebiet — jeder mit eigener Lore, Orten, Locals und einem One-Shot-Fall. Klick auf einen Bezirk, um die Akte zu öffnen.</p>
     </div>
     <div class="grid">${tiles}</div>
+    ${renderBonusTiles()}
     <div class="footer-note">Quelle: City of Mist — Local Legends · Fall-Akte für den Spieltisch, kein Ersatz fürs Regelwerk.</div>
   `;
 }
+
+/* ============================================================
+   BONUS: Forged & Framed, Kleinschurken, Stadtführer, Anhang
+   ============================================================ */
+function renderBonusTiles(){
+  let h = `<div class="bonus-head"><h2>Bonus-Inhalte</h2></div><div class="grid">`;
+  if(typeof FORGED_FRAMED!=="undefined") h += `<button class="tile clickable" onclick="goCase('forged_framed')"><div class="num">LANGFALL</div><h3>Forged &amp; Framed</h3><div class="sub">${FORGED_FRAMED.case.subtitle||""}</div><div class="teaser">Ein Rückwärts-Krimi: Die Crew wird als Täter*innen gejagt (Buchseiten 314–329).</div></button>`;
+  if(typeof VILLAINS!=="undefined") VILLAINS.forEach(v=>{ h += `<button class="tile clickable" onclick="goVillain('${v.id}')"><div class="num">KLEINSCHURKE · ${v.mythos||""}</div><h3>${v.title}</h3><div class="sub">${v.villain||""}${v.villainRole?" — "+v.villainRole:""}</div><div class="teaser">${v.subtitle||v.tagline||""}</div></button>`; });
+  if(typeof GUIDE!=="undefined") h += `<button class="tile clickable" onclick="goGuide()"><div class="num">EINLEITUNG</div><h3>Einleitung &amp; Stadtführer</h3><div class="sub">Guide to the City von Lance Sullivan</div><div class="teaser">Wie man das Buch nutzt und ein Streifzug durch alle Viertel (S. 4–12).</div></button>`;
+  if(typeof APPENDIX!=="undefined") h += `<button class="tile clickable" onclick="goAppendix()"><div class="num">ANHANG</div><h3>Register</h3><div class="sub">Mythoi · Dangers · Theme Kits</div><div class="teaser">Alle Einträge des Buchs mit Seitenzahl, durchsuchbar (S. 330–343).</div></button>`;
+  return h + `</div>`;
+}
+function crumbBonus(label){ return `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span>${label}</div>`; }
+function paras(a){ return (Array.isArray(a)?a:[a]).filter(Boolean).map(t=>`<p>${t}</p>`).join(""); }
+function distLink(id, label){ const d = DISTRICTS.find(x=>x.id===id); return d && d.data && !d.hidden ? `<button class="btn-ghost" onclick="goDistrict('${id}')">${label||d.title} öffnen →</button>` : ""; }
+
+function renderGuide(){
+  const g = GUIDE; let h = crumbBonus("Einleitung & Stadtführer");
+  h += `<div class="hero"><h1>${g.title||"Einleitung & Guide to the City"}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);">Buchseiten ${g.pages||"4–12"}</p></div>`;
+  const i = g.introduction; if(i) h += sectionHTML("g_intro", i.title||"Einleitung", (i.lead?`<div class="readaloud">${i.lead}</div>`:"") + paras(i.paragraphs).replace(/<p>/g,'<div class="card"><p>').replace(/<\/p>/g,"</p></div>"));
+  const wb = g.whatsInBook; if(wb) h += sectionHTML("g_what", wb.title, (wb.intro?`<div class="card"><p>${wb.intro}</p></div>`:"") + wb.items.map(x=>`<div class="card">${typeof x==="string"?`<p>${x}</p>`:`<h3 style="font-size:14px;">${x.term||x.t||""}</h3><p>${x.text||x.x||""}</p>`}</div>`).join(""));
+  const cb = g.crimeBoardMap; if(cb) h += sectionHTML("g_crime", cb.title, `<div class="card">${paras(cb.text)}</div>` + (cb.exampleBox?`<div class="clue-box">${cb.exampleBox}</div>`:"") + (cb.exampleNote?`<p style="font-size:11.5px;color:var(--text-faint);font-style:italic;">${cb.exampleNote}</p>`:""));
+  const bc = g.bonusContent; if(bc) h += sectionHTML("g_bonus", bc.title, (bc.intro?`<div class="card"><p>${bc.intro}</p></div>`:"") + bc.items.map(x=>`<div class="card">${typeof x==="string"?`<p>${x}</p>`:`<h3 style="font-size:14px;">${x.term||x.t||x.title||""}</h3><p>${x.text||x.x||""}</p>`}</div>`).join(""));
+  const hb = g.howToUseBook; if(hb) h += sectionHTML("g_how", hb.title, (hb.intro?`<div class="card"><p>${hb.intro}</p></div>`:"") + hb.items.map(x=>`<div class="card">${typeof x==="string"?`<p>${x}</p>`:`<h3 style="font-size:14px;">${x.term||x.t||x.title||""}</h3><p>${x.text||x.x||""}</p>`}</div>`).join("") + (hb.outro?`<div class="card"><p>${hb.outro}</p></div>`:""));
+  const cg = g.cityGuide;
+  if(cg){
+    let b = `<div class="readaloud">${cg.quote||""}${cg.narrator?`<br><span style="font-size:11.5px;opacity:.7;">${cg.narrator}</span>`:""}</div>` + (cg.narratorNote?`<p style="font-size:11.5px;color:var(--text-faint);font-style:italic;">${cg.narratorNote}</p>`:"") + `<div class="card">${paras(cg.intro)}</div>`;
+    b += cg.districts.map(d=>`<div class="card"><h3>${d.name} <small style="color:var(--text-faint);">S. ${d.page}</small></h3>${paras(d.text)}${distLink(d.districtId)}</div>`).join("");
+    if(cg.alreadyKnow) b += `<div class="card"><h3>${cg.alreadyKnow.title||""}</h3><p style="font-style:italic;color:var(--text-faint);">${cg.alreadyKnow.subtitle||""}</p>${paras(cg.alreadyKnow.intro)}</div>` + (cg.alreadyKnow.areas||[]).map(a=>`<div class="card"><h3>${a.name}</h3>${paras(a.text)}</div>`).join("");
+    if(cg.placesWorthSeeing) b += `<div class="card"><h3>${cg.placesWorthSeeing.title}</h3><p style="font-style:italic;color:var(--text-faint);">${cg.placesWorthSeeing.subtitle||""}</p>${paras(cg.placesWorthSeeing.text)}</div>`;
+    if(cg.closing) b += `<div class="card">${paras(cg.closing.text)}<p style="text-align:right;font-style:italic;">${cg.closing.signature||""}</p></div>`;
+    h += sectionHTML("g_city", cg.title||"Guide to the City", b);
+  }
+  const toc = g.tableOfContents; if(toc) h += sectionHTML("g_toc", toc.title||"Inhaltsverzeichnis", `<div class="card"><ul>${toc.entries.map(e=>`<li>${e.title}${e.page?` <small style="color:var(--text-faint);">S. ${e.page}</small>`:""}</li>`).join("")}</ul></div>`);
+  return h + `<div class="footer-note">Local Legends — Einleitung & Stadtführer</div>`;
+}
+
+function renderVillain(id){
+  const v = VILLAINS.find(x=>x.id===id); if(!v) return crumbBonus("?");
+  let h = crumbBonus(v.title);
+  h += `<div class="case-hero"><div class="eyebrow">KLEINSCHURKE · ${v.mythos||""}</div><h1 style="margin:0 0 4px;">${v.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin:0;">${v.subtitle||v.tagline||""}</p>${v.pages?`<p style="font-size:12px;color:var(--text-faint);margin:6px 0 0;">Buchseiten ${v.pages}</p>`:""}</div>`;
+  if(v.intro) h += `<div class="card">${paras(v.intro)}</div>`;
+  if(v.howToUse) h += sectionHTML("v_how","Wie man diesen Schurken nutzt", (v.howToUse.intro?`<div class="card"><p>${v.howToUse.intro}</p></div>`:"") + (v.howToUse.items||[]).map(x=>`<div class="card">${typeof x==="string"?`<p>${x}</p>`:`<h3 style="font-size:14px;">${x.t||x.title||x.name||""}</h3><p>${x.x||x.text||""}</p>`}</div>`).join(""));
+  if(v.hooks&&v.hooks.length) h += sectionHTML("v_hooks","Hooks", v.hooks.map((x,i)=>hookBlock(x,"vh_"+i)).join(""));
+  if(v.background&&v.background.length) h += sectionHTML("v_bg","Hintergrund", v.background.map(t=>`<div class="card"><p>${t}</p></div>`).join(""));
+  if(v.operation&&v.operation.length) h += sectionHTML("v_op","Die Operation", v.operation.map(t=>`<div class="card"><p>${t}</p></div>`).join(""));
+  if(v.locations&&v.locations.length) h += sectionHTML("v_loc","Schlüsselorte", v.locations.map((l,i)=>locBlock(l,"vl_"+i,null)).join(""));
+  if(v.inPerson&&v.inPerson.length) h += sectionHTML("v_in","Persönlich", v.inPerson.map(t=>`<div class="card"><p>${t}</p></div>`).join(""));
+  if(v.abilities&&v.abilities.length) h += sectionHTML("v_ab","Fähigkeiten", v.abilities.map(t=>`<div class="card"><p>${t}</p></div>`).join(""));
+  if(v.sidebars&&v.sidebars.length) h += v.sidebars.map(sb=>`<div class="card"><h3>${sb.title}</h3>${sb.subtitle?`<p style="font-style:italic;color:var(--text-faint);">${sb.subtitle}</p>`:""}${paras(sb.text)}</div>`).join("");
+  if(v.dangers&&v.dangers.length) h += sectionHTML("v_dg","Danger-Profile", v.dangers.map(dg=>renderDangerCard(dg,"vil_"+v.id)).join(""));
+  if(v.notes&&v.notes.length) h += v.notes.map(t=>`<div class="gm-note"><span class="gm-label">Hinweis</span>${t}</div>`).join("");
+  return h + `<div class="footer-note">Local Legends — Kleinschurken: ${v.title}</div>`;
+}
+
+function renderAppendix(){
+  const A = APPENDIX, tab = state.appTab||"mythoi", q = (state.appQ||"").toLowerCase();
+  const tabs = [["mythoi","Mythoi"],["dangers","Dangers"],["themeKits","Theme Kits"]];
+  let h = crumbBonus("Register") + `<div class="hero"><h1>${A.title||"Register"}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);">${A.intro||""}</p></div>`;
+  h += `<div class="case-tabbar">${tabs.map(t=>`<button class="case-tab ${tab===t[0]?"active":""}" onclick="goAppendix('${t[0]}')">${t[1]} <small>${A[t[0]].entries.length}</small></button>`).join("")}</div>`;
+  h += `<input class="gloss-search" id="appQ" placeholder="Filtern…" value="${(state.appQ||"").replace(/"/g,"&quot;")}" oninput="appFilter(this.value)" style="margin:10px 0;">`;
+  h += `<p style="font-size:12px;color:var(--text-faint);">${A[tab].note||""}</p><div id="appList">${appRows(tab,q)}</div>`;
+  if(A.backers) h += `<p style="font-size:11.5px;color:var(--text-faint);margin-top:18px;">${A.backers.text}</p>`;
+  return h;
+}
+function appRows(tab,q){
+  const A = APPENDIX, e = A[tab].entries.filter(x=>!q || JSON.stringify(x).toLowerCase().includes(q));
+  const dn = id => (A.districtNames&&A.districtNames[id])||id||"";
+  const link = x => { const d = x.district && DISTRICTS.find(y=>y.id===x.district); return d&&d.data&&!d.hidden ? ` <a class="app-go" onclick="goDistrict('${x.district}')">${dn(x.district)}</a>` : (x.district?` <span class="app-go off">${dn(x.district)}</span>`:""); };
+  if(tab==="mythoi") return e.map(x=>`<div class="app-row"><b>${x.mythos}</b> <span class="app-sub">${x.logos||""}</span> <small>${x.type||""} · S. ${x.page}</small>${link(x)}</div>`).join("");
+  if(tab==="dangers") return e.map(x=>`<div class="app-row"><b>${x.name}</b> <span class="app-sub">${x.ratingText||x.rating||""} ★</span> <small>S. ${x.page}</small>${link(x)}</div>`).join("");
+  return e.map(x=>`<div class="app-row"><b>${x.title}</b> <span class="app-sub">${x.type||""}</span> <small>S. ${x.page}</small>${link(x)}</div>`).join("");
+}
+function appFilter(v){ state.appQ = v; const el = document.getElementById("appList"); if(el) el.innerHTML = appRows(state.appTab||"mythoi", v.toLowerCase()); }
 
 /* ============================================================
    RENDER: BEZIRK
@@ -123,7 +204,8 @@ function gmNote(text){
 function renderThemeCard(o){
   return `<div class="card">
     <h3>${o.name}</h3>
-    <div class="sub" style="font-size:11.5px;color:var(--text-faint);font-style:italic;margin-bottom:6px;">${o.kind}</div>
+    <div class="sub" style="font-size:11.5px;color:var(--text-faint);font-style:italic;margin-bottom:6px;">${o.kind}${o.role?` · ${o.role}`:""}</div>
+    ${o.blurb?`<p>${o.blurb}</p>`:""}
     <p><i>${o.identity}</i></p>
     <span class="taglabel">Power-Tags</span>${tagRow(o.power,"power")}
     <span class="taglabel">Weakness-Tags</span>${tagRow(o.weak,"weak")}
@@ -147,7 +229,8 @@ function renderDangerCard(dg, scope){
       ${ratingHTML}
     </div>
     <div class="danger-body">
-      ${dg.desc?`<p>${dg.desc}</p>`:""}
+      ${dg.tactics?`<p><i>${dg.tactics}</i></p>`:""}
+      ${(dg.cardDesc||dg.desc)?`<p>${dg.cardDesc||dg.desc}</p>`:""}
       ${spectrums.length?`<div class="stat-line">${dg.statLine}</div><div id="specs_${key}">${spectrumHTML}</div>`:""}
       ${dg.moves && dg.moves.length?`<div class="movegroup"><div class="mg-label">Custom Moves</div><ul>${dg.moves.map(m=>`<li>${m}</li>`).join("")}</ul></div>`:""}
       ${dg.softMoves && dg.softMoves.length?`<div class="movegroup"><div class="mg-label">Angriffe / Weiche & Harte Züge</div><ul>${dg.softMoves.map(m=>`<li>${m}</li>`).join("")}</ul></div>`:""}
@@ -228,29 +311,30 @@ function renderDistrictView(id){
   const active = state.distTab;
 
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span>${dist.title}</div>`;
-  html += `<div class="hero"><h1>${dist.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin-bottom:10px;">${dist.sub}</p></div>`;
+  html += `<div class="hero"><h1>${dist.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin-bottom:10px;">${c.tagline||dist.sub}</p></div>`;
 
   html += renderDistrictTabs(c, id, active);
 
   if(active==="overview"){
     html += `<div class="readaloud">${c.quote.text}<br><span style="font-size:11.5px;opacity:.7;">${c.quote.author}</span></div>
       <div class="card"><p>${c.intro}</p></div>`;
-    html += sectionHTML("howto","Wie man diesen Bezirk nutzt", c.howToUse.map(h=>`<div class="card"><h3 style="font-size:14px;">${h.t}</h3><p>${h.x}</p></div>`).join("") + `<p style="font-size:11.5px;color:var(--text-faint);font-style:italic;">${c.namesNote}</p>`);
+    html += sectionHTML("howto","Wie man diesen Bezirk nutzt", ((c.howToUseIntro||c.howToIntro)?`<div class="card"><p>${c.howToUseIntro||c.howToIntro}</p></div>`:"") + c.howToUse.map(h=>`<div class="card"><h3 style="font-size:14px;">${h.t}</h3><p>${h.x}</p></div>`).join("") + (c.namesNote?`<p style="font-size:11.5px;color:var(--text-faint);font-style:italic;">${c.namesNote}</p>`:""));
     if(c.gate) html += sectionHTML("gate","Das Chinatown-Tor", `<div class="card"><p>${c.gate}</p></div>`);
     html += sectionHTML("beyond","Jenseits des Nebels", `<div class="card"><p>${c.beyondMist}</p></div>`);
     if(c.phoropterHistory) html += sectionHTML("phoropter","Geschichte des Phoropters", `<div class="card"><p>${c.phoropterHistory}</p></div>`);
     if(c.otherMythoi) html += sectionHTML("othermyth","Andere chinesische Mythoi in der Stadt", `<div class="card"><p>${c.otherMythoi}</p></div>`);
     if(c.chowsSpoiler) html += sectionHTML("chows","Die Chows (Spoiler-Warnung!)", `<div class="card">${c.chowsSpoiler}</div>`);
-    html += sectionHTML("custom","Custom Moves", c.customMoves.map(m=>`<div class="card"><h3>${m.name}</h3><p>${m.text}</p></div>`).join(""));
+    html += sectionHTML("custom","Custom Moves", (c.customMovesIntro?`<div class="card"><p>${c.customMovesIntro}</p></div>`:"") + c.customMoves.map(m=>`<div class="card"><h3>${m.name}</h3><p>${m.text}</p></div>`).join(""));
   }
   else if(active==="options"){
+    if(c.playerOptionsIntro) html += `<div class="card"><p>${c.playerOptionsIntro}</p></div>`;
     html += c.playerOptions.map(renderThemeCard).join("");
   }
   else if(active==="places"){
-    html += c.places.map(p=>`<div class="card"><h3>${p.name}</h3><p>${p.text}</p></div>`).join("");
+    html += c.places.map((p,i)=>locBlock(p, "pl_"+i, null)).join("");
   }
   else if(active==="locals"){
-    html += c.locals.map(l=>renderDangerCard(l,"local_"+id)).join("");
+    html += c.locals.map(l=>(l.profile?`<div class="card"><h3>${l.name}</h3><p>${l.profile}</p></div>`:"")+renderDangerCard(l,"local_"+id)).join("");
     if(c.localThemes) html += c.localThemes.map(renderThemeCard).join("");
   }
   else if(active==="chance"){
@@ -262,23 +346,27 @@ function renderDistrictView(id){
     if(tb){
       html += `<div class="card">
         <h3 style="color:var(--brass-bright);">${tb.name}</h3>
+        ${tb.logosLabel?`<div class="sub" style="font-size:11.5px;color:var(--text-faint);font-style:italic;">${tb.logosLabel}</div>`:""}
         ${tb.intro?`<p>${tb.intro}</p>`:""}
+        ${tb.examples?`<p><b>Beispiele:</b> ${tb.examples.join(" · ")}</p>`:""}
         <p><b style="color:var(--brass-bright)">Power-Tag-Fragen:</b></p><ul>${tb.questionsPower.map(q=>`<li>${q}</li>`).join("")}</ul>
         <p><b style="color:var(--red-bright)">Weakness-Tag-Fragen:</b></p><ul>${tb.questionsWeak.map(q=>`<li>${q}</li>`).join("")}</ul>
         <p style="font-size:12px;font-style:italic;">${tb.extra}</p>
         <p><b>Identität:</b> ${tb.identity}</p>
-        <p><b style="color:var(--brass-bright)">Theme Improvements:</b></p><ul>${tb.improvements.map(i=>`<li>${i}</li>`).join("")}</ul>
+        <p><b style="color:var(--brass-bright)">Theme Improvements:</b></p>${tb.improvementsIntro?`<p>${tb.improvementsIntro}</p>`:""}<ul>${tb.improvements.map(i=>`<li>${i}</li>`).join("")}</ul>
         <p><b>Crew-Beziehungen:</b> ${tb.crewRel}</p>
       </div>`;
+      if(tb.sampleCard) html += renderThemeCard(tb.sampleCard);
     }
   }
   else if(active==="heists" && c.heistRules){
     const hr = c.heistRules;
     html += `<div class="card"><p>${hr.intro}</p></div>`;
     html += sectionHTML("heistterm","Heist-Terminologie", hr.terminology.map(t=>`<div class="card"><h3 style="font-size:14px;">${t.t}</h3><p>${t.x}</p></div>`).join(""));
-    html += sectionHTML("heistprep","Die Prep Sequence", `<div class="card"><p>${hr.prepSequence}</p></div>`);
+    const hx = a => [].concat(a||[]).map(t=>`<div class="card"><h3 style="font-size:14px;">${t.t}</h3><p>${t.x}</p></div>`).join("");
+    html += sectionHTML("heistprep","Die Prep Sequence", `<div class="card"><p>${hr.prepSequence}</p></div>` + (typeof hr.prepIntro==="string"?`<div class="card"><p>${hr.prepIntro}</p></div>`:hx(hr.prepIntro)) + hx(hr.prepMoves) + hx(hr.prepMiss?[].concat(hr.prepMiss):[]) + hx(hr.tickClock?[].concat(hr.tickClock):[]));
     html += sectionHTML("heistcards","Drei Karten entwerfen", `<div class="card"><p>${hr.threeCards}</p></div>`);
-    html += sectionHTML("heistquick","Quick Heist Generator", `<div class="card"><p>${hr.quickGenerator}</p></div>`);
+    html += sectionHTML("heistquick","Quick Heist Generator", `<div class="card"><p>${hr.quickGenerator}</p></div>` + (hr.quickTable||[]).map(q=>`<div class="card"><h3 style="font-size:14px;">${q.symbol} ${q.suit} — ${q.title}</h3><div class="tbl-wrap"><table class="ll-tbl"><tbody>${q.rows.map(r=>`<tr><td style="width:3em;white-space:nowrap;"><b>${r[0]}${q.symbol}</b></td><td>${r[1]}</td></tr>`).join("")}</tbody></table></div></div>`).join(""));
   }
   else if(active==="case"){
     html += `<div class="section"><div class="section-head" style="cursor:default;border:none;"><h2 style="color:var(--red-bright);">Der Fall</h2></div>
@@ -319,11 +407,20 @@ function locBlock(l, anchorId, scope){
   if(l.readaloud){
     html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${l.readaloud}</div></div>`;
   }
+  if(l.mythos){
+    html += `<p style="font-size:12px;color:var(--text-faint);font-style:italic;margin:0 0 6px;">${l.mythos}</p>`;
+  }
   if(l.text){
-    html += `<p>${l.text}</p>`;
+    html += Array.isArray(l.text) ? l.text.map(t=>`<p>${t}</p>`).join("") : `<p>${l.text}</p>`;
+  }
+  if(l.tables){
+    html += l.tables.map(t=>`<div class="card"><h3 style="font-size:14px;">${t.title||""}</h3><div class="tbl-wrap"><table class="ll-tbl"><thead><tr>${(t.cols||[]).map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${(t.rows||[]).map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`).join("");
   }
   if(l.clues){
     html += clueBoxes(l.clues);
+  }
+  if(l.handouts){
+    html += l.handouts.map(h=>`<div class="handout"><div class="ho-label">${h.kind||"Handout"}${h.page?` · S. ${h.page}`:""}</div><h4>${h.title||""}</h4><div class="ho-text">${h.text}</div>${h.note?`<div class="ho-note">${h.note}</div>`:""}</div>`).join("");
   }
   if(l.gmNote){
     html += gmNote(l.gmNote);
@@ -344,6 +441,8 @@ function locBlock(l, anchorId, scope){
   return html;
 }
 function hookBlock(h, anchorId){
+  if(typeof h==="string") return `<div class="card"><p>${h}</p></div>`;
+  if(!h.name) return `<div class="card">${h.readaloud?`<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`:""}${h.text?`<p>${h.text}</p>`:""}${h.clues?clueBoxes(h.clues):""}${h.gmNote?gmNote(h.gmNote):""}</div>`;
   let html = `<div class="loc-card loc-anchor" id="${anchorId}"><h4><span class="pin">📌</span> ${h.name}</h4>`;
   if(h.readaloud) html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`;
   if(h.text) html += `<p>${h.text}</p>`;
@@ -387,13 +486,15 @@ function renderCaseView(id){
 
   if(active==="overview"){
     html += `<div class="card"><p>${cs.intro}</p></div>`;
+    if(cs.teaser) html += `<div class="card"><p>${cs.teaser}</p></div>`;
+    if(cs.fourthMurder) html += `<div class="card"><h3>${cs.fourthMurder.title}</h3>${cs.fourthMurder.paragraphs.map(p=>`<p>${p}</p>`).join("")}</div>`;
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Hintergrund</h2></div><div class="section-body">${cs.background.map(p=>`<div class="card"><p>${(p && typeof p==="object" && p.text!==undefined)?p.text:p}</p></div>`).join("")}${cs.miniThemeKits?cs.miniThemeKits.map(renderThemeCard).join(""):""}</div></div>`;
-    html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote}</p></div>${cs.icebergImage?`<div class="card" style="padding:8px;"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}" style="width:100%;height:auto;display:block;border-radius:4px;"></div>`:""}</div></div>`;
+    html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote}</p></div>${cs.icebergImage?`<div class="card" style="padding:8px;"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}" style="width:100%;height:auto;display:block;border-radius:4px;"></div>`:""}${cs.icebergMap?`<div class="card"><h3 style="font-size:14px;">Schauplätze nach Tiefe</h3><ul>${cs.icebergMap.depths.map(d=>`<li><b>Depth ${d.n}:</b> ${d.places.join(", ")}</li>`).join("")}</ul>${cs.icebergMap.links&&cs.icebergMap.links.length?`<p style="font-size:12px;color:var(--text-faint);">Verbindungen: ${cs.icebergMap.links.map(l=>l[0]+" → "+l[1]).join(" · ")}</p>`:""}</div>`:""}</div></div>`;
   } else if(active==="aftermath"){
     const isComplete = !!state.caseComplete[completeKey];
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Aftermath</h2></div><div class="section-body">`;
     if(isComplete){
-      html += `<div class="card"><ul>${cs.aftermath.map(a=>`<li style="margin-bottom:10px;">${a}</li>`).join("")}</ul></div>
+      html += `${cs.aftermathIntro?`<div class="card"><p>${cs.aftermathIntro}</p></div>`:""}<div class="card"><ul>${cs.aftermath.map(a=>`<li style="margin-bottom:10px;">${a}</li>`).join("")}</ul></div>
         <button class="btn-ghost" onclick="setCaseComplete('${completeKeyEsc}',false)">↺ Fall wieder als offen markieren</button>`;
     } else {
       html += `<div class="aftermath-gate">
@@ -511,6 +612,8 @@ function buildSearchIndex(){
       if(cs.aftermath) idx.push({distId:dist.id, distTitle:dist.title, view:"case", tab:"aftermath", section:"Fall · Aftermath", name:cs.title+" — Aftermath", text:flattenText(cs.aftermath)});
     }
   });
+  if(typeof VILLAINS!=="undefined") VILLAINS.forEach(v=> idx.push({distId:v.id, distTitle:"Kleinschurken", view:"villain", tab:"", section:"Kleinschurke", name:v.title, text:flattenText(v)}));
+  if(typeof GUIDE!=="undefined") idx.push({distId:"guide", distTitle:"Einleitung", view:"guide", tab:"", section:"Stadtführer", name:"Einleitung & Guide to the City", text:flattenText(GUIDE)});
   SEARCH_INDEX = idx;
   return idx;
 }
@@ -557,7 +660,9 @@ function runSearch(raw){
 }
 function gotoSearchResult(distId, view, tab){
   closeModal("searchModal");
-  if(view==="district"){ state.view="district"; state.districtId=distId; state.distTab=tab; }
+  if(view==="villain"){ state.view="villain"; state.villainId=distId; }
+  else if(view==="guide"){ state.view="guide"; }
+  else if(view==="district"){ state.view="district"; state.districtId=distId; state.distTab=tab; }
   else { state.view="case"; state.districtId=distId; state.caseTab=tab; }
   render();
   window.scrollTo(0,0);

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v31";
+const VERSION = "v32";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -21,6 +21,10 @@ const FILES = [
   "locallegends/js/data/sunken-city.js",
   "locallegends/js/data/tourist-trap.js",
   "locallegends/js/data/undertrash.js",
+  "locallegends/js/data/forged-framed.js",
+  "locallegends/js/data/guide.js",
+  "locallegends/js/data/villains.js",
+  "locallegends/js/data/appendix.js",
   "locallegends/js/data/rules-glossary.js",
   "locallegends/js/app.js",
   "locallegends/img/iceberg-1.jpg",
@@ -31,6 +35,8 @@ const FILES = [
   "locallegends/img/iceberg-6.jpg",
   "locallegends/img/iceberg-7.jpg",
   "locallegends/img/iceberg-8.jpg",
+  "locallegends/img/iceberg-9.jpg",
+  "locallegends/img/iceberg-forged.jpg",
   "nights/index.html",
   "nights/style.css",
   "nights/responsive.css",

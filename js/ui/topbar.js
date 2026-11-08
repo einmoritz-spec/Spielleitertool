@@ -142,7 +142,7 @@ function renderTopbarSettingsBody(){
       </div>
       <div class="tb-set-section">Gruppenprofile</div>
       <div class="tb-set-actions">
-        <button class="collapse-all-btn" onclick="restorePartyProfiles()" ${HIDDEN_PARTY.size?'':'disabled'}>↺ Gelöschte Gruppenprofile wiederherstellen${HIDDEN_PARTY.size?` (${HIDDEN_PARTY.size})`:''}</button>
+        <button class="collapse-all-btn" onclick="restorePartyProfiles()" ${HIDDEN_PARTY.size?'':'disabled'}>↺ Beispielprofile wiederherstellen${HIDDEN_PARTY.size?` (${HIDDEN_PARTY.size})`:''}</button>
       </div>
     </div>`;
 }

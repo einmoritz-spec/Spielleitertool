@@ -147,7 +147,7 @@ function loadPersistedFavorites(){
 // Zustand. Mit Sicherheitsabfrage, da NICHT rückgängig zu machen (Notizen
 // und Spielfortschritt gehen dabei unwiderruflich verloren).
 function resetAllProgress(){
-  const ok = window.confirm("Wirklich ALLES zurücksetzen?\n\nDas löscht unwiderruflich:\n– alle angeklickten Limit-Pips (Challenges & Zeit-Tracker)\n– alle als \"gespielt\" markierten Vignetten\n– alle als erledigt abgehakten Szenen\n– die zuletzt geöffnete Seite\n– ALLE freien Notizfelder in jedem Abenteuer\n– ALLE Bearbeitungen an den Spielerprofilen (Texte, gescratchte Tags, Abandon/Improve/Milestone, Promise)\n– gelöschte Gruppenprofile kehren zurück\n\nDies kann nicht rückgängig gemacht werden.");
+  const ok = window.confirm("Wirklich ALLES zurücksetzen?\n\nDas löscht unwiderruflich:\n– alle angeklickten Limit-Pips (Challenges & Zeit-Tracker)\n– alle als \"gespielt\" markierten Vignetten\n– alle als erledigt abgehakten Szenen\n– die zuletzt geöffnete Seite\n– ALLE freien Notizfelder in jedem Abenteuer\n– ALLE Bearbeitungen an den Spielerprofilen (Texte, gescratchte Tags, Abandon/Improve/Milestone, Promise)\n\nDies kann nicht rückgängig gemacht werden.");
   if(!ok) return;
   try{
     localStorage.removeItem(PERSIST_KEY);
@@ -170,7 +170,7 @@ function resetAllProgress(){
   state.charSearch = "";
   state.openCharCats = new Set();
   state.profileOverlays = {};
-  HIDDEN_PARTY = new Set();
+  HIDDEN_PARTY = defaultHiddenParty();
   state.view = "overview";
   state.advId = null;
   state.sceneIdx = 0;

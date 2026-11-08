@@ -62,12 +62,17 @@ let CUSTOM_PROFILES = [];
 // ihrer Änderungen zurück.
 const HIDDEN_PARTY_KEY = "woto_hidden_party_v1";
 let HIDDEN_PARTY = new Set();
+// Standard (noch nichts gespeichert): ALLE Beispiel-Gruppenprofile sind ausgeblendet,
+// die Tafel startet ohne Profile und eigene Charaktere werden neu angelegt.
+// "Wiederherstellen" holt die Beispielprofile bei Bedarf zurück.
+function defaultHiddenParty(){ return new Set(PLAYER_PROFILES.map((_,i)=>i)); }
 function loadHiddenParty(){
   try{
     const raw = localStorage.getItem(HIDDEN_PARTY_KEY);
-    const arr = raw ? JSON.parse(raw) : [];
+    if(raw===null) return defaultHiddenParty();
+    const arr = JSON.parse(raw);
     return new Set(Array.isArray(arr) ? arr.filter(n=>Number.isInteger(n)) : []);
-  }catch(e){ return new Set(); }
+  }catch(e){ return defaultHiddenParty(); }
 }
 function saveHiddenParty(){
   try{ localStorage.setItem(HIDDEN_PARTY_KEY, JSON.stringify([...HIDDEN_PARTY])); }catch(e){}

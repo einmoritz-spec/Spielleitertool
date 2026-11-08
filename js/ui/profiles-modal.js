@@ -207,7 +207,7 @@ function renderProfilesBody(store){
         </div>`).join("")}
     </div>
     ${!visiblePartyIdx().length?`<div class="pf-empty-hint">Keine Gruppenprofile — eigene Charaktere legst du mit 🆕 Charakter (Taste X) an.</div>`:``}
-    ${HIDDEN_PARTY.size?`<button class="pf-add-row" onclick="restorePartyProfiles()">↺ ${HIDDEN_PARTY.size} gelöschte${HIDDEN_PARTY.size===1?'s':''} Profil${HIDDEN_PARTY.size===1?'':'e'} wiederherstellen</button>`:``}`;
+    ${HIDDEN_PARTY.size?`<button class="pf-add-row" onclick="restorePartyProfiles()">↺ Beispielprofile wiederherstellen (${HIDDEN_PARTY.size})</button>`:``}`;
 }
 
 function openProfiles(){

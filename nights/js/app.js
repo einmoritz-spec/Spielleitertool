@@ -153,7 +153,9 @@ function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
 function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }
 function chapterView(c, ch){
   const first = ch.items[0];
-  let h = `<div class="sec-title"><h2>${esc(chapterTitle(ch))}</h2></div>`;
+  const k0 = !ch.flat && (ch.layer || first.kind==="intro");
+  const ns0 = c.sections[c.sections.indexOf(first)+1];
+  let h = `<div class="sec-title"><h2>${esc(chapterTitle(ch))}</h2>${k0?`<button class="pagetag" onclick="openPageViewer(${first.page})">Seite ${pageRange(c,first,ns0)}</button>`:""}</div>`;
   if(ch.items.length>1) h += `<div class="toc">${ch.items.slice(ch.layer||first.kind==="intro"?1:0).map(s=>`<a href="#/case/${c.nr}/sec/${s.id}">${esc(s.title)}</a>`).join("")}</div>`;
   if(c.eisberg && (first.kind==="intro")) h += `<div id="eisberg">${eisbergView(c)}</div>`;
   ch.items.forEach((sec,k)=>{
@@ -161,7 +163,7 @@ function chapterView(c, ch){
     const nextSec = c.sections[c.sections.indexOf(sec)+1];
     h += `<section class="chsec" id="s-${sec.id}">`;
     if(sub) h += `<h3 class="sec-sub">${esc(sec.title)}<button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3>`;
-    else h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></div>`;
+    else if(!(k0 && k===0)) h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></div>`;
     const blocks = secBlocks(c, sec.id);
     for(const f of (c.figures||[])) if(f.kind!=="eisberg" && figSec(c,f)===sec.id) h += figHtml(f);
     for(const b of blocks) h += blockHtml(c, b);
@@ -192,8 +194,8 @@ function threatHtml(c, b){
   const lims = parseLimits(b.spectra);
   const nstars = (b.stars||"").length;
   const rows = lims.map((l,i)=>{
-    const k = key+":"+i, cur = ST.limits[k]||0; let pips = "";
-    for(let n=1;n<=l.max;n++) pips += `<button class="pip ${n<=cur?"filled":""}" onclick="setLimit('${k.replace(/'/g,"\\'")}',${n},${l.max},this)" aria-label="${n} von ${l.max}"></button>`;
+    const k = key+":"+i, arr = limArr(k), cur = arr.length ? Math.max(...arr) : 0; let pips = "";
+    for(let n=1;n<=l.max;n++) pips += `<button class="pip ${arr.includes(n)?"filled":""}" onclick="setLimit('${k.replace(/'/g,"\\'")}',${n},${l.max},this)" aria-label="${n} von ${l.max}"></button>`;
     return `<div class="limit-row"><span class="limit-label">${esc(cap(l.label))}</span><span class="limit-controls"><span class="pips">${pips}</span><span class="limit-count">${cur} / ${l.max}</span><button class="limit-reset" onclick="resetLimit('${k.replace(/'/g,"\\'")}',this)" title="Zurücksetzen">↺</button></span></div>`;
   }).join("");
   const sub = i => { const a = i.split(/\s*»\s*/); return a.length>1 ? a[0].replace(/[:\s]+$/,'')+(a[0].trim()?':':'')+`<ul class="th-nest">${a.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>` : i; };
@@ -201,8 +203,10 @@ function threatHtml(c, b){
   const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
   return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
 }
-function setLimit(k, n, max, btn){ const cur = ST.limits[k]||0; const v = cur===n ? n-1 : n; ST.limits[k] = v; saveState(); const row = btn.closest(".limit-row"); row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", i<v)); row.querySelector(".limit-count").textContent = v+" / "+max; }
-function resetLimit(k, btn){ ST.limits[k] = 0; saveState(); const row = btn.closest(".limit-row"); row.querySelectorAll(".pip").forEach(p=>p.classList.remove("filled")); const t = row.querySelector(".limit-count"); t.textContent = "0 / "+t.textContent.split("/")[1].trim(); }
+function limArr(k){ const v = ST.limits[k]; if(Array.isArray(v)) return v; if(typeof v==="number" && v>0){ const a=[]; for(let i=1;i<=v;i++) a.push(i); ST.limits[k]=a; return a; } return []; }
+function limSync(row, arr, max){ row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", arr.includes(i+1))); row.querySelector(".limit-count").textContent = (arr.length?Math.max(...arr):0)+" / "+max; }
+function setLimit(k, n, max, btn){ const arr = limArr(k).slice(), pos = arr.indexOf(n); if(pos>=0) arr.splice(pos,1); else arr.push(n); ST.limits[k] = arr; saveState(); limSync(btn.closest(".limit-row"), arr, max); }
+function resetLimit(k, btn){ ST.limits[k] = []; saveState(); const row = btn.closest(".limit-row"); limSync(row, [], row.querySelectorAll(".pip").length); }
 function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
 function setNote(k, v){ ST.notes[k] = v; saveState(); }
 function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }

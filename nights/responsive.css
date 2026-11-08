@@ -23,3 +23,11 @@
   .modal{max-height:94vh}
   .secfoot .btn{flex:1;text-align:center}
 }
+/* Laptop/Desktop: schmaleres Menü, Inhalt nutzt die Breite */
+@media (min-width:1000px){
+  .case-grid{grid-template-columns:230px minmax(0,1fr);gap:22px}
+  .nav button{font-size:.86rem;padding:6px 9px}
+  .blk-p,.blk-ro,.blk-card,.threat{max-width:112ch}
+  .eis-wrap,.fig{max-width:1300px}
+}
+@media (min-width:1900px){.case-grid{grid-template-columns:260px minmax(0,1fr)}.blk-p,.blk-ro,.blk-card,.threat{max-width:130ch}}

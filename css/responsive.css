@@ -153,9 +153,11 @@ body.menu-open{overflow:hidden;}
   .ch-lib-hero p{font-size:13.5px; text-align:left;}
   /* Suche bleibt oben angeheftet – jetzt mit deckendem Hintergrund und Platz für den Schließen-Knopf */
   .ch-lib-controls{
-    background:var(--panel); margin:0 -14px; padding:10px 58px 8px 14px;
-    border-bottom:1px solid var(--panel-line-soft); top:0;
+    background:transparent; margin:0; padding:6px 0 4px; border:none; top:0;
+    -webkit-backdrop-filter:none; backdrop-filter:none;
   }
+  /* nur wenn die Leiste wirklich am Rand klebt, bekommt sie einen unauffälligen Untergrund (per JS-Klasse) */
+  .ch-lib-controls.stuck{background:var(--panel-raised); margin:0 -14px; padding:10px 58px 8px 14px; box-shadow:0 8px 14px -10px rgba(0,0,0,.7);}
   .ch-lib-controls-row{flex-wrap:wrap; gap:8px; margin-bottom:0;}
   .ch-lib-controls-row .ch-search, .ch-lib-controls-row .rg-search{flex:1 1 100%; padding:11px 14px; font-size:15px;}
   .collapse-all-btn{flex:none; padding:6px 12px; font-size:12px;}

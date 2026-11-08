@@ -112,7 +112,7 @@
    {
     "label": "Sammy Jefferson Jr.",
     "cx": 33.1,
-    "cy": 56.2,
+    "cy": 56.5,
     "layer": 0,
     "target": "das-washboard"
    },
@@ -182,21 +182,21 @@
    {
     "label": "Der nächste Mord",
     "cx": 43.3,
-    "cy": 79.0,
+    "cy": 79.8,
     "layer": 3,
     "target": "der-naechste-mord"
    },
    {
     "label": "Nowaks Versteck",
     "cx": 58.7,
-    "cy": 78.6,
+    "cy": 79.2,
     "layer": 3,
     "target": "nowaks-versteck"
    },
    {
     "label": "Das Opernhaus",
     "cx": 51.7,
-    "cy": 87.2,
+    "cy": 87.5,
     "layer": 4,
     "target": "das-opernhaus"
    }

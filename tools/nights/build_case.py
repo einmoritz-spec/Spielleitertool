@@ -35,6 +35,8 @@ def merge_threats(blocks):
         if b['t'] == 'p' and is_stars(b['x']) and nxt and nxt['t'] in ('h', 'sh') and plain(nxt['x']).isupper():
             th = {'t': 'threat', 'stars': plain(b['x']).replace(' ', ''), 'name': plain(nxt['x']), 'spectra': '', 'items': [], 'box': b['box']}
             i += 2
+            if i+1 < len(blocks) and blocks[i]['t'] == 'p' and blocks[i+1]['t'] == 'sh' and not blocks[i]['x'].lstrip().startswith('•'):
+                th['desc'] = blocks[i]['x']; i += 1
             if i < len(blocks) and blocks[i]['t'] == 'sh':
                 th['spectra'] = plain(blocks[i]['x']); i += 1
             while i < len(blocks) and blocks[i]['t'] == 'p' and (blocks[i]['x'].lstrip().startswith('•') or ' • ' in blocks[i]['x'] or re.match(r'^<b>[^<]+:</b>', blocks[i]['x'])):
@@ -74,7 +76,7 @@ def build(nr):
         sid = slug(title) or 'abschnitt'
         base = sid; k = 2
         while any(s['id'] == sid for s in sections): sid = f'{base}-{k}'; k += 1
-        s = {'id': sid, 'kind': kind, 'title': plain(title), 'page': b['p'], 'layer': parent, 'blocks': 0}
+        s = {'id': sid, 'kind': kind, 'title': plain(title).lstrip('-').strip(), 'page': b['p'], 'layer': parent, 'blocks': 0}
         sections.append(s); return s
     for p in range(p0, p1+1):
         for bi, b in enumerate(pages[p]['blocks']):
@@ -95,7 +97,7 @@ def build(nr):
             flat[k]['skip'] = True
         elif b['t'] == 'h' and plain(b['x']).upper() == 'ABSPANN':
             cur = newsec('abspann', 'Abspann', b); layer = None
-        elif b['t'] == 'h' and plain(b['x']) not in THEME_HEADS and len(plain(b['x'])) > 2 and 15.4 <= (b.get('sz') or 16) <= 17.5:
+        elif b['t'] == 'h' and plain(b['x']) not in THEME_HEADS and len(plain(b['x'])) > 2 and cfg.get('secSize',[15.4,17.5])[0] <= (b.get('sz') or 16) <= cfg.get('secSize',[15.4,17.5])[1]:
             nm = plain(b['x'])
             # Heading-Zeile direkt nach Überschrift desselben Blocks (Zweizeiler) zusammenfassen
             if k+1 < len(flat) and flat[k+1]['t'] == 'h' and flat[k+1]['p'] == b['p'] and flat[k+1]['box'][1] - b['box'][3] < 4 and plain(flat[k+1]['x']) not in THEME_HEADS:
@@ -127,6 +129,7 @@ def build(nr):
         for n in e['nodes']:
             nodes.append({'label': n['label'], 'layer': n.get('layer'), 'x': n['cx'], 'y': n['cy'], 'w': n.get('w', 11), 'h': n.get('h', 9.5), 'target': n.get('target')})
         eis = {'page': e['page'], 'fig': e['fig'], 'nodes': nodes}
+    sections = [s for s in sections if not (s['kind'] == 'intro' and s['blocks'] == 0)]
     data = {'nr': nr, 'id': 'case%02d' % nr, 'title': cfg['title'], 'subtitle': cfg.get('subtitle', ''), 'level': cfg.get('level', ''), 'from': p0, 'to': p1,
             'mythen': cfg.get('mythen', []), 'sections': sections, 'pages': {str(n): pages[n] for n in pages}, 'figures': figs, 'eisberg': eis}
     out = os.path.join(ROOT, 'nights', 'js', 'data', 'case%02d.js' % nr)

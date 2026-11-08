@@ -1,7 +1,7 @@
 /* Nights of Paynetown – Oberfläche. Zustand: localStorage nights_state_v1 */
 const STATE_KEY = "nights_state_v1";
 const PAGES_TOTAL = 296;
-const READY = [1,2,3,4,5,6,7,8,9,10]; // erfasste Fälle
+const READY = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]; // erfasste Fälle
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const pad = (n, l=3) => String(n).padStart(l, "0");
@@ -57,9 +57,10 @@ function renderHome(){
       const st = caseStatus(n);
       h += `<div class="case-card ${info.ready?"":"off"}" ><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>Seiten ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}<div class="statusrow" style="position:relative;z-index:2"><button class="${st==="run"?"on":""}" onclick="setStatus(${n},'run')">läuft</button><button class="${st==="ok"?"on":""}" onclick="setStatus(${n},'ok')">abgeschlossen</button></div></div>`;
     }
+    if(L.intro){ const e = C.extras[L.intro]; h += `<a class="case-card intro" href="#/case/${L.intro}"><span class="nr">Einführung</span><b>${esc(e.title)}</b><small>Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }
     h += `</div></section>`;
   }
-  h += `<div class="appendix-box">Anhang (Seiten ${C.appendix.pages[0]}–${C.appendix.pages[1]}) und Einleitung (Seiten ${C.intro.pages[0]}–${C.intro.pages[1]}): <button class="btn" onclick="openPageViewer(${C.intro.pages[0]})">Einleitung ansehen</button> <button class="btn" onclick="openPageViewer(${C.appendix.pages[0]})">Anhang ansehen</button></div>`;
+  h += `<section class="level"><div class="level-head"><h2>Buchteile</h2><span>Einleitung und Anhang</span></div><div class="cases">${C.book.map(n=>{ const e = C.extras[n]; return `<a class="case-card intro" href="#/case/${n}"><span class="nr">Buch</span><b>${esc(e.title)}</b><small>${esc(e.sub||"")} · Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }).join("")}</div></section>`;
   $("app").innerHTML = h;
 }
 
@@ -73,6 +74,7 @@ function secBlocks(c, sid){
 }
 function groupNav(c){
   const groups = []; let cur = null;
+  if(c.nr>=11) return c.sections.map(s=>({ name:s.title, items:[s], flat:true }));
   for(const s of c.sections){
     if(s.kind==="intro"){ cur = { name:"Überblick", items:[s] }; groups.push(cur); continue; }
     if(s.kind==="abspann"){ groups.push({ name:"Abspann", items:[s] }); cur = null; continue; }
@@ -93,14 +95,14 @@ function renderCase(c, sid){
   const toEis = sid==="__eisberg";
   let ch = toEis ? gs[0] : chapterOf(c, sid);
   CURCH = ch;
-  let nav = `<h4>Fall ${c.nr}</h4>`;
+  let nav = `<h4>${c.nr<11?"Fall "+c.nr:"Buchteil"}</h4>`;
   gs.forEach((g,i)=>{ nav += `<button class="${g.items[0].id===ch.items[0].id?"on":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${esc(chapterTitle(g))}<small>Seite ${g.items[0].page}${g.items.length>1?" · "+g.items.length+" Abschnitte":""}</small></button>`; });
   const sel = gs.map(g=>`<option value="${g.items[0].id}"${g.items[0].id===ch.items[0].id?" selected":""}>${esc(chapterTitle(g))}</option>`).join("");
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   let body = chapterView(c, ch);
   body += `<div class="notes"><h3 class="blk-sh">Notizen</h3><textarea oninput="setNote('${c.nr}:${ch.items[0].id}',this.value)" placeholder="Eigene Notizen zu diesem Kapitel …">${esc(ST.notes[c.nr+":"+ch.items[0].id]||"")}</textarea></div>`;
   body += `<div class="secfoot">${prev?`<a class="btn" href="#/case/${c.nr}/sec/${prev.items[0].id}">‹ ${esc(chapterTitle(prev))}</a>`:"<span></span>"}${next?`<a class="btn" href="#/case/${c.nr}/sec/${next.items[0].id}">${esc(chapterTitle(next))} ›</a>`:"<span></span>"}</div>`;
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › Fall ${c.nr}</div>
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
   <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>
   <div class="navbar"><select onchange="selNav(this.value)" aria-label="Kapitel">${sel}</select></div>
   <div class="case-grid"><aside class="nav">${nav}</aside><main class="content">${body}</main></div>`;
@@ -116,7 +118,7 @@ function chapterView(c, ch){
   if(ch.items.length>1) h += `<div class="toc">${ch.items.slice(ch.layer||first.kind==="intro"?1:0).map(s=>`<a href="#/case/${c.nr}/sec/${s.id}">${esc(s.title)}</a>`).join("")}</div>`;
   if(c.eisberg && (first.kind==="intro")) h += `<div id="eisberg">${eisbergView(c)}</div>`;
   ch.items.forEach((sec,k)=>{
-    const sub = !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
+    const sub = !ch.flat && !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
     const nextSec = c.sections[c.sections.indexOf(sec)+1];
     h += `<section class="chsec" id="s-${sec.id}">`;
     if(sub) h += `<h3 class="sec-sub">${esc(sec.title)}<button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3>`;
@@ -156,7 +158,7 @@ function threatHtml(c, b){
   }).join("");
   const items = b.items||[];
   const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
-  return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${rows?`<div class="limit-block">${rows}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
+  return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
 }
 function setLimit(k, n, max, btn){ const cur = ST.limits[k]||0; const v = cur===n ? n-1 : n; ST.limits[k] = v; saveState(); const row = btn.closest(".limit-row"); row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", i<v)); row.querySelector(".limit-count").textContent = v+" / "+max; }
 function resetLimit(k, btn){ ST.limits[k] = 0; saveState(); const row = btn.closest(".limit-row"); row.querySelectorAll(".pip").forEach(p=>p.classList.remove("filled")); const t = row.querySelector(".limit-count"); t.textContent = "0 / "+t.textContent.split("/")[1].trim(); }

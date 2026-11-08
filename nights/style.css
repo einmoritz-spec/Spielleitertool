@@ -176,3 +176,5 @@ body.menu-open{overflow:hidden}
 .pagetag-row{text-align:right;margin-bottom:6px}
 .fig.handout{max-width:520px}.fig.art{max-width:900px}
 .content{overflow-wrap:anywhere}.blk-ro{overflow-wrap:anywhere}
+a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style:dashed}
+.th-desc{margin:4px 0 8px;font-style:italic;font-size:.93rem;color:#3a342b}

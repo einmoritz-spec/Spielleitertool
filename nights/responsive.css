@@ -38,3 +38,14 @@
 @media (min-width:2300px){:root{--fs:22px}}
 @media (min-width:2800px){:root{--fs:27px}}
 .blk-p,.blk-card,.blk-ro,.th-desc,.threat li,.threat .th-desc{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+/* einklappbares Kapitelmenü: nur Punkte am linken Rand */
+@media (min-width:1000px){
+  .case-grid.nav-off{grid-template-columns:26px minmax(0,1fr);gap:16px;margin-left:-10px}
+  .case-grid.nav-off .nav{display:none}
+  .case-grid.nav-off .rail{display:flex;flex-direction:column;align-items:center;gap:4px;position:sticky;top:64px;padding-top:2px}
+  .rail .nav-toggle{margin:0 0 8px}
+  .rail .dot{width:12px;height:12px;border-radius:50%;border:0;padding:0;background:#3a4160;cursor:pointer;transition:all .12s;display:block;margin:5px 0}
+  .rail .dot:hover{background:var(--cyan);transform:scale(1.25)}
+  .rail .dot.on{background:var(--mag);box-shadow:0 0 8px var(--mag);transform:scale(1.3)}
+}
+@media (min-width:1000px){.case-grid.nav-off .blk-p,.case-grid.nav-off .blk-ro,.case-grid.nav-off .blk-card,.case-grid.nav-off .threat{max-width:135ch}}

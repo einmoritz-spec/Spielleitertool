@@ -200,3 +200,7 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .dagbar .hint{flex:1 1 100%;margin:0}
 .dagbar label{display:flex;gap:8px;align-items:center;font-size:.85rem}
 .th-nest{margin:.3em 0 0;padding-left:1.1em}.th-nest li{margin:.15em 0}
+.nav-head{display:flex;align-items:center;justify-content:space-between}
+.nav-toggle{background:none;border:1px solid var(--line);border-radius:8px;color:var(--mute);width:28px!important;height:26px;padding:0!important;text-align:center!important;font-size:1rem;line-height:1;cursor:pointer;margin:6px 4px 0 0}
+.nav-toggle:hover{color:var(--cyan);border-color:var(--cyan);background:none}
+.rail{display:none}

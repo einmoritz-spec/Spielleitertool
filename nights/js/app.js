@@ -134,7 +134,9 @@ function renderCase(c, sid){
   const toEis = sid==="__eisberg";
   let ch = toEis ? gs[0] : chapterOf(c, sid);
   CURCH = ch;
-  let nav = `<h4>${c.nr<11?"Fall "+c.nr:"Buchteil"}</h4>`;
+  let nav = `<div class="nav-head"><h4>${c.nr<11?"Fall "+c.nr:"Buchteil"}</h4><button class="nav-toggle" onclick="toggleNav()" title="Menü einklappen" aria-label="Menü einklappen">«</button></div>`;
+  let rail = `<button class="nav-toggle" onclick="toggleNav()" title="Menü ausklappen" aria-label="Menü ausklappen">»</button>`;
+  gs.forEach(g=>{ rail += `<button class="dot ${g.items[0].id===ch.items[0].id?"on":""}" title="${esc(chapterTitle(g))}" aria-label="${esc(chapterTitle(g))}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'"></button>`; });
   gs.forEach((g,i)=>{ nav += `<button class="${g.items[0].id===ch.items[0].id?"on":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${esc(chapterTitle(g))}<small>Seite ${g.items[0].page}${g.items.length>1?" · "+g.items.length+" Abschnitte":""}</small></button>`; });
   const sel = gs.map(g=>`<option value="${g.items[0].id}"${g.items[0].id===ch.items[0].id?" selected":""}>${esc(chapterTitle(g))}</option>`).join("");
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
@@ -144,11 +146,12 @@ function renderCase(c, sid){
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
   <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>
   <div class="navbar"><select onchange="selNav(this.value)" aria-label="Kapitel">${sel}</select></div>
-  <div class="case-grid"><aside class="nav">${nav}</aside><main class="content">${body}</main></div>`;
+  <div class="case-grid ${ST.navHidden?"nav-off":""}"><aside class="nav">${nav}</aside><aside class="rail">${rail}</aside><main class="content">${body}</main></div>`;
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
 let CURCH = null;
+function toggleNav(){ ST.navHidden = !ST.navHidden; saveState(); const g = document.querySelector('.case-grid'); if(g) g.classList.toggle('nav-off', !!ST.navHidden); }
 function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
 function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }
 function chapterView(c, ch){

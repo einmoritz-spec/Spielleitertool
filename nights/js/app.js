@@ -289,7 +289,7 @@ async function buildRegister(){
   for(const n of READY){ const c = await loadCase(n); if(!c) continue; loaded[n] = c;
     const secOf = pg => { let b = null; for(const sc of c.sections) if(sc.page<=pg) b = sc; return b && b.id; };
     const seen = {};
-    for(const pg in c.pages){ for(const b of (c.pages[pg].blocks||[])){ if(b.t==="threat" && b.name){ const k = b.name+"|"+pg; if(seen[k]) continue; seen[k]=1; items.push({kind:"leute", name:b.name.replace(/\s+/g," ").trim(), stars:b.stars||"", nr:n, page:+pg, sec:secOf(+pg)}); } } }
+    for(const pg in c.pages){ for(const b of (c.pages[pg].blocks||[])){ if(b.t==="threat" && b.name){ const k = b.name+"|"+pg; if(seen[k]) continue; seen[k]=1; items.push({kind:"leute", name:b.name.replace(/\s+/g," ").replace(/[\s+\/&]+$/,"").trim(), stars:b.stars||"", nr:n, page:+pg, sec:secOf(+pg)}); } } }
     if(c.eisberg) for(const nd of c.eisberg.nodes) items.push({kind:"orte", name:nd.label, stars:"", nr:n, page:c.eisberg.page, sec:nd.target, layer:nd.layer});
   }
   REG = {items, loaded}; return REG;

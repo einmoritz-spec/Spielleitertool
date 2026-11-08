@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v18";
+const VERSION = "v19";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -39,6 +39,15 @@ const FILES = [
   "nights/js/mobile-menu.js",
   "nights/js/data/campaign.js",
   "nights/js/data/case01.js",
+  "nights/js/data/case02.js",
+  "nights/js/data/case03.js",
+  "nights/js/data/case04.js",
+  "nights/js/data/case05.js",
+  "nights/js/data/case06.js",
+  "nights/js/data/case07.js",
+  "nights/js/data/case08.js",
+  "nights/js/data/case09.js",
+  "nights/js/data/case10.js",
   "creator/index.html",
   "creator/creator.css",
   "creator/creator.js",

@@ -175,3 +175,4 @@ body.menu-open{overflow:hidden}
 .pagetag:hover{color:var(--cyan);border-color:var(--cyan)}
 .pagetag-row{text-align:right;margin-bottom:6px}
 .fig.handout{max-width:520px}.fig.art{max-width:900px}
+.content{overflow-wrap:anywhere}.blk-ro{overflow-wrap:anywhere}

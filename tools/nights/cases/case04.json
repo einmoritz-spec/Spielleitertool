@@ -1,0 +1,142 @@
+{
+ "title": "Athanor",
+ "subtitle": "",
+ "level": "Mystische Ebene",
+ "pages": [
+  87,
+  112
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 91,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    0,
+    595,
+    440
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 91,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Hans Woods",
+    "cx": 27.6,
+    "cy": 7.9,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Berichte über eine neue Droge",
+    "cx": 42.8,
+    "cy": 7.9,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Risse verschwinden oder verlieren ihre Kräfte",
+    "cx": 58.3,
+    "cy": 7.9,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Kandis-Konsument:innen",
+    "cx": 80.8,
+    "cy": 7.9,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Frau Leckermauls Haus",
+    "cx": 22.2,
+    "cy": 16.5,
+    "layer": 1,
+    "target": "frau-leckermauls-haus"
+   },
+   {
+    "label": "Das Schwimmbad",
+    "cx": 35.8,
+    "cy": 16.1,
+    "layer": 1,
+    "target": "das-schwimmbad"
+   },
+   {
+    "label": "The Bowl",
+    "cx": 49.4,
+    "cy": 15.7,
+    "layer": 1,
+    "target": "the-bowl"
+   },
+   {
+    "label": "Will Harris' Wohnung",
+    "cx": 63.9,
+    "cy": 16.1,
+    "layer": 1,
+    "target": "will-harris-wohnung"
+   },
+   {
+    "label": "Charlies Spielzimmer",
+    "cx": 78.9,
+    "cy": 16.9,
+    "layer": 1,
+    "target": "charlies-spielzimmer"
+   },
+   {
+    "label": "Hans' Loft",
+    "cx": 33.0,
+    "cy": 24.0,
+    "layer": 2,
+    "target": "hans-loft"
+   },
+   {
+    "label": "Das Kandis-Drogenlabor",
+    "cx": 45.6,
+    "cy": 23.6,
+    "layer": 2,
+    "target": "das-kandis-drogenlabor"
+   },
+   {
+    "label": "Foxy Supreme",
+    "cx": 58.9,
+    "cy": 25.1,
+    "layer": 2,
+    "target": "foxy-supreme"
+   },
+   {
+    "label": "Auf dem Trip",
+    "cx": 72.2,
+    "cy": 25.9,
+    "layer": 2,
+    "target": "auf-dem-trip"
+   },
+   {
+    "label": "Lieferung an Magnum Opus",
+    "cx": 40.6,
+    "cy": 32.2,
+    "layer": 3,
+    "target": "lieferung-an-magnum-opus"
+   },
+   {
+    "label": "Die alte Aurora-Glashütte",
+    "cx": 57.6,
+    "cy": 34.6,
+    "layer": 3,
+    "target": "die-alte-aurora-glashuette"
+   },
+   {
+    "label": "Lebkuchenhaus",
+    "cx": 49.2,
+    "cy": 40.8,
+    "layer": 4,
+    "target": "lebkuchenhaus-enklave"
+   }
+  ]
+ }
+}

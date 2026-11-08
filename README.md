@@ -72,4 +72,4 @@ Unter `locallegends/` liegt die Fall-Akte „Local Legends“. Zwischen beiden T
 
 ## Nights of Paynetown (City of Mist)
 
-Digitale Fassung des Abenteuerbands (nur Spielleitung, privat) unter `nights/`: Kampagnenübersicht, Fallansicht mit wörtlichem Buchtext, Eisberg mit Hotspots, Seitenviewer (1–296), Volltextsuche, Burger-Menü. Falldaten je Fall in `nights/js/data/caseNN.js`, erzeugt mit `tools/nights/build_case.py`. Bisher erfasst: Fall 1. Erreichbar über den Tool-Umschalter.
+Digitale Fassung des Abenteuerbands (nur Spielleitung, privat) unter `nights/`: Kampagnenübersicht, Fallansicht mit wörtlichem Buchtext, Eisberg mit Hotspots, Seitenviewer (1–296), Volltextsuche, Burger-Menü. Falldaten je Fall in `nights/js/data/caseNN.js`, erzeugt mit `tools/nights/build_case.py`. Erfasst: Fälle 1–10. Erreichbar über den Tool-Umschalter.

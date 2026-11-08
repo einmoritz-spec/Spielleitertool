@@ -1,0 +1,121 @@
+{
+ "title": "Albion erwache!",
+ "subtitle": "",
+ "level": "Kriminelle Ebene",
+ "pages": [
+  181,
+  208
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 184,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    350,
+    595,
+    795
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 184,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Anruf der Bürgermeisterin",
+    "cx": 35.0,
+    "cy": 52.2,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Bandenaktivitäten",
+    "cx": 50.3,
+    "cy": 52.2,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Hilferuf der BEBEBÜ",
+    "cx": 64.8,
+    "cy": 52.2,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Chinarestaurant Double Dragon",
+    "cx": 28.7,
+    "cy": 60.5,
+    "layer": 1,
+    "target": "das-double-dragon"
+   },
+   {
+    "label": "Basketballplatz",
+    "cx": 42.0,
+    "cy": 60.5,
+    "layer": 1,
+    "target": "basketballplatz"
+   },
+   {
+    "label": "Bewegung Besorgter Bürger:innen",
+    "cx": 56.4,
+    "cy": 60.5,
+    "layer": 1,
+    "target": "bewegung-besorgter-buerger-innen"
+   },
+   {
+    "label": "Gemeinschaftsgarten",
+    "cx": 72.0,
+    "cy": 60.1,
+    "layer": 1,
+    "target": "schicht-1-willkommen-in-whitecliff"
+   },
+   {
+    "label": "Autobahnblockaden",
+    "cx": 35.9,
+    "cy": 68.0,
+    "layer": 2,
+    "target": "autobahnblockaden"
+   },
+   {
+    "label": "Schrottplatz",
+    "cx": 50.0,
+    "cy": 68.0,
+    "layer": 2,
+    "target": "der-schrottplatz"
+   },
+   {
+    "label": "Überwucherte Ruine",
+    "cx": 64.2,
+    "cy": 68.0,
+    "layer": 2,
+    "target": "die-ueberwucherte-ruine"
+   },
+   {
+    "label": "Bürger:innenversammlung",
+    "cx": 43.3,
+    "cy": 76.2,
+    "layer": 3,
+    "target": "buerger-innenversammlung"
+   },
+   {
+    "label": "Haus am See",
+    "cx": 58.1,
+    "cy": 76.6,
+    "layer": 3,
+    "target": "das-haus-am-see"
+   },
+   {
+    "label": "Schlacht um das 63. Revier",
+    "cx": 49.8,
+    "cy": 84.4,
+    "layer": 4,
+    "target": "schlacht-um-das-63-revier"
+   }
+  ]
+ }
+}

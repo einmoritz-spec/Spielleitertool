@@ -1,0 +1,121 @@
+{
+ "title": "Der Alchemist",
+ "subtitle": "",
+ "level": "Mystische Ebene",
+ "pages": [
+  151,
+  175
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 154,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    372,
+    595,
+    800
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 154,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Ariadne",
+    "cx": 21.7,
+    "cy": 49.5,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Armands Einladung",
+    "cx": 36.1,
+    "cy": 49.5,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Schatzjagd",
+    "cx": 48.9,
+    "cy": 49.9,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Der Kult des Magnum Opus",
+    "cx": 61.9,
+    "cy": 49.6,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Ichor-Lieferung",
+    "cx": 74.7,
+    "cy": 49.1,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Foyer",
+    "cx": 28.7,
+    "cy": 58.9,
+    "layer": 1,
+    "target": "schicht-1-das-herrenhaus"
+   },
+   {
+    "label": "Das verlassene Haus",
+    "cx": 42.6,
+    "cy": 58.9,
+    "layer": 1,
+    "target": "das-verlassene-haus"
+   },
+   {
+    "label": "Quartiere der Jünger:innen",
+    "cx": 56.3,
+    "cy": 59.3,
+    "layer": 1,
+    "target": "quartier-der-juenger-innen"
+   },
+   {
+    "label": "Ichor-Destillerie",
+    "cx": 71.9,
+    "cy": 58.9,
+    "layer": 1,
+    "target": "ichor-destillerie"
+   },
+   {
+    "label": "Aqua-Fortis-Zisterne",
+    "cx": 49.8,
+    "cy": 67.6,
+    "layer": 2,
+    "target": "aqua-fortis-zisterne"
+   },
+   {
+    "label": "Goldmine",
+    "cx": 43.3,
+    "cy": 74.2,
+    "layer": 3,
+    "target": "schicht-3-narrengold"
+   },
+   {
+    "label": "Essenz-Gewölbe",
+    "cx": 57.8,
+    "cy": 74.2,
+    "layer": 3,
+    "target": "essenz-gewoelbe"
+   },
+   {
+    "label": "Armands Labor",
+    "cx": 48.9,
+    "cy": 81.7,
+    "layer": 4,
+    "target": "armands-labor"
+   }
+  ]
+ }
+}

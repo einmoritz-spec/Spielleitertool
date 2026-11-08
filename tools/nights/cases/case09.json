@@ -1,0 +1,121 @@
+{
+ "title": "Die Straßen bluten Neon",
+ "subtitle": "",
+ "level": "Kriminelle Ebene",
+ "pages": [
+  233,
+  258
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 237,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    0,
+    595,
+    430
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 237,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Zwischen den Fronten",
+    "cx": 41.7,
+    "cy": 8.6,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Lars Erikson",
+    "cx": 56.1,
+    "cy": 7.9,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Vince Beaumont",
+    "cx": 70.9,
+    "cy": 7.9,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Blutbad in der Innenstadt",
+    "cx": 34.8,
+    "cy": 16.5,
+    "layer": 1,
+    "target": "blutbad-in-der-innenstadt"
+   },
+   {
+    "label": "Die Grenzlande",
+    "cx": 48.9,
+    "cy": 16.9,
+    "layer": 1,
+    "target": "die-grenzlande"
+   },
+   {
+    "label": "Der Steinaltar",
+    "cx": 61.7,
+    "cy": 16.9,
+    "layer": 1,
+    "target": "der-steinaltar"
+   },
+   {
+    "label": "Camelot",
+    "cx": 74.8,
+    "cy": 16.9,
+    "layer": 1,
+    "target": "camelot"
+   },
+   {
+    "label": "Schlacht an der Calmann-Brücke",
+    "cx": 40.9,
+    "cy": 24.7,
+    "layer": 2,
+    "target": "schlacht-an-der-calmann-bruecke"
+   },
+   {
+    "label": "Ray Gibbons' Junggesellenbude",
+    "cx": 54.2,
+    "cy": 24.7,
+    "layer": 2,
+    "target": "ray-gibbons-junggesellenbude"
+   },
+   {
+    "label": "Das Geheimnis des Königs",
+    "cx": 68.1,
+    "cy": 24.7,
+    "layer": 2,
+    "target": "das-geheimnis-des-koenigs"
+   },
+   {
+    "label": "Risse allüberall",
+    "cx": 48.3,
+    "cy": 32.2,
+    "layer": 3,
+    "target": "risse-allueberall"
+   },
+   {
+    "label": "Ray Gibbons",
+    "cx": 62.8,
+    "cy": 33.0,
+    "layer": 3,
+    "target": "schicht-3-streben-nach-macht"
+   },
+   {
+    "label": "Le Griffon Segréant",
+    "cx": 57.2,
+    "cy": 40.8,
+    "layer": 4,
+    "target": "le-griffon-segr-ant"
+   }
+  ]
+ }
+}

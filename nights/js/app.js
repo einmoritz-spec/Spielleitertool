@@ -1,7 +1,7 @@
 /* Nights of Paynetown – Oberfläche. Zustand: localStorage nights_state_v1 */
 const STATE_KEY = "nights_state_v1";
 const PAGES_TOTAL = 296;
-const READY = [1]; // bereits erfasste Fälle
+const READY = [1,2,3,4,5,6,7,8,9,10]; // erfasste Fälle
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const pad = (n, l=3) => String(n).padStart(l, "0");

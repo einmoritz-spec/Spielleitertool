@@ -1,0 +1,121 @@
+{
+ "title": "Kirmes der Maschinen",
+ "subtitle": "",
+ "level": "Persönliche Ebene",
+ "pages": [
+  41,
+  60
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 44,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    0,
+    595,
+    470
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 44,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Theresa Nguyen",
+    "cx": 34.2,
+    "cy": 10.8,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Autounfallstelle",
+    "cx": 49.2,
+    "cy": 10.4,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Officers Das & Quinn",
+    "cx": 64.8,
+    "cy": 10.8,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Goldie",
+    "cx": 30.6,
+    "cy": 18.5,
+    "layer": 1,
+    "target": "goldie"
+   },
+   {
+    "label": "Privatdetektiv Holliday",
+    "cx": 44.7,
+    "cy": 18.5,
+    "layer": 1,
+    "target": "schicht-1-desaster-in-der-innenstadt"
+   },
+   {
+    "label": "Ecke Pine und 5th",
+    "cx": 58.1,
+    "cy": 18.1,
+    "layer": 1,
+    "target": "ecke-pine-und-5th"
+   },
+   {
+    "label": "Rondo's Diner und Shinobi Sushi",
+    "cx": 71.7,
+    "cy": 17.7,
+    "layer": 1,
+    "target": "rondo-s-diner-und-shinobi-sushi"
+   },
+   {
+    "label": "David Nguyens Wohnung",
+    "cx": 35.3,
+    "cy": 27.5,
+    "layer": 2,
+    "target": "david-nguyens-wohnung"
+   },
+   {
+    "label": "Detektei Holliday",
+    "cx": 49.4,
+    "cy": 27.5,
+    "layer": 2,
+    "target": "detektei-holliday"
+   },
+   {
+    "label": "Wohnung der Woodworths",
+    "cx": 62.2,
+    "cy": 26.3,
+    "layer": 2,
+    "target": "die-wohnung-der-woodworths"
+   },
+   {
+    "label": "Der Spuk",
+    "cx": 75.3,
+    "cy": 26.7,
+    "layer": 2,
+    "target": "der-spuk"
+   },
+   {
+    "label": "Verlassener Rummelplatz",
+    "cx": 53.3,
+    "cy": 35.0,
+    "layer": 3,
+    "target": "verlassener-rummelplatz"
+   },
+   {
+    "label": "Kontrollraum",
+    "cx": 49.2,
+    "cy": 43.2,
+    "layer": 4,
+    "target": "der-kontrollraum"
+   }
+  ]
+ }
+}

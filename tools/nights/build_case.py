@@ -19,7 +19,7 @@ def slug(t):
 
 def simplify(b):
     t = {'text': 'p', 'readaloud': 'ro', 'heading': 'h', 'subheading': 'sh', 'card': 'card'}[b['type']]
-    o = {'t': t, 'x': b['text']}
+    o = {'t': t, 'x': b['text'], 'sz': b.get('sz')}
     if t == 'card': o['k'] = b['kind']
     if t == 'h': o['x'] = re.sub(r'</?u>', '', o['x'])
     o['box'] = [round(b['x0'], 1), round(b['top'], 1), round(b['x1'], 1), round(b['bottom'], 1)]
@@ -95,7 +95,7 @@ def build(nr):
             flat[k]['skip'] = True
         elif b['t'] == 'h' and plain(b['x']).upper() == 'ABSPANN':
             cur = newsec('abspann', 'Abspann', b); layer = None
-        elif b['t'] == 'h' and plain(b['x']) not in THEME_HEADS and len(plain(b['x'])) > 2:
+        elif b['t'] == 'h' and plain(b['x']) not in THEME_HEADS and len(plain(b['x'])) > 2 and 15.4 <= (b.get('sz') or 16) <= 17.5:
             nm = plain(b['x'])
             # Heading-Zeile direkt nach Überschrift desselben Blocks (Zweizeiler) zusammenfassen
             if k+1 < len(flat) and flat[k+1]['t'] == 'h' and flat[k+1]['p'] == b['p'] and flat[k+1]['box'][1] - b['box'][3] < 4 and plain(flat[k+1]['x']) not in THEME_HEADS:

@@ -1,0 +1,128 @@
+{
+ "title": "Daheim ist daheim",
+ "subtitle": "",
+ "level": "Kriminelle Ebene",
+ "pages": [
+  209,
+  232
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 212,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    352,
+    595,
+    785
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 212,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Städtische Beamte",
+    "cx": 29.4,
+    "cy": 49.1,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Verlassene Hauptstraße",
+    "cx": 44.1,
+    "cy": 48.7,
+    "layer": 0,
+    "target": "verlassene-hauptstrasse"
+   },
+   {
+    "label": "Eine Queste von Artus",
+    "cx": 58.9,
+    "cy": 49.1,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Im Auftrag der Pfarrerin",
+    "cx": 72.8,
+    "cy": 49.1,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Kanzlei Clarke",
+    "cx": 38.7,
+    "cy": 58.5,
+    "layer": 1,
+    "target": "kanzlei-clarke"
+   },
+   {
+    "label": "Chicken & Egg Food Truck",
+    "cx": 52.4,
+    "cy": 58.5,
+    "layer": 1,
+    "target": "chicken-egg-food-truck"
+   },
+   {
+    "label": "Kirche des Heiligen Geistes",
+    "cx": 66.1,
+    "cy": 58.5,
+    "layer": 1,
+    "target": "kirche-des-heiligen-geistes"
+   },
+   {
+    "label": "Rice Immobilien",
+    "cx": 40.0,
+    "cy": 66.8,
+    "layer": 2,
+    "target": "rice-immobilien"
+   },
+   {
+    "label": "Zuhause der Navarros",
+    "cx": 53.3,
+    "cy": 66.8,
+    "layer": 2,
+    "target": "zuhause-der-navarros"
+   },
+   {
+    "label": "Grey Alley",
+    "cx": 66.3,
+    "cy": 66.8,
+    "layer": 2,
+    "target": "grey-alley"
+   },
+   {
+    "label": "Fritzberg",
+    "cx": 38.9,
+    "cy": 73.4,
+    "layer": 3,
+    "target": "fritzberg"
+   },
+   {
+    "label": "Grabhöhle",
+    "cx": 53.3,
+    "cy": 74.2,
+    "layer": 3,
+    "target": "die-grabhoehle"
+   },
+   {
+    "label": "Evas Luxusvilla",
+    "cx": 65.6,
+    "cy": 74.2,
+    "layer": 3,
+    "target": "schicht-3"
+   },
+   {
+    "label": "Evas Elternhaus",
+    "cx": 50.6,
+    "cy": 82.1,
+    "layer": 4,
+    "target": "evas-elternhaus"
+   }
+  ]
+ }
+}

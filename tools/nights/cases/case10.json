@@ -1,0 +1,114 @@
+{
+ "title": "Parzival",
+ "subtitle": "",
+ "level": "Finale",
+ "pages": [
+  259,
+  284
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 262,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    20,
+    295,
+    770
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 262,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Nachforschungen über Corbin Payne",
+    "cx": 10.9,
+    "cy": 29.5,
+    "layer": 1,
+    "target": "nachforschungen-ueber-corbin-payne"
+   },
+   {
+    "label": "Die erste Gralsritter:in",
+    "cx": 24.2,
+    "cy": 24.4,
+    "layer": 1,
+    "target": "die-erste-gralsritter-in"
+   },
+   {
+    "label": "Nachforschungen über den geheimen Schmerz",
+    "cx": 38.1,
+    "cy": 29.5,
+    "layer": 1,
+    "target": "nachforschungen-ueber-den-geheimen-schmerz"
+   },
+   {
+    "label": "Die zweite Gralsritter:in",
+    "cx": 23.3,
+    "cy": 42.8,
+    "layer": 2,
+    "target": "die-zweite-gralsritter-in"
+   },
+   {
+    "label": "Corbin Tower",
+    "cx": 10.0,
+    "cy": 47.9,
+    "layer": 2,
+    "target": "akt-2"
+   },
+   {
+    "label": "Angriff auf die Stadt",
+    "cx": 37.6,
+    "cy": 47.9,
+    "layer": 2,
+    "target": "akt-2"
+   },
+   {
+    "label": "Corbin Payne höchstpersönlich",
+    "cx": 23.9,
+    "cy": 52.6,
+    "layer": 2,
+    "target": "corbin-payne-hoechstpersoenlich"
+   },
+   {
+    "label": "Nachforschungen über den Gral",
+    "cx": 39.1,
+    "cy": 57.0,
+    "layer": 2,
+    "target": "nachforschungen-ueber-den-gral"
+   },
+   {
+    "label": "Die dritte Gralsritter:in",
+    "cx": 23.9,
+    "cy": 68.3,
+    "layer": 3,
+    "target": "die-dritte-gralsritter-in"
+   },
+   {
+    "label": "Parkside Café",
+    "cx": 10.6,
+    "cy": 73.0,
+    "layer": 3,
+    "target": "parkside-cafe"
+   },
+   {
+    "label": "Was sein muss",
+    "cx": 36.1,
+    "cy": 72.7,
+    "layer": 3,
+    "target": "was-sein-muss"
+   },
+   {
+    "label": "Die Abwrackwerft",
+    "cx": 25.0,
+    "cy": 79.0,
+    "layer": 3,
+    "target": "abwrackwerft"
+   }
+  ]
+ }
+}

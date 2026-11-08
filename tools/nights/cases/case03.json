@@ -1,0 +1,114 @@
+{
+ "title": "Scherben",
+ "subtitle": "",
+ "level": "Persönliche Ebene",
+ "pages": [
+  61,
+  83
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "eisberg",
+   "page": 64,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    0,
+    595,
+    470
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 64,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Eine verzweifelte Mutter",
+    "cx": 33.7,
+    "cy": 11.8,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Frühere Fälle",
+    "cx": 49.2,
+    "cy": 11.4,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Nebenrollen",
+    "cx": 64.8,
+    "cy": 11.4,
+    "layer": 0,
+    "target": "schicht-0-aufhaenger"
+   },
+   {
+    "label": "Wohnung der Familie Jones",
+    "cx": 30.6,
+    "cy": 19.6,
+    "layer": 1,
+    "target": "wohnung-der-familie-jones"
+   },
+   {
+    "label": "Die Privatklinik von Heilung für die Gebrochenen",
+    "cx": 44.8,
+    "cy": 19.2,
+    "layer": 1,
+    "target": "privatklinik-von-heilung-fuer-die-gebrochenen"
+   },
+   {
+    "label": "Supervision",
+    "cx": 58.1,
+    "cy": 19.2,
+    "layer": 1,
+    "target": "supervision"
+   },
+   {
+    "label": "Der misslungene Golem",
+    "cx": 72.8,
+    "cy": 19.8,
+    "layer": 1,
+    "target": "der-misslungene-golem"
+   },
+   {
+    "label": "Die Anstalt",
+    "cx": 43.3,
+    "cy": 27.5,
+    "layer": 2,
+    "target": "die-anstalt"
+   },
+   {
+    "label": "Die Historische Gesellschaft",
+    "cx": 57.6,
+    "cy": 27.9,
+    "layer": 2,
+    "target": "die-historische-gesellschaft"
+   },
+   {
+    "label": "Die „Spezialabteilung“",
+    "cx": 42.8,
+    "cy": 35.0,
+    "layer": 3,
+    "target": "die-spezialabteilung"
+   },
+   {
+    "label": "Aurora Glas",
+    "cx": 57.6,
+    "cy": 35.3,
+    "layer": 3,
+    "target": "aurora-glas"
+   },
+   {
+    "label": "Ein Schneesturm des Hasses",
+    "cx": 49.2,
+    "cy": 43.6,
+    "layer": 4,
+    "target": "ein-schneesturm-des-hasses"
+   }
+  ]
+ }
+}

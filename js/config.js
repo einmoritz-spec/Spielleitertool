@@ -30,6 +30,7 @@ const KEYBOARD_SHORTCUTS = [
   { key:"O", label:"Orte öffnen/schließen" },
   { key:"N", label:"NPCs öffnen/schließen" },
   { key:"V", label:"Favoriten öffnen/schließen" },
+  { key:"E", label:"Szenentext bearbeiten (im Abenteuer; Strg+S speichert)" },
   { key:"H", label:"Kopfzeile ein-/ausblenden" },
   { key:",", label:"Kopfzeilen-Einstellungen öffnen/schließen" },
   { key:"Rechtsklick", label:"auf Kopfzeilen-Knopf: ausblenden / Beschriftung an-aus" },

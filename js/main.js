@@ -1,3 +1,4 @@
+TEXT_EDITS = loadTextEdits();
 loadPersistedState();
 loadPersistedFavorites();
 state.profileOverlays = loadProfileOverlays();

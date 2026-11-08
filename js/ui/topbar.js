@@ -136,6 +136,10 @@ function renderTopbarSettingsBody(){
         <button class="collapse-all-btn" onclick="showAllTopbar()" ${nHidden?'':'disabled'}>Alle einblenden</button>
         <button class="collapse-all-btn" onclick="resetTopbarPrefs()">↺ Auf Standard zurücksetzen</button>
       </div>
+      <div class="tb-set-section">Eigene Szenentexte</div>
+      <div class="tb-set-actions">
+        <button class="collapse-all-btn" onclick="resetAllTextEdits()" ${textEditSceneCount()?'':'disabled'}>↺ Alle Textänderungen zurücksetzen${textEditSceneCount()?` (${textEditSceneCount()} Szene${textEditSceneCount()===1?'':'n'})`:''}</button>
+      </div>
       <div class="tb-set-section">Gruppenprofile</div>
       <div class="tb-set-actions">
         <button class="collapse-all-btn" onclick="restorePartyProfiles()" ${HIDDEN_PARTY.size?'':'disabled'}>↺ Gelöschte Gruppenprofile wiederherstellen${HIDDEN_PARTY.size?` (${HIDDEN_PARTY.size})`:''}</button>

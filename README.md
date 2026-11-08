@@ -32,6 +32,7 @@ css/
   profiles.css          Spielerprofile
   tools.css             Grimoire, Themenbuch, Karte, Würfel
   libraries.css         Challenge-, Lore-, Orte-, NPC-Bibliotheken
+  edit.css              Bearbeitungsmodus für Szenentexte
 js/
   config.js             Titel, Tastenkürzel-Liste
   data/                 reine Inhalte (Abenteuer 1–7, Aftermath, Glossare,
@@ -51,7 +52,7 @@ tools/build-standalone.py
 Die Skripte sind klassische `<script>`-Dateien mit gemeinsamem globalem Scope. **Die Ladereihenfolge in `index.html` zählt** (Daten zuerst, dann Oberfläche, `main.js` zuletzt).
 
 ## Bedienung (Auszug)
-Tastenkürzel stehen unten auf der Startseite. Kopfzeile anpassen: Rechtsklick auf einen Knopf oder ⚙ (Taste `,`). Der Spielstand liegt im `localStorage` des Browsers; „📄 Speichern" erzeugt zusätzlich eine eigenständige Sicherungskopie der Tafel mit dem aktuellen Stand.
+Tastenkürzel stehen unten auf der Startseite. Szenentext bearbeiten: Stift oben rechts in der Szene (Taste `E`, Strg+S speichert; Änderungen liegen als Überschreibung im Browser, „↺ Original“ stellt zurück). Kopfzeile anpassen: Rechtsklick auf einen Knopf oder ⚙ (Taste `,`). Der Spielstand liegt im `localStorage` des Browsers; „📄 Speichern" erzeugt zusätzlich eine eigenständige Sicherungskopie der Tafel mit dem aktuellen Stand.
 
 ## Änderungen veröffentlichen
 Nach Änderungen an Dateien in `sw.js` die `VERSION` erhöhen (`v1` → `v2` …) und neue Dateien in `FILES` ergänzen, damit installierte Apps aktualisieren.

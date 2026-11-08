@@ -51,7 +51,8 @@ function buildSearchIndex(){
   const idx = [];
   // Szenen (bestehend)
   ADVENTURES.filter(a=>a.status==="ready" && a.scenes).forEach(adv=>{
-    adv.scenes.forEach((scene, sceneIdx)=>{
+    adv.scenes.forEach((scene0, sceneIdx)=>{
+      const scene = effScene(adv, scene0);
       const text = collectSceneSearchText(scene);
       idx.push({
         type:"scene",

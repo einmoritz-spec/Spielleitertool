@@ -2,12 +2,13 @@
 // Real navigation (overview <-> adventure <-> scene) scrolls to top.
 // Everything else (limit clicks, expand/collapse) must NOT move the scroll
 // position or it feels like the page "closes" under the GM's cursor.
-function goOverview(){ state.view="overview"; state.advId=null; render(); scrollToTop(); persistState(); }
-function goAdventure(id){ state.view="adventure"; state.advId=id; state.sceneIdx=0; state.openChallenges.clear(); render(); scrollToTop(); persistState(); }
+function goOverview(){ if(!guardEditLeave()) return; state.view="overview"; state.advId=null; render(); scrollToTop(); persistState(); }
+function goAdventure(id){ if(!guardEditLeave()) return; state.view="adventure"; state.advId=id; state.sceneIdx=0; state.openChallenges.clear(); render(); scrollToTop(); persistState(); }
 function goScene(i){
   const adv = ADVENTURES.find(a=>a.id===state.advId);
   if(!adv) return;
   if(i<0 || i>=adv.scenes.length) return;
+  if(!guardEditLeave()) return;
   state.sceneIdx=i; state.openChallenges.clear(); render(); scrollToTop(); persistState();
 }
 function toggleChallenge(domId){
@@ -50,7 +51,7 @@ function toggleSpoilerBlur(){
 document.addEventListener("keydown", (e)=>{
   if(e.key!=="#") return;
   const tag = (e.target && e.target.tagName) || "";
-  if(tag==="INPUT"||tag==="TEXTAREA") return;
+  if(tag==="INPUT"||tag==="TEXTAREA"||(e.target&&e.target.isContentEditable)) return;
   toggleSpoilerBlur();
 });
 // Header-Toggle (neu, Juli 2026): Die Topbar ist standardmäßig fest
@@ -64,7 +65,7 @@ function toggleTopbar(){
 document.addEventListener("keydown", (e)=>{
   if(e.key!=="h" && e.key!=="H") return;
   const tag = (e.target && e.target.tagName) || "";
-  if(tag==="INPUT"||tag==="TEXTAREA") return;
+  if(tag==="INPUT"||tag==="TEXTAREA"||(e.target&&e.target.isContentEditable)) return;
   toggleTopbar();
 });
 // Zentrale Verwaltung aller Fenster-Shortcuts (neu, Juli 2026): jede
@@ -72,6 +73,16 @@ document.addEventListener("keydown", (e)=>{
 // Drücken derselben Taste wieder (Toggle), statt nur zu öffnen. Ist ein
 // ANDERES Fenster offen, wird nicht ausgelöst, damit sich Modals nicht
 // übereinanderstapeln. Eingabefelder werden wie gehabt ausgenommen.
+document.addEventListener("keydown", (e)=>{
+  if(e.key!=="e" && e.key!=="E") return;
+  if(e.ctrlKey||e.metaKey||e.altKey) return;
+  if(state.view!=="adventure") return;
+  const tag = (e.target && e.target.tagName) || "";
+  if(tag==="INPUT"||tag==="TEXTAREA"||(e.target&&e.target.isContentEditable)) return;
+  if(document.querySelector(".gloss-modal-backdrop.open")) return;
+  e.preventDefault();
+  toggleEditMode();
+});
 const WINDOW_SHORTCUTS = [
   { key:"f", modal:"searchModal", open:openSearch, close:closeSearch },
   { key:"m", modal:"mapModal", open:openMap, close:closeMap },
@@ -94,7 +105,7 @@ document.addEventListener("keydown", (e)=>{
   const sc = WINDOW_SHORTCUTS.find(s=>s.key===e.key.toLowerCase());
   if(!sc) return;
   const tag = (e.target && e.target.tagName) || "";
-  if(tag==="INPUT"||tag==="TEXTAREA") return;
+  if(tag==="INPUT"||tag==="TEXTAREA"||(e.target&&e.target.isContentEditable)) return;
   const modalEl = document.getElementById(sc.modal);
   const isThisOpen = modalEl && modalEl.classList.contains("open");
   if(isThisOpen){
@@ -179,7 +190,7 @@ function resetLimit(uid){
 document.addEventListener("keydown", (e)=>{
   if(state.view!=="adventure") return;
   const tag = (e.target && e.target.tagName) || "";
-  if(tag==="INPUT"||tag==="TEXTAREA") return;
+  if(tag==="INPUT"||tag==="TEXTAREA"||(e.target&&e.target.isContentEditable)) return;
   // Keine Szenen-Navigation per Pfeiltaste, solange irgendein Overlay-
   // Fenster offen ist (Challenges/Lore/Karte/Regelglossar/Profile/Glossar)
   // — sonst würde ein Pfeiltasten-Druck im Hintergrund heimlich die Szene

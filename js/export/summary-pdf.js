@@ -231,7 +231,7 @@ function buildAdventureSummaryDoc(adv){
 function collectPersistenceSnapshot(){
   const snap = {};
   try{
-    [PERSIST_KEY, FAV_PERSIST_KEY, PROFILE_PERSIST_KEY, HIDDEN_PARTY_KEY, TOPBAR_PREFS_KEY].forEach(key=>{
+    [PERSIST_KEY, FAV_PERSIST_KEY, PROFILE_PERSIST_KEY, HIDDEN_PARTY_KEY, TOPBAR_PREFS_KEY, TEXT_EDITS_KEY].forEach(key=>{
       const val = localStorage.getItem(key);
       if(val!==null) snap[key] = val;
     });

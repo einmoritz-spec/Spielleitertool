@@ -63,10 +63,10 @@ function renderPathrail(adv){
       ? `<button class="trail-check ${done?'done':''}" onclick="event.stopPropagation(); toggleSceneCompleted('${adv.id}', ${i})" title="${done?'Als nicht erledigt markieren':'Als erledigt markieren'}">${done?'✓':''}</button>`
       : "";
     return `
-    <div class="trail-item ${active?'active':''} ${done?'done':''}" onclick="goScene(${i})" title="${esc(s.title)}">
+    <div class="trail-item ${active?'active':''} ${done?'done':''}" onclick="goScene(${i})" title="${esc(effTitle(adv.id,s))}">
       <span class="raven-icon raven-mark">${RAVEN_SVG}</span>
       <span class="t-eyebrow">${eyebrow}</span>
-      <span class="t-title">${esc(s.title)}</span>
+      <span class="t-title">${esc(effTitle(adv.id,s))}</span>
       ${checkHtml}
     </div>`;
   }).join("");
@@ -353,7 +353,7 @@ function renderChallenge(advId, sceneIdx, chIdx, ch){
             ${secretsWrapHtml}
           </div>
           <div class="ch-col-right">
-            <div class="ch-desc">${descParagraphs(linkStatuses(esc(ch.desc)))}</div>
+            <div class="ch-desc">${(EDIT.on&&advId!=="lib") ? `<div${EA("challenges."+chIdx+".desc","br")}>${esc(ch.desc)}</div>` : descParagraphs(linkStatuses(esc(ch.desc)))}</div>
             ${threatsWrapHtml}
           </div>
         </div>
@@ -672,15 +672,15 @@ function renderScene(adv, scene, idx){
   const posAmongRegular = adv.scenes.slice(0, idx+1).filter(s=>s.kind==="scene").length;
   const eyebrowKind = scene.kind==="intro" ? "Überblick" : scene.kind==="aftermath" ? "Abschluss" : `Szene ${posAmongRegular} von ${regularScenes.length}`;
 
-  let html = `
-  <div class="scene-head">
+  let html = (EDIT.on ? editBarHtml(adv, scene) : "") + `
+  <div class="scene-head">${EDIT.on?"":editToggleHtml()}
     <div class="scene-eyebrow"><span class="raven-icon">${RAVEN_SVG}</span>${eyebrowKind}<span class="pg">· ${esc(scene.page)}</span></div>
-    <h1>${esc(scene.title)}${scene.optional?' <span style="font-size:.5em; color:var(--text-faint); font-weight:400;">(optional)</span>':''}</h1>
-    <div class="en-title">${esc(scene.en)}</div>
+    <h1><span${EA("title")}>${esc(scene.title)}</span>${scene.optional?' <span style="font-size:.5em; color:var(--text-faint); font-weight:400;">(optional)</span>':''}</h1>
+    <div class="en-title"${EA("en")}>${esc(scene.en)}</div>
   </div>`;
 
   if(scene.overview && scene.overview.length){
-    html += `<div class="scene-overview"><ul>${scene.overview.map(o=>`<li>${linkStatuses(esc(o))}</li>`).join("")}</ul></div>`;
+    html += `<div class="scene-overview"><ul>${scene.overview.map((o,oi)=>(o===""&&!EDIT.on)?"":`<li${EA("overview."+oi)}>${LS(esc(o))}</li>`).join("")}</ul></div>`;
   }
 
   // Vorlesetexte, Figuren und Challenges ohne "after"-Feld (oder after:0)
@@ -692,16 +692,28 @@ function renderScene(adv, scene, idx){
   const topReads = (scene.readAloud||[]).filter(ra=>!ra.after);
   const positionedReads = (scene.readAloud||[]).filter(ra=>ra.after);
   const readsAfter = idx => positionedReads.filter(ra=>ra.after===idx);
-  const renderReadBox = ra => `
+  const renderReadBox = ra => {
+    if(EDIT.on){
+      // Im Bearbeitungsmodus ohne <details>/<summary> (Leertaste würde sonst das Aufklappen umschalten)
+      const ri = (scene.readAloud||[]).indexOf(ra);
+      return `
+      <div class="readaloud ${ra.zusatzfund?'zusatzfund':''}">
+        <div class="ra-head static"><span class="ra-label"><span${EA("readAloud."+ri+".label")}>${esc(ra.label)}</span></span><span class="ra-page">${esc(ra.page)}</span></div>
+        <div class="ra-body"><div${EA("readAloud."+ri+".text","nl")}>${editDisplayValue("nl", ra.text)}</div></div>
+      </div>`;
+    }
+    return `
       <details class="readaloud ${ra.zusatzfund?'zusatzfund':''}" open>
         <summary class="ra-head"><span class="ra-label"><span class="ra-toggle">▸</span>${esc(ra.label)}</span><span class="ra-page">${esc(ra.page)}</span></summary>
         <div class="ra-body">${ra.text.split(/\n\n+/).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
       </details>`;
+  };
 
   const topNpcs = (scene.npcs||[]).filter(n=>!n.after);
   const positionedNpcs = (scene.npcs||[]).filter(n=>n.after);
   const npcsAfter = idx => positionedNpcs.filter(n=>n.after===idx);
-  const renderNpcCard = n => `<div class="npc-grid"><div class="npc-card">${portraitHtml(n.img,"npc-portrait")}<div class="npc-body"><div class="npc-top">${npcNameHtml(n.name)}<span class="npc-role">${esc(n.role)}</span></div><p>${linkStatuses(esc(n.text))}</p></div></div></div>`;
+  const npcBody = (n, pre) => `<div class="npc-body"><div class="npc-top">${npcNameHtml(n.name)}<span class="npc-role"${EA(pre+".role")}>${esc(n.role)}</span></div><p${EA(pre+".text")}>${LS(esc(n.text))}</p></div>`;
+  const renderNpcCard = n => `<div class="npc-grid"><div class="npc-card">${portraitHtml(n.img,"npc-portrait")}${npcBody(n,"npcs."+(scene.npcs||[]).indexOf(n))}</div></div>`;
 
   const allChallenges = (scene.challenges||[]).map((ch,ci)=>({ch,ci}));
   const topChallenges = allChallenges.filter(x=>!x.ch.after);
@@ -718,7 +730,7 @@ function renderScene(adv, scene, idx){
     const flowLabelHtml = scene.hideFlowLabel ? "" : `<div class="section-label">Ablauf der Szene<div class="line"></div></div>`;
     html += `<div class="section">${flowLabelHtml}<div class="flow">`;
     scene.flow.forEach((p,pi)=>{
-      html += `<p>${linkStatuses(p)}</p>`;
+      if(p!==""||EDIT.on) html += `<p${EA("flow."+pi)}>${LS(p)}</p>`;
       readsAfter(pi+1).forEach(ra=> html += renderReadBox(ra));
       npcsAfter(pi+1).forEach(n=> html += renderNpcCard(n));
       challengesAfter(pi+1).forEach(x=> html += renderChallenge(adv.id, idx, x.ci, x.ch));
@@ -728,25 +740,25 @@ function renderScene(adv, scene, idx){
 
   if(topNpcs.length){
     html += `<div class="section"><div class="section-label">Figuren<div class="line"></div></div><div class="npc-grid">`;
-    topNpcs.forEach(n=> html += `<div class="npc-card">${portraitHtml(n.img,"npc-portrait")}<div class="npc-body"><div class="npc-top">${npcNameHtml(n.name)}<span class="npc-role">${esc(n.role)}</span></div><p>${linkStatuses(esc(n.text))}</p></div></div>`);
+    topNpcs.forEach(n=> html += `<div class="npc-card">${portraitHtml(n.img,"npc-portrait")}${npcBody(n,"npcs."+(scene.npcs||[]).indexOf(n))}</div>`);
     html += `</div></div>`;
   }
 
   if(scene.extra){
     if(scene.extra.type==="list"){
-      html += `<div class="section"><div class="section-label">${esc(scene.extra.heading)}<div class="line"></div></div><div class="reward-box"><ul style="margin:0; padding-left:18px;">${scene.extra.items.map(i=>`<li style="margin-bottom:6px; line-height:1.55;">${linkStatuses(esc(i))}</li>`).join("")}</ul></div></div>`;
+      html += `<div class="section"><div class="section-label"><span${EA("extra.heading")}>${esc(scene.extra.heading)}</span><div class="line"></div></div><div class="reward-box"><ul style="margin:0; padding-left:18px;">${scene.extra.items.map((i,ii)=>(i===""&&!EDIT.on)?"":`<li${EA("extra.items."+ii)} style="margin-bottom:6px; line-height:1.55;">${LS(esc(i))}</li>`).join("")}</ul></div></div>`;
     } else if(scene.extra.type==="companions"){
-      html += `<div class="section"><div class="section-label">${esc(scene.extra.heading)}<div class="line"></div></div><div class="npc-grid">`;
-      scene.extra.items.forEach(n=> html += `<div class="npc-card companion">${portraitHtml(n.img,"npc-portrait")}<div class="npc-body"><div class="npc-top">${npcNameHtml(n.name)}<span class="npc-role">${esc(n.role)}</span></div><p>${linkStatuses(esc(n.text))}</p></div></div>`);
+      html += `<div class="section"><div class="section-label"><span${EA("extra.heading")}>${esc(scene.extra.heading)}</span><div class="line"></div></div><div class="npc-grid">`;
+      scene.extra.items.forEach((n,ii)=> html += `<div class="npc-card companion">${portraitHtml(n.img,"npc-portrait")}${npcBody(n,"extra.items."+ii)}</div>`);
       html += `</div></div>`;
     }
   }
   if(scene.extra2){
     if(scene.extra2.type==="list"){
-      html += `<div class="section"><div class="section-label">${esc(scene.extra2.heading)}<div class="line"></div></div><div class="reward-box"><ol style="margin:0; padding-left:18px;">${scene.extra2.items.map(i=>`<li style="margin-bottom:6px; line-height:1.55;">${linkStatuses(esc(i))}</li>`).join("")}</ol></div></div>`;
+      html += `<div class="section"><div class="section-label"><span${EA("extra2.heading")}>${esc(scene.extra2.heading)}</span><div class="line"></div></div><div class="reward-box"><ol style="margin:0; padding-left:18px;">${scene.extra2.items.map((i,ii)=>(i===""&&!EDIT.on)?"":`<li${EA("extra2.items."+ii)} style="margin-bottom:6px; line-height:1.55;">${LS(esc(i))}</li>`).join("")}</ol></div></div>`;
     } else if(scene.extra2.type==="companions"){
-      html += `<div class="section"><div class="section-label">${esc(scene.extra2.heading)}<div class="line"></div></div><div class="npc-grid">`;
-      scene.extra2.items.forEach(n=> html += `<div class="npc-card companion">${portraitHtml(n.img,"npc-portrait")}<div class="npc-body"><div class="npc-top">${npcNameHtml(n.name)}<span class="npc-role">${esc(n.role)}</span></div><p>${linkStatuses(esc(n.text))}</p></div></div>`);
+      html += `<div class="section"><div class="section-label"><span${EA("extra2.heading")}>${esc(scene.extra2.heading)}</span><div class="line"></div></div><div class="npc-grid">`;
+      scene.extra2.items.forEach((n,ii)=> html += `<div class="npc-card companion">${portraitHtml(n.img,"npc-portrait")}${npcBody(n,"extra2.items."+ii)}</div>`);
       html += `</div></div>`;
     }
   }
@@ -758,7 +770,7 @@ function renderScene(adv, scene, idx){
       const played = !!state.vignettesPlayed[vUid];
       html += `<div class="vignette ${played?'played':''}">
         <button class="v-played-toggle" onclick="event.stopPropagation(); toggleVignettePlayed('${vUid}')" title="${played?'Als nicht gespielt markieren':'Als gespielt markieren — fließt in die PDF-Zusammenfassung ein'}">${played?'✅ Gespielt':'⬜ Gespielt?'}</button>
-        <div class="v-name">${esc(v.name)}</div><div class="v-flavor">${linkStatuses(esc(v.flavor))}</div><ul>${v.options.map(o=>`<li>${linkStatuses(esc(o))}</li>`).join("")}</ul></div>`;
+        <div class="v-name"${EA("vignettes."+vIdx+".name")}>${esc(v.name)}</div><div class="v-flavor"${EA("vignettes."+vIdx+".flavor")}>${LS(esc(v.flavor))}</div><ul>${v.options.map((o,oi)=>`<li${EA("vignettes."+vIdx+".options."+oi)}>${LS(esc(o))}</li>`).join("")}</ul></div>`;
     });
     html += `</div>`;
   }
@@ -771,17 +783,17 @@ function renderScene(adv, scene, idx){
 
   if(scene.revelations && scene.revelations.length){
     html += `<div class="section"><div class="section-label">Revelations<div class="line"></div></div>`;
-    scene.revelations.forEach(r=> html += `<div class="reveal-row"><span class="rk">${esc(r.kind)}${r.ref?' '+esc(r.ref):''}</span><p>${esc(r.text)}</p></div>`);
+    scene.revelations.forEach((r,ri)=> html += `<div class="reveal-row"><span class="rk">${esc(r.kind)}${r.ref?' '+esc(r.ref):''}</span><p${EA("revelations."+ri+".text")}>${esc(r.text)}</p></div>`);
     html += `</div>`;
   }
 
   if(scene.rewards && scene.rewards.length){
-    html += `<div class="section"><div class="section-label">Belohnung<div class="line"></div></div><div class="reward-box"><ul style="margin:0; padding-left:18px;">${scene.rewards.map(r=>`<li style="margin-bottom:6px; line-height:1.55;">${linkStatuses(esc(r))}</li>`).join("")}</ul></div></div>`;
+    html += `<div class="section"><div class="section-label">Belohnung<div class="line"></div></div><div class="reward-box"><ul style="margin:0; padding-left:18px;">${scene.rewards.map((r,ri)=>(r===""&&!EDIT.on)?"":`<li${EA("rewards."+ri)} style="margin-bottom:6px; line-height:1.55;">${LS(esc(r))}</li>`).join("")}</ul></div></div>`;
   }
 
   if(scene.tips && scene.tips.length){
     html += `<div class="section">`;
-    scene.tips.forEach(t=> html += `<div class="tip"><span>🖋</span><span>${linkStatuses(esc(t))}</span></div>`);
+    scene.tips.forEach((t,ti)=>{ if(t!==""||EDIT.on) html += `<div class="tip"><span>🖋</span><span${EA("tips."+ti)}>${LS(esc(t))}</span></div>`; });
     html += `</div>`;
   }
 
@@ -825,11 +837,11 @@ function renderSceneNav(adv, idx){
   <div class="scenenav">
     <button class="nav-btn" ${!prev?'disabled':''} onclick="goScene(${idx-1})">
       <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-      <span class="lbl">${prev?esc(prev.title):'Anfang'}</span>
+      <span class="lbl">${prev?esc(effTitle(adv.id,prev)):'Anfang'}</span>
     </button>
     <div class="nav-dots">${dots}</div>
     <button class="nav-btn" ${!next?'disabled':''} onclick="goScene(${idx+1})" style="justify-content:flex-end;">
-      <span class="lbl">${next?esc(next.title):'Ende'}</span>
+      <span class="lbl">${next?esc(effTitle(adv.id,next)):'Ende'}</span>
       <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
     </button>
   </div>`;
@@ -871,7 +883,7 @@ function renderAdventure(){
   <div class="shell ${hasTimeTracker?'has-time-tracker':''}">
     ${renderPathrail(adv)}
     <div class="content-col">
-      <div class="stage-wrap">${renderAdventureNotes(adv)}${renderScene(adv, scene, state.sceneIdx)}</div>
+      <div class="stage-wrap">${renderAdventureNotes(adv)}${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>
       ${renderTimeTracker(adv)}
     </div>
     ${renderThemeRail()}
@@ -881,6 +893,9 @@ function renderAdventure(){
 }
 
 function render(){
+  stashEditPending();   // ungespeicherte Textänderungen vor dem Neuaufbau sichern
+  if(state.view!=="adventure" && EDIT.on) leaveEditMode();
+  document.body.classList.toggle("editing", EDIT.on);
   if(state.view==="overview") renderOverview();
   else renderAdventure();
   updateFavBadge(); // Topbar wird bei jedem render() neu aufgebaut, Badge muss danach neu gesetzt werden

@@ -1205,6 +1205,10 @@ document.addEventListener("keydown", (e)=>{
     active.blur();
     return;
   }
+  if(EDIT.on){
+    if(active && active.blur) active.blur();   // Escape verlässt nur das Feld, nicht die Szene
+    return;
+  }
   if(state.view==="adventure"){
     goOverview();
   }

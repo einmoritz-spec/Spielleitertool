@@ -8,6 +8,7 @@
 <link rel="icon" href="../icons/icon-192.png">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="rules.css">
 </head>
 <body>
 <div class="topbar">
@@ -16,6 +17,7 @@
   <button class="tb-btn" onclick="goHome()"><span class="tb-ic">🗂</span><span class="tb-lbl"> Kampagne</span></button>
   <button class="tb-btn" onclick="goLastCase()"><span class="tb-ic">📁</span><span class="tb-lbl"> Fall</span></button>
   <button class="tb-btn" onclick="goMap()"><span class="tb-ic">🗺</span><span class="tb-lbl"> Karte</span></button>
+  <button class="tb-btn" onclick="toggleRules()"><span class="tb-ic">🎲</span><span class="tb-lbl"> Regeln</span></button>
   <button class="tb-btn" onclick="goRegister()"><span class="tb-ic">📇</span><span class="tb-lbl"> Register</span></button>
   <button class="tb-btn" onclick="openPageViewer()"><span class="tb-ic">📖</span><span class="tb-lbl"> Seiten</span></button>
   <button class="tb-btn" onclick="openSearch()"><span class="tb-ic">🔎</span><span class="tb-lbl"> Suche</span></button>
@@ -71,6 +73,10 @@
 </div>
 
 <script src="js/tool-switch.js"></script>
+<script src="js/data/regeln/aktionen.js"></script>
+<script src="js/data/regeln/zustaende.js"></script>
+<script src="js/data/regeln/glossar.js"></script>
+<script src="js/rules.js"></script>
 <script src="js/mobile-menu.js"></script>
 <script src="js/data/campaign.js"></script>
 <script src="js/data/map.js"></script>

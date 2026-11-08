@@ -149,6 +149,7 @@ function renderCase(c, sid){
   <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>
   <div class="navbar"><select onchange="selNav(this.value)" aria-label="Kapitel">${sel}</select></div>
   <div class="case-grid ${ST.navHidden?"nav-off":""}"><aside class="nav">${nav}</aside><aside class="rail">${rail}</aside><main class="content">${body}</main></div>`;
+  if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
@@ -191,7 +192,7 @@ function blockHtml(c, b, idx){
   }
 }
 function parseLimits(sp){
-  return (sp||"").split(" / ").map(x=>{ x=x.trim(); const m = x.match(/^\(?(.*?)\s+(\d+)\)?$/); return m ? { label:m[1].replace(/(\S)- (\S)/g,'$1$2').trim(), max:+m[2] } : null; }).filter(Boolean);
+  return (sp||"").split(" / ").map(x=>{ x=x.trim(); const fix = l => l.replace(/(\S)- (\S)/g,'$1$2').trim(); const m = x.match(/^\(?(.*?)\s+(\d+)\)?$/); if(m) return { label:fix(m[1]), max:+m[2] }; const d = x.match(/^\(?(.*?)\s+[–—-]\)?$/); return d ? { label:fix(d[1]), max:0 } : null; }).filter(Boolean);
 }
 function cap(t){ return t.charAt(0)+t.slice(1).toLowerCase(); }
 function threatHtml(c, b){
@@ -199,6 +200,7 @@ function threatHtml(c, b){
   const lims = parseLimits(b.spectra);
   const nstars = (b.stars||"").length;
   const rows = lims.map((l,i)=>{
+    if(!l.max) return `<div class="limit-row nolimit"><span class="limit-label">${esc(cap(l.label))}</span><span class="limit-controls"><span class="limit-count" title="Dieser Zustand trifft die Bedrohung nicht">– (kein Limit)</span></span></div>`;
     const k = key+":"+i, arr = limArr(k), cur = arr.length ? Math.max(...arr) : 0; let pips = "";
     for(let n=1;n<=l.max;n++) pips += `<button class="pip ${arr.includes(n)?"filled":""}" onclick="setLimit('${k.replace(/'/g,"\\'")}',${n},${l.max},this)" aria-label="${n} von ${l.max}"></button>`;
     return `<div class="limit-row"><span class="limit-label">${esc(cap(l.label))}</span><span class="limit-controls"><span class="pips">${pips}</span><span class="limit-count">${cur} / ${l.max}</span><button class="limit-reset" onclick="resetLimit('${k.replace(/'/g,"\\'")}',this)" title="Zurücksetzen">↺</button></span></div>`;
@@ -206,12 +208,13 @@ function threatHtml(c, b){
   const sub = i => { const a = i.split(/\s*»\s*/); return a.length>1 ? a[0].replace(/[:\s]+$/,'')+(a[0].trim()?':':'')+`<ul class="th-nest">${a.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>` : i; };
   const items = (b.items||[]).map(sub);
   const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
-  return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
+  return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}${lims.filter(l=>l.max).length>1?`<button class="limit-all" onclick="resetAllLimits('${esc(key).replace(/'/g,"\\'")}',${lims.length},this)">Alle zurücksetzen (Szenenende)</button>`:""}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
 }
 function limArr(k){ const v = ST.limits[k]; if(Array.isArray(v)) return v; if(typeof v==="number" && v>0){ const a=[]; for(let i=1;i<=v;i++) a.push(i); ST.limits[k]=a; return a; } return []; }
 function limSync(row, arr, max){ row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", arr.includes(i+1))); row.querySelector(".limit-count").textContent = (arr.length?Math.max(...arr):0)+" / "+max; }
 function setLimit(k, n, max, btn){ const arr = limArr(k).slice(), pos = arr.indexOf(n); if(pos>=0) arr.splice(pos,1); else arr.push(n); ST.limits[k] = arr; saveState(); limSync(btn.closest(".limit-row"), arr, max); }
 function resetLimit(k, btn){ ST.limits[k] = []; saveState(); const row = btn.closest(".limit-row"); limSync(row, [], row.querySelectorAll(".pip").length); }
+function resetAllLimits(key, n, btn){ const blk = btn.closest(".limit-block"); for(let i=0;i<n;i++) ST.limits[key+":"+i] = []; saveState(); blk.querySelectorAll(".limit-row:not(.nolimit)").forEach(r=>limSync(r, [], r.querySelectorAll(".pip").length)); }
 function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
 function setNote(k, v){ ST.notes[k] = v; saveState(); }
 function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }

@@ -1,0 +1,25 @@
+@media (min-width:1600px){:root{--fs:17px}}
+@media (min-width:1920px){:root{--fs:19px}.shell{max-width:1800px}}
+@media (min-width:2300px){:root{--fs:23px}.shell{max-width:2200px}}
+@media (min-width:2800px){:root{--fs:28px}.shell{max-width:2700px}}
+@media (max-width:1000px){
+  .case-grid{grid-template-columns:1fr}
+  .nav{display:none}
+  .navbar{display:block;margin-bottom:12px}
+  .navbar select{width:100%;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit}
+  .hero h1{font-size:1.9rem}
+}
+@media (max-width:880px){
+  .tb-btn{display:none}
+  .tb-burger{display:block}
+}
+@media (max-width:720px){
+  .shell{padding:12px 12px 70px}
+  .case-head h1{font-size:1.5rem}
+  .sec-title h2{font-size:1.25rem}
+  .cases{grid-template-columns:1fr}
+  .blk-ro{font-size:.88rem;padding:12px 12px 12px 14px}
+  .blk-card{padding:12px 12px 12px 42px}
+  .modal{max-height:94vh}
+  .secfoot .btn{flex:1;text-align:center}
+}

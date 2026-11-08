@@ -3,34 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0d0f14">
+<meta name="theme-color" content="#0b0d14">
 <title>Nights of Paynetown — City of Mist</title>
 <link rel="icon" href="../icons/icon-192.png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="brand">Nights of Paynetown<small>City of Mist</small></div>
-</header>
-<main class="stage">
-  <div class="eyebrow">Kampagne · in Vorbereitung</div>
-  <h1>Nights of Paynetown</h1>
-  <p>Hier entsteht die Erzähler-Tafel für die große City-of-Mist-Kampagne. Design und Aufbau folgen.</p>
-  <h2>Tool wechseln</h2>
-  <div class="tools">
-    <button class="tool" onclick="switchTool('wake')"><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></button>
-    <button class="tool" onclick="switchTool('locallegends')"><b>Local Legends</b><small>City of Mist – Fall-Akte</small></button>
-    <button class="tool active" disabled><b>Nights of Paynetown</b><small>City of Mist – Kampagne (aktuell)</small></button>
+<div class="topbar">
+  <button class="brand" onclick="goHome()">Nights of Paynetown<small>City of Mist · Kampagne</small></button>
+  <div class="topbar-spacer"></div>
+  <button class="tb-btn" onclick="goHome()"><span class="tb-ic">🗂</span><span class="tb-lbl"> Kampagne</span></button>
+  <button class="tb-btn" onclick="goLastCase()"><span class="tb-ic">📁</span><span class="tb-lbl"> Fall</span></button>
+  <button class="tb-btn" onclick="openPageViewer()"><span class="tb-ic">📖</span><span class="tb-lbl"> Seiten</span></button>
+  <button class="tb-btn" onclick="openSearch()"><span class="tb-ic">🔎</span><span class="tb-lbl"> Suche</span></button>
+  <button class="tb-btn tb-gear" onclick="openSettings()" aria-label="Einstellungen" title="Einstellungen">⚙</button>
+  <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app" class="shell"></div>
+
+<div class="modal-overlay" id="searchModal" onclick="if(event.target===this)closeModal('searchModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Volltextsuche</h2><button class="modal-close" onclick="closeModal('searchModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="search-input" id="searchInput" placeholder="Suche in allen erfassten Fällen … (mind. 2 Zeichen)" oninput="runSearch(this.value)" autocomplete="off">
+      <div id="searchCount" class="search-count"></div>
+      <div id="searchResults"></div>
+    </div>
   </div>
-  <p class="hint">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
-</main>
-<script>
-const TOOL_MODE_KEY = "gm_tool_mode_v1";
-const TOOL_PATHS = { wake:"../", locallegends:"../locallegends/", paynetown:"./" };
-function switchTool(mode){
-  try{ localStorage.setItem(TOOL_MODE_KEY, mode); }catch(e){}
-  location.href = TOOL_PATHS[mode] || "../";
-}
-</script>
+</div>
+
+<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)closeModal('settingsModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Einstellungen</h2><button class="modal-close" onclick="closeModal('settingsModal')">✕</button></div>
+    <div class="modal-body">
+      <h3>Tool wechseln</h3>
+      <div class="set-tool">
+        <button onclick="switchTool('wake')"><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></button>
+        <button onclick="switchTool('locallegends')"><b>Local Legends</b><small>City of Mist – Fall-Akte</small></button>
+        <button class="active" disabled><b>Nights of Paynetown</b><small>City of Mist – Kampagne (aktuell)</small></button>
+      </div>
+      <p class="hint">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
+      <h3>Spielstand</h3>
+      <div class="set-row">
+        <button class="btn" onclick="exportState()">Sichern (Datei)</button>
+        <label class="btn">Laden<input type="file" accept="application/json" hidden onchange="importState(this)"></label>
+        <button class="btn danger" onclick="resetState()">Zurücksetzen</button>
+      </div>
+      <p class="hint">Gesammelt werden abgehakte Hinweise, Fallstatus und Notizen. Alles liegt nur in diesem Browser.</p>
+    </div>
+  </div>
+</div>
+
+<div class="pv" id="pageViewer" hidden>
+  <div class="pv-bar">
+    <button class="btn" onclick="pvStep(-1)" aria-label="Vorherige Seite">‹</button>
+    <input id="pvNum" type="number" min="1" max="296" onchange="pvGo(+this.value)" aria-label="Seitennummer">
+    <span class="pv-of">/ 296</span>
+    <button class="btn" onclick="pvStep(1)" aria-label="Nächste Seite">›</button>
+    <button class="btn" onclick="pvZoom()" id="pvZoomBtn">Zoom</button>
+    <span class="pv-sp"></span>
+    <button class="btn" onclick="closePageViewer()">✕</button>
+  </div>
+  <div class="pv-stage" id="pvStage"><img id="pvImg" alt="Originalseite"></div>
+</div>
+
+<script src="js/tool-switch.js"></script>
+<script src="js/mobile-menu.js"></script>
+<script src="js/data/campaign.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

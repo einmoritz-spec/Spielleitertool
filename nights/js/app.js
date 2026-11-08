@@ -1,0 +1,202 @@
+/* Nights of Paynetown – Oberfläche. Zustand: localStorage nights_state_v1 */
+const STATE_KEY = "nights_state_v1";
+const PAGES_TOTAL = 296;
+const READY = [1]; // bereits erfasste Fälle
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad = (n, l=3) => String(n).padStart(l, "0");
+let ST = loadState();
+function loadState(){ try{ return Object.assign({ cases:{}, done:{}, notes:{}, last:null, seen:{} }, JSON.parse(localStorage.getItem(STATE_KEY)||"{}")); }catch(e){ return { cases:{}, done:{}, notes:{}, last:null, seen:{} }; } }
+function saveState(){ try{ localStorage.setItem(STATE_KEY, JSON.stringify(ST)); }catch(e){} }
+
+/* ---------- Daten laden ---------- */
+const loading = {};
+function loadCase(n){
+  if(window.NIGHTS.cases[n]) return Promise.resolve(window.NIGHTS.cases[n]);
+  if(loading[n]) return loading[n];
+  return loading[n] = new Promise(res => {
+    const s = document.createElement("script");
+    s.src = `js/data/case${pad(n,2)}.js`;
+    s.onload = () => res(window.NIGHTS.cases[n] || null);
+    s.onerror = () => res(null);
+    document.head.appendChild(s);
+  });
+}
+const camp = () => window.NIGHTS.campaign;
+
+/* ---------- Routing ---------- */
+function parseHash(){ const p = (location.hash||"#/").slice(2).split("/"); return p; }
+window.addEventListener("hashchange", route);
+function goHome(){ location.hash = "#/"; }
+function goLastCase(){ location.hash = ST.last ? ST.last : "#/case/1"; }
+async function route(){
+  const p = parseHash();
+  window.scrollTo(0,0);
+  if(p[0]==="case" && p[1]){
+    const n = +p[1];
+    ST.last = "#/case/" + n + (p[2]==="sec" && p[3] ? "/sec/" + p[3] : ""); saveState();
+    $("app").innerHTML = '<div class="missing">Lade Fall …</div>';
+    const c = await loadCase(n);
+    if(!c){ const info = camp().cases[n] && Object.assign({nr:n,from:camp().cases[n].pages[0],to:camp().cases[n].pages[1]}, camp().cases[n]); $("app").innerHTML = `<div class="missing"><h2>Fall ${n}${info?": "+esc(info.title):""}</h2><p>Dieser Fall ist noch nicht erfasst. Die Originalseiten ${info?info.from+"–"+info.to:""} kannst du im Seitenviewer ansehen.</p>${info?`<button class="btn" onclick="openPageViewer(${info.from})">Seite ${info.from} öffnen</button>`:""}</div>`; return; }
+    renderCase(c, p[2]==="sec" ? p[3] : (p[2]==="eisberg" ? "__eisberg" : c.sections[0].id));
+  } else if(p[0]==="pages"){ renderHome(); openPageViewer(+p[1]||1, true); }
+  else renderHome();
+}
+
+/* ---------- Start ---------- */
+function caseStatus(n){ return ST.cases[n] || ""; }
+function setStatus(n, s){ ST.cases[n] = ST.cases[n]===s ? "" : s; saveState(); renderHome(); }
+function renderHome(){
+  const C = camp();
+  let h = `<div class="hero"><div class="eyebrow">City of Mist · Abenteuerband</div><h1>${esc(C.title)}</h1><p class="hint">Spielleitung-Ansicht · Text wörtlich aus dem Buch · Seiten ${C.intro.pages[0]}–${C.appendix.pages[1]}</p></div>`;
+  for(const L of C.levels){
+    h += `<section class="level ${L.tone}"><div class="level-head"><h2>${esc(L.name)}</h2><span>${esc(L.sub||"")}</span><span>Seiten ${L.pages[0]}–${L.pages[1]}</span></div><div class="cases">`;
+    for(const n of L.cases){
+      const ci = C.cases[n]; if(!ci) continue;
+      const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
+      const st = caseStatus(n);
+      h += `<div class="case-card ${info.ready?"":"off"}" ><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>Seiten ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}<div class="statusrow" style="position:relative;z-index:2"><button class="${st==="run"?"on":""}" onclick="setStatus(${n},'run')">läuft</button><button class="${st==="ok"?"on":""}" onclick="setStatus(${n},'ok')">abgeschlossen</button></div></div>`;
+    }
+    h += `</div></section>`;
+  }
+  h += `<div class="appendix-box">Anhang (Seiten ${C.appendix.pages[0]}–${C.appendix.pages[1]}) und Einleitung (Seiten ${C.intro.pages[0]}–${C.intro.pages[1]}): <button class="btn" onclick="openPageViewer(${C.intro.pages[0]})">Einleitung ansehen</button> <button class="btn" onclick="openPageViewer(${C.appendix.pages[0]})">Anhang ansehen</button></div>`;
+  $("app").innerHTML = h;
+}
+
+/* ---------- Fallansicht ---------- */
+let CUR = null;
+function secBlocks(c, sid){
+  const out = [];
+  for(const pn of Object.keys(c.pages).map(Number).sort((a,b)=>a-b))
+    for(const b of c.pages[pn].blocks) if(b.sec===sid && !b.skip) out.push(Object.assign({}, b, {page:b.p||pn}));
+  return out.sort((a,b)=> a.page-b.page || a.i-b.i);
+}
+function groupNav(c){
+  const groups = []; let cur = null;
+  for(const s of c.sections){
+    if(s.kind==="intro"){ groups.push({ name:"Einstieg", items:[s] }); cur = null; continue; }
+    if(s.kind==="abspann"){ groups.push({ name:"Abspann", items:[s] }); cur = null; continue; }
+    if(s.kind==="layer"){ cur = { name:s.title, items:[s], layer:true }; groups.push(cur); continue; }
+    if(!cur){ cur = { name:"Hintergrund", items:[] }; groups.push(cur); }
+    cur.items.push(s);
+  }
+  return groups;
+}
+function renderCase(c, sid){
+  CUR = c;
+  const isEis = sid==="__eisberg";
+  const sec = c.sections.find(s=>s.id===sid) || c.sections[0];
+  let nav = `<h4>Fall ${c.nr}</h4>`;
+  if(c.eisberg) nav += `<button class="${isEis?"on":""}" onclick="location.hash='#/case/${c.nr}/eisberg'">🧊 Der Eisberg<small>Übersicht</small></button>`;
+  for(const g of groupNav(c)){
+    const head = !!g.layer;
+    if(!head) nav += `<h4>${esc(g.name)}</h4>`; else nav += `<h4>Schicht</h4>`;
+    for(const s of g.items) nav += navBtn(c, s, sec, isEis, head && s===g.items[0]);
+  }
+  const sel = `<option value="">Abschnitt wählen …</option>` + (c.eisberg?`<option value="eisberg"${isEis?" selected":""}>Der Eisberg</option>`:"") + c.sections.map(s=>`<option value="${s.id}"${!isEis&&s.id===sec.id?" selected":""}>${esc(s.title)} (S. ${s.page})</option>`).join("");
+  let body = "";
+  if(isEis) body = eisbergView(c);
+  else body = sectionView(c, sec);
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › Fall ${c.nr}</div>
+  <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${esc(c.subtitle||"")} · Seiten ${c.from}–${c.to}</span></div>
+  <div class="navbar"><select onchange="selNav(this.value)" aria-label="Abschnitt">${sel}</select></div>
+  <div class="case-grid"><aside class="nav">${nav}</aside><main class="content">${body}</main></div>`;
+}
+function navBtn(c, s, sec, isEis, top){
+  return `<button class="${!isEis&&s.id===sec.id?"on":""} ${top?"":"sub"}" onclick="location.hash='#/case/${c.nr}/sec/${s.id}'">${esc(s.title)}<small>Seite ${s.page}</small></button>`;
+}
+function selNav(v){ if(!v) return; location.hash = v==="eisberg" ? `#/case/${CUR.nr}/eisberg` : `#/case/${CUR.nr}/sec/${v}`; }
+function mark(x){ return x.replace(/<t>/g,"<t>"); }
+function blockHtml(c, b, idx){
+  const k = `${c.nr}:${b.p||b.page}:${b.i}`;
+  switch(b.t){
+    case "h": return `<h3 class="blk blk-h">${b.x}</h3>`;
+    case "sh": return `<div class="blk blk-sh">${b.x}</div>`;
+    case "ro": return `<div class="blk blk-ro">${b.x}</div>`;
+    case "card": { const d = ST.done[k]; return `<div class="blk blk-card ${b.k==="pink"?"pink":""} ${d?"done":""}"><button class="tick" onclick="toggleDone('${k}',this)" aria-label="Hinweis abhaken"></button>${b.x}</div>`; }
+    case "threat": return `<div class="blk threat"><div class="threat-head"><span class="stars">${esc(b.stars||"")}</span><b>${esc(b.name)}</b></div>${b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:""}<ul>${(b.items||[]).map(i=>`<li>${i}</li>`).join("")}</ul></div>`;
+    default: return `<p class="blk blk-p">${b.x}</p>`;
+  }
+}
+function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
+function sectionView(c, sec){
+  const blocks = secBlocks(c, sec.id);
+  let h = `<div class="sec-title"><h2>${esc(sec.title)}</h2><span class="kind">Seite ${sec.page}</span></div>`;
+  let lastPage = null;
+  for(const b of blocks){
+    if(b.page!==lastPage){ lastPage = b.page; h += `<button class="pagechip" onclick="openPageViewer(${b.page})">Seite ${b.page} · Originalseite zeigen</button>`;
+      for(const f of (c.figures||[])) if(f.page===b.page && f.kind!=="eisberg" && f.sec===undefined && (f.after==null)) h += figHtml(f); }
+    h += blockHtml(c, b);
+  }
+  if(!blocks.length) h += `<div class="missing">Kein Text in diesem Abschnitt erfasst.</div>`;
+  const idx = c.sections.indexOf(sec), prev = c.sections[idx-1], next = c.sections[idx+1];
+  h += `<div class="notes"><h3 class="blk-sh">Notizen</h3><textarea oninput="setNote('${c.nr}:${sec.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[c.nr+":"+sec.id]||"")}</textarea></div>`;
+  h += `<div class="secfoot">${prev?`<a class="btn" href="#/case/${c.nr}/sec/${prev.id}">‹ ${esc(prev.title)}</a>`:"<span></span>"}${next?`<a class="btn" href="#/case/${c.nr}/sec/${next.id}">${esc(next.title)} ›</a>`:"<span></span>"}</div>`;
+  return h;
+}
+function setNote(k, v){ ST.notes[k] = v; saveState(); }
+function figHtml(f){ return `<figure class="fig"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }
+
+/* Eisberg: Seitenprozent -> Ausschnittsprozent */
+function eisbergView(c){
+  const E = c.eisberg, fig = c.figures.find(f=>f.id===E.fig);
+  const size = c.pages[E.page].size || [595, 842];
+  const [x0,y0,x1,y1] = fig.box, W = x1-x0, H = y1-y0;
+  let hot = "";
+  E.nodes.forEach((n,i)=>{
+    const cx = n.x/100*size[0], cy = n.y/100*size[1], w = n.w/100*size[0], h = n.h/100*size[1];
+    const l = (cx-w/2-x0)/W*100, t = (cy-h/2-y0)/H*100;
+    hot += `<button class="hot ${ST.seen[c.nr+":"+n.label]?"seen":""}" style="left:${l}%;top:${t}%;width:${w/W*100}%;height:${h/H*100}%" title="${esc(n.label)}" aria-label="${esc(n.label)}" onclick="gotoNode(${i})"></button>`;
+  });
+  const list = E.nodes.map((n,i)=>`<button onclick="gotoNode(${i})"><small>Schicht ${n.layer}</small>${esc(n.label)}</button>`).join("");
+  return `<div class="sec-title"><h2>Der Eisberg</h2><span class="kind">Seite ${E.page}</span></div><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div><div class="nodelist">${list}</div>`;
+}
+function gotoNode(i){ const n = CUR.eisberg.nodes[i]; ST.seen[CUR.nr+":"+n.label] = 1; saveState(); location.hash = `#/case/${CUR.nr}/sec/${n.target}`; }
+
+/* ---------- Modale ---------- */
+function openModal(id){ $(id).classList.add("show"); }
+function closeModal(id){ $(id).classList.remove("show"); }
+function openSettings(){ openModal("settingsModal"); }
+function exportState(){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(ST,null,1)],{type:"application/json"})); a.download = "nights-spielstand.json"; a.click(); }
+function importState(inp){ const f = inp.files[0]; if(!f) return; f.text().then(t=>{ try{ ST = Object.assign(loadState(), JSON.parse(t)); saveState(); route(); closeModal("settingsModal"); }catch(e){ alert("Datei konnte nicht gelesen werden."); } }); }
+function resetState(){ if(confirm("Spielstand wirklich zurücksetzen?")){ ST = { cases:{}, done:{}, notes:{}, last:null, seen:{} }; saveState(); closeModal("settingsModal"); route(); } }
+
+/* ---------- Suche ---------- */
+function stripTags(s){ return s.replace(/<[^>]+>/g,""); }
+function openSearch(){ openModal("searchModal"); setTimeout(()=>$("searchInput").focus(),50); }
+function runSearch(q){
+  q = q.trim().toLowerCase(); const out = $("searchResults");
+  if(q.length<2){ out.innerHTML=""; $("searchCount").textContent=""; return; }
+  const res = [];
+  for(const n in window.NIGHTS.cases){ const c = window.NIGHTS.cases[n];
+    for(const pn in c.pages) for(const b of c.pages[pn].blocks){
+      const txt = stripTags(b.t==="threat" ? [b.name,b.spectra,...(b.items||[])].join(" ") : (b.x||""));
+      const i = txt.toLowerCase().indexOf(q);
+      if(i>=0) res.push({c, b, sec:b.sec, page:b.p||+pn, snip: txt.slice(Math.max(0,i-50), i+q.length+70), i, q});
+    } }
+  $("searchCount").textContent = res.length + " Treffer" + (res.length>60?" (die ersten 60)":"") + (Object.keys(window.NIGHTS.cases).length<10?" · nur geladene Fälle":"");
+  out.innerHTML = res.slice(0,60).map(r=>{
+    const s = esc(r.snip), re = new RegExp(esc(r.q).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"ig");
+    return `<button class="sr" onclick="closeModal('searchModal');location.hash='#/case/${r.c.nr}/sec/${r.sec}'"><small>Fall ${r.c.nr} · Seite ${r.page}</small><br>…${s.replace(re,m=>`<mark>${m}</mark>`)}…</button>`; }).join("");
+}
+// Suche braucht alle Fälle: im Hintergrund nachladen
+function preloadAll(){ READY.forEach(loadCase); }
+
+/* ---------- Seitenviewer ---------- */
+let PV = 1;
+function openPageViewer(n, silent){ PV = Math.min(PAGES_TOTAL, Math.max(1, +n||PV)); $("pageViewer").hidden = false; document.body.classList.add("menu-open"); pvShow(); }
+function closePageViewer(){ $("pageViewer").hidden = true; document.body.classList.remove("menu-open"); if(parseHash()[0]==="pages") history.back(); }
+function pvShow(){ $("pvImg").src = `pages/p${pad(PV)}.webp`; $("pvNum").value = PV; $("pvStage").scrollTop = 0; }
+function pvStep(d){ PV = Math.min(PAGES_TOTAL, Math.max(1, PV+d)); pvShow(); }
+function pvGo(n){ PV = Math.min(PAGES_TOTAL, Math.max(1, n||1)); pvShow(); }
+function pvZoom(){ $("pvStage").classList.toggle("zoom"); }
+document.addEventListener("keydown", e=>{
+  if(!$("pageViewer").hidden){ if(e.key==="ArrowRight") pvStep(1); else if(e.key==="ArrowLeft") pvStep(-1); else if(e.key==="Escape") closePageViewer(); }
+  else if(e.key==="Escape"){ closeModal("searchModal"); closeModal("settingsModal"); }
+});
+
+/* ---------- Start ---------- */
+if("serviceWorker" in navigator) navigator.serviceWorker.register("../sw.js").catch(()=>{});
+try{ localStorage.setItem("gm_tool_mode_v1","paynetown"); }catch(e){}
+route();
+setTimeout(preloadAll, 800);

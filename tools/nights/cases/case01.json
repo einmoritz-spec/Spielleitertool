@@ -1,0 +1,20 @@
+{"title":"Der sanfte Tod","subtitle":"Ein herzzerreißender Fall um gefühlvollen Jazz und drohenden Tod","level":"Persönliche Ebene","pages":[23,40],"introTitle":"Titel und Pitch",
+ "figures":[
+  {"id":"eisberg","page":25,"box":[28,383,556,826],"kind":"eisberg","title":"Der Eisberg"},
+  {"id":"washboard","page":28,"box":[10,384,587,816],"kind":"plan","title":"Das Washboard (Grundriss)"}
+ ],
+ "eisberg":{"page":25,"fig":"eisberg","nodes":[
+  {"label":"Sammy Jefferson Jr.","cx":33.1,"cy":56.2,"layer":0,"target":"das-washboard"},
+  {"label":"Nebenrollen im Washboard","cx":47.6,"cy":56.4,"layer":0,"target":"das-washboard"},
+  {"label":"Officers Das & Quinn","cx":63.6,"cy":55.0,"layer":0,"target":"das-quinn"},
+  {"label":"Das Washboard","cx":30.6,"cy":63.8,"layer":1,"target":"das-washboard"},
+  {"label":"Angriff auf Martha","cx":44.2,"cy":64.0,"layer":1,"target":"angriff-auf-martha"},
+  {"label":"Das Bancroft-Penthouse","cx":57.8,"cy":62.5,"layer":1,"target":"das-bancroft-penthouse"},
+  {"label":"Bestattungsinstitut Green Meadow","cx":71.1,"cy":61.3,"layer":1,"target":"bestattungsinstitut-green-meadows"},
+  {"label":"Martha Ellis' Garderobe","cx":37.8,"cy":71.1,"layer":2,"target":"martha-ellis-garderobe"},
+  {"label":"Greifer","cx":51.1,"cy":71.1,"layer":2,"target":"greifer"},
+  {"label":"Schweißerei Harrington","cx":66.1,"cy":70.1,"layer":2,"target":"schweisserei-harrington"},
+  {"label":"Der nächste Mord","cx":43.3,"cy":79.0,"layer":3,"target":"der-naechste-mord"},
+  {"label":"Nowaks Versteck","cx":58.7,"cy":78.6,"layer":3,"target":"nowaks-versteck"},
+  {"label":"Das Opernhaus","cx":51.7,"cy":87.2,"layer":4,"target":"das-opernhaus"}
+ ]}}

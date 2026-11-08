@@ -95,8 +95,8 @@
   font-size:12px; color:var(--text-faint); font-variant-numeric:tabular-nums;
   border:1px solid var(--panel-line); padding:2px 9px; border-radius:999px;
 }
-.ch-cat .ch-chev{transition:transform .25s ease;}
-.ch-cat.open .ch-chev{transform:rotate(180deg); color:var(--gold);}
+.ch-cat > .ch-cat-head .ch-chev{transition:transform .25s ease;}
+.ch-cat.open > .ch-cat-head .ch-chev{transform:rotate(180deg); color:var(--gold);}
 .ch-cat-body{
   max-height:0; overflow:hidden; transition:max-height .35s ease;
   padding:0 16px;

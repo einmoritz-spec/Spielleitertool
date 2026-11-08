@@ -49,3 +49,12 @@
   .rail .dot.on{background:var(--mag);box-shadow:0 0 8px var(--mag);transform:scale(1.3)}
 }
 @media (min-width:1000px){.case-grid.nav-off .blk-p,.case-grid.nav-off .blk-ro,.case-grid.nav-off .blk-card,.case-grid.nav-off .threat{max-width:135ch}}
+/* eingeklapptes Menü / sehr breit: Textfluss in Spalten wie im Buch */
+@media (min-width:1000px){
+  .case-grid.nav-off .chsec{column-width:46ch;column-gap:40px;column-fill:balance}
+  .case-grid.nav-off .chsec .blk-p,.case-grid.nav-off .chsec .blk-ro,.case-grid.nav-off .chsec .blk-card,.case-grid.nav-off .chsec .threat{max-width:none}
+  .case-grid.nav-off .chsec>*{break-inside:avoid-column}
+  .case-grid.nav-off .chsec>.sec-sub,.case-grid.nav-off .chsec>.pagetag-row,.case-grid.nav-off .chsec>.btn{column-span:all}
+  .case-grid.nav-off .chsec>.blk-p{break-inside:auto}
+  .case-grid.nav-off .chsec .fig{max-width:100%}
+}

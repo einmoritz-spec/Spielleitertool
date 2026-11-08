@@ -27,6 +27,23 @@ def simplify(b):
 
 def is_stars(x): return re.fullmatch(r'[★+\s]+', plain(x) or 'x') is not None
 
+def _bullety(x):
+    return x.lstrip().startswith('•') or x.lstrip().startswith('»') or ' • ' in x or re.match(r'^<b>[^<]+:</b>', x) is not None
+
+def _consume(th, blocks, i):
+    """Beschreibung (bis 3 Absätze), Spektren-Zeile und Aufzählungen nach dem Kartenkopf einsammeln."""
+    j = i; descs = []
+    while j < len(blocks) and j < i+3 and blocks[j]['t'] == 'p' and not _bullety(blocks[j]['x']) and not is_stars(blocks[j]['x']):
+        descs.append(blocks[j]['x']); j += 1
+    if j < len(blocks) and blocks[j]['t'] == 'sh' and descs:
+        th['desc'] = '<br><br>'.join(descs); i = j
+    if i < len(blocks) and blocks[i]['t'] == 'sh':
+        th['spectra'] = plain(blocks[i]['x']); i += 1
+    while i < len(blocks) and blocks[i]['t'] == 'p' and _bullety(blocks[i]['x']):
+        parts = [p.strip() for p in re.split(r'(?:^|\s)•\s', blocks[i]['x']) if p.strip()]
+        th['items'] += parts; i += 1
+    return i
+
 def merge_threats(blocks):
     out = []; i = 0
     while i < len(blocks):
@@ -34,26 +51,12 @@ def merge_threats(blocks):
         nxt = blocks[i+1] if i+1 < len(blocks) else None
         if b['t'] == 'p' and is_stars(b['x']) and nxt and nxt['t'] in ('h', 'sh') and plain(nxt['x']).isupper():
             th = {'t': 'threat', 'stars': plain(b['x']).replace(' ', ''), 'name': plain(nxt['x']), 'spectra': '', 'items': [], 'box': b['box']}
-            i += 2
-            if i+1 < len(blocks) and blocks[i]['t'] == 'p' and blocks[i+1]['t'] == 'sh' and not blocks[i]['x'].lstrip().startswith('•'):
-                th['desc'] = blocks[i]['x']; i += 1
-            if i < len(blocks) and blocks[i]['t'] == 'sh':
-                th['spectra'] = plain(blocks[i]['x']); i += 1
-            while i < len(blocks) and blocks[i]['t'] == 'p' and (blocks[i]['x'].lstrip().startswith('•') or ' • ' in blocks[i]['x'] or re.match(r'^<b>[^<]+:</b>', blocks[i]['x'])):
-                parts = [p.strip() for p in re.split(r'(?:^|\s)•\s', blocks[i]['x']) if p.strip()]
-                th['items'] += parts; i += 1
-            out.append(th); continue
-        # Sterne am Ende der Namenszeile: "<u>GREIFER</u> ★★★"
-        if b['t'] == 'sh' and re.search(r'★+$', plain(b['x'])) and plain(b['x']).replace('★', '').strip().isupper():
+            i = _consume(th, blocks, i+2); out.append(th); continue
+        # Sterne am Ende der Namenszeile: "<u>GREIFER</u> ★★★" (Überschrift oder Unterüberschrift)
+        if b['t'] in ('sh', 'h') and re.search(r'★+$', plain(b['x'])) and plain(b['x']).replace('★', '').strip().isupper():
             m = re.match(r'(.*?)\s*(★+)$', plain(b['x']))
             th = {'t': 'threat', 'stars': m.group(2), 'name': m.group(1), 'spectra': '', 'items': [], 'box': b['box']}
-            i += 1
-            if i < len(blocks) and blocks[i]['t'] == 'sh':
-                th['spectra'] = plain(blocks[i]['x']); i += 1
-            while i < len(blocks) and blocks[i]['t'] == 'p' and (blocks[i]['x'].lstrip().startswith('•') or ' • ' in blocks[i]['x']):
-                parts = [p.strip() for p in re.split(r'(?:^|\s)•\s', blocks[i]['x']) if p.strip()]
-                th['items'] += parts; i += 1
-            out.append(th); continue
+            i = _consume(th, blocks, i+1); out.append(th); continue
         out.append(b); i += 1
     return out
 

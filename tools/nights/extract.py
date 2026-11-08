@@ -216,14 +216,21 @@ def extract_page(pdfpage, png_path, pageno):
         if e.get('full') or (e['x1']-e['x0']) > W*0.6: e['col'] = -1
     fulls = sorted([e for e in elements if e['col'] == -1], key=lambda e: e['top'])
     others = [e for e in elements if e['col'] != -1]
+    # Breite Karten (Bedrohungen, Papierfetzen) als eigene Bänder: erst linke, dann rechte Spalte je Karte
+    wide = []
+    for im in pdfpage.images:
+        w_, h_ = im['x1']-im['x0'], im['bottom']-im['top']
+        if 0.8*W < w_ < 1.02*W and 110 < h_ < 0.9*H and im['top'] > -1 and im['x0'] > -5: wide.append((im['top'], im['bottom']))
+    marks = [(f['top'], f) for f in fulls] + [(t, None) for t, b in wide] + [(b, None) for t, b in wide]
+    marks.sort(key=lambda m: m[0])
     ordered = []
-    edges = [-1] + [f['top'] for f in fulls] + [10**6]
+    edges = [-1] + [m[0] for m in marks] + [10**6]
     for bi in range(len(edges)-1):
         lo, hi = edges[bi], edges[bi+1]
-        band = [e for e in others if lo <= e['top'] < hi and not (bi > 0 and e['top'] < lo)]
+        band = [e for e in others if lo <= e['top'] < hi]
         for col in (0, 1):
             ordered += sorted([e for e in band if e['col'] == col], key=lambda e: e['top'])
-        if bi < len(fulls): ordered.append(fulls[bi])
+        if bi < len(marks) and marks[bi][1] is not None: ordered.append(marks[bi][1])
     tabtxt = ''
     tl = [c for c in pdfpage.chars if abs((c.get('matrix') or (1,0,0,1))[1]) > 0.9 and 'Champion' in c['fontname']]
     if tl:

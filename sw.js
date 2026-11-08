@@ -1,11 +1,15 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v9";
+const VERSION = "v10";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
   "index.html",
   "manifest.webmanifest",
+  "creator/index.html",
+  "creator/creator.css",
+  "creator/creator.js",
+  "js/ui/creator-modal.js",
   "css/base.css",
   "css/overview.css",
   "css/settings.css",

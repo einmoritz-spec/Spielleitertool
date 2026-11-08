@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14180f">
+<meta name="robots" content="noindex,nofollow">
+<title>Charaktererstellung — Legend in the Mist</title>
+<link rel="icon" href="../icons/icon-192.png">
+<link rel="stylesheet" href="creator.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-text">
+    <div class="app-subtitle">Legend in the Mist</div>
+    <h1 class="app-title">Charaktererstellung</h1>
+  </div>
+  <button class="reset-corner-btn" onclick="resetSurvey()" aria-label="Charaktererstellung zurücksetzen" title="Charaktererstellung zurücksetzen">↺</button>
+</header>
+
+<main id="mainView"></main>
+
+<nav class="bottom-nav">
+  <button class="bottom-nav-btn" id="navQuestions" onclick="setMainTab('questions')"><span class="ic">📜</span>Fragen</button>
+  <button class="bottom-nav-btn" id="navKits" onclick="setMainTab('kits')"><span class="ic">🃏</span>Theme-Kits</button>
+  <button class="bottom-nav-btn" id="navTropes" onclick="setMainTab('tropes')"><span class="ic">🎭</span>Tropes</button>
+  <button class="bottom-nav-btn" id="navChars" onclick="setMainTab('chars')"><span class="ic">📋</span>Charaktere</button>
+</nav>
+
+<div id="wizardModal" class="modal-backdrop" onclick="if(event.target===this) closeWizard()">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" onclick="closeWizard()" aria-label="Schließen">✕</button>
+    <div class="modal-eyebrow">Charakter aus Trope erstellen</div>
+    <div class="modal-title" id="wTitle"></div>
+    <div id="wBody"></div>
+  </div>
+</div>
+
+<div id="answerModal" class="modal-backdrop" onclick="if(event.target===this) closeAnswerModal()">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" onclick="closeAnswerModal()" aria-label="Schließen">✕</button>
+    <div class="modal-eyebrow" id="answerModalEyebrow"></div>
+    <div class="modal-title" id="answerModalTitle"></div>
+    <div class="answer-q-text" id="answerModalQuestion"></div>
+    <div class="w-field">
+      <textarea id="answerModalInput" placeholder=""></textarea>
+    </div>
+    <div class="w-actions">
+      <button class="btn-primary" id="answerModalSubmitBtn" onclick="submitAnswerModal()">Weiter</button>
+    </div>
+  </div>
+</div>
+
+<div id="sheetModal" class="modal-backdrop" onclick="if(event.target===this) closeSheetModal()">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" onclick="closeSheetModal()" aria-label="Schließen">✕</button>
+    <div class="modal-eyebrow">Charakterbogen</div>
+    <div class="modal-title" id="sheetTitle"></div>
+    <div id="sheetBody"></div>
+    <div class="sheet-actions">
+      <button class="btn-secondary" onclick="closeSheetModal()">Schließen</button>
+      <button class="btn-secondary" id="sheetSaveBtn">💾 Speichern</button>
+      <button class="btn-secondary" id="sheetShareBtn">📤 An Spielleitung senden</button>
+      <button class="btn-primary" id="sheetPrintBtn">🖨️ Drucken / Als PDF</button>
+    </div>
+  </div>
+</div>
+
+<div id="printArea"></div>
+
+<script src="creator.js"></script>
+</body>
+</html>

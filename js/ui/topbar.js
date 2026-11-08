@@ -8,6 +8,7 @@ const TOPBAR_PREFS_KEY = "woto_topbar_v1";
 const TOPBAR_ITEMS = [
   { id:"profiles",  icon:"🎴", label:"Profile",       labelDefault:true,  fn:"openProfiles()",     title:"Spielerprofile der Gruppe nachschlagen (Taste P)" },
   { id:"chars",     icon:"🆕", label:"Charakter",     labelDefault:true,  fn:"openCustomChars()",  title:"Eigene Charaktere erstellen &amp; verwalten — gleiche Hero Card, gleicher Druck-Export (Taste X)" },
+  { id:"creator",   icon:"🧙", label:"Erstellung",    labelDefault:true,  fn:"openCreator()",      title:"Charaktererstellung (Fragen, Theme-Kits, Tropes) öffnen — mit Link für Spieler" },
   { id:"npcs",      icon:"🧑", label:"NPCs",          labelDefault:true,  fn:"openCharacters()",   title:"NPC-Verzeichnis aller wichtigen NSCs nachschlagen (Taste N)" },
   { id:"rest",      icon:"🏕", label:"Rasten",        labelDefault:true,  fn:"openRestRules()",    title:"Camping- &amp; Sojourn-Regeln nachschlagen (Taste R)" },
   { id:"rules",     icon:"📖", label:"Glossar",       labelDefault:true,  fn:"openRulesGloss()",   title:"Regelglossar (Core Book, S. 231–233) nachschlagen (Taste G)" },

@@ -57,3 +57,11 @@ Tastenkürzel stehen unten auf der Startseite. Charaktere aus dem Charakter-Erst
 
 ## Änderungen veröffentlichen
 Nach Änderungen an Dateien in `sw.js` die `VERSION` erhöhen (`v1` → `v2` …) und neue Dateien in `FILES` ergänzen, damit installierte Apps aktualisieren.
+
+## Charaktererstellung & Spieler-Link
+
+Die komplette Charaktererstellung (Fragen, Theme-Kits, Tropes, Charakterbogen/PDF) liegt als eigene Seite in `creator/`.
+
+- **Spielleitung:** Kopfzeilen-Knopf „🧙 Erstellung“ öffnet sie als Fenster. Fertige oder bearbeitete Charaktere landen automatisch unter „Charakter“ (eigene Profile).
+- **Spieler:** „🔗 Spieler-Link“ im Fenster kopiert/teilt `…/creator/` – diese Adresse zeigt nur die Charaktererstellung. Spieler schicken ihren Charakter per „📤 An Spielleitung senden“ (JSON-Datei), die Spielleitung importiert sie unter „Charakter“ → 📥.
+- Hinweis: Auf GitHub Pages ist alles öffentlich erreichbar; der Link ist also kein Zugriffsschutz, er führt nur direkt zur Erstellung.

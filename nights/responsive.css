@@ -58,3 +58,6 @@
   .case-grid.nav-off .chsec>.blk-p{break-inside:auto}
   .case-grid.nav-off .chsec .fig{max-width:100%}
 }
+@media (min-width:1000px){
+  .case-grid.nav-off .chsec>.threat{column-span:all;max-width:112ch;margin:14px 0 18px}
+}

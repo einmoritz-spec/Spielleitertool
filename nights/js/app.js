@@ -74,7 +74,7 @@ function secBlocks(c, sid){
 function groupNav(c){
   const groups = []; let cur = null;
   for(const s of c.sections){
-    if(s.kind==="intro"){ groups.push({ name:"Einstieg", items:[s] }); cur = null; continue; }
+    if(s.kind==="intro"){ cur = { name:"Überblick", items:[s] }; groups.push(cur); continue; }
     if(s.kind==="abspann"){ groups.push({ name:"Abspann", items:[s] }); cur = null; continue; }
     if(s.kind==="layer"){ cur = { name:s.title, items:[s], layer:true }; groups.push(cur); continue; }
     if(!cur){ cur = { name:"Hintergrund", items:[] }; groups.push(cur); }
@@ -82,30 +82,53 @@ function groupNav(c){
   }
   return groups;
 }
+function chapterOf(c, sid){
+  const gs = groupNav(c);
+  return gs.find(g=>g.items.some(s=>s.id===sid)) || gs[0];
+}
+function chapterTitle(g){ return g.layer ? g.items[0].title : g.name; }
 function renderCase(c, sid){
   CUR = c;
-  const isEis = sid==="__eisberg";
-  const sec = c.sections.find(s=>s.id===sid) || c.sections[0];
+  const gs = groupNav(c);
+  const toEis = sid==="__eisberg";
+  let ch = toEis ? gs[0] : chapterOf(c, sid);
+  CURCH = ch;
   let nav = `<h4>Fall ${c.nr}</h4>`;
-  if(c.eisberg) nav += `<button class="${isEis?"on":""}" onclick="location.hash='#/case/${c.nr}/eisberg'">🧊 Der Eisberg<small>Übersicht</small></button>`;
-  for(const g of groupNav(c)){
-    const head = !!g.layer;
-    if(!head) nav += `<h4>${esc(g.name)}</h4>`; else nav += `<h4>Schicht</h4>`;
-    for(const s of g.items) nav += navBtn(c, s, sec, isEis, head && s===g.items[0]);
-  }
-  const sel = `<option value="">Abschnitt wählen …</option>` + (c.eisberg?`<option value="eisberg"${isEis?" selected":""}>Der Eisberg</option>`:"") + c.sections.map(s=>`<option value="${s.id}"${!isEis&&s.id===sec.id?" selected":""}>${esc(s.title)} (S. ${s.page})</option>`).join("");
-  let body = "";
-  if(isEis) body = eisbergView(c);
-  else body = sectionView(c, sec);
+  gs.forEach((g,i)=>{ nav += `<button class="${g.items[0].id===ch.items[0].id?"on":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${esc(chapterTitle(g))}<small>Seite ${g.items[0].page}${g.items.length>1?" · "+g.items.length+" Abschnitte":""}</small></button>`; });
+  const sel = gs.map(g=>`<option value="${g.items[0].id}"${g.items[0].id===ch.items[0].id?" selected":""}>${esc(chapterTitle(g))}</option>`).join("");
+  const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
+  let body = chapterView(c, ch);
+  body += `<div class="notes"><h3 class="blk-sh">Notizen</h3><textarea oninput="setNote('${c.nr}:${ch.items[0].id}',this.value)" placeholder="Eigene Notizen zu diesem Kapitel …">${esc(ST.notes[c.nr+":"+ch.items[0].id]||"")}</textarea></div>`;
+  body += `<div class="secfoot">${prev?`<a class="btn" href="#/case/${c.nr}/sec/${prev.items[0].id}">‹ ${esc(chapterTitle(prev))}</a>`:"<span></span>"}${next?`<a class="btn" href="#/case/${c.nr}/sec/${next.items[0].id}">${esc(chapterTitle(next))} ›</a>`:"<span></span>"}</div>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › Fall ${c.nr}</div>
   <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${esc(c.subtitle||"")} · Seiten ${c.from}–${c.to}</span></div>
-  <div class="navbar"><select onchange="selNav(this.value)" aria-label="Abschnitt">${sel}</select></div>
+  <div class="navbar"><select onchange="selNav(this.value)" aria-label="Kapitel">${sel}</select></div>
   <div class="case-grid"><aside class="nav">${nav}</aside><main class="content">${body}</main></div>`;
+  const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
+  if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
-function navBtn(c, s, sec, isEis, top){
-  return `<button class="${!isEis&&s.id===sec.id?"on":""} ${top?"":"sub"}" onclick="location.hash='#/case/${c.nr}/sec/${s.id}'">${esc(s.title)}<small>Seite ${s.page}</small></button>`;
+let CURCH = null;
+function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
+function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }
+function chapterView(c, ch){
+  const first = ch.items[0];
+  let h = `<div class="sec-title"><h2>${esc(chapterTitle(ch))}</h2></div>`;
+  if(ch.items.length>1) h += `<div class="toc">${ch.items.slice(ch.layer||first.kind==="intro"?1:0).map(s=>`<a href="#/case/${c.nr}/sec/${s.id}">${esc(s.title)}</a>`).join("")}</div>`;
+  if(c.eisberg && (first.kind==="intro")) h += `<div id="eisberg">${eisbergView(c)}</div>`;
+  ch.items.forEach((sec,k)=>{
+    const sub = !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
+    const nextSec = c.sections[c.sections.indexOf(sec)+1];
+    h += `<section class="chsec" id="s-${sec.id}">`;
+    if(sub) h += `<h3 class="sec-sub">${esc(sec.title)}<button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3>`;
+    else h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></div>`;
+    const blocks = secBlocks(c, sec.id);
+    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && figSec(c,f)===sec.id) h += figHtml(f);
+    for(const b of blocks) h += blockHtml(c, b);
+    h += `</section>`;
+  });
+  return h;
 }
-function selNav(v){ if(!v) return; location.hash = v==="eisberg" ? `#/case/${CUR.nr}/eisberg` : `#/case/${CUR.nr}/sec/${v}`; }
+function figSec(c, f){ if(f.sec) return f.sec; let best=null; for(const s of c.sections) if(s.page<=f.page) best=s; return best&&best.id; }
 function mark(x){ return x.replace(/<t>/g,"<t>"); }
 function blockHtml(c, b, idx){
   const k = `${c.nr}:${b.p||b.page}:${b.i}`;
@@ -119,23 +142,8 @@ function blockHtml(c, b, idx){
   }
 }
 function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
-function sectionView(c, sec){
-  const blocks = secBlocks(c, sec.id);
-  let h = `<div class="sec-title"><h2>${esc(sec.title)}</h2><span class="kind">Seite ${sec.page}</span></div>`;
-  let lastPage = null;
-  for(const b of blocks){
-    if(b.page!==lastPage){ lastPage = b.page; h += `<button class="pagechip" onclick="openPageViewer(${b.page})">Seite ${b.page} · Originalseite zeigen</button>`;
-      for(const f of (c.figures||[])) if(f.page===b.page && f.kind!=="eisberg" && f.sec===undefined && (f.after==null)) h += figHtml(f); }
-    h += blockHtml(c, b);
-  }
-  if(!blocks.length) h += `<div class="missing">Kein Text in diesem Abschnitt erfasst.</div>`;
-  const idx = c.sections.indexOf(sec), prev = c.sections[idx-1], next = c.sections[idx+1];
-  h += `<div class="notes"><h3 class="blk-sh">Notizen</h3><textarea oninput="setNote('${c.nr}:${sec.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[c.nr+":"+sec.id]||"")}</textarea></div>`;
-  h += `<div class="secfoot">${prev?`<a class="btn" href="#/case/${c.nr}/sec/${prev.id}">‹ ${esc(prev.title)}</a>`:"<span></span>"}${next?`<a class="btn" href="#/case/${c.nr}/sec/${next.id}">${esc(next.title)} ›</a>`:"<span></span>"}</div>`;
-  return h;
-}
 function setNote(k, v){ ST.notes[k] = v; saveState(); }
-function figHtml(f){ return `<figure class="fig"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }
+function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }
 
 /* Eisberg: Seitenprozent -> Ausschnittsprozent */
 function eisbergView(c){
@@ -149,7 +157,7 @@ function eisbergView(c){
     hot += `<button class="hot ${ST.seen[c.nr+":"+n.label]?"seen":""}" style="left:${l}%;top:${t}%;width:${w/W*100}%;height:${h/H*100}%" title="${esc(n.label)}" aria-label="${esc(n.label)}" onclick="gotoNode(${i})"></button>`;
   });
   const list = E.nodes.map((n,i)=>`<button onclick="gotoNode(${i})"><small>Schicht ${n.layer}</small>${esc(n.label)}</button>`).join("");
-  return `<div class="sec-title"><h2>Der Eisberg</h2><span class="kind">Seite ${E.page}</span></div><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div><div class="nodelist">${list}</div>`;
+  return `<h3 class="sec-sub">Der Eisberg<button class="pagetag" onclick="openPageViewer(${E.page})">Seite ${E.page}</button></h3><p class="hint">Auf ein Foto tippen, um zum Abschnitt zu springen.</p><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div><div class="nodelist">${list}</div>`;
 }
 function gotoNode(i){ const n = CUR.eisberg.nodes[i]; ST.seen[CUR.nr+":"+n.label] = 1; saveState(); location.hash = `#/case/${CUR.nr}/sec/${n.target}`; }
 

@@ -151,3 +151,13 @@ body.menu-open{overflow:hidden}
 .mm-foot{border-top:1px solid var(--line);padding-top:8px}
 .missing{padding:30px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:14px}
 .btn{text-decoration:none;color:var(--text)}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.toc a{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.82rem;text-decoration:none;color:var(--text)}
+.toc a:hover{border-color:var(--mag)}
+.chsec{scroll-margin-top:70px;margin-bottom:34px}
+.sec-sub{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:30px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line);font-size:1.3rem;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan)}
+.pagetag{background:none;border:1px solid var(--line);border-radius:999px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:2px 9px}
+.pagetag:hover{color:var(--cyan);border-color:var(--cyan)}
+.pagetag-row{text-align:right;margin-bottom:6px}
+.fig.handout{max-width:520px}.fig.art{max-width:900px}

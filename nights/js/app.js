@@ -6,7 +6,7 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const pad = (n, l=3) => String(n).padStart(l, "0");
 let ST = loadState();
-function loadState(){ try{ return Object.assign({ cases:{}, done:{}, notes:{}, last:null, seen:{} }, JSON.parse(localStorage.getItem(STATE_KEY)||"{}")); }catch(e){ return { cases:{}, done:{}, notes:{}, last:null, seen:{} }; } }
+function loadState(){ try{ return Object.assign({ cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{} }, JSON.parse(localStorage.getItem(STATE_KEY)||"{}")); }catch(e){ return { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{} }; } }
 function saveState(){ try{ localStorage.setItem(STATE_KEY, JSON.stringify(ST)); }catch(e){} }
 
 /* ---------- Daten laden ---------- */
@@ -137,10 +137,29 @@ function blockHtml(c, b, idx){
     case "sh": return `<div class="blk blk-sh">${b.x}</div>`;
     case "ro": return `<div class="blk blk-ro">${b.x}</div>`;
     case "card": { const d = ST.done[k]; return `<div class="blk blk-card ${b.k==="pink"?"pink":""} ${d?"done":""}"><button class="tick" onclick="toggleDone('${k}',this)" aria-label="Hinweis abhaken"></button>${b.x}</div>`; }
-    case "threat": return `<div class="blk threat"><div class="threat-head"><span class="stars">${esc(b.stars||"")}</span><b>${esc(b.name)}</b></div>${b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:""}<ul>${(b.items||[]).map(i=>`<li>${i}</li>`).join("")}</ul></div>`;
+    case "threat": return threatHtml(c, b);
     default: return `<p class="blk blk-p">${b.x}</p>`;
   }
 }
+function parseLimits(sp){
+  return (sp||"").split(" / ").map(x=>{ x=x.trim(); const m = x.match(/^\(?(.*?)\s+(\d+)\)?$/); return m ? { label:m[1].replace(/(\S)- (\S)/g,'$1$2').trim(), max:+m[2] } : null; }).filter(Boolean);
+}
+function cap(t){ return t.charAt(0)+t.slice(1).toLowerCase(); }
+function threatHtml(c, b){
+  const key = `${c.nr}:${b.name}`;
+  const lims = parseLimits(b.spectra);
+  const nstars = (b.stars||"").length;
+  const rows = lims.map((l,i)=>{
+    const k = key+":"+i, cur = ST.limits[k]||0; let pips = "";
+    for(let n=1;n<=l.max;n++) pips += `<button class="pip ${n<=cur?"filled":""}" onclick="setLimit('${k.replace(/'/g,"\\'")}',${n},${l.max},this)" aria-label="${n} von ${l.max}"></button>`;
+    return `<div class="limit-row"><span class="limit-label">${esc(cap(l.label))}</span><span class="limit-controls"><span class="pips">${pips}</span><span class="limit-count">${cur} / ${l.max}</span><button class="limit-reset" onclick="resetLimit('${k.replace(/'/g,"\\'")}',this)" title="Zurücksetzen">↺</button></span></div>`;
+  }).join("");
+  const items = b.items||[];
+  const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
+  return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${rows?`<div class="limit-block">${rows}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
+}
+function setLimit(k, n, max, btn){ const cur = ST.limits[k]||0; const v = cur===n ? n-1 : n; ST.limits[k] = v; saveState(); const row = btn.closest(".limit-row"); row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", i<v)); row.querySelector(".limit-count").textContent = v+" / "+max; }
+function resetLimit(k, btn){ ST.limits[k] = 0; saveState(); const row = btn.closest(".limit-row"); row.querySelectorAll(".pip").forEach(p=>p.classList.remove("filled")); const t = row.querySelector(".limit-count"); t.textContent = "0 / "+t.textContent.split("/")[1].trim(); }
 function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
 function setNote(k, v){ ST.notes[k] = v; saveState(); }
 function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }
@@ -167,7 +186,7 @@ function closeModal(id){ $(id).classList.remove("show"); }
 function openSettings(){ openModal("settingsModal"); }
 function exportState(){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(ST,null,1)],{type:"application/json"})); a.download = "nights-spielstand.json"; a.click(); }
 function importState(inp){ const f = inp.files[0]; if(!f) return; f.text().then(t=>{ try{ ST = Object.assign(loadState(), JSON.parse(t)); saveState(); route(); closeModal("settingsModal"); }catch(e){ alert("Datei konnte nicht gelesen werden."); } }); }
-function resetState(){ if(confirm("Spielstand wirklich zurücksetzen?")){ ST = { cases:{}, done:{}, notes:{}, last:null, seen:{} }; saveState(); closeModal("settingsModal"); route(); } }
+function resetState(){ if(confirm("Spielstand wirklich zurücksetzen?")){ ST = { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{} }; saveState(); closeModal("settingsModal"); route(); } }
 
 /* ---------- Suche ---------- */
 function stripTags(s){ return s.replace(/<[^>]+>/g,""); }

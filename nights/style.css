@@ -83,19 +83,33 @@ u{text-decoration-thickness:1px;text-underline-offset:2px}
 t{background:#c4d95a;color:#222;font-style:italic;padding:0 4px;border-radius:3px}
 .blk-ro u,.blk-card u,.blk-p u{cursor:default}
 /* Bedrohung */
-.threat{max-width:78ch;border:1px solid #4a3350;border-radius:12px;background:linear-gradient(180deg,#221a2a,#171520);overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.4)}
-.threat-head{display:flex;align-items:baseline;gap:12px;padding:10px 14px;background:linear-gradient(90deg,rgba(255,61,154,.28),transparent)}
-.threat-head b{font-size:1.15rem;text-transform:uppercase;letter-spacing:.06em}
-.stars{color:#ffd166;letter-spacing:.1em}
-.spectra{padding:6px 14px;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--cyan);border-bottom:1px solid #3a2f45}
-.threat ul{margin:0;padding:10px 14px 12px 30px}
-.threat li{margin:6px 0}
+.threat{position:relative;max-width:78ch;background:var(--paper);color:var(--ink);border-radius:4px 4px 10px 10px;padding:16px 18px 14px;box-shadow:0 10px 26px rgba(0,0,0,.45);transform:rotate(-.25deg)}
+.threat.boss{background:#f1d3d6}
+.threat .pin{position:absolute;top:-8px;left:20px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8a8a,#c02a2a);box-shadow:0 3px 5px rgba(0,0,0,.5)}
+.threat-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px;border-bottom:2px solid rgba(0,0,0,.2);padding-bottom:6px}
+.threat-head b{font-size:1.2rem;text-transform:uppercase;letter-spacing:.04em}
+.stars{color:#b06a00;letter-spacing:.08em;font-size:1.05rem;white-space:nowrap}
+.threat .limit-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:4px 0}
+.threat .limit-label{flex:1 1 200px;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.threat .limit-controls{display:flex;align-items:center;gap:8px}
+.pips{display:flex;gap:4px}
+.pip{width:22px;height:28px;border-radius:3px;border:2px solid rgba(0,0,0,.55);background:rgba(255,255,255,.55);padding:0;transition:all .12s}
+.pip:hover{border-color:#b02a2a}
+.pip.filled{background:linear-gradient(180deg,#e0453f,#a81f1f);border-color:#6d1010;box-shadow:0 0 6px rgba(176,42,42,.5)}
+.limit-count{font-size:.78rem;font-variant-numeric:tabular-nums;min-width:34px;color:#4a4338}
+.limit-reset{width:26px;height:26px;border-radius:50%;border:1px solid rgba(0,0,0,.35);background:rgba(255,255,255,.5);padding:0;color:#333}
+.threat .spectra{border:0;color:#4a4338;padding:4px 0}
+.th-spec,.th-moves{margin:8px 0 0;padding-left:20px;font-size:.93rem}
+.th-spec li,.th-moves li{margin:5px 0}
+.th-sub{margin-top:10px;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#7a2a2a}
+.threat t{background:#c4d95a}
+@media (max-width:720px){.pip{width:26px;height:32px}.threat{padding:16px 12px 12px}}
 /* Eisberg */
 .eis-wrap{position:relative;max-width:1100px;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 8px 30px rgba(0,0,0,.5)}
 .eis-wrap img{display:block;width:100%;height:auto}
 .hot{position:absolute;border:2px solid transparent;border-radius:6px;background:transparent;cursor:pointer;padding:0}
-.hot:hover,.hot:focus-visible{border-color:var(--mag);background:rgba(255,61,154,.16);box-shadow:0 0 16px rgba(255,61,154,.6)}
-.hot.seen{border-color:rgba(143,227,164,.8)}
+.hot{outline:none;-webkit-tap-highlight-color:transparent;border:0;background:transparent}
+.hot:hover,.hot:focus,.hot:focus-visible,.hot:active,.hot.seen{border:0;background:transparent;box-shadow:none;outline:none}
 .nodelist{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin-top:14px}
 .nodelist button{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
 .nodelist button:hover{border-color:var(--mag)}

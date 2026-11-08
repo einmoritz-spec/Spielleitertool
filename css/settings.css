@@ -1,0 +1,111 @@
+/* ---------- Kopfzeile anpassbar + Profil-Löschen (neu, November 2026) ---------- */
+.rest-btn.tb-settings{padding:6px 9px;}
+.tb-menu{
+  position:fixed; z-index:200; min-width:230px; padding:6px;
+  background:linear-gradient(160deg, var(--panel-raised), var(--panel));
+  border:1px solid rgba(201,162,75,.35); border-radius:10px;
+  box-shadow:0 20px 50px -12px rgba(0,0,0,.75); font-family:var(--sans);
+}
+.tb-menu .tb-menu-head{
+  font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--text-faint); padding:6px 10px 4px;
+}
+.tb-menu button{
+  display:block; width:100%; text-align:left; background:none; border:none;
+  color:var(--text-lo); font-size:13px; padding:8px 10px; border-radius:6px;
+}
+.tb-menu button:hover{background:rgba(201,162,75,.12); color:var(--text-hi);}
+.tb-menu hr{border:none; border-top:1px solid var(--panel-line); margin:5px 2px;}
+.tb-set-list{display:flex; flex-direction:column; gap:4px; margin:10px 0 16px;}
+.tb-set-row{
+  display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:14px;
+  padding:7px 12px; border:1px solid var(--panel-line-soft); border-radius:8px;
+  background:var(--panel); font-family:var(--sans); font-size:13px; color:var(--text-lo);
+}
+.tb-set-row.is-hidden{opacity:.6;}
+.tb-set-row .tb-set-name{color:var(--text-hi);}
+.tb-set-row label{display:flex; align-items:center; gap:6px; font-size:12px; cursor:pointer; white-space:nowrap;}
+.tb-set-head{
+  display:grid; grid-template-columns:1fr auto auto; gap:14px; padding:0 12px;
+  font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--text-faint);
+}
+.tb-set-head span:nth-child(2), .tb-set-head span:nth-child(3){min-width:78px; text-align:left;}
+.tb-set-row label{min-width:78px;}
+.tb-set-actions{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+.tb-set-section{
+  font-family:var(--sans); font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--text-faint); margin:18px 0 8px;
+}
+.pf-list-row{display:flex; gap:8px; align-items:stretch;}
+.pf-list-row .pf-list-item{flex:1; min-width:0; width:auto;}
+.pf-list-row .pf-row-remove{align-self:center; flex:none;}
+
+/* Tastaturbefehl-Legende am Fuß des Startbildschirms (neu, Juli 2026) */
+.shortcuts-legend{
+  margin-top:44px; padding:22px 0 8px; border-top:1px solid var(--panel-line-soft);
+}
+.shortcuts-legend h3{
+  font-family:var(--sans); font-size:11px; font-weight:600; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--text-faint); margin:0 0 14px;
+}
+.shortcuts-grid{display:flex; flex-wrap:wrap; row-gap:10px; column-gap:24px;}
+.shortcut-chip{
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--sans); font-size:12.5px; color:var(--text-lo); white-space:nowrap;
+}
+.shortcut-chip kbd{
+  font-family:var(--sans); font-size:11px; font-weight:700; color:var(--gold-bright);
+  background:var(--panel-raised); border:1px solid var(--panel-line); border-radius:5px;
+  padding:2px 7px; min-width:14px; text-align:center; display:inline-block;
+}
+.adv-tile{
+  position:relative; border-radius:var(--radius);
+  background:linear-gradient(160deg, var(--panel-raised), var(--panel));
+  border:1px solid var(--panel-line);
+  padding:22px 22px 20px;
+  min-height:190px;
+  display:flex; flex-direction:column;
+  text-align:left; color:inherit; overflow:hidden;
+  transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.adv-tile::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:4px;
+  background:var(--tile-accent, var(--panel-line));
+  border-radius:var(--radius) var(--radius) 0 0;
+  opacity:.9;
+}
+.adv-tile.ready{cursor:pointer;}
+.adv-tile.ready:hover{transform:translateY(-4px); border-color:var(--tile-accent, rgba(201,162,75,.4)); box-shadow:var(--shadow-lift);}
+.adv-tile.ready:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+.adv-tile .num{
+  font-family:var(--serif-display); font-style:italic; font-weight:500;
+  font-size:13px; color:var(--tile-accent, var(--gold)); opacity:.9; margin-bottom:10px;
+}
+.adv-tile h3{
+  font-family:var(--serif-display); font-weight:600; font-size:22px;
+  margin:0 0 4px; line-height:1.2; color:var(--text-hi);
+}
+.adv-tile .en{
+  font-size:12.5px; color:var(--text-faint); font-style:italic; margin-bottom:12px;
+}
+.adv-tile p.teaser{
+  font-size:13.5px; line-height:1.55; color:var(--text-lo); margin:0; flex:1;
+}
+.adv-tile .tile-foot{
+  margin-top:16px; display:flex; align-items:center; justify-content:space-between;
+  font-size:11.5px; color:var(--text-faint);
+}
+.adv-tile .status-chip{
+  font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+  padding:4px 9px; border-radius:999px; border:1px solid var(--panel-line);
+}
+.adv-tile.ready .status-chip{color:var(--moss-bright); border-color:rgba(111,145,99,.4);}
+.adv-tile.locked{opacity:.55;}
+.adv-tile.locked .status-chip{color:var(--text-faint);}
+.adv-tile .raven-corner{
+  position:absolute; right:14px; top:14px; width:26px; height:26px; color:var(--panel-line);
+  opacity:.7;
+}
+.adv-tile.ready .raven-corner{color:var(--tile-accent, var(--gold)); opacity:.45;}
+.adv-tile.ready:hover .raven-corner{opacity:.85;}

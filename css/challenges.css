@@ -1,0 +1,198 @@
+/* ---------- challenge cards ---------- */
+.challenge{
+  border:1px solid var(--panel-line); border-radius:10px; margin-bottom:14px;
+  background:var(--panel); overflow:hidden;
+}
+.challenge-head{
+  width:100%; display:flex; align-items:center; gap:14px; padding:15px 18px;
+  background:none; border:none; color:inherit; text-align:left;
+}
+.challenge-head:hover{background:var(--panel-raised);}
+.ch-type{
+  flex:none; font-size:10px; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--rust-bright); border:1px solid rgba(177,80,47,.4); padding:3px 8px;
+  border-radius:999px; white-space:nowrap;
+}
+.ch-portrait{
+  flex:none; width:44px; height:44px; border-radius:50%; object-fit:cover;
+  border:1px solid var(--panel-line); box-shadow:0 2px 6px rgba(0,0,0,.35);
+}
+.ch-portrait-group{flex:none; display:flex;}
+.ch-portrait-group .ch-portrait{margin-left:-14px; border:2px solid var(--panel);}
+.ch-portrait-group .ch-portrait:first-child{margin-left:0;}
+.ch-name-wrap{flex:1; min-width:0;}
+.ch-name{font-family:var(--serif-display); font-weight:700; font-size:16.5px; letter-spacing:.01em; color:var(--text-hi);}
+.ch-optional-tag{
+  font-family:var(--sans); font-size:10px; text-transform:uppercase; letter-spacing:.05em;
+  color:var(--text-faint); font-weight:600; border:1px solid var(--panel-line);
+  padding:2px 7px; border-radius:999px; vertical-align:middle;
+}
+.ch-quicklimits{font-size:11px; color:var(--text-faint); margin-top:2px;}
+/* Favoriten-Stern auf Challenge-Karten (neu) — ein <span> statt <button>,
+   weil .challenge-head selbst schon ein <button> ist (verschachtelte
+   Buttons sind ungültiges HTML, siehe Dokumentation 8.4b); Klick wird per
+   event.stopPropagation() davon abgehalten, gleichzeitig toggleChallenge()
+   auszulösen. */
+.ch-fav-btn{
+  flex:none; width:22px; height:22px; display:flex; align-items:center; justify-content:center;
+  font-size:17px; color:var(--text-faint); cursor:pointer; border-radius:50%;
+  transition:color .15s ease, transform .15s ease;
+}
+.ch-fav-btn:hover{color:var(--gold-bright); transform:scale(1.12);}
+.ch-fav-btn.active{color:var(--gold-bright);}
+.ch-chev{flex:none; width:16px; height:16px; color:var(--text-faint); transition:transform .25s ease;}
+.challenge.open .ch-chev{transform:rotate(180deg); color:var(--gold);}
+.challenge-body{
+  max-height:0; overflow:hidden; transition:max-height .35s ease;
+}
+.challenge.open .challenge-body{max-height:4000px;}
+.ch-inner{padding:0 20px 16px;}
+.ch-desc{font-family:var(--serif-body); font-size:calc(15px * var(--fs)); color:var(--text-lo); line-height:1.58; margin:0 0 10px; border-top:1px solid var(--panel-line-soft); padding-top:12px;}
+.ch-desc p{margin:0 0 8px;}
+.ch-desc p:last-child{margin-bottom:0;}
+
+.limit-block{margin-bottom:8px;}
+.limit-row{
+  display:flex; align-items:center; gap:12px; padding:5px 0; flex-wrap:wrap;
+}
+.limit-label{
+  flex:none; width:150px; font-size:calc(12.5px * var(--fs)); font-weight:600; color:var(--text-hi);
+  text-transform:uppercase; letter-spacing:.03em;
+}
+.pips{display:flex; gap:4px; align-items:center;}
+.pip{
+  width:20px; height:26px; border-radius:3px; border:1.5px solid var(--panel-line);
+  background:var(--void); cursor:pointer; transition:all .15s ease; flex:none; padding:0;
+}
+.pip:hover{border-color:var(--gold);}
+.pip.filled{background:linear-gradient(180deg, var(--gold-bright), var(--gold)); border-color:var(--gold-bright); box-shadow:0 0 8px rgba(201,162,75,.35);}
+.limit-count{font-size:12px; color:var(--text-faint); font-variant-numeric:tabular-nums; min-width:34px;}
+.limit-controls{display:flex; align-items:center; gap:12px; flex:none;}
+.limit-reset{
+  background:none; border:1px solid var(--panel-line); color:var(--text-faint);
+  width:24px; height:24px; border-radius:50%; font-size:12px; line-height:1; flex:none;
+  display:flex; align-items:center; justify-content:center;
+}
+.limit-reset:hover{color:var(--rust-bright); border-color:var(--rust);}
+.limit-static{
+  font-size:13px; color:var(--text-faint); font-style:italic; padding:9px 0;
+}
+.limit-static b{color:var(--text-lo); font-style:normal;}
+.limit-note{
+  flex-basis:100%; font-size:12px; color:var(--text-faint); font-style:italic;
+  line-height:1.5; padding-left:0; margin-top:-2px;
+}
+.limit-note.secret::before{content:"🔒 "; opacity:.6;}
+
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin:2px 0 10px;}
+.chip{
+  font-size:11.5px; color:var(--text-lo); background:var(--panel-raised);
+  border:1px solid var(--panel-line); padding:4px 10px; border-radius:999px;
+}
+
+.secret-block{
+  background:rgba(124,106,154,.08); border:1px solid rgba(124,106,154,.25);
+  border-radius:8px; padding:12px 15px; margin-bottom:12px;
+}
+.secret-block .s-title{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#c3b3e0; font-weight:600; margin-bottom:3px;}
+.secret-block p{margin:0 0 8px; font-size:calc(14px * var(--fs)); color:var(--text-lo); line-height:1.6;}
+.secret-block p:last-child{margin-bottom:0;}
+
+.special-block{
+  background:rgba(201,162,75,.07); border:1px solid rgba(201,162,75,.25);
+  border-radius:8px; padding:12px 15px; margin-bottom:12px;
+}
+.special-block .sp-title{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--gold-bright); font-weight:600; margin-bottom:3px;}
+.special-block p{margin:0 0 8px; font-size:calc(14px * var(--fs)); color:var(--text-lo); line-height:1.6;}
+.special-block p:last-child{margin-bottom:0;}
+
+.ch-subtitle{font-family:var(--sans); font-weight:400; font-size:.62em; color:var(--text-faint); letter-spacing:0;}
+.ch-difficulty{font-size:.68em; letter-spacing:.05em; color:var(--accent, #a05a2c); margin-left:.35em; white-space:nowrap;}
+.ch-difficulty .pip-off{opacity:.28;}
+
+.threat{margin-bottom:14px;}
+.threat-head{margin-bottom:6px;}
+.threat .th-name{
+  display:inline-block; margin:0 0 5px;
+  font-size:11px; font-weight:700; color:var(--rust-bright); text-transform:uppercase;
+  letter-spacing:.03em; background:var(--panel-raised); border:1px solid rgba(177,80,47,.3);
+  padding:3px 9px; border-radius:5px; white-space:nowrap;
+}
+.threat .th-flavor{display:block; font-family:var(--serif-body); font-style:italic; font-size:calc(14px * var(--fs)); color:var(--text-faint); margin:0; line-height:1.5;}
+.threat ul{list-style:none; margin:0; padding-left:0;}
+.threat li{
+  position:relative; padding-left:18px; font-size:calc(14px * var(--fs));
+  color:var(--text-lo); line-height:1.48; margin-bottom:3px;
+}
+.threat li::before{content:"◆"; position:absolute; left:0; top:0; font-size:8px; color:var(--dusk);}
+
+/* ---------- Zweispaltiges Challenge-Layout (nah am Buch-Statblock), Testlauf Juli 2026 ---------- */
+.ch-cols{display:grid; grid-template-columns:minmax(170px,220px) 1fr; gap:20px; align-items:start;}
+.ch-col-left{display:flex; flex-direction:column; gap:18px; padding-top:12px; border-top:1px solid var(--panel-line-soft); min-width:0;}
+.ch-col-right{min-width:0;}
+.ch-lcol-block{display:flex; flex-direction:column; min-width:0;}
+.ch-section-label{
+  text-align:center; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--text-faint); margin:0 0 10px; padding-bottom:7px; border-bottom:1px solid var(--panel-line);
+}
+.ch-section-label.left{text-align:left; margin:18px 0 12px; padding-bottom:6px;}
+.ch-col-left .limit-block{margin-bottom:0; display:flex; flex-direction:column; gap:10px;}
+/* Label bekommt eine eigene Zeile (schmale Spalte reicht sonst nicht für
+   Labels wie "BEWILDER (VERWIRREN)"); Pips+Zähler+Reset bleiben dank
+   .limit-controls als eine feste Einheit zusammen und wandern bei Bedarf
+   gemeinsam in die zweite Zeile, statt dass der Reset-Button allein
+   umbricht (Fix Juli 2026). */
+.ch-col-left .limit-row{flex-wrap:wrap; justify-content:center; padding:0; gap:5px;}
+.ch-col-left .limit-label{flex:0 0 100%; width:auto; text-align:center;}
+.ch-col-left .limit-controls{justify-content:center; gap:6px;}
+.ch-col-left .pips{justify-content:center; gap:3px;}
+.ch-col-left .pip{width:16px; height:21px;}
+.ch-col-left .limit-count{min-width:0; font-size:11px;}
+.ch-col-left .limit-reset{width:20px; height:20px; font-size:11px;}
+.ch-col-left .limit-note{text-align:center;}
+.ch-col-left .chips{flex-direction:column; align-items:flex-start; gap:5px; margin:0;}
+.ch-col-left .chip{
+  background:none; border:none; padding:0; font-style:italic; font-size:12px;
+  color:var(--gold-bright); border-radius:0;
+}
+.ch-col-left .secret-block, .ch-col-left .special-block{padding:0; background:none; border:none; margin-bottom:14px;}
+.ch-col-left .secret-block:last-child, .ch-col-left .special-block:last-child{margin-bottom:0;}
+.ch-col-left .s-title, .ch-col-left .sp-title{color:var(--text-faint); font-weight:600;}
+.ch-col-left .secret-block p, .ch-col-left .special-block p{font-style:italic; font-size:12.5px;}
+.ch-col-right .ch-desc{border-top:none; padding-top:0; margin-bottom:0;}
+@media (max-width:640px){
+  .ch-cols{grid-template-columns:1fr;}
+  .ch-col-left{border-top:none; padding-top:0;}
+}
+
+.ch-source{
+  font-size:11.5px; color:var(--text-faint); font-style:italic; margin-top:14px;
+  padding-top:12px; border-top:1px solid var(--panel-line-soft);
+}
+
+/* ---------- bottom scene nav ---------- */
+.scenenav{
+  position:fixed; left:0; right:0; bottom:0; z-index:30;
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding:5px 16px; background:rgba(15,21,18,.92); backdrop-filter:blur(10px);
+  border-top:1px solid var(--panel-line);
+}
+.nav-btn{
+  display:flex; align-items:center; gap:5px; background:none;
+  border:1px solid transparent; color:var(--text-faint); padding:4px 8px;
+  border-radius:6px; font-size:11px; max-width:32%;
+}
+.nav-btn:hover{border-color:var(--panel-line); color:var(--text-hi); background:var(--panel-raised);}
+.nav-btn:disabled{opacity:.25; cursor:default;}
+.nav-btn .lbl{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.nav-btn .arrow{flex:none; opacity:.7; width:11px; height:11px;}
+.nav-dots{display:flex; gap:4px; align-items:center;}
+.nav-dots .d{width:4px; height:4px; border-radius:50%; background:var(--panel-line);}
+.nav-dots .d.active{background:var(--gold); width:11px; border-radius:3px;}
+
+@media (max-width: 880px){
+  .pathrail{display:none;}
+  .theme-rail{display:none;}
+  .time-tracker{display:none;}
+  .stage-wrap{padding:22px 18px 100px;}
+}

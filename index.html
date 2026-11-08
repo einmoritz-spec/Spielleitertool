@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f1512">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Wake of the Oldways — Erzähler-Tafel</title>
+<!-- Google-Fonts-Links (Fraunces/Spectral/Inter) bewusst entfernt (Juli 2026,
+     auf Nutzerwunsch) — die Tafel wird per Doppelklick als lokale file://-
+     Datei geöffnet, ganz ohne Internetzugriff. Ein Service Worker als
+     Offline-Cache-Lösung würde dort ohnehin nicht funktionieren (Browser
+     verweigern Service Worker auf file://-Ursprüngen aus Sicherheitsgründen),
+     und die beiden externen <link>-Tags liefen bei fehlendem Internet vorher
+     ohnehin nur ins Leere, bevor der CSS-Fallback unten griff. Damit ist die
+     Datei jetzt zu 100% netzwerkunabhängig — alle Daten/Logik waren schon
+     vorher inline, dies war die letzte externe Abhängigkeit. Schriftbild
+     nutzt jetzt direkt die robusten System-Font-Stacks aus den --serif-
+     display/--serif-body/--sans-Variablen weiter unten (Georgia/Iowan Old
+     Style/Segoe UI usw.) — optisch sehr nah am Original, nur ohne die exakten
+     Fraunces/Spectral/Inter-Schriftschnitte. Falls später doch die
+     Original-Schriftdateien eingebettet werden sollen (echte @font-face mit
+     data:-URIs statt externem Link), siehe Abschnitt 8 der Dokumentation.
+-->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/overview.css">
+<link rel="stylesheet" href="css/settings.css">
+<link rel="stylesheet" href="css/adventure.css">
+<link rel="stylesheet" href="css/challenges.css">
+<link rel="stylesheet" href="css/modals.css">
+<link rel="stylesheet" href="css/profiles.css">
+<link rel="stylesheet" href="css/tools.css">
+<link rel="stylesheet" href="css/libraries.css">
+</head>
+<body>
+<div id="app"></div>
+
+<div id="spoilerBanner" class="spoiler-banner">🙈 Spoilerschutz aktiv — Taste <kbd>#</kbd> zum Aufheben</div>
+
+<div id="glossModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeGloss()">
+  <div class="gloss-modal" id="glossModalInner" role="dialog" aria-modal="true">
+    <button class="gm-fav-btn" id="glossFavBtn" onclick="toggleGlossFav(currentGlossId)" title="Als Favorit markieren">☆</button>
+    <button class="gm-close" onclick="closeGloss()" aria-label="Schließen">✕</button>
+    <div class="gm-portrait" id="glossPortrait"></div>
+    <div class="gm-eyebrow" id="glossEyebrow"></div>
+    <div class="gm-title" id="glossTitle"></div>
+    <div class="gm-body" id="glossBody"></div>
+  </div>
+</div>
+
+<div id="profilesModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeProfiles()">
+  <div class="gloss-modal profiles-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeProfiles()" aria-label="Schließen">✕</button>
+    <div id="profilesBody"></div>
+  </div>
+</div>
+
+<div id="topbarSettingsModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeTopbarSettings()">
+  <div class="gloss-modal" role="dialog" aria-modal="true" style="max-width:560px;">
+    <button class="gm-close" onclick="closeTopbarSettings()" aria-label="Schließen">✕</button>
+    <div id="topbarSettingsBody"></div>
+  </div>
+</div>
+
+<div id="customCharModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeCustomChars()">
+  <div class="gloss-modal profiles-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeCustomChars()" aria-label="Schließen">✕</button>
+    <div id="customCharBody"></div>
+  </div>
+</div>
+
+<div id="diceModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeDice()">
+  <div class="gloss-modal rules-modal dice-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeDice()" aria-label="Schließen">✕</button>
+    <div class="gm-eyebrow">🎲 Werkzeuge für den Tisch</div>
+    <div class="gm-title">Würfel &amp; Zufall</div>
+    <div class="dice-tabs" id="diceTabs"></div>
+    <div class="dice-body" id="diceBody"></div>
+  </div>
+</div>
+
+<div id="mapModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeMap()">
+  <div class="gloss-modal map-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeMap()" aria-label="Schließen">✕</button>
+    <div class="gm-eyebrow">🗺 Legend in the Mist</div>
+    <div class="gm-title">Karte der Dales</div>
+    <div class="map-scroll" id="mapScroll" onclick="toggleMapZoom(event)">
+      <img id="mapImg" alt="Karte der Dales" />
+    </div>
+    <div class="map-hint">Zum Vergrößern auf die Karte klicken/tippen.</div>
+  </div>
+</div>
+
+<div id="rulesModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeRulesGloss()">
+  <div class="gloss-modal rules-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeRulesGloss()" aria-label="Schließen">✕</button>
+    <div class="gm-eyebrow">📖 Core Book, Appendices S. 231–233 + ergänzte Kernbegriffe</div>
+    <div class="gm-title">Regelglossar</div>
+    <div class="ch-lib-controls-row">
+      <input type="text" class="rg-search" id="rgSearch" placeholder="Suche nach Regelbegriff …" oninput="filterRulesGloss(this.value)">
+      <button class="collapse-all-btn" onclick="collapseAllRules()" title="Alle aufgeklappten Regelglossar-Einträge einklappen">Alle einklappen</button>
+    </div>
+    <div class="rg-cat-chips" id="rgCatChips"></div>
+    <div class="rg-count" id="rgCount"></div>
+    <div class="rg-list" id="rgList"></div>
+  </div>
+</div>
+
+<div id="grimoireModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeGrimoire()">
+  <div class="gloss-modal rules-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeGrimoire()" aria-label="Schließen">✕</button>
+    <div class="gm-eyebrow">🛠 Action Grimoire (Ergänzung zum Core Book)</div>
+    <div class="gm-title">Action Grimoire</div>
+    <div class="ch-lib-controls-row">
+      <input type="text" class="rg-search" id="agSearch" placeholder="Suche nach Action, Beispiel oder Status …" oninput="filterGrimoire(this.value)">
+      <button class="collapse-all-btn" onclick="collapseAllGrimoire()" title="Alle aufgeklappten Action-Grimoire-Einträge einklappen">Alle einklappen</button>
+    </div>
+    <div class="ag-chapter-chips" id="agChapterChips"></div>
+    <div class="rg-count" id="agCount"></div>
+    <div class="rg-list" id="agList"></div>
+  </div>
+</div>
+
+<div id="themebookModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeThemebook()">
+  <div class="gloss-modal rules-modal tb-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeThemebook()" aria-label="Schließen">✕</button>
+    <div class="gm-eyebrow">Core Book, Themebooks S. 92–124</div>
+    <div class="gm-title">Themenbuch-Fragen</div>
+    <div class="tb-book-tabs" id="tbBookTabs"></div>
+    <div class="tb-body" id="tbBody"></div>
+  </div>
+</div>
+
+<div id="searchModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeSearch()">
+  <div class="gloss-modal rules-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeSearch()" aria-label="Schließen">✕</button>
+    <div class="gm-eyebrow">🔍 Alle sieben Abenteuer</div>
+    <div class="gm-title">Volltextsuche</div>
+    <input type="text" class="rg-search" id="searchInput" placeholder="Suche nach NPC, Ort, Vorlesetext, Challenge …" oninput="filterGlobalSearch(this.value)">
+    <div class="rg-count" id="searchCount">Suchbegriff eingeben …</div>
+    <div class="rg-list" id="searchResults"></div>
+  </div>
+</div>
+
+<div id="favoritesModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeFavorites()">
+  <div class="gloss-modal rules-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeFavorites()" aria-label="Schließen">✕</button>
+    <div class="gm-eyebrow">⭐ Deine Merkliste</div>
+    <div class="gm-title">Favoriten</div>
+    <div class="rg-count" id="favCount"></div>
+    <div class="rg-list" id="favList"></div>
+  </div>
+</div>
+
+<div id="challengesModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeChallenges()">
+  <div class="gloss-modal big-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeChallenges()" aria-label="Schließen">✕</button>
+    <div class="big-modal-scroll" id="chLibBody"></div>
+  </div>
+</div>
+
+<div id="storeModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeStore()">
+  <div class="gloss-modal big-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeStore()" aria-label="Schließen">✕</button>
+    <div class="big-modal-scroll" id="storeLibBody"></div>
+  </div>
+</div>
+
+<div id="placesModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closePlaces()">
+  <div class="gloss-modal big-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closePlaces()" aria-label="Schließen">✕</button>
+    <div class="big-modal-scroll" id="placesLibBody"></div>
+  </div>
+</div>
+
+<div id="charactersModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeCharacters()">
+  <div class="gloss-modal big-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeCharacters()" aria-label="Schließen">✕</button>
+    <div class="big-modal-scroll" id="charactersLibBody"></div>
+  </div>
+</div>
+
+<div id="loreModal" class="gloss-modal-backdrop" onclick="if(event.target===this) closeLore()">
+  <div class="gloss-modal big-modal" role="dialog" aria-modal="true">
+    <button class="gm-close" onclick="closeLore()" aria-label="Schließen">✕</button>
+    <div class="big-modal-scroll" id="loreLibBody"></div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/data/lore-glossary.js"></script>
+<script src="js/data/rules-glossary.js"></script>
+<script src="js/data/action-grimoire.js"></script>
+<script src="js/data/themebook-questions.js"></script>
+<script src="js/ui/glossary-modal.js"></script>
+<script src="js/ui/profiles-modal.js"></script>
+<script src="js/ui/map-modal.js"></script>
+<script src="js/ui/rules-glossary-modal.js"></script>
+<script src="js/ui/grimoire-modal.js"></script>
+<script src="js/ui/themebook-modal.js"></script>
+<script src="js/ui/search.js"></script>
+<script src="js/ui/store-modal.js"></script>
+<script src="js/ui/dice-tool.js"></script>
+<script src="js/ui/challenge-library.js"></script>
+<script src="js/ui/places-library.js"></script>
+<script src="js/ui/characters-library.js"></script>
+<script src="js/data/portraits.js"></script>
+<script src="js/data/adventures.js"></script>
+<script src="js/data/adventure-1.js"></script>
+<script src="js/data/adventure-2.js"></script>
+<script src="js/data/adventure-3.js"></script>
+<script src="js/data/adventure-4.js"></script>
+<script src="js/data/adventure-5.js"></script>
+<script src="js/data/adventure-6.js"></script>
+<script src="js/data/adventure-7.js"></script>
+<script src="js/data/campaign-aftermath.js"></script>
+<script src="js/data/challenge-library.js"></script>
+<script src="js/data/general-store.js"></script>
+<script src="js/data/dice-tables.js"></script>
+<script src="js/data/journey-library.js"></script>
+<script src="js/data/revelations.js"></script>
+<script src="js/data/player-profiles.js"></script>
+<script src="js/profiles.js"></script>
+<script src="js/state.js"></script>
+<script src="js/export/summary-pdf.js"></script>
+<script src="js/export/profile-print.js"></script>
+<script src="js/ui/topbar.js"></script>
+<script src="js/ui/views.js"></script>
+<script src="js/ui/interactions.js"></script>
+<script src="js/main.js"></script>
+<script>
+// PWA: Service Worker nur über http(s) (auf file:// verweigern Browser ihn – die Datei läuft dort weiter ganz normal).
+if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+</script>
+</body>
+</html>

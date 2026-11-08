@@ -1,0 +1,488 @@
+/* ---------- adventure shell ---------- */
+.shell{
+  display:flex; align-items:flex-start; max-width:1480px; margin:0 auto;
+}
+.pathrail{
+  width:250px; flex:none; position:sticky; top:0;
+  height:100vh; overflow-y:auto;
+  padding:26px 10px 40px 26px;
+  border-right:1px solid var(--panel-line);
+  transition:width .2s ease, padding .2s ease;
+}
+.pathrail-toggle{
+  position:absolute; top:26px; right:6px; width:24px; height:24px;
+  border-radius:6px; border:1px solid var(--panel-line); background:var(--panel);
+  color:var(--text-faint); cursor:pointer; font-size:13px; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+.pathrail-toggle:hover{color:var(--gold-bright); border-color:var(--gold);}
+.pathrail.collapsed{
+  width:32px; padding:18px 0 32px;
+  display:flex; flex-direction:column; align-items:center;
+}
+.pathrail.collapsed h2,
+.pathrail.collapsed .subhead,
+.pathrail.collapsed .t-eyebrow,
+.pathrail.collapsed .t-title,
+.pathrail.collapsed .raven-mark{display:none;}
+.pathrail.collapsed .trail{padding-left:0; margin-left:0; width:100%;}
+.pathrail.collapsed .trail::before{left:50%; transform:translateX(-50%);}
+.pathrail.collapsed .trail-item{
+  padding:5px 0; margin-bottom:0; display:flex; justify-content:center; width:100%;
+}
+.pathrail.collapsed .trail-item::before{position:static; margin:0;}
+.pathrail.collapsed .pathrail-toggle{
+  position:static; width:20px; height:20px; font-size:11px; margin:0 0 14px;
+}
+.pathrail::-webkit-scrollbar{width:6px;}
+.pathrail::-webkit-scrollbar-thumb{background:var(--panel-line); border-radius:3px;}
+.pathrail h2{
+  font-family:var(--serif-display); font-style:italic; font-weight:600;
+  font-size:19px; margin:0 0 3px; color:var(--gold-bright);
+}
+.pathrail .subhead{font-size:11.5px; color:var(--text-faint); margin-bottom:22px;}
+
+/* Zeit-Tracker — bisher nur für Abenteuer 2 ("An Important Letter"),
+   dessen TIME-PASSES-Mechanik sich über mehrere Szenen hinweg ansammelt
+   (siehe Callout in Szene 2 "Auf dem Weg nach Ashstone"). Neu, Juli 2026.
+   Bewusst NICHT mehr Teil des Flex-Layouts von .content-col (das führte
+   dazu, dass die Box beim Ein-/Ausklappen der Seitenleiste unpassend
+   mitwanderte, siehe Nutzer-Feedback) — stattdessen ein eigenständiges,
+   fest im Viewport verankertes HUD-Element, das immer an derselben
+   Stelle sitzt, egal wie breit Pathrail/Textspalte gerade sind. */
+.time-tracker{
+  width:56px; position:fixed; right:18px; top:78px; z-index:35;
+  padding:14px 8px;
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:10px;
+  box-shadow:var(--shadow-lift);
+  display:flex; flex-direction:column; align-items:center;
+}
+.time-tracker .tt-head{
+  display:flex; align-items:center; justify-content:center; margin-bottom:10px;
+}
+.time-tracker .tt-head .tt-clock{
+  display:inline-flex; width:16px; height:16px; color:var(--gold-bright); opacity:.85;
+}
+.time-tracker .tt-head .tt-clock svg{width:100%; height:100%;}
+.time-tracker .tt-pips{display:flex; flex-direction:column; gap:4px; align-items:center;}
+.time-tracker .pip{width:26px; height:20px;}
+.time-tracker .limit-reset{margin-top:10px;}
+
+/* Spoilerschutz: gesamte Seite weichzeichnen per Taste "#" (neu, Juli 2026) */
+#app{transition:filter .18s ease;}
+/* Wildcard statt nur #app, damit auch offene Pop-up-Fenster (Regelglossar,
+   Challenges/Lore-Bibliothek, Karte, Profile, Suche …) mit verwischt
+   werden — jedes direkte body-Kind außer dem Hinweis-Banner selbst
+   bekommt den Filter. Geschlossene Modals haben ohnehin display:none
+   und sind vom Filter unberührt unsichtbar. */
+body.spoiler-blur > *:not(#spoilerBanner){
+  filter:blur(14px); user-select:none; pointer-events:none; transition:filter .18s ease;
+}
+.spoiler-banner{
+  position:fixed; top:14px; left:50%; transform:translateX(-50%) translateY(-140%);
+  z-index:200; background:var(--panel-raised); border:1px solid var(--gold);
+  color:var(--text-hi); font-size:13px; font-weight:600;
+  padding:9px 18px; border-radius:999px; box-shadow:0 10px 26px -10px rgba(0,0,0,.6);
+  opacity:0; transition:transform .18s ease, opacity .18s ease;
+  pointer-events:none; white-space:nowrap;
+}
+.spoiler-banner kbd{
+  font-family:inherit; background:rgba(255,255,255,.12); border:1px solid var(--panel-line);
+  border-radius:4px; padding:1px 6px; margin:0 2px;
+}
+body.spoiler-blur .spoiler-banner{
+  opacity:1; transform:translateX(-50%) translateY(0);
+}
+.trail{position:relative; padding-left:22px;}
+.trail::before{
+  content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1.5px;
+  background:linear-gradient(var(--panel-line), var(--gold), var(--panel-line));
+  opacity:.5;
+}
+.trail-item{
+  position:relative; padding:9px 32px 9px 6px; margin-bottom:2px;
+  border-radius:8px; cursor:pointer; background:none; border:none;
+  display:block; width:100%; text-align:left;
+}
+.trail-item.done .t-title{color:var(--text-faint);}
+.trail-check{
+  position:absolute; right:6px; top:50%; transform:translateY(-50%);
+  width:18px; height:18px; border-radius:50%; border:1.5px solid var(--text-faint);
+  background:var(--panel); color:var(--void); font-size:11px; line-height:1; font-weight:700;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;
+  transition:all .2s ease;
+}
+.trail-check:hover{border-color:var(--moss-bright);}
+.trail-check.done{background:var(--moss); border-color:var(--moss-bright);}
+.pathrail.collapsed .trail-check{display:none;}
+.trail-item::before{
+  content:""; position:absolute; left:-22px; top:14px; width:9px; height:9px;
+  border-radius:50%; background:var(--panel); border:1.5px solid var(--text-faint);
+  transition:all .2s ease;
+}
+.trail-item .t-title{
+  font-size:13px; color:var(--text-lo); line-height:1.35; display:block;
+  transition:color .2s ease;
+}
+.trail-item .t-eyebrow{
+  font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint);
+  display:block; margin-bottom:1px;
+}
+.trail-item:hover .t-title{color:var(--text-hi);}
+.trail-item:hover::before{border-color:var(--gold);}
+.trail-item.active::before{
+  background:var(--gold); border-color:var(--gold-bright);
+  box-shadow:0 0 0 4px rgba(201,162,75,.16);
+}
+.trail-item.active .t-title{color:var(--gold-bright); font-weight:600;}
+.trail-item.active .raven-mark{opacity:1; transform:translateX(0);}
+.raven-mark{
+  position:absolute; left:-38px; top:11px; width:13px; height:13px; color:var(--gold-bright);
+  opacity:0; transform:translateX(-4px); transition:all .25s ease;
+}
+
+.content-col{
+  display:flex; align-items:flex-start; flex:1; min-width:0;
+  max-width:1180px; margin:0 auto; transition:max-width .2s ease;
+}
+.pathrail.collapsed ~ .content-col{max-width:1280px;}
+
+/* ---------- Themes & Rucksack-Leiste (rechts, neu) ----------
+   Spiegelt die Pathrail-Mechanik (sticky, ein-/ausklappbar), aber auf der
+   rechten Seite und standardmäßig eingeklappt (Nutzerwunsch: "kaum
+   sichtbar"). Zeigt Live-Ansicht aller vier Gruppenprofile (Themes,
+   Power Tags, Backpack) — nutzt dieselben render-/edit-Funktionen wie das
+   Profile-Modal (renderProfileTheme/renderBackpackList), daher bleiben
+   Änderungen hier und im Profile-Fenster automatisch synchron (siehe
+   refreshThemeRail()/syncProfileUI() in der JS-Sektion). */
+.theme-rail{
+  width:340px; flex:none; position:sticky; top:0;
+  height:100vh; overflow-y:auto;
+  padding:26px 22px 40px 14px;
+  border-left:1px solid var(--panel-line);
+  transition:width .2s ease, padding .2s ease;
+}
+.theme-rail-toggle{
+  position:absolute; top:26px; left:6px; width:24px; height:24px;
+  border-radius:6px; border:1px solid var(--panel-line); background:var(--panel);
+  color:var(--text-faint); cursor:pointer; font-size:13px; line-height:1;
+  display:flex; align-items:center; justify-content:center;
+}
+.theme-rail-toggle:hover{color:var(--gold-bright); border-color:var(--gold);}
+.theme-rail.collapsed{
+  width:26px; padding:18px 0 32px;
+  display:flex; flex-direction:column; align-items:center;
+  overflow:hidden;
+}
+.theme-rail.collapsed .tr-head,
+.theme-rail.collapsed .tr-body{display:none;}
+.theme-rail.collapsed .theme-rail-toggle{
+  position:static; width:20px; height:20px; font-size:11px; margin:0;
+}
+.theme-rail::-webkit-scrollbar{width:6px;}
+.theme-rail::-webkit-scrollbar-thumb{background:var(--panel-line); border-radius:3px;}
+.theme-rail .tr-head{
+  font-family:var(--serif-display); font-style:italic; font-weight:600;
+  font-size:17px; margin:0 0 4px 24px; color:var(--gold-bright);
+}
+.theme-rail .tr-subhead{font-size:11px; color:var(--text-faint); margin:0 0 16px 24px;}
+.theme-rail .tr-body{margin-top:34px;}
+.theme-rail .tr-profile{
+  border:1px solid var(--panel-line); border-radius:10px; padding:12px 12px 4px;
+  margin-bottom:16px; background:var(--panel);
+}
+.theme-rail .tr-profile-name{
+  font-family:var(--serif-display); font-weight:600; font-size:14.5px;
+  color:var(--text-hi); margin-bottom:6px; display:flex; align-items:center; gap:6px;
+}
+/* Kompaktere Variante der Profil-Karten-Bausteine innerhalb der schmalen
+   Leiste — überschreibt nur Größen/Abstände, keine Struktur (dieselbe
+   Markup-Herkunft wie im Profile-Modal). */
+.theme-rail .pf-theme{padding:8px 0; margin-bottom:2px; border-top:1px dashed var(--panel-line);}
+.theme-rail .pf-theme:first-of-type{border-top:none;}
+.theme-rail .pf-theme-head{gap:5px; margin-bottom:4px; flex-wrap:wrap;}
+.theme-rail .pf-theme-num{font-size:9.5px;}
+.theme-rail .pf-theme-cat{font-size:10px;}
+.theme-rail .pf-theme-title{font-size:12.5px;}
+.theme-rail .chips{gap:4px; margin-bottom:4px;}
+.theme-rail .pf-chip{font-size:10.5px; padding:2px 6px;}
+.theme-rail .pf-row{font-size:11px; margin-bottom:3px;}
+.theme-rail .pf-trackers{gap:8px; margin-top:4px; flex-wrap:wrap;}
+.theme-rail .pf-tracker-label{font-size:9px;}
+.theme-rail .pf-pip{width:11px; height:11px;}
+.theme-rail .pf-add-tag-row{display:none;} /* Party-Profile: feste Tag-Zahl, kein Hinzufügen-Button nötig */
+.theme-rail .pf-backpack-block{margin:6px 0 10px;}
+.theme-rail .pf-block-label{font-size:11px;}
+.theme-rail .pf-backpack-row{font-size:11px;}
+.stage-wrap{flex:1; min-width:0; padding:26px 34px 90px;}
+/* Reservierter Leerraum rechts, wenn ein fest positionierter Zeit-Tracker
+   angezeigt wird (siehe .time-tracker/position:fixed) — unabhängig vom
+   Ein-/Ausklappzustand der Seitenleiste, damit Text den Tracker nie
+   überlappt (Bugfix, Juli 2026: bei ausgeklappter Seitenleiste reichte
+   der Text vorher bis unter die Box, siehe Nutzer-Screenshots). */
+.has-time-tracker .stage-wrap{padding-right:104px;}
+@media (max-width: 880px){
+  .has-time-tracker .stage-wrap{padding-right:18px;} /* Tracker ist hier ohnehin ausgeblendet, siehe unten */
+}
+
+/* ---------- scene header ---------- */
+.scene-head{margin-bottom:26px;}
+.scene-eyebrow{
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--moss-bright);
+  display:flex; align-items:center; gap:8px; margin-bottom:10px;
+}
+.scene-eyebrow .pg{color:var(--text-faint); letter-spacing:.04em;}
+.scene-head h1{
+  font-family:var(--serif-display); font-weight:600; font-size:clamp(28px,3.6vw,40px);
+  margin:0 0 6px; color:var(--text-hi); line-height:1.12;
+}
+.scene-head .en-title{font-family:var(--serif-body); font-style:italic; color:var(--text-faint); font-size:15px;}
+
+/* ---------- scene overview (quick-glance bullet summary) ---------- */
+.scene-overview{
+  margin:0 0 26px; padding:14px 18px; border-radius:8px;
+  background:var(--panel-raised); border:1px solid var(--panel-line-soft);
+}
+.scene-overview ul{margin:0; padding-left:18px;}
+.scene-overview li{
+  font-family:var(--sans); font-size:calc(13.5px * var(--fs)); line-height:1.55; color:var(--text-lo);
+  margin-bottom:5px;
+}
+.scene-overview li:last-child{margin-bottom:0;}
+.scene-overview li::marker{color:var(--gold);}
+
+/* ---------- section blocks ---------- */
+.section{margin-bottom:30px;}
+.section-label{
+  display:flex; align-items:center; gap:9px; margin-bottom:12px;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
+  font-weight:600;
+}
+.section-label .raven-icon{width:14px; height:14px; opacity:.75;}
+.section-label .line{flex:1; height:1px; background:var(--panel-line);}
+.collapse-all-btn{
+  flex:none; font-family:var(--sans); font-size:11px; font-weight:600; text-transform:none;
+  letter-spacing:0; color:var(--text-faint); background:none; border:1px solid var(--panel-line);
+  padding:5px 10px; border-radius:6px; white-space:nowrap;
+}
+.collapse-all-btn:hover{color:var(--gold-bright); border-color:var(--gold);}
+
+/* Einklappbarer Wachstum/Improve-Block auf Aftermath-Folien (neu, Juli 2026) */
+.growth-details{margin-bottom:30px;}
+summary.growth-summary{cursor:pointer; list-style:none; margin-bottom:12px; user-select:none;}
+summary.growth-summary::-webkit-details-marker{display:none;}
+summary.growth-summary::marker{content:"";}
+summary.growth-summary::before{
+  content:"▸"; display:inline-block; flex:none; font-size:11px; color:var(--gold);
+  transition:transform .15s ease;
+}
+.growth-details[open] summary.growth-summary::before{transform:rotate(90deg);}
+.growth-details .reward-box{margin-bottom:8px;}
+
+/* Freies Notizfeld pro Abenteuer (neu, Juli 2026) — eingeklappt nur eine
+   schmale, anklickbare Kopfzeile, damit es keinen unnötigen Platz über
+   dem eigentlichen Szeneninhalt beansprucht. */
+.adv-notes{
+  margin:0 0 24px; border:1px solid var(--panel-line); border-radius:10px;
+  background:var(--panel); padding:11px 16px;
+}
+.adv-notes[open]{padding-bottom:16px;}
+.adv-notes-summary{
+  display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none;
+  font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--text-faint); font-weight:600; user-select:none; padding:2px 0;
+}
+.adv-notes-summary::-webkit-details-marker{display:none;}
+.adv-notes-summary::marker{content:"";}
+.adv-notes .notes-toggle{
+  display:inline-block; font-size:10px; color:var(--gold); flex:none;
+  transition:transform .15s ease;
+}
+.adv-notes[open] .notes-toggle{transform:rotate(90deg);}
+.adv-notes-textarea{
+  display:block; width:100%; box-sizing:border-box; margin-top:10px;
+  min-height:96px; resize:vertical;
+  background:var(--void); border:1px solid var(--panel-line); border-radius:8px;
+  color:var(--text-hi); font-family:var(--sans); font-size:13.5px; line-height:1.55;
+  padding:10px 12px;
+}
+.adv-notes-textarea:focus{outline:none; border-color:var(--gold);}
+.adv-notes-textarea::placeholder{color:var(--text-faint);}
+
+/* read-aloud parchment */
+.readaloud{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.05)),
+    var(--parchment);
+  color:var(--ink);
+  border-radius:6px;
+  padding:26px 30px;
+  margin-bottom:14px;
+  box-shadow:0 14px 30px -18px rgba(0,0,0,.55), inset 0 0 0 1px var(--parchment-edge);
+  position:relative;
+}
+.readaloud::before{
+  content:""; position:absolute; inset:7px; border:1px solid rgba(44,32,19,.16); border-radius:3px; pointer-events:none;
+}
+.readaloud .ra-head{
+  display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+  margin-bottom:12px; font-family:var(--sans);
+  cursor:pointer; list-style:none; user-select:none;
+}
+.readaloud .ra-head::-webkit-details-marker{display:none;}
+.readaloud .ra-head::marker{content:"";}
+.readaloud .ra-toggle{
+  display:inline-block; margin-right:7px; font-size:10px; color:var(--ink-soft);
+  transition:transform .15s ease;
+}
+.readaloud:not([open]) .ra-toggle{transform:rotate(0deg);}
+.readaloud[open] .ra-toggle{transform:rotate(90deg);}
+.readaloud:not([open]) .ra-head{margin-bottom:0;}
+.readaloud .ra-label{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:600;}
+.readaloud .ra-page{font-size:11px; color:var(--ink-soft); opacity:.75; white-space:nowrap;}
+.readaloud p{
+  font-family:var(--serif-body); font-size:calc(17px * var(--fs)); line-height:1.68;
+  margin:0 0 12px; color:var(--ink);
+}
+.readaloud p:last-child{margin-bottom:0;}
+.readaloud.zusatzfund{padding:18px 24px; }
+.readaloud.zusatzfund .ra-label::before{content:"✒ "; opacity:.7;}
+
+/* Vorlesetext-/Zusatzfund-Boxen, die per after:N mitten im Ablauftext
+   (.flow) erscheinen, dürfen NICHT die helle .flow-p-Textfarbe erben —
+   sie behalten ihre eigene Pergament-Tinte. Gleiche Selektor-Spezifität
+   wie ".flow p" plus Quellreihenfolge hätte sie sonst überschrieben. */
+.flow .readaloud p{
+  font-family:var(--serif-body); font-size:calc(17px * var(--fs)); line-height:1.68;
+  margin:0 0 12px; color:var(--ink);
+}
+.flow .readaloud p:last-child{margin-bottom:0;}
+
+/* flow / prose */
+.flow p{
+  font-family:var(--serif-body); font-size:calc(16px * var(--fs)); line-height:1.72; color:var(--text-lo);
+  margin:0 0 14px;
+}
+.flow p strong{color:var(--text-hi); font-weight:600;}
+.flow .callout{
+  display:block;
+  border-left:2px solid var(--dusk); padding:10px 16px; margin:16px 0;
+  background:var(--panel-raised); border-radius:0 8px 8px 0; font-size:calc(14.5px * var(--fs));
+  color:var(--text-lo);
+}
+.flow .callout .co-title{color:var(--dusk); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; display:block;}
+.flow .section-heading{
+  display:block; font-family:var(--serif-display); font-weight:700; font-style:italic;
+  font-size:15.5px; color:var(--gold-bright); letter-spacing:.01em;
+  margin:20px 0 6px; padding-top:14px; border-top:1px solid var(--panel-line);
+}
+.flow p:first-child .section-heading{margin-top:0; padding-top:0; border-top:none;}
+.flow ul{margin:8px 0 14px; padding-left:20px;}
+.flow ul li{font-family:var(--serif-body); font-size:calc(15px * var(--fs)); color:var(--text-lo); line-height:1.65; margin-bottom:6px;}
+.flow ul li:last-child{margin-bottom:0;}
+.flow .callout ul{margin:8px 0 0; padding-left:18px;}
+.flow .callout li{font-size:calc(14px * var(--fs)); line-height:1.6; margin-bottom:5px;}
+.flow .callout li:last-child{margin-bottom:0;}
+
+/* ergänzter Flavor-Text aus der Originalvorlage (kein Präfix, nur visuelle Markierung) */
+.flavor-add{
+  background:rgba(201,162,75,.28);
+  box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  border-radius:3px; padding:0 3px;
+}
+.readaloud .flavor-add{ background:rgba(177,80,47,.16); }
+
+/* npc / companion cards */
+.npc-grid{display:flex; flex-direction:column; gap:10px;}
+.npc-card{
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:8px;
+  padding:15px 18px; display:flex; gap:14px; align-items:flex-start;
+}
+.npc-card .npc-portrait{
+  flex:none; width:52px; height:52px; border-radius:50%; object-fit:cover;
+  border:1px solid var(--panel-line); box-shadow:0 2px 6px rgba(0,0,0,.35);
+}
+.npc-card .npc-body{flex:1; min-width:0;}
+.npc-card .npc-top{display:flex; align-items:baseline; gap:10px; margin-bottom:5px; flex-wrap:wrap;}
+.npc-card .npc-name{font-family:var(--serif-display); font-weight:600; font-size:16.5px; color:var(--text-hi);}
+.npc-card .npc-role{font-size:11.5px; color:var(--gold); text-transform:uppercase; letter-spacing:.05em;}
+.npc-card p{font-size:calc(14.5px * var(--fs)); color:var(--text-lo); line-height:1.6; margin:0;}
+.npc-card.companion{border-color:rgba(201,162,75,.4); background:linear-gradient(160deg, rgba(201,162,75,.06), var(--panel));}
+.npc-card.companion .npc-role{color:var(--gold-bright);}
+
+/* vignette list (journey) */
+.vignette{
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:8px;
+  padding:15px 18px; margin-bottom:10px; position:relative;
+}
+.vignette.played{border-color:rgba(111,145,99,.5);}
+.vignette .v-played-toggle{
+  float:right; margin:0 0 8px 12px; font-size:11.5px; font-weight:600;
+  color:var(--text-faint); background:var(--panel-raised); border:1px solid var(--panel-line);
+  border-radius:999px; padding:5px 11px; white-space:nowrap;
+}
+.vignette.played .v-played-toggle{
+  color:var(--moss-bright); background:rgba(111,145,99,.14); border-color:rgba(111,145,99,.45);
+}
+.vignette .v-played-toggle:hover{border-color:var(--gold);}
+.vignette .v-name{font-family:var(--serif-display); font-weight:600; color:var(--moss-bright); font-size:15px; margin-bottom:4px;}
+.vignette .v-flavor{font-family:var(--serif-body); font-style:italic; font-size:calc(14px * var(--fs)); color:var(--text-faint); margin-bottom:9px; line-height:1.5;}
+.vignette ul{margin:0; padding-left:18px;}
+.vignette li{font-size:calc(14px * var(--fs)); color:var(--text-lo); line-height:1.6; margin-bottom:3px;}
+
+/* Aufklappbare Inline-Auswahl einzelner Vignetten aus einer Journey-Vorlage
+   (z. B. "nur diese 3 aus Barrow spielen") — steht direkt in der Szene,
+   im Stil der regulären scene.vignettes-Karten, aber standardmäßig
+   eingeklappt und über einen klickbaren Titel (statt eines Fließtext-Links
+   zur Bibliothek) erreichbar. Siehe Adventure 7, Szene "Verwüstete Pfade". */
+.journey-pick{margin:14px 0;}
+.journey-pick summary{
+  cursor:pointer; list-style:none; user-select:none;
+  font-family:var(--serif-display); font-weight:700; font-style:italic;
+  color:var(--gold-bright); font-size:15px; padding:10px 14px;
+  background:var(--panel-raised); border:1px solid var(--panel-line); border-radius:8px;
+}
+.journey-pick summary::-webkit-details-marker{display:none;}
+.journey-pick summary::before{
+  content:"▸"; display:inline-block; margin-right:8px; color:var(--gold);
+  transition:transform .2s ease;
+}
+.journey-pick[open] summary::before{transform:rotate(90deg);}
+.journey-pick summary .jp-sub{
+  font-family:var(--sans); font-style:normal; font-weight:400;
+  font-size:12px; color:var(--text-faint); margin-left:8px;
+}
+.journey-pick-body{padding:12px 2px 2px;}
+
+/* revelations */
+.reveal-row{
+  display:flex; gap:12px; align-items:flex-start; padding:12px 16px;
+  background:linear-gradient(90deg, rgba(124,106,154,.12), transparent);
+  border-left:2px solid var(--dusk); border-radius:0 8px 8px 0; margin-bottom:8px;
+}
+.reveal-row .rk{
+  flex:none; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+  color:#c3b3e0; background:rgba(124,106,154,.22); padding:3px 8px; border-radius:999px;
+  white-space:nowrap; margin-top:1px;
+}
+.reveal-row p{margin:0; font-size:13.5px; color:var(--text-lo); font-style:italic; line-height:1.55;}
+
+/* tips */
+.tip{
+  display:flex; gap:11px; padding:12px 16px; background:rgba(111,145,99,.08);
+  border-left:2px solid var(--moss); border-radius:0 8px 8px 0; margin-bottom:8px;
+  font-size:13.5px; color:var(--text-lo); line-height:1.6;
+}
+.tip strong{color:var(--moss-bright);}
+.warn{
+  display:flex; gap:11px; padding:12px 16px; background:rgba(177,80,47,.10);
+  border-left:2px solid var(--rust); border-radius:0 8px 8px 0; margin-bottom:14px;
+  font-size:13.5px; color:#e3bcae; line-height:1.6;
+}
+.warn strong{color:var(--rust-bright);}
+
+/* rewards */
+.reward-box{
+  background:var(--panel); border:1px dashed var(--panel-line); border-radius:8px;
+  padding:14px 18px; font-size:13.5px; color:var(--text-lo); line-height:1.6;
+}

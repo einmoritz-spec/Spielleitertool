@@ -1,0 +1,61 @@
+/* ---------- glossary terms + modal ---------- */
+.gloss{
+  color:var(--gold-bright); cursor:pointer; border-bottom:1px dotted var(--gold);
+  transition:color .15s ease, border-color .15s ease;
+}
+.gloss:hover, .gloss:focus-visible{color:var(--parchment); border-bottom-color:var(--parchment);}
+.readaloud .gloss{color:var(--rust); border-bottom-color:var(--rust);}
+.readaloud .gloss:hover{color:var(--ink);}
+.status-gloss{
+  color:var(--moss-bright); border-bottom:1px dotted var(--moss);
+  font-variant-numeric:tabular-nums;
+}
+.status-gloss:hover, .status-gloss:focus-visible{color:var(--parchment); border-bottom-color:var(--parchment);}
+
+.gloss-modal-backdrop{
+  position:fixed; inset:0; z-index:100; background:rgba(10,13,11,.72); backdrop-filter:blur(3px);
+  display:none; align-items:center; justify-content:center; padding:24px;
+}
+.gloss-modal-backdrop.open{display:flex;}
+.gloss-modal{
+  width:100%; max-width:480px; max-height:80vh; overflow-y:auto;
+  background:linear-gradient(160deg, var(--panel-raised), var(--panel));
+  border:1px solid rgba(201,162,75,.35); border-radius:12px;
+  padding:26px 28px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.7);
+  position:relative; animation:gloss-in .18s ease;
+}
+@keyframes gloss-in{ from{opacity:0; transform:translateY(8px) scale(.98);} to{opacity:1; transform:none;} }
+.gloss-modal .gm-eyebrow{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold);
+  display:flex; align-items:center; gap:8px; margin-bottom:8px;
+}
+.gloss-modal .gm-title{font-family:var(--serif-display); font-weight:600; font-size:22px; color:var(--text-hi); margin:0 0 14px; padding-right:30px;}
+.gm-portrait:empty{display:none;}
+.gm-portrait{float:right; margin:0 0 10px 14px; shape-outside:circle(50%);}
+.gm-portrait img{
+  width:64px; height:64px; border-radius:50%; object-fit:cover;
+  border:2px solid var(--gold); box-shadow:0 4px 14px rgba(0,0,0,.4); display:block;
+}
+.gloss-modal .gm-body{font-family:var(--serif-body); font-size:14.5px; line-height:1.68; color:var(--text-lo);}
+.gloss-modal .gm-body p{margin:0 0 10px;}
+.gloss-modal .gm-body p:last-child{margin-bottom:0;}
+.gloss-modal .gm-body ul{margin:0 0 12px; padding-left:20px;}
+.gloss-modal .gm-body li{margin-bottom:5px;}
+.gloss-modal .gm-body h4{font-family:var(--sans); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--moss-bright); margin:16px 0 6px;}
+.gloss-modal .gm-body h4:first-child{margin-top:0;}
+.gloss-modal .gm-close{
+  position:absolute; top:16px; right:16px; width:30px; height:30px; border-radius:50%;
+  background:var(--panel); border:1px solid var(--panel-line); color:var(--text-lo);
+  font-size:15px; line-height:1; display:flex; align-items:center; justify-content:center;
+}
+.gloss-modal .gm-close:hover{color:var(--rust-bright); border-color:var(--rust);}
+/* Favoriten-Stern im Glossar-Modal (neu) — sitzt links neben .gm-close,
+   nur sichtbar, wenn ein echter GLOSSARY-Eintrag offen ist (siehe
+   updateGlossFavBtn()); für Status-Begriffe (openStatus()) ausgeblendet. */
+.gm-fav-btn{
+  position:absolute; top:16px; right:54px; width:30px; height:30px; border-radius:50%;
+  background:var(--panel); border:1px solid var(--panel-line); color:var(--text-lo);
+  font-size:15px; line-height:1; display:flex; align-items:center; justify-content:center;
+}
+.gm-fav-btn:hover{color:var(--gold-bright); border-color:var(--gold);}
+.gm-fav-btn.active{color:var(--gold-bright); border-color:var(--gold);}

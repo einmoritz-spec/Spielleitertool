@@ -1,0 +1,57 @@
+# Wake of the Oldways — Erzähler-Tafel
+
+Spielleiter-Tafel für *Legend in the Mist: Wake of the Oldways*. Reines HTML/CSS/JavaScript, kein Build-Schritt, keine Abhängigkeiten, komplett offline nutzbar und als App installierbar (PWA).
+
+## Als App installieren
+1. Repo-Einstellungen → **Pages** → Source: **GitHub Actions** (einmalig).
+2. Nach dem Push auf `main` veröffentlicht der Workflow die Tafel unter  
+   `https://einmoritz-spec.github.io/Spielleitertool/`.
+3. Link öffnen → **„App installieren"** (Chrome/Edge) bzw. **Teilen → Zum Home-Bildschirm** (iOS).
+
+## Einzeldatei (Weitergeben, Doppelklick, USB-Stick)
+Beim direkten Öffnen von `index.html` per Doppelklick (`file://`) dürfen Browser keine Nachbardateien laden. Dafür gibt es:
+
+```bash
+python3 tools/build-standalone.py   # -> dist/Wake-of-the-Oldways_standalone.html
+```
+
+Die Datei enthält alles eingebettet und läuft überall ohne Server.
+
+## Struktur
+```
+index.html              Seitengerüst (Modals) + Einbindung von CSS/JS
+manifest.webmanifest    App-Name, Icons, Farben
+sw.js                   Offline-Cache (VERSION bei Änderungen erhöhen!)
+css/
+  base.css              Variablen, Kopfzeile
+  overview.css          Startseite, Tastenkürzel-Legende
+  settings.css          Kopfzeilen-Einstellungen, Menü
+  adventure.css         Abenteuer-Ansicht, Szenen, Seitenleisten
+  challenges.css        Challenge-Karten
+  modals.css            Glossar- & Overlay-Fenster
+  profiles.css          Spielerprofile
+  tools.css             Grimoire, Themenbuch, Karte, Würfel
+  libraries.css         Challenge-, Lore-, Orte-, NPC-Bibliotheken
+js/
+  config.js             Titel, Tastenkürzel-Liste
+  data/                 reine Inhalte (Abenteuer 1–7, Aftermath, Glossare,
+                        Grimoire, Challenge-/Journey-Bibliothek, Profile …)
+  ui/                   Fenster & Ansichten (Glossar, Profile, Suche, Würfel,
+                        Kopfzeile, Startseite/Abenteuer, Tastatur & Klicks …)
+  export/               PDF-Zusammenfassung, Sitzungs-Schnappschuss, Druck
+  profiles.js           Profil-Bearbeitung (Gruppe + eigene Charaktere)
+  state.js              Zustand, localStorage, Reset
+  main.js               Start
+assets/                 Kartenbild, NPC-Porträts, Themenbuch-Icons
+icons/                  App-Icons
+tools/build-standalone.py
+.github/workflows/pages.yml
+```
+
+Die Skripte sind klassische `<script>`-Dateien mit gemeinsamem globalem Scope. **Die Ladereihenfolge in `index.html` zählt** (Daten zuerst, dann Oberfläche, `main.js` zuletzt).
+
+## Bedienung (Auszug)
+Tastenkürzel stehen unten auf der Startseite. Kopfzeile anpassen: Rechtsklick auf einen Knopf oder ⚙ (Taste `,`). Der Spielstand liegt im `localStorage` des Browsers; „📄 Speichern" erzeugt zusätzlich eine eigenständige Sicherungskopie der Tafel mit dem aktuellen Stand.
+
+## Änderungen veröffentlichen
+Nach Änderungen an Dateien in `sw.js` die `VERSION` erhöhen (`v1` → `v2` …) und neue Dateien in `FILES` ergänzen, damit installierte Apps aktualisieren.

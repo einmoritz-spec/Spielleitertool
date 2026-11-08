@@ -200,5 +200,4 @@ document.addEventListener("keydown", (e)=>{
   if(e.key==="ArrowRight") goScene(state.sceneIdx+1);
   if(e.key==="ArrowLeft") goScene(state.sceneIdx-1);
   if(e.key==="<") togglePathrail();
-  if(e.key===">") toggleThemeRail();
 });

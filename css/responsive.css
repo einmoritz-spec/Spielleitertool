@@ -1,0 +1,103 @@
+/* ==================================================================
+   RESPONSIVE: große Bildschirme nutzen die Breite, Handys bekommen
+   ein eigenes Layout. Bewusst als LETZTE Datei geladen (überschreibt
+   die Grundwerte aus den anderen CSS-Dateien).
+   --wscale skaliert Spaltenbreiten, --fs den Lesetext, --ts Überschriften/Labels.
+   ================================================================== */
+:root{ --wscale:1; --ts:1; }
+@media (min-width:1600px){ :root{ --wscale:1.15; --fs:1.0; --ts:1.1; } }
+@media (min-width:1920px){ :root{ --wscale:1.4;  --fs:1.12; --ts:1.25; } }
+@media (min-width:2300px){ :root{ --wscale:1.75; --fs:1.3;  --ts:1.5; } }
+@media (min-width:2800px){ :root{ --wscale:2.2;  --fs:1.5;  --ts:1.8; } }
+
+.shell{max-width:calc(1480px * var(--wscale));}
+.pathrail:not(.collapsed){width:calc(250px * var(--wscale));}
+.content-col{max-width:calc(1180px * var(--wscale));}
+.pathrail.collapsed ~ .content-col{max-width:calc(1280px * var(--wscale));}
+.overview{max-width:calc(1180px * var(--wscale));}
+.ch-library{max-width:calc(900px * var(--wscale));}
+.ch-library.lore-library, .ch-library.place-library{max-width:calc(1180px * var(--wscale));}
+.rules-modal{max-width:min(94vw, calc(760px * var(--wscale)));}
+.profiles-modal{max-width:min(94vw, calc(640px * var(--wscale)));}
+.tb-modal{max-width:min(96vw, calc(1180px * var(--wscale)));}
+.big-modal{max-width:min(97vw, calc(1320px * var(--wscale)));}
+@media (min-width:1600px){
+  .scene-head h1{font-size:clamp(28px, 3.6vw, calc(40px * var(--ts)));}
+  .scene-head .en-title{font-size:calc(15px * var(--ts));}
+  .scene-eyebrow, .section-label{font-size:calc(12px * var(--ts));}
+  .pathrail h2{font-size:calc(19px * var(--ts));}
+  .pathrail .subhead, .trail-item .t-eyebrow{font-size:calc(11px * var(--ts));}
+  .trail-item .t-title{font-size:calc(13px * var(--ts));}
+  .npc-card .npc-name{font-size:calc(16.5px * var(--ts));}
+  .npc-card .npc-role{font-size:calc(11.5px * var(--ts));}
+  .rest-btn{font-size:calc(11.5px * var(--ts));}
+  .nav-btn{font-size:calc(11px * var(--ts));}
+  .stage-wrap{padding-left:calc(34px * var(--wscale)); padding-right:calc(34px * var(--wscale));}
+  .has-time-tracker .stage-wrap{padding-right:calc(104px * var(--wscale));}
+}
+
+/* ---------- Handy & schmale Fenster ---------- */
+.scene-picker-wrap{display:none;}
+@media (max-width:880px){
+  .scene-picker-wrap{display:block; margin:0 0 16px;}
+  .scene-picker{
+    width:100%; padding:11px 12px; border-radius:10px; font-size:15px; font-family:var(--sans);
+    color:var(--text-hi); background:var(--panel-raised); border:1px solid var(--panel-line);
+  }
+  /* Zeit-Tracker (Abenteuer 2) bleibt sichtbar: kompakte Leiste über der Szenen-Navigation */
+  .time-tracker{
+    display:flex; flex-direction:row; align-items:center; gap:10px; width:auto;
+    top:auto; bottom:58px; right:10px; padding:6px 10px;
+  }
+  .time-tracker .tt-head{margin-bottom:0;}
+  .time-tracker .tt-pips{flex-direction:row; gap:4px;}
+  .time-tracker .pip{width:24px; height:22px;}
+  .time-tracker .limit-reset{margin-top:0;}
+}
+@media (max-width:720px){
+  .topbar{padding:7px 8px; gap:6px;}
+  .topbar .brand{font-size:0;}                      /* nur das Raben-Symbol */
+  .topbar .brand .raven-icon{width:24px; height:24px;}
+  .topbar-spacer{display:none;}
+  .rest-btn{min-width:40px; height:38px; justify-content:center; padding:0 10px; font-size:15px;}
+  .rest-btn .tb-label{display:none;}                /* nur Symbole */
+  .stage-wrap{padding:16px 14px 150px;}
+  .scene-head h1{font-size:26px;}
+  .scene-eyebrow{font-size:11px; flex-wrap:wrap;}
+  .section{margin-bottom:24px;}
+  .readaloud{padding:16px 16px;}
+  .readaloud p{font-size:calc(16px * var(--fs));}
+  .npc-grid{grid-template-columns:1fr;}
+  .adv-grid{grid-template-columns:1fr;}
+  .overview{padding:20px 14px 100px;}
+  .welcome-dales{padding-bottom:24px; margin-bottom:28px;}
+  .ch-library{padding:28px 14px 100px;}
+  .edit-bar{top:54px;}
+  .edit-toggle{width:36px; height:36px;}
+  .scenenav{padding:6px 10px calc(6px + env(safe-area-inset-bottom)); gap:6px;}
+  .nav-dots{display:none;}
+  .nav-btn{flex:1; max-width:50%; min-height:40px; padding:8px 10px; font-size:12px; border-color:var(--panel-line);}
+  .nav-btn[style*="flex-end"]{justify-content:flex-end;}
+  .gloss-modal-backdrop{padding:8px;}
+  .gloss-modal{padding:20px 16px 18px; max-height:94vh; border-radius:10px;}
+  .rest-modal, .rules-modal, .tb-modal, .map-modal, .profiles-modal{max-width:100%; max-height:96vh;}
+  .shortcuts-grid{flex-direction:column; row-gap:8px;}
+  .shortcut-chip{white-space:normal;}
+  .tb-set-row{grid-template-columns:1fr auto; gap:8px;}
+  .tb-set-row label:last-child{grid-column:1 / -1;}
+  .tb-set-head{display:none;}
+  .pf-list-item{padding:12px;}
+  .rest-activities{grid-template-columns:1fr;}
+}
+@media (max-width:720px){ body{padding-top:54px;} }
+
+/* Sehr breite Bildschirme: Ablauftext in Spalten, damit Zeilen lesbar kurz bleiben
+   und die Breite trotzdem genutzt wird. Vorlesetext-Boxen, Figuren und Challenges
+   bleiben ungeteilt in einer Spalte. */
+@media (min-width:2300px){
+  .flow{column-count:2; column-gap:calc(34px * var(--wscale)); column-rule:1px solid var(--panel-line-soft);}
+  .flow > *{break-inside:avoid;}
+}
+@media (min-width:3200px){
+  .flow{column-count:3;}
+}

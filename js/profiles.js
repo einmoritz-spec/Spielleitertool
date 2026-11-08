@@ -483,16 +483,10 @@ function refreshProfilesBody(store){
   if(s==="custom"){
     const el = document.getElementById("customCharBody");
     if(el) el.innerHTML = renderProfilesBody("custom");
-    refreshThemeRail();
     return;
   }
   const el = document.getElementById("profilesBody");
   if(el) el.innerHTML = renderProfilesBody("party");
-  // Party-Profile werden auch in der Themes&Rucksack-Leiste angezeigt (siehe
-  // renderThemeRail) — hier zentral mit aktualisieren, damit Änderungen aus
-  // dem Profile-Modal sofort auch dort sichtbar sind, ohne dass jede
-  // einzelne Aufrufstelle das separat anstoßen muss.
-  refreshThemeRail();
 }
 // Setzt ein einzelnes Profil auf die Originaldaten zurück (löscht dessen Overlay).
 // Nur für party-Profile sinnvoll — eigene Charaktere haben keine "Original"-

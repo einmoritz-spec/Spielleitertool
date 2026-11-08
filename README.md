@@ -33,6 +33,7 @@ css/
   tools.css             Grimoire, Themenbuch, Karte, Würfel
   libraries.css         Challenge-, Lore-, Orte-, NPC-Bibliotheken
   edit.css              Bearbeitungsmodus für Szenentexte
+  responsive.css        große Bildschirme (Breite/Schrift/Spalten) & Handy-Layout
 js/
   config.js             Titel, Tastenkürzel-Liste
   data/                 reine Inhalte (Abenteuer 1–7, Aftermath, Glossare,

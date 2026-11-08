@@ -38,5 +38,4 @@ const KEYBOARD_SHORTCUTS = [
   { key:"Esc", label:"Offenes Fenster schließen" },
   { key:"←/→", label:"Vorherige/nächste Szene (im Abenteuer)" },
   { key:"<", label:"Seitenleiste ein-/ausklappen (im Abenteuer)" },
-  { key:">", label:"Themes & Rucksack-Leiste ein-/ausklappen (im Abenteuer)" },
 ];

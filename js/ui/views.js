@@ -79,55 +79,6 @@ function renderPathrail(adv){
   </div>`;
 }
 
-// Themes & Rucksack-Leiste (rechts, im Abenteuer) — zeigt alle vier
-// Gruppenprofile kompakt nebeneinander gestapelt. Nutzt bewusst dieselben
-// renderProfileTheme()/renderBackpackList()-Funktionen wie das Profile-
-// Modal (store="party"): dadurch sind die eingebetteten onclick/onblur-
-// Handler identisch zu denen im Modal, und da refreshProfilesBody() unten
-// so erweitert wurde, dass es auch die Leiste mit aktualisiert (und
-// umgekehrt die Leiste dasselbe für das Modal tut), bleiben beide Ansichten
-// ohne zusätzlichen Aufwand synchron — siehe "syncProfileUI"-Kommentar bei
-// refreshProfilesBody().
-function themeRailProfilesHtml(){
-  const card = (list, i, store) => `
-    <div class="tr-profile">
-      <div class="tr-profile-name">${esc(effProfileField(i,"name",store))}</div>
-      ${renderBackpackList(i,store)}
-      ${list[i].themes.map((t,tIdx)=>renderProfileTheme(i, tIdx, t, store)).join("")}
-    </div>`;
-  const html = visiblePartyIdx().map(i=>card(PLAYER_PROFILES,i,"party")).join("")
-    + CUSTOM_PROFILES.map((_,i)=>card(CUSTOM_PROFILES,i,"custom")).join("");
-  return html || `<div class="pf-empty-hint" style="padding:12px;">Keine Profile vorhanden — mit 🎴 Profile bzw. 🆕 Charakter anlegen oder wiederherstellen.</div>`;
-}
-function renderThemeRail(){
-  const body = themeRailProfilesHtml();
-  return `
-  <div class="theme-rail ${state.themeRailCollapsed?'collapsed':''}">
-    <button class="theme-rail-toggle" onclick="toggleThemeRail()" title="${state.themeRailCollapsed?'Themes & Rucksack ausklappen (Taste >)':'Themes & Rucksack einklappen (Taste >)'}">${state.themeRailCollapsed?'‹':'›'}</button>
-    <div class="tr-body" id="themeRailBody">${body}</div>
-  </div>`;
-}
-function toggleThemeRail(){
-  state.themeRailCollapsed = !state.themeRailCollapsed;
-  const el = document.querySelector(".theme-rail");
-  if(!el) return;
-  el.classList.toggle("collapsed", state.themeRailCollapsed);
-  const btn = el.querySelector(".theme-rail-toggle");
-  if(btn){
-    btn.textContent = state.themeRailCollapsed ? "‹" : "›";
-    btn.title = state.themeRailCollapsed ? "Themes & Rucksack ausklappen (Taste >)" : "Themes & Rucksack einklappen (Taste >)";
-  }
-  persistState();
-}
-// Aktualisiert nur den Inhalt der Leiste (nicht den Ein-/Ausklapp-Rahmen),
-// analog zu refreshProfilesBody() — wird von dort automatisch mit
-// aufgerufen, siehe Erweiterung unten.
-function refreshThemeRail(){
-  const el = document.getElementById("themeRailBody");
-  if(!el) return;
-  el.innerHTML = themeRailProfilesHtml();
-}
-
 function renderLimitRow(advId, sceneIdx, chIdx, limIdx, lim){
   if(!lim.max){
     return `<div class="limit-row"><span class="limit-label">${esc(lim.label)}</span><div class="limit-static"><b>${lim.max===0?'–':esc(lim.max)}</b></div>${lim.note?`<span class="limit-note ${lim.secret?'secret':''}">${linkStatuses(esc(lim.note))}</span>`:''}</div>`;
@@ -874,6 +825,16 @@ function renderTimeTracker(adv){
   </div>`;
 }
 
+// Auf schmalen Bildschirmen (Handy) ist die Seitenleiste ausgeblendet — dort springt
+// diese Auswahlliste direkt zu jeder Szene (auf großen Bildschirmen per CSS versteckt).
+function renderScenePicker(adv){
+  const opts = adv.scenes.map((s,i)=>{
+    const eb = s.kind==="intro" ? "Übersicht" : s.kind==="aftermath" ? "Abschluss" : "Szene "+i;
+    const done = s.kind!=="intro" && state.scenesCompleted[sceneCompleteKey(adv.id, i)] ? " ✓" : "";
+    return `<option value="${i}" ${i===state.sceneIdx?"selected":""}>${eb} · ${esc(effTitle(adv.id,s))}${done}</option>`;
+  }).join("");
+  return `<div class="scene-picker-wrap"><select class="scene-picker" aria-label="Szene wählen" onchange="goScene(+this.value); this.value=state.sceneIdx;">${opts}</select></div>`;
+}
 function renderAdventure(){
   const adv = ADVENTURES.find(a=>a.id===state.advId);
   if(!adv || adv.status!=="ready"){ goOverview(); return; }
@@ -883,10 +844,9 @@ function renderAdventure(){
   <div class="shell ${hasTimeTracker?'has-time-tracker':''}">
     ${renderPathrail(adv)}
     <div class="content-col">
-      <div class="stage-wrap">${renderAdventureNotes(adv)}${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>
+      <div class="stage-wrap">${renderScenePicker(adv)}${renderAdventureNotes(adv)}${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>
       ${renderTimeTracker(adv)}
     </div>
-    ${renderThemeRail()}
   </div>
   ${renderSceneNav(adv, state.sceneIdx)}
   `;

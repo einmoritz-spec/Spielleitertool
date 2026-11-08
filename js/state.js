@@ -48,7 +48,6 @@ let state = {
   openCharCats:new Set(),  // Charakter-Bibliothek: aufgeklappte Kategorien
   openStoreCats:new Set(), // Allgemeiner-Laden-Bibliothek: aufgeklappte Kategorien
   pathrailCollapsed:false, // Seitenleiste (Szenen-Weg) ein-/ausgeklappt
-  themeRailCollapsed:true, // Themes&Rucksack-Leiste (rechts) ein-/ausgeklappt — Default: eingeklappt
   notesOpen:{},            // advId -> bool, ob das Notizfeld gerade aufgeklappt ist
   vignettesPlayed:{},      // vignetteUid -> bool, ob eine Vignette als gespielt markiert wurde
   scenesCompleted:{},      // sceneCompleteKey -> bool, ob eine Szene im Pathrail als erledigt abgehakt wurde
@@ -81,7 +80,6 @@ function persistState(){
       vignettesPlayed: state.vignettesPlayed,
       scenesCompleted: state.scenesCompleted,
       pathrailCollapsed: state.pathrailCollapsed,
-      themeRailCollapsed: state.themeRailCollapsed,
       view: state.view,
       advId: state.advId,
       sceneIdx: state.sceneIdx,
@@ -98,7 +96,6 @@ function loadPersistedState(){
     if(saved.vignettesPlayed && typeof saved.vignettesPlayed==="object") state.vignettesPlayed = saved.vignettesPlayed;
     if(saved.scenesCompleted && typeof saved.scenesCompleted==="object") state.scenesCompleted = saved.scenesCompleted;
     if(typeof saved.pathrailCollapsed==="boolean") state.pathrailCollapsed = saved.pathrailCollapsed;
-    if(typeof saved.themeRailCollapsed==="boolean") state.themeRailCollapsed = saved.themeRailCollapsed;
     if(saved.view==="adventure" && saved.advId){
       const adv = ADVENTURES.find(a=>a.id===saved.advId && a.status==="ready");
       if(adv){
@@ -159,7 +156,6 @@ function resetAllProgress(){
   state.vignettesPlayed = {};
   state.scenesCompleted = {};
   state.pathrailCollapsed = false;
-  state.themeRailCollapsed = true;
   state.notesOpen = {};
   state.openChallenges = new Set();
   state.chSearch = "";

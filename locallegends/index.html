@@ -17,6 +17,7 @@
   <button class="tb-btn" onclick="openModal('rulesModal')"><span class="tb-ic">📜</span><span class="tb-lbl"> Regeln</span></button>
   <button class="tb-btn" onclick="openModal('glossModal')"><span class="tb-ic">📖</span><span class="tb-lbl"> Glossar</span></button>
   <button class="tb-btn tb-gear" onclick="openModal('settingsModal')" aria-label="Einstellungen" title="Einstellungen">⚙</button>
+  <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div>
 <div id="app" class="shell"></div>
 
@@ -62,8 +63,8 @@
     <div class="modal-body">
       <div class="set-section">
         <div class="set-title">Tool wechseln</div>
-        <button class="set-tool active" disabled><span>🗂</span><span><b>Local Legends</b><small>City of Mist – Fall-Akte (aktuell)</small></span></button>
-        <button class="set-tool" onclick="switchTool('wake')"><span>🐦‍⬛</span><span><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></span></button>
+        <button class="set-tool active" disabled><span><b>Local Legends</b><small>City of Mist – Fall-Akte (aktuell)</small></span></button>
+        <button class="set-tool" onclick="switchTool('wake')"><span><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></span></button>
         <p class="set-hint">Das Tool, das du zuletzt gewählt hast, öffnet sich beim nächsten Start der App automatisch.</p>
       </div>
     </div>
@@ -71,6 +72,7 @@
 </div>
 
 <script src="js/tool-switch.js"></script>
+<script src="js/mobile-menu.js"></script>
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 </body>

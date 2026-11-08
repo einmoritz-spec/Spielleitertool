@@ -1,0 +1,17 @@
+*{box-sizing:border-box;}
+:root{--bg:#0d0f14; --panel:#161922; --line:rgba(190,200,220,.16); --text:#ece9e1; --dim:#8f93a1; --accent:#7fa8d6;}
+html,body{margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+.topbar{display:flex; align-items:center; padding:14px 16px; padding-top:calc(14px + env(safe-area-inset-top)); border-bottom:1px solid var(--line);}
+.brand{font-family:Georgia,serif; font-weight:700; font-size:18px; color:var(--accent);}
+.brand small{font-family:inherit; font-weight:400; font-size:12px; color:var(--dim); margin-left:10px;}
+.stage{max-width:640px; margin:0 auto; padding:40px 20px 60px;}
+.eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;}
+h1{font-family:Georgia,serif; font-size:clamp(28px,6vw,40px); margin:0 0 12px;}
+h2{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); margin:34px 0 12px;}
+p{color:var(--dim); line-height:1.6;}
+.tools{display:flex; flex-direction:column; gap:8px;}
+.tool{text-align:left; padding:14px 16px; background:var(--panel); border:1px solid var(--line); border-radius:10px; color:var(--text); font-size:16px; font-family:inherit;}
+.tool small{display:block; margin-top:3px; font-size:12.5px; color:var(--dim);}
+.tool.active{border-color:var(--accent); background:rgba(127,168,214,.1);}
+.tool:not(.active):hover{border-color:var(--accent);}
+.hint{font-size:12.5px; margin-top:14px;}

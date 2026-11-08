@@ -69,3 +69,7 @@ Die komplette Charaktererstellung (Fragen, Theme-Kits, Tropes, Charakterbogen/PD
 ## Local Legends (City of Mist)
 
 Unter `locallegends/` liegt die Fall-Akte „Local Legends“. Zwischen beiden Tools wechselst du in den Einstellungen (⚙) – in Wake of the Oldways unter „Tool wechseln“, in Local Legends ebenfalls über ⚙. Die letzte Wahl wird gemerkt (`gm_tool_mode_v1`) und beim nächsten Start der App geöffnet.
+
+## Nights of Paynetown (City of Mist)
+
+Platzhalter unter `nights/` – dritte große Kampagne, Design und Aufbau folgen. Erreichbar über den Tool-Umschalter in den Einstellungen.

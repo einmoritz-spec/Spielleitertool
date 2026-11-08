@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d0f14">
+<title>Nights of Paynetown — City of Mist</title>
+<link rel="icon" href="../icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Nights of Paynetown<small>City of Mist</small></div>
+</header>
+<main class="stage">
+  <div class="eyebrow">Kampagne · in Vorbereitung</div>
+  <h1>Nights of Paynetown</h1>
+  <p>Hier entsteht die Erzähler-Tafel für die große City-of-Mist-Kampagne. Design und Aufbau folgen.</p>
+  <h2>Tool wechseln</h2>
+  <div class="tools">
+    <button class="tool" onclick="switchTool('wake')"><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></button>
+    <button class="tool" onclick="switchTool('locallegends')"><b>Local Legends</b><small>City of Mist – Fall-Akte</small></button>
+    <button class="tool active" disabled><b>Nights of Paynetown</b><small>City of Mist – Kampagne (aktuell)</small></button>
+  </div>
+  <p class="hint">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
+</main>
+<script>
+const TOOL_MODE_KEY = "gm_tool_mode_v1";
+const TOOL_PATHS = { wake:"../", locallegends:"../locallegends/", paynetown:"./" };
+function switchTool(mode){
+  try{ localStorage.setItem(TOOL_MODE_KEY, mode); }catch(e){}
+  location.href = TOOL_PATHS[mode] || "../";
+}
+</script>
+</body>
+</html>

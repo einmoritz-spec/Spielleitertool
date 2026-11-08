@@ -165,6 +165,7 @@ function renderTopbarSettingsBody(){
       <div class="tb-set-section" style="margin-top:0;">Tool wechseln</div>
       <button class="tool-switch active" disabled><span><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel (aktuell)</small></span></button>
       <button class="tool-switch" onclick="switchTool('locallegends')"><span><b>Local Legends</b><small>City of Mist – Fall-Akte</small></span></button>
+      <button class="tool-switch" onclick="switchTool('paynetown')"><span><b>Nights of Paynetown</b><small>City of Mist – Kampagne (in Vorbereitung)</small></span></button>
       <p style="font-size:12px; color:var(--text-faint); margin:4px 0 14px;">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
       <div class="tb-set-section">Kopfzeile</div>
       <p style="font-size:13px;">Tipp: Rechtsklick auf einen Knopf in der Kopfzeile blendet ihn aus oder schaltet seine Beschriftung um. Dieses Fenster öffnest du auch mit der Taste <b>,</b></p>
@@ -201,7 +202,8 @@ function closeTopbarSettings(){
 
 /* Zwischen Wake of the Oldways und Local Legends wechseln (Wahl wird gemerkt). */
 const TOOL_MODE_KEY = "gm_tool_mode_v1";
+const TOOL_PATHS = { wake:"./", locallegends:"locallegends/", paynetown:"nights/" };
 function switchTool(mode){
   try{ localStorage.setItem(TOOL_MODE_KEY, mode); }catch(e){}
-  location.href = mode === "locallegends" ? "locallegends/" : "./";
+  location.href = TOOL_PATHS[mode] || "./";
 }

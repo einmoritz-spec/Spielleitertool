@@ -44,6 +44,13 @@ function render(){
     caseBtn.style.display = showBtn ? "flex" : "none";
     if(showBtn) caseBtn.textContent = state.view==="case" ? "📁 " + dist.data.case.title : "📁 Fall öffnen";
   }
+  markLongTexts();
+}
+/* Sehr lange Fließtext-Absätze bekommen auf großen Bildschirmen Spalten (CSS: .long-text). */
+function markLongTexts(){
+  document.querySelectorAll("#app .card > p").forEach(p=>{
+    p.classList.toggle("long-text", p.textContent.length > 900);
+  });
 }
 
 function renderOverview(){

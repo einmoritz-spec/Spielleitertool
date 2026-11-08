@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v13";
+const VERSION = "v15";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -8,9 +8,20 @@ const FILES = [
   "manifest.webmanifest",
   "locallegends/index.html",
   "locallegends/style.css",
+  "locallegends/responsive.css",
   "locallegends/js/tool-switch.js",
   "locallegends/js/mobile-menu.js",
-  "locallegends/js/data.js",
+  "locallegends/js/data/core.js",
+  "locallegends/js/data/chinatown.js",
+  "locallegends/js/data/fortune-row.js",
+  "locallegends/js/data/happyville.js",
+  "locallegends/js/data/independence.js",
+  "locallegends/js/data/colonia-sombras.js",
+  "locallegends/js/data/campus.js",
+  "locallegends/js/data/sunken-city.js",
+  "locallegends/js/data/tourist-trap.js",
+  "locallegends/js/data/undertrash.js",
+  "locallegends/js/data/rules-glossary.js",
   "locallegends/js/app.js",
   "locallegends/img/iceberg-1.jpg",
   "locallegends/img/iceberg-2.jpg",

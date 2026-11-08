@@ -1,0 +1,84 @@
+/* ==================================================================
+   RESPONSIVE (zuletzt geladen): große Bildschirme nutzen die Breite,
+   Tablets bekommen ein ausgewogenes Layout, Handys ein kompaktes mit
+   scrollbaren Tabs. Gleiche Skalierungslogik wie im Wake-Tool:
+   --wscale = Spaltenbreite, --fs = Lesetext, --ts = Überschriften/Labels.
+   ================================================================== */
+:root{ --wscale:1; --fs:1; --ts:1; }
+@media (min-width:1600px){ :root{ --wscale:1.15; --fs:1.0;  --ts:1.1; } }
+@media (min-width:1920px){ :root{ --wscale:1.4;  --fs:1.12; --ts:1.25; } }
+@media (min-width:2300px){ :root{ --wscale:1.75; --fs:1.3;  --ts:1.5; } }
+@media (min-width:2800px){ :root{ --wscale:2.2;  --fs:1.5;  --ts:1.8; } }
+
+.shell{max-width:calc(1100px * var(--wscale));}
+.shell.wide-case{max-width:calc(1500px * var(--wscale));}
+.modal{max-width:min(96vw, calc(820px * var(--wscale)));}
+
+/* Lesetexte & Überschriften wachsen mit dem Bildschirm */
+.card p, .readaloud, .gm-note, .movegroup li, .clue-box{font-size:calc(13.5px * var(--fs));}
+.readaloud{font-size:calc(14px * var(--fs));}
+.gm-note{font-size:calc(12.5px * var(--fs));}
+.hero h1{font-size:calc(30px * var(--ts));}
+.hero p{font-size:calc(14px * var(--fs)); max-width:calc(640px * var(--wscale));}
+.section-head h2{font-size:calc(17px * var(--ts));}
+.card h3{font-size:calc(16px * var(--ts));}
+.tile h3{font-size:calc(19px * var(--ts));}
+.tile .teaser{font-size:calc(12.5px * var(--fs));}
+.case-tab{font-size:calc(12.5px * var(--ts));}
+.tb-btn{font-size:calc(12.5px * var(--ts));}
+.topbar .brand{font-size:calc(16px * var(--ts));}
+.crumb, .crumb button{font-size:calc(12.5px * var(--fs));}
+.grid{grid-template-columns:repeat(auto-fill, minmax(calc(230px * var(--wscale)), 1fr));}
+
+/* Große Monitore: Karten eines Abschnitts laufen in Spalten statt einer langen Bahn */
+@media (min-width:1500px){
+  .section-body{column-count:2; column-gap:calc(22px * var(--wscale));}
+  .section-body > *{break-inside:avoid;}
+  .section-body > .readaloud, .section-body > .gm-note{column-span:all;}
+}
+@media (min-width:2600px){ .section-body{column-count:3;} }
+/* Lange Fließtext-Absätze: Spalten statt endlos breiter Zeilen */
+@media (min-width:1500px){
+  .card > p.long-text{column-count:2; column-gap:calc(34px * var(--wscale)); column-rule:1px solid var(--panel-line-soft);}
+}
+@media (min-width:2600px){ .card > p.long-text{column-count:3;} }
+
+/* Tablet */
+@media (max-width:1000px) and (min-width:721px){
+  .shell{padding:22px 22px 80px;}
+  .grid{grid-template-columns:repeat(2, 1fr);}
+  .card p, .readaloud{font-size:15px;}
+}
+
+/* Handy */
+@media (max-width:720px){
+  body{padding-top:56px;}
+  .shell, .shell.wide-case{padding:14px 12px 90px;}
+  .hero h1{font-size:25px;}
+  .grid{grid-template-columns:1fr; gap:12px;}
+  .tile{padding:15px;}
+  .card{padding:13px 14px;}
+  .card p, .readaloud, .movegroup li{font-size:15px; line-height:1.65;}
+  .gm-note, .clue-box{font-size:14px;}
+  .stat-line{font-size:12.5px;}
+  .spectrum{flex-wrap:wrap;}
+  .spectrum .sname{min-width:0; flex-basis:100%;}
+  .section-head{padding:12px 2px;}
+  .section-head h2{font-size:16px;}
+  .crumb{font-size:13px;}
+  /* Tabs: eine scrollbare Zeile, größere Tippflächen, Aftermath nicht nach rechts geschoben */
+  .case-tabbar{flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; gap:6px; margin:0 -12px 16px; padding:0 12px 8px; border-bottom:none; scrollbar-width:none;}
+  .case-tabbar::-webkit-scrollbar{display:none;}
+  .case-tab{flex:none; border:1px solid var(--panel-line); border-radius:999px; padding:9px 15px; font-size:13.5px; white-space:nowrap; top:0 !important;}
+  .case-tab small{display:inline; margin-left:6px;}
+  .case-tab.tab-aftermath{margin-left:0;}
+  .case-hero{padding:14px;}
+  .modal{max-width:100%; width:100%; max-height:96vh;}
+  .modal-overlay{padding:8px;}
+  .btn-primary, .btn-ghost{padding:11px 16px; font-size:14px;}
+}
+
+/* Kopfzeile Handy/Tablet: nur Marke + Burger (inline-style des „Fall öffnen“-Knopfs überstimmen) */
+@media (max-width:880px){
+  .topbar > .tb-btn{display:none !important;}
+}

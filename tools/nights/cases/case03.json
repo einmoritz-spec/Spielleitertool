@@ -19,6 +19,90 @@
     595,
     470
    ]
+  },
+  {
+   "id": "wiege-szene",
+   "page": 66,
+   "kind": "art",
+   "title": "Felicia und das Kind",
+   "box": [
+    0,
+    521,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "karte-geraldine",
+   "page": 72,
+   "kind": "handout",
+   "title": "Themenkarte: Geraldine Granger",
+   "box": [
+    51,
+    335,
+    287,
+    670
+   ]
+  },
+  {
+   "id": "karte-thaumaturg",
+   "page": 72,
+   "kind": "handout",
+   "title": "Themenkarte: Der Thaumaturg",
+   "box": [
+    306,
+    399,
+    542,
+    760
+   ]
+  },
+  {
+   "id": "anstalt-art",
+   "page": 74,
+   "kind": "art",
+   "title": "Die Städtische Anstalt",
+   "box": [
+    0,
+    450,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "anstalt-plan",
+   "page": 75,
+   "kind": "plan",
+   "title": "Grundrisse der Anstalt",
+   "box": [
+    0,
+    0,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "torwaechter",
+   "page": 78,
+   "kind": "art",
+   "title": "Torwächter:innen-Spezialeinheit",
+   "box": [
+    318,
+    264,
+    536,
+    780
+   ]
+  },
+  {
+   "id": "krankenwagen",
+   "page": 82,
+   "kind": "art",
+   "title": "Krankenwagen mit Schallbombe",
+   "box": [
+    0,
+    597,
+    595,
+    795
+   ]
   }
  ],
  "eisberg": {

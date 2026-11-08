@@ -19,6 +19,66 @@
     595,
     470
    ]
+  },
+  {
+   "id": "unfall-auto",
+   "page": 43,
+   "kind": "art",
+   "title": "Unfall: außer Kontrolle geratenes Auto",
+   "box": [
+    40,
+    476,
+    534,
+    795
+   ]
+  },
+  {
+   "id": "diner-detektiv",
+   "page": 49,
+   "kind": "art",
+   "title": "Detektiv vor Rondo's Diner",
+   "box": [
+    0,
+    460,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "rummelplatz",
+   "page": 53,
+   "kind": "art",
+   "title": "Der verlassene Rummelplatz",
+   "box": [
+    0,
+    640,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "rummelplatz-plan",
+   "page": 55,
+   "kind": "plan",
+   "title": "Bauplan des Rummelplatzes",
+   "box": [
+    37,
+    370,
+    593,
+    752
+   ]
+  },
+  {
+   "id": "yolanda",
+   "page": 57,
+   "kind": "art",
+   "title": "Schausteller von Lemnos",
+   "box": [
+    306,
+    0,
+    595,
+    795
+   ]
   }
  ],
  "eisberg": {

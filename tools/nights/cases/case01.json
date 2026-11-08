@@ -9,6 +9,18 @@
  "introTitle": "Titel und Pitch",
  "figures": [
   {
+   "id": "titelbild",
+   "page": 23,
+   "kind": "art",
+   "title": "Der sanfte Tod – Titelbild",
+   "box": [
+    0,
+    0,
+    595,
+    622
+   ]
+  },
+  {
    "id": "eisberg",
    "page": 25,
    "box": [
@@ -50,10 +62,10 @@
    "kind": "handout",
    "title": "Themenkarte: Das & Quinn",
    "box": [
-    42,
-    337,
-    309,
-    775
+    55,
+    364,
+    294,
+    760
    ]
   },
   {

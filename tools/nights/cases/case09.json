@@ -19,6 +19,114 @@
     595,
     430
    ]
+  },
+  {
+   "id": "titel",
+   "page": 233,
+   "kind": "art",
+   "title": "Die Straßen bluten Neon – Titelbild",
+   "box": [
+    0,
+    0,
+    595,
+    796
+   ]
+  },
+  {
+   "id": "karte-barlow",
+   "page": 239,
+   "kind": "handout",
+   "title": "Themenkarte: Mister Barlow",
+   "box": [
+    50,
+    45,
+    290,
+    395
+   ]
+  },
+  {
+   "id": "grenze",
+   "page": 240,
+   "kind": "art",
+   "title": "Aufgriff an der Grenze",
+   "box": [
+    0,
+    0,
+    595,
+    342
+   ]
+  },
+  {
+   "id": "fraktionen",
+   "page": 241,
+   "kind": "handout",
+   "title": "Einheiten der Fraktionen (Tabelle)",
+   "box": [
+    50,
+    515,
+    545,
+    722
+   ]
+  },
+  {
+   "id": "ritual",
+   "page": 245,
+   "kind": "art",
+   "title": "Das Ritual am Steinaltar",
+   "box": [
+    0,
+    0,
+    595,
+    352
+   ]
+  },
+  {
+   "id": "polizei",
+   "page": 249,
+   "kind": "art",
+   "title": "Polizeikette bei der Calmann-Brücke",
+   "box": [
+    0,
+    0,
+    595,
+    360
+   ]
+  },
+  {
+   "id": "schlachtfeld-plan",
+   "page": 250,
+   "kind": "plan",
+   "title": "Plan der Schlacht an der Calmann-Brücke",
+   "box": [
+    0,
+    335,
+    595,
+    796
+   ]
+  },
+  {
+   "id": "chaos1",
+   "page": 256,
+   "kind": "art",
+   "title": "Chaosbringer-Angriff (linke Hälfte)",
+   "box": [
+    0,
+    0,
+    595,
+    280
+   ]
+  },
+  {
+   "id": "chaos2",
+   "page": 257,
+   "kind": "art",
+   "title": "Chaosbringer-Angriff (rechte Hälfte)",
+   "box": [
+    0,
+    0,
+    595,
+    290
+   ]
   }
  ],
  "eisberg": {

@@ -19,6 +19,90 @@
     595,
     440
    ]
+  },
+  {
+   "id": "lebkuchenhaus-foto",
+   "page": 89,
+   "kind": "handout",
+   "title": "Foto: Rachels Operation am Ofen",
+   "box": [
+    8,
+    0,
+    586,
+    320
+   ]
+  },
+  {
+   "id": "bowl-art",
+   "page": 97,
+   "kind": "art",
+   "title": "Kampf in der Bowl",
+   "box": [
+    0,
+    423,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "foxy-supreme",
+   "page": 101,
+   "kind": "art",
+   "title": "Foxy Supreme",
+   "box": [
+    335,
+    0,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "fabrik-plan",
+   "page": 107,
+   "kind": "plan",
+   "title": "Plan der Aurora-Glashütte und Enklave",
+   "box": [
+    50,
+    15,
+    590,
+    432
+   ]
+  },
+  {
+   "id": "rachel-art",
+   "page": 108,
+   "kind": "art",
+   "title": "Rachel Woods an der Enklave",
+   "box": [
+    0,
+    0,
+    282,
+    795
+   ]
+  },
+  {
+   "id": "lebkuchenmaenner",
+   "page": 110,
+   "kind": "handout",
+   "title": "Foto: Die Lebkuchenmänner",
+   "box": [
+    28,
+    388,
+    202,
+    668
+   ]
+  },
+  {
+   "id": "karte-tinktur",
+   "page": 112,
+   "kind": "handout",
+   "title": "Themenkarte: Lebkuchenhexen-Tinktur",
+   "box": [
+    47,
+    44,
+    285,
+    428
+   ]
   }
  ],
  "eisberg": {

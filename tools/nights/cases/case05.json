@@ -1,144 +1,264 @@
 {
- "title": "Der Kult des Gottkönigs",
- "subtitle": "",
- "level": "Mystische Ebene",
- "pages": [
-  113,
-  149
- ],
- "introTitle": "Titel und Pitch",
- "figures": [
-  {
-   "id": "eisberg",
-   "page": 117,
-   "kind": "eisberg",
-   "title": "Der Eisberg",
-   "box": [
-    0,
-    0,
-    595,
-    500
-   ]
+  "title": "Der Kult des Gottkönigs",
+  "subtitle": "",
+  "level": "Mystische Ebene",
+  "pages": [
+    113,
+    149
+  ],
+  "introTitle": "Titel und Pitch",
+  "figures": [
+    {
+      "id": "eisberg",
+      "page": 117,
+      "kind": "eisberg",
+      "title": "Der Eisberg",
+      "box": [
+        0,
+        0,
+        595,
+        500
+      ]
+    },
+    {
+      "id": "titelbild",
+      "page": 113,
+      "kind": "art",
+      "title": "Titelbild: Der Kult des Gottkönigs",
+      "box": [
+        0,
+        0,
+        595,
+        820
+      ]
+    },
+    {
+      "id": "kult-illustration",
+      "page": 123,
+      "kind": "art",
+      "title": "Illustration: Yakuza-Yōkai und Kultisten",
+      "box": [
+        45,
+        0,
+        595,
+        795
+      ]
+    },
+    {
+      "id": "ariadne-art",
+      "page": 125,
+      "kind": "art",
+      "title": "Ariadne",
+      "box": [
+        305,
+        0,
+        595,
+        795
+      ]
+    },
+    {
+      "id": "ariadne-wollknaeuel",
+      "page": 126,
+      "kind": "art",
+      "title": "Themenkarte: Ariadnes Wollknäuel",
+      "box": [
+        308,
+        414,
+        544,
+        707
+      ]
+    },
+    {
+      "id": "chinatown-drache",
+      "page": 132,
+      "kind": "art",
+      "title": "Chinatown-Festival: Der Feuerdrache",
+      "box": [
+        0,
+        0,
+        595,
+        342
+      ]
+    },
+    {
+      "id": "mondgeist-karte",
+      "page": 133,
+      "kind": "art",
+      "title": "Themenkarte: Mondgeist",
+      "box": [
+        335,
+        526,
+        590,
+        789
+      ]
+    },
+    {
+      "id": "silo-plan",
+      "page": 137,
+      "kind": "plan",
+      "title": "Plan: Das Silo der Silo-Prüfung",
+      "box": [
+        320,
+        44,
+        595,
+        787
+      ]
+    },
+    {
+      "id": "anhaenger-karte",
+      "page": 137,
+      "kind": "art",
+      "title": "Themenkarte: Anhänger:in des Gottkönigs",
+      "box": [
+        55,
+        271,
+        295,
+        582
+      ]
+    },
+    {
+      "id": "raetsel-symbole",
+      "page": 143,
+      "kind": "handout",
+      "title": "Rätsel der Initiant:innen: Symbole der Phasen",
+      "box": [
+        55,
+        664,
+        539,
+        776
+      ]
+    },
+    {
+      "id": "katakomben-art",
+      "page": 146,
+      "kind": "art",
+      "title": "Illustration: Das Salbungsritual in den Katakomben",
+      "box": [
+        0,
+        437,
+        595,
+        795
+      ]
+    }
+  ],
+  "eisberg": {
+    "page": 117,
+    "fig": "eisberg",
+    "nodes": [
+      {
+        "label": "Suchende",
+        "cx": 27.8,
+        "cy": 14.5,
+        "layer": 0,
+        "target": "schicht-0-aufhaenger"
+      },
+      {
+        "label": "Ariadne",
+        "cx": 42.8,
+        "cy": 14.1,
+        "layer": 0,
+        "target": "ariadne-und-magnum-opus"
+      },
+      {
+        "label": "Sich um Suchende sorgen",
+        "cx": 57.2,
+        "cy": 13.7,
+        "layer": 0,
+        "target": "schicht-0-aufhaenger"
+      },
+      {
+        "label": "Athanor",
+        "cx": 70.3,
+        "cy": 13.4,
+        "layer": 0,
+        "target": "schicht-0-aufhaenger"
+      },
+      {
+        "label": "Silvio Yadao",
+        "cx": 84.1,
+        "cy": 13.4,
+        "layer": 0,
+        "target": "schicht-0-aufhaenger"
+      },
+      {
+        "label": "Prof. Clay",
+        "cx": 40.0,
+        "cy": 22.4,
+        "layer": 1,
+        "target": "schicht-1-eine-kerze-in-der-dunkelheit"
+      },
+      {
+        "label": "1x1 der Alchemie",
+        "cx": 56.4,
+        "cy": 22.8,
+        "layer": 1,
+        "target": "1x1-der-alchemie"
+      },
+      {
+        "label": "Chinatown-Festival",
+        "cx": 71.7,
+        "cy": 22.0,
+        "layer": 1,
+        "target": "chinatown-festival"
+      },
+      {
+        "label": "Die Silo-Prüfung",
+        "cx": 40.6,
+        "cy": 29.5,
+        "layer": 2,
+        "target": "schicht-2-gefaehrliche-ausgrabungen"
+      },
+      {
+        "label": "Valériens Kuriosa",
+        "cx": 55.2,
+        "cy": 30.6,
+        "layer": 2,
+        "target": "val-riens-kuriosa"
+      },
+      {
+        "label": "Die Ausgrabungsstätte",
+        "cx": 69.4,
+        "cy": 30.6,
+        "layer": 2,
+        "target": "schicht-2-gefaehrliche-ausgrabungen"
+      },
+      {
+        "label": "Whirlers Kommune",
+        "cx": 38.6,
+        "cy": 37.7,
+        "layer": 3,
+        "target": "whirlers-kommune"
+      },
+      {
+        "label": "Das Narrenfest",
+        "cx": 53.1,
+        "cy": 38.5,
+        "layer": 3,
+        "target": "schicht-3-schatten-der-wahrheit"
+      },
+      {
+        "label": "Alona Wainwright",
+        "cx": 66.1,
+        "cy": 38.1,
+        "layer": 3,
+        "target": "alona-wainwright"
+      },
+      {
+        "label": "Die Katakomben",
+        "cx": 53.9,
+        "cy": 47.1,
+        "layer": 4,
+        "target": "die-katakomben"
+      },
+      {
+        "label": "Schadensbegrenzung des Zirkels",
+        "cx": 85.6,
+        "cy": 34.6,
+        "layer": 0,
+        "target": "schicht-0-aufhaenger",
+        "w": 7,
+        "h": 26
+      }
+    ]
   }
- ],
- "eisberg": {
-  "page": 117,
-  "fig": "eisberg",
-  "nodes": [
-   {
-    "label": "Suchende",
-    "cx": 27.8,
-    "cy": 14.5,
-    "layer": 0,
-    "target": "schicht-0-aufhaenger"
-   },
-   {
-    "label": "Ariadne",
-    "cx": 42.8,
-    "cy": 14.1,
-    "layer": 0,
-    "target": "ariadne-und-magnum-opus"
-   },
-   {
-    "label": "Sich um Suchende sorgen",
-    "cx": 57.2,
-    "cy": 13.7,
-    "layer": 0,
-    "target": "schicht-0-aufhaenger"
-   },
-   {
-    "label": "Athanor",
-    "cx": 70.3,
-    "cy": 13.4,
-    "layer": 0,
-    "target": "schicht-0-aufhaenger"
-   },
-   {
-    "label": "Silvio Yadao",
-    "cx": 84.1,
-    "cy": 13.4,
-    "layer": 0,
-    "target": "schicht-0-aufhaenger"
-   },
-   {
-    "label": "Prof. Clay",
-    "cx": 40.0,
-    "cy": 22.4,
-    "layer": 1,
-    "target": "schicht-1-eine-kerze-in-der-dunkelheit"
-   },
-   {
-    "label": "1x1 der Alchemie",
-    "cx": 56.4,
-    "cy": 22.8,
-    "layer": 1,
-    "target": "1x1-der-alchemie"
-   },
-   {
-    "label": "Chinatown-Festival",
-    "cx": 71.7,
-    "cy": 22.0,
-    "layer": 1,
-    "target": "chinatown-festival"
-   },
-   {
-    "label": "Die Silo-Prüfung",
-    "cx": 40.6,
-    "cy": 29.5,
-    "layer": 2,
-    "target": "schicht-2-gefaehrliche-ausgrabungen"
-   },
-   {
-    "label": "Valériens Kuriosa",
-    "cx": 55.2,
-    "cy": 30.6,
-    "layer": 2,
-    "target": "val-riens-kuriosa"
-   },
-   {
-    "label": "Die Ausgrabungsstätte",
-    "cx": 69.4,
-    "cy": 30.6,
-    "layer": 2,
-    "target": "schicht-2-gefaehrliche-ausgrabungen"
-   },
-   {
-    "label": "Whirlers Kommune",
-    "cx": 38.6,
-    "cy": 37.7,
-    "layer": 3,
-    "target": "whirlers-kommune"
-   },
-   {
-    "label": "Das Narrenfest",
-    "cx": 53.1,
-    "cy": 38.5,
-    "layer": 3,
-    "target": "schicht-3-schatten-der-wahrheit"
-   },
-   {
-    "label": "Alona Wainwright",
-    "cx": 66.1,
-    "cy": 38.1,
-    "layer": 3,
-    "target": "alona-wainwright"
-   },
-   {
-    "label": "Die Katakomben",
-    "cx": 53.9,
-    "cy": 47.1,
-    "layer": 4,
-    "target": "die-katakomben"
-   },
-   {
-    "label": "Schadensbegrenzung des Zirkels",
-    "cx": 85.6,
-    "cy": 34.6,
-    "layer": 0,
-    "target": "schicht-0-aufhaenger",
-    "w": 7,
-    "h": 26
-   }
-  ]
- }
 }

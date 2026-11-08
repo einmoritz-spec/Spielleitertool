@@ -19,6 +19,102 @@
     595,
     795
    ]
+  },
+  {
+   "id": "titel",
+   "page": 181,
+   "kind": "art",
+   "title": "Albion erwache! – Titelbild",
+   "box": [
+    0,
+    0,
+    595,
+    796
+   ]
+  },
+  {
+   "id": "farmer",
+   "page": 188,
+   "kind": "art",
+   "title": "Die Bauern im Gemeinschaftsgarten",
+   "box": [
+    0,
+    535,
+    595,
+    796
+   ]
+  },
+  {
+   "id": "skoonies",
+   "page": 191,
+   "kind": "art",
+   "title": "Die Skoonies",
+   "box": [
+    0,
+    508,
+    595,
+    796
+   ]
+  },
+  {
+   "id": "archie",
+   "page": 194,
+   "kind": "art",
+   "title": "Archie Fagan",
+   "box": [
+    0,
+    0,
+    310,
+    795
+   ]
+  },
+  {
+   "id": "karte-gyramphiel",
+   "page": 200,
+   "kind": "handout",
+   "title": "Themenkarte: Stein des Gyramphiel",
+   "box": [
+    50,
+    40,
+    295,
+    325
+   ]
+  },
+  {
+   "id": "karte-beschuetzer",
+   "page": 200,
+   "kind": "handout",
+   "title": "Themenkarte: Beschützer Albions",
+   "box": [
+    50,
+    325,
+    295,
+    680
+   ]
+  },
+  {
+   "id": "revier-plan",
+   "page": 205,
+   "kind": "plan",
+   "title": "Plan des 63. Reviers (Obergeschoss, Tiefgarage, Erdgeschoss)",
+   "box": [
+    0,
+    12,
+    595,
+    760
+   ]
+  },
+  {
+   "id": "lanzelot",
+   "page": 207,
+   "kind": "art",
+   "title": "Lanzelot und Alter Shuck",
+   "box": [
+    25,
+    0,
+    595,
+    796
+   ]
   }
  ],
  "eisberg": {

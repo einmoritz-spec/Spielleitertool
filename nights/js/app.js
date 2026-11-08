@@ -101,7 +101,7 @@ function renderCase(c, sid){
   body += `<div class="notes"><h3 class="blk-sh">Notizen</h3><textarea oninput="setNote('${c.nr}:${ch.items[0].id}',this.value)" placeholder="Eigene Notizen zu diesem Kapitel …">${esc(ST.notes[c.nr+":"+ch.items[0].id]||"")}</textarea></div>`;
   body += `<div class="secfoot">${prev?`<a class="btn" href="#/case/${c.nr}/sec/${prev.items[0].id}">‹ ${esc(chapterTitle(prev))}</a>`:"<span></span>"}${next?`<a class="btn" href="#/case/${c.nr}/sec/${next.items[0].id}">${esc(chapterTitle(next))} ›</a>`:"<span></span>"}</div>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › Fall ${c.nr}</div>
-  <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${esc(c.subtitle||"")} · Seiten ${c.from}–${c.to}</span></div>
+  <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>
   <div class="navbar"><select onchange="selNav(this.value)" aria-label="Kapitel">${sel}</select></div>
   <div class="case-grid"><aside class="nav">${nav}</aside><main class="content">${body}</main></div>`;
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);

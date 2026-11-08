@@ -19,6 +19,78 @@
     595,
     785
    ]
+  },
+  {
+   "id": "titel",
+   "page": 209,
+   "kind": "art",
+   "title": "Daheim ist daheim – Titelbild",
+   "box": [
+    0,
+    0,
+    595,
+    796
+   ]
+  },
+  {
+   "id": "werwolf",
+   "page": 215,
+   "kind": "art",
+   "title": "Thorn Sørensen als Werwolf",
+   "box": [
+    0,
+    522,
+    595,
+    796
+   ]
+  },
+  {
+   "id": "navarro",
+   "page": 220,
+   "kind": "art",
+   "title": "Detektiv Navarros Geist",
+   "box": [
+    0,
+    0,
+    293,
+    796
+   ]
+  },
+  {
+   "id": "rice-buero",
+   "page": 225,
+   "kind": "art",
+   "title": "Eva Rice und Mr. Barlow-Typ im Büro",
+   "box": [
+    10,
+    0,
+    595,
+    362
+   ]
+  },
+  {
+   "id": "ungeheuer",
+   "page": 228,
+   "kind": "art",
+   "title": "Das Monster in der Grabhöhle",
+   "box": [
+    0,
+    0,
+    595,
+    356
+   ]
+  },
+  {
+   "id": "karte-mia",
+   "page": 229,
+   "kind": "handout",
+   "title": "Themenkarte: Mia Gupta",
+   "box": [
+    50,
+    377,
+    287,
+    691
+   ]
   }
  ],
  "eisberg": {

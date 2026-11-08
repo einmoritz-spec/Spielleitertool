@@ -178,3 +178,17 @@ body.menu-open{overflow:hidden}
 .content{overflow-wrap:anywhere}.blk-ro{overflow-wrap:anywhere}
 a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style:dashed}
 .th-desc{margin:4px 0 8px;font-style:italic;font-size:.93rem;color:#3a342b}
+
+.mtools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}
+.mapscroll{overflow:auto;border:1px solid var(--line);border-radius:12px;max-height:78vh;background:#000}
+.mapbox{position:relative;min-width:100%}
+.mapbox img{display:block;width:100%;height:auto}
+.mspot{position:absolute;transform:translate(-50%,-50%);background:transparent;border:0;padding:0;outline:none;-webkit-tap-highlight-color:transparent;cursor:pointer}
+.mapbox.show .mspot{border:2px solid #ff3d9a;background:rgba(255,61,154,.2);border-radius:4px}
+.mpop{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--panel);border:1px solid var(--mag);border-radius:12px;padding:12px 16px;display:flex;flex-direction:column;gap:8px;z-index:60;min-width:240px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.mpop[hidden]{display:none}
+.mpop a{color:var(--cyan)}
+.mlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.mlist-case h4{margin:0 0 6px;color:var(--amber);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+.mlist-case a{display:block;padding:3px 0;color:var(--text);text-decoration:none;font-size:.9rem}
+.mlist-case a:hover{color:var(--cyan)}

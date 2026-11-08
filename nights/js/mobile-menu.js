@@ -18,6 +18,7 @@ function openMobileMenu(){
       <div class="mm-list">
         ${item("🗂", "Kampagne", "goHome()")}
         ${item("📁", "Aktueller Fall", "goLastCase()")}
+        ${item("🗺", "Stadtkarte", "goMap()")}
         ${item("📖", "Seitenviewer", "openPageViewer()")}
         ${item("🔎", "Suche", "openSearch()")}
       </div>

@@ -28,6 +28,7 @@ const camp = () => window.NIGHTS.campaign;
 function parseHash(){ const p = (location.hash||"#/").slice(2).split("/"); return p; }
 window.addEventListener("hashchange", route);
 function goHome(){ location.hash = "#/"; }
+function goMap(){ location.hash = "#/map"; }
 function goLastCase(){ location.hash = ST.last ? ST.last : "#/case/1"; }
 async function route(){
   const p = parseHash();
@@ -40,6 +41,7 @@ async function route(){
     if(!c){ const info = camp().cases[n] && Object.assign({nr:n,from:camp().cases[n].pages[0],to:camp().cases[n].pages[1]}, camp().cases[n]); $("app").innerHTML = `<div class="missing"><h2>Fall ${n}${info?": "+esc(info.title):""}</h2><p>Dieser Fall ist noch nicht erfasst. Die Originalseiten ${info?info.from+"–"+info.to:""} kannst du im Seitenviewer ansehen.</p>${info?`<button class="btn" onclick="openPageViewer(${info.from})">Seite ${info.from} öffnen</button>`:""}</div>`; return; }
     renderCase(c, p[2]==="sec" ? p[3] : (p[2]==="eisberg" ? "__eisberg" : c.sections[0].id));
   } else if(p[0]==="pages"){ renderHome(); openPageViewer(+p[1]||1, true); }
+  else if(p[0]==="map") renderMap();
   else renderHome();
 }
 
@@ -62,6 +64,29 @@ function renderHome(){
   }
   h += `<section class="level"><div class="level-head"><h2>Buchteile</h2><span>Einleitung und Anhang</span></div><div class="cases">${C.book.map(n=>{ const e = C.extras[n]; return `<a class="case-card intro" href="#/case/${n}"><span class="nr">Buch</span><b>${esc(e.title)}</b><small>${esc(e.sub||"")} · Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }).join("")}</div></section>`;
   $("app").innerHTML = h;
+}
+
+/* ---------- Stadtkarte ---------- */
+let MZ = 1, MSHOW = false;
+function renderMap(){
+  const M = window.NIGHTS.map;
+  const spots = M.spots.map((s,i)=>`<button class="mspot" style="left:${s.x}%;top:${s.y}%;width:${s.w}%;height:${s.h}%" title="${esc(s.label)}" aria-label="${esc(s.label)}" onclick="mapSpot(${i},event)"></button>`).join("");
+  const byCase = {};
+  M.spots.forEach((s,i)=>s.links.forEach(l=>{ (byCase[l.c] = byCase[l.c]||[]).push({l, i, s}); }));
+  const list = Object.keys(byCase).sort((a,b)=>a-b).map(c=>`<div class="mlist-case"><h4>Fall ${c}</h4>${byCase[c].map(o=>`<a href="#/case/${o.l.c}/sec/${o.l.s}">${esc(o.s.label)}</a>`).join("")}</div>`).join("");
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › Stadtkarte</div>
+  <div class="case-head"><h1>Stadtkarte</h1><span class="meta">Crime Board City Map · tippe auf einen Ort, um zum Abschnitt zu springen</span></div>
+  <div class="mtools"><button class="btn" onclick="mapZoom(-1)">−</button><span id="mzl" class="hint">${Math.round(MZ*100)} %</span><button class="btn" onclick="mapZoom(1)">+</button><button class="btn" onclick="mapZoom(0)">Einpassen</button><label class="hint"><input type="checkbox" ${MSHOW?"checked":""} onchange="MSHOW=this.checked;$('mapbox').classList.toggle('show',MSHOW)"> Orte markieren</label></div>
+  <div class="mapscroll" id="mapscroll"><div class="mapbox ${MSHOW?"show":""}" id="mapbox" style="width:${MZ*100}%"><img src="${M.image}" alt="Stadtkarte">${spots}</div></div>
+  <div id="mpop" class="mpop" hidden></div>
+  <h3 class="blk-sh" style="margin-top:24px">Orte nach Fall</h3><div class="mlist">${list}</div>`;
+}
+function mapZoom(d){ MZ = d===0 ? 1 : Math.min(4, Math.max(1, MZ + d*0.5)); $("mapbox").style.width = (MZ*100)+"%"; $("mzl").textContent = Math.round(MZ*100)+" %"; }
+function mapSpot(i, ev){
+  const s = window.NIGHTS.map.spots[i];
+  if(s.links.length===1){ location.hash = `#/case/${s.links[0].c}/sec/${s.links[0].s}`; return; }
+  const pop = $("mpop"); pop.hidden = false;
+  pop.innerHTML = `<b>${esc(s.label)}</b>` + s.links.map(l=>`<a href="#/case/${l.c}/sec/${l.s}">${esc(l.t)}</a>`).join("") + `<button class="btn" onclick="$('mpop').hidden=true">Schließen</button>`;
 }
 
 /* ---------- Fallansicht ---------- */

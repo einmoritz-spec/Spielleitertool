@@ -1162,7 +1162,8 @@ document.addEventListener("keydown", (e)=>{
   // dann soll Escape "nur" das Fenster schließen. War keins offen, macht
   // Escape stattdessen etwas anderes (Notizfeld zuklappen oder zurück zur
   // Übersicht, siehe unten).
-  const anyModalWasOpen = !!document.querySelector(".gloss-modal-backdrop.open");
+  const anyModalWasOpen = !!document.querySelector(".gloss-modal-backdrop.open") || !!document.getElementById("mobileMenu");
+  closeMobileMenu();
   closeMap();
   closeRulesGloss();
   closeGrimoire();

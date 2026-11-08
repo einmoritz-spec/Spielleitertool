@@ -833,7 +833,8 @@ function renderScenePicker(adv){
     const done = s.kind!=="intro" && state.scenesCompleted[sceneCompleteKey(adv.id, i)] ? " ✓" : "";
     return `<option value="${i}" ${i===state.sceneIdx?"selected":""}>${eb} · ${esc(effTitle(adv.id,s))}${done}</option>`;
   }).join("");
-  return `<div class="scene-picker-wrap"><select class="scene-picker" aria-label="Szene wählen" onchange="goScene(+this.value); this.value=state.sceneIdx;">${opts}</select></div>`;
+  return `<div class="scene-picker-wrap"><select class="scene-picker" aria-label="Szene wählen" onchange="goScene(+this.value); this.value=state.sceneIdx;">${opts}</select>
+    <button class="edit-toggle edit-toggle-m ${EDIT.on?'active':''}" onclick="toggleEditMode()" title="Szenentext bearbeiten" aria-label="Szenentext bearbeiten"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div>`;
 }
 function renderAdventure(){
   const adv = ADVENTURES.find(a=>a.id===state.advId);

@@ -77,7 +77,39 @@ function renderTopbar(){
       ${btns}
       <button class="rest-btn tb-settings" onclick="openTopbarSettings()" title="Kopfzeile anpassen (Taste ,) — Rechtsklick auf einen Knopf: ausblenden / Beschriftung">⚙</button>
     </div>
+    <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen" title="Menü">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>`;
+}
+
+/* Handy-/Tablet-Menü (drei Striche): Seitenmenü von rechts, Rest dunkel und unscharf.
+   Bewusst ein eigenes Element am <body> (nicht in der Kopfzeile), weil deren
+   backdrop-filter fixed-Kinder sonst auf die Kopfzeile begrenzen würde. */
+function closeMobileMenu(){
+  const m = document.getElementById("mobileMenu");
+  if(!m) return;
+  m.classList.remove("open");
+  setTimeout(()=>{ m.remove(); }, 200);
+  document.body.classList.remove("menu-open");
+}
+function openMobileMenu(){
+  if(document.getElementById("mobileMenu")) return;
+  const advOpen = state.view==="adventure" && state.advId;
+  const items = TOPBAR_ITEMS.filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))
+    .map(it => `<button class="mm-item" onclick="closeMobileMenu(); ${it.fn}"><span class="mm-ic">${it.icon}</span><span>${it.label}</span></button>`).join("");
+  const m = document.createElement("div");
+  m.id = "mobileMenu"; m.className = "mobile-menu";
+  m.innerHTML = `
+    <div class="mm-backdrop" onclick="closeMobileMenu()"></div>
+    <nav class="mm-panel" aria-label="Menü">
+      <div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div>
+      <div class="mm-list">${items}</div>
+      <div class="mm-foot"><button class="mm-item" onclick="closeMobileMenu(); openTopbarSettings()"><span class="mm-ic">⚙</span><span>Einstellungen</span></button></div>
+    </nav>`;
+  document.body.appendChild(m);
+  document.body.classList.add("menu-open");
+  requestAnimationFrame(()=> m.classList.add("open"));
 }
 
 /* Rechtsklick-Menü */

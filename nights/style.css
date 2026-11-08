@@ -199,3 +199,4 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .dagbar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:10px 0;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
 .dagbar .hint{flex:1 1 100%;margin:0}
 .dagbar label{display:flex;gap:8px;align-items:center;font-size:.85rem}
+.th-nest{margin:.3em 0 0;padding-left:1.1em}.th-nest li{margin:.15em 0}

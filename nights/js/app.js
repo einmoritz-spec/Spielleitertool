@@ -196,7 +196,8 @@ function threatHtml(c, b){
     for(let n=1;n<=l.max;n++) pips += `<button class="pip ${n<=cur?"filled":""}" onclick="setLimit('${k.replace(/'/g,"\\'")}',${n},${l.max},this)" aria-label="${n} von ${l.max}"></button>`;
     return `<div class="limit-row"><span class="limit-label">${esc(cap(l.label))}</span><span class="limit-controls"><span class="pips">${pips}</span><span class="limit-count">${cur} / ${l.max}</span><button class="limit-reset" onclick="resetLimit('${k.replace(/'/g,"\\'")}',this)" title="Zurücksetzen">↺</button></span></div>`;
   }).join("");
-  const items = b.items||[];
+  const sub = i => { const a = i.split(/\s*»\s*/); return a.length>1 ? a[0].replace(/[:\s]+$/,'')+(a[0].trim()?':':'')+`<ul class="th-nest">${a.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>` : i; };
+  const items = (b.items||[]).map(sub);
   const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
   return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
 }

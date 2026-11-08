@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#111114">
+<title>Local Legends — Fall-Akte</title>
+<link rel="icon" href="../icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="goOverview()">🗂 Local Legends<small>Fall-Akte</small></button>
+  <div class="topbar-spacer"></div>
+  <button class="tb-btn" id="tb-case-btn" style="display:none;" onclick="goCase(state.districtId)"><span class="tb-ic">📁</span><span class="tb-lbl"> Fall öffnen</span></button>
+  <button class="tb-btn" onclick="openSearchModal()"><span class="tb-ic">🔎</span><span class="tb-lbl"> Suche</span></button>
+  <button class="tb-btn" onclick="openModal('rulesModal')"><span class="tb-ic">📜</span><span class="tb-lbl"> Regeln</span></button>
+  <button class="tb-btn" onclick="openModal('glossModal')"><span class="tb-ic">📖</span><span class="tb-lbl"> Glossar</span></button>
+  <button class="tb-btn tb-gear" onclick="openModal('settingsModal')" aria-label="Einstellungen" title="Einstellungen">⚙</button>
+</div>
+<div id="app" class="shell"></div>
+
+<!-- Volltextsuche Modal -->
+<div class="modal-overlay" id="searchModal" onclick="if(event.target===this)closeModal('searchModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Volltextsuche — alle Bezirke &amp; Fälle</h2><button class="modal-close" onclick="closeModal('searchModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="gloss-search" id="searchInput" placeholder="Suche über alle 9 Bezirke und Fälle… (mind. 2 Zeichen)" oninput="runSearch(this.value)">
+      <p class="search-hint">Durchsucht Orte, Locals, Player Options, Zufallsbegegnungen, Power Sets, Themenbücher, Custom Moves und alle Fall-Tiefen. Ein Treffer öffnet den passenden Bezirks- oder Fall-Tab.</p>
+      <div id="searchCount" class="search-count"></div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Regelglossar Modal -->
+<div class="modal-overlay" id="rulesModal" onclick="if(event.target===this)closeModal('rulesModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Regelglossar — City of Mist</h2><button class="modal-close" onclick="closeModal('rulesModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="gloss-search" placeholder="Suche…" oninput="filterList('rulesList', this.value)">
+      <div id="rulesList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Bezirks-/Case-Glossar Modal -->
+<div class="modal-overlay" id="glossModal" onclick="if(event.target===this)closeModal('glossModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Glossar — Lore & NPCs</h2><button class="modal-close" onclick="closeModal('glossModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="gloss-search" placeholder="Suche…" oninput="filterList('glossList', this.value)">
+      <div id="glossList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Einstellungen / Umschalten zwischen den Tools -->
+<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)closeModal('settingsModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Einstellungen</h2><button class="modal-close" onclick="closeModal('settingsModal')">✕</button></div>
+    <div class="modal-body">
+      <div class="set-section">
+        <div class="set-title">Tool wechseln</div>
+        <button class="set-tool active" disabled><span>🗂</span><span><b>Local Legends</b><small>City of Mist – Fall-Akte (aktuell)</small></span></button>
+        <button class="set-tool" onclick="switchTool('wake')"><span>🐦‍⬛</span><span><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></span></button>
+        <p class="set-hint">Das Tool, das du zuletzt gewählt hast, öffnet sich beim nächsten Start der App automatisch.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/tool-switch.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

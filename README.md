@@ -65,3 +65,7 @@ Die komplette Charaktererstellung (Fragen, Theme-Kits, Tropes, Charakterbogen/PD
 - **Spielleitung:** Kopfzeilen-Knopf „🧙 Erstellung“ öffnet sie als Fenster. Fertige oder bearbeitete Charaktere landen automatisch unter „Charakter“ (eigene Profile).
 - **Spieler:** „🔗 Spieler-Link“ im Fenster kopiert/teilt `…/creator/` – diese Adresse zeigt nur die Charaktererstellung. Spieler schicken ihren Charakter per „📤 An Spielleitung senden“ (JSON-Datei), die Spielleitung importiert sie unter „Charakter“ → 📥.
 - Hinweis: Auf GitHub Pages ist alles öffentlich erreichbar; der Link ist also kein Zugriffsschutz, er führt nur direkt zur Erstellung.
+
+## Local Legends (City of Mist)
+
+Unter `locallegends/` liegt die Fall-Akte „Local Legends“. Zwischen beiden Tools wechselst du in den Einstellungen (⚙) – in Wake of the Oldways unter „Tool wechseln“, in Local Legends ebenfalls über ⚙. Die letzte Wahl wird gemerkt (`gm_tool_mode_v1`) und beim nächsten Start der App geöffnet.

@@ -109,3 +109,10 @@
 }
 .adv-tile.ready .raven-corner{color:var(--tile-accent, var(--gold)); opacity:.45;}
 .adv-tile.ready:hover .raven-corner{opacity:.85;}
+
+.tool-switch{display:flex; align-items:center; gap:14px; width:100%; text-align:left; margin-bottom:8px; padding:12px 14px;
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:10px; color:var(--text-hi); font-size:15px; font-family:var(--sans);}
+.tool-switch span:first-child{font-size:22px; width:30px; text-align:center;}
+.tool-switch small{display:block; color:var(--text-lo); font-size:12.5px; margin-top:2px;}
+.tool-switch.active{border-color:var(--gold); background:rgba(201,162,75,.1);}
+.tool-switch:not(.active):hover{border-color:var(--gold-bright);}

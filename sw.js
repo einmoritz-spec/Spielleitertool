@@ -1,11 +1,24 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v10";
+const VERSION = "v11";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
   "index.html",
   "manifest.webmanifest",
+  "locallegends/index.html",
+  "locallegends/style.css",
+  "locallegends/js/tool-switch.js",
+  "locallegends/js/data.js",
+  "locallegends/js/app.js",
+  "locallegends/img/iceberg-1.jpg",
+  "locallegends/img/iceberg-2.jpg",
+  "locallegends/img/iceberg-3.jpg",
+  "locallegends/img/iceberg-4.jpg",
+  "locallegends/img/iceberg-5.jpg",
+  "locallegends/img/iceberg-6.jpg",
+  "locallegends/img/iceberg-7.jpg",
+  "locallegends/img/iceberg-8.jpg",
   "creator/index.html",
   "creator/creator.css",
   "creator/creator.js",

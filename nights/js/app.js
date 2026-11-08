@@ -6,7 +6,7 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const pad = (n, l=3) => String(n).padStart(l, "0");
 let ST = loadState();
-function loadState(){ try{ return Object.assign({ cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{} }, JSON.parse(localStorage.getItem(STATE_KEY)||"{}")); }catch(e){ return { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{} }; } }
+function loadState(){ try{ return Object.assign({ cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{}, dagger:null }, JSON.parse(localStorage.getItem(STATE_KEY)||"{}")); }catch(e){ return { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{}, dagger:null }; } }
 function saveState(){ try{ localStorage.setItem(STATE_KEY, JSON.stringify(ST)); }catch(e){} }
 
 /* ---------- Daten laden ---------- */
@@ -41,7 +41,7 @@ async function route(){
     if(!c){ const info = camp().cases[n] && Object.assign({nr:n,from:camp().cases[n].pages[0],to:camp().cases[n].pages[1]}, camp().cases[n]); $("app").innerHTML = `<div class="missing"><h2>Fall ${n}${info?": "+esc(info.title):""}</h2><p>Dieser Fall ist noch nicht erfasst. Die Originalseiten ${info?info.from+"–"+info.to:""} kannst du im Seitenviewer ansehen.</p>${info?`<button class="btn" onclick="openPageViewer(${info.from})">Seite ${info.from} öffnen</button>`:""}</div>`; return; }
     renderCase(c, p[2]==="sec" ? p[3] : (p[2]==="eisberg" ? "__eisberg" : c.sections[0].id));
   } else if(p[0]==="pages"){ renderHome(); openPageViewer(+p[1]||1, true); }
-  else if(p[0]==="map") renderMap();
+  else if(p[0]==="map") renderMap(p[1]==="dolch");
   else renderHome();
 }
 
@@ -67,8 +67,10 @@ function renderHome(){
 }
 
 /* ---------- Stadtkarte ---------- */
-let MZ = 1, MSHOW = false;
-function renderMap(){
+let MZ = 1, MSHOW = false, MDAG = false;
+const DAGSVG = `<svg viewBox="0 0 420 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset=".5" stop-color="#b9c2cf"/><stop offset="1" stop-color="#7d8794"/></linearGradient><linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d27a"/><stop offset="1" stop-color="#9c7424"/></linearGradient></defs><path d="M132 24 L400 33 Q414 35 414 35 Q414 35 400 37 L132 46 Z" fill="url(#bl)" stroke="#2a3140" stroke-width="1.5"/><path d="M140 35 L398 35" stroke="#e9eef5" stroke-width="1"/><rect x="118" y="6" width="16" height="58" rx="5" fill="url(#gd)" stroke="#4d3a10" stroke-width="2"/><rect x="42" y="27" width="76" height="16" rx="4" fill="#4a2f2f" stroke="#1f1212" stroke-width="2"/><path d="M52 27 L52 43 M66 27 L66 43 M80 27 L80 43 M94 27 L94 43 M108 27 L108 43" stroke="#2b1919" stroke-width="2"/><circle cx="24" cy="35" r="19" fill="url(#gd)" stroke="#4d3a10" stroke-width="2"/><circle cx="24" cy="35" r="8" fill="#0b0d14" stroke="#4d3a10" stroke-width="2"/><circle cx="24" cy="35" r="3" fill="#ff3d9a"/></svg>`;
+function renderMap(dolch){
+  if(dolch) MDAG = true;
   const M = window.NIGHTS.map;
   const spots = M.spots.map((s,i)=>`<button class="mspot" style="left:${s.x}%;top:${s.y}%;width:${s.w}%;height:${s.h}%" title="${esc(s.label)}" aria-label="${esc(s.label)}" onclick="mapSpot(${i},event)"></button>`).join("");
   const byCase = {};
@@ -76,10 +78,22 @@ function renderMap(){
   const list = Object.keys(byCase).sort((a,b)=>a-b).map(c=>`<div class="mlist-case"><h4>Fall ${c}</h4>${byCase[c].map(o=>`<a href="#/case/${o.l.c}/sec/${o.l.s}">${esc(o.s.label)}</a>`).join("")}</div>`).join("");
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › Stadtkarte</div>
   <div class="case-head"><h1>Stadtkarte</h1><span class="meta">Crime Board City Map · tippe auf einen Ort, um zum Abschnitt zu springen</span></div>
-  <div class="mtools"><button class="btn" onclick="mapZoom(-1)">−</button><span id="mzl" class="hint">${Math.round(MZ*100)} %</span><button class="btn" onclick="mapZoom(1)">+</button><button class="btn" onclick="mapZoom(0)">Einpassen</button><label class="hint"><input type="checkbox" ${MSHOW?"checked":""} onchange="MSHOW=this.checked;$('mapbox').classList.toggle('show',MSHOW)"> Orte markieren</label></div>
-  <div class="mapscroll" id="mapscroll"><div class="mapbox ${MSHOW?"show":""}" id="mapbox" style="width:${MZ*100}%"><img src="${M.image}" alt="Stadtkarte">${spots}</div></div>
+  <div class="mtools"><button class="btn" onclick="mapZoom(-1)">−</button><span id="mzl" class="hint">${Math.round(MZ*100)} %</span><button class="btn" onclick="mapZoom(1)">+</button><button class="btn" onclick="mapZoom(0)">Einpassen</button><button class="btn" onclick="toggleDagger()">Galahads Dolch ${MDAG?"ausblenden":"einblenden"}</button><label class="hint"><input type="checkbox" ${MSHOW?"checked":""} onchange="MSHOW=this.checked;$('mapbox').classList.toggle('show',MSHOW)"> Orte markieren</label></div>
+  ${MDAG?daggerHtml():""}<div class="mapscroll" id="mapscroll"><div class="mapbox ${MSHOW?"show":""}" id="mapbox" style="width:${MZ*100}%"><img src="${M.image}" alt="Stadtkarte">${spots}${MDAG?daggerEl():""}</div></div>
   <div id="mpop" class="mpop" hidden></div>
   <h3 class="blk-sh" style="margin-top:24px">Orte nach Fall</h3><div class="mlist">${list}</div>`;
+  dagDrag();
+}
+function dagState(){ return ST.dagger || (ST.dagger = { x:50, y:50, rot:-30, size:34 }); }
+function daggerEl(){ const d = dagState(); return `<div class="dagger" id="dagger" style="left:${d.x}%;top:${d.y}%;width:${d.size}%;transform:translate(-5%,-50%) rotate(${d.rot}deg);transform-origin:5.7% 50%">${DAGSVG}</div>`; }
+function daggerHtml(){ const d = dagState(); return `<div class="dagbar"><b>Galahads Dolch</b><span class="hint">Ziehen = verschieben. Das Loch im Knauf (rosa Punkt) markiert den Standort von Corbin Tower, wenn der Dolch auf die Orte der beiden bekannten Gralsritter:innen ausgerichtet ist.</span><label>Drehung <input type="range" min="-180" max="180" value="${d.rot}" oninput="dagSet('rot',+this.value)"></label><label>Größe <input type="range" min="12" max="80" value="${d.size}" oninput="dagSet('size',+this.value)"></label></div>`; }
+function dagSet(k,v){ dagState()[k] = v; saveState(); const e = $("dagger"); if(e){ const d = dagState(); e.style.width = d.size+"%"; e.style.transform = `translate(-5%,-50%) rotate(${d.rot}deg)`; } }
+function toggleDagger(){ MDAG = !MDAG; renderMap(); }
+function dagDrag(){
+  const e = $("dagger"); if(!e) return; const box = $("mapbox");
+  e.onpointerdown = ev => { ev.preventDefault(); e.setPointerCapture(ev.pointerId); const d = dagState(); const r = box.getBoundingClientRect(); const sx = ev.clientX, sy = ev.clientY, ox = d.x, oy = d.y;
+    e.onpointermove = m => { d.x = Math.min(100, Math.max(0, ox + (m.clientX-sx)/r.width*100)); d.y = Math.min(100, Math.max(0, oy + (m.clientY-sy)/r.height*100)); e.style.left = d.x+"%"; e.style.top = d.y+"%"; };
+    e.onpointerup = () => { e.onpointermove = null; saveState(); }; };
 }
 function mapZoom(d){ MZ = d===0 ? 1 : Math.min(4, Math.max(1, MZ + d*0.5)); $("mapbox").style.width = (MZ*100)+"%"; $("mzl").textContent = Math.round(MZ*100)+" %"; }
 function mapSpot(i, ev){
@@ -151,6 +165,7 @@ function chapterView(c, ch){
     const blocks = secBlocks(c, sec.id);
     for(const f of (c.figures||[])) if(f.kind!=="eisberg" && figSec(c,f)===sec.id) h += figHtml(f);
     for(const b of blocks) h += blockHtml(c, b);
+    if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
     h += `</section>`;
   });
   return h;
@@ -213,7 +228,7 @@ function closeModal(id){ $(id).classList.remove("show"); }
 function openSettings(){ openModal("settingsModal"); }
 function exportState(){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(ST,null,1)],{type:"application/json"})); a.download = "nights-spielstand.json"; a.click(); }
 function importState(inp){ const f = inp.files[0]; if(!f) return; f.text().then(t=>{ try{ ST = Object.assign(loadState(), JSON.parse(t)); saveState(); route(); closeModal("settingsModal"); }catch(e){ alert("Datei konnte nicht gelesen werden."); } }); }
-function resetState(){ if(confirm("Spielstand wirklich zurücksetzen?")){ ST = { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{} }; saveState(); closeModal("settingsModal"); route(); } }
+function resetState(){ if(confirm("Spielstand wirklich zurücksetzen?")){ ST = { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{}, dagger:null }; saveState(); closeModal("settingsModal"); route(); } }
 
 /* ---------- Suche ---------- */
 function stripTags(s){ return s.replace(/<[^>]+>/g,""); }

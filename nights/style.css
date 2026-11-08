@@ -192,3 +192,10 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .mlist-case h4{margin:0 0 6px;color:var(--amber);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
 .mlist-case a{display:block;padding:3px 0;color:var(--text);text-decoration:none;font-size:.9rem}
 .mlist-case a:hover{color:var(--cyan)}
+
+.dagger{position:absolute;cursor:grab;touch-action:none;z-index:5;filter:drop-shadow(0 4px 6px rgba(0,0,0,.6));opacity:.93}
+.dagger:active{cursor:grabbing}
+.dagger svg{display:block;width:100%;height:auto;pointer-events:none}
+.dagbar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:10px 0;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.dagbar .hint{flex:1 1 100%;margin:0}
+.dagbar label{display:flex;gap:8px;align-items:center;font-size:.85rem}

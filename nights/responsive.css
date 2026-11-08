@@ -31,3 +31,10 @@
   .eis-wrap,.fig{max-width:1300px}
 }
 @media (min-width:1900px){.case-grid{grid-template-columns:260px minmax(0,1fr)}.blk-p,.blk-ro,.blk-card,.threat{max-width:130ch}}
+/* kompaktere Darstellung ab Laptop + Blocksatz */
+@media (min-width:1000px){:root{--fs:14.5px}body{line-height:1.5}.blk{margin-bottom:10px}.shell{padding-top:12px}.sec-title h2{font-size:1.4rem}}
+@media (min-width:1600px){:root{--fs:15.5px}}
+@media (min-width:1920px){:root{--fs:18px}}
+@media (min-width:2300px){:root{--fs:22px}}
+@media (min-width:2800px){:root{--fs:27px}}
+.blk-p,.blk-card,.blk-ro,.th-desc,.threat li,.threat .th-desc{text-align:justify;hyphens:auto;-webkit-hyphens:auto}

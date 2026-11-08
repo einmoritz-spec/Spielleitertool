@@ -123,6 +123,72 @@ function addCustomProfile(){
   saveCustomProfiles();
   selectProfile(CUSTOM_PROFILES.length-1, "custom");
 }
+// Import aus dem Charakter-Ersteller (Charaktererstellung.html): einzelne exportierte
+// Charakter-JSON, eine Liste davon oder mehrere Dateien auf einmal. Felder des
+// Erstellers (name, tropeTitle, backpackItems, themes[]) werden auf das Format der
+// Hero Cards dieser Tafel abgebildet; fehlende Felder werden ergänzt.
+function normalizeImportedCharacter(c){
+  if(!c || typeof c!=="object" || typeof c.name!=="string" || !Array.isArray(c.themes)) return null;
+  const str = v => (typeof v==="string" ? v : "");
+  const base = blankCustomProfile();
+  const themes = c.themes.map((th,i)=>{
+    th = th && typeof th==="object" ? th : {};
+    const tags = Array.isArray(th.powerTags) ? th.powerTags.map(str) : [];
+    while(tags.length<2) tags.push("");
+    return {
+      num: Number.isInteger(th.num) ? th.num : i+1,
+      category: str(th.category), title: str(th.title), powerTags: tags,
+      powerTagsMeta: tags.map(()=>({scratched:false})),
+      weakness: str(th.weakness), quest: str(th.quest),
+      abandon:0, improve:0, milestone:0, titleScratched:false,
+    };
+  });
+  return {
+    ...base,
+    name: c.name.trim() || "Importierter Charakter",
+    extraNote: str(c.tropeTitle) || str(c.extraNote),
+    closingNote: str(c.closingNote),
+    backpackItems: Array.isArray(c.backpackItems) ? c.backpackItems.map(str).filter(s=>s.trim()!=="") : [],
+    themes: themes.length ? themes : base.themes,
+    importedFrom: str(c.createdAt) || "",
+  };
+}
+function triggerImportCustomChar(){
+  const input = document.getElementById("importCustomCharInput");
+  if(input) input.click();
+}
+function handleImportCustomChar(event){
+  const files = Array.from(event.target.files || []);
+  event.target.value = "";   // gleiche Datei darf erneut gewählt werden
+  if(!files.length) return;
+  let imported = 0, failed = 0, skipped = 0, pending = files.length;
+  const finish = ()=>{
+    if(imported>0){ saveCustomProfiles(); refreshProfilesBody("custom"); }
+    const parts = [];
+    if(imported) parts.push(`${imported} Charakter(e) importiert`);
+    if(skipped) parts.push(`${skipped} bereits vorhanden (übersprungen)`);
+    if(failed) parts.push(`${failed} Datei(en)/Eintrag/Einträge ungültig`);
+    if(failed || skipped) window.alert(parts.join(", ") + ".");
+  };
+  files.forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      try{
+        const parsed = JSON.parse(reader.result);
+        (Array.isArray(parsed) ? parsed : [parsed]).forEach(raw=>{
+          const ch = normalizeImportedCharacter(raw);
+          if(!ch){ failed++; return; }
+          const dup = ch.importedFrom && CUSTOM_PROFILES.some(p=>p.importedFrom===ch.importedFrom && p.name===ch.name);
+          if(dup){ skipped++; return; }
+          CUSTOM_PROFILES.push(ch); imported++;
+        });
+      }catch(e){ failed++; }
+      if(--pending<=0) finish();
+    };
+    reader.onerror = ()=>{ failed++; if(--pending<=0) finish(); };
+    reader.readAsText(file);
+  });
+}
 function removeCustomProfile(pIdx){
   const nm = (CUSTOM_PROFILES[pIdx] && CUSTOM_PROFILES[pIdx].name) || "dieser Charakter";
   const ok = window.confirm(`„${nm}" wirklich vollständig löschen?\n\nDas kann nicht rückgängig gemacht werden.`);

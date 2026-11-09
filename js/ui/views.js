@@ -9,7 +9,7 @@ function renderOverview(){
       <div class="en">${esc(a.en)}</div>
       <p class="teaser">${esc(a.teaser)}</p>
       <div class="tile-foot">
-        <span>${ready? (a.scenes.length+' Folien') : 'Noch nicht eingepflegt'}</span>
+        <span>${ready? (a.scenes.length+' Szenen') : 'Noch nicht eingepflegt'}</span>
         <span class="status-chip">${ready?'Bereit':'In Vorbereitung'}</span>
       </div>
     </${ready?'button':'div'}>`;
@@ -24,7 +24,7 @@ function renderOverview(){
       <div class="en">Personal Journeys &amp; Revelations Oracle</div>
       <p class="teaser">Persönliche Reisen der Helden, offene Fäden für die nächste Kampagne, und das komplette Revelations Oracle (9 Kern- + 12 Lore-Enthüllungen) zum Nachschlagen nach Adventure 7.</p>
       <div class="tile-foot">
-        <span>3 Folien</span>
+        <span>3 Szenen</span>
         <span class="status-chip">Bereit</span>
       </div>
     </button>`;
@@ -74,7 +74,7 @@ function renderPathrail(adv){
   <div class="pathrail ${state.pathrailCollapsed?'collapsed':''}">
     <button class="pathrail-toggle" onclick="togglePathrail()" title="${state.pathrailCollapsed?'Seitenleiste ausklappen (Taste <)':'Seitenleiste einklappen (Taste <)'}">${state.pathrailCollapsed?'›':'‹'}</button>
     <h2>${esc(adv.title)}</h2>
-    <div class="subhead">${adv.scenes.length} Folien · ${esc(adv.en)}</div>
+    <div class="subhead">${adv.scenes.length} Szenen · ${esc(adv.en)}</div>
     <div class="trail">${items}</div>
   </div>`;
 }

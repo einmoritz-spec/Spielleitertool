@@ -45,7 +45,7 @@ const A4_SCENES = [
   challenges:[],
   revelations:[],
   tips:[
-    "Diese Übersichts-Folie fasst Hintergrund und Einstieg zusammen. Die eigentlichen Vorlesetexte, NPCs und Challenges folgen auf den nächsten Folien, Szene für Szene.",
+    "Diese Übersichts-Szene fasst Hintergrund und Einstieg zusammen. Die eigentlichen Vorlesetexte, NPCs und Challenges folgen auf den nächsten Szenen, Szene für Szene.",
   ],
 },
 

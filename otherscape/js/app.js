@@ -42,7 +42,7 @@ async function route(){
 
 /* ---------- Start ---------- */
 function renderHome(){
-  let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p></div>`;
+  let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Tafel mit allen Spielwerten</p></div>`;
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
   h += `<div class="sec-h">Abenteuer</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===undefined).map(card).join("")}</div>`;
   $("app").innerHTML = h;
@@ -96,7 +96,7 @@ function renderBlock(a,s,b,i){
     case "h": return `<div class="blk-h">${esc(b.x)}</div>`;
     case "liste": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`;
     case "hinweis": return `<div class="blk blk-note">${b.titel?`<b class="tt">${esc(b.titel)}</b>`:""}${fmt(b.x)}</div>`;
-    case "vorlesen_ref": case "vorlesen": if(b.v) return `<div class="blk blk-read"><div class="rd-h"><span>Vorlesen (frei formuliert)</span><button class="pgb" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen">Buch S. ${esc(b.seite||"?")} ansehen</button></div><p>${fmt(b.v)}</p></div>`; return `<button class="blk blk-ref" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen"><span class="bk">Vorlesetext · Buch S. ${esc(b.seite||"?")}<br><u>Seite ansehen</u></span><span>${fmt(b.x||"")}</span></button>`;
+    case "vorlesen_ref": case "vorlesen": if(b.v) return `<div class="blk blk-read"><div class="rd-h"><span>Vorlesen</span><button class="pgb" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen">Buch S. ${esc(b.seite||"?")} ansehen</button></div><p>${fmt(b.v)}</p></div>`; return `<button class="blk blk-ref" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen"><span class="bk">Vorlesetext · Buch S. ${esc(b.seite||"?")}<br><u>Seite ansehen</u></span><span>${fmt(b.x||"")}</span></button>`;
     case "tabelle": return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="tbl-wrap"><table>${b.kopf?`<tr>${b.kopf.map(x=>`<th>${fmt(x)}</th>`).join("")}</tr>`:""}${(b.zeilen||[]).map(r=>`<tr>${r.map(x=>`<td>${fmt(x)}</td>`).join("")}</tr>`).join("")}</table></div></div>`;
     case "szenen": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li><b>${esc(x.n)}</b> – ${fmt(x.x||"")}</li>`).join("")}</ul>`;
     case "uhr": { const n = b.segs||4, cur = ST.clk[k]||0;

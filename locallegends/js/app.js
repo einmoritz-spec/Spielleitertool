@@ -417,6 +417,7 @@ function renderDistrictView(id){
       </button></div></div>`;
   }
 
+  html += llNotes("dist:"+id);
   html += pagerHTML(getDistTabKeys(c).map(k=>[k,DIST_TAB_LABELS[k]]), active, "setDistTab");
   html += `<div class="footer-note">Local Legends — Fall-Akte · Bezirk: ${dist.title}</div>`;
   return html;
@@ -437,6 +438,8 @@ function renderDistrictTabs(c, id, active){
   html += `</div>`;
   return html;
 }
+function llNotes(key){ let n={}; try{ n=JSON.parse(localStorage.getItem("ll_notes")||"{}"); }catch(e){} return `<details class="mini-notes" ${n[key]?"open":""}><summary>✎ Notizen</summary><textarea oninput="llSetNote('${key}',this.value)" placeholder="Eigene Notizen …">${(n[key]||"").replace(/&/g,"&amp;").replace(/</g,"&lt;")}</textarea></details>`; }
+function llSetNote(k,v){ let n={}; try{ n=JSON.parse(localStorage.getItem("ll_notes")||"{}"); }catch(e){} n[k]=v; try{ localStorage.setItem("ll_notes",JSON.stringify(n)); }catch(e){} }
 function pagerHTML(items, active, fn){
   const i = items.findIndex(x=>x[0]===active); if(i<0) return "";
   const pv = items[i-1], nx = items[i+1]; if(!pv && !nx) return "";
@@ -592,6 +595,7 @@ function renderCaseView(id){
     }
   }
 
+  html += llNotes("case:"+id);
   html += pagerHTML([["overview","Übersicht"]].concat(cs.depths.map(dp=>["depth"+dp.n,"Depth "+dp.n+": "+dp.title])).concat([["aftermath","Aftermath"]]), active, "setCaseTab");
   html += `</div>`;
   html += `<div class="footer-note">Local Legends — Fall-Akte · ${dist.title}: ${cs.title}</div>`;

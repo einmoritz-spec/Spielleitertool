@@ -243,3 +243,9 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .pager .pg-txt b{font-weight:400;font-size:.82rem;-webkit-line-clamp:1}
 .pager .pg-prev:hover .pg-arrow,.pager .pg-next:hover .pg-arrow{transform:none}
 @media (max-width:880px){.topbar{padding:6px 12px;gap:8px}.tb-burger{display:flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:auto;flex:none;color:var(--text);cursor:pointer}.tb-burger svg{display:block}.topbar .brand,.topbar .tb-brand{font-size:15px;white-space:nowrap}}
+
+.mini-notes{margin:18px 0 0;max-width:112ch}
+.mini-notes>summary{cursor:pointer;list-style:none;display:inline-block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.45;user-select:none}
+.mini-notes>summary::-webkit-details-marker{display:none}
+.mini-notes>summary:hover,.mini-notes[open]>summary{opacity:.9}
+.mini-notes textarea{display:block;width:100%;box-sizing:border-box;min-height:80px;margin-top:8px;background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:inherit;padding:8px 10px;font:inherit;font-size:.9rem}

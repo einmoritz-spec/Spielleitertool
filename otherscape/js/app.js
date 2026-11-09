@@ -79,11 +79,13 @@ function renderAdv(a, secId){
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${idx===0?ovBox(a):""}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
+   <details class="mini-notes" ${ST.notes[a.id+":"+s.id]?"open":""}><summary>✎ Notizen</summary><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen …">${esc(ST.notes[a.id+":"+s.id]||"")}</textarea></details>
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
   if(idx===0) ovDraw(a);
 }
+function setNote(k,v){ ST.notes[k] = v; saveState(); }
 function toggleNav(){ ST.nav = ST.nav===false; saveState(); const g = $("advGrid"); if(g) g.classList.toggle("nav-off", ST.nav===false); }
 
 function renderBlock(a,s,b,i){

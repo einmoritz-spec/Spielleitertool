@@ -28,9 +28,12 @@ var BV = (function(){
     const pg = Math.max(1, Math.min(dc.numPages, (parseInt(printed)||1) + getOff(key)));
     S = { key, page:pg, n:dc.numPages, zoom:false };
     document.getElementById("bvOverlay").hidden = false; document.body.style.overflow = "hidden";
+    if(!histOn){ try{ history.pushState({bvx:1}, ""); histOn = true; }catch(e){} }
     document.getElementById("bvxTitle").textContent = b.name; show();
   }
-  function close(){ const o = document.getElementById("bvOverlay"); if(o) o.hidden = true; document.body.style.overflow = ""; }
+  function close(fromPop){ const o = document.getElementById("bvOverlay"); if(o) o.hidden = true; document.body.style.overflow = ""; if(histOn){ histOn = false; if(fromPop!==true){ try{ history.back(); }catch(e){} } } }
+  var histOn = false;
+  window.addEventListener("popstate", function(){ var o = document.getElementById("bvOverlay"); if(histOn && o && !o.hidden) close(true); else histOn = false; });
   function step(d){ S.page = Math.max(1,Math.min(S.n,S.page+d)); show(); }
   function go(n){ S.page = Math.max(1,Math.min(S.n,(parseInt(n)||1))); show(); }
   function zoom(){ S.zoom = !S.zoom; show(); }

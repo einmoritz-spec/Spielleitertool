@@ -28,10 +28,13 @@ async function openBook(book, page){
   if(!doc){ alert("Das PDF „"+BOOKS[book].name+"“ ist noch nicht geladen. Du wählst es einmal unter ⚙ Einstellungen › Bücher aus; es bleibt nur in diesem Browser."); openSettings(); return; }
   BV = { book, page: Math.max(1,Math.min(doc.numPages, parseInt(page)||1)), n: doc.numPages, zoom:false };
   document.getElementById("bookViewer").hidden = false; document.body.classList.add("menu-open");
+  if(!bvHist){ try{ history.pushState({bv:1}, ""); bvHist = true; }catch(e){} }
   document.getElementById("bvTitle").textContent = BOOKS[book].name;
   bvShow();
 }
-function closeBook(){ document.getElementById("bookViewer").hidden = true; document.body.classList.remove("menu-open"); }
+var bvHist = false;
+function closeBook(fromPop){ document.getElementById("bookViewer").hidden = true; document.body.classList.remove("menu-open"); if(bvHist){ bvHist = false; if(fromPop!==true){ try{ history.back(); }catch(e){} } } }
+window.addEventListener("popstate", ()=>{ const v = document.getElementById("bookViewer"); if(bvHist && v && !v.hidden) closeBook(true); else bvHist = false; });
 function bvStep(d){ BV.page = Math.max(1,Math.min(BV.n, BV.page+d)); bvShow(); }
 function bvGo(n){ BV.page = Math.max(1,Math.min(BV.n, parseInt(n)||1)); bvShow(); }
 function bvZoom(){ BV.zoom = !BV.zoom; bvShow(); }

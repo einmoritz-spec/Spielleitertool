@@ -197,6 +197,7 @@ document.addEventListener("keydown", (e)=>{
   // wechseln, während man eigentlich im Fenster liest.
   const anyModalOpen = document.querySelector(".gloss-modal-backdrop.open");
   if(anyModalOpen) return;
+  if(e.shiftKey && typeof M2!=="undefined" && M2.on() && (e.key==="ArrowRight"||e.key==="ArrowLeft")){ M2.step(e.key==="ArrowRight"?1:-1); return; }
   if(e.key==="ArrowRight") goScene(state.sceneIdx+1);
   if(e.key==="ArrowLeft") goScene(state.sceneIdx-1);
   if(e.key==="<") togglePathrail();

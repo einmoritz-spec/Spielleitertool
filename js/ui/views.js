@@ -853,17 +853,20 @@ function renderAdventure(){
   if(!adv || adv.status!=="ready"){ goOverview(); return; }
   const scene = adv.scenes[state.sceneIdx];
   const hasTimeTracker = adv.id==="a2";
+  const m2 = (typeof M2!=="undefined") && M2.on();
   app.innerHTML = renderTopbar() + `
-  <div class="shell ${hasTimeTracker?'has-time-tracker':''} ${sceneTabsOn()?'tabs-top':''}">
-    ${sceneTabsOn()?renderSceneTabs(adv):renderPathrail(adv)}
+  <div class="shell ${hasTimeTracker?'has-time-tracker':''} ${(m2||sceneTabsOn())?'tabs-top':''}">
+    ${m2?M2.tabs(adv):sceneTabsOn()?renderSceneTabs(adv):renderPathrail(adv)}
     <div class="content-col">
-      <div class="stage-wrap">${renderScenePicker(adv)}${renderAdventureNotes(adv)}${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>
+      ${(m2&&M2.map)?M2.renderMap(adv):`<div class="stage-wrap">${renderScenePicker(adv)}${renderAdventureNotes(adv)}${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>`}
       ${renderTimeTracker(adv)}
     </div>
   </div>
   ${renderSceneNav(adv, state.sceneIdx)}
   `;
-  document.body.classList.toggle("wk-tabs", sceneTabsOn());
+  document.body.classList.toggle("wk-tabs", !m2 && sceneTabsOn());
+  document.body.classList.toggle("m2", !!m2);
+  if(m2 && !M2.map) M2.layout(adv);
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
 }
 

@@ -286,7 +286,6 @@ button{font-family:inherit; cursor:pointer;}
 .mm-item:active,.mm-item:hover{background:rgba(185,141,62,.13);}
 .mm-ic{width:28px; text-align:center; font-size:20px; flex:none;}
 body.menu-open{overflow:hidden;}
-@media (min-width:881px){ .mobile-menu{display:none;} }
 /* Local Legends: Ergänzungen (Tabellen, Handouts, Bonus, Register) */
 .bonus-head{margin:26px 0 8px}.bonus-head h2{font-size:1.1rem;color:var(--brass-bright,#d9b25f);letter-spacing:.06em;text-transform:uppercase}
 .tbl-wrap{overflow-x:auto}.ll-tbl{border-collapse:collapse;width:100%;font-size:.88rem}.ll-tbl th,.ll-tbl td{border:1px solid var(--line,#3a3a4a);padding:5px 8px;text-align:left;vertical-align:top}
@@ -349,3 +348,4 @@ body.menu-open{overflow:hidden;}
 /* Breadcrumb + Tabs angeheftet */
 .crumb,.crumbs{position:sticky;top:var(--pin-top,56px);z-index:30;background:var(--pin-bg,#0b0d14);padding:6px 0!important;margin:0 0 4px!important}
 .case-tabbar{position:sticky;top:calc(var(--pin-top,56px) + var(--pin-crumb,28px) + 4px);z-index:29;background:var(--pin-bg,#0b0d14);margin-top:0!important;padding-top:4px}
+.tile{display:flex!important;flex-direction:column;justify-content:flex-start!important;align-items:stretch;align-self:stretch}

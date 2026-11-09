@@ -629,7 +629,7 @@ function renderScene(adv, scene, idx){
     <div class="en-title"${EA("en")}>${esc(scene.en)}</div>
   </div>`;
 
-  if(scene.overview && scene.overview.length){
+  if(false && scene.overview && scene.overview.length){ /* Kurzzusammenfassung am Szenenanfang ausgeblendet (Wunsch) */
     html += `<div class="scene-overview"><ul>${scene.overview.map((o,oi)=>(o===""&&!EDIT.on)?"":`<li${EA("overview."+oi)}>${LS(esc(o))}</li>`).join("")}</ul></div>`;
   }
 

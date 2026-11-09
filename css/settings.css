@@ -122,3 +122,6 @@
 .shortcuts-legend[open]>summary::before{transform:rotate(90deg);}
 .shortcuts-legend>summary h3{margin:0;}
 .shortcuts-legend[open]>summary{margin-bottom:10px;}
+
+/* Raben-Symbole ausgeblendet */
+.raven-icon{display:none!important}

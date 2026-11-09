@@ -9,11 +9,12 @@
     ["otherscape","Otherscape","Cyberpunk-Fantasy – Regeln, Tokyo, Abenteuer","otherscape/"]
   ];
   var css = document.createElement("style");
-  css.textContent = ".tm-bd{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px}.tm-box{width:min(420px,100%);background:#1b1816;color:#eee;border:1px solid #4a423a;border-radius:12px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.6);font-family:inherit}.tm-box h2{margin:0 0 10px;font-size:17px}.tm-box button{display:block;width:100%;text-align:left;margin:0 0 8px;padding:11px 13px;border-radius:8px;border:1px solid #4a423a;background:#26211d;color:inherit;font:inherit;cursor:pointer}.tm-box button small{display:block;opacity:.65;font-size:12px;margin-top:2px}.tm-box button.on{border-color:#c9a24b;background:rgba(201,162,75,.12)}.tm-x{text-align:center!important;opacity:.8}";
+  css.textContent = ".brand,.brand *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}.tm-bd{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px}.tm-box{width:min(420px,100%);background:#1b1816;color:#eee;border:1px solid #4a423a;border-radius:12px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.6);font-family:inherit}.tm-box h2{margin:0 0 10px;font-size:17px}.tm-box button{display:block;width:100%;text-align:left;margin:0 0 8px;padding:11px 13px;border-radius:8px;border:1px solid #4a423a;background:#26211d;color:inherit;font:inherit;cursor:pointer}.tm-box button small{display:block;opacity:.65;font-size:12px;margin-top:2px}.tm-box button.on{border-color:#c9a24b;background:rgba(201,162,75,.12)}.tm-x{text-align:center!important;opacity:.8}";
   document.head.appendChild(css);
   function close(){ var e = document.getElementById("tmBd"); if(e) e.remove(); }
   function cur(){ var p = location.pathname; return /\/locallegends\//.test(p) ? "locallegends" : /\/nights\//.test(p) ? "paynetown" : /\/otherscape\//.test(p) ? "otherscape" : "wake"; }
   function open(){
+    try{ var sl = window.getSelection && window.getSelection(); if(sl) sl.removeAllRanges(); }catch(x){}
     close(); var c = cur(), d = document.createElement("div"); d.className = "tm-bd"; d.id = "tmBd";
     d.innerHTML = '<div class="tm-box"><h2>System wechseln</h2>' + TOOLS.map(function(t){ return '<button data-m="'+t[0]+'" class="'+(t[0]===c?"on":"")+'"><b>'+t[1]+'</b><small>'+t[2]+(t[0]===c?" (aktuell)":"")+'</small></button>'; }).join("") + '<button class="tm-x">Abbrechen</button></div>';
     d.addEventListener("click", function(e){

@@ -338,3 +338,9 @@ body.menu-open{overflow:hidden;}
 .mini-notes>summary:hover,.mini-notes[open]>summary{opacity:.9}
 .mini-notes textarea{display:block;width:100%;box-sizing:border-box;min-height:80px;margin-top:8px;background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:inherit;padding:8px 10px;font:inherit;font-size:.9rem}
 .footer-note{display:none!important}
+
+/* Kopfzeile einheitlich: Text statt Symbole, Burger immer sichtbar */
+.mm-ic,.tb-ic{display:none!important}
+.tb-burger{display:flex!important;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:8px;flex:none;cursor:pointer}
+.tb-burger svg{display:block}
+.topbar .tb-btn,.topbar-actions,.topbar-spacer{display:none!important}.topbar{justify-content:space-between}.topbar .brand{font-size:15px;white-space:nowrap}.tb-burger{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.18)!important;color:var(--text,#e8e8ee)!important;border-radius:10px!important;margin-left:auto}

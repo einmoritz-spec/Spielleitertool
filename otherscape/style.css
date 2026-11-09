@@ -265,3 +265,9 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .ch.coll>.ch-body{display:none}
 .ch.coll.open>.ch-body{display:block}
 @media (max-width:1000px){.adv-grid:has(.home-nav) .content{order:-1}}
+
+/* Kopfzeile einheitlich: Text statt Symbole, Burger immer sichtbar */
+.mm-ic,.tb-ic{display:none!important}
+.tb-burger{display:flex!important;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:8px;flex:none;cursor:pointer}
+.tb-burger svg{display:block}
+.topbar .tb-btn,.topbar-actions,.topbar-spacer{display:none!important}.topbar{justify-content:space-between}.topbar .brand{font-size:15px;white-space:nowrap}.tb-burger{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.18)!important;color:var(--text,#e8e8ee)!important;border-radius:10px!important;margin-left:auto}

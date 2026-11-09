@@ -68,15 +68,15 @@ function renderTopbar(){
   const advOpen = state.view==="adventure" && state.advId;
   const btns = TOPBAR_ITEMS
     .filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))
-    .map(it => `<button class="rest-btn" data-tb="${it.id}" onclick="${it.fn}" title="${it.title}${tbShowsLabel(it)?'':' — '+it.label}">${it.icon}${tbShowsLabel(it)?`<span class="tb-label">${it.label}</span>`:''}${it.badge?'<span class="fav-badge" id="favBadgeCount"></span>':''}</button>`)
+    .map(it => `<button class="rest-btn" data-tb="${it.id}" onclick="${it.fn}" title="${it.title}${tbShowsLabel(it)?'':' — '+it.label}"><span class="tb-label">${it.label}</span>${it.badge?'<span class="fav-badge" id="favBadgeCount"></span>':''}</button>`)
     .join("");
   return `
   <div class="topbar">
-    <button class="brand" onclick="goOverview()"><span class="raven-icon">${RAVEN_SVG}</span>${CAMPAIGN_TITLE}</button>
+    <button class="brand" onclick="goOverview()">${CAMPAIGN_TITLE}</button>
     <div class="topbar-spacer"></div>
     <div class="topbar-actions">
       ${btns}
-      <button class="rest-btn tb-settings" onclick="openTopbarSettings()" title="Kopfzeile anpassen (Taste ,) — Rechtsklick auf einen Knopf: ausblenden / Beschriftung">⚙</button>
+      <button class="rest-btn tb-settings" onclick="openTopbarSettings()" title="Kopfzeile anpassen (Taste ,)">Einstellungen</button>
     </div>
     <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen" title="Menü">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>

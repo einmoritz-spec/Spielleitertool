@@ -295,8 +295,4 @@ body.menu-open{overflow:hidden;}
 .app-row{padding:7px 10px;border-bottom:1px solid var(--line,#33333f);display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.app-sub{color:var(--text-faint)}.app-row small{color:var(--text-faint)}
 .app-go{margin-left:auto;color:var(--brass-bright,#d9b25f);cursor:pointer;font-size:.8rem}.app-go.off{opacity:.5;cursor:default}
 
-/* Buchseiten-Leiste */
-.bk-bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px;padding:8px 10px;border:1px solid var(--border,#3a3330);border-radius:8px;background:rgba(255,255,255,.03);font-size:12px;}
-.bk-lbl{color:var(--text-faint);font-weight:600;margin-right:2px;}
-.bk-chip{display:inline-flex;gap:5px;align-items:center;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.05);color:var(--text-lo);}
-@media (max-width:640px){.bk-bar{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.bk-chip{white-space:nowrap}}
+.tab-h{font-family:var(--serif-display);font-size:20px;margin:4px 0 12px;color:var(--paper);}

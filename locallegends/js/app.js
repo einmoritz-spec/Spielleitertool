@@ -22,14 +22,11 @@ function saveComplete(){
 }
 loadPips();
 
-/* Buchseiten-Leiste: Kapitel- und Abschnittsseiten aus dem Inhaltsverzeichnis (klickbar, öffnet lokales PDF) */
-function bookBar(id, isCase){
-  const es = (GUIDE.tableOfContents && GUIDE.tableOfContents.entries) || [];
-  const e = es.find(x=>x.id===id && !!x.isCase===!!isCase && !x.isVillain);
-  if(!e) return "";
-  const chip = (t,pg)=>`<span class="bk-chip">${t} <a class="pg-link" href="#" data-page="${pg}">S. ${pg}</a></span>`;
-  return `<div class="bk-bar"><span class="bk-lbl">📖 Im Buch:</span>${chip(isCase?"Fall":"Kapitel",e.page)}${(e.sub||[]).map(s=>chip(s[0],s[1])).join("")}</div>`;
-}
+/* Seitenlinks hinter Überschriften (Daten: Inhaltsverzeichnis in guide.js) */
+function tocEntry(id,isCase){ const es=(GUIDE.tableOfContents&&GUIDE.tableOfContents.entries)||[]; return es.find(x=>x.id===id && !!x.isCase===!!isCase && !x.isVillain); }
+function tocPage(id,isCase,prefix){ const e=tocEntry(id,isCase); if(!e) return 0; if(!prefix) return e.page; const m=(e.sub||[]).find(x=>x[0].indexOf(prefix)===0); return m?m[1]:0; }
+function pgA(n){ return n?` <a class="pg-link" href="#" data-page="${n}" title="Originalseite im Buch ansehen">S. ${n}</a>`:""; }
+function tabHead(title,n){ return `<h2 class="tab-h">${title}${pgA(n)}</h2>`; }
 
 function goOverview(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goDistrict(id){ state.view="district"; state.districtId=id; state.distTab="overview"; render(); window.scrollTo(0,0); }
@@ -64,12 +61,27 @@ function render(){
 }
 /* Hängt an Orte/Locals/Power Sets einen Seitenlink (aus data/pages.js) */
 function linkNamePages(){
+  if(state.districtId && (state.view==="case"||state.view==="district")){
+    const isCase = state.view==="case";
+    const H = isCase ? {"Hintergrund":"Background","Der Eisberg":"The Iceberg","Aftermath":"Aftermath"} : {"Wie man diesen Bezirk nutzt":""};
+    document.querySelectorAll("#app .section-head h2").forEach(h=>{
+      const t=h.textContent.trim(); if(!(t in H) || h.querySelector(".pg-link")) return;
+      const n=tocPage(state.districtId,isCase,H[t]); if(n) h.insertAdjacentHTML("beforeend",pgA(n));
+    });
+  }
   if(typeof LL_PAGES==="undefined" || !state.districtId) return;
   const m = LL_PAGES[state.districtId]; if(!m) return;
+  // Seitenbereich des aktuellen Tabs (damit Namen nicht auf Erwähnungen in anderen Kapitelteilen verlinken)
+  let lo=0, hi=9999;
+  if(state.view==="district"){
+    const PRE={options:"Player Options",places:"Places of Interest",locals:"Locals",chance:"Chance Encounters",powersets:"Power Sets",heists:"Heists"}[state.distTab];
+    const e=tocEntry(state.districtId,false);
+    if(PRE && e){ const subs=e.sub||[], i=subs.findIndex(x=>x[0].indexOf(PRE)===0); if(i>=0){ lo=subs[i][1]; hi=subs[i+1]?subs[i+1][1]:9999; if(state.distTab==="powersets") hi=9999; } }
+  }
   document.querySelectorAll("#app h3, #app h4").forEach(h=>{
     if(h.querySelector(".pg-link")) return;
     const t = h.textContent.replace("📍","").replace(/\s+/g," ").trim();
-    const pg = m[t]; if(!pg) return;
+    const pg = m[t]; if(!pg || pg<lo || pg>=hi) return;
     const a = document.createElement("a"); a.className="pg-link"; a.href="#"; a.dataset.page=pg; a.title="Originalseite im Buch ansehen"; a.textContent="S. "+pg;
     h.appendChild(document.createTextNode(" ")); h.appendChild(a);
   });
@@ -335,7 +347,6 @@ function renderDistrictView(id){
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span>${dist.title}</div>`;
   html += `<div class="hero"><h1>${dist.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin-bottom:10px;">${c.tagline||dist.sub}</p></div>`;
 
-  html += bookBar(id,false);
   html += renderDistrictTabs(c, id, active);
 
   if(active==="overview"){
@@ -350,20 +361,25 @@ function renderDistrictView(id){
     html += sectionHTML("custom","Custom Moves", (c.customMovesIntro?`<div class="card"><p>${c.customMovesIntro}</p></div>`:"") + c.customMoves.map(m=>`<div class="card"><h3>${m.name}</h3><p>${m.text}</p></div>`).join(""));
   }
   else if(active==="options"){
+    html += tabHead("Player Options", tocPage(id,false,"Player Options"));
     if(c.playerOptionsIntro) html += `<div class="card"><p>${c.playerOptionsIntro}</p></div>`;
     html += c.playerOptions.map(renderThemeCard).join("");
   }
   else if(active==="places"){
+    html += tabHead("Orte", tocPage(id,false,"Places of Interest"));
     html += c.places.map((p,i)=>locBlock(p, "pl_"+i, null)).join("");
   }
   else if(active==="locals"){
+    html += tabHead("Locals", tocPage(id,false,"Locals"));
     html += c.locals.map(l=>(l.profile?`<div class="card"><h3>${l.name}</h3><p>${l.profile}</p></div>`:"")+renderDangerCard(l,"local_"+id)).join("");
     if(c.localThemes) html += c.localThemes.map(renderThemeCard).join("");
   }
   else if(active==="chance"){
+    html += tabHead("Zufallsbegegnungen", tocPage(id,false,"Chance Encounters"));
     html += c.chanceEncounters.map(l=>renderDangerCard(l,"chance_"+id)).join("");
   }
   else if(active==="powersets"){
+    html += tabHead("Power Sets", tocPage(id,false,"Power Sets"));
     html += c.powerSets.map(p=>`<div class="card"><h3>${p.name}</h3><p>${p.text}</p></div>`).join("");
     const tb = c.themebook;
     if(tb){
@@ -383,6 +399,7 @@ function renderDistrictView(id){
     }
   }
   else if(active==="heists" && c.heistRules){
+    html += tabHead("Heists", tocPage(id,false,"Heists"));
     const hr = c.heistRules;
     html += `<div class="card"><p>${hr.intro}</p></div>`;
     html += sectionHTML("heistterm","Heist-Terminologie", hr.terminology.map(t=>`<div class="card"><h3 style="font-size:14px;">${t.t}</h3><p>${t.x}</p></div>`).join(""));
@@ -504,7 +521,6 @@ function renderCaseView(id){
 
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span><button onclick="goDistrict('${id}')">${dist.title}</button><span class="sep">/</span>${cs.title}</div>`;
   html += `<div class="case-hero"><div class="eyebrow">ONE-SHOT CASE · ${dist.title.toUpperCase()}</div><h1 style="margin:0 0 4px;">${cs.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin:0;">${cs.subtitle}</p></div>`;
-  html += bookBar(id,true);
   html += renderCaseTabs(cs, active);
   html += `<div class="case-tabpanel">`;
 
@@ -531,7 +547,7 @@ function renderCaseView(id){
     const n = parseInt(active.replace("depth",""),10);
     const dp = cs.depths.find(d=>d.n===n);
     if(dp){
-      let body = "";
+      let body = tabHead("Depth "+dp.n+": "+dp.title, tocPage(id,true,"Depth "+dp.n));
       const scope = "case_"+id+"_d"+dp.n;
       if(dp.intro){ body += `<div class="card"><p>${dp.intro}</p></div>`; }
       if(dp.hooks){ body += dp.hooks.map((h,i)=>hookBlock(h, caseAnchor(id,dp,'hook',i))).join(""); }

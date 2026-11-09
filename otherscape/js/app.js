@@ -137,7 +137,7 @@ function renderChallenge(k,b){
   if(b.beschr) h += `<div class="ch-desc">${fmt(b.beschr)}</div>`;
   (b.limits||[]).forEach((l,li)=>{
     const lk = k+":"+li, n = +l.v||0, arr = ST.lim[lk]||[];
-    h += `<div class="lim"><div class="lim-l">${esc(l.n)}</div><div class="lim-c">${n?`<div class="pips" id="p_${esc(lk)}">${Array.from({length:n},(_,j)=>`<button class="pip ${arr[j]?"f":""}" onclick="togPip('${esc(lk)}',${j})" aria-label="Feld ${j+1}"></button>`).join("")}</div><span class="lim-n" id="n_${esc(lk)}">${arr.filter(Boolean).length}/${n}</span><button class="lim-r" onclick="resetLim('${esc(lk)}')" title="Zurücksetzen">↺</button>`:`<span class="lim-n">–</span>`}</div></div>`;
+    h += `<div class="lim"><div class="lim-l">${esc(l.n)}</div><div class="lim-c">${n?`<div class="pips" id="p_${esc(lk)}">${Array.from({length:n},(_,j)=>`<button class="pip ${arr[j]?"f":""}" onclick="togPip('${esc(lk)}',${j})" aria-label="Feld ${j+1}"></button>`).join("")}</div><span class="lim-n" id="n_${esc(lk)}">${arr.lastIndexOf(true)+1}/${n}</span><button class="lim-r" onclick="resetLim('${esc(lk)}')" title="Zurücksetzen">↺</button>`:`<span class="lim-n">–</span>`}</div></div>`;
   });
   if((b.tags||[]).length) h += `<div class="chips">${b.tags.map(t=>`<span class="chip ${tagCls(t)}">${esc(tagTxt(t))}</span>`).join("")}</div>`;
   if((b.specials||[]).length) h += `<div class="ch-sub">Specials</div><ul>${b.specials.map(x=>`<li><b>${esc(x.n)}</b>${x.x?" – "+fmt(x.x):""}</li>`).join("")}</ul>`;
@@ -148,7 +148,7 @@ function renderChallenge(k,b){
 function togPip(lk,j){ const arr = ST.lim[lk]||(ST.lim[lk]=[]); arr[j] = !arr[j]; saveState(); syncLim(lk); }
 function resetLim(lk){ ST.lim[lk] = []; saveState(); syncLim(lk); }
 function syncLim(lk){ const arr = ST.lim[lk]||[], el = document.getElementById("p_"+lk); if(!el) return;
-  [...el.children].forEach((c,x)=>c.classList.toggle("f", !!arr[x])); const n = document.getElementById("n_"+lk); if(n) n.textContent = arr.filter(Boolean).length+"/"+el.children.length; }
+  [...el.children].forEach((c,x)=>c.classList.toggle("f", !!arr[x])); const n = document.getElementById("n_"+lk); if(n) n.textContent = (arr.lastIndexOf(true)+1)+"/"+el.children.length; }
 
 /* ---------- Suche ---------- */
 function blockText(b){ return [b.x,b.titel,b.name,b.typ,b.beschr,(b.items||[]).map(i=>typeof i==="string"?i:(i.n+" "+(i.x||""))).join(" "),(b.tags||[]).join(" "),(b.specials||[]).map(x=>x.n+" "+(x.x||"")).join(" "),(b.threats||[]).map(x=>x.n+" "+(x.x||"")).join(" "),(b.limits||[]).map(l=>l.n).join(" "),(b.zeilen||[]).map(r=>r.join(" ")).join(" "),(b.extra||[]).map(e=>e.k+" "+e.x).join(" ")].filter(Boolean).join(" "); }

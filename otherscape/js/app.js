@@ -82,11 +82,11 @@ function renderAdv(a, secId){
    </div></div></div>`;
   $("app").innerHTML = h;
   { const rl = a.sektionen.map((x,i)=>`<button class="${x.id===s.id?"on":""}" title="${esc(x.titel)}" aria-label="${esc(x.titel)}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${i+1}</button>`).join("");
-    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen">Liste</button>${rl}</div>`); }
+    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen">»</button>${rl}</div>`); }
   if(idx===0) ovDraw(a);
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
-function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
+function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); const nv=document.querySelector(".nav"); if(nv && !nv.querySelector(".nav-close")){ const x=document.createElement("button"); x.className="nav-close"; x.setAttribute("aria-label","Liste einklappen"); x.textContent="«"; x.onclick=closeNavDrawer; nv.prepend(x); } if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
 function closeNavDrawer(){ document.body.classList.remove("nav-drawer-open"); }
 window.addEventListener("hashchange",closeNavDrawer);
 function toggleNav(){ ST.nav = ST.nav===false; saveState(); const g = $("advGrid"); if(g) g.classList.toggle("nav-off", ST.nav===false); }

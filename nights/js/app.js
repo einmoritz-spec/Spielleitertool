@@ -170,15 +170,16 @@ function chapterView(c, ch){
   if(c.eisberg && (first.kind==="intro")) h += `<div id="eisberg">${eisbergView(c)}</div>`;
   ch.items.forEach((sec,k)=>{
     const sub = !ch.flat && !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
+    const subCount = ch.items.filter((x,kk)=>!ch.flat && !(ch.layer && kk===0) && !(first.kind==="intro" && kk===0)).length, single = sub && subCount===1;
     const nextSec = c.sections[c.sections.indexOf(sec)+1];
-    h += `<section class="chsec${sub?" coll":""}${sub&&sec.id===OPENSID?" open":""}" id="s-${sec.id}">`;
-    if(sub) h += `<h3 class="sec-sub" onclick="toggleSec(this)"><span class="chev">▸</span>${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3><div class="chbody">`;
+    h += `<section class="chsec${sub&&!single?" coll":""}${sub&&sec.id===OPENSID?" open":""}" id="s-${sec.id}">`;
+    if(sub) h += `<h3 class="sec-sub"${single?"":` onclick="toggleSec(this)"`}>${single?"":`<span class="chev">▸</span>`}${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3>${single?"":`<div class="chbody">`}`;
     else if(!(k0 && k===0)) h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></div>`;
     const blocks = secBlocks(c, sec.id);
     for(const f of (c.figures||[])) if(f.kind!=="eisberg" && figSec(c,f)===sec.id) h += figHtml(f);
     for(const b of blocks) h += blockHtml(c, b);
     if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
-    if(sub) h += `</div>`;
+    if(sub&&!single) h += `</div>`;
     h += `</section>`;
   });
   return h;

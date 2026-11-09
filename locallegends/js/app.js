@@ -49,6 +49,7 @@ function render(){
   else if(state.view==="appendix") app.innerHTML = renderAppendix();
   buildGlossList();
   buildRulesList();
+  { const sc = app.querySelector('.case-tabpanel')||app, cs = sc.querySelectorAll('.loc-card'); if(cs.length===1) cs[0].classList.add('single','open'); }
   const caseBtn = document.getElementById("tb-case-btn");
   if(caseBtn){
     const dist = DISTRICTS.find(d=>d.id===state.districtId);

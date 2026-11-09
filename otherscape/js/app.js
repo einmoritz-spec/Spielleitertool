@@ -45,11 +45,6 @@ function renderHome(){
   for(const [kat,titel] of [[undefined,"Abenteuer"],["setting","Tokyo-Setting"],["fraktion","Fraktionen (Tokyo)"],["gegner","Yōkai Database"]]){
     h += `<div class="sec-h">${titel}</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===kat).map(card).join("")}</div>`;
   }
-  h += `<div class="cards" style="display:none">`;
-  h += `</div><div class="sec-h">Werkzeuge</div><div class="cards">
-    <button class="card" onclick="location.hash='#/gegner'"><span class="nr">Tokyo · S. 94–147</span><b>Gegner-Browser</b><small>Alle Challenges und Power Sets durchsuchen</small></button>
-    <button class="card" onclick="openRules()"><span class="nr">Regeln</span><b>Regelblatt &amp; Würfler</b><small>2W6 + Power, Effects, Burn, Mitigate</small></button>
-    <button class="card" onclick="openSearch()"><span class="nr">Suche</span><b>Volltextsuche</b><small>Über alle Abenteuer</small></button></div>`;
   $("app").innerHTML = h;
 }
 
@@ -150,7 +145,7 @@ function openMobileMenu(){
   if($("mobileMenu")) return;
   const item = (ic,l,fn)=>`<button class="mm-item" onclick="closeMobileMenu(); ${fn}"><span class="mm-ic">${ic}</span><span>${l}</span></button>`;
   const m = document.createElement("div"); m.id = "mobileMenu"; m.className = "mobile-menu";
-  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
+  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
   document.body.appendChild(m); document.body.classList.add("menu-open"); requestAnimationFrame(()=>m.classList.add("open"));
 }
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMobileMenu(); closeModal("searchModal"); closeModal("settingsModal"); } });

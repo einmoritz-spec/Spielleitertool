@@ -322,3 +322,18 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 }
 @media (max-width:1000px){.shell:has(.prail){padding-left:52px!important}.case-grid.pr-layout,.adv-grid.pr-layout{padding-left:0}}
 @media (max-width:1000px){.prail,.prail.collapsed{height:calc(100vh - 50px)!important;max-height:none!important}}
+/* Mobil: Leiste im Fluss (kein Overlay, kein Abdunkeln), schiebt den Text zur Seite wie bei Wake */
+@media (max-width:1000px){
+  .shell:has(.prail){padding-left:10px!important}
+  .case-grid.pr-layout,.adv-grid.pr-layout{display:flex!important;padding-left:0!important;gap:10px}
+  .prail,.prail.collapsed{position:sticky!important;top:50px;left:auto;bottom:auto;height:calc(100vh - 50px)!important;margin:0!important;box-shadow:none!important;background:transparent!important;z-index:10}
+  .prail.collapsed{width:34px;padding:12px 0 24px}
+  .prail:not(.collapsed){width:172px;padding:14px 4px 24px 8px}
+  .prail:not(.collapsed) ~ .content{pointer-events:auto!important}
+  .pr-backdrop{display:none!important}
+  .prail h2{font-size:.9rem;margin-right:30px}
+  .prail .subhead{margin-bottom:12px}
+  .pr-item .t-title{font-size:.78rem}
+  .pr-trail{padding-left:16px}
+  .pr-item::before{left:-15px}
+}

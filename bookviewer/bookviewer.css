@@ -16,3 +16,5 @@ a.pg-link:hover{text-decoration:underline solid;filter:brightness(1.25)}
 .bvs-off{font-size:.85em;opacity:.8;margin:4px 2px 0}
 .bvs-off input{width:64px;margin-left:6px}
 .bvs-hint{font-size:.8em;opacity:.7}
+.bvs-btn{position:relative;overflow:hidden;white-space:nowrap}
+.bvs-file{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;font-size:0}

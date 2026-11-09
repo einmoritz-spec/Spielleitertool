@@ -44,11 +44,20 @@ var BV = (function(){
     await page.render({canvasContext:cv.getContext("2d"), viewport:vp}).promise; if(t===tok) stage.scrollTop = 0;
   }
   async function refresh(){ for(const b of cfg.books){ const el = document.getElementById("bvs_"+b.key); if(!el) continue; const has = !!(await dbGet(b.key)); el.innerHTML = has ? `✓ geladen <a href="#" onclick="BV.remove('${b.key}');return false">entfernen</a>` : "nicht geladen"; } }
-  async function load(k, inp){ const f = inp.files[0]; if(!f) return; await dbPut(k,f); delete DOCS[k]; refresh(); }
+  async function load(k, inp){
+    const f = inp.files[0]; if(!f) return; const el = document.getElementById("bvs_"+k);
+    if(el) el.textContent = "wird gespeichert … ("+Math.round(f.size/1048576)+" MB)";
+    try{
+      if(!(await dbPut(k,f))) throw new Error("Speichern fehlgeschlagen");
+      delete DOCS[k]; const dc = await doc(k); if(!dc) throw new Error("PDF nicht lesbar");
+      if(el) el.innerHTML = "✓ geladen ("+dc.numPages+" Seiten) <a href=\"#\" onclick=\"BV.remove('"+k+"');return false\">entfernen</a>";
+    }catch(e){ delete DOCS[k]; await dbDel(k); if(el) el.textContent = "Fehler: "+(e&&e.message||e)+" – evtl. zu wenig Speicherplatz im Browser oder keine gültige PDF."; }
+    inp.value = "";
+  }
   async function remove(k){ await dbDel(k); delete DOCS[k]; refresh(); }
   function setOffset(k,v){ try{ localStorage.setItem(offKey(k), String(parseInt(v)||0)); }catch(e){} }
   function settingsHTML(){
-    return `<div class="bvs"><div class="bvs-title">Bücher (nur lokal)</div>${cfg.books.map(b=>`<div class="bvs-row"><div><b>${b.name}</b><small id="bvs_${b.key}">…</small></div><label class="bvs-btn">PDF wählen<input type="file" accept="application/pdf" hidden onchange="BV.load('${b.key}',this)"></label></div><div class="bvs-off">Seitenversatz (PDF-Seite minus Buchseite): <input type="number" value="${getOff(b.key)}" onchange="BV.setOffset('${b.key}',this.value)"></div>`).join("")}<p class="bvs-hint">Deine PDFs bleiben nur in diesem Browser (nichts wird hochgeladen). Seitenangaben wie „S. 315“ im Text öffnen dann die Originalseite. Passt die Seite nicht genau, stelle den Seitenversatz ein.</p></div>`;
+    return `<div class="bvs"><div class="bvs-title">Bücher (nur lokal)</div>${cfg.books.map(b=>`<div class="bvs-row"><div><b>${b.name}</b><small id="bvs_${b.key}">…</small></div><label class="bvs-btn">PDF wählen<input class="bvs-file" type="file" accept="application/pdf,.pdf" onchange="BV.load('${b.key}',this)"></label></div><div class="bvs-off">Seitenversatz (PDF-Seite minus Buchseite): <input type="number" value="${getOff(b.key)}" onchange="BV.setOffset('${b.key}',this.value)"></div>`).join("")}<p class="bvs-hint">Deine PDFs bleiben nur in diesem Browser (nichts wird hochgeladen). Seitenangaben wie „S. 315“ im Text öffnen dann die Originalseite. Passt die Seite nicht genau, stelle den Seitenversatz ein.</p></div>`;
   }
   /* Seitenverweise im Text automatisch anklickbar machen */
   const RX = /(?:\bS\.|\bSeiten?)\s?(\d{1,3})(?:\s?[–-]\s?(\d{1,3}))?/g;

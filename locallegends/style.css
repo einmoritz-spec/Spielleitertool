@@ -316,3 +316,10 @@ body.menu-open{overflow:hidden;}
 .pager .pg-prev:hover .pg-arrow{transform:translateX(-3px)}
 .pager .pg-next:hover .pg-arrow{transform:translateX(3px)}
 @media (max-width:480px){.pager .pg-arrow{width:34px;height:34px}.pager{gap:8px}}
+
+/* einklappbare Orte/Ereignisse */
+.loc-card .loc-h{cursor:pointer;display:flex;align-items:center;gap:8px;margin:0;user-select:none}
+.loc-card .loc-h .chev{display:inline-block;transition:transform .15s;color:var(--gold,#c9a24b);font-size:.85em}
+.loc-card.open .loc-h .chev{transform:rotate(90deg)}
+.loc-card .loc-body{display:none;margin-top:10px}
+.loc-card.open .loc-body{display:block}

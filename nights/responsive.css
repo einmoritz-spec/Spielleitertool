@@ -61,3 +61,4 @@
 @media (min-width:1000px){
   .case-grid.nav-off .chsec>.threat{column-span:all;max-width:112ch;margin:14px 0 18px}
 }
+@media (min-width:1100px){.case-grid.nav-off .chsec.coll>.chbody{column-width:46ch;column-gap:40px;column-fill:balance}.case-grid.nav-off .chsec.coll>.chbody>*{break-inside:avoid-column}}

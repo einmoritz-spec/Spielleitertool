@@ -142,6 +142,7 @@ function renderCase(c, sid){
   gs.forEach((g,i)=>{ nav += `<button class="${g.items[0].id===ch.items[0].id?"on":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${esc(chapterTitle(g))}<small>Seite ${g.items[0].page}${g.items.length>1?" · "+g.items.length+" Abschnitte":""}</small></button>`; });
   const sel = gs.map(g=>`<option value="${g.items[0].id}"${g.items[0].id===ch.items[0].id?" selected":""}>${esc(chapterTitle(g))}</option>`).join("");
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
+  OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
   body += `<div class="notes"><h3 class="blk-sh">Notizen</h3><textarea oninput="setNote('${c.nr}:${ch.items[0].id}',this.value)" placeholder="Eigene Notizen zu diesem Kapitel …">${esc(ST.notes[c.nr+":"+ch.items[0].id]||"")}</textarea></div>`;
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
@@ -158,6 +159,8 @@ let CURCH = null;
 function toggleNav(){ ST.navHidden = !ST.navHidden; saveState(); const g = document.querySelector('.case-grid'); if(g) g.classList.toggle('nav-off', !!ST.navHidden); }
 function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
 function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }
+let OPENSID = null;
+function toggleSec(el){ el.closest('.chsec').classList.toggle('open'); }
 function chapterView(c, ch){
   const first = ch.items[0];
   const k0 = !ch.flat && (ch.layer || first.kind==="intro");
@@ -168,13 +171,14 @@ function chapterView(c, ch){
   ch.items.forEach((sec,k)=>{
     const sub = !ch.flat && !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
     const nextSec = c.sections[c.sections.indexOf(sec)+1];
-    h += `<section class="chsec" id="s-${sec.id}">`;
-    if(sub) h += `<h3 class="sec-sub">${esc(sec.title)}<button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3>`;
+    h += `<section class="chsec${sub?" coll":""}${sub&&sec.id===OPENSID?" open":""}" id="s-${sec.id}">`;
+    if(sub) h += `<h3 class="sec-sub" onclick="toggleSec(this)"><span class="chev">▸</span>${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3><div class="chbody">`;
     else if(!(k0 && k===0)) h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></div>`;
     const blocks = secBlocks(c, sec.id);
     for(const f of (c.figures||[])) if(f.kind!=="eisberg" && figSec(c,f)===sec.id) h += figHtml(f);
     for(const b of blocks) h += blockHtml(c, b);
     if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
+    if(sub) h += `</div>`;
     h += `</section>`;
   });
   return h;

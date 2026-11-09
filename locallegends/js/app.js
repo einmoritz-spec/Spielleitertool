@@ -448,9 +448,12 @@ function setDistTab(tab){ state.distTab = tab; render(); window.scrollTo(0,0); }
 /* ============================================================
    RENDER: FALL (CASE)
    ============================================================ */
+state.openLoc = {};
+function toggleLoc(id){ state.openLoc[id] = !state.openLoc[id]; const el = document.getElementById(id); if(el) el.classList.toggle("open", !!state.openLoc[id]); }
+function openLocEl(el){ const c = el && el.closest && el.closest(".loc-card"); if(c && !c.classList.contains("open")){ c.classList.add("open"); state.openLoc[c.id] = true; } }
 function locBlock(l, anchorId, scope){
-  let html = `<div class="loc-card loc-anchor" id="${anchorId}">`;
-  html += `<h4><span class="pin">📍</span> ${l.name}</h4>`;
+  let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}">`;
+  html += `<h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span><span class="pin">📍</span> ${l.name}</h4><div class="loc-body">`;
   if(l.readaloud){
     html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${l.readaloud}</div></div>`;
   }
@@ -481,21 +484,21 @@ function locBlock(l, anchorId, scope){
   if(l.moveBox){
     html += `<div class="card"><h3 style="font-size:14px;">${l.moveBox.title}</h3><p>${l.moveBox.text}</p>${l.moveBox.list?`<ul>${l.moveBox.list.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
   }
-  html += `</div>`;
   if(l.dangers && l.dangers.length && scope){
     html += l.dangers.map(dg=>renderDangerCard(dg, scope)).join("");
   }
+  html += `</div></div>`;
   return html;
 }
 function hookBlock(h, anchorId){
   if(typeof h==="string") return `<div class="card"><p>${h}</p></div>`;
   if(!h.name) return `<div class="card">${h.readaloud?`<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`:""}${h.text?`<p>${h.text}</p>`:""}${h.clues?clueBoxes(h.clues):""}${h.gmNote?gmNote(h.gmNote):""}</div>`;
-  let html = `<div class="loc-card loc-anchor" id="${anchorId}"><h4><span class="pin">📌</span> ${h.name}</h4>`;
+  let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}"><h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span><span class="pin">📌</span> ${h.name}</h4><div class="loc-body">`;
   if(h.readaloud) html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`;
   if(h.text) html += `<p>${h.text}</p>`;
   if(h.clues) html += clueBoxes(h.clues);
   if(h.gmNote) html += gmNote(h.gmNote);
-  html += `</div>`;
+  html += `</div></div>`;
   return html;
 }
 
@@ -523,7 +526,7 @@ function iceGo(n,t){
   state.caseTab = "depth"+n; render();
   let el = null;
   if(t){ el = document.getElementById("d"+n+"_"+(t[0]==="h"?"hook":"loc")+t.slice(1)); }
-  if(el){ el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),1800); }
+  if(el){ openLocEl(el); el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),1800); }
   else window.scrollTo(0,0);
 }
 function setCaseTab(tab){ state.caseTab = tab; render(); window.scrollTo(0,0); }

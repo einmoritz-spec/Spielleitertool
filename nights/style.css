@@ -228,3 +228,9 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .pager .pg-prev:hover .pg-arrow{transform:translateX(-3px)}
 .pager .pg-next:hover .pg-arrow{transform:translateX(3px)}
 @media (max-width:480px){.pager .pg-arrow{width:34px;height:34px}.pager{gap:8px}}
+
+.chsec.coll>.sec-sub{cursor:pointer;user-select:none}
+.chsec.coll .chev{display:inline-block;transition:transform .15s;font-size:.9em}
+.chsec.coll.open .chev{transform:rotate(90deg)}
+.chsec.coll>.chbody{display:none}
+.chsec.coll.open>.chbody{display:block}

@@ -1,0 +1,38 @@
+/* Einheitliche Startseiten-Karten für alle vier Tools (Wake .adv-tile, Local Legends .tile,
+   Nights .case-card, Otherscape .card). Nur die Akzentfarbe unterscheidet sich je System. */
+.adv-tile,.tile,.case-card,.card.card-home,.cards>.card{
+  --uc-accent:var(--tile-accent,var(--tone,var(--red,var(--gold,#c9a24b))));
+  position:relative;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:0;
+  min-height:150px;padding:18px 18px 16px;border-radius:14px;overflow:hidden;text-align:left;color:inherit;
+  background:var(--panel2,var(--panel,#1a1a1a));
+  border:1px solid var(--panel-line,var(--line,rgba(255,255,255,.12)));
+  border-top:3px solid var(--uc-accent);
+  box-shadow:0 1px 0 rgba(255,255,255,.03) inset;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.adv-tile::before{display:none!important}
+.adv-tile:hover,.tile.clickable:hover,.case-card:hover,.cards>.card:hover{
+  transform:translateY(-2px);border-color:var(--uc-accent);box-shadow:0 8px 20px rgba(0,0,0,.28);
+}
+/* Kennzeile (Nr./Buch/Seiten) */
+.adv-tile .num,.tile .num,.case-card .nr,.cards>.card .nr{
+  font:600 .68rem/1.2 var(--mono,ui-monospace,monospace);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--uc-accent);font-style:normal;opacity:.95;margin:0 0 8px;
+}
+/* Titel */
+.adv-tile h3,.tile h3,.case-card b,.cards>.card b{
+  display:block;font-family:var(--serif-display,Georgia,serif);font-weight:600;font-size:1.2rem;line-height:1.25;
+  margin:0 0 3px;color:var(--text-hi,var(--paper,var(--text,#f2efe8)));
+}
+/* Untertitel */
+.adv-tile .en,.tile .sub,.case-card small,.cards>.card small{
+  display:block;font-size:.8rem;font-style:italic;color:var(--text-faint,var(--mute,#8a8a8a));margin:0 0 10px;
+}
+/* Beschreibung */
+.adv-tile p.teaser,.tile .teaser{font-size:.85rem;line-height:1.55;color:var(--text-lo,var(--text,#bbb));margin:0;flex:1}
+/* Fußzeile */
+.adv-tile .tile-foot{margin-top:14px;font-size:.72rem;letter-spacing:.04em;color:var(--text-faint,#8a8a8a);display:flex;justify-content:space-between}
+.adv-tile.locked,.tile.locked,.case-card.off,.cards>.card.off{opacity:.5}
+@media (max-width:720px){
+  .adv-tile,.tile,.case-card,.cards>.card{min-height:0;padding:15px 15px 14px}
+}

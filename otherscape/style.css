@@ -248,3 +248,5 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .pager .pg-txt small{display:none}
 .pager .pg-txt b{font-weight:400;font-size:.82rem;-webkit-line-clamp:1}
 .pager .pg-prev:hover .pg-arrow,.pager .pg-next:hover .pg-arrow{transform:none}
+.nav-mini{margin-left:10px;padding:3px 10px;font-size:.75rem;text-transform:none;letter-spacing:0}
+@media (max-width:1000px){.nav-mini{display:none}}

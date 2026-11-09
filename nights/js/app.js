@@ -148,7 +148,7 @@ function renderCase(c, sid){
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
-  <div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>
+  ${idx===0?`<div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>`:""}
   <div class="navbar"><select onchange="selNav(this.value)" aria-label="Kapitel">${sel}</select></div>
   <div class="case-grid ${ST.navHidden?"nav-off":""}"><aside class="nav">${nav}</aside><aside class="rail">${rail}</aside><main class="content">${body}</main></div>`;
   if(window.glossarize) glossarize($("app"));

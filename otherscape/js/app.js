@@ -71,9 +71,8 @@ function renderAdv(a, secId){
   closeG();
   const opts = a.sektionen.map(x=>`<option value="${x.id}" ${x.id===s.id?"selected":""}>${esc((x.gruppe?x.gruppe+" · ":"")+x.titel)}</option>`).join("");
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
-  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
-  <div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${osHeadPages(a)}</span>
-  <button class="btn" onclick="toggleNav()" title="Kapitelmenü ein-/ausblenden">☰ Kapitel</button></div>
+  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)} <button class="btn nav-mini" onclick="toggleNav()" title="Kapitelmenü ein-/ausblenden">☰ Kapitel</button></div>
+  ${idx===0?`<div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${osHeadPages(a)}</span></div>`:""}
   <div class="adv-grid ${ST.nav===false?"nav-off":""}" id="advGrid">
    <nav class="nav">${navH}</nav>
    <div class="content"><div class="navbar"><select onchange="location.hash='#/adv/${a.id}/'+this.value">${opts}</select></div>

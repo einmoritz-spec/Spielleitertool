@@ -234,3 +234,11 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .chsec.coll.open .chev{transform:rotate(90deg)}
 .chsec.coll>.chbody{display:none}
 .chsec.coll.open>.chbody{display:block}
+/* Pager minimal */
+.pager{margin:26px 0 4px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);gap:10px}
+.pager a,.pager button{gap:6px;padding:4px 2px;opacity:.6;transition:opacity .15s}
+.pager a:hover,.pager button:hover{opacity:1}
+.pager .pg-arrow,.pager a:hover .pg-arrow,.pager button:hover .pg-arrow{width:auto;height:auto;border:0;border-radius:0;background:none;transform:none;font-size:1rem}
+.pager .pg-txt small{display:none}
+.pager .pg-txt b{font-weight:400;font-size:.82rem;-webkit-line-clamp:1}
+.pager .pg-prev:hover .pg-arrow,.pager .pg-next:hover .pg-arrow{transform:none}

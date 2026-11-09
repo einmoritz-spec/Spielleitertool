@@ -345,3 +345,7 @@ body.menu-open{overflow:hidden;}
 .tb-burger svg{display:block}
 .topbar .tb-btn,.topbar-actions,.topbar-spacer{display:none!important}.topbar{justify-content:space-between}.topbar .brand{font-size:15px;white-space:nowrap}.tb-burger{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.18)!important;color:var(--text,#e8e8ee)!important;border-radius:10px!important;margin-left:auto}
 .loc-card.single .loc-h{cursor:default;pointer-events:none}.loc-card.single .loc-h .chev{display:none}.loc-card.single .loc-body{display:block}
+
+/* Breadcrumb + Tabs angeheftet */
+.crumb,.crumbs{position:sticky;top:var(--pin-top,56px);z-index:30;background:var(--pin-bg,#0b0d14);padding:6px 0!important;margin:0 0 4px!important}
+.case-tabbar{position:sticky;top:calc(var(--pin-top,56px) + var(--pin-crumb,28px) + 4px);z-index:29;background:var(--pin-bg,#0b0d14);margin-top:0!important;padding-top:4px}

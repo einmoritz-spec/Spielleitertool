@@ -236,7 +236,7 @@ function eisbergView(c){
     hot += `<button class="hot ${ST.seen[c.nr+":"+n.label]?"seen":""}" style="left:${l}%;top:${t}%;width:${w/W*100}%;height:${h/H*100}%" title="${esc(n.label)}" aria-label="${esc(n.label)}" onclick="gotoNode(${i})"></button>`;
   });
   const list = E.nodes.map((n,i)=>`<button onclick="gotoNode(${i})"><small>Schicht ${n.layer}</small>${esc(n.label)}</button>`).join("");
-  return `<h3 class="sec-sub">Der Eisberg<button class="pagetag" onclick="openPageViewer(${E.page})">Seite ${E.page}</button></h3><p class="hint">Auf ein Foto tippen, um zum Abschnitt zu springen.</p><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div><div class="nodelist">${list}</div>`;
+  return `<h3 class="sec-sub">Der Eisberg<button class="pagetag" onclick="openPageViewer(${E.page})">Seite ${E.page}</button></h3><p class="hint">Auf ein Foto tippen, um zum Abschnitt zu springen.</p><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div>`;
 }
 function gotoNode(i){ const n = CUR.eisberg.nodes[i]; ST.seen[CUR.nr+":"+n.label] = 1; saveState(); location.hash = `#/case/${CUR.nr}/sec/${n.target}`; }
 

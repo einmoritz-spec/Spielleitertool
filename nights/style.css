@@ -265,3 +265,4 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .nav button.on:not(.nav-toggle)::before{background:var(--mag);border-color:var(--mag);box-shadow:0 0 8px var(--mag)}
 .nav small.lbl{text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;color:var(--mute)}
 .nav small{font-size:.68rem}
+.cover-top{display:flex;justify-content:center;margin:6px 0 4px}.cover-top .fig{max-width:300px;margin:0}@media (min-width:1000px){.cover-top .fig{max-width:340px}}

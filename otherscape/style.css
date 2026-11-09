@@ -347,6 +347,3 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .case-tab.active{background:var(--panel2);color:var(--tone);border-color:var(--tone);position:relative;top:1px}
 @media (max-width:1000px){.shell:has(.case-tabbar){padding-left:12px!important}.case-tabbar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-12px}.case-tabbar::-webkit-scrollbar{display:none}.case-tab{flex:none}}
 
-/* Breadcrumb + Tabs angeheftet */
-.crumb,.crumbs{position:sticky;top:var(--pin-top,56px);z-index:30;background:var(--pin-bg,#0b0d14);padding:6px 0!important;margin:0 0 4px!important}
-.case-tabbar{position:sticky;top:calc(var(--pin-top,56px) + var(--pin-crumb,28px) + 4px);z-index:29;background:var(--pin-bg,#0b0d14);margin-top:0!important;padding-top:4px}

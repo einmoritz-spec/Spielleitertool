@@ -346,7 +346,7 @@ function renderDistrictView(id){
   const active = state.distTab;
 
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span>${dist.title}</div>`;
-  if(active==="overview") html += `<div class="hero"><h1>${dist.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin-bottom:10px;">${c.tagline||dist.sub}</p></div>`;
+  if(false) html += `<div class="hero"><h1>${dist.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin-bottom:10px;">${c.tagline||dist.sub}</p></div>`;
 
   html += renderDistrictTabs(c, id, active);
 
@@ -545,7 +545,7 @@ function renderCaseView(id){
   const active = state.caseTab;
 
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span><button onclick="goDistrict('${id}')">${dist.title}</button><span class="sep">/</span>${cs.title}</div>`;
-  if(active==="overview") html += `<div class="case-hero"><div class="eyebrow">ONE-SHOT CASE · ${dist.title.toUpperCase()}</div><h1 style="margin:0 0 4px;">${cs.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin:0;">${cs.subtitle}</p></div>`;
+  if(false) html += `<div class="case-hero"><div class="eyebrow">ONE-SHOT CASE · ${dist.title.toUpperCase()}</div><h1 style="margin:0 0 4px;">${cs.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin:0;">${cs.subtitle}</p></div>`;
   html += renderCaseTabs(cs, active);
   html += `<div class="case-tabpanel">`;
 

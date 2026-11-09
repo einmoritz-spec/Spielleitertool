@@ -299,3 +299,18 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
   .prail{top:50px;height:calc(100vh - 50px);width:260px;margin-right:-224px;background:var(--bg2,#12151f);box-shadow:14px 0 34px rgba(0,0,0,.55)}
   .prail.collapsed{width:36px;margin-right:0;background:transparent;box-shadow:none}
 }
+
+/* Leiste mobil: fest am Rand, ausgeklappt als Overlay mit Abdunklung */
+.pr-backdrop{display:none}
+.crumbs{font-size:.72rem!important;margin:0 0 10px!important;opacity:.85}
+@media (max-width:1000px){
+  .case-grid.pr-layout,.adv-grid.pr-layout{display:block!important;padding-left:40px}
+  .prail,.prail.collapsed{position:fixed!important;left:0;top:50px;bottom:0;height:auto;margin:0!important;z-index:200}
+  .prail.collapsed{width:40px;padding:12px 0 24px;background:var(--bg)!important;border-right:1px solid var(--line);box-shadow:none}
+  .prail:not(.collapsed){width:min(82vw,300px);padding:18px 12px 30px 22px;background:var(--bg2)!important;box-shadow:16px 0 40px rgba(0,0,0,.6)}
+  .prail:not(.collapsed) ~ .content{pointer-events:none}
+  .pr-backdrop{position:fixed;inset:50px 0 0 0;z-index:190;background:rgba(0,0,0,.55);backdrop-filter:blur(2px)}
+  .pr-layout:has(.prail:not(.collapsed)) .pr-backdrop{display:block}
+}
+@media (max-width:1000px){.shell:has(.prail){padding-left:52px!important}.case-grid.pr-layout,.adv-grid.pr-layout{padding-left:0}}
+@media (max-width:1000px){.prail,.prail.collapsed{height:calc(100vh - 50px)!important;max-height:none!important}}

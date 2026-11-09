@@ -67,10 +67,9 @@ function renderAdv(a, secId){
     if(x.gruppe && x.gruppe!==grp){ if(grp) tr += `</div></div>`; tr += `<div class="pr-grp ${grpOf(a,s)===x.gruppe?"open":""}"><button class="pr-grp-h" onclick="this.parentNode.classList.toggle('open')">${esc(x.gruppe)}</button><div class="pr-grp-b">`; grp = x.gruppe; }
     tr += `<button class="pr-item ${x.id===s.id?"active":""}" title="${esc(x.titel)}" onclick="prGo('#/adv/${a.id}/${x.id}')"><span class="t-title">${esc(x.titel)}</span></button>`; });
   if(grp) tr += `</div></div>`;
-  const prail = `<aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(a.titel)}</h2><div class="subhead">${a.sektionen.length} Abschnitte</div><div class="pr-trail">${tr}</div></aside>`;
+  const prail = `<div class="pr-backdrop" onclick="toggleNav()"></div><aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(a.titel)}</h2><div class="subhead">${a.sektionen.length} Abschnitte</div><div class="pr-trail">${tr}</div></aside>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
-  ${idx===0?`<div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${osHeadPages(a)}</span></div>`:""}
   <div class="adv-grid pr-layout ${col?"nav-off":""}" id="advGrid">
    ${prail}
    <div class="content">

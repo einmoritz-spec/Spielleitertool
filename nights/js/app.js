@@ -140,7 +140,7 @@ function renderCase(c, sid){
   const col = prCollapsed();
   const items = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
     return `<button class="pr-item ${on?"active":""}" title="${esc(t)}" onclick="prGo('#/case/${c.nr}/sec/${g.items[0].id}')"><span class="t-eyebrow">${m?esc(m[1])+" · ":""}S. ${g.items[0].page}</span><span class="t-title">${esc(m?m[2]:t)}</span></button>`; }).join("");
-  const prail = `<aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(c.title)}</h2><div class="subhead">${c.nr<11?"Fall "+c.nr:"Buchteil"} · S. ${c.from}–${c.to}</div><div class="pr-trail">${items}</div></aside>`;
+  const prail = `<div class="pr-backdrop" onclick="toggleNav()"></div><aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(c.title)}</h2><div class="subhead">${c.nr<11?"Fall "+c.nr:"Buchteil"} · S. ${c.from}–${c.to}</div><div class="pr-trail">${items}</div></aside>`;
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
@@ -148,7 +148,7 @@ function renderCase(c, sid){
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
-  ${idx===0?`<div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>`:""}
+  
   <div class="case-grid pr-layout ${col?"nav-off":""}">${prail}<main class="content">${body}</main></div>`;
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);

@@ -73,7 +73,7 @@ function renderAdv(a, secId){
   ${idx===0?`<div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${osHeadPages(a)}</span></div>`:""}
   <div class="adv-grid ${ST.nav===false?"nav-off":""}" id="advGrid">
    <nav class="nav">${navH}</nav>
-   <div class="content"><div class="navbar"><select onchange="location.hash='#/adv/${a.id}/'+this.value">${opts}</select></div>
+   <div class="content"><div class="navbar"><button class="nav-open" onclick="openNavDrawer()"><small>Kapitel</small>${esc(s.titel)}</button></div>
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${idx===0?ovBox(a):""}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
@@ -84,6 +84,9 @@ function renderAdv(a, secId){
   if(idx===0) ovDraw(a);
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
+function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
+function closeNavDrawer(){ document.body.classList.remove("nav-drawer-open"); }
+window.addEventListener("hashchange",closeNavDrawer);
 function toggleNav(){ ST.nav = ST.nav===false; saveState(); const g = $("advGrid"); if(g) g.classList.toggle("nav-off", ST.nav===false); }
 
 function renderBlock(a,s,b,i){

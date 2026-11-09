@@ -150,13 +150,17 @@ function renderCase(c, sid){
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
   ${idx===0?`<div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>`:""}
-  <div class="navbar"><select onchange="selNav(this.value)" aria-label="Kapitel">${sel}</select></div>
+  <div class="navbar"><button class="nav-open" onclick="openNavDrawer()"><small>Kapitel</small>${esc(chapterTitle(ch))}</button></div>
   <div class="case-grid ${ST.navHidden?"nav-off":""}"><aside class="nav">${nav}</aside><aside class="rail">${rail}</aside><main class="content">${body}</main></div>`;
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
 let CURCH = null;
+function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
+function closeNavDrawer(){ document.body.classList.remove("nav-drawer-open"); }
+window.addEventListener("hashchange",closeNavDrawer);
+
 function toggleNav(){ ST.navHidden = !ST.navHidden; saveState(); const g = document.querySelector('.case-grid'); if(g) g.classList.toggle('nav-off', !!ST.navHidden); }
 function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
 function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }

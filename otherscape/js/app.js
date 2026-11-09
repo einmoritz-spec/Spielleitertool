@@ -35,6 +35,7 @@ async function route(){
     if(!a){ $("app").innerHTML = `<div class="missing"><h2>${esc(info?info.titel:p[1])}</h2><p>Dieses Abenteuer ist noch nicht erfasst.</p><button class="btn" onclick="goHome()">Zur Startseite</button></div>`; return; }
     renderAdv(a, p[2] || a.sektionen[0].id);
   } else if(p[0]==="gegner") renderGegner();
+  else if(p[0]==="fraktionen") renderFraktionen();
   else renderHome();
 }
 
@@ -42,7 +43,7 @@ async function route(){
 function renderHome(){
   let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p></div>`;
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
-  for(const [kat,titel] of [[undefined,"Abenteuer"],["setting","Tokyo-Setting"],["fraktion","Fraktionen (Tokyo)"],["gegner","Yōkai Database"]]){
+  for(const [kat,titel] of [[undefined,"Abenteuer"],["setting","Tokyo-Setting"],["gegner","Yōkai Database"]]){
     h += `<div class="sec-h">${titel}</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===kat).map(card).join("")}</div>`;
   }
   $("app").innerHTML = h;
@@ -145,7 +146,7 @@ function openMobileMenu(){
   if($("mobileMenu")) return;
   const item = (ic,l,fn)=>`<button class="mm-item" onclick="closeMobileMenu(); ${fn}"><span class="mm-ic">${ic}</span><span>${l}</span></button>`;
   const m = document.createElement("div"); m.id = "mobileMenu"; m.className = "mobile-menu";
-  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
+  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🏛","Fraktionen","location.hash='#/fraktionen'")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
   document.body.appendChild(m); document.body.classList.add("menu-open"); requestAnimationFrame(()=>m.classList.add("open"));
 }
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMobileMenu(); closeModal("searchModal"); closeModal("settingsModal"); } });
@@ -174,3 +175,9 @@ async function renderGegner(){
 }
 function gegOpen(d){ if(!d.open) return; const body = d.querySelector(".geg-body"); if(body.dataset.done) return; const x = GEG[+d.dataset.n]; body.innerHTML = renderChallenge(x.a.id+":"+x.s.id+":"+x.i, x.b) + `<p class="hint"><a href="#/adv/${x.a.id}/${x.s.id}">Im Abschnitt „${esc(x.s.titel)}“ öffnen</a></p>`; body.dataset.done = 1; }
 function gegFilter(){ const q = $("gegQ").value.trim().toLowerCase(), t = $("gegT").value; document.querySelectorAll("#gegList .geg").forEach(d=>{ d.style.display = (!q || d.dataset.q.includes(q)) && (!t || d.dataset.t===t) ? "" : "none"; }); }
+
+/* ---------- Fraktionen (Tokyo): Übersicht über Kopfzeilen-Knopf ---------- */
+function renderFraktionen(){
+  const list = OS_ADV_LIST.filter(a=>a.kat==="fraktion");
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Fraktionen</div><div class="adv-head"><h1>Fraktionen</h1><span class="meta">${list.length} Fraktionen · Tokyo S. 151–237</span></div><div class="cards">${list.map(a=>{ const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small></button>`; }).join("")}</div>`;
+}

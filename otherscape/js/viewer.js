@@ -6,7 +6,7 @@ async function idbPut(k,v){ const db = await idb(); return new Promise(res=>{ co
 async function idbDel(k){ const db = await idb(); return new Promise(res=>{ const t = db.transaction("b","readwrite"); t.objectStore("b").delete(k); t.oncomplete = ()=>res(true); }); }
 
 let PDFJS = null; const DOCS = {};
-async function pdfLib(){ if(PDFJS) return PDFJS; const base = new URL("lib/", location.href.split("#")[0]).href; PDFJS = await import(base+"pdf.min.mjs"); PDFJS.GlobalWorkerOptions.workerSrc = base+"pdf.worker.min.mjs"; return PDFJS; }
+async function pdfLib(){ if(PDFJS) return PDFJS; const base = new URL("../bookviewer/lib/", location.href.split("#")[0]).href; PDFJS = await import(base+"pdf.min.mjs"); PDFJS.GlobalWorkerOptions.workerSrc = base+"pdf.worker.min.mjs"; return PDFJS; }
 async function getDoc(book){
   if(DOCS[book]) return DOCS[book];
   const blob = await idbGet(BOOKS[book].key); if(!blob) return null;

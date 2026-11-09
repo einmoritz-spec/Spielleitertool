@@ -39,6 +39,7 @@
 <link rel="stylesheet" href="css/libraries.css">
 <link rel="stylesheet" href="css/edit.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="bookviewer/bookviewer.css">
 </head>
 <body>
 <div id="app"></div>
@@ -195,6 +196,7 @@
   </div>
 </div>
 
+<script src="bookviewer/bookviewer.js"></script>
 <script src="js/config.js"></script>
 <script src="js/data/lore-glossary.js"></script>
 <script src="js/data/rules-glossary.js"></script>
@@ -238,6 +240,7 @@
 <script src="js/ui/edit-mode.js"></script>
 <script src="js/ui/interactions.js"></script>
 <script src="js/main.js"></script>
+<script>BV.init({ libBase:"bookviewer/lib/", defaultBook:"wake", books:[{key:"wake", name:"Wake of the Oldways"}], openSettings:function(){ openTopbarSettings(); } });</script>
 <script>
 // PWA: Service Worker nur über http(s) (auf file:// verweigern Browser ihn – die Datei läuft dort weiter ganz normal).
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){

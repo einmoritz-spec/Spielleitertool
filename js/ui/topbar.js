@@ -168,6 +168,7 @@ function renderTopbarSettingsBody(){
       <button class="tool-switch" onclick="switchTool('paynetown')"><span><b>Nights of Paynetown</b><small>City of Mist – Kampagne (in Vorbereitung)</small></span></button>
       <button class="tool-switch" onclick="switchTool('otherscape')"><span><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Tokyo, Abenteuer</small></span></button>
       <p style="font-size:12px; color:var(--text-faint); margin:4px 0 14px;">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
+      ${window.BV?BV.settingsHTML():""}
       <div class="tb-set-section">Kopfzeile</div>
       <p style="font-size:13px;">Tipp: Rechtsklick auf einen Knopf in der Kopfzeile blendet ihn aus oder schaltet seine Beschriftung um. Dieses Fenster öffnest du auch mit der Taste <b>,</b></p>
       <div class="tb-set-head"><span>Knopf</span><span>Anzeige</span><span>Text</span></div>
@@ -190,10 +191,12 @@ function refreshTopbarSettings(){
   const modal = document.getElementById("topbarSettingsModal");
   if(modal && modal.classList.contains("open")){
     document.getElementById("topbarSettingsBody").innerHTML = renderTopbarSettingsBody();
+    if(window.BV) BV.refresh();
   }
 }
 function openTopbarSettings(){
   document.getElementById("topbarSettingsBody").innerHTML = renderTopbarSettingsBody();
+  if(window.BV) BV.refresh();
   document.getElementById("topbarSettingsModal").classList.add("open");
 }
 function closeTopbarSettings(){

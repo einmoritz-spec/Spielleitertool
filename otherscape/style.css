@@ -177,3 +177,11 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .bv-title{flex:1;color:var(--mute);font-size:.85rem;text-align:right}
 .bv-stage{flex:1;overflow:auto;padding:10px;display:flex;justify-content:flex-start}
 .bv-stage canvas{margin:0 auto;display:block;background:#fff;align-self:flex-start;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+
+.geg-bar{display:flex;gap:8px;margin:8px 0 12px;flex-wrap:wrap}.geg-bar .search-input{flex:1 1 240px}.geg-bar select{background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px;font:inherit}
+.geg-list{display:grid;gap:6px;max-width:112ch}
+.geg{background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.geg summary{cursor:pointer;display:flex;gap:10px;align-items:baseline;padding:9px 12px;flex-wrap:wrap}
+.geg summary small{color:var(--mute);margin-left:auto}
+.geg .stars{color:var(--amber)}
+.geg-body{padding:0 10px 10px}

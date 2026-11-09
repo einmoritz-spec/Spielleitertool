@@ -34,18 +34,20 @@ async function route(){
     const info = OS_ADV_LIST.find(x=>x.id===p[1]);
     if(!a){ $("app").innerHTML = `<div class="missing"><h2>${esc(info?info.titel:p[1])}</h2><p>Dieses Abenteuer ist noch nicht erfasst.</p><button class="btn" onclick="goHome()">Zur Startseite</button></div>`; return; }
     renderAdv(a, p[2] || a.sektionen[0].id);
-  } else renderHome();
+  } else if(p[0]==="gegner") renderGegner();
+  else renderHome();
 }
 
 /* ---------- Start ---------- */
 function renderHome(){
   let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p></div>`;
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
-  for(const [kat,titel] of [[undefined,"Abenteuer"],["setting","Tokyo-Setting"],["fraktion","Fraktionen (Tokyo)"]]){
+  for(const [kat,titel] of [[undefined,"Abenteuer"],["setting","Tokyo-Setting"],["fraktion","Fraktionen (Tokyo)"],["gegner","Yōkai Database"]]){
     h += `<div class="sec-h">${titel}</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===kat).map(card).join("")}</div>`;
   }
   h += `<div class="cards" style="display:none">`;
   h += `</div><div class="sec-h">Werkzeuge</div><div class="cards">
+    <button class="card" onclick="location.hash='#/gegner'"><span class="nr">Tokyo · S. 94–147</span><b>Gegner-Browser</b><small>Alle Challenges und Power Sets durchsuchen</small></button>
     <button class="card" onclick="openRules()"><span class="nr">Regeln</span><b>Regelblatt &amp; Würfler</b><small>2W6 + Power, Effects, Burn, Mitigate</small></button>
     <button class="card" onclick="openSearch()"><span class="nr">Suche</span><b>Volltextsuche</b><small>Über alle Abenteuer</small></button></div>`;
   $("app").innerHTML = h;
@@ -157,3 +159,23 @@ document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMobileMenu(
 if("serviceWorker" in navigator) navigator.serviceWorker.register("../sw.js").catch(()=>{});
 try{ localStorage.setItem("gm_tool_mode_v1","otherscape"); }catch(e){}
 route();
+
+/* ---------- Gegner-Browser: alle Challenge-Blöcke der Einträge mit kat "gegner" ---------- */
+var GEG = null;
+async function buildGegner(){
+  if(GEG) return GEG; const items = [];
+  for(const e of OS_ADV_LIST.filter(x=>x.kat==="gegner")){ if(!hasData(e.id)) continue; const a = await loadAdv(e.id); if(!a) continue;
+    for(const s of a.sektionen) (s.bloecke||[]).forEach((b,i)=>{ if(b.t==="challenge") items.push({a,s,i,b}); }); }
+  return GEG = items;
+}
+async function renderGegner(){
+  $("app").innerHTML = '<div class="missing">Lade Gegner …</div>';
+  const items = await buildGegner();
+  const tp = x => (x.b.typ||"Challenge").split(" (")[0].trim(); const types = [...new Set(items.map(tp))].sort();
+  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › Gegner-Browser</div><div class="adv-head"><h1>Gegner-Browser</h1><span class="meta">${items.length} Einträge · Tokyo S. 94–147</span></div>
+  <div class="geg-bar"><input class="search-input" id="gegQ" placeholder="Filtern nach Name oder Tag …" oninput="gegFilter()" autocomplete="off"><select id="gegT" onchange="gegFilter()"><option value="">Alle Typen</option>${types.map(t=>`<option>${esc(t)}</option>`).join("")}</select></div>
+  <div class="geg-list" id="gegList">${items.map((x,n)=>`<details class="geg" data-n="${n}" data-q="${esc((x.b.name+" "+(x.b.typ||"")+" "+(x.b.tags||[]).join(" ")+" "+x.s.titel).toLowerCase())}" data-t="${esc(tp(x))}" ontoggle="gegOpen(this)"><summary><b>${esc(x.b.name)}</b><span class="stars">${esc(x.b.rating||"")}</span><small>${esc(x.b.typ||"Challenge")} · ${esc(x.s.titel)}</small></summary><div class="geg-body"></div></details>`).join("")}</div>`;
+  $("app").innerHTML = h;
+}
+function gegOpen(d){ if(!d.open) return; const body = d.querySelector(".geg-body"); if(body.dataset.done) return; const x = GEG[+d.dataset.n]; body.innerHTML = renderChallenge(x.a.id+":"+x.s.id+":"+x.i, x.b) + `<p class="hint"><a href="#/adv/${x.a.id}/${x.s.id}">Im Abschnitt „${esc(x.s.titel)}“ öffnen</a></p>`; body.dataset.done = 1; }
+function gegFilter(){ const q = $("gegQ").value.trim().toLowerCase(), t = $("gegT").value; document.querySelectorAll("#gegList .geg").forEach(d=>{ d.style.display = (!q || d.dataset.q.includes(q)) && (!t || d.dataset.t===t) ? "" : "none"; }); }

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v36";
+const VERSION = "v37";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -70,6 +70,11 @@ const FILES = [
   "otherscape/js/data/abenteuer/fraktion-tokoyo.js",
   "otherscape/js/data/abenteuer/fraktion-viral.js",
   "otherscape/js/data/abenteuer/fraktion-yakuza.js",
+  "otherscape/js/data/abenteuer/gegner-a-2.js",
+  "otherscape/js/data/abenteuer/gegner-a.js",
+  "otherscape/js/data/abenteuer/gegner-b.js",
+  "otherscape/js/data/abenteuer/gegner-c-2.js",
+  "otherscape/js/data/abenteuer/gegner-c.js",
   "otherscape/js/data/abenteuer/kenko-ruins-2.js",
   "otherscape/js/data/abenteuer/kenko-ruins.js",
   "otherscape/js/data/abenteuer/lost-flooded-2.js",

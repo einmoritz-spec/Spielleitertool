@@ -19,5 +19,8 @@ var OS_ADV_LIST = [
   {id:"fraktion-taiyo", kat:"fraktion", titel:"Taiyō SolarTech", sub:"Konzern der Sonne", buch:"Tokyo", seiten:"S. 201–209", tag:"Fraktion"},
   {id:"fraktion-tokoyo", kat:"fraktion", titel:"Tokoyo", sub:"Konzern und Traumwelt", buch:"Tokyo", seiten:"S. 210–219", tag:"Fraktion"},
   {id:"fraktion-yakuza", kat:"fraktion", titel:"Yakuza", sub:"Iribe-gumi und Maikubi-kai", buch:"Tokyo", seiten:"S. 220–228", tag:"Fraktion"},
-  {id:"fraktion-viral", kat:"fraktion", titel:"Viral Movements", sub:"Viren-Bewegungen im Netz", buch:"Tokyo", seiten:"S. 229–237", tag:"Fraktion"}
+  {id:"fraktion-viral", kat:"fraktion", titel:"Viral Movements", sub:"Viren-Bewegungen im Netz", buch:"Tokyo", seiten:"S. 229–237", tag:"Fraktion"},
+  {id:"gegner-a", kat:"gegner", titel:"Yōkai Database I", sub:"Challenges, Power Sets und Händler", buch:"Tokyo", seiten:"S. 94–112", tag:"Gegner"},
+  {id:"gegner-b", kat:"gegner", titel:"Yōkai Database II", sub:"Challenges, Power Sets und Händler", buch:"Tokyo", seiten:"S. 113–130", tag:"Gegner"},
+  {id:"gegner-c", kat:"gegner", titel:"Yōkai Database III", sub:"Challenges, Power Sets und Händler", buch:"Tokyo", seiten:"S. 131–147", tag:"Gegner"}
 ];

@@ -44,6 +44,17 @@ var OS_ADV_FILES = {
  "fraktion-yakuza": [
   "fraktion-yakuza.js"
  ],
+ "gegner-a": [
+  "gegner-a.js",
+  "gegner-a-2.js"
+ ],
+ "gegner-b": [
+  "gegner-b.js"
+ ],
+ "gegner-c": [
+  "gegner-c.js",
+  "gegner-c-2.js"
+ ],
  "kenko-ruins": [
   "kenko-ruins.js",
   "kenko-ruins-2.js"

@@ -1,0 +1,137 @@
+OS_ADV.push({ id:"kenko-ruins", titel:"The Kenko Ruins", sub:"Beute machen im Gefolge der Katastrophe",
+  buch:"Tokyo", seiten:"S. 272–285", sektionen:[
+{ id:"briefing", titel:"Überblick & Job Briefing", bloecke:[
+  {t:"p", x:"**Offenes Szenario** in der Wüstenei von Meido: Die Crew erkundet eine verbotene Ruine, einst Hochburg des Konzerns Kenko (Biotech und Geoengineering, Pionier der Nanotechnologie in der Medizin). Sie manövriert dabei zwischen zwei Parteien: den **Yakubyō Gami** (Krankheitskami, die sich zu Richtern der Wüste aufgeschwungen haben) samt ihren Roamers und der **Deactivation Unit (DU)** der Nano-butai, die das Land von den letzten Nanites säubern will."},
+  {t:"p", x:"Zwei Themen tragen das Abenteuer: die **Angst vor Fremden**, mit der jeder in der Wüstenei lebt, und die **Spätfolgen von Vernachlässigung**, die diese Wüstenei überhaupt erst geschaffen hat."},
+  {t:"h", x:"Der Kenko Nanotech Disaster (Kurzfassung)"},
+  {t:"p", x:"Kenko wollte Nanites später im ganz großen Stil einsetzen, um ganze Biome umzubauen und die Klimaschäden abzufangen. Die Ideale waren löblich, Sicherheit und Professionalität nicht: Aus dem abgelegenen Berglabor entkam eine experimentelle Nanite-Form, verbreitete sich unkontrolliert und verwandelte lebende wie tote Materie (Settingbook Tokyo S. 14). So erzählt es die offizielle Geschichte; ob wirklich das die Ursache war, bleibt offen."},
+  {t:"p", x:"Die Folgen: unzählige Tote, Milliarden an Eindämmungskosten, ein Staat im Notstand und die Nano-butai mit nahezu unbegrenzten Vollmachten. Das Gebiet um den Unglücksort heißt **Kuroi Yogore** (»schwarzer Fleck«), das Land darum **Meido** (S. 34). Forschung an Nanotech und Geoengineering wurde streng beschränkt."},
+  {t:"vorlesen_ref", seite:273, x:"Job Briefing: In den Bergen liegt ein Ort, den niemand betritt, die Quelle der Nanoplage, voller Todesfallen und Gerüchte über Krankheits- und Rachegeister. Jetzt ist es Zeit, dorthin zu gehen."},
+  {t:"h", x:"Die Lage heute"},
+  {t:"p", x:"Die Ruine ist der **Haupttempel der Yakubyō Gami** und Heimatbasis ihrer Roamers (S. 236). Niemand sonst darf hinein, die meisten Wanderer meiden sie ohnehin. Zwei Ausnahmen gibt es:"},
+  {t:"liste", items:[
+    "**Anwärter der Roamers:** Wer beitreten will, trainiert erst in »Tempeln« überall im Katastrophengebiet. Danach reist er zur Ruine, wo die Geistermeister ihn mit den zerbrochenen, von ihrer Plagenmagie verdrehten Nanites infizieren. Beim Verlassen des Tempels heißt ihn die Anführerin **Nozawa Emiko** willkommen. Fortan verbreitet er die Plage, um die »Bösen« der Wüste nach dem unmenschlichen Moralkompass der Kami zu bestrafen.",
+    "**Die Deactivation Unit (DU)** der Nano-butai: rund zwei Dutzend Spezialisten unter **Teshima Osamu**, seit Jahren im Auftrag der Regierung unterwegs, um jede Nanobot-Charge zu neutralisieren. Je erfolgreicher sie sind, desto stärker wird ihr Budget gekürzt. Teshima richtet das Team deshalb jetzt, solange er noch Leute hat, auf den Kuroi Yogore selbst, offiziell »Beyond Recoverability«. Er ist halb entschlossen, halb wahnhaft, und seine Mission führt die DU in die Konfrontation mit den Yakubyō Gami. Das könnte die Wüste ihrer einzigen Gesetzgeber berauben."
+  ]},
+  {t:"h", x:"Was es zu holen gibt"},
+  {t:"p", x:"In der Ruine liegt Beute, für die Konzerne töten: Datenspeicher, verbotene Technik, vielleicht sogar noch Behälter mit dem ursprünglichen **Nano Gel**, womöglich sauber und programmierbar. Und die Krankheitsgeister selbst: Ließe sich diese Source irgendwie nutzbar machen?"},
+  {t:"hinweis", titel:"Salvage Operation", x:"Es gibt reichlich Schrott zu plündern, wenn die Crew sich aufs Bergen versteht. Das wertvollste Stück ist die **letzte intakte Kartusche mit reinem Nano Gel** im Schrein der Yakubyō Gami (Boardroom). Um sie zu bekommen, hilft die Crew entweder den Roamers gegen die DU oder vernichtet die Kami mit Hilfe der DU (die niemanden mit Nanotech gehen lässt). Oder sie nimmt alles Lose mit und rennt."}
+]},
+{ id:"nanite-exposure", titel:"Nanite Exposure", bloecke:[
+  {t:"p", x:"Sobald ein PC Nanites ausgesetzt war, kannst Du ihm jederzeit (besonders wenn Zeit vergeht) **itchy-skin-1** als Consequence geben. Schutz mindert das: nanoresistente Ausrüstung und Kleidung sowie Source-gestützte Segen und Wards (etwa der Yamabushi, siehe Reise durch Meido)."},
+  {t:"p", x:"Der Symptom-Status lässt sich mit passender Pflege **Restoren**. Die Infektion selbst heilt nur spezialisierte Nanotech oder Source-berührte Pflege, und auch dann nur mit einem Quick Outcome oder einem Extra Feat beim Restoren des Symptom-Status."},
+  {t:"h", x:"Verlauf einer unbehandelten Infektion (kann tödlich enden)"},
+  {t:"tabelle", kopf:["Stufe","Status"], zeilen:[["1","itchy-skin-1 (Körper verändert sich molekular, Abwehr hält noch)"],["2","bleeding-pores-2"],["3","mangled-limb-3"],["4","internal-bleeding-4"],["5","catatonic-5"],["6","gooey-mess-6"]]}
+]},
+{ id:"hooks", titel:"Hooks & Aufbau", bloecke:[
+  {t:"h", x:"Hooks"},
+  {t:"liste", items:[
+    "**Toshio Saji**, Händler für unlizenzierte Tech, will alles kaufen, was die Crew in der Wüstenei an brauchbarer Technik birgt, je mächtiger, desto besser, vor allem aus dem Kuroi Yogore. Er gilt als fairer Händler mit etwas zwielichtigen Verbindungen. Ihn treibt das Gerücht, die DU sei auf dem Weg zur Kenko-Anlage, um diesen Schatz für Leute wie ihn zu »ruinieren«. Das verrät er der Crew nicht, um sie nicht abzuschrecken (der Ruf der Nano-butai als Brandschatzer ist bekannt).",
+    "Ein Freund oder Crewmitglied erkrankt an etwas Unbehandelbarem, oder Land der Crew oder eines Angehörigen ist unwiderruflich verseucht. Die Lösung wäre ausgerechnet das, was das Unglück verursachte: Kenko-**Nano Gel**, fähig zu beispielloser Bio- und Geoengineering-Arbeit. Falls noch Behälter existieren, sind sie in der Anlage.",
+    "Ein Crewmitglied sucht eine neue Source oder will zu den Roamers. Oder jemand hat tiefe Probleme mit ihnen, weil sie einen geliebten Menschen töteten, der in der Wüstenei lebt.",
+    "Ein Crewmitglied ist aktiver oder ehemaliger Nano-butai-Angehöriger und erhält einen Hilferuf von **Teshima Osamu**: Der steht den übernatürlichen Yakubyō Gami hilflos gegenüber und kann die Dekontamination ohne die Hilfe eines Sourcers nicht abschließen."
+  ]},
+  {t:"h", x:"Aufbau"},
+  {t:"liste", items:[
+    "**Die Ruine erreichen:** Reise durch Meido, Blackened Battlements (Mauer, Nano-Schlacht, Eingänge, Security System)",
+    "**Die Ruine erkunden:** Data Center, die Domes, der Spire, das Boardroom, dazu die zwei einsetzbaren Begegnungen (DU, Roamers) und das Aftermath"
+  ]}
+]},
+{ id:"meido", titel:"Reise durch Meido", gruppe:"Die Ruine erreichen", bloecke:[
+  {t:"vorlesen_ref", seite:275, x:"Weite Bergtäler in Asche, Ruß und Blutrot wie eine Höllenwelt, seltsame organische Massen am Hang, giftige Wolken über dem Land. Ein ernüchternder Anblick dessen, was Technik gegen die Natur anrichtet."},
+  {t:"challenge", name:"Meido", typ:"Challenge (Reise)", beschr:"Die verwüstete Landschaft rund um den Kuroi Yogore, als Traverse-Challenge.",
+    limits:[{n:"traverse", v:3}],
+    tags:["rough terrain","acid rain","lake-sized ash deposits","stray nanites","scarce food or water"],
+    threats:[
+      {n:"Das Wetter schlägt um, Blitze in der Ferne, der Himmel rötet sich", x:"Säureregen: acid-burns-4 für alle ungeschützten Fahrzeuge oder Personen."},
+      {n:"Die Straße windet sich unerwartet, GPS fällt aus, ein Sturm zieht auf", x:"Die Crew steht vor einer rauchenden Schlucht und muss umkehren oder einen anderen Weg suchen (Escalate the Situation oder zwei Tiers von traverse entfernen; optional zusätzlich low-on-supplies-2 oder tired-3 für alle)."},
+      {n:"Ein Schaudern geht durch alle, als ein verrosteter Wegschrein auftaucht", x:"Die Crew betritt unbeabsichtigt einen Ort unheiliger Energien (misfortune-3 für alle). Oder ein verseuchter Kami steigt aus der Asche (Present A New Challenge: Kami, Wild Soul, S. 108)."},
+      {n:"Ein Späher (Mensch, Drohne oder Geist) taucht in der Ferne auf und verschwindet sofort", x:"Eine umherziehende Kriegsschar greift an (Present A New Challenge: Nomadic Transport Caravans oder Marauders, Metro:Otherscape S. 312). Oder Scavengers stehlen Vorräte (bis zu vier Gear-Tags burnen, low-on-supplies-2 oder Present A New Challenge: Scavenger, Metro:Otherscape S. 314)."}
+    ]},
+  {t:"h", x:"Wie Du die Reise spielst"},
+  {t:"liste", items:[
+    "**Raffen:** kurz beschreiben und direkt zur Begegnung mit den Yamabushi springen.",
+    "**Eine Szene:** Eine einzelne Threat aus dem Meido-Profil setzen, die Reaktion abwarten, ggf. eine Consequence liefern, weiter.",
+    "**Quick Outcome:** Ein Wurf für die Reise; er muss gelingen, um anzukommen. Consequences nach Bedarf aus dem Profil.",
+    "**Volle Challenge:** Die Reise als getrackte Challenge, die Crew kommt an, wenn traverse ausgereizt ist."
+  ]},
+  {t:"hinweis", titel:"Erste Wüsten-Expedition", x:"Kennt die Crew die Wüstenei noch nicht, können Recherche-Aktionen die Bedeutung von Schutzanzügen und Vorsorgemitteln (Anti-Rads, Anti-Fungals) offenbaren. Sie decken auch die Yakubyō Gami Roamers und deren »Roamer Justice« (S. 236) auf: je nach Sichtweise die größte Bedrohung rund um den Kuroi Yogore oder die Bringer von Ordnung."}
+]},
+{ id:"yamabushi", titel:"Yamabushi auf der Straße", gruppe:"Die Ruine erreichen", bloecke:[
+  {t:"vorlesen_ref", seite:275, x:"Zwei Dutzend Reisende gehen im Gänsemarsch auf eine alte Reihe kleiner Schreine am Grat zu, ausgerüstet für die Wüste, aber mit einer eleganten, fast überirdischen Haltung und knallroten Pompons an den Schärpen, dem Erkennungszeichen der Bergasketen."},
+  {t:"p", x:"Zu einem Zeitpunkt Deiner Wahl trifft die Crew auf wandernde **Yamabushi** unter dem greisen Mönch **Daichi**. Er ist höflich, aber vorsichtig: Viele in der Megacity begehren die magischen Geheimnisse der Yamabushi, daher gibt er sich nur als »Wanderer« aus und fragt behutsam, was Stadtleute so weit draußen suchen."},
+  {t:"p", x:"Die Mönche meiden den **Noise**: Er beeinflusst jede Interaktion mit Charakteren, deren Noise-Themes irgendwie sichtbar sind. Sie schätzen Ehrlichkeit und tauschen Informationen, wenn die Crew ihre Mission offenlegt. Gewinnt sie ihr Vertrauen, geben sie sich als Pilger zu erkennen, die sich an den Gefahren der Wüste prüfen und dank besonderer Gebete an die Kami und strenger Reinigungsregeln überleben."},
+  {t:"p", x:"Daichi warnt vor den **Yakubyō Gami Roamers**: Alle in der Wüste fürchten und respektieren sie, sie verbreiten Krankheit als Vergeltung für Verstöße gegen die Regeln der Gesellschaft. Am besten hält man Abstand zu Leuten, die freiwillig Plagedämonen dienen."},
+  {t:"p", x:"Wollen die Spieler trotzdem in den Kuroi Yogore, zeigen die Yamabushi sich beeindruckt, warnen, gratulieren zum Mut und weisen bei Bedarf den Weg. Sie bieten an, für die Crew zu den Kami zu beten. Nimmt sie an, erhält sie **protective-blessings-2**, das gegen Nanotech-Angriffe schützt (siehe Nanite Exposure). Wer die Mönche beleidigt, etwa durch Respektlosigkeit oder Technikeinsatz gegen sie, bekommt weder Segen noch Hilfe."}
+]},
+{ id:"battlements", titel:"Blackened Battlements: Die Mauer", gruppe:"Die Ruine erreichen", bloecke:[
+  {t:"vorlesen_ref", seite:276, x:"Mitten im Kuroi Yogore steht ein namenloser Berg mit der Forschungsanlage, umringt von kilometerlangen, aschebedeckten, praktisch unzerstörbaren Mauern aus Militär-Smartbeton und Carbonstahl. Darüber hängt eine funkelnde Nanite-Wolke."},
+  {t:"p", x:"Je näher die Crew der Mauer kommt, desto allgegenwärtiger werden die Nanites: Summen in der Luft, endlose Funken am Himmel, ein Jucken auf der Haut, das sich zu Brennen steigert. An der Mauer und auf dem ganzen Gelände sind die PCs ambienten Nanite-Wolken ausgesetzt, die versuchen können, sie zu verwandeln (siehe **Nanite Exposure**)."},
+  {t:"h", x:"Eine laufende Nano-Schlacht"},
+  {t:"p", x:"Wer nachforscht, findet Nearspace-Datentags der Nano-butai Tokyos und weggeworfene 3D-Fabrikatoren mit deren Siegel. Die Wolke ist ein winziges Schlachtfeld: Kenko-Nanobots kämpfen gegen die Gegen-Nanotech der Nano-butai. Das Funkeln sind mikroskopische Entladungen und Reflexe laserähnlicher Waffen. Beide Seiten bauen aus Luftschutt Nachschub, und sie dürften sich erst in einigen hundert Jahren erschöpfen. Beim gegenseitigen Zerstören entsteht Aschenebel, den der Wind forttreibt."},
+  {t:"h", x:"Die Mauer passieren"},
+  {t:"p", x:"Durchbrechen ist praktisch unmöglich, selbst mit Militärsprengstoff: Die Mauer hat **reinforced-5** und ein **destroy:5**-Limit. Die Crew geht wahrscheinlich die Munition aus, oder sie löst das Kenko Boundary Security System aus. Darüberfliegen scheitert am Schwarm: Es verlangt einen Wurf gegen eine hindernde Nanite-Wolke mit **Scale 4**. Bei Fehlschlag folgen Nanite Exposure und die Consequence **gooey-mess-6**."},
+  {t:"p", x:"Die folgenden Zugänge lassen sich per Aktion entdecken, wobei als mögliche Consequence das Boundary Security durch Herumschnüffeln anspringt. Auch die Nutzung der Zugänge kann es auslösen, vor allem ohne Heimlichkeit."},
+  {t:"liste", items:[
+    "**Das große Tor:** Riesiges Metalltor mit weißem, ascheverschmiertem »A1«. Direktes Hacken: **hack:4**-Limit, Status **firewalled-2**. Einfacher ist es, die Hydraulik direkt zu aktivieren (**activate:2**). Die Logs zeigen, dass das Tor nach vielen Jahren zuletzt von **Teshima Osamu**, dem Leiter der DU, geöffnet wurde.",
+    "**Der rote Baum:** Ein schrecklich verwandelter, roter Baum ist über und durch ein Stück Mauer gewachsen und bildet eine Passage durch den Schwarm. Rote Rinde mit Adern, die blutartigen Saft in karmesinrotes Laub pumpen. Wer hinüberklettert, wird von klebrigen Adern behindert; als Consequence droht **stuck-3**. Der Baum versucht, Festklebende zu absorbieren (**absorbed-into-tree-3**). Für eine längere, gefährlichere Begegnung machst Du ihn zum **Jubokko** (S. 106).",
+    "**Der Abwasserkanal:** Der unauffälligste Zugang, von den Roamers als Ein- und Ausgang benutzt, ein langer dunkler Entwässerungsgang. Er ist an drei Stellen mit Fallen gesichert. Jeder Abschnitt (Anfang, Mitte, Ende) verlangt eine sorgfältige Pathfinding-Aktion mit Quick Outcome, bei der Fallen als Consequences auslösen können (wer achtlos durchgeht, löst sie trotzdem aus, die Threat ist implizit). Falle 1: Federfalle mit Metallspieß (**wounded-3**). Falle 2: Fallgrube in ein pechschwarzes, halshoch mit Giftmüll gefülltes Loch (**trapped-in-hole-4** und **sickened-4**). Falle 3: ein **magical-ward-3** aus Dutzenden seltsam fettiger Ofuda-Streifen, der alle abweist, die nicht von den Yakubyō Gami Touched sind (Consequence: **blisters-3** an der Gliedmaße, die ihn berührt)."
+  ]}
+]},
+{ id:"security", titel:"Kenko Boundary Security System", gruppe:"Die Ruine erreichen", bloecke:[
+  {t:"p", x:"Rings um den Fuß der Anlage zieht sich das Boundary Security, ein Netz automatischer Abwehr, gemeinsam von Megacity und Kenko errichtet und einst eines der modernsten Systeme. Mangel an Geld und Interesse hat es instabil und willkürlich gemacht: Mal schlägt es hart zu, mal ignoriert es Eindringlinge völlig."},
+  {t:"challenge", name:"Kenko Boundary Security System", typ:"Challenge", beschr:"Automatisierte Verteidigung rund um den Anlagenfuß. Drei Limits: Sneak Past 2, Shutdown 2, Take Over ohne Wert (kann nicht übernommen werden).",
+    limits:[{n:"sneak past", v:2},{n:"shutdown", v:2},{n:"take over", v:"–"}],
+    threats:[
+      {n:"Flugdrohnen ziehen vorbei", x:"Die Drohnen sehen die Crew (zwei Tiers von stealthy entfernen oder tagged-2 verhängen)."},
+      {n:"(Konsequenz-Option)", x:"Elektrische Störnetze werden abgefeuert (entangled-2 und malfunctioning-2) oder ein Pfeil (paralyzed-2)."},
+      {n:"(Konsequenz-Option)", x:"Ein Alarm heult auf und lockt die Deactivation Unit, die Roamers oder beide an (Present A New Challenge, siehe Abschnitte DU und Roamers)."}
+    ]},
+  {t:"h", x:"Loot: Salvageable Tech"},
+  {t:"p", x:"Das Nanite-Schlachtfeld an der Mauer birgt noch bergenswerte Technik für alle, die wissen, wonach sie suchen."},
+  {t:"tabelle", titel:"Loot-Katalog (Item / Beschreibung / Feature Tags / Weakness)", kopf:["Item","Beschreibung","Feature Tags","Weakness"], zeilen:[
+    ["Guard E Military Surveillance Drones","Drei kleine, kugelförmige Drohnen im Verbund, schnell und leise, orten mit Sensorik und cleveren Manövern Bedrohungen.","surveillance drone trio, long term automated operation, maneuverable, pierce through camouflage","Mythic illusions"],
+    ["Daido Corp Crowd Control Net Gun","Nichtletale Abschreckung: schießt ein feines Glas-Stahl-Gewebe, das Menschenmengen verheddert und per neuraler Störung ruhigstellt.","net gun, entangle human-sized targets, neural disruption, cyberware disruption","difficult reload"],
+    ["Kenko Pulse Generator","Schwarzer Spike mit silbernen Scheiben, stört Nanotech im Umkreis. Solche Geräte haben das Unglück eindämmbar gemacht.","anti-nanotech pulse generator, battery-draining super-pulse, target nanites of a specific type, extra battery","slow to charge"]
+  ]}
+]},
+{ id:"explore", titel:"Die Ruine erkunden & Verhandlung mit der DU", gruppe:"Die Ruine erkunden", bloecke:[
+  {t:"p", x:"Hinter der Mauer bewegt sich die Crew frei: Alte Straßen, Strom- und Datenkabel, Entwässerungsgräben und Wartungshütten gibt es überall. Alle Gebäude sind am Berghang gut zu sehen. Am nächsten liegt das **Data Center**, zu **Domes** und **Spire** ist es leicht. Das **Boardroom** erreicht man nur durch den Spire."},
+  {t:"p", x:"Bei jedem Ort oder zwischen ihnen kannst Du eine der beiden folgenden Begegnungen (DU oder Roamers) einbauen."},
+  {t:"h", x:"Verhandeln mit der DU"},
+  {t:"p", x:"In seiner Lage ist Teshima bereit, mit der Crew zu kooperieren, wenn sie dasselbe Ziel (die Anlage räumen) verfolgt, auch ohne offizielle Genehmigung. Sie darf sogar Technik plündern, solange sie **keine Nanotech** mitnimmt. Glaubt er, die Crew wolle Nanites jeder Art (auch das unprogrammierte Gel im Spire) mitnehmen, werden er und die Dekontaminatoren **suspicious-3** und fordern sie zum Verlassen auf. Ohne Sondervereinbarung kämpft die DU um jede restliche Nanotech, notfalls bis zum Tod."}
+]},
+{ id:"du", titel:"Begegnung: Deactivation Unit", gruppe:"Die Ruine erkunden", bloecke:[
+  {t:"vorlesen_ref", seite:278, x:"Erschöpfte Regierungsangestellte in Hazmat-Anzügen mit Kapuzen, müde Gesichter hinter Klarsicht, knarzende Lautsprecherstimmen, einige mit provisorischen, schmutzigen Talismanen am Anzug."},
+  {t:"p", x:"Die DU ist schon da und sucht die Ursache für das fortgesetzte Nanite-Spawning. Das **24-köpfige Team (Scale 2)** leitet **Teshima Osamu**, ein getriebener Mittvierziger, der sein Lebenswerk, die Säuberung der Wüste, vollenden will. Er und viele seines Teams verloren im Unglück Angehörige und wollen Nanotech ausrotten."},
+  {t:"p", x:"Lange genug in der Wüste, ahnen sie, dass hier etwas Ungewöhnliches vorgeht: Fernab vom Noise der Megacity haben sie erkannt, dass manche Aberglauben der Wanderer echte Macht haben und eine böse Kraft zurückhalten, die Nanite-Plage und Krankheit stützt. Sie haben Gebete und Schutzamulette übernommen, wissen aber nicht, wie man yōkai begegnet, und gehen rein technisch vor: Sie sprühen Nanite-tötende Gase aus ihren Anzugschläuchen und wundern sich, dass es nicht wirkt. Die meisten wollen nur ihren Job machen und heim, bestehen aber darauf, dass die undankbare Arbeit fertig wird."},
+  {t:"challenge", name:"Nano-butai Decontaminator", typ:"Challenge (DU-Mitglied)", beschr:"Standard-Dekontaminator der DU im Hazmat-Anzug.",
+    limits:[{n:"hurt or subdue", v:3}],
+    tags:["reinforced hazmat suit","officer of the law","Status: determined-2","Status: firewalled-2","Status: minor-ward-1","Status: nano-shielded-4"],
+    threats:[
+      {n:"Richten ihre Sprühdüsen auf ein Ziel", x:"Sie versprühen Nanite-tötende, elektrizitätsstörende Chemikalien (malfunctioning-3 oder einen Cyberware- oder Nanite-Tag burnen, und eine **chemical cloud** entsteht)."},
+      {n:"Treten in eine chemische Wolke", x:"Sie werden verdeckt (gain hidden-2)."},
+      {n:"Drücken Tasten am Armband, während sie sich bewegen", x:"Mit Spähdrohnen finden sie ein verstecktes Ziel (Escalate The Situation und drei Tiers von stealthy oder hidden entfernen)."},
+      {n:"(Konsequenz-Option)", x:"Sie koordinieren sich mit der Gruppe und gehen in Position (gain cover-2 oder inflict surrounded-2)."},
+      {n:"Ziehen einen schweren Taser oder eine Waffe", x:"Sie schießen auf ein Ziel (stunned-3 oder gun-shot-3)."}
+    ]}
+]},
+{ id:"roamers", titel:"Begegnung: Roamers", gruppe:"Die Ruine erkunden", bloecke:[
+  {t:"vorlesen_ref", seite:279, x:"Fast lautlos, begleitet von hohem Surren, nähern sich Roamers in braunen Panzermänteln und schmutzigen Brillen. Ihre nackte Haut wirft Blasen und wogt in Verwandlungswellen: wandelnde Biome, vom Unglück gezeichnet, mit richtenden Blicken und schussbereiten Waffen."},
+  {t:"p", x:"Die **Yakubyō Gami Roamers** (S. 237) betrachten das alte Forschungszentrum als Haupttempel. Der Segen der Kami, eingebettet in die injizierten Nanites, lässt sie hier unbeschadet überleben und schützt sie durch Magie plus Nanotech vor den meisten Krankheiten und vor Alterung. Ironischerweise erfüllen sie so Kenkos ursprüngliche Mission."},
+  {t:"p", x:"Sie wissen von der DU auf ihrem Tempelgrund, sind aber nur etwa **dreißig**, und die DU ist gegen ihre beste Waffe (Krankheit, Nano-Plagen) besonders geschützt."},
+  {t:"p", x:"Nutze das Challenge-Profil der Roamers auf S. 237. Roamers sind **immun gegen alle Krankheits- und Nano-Effekte**, solange die Yakubyō Gami, denen sie dienen, nicht gebannt sind. Am Kuroi Yogore haben alle außerdem **shielded-by-nanites-1** (physisch) und **warded-1** (mystisch). Optional stapeln sich nanotech- oder krankheitsbezogene Statuses der Roamers mit einem Status, den ein PC schon aus Nanite Exposure hat."},
+  {t:"h", x:"Patrouillierende Roamers"},
+  {t:"p", x:"Spähtrupps durchstreifen die Anlage. Als Threat oder Consequence sieht ein Späher die Crew und zieht sich sofort zurück. Er holt mindestens **acht Roamers (Scale 1)** unter **Mōjin** (»der Blinde«), einem boshaften Mann und engen Berater von **Nozawa Emiko**. Sie suchen die PCs und fordern unter Gewaltandrohung ihren Abzug. Ein Roamer flüstert Mōjin zu, die PCs trügen nicht die Anzüge der DU. Drängt die Crew darauf und senkt Mōjins **suspicious-3** (oder überschreibt es mit **threatened-4**), können die Roamers sie zu Nozawa bringen, tief in der Anlage, im Boardroom."},
+  {t:"p", x:"Für mehr Komplexität verlangt Mōjin, die PCs müssten vor dem geweihten Boden des Boardrooms geprüft oder gereinigt werden. Er führt sie zu den Domes, wo jeder PC mindestens einen Dome durchqueren und überleben muss."},
+  {t:"h", x:"Roamers im Alltag"},
+  {t:"p", x:"Roamers können auch bei Aufgaben auftauchen: rituelle Vorbereitung in einem Dome oder im Spire, oder Gruppen, die sich sammeln, um Siedlungen in der Nähe zu richten, meist am Ausgang des Abwasserkanals (trotz der DU-Invasion bleibt ihre Richterpflicht)."},
+  {t:"h", x:"Loot: Around the Ruins"},
+  {t:"p", x:"Hastig verlassen, bergen die Ruinen unter Haufen aus Nano-Asche und Wildwuchs viele Schätze."},
+  {t:"tabelle", titel:"Loot-Katalog (Item / Beschreibung / Feature Tags / Weakness)", kopf:["Item","Beschreibung","Feature Tags","Weakness"], zeilen:[
+    ["Kenko Bio-Agent Printer","Koffergroßer Synthesizer für nützliche oder schädliche Bio-Agenzien und Pharmazeutika.","bio-agent printer, medication synthesis, physical enhancement cocktails, forensic science assist","expensive reagents"],
+    ["Kenko Nanite Dart Gun","Kleine Seitenwaffe zum Ruhigstellen unkontrollierter Versuchstiere, auch für Krawallkontrolle. Dartgeschosse zerplatzen beim Aufprall und setzen Nanites frei, die das Ziel bewusstlos machen.","nanite dart gun, enough to knock out an elephant, targets with standard biology, silent","pre-programmed nanobots"],
+    ["Gyeong Motors V-250c Hover Car","Düsenunterstütztes Hoverfahrzeug der Führungskräfte für Berg und Umland: schnell, geländegängig, wetterfest, ideal für die Wüstenei.","executive hover car, hover over difficult terrain, instant acceleration, protective interior","twitchy handling"]
+  ]}
+]}
+]});

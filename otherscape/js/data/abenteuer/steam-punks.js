@@ -1,0 +1,133 @@
+OS_ADV.push({ id:"steam-punks", titel:"Steam Punks", sub:"Im Badehaus wird es heiß",
+  buch:"Tokyo", seiten:"S. 286–295", sektionen:[
+{id:"briefing", titel:"Job-Briefing", bloecke:[
+  {t:"p", x:"Die **Yuna** („Badehaus-Mädels“) sind eine von Frauen geführte Schmugglerbande, die gestohlene Pharmazeutika und Waffen verschiebt. Aus einem verfallenen Sentō haben sie einen Nachtclub gemacht (Tokyo S. 37). Sie heuern die Crew als Verhandlungshilfe und als Muskeln an: Der **Ghost Market** (Tokyo S. 159), der wandernde AR-Schwarzmarkt der Megacity, hat sie zu einem „Gespräch“ geladen, das sich eher wie eine Drohung anfühlt."},
+  {t:"p", x:"**Erfolg:** Die Yuna bleiben unverletzt und gehen aus den Verhandlungen gestärkt hervor. Kontakt ist **Choko**, die die Crew vorab im Sentō treffen will. Gerüchte sagen, im Bad spuke ein Kami oder Yōkai, und es ist unklar, ob die Bande von der Gefahr überhaupt weiß."},
+  {t:"hinweis", titel:"Ghost Market unbekannt?", x:"Kennt die Gruppe den Ghost Market nicht (etwa aus *A Bridge Too Far*, S. 296), kann sie sich über Kontakte oder Recherche informieren. Alternativ lassen die Yuna eine einmalige Einladung zum Market vermitteln. Dann hängt der Ruf der Crew an dem der Yuna: Werden die Yuna aufgenommen, ist die Crew künftig willkommen. Sonst muss sie die Overseer anders beeindrucken."},
+  {t:"h", x:"Hooks"},
+  {t:"liste", items:["Die Yuna haben schon früher mit der Crew gearbeitet, etwa als Lieferanten von Loadout-Items. Jetzt bitten sie um Hilfe und bieten Rabatte und Gefallen.","Die Crew gilt als gute Verhandlerin oder Vermittlerin, wegen eines früheren Jobs oder des Rufs eines Mitglieds. Schon „ganz ordentlich“ reicht den Yuna.","Ein enger Freund der Crew gehört zu den Yuna oder profitiert von deren Aufstieg und stellt nach dem Quasi-Ultimatum den Kontakt her."]}
+]},
+{id:"hintergrund", titel:"Hintergrund: Yuna und Mizuchi", bloecke:[
+  {t:"p", x:"Die Yuna waren einst eine Straßengang von Delinquenten (ähnlich einer Bōsōzoku, Tokyo S. 28), die mit Drogen handelte und klaute. Mit wachsendem Ehrgeiz stiegen sie auf Schmuggel um und übernahmen ein heruntergekommenes Sentō in ihrem Revier. Heute gibt es dort Neon, laute Clubmusik und weiterhin Gemeinschaftsbäder. Der Lärm schützt vor Cyber-Ohren, die ihre Geschäfte belauschen könnten."},
+  {t:"p", x:"Für den Umbau mussten sie sich mit einem Yōkai einigen, der in einem versteckten Schrein im Sentō haust: einem **Mizuchi** (Wasserdrache). Anführerin **Kobayashi Tomoko** erlaubte ihm, Besuchern leise etwas Lebensenergie abzuzapfen. Dafür muss er im Schrein bleiben, darf niemanden töten und nur flüstern. Tomoko versprach für alle Yuna, nicht über ihn zu reden und ihn in Ruhe zu lassen."},
+  {t:"h", x:"Die Yuna"},
+  {t:"p", x:"Die Yuna nutzen das Profil **Bōsōzoku Rider** (Tokyo S. 124) und tragen als Erkennungszeichen gelbgrünes Neon, meist über ihrer Cyberware. Alle stehen unter einem magischen Bann (**serpent-promise-6**): Sie können nicht über den Mizuchi sprechen und ihn nicht direkt verraten. Weil die meisten tief im Noise stecken, lenken sie das Gespräch unbemerkt um."},
+  {t:"p", x:"**Choko** (Name nach einer Saké-Schale) hat ihren Geburtsnamen Nagasawa Jun abgelegt, seit sie im Streit ihre Familie verließ. Sie ist jung, vorlaut, nicht dumm, aber ständig abgelenkt von ihrem AR-Feed, Nachrichten und Videos. Sie trägt ein schwebendes holografisches Kleid aus überwiegend ästhetischer Cyberware und an der Schulter eine Maske im Stil einer berühmten Kawaii Mask Streamer (Tokyo S. 232), die sie „ironisch anschaut“."},
+  {t:"p", x:"**Kobayashi Tomoko**, Anfang 30, trägt stolz ein misslungenes Bio-Haar-Implantat, das wie eine ungepflegte Mähne wirkt. Sie war früher bezahlte Testperson und schloss sich den Yuna an, als sie keine Fremdbestimmung mehr ertrug. Sie führt aus Ehrgeiz und Kompromissbereitschaft und will ihre Mädels aus der Kleinkriminalität herausholen. **Sie fehlt zu Beginn der Nacht:** Für einen besseren Eindruck ließ sie ihre Cyberware aufrüsten, es gab Komplikationen. Sie taucht erst kurz vor dem Abschluss auf, unter starken Schmerzmitteln."}
+]},
+{id:"ablauf", titel:"Übersicht und Botched Diplomacy", bloecke:[
+  {t:"h", x:"Orte"},
+  {t:"liste", items:["Die Nachbarschaft","Eingang zum Sentō-Club","Die Washrooms","Die Baths","Der Hidden Shrine","Die Back Rooms"]},
+  {t:"h", x:"Ablauf der Nacht"},
+  {t:"liste", items:["Seiryū trifft ein","Die Enforcers treffen ein","Die Verhandlungen (Pleasantries, Hard Bargains, Closing the Deal)"]},
+  {t:"h", x:"Botched Diplomacy"},
+  {t:"p", x:"Die Crew soll die Yuna beschützen, darf aber keinen Kampf provozieren, sonst kippt die Stimmung und der Ruf der Crew leidet. Führe den Status **botched-diplomacy** über den ganzen Abend für die gesamte Crew gemeinsam. Er behindert alle Interaktionen mit dem Ghost Market und damit das Ende der Verhandlung."},
+  {t:"liste", items:["**Tier 5:** Die Crew darf nicht mehr direkt verhandeln. Sie kann die Yuna beraten oder heimlich tricksen.","**Tier 6:** Die Crew hat die Yuna im Stich gelassen und wird entlassen.","**botched-diplomacy-1** gibt es, wenn die SC Sicherheitsregeln missachten, Waffen ins Bad schmuggeln oder Ärger machen statt ihn zu verhindern.","Respektvolles Verhalten, Deeskalation und Kompromisse können den Status senken. Im Verhandlungsteil muss die Crew ihn vermeiden und zugleich abbauen."]}
+]},
+{id:"nachbarschaft", titel:"Die Nachbarschaft", bloecke:[
+  {t:"vorlesen_ref", seite:289, x:"Beschreibt ein heruntergekommenes Viertel voller Graffiti und Müll, mit ausgetrockneten Reservoirs und Kabelgewirr, das erkennbar von Gangs statt der Stadt betrieben wird."},
+  {t:"p", x:"Choko fängt die Crew in einer Gasse ab, in Gangfarbe, selbst ihre Cyberware hat gelbgrüne Teile. Sie wirkt völlig sicher: Das Viertel gehört den Yuna. Sie lädt zu einem Tisch vor einem Teehaus ein, grüßt den kleinen Schrein am Eingang und bestellt Eistee „auf Rechnung der Yuna“. Der Kellner weiß, dass es keine Rechnung gibt, und schweigt."},
+  {t:"p", x:"Choko beantwortet die wichtigen Fragen. Fragt jemand nach dem Yōkai, winkt sie ab und amüsiert sich über jeden, der das Gerücht ernst nimmt. Sie ist zu tief im Noise und kennt den Geist nicht. Trotzdem wirkt der Bann: Über den Hidden Shrine kann sie nicht sprechen, obwohl sie ahnt, dass Tomoko dort etwas verbirgt."},
+  {t:"h", x:"Haphazard Briefing"},
+  {t:"p", x:"Choko rät, auf **Seiryū** zu achten, die Gesandte des Ghost Market, die vor dem Chefverhandler eintreffen und nach dem Rechten sehen soll. Wer den Market kennt, weiß (oder kann **Discover**en), dass Seiryū als öffentliches Gesicht des Market sehr gefährlich ist, und dass Choko ihr zu wenig Respekt zollt."},
+  {t:"h", x:"Planung der Verhandlung"},
+  {t:"p", x:"Die SC wollen vermutlich einen Ort wählen. Eine Karte hat Choko nicht („Drei Bäder und ein paar Räume“). Sie schlägt die Baths vor, trotz Gästen und Lärm; beides hält sie für zusätzliche Sicherheit. Alternativen sind die Back Rooms und der Hidden Shrine (falls entdeckt)."},
+  {t:"p", x:"Die Sicherheit besteht aus einigen Yuna-Türstehern. Die meisten Yuna haben Cyberware und können sich wehren, hoffen aber auf die Crew als Hauptmuskel. Choko glaubt, Tomoko gebe der Crew Zugriff auf die Cyberspace-Domain des Clubs samt Kameras und Funk. Das entscheidet Tomoko, doch sie kommt gar nicht rechtzeitig, was weder Choko noch die SC wissen."}
+]},
+{id:"eingang", titel:"Eingang zum Sentō-Club", bloecke:[
+  {t:"vorlesen_ref", seite:289, x:"Von außen ein Nachtclub in einem traditionellen Badehaus: Blacklight und Laternenattrappen, dröhnender Bass, Duft von heißem Wasser und billigem Parfüm, AR-Pfeile führen die Warteschlange durch einen Steingarten."},
+  {t:"p", x:"Direkt hinter dem Eingang steht die Türsteherin **Hase Rie** (Power Set Street Fighting, Tokyo S. 135), massig, verchromt und von Kopf bis Fuß in Neon-Gangfarbe. Sie mustert die Crew, prüft aber nicht genau: Die SC sind erwartete Ehrengäste. Sie kommen problemlos hinein, zum Unmut der Wartenden."},
+  {t:"p", x:"Wer eine Waffe unter einem Handtuch verstecken will oder sich als Clubsicherheit ausgibt, **burnt** die entsprechenden Tags. Cyberware und Ausrüstung in Cyber-Gliedmaßen bleiben unentdeckt."},
+  {t:"h", x:"Der Club im Cyberspace"},
+  {t:"p", x:"Die Yuna haben einen **Epis Tar Pit** als VR-Sicherheit. Die Domain ähnelt dem realen Club, doch alle Kernsysteme liegen unter den Bädern unter einer dicken Teerschicht. Es gibt keine Hintertür, selbst die Yuna müssten sich durchgraben, weil im Alltag alles von selbst läuft."},
+  {t:"p", x:"Hacker müssen sich durch **thick-tar-4** graben. **Consequences** können Systemstörungen im Club auslösen, wenn jemand beim Graben Strom- oder Wartungsleitungen beschädigt. Die Yuna haben eine Drill-App, geben sie aber nicht ohne Tomokos Erlaubnis weiter."},
+  {t:"p", x:"Wer die Kernsysteme erreicht, erhält Superuser-Status: Er sieht und hört jeden Raum (auch den Hidden Shrine) und liest alle Übertragungen in der Domain mit."}
+]},
+{id:"washrooms", titel:"Die Washrooms", bloecke:[
+  {t:"vorlesen_ref", seite:290, x:"Nach der Lobby ist der Club nach Geschlechtern getrennt, mit Umkleiden und Duschen. Das ist Teil der nostalgischen Show, Nicht-Binäre wählen frei, und die Trennung verhindert versteckte Waffen auf der Clubfläche."},
+  {t:"p", x:"Schwere Ausrüstung, Rüstung oder Waffen kann die Crew nur offensichtlich und sozial unmöglich in die Baths mitnehmen. Das bringt Verachtung der Gäste und **botched-diplomacy-1**."},
+  {t:"p", x:"Die Washrooms sind voller Krimineller. Einige, vom Ghost-Market-Gerücht angelockt, sind zum ersten Mal da und testen die Clubsicherheit. Halten sie die SC für Yuna-Handlanger, provozieren sie hier gern Streit. Lass ein bis drei **Gang Members** (Metro: Otherscape, S. 306) Stimmung machen, was der Crew weiteres **botched-diplomacy-1** einbringen kann."}
+]},
+{id:"baths", titel:"Die Baths", bloecke:[
+  {t:"vorlesen_ref", seite:291, x:"Der große Hauptraum mit drei beheizten Becken: halbnackte Gäste im Stroboskoplicht, dröhnende Musik, die Yuna als Königinnen am Beckenrand und eine große Bar mit Barkeepern, Android-Maid und Servierdrohnen."},
+  {t:"p", x:"Wer sich umsieht, entdeckt eine dunkle, im Licht und Deko verborgene Schiebetür aus altem Holz mit Wasserdrachen-Bild. Sie führt zum **Hidden Shrine**. Die Tür öffnet sich magisch, wenn man das Passwort „poison“ flüstert. Die meisten Yuna kennen es, können es aber nicht aussprechen. Du musst also einen cleveren Weg finden, es aus ihnen herauszubekommen, denn der Bereich ist für Nicht-Yuna tabu. Alternativ bricht man den Bann (**magically-locked-3**)."},
+  {t:"p", x:"Tags bei Verhandlung hier: **water everywhere**, **pounding bass beat**."}
+]},
+{id:"shrine", titel:"Der Hidden Shrine", bloecke:[
+  {t:"vorlesen_ref", seite:291, x:"Ein kleines Bad mit hoher Steinstatue eines Wasserdrachen, gedämpfte Musik, eine echte, aber nicht wohlwollende Präsenz, die die Eintretenden mustert."},
+  {t:"p", x:"Sobald die SC auf irgendeine Weise mit dem Geist Kontakt aufnehmen, zeigt sich der Mizuchi als sich windende blaue Schlange über dem Becken, die den Raum zum Leuchten bringt. Er flüstert. Er kennt den geplanten Deal der Yuna mit dem Ghost Market und lehnt ihn ab, ohne Gründe zu nennen und ohne seinen Pakt mit Tomoko preiszugeben. Er will den Status quo. Auf Nachfrage gibt er offen zu, die Verhandlung stören zu wollen."},
+  {t:"p", x:"Um ihn aufzuhalten, muss die Crew ihn **binden** (Limit bind maxen) oder einen **Handel** schließen (Limit placate maxen). Ihn zu verbannen ist praktisch unmöglich, weil die Besitzer seine Anwesenheit akzeptieren."},
+  {t:"p", x:"Tags bei Verhandlung hier: **small space**, **reverent silence**."},
+  {t:"challenge", name:"Mizuchi", typ:"Challenge (Kami)", beschr:"Geist einer Wasserschlange, der im kleinen Schrein des Sentō wohnt. Er kann nur flüstern, dafür von überall im Gebäude zu jedem Besucher. Er will langsam Lebenskraft von Partygästen abzapfen (von jedem, der ein Bad betritt) und fürchtet, dass die Yuna den Club aufgeben, wenn sie sich dem Ghost Market anschließen. **placate** steht für seine Bereitschaft, die Verhandlung zuzulassen; solange es nicht gemaxt ist, stört er sie. Der Bann **serpent-promise-6** hindert ihn daran, Gäste zu töten oder lauter als flüsternd zu sprechen, und die Yuna daran, über ihn zu sprechen oder direkt gegen ihn zu handeln.",
+    limits:[{n:"bind", v:5},{n:"placate", v:4}],
+    tags:["intangible","kami's domain","serpent-promise-6"],
+    threats:[
+      {n:"Whisper quietly into someone's ear", x:"Drive a hard bargain (remove a tier from placate)."},
+      {n:"Whisper quietly into someone's ear", x:"Make a demand (Spieler wählt: zwei Tiers von placate entfernen oder bound-by-promise-2 nehmen)."},
+      {n:"Dampen the noise of the world for a moment", x:"Make a target feel calm, and utterly at peace (ready-for-death-4)."},
+      {n:"Materialize, flying at a calmed target", x:"Take a bite and disappear (bitten-2 und energy-drained-2, der Mizuchi wird wieder intangible)."},
+      {n:"(ohne Auslöser)", x:"Cast the crew out of its shrine (Deny Them Something They Want)."}
+    ]}
+]},
+{id:"backrooms", titel:"Die Back Rooms", bloecke:[
+  {t:"p", x:"Lager, Ruheräume, Büros und Besprechungen der Yuna. Alle Räume sind zu klein, abgelegen oder zu unansehnlich für ein seriöses Treffen, denn das ganze Geld steckt in der Clubfront, wo die Gang auch lieber Zeit verbringt."},
+  {t:"p", x:"Tomokos Büro dient als Besprechungsraum der Lieutenants. Tags: **ugly junk**, **crates of small arms**, **Yuna keep coming and going** (sie suchen Alkohol oder Werkzeug aus Tomokos Büro und sind genervt von der Crew)."}
+]},
+{id:"seiryu", titel:"Seiryū trifft ein", gruppe:"Die Nacht", bloecke:[
+  {t:"p", x:"**Allgemein:** Consequences können den Ablauf vorantreiben oder Forderungen der Yuna darstellen, etwa Gäste draußen abholen und zum VIP-Pool geleiten oder kleine Botengänge im Sentō und im Viertel. Die Yuna sind nicht gemein, holen aber alles aus der Crew heraus, solange sie bezahlt ist."},
+  {t:"p", x:"Gib der Crew nach der Ankunft Zeit zum Erkunden. Tomoko ist nicht auffindbar (sie kommt erst beim Closing the Deal, S. 295). Wer auf ihre Erlaubnisse wartet, verschwendet Zeit."},
+  {t:"p", x:"Gut eine halbe Stunde vor dem Termin streiten sich Hase Rie und eine genervte Frau, die ihr droht. Hört die Crew das nicht, holt sie ein Yuna-Mädchen: Die Frau sagt, sie sei **Seiryū**, und Tomoko ist nicht da, um sie zu empfangen. Aussehen, Auftreten und Challenge-Profil: Tokyo S. 164."},
+  {t:"p", x:"Rie lässt sie ohne Tomokos Freigabe nicht ein, und Seiryū verliert die Geduld. Greift die Crew nicht ein, zögert sie oder löst durch ihr Handeln Consequences aus, bläst Seiryū Rie Pulver ins Gesicht, das ihr die Atmung nimmt, und steigt über sie hinweg in den Club. Die Wartenden fliehen, und die SC erhalten **botched-diplomacy-2**, bei Konfrontation oder Eingreifen gegen Seiryū **botched-diplomacy-3**. Ohne Hilfe der Crew stirbt Rie in unter einer Minute."},
+  {t:"p", x:"Greift die Crew rechtzeitig ein, sodass Seiryū problemlos hineinkommt, nickt sie ihnen knapp zu."},
+  {t:"p", x:"Danach sitzt Seiryū an der Bar der Baths, angezogen, amüsiert, nippt, prüft Datenströme und beobachtet. Sie spricht weder mit Crew noch Yuna und verschiebt alles auf den Verhandlungsbeginn. Nutze sie, um es komplizierter zu machen: Sieht sie die Crew sich blamieren, kann das **unimpressed-at-crew** oder botched-diplomacy als Consequence bringen."}
+]},
+{id:"enforcers", titel:"Die Enforcers treffen ein", gruppe:"Die Nacht", bloecke:[
+  {t:"p", x:"Kurz vor dem Termin stehen drei Ghost-Market-Vertreter am Eingang: **Enforcers** (Tokyo S. 164, mit dem Special **chūnin**). Sie tragen illegale AR-Headsets und Tätowierungen, die ihre Treue zu den verborgenen Herren des Market belegen. Sie verlangen Yuna-Vertreter am Eingang und Einlass. Ist Rie nicht da, empfängt Choko sie, außer die Crew wartet schon."},
+  {t:"p", x:"Erfahren sie, dass Seiryū bereits drin ist, reagieren sie misstrauisch, denn sie sollte nicht dabei sein („Was spielt ihr für ein Spiel?“). Alle drei werden **tense-2**. Das ist ein typischer Machtzug Seiryūs, die die Yuna verunsichern will. Sie leitet die Verhandlung wirklich, hat es den chūnin nur nicht gesagt."},
+  {t:"p", x:"Fragt die Crew sie nach den Enforcers, lacht sie und sagt, sie hätten „ihren Segen“. Die chūnin glauben der Crew nicht und beruhigen sich nur, wenn sie Seiryū selbst sehen, was die Crew höflich erbitten muss, genau wie Seiryū es will. Alternativ kann die Crew sie anders **placate:3**."}
+]},
+{id:"verhandlungen", titel:"Die Verhandlungen", gruppe:"Die Nacht", bloecke:[
+  {t:"vorlesen_ref", seite:292, x:"Die Enforcers bauen ein Gerät auf und schalten eine Cyberspace-Verbindung. Seiryū steht davor, als eine holografische Gestalt in weißem Anzug mit Katana und verhülltem Gesicht erscheint."},
+  {t:"vorlesen_ref", seite:293, x:"Seiryū stellt streng White Bird vor, den Meister des Ältestenrats, und verlangt Respekt. Enforcers und Yuna verbeugen sich vor dem Hologramm."},
+  {t:"p", x:"**White Bird** wartet nicht auf Tomoko. Präsentiert sich die Crew nicht als Sprecher der Yuna, improvisiert Choko und gibt an, die Anführerin zu vertreten. Die Verhandlung läuft in drei Schritten: **Pleasantries**, **Hard Bargains**, **Closing the Deal**."},
+  {t:"p", x:"Verbeugt sich auch nur ein SC nicht respektvoll vor White Bird, erhält er **botched-diplomacy-3**. Die Enforcers aktivieren ein Mythic **Nearspace-blackout-5**: Aufzeichnen oder Kommunikation mit dem Cyberspace außerhalb des Raums ist gestört. Nur nicht-digitale Rekorder funktionieren, und sie erfassen White Birds AR-Projektion nicht."},
+  {t:"h", x:"Pleasantries"},
+  {t:"p", x:"Vorstellung und gegenseitiger respektvoller Umgang. Tomokos Abwesenheit ist für White Bird ein schwerer Affront (als Threat). Findet die Crew keine glaubwürdige Erklärung, erhält sie **botched-diplomacy-3**."},
+  {t:"p", x:"Lassen die SC stattdessen Choko sprechen, behauptet sie, Tomoko erhole sich von einem Angriff der **Garbage Sitters**, einer rivalisierenden Gang, die das Treffen sabotieren wollte (die Sitters gibt es, sie halten aber seit Monaten Waffenstillstand mit den Yuna). White Bird durchschaut die Lüge, akzeptiert sie aber, denn es geht nur darum, dass die Yuna Market und Zeit respektieren; Tomoko selbst ist unwichtig. Die Crew bekommt nur **botched-diplomacy-1**: Hier ist Schweigen oft das Beste. Choko klingt höflich, hat aber keine Ahnung vom Verhandeln."},
+  {t:"p", x:"Hat die Crew jetzt **botched-diplomacy-4 oder mehr**, verlangen die Enforcers, dass der schlimmste Störenfried ausgeschlossen wird. Die SC können widersprechen, doch der Status behindert das."},
+  {t:"h", x:"Hard Bargains"},
+  {t:"p", x:"**Position der Yuna:** Choko schildert Schmuggel, Hehlerei und Belieferung. Die Gang bleibe in ihrem Viertel und wolle nicht expandieren, der Market habe also nichts zu befürchten."},
+  {t:"p", x:"**Position des Ghost Market:** White Bird unterstellt, die Yuna verheimlichten Aktivitäten und Pläne. Der Market arbeitet nur mit Kontrollierbaren, er kennt keine Gleichen, nur Untergebene. Sein Ultimatum: Die Yuna werden Teil des Kartells, verkaufen ihre besten Waren nur über den wandernden Schwarzmarkt und zahlen einen großen Gewinnanteil. Auf die Frage, was bei Ablehnung geschieht, sagt White Bird: „You die.“"},
+  {t:"p", x:"**Der Streitpunkt:** Die Yuna wollen frei bleiben, mit anderen handeln und dem Market zuarbeiten, der Market will völlige Unterordnung. Dass die Yuna Vasallen werden, steht außer Frage, es geht nur um den Rest an Freiheit. Eine dritte Option lässt White Bird nicht zu, da er die Yuna nicht länger frei agieren lässt."},
+  {t:"p", x:"**Das Gespräch:** Die Crew soll das beste Ergebnis für die Yuna herausholen. Das lässt sich spielen als:"},
+  {t:"liste", items:["reine Erzählung","Quick Outcomes, die Zwischenstände und Verständnis schaffen, bis es eine Einigung gibt oder die Verhandlung scheitert","verfolgter Konflikt mit der Challenge **The Negotiations**: Die SC müssen **remain-free:4** maxen, bevor White Bird **out-of-patience:3** erreicht, die Enforcers **start-fighting:4** oder **botched-diplomacy:6** voll wird."]},
+  {t:"p", x:"Eigene Ideen der Crew sind willkommen. Ein gefangener Mizuchi wäre dem Market viel wert; White Bird ließe den Yuna dafür ein weiteres Jahr Autonomie. Die Bedingungen würden neu verhandelt, und bewähren sich die Yuna als ehrenhaft und profitabel, wird der Ton ein anderer. Die Yuna könnten auch einen anderen nützlichen Kami als Tauschgut besorgen."},
+  {t:"p", x:"**Choko:** Sie dient der Crew als Informationsquelle. Übernimmt kein SC die Verhandlerrolle, improvisiert sie weiter, und ihre Unprofessionalität bringt die Gespräche wohl ins Wanken (siehe ihr Threat und Consequence). **botched-diplomacy** betrifft alle Verhandlungsversuche im Namen der Yuna. Nutze die Threats und Consequences der Challenge auch dann, wenn du die Limits nicht verfolgst."},
+  {t:"p", x:"**Der Mizuchi:** Wurde er am Schrein nicht gebunden oder besänftigt, beginnt er zu einem von dir gewählten Zeitpunkt zu stören. Er flüstert den anwesenden Market-Vertretern ein, die Yuna konspirierten mit Yōkai und Biestern, die nur Chaos unter der kriminellen Elite wollten. Beruhigt die Crew die Lage nicht und gelingt es ihm, die Vertreter genug zu erzürnen, **fangen sie an zu kämpfen (start-fighting:4)** und greifen Yuna und Crew an."},
+  {t:"challenge", name:"The Negotiations", typ:"Challenge (Verhandlung)", beschr:"Verfolgter Konflikt um die Freiheit der Yuna gegen Ghost-Market-Unterordnung. Die Crew gewinnt über remain-free; die anderen drei Limits sind Niederlagebedingungen.",
+    limits:[{n:"remain free", v:4},{n:"out of patience", v:3},{n:"botched diplomacy", v:6},{n:"start fighting", v:4}],
+    tags:["Nearspace-blackout-5"],
+    threats:[
+      {n:"Enforcers cross arms in frustration", x:"Emotions flare (alle anwesenden Enforcers und Yuna erhalten angry-2)."},
+      {n:"Enforcers look to White Bird for guidance", x:"White Bird makes an understated threat (botched-diplomacy-2)."},
+      {n:"Seiryū begins addressing one of the PCs", x:"Seiryū deliberately offends or angers that PC (provoked-4)."},
+      {n:"White Bird is unnervingly silent", x:"Everyone senses White Bird's patience is wearing thin (losing-patience-1)."},
+      {n:"(Falls die Crew Choko führen lässt) Choko is too casual in her conversation and too often gets distracted by her AR feeds", x:"White Bird calls out her disrespectful attitude (botched-diplomacy-3)."},
+      {n:"The Enforcers and Seiryū stand still for a moment (sie lauschen dem Mizuchi)", x:"The Enforcers and Seiryū become angry-2."}
+    ]}
+]},
+{id:"ende", titel:"Kampf oder Abschluss", gruppe:"Die Nacht", bloecke:[
+  {t:"h", x:"…oder Fighting It Out"},
+  {t:"p", x:"Bricht ein Kampf aus, versuchen die chūnin, alle anwesenden Yuna zu töten, während Seiryū geht. Sie warnen jeden Crew-Angehörigen, der sich einmischt, dass ihm nichts geschieht, wenn er beiseite tritt. Werden sie angegriffen oder am Töten der Yuna gehindert, kämpfen sie gegen die Crew bis zum Tod. White Bird schaut schweigend zu, bis er die Verbindung trennt, und das Gerät verbrennt sich selbst."},
+  {t:"h", x:"…oder Closing the Deal"},
+  {t:"p", x:"Gehen die Verhandlungen weiter, entscheiden am Ende die Yuna selbst. Bleiben sie frei, unterschreibt Choko begeistert. Sonst fragt sie die Crew um Rat, nachdem sie den Ghost Market nun aus der Nähe gesehen haben. Alle Yuna haben keine Angst vor dem Market, glauben ihr Revier verteidigen zu können und halten ihre Autonomie für zu wertvoll. Ohne Überzeugungsarbeit lehnen sie das Angebot ab. Lassen sie sich zum Kartell überreden, sind sie unglücklich, beenden die Verhandlung aber mit intaktem Ruf. Lehnen sie ab, schwören die Enforcers Rache und bereiten den Rückzug vor."},
+  {t:"p", x:"**Tomoko kommt** noch vor dem Abschluss, verschwitzt und von Drogen benebelt. Sie entschuldigt sich ausgiebig bei White Bird und nimmt alle Schuld auf sich, was der alte Meister schätzt. Haben die Yuna schon als halbunabhängiger Teil des Kartells unterschrieben, verzeiht er; der Gespräche müde, trennt er die Verbindung."}
+]},
+{id:"aftermath", titel:"Aftermath", bloecke:[
+  {t:"p", x:"**Bestfall:** Die Yuna bleiben unabhängig und arbeiten auch mit dem Ghost Market. Tomoko weiß, wie wichtig Netzwerke sind, und vergisst nicht, wer ihr geholfen hat. Sie hält Kontakt zur Crew und bietet Yuna-Waren zu fairen Preisen an (die meisten **Enhancers** aus dem Tokyo Street Catalog, S. 86, sind leicht zu beschaffen)."},
+  {t:"p", x:"**Yuna lehnen ab:** Sie haben nun die Feindschaft einer Organisation, die insgeheim von den Shinobi geführt wird. Viele in der Unterwelt brechen den Kontakt ab, und die SC entscheiden, ob sie weiter mit den Yuna verbunden sein wollen. Tomoko braucht sie weiter und würde die Crew anheuern, um Yuna-Vorhaben zu schützen, denn einige Gruppen halten die Yuna schon für schwach und jagen sie."},
+  {t:"p", x:"**Crew besiegt die Enforcers mit Gewalt:** Das ruiniert womöglich lange den Ruf der Crew in der Megacity-Unterwelt und schneidet sie von Schwarzmarkt und Auftraggebern ab. Dafür suchen überraschend viele Gönner, darunter mächtige Konzernmanager, jemanden, der mutig und töricht genug für so etwas ist, und zahlen mit seltenen Assets und Sonderzugängen."},
+  {t:"p", x:"**Alle anderen Fälle:** White Bird stellt eine letzte Forderung: Die Yuna dürfen dem Kartell beitreten und autonom bleiben (und alles botched-diplomacy wird vergeben), allerdings um den Preis von **Chokos Kopf**. Tomoko soll beweisen, dass sie Verantwortung trägt, handelt und ihre Leute führt. Sie bittet die Crew, das zu verhindern, stimmt den Bedingungen aber letztlich zu, falls es scheitert."},
+  {t:"hinweis", titel:"Schreibweise im Original", x:"Schreibweise im Original uneinheitlich: Sentō/Sentoo und Backrooms/Back Rooms, Seiryū/Seiryu (hier einheitlich Sentō, Back Rooms, Seiryū); „Nearspace-blackout-5“ steht einmal ohne Großschreibung der Tags."}
+]}
+]});

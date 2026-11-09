@@ -1,0 +1,159 @@
+/* Otherscape – Spielleiter-Tafel. Zustand: localStorage otherscape_state_v1 */
+const STATE_KEY = "otherscape_state_v1";
+const $ = id => document.getElementById(id);
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = s => esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/\*(.+?)\*/g,"<i>$1</i>");
+let ST = loadState();
+function loadState(){ const d = { lim:{}, clk:{}, notes:{}, done:{}, last:null, nav:true }; try{ return Object.assign(d, JSON.parse(localStorage.getItem(STATE_KEY)||"{}")); }catch(e){ return d; } }
+function saveState(){ try{ localStorage.setItem(STATE_KEY, JSON.stringify(ST)); }catch(e){} }
+
+/* ---------- Daten laden (je Abenteuer mehrere Dateien) ---------- */
+const loading = {};
+function loadScript(src){ return new Promise(res=>{ const s = document.createElement("script"); s.src = src; s.onload = ()=>res(true); s.onerror = ()=>res(false); document.head.appendChild(s); }); }
+function loadAdv(id){
+  const have = OS_ADV.find(a=>a.id===id); if(have) return Promise.resolve(have);
+  if(loading[id]) return loading[id];
+  return loading[id] = (async()=>{
+    for(const f of (OS_ADV_FILES[id]||[])) await loadScript("js/data/abenteuer/"+f);
+    return OS_ADV.find(a=>a.id===id) || null;
+  })();
+}
+const hasData = id => !!(OS_ADV_FILES[id] && OS_ADV_FILES[id].length);
+
+/* ---------- Routing ---------- */
+const parseHash = () => (location.hash||"#/").slice(2).split("/");
+window.addEventListener("hashchange", route);
+function goHome(){ location.hash = "#/"; }
+function goLastAdv(){ location.hash = ST.last || "#/"; }
+async function route(){
+  const p = parseHash(); window.scrollTo(0,0);
+  if(p[0]==="adv" && p[1]){
+    ST.last = "#/adv/"+p[1]+(p[2]?"/"+p[2]:""); saveState();
+    $("app").innerHTML = '<div class="missing">Lade Abenteuer …</div>';
+    const a = await loadAdv(p[1]);
+    const info = OS_ADV_LIST.find(x=>x.id===p[1]);
+    if(!a){ $("app").innerHTML = `<div class="missing"><h2>${esc(info?info.titel:p[1])}</h2><p>Dieses Abenteuer ist noch nicht erfasst.</p><button class="btn" onclick="goHome()">Zur Startseite</button></div>`; return; }
+    renderAdv(a, p[2] || a.sektionen[0].id);
+  } else renderHome();
+}
+
+/* ---------- Start ---------- */
+function renderHome(){
+  let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p></div>`;
+  h += `<div class="sec-h">Abenteuer</div><div class="cards">`;
+  for(const a of OS_ADV_LIST){
+    const ok = hasData(a.id);
+    h += `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`;
+  }
+  h += `</div><div class="sec-h">Werkzeuge</div><div class="cards">
+    <button class="card" onclick="openRules()"><span class="nr">Regeln</span><b>Regelblatt &amp; Würfler</b><small>2W6 + Power, Effects, Burn, Mitigate</small></button>
+    <button class="card" onclick="openSearch()"><span class="nr">Suche</span><b>Volltextsuche</b><small>Über alle Abenteuer</small></button></div>`;
+  $("app").innerHTML = h;
+}
+
+/* ---------- Abenteuer ---------- */
+function bkey(a,s,i){ return a.id+":"+s.id+":"+i; }
+function renderAdv(a, secId){
+  let idx = a.sektionen.findIndex(s=>s.id===secId); if(idx<0) idx = 0;
+  const s = a.sektionen[idx];
+  const doneKey = a.id+":"+s.id;
+  let navH = "", lastG = null;
+  a.sektionen.forEach(x=>{ if(x.gruppe && x.gruppe!==lastG){ navH += `<h4>${esc(x.gruppe)}</h4>`; } lastG = x.gruppe||lastG;
+    navH += `<button class="${x.id===s.id?"on":""} ${ST.done[a.id+":"+x.id]?"done":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}</button>`; });
+  const opts = a.sektionen.map(x=>`<option value="${x.id}" ${x.id===s.id?"selected":""}>${esc((x.gruppe?x.gruppe+" · ":"")+x.titel)}</option>`).join("");
+  const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
+  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
+  <div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${esc(a.buch)} ${esc(a.seiten)}</span>
+  <button class="btn" onclick="toggleNav()" title="Kapitelmenü ein-/ausblenden">☰ Kapitel</button></div>
+  <div class="adv-grid ${ST.nav===false?"nav-off":""}" id="advGrid">
+   <nav class="nav">${navH}</nav>
+   <div class="content"><div class="navbar"><select onchange="location.hash='#/adv/${a.id}/'+this.value">${opts}</select></div>
+   <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
+   ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
+   <div class="notes"><div class="blk-h">Notizen</div><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[doneKey]||"")}</textarea></div>
+   <div class="secfoot">${prev?`<button class="btn" onclick="location.hash='#/adv/${a.id}/${prev.id}'">‹ ${esc(prev.titel)}</button>`:"<span></span>"}
+     <button class="btn donebtn ${ST.done[doneKey]?"on":""}" onclick="toggleDone('${a.id}','${s.id}')">${ST.done[doneKey]?"✓ erledigt":"Als erledigt markieren"}</button>
+     ${next?`<button class="btn" onclick="location.hash='#/adv/${a.id}/${next.id}'">${esc(next.titel)} ›</button>`:"<span></span>"}</div>
+   </div></div></div>`;
+  $("app").innerHTML = h;
+}
+function toggleNav(){ ST.nav = ST.nav===false; saveState(); const g = $("advGrid"); if(g) g.classList.toggle("nav-off", ST.nav===false); }
+function setNote(k,v){ ST.notes[k] = v; saveState(); }
+function toggleDone(aid,sid){ const k = aid+":"+sid; ST.done[k] = !ST.done[k]; saveState(); route(); }
+
+function renderBlock(a,s,b,i){
+  const k = bkey(a,s,i);
+  switch(b.t){
+    case "p": return `<p class="blk blk-p">${fmt(b.x)}</p>`;
+    case "h": return `<div class="blk-h">${esc(b.x)}</div>`;
+    case "liste": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`;
+    case "hinweis": return `<div class="blk blk-note">${b.titel?`<b class="tt">${esc(b.titel)}</b>`:""}${fmt(b.x)}</div>`;
+    case "vorlesen_ref": case "vorlesen": return `<div class="blk blk-ref"><span class="bk">Vorlesetext · Buch S. ${esc(b.seite||"?")}</span><span>${fmt(b.x||"")}</span></div>`;
+    case "tabelle": return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="tbl-wrap"><table>${b.kopf?`<tr>${b.kopf.map(x=>`<th>${fmt(x)}</th>`).join("")}</tr>`:""}${(b.zeilen||[]).map(r=>`<tr>${r.map(x=>`<td>${fmt(x)}</td>`).join("")}</tr>`).join("")}</table></div></div>`;
+    case "szenen": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li><b>${esc(x.n)}</b> – ${fmt(x.x||"")}</li>`).join("")}</ul>`;
+    case "uhr": { const n = b.segs||4, cur = ST.clk[k]||0;
+      return `<div class="blk clock"><div class="cl-t"><b>${esc(b.name)}</b><small>${fmt(b.x||"")}</small>${(b.stufen||[]).length?`<ul class="blk-list">${b.stufen.map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`:""}</div><div class="segs" id="clk_${esc(k)}">${Array.from({length:n},(_,j)=>`<button class="seg ${j<cur?"on":""}" onclick="setClock('${esc(k)}',${j},${n})" aria-label="Segment ${j+1}"></button>`).join("")}</div></div>`; }
+    case "challenge": return renderChallenge(k,b);
+    default: return b.x?`<p class="blk blk-p">${fmt(b.x)}</p>`:"";
+  }
+}
+function setClock(k,j,n){ const cur = ST.clk[k]||0; ST.clk[k] = (cur===j+1) ? j : j+1; saveState();
+  const el = document.getElementById("clk_"+k); if(el) [...el.children].forEach((c,x)=>c.classList.toggle("on", x<ST.clk[k])); }
+function renderChallenge(k,b){
+  const tagCls = t => /^\s*[–-]\s/.test(t) ? "w" : (/^Status:/i.test(t) ? "s" : "");
+  const tagTxt = t => t.replace(/^\s*[–-]\s/,"");
+  let h = `<div class="blk ch"><div class="ch-head"><b>${esc(b.name)}</b><span class="typ">${esc(b.typ||"")}</span><span class="stars">${esc(b.rating||"")}</span></div>`;
+  if(b.beschr) h += `<div class="ch-desc">${fmt(b.beschr)}</div>`;
+  (b.limits||[]).forEach((l,li)=>{
+    const lk = k+":"+li, n = +l.v||0, arr = ST.lim[lk]||[];
+    h += `<div class="lim"><div class="lim-l">${esc(l.n)}</div><div class="lim-c">${n?`<div class="pips" id="p_${esc(lk)}">${Array.from({length:n},(_,j)=>`<button class="pip ${arr[j]?"f":""}" onclick="togPip('${esc(lk)}',${j})" aria-label="Feld ${j+1}"></button>`).join("")}</div><span class="lim-n" id="n_${esc(lk)}">${arr.filter(Boolean).length}/${n}</span><button class="lim-r" onclick="resetLim('${esc(lk)}')" title="Zurücksetzen">↺</button>`:`<span class="lim-n">–</span>`}</div></div>`;
+  });
+  if((b.tags||[]).length) h += `<div class="chips">${b.tags.map(t=>`<span class="chip ${tagCls(t)}">${esc(tagTxt(t))}</span>`).join("")}</div>`;
+  if((b.specials||[]).length) h += `<div class="ch-sub">Specials</div><ul>${b.specials.map(x=>`<li><b>${esc(x.n)}</b>${x.x?" – "+fmt(x.x):""}</li>`).join("")}</ul>`;
+  if((b.threats||[]).length) h += `<div class="ch-sub">Threats &amp; Consequences</div><ul>${b.threats.map(x=>`<li><b>${esc(x.n)}</b>${x.x?" – "+fmt(x.x):""}</li>`).join("")}</ul>`;
+  (b.extra||[]).forEach(e=>{ h += `<div class="ch-sub">${esc(e.k)}</div><div class="ch-desc">${fmt(e.x)}</div>`; });
+  return h + "</div>";
+}
+function togPip(lk,j){ const arr = ST.lim[lk]||(ST.lim[lk]=[]); arr[j] = !arr[j]; saveState(); syncLim(lk); }
+function resetLim(lk){ ST.lim[lk] = []; saveState(); syncLim(lk); }
+function syncLim(lk){ const arr = ST.lim[lk]||[], el = document.getElementById("p_"+lk); if(!el) return;
+  [...el.children].forEach((c,x)=>c.classList.toggle("f", !!arr[x])); const n = document.getElementById("n_"+lk); if(n) n.textContent = arr.filter(Boolean).length+"/"+el.children.length; }
+
+/* ---------- Suche ---------- */
+function blockText(b){ return [b.x,b.titel,b.name,b.typ,b.beschr,(b.items||[]).map(i=>typeof i==="string"?i:(i.n+" "+(i.x||""))).join(" "),(b.tags||[]).join(" "),(b.specials||[]).map(x=>x.n+" "+(x.x||"")).join(" "),(b.threats||[]).map(x=>x.n+" "+(x.x||"")).join(" "),(b.limits||[]).map(l=>l.n).join(" "),(b.zeilen||[]).map(r=>r.join(" ")).join(" "),(b.extra||[]).map(e=>e.k+" "+e.x).join(" ")].filter(Boolean).join(" "); }
+function openSearch(){ $("searchModal").classList.add("show"); setTimeout(()=>$("searchInput").focus(),50); }
+async function runSearch(q){
+  q = q.trim().toLowerCase(); const out = $("searchResults"), cnt = $("searchCount");
+  if(q.length<2){ out.innerHTML = ""; cnt.textContent = ""; return; }
+  for(const a of OS_ADV_LIST) if(hasData(a.id)) await loadAdv(a.id);
+  const res = [];
+  for(const a of OS_ADV) for(const s of a.sektionen){
+    const txt = (s.titel+" "+(s.bloecke||[]).map(blockText).join(" "));
+    const i = txt.toLowerCase().indexOf(q); if(i<0) continue;
+    const a0 = Math.max(0,i-50), snip = txt.slice(a0,i+q.length+80);
+    res.push({a,s,snip,i:i-a0});
+  }
+  cnt.textContent = res.length+" Treffer";
+  out.innerHTML = res.slice(0,60).map(r=>`<button class="sr" onclick="closeModal('searchModal');location.hash='#/adv/${r.a.id}/${r.s.id}'"><small>${esc(r.a.titel)} · ${esc(r.s.titel)}</small>${esc(r.snip.slice(0,r.i))}<mark>${esc(r.snip.slice(r.i,r.i+q.length))}</mark>${esc(r.snip.slice(r.i+q.length))}</button>`).join("");
+}
+
+/* ---------- Modale, Einstellungen, Menü ---------- */
+function closeModal(id){ $(id).classList.remove("show"); }
+function openSettings(){ $("settingsModal").classList.add("show"); }
+function exportState(){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(ST)],{type:"application/json"})); a.download = "otherscape-spielstand.json"; a.click(); }
+function importState(inp){ const f = inp.files[0]; if(!f) return; const r = new FileReader(); r.onload = ()=>{ try{ ST = Object.assign(loadState(), JSON.parse(r.result)); saveState(); closeModal("settingsModal"); route(); }catch(e){ alert("Datei konnte nicht gelesen werden."); } }; r.readAsText(f); }
+function resetState(){ if(!confirm("Alle Limit-Felder, Uhren, Notizen und Häkchen zurücksetzen?")) return; ST = { lim:{}, clk:{}, notes:{}, done:{}, last:null, nav:true }; saveState(); closeModal("settingsModal"); route(); }
+function closeMobileMenu(){ const m = $("mobileMenu"); if(!m) return; m.classList.remove("open"); setTimeout(()=>m.remove(),200); document.body.classList.remove("menu-open"); }
+function openMobileMenu(){
+  if($("mobileMenu")) return;
+  const item = (ic,l,fn)=>`<button class="mm-item" onclick="closeMobileMenu(); ${fn}"><span class="mm-ic">${ic}</span><span>${l}</span></button>`;
+  const m = document.createElement("div"); m.id = "mobileMenu"; m.className = "mobile-menu";
+  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
+  document.body.appendChild(m); document.body.classList.add("menu-open"); requestAnimationFrame(()=>m.classList.add("open"));
+}
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMobileMenu(); closeModal("searchModal"); closeModal("settingsModal"); } });
+
+/* ---------- Start ---------- */
+if("serviceWorker" in navigator) navigator.serviceWorker.register("../sw.js").catch(()=>{});
+try{ localStorage.setItem("gm_tool_mode_v1","otherscape"); }catch(e){}
+route();

@@ -73,3 +73,6 @@ Unter `locallegends/` liegt die Fall-Akte „Local Legends“. Zwischen beiden T
 ## Nights of Paynetown (City of Mist)
 
 Digitale Fassung des Abenteuerbands (nur Spielleitung, privat) unter `nights/`: Kampagnenübersicht, Fallansicht mit wörtlichem Buchtext, Eisberg mit Hotspots, Seitenviewer (1–296), Volltextsuche, Burger-Menü. Falldaten je Fall in `nights/js/data/caseNN.js`, erzeugt mit `tools/nights/build_case.py`. Erfasst: Fälle 1–10. Erreichbar über den Tool-Umschalter.
+
+## Otherscape
+Unter `otherscape/` liegt die Spielleiter-Tafel für Otherscape (Metro/Tokyo): Regelblatt mit Würfler, Volltextsuche und sieben Abenteuer als eigenständige deutsche Spielleiter-Fassungen mit allen Spielwerten (Challenge-Karten mit anklickbaren Limits, Uhren, Notizen). Vorlesetexte stehen nicht im Tool, nur ein Verweis auf die Buchseite. Jedes Abenteuer liegt in eigenen Dateien unter `otherscape/js/data/abenteuer/`; `manifest.js` listet sie. Wechsel zwischen den Tools über ⚙ „Tool wechseln“.

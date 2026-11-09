@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#070b12">
+<title>Otherscape – Spielleiter-Tafel</title>
+<link rel="icon" href="../icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="goHome()">Otherscape<small>Spielleiter-Tafel · Privat</small></button>
+  <div class="topbar-spacer"></div>
+  <button class="tb-btn" onclick="goHome()"><span class="tb-ic">🏠</span><span class="tb-lbl"> Start</span></button>
+  <button class="tb-btn" onclick="goLastAdv()"><span class="tb-ic">📁</span><span class="tb-lbl"> Abenteuer</span></button>
+  <button class="tb-btn" onclick="toggleRules()"><span class="tb-ic">🎲</span><span class="tb-lbl"> Regeln</span></button>
+  <button class="tb-btn" onclick="openSearch()"><span class="tb-ic">🔎</span><span class="tb-lbl"> Suche</span></button>
+  <button class="tb-btn tb-gear" onclick="openSettings()" aria-label="Einstellungen" title="Einstellungen">⚙</button>
+  <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app" class="shell"></div>
+
+<aside id="rulesDrawer" class="drawer" hidden>
+  <div class="drawer-head"><b>Regelblatt &amp; Würfler</b><button class="modal-close" onclick="toggleRules()">✕</button></div>
+  <div class="drawer-body" id="rulesBody"></div>
+</aside>
+
+<div class="modal-overlay" id="searchModal" onclick="if(event.target===this)closeModal('searchModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Volltextsuche</h2><button class="modal-close" onclick="closeModal('searchModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="search-input" id="searchInput" placeholder="Suche in allen Abenteuern … (mind. 2 Zeichen)" oninput="runSearch(this.value)" autocomplete="off">
+      <div id="searchCount" class="hint"></div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)closeModal('settingsModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Einstellungen</h2><button class="modal-close" onclick="closeModal('settingsModal')">✕</button></div>
+    <div class="modal-body">
+      <h3>Tool wechseln</h3>
+      <div class="set-tool">
+        <button onclick="switchTool('wake')"><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></button>
+        <button onclick="switchTool('locallegends')"><b>Local Legends</b><small>City of Mist – Fall-Akte</small></button>
+        <button onclick="switchTool('paynetown')"><b>Nights of Paynetown</b><small>City of Mist – Kampagne</small></button>
+        <button class="active" disabled><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Abenteuer (aktuell)</small></button>
+      </div>
+      <p class="hint">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
+      <h3>Spielstand</h3>
+      <div class="set-row">
+        <button class="btn" onclick="exportState()">Sichern (Datei)</button>
+        <label class="btn">Laden<input type="file" accept="application/json" hidden onchange="importState(this)"></label>
+        <button class="btn danger" onclick="resetState()">Zurücksetzen</button>
+      </div>
+      <p class="hint">Gespeichert werden Limit-Felder, Uhren, Notizen und Abhaken. Alles liegt nur in diesem Browser.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/tool-switch.js"></script>
+<script src="js/core.js"></script>
+<script src="js/data/abenteuer-liste.js"></script>
+<script src="js/data/abenteuer/manifest.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

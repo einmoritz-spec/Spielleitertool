@@ -81,6 +81,8 @@ function renderAdv(a, secId){
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
+  { const rl = a.sektionen.map((x,i)=>`<button class="${x.id===s.id?"on":""}" title="${esc(x.titel)}" aria-label="${esc(x.titel)}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${i+1}</button>`).join("");
+    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen">Liste</button>${rl}</div>`); }
   if(idx===0) ovDraw(a);
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }

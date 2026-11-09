@@ -152,6 +152,8 @@ function renderCase(c, sid){
   ${idx===0?`<div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>`:""}
   <div class="navbar"><button class="nav-open" onclick="openNavDrawer()"><small>Kapitel</small>${esc(chapterTitle(ch))}</button></div>
   <div class="case-grid ${ST.navHidden?"nav-off":""}"><aside class="nav">${nav}</aside><aside class="rail">${rail}</aside><main class="content">${body}</main></div>`;
+  { const rl = gs.map((g,i)=>{ const m=/^Schicht\s*(\d+)/i.exec(chapterTitle(g)); const t = m?m[1]:(i===0?"Ü":(i===gs.length-1?"A":String(i))); return `<button class="${g.items[0].id===ch.items[0].id?"on":""}" title="${esc(chapterTitle(g))}" aria-label="${esc(chapterTitle(g))}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${t}</button>`; }).join("");
+    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen">Liste</button>${rl}</div>`); }
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);

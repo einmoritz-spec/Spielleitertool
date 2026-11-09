@@ -42,12 +42,12 @@ function renderOverview(){
       <h1>Wake of the Oldways</h1>
     </div>
     <div class="adv-grid">${tiles}${aftermathTile}</div>
-    <div class="shortcuts-legend">
-      <h3>Tastaturbefehle</h3>
+    <details class="shortcuts-legend">
+      <summary><h3>Tastaturbefehle</h3></summary>
       <div class="shortcuts-grid">
         ${KEYBOARD_SHORTCUTS.map(s=>`<span class="shortcut-chip"><kbd>${esc(s.key)}</kbd>${esc(s.label)}</span>`).join("")}
       </div>
-    </div>
+    </details>
   </div>`;
 }
 

@@ -115,3 +115,10 @@
 .tool-switch small{display:block; color:var(--text-lo); font-size:12.5px; margin-top:2px;}
 .tool-switch.active{border-color:var(--gold); background:rgba(201,162,75,.1);}
 .tool-switch:not(.active):hover{border-color:var(--gold-bright);}
+
+.shortcuts-legend>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;}
+.shortcuts-legend>summary::-webkit-details-marker{display:none;}
+.shortcuts-legend>summary::before{content:"▸";color:var(--gold,#c9a24b);transition:transform .15s;}
+.shortcuts-legend[open]>summary::before{transform:rotate(90deg);}
+.shortcuts-legend>summary h3{margin:0;}
+.shortcuts-legend[open]>summary{margin-bottom:10px;}

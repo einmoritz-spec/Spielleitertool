@@ -417,6 +417,7 @@ function renderDistrictView(id){
       </button></div></div>`;
   }
 
+  html += pagerHTML(getDistTabKeys(c).map(k=>[k,DIST_TAB_LABELS[k]]), active, "setDistTab");
   html += `<div class="footer-note">Local Legends — Fall-Akte · Bezirk: ${dist.title}</div>`;
   return html;
 }
@@ -435,6 +436,12 @@ function renderDistrictTabs(c, id, active){
   });
   html += `</div>`;
   return html;
+}
+function pagerHTML(items, active, fn){
+  const i = items.findIndex(x=>x[0]===active); if(i<0) return "";
+  const pv = items[i-1], nx = items[i+1]; if(!pv && !nx) return "";
+  const b=(cls,it,lbl,arr)=>`<button class="${cls}" onclick="${fn}('${it[0]}')"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${it[1]}</b></span></button>`;
+  return `<nav class="pager">${pv?b("pg-prev",pv,"Zurück","←"):""}${nx?b("pg-next",nx,"Weiter","→"):""}</nav>`;
 }
 function setDistTab(tab){ state.distTab = tab; render(); window.scrollTo(0,0); }
 
@@ -582,6 +589,7 @@ function renderCaseView(id){
     }
   }
 
+  html += pagerHTML([["overview","Übersicht"]].concat(cs.depths.map(dp=>["depth"+dp.n,"Depth "+dp.n+": "+dp.title])).concat([["aftermath","Aftermath"]]), active, "setCaseTab");
   html += `</div>`;
   html += `<div class="footer-note">Local Legends — Fall-Akte · ${dist.title}: ${cs.title}</div>`;
   return html;

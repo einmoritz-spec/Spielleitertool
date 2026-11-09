@@ -77,10 +77,8 @@ function renderAdv(a, secId){
    ${idx===0?ovBox(a):""}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
    <div class="notes"><div class="blk-h">Notizen</div><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[doneKey]||"")}</textarea></div>
-   <div class="secfoot">
-     <button class="btn donebtn ${ST.done[doneKey]?"on":""}" onclick="toggleDone('${a.id}','${s.id}')">${ST.done[doneKey]?"✓ Erledigt":"Als erledigt markieren"}</button>
-     ${prev?`<button class="btn sf-nav sf-prev" onclick="location.hash='#/adv/${a.id}/${prev.id}'"><small>‹ Zurück</small><span>${esc(prev.titel)}</span></button>`:"<span></span>"}
-     ${next?`<button class="btn sf-nav sf-next" onclick="location.hash='#/adv/${a.id}/${next.id}'"><small>Weiter ›</small><span>${esc(next.titel)}</span></button>`:"<span></span>"}</div>
+   <div class="donerow"><button class="btn donebtn ${ST.done[doneKey]?"on":""}" onclick="toggleDone('${a.id}','${s.id}')">${ST.done[doneKey]?"✓ Erledigt":"Als erledigt markieren"}</button></div>
+   <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
   if(idx===0) ovDraw(a);

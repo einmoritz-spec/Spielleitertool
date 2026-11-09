@@ -36,6 +36,7 @@ async function route(){
     renderAdv(a, p[2] || a.sektionen[0].id);
   } else if(p[0]==="gegner") renderGegner();
   else if(p[0]==="fraktionen") renderFraktionen();
+  else if(p[0]==="tokyo") renderTokyo();
   else renderHome();
 }
 
@@ -43,10 +44,16 @@ async function route(){
 function renderHome(){
   let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p></div>`;
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
-  for(const [kat,titel] of [[undefined,"Abenteuer"],["setting","Tokyo-Setting"],["gegner","Yōkai Database"]]){
+  for(const [kat,titel] of [[undefined,"Abenteuer"]]){
     h += `<div class="sec-h">${titel}</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===kat).map(card).join("")}</div>`;
   }
   $("app").innerHTML = h;
+}
+
+/* ---------- Tokyo-Setting (über Header-Button) ---------- */
+function renderTokyo(){
+  const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small></button>`; };
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Tokyo-Setting</div><div class="adv-head"><h1>Tokyo-Setting</h1><span class="meta">Überblick, Bezirke, Orte · Gegner im Gegner-Browser, Fraktionen unter 🏛</span></div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat==="setting").map(card).join("")}</div>`;
 }
 
 /* ---------- Abenteuer ---------- */

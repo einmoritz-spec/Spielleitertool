@@ -266,7 +266,7 @@ function preloadAll(){ READY.forEach(loadCase); }
 
 /* ---------- Seitenviewer ---------- */
 let PV = 1;
-function openPageViewer(n, silent){ PV = Math.min(PAGES_TOTAL, Math.max(1, +n||PV)); $("pageViewer").hidden = false; document.body.classList.add("menu-open"); pvShow(); }
+function openPageViewer(n, silent){ PV = Math.min(PAGES_TOTAL, Math.max(1, +n||PV)); BV.open("nights", PV); }
 function closePageViewer(){ $("pageViewer").hidden = true; document.body.classList.remove("menu-open"); if(parseHash()[0]==="pages") history.back(); }
 function pvShow(){ $("pvImg").src = `pages/p${pad(PV)}.webp`; $("pvNum").value = PV; $("pvStage").scrollTop = 0; }
 function pvStep(d){ PV = Math.min(PAGES_TOTAL, Math.max(1, PV+d)); pvShow(); }

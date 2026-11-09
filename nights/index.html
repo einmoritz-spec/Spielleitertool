@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="responsive.css">
 <link rel="stylesheet" href="rules.css">
+<link rel="stylesheet" href="../bookviewer/bookviewer.css">
 </head>
 <body>
 <div class="topbar">
@@ -49,6 +50,7 @@
         <button onclick="switchTool('otherscape')"><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Tokyo, Abenteuer</small></button>
       </div>
       <p class="hint">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
+      <div id="bvSettingsHost"></div>
       <h3>Spielstand</h3>
       <div class="set-row">
         <button class="btn" onclick="exportState()">Sichern (Datei)</button>
@@ -81,6 +83,8 @@
 <script src="js/mobile-menu.js"></script>
 <script src="js/data/campaign.js"></script>
 <script src="js/data/map.js"></script>
+<script src="../bookviewer/bookviewer.js"></script>
 <script src="js/app.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"nights", books:[{key:"nights", name:"Nights of Paynetown (DE)"}], openSettings:function(){ openModal("settingsModal"); } }); document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh();</script>
 </body>
 </html>

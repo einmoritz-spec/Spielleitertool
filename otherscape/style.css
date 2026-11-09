@@ -250,3 +250,4 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .pager .pg-prev:hover .pg-arrow,.pager .pg-next:hover .pg-arrow{transform:none}
 .nav-mini{margin-left:10px;padding:3px 10px;font-size:.75rem;text-transform:none;letter-spacing:0}
 @media (max-width:1000px){.nav-mini{display:none}}
+@media (max-width:880px){.topbar{padding:6px 12px;gap:8px}.tb-burger{display:flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:auto;flex:none;color:var(--text);cursor:pointer}.tb-burger svg{display:block}.topbar .brand,.topbar .tb-brand{font-size:15px;white-space:nowrap}}

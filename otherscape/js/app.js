@@ -61,17 +61,12 @@ function renderAdv(a, secId){
   let idx = a.sektionen.findIndex(s=>s.id===secId); if(idx<0) idx = 0;
   const s = a.sektionen[idx];
   const doneKey = a.id+":"+s.id;
-  const col = prCollapsed();
-  let tr = "", grp = null;
-  a.sektionen.forEach(x=>{
-    if(x.gruppe && x.gruppe!==grp){ if(grp) tr += `</div></div>`; tr += `<div class="pr-grp ${grpOf(a,s)===x.gruppe?"open":""}"><button class="pr-grp-h" onclick="this.parentNode.classList.toggle('open')">${esc(x.gruppe)}</button><div class="pr-grp-b">`; grp = x.gruppe; }
-    tr += `<button class="pr-item ${x.id===s.id?"active":""}" title="${esc(x.titel)}" onclick="prGo('#/adv/${a.id}/${x.id}')"><span class="t-title">${esc(x.titel)}</span></button>`; });
-  if(grp) tr += `</div></div>`;
-  const prail = `<div class="pr-backdrop" onclick="toggleNav()"></div><aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(a.titel)}</h2><div class="subhead">${a.sektionen.length} Abschnitte</div><div class="pr-trail">${tr}</div></aside>`;
+  const tabs = a.sektionen.map(x=>{ const g = grpOf(a,x); return `<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}${g?"<br><small>"+esc(g)+"</small>":""}</button>`; }).join("");
+  const tabbar = `<div class="case-tabbar">${tabs}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
-  <div class="adv-grid pr-layout ${col?"nav-off":""}" id="advGrid">
-   ${prail}
+  ${tabbar}
+  <div class="adv-grid tab-layout" id="advGrid">
    <div class="content">
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${idx===0?ovBox(a):""}
@@ -80,6 +75,7 @@ function renderAdv(a, secId){
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
+  { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   if(idx===0) ovDraw(a);
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }

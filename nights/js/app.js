@@ -137,10 +137,9 @@ function renderCase(c, sid){
   const toEis = sid==="__eisberg";
   let ch = toEis ? gs[0] : chapterOf(c, sid);
   CURCH = ch;
-  const col = prCollapsed();
-  const items = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
-    return `<button class="pr-item ${on?"active":""}" title="${esc(t)}" onclick="prGo('#/case/${c.nr}/sec/${g.items[0].id}')"><span class="t-eyebrow">${m?esc(m[1])+" · ":""}S. ${g.items[0].page}</span><span class="t-title">${esc(m?m[2]:t)}</span></button>`; }).join("");
-  const prail = `<div class="pr-backdrop" onclick="toggleNav()"></div><aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(c.title)}</h2><div class="subhead">${c.nr<11?"Fall "+c.nr:"Buchteil"} · S. ${c.from}–${c.to}</div><div class="pr-trail">${items}</div></aside>`;
+  const tabs = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
+    return `<button class="case-tab ${on?"active":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${m?esc(m[1])+"<br><small>"+esc(m[2])+"</small>":esc(t)}</button>`; }).join("");
+  const tabbar = `<div class="case-tabbar">${tabs}</div>`;
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
@@ -149,9 +148,11 @@ function renderCase(c, sid){
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
   
-  <div class="case-grid pr-layout ${col?"nav-off":""}">${prail}<main class="content">${body}</main></div>`;
+  ${tabbar}
+  <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
+  { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
 let CURCH = null;

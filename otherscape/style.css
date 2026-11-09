@@ -162,7 +162,7 @@ body.menu-open{overflow:hidden}
 @media (min-width:2300px){:root{--fs:22px}.shell{max-width:2200px}}
 @media (min-width:2800px){:root{--fs:27px}.shell{max-width:2700px}}
 @media (max-width:1000px){.adv-grid{grid-template-columns:1fr}.nav{display:none}.navbar{display:block;margin-bottom:12px}.hero h1{font-size:1.9rem}}
-@media (max-width:880px){.tb-btn{display:none}.tb-burger{display:block}}
+@media (max-width:1000px){.tb-btn{display:none}.tb-burger{display:block}}
 @media (max-width:720px){.shell{padding:12px 12px 70px}.adv-head h1{font-size:1.5rem}.sec-title h2{font-size:1.25rem}.cards{grid-template-columns:1fr}.pip{width:26px;height:32px}.secfoot .btn{flex:1;text-align:center}.ch{padding:12px}}
 @media (max-width:1000px){.adv-head .btn{display:none}}
 button.blk-ref{width:100%;max-width:112ch;text-align:left;color:var(--text);font:inherit;cursor:pointer}
@@ -250,7 +250,7 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .pager .pg-prev:hover .pg-arrow,.pager .pg-next:hover .pg-arrow{transform:none}
 .nav-mini{margin-left:10px;padding:3px 10px;font-size:.75rem;text-transform:none;letter-spacing:0}
 @media (max-width:1000px){.nav-mini{display:none}}
-@media (max-width:880px){.topbar{padding:6px 12px;gap:8px}.tb-burger{display:flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:auto;flex:none;color:var(--text);cursor:pointer}.tb-burger svg{display:block}.topbar .brand,.topbar .tb-brand{font-size:15px;white-space:nowrap}}
+@media (max-width:1000px){.topbar{padding:6px 12px;gap:8px}.tb-burger{display:flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:auto;flex:none;color:var(--text);cursor:pointer}.tb-burger svg{display:block}.topbar .brand,.topbar .tb-brand{font-size:15px;white-space:nowrap}}
 
 .mini-notes{margin:18px 0 0;max-width:112ch}
 .mini-notes>summary{cursor:pointer;list-style:none;display:inline-block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.45;user-select:none}
@@ -264,3 +264,4 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .ch.open .chev{transform:rotate(90deg)}
 .ch.coll>.ch-body{display:none}
 .ch.coll.open>.ch-body{display:block}
+@media (max-width:1000px){.adv-grid:has(.home-nav) .content{order:-1}}

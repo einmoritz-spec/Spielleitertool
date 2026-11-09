@@ -44,7 +44,7 @@ async function route(){
 function renderHome(){
   const list = OS_ADV_LIST.filter(a=>a.kat===undefined);
   const items = list.map(a=>{ const ok = hasData(a.id); return `<button class="${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}>${esc(a.titel)}<small>${esc(a.buch)} · ${esc(a.seiten)}</small></button>`; }).join("");
-  const open = ST.navHome!==false;
+  const open = ST.navHome===undefined ? innerWidth>1000 : ST.navHome;
   const last = ST.last ? `<button class="btn" onclick="goLastAdv()">↩ Zuletzt geöffnet fortsetzen</button>` : "";
   $("app").innerHTML = `<div class="adv-grid"><nav class="nav home-nav"><details ${open?"open":""} ontoggle="ST.navHome=this.open;saveState()"><summary>Abenteuer</summary>${items}</details></nav>
   <div class="content"><div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p>${last}</div></div></div>`;

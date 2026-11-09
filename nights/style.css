@@ -242,7 +242,7 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .pager .pg-txt small{display:none}
 .pager .pg-txt b{font-weight:400;font-size:.82rem;-webkit-line-clamp:1}
 .pager .pg-prev:hover .pg-arrow,.pager .pg-next:hover .pg-arrow{transform:none}
-@media (max-width:880px){.topbar{padding:6px 12px;gap:8px}.tb-burger{display:flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:auto;flex:none;color:var(--text);cursor:pointer}.tb-burger svg{display:block}.topbar .brand,.topbar .tb-brand{font-size:15px;white-space:nowrap}}
+@media (max-width:1000px){.topbar{padding:6px 12px;gap:8px}.tb-burger{display:flex;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:auto;flex:none;color:var(--text);cursor:pointer}.tb-burger svg{display:block}.topbar .brand,.topbar .tb-brand{font-size:15px;white-space:nowrap}}
 
 .mini-notes{margin:18px 0 0;max-width:112ch}
 .mini-notes>summary{cursor:pointer;list-style:none;display:inline-block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.45;user-select:none}

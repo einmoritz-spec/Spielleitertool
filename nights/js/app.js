@@ -130,6 +130,7 @@ function chapterOf(c, sid){
   return gs.find(g=>g.items.some(s=>s.id===sid)) || gs[0];
 }
 function chapterTitle(g){ return g.layer ? g.items[0].title : g.name; }
+function navLbl(t){ const m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t); return m ? `<small class="lbl">${esc(m[1])}</small>${esc(m[2])}` : esc(t); }
 function renderCase(c, sid){
   CUR = c;
   const gs = groupNav(c);
@@ -139,7 +140,7 @@ function renderCase(c, sid){
   let nav = `<div class="nav-head"><h4>${c.nr<11?"Fall "+c.nr:"Buchteil"}</h4><button class="nav-toggle" onclick="toggleNav()" title="Menü einklappen" aria-label="Menü einklappen">«</button></div>`;
   let rail = `<button class="nav-toggle" onclick="toggleNav()" title="Menü ausklappen" aria-label="Menü ausklappen">»</button>`;
   gs.forEach(g=>{ rail += `<button class="dot ${g.items[0].id===ch.items[0].id?"on":""}" title="${esc(chapterTitle(g))}" aria-label="${esc(chapterTitle(g))}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'"></button>`; });
-  gs.forEach((g,i)=>{ nav += `<button class="${g.items[0].id===ch.items[0].id?"on":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${esc(chapterTitle(g))}<small>Seite ${g.items[0].page}${g.items.length>1?" · "+g.items.length+" Abschnitte":""}</small></button>`; });
+  gs.forEach((g,i)=>{ nav += `<button class="${g.items[0].id===ch.items[0].id?"on":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${navLbl(chapterTitle(g))}<small>Seite ${g.items[0].page}</small></button>`; });
   const sel = gs.map(g=>`<option value="${g.items[0].id}"${g.items[0].id===ch.items[0].id?" selected":""}>${esc(chapterTitle(g))}</option>`).join("");
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;

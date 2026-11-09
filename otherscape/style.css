@@ -271,3 +271,13 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .tb-burger{display:flex!important;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:8px;flex:none;cursor:pointer}
 .tb-burger svg{display:block}
 .topbar .tb-btn,.topbar-actions,.topbar-spacer{display:none!important}.topbar{justify-content:space-between}.topbar .brand{font-size:15px;white-space:nowrap}.tb-burger{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.18)!important;color:var(--text,#e8e8ee)!important;border-radius:10px!important;margin-left:auto}
+
+/* Kapitelmenü im Stil von Wake: schmale Zeitleiste */
+.nav{background:transparent!important;border:0!important;border-radius:0!important;border-right:1px solid var(--line)!important;padding:6px 12px 6px 4px!important}
+.nav button{position:relative;border-radius:0!important;padding:7px 8px 7px 20px!important;margin-left:8px;border-left:1px solid var(--line)!important;width:calc(100% - 8px)}
+.nav button::before{content:"";position:absolute;left:-5px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--bg,#0b0d14);border:1px solid var(--mute)}
+.nav button:hover{background:none!important;color:var(--tone)}
+.nav button.on:not(.nav-toggle){background:none!important;box-shadow:none!important;color:var(--tone)}
+.nav button.on:not(.nav-toggle)::before{background:var(--tone);border-color:var(--tone);box-shadow:0 0 8px var(--tone)}
+.nav small.lbl{text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;color:var(--mute)}
+.nav small{font-size:.68rem}

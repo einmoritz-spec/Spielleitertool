@@ -257,3 +257,10 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .mini-notes>summary::-webkit-details-marker{display:none}
 .mini-notes>summary:hover,.mini-notes[open]>summary{opacity:.9}
 .mini-notes textarea{display:block;width:100%;box-sizing:border-box;min-height:80px;margin-top:8px;background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:inherit;padding:8px 10px;font:inherit;font-size:.9rem}
+
+.ch.coll .ch-head{cursor:pointer;user-select:none;margin-bottom:0;border-bottom:0;padding-bottom:0}
+.ch.coll.open .ch-head{margin-bottom:6px;border-bottom:2px solid rgba(0,0,0,.18);padding-bottom:6px}
+.ch .chev{display:inline-block;transition:transform .15s;margin-right:2px}
+.ch.open .chev{transform:rotate(90deg)}
+.ch.coll>.ch-body{display:none}
+.ch.coll.open>.ch-body{display:block}

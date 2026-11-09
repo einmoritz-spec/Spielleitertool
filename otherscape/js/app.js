@@ -131,10 +131,10 @@ function osChPage(name){
 function osSecPage(a,sid){ const pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[sid]; return pg ? pgBtn(a.buch,pg) : ""; }
 function osHeadPages(a){ const m = (a.seiten||"").match(/\d+/g)||[]; return m.length ? pgBtn(a.buch,m[0],esc(a.buch)+" "+esc(a.seiten)+" 📖") : esc(a.buch)+" "+esc(a.seiten); }
 
-function renderChallenge(k,b){
+function renderChallenge(k,b,open){
   const tagCls = t => /^\s*[–-]\s/.test(t) ? "w" : (/^Status:/i.test(t) ? "s" : "");
   const tagTxt = t => t.replace(/^\s*[–-]\s/,"");
-  let h = `<div class="blk ch"><div class="ch-head"><b>${esc(b.name)}</b><span class="typ">${esc(b.typ||"")}</span><span class="stars">${esc(b.rating||"")}</span>${osChPage(b.name)}</div>`;
+  let h = `<div class="blk ch coll${open?" open":""}"><div class="ch-head" onclick="this.parentNode.classList.toggle('open')"><span class="chev">▸</span><b>${esc(b.name)}</b><span class="typ">${esc(b.typ||"")}</span><span class="stars">${esc(b.rating||"")}</span>${osChPage(b.name)}</div><div class="ch-body">`;
   if(b.beschr) h += `<div class="ch-desc">${fmt(b.beschr)}</div>`;
   (b.limits||[]).forEach((l,li)=>{
     const lk = k+":"+li, n = +l.v||0, arr = ST.lim[lk]||[];
@@ -144,7 +144,7 @@ function renderChallenge(k,b){
   if((b.specials||[]).length) h += `<div class="ch-sub">Specials</div><ul>${b.specials.map(x=>`<li><b>${esc(x.n)}</b>${x.x?" – "+fmt(x.x):""}</li>`).join("")}</ul>`;
   if((b.threats||[]).length) h += `<div class="ch-sub">Threats &amp; Consequences</div><ul>${b.threats.map(x=>`<li><b>${esc(x.n)}</b>${x.x?" – "+fmt(x.x):""}</li>`).join("")}</ul>`;
   (b.extra||[]).forEach(e=>{ h += `<div class="ch-sub">${esc(e.k)}</div><div class="ch-desc">${fmt(e.x)}</div>`; });
-  return h + "</div>";
+  return h + "</div></div>";
 }
 function togPip(lk,j){ const arr = ST.lim[lk]||(ST.lim[lk]=[]); arr[j] = !arr[j]; saveState(); syncLim(lk); }
 function resetLim(lk){ ST.lim[lk] = []; saveState(); syncLim(lk); }
@@ -207,7 +207,7 @@ async function renderGegner(){
   <div class="geg-list" id="gegList">${items.map((x,n)=>`<details class="geg" data-n="${n}" data-q="${esc((x.b.name+" "+(x.b.typ||"")+" "+(x.b.tags||[]).join(" ")+" "+x.s.titel).toLowerCase())}" data-t="${esc(tp(x))}" ontoggle="gegOpen(this)"><summary><b>${esc(x.b.name)}</b><span class="stars">${esc(x.b.rating||"")}</span><small>${esc(x.b.typ||"Challenge")} · ${esc(x.s.titel)}</small></summary><div class="geg-body"></div></details>`).join("")}</div>`;
   $("app").innerHTML = h;
 }
-function gegOpen(d){ if(!d.open) return; const body = d.querySelector(".geg-body"); if(body.dataset.done) return; const x = GEG[+d.dataset.n]; body.innerHTML = renderChallenge(x.a.id+":"+x.s.id+":"+x.i, x.b) + `<p class="hint"><a href="#/adv/${x.a.id}/${x.s.id}">Im Abschnitt „${esc(x.s.titel)}“ öffnen</a></p>`; body.dataset.done = 1; }
+function gegOpen(d){ if(!d.open) return; const body = d.querySelector(".geg-body"); if(body.dataset.done) return; const x = GEG[+d.dataset.n]; body.innerHTML = renderChallenge(x.a.id+":"+x.s.id+":"+x.i, x.b, true) + `<p class="hint"><a href="#/adv/${x.a.id}/${x.s.id}">Im Abschnitt „${esc(x.s.titel)}“ öffnen</a></p>`; body.dataset.done = 1; }
 function gegFilter(){ const q = $("gegQ").value.trim().toLowerCase(), t = $("gegT").value; document.querySelectorAll("#gegList .geg").forEach(d=>{ d.style.display = (!q || d.dataset.q.includes(q)) && (!t || d.dataset.t===t) ? "" : "none"; }); }
 
 /* ---------- Fraktionen (Tokyo): Übersicht über Kopfzeilen-Knopf ---------- */

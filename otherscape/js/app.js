@@ -74,6 +74,7 @@ function renderAdv(a, secId){
    <nav class="nav">${navH}</nav>
    <div class="content"><div class="navbar"><select onchange="location.hash='#/adv/${a.id}/'+this.value">${opts}</select></div>
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
+   ${idx===0?ovBox(a):""}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
    <div class="notes"><div class="blk-h">Notizen</div><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[doneKey]||"")}</textarea></div>
    <div class="secfoot">
@@ -82,6 +83,7 @@ function renderAdv(a, secId){
      ${next?`<button class="btn sf-nav sf-next" onclick="location.hash='#/adv/${a.id}/${next.id}'"><small>Weiter ›</small><span>${esc(next.titel)}</span></button>`:"<span></span>"}</div>
    </div></div></div>`;
   $("app").innerHTML = h;
+  if(idx===0) ovDraw(a);
 }
 function toggleNav(){ ST.nav = ST.nav===false; saveState(); const g = $("advGrid"); if(g) g.classList.toggle("nav-off", ST.nav===false); }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
@@ -105,6 +107,21 @@ function renderBlock(a,s,b,i){
 }
 function setClock(k,j,n){ const cur = ST.clk[k]||0; ST.clk[k] = (cur===j+1) ? j : j+1; saveState();
   const el = document.getElementById("clk_"+k); if(el) [...el.children].forEach((c,x)=>c.classList.toggle("on", x<ST.clk[k])); }
+/* Übersichtskarte am Abenteueranfang (aus lokalem PDF) */
+function ovBox(a){ return (typeof OS_OV!=="undefined" && OS_OV[a.id]) ? `<div class="ov" id="ovBox"><div class="ov-h">Übersichtskarte · Buch S. ${OS_OV[a.id].page} – Ort antippen</div><div class="ov-wrap" id="ovWrap"></div></div>` : ""; }
+async function ovDraw(a){
+  const o = typeof OS_OV!=="undefined" && OS_OV[a.id], wrap = $("ovWrap"); if(!o || !wrap) return;
+  let doc = null; try{ doc = await getDoc(o.book); }catch(e){}
+  if(!doc){ wrap.innerHTML = `<div class="ov-none">Die Karte stammt aus dem Buch und wird aus deinem PDF gezeigt. <button class="btn" onclick="openSettings()">PDF laden</button></div>`; return; }
+  const page = await doc.getPage(o.page), w = Math.min(760, wrap.clientWidth || 700), base = page.getViewport({scale:1}), dpr = Math.min(2, window.devicePixelRatio||1);
+  const vp = page.getViewport({scale:(w/base.width)*dpr}), cv = document.createElement("canvas");
+  cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px";
+  await page.render({canvasContext: cv.getContext("2d"), viewport: vp}).promise;
+  if(!$("ovWrap")) return;
+  wrap.innerHTML = ""; const box = document.createElement("div"); box.className = "ov-img"; box.style.width = (vp.width/dpr)+"px"; box.appendChild(cv);
+  o.hot.forEach(h=>{ const b = document.createElement("button"); b.className = "ov-hot"; b.style.cssText = `left:${h[0]}%;top:${h[1]}%;width:${h[2]}%;height:${h[3]}%`; b.setAttribute("aria-label","Zum Abschnitt springen"); b.onclick = ()=>{ location.hash = `#/adv/${a.id}/${h[4]}`; }; box.appendChild(b); });
+  wrap.appendChild(box);
+}
 /* Seitenlinks (Daten: data/pages.js) */
 function pgBtn(buch,page,txt){ return `<button class="pgb" onclick="event.stopPropagation();openBook('${buch}',${page})" title="Originalseite im Buch ansehen">${txt||"S. "+page}</button>`; }
 function osChPage(name){

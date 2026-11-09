@@ -203,3 +203,11 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .secfoot .sf-next{align-items:flex-end;text-align:right}
 .secfoot .sf-nav small{opacity:.65;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
 .secfoot .sf-nav span{font-size:.9rem;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;max-width:100%}
+
+.ov{margin:0 0 18px}
+.ov-h{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+.ov-img{position:relative;max-width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.ov-img canvas{display:block;max-width:100%;height:auto!important}
+.ov-hot{position:absolute;padding:0;border:2px solid transparent;border-radius:8px;background:transparent;cursor:pointer}
+.ov-hot:hover,.ov-hot:focus-visible{border-color:var(--acc);background:rgba(169,123,255,.2);outline:none}
+.ov-none{padding:14px;border:1px dashed var(--line);border-radius:10px;color:var(--mute);font-size:.9rem}

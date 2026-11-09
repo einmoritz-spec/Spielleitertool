@@ -76,3 +76,5 @@ Digitale Fassung des Abenteuerbands (nur Spielleitung, privat) unter `nights/`: 
 
 ## Otherscape
 Unter `otherscape/` liegt die Spielleiter-Tafel für Otherscape (Metro/Tokyo): Regelblatt mit Würfler, Volltextsuche und sieben Abenteuer als eigenständige deutsche Spielleiter-Fassungen mit allen Spielwerten (Challenge-Karten mit anklickbaren Limits, Uhren, Notizen). Vorlesetexte stehen nicht im Tool, nur ein Verweis auf die Buchseite. Jedes Abenteuer liegt in eigenen Dateien unter `otherscape/js/data/abenteuer/`; `manifest.js` listet sie. Wechsel zwischen den Tools über ⚙ „Tool wechseln“.
+
+Otherscape-Bücher: In ⚙ Einstellungen › „Bücher (nur lokal)“ wählst du dein Corebook-Metro- und Settingbook-Tokyo-PDF einmal aus. Sie liegen nur in deinem Browser (IndexedDB), nicht im Repo. Ein Klick auf einen „Vorlesetext“-Kasten öffnet dann die Originalseite (pdf.js, `otherscape/lib/`).

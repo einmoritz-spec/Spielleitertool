@@ -49,6 +49,12 @@
         <button class="active" disabled><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Abenteuer (aktuell)</small></button>
       </div>
       <p class="hint">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
+      <h3>Bücher (nur lokal)</h3>
+      <div class="set-tool">
+        <div class="bk-row"><div><b>Corebook Metro</b><small id="bk_metro">…</small></div><label class="btn">PDF wählen<input type="file" accept="application/pdf" hidden onchange="loadBook('Metro',this)"></label></div>
+        <div class="bk-row"><div><b>Settingbook Tokyo</b><small id="bk_tokyo">…</small></div><label class="btn">PDF wählen<input type="file" accept="application/pdf" hidden onchange="loadBook('Tokyo',this)"></label></div>
+      </div>
+      <p class="hint">Deine PDFs bleiben nur in diesem Browser gespeichert (nichts wird hochgeladen). Damit öffnet ein Klick bei „Vorlesetext“ die Originalseite.</p>
       <h3>Spielstand</h3>
       <div class="set-row">
         <button class="btn" onclick="exportState()">Sichern (Datei)</button>
@@ -60,10 +66,23 @@
   </div>
 </div>
 
+<div class="bv" id="bookViewer" hidden>
+  <div class="bv-bar">
+    <button class="btn" onclick="bvStep(-1)" aria-label="Vorherige Seite">‹</button>
+    <input id="bvNum" type="number" min="1" onchange="bvGo(this.value)" aria-label="Seitennummer"><span id="bvOf" class="hint"></span>
+    <button class="btn" onclick="bvStep(1)" aria-label="Nächste Seite">›</button>
+    <button class="btn" onclick="bvZoom()">Zoom</button>
+    <span class="bv-title" id="bvTitle"></span>
+    <button class="btn" onclick="closeBook()">✕</button>
+  </div>
+  <div class="bv-stage" id="bvStage"><canvas id="bvCanvas"></canvas></div>
+</div>
+
 <script src="js/tool-switch.js"></script>
 <script src="js/core.js"></script>
 <script src="js/data/abenteuer-liste.js"></script>
 <script src="js/data/abenteuer/manifest.js"></script>
+<script src="js/viewer.js"></script>
 <script src="js/rules.js"></script>
 <script src="js/app.js"></script>
 </body>

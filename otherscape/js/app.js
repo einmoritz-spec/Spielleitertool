@@ -88,7 +88,7 @@ function renderBlock(a,s,b,i){
     case "h": return `<div class="blk-h">${esc(b.x)}</div>`;
     case "liste": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`;
     case "hinweis": return `<div class="blk blk-note">${b.titel?`<b class="tt">${esc(b.titel)}</b>`:""}${fmt(b.x)}</div>`;
-    case "vorlesen_ref": case "vorlesen": return `<div class="blk blk-ref"><span class="bk">Vorlesetext · Buch S. ${esc(b.seite||"?")}</span><span>${fmt(b.x||"")}</span></div>`;
+    case "vorlesen_ref": case "vorlesen": return `<button class="blk blk-ref" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen"><span class="bk">Vorlesetext · Buch S. ${esc(b.seite||"?")}<br><u>Seite ansehen</u></span><span>${fmt(b.x||"")}</span></button>`;
     case "tabelle": return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="tbl-wrap"><table>${b.kopf?`<tr>${b.kopf.map(x=>`<th>${fmt(x)}</th>`).join("")}</tr>`:""}${(b.zeilen||[]).map(r=>`<tr>${r.map(x=>`<td>${fmt(x)}</td>`).join("")}</tr>`).join("")}</table></div></div>`;
     case "szenen": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li><b>${esc(x.n)}</b> – ${fmt(x.x||"")}</li>`).join("")}</ul>`;
     case "uhr": { const n = b.segs||4, cur = ST.clk[k]||0;
@@ -139,7 +139,7 @@ async function runSearch(q){
 
 /* ---------- Modale, Einstellungen, Menü ---------- */
 function closeModal(id){ $(id).classList.remove("show"); }
-function openSettings(){ $("settingsModal").classList.add("show"); }
+function openSettings(){ $("settingsModal").classList.add("show"); if(window.refreshBookStatus) refreshBookStatus(); }
 function exportState(){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(ST)],{type:"application/json"})); a.download = "otherscape-spielstand.json"; a.click(); }
 function importState(inp){ const f = inp.files[0]; if(!f) return; const r = new FileReader(); r.onload = ()=>{ try{ ST = Object.assign(loadState(), JSON.parse(r.result)); saveState(); closeModal("settingsModal"); route(); }catch(e){ alert("Datei konnte nicht gelesen werden."); } }; r.readAsText(f); }
 function resetState(){ if(!confirm("Alle Limit-Felder, Uhren, Notizen und Häkchen zurücksetzen?")) return; ST = { lim:{}, clk:{}, notes:{}, done:{}, last:null, nav:true }; saveState(); closeModal("settingsModal"); route(); }

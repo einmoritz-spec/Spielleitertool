@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v33";
+const VERSION = "v34";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -49,15 +49,19 @@ const FILES = [
   "otherscape/js/rules.js",
   "otherscape/js/app.js",
   "otherscape/js/data/abenteuer-liste.js",
-  "otherscape/js/data/abenteuer/manifest.js",
+  "otherscape/js/data/abenteuer/anthill-2.js",
   "otherscape/js/data/abenteuer/anthill.js",
   "otherscape/js/data/abenteuer/biting-bullet-2.js",
+  "otherscape/js/data/abenteuer/biting-bullet-3.js",
   "otherscape/js/data/abenteuer/biting-bullet.js",
   "otherscape/js/data/abenteuer/bridge-too-far-2.js",
+  "otherscape/js/data/abenteuer/bridge-too-far-3.js",
   "otherscape/js/data/abenteuer/bridge-too-far.js",
   "otherscape/js/data/abenteuer/kenko-ruins-2.js",
   "otherscape/js/data/abenteuer/kenko-ruins.js",
+  "otherscape/js/data/abenteuer/lost-flooded-2.js",
   "otherscape/js/data/abenteuer/lost-flooded.js",
+  "otherscape/js/data/abenteuer/manifest.js",
   "otherscape/js/data/abenteuer/steam-punks.js",
   "otherscape/js/data/abenteuer/strings-attached-2.js",
   "otherscape/js/data/abenteuer/strings-attached.js",

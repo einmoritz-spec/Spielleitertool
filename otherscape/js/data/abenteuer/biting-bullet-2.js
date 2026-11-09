@@ -147,7 +147,6 @@ OS_ADV_PART("biting-bullet", [
       "**Als Verteidiger:** Haben die Nightclouders Gemälde gestohlen, ist Chrysanthemum verstimmt. Der Konzern wird die Lage ausnutzen und anbieten, die zweite Lohnhälfte zu zahlen, wenn die Crew die Bilder dort holt, wo die Nightclouders sie verstecken. Tut die Crew das nicht, brennt sie Brücken ab und verliert Ansehen in der Unterwelt. Werden dagegen alle Gemälde heil abgeliefert, gilt das als Meisterleistung an Professionalität und bringt wohl wertvolle Kontakte und Jobangebote.",
       "**Als Angreifer:** Haben die PCs Gemälde gestohlen, besitzen sie schnell zerfallende, sperrige Datenpakete, die zufällig gefährliche digitale Bestien freisetzen. Die Fracht rechtzeitig zum Auftraggeber zu bringen, kann selbst eine Herausforderung sein. Außerdem haben Chrysanthemum, Maboroshi und die Dangansen Group starke Motive, die Crew aufzuspüren und zu bestrafen. War der Heist offen genug, dass sie überhaupt wissen, wer die Diebe sind? Wie weit gehen die Konzerne, um die Daten zurückzuholen?",
       "**In beiden Fällen:** Überlebende Hybriden könnten von irgendeiner Firma studiert und zur Waffe gemacht werden. Das war vermutlich nicht das letzte Mal, dass die Crew ihnen begegnet."
-    ]},
-    {t:"hinweis", titel:"Schreibweise im Original uneinheitlich", x:"\"Maboroshi\" (auch \"Maraboshi\"), \"Chrysanthemum\" (auch \"Chrysantehemum\"), \"Dangan Central\" (zeitweise \"Dangan Station\"), \"Third Car\" (im Original \"Third Card\") und \"Sōhei IC\". Hier einheitlich Maboroshi, Chrysanthemum, Dangan Central, Third Car, Sōhei IC."}
+    ]}
   ]}
 ]);

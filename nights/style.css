@@ -294,3 +294,6 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 .m-rail .rail-more{font-size:1.1rem!important;letter-spacing:0!important;text-transform:none!important;line-height:1}
 .nav .nav-close{display:none}
 @media (max-width:1000px){.nav .nav-close{display:block;position:absolute;top:10px;right:10px;width:34px;height:30px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--mute);font-size:1.1rem;cursor:pointer;padding:0;margin:0}.nav button.nav-close::before{display:none}}
+
+@media (max-width:1000px){.m-rail .rail-more{width:32px!important;height:32px!important;border-radius:50%!important;margin-bottom:8px!important;display:flex;align-items:center;justify-content:center;border-color:rgba(255,255,255,.35)!important;color:var(--text)!important;background:rgba(255,255,255,.06)!important}.m-rail .rail-more svg{display:block}}
+@media (max-width:1000px){.nav .nav-close{width:32px!important;height:32px!important;border-radius:50%!important;display:flex!important;align-items:center;justify-content:center;border-color:rgba(255,255,255,.35)!important;color:var(--text)!important;background:rgba(255,255,255,.06)!important}}

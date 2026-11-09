@@ -153,13 +153,13 @@ function renderCase(c, sid){
   <div class="navbar"><button class="nav-open" onclick="openNavDrawer()"><small>Kapitel</small>${esc(chapterTitle(ch))}</button></div>
   <div class="case-grid ${ST.navHidden?"nav-off":""}"><aside class="nav">${nav}</aside><aside class="rail">${rail}</aside><main class="content">${body}</main></div>`;
   { const rl = gs.map((g,i)=>{ const m=/^Schicht\s*(\d+)/i.exec(chapterTitle(g)); const t = m?m[1]:(i===0?"Ü":(i===gs.length-1?"A":String(i))); return `<button class="${g.items[0].id===ch.items[0].id?"on":""}" title="${esc(chapterTitle(g))}" aria-label="${esc(chapterTitle(g))}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${t}</button>`; }).join("");
-    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen">»</button>${rl}</div>`); }
+    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>${rl}</div>`); }
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
 let CURCH = null;
-function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); const nv=document.querySelector(".nav"); if(nv && !nv.querySelector(".nav-close")){ const x=document.createElement("button"); x.className="nav-close"; x.setAttribute("aria-label","Liste einklappen"); x.textContent="«"; x.onclick=closeNavDrawer; nv.prepend(x); } if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
+function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); const nv=document.querySelector(".nav"); if(nv && !nv.querySelector(".nav-close")){ const x=document.createElement("button"); x.className="nav-close"; x.setAttribute("aria-label","Liste einklappen"); x.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>'; x.onclick=closeNavDrawer; nv.prepend(x); } if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
 function closeNavDrawer(){ document.body.classList.remove("nav-drawer-open"); }
 window.addEventListener("hashchange",closeNavDrawer);
 

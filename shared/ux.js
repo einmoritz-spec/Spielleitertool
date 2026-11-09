@@ -9,7 +9,7 @@
 
   /* Pfeiltasten: vorige/nächste Szene bzw. Tab */
   document.addEventListener("keydown", function(e){
-    if(get("keys","1")!=="1"||typing(e)||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey) return;
+    if(CFG.noKeys||get("keys","1")!=="1"||typing(e)||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey) return;
     if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight") return;
     if(document.querySelector(".modal-overlay.show,#bvOverlay.show,.bv-overlay.show")) return;
     var act = document.querySelector(CFG.activeTab||".case-tab.active"); if(!act) return;

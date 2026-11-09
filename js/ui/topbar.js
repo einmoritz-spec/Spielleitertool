@@ -169,6 +169,8 @@ function renderTopbarSettingsBody(){
       <button class="tool-switch" onclick="switchTool('otherscape')"><span><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Tokyo, Abenteuer</small></span></button>
       <p style="font-size:12px; color:var(--text-faint); margin:4px 0 14px;">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
       ${window.BV?BV.settingsHTML():""}
+      <div class="tb-set-section">Darstellung</div>
+      <label style="display:flex;gap:8px;align-items:center;padding:6px 0;"><input type="checkbox" ${sceneTabsOn()?'checked':''} onchange="setSceneTabs(this.checked)"> Szenen oben als Leiste statt Seitenleiste links (ab 1500 px zusätzlich zwei Spalten)</label>
       <div class="tb-set-section">Kopfzeile</div>
       <p style="font-size:13px;">Tipp: Rechtsklick auf einen Knopf in der Kopfzeile blendet ihn aus oder schaltet seine Beschriftung um. Dieses Fenster öffnest du auch mit der Taste <b>,</b></p>
       <div class="tb-set-head"><span>Knopf</span><span>Anzeige</span><span>Text</span></div>

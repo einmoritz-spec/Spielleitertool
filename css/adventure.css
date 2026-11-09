@@ -419,3 +419,22 @@ summary.growth-summary::before{
   background:var(--panel); border:1px dashed var(--panel-line); border-radius:8px;
   padding:14px 18px; font-size:13.5px; color:var(--text-lo); line-height:1.6;
 }
+
+/* ---------- Szenen oben als Tab-Leiste (Einstellung) ---------- */
+.shell.tabs-top{display:block}
+.shell.tabs-top .wk-head{padding:14px 20px 8px}
+.shell.tabs-top .crumbs{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)}
+.shell.tabs-top .crumbs a{cursor:pointer;color:var(--gold)}
+.shell.tabs-top .wk-meta{text-transform:none;letter-spacing:0;font-style:italic}
+.shell.tabs-top .case-tabbar{display:flex;gap:6px;padding:4px 20px 10px;border-bottom:1px solid var(--panel-line)}
+.shell.tabs-top .case-tab{display:grid;grid-template-columns:1fr auto;column-gap:8px;align-items:center;padding:7px 12px;border-radius:8px;border:1px solid transparent;cursor:pointer;font-family:var(--sans,Inter,sans-serif);max-width:230px;position:relative}
+.shell.tabs-top .case-tab .ct-eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint)}
+.shell.tabs-top .case-tab .ct-title{font-size:12.5px;color:var(--text-lo);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shell.tabs-top .case-tab.active{background:rgba(201,162,75,.12);border-color:rgba(201,162,75,.45)}
+.shell.tabs-top .case-tab.active .ct-title{color:var(--gold-bright,#e0b95a)}
+.shell.tabs-top .case-tab.done .ct-title{color:var(--moss-bright,#6fa06a)}
+.shell.tabs-top .case-tab .ct-eyebrow,.shell.tabs-top .case-tab .ct-title{grid-column:1}
+.shell.tabs-top .case-tab .trail-check{position:static;grid-column:2;grid-row:1 / span 2;margin:0;width:18px;height:18px}
+.shell.tabs-top .content-col{max-width:none;padding:0 20px}
+.shell.tabs-top .scene-picker-wrap{display:none!important}
+@media (min-width:1500px){ body.wk-tabs .content-col{max-width:1500px;margin:0 auto} }

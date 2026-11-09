@@ -835,14 +835,27 @@ function renderScenePicker(adv){
   return `<div class="scene-picker-wrap"><select class="scene-picker" aria-label="Szene wählen" onchange="goScene(+this.value); this.value=state.sceneIdx;">${opts}</select>
     <button class="edit-toggle edit-toggle-m ${EDIT.on?'active':''}" onclick="toggleEditMode()" title="Szenentext bearbeiten" aria-label="Szenentext bearbeiten"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div>`;
 }
+function sceneTabsOn(){ try{ return localStorage.getItem("wake.sceneTabs")==="1"; }catch(e){ return false; } }
+function renderSceneTabs(adv){
+  const tabs = adv.scenes.map((s,i)=>{
+    const active = i===state.sceneIdx;
+    const checkable = s.kind!=="intro";
+    const done = checkable && !!state.scenesCompleted[sceneCompleteKey(adv.id, i)];
+    const eyebrow = s.kind==="intro" ? "Übersicht" : s.kind==="aftermath" ? "Abschluss" : "Szene "+i;
+    const chk = checkable ? `<button class="trail-check ${done?'done':''}" onclick="event.stopPropagation(); toggleSceneCompleted('${adv.id}', ${i})" title="${done?'Als nicht erledigt markieren':'Als erledigt markieren'}">${done?'✓':''}</button>` : "";
+    return `<div class="case-tab ${active?'active':''} ${done?'done':''}" role="button" tabindex="0" onclick="goScene(${i})" title="${esc(effTitle(adv.id,s))}"><span class="ct-eyebrow">${eyebrow}</span><span class="ct-title">${esc(effTitle(adv.id,s))}</span>${chk}</div>`;
+  }).join("");
+  return `<div class="wk-head"><div class="crumbs"><a onclick="goOverview()">Start</a> › ${esc(adv.title)} <span class="wk-meta">· ${adv.scenes.length} Szenen · ${esc(adv.en)}</span></div></div><div class="case-tabbar">${tabs}</div>`;
+}
+function setSceneTabs(v){ try{ localStorage.setItem("wake.sceneTabs", v?"1":"0"); }catch(e){} document.body.classList.toggle("wk-tabs", v); render(); }
 function renderAdventure(){
   const adv = ADVENTURES.find(a=>a.id===state.advId);
   if(!adv || adv.status!=="ready"){ goOverview(); return; }
   const scene = adv.scenes[state.sceneIdx];
   const hasTimeTracker = adv.id==="a2";
   app.innerHTML = renderTopbar() + `
-  <div class="shell ${hasTimeTracker?'has-time-tracker':''}">
-    ${renderPathrail(adv)}
+  <div class="shell ${hasTimeTracker?'has-time-tracker':''} ${sceneTabsOn()?'tabs-top':''}">
+    ${sceneTabsOn()?renderSceneTabs(adv):renderPathrail(adv)}
     <div class="content-col">
       <div class="stage-wrap">${renderScenePicker(adv)}${renderAdventureNotes(adv)}${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>
       ${renderTimeTracker(adv)}
@@ -850,6 +863,8 @@ function renderAdventure(){
   </div>
   ${renderSceneNav(adv, state.sceneIdx)}
   `;
+  document.body.classList.toggle("wk-tabs", sceneTabsOn());
+  { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
 }
 
 function render(){

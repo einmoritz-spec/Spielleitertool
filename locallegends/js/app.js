@@ -508,6 +508,17 @@ function renderCaseTabs(cs, active){
   tabs += `<button class="case-tab tab-aftermath ${active==='aftermath'?'active':''}" onclick="setCaseTab('aftermath')">Aftermath</button>`;
   return `<div class="case-tabbar">${tabs}</div>`;
 }
+function iceHot(id){
+  const L = typeof LL_ICE!=="undefined" && LL_ICE[id]; if(!L) return "";
+  return L.map(h=>`<button class="ice-hot" style="left:${h[0]}%;top:${h[1]}%;width:${h[2]}%;height:${h[3]}%" aria-label="Zum Abschnitt springen" onclick="iceGo(${h[4]},'${h[5]}')"></button>`).join("");
+}
+function iceGo(n,t){
+  state.caseTab = "depth"+n; render();
+  let el = null;
+  if(t){ el = document.getElementById("d"+n+"_"+(t[0]==="h"?"hook":"loc")+t.slice(1)); }
+  if(el){ el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),1800); }
+  else window.scrollTo(0,0);
+}
 function setCaseTab(tab){ state.caseTab = tab; render(); window.scrollTo(0,0); }
 
 function renderCaseView(id){
@@ -529,7 +540,7 @@ function renderCaseView(id){
     if(cs.teaser) html += `<div class="card"><p>${cs.teaser}</p></div>`;
     if(cs.fourthMurder) html += `<div class="card"><h3>${cs.fourthMurder.title}</h3>${cs.fourthMurder.paragraphs.map(p=>`<p>${p}</p>`).join("")}</div>`;
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Hintergrund</h2></div><div class="section-body">${cs.background.map(p=>`<div class="card"><p>${(p && typeof p==="object" && p.text!==undefined)?p.text:p}</p></div>`).join("")}${cs.miniThemeKits?cs.miniThemeKits.map(renderThemeCard).join(""):""}</div></div>`;
-    html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote}</p></div>${cs.icebergImage?`<div class="card" style="padding:8px;"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}" style="width:100%;height:auto;display:block;border-radius:4px;"></div>`:""}${cs.icebergMap?`<div class="card"><h3 style="font-size:14px;">Schauplätze nach Tiefe</h3><ul>${cs.icebergMap.depths.map(d=>`<li><b>Depth ${d.n}:</b> ${d.places.join(", ")}</li>`).join("")}</ul>${cs.icebergMap.links&&cs.icebergMap.links.length?`<p style="font-size:12px;color:var(--text-faint);">Verbindungen: ${cs.icebergMap.links.map(l=>l[0]+" → "+l[1]).join(" · ")}</p>`:""}</div>`:""}</div></div>`;
+    html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote}</p></div>${cs.icebergImage?`<div class="card" style="padding:8px;"><p class="hint" style="margin:0 0 6px;font-size:12px;color:var(--text-faint);">Auf ein Foto tippen, um zum Abschnitt zu springen.</p><div class="ice-wrap"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}" style="width:100%;height:auto;display:block;border-radius:4px;">${iceHot(id)}</div></div>`:""}${cs.icebergMap?`<div class="card"><h3 style="font-size:14px;">Schauplätze nach Tiefe</h3><ul>${cs.icebergMap.depths.map(d=>`<li><b>Depth ${d.n}:</b> ${d.places.join(", ")}</li>`).join("")}</ul>${cs.icebergMap.links&&cs.icebergMap.links.length?`<p style="font-size:12px;color:var(--text-faint);">Verbindungen: ${cs.icebergMap.links.map(l=>l[0]+" → "+l[1]).join(" · ")}</p>`:""}</div>`:""}</div></div>`;
   } else if(active==="aftermath"){
     const isComplete = !!state.caseComplete[completeKey];
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Aftermath</h2></div><div class="section-body">`;

@@ -296,3 +296,9 @@ body.menu-open{overflow:hidden;}
 .app-go{margin-left:auto;color:var(--brass-bright,#d9b25f);cursor:pointer;font-size:.8rem}.app-go.off{opacity:.5;cursor:default}
 
 .tab-h{font-family:var(--serif-display);font-size:20px;margin:4px 0 12px;color:var(--paper);}
+
+.ice-wrap{position:relative}
+.ice-hot{position:absolute;padding:0;border:2px solid transparent;border-radius:4px;background:transparent;cursor:pointer}
+.ice-hot:hover,.ice-hot:focus-visible{border-color:var(--gold,#c9a24b);background:rgba(201,162,75,.18);outline:none}
+.loc-anchor.flash{animation:iceflash 1.8s ease}
+@keyframes iceflash{0%,40%{box-shadow:0 0 0 3px var(--gold,#c9a24b)}100%{box-shadow:0 0 0 3px transparent}}

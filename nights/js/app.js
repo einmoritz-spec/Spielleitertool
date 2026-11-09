@@ -137,11 +137,10 @@ function renderCase(c, sid){
   const toEis = sid==="__eisberg";
   let ch = toEis ? gs[0] : chapterOf(c, sid);
   CURCH = ch;
-  let nav = `<div class="nav-head"><h4>${c.nr<11?"Fall "+c.nr:"Buchteil"}</h4><button class="nav-toggle" onclick="toggleNav()" title="Menü einklappen" aria-label="Menü einklappen">«</button></div>`;
-  let rail = `<button class="nav-toggle" onclick="toggleNav()" title="Menü ausklappen" aria-label="Menü ausklappen">»</button>`;
-  gs.forEach(g=>{ rail += `<button class="dot ${g.items[0].id===ch.items[0].id?"on":""}" title="${esc(chapterTitle(g))}" aria-label="${esc(chapterTitle(g))}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'"></button>`; });
-  gs.forEach((g,i)=>{ nav += `<button class="${g.items[0].id===ch.items[0].id?"on":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${navLbl(chapterTitle(g))}<small>Seite ${g.items[0].page}</small></button>`; });
-  const sel = gs.map(g=>`<option value="${g.items[0].id}"${g.items[0].id===ch.items[0].id?" selected":""}>${esc(chapterTitle(g))}</option>`).join("");
+  const col = prCollapsed();
+  const items = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
+    return `<button class="pr-item ${on?"active":""}" title="${esc(t)}" onclick="prGo('#/case/${c.nr}/sec/${g.items[0].id}')"><span class="t-eyebrow">${m?esc(m[1])+" · ":""}S. ${g.items[0].page}</span><span class="t-title">${esc(m?m[2]:t)}</span></button>`; }).join("");
+  const prail = `<aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(c.title)}</h2><div class="subhead">${c.nr<11?"Fall "+c.nr:"Buchteil"} · S. ${c.from}–${c.to}</div><div class="pr-trail">${items}</div></aside>`;
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
@@ -150,20 +149,21 @@ function renderCase(c, sid){
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
   ${idx===0?`<div class="case-head"><h1>${esc(c.title)}</h1><span class="meta">${c.subtitle?esc(c.subtitle)+" · ":""}Seiten ${c.from}–${c.to}</span></div>`:""}
-  <div class="navbar"><button class="nav-open" onclick="openNavDrawer()"><small>Kapitel</small>${esc(chapterTitle(ch))}</button></div>
-  <div class="case-grid ${ST.navHidden?"nav-off":""}"><aside class="nav">${nav}</aside><aside class="rail">${rail}</aside><main class="content">${body}</main></div>`;
-  { const rl = gs.map((g,i)=>{ const m=/^Schicht\s*(\d+)/i.exec(chapterTitle(g)); const t = m?m[1]:(i===0?"Ü":(i===gs.length-1?"A":String(i))); return `<button class="${g.items[0].id===ch.items[0].id?"on":""}" title="${esc(chapterTitle(g))}" aria-label="${esc(chapterTitle(g))}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${t}</button>`; }).join("");
-    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>${rl}</div>`); }
+  <div class="case-grid pr-layout ${col?"nav-off":""}">${prail}<main class="content">${body}</main></div>`;
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
 let CURCH = null;
-function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); const nv=document.querySelector(".nav"); if(nv && !nv.querySelector(".nav-close")){ const x=document.createElement("button"); x.className="nav-close"; x.setAttribute("aria-label","Liste einklappen"); x.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>'; x.onclick=closeNavDrawer; nv.prepend(x); } if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
-function closeNavDrawer(){ document.body.classList.remove("nav-drawer-open"); }
-window.addEventListener("hashchange",closeNavDrawer);
 
-function toggleNav(){ ST.navHidden = !ST.navHidden; saveState(); const g = document.querySelector('.case-grid'); if(g) g.classList.toggle('nav-off', !!ST.navHidden); }
+/* Seitenleiste im Stil von Wake: eingeklappt = schmale Punktleiste, ausgeklappt = volle Liste */
+function prMobile(){ return innerWidth<=1000; }
+function prCollapsed(){ return prMobile() ? ST.prMc!==false : !!ST.navHidden; }
+function toggleNav(){ const v = !prCollapsed(); if(prMobile()) ST.prMc = v; else { ST.navHidden = v; } saveState();
+  const el = document.querySelector(".prail"); if(el){ el.classList.toggle("collapsed", v); const t = el.querySelector(".pr-toggle"); if(t) t.title = v ? "Seitenleiste ausklappen" : "Seitenleiste einklappen"; }
+  const g = document.querySelector(".case-grid"); if(g) g.classList.toggle("nav-off", v); }
+function prGo(h){ if(prMobile()){ ST.prMc = true; saveState(); } location.hash = h; }
+function prToggleBtn(col){ return `<button class="pr-toggle" onclick="toggleNav()" title="${col?"Seitenleiste ausklappen":"Seitenleiste einklappen"}" aria-label="Seitenleiste umschalten"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>`; }
 function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
 function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }
 let OPENSID = null;

@@ -61,19 +61,19 @@ function renderAdv(a, secId){
   let idx = a.sektionen.findIndex(s=>s.id===secId); if(idx<0) idx = 0;
   const s = a.sektionen[idx];
   const doneKey = a.id+":"+s.id;
-  let navH = "", grp = null, cur = null;
-  const closeG = () => { if(grp){ navH += `</div></details>`; grp = null; } };
-  a.sektionen.forEach(x=>{ const g = x.gruppe || cur; if(x.gruppe) cur = x.gruppe;
-    if(x.gruppe && x.gruppe!==grp){ closeG(); const has = a.sektionen.some(y=>y.id===s.id && (y.gruppe||"")===x.gruppe) || (s.gruppe===x.gruppe) || grpOf(a,s)===x.gruppe; navH += `<details class="ng" ${has?"open":""}><summary>${esc(x.gruppe)}</summary><div>`; grp = x.gruppe; }
-    navH += `<button class="${x.id===s.id?"on":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}</button>`; });
-  closeG();
-  const opts = a.sektionen.map(x=>`<option value="${x.id}" ${x.id===s.id?"selected":""}>${esc((x.gruppe?x.gruppe+" · ":"")+x.titel)}</option>`).join("");
+  const col = prCollapsed();
+  let tr = "", grp = null;
+  a.sektionen.forEach(x=>{
+    if(x.gruppe && x.gruppe!==grp){ if(grp) tr += `</div></div>`; tr += `<div class="pr-grp ${grpOf(a,s)===x.gruppe?"open":""}"><button class="pr-grp-h" onclick="this.parentNode.classList.toggle('open')">${esc(x.gruppe)}</button><div class="pr-grp-b">`; grp = x.gruppe; }
+    tr += `<button class="pr-item ${x.id===s.id?"active":""}" title="${esc(x.titel)}" onclick="prGo('#/adv/${a.id}/${x.id}')"><span class="t-title">${esc(x.titel)}</span></button>`; });
+  if(grp) tr += `</div></div>`;
+  const prail = `<aside class="prail ${col?"collapsed":""}">${prToggleBtn(col)}<h2>${esc(a.titel)}</h2><div class="subhead">${a.sektionen.length} Abschnitte</div><div class="pr-trail">${tr}</div></aside>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
-  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)} <button class="btn nav-mini" onclick="toggleNav()" title="Kapitelmenü ein-/ausblenden">☰ Kapitel</button></div>
+  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
   ${idx===0?`<div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${osHeadPages(a)}</span></div>`:""}
-  <div class="adv-grid ${ST.nav===false?"nav-off":""}" id="advGrid">
-   <nav class="nav">${navH}</nav>
-   <div class="content"><div class="navbar"><button class="nav-open" onclick="openNavDrawer()"><small>Kapitel</small>${esc(s.titel)}</button></div>
+  <div class="adv-grid pr-layout ${col?"nav-off":""}" id="advGrid">
+   ${prail}
+   <div class="content">
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${idx===0?ovBox(a):""}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
@@ -81,15 +81,18 @@ function renderAdv(a, secId){
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
-  { const rl = a.sektionen.map((x,i)=>`<button class="${x.id===s.id?"on":""}" title="${esc(x.titel)}" aria-label="${esc(x.titel)}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${i+1}</button>`).join("");
-    $("app").insertAdjacentHTML("afterbegin", `<div class="m-rail"><button class="rail-more" onclick="openNavDrawer()" aria-label="Kapitelliste öffnen"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>${rl}</div>`); }
   if(idx===0) ovDraw(a);
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
-function openNavDrawer(){ document.body.classList.add("nav-drawer-open"); const nv=document.querySelector(".nav"); if(nv && !nv.querySelector(".nav-close")){ const x=document.createElement("button"); x.className="nav-close"; x.setAttribute("aria-label","Liste einklappen"); x.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>'; x.onclick=closeNavDrawer; nv.prepend(x); } if(!document.getElementById("navBackdrop")){ const b=document.createElement("div"); b.id="navBackdrop"; b.onclick=closeNavDrawer; document.body.appendChild(b); } }
-function closeNavDrawer(){ document.body.classList.remove("nav-drawer-open"); }
-window.addEventListener("hashchange",closeNavDrawer);
-function toggleNav(){ ST.nav = ST.nav===false; saveState(); const g = $("advGrid"); if(g) g.classList.toggle("nav-off", ST.nav===false); }
+
+/* Seitenleiste im Stil von Wake: eingeklappt = schmale Punktleiste, ausgeklappt = volle Liste */
+function prMobile(){ return innerWidth<=1000; }
+function prCollapsed(){ return prMobile() ? ST.prMc!==false : ST.nav===false; }
+function toggleNav(){ const v = !prCollapsed(); if(prMobile()) ST.prMc = v; else { ST.nav = !v; } saveState();
+  const el = document.querySelector(".prail"); if(el){ el.classList.toggle("collapsed", v); const t = el.querySelector(".pr-toggle"); if(t) t.title = v ? "Seitenleiste ausklappen" : "Seitenleiste einklappen"; }
+  const g = document.querySelector("#advGrid"); if(g) g.classList.toggle("nav-off", v); }
+function prGo(h){ if(prMobile()){ ST.prMc = true; saveState(); } location.hash = h; }
+function prToggleBtn(col){ return `<button class="pr-toggle" onclick="toggleNav()" title="${col?"Seitenleiste ausklappen":"Seitenleiste einklappen"}" aria-label="Seitenleiste umschalten"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>`; }
 
 function renderBlock(a,s,b,i){
   const k = bkey(a,s,i);

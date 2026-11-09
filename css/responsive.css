@@ -144,7 +144,11 @@
 .mm-item:active, .mm-item:hover{background:rgba(201,162,75,.12);}
 .mm-ic{width:28px; text-align:center; font-size:20px; flex:none;}
 body.menu-open{overflow:hidden;}
-@media (min-width:881px){ .mobile-menu{display:none;} }
+/* Kopfzeile überall: nur Name + Burger-Menü, alle Knöpfe liegen im Menü */
+.topbar{justify-content:space-between;}
+.topbar-spacer, .topbar-actions{display:none;}
+.topbar .brand{flex:1; min-width:0;}
+.mm-panel{max-width:min(380px,100vw);}
 
 /* ---------- Bibliotheks-Fenster (Challenges, Lore, Shop, Orte …) auf dem Handy ---------- */
 @media (max-width:720px){

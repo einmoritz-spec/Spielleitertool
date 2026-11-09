@@ -76,9 +76,10 @@ function renderAdv(a, secId){
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
    <div class="notes"><div class="blk-h">Notizen</div><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[doneKey]||"")}</textarea></div>
-   <div class="secfoot">${prev?`<button class="btn" onclick="location.hash='#/adv/${a.id}/${prev.id}'">‹ ${esc(prev.titel)}</button>`:"<span></span>"}
-     <button class="btn donebtn ${ST.done[doneKey]?"on":""}" onclick="toggleDone('${a.id}','${s.id}')">${ST.done[doneKey]?"✓ erledigt":"Als erledigt markieren"}</button>
-     ${next?`<button class="btn" onclick="location.hash='#/adv/${a.id}/${next.id}'">${esc(next.titel)} ›</button>`:"<span></span>"}</div>
+   <div class="secfoot">
+     <button class="btn donebtn ${ST.done[doneKey]?"on":""}" onclick="toggleDone('${a.id}','${s.id}')">${ST.done[doneKey]?"✓ Erledigt":"Als erledigt markieren"}</button>
+     ${prev?`<button class="btn sf-nav sf-prev" onclick="location.hash='#/adv/${a.id}/${prev.id}'"><small>‹ Zurück</small><span>${esc(prev.titel)}</span></button>`:"<span></span>"}
+     ${next?`<button class="btn sf-nav sf-next" onclick="location.hash='#/adv/${a.id}/${next.id}'"><small>Weiter ›</small><span>${esc(next.titel)}</span></button>`:"<span></span>"}</div>
    </div></div></div>`;
   $("app").innerHTML = h;
 }

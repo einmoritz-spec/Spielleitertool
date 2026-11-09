@@ -57,14 +57,18 @@ function renderTokyo(){
 }
 
 /* ---------- Abenteuer ---------- */
+function grpOf(a,s){ let g=null; for(const x of a.sektionen){ if(x.gruppe) g=x.gruppe; if(x===s) return g; } return null; }
 function bkey(a,s,i){ return a.id+":"+s.id+":"+i; }
 function renderAdv(a, secId){
   let idx = a.sektionen.findIndex(s=>s.id===secId); if(idx<0) idx = 0;
   const s = a.sektionen[idx];
   const doneKey = a.id+":"+s.id;
-  let navH = "", lastG = null;
-  a.sektionen.forEach(x=>{ if(x.gruppe && x.gruppe!==lastG){ navH += `<h4>${esc(x.gruppe)}</h4>`; } lastG = x.gruppe||lastG;
+  let navH = "", grp = null, cur = null;
+  const closeG = () => { if(grp){ navH += `</div></details>`; grp = null; } };
+  a.sektionen.forEach(x=>{ const g = x.gruppe || cur; if(x.gruppe) cur = x.gruppe;
+    if(x.gruppe && x.gruppe!==grp){ closeG(); const has = a.sektionen.some(y=>y.id===s.id && (y.gruppe||"")===x.gruppe) || (s.gruppe===x.gruppe) || grpOf(a,s)===x.gruppe; navH += `<details class="ng" ${has?"open":""}><summary>${esc(x.gruppe)}</summary><div>`; grp = x.gruppe; }
     navH += `<button class="${x.id===s.id?"on":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}</button>`; });
+  closeG();
   const opts = a.sektionen.map(x=>`<option value="${x.id}" ${x.id===s.id?"selected":""}>${esc((x.gruppe?x.gruppe+" · ":"")+x.titel)}</option>`).join("");
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>

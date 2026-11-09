@@ -233,3 +233,10 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .home-nav small{display:block;color:var(--mute);font-size:.75rem}
 .home-nav button.off{opacity:.45}
 @media (max-width:1000px){.home-nav{display:block}}
+
+.nav details.ng{margin:2px 0}
+.nav details.ng>summary{cursor:pointer;list-style:none;margin:8px 4px 2px;padding:5px 8px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);border-radius:8px}
+.nav details.ng>summary::-webkit-details-marker{display:none}
+.nav details.ng>summary::before{content:"▸";display:inline-block;margin-right:6px;transition:transform .15s}
+.nav details.ng[open]>summary::before{transform:rotate(90deg)}
+.nav details.ng>div{padding-left:6px}

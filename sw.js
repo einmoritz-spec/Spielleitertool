@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v35";
+const VERSION = "v36";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -60,11 +60,24 @@ const FILES = [
   "otherscape/js/data/abenteuer/bridge-too-far-2.js",
   "otherscape/js/data/abenteuer/bridge-too-far-3.js",
   "otherscape/js/data/abenteuer/bridge-too-far.js",
+  "otherscape/js/data/abenteuer/fraktion-bureau.js",
+  "otherscape/js/data/abenteuer/fraktion-ghost-market.js",
+  "otherscape/js/data/abenteuer/fraktion-king-enma.js",
+  "otherscape/js/data/abenteuer/fraktion-neo-samurai.js",
+  "otherscape/js/data/abenteuer/fraktion-oni-gangs.js",
+  "otherscape/js/data/abenteuer/fraktion-soma.js",
+  "otherscape/js/data/abenteuer/fraktion-taiyo.js",
+  "otherscape/js/data/abenteuer/fraktion-tokoyo.js",
+  "otherscape/js/data/abenteuer/fraktion-viral.js",
+  "otherscape/js/data/abenteuer/fraktion-yakuza.js",
   "otherscape/js/data/abenteuer/kenko-ruins-2.js",
   "otherscape/js/data/abenteuer/kenko-ruins.js",
   "otherscape/js/data/abenteuer/lost-flooded-2.js",
   "otherscape/js/data/abenteuer/lost-flooded.js",
   "otherscape/js/data/abenteuer/manifest.js",
+  "otherscape/js/data/abenteuer/setting-bezirke.js",
+  "otherscape/js/data/abenteuer/setting-orte.js",
+  "otherscape/js/data/abenteuer/setting-ueberblick.js",
   "otherscape/js/data/abenteuer/steam-punks.js",
   "otherscape/js/data/abenteuer/strings-attached-2.js",
   "otherscape/js/data/abenteuer/strings-attached.js",

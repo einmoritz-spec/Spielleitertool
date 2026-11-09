@@ -40,11 +40,11 @@ async function route(){
 /* ---------- Start ---------- */
 function renderHome(){
   let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p></div>`;
-  h += `<div class="sec-h">Abenteuer</div><div class="cards">`;
-  for(const a of OS_ADV_LIST){
-    const ok = hasData(a.id);
-    h += `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`;
+  const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
+  for(const [kat,titel] of [[undefined,"Abenteuer"],["setting","Tokyo-Setting"],["fraktion","Fraktionen (Tokyo)"]]){
+    h += `<div class="sec-h">${titel}</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===kat).map(card).join("")}</div>`;
   }
+  h += `<div class="cards" style="display:none">`;
   h += `</div><div class="sec-h">Werkzeuge</div><div class="cards">
     <button class="card" onclick="openRules()"><span class="nr">Regeln</span><b>Regelblatt &amp; Würfler</b><small>2W6 + Power, Effects, Burn, Mitigate</small></button>
     <button class="card" onclick="openSearch()"><span class="nr">Suche</span><b>Volltextsuche</b><small>Über alle Abenteuer</small></button></div>`;

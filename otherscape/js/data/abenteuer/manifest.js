@@ -1,4 +1,4 @@
-/* automatisch erzeugt: Dateien je Abenteuer, in Ladereihenfolge */
+/* automatisch erzeugt: Dateien je Eintrag, in Ladereihenfolge */
 var OS_ADV_FILES = {
  "anthill": [
   "anthill.js",
@@ -14,6 +14,36 @@ var OS_ADV_FILES = {
   "bridge-too-far-2.js",
   "bridge-too-far-3.js"
  ],
+ "fraktion-bureau": [
+  "fraktion-bureau.js"
+ ],
+ "fraktion-ghost-market": [
+  "fraktion-ghost-market.js"
+ ],
+ "fraktion-king-enma": [
+  "fraktion-king-enma.js"
+ ],
+ "fraktion-neo-samurai": [
+  "fraktion-neo-samurai.js"
+ ],
+ "fraktion-oni-gangs": [
+  "fraktion-oni-gangs.js"
+ ],
+ "fraktion-soma": [
+  "fraktion-soma.js"
+ ],
+ "fraktion-taiyo": [
+  "fraktion-taiyo.js"
+ ],
+ "fraktion-tokoyo": [
+  "fraktion-tokoyo.js"
+ ],
+ "fraktion-viral": [
+  "fraktion-viral.js"
+ ],
+ "fraktion-yakuza": [
+  "fraktion-yakuza.js"
+ ],
  "kenko-ruins": [
   "kenko-ruins.js",
   "kenko-ruins-2.js"
@@ -21,6 +51,15 @@ var OS_ADV_FILES = {
  "lost-flooded": [
   "lost-flooded.js",
   "lost-flooded-2.js"
+ ],
+ "tokyo-bezirke": [
+  "setting-bezirke.js"
+ ],
+ "tokyo-orte": [
+  "setting-orte.js"
+ ],
+ "tokyo-ueberblick": [
+  "setting-ueberblick.js"
  ],
  "steam-punks": [
   "steam-punks.js"

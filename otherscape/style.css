@@ -227,3 +227,9 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 @media (max-width:480px){.pager .pg-arrow{width:34px;height:34px}.pager{gap:8px}}
 .donerow{display:flex;justify-content:center;margin:22px 0 0}
 .donerow .donebtn{padding:8px 22px}
+
+.home-nav{position:static;max-height:none}
+.home-nav summary{cursor:pointer;margin:6px 8px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.home-nav small{display:block;color:var(--mute);font-size:.75rem}
+.home-nav button.off{opacity:.45}
+@media (max-width:1000px){.home-nav{display:block}}

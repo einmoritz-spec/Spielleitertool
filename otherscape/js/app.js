@@ -42,12 +42,12 @@ async function route(){
 
 /* ---------- Start ---------- */
 function renderHome(){
-  let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p></div>`;
-  const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
-  for(const [kat,titel] of [[undefined,"Abenteuer"]]){
-    h += `<div class="sec-h">${titel}</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===kat).map(card).join("")}</div>`;
-  }
-  $("app").innerHTML = h;
+  const list = OS_ADV_LIST.filter(a=>a.kat===undefined);
+  const items = list.map(a=>{ const ok = hasData(a.id); return `<button class="${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}>${esc(a.titel)}<small>${esc(a.buch)} · ${esc(a.seiten)}</small></button>`; }).join("");
+  const open = ST.navHome!==false;
+  const last = ST.last ? `<button class="btn" onclick="goLastAdv()">↩ Zuletzt geöffnet fortsetzen</button>` : "";
+  $("app").innerHTML = `<div class="adv-grid"><nav class="nav home-nav"><details ${open?"open":""} ontoggle="ST.navHome=this.open;saveState()"><summary>Abenteuer</summary>${items}</details></nav>
+  <div class="content"><div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1><p class="hint">Privat · Spielleiter-Fassungen in eigenen Worten mit allen Spielwerten · Vorlesetexte im Buch nachschlagen</p>${last}</div></div></div>`;
 }
 
 /* ---------- Tokyo-Setting (über Header-Button) ---------- */
@@ -64,7 +64,7 @@ function renderAdv(a, secId){
   const doneKey = a.id+":"+s.id;
   let navH = "", lastG = null;
   a.sektionen.forEach(x=>{ if(x.gruppe && x.gruppe!==lastG){ navH += `<h4>${esc(x.gruppe)}</h4>`; } lastG = x.gruppe||lastG;
-    navH += `<button class="${x.id===s.id?"on":""} ${ST.done[a.id+":"+x.id]?"done":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}</button>`; });
+    navH += `<button class="${x.id===s.id?"on":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}</button>`; });
   const opts = a.sektionen.map(x=>`<option value="${x.id}" ${x.id===s.id?"selected":""}>${esc((x.gruppe?x.gruppe+" · ":"")+x.titel)}</option>`).join("");
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
@@ -76,16 +76,12 @@ function renderAdv(a, secId){
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${idx===0?ovBox(a):""}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
-   <div class="notes"><div class="blk-h">Notizen</div><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[doneKey]||"")}</textarea></div>
-   <div class="donerow"><button class="btn donebtn ${ST.done[doneKey]?"on":""}" onclick="toggleDone('${a.id}','${s.id}')">${ST.done[doneKey]?"✓ Erledigt":"Als erledigt markieren"}</button></div>
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
   if(idx===0) ovDraw(a);
 }
 function toggleNav(){ ST.nav = ST.nav===false; saveState(); const g = $("advGrid"); if(g) g.classList.toggle("nav-off", ST.nav===false); }
-function setNote(k,v){ ST.notes[k] = v; saveState(); }
-function toggleDone(aid,sid){ const k = aid+":"+sid; ST.done[k] = !ST.done[k]; saveState(); route(); }
 
 function renderBlock(a,s,b,i){
   const k = bkey(a,s,i);
@@ -173,7 +169,7 @@ function closeModal(id){ $(id).classList.remove("show"); }
 function openSettings(){ $("settingsModal").classList.add("show"); if(window.refreshBookStatus) refreshBookStatus(); }
 function exportState(){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(ST)],{type:"application/json"})); a.download = "otherscape-spielstand.json"; a.click(); }
 function importState(inp){ const f = inp.files[0]; if(!f) return; const r = new FileReader(); r.onload = ()=>{ try{ ST = Object.assign(loadState(), JSON.parse(r.result)); saveState(); closeModal("settingsModal"); route(); }catch(e){ alert("Datei konnte nicht gelesen werden."); } }; r.readAsText(f); }
-function resetState(){ if(!confirm("Alle Limit-Felder, Uhren, Notizen und Häkchen zurücksetzen?")) return; ST = { lim:{}, clk:{}, notes:{}, done:{}, last:null, nav:true }; saveState(); closeModal("settingsModal"); route(); }
+function resetState(){ if(!confirm("Alle Limit-Felder und Uhren zurücksetzen?")) return; ST = { lim:{}, clk:{}, notes:{}, done:{}, last:null, nav:true }; saveState(); closeModal("settingsModal"); route(); }
 function closeMobileMenu(){ const m = $("mobileMenu"); if(!m) return; m.classList.remove("open"); setTimeout(()=>m.remove(),200); document.body.classList.remove("menu-open"); }
 function openMobileMenu(){
   if($("mobileMenu")) return;

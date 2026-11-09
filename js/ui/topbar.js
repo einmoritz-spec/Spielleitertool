@@ -15,13 +15,13 @@ const TOPBAR_ITEMS = [
   { id:"grimoire",  icon:"🛠", label:"Grimoire",      labelDefault:true,  fn:"openGrimoire()",     title:"Action Grimoire (Regel-Ergänzung: Crafting, Battle, Cunning, Exploration, Magic, Social) nachschlagen (Taste A)" },
   { id:"themebook", icon:"🍃", label:"Themenbuch",    labelDefault:true,  fn:"openThemebook()",    title:"Themenbuch-Fragen zur Charaktererstellung (Origin/Adventure/Greatness) nachschlagen (Taste T)" },
   { id:"lore",      icon:"🌰", label:"Lore",          labelDefault:true,  fn:"openLore()",         title:"Alle Lore- &amp; Kern-Enthüllungen im Überblick (Taste L)" },
-  { id:"store",     icon:"🛒", label:"Shop",          labelDefault:false, fn:"openStore()",        title:"Allgemeiner Laden — Gegenstands-Vorschläge für Backpack-/Belohnungs-Tags (Taste S)" },
-  { id:"challenges",icon:"⚔",  label:"Challenges",    labelDefault:false, fn:"openChallenges()",   title:"Challenge-Bibliothek durchsuchen (Taste C)" },
-  { id:"search",    icon:"🔍", label:"Suche",         labelDefault:false, fn:"openSearch()",       title:"Volltextsuche über alle Abenteuer (Taste F)" },
-  { id:"favorites", icon:"⭐", label:"Favoriten",     labelDefault:false, fn:"openFavorites()",    title:"Favorisierte Challenges &amp; Glossareinträge (Taste V)", badge:true },
-  { id:"dice",      icon:"🎲", label:"Würfel",        labelDefault:false, fn:"openDice()",         title:"Würfel- und Zufallswerkzeuge: 2W6+Power-Wurf, Yes-But-Inspiration, Zufallsnamen (Taste W)" },
+  { id:"store",     icon:"🛒", label:"Shop",          labelDefault:true, fn:"openStore()",        title:"Allgemeiner Laden — Gegenstands-Vorschläge für Backpack-/Belohnungs-Tags (Taste S)" },
+  { id:"challenges",icon:"⚔",  label:"Challenges",    labelDefault:true, fn:"openChallenges()",   title:"Challenge-Bibliothek durchsuchen (Taste C)" },
+  { id:"search",    icon:"🔍", label:"Suche",         labelDefault:true, fn:"openSearch()",       title:"Volltextsuche über alle Abenteuer (Taste F)" },
+  { id:"favorites", icon:"⭐", label:"Favoriten",     labelDefault:true, fn:"openFavorites()",    title:"Favorisierte Challenges &amp; Glossareinträge (Taste V)", badge:true },
+  { id:"dice",      icon:"🎲", label:"Würfel",        labelDefault:true, fn:"openDice()",         title:"Würfel- und Zufallswerkzeuge: 2W6+Power-Wurf, Yes-But-Inspiration, Zufallsnamen (Taste W)" },
   { id:"save",      icon:"📄", label:"Speichern",     labelDefault:true,  fn:"downloadAdventureSummary()", onlyInAdventure:true, title:"Zusammenfassung dieses Abenteuers als PDF (Notizen + angeklickte Limits/Vignetten) — lädt zusätzlich eine komplette Sicherungskopie dieser Tafel mit dem aktuellen Sitzungsstand herunter" },
-  { id:"reset",     icon:"↺",  label:"Zurücksetzen",  labelDefault:false, fn:"resetAllProgress()", title:"Gespeicherten Fortschritt (Limits, Vignetten, Notizen, letzte Position) vollständig zurücksetzen" },
+  { id:"reset",     icon:"↺",  label:"Zurücksetzen",  labelDefault:true, fn:"resetAllProgress()", title:"Gespeicherten Fortschritt (Limits, Vignetten, Notizen, letzte Position) vollständig zurücksetzen" },
 ];
 let topbarPrefs = { hidden:{}, label:{} };
 function loadTopbarPrefs(){

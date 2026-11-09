@@ -61,12 +61,12 @@ function renderAdv(a, secId){
   const opts = a.sektionen.map(x=>`<option value="${x.id}" ${x.id===s.id?"selected":""}>${esc((x.gruppe?x.gruppe+" · ":"")+x.titel)}</option>`).join("");
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
-  <div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${esc(a.buch)} ${esc(a.seiten)}</span>
+  <div class="adv-head"><h1>${esc(a.titel)}</h1><span class="meta">${esc(a.sub||"")} · ${osHeadPages(a)}</span>
   <button class="btn" onclick="toggleNav()" title="Kapitelmenü ein-/ausblenden">☰ Kapitel</button></div>
   <div class="adv-grid ${ST.nav===false?"nav-off":""}" id="advGrid">
    <nav class="nav">${navH}</nav>
    <div class="content"><div class="navbar"><select onchange="location.hash='#/adv/${a.id}/'+this.value">${opts}</select></div>
-   <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
+   <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
    <div class="notes"><div class="blk-h">Notizen</div><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen zu diesem Abschnitt …">${esc(ST.notes[doneKey]||"")}</textarea></div>
    <div class="secfoot">${prev?`<button class="btn" onclick="location.hash='#/adv/${a.id}/${prev.id}'">‹ ${esc(prev.titel)}</button>`:"<span></span>"}
@@ -97,10 +97,20 @@ function renderBlock(a,s,b,i){
 }
 function setClock(k,j,n){ const cur = ST.clk[k]||0; ST.clk[k] = (cur===j+1) ? j : j+1; saveState();
   const el = document.getElementById("clk_"+k); if(el) [...el.children].forEach((c,x)=>c.classList.toggle("on", x<ST.clk[k])); }
+/* Seitenlinks (Daten: data/pages.js) */
+function pgBtn(buch,page,txt){ return `<button class="pgb" onclick="event.stopPropagation();openBook('${buch}',${page})" title="Originalseite im Buch ansehen">${txt||"S. "+page}</button>`; }
+function osChPage(name){
+  if(typeof OS_PAGES==="undefined") return "";
+  for(const id in OS_PAGES){ const pg = OS_PAGES[id].ch[name]; if(pg){ const e = OS_ADV_LIST.find(x=>x.id===id); if(e) return pgBtn(e.buch,pg); } }
+  return "";
+}
+function osSecPage(a,sid){ const pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[sid]; return pg ? pgBtn(a.buch,pg) : ""; }
+function osHeadPages(a){ const m = (a.seiten||"").match(/\d+/g)||[]; return m.length ? pgBtn(a.buch,m[0],esc(a.buch)+" "+esc(a.seiten)+" 📖") : esc(a.buch)+" "+esc(a.seiten); }
+
 function renderChallenge(k,b){
   const tagCls = t => /^\s*[–-]\s/.test(t) ? "w" : (/^Status:/i.test(t) ? "s" : "");
   const tagTxt = t => t.replace(/^\s*[–-]\s/,"");
-  let h = `<div class="blk ch"><div class="ch-head"><b>${esc(b.name)}</b><span class="typ">${esc(b.typ||"")}</span><span class="stars">${esc(b.rating||"")}</span></div>`;
+  let h = `<div class="blk ch"><div class="ch-head"><b>${esc(b.name)}</b><span class="typ">${esc(b.typ||"")}</span><span class="stars">${esc(b.rating||"")}</span>${osChPage(b.name)}</div>`;
   if(b.beschr) h += `<div class="ch-desc">${fmt(b.beschr)}</div>`;
   (b.limits||[]).forEach((l,li)=>{
     const lk = k+":"+li, n = +l.v||0, arr = ST.lim[lk]||[];

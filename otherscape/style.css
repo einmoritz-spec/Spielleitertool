@@ -185,3 +185,6 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .geg summary small{color:var(--mute);margin-left:auto}
 .geg .stars{color:var(--amber)}
 .geg-body{padding:0 10px 10px}
+
+.pgb{font:inherit;font-size:11.5px;padding:1px 8px;margin-left:8px;border:1px solid var(--line,#444);border-radius:999px;background:rgba(255,255,255,.05);color:inherit;cursor:pointer;white-space:nowrap}
+.pgb:hover{background:rgba(255,255,255,.14)}

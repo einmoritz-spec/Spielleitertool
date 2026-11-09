@@ -22,6 +22,15 @@ function saveComplete(){
 }
 loadPips();
 
+/* Buchseiten-Leiste: Kapitel- und Abschnittsseiten aus dem Inhaltsverzeichnis (klickbar, öffnet lokales PDF) */
+function bookBar(id, isCase){
+  const es = (GUIDE.tableOfContents && GUIDE.tableOfContents.entries) || [];
+  const e = es.find(x=>x.id===id && !!x.isCase===!!isCase && !x.isVillain);
+  if(!e) return "";
+  const chip = (t,pg)=>`<span class="bk-chip">${t} <a class="pg-link" href="#" data-page="${pg}">S. ${pg}</a></span>`;
+  return `<div class="bk-bar"><span class="bk-lbl">📖 Im Buch:</span>${chip(isCase?"Fall":"Kapitel",e.page)}${(e.sub||[]).map(s=>chip(s[0],s[1])).join("")}</div>`;
+}
+
 function goOverview(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goDistrict(id){ state.view="district"; state.districtId=id; state.distTab="overview"; render(); window.scrollTo(0,0); }
 function goGuide(){ state.view="guide"; render(); window.scrollTo(0,0); }
@@ -51,6 +60,19 @@ function render(){
     if(showBtn) caseBtn.textContent = state.view==="case" ? "📁 " + dist.data.case.title : "📁 Fall öffnen";
   }
   markLongTexts();
+  linkNamePages();
+}
+/* Hängt an Orte/Locals/Power Sets einen Seitenlink (aus data/pages.js) */
+function linkNamePages(){
+  if(typeof LL_PAGES==="undefined" || !state.districtId) return;
+  const m = LL_PAGES[state.districtId]; if(!m) return;
+  document.querySelectorAll("#app h3, #app h4").forEach(h=>{
+    if(h.querySelector(".pg-link")) return;
+    const t = h.textContent.replace("📍","").replace(/\s+/g," ").trim();
+    const pg = m[t]; if(!pg) return;
+    const a = document.createElement("a"); a.className="pg-link"; a.href="#"; a.dataset.page=pg; a.title="Originalseite im Buch ansehen"; a.textContent="S. "+pg;
+    h.appendChild(document.createTextNode(" ")); h.appendChild(a);
+  });
 }
 /* Sehr lange Fließtext-Absätze bekommen auf großen Bildschirmen Spalten (CSS: .long-text). */
 function markLongTexts(){
@@ -313,6 +335,7 @@ function renderDistrictView(id){
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span>${dist.title}</div>`;
   html += `<div class="hero"><h1>${dist.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin-bottom:10px;">${c.tagline||dist.sub}</p></div>`;
 
+  html += bookBar(id,false);
   html += renderDistrictTabs(c, id, active);
 
   if(active==="overview"){
@@ -481,6 +504,7 @@ function renderCaseView(id){
 
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span><button onclick="goDistrict('${id}')">${dist.title}</button><span class="sep">/</span>${cs.title}</div>`;
   html += `<div class="case-hero"><div class="eyebrow">ONE-SHOT CASE · ${dist.title.toUpperCase()}</div><h1 style="margin:0 0 4px;">${cs.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin:0;">${cs.subtitle}</p></div>`;
+  html += bookBar(id,true);
   html += renderCaseTabs(cs, active);
   html += `<div class="case-tabpanel">`;
 

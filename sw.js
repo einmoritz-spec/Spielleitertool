@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v41";
+const VERSION = "v43";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -12,6 +12,7 @@ const FILES = [
   "locallegends/js/tool-switch.js",
   "locallegends/js/mobile-menu.js",
   "locallegends/js/data/core.js",
+  "locallegends/js/data/pages.js",
   "locallegends/js/data/chinatown.js",
   "locallegends/js/data/fortune-row.js",
   "locallegends/js/data/happyville.js",
@@ -54,6 +55,7 @@ const FILES = [
   "otherscape/js/rules.js",
   "otherscape/js/app.js",
   "otherscape/js/data/abenteuer-liste.js",
+  "otherscape/js/data/pages.js",
   "otherscape/js/data/abenteuer/anthill-2.js",
   "otherscape/js/data/abenteuer/anthill.js",
   "otherscape/js/data/abenteuer/biting-bullet-2.js",

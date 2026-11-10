@@ -137,3 +137,10 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 .notes-pop textarea::placeholder{color:#9a8b6a}
 .notes-pop textarea:focus{border-color:#e9a93f!important}
 .notes-pop .np-x{background:#e9a93f!important;color:#6a2a12!important;border:1px solid #d48f25!important}
+
+/* Seitenlinks direkt hinter dem Titel, nicht nach rechts geschoben */
+.sec-sub .pagetag{margin-left:10px!important}
+/* „Werte & Hinweise“-Kopf deckt Karten nicht durchscheinend ab */
+.scn-rh{background:#e6d9b8!important}
+.sec-sub{flex-wrap:nowrap!important;align-items:baseline!important;gap:8px!important}
+.sec-sub .pagetag{flex:none;white-space:nowrap;align-self:center}

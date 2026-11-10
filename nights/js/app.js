@@ -181,6 +181,7 @@ function fixScn(){
   document.querySelectorAll('.scn').forEach(s=>{
     s.classList.remove('stack'); const l=s.querySelector('.scn-l'), r=s.querySelector('.scn-r');
     if(!l||!r||!s.offsetParent) return;
+    if(s.offsetWidth<860){ s.classList.add('stack'); return; }
     if(getComputedStyle(r).position==='static' && getComputedStyle(s).display!=='grid') return;
     if(r.offsetHeight > l.offsetHeight + 90) s.classList.add('stack');
   });

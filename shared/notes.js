@@ -20,7 +20,7 @@
     reg: function(id, get, set){ AD[id] = { get: get, set: set }; },
     tile: function(a, k){
       return '<button type="button" class="notes-tile' + (has(a,k) ? " has" : "") + '" data-na="' + a + '" data-nk="' + esc(k) +
-             '" onclick="NotePop.toggle(this)" aria-label="Notizen">✎ Notizen<i class="nt-dot"></i></button>';
+             '" onclick="NotePop.toggle(this)" aria-label="Notizen">✎<span class="nt-t"> Notizen</span><i class="nt-dot"></i></button>';
     },
     toggle: function(btn){
       if(cur === btn){ close(); return; }

@@ -51,6 +51,7 @@ function render(){
   else if(state.view==="appendix") app.innerHTML = renderAppendix();
   else if(state.view==="npcs") app.innerHTML = renderNpcs();
   else if(state.view==="player") app.innerHTML = renderPlayerView();
+  { const cr=app.querySelector(".crumb"); if(cr) cr.scrollLeft=cr.scrollWidth; const tb=app.querySelector(".case-tabbar"), at=tb&&tb.querySelector(".case-tab.active"); if(tb&&at) tb.scrollLeft=at.offsetLeft-(tb.clientWidth-at.clientWidth)/2; }
   buildGlossList();
   buildRulesList();
   { const sc = app.querySelector('.case-tabpanel')||app, cs = sc.querySelectorAll('.loc-card'); if(cs.length===1) cs[0].classList.add('single','open'); }

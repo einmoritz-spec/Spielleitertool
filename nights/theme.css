@@ -65,3 +65,17 @@ a{color:var(--cyan)}
 .tm-dd button small{color:#6f6450!important;opacity:1!important}
 .case-card b{color:#2a251d!important;font-size:1.15rem;line-height:1.25}
 .case-card small{color:#6f6450!important}
+
+/* Ebenen-Kopf kompakt: Name + Einführung in einer Zeile, Antagonist darunter */
+details.level>summary.level-head{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2px 12px;padding:14px 44px 6px 18px}
+.level-head h2{grid-column:1;grid-row:1}
+.level-head .lv-intro{grid-column:2;grid-row:1;margin:0}
+.level-head .lv-sub{grid-column:1/-1;grid-row:2;color:#6f6450;font-size:.95rem}
+.level .cases{padding:6px 14px 14px;gap:10px}
+.case-card{min-height:0!important;padding:10px 14px!important;gap:2px!important}
+.case-card{display:grid!important;grid-template-columns:1fr auto;align-items:baseline;gap:0 10px!important}
+.case-card .nr{grid-column:1;grid-row:1;margin:0}
+.case-card small{grid-column:2;grid-row:1;margin:0!important}
+.case-card b{grid-column:1/-1;grid-row:2;margin:2px 0 0!important}
+.case-card .badge{grid-column:1/-1;justify-self:start}
+@media (max-width:480px){.level-head h2{letter-spacing:.05em!important;font-size:1.05rem!important;white-space:nowrap}.level-head .lv-intro{padding:2px 8px}}

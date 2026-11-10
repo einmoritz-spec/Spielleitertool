@@ -54,17 +54,17 @@ function renderHome(){
   const C = camp();
   let h = `<div class="hero"><div class="eyebrow">City of Mist · Abenteuerband</div><h1>${esc(C.title)}</h1><p class="hint">Spielleitung-Ansicht · Text wörtlich aus dem Buch · Seiten ${C.intro.pages[0]}–${C.appendix.pages[1]}</p></div>`;
   for(const L of C.levels){
-    h += `<section class="level ${L.tone}"><div class="level-head"><h2>${esc(L.name)}</h2><span>${esc(L.sub||"")}</span><span>Seiten ${L.pages[0]}–${L.pages[1]}</span></div><div class="cases">`;
+    h += `<details class="level ${L.tone}"><summary class="level-head"><h2>${esc(L.name)}</h2><span>${esc(L.sub||"")}</span><span>Seiten ${L.pages[0]}–${L.pages[1]}</span></summary><div class="cases">`;
+    if(L.intro){ const e = C.extras[L.intro]; h += `<a class="case-card intro" href="#/case/${L.intro}"><span class="nr">Einführung</span><b>${esc(e.title)}</b><small>Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }
     for(const n of L.cases){
       const ci = C.cases[n]; if(!ci) continue;
       const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
       const st = caseStatus(n);
       h += `<div class="case-card ${info.ready?"":"off"}" ><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>Seiten ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}<div class="statusrow" style="position:relative;z-index:2"><button class="${st==="run"?"on":""}" onclick="setStatus(${n},'run')">läuft</button><button class="${st==="ok"?"on":""}" onclick="setStatus(${n},'ok')">abgeschlossen</button></div></div>`;
     }
-    if(L.intro){ const e = C.extras[L.intro]; h += `<a class="case-card intro" href="#/case/${L.intro}"><span class="nr">Einführung</span><b>${esc(e.title)}</b><small>Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }
-    h += `</div></section>`;
+    h += `</div></details>`;
   }
-  h += `<section class="level"><div class="level-head"><h2>Buchteile</h2><span>Einleitung und Anhang</span></div><div class="cases">${C.book.map(n=>{ const e = C.extras[n]; return `<a class="case-card intro" href="#/case/${n}"><span class="nr">Buch</span><b>${esc(e.title)}</b><small>${esc(e.sub||"")} · Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }).join("")}</div></section>`;
+  h += `<details class="level"><summary class="level-head"><h2>Buchteile</h2><span>Einleitung und Anhang</span></summary><div class="cases">${C.book.map(n=>{ const e = C.extras[n]; return `<a class="case-card intro" href="#/case/${n}"><span class="nr">Buch</span><b>${esc(e.title)}</b><small>${esc(e.sub||"")} · Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }).join("")}</div></details>`;
   $("app").innerHTML = h;
 }
 

@@ -42,6 +42,29 @@
       ta.focus();
     }
   };
+
+  /* Handy: Kachel aus der Tab-Leiste in die freie Ecke rechts neben den Brotkrumen */
+  function dock(){
+    var mobile = innerWidth <= 1000;
+    document.querySelectorAll(".notes-tile").forEach(function(t){
+      var bar = t.closest(".case-tabbar"), row = t.closest(".crumb-row");
+      if(mobile && bar){
+        var cr = bar.previousElementSibling;
+        if(cr && cr.classList.contains("wk-head")) cr = cr.querySelector(".crumbs");
+        if(!cr || !/crumb/.test(cr.className)) return;
+        var r = cr.parentElement.classList.contains("crumb-row") ? cr.parentElement : null;
+        if(!r){ r = document.createElement("div"); r.className = "crumb-row"; cr.parentElement.insertBefore(r, cr); r.appendChild(cr); }
+        r.appendChild(t);
+        cr.scrollLeft = cr.scrollWidth;
+      } else if(!mobile && row){
+        var b = row.parentElement.querySelector(".case-tabbar") || document.querySelector(".case-tabbar");
+        if(b) b.appendChild(t);
+      }
+    });
+  }
+  var dq = 0;
+  new MutationObserver(function(){ if(dq) return; dq = requestAnimationFrame(function(){ dq = 0; dock(); }); }).observe(document.documentElement, { childList: true, subtree: true });
+  window.addEventListener("resize", dock);
   document.addEventListener("click", function(e){ if(pop && !(e.target.closest && e.target.closest(".notes-tile"))) close(); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") close(); });
   window.addEventListener("hashchange", close);

@@ -14,3 +14,7 @@
 /* Wake: Kachel über der Szene nur ohne Tab-Leiste und ohne Handy-Szenenwahl */
 .shell.tabs-top .notes-row{display:none}
 @media (max-width:1000px){.notes-row{display:none}.scene-picker-wrap .notes-tile{margin:0}}
+
+.crumb-row{display:flex;align-items:center;gap:8px;margin:0 0 8px}
+.crumb-row>.crumb,.crumb-row>.crumbs{flex:1;min-width:0;margin:0!important}
+.crumb-row .notes-tile{position:static;margin:0;box-shadow:none;background:rgba(255,255,255,.05);padding:4px 10px}

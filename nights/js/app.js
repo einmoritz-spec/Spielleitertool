@@ -54,13 +54,12 @@ function renderHome(){
   const C = camp();
   let h = `<div class="hero"><div class="eyebrow">City of Mist · Abenteuerband</div><h1>${esc(C.title)}</h1><p class="hint">Spielleitung-Ansicht · Text wörtlich aus dem Buch · Seiten ${C.intro.pages[0]}–${C.appendix.pages[1]}</p></div>`;
   for(const L of C.levels){
-    h += `<details class="level ${L.tone}"><summary class="level-head"><h2>${esc(L.name)}</h2><span>${esc(L.sub||"")}</span><span>Seiten ${L.pages[0]}–${L.pages[1]}</span></summary><div class="cases">`;
-    if(L.intro){ const e = C.extras[L.intro]; h += `<a class="case-card intro" href="#/case/${L.intro}"><span class="nr">Einführung</span><b>${esc(e.title)}</b><small>Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }
+    h += `<details class="level ${L.tone}"><summary class="level-head"><h2>${esc(L.name)}</h2><span>${esc(L.sub||"")}</span><span>Seiten ${L.pages[0]}–${L.pages[1]}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
     for(const n of L.cases){
       const ci = C.cases[n]; if(!ci) continue;
       const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
       const st = caseStatus(n);
-      h += `<div class="case-card ${info.ready?"":"off"}" ><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>Seiten ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}<div class="statusrow" style="position:relative;z-index:2"><button class="${st==="run"?"on":""}" onclick="setStatus(${n},'run')">läuft</button><button class="${st==="ok"?"on":""}" onclick="setStatus(${n},'ok')">abgeschlossen</button></div></div>`;
+      h += `<div class="case-card ${info.ready?"":"off"}" data-case="${n}"><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>Seiten ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}</div>`;
     }
     h += `</div></details>`;
   }
@@ -328,3 +327,22 @@ async function renderRegister(tab){
   $("app").innerHTML = h;
 }
 function regFilter(q){ q = q.trim().toLowerCase(); document.querySelectorAll("#regList .reg-row").forEach(r=>{ r.style.display = !q || r.dataset.q.includes(q) ? "" : "none"; }); }
+
+/* Rechtsklick (bzw. Langdruck am Handy) auf einen Fall: Status „läuft“ / „abgeschlossen“ wählen */
+(function(){
+  function closeCm(){ const e = document.getElementById("caseCm"); if(e) e.remove(); }
+  function openCm(n, x, y){
+    closeCm(); const st = caseStatus(n), m = document.createElement("div"); m.id = "caseCm"; m.className = "case-cm";
+    m.innerHTML = `<button class="${st==="run"?"on":""}" data-s="run">Läuft</button><button class="${st==="ok"?"on":""}" data-s="ok">Abgeschlossen</button>${st?'<button data-s="">Status entfernen</button>':""}`;
+    m.addEventListener("click", e=>{ const b = e.target.closest("button"); if(!b) return; ST.cases[n] = b.dataset.s; saveState(); closeCm(); renderHome(); });
+    document.body.appendChild(m);
+    m.style.left = Math.max(8, Math.min(x, innerWidth - m.offsetWidth - 8)) + "px"; m.style.top = Math.max(8, Math.min(y, innerHeight - m.offsetHeight - 8)) + "px";
+  }
+  document.addEventListener("contextmenu", e=>{ const c = e.target.closest && e.target.closest(".case-card[data-case]"); if(!c) return; e.preventDefault(); openCm(+c.dataset.case, e.clientX, e.clientY); });
+  let t = null, sx = 0, sy = 0, fired = false;
+  document.addEventListener("touchstart", e=>{ const c = e.target.closest && e.target.closest(".case-card[data-case]"); if(!c) return; fired = false; const p = e.touches[0]; sx = p.clientX; sy = p.clientY; t = setTimeout(()=>{ fired = true; openCm(+c.dataset.case, sx, sy); }, 550); }, {passive:true});
+  ["touchend","touchcancel"].forEach(n=>document.addEventListener(n, ()=>clearTimeout(t), {passive:true}));
+  document.addEventListener("touchmove", e=>{ const p = e.touches[0]; if(Math.abs(p.clientX-sx)>8||Math.abs(p.clientY-sy)>8) clearTimeout(t); }, {passive:true});
+  document.addEventListener("click", e=>{ if(fired){ fired = false; e.preventDefault(); e.stopPropagation(); return; } if(!(e.target.closest&&e.target.closest(".case-cm"))) closeCm(); }, true);
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeCm(); });
+})();

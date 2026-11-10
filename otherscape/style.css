@@ -395,3 +395,15 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .kit-h{display:flex;justify-content:space-between;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
 .kit h3{margin:6px 0 8px;font-size:1.12rem;line-height:1.2}.kit h3 small{display:block;font-weight:400;font-size:.72rem;color:var(--mute);margin-top:2px}
 .kit-l{margin:10px 0 5px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}.kit-itch{margin:0;font-style:italic}
+/* Regelwerk & Metro-Setting */
+.rg-list{display:grid;gap:8px;max-width:900px}
+.rg{background:var(--bg2);border:1px solid var(--line);border-radius:12px}
+.rg>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px}
+.rg>summary::-webkit-details-marker{display:none}
+.rg[open]>summary{border-bottom:1px solid var(--line)}
+.rg-body{padding:6px 14px 12px}
+.mt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.mt{background:linear-gradient(180deg,#14213a,var(--bg2));border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.mt h3{margin:0 0 6px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:15px}
+.mt p{margin:6px 0 0;font-size:13.5px;line-height:1.5}
+.mt-k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}

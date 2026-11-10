@@ -4,7 +4,7 @@ const A5_SCENES = [
 /* 0 ---------------------------------------------------------- INTRO */
 {
   key:"intro", kind:"intro", page:"S. 375–376",
-  title:"Abenteuer 5 — Überblick", en:"The Painted Beast",
+  title:"Überblick", en:"The Painted Beast",
   summary:"Hintergrund, Hooks & Szenenfolge",
   overview:[],
   readAloud:[

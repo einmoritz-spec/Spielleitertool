@@ -209,7 +209,7 @@ function parseLimits(sp){
   return (sp||"").split(" / ").map(x=>{ x=x.trim(); const fix = l => l.replace(/(\S)- (\S)/g,'$1$2').trim(); const m = x.match(/^\(?(.*?)\s+(\d+)\)?$/); if(m) return { label:fix(m[1]), max:+m[2] }; const d = x.match(/^\(?(.*?)\s+[–—-]\)?$/); return d ? { label:fix(d[1]), max:0 } : null; }).filter(Boolean);
 }
 function cap(t){ return t.charAt(0)+t.slice(1).toLowerCase(); }
-function threatHtml(c, b){
+function threatHtml(c, b, open){
   const key = `${c.nr}:${b.name}`;
   const lims = parseLimits(b.spectra);
   const nstars = (b.stars||"").length;
@@ -222,7 +222,7 @@ function threatHtml(c, b){
   const sub = i => { const a = i.split(/\s*»\s*/); return a.length>1 ? a[0].replace(/[:\s]+$/,'')+(a[0].trim()?':':'')+`<ul class="th-nest">${a.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>` : i; };
   const items = (b.items||[]).map(sub);
   const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
-  return `<div class="blk threat ${nstars>=4?"boss":""}"><span class="pin"></span><div class="threat-head"><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}${lims.filter(l=>l.max).length>1?`<button class="limit-all" onclick="resetAllLimits('${esc(key).replace(/'/g,"\\'")}',${lims.length},this)">Alle zurücksetzen (Szenenende)</button>`:""}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
+  return `<div class="blk threat ${nstars>=4?"boss":""} ${open?"":"thr-coll"}"><span class="pin"></span><div class="threat-head"${open?"":` onclick="this.parentNode.classList.toggle('open')"`}><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}${lims.filter(l=>l.max).length>1?`<button class="limit-all" onclick="resetAllLimits('${esc(key).replace(/'/g,"\\'")}',${lims.length},this)">Alle zurücksetzen (Szenenende)</button>`:""}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
 }
 function limArr(k){ const v = ST.limits[k]; if(Array.isArray(v)) return v; if(typeof v==="number" && v>0){ const a=[]; for(let i=1;i<=v;i++) a.push(i); ST.limits[k]=a; return a; } return []; }
 function limSync(row, arr, max){ row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", arr.includes(i+1))); row.querySelector(".limit-count").textContent = (arr.length?Math.max(...arr):0)+" / "+max; }
@@ -306,7 +306,7 @@ async function buildRegister(){
   for(const n of READY){ const c = await loadCase(n); if(!c) continue; loaded[n] = c;
     const secOf = pg => { let b = null; for(const sc of c.sections) if(sc.page<=pg) b = sc; return b && b.id; };
     const seen = {};
-    for(const pg in c.pages){ for(const b of (c.pages[pg].blocks||[])){ if(b.t==="threat" && b.name){ const k = b.name+"|"+pg; if(seen[k]) continue; seen[k]=1; items.push({kind:"leute", name:b.name.replace(/\s+/g," ").replace(/[\s+\/&]+$/,"").trim(), stars:b.stars||"", nr:n, page:+pg, sec:secOf(+pg)}); } } }
+    for(const pg in c.pages){ for(const b of (c.pages[pg].blocks||[])){ if(b.t==="threat" && b.name){ const k = b.name+"|"+pg; if(seen[k]) continue; seen[k]=1; items.push({kind:"leute", c, b, name:b.name.replace(/\s+/g," ").replace(/[\s+\/&]+$/,"").trim(), stars:b.stars||"", nr:n, page:+pg, sec:secOf(+pg)}); } } }
     if(c.eisberg) for(const nd of c.eisberg.nodes) items.push({kind:"orte", name:nd.label, stars:"", nr:n, page:c.eisberg.page, sec:nd.target, layer:nd.layer});
   }
   REG = {items, loaded}; return REG;
@@ -321,10 +321,19 @@ async function renderRegister(tab){
     const rows = Object.keys(ST.notes).filter(k=>(ST.notes[k]||"").trim()).map(k=>{ const [nr,sid] = k.split(":"); const c = R.loaded[+nr]; const sec = c && c.sections.find(x=>x.id===sid); return {nr:+nr, sid, title: sec?sec.title:sid, text:ST.notes[k], page: sec?sec.page:0}; }).sort((a,b)=>a.nr-b.nr||a.page-b.page);
     h += rows.length ? `<div class="reg-list">${rows.map(r=>`<a class="reg-note" href="#/case/${r.nr}/sec/${r.sid}"><small>${r.nr<11?"Fall "+r.nr:"Buch"} · ${esc(r.title)}</small><span>${esc(r.text)}</span></a>`).join("")}</div>` : `<div class="missing">Noch keine Notizen. Notizen schreibst du unten in jedem Kapitel.</div>`;
   } else {
-    h += `<input class="search-input reg-filter" id="regFilter" placeholder="Filtern …" oninput="regFilter(this.value)" autocomplete="off"><div class="reg-list" id="regList">${R.items.filter(i=>i.kind===tab).sort((a,b)=>a.name.localeCompare(b.name,"de")).map(it=>`<a class="reg-row" href="${regLink(it)}" data-q="${esc(it.name.toLowerCase())}"><b>${esc(it.name)}</b><span class="stars">${esc(it.stars)}</span><small>${it.nr<11?"Fall "+it.nr:"Buch"} · Seite ${it.page}${it.layer!=null?" · Schicht "+it.layer:""}</small></a>`).join("")}</div>`;
+    h += `<input class="search-input reg-filter" id="regFilter" placeholder="Filtern …" oninput="regFilter(this.value)" autocomplete="off"><div class="reg-list" id="regList">${R.items.filter(i=>i.kind===tab).sort((a,b)=>a.name.localeCompare(b.name,"de")).map(it=>`<a class="reg-row" href="${regLink(it)}"${it.b?` onclick="return regOpen(${R.items.indexOf(it)})"`:""} data-q="${esc(it.name.toLowerCase())}"><b>${esc(it.name)}</b><span class="stars">${esc(it.stars)}</span><small>${it.nr<11?"Fall "+it.nr:"Buch"} · Seite ${it.page}${it.layer!=null?" · Schicht "+it.layer:""}</small></a>`).join("")}</div>`;
   }
   $("app").innerHTML = h;
 }
+function regOpen(i){
+  const it = REG.items[i]; if(!it||!it.b) return true;
+  let m = document.getElementById("regModal"); if(m) m.remove();
+  m = document.createElement("div"); m.id = "regModal"; m.className = "reg-modal";
+  m.innerHTML = `<div class="reg-md"><button class="reg-x" aria-label="Schließen">✕</button>${threatHtml(it.c, it.b, true)}<a class="reg-go" href="${regLink(it)}" onclick="document.getElementById('regModal').remove()">${it.nr<11?"Fall "+it.nr:"Buch"} · Seite ${it.page}</a></div>`;
+  m.addEventListener("click", e=>{ if(e.target===m || e.target.closest(".reg-x")) m.remove(); });
+  document.body.appendChild(m); return false;
+}
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ const m = document.getElementById("regModal"); if(m) m.remove(); } });
 function regFilter(q){ q = q.trim().toLowerCase(); document.querySelectorAll("#regList .reg-row").forEach(r=>{ r.style.display = !q || r.dataset.q.includes(q) ? "" : "none"; }); }
 
 /* Rechtsklick (bzw. Langdruck am Handy) auf einen Fall: Status „läuft“ / „abgeschlossen“ wählen */

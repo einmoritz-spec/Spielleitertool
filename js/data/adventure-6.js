@@ -5,7 +5,7 @@ const A6_SCENES = [
 /* 0 ---------------------------------------------------------- INTRO */
 {
   key:"intro", kind:"intro", page:"S. 388–389",
-  title:"Abenteuer 6 — Überblick", en:"The Barleytown Fair",
+  title:"Überblick", en:"The Barleytown Fair",
   summary:"Hintergrund, Hooks & Szenenfolge",
   overview:[],
   readAloud:[

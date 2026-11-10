@@ -5,7 +5,7 @@ const A2_SCENES = [
 /* 0 ---------------------------------------------------------- INTRO */
 {
   key:"intro", kind:"intro", page:"S. 333–336",
-  title:"Abenteuer 2 — Überblick", en:"An Important Letter",
+  title:"Überblick", en:"An Important Letter",
   summary:"Hintergrund, Hooks & Szenenfolge",
   overview:[],
   readAloud:[

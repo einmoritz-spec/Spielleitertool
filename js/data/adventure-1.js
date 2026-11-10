@@ -5,7 +5,7 @@ const A1_SCENES = [
 /* 0 ---------------------------------------------------------- INTRO */
 {
   key:"intro", kind:"intro", page:"S. 315–317",
-  title:"Abenteuer 1 — Überblick", en:"A Shadow in the Barley",
+  title:"Überblick", en:"A Shadow in the Barley",
   summary:"Hintergrund, Hooks & Szenenfolge",
   overview:[],
   readAloud:[

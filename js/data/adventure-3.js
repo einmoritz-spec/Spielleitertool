@@ -5,7 +5,7 @@ const A3_SCENES = [
 /* 0 ---------------------------------------------------------- INTRO */
 {
   key:"intro", kind:"intro", page:"S. 348–350",
-  title:"Abenteuer 3 — Überblick", en:"A Fox in the Dales",
+  title:"Überblick", en:"A Fox in the Dales",
   summary:"Hintergrund, Hooks & Szenenfolge",
   overview:[],
   readAloud:[

@@ -5,7 +5,7 @@ const A7_SCENES = [
 /* 0 ---------------------------------------------------------- INTRO */
 {
   key:"intro", kind:"intro", page:"S. 401–403",
-  title:"Abenteuer 7 — Überblick", en:"The Lost Hermitage",
+  title:"Überblick", en:"The Lost Hermitage",
   summary:"Hintergrund, Hooks & Szenenfolge · Kampagnenfinale",
   overview:[],
   readAloud:[

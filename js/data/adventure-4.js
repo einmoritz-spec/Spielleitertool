@@ -5,7 +5,7 @@ const A4_SCENES = [
 /* 0 ---------------------------------------------------------- INTRO */
 {
   key:"intro", kind:"intro", page:"S. 363",
-  title:"Abenteuer 4 — Überblick", en:"The Green Maiden",
+  title:"Überblick", en:"The Green Maiden",
   summary:"Hintergrund, Hooks & Szenenfolge",
   overview:[],
   readAloud:[

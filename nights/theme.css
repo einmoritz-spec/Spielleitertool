@@ -78,8 +78,11 @@ details.level>summary.level-head{display:grid!important;grid-template-columns:mi
 .case-card small{grid-column:2;grid-row:1;margin:0!important}
 .case-card b{grid-column:1/-1;grid-row:2;margin:2px 0 0!important}
 .case-card .badge{grid-column:1/-1;justify-self:start}
-@media (max-width:480px){.level-head h2{letter-spacing:.05em!important;font-size:1.05rem!important;white-space:nowrap}.level-head .lv-intro{padding:2px 8px}}
+@media (max-width:480px){.level-head h2{letter-spacing:.05em!important;font-size:1.05rem!important;white-space:normal;min-width:0;overflow-wrap:anywhere;hyphens:auto}.level-head .lv-intro{padding:2px 8px;white-space:nowrap}}
 @media (max-width:700px){.sec-sub{flex-wrap:nowrap!important;align-items:baseline!important;gap:8px!important}.sec-sub .pg,.sec-sub small,.sec-sub .pgtag,.sec-sub>span:last-child{flex:none;white-space:nowrap}}
 .sec-sub .pagetag{white-space:nowrap;flex:none}
 .chsec.coll:not(.open){margin-bottom:2px!important}
 .chsec.coll.open{margin-bottom:22px}
+
+details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content!important}.level-head h2{min-width:0}
+@media (max-width:480px){.level-head h2{font-size:.95rem!important;letter-spacing:.03em!important}.level-head .lv-intro{font-size:.72rem!important;padding:2px 7px}}

@@ -451,3 +451,4 @@ summary.growth-summary::before{
 .shell.tabs-top .case-tab .trail-check{width:14px;height:14px;font-size:9px;margin:0 0 0 2px;opacity:.7}
 .shell.tabs-top .case-tab.done .trail-check{opacity:1}
 .shell.tabs-top .case-tab .trail-check{position:static!important;grid-column:auto!important;grid-row:auto!important;flex:none}
+.shell.tabs-top .case-tab .trail-check{top:auto!important;left:auto!important;right:auto!important;transform:none!important;margin:0 0 0 2px!important}

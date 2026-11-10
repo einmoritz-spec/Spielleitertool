@@ -134,7 +134,7 @@ function chapterOf(c, sid){
   const gs = groupNav(c);
   return gs.find(g=>g.items.some(s=>s.id===sid)) || gs[0];
 }
-function chapterTitle(g){ return g.layer ? g.items[0].title : g.name; }
+function chapterTitle(g){ const t = g.layer ? g.items[0].title : g.name; return t.replace(/\b([A-ZÄÖÜ]) (?=[A-ZÄÖÜ]\b)/g,"$1"); }
 function navLbl(t){ const m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t); return m ? `<small class="lbl">${esc(m[1])}</small>${esc(m[2])}` : esc(t); }
 function renderCase(c, sid){
   CUR = c;

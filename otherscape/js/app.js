@@ -70,7 +70,7 @@ function renderAdv(a, secId){
   let tabbar;
   if(groups.length>=2 && a.sektionen.length>7){
     const ag = groups.find(g=>g.items.includes(s));
-    tabbar = `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)} <small>${g.items.length}</small></button>`).join("")}</div>
+    tabbar = `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)}</button>`).join("")}</div>
   <div class="case-tabbar scenebar">${ag.items.map(tabBtn).join("")}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
   } else tabbar = `<div class="case-tabbar">${a.sektionen.map(tabBtn).join("")}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];

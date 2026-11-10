@@ -408,3 +408,7 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 .theme-card .th-kind{font-size:.78rem;font-style:italic;color:var(--text-faint)}
 .theme-card .th-body{display:none;padding:0 14px 14px}
 .theme-card.open .th-body{display:block}
+
+/* kurze Hooks: alle nebeneinander, aufgeklappt */
+.hook-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 26px;align-items:start;column-span:all;margin:0 0 14px}
+.hook-grid .loc-card{margin:0}

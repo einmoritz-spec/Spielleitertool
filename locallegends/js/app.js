@@ -526,7 +526,7 @@ function locBlock(l, anchorId, scope){
 function hookBlock(h, anchorId){
   if(typeof h==="string") return `<div class="card"><p>${h}</p></div>`;
   if(!h.name) return `<div class="card">${h.readaloud?`<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`:""}${h.text?`<p>${h.text}</p>`:""}${h.clues?clueBoxes(h.clues):""}${h.gmNote?gmNote(h.gmNote):""}</div>`;
-  let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}"><h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span><span class="pin">📌</span> ${h.name}</h4><div class="loc-body">`;
+  let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}"><h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span> ${h.name}</h4><div class="loc-body">`;
   if(h.readaloud) html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`;
   if(h.text) html += `<p>${h.text}</p>`;
   if(h.clues) html += clueBoxes(h.clues);
@@ -606,8 +606,12 @@ function _renderCaseView(id){
     if(dp){
       let body = tabHead("Depth "+dp.n+": "+dp.title, tocPage(id,true,"Depth "+dp.n));
       const scope = "case_"+id+"_d"+dp.n;
-      if(dp.intro){ body += `<div class="card"><p>${dp.intro}</p></div>`; }
-      if(dp.hooks){ body += dp.hooks.map((h,i)=>hookBlock(h, caseAnchor(id,dp,'hook',i))).join(""); }
+      const shortHooks = !!(dp.hooks && dp.hooks.length>1 && dp.hooks.every(h=>h && typeof h==="object" && h.name && !h.readaloud && !h.clues && !h.gmNote && (h.text||"").length<900));
+      if(dp.intro && !shortHooks){ body += `<div class="card"><p>${dp.intro}</p></div>`; }
+      if(dp.hooks){
+        const hk = dp.hooks.map((h,i)=>hookBlock(h, caseAnchor(id,dp,'hook',i)));
+        body += shortHooks ? `<div class="hook-grid">${hk.join("").replace(/class="loc-card loc-anchor/g,'class="loc-card single loc-anchor')}</div>` : hk.join("");
+      }
       if(dp.prep){
         body += `<div class="card"><h3>${dp.prep.title}</h3><p>${dp.prep.text}</p>${dp.prep.moveBox?`<div class="card" style="margin-top:10px;"><h3 style="font-size:14px;">${dp.prep.moveBox.title}</h3><p>${dp.prep.moveBox.text}</p></div>`:""}</div>`;
         if(dp.prep.dangers){ body += dp.prep.dangers.map(dg=>renderDangerCard(dg,scope)).join(""); }

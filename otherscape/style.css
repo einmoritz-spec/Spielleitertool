@@ -412,3 +412,7 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .case-tab.grp small{opacity:.6;margin-left:4px;font-weight:500}
 .case-tab.grp.active{background:rgba(0,229,190,.14)}
 .case-tabbar.scenebar{margin-bottom:16px}
+@media (max-width:700px){
+  .blk-ref{display:flex!important;flex-direction:column!important;gap:6px;align-items:flex-start}
+  .blk-ref>span{width:100%}
+}

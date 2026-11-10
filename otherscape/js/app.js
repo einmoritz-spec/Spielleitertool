@@ -86,7 +86,7 @@ function renderAdv(a, secId){
    <div class="chsec">
    ${idx===0?ovBox(a):""}
    ${osArt(a,idx)}
-   ${(()=>{ let L="",R=""; (s.bloecke||[]).forEach((b,i)=>{ const x=renderBlock(a,s,b,i); if(["challenge","uhr","hinweis"].includes(b.t)) R+=x; else L+=x; }); return R ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L; })()}
+   ${(()=>{ let L="",R=""; (s.bloecke||[]).forEach((b,i)=>{ const x=renderBlock(a,s,b,i); if(["challenge","uhr","hinweis"].includes(b.t)) R+=x; else L+=x; }); return (R && L.trim()) ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L+R; })()}
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;

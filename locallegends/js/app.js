@@ -116,7 +116,6 @@ function renderOverview(){
   return `
     <div class="hero">
       <h1>Local Legends — Fall-Akte</h1>
-      <p>Neun Bezirke der Stadt jenseits von Downtown und Industriegebiet — jeder mit eigener Lore, Orten, Locals und einem One-Shot-Fall. Klick auf einen Bezirk, um die Akte zu öffnen.</p>
     </div>
     ${renderCityMap()}
     <div class="grid">${tiles}</div>
@@ -802,7 +801,7 @@ function mapMode(){ let m="sl"; try{ m=localStorage.getItem("ll_mapmode")||"sl";
 function setMapMode(m){ try{ localStorage.setItem("ll_mapmode",m); }catch(e){} render(); }
 function mapToggle(){
   const m=mapMode();
-  return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')">SL-Karte</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')">Spielerkarte</button><span class="map-hint">${m==="sl"?"mit lila Markierungen der Fall-Schauplätze":"ohne Fall-Hinweise, zum Zeigen am Tisch"}</span></div>`;
+  return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')">SL-Karte</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')">Spielerkarte</button></div>`;
 }
 function mapFull(src){
   let o=document.getElementById("mapLightbox");
@@ -819,11 +818,10 @@ function renderCityMap(){
   const chips=DISTRICTS.filter(d=>!d.hidden&&d.status==="ready").map(d=>`<button class="map-chip" onclick="goDistrict('${d.id}')">${d.title}${LL_MAPS.notOnMap[d.id]?` <small>${LL_MAPS.notOnMap[d.id]}</small>`:""}</button>`).join("");
   return `<div class="city-map-box"><div class="city-map-head"><h2>Stadtkarte</h2>${mapToggle()}</div>
     <div class="city-scroll"><div class="city-map"><img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div>
-    <p class="map-hint2">Auf einen Bezirk in der Karte tippen, um ihn zu öffnen. Sunken City (unter der Bucht) und Undertrash (unter der Stadt) liegen nicht auf der Karte, sie haben beschriftete Felder am Rand. <a href="#" onclick="mapFull('${src}');return false;">Karte groß ansehen</a></p>
     <div class="map-chips">${chips}</div></div>`;
 }
 function renderMapPanel(id){
   if(typeof LL_MAPS==="undefined") return "";
   const m=mapMode(), src=LL_MAPS.dir+id+"-"+m+".webp";
-  return `<div class="card map-panel">${mapToggle()}<img class="map-img" src="${src}" alt="Karte" onclick="mapFull('${src}')"><p class="map-hint2">Zum Vergrößern antippen.</p></div>`;
+  return `<div class="card map-panel">${mapToggle()}<img class="map-img" src="${src}" alt="Karte" onclick="mapFull('${src}')"></div>`;
 }

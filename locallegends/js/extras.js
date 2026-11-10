@@ -20,7 +20,7 @@ function npcRows(){
 function npcFilter(){ NPCQ = document.getElementById("npcQ").value; NPCD = document.getElementById("npcD").value; document.getElementById("npcList").innerHTML = npcRows(); }
 function renderNpcs(){
   const n = npcList().length;
-  return `${crumbBonus("Gegner &amp; NSCs")}<div class="hero"><h1>Gegner &amp; NSCs</h1><p>${n} Locals und Dangers aus allen Bezirken auf einen Blick, durchsuchbar und mit Bedrohungsstufe.</p></div>
+  return `${crumbBonus("Gegner &amp; NSCs")}<div class="hero"><h1>Gegner &amp; NSCs</h1></div>
   <div class="npc-bar"><input class="gloss-search" id="npcQ" placeholder="Name, Mythos oder Stichwort …" value="${esc2(NPCQ)}" oninput="npcFilter()" autocomplete="off"><select id="npcD" onchange="npcFilter()"><option value="">Alle Bezirke</option>${DISTRICTS.filter(d=>!d.hidden&&d.data&&d.data.locals).map(d=>`<option value="${d.id}" ${NPCD===d.id?"selected":""}>${d.title}</option>`).join("")}</select></div>
   <div id="npcList">${npcRows()}</div>`;
 }
@@ -42,7 +42,7 @@ function plCollect(){
 function renderPlayerView(){
   const G = plCollect(); PLG = []; G.forEach(g=>g.items.forEach(i=>PLG.push(i)));
   let n = 0;
-  return `${crumbBonus("Spieler-Ansicht")}<div class="hero"><h1>Spieler-Ansicht</h1><p>Nur Bilder, ganz ohne Spielleiter-Text: antippen, groß zeigen, mit Pfeilen oder Wischen blättern. Karten sind die Spieler-Versionen.</p></div>
+  return `${crumbBonus("Spieler-Ansicht")}<div class="hero"><h1>Spieler-Ansicht</h1></div>
   ${G.map(g=>`<div class="bonus-head"><h2>${esc2(g.t)}</h2></div><div class="pl-grid">${g.items.map(i=>{ const idx = n++; return `<figure class="pl-fig"><img src="${i.src}" alt="${esc2(i.cap)}" loading="lazy" onclick="plZoom(${idx})"><figcaption>${esc2(i.cap)}</figcaption></figure>`; }).join("")}</div>`).join("")}`;
 }
 let PLI = 0;

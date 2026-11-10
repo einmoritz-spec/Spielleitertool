@@ -21,8 +21,7 @@ const RULES_HTML = `
 <h3>Power-Optionen</h3>
 <p><b>Burn:</b> einen eigenen positiven Tag vor dem Wurf verbrennen, er zählt +3 statt +1.<br><b>Push:</b> bei 10+ Consequences annehmen für +1 Power.<br><b>Go Out In A Blaze:</b> Theme opfern bzw. Figur riskieren für ein großes narratives Ziel.</p>
 <h3>Spielleitung</h3>
-<p><b>Consequences</b> entstehen bei Miss/7–9 und wenn eine Threat zuschlägt. Die Spielleitung würfelt nie. <b>Mitigate:</b> Spieler:in kann Consequences mit einem eigenen Wurf abschwächen (1 Power = 1 Status-Tier, 2 Power = 1 Tag).</p>
-<p class="hint">Eigene Kurzfassung der Regeln. Maßgeblich ist das Corebook (Metro).</p>`;
+<p><b>Consequences</b> entstehen bei Miss/7–9 und wenn eine Threat zuschlägt. Die Spielleitung würfelt nie. <b>Mitigate:</b> Spieler:in kann Consequences mit einem eigenen Wurf abschwächen (1 Power = 1 Status-Tier, 2 Power = 1 Tag).</p>`;
 function toggleRules(){
   const d = document.getElementById("rulesDrawer");
   if(d.hidden){ if(!document.getElementById("rollerBuilt")){ document.getElementById("rulesBody").innerHTML = RULES_HTML + '<span id="rollerBuilt"></span>'; } d.hidden = false; }

@@ -54,20 +54,17 @@
         <button onclick="switchTool('paynetown')"><b>Nights of Paynetown</b><small>City of Mist – Kampagne</small></button>
         <button class="active" disabled><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Abenteuer (aktuell)</small></button>
       </div>
-      <p class="hint">Das zuletzt gewählte Tool öffnet sich beim nächsten Start der App automatisch.</p>
       <h3>Bücher (nur lokal)</h3>
       <div class="set-tool">
         <div class="bk-row"><div><b>Corebook Metro</b><small id="bk_metro">…</small></div><label class="btn">PDF wählen<input type="file" accept="application/pdf" hidden onchange="loadBook('Metro',this)"></label></div>
         <div class="bk-row"><div><b>Settingbook Tokyo</b><small id="bk_tokyo">…</small></div><label class="btn">PDF wählen<input type="file" accept="application/pdf" hidden onchange="loadBook('Tokyo',this)"></label></div>
       </div>
-      <p class="hint">Deine PDFs bleiben nur in diesem Browser gespeichert (nichts wird hochgeladen). Damit öffnet ein Klick bei „Vorlesetext“ die Originalseite.</p>
       <h3>Spielstand</h3>
       <div class="set-row">
         <button class="btn" onclick="exportState()">Sichern (Datei)</button>
         <label class="btn">Laden<input type="file" accept="application/json" hidden onchange="importState(this)"></label>
         <button class="btn danger" onclick="resetState()">Zurücksetzen</button>
       </div>
-      <p class="hint">Gespeichert werden Limit-Felder und Uhren. Alles liegt nur in diesem Browser.</p>
     </div>
   </div>
 </div>

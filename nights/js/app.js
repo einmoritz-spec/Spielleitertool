@@ -254,7 +254,7 @@ function cardHtml(c, f, bl){
     else if(/^(IDENTITÄT|MYSTERIUM)/.test(sect)) h += `<div class="tc-q">${b.x.replace(/<\/?i>/g,"")}</div>`;
     else h += `<p class="tc-p">${b.x}</p>`;
   });
-  return `<figure class="fig tcard-fig"><div class="tcard"><div class="tc-head"><b>${title}</b><span>${esc(type)}</span></div>${h}</div><figcaption><a onclick="openPageViewer(${f.page})">${esc(f.title)} · S. ${f.page}</a></figcaption></figure>`;
+  return `<figure class="fig tcard-fig"><div class="tcard"><div class="tc-head"><div class="tc-t"><b>${title}</b><a class="tc-pg" onclick="openPageViewer(${f.page})" title="Im Buch öffnen">S. ${f.page}</a></div><span>${esc(type)}</span></div>${h}</div></figure>`;
 }
 function figHtml(f, c){ const bl = c && cardBlocks(c,f); if(bl) return cardHtml(c,f,bl); return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }
 

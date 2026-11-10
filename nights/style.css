@@ -385,3 +385,6 @@ details.level>summary.level-head{cursor:pointer;list-style:none;position:relativ
 .tcard .tc-p{padding:0 14px;margin:6px 0 0;font-size:.85rem}
 .tcard t{background:rgba(246,214,76,.55);padding:0 3px;border-radius:2px;font-style:italic}
 .fig.tcard-fig figcaption a{cursor:pointer}
+.tcard .tc-t{display:flex;align-items:baseline;gap:8px}
+.tcard .tc-pg{font-size:.66rem;color:#8d8a82;cursor:pointer;text-decoration:none;letter-spacing:.04em}
+.tcard .tc-pg:hover{color:#d8d5cd}

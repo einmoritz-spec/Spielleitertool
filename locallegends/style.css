@@ -418,3 +418,10 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 .city-map{display:inline-block;min-width:0!important;max-width:100%;vertical-align:top}
 .city-map img{width:auto;max-width:100%;max-height:calc(100vh - 150px);height:auto}
 @media (max-width:720px){.city-map img{max-height:none;width:100%}}
+
+/* Aufgeklappte Orte: volle Breite, Text läuft in Spalten */
+@media (min-width:1000px){
+  .loc-card.open{column-span:all}
+  .loc-card.open>.loc-body{column-width:46ch;column-gap:44px;column-fill:balance}
+  .loc-card.open>.loc-body>.readaloud,.loc-card.open>.loc-body>.danger-card,.loc-card.open>.loc-body>.card,.loc-card.open>.loc-body>.ll-fig{break-inside:avoid}
+}

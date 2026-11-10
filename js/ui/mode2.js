@@ -62,7 +62,7 @@ const M2 = {
     </div>`;
   },
 
-  /* ---------- Szene umordnen (nur DOM verschieben) ---------- */
+  /* ---------- Szene umordnen (nur DOM verschieben, nichts ausblenden) ---------- */
   layout(adv){
     const sw = document.querySelector(".stage-wrap"); if(!sw || sw.dataset.m2) return;
     sw.dataset.m2 = "1";
@@ -73,102 +73,129 @@ const M2 = {
     const sections = kids.filter(k=>k.classList.contains("section"));
     const main = document.createElement("div"); main.className = "m2-main";
     const side = document.createElement("aside"); side.className = "m2-side";
-    const secs = [];
-    const newSec = label => { const d = document.createElement("div"); d.className = "m2-sec"; d.dataset.label = label; secs.push(d); main.appendChild(d); return d; };
-    const labelOf = s => { const l = s.querySelector(":scope > .section-label, :scope > details > summary.section-label"); if(!l) return ""; const c = l.cloneNode(true); c.querySelectorAll("button,.line,.raven-icon").forEach(x=>x.remove()); return c.textContent.trim(); };
-    const sideBox = (el, chip) => { side.appendChild(el); };
-    const isHeadingP = el => { if(el.tagName!=="P") return null; const f = el.firstElementChild; if(!f || !f.classList.contains("section-heading")) return null; let n = el.firstChild; while(n && n!==f){ if(n.textContent.trim()) return null; n = n.nextSibling; } return f.textContent.trim().replace(/:$/,""); };
+    const blocks = [];
+    const newBlock = (label, kind) => {
+      const d = document.createElement("section"); d.className = "m2-block"+(kind?" m2-"+kind:"");
+      const h = document.createElement("div"); h.className = "m2-bh";
+      const n = document.createElement("i"); h.appendChild(n);
+      const t = document.createElement("span"); t.className = "m2-bt m2-gen"; t.textContent = label; h.appendChild(t);
+      d.appendChild(h); d._h = h; d._t = t; d._label = label; blocks.push(d); main.appendChild(d); return d;
+    };
+    const labelNode = s => s.querySelector(":scope > .section-label, :scope > details > summary.section-label");
+    const labelOf = s => { const l = labelNode(s); if(!l) return ""; const c = l.cloneNode(true); c.querySelectorAll("button,.line,.raven-icon").forEach(x=>x.remove()); return c.textContent.trim(); };
+    const headingOf = el => { if(el.nodeType!==1 || el.tagName!=="P") return null; const f = el.firstElementChild; if(!f || !f.classList.contains("section-heading")) return null; let n = el.firstChild; while(n && n!==f){ if(n.textContent.trim()) return null; n = n.nextSibling; } return f; };
+    const isCard = el => el.nodeType===1 && (el.classList.contains("challenge") || el.classList.contains("npc-grid"));
+    const flowBox = b => { let w = b.lastElementChild; if(!w || !w.classList.contains("flow")){ w = document.createElement("div"); w.className = "flow"; b.appendChild(w); } return w; };
+    const toSide = (el, block) => { el._block = block; side._cards.push(el); };
+    side._cards = []; const sideSecs = [];
 
-    let first = null;                       // Abschnitt "Einstieg"
-    const ensureFirst = () => first || (first = newSec("Einstieg"));
-    let seenFlow = false;
+    /* Kurzfassung „Auf einen Blick“ (nur Modus 2, eigene Stichpunkte zusätzlich zum Originaltext) */
+    const sc = adv.scenes[state.sceneIdx];
+    if(sc && sc.quick && sc.quick.length){
+      const qb = newBlock("Auf einen Blick","quick"); const ul = document.createElement("ul");
+      sc.quick.forEach(q=>{ const li = document.createElement("li"); li.innerHTML = (typeof LS==="function") ? LS(q) : q; ul.appendChild(li); });
+      qb.appendChild(ul);
+    }
     sections.forEach(s=>{
       const flow = s.querySelector(":scope > .flow");
       if(flow){
-        seenFlow = true;
-        const lab = s.querySelector(":scope > .section-label");
-        let cur = ensureFirst(); if(lab) cur.appendChild(lab);
-        let curLabel = "Einstieg";
-        [].slice.call(flow.childNodes).forEach(el=>{
-          if(el.nodeType!==1){
-            if(!el.textContent.trim()) return;
-            let lw = cur.lastElementChild; if(!lw || !lw.classList.contains("flow")){ lw = document.createElement("div"); lw.className = "flow"; cur.appendChild(lw); }
-            lw.appendChild(el); return;
-          }
-          const h = isHeadingP(el);
-          if(h){ cur = newSec(h); curLabel = h; }
-          if(wide && (el.classList.contains("challenge") || el.classList.contains("npc-grid"))){
+        const nodes = [].slice.call(flow.childNodes).filter(n=>n.nodeType===1 || n.textContent.trim());
+        let cur = null, pending = [];
+        const start = (label, hEl) => { cur = newBlock(label, "flowb"); if(hEl){ cur._t.textContent = ""; cur._t.classList.remove("m2-gen"); cur._t.appendChild(hEl); } pending.forEach(c=>place(c)); pending = []; };
+        const place = el => {
+          if(wide){
             const nameEl = el.querySelector(".ch-name, .npc-top");
-            const nm = nameEl ? nameEl.textContent.trim().replace(/\s+/g," ").slice(0,60) : "";
+            const c = nameEl ? nameEl.cloneNode(true) : null; if(c) c.querySelectorAll(".ch-optional-tag,.ch-subtitle,.npc-role,[class*=pip],[class*=diff]").forEach(x=>x.remove());
+            const nm = c ? c.textContent.replace(/[◆◇❖]/g,"").trim().replace(/\s+/g," ").slice(0,60) : "";
             const ptr = document.createElement("div"); ptr.className = "m2-ptr";
-            ptr.textContent = (el.classList.contains("challenge")?"Challenge: ":"Figur: ")+nm+" · rechts";
-            const target = el; ptr.onclick = ()=>target.scrollIntoView({block:"center",behavior:"smooth"});
-            cur.appendChild(ptr); sideBox(el, curLabel);
-          } else {
-            let w = cur.lastElementChild; if(!w || !w.classList.contains("flow")){ w = document.createElement("div"); w.className = "flow"; cur.appendChild(w); }
-            w.appendChild(el);
+            ptr.textContent = "→ "+(el.classList.contains("challenge")?"Challenge: ":"Figur: ")+nm;
+            ptr.onclick = ()=>{ el.scrollIntoView({block:"center",behavior:"smooth"}); el.classList.add("m2-flash"); setTimeout(()=>el.classList.remove("m2-flash"),1200); };
+            cur.appendChild(ptr); toSide(el, cur);
+          } else { cur.appendChild(el); }
+        };
+        nodes.forEach((el,k)=>{
+          const hEl = headingOf(el);
+          if(hEl){ start(hEl.textContent.trim(), hEl); if(el.textContent.trim()) flowBox(cur).appendChild(el); else el.remove(); return; }
+          if(isCard(el)){
+            /* Karten direkt vor einer Zwischenüberschrift gehören zum folgenden Block */
+            let m = k+1; while(m<nodes.length && isCard(nodes[m])) m++;
+            if(m<nodes.length && headingOf(nodes[m])){ pending.push(el); return; }
+            if(!cur) start("Überblick"); place(el); return;
           }
+          if(!cur) start("Überblick");
+          if(el.nodeType===1 && (el.classList.contains("readaloud"))){ cur.appendChild(el); return; }
+          flowBox(cur).appendChild(el);
         });
-        s.remove();
-        return;
+        if(pending.length){ if(!cur) start("Überblick"); pending.forEach(c=>place(c)); }
+        s.remove(); return;
       }
       const isChall = !!s.querySelector(":scope > .section-label .collapse-all-btn");
       const isNpc = !!s.querySelector(":scope > .npc-grid");
       const isRev = !!s.querySelector(":scope > .reveal-row");
       const lab = labelOf(s);
-      if(isChall || isNpc || isRev || lab==="Belohnung"){ if(wide){ sideBox(s); } else { newSec(lab||"Weiteres").appendChild(s); } return; }
-      if(!seenFlow && s.querySelector(":scope > .readaloud") && !lab){ ensureFirst().appendChild(s); return; }
-      let name = lab || (s.querySelector(".tip") ? "Tipps" : s.querySelector(".growth-details") ? "Wachstum" : "Weiteres");
-      newSec(name).appendChild(s);
+      if(isChall || isNpc || isRev || lab==="Belohnung"){ s._kind = isNpc?"npc":isChall?"ch":isRev?"rev":"rew"; sideSecs.push(s); return; }
+      if(s.querySelector(":scope > .readaloud") && !lab){ const b = newBlock("Vorlesen","read"); b.appendChild(s); return; }
+      const name = lab || (s.querySelector(".tip") ? "Tipps" : s.querySelector(".growth-details") ? "Wachstum" : "Weiteres");
+      const b = newBlock(name, "extra"); const ln = labelNode(s);
+      if(ln && !ln.closest("details")){ b._t.textContent = ""; b._t.classList.remove("m2-gen"); while(ln.firstChild) b._t.appendChild(ln.firstChild); ln.remove(); }
+      b.appendChild(s);
     });
-    const live = secs.filter(d=>d.children.length);
-    secs.filter(d=>!d.children.length).forEach(d=>d.remove());
-    if(notes) side.appendChild(notes);
+    blocks.forEach((b,i)=>{ b._h.firstChild.textContent = String(i+1); b.id = "m2b"+i; });
 
-    /* Revelations abhakbar */
-    const rev = M2.store("rev",{});
-    (side.querySelectorAll(".reveal-row").length ? side : main).querySelectorAll(".reveal-row").forEach((row,ri)=>{
-      const key = adv.id+":"+state.sceneIdx+":"+ri;
-      const b = document.createElement("button"); b.className = "m2-cb"+(rev[key]?" on":""); b.title = "Gefunden"; b.textContent = rev[key]?"✓":"";
-      b.onclick = ()=>{ const r = M2.store("rev",{}); r[key] = !r[key]; M2.save("rev",r); b.classList.toggle("on", !!r[key]); b.textContent = r[key]?"✓":""; };
-      row.insertBefore(b, row.firstChild);
-    });
+    /* Rechte Spalte: Figuren, Challenges (mit Block-Nummer), Revelations, Belohnung, Notizen */
+    const order = ["npc","ch","rev","rew"];
+    const sideAdd = el => (wide ? side : main).appendChild(el);
+    const posNpc = side._cards.filter(c=>c.classList.contains("npc-grid")), posCh = side._cards.filter(c=>c.classList.contains("challenge"));
+    const badge = c => { if(!c._block) return; const b = document.createElement("button"); b.className = "m2-badge"; b.textContent = "Block "+c._block._h.firstChild.textContent+" · "+c._block._label; b.onclick = ()=>c._block.scrollIntoView({block:"start",behavior:"smooth"}); side.appendChild(b); };
+    const group = (title) => { const h = document.createElement("div"); h.className = "m2-sh"; h.textContent = title; side.appendChild(h); };
+    const secOf = k => sideSecs.find(s=>s._kind===k);
+    if(wide){
+      if(posNpc.length || secOf("npc")){ group("Figuren"); posNpc.forEach(c=>{ badge(c); side.appendChild(c); }); if(secOf("npc")) side.appendChild(secOf("npc")); }
+      if(posCh.length || secOf("ch")){ group("Challenges"); posCh.forEach(c=>{ badge(c); side.appendChild(c); }); if(secOf("ch")) side.appendChild(secOf("ch")); }
+      if(secOf("rev")) side.appendChild(secOf("rev"));
+      if(secOf("rew")) side.appendChild(secOf("rew"));
+      /* Challenges rechts standardmäßig offen */
+      side.querySelectorAll(".challenge:not(.open)").forEach(c=>{ c.classList.add("open"); if(c.id && state.openChallenges) state.openChallenges.add(c.id); });
+    } else {
+      order.forEach(k=>{ const s = secOf(k); if(s){ const b = document.createElement("section"); b.className = "m2-block m2-extra m2-plain"; b.appendChild(s); main.appendChild(b); } });
+    }
+    if(notes) (wide?side:main).appendChild(notes);
 
-    /* Abschnitts-Knöpfe */
+    /* Revelations und Belohnungen abhakbar */
+    const chk = M2.store("rev",{});
+    const addCb = (row, key) => { const b = document.createElement("button"); b.className = "m2-cb"+(chk[key]?" on":""); b.title = "Abhaken"; b.textContent = chk[key]?"✓":"";
+      b.onclick = ()=>{ const r = M2.store("rev",{}); r[key] = !r[key]; M2.save("rev",r); b.classList.toggle("on", !!r[key]); b.textContent = r[key]?"✓":""; }; row.insertBefore(b, row.firstChild); row.classList.add("m2-row"); };
+    const root = wide ? side : main;
+    root.querySelectorAll(".reveal-row").forEach((row,ri)=>addCb(row, adv.id+":"+state.sceneIdx+":"+ri));
+    const rw = sideSecs.find(s=>s._kind==="rew"); if(rw) rw.querySelectorAll("li").forEach((li,ri)=>addCb(li, adv.id+":"+state.sceneIdx+":rw"+ri));
+
+    /* Sprungknöpfe zu den Blöcken (alles bleibt sichtbar) */
     const pills = document.createElement("div"); pills.className = "m2-pills";
-    live.forEach((d,i)=>{ const b = document.createElement("button"); b.className = "m2-pill"; b.textContent = d.dataset.label; b.onclick = ()=>M2.show(i); pills.appendChild(b); });
-    if(live.length>1){ const b = document.createElement("button"); b.className = "m2-pill m2-all"; b.textContent = "Alles"; b.onclick = ()=>M2.show(-1); pills.appendChild(b); }
+    blocks.forEach((d,i)=>{ const b = document.createElement("button"); b.className = "m2-pill"; b.textContent = (i+1)+" · "+d._label; b.onclick = ()=>M2.show(i); pills.appendChild(b); });
 
     const cols = document.createElement("div"); cols.className = "m2-cols"+(side.children.length?"":" m2-noside");
     cols.appendChild(main); if(side.children.length) cols.appendChild(side);
-    const anchor = head ? head.nextSibling : sw.firstChild;
-    sw.insertBefore(cols, anchor);
-    if(head) sw.insertBefore(pills, head); else sw.insertBefore(pills, cols);
-    M2._n = live.length;
-    if(typeof EDIT!=="undefined" && EDIT.on) M2.sec = -1;
-    if(M2.sec >= live.length) M2.sec = 0;
-    M2.show(live.length>1 ? M2.sec : -1, true);
+    sw.insertBefore(cols, head ? head.nextSibling : sw.firstChild);
+    if(blocks.length>1) sw.insertBefore(pills, cols);
+    M2._n = blocks.length; M2.sec = 0;
 
     /* Sprungleiste (Handy) */
+    document.querySelectorAll("#app > .m2-jump").forEach(x=>x.remove());
     if(!wide){
       const bar = document.createElement("div"); bar.className = "m2-jump";
-      [["Vorlesen",".m2-sec:not(.m2-hide) .readaloud"],["Ablauf",".m2-pills"],["Challenges",".challenge"],["Figuren",".npc-grid"],["Notizen",".adv-notes"]].forEach(x=>{
-        const b = document.createElement("button"); b.textContent = x[0];
-        b.onclick = ()=>{ let t = document.querySelector(".stage-wrap "+x[1]); if(t && t.closest(".m2-hide")){ M2.show(-1); } if(t) t.scrollIntoView({block:"start",behavior:"smooth"}); };
-        if(document.querySelector(".stage-wrap "+x[1])) bar.appendChild(b);
+      [["Vorlesen",".readaloud"],["Ablauf",".m2-flowb"],["Figuren",".npc-grid"],["Challenges",".challenge"],["Notizen",".adv-notes"]].forEach(x=>{
+        const t = document.querySelector(".stage-wrap "+x[1]); if(!t) return;
+        const b = document.createElement("button"); b.textContent = x[0]; b.onclick = ()=>t.scrollIntoView({block:"start",behavior:"smooth"}); bar.appendChild(b);
       });
-      document.querySelectorAll("body > .m2-jump, #app > .m2-jump").forEach(x=>x.remove());
       document.getElementById("app").appendChild(bar);
     }
   },
-  show(i, quiet){
-    M2.sec = i;
-    const secs = document.querySelectorAll(".m2-main > .m2-sec");
-    secs.forEach((d,k)=>d.classList.toggle("m2-hide", i>=0 && k!==i));
-    document.querySelectorAll(".m2-pills .m2-pill").forEach((b,k)=>b.classList.toggle("active", b.classList.contains("m2-all") ? i<0 : k===i));
-    if(!quiet){ const p = document.querySelector(".m2-pills"); if(p && p.getBoundingClientRect().top<0) p.scrollIntoView({block:"start"}); }
+  show(i){
+    const b = document.getElementById("m2b"+i); if(!b) return; M2.sec = i;
+    b.scrollIntoView({block:"start",behavior:"smooth"});
+    document.querySelectorAll(".m2-pills .m2-pill").forEach((p,k)=>p.classList.toggle("active", k===i));
   },
-  step(d){ if(!M2._n || M2._n<2) return; let i = M2.sec<0 ? (d>0?0:M2._n-1) : M2.sec+d; if(i<0||i>=M2._n) return; M2.show(i); }
+  step(d){ if(!M2._n) return; const i = Math.max(0, Math.min(M2._n-1, M2.sec+d)); M2.show(i); }
 };
 
 /* Szene wechseln: Wegkarte schließen, Abschnitt zurücksetzen */

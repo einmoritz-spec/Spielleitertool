@@ -48,6 +48,15 @@ Doch die Dinge sind nicht, wie sie scheinen. An diesem trüben Nachmittag, drau�
 {
   key:"sapsauce", kind:"scene", page:"S. 317–318",
   title:"Cooking the Sapsauce", en:"Cooking the Sapsauce",
+  quick:[
+    "<b>Worum es geht:</b> Optionaler Auftakt. Die Gruppe hilft Lance Tubroot und seinen 12 Kindern, Sapsauce zu brauen.",
+    "<b>Ablauf:</b> Journey über mehrere Tage aus fünf Vignetten: Saft sammeln · Die Störenfriede · Sapsauce kochen · Trinkgelage · Hastiges Abfüllen. Lance entscheidet, wer was macht. Weitere Vignetten bei Bedarf aus der „Common Weal“-Journey (S. 254).",
+    "<b>Gilt die ganze Szene:</b> dizzy-2 durch die Dämpfe, kann zu nauseated oder Kopfschmerzen gleicher Stufe werden.",
+    "<b>Mögliche Challenges:</b> Swarm of Insects (aus „Saft sammeln“) · Masked Rascals (aus „Die Störenfriede“).",
+    "<b>Figuren:</b> Lance Tubroot: jovial, aber kritisch bei Fehlern, weich bei seinen Kindern. Ivy, Ollo & Jurard: die Streichespieler.",
+    "<b>Belohnung:</b> Ist Lance zufrieden: eine Tonflasche Sapsauce pro Hero + supplies-1. Bei außergewöhnlichem Talent teilt er das Familienrezept (tempted-1).",
+    "<b>Weiter:</b> Sapsauce nach Ravenhome liefern, das führt in „Die Gerstenfelder“."
+  ],
   summary:"Optionaler Auftakt · Journey im Tubroot-Obstgarten",
   overview:["Die Fellowschaft erreicht den Tubroot-Obstgarten, Lance bittet um Hilfe beim Sapsauce-Brauen", "Die Tubroots: Familienrezept und Kessel sind ein Oldways-Erbstück", "Die Herstellung läuft als mehrtägige Journey — dizzy-2 als Dauerkonsequenz durch die Dämpfe", "Die Lieferung des fertigen Sirups nach Ravenhome führt direkt in die Gerstenfelder"],
   readAloud:[

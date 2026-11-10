@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v105";
+const VERSION = "v108";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -29,7 +29,28 @@ const FILES = [
   "locallegends/js/data/appendix.js",
   "locallegends/js/data/rules-glossary.js",
   "locallegends/js/app.js",
-  "locallegends/img/iceberg-1.jpg",
+  "locallegends/img/karten/campus-sl.webp",
+  "locallegends/img/karten/campus-spieler.webp",
+  "locallegends/img/karten/chinatown-sl.webp",
+  "locallegends/img/karten/chinatown-spieler.webp",
+  "locallegends/img/karten/colonia_sombras-sl.webp",
+  "locallegends/img/karten/colonia_sombras-spieler.webp",
+  "locallegends/img/karten/fortune_row-sl.webp",
+  "locallegends/img/karten/fortune_row-spieler.webp",
+  "locallegends/img/karten/happyville-sl.webp",
+  "locallegends/img/karten/happyville-spieler.webp",
+  "locallegends/img/karten/independence-sl.webp",
+  "locallegends/img/karten/independence-spieler.webp",
+  "locallegends/img/karten/stadt-sl.webp",
+  "locallegends/img/karten/stadt-spieler.webp",
+  "locallegends/img/karten/sunken_city-sl.webp",
+  "locallegends/img/karten/sunken_city-spieler.webp",
+  "locallegends/img/karten/tourist_trap-sl.webp",
+  "locallegends/img/karten/tourist_trap-spieler.webp",
+  "locallegends/img/karten/undertrash-sl.webp",
+  "locallegends/img/karten/undertrash-spieler.webp",
+  "locallegends/js/data/karten.js",
+  "locallegends/img/campus-einladung.jpg","locallegends/img/iceberg-1.jpg",
   "locallegends/img/iceberg-2.jpg",
   "locallegends/img/iceberg-3.jpg",
   "locallegends/img/iceberg-4.jpg",

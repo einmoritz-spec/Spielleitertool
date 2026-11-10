@@ -116,6 +116,7 @@ function renderOverview(){
       <h1>Local Legends — Fall-Akte</h1>
       <p>Neun Bezirke der Stadt jenseits von Downtown und Industriegebiet — jeder mit eigener Lore, Orten, Locals und einem One-Shot-Fall. Klick auf einen Bezirk, um die Akte zu öffnen.</p>
     </div>
+    ${renderCityMap()}
     <div class="grid">${tiles}</div>
     ${renderBonusTiles()}
     <div class="footer-note">Quelle: City of Mist — Local Legends · Fall-Akte für den Spieltisch, kein Ersatz fürs Regelwerk.</div>
@@ -366,6 +367,9 @@ function renderDistrictView(id){
     if(c.playerOptionsIntro) html += `<div class="card"><p>${c.playerOptionsIntro}</p></div>`;
     html += c.playerOptions.map(renderThemeCard).join("");
   }
+  else if(active==="map"){
+    html += renderMapPanel(id);
+  }
   else if(active==="places"){
     html += tabHead("Orte", tocPage(id,false,"Places of Interest"));
     html += c.places.map((p,i)=>locBlock(p, "pl_"+i, null)).join("");
@@ -424,12 +428,12 @@ function renderDistrictView(id){
   return html;
 }
 function getDistTabKeys(c){
-  const tabs = ["overview","options","places","locals","chance","powersets"];
+  const tabs = ["overview","map","options","places","locals","chance","powersets"];
   if(c.heistRules) tabs.push("heists");
   tabs.push("case");
   return tabs;
 }
-const DIST_TAB_LABELS = {overview:"Übersicht", options:"Player Options", places:"Orte", locals:"Locals", chance:"Zufallsbeg.", powersets:"Power Sets", heists:"Heists", case:"Der Fall"};
+const DIST_TAB_LABELS = {overview:"Übersicht", map:"Karte", options:"Player Options", places:"Orte", locals:"Locals", chance:"Zufallsbeg.", powersets:"Power Sets", heists:"Heists", case:"Der Fall"};
 function renderDistrictTabs(c, id, active){
   const tabs = getDistTabKeys(c);
   let html = `<div class="case-tabbar">`;
@@ -472,6 +476,9 @@ function locBlock(l, anchorId, scope){
   }
   if(l.clues){
     html += clueBoxes(l.clues);
+  }
+  if(l.images){
+    html += l.images.map(im=>`<figure class="ll-fig"><img src="${im.src}" alt="${im.caption||""}" loading="lazy" onclick="window.open(this.src,'_blank')"><figcaption>${im.caption||""}${im.page?` · S. ${im.page}`:""}</figcaption></figure>`).join("");
   }
   if(l.handouts){
     html += l.handouts.map(h=>`<div class="handout"><div class="ho-label">${h.kind||"Handout"}${h.page?` · S. ${h.page}`:""}</div><h4>${h.title||""}</h4><div class="ho-text">${h.text}</div>${h.note?`<div class="ho-note">${h.note}</div>`:""}</div>`).join("");
@@ -516,6 +523,7 @@ function getCaseTabKeys(cs){
 }
 function renderCaseTabs(cs, active){
   let tabs = `<button class="case-tab ${active==='overview'?'active':''}" onclick="setCaseTab('overview')">Übersicht</button>`;
+  if(typeof LL_MAPS!=="undefined") tabs += `<button class="case-tab ${active==='map'?'active':''}" onclick="setCaseTab('map')">Karte</button>`;
   cs.depths.forEach(dp=>{
     tabs += `<button class="case-tab ${active===('depth'+dp.n)?'active':''}" onclick="setCaseTab('depth${dp.n}')">Depth ${dp.n}<br><small>${dp.title}</small></button>`;
   });
@@ -555,6 +563,8 @@ function renderCaseView(id){
     if(cs.fourthMurder) html += `<div class="card"><h3>${cs.fourthMurder.title}</h3>${cs.fourthMurder.paragraphs.map(p=>`<p>${p}</p>`).join("")}</div>`;
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Hintergrund</h2></div><div class="section-body">${cs.background.map(p=>`<div class="card"><p>${(p && typeof p==="object" && p.text!==undefined)?p.text:p}</p></div>`).join("")}${cs.miniThemeKits?cs.miniThemeKits.map(renderThemeCard).join(""):""}</div></div>`;
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote}</p></div>${cs.icebergImage?`<div class="card" style="padding:8px;"><p class="hint" style="margin:0 0 6px;font-size:12px;color:var(--text-faint);">Auf ein Foto tippen, um zum Abschnitt zu springen.</p><div class="ice-wrap"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}" style="width:100%;height:auto;display:block;border-radius:4px;">${iceHot(id)}</div></div>`:""}${cs.icebergMap?`<div class="card"><h3 style="font-size:14px;">Schauplätze nach Tiefe</h3><ul>${cs.icebergMap.depths.map(d=>`<li><b>Depth ${d.n}:</b> ${d.places.join(", ")}</li>`).join("")}</ul>${cs.icebergMap.links&&cs.icebergMap.links.length?`<p style="font-size:12px;color:var(--text-faint);">Verbindungen: ${cs.icebergMap.links.map(l=>l[0]+" → "+l[1]).join(" · ")}</p>`:""}</div>`:""}</div></div>`;
+  } else if(active==="map"){
+    html += renderMapPanel(id);
   } else if(active==="aftermath"){
     const isComplete = !!state.caseComplete[completeKey];
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Aftermath</h2></div><div class="section-body">`;
@@ -780,3 +790,37 @@ document.addEventListener("keydown", function(e){
 });
 
 render();
+
+
+/* ============================================================
+   KARTEN (Crime Board City Map 2)
+   ============================================================ */
+function mapMode(){ let m="sl"; try{ m=localStorage.getItem("ll_mapmode")||"sl"; }catch(e){} return m==="spieler"?"spieler":"sl"; }
+function setMapMode(m){ try{ localStorage.setItem("ll_mapmode",m); }catch(e){} render(); }
+function mapToggle(){
+  const m=mapMode();
+  return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')">SL-Karte</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')">Spielerkarte</button><span class="map-hint">${m==="sl"?"mit lila Markierungen der Fall-Schauplätze":"ohne Fall-Hinweise, zum Zeigen am Tisch"}</span></div>`;
+}
+function mapFull(src){
+  let o=document.getElementById("mapLightbox");
+  if(!o){ o=document.createElement("div"); o.id="mapLightbox"; o.className="map-lightbox"; o.onclick=()=>o.classList.remove("show"); document.body.appendChild(o); }
+  o.innerHTML=`<img src="${src}" alt="Karte"><button class="map-lb-close" aria-label="Schließen">✕</button>`;
+  o.classList.add("show");
+}
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ const o=document.getElementById("mapLightbox"); if(o) o.classList.remove("show"); } });
+function renderCityMap(){
+  if(typeof LL_MAPS==="undefined") return "";
+  const m=mapMode(), src=LL_MAPS.dir+"stadt-"+m+".webp";
+  const hot=LL_MAPS.hot.map(h=>{ const d=DISTRICTS.find(x=>x.id===h.id); if(!d||d.hidden) return ""; const ok=d.status==="ready";
+    return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}"></button>`; }).join("");
+  const chips=DISTRICTS.filter(d=>!d.hidden&&d.status==="ready").map(d=>`<button class="map-chip" onclick="goDistrict('${d.id}')">${d.title}${LL_MAPS.notOnMap[d.id]?` <small>${LL_MAPS.notOnMap[d.id]}</small>`:""}</button>`).join("");
+  return `<div class="city-map-box"><div class="city-map-head"><h2>Stadtkarte</h2>${mapToggle()}</div>
+    <div class="city-scroll"><div class="city-map"><img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div>
+    <p class="map-hint2">Auf einen Bezirk in der Karte tippen, um ihn zu öffnen. Sunken City und Undertrash liegen nicht auf der Karte. <a href="#" onclick="mapFull('${src}');return false;">Karte groß ansehen</a></p>
+    <div class="map-chips">${chips}</div></div>`;
+}
+function renderMapPanel(id){
+  if(typeof LL_MAPS==="undefined") return "";
+  const m=mapMode(), src=LL_MAPS.dir+id+"-"+m+".webp";
+  return `<div class="card map-panel">${mapToggle()}<img class="map-img" src="${src}" alt="Karte" onclick="mapFull('${src}')"><p class="map-hint2">Zum Vergrößern antippen.</p></div>`;
+}

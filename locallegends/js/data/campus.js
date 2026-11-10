@@ -218,6 +218,7 @@ const THE_CAMPUS = {
       ]},
       {n:2, title:"Passing Notes", locations:[
         {name:"GLORIA'S DORM", text:"Nicht-Studierende dürfen die Dormitories nicht betreten. Diese Regel ist auf dem Campus so streng, dass sie nicht ohne direktes Eingreifen der Dekan*innen aufgehoben werden kann. Nicht-Studierende, die hineinwollen, müssen sich Einschleichen oder sich anderweitig verkleiden.<br><br>Glorias Zimmer ist ein typisches Beispiel eines Studierendenzimmers. Sie ist nicht hier, da sie kurz nach dem Legen von Jakobs Notiz-Falle einen tonisch-klonischen Anfall erlitt.",
+          images:[{src:"img/campus-einladung.jpg", caption:"Einladung der Red Masque Society (Handout)", page:198}],
           clues:[
             "Auf ihrem Schreibtisch liegt eine zerknitterte Seite mit dem Bild einer roten Maske. Dies war die ursprüngliche Einladung von Larry Paulson, an einem „Uralten Beschwörungsritual“ teilzunehmen, mit Datum und Uhrzeit von vor ein paar Nächten. Glorias Name ist oben als „Vizepräsidentin Janeiro“ eingetragen, und der Ort ist das Red Masque Society House.",
             {text:"Zuvor hörten Studierende auf dem Flur Gloria schreien und riefen den Rettungsdienst, der Gloria eilig in die University Infirmary brachte."},

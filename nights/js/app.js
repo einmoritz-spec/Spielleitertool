@@ -172,11 +172,13 @@ function chapterView(c, ch){
   const k0 = !ch.flat && (ch.layer || first.kind==="intro");
   const ns0 = c.sections[c.sections.indexOf(first)+1];
   let h = `<div class="sec-title"><h2>${esc(chapterTitle(ch))}</h2>${k0?`<button class="pagetag" onclick="openPageViewer(${first.page})">Seite ${pageRange(c,first,ns0)}</button>`:""}</div>`;
-  if(ch.items.length>1) h += `<div class="toc">${ch.items.slice(ch.layer||first.kind==="intro"?1:0).map(s=>`<a href="#/case/${c.nr}/sec/${s.id}">${esc(s.title)}</a>`).join("")}</div>`;
-  const coverFig = (first.kind==="intro") ? (c.figures||[]).filter(f=>f.kind==="art" && figSec(c,f)===first.id).sort((a,b)=>a.page-b.page)[0] : null;
-  if(coverFig) h += `<div class="cover-top">${figHtml(coverFig)}</div>`;
   const eisSplit = !!(c.eisberg && first.kind==="intro");
-  if(eisSplit) h += `<div class="eis-split"><div id="eisberg" class="eis-side">${eisbergView(c)}</div><div class="eis-text">`;
+  let pre = "";
+  if(ch.items.length>1) pre += `<div class="toc">${ch.items.slice(ch.layer||first.kind==="intro"?1:0).map(s=>`<a href="#/case/${c.nr}/sec/${s.id}">${esc(s.title)}</a>`).join("")}</div>`;
+  const coverFig = (first.kind==="intro") ? (c.figures||[]).filter(f=>f.kind==="art" && figSec(c,f)===first.id).sort((a,b)=>a.page-b.page)[0] : null;
+  if(coverFig) pre += `<div class="cover-top">${figHtml(coverFig)}</div>`;
+  if(eisSplit) h += `<div class="eis-split"><div id="eisberg" class="eis-side">${eisbergView(c)}</div><div class="eis-text">` + pre;
+  else h += pre;
   ch.items.forEach((sec,k)=>{
     const sub = !ch.flat && !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
     const subCount = ch.items.filter((x,kk)=>!ch.flat && !(ch.layer && kk===0) && !(first.kind==="intro" && kk===0)).length, single = sub && subCount===1;

@@ -344,10 +344,12 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 /* Eisberg links (mitlaufend), Text rechts daneben – ab Laptop-Breite */
 @media (min-width:1000px) and (orientation:landscape){
   .eis-split{display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:start}
-  .eis-side{position:sticky;top:64px}
+  .eis-side{position:sticky;top:60px}
   .eis-side .eis-wrap{margin:0}
-  .eis-side .eis-wrap img{max-height:calc(100vh - 170px)}
+  .eis-side .eis-wrap img{max-height:calc(100vh - 128px)}
   .eis-text{min-width:0}
+  .eis-text .cover-top .fig{margin:6px 0}
+  .eis-text .cover-top .fig img{max-height:30vh;width:auto;max-width:100%;margin:0 auto}
 }
 
 /* Ebenen eingeklappt */

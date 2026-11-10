@@ -21,3 +21,9 @@
 /* In langen, scrollbaren Tab-Leisten bleibt die Kachel am rechten Rand sichtbar */
 .case-tabbar .notes-tile{position:sticky;right:0;background:linear-gradient(rgba(255,255,255,.05),rgba(255,255,255,.05)),var(--bg,#0b0d14);box-shadow:-14px 0 10px -4px var(--bg,#0b0d14);z-index:2}
 .crumb-row .notes-tile{margin-left:auto;flex:none}
+
+/* Nur der Stift – ohne Feld/Rahmen, überall */
+html .notes-tile,html .crumb-row .notes-tile,html .case-tabbar .notes-tile,html .scene-picker-wrap .notes-tile{background:none!important;border:0!important;box-shadow:none!important;padding:4px 6px!important;border-radius:6px;font-size:1.25rem!important;line-height:1;gap:0}
+html .notes-tile .nt-t{display:none!important}
+html .notes-tile:hover,html .notes-tile.open{background:rgba(128,128,128,.15)!important}
+html .notes-tile .nt-dot{position:relative;top:-6px;left:-1px;margin-left:-2px}

@@ -92,3 +92,6 @@ body:has(.pager){padding-bottom:62px}
 .grprows .gr-t .case-tab{padding:5px 11px;font-size:.8rem;flex:0 0 auto}
 .grprows .gr-t .case-tab.active{font-weight:600}
 @media (max-width:1000px){.grprows .gr-row{display:block}.grprows .gr-l{display:block;text-align:left;padding:6px 0 3px}}
+
+/* Aktiver Tab ragt nach oben: Platz lassen, damit die Scroll-Leiste ihn nicht abschneidet */
+.case-tabbar{padding-top:6px}

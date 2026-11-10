@@ -143,7 +143,8 @@ function renderCase(c, sid){
   let body = chapterView(c, ch);
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
+  const _f = ch.items[0], _n = c.sections[c.sections.indexOf(_f)+1];
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="Seite ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a></div>
   
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
@@ -170,7 +171,7 @@ function chapterView(c, ch){
   const first = ch.items[0];
   const k0 = !ch.flat && (ch.layer || first.kind==="intro");
   const ns0 = c.sections[c.sections.indexOf(first)+1];
-  let h = `<div class="sec-title"><h2>${esc(chapterTitle(ch))}</h2>${k0?`<button class="pagetag" onclick="openPageViewer(${first.page})">Seite ${pageRange(c,first,ns0)}</button>`:""}</div>`;
+  let h = "";
   const eisSplit = !!(c.eisberg && first.kind==="intro");
   let pre = "";
   const coverFig = (first.kind==="intro") ? (c.figures||[]).filter(f=>f.kind==="art" && figSec(c,f)===first.id).sort((a,b)=>a.page-b.page)[0] : null;

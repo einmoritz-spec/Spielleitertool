@@ -68,11 +68,12 @@ function renderAdv(a, secId){
   const tabs = a.sektionen.map(x=>{ const g = grpOf(a,x); return `<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}${g?"<br><small>"+esc(g)+"</small>":""}</button>`; }).join("");
   const tabbar = `<div class="case-tabbar">${tabs}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
-  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
+  const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];
+  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)} › ${_pg?`<a onclick="openBook('${a.buch}',${_pg})" title="Seite ${_pg} im Buch öffnen">${esc(s.titel)}</a>`:esc(s.titel)}</div>
   ${tabbar}
   <div class="adv-grid tab-layout" id="advGrid">
    <div class="content">
-   <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
+   <div class="chsec">
    ${idx===0?ovBox(a):""}
    ${osArt(a,idx)}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}

@@ -26,7 +26,9 @@ loadPips();
 function tocEntry(id,isCase){ const es=(GUIDE.tableOfContents&&GUIDE.tableOfContents.entries)||[]; return es.find(x=>x.id===id && !!x.isCase===!!isCase && !x.isVillain); }
 function tocPage(id,isCase,prefix){ const e=tocEntry(id,isCase); if(!e) return 0; if(!prefix) return e.page; const m=(e.sub||[]).find(x=>x[0].indexOf(prefix)===0); return m?m[1]:0; }
 function pgA(n){ return n?` <a class="pg-link" href="#" data-page="${n}" title="Originalseite im Buch ansehen">S. ${n}</a>`:""; }
-function tabHead(title,n){ return `<h2 class="tab-h">${title}${pgA(n)}</h2>`; }
+let LL_TAIL = null;
+function tabHead(title,n){ LL_TAIL = {title:title, n:n}; return ""; }
+function llTail(h){ const t = LL_TAIL; LL_TAIL = null; if(!t) return h; const link = `<span class="sep">/</span>` + (t.n ? `<a class="pg-link" href="#" data-page="${t.n}" title="Seite ${t.n} im Buch öffnen">${t.title}</a>` : `<span>${t.title}</span>`); return h.replace(/(<div class="crumb">[\s\S]*?)<\/div>/, "$1"+link+"</div>"); }
 
 function goOverview(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goDistrict(id){ state.view="district"; state.districtId=id; state.distTab="overview"; render(); window.scrollTo(0,0); }
@@ -319,7 +321,8 @@ function togglePip(arrKey, i){
   }
 }
 
-function renderDistrictView(id){
+function renderDistrictView(id){ LL_TAIL = null; return llTail(_renderDistrictView(id)); }
+function _renderDistrictView(id){
   const dist = DISTRICTS.find(d=>d.id===id);
   const c = dist.data;
   if(!c){
@@ -546,7 +549,8 @@ function iceGo(n,t){
 }
 function setCaseTab(tab){ state.caseTab = tab; render(); window.scrollTo(0,0); }
 
-function renderCaseView(id){
+function renderCaseView(id){ LL_TAIL = null; return llTail(_renderCaseView(id)); }
+function _renderCaseView(id){
   const dist = DISTRICTS.find(d=>d.id===id);
   const c = dist.data;
   const cs = c.case;

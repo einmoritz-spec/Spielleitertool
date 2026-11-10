@@ -424,7 +424,6 @@ function renderDistrictView(id){
       </button></div></div>`;
   }
 
-  html += llNotes("dist:"+id);
   html += pagerHTML(getDistTabKeys(c).map(k=>[k,DIST_TAB_LABELS[k]]), active, "setDistTab");
   html += `<div class="footer-note">Local Legends — Fall-Akte · Bezirk: ${dist.title}</div>`;
   return html;
@@ -442,10 +441,12 @@ function renderDistrictTabs(c, id, active){
   tabs.forEach(key=>{
     html += `<button class="case-tab ${active===key?'active':''}" onclick="setDistTab('${key}')">${DIST_TAB_LABELS[key]}</button>`;
   });
-  html += `</div>`;
+  html += NotePop.tile("ll", "dist:"+id+":"+active) + `</div>`;
   return html;
 }
 function llNotes(key){ let n={}; try{ n=JSON.parse(localStorage.getItem("ll_notes")||"{}"); }catch(e){} return `<details class="mini-notes" ${n[key]?"open":""}><summary>✎ Notizen</summary><textarea oninput="llSetNote('${key}',this.value)" placeholder="Eigene Notizen …">${(n[key]||"").replace(/&/g,"&amp;").replace(/</g,"&lt;")}</textarea></details>`; }
+function llLegacyKey(k){ const m=/^(dist|case):(.+):overview$/.exec(k); return m?m[1]+":"+m[2]:null; }
+NotePop.reg("ll", k=>{ let n={}; try{ n=JSON.parse(localStorage.getItem("ll_notes")||"{}"); }catch(e){} if(n[k]!==undefined) return n[k]; const l=llLegacyKey(k); return l?(n[l]||""):""; }, (k,v)=>llSetNote(k,v));
 function llSetNote(k,v){ let n={}; try{ n=JSON.parse(localStorage.getItem("ll_notes")||"{}"); }catch(e){} n[k]=v; try{ localStorage.setItem("ll_notes",JSON.stringify(n)); }catch(e){} }
 function pagerHTML(items, active, fn){
   const i = items.findIndex(x=>x[0]===active); if(i<0) return "";
@@ -523,14 +524,14 @@ function getCaseTabKeys(cs){
   tabs.push("aftermath");
   return tabs;
 }
-function renderCaseTabs(cs, active){
+function renderCaseTabs(cs, active, nid){
   let tabs = `<button class="case-tab ${active==='overview'?'active':''}" onclick="setCaseTab('overview')">Übersicht</button>`;
   if(typeof LL_MAPS!=="undefined") tabs += `<button class="case-tab ${active==='map'?'active':''}" onclick="setCaseTab('map')">Karte</button>`;
   cs.depths.forEach(dp=>{
     tabs += `<button class="case-tab ${active===('depth'+dp.n)?'active':''}" onclick="setCaseTab('depth${dp.n}')">Depth ${dp.n}<br><small>${dp.title}</small></button>`;
   });
   tabs += `<button class="case-tab tab-aftermath ${active==='aftermath'?'active':''}" onclick="setCaseTab('aftermath')">Aftermath</button>`;
-  return `<div class="case-tabbar">${tabs}</div>`;
+  return `<div class="case-tabbar">${tabs}${NotePop.tile("ll", "case:"+nid+":"+active)}</div>`;
 }
 function iceHot(id){
   const L = typeof LL_ICE!=="undefined" && LL_ICE[id]; if(!L) return "";
@@ -556,7 +557,7 @@ function renderCaseView(id){
 
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span><button onclick="goDistrict('${id}')">${dist.title}</button><span class="sep">/</span>${cs.title}</div>`;
   if(false) html += `<div class="case-hero"><div class="eyebrow">ONE-SHOT CASE · ${dist.title.toUpperCase()}</div><h1 style="margin:0 0 4px;">${cs.title}</h1><p class="sub" style="font-style:italic;color:var(--text-faint);margin:0;">${cs.subtitle}</p></div>`;
-  html += renderCaseTabs(cs, active);
+  html += renderCaseTabs(cs, active, id);
   html += `<div class="case-tabpanel">`;
 
   if(active==="overview"){
@@ -608,7 +609,6 @@ function renderCaseView(id){
     }
   }
 
-  html += llNotes("case:"+id);
   html += pagerHTML([["overview","Übersicht"]].concat(cs.depths.map(dp=>["depth"+dp.n,"Depth "+dp.n+": "+dp.title])).concat([["aftermath","Aftermath"]]), active, "setCaseTab");
   html += `</div>`;
   html += `<div class="footer-note">Local Legends — Fall-Akte · ${dist.title}: ${cs.title}</div>`;

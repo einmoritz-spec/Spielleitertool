@@ -226,6 +226,12 @@ function escHtml(s){
   return String(s===undefined||s===null?"":s)
     .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
+/* Notizen pro Szene: Übersicht/Wegkarte nutzen weiter den bisherigen Abenteuer-Schlüssel */
+function sceneNoteKey(advId, idx){ return advId+":"+idx; }
+function sceneNoteGet(k){ const i=k.indexOf(":"), a=k.slice(0,i), x=k.slice(i+1); if(x==="0"||x==="map") return getNote(a); try{ return localStorage.getItem("woto_note_"+a+"_"+x)||""; }catch(e){ return ""; } }
+function sceneNoteSet(k,v){ const i=k.indexOf(":"), a=k.slice(0,i), x=k.slice(i+1); if(x==="0"||x==="map") return saveNote(a,v); try{ localStorage.setItem("woto_note_"+a+"_"+x, v); }catch(e){} }
+NotePop.reg("wake", sceneNoteGet, sceneNoteSet);
+function noteTileHere(adv){ const m2=(typeof M2!=="undefined")&&M2.on(); return NotePop.tile("wake", sceneNoteKey(adv.id, (m2&&M2.map)?"map":state.sceneIdx)); }
 function renderAdventureNotes(adv){
   const open = state.notesOpen[adv.id] ? "open" : "";
   return `

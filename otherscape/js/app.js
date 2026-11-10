@@ -66,7 +66,7 @@ function renderAdv(a, secId){
   const s = a.sektionen[idx];
   const doneKey = a.id+":"+s.id;
   const tabs = a.sektionen.map(x=>{ const g = grpOf(a,x); return `<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}${g?"<br><small>"+esc(g)+"</small>":""}</button>`; }).join("");
-  const tabbar = `<div class="case-tabbar">${tabs}</div>`;
+  const tabbar = `<div class="case-tabbar">${tabs}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)}</div>
   ${tabbar}
@@ -76,7 +76,6 @@ function renderAdv(a, secId){
    ${idx===0?ovBox(a):""}
    ${osArt(a,idx)}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
-   <details class="mini-notes" ${ST.notes[a.id+":"+s.id]?"open":""}><summary>✎ Notizen</summary><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen …">${esc(ST.notes[a.id+":"+s.id]||"")}</textarea></details>
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
@@ -84,6 +83,7 @@ function renderAdv(a, secId){
   if(idx===0) ovDraw(a);
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
+NotePop.reg("os", k=>ST.notes[k]||"", setNote);
 
 /* Seitenleiste im Stil von Wake: eingeklappt = schmale Punktleiste, ausgeklappt = volle Liste */
 function prMobile(){ return innerWidth<=1000; }

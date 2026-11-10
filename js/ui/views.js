@@ -833,7 +833,7 @@ function renderScenePicker(adv){
     const n = s.kind==="intro" ? "Ü" : s.kind==="aftermath" ? "A" : String(i);
     return `<button class="sc-chip ${active?'active':''} ${done?'done':''}" onclick="goScene(${i})" aria-label="${esc(effTitle(adv.id,s))}" ${active?'aria-current="true"':""}><span class="sc-n">${n}</span>${active?`<span class="sc-t">${esc(effTitle(adv.id,s))}</span>`:""}</button>`;
   }).join("");
-  return `<div class="scene-picker-wrap"><div class="scene-chips">${chips}</div>
+  return `<div class="scene-picker-wrap"><div class="scene-chips">${chips}</div>${noteTileHere(adv)}
     <button class="edit-toggle edit-toggle-m ${EDIT.on?'active':''}" onclick="toggleEditMode()" title="Szenentext bearbeiten" aria-label="Szenentext bearbeiten"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
   </div>`;
 }
@@ -847,7 +847,7 @@ function renderSceneTabs(adv){
     const chk = checkable ? `<button class="trail-check ${done?'done':''}" onclick="event.stopPropagation(); toggleSceneCompleted('${adv.id}', ${i})" title="${done?'Als nicht erledigt markieren':'Als erledigt markieren'}">${done?'✓':''}</button>` : "";
     return `<div class="case-tab ${active?'active':''} ${done?'done':''}" role="button" tabindex="0" onclick="goScene(${i})" title="${esc(effTitle(adv.id,s))}"><span class="ct-eyebrow">${eyebrow}</span><span class="ct-title">${esc(effTitle(adv.id,s))}</span>${chk}</div>`;
   }).join("");
-  return `<div class="wk-head"><div class="crumbs"><a onclick="goOverview()">Start</a> › ${esc(adv.title)} <span class="wk-meta">· ${adv.scenes.length} Szenen · ${esc(adv.en)}</span></div></div><div class="case-tabbar">${tabs}</div>`;
+  return `<div class="wk-head"><div class="crumbs"><a onclick="goOverview()">Start</a> › ${esc(adv.title)} <span class="wk-meta">· ${adv.scenes.length} Szenen · ${esc(adv.en)}</span></div></div><div class="case-tabbar">${tabs}${noteTileHere(adv)}</div>`;
 }
 function setSceneTabs(v){ try{ localStorage.setItem("wake.sceneTabs", v?"1":"0"); }catch(e){} document.body.classList.toggle("wk-tabs", v); render(); }
 function renderAdventure(){
@@ -860,7 +860,7 @@ function renderAdventure(){
   <div class="shell ${hasTimeTracker?'has-time-tracker':''} ${(m2||sceneTabsOn())?'tabs-top':''}">
     ${m2?M2.tabs(adv):sceneTabsOn()?renderSceneTabs(adv):renderPathrail(adv)}
     <div class="content-col">
-      ${(m2&&M2.map)?M2.renderMap(adv):`<div class="stage-wrap">${renderScenePicker(adv)}${renderAdventureNotes(adv)}${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>`}
+      ${(m2&&M2.map)?M2.renderMap(adv):`<div class="stage-wrap">${renderScenePicker(adv)}<div class="notes-row">${noteTileHere(adv)}</div>${renderScene(adv, effScene(adv, scene), state.sceneIdx)}</div>`}
       ${renderTimeTracker(adv)}
     </div>
   </div>

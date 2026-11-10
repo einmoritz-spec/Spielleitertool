@@ -1,0 +1,16 @@
+/* Notizen-Kachel (grau) + Pop-up */
+.notes-tile{display:inline-flex;align-items:center;gap:6px;flex:none;align-self:center;margin:0 0 4px auto;padding:7px 13px;border-radius:10px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:inherit;font:inherit;font-size:.78rem;letter-spacing:.06em;cursor:pointer;opacity:.85;white-space:nowrap}
+.notes-tile:hover,.notes-tile.open{opacity:1;background:rgba(255,255,255,.13)}
+.notes-tile .nt-dot{display:none;width:7px;height:7px;border-radius:50%;background:#e0b95a}
+.notes-tile.has .nt-dot{display:inline-block}
+.notes-row{display:flex;justify-content:flex-end;margin:0 0 8px}
+.notes-row .notes-tile{margin:0}
+.notes-pop{position:fixed;z-index:9500;background:#1c1f2a;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.notes-pop textarea{display:block;width:100%;box-sizing:border-box;height:min(260px,50vh);resize:vertical;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#e8e8ee;padding:10px;font:inherit;font-size:.92rem;line-height:1.45}
+.notes-pop textarea:focus{outline:none;border-color:rgba(255,255,255,.35)}
+.notes-pop .np-x{position:absolute;top:-10px;right:-8px;width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:#2a2d38;color:#fff;font-size:16px;line-height:1;cursor:pointer;padding:0}
+@media (max-width:1000px){.case-tabbar .notes-tile{position:sticky;right:0;background:#2a2d38}}
+/* Wake: Kachel über der Szene nur ohne Tab-Leiste und ohne Handy-Szenenwahl */
+.shell.tabs-top .notes-row{display:none}
+@media (max-width:1000px){.notes-row{display:none}.scene-picker-wrap .notes-tile{margin:0}}

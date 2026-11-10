@@ -137,11 +137,10 @@ function renderCase(c, sid){
   CURCH = ch;
   const tabs = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
     return `<button class="case-tab ${on?"active":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${m?esc(m[1])+"<br><small>"+esc(m[2])+"</small>":esc(t)}</button>`; }).join("");
-  const tabbar = `<div class="case-tabbar">${tabs}</div>`;
+  const tabbar = `<div class="case-tabbar">${tabs}${NotePop.tile("nights", c.nr+":"+ch.items[0].id)}</div>`;
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
-  { const nk=c.nr+":"+ch.items[0].id; body += `<details class="mini-notes" ${ST.notes[nk]?"open":""}><summary>✎ Notizen</summary><textarea oninput="setNote('${nk}',this.value)" placeholder="Eigene Notizen …">${esc(ST.notes[nk]||"")}</textarea></details>`; }
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)}</div>
@@ -174,7 +173,6 @@ function chapterView(c, ch){
   let h = `<div class="sec-title"><h2>${esc(chapterTitle(ch))}</h2>${k0?`<button class="pagetag" onclick="openPageViewer(${first.page})">Seite ${pageRange(c,first,ns0)}</button>`:""}</div>`;
   const eisSplit = !!(c.eisberg && first.kind==="intro");
   let pre = "";
-  if(ch.items.length>1) pre += `<div class="toc">${ch.items.slice(ch.layer||first.kind==="intro"?1:0).map(s=>`<a href="#/case/${c.nr}/sec/${s.id}">${esc(s.title)}</a>`).join("")}</div>`;
   const coverFig = (first.kind==="intro") ? (c.figures||[]).filter(f=>f.kind==="art" && figSec(c,f)===first.id).sort((a,b)=>a.page-b.page)[0] : null;
   if(coverFig) pre += `<div class="cover-top">${figHtml(coverFig)}</div>`;
   if(eisSplit) h += `<div class="eis-split"><div id="eisberg" class="eis-side">${eisbergView(c)}</div><div class="eis-text">` + pre;
@@ -235,6 +233,7 @@ function resetLimit(k, btn){ ST.limits[k] = []; saveState(); const row = btn.clo
 function resetAllLimits(key, n, btn){ const blk = btn.closest(".limit-block"); for(let i=0;i<n;i++) ST.limits[key+":"+i] = []; saveState(); blk.querySelectorAll(".limit-row:not(.nolimit)").forEach(r=>limSync(r, [], r.querySelectorAll(".pip").length)); }
 function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
 function setNote(k, v){ ST.notes[k] = v; saveState(); }
+NotePop.reg("nights", k=>ST.notes[k]||"", setNote);
 function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }
 
 /* Eisberg: Seitenprozent -> Ausschnittsprozent */

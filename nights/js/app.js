@@ -39,7 +39,7 @@ async function route(){
     ST.last = "#/case/" + n + (p[2]==="sec" && p[3] ? "/sec/" + p[3] : ""); saveState();
     $("app").innerHTML = '<div class="missing">Lade Fall …</div>';
     const c = await loadCase(n);
-    if(!c){ const info = camp().cases[n] && Object.assign({nr:n,from:camp().cases[n].pages[0],to:camp().cases[n].pages[1]}, camp().cases[n]); $("app").innerHTML = `<div class="missing"><h2>Fall ${n}${info?": "+esc(info.title):""}</h2><p>Dieser Fall ist noch nicht erfasst. Die Originalseiten ${info?info.from+"–"+info.to:""} kannst du im Seitenviewer ansehen.</p>${info?`<button class="btn" onclick="openPageViewer(${info.from})">Seite ${info.from} öffnen</button>`:""}</div>`; return; }
+    if(!c){ const info = camp().cases[n] && Object.assign({nr:n,from:camp().cases[n].pages[0],to:camp().cases[n].pages[1]}, camp().cases[n]); $("app").innerHTML = `<div class="missing"><h2>Fall ${n}${info?": "+esc(info.title):""}</h2><p>Dieser Fall ist noch nicht erfasst. Die Originalseiten ${info?info.from+"–"+info.to:""} kannst du im Seitenviewer ansehen.</p>${info?`<button class="btn" onclick="openPageViewer(${info.from})">S. ${info.from} öffnen</button>`:""}</div>`; return; }
     renderCase(c, p[2]==="sec" ? p[3] : (p[2]==="eisberg" ? "__eisberg" : c.sections[0].id));
   } else if(p[0]==="pages"){ renderHome(); openPageViewer(+p[1]||1, true); }
   else if(p[0]==="map") renderMap(p[1]==="dolch");
@@ -54,12 +54,12 @@ function renderHome(){
   const C = camp();
   let h = `<div class="hero"><div class="eyebrow">City of Mist · Abenteuerband</div><h1>${esc(C.title)}</h1></div>`;
   for(const L of C.levels){
-    h += `<details class="level ${L.tone}"><summary class="level-head"><h2>${esc(L.name)}</h2><span>${esc(L.sub||"")}</span><span>Seiten ${L.pages[0]}–${L.pages[1]}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
+    h += `<details class="level ${L.tone}"><summary class="level-head"><h2>${esc(L.name)}</h2><span>${esc(L.sub||"")}</span><span>S. ${L.pages[0]}–${L.pages[1]}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
     for(const n of L.cases){
       const ci = C.cases[n]; if(!ci) continue;
       const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
       const st = caseStatus(n);
-      h += `<div class="case-card ${info.ready?"":"off"}" data-case="${n}"><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>Seiten ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}</div>`;
+      h += `<div class="case-card ${info.ready?"":"off"}" data-case="${n}"><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>S. ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}</div>`;
     }
     h += `</div></details>`;
   }
@@ -144,7 +144,7 @@ function renderCase(c, sid){
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   const _f = ch.items[0], _n = c.sections[c.sections.indexOf(_f)+1];
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="Seite ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a></div>
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="S. ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a></div>
   
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
@@ -183,8 +183,8 @@ function chapterView(c, ch){
     const subCount = ch.items.filter((x,kk)=>!ch.flat && !(ch.layer && kk===0) && !(first.kind==="intro" && kk===0)).length, single = sub && subCount===1;
     const nextSec = c.sections[c.sections.indexOf(sec)+1];
     h += `<section class="chsec${sub&&!single?" coll":""}${sub&&sec.id===OPENSID?" open":""}" id="s-${sec.id}">`;
-    if(sub) h += `<h3 class="sec-sub"${single?"":` onclick="toggleSec(this)"`}>${single?"":`<span class="chev">▸</span>`}${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></h3>${single?"":`<div class="chbody">`}`;
-    else if(!(k0 && k===0)) h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">Seite ${pageRange(c,sec,nextSec)}</button></div>`;
+    if(sub) h += `<h3 class="sec-sub"${single?"":` onclick="toggleSec(this)"`}>${single?"":`<span class="chev">▸</span>`}${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></h3>${single?"":`<div class="chbody">`}`;
+    else if(!(k0 && k===0)) h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></div>`;
     const blocks = secBlocks(c, sec.id);
     for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && figSec(c,f)===sec.id) h += figHtml(f);
     for(const b of blocks) h += blockHtml(c, b);
@@ -235,7 +235,7 @@ function resetAllLimits(key, n, btn){ const blk = btn.closest(".limit-block"); f
 function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
 function setNote(k, v){ ST.notes[k] = v; saveState(); }
 NotePop.reg("nights", k=>ST.notes[k]||"", setNote);
-function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · Seite ${f.page}</figcaption></figure>`; }
+function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }
 
 /* Eisberg: Seitenprozent -> Ausschnittsprozent */
 function eisbergView(c){
@@ -249,7 +249,7 @@ function eisbergView(c){
     hot += `<button class="hot ${ST.seen[c.nr+":"+n.label]?"seen":""}" style="left:${l}%;top:${t}%;width:${w/W*100}%;height:${h/H*100}%" title="${esc(n.label)}" aria-label="${esc(n.label)}" onclick="gotoNode(${i})"></button>`;
   });
   const list = E.nodes.map((n,i)=>`<button onclick="gotoNode(${i})"><small>Schicht ${n.layer}</small>${esc(n.label)}</button>`).join("");
-  return `<h3 class="sec-sub">Der Eisberg<button class="pagetag" onclick="openPageViewer(${E.page})">Seite ${E.page}</button></h3><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div>`;
+  return `<h3 class="sec-sub">Der Eisberg<button class="pagetag" onclick="openPageViewer(${E.page})">S. ${E.page}</button></h3><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div>`;
 }
 function gotoNode(i){ const n = CUR.eisberg.nodes[i]; ST.seen[CUR.nr+":"+n.label] = 1; saveState(); location.hash = `#/case/${CUR.nr}/sec/${n.target}`; }
 
@@ -277,7 +277,7 @@ function runSearch(q){
   $("searchCount").textContent = res.length + " Treffer" + (res.length>60?" (die ersten 60)":"") + (Object.keys(window.NIGHTS.cases).length<10?" · nur geladene Fälle":"");
   out.innerHTML = res.slice(0,60).map(r=>{
     const s = esc(r.snip), re = new RegExp(esc(r.q).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"ig");
-    return `<button class="sr" onclick="closeModal('searchModal');location.hash='#/case/${r.c.nr}/sec/${r.sec}'"><small>Fall ${r.c.nr} · Seite ${r.page}</small><br>…${s.replace(re,m=>`<mark>${m}</mark>`)}…</button>`; }).join("");
+    return `<button class="sr" onclick="closeModal('searchModal');location.hash='#/case/${r.c.nr}/sec/${r.sec}'"><small>Fall ${r.c.nr} · S. ${r.page}</small><br>…${s.replace(re,m=>`<mark>${m}</mark>`)}…</button>`; }).join("");
 }
 // Suche braucht alle Fälle: im Hintergrund nachladen
 function preloadAll(){ READY.forEach(loadCase); }
@@ -325,7 +325,7 @@ async function renderRegister(tab){
     const rows = Object.keys(ST.notes).filter(k=>(ST.notes[k]||"").trim()).map(k=>{ const [nr,sid] = k.split(":"); const c = R.loaded[+nr]; const sec = c && c.sections.find(x=>x.id===sid); return {nr:+nr, sid, title: sec?sec.title:sid, text:ST.notes[k], page: sec?sec.page:0}; }).sort((a,b)=>a.nr-b.nr||a.page-b.page);
     h += rows.length ? `<div class="reg-list">${rows.map(r=>`<a class="reg-note" href="#/case/${r.nr}/sec/${r.sid}"><small>${r.nr<11?"Fall "+r.nr:"Buch"} · ${esc(r.title)}</small><span>${esc(r.text)}</span></a>`).join("")}</div>` : `<div class="missing">Noch keine Notizen. Notizen schreibst du unten in jedem Kapitel.</div>`;
   } else {
-    h += `<input class="search-input reg-filter" id="regFilter" placeholder="Filtern …" oninput="regFilter(this.value)" autocomplete="off"><div class="reg-list" id="regList">${R.items.filter(i=>i.kind===tab).sort((a,b)=>a.name.localeCompare(b.name,"de")).map(it=>`<a class="reg-row" href="${regLink(it)}"${it.b?` onclick="return regOpen(${R.items.indexOf(it)})"`:""} data-q="${esc(it.name.toLowerCase())}"><b>${esc(it.name)}</b><span class="stars">${esc(it.stars)}</span><small>${it.nr<11?"Fall "+it.nr:"Buch"} · Seite ${it.page}${it.layer!=null?" · Schicht "+it.layer:""}</small></a>`).join("")}</div>`;
+    h += `<input class="search-input reg-filter" id="regFilter" placeholder="Filtern …" oninput="regFilter(this.value)" autocomplete="off"><div class="reg-list" id="regList">${R.items.filter(i=>i.kind===tab).sort((a,b)=>a.name.localeCompare(b.name,"de")).map(it=>`<a class="reg-row" href="${regLink(it)}"${it.b?` onclick="return regOpen(${R.items.indexOf(it)})"`:""} data-q="${esc(it.name.toLowerCase())}"><b>${esc(it.name)}</b><span class="stars">${esc(it.stars)}</span><small>${it.nr<11?"Fall "+it.nr:"Buch"} · S. ${it.page}${it.layer!=null?" · Schicht "+it.layer:""}</small></a>`).join("")}</div>`;
   }
   $("app").innerHTML = h;
 }
@@ -333,7 +333,7 @@ function regOpen(i){
   const it = REG.items[i]; if(!it||!it.b) return true;
   let m = document.getElementById("regModal"); if(m) m.remove();
   m = document.createElement("div"); m.id = "regModal"; m.className = "reg-modal";
-  m.innerHTML = `<div class="reg-md"><button class="reg-x" aria-label="Schließen">✕</button>${threatHtml(it.c, it.b, true)}<a class="reg-go" href="${regLink(it)}" onclick="document.getElementById('regModal').remove()">${it.nr<11?"Fall "+it.nr:"Buch"} · Seite ${it.page}</a></div>`;
+  m.innerHTML = `<div class="reg-md"><button class="reg-x" aria-label="Schließen">✕</button>${threatHtml(it.c, it.b, true)}<a class="reg-go" href="${regLink(it)}" onclick="document.getElementById('regModal').remove()">${it.nr<11?"Fall "+it.nr:"Buch"} · S. ${it.page}</a></div>`;
   m.addEventListener("click", e=>{ if(e.target===m || e.target.closest(".reg-x")) m.remove(); });
   document.body.appendChild(m); return false;
 }

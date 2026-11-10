@@ -28,7 +28,7 @@ function tocPage(id,isCase,prefix){ const e=tocEntry(id,isCase); if(!e) return 0
 function pgA(n){ return n?` <a class="pg-link" href="#" data-page="${n}" title="Originalseite im Buch ansehen">S. ${n}</a>`:""; }
 let LL_TAIL = null;
 function tabHead(title,n){ LL_TAIL = {title:title, n:n}; return ""; }
-function llTail(h){ const t = LL_TAIL; LL_TAIL = null; if(!t) return h; const link = `<span class="sep">/</span>` + (t.n ? `<a class="pg-link" href="#" data-page="${t.n}" title="Seite ${t.n} im Buch öffnen">${t.title}</a>` : `<span>${t.title}</span>`); return h.replace(/(<div class="crumb">[\s\S]*?)<\/div>/, "$1"+link+"</div>"); }
+function llTail(h){ const t = LL_TAIL; LL_TAIL = null; if(!t) return h; const link = `<span class="sep">/</span>` + (t.n ? `<a class="pg-link" href="#" data-page="${t.n}" title="S. ${t.n} im Buch öffnen">${t.title}</a>` : `<span>${t.title}</span>`); return h.replace(/(<div class="crumb">[\s\S]*?)<\/div>/, "$1"+link+"</div>"); }
 
 function goOverview(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goDistrict(id){ state.view="district"; state.districtId=id; state.distTab="overview"; render(); window.scrollTo(0,0); }

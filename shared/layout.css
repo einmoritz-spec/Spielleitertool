@@ -1,0 +1,36 @@
+/* Gemeinsames Layout für Local Legends, Nights, Otherscape:
+   1) Vor/Zurück-Leiste immer fest am unteren Bildschirmrand
+   2) Spaltenansicht (Buchlayout) ab Laptop-Breite */
+
+/* 1) Vor/Zurück unten festgenagelt */
+.pager{position:fixed!important;left:0;right:0;bottom:0;z-index:40;margin:0!important;display:flex!important;justify-content:space-between;align-items:center;gap:12px;
+  padding:6px 18px calc(6px + env(safe-area-inset-bottom))!important;background:rgba(11,13,20,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.1)!important}
+.pager .pg-prev{margin-right:auto}.pager .pg-next{margin-left:auto}
+.pager{max-width:none!important;width:auto!important;box-sizing:border-box}
+.pager a,.pager button{max-width:46%}
+body:has(.pager){padding-bottom:62px}
+
+/* 2) Spalten wie im Buch */
+@media (min-width:1100px){
+  .tab-layout .chsec:not(.coll),
+  .tab-layout .chsec.coll.open>.chbody,
+  .tab-layout .ux-main,
+  .case-tabpanel,
+  .section:not(.collapsed)>.section-body{column-width:46ch;column-gap:44px;column-fill:balance}
+  .tab-layout .chsec:not(.coll)>*,
+  .tab-layout .chsec.coll.open>.chbody>*,
+  .tab-layout .ux-main>*,
+  .case-tabpanel>*,
+  .section:not(.collapsed)>.section-body>*{break-inside:avoid}
+  .tab-layout .chsec .blk-p,.tab-layout .chsec .blk-ro,.tab-layout .chsec .blk-card,.tab-layout .chsec .threat,
+  .case-tabpanel .card,.section-body .card{max-width:none!important}
+  .tab-layout .chsec>.blk-p,.tab-layout .chsec>.blk-h+.blk-p,.tab-layout .chbody>.blk-p{break-inside:auto}
+  /* quer über alle Spalten */
+  .tab-layout .chsec>.sec-sub,.tab-layout .chsec>.pagetag-row,.tab-layout .chsec>.btn,.tab-layout .chsec>.ch,
+  .case-tabpanel>.hero,.case-tabpanel>.footer-note,.case-tabpanel>.city-map-box,.case-tabpanel>.map-panel,
+  .tab-layout .chsec>.ovbox,.tab-layout .chsec>.ov-box,.tab-layout .chsec>canvas{column-span:all}
+  .tab-layout .chsec .fig,.tab-layout .chsec .fig img{max-width:100%}
+}
+@media (min-width:1100px){
+  .tab-layout .chsec .ch,.tab-layout .chsec h3,.tab-layout .chsec h4,.case-tabpanel h3,.case-tabpanel h4,.section-body h3,.section-body h4{break-after:avoid-column}
+}

@@ -7,8 +7,8 @@
    ============================================================ */
 const M2 = {
   map:false, sec:0,
-  on(){ try{ return localStorage.getItem("wake.mode2")==="1"; }catch(e){ return false; } },
-  set(v){ try{ localStorage.setItem("wake.mode2", v?"1":"0"); }catch(e){} M2.map=false; M2.sec=0; render(); },
+  on(){ try{ return sessionStorage.getItem("wake.mode2")==="1"; }catch(e){ return false; } },
+  set(v){ try{ sessionStorage.setItem("wake.mode2", v?"1":"0"); }catch(e){} M2.map=false; M2.sec=0; render(); },
   wide(){ return window.innerWidth>=1100; },
   store(k,d){ try{ return JSON.parse(localStorage.getItem("wake.m2."+k))||d; }catch(e){ return d; } },
   save(k,v){ try{ localStorage.setItem("wake.m2."+k, JSON.stringify(v)); }catch(e){} },

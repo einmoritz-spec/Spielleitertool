@@ -171,7 +171,7 @@ function renderTopbarSettingsBody(){
       ${window.BV?BV.settingsHTML():""}
       <div class="tb-set-section">Darstellung</div>
       <label style="display:flex;gap:8px;align-items:center;padding:6px 0;"><input type="radio" name="wkMode" ${M2.on()?'':'checked'} onchange="M2.set(false)"> Ansicht: Standard (Modus 1)</label>
-      <label style="display:flex;gap:8px;align-items:center;padding:6px 0;"><input type="radio" name="wkMode" ${M2.on()?'checked':''} onchange="M2.set(true)"> Ansicht: Modus 2 (Wegkarte, Abschnitte, Werte rechts)</label>
+      <label style="display:flex;gap:8px;align-items:center;padding:6px 0;"><input type="radio" name="wkMode" ${M2.on()?'checked':''} onchange="M2.set(true)"> Ansicht: Modus 2 (in Arbeit – Wegkarte, Abschnitte, Werte rechts)</label>
       <label style="display:flex;gap:8px;align-items:center;padding:6px 0;"><input type="checkbox" ${sceneTabsOn()?'checked':''} onchange="setSceneTabs(this.checked)"> Szenen oben als Leiste statt Seitenleiste links (ab 1500 px zusätzlich zwei Spalten)</label>
       <div class="tb-set-section">Kopfzeile</div>
       <p style="font-size:13px;">Tipp: Rechtsklick auf einen Knopf in der Kopfzeile blendet ihn aus oder schaltet seine Beschriftung um. Dieses Fenster öffnest du auch mit der Taste <b>,</b></p>

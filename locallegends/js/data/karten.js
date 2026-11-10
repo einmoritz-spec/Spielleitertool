@@ -15,3 +15,14 @@ const LL_MAPS = {
   ],
   notOnMap: {sunken_city:"unter der Bucht", undertrash:"unter der Stadt"}
 };
+
+/* Portraits der NSCs (Fotos aus dem Buch), Schlüssel = Name der Karte */
+const LL_PORTRAITS = {
+  "_chows": "img/portraits/chairman-chow.webp",
+  "ISAIAH COLM": "img/portraits/isaiah-colm.webp",
+  "DIANA CHANDLER (ONCE IN A BLUE MOON)": "img/portraits/diana-chandler.webp",
+  "QUINCY WILLIAM REID": "img/portraits/quincy-william-reid.webp",
+  "STELLA ROI": "img/portraits/stella-roi.webp",
+  "SEAN MCMANNON": "img/portraits/sean-mcmannon.webp",
+  "TY FAIRCHILDE": "img/portraits/ty-fairchilde.webp"
+};

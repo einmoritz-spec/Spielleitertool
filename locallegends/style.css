@@ -362,3 +362,4 @@ body.menu-open{overflow:hidden;}
 
 .city-hot .city-lbl{display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(9px,1.15vw,14px);font-weight:600;letter-spacing:.02em;color:#f3dca8;text-shadow:0 1px 3px #000;pointer-events:none;white-space:nowrap}
 .city-hot[aria-label="The Sunken City"],.city-hot[aria-label="The Undertrash"]{border-style:solid;background:rgba(10,20,30,.55)}
+.ll-portrait{float:right;width:132px;max-width:34%;height:auto;margin:0 0 8px 12px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.4);cursor:zoom-in}@media(max-width:600px){.ll-portrait{width:96px}}

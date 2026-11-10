@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v109";
+const VERSION = "v110";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -50,6 +50,13 @@ const FILES = [
   "locallegends/img/karten/undertrash-sl.webp",
   "locallegends/img/karten/undertrash-spieler.webp",
   "locallegends/js/data/karten.js",
+  "locallegends/img/portraits/chairman-chow.webp",
+  "locallegends/img/portraits/diana-chandler.webp",
+  "locallegends/img/portraits/isaiah-colm.webp",
+  "locallegends/img/portraits/quincy-william-reid.webp",
+  "locallegends/img/portraits/sean-mcmannon.webp",
+  "locallegends/img/portraits/stella-roi.webp",
+  "locallegends/img/portraits/ty-fairchilde.webp",
   "locallegends/img/handouts/chinatown-eigentumsurkunde.jpg",
   "locallegends/img/handouts/chinatown-sterbeurkunde.jpg",
   "locallegends/img/handouts/colonia-autopsiebericht.jpg",

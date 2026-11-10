@@ -237,9 +237,10 @@ function gmNote(text){
   return `<div class="gm-note"><span class="gm-label">Spielleitungs-Hinweis</span>${text}</div>`;
 }
 
+function llPortrait(name){ const src=(typeof LL_PORTRAITS!=="undefined")&&LL_PORTRAITS[name]; return src?`<img class="ll-portrait" src="${src}" alt="${name}" loading="lazy" onclick="mapFull(this.src)">`:""; }
 function renderThemeCard(o){
   return `<div class="card">
-    <h3>${o.name}</h3>
+    ${llPortrait(o.name)}<h3>${o.name}</h3>
     <div class="sub" style="font-size:11.5px;color:var(--text-faint);font-style:italic;margin-bottom:6px;">${o.kind}${o.role?` · ${o.role}`:""}</div>
     ${o.blurb?`<p>${o.blurb}</p>`:""}
     <p><i>${o.identity}</i></p>
@@ -265,6 +266,7 @@ function renderDangerCard(dg, scope){
       ${ratingHTML}
     </div>
     <div class="danger-body">
+      ${llPortrait(dg.name)}
       ${dg.tactics?`<p><i>${dg.tactics}</i></p>`:""}
       ${(dg.cardDesc||dg.desc)?`<p>${dg.cardDesc||dg.desc}</p>`:""}
       ${spectrums.length?`<div class="stat-line">${dg.statLine}</div><div id="specs_${key}">${spectrumHTML}</div>`:""}
@@ -359,7 +361,7 @@ function renderDistrictView(id){
     html += sectionHTML("beyond","Jenseits des Nebels", `<div class="card"><p>${c.beyondMist}</p></div>`);
     if(c.phoropterHistory) html += sectionHTML("phoropter","Geschichte des Phoropters", `<div class="card"><p>${c.phoropterHistory}</p></div>`);
     if(c.otherMythoi) html += sectionHTML("othermyth","Andere chinesische Mythoi in der Stadt", `<div class="card"><p>${c.otherMythoi}</p></div>`);
-    if(c.chowsSpoiler) html += sectionHTML("chows","Die Chows (Spoiler-Warnung!)", `<div class="card">${c.chowsSpoiler}</div>`);
+    if(c.chowsSpoiler) html += sectionHTML("chows","Die Chows (Spoiler-Warnung!)", `<div class="card">${llPortrait("_chows")}${c.chowsSpoiler}</div>`);
     html += sectionHTML("custom","Custom Moves", (c.customMovesIntro?`<div class="card"><p>${c.customMovesIntro}</p></div>`:"") + c.customMoves.map(m=>`<div class="card"><h3>${m.name}</h3><p>${m.text}</p></div>`).join(""));
   }
   else if(active==="options"){

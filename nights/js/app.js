@@ -159,6 +159,7 @@ function renderCase(c, sid){
   const target = (!toEis && sid && ch.items[0].id!==sid && !(ch.items[1] && ch.items[1].id===sid)) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(!toEis) window.scrollTo(0,0);
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
+  requestAnimationFrame(fixScn);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
 let CURCH = null;
@@ -174,7 +175,19 @@ function prToggleBtn(col){ return `<button class="pr-toggle" onclick="toggleNav(
 function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
 function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }
 let OPENSID = null;
-function toggleSec(el){ el.closest('.chsec').classList.toggle('open'); }
+function toggleSec(el){ el.closest('.chsec').classList.toggle('open'); requestAnimationFrame(fixScn); }
+/* Zweispaltig nur, wenn sich das lohnt: ist die rechte Spalte deutlich länger als der Text, stapeln (keine Lücken links) */
+function fixScn(){
+  document.querySelectorAll('.scn').forEach(s=>{
+    s.classList.remove('stack'); const l=s.querySelector('.scn-l'), r=s.querySelector('.scn-r');
+    if(!l||!r||!s.offsetParent) return;
+    if(getComputedStyle(r).position==='static' && getComputedStyle(s).display!=='grid') return;
+    if(r.offsetHeight > l.offsetHeight + 90) s.classList.add('stack');
+  });
+}
+let _fx; const fixSoon = ()=>{ clearTimeout(_fx); _fx = setTimeout(fixScn, 80); };
+window.addEventListener('resize', fixSoon);
+document.addEventListener('load', fixSoon, true);
 function chapterView(c, ch){
   const first = ch.items[0];
   const k0 = !ch.flat && (ch.layer || first.kind==="intro");
@@ -194,7 +207,8 @@ function chapterView(c, ch){
     if(sub) h += `<h3 class="sec-sub"${single?"":` onclick="toggleSec(this)"`}>${single?"":`<span class="chev">▸</span>`}${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></h3>${single?"":`<div class="chbody">`}`;
     const blocks = secBlocks(c, sec.id);
     let L = "", R = "";
-    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && figSec(c,f)===sec.id){ if(f.kind==="art") L += figHtml(f, c); else R += figHtml(f, c); }
+    buildThumbs(c);
+    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && !f._card && figSec(c,f)===sec.id){ if(f.kind==="art") L += figHtml(f, c); else R += figHtml(f, c); }
     for(const b of blocks){ if(b.t==="card"||b.t==="threat") R += blockHtml(c, b); else L += blockHtml(c, b); }
     h += (R && L.trim() && blocks.filter(b=>b.t==="threat").length<=3) ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : (L+R);
     if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
@@ -221,6 +235,23 @@ function parseLimits(sp){
   return (sp||"").split(" / ").map(x=>{ x=x.trim(); const fix = l => l.replace(/(\S)- (\S)/g,'$1$2').trim(); const m = x.match(/^\(?(.*?)\s+(\d+)\)?$/); if(m) return { label:fix(m[1]), max:+m[2] }; const d = x.match(/^\(?(.*?)\s+[–—-]\)?$/); return d ? { label:fix(d[1]), max:0 } : null; }).filter(Boolean);
 }
 function cap(t){ return t.charAt(0)+t.slice(1).toLowerCase(); }
+/* Illustration zu einer Bedrohung klein in deren Karte einbauen */
+const STOPW = new Set(["der","die","das","den","dem","des","und","mit","von","vor","bei","als","themenkarte","illustration","unter","aus","auf","ins","im"]);
+function toks(x){ return (x||"").toLowerCase().replace(/[^a-zäöüßø]+/g," ").split(" ").filter(t=>t.length>=4 && !STOPW.has(t)).map(t=>t.slice(0,6)); }
+function buildThumbs(c){
+  if(c._th) return c._th; c._th = {};
+  const threats = [];
+  for(const pn of Object.keys(c.pages)) for(const b of c.pages[pn].blocks) if(b.t==="threat" && b.sec) threats.push(b);
+  for(const f of (c.figures||[])){
+    if(f.kind!=="art" || /titelbild|^titel/i.test(f.title+" "+f.file)) continue;
+    if(f.box){ const r=(f.box[3]-f.box[1])/(f.box[2]-f.box[0]); if(r<0.7) continue; }
+    const sec = figSec(c,f), ft = toks(f.title); let best=null, bn=0;
+    for(const b of threats){ if(b.sec!==sec || c._th[b.name]) continue; const n = toks(b.name).filter(t=>ft.includes(t)).length; if(n>bn){ bn=n; best=b; } }
+    if(best){ c._th[best.name] = f; f._card = true; }
+  }
+  return c._th;
+}
+function thumbHtml(c,b){ const f = c && c.figures && buildThumbs(c)[b.name]; return f ? `<img class="th-thumb" loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="event.stopPropagation();openPageViewer(${f.page})">` : ""; }
 function threatHtml(c, b, open){
   const key = `${c.nr}:${b.name}`;
   const lims = parseLimits(b.spectra);
@@ -234,7 +265,7 @@ function threatHtml(c, b, open){
   const sub = i => { const a = i.split(/\s*»\s*/); return a.length>1 ? a[0].replace(/[:\s]+$/,'')+(a[0].trim()?':':'')+`<ul class="th-nest">${a.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>` : i; };
   const items = (b.items||[]).map(sub);
   const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
-  return `<div class="blk threat ${nstars>=4?"boss":""} ${open?"":"thr-coll"}"><span class="pin"></span><div class="threat-head"${open?"":` onclick="this.parentNode.classList.toggle('open')"`}><b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}${lims.filter(l=>l.max).length>1?`<button class="limit-all" onclick="resetAllLimits('${esc(key).replace(/'/g,"\\'")}',${lims.length},this)">Alle zurücksetzen (Szenenende)</button>`:""}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
+  return `<div class="blk threat ${nstars>=4?"boss":""} ${open?"":"thr-coll"}"><span class="pin"></span><div class="threat-head"${open?"":` onclick="this.parentNode.classList.toggle('open')"`}>${thumbHtml(c,b)}<b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}${lims.filter(l=>l.max).length>1?`<button class="limit-all" onclick="resetAllLimits('${esc(key).replace(/'/g,"\\'")}',${lims.length},this)">Alle zurücksetzen (Szenenende)</button>`:""}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
 }
 function limArr(k){ const v = ST.limits[k]; if(Array.isArray(v)) return v; if(typeof v==="number" && v>0){ const a=[]; for(let i=1;i<=v;i++) a.push(i); ST.limits[k]=a; return a; } return []; }
 function limSync(row, arr, max){ row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", arr.includes(i+1))); row.querySelector(".limit-count").textContent = (arr.length?Math.max(...arr):0)+" / "+max; }

@@ -86,3 +86,19 @@ details.level>summary.level-head{display:grid!important;grid-template-columns:mi
 
 details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content!important}.level-head h2{min-width:0}
 @media (max-width:480px){.level-head h2{font-size:.95rem!important;letter-spacing:.03em!important}.level-head .lv-intro{font-size:.72rem!important;padding:2px 7px}}
+
+/* Illustration klein in der Bedrohungskarte */
+.threat-head{align-items:center!important}
+.th-thumb{width:52px;height:52px;flex:none;object-fit:cover;object-position:50% 12%;border-radius:8px;border:1px solid #bda97a;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:zoom-in}
+.threat-head .stars{margin-left:auto}
+
+.th-thumb{width:68px!important;height:68px!important}
+/* gestapelt: Text oben, Werte & Hinweise als Kartenraster darunter */
+.scn.stack{display:block!important}
+.scn.stack .scn-r{position:static!important;max-height:none!important;overflow:visible!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start;border-left:0!important;padding:0!important;margin:10px 0 0!important}
+.scn.stack .scn-rh{grid-column:1/-1;margin:0}
+.scn.stack .scn-r>*{margin:0!important}
+.scn.stack .scn-r{display:block!important;columns:300px;column-gap:12px}
+.scn.stack .scn-r>*{break-inside:avoid;margin:0 0 12px!important}
+.scn.stack .scn-rh{column-span:all}
+.th-thumb{object-position:35% 18%!important}

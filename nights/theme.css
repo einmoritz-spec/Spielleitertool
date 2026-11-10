@@ -108,3 +108,25 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 .scn.stack .scn-r>*{margin-bottom:14px!important}
 .scn.stack .scn-r>*{display:inline-block;width:100%;box-sizing:border-box;vertical-align:top}
 .scn.stack .scn-rh{display:block}
+
+/* Bedrohungskarten: schlicht, kompakt, Pin vollständig sichtbar */
+.threat .pin{top:-6px!important;width:14px!important;height:14px!important}
+.blk.threat{margin-top:14px!important}
+.scn-r{padding-top:12px}
+.threat.thr-coll .threat-head::after{display:none!important}
+.threat.thr-coll:not(.open){padding:10px 16px!important}
+.threat.thr-coll:not(.open) .threat-head{border-bottom:0!important;margin:0!important;padding:0!important}
+.th-thumb{width:44px!important;height:44px!important}
+.threat.thr-coll.open .th-thumb{width:52px!important;height:52px!important}
+/* mehrere Illustrationen nebeneinander statt untereinander */
+.figrow{display:flex;flex-wrap:wrap;gap:10px 12px;margin:6px 0 12px}
+.figrow .fig{flex:1 1 150px;max-width:340px!important;margin:0!important}
+.figrow .fig img{aspect-ratio:4/3;width:100%!important;height:auto!important;max-height:220px!important;object-fit:cover!important;object-position:50% 22%!important}
+.threat.thr-coll:not(.open) .threat-head b{font-size:1.05rem}
+
+/* Themenkarten (Relikte usw.): standardmäßig zu, per Klick auf den dunklen Kopf offen */
+.tcard.tc-coll .tc-head{cursor:pointer}
+.tcard.tc-coll:not(.open){padding-bottom:0}
+.tcard.tc-coll:not(.open) .tc-head{border-bottom:0}
+.tcard.tc-coll:not(.open)>:not(.tc-head){display:none}
+.threat .pin{z-index:3}

@@ -208,7 +208,9 @@ function chapterView(c, ch){
     const blocks = secBlocks(c, sec.id);
     let L = "", R = "";
     buildThumbs(c);
-    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && !f._card && figSec(c,f)===sec.id){ if(f.kind==="art") L += figHtml(f, c); else R += figHtml(f, c); }
+    const arts = [];
+    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && !f._card && figSec(c,f)===sec.id){ if(f.kind==="art") arts.push(figHtml(f, c)); else R += figHtml(f, c); }
+    L += arts.length>1 ? `<div class="figrow">${arts.join("")}</div>` : arts.join("");
     for(const b of blocks){ if(b.t==="card"||b.t==="threat") R += blockHtml(c, b); else L += blockHtml(c, b); }
     h += (R && L.trim() && blocks.filter(b=>b.t==="threat").length<=3) ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : (L+R);
     if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
@@ -285,7 +287,7 @@ function cardHtml(c, f, bl){
     else if(/^(IDENTITÄT|MYSTERIUM)/.test(sect)) h += `<div class="tc-q">${b.x.replace(/<\/?i>/g,"")}</div>`;
     else h += `<p class="tc-p">${b.x}</p>`;
   });
-  return `<figure class="fig tcard-fig"><div class="tcard"><div class="tc-head"><div class="tc-t"><b>${title}</b><a class="tc-pg" onclick="openPageViewer(${f.page})" title="Im Buch öffnen">S. ${f.page}</a></div><span>${esc(type)}</span></div>${h}</div></figure>`;
+  return `<figure class="fig tcard-fig"><div class="tcard tc-coll"><div class="tc-head" onclick="this.parentNode.classList.toggle('open')"><div class="tc-t"><b>${title}</b><a class="tc-pg" onclick="event.stopPropagation();openPageViewer(${f.page})" title="Im Buch öffnen">S. ${f.page}</a></div><span>${esc(type)}</span></div>${h}</div></figure>`;
 }
 function figTall(i){ if(i.naturalHeight/i.naturalWidth>1.3 && i.closest('.fig.art') && !i.closest('.cover-top,.tcard-fig,.eis-wrap')) i.closest('.fig').classList.add('tall'); }
 function figHtml(f, c){ const bl = c && cardBlocks(c,f); if(bl) return cardHtml(c,f,bl); return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onload="figTall(this)" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }

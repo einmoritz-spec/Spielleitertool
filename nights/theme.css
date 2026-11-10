@@ -144,3 +144,11 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 .scn-rh{background:#e6d9b8!important}
 .sec-sub{flex-wrap:nowrap!important;align-items:baseline!important;gap:8px!important}
 .sec-sub .pagetag{flex:none;white-space:nowrap;align-self:center}
+
+/* Bild links: Text umfließt es und läuft darunter über die volle Breite */
+@media (min-width:1100px){
+  .eis-split{display:block!important}
+  .eis-side{position:static!important;float:left;max-width:58%;margin:0 36px 14px 0}
+  .eis-text{display:block}
+  .eis-split::after{content:"";display:block;clear:both}
+}

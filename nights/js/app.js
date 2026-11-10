@@ -256,7 +256,8 @@ function cardHtml(c, f, bl){
   });
   return `<figure class="fig tcard-fig"><div class="tcard"><div class="tc-head"><div class="tc-t"><b>${title}</b><a class="tc-pg" onclick="openPageViewer(${f.page})" title="Im Buch öffnen">S. ${f.page}</a></div><span>${esc(type)}</span></div>${h}</div></figure>`;
 }
-function figHtml(f, c){ const bl = c && cardBlocks(c,f); if(bl) return cardHtml(c,f,bl); return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }
+function figTall(i){ if(i.naturalHeight/i.naturalWidth>1.3 && i.closest('.fig.art') && !i.closest('.cover-top,.tcard-fig,.eis-wrap')) i.closest('.fig').classList.add('tall'); }
+function figHtml(f, c){ const bl = c && cardBlocks(c,f); if(bl) return cardHtml(c,f,bl); return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onload="figTall(this)" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }
 
 /* Eisberg: Seitenprozent -> Ausschnittsprozent */
 function eisbergView(c){

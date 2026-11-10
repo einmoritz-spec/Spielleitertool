@@ -95,3 +95,7 @@ body:has(.pager){padding-bottom:62px}
 
 /* Aktiver Tab ragt nach oben: Platz lassen, damit die Scroll-Leiste ihn nicht abschneidet */
 .case-tabbar{padding-top:6px}
+
+/* Sehr hohe Hochformat-Bilder: Quadrat mit Kopf und Oberkörper statt ganzer Seite */
+.fig.tall{max-width:420px!important}
+.fig.tall img{aspect-ratio:1/1;width:100%!important;height:auto!important;max-height:none!important;object-fit:cover!important;object-position:50% 12%}

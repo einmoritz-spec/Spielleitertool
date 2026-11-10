@@ -23,6 +23,8 @@ function openMobileMenu(){
         ${item("📇", "Register", "goRegister()")}
         ${item("📖", "Seitenviewer", "openPageViewer()")}
         ${item("🔎", "Suche", "openSearch()")}
+        <div class="mm-sub">Buchteile</div>
+        ${(window.NIGHTS && NIGHTS.campaign && NIGHTS.campaign.book || []).map(n=>{ const e = NIGHTS.campaign.extras[n]; return e ? item("📘", e.title, "location.hash='#/case/"+n+"'") : ""; }).join("")}
       </div>
       <div class="mm-foot">${item("⚙", "Einstellungen", "openSettings()")}</div>
     </nav>`;

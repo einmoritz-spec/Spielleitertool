@@ -63,7 +63,6 @@ function renderHome(){
     }
     h += `</div></details>`;
   }
-  h += `<details class="level"><summary class="level-head"><h2>Buchteile</h2><span>Einleitung und Anhang</span></summary><div class="cases">${C.book.map(n=>{ const e = C.extras[n]; return `<a class="case-card intro" href="#/case/${n}"><span class="nr">Buch</span><b>${esc(e.title)}</b><small>${esc(e.sub||"")} · Seiten ${e.pages[0]}–${e.pages[1]}</small></a>`; }).join("")}</div></details>`;
   $("app").innerHTML = h;
 }
 

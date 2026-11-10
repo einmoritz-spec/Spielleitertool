@@ -203,7 +203,7 @@ function appFilter(v){ state.appQ = v; const el = document.getElementById("appLi
    RENDER: BEZIRK
    ============================================================ */
 function sectionHTML(id, title, bodyHTML){
-  return `<div class="section" id="sec_${id}">
+  return `<div class="section collapsed" id="sec_${id}">
     <div class="section-head" onclick="toggleSection('${id}')">
       <span class="chev">▾</span><h2>${title}</h2>
     </div>

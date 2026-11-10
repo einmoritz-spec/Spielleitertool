@@ -201,5 +201,6 @@ body.menu-open{overflow:hidden;}
    nur Notiz-Stift/Bearbeiten bleiben. Unter 881 px ist die Leiste weg – dort bleiben die Chips als Navigation. */
 @media (min-width:881px){
   .shell:not(.tabs-top) .scene-chips{display:none}
-  .shell:not(.tabs-top) .scene-picker-wrap{justify-content:flex-end}
+  .shell:not(.tabs-top) .scene-picker-wrap{float:right;position:relative;z-index:5;margin:-4px 0 -34px 12px!important;padding:0!important;background:none!important;width:auto}
+  .shell:not(.tabs-top) .scene-picker-wrap .edit-toggle-m{width:38px}
 }

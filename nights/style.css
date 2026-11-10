@@ -28,7 +28,7 @@ h1,h2,h3{line-height:1.15}
 .hero .eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;color:var(--cyan)}
 .hero h1{margin:.2em 0;font-size:2.4rem;text-transform:uppercase;letter-spacing:.03em;text-shadow:0 0 24px rgba(255,61,154,.5)}
 .level{margin:26px 0;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--panel),var(--bg2));overflow:hidden;border-top:3px solid var(--tone)}
-.level.ice{--tone:#7cc7ff}.level.amber{--tone:#f2b84b}.level.neon{--tone:#ff3d9a}.level.gold{--tone:#e8c36a}
+.level.ice{--tone:#7cc7ff}.level.amber{--tone:#f2b84b}.level.neon{--tone:#ff3d9a}.level.gold{--tone:#a97bff}
 .level-head{padding:14px 18px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
 .level-head h2{margin:0;font-size:1.15rem;text-transform:uppercase;letter-spacing:.1em;color:var(--tone)}
 .level-head span{color:var(--mute);font-size:.88rem}

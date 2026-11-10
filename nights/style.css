@@ -369,3 +369,19 @@ details.level>summary.level-head{cursor:pointer;list-style:none;position:relativ
 .reg-md .threat{margin:0}
 .reg-x{position:absolute;top:-6px;right:-2px;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid var(--line,#345);background:#0b1224;color:#fff;cursor:pointer}
 .reg-go{display:block;margin-top:10px;text-align:center;font-size:13px;opacity:.8}
+
+/* Native Themenkarten (Relikte, Verbündete, Beschwörungen) */
+.fig.tcard-fig{max-width:380px;margin:14px 0}
+.tcard{background:#d8d5cd;color:#1d1d20;border-radius:6px;padding:0 0 12px;box-shadow:0 2px 10px rgba(0,0,0,.45);font-size:.88rem;line-height:1.45;overflow:hidden}
+.tcard .tc-head{background:#25252a;color:#f1efe8;padding:9px 14px;display:flex;flex-direction:column;gap:1px;border-bottom:3px solid #9a9488}
+.tcard .tc-head b{font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+.tcard .tc-head span{font-style:italic;font-size:.78rem;color:#b9b5aa}
+.tcard .tc-bar{background:#4a4a50;color:#eee;margin:12px 0 6px;padding:2px 14px;font-size:.72rem;font-weight:700;letter-spacing:.12em;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.tcard .tc-q{padding:0 14px;font-style:italic}
+.tcard .tc-tags{padding:0 14px;display:flex;flex-wrap:wrap;gap:4px 6px}
+.tcard .tg{font-style:italic;background:rgba(246,214,76,.55);padding:0 5px;border-radius:2px}
+.tcard .tg.hl{font-weight:700;background:#f2cc3a}
+.tcard .tc-tags.weak .tg{background:transparent;border-bottom:1.5px solid #8a3b3b}
+.tcard .tc-p{padding:0 14px;margin:6px 0 0;font-size:.85rem}
+.tcard t{background:rgba(246,214,76,.55);padding:0 3px;border-radius:2px;font-style:italic}
+.fig.tcard-fig figcaption a{cursor:pointer}

@@ -105,10 +105,17 @@ function mapSpot(i, ev){
 
 /* ---------- Fallansicht ---------- */
 let CUR = null;
+function cardBlocks(c, f){
+  if(f.kind!=="handout" || !f.box || !c.pages[f.page]) return null;
+  const [x0,y0,x1,y1] = f.box;
+  const bl = c.pages[f.page].blocks.filter(b=>b.box && !b.skip && (b.p||f.page)===f.page && b.box[0]>=x0-3 && b.box[2]<=x1+3 && b.box[1]>=y0-3 && b.box[3]<=y1+3).sort((a,b)=>a.box[1]-b.box[1]||a.box[0]-b.box[0]);
+  return (bl.length>=5 && bl[0].t!=="h" && bl.some(b=>b.t==="h") && /THEMENVERBESSERUNG/.test(bl.map(b=>b.x).join(" "))) ? bl : null;
+}
+function cardKeys(c){ const s = new Set(); for(const f of (c.figures||[])){ const bl = cardBlocks(c,f); if(bl) bl.forEach(b=>s.add((b.p||f.page)+":"+b.i)); } return s; }
 function secBlocks(c, sid){
-  const out = [];
+  const out = [], cl = cardKeys(c);
   for(const pn of Object.keys(c.pages).map(Number).sort((a,b)=>a-b))
-    for(const b of c.pages[pn].blocks) if(b.sec===sid && !b.skip) out.push(Object.assign({}, b, {page:b.p||pn}));
+    for(const b of c.pages[pn].blocks) if(b.sec===sid && !b.skip && !cl.has((b.p||pn)+":"+b.i)) out.push(Object.assign({}, b, {page:b.p||pn}));
   return out.sort((a,b)=> a.page-b.page || a.i-b.i);
 }
 function groupNav(c){
@@ -186,8 +193,10 @@ function chapterView(c, ch){
     if(sub) h += `<h3 class="sec-sub"${single?"":` onclick="toggleSec(this)"`}>${single?"":`<span class="chev">▸</span>`}${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></h3>${single?"":`<div class="chbody">`}`;
     else if(!(k0 && k===0)) h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></div>`;
     const blocks = secBlocks(c, sec.id);
-    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && figSec(c,f)===sec.id) h += figHtml(f);
-    for(const b of blocks) h += blockHtml(c, b);
+    let L = "", R = "";
+    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && figSec(c,f)===sec.id){ if(f.kind==="art") L += figHtml(f, c); else R += figHtml(f, c); }
+    for(const b of blocks){ if(b.t==="card"||b.t==="threat") R += blockHtml(c, b); else L += blockHtml(c, b); }
+    h += R ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L;
     if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
     if(sub&&!single) h += `</div>`;
     h += `</section>`;
@@ -235,7 +244,19 @@ function resetAllLimits(key, n, btn){ const blk = btn.closest(".limit-block"); f
 function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
 function setNote(k, v){ ST.notes[k] = v; saveState(); }
 NotePop.reg("nights", k=>ST.notes[k]||"", setNote);
-function figHtml(f){ return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }
+function tagList(x){ return x.split(/(?<=<\/i>|<\/b>|<\/i><\/b>),\s*(?=<)/).map(t=>{ const hl=/^<b>/.test(t); return `<span class="tg${hl?" hl":""}">${t.replace(/<\/?b>/g,"")}</span>`; }).join(""); }
+function cardHtml(c, f, bl){
+  let h = "", sect = "", title = bl[0].x.replace(/<\/?b>/g,""), type = "";
+  bl.slice(1).forEach(b=>{
+    if(b.t==="h"){ sect = b.x.trim(); h += `<div class="tc-bar">${esc(sect)}</div>`; return; }
+    if(!sect){ type = b.x.replace(/<\/?i>/g,""); return; }
+    if(/^(STÄRKEN|SCHWÄCHEN|POWER TAGS)/.test(sect)) h += `<div class="tc-tags ${/SCHW/.test(sect)?"weak":""}">${tagList(b.x)}</div>`;
+    else if(/^(IDENTITÄT|MYSTERIUM)/.test(sect)) h += `<div class="tc-q">${b.x.replace(/<\/?i>/g,"")}</div>`;
+    else h += `<p class="tc-p">${b.x}</p>`;
+  });
+  return `<figure class="fig tcard-fig"><div class="tcard"><div class="tc-head"><b>${title}</b><span>${esc(type)}</span></div>${h}</div><figcaption><a onclick="openPageViewer(${f.page})">${esc(f.title)} · S. ${f.page}</a></figcaption></figure>`;
+}
+function figHtml(f, c){ const bl = c && cardBlocks(c,f); if(bl) return cardHtml(c,f,bl); return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }
 
 /* Eisberg: Seitenprozent -> Ausschnittsprozent */
 function eisbergView(c){

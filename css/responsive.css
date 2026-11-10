@@ -196,3 +196,10 @@ body.menu-open{overflow:hidden;}
 .tb-burger{display:flex!important;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:8px;flex:none;cursor:pointer}
 .tb-burger svg{display:block}
 .topbar .tb-btn,.topbar-actions,.topbar-spacer{display:none!important}.topbar{justify-content:space-between}.topbar .brand{font-size:15px;white-space:nowrap}.tb-burger{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.18)!important;color:var(--text,#e8e8ee)!important;border-radius:10px!important;margin-left:auto}
+
+/* Seitenleisten-Modus (Leiste sichtbar ab 881 px): die runden Szenen-Chips oben sind dann überflüssig,
+   nur Notiz-Stift/Bearbeiten bleiben. Unter 881 px ist die Leiste weg – dort bleiben die Chips als Navigation. */
+@media (min-width:881px){
+  .shell:not(.tabs-top) .scene-chips{display:none}
+  .shell:not(.tabs-top) .scene-picker-wrap{justify-content:flex-end}
+}

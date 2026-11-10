@@ -23,6 +23,11 @@ a{color:var(--cyan)}
 .sec-sub{display:flex;background:#efe3a8;color:var(--rust)!important;font-family:var(--cond);font-weight:800;letter-spacing:.06em;border:none!important;border-radius:2px;padding:9px 20px 9px 16px;margin:34px 0 16px;box-shadow:0 2px 6px rgba(90,70,20,.3);position:relative}
 .sec-sub::before{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#b9a24a,#7d6a22);box-shadow:0 1px 2px rgba(0,0,0,.4)}
 .sec-sub .chev{color:var(--rust)}
+/* schlichte Abschnittsüberschrift: keine Kästen, keine Linien */
+.sec-sub{background:none!important;box-shadow:none!important;border-radius:0;padding:6px 0!important;margin:22px 0 8px!important;font-size:1.3rem}
+.sec-sub::before{display:none!important}
+.chsec.coll+.chsec.coll>.sec-sub{margin-top:6px!important}
+.chsec.coll:not(.open)>.sec-sub{margin:4px 0!important}
 .pagetag{background:transparent!important;color:#8a7a55!important;border-color:#bda97a!important}
 /* Vorlesetext & Hinweise */
 .blk-ro{background:#fffaf0!important;color:#2a2418!important;border-left:5px solid #9b3526!important;box-shadow:0 3px 10px rgba(80,60,20,.25)!important}

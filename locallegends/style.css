@@ -361,7 +361,7 @@ body.menu-open{overflow:hidden;}
 .map-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);display:none;overflow:auto;cursor:zoom-out}.map-lightbox.show{display:block}.map-lightbox img{display:block;max-width:none;width:max(100%,1200px);height:auto;margin:0 auto}.map-lb-close{position:fixed;top:10px;right:12px;background:rgba(0,0,0,.6);color:#fff;border:1px solid #666;border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer}
 
 .city-hot .city-lbl{display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(9px,1.15vw,14px);font-weight:600;letter-spacing:.02em;color:#f3dca8;text-shadow:0 1px 3px #000;pointer-events:none;white-space:nowrap}
-.city-hot[aria-label="The Sunken City"] .city-lbl,.city-hot[aria-label="The Undertrash"] .city-lbl{font-size:clamp(8px,.95vw,12px);font-weight:500;color:#e9d3a0;opacity:.9}
+.city-hot[aria-label="The Sunken City"] .city-lbl,.city-hot[aria-label="The Undertrash"] .city-lbl{font-size:clamp(8px,.95vw,12px);font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#ece6d6;text-shadow:0 1px 2px #000,0 0 4px #000;opacity:1}
 .ll-portrait{float:right;width:132px;max-width:34%;height:auto;margin:0 0 8px 12px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.4);cursor:zoom-in}@media(max-width:600px){.ll-portrait{width:96px}}
 /* Menü-Abschnitt, NSC-Browser, Spieler-Ansicht */
 .mm-sub{margin:12px 12px 2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint)}

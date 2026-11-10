@@ -49,5 +49,7 @@
   document.addEventListener("click", function(e){ if(dd && !(e.target.closest && (e.target.closest(".tm-dd")||e.target.closest(".tm-caret")))) close(); });
   document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
   window.addEventListener("resize", close);
+  function ensure(){ var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
+  new MutationObserver(ensure).observe(document.documentElement, {childList:true, subtree:true});
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

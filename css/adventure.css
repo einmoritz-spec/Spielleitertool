@@ -438,3 +438,16 @@ summary.growth-summary::before{
 .shell.tabs-top .content-col{max-width:none;padding:0 20px}
 .shell.tabs-top .scene-picker-wrap{display:none!important}
 @media (min-width:1500px){ body.wk-tabs .content-col{max-width:1500px;margin:0 auto} }
+
+/* Szenen-Leiste oben (Tabs): schlanker, ruhiger */
+.shell.tabs-top .case-tabbar{gap:2px;padding:0 20px;border-bottom:1px solid var(--panel-line);overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:6;background:var(--bg)}
+.shell.tabs-top .case-tabbar::-webkit-scrollbar{display:none}
+.shell.tabs-top .case-tab{flex:none;display:flex;align-items:center;gap:8px;padding:11px 14px 10px;border-radius:0;border:0;border-bottom:2px solid transparent;background:none;margin-bottom:-1px}
+.shell.tabs-top .case-tab .ct-eyebrow{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--text-faint);min-width:1.2em;text-align:center}
+.shell.tabs-top .case-tab .ct-title{font-size:13px;color:var(--text-lo);max-width:15ch}
+.shell.tabs-top .case-tab:hover .ct-title{color:var(--text-hi)}
+.shell.tabs-top .case-tab.active{background:none;border-bottom-color:var(--gold)}
+.shell.tabs-top .case-tab.active .ct-eyebrow,.shell.tabs-top .case-tab.active .ct-title{color:var(--gold-bright,#e0b95a)}
+.shell.tabs-top .case-tab .trail-check{width:14px;height:14px;font-size:9px;margin:0 0 0 2px;opacity:.7}
+.shell.tabs-top .case-tab.done .trail-check{opacity:1}
+.shell.tabs-top .case-tab .trail-check{position:static!important;grid-column:auto!important;grid-row:auto!important;flex:none}

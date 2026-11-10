@@ -827,13 +827,15 @@ function renderTimeTracker(adv){
 // Auf schmalen Bildschirmen (Handy) ist die Seitenleiste ausgeblendet — dort springt
 // diese Auswahlliste direkt zu jeder Szene (auf großen Bildschirmen per CSS versteckt).
 function renderScenePicker(adv){
-  const opts = adv.scenes.map((s,i)=>{
-    const eb = s.kind==="intro" ? "Übersicht" : s.kind==="aftermath" ? "Abschluss" : "Szene "+i;
-    const done = s.kind!=="intro" && state.scenesCompleted[sceneCompleteKey(adv.id, i)] ? " ✓" : "";
-    return `<option value="${i}" ${i===state.sceneIdx?"selected":""}>${eb} · ${esc(effTitle(adv.id,s))}${done}</option>`;
+  const chips = adv.scenes.map((s,i)=>{
+    const active = i===state.sceneIdx, checkable = s.kind!=="intro";
+    const done = checkable && !!state.scenesCompleted[sceneCompleteKey(adv.id, i)];
+    const n = s.kind==="intro" ? "Ü" : s.kind==="aftermath" ? "A" : String(i);
+    return `<button class="sc-chip ${active?'active':''} ${done?'done':''}" onclick="goScene(${i})" aria-label="${esc(effTitle(adv.id,s))}" ${active?'aria-current="true"':""}><span class="sc-n">${n}</span>${active?`<span class="sc-t">${esc(effTitle(adv.id,s))}</span>`:""}</button>`;
   }).join("");
-  return `<div class="scene-picker-wrap"><select class="scene-picker" aria-label="Szene wählen" onchange="goScene(+this.value); this.value=state.sceneIdx;">${opts}</select>
-    <button class="edit-toggle edit-toggle-m ${EDIT.on?'active':''}" onclick="toggleEditMode()" title="Szenentext bearbeiten" aria-label="Szenentext bearbeiten"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div>`;
+  return `<div class="scene-picker-wrap"><div class="scene-chips">${chips}</div>
+    <button class="edit-toggle edit-toggle-m ${EDIT.on?'active':''}" onclick="toggleEditMode()" title="Szenentext bearbeiten" aria-label="Szenentext bearbeiten"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+  </div>`;
 }
 function sceneTabsOn(){ try{ return localStorage.getItem("wake.sceneTabs")==="1"; }catch(e){ return false; } }
 function renderSceneTabs(adv){
@@ -841,7 +843,7 @@ function renderSceneTabs(adv){
     const active = i===state.sceneIdx;
     const checkable = s.kind!=="intro";
     const done = checkable && !!state.scenesCompleted[sceneCompleteKey(adv.id, i)];
-    const eyebrow = s.kind==="intro" ? "Übersicht" : s.kind==="aftermath" ? "Abschluss" : "Szene "+i;
+    const eyebrow = s.kind==="intro" ? "Ü" : s.kind==="aftermath" ? "A" : String(i);
     const chk = checkable ? `<button class="trail-check ${done?'done':''}" onclick="event.stopPropagation(); toggleSceneCompleted('${adv.id}', ${i})" title="${done?'Als nicht erledigt markieren':'Als erledigt markieren'}">${done?'✓':''}</button>` : "";
     return `<div class="case-tab ${active?'active':''} ${done?'done':''}" role="button" tabindex="0" onclick="goScene(${i})" title="${esc(effTitle(adv.id,s))}"><span class="ct-eyebrow">${eyebrow}</span><span class="ct-title">${esc(effTitle(adv.id,s))}</span>${chk}</div>`;
   }).join("");

@@ -55,10 +55,13 @@
   .scene-head .edit-toggle{display:none;}               /* Stift sitzt hier neben der Auswahl */
   .edit-toggle-m{position:static; flex:none; width:46px; height:auto; opacity:1;}
   .edit-toggle-m.active{color:var(--ink); background:var(--gold); border-color:var(--gold);}
-  .scene-picker{
-    flex:1; min-width:0; width:100%; padding:11px 12px; border-radius:10px; font-size:15px; font-family:var(--sans);
-    color:var(--text-hi); background:var(--panel-raised); border:1px solid var(--panel-line);
-  }
+  .scene-picker-wrap{align-items:center; position:sticky; top:0; z-index:5; margin:0 -14px 14px; padding:8px 14px; background:linear-gradient(180deg,var(--bg) 70%,transparent);}
+  .scene-chips{flex:1; min-width:0; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; padding:2px 0; scroll-snap-type:x proximity;}
+  .scene-chips::-webkit-scrollbar{display:none;}
+  .sc-chip{flex:none; display:inline-flex; align-items:center; gap:8px; height:34px; min-width:34px; padding:0 11px; justify-content:center; border-radius:999px; border:1px solid var(--panel-line); background:var(--panel); color:var(--text-lo); font:600 13px var(--sans); cursor:pointer; scroll-snap-align:center; position:relative;}
+  .sc-chip.done::after{content:""; position:absolute; top:3px; right:3px; width:7px; height:7px; border-radius:50%; background:var(--moss-bright,#6fa06a);}
+  .sc-chip.active{background:rgba(201,162,75,.16); border-color:rgba(201,162,75,.6); color:var(--gold-bright,#e0b95a); padding:0 14px 0 11px;}
+  .sc-t{font:500 13px var(--sans); max-width:48vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--text-hi);}
   /* Zeit-Tracker (Abenteuer 2) bleibt sichtbar: kompakte Leiste über der Szenen-Navigation */
   .time-tracker{
     display:flex; flex-direction:row; align-items:center; gap:10px; width:auto;

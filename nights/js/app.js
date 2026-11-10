@@ -196,7 +196,7 @@ function chapterView(c, ch){
     let L = "", R = "";
     for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && figSec(c,f)===sec.id){ if(f.kind==="art") L += figHtml(f, c); else R += figHtml(f, c); }
     for(const b of blocks){ if(b.t==="card"||b.t==="threat") R += blockHtml(c, b); else L += blockHtml(c, b); }
-    h += R ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L;
+    h += (R && blocks.filter(b=>b.t==="threat").length<=3) ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : (L+R);
     if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
     if(sub&&!single) h += `</div>`;
     h += `</section>`;

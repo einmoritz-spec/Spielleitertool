@@ -65,8 +65,14 @@ function renderAdv(a, secId){
   let idx = a.sektionen.findIndex(s=>s.id===secId); if(idx<0) idx = 0;
   const s = a.sektionen[idx];
   const doneKey = a.id+":"+s.id;
-  const tabs = a.sektionen.map(x=>{ const g = grpOf(a,x); return `<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}${g?"<br><small>"+esc(g)+"</small>":""}</button>`; }).join("");
-  const tabbar = `<div class="case-tabbar">${tabs}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
+  const tabBtn = x=>`<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}</button>`;
+  const groups = []; a.sektionen.forEach(x=>{ const n = grpOf(a,x)||"Start"; const l = groups[groups.length-1]; if(l && l.n===n) l.items.push(x); else groups.push({n, items:[x]}); });
+  let tabbar;
+  if(groups.length>=2 && a.sektionen.length>7){
+    const ag = groups.find(g=>g.items.includes(s));
+    tabbar = `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)} <small>${g.items.length}</small></button>`).join("")}</div>
+  <div class="case-tabbar scenebar">${ag.items.map(tabBtn).join("")}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
+  } else tabbar = `<div class="case-tabbar">${a.sektionen.map(tabBtn).join("")}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)} › ${_pg?`<a onclick="openBook('${a.buch}',${_pg})" title="S. ${_pg} im Buch öffnen">${esc(s.titel)}</a>`:esc(s.titel)}</div>
@@ -76,7 +82,7 @@ function renderAdv(a, secId){
    <div class="chsec">
    ${idx===0?ovBox(a):""}
    ${osArt(a,idx)}
-   ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
+   ${(()=>{ let L="",R=""; (s.bloecke||[]).forEach((b,i)=>{ const x=renderBlock(a,s,b,i); if(["challenge","uhr","hinweis"].includes(b.t)) R+=x; else L+=x; }); return R ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L; })()}
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;

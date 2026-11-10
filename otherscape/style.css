@@ -407,3 +407,8 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .mt h3{margin:0 0 6px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:15px}
 .mt p{margin:6px 0 0;font-size:13.5px;line-height:1.5}
 .mt-k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
+.case-tabbar.grpbar{border-bottom:none;margin-bottom:6px;gap:6px}
+.case-tab.grp{border-radius:999px;font-weight:600;letter-spacing:.02em;padding:6px 14px}
+.case-tab.grp small{opacity:.6;margin-left:4px;font-weight:500}
+.case-tab.grp.active{background:rgba(0,229,190,.14)}
+.case-tabbar.scenebar{margin-bottom:16px}

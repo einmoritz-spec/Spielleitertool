@@ -48,17 +48,14 @@
     var mobile = innerWidth <= 1000;
     document.querySelectorAll(".notes-tile").forEach(function(t){
       var bar = t.closest(".case-tabbar"), row = t.closest(".crumb-row");
-      if(mobile && bar){
-        var cr = bar.previousElementSibling;
+      if(bar){
+        var cr = bar.previousElementSibling; while(cr && cr.classList.contains("case-tabbar")) cr = cr.previousElementSibling;
         if(cr && cr.classList.contains("wk-head")) cr = cr.querySelector(".crumbs");
         if(!cr || !/crumb/.test(cr.className)) return;
         var r = cr.parentElement.classList.contains("crumb-row") ? cr.parentElement : null;
         if(!r){ r = document.createElement("div"); r.className = "crumb-row"; cr.parentElement.insertBefore(r, cr); r.appendChild(cr); }
         r.appendChild(t);
         cr.scrollLeft = cr.scrollWidth;
-      } else if(!mobile && row){
-        var b = row.parentElement.querySelector(".case-tabbar") || document.querySelector(".case-tabbar");
-        if(b) b.appendChild(t);
       }
     });
   }

@@ -22,13 +22,14 @@
       e.stopPropagation();
       if(pop){ closePop(); return; }
       pop = document.createElement("div"); pop.className = "tp-pop";
+      var cols = Math.min(3, Math.ceil(tabs.length / 8)); pop.style.columnCount = cols; pop.style.width = Math.min(cols * 290 + 20, bar.clientWidth) + "px";
       tabs.forEach(function(t){ var k = t.cloneNode(true); k.classList.remove("tab-aftermath"); k.onclick = null; k.addEventListener("click", function(){ closePop(); t.click(); }); pop.appendChild(k); });
       bar.appendChild(pop); popBar = bar; bar.classList.add("tp-open");
       var a = pop.querySelector(".active"); if(a && a.scrollIntoView) a.scrollIntoView({block:"nearest"});
     };
     bar.insertBefore(c, bar.firstChild);
   }
-  function scan(){ document.querySelectorAll(".case-tabbar:not(.grpbar)").forEach(build); }
+  function scan(){ document.querySelectorAll(".case-tabbar:not(.grpbar):not(.grprows)").forEach(build); }
   var q = 0;
   new MutationObserver(function(){ if(q) return; q = requestAnimationFrame(function(){ q = 0; scan(); }); }).observe(document.documentElement, { childList: true, subtree: true });
   document.addEventListener("click", function(e){ if(pop && !(e.target.closest && e.target.closest(".tp-pop"))) closePop(); });

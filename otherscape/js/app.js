@@ -65,14 +65,16 @@ function renderAdv(a, secId){
   let idx = a.sektionen.findIndex(s=>s.id===secId); if(idx<0) idx = 0;
   const s = a.sektionen[idx];
   const doneKey = a.id+":"+s.id;
-  const tabBtn = x=>`<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(x.titel)}</button>`;
+  const tabBtn = (x,strip)=>`<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(strip&&x.titel.startsWith(strip)?x.titel.slice(strip.length):x.titel)}</button>`;
+  const cpre = items=>{ if(items.length<3) return ""; const m = /^[^:]{2,30}:\s/.exec(items[0].titel); return m && items.filter(x=>x.titel.startsWith(m[0])).length>=3 ? m[0] : ""; };
   const groups = []; a.sektionen.forEach(x=>{ const n = grpOf(a,x)||"Start"; const l = groups[groups.length-1]; if(l && l.n===n) l.items.push(x); else groups.push({n, items:[x]}); });
   let tabbar;
-  if(groups.length>=2 && a.sektionen.length>7){
-    const ag = groups.find(g=>g.items.includes(s));
-    tabbar = `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)}</button>`).join("")}</div>
-  <div class="case-tabbar scenebar">${ag.items.map(tabBtn).join("")}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
-  } else tabbar = `<div class="case-tabbar">${a.sektionen.map(tabBtn).join("")}${NotePop.tile("os", a.id+":"+s.id)}</div>`;
+  const isAdv = !/^(tokyo-|fraktion-|gegner-)/.test(a.id), tile = NotePop.tile("os", a.id+":"+s.id);
+  if(isAdv && a.sektionen.length>7){
+    tabbar = groups.length>=2
+      ? `<div class="case-tabbar grprows">${groups.map(g=>`<div class="gr-row"><span class="gr-l">${esc(g.n)}</span><div class="gr-t">${(pr=>g.items.map(x=>tabBtn(x,pr)).join(""))(cpre(g.items))}</div></div>`).join("")}${tile}</div>`
+      : `<div class="case-tabbar grprows"><div class="gr-row"><div class="gr-t">${a.sektionen.map(x=>tabBtn(x)).join("")}</div></div>${tile}</div>`;
+  } else tabbar = `<div class="case-tabbar">${a.sektionen.map(x=>tabBtn(x)).join("")}${tile}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];
   let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)} › ${_pg?`<a onclick="openBook('${a.buch}',${_pg})" title="S. ${_pg} im Buch öffnen">${esc(s.titel)}</a>`:esc(s.titel)}</div>

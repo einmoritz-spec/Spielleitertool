@@ -130,3 +130,10 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 .tcard.tc-coll:not(.open) .tc-head{border-bottom:0}
 .tcard.tc-coll:not(.open)>:not(.tc-head){display:none}
 .threat .pin{z-index:3}
+
+/* Notiz-Popup im Aktenmappen-Look */
+.notes-pop{background:#fbf6e6!important;border:1px solid #c9b98f!important;box-shadow:0 10px 30px rgba(80,60,20,.35)!important}
+.notes-pop textarea{background:#fffaf0!important;color:#2a251d!important;border:1px solid #d9c9a0!important;font-family:Georgia,serif}
+.notes-pop textarea::placeholder{color:#9a8b6a}
+.notes-pop textarea:focus{border-color:#e9a93f!important}
+.notes-pop .np-x{background:#e9a93f!important;color:#6a2a12!important;border:1px solid #d48f25!important}

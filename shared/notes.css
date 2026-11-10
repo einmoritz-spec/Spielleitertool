@@ -6,10 +6,10 @@
 .notes-tile.has .nt-dot{display:inline-block}
 .notes-row{display:flex;justify-content:flex-end;margin:0 0 8px}
 .notes-row .notes-tile{margin:0}
-.notes-pop{position:fixed;z-index:9500;background:#1c1f2a;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.6)}
-.notes-pop textarea{display:block;width:100%;box-sizing:border-box;height:min(260px,50vh);resize:vertical;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#e8e8ee;padding:10px;font:inherit;font-size:.92rem;line-height:1.45}
-.notes-pop textarea:focus{outline:none;border-color:rgba(255,255,255,.35)}
-.notes-pop .np-x{position:absolute;top:-10px;right:-8px;width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:#2a2d38;color:#fff;font-size:16px;line-height:1;cursor:pointer;padding:0}
+.notes-pop{position:fixed;z-index:9500;background:var(--panel-raised,var(--panel2,var(--panel,#1c1f2a)));border:1px solid var(--panel-line,var(--line,rgba(255,255,255,.18)));border-radius:12px;padding:10px;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.notes-pop textarea{display:block;width:100%;box-sizing:border-box;height:min(260px,50vh);resize:vertical;background:var(--bg,rgba(0,0,0,.25));border:1px solid var(--panel-line,var(--line,rgba(255,255,255,.12)));border-radius:8px;color:var(--text,#e8e8ee);padding:10px;font:inherit;font-size:.92rem;line-height:1.45}
+.notes-pop textarea:focus{outline:none;border-color:var(--gold,var(--tone,rgba(255,255,255,.35)))}
+.notes-pop .np-x{position:absolute;top:-10px;right:-8px;width:26px;height:26px;border-radius:50%;border:1px solid var(--panel-line,var(--line,rgba(255,255,255,.25)));background:var(--panel,#2a2d38);color:var(--text,#fff);font-size:16px;line-height:1;cursor:pointer;padding:0}
 @media (max-width:1000px){.case-tabbar .notes-tile{position:sticky;right:0;margin-left:auto;padding:6px 11px;background:#161922;box-shadow:-12px 0 10px -2px #0b0d14;border-radius:9px}.notes-tile .nt-t{display:none}.notes-tile{font-size:.95rem}}
 /* Wake: Kachel über der Szene nur ohne Tab-Leiste und ohne Handy-Szenenwahl */
 .shell.tabs-top .notes-row{display:none}

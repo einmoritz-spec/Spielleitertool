@@ -341,6 +341,14 @@ a.case-card{text-decoration:none;color:var(--text)}.case-card.intro{border-style
 
 .eis-wrap{width:fit-content;max-width:100%;margin:0 auto}
 .eis-wrap img{width:auto!important;max-width:100%;max-height:64vh}
+/* Eisberg links (mitlaufend), Text rechts daneben – ab Laptop-Breite */
+@media (min-width:1000px) and (orientation:landscape){
+  .eis-split{display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:start}
+  .eis-side{position:sticky;top:64px}
+  .eis-side .eis-wrap{margin:0}
+  .eis-side .eis-wrap img{max-height:calc(100vh - 170px)}
+  .eis-text{min-width:0}
+}
 
 /* Ebenen eingeklappt */
 details.level>summary.level-head{cursor:pointer;list-style:none;position:relative;padding-right:44px}details.level>summary::-webkit-details-marker{display:none}details.level>summary.level-head::after{content:"";position:absolute;right:18px;top:50%;width:8px;height:8px;border-right:2px solid var(--tone);border-bottom:2px solid var(--tone);transform:translateY(-70%) rotate(45deg);transition:transform .15s}details.level[open]>summary.level-head::after{transform:translateY(-30%) rotate(-135deg)}details.level>.cases{padding-top:4px}

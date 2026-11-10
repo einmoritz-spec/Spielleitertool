@@ -175,7 +175,8 @@ function chapterView(c, ch){
   if(ch.items.length>1) h += `<div class="toc">${ch.items.slice(ch.layer||first.kind==="intro"?1:0).map(s=>`<a href="#/case/${c.nr}/sec/${s.id}">${esc(s.title)}</a>`).join("")}</div>`;
   const coverFig = (first.kind==="intro") ? (c.figures||[]).filter(f=>f.kind==="art" && figSec(c,f)===first.id).sort((a,b)=>a.page-b.page)[0] : null;
   if(coverFig) h += `<div class="cover-top">${figHtml(coverFig)}</div>`;
-  if(c.eisberg && (first.kind==="intro")) h += `<div id="eisberg">${eisbergView(c)}</div>`;
+  const eisSplit = !!(c.eisberg && first.kind==="intro");
+  if(eisSplit) h += `<div class="eis-split"><div id="eisberg" class="eis-side">${eisbergView(c)}</div><div class="eis-text">`;
   ch.items.forEach((sec,k)=>{
     const sub = !ch.flat && !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
     const subCount = ch.items.filter((x,kk)=>!ch.flat && !(ch.layer && kk===0) && !(first.kind==="intro" && kk===0)).length, single = sub && subCount===1;
@@ -190,6 +191,7 @@ function chapterView(c, ch){
     if(sub&&!single) h += `</div>`;
     h += `</section>`;
   });
+  if(eisSplit) h += `</div></div>`;
   return h;
 }
 function figSec(c, f){ if(f.sec) return f.sec; let best=null; for(const s of c.sections) if(s.page<=f.page) best=s; return best&&best.id; }

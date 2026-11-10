@@ -478,10 +478,10 @@ function locBlock(l, anchorId, scope){
     html += clueBoxes(l.clues);
   }
   if(l.images){
-    html += l.images.map(im=>`<figure class="ll-fig"><img src="${im.src}" alt="${im.caption||""}" loading="lazy" onclick="window.open(this.src,'_blank')"><figcaption>${im.caption||""}${im.page?` · S. ${im.page}`:""}</figcaption></figure>`).join("");
+    html += l.images.map(im=>`<figure class="ll-fig"><img src="${im.src}" alt="${im.caption||""}" loading="lazy" onclick="mapFull(this.src)"><figcaption>${im.caption||""}${im.page?` · S. ${im.page}`:""}</figcaption></figure>`).join("");
   }
   if(l.handouts){
-    html += l.handouts.map(h=>`<div class="handout"><div class="ho-label">${h.kind||"Handout"}${h.page?` · S. ${h.page}`:""}</div><h4>${h.title||""}</h4><div class="ho-text">${h.text}</div>${h.note?`<div class="ho-note">${h.note}</div>`:""}</div>`).join("");
+    html += l.handouts.map(h=>`<div class="handout"><div class="ho-label">${h.kind||"Handout"}${h.page?` · S. ${h.page}`:""}</div><h4>${h.title||""}</h4>${h.img?`<figure class="ll-fig"><img src="${h.img}" alt="${h.title||""}" loading="lazy" onclick="mapFull(this.src)"></figure>`:""}<div class="ho-text">${h.text}</div>${h.note?`<div class="ho-note">${h.note}</div>`:""}</div>`).join("");
   }
   if(l.gmNote){
     html += gmNote(l.gmNote);
@@ -812,11 +812,11 @@ function renderCityMap(){
   if(typeof LL_MAPS==="undefined") return "";
   const m=mapMode(), src=LL_MAPS.dir+"stadt-"+m+".webp";
   const hot=LL_MAPS.hot.map(h=>{ const d=DISTRICTS.find(x=>x.id===h.id); if(!d||d.hidden) return ""; const ok=d.status==="ready";
-    return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}"></button>`; }).join("");
+    return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}">${h.label?`<span class="city-lbl">${h.label}</span>`:""}</button>`; }).join("");
   const chips=DISTRICTS.filter(d=>!d.hidden&&d.status==="ready").map(d=>`<button class="map-chip" onclick="goDistrict('${d.id}')">${d.title}${LL_MAPS.notOnMap[d.id]?` <small>${LL_MAPS.notOnMap[d.id]}</small>`:""}</button>`).join("");
   return `<div class="city-map-box"><div class="city-map-head"><h2>Stadtkarte</h2>${mapToggle()}</div>
     <div class="city-scroll"><div class="city-map"><img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div>
-    <p class="map-hint2">Auf einen Bezirk in der Karte tippen, um ihn zu öffnen. Sunken City und Undertrash liegen nicht auf der Karte. <a href="#" onclick="mapFull('${src}');return false;">Karte groß ansehen</a></p>
+    <p class="map-hint2">Auf einen Bezirk in der Karte tippen, um ihn zu öffnen. Sunken City (unter der Bucht) und Undertrash (unter der Stadt) liegen nicht auf der Karte, sie haben beschriftete Felder am Rand. <a href="#" onclick="mapFull('${src}');return false;">Karte groß ansehen</a></p>
     <div class="map-chips">${chips}</div></div>`;
 }
 function renderMapPanel(id){

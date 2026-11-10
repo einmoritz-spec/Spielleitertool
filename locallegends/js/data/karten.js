@@ -9,7 +9,9 @@ const LL_MAPS = {
     {id:"independence",    x:80.9, y:29.7, w:14, h:5.5},
     {id:"colonia_sombras", x:22.3, y:30.4, w:20, h:5.5},
     {id:"chinatown",       x:37.5, y:32.6, w:12, h:5.5},
-    {id:"tourist_trap",    x:70.0, y:53.6, w:12, h:5.5}
+    {id:"tourist_trap",    x:70.0, y:53.6, w:12, h:5.5},
+    {id:"sunken_city",     x:86.0, y:63.0, w:15, h:6.5, label:"The Sunken City"},
+    {id:"undertrash",      x:11.0, y:70.0, w:15, h:6.5, label:"The Undertrash"}
   ],
   notOnMap: {sunken_city:"unter der Bucht", undertrash:"unter der Stadt"}
 };

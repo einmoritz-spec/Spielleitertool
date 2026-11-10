@@ -151,7 +151,7 @@ function renderCase(c, sid){
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   const _f = ch.items[0], _n = c.sections[c.sections.indexOf(_f)+1];
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="S. ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a></div>
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="S. ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a><span class="crumb-pg">S. ${pageRange(c,_f,_n)}</span></div>
   
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
@@ -191,7 +191,6 @@ function chapterView(c, ch){
     const nextSec = c.sections[c.sections.indexOf(sec)+1];
     h += `<section class="chsec${sub&&!single?" coll":""}${sub&&sec.id===OPENSID?" open":""}" id="s-${sec.id}">`;
     if(sub) h += `<h3 class="sec-sub"${single?"":` onclick="toggleSec(this)"`}>${single?"":`<span class="chev">▸</span>`}${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></h3>${single?"":`<div class="chbody">`}`;
-    else if(!(k0 && k===0)) h += `<div class="pagetag-row"><button class="pagetag" onclick="openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></div>`;
     const blocks = secBlocks(c, sec.id);
     let L = "", R = "";
     for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && figSec(c,f)===sec.id){ if(f.kind==="art") L += figHtml(f, c); else R += figHtml(f, c); }

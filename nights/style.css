@@ -388,3 +388,4 @@ details.level>summary.level-head{cursor:pointer;list-style:none;position:relativ
 .tcard .tc-t{display:flex;align-items:baseline;gap:8px}
 .tcard .tc-pg{font-size:.66rem;color:#8d8a82;cursor:pointer;text-decoration:none;letter-spacing:.04em}
 .tcard .tc-pg:hover{color:#d8d5cd}
+.crumbs .crumb-pg{margin-left:10px;color:#6c7080;font-size:.9em;letter-spacing:.04em}

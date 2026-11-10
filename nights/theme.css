@@ -1,0 +1,48 @@
+/* Nights of Paynetown – Fallakte: helles Aktenpapier, Rost, Aktenreiter (nach dem Original-Layout) */
+:root{--bg:#e8dcc0;--bg2:#e1d4b5;--panel:#f6efdc;--panel2:#efe5cc;--line:#c9b98f;--text:#2a251d;--mute:#7a6e55;--mag:#a63a2b;--cyan:#9b3526;--amber:#9b3526;--paper:#fbf6e6;--ink:#211e18;--clue:#f7e48a;--clue-ink:#2a2412;--acc:#9b3526;--tone:#9b3526;--fold:#e9a93f;--rust:#8a3a1c;--cond:"Liberation Sans Narrow","Arial Narrow","Bahnschrift Condensed",Impact,sans-serif}
+body{background:radial-gradient(1100px 600px at 50% -5%,#f3ead3 0%,transparent 70%),#e6d9bb!important;color:var(--text);font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif}
+a{color:var(--cyan)}
+.topbar{background:#2a2521!important;border-bottom:3px solid #9b3526!important;backdrop-filter:none}
+.brand,.brand *{color:#f3ead3!important;text-shadow:none!important;font-family:var(--cond);letter-spacing:.05em}
+.tb-btn{background:#3a332c;border-color:#54483a;color:#f3ead3}
+.crumbs,.crumbs a{color:var(--mute)!important}.crumbs a:last-of-type{color:#9b3526!important}
+/* Aktenreiter */
+.case-tabbar{border-bottom:3px solid var(--fold)!important;gap:4px!important}
+.case-tab{background:#dccda6!important;color:#6b5a3a!important;border:1px solid #bda97a!important;border-bottom:none!important;border-radius:14px 14px 0 0!important;font-family:var(--cond);font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:8px 18px 7px}
+.case-tab small{font-family:var(--cond);opacity:.8}
+.case-tab:hover{background:#e6d6ae!important}
+.case-tab.active{background:linear-gradient(#f0b955,#e9a93f)!important;color:var(--rust)!important;border-color:#d48f25!important;font-size:1.05em;box-shadow:0 -3px 0 #f0b955;position:relative;top:1px}
+/* Text */
+.blk-p,.blk-card,.content{color:var(--text)!important}
+.blk-p{font-size:1.12rem;line-height:1.7}
+.blk-sh,.blk-h{color:var(--rust)!important;font-family:var(--cond);letter-spacing:.07em;font-weight:800}
+.blk-sh{font-size:1rem;border-bottom:1px solid #c9b98f;padding-bottom:3px}
+.tab-layout .chsec>.blk-p,.tab-layout .chsec>.blk-h,.tab-layout .chbody>.blk-p,.tab-layout .chbody>.blk-h,.tab-layout .chsec>.blk-list,.tab-layout .chsec>.blk-ro{max-width:none!important}
+.scn-l .blk-p,.scn-l .blk-ro{max-width:none!important}
+/* Kapitel-Zettel (wie "Die erste Ebene" im Eisberg) */
+.sec-sub{display:flex;background:#efe3a8;color:var(--rust)!important;font-family:var(--cond);font-weight:800;letter-spacing:.06em;border:none!important;border-radius:2px;padding:9px 20px 9px 16px;margin:34px 0 16px;box-shadow:0 2px 6px rgba(90,70,20,.3);position:relative}
+.sec-sub::before{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#b9a24a,#7d6a22);box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.sec-sub .chev{color:var(--rust)}
+.pagetag{background:transparent!important;color:#8a7a55!important;border-color:#bda97a!important}
+/* Vorlesetext & Hinweise */
+.blk-ro{background:#fffaf0!important;color:#2a2418!important;border-left:5px solid #9b3526!important;box-shadow:0 3px 10px rgba(80,60,20,.25)!important}
+.blk-card{background:#f7e48a!important;color:#2a2412!important;box-shadow:2px 3px 8px rgba(80,60,20,.3)!important}
+.blk-card.pink{background:#f1c3c0!important}
+.threat,.blk.threat{background:#fbf6e6!important;color:#2a251d!important;border:1px solid #c9b98f!important}
+.scn-r{border-left:1px dashed #bba979!important}.scn-rh{background:var(--bg)!important;color:var(--mute)!important}
+.notes-tile{background:#d8c9a2!important;color:#4a4130!important}
+.pager{background:#2a2521!important;border-top:3px solid #9b3526!important}.pager *{color:#f3ead3}
+.fig img,.fig.art img{border:1px solid #c9b98f;box-shadow:0 3px 10px rgba(80,60,20,.3)}
+.tcard{box-shadow:2px 4px 10px rgba(80,60,20,.4)}
+.level.ice{--tone:#2b6f9e}.level.amber{--tone:#6f46b8}.level.neon{--tone:#b3236f}.level.gold{--tone:#9a6a00}
+.level{background:linear-gradient(180deg,#f8f1de,#efe4c7);box-shadow:0 2px 8px rgba(80,60,20,.18)}
+.tb-burger{background:#3a332c!important;border-color:#54483a!important;color:#f3ead3!important}
+.tb-burger svg,.tb-burger svg *{stroke:#f3ead3}
+.case-card{background:#fbf6e6;border-color:#c9b98f}
+.tm-dd button.on b{color:#9b3526!important}
+.tm-dd button.on{background:rgba(155,53,38,.08)!important}
+@media (max-width:700px){
+  .sec-sub{flex-wrap:wrap;gap:4px 10px;padding:8px 12px;font-size:1.05rem;margin:26px 0 12px}
+  .sec-sub .chev{order:0}
+  .blk-p{font-size:1.04rem;line-height:1.65}
+}

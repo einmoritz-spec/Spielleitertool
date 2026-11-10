@@ -1,5 +1,5 @@
 OS_ADV_PART("biting-bullet", [
-  {id:"def-vorbereitung", gruppe:"Verteidiger-Itinerary", titel:"Verteidiger: Hintergrund und Vorbereitung", bloecke:[
+  {id:"def-vorbereitung", gruppe:"Variante: Verteidiger", titel:"Verteidiger: Hintergrund und Vorbereitung", bloecke:[
     {t:"p", x:"Chrysanthemum engagiert die Crew als zusätzliche Sicherheit während der Fahrt. Die Nightclouders sind hier ehemalige Maboroshi-Mitarbeiter: Sie wurden entlassen, weil sie sich emotional zu sehr an das Projekt klammerten. Sie begannen, den Baku Mythos zu verehren, und flogen auf, als sie Projektdaten aus den Labors schaffen wollten. Jetzt, da der Ex-Arbeitgeber das Projekt verkauft und die Daten verschiebt, sehen sie eine zweite Chance."},
     {t:"h", x:"Der Angriffsplan der Nightclouders"},
     {t:"p", x:"Sie wollen im **Second Leg** mit voller Kraft zuschlagen und bereiten dafür zwei verdeckte Schritte vor:"},
@@ -94,7 +94,7 @@ OS_ADV_PART("biting-bullet", [
     {t:"p", x:"Die Station ähnelt der Maboroshi Station, ist aber größer und trägt ein anderes Firmenlogo. Sind noch Failed Baku Hybrids oder Infiltratoren aktiv, verstärkt der Konzern seine Domain-Firewall (**firewalled-5, Scale 4**) rund um das Terminal und öffnet die Türen nicht, nicht einmal für die eigenen Söldner. Niemand kommt rein oder raus, bis die Bedrohung auf die eine oder andere Art beseitigt ist."},
     {t:"hinweis", titel:"Die beste Offensive ist Verteidigung", x:"Ein cleverer Weg, die Gemälde zu stehlen: den Verteidiger-Job annehmen, ihn gut vortäuschen, das Vertrauen von Dangansen-Sicherheit und Kunden gewinnen und sie dann verraten. Verteidigt die Crew im First Leg und in Dangan Central erfolgreich, darfst du ihr **trusted-3** schenken, als digitale Berechtigung und zwischenmenschliches Vertrauen, das sie im Second Leg zur Flucht mit den Gemälden nutzen kann."}
   ]},
-  {id:"att-vorbereitung", gruppe:"Angreifer-Itinerary", titel:"Angreifer: Hintergrund und Vorbereitung", bloecke:[
+  {id:"att-vorbereitung", gruppe:"Variante: Angreifer", titel:"Angreifer: Hintergrund und Vorbereitung", bloecke:[
     {t:"p", x:"Die Crew wird von Dritten angeheuert oder macht den Heist auf eigene Rechnung: Sie holt die Daten aus dem Zug, bevor er sein Ziel erreicht. Die Nightclouders sind hier Maboroshi-Mitarbeiter und Verehrer des Baku Mythos, die den Transfer zu Chrysanthemum absichern. Sie hängen emotional am Projekt und bewachen die Daten fanatisch. Nach dem Transfer wollen sie Chrysanthemum-Angestellte werden, um nahe an dieser Source zu bleiben."},
     {t:"p", x:"Ein erfolgreicher Heist heißt: an Bord kommen (vermutlich auf einem ebenso schnellen Fahrzeug), die Gemälde abladen (vermutlich auf ein Fahrzeug) und in den Cyberspace entkommen."},
     {t:"h", x:"Der Verteidigungsplan der Nightclouders"},
@@ -141,7 +141,7 @@ OS_ADV_PART("biting-bullet", [
     {t:"p", x:"Zusteigen und Mission erfüllen läuft wie im First Leg, aber setze **arrive** zurück. Diesmal erreicht der Zug bei vollem Limit die Chrysanthemum Station, und die Crew muss die Verbindung trennen oder riskiert ein viel schmerzhafteres Schicksal durch Chrysanthemum-ICs (nutze ein Kollektiv aus Sōhei ICs mit dem Naginata 2L8 Special, Metro S. 129)."},
     {t:"p", x:"Die Crew kann dem Halt auch ganz ausweichen, indem sie sich zurückzieht und nach der Abfahrt neu zusteigt. Ist sie während des Halts da, dann an einem von zwei Orten: an Bord, wenn sie im First Leg eingedrungen ist, oder draußen vor der Station beim Versuch einzubrechen."}
   ]},
-  {id:"aftermath", titel:"Aftermath", bloecke:[
+  {id:"aftermath", gruppe:"Abschluss", titel:"Aftermath", bloecke:[
     {t:"p", x:"Irgendwann hat jemand (oder niemand?) die Kunstwerke. Aber ist es die richtige Partei?"},
     {t:"liste", items:[
       "**Als Verteidiger:** Haben die Nightclouders Gemälde gestohlen, ist Chrysanthemum verstimmt. Der Konzern wird die Lage ausnutzen und anbieten, die zweite Lohnhälfte zu zahlen, wenn die Crew die Bilder dort holt, wo die Nightclouders sie verstecken. Tut die Crew das nicht, brennt sie Brücken ab und verliert Ansehen in der Unterwelt. Werden dagegen alle Gemälde heil abgeliefert, gilt das als Meisterleistung an Professionalität und bringt wohl wertvolle Kontakte und Jobangebote.",

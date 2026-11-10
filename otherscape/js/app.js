@@ -71,8 +71,10 @@ function renderAdv(a, secId){
   let tabbar;
   const isAdv = !/^(tokyo-|fraktion-|gegner-)/.test(a.id), tile = NotePop.tile("os", a.id+":"+s.id);
   if(isAdv && a.sektionen.length>7){
+    const ag = groups.find(g=>g.items.includes(s)), pr = cpre(ag.items);
     tabbar = groups.length>=2
-      ? `<div class="case-tabbar grprows">${groups.map(g=>`<div class="gr-row"><span class="gr-l">${esc(g.n)}</span><div class="gr-t">${(pr=>g.items.map(x=>tabBtn(x,pr)).join(""))(cpre(g.items))}</div></div>`).join("")}${tile}</div>`
+      ? `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)}</button>`).join("")}</div>
+  <div class="case-tabbar scenebar">${ag.items.map(x=>tabBtn(x,pr)).join("")}${tile}</div>`
       : `<div class="case-tabbar grprows"><div class="gr-row"><div class="gr-t">${a.sektionen.map(x=>tabBtn(x)).join("")}</div></div>${tile}</div>`;
   } else tabbar = `<div class="case-tabbar">${a.sektionen.map(x=>tabBtn(x)).join("")}${tile}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];

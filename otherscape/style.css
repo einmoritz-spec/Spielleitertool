@@ -390,3 +390,8 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .kat-lb-x{position:fixed;top:10px;right:12px;background:rgba(0,0,0,.6);color:#fff;border:1px solid #666;border-radius:50%;width:38px;height:38px;font-size:16px;cursor:pointer}
 .kat-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:1px solid #666;border-radius:50%;width:44px;height:44px;font-size:26px;line-height:1;cursor:pointer}.kat-nav.prev{left:10px}.kat-nav.next{right:10px}
 @media(max-width:760px){.kat-top{grid-template-columns:1fr}.kat-hero{max-width:420px}.kat-tiles{grid-template-columns:repeat(2,1fr);gap:10px}.kat-row{grid-template-columns:1fr;gap:0}}
+.kit-intro{max-width:90ch}.kit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.kit{background:linear-gradient(180deg,#14213a,var(--bg2));border:1px solid var(--line);border-top:3px solid var(--tone);border-radius:14px;padding:12px 14px}
+.kit-h{display:flex;justify-content:space-between;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+.kit h3{margin:6px 0 8px;font-size:1.12rem;line-height:1.2}.kit h3 small{display:block;font-weight:400;font-size:.72rem;color:var(--mute);margin-top:2px}
+.kit-l{margin:10px 0 5px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}.kit-itch{margin:0;font-style:italic}

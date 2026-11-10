@@ -444,7 +444,7 @@ function renderDistrictTabs(c, id, active){
   tabs.forEach(key=>{
     html += `<button class="case-tab ${active===key?'active':''}" onclick="setDistTab('${key}')">${DIST_TAB_LABELS[key]}</button>`;
   });
-  html += NotePop.tile("ll", "dist:"+id+":"+active) + `</div>`;
+  html += `</div>`;
   return html;
 }
 function llNotes(key){ let n={}; try{ n=JSON.parse(localStorage.getItem("ll_notes")||"{}"); }catch(e){} return `<details class="mini-notes" ${n[key]?"open":""}><summary>✎ Notizen</summary><textarea oninput="llSetNote('${key}',this.value)" placeholder="Eigene Notizen …">${(n[key]||"").replace(/&/g,"&amp;").replace(/</g,"&lt;")}</textarea></details>`; }

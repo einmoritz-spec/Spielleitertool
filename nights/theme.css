@@ -46,3 +46,15 @@ a{color:var(--cyan)}
   .sec-sub .chev{order:0}
   .blk-p{font-size:1.04rem;line-height:1.65}
 }
+/* Helle Kopf- und Fußleiste */
+.topbar{background:linear-gradient(#f4ead0,#eadcb8)!important;border-bottom:3px solid var(--fold)!important;box-shadow:0 2px 8px rgba(90,70,20,.18)}
+.brand,.brand *{color:#6d2f15!important}
+.tb-btn,.tb-burger{background:#e3d2a6!important;border-color:#c4ae7a!important;color:#6d2f15!important}
+.tb-burger svg,.tb-burger svg *{stroke:#6d2f15!important}
+.topbar .tm-caret{color:#6d2f15!important;opacity:.7}.topbar .tm-caret:hover,.topbar .tm-caret[aria-expanded=true]{background:rgba(109,47,21,.1)!important}
+.pager{background:linear-gradient(#eadcb8,#e2d1a6)!important;border-top:3px solid var(--fold)!important}
+.pager *{color:#6d2f15!important}
+.pager .pg-arrow{border-color:#9b3526!important}
+.tm-dd button b{color:#2a251d!important}
+.tm-dd button.on b{color:#9b3526!important}
+.tm-dd button small{color:#6f6450!important;opacity:1!important}

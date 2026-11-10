@@ -156,7 +156,8 @@ function renderCase(c, sid){
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
   if(window.glossarize) glossarize($("app"));
-  const target = (!toEis && sid && ch.items[0].id!==sid) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
+  const target = (!toEis && sid && ch.items[0].id!==sid && !(ch.items[1] && ch.items[1].id===sid)) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
+  if(!toEis) window.scrollTo(0,0);
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
@@ -269,7 +270,7 @@ function eisbergView(c){
     hot += `<button class="hot ${ST.seen[c.nr+":"+n.label]?"seen":""}" style="left:${l}%;top:${t}%;width:${w/W*100}%;height:${h/H*100}%" title="${esc(n.label)}" aria-label="${esc(n.label)}" onclick="gotoNode(${i})"></button>`;
   });
   const list = E.nodes.map((n,i)=>`<button onclick="gotoNode(${i})"><small>Schicht ${n.layer}</small>${esc(n.label)}</button>`).join("");
-  return `<h3 class="sec-sub">Der Eisberg<button class="pagetag" onclick="openPageViewer(${E.page})">S. ${E.page}</button></h3><div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div>`;
+  return `<div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div>`;
 }
 function gotoNode(i){ const n = CUR.eisberg.nodes[i]; ST.seen[CUR.nr+":"+n.label] = 1; saveState(); location.hash = `#/case/${CUR.nr}/sec/${n.target}`; }
 

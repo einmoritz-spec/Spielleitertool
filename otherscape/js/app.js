@@ -36,6 +36,7 @@ async function route(){
     renderAdv(a, p[2] || a.sektionen[0].id);
   } else if(p[0]==="gegner") renderGegner();
   else if(p[0]==="fraktionen") renderFraktionen();
+  else if(p[0]==="katalog") renderKatalog(p[1]);
   else if(p[0]==="tokyo") renderTokyo();
   else renderHome();
 }
@@ -195,7 +196,7 @@ function openMobileMenu(){
   if($("mobileMenu")) return;
   const item = (ic,l,fn)=>`<button class="mm-item" onclick="closeMobileMenu(); ${fn}"><span class="mm-ic">${ic}</span><span>${l}</span></button>`;
   const m = document.createElement("div"); m.id = "mobileMenu"; m.className = "mobile-menu";
-  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🏛","Fraktionen","location.hash='#/fraktionen'")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
+  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🏛","Fraktionen","location.hash='#/fraktionen'")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎒","Straßenkatalog","location.hash='#/katalog'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
   document.body.appendChild(m); document.body.classList.add("menu-open"); requestAnimationFrame(()=>m.classList.add("open"));
 }
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMobileMenu(); closeModal("searchModal"); closeModal("settingsModal"); } });

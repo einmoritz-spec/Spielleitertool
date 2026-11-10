@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v111";
+const VERSION = "v112";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -94,6 +94,23 @@ const FILES = [
   "otherscape/js/data/abenteuer-liste.js",
   "otherscape/js/data/pages.js",
   "otherscape/js/data/bilder.js",
+  "otherscape/js/katalog.js",
+  "otherscape/js/data/katalog.js",
+  "otherscape/img/katalog/apps.webp",
+  "otherscape/img/katalog/cyberspace.webp",
+  "otherscape/img/katalog/cyberware.webp",
+  "otherscape/img/katalog/drohnen.webp",
+  "otherscape/img/katalog/enhancer.webp",
+  "otherscape/img/katalog/fahrzeuge.webp",
+  "otherscape/img/katalog/merc.webp",
+  "otherscape/img/katalog/mode.webp",
+  "otherscape/img/katalog/munition.webp",
+  "otherscape/img/katalog/quellen.webp",
+  "otherscape/img/katalog/ruestung.webp",
+  "otherscape/img/katalog/stimmung-schlafkapseln.webp",
+  "otherscape/img/katalog/stimmung-strasse.webp",
+  "otherscape/img/katalog/waffen.webp",
+  "otherscape/img/katalog/zugaenge.webp",
   "otherscape/img/anthill-titel.webp",
   "otherscape/img/biting-bullet-aftermath.webp",
   "otherscape/img/biting-bullet-titel.webp",

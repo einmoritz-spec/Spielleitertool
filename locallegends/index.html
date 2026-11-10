@@ -108,5 +108,13 @@ document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refr
 <script>window.UX_CFG={cols:[{box:".shell",side:".danger-card,.section:has(.danger-card)"}]};</script>
 <script src="../shared/ux.js"></script>
 <script src="../shared/zeigen.js"></script>
+<script>
+// PWA: Service Worker über http(s); bei neuer Version einmal automatisch neu laden.
+if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
+  var __had = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener("controllerchange",function(){ if(__had) location.reload(); });
+  window.addEventListener("load",function(){ navigator.serviceWorker.register("../sw.js").then(function(r){ r.update(); }).catch(function(){}); });
+}
+</script>
 </body>
 </html>

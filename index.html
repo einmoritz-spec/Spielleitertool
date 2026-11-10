@@ -246,9 +246,11 @@
 <script src="js/main.js"></script>
 <script>BV.init({ libBase:"bookviewer/lib/", defaultBook:"wake", books:[{key:"wake", name:"Wake of the Oldways"}], openSettings:function(){ openTopbarSettings(); } });</script>
 <script>
-// PWA: Service Worker nur über http(s) (auf file:// verweigern Browser ihn – die Datei läuft dort weiter ganz normal).
+// PWA: Service Worker über http(s); bei neuer Version einmal automatisch neu laden.
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
-  window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+  var __had = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener("controllerchange",function(){ if(__had) location.reload(); });
+  window.addEventListener("load",function(){ navigator.serviceWorker.register("sw.js").then(function(r){ r.update(); }).catch(function(){}); });
 }
 </script>
 <script src="toolmenu.js"></script>

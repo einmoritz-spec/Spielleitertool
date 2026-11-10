@@ -102,3 +102,9 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 .scn.stack .scn-r>*{break-inside:avoid;margin:0 0 12px!important}
 .scn.stack .scn-rh{column-span:all}
 .th-thumb{object-position:35% 18%!important}
+
+@media (max-width:700px){.pager .pg-more{display:none}}
+.scn.stack .threat{transform:none!important;max-width:none!important;margin:16px 0 18px!important}
+.scn.stack .scn-r>*{margin-bottom:14px!important}
+.scn.stack .scn-r>*{display:inline-block;width:100%;box-sizing:border-box;vertical-align:top}
+.scn.stack .scn-rh{display:block}

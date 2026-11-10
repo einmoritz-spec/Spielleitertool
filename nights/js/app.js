@@ -148,7 +148,7 @@ function renderCase(c, sid){
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
-  const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t)}</b></span></a>`;
+  const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t).replace(/^([^:]{2,24}):\s*(.+)$/,'$1<span class="pg-more">: $2</span>')}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   const _f = ch.items[0], _n = c.sections[c.sections.indexOf(_f)+1];
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="S. ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a><span class="crumb-pg">S. ${pageRange(c,_f,_n)}</span></div>

@@ -412,3 +412,9 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 /* kurze Hooks: alle nebeneinander, aufgeklappt */
 .hook-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 26px;align-items:start;column-span:all;margin:0 0 14px}
 .hook-grid .loc-card{margin:0}
+
+/* Stadtkarte komplett sichtbar */
+.city-scroll{overflow:visible;text-align:center}
+.city-map{display:inline-block;min-width:0!important;max-width:100%;vertical-align:top}
+.city-map img{width:auto;max-width:100%;max-height:calc(100vh - 150px);height:auto}
+@media (max-width:720px){.city-map img{max-height:none;width:100%}}

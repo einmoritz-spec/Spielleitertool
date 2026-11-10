@@ -63,3 +63,5 @@ a{color:var(--cyan)}
 .tm-dd button b{color:#2a251d!important}
 .tm-dd button.on b{color:#9b3526!important}
 .tm-dd button small{color:#6f6450!important;opacity:1!important}
+.case-card b{color:#2a251d!important;font-size:1.15rem;line-height:1.25}
+.case-card small{color:#6f6450!important}

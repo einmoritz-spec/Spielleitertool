@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v152";
+const VERSION = "v153";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -299,14 +299,17 @@ self.addEventListener("activate", e => {
       .then(() => self.clients.claim())
   );
 });
-// Netzwerk zuerst (immer aktuell), bei fehlendem Netz aus dem Cache.
+// Cache zuerst (schnell, auch unterwegs), im Hintergrund aktualisieren.
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
   e.respondWith(
-    fetch(e.request).then(r => {
-      const copy = r.clone();
-      caches.open(CACHE).then(c => c.put(e.request, copy));
-      return r;
-    }).catch(() => caches.match(e.request).then(r => r || caches.match("index.html")))
+    caches.match(e.request).then(hit => {
+      const net = fetch(e.request).then(r => {
+        if (r && r.ok) { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }
+        return r;
+      });
+      if (hit) { net.catch(()=>{}); return hit; }
+      return net.catch(() => caches.match("index.html"));
+    })
   );
 });

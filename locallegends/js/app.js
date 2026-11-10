@@ -819,10 +819,8 @@ function renderCityMap(){
   const m=mapMode(), src=LL_MAPS.dir+"stadt-"+m+".webp";
   const hot=LL_MAPS.hot.map(h=>{ const d=DISTRICTS.find(x=>x.id===h.id); if(!d||d.hidden) return ""; const ok=d.status==="ready";
     return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}">${h.label?`<span class="city-lbl">${h.label}</span>`:""}</button>`; }).join("");
-  const chips=DISTRICTS.filter(d=>!d.hidden&&d.status==="ready").map(d=>`<button class="map-chip" onclick="goDistrict('${d.id}')">${d.title}${LL_MAPS.notOnMap[d.id]?` <small>${LL_MAPS.notOnMap[d.id]}</small>`:""}</button>`).join("");
   return `<div class="city-map-box"><div class="city-map-head"><h2>Stadtkarte</h2>${mapToggle()}</div>
-    <div class="city-scroll"><div class="city-map"><img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div>
-    <div class="map-chips">${chips}</div></div>`;
+    <div class="city-scroll"><div class="city-map"><img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div></div>`;
 }
 function renderMapPanel(id){
   if(typeof LL_MAPS==="undefined") return "";

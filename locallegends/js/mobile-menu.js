@@ -20,9 +20,16 @@ function openMobileMenu(){
       <div class="mm-list">
         ${item("🗂", "Übersicht", "goOverview()")}
         ${caseVisible ? item("📁", "Fall öffnen", "goCase(state.districtId)") : ""}
+        ${item("👥", "Gegner &amp; NSCs", "goNpcs()")}
+        ${item("🖼", "Spieler-Ansicht", "goPlayer()")}
         ${item("🔎", "Suche", "openSearchModal()")}
         ${item("📜", "Regeln", "openModal('rulesModal')")}
         ${item("📖", "Glossar", "openModal('glossModal')")}
+        <div class="mm-sub">Bonus-Inhalte</div>
+        ${typeof FORGED_FRAMED!=="undefined" ? item("🕵", "Forged &amp; Framed", "goCase('forged_framed')") : ""}
+        ${typeof VILLAINS!=="undefined" ? VILLAINS.map(v=>item("🎭", v.title, "goVillain('"+v.id+"')")).join("") : ""}
+        ${typeof GUIDE!=="undefined" ? item("🧭", "Einleitung &amp; Stadtführer", "goGuide()") : ""}
+        ${typeof APPENDIX!=="undefined" ? item("📚", "Register", "goAppendix()") : ""}
       </div>
       <div class="mm-foot">${item("⚙", "Einstellungen", "openModal('settingsModal')")}</div>
     </nav>`;

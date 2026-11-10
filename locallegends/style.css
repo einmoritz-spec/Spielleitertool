@@ -363,3 +363,12 @@ body.menu-open{overflow:hidden;}
 .city-hot .city-lbl{display:flex;align-items:center;justify-content:center;height:100%;font-size:clamp(9px,1.15vw,14px);font-weight:600;letter-spacing:.02em;color:#f3dca8;text-shadow:0 1px 3px #000;pointer-events:none;white-space:nowrap}
 .city-hot[aria-label="The Sunken City"],.city-hot[aria-label="The Undertrash"]{border-style:solid;background:rgba(10,20,30,.55)}
 .ll-portrait{float:right;width:132px;max-width:34%;height:auto;margin:0 0 8px 12px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.4);cursor:zoom-in}@media(max-width:600px){.ll-portrait{width:96px}}
+/* Menü-Abschnitt, NSC-Browser, Spieler-Ansicht */
+.mm-sub{margin:12px 12px 2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint)}
+.npc-bar{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 12px}.npc-bar input{flex:1 1 240px;margin:0}.npc-bar select{background:var(--panel);color:var(--text);border:1px solid var(--panel-line);border-radius:8px;padding:8px 10px;font:inherit}
+.npc-dh{margin:22px 0 8px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-bright)}.npc-row{margin-bottom:8px}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-bottom:10px}
+.pl-fig{margin:0}.pl-fig img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--panel-line);cursor:zoom-in;display:block;background:#222}.pl-fig figcaption{font-size:11.5px;color:var(--text-faint);margin-top:4px}
+.pl-lb{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.97);display:none;align-items:center;justify-content:center;cursor:zoom-out}.pl-lb.show{display:flex}.pl-lb img{height:94vh;width:96vw;object-fit:contain}
+.pl-x{position:fixed;top:10px;right:12px;background:rgba(0,0,0,.6);color:#fff;border:1px solid #666;border-radius:50%;width:38px;height:38px;font-size:16px;cursor:pointer}
+.pl-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:1px solid #666;border-radius:50%;width:44px;height:44px;font-size:26px;line-height:1;cursor:pointer}.pl-nav.prev{left:10px}.pl-nav.next{right:10px}

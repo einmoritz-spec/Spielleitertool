@@ -47,6 +47,8 @@ function render(){
   else if(state.view==="guide") app.innerHTML = renderGuide();
   else if(state.view==="villain") app.innerHTML = renderVillain(state.villainId);
   else if(state.view==="appendix") app.innerHTML = renderAppendix();
+  else if(state.view==="npcs") app.innerHTML = renderNpcs();
+  else if(state.view==="player") app.innerHTML = renderPlayerView();
   buildGlossList();
   buildRulesList();
   { const sc = app.querySelector('.case-tabpanel')||app, cs = sc.querySelectorAll('.loc-card'); if(cs.length===1) cs[0].classList.add('single','open'); }
@@ -118,7 +120,6 @@ function renderOverview(){
     </div>
     ${renderCityMap()}
     <div class="grid">${tiles}</div>
-    ${renderBonusTiles()}
     <div class="footer-note">Quelle: City of Mist — Local Legends · Fall-Akte für den Spieltisch, kein Ersatz fürs Regelwerk.</div>
   `;
 }

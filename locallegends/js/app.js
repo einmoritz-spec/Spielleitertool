@@ -117,9 +117,6 @@ function renderOverview(){
     </div>`;
   }).join("");
   return `
-    <div class="hero">
-      <h1>Local Legends — Fall-Akte</h1>
-    </div>
     ${renderCityMap()}
     <div class="grid">${tiles}</div>
     <div class="footer-note">Quelle: City of Mist — Local Legends · Fall-Akte für den Spieltisch, kein Ersatz fürs Regelwerk.</div>
@@ -241,32 +238,48 @@ function gmNote(text){
 }
 
 function llPortrait(name){ const src=(typeof LL_PORTRAITS!=="undefined")&&LL_PORTRAITS[name]; return src?`<img class="ll-portrait" src="${src}" alt="${name}" loading="lazy" onclick="mapFull(this.src)">`:""; }
+state.openThemes = state.openThemes || {};
+function toggleTheme(k){ state.openThemes[k]=!state.openThemes[k]; const el=document.getElementById("th_"+k); if(el) el.classList.toggle("open",state.openThemes[k]); }
 function renderThemeCard(o){
-  return `<div class="card">
-    ${llPortrait(o.name)}<h3>${o.name}</h3>
-    <div class="sub" style="font-size:11.5px;color:var(--text-faint);font-style:italic;margin-bottom:6px;">${o.kind}${o.role?` · ${o.role}`:""}</div>
+  const k = dangerKey("theme", o.name+"_"+(o.kind||""));
+  return `<div class="card theme-card ${state.openThemes[k]?"open":""}" id="th_${k}">
+    <div class="th-head" onclick="toggleTheme('${k}')"><span class="th-chev">▸</span><h3>${o.name}</h3><span class="th-kind">${o.kind||""}${o.role?` · ${o.role}`:""}</span></div>
+    <div class="th-body">
+    ${llPortrait(o.name)}
     ${o.blurb?`<p>${o.blurb}</p>`:""}
     <p><i>${o.identity}</i></p>
     <span class="taglabel">Power-Tags</span>${tagRow(o.power,"power")}
     <span class="taglabel">Weakness-Tags</span>${tagRow(o.weak,"weak")}
     ${o.improvement?`<p style="margin-top:8px;"><b style="color:var(--brass-bright)">${o.improvement.name}:</b> ${o.improvement.text}</p>`:""}
     ${o.bio?`<p style="margin-top:10px;border-top:1px dashed var(--line);padding-top:8px;">${o.bio}</p>`:""}
+    </div>
   </div>`;
 }
 
 function dangerKey(scope,name){ return (scope+"_"+name).replace(/[^a-z0-9]+/gi,"_").toLowerCase(); }
 
+let _ratIdx=null;
+function dangerRating(dg){
+  if(dg.rating) return {text:dg.rating+"/5", html:"⬥".repeat(dg.rating)+"⬦".repeat(Math.max(0,5-dg.rating))};
+  if(!_ratIdx){ _ratIdx={}; if(typeof APPENDIX!=="undefined" && APPENDIX.dangers) APPENDIX.dangers.entries.forEach(e=>{ _ratIdx[normName(e.name)]=e; }); }
+  const e=_ratIdx[normName(dg.name)]; if(!e) return null;
+  const n=e.stars||e.rating||0;
+  return {text:(e.plus?"+":"")+n, html:(e.plus?"<b>+</b>":"")+"⬥".repeat(n)};
+}
+function normName(n){ return String(n||"").toLowerCase().replace(/&amp;/g,"&").replace(/\(.*?\)/g,"").replace(/[^a-z0-9äöüß]+/g," ").trim(); }
 function renderDangerCard(dg, scope){
   const key = dangerKey(scope, dg.name);
   const spectrums = parseStatLine(dg.statLine);
   const spectrumHTML = spectrums.map((s,i)=>renderSpectrum(key, i, s)).join("");
   const isOpen = !!state.openDangers[key];
-  const ratingHTML = dg.rating ? `<span class="rating" title="Bedrohungsstufe ${dg.rating}/5">${"⬥".repeat(dg.rating)}${"⬦".repeat(Math.max(0,5-dg.rating))}</span>` : "";
+  const rt = dangerRating(dg);
+  const ratingHTML = rt ? `<span class="rating" title="Bedrohungsstufe ${rt.text}">${rt.html}</span>` : (window.__noRating=(window.__noRating||[]).concat(dg.name), "");
+  const _unused = dg.rating ? `<span class="rating" title="Bedrohungsstufe ${dg.rating}/5">${"⬥".repeat(dg.rating)}${"⬦".repeat(Math.max(0,5-dg.rating))}</span>` : "";
   return `<div class="danger-card ${isOpen?'open':''}" id="dc_${key}">
     <div class="danger-head" onclick="toggleDanger('${key}')">
       <h4>${dg.name}</h4>
-      <span class="epithet">${dg.epithet||""}</span>
       ${ratingHTML}
+      <span class="epithet">${dg.epithet||""}</span>
     </div>
     <div class="danger-body">
       ${llPortrait(dg.name)}
@@ -349,7 +362,7 @@ function _renderDistrictView(id){
     html += `<div class="footer-note">Local Legends — Fall-Akte · Bezirk: ${dist.title} (Bezirksteil ausstehend)</div>`;
     return html;
   }
-  if(!state.distTab) state.distTab = "overview";
+  if(!state.distTab || getDistTabKeys(c).indexOf(state.distTab)<0) state.distTab = "overview";
   const active = state.distTab;
 
   let html = `<div class="crumb"><button onclick="goOverview()">Bezirke</button><span class="sep">/</span>${dist.title}</div>`;
@@ -358,8 +371,10 @@ function _renderDistrictView(id){
   html += renderDistrictTabs(c, id, active);
 
   if(active==="overview"){
+    html += renderMapPanel(id);
     html += `<div class="readaloud">${c.quote.text}<br><span style="font-size:11.5px;opacity:.7;">${c.quote.author}</span></div>
       <div class="card"><p>${c.intro}</p></div>`;
+    if(c.playerOptions) html += sectionHTML("options","Player Options", (c.playerOptionsIntro?`<div class="card"><p>${c.playerOptionsIntro}</p></div>`:"") + c.playerOptions.map(renderThemeCard).join(""));
     html += sectionHTML("howto","Wie man diesen Bezirk nutzt", ((c.howToUseIntro||c.howToIntro)?`<div class="card"><p>${c.howToUseIntro||c.howToIntro}</p></div>`:"") + c.howToUse.map(h=>`<div class="card"><h3 style="font-size:14px;">${h.t}</h3><p>${h.x}</p></div>`).join("") + (c.namesNote?`<p style="font-size:11.5px;color:var(--text-faint);font-style:italic;">${c.namesNote}</p>`:""));
     if(c.gate) html += sectionHTML("gate","Das Chinatown-Tor", `<div class="card"><p>${c.gate}</p></div>`);
     html += sectionHTML("beyond","Jenseits des Nebels", `<div class="card"><p>${c.beyondMist}</p></div>`);
@@ -433,7 +448,7 @@ function _renderDistrictView(id){
   return html;
 }
 function getDistTabKeys(c){
-  const tabs = ["overview","map","options","places","locals","chance","powersets"];
+  const tabs = ["overview","places","locals","chance","powersets"];
   if(c.heistRules) tabs.push("heists");
   tabs.push("case");
   return tabs;
@@ -530,7 +545,6 @@ function getCaseTabKeys(cs){
 }
 function renderCaseTabs(cs, active, nid){
   let tabs = `<button class="case-tab ${active==='overview'?'active':''}" onclick="setCaseTab('overview')">Übersicht</button>`;
-  if(typeof LL_MAPS!=="undefined") tabs += `<button class="case-tab ${active==='map'?'active':''}" onclick="setCaseTab('map')">Karte</button>`;
   cs.depths.forEach(dp=>{
     tabs += `<button class="case-tab ${active===('depth'+dp.n)?'active':''}" onclick="setCaseTab('depth${dp.n}')">Depth ${dp.n}<br><small>${dp.title}</small></button>`;
   });
@@ -565,14 +579,14 @@ function _renderCaseView(id){
   html += renderCaseTabs(cs, active, id);
   html += `<div class="case-tabpanel">`;
 
-  if(active==="overview"){
+  if(active==="map") state.caseTab = "overview";
+  if(active==="overview" || active==="map"){
+    html += renderMapPanel(id);
     html += `<div class="card"><p>${cs.intro}</p></div>`;
     if(cs.teaser) html += `<div class="card"><p>${cs.teaser}</p></div>`;
     if(cs.fourthMurder) html += `<div class="card"><h3>${cs.fourthMurder.title}</h3>${cs.fourthMurder.paragraphs.map(p=>`<p>${p}</p>`).join("")}</div>`;
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Hintergrund</h2></div><div class="section-body">${cs.background.map(p=>`<div class="card"><p>${(p && typeof p==="object" && p.text!==undefined)?p.text:p}</p></div>`).join("")}${cs.miniThemeKits?cs.miniThemeKits.map(renderThemeCard).join(""):""}</div></div>`;
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote}</p></div>${cs.icebergImage?`<div class="card" style="padding:8px;"><p class="hint" style="margin:0 0 6px;font-size:12px;color:var(--text-faint);">Auf ein Foto tippen, um zum Abschnitt zu springen.</p><div class="ice-wrap"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}" style="width:100%;height:auto;display:block;border-radius:4px;">${iceHot(id)}</div></div>`:""}${cs.icebergMap?`<div class="card"><h3 style="font-size:14px;">Schauplätze nach Tiefe</h3><ul>${cs.icebergMap.depths.map(d=>`<li><b>Depth ${d.n}:</b> ${d.places.join(", ")}</li>`).join("")}</ul>${cs.icebergMap.links&&cs.icebergMap.links.length?`<p style="font-size:12px;color:var(--text-faint);">Verbindungen: ${cs.icebergMap.links.map(l=>l[0]+" → "+l[1]).join(" · ")}</p>`:""}</div>`:""}</div></div>`;
-  } else if(active==="map"){
-    html += renderMapPanel(id);
   } else if(active==="aftermath"){
     const isComplete = !!state.caseComplete[completeKey];
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Aftermath</h2></div><div class="section-body">`;
@@ -820,11 +834,11 @@ function renderCityMap(){
   const m=mapMode(), src=LL_MAPS.dir+"stadt-"+m+".webp";
   const hot=LL_MAPS.hot.map(h=>{ const d=DISTRICTS.find(x=>x.id===h.id); if(!d||d.hidden) return ""; const ok=d.status==="ready";
     return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}">${h.label?`<span class="city-lbl">${h.label}</span>`:""}</button>`; }).join("");
-  return `<div class="city-map-box"><div class="city-map-head"><h2>Stadtkarte</h2>${mapToggle()}</div>
+  return `<div class="city-map-box"><div class="city-map-head">${mapToggle()}</div>
     <div class="city-scroll"><div class="city-map"><img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div></div>`;
 }
 function renderMapPanel(id){
   if(typeof LL_MAPS==="undefined") return "";
   const m=mapMode(), src=LL_MAPS.dir+id+"-"+m+".webp";
-  return `<div class="card map-panel">${mapToggle()}<img class="map-img" src="${src}" alt="Karte" onclick="mapFull('${src}')"></div>`;
+  return `<div class="map-panel">${mapToggle()}<img class="map-img" src="${src}" alt="Karte" onclick="mapFull('${src}')"></div>`;
 }

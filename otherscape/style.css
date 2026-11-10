@@ -347,3 +347,6 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .case-tab.active{background:var(--panel2);color:var(--tone);border-color:var(--tone);position:relative;top:1px}
 @media (max-width:1000px){.shell:has(.case-tabbar){padding-left:12px!important}.case-tabbar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-12px}.case-tabbar::-webkit-scrollbar{display:none}.case-tab{flex:none}}
 
+
+.os-art{margin:12px 0 16px;text-align:center}.os-art img{max-height:440px;max-width:100%;width:auto;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.45);cursor:zoom-in}.os-art figcaption{font-size:12px;color:var(--text-faint,#8a93a6);margin-top:5px}
+.os-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;cursor:zoom-out}.os-lightbox.show{display:flex}.os-lightbox img{max-width:96vw;max-height:96vh;width:auto;height:auto}.os-lb-x{position:fixed;top:10px;right:12px;background:rgba(0,0,0,.6);color:#fff;border:1px solid #666;border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer}

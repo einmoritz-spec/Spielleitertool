@@ -70,6 +70,7 @@ function renderAdv(a, secId){
    <div class="content">
    <div class="chsec"><div class="sec-title"><h2>${esc(s.titel)}</h2>${osSecPage(a,s.id)}${s.gruppe?`<span class="grp">${esc(s.gruppe)}</span>`:""}</div>
    ${idx===0?ovBox(a):""}
+   ${osArt(a,idx)}
    ${(s.bloecke||[]).map((b,i)=>renderBlock(a,s,b,i)).join("")}
    <details class="mini-notes" ${ST.notes[a.id+":"+s.id]?"open":""}><summary>✎ Notizen</summary><textarea oninput="setNote('${a.id}:${s.id}',this.value)" placeholder="Eigene Notizen …">${esc(ST.notes[a.id+":"+s.id]||"")}</textarea></details>
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
@@ -129,6 +130,19 @@ function osChPage(name){
   for(const id in OS_PAGES){ const pg = OS_PAGES[id].ch[name]; if(pg){ const e = OS_ADV_LIST.find(x=>x.id===id); if(e) return pgBtn(e.buch,pg); } }
   return "";
 }
+function osArt(a,idx){
+  const L = typeof OS_ART!=="undefined" && OS_ART[a.id]; if(!L) return "";
+  const sp = (typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec) || {};
+  let last = 0; const pages = a.sektionen.map(x=>{ if(sp[x.id]) last = sp[x.id]; return last; });
+  return L.filter(x=>{ let t = 0; for(let i=0;i<pages.length;i++) if(pages[i]<=x.p) t = i; return t===idx; })
+    .map(x=>`<figure class="os-art"><img src="${x.src}" alt="${esc(x.cap)} (Buch S. ${x.p})" loading="lazy" onclick="osZoom(this.src)"><figcaption>${esc(x.cap)} · ${pgBtn(a.buch,x.p,"Buch S. "+x.p)}</figcaption></figure>`).join("");
+}
+function osZoom(src){
+  let o = document.getElementById("osLightbox");
+  if(!o){ o = document.createElement("div"); o.id = "osLightbox"; o.className = "os-lightbox"; o.onclick = ()=>o.classList.remove("show"); document.body.appendChild(o); }
+  o.innerHTML = `<img src="${src}" alt=""><button class="os-lb-x" aria-label="Schließen">✕</button>`; o.classList.add("show");
+}
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ const o=document.getElementById("osLightbox"); if(o) o.classList.remove("show"); } });
 function osSecPage(a,sid){ const pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[sid]; return pg ? pgBtn(a.buch,pg) : ""; }
 function osHeadPages(a){ const m = (a.seiten||"").match(/\d+/g)||[]; return m.length ? pgBtn(a.buch,m[0],esc(a.buch)+" "+esc(a.seiten)+" 📖") : esc(a.buch)+" "+esc(a.seiten); }
 

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v110";
+const VERSION = "v111";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -93,6 +93,22 @@ const FILES = [
   "otherscape/js/app.js",
   "otherscape/js/data/abenteuer-liste.js",
   "otherscape/js/data/pages.js",
+  "otherscape/js/data/bilder.js",
+  "otherscape/img/anthill-titel.webp",
+  "otherscape/img/biting-bullet-aftermath.webp",
+  "otherscape/img/biting-bullet-titel.webp",
+  "otherscape/img/bridge-too-far-aftermath.webp",
+  "otherscape/img/bridge-too-far-s304.webp",
+  "otherscape/img/bridge-too-far-s309.webp",
+  "otherscape/img/bridge-too-far-titel.webp",
+  "otherscape/img/kenko-ruins-aftermath.webp",
+  "otherscape/img/kenko-ruins-titel.webp",
+  "otherscape/img/lost-flooded-s264.webp",
+  "otherscape/img/lost-flooded-titel.webp",
+  "otherscape/img/steam-punks-s292.webp",
+  "otherscape/img/steam-punks-titel.webp",
+  "otherscape/img/strings-attached-s342.webp",
+  "otherscape/img/strings-attached-s350.webp",
   "otherscape/js/data/overviews.js",
   "otherscape/js/data/abenteuer/anthill-2.js",
   "otherscape/js/data/abenteuer/anthill.js",

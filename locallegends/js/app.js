@@ -468,7 +468,7 @@ function toggleLoc(id){ state.openLoc[id] = !state.openLoc[id]; const el = docum
 function openLocEl(el){ const c = el && el.closest && el.closest(".loc-card"); if(c && !c.classList.contains("open")){ c.classList.add("open"); state.openLoc[c.id] = true; } }
 function locBlock(l, anchorId, scope){
   let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}">`;
-  html += `<h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span><span class="pin">📍</span> ${l.name}</h4><div class="loc-body">`;
+  html += `<h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span> ${l.name}</h4><div class="loc-body">`;
   if(l.readaloud){
     html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${l.readaloud}</div></div>`;
   }

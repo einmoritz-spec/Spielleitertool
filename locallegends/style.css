@@ -374,3 +374,18 @@ body.menu-open{overflow:hidden;}
 .pl-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);color:#fff;border:1px solid #666;border-radius:50%;width:44px;height:44px;font-size:26px;line-height:1;cursor:pointer}.pl-nav.prev{left:10px}.pl-nav.next{right:10px}
 .crumb .pg-link{color:var(--text-lo);text-decoration:none;padding:2px 4px;font-size:12.5px}
 .crumb .pg-link:hover{color:var(--brass-bright)}
+
+/* ---- Typografie angeglichen an die anderen Settings ---- */
+body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.6}
+.card p,.loc-body>p,.section-body>p,.gm-note,.clue-box,.movegroup li{font-size:1rem;line-height:1.7;letter-spacing:.005em}
+.loc-body>p{margin:0 0 .85em;color:var(--text-hi)}
+.card p{margin:0 0 .85em}
+.movegroup li{margin-bottom:.45em}
+.readaloud,.readaloud.article{font-family:"Spectral",Charter,"Iowan Old Style",Georgia,serif;font-size:1.05rem;line-height:1.6}
+.loc-card{margin-bottom:26px}
+.loc-card .loc-h{padding:6px 0;font-size:1.05rem}
+.loc-card.open .loc-h{margin-bottom:6px}
+.depth-block>.loc-card+.loc-card{margin-top:6px}
+.section-head h2,.tab-h{letter-spacing:.04em}
+@media (min-width:1000px){.card p,.loc-body>p,.movegroup li{font-size:1.06rem;line-height:1.7}.loc-body{max-width:110ch}}
+@media (max-width:720px){.card p,.loc-body>p,.movegroup li,.gm-note,.clue-box{font-size:1rem;line-height:1.7}.readaloud,.readaloud.article{font-size:1.05rem;line-height:1.6}.loc-card{margin-bottom:22px}}

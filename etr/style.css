@@ -80,3 +80,7 @@ body{margin:0;color:#ece4cc;font-family:var(--typ);min-height:100vh;
 .sr{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #243457;color:#ece4cc;padding:9px 4px;font:inherit;cursor:pointer}.sr b{color:var(--pink)}.sr small{color:#8fa0c4;display:block}
 
 .coffin small{opacity:.75;font-size:.85em}.sec>.bd .tbl td:first-child{white-space:normal}
+
+.crumb{font:12px var(--disp);letter-spacing:.1em;text-transform:uppercase;color:#8fa0c4;margin:-8px 0 12px}
+.mm-panel .bvs{margin:18px 0 6px;color:#ece4cc}.mm-panel .bvs-btn{color:#ece4cc}.mm-panel .bvs-off{display:none}
+.mm-panel .bvs-hint,.bvs-hint{display:none}

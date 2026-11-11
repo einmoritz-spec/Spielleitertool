@@ -1,7 +1,10 @@
 /* Eat the Reich – Renderer. Daten kommen aus js/data/*.js (globale ETR_*-Variablen). */
 var ETR_TABS = [
- {id:"einstieg",t:"Einstieg"},{id:"figuren",t:"Figuren"},{id:"regeln",t:"Regeln"},{id:"mission",t:"Mission"},{id:"leitung",t:"Spielleitung"},
- {id:"karte",t:"Karte"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"gegner",t:"Gegner"},{id:"check",t:"Evil-Check"},{id:"anhang",t:"Anhang"}];
+ {id:"einstieg",t:"Start"},{id:"karte",t:"Karte"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"gegner",t:"Gegner"}];
+/* Nachschlage-Seiten: nur über das Burger-Menü erreichbar */
+var ETR_MENU = [
+ {id:"figuren",t:"Figuren"},{id:"regeln",t:"Regeln"},{id:"mission",t:"Mission"},{id:"leitung",t:"Spielleitung"},{id:"check",t:"Evil-Check"},{id:"anhang",t:"Anhang"}];
+var ETR_ALL = ETR_TABS.concat(ETR_MENU);
 var cur = (location.hash||"").slice(1) || "einstieg";
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/==(.+?)==/g,'<span class="hi">$1</span>').replace(/\n/g,"<br>"); }
@@ -56,18 +59,24 @@ function hero(){ return '<div class="hero" style="background-image:url(img/cover
 function render(){
   var tabs='<nav class="tabs">'+ETR_TABS.map(function(x){return '<button class="tab'+(x.id===cur?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>';}).join("")+'</nav>';
   var m={einstieg:function(){return hero()+secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegner,anhang:function(){return secs(window.ETR_ANHANG);}};
-  document.getElementById("app").innerHTML=tabs+(m[cur]||m.einstieg)();
+  var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0];
+  document.getElementById("app").innerHTML=tabs+(mi?'<div class="crumb">Menü › '+mi.t+'</div>':'')+(m[cur]||m.einstieg)();
   var t=document.querySelector(".tab.on"); if(t&&t.scrollIntoView) t.scrollIntoView({inline:"center",block:"nearest"});
 }
 function go(id){ cur=id; location.hash=id; render(); window.scrollTo(0,0); }
-function openMenu(on){ document.getElementById("mmB").classList.toggle("on",on); document.getElementById("mmP").classList.toggle("on",on); }
+function buildMenu(){
+  var p=document.getElementById("mmP");
+  p.innerHTML=ETR_MENU.map(function(x){return '<button class="mi'+(x.id===cur?' on':'')+'" onclick="openMenu(false);go(\''+x.id+'\')"><b>'+x.t+'</b></button>';}).join("")+'<div id="bvSettingsHost"></div>'+(window.BV?'<button class="mi" onclick="openMenu(false);BV.open(\'etr\',1)"><b>Buch öffnen</b></button>':'');
+  if(window.BV){ document.getElementById("bvSettingsHost").innerHTML=BV.settingsHTML(); BV.refresh(); }
+}
+function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on",on); document.getElementById("mmP").classList.toggle("on",on); }
 function openSearch(){ document.getElementById("searchModal").classList.add("on"); document.getElementById("searchInput").focus(); }
 function closeSearch(){ document.getElementById("searchModal").classList.remove("on"); }
 function runSearch(q){
   q=(q||"").trim().toLowerCase(); var out=document.getElementById("searchResults"); if(q.length<2){ out.innerHTML=""; return; }
   var hits=[];
   function strip(h){ return h.replace(/<[^>]+>/g," "); }
-  ETR_TABS.forEach(function(tb){
+  ETR_ALL.forEach(function(tb){
     var save=cur; cur=tb.id; var html=""; try{ var m={einstieg:window.ETR_EINSTIEG,regeln:window.ETR_REGELN,mission:window.ETR_MISSION,leitung:window.ETR_LEITUNG,karte:window.ETR_KARTE,check:window.ETR_CHECK,anhang:window.ETR_ANHANG};
       if(m[tb.id]) (m[tb.id]||[]).forEach(function(s){ var t=strip(s.b.map(blk).join(" ")); if((s.titel+" "+t).toLowerCase().indexOf(q)>-1) hits.push([tb,s.titel,t]); });
       if(tb.id==="gegner") (window.ETR_GEGNER||[]).forEach(function(g){ var t=strip(enemy(g)); if((g.name+" "+t).toLowerCase().indexOf(q)>-1) hits.push([tb,g.name,t]); });

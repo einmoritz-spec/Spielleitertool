@@ -5,10 +5,11 @@ function pg(p){ return p ? '<span class="pg">S. '+p+'</span>' : ''; }
 function pips(n){ return n>0 ? '<span class="pips">'+'◆'.repeat(n)+'</span>' : ''; }
 function route(){ var h=(location.hash||"").slice(1).split("/"); return {tab:h[0]||"start",sub:h[1]||"",cat:h[2]||""}; }
 function go(path){ location.hash=path; }
-function dangerCard(d){
-  return '<div class="dg"><div class="dh"><b>'+esc(d.name)+'</b> '+pips(d.rating)+'</div>'+(d.text?d.text.map(function(t){return '<p class="dtx">'+md(t)+'</p>';}).join(""):'')+(d.limits?'<div class="lim">'+esc(d.limits)+'</div>':'')+
+function dangerCard(d,fold){
+  var head='<div class="dh"><b>'+esc(d.name)+'</b> '+pips(d.rating)+(fold&&d.limits?'<span class="dlim">'+esc(d.limits)+'</span>':'')+'</div>';
+  return (fold?'<details class="dg fold"><summary>'+head+'</summary>':'<div class="dg">'+head)+(d.text?d.text.map(function(t){return '<p class="dtx">'+md(t)+'</p>';}).join(""):'')+(d.limits?'<div class="lim">'+esc(d.limits)+'</div>':'')+
    (d.moves||[]).map(function(m){return '<p><b>'+esc(m[0])+':</b> '+md(m[1])+'</p>';}).join("")+
-   (d.gm&&d.gm.length?'<div class="gmh">Spielleitung</div><ul>'+d.gm.map(function(g){return '<li>'+md(g)+'</li>';}).join("")+'</ul>':'')+'</div>';
+   (d.gm&&d.gm.length?'<div class="gmh">Spielleitung</div><ul>'+d.gm.map(function(g){return '<li>'+md(g)+'</li>';}).join("")+'</ul>':'')+(fold?'</details>':'</div>');
 }
 function tagsHtml(a,c){ return a.map(function(t){return '<span class="tg '+c+'">'+esc(t)+'</span>';}).join(""); }
 function themeCard(t){ return '<details class="thm"><summary class="th"><b>'+esc(t.name)+'</b><i>'+esc(t.typ)+'</i></summary><p class="idn">'+esc(t.identity)+'</p><p><u>Power Tags</u> '+tagsHtml(t.power,"pw")+'</p><p><u>Weakness Tags</u> '+tagsHtml(t.weak,"wk")+'</p><p class="imp">'+md(t.imp)+'</p></details>'; }
@@ -17,7 +18,7 @@ function ortCard(o){
   var side=o.dangers.length===1&&tl>900;
   return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
    (o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
-   '<div class="ocols'+(side?'':' solo')+'"><div class="otxt'+(tl>1500?' c2':'')+'">'+(o.bild?'<img class="obild" src="img/'+o.bild+'.webp" alt="'+esc(o.name)+'" loading="lazy">':'')+o.text.map(function(t){return t.indexOf('## ')===0?'<h4 class="lh">'+esc(t.slice(3))+'</h4>':'<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(o.fig||[]).map(function(f){return '<figure class="fig"><img src="img/'+f[0]+'.webp" alt="'+esc(f[1])+'" loading="lazy"><figcaption>'+esc(f[1])+'</figcaption></figure>';}).join("")+(o.listen||[]).map(function(l){return '<h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul>';}).join("")+(o.themen||[]).map(themeCard).join("")+'</div>'+(o.dangers.length?'<aside'+(side?'':' class="dgrid"')+'>'+o.dangers.map(dangerCard).join("")+'</aside>':'')+'</div></div></details>';
+   '<div class="ocols'+(side?'':' solo')+'"><div class="otxt'+(tl>1500?' c2':'')+'">'+(o.bild?'<img class="obild" src="img/'+o.bild+'.webp" alt="'+esc(o.name)+'" loading="lazy">':'')+o.text.map(function(t){return t.indexOf('## ')===0?'<h4 class="lh">'+esc(t.slice(3))+'</h4>':'<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(o.fig||[]).map(function(f){return '<figure class="fig"><img src="img/'+f[0]+'.webp" alt="'+esc(f[1])+'" loading="lazy"><figcaption>'+esc(f[1])+'</figcaption></figure>';}).join("")+(o.listen||[]).map(function(l){return '<h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul>';}).join("")+(o.themen||[]).map(themeCard).join("")+'</div>'+(o.dangers.length?'<aside'+(side?'':' class="dgrid"')+'>'+o.dangers.map(function(d){return dangerCard(d,!side);}).join("")+'</aside>':'')+'</div></div></details>';
 }
 function stub(name,p){ return '<div class="stub"><span>'+esc(name)+'</span>'+pg(p)+'<em>nur Original</em></div>'; }
 function itemsList(items){ return '<div class="stubs">'+items.map(function(i){return stub(i[0],i[1]);}).join("")+'</div>'; }

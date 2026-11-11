@@ -89,7 +89,10 @@ a.pg-link{color:var(--mist)!important}
 
 /* Breite nutzen: keine langen Einzelspalten */
 .ocols.solo{display:block}
-.dgrid{columns:300px;column-gap:14px;margin-top:18px}
-.dgrid .dg{margin-bottom:14px;break-inside:avoid}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;align-items:start;margin-top:18px}
+.dgrid .dg{margin-bottom:0}.dgrid .dg[open]{grid-column:1/-1}
+.dg.fold{padding:10px 14px}.dg.fold>summary{cursor:pointer;list-style:none;position:relative;padding-right:22px}.dg.fold>summary .dh{display:block}.dg.fold>summary::-webkit-details-marker{display:none}.dg.fold>summary::before{content:'+';color:#d98a7c;position:absolute;right:2px;top:-2px;font-size:18px}.dg.fold[open]>summary::before{content:'–'}
+.dg.fold[open]>summary{margin-bottom:6px}.dg.fold[open]>*:not(summary)>:first-child,.dg.fold[open]>p:first-of-type{margin-top:0}.dlim{display:block;margin-top:4px;font:500 12px var(--cond);letter-spacing:.08em;color:var(--gold-hi)}.dg.fold[open] .dlim{display:none}.dg.fold[open] .lim{margin-top:0}
+@media (min-width:900px){.dg.fold[open]{column-count:2;column-gap:28px}.dg.fold[open]>summary{column-span:all}}
 .fig img{max-height:460px;width:auto;max-width:100%;object-fit:contain}
 @media (min-width:900px){.otxt.c2{column-count:2;column-gap:32px}.otxt.c2 .fig,.otxt.c2 .thm,.otxt.c2 ul,.otxt.c2 .lh{break-inside:avoid}.otxt.c2 .fig,.otxt.c2 .thm{column-span:all}.otxt.c2 .lh{break-after:avoid}}

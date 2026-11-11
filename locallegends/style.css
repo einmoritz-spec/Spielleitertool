@@ -174,13 +174,13 @@ button{font-family:inherit; cursor:pointer;}
 .pin{display:inline-block; color:var(--red-bright); font-size:11px;}
 
 /* ---------- modal ---------- */
-.modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:80; display:none; align-items:flex-start; justify-content:center; padding:40px 14px; overflow-y:auto;}
+.modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:80; display:none; align-items:flex-start; justify-content:center; padding:40px 14px; overflow:hidden; overscroll-behavior:contain;}
 .modal-overlay.show{display:flex;}
-.modal{background:var(--panel); border:1px solid var(--panel-line); border-radius:6px; max-width:720px; width:100%; padding:0; box-shadow:var(--shadow-lift);}
-.modal-head{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--panel-line); position:sticky; top:0; background:var(--panel);}
+.modal{background:var(--panel); border:1px solid var(--panel-line); border-radius:6px; max-width:720px; width:100%; padding:0; box-shadow:var(--shadow-lift); display:flex; flex-direction:column; max-height:calc(100vh - 80px); max-height:calc(100dvh - 80px); overflow:hidden;}
+.modal-head{display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--panel-line); flex:0 0 auto; background:var(--panel);}
 .modal-head h2{font-family:var(--serif-display); font-size:18px; margin:0; color:var(--brass-bright);}
 .modal-close{background:none; border:none; color:var(--text-lo); font-size:20px; line-height:1;}
-.modal-body{padding:16px 18px;}
+.modal-body{padding:16px 18px; overflow-y:auto; overscroll-behavior:contain; min-height:0;}
 .gloss-search{width:100%; padding:8px 10px; margin-bottom:10px; background:var(--panel-raised); border:1px solid var(--panel-line); border-radius:4px; color:var(--text-hi); font-size:13px;}
 .gloss-entry{padding:8px 0; border-bottom:1px solid var(--panel-line-soft);}
 .gloss-entry b{color:var(--paper); font-family:var(--serif-display);}

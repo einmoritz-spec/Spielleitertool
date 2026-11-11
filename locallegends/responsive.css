@@ -73,7 +73,7 @@
   .case-tab small{display:inline; margin-left:6px;}
   .case-tab.tab-aftermath{margin-left:0;}
   .case-hero{padding:14px;}
-  .modal{max-width:100%; width:100%; max-height:96vh;}
+  .modal{max-width:100%; width:100%; max-height:calc(100vh - 16px); max-height:calc(100dvh - 16px);}
   .modal-overlay{padding:8px;}
   .btn-primary, .btn-ghost{padding:11px 16px; font-size:14px;}
 }

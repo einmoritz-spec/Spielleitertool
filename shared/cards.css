@@ -51,3 +51,13 @@
 .case-tabbar{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .case-tabbar::-webkit-scrollbar{display:none}
 .case-tabbar .case-tab{flex:none}
+
+/* ---------- Vorlesetext einklappbar ---------- */
+.ux-fold{display:flex;align-items:center;gap:8px;width:100%;margin:0 0 8px;padding:2px 0;background:none;border:0;color:inherit;font:inherit;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;cursor:pointer;text-align:left;min-height:0;box-shadow:none}
+.ux-fold:hover{opacity:1}
+.ux-fold i{font-style:normal;width:1em;text-align:center}
+.ux-fold-p{display:none;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-transform:none;letter-spacing:0;font-style:italic;opacity:.8}
+.ux-folded>*:not(.ux-fold){display:none!important}
+.ux-folded>.ux-fold{margin:0}
+.ux-folded>.ux-fold .ux-fold-p{display:block}
+.ux-folded{padding-top:8px!important;padding-bottom:8px!important}

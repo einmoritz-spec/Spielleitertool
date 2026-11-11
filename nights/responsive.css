@@ -37,7 +37,7 @@
 @media (min-width:1920px){:root{--fs:18px}}
 @media (min-width:2300px){:root{--fs:22px}}
 @media (min-width:2800px){:root{--fs:27px}}
-.blk-p,.blk-card,.blk-ro,.th-desc,.threat li,.threat .th-desc{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.blk-p,.blk-card,.blk-ro,.th-desc,.threat li,.threat .th-desc{text-align:left;hyphens:auto;-webkit-hyphens:auto;text-wrap:pretty}
 /* einklappbares Kapitelmenü: nur Punkte am linken Rand */
 @media (min-width:1000px){
   .case-grid.nav-off{grid-template-columns:26px minmax(0,1fr);gap:16px;margin-left:-10px}

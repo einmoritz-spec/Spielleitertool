@@ -77,6 +77,20 @@
     });
   }
 
+  /* Vorlesetexte überall einklappbar (Wake hat eigenes <details>) */
+  var FOLD = ".readaloud:not(details),.blk-ro,.blk-read";
+  function folds(){
+    document.querySelectorAll(FOLD).forEach(function(el){
+      if(el.dataset.uxfold) return; el.dataset.uxfold="1";
+      var b=document.createElement("button"); b.type="button"; b.className="ux-fold"; b.setAttribute("aria-expanded","true");
+      var txt=(el.textContent||"").replace(/\s+/g," ").replace(/^\s*Vorlesen\s*(Buch S\.[^A-Za-z]*ansehen)?/i,"").trim();
+      b.innerHTML='<i aria-hidden="true">▾</i><span class="ux-fold-l">Vorlesetext</span><span class="ux-fold-p"></span>';
+      b.querySelector(".ux-fold-p").textContent=txt.slice(0,90);
+      b.onclick=function(e){ e.preventDefault(); e.stopPropagation(); var f=el.classList.toggle("ux-folded"); b.setAttribute("aria-expanded",f?"false":"true"); b.firstChild.textContent=f?"▸":"▾"; };
+      el.insertBefore(b, el.firstChild);
+    });
+  }
+
   /* Einstellungen */
   function settings(){
     var m=document.getElementById("settingsModal"); if(!m||m.dataset.uxs) return;
@@ -94,7 +108,7 @@
     r.onchange=function(){ set("rank",r.checked?"1":"0"); location.reload(); };
   }
 
-  var t; function run(){ clearTimeout(t); t=setTimeout(function(){ fades(); twoCols(); rank(); settings(); },40); }
+  var t; function run(){ clearTimeout(t); t=setTimeout(function(){ fades(); twoCols(); rank(); folds(); settings(); },40); }
   window.addEventListener("resize", run);
   new MutationObserver(run).observe(document.body,{childList:true,subtree:true});
   run();

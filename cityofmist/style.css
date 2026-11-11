@@ -86,3 +86,10 @@ a.pg-link{color:var(--mist)!important}
 .thm>summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:baseline}.thm>summary::-webkit-details-marker{display:none}.thm>summary::before{content:'+';color:#b89a5e}.thm[open]>summary::before{content:'–'}
 
 .fig{margin:14px 0}.fig img{display:block;width:100%;border-radius:6px;border:1px solid #2a323a}.fig figcaption{font-size:.8em;color:#8a9097;margin-top:5px;font-style:italic}
+
+/* Breite nutzen: keine langen Einzelspalten */
+.ocols.solo{display:block}
+.dgrid{columns:300px;column-gap:14px;margin-top:18px}
+.dgrid .dg{margin-bottom:14px;break-inside:avoid}
+.fig img{max-height:460px;width:auto;max-width:100%;object-fit:contain}
+@media (min-width:900px){.otxt.c2{column-count:2;column-gap:32px}.otxt.c2 .fig,.otxt.c2 .thm,.otxt.c2 ul,.otxt.c2 .lh{break-inside:avoid}.otxt.c2 .fig,.otxt.c2 .thm{column-span:all}.otxt.c2 .lh{break-after:avoid}}

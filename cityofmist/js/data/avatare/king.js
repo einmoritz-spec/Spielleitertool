@@ -29,7 +29,6 @@ CM_ORTE.king = [
    "Sobald jemand eines Verbrechens angeklagt ist, übernimmt DA Kings **Judikative** und sorgt dafür, dass er angemessen bestraft wird, im vollen Maß des Gesetzes und darüber hinaus. Erweist sich jemand als unverbesserlich, setzt dieser Zweig auch die härtesten Kopfgeldjäger der City ein, die einen Gesetzlosen tot oder lebendig vor Gericht bringen."],
   dangers:[] },
  { id:"figuren", name:"Schlüsselfiguren und Orte", teaser:"Stormbringers, Chiefs, Storm Clouds, Obas, Gawkers, Hakims, Hopkins und Kings Hochburgen", p:150,
-  fig:[["king_org","Organigramm von DA Kings Operation: von der Avatarin über Legendaries, Borderliner und Touched bis zu den Sleepern (S. 151)"]],
   text:[
    "## Schlüsselfiguren",
    "DA Kings Exekutive rekrutiert Menschen, die ihre Hingabe an die Wahrung der Ordnung in der City bewiesen haben, und obwohl die meisten Cops sind, kommen viele aus anderen Lebensbereichen. Deshalb gibt es **STORMBRINGER**-Teams in vielen Varianten. Sie können Splitterzellen in hassgetriebenen Anti-Regierungs-Milizen sein, innere Zirkel von Polizisten, eine Gruppe Veteranen, die sich in einer Sportbar trifft, gewalttätige Straßengangs, Rift-Vigilanten der Unterwelt oder Nachbarschaftswachen in Vororten.",

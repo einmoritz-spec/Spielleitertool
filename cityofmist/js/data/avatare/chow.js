@@ -29,7 +29,6 @@ CM_ORTE.chow = [
    "In der riesigen Organisation von Chow Industries gibt es zwei getrennte Tätigkeitszweige, an denen Rifts beteiligt sind, die für den Chairman arbeiten: Konsumprodukte und Geschäftsentwicklung. Die Fluktuation ist hoch, da erschöpfte Manager hintergangen und von ihren ehrgeizigen Untergebenen ersetzt werden. Der Chairman erwartet von allen außergewöhnliche Leistung; wer nicht liefern kann, findet sich auf der Straße oder in der Gosse wieder.",
    "Der Konsumzweig erschafft Produkte und lässt die Menschen sie begehren. Er ist in die Einzelhandelsoperationen des Unternehmens integriert, von den Fabriken bis zu den Läden, und nutzt Mythos-Kräfte, um die City an das zu versklaven, was Chow Industries anbietet.",
    "Der Geschäftsentwicklungszweig (lies: Korruption) nimmt jene Personen in Wirtschaft, Regierung und Politik ins Visier, die schon Teil des Hamsterrads sind, und bietet ihnen Chancen an, die ihre Karrieren katapultieren, aber zugleich ihre Seelen verschlingen und sie süchtig nach materiellem Erfolg machen."],
-  fig:[["chow_org","Organigramm von Chow Industries: von den Avataren über Legendaries, Borderliner und Touched bis zu den Sleepern (S. 140)"]],
   dangers:[] },
  { id:"figuren", name:"Schlüsselfiguren und Orte", teaser:"Coleman Brass, Marge Barlow, Sheryl Fisher, Alfonso Silvera, Celeste Markovitz-Gutiérrez, Pochteca, Preta, Fury Hong, Fabriken und Brand Stores", p:141,
   text:[

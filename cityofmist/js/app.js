@@ -35,6 +35,17 @@ function pageSpieler(r){
   var list=CM_NAV.spieler, s=list.filter(function(x){return x.id===r.sub;})[0]||list[0];
   return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
 }
+function orgHtml(id){
+  var o=CM_ORG[id]; if(!o) return "";
+  return '<div class="ice-wrap org"><img src="img/'+o.img+'.webp" alt="'+esc(o.alt)+'">'+o.hot.map(function(h){return '<button class="ice-hot" style="left:'+h[0]+'%;top:'+h[1]+'%;width:'+h[2]+'%;height:'+h[3]+'%" aria-label="Zum Eintrag springen" onclick="orgGo(\''+h[4]+'\',\''+(h[5]||"")+'\')"></button>';}).join("")+'</div>';
+}
+function orgGo(id,kw){
+  var d=document.getElementById("o-"+id); if(!d) return;
+  d.open=true; var el=d;
+  if(kw){ var c=d.querySelectorAll(".ob p, .ob li, .ob h4, details.dg > summary"); for(var i=0;i<c.length;i++){ if(c[i].textContent.indexOf(kw)>=0){ el=c[i]; var dg=el.closest("details.dg"); if(dg) dg.open=true; break; } } }
+  el.scrollIntoView({block:"start"}); window.scrollBy(0,-70);
+  el.classList.add("orgflash"); setTimeout(function(){el.classList.remove("orgflash");},1800);
+}
 function pageSL(r){
   var list=CM_NAV.sl, s=list.filter(function(x){return x.id===r.sub;})[0]||list[0];
   var h=pills("sl",list,s.id);
@@ -44,7 +55,7 @@ function pageSL(r){
   var chips='<nav class="chips">'+cats.map(function(c){var n=(CM_ORTE[c.id]||[]).length;return '<button class="chip'+(c.id===cat.id?' on':'')+'" onclick="go(\'sl/'+s.id+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>';}).join("")+'</nav>';
   var have=CM_ORTE[cat.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
   var body=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]):stub(e[0],e[1]); }).join("");
-  return h+chips+'<section class="blk">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+body+'</div></section>';
+  return h+chips+orgHtml(cat.id)+'<section class="blk">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+body+'</div></section>';
 }
 function render(){
   var r=route(), tabs='<nav class="tabs">'+CM_NAV.tabs.map(function(t){return '<button class="tab'+(t.id===r.tab?' on':'')+'" onclick="go(\''+t.id+'\')">'+t.t+'</button>';}).join("")+'</nav>';

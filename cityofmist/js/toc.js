@@ -19,6 +19,7 @@ var CM_NAV = {
 };
 /* Orte-Verzeichnis (Kap. 2): alle Einträge des Buchs; übersetzte Einträge liegen in js/data/orte/<kategorie>.js (CM_ORTE) */
 var CM_ORTE = {};
+var CM_ORG = {};
 var CM_ORTE_CATS = [
  {id:"unterkunft",t:"Unterkunft",en:"Accommodation",p:77,sub:"Wohnen und Unterschlupf für Figuren, die ausziehen, vor die Tür gesetzt werden oder untertauchen",e:[["The Night Line",77],["Out of This World Spa Hotel",78],["The Pigeon Coop",79],["The Projects",80]]},
  {id:"kontakte",t:"Kontakte",en:"Contacts",p:82,sub:"Fixer, Macher und Strippenzieher der Rift-Unterwelt",e:[["1-800-Kingsmen Cleaners",82],["Auntie Pay",83],["Marquis Ward and the Tortoise Court",84]]},

@@ -30,7 +30,6 @@ CM_ORTE.ganesha = [
    "Wer in der Operation die Gemeinschaft versorgt, arbeitet an großangelegten Lösungen in Sozialarbeit, Bildung, Politik, Behördenarbeit und mehr. Ihre Arbeit nützt täglich Millionen von Menschen, und ihre Organisationen beschäftigen Tausende.",
    "Andere folgen Ganesha für bestimmte Einzelne, die Menschen in ihrem Leben oder Fremde sein können, denen sie nie begegnet sind. Oft haben Menschen, die vom individuellen Zweig gerettet oder unterstützt werden, einen höheren Zweck zu erfüllen, der anderen über den Gemeinschaftszweig nützen kann, wobei Ganesha allen hilft, auch denen, die später keiner höheren Berufung folgen. Dieser Zweig stützt sich stärker auf A Thousand Helping Hands.",
    "In Wirklichkeit lassen sich die beiden Zweige kaum trennen und sind eng verflochten. Der individuelle Zweig stützt die Gemeinschaft, indem er jene erkennt, die für Großes bestimmt sind, und den Mitgliedern der Gemeinschaft hilft; der Gemeinschaftszweig kümmert sich im Kern darum, Einzelnen zu helfen, sehr vielen Einzelnen. Ganeshas Anhänger verstehen das und reichen jedem die Hand, der daran arbeitet, die elenden Seelen der City zu entlasten, in jedem Maßstab."],
-  fig:[["ganesha_org","Organigramm von Ganeshas Operation: von der Avatarin über Legendaries, Borderliner und Touched bis zu den Sleepern (S. 160)"]],
   dangers:[] },
  { id:"figuren", name:"Schlüsselfiguren und Orte", teaser:"Counsel of the Wise, Guan Tingyu, Strig, Bear Godwin, Earl Favier, Helpers und Temples", p:161,
   text:[

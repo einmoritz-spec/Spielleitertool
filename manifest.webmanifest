@@ -1,16 +1,30 @@
 {
-  "name": "Wake of the Oldways — Erzähler-Tafel",
+  "id": "./",
+  "name": "Erzähler-Tafel",
   "short_name": "Erzähler-Tafel",
-  "description": "Spielleiter-Tafel für Legend in the Mist: Wake of the Oldways",
+  "description": "Spielleiter-Tafel für Legend in the Mist und City of Mist",
   "lang": "de",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0f1512",
-  "theme_color": "#0f1512",
+  "background_color": "#0d1014",
+  "theme_color": "#0d1014",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

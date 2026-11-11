@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v187";
+const VERSION = "v188";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -287,7 +287,10 @@ const FILES = [
   "icons/apple-touch-icon.png",
   "css/edit.css",
   "js/ui/edit-mode.js",
-  "css/responsive.css"
+  "css/responsive.css",
+  "shared/tabpick.js",
+  "shared/notes.js",
+  "icons/favicon.svg"
 ];
 
 self.addEventListener("install", e => {

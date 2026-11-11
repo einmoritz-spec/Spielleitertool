@@ -38,7 +38,7 @@ var CM_AV_CATS = [
  {id:"wahrheit",t:"Die Wahrheit",en:"The Truth",p:130,sub:"Der geheime Rat der Avatare, der die City kontrolliert",e:[["Was ist die Wahrheit?",130],["Kriege der Götter und Titanen: Ursprung der Wahrheit",130],["Die Wahrheit heute",132],["Die Ressourcen des Rates",133],["Der Rat in deiner Runde",135]]},
  {id:"chow",t:"Chairman Chow",en:"Tanhā",p:138,e:[["Chairman Chow",138],["Modus Operandi und Operation",139],["Schlüsselfiguren und Orte",141],["Chows Geschichte",143],["Story-Ideen, Custom Moves und Extra-Themen",144],["Chows Gefahren",145]]},
  {id:"king",t:"DA King",en:"Shango",p:148,e:[["DA King",148],["Modus Operandi und Operation",149],["Schlüsselfiguren und Orte",150],["Kings Geschichte",153],["Story-Ideen, Custom Moves und Extra-Themen",154],["Kings Gefahren",155]]},
- {id:"ganesha",t:"Ganesha",en:"Ganesha",p:158,e:[["Ganesha",158]]},
+ {id:"ganesha",t:"Ganesha",en:"Ganesha",p:158,e:[["Ganesha",158],["Modus Operandi und Operation",159],["Schlüsselfiguren und Orte",161],["Ganeshas Geschichte",162],["Story-Ideen, Custom Moves und Extra-Themen",163],["Ganeshas Gefahren",164]]},
  {id:"leyland",t:"Dr. Leyland",en:"Prometheus",p:168,e:[["Dr. Leyland",168]]},
  {id:"rosaline",t:"Rosaline",en:"Romeo & Juliet",p:178,e:[["Rosaline",178]]},
  {id:"wolfe",t:"Monte Wolfe",en:"The Boy Who Cried Wolf",p:188,e:[["Monte Wolfe",188]]}

@@ -27,7 +27,7 @@ function openMobileMenu(){
         ${item("📖", "Glossar", "openModal('glossModal')")}
         <div class="mm-sub">Bonus-Inhalte</div>
         ${typeof FORGED_FRAMED!=="undefined" ? item("🕵", "Forged &amp; Framed", "goCase('forged_framed')") : ""}
-        ${typeof VILLAINS!=="undefined" ? VILLAINS.map(v=>item("🎭", v.title, "goVillain('"+v.id+"')")).join("") : ""}
+        ${typeof VILLAINS!=="undefined" && VILLAINS.length ? `<details class="mm-group"><summary class="mm-item"><span class="mm-ic">🎭</span><span>Kleinschurken</span><span class="mm-chev">▸</span></summary><div class="mm-subitems">${VILLAINS.map(v=>item("", v.title, "goVillain('"+v.id+"')")).join("")}</div></details>` : ""}
         ${typeof GUIDE!=="undefined" ? item("🧭", "Einleitung &amp; Stadtführer", "goGuide()") : ""}
         ${typeof APPENDIX!=="undefined" ? item("📚", "Register", "goAppendix()") : ""}
       </div>

@@ -183,7 +183,7 @@ function fixScn(){
     if(!l||!r||!s.offsetParent) return;
     if(s.offsetWidth<860){ s.classList.add('stack'); return; }
     if(getComputedStyle(r).position==='static' && getComputedStyle(s).display!=='grid') return;
-    if(r.offsetHeight > l.offsetHeight + 90) s.classList.add('stack');
+    if(r.offsetHeight > l.offsetHeight*0.75) s.classList.add('stack');
   });
 }
 let _fx; const fixSoon = ()=>{ clearTimeout(_fx); _fx = setTimeout(fixScn, 80); };

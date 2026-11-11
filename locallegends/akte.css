@@ -1,0 +1,109 @@
+/* ============================================================
+   LOCAL LEGENDS — Fall-Akte, näher am Original (November 2026)
+   Orange Aktenreiter, wenig Kästen, Vorlesetext als Papier,
+   Hinweise als gelbe Zettel zum Abhaken, breite Challenge-Karten.
+   Wird als letztes geladen.
+   ============================================================ */
+:root{--ak:#ea9a33;--ak-hi:#f4b75a;--ak-dk:#b8691a;--ak-ink:#3a1d08;--cond:"Arial Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif}
+
+/* ---------- Reiter wie Aktenordner ---------- */
+.case-tabbar{border-bottom:3px solid var(--ak)!important;gap:4px!important;align-items:flex-end}
+.case-tab{background:#1d1b19!important;color:#a39a89!important;border:1px solid #3a342b!important;border-bottom:none!important;border-radius:12px 12px 0 0!important;
+  font-family:var(--cond);font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px 7px!important}
+.case-tab small{font-family:var(--cond);opacity:.75;text-transform:none;letter-spacing:.02em}
+.case-tab:hover{background:#27231f!important;color:#e8dfcb!important}
+.case-tab.active{background:linear-gradient(var(--ak-hi),var(--ak))!important;color:var(--ak-ink)!important;border-color:#c97f1e!important;top:1px;position:relative}
+.case-tab.active small{opacity:.8}
+@media (max-width:720px){
+  .case-tabbar{border-bottom:0!important}
+  .case-tab{border-radius:999px!important;border:1px solid #3a342b!important;font-weight:600;letter-spacing:.03em}
+  .case-tab.active{top:0}
+}
+
+/* ---------- Überschriften orange, Kästen weg ---------- */
+.section-head{border-bottom:1px solid rgba(234,154,51,.35)}
+.section-head h2,.tab-h{font-family:var(--cond);color:var(--ak);font-weight:800;letter-spacing:.09em;font-size:1.05rem}
+.section-head .chev{color:var(--ak)}
+.card:not(.theme-card):not(.ps-card){background:none;border:0;box-shadow:none;padding:0;margin:0 0 .4rem;border-radius:0}
+.card:not(.theme-card):not(.ps-card) h3{font-family:var(--cond);color:var(--ak);text-transform:uppercase;letter-spacing:.07em;font-size:.95rem;margin:1rem 0 .3rem}
+.section{margin-bottom:26px}
+.section-body{padding-top:12px}
+.case-tabpanel>*{max-width:1100px;margin-left:auto;margin-right:auto}
+.case-tabpanel>.ov-split,.case-tabpanel>.map-panel,.case-tabpanel>.danger-card,.case-tabpanel>.hook-grid{max-width:none}
+/* Einspaltig im Buchfluss: keine CSS-Spalten mehr (liefen unterschiedlich lang) */
+.case-tabpanel,.loc-card.open>.loc-body,.section-body,.card>p.long-text,.shell .section-body{column-width:auto!important;column-count:auto!important;columns:auto!important}
+.loc-card.open{column-span:none}
+.case-tabpanel .section-body,.case-tabpanel .section{column-width:auto!important;columns:auto!important}
+
+/* ---------- Übersicht: Eisberg links, Text rechts ---------- */
+.ov-split{display:block}
+.ov-art .ice-wrap{width:100%;margin:0 0 20px}
+.ov-art .ice-wrap img{width:100%!important;max-height:none;height:auto;display:block;border-radius:6px;box-shadow:0 10px 30px -14px rgba(0,0,0,.8)}
+@media (min-width:1000px){
+  .ov-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:start}
+  .ov-art{position:sticky;top:64px}
+  .ov-art .ice-wrap{margin:0}
+  .ov-text>*{max-width:none!important}
+}
+
+/* ---------- Vorlesetext: helles Papier mit rotem Rand ---------- */
+.readaloud,.readaloud.article{background:#f6efdc;color:#2a2418;border-left:5px solid #9b3526;border-radius:3px;padding:14px 20px 16px;box-shadow:0 6px 18px -10px rgba(0,0,0,.7);position:relative;margin:0 0 16px}
+.readaloud .ra-label{position:static;display:block;background:none;color:#9b3526;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:0;margin:0 0 6px;font-weight:700}
+.readaloud.ux-folded .ra-label,.readaloud .ux-fold ~ .ra-label{display:none}
+.readaloud .ux-fold{color:#7a3e0c;font-weight:700;opacity:.85}
+.readaloud>div,.readaloud p{color:#2a2418;font-family:var(--serif-body);line-height:1.7}
+
+/* ---------- Hinweis-Zettel zum Abhaken ---------- */
+.clue-box{background:#f2dc7a;color:#2b2410;border-left:0;border-radius:3px;padding:11px 14px 11px 44px;margin:10px 0;box-shadow:2px 3px 8px rgba(0,0,0,.35);position:relative;transition:opacity .15s}
+.clue-box::before{content:none!important}
+.tick{position:absolute;left:12px;top:12px;width:22px;height:22px;border-radius:50%;border:2px solid #8a6a1c;background:rgba(255,255,255,.35);cursor:pointer;padding:0}
+.tick:hover{background:rgba(255,255,255,.7)}
+.clue-box.done{opacity:.5}
+.clue-box.done .tick{background:#3b7a3f;border-color:#3b7a3f}
+.clue-box.done .tick::after{content:"✓";color:#fff;font-size:14px;line-height:18px;display:block;text-align:center}
+.clue-box.done{text-decoration:line-through;text-decoration-color:rgba(0,0,0,.35)}
+
+/* ---------- Spielleitungs-Hinweis dezent ---------- */
+.gm-note{background:none;border:0;border-left:3px solid var(--logos);border-radius:0;padding:4px 0 4px 14px}
+
+/* ---------- Orte / Hooks ---------- */
+.loc-card{border-left:0;padding-left:0;margin-bottom:18px}
+.loc-card .loc-h{font-family:var(--cond);text-transform:uppercase;letter-spacing:.07em;color:var(--ak);font-weight:800;font-size:1.1rem;border-bottom:1px solid rgba(234,154,51,.3);padding:6px 0}
+.loc-card .loc-h .chev{color:var(--ak)}
+
+/* ---------- Challenge-Karten ---------- */
+.danger-card{background:#1a1816;border:1px solid #3a342b;border-left:4px solid var(--red-bright);border-radius:6px;margin:0 0 12px;max-width:none}
+.danger-head{padding:10px 14px;gap:2px 14px;align-items:baseline}
+.danger-head::before,.danger-head::after{content:none}
+.danger-head h4{font-family:var(--cond);text-transform:uppercase;letter-spacing:.06em;font-size:1.05rem;font-weight:800;color:#f1e9d6}
+.danger-head .rating{color:var(--ak)}
+.danger-head .epithet{color:#8d8575}
+.danger-body{padding:2px 16px 14px;border-top:0}
+.danger-card.open .danger-head{padding-bottom:4px}
+@media (min-width:900px){
+  .danger-card.open .danger-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);column-gap:34px;align-items:start}
+  .danger-card.open .danger-body>.ll-portrait{grid-column:1/-1;max-width:140px}
+  .danger-card.open .danger-body>.movegroup{grid-column:2}
+  .danger-card.open .danger-body>p,.danger-card.open .danger-body>.stat-line,.danger-card.open .danger-body>div[id^=specs_]{grid-column:1}
+}
+
+/* ---------- Themen- und Power-Set-Karten (einklappbar, klein) ---------- */
+.theme-card,.ps-card{background:#1a1816;border:1px solid #3a342b;border-left:3px solid var(--ak);border-radius:4px;margin:0 0 10px;padding:0}
+.ps-card .th-head{display:flex;align-items:baseline;gap:10px;padding:10px 14px;cursor:pointer;user-select:none}
+.ps-card .th-head h3{margin:0;font-family:var(--cond);text-transform:uppercase;letter-spacing:.06em;font-size:1rem;color:#f1e9d6}
+.ps-card .th-chev{color:var(--ak);transition:transform .15s;font-size:.85em}
+.ps-card.open .th-chev{transform:rotate(90deg)}
+.ps-card .th-body{display:none;padding:0 14px 12px}
+.ps-card.open .th-body{display:block}
+.theme-card .th-chev{color:var(--ak)}
+
+/* ---------- Karten-Seitenleiste etc.: Mobile-Menü-Gruppe ---------- */
+.mm-group>summary{list-style:none;cursor:pointer}
+.mm-group>summary::-webkit-details-marker{display:none}
+.mm-group .mm-chev{margin-left:auto;transition:transform .15s;opacity:.6}
+.mm-group[open] .mm-chev{transform:rotate(90deg)}
+.mm-subitems{margin:0 0 4px 22px;border-left:1px solid rgba(234,154,51,.35)}
+.mm-subitems .mm-item{padding:10px 12px;font-size:15px}
+.mm-subitems .mm-item .mm-ic{display:none}
+.ll-fig img,.handout img{max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;border-radius:4px}
+.ll-fig figcaption{text-align:center}

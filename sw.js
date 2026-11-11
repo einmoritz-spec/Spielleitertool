@@ -9,6 +9,7 @@ const FILES = [
   "locallegends/index.html",
   "locallegends/style.css",
   "locallegends/responsive.css",
+  "locallegends/akte.css",
   "locallegends/js/tool-switch.js",
   "locallegends/js/mobile-menu.js",
   "locallegends/js/extras.js",

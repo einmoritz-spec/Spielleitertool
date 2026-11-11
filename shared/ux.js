@@ -91,6 +91,44 @@
     });
   }
 
+  /* Zweispaltige Szene: ist die rechte Spalte (fast) so lang wie der Text, stapeln statt Lücken lassen */
+  function scn(){
+    if(typeof window.fixScn==="function") return;
+    document.querySelectorAll(".scn").forEach(function(sc){
+      sc.classList.remove("stack"); var l=sc.querySelector(".scn-l"), r=sc.querySelector(".scn-r");
+      if(!l||!r||!sc.offsetParent) return;
+      if(sc.offsetWidth<860){ sc.classList.add("stack"); return; }
+      r.classList.toggle("long", r.offsetHeight>window.innerHeight-130);
+      if(r.offsetHeight > l.offsetHeight*0.75) sc.classList.add("stack");
+    });
+  }
+
+  /* Status, Tags usw. im Fließtext immer farbig hervorheben */
+  var HL_SKIP = /^(SCRIPT|STYLE|TEXTAREA|INPUT|SELECT|BUTTON|CANVAS|CODE|PRE)$/;
+  var HL_RE = /(Power-Tags?|Weakness-Tags?|Story[- ]Tags?|(?<![\wÄÖÜäöüß'-])[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß']{2,}-[1-9](?![\w-]))/g;
+  var HL_NOT = /^(depth|akt|szene|seite|kapitel|case|fall|tier|schicht|level|stufe|nr|teil|stimme|sektion|abschnitt)-/i;
+  function hl(){
+    var root=document.getElementById("app")||document.querySelector("main,.shell,.stage-wrap,#stage")||document.body;
+    var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      var p=n.parentNode; if(!p||HL_SKIP.test(p.nodeName)||p.isContentEditable) return NodeFilter.FILTER_REJECT;
+      if(p.closest&&p.closest(".hl,.pagetag,.pg-link,.pgb,.crumb,.case-tab,[contenteditable=true],.ux-fold")) return NodeFilter.FILTER_REJECT;
+      return /(Tags?\b|-[1-9])/.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT; }});
+    var list=[], n; while((n=w.nextNode())) list.push(n);
+    list.forEach(function(t){
+      var v=t.nodeValue; HL_RE.lastIndex=0; if(!HL_RE.test(v)) return; HL_RE.lastIndex=0;
+      var frag=document.createDocumentFragment(), last=0, m, any=false;
+      while((m=HL_RE.exec(v))){
+        var s=m[0]; if(HL_NOT.test(s)) continue; any=true;
+        if(m.index>last) frag.appendChild(document.createTextNode(v.slice(last,m.index)));
+        var sp=document.createElement("span"); sp.className="hl "+(/^Weakness/i.test(s)?"hl-weak":/Tags?$/i.test(s)?"hl-tag":"hl-st"); sp.textContent=s; frag.appendChild(sp);
+        last=m.index+s.length;
+      }
+      if(!any) return;
+      if(last<v.length) frag.appendChild(document.createTextNode(v.slice(last)));
+      t.parentNode.replaceChild(frag,t);
+    });
+  }
+
   /* Einstellungen */
   function settings(){
     var m=document.getElementById("settingsModal"); if(!m||m.dataset.uxs) return;
@@ -108,7 +146,7 @@
     r.onchange=function(){ set("rank",r.checked?"1":"0"); location.reload(); };
   }
 
-  var t; function run(){ clearTimeout(t); t=setTimeout(function(){ fades(); twoCols(); rank(); folds(); settings(); },40); }
+  var t; function run(){ clearTimeout(t); t=setTimeout(function(){ fades(); twoCols(); rank(); folds(); scn(); hl(); settings(); },40); }
   window.addEventListener("resize", run);
   new MutationObserver(run).observe(document.body,{childList:true,subtree:true});
   run();

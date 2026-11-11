@@ -229,9 +229,13 @@ function clueBoxes(list){
   return list.map(c=>{
     if(c && typeof c === "object" && c.readaloud !== undefined) return `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${c.readaloud}</div></div>`;
     if(c && typeof c === "object" && c.text !== undefined) return `<p>${c.text}</p>`;
-    return `<div class="clue-box">${c}</div>`;
+    const k = clueKey(c);
+    return `<div class="clue-box ${LL_DONE[k]?"done":""}"><button class="tick" onclick="toggleClue('${k}',this)" aria-label="Hinweis abhaken"></button>${c}</div>`;
   }).join("");
 }
+let LL_DONE = {}; try{ LL_DONE = JSON.parse(localStorage.getItem("ll_done")||"{}"); }catch(e){}
+function clueKey(t){ let h=0; const x=String(t).replace(/<[^>]*>/g,"").slice(0,160); for(let i=0;i<x.length;i++){ h=(h*31+x.charCodeAt(i))|0; } return "c"+(h>>>0).toString(36); }
+function toggleClue(k,btn){ LL_DONE[k]=!LL_DONE[k]; if(!LL_DONE[k]) delete LL_DONE[k]; try{ localStorage.setItem("ll_done",JSON.stringify(LL_DONE)); }catch(e){} const b=btn.closest(".clue-box"); if(b) b.classList.toggle("done",!!LL_DONE[k]); }
 function gmNote(text){
   if(!text) return "";
   return `<div class="gm-note"><span class="gm-label">Spielleitungs-Hinweis</span>${text}</div>`;
@@ -406,7 +410,7 @@ function _renderDistrictView(id){
   }
   else if(active==="powersets"){
     html += tabHead("Power Sets", tocPage(id,false,"Power Sets"));
-    html += c.powerSets.map(p=>`<div class="card"><h3>${p.name}</h3><p>${p.text}</p></div>`).join("");
+    html += c.powerSets.map((p,i)=>{ const k="ps_"+id+"_"+i; return `<div class="card ps-card ${state.openThemes[k]?"open":""}" id="th_${k}"><div class="th-head" onclick="toggleTheme('${k}')"><span class="th-chev">▸</span><h3>${p.name}</h3></div><div class="th-body"><p>${p.text}</p></div></div>`; }).join("");
     const tb = c.themebook;
     if(tb){
       html += `<div class="card">
@@ -582,11 +586,13 @@ function _renderCaseView(id){
   if(active==="map") state.caseTab = "overview";
   if(active==="overview" || active==="map"){
     html += renderMapPanel(id);
-    html += `<div class="card"><p>${cs.intro}</p></div>`;
-    if(cs.teaser) html += `<div class="card"><p>${cs.teaser}</p></div>`;
-    if(cs.fourthMurder) html += `<div class="card"><h3>${cs.fourthMurder.title}</h3>${cs.fourthMurder.paragraphs.map(p=>`<p>${p}</p>`).join("")}</div>`;
-    html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Hintergrund</h2></div><div class="section-body">${cs.background.map(p=>`<div class="card"><p>${(p && typeof p==="object" && p.text!==undefined)?p.text:p}</p></div>`).join("")}${cs.miniThemeKits?cs.miniThemeKits.map(renderThemeCard).join(""):""}</div></div>`;
-    html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote}</p></div>${cs.icebergImage?`<div class="card" style="padding:8px;"><p class="hint" style="margin:0 0 6px;font-size:12px;color:var(--text-faint);">Auf ein Foto tippen, um zum Abschnitt zu springen.</p><div class="ice-wrap"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}" style="width:100%;height:auto;display:block;border-radius:4px;">${iceHot(id)}</div></div>`:""}${cs.icebergMap?`<div class="card"><h3 style="font-size:14px;">Schauplätze nach Tiefe</h3><ul>${cs.icebergMap.depths.map(d=>`<li><b>Depth ${d.n}:</b> ${d.places.join(", ")}</li>`).join("")}</ul>${cs.icebergMap.links&&cs.icebergMap.links.length?`<p style="font-size:12px;color:var(--text-faint);">Verbindungen: ${cs.icebergMap.links.map(l=>l[0]+" → "+l[1]).join(" · ")}</p>`:""}</div>`:""}</div></div>`;
+    const iceImg = cs.icebergImage ? `<div class="ice-wrap"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}">${iceHot(id)}</div>` : "";
+    let txt = `<div class="card"><p>${cs.intro}</p></div>`;
+    if(cs.teaser) txt += `<div class="card"><p>${cs.teaser}</p></div>`;
+    if(cs.fourthMurder) txt += `<div class="card"><h3>${cs.fourthMurder.title}</h3>${cs.fourthMurder.paragraphs.map(p=>`<p>${p}</p>`).join("")}</div>`;
+    txt += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Hintergrund</h2></div><div class="section-body">${cs.background.map(p=>`<div class="card"><p>${(p && typeof p==="object" && p.text!==undefined)?p.text:p}</p></div>`).join("")}${cs.miniThemeKits?cs.miniThemeKits.map(renderThemeCard).join(""):""}</div></div>`;
+    if(!cs.icebergImage) txt += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Der Eisberg</h2></div><div class="section-body"><div class="card"><p>${cs.icebergNote||""}</p></div></div></div>`;
+    html += iceImg ? `<div class="ov-split"><div class="ov-art">${iceImg}</div><div class="ov-text">${txt}</div></div>` : txt;
   } else if(active==="aftermath"){
     const isComplete = !!state.caseComplete[completeKey];
     html += `<div class="section"><div class="section-head" style="cursor:default;"><h2>Aftermath</h2></div><div class="section-body">`;

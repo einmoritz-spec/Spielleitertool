@@ -10,29 +10,12 @@
 .pager a,.pager button{max-width:46%}
 body:has(.pager){padding-bottom:62px}
 
-/* 2) Spalten wie im Buch */
+/* 2) Fließtext bleibt einspaltig und gut lesbar (keine CSS-Spalten mehr: die liefen
+   unterschiedlich lang). Breite Elemente (Karten, Challenges) nutzen die volle Breite. */
 @media (min-width:1100px){
-  .tab-layout .chsec:not(.coll),
-  .tab-layout .chsec.coll.open>.chbody,
-  .tab-layout .ux-main,
-  .case-tabpanel,
-  .section:not(.collapsed)>.section-body{column-width:46ch;column-gap:44px;column-fill:balance}
-  .tab-layout .chsec:not(.coll)>*,
-  .tab-layout .chsec.coll.open>.chbody>*,
-  .tab-layout .ux-main>*,
-  .case-tabpanel>*,
-  .section:not(.collapsed)>.section-body>*{break-inside:avoid}
   .tab-layout .chsec .blk-p,.tab-layout .chsec .blk-ro,.tab-layout .chsec .blk-card,.tab-layout .chsec .threat,
   .case-tabpanel .card,.section-body .card{max-width:none!important}
-  .tab-layout .chsec>.blk-p,.tab-layout .chsec>.blk-h+.blk-p,.tab-layout .chbody>.blk-p{break-inside:auto}
-  /* quer über alle Spalten */
-  .tab-layout .chsec>.sec-sub,.tab-layout .chsec>.pagetag-row,.tab-layout .chsec>.btn,.tab-layout .chsec>.ch,
-  .case-tabpanel>.hero,.case-tabpanel>.footer-note,.case-tabpanel>.city-map-box,.case-tabpanel>.map-panel,
-  .tab-layout .chsec>.ovbox,.tab-layout .chsec>.ov-box,.tab-layout .chsec>canvas{column-span:all}
   .tab-layout .chsec .fig,.tab-layout .chsec .fig img{max-width:100%}
-}
-@media (min-width:1100px){
-  .tab-layout .chsec .ch,.tab-layout .chsec h3,.tab-layout .chsec h4,.case-tabpanel h3,.case-tabpanel h4,.section-body h3,.section-body h4{break-after:avoid-column}
 }
 
 /* Szene: links Spielen (Text), rechts Werte & Hinweise */
@@ -41,17 +24,17 @@ body:has(.pager){padding-bottom:62px}
 @media (min-width:1100px){
   .tab-layout .chsec,.tab-layout .chbody{column-width:auto!important;columns:auto!important}
   .tab-layout .chsec>.blk-p,.tab-layout .chsec>.blk-h,.tab-layout .chbody>.blk-p,.tab-layout .chbody>.blk-h,.tab-layout .chsec>.blk-list,.tab-layout .chsec>.blk-read{max-width:120ch;font-size:1.12rem;line-height:1.65}
-  .scn{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:28px;align-items:start}
+  .scn{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,32%);gap:32px;align-items:start}
   .scn-l{max-width:none;font-size:1.12rem;line-height:1.65}
   .scn-l .blk-p,.scn-l .blk-ro{font-size:inherit;line-height:inherit;max-width:none}
-  .scn-r{position:sticky;top:56px;max-height:calc(100vh - 128px);overflow-y:auto;padding:0 6px 16px 0;border-left:1px solid rgba(255,255,255,.07);padding-left:18px;scrollbar-width:thin}
+  .scn-r{position:sticky;top:56px;padding:0 6px 16px 0;border-left:1px solid rgba(255,255,255,.07);padding-left:18px;scrollbar-width:thin}
   .scn-rh{display:block;position:sticky;top:0;z-index:2;background:var(--bg);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8a8d98;padding:2px 0 8px}
   .scn-r .blk{max-width:none;margin-left:0;margin-right:0}
   .scn-r .blk-card{font-size:.9rem;line-height:1.5}
   .scn-r .fig,.scn-r .fig.handout{max-width:100%}
   .scn-r .fig:not(.tcard-fig) img{max-height:220px;width:auto;object-fit:contain}
 }
-@media (min-width:1100px) and (max-width:1400px){ .scn{grid-template-columns:minmax(0,1fr) 340px;gap:28px} }
+@media (min-width:1100px) and (max-width:1400px){ .scn{grid-template-columns:minmax(0,1fr) minmax(340px,36%);gap:26px} }
 @media (min-width:1100px){
   .scn-l .fig.art{max-width:480px;margin:6px 0 14px}
   .scn-l .fig.art img{width:100%;max-height:200px;object-fit:cover;object-position:center 30%}
@@ -99,3 +82,12 @@ body:has(.pager){padding-bottom:62px}
 /* Sehr hohe Hochformat-Bilder: Quadrat mit Kopf und Oberkörper statt ganzer Seite */
 .fig.tall{max-width:420px!important}
 .fig.tall img{aspect-ratio:1/1;width:100%!important;height:auto!important;max-height:none!important;object-fit:cover!important;object-position:50% 12%}
+
+/* Gestapelt (rechte Spalte ist lang): Werte & Hinweise als breites Raster unter dem Text.
+   Challenges bekommen so Breite statt endlos zu scrollen. */
+body .scn.stack{display:block!important}
+body .scn.stack .scn-r{position:static!important;max-height:none!important;overflow:visible!important;display:grid!important;columns:auto!important;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr));gap:16px 24px;align-items:start;border-left:0!important;padding:0!important;margin:22px 0 0!important}
+body .scn.stack .scn-r>*{display:block!important;width:auto!important;margin:0!important;break-inside:auto}
+body .scn.stack .scn-rh{grid-column:1/-1;position:static;padding:0 0 2px}
+@media (min-width:1100px){.scn-r.long{position:static!important}}

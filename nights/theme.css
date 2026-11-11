@@ -98,7 +98,7 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 .scn.stack .scn-r{position:static!important;max-height:none!important;overflow:visible!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start;border-left:0!important;padding:0!important;margin:10px 0 0!important}
 .scn.stack .scn-rh{grid-column:1/-1;margin:0}
 .scn.stack .scn-r>*{margin:0!important}
-.scn.stack .scn-r{display:block!important;columns:300px;column-gap:12px}
+.scn.stack .scn-r{display:grid!important;columns:auto!important}
 .scn.stack .scn-r>*{break-inside:avoid;margin:0 0 12px!important}
 .scn.stack .scn-rh{column-span:all}
 .th-thumb{object-position:35% 18%!important}
@@ -106,7 +106,7 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 @media (max-width:700px){.pager .pg-more{display:none}}
 .scn.stack .threat{transform:none!important;max-width:none!important;margin:16px 0 18px!important}
 .scn.stack .scn-r>*{margin-bottom:14px!important}
-.scn.stack .scn-r>*{display:inline-block;width:100%;box-sizing:border-box;vertical-align:top}
+.scn.stack .scn-r>*{display:block;width:auto;box-sizing:border-box}
 .scn.stack .scn-rh{display:block}
 
 /* Bedrohungskarten: schlicht, kompakt, Pin vollständig sichtbar */

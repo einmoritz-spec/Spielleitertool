@@ -84,3 +84,30 @@ body{margin:0;color:#ece4cc;font-family:var(--typ);min-height:100vh;
 .crumb{font:12px var(--disp);letter-spacing:.1em;text-transform:uppercase;color:#8fa0c4;margin:-8px 0 12px}
 .mm-panel .bvs{margin:18px 0 6px;color:#ece4cc}.mm-panel .bvs-btn{color:#ece4cc}.mm-panel .bvs-off{display:none}
 .mm-panel .bvs-hint,.bvs-hint{display:none}
+
+/* Lesbarkeit: ruhige Serifenschrift für Fließtext, Schreibmaschine nur noch für Kleinkram */
+:root{--read:Charter,"Bitstream Charter","Iowan Old Style",Georgia,"Times New Roman",serif;--ink:#17120c;--ink2:#4a3d2a}
+body{font-family:var(--read)}
+.sec p,.sec li,.loc p,.loc li,.lst li{font-family:var(--read);font-size:18px;line-height:1.7;color:#17120c}
+.sec .bd,.loc .lb{max-width:none}
+.sec p,.loc p{margin:0 0 .9em}
+.loc .lt p{max-width:68ch}
+.tbl{font-family:var(--read);font-size:16.5px}.tbl td{padding:6px 9px}
+.box p,.box li{color:#fff!important}
+.bsp p,.bsp li{color:#241d15}
+.enemy p,.enemy li,.enemy .rl{font-family:var(--read);font-size:17px!important;line-height:1.6!important;color:#f4ecff!important}
+.obj b{font-family:var(--read);font-size:17px;line-height:1.45}
+.obj p{font-size:16.5px;line-height:1.6;font-family:var(--read)}
+.lst small,.obj small{font-family:var(--disp)}
+.coffin p,.coffin li,.coffin .inj div,.who{font-family:var(--read);font-size:16px;line-height:1.55}
+.coffin .inj div{font-size:14.5px}
+.hero .ht span{font-family:var(--read);font-size:19px;line-height:1.55}
+.bonus,.pg,.crumb{font-family:var(--typ)}
+/* Bilder: nie riesig, nie verzerrt */
+.loc .lt img,.sec .bd>img{width:100%;max-height:340px;object-fit:cover;object-position:50% 40%;border-radius:6px;display:block;margin:6px 0 12px}
+.enemy .eimg{height:220px;object-fit:cover;object-position:50% 30%}
+.sec .bd>img[src*="paris1"],.sec .bd>img[src*="dropcoffin"]{max-height:300px;object-position:50% 72%}
+.sec .bd>img[src*="c_p4"]{max-height:none;object-fit:contain}
+.sec .bd>img[src*="c_p4"]{max-width:620px;margin-left:auto;margin-right:auto}
+.bonus{white-space:normal;display:inline}.lst li{overflow-wrap:anywhere}
+.sec .bd>img[src*="dropcoffin"]{width:auto!important;max-width:100%;max-height:460px;object-fit:contain;margin:8px auto 14px;background:#d9cba3;padding:6px}

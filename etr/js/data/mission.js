@@ -62,7 +62,7 @@ var ETR_LEITUNG = [
 var ETR_KARTE = [
 {id:"karte",titel:"Die Karte von Paris",p:48,b:[
  {t:"p",x:"Jeder der auf der Karte gezeigten Orte entspricht einem Abschnitt. Jeder enthält eine grobe Beschreibung, ein Ziel (Objective) und etwas Beute (Loot) zum Greifen. Feinde sind an den Orten aufgelistet, an denen sie wahrscheinlich auftauchen. All das sind Vorschläge, und du (und die Spielenden!) solltet den Inhalt jedes Ortes ändern, damit er zu eurer Gruppe passt."},
- {t:"img",src:"p48"},{t:"img",src:"p49"}]},
+ {t:"img",src:"c_p48"},{t:"img",src:"c_p49"}]},
 {id:"tour",titel:"Eure Tour durch Paris planen",p:49,b:[
  {t:"p",x:"Jeder Ort auf der Karte bietet eine interessante Szene, Herausforderung oder einen Kampf, und die Stücke dazwischen sind weniger aufregend. Wenn die Spielenden nicht aktiv ein Ziel bewältigen oder eine Bedrohung bekämpfen, kannst du die Regeln beiseitelegen und freies Rollenspiel machen."},
  {t:"p",x:"Es gibt keine richtige oder falsche Zahl von Orten, die die Spielercharaktere vor der finalen Konfrontation mit Hitler durchqueren sollten – es hängt von eurer Gruppe ab, wie viel Zeit ihr eingeplant habt und welche Art Geschichte ihr erzählen wollt. 4 Orte zu besuchen funktioniert genauso gut wie 15. Wir empfehlen 2 oder 3 Orte pro Sektor."}]},

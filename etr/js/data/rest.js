@@ -11,11 +11,11 @@ var ETR_GEGNER = [
  {name:"Vampirjäger-Kader",bild:"p60",text:["Fünf eidgebundene Jäger mit geweihten Kugeln, Weihwassersprühern, angespitzten Pflöcken und Brandbomben."],threat:8,attack:6,regeln:[["Anathema","Angriffswürfel erzeugen bei einer 6 je 2 Erfolge."],["Solo","Dieser Gegner nutzt die Verstärkungsregeln nicht."]]}
 ];
 ETR_S1.outro=[{id:"schluss",titel:"Die Schlussszene",p:66,b:[
- {t:"img",src:"p66"},
+ {t:"img",src:"c_schluss"},
  {t:"p",x:"Jetzt: Hitler von Angesicht zu Angesicht mit einem Trupp wütender, blutiger alliierter Vampire, ohne etwas, worauf er zurückfallen könnte. In einem Spiel mit dem Ton von EAT THE REICH sollte der Bösewicht einen dramatischen Schlussmonolog bekommen, oder? Falsch!"},
  {t:"p",x:"Scheiß drauf. Er bekommt keinen. Er rennt wie der Teufel, sobald die Vampire eintreffen, und kauert in einem verschlossenen Raum mit einer leeren Luger, als sie seine Beschützer besiegen und ihn in die Enge treiben. Er hat die ganze Zeit die Verteidigung koordiniert, es ist an jeder Ecke schiefgegangen, und ihm sind die Optionen ausgegangen."},
  {t:"p",x:"Er darf nicht einmal selbstsicher klingen und mit großen Worten den Eindruck von Majestät oder Ehre oder sonst irgendeinem Scheiß erwecken. Tötet ihn. Der Krieg ist vorbei. Geht nach Hause."},
- {t:"img",src:"p67"},
+ {t:"img",src:"c_schluss2"},
  {t:"stamp",x:"Wie schmeckt Hitlers Blut? Amphetamin."}]}];
 
 var ETR_CHECK = [

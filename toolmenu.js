@@ -26,7 +26,7 @@
     var bg = v("--panel-raised") || v("--panel2") || v("--panel") || "#1b1816";
     el.style.background = bg; el.style.color = getComputedStyle(document.body).color;
     el.style.border = "1px solid " + (bb && bb.borderBottomColor && bb.borderBottomColor!=="rgba(0, 0, 0, 0)" ? bb.borderBottomColor : "rgba(255,255,255,.15)");
-    if(bs) el.style.fontFamily = bs.fontFamily;
+    el.style.fontFamily = getComputedStyle(document.body).fontFamily;
     el.style.setProperty("--tm-acc", bs ? bs.color : "#c9a24b");
   }
   function open(){

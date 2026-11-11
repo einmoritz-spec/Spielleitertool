@@ -10,10 +10,12 @@ function dangerCard(d){
    (d.moves||[]).map(function(m){return '<p><b>'+esc(m[0])+':</b> '+md(m[1])+'</p>';}).join("")+
    (d.gm&&d.gm.length?'<div class="gmh">Spielleitung</div><ul>'+d.gm.map(function(g){return '<li>'+md(g)+'</li>';}).join("")+'</ul>':'')+'</div>';
 }
+function tagsHtml(a,c){ return a.map(function(t){return '<span class="tg '+c+'">'+esc(t)+'</span>';}).join(""); }
+function themeCard(t){ return '<div class="thm"><div class="th"><b>'+esc(t.name)+'</b><i>'+esc(t.typ)+'</i></div><p class="idn">'+esc(t.identity)+'</p><p><u>Power Tags</u> '+tagsHtml(t.power,"pw")+'</p><p><u>Weakness Tags</u> '+tagsHtml(t.weak,"wk")+'</p><p class="imp">'+md(t.imp)+'</p></div>'; }
 function ortCard(o){
   return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
    (o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
-   '<div class="ocols"><div class="otxt">'+o.text.map(function(t){return '<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+'</div><aside>'+o.dangers.map(dangerCard).join("")+'</aside></div></div></details>';
+   '<div class="ocols"><div class="otxt">'+o.text.map(function(t){return '<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(o.themen||[]).map(themeCard).join("")+'</div><aside>'+o.dangers.map(dangerCard).join("")+'</aside></div></div></details>';
 }
 function stub(name,p){ return '<div class="stub"><span>'+esc(name)+'</span>'+pg(p)+'<em>nur Original</em></div>'; }
 function itemsList(items){ return '<div class="stubs">'+items.map(function(i){return stub(i[0],i[1]);}).join("")+'</div>'; }

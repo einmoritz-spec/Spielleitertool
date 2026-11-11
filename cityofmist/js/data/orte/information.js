@@ -56,5 +56,12 @@ CM_ORTE.information = [
     ["Massive","Senke das Tier von Status, die die gesamte Enclave betreffen sollen, um 3."],
     ["Wicked Heart of a Volcano","Wenn du ohne Einladung in die Enclave eindringen willst, mit Körper oder Geist, nimmst du zuerst lava-burns-4 oder mystical-shock-4. Die Enclave nimmt spent-blood-1."],
     ["Eruption","Als Intrusion kann Ailani den Vulkan ausbrechen lassen und die Enclave verbrennen. Alle darin außer Ailani nehmen incinerated-6 (oder lava-burns-4, wenn Ailani nur ihre Macht demonstriert). Die Enclave nimmt spent-blood-2."]],
-   gm:["Das Blutopfer einer willigen, gefesselten oder bewusstlosen Person darbringen (bleeding-out-5 ohne Face Danger, und erneut bleeding-out-5, wenn der Status zu Beginn der nächsten Downtime unbehandelt ist; setze das Out-of-blood-Spektrum der Enclave zurück)","Dunkle Rauch- und Aschewolken aus dem glühenden Schlund des Vulkans ausspeien"] }] }
+   gm:["Das Blutopfer einer willigen, gefesselten oder bewusstlosen Person darbringen (bleeding-out-5 ohne Face Danger, und erneut bleeding-out-5, wenn der Status zu Beginn der nächsten Downtime unbehandelt ist; setze das Out-of-blood-Spektrum der Enclave zurück)","Dunkle Rauch- und Aschewolken aus dem glühenden Schlund des Vulkans ausspeien"] },
+   { name:"Ailani Jack", rating:3, limits:"HURT OR SUBDUE 3 / ENRAGE–BESEECH 3 / OVERPOWER HI’IAKA 5",
+   moves:[
+    ["Fierce Mother","Bei einer unmittelbaren Bedrohung für Hi’iaka gib Ailani Jack ferocious-2."],
+    ["Rough Exterior","Wenn Ailani Jack einen emotionalen oder sozialen Status oder einen Status von körperlichem Schaden oder Subdue nimmt, senke dessen Tier um 1."],
+    ["Out of the Mouth of Babes","Wenn du versuchst, mit Tricks gegen Ailani oder Hi’iaka **Sneak Around** oder **Investigate** einzusetzen, und Hi’iaka bei Bewusstsein ist, nimmst du zuerst seen-for-what-you-are-3 und Ailani nimmt enraged-2."],
+    ["Fury/Love of Pele","Enrage–beseech ist ein Swing-Spektrum. **Enrage voll:** Du erzürnst Ailani, und sie bricht in einem vulkanischen Flächenbrand aus (alle um sie nehmen lava-burns-3) oder löst den Eruption-Move ihrer Enklave aus. **Beseech voll:** Ailani öffnet sich über ihre Lage. Nach Wahl der SL erlaubt sie dir, Hi’iaka eine Frage zu stellen, und du erhältst 1 Clue."]],
+   gm:["Eine versteckte Machete ziehen und zuschlagen (slashed-3) oder vulkanische Wut ausspucken (lava-burns-3 in einem kleinen Bereich)","Sichtbar gereizt vom Gespräch werden (Ailani nimmt enraged-2)","Direkt zur Sache kommen"] }] }
 ];

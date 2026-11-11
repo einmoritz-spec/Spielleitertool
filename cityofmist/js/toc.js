@@ -25,7 +25,7 @@ var CM_ORTE_CATS = [
  {id:"information",t:"Information",en:"Information",p:85,e:[["Helen Green",85],["Levinson Bakery",87],["Mergen Bookmakers",88],["Sacred Land Tiki Bar",90]]},
  {id:"treffpunkte",t:"Treffpunkte",en:"Meeting Places",p:91,e:[["Municipal Airstrip One-Two",91],["The Lot Across the Bay",93],["The Magna Curia",94],["Open-Air Event",95],["Seven Brothers Restaurant",96]]},
  {id:"erholung",t:"Erholung",en:"Recovery",p:97,e:[["Dr. Laughton’s Veterinary Clinic",97],["The Leaky Faucet",98],["Riverside Cathedral",99]]},
- {id:"rivalen",t:"Rivalen & Störenfriede",en:"Rivals & Troublemakers",p:100,e:[["The 12th Precinct",100]]},
+ {id:"rivalen",t:"Rivalen & Störenfriede",en:"Rivals & Troublemakers",p:100,e:[["The 12th Precinct",100],["Joany García, City Herald",102],["The Chief",103]]},
  {id:"sicherheit",t:"Sicherheit",en:"Security",p:104,e:[["Anting Self-Defense / Home Security System",104],["Gu Poison",105],["Spire Security",106]]},
  {id:"einkaufen",t:"Einkaufen",en:"Shopping",p:108,e:[["Cloud 9 Nightclub",108],["Museum of World Cultures",109],["Tokugawa Blades",111]]},
  {id:"strasse",t:"Straßenbegegnungen",en:"Street Encounters",p:113,e:[["Aryan Bhatt",113],["Closet Creeps",114],["Evil Twin Djinn",115],["The Horned Snakes",116],["The Undercity Spirits",117]]},

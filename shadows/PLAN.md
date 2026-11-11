@@ -28,7 +28,6 @@ Zweck: Charaktere bauen/entwickeln lassen, schnell nachschlagen.
 Zweck: Improvisation – „die Crew geht in eine Bar / braucht einen Hehler“.
 - **10 Kategorien** (Unterkunft, Kontakte, Information, Treffpunkte, Erholung, Rivalen & Störenfriede, Sicherheit, Einkaufen, Straßenbegegnungen, Transport, Werkstätten; Buch nennt 40 Einträge) als Unter-Reiter/Filter, Ansicht: Kachelraster pro Kategorie, Klick öffnet Eintrag.
 - **Eintrag** = Ort + zugehörige Danger-Karten zusammen sichtbar (nicht einzeln durchklicken): Beschreibung, Hooks, Challenge-/Danger-Karte (Rating-Pips, Limits, Moves, Spectrum), Story-Seeds, Tags/Status farbig hervorgehoben, kleines Porträt in der Karte.
-- Bezirks-Zuordnung ist im Buch nicht vorgegeben → **Eigene Zuordnung** (optional, in Einstellungen): jedem Ort einen Local-Legends-Bezirk zuweisen, dann erscheint er dort als Verweis.
 - Rund 75 Dangers im ganzen Buch (Anhang S. 305/306 liefert die Soll-Liste).
 
 ### Reiter 3 · Avatare (Kap. 3, S. 129–200)
@@ -70,8 +69,8 @@ Generierte Verzeichnisse: Mythoi, Dangers, Theme Kits – sortier- und filterbar
 5. Kap. 4 (Gatekeeper) komplett.
 6. Anhang-Verzeichnisse + Vollständigkeits-Check, Suche, Merkliste, Querverweise.
 
-## 7. Entscheidungen, die noch offen sind
-1. **Sprache**: Buch ist englisch. Vorschlag wie bei Otherscape: Fließtext auf Deutsch (eigene Formulierung), Tags, Status, Moves und Namen im englischen Original daneben. Alternative: komplett englisch original.
-2. **Spieler-Link**: Charakterbau-Teile (Themenbücher, Kits, Relikte) auch als schlanke Spieleransicht ohne SL-Geheimnisse?
-3. **Eigene Bezirkszuordnung** der Orte (Abschnitt 3, Reiter 2) gewünscht?
-4. **Kap. 4 Spielerfiguren**: Gatekeeper als PCs voll ausbauen oder nur als Gegner?
+## 7. Entscheidungen (geklärt am 11. Nov. 2026)
+1. **Sprache**: Fließtext auf Deutsch, Tags, Status, Moves und Eigennamen im englischen Original daneben (wie Otherscape).
+2. **Spieleransicht**: ja – schlanke Ansicht der Charakterbau-Teile (Themenbücher, Kits, Relikte, Vertraute) ohne SL-Geheimnisse, per Link nutzbar.
+3. **Bezirkszuordnung der Orte**: nein.
+4. **Gatekeeper**: komplett ausbauen, auch als Spielerfiguren (Charakterbau, Mist-Themenbücher, Spielerzüge, Entwicklung).

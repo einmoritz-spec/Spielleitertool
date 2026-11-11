@@ -1,7 +1,7 @@
 /* Stadtkarte (Crime Board City Map): Hotspots in Prozent des Kartenbilds (Mittelpunkt x/y, Größe w/h). Links: Fall + Abschnitt. */
 window.NIGHTS = window.NIGHTS || { cases: {} };
 (function(){
-  const S = (label, px, py, links, w, h) => ({ label, x: +(px/1600*100).toFixed(2), y: +(py/1185*100).toFixed(2), w: w||5.2, h: h||2.6, links });
+  const S = (label, px, py, links, w, h) => ({ label, x: +(px/1600*100).toFixed(2), y: +(py/1185*100).toFixed(2), w: +((w||5.2)*0.62).toFixed(2), h: +((h||2.6)*0.62).toFixed(2), links });
   window.NIGHTS.map = {
     image: "img/stadtkarte.webp", ratio: 2843/2105,
     spots: [

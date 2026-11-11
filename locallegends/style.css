@@ -425,3 +425,14 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
   .loc-card.open>.loc-body{column-width:46ch;column-gap:44px;column-fill:balance}
   .loc-card.open>.loc-body>.readaloud,.loc-card.open>.loc-body>.danger-card,.loc-card.open>.loc-body>.card,.loc-card.open>.loc-body>.ll-fig{break-inside:avoid}
 }
+
+/* Karten-Umschalter: kleine Pille direkt auf der Karte */
+.map-panel,.city-map-box{position:relative}
+.city-map-head{margin:0;height:0}
+.map-toggle{position:absolute;top:14px;right:8px;z-index:4;flex-wrap:nowrap;gap:0;border-radius:999px;overflow:hidden;background:rgba(10,10,12,.7);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(3px)}
+.map-toggle button{background:transparent!important;border:0!important;border-radius:0;padding:3px 10px;font-size:11px;letter-spacing:.04em;color:rgba(255,255,255,.6)}
+.map-toggle button.on{color:var(--brass-bright,#e0bd78)!important;background:rgba(255,255,255,.1)!important}
+/* Kartenbeschriftung skaliert mit der Kartenbreite (Handy: nicht zu groß) */
+.city-scroll{container-type:inline-size}
+.city-hot .city-lbl,.city-hot[aria-label="The Sunken City"] .city-lbl,.city-hot[aria-label="The Undertrash"] .city-lbl{font-size:min(1.45cqw,13px)}
+.city-hot[aria-label="The Sunken City"] .city-lbl,.city-hot[aria-label="The Undertrash"] .city-lbl{font-size:min(1.25cqw,12px)}

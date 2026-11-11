@@ -824,7 +824,7 @@ function mapMode(){ let m="sl"; try{ m=localStorage.getItem("ll_mapmode")||"sl";
 function setMapMode(m){ try{ localStorage.setItem("ll_mapmode",m); }catch(e){} render(); }
 function mapToggle(){
   const m=mapMode();
-  return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')">SL-Karte</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')">Spielerkarte</button></div>`;
+  return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')" title="SL-Karte">SL</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')" title="Spielerkarte">Spieler</button></div>`;
 }
 function mapFull(src){
   let o=document.getElementById("mapLightbox");

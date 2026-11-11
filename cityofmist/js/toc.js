@@ -40,7 +40,7 @@ var CM_AV_CATS = [
  {id:"chow",t:"Chairman Chow",en:"Tanhā",p:138,e:[["Chairman Chow",138],["Modus Operandi und Operation",139],["Schlüsselfiguren und Orte",141],["Chows Geschichte",143],["Story-Ideen, Custom Moves und Extra-Themen",144],["Chows Gefahren",145]]},
  {id:"king",t:"DA King",en:"Shango",p:148,e:[["DA King",148],["Modus Operandi und Operation",149],["Schlüsselfiguren und Orte",150],["Kings Geschichte",153],["Story-Ideen, Custom Moves und Extra-Themen",154],["Kings Gefahren",155]]},
  {id:"ganesha",t:"Ganesha",en:"Ganesha",p:158,e:[["Ganesha",158],["Modus Operandi und Operation",159],["Schlüsselfiguren und Orte",161],["Ganeshas Geschichte",162],["Story-Ideen, Custom Moves und Extra-Themen",163],["Ganeshas Gefahren",164]]},
- {id:"leyland",t:"Dr. Leyland",en:"Prometheus",p:168,e:[["Dr. Leyland",168]]},
+ {id:"leyland",t:"Dr. Leyland",en:"Prometheus",p:168,e:[["Dr. Leyland",168],["Modus Operandi und Operation",169],["Schlüsselfiguren und Orte",171],["Leylands Geschichte",173],["Story-Ideen, Custom Moves und Extra-Themen",174],["Leylands Gefahren",175]]},
  {id:"rosaline",t:"Rosaline",en:"Romeo & Juliet",p:178,e:[["Rosaline",178]]},
  {id:"wolfe",t:"Monte Wolfe",en:"The Boy Who Cried Wolf",p:188,e:[["Monte Wolfe",188]]}
 ];

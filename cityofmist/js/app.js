@@ -11,11 +11,11 @@ function dangerCard(d){
    (d.gm&&d.gm.length?'<div class="gmh">Spielleitung</div><ul>'+d.gm.map(function(g){return '<li>'+md(g)+'</li>';}).join("")+'</ul>':'')+'</div>';
 }
 function tagsHtml(a,c){ return a.map(function(t){return '<span class="tg '+c+'">'+esc(t)+'</span>';}).join(""); }
-function themeCard(t){ return '<details class="thm"><summary class="th"><b>'+esc(t.name)+'</b><i>'+esc(t.typ)+'</i></summary><p class="idn">'+esc(t.identity)+'</p><p><u>Power Tags</u> '+tagsHtml(t.power,"pw")+'</p><p><u>Weakness Tags</u> '+tagsHtml(t.weak,"wk")+'</p><p class="imp">'+md(t.imp)+'</p></div>'; }
+function themeCard(t){ return '<details class="thm"><summary class="th"><b>'+esc(t.name)+'</b><i>'+esc(t.typ)+'</i></summary><p class="idn">'+esc(t.identity)+'</p><p><u>Power Tags</u> '+tagsHtml(t.power,"pw")+'</p><p><u>Weakness Tags</u> '+tagsHtml(t.weak,"wk")+'</p><p class="imp">'+md(t.imp)+'</p></details>'; }
 function ortCard(o){
   return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
    (o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
-   '<div class="ocols'+(o.dangers.length?'':' solo')+'"><div class="otxt">'+(o.bild?'<img class="obild" src="img/'+o.bild+'.webp" alt="'+esc(o.name)+'" loading="lazy">':'')+o.text.map(function(t){return '<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(o.listen||[]).map(function(l){return '<h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul>';}).join("")+(o.themen||[]).map(themeCard).join("")+'</div><aside>'+o.dangers.map(dangerCard).join("")+'</aside></div></div></details>';
+   '<div class="ocols'+(o.dangers.length?'':' solo')+'"><div class="otxt">'+(o.bild?'<img class="obild" src="img/'+o.bild+'.webp" alt="'+esc(o.name)+'" loading="lazy">':'')+o.text.map(function(t){return t.indexOf('## ')===0?'<h4 class="lh">'+esc(t.slice(3))+'</h4>':'<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(o.listen||[]).map(function(l){return '<h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul>';}).join("")+(o.themen||[]).map(themeCard).join("")+'</div><aside>'+o.dangers.map(dangerCard).join("")+'</aside></div></div></details>';
 }
 function stub(name,p){ return '<div class="stub"><span>'+esc(name)+'</span>'+pg(p)+'<em>nur Original</em></div>'; }
 function itemsList(items){ return '<div class="stubs">'+items.map(function(i){return stub(i[0],i[1]);}).join("")+'</div>'; }
@@ -35,9 +35,10 @@ function pageSpieler(r){
 function pageSL(r){
   var list=CM_NAV.sl, s=list.filter(function(x){return x.id===r.sub;})[0]||list[0];
   var h=pills("sl",list,s.id);
-  if(s.id!=="orte") return h+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
-  var cat=CM_ORTE_CATS.filter(function(c){return c.id===r.cat;})[0]||CM_ORTE_CATS[0];
-  var chips='<nav class="chips">'+CM_ORTE_CATS.map(function(c){var n=(CM_ORTE[c.id]||[]).length;return '<button class="chip'+(c.id===cat.id?' on':'')+'" onclick="go(\'sl/orte/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>';}).join("")+'</nav>';
+  var cats = s.id==="orte"?CM_ORTE_CATS : s.id==="avatare"?CM_AV_CATS : null;
+  if(!cats) return h+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
+  var cat=cats.filter(function(c){return c.id===r.cat;})[0]||cats[0];
+  var chips='<nav class="chips">'+cats.map(function(c){var n=(CM_ORTE[c.id]||[]).length;return '<button class="chip'+(c.id===cat.id?' on':'')+'" onclick="go(\'sl/'+s.id+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>';}).join("")+'</nav>';
   var have=CM_ORTE[cat.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
   var body=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]):stub(e[0],e[1]); }).join("");
   return h+chips+'<section class="blk">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+body+'</div></section>';

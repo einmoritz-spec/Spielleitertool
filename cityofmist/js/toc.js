@@ -32,3 +32,14 @@ var CM_ORTE_CATS = [
  {id:"transport",t:"Transport",en:"Transportation",p:118,e:[["Gyphus",118],["Lloyd & Ownie Carriage Services Ltd.",119],["Troll Booths",120],["Ash Street Park",121]]},
  {id:"werkstaetten",t:"Werkstätten",en:"Workshops",p:122,e:[["Ricky Left Hook’s Boxing Club",122],["The Leyland Foundation Tech Accelerator Center",124],["Monument Tower",125]]}
 ];
+
+/* Avatare-Verzeichnis (Kap. 3): Daten ebenfalls in CM_ORTE[id] (js/data/avatare/<id>.js) */
+var CM_AV_CATS = [
+ {id:"wahrheit",t:"Die Wahrheit",en:"The Truth",p:130,sub:"Der geheime Rat der Avatare, der die City kontrolliert",e:[["Was ist die Wahrheit?",130],["Kriege der Götter und Titanen: Ursprung der Wahrheit",130],["Die Wahrheit heute",132],["Die Ressourcen des Rates",133],["Der Rat in deiner Runde",135]]},
+ {id:"chow",t:"Chairman Chow",en:"Tanhā",p:138,e:[["Chairman Chow",138]]},
+ {id:"king",t:"DA King",en:"Shango",p:148,e:[["DA King",148]]},
+ {id:"ganesha",t:"Ganesha",en:"Ganesha",p:158,e:[["Ganesha",158]]},
+ {id:"leyland",t:"Dr. Leyland",en:"Prometheus",p:168,e:[["Dr. Leyland",168]]},
+ {id:"rosaline",t:"Rosaline",en:"Romeo & Juliet",p:178,e:[["Rosaline",178]]},
+ {id:"wolfe",t:"Monte Wolfe",en:"The Boy Who Cried Wolf",p:188,e:[["Monte Wolfe",188]]}
+];

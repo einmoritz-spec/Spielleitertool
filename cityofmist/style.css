@@ -84,3 +84,5 @@ a.pg-link{color:var(--mist)!important}
 @media(max-width:600px){.obild{width:110px;height:110px}}
 
 .thm>summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:baseline}.thm>summary::-webkit-details-marker{display:none}.thm>summary::before{content:'+';color:#b89a5e}.thm[open]>summary::before{content:'–'}
+
+.fig{margin:14px 0}.fig img{display:block;width:100%;border-radius:6px;border:1px solid #2a323a}.fig figcaption{font-size:.8em;color:#8a9097;margin-top:5px;font-style:italic}

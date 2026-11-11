@@ -44,3 +44,12 @@ var CM_AV_CATS = [
  {id:"rosaline",t:"Rosaline",en:"Romeo & Juliet",p:178,e:[["Rosaline",178],["Modus Operandi und Operation",179],["Schlüsselfiguren und Orte",181],["Rosalines Geschichte",183],["Story-Ideen, Custom Moves und Extra-Themen",184],["Rosalines Gefahren",185],["Beziehungen in der Wahrheit",187]]},
  {id:"wolfe",t:"Monte Wolfe",en:"The Boy Who Cried Wolf",p:188,e:[["Monte Wolfe",188],["Modus Operandi und Operation",189],["Schlüsselfiguren und Orte",191],["Monte Wolfes Geschichte",193],["Story-Ideen, Custom Moves und Extra-Themen",193],["Monte Wolfes Gefahren",194]]}
 ];
+
+/* Gatekeeper-Verzeichnis (Kap. 4): übersetzte Einträge liegen in js/data/gatekeeper/<kategorie>.js (CM_ORTE.gk_*) */
+var CM_GK_CATS = [
+ {id:"gk_leben",t:"Leben eines Agenten",en:"Life of an Agent",p:202,e:[["Einführung: Die Gatekeeper und der Mist",202],["Leben eines Agenten",203],["Rekrutierung und Ausbildung",204],["Im Dienst, Privatleben, Jargon und Erscheinung",205],["Gatekeeper-Credo & Agenten-Einstellung",206],["Mist-Fähigkeiten",208],["Standardausrüstung",213],["Agenten-Laufbahnen",217]]},
+ {id:"gk_spielen",t:"Gatekeeper spielen",en:"Playing a Gatekeeper Character",p:230,e:[["Gatekeeper-Charaktere spielen",230],["Gatekeeper-Spielerzüge",250]]},
+ {id:"gk_org",t:"Die Organisation",en:"The Gatekeeper Organization",p:256,e:[["Die Organisation",256]]},
+ {id:"gk_gegner",t:"Gatekeeper als Gegner",en:"The Gatekeepers as Adversaries",p:264,e:[["Die Gatekeeper als Gegner",264],["Veteranen & Anführer",280],["Fahrzeuge",284],["Sicherheitsmaßnahmen",286]]},
+ {id:"gk_mist",t:"Geheimnisse des Mist",en:"Secrets of the Mist",p:290,e:[["Geheimnisse des Mist",290]]}
+];

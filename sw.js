@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v189hspe";
+const VERSION = "v190etr2";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -15,6 +15,7 @@ const FILES = [
   "etr/js/data/mission.js",
   "etr/js/data/figuren.js",
   "etr/js/data/orte.js",
+  "etr/js/data/rest.js",
   "etr/img/astrid.webp",
   "etr/img/chuck.webp",
   "etr/img/cosgrave.webp",

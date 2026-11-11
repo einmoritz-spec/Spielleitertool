@@ -1,7 +1,7 @@
 /* Eat the Reich – Renderer. Daten kommen aus js/data/*.js (globale ETR_*-Variablen). */
 var ETR_TABS = [
  {id:"einstieg",t:"Einstieg"},{id:"figuren",t:"Figuren"},{id:"regeln",t:"Regeln"},{id:"mission",t:"Mission"},{id:"leitung",t:"Spielleitung"},
- {id:"karte",t:"Karte"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"check",t:"Evil-Check"}];
+ {id:"karte",t:"Karte"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"gegner",t:"Gegner"},{id:"check",t:"Evil-Check"},{id:"anhang",t:"Anhang"}];
 var cur = (location.hash||"").slice(1) || "einstieg";
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/==(.+?)==/g,'<span class="hi">$1</span>').replace(/\n/g,"<br>"); }
@@ -43,18 +43,19 @@ function ort(o){
   return h+'</div></div></details>';
 }
 function enemy(g){
-  var h='<div class="enemy"><h4>'+esc(g.name)+'</h4>'+(g.text||[]).map(function(t){return '<p>'+md(t)+'</p>';}).join("")+'<div class="st">'+(g.threat!=null?'<span>Threat '+g.threat+'</span>':'')+(g.attack!=null?'<span>Attack '+g.attack+'</span>':'')+(g.chall!=null?'<span>Challenge '+g.chall+'</span>':'')+'</div>'+(g.attackx?'<p>'+md(g.attackx)+'</p>':'');
+  var h='<div class="enemy"><h4>'+esc(g.name)+'</h4>'+(g.bild?'<img class="eimg" src="img/'+g.bild+'.webp" alt="">':'')+(g.text||[]).map(function(t){return '<p>'+md(t)+'</p>';}).join("")+'<div class="st">'+(g.threat!=null?'<span>Threat '+g.threat+'</span>':'')+(g.attack!=null?'<span>Attack '+g.attack+'</span>':'')+(g.chall!=null?'<span>Challenge '+g.chall+'</span>':'')+'</div>'+(g.attackx?'<p>'+md(g.attackx)+'</p>':'');
   (g.regeln||[]).forEach(function(r){ h+='<div class="rl"><b>'+esc(r[0])+':</b> '+md(r[1])+'</div>'; });
   if(g.vorzeichen) h+='<div class="rl"><b>Vorzeichen:</b> '+md(g.vorzeichen)+'</div>';
   if(g.blut) h+='<div class="rl"><b>Blutgeschmack:</b> '+md(g.blut)+'</div>';
   return h+'</div>';
 }
-function sector(k){ var d=window["ETR_"+k.toUpperCase()]; if(!d) return '<p>In Arbeit.</p>'; return (d.intro?secs([{id:"intro-"+k,titel:d.titel,b:d.intro}]):'')+(d.orte||[]).map(ort).join(""); }
+function sector(k){ var d=window["ETR_"+k.toUpperCase()]; if(!d) return '<p>In Arbeit.</p>'; return (d.intro?secs([{id:"intro-"+k,titel:d.titel,p:d.p,b:d.intro}]):'')+(d.orte||[]).map(ort).join("")+(d.outro?secs(d.outro):''); }
+function gegner(){ return secs([{id:"gegner",titel:"Gewöhnliche Gegner (Common Enemies)",p:61,b:[{t:"p",x:"Werte für die Standard-Gegner. Bedrohung = Threat, Angriff = Attack, Hürde = Challenge. Wo „Solo“ steht, nutzt der Gegner die Verstärkungsregeln nicht."}]}])+'<div class="enemies">'+(window.ETR_GEGNER||[]).map(enemy).join("")+'</div>'; }
 function figuren(){ return secs(window.ETR_FIGINTRO)+(window.ETR_FIGUREN||[]).map(fig).join(""); }
 function hero(){ return '<div class="hero" style="background-image:url(img/cover.webp)"><div class="ht"><b>Eat the Reich</b><span>Das Jahr 1943. Europa steht in Flammen. Ihr seid ein Kommandotrupp aus Vampiren mit einem einzigen Ziel: Adolf Hitlers gesamtes Blut aussaugen und die Nazi-Kriegsmaschine tödlich ins Wanken bringen.</span></div></div>'; }
 function render(){
   var tabs='<nav class="tabs">'+ETR_TABS.map(function(x){return '<button class="tab'+(x.id===cur?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>';}).join("")+'</nav>';
-  var m={einstieg:function(){return hero()+secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);}};
+  var m={einstieg:function(){return hero()+secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegner,anhang:function(){return secs(window.ETR_ANHANG);}};
   document.getElementById("app").innerHTML=tabs+(m[cur]||m.einstieg)();
   var t=document.querySelector(".tab.on"); if(t&&t.scrollIntoView) t.scrollIntoView({inline:"center",block:"nearest"});
 }
@@ -67,8 +68,9 @@ function runSearch(q){
   var hits=[];
   function strip(h){ return h.replace(/<[^>]+>/g," "); }
   ETR_TABS.forEach(function(tb){
-    var save=cur; cur=tb.id; var html=""; try{ var m={einstieg:window.ETR_EINSTIEG,regeln:window.ETR_REGELN,mission:window.ETR_MISSION,leitung:window.ETR_LEITUNG,karte:window.ETR_KARTE,check:window.ETR_CHECK};
+    var save=cur; cur=tb.id; var html=""; try{ var m={einstieg:window.ETR_EINSTIEG,regeln:window.ETR_REGELN,mission:window.ETR_MISSION,leitung:window.ETR_LEITUNG,karte:window.ETR_KARTE,check:window.ETR_CHECK,anhang:window.ETR_ANHANG};
       if(m[tb.id]) (m[tb.id]||[]).forEach(function(s){ var t=strip(s.b.map(blk).join(" ")); if((s.titel+" "+t).toLowerCase().indexOf(q)>-1) hits.push([tb,s.titel,t]); });
+      if(tb.id==="gegner") (window.ETR_GEGNER||[]).forEach(function(g){ var t=strip(enemy(g)); if((g.name+" "+t).toLowerCase().indexOf(q)>-1) hits.push([tb,g.name,t]); });
       if(tb.id==="figuren") (window.ETR_FIGUREN||[]).forEach(function(c){ var t=strip(fig(c)); if(t.toLowerCase().indexOf(q)>-1) hits.push([tb,c.name,t]); });
       if(/^s[123]$/.test(tb.id)){ var d=window["ETR_"+tb.id.toUpperCase()]; if(d) d.orte.forEach(function(o){ var t=strip(ort(o)); if(t.toLowerCase().indexOf(q)>-1) hits.push([tb,o.name,t]); }); }
     }catch(e){} cur=save; });

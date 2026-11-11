@@ -10,7 +10,7 @@ var CM_NAV = {
  sl:[
   {id:"orte",t:"Orte & NSCs",p:75,en:"Overlooked Attractions"},
   {id:"avatare",t:"Avatare",p:129,en:"Don’t Believe the Truth",items:[["Kriege der Götter und Titanen: Ursprung der Wahrheit",130],["Die Wahrheit heute",132],["Die Ressourcen des Rates",133],["Der Rat in deiner Runde",135],["Chairman Chow",138],["DA King",148],["Ganesha",158],["Dr. Leyland",168],["Rosaline",178],["Monte Wolfe",188]]},
-  {id:"gatekeeper",t:"Gatekeeper",p:201,en:"Suits Unveiled",items:[["Leben eines Agenten",203],["Gatekeeper-Credo & Agenten-Einstellung",206],["Mist-Fähigkeiten: Shrouding und Clearance",208],["Die Advanced Arts",210],["Umgebungs-Mist (Ambient Mist)",212],["Standardausrüstung",213],["Agenten-Laufbahnen",217],["Gatekeeper-Charaktere spielen",230],["Gatekeeper-Spielerzüge",250],["Die Organisation",256],["Die Gatekeeper als Gegner",264],["Veteranen & Anführer",280],["Fahrzeuge",284],["Sicherheitsmaßnahmen",286],["Geheimnisse des Mist",290]]}],
+  {id:"gatekeeper",t:"Gatekeeper",p:201,en:"Suits Unveiled",items:[["Leben eines Agenten",203],["Gatekeeper-Credo & Agenten-Einstellung",206],["Mist-Fähigkeiten: Shrouding und Clearance",208],["Die Advanced Arts",210],["Umgebungs-Mist (Ambient Mist)",212],["Standardausrüstung der Gatekeeper",213],["Agenten-Laufbahnen",217],["Gatekeeper-Charaktere spielen",230],["Gatekeeper-Spielerzüge",250],["Die Organisation",256],["Die Gatekeeper als Gegner",264],["Veteranen & Anführer",280],["Fahrzeuge",284],["Sicherheitsmaßnahmen",286],["Geheimnisse des Mist",290]]}],
  kapitel:[
   {t:"Kapitel 1 – If Dreams Could Kill",d:"Spieleroptionen",p:9,go:"spieler"},
   {t:"Kapitel 2 – Overlooked Attractions",d:"Orte & NSCs",p:75,go:"sl/orte"},
@@ -47,7 +47,7 @@ var CM_AV_CATS = [
 
 /* Gatekeeper-Verzeichnis (Kap. 4): übersetzte Einträge liegen in js/data/gatekeeper/<kategorie>.js (CM_ORTE.gk_*) */
 var CM_GK_CATS = [
- {id:"gk_leben",t:"Leben eines Agenten",en:"Life of an Agent",p:202,e:[["Einführung: Die Gatekeeper und der Mist",202],["Leben eines Agenten",203],["Rekrutierung und Ausbildung",204],["Im Dienst, Privatleben, Jargon und Erscheinung",205],["Gatekeeper-Credo & Agenten-Einstellung",206],["Mist-Fähigkeiten: Shrouding und Clearance",208],["Die Advanced Arts",210],["Umgebungs-Mist (Ambient Mist)",212],["Standardausrüstung",213],["Agenten-Laufbahnen",217]]},
+ {id:"gk_leben",t:"Leben eines Agenten",en:"Life of an Agent",p:202,e:[["Einführung: Die Gatekeeper und der Mist",202],["Leben eines Agenten",203],["Rekrutierung und Ausbildung",204],["Im Dienst, Privatleben, Jargon und Erscheinung",205],["Gatekeeper-Credo & Agenten-Einstellung",206],["Mist-Fähigkeiten: Shrouding und Clearance",208],["Die Advanced Arts",210],["Umgebungs-Mist (Ambient Mist)",212],["Standardausrüstung der Gatekeeper",213],["Agenten-Laufbahnen und Desk Jockey",217],["Infiltrator",218],["Intel Percher",219],["Investigator",220],["Liaison und Rupturer",221],["Medical Staff",222],["Mist Technician",223]]},
  {id:"gk_spielen",t:"Gatekeeper spielen",en:"Playing a Gatekeeper Character",p:230,e:[["Gatekeeper-Charaktere spielen",230],["Gatekeeper-Spielerzüge",250]]},
  {id:"gk_org",t:"Die Organisation",en:"The Gatekeeper Organization",p:256,e:[["Die Organisation",256]]},
  {id:"gk_gegner",t:"Gatekeeper als Gegner",en:"The Gatekeepers as Adversaries",p:264,e:[["Die Gatekeeper als Gegner",264],["Veteranen & Anführer",280],["Fahrzeuge",284],["Sicherheitsmaßnahmen",286]]},

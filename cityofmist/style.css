@@ -105,3 +105,4 @@ a.pg-link{color:var(--mist)!important}
 .orgflash{animation:orgf 1.8s ease-out}@keyframes orgf{0%,40%{background:rgba(201,162,75,.28)}100%{background:transparent}}
 
 .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:14px;column-span:all}.lgrid .lbox{background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:6px;padding:4px 14px 8px}
+.thm .th b{flex:0 1 auto;min-width:0}.thm .th i{flex:none;white-space:nowrap}

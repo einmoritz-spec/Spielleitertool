@@ -1,0 +1,23 @@
+/* Shadows & Showdowns — helle Fallakte (gleiche Palette wie Nights / Local Legends) */
+:root{--bg:#e6d9bb;--panel:#f6efdc;--panel-raised:#efe5cc;--line:#c9b98f;--text:#2a251d;--mute:#7a6e55;--rust:#8a3a1c;--red:#9b3526;--ak:#e9a93f;--ak-hi:#f0b955;--serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;--cond:"Oswald","Arial Narrow",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1100px 600px at 50% -5%,#f3ead3,transparent 70%),var(--bg);color:var(--text);font-family:var(--serif);min-height:100vh}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:8px;padding:10px 16px;background:linear-gradient(#f4ead0,#eadcb8);border-bottom:3px solid var(--ak);box-shadow:0 2px 8px rgba(90,70,20,.18)}
+.brand{background:none;border:0;font:700 17px var(--cond);letter-spacing:.05em;text-transform:uppercase;color:#6d2f15;cursor:pointer;padding:0}
+.topbar-spacer{flex:1}
+.tb-burger{background:#e3d2a6;border:1px solid #c4ae7a;color:#6d2f15;border-radius:8px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.shell{max-width:1180px;margin:0 auto;padding:16px 16px 80px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:3px solid var(--ak);margin:14px 0 18px}
+.tab{background:#dccda6;color:#6b5a3a;border:1px solid #bda97a;border-bottom:0;border-radius:8px 8px 0 0;padding:9px 16px;font:600 13px var(--cond);letter-spacing:.07em;text-transform:uppercase;cursor:pointer}
+.tab.on{background:linear-gradient(#f0b955,#e9a93f);color:var(--rust);border-color:#d48f25}
+.card{background:#fbf6e6;border:1px solid var(--line);border-left:3px solid var(--ak);border-radius:6px;padding:16px 20px;box-shadow:0 2px 6px rgba(80,60,20,.15)}
+.card h2{margin:0 0 4px;font:700 22px var(--cond);letter-spacing:.04em;text-transform:uppercase;color:var(--rust)}
+.card .en{color:var(--mute);font-style:italic;margin-bottom:12px}
+.sek{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.sek div{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border-bottom:1px solid #d9c9a0}
+.sek span{color:var(--mute);font-size:.85em;white-space:nowrap}
+.pager{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(#eadcb8,#e2d1a6);border-top:3px solid var(--ak);height:6px}
+.mm-backdrop{position:fixed;inset:0;background:rgba(60,45,20,.45);z-index:90;display:none}.mm-backdrop.on{display:block}
+.mm-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,90vw);background:var(--panel);border-left:3px solid var(--ak);padding:16px;z-index:91;transform:translateX(100%);transition:transform .2s}.mm-panel.on{transform:none}
+.mm-panel button{display:block;width:100%;text-align:left;background:none;border:0;padding:11px 8px;font:inherit;color:var(--text);cursor:pointer;border-bottom:1px solid #d9c9a0}
+.mm-panel button b{display:block}.mm-panel button small{color:var(--mute)}.mm-panel button.on{color:var(--red);cursor:default}

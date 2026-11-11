@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0c1424">
+<title>Eat the Reich</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="go('einstieg')">Eat the Reich</button>
+  <div class="topbar-spacer"></div>
+  <button class="tb-btn" onclick="openSearch()">Suche</button>
+  <button class="tb-burger" onclick="openMenu(true)" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app" class="shell"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP">
+  <button onclick="switchTool('wake')"><b>Wake of the Oldways</b><small>Legend in the Mist</small></button>
+  <button onclick="switchTool('locallegends')"><b>Local Legends</b><small>City of Mist – Fall-Akte</small></button>
+  <button onclick="switchTool('paynetown')"><b>Nights of Paynetown</b><small>City of Mist – Kampagne</small></button>
+  <button onclick="switchTool('shadows')"><b>Shadows &amp; Showdowns</b><small>City of Mist – Erweiterung</small></button>
+  <button class="on" disabled><b>Eat the Reich</b><small>Havoc Engine – Vampir-Kommandos (aktuell)</small></button>
+  <button onclick="switchTool('otherscape')"><b>Otherscape</b><small>Cyberpunk-Fantasy</small></button>
+</div>
+<div class="modal-overlay" id="searchModal" onclick="if(event.target===this)closeSearch()">
+  <div class="modal"><div class="modal-head"><h2>Suche</h2><button class="modal-close" onclick="closeSearch()">✕</button></div>
+  <div class="modal-body"><input id="searchInput" class="gloss-search" placeholder="Suche…" oninput="runSearch(this.value)"><div id="searchResults"></div></div></div>
+</div>
+<script src="js/tool-switch.js"></script>
+<script src="js/data/einstieg.js"></script>
+<script src="js/data/regeln.js"></script>
+<script src="js/data/mission.js"></script>
+<script src="js/data/figuren.js"></script>
+<script src="js/data/orte.js"></script>
+<script src="js/app.js"></script>
+<script src="../toolmenu.js"></script>
+</body>
+</html>

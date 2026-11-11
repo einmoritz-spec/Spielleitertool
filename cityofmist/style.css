@@ -82,3 +82,5 @@ a.pg-link{color:var(--mist)!important}
 .obild{float:right;width:150px;height:150px;max-height:none;object-fit:cover;object-position:top center;margin:2px 0 8px 16px;border-radius:6px}
 .ocols.solo{display:block}.ocols.solo .otxt{max-width:none}
 @media(max-width:600px){.obild{width:110px;height:110px}}
+
+.thm>summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:baseline}.thm>summary::-webkit-details-marker{display:none}.thm>summary::before{content:'+';color:#b89a5e}.thm[open]>summary::before{content:'–'}

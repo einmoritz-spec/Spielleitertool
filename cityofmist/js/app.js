@@ -11,7 +11,7 @@ function dangerCard(d){
    (d.gm&&d.gm.length?'<div class="gmh">Spielleitung</div><ul>'+d.gm.map(function(g){return '<li>'+md(g)+'</li>';}).join("")+'</ul>':'')+'</div>';
 }
 function tagsHtml(a,c){ return a.map(function(t){return '<span class="tg '+c+'">'+esc(t)+'</span>';}).join(""); }
-function themeCard(t){ return '<div class="thm"><div class="th"><b>'+esc(t.name)+'</b><i>'+esc(t.typ)+'</i></div><p class="idn">'+esc(t.identity)+'</p><p><u>Power Tags</u> '+tagsHtml(t.power,"pw")+'</p><p><u>Weakness Tags</u> '+tagsHtml(t.weak,"wk")+'</p><p class="imp">'+md(t.imp)+'</p></div>'; }
+function themeCard(t){ return '<details class="thm"><summary class="th"><b>'+esc(t.name)+'</b><i>'+esc(t.typ)+'</i></summary><p class="idn">'+esc(t.identity)+'</p><p><u>Power Tags</u> '+tagsHtml(t.power,"pw")+'</p><p><u>Weakness Tags</u> '+tagsHtml(t.weak,"wk")+'</p><p class="imp">'+md(t.imp)+'</p></div>'; }
 function ortCard(o){
   return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
    (o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+

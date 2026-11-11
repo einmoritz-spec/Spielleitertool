@@ -659,8 +659,13 @@ function renderScene(adv, scene, idx){
       </details>`;
   };
 
-  const topNpcs = (scene.npcs||[]).filter(n=>!n.after);
-  const positionedNpcs = (scene.npcs||[]).filter(n=>n.after);
+  // Figuren-Karten ohne Porträt, deren Name schon im Rest der Szene (Ablauf, Vignetten,
+  // Challenges, Vorlesetext …) vorkommt, werden nicht noch einmal gedoppelt gezeigt.
+  const sceneText = (()=>{ try{ const c = Object.assign({}, scene); delete c.npcs; return JSON.stringify(c).toLowerCase(); }catch(e){ return ""; } })();
+  const npcDup = n => !EDIT.on && !n.img && (()=>{ const nm=(n.name||"").toLowerCase().replace(/\(.*?\)/g,"").split(/[,&\/]| und | oder /).map(x=>x.trim()).filter(x=>x.length>=3); return nm.length>0 && nm.every(x=>sceneText.includes(x.split(" ")[0])); })();
+  const shownNpcs = (scene.npcs||[]).filter(n=>!npcDup(n));
+  const topNpcs = shownNpcs.filter(n=>!n.after);
+  const positionedNpcs = shownNpcs.filter(n=>n.after);
   const npcsAfter = idx => positionedNpcs.filter(n=>n.after===idx);
   const npcBody = (n, pre) => `<div class="npc-body"><div class="npc-top">${npcNameHtml(n.name)}<span class="npc-role"${EA(pre+".role")}>${esc(n.role)}</span></div><p${EA(pre+".text")}>${LS(esc(n.text))}</p></div>`;
   const renderNpcCard = n => `<div class="npc-grid"><div class="npc-card">${portraitHtml(n.img,"npc-portrait")}${npcBody(n,"npcs."+(scene.npcs||[]).indexOf(n))}</div></div>`;
@@ -834,7 +839,7 @@ function renderScenePicker(adv){
     return `<button class="sc-chip ${active?'active':''} ${done?'done':''}" onclick="goScene(${i})" aria-label="${esc(effTitle(adv.id,s))}" ${active?'aria-current="true"':""}><span class="sc-n">${n}</span>${active?`<span class="sc-t">${esc(effTitle(adv.id,s))}</span>`:""}</button>`;
   }).join("");
   return `<div class="scene-picker-wrap"><div class="scene-chips">${chips}</div>${noteTileHere(adv)}
-    <button class="edit-toggle edit-toggle-m ${EDIT.on?'active':''}" onclick="toggleEditMode()" title="Szenentext bearbeiten" aria-label="Szenentext bearbeiten"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+    <button class="edit-toggle edit-toggle-m ${EDIT.on?'active':''}" onclick="toggleEditMode()" title="Szenentext bearbeiten" aria-label="Szenentext bearbeiten"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6V4.5h14V6"/><path d="M12 4.5V19"/><path d="M9 19h6"/></svg></button>
   </div>`;
 }
 function sceneTabsOn(){ try{ return localStorage.getItem("wake.sceneTabs")==="1"; }catch(e){ return false; } }

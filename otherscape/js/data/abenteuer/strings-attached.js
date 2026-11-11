@@ -5,15 +5,6 @@ OS_ADV.push({ id:"strings-attached", titel:"Strings Attached", sub:"Starter Job:
   {t:"p", x:"Einsteiger-Job für jede Crew. Die Regeln lernt die Gruppe unterwegs über die Rapid Downloads aus Kapitel 2, auf die der Job an den passenden Stellen verweist. Lies als SL den Job vorab; die Spieler lesen ihn nicht."},
   {t:"h", x:"Auftrag in drei Sätzen"},
   {t:"p", x:"Die Fixerin **Frank Solid** vermittelt für die Kanzlei **Kallikantzaros & Partners (K&P)**: Die Crew soll das Gefängnis **Skeiron** in der verseuchten **Sludge Zone** auskundschaften und den Häftling **Karl „The Gemcutter“ Masaryk** herausholen. Skeiron gilt als aufgegeben, zeigt aber neuerdings Aktivität. Der Haken: Masaryk ist kein Opfer, sondern inzwischen selbst ein Anführer von Threadwelle."},
-  {t:"h", x:"Ablauf im Überblick"},
-  {t:"szenen", items:[
-    {n:"Akt 0: Meeting the Crew", x:"Briefing auf einem Kran, ohne Würfe."},
-    {n:"Akt I: Common Threads", x:"Dead Dock, Attentäter-Drohnen, Bede's Boxing Club, The Vineyard."},
-    {n:"Akt II: Through the Sludge Zone", x:"Downtime, Loading Up, Anreise durch den Sludge."},
-    {n:"Akt III: Skeiron Correctional Complex", x:"Wachturm, Cell Block Alpha, Skeiron Domain."},
-    {n:"Akt IV: Cell Block Bravo", x:"Command Post, Clotho-203, Labyrinth, Lachesis-203, Intaglio."},
-    {n:"Aftermath", x:"Offene Fäden und Fragen für die Downtime."}
-  ]}
 ]},
 
 { id:"hintergrund", titel:"Hintergrund (nur für die SL)", bloecke:[

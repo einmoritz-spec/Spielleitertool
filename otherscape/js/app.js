@@ -87,7 +87,7 @@ function renderAdv(a, secId){
    ${idx===0?ovBox(a):""}
    ${osArt(a,idx)}
    ${(()=>{ let L="",R=""; (s.bloecke||[]).forEach((b,i)=>{ const x=renderBlock(a,s,b,i); if(["challenge","uhr","hinweis"].includes(b.t)) R+=x; else L+=x; }); return (R && L.trim()) ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L+R; })()}
-   <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel)}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel)}</b></span></a>`:""}</nav>
+   <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel.replace(/\s*\([^)]*\)\s*$/,""))}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel.replace(/\s*\([^)]*\)\s*$/,""))}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
@@ -124,7 +124,7 @@ function renderBlock(a,s,b,i){
 function setClock(k,j,n){ const cur = ST.clk[k]||0; ST.clk[k] = (cur===j+1) ? j : j+1; saveState();
   const el = document.getElementById("clk_"+k); if(el) [...el.children].forEach((c,x)=>c.classList.toggle("on", x<ST.clk[k])); }
 /* Übersichtskarte am Abenteueranfang (aus lokalem PDF) */
-function ovBox(a){ return (typeof OS_OV!=="undefined" && OS_OV[a.id]) ? `<div class="ov" id="ovBox"><div class="ov-h">Übersichtskarte · Buch S. ${OS_OV[a.id].page} – Ort antippen</div><div class="ov-wrap" id="ovWrap"></div></div>` : ""; }
+function ovBox(a){ return (typeof OS_OV!=="undefined" && OS_OV[a.id]) ? `<div class="ov" id="ovBox"><div class="ov-wrap" id="ovWrap"></div></div>` : ""; }
 async function ovDraw(a){
   const o = typeof OS_OV!=="undefined" && OS_OV[a.id], wrap = $("ovWrap"); if(!o || !wrap) return;
   let doc = null; try{ doc = await getDoc(o.book); }catch(e){}
@@ -149,8 +149,9 @@ function osArt(a,idx){
   const L = typeof OS_ART!=="undefined" && OS_ART[a.id]; if(!L) return "";
   const sp = (typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec) || {};
   let last = 0; const pages = a.sektionen.map(x=>{ if(sp[x.id]) last = sp[x.id]; return last; });
-  return L.filter(x=>{ let t = 0; for(let i=0;i<pages.length;i++) if(pages[i]<=x.p) t = i; return t===idx; })
-    .map(x=>`<figure class="os-art"><img src="${x.src}" alt="${esc(x.cap)} (Buch S. ${x.p})" loading="lazy" onclick="osZoom(this.src)"><figcaption>${esc(x.cap)} · ${pgBtn(a.buch,x.p,"Buch S. "+x.p)}</figcaption></figure>`).join("");
+  const ovp = (typeof OS_OV!=="undefined" && OS_OV[a.id]) ? OS_OV[a.id].page : -1;
+  return L.filter(x=>x.p!==ovp).filter(x=>{ let t = 0; for(let i=0;i<pages.length;i++) if(pages[i]<=x.p) t = i; return t===idx; })
+    .map(x=>`<figure class="os-art"><img src="${x.src}" alt="${esc(x.cap)} (Buch S. ${x.p})" loading="lazy" onclick="osZoom(this.src)"></figure>`).join("");
 }
 function osZoom(src){
   let o = document.getElementById("osLightbox");

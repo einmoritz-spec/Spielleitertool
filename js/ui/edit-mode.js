@@ -64,7 +64,7 @@ function EA(path, mode){
 
 function editToggleHtml(){
   return `<button class="edit-toggle" onclick="toggleEditMode()" title="Szenentext bearbeiten (Taste E)" aria-label="Szenentext bearbeiten">
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6V4.5h14V6"/><path d="M12 4.5V19"/><path d="M9 19h6"/></svg>
   </button>`;
 }
 function editBarHtml(adv, scene){

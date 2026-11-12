@@ -172,7 +172,7 @@ function renderBlock(a,s,b,i){
     case "szenen": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li><b>${esc(x.n)}</b> – ${fmt(x.x||"")}</li>`).join("")}</ul>`;
     case "uhr": { const n = b.segs||4, cur = ST.clk[k]||0;
       return `<div class="blk clock"><div class="cl-t"><b>${esc(b.name)}</b><small>${fmt(b.x||"")}</small>${(b.stufen||[]).length?`<ul class="blk-list">${b.stufen.map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`:""}</div><div class="segs" id="clk_${esc(k)}">${Array.from({length:n},(_,j)=>`<button class="seg ${j<cur?"on":""}" onclick="setClock('${esc(k)}',${j},${n})" aria-label="Segment ${j+1}"></button>`).join("")}</div></div>`; }
-    case "challenge": return renderChallenge(k,b,(s.bloecke||[]).filter(x=>x.t==="challenge").length===1);
+    case "challenge": return renderChallenge(k,b,false);
     default: return b.x?`<p class="blk blk-p">${fmt(b.x)}</p>`:"";
   }
 }

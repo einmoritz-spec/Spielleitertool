@@ -548,6 +548,8 @@ body .scn.stack .scn-r:not(:has(.blk ~ .blk)){grid-template-columns:1fr!importan
 @media(min-width:1200px){.chsec>.blk-p,.chsec>ul{max-width:none}.chsec:not(.scn) .blk-list,.chsec>ul{columns:2 480px;column-gap:40px}}
 /* Rand rechts: shared/layout.css begrenzt Fließtext auf 110ch – in Otherscape volle Breite neben der Leiste */
 body .tab-layout .chsec>.blk-p,body .tab-layout .chsec>.blk-list,body .tab-layout .chsec>.blk-read,body .tab-layout .chsec>.blk-h,body .tab-layout .chbody>.blk-p,body .tab-layout .chsec>ul{max-width:none!important}
+/* Lesebreite: ohne Seitenleiste nicht über ~1300px */
+body .tab-layout .content{max-width:1300px}
 
 /* Karten-Raster (Figuren, Orte, Power Sets, Relikte ...) */
 .os-cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px;margin:8px 0 14px;align-items:start}

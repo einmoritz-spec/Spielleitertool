@@ -80,6 +80,75 @@ function lmCard(e,i){
   var body=(e.body||[]).concat(e.aside||[]);
   return '<article class="lm-a" id="lm-'+i+'"><h3>'+esc(e.name)+' '+lmPg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="lm-sub">'+esc(e.sub)+'</p>':'')+lmSegs(body)+'</article>';
 }
+
+/* ===== Kästen wie im Buch: Challenge-Karten, Theme Kits, Rezepte ===== */
+function lmIsTg(b,t){ return b&&b.tg&&(t?b.tg.t===t:true); }
+function lmKind(e){
+  var bs=(e.body||[]).concat(e.aside||[]), lim=0, pw=0, th=0, zut=0;
+  bs.forEach(function(b){
+    if(typeof b==="string"){ if(/^## Threats/.test(b)) th=1; return; }
+    if(b.tg){ if(b.tg.t==="Limits") lim=1; if(b.tg.k==="pw") pw++; if(/^Zutaten/.test(b.tg.t||"")) zut=1; }
+    else if(b.kv&&b.kv.length&&b.kv.every(function(p){return /\s\d+$/.test(p[0]);})) lim=1;
+  });
+  if(lim&&(th||bs.some(function(b){return typeof b==="string"&&/^### /.test(b);}))||(lim&&e.sub)) return "ch";
+  if(zut) return "rc";
+  if(pw>=2) return "kit";
+  return "";
+}
+function lmPips(t){ var m=/^(.*?)\s*(\d+)$/.exec(t); if(!m) return '<div class="lmc-lim"><b>'+lmMd(t)+'</b></div>'; var n=+m[2], s=""; for(var k=0;k<n&&k<9;k++) s+='<i></i>'; return '<div class="lmc-lim"><b>'+lmMd(m[1])+'</b><span class="lmc-pips">'+s+'</span></div>'; }
+function lmChallenge(e,i){
+  var bs=(e.body||[]).concat(e.aside||[]), desc="", lim="", tags="", spec="", thr="", mode="", cur=null, secs=[];
+  function endSec(){ if(cur){ secs.push(cur); cur=null; } }
+  bs.forEach(function(b){
+    if(typeof b==="string"){
+      if(/^## /.test(b)){ endSec(); mode=/Threat/i.test(b)?"thr":"sec"; if(mode==="sec") cur={t:b.slice(3),h:[]}; return; }
+      if(/^### /.test(b)){ if(mode==="thr"||!mode||mode==="") { mode="thr"; } if(mode==="thr"){ endSec(); cur={thr:1,t:b.slice(4),h:[]}; return; } }
+      if(/^\*\*Tags/.test(b)){ var m=b.replace(/^\*\*Tags[^*]*\*\*\s*/,"").split(/\s*,\s*/); tags+=m.map(function(x){return '<span class="lmc-tag">'+lmMd(x.replace(/^\*|\*$/g,""))+'</span>';}).join(""); return; }
+      if(cur){ cur.h.push(b); return; }
+      if(!mode&&!lim&&!tags) desc+='<p>'+lmMd(b)+'</p>'; else if(!mode) desc+='<p>'+lmMd(b)+'</p>'; return;
+    }
+    if(b.tg){ if(b.tg.t==="Limits"){ lim+=b.tg.i.map(lmPips).join(""); return; } if(/^Tags/.test(b.tg.t||"")){ tags+=b.tg.i.map(function(x){return '<span class="lmc-tag">'+esc(x)+'</span>';}).join(""); return; } }
+    if(b.kv&&!cur&&!mode&&b.kv.every(function(p){return /\s\d+$/.test(p[0]);})){ lim+=b.kv.map(function(p){return lmPips(p[0]);}).join(""); return; }
+    if(cur) cur.h.push(b); else desc+=lmBlocks([b]);
+  });
+  endSec();
+  secs.forEach(function(x){
+    var inner=lmBlocks(x.h);
+    if(x.thr){ var fl=""; thr+='<div class="lmc-thr"><h5>'+lmMd(x.t)+'</h5>'+inner+'</div>'; }
+    else spec+='<div class="lmc-sp"><h5>'+lmMd(x.t)+'</h5>'+inner+'</div>';
+  });
+  var left='<div class="lmc-l">'+(lim?'<div class="lmc-lab">Limits</div>'+lim:'')+(tags?'<div class="lmc-lab">Tags &amp; Statuses</div><div class="lmc-tags">'+tags+'</div>':'')+spec+'</div>';
+  var right='<div class="lmc-r">'+(desc?'<div class="lmc-desc">'+desc+'</div>':'')+(thr?'<div class="lmc-lab">Threats &amp; Consequences</div>'+thr:'')+'</div>';
+  return '<article class="lmc lmc-ch" id="lm-'+i+'"><header>'+(e.sub?'<small>'+esc(e.sub)+'</small>':'')+'<h3>'+esc(e.name)+' '+lmPg(e.p,e.pe)+'</h3></header><div class="lmc-cols">'+left+right+'</div></article>';
+}
+function lmGroups(e,i,kind){
+  var bs=(e.body||[]).concat(e.aside||[]), h="", cur=null, open=false, intro=[];
+  var hasH2=bs.some(function(b){return typeof b==="string"&&/^## /.test(b);}), hasH3=bs.some(function(b){return typeof b==="string"&&/^### /.test(b);});
+  var lv=(kind==="rc"&&hasH3)?"### ":(hasH2?"## ":"### ");
+  function card(){ if(!cur) return; if(!open){ h+='<div class="lmc-grid">'; open=true; } h+='<section class="lmc lmc-'+kind+'"><header><h4>'+lmMd(cur.t)+'</h4></header><div class="lmc-b">'+lmBlocks(cur.b)+'</div></section>'; cur=null; }
+  function closeGrid(){ card(); if(open){ h+='</div>'; open=false; } }
+  var n=0;
+  bs.forEach(function(b){
+    if(typeof b==="string"&&b.indexOf(lv)===0){ card(); cur={t:b.slice(lv.length),b:[]}; n++; return; }
+    if(typeof b==="string"&&lv==="### "&&b.indexOf("## ")===0){ closeGrid(); h+='<h4 class="lm-h4">'+lmMd(b.slice(3))+'</h4>'; return; }
+    if(cur) cur.b.push(b); else if(open||h) h+=lmBlocks([b]); else intro.push(b);
+  });
+  closeGrid();
+  if(n<2) return null;
+  return '<article class="lm-a" id="lm-'+i+'"><h3>'+esc(e.name)+' '+lmPg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="lm-sub">'+esc(e.sub)+'</p>':'')+lmBlocks(intro)+h+'</article>';
+}
+function lmCards(es){
+  var out="", run=[];
+  function flush(){ if(run.length){ out+='<div class="lmc-grid lmc-chgrid">'+run.join("")+'</div>'; run=[]; } }
+  es.forEach(function(e,i){
+    var k=lmKind(e);
+    if(k==="ch"){ run.push(lmChallenge(e,i)); return; }
+    flush();
+    var g=(k==="kit"||k==="rc")?lmGroups(e,i,k):null;
+    out+=g||lmCard(e,i);
+  });
+  flush(); return out;
+}
 var __tocSpy;
 function tocSpy(toc, ids, offset){
   if(__tocSpy) window.removeEventListener("scroll",__tocSpy);
@@ -106,7 +175,7 @@ function renderBook(){
     var el=document.getElementById("lmHost"); if(!el||state.view!=="book"||state.bookSec!==s.id) return;
     var es=LM.data[s.id]||[];
     var toc=es.map(function(c,i){ return '<a onclick="lmJump('+i+')">'+esc(c.name)+'</a>'; }).join("");
-    el.innerHTML='<section class="lm-sec"><div class="lm-sh"><h2>'+esc(s.t)+'</h2>'+lmPg(s.p,s.pe)+'<select class="lm-sel" onchange="lmJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select></div>'+(es.length?'<div class="lm-body"><div class="lm-flow">'+es.map(lmCard).join("")+'</div></div>':'<p class="lm-load">In Vorbereitung</p>')+'</section>';
+    el.innerHTML='<section class="lm-sec"><div class="lm-sh"><h2>'+esc(s.t)+'</h2>'+lmPg(s.p,s.pe)+'<select class="lm-sel" onchange="lmJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select></div>'+(es.length?'<div class="lm-body"><div class="lm-flow">'+lmCards(es)+'</div></div>':'<p class="lm-load">In Vorbereitung</p>')+'</section>';
     var rail=document.getElementById("lmToc");
     if(rail){ if(es.length>1){ rail.innerHTML=toc; tocSpy(rail,es.map(function(c,i){return "lm-"+i;}),110); } else rail.parentNode.classList.add("nontoc"); }
   });

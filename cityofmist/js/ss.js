@@ -7,7 +7,24 @@ function dangerCard(d,fold){
 }
 function tagsHtml(a,c){ return a.map(function(t){return '<span class="tg '+c+'">'+esc(t)+'</span>';}).join(""); }
 function themeCard(t){ return '<details class="thm"><summary class="th"><b>'+esc(t.name)+'</b><i>'+esc(t.typ)+'</i></summary><p class="idn">'+esc(t.identity)+'</p><p><u>Power Tags</u> '+tagsHtml(t.power,"pw")+'</p><p><u>Weakness Tags</u> '+tagsHtml(t.weak,"wk")+'</p><p class="imp">'+md(t.imp)+'</p></details>'; }
+function relicCards(o){
+  var secs=[],cur=null,pre=[];
+  o.text.forEach(function(t){ if(t.indexOf('## ')===0){ cur={t:t.slice(3),b:[]}; secs.push(cur); } else if(cur) cur.b.push(t); else pre.push(t); });
+  var th=o.themen||[]; if(secs.length<2||!th.length) return null;
+  var map={}; secs.forEach(function(x){ map[x.t.toLowerCase().replace(/\s+/g,' ').trim()]=x; });
+  var hit=0; th.forEach(function(t){ if(map[t.name.toLowerCase().replace(/\s+/g,' ').trim()]) hit++; });
+  if(hit<th.length) return null;
+  var used={};
+  var cards=secs.map(function(x){
+    var key=x.t.toLowerCase().replace(/\s+/g,' ').trim(), t=null; th.forEach(function(q){ if(q.name.toLowerCase().replace(/\s+/g,' ').trim()===key) t=q; });
+    var sub=(x.b[0]&&/^\*[^*]+\*$/.test(x.b[0]))?x.b.shift():"";
+    return '<section class="rcard"><header><h4>'+esc(x.t)+'</h4>'+(sub?'<i>'+md(sub)+'</i>':'')+'</header><div class="rtx">'+x.b.map(function(b){return '<p>'+md(b)+'</p>';}).join("")+'</div>'+(t?'<div class="rth">'+themeCard(t).replace('<details class="thm">','<details class="thm" open>')+'</div>':'')+'</section>';
+  }).join("");
+  return (pre.length?'<div class="otxt">'+pre.map(function(b){return '<p>'+md(b)+'</p>';}).join("")+'</div>':'')+'<div class="rgrid">'+cards+'</div>'+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("");
+}
 function ortCard(o){
+  var rc=relicCards(o);
+  if(rc){ var dg=o.dangers.map(function(d){return dangerCard(d,true);}).join(""); return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+(o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+rc+(o.dangers.length?'<aside class="dgrid">'+dg+'</aside>':'')+'</div></details>'; }
   var tl=o.text.join('').length+(o.extra||[]).join('').length+((o.listen||[]).length>2?0:(o.listen||[]).reduce(function(n,l){return n+l.items.join('').length;},0));
   var side=o.dangers.length===1&&tl>900;
   var figs=(o.fig||[]).map(function(f){return '<figure class="fig"><img src="img/'+f[0]+'.webp" alt="'+esc(f[1])+'" loading="lazy"><figcaption>'+esc(f[1])+'</figcaption></figure>';}).join("");

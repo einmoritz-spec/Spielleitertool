@@ -597,5 +597,5 @@ body .tab-layout .content{max-width:1300px}
 .osdet>summary .blk-h{margin-top:18px}
 /* Einklapp-Kreis der Seitenleiste darf Zähler und Pfeile nicht überdecken */
 .osnav .ocat{padding-right:22px}
-/* Einklapp-Kreis: eigene Kopfzeile über der Seitenleiste, Einträge darunter */
-@media(min-width:861px){ .osnav{padding-top:38px} .osnav .ocat{padding-right:10px} }
+/* Einklapp-Pfeil in Otherscape ausgeblendet; die Seitenleiste klappt weiter per Taste < bzw. b ein */
+body[data-pn=os] .pn-btn{display:none!important}

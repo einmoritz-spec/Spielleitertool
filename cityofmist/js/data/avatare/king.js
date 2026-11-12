@@ -1,6 +1,6 @@
 /* Avatare – DA King / Shango (S. 148–157). */
 CM_ORTE.king = [
- { id:"king", name:"DA King", mythos:"Shango, Orisha der Macht und Herrschaft", teaser:"Avatar von Macht und Herrschaft, die härteste Verbrechensbekämpferin der City", p:148,
+ { id:"king", bild:"ss_king", name:"DA King", mythos:"Shango, Orisha der Macht und Herrschaft", teaser:"Avatar von Macht und Herrschaft, die härteste Verbrechensbekämpferin der City", p:148,
   text:[
    "Distriktsanwältin Barbara King (Shango, der Orisha der Macht und Herrschaft) ist die aggressivste Verbrechensbekämpferin, die die City je gekannt hat, sowohl innerhalb des Rechtssystems als auch hinter dem Schleier des Mist, in der Rift-Unterwelt. Als Verkörperung der Herrschaft strebt sie danach, den Straßen der City Gerechtigkeit und Ordnung zu bringen, und scheut dafür nicht vor Gewalt zurück.",
    "Als prominente und meinungsstarke Person des öffentlichen Lebens gehört DA King zu den Avataren, die sich vor aller Augen verstecken. In der Öffentlichkeit ist sie eine fleißige, angesehene und gefürchtete Staatsanwältin, bekannt dafür, die Kriminalitätsrate durch maximale Strafen und Abschreckung gesenkt zu haben. In ihrer öffentlichen Rolle hat sie sich für höhere Strafen für Mörder und Sexualstraftäter eingesetzt und eine lange Reihe von Präzedenzfällen unterstützt, die die Messlatte höher gelegt und zu neuen Gesetzen geführt haben.",

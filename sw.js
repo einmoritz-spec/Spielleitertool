@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v236com";
+const VERSION = "v237com";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -77,6 +77,14 @@ const FILES = [
   "cityofmist/img/rw/fig_49.webp",
   "cityofmist/img/rw/fig_51.webp",
   "cityofmist/img/rw/fig_64.webp",
+  "cityofmist/img/ss_chow.webp",
+  "cityofmist/img/ss_g198.webp",
+  "cityofmist/img/ss_g200.webp",
+  "cityofmist/img/ss_ganesha.webp",
+  "cityofmist/img/ss_king.webp",
+  "cityofmist/img/ss_leyland.webp",
+  "cityofmist/img/ss_rosaline.webp",
+  "cityofmist/img/ss_wolfe.webp",
   "cityofmist/img/rw/doc_298.webp",
   "cityofmist/img/rw/doc_299.webp",
   "cityofmist/img/rw/doc_300.webp",

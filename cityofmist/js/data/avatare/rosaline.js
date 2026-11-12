@@ -1,6 +1,6 @@
 /* Avatare – Rosaline (S. 178–187). */
 CM_ORTE.rosaline = [
- { id:"rosaline", name:"Rosaline", mythos:"Romeo & Julia, eine Geschichte tragischer Liebe", teaser:"Avatar der tragischen Liebe, die das Publikum ihrer eigenen Tragödien ist", p:178,
+ { id:"rosaline", bild:"ss_rosaline", name:"Rosaline", mythos:"Romeo & Julia, eine Geschichte tragischer Liebe", teaser:"Avatar der tragischen Liebe, die das Publikum ihrer eigenen Tragödien ist", p:178,
   extra:["„Mutter, nein, du verstehst nicht! Er war gewalttätig! Er wollte mich daran hindern, die zu werden, die ich wirklich bin … Ich weigerte mich, mich weiter tief in mir zu vergraben. Ich musste mich ein für alle Mal aus seinen Klauen befreien! Ich weiß, ich habe etwas Schreckliches getan, und es tut mir leid, aber du musst mir glauben, es gab keinen anderen Weg. Es war Alistairs Idee, er hat mich überzeugt, der einzige Ausweg sei, den alten Mann zu töten. Alistair, mein Liebster, was hast du mir angetan! Wozu hast du mich gebracht? … Ich habe meinen eigenen Vater getötet. Wozu hast du mich gebracht?! Mutter, könntest du mir je verzeihen? … Mutter? … Mutter, bist du da?“ – Excalibur"],
   text:[
    "„Die ganze Welt ist eine Bühne, und alle Frauen und Männer bloße Spieler“ – diese Worte von William Shakespeare fassen treffend den Geist von Rosaline zusammen, der Avatarin seines berühmtesten Stücks Romeo & Julia und aller Geschichten tragischer Liebe. Für sie liegt der Wert eines Lebens allein in seiner dramatischen Wirkung auf „das Publikum“. Je elender und tragischer sein Ende, desto besser.",

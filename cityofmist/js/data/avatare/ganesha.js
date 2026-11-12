@@ -1,6 +1,6 @@
 /* Avatare – Ganesha (S. 158–167). */
 CM_ORTE.ganesha = [
- { id:"ganesha", name:"Ganesha", mythos:"Hinduistischer elefantenköpfiger Gott, der Beseitiger von Hindernissen", teaser:"Kind-Avatar des Mitgefühls, die einzige Avatarin, die die Menschen der City wirklich aufblühen sehen will", p:158, bild:"ganesha",
+ { id:"ganesha", bild:"ss_ganesha", name:"Ganesha", mythos:"Hinduistischer elefantenköpfiger Gott, der Beseitiger von Hindernissen", teaser:"Kind-Avatar des Mitgefühls, die einzige Avatarin, die die Menschen der City wirklich aufblühen sehen will", p:158, bild:"ganesha",
   extra:["„Du bist jetzt in Sicherheit, mein Freund. Hier suchen sie dich nicht. Du bist jetzt in der Handfläche des Buddha. Geh in das Zimmer hinten, wasch dich und zieh dich um. Dann sehe ich mir die Wunde an. Sie sieht vergiftet aus, aber keine Sorge, ich bin Expertin für solche Leiden. Es tut kein bisschen weh! Das Essen kocht schon. Heute Nacht schläfst du tief und träumst nichts Böses.“ – Tempelwärter"],
   text:[
    "Die Abhängigkeit der City von Güte, Mitgefühl und gegenseitiger Hilfe ist viel größer, als ihre Bewohner ahnen. Ohne guten Willen und Wohltätigkeit wäre das fragile Ökosystem der Gesellschaft, selbst von Mythoi und Mist, längst in Chaos, Tod und Zerstörung zerfallen. Nur das bewusste Bemühen, Leben zu erhalten und gedeihen zu lassen, bewahrt diese Metropole vor dem Abgrund der Entropie. Dieses Bemühen verkörpert sich in Ganesha, dem Kind-Avatar des gleichnamigen hinduistischen Gottes, bekannt als der Beseitiger von Hindernissen.",

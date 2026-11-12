@@ -39,8 +39,8 @@ function rwBlocks(bs){
   return h;
 }
 function rwCard(e,id,open,secId){
-  var tb=rwTb(secId,e), doc=rwDoc(secId,e), figs=rwFigHtml(secId,e), aside=(e.aside&&e.aside.length)||doc||figs;
-  return '<details class="ort rwc" id="'+id+'"'+(open?' open':'')+'><summary>'+(tb?'<img class="rwth" loading="lazy" alt="" src="'+tb+'">':'')+'<h3>'+esc(e.name)+'</h3>'+pg(e.p,e.pe)+(e.sub?'<span class="tz">'+esc(e.sub)+'</span>':'')+'</summary><div class="ob">'+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+'<div class="ocols rwcols'+(aside?'':' solo')+'"><div class="otxt rwtx">'+rwBlocks(e.body)+'</div>'+(aside?'<aside class="rwas">'+(e.aside&&e.aside.length?rwBlocks(e.aside):'')+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'')+figs+'</aside>':'')+'</div></div></details>';
+  var tb=rwTb(secId,e), doc=rwDoc(secId,e), figs=rwFigHtml(secId,e), aside=(e.aside&&e.aside.length)||doc;
+  return '<details class="ort rwc" id="'+id+'"'+(open?' open':'')+'><summary>'+(tb?'<img class="rwth" loading="lazy" alt="" src="'+tb+'">':'')+'<h3>'+esc(e.name)+'</h3>'+pg(e.p,e.pe)+(e.sub?'<span class="tz">'+esc(e.sub)+'</span>':'')+'</summary><div class="ob">'+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+'<div class="ocols rwcols'+(aside?'':' solo')+'"><div class="otxt rwtx">'+figs+rwBlocks(e.body)+'</div>'+(aside?'<aside class="rwas">'+(e.aside&&e.aside.length?rwBlocks(e.aside):'')+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'')+'</aside>':'')+'</div></div></details>';
 }
 function rwToggle(on){ var d=document.querySelectorAll(".rwgrid details.rwc"); for(var i=0;i<d.length;i++) d[i].open=on; }
 function rwSection(tab,secId,cardIdx){

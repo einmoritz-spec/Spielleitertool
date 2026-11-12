@@ -6,7 +6,7 @@
 .rwgrid>details.ort{margin:0}.rwgrid>details.ort[open]{grid-column:1/-1}
 .rwc .ob{padding:2px 18px 18px}
 .rwcols{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:26px}
-.rwcols.solo{display:block}.rwcols.solo .rwtx{max-width:1000px}
+.rwcols.solo{display:block}.rwcols.solo .rwtx{max-width:none}
 .rwtx p{margin:0 0 .85em}
 .rwtx h4.lh,.rwas h4.lh{font:600 17px var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--mag2);margin:20px 0 6px}
 .rwtx h4.lh:first-child{margin-top:4px}
@@ -98,9 +98,8 @@ details.rwc>summary:has(.rwth){display:flex;align-items:center}
 @media (min-width:1000px){.kcs.six{grid-template-columns:repeat(3,1fr)}}
 @media (min-width:600px) and (max-width:999px){.kcs.six{grid-template-columns:repeat(2,1fr)}}
 
-/* Zusatzbilder (Handbuch-Illustrationen) in der rechten Spalte, beim Scrollen mitlaufend */
-.rwcols>.rwas{align-self:stretch}
-.rwfigs{position:sticky;top:64px;display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
-.rwfig{display:block;width:100%;max-height:calc(100vh - 90px);object-fit:cover;border-radius:8px;cursor:zoom-in;box-shadow:0 1px 6px #0006}
-.rwfigs:has(.rwfig:nth-child(2)){grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width:760px){.rwfigs{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.rwfig{max-height:320px}}
+/* Zusatzbilder: rechts neben dem Text, Text fließt darum und darunter in voller Breite */
+.rwfigs{float:right;width:min(36%,380px);display:flex;flex-direction:column;gap:10px;margin:2px 0 12px 22px}
+.rwfig{display:block;width:100%;max-height:520px;object-fit:cover;border-radius:8px;cursor:zoom-in;box-shadow:0 1px 6px #0006}
+.rwfigs .rwfig:only-child{max-height:620px}
+@media (max-width:760px){.rwfigs{float:none;width:100%;margin:0 0 12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.rwfig{max-height:300px}}

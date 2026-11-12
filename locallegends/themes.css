@@ -90,3 +90,6 @@ html[data-ll=a]:not([data-view=overview]) .section-head h2{color:#ffe36b}
 .shell>.card .long-text{max-width:1150px}
 .case-tabpanel .map-panel{text-align:center;margin-bottom:14px}
 .case-tabpanel .map-panel .map-img{max-height:44vh;width:auto;max-width:100%;margin:0 auto;display:block}
+html[data-ll=a] .shell b,html[data-ll=a] .shell strong{color:inherit!important}
+.map-panel .map-toggle{position:static!important;display:inline-flex;flex-direction:row;margin:0 0 8px}
+.map-panel .map-toggle button{padding:4px 12px}

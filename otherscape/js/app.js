@@ -60,7 +60,7 @@ function renderHome(){
   const tile = (c,t,meta,pg,icon,tone) => `<button class="os-t" style="--c:${tone}" onclick="${go(c)}"><span class="os-t-top"><span class="os-t-ic">${icon}</span>${pg?`<i>${pg}</i>`:""}</span><b>${t}</b><small>${meta}</small></button>`;
   const strip = adv.filter(a=>OS_COVER[a.id]).slice(0,6).map(a=>`<span class="os-strip-i" style="background-image:url(${OS_COVER[a.id][0]});background-position:${OS_COVER[a.id][1]}"></span>`).join("");
   $("app").innerHTML = `<div class="os-home">
-  <header class="os-hero"><div class="os-hero-in"><h1 class="os-logo"><span class="os-colon">:</span>Otherscape</h1><div class="os-chips"><span>Metro</span><span>Tokyo</span></div></div></header>
+<header class="os-hero2"><img src="img/hero/${OS_HEROES[Math.floor(Math.random()*OS_HEROES.length)]}.webp" alt="Otherscape"></header>
   <button class="os-adv" onclick="${go("abenteuer")}"><span class="os-strip">${strip}</span><span class="os-adv-t"><b>Abenteuer</b><small>${adv.length} Jobs</small></span><span class="os-adv-go" aria-hidden="true">›</span></button>
   <div class="os-sec">Regeln</div>
   <div class="os-grid">${tile("regeln","Regelwerk","Metro-Regeln","",I.regel,"#ff2bd6")}${tile("kits","Theme-Kits","Tags &amp; Tropes","",I.kits,"#a97bff")}${tile("katalog","Straßenkatalog","Ausrüstung","",I.katalog,"#19e3c1")}</div>
@@ -68,6 +68,7 @@ function renderHome(){
   <div class="os-grid">${tile("tokyo","Tokyo","Bezirke &amp; Orte","S. 6–39",I.tokyo,"#ff5d9e")}${tile("metro","Metro","Die Stadt","",I.metro,"#5ab8ff")}${tile("fraktionen","Fraktionen",nF+" Mächte","S. 151–237",I.frak,"#ffc15a")}</div>
   </div>`;
 }
+const OS_HEROES=["neon","samurai","alley","ghost","gang"];
 /* Titelbilder der Abenteuer: [Bild, Ausschnitt] */
 const OS_COVER = {
   "strings-attached":["img/strings-attached-s342.webp","30% 10%"], "anthill":["img/anthill-titel.webp","50% 18%"],

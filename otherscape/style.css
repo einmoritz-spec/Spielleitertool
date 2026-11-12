@@ -460,3 +460,8 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .os-acg{display:flex;flex-wrap:wrap}.os-ac{flex:1 1 280px;max-width:none}
 .os-t-ic svg{width:32px;height:32px}
 @media (max-width:720px){.os-grid>.os-t:last-child:nth-child(odd){grid-column:1/-1}.os-ac{flex-basis:100%}}
+
+.os-hero2{border-radius:16px;overflow:hidden;border:1px solid #3a1d63;box-shadow:0 0 28px rgba(255,43,214,.18)}
+.os-hero2 img{display:block;width:100%;aspect-ratio:16/6;object-fit:cover;object-position:50% 45%}
+@media(max-width:700px){.os-hero2 img{aspect-ratio:16/9}}
+.brand img{display:block;height:22px;width:auto}

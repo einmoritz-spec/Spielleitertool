@@ -494,3 +494,6 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
  .osnav .osr{border-bottom:1px solid var(--line);margin-bottom:10px}
  .osnav .osr a{flex:none;white-space:nowrap;color:var(--mute);text-decoration:none;font-size:.82rem;padding:4px 2px;margin-right:10px}
 }
+.blk-read .rd-h{float:right;margin:0 0 4px 12px;font-size:.7rem}
+.blk-read .rd-h .pgb{opacity:.7}
+.blk-read::after{content:"";display:block;clear:both}

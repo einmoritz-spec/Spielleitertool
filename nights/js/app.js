@@ -164,6 +164,7 @@ function renderCase(c, sid){
   
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
+  niRail($("app").querySelector("main.content"));
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid && !(ch.items[1] && ch.items[1].id===sid)) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(!toEis) window.scrollTo(0,0);
@@ -425,3 +426,23 @@ function regFilter(q){ q = q.trim().toLowerCase(); document.querySelectorAll("#r
   document.addEventListener("click", e=>{ if(fired){ fired = false; e.preventDefault(); e.stopPropagation(); return; } if(!(e.target.closest&&e.target.closest(".case-cm"))) closeCm(); }, true);
   document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeCm(); });
 })();
+
+/* Standard-Layout: Unterkapitel als Baum links, rechts flach und offen */
+function niRail(main){
+  if(!main) return;
+  const secs=[...main.children].filter(e=>e.classList&&e.classList.contains("chsec")&&e.querySelector(":scope > .sec-sub"));
+  if(secs.length<2) return;
+  const nav=document.createElement("nav"); nav.className="ni-nav";
+  const body=document.createElement("div"); body.className="ni-body";
+  secs.forEach(function(e){
+    e.classList.add("open"); e.classList.remove("coll"); e.classList.add("ni-flat");
+    const h=e.querySelector(":scope > .sec-sub"); h.removeAttribute("onclick");
+    const nm=[...h.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join("").trim().split(":")[0];
+    const a=document.createElement("a"); a.href="#"+e.id; a.textContent=nm;
+    a.onclick=function(ev){ev.preventDefault(); e.scrollIntoView({behavior:"smooth",block:"start"});};
+    nav.appendChild(a);
+    body.appendChild(e);
+  });
+  const wrap=document.createElement("div"); wrap.className="ni-rail"; wrap.appendChild(nav); wrap.appendChild(body);
+  main.insertBefore(wrap, main.querySelector(".pager"));
+}

@@ -1,18 +1,29 @@
 /* City of Mist – Übersetting: Start-Hub, Seitenaufbau, Burger-Menü. Hash-Schema siehe core.js. */
 var CM_BOOK = { hub:"cm", ss:"cm", rw:"rw" };
 function hubTile(cls,t,d,onclick){ return '<button class="tile'+cls+'" onclick="'+onclick+'"><b>'+t+'</b><small>'+d+'</small></button>'; }
+function hubLinks(arr){ return '<nav class="hl">'+arr.map(function(x){return '<button class="chip" onclick="'+x[1]+'">'+x[0]+'</button>';}).join("")+'</nav>'; }
+function hubCard(cls,t,d,main,links){ return '<div class="hc'+cls+'"><button class="hh" onclick="'+main+'"><b>'+t+'</b><small>'+d+'</small></button>'+hubLinks(links)+'</div>'; }
 function pageHub(){
-  return '<div class="tiles hub">'+
-   hubTile("","Grundregelwerk","Spieler:innen-Handbuch","go(\'rw\')")+
-   hubTile("","Shadows &amp; Showdowns","Erweiterung","go(\'ss\')")+
-   hubTile(" alt","Local Legends","Fall-Akte","switchTool(\'locallegends\')")+
-   hubTile(" alt","Nights of Paynetown","Kampagne","switchTool(\'paynetown\')")+'</div>';
+  return '<section class="blk"><h2>Regelwerke</h2><div class="hubgrid">'+
+   hubCard("","Grundregelwerk","Spieler:innen-Handbuch · S. 2–307","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"]])+
+   hubCard("","Shadows &amp; Showdowns","Erweiterung · Spieler- und SL-Optionen","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"]])+
+   '</div></section>'+
+   '<section class="blk"><h2>Am Spieltisch</h2><div class="hubgrid">'+
+   hubCard(" alt","Kurz nachschlagen","Die meistgenutzten Regeln","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]])+
+   hubCard(" alt","Abenteuer","Fälle und Kampagne","switchTool(\'locallegends\')",[["Local Legends","switchTool(\'locallegends\')"],["Nights of Paynetown","switchTool(\'paynetown\')"]])+
+   '</div></section>';
 }
-function kapBtn(k){ return '<button class="kap" onclick="gs(\''+k.go+'\')"><b>'+esc(k.t)+'</b><small>'+esc(k.d)+'</small>'+pg(k.p)+'</button>'; }
+function secRows(items){ return '<ul class="rows">'+items.map(function(x){return '<li><button onclick="'+x[1]+'"><span>'+esc(x[0])+'</span><i>'+(x[2]?'S. '+x[2]:'')+'</i></button></li>';}).join("")+'</ul>'; }
+function kapCard(num,t,d,p,main,rows){ return '<div class="kc"><button class="kh" onclick="'+main+'">'+(num?'<em>'+num+'</em>':'')+'<span><b>'+esc(t)+'</b><small>'+esc(d)+'</small></span>'+(p?'<i>S. '+p+'</i>':'')+'</button>'+secRows(rows)+'</div>'; }
 function pageSSStart(){
-  var K=CM_NAV.kapitel;
-  return '<section class="blk"><h2>Spieler</h2><div class="kaps">'+kapBtn(K[0])+'</div></section>'+
-   '<section class="blk"><h2>Spielleitung</h2><div class="kaps">'+K.slice(1).map(kapBtn).join("")+'</div></section>';
+  var N=CM_NAV, sp=N.spieler.map(function(s){return [s.t,"gs(\'spieler/"+s.id+"\')",s.p];});
+  var sl=function(id){var s=N.sl.filter(function(x){return x.id===id;})[0]; var cats=id==="orte"?CM_ORTE_CATS:id==="avatare"?CM_AV_CATS:CM_GK_CATS; return cats.map(function(c){return [c.t,"gs(\'sl/"+id+"/"+c.id+"\')",c.p];});};
+  var K=N.kapitel;
+  return '<section class="blk"><h2>Spieler</h2><div class="kcs">'+kapCard("1",K[0].d,"If Dreams Could Kill",K[0].p,"gs(\'spieler\')",sp)+'</div></section>'+
+   '<section class="blk"><h2>Spielleitung</h2><div class="kcs">'+
+   kapCard("2","Orte & NSCs","Overlooked Attractions",K[1].p,"gs(\'sl/orte\')",sl("orte"))+
+   kapCard("3","Avatare","Don’t Believe the Truth",K[2].p,"gs(\'sl/avatare\')",sl("avatare"))+
+   kapCard("4","Gatekeeper","Suits Unveiled",K[3].p,"gs(\'sl/gatekeeper\')",sl("gatekeeper"))+'</div></section>';
 }
 function pageSS(r){
   var tabs='<nav class="tabs">'+CM_NAV.tabs.map(function(t){return '<button class="tab'+(t.id===r.tab?' on':'')+'" onclick="gs(\''+t.id+'\')">'+t.t+'</button>';}).join("")+'</nav>';

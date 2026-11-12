@@ -50,19 +50,28 @@ function rwSection(tab,secId,cardIdx){
   rwLoad(s.id,function(){
     var el=document.getElementById("rwhost"); if(!el||route().tab!==tab) return;
     var es=CM_RW[s.id]||[], one=es.length===1, openFirst=(s.id==="kurzreferenz");
-    el.innerHTML='<section class="blk">'+rwHero(s.id)+'<div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+(es.length>1?'<button class="rwtog" onclick="rwToggle(!document.querySelector(\'.rwgrid details.rwc[open]\'))" title="Alle auf-/zuklappen" aria-label="Alle auf-/zuklappen">⇕</button>':'')+'</div>'+
-     (es.length?'<div class="rwgrid">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,one||(openFirst&&i===0)||(cardIdx!==undefined&&cardIdx!==""&&String(i)===String(cardIdx)),s.id);}).join("")+'</div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>';
+    el.innerHTML='<section class="blk">'+rwHero(s.id)+'<div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+(es.length>9?'<input class="rwfl" type="search" placeholder="Filter" aria-label="Filter" oninput="rwFilter(this.value)">':'')+(es.length>1?'<button class="rwtog" onclick="rwToggle(!document.querySelector(\'.rwgrid details.rwc[open]\'))" title="Alle auf-/zuklappen" aria-label="Alle auf-/zuklappen">⇕</button>':'')+'</div>'+
+     (es.length?'<div class="rwgrid">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,one||(openFirst&&i===0)||(cardIdx!==undefined&&cardIdx!==""&&String(i)===String(cardIdx)),s.id);}).join("")+'</div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>'+rwPrevNext(tab,s.id);
     if(cardIdx!==undefined&&cardIdx!==""){ var c=document.getElementById("rw-"+s.id+"-"+cardIdx); if(c){ c.open=true; srHighlight(c); c.scrollIntoView({block:"start"}); window.scrollBy(0,-70); } }
   });
   return (list.length>1?pills:"")+host;
 }
 function rwStart(){
-  var h=CM_RW_NAV.kapitel.map(function(k){
-    var chips=k.secs.map(function(id){var i=rwSecInfo(id); return '<button class="chip" onclick="gr(\''+i.tab+'/'+id+'\')">'+esc(i.sec.t)+'<i>S. '+(i.sec.p<8?8:i.sec.p)+'</i></button>';}).join("");
-    return '<div class="kapb"><button class="kap" onclick="gr(\''+k.tab+'\')"><b>'+esc(k.t)+'</b><small>'+esc(k.d)+'</small>'+pg(k.p)+'</button><nav class="chips wrap">'+chips+'</nav></div>';
+  var K=CM_RW_NAV.kapitel;
+  var h=K.map(function(k,n){
+    var rows=k.secs.map(function(id){var i=rwSecInfo(id); return [i.sec.t,"gr(\'"+i.tab+"/"+id+"\')",i.sec.p<8?8:i.sec.p];});
+    var num=/^\d/.test(k.t)?k.t.charAt(0):"", t=k.t.replace(/^\d\.\s*/,"");
+    return kapCard(num,t,k.d,k.p,"gr(\'"+k.tab+"\')",rows);
   }).join("");
-  return '<section class="blk"><h2>Spieler:innen-Handbuch</h2><div class="kaps rwkaps">'+h+'</div></section>';
+  return '<section class="blk"><h2>Spieler:innen-Handbuch</h2><div class="kcs six">'+h+'</div></section>';
 }
+function rwFlat(){ var o=[]; CM_RW_NAV.tabs.forEach(function(t){ (CM_RW_NAV.secs[t.id]||[]).forEach(function(s){o.push({tab:t.id,s:s});}); }); (CM_RW_NAV.extra||[]).forEach(function(t){ (CM_RW_NAV.secs[t.id]||[]).forEach(function(s){o.push({tab:t.id,s:s});}); }); return o; }
+function rwPrevNext(tab,id){
+  var f=rwFlat(), i=-1; f.forEach(function(x,k){ if(x.tab===tab&&x.s.id===id) i=k; }); if(i<0) return "";
+  var b=function(x,dir){ return x?'<button class="pn '+dir+'" onclick="gr(\''+x.tab+'/'+x.s.id+'\')">'+(dir==="prev"?'<i>‹</i>':'')+'<span><small>'+esc((CM_RW_NAV.tabs.filter(function(t){return t.id===x.tab;})[0]||{t:"Anhang"}).t)+'</small>'+esc(x.s.t)+'</span>'+(dir==="next"?'<i>›</i>':'')+'</button>':'<span></span>'; };
+  return '<nav class="pnav">'+b(f[i-1],"prev")+b(f[i+1],"next")+'</nav>';
+}
+function rwFilter(v){ v=srNorm(v); var c=document.querySelectorAll(".rwgrid details.rwc"); for(var i=0;i<c.length;i++){ var t=srNorm(c[i].querySelector("h3").textContent); c[i].style.display=(!v||t.indexOf(v)>=0)?"":"none"; } }
 function pageRW(r){
   var tabs='<nav class="tabs">'+CM_RW_NAV.tabs.map(function(t){return '<button class="tab'+(t.id===r.tab?' on':'')+'" onclick="gr(\''+t.id+'\')">'+t.t+'</button>';}).join("")+'</nav>';
   var body= r.tab==="start"||!CM_RW_NAV.secs[r.tab] ? rwStart() : rwSection(r.tab,r.sub,r.cat);

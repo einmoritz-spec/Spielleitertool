@@ -866,6 +866,17 @@ function renderMapPanel(id){
 
 /* Orte/Fall-Abschnitte: links Vorlesetext + Hinweis + Bilder, rechts Handlung + Hinweise, darunter Challenge-Profile mittig (kein langer Scroll) */
 function llRestructure(root){
+  if(state.view==="district" && state.distTab==="overview" && !root.querySelector(".dv-top")){
+    const mp=root.querySelector(":scope > .map-panel");
+    if(mp){
+      const top=document.createElement("div"); top.className="dv-top";
+      root.insertBefore(top, mp); top.appendChild(mp);
+      const ra=root.querySelector(":scope > .readaloud"); if(ra) top.appendChild(ra);
+      const cd=root.querySelector(":scope > .card"); if(cd) top.appendChild(cd);
+    }
+    const secs=[...root.querySelectorAll(":scope > .section")];
+    if(secs.length>1){ const g=document.createElement("div"); g.className="dv-secs"; root.insertBefore(g, secs[0]); secs.forEach(function(x){ g.appendChild(x); }); }
+  }
   root.querySelectorAll(".loc-body").forEach(function(b){
     if(b.dataset.lb) return; b.dataset.lb="1";
     var kids=Array.prototype.slice.call(b.children), A=[],B=[],C=[];

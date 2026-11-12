@@ -184,3 +184,40 @@ html[data-ll=a] .shell b,html[data-ll=a] .shell strong{color:inherit!important}
 .ll-rmain>.loc-card>.loc-h .chev{display:none}
 .ll-rmain>.loc-card>.loc-h .pg-link,.ll-rmain>.loc-card>.loc-h a{pointer-events:auto}
 .case-tabpanel>.ll-rail{max-width:none!important;margin-left:0!important;margin-right:0!important}
+
+/* Header per Taste h ausblenden: keine Lücke, Sticky-Elemente rücken hoch */
+body.topbar-hidden .shell,body.topbar-hidden .shell:has(.ov-stage){padding-top:12px!important}
+body.topbar-hidden .ll-rnav{top:14px;max-height:calc(100vh - 40px)}
+body.topbar-hidden .ov-split>.ov-art,body.topbar-hidden .lb-a{top:14px}
+body.topbar-hidden .ll-rail>.ll-rmain>*,body.topbar-hidden .ll-rmain>*{scroll-margin-top:16px}
+body.topbar-hidden .ov-stage{width:calc((100vh - 40px)*1.32 + 26px)}
+body.pn-off .ll-rail{padding-left:26px}
+/* Kein leerer Platz unter der linken Spalte: Vorlese-/Bildspalte schwebt, rechter Text fließt darunter über die volle Breite */
+@media(min-width:1200px){
+  .lb-top{display:block!important}
+  .lb-top::after{content:"";display:block;clear:both}
+  .lb-a{position:static!important;float:left;width:38%;margin:0 26px 12px 0}
+  .lb-b{display:block}
+  .lb-b>*{max-width:none}
+  .lb-b .clue-box,.lb-b .gm-note,.lb-b p{overflow:visible}
+  .lb-b .clue-box,.lb-b .gm-note{display:flow-root}
+}
+
+/* Bezirk-Übersicht & Fall-Übersicht: Karte/Eisberg schwebt links, Text fließt daneben und darunter – keine leere Spalte */
+.dv-top::after{content:"";display:block;clear:both}
+@media(min-width:1000px){
+  .dv-top>.map-panel{float:left;width:46%;max-width:660px;margin:0 28px 14px 0!important}
+  .dv-top>.map-panel .map-img,.dv-top>.map-panel img{width:100%;height:auto}
+  .dv-top>.readaloud{margin:0 0 14px!important}
+  .dv-top>.card{max-width:none!important;margin:0!important}
+  .ov-split{display:block!important}
+  .ov-split::after{content:"";display:block;clear:both}
+  .ov-split>.ov-art{position:static!important;float:left;width:46%;max-width:680px;margin:0 28px 12px 0}
+  .ov-split>.ov-text{display:block}
+}
+@media(max-width:999px){.dv-top>.map-panel{float:none;width:100%}}
+@media(min-width:1000px){.dv-top>.readaloud{display:flow-root}}
+
+.dv-secs{display:grid;grid-template-columns:1fr;gap:0 28px;align-items:start;margin-top:10px}
+@media(min-width:1000px){.dv-secs{grid-template-columns:repeat(2,minmax(0,1fr))}.dv-secs>.section:not(.collapsed){grid-column:1/-1}}
+@media(min-width:1000px) and (max-width:1199px){.lb-top{display:block!important}.lb-a{position:static!important;float:none;width:auto;margin:0 0 12px}.lb-figs{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}

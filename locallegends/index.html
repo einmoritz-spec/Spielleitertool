@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="hell.css">
 <link rel="stylesheet" href="overview.css">
 <link rel="stylesheet" href="themes.css">
+<link rel="stylesheet" href="../shared/panels.css">
 <script>try{var q=/[?&]theme=([abc])/.exec(location.search);if(q)localStorage.setItem("ll_theme",q[1]);document.documentElement.dataset.ll=localStorage.getItem("ll_theme")||"c";}catch(e){document.documentElement.dataset.ll="c";}</script>
 </head>
 <body>
@@ -122,6 +123,8 @@
 <script src="../bookviewer/bookviewer.js"></script>
 <script src="../shared/prep.js"></script>
 <script src="js/app.js"></script>
+<script src="../shared/panels.js"></script>
+<script>PanelUI.init({nav:".ll-rnav",rail:".ll-rail"});</script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ll", books:[{key:"ll", name:"Local Legends (EN)"}], openSettings:function(){ openModal("settingsModal"); } });
 document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh();</script>
 <script src="../toolmenu.js"></script>

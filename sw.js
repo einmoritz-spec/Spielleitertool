@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v260os";
+const VERSION = "v261etr";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -8,6 +8,8 @@ const FILES = [
   "manifest.webmanifest",
   "etr/index.html",
   "etr/style.css",
+  "etr/img/title.webp",
+  "assets/hero/etr-aerial.webp",
   "etr/js/app.js",
   "etr/js/tool-switch.js",
   "etr/js/data/einstieg.js",

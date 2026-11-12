@@ -57,7 +57,7 @@ function enemy(g){
 function sector(k){ var d=window["ETR_"+k.toUpperCase()]; if(!d) return '<p>In Arbeit.</p>'; return (d.intro?secs([{id:"intro-"+k,titel:d.titel,p:d.p,b:d.intro}]):'')+'<div class="locgrid">'+(d.orte||[]).map(ort).join("")+'</div>'+(d.outro?secs(d.outro):''); }
 function gegner(){ return secs([{id:"gegner",titel:"Gewöhnliche Gegner (Common Enemies)",p:61,b:[{t:"p",x:"Werte für die Standard-Gegner. Bedrohung = Threat, Angriff = Attack, Hürde = Challenge. Wo „Solo“ steht, nutzt der Gegner die Verstärkungsregeln nicht."}]}])+'<div class="enemies">'+(window.ETR_GEGNER||[]).map(enemy).join("")+'</div>'; }
 function figuren(){ return secs(window.ETR_FIGINTRO)+(window.ETR_FIGUREN||[]).map(fig).join(""); }
-function hero(){ return '<div class="hero" style="background-image:url(img/cover.webp)"><div class="ht"><b>Eat the Reich</b><span>Das Jahr 1943. Europa steht in Flammen. Ihr seid ein Kommandotrupp aus Vampiren mit einem einzigen Ziel: Adolf Hitlers gesamtes Blut aussaugen und die Nazi-Kriegsmaschine tödlich ins Wanken bringen.</span></div></div>'; }
+function hero(){ return '<div class="hero" style="background-image:url(../assets/hero/etr-aerial.webp)"><div class="ht"><img class="htitle" src="img/title.webp" alt="Eat the Reich"><span>Das Jahr 1943. Europa steht in Flammen. Ihr seid ein Kommandotrupp aus Vampiren mit einem einzigen Ziel: Adolf Hitlers gesamtes Blut aussaugen und die Nazi-Kriegsmaschine tödlich ins Wanken bringen.</span></div></div>'; }
 
 function pgRange(list){ var p=(list||[]).map(function(x){return x.p;}).filter(Boolean); return p.length?"S. "+Math.min.apply(null,p)+"–"+Math.max.apply(null,p):""; }
 function ovCard(id,t,list,rows){

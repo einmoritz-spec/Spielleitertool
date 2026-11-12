@@ -412,16 +412,16 @@ function _renderDistrictView(id){
   }
   else if(active==="locals"){
     html += tabHead("Locals", tocPage(id,false,"Locals"));
-    html += c.locals.map(l=>(l.profile?`<div class="card"><h3>${l.name}</h3><p>${l.profile}</p></div>`:"")+renderDangerCard(l,"local_"+id)).join("");
-    if(c.localThemes) html += c.localThemes.map(renderThemeCard).join("");
+    html += '<div class="ll-cgrid">'+c.locals.map(l=>(l.profile?`<div class="card"><h3>${l.name}</h3><p>${l.profile}</p></div>`:"")+renderDangerCard(l,"local_"+id)).join("")+"</div>";
+    if(c.localThemes) html += '<div class="ll-cgrid">'+c.localThemes.map(renderThemeCard).join("")+"</div>";
   }
   else if(active==="chance"){
     html += tabHead("Zufallsbegegnungen", tocPage(id,false,"Chance Encounters"));
-    html += c.chanceEncounters.map(l=>renderDangerCard(l,"chance_"+id)).join("");
+    html += '<div class="ll-cgrid">'+c.chanceEncounters.map(l=>renderDangerCard(l,"chance_"+id)).join("")+"</div>";
   }
   else if(active==="powersets"){
     html += tabHead("Power Sets", tocPage(id,false,"Power Sets"));
-    html += c.powerSets.map((p,i)=>{ const k="ps_"+id+"_"+i; return `<div class="card ps-card ${state.openThemes[k]?"open":""}" id="th_${k}"><div class="th-head" onclick="toggleTheme('${k}')"><span class="th-chev">▸</span><h3>${p.name}</h3></div><div class="th-body"><p>${p.text}</p></div></div>`; }).join("");
+    html += '<div class="ll-cgrid">'+c.powerSets.map((p,i)=>{ const k="ps_"+id+"_"+i; return `<div class="card ps-card ${state.openThemes[k]?"open":""}" id="th_${k}"><div class="th-head" onclick="toggleTheme('${k}')"><span class="th-chev">▸</span><h3>${p.name}</h3></div><div class="th-body"><p>${p.text}</p></div></div>`; }).join("")+"</div>";
     const tb = c.themebook;
     if(tb){
       html += `<div class="card">

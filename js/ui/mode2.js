@@ -24,7 +24,7 @@ const M2 = {
       return `<div class="case-tab ${active?'active':''} ${done?'done':''}" role="button" tabindex="0" onclick="goScene(${i})" title="${esc(effTitle(adv.id,s))}"><span class="ct-eyebrow">${eyebrow}</span><span class="ct-title">${esc(effTitle(adv.id,s))}</span>${chk}</div>`;
     }).join("");
     const mapTab = `<div class="case-tab ${M2.map?'active':''}" role="button" tabindex="0" onclick="M2.openMap()"><span class="ct-eyebrow">Abenteuer</span><span class="ct-title">Wegkarte</span></div>`;
-    return `<div class="wk-head"><div class="crumbs"><a onclick="goOverview()">Start</a> › ${esc(adv.title)} <span class="wk-meta">· ${adv.scenes.length} Szenen · ${esc(adv.en)}</span></div></div><div class="case-tabbar">${mapTab}${tabs}${noteTileHere(adv)}</div>`;
+    return `<div class="wk-head"><div class="crumbs"><a onclick="goPrep()">Start</a> › <a onclick="goOverview()">Abenteuer</a> › ${esc(adv.title)} <span class="wk-meta">· ${adv.scenes.length} Szenen · ${esc(adv.en)}</span></div></div><div class="case-tabbar">${mapTab}${tabs}${noteTileHere(adv)}</div>`;
   },
   openMap(){ if(typeof guardEditLeave==="function" && !guardEditLeave()) return; M2.map=true; render(); window.scrollTo({top:0}); },
 

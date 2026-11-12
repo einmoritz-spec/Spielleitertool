@@ -41,15 +41,24 @@ async function route(){
   else if(p[0]==="regeln") renderRegeln();
   else if(p[0]==="metro") renderMetro();
   else if(p[0]==="tokyo") renderTokyo();
+  else if(p[0]==="abenteuer") renderAdvList();
   else renderHome();
 }
 
 /* ---------- Start ---------- */
 function renderHome(){
+  const go = h => `location.hash='#/${h}'`, adv = OS_ADV_LIST.filter(a=>a.kat===undefined).length;
+  $("app").innerHTML = PREP.html({cards:[
+    {t:"Regeln", go:go("regeln"), rows:[["Regelwerk",null,go("regeln")],["Regelblatt & Würfler",null,"openRules()"],["Theme-Kits",null,go("kits")],["Straßenkatalog",null,go("katalog")]]},
+    {t:"Setting", go:go("tokyo"), rows:[["Tokyo",null,go("tokyo")],["Metro",null,go("metro")],["Fraktionen",null,go("fraktionen")]]},
+    {t:"Gegner", go:go("gegner"), rows:[["Gegner-Browser",null,go("gegner")]]}
+  ], adv:{t:"Abenteuer", sub:adv+" Abenteuer", go:go("abenteuer")}});
+}
+function renderAdvList(){
   let h = "";
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
   h += `<div class="sec-h">Abenteuer</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===undefined).map(card).join("")}</div>`;
-  $("app").innerHTML = h;
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Abenteuer</div>`+h;
 }
 
 /* ---------- Tokyo-Setting (über Header-Button) ---------- */
@@ -79,7 +88,7 @@ function renderAdv(a, secId){
   } else tabbar = `<div class="case-tabbar">${a.sektionen.map(x=>tabBtn(x)).join("")}${tile}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];
-  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${esc(a.titel)} › ${_pg?`<a onclick="openBook('${a.buch}',${_pg})" title="S. ${_pg} im Buch öffnen">${esc(s.titel)}</a>`:esc(s.titel)}</div>
+  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › <a onclick="location.hash='#/abenteuer'">Abenteuer</a> › ${esc(a.titel)} › ${_pg?`<a onclick="openBook('${a.buch}',${_pg})" title="S. ${_pg} im Buch öffnen">${esc(s.titel)}</a>`:esc(s.titel)}</div>
   ${tabbar}
   <div class="adv-grid tab-layout" id="advGrid">
    <div class="content">
@@ -211,7 +220,7 @@ function openMobileMenu(){
   if($("mobileMenu")) return;
   const item = (ic,l,fn)=>`<button class="mm-item" onclick="closeMobileMenu(); ${fn}"><span class="mm-ic">${ic}</span><span>${l}</span></button>`;
   const m = document.createElement("div"); m.id = "mobileMenu"; m.className = "mobile-menu";
-  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🏛","Fraktionen","location.hash='#/fraktionen'")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎒","Straßenkatalog","location.hash='#/katalog'")}${item("🃏","Theme-Kits","location.hash='#/kits'")}${item("📖","Regelwerk","location.hash='#/regeln'")}${item("🌆","Metro-Setting","location.hash='#/metro'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
+  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("🗂","Abenteuer","location.hash='#/abenteuer'")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🏛","Fraktionen","location.hash='#/fraktionen'")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎒","Straßenkatalog","location.hash='#/katalog'")}${item("🃏","Theme-Kits","location.hash='#/kits'")}${item("📖","Regelwerk","location.hash='#/regeln'")}${item("🌆","Metro-Setting","location.hash='#/metro'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
   document.body.appendChild(m); document.body.classList.add("menu-open"); requestAnimationFrame(()=>m.classList.add("open"));
 }
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMobileMenu(); closeModal("searchModal"); closeModal("settingsModal"); } });

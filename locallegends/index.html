@@ -17,12 +17,13 @@
 <link rel="stylesheet" href="../shared/notes.css">
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
 <link rel="stylesheet" href="../shared/layout.css">
+<link rel="stylesheet" href="../shared/prep.css">
 <link rel="stylesheet" href="akte.css">
 <link rel="stylesheet" href="hell.css">
 </head>
 <body>
 <div class="topbar">
-  <button class="brand" onclick="goOverview()">Local Legends</button>
+  <button class="brand" onclick="goPrep()">Local Legends</button>
   <div class="topbar-spacer"></div>
   <button class="tb-btn" id="tb-case-btn" style="display:none;" onclick="goCase(state.districtId)"><span class="tb-lbl">Fall öffnen</span></button>
   <button class="tb-btn" onclick="openSearchModal()"><span class="tb-lbl">Suche</span></button>
@@ -110,6 +111,7 @@
 <script src="../shared/notes.js"></script>
 <script src="../shared/tabpick.js"></script>
 <script src="../bookviewer/bookviewer.js"></script>
+<script src="../shared/prep.js"></script>
 <script src="js/app.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ll", books:[{key:"ll", name:"Local Legends (EN)"}], openSettings:function(){ openModal("settingsModal"); } });
 document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh();</script>

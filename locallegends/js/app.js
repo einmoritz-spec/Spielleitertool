@@ -2,7 +2,7 @@
    STATE
    ============================================================ */
 const state = {
-  view:"overview", // overview | district | case
+  view:"prep", // prep | overview | district | case
   districtId:null,
   activeDepth:0,
   pips:{}, // key -> array of booleans
@@ -30,6 +30,7 @@ let LL_TAIL = null;
 function tabHead(title,n){ LL_TAIL = {title:title, n:n}; return ""; }
 function llTail(h){ const t = LL_TAIL; LL_TAIL = null; if(!t) return h; const link = `<span class="sep">/</span>` + (t.n ? `<a class="pg-link" href="#" data-page="${t.n}" title="S. ${t.n} im Buch öffnen">${t.title}</a>` : `<span>${t.title}</span>`); return h.replace(/(<div class="crumb">[\s\S]*?)<\/div>/, "$1"+link+"</div>"); }
 
+function goPrep(){ state.view="prep"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goOverview(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goDistrict(id){ state.view="district"; state.districtId=id; state.distTab="overview"; render(); window.scrollTo(0,0); }
 function goGuide(){ state.view="guide"; render(); window.scrollTo(0,0); }
@@ -43,7 +44,8 @@ function goCase(id){ state.view="case"; state.districtId=id; state.caseTab="over
 function render(){
   const app = document.getElementById("app");
   app.classList.toggle("wide-case", state.view==="case");
-  if(state.view==="overview") app.innerHTML = renderOverview();
+  if(state.view==="prep") app.innerHTML = renderPrep();
+  else if(state.view==="overview") app.innerHTML = renderOverview();
   else if(state.view==="district") app.innerHTML = renderDistrictView(state.districtId);
   else if(state.view==="case") app.innerHTML = renderCaseView(state.districtId);
   else if(state.view==="guide") app.innerHTML = renderGuide();
@@ -99,6 +101,20 @@ function markLongTexts(){
   });
 }
 
+function renderPrep(){
+  
+  const cards = [
+    {t:"Regeln", go:"openModal('rulesModal')", rows:[["Regelblatt",null,"openModal('rulesModal')"],["Glossar",null,"openModal('glossModal')"],["Gegner & NSCs",null,"goNpcs()"],["Spieler-Ansicht",null,"goPlayer()"]]}
+  ];
+  const book = [];
+  if(typeof GUIDE!=="undefined") book.push(["Einleitung & Stadtführer",null,"goGuide()"]);
+  if(typeof APPENDIX!=="undefined") book.push(["Register",null,"goAppendix()"]);
+  if(typeof FORGED_FRAMED!=="undefined") book.push(["Forged & Framed",null,"goCase('forged_framed')"]);
+  if(book.length) cards.push({t:"Buchteile", go:book[0][2], rows:book});
+  if(typeof VILLAINS!=="undefined" && VILLAINS.length) cards.push({t:"Kleinschurken", go:"goVillain('"+VILLAINS[0].id+"')", rows:VILLAINS.map(v=>[v.title||v.id,null,"goVillain('"+v.id+"')"])});
+  const n = DISTRICTS.filter(d=>!d.hidden).length;
+  return PREP.html({cards, adv:{t:"Bezirke", sub:n+" Bezirke", go:"goOverview()"}});
+}
 function renderOverview(){
   let tiles = DISTRICTS.filter(d=>!d.hidden).map(d=>{
     if(d.status==="ready"){

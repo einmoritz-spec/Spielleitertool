@@ -28,6 +28,7 @@ const camp = () => window.NIGHTS.campaign;
 function parseHash(){ const p = (location.hash||"#/").slice(2).split("/"); return p; }
 window.addEventListener("hashchange", route);
 function goHome(){ location.hash = "#/"; }
+function goCampaign(){ location.hash = "#/kampagne"; }
 function goRegister(){ location.hash = "#/register"; }
 function goMap(){ location.hash = "#/map"; }
 function goLastCase(){ location.hash = ST.last ? ST.last : "#/case/1"; }
@@ -44,13 +45,21 @@ async function route(){
   } else if(p[0]==="pages"){ renderHome(); openPageViewer(+p[1]||1, true); }
   else if(p[0]==="map") renderMap(p[1]==="dolch");
   else if(p[0]==="register") renderRegister(p[1]||"leute");
+  else if(p[0]==="kampagne") renderCampaign();
   else renderHome();
 }
 
 /* ---------- Start ---------- */
 function caseStatus(n){ return ST.cases[n] || ""; }
-function setStatus(n, s){ ST.cases[n] = ST.cases[n]===s ? "" : s; saveState(); renderHome(); }
+function setStatus(n, s){ ST.cases[n] = ST.cases[n]===s ? "" : s; saveState(); renderCampaign(); }
 function renderHome(){
+  const C = camp(), ex = (C.book||[]).map(n=>C.extras&&C.extras[n]?[C.extras[n].title,null,"location.hash='#/case/"+n+"'"]:null).filter(Boolean), n = Object.keys(C.cases).length;
+  $("app").innerHTML = PREP.html({cards:[
+    {t:"Regeln", go:"openRules()", rows:[["Regelblatt & Würfler",null,"openRules()"],["Seitenviewer",null,"openPageViewer()"]]},
+    {t:"Stadt", go:"goMap()", rows:[["Stadtkarte",null,"goMap()"],["Register",null,"goRegister()"]]}
+  ].concat(ex.length?[{t:"Buchteile", go:ex[0][2], rows:ex}]:[]), adv:{t:"Kampagne", sub:n+" Fälle", go:"goCampaign()"}});
+}
+function renderCampaign(){
   const C = camp();
   let h = "";
   for(const L of C.levels){
@@ -76,7 +85,7 @@ function renderMap(dolch){
   const byCase = {};
   M.spots.forEach((s,i)=>s.links.forEach(l=>{ (byCase[l.c] = byCase[l.c]||[]).push({l, i, s}); }));
   const list = Object.keys(byCase).sort((a,b)=>a-b).map(c=>`<div class="mlist-case"><h4>Fall ${c}</h4>${byCase[c].map(o=>`<a href="#/case/${o.l.c}/sec/${o.l.s}">${esc(o.s.label)}</a>`).join("")}</div>`).join("");
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › Stadtkarte</div>
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goCampaign()">Kampagne</a> › Stadtkarte</div>
   <div class="case-head"><h1>Stadtkarte</h1><span class="meta">Crime Board City Map · tippe auf einen Ort, um zum Abschnitt zu springen</span></div>
   <div class="mtools"><button class="btn" onclick="mapZoom(-1)">−</button><span id="mzl" class="hint">${Math.round(MZ*100)} %</span><button class="btn" onclick="mapZoom(1)">+</button><button class="btn" onclick="mapZoom(0)">Einpassen</button><button class="btn" onclick="toggleDagger()">Galahads Dolch ${MDAG?"ausblenden":"einblenden"}</button><label class="hint"><input type="checkbox" ${MSHOW?"checked":""} onchange="MSHOW=this.checked;$('mapbox').classList.toggle('show',MSHOW)"> Orte markieren</label></div>
   ${MDAG?daggerHtml():""}<div class="mapscroll" id="mapscroll"><div class="mapbox ${MSHOW?"show":""}" id="mapbox" style="width:${MZ*100}%"><img src="${M.image}" alt="Stadtkarte">${spots}${MDAG?daggerEl():""}</div></div>
@@ -151,7 +160,7 @@ function renderCase(c, sid){
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t).replace(/^([^:]{2,24}):\s*(.+)$/,'$1<span class="pg-more">: $2</span>')}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   const _f = ch.items[0], _n = c.sections[c.sections.indexOf(_f)+1];
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="S. ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a><span class="crumb-pg">S. ${pageRange(c,_f,_n)}</span></div>
+  $("app").innerHTML = `<div class="crumbs"><a onclick="goCampaign()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="S. ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a><span class="crumb-pg">S. ${pageRange(c,_f,_n)}</span></div>
   
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
@@ -376,7 +385,7 @@ async function renderRegister(tab){
   $("app").innerHTML = '<div class="missing">Lade Register …</div>';
   const R = await buildRegister();
   const tabs = [["leute","Bedrohungen & Personen"],["orte","Eisberg-Einträge"],["notizen","Notizen"]];
-  let h = `<div class="crumbs"><a onclick="goHome()">Kampagne</a> › Register</div><div class="case-head"><h1>Register</h1></div><div class="reg-tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" onclick="location.hash='#/register/${t[0]}'">${t[1]}</button>`).join("")}</div>`;
+  let h = `<div class="crumbs"><a onclick="goCampaign()">Kampagne</a> › Register</div><div class="case-head"><h1>Register</h1></div><div class="reg-tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" onclick="location.hash='#/register/${t[0]}'">${t[1]}</button>`).join("")}</div>`;
   if(tab==="notizen"){
     const rows = Object.keys(ST.notes).filter(k=>(ST.notes[k]||"").trim()).map(k=>{ const [nr,sid] = k.split(":"); const c = R.loaded[+nr]; const sec = c && c.sections.find(x=>x.id===sid); return {nr:+nr, sid, title: sec?sec.title:sid, text:ST.notes[k], page: sec?sec.page:0}; }).sort((a,b)=>a.nr-b.nr||a.page-b.page);
     h += rows.length ? `<div class="reg-list">${rows.map(r=>`<a class="reg-note" href="#/case/${r.nr}/sec/${r.sid}"><small>${r.nr<11?"Fall "+r.nr:"Buch"} · ${esc(r.title)}</small><span>${esc(r.text)}</span></a>`).join("")}</div>` : `<div class="missing">Noch keine Notizen. Notizen schreibst du unten in jedem Kapitel.</div>`;
@@ -402,7 +411,7 @@ function regFilter(q){ q = q.trim().toLowerCase(); document.querySelectorAll("#r
   function openCm(n, x, y){
     closeCm(); const st = caseStatus(n), m = document.createElement("div"); m.id = "caseCm"; m.className = "case-cm";
     m.innerHTML = `<button class="${st==="run"?"on":""}" data-s="run">Läuft</button><button class="${st==="ok"?"on":""}" data-s="ok">Abgeschlossen</button>${st?'<button data-s="">Status entfernen</button>':""}`;
-    m.addEventListener("click", e=>{ const b = e.target.closest("button"); if(!b) return; ST.cases[n] = b.dataset.s; saveState(); closeCm(); renderHome(); });
+    m.addEventListener("click", e=>{ const b = e.target.closest("button"); if(!b) return; ST.cases[n] = b.dataset.s; saveState(); closeCm(); renderCampaign(); });
     document.body.appendChild(m);
     m.style.left = Math.max(8, Math.min(x, innerWidth - m.offsetWidth - 8)) + "px"; m.style.top = Math.max(8, Math.min(y, innerHeight - m.offsetHeight - 8)) + "px";
   }

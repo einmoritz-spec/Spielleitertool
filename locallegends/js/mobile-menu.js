@@ -18,7 +18,8 @@ function openMobileMenu(){
     <nav class="mm-panel" aria-label="Menü">
       <div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div>
       <div class="mm-list">
-        ${item("🗂", "Übersicht", "goOverview()")}
+        ${item("🏠", "Start", "goPrep()")}
+        ${item("🗂", "Bezirke", "goOverview()")}
         ${caseVisible ? item("📁", "Fall öffnen", "goCase(state.districtId)") : ""}
         ${item("👥", "Gegner &amp; NSCs", "goNpcs()")}
         ${item("🖼", "Spieler-Ansicht", "goPlayer()")}

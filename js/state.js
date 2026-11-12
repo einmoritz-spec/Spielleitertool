@@ -27,7 +27,7 @@ const DALES_MAP_SRC = "assets/dales-map.jpg";
 const app = document.getElementById("app");
 
 let state = {
-  view:"overview",        // overview | adventure | challenges | lore
+  view:"prep",        // prep | overview | adventure | challenges | lore
   advId:null,
   sceneIdx:0,
   limits:{},               // uid -> filled count
@@ -167,7 +167,7 @@ function resetAllProgress(){
   state.openCharCats = new Set();
   state.profileOverlays = {};
   HIDDEN_PARTY = defaultHiddenParty();
-  state.view = "overview";
+  state.view = "prep";
   state.advId = null;
   state.sceneIdx = 0;
   render();

@@ -16,7 +16,8 @@ function openMobileMenu(){
     <nav class="mm-panel" aria-label="Menü">
       <div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div>
       <div class="mm-list">
-        ${item("🗂", "Kampagne", "goHome()")}
+        ${item("🏠", "Start", "goHome()")}
+        ${item("🗂", "Kampagne", "goCampaign()")}
         ${item("📁", "Aktueller Fall", "goLastCase()")}
         ${item("🗺", "Stadtkarte", "goMap()")}
         ${item("🎲", "Regelblatt & Würfler", "openRules()")}

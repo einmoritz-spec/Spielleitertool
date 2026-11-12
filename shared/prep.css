@@ -1,0 +1,13 @@
+/* Vorbereitungsseite – nutzt die Farbvariablen des jeweiligen Tools (mit Rückfallwerten) */
+.prep{--pa:var(--prep-acc,var(--brass,var(--acc,#c9a24b)));--pl:var(--panel-line,var(--line,rgba(128,128,128,.3)));--pt:var(--text-hi,var(--text,inherit));--pm:var(--text-faint,var(--mute,#888));--pp:var(--panel,rgba(128,128,128,.08))}
+.prep-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:14px 0 18px;align-items:start}
+.prep-c{background:var(--pp);border:1px solid var(--pl);border-top:3px solid var(--pa);border-radius:10px;padding:6px 6px 8px}
+.prep-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;width:100%;background:none;border:0;border-bottom:1px solid var(--pl);color:var(--pt);cursor:pointer;padding:10px 10px 8px;margin-bottom:4px;text-align:left;font:inherit}
+.prep-h b{font-size:1.05rem;letter-spacing:.07em;text-transform:uppercase}.prep-h:hover b{color:var(--pa)}
+.prep-h i,.prep-c li i{font-style:normal;font-size:.78rem;color:var(--pm);white-space:nowrap}
+.prep-c ul{list-style:none;margin:0;padding:0}
+.prep-c li button{display:flex;justify-content:space-between;align-items:baseline;gap:10px;width:100%;background:none;border:0;border-radius:6px;color:var(--pt);cursor:pointer;padding:7px 10px;font:inherit;text-align:left}
+.prep-c li button:hover{background:rgba(128,128,128,.14);color:var(--pa)}
+.prep-adv{display:block;width:100%;background:var(--pa);color:#fff;border:0;border-radius:12px;padding:22px 16px;cursor:pointer;margin:6px 0 28px;text-align:center;font:inherit;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.prep-adv b{display:block;font-size:clamp(1.3rem,4vw,1.9rem);letter-spacing:.12em;text-transform:uppercase}.prep-adv small{display:block;margin-top:4px;opacity:.85}.prep-adv:hover{filter:brightness(1.08)}
+@media (max-width:700px){.prep-g{grid-template-columns:1fr}}

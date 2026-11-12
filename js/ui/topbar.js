@@ -72,7 +72,7 @@ function renderTopbar(){
     .join("");
   return `
   <div class="topbar">
-    <button class="brand" onclick="goOverview()">${CAMPAIGN_TITLE}</button>
+    <button class="brand" onclick="goPrep()">${CAMPAIGN_TITLE}</button>
     <div class="topbar-spacer"></div>
     <div class="topbar-actions">
       ${btns}
@@ -97,7 +97,8 @@ function closeMobileMenu(){
 function openMobileMenu(){
   if(document.getElementById("mobileMenu")) return;
   const advOpen = state.view==="adventure" && state.advId;
-  const items = TOPBAR_ITEMS.filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))
+  const nav = `<button class="mm-item" onclick="closeMobileMenu(); goPrep()"><span class="mm-ic">🏠</span><span>Start</span></button><button class="mm-item" onclick="closeMobileMenu(); goOverview()"><span class="mm-ic">🗂</span><span>Abenteuer</span></button>`;
+  const items = nav + TOPBAR_ITEMS.filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))
     .map(it => `<button class="mm-item" onclick="closeMobileMenu(); ${it.fn}"><span class="mm-ic">${it.icon}</span><span>${it.label}</span></button>`).join("");
   const m = document.createElement("div");
   m.id = "mobileMenu"; m.className = "mobile-menu";

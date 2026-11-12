@@ -1,3 +1,24 @@
+function renderPrep(){
+  const f = (l,fn)=>[l,null,fn];
+  const cards = [
+    {t:"Regeln", go:"openRulesGloss()", rows:[f("Glossar","openRulesGloss()"),f("Rasten","openRestRules()"),f("Grimoire","openGrimoire()"),f("Würfel","openDice()"),f("Shop","openStore()")]},
+    {t:"Charaktere", go:"openCreator()", rows:[f("Erstellung","openCreator()"),f("Themenbuch","openThemebook()"),f("Eigene Charaktere","openCustomChars()"),f("Profile","openProfiles()")]},
+    {t:"Welt", go:"openCharacters()", rows:[f("NPCs","openCharacters()"),f("Lore","openLore()"),f("Challenges","openChallenges()")]}
+  ];
+  const n = ADVENTURES.length;
+  app.innerHTML = renderTopbar() + `
+  <div class="overview">
+    <div class="welcome-dales">
+      <h1>Willkommen in den Dales</h1>
+      <div class="wd-body">
+        <p><span class="wd-dropcap">B</span>lickt empor zum azurblauen Himmel und in die Schatten der Berge. Blickt hinab auf saftig grüne Weiden und das Gold der Gerste. Schmeckt das frische Versprechen von Sommerregen und Winterschnee. Lauscht den beruhigenden Gesängen aus Flussgischt und stillen Wassern; der tiefen Ruhe all dessen, akzentuiert durch den Ruf eines Raben. Riecht die fällfrische Kiefer und das sensengemähte Feld, den Weihrauch der Feste und das wohlverdiente Mahl. Spürt den kühlen Hauch des Herbstes auf euren Wangen und des Frühlings wärmende Flamme, die eure Herzen bewegt.</p>
+        <p>Sorgt euch nicht um das, was jenseits nebliger Klippen und kristallener Bäche liegt. Hier, in ihrer tröstenden Umarmung, seid ihr niemals verloren, niemals allein. Kommt und begegnet den Dalish in ihren Landen, auf idyllischen Hügeln, wo das Vieh weidet, und in dichten Wäldern, die kein Fuß zu betreten wagt.</p>
+      </div>
+    </div>
+    ${PREP.html({cards, adv:{t:"Abenteuer", sub:n+" Abenteuer", go:"goOverview()"}})}
+  </div>`;
+}
+
 function renderOverview(){
   const tiles = ADVENTURES.filter(a=>a.id!=="campaign-aftermath").map(a=>{
     const ready = a.status==="ready";
@@ -30,13 +51,6 @@ function renderOverview(){
 
   app.innerHTML = renderTopbar() + `
   <div class="overview">
-    <div class="welcome-dales">
-      <h1>Willkommen in den Dales</h1>
-      <div class="wd-body">
-        <p><span class="wd-dropcap">B</span>lickt empor zum azurblauen Himmel und in die Schatten der Berge. Blickt hinab auf saftig grüne Weiden und das Gold der Gerste. Schmeckt das frische Versprechen von Sommerregen und Winterschnee. Lauscht den beruhigenden Gesängen aus Flussgischt und stillen Wassern; der tiefen Ruhe all dessen, akzentuiert durch den Ruf eines Raben. Riecht die fällfrische Kiefer und das sensengemähte Feld, den Weihrauch der Feste und das wohlverdiente Mahl. Spürt den kühlen Hauch des Herbstes auf euren Wangen und des Frühlings wärmende Flamme, die eure Herzen bewegt.</p>
-        <p>Sorgt euch nicht um das, was jenseits nebliger Klippen und kristallener Bäche liegt. Hier, in ihrer tröstenden Umarmung, seid ihr niemals verloren, niemals allein. Kommt und begegnet den Dalish in ihren Landen, auf idyllischen Hügeln, wo das Vieh weidet, und in dichten Wäldern, die kein Fuß zu betreten wagt.</p>
-      </div>
-    </div>
     <div class="overview-hero">
       <h1>Wake of the Oldways</h1>
     </div>
@@ -852,7 +866,7 @@ function renderSceneTabs(adv){
     const chk = checkable ? `<button class="trail-check ${done?'done':''}" onclick="event.stopPropagation(); toggleSceneCompleted('${adv.id}', ${i})" title="${done?'Als nicht erledigt markieren':'Als erledigt markieren'}">${done?'✓':''}</button>` : "";
     return `<div class="case-tab ${active?'active':''} ${done?'done':''}" role="button" tabindex="0" onclick="goScene(${i})" title="${esc(effTitle(adv.id,s))}"><span class="ct-eyebrow">${eyebrow}</span><span class="ct-title">${esc(effTitle(adv.id,s))}</span>${chk}</div>`;
   }).join("");
-  return `<div class="wk-head"><div class="crumbs"><a onclick="goOverview()">Start</a> › ${esc(adv.title)} <span class="wk-meta">· ${adv.scenes.length} Szenen · ${esc(adv.en)}</span></div></div><div class="case-tabbar">${tabs}${noteTileHere(adv)}</div>`;
+  return `<div class="wk-head"><div class="crumbs"><a onclick="goPrep()">Start</a> › <a onclick="goOverview()">Abenteuer</a> › ${esc(adv.title)} <span class="wk-meta">· ${adv.scenes.length} Szenen · ${esc(adv.en)}</span></div></div><div class="case-tabbar">${tabs}${noteTileHere(adv)}</div>`;
 }
 function setSceneTabs(v){ try{ localStorage.setItem("wake.sceneTabs", v?"1":"0"); }catch(e){} document.body.classList.toggle("wk-tabs", v); render(); }
 function renderAdventure(){
@@ -881,7 +895,8 @@ function render(){
   stashEditPending();   // ungespeicherte Textänderungen vor dem Neuaufbau sichern
   if(state.view!=="adventure" && EDIT.on) leaveEditMode();
   document.body.classList.toggle("editing", EDIT.on);
-  if(state.view==="overview") renderOverview();
+  if(state.view==="prep") renderPrep();
+  else if(state.view==="overview") renderOverview();
   else renderAdventure();
   updateFavBadge(); // Topbar wird bei jedem render() neu aufgebaut, Badge muss danach neu gesetzt werden
 }

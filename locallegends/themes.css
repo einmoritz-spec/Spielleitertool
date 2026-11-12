@@ -170,3 +170,10 @@ html[data-ll=a] .shell b,html[data-ll=a] .shell strong{color:inherit!important}
 .ll-rmain>*:first-child{border-top:0!important}
 .ll-rmain>.danger-card{margin:12px 0!important}
 @media(max-width:820px){.ll-rail{grid-template-columns:minmax(0,1fr)}.ll-rnav{position:static;flex-direction:row;overflow-x:auto;border:0;padding:0 0 8px;border-bottom:2px solid #c9b88f;max-height:none;scrollbar-width:none}.ll-rnav a{flex:none;white-space:nowrap;background:none}}
+
+/* Vorlesetext: keine Beschriftungszeile – der Kasten spricht für sich; Einklappen per kleinem ▾ im Eck */
+.readaloud .ra-label,.readaloud::before{display:none!important;content:none!important}
+.readaloud{position:relative}
+.readaloud:not(.ux-folded)>.ux-fold{position:absolute;top:4px;right:6px;width:auto;margin:0;padding:0 4px;z-index:2;opacity:.45;line-height:1}
+.readaloud:not(.ux-folded)>.ux-fold .ux-fold-l,.readaloud:not(.ux-folded)>.ux-fold .ux-fold-p{display:none}
+.readaloud.ux-folded>.ux-fold .ux-fold-l{display:none}

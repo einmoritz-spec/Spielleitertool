@@ -123,7 +123,7 @@ function renderAdv(a, secId){
   $("app").innerHTML = h;
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   if(idx===0) ovDraw(a);
-  if(isAdv && typeof osAdvRail==="function") osAdvRail();
+  if(typeof osAdvRail==="function") osAdvRail();
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
 NotePop.reg("os", k=>ST.notes[k]||"", setNote);
@@ -144,7 +144,7 @@ function renderBlock(a,s,b,i){
     case "h": return `<div class="blk-h">${esc(b.x)}</div>`;
     case "liste": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`;
     case "hinweis": return `<div class="blk blk-note">${b.titel?`<b class="tt">${esc(b.titel)}</b>`:""}${fmt(b.x)}</div>`;
-    case "vorlesen_ref": case "vorlesen": if(b.v) return `<div class="blk blk-read"><div class="rd-h"><button class="pgb" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen">Buch S. ${esc(b.seite||"?")} ansehen</button></div><p>${fmt(b.v)}</p></div>`; return `<button class="blk blk-ref" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen"><span class="bk">Vorlesetext · Buch S. ${esc(b.seite||"?")}<br><u>Im Buch ansehen</u></span><span>${fmt(b.x||"")}</span></button>`;
+    case "vorlesen_ref": case "vorlesen": if(b.v) return `<div class="blk blk-read"><div class="rd-h"><button class="pgb" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen">Buch S. ${esc(b.seite||"?")} ansehen</button></div><p>${fmt(b.v)}</p></div>`; return `<button class="blk blk-ref" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen"><span class="bk">S. ${esc(b.seite||"?")}</span><span class="bx">${fmt(b.x||"")}</span></button>`;
     case "tabelle": return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="tbl-wrap"><table>${b.kopf?`<tr>${b.kopf.map(x=>`<th>${fmt(x)}</th>`).join("")}</tr>`:""}${(b.zeilen||[]).map(r=>`<tr>${r.map(x=>`<td>${fmt(x)}</td>`).join("")}</tr>`).join("")}</table></div></div>`;
     case "szenen": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li><b>${esc(x.n)}</b> – ${fmt(x.x||"")}</li>`).join("")}</ul>`;
     case "uhr": { const n = b.segs||4, cur = ST.clk[k]||0;
@@ -183,7 +183,7 @@ function osArt(a,idx){
   let last = 0; const pages = a.sektionen.map(x=>{ if(sp[x.id]) last = sp[x.id]; return last; });
   const ovp = (typeof OS_OV!=="undefined" && OS_OV[a.id]) ? OS_OV[a.id].page : -1;
   return L.filter(x=>x.p!==ovp).filter(x=>{ let t = 0; for(let i=0;i<pages.length;i++) if(pages[i]<=x.p) t = i; return t===idx; })
-    .map(x=>`<figure class="os-art"><img src="${x.src}" alt="${esc(x.cap)} (Buch S. ${x.p})" loading="lazy" onclick="osZoom(this.src)"></figure>`).join("");
+    .map(x=>`<figure class="os-art"><img src="${x.src}" alt="${esc(x.cap)} (Buch S. ${x.p})" loading="lazy" onclick="osZoom(this.src)"></figure>`).join("").replace(/^(.+)$/s,'<div class="os-arts">$1</div>');
 }
 function osZoom(src){
   let o = document.getElementById("osLightbox");

@@ -506,3 +506,14 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .osarail .chsec>.blk-p:first-of-type,.osarail .chsec>.blk-p:first-child{font-size:.84rem;color:var(--mute);line-height:1.35}
 .osarail .blk-h{margin-top:0}
 .osarail .chsec>.blk-p:first-of-type{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Vorlesekasten ohne Beschriftung: Text, kleiner S.-Link im Eck */
+.blk-ref{position:relative;display:block!important;padding:10px 54px 10px 16px;border-style:solid;border-width:0 0 0 4px;border-radius:10px}
+.blk-ref .bk{position:absolute;right:12px;top:8px;font-size:.68rem;letter-spacing:0;text-transform:none;opacity:.7;padding:0;text-decoration:underline dotted}
+.blk-ref .bx{display:block;font-style:italic;line-height:1.6}
+
+/* Illustrationen klein und nebeneinander */
+.os-arts{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px}
+.os-arts .os-art{margin:0;flex:0 0 auto}
+.os-arts .os-art img{height:230px;width:auto;max-width:min(360px,86vw);max-height:none;object-fit:cover;object-position:top}
+@media(min-width:900px){.os-arts{float:left;margin:4px 20px 10px 0;max-width:46%}}

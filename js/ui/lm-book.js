@@ -150,10 +150,10 @@ function lmCards(es){
   flush(); return out;
 }
 var __tocSpy;
-function tocSpy(toc, ids, offset){
+function tocSpy(toc, ids, offset){ var __sel=".lm-sub a";
   if(__tocSpy) window.removeEventListener("scroll",__tocSpy);
   __tocSpy=null; if(!toc||!ids.length) return;
-  var links=[].slice.call(toc.querySelectorAll("a")), tick=false, cur=-1;
+  var links=[].slice.call(toc.querySelectorAll(__sel)), tick=false, cur=-1;
   __tocSpy=function(){ if(tick) return; tick=true; requestAnimationFrame(function(){ tick=false;
     var idx=0; for(var i=0;i<ids.length;i++){ var el=document.getElementById(ids[i]); if(!el) continue; if(el.getBoundingClientRect().top<=offset) idx=i; else break; }
     if(idx===cur) return; cur=idx; links.forEach(function(a,i){ a.classList.toggle("on",i===idx); });
@@ -170,13 +170,16 @@ function renderBook(){
   var pills=list.map(function(x){ return '<button class="lm-pill'+(x.id===s.id?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(x.t)+'</button>'; }).join("");
   var i=list.indexOf(s), prev=list[i-1], next=list[i+1];
   var nav='<div class="lm-pn">'+(prev?'<button onclick="goBook(\''+tab+'\',\''+prev.id+'\')"><small>Zurück</small>'+esc(prev.t)+'</button>':'<span></span>')+(next?'<button class="r" onclick="goBook(\''+tab+'\',\''+next.id+'\')"><small>Weiter</small>'+esc(next.t)+'</button>':'<span></span>')+'</div>';
-  app.innerHTML=renderTopbar()+'<div class="lm-wrap"><div class="lm-shell"><nav class="lm-toc" id="lmToc"></nav><div class="lm-main"><nav class="lm-tabs">'+tabs+'</nav><nav class="lm-pills">'+pills+'</nav><div id="lmHost" class="lm-host"><p class="lm-load">Lade …</p></div>'+nav+'</div></div></div>';
+  app.innerHTML=renderTopbar()+'<div class="lm-wrap"><div class="lm-shell"><nav class="lm-toc" id="lmToc"></nav><div class="lm-main"><nav class="lm-tabs">'+tabs+'</nav><div id="lmHost" class="lm-host"><p class="lm-load">Lade …</p></div>'+nav+'</div></div></div>';
   lmLoad(s.id,function(){
     var el=document.getElementById("lmHost"); if(!el||state.view!=="book"||state.bookSec!==s.id) return;
     var es=LM.data[s.id]||[];
-    var toc=es.map(function(c,i){ return '<a onclick="lmJump('+i+')">'+esc(c.name)+'</a>'; }).join("");
+    var sh=function(t){return String(t).split(":")[0];};
+    var subs=es.length>1?es.map(function(c,i){ return '<a onclick="lmJump('+i+')">'+esc(sh(c.name))+'</a>'; }).join(""):"";
+    var toc=list.map(function(x){ var on=x.id===s.id; return '<button class="lm-cat'+(on?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(sh(x.t))+'</button>'+(on&&subs?'<div class="lm-sub">'+subs+'</div>':''); }).join("");
+    var flat='<div class="lm-orow">'+list.map(function(x){ return '<button class="lm-cat'+(x.id===s.id?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(sh(x.t))+'</button>'; }).join("")+'</div>'+(subs?'<div class="lm-orow lm-osr lm-sub">'+subs+'</div>':'');
     el.innerHTML='<section class="lm-sec"><div class="lm-sh"><h2>'+esc(s.t)+'</h2>'+lmPg(s.p,s.pe)+'<select class="lm-sel" onchange="lmJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select></div>'+(es.length?'<div class="lm-body"><div class="lm-flow">'+lmCards(es)+'</div></div>':'<p class="lm-load">In Vorbereitung</p>')+'</section>';
     var rail=document.getElementById("lmToc");
-    if(rail){ if(es.length>1){ rail.innerHTML=toc; tocSpy(rail,es.map(function(c,i){return "lm-"+i;}),110); } else rail.parentNode.classList.add("nontoc"); }
+    if(rail){ rail.innerHTML='<div class="lm-tree">'+toc+'</div><div class="lm-flatnav">'+flat+'</div>'; if(es.length>1) tocSpy(rail.querySelector(".lm-tree"),es.map(function(c,i){return "lm-"+i;}),110); }
   });
 }

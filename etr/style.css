@@ -169,3 +169,16 @@ details.vorlese>summary .bt{margin:0}.vorlese .vp{display:none;font-size:.85em;o
 .etsec .osmain .locgrid>details.loc{margin:0 0 16px;width:100%}
 .etsec .osmain details.loc>summary{cursor:default;pointer-events:none}
 .etsec .osmain details.loc>summary a,.etsec .osmain details.loc>summary .pg{pointer-events:auto}
+
+/* Vorlesetext-Kasten ohne Beschriftung: nur ▾ im Eck, eingeklappt einzeilige Vorschau */
+details.vorlese{position:relative}
+details.vorlese>summary .bt{display:none}
+details.vorlese[open]>summary{position:absolute;top:4px;right:8px;z-index:1}
+details.vorlese[open]>summary .vp{display:none}
+
+/* Mehrere Kästen nebeneinander (z. B. Evil-Check-Stufen) statt langer Spalte */
+@media(min-width:1100px){
+  .bd:has(> .box:not(.vorlese) ~ .box:not(.vorlese)){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+  .bd:has(> .box:not(.vorlese) ~ .box:not(.vorlese)) > :not(.box){grid-column:1/-1}
+  .bd:has(> .box:not(.vorlese) ~ .box:not(.vorlese)) > .box{margin:0}
+}

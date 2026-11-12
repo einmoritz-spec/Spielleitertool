@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
 <link rel="stylesheet" href="../shared/layout.css">
 <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="../shared/panels.css">
 </head>
 <body>
 <div class="topbar">
@@ -103,6 +104,8 @@
 <script>window.UX_CFG={cols:[{box:".chbody",side:".statusrow"}]};</script>
 <script src="../shared/ux.js"></script>
 <script src="../shared/zeigen.js"></script>
+<script src="../shared/panels.js"></script>
+<script>PanelUI.init({nav:".ni-nav",rail:".ni-rail"});</script>
 <script>
 // PWA: Service Worker über http(s); bei neuer Version einmal automatisch neu laden.
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){

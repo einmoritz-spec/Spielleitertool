@@ -52,7 +52,7 @@
           if(e.ctrlKey||e.metaKey||e.altKey||inField(e)) return;
           var k=(e.key||"").toLowerCase();
           if(k==="h" && !window.toggleTopbar){ document.body.classList.toggle("topbar-hidden"); }
-          else if(k==="b"){ toggle(); }
+          else if(k==="b"||k==="<"||k===">"||e.code==="IntlBackslash"){ toggle(); }
         });
         new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});
         window.addEventListener("resize",schedule); window.addEventListener("scroll",schedule,{passive:true}); window.addEventListener("transitionend",schedule);

@@ -288,3 +288,11 @@ mark{background:var(--yel)}
   .ocols:not(.solo),.rwa{display:flex!important;flex-direction:column}
   .oside,.rws{order:2;margin-top:14px;float:none}
 }
+
+/* Eisberg links bündig, Text fließt rechts daneben (keine leeren Seiten) */
+@media(min-width:1000px){
+  .omain>.ice-wrap.org{float:left;width:min(56%,660px);margin:0 28px 14px 0}
+  .omain>.ice-wrap.org img{width:100%;height:auto;display:block}
+  .omain>.blk.flat{overflow:visible}
+  .omain::after{content:"";display:block;clear:both}
+}

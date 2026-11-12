@@ -1,0 +1,18 @@
+/* PanelUI: Header-Toggle + einklappbare Seitenleiste */
+body.topbar-hidden{padding-top:0!important}
+body.topbar-hidden .topbar{position:fixed;top:0;left:0;right:0;transform:translateY(-100%)}
+.topbar{transition:transform .18s ease}
+.pn-toggle{position:sticky;top:0;align-self:flex-end;flex:none;width:26px;height:26px;margin:0 0 4px auto;padding:0;border:1px solid rgba(128,128,128,.35);border-radius:6px;background:rgba(128,128,128,.12);color:inherit;font:700 16px/1 inherit;cursor:pointer;opacity:.7;z-index:2}
+.pn-toggle:hover{opacity:1}
+.pn-open{display:none;position:fixed;left:0;top:140px;z-index:30;width:20px;height:44px;padding:0;border:1px solid rgba(128,128,128,.4);border-left:0;border-radius:0 8px 8px 0;background:rgba(40,20,70,.85);color:#fff;font:700 16px/1 inherit;cursor:pointer}
+@media(min-width:861px){
+  body.pn-off .pn-nav{display:none!important}
+  body.pn-off .pn-open{display:block}
+  body.pn-off .pn-rail{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(max-width:860px){.pn-toggle,.pn-open{display:none!important}}
+/* Wake (lm-book): Inhalt rückt in Spalte 1 */
+@media(min-width:1181px){
+  body.pn-off .lm-shell{grid-template-columns:minmax(0,1fr)!important}
+  body.pn-off .lm-shell>.lm-main>:not(.lm-crumb):not(.lm-tabs):not(.lm-pills){grid-column:1!important}
+}

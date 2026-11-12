@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="rw.css">
 <link rel="stylesheet" href="mist.css">
+<link rel="stylesheet" href="../shared/panels.css">
 </head>
 <body>
 <div class="fog" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -73,6 +74,8 @@
 <script src="js/rw.js"></script>
 <script src="js/search.js"></script>
 <script src="js/main.js"></script>
+<script src="../shared/panels.js"></script>
+<script>PanelUI.init({nav:".onav",rail:".orail"});</script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"rw", books:[{key:"rw", name:"Grundregelwerk (DE)", off:2},{key:"cm", name:"Shadows & Showdowns (EN)"}], openSettings:function(){ openMenu(true); } }); BV.setDefault(CM_BOOK[route().sys]);</script>
 <script src="../toolmenu.js"></script>
 </body>

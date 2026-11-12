@@ -424,6 +424,8 @@ const FILES = [
   "shared/layout.css",
   "shared/notes.js", "shared/tabpick.js",
   "shared/ux.js",
+  "shared/panels.js",
+  "shared/panels.css",
   "shared/zeigen.js",
   "js/ui/mode2.js",
   "css/mode2.css",

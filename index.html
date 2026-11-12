@@ -43,6 +43,7 @@
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="shared/cards.css">
 <link rel="stylesheet" href="shared/notes.css">
+<link rel="stylesheet" href="shared/panels.css">
 <link rel="stylesheet" href="css/mode2.css">
 <link rel="stylesheet" href="bookviewer/bookviewer.css">
 <link rel="stylesheet" href="css/parchment.css">
@@ -264,6 +265,8 @@ if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
 <script src="toolmenu.js"></script>
 <script>window.UX_CFG={noKeys:true,cols:[{box:"body.wk-tabs .stage-wrap",side:".section:has(> .npc-grid),.section:has(> .section-label .collapse-all-btn)"}]};</script>
 <script src="shared/ux.js"></script>
+<script src="shared/panels.js"></script>
+<script>PanelUI.init({nav:".lm-toc",rail:".lm-shell"});</script>
 <script src="shared/zeigen.js"></script>
 </body>
 </html>

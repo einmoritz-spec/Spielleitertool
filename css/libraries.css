@@ -199,7 +199,7 @@
 .jn-gc li{font-size:13px; color:var(--text-lo); line-height:1.6; margin-bottom:3px;}
 
 /* ---------- Charaktererstellung-Fenster ---------- */
-.creator-modal{position:fixed; inset:0; z-index:120; display:flex; flex-direction:column; background:#14180f;}
+.creator-modal{position:fixed; inset:0; z-index:120; display:flex; flex-direction:column; background:#efe5cf;}
 .cm-bar{display:flex; align-items:center; gap:10px; padding:8px 12px; padding-top:calc(8px + env(safe-area-inset-top));
   background:var(--panel-raised); border-bottom:1px solid var(--panel-line); flex:none;}
 .cm-title{white-space:nowrap; font-family:var(--serif-display); font-size:16px; color:var(--gold-bright);}
@@ -212,6 +212,6 @@
 .cm-link-text{font-size:13px; line-height:1.5; color:var(--text-lo); margin-bottom:10px;}
 .cm-link-row{display:flex; gap:8px; flex-wrap:wrap;}
 .cm-link-row input{flex:1 1 240px; min-width:0; padding:9px 12px; border-radius:9px; background:var(--void); color:var(--text-hi); border:1px solid var(--panel-line); font-size:13px; font-family:var(--sans);}
-.cm-frame{flex:1; width:100%; border:0; background:#14180f; min-height:0;}
+.cm-frame{flex:1; width:100%; border:0; background:#efe5cf; min-height:0;}
 .cm-toast{position:absolute; left:50%; bottom:calc(84px + env(safe-area-inset-bottom)); transform:translateX(-50%); background:var(--moss, #4a6b3f); color:#fff; padding:10px 16px; border-radius:10px; font-size:14px; box-shadow:0 8px 24px rgba(0,0,0,.5); z-index:5; max-width:90vw; text-align:center;}
 .cm-toast[hidden]{display:none;}

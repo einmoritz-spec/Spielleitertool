@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#14180f">
+<meta name="theme-color" content="#efe5cf">
 <meta name="robots" content="noindex,nofollow">
 <title>Charaktererstellung — Legend in the Mist</title>
 <link rel="manifest" href="../manifest.webmanifest">
@@ -13,12 +13,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
 <link rel="stylesheet" href="creator.css">
+<script>if(window.top!==window) document.documentElement.classList.add("embed");</script>
 </head>
 <body>
 
 <header class="app-header">
   <div class="app-header-text">
-    <div class="app-subtitle">Legend in the Mist</div>
     <h1 class="app-title">Charaktererstellung</h1>
   </div>
   <button class="reset-corner-btn" onclick="resetSurvey()" aria-label="Charaktererstellung zurücksetzen" title="Charaktererstellung zurücksetzen">↺</button>
@@ -27,10 +27,10 @@
 <main id="mainView"></main>
 
 <nav class="bottom-nav">
-  <button class="bottom-nav-btn" id="navQuestions" onclick="setMainTab('questions')"><span class="ic">📜</span>Fragen</button>
-  <button class="bottom-nav-btn" id="navKits" onclick="setMainTab('kits')"><span class="ic">🃏</span>Theme-Kits</button>
-  <button class="bottom-nav-btn" id="navTropes" onclick="setMainTab('tropes')"><span class="ic">🎭</span>Tropes</button>
-  <button class="bottom-nav-btn" id="navChars" onclick="setMainTab('chars')"><span class="ic">📋</span>Charaktere</button>
+  <button class="bottom-nav-btn" id="navQuestions" onclick="setMainTab('questions')"><span class="ic"></span>Fragen</button>
+  <button class="bottom-nav-btn" id="navKits" onclick="setMainTab('kits')"><span class="ic"></span>Theme-Kits</button>
+  <button class="bottom-nav-btn" id="navTropes" onclick="setMainTab('tropes')"><span class="ic"></span>Tropes</button>
+  <button class="bottom-nav-btn" id="navChars" onclick="setMainTab('chars')"><span class="ic"></span>Charaktere</button>
 </nav>
 
 <div id="wizardModal" class="modal-backdrop" onclick="if(event.target===this) closeWizard()">
@@ -65,9 +65,9 @@
     <div id="sheetBody"></div>
     <div class="sheet-actions">
       <button class="btn-secondary" onclick="closeSheetModal()">Schließen</button>
-      <button class="btn-secondary" id="sheetSaveBtn">💾 Speichern</button>
-      <button class="btn-secondary" id="sheetShareBtn">📤 An Spielleitung senden</button>
-      <button class="btn-primary" id="sheetPrintBtn">🖨️ Drucken / Als PDF</button>
+      <button class="btn-secondary" id="sheetSaveBtn">Speichern</button>
+      <button class="btn-secondary" id="sheetShareBtn">An Spielleitung senden</button>
+      <button class="btn-primary" id="sheetPrintBtn">Drucken / Als PDF</button>
     </div>
   </div>
 </div>

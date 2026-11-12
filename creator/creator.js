@@ -940,7 +940,7 @@ function exampleCharRowHtml(c, i){
         <div class="char-row-sub">${escHtml(c.tropeTitle||"")}</div>
       </div>
       <div class="char-row-actions">
-        <button class="icon-btn" onclick="event.stopPropagation(); openSheetModal(${i}, true)">🖨️</button>
+        <button class="icon-btn" onclick="event.stopPropagation(); openSheetModal(${i}, true)">Bogen</button>
       </div>
     </div>`;
 }
@@ -952,14 +952,14 @@ function renderCharsView(){
         <div class="char-row-sub">${escHtml(c.tropeTitle||"")}</div>
       </div>
       <div class="char-row-actions">
-        <button class="icon-btn" onclick="event.stopPropagation(); openSheetModal(${i})">🖨️</button>
+        <button class="icon-btn" onclick="event.stopPropagation(); openSheetModal(${i})">Bogen</button>
         <button class="icon-btn danger" onclick="event.stopPropagation(); deleteChar(${i})" aria-label="Charakter löschen" title="Charakter löschen">✕</button>
       </div>
     </div>`).join("");
   const ownSection = CHARACTERS.length
     ? `<div class="char-list">${ownRows}</div>`
     : `<div class="empty-state">
-        <div class="big">📋</div>
+        
         Noch keine eigenen Charaktere erstellt.<br>
         Wähle im Tropes-Reiter eine Trope und tippe auf<br>„Charakter aus dieser Trope erstellen“.
       </div>`;
@@ -1095,7 +1095,7 @@ function renderWizardBody(){
       <input type="text" id="wNameInput" placeholder="Name des Charakters" value="${escHtml(state.wName)}" oninput="wSetName(this.value)">
     </div>
     <div class="w-actions">
-      <button class="btn-primary" id="wSubmitBtn" ${canSubmit?"":"disabled"} onclick="wSubmit()">📋 Charakterbogen erstellen &amp; drucken</button>
+      <button class="btn-primary" id="wSubmitBtn" ${canSubmit?"":"disabled"} onclick="wSubmit()">Charakterbogen erstellen &amp; drucken</button>
     </div>`;
 }
 function wSelectChoice(i){

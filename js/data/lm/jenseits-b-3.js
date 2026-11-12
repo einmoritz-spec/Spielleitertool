@@ -81,7 +81,7 @@ lmAdd("jenseits-b", [
 "### Typische Consequences",
 "Magische Aktionen als Thaumaturge tragen keine inhärenten Consequences. Wie alle Aktionen können sie dennoch verschiedene Arten von Consequences nach sich ziehen, etwa einen Gelegenheitsangriff oder unerwünschte Nebenwirkungen (CBII 36). Hier einige typische Consequences der Thaumaturgy:",
 "- Während du dich konzentrierst, verhängt die Challenge eine ihrer Consequences.",
-"- Du verlierst die Kontrolle über dein Spryd und betrifft unerwünschte Personen oder Gegenstände (Ill Tidings).",
+"- Du verlierst die Kontrolle über dein Spryd und betriffst unerwünschte Personen oder Gegenstände (Ill Tidings).",
 "- Deine Kontrolle über dein Spryd ist instabil und führt zu seltsamen Nebenwirkungen (gib einem Hero oder Verbündeten einen negativen Tag).",
 "- Deine Magie funktioniert, aber nicht ganz (Yes, but …).",
 "- Dein Einsatz von Thaumaturgy verrät dich als Thaumaturge (Exposure).",

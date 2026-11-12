@@ -199,3 +199,10 @@ h1,h2,h3{font-family:var(--serif-display)}
 .lm-sel{background:var(--panel)}
 input[type=search],input[type=text],input:not([type]),select,textarea{font-family:Labrada,serif;color:var(--text-hi);background:var(--panel);border:1px solid var(--panel-line);border-radius:6px;padding:8px 12px}
 input::placeholder{color:var(--text-faint)}
+
+/* Überschriften/Labels im Original-Rot statt Moosgrün */
+.vignette .v-name,.gloss-modal .gm-body h4,.pf-theme-cat,.tip strong,.lore-status.found,.overview-hero .eyebrow{color:var(--maroon)}
+.vignette .v-name{font-family:Cinzel,serif}
+.gloss-modal .gm-body h4{font-family:Cinzel,serif}
+.gloss.status-gloss{background:#f1d36b;color:#3b2a10;border-bottom:none;border-radius:2px;padding:0 .28em;font-weight:600;white-space:nowrap}
+.gloss:not(.status-gloss){color:var(--maroon);border-bottom-color:rgba(142,42,42,.5)}

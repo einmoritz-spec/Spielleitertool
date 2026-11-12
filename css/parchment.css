@@ -168,3 +168,5 @@ h1,h2,h3{font-family:var(--serif-display)}
 .ch-secrets[open]{display:block!important}
 .ch-sec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px 14px;align-items:start}
 @media(max-width:640px){.ch-sec-grid{grid-template-columns:1fr}}
+.ch-sec-grid{grid-template-columns:1fr!important;gap:8px}
+.ch-secrets .secret-block,.ch-secrets .special-block{padding:10px 16px}

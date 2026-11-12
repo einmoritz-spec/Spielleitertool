@@ -46,7 +46,6 @@
 .lm-body{display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px;align-items:start}
 .lm-toc{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto;display:flex;flex-direction:column;gap:2px;padding-right:6px;border-right:1px solid var(--panel-line)}
 .lm-toc a{cursor:pointer;color:var(--mist);font-size:13px;line-height:1.35;padding:5px 8px;border-radius:6px}.lm-toc a:hover{background:rgba(201,162,75,.12);color:var(--gold-bright)}
-.lm-flow{column-count:2;column-gap:44px;column-rule:1px solid var(--panel-line-soft)}
 .lm-a{margin:0 0 6px;padding-top:14px}.lm-a+.lm-a{border-top:1px solid var(--panel-line-soft);margin-top:10px}
 .lm-a h3{margin:0 0 8px;font:600 19px var(--serif,Georgia,serif);letter-spacing:.05em;text-transform:uppercase;color:var(--gold-bright);break-after:avoid;scroll-margin-top:12px}
 .lm-a h3 .lm-pg{font-size:12px;letter-spacing:0;text-transform:none;margin-left:8px}
@@ -58,4 +57,17 @@
 .lm-sel{display:none;margin-left:auto;background:rgba(0,0,0,.25);border:1px solid var(--panel-line);border-radius:8px;color:var(--parchment);padding:6px 8px;font:inherit;max-width:60%}
 .lm-pg{cursor:pointer}
 @media(max-width:1180px){.lm-body{grid-template-columns:minmax(0,1fr)}.lm-toc{display:none}.lm-sel{display:block}}
-@media(max-width:900px){.lm-flow{column-count:1;column-rule:0}}
+
+/* Zeitungs-Layout: je Abschnitt 2 ausbalancierte Spalten, breite Blöcke über volle Breite */
+.lm-a p{margin:0 0 .85em;line-height:1.6}
+.lm-cols{column-count:2;column-gap:40px;column-rule:1px solid var(--panel-line-soft);column-fill:balance;margin:0 0 10px}
+.lm-cols>:first-child{margin-top:0}
+.lm-cols.lm-one{column-count:1;column-rule:0;max-width:82ch}
+.lm-wide{margin:2px 0 14px}.lm-wide>:last-child{margin-bottom:0}
+.lm-wide .lm-h4:first-child,.lm-wide .lm-h5:first-child{margin-top:6px}
+.lm-bxw .lm-bxb{column-count:2;column-gap:32px;column-fill:balance}
+.lm-kv{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))!important}
+@media(max-width:900px){.lm-cols,.lm-bxw .lm-bxb{column-count:1;column-rule:0}}
+.lm-toc{top:76px;max-height:calc(100vh - 90px)}
+.lm-a h3{scroll-margin-top:80px}
+@media(max-width:700px){.lm-sh{flex-wrap:wrap;gap:6px 10px}.lm-sh h2{font-size:19px}.lm-sel{flex-basis:100%;max-width:none;margin-left:0}.lm-sec{padding:12px}}

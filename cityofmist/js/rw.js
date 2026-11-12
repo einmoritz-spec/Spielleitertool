@@ -65,7 +65,7 @@ function rwStart(){
     var num=/^\d/.test(k.t)?k.t.charAt(0):"", t=k.t.replace(/^\d\.\s*/,"");
     return kapCard(num,t,k.d,k.p,"gr(\'"+k.tab+"\')",rows);
   }).join("");
-  return '<section class="blk"><h2>Spieler:innen-Handbuch</h2><div class="kcs six">'+h+'</div></section>';
+  return '<section class="blk"><h2>Spieler:innen-Handbuch <button class="chip bookbtn" onclick="BV.open(\'rw\',1)">Buch öffnen</button></h2><div class="kcs six">'+h+'</div></section>';
 }
 function rwFlat(){ var o=[]; CM_RW_NAV.tabs.forEach(function(t){ (CM_RW_NAV.secs[t.id]||[]).forEach(function(s){o.push({tab:t.id,s:s});}); }); (CM_RW_NAV.extra||[]).forEach(function(t){ (CM_RW_NAV.secs[t.id]||[]).forEach(function(s){o.push({tab:t.id,s:s});}); }); return o; }
 function rwPrevNext(tab,id){

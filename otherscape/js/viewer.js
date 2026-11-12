@@ -26,7 +26,7 @@ let BV = { book:null, page:1, n:0, zoom:false };
 async function openBook(book, page){
   if(!bvHist){ try{ history.pushState({bv:1}, "", location.href); bvHist = true; }catch(e){} }
   const doc = await getDoc(book);
-  if(!doc){ alert("Das PDF „"+BOOKS[book].name+"“ ist noch nicht geladen. Du wählst es einmal unter ⚙ Einstellungen › Bücher aus; es bleibt nur in diesem Browser."); if(bvHist){ bvHist = false; try{ history.back(); }catch(e){} } openSettings(); return; }
+  if(!doc){ if(bvHist){ bvHist = false; try{ history.back(); }catch(e){} } askBookUpload(book, page); return; }
   BV = { book, page: Math.max(1,Math.min(doc.numPages, parseInt(page)||1)), n: doc.numPages, zoom:false };
   document.getElementById("bookViewer").hidden = false; document.body.classList.add("menu-open");
   document.getElementById("bvTitle").textContent = BOOKS[book].name;
@@ -51,3 +51,13 @@ async function bvShow(){
   if(tok===bvToken) stage.scrollTop = 0;
 }
 document.addEventListener("keydown", e=>{ const v = document.getElementById("bookViewer"); if(!v||v.hidden) return; if(e.key==="ArrowRight") bvStep(1); else if(e.key==="ArrowLeft") bvStep(-1); else if(e.key==="Escape") closeBook(); });
+
+function askBookUpload(book, page){
+  let o = document.getElementById("osAsk"); if(o) o.remove();
+  o = document.createElement("div"); o.id = "osAsk";
+  o.style.cssText = "position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:16px";
+  o.innerHTML = `<div style="max-width:420px;background:var(--panel,#15161c);border:1px solid var(--accent,#e0458b);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;font:15px/1.5 system-ui,sans-serif;color:var(--text,#eee)"><b style="font-size:17px">${BOOKS[book].name}</b><p style="margin:0">Dieses Buch ist noch nicht hinterlegt. Wähle das PDF einmal aus – es bleibt nur in diesem Browser, danach öffnet es sich per Knopfdruck.</p><label class="btn" style="text-align:center;cursor:pointer">PDF auswählen<input type="file" accept="application/pdf" hidden></label><button class="btn" data-x>Abbrechen</button></div>`;
+  document.body.appendChild(o);
+  o.addEventListener("click", e=>{ if(e.target===o || e.target.hasAttribute("data-x")) o.remove(); });
+  o.querySelector("input").onchange = async function(){ const f = this.files[0]; if(!f) return; await idbPut(BOOKS[book].key, f); delete DOCS[book]; o.remove(); if(typeof refreshBookStatus==="function") refreshBookStatus(); openBook(book, page); };
+}

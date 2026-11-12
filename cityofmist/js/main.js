@@ -5,8 +5,8 @@ function hubLinks(arr){ return '<nav class="hl">'+arr.map(function(x){return '<b
 function hubCard(cls,t,d,main,links){ return '<div class="hc'+cls+'"><button class="hh" onclick="'+main+'"><b>'+t+'</b><small>'+d+'</small></button>'+hubLinks(links)+'</div>'; }
 function pageHub(){
   return '<section class="blk"><h2>Regelwerke</h2><div class="hubgrid">'+
-   hubCard("","Grundregelwerk","Spieler:innen-Handbuch · S. 2–307","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"]])+
-   hubCard("","Shadows &amp; Showdowns","Erweiterung · Spieler- und SL-Optionen","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"]])+
+   hubCard("","Grundregelwerk","Spieler:innen-Handbuch · S. 2–307","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"],["Buch (PDF)","BV.open(\'rw\',1)"]])+
+   hubCard("","Shadows &amp; Showdowns","Erweiterung · Spieler- und SL-Optionen","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"],["Buch (PDF)","BV.open(\'cm\',1)"]])+
    '</div></section>'+
    '<section class="blk"><h2>Am Spieltisch</h2><div class="hubgrid">'+
    hubCard(" alt","Kurz nachschlagen","Die meistgenutzten Regeln","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]])+
@@ -19,7 +19,7 @@ function pageSSStart(){
   var N=CM_NAV, sp=N.spieler.map(function(s){return [s.t,"gs(\'spieler/"+s.id+"\')",s.p];});
   var sl=function(id){var s=N.sl.filter(function(x){return x.id===id;})[0]; var cats=id==="orte"?CM_ORTE_CATS:id==="avatare"?CM_AV_CATS:CM_GK_CATS; return cats.map(function(c){return [c.t,"gs(\'sl/"+id+"/"+c.id+"\')",c.p];});};
   var K=N.kapitel;
-  return '<section class="blk"><h2>Spieler</h2><div class="kcs">'+kapCard("1",K[0].d,"If Dreams Could Kill",K[0].p,"gs(\'spieler\')",sp)+'</div></section>'+
+  return '<section class="blk"><h2>Spieler <button class="chip bookbtn" onclick="BV.open(\'cm\',1)">Buch öffnen</button></h2><div class="kcs">'+kapCard("1",K[0].d,"If Dreams Could Kill",K[0].p,"gs(\'spieler\')",sp)+'</div></section>'+
    '<section class="blk"><h2>Spielleitung</h2><div class="kcs">'+
    kapCard("2","Orte & NSCs","Overlooked Attractions",K[1].p,"gs(\'sl/orte\')",sl("orte"))+
    kapCard("3","Avatare","Don’t Believe the Truth",K[2].p,"gs(\'sl/avatare\')",sl("avatare"))+

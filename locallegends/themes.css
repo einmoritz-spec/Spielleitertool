@@ -1,0 +1,92 @@
+/* Local Legends – drei Designvarianten (?theme=a|b|c, gespeichert), Standard b
+   a = Neon-Nacht (alles dunkelviolett), b = Akte auf Nacht (violett + Papierkarten), c = Comic-Heft (hell, violette Akzente) */
+
+/* ---- Startseite: passt auf einen Laptop-Bildschirm ---- */
+.ov-stage{padding:14px 18px 14px}
+.ov-logo{height:clamp(84px,17vh,200px);margin-bottom:8px}
+.ov-stage .city-map img{max-height:calc(100vh - 60px - clamp(84px,17vh,200px) - 80px);width:auto;max-width:100%;margin:0 auto}
+.ov-stage .city-map-box{text-align:center}.ov-stage .city-scroll{overflow:visible}
+.ov-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.shell:has(.ov-stage){max-width:1500px}
+
+/* ---- gemeinsame violette Basis (a, b, c) ---- */
+html[data-ll] .topbar{background:linear-gradient(#2a1148,#1a0a2e)!important;border-bottom:3px solid #ff3fa4!important;box-shadow:0 2px 14px rgba(255,63,164,.25)}
+html[data-ll] .topbar .brand,html[data-ll] .topbar .brand *{color:#ff7cc4!important;font-family:var(--cond);text-shadow:0 0 12px rgba(255,63,164,.5)!important}
+html[data-ll] .tb-btn,html[data-ll] .tb-burger{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.2)!important;color:#f6e9ff!important}
+html[data-ll] .tb-burger svg,html[data-ll] .tb-burger svg *{stroke:#f6e9ff!important}
+html[data-ll] .topbar .tm-caret{color:#f6e9ff!important}
+html[data-ll] .pager{background:linear-gradient(#2a1148,#1a0a2e)!important;border-top:3px solid #ff3fa4!important}
+html[data-ll] .pager,html[data-ll] .pager *{color:#f6e9ff!important}
+html[data-ll] .ov-stage{background:radial-gradient(900px 340px at 50% -10%,rgba(255,63,164,.45),transparent 70%),radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.4px) 0 0/7px 7px,linear-gradient(#2d1250,#150826);border:2px solid #0d0418;border-bottom:5px solid #ff3fa4}
+
+/* ---- a / b: dunkle Seite ---- */
+html[data-ll=a] body,html[data-ll=b] body{background:radial-gradient(1100px 600px at 50% -5%,#3a1b66 0%,transparent 70%),#150826!important;color:#f1e6ff}
+html[data-ll=a] .crumb,html[data-ll=a] .crumb *,html[data-ll=b] .crumb,html[data-ll=b] .crumb *{color:#b9a3dd!important}
+html[data-ll=a] .case-tabbar,html[data-ll=b] .case-tabbar{border-bottom-color:#ff3fa4!important}
+html[data-ll=a] .case-tab,html[data-ll=b] .case-tab{background:#2a1148!important;color:#cdb6ee!important;border-color:#4a2a7a!important}
+html[data-ll=a] .case-tab.active,html[data-ll=b] .case-tab.active{background:linear-gradient(#ff5db3,#e5007d)!important;color:#fff!important;border-color:#ff3fa4!important}
+
+/* b: Papierkarten auf dunklem Schreibtisch, Tesa nur auf Papier-Hintergrund → hier weg */
+html[data-ll=b] .ov-card::before,html[data-ll=a] .ov-card::before{display:none}
+html[data-ll=b] .ov-card{transform:none;background:#fbf6e6;border:1px solid #c9b98f;box-shadow:0 8px 22px rgba(0,0,0,.55);border-top:5px solid #e5007d}
+html[data-ll=b] .ov-card:hover{transform:translateY(-3px)}
+html[data-ll=b] .ov-num{background:#e5007d}
+html[data-ll=b] .ov-name{color:#4a1b7a}
+html[data-ll=b]:not([data-view=overview]) #app>*:not(.crumb):not(.case-tabbar){position:relative}
+html[data-ll=b]:not([data-view=overview]) .case-tabpanel,html[data-ll=b]:not([data-view=overview]) .case-grid,html[data-ll=b]:not([data-view=overview]) #app>.hero{background:#f6efdc;color:#2a251d;border-radius:0 0 8px 8px;padding:20px 24px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+
+/* a: komplett dunkel, Karten leuchten */
+html[data-ll=a] .ov-card{transform:none;background:#241040;border:1px solid #4a2a7a;border-top:4px solid #ff3fa4;color:#f1e6ff;box-shadow:0 0 0 1px rgba(255,63,164,.15),0 8px 22px rgba(0,0,0,.5)}
+html[data-ll=a] .ov-card:hover{transform:translateY(-3px);border-color:#ff3fa4;box-shadow:0 0 18px rgba(255,63,164,.45)}
+html[data-ll=a] .ov-photo{border-color:#4a2a7a;background:#150826}
+html[data-ll=a] .ov-num{background:#ff3fa4;color:#150826}
+html[data-ll=a] .ov-name{color:#ffe36b}
+html[data-ll=a] .ov-sub{color:#cdb6ee}
+html[data-ll=a]:not([data-view=overview]) #app{color:#f1e6ff}
+html[data-ll=a]:not([data-view=overview]) .case-tabpanel,html[data-ll=a]:not([data-view=overview]) .case-grid{--text-hi:#f6e9ff;--text-lo:#d9c8f2;--text-faint:#b9a3dd;--panel:#241040;--panel-raised:#2d1654;--panel-line:#4a2a7a;color:#f1e6ff}
+html[data-ll=a] .blk-p,html[data-ll=a] p{color:#f1e6ff}
+html[data-ll=a] h1,html[data-ll=a] h2,html[data-ll=a] h3{color:#ffe36b!important}
+
+/* c: helles Comic-Heft mit violetten Akzenten, Tesa bleibt */
+html[data-ll=c] .ov-card{border-top:5px solid #6a2bb8}
+html[data-ll=c] .ov-num{background:#6a2bb8}
+html[data-ll=c] .ov-name{color:#4a1b7a}
+html[data-ll=c] .ov-card::before{background:rgba(255,63,164,.55)}
+html[data-ll=c] .case-tab.active{background:linear-gradient(#a77bf0,#6a2bb8)!important;color:#fff!important;border-color:#6a2bb8!important}
+html[data-ll=c] .case-tabbar{border-bottom-color:#6a2bb8!important}
+
+/* ---- Bezirks-Übersicht: Karte links, Vorlesetext rechts, Abschnitte als Raster ---- */
+@media(min-width:1000px){
+  .shell.wide-case:has(>.map-panel){max-width:1500px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start}
+  .shell.wide-case:has(>.map-panel)>*{grid-column:1/-1;min-width:0}
+  .shell.wide-case:has(>.map-panel)>.map-panel{grid-column:1;grid-row:3}
+  .shell.wide-case:has(>.map-panel)>.readaloud{grid-column:2;grid-row:3;margin:0}
+  .shell.wide-case:has(>.map-panel)>.card{grid-row:4}
+  .shell.wide-case:has(>.map-panel)>.section.collapsed{grid-column:auto}
+  .shell.wide-case:has(>.map-panel)>.section:not(.collapsed){grid-column:1/-1}
+  .shell.wide-case:has(>.map-panel)>.pager,.shell.wide-case:has(>.map-panel)>.footer-note{grid-column:1/-1}
+  .map-panel .map-img{max-height:calc(100vh - 200px);width:auto;max-width:100%;margin:0 auto;display:block}
+}
+
+/* Kopfleiste: Original-Schriftzug „Local Legends" statt Text */
+.topbar .brand{background:url(img/logo-head.webp) no-repeat left center/contain!important;width:132px;height:46px;font-size:0!important;color:transparent!important;text-shadow:none!important;padding:0!important;margin:4px 4px 4px 12px;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5))}
+.topbar .brand *{font-size:0!important}
+
+/* Karten-Rahmen aufgeräumt: nur das Bild, schlanke Kante */
+.map-panel{background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+.map-panel .map-img{border-radius:6px;box-shadow:0 0 0 2px rgba(255,63,164,.55),0 8px 22px rgba(0,0,0,.45)}
+.map-panel .map-toggle{top:10px;left:10px}
+
+/* b: Texte auf Papierbögen */
+html[data-ll=b]:not([data-view=overview]) .shell>.card,html[data-ll=b]:not([data-view=overview]) .shell>.section{background:#f6efdc;color:#2a251d;border-radius:6px;padding:18px 22px;box-shadow:0 8px 22px rgba(0,0,0,.45);margin-bottom:14px}
+html[data-ll=b]:not([data-view=overview]) .shell>.section .section-head h2{color:#8a3a1c}
+html[data-ll=b]:not([data-view=overview]) .shell>.card .long-text{color:#2a251d}
+/* a: Texte hell auf dunkel */
+html[data-ll=a]:not([data-view=overview]) .shell>.card,html[data-ll=a]:not([data-view=overview]) .shell>.section{color:#f1e6ff}
+html[data-ll=a]:not([data-view=overview]) .shell>.card .long-text{color:#eadcff}
+html[data-ll=a]:not([data-view=overview]) .section-head h2{color:#ffe36b}
+.topbar .brand{width:150px;height:46px;margin:0 4px 0 10px}
+.crumb{display:none!important}
+.shell>.card .long-text{max-width:1150px}
+.case-tabpanel .map-panel{text-align:center;margin-bottom:14px}
+.case-tabpanel .map-panel .map-img{max-height:44vh;width:auto;max-width:100%;margin:0 auto;display:block}

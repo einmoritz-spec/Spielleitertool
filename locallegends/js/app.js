@@ -43,7 +43,8 @@ function goCase(id){ state.view="case"; state.districtId=id; state.caseTab="over
    ============================================================ */
 function render(){
   const app = document.getElementById("app");
-  app.classList.toggle("wide-case", state.view==="case");
+  app.classList.toggle("wide-case", state.view==="case"||state.view==="district");
+  document.documentElement.dataset.view=state.view;
   if(state.view==="prep") state.view="overview";
   if(state.view==="overview") app.innerHTML = renderOverview();
   else if(state.view==="district") app.innerHTML = renderDistrictView(state.districtId);

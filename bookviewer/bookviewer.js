@@ -3,7 +3,7 @@
 var BV = (function(){
   let cfg = { books:[], defaultBook:null, root:null }, PDFJS = null; const DOCS = {};
   const offKey = k => "bookviewer_offset_"+k;
-  const getOff = k => { try{ return parseInt(localStorage.getItem(offKey(k)))||0; }catch(e){ return 0; } };
+  const getOff = k => { try{ const v = localStorage.getItem(offKey(k)); if(v!==null) return parseInt(v)||0; }catch(e){} const b = cfg.books.find(x=>x.key===k); return (b&&b.off)||0; };
   function idb(){ return new Promise((res,rej)=>{ const r = indexedDB.open("bookviewer_books",1); r.onupgradeneeded = ()=>r.result.createObjectStore("b"); r.onsuccess = ()=>res(r.result); r.onerror = ()=>rej(r.error); }); }
   async function dbGet(k){ const db = await idb(); return new Promise(res=>{ const q = db.transaction("b").objectStore("b").get(k); q.onsuccess = ()=>res(q.result||null); q.onerror = ()=>res(null); }); }
   async function dbPut(k,v){ const db = await idb(); return new Promise(res=>{ const t = db.transaction("b","readwrite"); t.objectStore("b").put(v,k); t.oncomplete = ()=>res(true); t.onerror = ()=>res(false); }); }
@@ -90,5 +90,6 @@ var BV = (function(){
     new MutationObserver(()=>{ if(!pend) pend = setTimeout(run, 200); }).observe(document.body, { childList:true, subtree:true, characterData:true });
     run();
   }
-  return { init, open, close, step, go, zoom, load, remove, refresh, setOffset, settingsHTML, linkify };
+  function setDefault(k){ if(k) cfg.defaultBook = k; }
+  return { setDefault, init, open, close, step, go, zoom, load, remove, refresh, setOffset, settingsHTML, linkify };
 })();

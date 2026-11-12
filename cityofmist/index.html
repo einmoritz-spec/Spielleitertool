@@ -13,6 +13,7 @@
 <meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="rw.css">
 </head>
 <body>
 <div class="fog" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -25,7 +26,10 @@
 <div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
 <div class="mm-panel" id="mmP"></div>
 <script src="js/tool-switch.js"></script>
+<script src="js/core.js"></script>
 <script src="js/toc.js"></script>
+<script src="js/rw-nav.js"></script>
+<script src="js/rw-files.js"></script>
 <script src="js/data/orte/unterkunft.js"></script>
 <script src="js/data/orte/kontakte.js"></script>
 <script src="js/data/orte/information.js"></script>
@@ -63,8 +67,10 @@
 <script src="js/data/spieler/relikte2.js"></script>
 <script src="js/data/spieler/vertraute.js"></script>
 <script src="../bookviewer/bookviewer.js"></script>
-<script src="js/app.js"></script>
-<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"cm", books:[{key:"cm", name:"Shadows & Showdowns (EN)"}], openSettings:function(){ openMenu(true); } });</script>
+<script src="js/ss.js"></script>
+<script src="js/rw.js"></script>
+<script src="js/main.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"rw", books:[{key:"rw", name:"Grundregelwerk (DE)", off:2},{key:"cm", name:"Shadows & Showdowns (EN)"}], openSettings:function(){ openMenu(true); } }); BV.setDefault(CM_BOOK[route().sys]);</script>
 <script src="../toolmenu.js"></script>
 </body>
 </html>

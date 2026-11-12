@@ -1,3 +1,10 @@
+# City of Mist (Übersetting) – Stand
+
+## Struktur
+- Hash: `#start` (Hub) · `#ss/…` Shadows & Showdowns · `#rw/<tab>[/<abschnitt>]` Grundregelwerk (Tabs Start, Welt, Charakter, Regeln, Entwicklung; Dokumente und Spielbeispiel über das Burger-Menü). Alte Hashes (`#spieler`, `#sl/…`) werden umgelenkt.
+- Code: `js/core.js` (Helfer, Routing), `js/ss.js` (S&S), `js/rw-nav.js` + `js/rw.js` (Regelwerk), `js/main.js` (Hub, Seitenaufbau, Menü). Stil `style.css`, Regelwerk `rw.css`.
+- Grundregelwerk (Quelle: Spieler:innen-Handbuch DE, Buchseite = PDF-Seite − 2): Daten je Abschnitt in `js/data/regelwerk/`, Schema `tools/regelwerk/SCHEMA.md`, Rohtext-Extraktion `tools/regelwerk/extract.py`, Prüfung `flatten.js` + `coverage.py`. Nicht übernommen: Titel/Inhaltsverzeichnis, Unterstützer:innen-Liste (S. 308 ff.).
+
 # Shadows & Showdowns – Stand
 
 Quelle: *City of Mist – Shadows & Showdowns* (EN, 312 S., Buchseite = PDF-Seite). Privates Spielleiter-Nachschlagewerk, nur für Moritz.

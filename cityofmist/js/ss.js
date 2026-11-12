@@ -1,10 +1,4 @@
-/* City of Mist – Übersetting. Hash: #start | #spieler[/<abschnitt>] | #sl/<orte|avatare|gatekeeper>[/<kategorie>] */
-function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?!\*)/g,"$1<i>$2</i>"); }
-function pg(p){ return p ? '<span class="pg">S. '+p+'</span>' : ''; }
-function pips(n){ return n>0 ? '<span class="pips">'+'◆'.repeat(n)+'</span>' : ''; }
-function route(){ var h=(location.hash||"").slice(1).split("/"); return {tab:h[0]||"start",sub:h[1]||"",cat:h[2]||""}; }
-function go(path){ location.hash=path; }
+/* City of Mist – Shadows & Showdowns (Hash: #ss | #ss/spieler[/<abschnitt>] | #ss/sl/<orte|avatare|gatekeeper>[/<kategorie>]). Gemeinsame Helfer (esc, md, pg, route, go) in core.js */
 function dangerCard(d,fold){
   var head='<div class="dh"><b>'+esc(d.name)+'</b> '+pips(d.rating)+(fold&&d.limits?'<span class="dlim">'+esc(d.limits)+'</span>':'')+'</div>';
   return (fold?'<details class="dg fold"><summary>'+head+'</summary>':'<div class="dg">'+head)+(d.text?d.text.map(function(t){return '<p class="dtx">'+md(t)+'</p>';}).join(""):'')+(d.limits?'<div class="lim">'+esc(d.limits)+'</div>':'')+
@@ -22,14 +16,8 @@ function ortCard(o){
 }
 function stub(name,p){ return '<div class="stub"><span>'+esc(name)+'</span>'+pg(p)+'<em>nur Original</em></div>'; }
 function itemsList(items){ return '<div class="stubs">'+items.map(function(i){return stub(i[0],i[1]);}).join("")+'</div>'; }
-function pills(base,list,curId){ return '<nav class="pills">'+list.map(function(x){return '<button class="pill'+(x.id===curId?' on':'')+'" onclick="go(\''+base+'/'+x.id+'\')">'+esc(x.t)+'</button>';}).join("")+'</nav>'; }
+function pills(base,list,curId){ return '<nav class="pills">'+list.map(function(x){return '<button class="pill'+(x.id===curId?' on':'')+'" onclick="gs(\''+base+'/'+x.id+'\')">'+esc(x.t)+'</button>';}).join("")+'</nav>'; }
 function sectionHead(s){ return '<div class="sh"><h2>'+esc(s.t)+'</h2><span class="en">'+esc(s.en||"")+'</span>'+pg(s.p)+'</div>'; }
-function pageStart(){
-  var tiles=[["spieler","Spieler","Themenbücher, Charakterbau, Relikte, Vertraute"],["sl","Spielleitung","Orte & NSCs, Avatare, Gatekeeper"]].map(function(t){return '<button class="tile" onclick="go(\''+t[0]+'\')"><b>'+t[1]+'</b><small>'+t[2]+'</small></button>';}).join("")+
-   [["locallegends","Local Legends","Fall-Akte"],["paynetown","Nights of Paynetown","Kampagne"]].map(function(t){return '<button class="tile alt" onclick="switchTool(\''+t[0]+'\')"><b>'+t[1]+'</b><small>'+t[2]+'</small></button>';}).join("");
-  var kap=CM_NAV.kapitel.map(function(k){return '<button class="kap" onclick="go(\''+k.go+'\')"><b>'+esc(k.t)+'</b><small>'+esc(k.d)+'</small>'+pg(k.p)+'</button>';}).join("");
-  return '<div class="tiles">'+tiles+'</div><section class="blk"><h2>Shadows &amp; Showdowns</h2><div class="kaps">'+kap+'</div></section>';
-}
 function hero(n){ return '<img class="hero" src="img/h_'+n+'.webp" alt="">'; }
 function pageSpieler(r){
   var list=CM_NAV.spieler, s=list.filter(function(x){return x.id===r.sub;})[0]||list[0];
@@ -56,21 +44,8 @@ function pageSL(r){
   var cats = s.id==="orte"?CM_ORTE_CATS : s.id==="avatare"?CM_AV_CATS : s.id==="gatekeeper"?CM_GK_CATS : null;
   if(!cats) return h+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
   var cat=cats.filter(function(c){return c.id===r.cat;})[0]||cats[0];
-  var chips='<nav class="chips">'+cats.map(function(c){var n=(CM_ORTE[c.id]||[]).length;return '<button class="chip'+(c.id===cat.id?' on':'')+'" onclick="go(\'sl/'+s.id+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>';}).join("")+'</nav>';
+  var chips='<nav class="chips">'+cats.map(function(c){var n=(CM_ORTE[c.id]||[]).length;return '<button class="chip'+(c.id===cat.id?' on':'')+'" onclick="gs(\'sl/'+s.id+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>';}).join("")+'</nav>';
   var have=CM_ORTE[cat.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
   var body=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]):stub(e[0],e[1]); }).join("");
   return h+chips+orgHtml(cat.id)+'<section class="blk">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+body+'</div></section>';
 }
-function render(){
-  var r=route(), tabs='<nav class="tabs">'+CM_NAV.tabs.map(function(t){return '<button class="tab'+(t.id===r.tab?' on':'')+'" onclick="go(\''+t.id+'\')">'+t.t+'</button>';}).join("")+'</nav>';
-  var body = r.tab==="spieler"?pageSpieler(r): r.tab==="sl"?pageSL(r): pageStart();
-  document.getElementById("app").innerHTML=tabs+body; window.scrollTo(0,0);
-}
-function buildMenu(){
-  var p=document.getElementById("mmP");
-  p.innerHTML='<div id="bvSettingsHost"></div>'+(window.BV?'<button class="mi" onclick="openMenu(false);BV.open(\'cm\',1)"><b>Buch öffnen</b></button>':'');
-  if(window.BV){ document.getElementById("bvSettingsHost").innerHTML=BV.settingsHTML(); BV.refresh(); }
-}
-function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on",on); document.getElementById("mmP").classList.toggle("on",on); }
-window.addEventListener("hashchange",render);
-render();

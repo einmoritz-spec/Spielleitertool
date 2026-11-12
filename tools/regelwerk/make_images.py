@@ -29,6 +29,6 @@ for b, n in ((18, 'hero_welt'), (40, 'hero_charakter'), (162, 'hero_regeln'), (2
 for b, n in ((82,'adaption'),(86,'bastion'),(90,'erkenntnis'),(94,'manifestation'),(98,'mobilitaet'),(102,'relikt'),(106,'subversion'),
              (110,'besitztuemer'),(114,'mission'),(118,'persoenlichkeit'),(122,'praegende'),(126,'routine'),(130,'schluessel'),(134,'training'),
              (284,'fortbewegung'),(288,'operationsbasis'),(292,'verbuendete')):
-    crop(b, 'tb_' + n, (0, 0, W, H * (0.83 if b < 110 else 0.66 if b > 280 else 0.76)), width=1100)
+    crop(b, 'tb_' + n, (0, 0, W, H * (0.60 if b < 110 else 0.42 if b > 280 else 0.50)), width=1100)
 # Druckvorlagen
 for b in (298, 299, 300, 301): crop(b, 'doc_%d' % b, None, width=1100, dpi=150, q=80)

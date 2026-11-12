@@ -111,3 +111,19 @@ body{font-family:var(--read)}
 .sec .bd>img[src*="c_p4"]{max-width:620px;margin-left:auto;margin-right:auto}
 .bonus{white-space:normal;display:inline}.lst li{overflow-wrap:anywhere}
 .sec .bd>img[src*="dropcoffin"]{width:auto!important;max-width:100%;max-height:460px;object-fit:contain;margin:8px auto 14px;background:#d9cba3;padding:6px}
+
+/* Übersicht / Abenteuer-Start */
+.ovh{font:400 22px var(--disp);letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin:6px 0 12px}
+.ovg{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-bottom:22px}
+.oc{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-top:2px solid var(--pink);border-radius:8px;padding:6px 6px 8px}
+.oh{display:flex;justify-content:space-between;align-items:baseline;width:100%;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.12);color:#fff;cursor:pointer;padding:10px 10px 8px;margin-bottom:4px;text-align:left}
+.oh b{font:400 19px var(--disp);letter-spacing:.08em;text-transform:uppercase}.oh i,.oc li i{font:12px var(--typ);font-style:normal;color:#8fa0c4}.oh:hover b{color:var(--pink)}
+.oc ul{list-style:none;margin:0;padding:0}.oc li button{display:flex;justify-content:space-between;gap:10px;width:100%;background:none;border:0;border-radius:6px;color:#dfe6f7;cursor:pointer;padding:6px 10px;font:15px var(--read);text-align:left}.oc li button:hover{background:rgba(255,255,255,.07);color:var(--pink)}
+.go-adv{display:block;width:100%;background:var(--pink);color:#fff;border:0;border-radius:10px;padding:22px;cursor:pointer;box-shadow:0 0 30px rgba(255,45,146,.35);margin:6px 0 30px;text-align:center}
+.go-adv b{display:block;font:400 clamp(24px,4vw,36px) var(--disp);letter-spacing:.12em;text-transform:uppercase}.go-adv small{display:block;margin-top:4px;font:14px var(--typ);opacity:.85}.go-adv:hover{filter:brightness(1.1)}
+.crumb button{background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;padding:0;text-decoration:underline}
+.mi.adv b{color:var(--pink)}
+@media (max-width:760px){.ovg{grid-template-columns:1fr}}
+.oh i,.oc li i{white-space:nowrap;flex:none}.oc li button span{min-width:0}
+.locgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;align-items:start;margin-bottom:14px}.locgrid>details[open]{grid-column:1/-1}.locgrid>details{margin:0}
+.pg{white-space:nowrap}

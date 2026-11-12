@@ -1,11 +1,12 @@
 /* Eat the Reich – Renderer. Daten kommen aus js/data/*.js (globale ETR_*-Variablen). */
+/* Zwei Bereiche: Übersicht (Vorbereitung, nur über Karten/Burger erreichbar) und Abenteuer (Tab-Leiste: Karte, Sektoren, Gegner) */
 var ETR_TABS = [
- {id:"einstieg",t:"Start"},{id:"karte",t:"Karte"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"gegner",t:"Gegner"}];
-/* Nachschlage-Seiten: nur über das Burger-Menü erreichbar */
+ {id:"karte",t:"Karte"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"gegner",t:"Gegner"}];
 var ETR_MENU = [
- {id:"figuren",t:"Figuren"},{id:"regeln",t:"Regeln"},{id:"mission",t:"Mission"},{id:"leitung",t:"Spielleitung"},{id:"check",t:"Evil-Check"},{id:"anhang",t:"Anhang"}];
+ {id:"intro",t:"Einführung"},{id:"regeln",t:"Regeln"},{id:"figuren",t:"Figuren"},{id:"mission",t:"Mission"},{id:"leitung",t:"Spielleitung"},{id:"check",t:"Evil-Check"},{id:"anhang",t:"Anhang"}];
 var ETR_ALL = ETR_TABS.concat(ETR_MENU);
-var cur = (location.hash||"").slice(1) || "einstieg";
+function parseHash(){ var h=(location.hash||"").slice(1).split("/"); return {id:h[0]||"einstieg",sec:h[1]||""}; }
+var cur = parseHash().id;
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/==(.+?)==/g,'<span class="hi">$1</span>').replace(/\n/g,"<br>"); }
 function pgl(p){ return p ? '<span class="pg">S. '+p+'</span>' : ''; }
@@ -52,21 +53,40 @@ function enemy(g){
   if(g.blut) h+='<div class="rl"><b>Blutgeschmack:</b> '+md(g.blut)+'</div>';
   return h+'</div>';
 }
-function sector(k){ var d=window["ETR_"+k.toUpperCase()]; if(!d) return '<p>In Arbeit.</p>'; return (d.intro?secs([{id:"intro-"+k,titel:d.titel,p:d.p,b:d.intro}]):'')+(d.orte||[]).map(ort).join("")+(d.outro?secs(d.outro):''); }
+function sector(k){ var d=window["ETR_"+k.toUpperCase()]; if(!d) return '<p>In Arbeit.</p>'; return (d.intro?secs([{id:"intro-"+k,titel:d.titel,p:d.p,b:d.intro}]):'')+'<div class="locgrid">'+(d.orte||[]).map(ort).join("")+'</div>'+(d.outro?secs(d.outro):''); }
 function gegner(){ return secs([{id:"gegner",titel:"Gewöhnliche Gegner (Common Enemies)",p:61,b:[{t:"p",x:"Werte für die Standard-Gegner. Bedrohung = Threat, Angriff = Attack, Hürde = Challenge. Wo „Solo“ steht, nutzt der Gegner die Verstärkungsregeln nicht."}]}])+'<div class="enemies">'+(window.ETR_GEGNER||[]).map(enemy).join("")+'</div>'; }
 function figuren(){ return secs(window.ETR_FIGINTRO)+(window.ETR_FIGUREN||[]).map(fig).join(""); }
 function hero(){ return '<div class="hero" style="background-image:url(img/cover.webp)"><div class="ht"><b>Eat the Reich</b><span>Das Jahr 1943. Europa steht in Flammen. Ihr seid ein Kommandotrupp aus Vampiren mit einem einzigen Ziel: Adolf Hitlers gesamtes Blut aussaugen und die Nazi-Kriegsmaschine tödlich ins Wanken bringen.</span></div></div>'; }
-function render(){
-  var tabs='<nav class="tabs">'+ETR_TABS.map(function(x){return '<button class="tab'+(x.id===cur?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>';}).join("")+'</nav>';
-  var m={einstieg:function(){return hero()+secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegner,anhang:function(){return secs(window.ETR_ANHANG);}};
-  var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0];
-  document.getElementById("app").innerHTML=tabs+(mi?'<div class="crumb">Menü › '+mi.t+'</div>':'')+(m[cur]||m.einstieg)();
-  var t=document.querySelector(".tab.on"); if(t&&t.scrollIntoView) t.scrollIntoView({inline:"center",block:"nearest"});
+
+function pgRange(list){ var p=(list||[]).map(function(x){return x.p;}).filter(Boolean); return p.length?"S. "+Math.min.apply(null,p)+"–"+Math.max.apply(null,p):""; }
+function ovCard(id,t,list,rows){
+  var r=(rows||list.map(function(x){return [x.titel,x.p];})).map(function(x){return '<li><button onclick="go(\''+id+'/'+(x[2]||"")+'\')"><span>'+esc(x[0])+'</span><i>'+(x[1]?'S. '+x[1]:'')+'</i></button></li>';}).join("");
+  return '<div class="oc"><button class="oh" onclick="go(\''+id+'\')"><b>'+t+'</b><i>'+(list?pgRange(list):"")+'</i></button><ul>'+r+'</ul></div>';
 }
-function go(id){ cur=id; location.hash=id; render(); window.scrollTo(0,0); }
+function overview(){
+  var fg=(window.ETR_FIGUREN||[]).map(function(c){return [c.name,null,c.id];});
+  return hero()+'<h2 class="ovh">Vorbereitung</h2><div class="ovg">'+
+   ovCard("intro","Einführung",window.ETR_EINSTIEG)+ovCard("regeln","Regeln",window.ETR_REGELN)+
+   ovCard("figuren","Figuren",(window.ETR_FIGINTRO||[]),fg)+
+   ovCard("mission","Mission",window.ETR_MISSION)+ovCard("leitung","Spielleitung",window.ETR_LEITUNG)+
+   ovCard("check","Evil-Check",window.ETR_CHECK)+ovCard("anhang","Anhang",window.ETR_ANHANG)+'</div>'+
+   '<button class="go-adv" onclick="go(\'karte\')"><b>Abenteuer starten</b><small>Paris, 1943</small></button>';
+}
+function isAdv(id){ return ETR_TABS.some(function(t){return t.id===id;}); }
+function render(){
+  var hp=parseHash(); cur=hp.id; if(!ETR_ALL.some(function(t){return t.id===cur;})&&cur!=="einstieg") cur="einstieg";
+  var tabs=isAdv(cur)?'<nav class="tabs">'+ETR_TABS.map(function(x){return '<button class="tab'+(x.id===cur?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>';}).join("")+'</nav>':'';
+  var m={einstieg:overview,intro:function(){return secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegner,anhang:function(){return secs(window.ETR_ANHANG);}};
+  var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0];
+  document.getElementById("app").innerHTML=tabs+(mi?'<div class="crumb"><button onclick="go(\'einstieg\')">Übersicht</button> › '+mi.t+'</div>':'')+(m[cur]||overview)();
+  var t=document.querySelector(".tab.on"); if(t&&t.scrollIntoView) t.scrollIntoView({inline:"center",block:"nearest"});
+  if(hp.sec){ var el=document.getElementById("s-"+hp.sec)||document.getElementById("f-"+hp.sec); if(el){ if(el.tagName==="DETAILS") el.open=true; el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); return; } }
+  window.scrollTo(0,0);
+}
+function go(id){ if(location.hash==='#'+id){ render(); } else location.hash=id; }
 function buildMenu(){
   var p=document.getElementById("mmP");
-  p.innerHTML=ETR_MENU.map(function(x){return '<button class="mi'+(x.id===cur?' on':'')+'" onclick="openMenu(false);go(\''+x.id+'\')"><b>'+x.t+'</b></button>';}).join("")+'<div id="bvSettingsHost"></div>'+(window.BV?'<button class="mi" onclick="openMenu(false);BV.open(\'etr\',1)"><b>Buch öffnen</b></button>':'');
+  p.innerHTML='<button class="mi'+(cur==="einstieg"?' on':'')+'" onclick="openMenu(false);go(\'einstieg\')"><b>Übersicht</b></button>'+ETR_MENU.map(function(x){return '<button class="mi'+(x.id===cur?' on':'')+'" onclick="openMenu(false);go(\''+x.id+'\')"><b>'+x.t+'</b></button>';}).join("")+'<button class="mi adv'+(isAdv(cur)?' on':'')+'" onclick="openMenu(false);go(\'karte\')"><b>Abenteuer starten</b></button><div id="bvSettingsHost"></div>'+(window.BV?'<button class="mi" onclick="openMenu(false);BV.open(\'etr\',1)"><b>Buch öffnen</b></button>':'');
   if(window.BV){ document.getElementById("bvSettingsHost").innerHTML=BV.settingsHTML(); BV.refresh(); }
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on",on); document.getElementById("mmP").classList.toggle("on",on); }
@@ -77,7 +97,7 @@ function runSearch(q){
   var hits=[];
   function strip(h){ return h.replace(/<[^>]+>/g," "); }
   ETR_ALL.forEach(function(tb){
-    var save=cur; cur=tb.id; var html=""; try{ var m={einstieg:window.ETR_EINSTIEG,regeln:window.ETR_REGELN,mission:window.ETR_MISSION,leitung:window.ETR_LEITUNG,karte:window.ETR_KARTE,check:window.ETR_CHECK,anhang:window.ETR_ANHANG};
+    var save=cur; cur=tb.id; var html=""; try{ var m={intro:window.ETR_EINSTIEG,regeln:window.ETR_REGELN,mission:window.ETR_MISSION,leitung:window.ETR_LEITUNG,karte:window.ETR_KARTE,check:window.ETR_CHECK,anhang:window.ETR_ANHANG};
       if(m[tb.id]) (m[tb.id]||[]).forEach(function(s){ var t=strip(s.b.map(blk).join(" ")); if((s.titel+" "+t).toLowerCase().indexOf(q)>-1) hits.push([tb,s.titel,t]); });
       if(tb.id==="gegner") (window.ETR_GEGNER||[]).forEach(function(g){ var t=strip(enemy(g)); if((g.name+" "+t).toLowerCase().indexOf(q)>-1) hits.push([tb,g.name,t]); });
       if(tb.id==="figuren") (window.ETR_FIGUREN||[]).forEach(function(c){ var t=strip(fig(c)); if(t.toLowerCase().indexOf(q)>-1) hits.push([tb,c.name,t]); });
@@ -85,5 +105,5 @@ function runSearch(q){
     }catch(e){} cur=save; });
   out.innerHTML=hits.slice(0,40).map(function(h,i){ var t=h[2], k=t.toLowerCase().indexOf(q); var sn=k>-1?t.substr(Math.max(0,k-40),120):""; return '<button class="sr" onclick="closeSearch();go(\''+h[0].id+'\')"><b>'+esc(h[1])+'</b><small>'+h[0].t+' · …'+esc(sn)+'…</small></button>'; }).join("")||'<p>Nichts gefunden.</p>';
 }
-window.addEventListener("hashchange",function(){ cur=location.hash.slice(1)||"einstieg"; render(); });
+window.addEventListener("hashchange",render);
 render();

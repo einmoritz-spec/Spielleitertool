@@ -3,15 +3,18 @@ var CM_BOOK = { hub:"cm", ss:"cm", rw:"rw" };
 function hubTile(cls,t,d,onclick){ return '<button class="tile'+cls+'" onclick="'+onclick+'"><b>'+t+'</b><small>'+d+'</small></button>'; }
 function hubLinks(arr){ return '<nav class="hl">'+arr.map(function(x){return '<button class="chip" onclick="'+x[1]+'">'+x[0]+'</button>';}).join("")+'</nav>'; }
 function hubCard(cls,t,d,main,links){ return '<div class="hc'+cls+'"><button class="hh" onclick="'+main+'"><b>'+t+'</b><small>'+d+'</small></button>'+hubLinks(links)+'</div>'; }
+function ovCard(img,t,main,links,big){
+  return '<div class="ovc-card"><button class="ovc-img'+(img?'':' noimg')+'" onclick="'+main+'" aria-label="'+t+'">'+(img?'<img src="'+img+'" alt="" loading="lazy">':'<span>'+big+'</span>')+'</button>'+
+    '<div class="ovc-b"><h3 onclick="'+main+'">'+t+'</h3>'+hubLinks(links)+'</div></div>';
+}
 function pageHub(){
-  return '<section class="blk"><h2>Regelwerke</h2><div class="hubgrid">'+
-   hubCard("","Grundregelwerk","Spieler:innen-Handbuch · S. 2–307","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"],["Buch (PDF)","BV.open(\'rw\',1)"]])+
-   hubCard("","Shadows &amp; Showdowns","Erweiterung · Spieler- und SL-Optionen","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"],["Buch (PDF)","BV.open(\'cm\',1)"]])+
-   '</div></section>'+
-   '<section class="blk"><h2>Am Spieltisch</h2><div class="hubgrid">'+
-   hubCard(" alt","Kurz nachschlagen","Die meistgenutzten Regeln","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]])+
-   hubCard(" alt","Abenteuer","Fälle und Kampagne","switchTool(\'locallegends\')",[["Local Legends","switchTool(\'locallegends\')"],["Nights of Paynetown","switchTool(\'paynetown\')"]])+
-   '</div></section>';
+  return '<div class="ovc"><div class="ovc-hero"><img src="../assets/hero/com-header.webp" alt="City of Mist"></div><div class="ovc-grid">'+
+   ovCard("../assets/hero/com-art.webp","Grundregelwerk","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"],["Buch (PDF)","BV.open(\'rw\',1)"]])+
+   ovCard("../assets/hero/ss-art.webp","Shadows &amp; Showdowns","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"],["Buch (PDF)","BV.open(\'cm\',1)"]])+
+   ovCard("","Kurz nachschlagen","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]],"Regeln")+
+   ovCard("../assets/hero/ll-header.webp","Local Legends","switchTool(\'locallegends\')",[])+
+   ovCard("../nights/img/stadtkarte.webp","Nights of Paynetown","switchTool(\'paynetown\')",[])+
+   '</div></div>';
 }
 function secRows(items){ return '<ul class="rows">'+items.map(function(x){return '<li><button onclick="'+x[1]+'"><span>'+esc(x[0])+'</span><i>'+(x[2]?'S. '+x[2]:'')+'</i></button></li>';}).join("")+'</ul>'; }
 function kapCard(num,t,d,p,main,rows){ return '<div class="kc"><button class="kh" onclick="'+main+'">'+(num?'<em>'+num+'</em>':'')+'<span><b>'+esc(t)+'</b><small>'+esc(d)+'</small></span>'+(p?'<i>S. '+p+'</i>':'')+'</button>'+secRows(rows)+'</div>'; }
@@ -33,7 +36,7 @@ function pageSS(r){
 function render(){
   var r=route(), h = r.sys==="rw"?pageRW(r) : r.sys==="ss"?pageSS(r) : pageHub();
   if(window.BV) BV.setDefault(CM_BOOK[r.sys]);
-  document.getElementById("app").innerHTML=h; window.scrollTo(0,0);
+  var app=document.getElementById("app"); app.className="shell"+(r.sys==="rw"||r.sys==="ss"?"":" ovshell"); app.innerHTML=h; window.scrollTo(0,0);
   document.title = "City of Mist";
   [".tab.on",".pill.on"].forEach(function(q){ var el=document.querySelector(q); if(el&&el.scrollIntoView) el.scrollIntoView({inline:"center",block:"nearest"}); });
   window.scrollTo(0,0);

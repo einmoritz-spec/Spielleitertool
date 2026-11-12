@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v266kon";
+const VERSION = "v267kon";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -43,6 +43,7 @@ const FILES = [
   "etr/img/wuerfel.webp",
   "cityofmist/index.html",
   "cityofmist/style.css",
+  "cityofmist/mist.css",
   "cityofmist/js/core.js",
   "cityofmist/js/ss.js",
   "cityofmist/js/main.js",
@@ -378,6 +379,12 @@ const FILES = [
   "js/ui/creator-modal.js",
   "css/base.css",
   "css/parchment.css",
+  "assets/fonts/bebas-neue-latin-400-normal.woff2",
+  "assets/fonts/oswald-latin-500-normal.woff2",
+  "assets/fonts/oswald-latin-600-normal.woff2",
+  "assets/fonts/source-serif-4-latin-400-italic.woff2",
+  "assets/fonts/source-serif-4-latin-400-normal.woff2",
+  "assets/fonts/source-serif-4-latin-600-normal.woff2",
   "assets/fonts/caveat-brush-latin-400-normal.woff2",
   "assets/fonts/cinzel-latin-600-normal.woff2",
   "assets/fonts/cinzel-latin-700-normal.woff2",
@@ -392,6 +399,8 @@ const FILES = [
   "assets/hero/adv-painted-beast.webp",
   "assets/hero/adv-shadow-barley.webp",
   "assets/hero/com-art.webp",
+  "assets/hero/com-header.webp",
+  "assets/hero/ll-header.webp",
   "assets/hero/com-logo.webp",
   "assets/hero/dales-hero.webp",
   "assets/hero/hor-art.webp",

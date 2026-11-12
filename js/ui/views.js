@@ -1,9 +1,11 @@
 function renderPrep(){
   const f = (l,fn)=>[l,null,fn];
+  const sec = (tab)=>LM_NAV.secs[tab].map(x=>[x.t, x.p, `goBook('${tab}','${x.id}')`]);
   const cards = [
-    {t:"Regeln", go:"openRulesGloss()", rows:[f("Glossar","openRulesGloss()"),f("Rasten","openRestRules()"),f("Grimoire","openGrimoire()"),f("Würfel","openDice()"),f("Shop","openStore()")]},
-    {t:"Charaktere", go:"openCreator()", rows:[f("Erstellung","openCreator()"),f("Themenbuch","openThemebook()"),f("Eigene Charaktere","openCustomChars()"),f("Profile","openProfiles()")]},
-    {t:"Welt", go:"openCharacters()", rows:[f("NPCs","openCharacters()"),f("Lore","openLore()"),f("Challenges","openChallenges()")]}
+    {t:"Regeln", p:"54–230", go:"goBook('regeln')", rows:sec("regeln")},
+    {t:"Die Dales", p:"22–307", go:"goBook('welt')", rows:sec("welt")},
+    {t:"Charaktere", go:"openCreator()", rows:[f("Erstellung","openCreator()"),f("Themenbuch-Fragen","openThemebook()"),f("Eigene Charaktere","openCustomChars()"),f("Profile","openProfiles()")]},
+    {t:"Werkzeuge", go:"openRulesGloss()", rows:[f("Regelglossar","openRulesGloss()"),f("Rasten","openRestRules()"),f("Grimoire","openGrimoire()"),f("Würfel","openDice()"),f("Shop","openStore()"),f("NPCs","openCharacters()"),f("Lore","openLore()"),f("Challenges","openChallenges()")]}
   ];
   const n = ADVENTURES.length;
   app.innerHTML = renderTopbar() + `
@@ -896,6 +898,7 @@ function render(){
   if(state.view!=="adventure" && EDIT.on) leaveEditMode();
   document.body.classList.toggle("editing", EDIT.on);
   if(state.view==="prep") renderPrep();
+  else if(state.view==="book") renderBook();
   else if(state.view==="overview") renderOverview();
   else renderAdventure();
   updateFavBadge(); // Topbar wird bei jedem render() neu aufgebaut, Badge muss danach neu gesetzt werden

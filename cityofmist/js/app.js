@@ -1,6 +1,6 @@
 /* City of Mist – Übersetting. Hash: #start | #spieler[/<abschnitt>] | #sl/<orte|avatare|gatekeeper>[/<kategorie>] */
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>"); }
+function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?!\*)/g,"$1<i>$2</i>"); }
 function pg(p){ return p ? '<span class="pg">S. '+p+'</span>' : ''; }
 function pips(n){ return n>0 ? '<span class="pips">'+'◆'.repeat(n)+'</span>' : ''; }
 function route(){ var h=(location.hash||"").slice(1).split("/"); return {tab:h[0]||"start",sub:h[1]||"",cat:h[2]||""}; }
@@ -33,7 +33,11 @@ function pageStart(){
 function hero(n){ return '<img class="hero" src="img/h_'+n+'.webp" alt="">'; }
 function pageSpieler(r){
   var list=CM_NAV.spieler, s=list.filter(function(x){return x.id===r.sub;})[0]||list[0];
-  return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
+  var have=CM_ORTE["sp_"+s.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
+  var es=(window.CM_SP_E&&CM_SP_E[s.id])||s.items;
+  var body=have.length?es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]):stub(e[0],e[1]); }).join(""):"";
+  if(!have.length) return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
+  return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+'<div class="orte">'+body+'</div></section>';
 }
 function orgHtml(id){
   var o=CM_ORG[id]; if(!o) return "";

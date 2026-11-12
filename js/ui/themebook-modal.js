@@ -40,6 +40,7 @@ function renderThemebookBody(){
     <div class="tb-cat-tabs">${catTabs}</div>
     <div class="tb-panel" id="tbPanel">
       <div class="tb-aspects">${esc(entry.aspects)}</div>
+      <img class="tb-art" src="assets/tb/${entry.key}.webp" alt="" loading="lazy" onerror="this.remove()">
       <div class="tb-grid2">
         <div>
           <div class="tb-qh">Stärke-Fragen <span class="tb-en">(Power Tag)</span></div>

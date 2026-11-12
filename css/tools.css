@@ -295,3 +295,6 @@
   font-family:var(--serif-body); font-style:italic; font-size:13px; color:var(--text-faint);
   margin-top:16px; padding-top:14px; border-top:1px solid var(--panel-line-soft);
 }
+
+.tb-art{float:right;width:150px;height:150px;object-fit:cover;object-position:center 24%;border-radius:8px;margin:0 0 10px 16px;box-shadow:0 1px 6px #0006}
+@media(max-width:600px){.tb-art{width:96px;height:96px}}

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v240com";
+const VERSION = "v241com";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -429,6 +429,25 @@ const FILES = [
   "assets/icons/themebook-crown.png",
   "assets/icons/themebook-leaf.png",
   "assets/icons/themebook-swords.png",
+  "assets/tb/circumstance.webp",
+  "assets/tb/companion.webp",
+  "assets/tb/destiny.webp",
+  "assets/tb/devotion.webp",
+  "assets/tb/dominion.webp",
+  "assets/tb/duty.webp",
+  "assets/tb/influence.webp",
+  "assets/tb/knowledge.webp",
+  "assets/tb/magic.webp",
+  "assets/tb/mastery.webp",
+  "assets/tb/monstrosity.webp",
+  "assets/tb/past.webp",
+  "assets/tb/people.webp",
+  "assets/tb/personality.webp",
+  "assets/tb/possessions.webp",
+  "assets/tb/prodigious.webp",
+  "assets/tb/relic.webp",
+  "assets/tb/trait.webp",
+  "assets/tb/uncanny.webp",
   "assets/portraits/aldermanBeaks.webp",
   "assets/portraits/aleonora.webp",
   "assets/portraits/azeria.webp",

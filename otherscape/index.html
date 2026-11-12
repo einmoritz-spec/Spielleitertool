@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="../shared/cards.css">
 <link rel="stylesheet" href="../shared/notes.css">
 <link rel="stylesheet" href="../shared/layout.css">
+<link rel="stylesheet" href="../shared/panels.css">
 </head>
 <body>
 <div class="topbar">
@@ -118,6 +119,8 @@
 <script>window.UX_CFG={cols:[{box:".chsec",side:".ch,.blk-note"}]};</script>
 <script src="../shared/ux.js"></script>
 <script src="../shared/zeigen.js"></script>
+<script src="../shared/panels.js"></script>
+<script>PanelUI.init({nav:'.osnav',rail:'.osrail'});</script>
 <script>
 // PWA: Service Worker über http(s); bei neuer Version einmal automatisch neu laden.
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){

@@ -313,6 +313,7 @@ const FILES = [
   "otherscape/img/steam-punks-s292.webp",
   "otherscape/img/steam-punks-titel.webp",
   "otherscape/img/strings-attached-s342.webp",
+  "otherscape/img/strings-attached-cover.webp",
   "otherscape/img/strings-attached-s350.webp",
   "otherscape/js/data/overviews.js",
   "otherscape/js/data/abenteuer/anthill-2.js",

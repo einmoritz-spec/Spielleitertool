@@ -71,7 +71,7 @@ function renderHome(){
 const OS_HEROES=["neon","samurai","alley","ghost","gang"];
 /* Titelbilder der Abenteuer: [Bild, Ausschnitt] */
 const OS_COVER = {
-  "strings-attached":["img/strings-attached-s342.webp","30% 10%"], "anthill":["img/anthill-titel.webp","50% 18%"],
+  "strings-attached":["img/strings-attached-cover.webp","50% 12%"], "anthill":["img/anthill-titel.webp","50% 18%"],
   "biting-bullet":["img/biting-bullet-titel.webp","50% 42%"], "lost-flooded":["img/lost-flooded-titel.webp","50% 40%"],
   "kenko-ruins":["img/kenko-ruins-titel.webp","50% 45%"], "steam-punks":["img/steam-punks-titel.webp","50% 45%"],
   "bridge-too-far":["img/bridge-too-far-titel.webp","50% 22%"]
@@ -160,7 +160,7 @@ function ovBox(a){ return (typeof OS_OV!=="undefined" && OS_OV[a.id]) ? `<div cl
 async function ovDraw(a){
   const o = typeof OS_OV!=="undefined" && OS_OV[a.id], wrap = $("ovWrap"); if(!o || !wrap) return;
   let doc = null; try{ doc = await getDoc(o.book); }catch(e){}
-  if(!doc){ wrap.innerHTML = `<div class="ov-none">Die Karte stammt aus dem Buch und wird aus deinem PDF gezeigt. <button class="btn" onclick="openSettings()">PDF laden</button></div>`; return; }
+  if(!doc){ wrap.innerHTML = `<div class="ov-none"><button class="btn" onclick="openSettings()">Karte · PDF laden</button></div>`; return; }
   const page = await doc.getPage(o.page), w = Math.min(760, wrap.clientWidth || 700), base = page.getViewport({scale:1}), dpr = Math.min(2, window.devicePixelRatio||1);
   const vp = page.getViewport({scale:(w/base.width)*dpr}), cv = document.createElement("canvas");
   cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px";

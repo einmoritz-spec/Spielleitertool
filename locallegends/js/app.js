@@ -55,6 +55,7 @@ function render(){
   else if(state.view==="npcs") app.innerHTML = renderNpcs();
   else if(state.view==="player") app.innerHTML = renderPlayerView();
   { const cr=app.querySelector(".crumb"); if(cr) cr.scrollLeft=cr.scrollWidth; const tb=app.querySelector(".case-tabbar"), at=tb&&tb.querySelector(".case-tab.active"); if(tb&&at) tb.scrollLeft=at.offsetLeft-(tb.clientWidth-at.clientWidth)/2; }
+  llRestructure(app);
   buildGlossList();
   buildRulesList();
   { const sc = app.querySelector('.case-tabpanel')||app, cs = sc.querySelectorAll('.loc-card'); if(cs.length===1) cs[0].classList.add('single','open'); }
@@ -126,7 +127,7 @@ function renderOverview(){
     return ok ? `<button class="ov-card" style="--r:${[-.7,.5,-.3,.8,-.5,.4][i%6]}deg" onclick="goDistrict('${d.id}')">${inner}</button>`
               : `<div class="ov-card off">${inner}</div>`;
   }).join("");
-  return `<section class="ov-stage"><img class="ov-logo" src="img/logo.webp" alt="City of Mist – Local Legends" draggable="false">${renderCityMap()}</section>
+  return `<section class="ov-stage">${renderCityMap()}</section>
     <div class="ov-grid">${tiles}</div>`;
 }
 
@@ -861,4 +862,25 @@ function renderMapPanel(id){
   if(typeof LL_MAPS==="undefined") return "";
   const m=mapMode(), src=LL_MAPS.dir+id+"-"+m+".webp";
   return `<div class="map-panel">${mapToggle()}<img class="map-img" src="${src}" alt="Karte" onclick="mapFull('${src}')"></div>`;
+}
+
+/* Orte/Fall-Abschnitte: links Vorlesetext + Hinweis + Bilder, rechts Handlung + Hinweise, darunter Challenge-Profile mittig (kein langer Scroll) */
+function llRestructure(root){
+  root.querySelectorAll(".loc-body").forEach(function(b){
+    if(b.dataset.lb) return; b.dataset.lb="1";
+    var kids=Array.prototype.slice.call(b.children), A=[],B=[],C=[];
+    kids.forEach(function(k){
+      var c=k.className||"";
+      if(/readaloud|gm-note|ll-fig/.test(c)||k.tagName==="FIGURE") A.push(k);
+      else if(/danger-card|theme-card|card/.test(c)||/^(TABLE|UL|OL|DETAILS|H5|H6)$/.test(k.tagName)&&false) C.push(k);
+      else B.push(k);
+    });
+    if(!A.length&&!C.length) return;
+    var top=document.createElement("div"); top.className="lb-top";
+    var la=document.createElement("div"); la.className="lb-a", fg=document.createElement("div"); fg.className="lb-figs"; A.forEach(function(k){ if(/ll-fig/.test(k.className||"")||k.tagName==="FIGURE") fg.appendChild(k); else la.appendChild(k); }); if(fg.children.length) la.appendChild(fg);
+    var lb=document.createElement("div"); lb.className="lb-b"; B.forEach(function(k){lb.appendChild(k);});
+    if(A.length) top.appendChild(la); top.appendChild(lb);
+    var lc=document.createElement("div"); lc.className="lb-c"; C.forEach(function(k){lc.appendChild(k);});
+    b.appendChild(top); if(C.length) b.appendChild(lc);
+  });
 }

@@ -59,9 +59,10 @@ html[data-ll=c] .case-tabbar{border-bottom-color:#6a2bb8!important}
 @media(min-width:1000px){
   .shell.wide-case:has(>.map-panel){max-width:1500px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start}
   .shell.wide-case:has(>.map-panel)>*{grid-column:1/-1;min-width:0}
-  .shell.wide-case:has(>.map-panel)>.map-panel{grid-column:1;grid-row:3}
-  .shell.wide-case:has(>.map-panel)>.readaloud{grid-column:2;grid-row:3;margin:0}
-  .shell.wide-case:has(>.map-panel)>.card{grid-row:4}
+  .shell.wide-case:has(>.map-panel)>.case-tabbar{grid-row:1}
+  .shell.wide-case:has(>.map-panel)>.map-panel{grid-column:1;grid-row:2}
+  .shell.wide-case:has(>.map-panel)>.readaloud{grid-column:2;grid-row:2;margin:0}
+  .shell.wide-case:has(>.map-panel)>.card{grid-row:3}
   .shell.wide-case:has(>.map-panel)>.section.collapsed{grid-column:auto}
   .shell.wide-case:has(>.map-panel)>.section:not(.collapsed){grid-column:1/-1}
   .shell.wide-case:has(>.map-panel)>.pager,.shell.wide-case:has(>.map-panel)>.footer-note{grid-column:1/-1}
@@ -98,3 +99,54 @@ html[data-ll=a] .shell b,html[data-ll=a] .shell strong{color:inherit!important}
 .karte-tab{padding:6px 0 20px;text-align:center}
 .karte-tab .map-panel{max-width:1100px;margin:0 auto}
 .karte-tab .map-panel .map-img{max-height:calc(100vh - 210px);width:auto;max-width:100%;border-radius:8px;box-shadow:0 0 0 3px #6a2bb8,0 12px 30px rgba(40,10,80,.35)}
+
+/* ---- Orte/Fall: Spalten statt langer Scroll ---- */
+.case-tabpanel,.shell.wide-case .case-tabpanel{max-width:none}
+.shell.wide-case{max-width:1500px}
+.loc-card,.loc-body{max-width:none!important}
+.lb-top{display:block}
+.lb-a figure,.lb-a .ll-fig{margin:0 0 12px}
+.lb-a .ll-fig img{max-height:300px;width:auto;max-width:100%;display:block;margin:0 auto}
+@media(min-width:1000px){
+  .lb-top{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start}
+  .lb-top:not(:has(.lb-a)){grid-template-columns:minmax(0,1fr)}
+  .lb-a{position:sticky;top:76px}
+  .lb-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+}
+.lb-c{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,560px),1fr));gap:16px;justify-items:center}
+.lb-c>*{width:100%;max-width:900px}
+
+/* Challenge-Profile kompakt: Text oben, Werte links, Züge in Spalten */
+.lb-c>*{max-width:1150px}
+.danger-card.open .db-desc{columns:auto!important;column-count:1!important;column-width:auto!important}
+.danger-card.open .db-desc p{max-width:none}
+@media(min-width:900px){
+  .danger-card.open .db-sheet{display:grid!important;grid-template-columns:240px minmax(0,1fr);gap:8px 24px;align-items:start}
+  .danger-card.open .db-moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:4px 26px;align-items:start}
+}
+
+/* Startseite: Karte größer, Stage schmiegt sich an */
+.ov-stage{width:calc((100vh - 112px)*1.32 + 26px);max-width:100%;margin:0 auto 22px;padding:10px 12px 12px}
+.ov-stage .city-map img{width:100%!important;height:auto!important;max-height:none!important;box-shadow:0 0 0 2px #ff3fa4,0 8px 22px rgba(0,0,0,.6)}
+.ov-stage .city-map-box{margin:0}
+/* SL/S direkt in der Karte */
+.map-panel{position:relative;width:fit-content;max-width:100%}
+.shell.wide-case>.map-panel,.karte-tab .map-panel{margin-left:auto;margin-right:auto}
+.map-panel .map-toggle{position:absolute!important;top:10px;left:10px;margin:0!important;z-index:3;display:inline-flex;flex-direction:row;background:rgba(20,8,38,.78);border-radius:8px;padding:2px;border:1px solid rgba(255,255,255,.25)}
+.map-panel .map-toggle button{background:transparent;color:#f1e6ff;border:0;padding:3px 10px;font-weight:700;font-size:12px;border-radius:6px}
+.map-panel .map-toggle button.on{background:#ff3fa4;color:#fff}
+/* Eisberg bleibt beim Scrollen sichtbar, Text läuft daneben */
+@media(min-width:1000px){.ov-split>.ov-art{position:sticky;top:76px;align-self:start}}
+
+.map-panel .map-toggle button{color:#f1e6ff!important;background:transparent!important;opacity:1!important}
+.map-panel .map-toggle button.on{background:#ff3fa4!important;color:#fff!important}
+
+.ov-stage .city-map,.ov-stage .city-scroll,.ov-stage .city-map-box{display:block;width:100%;min-width:0!important}
+.topbar{padding-top:6px!important;padding-bottom:6px!important}
+.topbar .brand{width:80px!important;height:48px!important;margin:0 6px 0 6px!important}
+.shell{padding-top:74px!important}
+.shell{padding-top:66px!important}
+.shell>.ov-stage{margin-top:0!important}
+.shell:has(.ov-stage){padding-top:70px!important}
+.shell,.shell:has(.ov-stage){padding-top:10px!important}
+.topbar{height:62px}

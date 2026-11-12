@@ -189,7 +189,7 @@
 .ch-jump-link{
   color:var(--gold-bright); border-bottom:1px dotted var(--gold); cursor:pointer;
 }
-.ch-jump-link:hover{color:var(--parchment); border-bottom-color:var(--parchment);}
+.ch-jump-link:hover{color:var(--text-hi); border-bottom-color:var(--panel-line);}
 .jn-gc{margin-bottom:14px;}
 .jn-gc-title{
   font-size:11px; text-transform:uppercase; letter-spacing:.06em; font-weight:600;

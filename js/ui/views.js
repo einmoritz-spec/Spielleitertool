@@ -22,47 +22,35 @@ function renderPrep(){
 }
 
 function renderOverview(){
-  const tiles = ADVENTURES.filter(a=>a.id!=="campaign-aftermath").map(a=>{
+  const imgOf = {a1:"shadow-barley",a2:"important-letter",a3:"fox-dales",a4:"green-maiden",a5:"painted-beast",a6:"barleytown-fair",a7:"lost-hermitage"};
+  const cards = ADVENTURES.filter(a=>a.id!=="campaign-aftermath").map(a=>{
     const ready = a.status==="ready";
     return `
-    <${ready?'button':'div'} class="adv-tile ${a.status}" style="${a.accent?`--tile-accent:${a.accent}`:''}" ${ready?`onclick="goAdventure('${a.id}')"`:''}>
-      <span class="raven-icon raven-corner">${RAVEN_SVG}</span>
-      <div class="num">Abenteuer ${a.num}</div>
-      <h3>${esc(a.title)}</h3>
-      <div class="en">${esc(a.en)}</div>
-      <p class="teaser">${esc(a.teaser)}</p>
-      <div class="tile-foot">
-        <span>${ready? (a.scenes.length+' Szenen') : 'Noch nicht eingepflegt'}</span>
-        ${ready?'':'<span class="status-chip">In Vorbereitung</span>'}
-      </div>
-    </${ready?'button':'div'}>`;
-  }).join("");
-
-  const aftermathAdv = ADVENTURES.find(a=>a.id==="campaign-aftermath");
-  const aftermathTile = `
-    <button class="adv-tile ready" style="${aftermathAdv&&aftermathAdv.accent?`--tile-accent:${aftermathAdv.accent}`:''}" onclick="goAdventure('campaign-aftermath')">
-      <span class="raven-icon raven-corner">${RAVEN_SVG}</span>
-      <div class="num">Kampagnen-Abschluss</div>
-      <h3>Campaign Aftermath</h3>
-      <div class="en">Personal Journeys &amp; Revelations Oracle</div>
-      <p class="teaser">Persönliche Reisen der Helden, offene Fäden für die nächste Kampagne, und das komplette Revelations Oracle (9 Kern- + 12 Lore-Enthüllungen) zum Nachschlagen nach Adventure 7.</p>
-      <div class="tile-foot">
-        <span>3 Szenen</span>
+    <button class="adv-card" ${ready?`onclick="goAdventure('${a.id}')"`:'disabled'}>
+      ${imgOf[a.id]?`<img src="assets/hero/adv-${imgOf[a.id]}.webp" alt="" loading="lazy">`:''}
+      <div class="b">
+        <div class="meta"><span>Abenteuer ${a.num}</span><span>${ready? a.scenes.length+' Szenen' : 'In Vorbereitung'}</span></div>
+        <h3>${esc(a.title)}</h3>
+        <div class="en">${esc(a.en)}</div>
+        <p>${esc(a.teaser.split(/(?<=[.!?])\s/)[0])}</p>
       </div>
     </button>`;
-
-  app.innerHTML = renderTopbar() + `
-  <div class="overview">
-    <div class="overview-hero">
-      <h1>Wake of the Oldways</h1>
-    </div>
-    <div class="adv-grid">${tiles}${aftermathTile}</div>
-    <details class="shortcuts-legend">
-      <summary><h3>Tastaturbefehle</h3></summary>
-      <div class="shortcuts-grid">
-        ${KEYBOARD_SHORTCUTS.map(s=>`<span class="shortcut-chip"><kbd>${esc(s.key)}</kbd>${esc(s.label)}</span>`).join("")}
+  }).join("");
+  const af = ADVENTURES.find(a=>a.id==="campaign-aftermath");
+  const aftermath = af ? `
+    <button class="adv-card noimg" onclick="goAdventure('campaign-aftermath')">
+      <div class="b">
+        <div class="meta"><span>Kampagnen-Abschluss</span><span>${af.scenes.length} Szenen</span></div>
+        <h3>Campaign Aftermath</h3>
+        <div class="en">Personal Journeys &amp; Revelations Oracle</div>
       </div>
-    </details>
+    </button>` : "";
+  app.innerHTML = renderTopbar() + `
+  <div class="ov2">
+    <div class="ov2-hero"><img class="art" src="assets/hero/dales-hero.webp" alt=""></div>
+    <div class="ov2-title"><img src="assets/logos/hor.webp" alt="Hearts of Ravensdale"><div class="s">SETTING BOOK I · THE DALES</div></div>
+    <div class="ov2-orn"><span>❦</span></div>
+    <div class="ov2-grid">${cards}${aftermath}</div>
   </div>`;
 }
 

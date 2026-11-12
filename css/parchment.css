@@ -1,0 +1,134 @@
+/* ============================================================
+   WAKE OF THE OLDWAYS — Pergament-Design (angelehnt an das Original-PDF)
+   Helles Pergament, Marginalien-Rot, Labrada / Cinzel / Caveat Brush.
+   Wird zuletzt geladen und überschreibt die Farbvariablen aus base.css.
+   ============================================================ */
+@font-face{font-family:Cinzel;font-weight:600;src:url(../assets/fonts/cinzel-latin-600-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Cinzel;font-weight:700;src:url(../assets/fonts/cinzel-latin-700-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Labrada;font-weight:400;src:url(../assets/fonts/labrada-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Labrada;font-weight:400;font-style:italic;src:url(../assets/fonts/labrada-latin-400-italic.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Labrada;font-weight:700;src:url(../assets/fonts/labrada-latin-700-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Brush;src:url(../assets/fonts/caveat-brush-latin-400-normal.woff2) format("woff2");font-display:swap}
+
+:root{
+  --void:#e6d9bb; --bg:#efe5cf; --panel:#f7f0df; --panel-raised:#f3e9d0;
+  --panel-line:rgba(138,111,74,.5); --panel-line-soft:rgba(138,111,74,.28);
+  --parchment:#fbf5e5; --parchment-edge:#d9c79c; --ink:#2d2118; --ink-soft:#5b4a30;
+  --gold:#8e2a2a; --gold-bright:#7a1f1f; --rust:#a4472a; --rust-bright:#8e3a1d;
+  --moss:#5a7d4e; --moss-bright:#46683b; --mist:#5f7468; --dusk:#6a548a;
+  --text-hi:#2d2118; --text-lo:#5b4a30; --text-faint:#8a7a60;
+  --maroon:#8e2a2a;
+  --serif-display:Cinzel,"Iowan Old Style",Georgia,serif;
+  --serif-body:Labrada,Georgia,serif;
+  --sans:Labrada,Georgia,serif;
+  --shadow-lift:0 10px 22px -10px rgba(90,60,20,.35);
+}
+body{
+  background:
+    radial-gradient(ellipse at 15% 10%,rgba(190,150,90,.20),transparent 40%),
+    radial-gradient(ellipse at 85% 70%,rgba(170,120,70,.18),transparent 45%),
+    radial-gradient(ellipse at 50% 100%,rgba(150,110,60,.22),transparent 40%),
+    var(--bg);
+  background-attachment:fixed;
+  color:var(--text-hi);font-family:var(--serif-body);
+}
+h1,h2,h3{font-family:var(--serif-display)}
+.hand{font-family:Brush,"Caveat Brush",cursive;color:var(--maroon)}
+
+/* ---------- Übersicht ---------- */
+.ov2{max-width:1240px;margin:-60px auto 0;padding:0 0 100px}
+.ov2-hero{position:relative;height:clamp(300px,38vw,460px);overflow:hidden}
+.ov2-hero img.art{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.ov2-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,var(--bg))}
+.ov2-title{position:relative;z-index:2;text-align:center;margin-top:calc(-1 * clamp(110px,14vw,170px))}
+.ov2-title img{height:clamp(130px,17vw,210px);width:auto;max-width:92%}
+.ov2-title .s{font:600 13px Cinzel,serif;letter-spacing:.3em;color:var(--maroon);margin-top:6px}
+.ov2-orn{display:flex;align-items:center;gap:12px;color:var(--maroon);width:min(520px,80%);margin:14px auto 22px}
+.ov2-orn:before,.ov2-orn:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--maroon),transparent)}
+.ov2-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;padding:0 28px}
+.adv-card{all:unset;box-sizing:border-box;cursor:pointer;display:block;background:var(--panel);border:1.5px solid #8a6f4a;border-radius:6px;
+  box-shadow:0 2px 0 rgba(0,0,0,.08),0 10px 22px rgba(90,60,20,.18);overflow:hidden;position:relative;transition:transform .15s,box-shadow .15s}
+.adv-card:hover,.adv-card:focus-visible{transform:translateY(-3px);box-shadow:0 2px 0 rgba(0,0,0,.08),0 16px 28px rgba(90,60,20,.28)}
+.adv-card:before{content:"";position:absolute;inset:5px;border:1px solid rgba(142,42,42,.35);border-radius:3px;pointer-events:none;z-index:2}
+.adv-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1.5px solid #8a6f4a;background:#1d1a16}
+.adv-card .b{padding:12px 18px 16px}
+.adv-card .meta{display:flex;justify-content:space-between;font:600 11px Cinzel,serif;letter-spacing:.12em;color:var(--maroon);text-transform:uppercase}
+.adv-card h3{font-size:19px;line-height:1.2;margin:4px 0 2px}
+.adv-card .en{font-style:italic;color:#6b5a45;font-size:15px}
+.adv-card p{margin:8px 0 0;font-size:15.5px;line-height:1.45;color:var(--text-lo)}
+.adv-card.noimg .b{padding-top:22px}
+@media(max-width:640px){.ov2-grid{padding:0 14px;grid-template-columns:1fr}.ov2{margin-top:-50px}}
+
+/* ---------- Kopfzeile & Overlays hell ---------- */
+.topbar{background:rgba(239,229,207,.93)!important;border-bottom:2px solid var(--maroon)!important}
+.topbar .brand{font-family:Cinzel,serif!important;font-weight:700!important;font-size:19px!important;letter-spacing:.06em;color:var(--maroon)!important;text-transform:none}
+.tb-burger{background:rgba(255,255,255,.4)!important;border:1px solid var(--panel-line)!important;color:var(--maroon)!important}
+.rest-btn{color:var(--text-lo)}
+.modal-backdrop,.modal-overlay{background:rgba(60,40,20,.45)!important}
+[class*="sticky"],.pathbar{background:rgba(239,229,207,.95)}
+.case-tabbar .notes-tile{background:var(--bg)!important;box-shadow:-14px 0 10px -4px var(--bg)!important}
+/* Übersicht: Anpassungen */
+.ov2{max-width:none}
+.ov2-grid{max-width:1240px;margin:0 auto}
+.adv-card img{aspect-ratio:4/3}
+.adv-card.noimg{align-self:start}
+.scenenav{background:rgba(239,229,207,.95)!important;border-top:1px solid var(--panel-line)}
+.lm-pill.on{background:rgba(142,42,42,.1)}
+.lm-bx>header{background:rgba(142,42,42,.1)}
+
+/* ============ Challenge-Karten · Stil K1 (Original-Nachbau) ============ */
+.challenge{background:var(--panel);border:1.5px solid #8a6f4a;border-radius:6px;position:relative;
+  box-shadow:0 2px 0 rgba(0,0,0,.06),0 6px 16px rgba(90,60,20,.14)}
+.challenge:before{content:"";position:absolute;inset:4px;border:1px solid rgba(142,42,42,.3);border-radius:3px;pointer-events:none}
+.challenge-head:hover{background:rgba(142,42,42,.05)}
+.ch-type{color:var(--maroon);border-color:rgba(142,42,42,.45);font-family:Cinzel,serif;font-weight:600}
+.ch-portrait{box-shadow:0 1px 3px rgba(60,40,20,.35);border-color:#8a6f4a}
+.ch-name{font-family:Cinzel,serif;font-weight:700;color:var(--maroon);letter-spacing:.04em;text-transform:uppercase;font-size:16px}
+.ch-difficulty{color:var(--maroon)}
+.ch-quicklimits{color:var(--text-faint)}
+.ch-fav-btn.active{color:#c28a12}
+.ch-chev{color:var(--text-faint)}
+.challenge.open .ch-chev{color:var(--maroon)}
+.challenge.open .challenge-head{padding-bottom:6px}
+.ch-inner{padding:2px 24px 20px}
+.ch-desc{font-style:italic;color:var(--text-lo);border-top:none;font-size:calc(16px * var(--fs));line-height:1.6}
+.ch-cols{gap:26px;border-top:1px solid var(--panel-line);padding-top:16px;margin-top:4px}
+.ch-col-left{border-top:none;padding-top:0}
+.ch-section-label{font-family:Cinzel,serif;font-weight:600;color:var(--maroon);letter-spacing:.14em;font-size:11px;text-align:left;border-bottom:1px solid var(--panel-line)}
+.ch-section-label.left{margin-top:4px}
+/* Limits als Schilde — bleiben klickbar (Pips) */
+.limit-label{font-family:Cinzel,serif;color:var(--maroon);font-weight:600}
+.pip{width:20px;height:24px;border:none;border-radius:0;background:#cdbb92;
+  clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);box-shadow:none;transition:background .12s,transform .12s}
+.ch-col-left .pip{width:18px;height:22px}
+.pip:hover{background:#b9a171;transform:translateY(-1px)}
+.pip.filled{background:linear-gradient(180deg,#a83232,#7a1f1f);box-shadow:none}
+.pip.filled:hover{background:linear-gradient(180deg,#b83c3c,#8a2626)}
+.limit-count{color:var(--text-faint)}
+.limit-reset{border-color:var(--panel-line);color:var(--text-faint)}
+.limit-reset:hover{color:var(--maroon);border-color:var(--maroon)}
+.limit-static b{color:var(--maroon)}
+/* Tags im Textmarker-Gelb */
+.chip,.ch-col-left .chip{background:#f1d36b;color:#3b2a10;border:none;border-radius:2px;padding:1px 8px;font-style:italic;font-size:13px}
+/* Bedrohungen */
+.threat .th-name{background:#f1d36b;color:#3b2a10;border:none;border-radius:2px;font-family:Cinzel,serif;letter-spacing:.06em}
+.threat li::before{color:var(--maroon)}
+.threat .th-flavor{color:var(--text-lo)}
+/* Geheimnisse / Besonderheiten: graue Papierkästen */
+.secret-block,.special-block{background:#e1dacb;border:none;border-left:3px solid var(--maroon);border-radius:2px;padding:10px 14px}
+.special-block{border-left-color:#c28a12}
+.secret-block .s-title,.special-block .sp-title{color:var(--maroon);font-family:Cinzel,serif;letter-spacing:.1em}
+.ch-col-left .secret-block,.ch-col-left .special-block{padding:8px 12px;background:#e1dacb;border-left:3px solid var(--maroon)}
+.ch-col-left .special-block{border-left-color:#c28a12}
+.ch-col-left .secret-block p,.ch-col-left .special-block p{font-style:normal;color:var(--text-lo)}
+.ch-col-left .s-title,.ch-col-left .sp-title{color:var(--maroon)}
+.secret-block p,.special-block p,.threat li{color:var(--text-hi)}
+.ch-source{color:var(--text-faint)}
+/* Tags/Statuses wie Textmarker im Buch */
+.hl,.blk-ro .hl,.readaloud .hl,.clue-box .hl,.blk-card .hl{border-radius:2px;box-shadow:none}
+.hl-st,.blk-ro .hl-st,.readaloud .hl-st,.clue-box .hl-st,.blk-card .hl-st{background:#f1d36b;color:#3b2a10}
+.hl-tag,.blk-ro .hl-tag,.readaloud .hl-tag,.clue-box .hl-tag,.blk-card .hl-tag{background:#c5d5b4;color:#24401c}
+.hl-weak,.blk-ro .hl-weak,.readaloud .hl-weak,.clue-box .hl-weak,.blk-card .hl-weak{background:#ecbfb4;color:#6d1a1a}
+.chip .hl,.chip .gloss{background:none;color:inherit}
+.chip .gloss,.status-gloss{color:inherit;border-bottom:1px dotted rgba(60,40,10,.5)}
+.ch-col-right .ch-section-label.left{margin-top:18px}

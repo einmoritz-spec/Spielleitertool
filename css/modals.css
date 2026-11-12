@@ -3,14 +3,14 @@
   color:var(--gold-bright); cursor:pointer; border-bottom:1px dotted var(--gold);
   transition:color .15s ease, border-color .15s ease;
 }
-.gloss:hover, .gloss:focus-visible{color:var(--parchment); border-bottom-color:var(--parchment);}
+.gloss:hover, .gloss:focus-visible{color:var(--text-hi); border-bottom-color:var(--panel-line);}
 .readaloud .gloss{color:var(--rust); border-bottom-color:var(--rust);}
 .readaloud .gloss:hover{color:var(--ink);}
 .status-gloss{
   color:var(--moss-bright); border-bottom:1px dotted var(--moss);
   font-variant-numeric:tabular-nums;
 }
-.status-gloss:hover, .status-gloss:focus-visible{color:var(--parchment); border-bottom-color:var(--parchment);}
+.status-gloss:hover, .status-gloss:focus-visible{color:var(--text-hi); border-bottom-color:var(--panel-line);}
 
 .gloss-modal-backdrop{
   position:fixed; inset:0; z-index:100; background:rgba(10,13,11,.72); backdrop-filter:blur(3px);

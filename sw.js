@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v248com";
+const VERSION = "v249par";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -368,6 +368,27 @@ const FILES = [
   "creator/creator.js",
   "js/ui/creator-modal.js",
   "css/base.css",
+  "css/parchment.css",
+  "assets/fonts/caveat-brush-latin-400-normal.woff2",
+  "assets/fonts/cinzel-latin-600-normal.woff2",
+  "assets/fonts/cinzel-latin-700-normal.woff2",
+  "assets/fonts/labrada-latin-400-italic.woff2",
+  "assets/fonts/labrada-latin-400-normal.woff2",
+  "assets/fonts/labrada-latin-700-normal.woff2",
+  "assets/hero/adv-barleytown-fair.webp",
+  "assets/hero/adv-fox-dales.webp",
+  "assets/hero/adv-green-maiden.webp",
+  "assets/hero/adv-important-letter.webp",
+  "assets/hero/adv-lost-hermitage.webp",
+  "assets/hero/adv-painted-beast.webp",
+  "assets/hero/adv-shadow-barley.webp",
+  "assets/hero/com-art.webp",
+  "assets/hero/com-logo.webp",
+  "assets/hero/dales-hero.webp",
+  "assets/hero/hor-art.webp",
+  "assets/hero/litm-logo.webp",
+  "assets/hero/ss-art.webp",
+  "assets/logos/hor.webp",
   "css/overview.css",
   "css/settings.css",
   "shared/cards.css",

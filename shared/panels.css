@@ -2,15 +2,24 @@
 body.topbar-hidden{padding-top:0!important}
 body.topbar-hidden .topbar{position:fixed;top:0;left:0;right:0;transform:translateY(-100%)}
 .topbar{transition:transform .18s ease}
-.pn-toggle{position:sticky;top:0;align-self:flex-end;flex:none;width:26px;height:26px;margin:0 0 4px auto;padding:0;border:1px solid rgba(128,128,128,.35);border-radius:6px;background:rgba(128,128,128,.12);color:inherit;font:700 16px/1 inherit;cursor:pointer;opacity:.7;z-index:2}
-.pn-toggle:hover{opacity:1}
-.pn-open{display:none;position:fixed;left:0;top:140px;z-index:30;width:20px;height:44px;padding:0;border:1px solid rgba(128,128,128,.4);border-left:0;border-radius:0 8px 8px 0;background:rgba(40,20,70,.85);color:#fff;font:700 16px/1 inherit;cursor:pointer}
+.pn-btn{--pn-c:#be185d;--pn-bg:#fff;position:fixed;z-index:60;display:none;align-items:center;justify-content:center;width:26px;height:26px;padding:0;border-radius:50%;border:1.5px solid var(--pn-c);background:var(--pn-bg);color:var(--pn-c);box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:pointer;opacity:.8;transition:left .22s ease,top .15s ease,opacity .15s,background .15s,transform .15s}
+.pn-btn:hover,.pn-btn:focus-visible{opacity:1;background:var(--pn-c);color:var(--pn-bg)}
+.pn-btn:focus-visible{outline:2px solid var(--pn-c);outline-offset:2px}
+.pn-btn svg{transition:transform .22s ease}
+.pn-btn.pn-closed{border-radius:0 13px 13px 0;width:18px;height:40px;border-left:0}
+.pn-btn.pn-closed svg{transform:rotate(180deg)}
+body[data-pn=com] .pn-btn{--pn-c:#be185d;--pn-bg:#fdf8f4}
+body[data-pn=ll] .pn-btn{--pn-c:#6d28d9;--pn-bg:#fbf3e0}
+body[data-pn=ni] .pn-btn{--pn-c:#b45309;--pn-bg:#f4e8c8}
+body[data-pn=os] .pn-btn{--pn-c:#39e6a0;--pn-bg:#08121a}
+body[data-pn=etr] .pn-btn{--pn-c:#8b2e1a;--pn-bg:#f1e6cf}
+body[data-pn=wake] .pn-btn{--pn-c:#b8860b;--pn-bg:#fff8e6}
+.pn-rail{transition:padding-left .22s ease}
 @media(min-width:861px){
   body.pn-off .pn-nav{display:none!important}
-  body.pn-off .pn-open{display:block}
-  body.pn-off .pn-rail{grid-template-columns:minmax(0,1fr)!important}
+  body.pn-off .pn-rail{grid-template-columns:minmax(0,1fr)!important;padding-left:24px}
 }
-@media(max-width:860px){.pn-toggle,.pn-open{display:none!important}}
+@media(max-width:860px){.pn-btn{display:none!important}}
 /* Wake (lm-book): Inhalt rückt in Spalte 1 */
 @media(min-width:1181px){
   body.pn-off .lm-shell{grid-template-columns:minmax(0,1fr)!important}

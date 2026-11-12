@@ -52,7 +52,7 @@ function caseStatus(n){ return ST.cases[n] || ""; }
 function setStatus(n, s){ ST.cases[n] = ST.cases[n]===s ? "" : s; saveState(); renderHome(); }
 function renderHome(){
   const C = camp();
-  let h = `<div class="hero"><div class="eyebrow">City of Mist · Abenteuerband</div><h1>${esc(C.title)}</h1></div>`;
+  let h = "";
   for(const L of C.levels){
     h += `<details class="level ${L.tone}"><summary class="level-head"><h2>${esc(L.name)}</h2><span class="lv-sub">${esc(L.sub||"")}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
     for(const n of L.cases){

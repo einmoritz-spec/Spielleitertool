@@ -46,7 +46,7 @@ async function route(){
 
 /* ---------- Start ---------- */
 function renderHome(){
-  let h = `<div class="hero"><div class="eyebrow">Otherscape · Cyberpunk-Fantasy</div><h1>Spielleiter-Tafel</h1></div>`;
+  let h = "";
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
   h += `<div class="sec-h">Abenteuer</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===undefined).map(card).join("")}</div>`;
   $("app").innerHTML = h;

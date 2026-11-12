@@ -268,3 +268,7 @@ mark{background:var(--yel)}
  .onav .osr{border-bottom:2px solid var(--line);margin-bottom:10px}
  .onav .osr a,.onav .osr .nolink{flex:none;white-space:nowrap;background:none;padding:4px 2px;margin-right:10px;font-size:.82rem;border-bottom:2px solid transparent}
 }
+
+.orail{grid-template-columns:200px minmax(0,1fr)!important;gap:26px}
+@media(max-width:860px){.orail{grid-template-columns:minmax(0,1fr)!important}}
+.onav .osub a{overflow-wrap:anywhere}

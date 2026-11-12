@@ -44,11 +44,11 @@ function sectionHead(s){ return '<div class="sh"><h2>'+esc(s.t)+'</h2><span clas
 function hero(n){ return '<img class="hero" src="img/h_'+n+'.webp" alt="">'; }
 function orteRail(es,names){
   var cards=es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort"','<details class="ort" open'):stub(e[0],e[1]); }).join("");
-  var nav=es.map(function(e){ var o=names[e[0]]; return o?'<a href="#o-'+o.id+'" onclick="document.getElementById(\'o-'+o.id+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(e[0])+'</a>':'<span class="nolink">'+esc(e[0])+'</span>'; }).join("");
+  var nav=es.map(function(e){ var o=names[e[0]]; return o?'<a href="#o-'+o.id+'" onclick="document.getElementById(\'o-'+o.id+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(e[0].split(':')[0])+'</a>':'<span class="nolink">'+esc(e[0].split(':')[0])+'</span>'; }).join("");
   return '<div class="orail"><nav class="onav">'+nav+'</nav><div class="orte">'+cards+'</div></div>';
 }
 function treeNav(cats,curId,base,es,names,counts){
-  var subs=es.map(function(e){ var o=names[e[0]]; return o?'<a href="#o-'+o.id+'" onclick="document.getElementById(\'o-'+o.id+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(e[0])+'</a>':'<span class="nolink">'+esc(e[0])+'</span>'; }).join("");
+  var subs=es.map(function(e){ var o=names[e[0]]; return o?'<a href="#o-'+o.id+'" onclick="document.getElementById(\'o-'+o.id+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(e[0].split(':')[0])+'</a>':'<span class="nolink">'+esc(e[0].split(':')[0])+'</span>'; }).join("");
   var btn=function(c){ var n=counts?counts(c):0; return '<button class="ocat'+(c.id===curId?' on':'')+'" onclick="gs(\''+base+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>'; };
   var tree=cats.map(function(c){ return btn(c)+(c.id===curId?'<div class="osub">'+subs+'</div>':''); }).join("");
   var flat='<div class="orow">'+cats.map(btn).join("")+'</div><div class="orow osr">'+subs+'</div>';

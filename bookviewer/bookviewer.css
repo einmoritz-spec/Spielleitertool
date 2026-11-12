@@ -7,7 +7,8 @@
 .bvx-bar #bvxOf{white-space:nowrap;color:#9aa4bf}
 @media (max-width:520px){.bvx-t{display:none}.bvx-bar{justify-content:space-between}.bvx-bar #bvxOf{flex:1}}
 .bvx-stage{flex:1;overflow:auto;padding:10px;display:flex;justify-content:flex-start}
-.bvx-stage canvas{margin:0 auto;display:block;background:#fff;align-self:flex-start;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.bvx-pages{display:flex;gap:8px;margin:0 auto;align-items:flex-start;align-self:flex-start}
+.bvx-stage canvas{display:block;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.6)}
 a.pg-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
 a.pg-link:hover{text-decoration:underline solid;filter:brightness(1.25)}
 .bvs{margin:14px 0}

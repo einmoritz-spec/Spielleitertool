@@ -35,20 +35,22 @@ async function openBook(book, page){
 var bvHist = false;
 function closeBook(fromPop){ document.getElementById("bookViewer").hidden = true; document.body.classList.remove("menu-open"); if(bvHist){ bvHist = false; if(fromPop!==true){ try{ history.back(); }catch(e){} } } }
 window.addEventListener("popstate", ()=>{ const v = document.getElementById("bookViewer"); if(v && !v.hidden) closeBook(true); else bvHist = false; });
-function bvStep(d){ BV.page = Math.max(1,Math.min(BV.n, BV.page+d)); bvShow(); }
+/* Doppelseiten: Seite 1 einzeln, danach immer (2,3), (4,5) … */
+const bvLead = p => p<=1 ? 1 : (p%2===0 ? p : p-1);
+function bvStep(d){ const l = bvLead(BV.page); BV.page = d>0 ? (l===1 ? 2 : Math.min(BV.n, l+2)) : (l<=2 ? 1 : l-2); BV.page = Math.max(1,Math.min(BV.n,BV.page)); bvShow(); }
 function bvGo(n){ BV.page = Math.max(1,Math.min(BV.n, parseInt(n)||1)); bvShow(); }
 function bvZoom(){ BV.zoom = !BV.zoom; bvShow(); }
 let bvToken = 0;
 async function bvShow(){
   const tok = ++bvToken, doc = await getDoc(BV.book); if(!doc) return;
-  document.getElementById("bvNum").value = BV.page; document.getElementById("bvOf").textContent = "/ "+BV.n;
-  const page = await doc.getPage(BV.page), stage = document.getElementById("bvStage");
-  const base = page.getViewport({scale:1}), avail = Math.max(280, stage.clientWidth-20);
-  const scale = (BV.zoom ? avail*2 : avail)/base.width, dpr = Math.min(2, window.devicePixelRatio||1);
-  const vp = page.getViewport({scale: scale*dpr}), cv = document.getElementById("bvCanvas");
-  cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px";
-  await page.render({canvasContext: cv.getContext("2d"), viewport: vp}).promise;
-  if(tok===bvToken) stage.scrollTop = 0;
+  const l = bvLead(BV.page), nums = (l===1) ? [1] : (l+1<=BV.n ? [l,l+1] : [l]);
+  document.getElementById("bvNum").value = nums[0]; document.getElementById("bvOf").textContent = (nums.length>1 ? "–"+nums[1]+" " : "")+"/ "+BV.n;
+  const stage = document.getElementById("bvStage"), box = document.getElementById("bvPages"), pages = await Promise.all(nums.map(n=>doc.getPage(n)));
+  const gap = 8, avail = Math.max(160, stage.clientWidth-20), total = BV.zoom ? avail*2 : avail, dpr = Math.min(2, window.devicePixelRatio||1);
+  const w1 = pages[0].getViewport({scale:1}).width, scale = nums.length>1 ? (total-gap)/2/w1 : total/w1;
+  const cvs = pages.map(pg=>{ const vp = pg.getViewport({scale: scale*dpr}), cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px"; return {pg,vp,cv}; });
+  await Promise.all(cvs.map(o=>o.pg.render({canvasContext:o.cv.getContext("2d"), viewport:o.vp}).promise)); if(tok!==bvToken) return;
+  box.replaceChildren(...cvs.map(o=>o.cv)); stage.scrollTop = 0;
 }
 document.addEventListener("keydown", e=>{ const v = document.getElementById("bookViewer"); if(!v||v.hidden) return; if(e.key==="ArrowRight") bvStep(1); else if(e.key==="ArrowLeft") bvStep(-1); else if(e.key==="Escape") closeBook(); });
 

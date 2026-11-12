@@ -503,9 +503,7 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .osarail .osnav .osub{margin:0;border-left:0}
 .osarail .osnav .osub a{padding:7px 10px;color:var(--text);font-weight:600}
 .osarail .osnav .osub a:hover{color:var(--tone)}
-.osarail .chsec>.blk-p:first-of-type,.osarail .chsec>.blk-p:first-child{font-size:.84rem;color:var(--mute);line-height:1.35}
 .osarail .blk-h{margin-top:0}
-.osarail .chsec>.blk-p:first-of-type{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* Vorlesekasten ohne Beschriftung: Text, kleiner S.-Link im Eck */
 .blk-ref{position:relative;display:block!important;padding:10px 54px 10px 16px;border-style:solid;border-width:0 0 0 4px;border-radius:10px}
@@ -548,3 +546,22 @@ h1,h2,h3,.blk-h,.sec-h,.sec-title h2,.adv-head h1,.hero h1,.ch-head b,.tbl-cap,.
 body .scn.stack .scn-r{grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))!important}
 body .scn.stack .scn-r:not(:has(.blk ~ .blk)){grid-template-columns:1fr!important}
 @media(min-width:1200px){.chsec>.blk-p,.chsec>ul{max-width:none}.chsec:not(.scn) .blk-list,.chsec>ul{columns:2 480px;column-gap:40px}}
+/* Rand rechts: shared/layout.css begrenzt Fließtext auf 110ch – in Otherscape volle Breite neben der Leiste */
+body .tab-layout .chsec>.blk-p,body .tab-layout .chsec>.blk-list,body .tab-layout .chsec>.blk-read,body .tab-layout .chsec>.blk-h,body .tab-layout .chbody>.blk-p,body .tab-layout .chsec>ul{max-width:none!important}
+
+/* Karten-Raster (Figuren, Orte, Power Sets, Relikte ...) */
+.os-cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px;margin:8px 0 14px;align-items:start}
+.os-card{background:#0f1a26;border:1px solid rgba(25,227,193,.28);border-top:3px solid #19e3c1;border-radius:4px 12px 4px 12px;padding:12px 16px 14px;min-width:0}
+.os-card.wide{grid-column:1/-1}
+.os-card .blk-h{margin:0 0 6px;font-size:.98rem}
+.os-card .blk-p{margin:.4em 0;font-size:.97rem}
+.os-card .blk-list{columns:1!important}
+/* Challenge-Raster: kleine schlichte Karten, geöffnet über volle Breite */
+.ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px;margin:8px 0 14px;align-items:start}
+.ch-grid>.ch.coll{padding:8px 12px;box-shadow:none;border-top-width:3px}
+.ch-grid>.ch.coll .ch-head{flex-direction:column;align-items:flex-start;gap:2px}
+.ch-grid>.ch.coll .ch-head b{font-size:.95rem}
+.ch-grid>.ch.coll.open{grid-column:1/-1;padding:14px 16px 12px}
+.ch-grid>.ch.coll:not(.open) .ch-head{display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:1px}
+.ch-grid>.ch.coll:not(.open) .ch-head>*:not(.chev):not(b){grid-column:2;justify-self:start}
+.ch-grid>.ch.coll:not(.open) .ch-head .chev{grid-row:1}

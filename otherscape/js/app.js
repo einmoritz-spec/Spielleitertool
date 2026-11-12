@@ -123,7 +123,29 @@ function renderAdv(a, secId){
   $("app").innerHTML = h;
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   if(idx===0) ovDraw(a);
+  osCards();
   if(typeof osAdvRail==="function") osAdvRail();
+}
+function osCards(){
+  const cs=document.querySelector(".chsec"); if(!cs) return;
+  // mehrere Challenges: kleine, schlichte Karten im Raster
+  document.querySelectorAll(".chsec .ch.coll, .chsec .scn-r .ch.coll").forEach(c=>{
+    const par=c.parentElement; if(!par||par.classList.contains("ch-grid")) return;
+    const run=[c]; let n=c.nextElementSibling; while(n&&n.classList.contains("ch")&&n.classList.contains("coll")){run.push(n);n=n.nextElementSibling;}
+    if(run.length<2) return;
+    const g=document.createElement("div"); g.className="ch-grid"; par.insertBefore(g,c); run.forEach(x=>g.appendChild(x));
+  });
+  // Überschrift + kurzer Text -> Karten im Raster (Figuren, Orte, Power Sets, Relikte, Kits ...)
+  const kids=[...cs.children], hs=kids.filter(k=>k.classList.contains("blk-h"));
+  if(hs.length<3 || cs.querySelector(".scn,.ch,.os-arts")) return;
+  const ok=["blk-p","blk-list","blk-ref","blk-read"];
+  let i=0; const out=[]; let grid=null, bad=false;
+  const groups=[]; let cur=null;
+  kids.forEach(k=>{ if(k.classList.contains("blk-h")){cur={h:k,b:[]};groups.push(cur);} else if(cur&&ok.some(c=>k.classList.contains(c))||(cur&&(k.tagName==="UL"||k.tagName==="OL"))) cur.b.push(k); else if(cur&&!k.classList.contains("pager")) bad=true; });
+  if(bad) return;
+  groups.forEach(g=>{ if(!g.b.length) return; });
+  const first=groups[0].h; const grid2=document.createElement("div"); grid2.className="os-cgrid"; cs.insertBefore(grid2,first);
+  groups.forEach(g=>{ const card=document.createElement("section"); card.className="os-card"; grid2.appendChild(card); card.appendChild(g.h); g.b.forEach(x=>card.appendChild(x)); const t=card.textContent.length; if(t>900) card.classList.add("wide"); });
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
 NotePop.reg("os", k=>ST.notes[k]||"", setNote);

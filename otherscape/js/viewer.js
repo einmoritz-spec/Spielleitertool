@@ -46,7 +46,7 @@ async function bvShow(){
   const l = bvLead(BV.page), nums = (l===1) ? [1] : (l+1<=BV.n ? [l,l+1] : [l]);
   document.getElementById("bvNum").value = nums[0]; document.getElementById("bvOf").textContent = (nums.length>1 ? "–"+nums[1]+" " : "")+"/ "+BV.n;
   const stage = document.getElementById("bvStage"), box = document.getElementById("bvPages"), pages = await Promise.all(nums.map(n=>doc.getPage(n)));
-  const gap = 8, avail = Math.max(160, stage.clientWidth-20), total = BV.zoom ? avail*2 : avail, dpr = Math.min(2, window.devicePixelRatio||1);
+  const gap = 0, avail = Math.max(160, stage.clientWidth-20), total = BV.zoom ? avail*2 : avail, dpr = Math.min(2, window.devicePixelRatio||1);
   const w1 = pages[0].getViewport({scale:1}).width, scale = nums.length>1 ? (total-gap)/2/w1 : total/w1;
   const cvs = pages.map(pg=>{ const vp = pg.getViewport({scale: scale*dpr}), cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px"; return {pg,vp,cv}; });
   await Promise.all(cvs.map(o=>o.pg.render({canvasContext:o.cv.getContext("2d"), viewport:o.vp}).promise)); if(tok!==bvToken) return;

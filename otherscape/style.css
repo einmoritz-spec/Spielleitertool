@@ -179,8 +179,8 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .bv-bar input{width:72px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:7px;text-align:center}
 .bv-title{flex:1;min-width:0;color:var(--mute);font-size:.85rem;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bv-stage{flex:1;overflow:auto;padding:10px;display:flex;justify-content:flex-start}
-.bv-pages{display:flex;gap:8px;margin:0 auto;align-items:flex-start;align-self:flex-start}
-.bv-stage canvas{display:block;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.bv-pages{box-shadow:0 8px 30px rgba(0,0,0,.6);display:flex;gap:0;margin:0 auto;align-items:flex-start;align-self:flex-start}
+.bv-stage canvas{display:block;background:#fff}
 
 .geg-bar{display:flex;gap:8px;margin:8px 0 12px;flex-wrap:wrap}.geg-bar .search-input{flex:1 1 240px}.geg-bar select{background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px;font:inherit}
 .geg-list{display:grid;gap:6px;max-width:112ch}

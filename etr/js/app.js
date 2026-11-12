@@ -14,6 +14,7 @@ function blk(b){
   if(b.t==="h") return '<h3>'+md(b.x)+'</h3>';
   if(b.t==="p") return '<p>'+md(b.x)+'</p>';
   if(b.t==="ul") return '<ul>'+b.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul>';
+  if(b.t==="box" && /^vorles/i.test(b.titel||"")){ var pv=(b.b||[]).filter(function(x){return x.t==="p";}).map(function(x){return x.x;}).join(" ").replace(/\*\*|==/g,"").slice(0,90); return '<details class="box vorlese" open><summary><i>▾</i><span class="bt">'+md(b.titel)+'</span><span class="vp">'+esc(pv)+'</span></summary>'+b.b.map(blk).join("")+'</details>'; }
   if(b.t==="box") return '<div class="box"><div class="bt">'+md(b.titel)+'</div>'+b.b.map(blk).join("")+'</div>';
   if(b.t==="bsp") return '<div class="bsp"><div class="bt">'+md(b.titel)+'</div>'+b.b.map(blk).join("")+'</div>';
   if(b.t==="stamp") return '<div class="stamp">'+esc(b.x)+'</div>';

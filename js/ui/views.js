@@ -270,7 +270,7 @@ function renderChallenge(advId, sceneIdx, chIdx, ch){
   const secretsWrapHtml = (specialHtml||secretsHtml) ? `
     <details class="ch-lcol-block ch-secrets">
       <summary class="ch-section-label">Geheimnisse</summary>
-      ${specialHtml}${secretsHtml}
+      <div class="ch-sec-grid">${specialHtml}${secretsHtml}</div>
     </details>` : "";
   const tagsWrapHtml = tagsHtml ? `
     <div class="ch-lcol-block">
@@ -304,12 +304,12 @@ function renderChallenge(advId, sceneIdx, chIdx, ch){
               <div class="limit-block">${limitsHtml}</div>
             </div>
             ${tagsWrapHtml}
-            ${secretsWrapHtml}
           </div>
           <div class="ch-col-right">
             <div class="ch-desc">${(EDIT.on&&advId!=="lib") ? `<div${EA("challenges."+chIdx+".desc","br")}>${esc(ch.desc)}</div>` : descParagraphs(linkStatuses(esc(ch.desc)))}</div>
             ${threatsWrapHtml}
           </div>
+          ${secretsWrapHtml}
         </div>
         ${ch.source?`<div class="ch-source">Quelle: ${esc(ch.source)}</div>`:''}
       </div>

@@ -157,3 +157,14 @@ h1,h2,h3{font-family:var(--serif-display)}
 .ch-secrets[open]>summary:after{content:"－"}
 .ch-secrets[open]>summary{margin-bottom:10px}
 .ch-secrets>.secret-block,.ch-secrets>.special-block{margin-bottom:8px}
+
+/* Geheimnisse: unter beiden Spalten, volle Breite, eingeklappt per Standard */
+.ch-cols>.ch-secrets{grid-column:1/-1;margin-top:2px}
+.ch-secrets[open]{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px 14px;align-items:start}
+.ch-secrets[open]>summary{grid-column:1/-1;margin-bottom:0}
+.ch-secrets>.secret-block,.ch-secrets>.special-block{margin:0}
+.ch-secrets .secret-block p,.ch-secrets .special-block p{font-size:calc(14.5px * var(--fs));font-style:normal}
+@media(max-width:640px){.ch-secrets[open]{grid-template-columns:1fr}}
+.ch-secrets[open]{display:block!important}
+.ch-sec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px 14px;align-items:start}
+@media(max-width:640px){.ch-sec-grid{grid-template-columns:1fr}}

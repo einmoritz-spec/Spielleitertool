@@ -79,10 +79,25 @@ function render(){
   var tabs=isAdv(cur)?'<nav class="tabs">'+ETR_TABS.map(function(x){return '<button class="tab'+(x.id===cur?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>';}).join("")+'</nav>':'';
   var m={einstieg:overview,intro:function(){return secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegner,anhang:function(){return secs(window.ETR_ANHANG);}};
   var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0];
-  document.getElementById("app").innerHTML=tabs+(mi?'<div class="crumb"><button onclick="go(\'einstieg\')">Übersicht</button> › '+mi.t+'</div>':'')+(m[cur]||overview)();
+  document.getElementById("app").innerHTML=tabs+(m[cur]||overview)();
+  if(mi) etRail(mi);
   var t=document.querySelector(".tab.on"); if(t&&t.scrollIntoView) t.scrollIntoView({inline:"center",block:"nearest"});
   if(hp.sec){ var el=document.getElementById("s-"+hp.sec)||document.getElementById("f-"+hp.sec); if(el){ if(el.tagName==="DETAILS") el.open=true; el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); return; } }
   window.scrollTo(0,0);
+}
+function etShort(t){ return String(t).split(":")[0]; }
+function etGo(id){ var e=document.getElementById(id); if(e){ if(e.tagName==="DETAILS") e.open=true; e.scrollIntoView({behavior:"smooth",block:"start"}); } }
+function etRail(mi){
+  var app=document.getElementById("app"), kids=[].slice.call(app.children).filter(function(e){return e.matches("details.sec,section.fig");});
+  var subs=kids.map(function(e){ if(e.tagName==="DETAILS") e.open=true; var h=e.querySelector("h2"); return {id:e.id,t:h?h.textContent:""}; });
+  var link=function(x){ return '<a href="#" onclick="etGo(\''+x.id+'\');return false">'+esc(etShort(x.t))+'</a>'; };
+  var btn=function(x){ return '<button class="ocat'+(x.id===mi.id?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>'; };
+  var tree=ETR_MENU.map(function(x){ return btn(x)+(x.id===mi.id&&subs.length?'<div class="osub">'+subs.map(link).join("")+'</div>':''); }).join("");
+  var flat='<div class="orow">'+ETR_MENU.map(btn).join("")+'</div>'+(subs.length>1?'<div class="orow osr">'+subs.map(link).join("")+'</div>':'');
+  var main=document.createElement("div"); main.className="osmain"; kids.forEach(function(e){ main.appendChild(e); });
+  [].slice.call(app.children).forEach(function(e){ if(e!==main && !e.matches(".tabs")) main.appendChild(e); });
+  var wrap=document.createElement("div"); wrap.className="osrail"; wrap.innerHTML='<nav class="osnav"><div class="otree">'+tree+'</div><div class="oflat">'+flat+'</div></nav>'; wrap.appendChild(main);
+  app.appendChild(wrap);
 }
 function go(id){ if(location.hash==='#'+id){ render(); } else location.hash=id; }
 function buildMenu(){

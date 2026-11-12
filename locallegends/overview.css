@@ -1,0 +1,33 @@
+/* Local Legends – Übersicht im Look des Buchs: Noir-Bühne (Ziegelrot/Gelb), Crime-Board-Polaroids */
+:root{--brick:#8a2b1f;--brick-d:#5e1a12;--yel:#f6c92b;--ink:#16110f;--ov-cond:"Bahnschrift","Arial Narrow","Liberation Sans Narrow",Impact,"Arial Black",sans-serif}
+.ov-stage{position:relative;border-radius:14px;padding:18px 18px 16px;margin:0 0 26px;color:#f3e6c6;text-align:center;
+  background:radial-gradient(900px 340px at 50% -10%,rgba(138,43,31,.85),transparent 70%),radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.4px) 0 0/7px 7px,linear-gradient(#211815,#130e0c);
+  border:2px solid var(--ink);border-bottom:5px solid var(--brick);box-shadow:0 6px 18px rgba(40,20,10,.35)}
+.ov-logo{display:block;margin:0 auto 12px;height:clamp(150px,19vw,230px);width:auto;max-width:70%;filter:drop-shadow(0 4px 10px rgba(0,0,0,.55))}
+.ov-stage .city-map-box{margin:0}
+.ov-stage .city-map img{border-radius:6px;box-shadow:0 0 0 3px #0c0908,0 0 0 5px var(--yel),0 10px 24px rgba(0,0,0,.6);max-height:min(72vh,820px)}
+.ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 22px;padding:6px 4px 30px}
+.ov-card{position:relative;display:flex;flex-direction:column;text-align:left;padding:10px 10px 0;background:#fbf6e6;border:1px solid #c9b98f;border-radius:3px;
+  box-shadow:2px 4px 12px rgba(60,40,15,.35);cursor:pointer;font:inherit;color:#2a251d;transform:rotate(var(--r,0deg));transition:transform .15s,box-shadow .15s}
+.ov-card:hover,.ov-card:focus-visible{transform:rotate(0) translateY(-3px);box-shadow:3px 8px 18px rgba(60,40,15,.45);outline:none}
+.ov-photo{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#e8dcc0;border:1px solid #bda97a}
+.ov-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.ov-pin{position:absolute;left:50%;top:-1px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e5604d,var(--brick-d));box-shadow:0 2px 3px rgba(0,0,0,.5);display:none}
+.ov-cap{display:flex;flex-direction:column;gap:3px;padding:11px 4px 14px}
+.ov-num{align-self:flex-start;background:var(--brick);color:#fff3cf;font-family:var(--ov-cond);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:2px 8px 2px;border-radius:2px}
+.ov-name{font-family:var(--ov-cond);font-weight:800;font-size:clamp(20px,1.7vw,25px);line-height:1.1;letter-spacing:.015em;text-transform:uppercase;color:var(--brick);margin-top:4px}
+.ov-sub{font-size:13.5px;line-height:1.4;color:#5a4f3a;font-style:italic}
+.ov-card::before{content:"";position:absolute;left:50%;top:-11px;width:78px;height:20px;margin-left:-39px;background:rgba(246,201,43,.78);transform:rotate(-2deg);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.ov-card.off{opacity:.55;cursor:default;filter:grayscale(.5)}.ov-badge{position:absolute;top:18px;right:18px;background:var(--ink);color:var(--yel);font-size:10px;padding:2px 7px;border-radius:2px}
+@media (max-width:1000px){.ov-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){
+  .ov-stage{padding:12px 8px;border-radius:10px;margin:0 -4px 20px}
+  .ov-logo{height:150px}
+  .ov-grid{gap:20px 12px;padding:6px 0 24px}
+  .ov-card{padding:6px 6px 0}.ov-cap{padding:9px 2px 11px}
+  .ov-name{font-size:18px}.ov-sub{font-size:12px}.ov-num{font-size:10px}
+  .ov-photo{aspect-ratio:4/3}
+  .ov-card::before{width:56px;height:15px;margin-left:-28px;top:-8px}
+}
+@media (max-width:560px){.ov-card:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;gap:10px;align-items:stretch}.ov-card:last-child:nth-child(odd) .ov-photo{flex:0 0 46%;aspect-ratio:auto}.ov-card:last-child:nth-child(odd) .ov-cap{justify-content:center}}
+@media (min-width:561px) and (max-width:1000px){.ov-card:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;gap:14px}.ov-card:last-child:nth-child(odd) .ov-photo{flex:0 0 40%;aspect-ratio:auto}.ov-card:last-child:nth-child(odd) .ov-cap{justify-content:center}}

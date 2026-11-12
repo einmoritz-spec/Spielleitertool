@@ -117,27 +117,16 @@ function renderPrep(){
   return PREP.html({cards, adv:{t:"Bezirke", sub:n+" Bezirke", go:"goOverview()"}});
 }
 function renderOverview(){
-  let tiles = DISTRICTS.filter(d=>!d.hidden).map(d=>{
-    if(d.status==="ready"){
-      return `<button class="tile clickable" onclick="goDistrict('${d.id}')">
-        <div class="num">BEZIRK ${String(d.num).padStart(2,"0")}</div>
-        <h3>${d.title}</h3>
-        <div class="sub">${d.sub||""}</div>
-        <div class="teaser">${d.teaser||""}</div>
-      </button>`;
-    }
-    return `<div class="tile locked"><span class="badge">In Vorbereitung</span>
-      <div class="num">BEZIRK ${String(d.num).padStart(2,"0")}</div>
-      <h3>${d.title}</h3>
-      <div class="sub">${d.sub||""}</div>
-      <div class="teaser">${d.teaser||""}</div>
-    </div>`;
+  const ds = DISTRICTS.filter(d=>!d.hidden);
+  const tiles = ds.map((d,i)=>{
+    const ok = d.status==="ready", img = d.data && d.data.icebergImage ? d.data.icebergImage : "img/karten/"+d.id+"-sl.webp";
+    const inner = `<span class="ov-photo"><img src="${img}" alt="${d.title}" loading="lazy" draggable="false"><i class="ov-pin"></i></span>
+      <span class="ov-cap"><span class="ov-num">Bezirk ${String(d.num).padStart(2,"0")}</span><b class="ov-name">${d.title}</b><span class="ov-sub">${d.sub||""}</span></span>${ok?"":'<span class="ov-badge">In Vorbereitung</span>'}`;
+    return ok ? `<button class="ov-card" style="--r:${[-.7,.5,-.3,.8,-.5,.4][i%6]}deg" onclick="goDistrict('${d.id}')">${inner}</button>`
+              : `<div class="ov-card off">${inner}</div>`;
   }).join("");
-  return `
-    ${renderCityMap()}
-    <div class="grid">${tiles}</div>
-    <div class="footer-note">Quelle: City of Mist — Local Legends · Fall-Akte für den Spieltisch, kein Ersatz fürs Regelwerk.</div>
-  `;
+  return `<section class="ov-stage"><img class="ov-logo" src="img/logo.webp" alt="City of Mist – Local Legends" draggable="false">${renderCityMap()}</section>
+    <div class="ov-grid">${tiles}</div>`;
 }
 
 /* ============================================================

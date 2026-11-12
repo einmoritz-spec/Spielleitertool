@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v257par";
+const VERSION = "v258ov";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -179,6 +179,8 @@ const FILES = [
   "locallegends/responsive.css",
   "locallegends/akte.css",
   "locallegends/hell.css",
+  "locallegends/overview.css",
+  "locallegends/img/logo.webp",
   "locallegends/js/tool-switch.js",
   "locallegends/js/mobile-menu.js",
   "locallegends/js/extras.js",

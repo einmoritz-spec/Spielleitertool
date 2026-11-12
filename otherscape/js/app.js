@@ -47,17 +47,38 @@ async function route(){
 
 /* ---------- Start ---------- */
 function renderHome(){
-  const go = h => `location.hash='#/${h}'`, adv = OS_ADV_LIST.filter(a=>a.kat===undefined).length;
-  $("app").innerHTML = PREP.html({cards:[
-    {t:"Regeln", go:go("regeln"), rows:[["Regelwerk",null,go("regeln")],["Regelblatt & Würfler",null,"openRules()"],["Theme-Kits",null,go("kits")],["Straßenkatalog",null,go("katalog")]]},
-    {t:"Setting", go:go("tokyo"), rows:[["Tokyo",null,go("tokyo")],["Metro",null,go("metro")],["Fraktionen",null,go("fraktionen")]]},
-    {t:"Gegner", go:go("gegner"), rows:[["Gegner-Browser",null,go("gegner")]]}
-  ], adv:{t:"Abenteuer", sub:adv+" Abenteuer", go:go("abenteuer")}});
+  const go = h => `location.hash='#/${h}'`, adv = OS_ADV_LIST.filter(a=>a.kat===undefined), nF = OS_ADV_LIST.filter(a=>a.kat==="fraktion").length;
+  const ic = d => `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+  const I = {
+    regel:ic('<path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11M9 8h6"/>'),
+    kits:ic('<rect x="4" y="5" width="11" height="15" rx="2"/><path d="M9 3h9a2 2 0 012 2v12M8 10h3M8 14h3"/>'),
+    katalog:ic('<path d="M4 8l8-4 8 4-8 4zM4 8v8l8 4 8-4V8M12 12v8"/>'),
+    tokyo:ic('<path d="M3 20h18M6 20V10l3-2v12M12 20V5l4 2v13M18 20v-8l2 1"/><path d="M8 13h0M14 11h0M14 15h0"/>'),
+    metro:ic('<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l2-4M15 21l-2-4M9 14h.01M15 14h.01"/>'),
+    frak:ic('<path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>')
+  };
+  const tile = (c,t,meta,pg,icon,tone) => `<button class="os-t" style="--c:${tone}" onclick="${go(c)}"><span class="os-t-top"><span class="os-t-ic">${icon}</span>${pg?`<i>${pg}</i>`:""}</span><b>${t}</b><small>${meta}</small></button>`;
+  const strip = adv.filter(a=>OS_COVER[a.id]).slice(0,6).map(a=>`<span class="os-strip-i" style="background-image:url(${OS_COVER[a.id][0]});background-position:${OS_COVER[a.id][1]}"></span>`).join("");
+  $("app").innerHTML = `<div class="os-home">
+  <header class="os-hero"><div class="os-hero-in"><h1 class="os-logo"><span class="os-colon">:</span>Otherscape</h1><div class="os-chips"><span>Metro</span><span>Tokyo</span></div></div></header>
+  <button class="os-adv" onclick="${go("abenteuer")}"><span class="os-strip">${strip}</span><span class="os-adv-t"><b>Abenteuer</b><small>${adv.length} Jobs</small></span><span class="os-adv-go" aria-hidden="true">›</span></button>
+  <div class="os-sec">Regeln</div>
+  <div class="os-grid">${tile("regeln","Regelwerk","Metro-Regeln","",I.regel,"#ff2bd6")}${tile("kits","Theme-Kits","Tags &amp; Tropes","",I.kits,"#a97bff")}${tile("katalog","Straßenkatalog","Ausrüstung","",I.katalog,"#19e3c1")}</div>
+  <div class="os-sec">Setting</div>
+  <div class="os-grid">${tile("tokyo","Tokyo","Bezirke &amp; Orte","S. 6–39",I.tokyo,"#ff5d9e")}${tile("metro","Metro","Die Stadt","",I.metro,"#5ab8ff")}${tile("fraktionen","Fraktionen",nF+" Mächte","S. 151–237",I.frak,"#ffc15a")}</div>
+  </div>`;
 }
+/* Titelbilder der Abenteuer: [Bild, Ausschnitt] */
+const OS_COVER = {
+  "strings-attached":["img/strings-attached-s342.webp","30% 10%"], "anthill":["img/anthill-titel.webp","50% 18%"],
+  "biting-bullet":["img/biting-bullet-titel.webp","50% 42%"], "lost-flooded":["img/lost-flooded-titel.webp","50% 40%"],
+  "kenko-ruins":["img/kenko-ruins-titel.webp","50% 45%"], "steam-punks":["img/steam-punks-titel.webp","50% 45%"],
+  "bridge-too-far":["img/bridge-too-far-titel.webp","50% 22%"]
+};
 function renderAdvList(){
   let h = "";
-  const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small><span class="badge ${ok?"ok":"run"}">${ok?esc(a.tag):"in Arbeit"}</span></button>`; };
-  h += `<div class="sec-h">Abenteuer</div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat===undefined).map(card).join("")}</div>`;
+  const card = a => { const ok = hasData(a.id), c = OS_COVER[a.id]; return `<button class="os-ac ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="os-ac-img" ${c?`style="background-image:url(${c[0]});background-position:${c[1]}"`:""}><em>${esc(ok?a.tag:"in Arbeit")}</em></span><span class="os-ac-b"><span class="os-ac-h"><b>${esc(a.titel)}</b><i>${esc(a.seiten)}</i></span><small>${esc(a.sub)}</small></span></button>`; };
+  h += `<div class="sec-h">Abenteuer</div><div class="os-acg">${OS_ADV_LIST.filter(a=>a.kat===undefined).map(card).join("")}</div>`;
   $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Abenteuer</div>`+h;
 }
 

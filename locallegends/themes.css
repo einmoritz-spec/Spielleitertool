@@ -221,3 +221,11 @@ body.pn-off .ll-rail{padding-left:26px}
 .dv-secs{display:grid;grid-template-columns:1fr;gap:0 28px;align-items:start;margin-top:10px}
 @media(min-width:1000px){.dv-secs{grid-template-columns:repeat(2,minmax(0,1fr))}.dv-secs>.section:not(.collapsed){grid-column:1/-1}}
 @media(min-width:1000px) and (max-width:1199px){.lb-top{display:block!important}.lb-a{position:static!important;float:none;width:auto;margin:0 0 12px}.lb-figs{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+
+/* Handy: Rail-Karten flach statt Kästen */
+@media(max-width:820px){
+ .ll-rmain{gap:0}
+ .ll-rmain>.loc-card,.ll-rmain>.card,.ll-rmain>.danger-card{background:none!important;border:0!important;border-top:1px solid #c9b88f!important;border-radius:0!important;box-shadow:none!important;padding:14px 0 16px!important}
+ .ll-rmain>*:first-child{border-top:0!important}
+ .ll-rnav{margin-bottom:6px;border-bottom:1px solid #c9b88f;padding-bottom:4px}
+}

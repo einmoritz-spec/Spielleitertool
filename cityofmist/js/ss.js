@@ -72,8 +72,12 @@ function pageSL(r){
   var cats = s.id==="orte"?CM_ORTE_CATS : s.id==="avatare"?CM_AV_CATS : s.id==="gatekeeper"?CM_GK_CATS : null;
   if(!cats) return h+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
   var cat=cats.filter(function(c){return c.id===r.cat;})[0]||cats[0];
-  var chips='<nav class="chips">'+cats.map(function(c){var n=(CM_ORTE[c.id]||[]).length;return '<button class="chip'+(c.id===cat.id?' on':'')+'" onclick="gs(\'sl/'+s.id+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>';}).join("")+'</nav>';
   var have=CM_ORTE[cat.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
-  var body=orteRail(cat.e,names);
-  return h+chips+orgHtml(cat.id)+'<section class="blk">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+body+'</section>';
+  var cards=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort"','<details class="ort" open'):stub(e[0],e[1]); }).join("");
+  var nav=cats.map(function(c){
+    var on=c.id===cat.id, n=(CM_ORTE[c.id]||[]).length;
+    var sub=on?'<div class="osub">'+cat.e.map(function(e){ var o=names[e[0]]; return o?'<a href="#o-'+o.id+'" onclick="document.getElementById(\'o-'+o.id+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(e[0])+'</a>':'<span class="nolink">'+esc(e[0])+'</span>'; }).join("")+'</div>':'';
+    return '<button class="ocat'+(on?' on':'')+'" onclick="gs(\'sl/'+s.id+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>'+sub;
+  }).join("");
+  return h+'<div class="orail"><nav class="onav">'+nav+'</nav><div class="omain">'+orgHtml(cat.id)+'<section class="blk flat">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+cards+'</div></section></div></div>';
 }

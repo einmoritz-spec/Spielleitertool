@@ -238,3 +238,20 @@ mark{background:var(--yel)}
 .onav .nolink{opacity:.45;font-weight:500}
 .orail .orte{min-width:0}.orail .ort{scroll-margin-top:76px}
 @media(max-width:860px){.orail{grid-template-columns:1fr}.onav{position:static;flex-direction:row;overflow-x:auto;border:0;padding-bottom:6px}.onav a,.onav .nolink{white-space:nowrap;background:rgba(190,24,93,.08)}}
+
+/* cleaner: Kategorien links als Baum, Inhalt flach */
+.onav .ocat{display:flex;justify-content:space-between;align-items:center;gap:8px;text-align:left;background:none;border:0;padding:8px 10px;font:700 .95rem/1.2 inherit;color:inherit;cursor:pointer;border-radius:6px;font-family:inherit}
+.onav .ocat i{font-style:normal;font-size:.75rem;color:#be185d}
+.onav .ocat:hover{background:rgba(190,24,93,.08)}
+.onav .ocat.on{background:#2a1a4a;color:#fff}
+.onav .osub{display:flex;flex-direction:column;margin:2px 0 8px 14px;border-left:2px solid #be185d}
+.onav .osub a,.onav .osub .nolink{padding:5px 10px;font-weight:500;font-size:.84rem}
+.omain{min-width:0}
+.blk.flat{background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+.blk.flat .ort{background:none;border:0;border-left:0;box-shadow:none;border-top:1px solid var(--line);border-radius:0;padding:0 0 18px;margin:0}
+.blk.flat .ort:first-child{border-top:0}
+.blk.flat .ort>summary{cursor:default;padding:14px 0 8px}
+.blk.flat .ort>summary::before,.blk.flat .ort>summary::marker{display:none;content:""}
+.blk.flat .ort .ob{padding:0}
+.orail{margin-top:14px}
+@media(max-width:860px){.onav{max-height:none;flex-direction:column;overflow:visible;border-right:0;border-bottom:2px solid var(--line);padding-bottom:8px}}

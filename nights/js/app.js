@@ -63,7 +63,7 @@ function renderCampaign(){
   const C = camp();
   let h = "";
   for(const L of C.levels){
-    h += `<details class="level ${L.tone}"><summary class="level-head"><h2>${esc(L.name)}</h2><span class="lv-sub">${esc(L.sub||"")}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
+    h += `<details class="level ${L.tone}" open><summary class="level-head"><h2>${esc(L.name)}</h2><span class="lv-sub">${esc(L.sub||"")}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
     for(const n of L.cases){
       const ci = C.cases[n]; if(!ci) continue;
       const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
@@ -72,7 +72,7 @@ function renderCampaign(){
     }
     h += `</div></details>`;
   }
-  $("app").innerHTML = h;
+  $("app").innerHTML = `<div class="lvgrid">${h}</div>`;
 }
 
 /* ---------- Stadtkarte ---------- */
@@ -85,8 +85,7 @@ function renderMap(dolch){
   const byCase = {};
   M.spots.forEach((s,i)=>s.links.forEach(l=>{ (byCase[l.c] = byCase[l.c]||[]).push({l, i, s}); }));
   const list = Object.keys(byCase).sort((a,b)=>a-b).map(c=>`<div class="mlist-case"><h4>Fall ${c}</h4>${byCase[c].map(o=>`<a href="#/case/${o.l.c}/sec/${o.l.s}">${esc(o.s.label)}</a>`).join("")}</div>`).join("");
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goCampaign()">Kampagne</a> › Stadtkarte</div>
-  <div class="case-head"><h1>Stadtkarte</h1><span class="meta">Crime Board City Map · tippe auf einen Ort, um zum Abschnitt zu springen</span></div>
+  $("app").innerHTML = `<div class="case-head"><h1>Stadtkarte</h1><span class="meta">Crime Board City Map · tippe auf einen Ort, um zum Abschnitt zu springen</span></div>
   <div class="mtools"><button class="btn" onclick="mapZoom(-1)">−</button><span id="mzl" class="hint">${Math.round(MZ*100)} %</span><button class="btn" onclick="mapZoom(1)">+</button><button class="btn" onclick="mapZoom(0)">Einpassen</button><button class="btn" onclick="toggleDagger()">Galahads Dolch ${MDAG?"ausblenden":"einblenden"}</button><label class="hint"><input type="checkbox" ${MSHOW?"checked":""} onchange="MSHOW=this.checked;$('mapbox').classList.toggle('show',MSHOW)"> Orte markieren</label></div>
   ${MDAG?daggerHtml():""}<div class="mapscroll" id="mapscroll"><div class="mapbox ${MSHOW?"show":""}" id="mapbox" style="width:${MZ*100}%"><img src="${M.image}" alt="Stadtkarte">${spots}${MDAG?daggerEl():""}</div></div>
   <div id="mpop" class="mpop" hidden></div>
@@ -153,14 +152,15 @@ function renderCase(c, sid){
   CURCH = ch;
   const tabs = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
     return `<button class="case-tab ${on?"active":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${m?esc(m[1])+"<br><small>"+esc(m[2])+"</small>":esc(t)}</button>`; }).join("");
-  const tabbar = `<div class="case-tabbar">${tabs}${NotePop.tile("nights", c.nr+":"+ch.items[0].id)}</div>`;
+  const _g=ch.items[0], _gn=c.sections[c.sections.indexOf(_g)+1];
+  const tabbar = `<div class="case-tabbar">${tabs}<a class="case-pg" onclick="openPageViewer(${_g.page})" title="Im Buch öffnen">S. ${pageRange(c,_g,_gn)}</a>${NotePop.tile("nights", c.nr+":"+ch.items[0].id)}</div>`;
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
   const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t).replace(/^([^:]{2,24}):\s*(.+)$/,'$1<span class="pg-more">: $2</span>')}</b></span></a>`;
   body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
   const _f = ch.items[0], _n = c.sections[c.sections.indexOf(_f)+1];
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goCampaign()">Kampagne</a> › ${esc(c.level)} › ${c.nr<11?"Fall "+c.nr:esc(c.title)} › <a onclick="openPageViewer(${_f.page})" title="S. ${pageRange(c,_f,_n)} im Buch öffnen">${esc(chapterTitle(ch))}</a><span class="crumb-pg">S. ${pageRange(c,_f,_n)}</span></div>
+  $("app").innerHTML = `
   
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
@@ -387,7 +387,7 @@ async function renderRegister(tab){
   $("app").innerHTML = '<div class="missing">Lade Register …</div>';
   const R = await buildRegister();
   const tabs = [["leute","Bedrohungen & Personen"],["orte","Eisberg-Einträge"],["notizen","Notizen"]];
-  let h = `<div class="crumbs"><a onclick="goCampaign()">Kampagne</a> › Register</div><div class="case-head"><h1>Register</h1></div><div class="reg-tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" onclick="location.hash='#/register/${t[0]}'">${t[1]}</button>`).join("")}</div>`;
+  let h = `<div class="case-head"><h1>Register</h1></div><div class="reg-tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" onclick="location.hash='#/register/${t[0]}'">${t[1]}</button>`).join("")}</div>`;
   if(tab==="notizen"){
     const rows = Object.keys(ST.notes).filter(k=>(ST.notes[k]||"").trim()).map(k=>{ const [nr,sid] = k.split(":"); const c = R.loaded[+nr]; const sec = c && c.sections.find(x=>x.id===sid); return {nr:+nr, sid, title: sec?sec.title:sid, text:ST.notes[k], page: sec?sec.page:0}; }).sort((a,b)=>a.nr-b.nr||a.page-b.page);
     h += rows.length ? `<div class="reg-list">${rows.map(r=>`<a class="reg-note" href="#/case/${r.nr}/sec/${r.sid}"><small>${r.nr<11?"Fall "+r.nr:"Buch"} · ${esc(r.title)}</small><span>${esc(r.text)}</span></a>`).join("")}</div>` : `<div class="missing">Noch keine Notizen. Notizen schreibst du unten in jedem Kapitel.</div>`;

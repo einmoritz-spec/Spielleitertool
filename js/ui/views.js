@@ -304,11 +304,11 @@ function renderChallenge(advId, sceneIdx, chIdx, ch){
               <div class="limit-block">${limitsHtml}</div>
             </div>
             ${tagsWrapHtml}
-            ${secretsWrapHtml}
           </div>
           <div class="ch-col-right">
             <div class="ch-desc">${(EDIT.on&&advId!=="lib") ? `<div${EA("challenges."+chIdx+".desc","br")}>${esc(ch.desc)}</div>` : descParagraphs(linkStatuses(esc(ch.desc)))}</div>
             ${threatsWrapHtml}
+            ${secretsWrapHtml}
           </div>
         </div>
         ${ch.source?`<div class="ch-source">Quelle: ${esc(ch.source)}</div>`:''}

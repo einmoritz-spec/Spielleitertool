@@ -301,4 +301,5 @@
 .tb-artcol{margin:0;position:sticky;top:0;padding:5px;border:1px solid rgba(201,168,92,.35);border-radius:12px;background:linear-gradient(180deg,rgba(201,168,92,.10),rgba(0,0,0,.18))}
 .tb-art{display:block;width:100%;height:min(58vh,470px);object-fit:cover;object-position:center 30%;border-radius:8px}
 .tb-main{min-width:0}
+.tb-panel:not(:has(.tb-artcol)){grid-template-columns:minmax(0,1fr)}
 @media(max-width:700px){.tb-panel{grid-template-columns:84px minmax(0,1fr);gap:14px}}

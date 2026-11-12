@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v258ov";
+const VERSION = "v259tb";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -507,6 +507,7 @@ const FILES = [
   "assets/tb/past.webp",
   "assets/tb/people.webp",
   "assets/tb/personality.webp",
+  "assets/tb/skill_or_trade.webp",
   "assets/tb/possessions.webp",
   "assets/tb/prodigious.webp",
   "assets/tb/relic.webp",

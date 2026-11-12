@@ -18,7 +18,7 @@
 }
 .gloss-modal-backdrop.open{display:flex;}
 .gloss-modal{
-  width:100%; max-width:480px; max-height:80vh; overflow-y:auto;
+  width:100%; max-width:min(94vw,780px); max-height:90vh; overflow-y:auto;
   background:linear-gradient(160deg, var(--panel-raised), var(--panel));
   border:1px solid rgba(201,162,75,.35); border-radius:12px;
   padding:26px 28px 24px; box-shadow:0 30px 70px -20px rgba(0,0,0,.7);

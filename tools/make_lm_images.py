@@ -4,7 +4,7 @@ Aufruf: python3 -I make_lm_images.py <core_book.pdf>"""
 import subprocess, sys, os, tempfile
 from PIL import Image
 pdf = sys.argv[1]; out = os.path.join(os.path.dirname(__file__), '..', 'assets', 'tb'); os.makedirs(out, exist_ok=True)
-PAGES = {'circumstance':92,'devotion':94,'past':96,'people':98,'personality':100,'trait':104,'duty':106,'influence':108,'knowledge':110,'prodigious':112,
+PAGES = {'circumstance':92,'devotion':94,'past':96,'people':98,'personality':100,'skill_or_trade':102,'trait':104,'duty':106,'influence':108,'knowledge':110,'prodigious':112,
          'relic':114,'uncanny':116,'destiny':118,'dominion':120,'mastery':122,'monstrosity':124,'companion':126,'magic':128,'possessions':130}
 for key, pg in PAGES.items():
     with tempfile.TemporaryDirectory() as t:

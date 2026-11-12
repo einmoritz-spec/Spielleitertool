@@ -445,4 +445,5 @@ function niRail(main){
   });
   const wrap=document.createElement("div"); wrap.className="ni-rail"; wrap.appendChild(nav); wrap.appendChild(body);
   main.insertBefore(wrap, main.querySelector(".pager"));
+  [...main.children].forEach(function(e){ if(e===wrap) return; if(e.compareDocumentPosition(wrap)&Node.DOCUMENT_POSITION_FOLLOWING && e.classList.contains("chsec") && !e.querySelector(":scope > .sec-sub")) e.classList.add("ni-intro"); });
 }

@@ -176,3 +176,10 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
  .ni-nav{position:static;flex-direction:row;overflow-x:auto;border:0;padding:0 0 8px;max-height:none;scrollbar-width:none;border-bottom:2px solid rgba(180,120,40,.35);margin-bottom:10px}
  .ni-nav a{flex:none;white-space:nowrap;padding:6px 10px;background:rgba(224,150,40,.15);border-radius:999px;font-size:.82rem}
 }
+
+/* Einleitungssatz klein, grau, einzeilig */
+.ni-intro,.ni-intro p{font-size:.82rem!important;line-height:1.3!important;color:#8a7a62!important;margin:2px 0 6px!important;}
+.ni-intro{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0!important;border:0!important;background:none!important}
+.ni-intro p{margin:0!important;display:inline}
+.ni-rail{margin-top:6px!important}
+.ni-body>.ni-flat:first-child{margin-top:0!important;padding-top:0!important}.ni-body>.ni-flat:first-child .sec-sub{margin-top:0!important}.ni-nav{padding-top:2px}

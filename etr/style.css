@@ -137,3 +137,7 @@ details.vorlese>summary .bt{margin:0}.vorlese .vp{display:none;font-size:.85em;o
 .hero .ht{max-width:none;width:100%;padding:18px clamp(16px,3vw,34px)}
 .hero .htitle{display:block;width:min(560px,80%);height:auto;margin:0 auto 12px;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
 .hero .ht span{display:block;max-width:70ch;margin:0 auto;text-align:center}
+
+.hero{aspect-ratio:2/1;min-height:0;background-position:50% 35%}
+.hero::before{background:linear-gradient(to top,rgba(12,20,36,.9),rgba(12,20,36,0) 45%)}
+@media(max-width:700px){.hero{aspect-ratio:4/3}.hero .ht span{font-size:14px}}

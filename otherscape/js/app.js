@@ -99,14 +99,14 @@ function renderAdv(a, secId){
   const tabBtn = (x,strip)=>`<button class="case-tab ${x.id===s.id?"active":""}" onclick="location.hash='#/adv/${a.id}/${x.id}'">${esc(strip&&x.titel.startsWith(strip)?x.titel.slice(strip.length):x.titel)}</button>`;
   const cpre = items=>{ if(items.length<3) return ""; const m = /^[^:]{2,30}:\s/.exec(items[0].titel); return m && items.filter(x=>x.titel.startsWith(m[0])).length>=3 ? m[0] : ""; };
   const groups = []; a.sektionen.forEach(x=>{ const n = grpOf(a,x)||"Start"; const l = groups[groups.length-1]; if(l && l.n===n) l.items.push(x); else groups.push({n, items:[x]}); });
-  let tabbar;
+  let tabbar; window.ADV_SUB = "";
   const isAdv = !osSetPage(a), tile = NotePop.tile("os", a.id+":"+s.id);
   if(isAdv && a.sektionen.length>7){
     const ag = groups.find(g=>g.items.includes(s)), pr = cpre(ag.items);
-    tabbar = groups.length>=2
-      ? `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)}</button>`).join("")}</div>
-  <div class="case-tabbar scenebar">${ag.items.map(x=>tabBtn(x,pr)).join("")}${tile}</div>`
-      : `<div class="case-tabbar grprows"><div class="gr-row"><div class="gr-t">${a.sektionen.map(x=>tabBtn(x)).join("")}</div></div>${tile}</div>`;
+    if(groups.length>=2){
+      tabbar = `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)}</button>`).join("")}${tile}</div>`;
+      window.ADV_SUB = ag.items.map(x=>`<a class="ocat${x.id===s.id?" on":""}" href="#/adv/${a.id}/${x.id}">${esc(pr&&x.titel.startsWith(pr)?x.titel.slice(pr.length):x.titel)}</a>`).join("");
+    } else tabbar = `<div class="case-tabbar grprows"><div class="gr-row"><div class="gr-t">${a.sektionen.map(x=>tabBtn(x)).join("")}</div></div>${tile}</div>`;
   } else tabbar = `<div class="case-tabbar">${a.sektionen.map(x=>tabBtn(x)).join("")}${tile}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];

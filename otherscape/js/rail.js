@@ -17,11 +17,20 @@ function osRail(head, groups, main){
 /* Abenteuer-Tab: Zwischenüberschriften (Hooks, Hintergrund …) als Liste links, Inhalt flach rechts */
 function osAdvRail(){
   const cs = document.querySelector("#advGrid .chsec"); if(!cs || cs.dataset.rl) return;
-  const hs = [...cs.querySelectorAll(".blk-h")]; if(hs.length<2) return;
+  const sub = window.ADV_SUB || "";
+  const hs = [...cs.querySelectorAll(".blk-h")];
+  if(hs.length<2 && !sub) return;
   cs.dataset.rl="1";
+  /* Abschnitte: Überschrift + Inhalt bis zur nächsten Überschrift aufklappbar */
   hs.forEach((h,i)=>{ if(!h.id) h.id="osh_"+i; });
+  hs.forEach(h=>{
+    const d = document.createElement("details"); d.className="osdet"; d.open=true;
+    const sm = document.createElement("summary"); h.parentNode.insertBefore(d,h); sm.appendChild(h); d.appendChild(sm);
+    let n = d.nextSibling;
+    while(n && !(n.nodeType===1 && n.matches(".blk-h"))){ const nx=n.nextSibling; d.appendChild(n); n=nx; }
+  });
   const links = hs.map(h=>`<a href="#" onclick="osGo('${h.id}');return false">${esc(osShort(h.textContent.trim()))}</a>`).join("");
   const wrap = document.createElement("div"); wrap.className="osrail osarail";
-  wrap.innerHTML = `<nav class="osnav"><div class="otree"><div class="osub">${links}</div></div><div class="oflat"><div class="orow osr">${links}</div></div></nav><div class="osmain"></div>`;
+  wrap.innerHTML = `<nav class="osnav"><div class="otree">${sub?`<div class="ocats">${sub}</div>`:""}<div class="osub">${links}</div></div><div class="oflat">${sub?`<div class="orow">${sub}</div>`:""}<div class="orow osr">${links}</div></div></nav><div class="osmain"></div>`;
   cs.parentNode.insertBefore(wrap, cs); wrap.querySelector(".osmain").appendChild(cs);
 }

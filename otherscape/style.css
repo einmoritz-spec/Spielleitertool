@@ -584,3 +584,14 @@ body .tab-layout .content{max-width:1300px}
 .os-theme>*:not(summary){margin-left:14px;margin-right:14px}
 .os-set .ch.coll:not(.open) .chev{display:none}
 @media (max-width:1000px){.os-set .os-float{float:none;width:auto;margin:0 0 14px}}
+
+/* Abenteuer: Unterkapitel links, Inhalte aufklappbar */
+.osnav a.ocat{display:flex;text-decoration:none;color:var(--text);font:600 .95rem/1.25 inherit;padding:8px 10px;border-radius:8px}
+.osnav a.ocat:hover{background:var(--panel)}
+.osnav a.ocat.on{background:var(--panel2);color:var(--tone)}
+.osnav .osub{margin-bottom:10px}
+.osdet>summary{list-style:none;cursor:pointer}
+.osdet>summary::-webkit-details-marker{display:none}
+.osdet>summary .blk-h::before{content:"▾";display:inline-block;margin-right:.5em;font-size:.8em;transition:transform .15s}
+.osdet:not([open])>summary .blk-h::before{transform:rotate(-90deg)}
+.osdet>summary .blk-h{margin-top:18px}

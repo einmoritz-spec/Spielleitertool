@@ -184,7 +184,7 @@ OS_ADV_PART("gegner-c", [
  {
   "id": "loot-wayside-shrines",
   "titel": "Wayside Shrines (Boon-Giving Places of Power)",
-  "gruppe": "Wayside Shrines: S. 146. Offensichtliche Tippfehler des Originals (z. B. „nanties“, „Peddlar“, „atack“) wurden stillschweigend korrigiert; Shōki als Händlerin von Kodoku Furiuri und Senji als Händler der Dead Man’s Hand sind die Namen im Buch.",
+  "gruppe": "Wayside Shrines: S. 146. Shōki als Händlerin von Kodoku Furiuri und Senji als Händler der Dead Man’s Hand sind die Namen im Buch.",
   "bloecke": [
    {
     "t": "p",

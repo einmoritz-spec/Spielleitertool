@@ -117,7 +117,7 @@ function renderAdv(a, secId){
    <div class="chsec">
    ${idx===0?ovBox(a):""}
    ${osArt(a,idx)}
-   ${(()=>{ let L="",R=""; (s.bloecke||[]).forEach((b,i)=>{ const x=renderBlock(a,s,b,i); if(["challenge","uhr","hinweis"].includes(b.t)) R+=x; else L+=x; }); return (R && L.trim()) ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L+R; })()}
+   ${(()=>{ let L="",R=""; (s.bloecke||[]).forEach((b,i)=>{ const x=renderBlock(a,s,b,i); if(["challenge","uhr","hinweis"].includes(b.t)) R+=x; else L+=x; }); return (R && L.trim()) ? `<div class="scn stack"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L+R; })()}
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel.replace(/\s*\([^)]*\)\s*$/,""))}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel.replace(/\s*\([^)]*\)\s*$/,""))}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
@@ -145,11 +145,12 @@ function renderBlock(a,s,b,i){
     case "liste": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`;
     case "hinweis": return `<div class="blk blk-note">${b.titel?`<b class="tt">${esc(b.titel)}</b>`:""}${fmt(b.x)}</div>`;
     case "vorlesen_ref": case "vorlesen": if(b.v) return `<div class="blk blk-read"><div class="rd-h"><button class="pgb" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen">Buch S. ${esc(b.seite||"?")} ansehen</button></div><p>${fmt(b.v)}</p></div>`; return `<button class="blk blk-ref" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen"><span class="bk">S. ${esc(b.seite||"?")}</span><span class="bx">${fmt(b.x||"")}</span></button>`;
-    case "tabelle": return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="tbl-wrap"><table>${b.kopf?`<tr>${b.kopf.map(x=>`<th>${fmt(x)}</th>`).join("")}</tr>`:""}${(b.zeilen||[]).map(r=>`<tr>${r.map(x=>`<td>${fmt(x)}</td>`).join("")}</tr>`).join("")}</table></div></div>`;
+    case "tabelle": if((b.kopf||[]).length>=3 && /^item$/i.test(b.kopf[0])) return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="icards">${(b.zeilen||[]).map(r=>`<article class="icard"><h4>${fmt(r[0])}</h4><p>${fmt(r[1]||"")}</p><div class="itags">${String(r[2]||"").split(/,\s*/).filter(Boolean).map((t,i)=>`<span class="itag${i===0?" first":""}">${esc(t)}</span>`).join("")}${r[3]?`<span class="itag weak">– ${esc(r[3])}</span>`:""}</div></article>`).join("")}</div></div>`;
+      return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="tbl-wrap"><table>${b.kopf?`<tr>${b.kopf.map(x=>`<th>${fmt(x)}</th>`).join("")}</tr>`:""}${(b.zeilen||[]).map(r=>`<tr>${r.map(x=>`<td>${fmt(x)}</td>`).join("")}</tr>`).join("")}</table></div></div>`;
     case "szenen": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li><b>${esc(x.n)}</b> – ${fmt(x.x||"")}</li>`).join("")}</ul>`;
     case "uhr": { const n = b.segs||4, cur = ST.clk[k]||0;
       return `<div class="blk clock"><div class="cl-t"><b>${esc(b.name)}</b><small>${fmt(b.x||"")}</small>${(b.stufen||[]).length?`<ul class="blk-list">${b.stufen.map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`:""}</div><div class="segs" id="clk_${esc(k)}">${Array.from({length:n},(_,j)=>`<button class="seg ${j<cur?"on":""}" onclick="setClock('${esc(k)}',${j},${n})" aria-label="Segment ${j+1}"></button>`).join("")}</div></div>`; }
-    case "challenge": return renderChallenge(k,b);
+    case "challenge": return renderChallenge(k,b,(s.bloecke||[]).filter(x=>x.t==="challenge").length===1);
     default: return b.x?`<p class="blk blk-p">${fmt(b.x)}</p>`:"";
   }
 }

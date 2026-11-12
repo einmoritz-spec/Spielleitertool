@@ -526,3 +526,24 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .ov-none .btn{font-size:.78rem;padding:4px 10px}
 .card,.kit,.geg,.mt{border-color:rgba(25,227,193,.28)}
 .kit h3,.geg h3,.mt h3{text-transform:uppercase;letter-spacing:.06em;color:#9cf06a}
+
+/* ===== Buch-Typografie ===== */
+body{font-family:"OS Plex","IBM Plex Sans Condensed","Segoe UI",system-ui,sans-serif;font-size:1.04rem}
+.blk-p,.blk-list li,.ch-desc,.blk-read p,.blk-note{font-family:"OS Plex","IBM Plex Sans Condensed",system-ui,sans-serif}
+h1,h2,h3,.blk-h,.sec-h,.sec-title h2,.adv-head h1,.hero h1,.ch-head b,.tbl-cap,.icard h4,.nav h4,.eyebrow,.kat-item h4,.kat-allg-h{font-family:"OS Chakra","Chakra Petch","Segoe UI",system-ui,sans-serif;font-weight:700}
+.ch-head .typ,.ch-sub,.chip,.itag,.lim-l,.case-tab,.pgb,.badge,.card .nr{font-family:"OS Plex","IBM Plex Sans Condensed",system-ui,sans-serif;font-weight:600}
+/* ===== Item-Karten (Katalog-Tabellen) ===== */
+.icards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px;margin:8px 0 14px}
+.icard{background:#0f1a26;border:1px solid rgba(25,227,193,.28);border-top:3px solid #19e3c1;border-radius:4px 12px 4px 12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.icard h4{margin:0;font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;color:#b6ff4a}
+.icard p{margin:0;font-size:.92rem;line-height:1.45;color:var(--text)}
+.itags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:4px}
+.itag{font-size:.74rem;padding:2px 8px;border-radius:999px;border:1px solid rgba(25,227,193,.4);color:#8ff3de;background:rgba(25,227,193,.07)}
+.itag.first{border-color:#19e3c1}
+.itag.weak{border-color:rgba(255,92,140,.6);color:#ff9db9;background:rgba(255,92,140,.08)}
+.scn-rh{display:none!important}
+/* Challenge-Karte nutzt die Breite: Werte links, Specials/Threats rechts */
+.scn.stack .ch.open>.ch-body{columns:2 380px;column-gap:32px}
+.scn.stack .ch.open>.ch-body>*{break-inside:avoid}
+body .scn.stack .scn-r{grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))!important}
+body .scn.stack .scn-r:not(:has(.blk ~ .blk)){grid-template-columns:1fr!important}

@@ -470,7 +470,7 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 
 /* Standard-Layout: Baum links, flacher Inhalt rechts */
 .crumbs{display:none}.crumbs.pgonly{display:block;text-align:right;margin:0 0 6px!important}.crumbs.pgonly a{color:var(--mute);font-size:.72rem;text-decoration:underline dotted}
-.osrail{display:grid;grid-template-columns:200px minmax(0,1fr);gap:12px;align-items:start;margin-top:10px}
+.osrail{display:grid;grid-template-columns:200px minmax(0,1fr);gap:30px;align-items:start;margin-top:10px}
 .osnav{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;border-right:0;padding-right:0;min-width:0}
 .osnav .ocat{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;background:none;border:0;color:var(--text);font:600 .95rem/1.25 inherit;padding:8px 10px;border-radius:8px;cursor:pointer}
 .osnav .ocat i{font-style:normal;font-size:.75rem;color:var(--tone)}

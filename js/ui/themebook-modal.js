@@ -39,8 +39,9 @@ function renderThemebookBody(){
   return `
     <div class="tb-cat-tabs">${catTabs}</div>
     <div class="tb-panel" id="tbPanel">
+      <figure class="tb-artcol"><img class="tb-art" src="assets/tb/${entry.key}.webp" alt="" onerror="this.parentNode.remove()"></figure>
+      <div class="tb-main">
       <div class="tb-aspects">${esc(entry.aspects)}</div>
-      <img class="tb-art" src="assets/tb/${entry.key}.webp" alt="" loading="lazy" onerror="this.remove()">
       <div class="tb-grid2">
         <div>
           <div class="tb-qh">Stärke-Fragen <span class="tb-en">(Power Tag)</span></div>
@@ -51,6 +52,7 @@ function renderThemebookBody(){
           <ul class="tb-qlist tb-weak">${weakLis}</ul>
           <div class="tb-qi"><b>Quest-Ideen:</b> ${esc(entry.quest)}</div>
         </div>
+      </div>
       </div>
     </div>`;
 }

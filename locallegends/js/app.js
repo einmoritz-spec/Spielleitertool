@@ -847,7 +847,7 @@ function mapMode(){ let m="sl"; try{ m=localStorage.getItem("ll_mapmode")||"sl";
 function setMapMode(m){ try{ localStorage.setItem("ll_mapmode",m); }catch(e){} render(); }
 function mapToggle(){
   const m=mapMode();
-  return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')" title="SL-Karte">SL</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')" title="Spielerkarte">Spieler</button></div>`;
+  return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')" title="SL-Karte">SL</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')" title="Spielerkarte">S</button></div>`;
 }
 function mapFull(src){
   let o=document.getElementById("mapLightbox");
@@ -861,8 +861,7 @@ function renderCityMap(){
   const m=mapMode(), src=LL_MAPS.dir+"stadt-"+m+".webp";
   const hot=LL_MAPS.hot.map(h=>{ const d=DISTRICTS.find(x=>x.id===h.id); if(!d||d.hidden) return ""; const ok=d.status==="ready";
     return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}">${h.label?`<span class="city-lbl">${h.label}</span>`:""}</button>`; }).join("");
-  return `<div class="city-map-box"><div class="city-map-head">${mapToggle()}</div>
-    <div class="city-scroll"><div class="city-map"><img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div></div>`;
+  return `<div class="city-map-box"><div class="city-scroll"><div class="city-map">${mapToggle()}<img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div></div>`;
 }
 function renderMapPanel(id){
   if(typeof LL_MAPS==="undefined") return "";

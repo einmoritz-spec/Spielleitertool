@@ -436,3 +436,8 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 .city-scroll{container-type:inline-size}
 .city-hot .city-lbl,.city-hot[aria-label="The Sunken City"] .city-lbl,.city-hot[aria-label="The Undertrash"] .city-lbl{font-size:min(1.45cqw,13px)}
 .city-hot[aria-label="The Sunken City"] .city-lbl,.city-hot[aria-label="The Undertrash"] .city-lbl{font-size:min(1.25cqw,12px)}
+
+/* Kartenschalter: hochkant im Bild, links oben */
+.map-toggle{position:absolute;top:10px;left:10px;right:auto;flex-direction:column;border-radius:10px}
+.map-toggle button{padding:6px 9px;font-size:12px;font-weight:700}
+.city-map{position:relative}

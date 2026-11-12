@@ -272,3 +272,19 @@ mark{background:var(--yel)}
 .orail{grid-template-columns:200px minmax(0,1fr)!important;gap:26px}
 @media(max-width:860px){.orail{grid-template-columns:minmax(0,1fr)!important}}
 .onav .osub a{overflow-wrap:anywhere}
+
+/* Seitenelemente als Float rechts: Text fließt darunter über die volle Breite, keine leeren Spalten */
+@media (min-width:900px){
+  .ocols:not(.solo){display:flow-root!important}
+  .ocols:not(.solo) .oside{float:right;width:min(380px,38%);margin:0 0 14px 28px}
+  .ocols:not(.solo) .otxt{max-width:none}
+  .rwa{display:flow-root!important;max-width:none!important}
+  .rwa>h3,.rwa>.rwsub,.rwa>.rwbn{grid-column:auto}
+  .rwa>.rws{float:right;width:min(380px,38%);margin:0 0 14px 28px}
+  .rwa>.rwm{min-width:0}
+  .rwa:not(:has(>.rws))>.rwm{max-width:none}
+}
+@media (max-width:899px){
+  .ocols:not(.solo),.rwa{display:flex!important;flex-direction:column}
+  .oside,.rws{order:2;margin-top:14px;float:none}
+}

@@ -34,7 +34,7 @@ function ortCard(o){
   var dang=o.dangers.map(function(d){return dangerCard(d,!side);}).join("");
   return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
    (o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
-   '<div class="ocols'+(useCol?'':' solo')+'"><div class="otxt">'+text+(useCol?'':figs+them)+'</div>'+(useCol?'<aside class="oside">'+figs+them+(side?dang:'')+'</aside>':'')+'</div>'+
+   '<div class="ocols'+(useCol?'':' solo')+'">'+(useCol?'<aside class="oside">'+figs+them+(side?dang:'')+'</aside>':'')+'<div class="otxt">'+text+(useCol?'':figs+them)+'</div></div>'+
    (o.dangers.length&&!side?'<aside class="dgrid">'+dang+'</aside>':'')+'</div></details>';
 }
 function stub(name,p){ return '<div class="stub"><span>'+esc(name)+'</span>'+pg(p)+'<em>nur Original</em></div>'; }

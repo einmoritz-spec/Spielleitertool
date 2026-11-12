@@ -595,3 +595,5 @@ body .tab-layout .content{max-width:1300px}
 .osdet>summary .blk-h::before{content:"▾";display:inline-block;margin-right:.5em;font-size:.8em;transition:transform .15s}
 .osdet:not([open])>summary .blk-h::before{transform:rotate(-90deg)}
 .osdet>summary .blk-h{margin-top:18px}
+/* Einklapp-Kreis der Seitenleiste darf Zähler und Pfeile nicht überdecken */
+.osnav .ocat{padding-right:22px}

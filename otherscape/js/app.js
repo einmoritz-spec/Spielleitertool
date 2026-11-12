@@ -123,6 +123,7 @@ function renderAdv(a, secId){
   $("app").innerHTML = h;
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   if(idx===0) ovDraw(a);
+  if(isAdv && typeof osAdvRail==="function") osAdvRail();
 }
 function setNote(k,v){ ST.notes[k] = v; saveState(); }
 NotePop.reg("os", k=>ST.notes[k]||"", setNote);

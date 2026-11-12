@@ -497,3 +497,12 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .blk-read .rd-h{float:right;margin:0 0 4px 12px;font-size:.7rem}
 .blk-read .rd-h .pgb{opacity:.7}
 .blk-read::after{content:"";display:block;clear:both}
+
+/* Abenteuer: Zwischenüberschriften-Liste links */
+.osarail{margin-top:6px}
+.osarail .osnav .osub{margin:0;border-left:0}
+.osarail .osnav .osub a{padding:7px 10px;color:var(--text);font-weight:600}
+.osarail .osnav .osub a:hover{color:var(--tone)}
+.osarail .chsec>.blk-p:first-of-type,.osarail .chsec>.blk-p:first-child{font-size:.84rem;color:var(--mute);line-height:1.35}
+.osarail .blk-h{margin-top:0}
+.osarail .chsec>.blk-p:first-of-type{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

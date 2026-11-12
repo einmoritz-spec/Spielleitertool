@@ -1,6 +1,6 @@
 // Bilder aus dem Handbuch (Zuordnung nach Sektion / Startseite des Eintrags); Dateien: img/rw/*.webp (tools/regelwerk/make_images.py)
 var RWI={
-  hero:{grundlagen:"hero_welt",serie:"hero_charakter",kurzreferenz:"hero_regeln",entwicklung:"hero_entwicklung"},
+  hero:{},
   tb:{82:"adaption",86:"bastion",90:"erkenntnis",94:"manifestation",98:"mobilitaet",102:"relikt",106:"subversion",
       110:"besitztuemer",114:"mission",118:"persoenlichkeit",122:"praegende",126:"routine",130:"schluessel",134:"training",
       284:"fortbewegung",288:"operationsbasis",292:"verbuendete"},
@@ -10,7 +10,7 @@ var RWI={
 function rwImgSrc(n){ return "img/rw/"+n+".webp"; }
 function rwTb(secId,e){ return RWI.tbSecs[secId]&&RWI.tb[e.p]?rwImgSrc("tb_"+RWI.tb[e.p]):""; }
 function rwDoc(secId,e){ return secId==="dokumente"&&RWI.doc[e.p]?rwImgSrc("doc_"+e.p):""; }
-var RWI_FIGS=[15,16,17,33,38,39,40,48,49,51,64,138,160,161,171,173,183,211,232,233,238,239,253,262,263,273,281];
+var RWI_FIGS=[48,49,51];
 var rwFigCache={};
 function rwFigs(secId,e){
   var m=rwFigCache[secId];

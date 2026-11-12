@@ -61,7 +61,7 @@
 mark{background:rgba(251,240,165,.85);color:#1b1a10;border-radius:2px;padding:0 1px}
 
 /* Bilder */
-.rwhero{display:block;width:100%;max-height:240px;object-fit:cover;object-position:50% 30%;border-radius:10px;margin:0 0 14px;cursor:zoom-in}
+.rwhero{display:block;float:right;width:min(42%,460px);height:auto;border-radius:10px;margin:0 0 14px 22px;cursor:zoom-in}@media (max-width:760px){.rwhero{float:none;width:100%;margin:0 0 14px}}
 .rwbn{display:block;width:100%;max-height:340px;object-fit:cover;object-position:top;border-radius:8px;margin:0 0 14px;cursor:zoom-in}
 .rwth{width:64px;height:48px;object-fit:cover;border-radius:6px;flex:none;margin-right:10px}
 details.rwc>summary:has(.rwth){display:flex;align-items:center}

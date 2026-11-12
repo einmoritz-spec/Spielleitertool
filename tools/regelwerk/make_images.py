@@ -35,8 +35,6 @@ def crop(book, name, box=None, width=900, dpi=150, q=76, trim=False):
         print(name, im.size, os.path.getsize(os.path.join(out, name + '.webp')) // 1024, 'KB')
 W, H = 595.3, 841.9
 # Kapitelbilder (Seitenkopf-Illustration)
-for b, n in ((18, 'hero_welt'), (40, 'hero_charakter'), (162, 'hero_regeln'), (240, 'hero_entwicklung')):
-    crop(b, n, (0, 0, W, H * 0.93), width=1000)
 # Themenbuch-Köpfe (Illustration + Titel)
 for b, n in ((82,'adaption'),(86,'bastion'),(90,'erkenntnis'),(94,'manifestation'),(98,'mobilitaet'),(102,'relikt'),(106,'subversion'),
              (110,'besitztuemer'),(114,'mission'),(118,'persoenlichkeit'),(122,'praegende'),(126,'routine'),(130,'schluessel'),(134,'training'),
@@ -46,9 +44,6 @@ for b, n in ((82,'adaption'),(86,'bastion'),(90,'erkenntnis'),(94,'manifestation
 for b in (298, 299, 300, 301): crop(b, 'doc_%d' % b, None, width=1100, dpi=150, q=80)
 
 # Weitere Illustrationen (Seite: Bruchteile x0,y0,x1,y1 der Seite) -> fig_<Seite>.webp; Text/Papierrand wird entfernt
-FIGS = {15:(0,0,1,0.955),16:(0,0,1,0.955),17:(0,0,1,0.955),38:(0,0,1,0.955),39:(0,0,1,0.955),160:(0.025,0.02,0.985,0.945),161:(0.02,0.02,0.985,0.945),238:(0,0,1,0.955),239:(0,0,1,0.955),
-        33:(0.09,0,1,0.95),40:(0,0,1,0.955),48:(0,0,1,0.30),49:(0,0,1,0.30),51:(0,0,1,0.38),64:(0,0,1,0.48),138:(0,0,1,0.95),
-        211:(0,0,1,0.41),171:(0,0.64,1,0.94),173:(0.43,0,1,0.62),183:(0,0.70,1,0.94),232:(0,0.785,1,0.935),233:(0,0.785,1,0.935),
-        253:(0.47,0,1,0.55),262:(0,0,1,0.30),263:(0,0,1,0.40),273:(0.42,0,1,0.96),281:(0.54,0.36,1,0.95)}
+FIGS = {48:(0,0,1,0.30),49:(0,0,1,0.30),51:(0,0,1,0.38)}
 for b, (a, c, d, e) in FIGS.items():
     crop(b, 'fig_%d' % b, (a * W, c * H, d * W, e * H), width=900, dpi=130, q=72, trim=True)

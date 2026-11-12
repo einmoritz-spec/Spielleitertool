@@ -255,3 +255,16 @@ mark{background:var(--yel)}
 .blk.flat .ort .ob{padding:0}
 .orail{margin-top:14px}
 @media(max-width:860px){.onav{max-height:none;flex-direction:column;overflow:visible;border-right:0;border-bottom:2px solid var(--line);padding-bottom:8px}}
+
+.onav{min-width:0}.onav .oflat{display:none}
+@media(max-width:860px){
+ .orail{grid-template-columns:minmax(0,1fr)}
+ .onav{position:static;border:0;max-height:none;padding:0;overflow:visible}
+ .onav .otree{display:none}.onav .oflat{display:block}
+ .onav .orow{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+ .onav .orow::-webkit-scrollbar{display:none}
+ .onav .orow .ocat{flex:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.85rem;background:#fff}
+ .onav .orow .ocat.on{background:#2a1a4a;color:#fff;border-color:#2a1a4a}
+ .onav .osr{border-bottom:2px solid var(--line);margin-bottom:10px}
+ .onav .osr a,.onav .osr .nolink{flex:none;white-space:nowrap;background:none;padding:4px 2px;margin-right:10px;font-size:.82rem;border-bottom:2px solid transparent}
+}

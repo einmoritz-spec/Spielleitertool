@@ -86,7 +86,7 @@ function renderAdvList(){
 /* ---------- Tokyo-Setting (über Header-Button) ---------- */
 function renderTokyo(){
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small></button>`; };
-  $("app").innerHTML = `<div class="adv-head"><h1>Tokyo-Setting</h1><span class="meta">Überblick, Bezirke, Orte · Gegner im Gegner-Browser, Fraktionen unter 🏛</span></div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat==="setting").map(card).join("")}</div>`;
+  $("app").innerHTML = `<div class="adv-head"><h1>Tokyo-Setting</h1><span class="meta">Überblick, Bezirke, Orte</span></div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat==="setting").map(card).join("")}</div>`;
 }
 
 /* ---------- Abenteuer ---------- */
@@ -100,7 +100,7 @@ function renderAdv(a, secId){
   const cpre = items=>{ if(items.length<3) return ""; const m = /^[^:]{2,30}:\s/.exec(items[0].titel); return m && items.filter(x=>x.titel.startsWith(m[0])).length>=3 ? m[0] : ""; };
   const groups = []; a.sektionen.forEach(x=>{ const n = grpOf(a,x)||"Start"; const l = groups[groups.length-1]; if(l && l.n===n) l.items.push(x); else groups.push({n, items:[x]}); });
   let tabbar;
-  const isAdv = !/^(tokyo-|fraktion-|gegner-)/.test(a.id), tile = NotePop.tile("os", a.id+":"+s.id);
+  const isAdv = !osSetPage(a), tile = NotePop.tile("os", a.id+":"+s.id);
   if(isAdv && a.sektionen.length>7){
     const ag = groups.find(g=>g.items.includes(s)), pr = cpre(ag.items);
     tabbar = groups.length>=2
@@ -112,19 +112,40 @@ function renderAdv(a, secId){
   const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];
   let h = `${_pg?`<div class="crumbs pgonly"><a onclick="openBook('${a.buch}',${_pg})" title="Original-Seite öffnen">S. ${_pg}</a></div>`:""}
   ${tabbar}
-  <div class="adv-grid tab-layout" id="advGrid">
+  <div class="adv-grid tab-layout${isAdv?"":" os-set"}" id="advGrid">
    <div class="content">
    <div class="chsec">
    ${idx===0?ovBox(a):""}
    ${osArt(a,idx)}
-   ${(()=>{ let L="",R=""; (s.bloecke||[]).forEach((b,i)=>{ const x=renderBlock(a,s,b,i); if(["challenge","uhr","hinweis"].includes(b.t)) R+=x; else L+=x; }); return (R && L.trim()) ? `<div class="scn stack"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : L+R; })()}
+   ${(()=>{ let Ls=[],R="",F=""; const bl = s.bloecke||[], side = bl.some(b=>["challenge","uhr"].includes(b.t));
+     bl.forEach((b,i)=>{ const x=renderBlock(a,s,b,i);
+       if(["challenge","uhr"].includes(b.t) || (b.t==="hinweis" && (isAdv || side))) R+=x;
+       else if(b.t==="hinweis") F+=x; else Ls.push(x); });
+     const L = Ls.join("");
+     if(R && L.trim()) return `<div class="scn stack"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>`;
+     if(F){ if(!L.trim()) return F; Ls.splice(Math.min(1,Ls.length),0,`<aside class="os-float">${F}</aside>`); return Ls.join("")+R; }
+     return L+R; })()}
    <nav class="pager">${prev?`<a class="pg-prev" href="#/adv/${a.id}/${prev.id}"><span class="pg-arrow">←</span><span class="pg-txt"><small>Zurück</small><b>${esc(prev.titel.replace(/\s*\([^)]*\)\s*$/,""))}</b></span></a>`:""}${next?`<a class="pg-next" href="#/adv/${a.id}/${next.id}"><span class="pg-arrow">→</span><span class="pg-txt"><small>Weiter</small><b>${esc(next.titel.replace(/\s*\([^)]*\)\s*$/,""))}</b></span></a>`:""}</nav>
    </div></div></div>`;
   $("app").innerHTML = h;
   { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   if(idx===0) ovDraw(a);
   osCards();
+  osThemes();
   if(typeof osAdvRail==="function") osAdvRail();
+}
+/* Setting- und Fraktionsseiten (Tokyo, Fraktionen) */
+function osSetPage(a){ return /^(tokyo-|fraktion-|gegner-)/.test(a.id); }
+/* Themenkarten (Theme Kit ...): eingeklappt, per Klick aufklappbar */
+function osThemes(){
+  if(!document.querySelector(".os-set")) return;
+  document.querySelectorAll(".os-set .blk-h").forEach(h=>{
+    if(!/^Theme Kit/i.test(h.textContent.trim()) || h.closest("details")) return;
+    const d = document.createElement("details"), sm = document.createElement("summary");
+    d.className = "os-theme"; h.parentNode.insertBefore(d, h); sm.appendChild(h); d.appendChild(sm);
+    let n = d.nextElementSibling;
+    while(n && !["blk-h","pager","scn","os-cgrid","os-card"].some(c=>n.classList.contains(c))){ const nx = n.nextElementSibling; d.appendChild(n); n = nx; }
+  });
 }
 function osCards(){
   const cs=document.querySelector(".chsec"); if(!cs) return;
@@ -164,7 +185,9 @@ function renderBlock(a,s,b,i){
   switch(b.t){
     case "p": return `<p class="blk blk-p">${fmt(b.x)}</p>`;
     case "h": return `<div class="blk-h">${esc(b.x)}</div>`;
-    case "liste": return `<ul class="blk-list">${(b.items||[]).map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`;
+    case "liste": { const items = b.items||[];
+      if(osSetPage(a) && items.length>=2 && items.every(x=>String(x).length<=420)) return `<div class="os-lcards">${items.map(x=>`<article class="os-lc">${fmt(x)}</article>`).join("")}</div>`;
+      return `<ul class="blk-list">${items.map(x=>`<li>${fmt(x)}</li>`).join("")}</ul>`; }
     case "hinweis": if(/Tippfehler|Schreibweise|Vereinheitlich|Vorlage|Aufbereitung|Aufbau des Buchs/i.test(b.titel||"")) return ""; return `<div class="blk blk-note">${b.titel?`<b class="tt">${esc(b.titel)}</b>`:""}${fmt(b.x)}</div>`;
     case "vorlesen_ref": case "vorlesen": if(b.v) return `<div class="blk blk-read"><div class="rd-h"><button class="pgb" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen">Buch S. ${esc(b.seite||"?")} ansehen</button></div><p>${fmt(b.v)}</p></div>`; return `<button class="blk blk-ref" onclick="openBook('${a.buch}',${parseInt(b.seite)||1})" title="Originalseite im Buch ansehen"><span class="bk">S. ${esc(b.seite||"?")}</span><span class="bx">${fmt(b.x||"")}</span></button>`;
     case "tabelle": if((b.kopf||[]).length>=3 && /^item$/i.test(b.kopf[0])) return `<div class="blk">${b.titel?`<div class="tbl-cap">${esc(b.titel)}</div>`:""}<div class="icards">${(b.zeilen||[]).map(r=>`<article class="icard"><h4>${fmt(r[0])}</h4><p>${fmt(r[1]||"")}</p><div class="itags">${String(r[2]||"").split(/,\s*/).filter(Boolean).map((t,i)=>`<span class="itag${i===0?" first":""}">${esc(t)}</span>`).join("")}${r[3]?`<span class="itag weak">– ${esc(r[3])}</span>`:""}</div></article>`).join("")}</div></div>`;

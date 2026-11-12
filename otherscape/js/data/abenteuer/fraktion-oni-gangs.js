@@ -85,6 +85,6 @@ sektionen:[
   ["Oni Fuel-Injection Mod","Oni-Umbauten für wilde Geschwindigkeit (Treibstoffsystem, Fahrwerk, Frontaufsatz).","oni fuel-injection mod, lots of runway, smoother drifts, battering ram mod","engine wear"],
   ["Oni Mounted Minigun","Von Oni-Schmieden zusammengebaute Fahrzeug-Minigun, enorme Zerstörung auf Kosten der Präzision; oft mit hitzig werdender Fluchmunition.","oni mounted minigun, immense fire rate, hellfire bullets, drive-by shooting","inaccurate"]
  ]},
- {t:"hinweis", titel:"Vereinheitlichte Schreibweisen", x:"„Oni Motocycle Gangs\" wurde zu „Oni Motorcycle Gangs\", „Shuten-doji\" zu „Shuten-dōji\", „a Oni Gangster\" zu „an Oni Gangster\"; Hayaos Limit „HURT –\" (nicht nutzbar) ist als Hurt – wiedergegeben. Statblocks gegen die PDF-Seiten 189–191 geprüft."}
+ {t:"hinweis", titel:"Vereinheitlichte Schreibweisen", x:"„Oni Motocycle Gangs\" wurde zu „Oni Motorcycle Gangs\", „Shuten-doji\" zu „Shuten-dōji\", „a Oni Gangster\" zu „an Oni Gangster\"; Hayaos Limit „HURT –\" (nicht nutzbar) ist als Hurt – wiedergegeben. Statblocks gegen die PDF-S. 189–191 geprüft."}
 ]}
 ]});

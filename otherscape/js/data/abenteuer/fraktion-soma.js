@@ -120,6 +120,6 @@ sektionen:[
   ["Frog Magic Manual","Esoterische Aufzeichnungen über Froschmagie, die Tote korrumpieren und sogar wiederbeleben kann.","frog magic manual, animate skeletons, infect with taint, summon frog mount","power hungry"],
   ["BNZ4I10 Unlimited Data Flow Access","Codes zum Mythic-Server BNZ4I10, Zugriff auf jeden einzelnen Datenstrom, auch in isolierten Netzen.","unlimited data flow access, instant search, redirect the feed, alter the feed","easily traceable"]
  ]},
- {t:"hinweis", titel:"Vereinheitlichte Schreibweisen", x:"„Noguchi Hideko\" wurde zu „Noguchi Hideki\" vereinheitlicht; „tained-1\" zu „tainted-1\"; „Harnessed ōgama troopers\" und „Ōgama-Bound/-Implanted\" bleiben als Ōgama Trooper bzw. Power Set/Theme Kit getrennt geführt; „Sōma Clan\" und „Returned Sōma Clan\" gelten als dieselbe Fraktion; „descrating\" und „implementation\" sinngemäß bereinigt. Statblocks gegen die PDF-Seiten 196–200 geprüft."}
+ {t:"hinweis", titel:"Vereinheitlichte Schreibweisen", x:"„Noguchi Hideko\" wurde zu „Noguchi Hideki\" vereinheitlicht; „tained-1\" zu „tainted-1\"; „Harnessed ōgama troopers\" und „Ōgama-Bound/-Implanted\" bleiben als Ōgama Trooper bzw. Power Set/Theme Kit getrennt geführt; „Sōma Clan\" und „Returned Sōma Clan\" gelten als dieselbe Fraktion; „descrating\" und „implementation\" sinngemäß bereinigt. Statblocks gegen die PDF-S. 196–200 geprüft."}
 ]}
 ]});

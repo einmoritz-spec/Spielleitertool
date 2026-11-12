@@ -1,6 +1,9 @@
 /* Standard-Layout: Baum-Navigation links, flacher offener Inhalt rechts; Handy: wischbare Zeilen oben */
-const osShort = t => String(t).split(":")[0];
-function osGo(id){ const e = document.getElementById(id); if(e) e.scrollIntoView({behavior:"smooth",block:"start"}); }
+/* Nav-Titel bis zum ":"; bei allgemeinen Präfixen (Theme Kit, Challenge ...) der Teil danach */
+const osShort = t => { const s = String(t).trim(), i = s.indexOf(":"); if(i<0) return s; const h = s.slice(0,i).trim();
+  return /^(Theme Kit|Challenges?|Trope|Katalog)$/i.test(h) ? s.slice(i+1).trim().replace(/\s*\([^)]*\)\s*$/,"") : h; };
+function osGo(id){ const e = document.getElementById(id); if(!e) return; for(let p = e.parentElement; p; p = p.parentElement) if(p.tagName==="DETAILS") p.open = true;
+  e.scrollIntoView({behavior:"smooth",block:"start"}); }
 /* groups: [{t, href (Hash), on, sub:[{id,t}]}]  –  main: HTML */
 function osRail(head, groups, main){
   const sub = g => (g.sub||[]).map(s=>`<a href="#" onclick="osGo('${s.id}');return false">${esc(osShort(s.t))}</a>`).join("");

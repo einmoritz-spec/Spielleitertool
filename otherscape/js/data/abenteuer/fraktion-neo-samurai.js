@@ -82,6 +82,6 @@ sektionen:[
   ["Neo-Samurai Fabrication Lab","Zugang zum Fabrikationslabor, in dem der Orden Gadgets entwickelt und repariert.","Neo-Samurai fabrication lab, Neo-Samurai mentor, hidden compartments, creative designs","untested in the field"],
   ["Ronin Contract","Ein Neo-Samurai ohne Beschützer-Status, der durch Gelegenheitsjobs seine Ehre zurückgewinnen will.","ronin contract, armored protector, personalized gadgets, fierce street fighter","Bushidō"]
  ]},
- {t:"hinweis", titel:"Vereinheitlichte Schreibweisen", x:"„Neo Samurai\" und „NeoSamurai\" wurden zu „Neo-Samurai\" vereinheitlicht; der Schwertname steht einheitlich als „sohaya no tsuruki\" (Buch teils getrennt umbrochen). Statblocks gegen die PDF-Seiten 182–184 geprüft."}
+ {t:"hinweis", titel:"Vereinheitlichte Schreibweisen", x:"„Neo Samurai\" und „NeoSamurai\" wurden zu „Neo-Samurai\" vereinheitlicht; der Schwertname steht einheitlich als „sohaya no tsuruki\" (Buch teils getrennt umbrochen). Statblocks gegen die PDF-S. 182–184 geprüft."}
 ]}
 ]});

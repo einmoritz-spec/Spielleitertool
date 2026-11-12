@@ -55,7 +55,7 @@ function render(){
   else if(state.view==="npcs") app.innerHTML = renderNpcs();
   else if(state.view==="player") app.innerHTML = renderPlayerView();
   { const cr=app.querySelector(".crumb"); if(cr) cr.scrollLeft=cr.scrollWidth; const tb=app.querySelector(".case-tabbar"), at=tb&&tb.querySelector(".case-tab.active"); if(tb&&at) tb.scrollLeft=at.offsetLeft-(tb.clientWidth-at.clientWidth)/2; }
-  llRestructure(app);
+  llRestructure(app); llRail(app);
   buildGlossList();
   buildRulesList();
   { const sc = app.querySelector('.case-tabpanel')||app, cs = sc.querySelectorAll('.loc-card'); if(cs.length===1) cs[0].classList.add('single','open'); }
@@ -883,4 +883,33 @@ function llRestructure(root){
     var lc=document.createElement("div"); lc.className="lb-c"; C.forEach(function(k){lc.appendChild(k);});
     b.appendChild(top); if(C.length) b.appendChild(lc);
   });
+}
+
+/* Regeln-Layout (wie City of Mist/LitM): links Liste, rechts alle Kästen offen */
+function llRail(root){
+  if(state.view!=="district" || ["places","locals","chance","powersets"].indexOf(state.distTab)<0) return;
+  const tb=root.querySelector(".case-tabbar"); if(!tb||root.querySelector(".ll-rail")) return;
+  const items=[]; 
+  [...root.children].forEach(function(e){
+    if(e.classList.contains("ll-cgrid")) items.push(...e.children);
+    else if(e.classList.contains("loc-card")||e.classList.contains("card")||e.classList.contains("danger-card")||e.classList.contains("section")) items.push(e);
+  });
+  if(!items.length) return;
+  const nav=document.createElement("nav"); nav.className="ll-rnav";
+  const main=document.createElement("div"); main.className="ll-rmain";
+  items.forEach(function(e,i){
+    if(!e.id) e.id="llr_"+i;
+    const h=e.querySelector(".loc-h,.danger-head h4,.th-head h3,h3,h4");
+    if(h){
+      const nm=h.textContent.replace("▸","").replace(/\s*S\.\s*\d+\s*$/,"").trim();
+      const a=document.createElement("a"); a.href="#"+e.id; a.textContent=(nm===nm.toUpperCase()?nm.toLowerCase().replace(/(^|[^A-Za-zÀ-ÿ])([A-Za-zÀ-ÿ])/g,function(m,p,c){return p+c.toUpperCase();}):nm);
+      a.onclick=function(ev){ev.preventDefault(); e.scrollIntoView({behavior:"smooth",block:"start"});};
+      nav.appendChild(a);
+    }
+    if(e.matches(".loc-card,.danger-card,.theme-card,.ps-card")) e.classList.add("open");
+    main.appendChild(e);
+  });
+  const wrap=document.createElement("div"); wrap.className="ll-rail"; wrap.appendChild(nav); wrap.appendChild(main);
+  const pager=root.querySelector(".pager"); root.insertBefore(wrap, pager||null);
+  root.querySelectorAll(".ll-cgrid").forEach(function(g){g.remove();});
 }

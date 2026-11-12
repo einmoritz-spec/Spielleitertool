@@ -41,3 +41,21 @@
 .lm-pn{display:flex;justify-content:space-between;gap:12px;margin-top:16px}.lm-pn button{background:var(--panel);border:1px solid var(--panel-line);color:var(--parchment);border-radius:8px;padding:9px 16px;cursor:pointer;text-align:left;font:600 14px var(--sans,inherit);letter-spacing:.06em;text-transform:uppercase}.lm-pn button.r{text-align:right}.lm-pn small{display:block;font:500 10px var(--sans,inherit);letter-spacing:.14em;color:var(--mist)}
 .lm-load{color:var(--mist);padding:20px}
 @media(max-width:760px){.lm-cb.lm-2{grid-template-columns:1fr}.lm-grid{grid-template-columns:1fr}.lm-wrap{padding:10px 10px 90px}}
+
+/* Lesemodus: alles offen, fließender Text in Spalten (gleichmäßig verteilt), Inhaltsverzeichnis seitlich */
+.lm-body{display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px;align-items:start}
+.lm-toc{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto;display:flex;flex-direction:column;gap:2px;padding-right:6px;border-right:1px solid var(--panel-line)}
+.lm-toc a{cursor:pointer;color:var(--mist);font-size:13px;line-height:1.35;padding:5px 8px;border-radius:6px}.lm-toc a:hover{background:rgba(201,162,75,.12);color:var(--gold-bright)}
+.lm-flow{column-count:2;column-gap:44px;column-rule:1px solid var(--panel-line-soft)}
+.lm-a{margin:0 0 6px;padding-top:14px}.lm-a+.lm-a{border-top:1px solid var(--panel-line-soft);margin-top:10px}
+.lm-a h3{margin:0 0 8px;font:600 19px var(--serif,Georgia,serif);letter-spacing:.05em;text-transform:uppercase;color:var(--gold-bright);break-after:avoid;scroll-margin-top:12px}
+.lm-a h3 .lm-pg{font-size:12px;letter-spacing:0;text-transform:none;margin-left:8px}
+.lm-a .lm-sub{margin:-4px 0 10px;font-style:italic;color:var(--mist)}
+.lm-a .lm-h4,.lm-a .lm-h5{break-after:avoid}
+.lm-bx,.lm-fq,.lm-kv>div,.lm-dlg,.lm-step,.lm-q{break-inside:avoid}
+.lm-kv{column-span:none}
+.lm-kv{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.lm-sel{display:none;margin-left:auto;background:rgba(0,0,0,.25);border:1px solid var(--panel-line);border-radius:8px;color:var(--parchment);padding:6px 8px;font:inherit;max-width:60%}
+.lm-pg{cursor:pointer}
+@media(max-width:1180px){.lm-body{grid-template-columns:minmax(0,1fr)}.lm-toc{display:none}.lm-sel{display:block}}
+@media(max-width:900px){.lm-flow{column-count:1;column-rule:0}}

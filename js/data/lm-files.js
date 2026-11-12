@@ -4,6 +4,12 @@ window.LM_FILES={
   "data/lm/dales-3.js",
   "data/lm/dales.js"
  ],
+ "dales-b": [
+  "data/lm/dales-b-2.js",
+  "data/lm/dales-b-3.js",
+  "data/lm/dales-b-4.js",
+  "data/lm/dales-b.js"
+ ],
  "dales-c": [
   "data/lm/dales-c-2.js",
   "data/lm/dales-c-3.js",

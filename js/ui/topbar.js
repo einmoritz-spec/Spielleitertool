@@ -6,6 +6,10 @@
 const TOPBAR_PREFS_KEY = "woto_topbar_v1";
 // label = Text hinter dem Symbol; labelDefault = ob er ohne eigene Einstellung angezeigt wird.
 const TOPBAR_ITEMS = [
+  { id:"lmrules",   icon:"📜", label:"Regeln",        labelDefault:true,  fn:"goBook('regeln','einstieg')", title:"Legend in the Mist: Core Book (deutsch lesen)" },
+  { id:"lmworld",   icon:"🗺", label:"Die Dales",     labelDefault:true,  fn:"goBook('welt','dales')", title:"Setting Book: The Dales (deutsch lesen)" },
+  { id:"lmpdf",     icon:"📕", label:"Buch (PDF)",    labelDefault:true,  fn:"BV.open('wake',1)", title:"Original-PDF öffnen (bei Bedarf hochladen)" },
+  { id:"lmcore",    icon:"📘", label:"Core Book PDF", labelDefault:false, fn:"BV.open('core',1)", title:"Core-Book-PDF öffnen (bei Bedarf hochladen)" },
   { id:"profiles",  icon:"🎴", label:"Profile",       labelDefault:true,  fn:"openProfiles()",     title:"Spielerprofile der Gruppe nachschlagen (Taste P)" },
   { id:"chars",     icon:"🆕", label:"Charakter",     labelDefault:true,  fn:"openCustomChars()",  title:"Eigene Charaktere erstellen &amp; verwalten — gleiche Hero Card, gleicher Druck-Export (Taste X)" },
   { id:"creator",   icon:"🧙", label:"Erstellung",    labelDefault:true,  fn:"openCreator()",      title:"Charaktererstellung (Fragen, Theme-Kits, Tropes) öffnen — mit Link für Spieler" },
@@ -72,7 +76,7 @@ function renderTopbar(){
     .join("");
   return `
   <div class="topbar">
-    <button class="brand" onclick="goPrep()">${CAMPAIGN_TITLE}</button>
+    <button class="brand" onclick="goOverview()">${CAMPAIGN_TITLE}</button>
     <div class="topbar-spacer"></div>
     <div class="topbar-actions">
       ${btns}
@@ -97,7 +101,7 @@ function closeMobileMenu(){
 function openMobileMenu(){
   if(document.getElementById("mobileMenu")) return;
   const advOpen = state.view==="adventure" && state.advId;
-  const nav = `<button class="mm-item" onclick="closeMobileMenu(); goPrep()"><span class="mm-ic">🏠</span><span>Start</span></button><button class="mm-item" onclick="closeMobileMenu(); goOverview()"><span class="mm-ic">🗂</span><span>Abenteuer</span></button>`;
+  const nav = `<button class="mm-item" onclick="closeMobileMenu(); goOverview()"><span class="mm-ic">🏠</span><span>Abenteuer</span></button>`;
   const items = nav + TOPBAR_ITEMS.filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))
     .map(it => `<button class="mm-item" onclick="closeMobileMenu(); ${it.fn}"><span class="mm-ic">${it.icon}</span><span>${it.label}</span></button>`).join("");
   const m = document.createElement("div");

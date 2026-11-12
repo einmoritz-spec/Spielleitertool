@@ -2,7 +2,7 @@
 // Real navigation (overview <-> adventure <-> scene) scrolls to top.
 // Everything else (limit clicks, expand/collapse) must NOT move the scroll
 // position or it feels like the page "closes" under the GM's cursor.
-function goPrep(){ if(!guardEditLeave()) return; state.view="prep"; state.advId=null; render(); scrollToTop(); persist(); }
+function goPrep(){ if(!guardEditLeave()) return; state.view="overview"; state.advId=null; render(); scrollToTop(); persist(); }
 function goOverview(){ if(!guardEditLeave()) return; state.view="overview"; state.advId=null; render(); scrollToTop(); persistState(); }
 function goAdventure(id){ if(!guardEditLeave()) return; state.view="adventure"; state.advId=id; state.sceneIdx=0; state.openChallenges.clear(); render(); scrollToTop(); persistState(); }
 function goScene(i){

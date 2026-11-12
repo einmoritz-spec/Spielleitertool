@@ -23,12 +23,18 @@
 </head>
 <body>
 <div class="topbar">
-  <button class="brand" onclick="goPrep()">Local Legends</button>
+  <button class="brand" onclick="goOverview()">Local Legends</button>
   <div class="topbar-spacer"></div>
   <button class="tb-btn" id="tb-case-btn" style="display:none;" onclick="goCase(state.districtId)"><span class="tb-lbl">Fall öffnen</span></button>
   <button class="tb-btn" onclick="openSearchModal()"><span class="tb-lbl">Suche</span></button>
   <button class="tb-btn" onclick="openModal('rulesModal')"><span class="tb-lbl">Regeln</span></button>
   <button class="tb-btn" onclick="openModal('glossModal')"><span class="tb-lbl">Glossar</span></button>
+  <button class="tb-btn" onclick="goNpcs()"><span class="tb-lbl">Gegner</span></button>
+  <button class="tb-btn" onclick="goPlayer()"><span class="tb-lbl">Spieler</span></button>
+  <button class="tb-btn" id="tb-extra-guide" style="display:none" onclick="goGuide()"><span class="tb-lbl">Einleitung</span></button>
+  <button class="tb-btn" id="tb-extra-app" style="display:none" onclick="goAppendix()"><span class="tb-lbl">Register</span></button>
+  <button class="tb-btn" id="tb-extra-ff" style="display:none" onclick="goCase('forged_framed')"><span class="tb-lbl">Forged &amp; Framed</span></button>
+  <button class="tb-btn" onclick="BV.open('ll',1)"><span class="tb-lbl">Buch (PDF)</span></button>
   <button class="tb-btn tb-gear" onclick="openModal('settingsModal')" aria-label="Einstellungen" title="Einstellungen">Einstellungen</button>
   <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div>

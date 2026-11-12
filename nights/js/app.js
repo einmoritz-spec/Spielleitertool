@@ -46,7 +46,7 @@ async function route(){
   else if(p[0]==="map") renderMap(p[1]==="dolch");
   else if(p[0]==="register") renderRegister(p[1]||"leute");
   else if(p[0]==="kampagne") renderCampaign();
-  else renderHome();
+  else renderCampaign();
 }
 
 /* ---------- Start ---------- */
@@ -363,6 +363,8 @@ document.addEventListener("keydown", e=>{
 /* ---------- Start ---------- */
 if("serviceWorker" in navigator) navigator.serviceWorker.register("../sw.js").catch(()=>{});
 try{ localStorage.setItem("gm_tool_mode_v1","paynetown"); }catch(e){}
+(function(){ const C = camp(); const g = document.querySelector(".tb-gear"); if(!g||!C.book) return;
+  C.book.forEach(n=>{ const e = C.extras&&C.extras[n]; if(!e) return; const b=document.createElement("button"); b.className="tb-btn"; b.innerHTML='<span class="tb-lbl">'+esc(e.title)+'</span>'; b.onclick=()=>{location.hash="#/case/"+n}; g.parentNode.insertBefore(b,g); }); })();
 route();
 setTimeout(preloadAll, 800);
 

@@ -24,13 +24,21 @@ var BV = (function(){
     key = key || cfg.defaultBook; const b = book(key); if(!b) return;
     if(!histOn){ try{ history.pushState({bvx:1}, "", location.href); histOn = true; }catch(e){} }
     const dc = await doc(key);
-    if(!dc){ if(histOn){ histOn = false; try{ history.back(); }catch(e){} }
-      alert("Das PDF „"+b.name+"“ ist noch nicht geladen. Wähle es einmal in den Einstellungen unter „Bücher (nur lokal)“ aus; es bleibt nur in diesem Browser."); if(cfg.openSettings) cfg.openSettings(); return; }
+    if(!dc){ if(histOn){ histOn = false; try{ history.back(); }catch(e){} } askUpload(key, b, printed); return; }
     build();
     const pg = Math.max(1, Math.min(dc.numPages, (parseInt(printed)||1) + getOff(key)));
     S = { key, page:pg, n:dc.numPages, zoom:false };
     document.getElementById("bvOverlay").hidden = false; document.body.style.overflow = "hidden";
     document.getElementById("bvxTitle").textContent = b.name; show();
+  }
+  function askUpload(key, b, printed){
+    var o=document.getElementById("bvAsk"); if(o) o.remove();
+    o=document.createElement("div"); o.id="bvAsk"; o.className="bva";
+    o.innerHTML='<div class="bva-box"><b>'+b.name+'</b><p>Dieses Buch ist noch nicht hinterlegt. Wähle das PDF einmal aus – es bleibt nur in diesem Browser gespeichert, danach öffnet es sich per Knopfdruck.</p><label class="bvs-btn">PDF wählen<input class="bvs-file" type="file" accept="application/pdf,.pdf"></label><button type="button" class="bva-x">Abbrechen</button></div>';
+    document.body.appendChild(o);
+    o.querySelector(".bva-x").onclick=function(){ o.remove(); };
+    o.addEventListener("click",function(e){ if(e.target===o) o.remove(); });
+    o.querySelector("input").onchange=async function(){ var inp=this; await load(key, inp); o.remove(); open(key, printed); };
   }
   function close(fromPop){ const o = document.getElementById("bvOverlay"); if(o) o.hidden = true; document.body.style.overflow = ""; if(histOn){ histOn = false; if(fromPop!==true){ try{ history.back(); }catch(e){} } } }
   var histOn = false;

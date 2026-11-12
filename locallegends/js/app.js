@@ -30,7 +30,7 @@ let LL_TAIL = null;
 function tabHead(title,n){ LL_TAIL = {title:title, n:n}; return ""; }
 function llTail(h){ const t = LL_TAIL; LL_TAIL = null; if(!t) return h; const link = `<span class="sep">/</span>` + (t.n ? `<a class="pg-link" href="#" data-page="${t.n}" title="S. ${t.n} im Buch öffnen">${t.title}</a>` : `<span>${t.title}</span>`); return h.replace(/(<div class="crumb">[\s\S]*?)<\/div>/, "$1"+link+"</div>"); }
 
-function goPrep(){ state.view="prep"; state.districtId=null; render(); window.scrollTo(0,0); }
+function goPrep(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goOverview(){ state.view="overview"; state.districtId=null; render(); window.scrollTo(0,0); }
 function goDistrict(id){ state.view="district"; state.districtId=id; state.distTab="overview"; render(); window.scrollTo(0,0); }
 function goGuide(){ state.view="guide"; render(); window.scrollTo(0,0); }
@@ -44,8 +44,8 @@ function goCase(id){ state.view="case"; state.districtId=id; state.caseTab="over
 function render(){
   const app = document.getElementById("app");
   app.classList.toggle("wide-case", state.view==="case");
-  if(state.view==="prep") app.innerHTML = renderPrep();
-  else if(state.view==="overview") app.innerHTML = renderOverview();
+  if(state.view==="prep") state.view="overview";
+  if(state.view==="overview") app.innerHTML = renderOverview();
   else if(state.view==="district") app.innerHTML = renderDistrictView(state.districtId);
   else if(state.view==="case") app.innerHTML = renderCaseView(state.districtId);
   else if(state.view==="guide") app.innerHTML = renderGuide();
@@ -60,6 +60,7 @@ function render(){
   const caseBtn = document.getElementById("tb-case-btn");
   if(caseBtn){
     const dist = DISTRICTS.find(d=>d.id===state.districtId);
+    [["tb-extra-guide",typeof GUIDE!=="undefined"],["tb-extra-app",typeof APPENDIX!=="undefined"],["tb-extra-ff",typeof FORGED_FRAMED!=="undefined"]].forEach(a=>{const e=document.getElementById(a[0]); if(e) e.style.display=a[1]?"":"none";});
     const showBtn = (state.view==="district" || state.view==="case") && dist && dist.data;
     caseBtn.style.display = showBtn ? "flex" : "none";
     if(showBtn) caseBtn.textContent = state.view==="case" ? "📁 " + dist.data.case.title : "📁 Fall öffnen";

@@ -16,13 +16,12 @@ function openMobileMenu(){
     <nav class="mm-panel" aria-label="Menü">
       <div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div>
       <div class="mm-list">
-        ${item("🏠", "Start", "goHome()")}
-        ${item("🗂", "Kampagne", "goCampaign()")}
+                ${item("🗂", "Kampagne", "goCampaign()")}
         ${item("📁", "Aktueller Fall", "goLastCase()")}
         ${item("🗺", "Stadtkarte", "goMap()")}
         ${item("🎲", "Regelblatt & Würfler", "openRules()")}
         ${item("📇", "Register", "goRegister()")}
-        ${item("📖", "Seitenviewer", "openPageViewer()")}
+        ${item("📖", "Seitenviewer", "BV.open('nights',1)")}
         ${item("🔎", "Suche", "openSearch()")}
         <div class="mm-sub">Buchteile</div>
         ${(window.NIGHTS && NIGHTS.campaign && NIGHTS.campaign.book || []).map(n=>{ const e = NIGHTS.campaign.extras[n]; return e ? item("📘", e.title, "location.hash='#/case/"+n+"'") : ""; }).join("")}

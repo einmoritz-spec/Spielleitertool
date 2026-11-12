@@ -73,6 +73,6 @@
 
 /* Vorlesetext: keine Beschriftungszeile, nur kleines ▾ in der Ecke */
 :is(.readaloud,.blk-ro,.blk-read):has(>.ux-fold){position:relative}
-.ux-fold{position:absolute;top:4px;right:6px;width:auto;margin:0;padding:0 4px;opacity:.45;z-index:2}
+.ux-fold{position:absolute;top:4px;left:4px;right:auto;width:auto;margin:0;padding:0 4px;opacity:.45;z-index:2}
 .ux-folded>.ux-fold{position:static;width:100%;opacity:.8;padding:2px 0}
 .ux-fold-l{display:none}

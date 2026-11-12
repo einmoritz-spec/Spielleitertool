@@ -86,7 +86,13 @@
       var txt=(el.textContent||"").replace(/\s+/g," ").replace(/^\s*Vorlesen\s*(Buch S\.[^A-Za-z]*ansehen)?/i,"").trim();
       b.innerHTML='<i aria-hidden="true">▾</i><span class="ux-fold-p"></span>';
       b.querySelector(".ux-fold-p").textContent=txt.slice(0,90);
-      b.onclick=function(e){ e.preventDefault(); e.stopPropagation(); var f=el.classList.toggle("ux-folded"); b.setAttribute("aria-expanded",f?"false":"true"); b.firstChild.textContent=f?"▸":"▾"; };
+      function setFold(f){ el.classList.toggle("ux-folded",f); b.setAttribute("aria-expanded",f?"false":"true"); b.firstChild.textContent=f?"▸":"▾"; }
+      b.onclick=function(e){ e.preventDefault(); e.stopPropagation(); setFold(!el.classList.contains("ux-folded")); };
+      el.addEventListener("click",function(e){
+        if(e.target.closest&&e.target.closest("a,button,input,select,textarea,label,.pgb,.ux-fold")) return;
+        var sel=window.getSelection&&String(window.getSelection()); if(sel) return;
+        setFold(!el.classList.contains("ux-folded"));
+      });
       [].slice.call(el.childNodes).forEach(function(n){ if(n.nodeType===3 && n.nodeValue.trim()){ var sp=document.createElement("span"); sp.className="ux-tx"; el.replaceChild(sp,n); sp.appendChild(n); } });
       el.insertBefore(b, el.firstChild);
     });

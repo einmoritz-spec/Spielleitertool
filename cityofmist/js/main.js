@@ -36,7 +36,7 @@ function pageSS(r){
 function render(){
   var r=route(), h = r.sys==="rw"?pageRW(r) : r.sys==="ss"?pageSS(r) : pageHub();
   if(window.BV) BV.setDefault(CM_BOOK[r.sys]);
-  var app=document.getElementById("app"); app.className="shell"+(r.sys==="rw"||r.sys==="ss"?"":" ovshell"); app.innerHTML=h; window.scrollTo(0,0);
+  var app=document.getElementById("app"); app.className="shell"+(r.sys==="rw"||r.sys==="ss"?" wide":" ovshell"); app.innerHTML=h; window.scrollTo(0,0);
   document.title = "City of Mist";
   [".tab.on",".pill.on"].forEach(function(q){ var el=document.querySelector(q); if(el&&el.scrollIntoView) el.scrollIntoView({inline:"center",block:"nearest"}); });
   window.scrollTo(0,0);

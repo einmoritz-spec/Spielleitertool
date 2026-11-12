@@ -80,6 +80,18 @@ function lmCard(e,i){
   var body=(e.body||[]).concat(e.aside||[]);
   return '<article class="lm-a" id="lm-'+i+'"><h3>'+esc(e.name)+' '+lmPg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="lm-sub">'+esc(e.sub)+'</p>':'')+lmSegs(body)+'</article>';
 }
+var __tocSpy;
+function tocSpy(toc, ids, offset){
+  if(__tocSpy) window.removeEventListener("scroll",__tocSpy);
+  __tocSpy=null; if(!toc||!ids.length) return;
+  var links=[].slice.call(toc.querySelectorAll("a")), tick=false, cur=-1;
+  __tocSpy=function(){ if(tick) return; tick=true; requestAnimationFrame(function(){ tick=false;
+    var idx=0; for(var i=0;i<ids.length;i++){ var el=document.getElementById(ids[i]); if(!el) continue; if(el.getBoundingClientRect().top<=offset) idx=i; else break; }
+    if(idx===cur) return; cur=idx; links.forEach(function(a,i){ a.classList.toggle("on",i===idx); });
+    var a=links[idx]; if(a&&toc.scrollHeight>toc.clientHeight) toc.scrollTop=a.offsetTop-toc.clientHeight/2;
+  }); };
+  window.addEventListener("scroll",__tocSpy,{passive:true}); __tocSpy();
+}
 function lmJump(i){ var el=document.getElementById("lm-"+i); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
 function goBook(tab,sec){ if(typeof guardEditLeave==="function"&&!guardEditLeave()) return; state.view="book"; state.bookTab=tab||state.bookTab||"regeln"; state.bookSec=sec||null; render(); scrollToTop(); if(typeof persist==="function") persist(); }
 function renderBook(){
@@ -89,11 +101,13 @@ function renderBook(){
   var pills=list.map(function(x){ return '<button class="lm-pill'+(x.id===s.id?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(x.t)+'</button>'; }).join("");
   var i=list.indexOf(s), prev=list[i-1], next=list[i+1];
   var nav='<div class="lm-pn">'+(prev?'<button onclick="goBook(\''+tab+'\',\''+prev.id+'\')"><small>Zurück</small>'+esc(prev.t)+'</button>':'<span></span>')+(next?'<button class="r" onclick="goBook(\''+tab+'\',\''+next.id+'\')"><small>Weiter</small>'+esc(next.t)+'</button>':'<span></span>')+'</div>';
-  app.innerHTML=renderTopbar()+'<div class="lm-wrap"><div class="lm-crumb"><a onclick="goPrep()">Start</a> › '+esc(LM_NAV.tabs.filter(function(t){return t.id===tab;})[0].t)+'</div><nav class="lm-tabs">'+tabs+'</nav><nav class="lm-pills">'+pills+'</nav><div id="lmHost" class="lm-host"><p class="lm-load">Lade …</p></div>'+nav+'</div>';
+  app.innerHTML=renderTopbar()+'<div class="lm-wrap"><div class="lm-shell"><nav class="lm-toc" id="lmToc"></nav><div class="lm-main"><div class="lm-crumb"><a onclick="goPrep()">Start</a> › '+esc(LM_NAV.tabs.filter(function(t){return t.id===tab;})[0].t)+'</div><nav class="lm-tabs">'+tabs+'</nav><nav class="lm-pills">'+pills+'</nav><div id="lmHost" class="lm-host"><p class="lm-load">Lade …</p></div>'+nav+'</div></div></div>';
   lmLoad(s.id,function(){
     var el=document.getElementById("lmHost"); if(!el||state.view!=="book"||state.bookSec!==s.id) return;
     var es=LM.data[s.id]||[];
     var toc=es.map(function(c,i){ return '<a onclick="lmJump('+i+')">'+esc(c.name)+'</a>'; }).join("");
-    el.innerHTML='<section class="lm-sec"><div class="lm-sh"><h2>'+esc(s.t)+'</h2>'+lmPg(s.p,s.pe)+'<select class="lm-sel" onchange="lmJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select></div>'+(es.length?'<div class="lm-body"><nav class="lm-toc">'+toc+'</nav><div class="lm-flow">'+es.map(lmCard).join("")+'</div></div>':'<p class="lm-load">In Vorbereitung</p>')+'</section>';
+    el.innerHTML='<section class="lm-sec"><div class="lm-sh"><h2>'+esc(s.t)+'</h2>'+lmPg(s.p,s.pe)+'<select class="lm-sel" onchange="lmJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select></div>'+(es.length?'<div class="lm-body"><div class="lm-flow">'+es.map(lmCard).join("")+'</div></div>':'<p class="lm-load">In Vorbereitung</p>')+'</section>';
+    var rail=document.getElementById("lmToc");
+    if(rail){ if(es.length>1){ rail.innerHTML=toc; tocSpy(rail,es.map(function(c,i){return "lm-"+i;}),110); } else rail.parentNode.classList.add("nontoc"); }
   });
 }

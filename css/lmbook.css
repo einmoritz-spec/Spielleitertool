@@ -71,3 +71,14 @@
 .lm-toc{top:76px;max-height:calc(100vh - 90px)}
 .lm-a h3{scroll-margin-top:80px}
 @media(max-width:700px){.lm-sh{flex-wrap:wrap;gap:6px 10px}.lm-sh h2{font-size:19px}.lm-sel{flex-basis:100%;max-width:none;margin-left:0}.lm-sec{padding:12px}}
+
+/* Breite nutzen: Kapitelleiste links ab Seitenanfang (bleibt von Anfang an stehen), Text bekommt den Rest */
+.lm-wrap{max-width:2200px;padding:16px 24px 90px}
+.lm-shell{display:grid;grid-template-columns:230px minmax(0,1fr);gap:32px;align-items:start}
+.lm-shell.nontoc{grid-template-columns:minmax(0,1fr)}.lm-shell.nontoc>.lm-toc{display:none}
+.lm-main{min-width:0}
+.lm-toc{top:78px;max-height:calc(100vh - 94px);scrollbar-width:thin;margin-top:2px}
+.lm-body{display:block}
+.lm-toc a.on{background:rgba(201,162,75,.16);color:var(--gold-bright);font-weight:600}
+.lm-flow{font-size:clamp(16px,.5vw + 9px,19px)}
+@media(max-width:1180px){.lm-shell{grid-template-columns:minmax(0,1fr)}.lm-toc{display:none}.lm-wrap{padding:10px 14px 90px}}

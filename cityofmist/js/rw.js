@@ -46,6 +46,18 @@ function rwCard(e,id,secId){
   return '<article class="rwa" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="rwsub">'+esc(e.sub)+'</p>':'')+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+
     '<div class="rwm">'+rwBlocks(main)+'</div>'+(sideHtml?'<aside class="rws">'+sideHtml+'</aside>':'')+'</article>';
 }
+var __tocSpy;
+function tocSpy(toc, ids, offset){
+  if(__tocSpy) window.removeEventListener("scroll",__tocSpy);
+  __tocSpy=null; if(!toc||!ids.length) return;
+  var links=[].slice.call(toc.querySelectorAll("a")), tick=false, cur=-1;
+  __tocSpy=function(){ if(tick) return; tick=true; requestAnimationFrame(function(){ tick=false;
+    var idx=0; for(var i=0;i<ids.length;i++){ var el=document.getElementById(ids[i]); if(!el) continue; if(el.getBoundingClientRect().top<=offset) idx=i; else break; }
+    if(idx===cur) return; cur=idx; links.forEach(function(a,i){ a.classList.toggle("on",i===idx); });
+    var a=links[idx]; if(a&&toc.scrollHeight>toc.clientHeight) toc.scrollTop=a.offsetTop-toc.clientHeight/2;
+  }); };
+  window.addEventListener("scroll",__tocSpy,{passive:true}); __tocSpy();
+}
 function rwJump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
 function rwSection(tab,secId,cardIdx){
   var list=CM_RW_NAV.secs[tab]||[], s=list.filter(function(x){return x.id===secId;})[0]||list[0];
@@ -57,7 +69,9 @@ function rwSection(tab,secId,cardIdx){
     var toc=es.map(function(c,i){return '<a onclick="rwJump(\'rw-'+s.id+'-'+i+'\')">'+esc(c.name)+'</a>';}).join("");
     var sel=many?'<select class="rwsel" onchange="if(this.value)rwJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="rw-'+s.id+'-'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select>':'';
     el.innerHTML='<section class="blk">'+rwHero(s.id)+'<div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+sel+'</div>'+
-     (es.length?'<div class="rwbody'+(many?'':' solo')+'">'+(many?'<nav class="rwtoc">'+toc+'</nav>':'')+'<div class="rwflow">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,s.id);}).join("")+'</div></div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>'+rwPrevNext(tab,s.id);
+     (es.length?'<div class="rwbody solo"><div class="rwflow">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,s.id);}).join("")+'</div></div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>'+rwPrevNext(tab,s.id);
+    var rail=document.getElementById("rwRail");
+    if(rail){ if(many){ rail.innerHTML=toc; tocSpy(rail,es.map(function(c,i){return "rw-"+s.id+"-"+i;}),110); } else rail.parentNode.classList.add("nontoc"); }
     if(cardIdx!==undefined&&cardIdx!==""){ var c=document.getElementById("rw-"+s.id+"-"+cardIdx); if(c){ srHighlight(c); c.scrollIntoView({block:"start"}); window.scrollBy(0,-70); } }
   });
   return (list.length>1?pills:"")+host;
@@ -79,6 +93,7 @@ function rwPrevNext(tab,id){
 }
 function pageRW(r){
   var tabs='<nav class="tabs">'+CM_RW_NAV.tabs.map(function(t){return '<button class="tab'+(t.id===r.tab?' on':'')+'" onclick="gr(\''+t.id+'\')">'+t.t+'</button>';}).join("")+'</nav>';
-  var body= r.tab==="start"||!CM_RW_NAV.secs[r.tab] ? rwStart() : rwSection(r.tab,r.sub,r.cat);
-  return tabs+body;
+  var isStart=r.tab==="start"||!CM_RW_NAV.secs[r.tab];
+  var body= isStart ? rwStart() : rwSection(r.tab,r.sub,r.cat);
+  return '<div class="railshell'+(isStart?' nontoc':'')+'"><nav class="rwtoc" id="rwRail"></nav><div class="railmain">'+tabs+body+'</div></div>';
 }

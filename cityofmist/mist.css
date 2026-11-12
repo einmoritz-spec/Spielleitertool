@@ -198,3 +198,14 @@ mark{background:var(--yel)}
 }
 @media (max-width:899px){.rwa{display:block}.rws{margin-top:14px}}
 .ovc-hero img{object-position:50% 45%}
+
+/* Kapitelleiste links ab Seitenanfang, Text nutzt die Breite */
+.shell.wide{max-width:2100px;padding-left:24px;padding-right:24px}
+.railshell{display:grid;grid-template-columns:230px minmax(0,1fr);gap:30px;align-items:start}
+.railshell.nontoc{grid-template-columns:minmax(0,1fr)}.railshell.nontoc>.rwtoc{display:none}
+.railmain{min-width:0}
+.rwtoc{top:78px;max-height:calc(100vh - 94px);scrollbar-width:thin;margin-top:2px}
+.rwbody{display:block}
+.rwtoc a.on{background:rgba(229,0,125,.09);color:var(--mag2);font-weight:600}
+.rwflow{font-size:clamp(17px,.5vw + 9px,20px)}
+@media(max-width:1180px){.railshell{grid-template-columns:minmax(0,1fr)}.rwtoc{display:none}.shell.wide{padding-left:12px;padding-right:12px}}

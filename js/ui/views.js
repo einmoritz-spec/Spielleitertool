@@ -658,7 +658,7 @@ function renderScene(adv, scene, idx){
     }
     return `
       <details class="readaloud ${ra.zusatzfund?'zusatzfund':''}" open>
-        <summary class="ra-head"><span class="ra-label"><span class="ra-toggle">▸</span>${esc(ra.label)}</span><span class="ra-page">${esc(ra.page)}</span></summary>
+        <summary class="ra-head"><span class="ra-label"><span class="ra-toggle">▸</span>${/^vorlese/i.test(ra.label||"")?"":esc(ra.label)}</span><span class="ra-page">${esc(ra.page)}</span></summary>
         <div class="ra-body">${ra.text.split(/\n\n+/).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
       </details>`;
   };

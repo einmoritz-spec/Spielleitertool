@@ -91,3 +91,7 @@ li.m2-row{list-style:none;display:flex;align-items:flex-start;margin-left:-18px}
 .m2-quick ul{margin:0;padding-left:18px;font:14px/1.55 var(--sans,Inter,sans-serif);color:var(--text-lo)}
 .m2-quick li{margin-bottom:6px}.m2-quick li::marker{color:var(--gold)}
 .m2-quick b{color:var(--text-hi)}
+
+/* Block-Titel "Vorlesen" entfällt, der Kasten erklärt sich selbst */
+.m2-read>.m2-bh .m2-bt{display:none}
+.readaloud .ra-head:has(.ra-label:empty){min-height:0}

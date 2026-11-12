@@ -887,8 +887,14 @@ function llRestructure(root){
 
 /* Regeln-Layout (wie City of Mist/LitM): links Liste, rechts alle Kästen offen */
 function llRail(root){
-  if(state.view!=="district" || ["places","locals","chance","powersets","options"].indexOf(state.distTab)<0) return;
+  const isCase=state.view==="case";
+  if(!isCase && (state.view!=="district" || ["places","locals","chance","powersets","options"].indexOf(state.distTab)<0)) return;
   const tb=root.querySelector(".case-tabbar"); if(!tb||root.querySelector(".ll-rail")) return;
+  if(isCase){
+    const panel=root.querySelector(".case-tabpanel"); if(!panel) return;
+    if(panel.querySelectorAll(":scope > .loc-card").length<2) return;
+    root=panel;
+  }
   const items=[]; 
   [...root.children].forEach(function(e){
     if(e.classList.contains("ll-cgrid")) items.push(...e.children);
@@ -901,7 +907,7 @@ function llRail(root){
     if(!e.id) e.id="llr_"+i;
     const h=e.querySelector(".loc-h,.danger-head h4,.th-head h3,h3,h4");
     if(h){
-      const nm=h.textContent.replace("▸","").replace(/\s*S\.\s*\d+\s*$/,"").trim().split(":")[0];
+      const nm=h.textContent.replace("▸","").replace(/\s*S\.\s*\d+\s*$/,"").trim().split(/:| — /)[0];
       const a=document.createElement("a"); a.href="#"+e.id; a.textContent=(nm===nm.toUpperCase()?nm.toLowerCase().replace(/(^|[^A-Za-zÀ-ÿ])([A-Za-zÀ-ÿ])/g,function(m,p,c){return p+c.toUpperCase();}):nm);
       a.onclick=function(ev){ev.preventDefault(); e.scrollIntoView({behavior:"smooth",block:"start"});};
       nav.appendChild(a);

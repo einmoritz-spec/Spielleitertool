@@ -367,6 +367,7 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .kat-tile-t:hover{background:var(--panel2)}.kat-tile-t small{color:var(--mute);font-size:.74rem}
 .kat-stim{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
 .kat-stim figure,.kat-mood{margin:0}.kat-stim img,.kat-mood img{width:100%;border-radius:10px;cursor:zoom-in;box-shadow:0 2px 12px rgba(0,0,0,.45);display:block}
+.kat-stim img{aspect-ratio:4/3;object-fit:cover}
 .kat-stim figcaption{color:var(--mute);font-size:.78rem;margin-top:4px}.kat-mood{margin-top:22px;max-width:760px}
 .kat-spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px}
 .kat-sp{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:10px;padding:10px 14px}.kat-sp b{color:var(--amber);font-size:.92rem}.kat-sp p{margin:.3em 0 0;font-size:.9rem}
@@ -469,8 +470,8 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 
 /* Standard-Layout: Baum links, flacher Inhalt rechts */
 .crumbs{display:none}.crumbs.pgonly{display:block;text-align:right;margin:0 0 6px!important}.crumbs.pgonly a{color:var(--mute);font-size:.72rem;text-decoration:underline dotted}
-.osrail{display:grid;grid-template-columns:210px minmax(0,1fr);gap:26px;align-items:start;margin-top:10px}
-.osnav{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;border-right:1px solid var(--line);padding-right:10px;min-width:0}
+.osrail{display:grid;grid-template-columns:200px minmax(0,1fr);gap:12px;align-items:start;margin-top:10px}
+.osnav{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;border-right:0;padding-right:0;min-width:0}
 .osnav .ocat{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;background:none;border:0;color:var(--text);font:600 .95rem/1.25 inherit;padding:8px 10px;border-radius:8px;cursor:pointer}
 .osnav .ocat i{font-style:normal;font-size:.75rem;color:var(--tone)}
 .osnav .ocat:hover{background:var(--panel)}
@@ -567,3 +568,18 @@ body .tab-layout .content{max-width:1300px}
 .ch-grid>.ch.coll:not(.open) .ch-head{display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:1px}
 .ch-grid>.ch.coll:not(.open) .ch-head>*:not(.chev):not(b){grid-column:2;justify-self:start}
 .ch-grid>.ch.coll:not(.open) .ch-head .chev{grid-row:1}
+
+/* Setting- und Fraktionsseiten (Tokyo, Fraktionen): Kopfhinweise schweben, Listen als Karten, Themenkarten eingeklappt */
+.os-set .os-float{float:right;width:min(340px,40%);margin:4px 0 14px 28px;clear:right}
+.os-set .os-float .blk-note{margin:0}
+.os-lcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:10px;margin:8px 0 16px;align-items:start}
+.os-lc{background:#0f1a26;border:1px solid rgba(255,255,255,.1);border-left:3px solid #e0b84a;border-radius:8px;padding:10px 14px;font-size:.95rem;line-height:1.5;min-width:0;hyphens:auto;text-wrap:pretty}
+.os-theme{margin:12px 0 16px;border:1px dashed rgba(169,123,255,.55);border-radius:10px;background:rgba(169,123,255,.06)}
+.os-theme>summary{cursor:pointer;list-style:none;padding:9px 14px;display:flex;align-items:center;gap:10px;user-select:none}
+.os-theme>summary::-webkit-details-marker{display:none}
+.os-theme>summary::before{content:"\25C6";color:#a97bff;font-size:.8rem;flex:none}
+.os-theme>summary .blk-h{margin:0;color:#c7b3ff;font-size:.9rem;letter-spacing:.1em}
+.os-theme[open]>summary{border-bottom:1px dashed rgba(169,123,255,.4);margin-bottom:10px}
+.os-theme>*:not(summary){margin-left:14px;margin-right:14px}
+.os-set .ch.coll:not(.open) .chev{display:none}
+@media (max-width:1000px){.os-set .os-float{float:none;width:auto;margin:0 0 14px}}

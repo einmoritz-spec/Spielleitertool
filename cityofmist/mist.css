@@ -218,3 +218,14 @@ mark{background:var(--yel)}
 .rcard>header i{display:block;color:var(--neon);font-size:14px;margin-top:2px}
 .rtx{padding:12px 14px 4px}.rtx p{margin:0 0 .6em;font-size:15.5px;line-height:1.55}
 .rth{padding:0 12px 12px}.rth .thm{margin:0;background:var(--yel)}
+
+/* Kategorien (Tabs + Unterkapitel) über die volle Breite, Seitenleiste erst darunter */
+.railshell{column-gap:30px;row-gap:0}
+.railmain{display:contents}
+.railshell>.railmain>.tabs,.railshell>.railmain>.pills{grid-column:1/-1}
+.railshell>.rwtoc{grid-column:1;grid-row:3}
+.railshell>.railmain>:not(.tabs):not(.pills){grid-column:2;grid-row:3;min-width:0}
+.railshell.nontoc>.railmain>:not(.tabs):not(.pills){grid-column:1}
+.railshell>.rwtoc{margin-top:4px}
+@media(max-width:1180px){.railshell>.railmain>:not(.tabs):not(.pills){grid-column:1}}
+.railshell>.railmain>.pnav{grid-row:5!important}

@@ -120,3 +120,13 @@
 .lmc-rc>header,.lmc-kit>header{padding:6px 12px}.lmc-rc>header h4{font-size:14px}
 .lmc-b .lm-ul,.lmc-b .lm-ul li{font-size:14.5px;line-height:1.5}
 .lmc-b .lm-h5,.lmc-b h5{font:600 11px Cinzel,serif;letter-spacing:.1em;text-transform:uppercase;color:#7a1f1f;margin:.7em 0 .2em}
+
+/* Kategorien über die volle Breite, Seitenleiste erst darunter */
+.lm-shell{column-gap:32px;row-gap:0}
+.lm-main{display:contents}
+.lm-shell>.lm-main>.lm-crumb,.lm-shell>.lm-main>.lm-tabs,.lm-shell>.lm-main>.lm-pills{grid-column:1/-1}
+.lm-shell>.lm-toc{grid-column:1;grid-row:4}
+.lm-shell>.lm-main>:not(.lm-crumb):not(.lm-tabs):not(.lm-pills){grid-column:2;grid-row:4;min-width:0}
+.lm-shell.nontoc>.lm-main>:not(.lm-crumb):not(.lm-tabs):not(.lm-pills){grid-column:1}
+@media(max-width:1180px){.lm-shell>.lm-main>:not(.lm-crumb):not(.lm-tabs):not(.lm-pills){grid-column:1}}
+.lm-shell>.lm-main>.lm-pn{grid-row:5!important}

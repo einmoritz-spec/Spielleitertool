@@ -162,3 +162,10 @@ details.vorlese>summary .bt{margin:0}.vorlese .vp{display:none;font-size:.85em;o
  .osnav .osr{border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:10px}
  .osnav .osr a{flex:none;white-space:nowrap;color:#c9bfa0;text-decoration:none;font-size:13px;padding:4px 2px;margin-right:10px}
 }
+
+/* Sektor-Seiten: Orte als Liste links, alle offen rechts */
+.etsec .osub.flatl{margin:0;border-left:0}
+.etsec .osmain .locgrid{display:block}
+.etsec .osmain .locgrid>details.loc{margin:0 0 16px;width:100%}
+.etsec .osmain details.loc>summary{cursor:default;pointer-events:none}
+.etsec .osmain details.loc>summary a,.etsec .osmain details.loc>summary .pg{pointer-events:auto}

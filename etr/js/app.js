@@ -80,12 +80,26 @@ function render(){
   var m={einstieg:overview,intro:function(){return secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegner,anhang:function(){return secs(window.ETR_ANHANG);}};
   var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0];
   document.getElementById("app").innerHTML=tabs+(m[cur]||overview)();
-  if(mi) etRail(mi);
+  if(mi) etRail(mi); else if(/^s[123]$/.test(cur)) etSecRail();
   var t=document.querySelector(".tab.on"); if(t&&t.scrollIntoView) t.scrollIntoView({inline:"center",block:"nearest"});
   if(hp.sec){ var el=document.getElementById("s-"+hp.sec)||document.getElementById("f-"+hp.sec); if(el){ if(el.tagName==="DETAILS") el.open=true; el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); return; } }
   window.scrollTo(0,0);
 }
 function etShort(t){ return String(t).split(":")[0]; }
+function etSecRail(){
+  var app=document.getElementById("app"), locs=[].slice.call(app.querySelectorAll("details.loc"));
+  if(locs.length<2) return;
+  locs.forEach(function(e){ e.open=true; });
+  var link=function(e){ var h=e.querySelector("h3"); return '<a href="#" onclick="etGo(\''+e.id+'\');return false">'+esc(etShort(h?h.textContent:""))+'</a>'; };
+  var links=locs.map(link).join("");
+  var intro=app.querySelector("details.sec"); var sh=intro?intro.querySelector("h2"):null;
+  var head=sh?'<a href="#" onclick="etGo(\''+intro.id+'\');return false">Überblick</a>':"";
+  var main=document.createElement("div"); main.className="osmain";
+  [].slice.call(app.children).forEach(function(e){ if(!e.matches(".tabs")) main.appendChild(e); });
+  var wrap=document.createElement("div"); wrap.className="osrail etsec";
+  wrap.innerHTML='<nav class="osnav"><div class="otree"><div class="osub flatl">'+head+links+'</div></div><div class="oflat"><div class="orow osr">'+head+links+'</div></div></nav>';
+  wrap.appendChild(main); app.appendChild(wrap);
+}
 function etGo(id){ var e=document.getElementById(id); if(e){ if(e.tagName==="DETAILS") e.open=true; e.scrollIntoView({behavior:"smooth",block:"start"}); } }
 function etRail(mi){
   var app=document.getElementById("app"), kids=[].slice.call(app.children).filter(function(e){return e.matches("details.sec,section.fig");});

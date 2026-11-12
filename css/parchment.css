@@ -148,3 +148,12 @@ h1,h2,h3{font-family:var(--serif-display)}
 @media(max-width:640px){.ch-col-right .ch-lcol-block{grid-template-columns:1fr}}
 .adv-card{display:flex!important;flex-direction:column;justify-content:flex-start}
 .adv-card img{aspect-ratio:4/3!important;object-position:50% 50%}
+
+/* Geheimnisse: links, standardmäßig eingeklappt */
+.ch-secrets{display:block!important}
+.ch-secrets>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;margin-bottom:0}
+.ch-secrets>summary::-webkit-details-marker{display:none}
+.ch-secrets>summary:after{content:"＋";font-size:13px;color:var(--maroon)}
+.ch-secrets[open]>summary:after{content:"－"}
+.ch-secrets[open]>summary{margin-bottom:10px}
+.ch-secrets>.secret-block,.ch-secrets>.special-block{margin-bottom:8px}

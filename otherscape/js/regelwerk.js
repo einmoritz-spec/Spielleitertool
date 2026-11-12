@@ -1,9 +1,11 @@
 /* Regelwerk- und Metro-Seite */
 function renderRegeln(){
   if(typeof OS_REGELN==="undefined"){ $("app").innerHTML = '<div class="missing">Regel-Daten fehlen.</div>'; return; }
+  /* Grundbuch-Regeln S. 67–92 (metro-regeln-1..3.js) ergänzen die Regeln an */
+  const REG = [...OS_REGELN, ...["OS_METRO_REGELN_1","OS_METRO_REGELN_2","OS_METRO_REGELN_3"].flatMap(n=>window[n]||[])];
   const dummy = {id:"regeln"};
-  const secs = OS_REGELN.map(r=>`<section class="rg-sec" id="rg_${r.id}"><h2>${esc(r.titel)}${pgBtn("Metro",r.seite,"S. "+r.seite)}</h2><div class="rg-body">${r.bloecke.map((b,i)=>renderBlock(dummy,{id:r.id},b,i)).join("")}</div></section>`).join("");
-  $("app").innerHTML = osRail("", [{t:"Regelwerk",on:true,n:OS_REGELN.length,sub:OS_REGELN.map(r=>({id:"rg_"+r.id,t:r.titel}))}], secs);
+  const secs = REG.map(r=>`<section class="rg-sec" id="rg_${r.id}"><h2>${esc(r.titel)}${pgBtn("Metro",r.seite,"S. "+r.seite)}</h2><div class="rg-body">${r.bloecke.map((b,i)=>renderBlock(dummy,{id:r.id},b,i)).join("")}</div></section>`).join("");
+  $("app").innerHTML = osRail("", [{t:"Regelwerk",on:true,n:REG.length,sub:REG.map(r=>({id:"rg_"+r.id,t:r.titel}))}], secs);
 }
 function rgSave(id,o){ (ST.rg||(ST.rg={}))[id] = o; saveState(); }
 function renderMetro(){

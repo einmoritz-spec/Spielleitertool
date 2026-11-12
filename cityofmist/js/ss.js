@@ -42,13 +42,18 @@ function itemsList(items){ return '<div class="stubs">'+items.map(function(i){re
 function pills(base,list,curId){ return '<nav class="pills">'+list.map(function(x){return '<button class="pill'+(x.id===curId?' on':'')+'" onclick="gs(\''+base+'/'+x.id+'\')">'+esc(x.t)+'</button>';}).join("")+'</nav>'; }
 function sectionHead(s){ return '<div class="sh"><h2>'+esc(s.t)+'</h2><span class="en">'+esc(s.en||"")+'</span>'+pg(s.p)+'</div>'; }
 function hero(n){ return '<img class="hero" src="img/h_'+n+'.webp" alt="">'; }
+function orteRail(es,names){
+  var cards=es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort"','<details class="ort" open'):stub(e[0],e[1]); }).join("");
+  var nav=es.map(function(e){ var o=names[e[0]]; return o?'<a href="#o-'+o.id+'" onclick="document.getElementById(\'o-'+o.id+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(e[0])+'</a>':'<span class="nolink">'+esc(e[0])+'</span>'; }).join("");
+  return '<div class="orail"><nav class="onav">'+nav+'</nav><div class="orte">'+cards+'</div></div>';
+}
 function pageSpieler(r){
   var list=CM_NAV.spieler, s=list.filter(function(x){return x.id===r.sub;})[0]||list[0];
   var have=CM_ORTE["sp_"+s.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
   var es=(window.CM_SP_E&&CM_SP_E[s.id])||s.items;
-  var body=have.length?es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]):stub(e[0],e[1]); }).join(""):"";
+  var body=have.length?orteRail(es,names):"";
   if(!have.length) return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
-  return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+'<div class="orte">'+body+'</div></section>';
+  return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+body+'</section>';
 }
 function orgHtml(id){
   var o=CM_ORG[id]; if(!o) return "";
@@ -69,6 +74,6 @@ function pageSL(r){
   var cat=cats.filter(function(c){return c.id===r.cat;})[0]||cats[0];
   var chips='<nav class="chips">'+cats.map(function(c){var n=(CM_ORTE[c.id]||[]).length;return '<button class="chip'+(c.id===cat.id?' on':'')+'" onclick="gs(\'sl/'+s.id+'/'+c.id+'\')">'+esc(c.t)+(n?'<i>'+n+'</i>':'')+'</button>';}).join("")+'</nav>';
   var have=CM_ORTE[cat.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
-  var body=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]):stub(e[0],e[1]); }).join("");
-  return h+chips+orgHtml(cat.id)+'<section class="blk">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+body+'</div></section>';
+  var body=orteRail(cat.e,names);
+  return h+chips+orgHtml(cat.id)+'<section class="blk">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+body+'</section>';
 }

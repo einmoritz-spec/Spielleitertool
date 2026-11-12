@@ -55,7 +55,7 @@ function render(){
   else if(state.view==="npcs") app.innerHTML = renderNpcs();
   else if(state.view==="player") app.innerHTML = renderPlayerView();
   { const cr=app.querySelector(".crumb"); if(cr) cr.scrollLeft=cr.scrollWidth; const tb=app.querySelector(".case-tabbar"), at=tb&&tb.querySelector(".case-tab.active"); if(tb&&at) tb.scrollLeft=at.offsetLeft-(tb.clientWidth-at.clientWidth)/2; }
-  llRestructure(app); llRail(app);
+  llRestructure(app); llPips(app); llRail(app);
   buildGlossList();
   buildRulesList();
   { const sc = app.querySelector('.case-tabpanel')||app, cs = sc.querySelectorAll('.loc-card'); if(cs.length===1) cs[0].classList.add('single','open'); }
@@ -912,4 +912,11 @@ function llRail(root){
   const wrap=document.createElement("div"); wrap.className="ll-rail"; wrap.appendChild(nav); wrap.appendChild(main);
   const pager=root.querySelector(".pager"); root.insertBefore(wrap, pager||null);
   root.querySelectorAll(".ll-cgrid").forEach(function(g){g.remove();});
+}
+
+/* „(+yy)“ aus dem Buch = Bedrohungsstufen-Rauten wie in den Challenge-Karten */
+function llPips(root){
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT); const n=[]; let t;
+  while((t=w.nextNode())) if(/\(\+y+\)/.test(t.nodeValue)) n.push(t);
+  n.forEach(function(t){ t.nodeValue=t.nodeValue.replace(/\(\+(y+)\)/g,function(m,y){return "+"+"⬥".repeat(y.length);}); });
 }

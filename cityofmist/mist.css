@@ -229,3 +229,12 @@ mark{background:var(--yel)}
 .railshell>.rwtoc{margin-top:4px}
 @media(max-width:1180px){.railshell>.railmain>:not(.tabs):not(.pills){grid-column:1}}
 .railshell>.railmain>.pnav{grid-row:5!important}
+
+/* Liste links, alle Kästen offen rechts */
+.orail{display:grid;grid-template-columns:230px minmax(0,1fr);gap:22px;align-items:start}
+.onav{position:sticky;top:76px;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 150px);overflow:auto;padding-right:8px;border-right:2px solid var(--line)}
+.onav a,.onav .nolink{padding:7px 10px;font-weight:700;font-size:.86rem;line-height:1.25;border-radius:6px;text-decoration:none;color:inherit}
+.onav a:hover{background:rgba(190,24,93,.1)}
+.onav .nolink{opacity:.45;font-weight:500}
+.orail .orte{min-width:0}.orail .ort{scroll-margin-top:76px}
+@media(max-width:860px){.orail{grid-template-columns:1fr}.onav{position:static;flex-direction:row;overflow-x:auto;border:0;padding-bottom:6px}.onav a,.onav .nolink{white-space:nowrap;background:rgba(190,24,93,.08)}}

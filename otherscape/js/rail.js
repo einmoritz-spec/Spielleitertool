@@ -34,3 +34,28 @@ function osAdvRail(){
   wrap.innerHTML = `<nav class="osnav"><div class="otree">${sub?`<div class="ocats">${sub}</div>`:""}<div class="osub">${links}</div></div><div class="oflat">${sub?`<div class="orow">${sub}</div>`:""}<div class="orow osr">${links}</div></div></nav><div class="osmain"></div>`;
   cs.parentNode.insertBefore(wrap, cs); wrap.querySelector(".osmain").appendChild(cs);
 }
+
+/* Tastatur: ↓/↑ schalten durch die Seitenleiste, ←/→ durch die oberen Tabs (Kopfzeile der Seite) */
+(function(){
+  const vis = els => els.filter(e=>e.offsetParent!==null);
+  document.addEventListener("keydown", function(e){
+    if(e.ctrlKey||e.metaKey||e.altKey) return;
+    const t = e.target; if(t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    const k = e.key;
+    if(k==="ArrowDown"||k==="ArrowUp"){
+      const links = vis([...document.querySelectorAll(".osnav a, .osnav button.ocat")]);
+      if(!links.length) return;
+      let i = links.indexOf(document.activeElement);
+      if(i<0) i = links.findIndex(a=>a.classList.contains("on"));
+      const n = k==="ArrowDown" ? (i<0?0:Math.min(i+1,links.length-1)) : (i<0?0:Math.max(i-1,0));
+      e.preventDefault();
+      links[n].focus(); links[n].click(); links[n].scrollIntoView({block:"nearest"});
+    } else if(k==="ArrowLeft"||k==="ArrowRight"){
+      const tabs = vis([...document.querySelectorAll(".case-tabbar .case-tab")]);
+      const i = tabs.findIndex(a=>a.classList.contains("active")); if(i<0) return;
+      const n = k==="ArrowRight" ? Math.min(i+1,tabs.length-1) : Math.max(i-1,0);
+      if(n===i) return;
+      e.preventDefault(); tabs[n].click();
+    }
+  });
+})();

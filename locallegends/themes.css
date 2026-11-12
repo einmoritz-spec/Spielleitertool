@@ -93,3 +93,8 @@ html[data-ll=a]:not([data-view=overview]) .section-head h2{color:#ffe36b}
 html[data-ll=a] .shell b,html[data-ll=a] .shell strong{color:inherit!important}
 .map-panel .map-toggle{position:static!important;display:inline-flex;flex-direction:row;margin:0 0 8px}
 .map-panel .map-toggle button{padding:4px 12px}
+.topbar .brand{width:98px!important;height:58px!important;margin:3px 6px 3px 10px!important;background-position:center!important}
+/* Karte-Tab */
+.karte-tab{padding:6px 0 20px;text-align:center}
+.karte-tab .map-panel{max-width:1100px;margin:0 auto}
+.karte-tab .map-panel .map-img{max-height:calc(100vh - 210px);width:auto;max-width:100%;border-radius:8px;box-shadow:0 0 0 3px #6a2bb8,0 12px 30px rgba(40,10,80,.35)}

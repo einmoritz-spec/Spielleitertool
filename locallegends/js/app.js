@@ -552,13 +552,13 @@ function hookBlock(h, anchorId){
 function caseAnchor(id, dp, kind, idx){ return `d${dp.n}_${kind}${idx}`; }
 
 function getCaseTabKeys(cs){
-  const tabs = ["overview"];
+  const tabs = ["overview","karte"];
   cs.depths.forEach(dp=>tabs.push("depth"+dp.n));
   tabs.push("aftermath");
   return tabs;
 }
 function renderCaseTabs(cs, active, nid){
-  let tabs = `<button class="case-tab ${active==='overview'?'active':''}" onclick="setCaseTab('overview')">Übersicht</button>`;
+  let tabs = `<button class="case-tab ${active==='overview'?'active':''}" onclick="setCaseTab('overview')">Übersicht</button><button class="case-tab ${active==='karte'?'active':''}" onclick="setCaseTab('karte')">Karte</button>`;
   cs.depths.forEach(dp=>{
     tabs += `<button class="case-tab ${active===('depth'+dp.n)?'active':''}" onclick="setCaseTab('depth${dp.n}')">Depth ${dp.n}<br><small>${dp.title}</small></button>`;
   });
@@ -594,8 +594,9 @@ function _renderCaseView(id){
   html += `<div class="case-tabpanel">`;
 
   if(active==="map") state.caseTab = "overview";
-  if(active==="overview" || active==="map"){
-    html += renderMapPanel(id);
+  if(active==="karte"){
+    html += `<div class="karte-tab">${renderMapPanel(id)}</div>`;
+  } else if(active==="overview" || active==="map"){
     const iceImg = cs.icebergImage ? `<div class="ice-wrap"><img src="${cs.icebergImage}" alt="Eisberg-Diagramm — ${cs.title}">${iceHot(id)}</div>` : "";
     let txt = `<div class="card"><p>${cs.intro}</p></div>`;
     if(cs.teaser) txt += `<div class="card"><p>${cs.teaser}</p></div>`;

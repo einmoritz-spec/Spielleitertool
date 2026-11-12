@@ -10,6 +10,24 @@ var RWI={
 function rwImgSrc(n){ return "img/rw/"+n+".webp"; }
 function rwTb(secId,e){ return RWI.tbSecs[secId]&&RWI.tb[e.p]?rwImgSrc("tb_"+RWI.tb[e.p]):""; }
 function rwDoc(secId,e){ return secId==="dokumente"&&RWI.doc[e.p]?rwImgSrc("doc_"+e.p):""; }
+var RWI_FIGS=[15,16,17,33,38,39,40,48,49,51,64,138,160,161,171,173,183,211,232,233,238,239,253,262,263,273,281];
+var rwFigCache={};
+function rwFigs(secId,e){
+  var m=rwFigCache[secId];
+  if(!m){
+    m=rwFigCache[secId]=[]; var es=(typeof CM_RW!=="undefined"&&CM_RW[secId])||[];
+    RWI_FIGS.forEach(function(pg){
+      var best=-1;
+      es.forEach(function(x,i){ if(x.p!=null&&x.p<=pg&&(x.pe==null?pg-x.p<=12:pg<=x.pe)&&(best<0||x.p>es[best].p||(x.p===es[best].p&&(x.pe||0)>(es[best].pe||0)))) best=i; });
+      if(best>=0) (es[best]._f=es[best]._f||[]).push(pg);
+    });
+  }
+  return e._f||[];
+}
+function rwFigHtml(secId,e){
+  var f=rwFigs(secId,e); if(!f.length) return "";
+  return '<div class="rwfigs">'+f.map(function(pg){return '<img class="rwfig" data-lb loading="lazy" alt="" src="'+rwImgSrc("fig_"+pg)+'">';}).join("")+'</div>';
+}
 function rwHero(secId){ return RWI.hero[secId]?'<img class="rwhero" data-lb loading="lazy" alt="" src="'+rwImgSrc(RWI.hero[secId])+'">':""; }
 function rwLb(src){
   var d=document.getElementById("rwlb");

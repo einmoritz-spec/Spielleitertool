@@ -80,13 +80,13 @@ function renderAdvList(){
   let h = "";
   const card = a => { const ok = hasData(a.id), c = OS_COVER[a.id]; return `<button class="os-ac ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="os-ac-img" ${c?`style="background-image:url(${c[0]});background-position:${c[1]}"`:""}><em>${esc(ok?a.tag:"in Arbeit")}</em></span><span class="os-ac-b"><span class="os-ac-h"><b>${esc(a.titel)}</b><i>${esc(a.seiten)}</i></span><small>${esc(a.sub)}</small></span></button>`; };
   h += `<div class="sec-h">Abenteuer</div><div class="os-acg">${OS_ADV_LIST.filter(a=>a.kat===undefined).map(card).join("")}</div>`;
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Abenteuer</div>`+h;
+  $("app").innerHTML = ``+h;
 }
 
 /* ---------- Tokyo-Setting (über Header-Button) ---------- */
 function renderTokyo(){
   const card = a => { const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small></button>`; };
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Tokyo-Setting</div><div class="adv-head"><h1>Tokyo-Setting</h1><span class="meta">Überblick, Bezirke, Orte · Gegner im Gegner-Browser, Fraktionen unter 🏛</span></div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat==="setting").map(card).join("")}</div>`;
+  $("app").innerHTML = `<div class="adv-head"><h1>Tokyo-Setting</h1><span class="meta">Überblick, Bezirke, Orte · Gegner im Gegner-Browser, Fraktionen unter 🏛</span></div><div class="cards">${OS_ADV_LIST.filter(a=>a.kat==="setting").map(card).join("")}</div>`;
 }
 
 /* ---------- Abenteuer ---------- */
@@ -110,7 +110,7 @@ function renderAdv(a, secId){
   } else tabbar = `<div class="case-tabbar">${a.sektionen.map(x=>tabBtn(x)).join("")}${tile}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];
-  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › <a onclick="location.hash='#/abenteuer'">Abenteuer</a> › ${esc(a.titel)} › ${_pg?`<a onclick="openBook('${a.buch}',${_pg})" title="S. ${_pg} im Buch öffnen">${esc(s.titel)}</a>`:esc(s.titel)}</div>
+  let h = `${_pg?`<div class="crumbs pgonly"><a onclick="openBook('${a.buch}',${_pg})" title="Original-Seite öffnen">S. ${_pg}</a></div>`:""}
   ${tabbar}
   <div class="adv-grid tab-layout" id="advGrid">
    <div class="content">
@@ -264,7 +264,7 @@ async function renderGegner(){
   $("app").innerHTML = '<div class="missing">Lade Gegner …</div>';
   const items = await buildGegner();
   const tp = x => (x.b.typ||"Challenge").split(" (")[0].trim(); const types = [...new Set(items.map(tp))].sort();
-  let h = `<div class="crumbs"><a onclick="goHome()">Start</a> › Gegner-Browser</div><div class="adv-head"><h1>Gegner-Browser</h1><span class="meta">${items.length} Einträge · Tokyo S. 94–147</span></div>
+  let h = `<div class="adv-head"><h1>Gegner-Browser</h1><span class="meta">${items.length} Einträge · Tokyo S. 94–147</span></div>
   <div class="geg-bar"><input class="search-input" id="gegQ" placeholder="Filtern nach Name oder Tag …" oninput="gegFilter()" autocomplete="off"><select id="gegT" onchange="gegFilter()"><option value="">Alle Typen</option>${types.map(t=>`<option>${esc(t)}</option>`).join("")}</select></div>
   <div class="geg-list" id="gegList">${items.map((x,n)=>`<details class="geg" data-n="${n}" data-q="${esc((x.b.name+" "+(x.b.typ||"")+" "+(x.b.tags||[]).join(" ")+" "+x.s.titel).toLowerCase())}" data-t="${esc(tp(x))}" ontoggle="gegOpen(this)"><summary><b>${esc(x.b.name)}</b><span class="stars">${esc(x.b.rating||"")}</span><small>${esc(x.b.typ||"Challenge")} · ${esc(x.s.titel)}</small></summary><div class="geg-body"></div></details>`).join("")}</div>`;
   $("app").innerHTML = h;
@@ -275,5 +275,5 @@ function gegFilter(){ const q = $("gegQ").value.trim().toLowerCase(), t = $("geg
 /* ---------- Fraktionen (Tokyo): Übersicht über Kopfzeilen-Knopf ---------- */
 function renderFraktionen(){
   const list = OS_ADV_LIST.filter(a=>a.kat==="fraktion");
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Fraktionen</div><div class="adv-head"><h1>Fraktionen</h1><span class="meta">${list.length} Fraktionen · Tokyo S. 151–237</span></div><div class="cards">${list.map(a=>{ const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small></button>`; }).join("")}</div>`;
+  $("app").innerHTML = `<div class="adv-head"><h1>Fraktionen</h1><span class="meta">${list.length} Fraktionen · Tokyo S. 151–237</span></div><div class="cards">${list.map(a=>{ const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small></button>`; }).join("")}</div>`;
 }

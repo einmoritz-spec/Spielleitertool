@@ -466,3 +466,31 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .os-hero2 img{display:block;width:100%;aspect-ratio:16/6;object-fit:cover;object-position:50% 45%}
 @media(max-width:700px){.os-hero2 img{aspect-ratio:16/9}}
 .brand img{display:block;height:22px;width:auto}
+
+/* Standard-Layout: Baum links, flacher Inhalt rechts */
+.crumbs{display:none}.crumbs.pgonly{display:block;text-align:right;margin:0 0 6px!important}.crumbs.pgonly a{color:var(--mute);font-size:.72rem;text-decoration:underline dotted}
+.osrail{display:grid;grid-template-columns:210px minmax(0,1fr);gap:26px;align-items:start;margin-top:10px}
+.osnav{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;border-right:1px solid var(--line);padding-right:10px;min-width:0}
+.osnav .ocat{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;background:none;border:0;color:var(--text);font:600 .95rem/1.25 inherit;padding:8px 10px;border-radius:8px;cursor:pointer}
+.osnav .ocat i{font-style:normal;font-size:.75rem;color:var(--tone)}
+.osnav .ocat:hover{background:var(--panel)}
+.osnav .ocat.on{background:var(--panel2);color:var(--tone)}
+.osnav .osub{display:flex;flex-direction:column;margin:2px 0 8px 12px;border-left:2px solid var(--tone)}
+.osnav .osub a{padding:5px 10px;color:var(--mute);text-decoration:none;font-size:.84rem;overflow-wrap:anywhere}
+.osnav .osub a:hover{color:var(--text)}
+.osnav .oflat{display:none}
+.osmain{min-width:0;scroll-margin-top:70px}
+.osmain [id]{scroll-margin-top:74px}
+.rg-sec{border-top:1px solid var(--line);padding:6px 0 18px}.rg-sec:first-child{border-top:0}
+.rg-sec h2{display:flex;align-items:center;gap:10px;font-size:1.25rem;margin:14px 0 8px;color:var(--tone)}
+@media(max-width:860px){
+ .osrail{grid-template-columns:minmax(0,1fr)}
+ .osnav{position:static;max-height:none;border:0;padding:0}
+ .osnav .otree{display:none}.osnav .oflat{display:block}
+ .osnav .orow{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+ .osnav .orow::-webkit-scrollbar{display:none}
+ .osnav .orow .ocat{flex:none;width:auto;border:1px solid var(--line);border-radius:999px;background:var(--panel);padding:6px 12px;font-size:.85rem}
+ .osnav .orow .ocat.on{border-color:var(--tone)}
+ .osnav .osr{border-bottom:1px solid var(--line);margin-bottom:10px}
+ .osnav .osr a{flex:none;white-space:nowrap;color:var(--mute);text-decoration:none;font-size:.82rem;padding:4px 2px;margin-right:10px}
+}

@@ -276,6 +276,7 @@ const FILES = [
   "otherscape/js/data/abenteuer-liste.js",
   "otherscape/js/data/pages.js",
   "otherscape/js/data/bilder.js",
+  "otherscape/js/rail.js",
   "otherscape/js/katalog.js",
   "otherscape/js/kits.js",
   "otherscape/js/regelwerk.js",

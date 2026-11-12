@@ -8,6 +8,7 @@ function kitCard(k){
 function renderKits(){
   if(typeof OS_KITS==="undefined"){ $("app").innerHTML = '<div class="missing">Kit-Daten fehlen.</div>'; return; }
   const groups = [...new Set(OS_KITS.kits.map(k=>k.grp))];
-  $("app").innerHTML = `<div class="crumbs"><a onclick="goHome()">Start</a> › Theme-Kits</div><div class="adv-head"><h1>Theme-Kits</h1><span class="meta">Noise · Cyberspace &amp; Drohnen · Metro-Grundbuch ${pgBtn("Metro",247,"S. 247–251 📖")}</span></div>
-  ${groups.map(g=>`<div class="sec-h">${esc(g)}</div><div class="kit-grid">${OS_KITS.kits.filter(k=>k.grp===g).map(kitCard).join("")}</div>`).join("")}`;
+  const g0 = groups.map((g,i)=>({t:g,on:i===0,n:OS_KITS.kits.filter(k=>k.grp===g).length,sub:OS_KITS.kits.filter(k=>k.grp===g).map(k=>({id:"kit_"+k.name.replace(/\W+/g,"_"),t:k.name}))}));
+  g0.forEach(g=>g.on=true);
+  $("app").innerHTML = osRail("", g0, groups.map(g=>`<div class="sec-h">${esc(g)}</div><div class="kit-grid">${OS_KITS.kits.filter(k=>k.grp===g).map(k=>`<div id="kit_${k.name.replace(/\W+/g,"_")}">${kitCard(k)}</div>`).join("")}</div>`).join(""));
 }

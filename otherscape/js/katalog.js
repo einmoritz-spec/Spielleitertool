@@ -26,21 +26,25 @@ function katAllg(c){
 function renderKatalog(id){
   if(typeof OS_KAT==="undefined"){ $("app").innerHTML = '<div class="missing">Katalog-Daten fehlen.</div>'; return; }
   const c = id && OS_KAT.cats.find(x=>x.id===id);
-  const crumbs = `<div class="crumbs"><a onclick="goHome()">Start</a> › ${c?`<a onclick="location.hash='#/katalog'">Straßenkatalog</a> › ${esc(c.titel)}`:"Straßenkatalog"}</div>`;
+  const crumbs = "";
   if(!c){
     const tiles = OS_KAT.cats.map(x=>`<div class="kat-tile"><img src="${x.img}" alt="${esc(x.titel)}" loading="lazy" onclick="katZoom(this.src)"><button class="kat-tile-t" onclick="location.hash='#/katalog/${x.id}'"><b>${esc(x.titel)}</b><small>${x.items.length} Items · ${esc(x.en)}</small></button></div>`).join("");
-    $("app").innerHTML = `${crumbs}<div class="adv-head"><h1>Straßenkatalog</h1><span class="meta">Loadout · Metro-Grundbuch ${pgBtn("Metro",252,"S. 252–270 📖")}</span></div>${katTabs("start")}
-    <div class="kat-intro">${OS_KAT.intro.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="kat-how">${OS_KAT.how.map(h=>`<div><b>${esc(h[0])}</b><p>${esc(h[1])}</p></div>`).join("")}</div></div>
-    <div class="sec-h">Kategorien</div><div class="kat-tiles">${tiles}</div>
-    <div class="sec-h">Stimmungsbilder</div><div class="kat-stim">${OS_KAT.stim.map(s=>`<figure><img src="${s.src}" alt="${esc(s.cap)}" loading="lazy" onclick="katZoom(this.src)"><figcaption>${esc(s.cap)}</figcaption></figure>`).join("")}</div>
-    <div class="sec-h">Loadout-Theme-Specials</div><div class="kat-spec">${OS_KAT.specials.map(s=>`<div class="kat-sp"><b>${esc(s.n)}</b><p>${esc(s.d)}</p></div>`).join("")}</div>`;
+    $("app").innerHTML = osRail(`<div class="adv-head"><h1>Straßenkatalog</h1><span class="meta">Loadout · Metro-Grundbuch ${pgBtn("Metro",252,"S. 252–270 📖")}</span></div>`, katGroups(null,[{id:"kat_k",t:"Kategorien"},{id:"kat_s",t:"Stimmungsbilder"},{id:"kat_t",t:"Loadout-Theme-Specials"}]), `<div class="kat-intro">${OS_KAT.intro.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="kat-how">${OS_KAT.how.map(h=>`<div><b>${esc(h[0])}</b><p>${esc(h[1])}</p></div>`).join("")}</div></div>
+    <div class="sec-h" id="kat_k">Kategorien</div><div class="kat-tiles">${tiles}</div>
+    <div class="sec-h" id="kat_s">Stimmungsbilder</div><div class="kat-stim">${OS_KAT.stim.map(s=>`<figure><img src="${s.src}" alt="${esc(s.cap)}" loading="lazy" onclick="katZoom(this.src)"><figcaption>${esc(s.cap)}</figcaption></figure>`).join("")}</div>
+    <div class="sec-h" id="kat_t">Loadout-Theme-Specials</div><div class="kat-spec">${OS_KAT.specials.map(s=>`<div class="kat-sp"><b>${esc(s.n)}</b><p>${esc(s.d)}</p></div>`).join("")}</div>`);
     return;
   }
   const idx = OS_KAT.cats.indexOf(c), prev = OS_KAT.cats[idx-1], next = OS_KAT.cats[idx+1];
   const stim = c.id==="cyberspace" ? `<figure class="kat-mood"><img src="${OS_KAT.stim[1].src}" alt="Schlafkapseln" loading="lazy" onclick="katZoom(this.src)"></figure>` : "";
-  $("app").innerHTML = `${crumbs}<div class="adv-head"><h1>${esc(c.titel)}</h1><span class="meta">${esc(c.en)} · ${pgBtn("Metro",c.p,"Buch S. "+c.p+" 📖")}</span></div>${katTabs(c.id)}
-  <div class="kat-top"><figure class="kat-hero"><img src="${c.img}" alt="${esc(c.titel)}" onclick="katZoom(this.src)"></figure><div class="kat-text">${c.intro.map(t=>`<p>${esc(t)}</p>`).join("")}</div></div>
-  <div class="sec-h">Allgemeine Items</div>${katAllg(c)}
-  <div class="sec-h">Spezifische Items</div><div class="kat-grid">${c.items.map(katItem).join("")}</div>${stim}
-  <div class="kat-pager">${prev?`<button class="btn" onclick="location.hash='#/katalog/${prev.id}'">‹ ${esc(prev.titel)}</button>`:"<span></span>"}${next?`<button class="btn" onclick="location.hash='#/katalog/${next.id}'">${esc(next.titel)} ›</button>`:"<span></span>"}</div>`;
+  $("app").innerHTML = osRail(`<div class="adv-head"><h1>${esc(c.titel)}</h1><span class="meta">${esc(c.en)} · ${pgBtn("Metro",c.p,"Buch S. "+c.p+" 📖")}</span></div>`, katGroups(c,[{id:"kat_a",t:"Allgemeine Items"},{id:"kat_i",t:"Spezifische Items"}]), `<div class="kat-top"><figure class="kat-hero"><img src="${c.img}" alt="${esc(c.titel)}" onclick="katZoom(this.src)"></figure><div class="kat-text">${c.intro.map(t=>`<p>${esc(t)}</p>`).join("")}</div></div>
+  <div class="sec-h" id="kat_a">Allgemeine Items</div>${katAllg(c)}
+  <div class="sec-h" id="kat_i">Spezifische Items</div><div class="kat-grid">${c.items.map(katItem).join("")}</div>${stim}
+  <div class="kat-pager">${prev?`<button class="btn" onclick="location.hash='#/katalog/${prev.id}'">‹ ${esc(prev.titel)}</button>`:"<span></span>"}${next?`<button class="btn" onclick="location.hash='#/katalog/${next.id}'">${esc(next.titel)} ›</button>`:"<span></span>"}</div>`);
+}
+
+function katGroups(c,sub){
+  const g = [{t:"Überblick",href:"#/katalog",on:!c,sub:c?null:sub}];
+  OS_KAT.cats.forEach(x=>g.push({t:x.titel,href:"#/katalog/"+x.id,on:!!c&&c.id===x.id,sub:c&&c.id===x.id?sub:null}));
+  return g;
 }

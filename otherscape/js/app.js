@@ -105,7 +105,7 @@ function renderAdv(a, secId){
     const ag = groups.find(g=>g.items.includes(s)), pr = cpre(ag.items);
     if(groups.length>=2){
       tabbar = `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)}</button>`).join("")}${tile}</div>`;
-      window.ADV_SUB = ag.items.map(x=>`<a class="ocat${x.id===s.id?" on":""}" href="#/adv/${a.id}/${x.id}">${esc(pr&&x.titel.startsWith(pr)?x.titel.slice(pr.length):x.titel)}</a>`).join("");
+      window.ADV_SUB = ag.items.map(x=>({on:x.id===s.id, href:`#/adv/${a.id}/${x.id}`, t:(pr&&x.titel.startsWith(pr)?x.titel.slice(pr.length):x.titel)}));
     } else tabbar = `<div class="case-tabbar grprows"><div class="gr-row"><div class="gr-t">${a.sektionen.map(x=>tabBtn(x)).join("")}</div></div>${tile}</div>`;
   } else tabbar = `<div class="case-tabbar">${a.sektionen.map(x=>tabBtn(x)).join("")}${tile}</div>`;
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];

@@ -17,9 +17,9 @@ function osRail(head, groups, main){
 /* Abenteuer-Tab: Zwischenüberschriften (Hooks, Hintergrund …) als Liste links, Inhalt flach rechts */
 function osAdvRail(){
   const cs = document.querySelector("#advGrid .chsec"); if(!cs || cs.dataset.rl) return;
-  const sub = window.ADV_SUB || "";
+  const SUBS = window.ADV_SUB || [];
   const hs = [...cs.querySelectorAll(".blk-h")];
-  if(hs.length<2 && !sub) return;
+  if(hs.length<2 && !SUBS.length) return;
   cs.dataset.rl="1";
   /* Abschnitte: Überschrift + Inhalt bis zur nächsten Überschrift aufklappbar */
   hs.forEach((h,i)=>{ if(!h.id) h.id="osh_"+i; });
@@ -29,9 +29,15 @@ function osAdvRail(){
     let n = d.nextSibling;
     while(n && !(n.nodeType===1 && n.matches(".blk-h"))){ const nx=n.nextSibling; d.appendChild(n); n=nx; }
   });
-  const links = hs.map(h=>`<a href="#" onclick="osGo('${h.id}');return false">${esc(osShort(h.textContent.trim()))}</a>`).join("");
+  const subLinks = hs.map(h=>`<a href="#" onclick="osGo('${h.id}');return false">${esc(osShort(h.textContent.trim()))}</a>`).join("");
+  /* Unterkapitel: direkt unter dem aktiven Eintrag, eingerückt mit Linie */
+  const tree = SUBS.length
+    ? SUBS.map(it=>`<a class="ocat${it.on?" on":""}" href="${it.href}">${esc(it.t)}</a>${it.on&&subLinks?`<div class="osub2" aria-label="Unterkapitel">${subLinks}</div>`:""}`).join("")
+    : (subLinks?`<div class="osub">${subLinks}</div>`:"");
+  const flatItems = SUBS.length ? `<div class="orow">${SUBS.map(it=>`<a class="ocat${it.on?" on":""}" href="${it.href}">${esc(it.t)}</a>`).join("")}</div>` : "";
+  const flatSubs = subLinks ? `<div class="orow osr">${subLinks}</div>` : "";
   const wrap = document.createElement("div"); wrap.className="osrail osarail";
-  wrap.innerHTML = `<nav class="osnav"><div class="otree">${sub?`<div class="ocats">${sub}</div>`:""}<div class="osub">${links}</div></div><div class="oflat">${sub?`<div class="orow">${sub}</div>`:""}<div class="orow osr">${links}</div></div></nav><div class="osmain"></div>`;
+  wrap.innerHTML = `<nav class="osnav"><div class="otree">${tree}</div><div class="oflat">${flatItems}${flatSubs}</div></nav><div class="osmain"></div>`;
   cs.parentNode.insertBefore(wrap, cs); wrap.querySelector(".osmain").appendChild(cs);
 }
 

@@ -303,13 +303,16 @@ function renderDangerCard(dg, scope){
       <span class="epithet">${dg.epithet||""}</span>
     </div>
     <div class="danger-body">
-      ${llPortrait(dg.name)}
+      <div class="db-desc">${llPortrait(dg.name)}
       ${dg.tactics?`<p><i>${dg.tactics}</i></p>`:""}
-      ${(dg.cardDesc||dg.desc)?`<p>${dg.cardDesc||dg.desc}</p>`:""}
-      ${spectrums.length?`<div class="stat-line">${dg.statLine}</div><div id="specs_${key}">${spectrumHTML}</div>`:""}
+      ${(dg.cardDesc||dg.desc)?`<p>${dg.cardDesc||dg.desc}</p>`:""}</div>
+      <div class="db-sheet">
+      ${spectrums.length?`<div class="db-spec"><div class="stat-line">${dg.statLine}</div><div id="specs_${key}">${spectrumHTML}</div></div>`:""}
+      <div class="db-moves">
       ${dg.moves && dg.moves.length?`<div class="movegroup"><div class="mg-label">Custom Moves</div><ul>${dg.moves.map(m=>`<li>${m}</li>`).join("")}</ul></div>`:""}
       ${dg.softMoves && dg.softMoves.length?`<div class="movegroup"><div class="mg-label">Angriffe / Weiche & Harte Züge</div><ul>${dg.softMoves.map(m=>`<li>${m}</li>`).join("")}</ul></div>`:""}
       ${dg.tellMoves && dg.tellMoves.length?`<div class="movegroup"><div class="mg-label">Tell-Züge</div><ul>${dg.tellMoves.map(m=>`<li>${m}</li>`).join("")}</ul></div>`:""}
+      </div></div>
     </div>
   </div>`;
 }

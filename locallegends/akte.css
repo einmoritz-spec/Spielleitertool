@@ -80,12 +80,18 @@
 .danger-head .epithet{color:#8d8575}
 .danger-body{padding:2px 16px 14px;border-top:0}
 .danger-card.open .danger-head{padding-bottom:4px}
+/* Profil: Beschreibung über die volle Breite in 2 Spalten, darunter Werte + Züge nebeneinander */
+.db-desc p{margin:0 0 .8em}
+.db-sheet{margin-top:6px;border-top:1px solid #3a342b;padding-top:10px}
 @media (min-width:900px){
-  .danger-card.open .danger-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);column-gap:34px;align-items:start}
-  .danger-card.open .danger-body>.ll-portrait{grid-column:1/-1;max-width:140px}
-  .danger-card.open .danger-body>.movegroup{grid-column:2}
-  .danger-card.open .danger-body>p,.danger-card.open .danger-body>.stat-line,.danger-card.open .danger-body>div[id^=specs_]{grid-column:1}
+  .db-desc{column-count:2;column-gap:34px;column-rule:1px solid #3a342b}
+  .db-desc .ll-portrait{column-span:all;max-width:140px}
+  .db-sheet{display:grid;grid-template-columns:minmax(330px,.8fr) minmax(0,2fr);gap:10px 30px;align-items:start}
+  .db-moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4px 26px;align-items:start}
+  .db-moves .movegroup{margin:0 0 8px}
 }
+@media (min-width:900px){.danger-card.open .db-spec{min-width:0}}
+
 
 /* ---------- Themen- und Power-Set-Karten (einklappbar, klein) ---------- */
 .theme-card,.ps-card{background:#1a1816;border:1px solid #3a342b;border-left:3px solid var(--ak);border-radius:4px;margin:0 0 10px;padding:0}

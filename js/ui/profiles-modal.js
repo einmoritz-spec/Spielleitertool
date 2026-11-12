@@ -190,7 +190,7 @@ function renderProfilesBody(store){
       ${!CUSTOM_PROFILES.length?`<div class="pf-empty-hint">Noch keine eigenen Charaktere angelegt — neu erstellen oder eine JSON aus dem Charakter-Ersteller importieren.</div>`:``}
       <button class="pf-add-row" onclick="addCustomProfile()">+ Neuen Charakter erstellen</button>
       <button class="pf-add-row" onclick="triggerImportCustomChar()" title="Charakter-JSON aus dem Charakter-Ersteller (Charaktererstellung.html) importieren">📥 Charakter importieren (JSON)</button>
-      <input type="file" id="importCustomCharInput" accept="application/json,.json" multiple style="display:none;" onchange="handleImportCustomChar(event)">`;
+      <input type="file" id="importCustomCharInput" accept="application/json,.json,application/pdf,.pdf" multiple style="display:none;" onchange="handleImportCustomChar(event)">`;
   }
   return `
     <div class="pf-eyebrow"><span class="raven-icon">${RAVEN_SVG}</span>Wake of the Oldways — Gruppe 1</div>

@@ -130,25 +130,33 @@ function addCustomProfile(){
 function normalizeImportedCharacter(c){
   if(!c || typeof c!=="object" || typeof c.name!=="string" || !Array.isArray(c.themes)) return null;
   const str = v => (typeof v==="string" ? v : "");
+  const cnt = v => { v = parseInt(v); return v>0 ? Math.min(3,v) : 0; };
   const base = blankCustomProfile();
   const themes = c.themes.map((th,i)=>{
     th = th && typeof th==="object" ? th : {};
     const tags = Array.isArray(th.powerTags) ? th.powerTags.map(str) : [];
     while(tags.length<2) tags.push("");
+    const meta = Array.isArray(th.powerTagsMeta) ? th.powerTagsMeta : [];
     return {
       num: Number.isInteger(th.num) ? th.num : i+1,
       category: str(th.category), title: str(th.title), powerTags: tags,
-      powerTagsMeta: tags.map(()=>({scratched:false})),
-      weakness: str(th.weakness), quest: str(th.quest),
-      abandon:0, improve:0, milestone:0, titleScratched:false,
+      powerTagsMeta: tags.map((_,k)=>({scratched:!!(meta[k] && meta[k].scratched)})),
+      weakness: [str(th.weakness), str(th.weakness2)].filter(Boolean).join(" / "), quest: str(th.quest),
+      abandon:cnt(th.abandon), improve:cnt(th.improve), milestone:cnt(th.milestone), titleScratched:!!th.titleScratched,
+      specialImprovements: Array.isArray(th.specialImprovements) ? th.specialImprovements.map(str).filter(Boolean) : [],
     };
   });
+  const fellowship = Array.isArray(c.fellowship) ? c.fellowship.map(r=>({companion:str(r && r.companion), tag:str(r && r.tag)})).filter(r=>r.companion||r.tag) : [];
   return {
     ...base,
     name: c.name.trim() || "Importierter Charakter",
+    playerName: str(c.playerName),
     extraNote: str(c.tropeTitle) || str(c.extraNote),
     closingNote: str(c.closingNote),
     backpackItems: Array.isArray(c.backpackItems) ? c.backpackItems.map(str).filter(s=>s.trim()!=="") : [],
+    fellowship, promise: Math.min(5, Math.max(0, parseInt(c.promise)||0)),
+    quintessences: Array.isArray(c.quintessences) ? c.quintessences.map(str).filter(Boolean) : [],
+    fellowshipTheme: c.fellowshipTheme && typeof c.fellowshipTheme==="object" ? c.fellowshipTheme : undefined,
     themes: themes.length ? themes : base.themes,
     importedFrom: str(c.createdAt) || "",
   };
@@ -170,18 +178,23 @@ function handleImportCustomChar(event){
     if(failed) parts.push(`${failed} Datei(en)/Eintrag/Einträge ungültig`);
     if(failed || skipped) window.alert(parts.join(", ") + ".");
   };
+  const addOne = raw=>{
+    const ch = normalizeImportedCharacter(raw);
+    if(!ch){ failed++; return; }
+    const dup = ch.importedFrom && CUSTOM_PROFILES.some(p=>p.importedFrom===ch.importedFrom && p.name===ch.name);
+    if(dup){ skipped++; return; }
+    CUSTOM_PROFILES.push(ch); imported++;
+  };
   files.forEach(file=>{
+    if(/\.pdf$/i.test(file.name) || file.type==="application/pdf"){
+      file.arrayBuffer().then(buf=>CharSheet.read(buf)).then(addOne).catch(()=>{ failed++; }).then(()=>{ if(--pending<=0) finish(); });
+      return;
+    }
     const reader = new FileReader();
     reader.onload = ()=>{
       try{
         const parsed = JSON.parse(reader.result);
-        (Array.isArray(parsed) ? parsed : [parsed]).forEach(raw=>{
-          const ch = normalizeImportedCharacter(raw);
-          if(!ch){ failed++; return; }
-          const dup = ch.importedFrom && CUSTOM_PROFILES.some(p=>p.importedFrom===ch.importedFrom && p.name===ch.name);
-          if(dup){ skipped++; return; }
-          CUSTOM_PROFILES.push(ch); imported++;
-        });
+        (Array.isArray(parsed) ? parsed : [parsed]).forEach(addOne);
       }catch(e){ failed++; }
       if(--pending<=0) finish();
     };

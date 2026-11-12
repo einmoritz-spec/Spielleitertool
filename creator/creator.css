@@ -288,3 +288,7 @@ button{font-family:inherit;}
 .modal-eyebrow{font-family:var(--serif-display);}
 html.embed .app-header{display:none;}
 .app-header{padding-left:max(16px,calc((100% - 1240px)/2 + 16px)); padding-right:max(16px,calc((100% - 1240px)/2 + 16px));}
+
+.sheet-actions{flex-wrap:wrap;}
+.sheet-actions .btn-secondary{padding:12px 14px; font-size:13px; flex:1 1 0;}
+.sheet-actions .btn-primary{order:-1; flex:1 1 100%;}

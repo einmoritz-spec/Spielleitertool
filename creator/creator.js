@@ -172,6 +172,9 @@ function downloadCharacterJson(character){
     setTimeout(()=>URL.revokeObjectURL(url), 1000);
   }catch(e){ /* Download nicht verfügbar — Charakter bleibt trotzdem in CHARACTERS gespeichert */ }
 }
+function downloadCharacterSheet(character){
+  CharSheet.download(character).catch(()=>downloadCharacterJson(character));
+}
 /* Eingebettet im Spielleitertool (iframe)? Dann wird der Charakter direkt dorthin
    gemeldet und in die Profile übernommen, statt als Datei heruntergeladen zu werden. */
 const EMBEDDED = (()=>{ try{ return window.parent !== window; }catch(e){ return true; } })();
@@ -182,21 +185,12 @@ function notifyHost(character){
 function addCharacter(character){
   CHARACTERS.push(character);
   saveChars();
-  if(EMBEDDED) notifyHost(character); else downloadCharacterJson(character);
+  if(EMBEDDED) notifyHost(character); else downloadCharacterSheet(character);
   return CHARACTERS.length-1;
 }
 /* Charakterdatei an die Spielleitung schicken (Teilen-Menü des Geräts, sonst Download). */
 async function shareCharacterToGm(character){
-  const json = JSON.stringify(character, null, 2);
-  const fname = `${slugifyFilename(character.name)}.json`;
-  try{
-    const file = new File([json], fname, {type:"application/json"});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      await navigator.share({files:[file], title:`Charakter: ${character.name}`, text:"Charakter für unsere Runde"});
-      return;
-    }
-  }catch(e){ if(e && e.name==="AbortError") return; }
-  downloadCharacterJson(character);
+  try{ await CharSheet.share(character); }catch(e){ downloadCharacterJson(character); }
 }
 /* ------------------------------------------------------------
    JSON-Datei(en) importieren — über den Datei-Auswahldialog
@@ -221,12 +215,16 @@ function handleImportCharacterFile(event){
     if(failed>0){
       window.alert(imported>0
         ? `${imported} Charakter(e) importiert, ${failed} Datei(en) konnten nicht gelesen werden.`
-        : `Import fehlgeschlagen: ${failed} Datei(en) waren keine gültigen Charakter-JSON-Dateien.`);
+        : `Import fehlgeschlagen: ${failed} Datei(en) waren keine gültigen Charakterbögen.`);
     }
   };
   let pending = files.length;
   files.forEach(file=>{
     const reader = new FileReader();
+    if(/\.pdf$/i.test(file.name) || file.type==="application/pdf"){
+      file.arrayBuffer().then(buf=>CharSheet.read(buf)).then(c=>{ CHARACTERS.push(c); imported++; }).catch(()=>{ failed++; }).then(()=>{ if(--pending<=0) finish(); });
+      return;
+    }
     reader.onload = ()=>{
       try{
         const parsed = JSON.parse(reader.result);
@@ -966,7 +964,7 @@ function renderCharsView(){
   const exampleRows = EXAMPLE_CHARACTERS.map((c,i)=>exampleCharRowHtml(c,i)).join("");
   return `<div class="content">
     <div class="chars-toolbar">
-      <button class="btn-secondary" onclick="triggerImportCharacter()">📥 Charakter (JSON) importieren</button>
+      <button class="btn-secondary" onclick="triggerImportCharacter()">Charakterbogen (PDF) oder JSON importieren</button>
       <input type="file" id="importCharFileInput" accept="application/json,.json" multiple style="display:none;" onchange="handleImportCharacterFile(event)">
     </div>
     ${ownSection}
@@ -1206,7 +1204,12 @@ function openSheetModal(idx, isExample){
     <div class="ps-backpack-label">Backpack</div>
     ${backpackHtml}
     ${buildThemeCardsHtmlOnscreen(c.themes, editable)}`;
-  document.getElementById("sheetPrintBtn").onclick = ()=>printCharacterSheet(idx, isExample);
+  document.getElementById("sheetPrintBtn").onclick = async ()=>{
+    if(!isExample) saveSheetChar(idx);
+    const btn = document.getElementById("sheetPrintBtn"), old = btn.textContent; btn.disabled = true; btn.textContent = "Wird erstellt …";
+    try{ await CharSheet.download(getSheetChar(idx, isExample)); }catch(e){ window.alert("Der Charakterbogen konnte nicht erstellt werden."); }
+    btn.disabled = false; btn.textContent = old;
+  };
   const saveBtn = document.getElementById("sheetSaveBtn");
   saveBtn.style.display = isExample ? "none" : "";
   saveBtn.onclick = ()=>saveSheetChar(idx);

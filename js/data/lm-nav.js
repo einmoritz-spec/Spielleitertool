@@ -14,12 +14,12 @@ const LM_NAV = {
       {id:"magie", t:"Magie", p:196, pe:230}
     ],
     welt:[
-      {id:"dales", t:"Die Dales: Land", p:22, pe:66},
-      {id:"dales-b", t:"Die Dales: Leben", p:67, pe:115},
-      {id:"dales-c", t:"Die Dales: Geschichten", p:116, pe:163},
-      {id:"jenseits", t:"Jenseits: Norden", p:164, pe:210},
-      {id:"jenseits-b", t:"Jenseits: Mitte", p:211, pe:260},
-      {id:"jenseits-c", t:"Jenseits: Süden", p:261, pe:307}
+      {id:"dales", t:"Land und Leute", p:22, pe:66},
+      {id:"dales-b", t:"Orte und Helden", p:67, pe:115},
+      {id:"dales-c", t:"Handwerk und Magie", p:116, pe:163},
+      {id:"jenseits", t:"Welt und Mächte", p:164, pe:210},
+      {id:"jenseits-b", t:"Uncanny Heroes", p:211, pe:260},
+      {id:"jenseits-c", t:"Orte und Wesen", p:261, pe:307}
     ]
   }
 };

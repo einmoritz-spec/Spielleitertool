@@ -204,6 +204,8 @@
   background:var(--panel-raised); border-bottom:1px solid var(--panel-line); flex:none;}
 .cm-title{white-space:nowrap; font-family:var(--serif-display); font-size:16px; color:var(--gold-bright);}
 .cm-spacer{flex:1;}
+.cm-s{display:none;}
+@media(max-width:520px){.cm-bar{gap:6px;padding-left:10px;padding-right:10px}.cm-title{font-size:13px;letter-spacing:.02em}.cm-l{display:none}.cm-s{display:inline;font-size:16px}.cm-btn{padding:8px 10px;font-size:12px}.cm-close{width:34px;height:34px;flex:none}}
 .cm-btn{white-space:nowrap; background:rgba(201,162,75,.1); border:1px solid rgba(201,162,75,.4); color:var(--gold-bright); border-radius:9px; padding:8px 12px; font-size:13px; font-family:var(--sans);}
 .cm-btn:hover{background:rgba(201,162,75,.2);}
 .cm-close{width:38px; height:38px; border-radius:10px; background:none; border:1px solid var(--panel-line); color:var(--text-lo); font-size:15px;}

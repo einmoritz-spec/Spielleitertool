@@ -15,7 +15,7 @@ function openCreator(){
     <div class="cm-bar">
       <strong class="cm-title">Charaktererstellung</strong>
       <span class="cm-spacer"></span>
-      <button class="cm-btn" onclick="var f=document.querySelector('.cm-frame');try{f.contentWindow.resetSurvey()}catch(e){}" title="Charaktererstellung zurücksetzen">Zurücksetzen</button>
+      <button class="cm-btn" onclick="var f=document.querySelector('.cm-frame');try{f.contentWindow.resetSurvey()}catch(e){}" title="Charaktererstellung zurücksetzen" aria-label="Zurücksetzen"><span class="cm-l">Zurücksetzen</span><span class="cm-s">↺</span></button>
       <button class="cm-btn" onclick="toggleCreatorLink()" title="Link für Spieler: öffnet nur die Charaktererstellung">Spieler-Link</button>
       <button class="cm-close" onclick="closeCreator()" aria-label="Schließen">✕</button>
     </div>

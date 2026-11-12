@@ -10,7 +10,7 @@ body{margin:0;color:#ece4cc;font-family:var(--typ);min-height:100vh;
 .topbar-spacer{flex:1}
 .tb-btn,.tb-burger{background:rgba(255,255,255,.06);border:1px solid rgba(255,47,146,.5);color:#ffd2e6;border-radius:8px;height:40px;padding:0 14px;font:600 13px var(--typ);cursor:pointer}
 .tb-burger{width:40px;padding:0;display:inline-flex;align-items:center;justify-content:center}
-.shell{max-width:1180px;margin:0 auto;padding:14px 16px 90px}
+.shell{max-width:1640px;margin:0 auto;padding:14px 16px 90px}
 .crumb{font-size:12px;color:#8fa0c4;margin:6px 0 10px;letter-spacing:.04em}
 .tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:3px solid var(--pink);margin:6px 0 18px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
 .tab{flex:none;background:#1a2a4a;color:#9fb2d8;border:1px solid #2b3f6a;border-bottom:0;border-radius:6px 6px 0 0;padding:10px 15px;font:400 17px var(--disp);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
@@ -182,3 +182,14 @@ details.vorlese[open]>summary .vp{display:none}
   .bd:has(> .box:not(.vorlese) ~ .box:not(.vorlese)) > :not(.box){grid-column:1/-1}
   .bd:has(> .box:not(.vorlese) ~ .box:not(.vorlese)) > .box{margin:0}
 }
+
+/* Bilder in Abschnitten nebeneinander statt untereinander (keine leere Seite) */
+.sec .bd:has(>img+img){display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.sec .bd:has(>img+img)>*:not(img){flex:1 1 100%}
+.sec .bd:has(>img+img)>img{flex:0 1 calc(50% - 7px);width:calc(50% - 7px);height:auto;min-width:260px;object-fit:contain}
+
+/* Ort-Karten: Text volle Breite, Ziel/Gegner/Beute als Reihe darunter (keine leere Spalte) */
+.loc .lb{display:block}
+.loc .lb>.lr{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin-top:14px;align-items:start}
+.loc .lb>.lr>*{margin:0!important}
+.loc .lt p{max-width:none}

@@ -1,9 +1,9 @@
 /* Grundregelwerk – Anzeige. Karten wie in ss.js (details.ort), Inhalte aus CM_RW[abschnitt] (Schema: tools/regelwerk/SCHEMA.md). */
 var RW_LOADED = {};
 function rwLoad(id, cb){
-  if(RW_LOADED[id]) return cb();
+  if(RW_LOADED[id]) return setTimeout(cb,0);
   var files=(window.CM_RW_FILES||{})[id]||[], n=files.length;
-  if(!n){ RW_LOADED[id]=true; return cb(); }
+  if(!n){ RW_LOADED[id]=true; return setTimeout(cb,0); }
   files.forEach(function(f){ var s=document.createElement("script"); s.async=false; s.src="js/"+f; s.onload=s.onerror=function(){ if(--n===0){ RW_LOADED[id]=true; cb(); } }; document.head.appendChild(s); });
 }
 function rwList(items,ord){
@@ -38,20 +38,21 @@ function rwBlocks(bs){
   }
   return h;
 }
-function rwCard(e,id,open){
-  var aside=e.aside&&e.aside.length;
-  return '<details class="ort rwc" id="'+id+'"'+(open?' open':'')+'><summary><h3>'+esc(e.name)+'</h3>'+pg(e.p,e.pe)+(e.sub?'<span class="tz">'+esc(e.sub)+'</span>':'')+'</summary><div class="ob"><div class="ocols rwcols'+(aside?'':' solo')+'"><div class="otxt rwtx">'+rwBlocks(e.body)+'</div>'+(aside?'<aside class="rwas">'+rwBlocks(e.aside)+'</aside>':'')+'</div></div></details>';
+function rwCard(e,id,open,secId){
+  var tb=rwTb(secId,e), doc=rwDoc(secId,e), aside=(e.aside&&e.aside.length)||doc;
+  return '<details class="ort rwc" id="'+id+'"'+(open?' open':'')+'><summary>'+(tb?'<img class="rwth" loading="lazy" alt="" src="'+tb+'">':'')+'<h3>'+esc(e.name)+'</h3>'+pg(e.p,e.pe)+(e.sub?'<span class="tz">'+esc(e.sub)+'</span>':'')+'</summary><div class="ob">'+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+'<div class="ocols rwcols'+(aside?'':' solo')+'"><div class="otxt rwtx">'+rwBlocks(e.body)+'</div>'+(aside?'<aside class="rwas">'+(e.aside&&e.aside.length?rwBlocks(e.aside):'')+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'')+'</aside>':'')+'</div></div></details>';
 }
 function rwToggle(on){ var d=document.querySelectorAll(".rwgrid details.rwc"); for(var i=0;i<d.length;i++) d[i].open=on; }
-function rwSection(tab,secId){
+function rwSection(tab,secId,cardIdx){
   var list=CM_RW_NAV.secs[tab]||[], s=list.filter(function(x){return x.id===secId;})[0]||list[0];
   var pills='<nav class="pills">'+(list.length>1?list.map(function(x){return '<button class="pill'+(x.id===s.id?' on':'')+'" onclick="gr(\''+tab+'/'+x.id+'\')">'+esc(x.t)+'</button>';}).join(""):"")+'</nav>';
   var host='<div id="rwhost"><div class="stub"><span>Lade …</span></div></div>';
   rwLoad(s.id,function(){
     var el=document.getElementById("rwhost"); if(!el||route().tab!==tab) return;
     var es=CM_RW[s.id]||[], one=es.length===1, openFirst=(s.id==="kurzreferenz");
-    el.innerHTML='<section class="blk"><div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+(es.length>1?'<button class="rwtog" onclick="rwToggle(!document.querySelector(\'.rwgrid details.rwc[open]\'))" title="Alle auf-/zuklappen" aria-label="Alle auf-/zuklappen">⇕</button>':'')+'</div>'+
-     (es.length?'<div class="rwgrid">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,one||(openFirst&&i===0));}).join("")+'</div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>';
+    el.innerHTML='<section class="blk">'+rwHero(s.id)+'<div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+(es.length>1?'<button class="rwtog" onclick="rwToggle(!document.querySelector(\'.rwgrid details.rwc[open]\'))" title="Alle auf-/zuklappen" aria-label="Alle auf-/zuklappen">⇕</button>':'')+'</div>'+
+     (es.length?'<div class="rwgrid">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,one||(openFirst&&i===0)||(cardIdx!==undefined&&cardIdx!==""&&String(i)===String(cardIdx)),s.id);}).join("")+'</div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>';
+    if(cardIdx!==undefined&&cardIdx!==""){ var c=document.getElementById("rw-"+s.id+"-"+cardIdx); if(c){ c.open=true; srHighlight(c); c.scrollIntoView({block:"start"}); window.scrollBy(0,-70); } }
   });
   return (list.length>1?pills:"")+host;
 }
@@ -64,6 +65,6 @@ function rwStart(){
 }
 function pageRW(r){
   var tabs='<nav class="tabs">'+CM_RW_NAV.tabs.map(function(t){return '<button class="tab'+(t.id===r.tab?' on':'')+'" onclick="gr(\''+t.id+'\')">'+t.t+'</button>';}).join("")+'</nav>';
-  var body= r.tab==="start"||!CM_RW_NAV.secs[r.tab] ? rwStart() : rwSection(r.tab,r.sub);
+  var body= r.tab==="start"||!CM_RW_NAV.secs[r.tab] ? rwStart() : rwSection(r.tab,r.sub,r.cat);
   return tabs+body;
 }

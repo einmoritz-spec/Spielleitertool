@@ -47,3 +47,24 @@
 @media (min-width:1500px){.shell{max-width:1500px}}
 .rwkaps{align-items:start}
 @media (min-width:900px){.pills{flex-wrap:wrap;overflow:visible}}
+/* Suche */
+.srch{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:120;display:none;align-items:flex-start;justify-content:center;padding:6vh 12px 12px}.srch.on{display:flex}
+.srbox{width:min(900px,100%);max-height:88vh;display:flex;flex-direction:column;background:#10151a;border:1px solid var(--gold);border-radius:12px;overflow:hidden}
+.srbar{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line)}
+.srbar input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;color:var(--text);font:inherit;font-size:17px;padding:10px 14px;outline:none}.srbar input:focus{border-color:var(--gold)}
+.srx{background:none;border:1px solid var(--line);border-radius:8px;color:var(--mute);width:42px;cursor:pointer;font-size:16px}
+.srres{overflow-y:auto;padding:6px 10px 12px}
+.srcnt,.srnone{padding:10px 6px;color:var(--mute);font:500 12px var(--cond);letter-spacing:.1em;text-transform:uppercase}
+.srhit{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:10px 6px;color:var(--text);cursor:pointer;font:inherit}.srhit:hover,.srhit:focus{background:rgba(255,255,255,.05);outline:none}
+.srt{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.srt b{font:600 16px var(--cond);letter-spacing:.07em;text-transform:uppercase;color:var(--gold-hi)}.srt small{color:var(--mute);font-size:12px}.srt .pg{margin-left:auto}
+.srs{display:block;color:#b9bdb6;font-size:14px;line-height:1.5;margin-top:3px}
+mark{background:rgba(251,240,165,.85);color:#1b1a10;border-radius:2px;padding:0 1px}
+
+/* Bilder */
+.rwhero{display:block;width:100%;max-height:240px;object-fit:cover;object-position:50% 30%;border-radius:10px;margin:0 0 14px;cursor:zoom-in}
+.rwbn{display:block;width:100%;max-height:340px;object-fit:cover;object-position:top;border-radius:8px;margin:0 0 14px;cursor:zoom-in}
+.rwth{width:64px;height:48px;object-fit:cover;border-radius:6px;flex:none;margin-right:10px}
+details.rwc>summary:has(.rwth){display:flex;align-items:center}
+.rwdoc{display:block;width:100%;border-radius:6px;cursor:zoom-in;margin-top:10px;box-shadow:0 1px 6px #0006}
+.rwlb{position:fixed;inset:0;background:#000d;z-index:300;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:12px}
+.rwlb.on{display:flex}.rwlb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}

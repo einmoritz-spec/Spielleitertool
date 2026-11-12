@@ -38,9 +38,13 @@ function rwBlocks(bs){
   }
   return h;
 }
+function rwIsSide(b){ return b&&typeof b==="object"&&(b.box||b.tbl||b.dlg); }
 function rwCard(e,id,secId){
   var tb=rwTb(secId,e), doc=rwDoc(secId,e), figs=rwFigHtml(secId,e);
-  return '<article class="rwa" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="rwsub">'+esc(e.sub)+'</p>':'')+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+figs+rwBlocks(e.body)+(e.aside&&e.aside.length?rwBlocks(e.aside):'')+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'')+'</article>';
+  var body=e.body||[], main=body.filter(function(b){return !rwIsSide(b);}), side=body.filter(rwIsSide).concat(e.aside||[]);
+  var sideHtml=figs+rwBlocks(side)+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'');
+  return '<article class="rwa" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="rwsub">'+esc(e.sub)+'</p>':'')+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+
+    '<div class="rwm">'+rwBlocks(main)+'</div>'+(sideHtml?'<aside class="rws">'+sideHtml+'</aside>':'')+'</article>';
 }
 function rwJump(id){ var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
 function rwSection(tab,secId,cardIdx){

@@ -11,9 +11,9 @@ function pageHub(){
   return '<div class="ovc"><div class="ovc-hero"><img src="../assets/hero/com-header.webp" alt="City of Mist"></div><div class="ovc-grid">'+
    ovCard("../assets/hero/com-art.webp","Grundregelwerk","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"],["Buch (PDF)","BV.open(\'rw\',1)"]])+
    ovCard("../assets/hero/ss-art.webp","Shadows &amp; Showdowns","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"],["Buch (PDF)","BV.open(\'cm\',1)"]])+
-   ovCard("","Kurz nachschlagen","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]],"Regeln")+
+   ovCard("../assets/hero/com-regeln.webp","Kurz nachschlagen","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]])+
    ovCard("../assets/hero/ll-header.webp","Local Legends","switchTool(\'locallegends\')",[])+
-   ovCard("../nights/img/stadtkarte.webp","Nights of Paynetown","switchTool(\'paynetown\')",[])+
+   ovCard("../assets/hero/com-nights.webp","Nights of Paynetown","switchTool(\'paynetown\')",[])+
    '</div></div>';
 }
 function secRows(items){ return '<ul class="rows">'+items.map(function(x){return '<li><button onclick="'+x[1]+'"><span>'+esc(x[0])+'</span><i>'+(x[2]?'S. '+x[2]:'')+'</i></button></li>';}).join("")+'</ul>'; }

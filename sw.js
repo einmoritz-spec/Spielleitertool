@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v267kon";
+const VERSION = "v268kon";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -400,6 +400,8 @@ const FILES = [
   "assets/hero/adv-shadow-barley.webp",
   "assets/hero/com-art.webp",
   "assets/hero/com-header.webp",
+  "assets/hero/com-nights.webp",
+  "assets/hero/com-regeln.webp",
   "assets/hero/ll-header.webp",
   "assets/hero/com-logo.webp",
   "assets/hero/dales-hero.webp",

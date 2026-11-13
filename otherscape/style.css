@@ -777,3 +777,10 @@ details.kit{border-top-color:var(--tone)!important}.kb-txt p,.kb-concept{max-wid
 @media(min-width:900px){.os-hero2{max-width:760px;margin-left:auto;margin-right:auto}}
 /* Tab-Leiste entfällt: alles im Burger-Menü */
 .os-tabs,#osTabs{display:none!important}
+/* Banner ungeschnitten */
+.os-banner{max-height:none!important}
+.os-banner img{height:auto!important;object-fit:contain!important}
+@media(max-width:700px){.os-banner,.os-banner img{height:auto!important;max-height:none!important}}
+/* Tokyo-Header: großes Panorama, mittig, mit Glow */
+.os-banner[data-k=tokyo]{max-width:720px;margin:4px auto 20px;border-radius:14px;border:1px solid #3a1d63;box-shadow:0 0 30px rgba(255,43,214,.22),0 6px 20px rgba(0,0,0,.5)}
+.os-fh-img .os-art img{aspect-ratio:auto!important;object-fit:contain!important;height:auto!important}

@@ -44,7 +44,7 @@ async function osSetView(kat, id, base, label){
     return `<section class="os-xs${wide?" wide":""}" id="sec_${s.id}"><h2 class="os-xh">${esc(osShort(s.titel))}${osSecPage(a,s.id)}</h2>${osArt(a,i)}${out}</section>`; };
   let body = "";
   if(a){
-    const s0 = a.sektionen[0], L0 = (typeof OS_ART!=="undefined" && OS_ART[a.id]) || [], h0 = kat==="fraktion" ? L0[0] : null;
+    const s0 = a.sektionen[0], L0 = (typeof OS_ART!=="undefined" && OS_ART[a.id]) || [], h0 = kat==="fraktion" ? L0[0] : (kat==="setting" && cur.id===list[0].id ? {src:"img/art/banner-tokyo.webp"} : null);
     const art0 = h0 ? `<figure class="os-art"><img src="${h0.src}" alt="${esc(a.titel)}" onclick="osZoom(this.src)"></figure>` : ""; window.OS_HERO_SKIP = h0 ? h0.src : null;
     const bl0 = s0.bloecke||[]; const pi = bl0.findIndex(b=>b.t==="p");
     body = `<div class="os-fh${art0?"":" noart"}">${art0?`<div class="os-fh-img">${art0}</div>`:""}<div class="os-fh-t"><h1>${esc(a.titel)}</h1>${pi>=0?renderBlock(a,s0,bl0[pi],pi):""}</div></div><div class="os-xr">${bl0.map((b,j)=>j===pi?"":renderBlock(a,s0,b,j)).join("")}</div>

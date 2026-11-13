@@ -16,7 +16,7 @@ function tbList(){
     });
   });
   Object.keys(CM_ORTE).filter(function(k){return k.indexOf("sp_")===0;}).forEach(function(k){
-    CM_ORTE[k].forEach(function(o){ if(o.hero) out.push({name:o.name,src:"ss",typ:o.tb,p:o.p,teaser:(o.teaser||"").replace(/^(Mythos|Logos)-Themen(book|buch):\s*/,""),img:"img/"+o.hero+".webp",go:"tbGoSS('"+o.id+"')"}); });
+    CM_ORTE[k].forEach(function(o){ if(o.hero) out.push({name:o.name,src:"ss",typ:o.tb,p:o.p,teaser:(o.teaser||"").replace(/^(Mythos|Logos)-Themen?(book|buch):\s*/,""),img:"img/"+o.hero+".webp",go:"tbGoSS('"+o.id+"')"}); });
   });
   TB_LL.forEach(function(x){ out.push({name:x.name,src:"ll",typ:x.typ,p:x.p,teaser:x.teaser,go:"switchTool('locallegends')",where:x.where}); });
   return out;

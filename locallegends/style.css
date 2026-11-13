@@ -445,3 +445,6 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 .ll-galerie{display:flex;gap:10px;overflow-x:auto;margin:0 0 16px;padding-bottom:4px;scrollbar-width:thin}
 .ll-galerie img{height:190px;width:auto;flex:none;border-radius:8px;cursor:zoom-in;box-shadow:0 2px 10px rgba(0,0,0,.35)}
 @media(max-width:700px){.ll-galerie img{height:150px}}
+
+.ll-art{display:block;width:100%;max-height:230px;object-fit:cover;object-position:50% 30%;border-radius:8px;margin:0 0 10px;cursor:zoom-in;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.ll-art-wide{max-height:340px;margin:0 0 14px}

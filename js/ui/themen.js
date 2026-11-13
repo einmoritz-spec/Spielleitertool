@@ -183,3 +183,18 @@ document.addEventListener("keydown", function(e){
   var ks = TB_INDEX.map(function(b){ return b.key; }).concat(["laden"]), i = ks.indexOf(state.tbKey), n = ks[i + (e.key === "ArrowRight" ? 1 : -1)];
   if(n){ e.preventDefault(); goThemen(n); }
 });
+
+/* Buchrücken: erst nach 2 s Verweilen aufklappen */
+(function(){
+  var t = null, cur = null;
+  function zu(){ clearTimeout(t); t = null; var o = document.querySelector(".tbx-s.op"); if(o) o.classList.remove("op"); cur = null; }
+  document.addEventListener("mouseover", function(e){
+    var s = e.target.closest && e.target.closest(".tbx-s");
+    if(s === cur) return;
+    var sh = e.target.closest && e.target.closest(".tbx-shelf");
+    if(!sh){ if(cur) zu(); return; }
+    zu(); cur = s;
+    if(s) t = setTimeout(function(){ s.classList.add("op"); }, 2000);
+  });
+  document.addEventListener("mouseleave", zu);
+})();

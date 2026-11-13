@@ -39,13 +39,17 @@
 .tbx-go{padding:6px 14px;border-radius:3px;background:var(--maroon);color:#fbf5e5;font:600 11.5px Cinzel,serif;letter-spacing:.12em;text-transform:uppercase}
 @keyframes tbxIn{from{opacity:0;transform:translateY(22px)}}
 @media (hover:hover) and (min-width:761px){
-  .tbx-shelf:hover .tbx-s:not(:hover) .tbx-img{filter:brightness(.6) saturate(.65)}
-  .tbx-s:hover,.tbx-s:focus-visible{flex-grow:9;max-width:440px;border-color:var(--maroon);box-shadow:0 2px 0 rgba(90,60,20,.15),0 22px 36px -14px rgba(60,30,10,.75);transform:translateY(-4px);outline:none;z-index:2}
-  .tbx-s:hover .tbx-img,.tbx-s:focus-visible .tbx-img{width:calc(var(--sh)*.1916)}
-  .tbx-s:hover .tbx-n,.tbx-s:focus-visible .tbx-n{opacity:0}
-  .tbx-s:hover::after,.tbx-s:focus-visible::after{opacity:0}
-  .tbx-s:hover .tbx-card,.tbx-s:focus-visible .tbx-card{opacity:1;transform:none;pointer-events:auto;transition-delay:.18s,.12s}
-  .tbx-s:hover .tbx-gl{z-index:4}
+  .tbx-shelf:has(.op) .tbx-s:not(.op) .tbx-img{filter:brightness(.6) saturate(.65)}
+  /* Hover: nur leicht anheben und farbiger werden */
+  .tbx-s:not(.op):hover{transform:translateY(-6px);border-color:var(--maroon);box-shadow:0 2px 0 rgba(90,60,20,.15),0 18px 26px -12px rgba(60,30,10,.7)}
+  .tbx-s:not(.op):hover .tbx-img{filter:brightness(1.18) saturate(1.3)}
+  /* Nach 2 s Verweilen: aufklappen */
+  .tbx-s.op,.tbx-s:focus-visible{flex-grow:9;max-width:440px;border-color:var(--maroon);box-shadow:0 2px 0 rgba(90,60,20,.15),0 22px 36px -14px rgba(60,30,10,.75);transform:translateY(-4px);outline:none;z-index:2}
+  .tbx-s.op .tbx-img,.tbx-s:focus-visible .tbx-img{width:calc(var(--sh)*.1916)}
+  .tbx-s.op .tbx-n,.tbx-s:focus-visible .tbx-n{opacity:0}
+  .tbx-s.op::after,.tbx-s:focus-visible::after{opacity:0}
+  .tbx-s.op .tbx-card,.tbx-s:focus-visible .tbx-card{opacity:1;transform:none;pointer-events:auto;transition-delay:.18s,.12s}
+  .tbx-s.op .tbx-gl,.tbx-s:hover .tbx-gl{z-index:4}
 }
 .tbx-s.go .tbx-img{filter:brightness(1.35) saturate(1.2)!important}
 .tbx-s.go{transform:translateY(-8px) scale(1.01)!important}
@@ -53,7 +57,7 @@
 .tbx-shelf:not([data-f="alle"]) .tbx-s{max-width:calc(var(--sh)*.1916)}
 .tbx-shelf[data-f="origin"] .tbx-s:not([data-m="origin"]),.tbx-shelf[data-f="adventure"] .tbx-s:not([data-m="adventure"]),
 .tbx-shelf[data-f="greatness"] .tbx-s:not([data-m="greatness"]),.tbx-shelf[data-f="variable"] .tbx-s:not([data-m="variable"]){flex:0 0 0;max-width:0;margin-left:-6px;opacity:0;border-width:0;pointer-events:none}
-@media (hover:hover) and (min-width:761px){.tbx-shelf:not([data-f="alle"]) .tbx-s:hover{max-width:440px}}
+@media (hover:hover) and (min-width:761px){.tbx-shelf:not([data-f="alle"]) .tbx-s.op{max-width:440px}}
 .tbx-more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
 .tbx-mc{display:flex;height:92px;padding:0;text-align:left;background:var(--parchment,#fbf5e5);border:1.5px solid var(--maroon);border-radius:4px;overflow:hidden;cursor:pointer;color:inherit;font:inherit;box-shadow:0 10px 20px -12px rgba(90,60,20,.5);transition:transform .25s,box-shadow .25s}
 .tbx-mc:hover{transform:translateY(-3px);box-shadow:0 16px 26px -12px rgba(90,60,20,.6)}

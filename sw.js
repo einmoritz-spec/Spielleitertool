@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v381logo";
+const VERSION = "v382home";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -587,6 +587,7 @@ const FILES = [
   "js/ui/creator-modal.js",
   "css/base.css",
   "css/parchment.css",
+  "css/home.css",
   "assets/fonts/bebas-neue-latin-400-normal.woff2",
   "assets/fonts/oswald-latin-500-normal.woff2",
   "assets/fonts/oswald-latin-600-normal.woff2",
@@ -717,6 +718,14 @@ const FILES = [
   "js/data/lm/themenbuecher-5.js",
   "js/data/lm/themenbuecher.js",
   "js/ui/views.js",
+  "js/ui/home.js",
+  "assets/litm/home-hero.webp",
+  "assets/litm/home-wake.webp",
+  "assets/litm/home-dales.webp",
+  "assets/litm/home-regeln.webp",
+  "assets/litm/home-themenbuecher.webp",
+  "assets/litm/home-helden.webp",
+  "assets/litm/home-nachschlagen.webp",
   "js/ui/interactions.js",
   "js/main.js",
   "assets/dales-map.jpg",

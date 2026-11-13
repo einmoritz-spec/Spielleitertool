@@ -885,9 +885,10 @@ function render(){
   stashEditPending();   // ungespeicherte Textänderungen vor dem Neuaufbau sichern
   if(state.view!=="adventure" && EDIT.on) leaveEditMode();
   document.body.classList.toggle("editing", EDIT.on);
-  if(state.view==="prep") state.view="overview";
+  if(state.view==="prep") state.view="home";
   if(state.view==="overview" && false) renderPrep();
   else if(state.view==="book") renderBook();
+  else if(state.view==="home") renderHome();
   else if(state.view==="overview") renderOverview();
   else renderAdventure();
   updateFavBadge(); // Topbar wird bei jedem render() neu aufgebaut, Badge muss danach neu gesetzt werden

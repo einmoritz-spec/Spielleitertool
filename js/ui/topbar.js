@@ -76,7 +76,7 @@ function renderTopbar(){
     .join("");
   return `
   <div class="topbar">
-    <button class="brand brand-logo" onclick="goOverview()" aria-label="${CAMPAIGN_TITLE}"><img src="assets/logos/legend-in-the-mist.webp" alt="Legend in the Mist" style="height:38px;width:auto;display:block"></button>
+    <button class="brand brand-logo" onclick="goHome()" aria-label="${CAMPAIGN_TITLE}"><img src="assets/logos/legend-in-the-mist.webp" alt="Legend in the Mist" style="height:38px;width:auto;display:block"></button>
     <div class="topbar-spacer"></div>
     <div class="topbar-actions">
       ${btns}
@@ -101,7 +101,7 @@ function closeMobileMenu(){
 function openMobileMenu(){
   if(document.getElementById("mobileMenu")) return;
   const advOpen = state.view==="adventure" && state.advId;
-  const nav = `<button class="mm-item" onclick="closeMobileMenu(); goOverview()"><span class="mm-ic">🏠</span><span>Abenteuer</span></button>`;
+  const nav = `<button class="mm-item" onclick="closeMobileMenu(); goHome()"><span class="mm-ic">🏠</span><span>Start</span></button><button class="mm-item" onclick="closeMobileMenu(); goOverview()"><span class="mm-ic">🏠</span><span>Abenteuer</span></button>`;
   const items = nav + TOPBAR_ITEMS.filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))
     .map(it => `<button class="mm-item" onclick="closeMobileMenu(); ${it.fn}"><span class="mm-ic">${it.icon}</span><span>${it.label}</span></button>`).join("");
   const m = document.createElement("div");

@@ -1,0 +1,19 @@
+/* Legend in the Mist – Startseite (Pergament, wie das Original-PDF) */
+.hm{padding-bottom:90px}
+.hm-hero{position:relative;height:clamp(280px,40vw,520px);overflow:hidden;background:#d9cfae}
+.hm-hero>img:first-child{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.hm-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(239,229,207,0) 45%,var(--bg) 100%);pointer-events:none}
+.hm-logo{position:absolute;z-index:2;left:50%;bottom:clamp(34px,6vw,76px);transform:translateX(-50%);height:clamp(110px,17vw,230px);width:auto;filter:drop-shadow(0 2px 10px rgba(247,240,223,.85))}
+.hm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1240px;margin:-34px auto 0;padding:0 28px;position:relative;z-index:3}
+.hm-card{background:var(--panel);border:1.5px solid var(--maroon);border-radius:4px;overflow:hidden;box-shadow:0 2px 0 rgba(90,60,20,.12),0 14px 26px -12px rgba(90,60,20,.45);display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.hm-card:hover{transform:translateY(-3px);box-shadow:0 2px 0 rgba(90,60,20,.12),0 20px 32px -12px rgba(90,60,20,.55)}
+.hm-img{all:unset;display:block;cursor:pointer;aspect-ratio:16/10;background:#2a2018;border-bottom:3px solid var(--maroon);overflow:hidden}
+.hm-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hm-b{padding:12px 16px 16px}
+.hm-b h3{all:unset;display:block;cursor:pointer;font:700 22px/1.1 var(--serif-display);letter-spacing:.04em;color:var(--maroon)}
+.hm-b h3:hover{color:var(--rust-bright)}
+.hm-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.hm-chip{all:unset;cursor:pointer;box-sizing:border-box;padding:4px 10px;border:1px solid var(--panel-line);border-radius:999px;font:400 13px/1.3 var(--serif-body);color:var(--ink-soft);background:rgba(255,250,235,.6)}
+.hm-chip:hover{background:var(--maroon);border-color:var(--maroon);color:#fbf5e5}
+@media(max-width:980px){.hm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.hm-grid{grid-template-columns:1fr;padding:0 14px;gap:16px;margin-top:-24px}.hm-hero{height:clamp(220px,58vw,320px)}}

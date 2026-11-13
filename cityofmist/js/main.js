@@ -4,6 +4,7 @@ function hubTile(cls,t,d,onclick){ return '<button class="tile'+cls+'" onclick="
 function hubLinks(arr){ return '<nav class="hl">'+arr.map(function(x){return '<button class="chip" onclick="'+x[1]+'">'+x[0]+'</button>';}).join("")+'</nav>'; }
 function hubCard(cls,t,d,main,links){ return '<div class="hc'+cls+'"><button class="hh" onclick="'+main+'"><b>'+t+'</b><small>'+d+'</small></button>'+hubLinks(links)+'</div>'; }
 function ovCard(img,t,main,links,big){
+  if(links.length>3) links=links.slice(0,2).concat([["+"+(links.length-2),main]]);
   return '<div class="ovc-card"><button class="ovc-img'+(img?'':' noimg')+'" onclick="'+main+'" aria-label="'+t+'">'+(img?'<img src="'+img+'" alt="" loading="lazy">':'<span>'+big+'</span>')+'</button>'+
     '<div class="ovc-b"><h3 onclick="'+main+'">'+t+'</h3>'+hubLinks(links)+'</div></div>';
 }

@@ -366,3 +366,15 @@ html,body{overflow-x:hidden}
 }
 
 .topbar .brand-logo{display:inline-flex;align-items:center;line-height:0;text-shadow:none}.topbar .brand-logo img{height:34px;width:auto;display:block;filter:drop-shadow(0 0 10px rgba(255,63,164,.45))}
+
+/* Startseite: flache Kacheln (Bild 2:1, Titel + zwei Chips), 6 passen auf einen Bildschirm */
+.ovc-hero{height:clamp(190px,21vw,300px)}
+.ovc-hero img{object-position:50% 70%}
+.ovc-grid{margin-top:-26px}
+.ovc-img{aspect-ratio:2.4/1}
+.ovc-b{padding:10px 16px 14px}
+.ovc-b h3{font-size:26px}
+.ovc-b .hl{margin-top:8px;flex-wrap:nowrap;overflow:hidden}
+.ovc-b .hl .chip{white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+.ovc-b .hl .chip:last-child{flex:none}
+@media(max-width:640px){.ovc-hero{height:clamp(170px,46vw,260px)}}

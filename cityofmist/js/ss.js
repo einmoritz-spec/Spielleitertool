@@ -22,7 +22,7 @@ function relicCards(o){
   }).join("");
   return (pre.length?'<div class="otxt">'+pre.map(function(b){return '<p>'+md(b)+'</p>';}).join("")+'</div>':'')+'<div class="rgrid">'+cards+'</div>'+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("");
 }
-function tbHero(o){ return '<div class="tbhero tb-'+(o.tb==='Logos'?'logos':'myth')+'"><img src="img/'+o.hero+'.webp" alt="" data-lb loading="lazy"><div class="tbh-t"><small>'+o.tb+' Themebook</small><b>'+esc(o.name)+'</b>'+pg(o.p)+'</div></div>'; }
+function tbHero(o){ return '<div class="tbhero tb-'+(o.tb==='Logos'?'logos':'myth')+'"><img src="img/'+o.hero+'.webp" alt="" data-lb loading="lazy"><div class="tbh-t"><small>'+o.tb+'-Themenbuch</small><b>'+esc(o.name)+'</b>'+pg(o.p)+'</div></div>'; }
 function ortCard(o){
   var rc=relicCards(o);
   if(rc){ var dg=o.dangers.map(function(d){return dangerCard(d,true);}).join(""); return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+(o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+rc+(o.dangers.length?'<aside class="dgrid">'+dg+'</aside>':'')+'</div></details>'; }

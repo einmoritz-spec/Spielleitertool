@@ -174,3 +174,4 @@ a.pg-link{color:var(--mist)!important}
 .tbdetail .rwa>.rws>*{margin:0}
 .tbdetail .rwa>.rwm{width:auto;max-width:none}
 .tbdetail .rwa>.rwsub{order:-2;margin:0}
+.tbdetail .rwa>.rws{width:100%!important;max-width:none!important;box-sizing:border-box;flex:none}.tbdetail .rwa>.rws>.bx{margin:0!important}

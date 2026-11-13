@@ -337,3 +337,4 @@ body[data-pn=com] .pn-btn{display:none!important}
 @media(max-width:700px){.imf.im-land{float:none;width:100%;margin:0 0 12px}.imf.im-sq{width:150px}.imf.im-port{width:130px}.imf.im-tall{width:90px}}
 .ob:has(>.dgrid) .imf.im-port,.ob:has(>.dgrid) .imf.im-tall,.ob:has(>.dgrid) .imf.im-sq{float:left;margin:2px 18px 8px 0}
 .ob:has(>.dgrid) .dgrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:10px}
+@media(max-width:700px){.imf.im-port{width:110px}.ob:has(>.dgrid) .imf.im-port{width:110px}}

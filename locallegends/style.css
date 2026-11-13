@@ -448,3 +448,12 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 
 .ll-art{display:block;width:100%;max-height:230px;object-fit:cover;object-position:50% 30%;border-radius:8px;margin:0 0 10px;cursor:zoom-in;box-shadow:0 2px 10px rgba(0,0,0,.35)}
 .ll-art-wide{max-height:340px;margin:0 0 14px}
+
+/* Illustrationen ungeschnitten nach Seitenverhältnis */
+.ll-art{object-fit:contain;max-height:none;height:auto}
+.ll-art.la-strip{width:100%}
+.ll-art.la-land{float:right;width:min(48%,420px);margin:0 0 10px 16px}
+.ll-art.la-sq{float:right;width:min(30%,220px);margin:0 0 10px 16px}
+.ll-art.la-port{float:right;width:min(24%,180px);margin:0 0 10px 16px}
+.danger-card:has(.ll-art){display:flow-root}
+@media(max-width:700px){.ll-art.la-land{float:none;width:100%;margin:0 0 10px}.ll-art.la-sq{width:150px}.ll-art.la-port{width:120px}}

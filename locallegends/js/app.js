@@ -249,7 +249,8 @@ function gmNote(text){
   return `<div class="gm-note"><span class="gm-label">Spielleitungs-Hinweis</span>${text}</div>`;
 }
 
-function llArt(name){ const s=(typeof LL_ART!=="undefined")&&LL_ART[name]; return s?`<img class="ll-art" src="${s}" alt="" loading="lazy" onclick="mapFull(this.src)">`:""; }
+function llFit(i){ if(!i.naturalHeight) return; var r=i.naturalWidth/i.naturalHeight; i.classList.add(r>=1.9?'la-strip':r>=1.25?'la-land':r>=0.85?'la-sq':'la-port'); }
+function llArt(name){ const s=(typeof LL_ART!=="undefined")&&LL_ART[name]; return s?`<img class="ll-art" src="${s}" alt="" loading="lazy" onload="llFit(this)" onclick="mapFull(this.src)">`:""; }
 function llPortrait(name){ const src=(typeof LL_PORTRAITS!=="undefined")&&LL_PORTRAITS[name]; return src?`<img class="ll-portrait" src="${src}" alt="${name}" loading="lazy" onclick="mapFull(this.src)">`:""; }
 state.openThemes = state.openThemes || {};
 function toggleTheme(k){ state.openThemes[k]=!state.openThemes[k]; const el=document.getElementById("th_"+k); if(el) el.classList.toggle("open",state.openThemes[k]); }
@@ -443,7 +444,7 @@ function _renderDistrictView(id){
   else if(active==="heists" && c.heistRules){
     html += tabHead("Heists", tocPage(id,false,"Heists"));
     const hr = c.heistRules;
-    html += (hr.art?`<img class="ll-art ll-art-wide" src="${hr.art}" alt="" onclick="mapFull(this.src)">`:"") + `<div class="card"><p>${hr.intro}</p></div>`;
+    html += (hr.art?`<img class="ll-art ll-art-wide" src="${hr.art}" alt="" onload="llFit(this)" onclick="mapFull(this.src)">`:"") + `<div class="card"><p>${hr.intro}</p></div>`;
     html += sectionHTML("heistterm","Heist-Terminologie", hr.terminology.map(t=>`<div class="card"><h3 style="font-size:14px;">${t.t}</h3><p>${t.x}</p></div>`).join(""));
     const hx = a => [].concat(a||[]).map(t=>`<div class="card"><h3 style="font-size:14px;">${t.t}</h3><p>${t.x}</p></div>`).join("");
     html += sectionHTML("heistprep","Die Prep Sequence", `<div class="card"><p>${hr.prepSequence}</p></div>` + (typeof hr.prepIntro==="string"?`<div class="card"><p>${hr.prepIntro}</p></div>`:hx(hr.prepIntro)) + hx(hr.prepMoves) + hx(hr.prepMiss?[].concat(hr.prepMiss):[]) + hx(hr.tickClock?[].concat(hr.tickClock):[]));

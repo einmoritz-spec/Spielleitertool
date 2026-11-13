@@ -1,6 +1,7 @@
 /* Nights of Paynetown – Oberfläche. Zustand: localStorage nights_state_v1 */
 const STATE_KEY = "nights_state_v1";
 const PAGES_TOTAL = 296;
+const COVER = [1,2,3,4,5,6,7,8,9,10]; // Fälle mit Titelbild
 const READY = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]; // erfasste Fälle
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -68,7 +69,8 @@ function renderCampaign(){
       const ci = C.cases[n]; if(!ci) continue;
       const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
       const st = caseStatus(n);
-      h += `<div class="case-card ${info.ready?"":"off"}" data-case="${n}"><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px" aria-label="Fall ${n} öffnen"></a><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>S. ${info.from}–${info.to}</small>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}</div>`;
+      const cv = COVER.includes(n) ? `<img class="cc-img" src="img/cover/case${String(n).padStart(2,"0")}.webp" alt="" loading="lazy">` : "";
+      h += `<div class="case-card ${cv?"has-img":""} ${info.ready?"":"off"}" data-case="${n}"><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px;z-index:2" aria-label="Fall ${n} öffnen"></a>${cv}<div class="cc-txt"><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>S. ${info.from}–${info.to}</small></div>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}</div>`;
     }
     h += `</div></details>`;
   }

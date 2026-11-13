@@ -183,3 +183,15 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 .ni-intro p{margin:0!important;display:inline}
 .ni-rail{margin-top:6px!important}
 .ni-body>.ni-flat:first-child{margin-top:0!important;padding-top:0!important}.ni-body>.ni-flat:first-child .sec-sub{margin-top:0!important}.ni-nav{padding-top:2px}
+
+/* Fall-Karten mit Titelbild */
+.lvgrid .cases:has(.has-img){grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.case-card.has-img{display:flex!important;flex-direction:column;padding:0!important;overflow:hidden;border-radius:12px;transition:transform .15s,box-shadow .15s}
+.case-card.has-img:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(40,25,5,.3)}
+.case-card.has-img .cc-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-bottom:3px solid var(--tone)}
+.case-card.has-img .cc-txt{padding:8px 12px 10px;display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 8px}
+.case-card.has-img .nr{grid-column:1}
+.case-card.has-img small{grid-column:2}
+.case-card.has-img b{grid-column:1/-1;margin-top:2px}
+.case-card.has-img .badge{position:absolute;top:8px;left:8px;z-index:1}
+@media (max-width:480px){.lvgrid .cases:has(.has-img){grid-template-columns:repeat(2,minmax(0,1fr))}.case-card.has-img b{font-size:1rem}}

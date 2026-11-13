@@ -5,13 +5,13 @@
   var BASE = SRC.replace(/toolmenu\.js.*$/, "");
   var TOOLS = [
     ["_mist","Mist Engine","","",0,"grp"],
-    ["wake","Wake of the Oldways","Legend in the Mist","",1],
     ["cityofmist","City of Mist","Übersicht","cityofmist/#start",1],
     ["cm_rw","Grundregelwerk","Spieler:innen-Handbuch","cityofmist/#rw",2],
     ["cm_ss","Shadows & Showdowns","Erweiterung","cityofmist/#ss",2],
     ["locallegends","Local Legends","Fall-Akte","locallegends/",2],
     ["paynetown","Nights of Paynetown","Kampagne","nights/",2],
     ["otherscape","Otherscape","Cyberpunk-Fantasy","otherscape/",1],
+    ["wake","Wake of the Oldways","Legend in the Mist","",1],
     ["_havoc","Havoc Engine","","",0,"grp"],
     ["etr","Eat the Reich","Vampir-Kommandos","etr/",1]
   ];

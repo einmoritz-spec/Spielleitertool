@@ -216,3 +216,10 @@ body{background:radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%)
 .cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px 16px;align-items:start;margin:12px 0 16px}
 .cardgrid>.blk-card,.cardgrid>.threat{max-width:none!important;margin:0!important;width:auto}
 @media(max-width:700px){.cardgrid{grid-template-columns:1fr}}
+/* mehr Luft: Ebenen, Reiter, Karten */
+.lvgrid{display:flex;flex-direction:column;gap:56px;padding-top:34px}
+.lvgrid .level{margin:0!important}
+.level-head{padding:18px 48px 10px 22px!important}
+.level .cases,.lvgrid .cases:has(.has-img){padding:14px 22px 28px!important;gap:26px 22px!important}
+.lvgrid .cases:has(.has-img){grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+@media (max-width:520px){.lvgrid .cases:has(.has-img){grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px!important;padding:12px 16px 24px!important}.lvgrid{gap:50px}}

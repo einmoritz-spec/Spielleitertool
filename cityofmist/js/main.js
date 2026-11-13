@@ -12,6 +12,7 @@ function pageHub(){
    ovCard("../assets/hero/com-art.webp","Grundregelwerk","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"],["Buch (PDF)","BV.open(\'rw\',1)"]])+
    ovCard("../assets/hero/ss-art.webp","Shadows &amp; Showdowns","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"],["Buch (PDF)","BV.open(\'cm\',1)"]])+
    ovCard("../assets/hero/com-regeln.webp","Kurz nachschlagen","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]])+
+   ovCard("img/tbh_enclave.webp","Themenbücher","go(\'tb\')",[["Mythos","go(\'tb\')"],["Logos","go(\'tb\')"],["Alle Bücher, ein Ort","go(\'tb\')"]])+
    ovCard("../assets/hero/ll-header.webp","Local Legends","switchTool(\'locallegends\')",[])+
    ovCard("../assets/hero/com-nights.webp","Nights of Paynetown","switchTool(\'paynetown\')",[])+
    '</div></div>';
@@ -34,15 +35,16 @@ function pageSS(r){
   return tabs+body;
 }
 function render(){
-  var r=route(), h = r.sys==="rw"?pageRW(r) : r.sys==="ss"?pageSS(r) : pageHub();
+  var r=route(), h = r.sys==="rw"?pageRW(r) : r.sys==="ss"?pageSS(r) : r.sys==="tb"?pageTB() : pageHub();
   if(window.BV) BV.setDefault(CM_BOOK[r.sys]);
-  var app=document.getElementById("app"); app.className="shell"+(r.sys==="rw"||r.sys==="ss"?" wide":" ovshell"); app.innerHTML=h; window.scrollTo(0,0);
+  var app=document.getElementById("app"); app.className="shell"+(r.sys==="rw"||r.sys==="ss"||r.sys==="tb"?" wide":" ovshell"); app.innerHTML=h; window.scrollTo(0,0);
   document.title = "City of Mist";
   [".tab.on",".pill.on"].forEach(function(q){ var el=document.querySelector(q); if(el&&el.scrollIntoView) el.scrollIntoView({inline:"center",block:"nearest"}); });
   window.scrollTo(0,0);
 }
 function buildMenu(){
   var r=route(), p=document.getElementById("mmP"), h='';
+  h+='<button class="mi" onclick="openMenu(false);go(\'tb\')"><b>Themenbücher</b></button>';
   h+='<button class="mi" onclick="openMenu(false);srOpen()"><b>Suche</b></button>';
   if(r.sys==="rw") h+=CM_RW_NAV.extra.map(function(x){return '<button class="mi" onclick="openMenu(false);gr(\''+x.id+'\')"><b>'+x.t+'</b></button>';}).join("");
   h+='<div id="bvSettingsHost"></div>';

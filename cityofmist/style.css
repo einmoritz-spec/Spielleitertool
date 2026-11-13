@@ -116,3 +116,21 @@ a.pg-link{color:var(--mist)!important}
 .tbhero .tbh-t b{display:inline;font:700 clamp(1.6rem,4vw,2.4rem)/1.05 var(--cond);letter-spacing:.04em;text-transform:uppercase;color:#fff!important}
 .tbhero .tbh-t .pg,.tbhero .tbh-t a{color:#fff!important;opacity:.85;margin-left:10px;font-size:12px}
 @media(max-width:600px){.tbhero img{max-height:210px}.tbhero .tbh-t{max-width:92%;padding:8px 30px 8px 14px}}
+
+/* Themenbücher-Übersicht */
+.tbpage{max-width:1500px;margin:0 auto}.tbhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-bottom:6px}.tbhead h1{margin:0}
+.tbchips{display:flex;flex-wrap:wrap;gap:8px}.tbchips .chip.on{background:#2a1c44;color:#fff;border-color:#2a1c44}
+.tbs h2{margin:24px 0 10px;font-size:1.05rem;letter-spacing:.2em;text-transform:uppercase;color:#c4177a}.tbs-logos h2{color:#a8780b}.tbs-extra h2{color:#4a5a66}.tbs h2 i{font-style:normal;opacity:.6;margin-left:8px}
+.tbgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.tbc{display:flex;flex-direction:column;text-align:left;padding:0;overflow:hidden;border:1px solid #cdbf98;border-top:3px solid #c4177a;border-radius:10px;background:#fbf6e6;cursor:pointer;color:inherit;font:inherit;transition:transform .15s,box-shadow .15s}
+.tbs-logos .tbc{border-top-color:#b8860b}.tbs-extra .tbc{border-top-color:#4a5a66}
+.tbc:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(40,25,5,.25)}
+.tbc img,.tbc-ph{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%}
+.tbc-ph{background:linear-gradient(135deg,#2a1c44,#c4177a)}.tbs-logos .tbc-ph{background:linear-gradient(135deg,#3a2a0a,#b8860b)}
+.tbc-t{padding:9px 13px 12px;display:grid;gap:3px}.tbc-t em{font-style:normal;font:600 10px var(--cond);letter-spacing:.16em;text-transform:uppercase;color:#7a6e55}
+.tbc-t em.src-ss{color:#c4177a}.tbc-t em.src-ll{color:#2b6f9e}
+.tbc-t b{font:700 1.25rem var(--cond);letter-spacing:.03em;text-transform:uppercase;color:#2a1c44}.tbc-t small{color:#5a4f38;font-size:.82rem;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tbc-t u{text-decoration:none;color:#7a6e55;font-size:.78rem}
+@media(max-width:600px){.tbgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tbc-t b{font-size:1.05rem}.tbc-t small{-webkit-line-clamp:2}}
+.tbc img{aspect-ratio:16/9;object-position:center 30%}
+.tbc.src-rw img{object-position:center top}

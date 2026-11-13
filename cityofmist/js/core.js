@@ -15,3 +15,7 @@ function route(){
 function go(path){ location.hash=path; }
 function gs(path){ go("ss/"+path); }
 function gr(path){ go("rw/"+path); }
+
+/* Bilder ungeschnitten einbauen: Klasse nach Seitenverhältnis (Streifen ganzbreit, Querformat/Quadrat/Hochformat schwebend im Text) */
+function imFit(i){ if(!i.naturalHeight) return; var r=i.naturalWidth/i.naturalHeight; i.classList.add(r>=2.2?'im-strip':r>=1.25?'im-land':r>=0.85?'im-sq':r>=0.45?'im-port':'im-tall'); }
+function imf(name){ return '<img class="imf" data-lb loading="lazy" alt="" src="img/'+name+'.webp" onload="imFit(this)">'; }

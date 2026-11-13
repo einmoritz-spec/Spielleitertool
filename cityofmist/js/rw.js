@@ -40,12 +40,12 @@ function rwBlocks(bs){
 }
 function rwIsSide(b){ return b&&typeof b==="object"&&((b.box&&b.box.b&&b.box.b.length)||b.tbl||b.dlg); }
 function rwCard(e,id,secId){
-  var tb=rwTb(secId,e), doc=rwDoc(secId,e), figs=rwFigHtml(secId,e);
+  var tb=rwTb(secId,e), doc=rwDoc(secId,e), fp=rwFigParts(secId,e), figs="";
   var body=e.body||[], main=body.filter(function(b){return !rwIsSide(b);}), side=body.filter(rwIsSide).concat(e.aside||[]);
   var sideHtml=figs+rwBlocks(side)+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'');
   var wideSide=sideHtml&&((!main.length&&side.length>=1)||(JSON.stringify(main).length<700&&side.length>=2));
-  return '<article class="rwa'+(wideSide?' rwwide'+(side.length<2?' rwwide1':''):'')+'" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="rwsub">'+esc(e.sub)+'</p>':'')+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+
-    (sideHtml?'<aside class="rws">'+sideHtml+'</aside>':'')+'<div class="rwm">'+rwBlocks(main)+'</div></article>';
+  return '<article class="rwa'+(wideSide?' rwwide'+(side.length<2?' rwwide1':''):'')+'" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="rwsub">'+esc(e.sub)+'</p>':'')+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+fp.ban+
+    (sideHtml?'<aside class="rws">'+sideHtml+'</aside>':'')+'<div class="rwm">'+fp.pt+rwBlocks(main)+'</div></article>';
 }
 var __tocSpy;
 function tocSpy(toc, ids, offset){
@@ -69,7 +69,7 @@ function rwSection(tab,secId,cardIdx){
     var es=CM_RW[s.id]||[], many=es.length>1;
     var toc=es.map(function(c,i){return '<a onclick="rwJump(\'rw-'+s.id+'-'+i+'\')">'+esc(c.name)+'</a>';}).join("");
     var sel=many?'<select class="rwsel" onchange="if(this.value)rwJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="rw-'+s.id+'-'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select>':'';
-    el.innerHTML='<section class="blk flat">'+rwHero(s.id)+'<div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+sel+'</div>'+
+    el.innerHTML='<section class="blk flat"><div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+sel+'</div>'+rwHero(s.id)+
      (es.length?'<div class="rwbody solo"><div class="rwflow">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,s.id);}).join("")+'</div></div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>'+rwPrevNext(tab,s.id);
     var h3=el.querySelector('.rwa>h3'); if(h3&&h3.firstChild&&(h3.firstChild.textContent||"").trim().toLowerCase()===s.t.toLowerCase()) h3.classList.add('dup');
     var rail=document.getElementById("rwRail");

@@ -69,8 +69,9 @@ function rwSection(tab,secId,cardIdx){
     var es=CM_RW[s.id]||[], many=es.length>1;
     var toc=es.map(function(c,i){return '<a onclick="rwJump(\'rw-'+s.id+'-'+i+'\')">'+esc(c.name)+'</a>';}).join("");
     var sel=many?'<select class="rwsel" onchange="if(this.value)rwJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="rw-'+s.id+'-'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select>':'';
-    el.innerHTML='<section class="blk">'+rwHero(s.id)+'<div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+sel+'</div>'+
+    el.innerHTML='<section class="blk flat">'+rwHero(s.id)+'<div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+sel+'</div>'+
      (es.length?'<div class="rwbody solo"><div class="rwflow">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,s.id);}).join("")+'</div></div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>'+rwPrevNext(tab,s.id);
+    var h3=el.querySelector('.rwa>h3'); if(h3&&h3.firstChild&&(h3.firstChild.textContent||"").trim().toLowerCase()===s.t.toLowerCase()) h3.classList.add('dup');
     var rail=document.getElementById("rwRail");
     if(rail){ if(many){ rail.innerHTML=toc; tocSpy(rail,es.map(function(c,i){return "rw-"+s.id+"-"+i;}),110); } else rail.parentNode.classList.add("nontoc"); }
     if(cardIdx!==undefined&&cardIdx!==""){ var c=document.getElementById("rw-"+s.id+"-"+cardIdx); if(c){ srHighlight(c); c.scrollIntoView({block:"start"}); window.scrollBy(0,-70); } }

@@ -315,3 +315,12 @@ body[data-pn=com] .pn-btn{display:none!important}
 @media (min-width:900px){.rwa.rwwide1>.rws{columns:1!important;max-width:980px}}
 .topbar .tb-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:inherit;border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
 .topbar .tb-btn:hover{background:rgba(255,255,255,.12)}
+
+/* Grundregelwerk-Abschnitte an die S&S-Optik angleichen */
+.rwa h3{font:400 24px/1.1 var(--disp);letter-spacing:.05em;color:var(--mag2)}
+.rwa>h3.dup{display:none}
+.rwtoc{border-right:2px solid var(--line);gap:2px}
+.rwtoc a{padding:6px 10px;font-size:.86rem;font-weight:500;line-height:1.25;color:inherit;border-radius:6px}
+.rwtoc a:hover{background:rgba(190,24,93,.1);color:inherit}
+.rwtoc a.on{background:#2a1a4a;color:#fff;font-weight:500}
+.railshell:not(.nontoc){grid-template-columns:200px minmax(0,1fr)}

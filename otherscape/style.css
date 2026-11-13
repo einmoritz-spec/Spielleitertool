@@ -639,6 +639,9 @@ body[data-pn=os] .pn-btn{display:none!important}
 .mt-gl th{width:26%;color:#9cf06a;font-weight:600}.mt-pg{width:1%;white-space:nowrap}
 @media (max-width:560px){.ce-steps{grid-template-columns:minmax(0,1fr)}.mt-gl th{width:34%}}
 
-/* Gegner-Seiten mit nur einer Challenge: keine schmale Spalte mit Leerraum, Karte unter dem Text über volle Breite */
+/* Seiten, deren rechte Spalte nur aus Challenge-Karten besteht (Gegner, Yakuza ...): Karten unter dem Text, Text nutzt die volle Breite */
+body .scn:has(>.scn-r>.ch-grid):not(:has(>.scn-r>.blk)){display:block}
+body .scn:has(>.scn-r>.ch-grid):not(:has(>.scn-r>.blk))>.scn-r{position:static;border-left:0;padding:0;margin-top:14px}
+/* Gegner-Seiten mit nur einer Challenge: Karte unter dem Text über volle Breite */
 body .scn:has(>.scn-r>.scn-rh+.blk:last-child){display:block}
 body .scn:has(>.scn-r>.scn-rh+.blk:last-child)>.scn-r{position:static;border-left:0;padding:0;margin-top:14px}

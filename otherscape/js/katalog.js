@@ -28,15 +28,15 @@ function renderKatalog(id){
   const c = id && OS_KAT.cats.find(x=>x.id===id);
   const crumbs = "";
   if(!c){
-    const tiles = OS_KAT.cats.map(x=>`<div class="kat-tile"><img src="${x.img}" alt="${esc(x.titel)}" loading="lazy" onclick="katZoom(this.src)"><button class="kat-tile-t" onclick="location.hash='#/katalog/${x.id}'"><b>${esc(x.titel)}</b><small>${x.items.length} Items · ${esc(x.en)}</small></button></div>`).join("");
+    const tiles = OS_KAT.cats.map(x=>`<div class="kat-tile"><img src="${x.img}" alt="${esc(x.titel)}" onclick="katZoom(this.src)"><button class="kat-tile-t" onclick="location.hash='#/katalog/${x.id}'"><b>${esc(x.titel)}</b><small>${x.items.length} Items · ${esc(x.en)}</small></button></div>`).join("");
     $("app").innerHTML = osRail(`<div class="adv-head"><h1>Straßenkatalog</h1><span class="meta">Loadout · Metro-Grundbuch ${pgBtn("Metro",252,"S. 252–270 📖")}</span></div>`, katGroups(null,[{id:"kat_k",t:"Kategorien"},{id:"kat_s",t:"Stimmungsbilder"},{id:"kat_t",t:"Loadout-Theme-Specials"}]), `<div class="kat-intro">${OS_KAT.intro.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="kat-how">${OS_KAT.how.map(h=>`<div><b>${esc(h[0])}</b><p>${esc(h[1])}</p></div>`).join("")}</div></div>
     <div class="sec-h" id="kat_k">Kategorien</div><div class="kat-tiles">${tiles}</div>
-    <div class="sec-h" id="kat_s">Stimmungsbilder</div><div class="kat-stim">${OS_KAT.stim.map(s=>`<figure><img src="${s.src}" alt="${esc(s.cap)}" loading="lazy" onclick="katZoom(this.src)"><figcaption>${esc(s.cap)}</figcaption></figure>`).join("")}</div>
+    <div class="sec-h" id="kat_s">Stimmungsbilder</div><div class="kat-stim">${OS_KAT.stim.map(s=>`<figure><img src="${s.src}" alt="${esc(s.cap)}" onclick="katZoom(this.src)"><figcaption>${esc(s.cap)}</figcaption></figure>`).join("")}</div>
     <div class="sec-h" id="kat_t">Loadout-Theme-Specials</div><div class="kat-spec">${OS_KAT.specials.map(s=>`<div class="kat-sp"><b>${esc(s.n)}</b><p>${esc(s.d)}</p></div>`).join("")}</div>`);
     return;
   }
   const idx = OS_KAT.cats.indexOf(c), prev = OS_KAT.cats[idx-1], next = OS_KAT.cats[idx+1];
-  const stim = c.id==="cyberspace" ? `<figure class="kat-mood"><img src="${OS_KAT.stim[1].src}" alt="Schlafkapseln" loading="lazy" onclick="katZoom(this.src)"></figure>` : "";
+  const stim = c.id==="cyberspace" ? `<figure class="kat-mood"><img src="${OS_KAT.stim[1].src}" alt="Schlafkapseln" onclick="katZoom(this.src)"></figure>` : "";
   $("app").innerHTML = osRail(`<div class="adv-head"><h1>${esc(c.titel)}</h1><span class="meta">${esc(c.en)} · ${pgBtn("Metro",c.p,"Buch S. "+c.p+" 📖")}</span></div>`, katGroups(c,[{id:"kat_a",t:"Allgemeine Items"},{id:"kat_i",t:"Spezifische Items"}]), `<div class="kat-top"><figure class="kat-hero"><img src="${c.img}" alt="${esc(c.titel)}" onclick="katZoom(this.src)"></figure><div class="kat-text">${c.intro.map(t=>`<p>${esc(t)}</p>`).join("")}</div></div>
   <div class="sec-h" id="kat_a">Allgemeine Items</div>${katAllg(c)}
   <div class="sec-h" id="kat_i">Spezifische Items</div><div class="kat-grid">${c.items.map(katItem).join("")}</div>${stim}

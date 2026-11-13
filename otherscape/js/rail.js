@@ -31,8 +31,10 @@ function osAdvRail(){
   });
   const subLinks = hs.map(h=>`<a href="#" onclick="osGo('${h.id}');return false">${esc(osShort(h.textContent.trim()))}</a>`).join("");
   /* Unterkapitel: direkt unter dem aktiven Eintrag, eingerückt mit Linie */
+  /* Seitenleiste: Titel bis zum ":" kürzen (Tabs oben behalten den vollen Titel); bei doppelten Kurznamen voller Titel */
+  const shorts = SUBS.map(it=>osShort(it.t)), dup = i => shorts.filter(x=>x===shorts[i]).length>1;
   const tree = SUBS.length
-    ? SUBS.map(it=>`<a class="ocat${it.on?" on":""}" href="${it.href}">${esc(it.t)}</a>${it.on&&subLinks?`<div class="osub2" aria-label="Unterkapitel">${subLinks}</div>`:""}`).join("")
+    ? SUBS.map((it,i)=>`<a class="ocat${it.on?" on":""}" href="${it.href}" title="${esc(it.t)}">${esc(dup(i)?it.t:shorts[i])}</a>${it.on&&subLinks?`<div class="osub2" aria-label="Unterkapitel">${subLinks}</div>`:""}`).join("")
     : (subLinks?`<div class="osub">${subLinks}</div>`:"");
   const flatItems = SUBS.length ? `<div class="orow">${SUBS.map(it=>`<a class="ocat${it.on?" on":""}" href="${it.href}">${esc(it.t)}</a>`).join("")}</div>` : "";
   const flatSubs = subLinks ? `<div class="orow osr">${subLinks}</div>` : "";

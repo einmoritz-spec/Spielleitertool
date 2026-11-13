@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v332kon";
+const VERSION = "v333kon";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -392,6 +392,7 @@ const FILES = [
   "otherscape/js/data/bilder-buch.js",
   "otherscape/js/ostree.js",
   "otherscape/js/data/metro-themebooks.js",
+  "otherscape/js/data/metro-themebooks-details.js",
   "otherscape/js/rail.js",
   "otherscape/js/katalog.js",
   "otherscape/js/kits.js",

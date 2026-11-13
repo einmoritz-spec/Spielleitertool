@@ -26,14 +26,30 @@ function renderKits(sel){
     return `<a class="kb-card" href="#/kits/${T.p}" style="--tone:${KB_COL[t]}"><img src="${kbSrc(n)}" style="object-position:${kbFocus(n)}" alt="${esc(n)}" loading="lazy"><b>${esc(n)}</b><small>${esc(T.en)} · S. ${T.p}</small></a>`}).join("")}</div>`;
   $("app").innerHTML = `<div class="kb-over"><h2 class="kb-title">Themebooks</h2>${["Self","Mythos","Noise"].map(sec).join("")}</div>`;
 }
+function tbDetail(g, col){
+  const D = (typeof OS_TBDETAIL!=="undefined") && OS_TBDETAIL[g]; if(!D) return {top:"",rest:""};
+  const L = i => String.fromCharCode(65+i);
+  const qs = a => `<ol class="tbq">${a.map((q,i)=>`<li><b>${L(i)}</b><span>${esc(q)}</span></li>`).join("")}</ol>`;
+  const I = D.ident||{}, lbl = I.label||"Identity";
+  const top = `<div class="kb-concept tbwhy"><b>FRAGE</b><p class="tbwq">${esc(D.why.q)}</p><ul>${D.why.opts.map(o=>`<li>${esc(o)}</li>`).join("")}</ul><p class="tbflesh">${esc(D.why.flesh)}</p></div>`+
+    (D.extra||[]).map(x=>`<details class="tbx" open><summary>${esc(x.h)}</summary>${x.t.map(t=>`<p>${esc(t)}</p>`).join("")}</details>`).join("");
+  const rest = `<div class="tbgrid"><section class="tbsec"><div class="sec-h" style="color:${col}">Power-Tag-Fragen</div>${qs(D.power)}</section>
+   <div class="tbcol"><section class="tbsec weak"><div class="sec-h" style="color:#ff5d73">Weakness-Tag-Fragen</div>${qs(D.weak)}</section>
+   <section class="tbsec"><div class="sec-h" style="color:${col}">${esc(lbl)}</div>${I.intro?`<p>${esc(I.intro)}</p>`:`<p>Wähle eine Identity für dieses Theme: ein absolutes Statement, das Haltung, Motiv oder Glauben deines Themes ausdrückt. Zum Beispiel:</p>`}
+    <ul class="tbex">${I.ex.map(e=>`<li><em>${esc(e[0])}</em> ${esc(e[1])}</li>`).join("")}</ul>
+    <p class="tbmut">Mögliche Ansätze: ${I.explore.map(esc).join(" · ")}</p><p class="tbmut">${esc(I.note)}</p></section></div></div>
+   <div class="sec-h" style="color:${col}">Crew-Beziehungen</div><div class="tbcards">${D.crew.map(c=>`<div class="tbcard"><p>${esc(c[0])}</p><small>${esc(c[1])}</small></div>`).join("")}</div>
+   <div class="sec-h" style="color:${col}">Theme Specials</div><div class="tbcards sp">${D.specials.map(c=>`<div class="tbcard"><b>${esc(c[0])}</b><p>${esc(c[1])}</p></div>`).join("")}</div>`;
+  return {top, rest};
+}
 function renderThemebook(g, names){
   const T = OS_THEMEBOOKS[g], col = KB_COL[T.typ], i = names.indexOf(g);
-  const kits = allKits().filter(k=>k.grp===g);
+  const kits = allKits().filter(k=>k.grp===g); const DT = tbDetail(g,col);
   const strip = names.map(n=>`<a class="kb-mini${n===g?" on":""}" href="#/kits/${OS_THEMEBOOKS[n].p}" title="${esc(n)}" style="--tone:${KB_COL[OS_THEMEBOOKS[n].typ]}"><img src="img/art/${OS_KITBOOKS[n].slug}-a.webp" alt="${esc(n)}"></a>`).join("");
   $("app").innerHTML = `<div class="kb-det" style="--tone:${col}"><a class="kb-back" href="#/kits">‹ Alle Themebooks</a><div class="kb-strip">${strip}</div>
   <div class="kb-top"><img class="kb-big" src="${kbSrc(g)}" style="object-position:${kbFocus(g)}" alt="${esc(g)}" onclick="osZoom('${kbSrc(g)}')">
   <div class="kb-txt"><div class="kb-bar"><small>${T.typ.toUpperCase()} THEMEBOOK</small><h2>${esc(g)}</h2><em>${esc(T.en)} · S. ${T.p}</em></div>
-  ${T.intro.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="kb-concept"><b>CONCEPT</b><p>${esc(T.concept)}</p></div></div></div>
-  <div class="sec-h" style="color:${col}">Kits · ${kits.length}</div><div class="kit-grid">${kits.map(k=>kitCard(k,col)).join("")}</div></div>`;
+  ${T.intro.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="kb-concept"><b>CONCEPT</b><p>${esc(T.concept)}</p></div>${DT.top}</div></div>
+  ${DT.rest}<div class="sec-h" style="color:${col}">Kits · ${kits.length}</div><div class="kit-grid">${kits.map(k=>kitCard(k,col)).join("")}</div></div>`;
   window.scrollTo(0,0);
 }

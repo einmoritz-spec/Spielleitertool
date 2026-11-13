@@ -2,6 +2,8 @@ CM_ORTE.sp_buecher = (CM_ORTE.sp_buecher||[]).concat([
  {
   "id": "b2_familiar",
   "name": "Familiar",
+  "hero": "tbh_familiar",
+  "tb": "Mythos",
   "teaser": "Mythos-Themenbuch: magische oder vermenschlichte Tiere als Rift-Begleiter",
   "p": 24,
   "bild": "sp_familiar",
@@ -118,6 +120,8 @@ CM_ORTE.sp_buecher = (CM_ORTE.sp_buecher||[]).concat([
  {
   "id": "b2_struggle",
   "name": "Struggle",
+  "hero": "tbh_struggle",
+  "tb": "Logos",
   "teaser": "Logos-Themenbuch: ein Alltagsleiden, mit dem die Figur lebt und an dem sie gewachsen ist",
   "p": 28,
   "bild": "sp_struggle",
@@ -239,6 +243,8 @@ CM_ORTE.sp_buecher = (CM_ORTE.sp_buecher||[]).concat([
  {
   "id": "b2_turf",
   "name": "Turf",
+  "hero": "tbh_turf",
+  "tb": "Logos",
   "teaser": "Logos-Themenbuch: ein Herrschaftsgebiet, das die Figur kontrolliert",
   "p": 32,
   "bild": "sp_turf",

@@ -106,3 +106,13 @@ a.pg-link{color:var(--mist)!important}
 
 .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:14px;column-span:all}.lgrid .lbox{background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:6px;padding:4px 14px 8px}
 .thm .th b{flex:0 1 auto;min-width:0}.thm .th i{flex:none;white-space:nowrap}
+
+/* Themenbuch-Kopf: Kopfbild des Buchs + Titelband (wie bei Otherscape) */
+.tbhero{position:relative;margin:0 0 16px;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(20,10,40,.35);--tbc:#c4177a}
+.tbhero.tb-logos{--tbc:#b8860b}
+.tbhero img{display:block;width:100%;max-height:340px;object-fit:cover;object-position:center 30%;cursor:zoom-in}
+.tbhero .tbh-t{position:absolute;left:0;bottom:0;max-width:78%;padding:10px 38px 10px 18px;background:var(--tbc);color:#fff;clip-path:polygon(0 0,100% 0,calc(100% - 22px) 100%,0 100%)}
+.tbhero .tbh-t small{display:block;font:600 11px var(--cond);letter-spacing:.2em;text-transform:uppercase;opacity:.9}
+.tbhero .tbh-t b{display:inline;font:700 clamp(1.6rem,4vw,2.4rem)/1.05 var(--cond);letter-spacing:.04em;text-transform:uppercase;color:#fff!important}
+.tbhero .tbh-t .pg,.tbhero .tbh-t a{color:#fff!important;opacity:.85;margin-left:10px;font-size:12px}
+@media(max-width:600px){.tbhero img{max-height:210px}.tbhero .tbh-t{max-width:92%;padding:8px 30px 8px 14px}}

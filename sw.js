@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v330kon";
+const VERSION = "v331kon";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -151,6 +151,13 @@ const FILES = [
   "cityofmist/js/data/spieler/relikte2.js",
   "cityofmist/js/data/spieler/vertraute.js",
   "cityofmist/img/sp_familiar.webp",
+  "cityofmist/img/tbh_conjuration.webp",
+  "cityofmist/img/tbh_destiny.webp",
+  "cityofmist/img/tbh_enclave.webp",
+  "cityofmist/img/tbh_familiar.webp",
+  "cityofmist/img/tbh_struggle.webp",
+  "cityofmist/img/tbh_turf.webp",
+
   "cityofmist/img/sp_kakerlake.webp",
   "cityofmist/img/sp_papagei.webp",
   "cityofmist/img/sp_struggle.webp",

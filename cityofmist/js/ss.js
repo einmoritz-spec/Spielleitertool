@@ -22,6 +22,7 @@ function relicCards(o){
   }).join("");
   return (pre.length?'<div class="otxt">'+pre.map(function(b){return '<p>'+md(b)+'</p>';}).join("")+'</div>':'')+'<div class="rgrid">'+cards+'</div>'+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("");
 }
+function tbHero(o){ return '<div class="tbhero tb-'+(o.tb==='Logos'?'logos':'myth')+'"><img src="img/'+o.hero+'.webp" alt="" data-lb loading="lazy"><div class="tbh-t"><small>'+o.tb+' Themebook</small><b>'+esc(o.name)+'</b>'+pg(o.p)+'</div></div>'; }
 function ortCard(o){
   var rc=relicCards(o);
   if(rc){ var dg=o.dangers.map(function(d){return dangerCard(d,true);}).join(""); return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+(o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+rc+(o.dangers.length?'<aside class="dgrid">'+dg+'</aside>':'')+'</div></details>'; }
@@ -33,7 +34,7 @@ function ortCard(o){
   var text=(o.bild?'<img class="obild" src="img/'+o.bild+'.webp" alt="'+esc(o.name)+'" loading="lazy">':'')+o.text.map(function(t){return t.indexOf('## ')===0?'<h4 class="lh">'+esc(t.slice(3))+'</h4>':'<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(function(){var ls=o.listen||[],h=ls.map(function(l){return '<div class="lbox"><h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul></div>';}).join("");return ls.length>2?'<div class="lgrid">'+h+'</div>':h;})();
   var dang=o.dangers.map(function(d){return dangerCard(d,!side);}).join("");
   return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
-   (o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
+   (o.hero?tbHero(o):'')+(o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
    '<div class="ocols'+(useCol?'':' solo')+'">'+(useCol?'<aside class="oside">'+figs+them+(side?dang:'')+'</aside>':'')+'<div class="otxt">'+text+(useCol?'':figs+them)+'</div></div>'+
    (o.dangers.length&&!side?'<aside class="dgrid">'+dang+'</aside>':'')+'</div></details>';
 }

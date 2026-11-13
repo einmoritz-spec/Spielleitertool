@@ -40,7 +40,7 @@ CM_ORTE.sp_buecher = (CM_ORTE.sp_buecher||[]).concat([
   ],
   dangers:[] },
 
- { id:"sb_conjuration", name:"Conjuration", teaser:"Mythos-Themebook: eigenständige Wesen und Objekte, die dein Mythos erschafft oder herbeiruft", p:12,
+ { id:"sb_conjuration", name:"Conjuration", teaser:"Mythos-Themebook: eigenständige Wesen und Objekte, die dein Mythos erschafft oder herbeiruft", p:12, hero:"tbh_conjuration", tb:"Mythos",
   extra:["Fantastische Wesen oder Objekte erschaffen: durch Zauberei • indem man sie aus den Träumen eines anderen herbeiruft • indem man sie aus der Umgebung konstruiert • indem man ein Portal in ein anderes Reich öffnet • indem man sie gebiert oder aus dem eigenen Körper formt"],
   text:[
    "Die Fähigkeit eines Rifts, die Welt durch die Kräfte seines Mythos zu beeinflussen, kennt keine Grenzen. Manche Rifts haben eine so besondere Bindung zu ihrem Mythos, dass sie einen Teil seiner Kraft projizieren und individuelle, selbständig handelnde Wesen erschaffen können, die als Conjurations bekannt sind. Das Rift des Zeus könnte die Göttin Athene aus seiner Stirn gebären, während das Rift des Monkey King aus jedem Haar, das sie sich vom Kopf zupft, einen Klon ihrer selbst erschaffen könnte. Das Rift des Anansi könnte imaginäre Spinnen heraufbeschwören, die dennoch giftig sind, und die Queen of Hearts könnte ihre Armee von Kartensoldaten rufen, um jemandem den Kopf abzutrennen.",
@@ -105,7 +105,7 @@ CM_ORTE.sp_buecher = (CM_ORTE.sp_buecher||[]).concat([
   ],
   dangers:[] },
 
- { id:"sb_destiny", name:"Destiny", teaser:"Mythos-Themebook: Prophezeiung, Fluch, unausweichliche Pflicht und vorherbestimmtes Schicksal", p:16,
+ { id:"sb_destiny", name:"Destiny", teaser:"Mythos-Themebook: Prophezeiung, Fluch, unausweichliche Pflicht und vorherbestimmtes Schicksal", p:16, hero:"tbh_destiny", tb:"Mythos",
   extra:["Eine Prophezeiung • ein Fluch • eine unausweichliche Pflicht • ein Pakt mit dem Teufel • ein in den Sternen geschriebenes Schicksal • der Auserwählte sein • ein an ein Objekt oder einen Text gebundenes Schicksal • ein Charakterzug, der deinen vorherbestimmten Untergang besiegelt • unheimliche Fügung, Glück oder Pech • ein Familienerbe"],
   text:[
    "In der Legende ist das Schicksal die mächtigste aller Kräfte. Die Macht mancher Mythoi stammt nicht aus großen Taten oder übernatürlichen Fähigkeiten, sondern aus den schimmernden Gesetzen, die sie in die Annalen des Schicksals oder in das Netz des Geschicks eingeschrieben haben. Die kleine Meerjungfrau ist dazu bestimmt, zu Meerschaum zu werden; König Artus war dazu bestimmt, das Schwert aus dem Stein zu ziehen und König von Britannien zu werden; es wurde prophezeit, dass der nordische Gott Heimdall den Trickstergott Loki erschlagen und von dessen Hand sterben wird; in der indischen Bhagavad Gita muss der Bogenschütze Arjuna trotz seines moralischen Dilemmas seine Kriegerpflichten erfüllen; Ikarus, Sohn des Daidalos, beachtete die Warnung seines Vaters nicht, und seine Hybris ließ ihn der Sonne zu nahe kommen; und die Nachkommen derer, die mit Lykanthropie verflucht wurden, würden sich in Vollmondnächten in Werwölfe verwandeln.",
@@ -168,7 +168,7 @@ CM_ORTE.sp_buecher = (CM_ORTE.sp_buecher||[]).concat([
   ],
   dangers:[] },
 
- { id:"sb_enclave", name:"Enclave", teaser:"Mythos-Themebook: ein Ort, an dem der Mist so dünn ist, dass ein Reich des Mythos durchbricht", p:20,
+ { id:"sb_enclave", name:"Enclave", teaser:"Mythos-Themebook: ein Ort, an dem der Mist so dünn ist, dass ein Reich des Mythos durchbricht", p:20, hero:"tbh_enclave", tb:"Mythos",
   extra:["Eine Tür, die zu einem legendären Ort führt • ein mythisches Gebäude, als gewöhnlich getarnt • eine Straße, die ein magisches Königreich verbirgt • eine Wohnung oder ein Haus voller Geheimnisse • eine geheime Dimension, in die du dich und andere transportieren kannst"],
   text:[
    "Manchmal wird der Mist an einem bestimmten Ort der City so dünn, dass dort ein Rift entstehen kann. Diese Orte, Enclaves genannt, sind oft verlassen, verfallen oder von der Gesellschaft vergessen (siehe Thin Places, SL-Toolkit, S. 20). Andere Male sind es Orte des Geheimnisses, die auf eine größere Wirklichkeit verweisen oder vom Übernatürlichen umhüllt sind, etwa Tempel, Friedhöfe, Buchhandlungen oder Inseln unverfälschter Natur inmitten des Urbanen und Künstlichen. In seltenen Fällen kann eine Enclave schlicht entstehen, weil ein Ort einem Ort im Mythos so stark ähnelt, dass die schiere Macht der Symbolik den Mist zerstreut.",

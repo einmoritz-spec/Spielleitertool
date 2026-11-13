@@ -645,3 +645,21 @@ body .scn:has(>.scn-r>.ch-grid):not(:has(>.scn-r>.blk))>.scn-r{position:static;b
 /* Gegner-Seiten mit nur einer Challenge: Karte unter dem Text über volle Breite */
 body .scn:has(>.scn-r>.scn-rh+.blk:last-child){display:block}
 body .scn:has(>.scn-r>.scn-rh+.blk:last-child)>.scn-r{position:static;border-left:0;padding:0;margin-top:14px}
+
+/* Challenge-Karte: Fußleiste (Sterne | Typ | S.) unten bündig, Aufgeklappt: Kopfzeile einzeilig, Limits als Kacheln */
+.ch-grid{align-items:stretch}
+.ch-grid>.ch.coll:not(.open){display:flex;flex-direction:column}
+.ch-grid>.ch.coll:not(.open) .ch-head{display:flex!important;flex-direction:row!important;flex-wrap:wrap;align-items:center;gap:4px 10px;flex:1}
+.ch-head b{flex:1 1 100%}
+.ch-grid .ch-head .chev{display:none}
+.ch-head .typ{order:3;flex:1 1 auto;color:#5a4a8a}
+.ch-head .stars{order:2}
+.ch-head .pgb{order:4;margin:0!important}
+.ch-grid>.ch.coll:not(.open) .ch-head>*:not(b){grid-column:auto!important}
+.ch.coll:not(.open) .ch-head::after{content:"";order:1;flex:1 1 100%;border-top:1px solid rgba(0,0,0,.15);margin:2px 0 0}
+.ch.coll.open .ch-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
+.ch.coll.open .ch-head b{flex:0 1 auto}
+.lim{display:inline-flex;flex-direction:column;align-items:flex-start;gap:5px;border:1px solid rgba(0,0,0,.22);border-radius:8px;padding:7px 10px;margin:4px 8px 4px 0;background:rgba(255,255,255,.4);vertical-align:top}
+.lim-l{flex:none}
+.ch-grid>.ch.coll.open .ch-head{flex-direction:row;align-items:center;justify-content:flex-start}
+.ch.coll.open .ch-head .pgb{margin-left:auto!important}

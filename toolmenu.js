@@ -56,7 +56,20 @@
   document.addEventListener("click", function(e){ if(dd && !(e.target.closest && (e.target.closest(".tm-dd")||e.target.closest(".tm-caret")))) close(); });
   document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
   window.addEventListener("resize", close);
-  function ensure(){ var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
+  /* Buch-Knopf im Header (überall): jede Seite definiert window.gmBook() -> {name, open} für das Buch des aktuellen Bereichs */
+  var bcss = document.createElement("style");
+  bcss.textContent = ".topbar .tm-book{flex:none;margin-left:auto;margin-right:8px;width:40px;height:40px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;font:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:background .15s}.topbar .tm-book:hover{background:rgba(127,127,127,.22)}.topbar .tm-book + .tb-burger{margin-left:0!important}";
+  document.head.appendChild(bcss);
+  function bookBtn(){
+    var bar = document.querySelector(".topbar"); if(!bar || !window.gmBook || bar.querySelector(".tm-book")) return;
+    var burger = bar.querySelector(".tb-burger"); if(!burger) return;
+    var b = document.createElement("button"); b.type = "button"; b.className = "tm-book"; b.setAttribute("aria-label","Buch öffnen"); b.innerHTML = '<svg viewBox="0 0 512 512" width="22" height="22" fill="none" stroke="currentColor" stroke-width="30" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M60 100H18V458H494V100H452"/><path d="M58 52C150 52 212 74 256 100V452C212 430 150 412 58 412Z"/><path d="M454 52C362 52 300 74 256 100V452C300 430 362 412 454 412Z"/></svg>';
+    function info(){ try{ return window.gmBook(); }catch(e){ return null; } }
+    b.addEventListener("mouseenter", function(){ var i = info(); b.title = i ? i.name + " öffnen" : "Buch öffnen"; });
+    b.addEventListener("click", function(e){ e.stopPropagation(); var i = info(); if(i && i.open) i.open(); });
+    var cs = getComputedStyle(burger); if(cs.color) b.style.color = cs.color; burger.insertAdjacentElement("beforebegin", b);
+  }
+  function ensure(){ bookBtn(); var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
   new MutationObserver(ensure).observe(document.documentElement, {childList:true, subtree:true});
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", init); else init();
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", function(){ init(); bookBtn(); }); else { init(); bookBtn(); }
 })();

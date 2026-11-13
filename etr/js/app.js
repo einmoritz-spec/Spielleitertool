@@ -116,7 +116,7 @@ function etRail(mi){
 function go(id){ if(location.hash==='#'+id){ render(); } else location.hash=id; }
 function buildMenu(){
   var p=document.getElementById("mmP");
-  p.innerHTML='<button class="mi'+(cur==="einstieg"?' on':'')+'" onclick="openMenu(false);go(\'einstieg\')"><b>Übersicht</b></button>'+ETR_MENU.map(function(x){return '<button class="mi'+(x.id===cur?' on':'')+'" onclick="openMenu(false);go(\''+x.id+'\')"><b>'+x.t+'</b></button>';}).join("")+'<button class="mi adv'+(isAdv(cur)?' on':'')+'" onclick="openMenu(false);go(\'karte\')"><b>Abenteuer starten</b></button><div id="bvSettingsHost"></div>'+(window.BV?'<button class="mi" onclick="openMenu(false);BV.open(\'etr\',1)"><b>Buch öffnen</b></button>':'');
+  p.innerHTML='<button class="mi'+(cur==="einstieg"?' on':'')+'" onclick="openMenu(false);go(\'einstieg\')"><b>Übersicht</b></button>'+ETR_MENU.map(function(x){return '<button class="mi'+(x.id===cur?' on':'')+'" onclick="openMenu(false);go(\''+x.id+'\')"><b>'+x.t+'</b></button>';}).join("")+'<button class="mi" onclick="openMenu(false);openSearch()"><b>Suche</b></button><button class="mi adv'+(isAdv(cur)?' on':'')+'" onclick="openMenu(false);go(\'karte\')"><b>Abenteuer starten</b></button><div id="bvSettingsHost"></div>'+(window.BV?'<button class="mi" onclick="openMenu(false);BV.open(\'etr\',1)"><b>Buch öffnen</b></button>':'');
   if(window.BV){ document.getElementById("bvSettingsHost").innerHTML=BV.settingsHTML(); BV.refresh(); }
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on",on); document.getElementById("mmP").classList.toggle("on",on); }

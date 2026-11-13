@@ -150,6 +150,7 @@
 <script src="js/app.js"></script>
 <script src="js/ostree.js"></script>
 <script src="../toolmenu.js"></script>
+<script>window.gmBook=function(){var p=parseHash(),k="Metro";if(p[0]==="adv"){var a=(typeof OS_ADV_LIST!=="undefined"?OS_ADV_LIST:[]).find(function(x){return x.id===p[1];});if(a&&a.buch&&BOOKS[a.buch])k=a.buch;}else if(p[0]==="tokyo"||p[0]==="fraktionen")k="Tokyo";return {name:BOOKS[k].name,open:function(){openBook(k,1);}};};</script>
 <script>window.UX_CFG={cols:[{box:".chsec",side:".ch,.blk-note"}]};</script>
 <script src="../shared/ux.js"></script>
 <script src="../shared/zeigen.js"></script>

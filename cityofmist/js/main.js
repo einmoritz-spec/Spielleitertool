@@ -1,5 +1,5 @@
 /* City of Mist – Übersetting: Start-Hub, Seitenaufbau, Burger-Menü. Hash-Schema siehe core.js. */
-var CM_BOOK = { hub:"cm", ss:"cm", rw:"rw" };
+var CM_BOOK = { hub:"rw", ss:"cm", rw:"rw", tb:"rw" };
 function hubTile(cls,t,d,onclick){ return '<button class="tile'+cls+'" onclick="'+onclick+'"><b>'+t+'</b><small>'+d+'</small></button>'; }
 function hubLinks(arr){ return '<nav class="hl">'+arr.map(function(x){return '<button class="chip" onclick="'+x[1]+'">'+x[0]+'</button>';}).join("")+'</nav>'; }
 function hubCard(cls,t,d,main,links){ return '<div class="hc'+cls+'"><button class="hh" onclick="'+main+'"><b>'+t+'</b><small>'+d+'</small></button>'+hubLinks(links)+'</div>'; }

@@ -130,6 +130,7 @@
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ll", books:[{key:"ll", name:"Local Legends (EN)"}], openSettings:function(){ openModal("settingsModal"); } });
 document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh();</script>
 <script src="../toolmenu.js"></script>
+<script>window.gmBook=function(){return {name:"Local Legends",open:function(){BV.open("ll",1);}};};</script>
 <script>window.UX_CFG={cols:[],noKeys:true};</script>
 <script src="../shared/ux.js"></script>
 <script src="../shared/zeigen.js"></script>

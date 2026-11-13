@@ -18,7 +18,7 @@ Erzähler-Tafel – Windows-Fassung (läuft offline, kein GitHub nötig)
 Start: Doppelklick auf Erzaehler-Tafel.exe  (Windows meldet beim ersten Mal evtl. "Der Computer wurde geschützt" -> "Weitere Informationen" -> "Trotzdem ausführen").
 Ordner an einen beliebigen Platz entpacken, z. B. C:\Spiele\Erzaehler-Tafel. Eine Desktop-Verknüpfung: Rechtsklick auf die .exe -> Senden an -> Desktop.
 Eigene Daten (Notizen, geladene PDFs) liegen im Benutzerprofil (%APPDATA%\Erzähler-Tafel) und bleiben bei Updates erhalten, wenn du nur den Ordner austauschst.
-Vollbild: F11. Zoom: Strg + Mausrad oder Strg +/-.
+Die App startet im Vollbild (ohne Titelleiste). F11 schaltet Vollbild ein/aus. Zoom: Strg + Mausrad oder Strg +/-.
 T
 ( cd "$OUT" && rm -rf work && zip -qr Erzaehler-Tafel-Windows.zip Erzaehler-Tafel )
 echo "Fertig: $OUT/Erzaehler-Tafel-Windows.zip"

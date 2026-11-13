@@ -43,7 +43,7 @@ else {
   app.on("second-instance", () => { if(win){ if(win.isMinimized()) win.restore(); win.focus(); } });
   app.whenReady().then(async () => {
     const port = await startServer(), origin = "http://127.0.0.1:" + port;
-    win = new BrowserWindow({ width: 1440, height: 900, minWidth: 420, minHeight: 500, backgroundColor: "#0d1014", title: "Erzähler-Tafel", autoHideMenuBar: true,
+    win = new BrowserWindow({ width: 1440, height: 900, minWidth: 420, minHeight: 500, backgroundColor: "#0d1014", title: "Erzähler-Tafel", autoHideMenuBar: true, fullscreen: true,
       icon: path.join(ROOT, "icons", "icon-512.png"), webPreferences: { contextIsolation: true, spellcheck: false } });
     win.webContents.setWindowOpenHandler(({ url }) => {
       if(url.startsWith(origin)) return { action: "allow" };
@@ -51,7 +51,13 @@ else {
       return { action: "deny" };
     });
     win.webContents.on("will-navigate", (e, url) => { if(!url.startsWith(origin)){ e.preventDefault(); if(/^https?:/i.test(url)) shell.openExternal(url); } });
+    win.webContents.on("before-input-event", (e, input) => {
+      if(input.type !== "keyDown") return;
+      if(input.key === "F11"){ e.preventDefault(); win.setFullScreen(!win.isFullScreen()); }
+      else if(input.key === "Escape" && win.isFullScreen() && !input.control && !input.alt){ /* Esc nur weiterreichen, Vollbild bleibt */ }
+    });
     win.on("closed", () => { win = null; });
+    win.webContents.on("did-finish-load", () => { win.webContents.insertCSS("::-webkit-scrollbar{width:0!important;height:0!important;display:none!important}"); });
     win.loadURL(origin + "/");
   });
   app.on("window-all-closed", () => app.quit());

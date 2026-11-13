@@ -301,3 +301,6 @@ mark{background:var(--yel)}
 body[data-pn=com] .pn-btn{display:none!important}
 .railshell{column-gap:16px}
 .orail{gap:16px!important}
+/* Kästen ohne Inhalt (nur Frage-/Hinweis-Überschrift): als schmales Banner, ohne leeren Körper */
+.bx.bx-kopf{display:inline-block;max-width:100%}
+.bx.bx-kopf>header{padding:8px 16px}

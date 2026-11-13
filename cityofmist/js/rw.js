@@ -29,7 +29,7 @@ function rwBlocks(bs){
       continue;
     }
     i++;
-    if(b.box){ var x=b.box; h+='<section class="bx bx-'+x.k+'">'+(x.t||x.p?'<header><b>'+md(x.t||"")+'</b>'+(x.p?'<span class="pg">S. '+x.p+'</span>':'')+'</header>':'')+'<div class="bxb">'+rwBlocks(x.b)+'</div></section>'; }
+    if(b.box){ var x=b.box; h+='<section class="bx bx-'+x.k+((x.b&&x.b.length)?'':' bx-kopf')+'">'+(x.t||x.p?'<header><b>'+md(x.t||"")+'</b>'+(x.p?'<span class="pg">S. '+x.p+'</span>':'')+'</header>':'')+(x.b&&x.b.length?'<div class="bxb">'+rwBlocks(x.b)+'</div>':'')+'</section>'; }
     else if(b.tbl){ var t=b.tbl; h+='<div class="tblw"><table class="rwt">'+(t.t?'<caption>'+md(t.t)+'</caption>':'')+(t.h&&t.h.length?'<thead><tr>'+t.h.map(function(c){return '<th>'+md(c)+'</th>';}).join("")+'</tr></thead>':'')+'<tbody>'+t.r.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+md(String(c))+'</td>';}).join("")+'</tr>';}).join("")+'</tbody></table></div>'; }
     else if(b.fq){ var q=b.fq; h+='<div class="fq"><span class="fql">'+esc(q.l||"")+'</span><div><b class="fqq">'+md(q.q)+'</b>'+((q.tags&&q.tags.length)?'<p class="fqt">'+q.tags.map(function(g){return '<span class="tg ex">'+esc(g)+'</span>';}).join("")+'</p>':'')+'</div></div>'; }
     else if(b.tg){ var g=b.tg; h+='<div class="tgrow">'+(g.t?'<u>'+md(g.t)+'</u>':'')+g.i.map(function(s){return '<span class="tg '+(g.k||"n")+'">'+esc(s)+'</span>';}).join("")+'</div>'; }
@@ -38,7 +38,7 @@ function rwBlocks(bs){
   }
   return h;
 }
-function rwIsSide(b){ return b&&typeof b==="object"&&(b.box||b.tbl||b.dlg); }
+function rwIsSide(b){ return b&&typeof b==="object"&&((b.box&&b.box.b&&b.box.b.length)||b.tbl||b.dlg); }
 function rwCard(e,id,secId){
   var tb=rwTb(secId,e), doc=rwDoc(secId,e), figs=rwFigHtml(secId,e);
   var body=e.body||[], main=body.filter(function(b){return !rwIsSide(b);}), side=body.filter(rwIsSide).concat(e.aside||[]);

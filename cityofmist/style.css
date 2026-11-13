@@ -143,3 +143,27 @@ a.pg-link{color:var(--mist)!important}
 .tbdet-body .rwbn{float:left;width:min(46%,520px)!important;max-height:none!important;height:auto;object-fit:contain!important;margin:0 24px 14px 0!important}
 @media(max-width:760px){.tbdet-body .rwbn{float:none;width:100%!important;margin:0 0 14px!important}}
 .tbdet-body .rwbn{aspect-ratio:1100/760;object-fit:cover!important;object-position:center top!important}
+
+/* Themenbuch-Detail: einheitlicher Kopf, Abschnitte, Varianten */
+.tbvs{display:flex;gap:6px;margin:0 0 12px}.tbvs button{border:1px solid #cdbf98;background:#fbf6e6;border-radius:16px;padding:4px 12px;font:600 12px var(--cond);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.tbvs button.on{background:#c4177a;border-color:#c4177a;color:#fff}
+.tbdetail .rwa>h3,.tbdetail .rwa>.rwbn{display:none}
+.tbdetail .tbhero img{max-height:none;aspect-ratio:1100/460;object-position:center 22%}
+.tbsecs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.tbsec{grid-column:1/-1;min-width:0}.tbsec.tbsec-half{grid-column:auto}
+.tbsec>h4.lh:first-child{margin-top:0}
+.fqgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;align-items:start}.fqgrid .fq{margin:0}
+@media(max-width:760px){.tbsecs{grid-template-columns:1fr}.tbsec.tbsec-half{grid-column:1/-1}}
+/* A: Raster-Karten */
+.tbv-a .tbsec{background:#fffdf5;border:1px solid #d8cba3;border-top:3px solid #c4177a;border-radius:10px;padding:14px 16px}
+.tbv-a .tbsec:first-child{border-top-color:#2a1c44}
+/* B: Stärken und Schwächen nebeneinander, Rest offen */
+.tbv-b .tbsec-half{background:#fffdf5;border:1px solid #d8cba3;border-radius:10px;padding:14px 16px}.tbv-b .tbsec-half .fqgrid{grid-template-columns:1fr}
+.tbv-b .tbsec:not(.tbsec-half)>h4.lh{border-bottom:2px solid #c4177a;padding-bottom:4px}
+/* C: dunkle Themenkarte */
+.tbv-c .tbsec{background:linear-gradient(180deg,#2a1c44,#1d1330);color:#efe8ff;border-radius:12px;padding:16px 18px;border:1px solid #4a2f7a}
+.tbv-c .tbsec h4.lh,.tbv-c .tbsec h5.lh2{color:#f6c92b}.tbv-c .tbsec p,.tbv-c .tbsec li{color:#e8e0f6}
+.tbv-c .fq{background:rgba(255,255,255,.06);border-color:#5a3d8f}.tbv-c .fq .fqq{color:#fff}.tbv-c .fql{background:#f6c92b;color:#2a1c44}
+.tbv-c .fq .tgrow span,.tbv-c .fq .tg{background:#3a2863;border-color:#6a4aa8;color:#f2ecff}
+.tbdetail .tbhero img{aspect-ratio:1100/330!important}
+.tbv-b .tbsec-half{background:none;border:0;padding:0}.tbv-b .tbsec-half .fqgrid{grid-template-columns:1fr}
+.tbv-b .tbsec:not(.tbsec-half) .fqgrid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.tbv-b .fq{background:transparent;border:0;border-left:3px solid #c4177a;border-radius:0;padding:4px 10px}

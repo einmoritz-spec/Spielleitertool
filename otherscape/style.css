@@ -784,3 +784,11 @@ details.kit{border-top-color:var(--tone)!important}.kb-txt p,.kb-concept{max-wid
 /* Tokyo-Header: großes Panorama, mittig, mit Glow */
 .os-banner[data-k=tokyo]{max-width:720px;margin:4px auto 20px;border-radius:14px;border:1px solid #3a1d63;box-shadow:0 0 30px rgba(255,43,214,.22),0 6px 20px rgba(0,0,0,.5)}
 .os-fh-img .os-art img{aspect-ratio:auto!important;object-fit:contain!important;height:auto!important}
+
+/* Tokyo: breiter, cineastischer Header über der ganzen Seite */
+.os-cine{position:relative;margin:0 0 20px;border-radius:14px;overflow:hidden;border:1px solid #3a1d63;box-shadow:0 0 36px rgba(255,43,214,.2),0 10px 30px rgba(0,0,0,.55);cursor:zoom-in;aspect-ratio:2.6/1;max-height:460px}
+.os-cine img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block;transform-origin:60% 60%;animation:osCine 28s ease-in-out infinite alternate}
+.os-cine::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(7,11,18,.35),transparent 22%,transparent 65%,rgba(7,11,18,.75)),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.45))}
+@keyframes osCine{from{transform:scale(1)}to{transform:scale(1.07)}}
+@media(prefers-reduced-motion:reduce){.os-cine img{animation:none}}
+@media(max-width:700px){.os-cine{aspect-ratio:16/9;border-radius:10px}.os-cine img{object-position:50% 58%}}

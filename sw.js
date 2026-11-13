@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v382home";
+const VERSION = "v383nav";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -587,6 +587,7 @@ const FILES = [
   "js/ui/creator-modal.js",
   "css/base.css",
   "css/parchment.css",
+  "shared/stickynav.css",
   "css/home.css",
   "assets/fonts/bebas-neue-latin-400-normal.woff2",
   "assets/fonts/oswald-latin-500-normal.woff2",

@@ -10,7 +10,7 @@
 .ov-card{position:relative;display:flex;flex-direction:column;text-align:left;padding:10px 10px 0;background:#fbf6e6;border:1px solid #c9b98f;border-radius:3px;
   box-shadow:2px 4px 12px rgba(60,40,15,.35);cursor:pointer;font:inherit;color:#2a251d;transform:rotate(var(--r,0deg));transition:transform .15s,box-shadow .15s}
 .ov-card:hover,.ov-card:focus-visible{transform:rotate(0) translateY(-3px);box-shadow:3px 8px 18px rgba(60,40,15,.45);outline:none}
-.ov-photo{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#e8dcc0;border:1px solid #bda97a}
+.ov-photo{position:relative;display:block;aspect-ratio:1229/1589;overflow:hidden;background:#e8dcc0;border:1px solid #bda97a}
 .ov-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .ov-pin{position:absolute;left:50%;top:-1px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e5604d,var(--brick-d));box-shadow:0 2px 3px rgba(0,0,0,.5);display:none}
 .ov-cap{display:flex;flex-direction:column;gap:3px;padding:11px 4px 14px}
@@ -26,7 +26,7 @@
   .ov-grid{gap:20px 12px;padding:6px 0 24px}
   .ov-card{padding:6px 6px 0}.ov-cap{padding:9px 2px 11px}
   .ov-name{font-size:18px}.ov-sub{font-size:12px}.ov-num{font-size:10px}
-  .ov-photo{aspect-ratio:4/3}
+  .ov-photo{aspect-ratio:1229/1589}
   .ov-card::before{width:56px;height:15px;margin-left:-28px;top:-8px}
 }
 @media (max-width:560px){.ov-card:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;gap:10px;align-items:stretch}.ov-card:last-child:nth-child(odd) .ov-photo{flex:0 0 46%;aspect-ratio:auto}.ov-card:last-child:nth-child(odd) .ov-cap{justify-content:center}}

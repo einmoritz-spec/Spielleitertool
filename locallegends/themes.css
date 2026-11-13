@@ -6,7 +6,6 @@
 .ov-logo{height:clamp(84px,17vh,200px);margin-bottom:8px}
 .ov-stage .city-map img{max-height:calc(100vh - 60px - clamp(84px,17vh,200px) - 80px);width:auto;max-width:100%;margin:0 auto}
 .ov-stage .city-map-box{text-align:center}.ov-stage .city-scroll{overflow:visible}
-.ov-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
 .shell:has(.ov-stage){max-width:1500px}
 
 /* ---- gemeinsame violette Basis (a, b, c) ---- */

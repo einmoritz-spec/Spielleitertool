@@ -42,6 +42,8 @@ if(!lock){ app.quit(); }
 else {
   app.on("second-instance", () => { if(win){ if(win.isMinimized()) win.restore(); win.focus(); } });
   app.whenReady().then(async () => {
+    /* Alte Service-Worker/Caches früherer Versionen verwerfen, damit nach einem Update nie veraltete Dateien laufen */
+    try { await require("electron").session.defaultSession.clearStorageData({ storages: ["serviceworkers", "cachestorage"] }); await require("electron").session.defaultSession.clearCache(); } catch(e){}
     const port = await startServer(), origin = "http://127.0.0.1:" + port;
     win = new BrowserWindow({ width: 1440, height: 900, minWidth: 420, minHeight: 500, backgroundColor: "#0d1014", title: "Erzähler-Tafel", autoHideMenuBar: true, fullscreen: true,
       icon: path.join(ROOT, "icons", "icon-512.png"), webPreferences: { contextIsolation: true, spellcheck: false } });

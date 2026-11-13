@@ -378,3 +378,37 @@ html,body{overflow-x:hidden}
 .ovc-b .hl .chip{white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}
 .ovc-b .hl .chip:last-child{flex:none}
 @media(max-width:640px){.ovc-hero{height:clamp(170px,46vw,260px)}}
+
+/* Startseiten Grundregelwerk / Shadows & Showdowns */
+.cs-head{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;height:116px;margin-bottom:16px;border:1.5px solid var(--text);border-radius:4px;overflow:hidden;padding:0 20px 14px;background:var(--violet)}
+.cs-head img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;opacity:.55}
+.cs-head:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,10,46,.92),rgba(26,10,46,.15) 70%)}
+.cs-head>*{position:relative;z-index:2}
+.cs-head h1{margin:0;font:400 40px/1 var(--disp);letter-spacing:.05em;color:#fff;text-transform:uppercase}
+.cs-head span{font:600 14px var(--disp);letter-spacing:.12em;color:var(--neon);text-transform:uppercase}
+.cs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.cs-grid.cs-four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cs-card{position:relative;background:var(--panel);border:1.5px solid var(--text);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 0 rgba(26,10,46,.12),0 14px 26px -12px rgba(26,10,46,.45);transition:transform .25s,box-shadow .25s}
+.cs-card:hover{transform:translateY(-4px);box-shadow:0 2px 0 rgba(26,10,46,.12),0 20px 32px -12px rgba(26,10,46,.55)}
+.cs-img{all:unset;display:block;cursor:pointer;aspect-ratio:2.9/1;border-bottom:3px solid var(--neon);overflow:hidden;background:var(--violet)}
+.cs-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.25,1),filter .35s}
+.cs-card:hover .cs-img img{transform:scale(1.05);filter:saturate(1.2)}
+.cs-b{padding:10px 16px 14px}
+.cs-b h3,.cs-ov b{all:unset;display:block;cursor:pointer;font:400 26px/1.05 var(--disp);letter-spacing:.05em;color:var(--text)}
+.cs-b h3 em,.cs-ov b em{font-style:normal;color:var(--mag2);margin-right:8px}
+.cs-b p{margin:6px 0 0;font-size:14px;color:var(--text-faint,#6b5a86)}
+/* Inhalt beim Drüberfahren */
+.cs-ov{position:absolute;inset:0;display:flex;flex-direction:column;gap:10px;padding:14px 16px;background:#1a0a2e;opacity:0;pointer-events:none;transition:opacity .25s .2s}
+.cs-ov b{color:#fff}
+.cs-rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2px 14px;align-content:start;overflow:auto}
+.cs-rows button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:3px 6px;border-radius:3px;font:400 17px/1.15 var(--disp);letter-spacing:.04em;color:#e8e0f6}
+.cs-rows button i{font-style:normal;font-size:12px;color:var(--neon);white-space:nowrap}
+.cs-rows button:hover{background:var(--neon);color:#1a0a2e}.cs-rows button:hover i{color:#1a0a2e}
+@media (hover:hover) and (min-width:761px){.cs-card:hover .cs-ov,.cs-card:focus-within .cs-ov{opacity:1;pointer-events:auto}}
+@media(hover:none),(max-width:760px){.cs-ov{display:none}}
+@media(max-width:1100px){.cs-grid,.cs-grid.cs-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.cs-grid,.cs-grid.cs-four{grid-template-columns:1fr}.cs-head{height:120px}.cs-head h1{font-size:30px}}
+.cs{display:block}
+.cs-four .cs-img{aspect-ratio:4/3}
+.cs-four .cs-img img{height:128%;object-position:50% 0}
+.cs-four .cs-rows{grid-template-columns:1fr}

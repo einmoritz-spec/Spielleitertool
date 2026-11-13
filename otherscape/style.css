@@ -426,7 +426,7 @@ button.blk-ref:hover{background:rgba(169,123,255,.2)}
 .os-home{display:flex;flex-direction:column;gap:14px}
 .os-hero{position:relative;border-radius:16px;overflow:hidden;min-height:clamp(190px,26vw,300px);display:flex;align-items:flex-end;background:#12061f url(img/katalog/stimmung-schlafkapseln.webp) 50% 40%/cover;border:1px solid #3a1d63;box-shadow:0 0 0 1px rgba(255,43,214,.25),0 10px 40px rgba(255,43,214,.18)}
 .os-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,11,18,.92) 5%,rgba(26,8,58,.55) 55%,rgba(7,11,18,.25)),linear-gradient(to top,rgba(7,11,18,.85),transparent 60%)}
-.os-hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px);pointer-events:none}
+.os-hero::after{content:"";position:absolute;inset:0;pointer-events:none}
 .os-hero-in{position:relative;padding:22px clamp(16px,3vw,34px)}
 .os-logo{margin:0;font:900 italic clamp(2.4rem,9vw,5.6rem)/.95 "Orbitron","Rajdhani","Arial Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-shadow:0 0 6px #ff2bd6,0 0 22px #ff2bd6,0 0 48px rgba(255,43,214,.7),3px 3px 0 #19e3c1}
 .os-colon{color:#19e3c1;text-shadow:0 0 8px #19e3c1,0 0 28px #19e3c1;margin-right:.06em}

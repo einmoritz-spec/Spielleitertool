@@ -197,7 +197,7 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
 @media (max-width:480px){.lvgrid .cases:has(.has-img){grid-template-columns:repeat(2,minmax(0,1fr))}.case-card.has-img b{font-size:1rem}}
 
 /* ===== B · Fallakte (Aktenmappe) ===== */
-body{background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(120,90,40,.07) 31px 32px),radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%),#d9c9a3!important}
+body{background:radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%),#d9c9a3!important}
 .level{background:#f3e9cc!important;border:1px solid #b9a578!important;border-top:1px solid #b9a578!important;border-radius:4px 14px 6px 6px;margin-top:20px;overflow:visible;box-shadow:0 6px 14px rgba(70,50,15,.3),0 0 0 6px #dccaa0,0 0 0 7px #b39d6c!important}
 .level::before{content:"";position:absolute;left:18px;top:-30px;height:24px;width:44%;background:var(--tone);border-radius:10px 10px 0 0;opacity:.92}
 .level{position:relative}

@@ -123,8 +123,8 @@ function renderOverview(){
   const tiles = ds.map((d,i)=>{
     const ok = d.status==="ready", img = "img/titel/"+d.id+".webp";
     const inner = `<span class="ov-photo"><img src="${img}" alt="${d.title}" loading="lazy" draggable="false"><i class="ov-pin"></i></span>
-      <span class="ov-cap"><span class="ov-num">Bezirk ${String(d.num).padStart(2,"0")}</span><b class="ov-name">${d.title}</b><span class="ov-sub">${d.sub||""}</span></span>${ok?"":'<span class="ov-badge">In Vorbereitung</span>'}`;
-    return ok ? `<button class="ov-card" style="--r:${[-.7,.5,-.3,.8,-.5,.4][i%6]}deg" onclick="goDistrict('${d.id}')">${inner}</button>`
+      ${ok?"":'<span class="ov-badge">In Vorbereitung</span>'}`;
+    return ok ? `<button class="ov-card" style="--r:${[-.7,.5,-.3,.8,-.5,.4][i%6]}deg" onclick="goDistrict('${d.id}')" aria-label="${d.title}">${inner}</button>`
               : `<div class="ov-card off">${inner}</div>`;
   }).join("");
   return `<section class="ov-stage">${renderCityMap()}</section>

@@ -386,6 +386,7 @@ function _renderDistrictView(id){
   html += renderDistrictTabs(c, id, active);
 
   if(active==="overview"){
+    html += llGalerie(id);
     html += renderMapPanel(id);
     html += `<div class="readaloud">${c.quote.text}<br><span style="font-size:11.5px;opacity:.7;">${c.quote.author}</span></div>
       <div class="card"><p>${c.intro}</p></div>`;
@@ -938,3 +939,6 @@ function llPips(root){
   while((t=w.nextNode())) if(/\(\+y+\)/.test(t.nodeValue)) n.push(t);
   n.forEach(function(t){ t.nodeValue=t.nodeValue.replace(/\(\+(y+)\)/g,function(m,y){return "+"+"⬥".repeat(y.length);}); });
 }
+
+/* Illustrationen aus dem Buch als Bilderband im Bezirk */
+function llGalerie(id){ const g=(typeof LL_GALERIE!=="undefined")&&LL_GALERIE[id]; return g&&g.length?`<div class="ll-galerie">${g.map(src=>`<img src="${src}" alt="" loading="lazy" draggable="false" onclick="mapFull(this.src)">`).join("")}</div>`:""; }

@@ -441,3 +441,7 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 .map-toggle{position:absolute;top:10px;left:10px;right:auto;flex-direction:column;border-radius:10px}
 .map-toggle button{padding:6px 9px;font-size:12px;font-weight:700}
 .city-map{position:relative}
+
+.ll-galerie{display:flex;gap:10px;overflow-x:auto;margin:0 0 16px;padding-bottom:4px;scrollbar-width:thin}
+.ll-galerie img{height:190px;width:auto;flex:none;border-radius:8px;cursor:zoom-in;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+@media(max-width:700px){.ll-galerie img{height:150px}}

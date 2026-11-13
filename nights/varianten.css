@@ -1,0 +1,44 @@
+/* TEMP: drei Designvarianten für die Kampagnenübersicht (?v=a|b|c) */
+/* ===== A · Neon-Noir ===== */
+html[data-v=a] body{background:radial-gradient(900px 500px at 15% -10%,#3a1650 0%,transparent 60%),radial-gradient(900px 500px at 90% 0%,#0f3a4a 0%,transparent 60%),#0d0b12!important}
+html[data-v=a] .lvgrid{gap:22px}
+html[data-v=a] .level{background:linear-gradient(180deg,#17131f,#100d16)!important;border:1px solid color-mix(in srgb,var(--tone) 55%,#000)!important;border-top-width:1px!important;border-radius:18px;box-shadow:0 0 0 1px #0008,0 0 22px color-mix(in srgb,var(--tone) 35%,transparent),inset 0 0 40px color-mix(in srgb,var(--tone) 10%,transparent)!important}
+html[data-v=a] .level.ice{--tone:#4fc3ff}html[data-v=a] .level.amber{--tone:#b388ff}html[data-v=a] .level.neon{--tone:#ff3d9a}html[data-v=a] .level.gold{--tone:#ffd23f}
+html[data-v=a] .level-head h2{color:var(--tone)!important;text-shadow:0 0 12px color-mix(in srgb,var(--tone) 70%,transparent);letter-spacing:.14em}
+html[data-v=a] .level-head .lv-sub{color:#a79fb8!important}
+html[data-v=a] .lv-intro{border-color:var(--tone)!important;color:var(--tone)!important;box-shadow:0 0 10px color-mix(in srgb,var(--tone) 30%,transparent)}
+html[data-v=a] .case-card.has-img{background:#1b1624!important;border:1px solid color-mix(in srgb,var(--tone) 45%,#000)!important}
+html[data-v=a] .case-card.has-img:hover{box-shadow:0 0 20px color-mix(in srgb,var(--tone) 60%,transparent);border-color:var(--tone)!important}
+html[data-v=a] .case-card b{color:#f4eefc!important}html[data-v=a] .case-card small{color:#9a90ad!important}
+html[data-v=a] .case-card .nr{color:var(--tone)!important;text-shadow:0 0 8px color-mix(in srgb,var(--tone) 60%,transparent)}
+html[data-v=a] .case-card .cc-img{border-bottom:2px solid var(--tone)}
+/* ===== B · Fallakte (Aktenmappe) ===== */
+html[data-v=b] body{background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(120,90,40,.07) 31px 32px),radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%),#d9c9a3!important}
+html[data-v=b] .level{background:#f3e9cc!important;border:1px solid #b9a578!important;border-top:1px solid #b9a578!important;border-radius:4px 14px 6px 6px;margin-top:20px;overflow:visible;box-shadow:0 6px 14px rgba(70,50,15,.3),0 0 0 6px #dccaa0,0 0 0 7px #b39d6c!important}
+html[data-v=b] .level::before{content:"";position:absolute;left:18px;top:-30px;height:24px;width:44%;background:var(--tone);border-radius:10px 10px 0 0;opacity:.92}
+html[data-v=b] .level{position:relative}
+html[data-v=b] .level-head h2{font-family:"Courier New",monospace;letter-spacing:.12em;border-bottom:2px dashed #b9a578;padding-bottom:3px}
+html[data-v=b] .level-head .lv-sub{font-style:italic}
+html[data-v=b] .case-card.has-img{background:#fffdf5!important;border:1px solid #cdbf98!important;border-radius:2px;padding:8px 8px 0!important;box-shadow:0 3px 8px rgba(60,40,10,.35);transform:rotate(-1.2deg)}
+html[data-v=b] .case-card.has-img:nth-child(even){transform:rotate(1deg)}
+html[data-v=b] .case-card.has-img:hover{transform:rotate(0) translateY(-3px) scale(1.02);z-index:3}
+html[data-v=b] .case-card.has-img::before{content:"";position:absolute;top:-6px;left:50%;width:54px;height:16px;margin-left:-27px;background:rgba(235,215,140,.85);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.25);z-index:3}
+html[data-v=b] .case-card .cc-img{border-bottom:none;filter:sepia(.18) contrast(1.03)}
+html[data-v=b] .case-card .cc-txt{padding:8px 4px 10px}
+html[data-v=b] .case-card .nr{font-family:"Courier New",monospace}
+/* ===== C · Comic-Panel ===== */
+html[data-v=c] body{background:radial-gradient(circle,rgba(90,60,20,.16) 1.2px,transparent 1.6px) 0 0/9px 9px,#efe2bf!important}
+html[data-v=c] .level{background:#fff8e4!important;border:3px solid #1b1610!important;border-radius:6px;box-shadow:7px 7px 0 #1b1610!important;margin-bottom:10px}
+html[data-v=c] .level-head{background:var(--tone);margin:0;border-bottom:3px solid #1b1610;transform:none}
+html[data-v=c] details.level>summary.level-head{padding:10px 44px 10px 16px!important}
+html[data-v=c] .level-head h2{color:#fff!important;font-family:Impact,"Arial Narrow Bold",sans-serif;font-weight:900;letter-spacing:.08em;text-shadow:2px 2px 0 #1b1610;font-size:1.35rem}
+html[data-v=c] .level-head .lv-sub{color:#fff!important;opacity:.92}
+html[data-v=c] details.level>summary.level-head::after{border-color:#fff}
+html[data-v=c] .lv-intro{background:#fff;color:#1b1610!important;border:2px solid #1b1610!important;border-radius:3px;font-weight:700}
+html[data-v=c] .level .cases{padding:14px!important;gap:12px!important}
+html[data-v=c] .case-card.has-img{border:3px solid #1b1610!important;border-radius:2px;background:#fff!important;box-shadow:4px 4px 0 #1b1610;transition:transform .1s,box-shadow .1s}
+html[data-v=c] .case-card.has-img:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--tone)}
+html[data-v=c] .case-card .cc-img{border-bottom:3px solid #1b1610}
+html[data-v=c] .case-card .cc-txt{background:#fff6d6}
+html[data-v=c] .case-card .nr{background:var(--tone);color:#fff!important;padding:1px 7px;justify-self:start;font-weight:800}
+html[data-v=c] .case-card b{text-transform:uppercase;font-family:Impact,"Arial Narrow Bold",sans-serif;font-weight:400;letter-spacing:.03em;font-size:1.1rem}

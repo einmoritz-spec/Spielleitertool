@@ -61,6 +61,7 @@ function renderHome(){
   ].concat(ex.length?[{t:"Buchteile", go:ex[0][2], rows:ex}]:[]), adv:{t:"Kampagne", sub:n+" Fälle", go:"goCampaign()"}});
 }
 function renderCampaign(){
+  { const q = new URLSearchParams(location.search).get("v"); if(q) document.documentElement.dataset.v = q; }
   const C = camp();
   let h = "";
   for(const L of C.levels){

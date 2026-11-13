@@ -457,3 +457,4 @@ body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Ne
 .ll-art.la-port{float:right;width:min(24%,180px);margin:0 0 10px 16px}
 .danger-card:has(.ll-art){display:flow-root}
 @media(max-width:700px){.ll-art.la-land{float:none;width:100%;margin:0 0 10px}.ll-art.la-sq{width:150px}.ll-art.la-port{width:120px}}
+@media(max-width:700px){.ll-art.la-sq,.ll-art.la-port,.ll-art:not([class*=la-]){float:none!important;width:auto!important;max-width:100%;max-height:240px;margin:6px auto 12px!important;display:block}}

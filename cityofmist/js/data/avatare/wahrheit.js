@@ -1,6 +1,7 @@
 /* Avatare – Die Wahrheit (S. 130–137). */
 CM_ORTE.wahrheit = [
  { id:"was", name:"Was ist die Wahrheit?", teaser:"Der geheime Rat der Avatare, der die City seit ihren frühen Tagen kontrolliert", p:130,
+  fig:[["ss_wahrheit_rat",""]],
   text:[
    "Wer schläft, weiß nichts. Selbst jene, die erwacht sind, sind nur halb bewusst und ringen mit ihrer Identitätskrise, während ihre Mythoi ihr Privatleben verwüsten. Doch die Wahrheit liegt viel tiefer, weit unter der Oberfläche und dem wogenden Mist. Unsichtbar regiert sie alles in der City. Sie ist der Status quo, die Art, wie die Dinge sind. Ihr Wirken ist überall, und doch erfahren nur die bewusstesten Rifts je von ihrer Existenz. Ihre einzelnen Bestandteile wandeln sich ständig, aber die Wahrheit bleibt konstant. Sie ist das Alpha und das Omega. Sie ist die City selbst.",
    "Die Wahrheit ist der geheime Rat von Avataren, der die City seit ihren frühen Tagen kontrolliert. Ihr Griff auf die City hängt von einem unsicheren Waffenstillstand zwischen einer Handvoll langjähriger Avatare und den Gatekeepern ab, einem Waffenstillstand, der allen Parteien erlaubt, ihre Agenden in der City weiter zu verfolgen und einander zu unterstützen, oder zumindest, ohne dass die anderen sich in ihre Angelegenheiten einmischen. Die Mitglieder der Wahrheit wollen den Status quo der City bewahren, oft auf Kosten ihrer Sleeper- und Rift-Bewohner.",

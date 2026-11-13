@@ -35,7 +35,7 @@ function ortCard(o){
   var useCol=side||(them&&tl>600);
   var text=(short?'':figs)+o.text.map(function(t){return t.indexOf('## ')===0?'<h4 class="lh">'+esc(t.slice(3))+'</h4>':'<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(function(){var ls=o.listen||[],h=ls.map(function(l){return '<div class="lbox"><h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul></div>';}).join("");return ls.length>2?'<div class="lgrid">'+h+'</div>':h;})();
   var dang=o.dangers.map(function(d){return dangerCard(d,!side);}).join("");
-  return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
+  return '<details class="ort'+(o.dangers.length&&tl<200&&!side?' short':'')+'" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
    (o.hero?tbHero(o):'')+(o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
    '<div class="ocols'+(useCol?'':' solo')+'">'+(useCol?'<aside class="oside">'+them+(side?dang:'')+'</aside>':'')+'<div class="otxt">'+text+(useCol?'':them)+'</div></div>'+
    (o.dangers.length&&!side?'<aside class="dgrid'+(short?' withimg':'')+'">'+(short?figs:'')+dang+'</aside>':'')+'</div></details>';
@@ -46,7 +46,7 @@ function pills(base,list,curId){ return '<nav class="pills">'+list.map(function(
 function sectionHead(s){ return '<div class="sh"><h2>'+esc(s.t)+'</h2><span class="en">'+esc(s.en||"")+'</span>'+pg(s.p)+'</div>'; }
 function hero(n){ return '<img class="hero" src="img/h_'+n+'.webp" alt="">'; }
 function orteRail(es,names){
-  var cards=es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort"','<details class="ort" open'):stub(e[0],e[1]); }).join("");
+  var cards=es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort','<details open class="ort'):stub(e[0],e[1]); }).join("");
   var nav=es.map(function(e){ var o=names[e[0]]; return o?'<a href="#o-'+o.id+'" onclick="document.getElementById(\'o-'+o.id+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(e[0].split(':')[0])+'</a>':'<span class="nolink">'+esc(e[0].split(':')[0])+'</span>'; }).join("");
   return '<div class="orail"><nav class="onav">'+nav+'</nav><div class="orte">'+cards+'</div></div>';
 }
@@ -61,7 +61,7 @@ function pageSpieler(r){
   var list=CM_NAV.spieler, s=list.filter(function(x){return x.id===r.sub;})[0]||list[0];
   var have=CM_ORTE["sp_"+s.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
   var es=(window.CM_SP_E&&CM_SP_E[s.id])||s.items;
-  var body=have.length?'<div class="orail">'+treeNav(list,s.id,'spieler',es,names)+'<div class="omain"><section class="blk flat">'+sectionHead(s)+'<div class="orte">'+es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort"','<details class="ort" open'):stub(e[0],e[1]); }).join("")+'</div></section></div></div>':"";
+  var body=have.length?'<div class="orail">'+treeNav(list,s.id,'spieler',es,names)+'<div class="omain"><section class="blk flat">'+sectionHead(s)+'<div class="orte">'+es.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort','<details open class="ort'):stub(e[0],e[1]); }).join("")+'</div></section></div></div>':"";
   if(!have.length) return pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
   return have.length?body:pills("spieler",list,s.id)+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
 }
@@ -83,7 +83,7 @@ function pageSL(r){
   if(!cats) return h+'<section class="blk">'+sectionHead(s)+itemsList(s.items)+'</section>';
   var cat=cats.filter(function(c){return c.id===r.cat;})[0]||cats[0];
   var have=CM_ORTE[cat.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
-  var cards=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort"','<details class="ort" open'):stub(e[0],e[1]); }).join("");
+  var cards=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort','<details open class="ort'):stub(e[0],e[1]); }).join("");
   var nav=treeNav(cats,cat.id,'sl/'+s.id,cat.e,names,function(c){return (CM_ORTE[c.id]||[]).length;});
   return h+'<div class="orail">'+nav+'<div class="omain">'+orgHtml(cat.id)+'<section class="blk flat">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+cards+'</div></section></div></div>';
 }

@@ -345,3 +345,12 @@ body[data-pn=com] .pn-btn{display:none!important}
 .dgrid.withimg>.imf.im-port{width:150px}.dgrid.withimg>.imf.im-tall{width:100px}.dgrid.withimg>.imf.im-sq{width:180px}.dgrid.withimg>.imf.im-land{width:300px}.dgrid.withimg>.imf.im-strip{width:100%}
 .dgrid.withimg>.dg{flex:1 1 260px;max-width:380px}
 @media(max-width:700px){.dgrid.withimg{flex-wrap:nowrap;gap:12px}.dgrid.withimg>.imf.im-port{width:100px}.dgrid.withimg>.imf.im-tall{width:70px}.dgrid.withimg>.dg{flex:1 1 0;min-width:0}}
+
+/* kurze Einträge (Danger-Profile) am PC zweispaltig */
+@media(min-width:1000px){
+ .orte:has(>.ort.short){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;align-items:start}
+ .orte:has(>.ort.short)>.ort{grid-column:1/-1}
+ .orte:has(>.ort.short)>.ort.short{grid-column:auto}
+ .ort.short .dgrid.withimg>.dg{max-width:none}
+}
+@media(min-width:1000px){.ort.short .dgrid.withimg>.imf.im-port{width:105px}.ort.short .dgrid.withimg>.imf.im-tall{width:75px}.ort.short .dgrid.withimg>.imf.im-sq{width:120px}.ort.short .dgrid.withimg>.imf.im-land{width:190px}}

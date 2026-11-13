@@ -165,4 +165,4 @@
   .tb-kit[open]{grid-column:1/-1}.tb-cbody{grid-template-columns:1fr}
 }
 @media (max-width:760px){.tbp{margin-top:10px}.tbp-strip{height:96px}}
-.tbx-s[data-m="variable"] .tbx-gl .tbi+.tbi{display:none}.tbx-s[data-m="variable"] .tbx-gl{letter-spacing:.12em}
+.tbx-s[data-m="variable"] .tbx-gl .tbi{display:none}.tbx-s[data-m="variable"] .tbx-gl{letter-spacing:.12em}

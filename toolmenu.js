@@ -62,7 +62,7 @@
   window.addEventListener("resize", close);
   /* Buch-Knopf im Header (überall): jede Seite definiert window.gmBook() -> {name, open} für das Buch des aktuellen Bereichs */
   var bcss = document.createElement("style");
-  bcss.textContent = ".topbar .tm-book{flex:none;margin-left:auto;margin-right:8px;width:40px;height:40px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;font:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:background .15s}.topbar .tm-book:hover{background:rgba(127,127,127,.22)}.topbar .tm-book + .tb-burger{margin-left:0!important}";
+  bcss.textContent = ".topbar .tm-book{flex:none;margin-left:auto;margin-right:8px;width:40px;height:40px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;font:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:background .15s}.topbar .tm-book:hover{filter:brightness(.96)}.topbar .tm-book + .tb-burger{margin-left:0!important}";
   document.head.appendChild(bcss);
   function bookBtn(){
     var bar = document.querySelector(".topbar"); if(!bar || !window.gmBook || bar.querySelector(".tm-book")) return;
@@ -71,7 +71,7 @@
     function info(){ try{ return window.gmBook(); }catch(e){ return null; } }
     b.addEventListener("mouseenter", function(){ var i = info(); b.title = i ? i.name + " öffnen" : "Buch öffnen"; });
     b.addEventListener("click", function(e){ e.stopPropagation(); var i = info(); if(i && i.open) i.open(); });
-    var cs = getComputedStyle(burger); if(cs.color) b.style.color = cs.color; burger.insertAdjacentElement("beforebegin", b);
+    var cs = getComputedStyle(burger); if(cs.color) b.style.color = cs.color; ["backgroundColor","borderTopColor","borderTopWidth","borderTopStyle","borderRadius","height"].forEach(function(k){ if(cs[k]) b.style[k] = cs[k]; }); b.style.borderStyle = cs.borderTopStyle; b.style.borderColor = cs.borderTopColor; b.style.borderWidth = cs.borderTopWidth; burger.insertAdjacentElement("beforebegin", b);
   }
   function ensure(){ bookBtn(); var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
   new MutationObserver(ensure).observe(document.documentElement, {childList:true, subtree:true});

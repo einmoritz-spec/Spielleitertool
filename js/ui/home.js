@@ -2,7 +2,7 @@
    Karten führen zu Wake of the Oldways, The Dales, Regeln, Themenbüchern, Charakteren und den Nachschlage-Werkzeugen. */
 function goHome(){ if(typeof guardEditLeave==="function" && !guardEditLeave()) return; state.view="home"; state.advId=null; render(); scrollToTop(); if(typeof persistState==="function") persistState(); }
 function homeChips(arr){ var v=hmVar(); if(v==="c" && arr.length>3){ arr=arr.slice(0,2).concat([["+"+(arr.length-2),"__MAIN__"]]); } return '<nav class="hm-chips">'+arr.map(function(x){ return '<button class="hm-chip" onclick="'+x[1]+'">'+x[0]+'</button>'; }).join("")+'</nav>'; }
-function hmVar(){ try{ return localStorage.getItem("hm_v")||""; }catch(e){ return ""; } }
+function hmVar(){ try{ return localStorage.getItem("hm_v")||"c"; }catch(e){ return "c"; } }
 function homeCard(img,title,main,chips){
   var hc = homeChips(chips).split("__MAIN__").join(main);
   return '<div class="hm-card"><button class="hm-img" onclick="'+main+'" aria-label="'+title+'"><img src="'+img+'" alt="" loading="lazy"></button>'+

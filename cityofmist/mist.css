@@ -338,3 +338,10 @@ body[data-pn=com] .pn-btn{display:none!important}
 .ob:has(>.dgrid) .imf.im-port,.ob:has(>.dgrid) .imf.im-tall,.ob:has(>.dgrid) .imf.im-sq{float:left;margin:2px 18px 8px 0}
 .ob:has(>.dgrid) .dgrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:10px}
 @media(max-width:700px){.imf.im-port{width:110px}.ob:has(>.dgrid) .imf.im-port{width:110px}}
+
+/* kurzer Eintrag: Bild und Karte nebeneinander */
+.dgrid.withimg{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin-top:10px}
+.dgrid.withimg>.imf{float:none;margin:0;flex:none}
+.dgrid.withimg>.imf.im-port{width:150px}.dgrid.withimg>.imf.im-tall{width:100px}.dgrid.withimg>.imf.im-sq{width:180px}.dgrid.withimg>.imf.im-land{width:300px}.dgrid.withimg>.imf.im-strip{width:100%}
+.dgrid.withimg>.dg{flex:1 1 260px;max-width:380px}
+@media(max-width:700px){.dgrid.withimg{flex-wrap:nowrap;gap:12px}.dgrid.withimg>.imf.im-port{width:100px}.dgrid.withimg>.imf.im-tall{width:70px}.dgrid.withimg>.dg{flex:1 1 0;min-width:0}}

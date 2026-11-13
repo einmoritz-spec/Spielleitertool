@@ -30,14 +30,15 @@ function ortCard(o){
   var tl=o.text.join('').length+(o.extra||[]).join('').length+((o.listen||[]).length>2?0:(o.listen||[]).reduce(function(n,l){return n+l.items.join('').length;},0));
   var side=o.dangers.length===1&&tl>900;
   var figs=(o.fig||[]).map(function(f){return imf(f[0]);}).join("")+(o.bild?imf(o.bild):"");
+  var short=!!figs&&tl<450&&o.dangers.length>0&&!side;
   var them=(o.themen||[]).map(themeCard).join("");
   var useCol=side||(them&&tl>600);
-  var text=figs+o.text.map(function(t){return t.indexOf('## ')===0?'<h4 class="lh">'+esc(t.slice(3))+'</h4>':'<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(function(){var ls=o.listen||[],h=ls.map(function(l){return '<div class="lbox"><h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul></div>';}).join("");return ls.length>2?'<div class="lgrid">'+h+'</div>':h;})();
+  var text=(short?'':figs)+o.text.map(function(t){return t.indexOf('## ')===0?'<h4 class="lh">'+esc(t.slice(3))+'</h4>':'<p>'+md(t)+'</p>';}).join("")+(o.extra||[]).map(function(t){return '<p class="ex">'+md(t)+'</p>';}).join("")+(function(){var ls=o.listen||[],h=ls.map(function(l){return '<div class="lbox"><h4 class="lh">'+esc(l.t)+'</h4>'+(l.pre?'<p>'+md(l.pre)+'</p>':'')+'<ul class="ll">'+l.items.map(function(i){return '<li>'+md(i)+'</li>';}).join("")+'</ul></div>';}).join("");return ls.length>2?'<div class="lgrid">'+h+'</div>':h;})();
   var dang=o.dangers.map(function(d){return dangerCard(d,!side);}).join("");
   return '<details class="ort" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'<span class="tz">'+esc(o.teaser)+'</span></summary><div class="ob">'+
    (o.hero?tbHero(o):'')+(o.mythos?'<div class="myth">'+esc(o.mythos)+'</div>':'')+
    '<div class="ocols'+(useCol?'':' solo')+'">'+(useCol?'<aside class="oside">'+them+(side?dang:'')+'</aside>':'')+'<div class="otxt">'+text+(useCol?'':them)+'</div></div>'+
-   (o.dangers.length&&!side?'<aside class="dgrid">'+dang+'</aside>':'')+'</div></details>';
+   (o.dangers.length&&!side?'<aside class="dgrid'+(short?' withimg':'')+'">'+(short?figs:'')+dang+'</aside>':'')+'</div></details>';
 }
 function stub(name,p){ return '<div class="stub"><span>'+esc(name)+'</span>'+pg(p)+'<em>nur Original</em></div>'; }
 function itemsList(items){ return '<div class="stubs">'+items.map(function(i){return stub(i[0],i[1]);}).join("")+'</div>'; }

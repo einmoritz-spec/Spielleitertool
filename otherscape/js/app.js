@@ -27,6 +27,7 @@ function goHome(){ location.hash = "#/"; }
 function goLastAdv(){ location.hash = ST.last || "#/"; }
 async function route(){
   const p = parseHash(); window.scrollTo(0,0);
+  if(p[0]==="adv" && /^(fraktion|tokyo)-/.test(p[1]||"")){ location.replace("#/"+(p[1][0]==="f"?"fraktionen":"tokyo")+"/"+p[1]); return; }
   if(p[0]==="adv" && p[1]){
     ST.last = "#/adv/"+p[1]+(p[2]?"/"+p[2]:""); saveState();
     $("app").innerHTML = '<div class="missing">Lade Abenteuer …</div>';
@@ -35,7 +36,7 @@ async function route(){
     if(!a){ $("app").innerHTML = `<div class="missing"><h2>${esc(info?info.titel:p[1])}</h2><p>Dieses Abenteuer ist noch nicht erfasst.</p><button class="btn" onclick="goHome()">Zur Startseite</button></div>`; return; }
     renderAdv(a, p[2] || a.sektionen[0].id);
   } else if(p[0]==="gegner") renderGegner();
-  else if(p[0]==="fraktionen") renderFraktionen();
+  else if(p[0]==="fraktionen") renderFraktionen(p[1]);
   else if(p[0]==="katalog") renderKatalog(p[1]);
   else if(p[0]==="kits") renderKits(p[1]);
   else if(p[0]==="regeln") renderRegeln();
@@ -43,7 +44,7 @@ async function route(){
   else if(p[0]==="archetypen") renderArchetypen();
   else if(p[0]==="charaktererstellung") renderCharErstellung();
   else if(p[0]==="run") renderRun();
-  else if(p[0]==="tokyo") renderTokyo();
+  else if(p[0]==="tokyo") renderTokyo(p[1]);
   else if(p[0]==="abenteuer") renderAdvList();
   else renderHome();
 }
@@ -231,7 +232,7 @@ function osArt(a,idx){
   const sp = (typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec) || {};
   let last = 0; const pages = a.sektionen.map(x=>{ if(sp[x.id]) last = sp[x.id]; return last; });
   const ovp = (typeof OS_OV!=="undefined" && OS_OV[a.id]) ? OS_OV[a.id].page : -1;
-  return L.filter(x=>x.p!==ovp).filter(x=>{ let t = 0; for(let i=0;i<pages.length;i++) if(pages[i]<=x.p) t = i; return t===idx; })
+  return L.filter(x=>x.p!==ovp).filter(x=>x.src!==window.OS_HERO_SKIP).filter(x=>{ let t = 0; for(let i=0;i<pages.length;i++) if(pages[i]<=x.p) t = i; return t===idx; })
     .map(x=>`<figure class="os-art"><img src="${x.src}" alt="${esc(x.cap)} (Buch S. ${x.p})" loading="lazy" onclick="osZoom(this.src)"></figure>`).join("").replace(/^(.+)$/s,'<div class="os-arts">$1</div>');
 }
 function osZoom(src){

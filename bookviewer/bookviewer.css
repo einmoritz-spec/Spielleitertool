@@ -1,13 +1,16 @@
 .bvx{position:fixed;inset:0;z-index:9999;background:#05060a;display:flex;flex-direction:column;color:#e6e9f2;font:14px system-ui,sans-serif}
 .bvx[hidden]{display:none}
-.bvx-bar{display:flex;gap:6px;align-items:center;padding:calc(6px + env(safe-area-inset-top,0px)) 10px 6px;background:#161a26;border-bottom:1px solid #2a3046;flex-wrap:nowrap}
+.bvx-bar{position:absolute;top:0;left:0;right:0;z-index:6;transform:translateY(-105%);transition:transform .2s ease;box-shadow:0 6px 18px rgba(0,0,0,.5);display:flex;gap:6px;align-items:center;padding:calc(6px + env(safe-area-inset-top,0px)) 10px 6px;background:#161a26;border-bottom:1px solid #2a3046;flex-wrap:nowrap}
 .bvx-bar input{width:56px;min-width:0;background:#0d1019;border:1px solid #2a3046;border-radius:8px;color:#e6e9f2;padding:7px;text-align:center}
 .bvx-b{flex:none;background:#1f2536;border:1px solid #2a3046;border-radius:10px;padding:7px 11px;color:#e6e9f2;cursor:pointer;font:inherit}
 .bvx-t{flex:1;min-width:0;color:#9aa4bf;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
 .bvx-bar #bvxOf{white-space:nowrap;color:#9aa4bf}
 @media (max-width:520px){.bvx-t{display:none}.bvx-bar{justify-content:space-between}.bvx-bar #bvxOf{flex:1}}
-.bvx-stage{flex:1;overflow:auto;padding:10px;display:flex;justify-content:flex-start}
-.bvx-pages{box-shadow:0 8px 30px rgba(0,0,0,.6);display:flex;gap:0;margin:0 auto;align-items:flex-start;align-self:flex-start}
+.bvx.bar-on .bvx-bar{transform:none}
+.bvx-stage{position:absolute;inset:0;overflow:auto;padding:5px;display:flex}
+.bvx-handle{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:rgba(22,26,38,.55);color:#c8cee0;border:1px solid rgba(255,255,255,.12);border-top:0;border-radius:0 0 10px 10px;padding:0 16px;height:16px;line-height:14px;font-size:11px;cursor:pointer;opacity:.45;transition:opacity .2s}
+.bvx-handle:hover{opacity:1}.bvx.bar-on .bvx-handle{opacity:0;pointer-events:none}
+.bvx-pages{box-shadow:0 8px 30px rgba(0,0,0,.6);display:flex;gap:0;margin:auto;align-items:flex-start;flex:none}
 .bvx-stage canvas{display:block;background:#fff}
 a.pg-link{color:inherit;text-decoration:underline dotted;text-underline-offset:2px;cursor:pointer}
 a.pg-link:hover{text-decoration:underline solid;filter:brightness(1.25)}

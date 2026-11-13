@@ -313,3 +313,5 @@ body[data-pn=com] .pn-btn{display:none!important}
 }
 @media (min-width:1500px){.rwa.rwwide>.rws{columns:3 380px}}
 @media (min-width:900px){.rwa.rwwide1>.rws{columns:1!important;max-width:980px}}
+.topbar .tb-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:inherit;border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.topbar .tb-btn:hover{background:rgba(255,255,255,.12)}

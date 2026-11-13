@@ -30,7 +30,7 @@ async function openBook(book, page){
   BV = { book, page: Math.max(1,Math.min(doc.numPages, parseInt(page)||1)), n: doc.numPages, zoom:false };
   document.getElementById("bookViewer").hidden = false; document.body.classList.add("menu-open");
   document.getElementById("bvTitle").textContent = BOOKS[book].name;
-  bvShow();
+  bvShow(); bvBar(true);
 }
 var bvHist = false;
 function closeBook(fromPop){ document.getElementById("bookViewer").hidden = true; document.body.classList.remove("menu-open"); if(bvHist){ bvHist = false; if(fromPop!==true){ try{ history.back(); }catch(e){} } } }
@@ -46,13 +46,30 @@ async function bvShow(){
   const l = bvLead(BV.page), nums = (l===1) ? [1] : (l+1<=BV.n ? [l,l+1] : [l]);
   document.getElementById("bvNum").value = nums[0]; document.getElementById("bvOf").textContent = (nums.length>1 ? "–"+nums[1]+" " : "")+"/ "+BV.n;
   const stage = document.getElementById("bvStage"), box = document.getElementById("bvPages"), pages = await Promise.all(nums.map(n=>doc.getPage(n)));
-  const gap = 0, avail = Math.max(160, stage.clientWidth-20), total = BV.zoom ? avail*2 : avail, dpr = Math.min(2, window.devicePixelRatio||1);
-  const w1 = pages[0].getViewport({scale:1}).width, scale = nums.length>1 ? (total-gap)/2/w1 : total/w1;
+  const dpr = Math.min(2, window.devicePixelRatio||1), pad = 10, W = Math.max(160, stage.clientWidth-pad), H = Math.max(160, stage.clientHeight-pad);
+  const vps = pages.map(pg=>pg.getViewport({scale:1})), sumW = vps.reduce((a,v)=>a+v.width,0), maxH = Math.max(...vps.map(v=>v.height));
+  /* Standard: Doppelseite ganz sichtbar (Breite und Höhe einpassen); Zoom: Seitenbreite = Fensterbreite, scrollen */
+  const scale = BV.zoom ? W/vps[0].width : Math.min(W/sumW, H/maxH);
   const cvs = pages.map(pg=>{ const vp = pg.getViewport({scale: scale*dpr}), cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px"; return {pg,vp,cv}; });
   await Promise.all(cvs.map(o=>o.pg.render({canvasContext:o.cv.getContext("2d"), viewport:o.vp}).promise)); if(tok!==bvToken) return;
-  box.replaceChildren(...cvs.map(o=>o.cv)); stage.scrollTop = 0;
+  box.replaceChildren(...cvs.map(o=>o.cv)); stage.scrollTop = 0; stage.scrollLeft = 0;
 }
-document.addEventListener("keydown", e=>{ const v = document.getElementById("bookViewer"); if(!v||v.hidden) return; if(e.key==="ArrowRight") bvStep(1); else if(e.key==="ArrowLeft") bvStep(-1); else if(e.key==="Escape") closeBook(); });
+
+/* Obere Leiste blendet sich automatisch aus: Maus an den oberen Rand oder Tippen auf den Griff blendet sie ein */
+let bvBarT = 0;
+function bvBar(on, keep){
+  const v = document.getElementById("bookViewer"); if(!v) return; clearTimeout(bvBarT);
+  v.classList.toggle("bar-on", !!on);
+  if(on && !keep) bvBarT = setTimeout(()=>{ const a = document.activeElement; if(v.querySelector(".bv-bar:hover") || (a && a.tagName==="INPUT" && v.contains(a))){ bvBar(true); return; } v.classList.remove("bar-on"); }, 2200);
+}
+(function(){
+  const v = document.getElementById("bookViewer"); if(!v) return;
+  if(!v.querySelector(".bv-handle")){ const h = document.createElement("button"); h.className = "bv-handle"; h.textContent = "▾"; h.title = "Leiste einblenden"; h.setAttribute("aria-label","Leiste einblenden"); h.onclick = ()=>bvBar(true); v.appendChild(h); }
+  v.addEventListener("mousemove", e=>{ if(e.clientY<56) bvBar(true); else if(v.classList.contains("bar-on") && e.clientY>130 && !v.querySelector(".bv-bar:hover")) bvBar(true); });
+  const b = v.querySelector(".bv-bar"); b.addEventListener("focusin", ()=>bvBar(true,true)); b.addEventListener("focusout", ()=>bvBar(true));
+  let rz = 0; window.addEventListener("resize", ()=>{ clearTimeout(rz); rz = setTimeout(()=>{ if(!v.hidden) bvShow(); }, 150); });
+})();
+document.addEventListener("keydown", e=>{ const v = document.getElementById("bookViewer"); if(!v||v.hidden) return; if(e.target && e.target.tagName==="INPUT" && e.key!=="Escape") return; if(e.key==="ArrowRight"||e.key==="PageDown") bvStep(1); else if(e.key==="ArrowLeft"||e.key==="PageUp") bvStep(-1); else if(e.key==="Escape") closeBook(); else if(e.key==="z"||e.key==="Z") bvZoom(); });
 
 function askBookUpload(book, page){
   let o = document.getElementById("osAsk"); if(o) o.remove();

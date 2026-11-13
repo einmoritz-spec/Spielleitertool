@@ -17,7 +17,8 @@ var BV = (function(){
   function build(){
     if(document.getElementById("bvOverlay")) return;
     const d = document.createElement("div"); d.id = "bvOverlay"; d.className = "bvx"; d.hidden = true;
-    d.innerHTML = `<div class="bvx-bar"><button class="bvx-b" onclick="BV.step(-1)" aria-label="Vorherige Seite">‹</button><input id="bvxNum" type="number" min="1" onchange="BV.go(this.value)" aria-label="Seitennummer"><span id="bvxOf"></span><button class="bvx-b" onclick="BV.step(1)" aria-label="Nächste Seite">›</button><button class="bvx-b" onclick="BV.zoom()">Zoom</button><span class="bvx-t" id="bvxTitle"></span><button class="bvx-b" onclick="BV.close()">✕</button></div><div class="bvx-stage" id="bvxStage"><div class="bvx-pages" id="bvxPages"></div></div>`;
+    d.innerHTML = `<div class="bvx-bar"><button class="bvx-b" onclick="BV.step(-1)" aria-label="Vorherige Seite">‹</button><input id="bvxNum" type="number" min="1" onchange="BV.go(this.value)" aria-label="Seitennummer"><span id="bvxOf"></span><button class="bvx-b" onclick="BV.step(1)" aria-label="Nächste Seite">›</button><button class="bvx-b" onclick="BV.zoom()">Zoom</button><span class="bvx-t" id="bvxTitle"></span><button class="bvx-b" onclick="BV.close()">✕</button></div><div class="bvx-stage" id="bvxStage"><div class="bvx-pages" id="bvxPages"></div></div><button class="bvx-handle" aria-label="Leiste einblenden" title="Leiste einblenden" onclick="BV.bar(true)">▾</button>`;
+    wireBar(d);
     document.body.appendChild(d);
   }
   async function open(key, printed){
@@ -29,7 +30,7 @@ var BV = (function(){
     const pg = Math.max(1, Math.min(dc.numPages, (parseInt(printed)||1) + getOff(key)));
     S = { key, page:pg, n:dc.numPages, zoom:false };
     document.getElementById("bvOverlay").hidden = false; document.body.style.overflow = "hidden";
-    document.getElementById("bvxTitle").textContent = b.name; show();
+    document.getElementById("bvxTitle").textContent = b.name; show(); bar(true);
   }
   function askUpload(key, b, printed){
     var o=document.getElementById("bvAsk"); if(o) o.remove();
@@ -45,6 +46,20 @@ var BV = (function(){
   window.addEventListener("popstate", function(){ var o = document.getElementById("bvOverlay"); if(o && !o.hidden) close(true); else histOn = false; });
   /* Doppelseiten: Seite 1 einzeln, danach immer (2,3), (4,5) … ; die letzte Seite steht allein, wenn die Seitenzahl gerade ist */
   const lead = p => p<=1 ? 1 : (p%2===0 ? p : p-1);
+
+  /* Obere Leiste blendet sich automatisch aus: Maus an den oberen Rand oder Tippen auf den Griff blendet sie ein */
+  let barT = 0;
+  function bar(on, keep){
+    const o = document.getElementById("bvOverlay"); if(!o) return; clearTimeout(barT);
+    o.classList.toggle("bar-on", !!on);
+    if(on && !keep) barT = setTimeout(()=>{ const a = document.activeElement; if(o.querySelector(".bvx-bar:hover") || (a && a.closest && a.closest(".bvx-bar") && a.tagName==="INPUT")) { bar(true); return; } o.classList.remove("bar-on"); }, 2200);
+  }
+  function wireBar(o){
+    o.addEventListener("mousemove", e=>{ if(e.clientY<56) bar(true); else if(o.classList.contains("bar-on") && e.clientY>130 && !o.querySelector(".bvx-bar:hover")) bar(true); });
+    o.querySelector(".bvx-bar").addEventListener("focusin", ()=>bar(true, true));
+    o.querySelector(".bvx-bar").addEventListener("focusout", ()=>bar(true));
+    let rz = 0; window.addEventListener("resize", ()=>{ clearTimeout(rz); rz = setTimeout(()=>{ if(!o.hidden) show(); }, 150); });
+  }
   function step(d){ const l = lead(S.page); S.page = d>0 ? (l===1 ? 2 : Math.min(S.n, l+2)) : (l<=2 ? 1 : l-2); S.page = Math.max(1,Math.min(S.n,S.page)); show(); }
   function go(n){ S.page = Math.max(1,Math.min(S.n,(parseInt(n)||1))); show(); }
   function zoom(){ S.zoom = !S.zoom; show(); }
@@ -53,11 +68,13 @@ var BV = (function(){
     const l = lead(S.page), nums = (l===1) ? [1] : (l+1<=S.n ? [l,l+1] : [l]);
     document.getElementById("bvxNum").value = nums.length>1 ? nums[0] : nums[0]; document.getElementById("bvxOf").textContent = (nums.length>1 ? "–"+nums[1]+" " : "")+"/ "+S.n;
     const stage = document.getElementById("bvxStage"), box = document.getElementById("bvxPages"), pages = await Promise.all(nums.map(n=>dc.getPage(n)));
-    const gap = 0, avail = Math.max(160, stage.clientWidth-20), total = S.zoom ? avail*2 : avail, dpr = Math.min(2, window.devicePixelRatio||1);
-    const w1 = pages[0].getViewport({scale:1}).width, sc = nums.length>1 ? (total-gap)/2/w1 : total/w1;
+    const dpr = Math.min(2, window.devicePixelRatio||1), pad = 10, W = Math.max(160, stage.clientWidth-pad), H = Math.max(160, stage.clientHeight-pad);
+    const vps = pages.map(pg=>pg.getViewport({scale:1})), sumW = vps.reduce((a,v)=>a+v.width,0), maxH = Math.max(...vps.map(v=>v.height));
+    /* Standard: Doppelseite ganz sichtbar (Breite UND Höhe einpassen); Zoom: Seitenbreite = Fensterbreite, scrollen */
+    const sc = S.zoom ? W/vps[0].width : Math.min(W/sumW, H/maxH);
     const cvs = pages.map(pg=>{ const vp = pg.getViewport({scale:sc*dpr}), cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px"; return {pg,vp,cv}; });
     await Promise.all(cvs.map(o=>o.pg.render({canvasContext:o.cv.getContext("2d"), viewport:o.vp}).promise)); if(t!==tok) return;
-    box.replaceChildren(...cvs.map(o=>o.cv)); stage.scrollTop = 0;
+    box.replaceChildren(...cvs.map(o=>o.cv)); stage.scrollTop = 0; stage.scrollLeft = 0;
   }
   async function refresh(){ for(const b of cfg.books){ const el = document.getElementById("bvs_"+b.key); if(!el) continue; const has = !!(await dbGet(b.key)); el.innerHTML = has ? `✓ geladen <a href="#" onclick="BV.remove('${b.key}');return false">entfernen</a>` : "nicht geladen"; } }
   async function load(k, inp){
@@ -97,11 +114,11 @@ var BV = (function(){
     cfg = Object.assign(cfg, c);
     BASE = new URL(c.libBase, location.href.split("#")[0]).href;
     document.addEventListener("click", e=>{ const a = e.target.closest && e.target.closest(".pg-link"); if(!a) return; e.preventDefault(); e.stopPropagation(); open(cfg.defaultBook, a.dataset.page); }, true);
-    document.addEventListener("keydown", e=>{ const o = document.getElementById("bvOverlay"); if(!o||o.hidden) return; if(e.key==="ArrowRight") step(1); else if(e.key==="ArrowLeft") step(-1); else if(e.key==="Escape") close(); });
+    document.addEventListener("keydown", e=>{ const o = document.getElementById("bvOverlay"); if(!o||o.hidden) return; if(e.target && e.target.tagName==="INPUT" && e.key!=="Escape") return; if(e.key==="ArrowRight"||e.key==="PageDown") step(1); else if(e.key==="ArrowLeft"||e.key==="PageUp") step(-1); else if(e.key==="Escape") close(); else if(e.key==="z"||e.key==="Z") zoom(); });
     let pend = 0; const run = ()=>{ pend = 0; try{ linkify(document.body); }catch(e){} };
     new MutationObserver(()=>{ if(!pend) pend = setTimeout(run, 200); }).observe(document.body, { childList:true, subtree:true, characterData:true });
     run();
   }
   function setDefault(k){ if(k) cfg.defaultBook = k; }
-  return { setDefault, init, open, close, step, go, zoom, load, remove, refresh, setOffset, settingsHTML, linkify };
+  return { setDefault, init, open, close, step, go, zoom, bar, load, remove, refresh, setOffset, settingsHTML, linkify };
 })();

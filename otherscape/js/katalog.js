@@ -28,10 +28,10 @@ function renderKatalog(id){
   const c = id && OS_KAT.cats.find(x=>x.id===id);
   const crumbs = "";
   if(!c){
-    const tiles = OS_KAT.cats.map(x=>`<div class="kat-tile"><img src="${x.img}" alt="${esc(x.titel)}" onclick="katZoom(this.src)"><button class="kat-tile-t" onclick="location.hash='#/katalog/${x.id}'"><b>${esc(x.titel)}</b><small>${x.items.length} Items · ${esc(x.en)}</small></button></div>`).join("");
-    $("app").innerHTML = osRail(`<div class="adv-head"><h1>Straßenkatalog</h1><span class="meta">Loadout · Metro-Grundbuch ${pgBtn("Metro",252,"S. 252–270 📖")}</span></div>`, katGroups(null,[{id:"kat_k",t:"Kategorien"},{id:"kat_s",t:"Stimmungsbilder"},{id:"kat_t",t:"Loadout-Theme-Specials"}]), `<div class="kat-intro">${OS_KAT.intro.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="kat-how">${OS_KAT.how.map(h=>`<div><b>${esc(h[0])}</b><p>${esc(h[1])}</p></div>`).join("")}</div></div>
+    const tiles = OS_KAT.cats.map(x=>`<div class="kat-tile"><img src="${x.img}" data-zg="no" alt="${esc(x.titel)}" onclick="location.hash='#/katalog/${x.id}'" title="${esc(x.titel)} öffnen"><button class="kat-tile-t" onclick="location.hash='#/katalog/${x.id}'"><b>${esc(x.titel)}</b><small>${x.items.length} Items · ${esc(x.en)}</small></button></div>`).join("");
+    $("app").innerHTML = osRail(`<div class="adv-head"><h1>Straßenkatalog</h1><span class="meta">Loadout · Metro-Grundbuch ${pgBtn("Metro",252,"S. 252–270 📖")}</span></div>`, katGroups(null,[{id:"kat_k",t:"Kategorien"},{id:"kat_s",t:"Stimmungsbilder"},{id:"kat_t",t:"Loadout-Theme-Specials"}]), `<figure class="kat-banner"><img src="img/katalog/stimmung-strasse-header.webp" alt="Straßenszene" onclick="katZoom('img/katalog/stimmung-strasse.webp')"></figure><div class="kat-intro">${OS_KAT.intro.map(t=>`<p>${esc(t)}</p>`).join("")}<div class="kat-how">${OS_KAT.how.map(h=>`<div><b>${esc(h[0])}</b><p>${esc(h[1])}</p></div>`).join("")}</div></div>
     <div class="sec-h" id="kat_k">Kategorien</div><div class="kat-tiles">${tiles}</div>
-    <div class="sec-h" id="kat_s">Stimmungsbilder</div><div class="kat-stim">${OS_KAT.stim.map(s=>`<figure><img src="${s.src}" alt="${esc(s.cap)}" onclick="katZoom(this.src)"><figcaption>${esc(s.cap)}</figcaption></figure>`).join("")}</div>
+    <div class="sec-h" id="kat_s">Stimmungsbilder</div><div class="kat-stim">${OS_KAT.stim.slice(1).map(s=>`<figure><img src="${s.src}" alt="${esc(s.cap)}" onclick="katZoom(this.src)"><figcaption>${esc(s.cap)}</figcaption></figure>`).join("")}</div>
     <div class="sec-h" id="kat_t">Loadout-Theme-Specials</div><div class="kat-spec">${OS_KAT.specials.map(s=>`<div class="kat-sp"><b>${esc(s.n)}</b><p>${esc(s.d)}</p></div>`).join("")}</div>`);
     return;
   }

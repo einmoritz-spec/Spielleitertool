@@ -664,3 +664,8 @@ body .scn:has(>.scn-r>.scn-rh+.blk:last-child)>.scn-r{position:static;border-lef
 .ch-grid>.ch.coll.open .ch-head{flex-direction:row;align-items:center;justify-content:flex-start}
 .ch.coll.open .ch-head .pgb{margin-left:auto!important}
 .geg .ch .stars{color:#b06a00}
+/* Straßenkatalog: Straßenszene als Kopfbild */
+.kat-banner{margin:0 0 16px;position:relative}
+.kat-banner img{width:100%;height:clamp(150px,24vw,300px);object-fit:cover;object-position:center 45%;border-radius:12px;box-shadow:0 2px 14px rgba(0,0,0,.5);cursor:zoom-in;display:block}
+.kat-banner::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;border-radius:0 0 12px 12px;background:linear-gradient(transparent,rgba(5,10,18,.55));pointer-events:none}
+.kat-tile img{cursor:pointer}

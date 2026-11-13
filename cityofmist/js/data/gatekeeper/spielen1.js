@@ -20,7 +20,7 @@ CM_ORTE.gk_spielen = (CM_ORTE.gk_spielen||[]).concat([
     "**Mögliche Fälle:** Routine-Gatekeeping erledigen und dabei die politischen Rivalen im Auge behalten, eine Sting-Operation gegen einen Rivalen orchestrieren, ein City-weites Chaos und seine politischen Folgen bewältigen, den Maulwurf in der eigenen Abteilung aufspüren, verschiedene Gatekeeper-Fraktionen unter Kontrolle bringen, sich mit mächtigen Rifts und Sleepern treffen, um Hindernisse zu umgehen, die oberste Ebene der Gatekeeper erreichen, um die Organisation zu führen"]}
   ],
   dangers:[] },
- { id:"gk-charakter-erschaffen", name:"Gatekeeper-Charakter erschaffen", teaser:"Konzept: Position, Clearance Level, Outlook, Affiliation, Privatleben, Mythos", p:232,
+ { id:"gk-charakter-erschaffen", fig:[["ss_p43_44_1",""]],  name:"Gatekeeper-Charakter erschaffen", teaser:"Konzept: Position, Clearance Level, Outlook, Affiliation, Privatleben, Mythos", p:232,
   text:[
    "## Charakterkonzept",
    "Wie bei Rift-Charakteren beginnt die Erschaffung deines Gatekeeper-Charakters mit einem Konzept. Ähnlich wie Rifts wird ein Gatekeeper-Charakter um einen inneren Konflikt herum gebaut, doch bei einem Gatekeeper liegt dieser Konflikt zwischen ihrem gewöhnlichen Leben, dargestellt durch Logos-Themen, und ihrer Arbeit als Gatekeeper, dargestellt durch Mist-Themen. Um ein solides Gatekeeper-Charakterkonzept zu erstellen, beantworte für deinen Charakter die folgenden Fragen:",
@@ -67,7 +67,7 @@ CM_ORTE.gk_spielen = (CM_ORTE.gk_spielen||[]).concat([
    "Per Definition sind Gatekeeper erwachte Charaktere, auch wenn ihr Bewusstsein ihnen derzeit von der Organisation gewährt wird, um andere schlafend zu halten. Höchstwahrscheinlich erinnert sich dein Charakter zumindest an etwas von seinem Erwachen – sei es liebevoll oder traumatisch. Er kann sich seines ruhenden oder vergrabenen Mythos durchaus bewusst sein, ihn vermissen, ihn verdrängen, oder er hat schlicht gelernt zu akzeptieren, dass er nicht mehr Teil von ihm ist. In seltenen Fällen lassen Gatekeeper diese Erinnerungen wegweben, müssen dann aber jeden Tag mit dieser Entscheidung und der leeren Stelle in ihrer Vergangenheit leben.",
    "Alternativ kann dein Charakter, wenn er aus einer Gatekeeper-Familie oder einem Gatekeeper-Hintergrund stammt, ein **Silver Soul** sein, ein Gatekeeper, der rituell erweckt und dann sofort versiegelt wurde, bevor er sich seines Mythos bewusst wurde. Als Silver Soul gibt es einen Teil von dir, den du nie kennen wirst, aber du musst dich nicht mit Versuchung oder innerem Konflikt auseinandersetzen wie jene, die sich daran erinnern, ein Rift gewesen zu sein."],
   dangers:[] },
- { id:"gk-rifts-und-themenwahl", name:"Rifts werden Gatekeeper und Themenwahl", teaser:"Vom Rift zum Gatekeeper; Logos- und Mist-Themen wählen", p:234,
+ { id:"gk-rifts-und-themenwahl", fig:[["ss_p45_1",""]],  name:"Rifts werden Gatekeeper und Themenwahl", teaser:"Vom Rift zum Gatekeeper; Logos- und Mist-Themen wählen", p:234,
   text:[
    "## Rifts, die zu Gatekeepern werden",
    "Rift-Spielercharaktere haben die Möglichkeit, zu Gatekeepern zu werden, wenn sie ihre Verbindung zu ihrem Mythos verlieren. Wenn ein Rift-Spielercharakter kurz davor ist, **Fall Asleep** (also wenn ein Touched-SC sein letztes Mythos-Thema verliert, siehe Spielerhandbuch, S. 276), kann der Spieler stattdessen wählen, Gatekeeper zu werden. Der Charakter wird dann kein Sleeper; er kann weiterhin teilweise durch den Mist sehen, doch seine Verbindung zu seinem Mythos ist verloren (zumindest vorerst).",

@@ -1,6 +1,6 @@
 /* Spieleroptionen – Charakterbau (S. 36–51): Drei mythische Merkmale, Rapid Character Creation, Mythos- und Logos-Theme-Kits. */
 CM_ORTE.sp_bau = (CM_ORTE.sp_bau||[]).concat([
- { id:"drei_merkmale", name:"Konzept: Drei mythische Merkmale", teaser:"Die Three-Mythic-Features-Methode für ein Charakterkonzept mit City-of-Mist-Dreh; Beispiele Puss in Boots und Baby New Year", p:37,
+ { id:"drei_merkmale", bild:"ss_p08_1",  name:"Konzept: Drei mythische Merkmale", teaser:"Die Three-Mythic-Features-Methode für ein Charakterkonzept mit City-of-Mist-Dreh; Beispiele Puss in Boots und Baby New Year", p:37,
   text:[
    "Einen coolen City-of-Mist-Charakter zu entwerfen kann eine Herausforderung sein. Sobald man Legendary und Ordinary, Mythos und Logos verstanden hat, ist ein einfaches Grundkonzept schnell zusammengesetzt – es aber großartig zu machen, ist nicht immer leicht.",
    "Baut man zum Beispiel einen Charakter auf dem Mythos von Puss in Boots auf, drängt sich als Logos ein Straßen-Trickbetrüger auf. Das kann ein toller Charakter zum Spielen sein, aber mit der Methode der Drei mythischen Merkmale (Three Mythic Features) wird er noch besser, denn sie hilft dir, ein Charakterkonzept mit dem typischen City-of-Mist-Dreh zu erschaffen.",

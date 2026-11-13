@@ -32,7 +32,7 @@ CM_ORTE.gk_org = (CM_ORTE.gk_org||[]).concat([
   ],
   dangers:[] },
 
- { id:"gk-abteilungen", name:"Departments und Aktivitäten", teaser:"Die Departments der Gatekeeper von DRP bis R&D, Mangel an allem und autonome Zellen", p:258,
+ { id:"gk-abteilungen", fig:[["ss_p51_1",""]],  name:"Departments und Aktivitäten", teaser:"Die Departments der Gatekeeper von DRP bis R&D, Mangel an allem und autonome Zellen", p:258,
   text:[
    "## Understaffed, Under-Budgeted und Overstretched",
    "Hätten alle Departments der Gatekeeper-Organisation unbegrenzte Ressourcen, hätten die Rifts in der City keine Chance. Leider für den Mist und glücklicherweise für Rifts ist dem nicht so. Jedes einzelne Department der Organisation ist unterbesetzt und kämpft damit, den Anforderungen von Gatekeeper Command gerecht zu werden. Das DRP hinkt beim Versiegeln von Rifts so weit hinterher, dass es gezwungen ist, nicht-aggressive Rifts zu übersehen, während Intelligence niemals alle Rift-Aktivitäten in der City abdecken könnte, nicht einmal mit doppelt so vielen Perchers. HR arbeitet rund um die Uhr daran, mehr Gatekeeper auszubilden, und erhält von Logistics maximale Unterstützung, die buchstäblich die Zeit um die Rekruten herum Weaving, aber wenn es eines gibt, das die Gatekeeper nicht kontrollieren können, dann das Auf und Ab der Awakening Levels in neu entstandenen Rifts – dem Grundmaterial für neue Gatekeeper. Es gibt Gespräche darüber, mehr Silver Souls zu Rupturen, aber das ist ein radikaler, potenziell katastrophaler Ansatz, dessen einzige derzeitige Befürworter eingefleischte Inquisitors sind.",
@@ -67,7 +67,7 @@ CM_ORTE.gk_org = (CM_ORTE.gk_org||[]).concat([
   ],
   dangers:[] },
 
- { id:"gk-orte", name:"Typische Gatekeeper-Orte", teaser:"Safehouse, Outpost, Section HQ, Back Office, Transport Bay und Gatekeeper Command", p:262,
+ { id:"gk-orte", fig:[["ss_p52_1",""]],  name:"Typische Gatekeeper-Orte", teaser:"Safehouse, Outpost, Section HQ, Back Office, Transport Bay und Gatekeeper Command", p:262,
   text:[
    "Typische Orte, an denen Gatekeeper leben, arbeiten und reisen, vom Safehouse bis zur Festung von Gatekeeper Command."
   ],

@@ -66,7 +66,7 @@ CM_ORTE.gk_leben = [
    "Gatekeeper kleiden sich gewöhnlich wie ihre weltlichen Pendants: Feldagenten und Liaisons tragen graue Anzüge, Wartungsteams Baustellenkleidung wie Helme und Warnwesten, und die Forschung (R&D) trägt Laborkittel. Undercover können Gatekeeper als jede Art City-Bewohner auftreten, vom protzigen Playboy bis zum Obdachlosen, und wählen das Aussehen, das in ihrer Einsatzumgebung am unauffälligsten ist.",
    "Dank spezieller Ausrüstung (siehe S. 214) ist das Gesicht eines Gatekeepers schwer zu merken. Außerdem kann ein Gatekeeper-Agent sich mühelos selbst Shrouden, um sein Aussehen sofort zu ändern, sodass das, was andere sehen, selten das ist, was der Agent tatsächlich trägt."],
   dangers:[] },
- { id:"credo", name:"Gatekeeper-Credo & Agenten-Einstellung", teaser:"Die vier Grundsätze der Gatekeeper und neun Haltungen: von Bleeding Heart und Corrupt bis Reformer, Slacker und Traditionalist", p:206,
+ { id:"credo", fig:[["ss_p42_1",""]],  name:"Gatekeeper-Credo & Agenten-Einstellung", teaser:"Die vier Grundsätze der Gatekeeper und neun Haltungen: von Bleeding Heart und Corrupt bis Reformer, Slacker und Traditionalist", p:206,
   text:[
    "Im kanonischen City-of-Mist-Setting lauten die formalen Grundsätze der Gatekeeper wie folgt:",
    "• Normalität ist eine Voraussetzung für das Überleben und die Freiheit der Menschheit.",

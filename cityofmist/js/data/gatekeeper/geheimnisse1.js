@@ -1,6 +1,6 @@
 /* Gatekeeper – Secrets of the Mist, Teil 1 (S. 290–299). */
 CM_ORTE.gk_mist = (CM_ORTE.gk_mist||[]).concat([
- { id:"mist-theorien", name:"Was ist der Mist? Die Theorien", teaser:"Sieben mögliche „wahre“ Antworten auf den Ursprung des Mist, jeweils mit Anpassungsvorschlägen", p:291,
+ { id:"mist-theorien", fig:[["ss_p60_1",""]],  name:"Was ist der Mist? Die Theorien", teaser:"Sieben mögliche „wahre“ Antworten auf den Ursprung des Mist, jeweils mit Anpassungsvorschlägen", p:291,
   extra:[
    "Der hauchzarte Schleier des Mist, dieser so ätherische magische Zauber, hält die Bürger der City davon ab, mit dem großen Unbekannten in Berührung zu kommen, das jenseits liegt – einer Kraft, die sie ruft, zu sein, wer sie wirklich sind. Dieser Große Betrüger schreibt die Realität selbst um – vom plötzlichen Heißhunger auf Tacos bis zu einem unerklärlichen Schwall von Glück oder Unglück –, um die Leute der City von dem abzulenken, was wirklich zählt: der Existenz von Legenden unter ihnen, in ihnen."
   ],
@@ -74,7 +74,7 @@ CM_ORTE.gk_mist = (CM_ORTE.gk_mist||[]).concat([
    "Ist die City Teil einer größeren physischen Realität oder Welt, wie verhält sich diese Welt dann zur City? Ist die City nur ein Experiment, eingeschlossen in der realen Welt? Ist sie so versteckt, dass niemand sie finden kann (bis jemand es doch tut), oder behandelt die Welt sie dank des Mist als eine eigentümliche, aber letztlich normale City? Ist die Welt selbst ein Experiment wie die City, nur in größerem Maßstab?"],
   dangers:[] },
 
- { id:"mist-kanon", name:"Wonder for Autonomy: Geschichte eines moralisch grauen Handels", teaser:"Der kanonische Mist: Babylon und Demiurge, das Age of Wonder, der Turm zu Babel und das Entstehen der City", p:296,
+ { id:"mist-kanon", fig:[["ss_p61_1","","t"]],  name:"Wonder for Autonomy: Geschichte eines moralisch grauen Handels", teaser:"Der kanonische Mist: Babylon und Demiurge, das Age of Wonder, der Turm zu Babel und das Entstehen der City", p:296,
   extra:[
    "Im veröffentlichten City-of-Mist-Universum kombiniert der kanonische Mist die Theorien Babylon und Demiurge. Das Universum ist eine kosmische Leinwand für Geschichten, und die Mythoi sind die darin geborenen Geschichten. Die Rolle der Menschheit ist es, an den Geschichten der Mythoi teilzunehmen, sie zu erleben, sie zu bezeugen, sie zu leben – die Mythoi inkarniert zu sein. Jeder Mensch ist die physische Verkörperung eines Mythos. Zumindest ist es so, dem Potenzial nach."
   ],

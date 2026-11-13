@@ -1,6 +1,6 @@
 /* Gatekeeper – Gatekeeper als Gegner: Story-Aufhänger, Fähigkeiten im Spiel, Agenten-Gefahrenprofile (S. 264–271). Ergänzt die Kategorie gk_gegner. */
 CM_ORTE.gk_gegner = (CM_ORTE.gk_gegner||[]).concat([
- { id:"gk-adv-seeds", name:"Gatekeeper Story Seeds", teaser:"Story-Aufhänger für Fälle mit den Gatekeepern", p:265,
+ { id:"gk-adv-seeds", bild:"ss_p53_1",  name:"Gatekeeper Story Seeds", teaser:"Story-Aufhänger für Fälle mit den Gatekeepern", p:265,
   text:[
    "## Gatekeeper als Gegner",
    "Die Gatekeeper lassen sich auf viele verschiedene Arten einsetzen, je nachdem, wie tief die Crew in die Organisation und ihre Operationen vordringt. Von Mystery Men, die die Taten der Crew aus der Ferne beobachten, über den schlimmsten Albtraum eines Rifts bis hin zu einer moralisch grauen Organisation, gegen die die SCs manchmal kämpfen und der sie manchmal widerwillig helfen: Die Gatekeeper sind ein vielschichtiger und zerrissener Gegner, der in deiner Serie über viele Staffeln hinweg auftreten kann, bevor er schließlich alle seine Karten aufdeckt.",

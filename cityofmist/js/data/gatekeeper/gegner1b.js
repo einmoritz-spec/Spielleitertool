@@ -1,6 +1,6 @@
 /* Gatekeeper – Gatekeepers as Adversaries, Fortsetzung: Agenten-Dangers, Gear und Mist Effects, Agent Power Sets, Rupturing Contracts (S. 272–279). Ergänzt die Kategorie gk_gegner. */
 CM_ORTE.gk_gegner = (CM_ORTE.gk_gegner||[]).concat([
- { id:"gk-infiltrator-danger", name:"Infiltrator (Danger)", teaser:"Agent-Danger: Undercover-Spion mit Gain-Access-Spektrum", p:272,
+ { id:"gk-infiltrator-danger", bild:"ss_p54_55_2",  name:"Infiltrator (Danger)", teaser:"Agent-Danger: Undercover-Spion mit Gain-Access-Spektrum", p:272,
   text:["Danger-Profil des Infiltrator (Laufbahn S. 218)."],
   dangers:[
    { name:"Infiltrator", rating:4, limits:"HURT OR SUBDUE 3 / CATCH 5 / GAIN ACCESS X",
@@ -34,7 +34,7 @@ CM_ORTE.gk_gegner = (CM_ORTE.gk_gegner||[]).concat([
       "Expose a hidden target, using deduction, experience, or a Breach Detector ward (entferne bis zu 3 verschleiernde Status-Tiers oder Tags)",
       "Step up to the scene, blowing cigarette smoke and glancing around pensively"]}]},
 
- { id:"gk-medic-danger", name:"Medic (Danger)", teaser:"Agent-Danger: Sanitäter der Gatekeeper mit Force-to-Resupply-Spektrum", p:273,
+ { id:"gk-medic-danger", bild:"ss_p54_55_1",  name:"Medic (Danger)", teaser:"Agent-Danger: Sanitäter der Gatekeeper mit Force-to-Resupply-Spektrum", p:273,
   text:["Danger-Profil des Medic."],
   dangers:[
    { name:"Medic", rating:2, limits:"HURT OR SUBDUE 3 / FORCE TO RESUPPLY 4",
@@ -109,7 +109,7 @@ CM_ORTE.gk_gegner = (CM_ORTE.gk_gegner||[]).concat([
       "Look a Rift up and down, gauging them",
       "Approach a Rift with an offer that will serve both parties"]}]},
 
- { id:"gk-seals-danger", name:"Seals (Danger)", teaser:"Agent-Danger: Gatekeeper-Eliteeinheit mit Mythosproof Overcoat", p:275,
+ { id:"gk-seals-danger", bild:"ss_p56_1",  name:"Seals (Danger)", teaser:"Agent-Danger: Gatekeeper-Eliteeinheit mit Mythosproof Overcoat", p:275,
   text:["Danger-Profil der Seals."],
   dangers:[
    { name:"Seals", rating:4, limits:"HURT OR SUBDUE 4 / OVERLOAD 6",

@@ -1,6 +1,6 @@
 /* Orte & NSCs – Werkstätten (S. 122–125). */
 CM_ORTE.werkstaetten = [
- { id:"ricky", name:"Ricky Left Hook’s Boxing Club", mythos:"Chiron", teaser:"Eine unbezahlbare Gelegenheit, bei dem Mythos zu trainieren, der Achilles, Jason und Herkules trainierte", p:122,
+ { id:"ricky", fig:[["ss_p24_1",""]],  name:"Ricky Left Hook’s Boxing Club", mythos:"Chiron", teaser:"Eine unbezahlbare Gelegenheit, bei dem Mythos zu trainieren, der Achilles, Jason und Herkules trainierte", p:122,
   text:[
    "Aus einer alten Turnhalle umgebaut, ist Rickys Boxing Club der heiße Ort für Amateur- und Halbprofi-Kämpfer, um zu trainieren und Dampf abzulassen. Der Besitzer ist die alte Boxlegende Richard „Left-Hook“ Yorks (Chiron), und Ricky’s ist der perfekte Ort für aufstrebende Kämpfer – doch der strenge Lehrer arbeitet nur mit Schülern, die bereit sind, alles zu geben.",
    "Der Hauptraum der Halle, früher ein Lager für große Maschinen, enthält zwei quadratische Boxringe. Metalltribünen blicken auf die Ringe, während langsame Ventilatoren oben rotieren und im schlecht belüfteten Raum etwas Luft umwälzen. Eine Hintertür führt in den Fitnessraum, wo Zeichen seiner früheren Nutzung als Büro noch erkennbar sind, in der Wahl summender Leuchtstoffröhren und alter, gerahmter Arbeitsschutzplakate an bröckelnden Wänden. Der Raum ist gefüllt mit großen hängenden Sandsäcken, Gewichteständern, Bänken und Messgeräten.",

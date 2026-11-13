@@ -1,6 +1,6 @@
 /* Spieleroptionen – Neue Entwicklungsoptionen (S. 52–57). Kategorie sp_entwicklung. */
 CM_ORTE.sp_entwicklung = (CM_ORTE.sp_entwicklung||[]).concat([
- { id:"veteranen", name:"Veteranen-Verbesserungen", teaser:"Spezielle Improvements für Rifts, die bereits ein Moment of Evolution hinter sich haben", p:53,
+ { id:"veteranen", bild:"ss_p09_1",  name:"Veteranen-Verbesserungen", teaser:"Spezielle Improvements für Rifts, die bereits ein Moment of Evolution hinter sich haben", p:53,
   text:[
    "Je länger dein Rift-Charakter sein gespaltenes Leben führt und je mehr er die Höhen und Tiefen seines inneren Konflikts durchsteht, desto mehr lernt er über sich selbst und über die Rift-Unterwelt der City. Veteranen-Rifts haben alles gesehen: Sie haben ihren Mythos an ihre menschlichen Wünsche und Ideale verraten; sie haben geliebte Menschen verlassen, um einem flüchtigen Gefühl von Geheimnis zu folgen; sie haben betrogen und wurden getäuscht; und sie haben **Stopped. Holding. Back.** und die Welt der Wahrheit jenseits des Schleiers gesehen, und sei es nur für einen Augenblick.",
    "Auf welcher Bewusstseinsstufe deine Rifts in diesem Lebensabschnitt auch existieren – Touched, Borderliner, Legendary oder sogar Avatar –, ihre hart erkämpfte Erfahrung hebt sie von frisch erwachten Rifts ab. Veteranen-Rifts lernen, die Wellen ihres seltsamen, zweigeteilten Schicksals zu reiten, und gewinnen einen Vorteil, der schwer zu schlagen ist.",

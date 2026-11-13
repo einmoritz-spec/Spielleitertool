@@ -168,3 +168,7 @@ a.pg-link{color:var(--mist)!important}
 .tbdetail .rwa>.rws{width:100%!important;max-width:none!important;box-sizing:border-box;flex:none}.tbdetail .rwa>.rws>.bx{margin:0!important}
 .tbdetail .rwa>.rws{align-items:stretch!important}
 .tbc-t b u{font:400 .75rem var(--cond);letter-spacing:.04em;margin-left:4px;opacity:.8}.tbc-t{padding:8px 12px 9px}
+
+.ob>.fig{float:right;width:190px;margin:0 0 10px 16px}.ob>.fig img{max-height:300px;width:100%;object-fit:cover}
+@media(max-width:600px){.ob>.fig{width:130px}}
+.fig.tall{float:right;width:180px;margin:4px 0 10px 18px}.fig.tall img{max-height:none;width:100%}

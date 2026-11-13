@@ -756,3 +756,10 @@ details.kit{border-top-color:var(--tone)!important}.kb-txt p,.kb-concept{max-wid
 .tbcard{border:1px solid var(--line);border-top:3px solid var(--tone);border-radius:10px;padding:10px 14px;background:rgba(255,255,255,.03)}
 .tbcard b{display:block;color:var(--tone);letter-spacing:.04em;margin-bottom:4px}.tbcard p{margin:0;line-height:1.5}.tbcard small{display:block;margin-top:6px;color:var(--mute);font-style:italic}
 @media(max-width:900px){.tbgrid{grid-template-columns:1fr}}
+
+/* Theme-Book-Kopf: Bild links schwebend, Text und Karten fließen darunter über die volle Breite */
+.kb-top{display:block!important}.kb-top::after{content:"";display:block;clear:both}
+.kb-big{float:left;width:300px;height:400px;margin:0 24px 14px 0}
+.kb-txt{display:block}.kb-txt .kb-bar,.kb-txt .kb-concept,.kb-txt .tbx{display:flow-root}
+.kb-txt p,.kb-concept,.tbx{max-width:none!important}
+@media(max-width:760px){.kb-big{float:none;width:100%;height:340px;margin:0 0 14px}}

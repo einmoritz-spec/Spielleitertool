@@ -134,3 +134,13 @@ a.pg-link{color:var(--mist)!important}
 @media(max-width:600px){.tbgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tbc-t b{font-size:1.05rem}.tbc-t small{-webkit-line-clamp:2}}
 .tbc img{aspect-ratio:16/9;object-position:center 30%}
 .tbc.src-rw img{object-position:center top}
+
+/* Bilderreihe über allen Themenbüchern */
+.tbstrip{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:6px 0;align-items:center;position:relative;z-index:1}
+.tbm{position:relative;width:46px;height:46px;padding:0;border-radius:8px;overflow:hidden;border:2px solid transparent;border-bottom:3px solid #c4177a;background:#2a1c44;opacity:.65;cursor:pointer;transition:opacity .15s,transform .15s}
+.tbm.ty-logos{border-bottom-color:#b8860b}.tbm.ty-extra{border-bottom-color:#4a5a66}
+.tbm img,.tbm span{display:block;width:100%;height:100%;object-fit:cover}.tbm span{background:linear-gradient(135deg,#2a1c44,#c4177a)}.tbm.ty-logos span{background:linear-gradient(135deg,#3a2a0a,#b8860b)}
+.tbm:hover{opacity:1;transform:translateY(-1px)}.tbm.on{opacity:1;border-color:#c4177a}.tbm.ty-logos.on{border-color:#b8860b}
+.tbm.all{width:auto;padding:0 12px;background:#fbf6e6;color:#2a1c44;border-color:#cdbf98;font:600 12px var(--cond);letter-spacing:.14em;text-transform:uppercase;opacity:1}
+.tbstrip{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.tbstrip::-webkit-scrollbar{display:none}
+.tbm{flex:none;width:38px;height:38px}.tbm.all{height:38px;display:flex;align-items:center}.tbm.s-rw img{object-position:center top}

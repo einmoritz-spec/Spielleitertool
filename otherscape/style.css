@@ -638,3 +638,7 @@ body[data-pn=os] .pn-btn{display:none!important}
 .mt-gl{width:100%;border-collapse:collapse;font-size:13.5px}.mt-gl th,.mt-gl td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
 .mt-gl th{width:26%;color:#9cf06a;font-weight:600}.mt-pg{width:1%;white-space:nowrap}
 @media (max-width:560px){.ce-steps{grid-template-columns:minmax(0,1fr)}.mt-gl th{width:34%}}
+
+/* Gegner-Seiten mit nur einer Challenge: keine schmale Spalte mit Leerraum, Karte unter dem Text über volle Breite */
+body .scn:has(>.scn-r>.scn-rh+.blk:last-child){display:block}
+body .scn:has(>.scn-r>.scn-rh+.blk:last-child)>.scn-r{position:static;border-left:0;padding:0;margin-top:14px}

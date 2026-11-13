@@ -31,7 +31,8 @@
 .tbx-h{font:700 clamp(22px,2vw,30px)/1.05 Cinzel,serif;color:var(--maroon)}
 .tbx-en{margin-top:-7px;font-style:italic;font-size:14px;color:var(--text-faint)}
 .tbx-sub{padding:7px 0;border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);font-style:italic;font-size:13.5px;line-height:1.4;color:var(--ink-soft)}
-.tbx-q{font-size:15px;line-height:1.4;color:var(--ink)}
+.tbx-q{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.4;color:var(--ink);padding:10px 12px;background:rgba(122,28,28,.06);border-left:3px solid var(--maroon);border-radius:0 4px 4px 0}
+.tbx-q i{flex:none;margin:1px 0 0}
 .tbx-q i,.tb-q i{display:inline-flex;width:20px;height:23px;margin-right:7px;vertical-align:-5px;align-items:center;justify-content:center;background:var(--maroon);color:#fbf5e5;font:700 11px Cinzel,serif;font-style:normal;clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%)}
 .tbx-c{font-size:13px;line-height:1.45;color:var(--ink-soft)}
 .tbx-m{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-faint)}
@@ -164,3 +165,4 @@
   .tb-kit[open]{grid-column:1/-1}.tb-cbody{grid-template-columns:1fr}
 }
 @media (max-width:760px){.tbp{margin-top:10px}.tbp-strip{height:96px}}
+.tbx-s[data-m="variable"] .tbx-gl .tbi+.tbi{display:none}.tbx-s[data-m="variable"] .tbx-gl{letter-spacing:.12em}

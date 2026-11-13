@@ -23,8 +23,8 @@ lmAdd("dales-b", [
 "- **ZURÜCKGEDRÄNGT:** Holzfäller im Everfell schwören, der Dunscaith Forest rücke vor, ohne sich zu bewegen. Obwohl sie täglich Bäume fällen und die Stümpfe markieren, wächst das Land zwischen Feldern und Bäumen nicht. Sie überlegen, Feuer einzusetzen, um die Setzlinge des verfluchten Waldes auszubrennen, in der Hoffnung, voranzukommen."
 ], aside:[
 {box:{t:"Theme Kit: People – Pasture Reveler", k:"regel", b:[
-"*can hold my wine, good at dancing, scribbled-down poem, art and music, grassland runner, start a party, personal charm, think outside the box, love potions*",
-"*overindulgent, prone to argue, pampered, considered uncouth outside the Dales*",
+"*trinkfest, guter Tänzer, hingekritzeltes Gedicht, Kunst und Musik, Graslandläufer, ein Fest anzetteln, persönlicher Charme, um die Ecke denken, Liebestränke*",
+"*maßlos, streitlustig, verwöhnt, gilt außerhalb der Dales als ungehobelt*",
 "> Das Leben ist mehr als Sorgen und harte Arbeit.",
 "**Knows How to Party:** Du kannst jederzeit einen Rausch-Status für eine Handlung oder Reaktion ignorieren, um den Preis, diesen Status um eine Stufe zu erhöhen."
 ]}}
@@ -50,8 +50,8 @@ lmAdd("dales-b", [
 "- **UNGEWÖHNLICHES HELMIAN-INTERESSE:** Vereinzelte Gerüchte aus den ganzen Dales sprechen von Stormhelm-Rittern, die seltsame Fragen über das Ravensdale stellen, und von vermummten Gesandten, die im Barleytown Scribery alte Aufzeichnungen über das Dale ausgraben, doch keiner von ihnen besucht es je persönlich."
 ], aside:[
 {box:{t:"Theme Kit: People – Ravensdale Bumpkin", k:"regel", b:[
-"*healthy and well-nourished, skilled farmhand, jug of cider, Oldways recipes, hinterland rambler, villager solidarity, pitchfork, always have hope, pure of heart*",
-"*oblivious, Ravenhome drama, too content to act, considered mediocre and bland*",
+"*gesund und gut genährt, geschickter Knecht, Krug Apfelwein, Oldways-Rezepte, Hinterland-Wanderer, Dorfsolidarität, Mistgabel, immer voller Hoffnung, reinen Herzens*",
+"*ahnungslos, Ravenhome-Drama, zu zufrieden zum Handeln, gilt als mittelmäßig und fade*",
 "> Ich bin glücklich, wo ich bin.",
 "**Memories of Simple Joy:** Du darfst einen Tag aus diesem Theme scratchen, um zu vermeiden, dass Consequences dich verdorben, gewalttätig oder verzweifelt werden lassen."
 ]}}
@@ -78,8 +78,8 @@ lmAdd("dales-b", [
 "- **EIN FURCHTBARER AAL:** In den Tavernen von Soddenmore ist man in Aufruhr über Berichte von einem übergroßen Aalkadaver – so groß wie ein Ochse –, der an einem Pfad in einem abgelegenen Teil des Stench angeschwemmt wurde, nur um von etwas noch Größerem zurück in den Sumpf gezerrt zu werden. Shozauka Baba hat bereits ein Kopfgeld auf eine solche Creature ausgesetzt, doch selbst wenn es eine Seele gibt, die mutig genug ist, sie zu jagen, muss sie sie ganz abliefern, um zu kassieren."
 ], aside:[
 {box:{t:"Theme Kit: People – Soddenmore Family", k:"regel", b:[
-"*nimble fingers, stealthy movements, animal mask, hidden trails and routes, swampland, smuggling sibling, rusty dagger, thick as thieves, free diver*",
-"*owe too many favors, greedy infighting, brazen, known to Red Marshals*",
+"*flinke Finger, verstohlene Bewegungen, Tiermaske, versteckte Pfade und Routen, Sumpfland, schmuggelndes Geschwister, rostiger Dolch, wie Pech und Schwefel, Apnoetaucher*",
+"*zu viele Gefallen schuldig, gierige Streitereien, dreist, den Red Marshals bekannt*",
 "> Biege die Regeln wie Schilf, wenn du überleben willst.",
 "**Clean Getaway:** Wenn du an einem Ort, den du gut kennst, verfolgt oder aufgespürt wirst, darfst du einen Tag in diesem Theme scratchen, um deine Verfolger vollständig abzuschütteln und vorerst zu entkommen."
 ]}}
@@ -108,8 +108,8 @@ lmAdd("dales-b", [
 "- **FLACKERNDES LICHT:** Mit der Hawksmoor Waystation stimmt etwas nicht; Reisende berichten, dass ihre rötlichen Lichter, von verschiedenen Punkten entlang der Hochstraße aus gesehen, niedrig flackern und manchmal sogar erlöschen. Eine Wanderin sagte, sie habe Tym Kindle die elende Feuchtigkeit und den Nebel verfluchen hören, die das Gasthaus in letzter Zeit belagern. Ein durchziehender Krämer hörte, Tym sei krank geworden, nachdem ihn ein tollwütiges Tier gebissen habe. Abergläubische Leute in den Gallows sagen, die Waystation werde ohne Licht nicht lange durchhalten, nicht bei den üblen Dingen, die in den Marshes dieser Tage brauen."
 ], aside:[
 {box:{t:"Theme Kit: People – Bounds Borderlander", k:"regel", b:[
-"*lean and mean, discern intentions, Wanderlands trinket [choose], Wanderlands rumors, marshlands, trade with outsiders, spiked cudgel, self-reliant, boundary shrines*",
-"*anxious traveler, rugged individualism, miasmic taint, outlandish*",
+"*drahtig und zäh, Absichten durchschauen, Wanderlands-Krimskrams [wähle], Wanderlands-Gerüchte, Marschland, Handel mit Fremden, Stachelkeule, selbstständig, Grenzschreine*",
+"*ängstlicher Reisender, sturer Eigenbrötler, miasmatischer Makel, fremdartig*",
 "> Ich bin auf mich allein gestellt, und alle anderen auch.",
 "**Marsh-Sense:** Einmal pro Szene darfst du den Narrator fragen, ob du die seltsame Präsenz der Marshes in der Nähe spüren kannst, und wenn ja, von wo. Ist sie nah, erleidest du hungry-1 oder Ähnliches."
 ]}}
@@ -136,8 +136,8 @@ lmAdd("dales-b", [
 "- **DER GOLDENE BOCK:** Es gibt ein sagenhaftes Wild tief im Aldenweald mit einem Fell aus schimmerndem Gold und Hörnern aus Bernstein, ein riesiger und majestätischer junger Hirsch, gewiss von überirdischer Herkunft. Die Jägerin Fontell sah ihn einmal, weit im Westen, und sie sagt, Riva Skall könne es bestätigen. Eine Wise One prophezeite, wer als Erster diesen Hirsch jage, werde gewiss als der reichste und berühmteste Jäger der Dales sterben."
 ], aside:[
 {box:{t:"Theme Kit: People – Woodender", k:"regel", b:[
-"*keen hearing, woodland slinking, trap and lure, legends of the deep woods, the Aldenweald, mysterious Vila friend, short bow, industrious, ritual offering*",
-"*haunting dreams, angered the forest, restless overdoer, offended by lack of recognition*",
+"*scharfes Gehör, durch den Wald schleichen, Falle und Köder, Legenden der tiefen Wälder, der Aldenweald, geheimnisvoller Vila-Freund, Kurzbogen, fleißig, rituelle Opfergabe*",
+"*quälende Träume, den Wald erzürnt, rastloser Übereifer, gekränkt durch fehlende Anerkennung*",
 "> Teilt unseren Überfluss mit anderen, wie der Aldenweald mit uns teilt.",
 "**Masterful Carving:** Einmal pro Session darfst du, wenn du etwas aus Holz herstellst, ignorieren, wegen seiner Größe, Komplexität oder der Anzahl der Kopien, die du anfertigst, Imperiled zu sein."
 ]}}

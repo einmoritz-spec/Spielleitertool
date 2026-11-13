@@ -220,8 +220,8 @@ lmAdd("dales-b", [
 "- **DES RIESEN DUDELSÄCKE:** Es gibt angeblich einen verborgenen Ort in Ashstone, wo ein Fluss ein Becken in den Stein gegraben und seltsame sechseckige Formationen freigelegt hat, die wie Hunderte von Pfeifen aussehen. Dort haust eine Creature, die die schönste Musik der Welt spielt, doch wer ihr lauscht, ist dazu verflucht, nie nach Hause zurückzukehren."
 ], aside:[
 {box:{t:"Theme Kit: People – Ashstone Quarryfolk", k:"regel", b:[
-"*hardy, stonemasonry, lantern, find a weak point, hill climber, Willow Falls, pickaxe, healthy suspicion, drumstone resonance*",
-"*dusty, Oldways conservative, afraid of deep forests, Dalish underdog*",
+"*robust, Steinmetzkunst, Laterne, eine Schwachstelle finden, Hügelkletterer, Willow Falls, Spitzhacke, gesundes Misstrauen, Trommelstein-Resonanz*",
+"*verstaubt, Oldways-konservativ, Angst vor tiefen Wäldern, dalischer Außenseiter*",
 "> Der alte Glanz der Steinmetzkunst soll wiederkehren.",
 "**Stone Carver:** Wann immer du etwas aus Stein baust, darfst du ihm einen zusätzlichen Tag geben. Wann immer du etwas aus Stein beschädigst, darfst du auch einen seiner Tags scratchen."
 ]}},
@@ -262,8 +262,8 @@ lmAdd("dales-b", [
 "- **ÄRGER IM NORDWESTEN:** Die wenigen Red Marshals und gelegentlichen Bone Tenders, die aus dem fernen Nordwesten des Dales zurückkehren, bringen beunruhigende Nachrichten. Felder liegen brach; Häuser verfallen in den häufigen, unzeitigen Böen; Spukgestalten und Schrecken stören die Nächte. Kein Wunder, dass manche der dortigen Bauern nun zur Banditerie herabgesunken sind, um zu überleben, oder als Bettler nach Osten ziehen."
 ], aside:[
 {box:{t:"Theme Kit: People – Barleytowner", k:"regel", b:[
-"*push through crowds, canal boating, scythe or sickle, news from every Dale, at home in the fields, street gang of rascals, barbed insults*",
-"*enterprising, well-off, fear of fire, the ruling families, away from town comforts, question my Dalishness*",
+"*sich durch Menschenmengen drängen, Kahnfahren auf Kanälen, Sense oder Sichel, Neuigkeiten aus jedem Tal, auf den Feldern zu Hause, Straßenbande von Lausbuben, spitze Beleidigungen*",
+"*unternehmungslustig, wohlhabend, Angst vor Feuer, die herrschenden Familien, fern städtischer Annehmlichkeiten, mein Dalishsein infrage stellen*",
 "> Wir sind das schlagende Herz der Dales.",
 "**Gotta Run:** Einmal pro Session könnt du und deine Fellowship eine neue Challenge, die euch in einer Barleytown-Szene oder Vignette präsentiert wird, vermeiden, umgehen oder ihr ausweichen."
 ]}}

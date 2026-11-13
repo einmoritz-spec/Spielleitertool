@@ -162,7 +162,7 @@ function tocSpy(toc, ids, offset){ var __sel=".lm-sub a";
   window.addEventListener("scroll",__tocSpy,{passive:true}); __tocSpy();
 }
 function lmJump(i){ var el=document.getElementById("lm-"+i); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
-function goBook(tab,sec){ if(typeof guardEditLeave==="function"&&!guardEditLeave()) return; state.view="book"; state.bookTab=tab||state.bookTab||"regeln"; state.bookSec=sec||null; render(); scrollToTop(); if(typeof persist==="function") persist(); }
+function goBook(tab,sec){ if(sec==="themenbuecher"&&typeof goThemen==="function") return goThemen(); if(typeof guardEditLeave==="function"&&!guardEditLeave()) return; state.view="book"; state.bookTab=tab||state.bookTab||"regeln"; state.bookSec=sec||null; render(); scrollToTop(); if(typeof persist==="function") persist(); }
 function renderBook(){
   var tab=state.bookTab||"regeln", list=LM_NAV.secs[tab]||[], sid=state.bookSec, s=list.filter(function(x){return x.id===sid;})[0]||list[0];
   state.bookSec=s.id; lmKey=(tab==='regeln')?'core':'wake';

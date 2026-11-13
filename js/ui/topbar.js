@@ -18,7 +18,7 @@ const TOPBAR_ITEMS = [
   { id:"rest",      icon:"🏕", label:"Rasten",        labelDefault:true,  fn:"openRestRules()",    title:"Camping- &amp; Sojourn-Regeln nachschlagen (Taste R)" },
   { id:"rules",     icon:"📖", label:"Glossar",       labelDefault:true,  fn:"openRulesGloss()",   title:"Regelglossar (Core Book, S. 231–233) nachschlagen (Taste G)" },
   { id:"grimoire",  icon:"🛠", label:"Grimoire",      labelDefault:true,  fn:"openGrimoire()",     title:"Action Grimoire (Regel-Ergänzung: Crafting, Battle, Cunning, Exploration, Magic, Social) nachschlagen (Taste A)" },
-  { id:"themebook", icon:"🍃", label:"Themenbuch",    labelDefault:true,  fn:"openThemebook()",    title:"Themenbuch-Fragen zur Charaktererstellung (Origin/Adventure/Greatness) nachschlagen (Taste T)" },
+  { id:"themebook", icon:"🍃", label:"Themenbücher",   labelDefault:true,  fn:"goThemen()",    title:"Themenbuch-Fragen zur Charaktererstellung (Origin/Adventure/Greatness) nachschlagen (Taste T)" },
   { id:"lore",      icon:"🌰", label:"Lore",          labelDefault:true,  fn:"openLore()",         title:"Alle Lore- &amp; Kern-Enthüllungen im Überblick (Taste L)" },
   { id:"store",     icon:"🛒", label:"Shop",          labelDefault:true, fn:"openStore()",        title:"Allgemeiner Laden — Gegenstands-Vorschläge für Backpack-/Belohnungs-Tags (Taste S)" },
   { id:"challenges",icon:"⚔",  label:"Challenges",    labelDefault:true, fn:"openChallenges()",   title:"Challenge-Bibliothek durchsuchen (Taste C)" },

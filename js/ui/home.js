@@ -12,7 +12,7 @@ function renderHome(){
   if(ADVENTURES.some(function(a){ return a.id==="campaign-aftermath"; })) wake.push(["Campaign Aftermath","goAdventure(\'campaign-aftermath\')"]);
   var dales = LM_NAV.secs.welt.map(function(s){ return [esc(s.t),"goBook(\'welt\',\'"+s.id+"\')"]; }).concat([["Buch (PDF)","BV.open(\'wake\',1)"]]);
   var regeln = LM_NAV.secs.regeln.filter(function(s){ return s.id!=="themenbuecher" && s.id!=="erschaffung"; }).map(function(s){ return [esc(s.t),"goBook(\'regeln\',\'"+s.id+"\')"]; }).concat([["Buch (PDF)","BV.open(\'core\',1)"]]);
-  var themen = [["Lesen","goBook(\'regeln\',\'themenbuecher\')"],["Fragen nachschlagen","openThemebook()"],["Core Book (PDF)","BV.open(\'core\',92)"]];
+  var themen = [["Origin","TB.filter=\'origin\';goThemen()"],["Adventure","TB.filter=\'adventure\';goThemen()"],["Greatness","TB.filter=\'greatness\';goThemen()"],["Variable Might","TB.filter=\'variable\';goThemen()"],["Fellowship","goThemen(\'fellowship\')"],["Gemischtwarenladen","goThemen(\'laden\')"]];
   var helden = [["Charaktererstellung","openCreator()"],["Eigene Charaktere","openCustomChars()"],["Profile","openProfiles()"],["Heldenerschaffung","goBook(\'regeln\',\'erschaffung\')"]];
   var nachschlagen = [["Challenges","openChallenges()"],["Glossar","openRulesGloss()"],["Grimoire","openGrimoire()"],["NPCs","openCharacters()"],["Rasten","openRestRules()"],["Lore","openLore()"],["Shop","openStore()"],["Würfel","openDice()"],["Suche","openSearch()"]];
   app.innerHTML = renderTopbar() + '<div class="hm">'+
@@ -21,7 +21,7 @@ function renderHome(){
       homeCard("assets/litm/home-wake.webp","Wake of the Oldways","goOverview()",wake)+
       homeCard("assets/litm/home-dales.webp","The Dales","goBook(\'welt\',\'dales\')",dales)+
       homeCard("assets/litm/home-regeln.webp","Regeln","goBook(\'regeln\',\'einstieg\')",regeln)+
-      homeCard("assets/litm/home-themenbuecher.webp","Themenbücher","goBook(\'regeln\',\'themenbuecher\')",themen)+
+      homeCard("assets/litm/home-themenbuecher.webp","Themenbücher","TB.filter=\'alle\';goThemen()",themen)+
       homeCard("assets/litm/home-helden.webp","Charaktere","openCreator()",helden)+
       homeCard("assets/litm/home-nachschlagen.webp","Nachschlagen","openChallenges()",nachschlagen)+
     '</div></div>';

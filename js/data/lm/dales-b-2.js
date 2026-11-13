@@ -23,8 +23,8 @@ lmAdd("dales-b", [
 "- **FLÜSTERN UND KRÄCHZEN:** Krähenschwestern haben die Werkzeuge des Wood Whisperers gestohlen und seine Arbeit sabotiert. Wenn dieser seltsame Kult nicht rasch aus Cedargate ausgemerzt wird, werden bald ungesegnete Mauern zu fallen beginnen."
 ], aside:[
 {box:{t:"Theme Kit: People – Cedargate Lumberjack", k:"regel", b:[
-"*brawny arms, mountain forestry, torch and tinderbox, build a palisade, logging camps, blow the alarm horn, long-shaft axe, stalwart defender, low-light vision*",
-"*hatred of Highlanders, belligerent, useless at farming, bitter over lack of support*",
+"*kräftige Arme, Bergforstwirtschaft, Fackel und Zunderbüchse, eine Palisade bauen, Holzfällerlager, ins Alarmhorn stoßen, Langstielaxt, standhafter Verteidiger, Dämmersicht*",
+"*Hass auf Highlander, kriegerisch, nutzlos in der Landwirtschaft, verbittert über fehlende Unterstützung*",
 "> Verteidigt unser Waldtal bis zum letzten Tropfen Blut.",
 "**Quick Barricade:** Einmal pro Szene kannst du, wenn du ein paar Augenblicke und genug schwere Gegenstände in der Nähe hast, eine kleine Barrikade errichten, die jedem dahinter cover-3 bietet und nicht überwunden werden kann, bis dieser Status entfernt wird."
 ]}}
@@ -52,8 +52,8 @@ lmAdd("dales-b", [
 "- **THE HUMMING DOLMEN:** Bone Tenders sagen, ein Dolmen weit im Norden werde jede Nacht von Feuerschein erleuchtet und hallt zeitweise von einer widerhallenden und ziemlich fröhlichen Summmelodie. Knochen liegen rund um den Hügel verstreut – von Bär, Hirsch und anderen, größeren Dingen – und Schädel auf Pfählen umgeben ihn. Die Tenders sind sich nicht sicher, welche Art Creature dort lebt, aber sie sind ziemlich sicher, dass sie nicht schläft."
 ], aside:[
 {box:{t:"Theme Kit: People – Dolmen Knoll Drifter", k:"regel", b:[
-"*resistant to cold weather, scavenging, Gwyrdolan trinket [choose], knows many barrows, tundra survival, welcomes company, Gwyrdolan steel sword, cautious, Oldways banishing sign*",
-"*cursed [choose], fierce resource guarding, nervous, treated as a pariah*",
+"*kälteresistent, Plündern und Sammeln, gwyrdolanischer Krimskrams [wähle], kennt viele Hügelgräber, Überleben in der Tundra, freut sich über Gesellschaft, gwyrdolanisches Stahlschwert, vorsichtig, Oldways-Bannzeichen*",
+"*verflucht [wähle], verbissenes Horten, nervös, wie ein Ausgestoßener behandelt*",
 "> Güte lässt sich selbst an den kargsten Orten finden.",
 "**Delver’s Gut Feeling:** Wann immer du dabei bist, ein scheinbar verlassenes Bauwerk zu betreten, darfst du den Narrator nach einem Detail dazu fragen, was dich darin erwartet, selbst wenn du es nicht wahrnehmen kannst."
 ]}}
@@ -80,8 +80,8 @@ lmAdd("dales-b", [
 "- **KRACH IM BADEHAUS:** Gerüchten zufolge macht ein Reisender seit einigen Wochen Ärger in Hartwood. Ein früherer Kunde der Sauna, hämmert er an die Türen des Badehauses und verkündet, die Soaks hätten ihn betrogen, doch auf Nachfrage murmelt er nur, sie hätten seine „Gabe“ gestohlen. Die Soaks sind bereit, jemanden zu bezahlen, der sie von ihm erlöst."
 ], aside:[
 {box:{t:"Theme Kit: People – Hartlander", k:"regel", b:[
-"*comfortable in the wild, pathfinding, tent and bedroll, Dalish Creatures of Twilight, lakeside living, medicinal herbalism, trident, friendly, Twilight blood [choose ability]*",
-"*hand-to-mouth, Twilight love affairs, too trusting, oft-forgotten Dale*",
+"*in der Wildnis zu Hause, Wegfindung, Zelt und Schlafrolle, dalische Creatures of Twilight, Leben am Seeufer, Heilkräuterkunde, Dreizack, freundlich, Twilight-Blut [wähle Fähigkeit]*",
+"*von der Hand in den Mund, Twilight-Liebschaften, zu vertrauensselig, oft vergessenes Tal*",
 "> Achte das Land und deine Mit-Dalespeople.",
 "**Starlit Nights:** Wenn du in der Wildnis, fern von jedem Heim oder jeder Siedlung, lagerst und Rest machst, darfst du oder ein mit dir ruhender Hero Improve bei einem beliebigen Theme markieren."
 ]}}
@@ -108,8 +108,8 @@ lmAdd("dales-b", [
 "- **EINE HÄSSLICHE PATTSITUATION:** Ein bleibender milchgerinnender Fluch könnte eine Highglade-Viehzüchterfamilie zerstören, doch nur die Ragaknocks, eine Familie von Melkern, besitzen angeblich den genauen Zauber. Die Letzte ihrer Sippe, Griselda, eine erschreckend unansehnliche Alte, lebt in einer Hütte am Rande des Dales und hat zugestimmt, ihn mit ihrem künftigen Ehemann zu teilen, doch keine der Highglade-Familien hat sich bislang als gierig genug erwiesen, einen Freier zu stellen."
 ], aside:[
 {box:{t:"Theme Kit: People – Highglade Genteel", k:"regel", b:[
-"*noble mannerisms, horse riding, fine quilted jacket, history and politics, adapted to high altitudes, personal assistant, fencing, hold myself to high standards, produce protecting charms*",
-"*old riding injury, Milkrest animosity, costly estate upkeep, considered to be snobs*",
+"*vornehme Manieren, Reiten, feine Steppjacke, Geschichte und Politik, an große Höhen gewöhnt, persönlicher Diener, Fechten, hohe Ansprüche an mich selbst, Schutzamulette herstellen*",
+"*alte Reitverletzung, Feindschaft mit Milkrest, kostspieliger Unterhalt des Anwesens, gelten als Snobs*",
 "> Immer eine Stufe darüber.",
 "**Chin Held High:** Einmal pro Szene darfst du einen sozialen oder emotionalen Status von Tier 3 oder weniger ignorieren, wenn du handelst."
 ]}},
@@ -140,8 +140,8 @@ lmAdd("dales-b", [
 "- **EYRIE OF THE WINDS:** Eine örtliche Erzählung besagt, dass auf dem allerhöchsten Gipfel des Milkrest ein Oldways-Schrein steht, eine Ansammlung von Steinmännchen, den Winden gewidmet, mit bunten Bannern flatternd. Es gibt jedoch eine Debatte darüber, welcher Kamm genau der höchste ist. Ein asketischer Weiser soll in der Nähe wohnen, oder sein Geist spukt dort, und manche sagen, er sei ein Zauberer, der fliegen kann."
 ], aside:[
 {box:{t:"Theme Kit: People – Milkrest Mountainfolk", k:"regel", b:[
-"*rugged and tough, shepherd, a wedge of stinky cheese, Oldways herblore, mountain climbing, draft goat, practical jokes, perpetual good mood, rappelling*",
-"*ripe body odor, Highglade animosity, unaccustomed to lowlands, annoying jokester*",
+"*rau und zäh, Schäfer, ein Keil Stinkekäse, Oldways-Kräuterkunde, Bergsteigen, Zugziege, derbe Streiche, immer gut gelaunt, Abseilen*",
+"*strenger Körpergeruch, Feindschaft mit Highglade, ans Tiefland nicht gewöhnt, nerviger Witzbold*",
 "> Feiert gut und nehmt es leicht, denn das Leben ist kurz.",
 "**Experienced Mountaineer:** Einmal pro Session darfst du, wenn du oder jemand in deiner Nähe eine sturzbezogene Consequence oder eine Consequence durch Bergreisen erleidet, diese ignorieren."
 ]}},

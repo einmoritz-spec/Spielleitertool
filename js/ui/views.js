@@ -888,6 +888,7 @@ function render(){
   if(state.view==="prep") state.view="home";
   if(state.view==="overview" && false) renderPrep();
   else if(state.view==="book") renderBook();
+  else if(state.view==="themen") renderThemen();
   else if(state.view==="home") renderHome();
   else if(state.view==="overview") renderOverview();
   else renderAdventure();

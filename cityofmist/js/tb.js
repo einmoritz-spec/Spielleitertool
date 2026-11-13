@@ -48,12 +48,51 @@ function tbGroup(root){
     out.appendChild(sec); });
   par.innerHTML=""; par.appendChild(out);
 }
+function tbNorm(e){
+  var boxes={frage:[],hinweis:[],beispiel:[]}, body=[];
+  var take=function(b){ if(b&&b.box&&boxes[b.box.k]){ boxes[b.box.k].push(b); return true; } return false; };
+  (e.body||[]).forEach(function(b){ if(!take(b)) body.push(b); });
+  (e.aside||[]).forEach(function(b){ if(!take(b)) body.push(b); });
+  var tags=function(v){ return String(v||"").split(/;\s*/).filter(Boolean); };
+  var card=function(title,art,name,idl,idv,st,wk){ var b=["*Art:* "+art,"**"+name+"**","*"+idl+":* "+idv]; b.push({tg:{t:"Stärken",k:"pw",i:st}}); b.push({tg:{t:"Schwächen",k:"wk",i:wk}}); return {box:{t:title,k:"beispiel",b:b}}; };
+  var ex=[];
+  boxes.beispiel.forEach(function(bx){ var kv=null; (bx.box.b||[]).forEach(function(x){ if(x&&x.kv) kv=x.kv; });
+    if(!kv){ ex.push(bx); return; }
+    var groups={}, order=[]; kv.forEach(function(p){ var m=/^(.+?) – (.+)$/.exec(p[0]), g=m?m[1]:"", f=m?m[2]:p[0]; if(!groups[g]){ groups[g]={}; order.push(g); } groups[g][f]=p[1]; });
+    order.forEach(function(g){ var o=groups[g], idl=o["Mysterium"]?"Mysterium":"Identität", idv=o["Mysterium"]||o["Identität"]||"";
+      ex.push(card(g?bx.box.t+": "+g:"Beispiel-Themenkarte", g||o["Art"]||"", o["Name"]||"", idl, idv, tags(o["Stärken"]), tags(o["Schwächen"]))); }); });
+  return {name:e.name,p:e.p,pe:e.pe,sub:e.sub,body:body,aside:boxes.frage.concat(boxes.hinweis,ex)};
+}
+function tbNormSS(o){
+  var strip=function(t){ return String(t).replace(/\*\*/g,""); }, ren={"Concept":"Konzept","Power Tag Questions":"Fragen zu den Stärken","Weakness Tag Questions":"Fragen zu den Schwächen"};
+  var body=["### "+(o.tb||"Mythos")+"-Themenbuch"], aside=[], i, t, frageT=null, frageB=[];
+  var tx=o.text||[];
+  for(i=0;i<tx.length;i++){ t=tx[i];
+    if(/^## /.test(t)){ body.push("## "+(ren[t.slice(3)]||t.slice(3))); continue; }
+    if(/^\*\*[^*]+\*\*/.test(t) && /^•/.test(tx[i+1]||"")){ var m=/\(([^)]+)\)\s*$/.exec(t); frageT=m?m[1]:strip(t).replace(/\?.*$/,"?"); continue; }
+    if(/^•\s*/.test(t)){ frageB.push("- "+t.replace(/^•\s*/,"")); continue; }
+    body.push(t); }
+  if(frageT) aside.push({box:{t:frageT,k:"frage",b:frageB}});
+  var secs={"Power Tag Questions":"Fragen zu den Stärken","Power-Tag-Fragen":"Fragen zu den Stärken","Weakness Tag Questions":"Fragen zu den Schwächen","Weakness-Tag-Fragen":"Fragen zu den Schwächen","Extra Tags":"Zusätzliche Stärken und Schwächen","Mystery":"Mysterium","Identity":"Identität","Title":"Name","Crew Relationships":"Beziehungen innerhalb des Teams","Crew-Beziehungen":"Beziehungen innerhalb des Teams"};
+  (o.listen||[]).forEach(function(l){ var key=l.t.replace(/\s*\(Beispiele\)/,""), isQ=/Tag Questions|Tag-Fragen/.test(key);
+    var head=secs[key]||(/Improvements/.test(key)?"Verbesserungen":key);
+    if(isQ && body.indexOf("## "+head)>=0){ /* Überschrift steht schon im Text */ } else body.push("## "+head);
+    if(l.pre) body.push(l.pre);
+    (l.items||[]).forEach(function(it){ var m=/^\*\*([A-J]) – (.+?)\*\*\s*(.*)$/.exec(it);
+      if(isQ&&m) body.push({fq:{l:m[1],q:m[2].replace(/\?$/,"?"),tags:m[3].split(/,\s*/).filter(Boolean)}}); else body.push("- "+it.replace(/^•\s*/,"")); }); });
+  var th=(o.themen||[])[0];
+  if(th){ var idm=/^(Mystery|Identity):\s*(.*)$/.exec(th.identity||""), lab=idm&&idm[1]==="Identity"?"Identität":"Mysterium";
+    var bb=["*Art:* "+th.typ,"**"+th.name+"**","*"+lab+":* "+(idm?idm[2]:th.identity||"")]; bb.push({tg:{t:"Stärken",k:"pw",i:th.power||[]}}); bb.push({tg:{t:"Schwächen",k:"wk",i:th.weak||[]}});
+    aside.push({box:{t:"Beispiel-Themenkarte",k:"beispiel",b:bb}}); }
+  return {name:o.name,p:o.p,sub:(o.extra&&o.extra[0])||"",body:body,aside:aside};
+}
 function tbDetail(r){
   var back='<button class="tbback" onclick="go(\'tb\')">‹ Alle Themenbücher</button>', h="", hero="";
   if(r.tab==="rw"){ var e=(CM_RW[r.sub]||[])[+r.cat]; if(e){ var im=RWI.tb[e.p], typ=r.sub==="themenbuecher-logos"?"Logos":r.sub==="extra"?"Extra":"Mythos";
       hero=im?'<div class="tbhero tb-'+typ.toLowerCase()+'"><img src="img/rw/tb_'+im+'.webp" alt="" data-lb><div class="tbh-t"><small>'+(typ==="Extra"?"Zusätzliches Thema":typ+" Themebook")+'</small><b>'+esc(e.name)+'</b> '+pg(e.p,e.pe)+'</div></div>':"";
-      h=rwCard(e,"tbd",r.sub); } }
-  else if(r.tab==="ss"){ Object.keys(CM_ORTE).filter(function(k){return k.indexOf("sp_")===0;}).forEach(function(k){ CM_ORTE[k].forEach(function(o){ if(o.id===r.sub) h=ortCard(o).replace('<details class="ort"','<details class="ort" open'); }); }); }
+      h=rwCard(tbNorm(e),"tbd",r.sub); } }
+  else if(r.tab==="ss"){ Object.keys(CM_ORTE).filter(function(k){return k.indexOf("sp_")===0;}).forEach(function(k){ CM_ORTE[k].forEach(function(o){ if(o.id===r.sub&&o.hero){ var typ=o.tb||"Mythos";
+      hero='<div class="tbhero tb-'+typ.toLowerCase()+'"><img src="img/'+o.hero+'.webp" alt="" data-lb><div class="tbh-t"><small>'+typ+' Themebook</small><b>'+esc(o.name)+'</b> '+pg(o.p)+'</div></div>'; h=rwCard(tbNormSS(o),"tbd","ss"); } }); }); }
   var d=document.createElement("div"); d.innerHTML=h; tbGroup(d);
   var vs=[["a","Raster"],["b","Spalten"],["c","Karte"]].map(function(v){return '<button data-v="'+v[0]+'" class="'+(tbVar===v[0]?'on':'')+'" onclick="tbSetVar(\''+v[0]+'\')">'+v[1]+'</button>';}).join("");
   return '<div class="tbpage tbdetail tbv-'+tbVar+'">'+back+''+hero+'<div class="tbdet-body">'+d.innerHTML+'</div></div>';

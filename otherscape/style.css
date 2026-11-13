@@ -764,3 +764,10 @@ details.kit{border-top-color:var(--tone)!important}.kb-txt p,.kb-concept{max-wid
 .kb-txt p,.kb-concept,.tbx{max-width:none!important}
 @media(max-width:760px){.kb-big{float:none;width:100%;height:340px;margin:0 0 14px}}
 .kit-grid{align-items:start}
+
+/* Abschnitte mit Tabelle: Bild als Band darüber, keine leere Spalte unter dem Bild */
+.os-xs:has(.tbl-wrap) .os-arts{float:none!important;max-width:none!important;width:100%!important;margin:0 0 12px!important}
+.os-xs:has(.tbl-wrap) .os-art{margin:0!important}
+.os-xs:has(.tbl-wrap) .os-art img{width:100%!important;max-width:100%!important;height:auto!important;max-height:230px!important;object-fit:cover;object-position:center 30%}
+
+.os-xs:has(.tbl-wrap) .os-arts,.os-xs:has(.tbl-wrap) .os-art{display:block!important;width:100%!important}.os-xs:has(.tbl-wrap) .os-art img{max-height:200px!important}

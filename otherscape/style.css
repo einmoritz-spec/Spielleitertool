@@ -672,3 +672,15 @@ body .scn:has(>.scn-r>.scn-rh+.blk:last-child)>.scn-r{position:static;border-lef
 .kat-banner img{width:100%;height:clamp(150px,24vw,300px);object-fit:cover;object-position:center 45%;border-radius:12px;box-shadow:0 2px 14px rgba(0,0,0,.5);cursor:zoom-in;display:block}
 .kat-banner::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;border-radius:0 0 12px 12px;background:linear-gradient(transparent,rgba(5,10,18,.55));pointer-events:none}
 .kat-tile img{cursor:pointer}
+
+/* Buchbilder: Porträts in Challenge-Karten, Theme-Book-Titel, Kapitel-Banner */
+.ch-av{width:42px;height:42px;flex:none;object-fit:cover;border-radius:6px;cursor:zoom-in;box-shadow:0 1px 6px rgba(0,0,0,.4);order:0}
+.ch-head .ch-av+b{flex:1 1 calc(100% - 64px)}
+.ch.coll.open .ch-head .ch-av{width:64px;height:64px}
+.ch.coll.open .ch-head .ch-av+b{flex:0 1 auto}
+.geg summary .ch-av{width:34px;height:34px;align-self:center}
+.sec-h.kb-h{display:flex;align-items:center;gap:12px}
+.kb-img{width:64px;height:64px;object-fit:cover;border-radius:8px;cursor:zoom-in;box-shadow:0 1px 8px rgba(0,0,0,.45);flex:none}
+.os-banner{margin:0 0 14px;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.45);max-height:190px}
+.os-banner img{display:block;width:100%;height:190px;object-fit:cover;object-position:center}
+@media(max-width:700px){.os-banner,.os-banner img{height:110px;max-height:110px}}

@@ -243,10 +243,12 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ const o=document.
 function osSecPage(a,sid){ const pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[sid]; return pg ? pgBtn(a.buch,pg) : ""; }
 function osHeadPages(a){ const m = (a.seiten||"").match(/\d+/g)||[]; return m.length ? pgBtn(a.buch,m[0],esc(a.buch)+" "+esc(a.seiten)+" 📖") : esc(a.buch)+" "+esc(a.seiten); }
 
+function osAv(name){ const P = typeof OS_PORTRAITS!=="undefined" && OS_PORTRAITS[name]; if(!P) return "";
+  return `<img class="ch-av" src="img/art/${P.slug}-a.webp" alt="${esc(name)} (Buch S. ${P.p})" loading="lazy" onclick="event.stopPropagation();osZoom('img/art/${P.slug}-full.webp')">`; }
 function renderChallenge(k,b,open){
   const tagCls = t => /^\s*[–-]\s/.test(t) ? "w" : (/^Status:/i.test(t) ? "s" : "");
   const tagTxt = t => t.replace(/^\s*[–-]\s/,"");
-  let h = `<div class="blk ch coll${open?" open":""}"><div class="ch-head" onclick="this.parentNode.classList.toggle('open')"><span class="chev">▸</span><b>${esc(b.name)}</b><span class="typ">${esc(b.typ||"")}</span><span class="stars">${esc(b.rating||"")}</span>${osChPage(b.name)}</div><div class="ch-body">`;
+  let h = `<div class="blk ch coll${open?" open":""}"><div class="ch-head" onclick="this.parentNode.classList.toggle('open')"><span class="chev">▸</span>${osAv(b.name)}<b>${esc(b.name)}</b><span class="typ">${esc(b.typ||"")}</span><span class="stars">${esc(b.rating||"")}</span>${osChPage(b.name)}</div><div class="ch-body">`;
   if(b.beschr) h += `<div class="ch-desc">${fmt(b.beschr)}</div>`;
   (b.limits||[]).forEach((l,li)=>{
     const lk = k+":"+li, n = +l.v||0, arr = ST.lim[lk]||[];
@@ -316,7 +318,7 @@ async function renderGegner(){
   const tp = x => (x.b.typ||"Challenge").split(" (")[0].trim(); const types = [...new Set(items.map(tp))].sort();
   let h = `<div class="adv-head"><h1>Gegner-Browser</h1><span class="meta">${items.length} Einträge · Tokyo S. 94–147</span></div>
   <div class="geg-bar"><input class="search-input" id="gegQ" placeholder="Filtern nach Name oder Tag …" oninput="gegFilter()" autocomplete="off"><select id="gegT" onchange="gegFilter()"><option value="">Alle Typen</option>${types.map(t=>`<option>${esc(t)}</option>`).join("")}</select></div>
-  <div class="geg-list" id="gegList">${items.map((x,n)=>`<details class="geg" data-n="${n}" data-q="${esc((x.b.name+" "+(x.b.typ||"")+" "+(x.b.tags||[]).join(" ")+" "+x.s.titel).toLowerCase())}" data-t="${esc(tp(x))}" ontoggle="gegOpen(this)"><summary><b>${esc(x.b.name)}</b><span class="stars">${esc(x.b.rating||"")}</span><small>${esc(x.b.typ||"Challenge")} · ${esc(x.s.titel)}</small></summary><div class="geg-body"></div></details>`).join("")}</div>`;
+  <div class="geg-list" id="gegList">${items.map((x,n)=>`<details class="geg" data-n="${n}" data-q="${esc((x.b.name+" "+(x.b.typ||"")+" "+(x.b.tags||[]).join(" ")+" "+x.s.titel).toLowerCase())}" data-t="${esc(tp(x))}" ontoggle="gegOpen(this)"><summary>${osAv(x.b.name)}<b>${esc(x.b.name)}</b><span class="stars">${esc(x.b.rating||"")}</span><small>${esc(x.b.typ||"Challenge")} · ${esc(x.s.titel)}</small></summary><div class="geg-body"></div></details>`).join("")}</div>`;
   $("app").innerHTML = h;
 }
 function gegOpen(d){ if(!d.open) return; const body = d.querySelector(".geg-body"); if(body.dataset.done) return; const x = GEG[+d.dataset.n]; body.innerHTML = renderChallenge(x.a.id+":"+x.s.id+":"+x.i, x.b, true) + `<p class="hint"><a href="#/adv/${x.a.id}/${x.s.id}">Im Abschnitt „${esc(x.s.titel)}“ öffnen</a></p>`; body.dataset.done = 1; }
@@ -327,3 +329,14 @@ function renderFraktionen(){
   const list = OS_ADV_LIST.filter(a=>a.kat==="fraktion");
   $("app").innerHTML = `<div class="adv-head"><h1>Fraktionen</h1><span class="meta">${list.length} Fraktionen · Tokyo S. 151–237</span></div><div class="cards">${list.map(a=>{ const ok = hasData(a.id); return `<button class="card ${ok?"":"off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"}><span class="nr">${esc(a.buch)} · ${esc(a.seiten)}</span><b>${esc(a.titel)}</b><small>${esc(a.sub)}</small></button>`; }).join("")}</div>`;
 }
+
+/* Kapitel-Banner (schmale Titelbilder aus den Büchern) über den Übersichtsseiten */
+var OS_BANNER_KEYS = {gegner:"gegner", fraktionen:"fraktionen", tokyo:"tokyo", regeln:"play", metro:"imagine", run:"run", abenteuer:"jobs"};
+function osBannerSync(){
+  const app = $("app"); if(!app) return; const k = OS_BANNER_KEYS[parseHash()[0]]; const f = app.firstElementChild, has = f && f.classList.contains("os-banner");
+  if(has && f.dataset.k===k) return; if(has) f.remove();
+  if(!k || !app.firstElementChild || app.querySelector(".missing")) return;
+  const d = document.createElement("div"); d.className = "os-banner"; d.dataset.k = k; d.innerHTML = `<img src="img/art/banner-${k}.webp" alt="">`; app.insertBefore(d, app.firstChild);
+}
+if($("app")) new MutationObserver(osBannerSync).observe($("app"),{childList:true});
+window.addEventListener("load",osBannerSync);

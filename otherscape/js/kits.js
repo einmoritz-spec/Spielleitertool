@@ -13,11 +13,13 @@ function kitCard(k){
   <div class="kit-l">Schwächen-Tags</div><div class="kat-tags">${k.weak.map((t,i)=>`<span class="kat-tag weak" title="${esc(k.enWeak[i]||"")}">${esc(t)}</span>`).join("")}</div>
   <div class="kit-l">${esc(il)}</div><p class="kit-itch">${esc(iv)}</p><div class="kat-en">${esc(k.enPower.join(" · "))} | ${esc(k.enWeak.join(" · "))} | ${esc(ie)}</div></article>`;
 }
+function kbCover(g){ const B = typeof OS_KITBOOKS!=="undefined" && OS_KITBOOKS[g]; if(!B) return "";
+  return `<img class="kb-img" src="img/art/${B.slug}-a.webp" alt="Theme-Book ${esc(g)} (Buch S. ${B.p})" loading="lazy" onclick="osZoom('img/art/${B.slug}-full.webp')">`; }
 function renderKits(){
   if(typeof OS_KITS==="undefined"){ $("app").innerHTML = '<div class="missing">Kit-Daten fehlen.</div>'; return; }
   const KITS = allKits();
   const groups = [...new Set(KITS.map(k=>k.grp))];
   const g0 = groups.map((g,i)=>({t:g,on:i===0,n:KITS.filter(k=>k.grp===g).length,sub:KITS.filter(k=>k.grp===g).map(k=>({id:"kit_"+k.name.replace(/\W+/g,"_"),t:k.name}))}));
   g0.forEach(g=>g.on=true);
-  $("app").innerHTML = osRail("", g0, groups.map(g=>`<div class="sec-h">${esc(g)}</div><div class="kit-grid">${KITS.filter(k=>k.grp===g).map(k=>`<div id="kit_${k.name.replace(/\W+/g,"_")}">${kitCard(k)}</div>`).join("")}</div>`).join(""));
+  $("app").innerHTML = osRail("", g0, groups.map(g=>`<div class="sec-h kb-h">${kbCover(g)}<span>${esc(g)}</span></div><div class="kit-grid">${KITS.filter(k=>k.grp===g).map(k=>`<div id="kit_${k.name.replace(/\W+/g,"_")}">${kitCard(k)}</div>`).join("")}</div>`).join(""));
 }

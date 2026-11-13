@@ -40,6 +40,9 @@ async function route(){
   else if(p[0]==="kits") renderKits();
   else if(p[0]==="regeln") renderRegeln();
   else if(p[0]==="metro") renderMetro();
+  else if(p[0]==="archetypen") renderArchetypen();
+  else if(p[0]==="charaktererstellung") renderCharErstellung();
+  else if(p[0]==="run") renderRun();
   else if(p[0]==="tokyo") renderTokyo();
   else if(p[0]==="abenteuer") renderAdvList();
   else renderHome();
@@ -289,7 +292,7 @@ function openMobileMenu(){
   if($("mobileMenu")) return;
   const item = (ic,l,fn)=>`<button class="mm-item" onclick="closeMobileMenu(); ${fn}"><span class="mm-ic">${ic}</span><span>${l}</span></button>`;
   const m = document.createElement("div"); m.id = "mobileMenu"; m.className = "mobile-menu";
-  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📕","Metro (PDF)","openBook('Metro',1)")}${item("📗","Tokyo (PDF)","openBook('Tokyo',1)")}${item("🗂","Abenteuer","location.hash='#/abenteuer'")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🏛","Fraktionen","location.hash='#/fraktionen'")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎒","Straßenkatalog","location.hash='#/katalog'")}${item("🃏","Theme-Kits","location.hash='#/kits'")}${item("📖","Regelwerk","location.hash='#/regeln'")}${item("🌆","Metro-Setting","location.hash='#/metro'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
+  m.innerHTML = `<div class="mm-backdrop" onclick="closeMobileMenu()"></div><nav class="mm-panel" aria-label="Menü"><div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div><div class="mm-list">${item("🏠","Start","goHome()")}${item("📕","Metro (PDF)","openBook('Metro',1)")}${item("📗","Tokyo (PDF)","openBook('Tokyo',1)")}${item("🗂","Abenteuer","location.hash='#/abenteuer'")}${item("📁","Aktuelles Abenteuer","goLastAdv()")}${item("🏛","Fraktionen","location.hash='#/fraktionen'")}${item("🎭","Archetypen","location.hash='#/archetypen'")}${item("🧬","Charaktererstellung","location.hash='#/charaktererstellung'")}${item("🎲","//RUN (SL)","location.hash='#/run'")}${item("👹","Gegner-Browser","location.hash='#/gegner'")}${item("🎒","Straßenkatalog","location.hash='#/katalog'")}${item("🃏","Theme-Kits","location.hash='#/kits'")}${item("📖","Regelwerk","location.hash='#/regeln'")}${item("🌆","Metro-Setting","location.hash='#/metro'")}${item("🎲","Regelblatt &amp; Würfler","openRules()")}${item("🔎","Suche","openSearch()")}</div><div class="mm-foot">${item("⚙","Einstellungen","openSettings()")}</div></nav>`;
   document.body.appendChild(m); document.body.classList.add("menu-open"); requestAnimationFrame(()=>m.classList.add("open"));
 }
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMobileMenu(); closeModal("searchModal"); closeModal("settingsModal"); } });

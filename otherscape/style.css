@@ -625,3 +625,16 @@ body[data-pn=os] .pn-btn{display:none!important}
 .case-tabbar.grpbar{padding:3px 2px 7px;margin-bottom:0;overflow:visible}
 .case-tab.grp.active{top:0}
 @media (max-width:1000px){.case-tabbar.grpbar{overflow-x:auto;overflow-y:hidden}}
+/* Metro-Seiten: Archetypen, Charaktererstellung, //RUN, Glossar */
+.mt-ul{margin:6px 0 0;padding-left:18px;font-size:13.5px;line-height:1.5}.mt-ul li{margin:3px 0}
+.mt-hk{grid-column:1/-1}
+.ar .kit-l{margin-top:10px}
+.sec-h small{opacity:.6;letter-spacing:.08em;margin-left:8px;text-transform:none}
+.ce-steps{list-style:none;counter-reset:ce;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
+.ce-step{counter-increment:ce;position:relative;background:linear-gradient(180deg,#14213a,var(--bg2));border:1px solid rgba(25,227,193,.28);border-radius:14px;padding:12px 14px 12px 52px}
+.ce-step::before{content:counter(ce);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:var(--bg);background:var(--tone)}
+.ce-step h3{margin:0 0 6px;display:flex;justify-content:space-between;gap:8px;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:#9cf06a}
+.ce-step p{margin:6px 0;font-size:13.5px;line-height:1.5}
+.mt-gl{width:100%;border-collapse:collapse;font-size:13.5px}.mt-gl th,.mt-gl td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.mt-gl th{width:26%;color:#9cf06a;font-weight:600}.mt-pg{width:1%;white-space:nowrap}
+@media (max-width:560px){.ce-steps{grid-template-columns:minmax(0,1fr)}.mt-gl th{width:34%}}

@@ -304,3 +304,12 @@ body[data-pn=com] .pn-btn{display:none!important}
 /* Kästen ohne Inhalt (nur Frage-/Hinweis-Überschrift): als schmales Banner, ohne leeren Körper */
 .bx.bx-kopf{display:inline-block;max-width:100%}
 .bx.bx-kopf>header{padding:8px 16px}
+/* Karten, deren Text fast nur aus Kästen besteht (z. B. Kurzreferenz): Kästen über die ganze Breite in Spalten, keine leere linke Spalte */
+@media (min-width:900px){
+  .rwa.rwwide{display:flex!important;flex-direction:column}
+  .rwa.rwwide>.rwm{order:3;margin-top:4px}
+  .rwa.rwwide>.rws{float:none!important;width:auto!important;margin:8px 0 0!important;display:block;columns:2 380px;column-gap:28px}
+  .rwa.rwwide>.rws>*{break-inside:avoid;margin:0 0 14px}
+}
+@media (min-width:1500px){.rwa.rwwide>.rws{columns:3 380px}}
+@media (min-width:900px){.rwa.rwwide1>.rws{columns:1!important;max-width:980px}}

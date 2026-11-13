@@ -43,7 +43,8 @@ function rwCard(e,id,secId){
   var tb=rwTb(secId,e), doc=rwDoc(secId,e), figs=rwFigHtml(secId,e);
   var body=e.body||[], main=body.filter(function(b){return !rwIsSide(b);}), side=body.filter(rwIsSide).concat(e.aside||[]);
   var sideHtml=figs+rwBlocks(side)+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'');
-  return '<article class="rwa" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="rwsub">'+esc(e.sub)+'</p>':'')+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+
+  var wideSide=sideHtml&&((!main.length&&side.length>=1)||(JSON.stringify(main).length<700&&side.length>=2));
+  return '<article class="rwa'+(wideSide?' rwwide'+(side.length<2?' rwwide1':''):'')+'" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(e.sub?'<p class="rwsub">'+esc(e.sub)+'</p>':'')+(tb?'<img class="rwbn" data-lb loading="lazy" alt="" src="'+tb+'">':'')+
     (sideHtml?'<aside class="rws">'+sideHtml+'</aside>':'')+'<div class="rwm">'+rwBlocks(main)+'</div></article>';
 }
 var __tocSpy;

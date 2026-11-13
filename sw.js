@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v379buch";
+const VERSION = "v380logo";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -617,6 +617,8 @@ const FILES = [
   "assets/hero/litm-logo.webp",
   "assets/hero/ss-art.webp",
   "assets/logos/hor.webp",
+  "assets/logos/city-of-mist.webp",
+  "assets/logos/legend-in-the-mist.webp",
   "css/overview.css",
   "css/settings.css",
   "shared/cards.css",

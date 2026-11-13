@@ -364,3 +364,5 @@ html,body{overflow-x:hidden}
  .imf.im-land{float:none!important;width:100%!important;margin:6px 0 12px!important}
  .dgrid.withimg>.imf{max-height:200px;margin:0!important}
 }
+
+.topbar .brand-logo{display:inline-flex;align-items:center;line-height:0;text-shadow:none}.topbar .brand-logo img{height:34px;width:auto;display:block;filter:drop-shadow(0 0 10px rgba(255,63,164,.45))}

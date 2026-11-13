@@ -212,3 +212,5 @@ input::placeholder{color:var(--text-faint)}
 .warn{color:#5b2a1c}
 .warn strong{color:#8e2a2a}
 .tip strong{color:#2f4d28}
+
+.topbar .brand.brand-logo{display:inline-flex;align-items:center;line-height:0}.topbar .brand.brand-logo img{height:38px;width:auto;display:block}

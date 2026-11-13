@@ -76,7 +76,7 @@ function renderTopbar(){
     .join("");
   return `
   <div class="topbar">
-    <button class="brand" onclick="goOverview()">${CAMPAIGN_TITLE}</button>
+    <button class="brand brand-logo" onclick="goOverview()" aria-label="${CAMPAIGN_TITLE}"><img src="assets/logos/legend-in-the-mist.webp" alt="Legend in the Mist"></button>
     <div class="topbar-spacer"></div>
     <div class="topbar-actions">
       ${btns}

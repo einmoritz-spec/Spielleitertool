@@ -167,6 +167,7 @@ function renderCase(c, sid){
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
   niRail($("app").querySelector("main.content"));
+  cardGrids($("app"));
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid && !(ch.items[1] && ch.items[1].id===sid)) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(!toEis) window.scrollTo(0,0);
@@ -448,4 +449,13 @@ function niRail(main){
   const wrap=document.createElement("div"); wrap.className="ni-rail"; wrap.appendChild(nav); wrap.appendChild(body);
   main.insertBefore(wrap, main.querySelector(".pager"));
   [...main.children].forEach(function(e){ if(e===wrap) return; if(e.compareDocumentPosition(wrap)&Node.DOCUMENT_POSITION_FOLLOWING && e.classList.contains("chsec") && !e.querySelector(":scope > .sec-sub")) e.classList.add("ni-intro"); });
+}
+
+/* Aufeinanderfolgende Hinweis-/Challenge-Karten als Raster über die volle Breite */
+function cardGrids(root){
+  root.querySelectorAll(".chsec,.scn-l,.chbody").forEach(par=>{
+    let run=[]; const flush=()=>{ if(!run.length) return; const g=document.createElement("div"); g.className="cardgrid"; run[0].before(g); run.forEach(e=>g.appendChild(e)); run=[]; };
+    [...par.children].forEach(e=>{ if(e.classList&&(e.classList.contains("blk-card")||e.classList.contains("threat"))&&!e.classList.contains("tcard-fig")) run.push(e); else flush(); });
+    flush();
+  });
 }

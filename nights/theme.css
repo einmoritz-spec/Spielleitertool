@@ -212,3 +212,7 @@ body{background:radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%)
 .case-card .nr{font-family:"Courier New",monospace}
 
 .level-head .lv-sub{display:none!important}
+
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px 16px;align-items:start;margin:12px 0 16px}
+.cardgrid>.blk-card,.cardgrid>.threat{max-width:none!important;margin:0!important;width:auto}
+@media(max-width:700px){.cardgrid{grid-template-columns:1fr}}

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v383nav";
+const VERSION = "v384galerie";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -783,6 +783,12 @@ const FILES = [
   "js/ui/edit-mode.js",
   "css/responsive.css",
   "shared/tabpick.js",
+  "shared/galerie.js",
+  "shared/galerie.css",
+  "js/data/galerie-hr.js",
+  "js/data/galerie-core.js",
+  "cityofmist/js/data/galerie-pg.js",
+  "cityofmist/js/data/galerie-mc.js",
   "shared/notes.js",
   "icons/favicon.svg"
 ];

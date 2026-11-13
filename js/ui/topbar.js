@@ -10,6 +10,7 @@ const TOPBAR_ITEMS = [
   { id:"lmworld",   icon:"🗺", label:"Die Dales",     labelDefault:true,  fn:"goBook('welt','dales')", title:"Setting Book: The Dales (deutsch lesen)" },
   { id:"lmpdf",     icon:"📕", label:"Buch (PDF)",    labelDefault:true,  fn:"BV.open('wake',1)", title:"Original-PDF öffnen (bei Bedarf hochladen)" },
   { id:"lmcore",    icon:"📘", label:"Core Book PDF", labelDefault:false, fn:"BV.open('core',1)", title:"Core-Book-PDF öffnen (bei Bedarf hochladen)" },
+  { id:"gallery",   icon:"🖼", label:"Galerie",       labelDefault:true,  fn:"Galerie.open('wake')", title:"Alle Buchbilder (Hearts of Ravensdale, Core Book) auf einen Blick" },
   { id:"profiles",  icon:"🎴", label:"Profile",       labelDefault:true,  fn:"openProfiles()",     title:"Spielerprofile der Gruppe nachschlagen (Taste P)" },
   { id:"chars",     icon:"🆕", label:"Charakter",     labelDefault:true,  fn:"openCustomChars()",  title:"Eigene Charaktere erstellen &amp; verwalten — gleiche Hero Card, gleicher Druck-Export (Taste X)" },
   { id:"creator",   icon:"🧙", label:"Erstellung",    labelDefault:true,  fn:"openCreator()",      title:"Charaktererstellung (Fragen, Theme-Kits, Tropes) öffnen — mit Link für Spieler" },

@@ -46,6 +46,7 @@ function buildMenu(){
   var r=route(), p=document.getElementById("mmP"), h='';
   h+='<button class="mi" onclick="openMenu(false);go(\'tb\')"><b>Themenbücher</b></button>';
   h+='<button class="mi" onclick="openMenu(false);srOpen()"><b>Suche</b></button>';
+  h+='<button class="mi" onclick="openMenu(false);Galerie.open(\'cityofmist\')"><b>Galerie</b></button>';
   if(r.sys==="rw") h+=CM_RW_NAV.extra.map(function(x){return '<button class="mi" onclick="openMenu(false);gr(\''+x.id+'\')"><b>'+x.t+'</b></button>';}).join("");
   h+='<div id="bvSettingsHost"></div>';
   if(window.BV) h+='<button class="mi" onclick="openMenu(false);BV.open(CM_BOOK[route().sys],1)"><b>Buch öffnen</b></button>';

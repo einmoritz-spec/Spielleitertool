@@ -12,6 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="../shared/galerie.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="rw.css">
 <link rel="stylesheet" href="mist.css">
@@ -81,6 +82,9 @@
 <script src="../shared/panels.js"></script>
 <script>PanelUI.init({nav:".onav",rail:".orail"});</script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"rw", books:[{key:"rw", name:"Grundregelwerk (DE)", off:2},{key:"cm", name:"Shadows & Showdowns (EN)"}], openSettings:function(){ openMenu(true); } }); BV.setDefault(CM_BOOK[route().sys]);</script>
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie-pg.js"></script>
+<script src="js/data/galerie-mc.js"></script>
 <script src="../toolmenu.js"></script>
 <script>window.gmBook=function(){var k=(window.CM_BOOK&&CM_BOOK[route().sys])||"rw";return {name:k==="cm"?"Shadows & Showdowns":"City of Mist Grundregelwerk",open:function(){BV.open(k,1);}};};</script>
 </body>

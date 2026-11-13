@@ -56,7 +56,7 @@ function tbDetail(r){
   else if(r.tab==="ss"){ Object.keys(CM_ORTE).filter(function(k){return k.indexOf("sp_")===0;}).forEach(function(k){ CM_ORTE[k].forEach(function(o){ if(o.id===r.sub) h=ortCard(o).replace('<details class="ort"','<details class="ort" open'); }); }); }
   var d=document.createElement("div"); d.innerHTML=h; tbGroup(d);
   var vs=[["a","Raster"],["b","Spalten"],["c","Karte"]].map(function(v){return '<button data-v="'+v[0]+'" class="'+(tbVar===v[0]?'on':'')+'" onclick="tbSetVar(\''+v[0]+'\')">'+v[1]+'</button>';}).join("");
-  return '<div class="tbpage tbdetail tbv-'+tbVar+'">'+back+'<nav class="tbvs">'+vs+'</nav>'+hero+'<div class="tbdet-body">'+d.innerHTML+'</div></div>';
+  return '<div class="tbpage tbdetail tbv-'+tbVar+'">'+back+''+hero+'<div class="tbdet-body">'+d.innerHTML+'</div></div>';
 }
 function pageTB(){
   var r=route();

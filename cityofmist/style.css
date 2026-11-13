@@ -167,3 +167,10 @@ a.pg-link{color:var(--mist)!important}
 .tbv-b .tbsec-half{background:none;border:0;padding:0}.tbv-b .tbsec-half .fqgrid{grid-template-columns:1fr}
 .tbv-b .tbsec:not(.tbsec-half) .fqgrid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
 .tbv-b .fq{background:transparent;border:0;border-left:3px solid #c4177a;border-radius:0;padding:4px 10px}
+
+/* Themenbuch-Detail: Seitenboxen als Reihe über den Abschnitten statt leerer Spalte */
+.tbdetail .rwa{display:flex!important;flex-direction:column;gap:16px}
+.tbdetail .rwa>.rws{order:-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;align-items:start;position:static;float:none;width:auto;max-width:none;margin:0}
+.tbdetail .rwa>.rws>*{margin:0}
+.tbdetail .rwa>.rwm{width:auto;max-width:none}
+.tbdetail .rwa>.rwsub{order:-2;margin:0}

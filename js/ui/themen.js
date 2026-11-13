@@ -31,8 +31,15 @@ function tbSub(s){ return esc(String(s || "").replace(/\s*\+\s*/g, " · ")); }
 function goThemen(key){
   if(typeof guardEditLeave === "function" && !guardEditLeave()) return;
   if(typeof closeMobileMenu === "function") closeMobileMenu();
-  state.view = "themen"; state.tbKey = key || null; render(); scrollToTop();
+  var neu = state.view !== "themen";
+  state.view = "themen"; state.tbKey = key || null;
+  if(neu){ try{ history.pushState({tb:1}, ""); }catch(e){} }
+  render(); scrollToTop();
 }
+/* Zurück (Browser/Handy) im Themenbuch-Bereich → immer auf die Startseite */
+window.addEventListener("popstate", function(){
+  if(state.view === "themen"){ state.view = "home"; state.advId = null; state.tbKey = null; render(); scrollToTop(); if(typeof persistState === "function") persistState(); }
+});
 /* frühere Einstiege (Taste T, Kopfzeile, Suche) führen jetzt hierher */
 function openThemebook(){ goThemen(); }
 function openThemebookAt(bookId, catKey){ goThemen(catKey); }
@@ -96,7 +103,7 @@ function tbOverview(){
     [TB_LADEN_IMG, "Gemischtwarenladen", "Ausrüstung für Backpack-Tags · S. 132–137", "goThemen('laden')", "center"],
     ["assets/litm/home-dales.webp", "Dalish Heroes", "Theme Kits &amp; Tropes · The Dales S. 108–125", "goBook('welt','dales-b')", "center"],
     ["assets/galerie/hearts-of-ravensdale/full/hr_pdf071_B204_Winds-of-Change-Factions_1.webp", "Uncanny Heroes", "Theme Kits &amp; Tropes · The Dales S. 212–231", "goBook('welt','jenseits-b')", "center"]
-  ].map(function(c){ return '<button class="tbx-mc" onclick="' + c[3] + '"><span class="tbx-mi" style="background-image:url(' + c[0] + ');background-position:' + c[4] + '"></span><span class="tbx-mt"><b>' + c[1] + '</b><small>' + c[2] + '</small></span></button>'; }).join("");
+  ].map(function(c){ return '<button class="tbx-mc" onclick="' + c[3] + '"><span class="tbx-mi" style="background-image:url(' + c[0] + ');background-position:' + c[4] + '"></span><span class="tbx-mt"><b>' + c[1] + '</b></span></button>'; }).join("");
   app.innerHTML = renderTopbar() + '<div class="tbx"><div class="tbx-hd"><h1>Themenbücher</h1><div class="tbx-chips">' + chips + '</div></div>' +
     '<div class="tbx-shelf" data-f="' + TB.filter + '">' + sp + '</div><div class="tbx-more">' + more + '</div></div>';
 }

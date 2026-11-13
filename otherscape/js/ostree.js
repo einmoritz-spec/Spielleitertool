@@ -82,7 +82,6 @@ function gegFilter(){ const qi = $("gegQ"), q = qi ? qi.value.trim().toLowerCase
 /* ---- Abenteuer: große Kacheln mit Name im Bild ---- */
 function renderAdvList(){
   const list = OS_ADV_LIST.filter(a=>a.kat===undefined);
-  $("app").innerHTML = `<div class="os-big-g">${list.map(a=>{ const ok = hasData(a.id), c = OS_COVER[a.id];
-    return `<button class="os-big${ok?"":" off"}" ${ok?`onclick="location.hash='#/adv/${a.id}'"`:"disabled"} style="${c?`background-image:url(${c[0]});background-position:${c[1]}`:""}"><span class="ob-t">${esc(a.titel)}</span><span class="ob-p">${esc(ok?a.seiten:"in Arbeit")}</span></button>`; }).join("")}</div>`;
+  $("app").innerHTML = `<div class="os-big-g">${list.map((a,k)=>osAdvItem(a,k,"big")).join("")}</div>`;
 }
 if(typeof route==="function") route();

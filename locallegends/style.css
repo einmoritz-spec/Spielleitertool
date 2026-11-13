@@ -152,9 +152,9 @@ button{font-family:inherit; cursor:pointer;}
 .danger-body{padding:0 14px 14px; display:none;}
 .danger-card.open .danger-body{display:block;}
 .stat-line{font-family:var(--mono); font-size:11.5px; color:var(--brass-bright); letter-spacing:.03em; margin-bottom:8px; word-break:break-word;}
-.spectrum{display:flex; align-items:center; gap:6px; margin-bottom:5px; flex-wrap:wrap;}
-.spectrum .sname{font-size:11px; color:var(--text-lo); min-width:150px;}
-.pip{width:13px; height:13px; border-radius:50%; border:1px solid var(--red-bright); display:inline-block; cursor:pointer;}
+.spectrum{display:flex; align-items:center; gap:6px; margin-bottom:5px; flex-wrap:nowrap;}
+.spectrum .sname{font-size:11px; color:var(--text-lo); flex:1 1 90px; min-width:0;}
+.pip{flex:none; width:13px; height:13px; border-radius:50%; border:1px solid var(--red-bright); display:inline-block; cursor:pointer;}
 .pip.filled{background:var(--red-bright);}
 .movegroup{margin-top:10px;}
 .movegroup .mg-label{font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint); margin-bottom:4px;}

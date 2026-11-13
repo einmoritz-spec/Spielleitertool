@@ -120,8 +120,11 @@ html[data-ll=a] .shell b,html[data-ll=a] .shell strong{color:inherit!important}
 .danger-card.open .db-desc{columns:auto!important;column-count:1!important;column-width:auto!important}
 .danger-card.open .db-desc p{max-width:none}
 @media(min-width:900px){
-  .danger-card.open .db-sheet{display:grid!important;grid-template-columns:240px minmax(0,1fr);gap:8px 24px;align-items:start}
-  .danger-card.open .db-moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:4px 26px;align-items:start}
+  .danger-card.open .db-sheet{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 26px;align-items:start}
+  .danger-card.open .db-moves{display:contents}
+  .danger-card.open .db-sheet:has(.db-spec):has(.movegroup:nth-child(3)){grid-auto-flow:row dense;grid-template-rows:auto 1fr;grid-template-columns:minmax(260px,.8fr) minmax(0,1.1fr) minmax(0,1.1fr)}
+  .danger-card.open .db-sheet:has(.db-spec):has(.movegroup:nth-child(3)) .movegroup:nth-child(1),.danger-card.open .db-sheet:has(.db-spec):has(.movegroup:nth-child(3)) .movegroup:nth-child(2){grid-row:1 / span 2}
+  .danger-card.open .db-sheet:has(.db-spec):has(.movegroup:nth-child(3)) .movegroup:nth-child(3){grid-column:1;grid-row:2}
 }
 
 /* Startseite: Karte größer, Stage schmiegt sich an */

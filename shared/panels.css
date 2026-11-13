@@ -25,3 +25,10 @@ body[data-pn=wake] .pn-btn{--pn-c:#b8860b;--pn-bg:#fff8e6}
   body.pn-off .lm-shell{grid-template-columns:minmax(0,1fr)!important}
   body.pn-off .lm-shell>.lm-main>:not(.lm-crumb):not(.lm-tabs):not(.lm-pills){grid-column:1!important}
 }
+
+/* dezenter Einklapp-Griff: schmaler Streifen am Rand der Leiste statt Kreis */
+.pn-btn{width:14px!important;height:36px!important;border-radius:0 10px 10px 0!important;border-left:0!important;box-shadow:none!important;opacity:.35!important}
+.pn-btn:not(.pn-closed){margin-left:13px}
+.pn-btn:hover,.pn-btn:focus-visible{opacity:1!important}
+.pn-btn svg{width:10px;height:10px}
+.pn-btn.pn-closed{width:14px!important}

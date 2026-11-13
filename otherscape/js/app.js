@@ -37,7 +37,7 @@ async function route(){
   } else if(p[0]==="gegner") renderGegner();
   else if(p[0]==="fraktionen") renderFraktionen();
   else if(p[0]==="katalog") renderKatalog(p[1]);
-  else if(p[0]==="kits") renderKits();
+  else if(p[0]==="kits") renderKits(p[1]);
   else if(p[0]==="regeln") renderRegeln();
   else if(p[0]==="metro") renderMetro();
   else if(p[0]==="archetypen") renderArchetypen();

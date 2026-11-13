@@ -650,7 +650,7 @@ body .scn:has(>.scn-r>.scn-rh+.blk:last-child)>.scn-r{position:static;border-lef
 .ch-grid{align-items:stretch}
 .ch-grid>.ch.coll:not(.open){display:flex;flex-direction:column}
 .ch-grid>.ch.coll:not(.open) .ch-head{display:flex!important;flex-direction:row!important;flex-wrap:wrap;align-items:center;gap:4px 10px;flex:1}
-.ch-head b{flex:1 1 100%}
+.ch-head b{flex:1 1 calc(100% - 40px)}
 .ch-grid .ch-head .chev{display:none}
 .ch-head .typ{order:3;flex:1 1 auto;color:#5a4a8a}
 .ch-head .stars{order:2}
@@ -663,3 +663,4 @@ body .scn:has(>.scn-r>.scn-rh+.blk:last-child)>.scn-r{position:static;border-lef
 .lim-l{flex:none}
 .ch-grid>.ch.coll.open .ch-head{flex-direction:row;align-items:center;justify-content:flex-start}
 .ch.coll.open .ch-head .pgb{margin-left:auto!important}
+.geg .ch .stars{color:#b06a00}

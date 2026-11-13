@@ -23,7 +23,7 @@ var TB_SRC = { core:"Core Book", dales:"The Dales", uncanny:"Uncanny Heroes" };
 var TB_STRIP_FS = "assets/galerie/litm-core/full/lmHeld_pdf035_B140_Themebooks_1.webp";
 var TB_LADEN_IMG = "assets/galerie/litm-core/full/lmHeld_pdf034_B132_Themebooks_1.webp";
 function tbStrip(k){ return k === "fellowship" ? TB_STRIP_FS : "assets/tb/" + k + ".webp"; }
-function tbIcons(m, cls){ return (TB_MIGHT[m] || {ic:[]}).ic.map(function(i){ return '<img class="' + (cls || "tb-ic") + '" src="assets/icons/themebook-' + i + '.png" alt="">'; }).join(""); }
+function tbIcons(m, cls){ return (TB_MIGHT[m] || {ic:[]}).ic.map(function(i){ return '<img class="' + (cls || "tbi") + '" src="assets/icons/themebook-' + i + '.png" alt="">'; }).join(""); }
 function tbEyebrow(m){ return m === "variable" ? "Variable-Might-Themenbuch" : m === "fellowship" ? "Fellowship-Themenbuch" : TB_MIGHT[m].t + "-Themenbuch"; }
 function tbPg(book, p, pe){ return p ? '<a class="tb-pg" onclick="event.stopPropagation();BV.open(\'' + book + '\',' + p + ')">S. ' + p + (pe && pe !== p ? "–" + pe : "") + '</a>' : ""; }
 function tbSub(s){ return esc(String(s || "").replace(/\s*\+\s*/g, " · ")); }

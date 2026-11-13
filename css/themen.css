@@ -1,5 +1,5 @@
 /* Legend in the Mist – Themenbücher (js/ui/themen.js). Pergament-Design wie im Core Book. */
-.tb-ic{height:17px;width:auto;opacity:.85;vertical-align:-3px;margin-right:5px}
+.tbi{height:17px;width:auto;opacity:.85;vertical-align:-3px;margin-right:5px}
 .tb-pg{font:400 12.5px Labrada,serif;color:var(--text-faint);text-decoration:underline dotted;text-underline-offset:3px;cursor:pointer;white-space:nowrap}
 .tb-pg:hover{color:var(--maroon)}
 
@@ -24,10 +24,10 @@
 .tbx-s::after{content:"";position:absolute;inset:0;border-radius:2px;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(20,12,6,.82));pointer-events:none;transition:opacity .4s}
 .tbx-n{position:absolute;z-index:2;left:50%;bottom:14px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;max-height:calc(100% - 28px);font:700 14px Cinzel,serif;letter-spacing:.08em;color:#fbf5e5;white-space:nowrap;text-overflow:ellipsis;text-shadow:0 1px 4px #000,0 0 10px rgba(0,0,0,.6);transition:opacity .25s}
 .tbx-gl{position:absolute;left:0;top:-25px;display:flex;align-items:center;white-space:nowrap;font:600 12px Cinzel,serif;letter-spacing:.18em;text-transform:uppercase;color:var(--maroon);pointer-events:none}
-.tbx-gl .tb-ic{height:19px}
+.tbx-gl .tbi{height:19px}
 .tbx-card{position:absolute;z-index:3;top:0;bottom:0;left:calc(var(--sh)*.1916);right:0;display:flex;flex-direction:column;gap:9px;padding:18px 18px 16px;background:var(--parchment,#fbf5e5);border-left:3px solid var(--maroon);opacity:0;transform:translateX(-14px);pointer-events:none;transition:opacity .2s,transform .45s cubic-bezier(.2,.85,.25,1)}
 .tbx-ey{display:flex;align-items:center;font:600 10.5px Cinzel,serif;letter-spacing:.16em;text-transform:uppercase;color:var(--maroon)}
-.tbx-ey .tb-ic{height:17px}
+.tbx-ey .tbi{height:17px}
 .tbx-h{font:700 clamp(22px,2vw,30px)/1.05 Cinzel,serif;color:var(--maroon)}
 .tbx-en{margin-top:-7px;font-style:italic;font-size:14px;color:var(--text-faint)}
 .tbx-sub{padding:7px 0;border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);font-style:italic;font-size:13.5px;line-height:1.4;color:var(--ink-soft)}
@@ -76,7 +76,7 @@
 
 /* ===== Seite eines Themenbuchs ===== */
 .tb-toc .tb-cat{display:flex;align-items:center}
-.tb-toc .tb-cat .tb-ic{height:16px;margin-right:6px}
+.tb-toc .tb-cat .tbi{height:16px;margin-right:6px}
 .tb-toc .lm-sub a.on{background:rgba(142,42,42,.12);color:var(--maroon);font-weight:700}
 .tbp{display:grid;grid-template-columns:clamp(84px,7.2vw,124px) minmax(0,1fr);gap:28px;align-items:start}
 .tbp.tbp-laden{grid-template-columns:minmax(0,1fr)}

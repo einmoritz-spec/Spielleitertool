@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="overview.css">
 <link rel="stylesheet" href="themes.css">
 <link rel="stylesheet" href="../shared/panels.css">
+<link rel="stylesheet" href="../shared/galerie.css">
 <link rel="stylesheet" href="../shared/stickynav.css">
 <script>try{var q=/[?&]theme=([abc])/.exec(location.search);if(q)localStorage.setItem("ll_theme",q[1]);document.documentElement.dataset.ll=localStorage.getItem("ll_theme")||"c";}catch(e){document.documentElement.dataset.ll="c";}</script>
 </head>
@@ -87,7 +88,7 @@
       <div class="set-section">
         <div class="set-title">Tool wechseln</div>
         <button class="set-tool active" disabled><span><b>Local Legends</b><small>City of Mist – Fall-Akte (aktuell)</small></span></button>
-        <button class="set-tool" onclick="switchTool('wake')"><span><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel</small></span></button>
+        <button class="set-tool" onclick="switchTool('wake')"><span><b>Legend in the Mist</b><small>Wake of the Oldways – Erzähler-Tafel</small></span></button>
         <button class="set-tool" onclick="switchTool('paynetown')"><span><b>Nights of Paynetown</b><small>City of Mist – Kampagne (in Vorbereitung)</small></span></button>
         <button class="set-tool" onclick="switchTool('cityofmist')"><span><b>City of Mist</b><small>Regeln · Shadows &amp; Showdowns</small></span></button>
         <button class="set-tool" onclick="switchTool('etr')"><span><b>Eat the Reich</b><small>Havoc Engine – Vampir-Kommandos</small></span></button>
@@ -99,6 +100,8 @@
 </div>
 
 <script src="js/tool-switch.js"></script>
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie-buch.js"></script>
 <script src="js/mobile-menu.js"></script>
 <script src="js/extras.js"></script>
 <script src="js/data/core.js"></script>

@@ -20,6 +20,7 @@ function openMobileMenu(){
       <div class="mm-list">
         ${item("🗂", "Bezirke", "goOverview()")}
         ${item("📕", "Buch (PDF)", "BV.open('ll',1)")}
+        ${item("🖼", "Galerie", "Galerie.open('locallegends')")}
         ${caseVisible ? item("📁", "Fall öffnen", "goCase(state.districtId)") : ""}
         ${item("👥", "Gegner &amp; NSCs", "goNpcs()")}
         ${item("🖼", "Spieler-Ansicht", "goPlayer()")}

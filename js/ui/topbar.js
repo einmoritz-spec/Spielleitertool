@@ -169,7 +169,7 @@ function renderTopbarSettingsBody(){
     <div class="gm-title">Kopfzeile anpassen</div>
     <div class="gm-body">
       <div class="tb-set-section" style="margin-top:0;">Tool wechseln</div>
-      <button class="tool-switch active" disabled><span><b>Wake of the Oldways</b><small>Legend in the Mist – Erzähler-Tafel (aktuell)</small></span></button>
+      <button class="tool-switch active" disabled><span><b>Legend in the Mist</b><small>Wake of the Oldways – Erzähler-Tafel (aktuell)</small></span></button>
       <button class="tool-switch" onclick="switchTool('locallegends')"><span><b>Local Legends</b><small>City of Mist – Fall-Akte</small></span></button>
       <button class="tool-switch" onclick="switchTool('paynetown')"><span><b>Nights of Paynetown</b><small>City of Mist – Kampagne (in Vorbereitung)</small></span></button>
       <button class="tool-switch" onclick="switchTool('cityofmist')"><span><b>City of Mist</b><small>Regeln · Shadows &amp; Showdowns</small></span></button>

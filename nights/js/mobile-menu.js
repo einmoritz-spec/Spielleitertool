@@ -22,6 +22,7 @@ function openMobileMenu(){
         ${item("🎲", "Regelblatt & Würfler", "openRules()")}
         ${item("📇", "Register", "goRegister()")}
         ${item("📖", "Seitenviewer", "BV.open('nights',1)")}
+        ${item("🖼", "Galerie", "Galerie.open('nights')")}
         ${item("🔎", "Suche", "openSearch()")}
         <div class="mm-sub">Buchteile</div>
         ${(window.NIGHTS && NIGHTS.campaign && NIGHTS.campaign.book || []).map(n=>{ const e = NIGHTS.campaign.extras[n]; return e ? item("📘", e.title, "location.hash='#/case/"+n+"'") : ""; }).join("")}

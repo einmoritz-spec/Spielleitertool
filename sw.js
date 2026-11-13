@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v364kon";
+const VERSION = "v365kon";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -54,6 +54,24 @@ const FILES = [
   "cityofmist/js/rw-img.js",
   "shared/prep.js",
   "shared/prep.css",
+  "cityofmist/img/rw/fig_22.webp",
+  "cityofmist/img/rw/fig_33.webp",
+  "cityofmist/img/rw/fig_42.webp",
+  "cityofmist/img/rw/fig_171.webp",
+  "cityofmist/img/rw/fig_173.webp",
+  "cityofmist/img/rw/fig_182.webp",
+  "cityofmist/img/rw/fig_201.webp",
+  "cityofmist/img/rw/fig_211.webp",
+  "cityofmist/img/rw/fig_226.webp",
+  "cityofmist/img/rw/fig_233.webp",
+  "cityofmist/img/rw/fig_242.webp",
+  "cityofmist/img/rw/fig_253.webp",
+  "cityofmist/img/rw/fig_263.webp",
+  "cityofmist/img/rw/fig_281.webp",
+  "cityofmist/img/rw/hero_grundlagen.webp",
+  "cityofmist/img/rw/hero_serie.webp",
+  "cityofmist/img/rw/hero_kurzreferenz.webp",
+  "cityofmist/img/rw/hero_entwicklung.webp",
   "cityofmist/img/rw/fig_48.webp",
   "cityofmist/img/rw/fig_49.webp",
   "cityofmist/img/rw/fig_51.webp",

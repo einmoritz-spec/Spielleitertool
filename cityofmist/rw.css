@@ -106,3 +106,5 @@ mark{background:rgba(251,240,165,.85);color:#1b1a10;border-radius:2px;padding:0 
 .rwa .rwbn{max-height:240px}
 .rwsel{display:none;margin-left:auto;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:6px 8px;font:inherit;max-width:60%}
 @media(max-width:1180px){.rwbody{grid-template-columns:minmax(0,1fr)}.rwtoc{display:none}.rwsel{display:block}.rwflow{column-count:1;column-rule:0}}
+
+.rwfig{object-position:50% 18%}

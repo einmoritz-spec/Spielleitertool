@@ -1,10 +1,10 @@
 /* Legend in the Mist – Startseite (Pergament, wie das Original-PDF) */
 .hm{padding-bottom:90px}
-.hm-hero{position:relative;height:clamp(280px,40vw,520px);overflow:hidden;background:#d9cfae}
+.hm-hero{position:relative;height:clamp(200px,25vw,340px);overflow:hidden;background:#d9cfae}
 .hm-hero>img:first-child{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
 .hm-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(239,229,207,0) 45%,var(--bg) 100%);pointer-events:none}
-.hm-logo{position:absolute;z-index:2;left:50%;bottom:clamp(34px,6vw,76px);transform:translateX(-50%);height:clamp(110px,17vw,230px);width:auto;filter:drop-shadow(0 2px 10px rgba(247,240,223,.85))}
-.hm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1240px;margin:-34px auto 0;padding:0 28px;position:relative;z-index:3}
+.hm-logo{position:absolute;z-index:2;left:50%;bottom:clamp(40px,5vw,64px);transform:translateX(-50%);height:clamp(90px,12.5vw,175px);width:auto;filter:drop-shadow(0 2px 10px rgba(247,240,223,.85))}
+.hm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1240px;margin:-48px auto 0;padding:0 28px;position:relative;z-index:3}
 .hm-card{background:var(--panel);border:1.5px solid var(--maroon);border-radius:4px;overflow:hidden;box-shadow:0 2px 0 rgba(90,60,20,.12),0 14px 26px -12px rgba(90,60,20,.45);display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
 .hm-card:hover{transform:translateY(-3px);box-shadow:0 2px 0 rgba(90,60,20,.12),0 20px 32px -12px rgba(90,60,20,.55)}
 .hm-img{all:unset;display:block;cursor:pointer;aspect-ratio:16/10;background:#2a2018;border-bottom:3px solid var(--maroon);overflow:hidden}
@@ -17,3 +17,24 @@
 .hm-chip:hover{background:var(--maroon);border-color:var(--maroon);color:#fbf5e5}
 @media(max-width:980px){.hm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.hm-grid{grid-template-columns:1fr;padding:0 14px;gap:16px;margin-top:-24px}.hm-hero{height:clamp(220px,58vw,320px)}}
+
+/* ---- Varianten der Kacheln (hm_v im localStorage) ---- */
+.hm[data-v] .hm-img{aspect-ratio:2/1}
+/* A: nur Bild + Titel */
+.hm[data-v="a"] .hm-chips{display:none}
+.hm[data-v="a"] .hm-b{padding:11px 16px 13px}
+/* B: Titel im Bild, Chips erscheinen beim Drüberfahren */
+.hm[data-v="b"] .hm-card{position:relative;aspect-ratio:16/9}
+.hm[data-v="b"] .hm-img{position:absolute;inset:0;aspect-ratio:auto;border:0;height:100%}
+.hm[data-v="b"] .hm-img img{transition:transform .6s cubic-bezier(.2,.8,.25,1),filter .4s}
+.hm[data-v="b"] .hm-card:hover .hm-img img{transform:scale(1.05);filter:brightness(.55)}
+.hm[data-v="b"] .hm-b{position:absolute;left:0;right:0;bottom:0;padding:38px 16px 14px;background:linear-gradient(180deg,rgba(20,12,6,0),rgba(20,12,6,.82) 55%);pointer-events:none}
+.hm[data-v="b"] .hm-b h3{color:#fbf5e5;text-shadow:0 1px 6px #000;pointer-events:auto;transition:transform .35s}
+.hm[data-v="b"] .hm-chips{position:absolute;left:0;right:0;bottom:calc(100% - 4px);padding:0 16px;margin:0;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .35s;pointer-events:none}
+.hm[data-v="b"] .hm-b{overflow:visible}
+.hm[data-v="b"] .hm-card:hover .hm-chips{opacity:1;transform:none;pointer-events:auto}
+.hm[data-v="b"] .hm-chip{background:rgba(251,245,229,.92)}
+/* C: Titel + höchstens drei Chips */
+.hm[data-v="c"] .hm-b{padding:11px 16px 14px}
+.hm[data-v="c"] .hm-chips{margin-top:8px;flex-wrap:nowrap;overflow:hidden}
+.hm[data-v="c"] .hm-chip{white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}.hm[data-v="c"] .hm-chip:last-child{flex:none}

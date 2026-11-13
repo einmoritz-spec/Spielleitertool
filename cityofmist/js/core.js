@@ -8,7 +8,7 @@ function pips(n){ return n>0 ? '<span class="pips">'+'◆'.repeat(n)+'</span>' :
 function route(){
   var h=(location.hash||"").slice(1).split("/");
   if(h[0]==="spieler"||h[0]==="sl") h.unshift("ss");
-  if(h[0]==="tb") return {sys:"tb",tab:"start",sub:"",cat:""};
+  if(h[0]==="tb") return {sys:"tb",tab:h[1]||"",sub:h[2]||"",cat:h[3]||""};
   if(h[0]==="ss"||h[0]==="rw") return {sys:h[0],tab:h[1]||"start",sub:h[2]||"",cat:h[3]||""};
   return {sys:"hub",tab:"start",sub:"",cat:""};
 }

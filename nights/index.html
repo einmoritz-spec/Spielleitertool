@@ -119,5 +119,6 @@ if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
   window.addEventListener("load",function(){ navigator.serviceWorker.register("../sw.js").then(function(r){ r.update(); }).catch(function(){}); });
 }
 </script>
+<script src="../shared/zurueck.js"></script>
 </body>
 </html>

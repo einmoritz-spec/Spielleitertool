@@ -31,15 +31,9 @@ function tbSub(s){ return esc(String(s || "").replace(/\s*\+\s*/g, " · ")); }
 function goThemen(key){
   if(typeof guardEditLeave === "function" && !guardEditLeave()) return;
   if(typeof closeMobileMenu === "function") closeMobileMenu();
-  var neu = state.view !== "themen";
   state.view = "themen"; state.tbKey = key || null;
-  if(neu){ try{ history.pushState({tb:1}, ""); }catch(e){} }
   render(); scrollToTop();
 }
-/* Zurück (Browser/Handy) im Themenbuch-Bereich → immer auf die Startseite */
-window.addEventListener("popstate", function(){
-  if(state.view === "themen"){ state.view = "home"; state.advId = null; state.tbKey = null; render(); scrollToTop(); if(typeof persistState === "function") persistState(); }
-});
 /* frühere Einstiege (Taste T, Kopfzeile, Suche) führen jetzt hierher */
 function openThemebook(){ goThemen(); }
 function openThemebookAt(bookId, catKey){ goThemen(catKey); }

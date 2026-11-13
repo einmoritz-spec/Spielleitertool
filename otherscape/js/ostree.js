@@ -32,17 +32,22 @@ async function osSetView(kat, id, base, label){
   const list = OS_ADV_LIST.filter(a=>a.kat===kat); const cur = list.find(a=>a.id===id) || list.find(a=>hasData(a.id)) || list[0];
   $("app").innerHTML = '<div class="missing">Lade …</div>';
   const a = await loadAdv(cur.id);
+  const len = s => JSON.stringify(s.bloecke||[]).length;
+  const isWide = s => (s.bloecke||[]).some(b=>b.t==="challenge"||b.t==="tabelle"||b.t==="uhr") || len(s)>1400;
+  const wideSet = new Set(); { let run = [];
+    const end = ()=>{ if(run.length%2===1) wideSet.add(run[run.length-1]); run = []; };
+    (a?a.sektionen.slice(1):[]).forEach(s=>{ if(isWide(s)){ wideSet.add(s); end(); } else run.push(s); }); end(); }
   const sec = (s,i) => { const bl = s.bloecke||[]; let out = "", run = "";
     const flush = ()=>{ if(run){ out += `<div class="os-xc">${run}</div>`; run = ""; } };
     bl.forEach((b,j)=>{ const x = renderBlock(a,s,b,j); if(b.t==="challenge") run += x; else { flush(); out += x; } }); flush();
-    const wide = bl.some(b=>b.t==="challenge");
+    const wide = wideSet.has(s);
     return `<section class="os-xs${wide?" wide":""}" id="sec_${s.id}"><h2 class="os-xh">${esc(osShort(s.titel))}${osSecPage(a,s.id)}</h2>${osArt(a,i)}${out}</section>`; };
   let body = "";
   if(a){
     const s0 = a.sektionen[0], L0 = (typeof OS_ART!=="undefined" && OS_ART[a.id]) || [], h0 = kat==="fraktion" ? L0[0] : null;
     const art0 = h0 ? `<figure class="os-art"><img src="${h0.src}" alt="${esc(a.titel)}" onclick="osZoom(this.src)"></figure>` : ""; window.OS_HERO_SKIP = h0 ? h0.src : null;
-    const bl0 = s0.bloecke||[]; let cut = bl0.findIndex(b=>b.t==="p"); cut = cut<0 ? bl0.length : cut+1;
-    body = `<div class="os-fh${art0?"":" noart"}">${art0?`<div class="os-fh-img">${art0}</div>`:""}<div class="os-fh-t"><h1>${esc(a.titel)}</h1>${bl0.slice(0,cut).map((b,j)=>renderBlock(a,s0,b,j)).join("")}</div></div>${bl0.length>cut?`<div class="os-xr">${bl0.slice(cut).map((b,j)=>renderBlock(a,s0,b,j+cut)).join("")}</div>`:""}
+    const bl0 = s0.bloecke||[]; const pi = bl0.findIndex(b=>b.t==="p");
+    body = `<div class="os-fh${art0?"":" noart"}">${art0?`<div class="os-fh-img">${art0}</div>`:""}<div class="os-fh-t"><h1>${esc(a.titel)}</h1>${pi>=0?renderBlock(a,s0,bl0[pi],pi):""}</div></div><div class="os-xr">${bl0.map((b,j)=>j===pi?"":renderBlock(a,s0,b,j)).join("")}</div>
     <div class="os-xss">${a.sektionen.slice(1).map((s,i)=>sec(s,i+1)).join("")}</div>`;
   } else body = '<div class="missing">Dieser Eintrag ist noch nicht erfasst.</div>';
   const items = list.map(x=>({t:x.titel, on:x.id===cur.id, js:`location.hash='${base}/${x.id}'`,

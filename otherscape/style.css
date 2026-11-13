@@ -729,3 +729,15 @@ details.kit{border-top-color:var(--tone)!important}.kb-txt p,.kb-concept{max-wid
 .os-fh-img .os-arts{float:none;max-width:none;margin:0}.os-fh-img .os-art img{height:auto;max-height:340px;width:100%;max-width:100%;object-fit:cover}
 .osnav .orail-x{right:2px}.osrail.rail-off .orail-x{left:0;right:auto}.os-xss>*,.os-xc>*,.os-fh>*{min-width:0}.os-xss .tbl-wrap,.os-xss table{max-width:100%}.os-fh-img .os-art{margin:0}
 .os-xr{margin-bottom:22px}
+
+/* Layout-Korrekturen: Text umfließt das Bild, breite Tabellen/Karten, Challenge-Profile breit statt lang */
+.os-fh{display:block}.os-fh-t{display:block}.os-fh-img{float:left;width:46%;max-width:540px;margin:0 24px 12px 0}
+.os-fh-img .os-art img{max-height:none;height:auto}
+.os-xss{clear:both;grid-template-columns:repeat(2,minmax(0,1fr))}.os-xs.wide{grid-column:1/-1}
+.os-xs.wide .icards,.os-xs.wide .os-lcards{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.os-xs.wide .tbl-wrap{overflow-x:auto}
+.os-xc>.ch{max-width:none;width:auto}.os-xc>.ch.open{grid-column:1/-1}
+.ch.open>.ch-body{columns:2 360px;column-gap:32px}.ch.open>.ch-body>*{break-inside:avoid}
+@media(max-width:899px){.os-xss{grid-template-columns:1fr}.os-fh-img{float:none;width:100%;max-width:none;margin:0 0 12px}}
+.os-fh .blk,.os-fh-t>*,.os-xr>*{clear:none!important}
+.os-fh-img .os-art img{aspect-ratio:2/1;object-fit:cover}

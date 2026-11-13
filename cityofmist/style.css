@@ -167,3 +167,4 @@ a.pg-link{color:var(--mist)!important}
 .tbdetail .rwa>.rwsub{order:-2;margin:0}
 .tbdetail .rwa>.rws{width:100%!important;max-width:none!important;box-sizing:border-box;flex:none}.tbdetail .rwa>.rws>.bx{margin:0!important}
 .tbdetail .rwa>.rws{align-items:stretch!important}
+.tbc-t b u{font:400 .75rem var(--cond);letter-spacing:.04em;margin-left:4px;opacity:.8}.tbc-t{padding:8px 12px 9px}

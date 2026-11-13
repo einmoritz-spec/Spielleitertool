@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v316kon";
+const VERSION = "v317kon";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -47,6 +47,7 @@ const FILES = [
   "cityofmist/js/core.js",
   "cityofmist/js/ss.js",
   "cityofmist/js/main.js",
+  "cityofmist/js/keys.js",
   "cityofmist/js/rw.js",
   "cityofmist/js/search.js",
   "cityofmist/js/rw-img.js",

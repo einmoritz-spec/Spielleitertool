@@ -296,3 +296,8 @@ mark{background:var(--yel)}
   .omain>.blk.flat{overflow:visible}
   .omain::after{content:"";display:block;clear:both}
 }
+
+/* Einklapp-Kreis ausgeblendet (Taste B klappt die Leiste weiter ein); weniger Abstand zwischen Leiste und Inhalt */
+body[data-pn=com] .pn-btn{display:none!important}
+.railshell{column-gap:16px}
+.orail{gap:16px!important}

@@ -42,3 +42,50 @@ html[data-v=c] .case-card .cc-img{border-bottom:3px solid #1b1610}
 html[data-v=c] .case-card .cc-txt{background:#fff6d6}
 html[data-v=c] .case-card .nr{background:var(--tone);color:#fff!important;padding:1px 7px;justify-self:start;font-weight:800}
 html[data-v=c] .case-card b{text-transform:uppercase;font-family:Impact,"Arial Narrow Bold",sans-serif;font-weight:400;letter-spacing:.03em;font-size:1.1rem}
+
+/* ===== B2 · Pinnwand (Kork, Pinnnadeln) ===== */
+html[data-v=b2] body{background:radial-gradient(circle at 20% 30%,rgba(255,220,160,.25) 0 2px,transparent 3px) 0 0/23px 27px,radial-gradient(circle at 70% 60%,rgba(90,50,15,.28) 0 2px,transparent 3px) 0 0/31px 19px,radial-gradient(circle at 40% 80%,rgba(60,30,10,.2) 0 1.5px,transparent 2.5px) 0 0/17px 21px,#b78a56!important}
+html[data-v=b2] .level{background:transparent!important;border:none!important;border-top:none!important;box-shadow:none!important;overflow:visible}
+html[data-v=b2] details.level>summary.level-head{background:#fbf3da;margin:0 0 14px;border:1px solid #cdbb8a;border-left:8px solid var(--tone);border-radius:2px;box-shadow:0 4px 8px rgba(40,20,0,.4);transform:rotate(-.5deg);position:relative}
+html[data-v=b2] .level-head::before{content:"";position:absolute;top:-7px;left:50%;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8d7a,#c0281a 60%,#7d1208);box-shadow:0 3px 4px rgba(0,0,0,.45)}
+html[data-v=b2] .level-head h2{font-family:"Courier New",monospace;letter-spacing:.1em}
+html[data-v=b2] .level .cases{padding:6px 6px 18px!important}
+html[data-v=b2] .case-card.has-img{background:#fffdf6!important;border:none!important;border-radius:2px;padding:8px 8px 0!important;box-shadow:0 6px 12px rgba(40,20,0,.45);transform:rotate(-1.8deg)}
+html[data-v=b2] .case-card.has-img:nth-child(even){transform:rotate(1.5deg)}
+html[data-v=b2] .case-card.has-img:nth-child(3n){transform:rotate(-.6deg)}
+html[data-v=b2] .case-card.has-img:hover{transform:rotate(0) scale(1.03);z-index:3}
+html[data-v=b2] .case-card.has-img::before{content:"";position:absolute;top:3px;left:50%;margin-left:-8px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8d7a,#c0281a 60%,#7d1208);box-shadow:0 3px 4px rgba(0,0,0,.5);z-index:3}
+html[data-v=b2] .case-card .cc-img{border-bottom:none;margin-top:10px;width:100%}
+html[data-v=b2] .case-card .cc-txt{padding:8px 4px 10px}
+html[data-v=b2] .case-card .nr{font-family:"Courier New",monospace}
+
+/* ===== B3 · Polizeiakte (Manila, Büroklammer, Stempel) ===== */
+html[data-v=b3] body{background:linear-gradient(90deg,rgba(0,0,0,.05),transparent 8%,transparent 92%,rgba(0,0,0,.05)),#6b5a43!important}
+html[data-v=b3] .level{background:linear-gradient(180deg,#e6c98a,#dcbb74)!important;border:1px solid #a98a4a!important;border-top:1px solid #a98a4a!important;border-radius:3px 16px 3px 3px;overflow:visible;position:relative;margin-top:26px;box-shadow:0 8px 16px rgba(0,0,0,.45)!important}
+html[data-v=b3] .level::before{content:"";position:absolute;right:26px;top:-22px;width:150px;height:22px;background:linear-gradient(180deg,#e6c98a,#dcbb74);border:1px solid #a98a4a;border-bottom:none;border-radius:8px 8px 0 0}
+html[data-v=b3] .level-head h2{font-family:"Courier New",monospace;color:#3a2a10!important;letter-spacing:.16em;border-bottom:2px solid #3a2a10;padding-bottom:2px}
+html[data-v=b3] .level-head .lv-sub{color:#4a3a1a!important;font-family:"Courier New",monospace;font-size:.85rem}
+html[data-v=b3] .lv-intro{background:var(--tone);color:#fff!important;border-color:var(--tone)!important;border-radius:2px;transform:rotate(-3deg);font-family:"Courier New",monospace;font-weight:700;opacity:1;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+html[data-v=b3] .case-card.has-img{background:#fffdf4!important;border:1px solid #b9a578!important;border-radius:1px;padding:0!important;box-shadow:0 3px 7px rgba(60,40,0,.4);margin-top:6px}
+html[data-v=b3] .case-card.has-img::before{content:"";position:absolute;top:-9px;left:14px;width:14px;height:40px;border:3px solid #8f98a3;border-radius:8px;border-bottom-color:transparent;z-index:3;background:transparent;transform:rotate(4deg);box-shadow:1px 1px 1px rgba(0,0,0,.25)}
+html[data-v=b3] .case-card.has-img::after{content:"";position:absolute;right:8px;top:8px;width:34px;height:34px;border:3px solid var(--tone);border-radius:50%;opacity:.55;transform:rotate(-14deg)}
+html[data-v=b3] .case-card .cc-img{border-bottom:4px double #3a2a10;filter:contrast(1.05) saturate(.9)}
+html[data-v=b3] .case-card .nr{font-family:"Courier New",monospace;font-weight:700}
+html[data-v=b3] .case-card b{font-family:"Courier New",monospace;font-size:1rem}
+
+/* ===== B4 · Gazette (Zeitungsausschnitt, Sepia) ===== */
+html[data-v=b4] body{background:#cfc3a4!important}
+html[data-v=b4] .level{background:#ece3c8!important;border:1px solid #9a8c68!important;border-top:5px double #2a251d!important;border-radius:0;box-shadow:0 4px 10px rgba(50,40,15,.35)!important}
+html[data-v=b4] .level-head{border-bottom:1px solid #2a251d}
+html[data-v=b4] .level-head h2{font-family:"Playfair Display","Didot",Georgia,serif;font-size:1.6rem!important;letter-spacing:.04em;text-transform:none;color:#1f1a12!important;font-weight:900}
+html[data-v=b4] .level-head h2::after{content:"";display:block;height:3px;width:60px;background:var(--tone);margin-top:4px}
+html[data-v=b4] .level-head .lv-sub{font-style:italic;color:#5a4f38!important}
+html[data-v=b4] .lv-intro{border-radius:0;border-color:#2a251d!important;color:#2a251d!important}
+html[data-v=b4] .level .cases{gap:0!important;padding:10px 10px 14px!important}
+html[data-v=b4] .case-card.has-img{background:transparent!important;border:none!important;border-right:1px solid #9a8c68!important;border-radius:0;padding:4px 10px 6px!important;box-shadow:none;transform:none}
+html[data-v=b4] .case-card.has-img:last-child{border-right:none!important}
+html[data-v=b4] .case-card.has-img:hover{box-shadow:none;transform:none;background:rgba(255,255,255,.35)!important}
+html[data-v=b4] .case-card .cc-img{border:1px solid #2a251d;border-bottom:1px solid #2a251d;filter:sepia(.55) contrast(1.1) saturate(.85)}
+html[data-v=b4] .case-card .cc-txt{padding:8px 0 0}
+html[data-v=b4] .case-card b{font-family:"Playfair Display","Didot",Georgia,serif;font-weight:900;font-size:1.18rem;line-height:1.15;color:#1f1a12!important}
+html[data-v=b4] .case-card .nr{color:var(--tone)!important;font-style:italic;letter-spacing:.06em;text-transform:none;font-size:.8rem}

@@ -251,17 +251,20 @@ document.addEventListener("keydown", function(e){
   if(n){ e.preventDefault(); goThemen(n); }
 });
 
-/* Buchrücken: erst nach 2 s Verweilen aufklappen */
+/* Buchrücken: nach 1 s Verweilen aufklappen; beim Verlassen kurze Schonfrist, damit nichts ruckelt */
 (function(){
-  var t = null, cur = null;
-  function zu(){ clearTimeout(t); t = null; var o = document.querySelector(".tbx-s.op"); if(o) o.classList.remove("op"); cur = null; }
+  var t = null, c = null, cur = null;
+  function zu(){ clearTimeout(t); clearTimeout(c); t = c = null; var o = document.querySelector(".tbx-s.op"); if(o) o.classList.remove("op"); cur = null; }
   document.addEventListener("mouseover", function(e){
-    var s = e.target.closest && e.target.closest(".tbx-s");
-    if(s === cur) return;
     var sh = e.target.closest && e.target.closest(".tbx-shelf");
-    if(!sh){ if(cur) zu(); return; }
-    zu(); cur = s;
-    if(s) t = setTimeout(function(){ s.classList.add("op"); }, 2000);
+    var s = sh && e.target.closest(".tbx-s");
+    if(!sh){ if(cur && !c) c = setTimeout(zu, 200); return; }
+    if(!s){ clearTimeout(t); if(cur && !c) c = setTimeout(zu, 220); return; }   // Lücke zwischen Rücken
+    clearTimeout(c); c = null;
+    if(s === cur) return;
+    var o = document.querySelector(".tbx-s.op"); if(o) o.classList.remove("op");
+    clearTimeout(t); cur = s;
+    t = setTimeout(function(){ s.classList.add("op"); }, 1000);
   });
   document.addEventListener("mouseleave", zu);
 })();

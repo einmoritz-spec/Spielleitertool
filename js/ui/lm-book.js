@@ -181,7 +181,7 @@ function renderBook(){
   var pills=list.map(function(x){ return '<button class="lm-pill'+(x.id===s.id?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(x.t)+'</button>'; }).join("");
   var i=list.indexOf(s), prev=list[i-1], next=list[i+1];
   var nav='<div class="lm-pn">'+(prev?'<button onclick="goBook(\''+tab+'\',\''+prev.id+'\')"><small>Zurück</small>'+esc(prev.t)+'</button>':'<span></span>')+(next?'<button class="r" onclick="goBook(\''+tab+'\',\''+next.id+'\')"><small>Weiter</small>'+esc(next.t)+'</button>':'<span></span>')+'</div>';
-  app.innerHTML=renderTopbar()+'<div class="lm-wrap"><div class="lm-shell"><nav class="lm-toc" id="lmToc"></nav><div class="lm-main"><nav class="lm-tabs">'+tabs+'</nav><div id="lmHost" class="lm-host"><p class="lm-load">Lade …</p></div>'+nav+'</div></div></div>';
+  app.innerHTML=renderTopbar()+'<div class="lm-wrap" data-pgbook="'+lmKey+'"><div class="lm-shell"><nav class="lm-toc" id="lmToc"></nav><div class="lm-main"><nav class="lm-tabs">'+tabs+'</nav><div id="lmHost" class="lm-host"><p class="lm-load">Lade …</p></div>'+nav+'</div></div></div>';
   lmLoadMany(lmDeps(s.id),function(){
     var el=document.getElementById("lmHost"); if(!el||state.view!=="book"||state.bookSec!==s.id) return;
     var es=lmWithImgs(s.id,lmCompose(s.id));

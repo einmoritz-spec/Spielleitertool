@@ -99,10 +99,10 @@ var BV = (function(){
     const has = k=>cfg.books.some(b=>b.key===k);
     if(m[0].slice(0,2)==="CB" && has("core")) return { book:"core", page:(parseInt(m[1])||1) + (m[0].slice(0,4)==="CBII" ? 240 : 0) };
     const pg = parseInt(m[2]);
-    if(ctxBook==="core" && has("core")) return { book:"core", page: pg + (/Vol\. II/.test(before) ? 240 : 0) };
+    if(ctxBook==="core" && has("core")) return { book:"core", page: pg + (/Vol\. II|Band II/.test(before) ? 240 : 0) };
     if(has("core")){
       const mm = before.match(/(Core Book|CBII?|Erzähler-Buch)([^)]{0,45})$/);
-      if(mm) return { book:"core", page: pg + (mm[1]!=="Erzähler-Buch" && /Vol\. II|Core Book II|CBII|Kapitel V\b/.test(mm[0]) ? 240 : 0) };
+      if(mm) return { book:"core", page: pg + (mm[1]!=="Erzähler-Buch" && /Vol\. II|Band II|Core Book II|CBII|Kapitel V\b/.test(mm[0]) ? 240 : 0) };
     }
     return { book:cfg.defaultBook, page:pg };
   }

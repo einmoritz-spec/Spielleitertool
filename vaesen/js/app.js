@@ -104,7 +104,7 @@ function flow(blocks, fl){
 /* Bilder eines Abschnitts: breite als Kopfbild, übrige klein im Text (Text läuft außen herum). */
 function secImgs(id, sec, secs){
   if(!window.Galerie) return {head:"", fl:[]};
-  var pre = {konflikt:"konflikt", mysterium:"mysterium", tanz:"tanz"}[id], head = "", fl = [];
+  var pre = {konflikt:"konflikt", mysterium:"mysterium", tanz:"tanz", gesellschaft:"gesellschaft", norden:"norden", talente:"talente"}[id], head = "", fl = [];
   if(!pre || !sec.p) return {head:"", fl:[]};
   Galerie.items("vaesen").forEach(function(it){
     var m = it[0].match(/^(\w+)_s(\d+)$/); if(!m || m[1] !== pre) return;
@@ -205,7 +205,7 @@ function viewTabbed(id){
   } else {
     var all = []; k.groups.forEach(function(g){ all = all.concat(g.secs); });
     secs = all; selId = p[0];
-    bar = id === "konflikt" ? tabsBar(VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]), k.titel) : "";
+    bar = (id === "konflikt" || id === "talente") ? tabsBar(VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]), k.titel) : "";
     side = k.groups.map(function(g){ return {h:g.h, i:g.secs.map(function(x){ return {id:x.id, go:base + "/" + x.id, t:x.t}; })}; });
   }
   var sec = secs.filter(function(x){ return x.id === selId; })[0] || secs[0];

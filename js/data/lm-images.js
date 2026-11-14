@@ -22,6 +22,10 @@ var LM_IMGS = {
     ["lmErzaehler_pdf071_B048_Designing-Adventures_1",544,1428,288],
     ["lmErzaehler_pdf073_B063_Designing-Adventures_1",1132,1588,303]
   ],
+  "nr-anhang":[
+    ["lmErzaehler_pdf468_B226_Anhang-Berg-Serien-Karte",1650,1014,468],
+    ["lmErzaehler_pdf469_B227_Anhang-Kreuzweg-Serien-Karte",1650,1014,469]
+  ],
   "nr-skunk":[
     ["lmErzaehler_pdf111_B215ca_Heap-Thing-of-Skunk-Glen_1",1228,788,459]
   ],

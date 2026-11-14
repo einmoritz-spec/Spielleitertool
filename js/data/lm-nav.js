@@ -25,7 +25,8 @@ const LM_NAV = {
       {id:"nr-sitzung", t:"Eine Sitzung narrieren", p:256, pe:283},
       {id:"nr-abenteuer", t:"Abenteuer und Serien", p:284, pe:320},
       {id:"nr-cauldron", t:"Magic Cauldron", p:321, pe:341},
-      {id:"nr-challenges", t:"Beutel der Gefahren", p:342, pe:351}
+      {id:"nr-challenges", t:"Beutel der Gefahren", p:342, pe:351},
+      {id:"nr-anhang", t:"Anhang", p:466, pe:469}
     ],
     skunk:[
       {id:"nr-skunk", t:"Skunk Glen", p:448, pe:465}

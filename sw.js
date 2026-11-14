@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v442headup2";
+const VERSION = "v443anhang";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -710,6 +710,9 @@ const FILES = [
   "js/data/lm/nr-sitzung.js",
   "js/data/lm/nr-abenteuer.js","js/data/lm/nr-cauldron.js","js/data/lm/tutorial.js","js/data/lm/nr-challenges.js",
   "js/data/lm/nr-skunk.js",
+  "js/data/lm/nr-anhang.js",
+  "assets/galerie/litm-core/full/lmErzaehler_pdf468_B226_Anhang-Berg-Serien-Karte.webp",
+  "assets/galerie/litm-core/full/lmErzaehler_pdf469_B227_Anhang-Kreuzweg-Serien-Karte.webp",
   "js/data/lm/dales-intro.js",
   "js/data/lm/entwicklung.js",
   "js/data/lm/erschaffung-2.js",

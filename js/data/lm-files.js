@@ -8,6 +8,7 @@ window.LM_FILES={
  "nr-cauldron": ["data/lm/nr-cauldron.js"],
  "nr-challenges": ["data/lm/nr-challenges.js"],
  "nr-skunk": ["data/lm/nr-skunk.js"],
+ "nr-anhang": ["data/lm/nr-anhang.js"],
  "dales": [
   "data/lm/dales-2.js",
   "data/lm/dales-3.js",

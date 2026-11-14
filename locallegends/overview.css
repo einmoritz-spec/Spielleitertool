@@ -52,4 +52,4 @@
 .city-pop .city-map-box{margin:0}.city-pop .city-scroll{overflow:visible}.city-pop .city-map{min-width:0;width:100%}
 .city-pop .city-map img{width:100%;height:auto;border-radius:6px}
 .shell:has(.ov-grid){max-width:1500px}
-@media (min-width:1250px){ .ov-grid{grid-template-columns:repeat(6,1fr)} }
+@media (min-width:1250px){ .ov-grid{grid-template-columns:repeat(5,1fr)} }

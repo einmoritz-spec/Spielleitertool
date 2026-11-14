@@ -229,3 +229,8 @@ input::placeholder{color:var(--text-faint)}
 .adv-card .en{font-size:13px}
 .adv-card p{font-size:13px;line-height:1.38;margin-top:5px}
 @media(max-width:640px){.ov2-grid{grid-template-columns:1fr}}
+
+/* Wake-Übersicht: ohne Beschreibungstext, dafür größere Bilder (vier pro Reihe) */
+.ov2-grid .adv-card p{display:none}
+.ov2-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));max-width:1400px}
+@media(max-width:640px){.ov2-grid{grid-template-columns:1fr}}

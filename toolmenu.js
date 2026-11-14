@@ -52,10 +52,15 @@
       else if(st && st.m) nm = '<b class="tm-logo" role="img" aria-label="'+t[1]+'" style="--lg:url('+BASE+st.m+');width:'+st.w+'px;height:'+st.h+'px"></b>';
       else if(st && st.i) nm = '<img class="tm-img" src="'+BASE+st.i+'" alt="'+t[1]+'" style="height:'+st.h+'px">';
       else if(st && st.f) nm = '<b style="font-family:'+st.f+',Impact,sans-serif;font-weight:'+({TmOswald:600,TmJost:700,TmTeko:600}[st.f]||400)+';font-size:'+st.s+'px;letter-spacing:'+st.ls+(st.u?';text-transform:uppercase':'')+'">'+t[1]+'</b>';
-      if(t[4]!==2) par = t[0]; return '<button role="menuitem" data-m="'+t[0]+'" data-p="'+par+'" class="'+(t[0]===c?"on":"")+(t[4]===2?" sub2":" sub1")+(t[4]===2 && !touch && par!==curPar ? " sub-h" : "")+'" title="'+t[1]+'">'+nm+'<small>'+t[2]+'</small></button>'; }).join("");
+      if(t[4]!==2) par = t[0]; return '<button role="menuitem" data-m="'+t[0]+'" data-p="'+par+'" class="'+(t[0]===c?"on":"")+(t[4]===2?" sub2":" sub1")+(t[4]===2 && t[0]!==c ? " sub-h" : "")+'" title="'+t[1]+'">'+nm+'<small>'+t[2]+'</small></button>'; }).join("");
     themed(dd);
     var ht = null; dd.addEventListener("mouseover", function(e){ var b = e.target.closest && e.target.closest("button"); clearTimeout(ht); if(!b) return; var pp = b.dataset.p; if(!dd.querySelector('.sub2.sub-h[data-p="'+pp+'"]')) return; ht = setTimeout(function(){ if(dd) dd.querySelectorAll('.sub2[data-p="'+pp+'"]').forEach(function(x){ x.classList.remove("sub-h"); }); }, 1500); });
     dd.addEventListener("mouseleave", function(){ clearTimeout(ht); });
+    var lt = null, longHit = false; function openSubs(pp){ if(dd) dd.querySelectorAll('.sub2[data-p="'+pp+'"]').forEach(function(x){ x.classList.remove("sub-h"); }); }
+    dd.addEventListener("touchstart", function(e){ var b = e.target.closest && e.target.closest("button"); clearTimeout(lt); longHit = false; if(!b) return; var pp = b.dataset.p; if(!dd.querySelector('.sub2.sub-h[data-p="'+pp+'"]')) return; lt = setTimeout(function(){ longHit = true; openSubs(pp); }, 1500); }, {passive:true});
+    ["touchend","touchmove","touchcancel"].forEach(function(n){ dd.addEventListener(n, function(){ clearTimeout(lt); }, {passive:true}); });
+    dd.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+    dd.addEventListener("click", function(e){ if(longHit){ e.stopPropagation(); e.preventDefault(); longHit = false; } }, true);
     dd.addEventListener("click", function(e){
       var b = e.target.closest("button"); if(!b) return; var m = b.dataset.m; if(m===c) return close();
       if(/^cm_|^cityofmist$/.test(m) && /\/cityofmist\//.test(location.pathname)){ location.hash = TOOLS.filter(function(t){return t[0]===m;})[0][3].split("/")[1]; return close(); }

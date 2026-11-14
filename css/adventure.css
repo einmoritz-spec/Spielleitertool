@@ -456,3 +456,7 @@ summary.growth-summary::before{
 .stage-wrap > .notes-row{position:absolute; top:12px; right:76px; margin:0; height:auto; z-index:3;}
 .stage-wrap{padding-top:18px;}
 @media (max-width:720px){ .stage-wrap > .notes-row{right:14px;} }
+
+/* Bilder aus dem Buch am Szenenanfang (Karten/Illustrationen), ungeschnitten */
+.scene-figs{display:flex;gap:14px;justify-content:center;align-items:flex-start;flex-wrap:wrap;margin:4px 0 18px}
+.scene-figs img{display:block;width:auto;height:auto;max-width:100%;max-height:min(38vh,300px);border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.18);cursor:zoom-in}

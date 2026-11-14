@@ -52,6 +52,15 @@ var LM_IMGS = {
     ["hr_pdf056-057_B163ca_Oldways-Magic-and-Spells",2458,1589,170,"hr"],
     ["hr_pdf058-059_B163ca_Oldways-Magic-and-Spells",2458,1589,172,"hr"],
     ["hr_pdf064_B184_Of-Spirit-and-Stars_1",472,1588,184,"hr"],
+    ["hr_pdf068_B193_Winds-of-Change-Factions_1",1220,800,193,"hr"],
     ["hr_pdf069_B199_Winds-of-Change-Factions_1",1220,704,198,"hr"]
   ]
+};
+
+/* Abenteuer-Bilder (Hearts of Ravensdale): "Abenteuer:Szene" -> [Datei, Breite, Höhe] aus assets/galerie/hearts-of-ravensdale/full */
+var ADV_FIGS = {
+  "a1:watchtower":[["hr_pdf104_B325_Kap3_Wake-of-the-Oldways_1",472,1588]],
+  "a3:starless":[["hr_pdf113_B353_Kap3_Wake-of-the-Oldways_1",616,708]],
+  "a3:foxden":[["hr_pdf114_B358_Kap3_Wake-of-the-Oldways_1",504,804]],
+  "a6:council-oldways":[["hr_pdf120_B395_Kap3_Wake-of-the-Oldways_1",607,885]]
 };

@@ -6,3 +6,8 @@
 .mce:has(>.im-port~.im-port~.im-port~.im-port)>.imf.im-port{width:calc(25% - 12px);max-width:250px}
 .mce:has(>.im-port~.im-port~.im-port)>.imf.im-port+*:not(.imf){clear:left}
 @media(max-width:700px){.mce>.imf.im-port,.mce:has(>.im-port~.im-port~.im-port)>.imf.im-port{width:calc(33.3% - 8px);margin-right:8px}.mce>.imf.im-land{float:none;width:100%}}
+.dg .dimg{float:right;width:clamp(110px,32%,190px);height:auto;margin:2px 0 8px 14px;border-radius:5px}
+#m-kt-karten{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+#m-kt-karten>*{grid-column:1/-1}
+#m-kt-karten>.imf{grid-column:auto;float:none!important;width:100%!important;max-width:none!important;margin:0!important}
+@media(max-width:700px){#m-kt-karten{grid-template-columns:repeat(2,1fr)}}

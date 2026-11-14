@@ -1,6 +1,6 @@
 /* MC Toolkit – Avatare: Isabella (S. 194–203), Kwaku (S. 204–211), Verzeichnis (S. 213) */
 CM_MCD.isabella = [
- { id:"isabella", name:"Isabella, Avatar der Xochiquetzal", p:194, pe:203, text:[
+ { id:"isabella", name:"Isabella, Avatar der Xochiquetzal", p:194, pe:203, fig:["mc_p194_1"], text:[
   "**Isabella Aguilar** – Xochiquetzal, Herrin der Federn und Blumen, aztekische Göttin der Schönheit",
   "> „Der Gig war in vollem Gange, als ich ankam. Durch den Rauch im Club hörte ich die Fangirls kreischen, und die Band legte los. Seit meiner Vision ist alles irgendwie anders für mich, deshalb war ich nicht im Takt mit der Szene. Ich fragte einen Typen nach der Band; er sah mich verächtlich an und sagte, das sei Adam Drakes Band, und die sei diese Woche der letzte Schrei. Ehrlich gesagt fand ich Drakes Musik ziemlich mittelmäßig, aber alle anderen wirkten hypnotisiert. Na ja, wie sich herausstellte, waren sie es auch.“ – Flicker",
   "Jeder kennt Isabella Aguilar – sie ist der größte Superstar der City. Ihr Gesicht hängt in Downtown an jedem Gebäude auf riesigen Plakaten, und ihre Musik läuft auf allen Mainstream-Radiosendern. Fans beten den Boden an, auf dem sie geht, Fernsehsendungen und Klatschkolumnisten berichten über jeden ihrer Schritte (und Outfits), und Hipster lieben es, sie zu hassen. Kaum jemand ahnt, dass die Diva Isabella eine echte Göttin aus Fleisch und Blut ist.",
@@ -53,7 +53,7 @@ CM_MCD.isabella = [
   {name:"Trendsetters", rating:2, limits:"", text:["Um einen Trendsetter darzustellen, verwende das Danger-Profil Social Butterfly. Zusätzlich hat ein Trendsetter folgende Moves:"], moves:[
    ["Popular","Wenn du einen Trendsetter öffentlich bloßstellst oder bedrohst, erhältst du zuerst humiliated-3, weil ihre Fans dich ausbuhen."],
    ["Aktion","Ein Publikum beeinflussen und zu ihren Anhängern machen (following-2) oder eine Einzelperson mit ihrem Charme betören (charmed-2)"]]},
-  {name:"Alma Verde Herbalist", rating:2, limits:"CONCOCT 3 / HURT OR SUBDUE 3", text:["Die Kräuterkundigen von Alma Verde sind meist auf ihre Labors beschränkt. Sie sind auf Sicherheitspersonal oder Tamoanchan-Operative angewiesen, die sie aus Schwierigkeiten holen, können aber, wenn es hart auf hart kommt, auch ihre seltsame Pseudowissenschaft zu ihrem Vorteil nutzen."], moves:[
+  {name:"Alma Verde Herbalist", mcimg:"mc_p201_1", rating:2, limits:"CONCOCT 3 / HURT OR SUBDUE 3", text:["Die Kräuterkundigen von Alma Verde sind meist auf ihre Labors beschränkt. Sie sind auf Sicherheitspersonal oder Tamoanchan-Operative angewiesen, die sie aus Schwierigkeiten holen, können aber, wenn es hart auf hart kommt, auch ihre seltsame Pseudowissenschaft zu ihrem Vorteil nutzen."], moves:[
    ["Regenerative Serum","Als Soft Move: Ist die Kräuterkundige nicht tot und kann ihr regeneratives Serum einnehmen, entferne alle physischen Harm-Statuses der Kräuterkundigen."],
    ["It’s Ready!","Ist das Concoct-Spectrum voll, kann die Kräuterkundige eine Mixtur aus der Liste unten einsetzen. Entferne alle Statuses dieses Spectrums."],
    ["Aktion","Zutaten sammeln"],
@@ -98,7 +98,7 @@ CM_MCD.isabella = [
  ]}
 ];
 CM_MCD.kwaku = [
- { id:"kwaku", name:"Kwaku, Avatar des Anansi", p:204, pe:211, text:[
+ { id:"kwaku", name:"Kwaku, Avatar des Anansi", p:204, pe:211, fig:["mc_p204_1"], text:[
   "**Kwaku** – Anansi die Spinne, Geist aller Geschichten",
   "> „Das Spinnen… Ding… kauerte in den Schatten der oberen Ecke meines Schlafzimmers, die langen Beine über die Wände gespannt. Wenn es sprach, zischte es mit vielen Stimmen, die verschiedene Worte in seltsamen Sprachen sprachen, aber ich verstand. Ich sagte ihm, was er verlangte, sei zu gefährlich. Er sagte, meine Eltern verheimlichten mir etwas, etwas, das mir gehörte, mein Schicksal. Er sagte, ich solle ins Arbeitszimmer gehen, und zeigte mir, wie ich das Sicherheitssystem überlisten und den Safe öffnen konnte. Dann ging es, aber alles hatte sich schon für immer verändert.“ – Lily Chow",
   "## Überblick über Kwaku",

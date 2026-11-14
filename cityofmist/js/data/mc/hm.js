@@ -43,7 +43,7 @@ CM_MCD.boegen = [
   "Leerer Bogen zum Ausdrucken (S. 223): Hier ordnest du deine Notizen zur Serie in Kategorien (brennende Fragen, Story-Elemente, Plot-Ideen und Stilrichtlinien; siehe „Eine Serie entwerfen“, S. 104). Der Bogen selbst ist nur im Buch enthalten."]}
 ];
 CM_MCD.beispielfall = [
- { id:"bf-fall", name:"Beispielfall: Gambling With Death", p:224, pe:243, text:[
+ { id:"bf-fall", name:"Beispielfall: Gambling With Death", p:224, pe:243, fig:["mc_p236_1","mc_p242_1"], text:[
   "## So nutzt du diesen Fall",
   "*Gambling with Death* ist eine Einführung in den Zweig „Dying“ von Anatoli Vidales’ Avatar-Operation. *Shark Tank*, der Fall im neuen Starter Set, erkundet den Zweig „Living“ von Anatolis Operation.",
   "Anatoli ist der Avatar des Hades, des griechischen Gottes des Todes und der Unterwelt. In diesem Fall wird er nur „der Tod“ genannt und von K9 vertreten, der Rift des Cerberus, des dreiköpfigen Hundes, der die Tore des Hades bewacht. Mehr zu den Zweigen Living und Dying von Anatolis Operation steht auf S. 177.",
@@ -297,6 +297,6 @@ CM_MCD.beispielfall = [
  }
 ];
 CM_MCD.karten = [
- { id:"kt-karten", name:"Karten", p:244, pe:247, text:[
-  "Die vier Karten im Buch sind reine Kartenbilder ohne Text und nur im Buch enthalten: **Die Gasse** (The Back Alley, S. 244), **Das Privatbüro** (The Private Office, S. 245), **Chinatown** (S. 246) und **Die U-Bahn** (The Subway, S. 247). Du kannst sie zum Ausdrucken oder als Kulisse für Szenen nutzen."]}
+ { id:"kt-karten", name:"Karten", p:244, pe:247, fig:["mc_p244_1","mc_p245_1","mc_p246_1","mc_p247_1"], text:[
+  "Die vier Karten des Buchs: **Die Gasse** (The Back Alley, S. 244), **Das Privatbüro** (The Private Office, S. 245), **Chinatown** (S. 246) und **Die U-Bahn** (The Subway, S. 247). Du kannst sie zum Ausdrucken oder als Kulisse für Szenen nutzen."]}
 ];

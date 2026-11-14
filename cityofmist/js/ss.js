@@ -1,7 +1,7 @@
 /* City of Mist – Shadows & Showdowns (Hash: #ss | #ss/spieler[/<abschnitt>] | #ss/sl/<orte|avatare|gatekeeper>[/<kategorie>]). Gemeinsame Helfer (esc, md, pg, route, go) in core.js */
 function dangerCard(d,fold){
   var head='<div class="dh"><b>'+esc(d.name)+'</b> '+pips(d.rating)+(fold&&d.limits?'<span class="dlim">'+esc(d.limits)+'</span>':'')+'</div>';
-  return (fold?'<details class="dg fold"><summary>'+head+'</summary>':'<div class="dg">'+head)+(d.text?d.text.map(function(t){return '<p class="dtx">'+md(t)+'</p>';}).join(""):'')+(d.limits?'<div class="lim">'+esc(d.limits)+'</div>':'')+
+  return (fold?'<details class="dg fold"><summary>'+head+'</summary>':'<div class="dg">'+head)+(d.mcimg?'<img class="dimg" data-lb loading="lazy" alt="" src="img/galerie/mc-toolkit/full/'+d.mcimg+'.webp">':'')+(d.text?d.text.map(function(t){return '<p class="dtx">'+md(t)+'</p>';}).join(""):'')+(d.limits?'<div class="lim">'+esc(d.limits)+'</div>':'')+
    (d.moves||[]).map(function(m){return '<p><b>'+esc(m[0])+':</b> '+md(m[1])+'</p>';}).join("")+
    (d.gm&&d.gm.length?'<div class="gmh">Spielleitung</div><ul>'+d.gm.map(function(g){return '<li>'+md(g)+'</li>';}).join("")+'</ul>':'')+(fold?'</details>':'</div>');
 }

@@ -62,7 +62,7 @@
   window.addEventListener("resize", close);
   /* Buch-Knopf im Header (überall): jede Seite definiert window.gmBook() -> {name, open} für das Buch des aktuellen Bereichs */
   var bcss = document.createElement("style");
-  bcss.textContent = ".topbar .tm-book{flex:none;margin-left:auto;margin-right:8px;width:40px;height:40px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;font:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:background .15s}.topbar .tm-book:hover{filter:brightness(.96)}.topbar .tm-book + .tb-burger{margin-left:0!important}";
+  bcss.textContent = ".topbar .tm-book{flex:none;margin-left:auto;margin-right:8px;width:40px;height:40px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;font:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:background .15s}.topbar .tm-book:hover{filter:brightness(.96)}.topbar .tm-book + .tb-burger{margin-left:0!important}.topbar .tm-map{margin-right:6px}.topbar .tm-map + .tm-book{margin-left:0!important}";
   document.head.appendChild(bcss);
   var bdd = null;
   document.addEventListener("click", function(e){ if(bdd && !(e.target.closest && e.target.closest(".tm-dd"))){ bdd.remove(); bdd = null; } });
@@ -87,6 +87,10 @@
       }
       if(i && i.open) i.open(); });
     var cs = getComputedStyle(burger); if(cs.color) b.style.color = cs.color; ["backgroundColor","borderTopColor","borderTopWidth","borderTopStyle","borderRadius","height"].forEach(function(k){ if(cs[k]) b.style[k] = cs[k]; }); b.style.borderStyle = cs.borderTopStyle; b.style.borderColor = cs.borderTopColor; b.style.borderWidth = cs.borderTopWidth; burger.insertAdjacentElement("beforebegin", b);
+    if(window.gmMap){ var m = b.cloneNode(false); m.className = "tm-book tm-map"; m.setAttribute("aria-label","Stadtkarte öffnen"); m.title = "Stadtkarte öffnen";
+      m.innerHTML = '<svg viewBox="0 0 512 512" width="22" height="22" fill="none" stroke="currentColor" stroke-width="30" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M30 118 176 64 336 118 482 64V394L336 448 176 394 30 448Z"/><path d="M176 64V394M336 118V448"/></svg>';
+      m.addEventListener("click", function(e){ e.stopPropagation(); try{ window.gmMap(); }catch(x){} });
+      b.insertAdjacentElement("beforebegin", m); }
   }
   function ensure(){ bookBtn(); var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
   new MutationObserver(ensure).observe(document.documentElement, {childList:true, subtree:true});

@@ -463,5 +463,7 @@ summary.growth-summary::before{
 
 /* Szenenbild: Text fließt links daran vorbei */
 .scene-figs{float:right;display:block;margin:2px 0 14px 22px;max-width:30%}
-.scene-figs img{width:auto;max-width:100%;max-height:min(52vh,430px)}
+.scene-figs img{width:auto;max-width:100%;max-height:min(40vh,320px)}
 .scene-figs~.section,.scene-figs~.readaloud,.scene-figs~details{display:flow-root}
+
+.scene-figs~.section:has(.flow){display:block;clear:both}

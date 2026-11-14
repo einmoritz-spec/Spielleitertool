@@ -127,8 +127,7 @@ function renderOverview(){
     return ok ? `<button class="ov-card" style="--r:${[-.7,.5,-.3,.8,-.5,.4][i%6]}deg" onclick="goDistrict('${d.id}')" aria-label="${d.title}">${inner}</button>`
               : `<div class="ov-card off">${inner}</div>`;
   }).join("");
-  return `<section class="ov-stage">${renderCityMap()}</section>
-    <div class="ov-grid">${tiles}</div>`;
+  return `<div class="ov-grid">${tiles}</div>`;
 }
 
 /* ============================================================
@@ -841,7 +840,6 @@ render();
    KARTEN (Crime Board City Map 2)
    ============================================================ */
 function mapMode(){ let m="sl"; try{ m=localStorage.getItem("ll_mapmode")||"sl"; }catch(e){} return m==="spieler"?"spieler":"sl"; }
-function setMapMode(m){ try{ localStorage.setItem("ll_mapmode",m); }catch(e){} render(); }
 function mapToggle(){
   const m=mapMode();
   return `<div class="map-toggle"><button class="${m==="sl"?"on":""}" onclick="setMapMode('sl')" title="SL-Karte">SL</button><button class="${m==="spieler"?"on":""}" onclick="setMapMode('spieler')" title="Spielerkarte">S</button></div>`;
@@ -852,12 +850,19 @@ function mapFull(src){
   o.innerHTML=`<img src="${src}" alt="Karte"><button class="map-lb-close" aria-label="Schließen">✕</button>`;
   o.classList.add("show");
 }
-document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ const o=document.getElementById("mapLightbox"); if(o) o.classList.remove("show"); } });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ const o=document.getElementById("mapLightbox"); if(o) o.classList.remove("show"); const c=document.getElementById("cityMapPop"); if(c) c.classList.remove("show"); } });
+function openCityMap(){
+  let o=document.getElementById("cityMapPop");
+  if(!o){ o=document.createElement("div"); o.id="cityMapPop"; o.className="map-lightbox city-pop"; o.onclick=e=>{ if(e.target===o||e.target.classList.contains("city-pop-in")) o.classList.remove("show"); }; document.body.appendChild(o); }
+  o.innerHTML=`<div class="city-pop-in"><div class="city-pop-box">${renderCityMap()}</div></div><button class="map-lb-close" aria-label="Schließen" onclick="document.getElementById('cityMapPop').classList.remove('show')">✕</button>`;
+  o.classList.add("show");
+}
+function setMapMode(m){ try{ localStorage.setItem("ll_mapmode",m); }catch(e){} const pop=document.getElementById("cityMapPop"); if(pop&&pop.classList.contains("show")){ openCityMap(); } else render(); }
 function renderCityMap(){
   if(typeof LL_MAPS==="undefined") return "";
   const m=mapMode(), src=LL_MAPS.dir+"stadt-"+m+".webp";
   const hot=LL_MAPS.hot.map(h=>{ const d=DISTRICTS.find(x=>x.id===h.id); if(!d||d.hidden) return ""; const ok=d.status==="ready";
-    return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}">${h.label?`<span class="city-lbl">${h.label}</span>`:""}</button>`; }).join("");
+    return `<button class="city-hot ${ok?"":"off"}" style="left:${h.x}%;top:${h.y}%;width:${h.w}%;height:${h.h}%" ${ok?`onclick="document.getElementById('cityMapPop')?.classList.remove('show');goDistrict('${h.id}')"`:"disabled"} aria-label="${d.title}" title="${d.title}">${h.label?`<span class="city-lbl">${h.label}</span>`:""}</button>`; }).join("");
   return `<div class="city-map-box"><div class="city-scroll"><div class="city-map">${mapToggle()}<img src="${src}" alt="Stadtkarte" draggable="false">${hot}</div></div></div>`;
 }
 function renderMapPanel(id){

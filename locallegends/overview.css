@@ -44,3 +44,12 @@
   .ov-cap{padding:8px 3px 10px}
 }
 @media (min-width:1250px){ .ov-grid{grid-template-columns:repeat(5,1fr)} }
+
+/* Stadtkarte als Popup */
+.city-pop{display:none;overflow:auto;cursor:default}.city-pop.show{display:flex;align-items:center;justify-content:center}
+.city-pop-in{width:100%;min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px 12px}
+.city-pop-box{width:min(96vw,calc((100vh - 48px)*1.32));background:#150f1c;border:2px solid #ff3fa4;border-radius:10px;padding:8px;box-shadow:0 16px 50px rgba(0,0,0,.7)}
+.city-pop .city-map-box{margin:0}.city-pop .city-scroll{overflow:visible}.city-pop .city-map{min-width:0;width:100%}
+.city-pop .city-map img{width:100%;height:auto;border-radius:6px}
+.shell:has(.ov-grid){max-width:1500px}
+@media (min-width:1250px){ .ov-grid{grid-template-columns:repeat(6,1fr)} }

@@ -19,6 +19,7 @@ function openMobileMenu(){
       <div class="mm-head"><span>Menü</span><button class="mm-close" onclick="closeMobileMenu()" aria-label="Schließen">✕</button></div>
       <div class="mm-list">
         ${item("🗂", "Bezirke", "goOverview()")}
+        ${item("🗺", "Stadtkarte", "openCityMap()")}
         ${item("📕", "Buch (PDF)", "BV.open('ll',1)")}
         ${item("🖼", "Galerie", "Galerie.open('locallegends')")}
         ${caseVisible ? item("📁", "Fall öffnen", "goCase(state.districtId)") : ""}

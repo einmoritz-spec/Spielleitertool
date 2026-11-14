@@ -21,7 +21,7 @@
     ["vae_myst","Mysterien & Kampagnen","Seasons · Wicked Secret · Lost Mountain · City","vaesen/#buecher/2",2,"",{f:"TmBebas",s:18,ls:".06em"}],
     ["vae_solo","Solo & Material","Thursday’s Child · Handouts","vaesen/#buecher/3",2,"",{f:"TmBebas",s:18,ls:".06em"}],
     ["tftl","Tales from the Loop","Stålenhag · 80er","tftl/",1,"",{f:"TmJost",s:17,ls:".03em",u:1}],
-    ["forbidden","Die verbotenen Lande","Forbidden Lands","forbidden/",1,"",{f:"TmFell",s:19,ls:".03em"}],
+    ["forbidden","Forbidden Lands","Free League","forbidden/",1,"",{f:"TmFell",s:19,ls:".03em"}],
     ["_more","Weitere Systeme","","",0,"grp"],
     ["wildsea","The Wildsea","Schiffe im Blätterwald","wildsea/",1,"",{f:"TmTeko",s:24,ls:".05em",u:1}],
     ["triangle","Triangle Agency","Büro-Horror","triangle/",1,"",{f:"TmArchivo",s:17,ls:"-.03em"}],

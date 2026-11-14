@@ -1,8 +1,8 @@
 /* Die verbotenen Lande – Konfiguration der Startseite */
 window.SYS = {
  "id": "forbidden",
- "name": "Die verbotenen Lande",
- "logoText": "Die Verbotenen Lande",
+ "name": "Forbidden Lands",
+ "logoText": "Forbidden Lands",
  "defaultBook": "fl_phb",
  "fonts": [
   [
@@ -36,7 +36,7 @@ window.SYS = {
   "rad": "2px",
   "panel-raised": "#f1e8d1"
  },
- "heroPos": "center 42%",
+ "heroPos": "center 14%",
  "groups": [
   {
    "grp": "Regeln",

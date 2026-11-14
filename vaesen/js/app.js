@@ -87,10 +87,11 @@ function blk(b){
 }
 function twoCol(blocks){ /* Fließtext in zwei Spalten, Boxen über die volle Breite */ return '<div style="column-width:420px;column-gap:40px">' + blocks.filter(function(b){ return b.t === "p" || b.t === "h" || b.t === "ul"; }).map(blk).join("") + '</div>' + blocks.filter(function(b){ return b.t !== "p" && b.t !== "h" && b.t !== "ul"; }).map(blk).join(""); }
 
-function flow(blocks){
+function flow(blocks, fl){
+  fl = (fl || []).slice();
   var out = "", txt = [], bx = [], tb = [];
   function ftb(){ if(tb.length){ out += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:0 28px;align-items:start">' + tb.map(blk).join("") + '</div>'; tb = []; } }
-  function ft(){ if(txt.length){ var len = JSON.stringify(txt).length; out += '<div style="' + (len > 900 ? 'column-width:420px;column-gap:40px;' : '') + 'margin:6px 0">' + txt.map(blk).join("") + '</div>'; txt = []; } }
+  function ft(){ if(txt.length){ var len = JSON.stringify(txt).length; out += '<div style="' + (len > 900 ? 'column-width:420px;column-gap:40px;' : '') + 'margin:6px 0">' + (fl.length ? fl.shift() : '') + txt.map(blk).join("") + '</div>'; txt = []; } }
   function fb(){ if(bx.length){ out += '<div class="cols" style="margin:10px 0">' + bx.map(function(b){ return box("<h3>" + b.h + "</h3><p>" + b.x + "</p>"); }).join("") + '</div>'; bx = []; } }
   blocks.forEach(function(b){
     if(b.t !== "tbl") ftb();
@@ -98,7 +99,23 @@ function flow(blocks){
     else if(b.t === "tbl"){ ft(); fb(); if(b.head && b.head.length <= 2){ tb.push(b); } else { ftb(); out += blk(b); } }
     else { fb(); txt.push(b); }
   });
-  ft(); fb(); ftb(); return out;
+  ft(); fb(); ftb(); return out + (fl.length ? '<div class="fimgs">' + fl.join("") + '</div>' : '');
+}
+/* Bilder eines Abschnitts: breite als Kopfbild, übrige klein im Text (Text läuft außen herum). */
+function secImgs(id, sec, secs){
+  if(!window.Galerie) return {head:"", fl:[]};
+  var pre = {konflikt:"konflikt", mysterium:"mysterium", tanz:"tanz"}[id], head = "", fl = [];
+  if(!pre || !sec.p) return {head:"", fl:[]};
+  Galerie.items("vaesen").forEach(function(it){
+    var m = it[0].match(/^(\w+)_s(\d+)$/); if(!m || m[1] !== pre) return;
+    var pg = +m[2], mine = null; secs.forEach(function(x){ if(x.p && x.p <= pg) mine = x; });
+    if(mine !== sec) return;
+    var w = it[1], h = it[2], r = w / h, tag = '<img src="' + IMG(it[0], "full") + '" alt="" loading="lazy">';
+    var on = 'onclick="Galerie.image(\'vaesen\',\'' + it[0] + '\')"';
+    if(r >= 1.45) head += '<div class="simg wide" ' + on + '>' + tag + '</div>';
+    else fl.push('<div class="simg fr ' + (h > 1300 ? 'xl' : r < 0.75 ? 'tall' : 'sq') + '" ' + on + '>' + tag + '</div>');
+  });
+  return {head:head, fl:fl};
 }
 
 /* ---------- Regeln ---------- */
@@ -192,7 +209,7 @@ function viewTabbed(id){
     side = k.groups.map(function(g){ return {h:g.h, i:g.secs.map(function(x){ return {id:x.id, go:base + "/" + x.id, t:x.t}; })}; });
   }
   var sec = secs.filter(function(x){ return x.id === selId; })[0] || secs[0];
-  return bar + main(side, sec.id, '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(sec.t) + '</h1>' + (sec.p ? bookLink(sec.p) : '') + '</div><div style="margin-top:12px">' + sidePic(sec) + flow(sec.b) + '</div></div>');
+  return bar + main(side, sec.id, '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(sec.t) + '</h1>' + (sec.p ? bookLink(sec.p) : '') + '</div><div style="margin-top:12px">' + sidePic(sec) + (function(){ var q = secImgs(id, sec, secs); return q.head + flow(sec.b, q.fl); })() + '</div></div>');
 }
 function viewKapitel(id){
   if(window.VAE_KAP && VAE_KAP[id] && (VAE_KAP[id].tabs || VAE_KAP[id].groups)) return viewTabbed(id);

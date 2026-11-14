@@ -137,5 +137,5 @@ var Galerie = (function(){
     else used = true;
     if(used){ e.preventDefault(); e.stopImmediatePropagation(); }
   }
-  return { reg: reg, open: open, image: image, close: close, has: function(s){ return !!(BOOKS[s] && BOOKS[s].length); } };
+  return { reg: reg, open: open, image: image, items: function(s){ var a = []; (BOOKS[s] || []).forEach(function(b){ a = a.concat(b.items); }); return a; }, close: close, has: function(s){ return !!(BOOKS[s] && BOOKS[s].length); } };
 })();

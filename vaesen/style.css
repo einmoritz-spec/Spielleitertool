@@ -137,3 +137,8 @@ h1{overflow-wrap:anywhere}
 details.fc{padding:0}details.fc>summary{display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;list-style:none}details.fc>summary::-webkit-details-marker{display:none}
 details.fc>summary img{width:54px;height:54px;object-fit:contain;mix-blend-mode:multiply}details.fc h3{margin:0;font-size:21px;text-transform:none;letter-spacing:.04em}details.fc small{display:block;color:var(--soft);font-size:14px}
 details.fc>p{margin:0 18px 10px}details.fc>p.st{padding:8px 0 14px;border-top:1px solid var(--line);font-size:15.5px}details.fc[open]>summary{padding-bottom:4px}details.fc>p.quote{font-style:italic}
+
+.simg{cursor:zoom-in}.simg img{display:block;width:100%;height:auto;border:1px solid var(--line);mix-blend-mode:multiply}
+.simg.wide{margin:0 0 14px;text-align:center}.simg.wide img{width:auto;max-width:100%;max-height:340px;margin:0 auto}
+.simg.fr{float:right;margin:2px 0 8px 16px;break-inside:avoid}.simg.fr.sq{width:230px}.simg.fr.tall{width:200px}.simg.fr.xl{width:230px}
+.fimgs{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0}.fimgs .simg.fr{float:none;margin:0}

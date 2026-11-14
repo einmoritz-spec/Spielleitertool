@@ -3,6 +3,7 @@ window.SYS = {
  "id": "tftl",
  "name": "Tales from the Loop",
  "logoText": "Tales from the Loop",
+ "logoMask": ["../assets/logos/tales-from-the-loop.webp", 182, 32],
  "defaultBook": "tftl_core",
  "fonts": [
   [

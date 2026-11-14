@@ -18,7 +18,7 @@
     ["vae_book","Settingbücher","Britain & Ireland · Carpathia","vaesen/#buecher/1",2,"",{f:"TmBebas",s:18,ls:".06em"}],
     ["vae_myst","Mysterien & Kampagnen","Seasons · Wicked Secret · Lost Mountain · City","vaesen/#buecher/2",2,"",{f:"TmBebas",s:18,ls:".06em"}],
     ["vae_solo","Solo & Material","Thursday’s Child · Handouts","vaesen/#buecher/3",2,"",{f:"TmBebas",s:18,ls:".06em"}],
-    ["tftl","Tales from the Loop","Stålenhag · 80er","tftl/",1,"",{f:"TmJost",s:17,ls:".03em",u:1}],
+    ["tftl","Tales from the Loop","Stålenhag · 80er","tftl/",1,"",{i:"assets/logos/tales-from-the-loop.webp",h:26,dm:"assets/logos/tales-from-the-loop.webp",w:150}],
     ["forbidden","Forbidden Lands","Free League","forbidden/",1,"",{i:"assets/logos/forbidden-lands.webp",h:44}],
     ["_more","Weitere Systeme","","",0,"grp"],
     ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{i:"assets/logos/eat-the-reich.webp",h:50}],

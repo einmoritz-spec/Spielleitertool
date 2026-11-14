@@ -2,9 +2,7 @@
 window.SYS = {
  "id": "household",
  "name": "Household",
- "logoText": "Household",
  "defaultBook": "hh_core",
- "noHero": true,
  "fonts": [
   [
    "Lab",
@@ -160,5 +158,11 @@ window.SYS = {
     }
    ]
   }
- ]
+ ],
+ "logoMask": [
+  "../assets/logos/household.webp",
+  80,
+  48
+ ],
+ "heroPos": "center 55%"
 };

@@ -2,9 +2,7 @@
 window.SYS = {
  "id": "heart",
  "name": "Heart",
- "logoText": "Heart",
  "defaultBook": "ht_core",
- "noHero": true,
  "fonts": [
   [
    "Bebas",
@@ -21,10 +19,10 @@ window.SYS = {
   "bg": "#1a1420",
   "ink": "#eadfe6",
   "soft": "#a898a6",
-  "acc": "#e0526a",
+  "acc": "#e8333f",
   "line": "#3a2c3d",
   "card": "#251b2a",
-  "top": "#0f0b14",
+  "top": "#14101a",
   "topInk": "#eadfe6",
   "logoFont": "Bebas,Impact,sans-serif",
   "logoSize": "32px",
@@ -113,5 +111,7 @@ window.SYS = {
     }
    ]
   }
- ]
+ ],
+ "logoImg": "../assets/logos/heart.webp",
+ "heroPos": "center 45%"
 };

@@ -2,9 +2,7 @@
 window.SYS = {
  "id": "moerkborg",
  "name": "Mörk Borg",
- "logoText": "Mörk Borg",
  "defaultBook": "mb_core",
- "noHero": true,
  "fonts": [
   [
    "Archivo",
@@ -228,5 +226,11 @@ window.SYS = {
     }
    ]
   }
- ]
+ ],
+ "logoMask": [
+  "../assets/logos/moerk-borg.webp",
+  69,
+  48
+ ],
+ "heroPos": "center 40%"
 };

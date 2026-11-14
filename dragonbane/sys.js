@@ -2,9 +2,7 @@
 window.SYS = {
  "id": "dragonbane",
  "name": "Dragonbane",
- "logoText": "Dragonbane",
  "defaultBook": "db_rb",
- "noHero": true,
  "fonts": [
   [
    "Cin",
@@ -24,8 +22,8 @@ window.SYS = {
   "acc": "#a8321f",
   "line": "#c9b48b",
   "card": "#f6edd8",
-  "top": "#2a1c14",
-  "topInk": "#e9c46a",
+  "top": "#f3e9d2",
+  "topInk": "#2c2118",
   "logoFont": "Cin,Georgia,serif",
   "logoSize": "24px",
   "logoLs": ".08em",
@@ -152,5 +150,7 @@ window.SYS = {
     }
    ]
   }
- ]
+ ],
+ "logoImg": "../assets/logos/dragonbane.webp",
+ "heroPos": "center 30%"
 };

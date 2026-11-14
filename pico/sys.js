@@ -2,9 +2,7 @@
 window.SYS = {
  "id": "pico",
  "name": "Pico",
- "logoText": "Pico",
  "defaultBook": "pi_core",
- "noHero": true,
  "fonts": [
   [
    "Jost",
@@ -21,10 +19,10 @@ window.SYS = {
   "bg": "#f5f2ea",
   "ink": "#222222",
   "soft": "#6c6a63",
-  "acc": "#3a3a3a",
+  "acc": "#f2735b",
   "line": "#d9d5c8",
   "card": "#ffffff",
-  "top": "#222222",
+  "top": "#1d4a47",
   "topInk": "#ffffff",
   "logoFont": "Jost,sans-serif",
   "logoSize": "26px",
@@ -48,5 +46,11 @@ window.SYS = {
     }
    ]
   }
- ]
+ ],
+ "logoMask": [
+  "../assets/logos/pico.webp",
+  73,
+  36
+ ],
+ "heroPos": "center 40%"
 };

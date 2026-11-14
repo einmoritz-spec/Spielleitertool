@@ -2,7 +2,6 @@
 window.SYS = {
  "id": "slugblaster",
  "name": "Slugblaster",
- "logoText": "Slugblaster",
  "defaultBook": "sb_core",
  "noHero": true,
  "fonts": [
@@ -72,5 +71,10 @@ window.SYS = {
     }
    ]
   }
+ ],
+ "logoMask": [
+  "../assets/logos/slugblaster.webp",
+  87,
+  50
  ]
 };

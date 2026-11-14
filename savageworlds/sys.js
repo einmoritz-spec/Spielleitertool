@@ -2,9 +2,7 @@
 window.SYS = {
  "id": "savageworlds",
  "name": "Savage Worlds",
- "logoText": "Savage Worlds",
  "defaultBook": "sw_de",
- "noHero": true,
  "fonts": [
   [
    "Osw",
@@ -119,5 +117,7 @@ window.SYS = {
     }
    ]
   }
- ]
+ ],
+ "logoImg": "../assets/logos/savage-worlds.webp",
+ "heroPos": "center 30%"
 };

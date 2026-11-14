@@ -2,9 +2,7 @@
 window.SYS = {
  "id": "spire",
  "name": "The Spire",
- "logoText": "The Spire",
  "defaultBook": "sp_qs",
- "noHero": true,
  "fonts": [
   [
    "Cin",
@@ -18,14 +16,14 @@ window.SYS = {
   ]
  ],
  "vars": {
-  "bg": "#1a1430",
-  "ink": "#ece6f7",
-  "soft": "#a99fc4",
-  "acc": "#c39bff",
-  "line": "#342a57",
-  "card": "#241c40",
-  "top": "#0f0a1c",
-  "topInk": "#ece6f7",
+  "bg": "#0f1c1e",
+  "ink": "#e4f1ee",
+  "soft": "#8fb0ad",
+  "acc": "#f08a78",
+  "line": "#28474a",
+  "card": "#172b2d",
+  "top": "#0a1416",
+  "topInk": "#e8f3ee",
   "logoFont": "Cin,Georgia,serif",
   "logoSize": "24px",
   "logoLs": ".1em",
@@ -36,7 +34,7 @@ window.SYS = {
   "cardLs": ".04em",
   "body": "Merri,Georgia,serif",
   "shadow": "0 2px 10px rgba(0,0,0,.45)",
-  "panel-raised": "#241c40"
+  "panel-raised": "#172b2d"
  },
  "groups": [
   {
@@ -148,5 +146,11 @@ window.SYS = {
     }
    ]
   }
- ]
+ ],
+ "logoMask": [
+  "../assets/logos/the-spire.webp",
+  46,
+  46
+ ],
+ "heroPos": "center 40%"
 };

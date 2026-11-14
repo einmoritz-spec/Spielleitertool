@@ -37,32 +37,29 @@ function renderOverview(){
     </button>`;
   }).join("");
   const af = ADVENTURES.find(a=>a.id==="campaign-aftermath");
-  const aftermath = af ? `
+  const sg = ADVENTURES.find(a=>a.id==="sg");
+  const stack = (af||sg) ? `<div class="ov2-stack">` + (af ? `
     <button class="adv-card noimg" onclick="goAdventure('campaign-aftermath')">
       <div class="b">
         <div class="meta"><span>Kampagnen-Abschluss</span><span>${af.scenes.length} Szenen</span></div>
         <h3>Campaign Aftermath</h3>
         <div class="en">Personal Journeys &amp; Revelations Oracle</div>
       </div>
-    </button>` : "";
+    </button>` : "") + (sg ? `
+    <button class="adv-card ov2-tut" onclick="goAdventure('sg')">
+      <img src="assets/galerie/litm-core/full/lmErzaehler_pdf111_B215ca_Heap-Thing-of-Skunk-Glen_1.webp" alt="" loading="lazy">
+      <div class="b">
+        <div class="meta"><span>Außerhalb der Kampagne</span></div>
+        <h3>Der Heap-Thing von Skunk Glen</h3>
+        <div class="en">Einsteiger-Abenteuer · ${sg.scenes.filter(x=>x.kind==="scene").length} Szenen</div>
+      </div>
+    </button>` : "") + `</div>` : "";
   app.innerHTML = renderTopbar() + `
   <div class="ov2">
     <div class="ov2-hero"><img class="art" src="assets/hero/dales-hero.webp" alt=""></div>
     <div class="ov2-title"><img src="assets/logos/hor.webp" alt="Hearts of Ravensdale"><div class="s">SETTING BOOK I · THE DALES</div></div>
     <div class="ov2-orn"><span>❦</span></div>
-    <div class="ov2-grid">${cards}${aftermath}</div>
-    <div class="ov2-extra">
-      <div class="ov2-extra-lbl"><span>Außerhalb der Kampagne</span></div>
-      <button class="adv-card ov2-tut" onclick="goAdventure('sg')">
-        <img src="assets/galerie/litm-core/full/lmErzaehler_pdf111_B215ca_Heap-Thing-of-Skunk-Glen_1.webp" alt="" loading="lazy">
-        <div class="b">
-          <div class="meta"><span>Einsteiger-Abenteuer</span><span>6 Szenen · Core Book S. 448–465</span></div>
-          <h3>Der Heap-Thing von Skunk Glen</h3>
-          <div class="en">The Heap-Thing of Skunk Glen</div>
-          <p>Ein eigenständiges Tutorial-Abenteuer für die erste Runde Legend in the Mist – unabhängig von Wake of the Oldways, auch als Aufwärmen davor spielbar.</p>
-        </div>
-      </button>
-    </div>
+    <div class="ov2-grid">${cards}${stack}</div>
   </div>`;
 }
 

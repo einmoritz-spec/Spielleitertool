@@ -29,7 +29,7 @@
     ["heart","Heart","Die Stadt darunter","heart/",1,"",{m:"assets/logos/heart.webp",w:66,h:27}],
     ["household","Household","Tierische Abenteuer","household/",1,"",{m:"assets/logos/household.webp",w:50,h:30}],
     ["moerkborg","Mörk Borg","Apokalypse-Metal","moerkborg/",1,"",{m:"assets/logos/moerk-borg.webp",w:44,h:31}],
-    ["savageworlds","Savage Worlds","Universalsystem","savageworlds/",1,"",{i:"assets/logos/savage-worlds.webp",h:34,dm:"assets/logos/savage-worlds.webp",w:64}],
+    ["savageworlds","Savage Worlds","Universalsystem","savageworlds/",1,"",{i:"assets/logos/savage-worlds.webp",h:34}],
     ["slugblaster","Slugblaster","Skater-Sci-Fi","slugblaster/",1,"",{m:"assets/logos/slugblaster.webp",w:64,h:37}],
     ["spire","The Spire","Drow-Rebellion","spire/",1,"",{m:"assets/logos/the-spire.webp",w:34,h:34}],
     ["pico","Pico","Minimalsystem","pico/",1,"",{m:"assets/logos/pico.webp",w:60,h:30}]

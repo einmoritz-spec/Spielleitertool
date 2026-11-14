@@ -206,3 +206,5 @@ VAE_KAP["talente"]={titel:"Talente",p:49,b:[
  {t:"box",h:'Wohlhabend',x:'Erhöhe Ressourcen um 1 (mehrfach erwerbbar).'},
  {t:"box",h:'Heiliges Symbol',x:'Du hast einen religiösen Gegenstand, mit dem du Inspiration einsetzen kannst, um Vaesen im Nahkampf anzugreifen und 1 Schaden anzurichten.'}
 ]};
+
+VAE_KAP["konflikt"]={titel:"Konflikt und Verletzungen",p:57,b:VAE_KONFLIKT_1.concat(VAE_KONFLIKT_2)};

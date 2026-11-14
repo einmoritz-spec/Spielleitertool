@@ -88,15 +88,17 @@ function blk(b){
 function twoCol(blocks){ /* Fließtext in zwei Spalten, Boxen über die volle Breite */ return '<div style="column-width:420px;column-gap:40px">' + blocks.filter(function(b){ return b.t === "p" || b.t === "h" || b.t === "ul"; }).map(blk).join("") + '</div>' + blocks.filter(function(b){ return b.t !== "p" && b.t !== "h" && b.t !== "ul"; }).map(blk).join(""); }
 
 function flow(blocks){
-  var out = "", txt = [], bx = [];
+  var out = "", txt = [], bx = [], tb = [];
+  function ftb(){ if(tb.length){ out += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:0 28px;align-items:start">' + tb.map(blk).join("") + '</div>'; tb = []; } }
   function ft(){ if(txt.length){ out += '<div style="column-width:420px;column-gap:40px;margin:6px 0">' + txt.map(blk).join("") + '</div>'; txt = []; } }
   function fb(){ if(bx.length){ out += '<div class="cols" style="margin:10px 0">' + bx.map(function(b){ return box("<h3>" + b.h + "</h3><p>" + b.x + "</p>"); }).join("") + '</div>'; bx = []; } }
   blocks.forEach(function(b){
+    if(b.t !== "tbl") ftb();
     if(b.t === "box"){ ft(); bx.push(b); }
-    else if(b.t === "tbl"){ ft(); fb(); out += blk(b); }
+    else if(b.t === "tbl"){ ft(); fb(); if(b.head && b.head.length <= 2){ tb.push(b); } else { ftb(); out += blk(b); } }
     else { fb(); txt.push(b); }
   });
-  ft(); fb(); return out;
+  ft(); fb(); ftb(); return out;
 }
 
 /* ---------- Regeln ---------- */

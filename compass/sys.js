@@ -33,7 +33,7 @@ window.SYS = {
   "body": "Merri,Georgia,serif",
   "panel-raised": "#f3e9cf"
  },
- "heroPos": "center 40%",
+ "heroPos": "center 38%",
  "groups": [
   {
    "grp": "Regeln",

@@ -37,7 +37,7 @@ window.SYS = {
   "shadow": "0 2px 10px rgba(0,0,0,.4)",
   "panel-raised": "#1a2823"
  },
- "heroPos": "center 55%",
+ "heroPos": "center 50%",
  "groups": [
   {
    "grp": "Regeln",

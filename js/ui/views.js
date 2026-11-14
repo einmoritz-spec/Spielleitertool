@@ -665,6 +665,14 @@ function renderChallengeLibrary(){
   </div>`;
 }
 
+/* Szenenbild so hoch wie der Vorlesetext daneben */
+function fitFig(img){
+  var f=img.parentElement, n=f&&f.nextElementSibling; if(!n) return;
+  img.style.maxHeight="none"; img.style.height="auto"; img.style.width="auto";
+  for(var k=0;k<4;k++){ var h=n.offsetHeight; if(h<=120) break; if(Math.abs(img.offsetHeight-h)<2) break; img.style.height=h+"px"; }
+  img.style.maxWidth="100%";
+}
+window.addEventListener("resize",function(){ document.querySelectorAll(".scene-figs img").forEach(fitFig); });
 function renderScene(adv, scene, idx){
   const regularScenes = adv.scenes.filter(s=>s.kind==="scene");
   const posAmongRegular = adv.scenes.slice(0, idx+1).filter(s=>s.kind==="scene").length;
@@ -678,7 +686,7 @@ function renderScene(adv, scene, idx){
   </div>`;
 
   { const fg=(window.ADV_FIGS||{})[adv.id+":"+scene.key];
-    if(fg&&!EDIT.on) html += `<div class="scene-figs">${fg.map(f=>`<img src="assets/galerie/hearts-of-ravensdale/full/${f[0]}.webp" width="${f[1]}" height="${f[2]}" alt="" loading="lazy">`).join("")}</div>`; }
+    if(fg&&!EDIT.on) html += `<div class="scene-figs">${fg.map(f=>`<img src="assets/galerie/hearts-of-ravensdale/full/${f[0]}.webp" width="${f[1]}" height="${f[2]}" alt="" onload="fitFig(this)">`).join("")}</div>`; }
 
   if(false && scene.overview && scene.overview.length){ /* Kurzzusammenfassung am Szenenanfang ausgeblendet (Wunsch) */
     html += `<div class="scene-overview"><ul>${scene.overview.map((o,oi)=>(o===""&&!EDIT.on)?"":`<li${EA("overview."+oi)}>${LS(esc(o))}</li>`).join("")}</ul></div>`;

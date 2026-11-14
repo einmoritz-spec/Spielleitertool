@@ -88,7 +88,7 @@
 <script src="js/data/galerie-mc.js"></script>
 <script src="js/data/galerie-sh.js"></script>
 <script src="../toolmenu.js"></script>
-<script>window.gmBook=function(){var k=(window.CM_BOOK&&CM_BOOK[route().sys])||"rw";return {name:k==="cm"?"Shadows & Showdowns":"City of Mist Grundregelwerk",open:function(){BV.open(k,1);}};};</script>
+<script>window.gmBook=function(){var k=(window.CM_BOOK&&CM_BOOK[route().sys])||"rw";return {name:k==="cm"?"Shadows & Showdowns":"City of Mist Grundregelwerk",open:function(){BV.open(k,1);},books:[{name:"Spielerbuch",sub:"Grundregelwerk",open:function(){BV.open("rw",1);}},{name:"Spielleiterbuch",sub:"Shadows & Showdowns",open:function(){BV.open("cm",1);}}]};};</script>
 <script src="../shared/zurueck.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ function renderPrep(){
     {t:"Charaktere", go:"openCreator()", rows:[f("Erstellung","openCreator()"),f("Themenbuch-Fragen","openThemebook()"),f("Eigene Charaktere","openCustomChars()"),f("Profile","openProfiles()")]},
     {t:"Werkzeuge", go:"openRulesGloss()", rows:[f("Regelglossar","openRulesGloss()"),f("Rasten","openRestRules()"),f("Grimoire","openGrimoire()"),f("Würfel","openDice()"),f("Shop","openStore()"),f("NPCs","openCharacters()"),f("Lore","openLore()"),f("Challenges","openChallenges()")]}
   ];
-  const n = ADVENTURES.length;
+  const n = ADVENTURES.filter(a=>!a.tutorial).length;
   app.innerHTML = renderTopbar() + `
   <div class="overview">
     <div class="welcome-dales">
@@ -23,7 +23,7 @@ function renderPrep(){
 
 function renderOverview(){
   const imgOf = {a1:"shadow-barley",a2:"important-letter",a3:"fox-dales",a4:"green-maiden",a5:"painted-beast",a6:"barleytown-fair",a7:"lost-hermitage"};
-  const cards = ADVENTURES.filter(a=>a.id!=="campaign-aftermath").map(a=>{
+  const cards = ADVENTURES.filter(a=>a.id!=="campaign-aftermath" && !a.tutorial).map(a=>{
     const ready = a.status==="ready";
     return `
     <button class="adv-card" ${ready?`onclick="goAdventure('${a.id}')"`:'disabled'}>
@@ -53,10 +53,10 @@ function renderOverview(){
     <div class="ov2-grid">${cards}${aftermath}</div>
     <div class="ov2-extra">
       <div class="ov2-extra-lbl"><span>Außerhalb der Kampagne</span></div>
-      <button class="adv-card ov2-tut" onclick="goBook('skunk','nr-skunk')">
+      <button class="adv-card ov2-tut" onclick="goAdventure('sg')">
         <img src="assets/galerie/litm-core/full/lmErzaehler_pdf111_B215ca_Heap-Thing-of-Skunk-Glen_1.webp" alt="" loading="lazy">
         <div class="b">
-          <div class="meta"><span>Einsteiger-Abenteuer</span><span>Core Book S. 448–465</span></div>
+          <div class="meta"><span>Einsteiger-Abenteuer</span><span>6 Szenen · Core Book S. 448–465</span></div>
           <h3>Der Heap-Thing von Skunk Glen</h3>
           <div class="en">The Heap-Thing of Skunk Glen</div>
           <p>Ein eigenständiges Tutorial-Abenteuer für die erste Runde Legend in the Mist – unabhängig von Wake of the Oldways, auch als Aufwärmen davor spielbar.</p>

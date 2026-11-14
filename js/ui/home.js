@@ -9,7 +9,7 @@ function homeCard(img,title,main,chips){
     '<div class="hm-b"><h3 onclick="'+main+'">'+title+'</h3>'+hc+'</div></div>';
 }
 function renderHome(){
-  var ready = ADVENTURES.filter(function(a){ return a.status==="ready" && a.id!=="campaign-aftermath"; });
+  var ready = ADVENTURES.filter(function(a){ return a.status==="ready" && a.id!=="campaign-aftermath" && !a.tutorial; });
   var wake = [["Alle Abenteuer","goOverview()"]].concat(ready.map(function(a){ return [esc(a.title),"goAdventure(\'"+a.id+"\')"]; }));
   if(ADVENTURES.some(function(a){ return a.id==="campaign-aftermath"; })) wake.push(["Campaign Aftermath","goAdventure(\'campaign-aftermath\')"]);
   var dales = LM_NAV.secs.welt.map(function(s){ return [esc(s.t),"goBook(\'welt\',\'"+s.id+"\')"]; }).concat([["Buch (PDF)","BV.open(\'wake\',1)"]]);

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v437skunkonly";
+const VERSION = "v438sgplay";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -669,6 +669,7 @@ const FILES = [
   "js/data/adventure-5.js",
   "js/data/adventure-6.js",
   "js/data/adventure-7.js",
+  "js/data/adventure-8.js",
   "js/data/campaign-aftermath.js",
   "js/data/challenge-library.js",
   "js/data/general-store.js",

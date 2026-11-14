@@ -40,9 +40,7 @@ const CAMPAIGN_AFTERMATH_SCENES = [
     "Wer gewann den Bänder-Wettstreit bei der Barleytown Fair? Wer hat nun das Sagen?",
     "Was wurde aus den Oldways? Werden sie in den Dales weiterhin auf dieselbe Weise praktiziert? Erkennen Praktizierende nun die Notwendigkeit, weiterzugehen und die Geheimnisse der Thaumaturgie zu erlernen?",
   ]},
-  revelations:[], rewards:[], tips:[
-    "Nutzt diese Fragen für eine letzte gemeinsame Rückblende-Sitzung nach Adventure 7 — unabhängig davon, ob ihr den optionalen Epilog „Der Krieg hat die Dales erreicht“ (Adventure 7, Aftermath) gespielt habt oder nicht.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 1 --------------------------------------------------------- REVELATIONS ORACLE: KERN */
@@ -71,10 +69,7 @@ const CAMPAIGN_AFTERMATH_SCENES = [
     "<strong>Die Lady war eine der Großen Thaumaturgen Gwyrdolins, die sich opferte, um die Dales vor dem Winterkönig zu schützen.</strong><br><em>Gefunden in:</em> Die Verlorene Einsiedelei (Die Lady der Dales)",
     "<strong>(Optional) Ihr Zauber war nie dafür gedacht, länger als 300 Jahre zu währen, und es gibt nichts, was sein Versagen aufhalten könnte.</strong><br><em>Gefunden in:</em> Die Verlorene Einsiedelei (Die Lady der Dales)",
   ]},
-  revelations:[], rewards:[], tips:[
-    "Diese Folie ist eine reine Nachschlage-Checkliste (entspricht dem gedruckten „Revelations Oracle“-Punchboard im Buch) — die Tafel führt hier keinen eigenen Ankreuz-Status; hakt die Enthüllungen wie gewohnt auf Papier oder mündlich am Tisch ab, sobald sie in der jeweiligen Szene tatsächlich fallen.",
-    "Ausführliche Kontext-Absätze zu jeder einzelnen Kern-Enthüllung (wo/wie sie in der jeweiligen Szene konkret ausgesprochen wird) stehen weiterhin in der Lore- & Kern-Enthüllungs-Bibliothek (🌰-Button in der Kopfzeile).",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 2 --------------------------------------------------------- REVELATIONS ORACLE: LORE */
@@ -86,7 +81,7 @@ const CAMPAIGN_AFTERMATH_SCENES = [
   readAloud:[],
   flow:[
     `<span class="section-heading">Lore-Enthüllungen</span> Diese Enthüllungen vermitteln nützliche Einblicke in die weitere Welt jenseits der Dales. Sie liefern wertvollen Kontext für die Geschichte von <em>Wake of the Oldways</em>, besonders wenn ihr im Bergmodus spielt (S. 310).`,
-    `<span class="section-heading">Fäden der Lore-Enthüllungen (Threads of Lore Revelations)</span> Es gibt viele Wege zur Wahrheit. Spielt ihr solo/kooperativ, oder enthüllt ihr euren Helden Lore, könnt ihr je nach Gesprächsthema und je nachdem, wer oder was die Lore offenbart, einem der folgenden Fäden folgen.`,
+    `<span class="section-heading">Fäden der Lore-Enthüllungen (Threads of Lore Revelations)</span> Es gibt viele Wege zur Wahrheit. Enthüllt ihr euren Helden Lore, könnt ihr je nach Gesprächsthema und je nachdem, wer oder was die Lore offenbart, einem der folgenden Fäden folgen.`,
     `Immer wenn ein Held ein neues Detail enthüllt, prüft den passenden Themenfaden für die nächste auszugebende Lore-Enthüllung. Ist diese Enthüllung noch nicht angekreuzt, gebt sie aus und hakt sie ab. Ist sie bereits angekreuzt, gebt stattdessen die nächste im Faden aus.`,
   ],
   npcs:[],
@@ -115,10 +110,7 @@ const CAMPAIGN_AFTERMATH_SCENES = [
     "<strong>K</strong> — Viele Geschöpfe der Dämmerung waren einst Kinder der Dämmerung — daher ihr Name —, doch sie fielen wegen ihrer Rolle im Krieg in Ungnade und erhielten den Namen „Fallen Leaves“. <em>Fäden: Creatures, War, Stars</em>",
     "<strong>L</strong> — Unter der Herrschaft des Fell Fool überdauerte Gwyrdolin im Krieg der Thaumaturgen mithilfe finsterer Magie, die das Land versauerte. Seine Hauptstadt versank in den Marschen. <em>Fäden: Miasma</em>",
   ]},
-  revelations:[], rewards:[], tips:[
-    "<strong>Nicht alles wird enthüllt:</strong> Erzähler:innen, die Kapitel 2 „Past the Bounds“ gelesen haben, werden feststellen, dass viele der dortigen Details hier nicht auftauchen. Die Reihe Wake of the Oldways ist nicht dafür gedacht, alle Mysterien aufzudecken — die tieferen Geheimnisse warten darauf, in Zukunft entdeckt zu werden, sobald die Helden sich in die Welt jenseits der Dales wagen.",
-    "Ausführliche Kontext-Absätze zu jeder einzelnen Lore-Enthüllung (wo/wie sie konkret fällt) sowie der Fundort-Status (vollständig/teilweise) stehen weiterhin in der Lore- & Kern-Enthüllungs-Bibliothek (🌰-Button in der Kopfzeile).",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 ];

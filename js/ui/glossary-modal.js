@@ -5,6 +5,15 @@
    Neue Begriffe für künftige Abenteuer hier einfach ergänzen.
    ================================================================== */
 const STATUS_TERMS = {
+  /* --- Nachtrag Nov. 2026: Skunk Glen --- */
+  "appreciated":{de:"wertgeschätzt",desc:"Eine Person fühlt sich für ihre Hilfe oder Mühe anerkannt — gibt Rückhalt im Umgang mit ihr.",cat:"social"},
+  "disliked":{de:"unbeliebt",desc:"Eine Person oder Gruppe mag den Helden nicht — erschwert Bitten, Überzeugen und Verhandeln mit ihr.",cat:"social"},
+  "expecting-bad-luck":{de:"Pech erwartend",desc:"Das ungute Gefühl, dass etwas schiefgehen wird; drückt auf die Stimmung und lässt eigene Handlungen zaghaft wirken.",cat:"mind"},
+  "frantic":{de:"panisch",desc:"Hektische Aufregung, in der überlegtes Handeln schwerfällt — typisch für NPCs in Zeitnot.",cat:"mind"},
+  "fuming":{de:"schäumend",desc:"Kochende, kaum verhaltene Wut; ein Streit kann jeden Moment eskalieren.",cat:"mind"},
+  "goodwill":{de:"Wohlwollen",desc:"Eine Person ist dem Helden gewogen und hilft eher oder nachsichtiger — als Belohnung für gute Taten.",cat:"social"},
+  "scary":{de:"unheimlich",desc:"Ein Ort oder Anblick jagt Furcht ein; kann Aktionen erschweren, die Ruhe verlangen.",cat:"env"},
+  "spurned":{de:"zurückgewiesen",desc:"Jemand fühlt sich abgewiesen oder übergangen — verletzte Gefühle, die sich später rächen können.",cat:"social"},
   /* --- Nachtrag Juli 2026: aus Glossar-Beispieltext (Conditions That Are
      Also Challenges) --- */
   "broken-spine":{de:"gebrochenes Rückgrat",desc:"Schwerste Sturzverletzung — lebensbedrohlich, erfordert sofortige Hilfe.",cat:"phys"},

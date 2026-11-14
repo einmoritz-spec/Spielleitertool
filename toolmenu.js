@@ -23,7 +23,7 @@
     ["_more","Weitere Systeme","","",0,"grp"],
     ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{i:"assets/logos/eat-the-reich.webp",h:50}],
     ["wildsea","The Wildsea","Schiffe im Blätterwald","wildsea/",1,"",{m:"assets/logos/the-wildsea.webp",w:92,h:28}],
-    ["triangle","Triangle Agency","Büro-Horror","triangle/",1,"",{m:"assets/logos/triangle-agency.webp",w:86,h:30}],
+    ["triangle","Triangle Agency","Büro-Horror","triangle/",1,"",{i:"assets/logos/triangle-agency.webp",h:32,dm:"assets/logos/triangle-agency.webp",w:90}],
     ["compass","Broken Compass","Pulp-Abenteuer","compass/",1,"",{m:"assets/logos/broken-compass.webp",w:84,h:31}]
   ];
   var css = document.createElement("style");
@@ -44,9 +44,12 @@
   }
   function open(){
     close(); var c = cur(); dd = document.createElement("div"); dd.className = "tm-dd"; dd.setAttribute("role","menu");
+    var rs0 = getComputedStyle(document.documentElement), bg0 = (rs0.getPropertyValue("--panel-raised")||rs0.getPropertyValue("--panel2")||rs0.getPropertyValue("--panel")||"#1b1816").trim(), hx = bg0.replace("#",""); if(hx.length===3) hx = hx.replace(/./g,"$&$&");
+    var dark = /^[0-9a-f]{6}$/i.test(hx) ? (0.299*parseInt(hx.substr(0,2),16)+0.587*parseInt(hx.substr(2,2),16)+0.114*parseInt(hx.substr(4,2),16)) < 128 : true;
     var par = "", touch = window.matchMedia && matchMedia("(hover:none)").matches, curPar = ""; TOOLS.forEach(function(t){ if(t[5]!=="grp"){ if(t[4]!==2) par = t[0]; if(t[0]===c) curPar = par; } }); par = "";
     dd.innerHTML = TOOLS.map(function(t){ if(t[5]==="grp") return '<div class="tm-grp">'+t[1]+'</div>'; var st = t[6], nm = '<b>'+t[1]+'</b>';
-      if(st && st.m) nm = '<b class="tm-logo" role="img" aria-label="'+t[1]+'" style="--lg:url('+BASE+st.m+');width:'+st.w+'px;height:'+st.h+'px"></b>';
+      if(st && st.dm && dark) nm = '<b class="tm-logo" role="img" aria-label="'+t[1]+'" style="--lg:url('+BASE+st.dm+');width:'+st.w+'px;height:'+st.h+'px"></b>';
+      else if(st && st.m) nm = '<b class="tm-logo" role="img" aria-label="'+t[1]+'" style="--lg:url('+BASE+st.m+');width:'+st.w+'px;height:'+st.h+'px"></b>';
       else if(st && st.i) nm = '<img class="tm-img" src="'+BASE+st.i+'" alt="'+t[1]+'" style="height:'+st.h+'px">';
       else if(st && st.f) nm = '<b style="font-family:'+st.f+',Impact,sans-serif;font-weight:'+({TmOswald:600,TmJost:700,TmTeko:600}[st.f]||400)+';font-size:'+st.s+'px;letter-spacing:'+st.ls+(st.u?';text-transform:uppercase':'')+'">'+t[1]+'</b>';
       if(t[4]!==2) par = t[0]; return '<button role="menuitem" data-m="'+t[0]+'" data-p="'+par+'" class="'+(t[0]===c?"on":"")+(t[4]===2?" sub2":" sub1")+(t[4]===2 && !touch && par!==curPar ? " sub-h" : "")+'" title="'+t[1]+'">'+nm+'<small>'+t[2]+'</small></button>'; }).join("");

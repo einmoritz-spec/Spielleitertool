@@ -81,7 +81,7 @@ const SG_SCENES = [
    "<strong>Establish</strong> Etabliere die Szene durch Beschreibung und lass die Heroes wissen, dass sie heute Morgen alle zufällig hier sind (mit gewissen Ausnahmen). Es gibt keine unmittelbaren Challenges oder Threats, und was auf dem Spiel steht, zeigt sich erst noch.",
    "<strong>Action</strong> Wähle einen Hero, der zuerst handelt. Er beschreibt, wie er in der Szene ankommt, wie er aussieht, was er sagt oder tut und wie er auf die Aufregung im Dorf reagiert. Das sind alles Simple Actions (Vol. I, S. 150), es muss also noch nicht gewürfelt werden.",
    "<strong>Consequences</strong> Dies ist eine risikoarme Tätigkeit, also verhänge zu diesem Zeitpunkt keine Consequences.",
-   "<strong>Repeat</strong> Etabliere die Szene nach dem Zug jedes Heroes neu, falls sich etwas geändert hat, und gehe zum nächsten Hero, bis sich alle in die Szene eingebracht und ein Gefühl für den Rhythmus des Gesprächs bekommen haben.<br><br><strong>Alderman Beaks</strong> — Beaks ist ein charmanter Mann in den Fünfzigern mit krähenfüßigen Augenfältchen und einem ständigen Lächeln. Selbst wenn er ernst ist, behält er einen Hauch von Fröhlichkeit in den Augen und ist stets kompromissbereit. Die Leute von Ravenhome haben ihn nur dreimal wirklich wütend gesehen, und alle drei Male sind Teil der Dorflegende geworden.<br><br>Auf die Änderung der Discarded-Cart-Tradition angesprochen, bestätigt Beaks schnell, dass der Müll dieses Jahr verbrannt statt weggeworfen wird. „Genauso lustig, wenn nicht lustiger. Und vielleicht noch symbolischer, findet ihr nicht?“ Er betont auch, dass für heute Abend noch viel zu tun ist.<br><br>Fragen sie weiter, vertraut er ihnen schließlich seine Sorgen über die Gefahren an, die er in der kommenden Jahreszeit sieht, und stimmt zu, dies nach der Feier weiter zu besprechen.Dann bittet er sie, die Gerüchte nicht im Dorf zu verbreiten, und wird angry-3 auf die Heroes, wenn er vermutet, dass sie es doch getan haben.",
+   "<strong>Repeat</strong> Etabliere die Szene nach dem Zug jedes Heroes neu, falls sich etwas geändert hat, und gehe zum nächsten Hero, bis sich alle in die Szene eingebracht und ein Gefühl für den Rhythmus des Gesprächs bekommen haben.",
    "<span class=\"section-heading\">Aufgaben vom Alderman</span>",
    "<strong>Establish</strong> Setze die Szene fort, indem du sie neu etablierst, diesmal mit dem Auftritt des Alderman. Alderman Beaks sucht Hilfe, und selbst wenn die Heroes sich nicht engagieren wollen, wird er sie aufspüren und um Unterstützung bitten. Er teilt dann Aufgaben im Rahmen der Vorbereitungen für die Zeremonie am Abend zu. Wähle für jeden Hero eine der folgenden Aufgaben, passend zu seinen Stärken. Gibt es mehr Aufgaben als Heroes, nutze nur die passendsten oder gib einigen Heroes mehr als eine.",
    "• Wick, dem Pastetenbäcker helfen, der ein wenig überfordert ist<br>• Reeve, der Frau des Alderman, bei den Kränzen helfen, die sie bindet<br>• Auntie Elswith besuchen, die Hilfe mit ihrem Ausrangiertes-Stück braucht<br>• Herausfinden, warum sich auf der Brücke über dem Bach ein Stau bildet<br>• Mit Hunn, dem Schmied, reden, weil die Stangen für das Festbanner nicht halten",
@@ -99,7 +99,15 @@ const SG_SCENES = [
    "Erlaube dem Hero eine Reaction-Probe, um die Effekte einer Consequence abzumildern (Vol. I, S. 162) mit reaktiven Tags. Schon in der Aktion eingesetzte Tags können nicht erneut genutzt werden.",
    "<strong>Repeat</strong> Gehe von Hero zu Hero, etabliere ihre individuellen Situationen, erlaube Actions und verhänge Consequences nach Bedarf. Sind alle Aufgaben erledigt – oder vermasselt –, ist der Tag vorüber und die Feier beginnt. Weiter mit Chaos auf dem Dorfanger (S. 456)."
   ],
-  "npcs": [],
+  "npcs": [
+   {
+    "name": "Alderman Beaks",
+    "role": "Dorfvorsteher von Ravenhome",
+    "img": "aldermanBeaks",
+    "after": 7,
+    "text": "Beaks ist ein charmanter Mann in den Fünfzigern mit krähenfüßigen Augenfältchen und einem ständigen Lächeln. Selbst wenn er ernst ist, behält er einen Hauch von Fröhlichkeit in den Augen und ist stets kompromissbereit. Die Leute von Ravenhome haben ihn nur dreimal wirklich wütend gesehen, und alle drei Male sind Teil der Dorflegende geworden.<br><br>Auf die Änderung der Discarded-Cart-Tradition angesprochen, bestätigt Beaks schnell, dass der Müll dieses Jahr verbrannt statt weggeworfen wird. „Genauso lustig, wenn nicht lustiger. Und vielleicht noch symbolischer, findet ihr nicht?“ Er betont auch, dass für heute Abend noch viel zu tun ist.<br><br>Fragen sie weiter, vertraut er ihnen schließlich seine Sorgen über die Gefahren an, die er in der kommenden Jahreszeit sieht, und stimmt zu, dies nach der Feier weiter zu besprechen.Dann bittet er sie, die Gerüchte nicht im Dorf zu verbreiten, und wird angry-3 auf die Heroes, wenn er vermutet, dass sie es doch getan haben."
+   }
+  ],
   "vignettes": [
    {
     "name": "Wick, der Pastetenbäcker",
@@ -257,9 +265,25 @@ const SG_SCENES = [
    "Tags: clouded moonlight (Heroes können im Dorf einfach nach einer Fackel fragen, bevor sie hinuntergehen). Um eine Vignette schwerer zu machen, kann der Pfad sehr schmal, mit rutschigem Schlamm bedeckt oder voller Brennnesseln sein.",
    "<span class=\"section-heading\">General Consequences</span> Diese Consequences können bei jeder Vignette eintreten.",
    "• Ein starker Wind bläst die Fackel aus (Complication oder ein Tag scratchen).<br>• Ein Hero rutscht auf einem moosigen Felsen oder einer Geröllhalde aus (scraped-2 oder ein Tag körperlicher Fähigkeit scratchen).<br>• Das Lachen eines unbekümmerten Dörflers hallt von unten herauf (worried-2 oder der Fluch breitet sich aus, delirious-1).",
-   "<span class=\"section-heading\">Weitere Dörfler in der Prozession</span> Hier sind einige weitere Dörfler, die dem Zauber verfallen sind, zu deiner Verwendung.<br><br><strong>Giphty the Mumbler</strong> <em>(Verzauberter Teenager (15))</em> — Ein 15-jähriger Teenager aus einer der zurückgezogenen Försterfamilien, die in den Wäldern leben. Das aufgeweckte Kind hat einen Sprachfehler, wegen dem es manchmal gehänselt wird, und ist doch vielleicht das geselligste aller Förster.<br><br><strong>Laura</strong> <em>(Verzauberte Dörflerin)</em> — Ihren wenigen Freunden treu ergeben, zog vor ein paar Jahren ins Dorf, nachdem sie ein Land verlassen hatte, von dem nur wenige gehört haben. Manche sagen, sie sei davongelaufen … Jetzt ist sie es sicher nicht: Sie ist beim Abstieg über einen Fels gestürzt und hat einen geschwollenen Knöchel.<br><br><strong>Fahira the Trader</strong> <em>(Verzauberte Händlerin)</em> — Deren Haar schon in ihrer Jugend berühmt silbern wurde, besucht das Dorf vier Mal im Jahr, passend zu den jahreszeitlichen Zeremonien. Als Genussmensch ist sie besonders schwer zu überreden, einer guten Party den Rücken zu kehren."
+   "<span class=\"section-heading\">Weitere Dörfler in der Prozession</span> Hier sind einige weitere Dörfler, die dem Zauber verfallen sind, zu deiner Verwendung."
   ],
-  "npcs": [],
+  "npcs": [
+   {
+    "name": "Giphty the Mumbler",
+    "role": "Verzauberter Teenager (15)",
+    "text": "Ein 15-jähriger Teenager aus einer der zurückgezogenen Försterfamilien, die in den Wäldern leben. Das aufgeweckte Kind hat einen Sprachfehler, wegen dem es manchmal gehänselt wird, und ist doch vielleicht das geselligste aller Förster."
+   },
+   {
+    "name": "Laura",
+    "role": "Verzauberte Dörflerin",
+    "text": "Ihren wenigen Freunden treu ergeben, zog vor ein paar Jahren ins Dorf, nachdem sie ein Land verlassen hatte, von dem nur wenige gehört haben. Manche sagen, sie sei davongelaufen … Jetzt ist sie es sicher nicht: Sie ist beim Abstieg über einen Fels gestürzt und hat einen geschwollenen Knöchel."
+   },
+   {
+    "name": "Fahira the Trader",
+    "role": "Verzauberte Händlerin",
+    "text": "Deren Haar schon in ihrer Jugend berühmt silbern wurde, besucht das Dorf vier Mal im Jahr, passend zu den jahreszeitlichen Zeremonien. Als Genussmensch ist sie besonders schwer zu überreden, einer guten Party den Rücken zu kehren."
+   }
+  ],
   "vignettesLib": "skunk-glen",
   "challenges": [],
   "rewards": [],

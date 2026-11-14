@@ -17,6 +17,7 @@
   function place(){
     var b=document.getElementById("pnBtn"); if(!b) return;
     if(window.innerWidth<861 && !document.querySelector(".lm-toc")){ b.style.display="none"; return; }
+    var tc=document.querySelector(".lm-toc"); if(tc && getComputedStyle(tc).position!=="sticky"){ b.style.display="none"; return; }
     var off=isOff(), nav=document.querySelector(".pn-nav"), rail=document.querySelector(".pn-rail")||nav;
     if(!nav&&!rail){ b.style.display="none"; return; }
     var r=(off?rail:nav).getBoundingClientRect();

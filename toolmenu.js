@@ -21,7 +21,7 @@
     ["tftl","Tales from the Loop","Stålenhag · 80er","tftl/",1,"",{f:"TmJost",s:17,ls:".03em",u:1}],
     ["forbidden","Forbidden Lands","Free League","forbidden/",1,"",{f:"TmFell",s:19,ls:".03em"}],
     ["_more","Weitere Systeme","","",0,"grp"],
-    ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{f:"TmBebas",s:20,ls:".06em",u:1}],
+    ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{i:"assets/logos/eat-the-reich.webp",h:50}],
     ["wildsea","The Wildsea","Schiffe im Blätterwald","wildsea/",1,"",{f:"TmTeko",s:24,ls:".05em",u:1}],
     ["triangle","Triangle Agency","Büro-Horror","triangle/",1,"",{f:"TmArchivo",s:17,ls:"-.03em"}],
     ["compass","Broken Compass","Pulp-Abenteuer","compass/",1,"",{m:"assets/logos/broken-compass.webp",w:84,h:31}]

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v523systeme15";
+const VERSION = "v524systeme16";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -22,6 +22,22 @@ const FILES = [
   "compass/sys.js",
   "compass/img/hero.webp",
   "compass/img/logo.webp",
+  "dragonbane/index.html",
+  "dragonbane/sys.js",
+  "heart/index.html",
+  "heart/sys.js",
+  "household/index.html",
+  "household/sys.js",
+  "moerkborg/index.html",
+  "moerkborg/sys.js",
+  "savageworlds/index.html",
+  "savageworlds/sys.js",
+  "slugblaster/index.html",
+  "slugblaster/sys.js",
+  "spire/index.html",
+  "spire/sys.js",
+  "pico/index.html",
+  "pico/sys.js",
   "shared/sysstart.js",
   "shared/sysstart.css",
   "assets/logos/broken-compass.webp",

@@ -9,12 +9,14 @@ function route(){
   var h=(location.hash||"").slice(1).split("/");
   if(h[0]==="spieler"||h[0]==="sl") h.unshift("ss");
   if(h[0]==="tb") return {sys:"tb",tab:h[1]||"",sub:h[2]||"",cat:h[3]||""};
+  if(h[0]==="mc") return {sys:"mc",tab:h[1]||"start",sub:h[2]||"",cat:h[3]||""};
   if(h[0]==="ss"||h[0]==="rw") return {sys:h[0],tab:h[1]||"start",sub:h[2]||"",cat:h[3]||""};
   return {sys:"hub",tab:"start",sub:"",cat:""};
 }
 function go(path){ location.hash=path; }
 function gs(path){ go("ss/"+path); }
 function gr(path){ go("rw/"+path); }
+function gm(path){ go("mc/"+path); }
 
 /* Bilder ungeschnitten einbauen: Klasse nach Seitenverhältnis (Streifen ganzbreit, Querformat/Quadrat/Hochformat schwebend im Text) */
 function imFit(i){ if(!i.naturalHeight) return; var r=i.naturalWidth/i.naturalHeight; i.classList.add(r>=2.2?'im-strip':r>=1.25?'im-land':r>=0.85?'im-sq':r>=0.45?'im-port':'im-tall'); }

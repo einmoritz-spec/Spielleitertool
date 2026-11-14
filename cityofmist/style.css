@@ -179,3 +179,13 @@ a.pg-link{color:var(--mist)!important}
 @media(max-width:700px){.ocols.solo>.otxt>.fig:not(.tall){float:none;width:100%}}
 .ob:has(>.dgrid) .obild{float:left;margin:2px 16px 8px 0}
 .ort>.ob{display:flow-root}
+
+/* MC Toolkit */
+.mcbody{max-width:none}
+.mce{margin:0 0 26px}.mce>h3{display:inline-block;margin:0 10px 8px 0;font:600 22px var(--cond);letter-spacing:.04em;text-transform:uppercase}
+.mce p{line-height:1.62;margin:0 0 10px}.mce .lh{margin:20px 0 6px;font:600 15px var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi)}
+.mce .lh2{margin:14px 0 4px;font:600 14px var(--cond);letter-spacing:.06em;color:var(--gold)}
+.mcl{margin:0 0 12px;padding-left:22px}.mcl li{margin:3px 0;line-height:1.55}
+.mcq{margin:12px 0;padding:8px 16px;border-left:3px solid var(--gold);color:var(--mute);font-style:italic}
+.mcbox{margin:16px 0;padding:12px 16px;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;background:rgba(255,255,255,.03)}
+.mcbox h4{margin:0 0 6px;font:600 14px var(--cond);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-hi)}

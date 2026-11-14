@@ -64,13 +64,28 @@
   var bcss = document.createElement("style");
   bcss.textContent = ".topbar .tm-book{flex:none;margin-left:auto;margin-right:8px;width:40px;height:40px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;font:inherit;font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;white-space:nowrap;transition:background .15s}.topbar .tm-book:hover{filter:brightness(.96)}.topbar .tm-book + .tb-burger{margin-left:0!important}";
   document.head.appendChild(bcss);
+  var bdd = null;
+  document.addEventListener("click", function(e){ if(bdd && !(e.target.closest && e.target.closest(".tm-dd"))){ bdd.remove(); bdd = null; } });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && bdd){ bdd.remove(); bdd = null; } });
   function bookBtn(){
     var bar = document.querySelector(".topbar"); if(!bar || !window.gmBook || bar.querySelector(".tm-book")) return;
     var burger = bar.querySelector(".tb-burger"); if(!burger) return;
     var b = document.createElement("button"); b.type = "button"; b.className = "tm-book"; b.setAttribute("aria-label","Buch öffnen"); b.innerHTML = '<svg viewBox="0 0 512 512" width="22" height="22" fill="none" stroke="currentColor" stroke-width="30" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M60 100H18V458H494V100H452"/><path d="M58 52C150 52 212 74 256 100V452C212 430 150 412 58 412Z"/><path d="M454 52C362 52 300 74 256 100V452C300 430 362 412 454 412Z"/></svg>';
     function info(){ try{ return window.gmBook(); }catch(e){ return null; } }
     b.addEventListener("mouseenter", function(){ var i = info(); b.title = i ? i.name + " öffnen" : "Buch öffnen"; });
-    b.addEventListener("click", function(e){ e.stopPropagation(); var i = info(); if(i && i.open) i.open(); });
+    b.addEventListener("click", function(e){ e.stopPropagation(); var i = info();
+      if(i && i.books && i.books.length>1){
+        if(bdd){ bdd.remove(); bdd = null; return; }
+        bdd = document.createElement("div"); bdd.className = "tm-dd"; bdd.setAttribute("role","menu"); bdd.style.minWidth = "220px";
+        bdd.innerHTML = i.books.map(function(k,n){ return '<button role="menuitem" data-n="'+n+'"><b>'+k.name+'</b><span style="display:block;opacity:.6;font-size:12px;margin-top:1px">'+k.sub+'</span></button>'; }).join("");
+        themed(bdd);
+        bdd.addEventListener("click", function(ev){ var x = ev.target.closest("button"); if(!x) return; var k = i.books[+x.dataset.n]; bdd.remove(); bdd = null; k.open(); });
+        document.body.appendChild(bdd);
+        var r = b.getBoundingClientRect(), w = bdd.offsetWidth;
+        bdd.style.top = (r.bottom + 6) + "px"; bdd.style.left = Math.max(8, Math.min(r.right - w, window.innerWidth - w - 8)) + "px";
+        return;
+      }
+      if(i && i.open) i.open(); });
     var cs = getComputedStyle(burger); if(cs.color) b.style.color = cs.color; ["backgroundColor","borderTopColor","borderTopWidth","borderTopStyle","borderRadius","height"].forEach(function(k){ if(cs[k]) b.style[k] = cs[k]; }); b.style.borderStyle = cs.borderTopStyle; b.style.borderColor = cs.borderTopColor; b.style.borderWidth = cs.borderTopWidth; burger.insertAdjacentElement("beforebegin", b);
   }
   function ensure(){ bookBtn(); var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }

@@ -154,3 +154,24 @@
 }
 .lm-sel{display:none!important}
 .lm-sec{background:none!important;border:0!important;box-shadow:none!important;border-left:0!important;padding-left:0!important;padding-right:0!important}
+
+/* Orte der Dales */
+.lm-tabs{overflow-x:auto;scrollbar-width:none}.lm-tabs::-webkit-scrollbar{display:none}.lm-tab{white-space:nowrap}
+.ort-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.ort-t{all:unset;box-sizing:border-box;cursor:pointer;background:var(--panel-raised);border:1px solid var(--panel-line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.ort-t:hover{transform:translateY(-2px);border-color:var(--gold)}
+.ort-im{display:block;height:112px;background:linear-gradient(135deg,rgba(201,162,75,.2),rgba(111,145,99,.2));overflow:hidden}.ort-im img{width:100%;height:100%;object-fit:cover;display:block}
+.ort-tb{display:block;padding:8px 12px 10px;border-top:2px solid var(--gold)}.ort-tb b{display:block;font:600 15px var(--serif,Georgia,serif);letter-spacing:.06em;text-transform:uppercase;color:var(--text-hi)}.ort-tb i{display:block;font-size:12.5px;color:var(--mist);margin-top:2px}
+.ort-back{all:unset;cursor:pointer;font:600 12px var(--sans,inherit);letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-bottom:8px;display:inline-block}.ort-back:hover{color:var(--gold-bright)}
+.ort-sub{margin:-4px 0 12px;font-style:italic;color:var(--mist);font-size:14px}
+.ort-top{display:block;margin-bottom:14px}.ort-top.has{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:start}
+.ort-lead{font-style:italic;color:var(--mist)}
+.ort-fig{margin:0;width:min(46vw,520px)}.ort-fig.tall{width:230px}.ort-fig img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--panel-line)}
+.ort-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px;align-items:start}
+.ort-c{background:var(--panel-raised);border:1px solid var(--panel-line);border-radius:8px}.ort-c[open]{grid-column:1/-1}
+.ort-c>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 14px}.ort-c>summary::-webkit-details-marker{display:none}
+.ort-c>summary:after{content:"›";margin-left:auto;color:var(--mist);font-size:18px;transition:transform .15s}.ort-c[open]>summary:after{transform:rotate(90deg)}
+.ort-c h3{margin:0;font:600 14px var(--sans,inherit);letter-spacing:.07em;text-transform:uppercase;color:var(--text-hi)}.ort-c[open] h3{color:var(--gold-bright)}
+.ort-n{color:var(--mist);font-size:12px}
+.ort-cb{padding:2px 18px 14px}
+@media(max-width:760px){.ort-top.has{grid-template-columns:1fr}.ort-fig,.ort-fig.tall{width:100%;max-width:340px}.ort-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.ort-im{height:84px}}

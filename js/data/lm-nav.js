@@ -2,7 +2,13 @@
 const LM_NAV = {
   tabs:[
     {id:"regeln", t:"Regeln", src:"Core Book"},
-    {id:"welt", t:"Welt", src:"Setting Book: The Dales"}
+    {id:"orte", t:"Orte", src:"Setting Book: The Dales"},
+    {id:"dales", t:"Land und Leute", src:"Setting Book: The Dales"},
+    {id:"dales-b", t:"Gruppen und Helden", src:"Setting Book: The Dales"},
+    {id:"dales-c", t:"Handwerk und Magie", src:"Setting Book: The Dales"},
+    {id:"jenseits", t:"Welt und Mächte", src:"Setting Book: The Dales"},
+    {id:"jenseits-b", t:"Uncanny Heroes", src:"Setting Book: The Dales"},
+    {id:"jenseits-c", t:"Wesen und Orte", src:"Setting Book: The Dales"}
   ],
   secs:{
     regeln:[
@@ -14,12 +20,13 @@ const LM_NAV = {
       {id:"magie", t:"Magie", p:196, pe:230}
     ],
     welt:[
+      {id:"orte", t:"Orte", p:76, pe:107},
       {id:"dales", t:"Land und Leute", p:22, pe:66},
-      {id:"dales-b", t:"Orte und Helden", p:67, pe:115},
+      {id:"dales-b", t:"Gruppen und Helden", p:67, pe:115},
       {id:"dales-c", t:"Handwerk und Magie", p:116, pe:163},
       {id:"jenseits", t:"Welt und Mächte", p:164, pe:210},
       {id:"jenseits-b", t:"Uncanny Heroes", p:211, pe:260},
-      {id:"jenseits-c", t:"Orte und Wesen", p:261, pe:307}
+      {id:"jenseits-c", t:"Wesen und Orte", p:261, pe:307}
     ]
   }
 };

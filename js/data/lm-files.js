@@ -4,7 +4,7 @@ window.LM_FILES={
  ],
  "nr-sitzung": ["data/lm/nr-sitzung.js"],
  "nr-abenteuer": ["data/lm/nr-abenteuer.js"],
- "nr-cauldron": [],
+ "nr-cauldron": ["data/lm/nr-cauldron.js"],
  "nr-challenges": [],
  "nr-oracle": [],
  "dales": [

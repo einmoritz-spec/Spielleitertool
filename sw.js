@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v422narr";
+const VERSION = "v423narr";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -705,7 +705,7 @@ const FILES = [
   "js/data/lm/einstieg.js",
   "js/data/lm/nr-einstieg.js",
   "js/data/lm/nr-sitzung.js",
-  "js/data/lm/nr-abenteuer.js",
+  "js/data/lm/nr-abenteuer.js","js/data/lm/nr-cauldron.js",
   "js/data/lm/entwicklung.js",
   "js/data/lm/erschaffung-2.js",
   "js/data/lm/erschaffung.js",

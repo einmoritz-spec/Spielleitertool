@@ -3,6 +3,7 @@ window.SYS = {
  "id": "forbidden",
  "name": "Forbidden Lands",
  "logoText": "Forbidden Lands",
+ "logoImg": "../assets/logos/forbidden-lands.webp",
  "defaultBook": "fl_phb",
  "fonts": [
   [

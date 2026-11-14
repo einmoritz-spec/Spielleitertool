@@ -4,7 +4,7 @@
 body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--body,Georgia,serif);font-size:17px;line-height:1.4}
 .topbar{position:sticky;top:0;z-index:50;height:56px;display:flex;align-items:center;gap:6px;padding:0 22px;background:var(--top);color:var(--topInk);border-bottom:var(--topLine,0)}
 .brand{background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:center;color:var(--topInk);font-family:var(--logoFont);font-size:var(--logoSize,26px);letter-spacing:var(--logoLs,.04em);text-transform:var(--logoCase,uppercase);line-height:1;white-space:nowrap}
-.lgm{display:block;background:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:left center;mask-position:left center}.brand img{height:38px;display:block}
+.lgm{display:block;background:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:left center;mask-position:left center}.brand img{height:42px;display:block}
 .topbar-spacer{flex:1}
 .tb-burger{width:38px;height:38px;border:1px solid currentColor;border-radius:6px;background:none;display:inline-grid;place-items:center;color:var(--topInk);cursor:pointer;margin-left:8px;padding:0;opacity:.85}
 .hero{height:clamp(200px,30vw,420px);background:#222 center/cover no-repeat;border-bottom:var(--heroLine,0)}

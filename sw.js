@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v523systeme10";
+const VERSION = "v523systeme11";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -27,6 +27,7 @@ const FILES = [
   "assets/logos/broken-compass.webp",
   "assets/logos/eat-the-reich.webp",
   "assets/logos/the-wildsea.webp",
+  "assets/logos/forbidden-lands.webp",
   "assets/logos/triangle-agency.webp",
   "assets/fonts/jost-latin-700-normal.woff2",
   "assets/fonts/im-fell-double-pica-sc-latin-400-normal.woff2",

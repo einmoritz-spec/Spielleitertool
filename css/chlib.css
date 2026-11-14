@@ -1,0 +1,60 @@
+/* Challenge-Bibliothek (Challenges, Journeys, Vignetten) – breit, flach, ohne mitlaufende Suche */
+#chLibBody .ch-library.chlib2{max-width:none;margin:0;padding:26px clamp(18px,3vw,44px) 70px}
+.chlib2 .ch-lib-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;text-align:left;margin:0 0 14px;padding-right:56px}
+.chlib2 .ch-lib-hero h1{font:700 clamp(24px,2.4vw,32px)/1.1 Cinzel,serif;font-style:normal;color:var(--maroon);letter-spacing:.03em;margin:0}
+.chlib2 .chl-count{font-size:13px;color:var(--text-faint);margin-top:5px}
+.chlib2 .ch-lib-subnav{margin:0;justify-content:flex-end;gap:6px}
+.chlib2 .ch-subnav-chip{font-family:Cinzel,serif;font-size:12px;padding:5px 13px}
+/* Suche scrollt mit dem Inhalt weg */
+.chlib2 .ch-lib-controls{position:static;padding:0 0 12px;border-bottom:1px solid var(--panel-line);margin-bottom:16px;background:none;box-shadow:none}
+.chlib2 .ch-lib-controls-row{margin-bottom:10px}
+.chlib2 .ch-search{max-width:560px;padding:10px 14px;font-size:14.5px;border-radius:8px}
+.chlib2 .ch-role-chips{gap:6px}
+.chlib2 .ch-role-chip{font-size:11.5px;padding:4px 11px}
+/* Kategorien: flache Abschnitte, Karten im Raster */
+.chlib2 .ch-cats{gap:0}
+.chlib2 .ch-cat{border:none;border-radius:0;background:none;overflow:visible;border-bottom:1px solid var(--panel-line-soft)}
+.chlib2 .ch-cat-head{padding:14px 4px;gap:12px}
+.chlib2 .ch-cat-title{font:700 17px/1.2 Cinzel,serif;color:var(--maroon);letter-spacing:.03em}
+.chlib2 .ch-cat-count{border:none;padding:0;font-size:12.5px}
+.chlib2 .ch-cat.open>.ch-cat-head .ch-chev{color:var(--maroon)}
+.chlib2 .ch-cat-body{padding:0}
+.chlib2 .ch-cat.open .ch-cat-body{padding:2px 0 22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:12px;align-items:start}
+.chlib2 .ch-cat:not(.open) .ch-cat-body{display:none}
+.chlib2 .challenge{margin:0;box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.chlib2 .challenge.open{grid-column:1/-1}
+.chlib2 .challenge-head{padding:12px 14px;gap:10px}
+.chlib2 .ch-name{font-size:15px}
+/* zugeklappt schlicht: kein Pfeil */
+.chlib2 .challenge:not(.open) .ch-chev{display:none}
+.chlib2 .ch-inner{padding:2px 22px 20px}
+.chlib2 .ch-cols{grid-template-columns:minmax(190px,240px) 1fr;gap:28px}
+/* Threats im Raster statt langer Spalte */
+.chlib2 .ch-threats{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:6px 22px;align-items:start}
+.chlib2 .threat{margin-bottom:10px}
+/* Abschnitt Journeys */
+.chlib2 .ch-section-divider{margin:34px 0 4px;font:700 20px/1.2 Cinzel,serif;font-style:normal;color:var(--maroon);letter-spacing:.03em}
+.chlib2 .ch-section-divider::before{display:none}
+/* Vignetten als Karten-Raster */
+.chlib2 .jn-vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:10px 12px;align-items:start;clear:both;margin-top:10px}
+.chlib2 .vignette{margin:0;padding:12px 15px;background:rgba(255,255,255,.35);border:1px solid var(--panel-line);border-radius:6px}
+.chlib2 .vignette .v-name{font:700 14.5px/1.25 Cinzel,serif;color:var(--maroon);letter-spacing:.02em;margin-bottom:3px}
+.chlib2 .vignette .v-flavor{font-size:calc(13px*var(--fs));margin-bottom:7px}
+.chlib2 .vignette li{font-size:calc(13.5px*var(--fs));line-height:1.5}
+.chlib2 .jn-gc{background:rgba(142,42,42,.05);border-radius:6px;padding:10px 14px;margin:10px 0}
+.chlib2 .jn-gc ul{columns:2 300px;column-gap:26px}
+@media(max-width:640px){
+  #chLibBody .ch-library.chlib2{padding:16px 0 70px}
+  .chlib2 .ch-lib-hero{padding-top:44px;padding-right:0}
+  .chlib2 .ch-lib-subnav{justify-content:flex-start}
+  .chlib2 .ch-cat.open .ch-cat-body{grid-template-columns:1fr}
+  .chlib2 .ch-cols{grid-template-columns:1fr;gap:12px}
+  .chlib2 .ch-inner{padding:2px 14px 16px}
+}
+/* Kartenkopf: Rolle klein oben, darunter Bild + Name */
+#chLibBody .chlib2 .challenge-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;column-gap:0;row-gap:4px;padding:11px 14px}
+#chLibBody .chlib2 .challenge-head .ch-type{grid-column:1/-1;grid-row:1;justify-self:start;border:none;padding:0;font-size:10px;letter-spacing:.08em;color:var(--text-faint)}
+#chLibBody .chlib2 .challenge-head .ch-portrait,#chLibBody .chlib2 .challenge-head .jn-head-img{grid-column:1;grid-row:2;margin-right:10px}
+#chLibBody .chlib2 .challenge-head .ch-name-wrap{grid-column:2;grid-row:2}
+#chLibBody .chlib2 .challenge-head .ch-fav-btn{grid-column:3;grid-row:2;margin-left:8px}
+#chLibBody .chlib2 .challenge-head .ch-chev{grid-column:4;grid-row:2;margin-left:8px}

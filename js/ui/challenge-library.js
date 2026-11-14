@@ -33,14 +33,3 @@ function refreshChallengeLibrary(){
     }
   }
 }
-
-/* Suchleiste: Untergrund nur, wenn sie oben am Fensterrand klebt (sonst „clean“ ohne Kasten). */
-function updateChControlsStuck(scroller){
-  const bar = scroller.querySelector(".ch-lib-controls");
-  if(!bar) return;
-  bar.classList.toggle("stuck", scroller.scrollTop > 0 && bar.getBoundingClientRect().top <= scroller.getBoundingClientRect().top + 1);
-}
-document.addEventListener("scroll", e=>{
-  const t = e.target;
-  if(t && t.classList && t.classList.contains("big-modal-scroll")) updateChControlsStuck(t);
-}, true);

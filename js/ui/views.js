@@ -523,7 +523,7 @@ function renderJourneyCard(catIdx, jIdx, j){
         ${rewardHtml}
         ${gcHtml}
         ${noVignettesNote}
-        ${vignettesHtml}
+        ${vignettesHtml?`<div class="jn-vgrid">${vignettesHtml}</div>`:''}
         ${j.source?`<div class="ch-source">Quelle: ${esc(j.source)}</div>`:''}
       </div>
     </div>
@@ -628,32 +628,30 @@ function renderChallengeLibrary(){
   }).join("");
 
   document.getElementById("chLibBody").innerHTML = `
-  <div class="ch-library">
+  <div class="ch-library chlib2">
     <div class="ch-lib-hero">
-      <div class="eyebrow">Nachschlagewerk</div>
-      <h1>Challenge-Bibliothek</h1>
-      <p>${totalCount} Challenges und ${totalJourneys} Journey-Montagen mit insgesamt über 160 Vignetten — aus Twilight Deck, Core Book und Hearts of Ravensdale I – The Dale. Suche nach Namen, Tags oder Rollen, oder klapp eine Kategorie auf.</p>
+      <div class="chl-title">
+        <h1>Challenge-Bibliothek</h1>
+        <div class="chl-count">${totalCount} Challenges · ${totalJourneys} Journeys</div>
+      </div>
       <div class="ch-lib-subnav">
         <button class="ch-subnav-chip" onclick="scrollToChCat('td-adversaries')">Twilight Deck</button>
         <button class="ch-subnav-chip" onclick="scrollToChCat('cb-homestead-village')">Core Book</button>
         <button class="ch-subnav-chip" onclick="scrollToChCat('dalish-village')">Hearts of Ravensdale</button>
-        <button class="ch-subnav-chip" onclick="scrollToChCat('jn-corebook')">Journeys & Vignetten</button>
+        <button class="ch-subnav-chip" onclick="scrollToChCat('jn-corebook')">Journeys</button>
       </div>
     </div>
     <div class="ch-lib-controls">
       <div class="ch-lib-controls-row">
         <input type="text" class="ch-search" placeholder="Suche nach Namen, Tags, Stichworten …" value="${esc(state.chSearch).replace(/"/g,'&quot;')}" oninput="setChSearch(this.value)">
-        <button class="collapse-all-btn" onclick="collapseAllChallenges()" title="Alle aufgeklappten Challenge-/Journey-Karten einklappen">Alle einklappen</button>
+        <button class="collapse-all-btn" onclick="collapseAllChallenges()" title="Alle aufgeklappten Karten einklappen">Alle einklappen</button>
       </div>
-    </div>
-    <div class="ch-role-chips-wrap">
       <div class="ch-role-chips">${roleChips}</div>
     </div>
     ${searching?`<div class="ch-search-status">${visibleTotal} Challenge-Treffer${state.chRoleFilter?'':` · ${visibleJourneys} Journey-Treffer`}</div>`:""}
     <div class="ch-cats">${catsHtml}</div>
     ${state.chRoleFilter?'':`
-    <div class="ch-section-divider"><span>Journey-Montagen mit Vignetten</span></div>
-    <p class="ch-section-intro">Jede Journey ist eine Reise oder ein Vorgang, dargestellt als Abfolge kurzer Vignetten — pro Vignette genügt ein einziger Wurf. Aufklappen zeigt alle enthaltenen Vignetten; Verweise auf „Neue Challenge: …“ sind anklickbar und springen direkt zum passenden Profil oben.</p>
+    <div class="ch-section-divider"><span>Journeys &amp; Vignetten</span></div>
     <div class="ch-cats">${journeysHtml}</div>
     `}
   </div>`;

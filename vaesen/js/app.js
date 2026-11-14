@@ -120,12 +120,12 @@ function charTab(k){
 function list(a){ return "<ul>" + a.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; }
 function lab(t){ return '<span class="hd" style="font-size:14px;letter-spacing:.1em;text-transform:uppercase">' + t + '</span> '; }
 function archDetail(a){
+  var info = box(lab("Hauptattribut") + esc(a.attr) + ' &nbsp;·&nbsp; ' + lab("Hauptfertigkeit") + esc(a.skill) + '<br>' + lab("Talente") + esc(a.talente.join(", ")) + ' &nbsp;·&nbsp; ' + lab("Ressourcen") + esc(a.res) + '<br>' + lab("Ausrüstung") + esc(a.ausr.join(", ")), "margin-top:16px;font-size:16px;line-height:1.55");
   return '<div class="dt"><div class="pic"><img src="' + IMG(a.img) + '" alt="' + esc(a.name) + '"></div><div class="tx">' +
    '<div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(a.name) + '</h1>' + bookLink(a.p) + '</div>' +
-   '<p class="quote" style="margin-top:10px;max-width:60ch">' + esc(a.quote) + '</p>' +
-   '<div class="g2"><div><h3>Name</h3><ul><li>Vorname: ' + esc(a.vor.join(", ")) + '</li><li>Nachname: ' + esc(a.nach.join(", ")) + '</li></ul><h3>Motivation</h3>' + list(a.mot) + '<h3>Trauma</h3>' + list(a.trauma) + '</div><div><h3>Dunkles Geheimnis</h3>' + list(a.geheim) + '<h3>Beziehungen</h3>' + list(a.beziehung) + '</div></div>' +
-   box(lab("Hauptattribut") + esc(a.attr) + ' &nbsp;·&nbsp; ' + lab("Hauptfertigkeit") + esc(a.skill) + '<br>' + lab("Talente") + esc(a.talente.join(", ")) + ' &nbsp;·&nbsp; ' + lab("Ressourcen") + esc(a.res) + '<br>' + lab("Ausrüstung") + esc(a.ausr.join(", ")), "margin-top:18px;font-size:16px;line-height:1.55") +
-   '<p style="margin-top:14px"><button class="btn fill" onclick="go(\'erstellung/' + a.id + '\')">Mit diesem Archetyp erstellen</button></p></div></div>';
+   '<p class="quote" style="margin-top:10px">' + esc(a.quote) + '</p>' + info +
+   '<p style="margin-top:14px"><button class="btn fill" onclick="go(\'erstellung/' + a.id + '\')">Mit diesem Archetyp erstellen</button></p></div>' +
+   '<div class="gx"><div><h3>Name</h3><ul><li>Vorname: ' + esc(a.vor.join(", ")) + '</li><li>Nachname: ' + esc(a.nach.join(", ")) + '</li></ul></div><div><h3>Motivation</h3>' + list(a.mot) + '</div><div><h3>Trauma</h3>' + list(a.trauma) + '</div><div><h3>Dunkles Geheimnis</h3>' + list(a.geheim) + '</div><div><h3>Beziehungen</h3>' + list(a.beziehung) + '</div></div></div>';
 }
 
 /* ---------- Vaesen ---------- */

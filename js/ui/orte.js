@@ -57,7 +57,7 @@ var ORT_GROUPS=[["Die Dales",ORT_NAMES],["Landschaften und Wege",ORT_LAND],["All
 function ortTitle(n){ return ORT_TITLE[n]||n.split(" & ")[0]; }
 function ortTile(n){
   var im=ortImg(n), ip=(ORT_IMG[n]||[])[4]||"50% 50%";
-  return '<button class="ort-t" onclick="ortOpen(\''+n.replace(/'/g,"\\'")+'\')"><span class="ort-im">'+(im?'<img src="'+im+'" alt="" style="object-position:'+ip+'">':'')+'</span><span class="ort-tb"><b>'+esc(ortTitle(n))+'</b><i>'+esc(ORT_TAG[n]||"")+'</i></span></button>';
+  return '<button class="ort-t" onclick="ortOpen(\''+n.replace(/'/g,"\\'")+'\')"><span class="ort-im">'+(im?'<img src="'+im+'" alt="" style="object-position:'+ip+'">':'<em>'+esc(ortTitle(n).replace(/^(Der|Die|Das|Ein)\s+/,"").charAt(0))+'</em>')+'</span><span class="ort-tb"><b>'+esc(ortTitle(n))+'</b><i>'+esc(ORT_TAG[n]||"")+'</i></span></button>';
 }
 function ortHtml(){
   var n=state.ortPlace, e=n&&ortFind(n);

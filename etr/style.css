@@ -6,7 +6,7 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;color:#ece4cc;font-family:var(--typ);min-height:100vh;
  background:radial-gradient(900px 500px at 85% -10%,rgba(255,47,146,.18),transparent 70%),radial-gradient(900px 600px at 0% 20%,rgba(47,209,192,.10),transparent 70%),var(--bg)}
 .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:8px;padding:10px 16px;background:linear-gradient(#141f38,#0c1424);border-bottom:3px solid var(--pink);box-shadow:0 4px 18px rgba(255,47,146,.25)}
-.brand{background:none;border:0;font:400 26px/1 var(--disp);letter-spacing:.06em;text-transform:uppercase;color:var(--pink);text-shadow:0 0 14px rgba(255,47,146,.55);cursor:pointer;padding:0}
+.brand img{height:40px;display:block}.brand{background:none;border:0;font:400 26px/1 var(--disp);letter-spacing:.06em;text-transform:uppercase;color:var(--pink);text-shadow:0 0 14px rgba(255,47,146,.55);cursor:pointer;padding:0}
 .topbar-spacer{flex:1}
 .tb-btn,.tb-burger{background:rgba(255,255,255,.06);border:1px solid rgba(255,47,146,.5);color:#ffd2e6;border-radius:8px;height:40px;padding:0 14px;font:600 13px var(--typ);cursor:pointer}
 .tb-burger{width:40px;padding:0;display:inline-flex;align-items:center;justify-content:center}

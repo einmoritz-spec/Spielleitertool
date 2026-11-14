@@ -6,7 +6,7 @@
   var ff = (S.fonts || []).map(function(f){ return "@font-face{font-family:" + f[0] + ";font-weight:" + (f[2] || 400) + ";font-display:swap;src:url(../assets/fonts/" + f[1] + ") format('woff2')}"; }).join("");
   var st = document.createElement("style"); st.textContent = ff; document.head.appendChild(st);
   document.title = S.name;
-  var logo = S.logoImg ? '<img src="' + S.logoImg + '" alt="' + esc(S.name) + '">' : esc(S.logoText || S.name);
+  var logo = S.logoMask ? '<span class="lgm" role="img" aria-label="' + esc(S.name) + '" style="width:' + S.logoMask[1] + 'px;height:' + S.logoMask[2] + 'px;-webkit-mask-image:url(' + S.logoMask[0] + ');mask-image:url(' + S.logoMask[0] + ')"></span>' : S.logoImg ? '<img src="' + S.logoImg + '" alt="' + esc(S.name) + '">' : esc(S.logoText || S.name);
   var all = []; S.groups.forEach(function(g){ g.items.forEach(function(b){ all.push({key:b.id, name:b.name + " (" + b.lang + ")"}); }); });
   function tile(b){ return '<button class="bk" onclick="BV.open(\'' + b.id + '\',1)"><b>' + esc(b.name) + '</b><small>' + (b.sub ? esc(b.sub) + ' · ' : '') + '<span class="lg ' + (b.lang === "DE" ? "de" : "") + '">' + b.lang + '</span></small></button>'; }
   document.body.innerHTML =

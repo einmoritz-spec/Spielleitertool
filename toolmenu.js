@@ -22,7 +22,7 @@
     ["forbidden","Forbidden Lands","Free League","forbidden/",1,"",{f:"TmFell",s:19,ls:".03em"}],
     ["_more","Weitere Systeme","","",0,"grp"],
     ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{i:"assets/logos/eat-the-reich.webp",h:50}],
-    ["wildsea","The Wildsea","Schiffe im Blätterwald","wildsea/",1,"",{f:"TmTeko",s:24,ls:".05em",u:1}],
+    ["wildsea","The Wildsea","Schiffe im Blätterwald","wildsea/",1,"",{m:"assets/logos/the-wildsea.webp",w:92,h:28}],
     ["triangle","Triangle Agency","Büro-Horror","triangle/",1,"",{f:"TmArchivo",s:17,ls:"-.03em"}],
     ["compass","Broken Compass","Pulp-Abenteuer","compass/",1,"",{m:"assets/logos/broken-compass.webp",w:84,h:31}]
   ];

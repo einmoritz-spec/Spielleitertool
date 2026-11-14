@@ -3,6 +3,7 @@ window.SYS = {
  "id": "wildsea",
  "name": "The Wildsea",
  "logoText": "The Wildsea",
+ "logoMask": ["../assets/logos/the-wildsea.webp", 100, 31],
  "defaultBook": "ws_core",
  "fonts": [
   [

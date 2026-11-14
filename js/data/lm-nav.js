@@ -12,6 +12,7 @@ const LM_NAV = {
   ],
   secs:{
     regeln:[
+      {id:"tutorial", t:"Tutorial", p:10, pe:53},
       {id:"einstieg", t:"Einführung", p:54, pe:69},
       {id:"erschaffung", t:"Heldenerschaffung", p:72, pe:91},
       {id:"themenbuecher", t:"Themenbücher", p:92, pe:141},

@@ -177,7 +177,7 @@ h1,h2,h3{font-family:var(--serif-display)}
 .lm-q{border-left:3px solid var(--maroon);color:var(--text-lo)}
 .lm-step b{color:var(--maroon)}
 .lm-bx{background:#e1dacb;border:none;border-left:4px solid var(--maroon);border-radius:2px;box-shadow:0 1px 0 rgba(90,60,20,.15)}
-.lm-bx>header{background:none;color:var(--maroon);font:400 22px/1.1 Brush,"Caveat Brush",cursive;letter-spacing:.01em;text-transform:none;padding:9px 14px 0}
+.lm-bx>header{background:none;color:var(--maroon);font:700 16px/1.25 Cinzel,serif;letter-spacing:.03em;text-transform:none;padding:9px 14px 0}
 .lm-bx>header .lm-pg{font:400 12px Labrada,serif}
 .lm-bxb{padding:4px 16px 8px}
 .lm-bx-regel{background:#f5ecd2;border-left-color:#c28a12}.lm-bx-regel>header{background:none;color:#7a5200}

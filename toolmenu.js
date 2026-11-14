@@ -13,12 +13,18 @@
     ["otherscape","Otherscape","Cyberpunk-Fantasy","otherscape/",1,"",{m:"otherscape/img/logo.webp",w:86,h:18}],
     ["wake","Legend in the Mist","Wake of the Oldways","",1,"",{m:"assets/logos/legend-in-the-mist.webp",w:62,h:27}],
     ["_havoc","Havoc Engine","","",0,"grp"],
-    ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{f:"TmBebas",s:20,ls:".06em",u:1}]
+    ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{f:"TmBebas",s:20,ls:".06em",u:1}],
+    ["_yze","Year Zero Engine","","",0,"grp"],
+    ["vaesen","Vaesen","Mythisches Skandinavien","vaesen/",1,"",{m:"assets/logos/vaesen.webp",w:84,h:17}],
+    ["vae_core","Grundregelwerk","Regeln, Charaktere, Vaesen","vaesen/#buecher/0",2,"",{f:"TmBebas",s:18,ls:".06em"}],
+    ["vae_book","Settingbücher","Britain & Ireland · Carpathia","vaesen/#buecher/1",2,"",{f:"TmBebas",s:18,ls:".06em"}],
+    ["vae_myst","Mysterien & Kampagnen","Seasons · Wicked Secret · Lost Mountain · City","vaesen/#buecher/2",2,"",{f:"TmBebas",s:18,ls:".06em"}],
+    ["vae_solo","Solo & Material","Thursday’s Child · Handouts","vaesen/#buecher/3",2,"",{f:"TmBebas",s:18,ls:".06em"}]
   ];
   var css = document.createElement("style");
   css.textContent = "@font-face{font-family:TmBebas;src:url("+BASE+"assets/fonts/bebas-neue-latin-400-normal.woff2) format('woff2');font-display:swap}@font-face{font-family:TmOswald;font-weight:600;src:url("+BASE+"assets/fonts/oswald-latin-600-normal.woff2) format('woff2');font-display:swap}.tm-dd button{display:flex!important;align-items:center;min-height:46px;padding:6px 12px!important}.tm-dd button.sub2{min-height:42px}.tm-dd button small{display:none!important}.tm-dd button b{font-size:inherit}.tm-dd .tm-logo{display:block;flex:none;background:currentColor;-webkit-mask:var(--lg) left center/contain no-repeat;mask:var(--lg) left center/contain no-repeat}.tm-dd .tm-img{display:block;width:auto;max-width:100%}.topbar .tm-caret{flex:none;margin:0 auto 0 -2px;width:24px;height:24px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;border-radius:6px;color:inherit;opacity:.5;cursor:pointer;transition:opacity .15s,background .15s}.topbar .tm-caret:hover,.topbar .tm-caret[aria-expanded=true]{opacity:1;background:rgba(255,255,255,.08)}.topbar .tm-caret svg{width:12px;height:12px;transition:transform .15s}.topbar .tm-caret[aria-expanded=true] svg{transform:rotate(180deg)}.topbar .brand{flex:0 1 auto!important}.tm-dd{position:fixed;z-index:99999;min-width:230px;max-width:calc(100vw - 16px);padding:6px;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.55);animation:tmIn .12s ease-out}.tm-dd button{display:block;width:100%;text-align:left;margin:0;padding:9px 11px;border-radius:8px;border:1px solid transparent;background:none;color:inherit;font:inherit;cursor:pointer}.tm-dd button:hover{background:rgba(255,255,255,.07)}.tm-dd button b{display:block;font-weight:600;font-size:14px}.tm-dd button small{display:block;opacity:.6;font-size:11.5px;margin-top:1px}.tm-dd .tm-grp{padding:8px 11px 3px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.5}.tm-dd button.sub1{margin-left:8px;width:calc(100% - 8px)}.tm-dd button.sub2{margin-left:24px;width:calc(100% - 24px);border-left:2px solid rgba(255,255,255,.14);border-radius:0 8px 8px 0}.tm-dd button.on{cursor:default;border-color:var(--tm-acc);background:rgba(255,255,255,.05)}.tm-dd button.on b{color:var(--tm-acc)}@keyframes tmIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}";
   document.head.appendChild(css);
-  function cur(){ var p = location.pathname; return /\/locallegends\//.test(p) ? "locallegends" : /\/nights\//.test(p) ? "paynetown" : /\/otherscape\//.test(p) ? "otherscape" : /\/cityofmist\//.test(p) ? (/^#rw/.test(location.hash) ? "cm_rw" : /^#(ss|spieler|sl)/.test(location.hash) ? "cm_ss" : "cityofmist") : /\/etr\//.test(p) ? "etr" : "wake"; }
+  function cur(){ var p = location.pathname; return /\/locallegends\//.test(p) ? "locallegends" : /\/nights\//.test(p) ? "paynetown" : /\/otherscape\//.test(p) ? "otherscape" : /\/cityofmist\//.test(p) ? (/^#rw/.test(location.hash) ? "cm_rw" : /^#(ss|spieler|sl)/.test(location.hash) ? "cm_ss" : "cityofmist") : /\/etr\//.test(p) ? "etr" : /\/vaesen\//.test(p) ? "vaesen" : "wake"; }
   var caret = null, dd = null;
   function close(){ if(dd){ dd.remove(); dd = null; } if(caret) caret.setAttribute("aria-expanded","false"); }
   function themed(el){
@@ -42,7 +48,8 @@
     dd.addEventListener("click", function(e){
       var b = e.target.closest("button"); if(!b) return; var m = b.dataset.m; if(m===c) return close();
       if(/^cm_|^cityofmist$/.test(m) && /\/cityofmist\//.test(location.pathname)){ location.hash = TOOLS.filter(function(t){return t[0]===m;})[0][3].split("/")[1]; return close(); }
-      try{ localStorage.setItem("gm_tool_mode_v1", /^cm_/.test(m) ? "cityofmist" : m); }catch(x){}
+      if(/^vae/.test(m) && /\/vaesen\//.test(location.pathname)){ location.hash = m==="vaesen" ? "start" : TOOLS.filter(function(t){return t[0]===m;})[0][3].split("/")[1]; return close(); }
+      try{ localStorage.setItem("gm_tool_mode_v1", /^vae/.test(m) ? "vaesen" : /^cm_/.test(m) ? "cityofmist" : m); }catch(x){}
       var t = TOOLS.filter(function(t){ return t[0]===m; })[0]; location.href = BASE + t[3];
     });
     document.body.appendChild(dd);

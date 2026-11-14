@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#e6e0d1">
+<title>Vaesen</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
+<link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../shared/galerie.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="go('start')" aria-label="Vaesen Startseite"><img src="../assets/logos/vaesen-dunkel.webp" alt="Vaesen"></button>
+  <div class="topbar-spacer"></div>
+  <button class="tb-btn" onclick="openSearch()">Suche</button>
+  <button class="tb-burger" onclick="openMenu(true)" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app" class="shell"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP"></div>
+<div class="modal-overlay" id="searchModal" onclick="if(event.target===this)closeSearch()">
+  <div class="modal"><div class="modal-head"><h2>Suche</h2><button class="modal-close" onclick="closeSearch()">✕</button></div>
+  <div class="modal-body"><input id="searchInput" class="gloss-search" placeholder="Suche…" oninput="runSearch(this.value)"><div id="searchResults"></div></div></div>
+</div>
+<script src="js/tool-switch.js"></script>
+<script src="js/data/buecher.js"></script>
+<script src="js/data/regeln.js"></script>
+<script src="js/data/charaktere.js"></script>
+<script src="js/data/vaesen.js"></script>
+<script src="../bookviewer/bookviewer.js"></script>
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie.js"></script>
+<script src="js/data/galnames.js"></script>
+<script src="js/app.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"core", books:[{key:"core", name:"Grundregelwerk (EN)"}], openSettings:function(){ openMenu(true); } });</script>
+<script src="../toolmenu.js"></script>
+<script>window.gmBook=function(){return {name:"Vaesen Grundregelwerk",open:function(){BV.open("core",1);}};};</script>
+</body>
+</html>

@@ -12,7 +12,7 @@
   function set(v){ try{ localStorage.setItem(KEY,v?"1":"0"); }catch(e){} apply(); schedule(); }
   function toggle(){ set(!isOff()); }
   var SVG='<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  function tool(){ var p=location.pathname; return /cityofmist/.test(p)?"com":/locallegends/.test(p)?"ll":/nights/.test(p)?"ni":/otherscape/.test(p)?"os":/etr/.test(p)?"etr":"wake"; }
+  function tool(){ var p=location.pathname; return /cityofmist/.test(p)?"com":/locallegends/.test(p)?"ll":/nights/.test(p)?"ni":/otherscape/.test(p)?"os":/etr/.test(p)?"etr":/vaesen/.test(p)?"vaesen":"wake"; }
   function visible(el){ return el && el.offsetParent!==null || (el && getComputedStyle(el).position==="fixed"); }
   function place(){
     var b=document.getElementById("pnBtn"); if(!b) return;

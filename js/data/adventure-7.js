@@ -50,7 +50,7 @@ Während die Bedrohungen weiter auf die Dales eindringen, steht das Schicksal de
   key:"approach", kind:"scene", page:"S. 404–406",
   title:"Sich der Einsiedelei nähern", en:"Approaching the Hermitage",
   summary:"Circlet oder Rätsel · ein Beschatter · der Aufstieg",
-  overview:["Zwei Wege: dem Circlet folgen (→ Die Bögen) oder das Fuchs-Hase-Rätsel lösen (→ Aquädukt-Höhle)", "Eine düstere Vorahnung — ein Beschatter aus der Ferne", "Der Aufstieg: Journey-Vignetten aus Rambling/Dark Forest/Environmental Conditions"],
+  overview:[],
   readAloud:[
     { page:"S. 404", label:"Hartland", text:
       `Hartland, im Norden der Dales gelegen, ist ein Ort baumbestandener Berge und weiter kristallklarer Seen. Die herbstliche Kälte, die an eurem Nacken zwickt, erinnert euch daran, dass die Zeit unaufhaltsam voranschreitet, dass der Winter bald hereinbrechen wird – und sollten die Oldways versagen, welch ein schrecklicher Winter das werden könnte. Die verlorene Einsiedelei der Lady, sollte sie existieren, könnte die Antworten bergen, doch in dieser weiten Wildnis könntet ihr ebenso gut nach einer Nadel im Heuhaufen suchen.` },
@@ -104,7 +104,7 @@ Während die Bedrohungen weiter auf die Dales eindringen, steht das Schicksal de
   key:"arches-aqueduct", kind:"scene", page:"S. 406–407",
   title:"Die Bögen / Die Aquädukt-Höhle", en:"The Arches / The Aqueduct Cave",
   summary:"Zwei mögliche Eingänge zum Tempel der Lady",
-  overview:["Die Bögen: verfallener Aussichtspunkt, verborgener Zugang unter einem Schutzbann (perplexing-2/dizzy-1, mit Circlet: guided-2)", "Die Aquädukt-Höhle: schlammiger Zugang, Revier eines Dire Skunk", "Beide Wege führen zu den Verwüsteten Pfaden"],
+  overview:[],
   readAloud:[
     { page:"S. 406", label:"Die vier Steinbögen", text:
       `Ihr steigt einen steilen, überwucherten Wildpfad hinauf, bis zur Spitze einer bewaldeten Anhöhe. Recht abrupt weichen die Bäume einem kleinen Hain, wo vier steinerne Bögen über Moos und Gestrüpp emporragen. Jeder ist ein wenig höher als ein Mann, und sie stehen in einem groben Kreis, in verschiedene Richtungen weisend, wie Fenster auf der Suche nach einer Mauer. Durch einen könnt ihr das schimmernde Wasser des Lake Hare erkennen. Durch einen anderen die plätschernde Oberfläche des Lake Fox. Doch diese Ruine dürfte kaum bloß ein malerischer Aussichtspunkt sein.
@@ -143,7 +143,7 @@ Während ihr den Bächen folgt, die die Seen von Hartland speisen, entdeckt ihr 
   key:"ruined-paths", kind:"scene", page:"S. 407",
   title:"Verwüstete Pfade", en:"Ruined Paths",
   summary:"Bröckelnde Korridore · Journey-Vignetten · die Monstrous Pitcher Plant",
-  overview:["Abstieg durch einstürzende Gänge als Journey-Vignetten (eine pro Held)", "Gefahr: Fehltritt in den Rachen einer Monstrous Pitcher Plant", "Alternativer, geheimer Zugang zum Ummauerten Garten über die Pflanzenwurzeln"],
+  overview:[],
   readAloud:[
     { page:"S. 407", label:"Verwüstete Pfade", text:
       `Ist es das? Habt ihr wirklich die verlorene Einsiedelei gefunden? Im schwachen, staubigen Lichtstrahl, der von draußen hereinfällt, könnt ihr uralte gwyrdolanische Steinmetzarbeit erkennen, wie man sie nur in Ruinen und Gebäuden des Alten Königreichs findet. Kies knirscht unter euren Füßen, während eure Augen die Formen von Steinen und Mörtel erkennen, die Boden und Wände bilden. Ihr befindet euch in einer weit größeren Ruine, als die Bögen oder das Aquädukt allein vermuten ließen, so viel steht fest. Die Luft hier ist kühl und dick von Wasser-, Moos- und Grüngeruch. Die Steine sind von dicken Wurzeln durchzogen und mit Flechten und Moos überzogen. Ihr dürft euer Herz nicht von eurer Aufgabe in dieser gefährlichen Ruine abschweifen lassen, und doch spürt ihr etwas Friedliches und Hoffnungsvolles – eine seltsame Zärtlichkeit. Ihr entzündet eine Fackel und macht euch bereit, weiter vorzudringen.` },
@@ -221,7 +221,7 @@ Während ihr den Bächen folgt, die die Seen von Hartland speisen, entdeckt ihr 
   key:"walled-garden", kind:"scene", page:"S. 408–410",
   title:"Der Ummauerte Garten", en:"The Walled Garden",
   summary:"Tor der Absicht · Mosaiken (Lore-Enthüllungen) · Scalagorry · Kern-Enthüllung 8",
-  overview:["Das Tor der Absicht prüft die wahren Beweggründe der Helden", "Die Mosaiken vervollständigen die Lore-Enthüllungen H, I, C, D, J, L, K", "Kern-Enthüllung 8: Die Lady war eine Große Thaumaturgin, die sich opferte", "Scalagorry und der tierische Hofstaat — Warten auf Starshine"],
+  overview:[],
   readAloud:[
     { page:"S. 408", label:"Der versunkene Garten", text:
       `Ihr tastet euch die geröllübersäten Stufen hinab, bis sie sich in eine kavernenartige Halle öffnen, spärlich erhellt von vereinzelten Lichtstrahlen, die durch Risse in der Decke fallen. Mosaike zieren die Wände, zumindest dort, wo sie nicht von Schmutz oder rankenden Wurzeln überwuchert sind. Erdtröge sind rings um den Rand der Kammer verteilt, ein bewahrter Garten, der sich kaum noch an Sonnenlicht erinnert.
@@ -276,7 +276,7 @@ Mit einem quietschenden Husten tritt ein beeindruckend großes Erdhörnchen vor,
   key:"the-lady", kind:"scene", page:"S. 410–411",
   title:"Die Lady der Dales", en:"The Lady of the Dales",
   summary:"Klimaktische Erscheinung · Bergmodus/Gemütlicher Modus · Heilige Kammer",
-  overview:["Starshine: die Lady erscheint als Säule aus Sternenlicht auf der Eiche", "Bestätigt das Ausfransen des Saums, erteilt die nächste Aufgabe oder bietet Wiederherstellung an", "Kern-Enthüllung 9 (optional): Der Zauber war nie für mehr als 300 Jahre gedacht", "Zwei Schätze der Heiligen Kammer: Erinnerungsstein und Liebesring"],
+  overview:[],
   readAloud:[
     { page:"S. 410", label:"Das erste Erscheinen der Lady", text:
       `Es ist Starshine, und die letzten Reste des Tageslichts verlöschen und verblassen, sodass der Gartenkeller in Dunkelheit versinkt – doch ihr habt keine Angst. Nach einer Weile beginnt Sternenlicht durchzuscheinen. Ihr seid euch nicht sicher, ob es an euren an die Dunkelheit gewöhnten Augen liegt oder an einem schwachen, geheimnisvollen Schimmer, doch bald erstrahlt eine Säule bläulichen Lichts auf der Eiche im Zentrum der Höhle.
@@ -323,7 +323,7 @@ Mit einem quietschenden Husten tritt ein beeindruckend großes Erdhörnchen vor,
   key:"intruders", kind:"scene", page:"S. 412",
   title:"Eindringlinge in der Einsiedelei", en:"Intruders in the Hermitage",
   summary:"Letzte Konfrontation mit dem Beschatter · der Tempel stürzt ein · Flucht",
-  overview:["Der zuvor gewählte Beschatter erreicht den Ummauerten Garten und greift an", "Ein letztes Fünkchen der Macht der Lady kann angerufen werden", "Die Einsiedelei stürzt ein (Fall of the Lady's Temple, COLLAPSE/ESCAPE)", "Scalagorry und die Tiere begleiten die Helden bei der Flucht"],
+  overview:[],
   readAloud:[
     { page:"S. 412", label:"Eindringlinge in der Einsiedelei", text:
       `Mit einem gewaltigen Krachen und einer Staubwolke steht plötzlich einer der großen Bögen im Garten – zuvor völlig mit Schutt verstopft – nun frei geräumt. Dies, so erkennt ihr, war einst der Haupteingang zur Einsiedelei, und offenbar hat ihn soeben jemand erneut geöffnet. Die Erscheinung der Lady flackert, verblasst wieder zu fernem Sternenlicht. Wer auch immer aus der Staubwolke hervortritt – es liegt an euch, ihn davon abzuhalten, die Geheimnisse der Einsiedelei zu plündern.

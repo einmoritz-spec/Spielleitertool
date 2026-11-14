@@ -68,7 +68,7 @@ Entdecken die Helden ihn und gehen dann auf ihn zu, um ihn zu stellen, flieht er
   key:"milkrest", kind:"scene", page:"S. 350",
   title:"Ein Rätsel in Milkrest", en:"Mystery in Milkrest",
   summary:"Radmilas Teehaus untersuchen — Hinweise deuten nach Soddenmore",
-  overview:["Radmila bittet um Hilfe beim Einbruch in ihr Teehaus", "Herausfinden, was gestohlen wurde und welchen Wert es hat", "Weitere Beweise am Tatort: Fensterspuren und Kratzer wie von einem Tier", "Dorfgerüchte deuten auf einen unmenschlichen Schatten — Verdacht fällt auf Milorada/Azeria", "Die Spur führt weiter nach Soddenmore", "Wiederkehrendes Motiv: vage Hinweise auf einen lauernden Schatten"],
+  overview:[],
   readAloud:[
     { page:"S. 350", label:"Radmilas Teehaus", text:
       `Der Wind, der durch Milkrests steile Gassen fegt, summt wie ein aufgescheuchter Ziegenpferch, voller kräftiger Düfte und lauter Stimmen. Dem Dorf mit seinen Zedernholzhäusern und überdachten Straßen wohnt ein unbestreitbarer Charme inne, auch wenn Besucher sich gerne über die vielen Steigungen und Treppenfluchten dieser Bergsiedlung beklagen. Trotz der beständigen Winde, die vom Milken Crest herabwehen, haftet allem ein erdiger Duft von Käseherstellung und Ziegenmoschus an – nussig, rauchig und säuerlich zugleich.
@@ -117,7 +117,7 @@ Ihr tretet ein, und eine beeindruckende Ziegenglocke kündet eure Ankunft an. Or
   key:"starless", kind:"scene", page:"S. 352–353",
   title:"Eine Geschichte an der Starless Junction", en:"A Tale at Starless Junction",
   summary:"Marktgerüchte über „Mindful Milorada“ — Shozauka Baba weist den Weg",
-  overview:["Ankunft an der Starless Junction, dicht auf Azerias Fersen — nächste Spur führt in die Lantern World", "Gerüchte über Mindful Milorada, die Anführerin gegen die Kikimoras", "Für Genaueres verweisen die Leute an Shozauka Baba", "Der Taschendieb Bait versucht, den Helden etwas zu stehlen", "Weitere schillernde Figuren an der Junction", "Shozauka Baba weiß mehr über Mindful Milorada, ist aber verschlossen", "Sie verweist die Gruppe an Bright-Tails in der Lantern World", "Belohnung: ein schützendes Fuchsamulett für Miloradas Tochter", "Optional, erst danach: zwei Ritter aus Stormhelm befragen die Gruppe"],
+  overview:[],
   readAloud:[
     { page:"S. 352", label:"Starless Junction", text:
       `Die Dalesleute haben so manchen Spruch über Soddenmore auf Lager, und keiner davon ist heiter. Starless Junction, eine Anhöhe mit Blick über das Dorf Soddenmore, die sich von einem nebligen Horizont zum nächsten erstreckt, trotzt dieser trüben Stimmung und bietet eine willkommene Abwechslung von der durchnässten Landschaft der Dales und der toten Luft des Moors. Bunte Zelte und lebhafte Marktstände sprießen wie Pilze aus dem felsigen Boden der Kreuzung hervor, ein Kontrast zum unaufhörlich grauen Himmel. Händler und Reisende aus fernen Dales sitzen um warme Feuer, bieten Gewürzgetränke feil und tauschen lebhafte Geschichten mit Freund und Fremdem gleichermaßen aus.
@@ -242,7 +242,7 @@ Alle hier eint der Wunsch, ihre Geschäfte in dieser Gegend abzuwickeln – und 
   key:"lantern", kind:"scene", page:"S. 354–356",
   title:"Schatten in der Lantern World", en:"Shadows in the Lantern World",
   summary:"Soddenmores Nachtmarkt — Bright-Tails, die Kikimoras und die Wahrheit über Twilight Kin",
-  overview:["Ankunft in der Lantern World auf der Suche nach Bright-Tails, vielleicht auch nach Azeria selbst", "Zugang über verborgene „Geistertore“", "Auf dem Marktplatz begegnen den Helden verschiedene Vignetten, darunter riskante Second-Hand-Käufe", "Die Kikimoras beobachten Neuankömmlinge, die nach Azeria fragen", "Bright-Tails bleibt reticent, bis die Helden ihre Aufrichtigkeit beweisen", "Bright-Tails erzählt von Azerias Diebstahlversuch und ihrer Herkunft", "Belohnung: ein Tonikum nach Oldways-Art und ein letztes Geschenk"],
+  overview:[],
   readAloud:[
     { page:"S. 354", label:"Die Lantern World", text:
       `Jenseits von Soddenmores morschen Bohlenwegen und verfallenden Hütten erstreckt sich ein ätherisches Reich wilder Farben und urzeitlichen Glühens. Das flackernde Licht von Papierlaternen tanzt in belustigenden, mitunter erschreckenden Mustern über die bemalten Tiermasken, die alle hier tragen – denn nur wenige wollen hier erkannt werden. Dies ist die Lantern World, wo alles seinen Preis hat – manches steiler als anderes.
@@ -347,7 +347,7 @@ Schulter an Schulter mit grinsenden Katzen und stirnrunzelnden Raben tobt eure S
   key:"cloudborne", kind:"scene", page:"S. 356–357",
   title:"Ein Familiengeheimnis", en:"A Family Secret",
   summary:"Cloudborne Croft — die Familie verleugnet Azeria, doch Deita hilft heimlich",
-  overview:["Die Cloudbornes zeigen sich hochmütig und wenig kooperativ", "Sie reagieren bestürzt, aber nicht überrascht auf Miloradas Tod", "Herumschnüffeln enthüllt: auch die Cloudbornes wurden von einer fuchsmaskierten Gestalt bestohlen", "Deita bittet die Helden heimlich um ein Treffen abseits der Familie", "Der Weg nach Sionann Grove führt durch unheimliches, wildes Waldland", "Die Gegenwart eines unsichtbaren Beobachters wird immer stärker spürbar"],
+  overview:[],
   readAloud:[
     { page:"S. 356", label:"Cloudborne Croft", text:
       `Cloudborne Croft ist ein Name, den jeder in Highglade kennt. Nahe dem Herzen des Dale gelegen, liegt der weitläufige Hof eingebettet zwischen blühenden Wiesen und alpinen Wäldern. Seine über Generationen gewachsenen Gebäude und steinernen Mauern zeichnen die Landschaft, wo kräftiges Vieh gemächlich weidet. Gefärbte Halsbänder und lebhafte Bänder schmücken jedes Tier, als überstrahle die Zurschaustellung die eigentliche Erzeugung.
@@ -416,7 +416,7 @@ Deita erinnert sich an Milorada als durch und durch gütig und konnte über die 
   key:"foxden", kind:"scene", page:"S. 358–360",
   title:"Der Fuchsbau", en:"The Fox's Den",
   summary:"Sionann Grove — Azeria konfrontieren, Gajowy zeigt sich, die Cloudbornes greifen an",
-  overview:["Letzte Szene: Azerias Vertrauen gewinnen oder sie gefangen nehmen, während Gajowy und die Cloudbornes eingreifen", "Im Vorarbeiterhaus finden sich Beweise für Azerias Aufenthalt und die gestohlene Beute", "Mögliche Ausgänge: Azeria flieht, wird in die Enge getrieben, oder öffnet sich", "Geöffnet erzählt Azeria von ihren vulpinen Zügen und ihrer Angst davor", "Erzähler-Notiz: die Legende vom Schleicher", "Gajowy tritt aus dem Schatten, ergriffen vom Anblick seiner Tochter", "Die Cloudbornes treffen ein, um Azeria gefangen zu nehmen"],
+  overview:[],
   readAloud:[
     { page:"S. 358", label:"Sionann Grove", text:
       `Die Natur hat sich weite Teile von Sionann Grove zurückerobert. Gestrüpp und Bäume verflechten sich zwischen den morschen Hütten, überzogen von Flechten und Moos, und bieten heute Zuflucht für Tiere und Insekten. Verfallene Baumstämme und Werkzeuge liegen im Verfall, geduckt wie stille Wächter. Trotz alledem hängt ein Hauch von Holzrauch und kochendem Fleisch in der Luft. Aus dem Schornstein eines steinernen Gebäudes, das inmitten des Verfalls kauert, steigt eine dünne, graue Rauchsäule empor. Neben dem Gebäude reckt sich eine einzelne Eiche empor, alt und eindrucksvoll. Zwischen ihren Ästen hängen Dutzende Fuchsamulette an Sehnen und Schnüren. Manche sind neu, die meisten alt und verwittert. Aus irgendeinem Grund erfüllen sie euch mit Bedauern und Trauer, als hättet ihr das verborgene Schuldgefühl eines anderen gestört.` },

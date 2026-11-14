@@ -51,7 +51,7 @@ Doch die Dinge sind nicht, wie sie scheinen. An diesem trüben Nachmittag, drau�
     "<b>Weiter:</b> Sapsauce nach Ravenhome liefern, das führt in „Die Gerstenfelder“."
   ],
   summary:"Optionaler Auftakt · Journey im Tubroot-Obstgarten",
-  overview:["Die Fellowschaft erreicht den Tubroot-Obstgarten, Lance bittet um Hilfe beim Sapsauce-Brauen", "Die Tubroots: Familienrezept und Kessel sind ein Oldways-Erbstück", "Die Herstellung läuft als mehrtägige Journey — dizzy-2 als Dauerkonsequenz durch die Dämpfe", "Die Lieferung des fertigen Sirups nach Ravenhome führt direkt in die Gerstenfelder"],
+  overview:[],
   readAloud:[
     { page:"S. 317", label:"Der Tubroot-Obstgarten", text:
       `Unter dem Blätterdach saftig-grüner Apfelbäume könnte man den Tubroot-Obstgarten am Rande von Ravensdale leicht für einen natürlich gewachsenen Hain halten, verstreut zwischen den alten Wurzeln des Hügels. In die größten der Bäume sind Zapfhähne getrieben, und der Duft des goldenen Safts steigt euch aus den aufgestellten Eimern in die Nase. Der Weg schlängelt sich in schwindelerregenden Kurven, bis er schließlich auf eine Lichtung mündet, wo eine orange gestrichene Scheune steht. Ringsum bereiten junge Landarbeiter den Saft zur Ernte und Verarbeitung vor – zu einer der begehrtesten Köstlichkeiten des Ravensdale: dem Sapsauce-Sirup.
@@ -138,7 +138,7 @@ Ein großer, bärtiger Mann tritt euch entgegen, während ein paar seiner Kinder
   key:"barley", kind:"scene", page:"S. 319–320",
   title:"Die Gerstenfelder", en:"The Barley Fields",
   summary:"Willow wird vom Waken Sentry bedroht",
-  overview:["Auf dem Weg vor Ravenhome treffen sich die Helden, im Hintergrund spielt Willow im Feld", "Willow schreit auf — eine schlurfende, tropfnasse Gestalt erhebt sich aus der Gerste und greift an", "Untersuchung von Leiche und Rüstung gibt erste Hinweise auf Alt-Gwyrdolin", "Die Spur führt zum Versunkenen Wachturm — oder zurück zur Warnung in Ravenhome", "Bei zu langer Untersuchung: ein Ominous Raven spricht ein Omen"],
+  overview:[],
   readAloud:[
     { page:"S. 319", label:"Die Gerstenfelder", text:
       `Die Frühlingssonne blinzelt durch die Wolkendecke des trüben Morgens und taucht die goldenen Gerstenfelder in graues Licht. Die Vögel drängen sich, ihr Gezwitscher erfüllend, in ihren Nestern zusammen, während die Bauern unermüdlich schuften. Vor euch breitet sich das Ravensdale aus – ein kleines, doch fruchtbares Tal, in dem Gerstenfelder sich den Hügeln entlangziehen und Apfelgärten die Landschaft sprenkeln, bis hinauf zu den schneebedeckten Gipfeln des Greyback-Bergs. Ob Einheimische oder Reisende aus fernen Weilern oder von jenseits der Dales – hier sind alle willkommen.
@@ -216,7 +216,7 @@ Auf dem Weg ins Dorf Ravenhome erreicht euch Lachen von den frisch geernteten Ha
   key:"ravenhome", kind:"scene", page:"S. 321–322",
   title:"Zurück in Ravenhome", en:"Back at Ravenhome",
   summary:"Dorfversammlung — Countdown Challenge unter drei Fraktionen",
-  overview:["Ankunft in Ravenhome, die Dorfbewohner sind ahnungslos über die Gefahr auf den Feldern", "Eine Dorfversammlung am Folkhearth debattiert das weitere Vorgehen", "Drei Stimmen dominieren die aufgebrachte Menge (siehe Profile/Challenge unten)", "Ein trauriger Abschied — guter Zeitpunkt für eine Camping-Szene", "Weiter zum Versunkenen Wachturm oder direkt zur Hütte der Weisen Einen"],
+  overview:[],
   readAloud:[
     { page:"S. 321", label:"Zurück in Ravenhome", text:
       `Das Dorf Ravenhome liegt im Herzen des Tals; alle Wege dieser Gegend führen früher oder später wieder hierher zurück. Ihr geht den Pfad entlang, bis die Sonne hell am trüben Nachmittagshimmel steht. Dann endlich erblickt ihr die schindelgedeckten Dächer der Häuser, und der Geruch von Holzfeuer tanzt in der Luft. Überall hört man fröhliche Gespräche zwischen Nachbarn. Doch so vertraut dieser Anblick auch ist – er reicht nicht aus, um euch nach solch erschütternden Erlebnissen zu beruhigen: Ihr fragt euch, wie lange dieser Frieden wohl anhalten mag, wenn solche Schrecken nun im Ravensdale umgehen.
@@ -263,7 +263,7 @@ Ihr geht an warmen Lächeln und herzlichen Grüßen vorbei, doch diesen Leuten e
   key:"watchtower", kind:"scene", page:"S. 323–326",
   title:"Der versunkene Wachturm", en:"The Sunken Watchtower",
   summary:"SorrowBalm, der Tauchgang und die verrottete Truhe",
-  overview:["Ankunft am versunkenen Wachturm, angestachelt von der geheimnisvollen SorrowBalm", "Erzähler-Notiz: die vergessene Geschichte der Ruine aus Alt-Gwyrdolin", "SorrowBalm bittet um Bergung einer Truhe vom Grund des Teichs, gegen Belohnung", "SorrowBalm kann nicht verletzt werden — sie verschwindet bei Gefahr wie Morgentau", "Tauchgang durch trübes, miasma-durchsetztes Wasser zum Grund des Teichs", "Am Grund: eine ölige Flüssigkeit und eine verrottete Truhe mit drei bedeutsamen Gegenständen", "SorrowBalm verlangt den Opal — doch die wahre Quelle des Miasmas liegt tiefer"],
+  overview:[],
   readAloud:[
     { page:"S. 323", label:"Der versunkene Wachturm", text:
       `Ihr steigt die Hügelkette hinauf, die das Ravensdale umschließt, den Zeichen folgend. Während ihr euren Weg über den bewaldeten Bergpfad fortsetzt, lasst ihr die goldenen Gerstenfelder und Apfelgärten hinter euch, die sich unter dem drohenden, sich zusammenziehenden Gewölk in die Ferne erstrecken. Eine Stunde vergeht, die Rundung der Hügel wird sanfter, und die Bäume rücken enger zusammen.
@@ -339,7 +339,7 @@ Fußspuren und mit dem Schwert gehauene Astwerk-Reste verraten, dass hier der Ur
   key:"cabin", kind:"scene", page:"S. 327–328",
   title:"Die Hütte der Weisen Einen", en:"The Wise One's Lonesome Cabin",
   summary:"Rosamund erklärt Miasma, Quelle und die Dolorous Lady",
-  overview:["Ein widerwilliger Empfang bei Rosamund, der Weisen Einen von Ravenhome", "Rosamund hört zu und untersucht die Miasma-Probe bzw. die Funde aus dem Turm", "Am Feuer: Gespräch über das Miasma und was es bedeutet", "Rosamund besteht auf einer Pilgerfahrt zur Dolorous Lady und schließt sich als Begleiterin an", "Auf Nachfrage: weiteres Wissen über Alt-Gwyrdolin und den versunkenen Wachturm"],
+  overview:[],
   readAloud:[
     { page:"S. 327", label:"Die Hütte des Weisen Einen", text:
       `Mit dem wachsenden Bedürfnis, mehr über die Verderbnis zu erfahren, die ihr gesehen habt, sucht ihr den Rat des Weisen Einen. Mit jedem Schritt entfernt ihr euch weiter von zuhause und tiefer in den bewaldeten Hügel hinein. Die Sonne beginnt zu sinken, der Himmel färbt sich orange und violett, während die Decke der Dämmerung naht.
@@ -385,7 +385,7 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
   key:"shrine", kind:"scene", page:"S. 328–330",
   title:"Die Trauernde Dame", en:"The Dolorous Lady",
   summary:"Ritual im Grenzgebiete-Marschland, Mirelings greifen an",
-  overview:["Reise südwärts in die Grenzgebiete als Rambling Journey", "Ankunft am überwucherten Schrein der Trauernden Dame im Sumpf", "Rosamund bereitet das Ritual vor — der Song of Tears verlangt aufrichtigen Kummer", "Der Sumpf regt sich: zwei oder drei Mirelings stören das Ritual", "Gelingt das Ritual, fliehen die Mirelings; wird der Schrein zerstört, ziehen sie sich lachend zurück", "Nach dem Ritual lassen sich Helm und seltene Sumpfkräuter bergen"],
+  overview:[],
   readAloud:[
     { page:"S. 328", label:"Aufbruch von Rosamunds Hütte", text:
       `Ihr brecht bei erstem Licht von Rosamunds Hütte auf, fort von den sanften Hügeln und den goldenen Feldern des Ravensdale, südwärts einen alten Pfad hinab, der zu den Grenzgebieten führt. Noch bevor der Tag vergangen ist, weichen die vertrauten Ackerländer und klaren Horizonte des Ravensdale zerklüfteten Steinen, morastigem Boden und neblig verhangener Umgebung. Der Pfad verliert sich zuweilen, was das Vorankommen im Moorland erschwert. Warme Winde heulen und tragen den bitteren Gestank der südlichen Marschen mit sich. Am nächsten Tag der Reise dringt nur noch dünnes Tageslicht durch den grauen Nebel, während ihr euch tiefer in die dalischen Randgebiete vorwagt – mit toten Bäumen und dem Rufen der Frösche als eurer einzigen Gesellschaft.` },
@@ -395,7 +395,7 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
     `<span class="callout"><span class="co-title">Rosamund nicht anwesend</span>Ist Rosamund nicht dabei, durchsucht die Gefährtenschaft zunächst selbst die Bounds nach dem Standstein. Wählt ein bis zwei Vignetten, die sich aus Morose Mire (CBII 150) ergeben.</span>`,
     `<span class="section-heading">Der Schrein der Trauernden Dame</span>Auf dem Gipfel eines gewundenen Hügels, den Shiverwash-Sümpfen zugewandt, als würde er die Grenze bewachen, trägt der überwucherte Stein das Bild einer weinenden Frau, die ihr Gesicht mit den Händen bedeckt. Ein giftiger Nebel überwältigt die Umgebung.`,
     `Rosamund bereitet das Ritual vor, entzündet Kerzen und bringt Opfergaben dar; sie bittet die Gefährtenschaft, sich ihr beim <strong>Song of Tears</strong> anzuschließen — ihrer Art, den Schrein zu pflegen. Der Song of Tears wird durch aufrichtigen Kummer gespeist, und jeder teilnehmende Hero sollte eine traurige Geschichte aus seinem Leben teilen. Oldways-praktizierende Helden können alternativ ihr eigenes Ritual beisteuern.`,
-    `<span class="callout"><span class="co-title">Unwillkommenes Publikum</span>Sobald die Helden versuchen, die Magie des Steins neu zu entfachen, beginnt sich der Sumpf auf unheimliche Weise zu regen. Der Nebel wallt und braut sich zusammen, das Wasser blubbert. Zwei oder drei Mirelings kriechen aus dem getrockneten Torf, um das Ritual zu stören, und krallen nach den Helden, Rosamund und dem Steinmal. Sie erscheinen zunächst far-away-2 vom Stein entfernt; nähern sie sich unaufgehalten, sinkt dieser Wert um jeweils 1. Wird ein Mireling überwunden, rückt ein weiteres nach — wieder bei far-away-2 — bis der Schrein wiederhergestellt oder zerstört ist. <br><strong>SOLO:</strong> Führt dein Hero das Ritual allein durch, beginnen die Mirelings bei far-away-4.</span>`,
+    `<span class="callout"><span class="co-title">Unwillkommenes Publikum</span>Sobald die Helden versuchen, die Magie des Steins neu zu entfachen, beginnt sich der Sumpf auf unheimliche Weise zu regen. Der Nebel wallt und braut sich zusammen, das Wasser blubbert. Zwei oder drei Mirelings kriechen aus dem getrockneten Torf, um das Ritual zu stören, und krallen nach den Helden, Rosamund und dem Steinmal. Sie erscheinen zunächst far-away-2 vom Stein entfernt; nähern sie sich unaufgehalten, sinkt dieser Wert um jeweils 1. Wird ein Mireling überwunden, rückt ein weiteres nach — wieder bei far-away-2 — bis der Schrein wiederhergestellt oder zerstört ist.</span>`,
     `<strong>Den Schrein neu entfachen:</strong> Ist der Standstein gepflegt, fliehen alle Mirelings zurück in die Sümpfe. Den Helden ist, als falle ihnen eine Last von den Schultern. Wird der Schrein stattdessen zerstört, ziehen sich die Mirelings mit tiefem, gluckerndem Lachen ins Moor zurück — dieses Fleckchen Land wird künftig nicht mehr sicher sein.`,
     `<strong>Schätze aus dem Sumpf:</strong> Gelingt das Ritual, wird die Umgebung des Standsteins weniger feindselig und kann durchsucht werden:<div class="reward-box"><ul style="margin:0; padding-left:18px;"><li style="margin-bottom:6px; line-height:1.55;">Ein angelaufener, aber noch stabiler <strong>Helm</strong>.</li><li style="margin-bottom:6px; line-height:1.55;"><strong>Seltene Sumpfkräuter</strong>, nützlich für Heilung oder Trankbrauerei.</li></ul></div>`,
   ],
@@ -484,7 +484,7 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
   key:"murder", kind:"scene", page:"S. 331–332",
   title:"Ein Mörder aus der Ferne", en:"A Murderer From Afar", optional:true,
   summary:"Optionaler Abschluss — Hausbrand & Attentat",
-  overview:["Optionaler Abschluss: ein Brandstifter legt Feuer an Rosamunds Hütte", "Ein gemeinsames Abendessen wird durch die Flammen unterbrochen", "Das Strohdach brennt — die Helden müssen löschen, bevor die Ritualwerkzeuge verloren gehen", "Ein vergifteter Blasrohrpfeil trifft das eigentliche Ziel des Attentats (meist Rosamund)", "Der Attentäter ist meist ein Cold-Hearted Stabber — möglicherweise Verdan", "Verfolgung des flüchtenden Attentäters über die Baumkronen"],
+  overview:[],
   readAloud:[
     { page:"S. 331", label:"Rückkehr zu Rosamund", after:2, text:
       `Bei eurer Rückkehr ins Ravensdale bittet Rosamund euch inständig, über Nacht zu bleiben und mit ihr zu speisen. An einem schlichten Eichentisch, reich beladen mit Köstlichkeiten des Ravensdale, besprecht ihr die jüngsten Ereignisse und überlegt, welche Schritte als Nächstes zu tun sind.` },

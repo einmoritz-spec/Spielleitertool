@@ -48,7 +48,7 @@ Nun ist ein Brief von großer Bedeutung eingetroffen, für einen dieser Pilger �
   key:"missed", kind:"scene", page:"S. 335",
   title:"Eine verpasste Begegnung", en:"A Missed Connection",
   summary:"Die Helden übernehmen die Zustellung des Briefs",
-  overview:["Ein Karawanenjunge bringt den Brief zu spät nach Ravenhome — Walric ist bereits aufgebrochen", "Unklar ist, in welcher Reihenfolge Walric die Schreine besuchen wird", "Vorbereitung auf die Reise ins raue Ashstone, Nächte im Freien eingeplant", "Öffnet die Gruppe den Brief vorzeitig, drohen Schuldgefühle", "Wer Walric ist, lässt sich beim Alderman oder den Karawanenleuten erfragen"],
+  overview:[],
   readAloud:[
     { page:"S. 335", label:"Aufbruch nach Ashstone", text:
       `Der Frühling ist mit Macht ins Ravensdale eingekehrt. Das Rattern der Wagen kündet von der Ankunft eines Handelszuges, des ersten in dieser Saison, beladen mit Waren und Vorräten aus anderen Teilen der Dales: gutes Holz, feines Werkzeug, Saatgut, breitkrempige Hüte und vielerlei andere Dinge. Ein junger Bursche, vielleicht zwölf oder dreizehn Jahre alt, springt von einem der Wagen, einen kleinen Sack über der Schulter – Briefe, die mit der Karawane mitgeschickt wurden – und hält Ausschau nach dem Dorfältesten.` },
@@ -57,7 +57,7 @@ Nun ist ein Brief von großer Bedeutung eingetroffen, für einen dieser Pilger �
     `Ein Handelskarawanenjunge bringt den Brief nach Ravenhome — zu spät für Walric, der bereits aufgebrochen ist, Richtung Norden auf der Straße nach <span class="gloss" onclick="openGloss('ashstone')">Ashstone</span>, zu einem Schrein direkt am Wegesrand. <span class="gloss" onclick="openGloss('alderman-beaks-ref')">Alderman Beaks</span> (oder eine vergleichbare Respektsperson) übernimmt den Brief und beauftragt die Helden mit der Zustellung — schließlich zieht die Karawane selbst weiter nach Westen, zurück zur Hochstraße, und niemand sonst ist ohnehin bald auf dem Weg nach Ashstone unterwegs. Das Wachssiegel des Briefs kennzeichnet ihn eindeutig als für eine Weise Eine bestimmt, was die Dringlichkeit unterstreicht.`,
     `<strong>Unklare Reihenfolge:</strong> Niemand weiß genau, in welcher Reihenfolge Walric die Schreine besuchen wird — jede Person auf einem Year Walk ist von ihrer eigenen Route inspiriert.`,
     `<span class="callout"><span class="co-title">Vorbereitung auf die Reise</span>Vor dem Aufbruch können die Helden sich noch ausrüsten — wie lange das dauert, ist offen, aber das raue Ashstone bietet kaum gastliche Unterkünfte, die Gruppe sollte sich also auf Nächte im Freien einstellen. Mitglieder der Handelskarawane sind die Straßen nach Ashstone schon gereist und können nützliche Tipps geben. Optional lässt sich hier eine <span class="gloss" onclick="openJourneyBySlug('provisioning')">Provisioning Journey</span> (Core Book II, S. 196) einschieben, um die Szene zu verlängern und ein paar zusätzliche (hilfreiche wie hinderliche) Tags zu vergeben.</span>`,
-    `<span class="callout"><span class="co-title">Den Brief öffnen?</span>Es ist möglich, den Brief vorzeitig zu öffnen, sofern jemand lesen kann — er enthält allerlei wichtige Neuigkeiten aus den Dales (SOLO: Lies <em>Was steht im Brief?</em>, S. 334). Zeigen sich die Charaktere dabei ehrenhaft, empfinden sie vermutlich guilty-3 dafür, das Siegel gebrochen zu haben; kommt es heraus, drohen ill-repute-2. Eine geheimnisvolle, wachsame Kraft könnte sie zudem mit cursed-1 belegen, bis sie ihr Unrecht wiedergutmachen und den Brief bei Walric abliefern.</span>`,
+    `<span class="callout"><span class="co-title">Den Brief öffnen?</span>Es ist möglich, den Brief vorzeitig zu öffnen, sofern jemand lesen kann — er enthält allerlei wichtige Neuigkeiten aus den Dales. Zeigen sich die Charaktere dabei ehrenhaft, empfinden sie vermutlich guilty-3 dafür, das Siegel gebrochen zu haben; kommt es heraus, drohen ill-repute-2. Eine geheimnisvolle, wachsame Kraft könnte sie zudem mit cursed-1 belegen, bis sie ihr Unrecht wiedergutmachen und den Brief bei Walric abliefern.</span>`,
     `<strong>Wer ist Walric überhaupt?</strong> Ein Hero, der selbst die Oldways praktiziert, hat vermutlich schon von <span class="gloss" onclick="openGloss('walric-hywell-ref')">Walric Hywell</span> gehört. Andere können beim Alderman, den Dorfbewohnern oder den Karawanenleuten nachfragen, um mehr über ihn zu erfahren, bevor die Gruppe aufbricht.`,
   ],
   npcs:[
@@ -73,7 +73,7 @@ Nun ist ein Brief von großer Bedeutung eingetroffen, für einen dieser Pilger �
   key:"road", kind:"scene", page:"S. 337",
   title:"Auf dem Weg nach Ashstone", en:"On the Road to Ashstone",
   summary:"Reise-Journey über den Bergpass",
-  overview:["Die Reise wird als Journey mit Vignetten aus drei Landschaften gespielt", "Das Gelände ist anspruchsvoller als die heimischen Feldwege des Ravensdale", "TIME PASSES: verstreichende Zeit lässt sich später in andere Status-Stufen übersetzen", "Ein vermeintlicher Donnerschlag ist in Wahrheit ein Steinschlag — ein Hilferuf führt weiter"],
+  overview:[],
   readAloud:[
     { page:"S. 337", label:"Auf dem Weg nach Ashstone", text:
       `Ihr erklimmt den Bergpass zwischen dem Ravensdale und Ashstone an einem herrlichen Frühlingsmorgen. Hinter euch lasst ihr die vertrauten Felder, Wälder und Hänge des Ravensdale zurück und erblickt vor euch eine weite Wildnis, felsig und von Gestrüpp überzogen, mit sanften Vorbergen und Mooren, die sich von Greyback dem Wolf herabziehen. Die stille, majestätische, schneebedeckte Bergkette erhebt sich schweigend zu eurer Linken und streift langsam ihr weißes Winterkleid im Wind ab.
@@ -134,7 +134,7 @@ Wolken segeln gemächlich über das weite Blau des Himmels. Weit und breit ist k
   key:"verdan", kind:"scene", page:"S. 337–338",
   title:"Ein Weggefährte in Not", en:"A Fellow Traveler in Need",
   summary:"Verdan wird unter Geröll befreit und begleitet die Gruppe",
-  overview:["Nach dem Erdstoß wird Verdan pinned-5 unter Felsbrocken gefunden, angeblich durch einen getretenen Trommelstein", "Die Rettung bringt kleinere Blessuren — Verdan zeigt sich dankbar und bietet Bezahlung an", "Erste Eindrücke: Verdan gibt sich als Trommelstein-Bergmann aus, doch mehrere Details wirken unstimmig", "Eine Feuerlagerszene bietet Gelegenheit, Verdan näher kennenzulernen, ohne seine wahre Identität aufzudecken", "Verdans Wesen, Weltbild und Vergangenheit — Hintergrund für den Spielleiter", "Narrator-Geheimnis: Verdan ist ein Cold-Hearted-Spion des Winterkönigs", "Verdans Rolle in der Serie: spätere Wiederbegegnung in Barleytown Fair und/oder Lost Hermitage"],
+  overview:[],
   readAloud:[
     { page:"S. 337", label:"Ein Weggefährte in Not", text:
       `Während ihr den steinigen Pfad am Hang entlangwandert, bemerkt ihr einen Wetterumschwung. Sturmwolken, schwer und lastend, ziehen von Norden heran. Kaum bleibt euch Zeit, über den nahenden Regen nachzudenken, da erschüttert ein rollender Donnerschlag die Stille – seltsamerweise, als käme er aus dem Boden selbst – gefolgt vom Grollen rollender Felsbrocken und einem Schmerzensschrei. Dann kehrt Stille ein, doch bald darauf hört ihr, wie jemand weiter unten am Pfad um Hilfe stöhnt.` },
@@ -213,7 +213,7 @@ Verdan reist mit der Gefährtenschaft bis Willow Falls mit, sofern man ihn läss
   key:"windsflute", kind:"scene", page:"S. 339",
   title:"Der Windflöten-Schrein", en:"Winds' Flute Shrine",
   summary:"Erster Schrein — die Song of the Winds",
-  overview:["Ankunft am Schrein, Walric ist nicht mehr da — eine Schiefertafel weist nach Willow Falls", "Eine gründlichere Suche fördert eine zweite, persönlichere Tafel Walrics zutage", "Alternative für Helden, die nicht lesen können", "Reihenfolge-Hinweis: von hier führt der Weg weiter zu Wasserfall- und Gespaltene-Eiche-Schrein", "Der Schrein der Aufgeschlossenheit verleiht aware-2 — vier Hinweise führen zum tieferen Geheimnis", "Die Steinhügel stimmen lässt den Song of the Winds erklingen", "Das Lied zieht die Aufmerksamkeit nach außen oder nach innen — eine Complication droht"],
+  overview:[],
   readAloud:[
     { page:"S. 339", label:"Auf der Suche nach dem Schrein", text:
       `Der Weg schlängelt sich von den Hängen des Greyback immer weiter hinab, tiefer nach Ashstone hinein und bietet unberührte Ausblicke auf das Land im Norden und Osten. Endlich erreicht ihr einen wunderschönen Aussichtspunkt gleich neben dem Weg, wo ein einsamer Weißdornbaum Schatten spendet. Ringsum, so weit ein Stein zu werfen wäre, stehen seltsame Steinhügel, behangen mit flatternden Bannern, die meisten zerfetzt und über die Erkennbarkeit hinaus verblasst. Der Wind erzeugt eine leise Melodie im Vorbeistreichen, ein sanftes Pfeifen zwischen ihnen. Eine geschnitzte Steinstele, mit einem einzelnen Schriftzeichen versehen, kennzeichnet den Ort als den gesuchten Schrein. Doch von Walric fehlt jede Spur.` },
@@ -254,7 +254,7 @@ Verdan reist mit der Gefährtenschaft bis Willow Falls mit, sofern man ihn läss
   key:"willowfalls", kind:"scene", page:"S. 340–341",
   title:"Zwischenstopp in Willow Falls", en:"Stopover in Willow Falls",
   summary:"Ein abgeschiedenes Bergdorf — Borum und seine Bitten",
-  overview:["Willow Falls: ein isoliertes Insular Hamlet aus Außenseitern und Bergleuten, wenig einladend", "Reihenfolge-Hinweis: Gwyrwich-Steinbruch zuerst führt über den Wasserfall- zum Gespaltene-Eiche-Schrein", "Wirt Borum erinnert sich an Walric, verlangt aber Gefälligkeiten für die Auskunft", "Steinbrucharbeiter im Gasthaus berichten von einer nächtlichen Heimsuchung und einem alten Schrein"],
+  overview:[],
   readAloud:[
     { page:"S. 340", label:"Zwischenstopp in Willow Falls", text:
       `Auf eurer weiteren Suche nach Walric erhebt sich vor euch ein Hochplateau; ihr nehmt einen serpentinenartigen Pfad die felsigen Hänge hinauf zum Gipfel. Dort, im Schatten der Greyback-Berge im Westen, liegt eine kleine Gemeinschaft, umgeben von Wiesen, die von Bienen umschwirrt sind und von zahlreichen langsam dahinfließenden Bächen durchzogen werden, die von den Schneekuppen darüber gespeist werden. Rauch von Kochstellen und Werkfeuern zieht in den Himmel, doch ansonsten scheint das Dorf recht verschlafen.` },
@@ -362,7 +362,7 @@ Verdan reist mit der Gefährtenschaft bis Willow Falls mit, sofern man ihn läss
   key:"waterfall", kind:"scene", page:"S. 341–342",
   title:"Der Wasserfall-Schrein", en:"Waterfall Shrine",
   summary:"Muddy Med und die Prüfung des Krabbenapfelbaums",
-  overview:["Ankunft am Wasserfall-Schrein — wie zuvor gilt es, Walrics nächstes Ziel und das Schrein-Geheimnis zu finden", "Muddy Med, eine unhelpful Fluchesserin, beansprucht den Platz für sich", "Der Schrein der Selbstbeherrschung verleiht content-2 — zwei Schiefertafeln Walrics liegen bereit", "Nur der gemiedene Schrein im Gwyrwich-Steinbruch verrät, wohin Walric weiterzog", "Geheimnis des Schreins: vier Schriftzeichen ergeben „Reach nothing for hunger“", "Der Krabbenapfelbaum verlangt einen riskanten Klettergang über glitschige Steinsäulen", "Die Prüfung: ein Band binden ohne zu pflücken bringt Ruhe, Gier nach der Frucht bestraft"],
+  overview:[],
   readAloud:[
     { page:"S. 341", label:"Der Wasserfall-Schrein", text:
       `Das Wasser der Willow Falls stürzt die Klippe des Plateaus hinab, als weine es ewig um seine Namensgeberin, jene Heldin, die hier vor langer Zeit den Tod gefunden haben soll. Regenbögen gleiten durch die Gischt, während ihr vorbeigeht, und der tosende Wasserfall übertönt fast jedes Gespräch.
@@ -417,7 +417,7 @@ Die Klippenwand selbst besteht aus sechseckigen Steinsäulen, mit vielen weitere
   key:"quarry", kind:"scene", page:"S. 342–343",
   title:"Der Gwyrwich-Steinbruch-Schrein", en:"Gwyrwich Quarry Shrine",
   summary:"Ein Harrow sucht den verlassenen Steinbruch heim",
-  overview:["Auf Walrics Spuren erreicht die Gefährtenschaft den verlassenen Steinbruch", "Die Steinbrucharbeiter berichten von der heimsuchenden Kreatur und ihrer wachsenden Kühnheit", "Ein Harrow verschlingt jede Lichtquelle in den dunklen Tunneln", "Das Problem lässt sich durch praktisches Vorgehen, Magie oder Kampf lösen", "Der Schrein der Fragen zeigt ein Wandbild der Lady und Walrics quälende Notizen", "Nur der Cloven-Oak-Schrein weiter östlich passt zu Walrics nächstem Ziel", "Geheimnis des Schreins: eine laut gestellte Frage hallt verändert wider, ohne je zu antworten"],
+  overview:[],
   readAloud:[
     { page:"S. 342", label:"Auf dem Weg zum Steinbruch", text:
       `Unter aschgrauem Himmel wandert ihr auf einem Pfad, glatt getreten von jahrelangem Stein- und Erztransport aus dem Gwyrmarch-Steinbruch. Endlich erhebt sich der Steinbruch vor euch – ein grüner Hang, angenagt von den bescheidenen Spitzhacken der Dalesleute, übersät mit Stapeln behauener Steinblöcke. Ein zweistöckiges, strohgedecktes Gebäude – zweifellos die Unterkunft der Steinarbeiter – ist das einzige weit und breit. Euer Weg endet weiter vorn an einer Mine, deren Öffnung wie ein gähnendes Maul im Hang klafft.
@@ -489,7 +489,7 @@ Man erzählt sich bei Willow Falls, dass die Steinbrucharbeiter mittlerweile nur
   key:"clovenoak", kind:"scene", page:"S. 344–345",
   title:"Der Schrein der Gespaltenen Eiche", en:"Cloven Oak Shrine",
   summary:"Walrics Kummer und die Vision der Lady",
-  overview:["Letzter Schrein des Year Walk — Walric kann seine Pilgerfahrt nicht allein zu Ende bringen", "Walric ist anguished-4, gefangen im Kummer um die Familie, die er nicht schützen konnte", "Den Brief jetzt zu überreichen wäre zwecklos und würde seinen Kummer nur verschlimmern", "Die Helden können ihn trösten oder aufrütteln — mit Risiko, es schlimmer zu machen", "Geheimnis des Schreins: jeder Anwesende muss eine unausgesprochene Wahrheit aussprechen", "Wer zuerst spricht: das Aussprechen einer eigenen Wahrheit senkt Walrics Kummer", "Ist der Kummer gelindert, erscheint allen die Vision der Lady"],
+  overview:[],
   readAloud:[
     { page:"S. 344", label:"Der Schrein der Gespaltenen Eiche", text:
       `Der Schrein der Gespaltenen Eiche liegt auf einem hohen Hügel, von dem sich eine alte Eiche erhebt, geborsten in zwei Teile – scheinbar von einem Blitzschlag getroffen – und doch noch lebendig und gedeihend. Von dieser Höhe aus, und ohne allzu viel im Weg, lässt sich sogar die Watchful-Lady-Bergspitze erkennen, die sich im Nordosten über Pasture erhebt – und an einem klaren Tag wie diesem ist es ein ergreifender Anblick. Der Berg, so heißt es, gleiche der vermummten Gestalt einer Frau, und keiner von euch könnte dem widersprechen.
@@ -545,7 +545,7 @@ Walric, im Schlamm kniend, weint, unfähig, den Blick lange vom Horizont zu wend
   showImprovement:true,
   flow:[
     `Nachdem der wichtige Brief Walric übergeben wurde, öffnet er ihn und liest mehrere Seiten hingekritzelter Notizen. Er dankt den Helden und schlägt vor, in Kontakt zu bleiben, denn er ist von ihrer Zähigkeit beeindruckt. Er sieht eine Zukunft voraus, in der die Antworten, die er findet, rasches und kluges Handeln von Menschen mit Mut und Format verlangen werden. Die Lady selbst hat zu ihnen allen gesprochen – gibt es ein größeres Zeichen als das?`,
-    `Die Nachrichten, die Walric im Brief erhält, handeln von allerlei schrecklichen Dingen, die sich überall in den Dales ereignen (SOLO: Lies <em>Was steht im Brief?</em> auf S. 334). Gewalt, Flüche und seltsame Vorkommnisse scheinen sich in den Dales dieser Tage zu häufen, und Walric glaubt, dass sie alle irgendwie zusammenhängen.`,
+    `Die Nachrichten, die Walric im Brief erhält, handeln von allerlei schrecklichen Dingen, die sich überall in den Dales ereignen. Gewalt, Flüche und seltsame Vorkommnisse scheinen sich in den Dales dieser Tage zu häufen, und Walric glaubt, dass sie alle irgendwie zusammenhängen.`,
     `Da er den Year Walk fortsetzen will, kann Walric die Helden bitten, bei der Untersuchung einer oder mehrerer dieser Angelegenheiten zu helfen, was in neue Abenteuer führt: <em>A Fox in the Dales</em>, <em>The Green Maiden</em> oder <em>The <span class="gloss" onclick="openGloss('painted-beast')">Painted Beast</span></em>.`,
     `Der Brief kann auch Revelations enthalten, die verstärkt werden müssen (S. 415).`,
     `Hier sind einige Fragen, um die Taten der Helden während des Abenteuers Revue passieren zu lassen:`,

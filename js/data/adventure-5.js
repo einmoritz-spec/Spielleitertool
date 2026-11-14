@@ -57,7 +57,7 @@ Während bereitwillige Dalesleute nach Cedargate reisen, um zu den Waffen zu gre
   key:"cedargate", kind:"scene", page:"S. 377",
   title:"Cedargate vorbereiten", en:"Preparing Cedargate",
   summary:"Ankunft bei Abnoba Keep · Zustand der Burg · Vorbereitungshandlungen",
-  overview:["Ankunft bei Abnoba Keep, dem Herzstück der Woodwards, geschwächt nach mehreren Überfällen", "Mauern und Verteidiger tragen erste Schäden — mindestens ein Ungeheuer naht", "Jeder Held kann eine Handlung nutzen, um die Burg auf die Schlacht vorzubereiten", "Fleece Oakenfoot und Yule bieten auf Nachfrage Anleitung und Hilfe an", "Bei Bedarf: Vignetten aus der „Common Weal“-Journey für zusätzliche Spannung"],
+  overview:[],
   readAloud:[
     { page:"S. 377", label:"Auf dem Weg nach Cedargate", text:
       `Der Broken-Tooth-Pfad zu begehen ist eine Übung in kunstvollem Stolpern und dem Losschütteln von Steinchen aus den Schuhen. Die Bewohner von Cedargate wandern diesen Pfad täglich, gemeinsam mit dem plätschernden Milken Rush, und mehrere von ihnen schließen sich euch auf eurem Weg an, Äxte und Holzschilde tragend. Hier wird der Fluss seicht; eine Palisade aus Baumstämmen und Steinen, an manchen Stellen eingestürzt, säumt den oberen Rand des vom Flussufer aufsteigenden Hangs. Ein hölzerner Wachturm steht am höchsten Punkt mit Blick auf die Flussbiegung, seine unteren Balken angespannt und gesplittert. Weitere Gebäude, allesamt neu errichtet, stehen in der Nähe – eine wachsende Wehrsiedlung, die rasche Antwort der Gaters auf eine sich schnell verschärfende Bedrohung. Dies ist euer Ziel: Abnoba Keep, das die nahegelegene Abnoba-Furt bewacht. Die Furt selbst liegt nicht weit hinter dem großen Zedern-Tor, eine breite, flache Stelle, an der man den Fluss zu Fuß, zu Pferd oder mit dem Wagen überqueren kann. Die Woodwards brauchen eure Hilfe, und ihr seid hier, um zu helfen.` },
@@ -85,7 +85,7 @@ Während bereitwillige Dalesleute nach Cedargate reisen, um zu den Waffen zu gre
   key:"defense", kind:"scene", page:"S. 378–380",
   title:"Verteidigung von Cedargate", en:"Defense of Cedargate",
   summary:"Die Painted Beast greift an · Kerrid · Kennenlernen im Heilerzelt",
-  overview:["Die Painted Beast stürmt auf Abnoba Keep zu, angetrieben von der Highlanderin Kerrid", "Erreichen Mauern oder Verteidiger ihren Grenzwert, bricht die Bestie durch oder wütet ungehindert", "Nach der Schlacht bricht die schwer verletzte Kerrid zusammen", "Rabb bringt sie in sein Zelt — Kerrid erzählt von ihrem Volk und ihrem Auftrag gegen Maol", "Kerrid wird als Story-Thema für die Reise durch die Highlands gewonnen"],
+  overview:[],
   readAloud:[
     { page:"S. 378", label:"Angriff auf Cedargate", text:
       `Der Stoß eines Horns lässt das rasende Herz Cedargates schlagen wie eine Trommel; die Schlacht ist da! Die Woodwards, die noch nicht auf den Mauern stehen, eilen an ihre Posten, mit Speer oder Bogen bewaffnet. Selbst erschöpft, selbst furchtsam, bewegen sie sich mit geübter Entschlossenheit.
@@ -169,7 +169,7 @@ Eine einsame Highländerin, rau von langen Tagen auf dem Pfad, läuft hinter der
   key:"highlands", kind:"scene", page:"S. 381\u2013382",
   title:"Durch die Highlands", en:"Through the Highlands",
   summary:"Mehrwege-Reise \u00fcber vier Routen \u00b7 zwei Havens \u00b7 Kerrids Zustand verschlechtert sich",
-  overview:["Reise mit Kerrid in ihrer Obhut als Abfolge von Journeys durch die Craggen Highlands", "Ein harter Weg: steilere Hügel, aggressivere Tiere, raueres Wetter als in den Dales", "Vier wählbare Routen ab der ersten Kreuzung, jede mit eigener Zusatz-Journey", "Zwei Havens („Die Burg“, „Die Drei Stehenden“) als optionale Kreuzungs-Szenen", "Kerrids worsening-1 pro Konsequenz — bei worsen-4: „Eine Wendung zum Schlechteren“"],
+  overview:[],
   readAloud:[
     { page:"S. 381", label:"\u00dcber den Milken Rush", text:
       `F\u00fcr viele Dalesleute mag eine Reise in die Craggen Highlands ebenso gut ein Spaziergang in den Wandteppich sein, der in der Dorfhalle h\u00e4ngt. Warnende Geschichten leben in den Highlands \u2013 Erz\u00e4hlungen von Ungeheuern und Gefahren, wie Eltern sie erz\u00e4hlen, um ihre Kinder nicht zu weit vom sicheren Abendessen fortstreifen zu lassen. Und doch setzt ihr nun eure ersten Schritte \u00fcber die Furt des Milken Rush, hinaus aus den Dales, hinein in die Welt jener Geschichten.
@@ -292,7 +292,7 @@ Ihr blickt den ansteigenden Hang der Berge vor euch entlang. Kerrid, \u00fcber i
   key:"campfire", kind:"scene", page:"S. 383", optional:true,
   title:"Lagerfeuergeschichten", en:"Campfire Stories",
   summary:"Optionale Wildnis-Sozialszene · Reisende am geteilten Lagerfeuer",
-  overview:["Lagerplatz wird mit fremden Reisenden geteilt", "1–3 Reisende auswählen: Geschichten & Neuigkeiten gegen kleine Güter tauschen", "Überleitung: Kerrid bricht zusammen → Eine Wendung zum Schlechteren"],
+  overview:[],
   readAloud:[
     { page:"S. 383", label:"Am fremden Lagerfeuer", text:
       `Während eure Gefährtenschaft nach Stunden des Wanderns zunehmend ermüdet, stolpert ihr auf eine große, offene Höhle inmitten der Felsen und werdet von der Wärme eines Feuers und den Gesichtern mehrerer Fremder begrüßt. Diese Reisenden haben sich um das Lagerfeuer versammelt und lauschen der leidenschaftlichen Erzählung eines unter ihnen, der gerade eine bezaubernde Geschichte darüber webt, wie er nur knapp dem Toben eines »sprechenden Sturms« entkommen ist. Manche der Reisenden verdrehen die Augen ob dieser abenteuerlichen Geschichte, doch andere haben sich neugierig eurer Gruppe zugewandt.` },
@@ -323,7 +323,7 @@ Ihr blickt den ansteigenden Hang der Berge vor euch entlang. Kerrid, \u00fcber i
   key:"turnforworse", kind:"scene", page:"S. 384",
   title:"Eine Wendung zum Schlechteren", en:"A Turn for the Worse",
   summary:"Kerrids Wettlauf um ihr Leben \u2014 STABILIZE 4 gegen SUCCUMB 5",
-  overview:["Kerrid bricht zusammen \u2014 Wettlauf um ihr Leben", "Stabilisiert: erholt sich, kann Reise fortsetzen", "Erliegt sie: die Helden m\u00fcssen die Nachricht selbst nach Kawa bringen"],
+  overview:[],
   readAloud:[
     { page:"S. 384", label:"Kerrid bricht zusammen", text:
       `Plötzlich hustet Kerrid, stolpert und sinkt auf ein Knie. Sie fängt sich, schwer auf ihren Speer gestützt, und ringt darum, wieder auf die Beine zu kommen. Blut hat ihren Reiseumhang durchtränkt, und sie kann sich nicht länger gegen ihren bedrohlichen Zustand stemmen. Ihr seid noch immer tief in der Wildnis, fern jeder bekannten Hilfe; ihr werdet hier und jetzt tun müssen, was in eurer Macht steht, um ihr zu helfen.` },
@@ -351,7 +351,7 @@ Ihr blickt den ansteigenden Hang der Berge vor euch entlang. Kerrid, \u00fcber i
   key:"kawa", kind:"scene", page:"S. 384–386",
   title:"Kawa, Kerrids Heimat", en:"Kawa, Kerrid's Home",
   summary:"Ankunft im Klanlager · Vertrauen der drei Anführer gewinnen · Treffen der Drei",
-  overview:["Ankunft am Hochlandsee, Kerrids Heimkehr (lebend oder als Verlust)", "Vertrauens-Mechanik: friend-of-warriors/druids/laborers-3 bei Riyori, Nochika, Gild", "Treffen der Drei: Lore über Issenhord, Turnskins, Maol", "Bündnis besiegelt: Die Drei unterstützen die Helden gegen Maol — Story-Thema „Riyoris Kriegerschar“ gewonnen"],
+  overview:[],
   readAloud:[
     { page:"S. 384", label:"Ankunft am Hochlandsee", text:
       `Zuerst seht ihr eine Rauchsäule aufsteigen: einladenden Kochfeuerrauch, dann trägt der Wind den Duft von gebratenem Fisch heran. Um die nächste Flussbiegung säumen tierhäutene Zelte einen gewundenen Hügelhang neben einem glitzernden See. Ihr hört auf zu zählen, nachdem ihr mehrere Dutzend gezählt habt. Manche Zelte sind groß genug für kleine Familien, andere sind gemütliche Halbkreise mit überhängender Plane für Schatten oder als Arbeitsplatz. Es ist die geschäftigste Zeit ihres Tages: Sie flicken ihre langen, geschwungenen Boote und versorgen den morgendlichen Fang; wer nicht gerade fischt, scheint sich zum Aufbruch bereitzumachen.
@@ -411,7 +411,7 @@ Einige der Highländer bemerken eure Annäherung. Ein halbes Dutzend Krieger mit
   key:"maolslair", kind:"scene", page:"S. 386\u2013387",
   title:"Die Spur der Bestie / Maols H\u00f6hle", en:"Maol's Lair",
   summary:"Letzte Konfrontation mit Maol und seinen Turnskins in der gefluteten H\u00f6hle",
-  overview:["Hufabdr\u00fccke f\u00fchren zu einer gefluteten H\u00f6hle", "Maol of the Boar (fanatic-3) \u2014 Eberhaut-Umhang als Schw\u00e4chung", "Painted Beast \u00fcberlebt \u2192 erholt sich hier / get\u00f6tet \u2192 Ferika of the Vulture & Ethain of the Bear schlie\u00dfen sich an"],
+  overview:[],
   readAloud:[
     { page:"S. 386", label:"Die Spur der Bestie", text:
       `Ihr wisst, dass ihr auf dem richtigen Weg seid, sobald ihr die Hufabdr\u00fccke seht. Nichts au\u00dfer der Painted Beast, dem Ungeheuer, das Cedargate angriff, k\u00f6nnte solch gewaltige Spuren hinterlassen haben. Sie f\u00fchren zu einer gefluteten H\u00f6hle, wo das Wasser mancherorts kniehoch steht. Mit Riyori und den anderen Kawa-J\u00e4gern in Reichweite schleicht ihr hinein, um euer Ziel zu finden.` },

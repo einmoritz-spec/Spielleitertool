@@ -52,7 +52,7 @@ const A4_SCENES = [
   key:"backwoods", kind:"scene", page:"S. 364–366",
   title:"Eine Heimsuchung in den Hinterwäldern", en:"A Haunting in the Backwoods",
   summary:"Ankunft in Millside · Albträume untersuchen · Jarko finden",
-  overview:["Ankunft in Millside — sonst lebendig, nun von Albträumen verflucht", "Das Dorf ist müde, gereizt und schroff, manche verschlossen aus Angst vor der Vila", "Wichtige Hinweise: wiederkehrende Albträume, überlasteter Fablo Roots, Riva Skall, Belohnung von Pommy Carpenter", "Ein beunruhigender Traum sucht einen der Helden vor dem Aufbruch heim", "Nahe Gefährten können beim Erwachen aus dem Albtraum helfen"],
+  overview:[],
   readAloud:[
     { page:"S. 364", label:"Der Weilyn-Damm", text:
       `Über die nebelfeuchten Steine des Weilyn-Damms hinweg ragt eine imposante Sägemühle aus dem Nebel, mühend wie ein grollendes Ungetüm. Arbeiter und Holzfäller eilen über die schlammigen Höfe und speisen unermüdlich die Sägen. Dahinter, einen Steinwurf von den wogenden Rändern des Aldenweald entfernt, erwarten euch die gemütlichen Hütten und Herbergen von Millside. Die dunstige Luft ist dick von Kohle und Torfgeruch.
@@ -110,7 +110,7 @@ Doch dem Weiler fehlt die Lebendigkeit, für die er in den ganzen Dales bekannt 
   key:"intoforest", kind:"scene", page:"S. 366–369",
   title:"In den Aldenweald hinein", en:"Into the Aldenweald",
   summary:"Vignetten-Journey · Riva Skall · AshenEpitaph · die kriechende Verderbnis",
-  overview:["Reise in den Aldenweald als Journey — die Helden gewinnen forest's-attention", "Die Einsiedlerin Riva Skall lebt am Waldrand und kennt die Gefahren tief im Wald, lässt sich aber überzeugen zu helfen", "AshenEpitaph konfrontiert die Helden mit zermürbenden Fragen und festgelegten Kriegsvisionen", "Lore-Enthüllung I: die himmlischen Wesen des Smaragdenen Zweigs lehrten die Thaumaturgie", "Ein Ausläufer des Evermire-Miasmas lässt einen miasma-verderbten Bären auftauchen — Reinigung bringt Wohlwollen der Green Maiden"],
+  overview:[],
   readAloud:[
     { page:"S. 366", label:"Der Weg in den Aldenweald", after:1, text:
       `Zahlreiche Holzfäller- und Jagdpfade führen von Millside hinein in den Aldenweald – die friedlichen Wiesen verwandeln sich mit einem Mal in einen malerischen Wald. Genug Tageslicht dringt durch das Blätterdach, um das dichte Unterholz in leuchtenden Farben erstrahlen zu lassen, doch die Schatten bleiben tief und undurchdringlich. Während ihr weitergeht, flüstert der Wind in den Baumwipfeln, und kleine Tiere zwitschern und huschen umher. Manchmal scheint es, als fügten sich diese Geräusche zu einer kohärenten Stimme zusammen, wie ein fernes Seufzen, oder gar ein Wort, beinahe laut genug, um verständlich zu sein – doch eben nur beinahe.` },
@@ -295,7 +295,7 @@ Die Luft kühlt ab, und ein dünner, hohler Wind zieht durch die Bäume, einen a
   key:"secondoffering", kind:"scene", page:"S. 369–370",
   title:"Die zweite Opfergabe", en:"The Second Offering",
   summary:"Jarkos Altar · der Wald erwacht · Einladung der Green Maiden",
-  overview:["Die zweite Opfergabe wird dargebracht — doch sie genügt nicht, die Green Maiden zu besänftigen", "Optional: Vignetten der „Ritual“-Journey (CBII 198) während der Vorbereitung", "Der Wald reagiert: forest's-attention wird zu waking-dreams für alle Helden", "Vision 1: Millside versinkt im Chaos der Wachträume", "Vision 2: Die Green Maiden lädt die Helden ein, sie tiefer im Wald zu finden", "Wagen die Helden sich tiefer in den Wald, folgt Der Wald der Träume oder direkt Die Grotte", "Kehren sie stattdessen zurück, verschlimmern sich die waking-dreams weiter"],
+  overview:[],
   readAloud:[
     { page:"S. 369", label:"Jarkos Opferstätte", text:
       `Während ihr euch der Stätte von Jarkos Opfergaben nähert, scheinen die Baumstämme sich um euch zusammenzuziehen, sanft schwankend, wachsam und flüsternd, und das Dickicht streift eure Kleider. Weiter als bis hierher haben sich die Bewohner von Woodend nie in den Aldenweald hineingewagt.
@@ -327,7 +327,7 @@ Jarkos Anweisungen waren klar: Vollzieht die Riten. Lasst die Opfergabe dort. Ve
   key:"forestofdreams", kind:"scene", page:"S. 370–371",
   title:"Der Wald der Träume", en:"The Forest of Dreams",
   summary:"Vignetten-Journey durch den tiefen Aldenweald",
-  overview:["Die Suche nach der Grotte der Maiden führt in die tiefsten Winkel des Aldenweald", "Vignetten der „Tiefer Aldenweald“-Journey — die Realität verbiegt sich zusehends", "Der Wald verstärkt jegliche Magie, auch einfache Oldways-Praktiken", "Ein Land der Träumenden: waking-dreams behindert, kann aber kreativ genutzt werden"],
+  overview:[],
   readAloud:[
     { page:"S. 370", label:"Das wahre Antlitz des Aldenweald", text:
       `Das wahre Antlitz des Aldenweald entfaltet sich um euch, in all seiner wandelbaren, traumartigen Beschaffenheit. Bäume ächzen und bewegen sich, Tiere nehmen menschliche Gestalt an, die Erde krümmt sich von euren Füßen weg, und selbst die Luft selbst drückt seltsam gegen euch.
@@ -383,7 +383,7 @@ Und doch ist hier noch Schönheit zu finden: sattes Grün, Vogelgesang, der Duft
   key:"grotto", kind:"scene", page:"S. 372–374",
   title:"Die Grotte", en:"The Grotto",
   summary:"Die Green Maiden / SeedWaker · Rede · Opfergaben · Kern-Enthüllungen 5 & 6",
-  overview:["In der Höhlenzuflucht erweist sich die Green Maiden als Teil der Höhle selbst", "Unter ihrer großspurigen Art zeigt sie einen Hauch von Verspieltheit", "Sie fordert eine von mehreren möglichen symbolischen Opfergaben", "Wird sie angegriffen, kann ihre wahre Spinnengestalt hervorbrechen", "Das Gespräch bietet Gelegenheit für wichtige Reihen-Enthüllungen", "Sie weist die Helden zu den verborgenen „Wurzeln der Oldways“", "Mögliche Ausgänge: besänftigt, überwunden, oder im Streit verlassen"],
+  overview:[],
   readAloud:[
     { page:"S. 372", label:"Die Grotte der Green Maiden", text:
       `Der Pfad, der euch hinab in diese Höhle führte, verblasst rasch aus eurer Erinnerung. Ein Rinnsal aus Wasser sickert von der Decke, über einen steinigen Pfad hinab, in den Teich zu euren Füßen. Von oben hängen zarte Wurzeln wie Fäden herab und schwanken leicht, obwohl kein Wind weht. Die Felsen, die das Wasser sprenkeln, und der Boden, auf dem ihr steht, sind bedeckt mit Moos, das in sanftem grünem Licht schimmert. Die Luft riecht grün und frisch, doch der Duft ist flüchtig, kommt und geht mit jedem Atemzug, als gehöre er zu diesem Ort und nicht zu euch, um ihn mitzunehmen, wenn ihr geht.

@@ -56,7 +56,7 @@ Es kann helfen, die Verlorene Einsiedelei auf zwei Wegen zu finden: magisch, dur
   key:"meet-greet", kind:"scene", page:"S. 389–393",
   title:"Tag 1 — Meet & Greet", en:"Day 1: Meet & Greet",
   summary:"Fair-Eröffnung · Thanes Plan · Fünf-Punkte-Markt",
-  overview:["Marshal Rudol eröffnet den Fair-Monarch-Wettstreit", "Thane Codprice und seine Spießgesellen abseits belauschen (alert-3)", "Fünf-Punkte-Markt: Handwerk gegen Rote Bänder eintauschen", "Neue Mitstreiter: Eddina, Dullmie, die Kombert-Zwillinge"],
+  overview:[],
   readAloud:[
     { page:"S. 389", label:"Fair-Eröffnung", text:
       `Es gibt keinen Ort wie Barleytown in den ganzen Dales. Diese wohlhabende Stadt mit ihren hohen Häusern und tiefen Kanälen ist das Zentrum des dalischen Handels und Heimstatt der Red Marshals.
@@ -101,7 +101,7 @@ Die Menge strömt zum überdachten Fünf-Punkte-Markt und trägt euch mit sich f
   key:"hogs-feast", kind:"scene", page:"S. 390, 394",
   title:"Tag 2 — Ein Hog's Feast", en:"Day 2: A Hog's Feast",
   summary:"Der große Wettessen-Wettstreit gegen Thane",
-  overview:["Marshal Rudols Rede über die Fülle der Ernte", "Wettessen-Challenge: 5 Rote Bänder für den Sieger", "Brauch: ein oder zwei Bänder an den „Schweinigsten“ oder Lieblingskoch abgeben"],
+  overview:[],
   readAloud:[
     { page:"S. 390", label:"Ein Hog's Feast", text:
       `Der zweite Tag der Feierlichkeiten beginnt mit dem ersten großen Wettbewerb der Fair, dem sogenannten »Hog's Feast«: eine Gelegenheit, die Fülle der vergangenen Saison zu feiern, indem man sich mit köstlicher heimischer Küche den Bauch vollschlägt.
@@ -137,7 +137,7 @@ Auf dem Marktplatz sind mehrere lange Festtafeln Ende an Ende aneinandergereiht 
   key:"council-oldways", kind:"scene", page:"S. 394–395",
   title:"Rat der Oldways", en:"Council of the Oldways",
   summary:"Geheime Versammlung · Kern-Enthüllungen 5 & 6 · ein Spion belauscht",
-  overview:["Walric holt die Helden heimlich zu einer Kellerversammlung", "Rosamund, Azeria, Yule, Nochika, Etch, Ovistra beraten über das Schwinden der Oldways", "Kern-Enthüllungen 5 & 6, neue Aufgabe: die Verlorene Einsiedelei finden", "Ein Lauscher an der Tür — möglicherweise Verdan"],
+  overview:[],
   readAloud:[
     { page:"S. 394", label:"Rat der Oldways", text:
       `»Da seid ihr ja, ihr elenden Gesellen!« Eine vertraute, raue Stimme ruft euch aus der Menge zu, gefolgt von der staubigen Gestalt eines Wanderers mittleren Alters – Walric Hywell. »Ich habe euch gerade noch rechtzeitig gefunden. Wir sind spät dran für ein Treffen von großer Bedeutung. Ich erzähle euch mehr, aber nicht hier.« Er blickt sich unsicher um. »Folgt mir.«
@@ -176,7 +176,7 @@ Während sich eure Augen an den kerzenerleuchteten, verräucherten Raum gewöhne
   key:"day3-games-songs-vigil", kind:"scene", page:"S. 396–398",
   title:"Tag 3 — Glücksspiele, Geschichten & Lieder, Die Totenwache", en:"Day 3: Games of Chance, Tales & Songs, The Graveyard Vigil",
   summary:"Drei optionale Wettbewerbe · die Bad Apples · Thanes Auftritte",
-  overview:["Glücks- & Geschicklichkeitsspiele — drei Siege = ein Rotes Band", "Die Bad Apples stören auf Thanes Geheiß", "Geschichten erzählen & Lieder spielen — Thane tritt selbst an", "Die Totenwache auf dem Friedhof — durchhalten für drei Rote Bänder"],
+  overview:[],
   readAloud:[
     { page:"S. 396", label:"Glücksspiele", text:
       `Während der dritte Tag der Fair beginnt, hat sich der Markt erneut verwandelt. Die verschiedenen Stände und Zelte auf dem Stadtplatz sind zu jahrmarktartigen Glücks- und Geschicklichkeitsspielen umgebaut worden, mit Familien und Gruppen von Feiernden, die von einem Stand zum nächsten ziehen und einander bei Glück und Missgeschick anfeuern. Kinder rennen jedem zwischen den Beinen umher.
@@ -250,7 +250,7 @@ Jene, die viele Rote Bänder gesammelt haben, machen sich bereit, gurgeln Essig 
   key:"goat-race-crowning", kind:"scene", page:"S. 398–400",
   title:"Tag 4 — Das Große Ziegenrennen & Krönung des Monarchen", en:"Day 4: The Great Goat Race & Crowning of the Monarch",
   summary:"Finale: Ziegenrennen · Attentat auf das Circlet · Krönung",
-  overview:["Das Große Ziegenrennen — 10 Bänder für den Sieger, 3 für Platz zwei", "Daisy Woegold bringt das Circlet, Verdan bereitet ein Attentat vor", "Kanalschlag: Verdan greift an, evtl. mit Fondness' End (frozen-solid-6)", "Krönung des Monarchen — wer die meisten Bänder hat, gewinnt"],
+  overview:[],
   readAloud:[
     { page:"S. 398", label:"Das Große Ziegenrennen", text:
       `Heute ist der letzte Tag der Fair und der Tag ihres größten Wettbewerbs. Nach einer Nacht voller Ausschweifung (oder einer Totenwache auf dem Friedhof) fallen die Strahlen der Mittagssonne auf den erneut umgestalteten Marktplatz im Herzen der Stadt, diesmal verwandelt in einen improvisierten Pferch. Beißende Gerüche und meckernde Ziegenlaute erfüllen die morgendliche Luft, während sich die verschiedenen Teilnehmer in die Schlange für das große Ziegenrennen des Tages einreihen. »Ich hab dir doch gesagt, du sollst nicht frühstücken«, sagt einer zum anderen, während der Ansturm auf die Sinne wohl manchem den Magen umdrehen könnte – ganz zu schweigen von dem heranrasenden Chaos aus drängelndem Vieh, das den Reitern bevorsteht. Wie immer steht Marshal Rudol schon bereit und mahnt die wachsende Menge, fair zu spielen und ihre Reitziege gut zu behandeln.` },

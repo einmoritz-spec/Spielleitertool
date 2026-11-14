@@ -77,7 +77,7 @@
       if(i && i.books && i.books.length>1){
         if(bdd){ bdd.remove(); bdd = null; return; }
         bdd = document.createElement("div"); bdd.className = "tm-dd"; bdd.setAttribute("role","menu"); bdd.style.minWidth = "220px";
-        bdd.innerHTML = i.books.map(function(k,n){ return '<button role="menuitem" data-n="'+n+'"><b>'+k.name+'</b><span style="display:block;opacity:.6;font-size:12px;margin-top:1px">'+k.sub+'</span></button>'; }).join("");
+        bdd.innerHTML = i.books.map(function(k,n){ return '<button role="menuitem" data-n="'+n+'"><span style="display:block"><b>'+k.name+'</b><span style="display:block;opacity:.6;font-size:12px;margin-top:2px">'+k.sub+'</span></span></button>'; }).join("");
         themed(bdd);
         bdd.addEventListener("click", function(ev){ var x = ev.target.closest("button"); if(!x) return; var k = i.books[+x.dataset.n]; bdd.remove(); bdd = null; k.open(); });
         document.body.appendChild(bdd);

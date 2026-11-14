@@ -6,7 +6,7 @@ function IMG(n, k){ return "img/" + (k || "full") + "/" + n + ".webp"; }
 var cur = "start", sub = "", folded = false;
 try{ folded = localStorage.getItem("vae_fold") === "1"; }catch(e){}
 var BOOK = 4; /* PDF-Seite = Buchseite + 4 */
-function inBook(p){ return "BV.open('core'," + (p + BOOK) + ")"; }
+function inBook(p){ return "BV.open('vae_core'," + (p + BOOK) + ")"; }
 
 /* ---------- Bereiche ---------- */
 var AREAS = [
@@ -57,7 +57,7 @@ function box(inner, st){ return '<div class="box"' + (st ? ' style="' + st + '"'
 /* ---------- Startseite ---------- */
 function bookTile(b){
   var cv = b.cover ? 'style="background-image:url(img/' + b.cover + ')"' : '';
-  return '<button class="book' + (b.on ? '' : ' ph') + '" onclick="' + (b.on ? "BV.open('core',1)" : "bookInfo('" + b.id + "')") + '"><div class="cv" ' + cv + '>' + (b.cover ? '' : esc(b.name)) + '</div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></button>';
+  return '<button class="book' + (b.cover ? '' : ' ph') + '" onclick="BV.open(\'' + b.id + '\',1)"><div class="cv" ' + cv + '>' + (b.cover ? '' : esc(b.name)) + '</div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></button>';
 }
 function bookInfo(id){ alert("Dieses Buch ist noch nicht eingebunden – sobald das PDF vorliegt, erscheinen hier Cover und Inhalt."); }
 function viewStart(){
@@ -147,11 +147,11 @@ function vDetail(v){
   function li(a){ return "<ul>" + a.map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul>"; }
   var quote = d.q ? '<p class="hand" style="margin:6px 0 0;max-width:90ch">„' + esc(d.q) + '“ <span style="font-size:17px">– Carl Linnaeus, ' + esc(d.qd) + '</span></p>' : '';
   var head = '<div style="grid-column:1/3"><div style="display:flex;align-items:baseline;gap:14px"><h1>' + esc(v.name) + '</h1>' + bookLink(v.p) + '</div>' + quote + '</div>';
-  var left = '<div class="ph" style="margin-top:0">' + (has ? '<img src="' + IMG(v.img) + '" alt="' + esc(v.name) + '">' : '') + '<div><p style="font-size:17.5px">' + esc(v.text) + '</p></div></div>' +
+  var left = '<div class="ph" style="margin-top:0">' + (has ? '<img src="' + IMG(v.img) + '" alt="' + esc(v.name) + '">' : '') + '<div><p style="font-size:17.5px">' + esc(d.text || v.text) + '</p></div></div>' +
    (d.powers || d.cond ? '<div class="g2" style="margin-top:6px">' + (d.powers ? '<div><h3>Magische Kräfte</h3>' + li(d.powers) + '</div>' : '') + (d.cond ? '<div><h3>Zustände</h3>' + li(d.cond) + '</div>' : '') + '</div>' : '<p class="pg" style="margin-top:12px">Magische Kräfte, Zustände und Angriffe stehen im Buch auf S. ' + v.p + '.</p>');
   var right = box('<div class="hd" style="text-align:center;letter-spacing:.14em;color:var(--red);font-size:15px">EIGENSCHAFTEN</div><div class="stat" style="margin-top:6px">' + st("Macht", v.might) + st("Körperkontr.", v.body) + st("Magie", v.magic) + st("Manipul.", v.manip) + st("Furcht", v.fear) + '</div>', "font-size:15.5px") +
    (d.att && d.att.length ? '<h3>Angriffe</h3><table class="t"><tr><th>Angriff</th><th>Schaden</th><th>Reichweite</th></tr>' + d.att.map(function(r){ return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td></tr>"; }).join("") + '</table>' + (d.note ? '<p class="pg" style="white-space:normal">' + esc(d.note) + '</p>' : '') : '') +
-   '<h3>Ritual</h3>' + box('<p style="margin:0">' + esc(v.ritual) + '</p>', "font-size:16px");
+   '<h3>Ritual</h3>' + box('<p style="margin:0">' + esc(d.ritual || v.ritual) + '</p>', "font-size:16px");
   var ex = d.ex ? '<div style="grid-column:1/3"><h3 style="margin-top:0">Beispiele für Konflikte</h3><div class="exg">' + d.ex.map(function(t){ return box(t); }).join("") + '</div></div>' : '';
   return '<div class="vd">' + head + '<div>' + left + '</div><div style="font-size:17px">' + right + '</div>' + ex + '</div>';
 }

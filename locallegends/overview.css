@@ -33,3 +33,14 @@
 .ov-card{padding-bottom:6px}
 @media(max-width:560px){.ov-card{padding-bottom:6px}}
 @media(max-width:1000px){.ov-card:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 6px);justify-self:center}}
+
+/* Kompakter für Laptop: vier Karten pro Reihe, flachere Bühne */
+@media (min-width:1001px){
+  .ov-grid{grid-template-columns:repeat(4,1fr);gap:20px 16px}
+  .ov-logo{height:clamp(100px,11vw,150px)}
+  .ov-stage{padding:12px 14px 12px;margin-bottom:18px}
+  .ov-name{font-size:clamp(16px,1.35vw,20px)}
+  .ov-sub{font-size:12.5px}
+  .ov-cap{padding:8px 3px 10px}
+}
+@media (min-width:1250px){ .ov-grid{grid-template-columns:repeat(5,1fr)} }

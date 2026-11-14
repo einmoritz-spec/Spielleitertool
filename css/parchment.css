@@ -214,3 +214,18 @@ input::placeholder{color:var(--text-faint)}
 .tip strong{color:#2f4d28}
 
 .topbar .brand.brand-logo{display:inline-flex;align-items:center;line-height:0}.topbar .brand.brand-logo img{height:38px;width:auto;display:block}
+
+/* Kompakter für Laptop: flaches Titelbild, kleines Logo, bis zu fünf Karten pro Reihe */
+.ov2{margin-top:-30px}
+.ov2-hero{height:clamp(110px,12vw,150px)}
+.ov2-title{margin-top:calc(-1 * clamp(80px,9vw,110px))}
+.ov2-title img{height:clamp(84px,9vw,118px)}
+.ov2-title .s{font-size:11.5px;margin-top:2px}
+.ov2-orn{margin:8px auto 14px}
+.ov2-grid{max-width:1400px;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px;padding:0 22px}
+.adv-card img{aspect-ratio:4/3!important}
+.adv-card .b{padding:8px 12px 11px}
+.adv-card h3{font-size:15.5px}
+.adv-card .en{font-size:13px}
+.adv-card p{font-size:13px;line-height:1.38;margin-top:5px}
+@media(max-width:640px){.ov2-grid{grid-template-columns:1fr}}

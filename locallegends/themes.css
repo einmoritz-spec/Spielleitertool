@@ -128,7 +128,7 @@ html[data-ll=a] .shell b,html[data-ll=a] .shell strong{color:inherit!important}
 }
 
 /* Startseite: Karte größer, Stage schmiegt sich an */
-.ov-stage{width:calc((100vh - 112px)*1.32 + 26px);max-width:100%;margin:0 auto 22px;padding:10px 12px 12px}
+.ov-stage{width:calc((100vh - 112px)*.48*1.32 + 26px);max-width:100%;margin:0 auto 22px;padding:10px 12px 12px}
 .ov-stage .city-map img{width:100%!important;height:auto!important;max-height:none!important;box-shadow:0 0 0 2px #ff3fa4,0 8px 22px rgba(0,0,0,.6)}
 .ov-stage .city-map-box{margin:0}
 /* SL/S direkt in der Karte */
@@ -192,7 +192,7 @@ body.topbar-hidden .shell,body.topbar-hidden .shell:has(.ov-stage){padding-top:1
 body.topbar-hidden .ll-rnav{top:14px;max-height:calc(100vh - 40px)}
 body.topbar-hidden .ov-split>.ov-art,body.topbar-hidden .lb-a{top:14px}
 body.topbar-hidden .ll-rail>.ll-rmain>*,body.topbar-hidden .ll-rmain>*{scroll-margin-top:16px}
-body.topbar-hidden .ov-stage{width:calc((100vh - 40px)*1.32 + 26px)}
+body.topbar-hidden .ov-stage{width:calc((100vh - 40px)*.48*1.32 + 26px)}
 body.pn-off .ll-rail{padding-left:26px}
 /* Kein leerer Platz unter der linken Spalte: Vorlese-/Bildspalte schwebt, rechter Text fließt darunter über die volle Breite */
 @media(min-width:1200px){

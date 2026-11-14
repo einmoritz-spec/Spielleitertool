@@ -1,0 +1,31 @@
+/* Buchbilder je Abschnitt: [Datei in assets/galerie/litm-core/full, Breite, Höhe, Seite (bei Band II + 240)] – wird im Eintrag mit der passenden Seite eingefügt */
+var LM_IMGS = {
+  "handlung":[
+    ["lmHeld_pdf038_B145_Action-and-Drama_2",1220,568,145],
+    ["lmHeld_pdf039_B148_Action-and-Drama_1",1220,820,148],
+    ["lmHeld_pdf041_B154_Action-and-Drama_1",1228,572,154],
+    ["lmHeld_pdf042_B156_Action-and-Drama",1229,1589,156],
+    ["lmHeld_pdf046_B180_Action-and-Drama_1",1228,772,180]
+  ],
+  "entwicklung":[
+    ["lmHeld_pdf047_B186_Hero-Development_1",1228,824,186],
+    ["lmHeld_pdf049-050_B191ca_Hero-Development",2458,1589,191]
+  ],
+  "magie":[
+    ["lmHeld_pdf052_B203_Fundamentals-of-Magic_1",1220,652,203],
+    ["lmHeld_pdf056_B212_Ways-of-Magic_1",328,756,212],
+    ["lmHeld_pdf061_B226_Ways-of-Magic",1229,1589,226],
+    ["lmHeld_pdf063-064_B227ca_Ways-of-Magic",2458,1589,227]
+  ],
+  "nr-sitzung":[["lmErzaehler_pdf069_B043_Narrating-a-Session",1229,1589,283]],
+  "nr-abenteuer":[
+    ["lmErzaehler_pdf071_B048_Designing-Adventures_1",544,1428,288],
+    ["lmErzaehler_pdf073_B063_Designing-Adventures_1",1132,1588,303]
+  ],
+  "nr-cauldron":[
+    ["lmErzaehler_pdf075_B081_Magic-Cauldron_1",860,676,321],
+    ["lmErzaehler_pdf076_B095_Magic-Cauldron_1",1220,792,335],
+    ["lmErzaehler_pdf077_B101_Magic-Cauldron_1",972,1588,341],
+    ["lmErzaehler_pdf078-079_B101ca_Magic-Cauldron",2458,1589,341]
+  ]
+};

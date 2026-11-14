@@ -180,3 +180,5 @@
 .ort-gh{margin:18px 0 8px;font:600 12px var(--sans,inherit);letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}.ort>.lm-sh+.ort-gh{margin-top:6px}
 .ort-ex{margin-top:14px}
 .ort-im em{display:flex;align-items:center;justify-content:center;height:100%;font:italic 400 54px var(--serif,Georgia,serif);color:rgba(122,31,31,.28)}
+.lm-img{margin:6px 0 16px;text-align:center}
+.lm-img img{display:block;margin:0 auto;width:auto;height:auto;max-width:100%;max-height:540px;border-radius:6px}

@@ -3,6 +3,7 @@ window.SYS = {
  "id": "triangle",
  "name": "Triangle Agency",
  "logoText": "Triangle Agency",
+ "logoMask": ["../assets/logos/triangle-agency.webp", 100, 35],
  "defaultBook": "ta_core",
  "fonts": [
   [

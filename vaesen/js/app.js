@@ -87,6 +87,18 @@ function blk(b){
 }
 function twoCol(blocks){ /* Fließtext in zwei Spalten, Boxen über die volle Breite */ return '<div style="column-width:420px;column-gap:40px">' + blocks.filter(function(b){ return b.t === "p" || b.t === "h" || b.t === "ul"; }).map(blk).join("") + '</div>' + blocks.filter(function(b){ return b.t !== "p" && b.t !== "h" && b.t !== "ul"; }).map(blk).join(""); }
 
+function flow(blocks){
+  var out = "", txt = [], bx = [];
+  function ft(){ if(txt.length){ out += '<div style="column-width:420px;column-gap:40px;margin:6px 0">' + txt.map(blk).join("") + '</div>'; txt = []; } }
+  function fb(){ if(bx.length){ out += '<div class="cols" style="margin:10px 0">' + bx.map(function(b){ return box("<h3>" + b.h + "</h3><p>" + b.x + "</p>"); }).join("") + '</div>'; bx = []; } }
+  blocks.forEach(function(b){
+    if(b.t === "box"){ ft(); bx.push(b); }
+    else if(b.t === "tbl"){ ft(); fb(); out += blk(b); }
+    else { fb(); txt.push(b); }
+  });
+  ft(); fb(); return out;
+}
+
 /* ---------- Regeln ---------- */
 function viewRegeln(){
   var tabs = VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]);
@@ -134,6 +146,7 @@ var VBOOK = {"t-menschen":[112,"Vaesen und Menschen"],"t-magie":[115,"Magische K
 var IMGS = {}; (window.__galNames || []).forEach(function(n){ IMGS[n] = 1; });
 function vSide(){ return [{i:VAE_WESEN.map(function(v){ return {id:v.id, go:"vaesen/" + v.id, t:v.name}; })}]; }
 function viewVaesen(){
+  if(window.VAE_KAP && VAE_KAP[sub]){ var k = VAE_KAP[sub]; return tabsBar(VTABS, k.titel) + '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(k.titel) + '</h1>' + bookLink(k.p) + '</div><div style="margin-top:12px">' + flow(k.b) + '</div></div>'; }
   if(VBOOK[sub]){ var b = VBOOK[sub]; return tabsBar(VTABS, b[1]) + '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + b[1] + '</h1>' + bookLink(b[0]) + '</div><div class="cols" style="margin-top:14px">' + box('<h3>Im Buch</h3><p>Dieser Abschnitt steht im Grundregelwerk ab S. ' + b[0] + '. Die deutsche Aufbereitung folgt.</p><p><button class="btn alt" onclick="' + inBook(b[0]) + '">Im Buch öffnen</button></p>') + '</div></div>'; }
   var v = VAE_WESEN.filter(function(x){ return x.id === sub; })[0];
   if(v) return tabsBar(VTABS, "Vaesen") + main(vSide(), v.id, vDetail(v));

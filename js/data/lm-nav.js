@@ -2,6 +2,7 @@
 const LM_NAV = {
   tabs:[
     {id:"regeln", t:"Regeln", src:"Core Book"},
+    {id:"narrator", t:"Narrator", src:"Core Book"},
     {id:"orte", t:"Orte", src:"Setting Book: The Dales"},
     {id:"dales", t:"Land und Leute", src:"Setting Book: The Dales"},
     {id:"dales-b", t:"Gruppen und Helden", src:"Setting Book: The Dales"},
@@ -17,6 +18,14 @@ const LM_NAV = {
       {id:"handlung", t:"Handlung & Drama", p:142, pe:185},
       {id:"entwicklung", t:"Heldenentwicklung", p:186, pe:195},
       {id:"magie", t:"Magie", p:196, pe:230}
+    ],
+    narrator:[
+      {id:"nr-einstieg", t:"Einführung", p:248, pe:254},
+      {id:"nr-sitzung", t:"Eine Sitzung narrieren", p:256, pe:283},
+      {id:"nr-abenteuer", t:"Abenteuer und Serien", p:284, pe:320},
+      {id:"nr-cauldron", t:"Magic Cauldron", p:321, pe:341},
+      {id:"nr-challenges", t:"Beutel der Gefahren", p:342, pe:351},
+      {id:"nr-oracle", t:"Das Oracle", p:478, pe:495}
     ],
     welt:[
       {id:"orte", t:"Orte", p:76, pe:107},

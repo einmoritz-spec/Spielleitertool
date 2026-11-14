@@ -1,4 +1,12 @@
 window.LM_FILES={
+ "nr-einstieg": [
+  "data/lm/nr-einstieg.js"
+ ],
+ "nr-sitzung": [],
+ "nr-abenteuer": [],
+ "nr-cauldron": [],
+ "nr-challenges": [],
+ "nr-oracle": [],
  "dales": [
   "data/lm/dales-2.js",
   "data/lm/dales-3.js",

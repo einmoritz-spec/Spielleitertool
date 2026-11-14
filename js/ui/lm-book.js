@@ -162,11 +162,11 @@ function tocSpy(toc, ids, offset){ var __sel=".lm-sub a";
   window.addEventListener("scroll",__tocSpy,{passive:true}); __tocSpy();
 }
 function lmJump(i){ var el=document.getElementById("lm-"+i); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
-function goBook(tab,sec){ if(sec==="themenbuecher"&&typeof goThemen==="function") return goThemen(); if(typeof guardEditLeave==="function"&&!guardEditLeave()) return; if(tab==="welt"){ tab=sec||"dales"; } else if(tab&&tab!=="regeln"&&!sec) sec=tab; if(tab&&tab!=="regeln"&&LM_NAV.secs.welt.some(function(x){return x.id===tab;})&&!sec) sec=tab; if(tab==="orte"&&sec!=="orte"&&!sec) sec="orte"; if(tab!=="orte") state.ortPlace=null; state.view="book"; state.bookTab=tab||state.bookTab||"regeln"; state.bookSec=sec||null; render(); scrollToTop(); if(typeof persist==="function") persist(); }
+function goBook(tab,sec){ if(sec==="themenbuecher"&&typeof goThemen==="function") return goThemen(); if(typeof guardEditLeave==="function"&&!guardEditLeave()) return; if(tab==="welt"){ tab=sec||"dales"; } else if(tab&&tab!=="regeln"&&tab!=="narrator"&&!sec) sec=tab; if(tab&&tab!=="regeln"&&LM_NAV.secs.welt.some(function(x){return x.id===tab;})&&!sec) sec=tab; if(tab==="orte"&&sec!=="orte"&&!sec) sec="orte"; if(tab!=="orte") state.ortPlace=null; state.view="book"; state.bookTab=tab||state.bookTab||"regeln"; state.bookSec=sec||null; render(); scrollToTop(); if(typeof persist==="function") persist(); }
 function renderBook(){
   if(state.bookTab==="jenseits-b"||state.bookSec==="jenseits-b"){ state.bookTab="orte"; state.bookSec="orte"; if(typeof goThemen==="function") return goThemen("heroes-uncanny"); }
   var tab=state.bookTab||"regeln"; if(tab==="welt") tab=state.bookSec||"dales"; var list=LM_NAV.secs[tab]||LM_NAV.secs.welt.filter(function(x){return x.id===tab;}), sid=state.bookSec, s=list.filter(function(x){return x.id===sid;})[0]||list[0];
-  state.bookSec=s.id; state.bookTab=tab; lmKey=(tab==='regeln')?'core':'wake';
+  state.bookSec=s.id; state.bookTab=tab; lmKey=(tab==='regeln'||tab==='narrator')?'core':'wake';
   var tabs=LM_NAV.tabs.map(function(t){ return '<button class="lm-tab'+(t.id===tab?' on':'')+'" onclick="goBook(\''+t.id+'\')">'+esc(t.t)+'</button>'; }).join("");
   var pills=list.map(function(x){ return '<button class="lm-pill'+(x.id===s.id?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(x.t)+'</button>'; }).join("");
   var i=list.indexOf(s), prev=list[i-1], next=list[i+1];

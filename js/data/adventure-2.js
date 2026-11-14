@@ -6,7 +6,7 @@ const A2_SCENES = [
 {
   key:"intro", kind:"intro", page:"S. 333–336",
   title:"Überblick", en:"An Important Letter",
-  summary:"Hintergrund, Hooks & Szenenfolge",
+  summary:"Hintergrund, Schreine, Zusammenfassung & Hooks",
   overview:[],
   readAloud:[
     { page:"S. 333", label:"Eröffnung des Abenteuers — Der Year Walk", text:
@@ -15,10 +15,21 @@ const A2_SCENES = [
 Nun ist ein Brief von großer Bedeutung eingetroffen, für einen dieser Pilger – einen Pilger, der bereits gut unterwegs ist zu einem der vielen Schreine von Ashstone, einer rauen Gegend aus Hügeln, Schluchten und Steinbrüchen. Die dringende Nachricht, versiegelt mit den Zeichen der Oldways, kann nicht Monate oder Jahre auf seine Rückkehr warten. Und so liegt es an einigen unerschrockenen Seelen, dem Pfad des Pilgers zu folgen und seine Post mitten unter den geheimnisvollen Relikten der Oldways zu überbringen.` },
   ],
   flow:[
-    `Ein dringender Brief für <strong><span class="gloss" onclick="openGloss('walric-hywell-ref')">Walric Hywell</span></strong> erreicht Ravenhome zu spät — er hat bereits seinen <span class="gloss" onclick="openGloss('year-walk')">Year Walk</span> begonnen (S. 61), eine einjährige Pilgerfahrt zwischen den Oldways-Schreinen. Walric ist ein bärtiger Landstreicher von fünfzig Jahren und ein Praktizierender der Oldways, bewandert in nützlichen Beschwörungen und Zaubern. Die Helden übernehmen die Aufgabe, ihn zu finden und den Brief zuzustellen, Schrein für Schrein seiner Spur folgend.`,
-    `<span class="callout"><span class="co-title">Walrics Pilgerfahrt</span>Ursprünglich ein Bannwirker aus <span class="gloss" onclick="openGloss('upper-hartland')">Upper Hartland</span>; seine Oldways-Schutzbanne versagten dabei, eine Familie vor einem Angriff zu schützen (möglicherweise durch eine <span class="gloss" onclick="openGloss('hexia')">Hexia</span> aus dem Witchwood, S. 292) — Menschen starben, der Hof brannte nieder. Seither ist er auf dem Year Walk, um zu verstehen, warum die Oldways versagten.</span>`,
-    `<strong>Was die Year-Walk-Schreine ausmacht:</strong> Jeder der Schreine, denen die Gruppe folgt, ist ein von Oldways-Praktizierenden über Jahrhunderte errichteter oder markierter Ort — ein Steinhügel, ein Altar, eine Inschrift, eine Statue. Jeder Schrein dreht sich um eine andere Tugend oder Lehre der Oldways und hat mehrere Bedeutungsebenen: eine leicht zugängliche, direkt an der Oberfläche, und tiefere, esoterischere Schichten darunter. So gaben die ursprünglichen Oldways-Praktizierenden ihr Wissen über Generationen an künftige Thaumaturgen weiter. Ist ein Schrein einmal entschlüsselt, stellt er eine implizite Prüfung — und wer sie annimmt, wird mit einer kleinen Gunst („grace“) belohnt. Genau dieses Muster wiederholt sich an jedem der vier Schreine dieses Abenteuers.`,
-    `<span class="callout"><span class="co-title">Was im Brief steht (für später)</span>Der Brief enthält Berichte über Unruhe in den Dales, die auf künftige Abenteuer vorausweisen: Radmilas Einbruch in <span class="gloss" onclick="openGloss('milkrest')">Milkrest</span> (→ A Fox in the Dales), Yules Bestien-Angriffe auf <span class="gloss" onclick="openGloss('abnoba-keep-ref')">Abnoba Keep</span> (→ The <span class="gloss" onclick="openGloss('painted-beast')">Painted Beast</span>) und Jaros beunruhigende Träume in <span class="gloss" onclick="openGloss('woodend')">Woodend</span> (→ The Green Maiden). Details dazu auf der Aftermath-Folie.</span>`,
+    `Als Teil von <em>Wake of the Oldways</em> führt dieses Abenteuer die Helden aus ihrem Heimat-Dale hinaus nach <span class="gloss" onclick="openGloss('ashstone')">Ashstone</span>, um die Menschen dort und ihr Verhältnis zu den Oldways kennenzulernen. Es ist dafür gedacht, ganz natürlich auf <em>A Shadow in the Barley</em> zu folgen, und kann dank der Informationen in den Briefen leicht in mehrere andere Abenteuer überleiten.`,
+    `<span class="section-heading">Hintergrund</span>`,
+    `Die Zeit wartet auf niemanden – am wenigsten auf <strong><span class="gloss" onclick="openGloss('walric-hywell-ref')">Walric Hywell</span></strong>. Ein Schreiben von großer Tragweite ist in Ravenhome für einen Pilger namens Walric Hywell eingetroffen. Walric hat den <span class="gloss" onclick="openGloss('year-walk')">Year Walk</span> angetreten (S. 61), eine beschwerliche einjährige Pilgerfahrt zu den vielen Oldways-Schreinen in den Dales. Leider ist Walric schon viele Tage von Ravenhome fort. Der Inhalt des Briefes ist wichtig genug, dass Ravenhomes Alderman beschließt, jemanden zu schicken, der Walric einholt.`,
+    `Walric ist inzwischen auf dem Weg in das schroffe, felsige Buschland von Ashstone (S. 77). Er ist ein bärtiger Landstreicher von fünfzig Jahren, ein Praktizierender der Oldways, bewandert in nützlichen Beschwörungen und Zaubern.`,
+    `<span class="callout"><span class="co-title">Walrics Pilgerfahrt</span>Ursprünglich war Walric ein Bannwirker aus <span class="gloss" onclick="openGloss('upper-hartland')">Upper Hartland</span>. Den strapaziösen Year Walk trat er nach einer persönlichen und beruflichen Tragödie an: Die Oldways-Schutzbanne, die er jahrzehntelang auf dieselbe Weise angebracht hatte, konnten die Familie in einem Haus in Upper Hartland nicht schützen. Etwas (vielleicht eine <span class="gloss" onclick="openGloss('hexia')">Hexia</span>, S. 292) aus dem Witchwood griff sie gewaltsam an. Menschen starben, und ihr Hof wurde zu Asche niedergebrannt – trotz seiner Schutzbanne. Nach einer Zeit tiefer Trauer machte sich Walric auf einen Year Walk, in der Hoffnung, Einblick in die Wurzeln der Oldways zu gewinnen und zu verstehen, warum sie ihn im Stich gelassen haben.</span>`,
+    `<span class="section-heading">Die Schreine des Year Walk</span>`,
+    `Auf seinem Year Walk begegnet Walric einer Reihe von Oldways-Schreinen – verborgenen Naturorten, an denen ein Steinhügel, ein Altar, eine Inschrift oder eine Statue errichtet wurde. Jeder dieser besonderen Orte wurde im Lauf von Hunderten von Jahren von dalischen Oldways-Praktizierenden angelegt oder gekennzeichnet. Viele von ihnen sind mit einer Lehre oder Tugend der Oldways verbunden (<em>Was die Dalish schätzen</em>, S. 55).`,
+    `Jeder Schrein behandelt ein anderes Thema und hat mehrere Bedeutungsebenen: Eine ist leicht und eingängig, andere sind esoterisch und vertrackt. Durch diese Schreine wollten die ersten Praktizierenden der Oldways ihr Wissen über die Zeitalter hinweg an künftige Thaumaturgen weitergeben. Ist ein Schrein erst entschlüsselt, stellt er eine implizite Herausforderung – und wer sie annimmt, dem wird eine Gnade („grace“) zuteil.`,
+    `<span class="section-heading">Zusammenfassung</span>`,
+    `An einem Frühlingstag trifft in Ravenhome eine Handelskarawane mit einem Brief für einen Pilger ein, der nicht mehr im Dale ist (<em>A Missed Connection</em>). Die Helden werden gebeten, Walric zu finden und ihm den Brief zu überbringen, und machen sich <em>On the Road to Ashstone</em> auf den Weg.`,
+    `Bei einer Begegnung am Straßenrand mit <em>A Fellow Traveler in Need</em> haben sie die Gelegenheit, Verdan zu retten, der sich ihnen für eine Weile anschließt.`,
+    `Die Gefährten stoßen auf den <em>Winds' Flute Shrine</em> und entdecken Notizen von Walric, die ihnen den Weg weisen. Danach folgen sie seinen Spuren, die er in jedem Schrein seines Year Walk hinterlassen hat.`,
+    `Die Gefährten legen einen <em>Stopover in Willow Falls</em> ein, einem abgelegenen Dorf, in dem Fremde kaum willkommen sind. Nachdem sie von Walrics Plänen erfahren haben, besuchen sie den <em>Waterfall Shrine</em> unterhalb des Plateaus, auf dem Willow Falls liegt – nur über einen tückischen Aufstieg zu erreichen.`,
+    `Ein Stück weiter östlich wartet der <em>Gwyrwich Quarry Shrine</em>, in dem sich eine eindringende Kreatur des Zwielichts eingenistet hat. Schließlich erreichen die Helden den <em>Cloven Oak Shrine</em>, wo sie Walric treffen, der versucht, seine Suche abzuschließen, aber scheitert; mit ihrer Hilfe werden Wahrheiten offenbart, und alle werden Zeugen einer wundersamen Vision.`,
+    `<span class="callout"><span class="co-title">Was steht im Brief?</span>Der Brief – oder das Bündel von Briefen – enthält ein dringendes Gesuch an Walric von einer Person in Not, einer Oldways-Praktizierenden, die vom Zwielicht in ihrer Gegend berichtet. Nutze diese Berichte, um deine Helden zum nächsten Abenteuer zu lenken:<br>• Radmila schreibt über den Einbruch in ihr Teehaus Milkrest (<em>A Fox in the Dales</em>)<br>• Yule der Waldsänger schreibt über seltsame Bestien, die Abnoba Keep aus den Craggy Highlands angreifen (<em>The Painted Beast</em>)<br>• Jaro der Böttcher aus Woodend schreibt über beunruhigende Träume in Millside (<em>The Green Maiden</em>)<br>Der Brief könnte auch von einem Roten Marschall oder einem Hausierer stammen, der alle diese Berichte zusammengetragen hat, um sie Walric zu schicken.</span>`,
   ],
   npcs:[],
   extra:{ heading:"Hooks", type:"list", items:[
@@ -27,22 +38,9 @@ Nun ist ein Brief von großer Bedeutung eingetroffen, für einen dieser Pilger �
     "Ein Hero ist Oldways-Praktizierende(r) und sucht ohnehin seit einer Weile Walrics Rat — die Gelegenheit, ihn einzuholen, kommt gerade recht.",
     "Die Familie eines Heros ist mit Walrics Familie verbündet oder steht in ihrer Schuld.",
   ]},
-  extra2:{ heading:"Szenenfolge dieses Abenteuers", type:"list", items:[
-    "1 · A Missed Connection — die Helden übernehmen die Zustellung",
-    "2 · On the Road to Ashstone — Reise-Journey",
-    "3 · A Fellow Traveler in Need — Verdan wird gerettet",
-    "4 · Winds' Flute Shrine — erster Schrein, Song of the Winds",
-    "5 · Stopover in Willow Falls — Borum und das abgeschiedene Bergdorf",
-    "6 · Waterfall Shrine — Muddy Med und der Krabbenapfelbaum",
-    "7 · Gwyrwich Quarry Shrine — ein Harrow sucht den Steinbruch heim",
-    "8 · Cloven Oak Shrine — Walrics Kummer und die Vision der Lady",
-    "9 · Aftermath",
-  ]},
   challenges:[],
   revelations:[],
-  tips:[
-    "Ton dieses Abenteuers: ein gemütliches, weitgehend kampffreies Reiseabenteuer im Stil eines „Journey-Anime“ — der Fokus liegt auf Landschaft, Begegnungen und leisen Emotionen statt auf Kämpfen.",
-  ],
+  tips:["<em>An Important Letter</em> ist ein gemütliches Reiseabenteuer, inspiriert von Journey-Animes. Die Helden reisen durch eine schöne, schroffe Gegend von Schrein zu mystischem Ort, genießen die Ausblicke, helfen anderen Reisenden und lernen über sich selbst, indem sie sich mit den Überresten der Oldways auseinandersetzen. Es ist kampffrei (auch wenn ein Kampf mit der örtlichen Tierwelt ergänzt werden kann) und konzentriert sich auf die Herausforderungen der Straße, soziale Begegnungen und mystische Rätsel."],
 },
 
 /* 1 ---------------------------------------------------- MISSED CONNECTION */
@@ -57,9 +55,9 @@ Nun ist ein Brief von großer Bedeutung eingetroffen, für einen dieser Pilger �
   ],
   flow:[
     `Ein Handelskarawanenjunge bringt den Brief nach Ravenhome — zu spät für Walric, der bereits aufgebrochen ist, Richtung Norden auf der Straße nach <span class="gloss" onclick="openGloss('ashstone')">Ashstone</span>, zu einem Schrein direkt am Wegesrand. <span class="gloss" onclick="openGloss('alderman-beaks-ref')">Alderman Beaks</span> (oder eine vergleichbare Respektsperson) übernimmt den Brief und beauftragt die Helden mit der Zustellung — schließlich zieht die Karawane selbst weiter nach Westen, zurück zur Hochstraße, und niemand sonst ist ohnehin bald auf dem Weg nach Ashstone unterwegs. Das Wachssiegel des Briefs kennzeichnet ihn eindeutig als für eine Weise Eine bestimmt, was die Dringlichkeit unterstreicht.`,
-    `<strong>Unklare Reihenfolge:</strong> Niemand weiß genau, in welcher Reihenfolge Walric die Schreine besuchen wird — jede Person auf dem Year Walk folgt ihrer eigenen Route. Das gibt dir als Spielleiter freie Hand, welchen Schrein die Gruppe zuerst erreicht (siehe die Reihenfolge-Hinweise bei den einzelnen Schrein-Szenen).`,
+    `<strong>Unklare Reihenfolge:</strong> Niemand weiß genau, in welcher Reihenfolge Walric die Schreine besuchen wird — jede Person auf einem Year Walk ist von ihrer eigenen Route inspiriert.`,
     `<span class="callout"><span class="co-title">Vorbereitung auf die Reise</span>Vor dem Aufbruch können die Helden sich noch ausrüsten — wie lange das dauert, ist offen, aber das raue Ashstone bietet kaum gastliche Unterkünfte, die Gruppe sollte sich also auf Nächte im Freien einstellen. Mitglieder der Handelskarawane sind die Straßen nach Ashstone schon gereist und können nützliche Tipps geben. Optional lässt sich hier eine <span class="gloss" onclick="openJourneyBySlug('provisioning')">Provisioning Journey</span> (Core Book II, S. 196) einschieben, um die Szene zu verlängern und ein paar zusätzliche (hilfreiche wie hinderliche) Tags zu vergeben.</span>`,
-    `<span class="callout"><span class="co-title">Den Brief öffnen?</span>Es ist möglich, den Brief vorzeitig zu öffnen, sofern jemand lesen kann — er enthält allerlei wichtige Neuigkeiten aus den Dales (siehe Aftermath-Folie für den Inhalt). Zeigen sich die Charaktere dabei ehrenhaft, empfinden sie vermutlich guilty-3 dafür, das Siegel gebrochen zu haben; kommt es heraus, drohen ill-repute-2. Eine geheimnisvolle, wachsame Kraft könnte sie zudem mit cursed-1 belegen, bis sie ihr Unrecht wiedergutmachen und den Brief bei Walric abliefern.</span>`,
+    `<span class="callout"><span class="co-title">Den Brief öffnen?</span>Es ist möglich, den Brief vorzeitig zu öffnen, sofern jemand lesen kann — er enthält allerlei wichtige Neuigkeiten aus den Dales (SOLO: Lies <em>Was steht im Brief?</em>, S. 334). Zeigen sich die Charaktere dabei ehrenhaft, empfinden sie vermutlich guilty-3 dafür, das Siegel gebrochen zu haben; kommt es heraus, drohen ill-repute-2. Eine geheimnisvolle, wachsame Kraft könnte sie zudem mit cursed-1 belegen, bis sie ihr Unrecht wiedergutmachen und den Brief bei Walric abliefern.</span>`,
     `<strong>Wer ist Walric überhaupt?</strong> Ein Hero, der selbst die Oldways praktiziert, hat vermutlich schon von <span class="gloss" onclick="openGloss('walric-hywell-ref')">Walric Hywell</span> gehört. Andere können beim Alderman, den Dorfbewohnern oder den Karawanenleuten nachfragen, um mehr über ihn zu erfahren, bevor die Gruppe aufbricht.`,
   ],
   npcs:[
@@ -128,9 +126,7 @@ Wolken segeln gemächlich über das weite Blau des Himmels. Weit und breit ist k
   npcs:[],
   challenges:[],
   revelations:[],
-  tips:[
-    "Zwei bis drei Vignetten reichen für diese Zwischenstation völlig aus — die Journey soll Atmosphäre und Tempo geben, nicht die ganze Sitzung füllen. Wähle bewusst aus allen drei Landschaften, damit sich die Reise spürbar verändert (befestigter Weg → offenes Weideland → unwegsames Gelände), bevor der Steinschlag die Szene unterbricht.",
-  ],
+  tips:[],
 },
 
 /* 3 --------------------------------------------------- FELLOW TRAVELER */
@@ -209,9 +205,7 @@ Verdan reist mit der Gefährtenschaft bis Willow Falls mit, sofern man ihn läss
   revelations:[
     { kind:"Lore", ref:"F", text:"Stormhelm, eine Stadt nördlich der Dales (ebenfalls einst Teil von Gwyrdolin), liegt im Kampf mit dem Winterkönig." },
   ],
-  tips:[
-    "Verdan soll nicht durchschaut, sondern erlebt werden — lass die Spielenden ihn mögen, bevor sie (viel später) erfahren, wer er wirklich ist.",
-  ],
+  tips:[],
 },
 
 /* 4 -------------------------------------------------- WINDS FLUTE SHRINE */
@@ -360,9 +354,7 @@ Verdan reist mit der Gefährtenschaft bis Willow Falls mit, sofern man ihn läss
     },
   ],
   revelations:[],
-  tips:[
-    "Weitere <span class=\"gloss\" onclick=\"openJourneyBySlug('insular-hamlet')\">Insular-Hamlet</span>-Vignetten (Core Book II, S. 119–120) lassen sich bei Bedarf ergänzen, falls die Gruppe länger in Willow Falls verweilen soll.",
-  ],
+  tips:[],
 },
 
 /* 6 --------------------------------------------------- WATERFALL SHRINE */
@@ -541,9 +533,7 @@ Walric, im Schlamm kniend, weint, unfähig, den Blick lange vom Horizont zu wend
     },
   ],
   revelations:[],
-  tips:[
-    "Emotionaler Höhepunkt des Abenteuers: Lass die Wahrheiten der Spieler-Charaktere echtes Gewicht bekommen — sie tragen die Szene mindestens so sehr wie Walrics eigene Geschichte.",
-  ],
+  tips:[],
 },
 
 /* 9 --------------------------------------------------------- AFTERMATH */
@@ -554,25 +544,24 @@ Walric, im Schlamm kniend, weint, unfähig, den Blick lange vom Horizont zu wend
   readAloud:[],
   showImprovement:true,
   flow:[
-    `Walric liest nun endlich den zugestellten Brief — mehrere Seiten voller hingekritzelter Notizen und beunruhigender Nachrichten (siehe unten) —, dankt den Helden von Herzen und schlägt vor, in Kontakt zu bleiben, beeindruckt von ihrer Beharrlichkeit. Er ahnt bereits eine Zukunft voraus, in der die Antworten, die er sucht, rasches und kluges Handeln von Menschen mit Mut und Format verlangen werden — schließlich hat die Lady selbst zu ihnen gesprochen; gibt es ein deutlicheres Zeichen? Er kann die Helden womöglich um Hilfe bei der Untersuchung dieser Vorfälle bitten. Das führt in „A Fox in the Dales“, „The Green Maiden“ oder „The <span class="gloss" onclick="openGloss('painted-beast')">Painted Beast</span>“.`,
+    `Nachdem der wichtige Brief Walric übergeben wurde, öffnet er ihn und liest mehrere Seiten hingekritzelter Notizen. Er dankt den Helden und schlägt vor, in Kontakt zu bleiben, denn er ist von ihrer Zähigkeit beeindruckt. Er sieht eine Zukunft voraus, in der die Antworten, die er findet, rasches und kluges Handeln von Menschen mit Mut und Format verlangen werden. Die Lady selbst hat zu ihnen allen gesprochen – gibt es ein größeres Zeichen als das?`,
+    `Die Nachrichten, die Walric im Brief erhält, handeln von allerlei schrecklichen Dingen, die sich überall in den Dales ereignen (SOLO: Lies <em>Was steht im Brief?</em> auf S. 334). Gewalt, Flüche und seltsame Vorkommnisse scheinen sich in den Dales dieser Tage zu häufen, und Walric glaubt, dass sie alle irgendwie zusammenhängen.`,
+    `Da er den Year Walk fortsetzen will, kann Walric die Helden bitten, bei der Untersuchung einer oder mehrerer dieser Angelegenheiten zu helfen, was in neue Abenteuer führt: <em>A Fox in the Dales</em>, <em>The Green Maiden</em> oder <em>The <span class="gloss" onclick="openGloss('painted-beast')">Painted Beast</span></em>.`,
+    `Der Brief kann auch Revelations enthalten, die verstärkt werden müssen (S. 415).`,
+    `Hier sind einige Fragen, um die Taten der Helden während des Abenteuers Revue passieren zu lassen:`,
     `<div class="callout"><span class="co-title">Fragen zur Nachbereitung</span>
 <ul>
-<li>Wie sind die Helden mit jedem der Schreine umgegangen? Welches Wissen oder welche Lehre haben sie aus der jeweiligen Erfahrung mitgenommen?</li>
-<li>Wie reagieren sie auf die Botschaft der Lady — sind sie bereit, noch größere Gefahren auf sich zu nehmen, um die Dales zu schützen?</li>
-<li>Wie geht es Walric, nachdem alles gesagt und getan ist? Wie hat er seine leidvolle Vergangenheit verarbeitet?</li>
+<li>Wie sind die Helden mit jedem Schrein umgegangen? Welches Wissen oder welche Lehren haben sie aus der Erfahrung mitgenommen?</li>
+<li>Wie reagieren die Helden auf die Botschaft der Lady? Sind sie bereit, noch größere Gefahren auf sich zu nehmen, um die Dales zu schützen?</li>
+<li>Wie geht es Walric, nachdem alles gesagt und getan ist? Wie hat er sich mit seiner bedrückenden Vergangenheit abgefunden?</li>
 </ul></div>`,
   ],
   npcs:[],
   challenges:[],
-  extra:{ heading:"Was im Brief stand", type:"list", items:[
-    "<strong>Radmila Sparrowkin</strong> aus Milkrest schreibt von einem nächtlichen Einbruch in ihrem Teehaus — gestohlen wurde unter anderem Schmuck, den sie eigentlich für die verschwundene Tochter ihrer verstorbenen Angestellten Milorada aufbewahrt hatte. Ein Dorfgerücht will einen „unmenschlichen Schatten“ auf ihrem Dach gesehen haben. Radmila bittet, jemand möge nach der Wahrheit sehen, bevor sich die Sache zu einer Hetzjagd auswächst → A Fox in the Dales",
-    "<strong>Yule</strong>, die Waldflüsterin von Abnoba Keep in Cedargate, schreibt in dringlichem Ton: Bestien aus dem Craggen-Hochland greifen zunehmend die Grenzbefestigungen an, angeblich von Gestaltwandlern (Turnskins) auf die hölzernen Mauern gehetzt. Die Woodwards-Miliz sei bereits erschöpft und brauche dringend Verstärkung, bevor die Angriffe eskalieren → The Painted Beast",
-    "<strong>Jaro der Fassbinder</strong> aus Woodend berichtet von Albträumen, die seit Kurzem jeden im Dorf heimsuchen — düstere Visionen vom benachbarten Aldenweald. Er vermutet, eine Opfergabe an den Waldschrein sei misslungen und die Vila (die dämmerungshaften „Waldleute“) seien verärgert; niemand im Dorf traut sich, den Wald zur Wiedergutmachung zu betreten → The Green Maiden",
-  ]},
   rewards:[
-    "Von Walric selbst: nur wenig — er ist ein bescheidener Pilger und hat kaum mehr als Hartbrot und etwas Münze übrig (hefty-purse-1, bereits von Verdan als Dank für seine Rettung erhalten).",
-    "Für Oldways-interessierte Helden: Walric lehrt einen Twilight-Schutzbann oder einen Schließ-/Öffnungszauber und teilt sein Wissen über die Dämmerung.",
-    "Nehmen die Helden die Folgeaufträge an, stattet Walric sie zusätzlich mit einem <span class=\"gloss\" onclick=\"openGloss('twilight-begone')\">Twilight-Begone-Amulett</span> (S. 146) aus und ist bereit, dessen Bauweise mit ihnen zu teilen — ein fußlanger, mit Bändern und Glasperlen verzierter Knochen, der beim ersten Anblick eines Geschöpfs der Dämmerung zerbrochen wird und warded-against-Twilight verleiht oder eine Kreatur banished.",
+    "Als mittelloser Pilger kann Walric den Helden für die Zustellung des Briefes nur etwas Hartbrot und ein wenig Münze anbieten (hefty-purse-1).",
+    "Wer sich für die Oldways interessiert, dem kann er beibringen, wie man einen Twilight-Schutzbann oder einen Schließ- und Öffnungszauber wirkt, und er kann etwas von seinem Twilight-Wissen weitergeben.",
+    "Haben die Helden zugesagt, sich um die im Brief erwähnten Probleme zu kümmern, stattet er sie schließlich mit einem Twilight-Begone-Talisman (S. 146) aus und ist auch bereit, dessen Bauweise zu teilen.",
   ],
   revelations:[
     { kind:"Core", ref:"3", text:"Die Oldways bewahren die Weisheit, das Wissen und die mystische Lehre Alt-Gwyrdolins." },

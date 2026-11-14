@@ -60,10 +60,7 @@ Entdecken die Helden ihn und gehen dann auf ihn zu, um ihn zu stellen, flieht er
   challenges:[],
   revelations:[],
   rewards:[],
-  tips:[
-    "Ton dieses Abenteuers: eine Verfolgungsjagd quer durch drei Gemeinden, die zunehmend zu einer emotionalen Familiengeschichte wird — Vorurteile, verborgenes Unrecht und die Frage, wer ein „Monster“ genannt wird und warum.",
-    "Halte Gajowys Anwesenheit bis zum Finale bewusst zweideutig — Spieler:innen sollten nie ganz sicher sein, ob der „lauernde Schatten“ real oder Einbildung ist.",
-  ],
+  tips:[],
 },
 
 /* 1 ---------------------------------------------------------- MILKREST */
@@ -112,9 +109,7 @@ Ihr tretet ein, und eine beeindruckende Ziegenglocke kündet eure Ankunft an. Or
   challenges:[],
   revelations:[],
   rewards:[],
-  tips:[
-    "Radmila selbst ist keine Bedrohung — die Szene ist reine Ermittlungsarbeit ohne Kampf.",
-  ],
+  tips:[],
 },
 
 /* 2 ---------------------------------------------------------- STARLESS JUNCTION */
@@ -239,10 +234,7 @@ Alle hier eint der Wunsch, ihre Geschäfte in dieser Gegend abzuwickeln – und 
   rewards:[
     "Ein kunstvolles Fuchsamulett von Shozauka Baba — gedacht für Azeria; bietet Schutz davor, gesehen oder beobachtet zu werden, kein bekanntes Oldways-Design.",
   ],
-  tips:[
-    "„Aus Furcht vor dem Winter“ ist optional und folgt laut Quelle erst nach Shozauka Baba — die Gruppe kann diesen Faden auch ganz überspringen und direkt zu „Schatten in der Lantern World“ weiterziehen.",
-    "Bait kann als wiederkehrender Kontakt etabliert werden, falls die Gruppe ihn gut behandelt.",
-  ],
+  tips:[],
 },
 
 /* 3 ---------------------------------------------------------- LANTERN WORLD */
@@ -347,10 +339,7 @@ Schulter an Schulter mit grinsenden Katzen und stirnrunzelnden Raben tobt eure S
     "Eine Flasche Tonikum nach Art der Oldways von Bright-Tails (Rezept erlernbar für Kräuterkundige).",
     "fleeting-luck-1 als Abschiedsgeschenk von Bright-Tails.",
   ],
-  tips:[
-    "Die beiden Vignetten „Eine zufällige Begegnung“ und „Betört“ sind echte, austauschbare Zufallsbegegnungen — nutze sie mehrfach, während die Gruppe den Markt durchquert.",
-    "Bright-Tails' Enthüllung, dass sie Gajowys ältere Tochter ist, sollte erst bei echtem Drängen der Gruppe fallen — sie ist ihr sichtlich schmerzhaft.",
-  ],
+  tips:[],
 },
 
 /* 4 ---------------------------------------------------------- FAMILY SECRET */
@@ -419,10 +408,7 @@ Deita erinnert sich an Milorada als durch und durch gütig und konnte über die 
   ],
   revelations:[],
   rewards:[],
-  tips:[
-    "Deita ist der emotionale Gegenpol zur restlichen Familie — sie sollte glaubwürdig wirken, nicht wie eine reine Info-Quelle.",
-    "Die Waldfallen sind bewusst nicht tödlich — spiele sie komödiantisch-bedrohlich statt als echte Gefahr.",
-  ],
+  tips:[],
 },
 
 /* 5 ---------------------------------------------------------- FOX'S DEN */
@@ -537,10 +523,7 @@ Die Situation wird schnell hitzig und kann sich zu einer regelrechten Belagerung
   ],
   revelations:[],
   rewards:[],
-  tips:[
-    "Gajowys Auftritt ist der emotionale Höhepunkt des Abenteuers — spiele ihn zögerlich, ungeschickt in Gefühlsdingen, nicht als übermächtigen Retter.",
-    "Die Cloudborne-Konfrontation kann tödlich enden — biete den Helden aktiv Wege an, ein Blutbad zu verhindern (Überzeugen, Vermitteln, Gajowys Drohung nutzen).",
-  ],
+  tips:[],
 },
 
 /* 6 ---------------------------------------------------------- AFTERMATH */
@@ -575,9 +558,7 @@ Miloradas Lieblingsgeschichte, die sie Azeria viele Male erzählte, hieß <stron
   rewards:[
     `📦 Besitztum: <span class="gloss" onclick="openGloss('miloradas-storybook')">Miloradas Geschichtenbuch</span> — Geschichten laut vorlesen · Verständnis für Geschöpfe der Dämmerung · wird als Kindermärchen abgetan.`,
   ],
-  tips:[
-    "Die Rückblick-Fragen eignen sich gut für eine gemeinsame Runde am Ende der Sitzung — besonders die Frage nach Gajowys Schicksal kann emotional aufgeladen sein.",
-  ],
+  tips:[],
 },
 
 ];

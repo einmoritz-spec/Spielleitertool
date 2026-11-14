@@ -49,9 +49,7 @@ Während bereitwillige Dalesleute nach Cedargate reisen, um zu den Waffen zu gre
   ]},
   challenges:[],
   revelations:[],
-  tips:[
-    "Dies ist das erste Abenteuer, das die Helden aus den Dales hinausführt — spielt den Kulturschock ruhig aus: fremde Bräuche, raueres Klima, eine Highlander-Gefährtin, deren Ehrgeiz die Gruppe in Gefahr bringen kann. Kerrid ist keine reine Questgeberin, sondern eine eigenständige, sture Figur.",
-  ],
+  tips:[],
 },
 
 /* 1 --------------------------------------------------- PREPARING CEDARGATE */
@@ -79,9 +77,7 @@ Während bereitwillige Dalesleute nach Cedargate reisen, um zu den Waffen zu gre
   challenges:[],
   revelations:[],
   rewards:[],
-  tips:[
-    "Diese Szene ist bewusst eine kurze Vorbereitungsphase ohne eigene Challenge-Karte — der Kampf folgt erst in der nächsten Szene. Nutzt sie, um Stimmung, NPCs und den Zustand der Burg zu etablieren, bevor die Painted Beast erscheint.",
-  ],
+  tips:[],
 },
 
 /* 2 ----------------------------------------------------- DEFENSE OF CEDARGATE */
@@ -165,10 +161,7 @@ Eine einsame Highländerin, rau von langen Tagen auf dem Pfad, läuft hinter der
   rewards:[
     "Wird die Painted Beast im Kampf erschlagen, können die Helden die oben genannten seltenen Zutaten von ihr gewinnen (siehe Erzähler-Notiz).",
   ],
-  tips:[
-    "Kerrid greift erst nach ein paar Heldenhandlungen aktiv mit ein — lass die Helden die ersten ein bis zwei Runden allein bestehen, bevor sie als Verstärkung dazustößt.",
-    "Kerrid ist keine reine Questgeberin, sondern eine eigenständige, sture Figur — ihr Ehrgeiz und ihre Ungeduld sollten während der ganzen Reise durchscheinen, nicht nur hier.",
-  ],
+  tips:[],
 },
 
 /* 3 --------------------------------------------------- THROUGH THE HIGHLANDS */
@@ -291,10 +284,7 @@ Ihr blickt den ansteigenden Hang der Berge vor euch entlang. Kerrid, \u00fcber i
   ],
   revelations:[],
   rewards:[],
-  tips:[
-    "Kartenhinweis: Im Originalbuch (S. 382) findet sich eine Karte der Craggen Highlands mit den Orten Die Burg, Mountains, Maols H\u00f6hle, Milkrest, struppiges Hochland, der Rush, Kawa, Die Drei Stehenden, Cedargate, Sumpfland sowie Abnoba-Furt und -Burg \u2014 reines Grafikelement zur r\u00e4umlichen Orientierung; \u201eMilkrest\u201c wird im Flie\u00dftext nicht weiter erl\u00e4utert.",
-    "Die 29 Vignetten unten sind nach Route gruppiert (Basis/Grau/Gr\u00fcn/Blau) \u2014 w\u00e4hlt situativ 2\u20134 pro Kreuzungsabschnitt, nicht alle auf einmal, um die Szene nicht zu \u00fcberladen.",
-  ],
+  tips:["Kartenhinweis: Im Originalbuch (S. 382) findet sich eine Karte der Craggen Highlands mit den Orten Die Burg, Mountains, Maols H\u00f6hle, Milkrest, struppiges Hochland, der Rush, Kawa, Die Drei Stehenden, Cedargate, Sumpfland sowie Abnoba-Furt und -Burg \u2014 reines Grafikelement zur r\u00e4umlichen Orientierung; \u201eMilkrest\u201c wird im Flie\u00dftext nicht weiter erl\u00e4utert."],
 },
 
 /* 4 --------------------------------------------------------- CAMPFIRE STORIES */
@@ -325,10 +315,7 @@ Ihr blickt den ansteigenden Hang der Berge vor euch entlang. Kerrid, \u00fcber i
   challenges:[],
   revelations:[],
   rewards:[],
-  tips:[
-    "Diese Szene ist optional und kann übersprungen werden, wenn die Gruppe bereits genug Wildnis-Begegnungen hatte — sie eignet sich aber hervorragend, um Kerrid vor ihrer Krise noch etwas mehr Persönlichkeit und Wärme zu geben.",
-    "Die letzte Zeile des Vorlesetexts hier ist bewusst identisch mit der Eröffnung der nächsten Folie — nutzt sie als nahtlosen Übergang, egal ob ihr diese Szene spielt oder direkt zu „Eine Wendung zum Schlechteren“ springt.",
-  ],
+  tips:[],
 },
 
 /* 5 --------------------------------------------------- A TURN FOR THE WORSE */
@@ -356,9 +343,7 @@ Ihr blickt den ansteigenden Hang der Berge vor euch entlang. Kerrid, \u00fcber i
   ],
   revelations:[],
   rewards:[],
-  tips:[
-    "Gelingt es den Helden, Kerrid zuerst zu stabilisieren, \u00fcbersteht sie eine unruhige Nacht der Genesung und ist am folgenden Morgen wieder bei klarem Verstand \u2014 sie braucht einen kundigen Heiler, kann aber den Rest der Reise nach Kawa bewältigen. Erliegt sie ihren Verletzungen, \u00fcberlebt sie die Nacht nicht \u2014 fragt jeden Helden, wie er Kerrids Tod auf seine eigene Weise wahrnimmt, besonders wenn er w\u00e4hrend der Reise eine Bindung zu ihr aufgebaut hat.",
-  ],
+  tips:[],
 },
 
 /* 6 --------------------------------------------------------- KAWA, KERRID'S HOME */
@@ -418,9 +403,7 @@ Einige der Highländer bemerken eure Annäherung. Ein halbes Dutzend Krieger mit
     "Mit erfolgreicher Bündnisbildung führt Nochika eine Gruppe von Fashionern (Craggen-Bannermagie) an, um ein Banner zu weben, das die Zusammenarbeit zwischen den Kawa und den Dales symbolisiert. Überlebte Kerrid die Reise nach Hause nicht, wird das Banner zu ihrem Andenken gewoben, zu Ehren des Opfers, das dieses Bündnis erst ermöglichte. Die Helden, besonders jene mit Talent für die Oldways oder Volksmagie, sind eingeladen, an der Herstellung mitzuwirken.",
     "Banner der Eintracht — gewoben aus Stoffen oder Fellen beider Länder, mit einem weitgereisten Schaft aus Birke, Horn oder Knochen. Das fließende Flickwerk-Banner ist mit Zeichen bestickt, die sowohl den Kawa als auch den Dales bedeutsam sind. Verleiht resolute (entschlossen), wenn an der Seite eines fernen Freundes gekämpft wird.",
   ],
-  tips:[
-    "Die drei Vertrauens-Grenzwerte (friend-of-warriors/druids/laborers-3) sind unabhängig voneinander — lasst die Gruppe ruhig unterschiedliche Helden auf unterschiedliche Anführer fokussieren, statt alles über eine einzige Aktion zu lösen.",
-  ],
+  tips:[],
 },
 
 /* 7 --------------------------------------------------- MAOL'S LAIR */
@@ -480,9 +463,7 @@ Einige der Highländer bemerken eure Annäherung. Ein halbes Dutzend Krieger mit
   ],
   revelations:[],
   rewards:[],
-  tips:[
-    "Maol muss nicht zwingend get\u00f6tet werden \u2014 Vertreibung, Gefangennahme oder das Rauben seines Eberhaut-Umhangs sind gleichwertige Wege, die Bedrohung fürs Erste zu beenden. Halte fest, wie die Gruppe entscheidet: Das prägt die Review-Frage im Nachspiel.",
-  ],
+  tips:[],
 },
 
 /* 8 --------------------------------------------------------- AFTERMATH */
@@ -508,9 +489,7 @@ Einige der Highländer bemerken eure Annäherung. Ein halbes Dutzend Krieger mit
   ]},
   revelations:[],
   rewards:[],
-  tips:[
-    "Core Revelations 1 & 2 sollten spätestens jetzt bei der Gruppe angekommen sein — falls nicht, ist das Nachspiel ein guter letzter Moment, sie über Nochikas oder Riyoris Abschiedsworte noch einmal anklingen zu lassen.",
-  ],
+  tips:[],
 },
 
 ];

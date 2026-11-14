@@ -44,9 +44,7 @@ const A4_SCENES = [
   ]},
   challenges:[],
   revelations:[],
-  tips:[
-    "Diese Übersichts-Szene fasst Hintergrund und Einstieg zusammen. Die eigentlichen Vorlesetexte, NPCs und Challenges folgen auf den nächsten Szenen, Szene für Szene.",
-  ],
+  tips:[],
 },
 
 /* 1 --------------------------------------------- BACKWOODS HAUNTING */
@@ -104,9 +102,7 @@ Doch dem Weiler fehlt die Lebendigkeit, für die er in den ganzen Dales bekannt 
   ],
   revelations:[],
   rewards:[],
-  tips:[
-    "Der Albtraum ist bewusst nicht tödlich — HARM ist deaktiviert. Sein Zweck ist Atmosphäre und Vorahnung, nicht Kampf. Lass Spieler:innen ruhig kreativ nach Wegen suchen, das Träumen zu erkennen (AWAKEN-Limit).",
-  ],
+  tips:[],
 },
 
 /* 2 ------------------------------------------------ INTO THE ALDENWEALD */
@@ -291,10 +287,7 @@ Die Luft kühlt ab, und ein dünner, hohler Wind zieht durch die Bäume, einen a
     { kind:"Lore", ref:"G", text:"Seit Kurzem entstehen seltsame Kreaturen durch ein verfluchtes Miasma aus den Marschen, berührt von einem uralten Hunger. (wiederholt)" },
   ],
   rewards:[],
-  tips:[
-    "AshenEpitaph tötet nicht leichtfertig — er will Demut lehren, kein Gemetzel. Spiel ihn als tragische, warnende Figur, nicht als simplen Endgegner; sein SLOG-THROUGH-Limit ist bewusst hoch, um Gespräch vor Gewalt zu belohnen.",
-    "Svall/der Bär kann sowohl als Kampf- wie als Reinigungs-Encounter gespielt werden — Heilung/Reinigung statt Tötung sollte immer eine offen sichtbare Option sein, mit klarer Belohnung (green-maiden's-favor).",
-  ],
+  tips:[],
 },
 
 /* 3 --------------------------------------------- THE SECOND OFFERING */
@@ -326,9 +319,7 @@ Jarkos Anweisungen waren klar: Vollzieht die Riten. Lasst die Opfergabe dort. Ve
   challenges:[],
   revelations:[],
   rewards:[],
-  tips:[
-    "Diese Szene ist bewusst eine Wegscheide, kein Encounter — der eigentliche dramatische Druck entsteht aus der Konsequenz der Entscheidung (Wald der Träume vs. Rückkehr nach Millside mit eskalierenden Wachträumen), nicht aus einem Kampf.",
-  ],
+  tips:[],
 },
 
 /* 4 --------------------------------------------------- FOREST OF DREAMS */
@@ -384,9 +375,7 @@ Und doch ist hier noch Schönheit zu finden: sattes Grün, Vogelgesang, der Duft
   challenges:[],
   revelations:[],
   rewards:[],
-  tips:[
-    "Diese Journey darf ruhig verstörend-schön sein statt bedrohlich — Waking-dreams eskaliert spürbar, ohne dass die Vignetten selbst tödlich sein müssen. Guter Ort, um persönliche Quests der Helden einzuweben (siehe Hinweis im Flow-Text).",
-  ],
+  tips:[],
 },
 
 /* 5 --------------------------------------------------------- THE GROTTO */
@@ -460,9 +449,7 @@ Ihr wünscht euch, dass die Träume aufhören, nicht wahr? Dann erwacht. Macht m
   rewards:[
     "Abschiedsgeschenke bei gütlicher Trennung: Segen des Weichen Bodens (Geländenavigation), Segen der Fernen Erinnerung (Fernsicht an einen zuvor besuchten Ort), Segen der Tiefen Wurzeln (körperliche Heilung).",
   ],
-  tips:[
-    "Die Green Maiden ist keine klassische Endgegnerin — HARM ist eine von mehreren Optionen, keine erwartete. Belohne Kreativität bei der Wahl der symbolischen Opfergabe, statt eine 'richtige' Antwort vorzugeben.",
-  ],
+  tips:[],
 },
 
 /* 6 --------------------------------------------------------- AFTERMATH */

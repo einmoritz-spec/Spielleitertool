@@ -96,9 +96,7 @@ Während die Bedrohungen weiter auf die Dales eindringen, steht das Schicksal de
       source:`Hearts of Ravensdale I, Themenbereich Ruins of Gwyrdolin, S. 294`
     },
   ],
-  revelations:[], rewards:[], tips:[
-    "Wer als Beschatter gewählt wird, taucht identisch in „Eindringlinge in der Einsiedelei“ wieder auf — plant beide Szenen zusammen, bevor ihr euch festlegt.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 2 -------------------------------------------- DIE BÖGEN / AQUÄDUKT-HÖHLE */
@@ -215,9 +213,7 @@ Während ihr den Bächen folgt, die die Seen von Hartland speisen, entdeckt ihr 
       source:`Wake of the Oldways — kampagnenspezifische Challenge, S. 407`
     },
   ],
-  revelations:[], rewards:[], tips:[
-    "Diese Szene läuft am besten als klassische Journey-Montage: eine Vignette pro Held, nicht als taktischer Kampf — der Ton bleibt „gefährlicher Abstieg“, nicht „Dungeon-Fallen“.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 4 -------------------------------------------------------- DER UMMAUERTE GARTEN */
@@ -272,9 +268,7 @@ Mit einem quietschenden Husten tritt ein beeindruckend großes Erdhörnchen vor,
     { kind:"Lore", ref:"L", text:"Unter der Herrschaft des Fell Fool überdauerte Gwyrdolin im Krieg der Thaumaturgen mithilfe finsterer Magie, die das Land versauerte. Die Hauptstadt soll in den Marschen versunken sein." },
     { kind:"Lore", ref:"K", text:"Viele Geschöpfe der Dämmerung waren einst Kinder der Dämmerung — daher ihr Name —, doch sie fielen wegen ihrer Rolle im Krieg in Ungnade und erhielten den Namen „Fallen Leaves“. (bekräftigt)" },
   ],
-  rewards:[], tips:[
-    "Die Mosaiken-Szene ist der perfekte Ort, um alle bislang in der Kampagne verpassten Lore-Enthüllungen (H, J, L waren zuvor „missing“) endlich nachzuliefern — schaut vor der Sitzung im Lore-Überblick nach, was eure Gruppe bislang noch nicht gefunden hat.",
-  ],
+  rewards:[], tips:[],
 },
 
 /* 5 -------------------------------------------------------- DIE LADY DER DALES */
@@ -321,9 +315,7 @@ Mit einem quietschenden Husten tritt ein beeindruckend großes Erdhörnchen vor,
     "Ein Liebes-/Claddagh-Ring der Lady — Gegenstück gehört Heath Ravenfriend.",
     "Optional: weitere <span class=\"gloss\" onclick=\"openGloss('hermitage-chamber-treasures')\">bemerkenswerte Schätze</span> der Kammer (S. 222).",
   ],
-  tips:[
-    "Dies ist der emotionale Höhepunkt der gesamten Kampagne — nehmt euch bewusst Zeit für eine Rückblende/Montage auf die Reise der Gruppe, bevor die Eindringlinge-Szene die Spannung wieder hochschraubt.",
-  ],
+  tips:[],
 },
 
 /* 6 -------------------------------------------------------- EINDRINGLINGE IN DER EINSIEDELEI */
@@ -357,9 +349,7 @@ Als wolle es euer Leid noch vermehren, hört ihr über euch einen Riss, wie Donn
       source:`Hearts of Ravensdale I, Themenbereich Challenges, S. 412`
     },
   ],
-  revelations:[], rewards:[], tips:[
-    "Spielt COLLAPSE und den Kampf gegen den Eindringling parallel/verzahnt — der Countdown sollte während der Konfrontation ticken, nicht erst danach beginnen.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 7 -------------------------------------------------------- AFTERMATH */
@@ -398,9 +388,7 @@ Während das Gespräch verstummt, bemerkt einer von euch ein rotorangenes Glühe
   ],
   npcs:[],
   challenges:[],
-  revelations:[], rewards:[], tips:[
-    "Ende der Kampagne „Wake of the Oldways“ — siehe `Wake_of_the_Oldways_00_Rahmen.md` für das vollständige Enthüllungs-Orakel, die NSC-Übersicht und weitere Erzähler-Tipps.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 ];

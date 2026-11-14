@@ -93,10 +93,7 @@ Die Menge strömt zum überdachten Fünf-Punkte-Markt und trägt euch mit sich f
     { name:"Küchenmeisterin Ostick", after:6, role:"Handwerksrichterin — Kochgerät & Küche", text:"Fern-verwandt, von irgendwoher tief aus den Wanderlands. Interessiert an fremden Zutaten und ungewöhnlichen Gewürzen, gilt sie manchen als keine unparteiische Richterin über dalisches Kochgerät und dalische Küche." },
   ],
   challenges:[],
-  revelations:[], rewards:[], tips:[
-    "Colin Stillwater bittet die Fellowship gegebenenfalls schon hier, seinen Cousin Thane am Sieg zu hindern — ein guter Moment, diesen Hook einzuweben, falls noch nicht geschehen.",
-    "Die Warnung „wary-and-alert-2 Händler / bribe-3“ aus der Diebstahl-Notiz gilt für die gesamten vier Festtage, nicht nur für diese Szene.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 2 ---------------------------------------------------- TAG 2: HOG'S FEAST */
@@ -171,7 +168,7 @@ Während sich eure Augen an den kerzenerleuchteten, verräucherten Raum gewöhne
     { kind:"Core", ref:"6", text:"Die Wurzeln der Oldways zu finden könnte ein Weg sein, den Schutz über den Dales wiederherzustellen." },
   ],
   rewards:[ "Azeria schenkt den Helden ein Rotes Band." ],
-  tips:[ "Diese Szene ist eine reine Wissens-/Enthüllungsszene ohne Challenge — plant genug Zeit für Fragen der Spieler ein, bevor ihr zum verborgenen Spion übergeht." ],
+  tips:[],
 },
 
 /* 4 -------------------------------------- TAG 3: SPIELE, LIEDER, TOTENWACHE */
@@ -245,9 +242,7 @@ Jene, die viele Rote Bänder gesammelt haben, machen sich bereit, gurgeln Essig 
       source:`Hearts of Ravensdale I, Themenbereich Ruins of Gwyrdolin, S. 279`
     },
   ],
-  revelations:[], rewards:[], tips:[
-    "Wer alle drei Wettbewerbe des Tages gewinnt (Spiele + Geschichten/Lieder + Totenwache), kann an einem einzigen Tag bis zu sechs Rote Bänder einsammeln — plant entsprechend, wie sehr das die Fair-Balance gegenüber Thane verschiebt.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 5 -------------------------------------- TAG 4: GOAT RACE & KRÖNUNG */
@@ -318,9 +313,7 @@ Jene, die viele Rote Bänder gesammelt haben, machen sich bereit, gurgeln Essig 
       source:`Hearts of Ravensdale I, Themenbereich Challenges, S. 392`
     },
   ],
-  revelations:[], rewards:[], tips:[
-    "Der Kanalschlag ist der dramaturgische Höhepunkt des Abenteuers — er sollte parallel zur Krönung/zum Rennfinale laufen, nicht danach, damit die Spannung zwischen Rennergebnis und Attentat gleichzeitig steigt.",
-  ],
+  revelations:[], rewards:[], tips:[],
 },
 
 /* 6 -------------------------------------------------------- AFTERMATH */
@@ -347,9 +340,7 @@ Jene, die viele Rote Bänder gesammelt haben, machen sich bereit, gurgeln Essig 
     "Alle Helden mit gutem Ruf: well-reputed-1 für das kommende Jahr.",
     "Jedes gesammelte Rote Band ist eintauschbar gegen eine Stufe well-supplied, hefty-purse, Zutaten, Materialien oder eine gleichwertige Belohnung.",
   ],
-  tips:[
-    "Weiter mit Adventure 7 — The Lost Hermitage (Kampagnenfinale): das Circlet, magisch oder durch das Fuchs-und-Hase-Rätsel gedeutet, führt zur Verlorenen Einsiedelei.",
-  ],
+  tips:[],
 },
 
 ];

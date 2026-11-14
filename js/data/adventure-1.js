@@ -6,7 +6,7 @@ const A1_SCENES = [
 {
   key:"intro", kind:"intro", page:"S. 315–317",
   title:"Überblick", en:"A Shadow in the Barley",
-  summary:"Hintergrund, Hooks & Szenenfolge",
+  summary:"Hintergrund, Zusammenfassung & Hooks",
   overview:[],
   readAloud:[
     { page:"S. 315", label:"Eröffnung des Abenteuers", text:
@@ -20,6 +20,9 @@ Doch die Dinge sind nicht, wie sie scheinen. An diesem trüben Nachmittag, drau�
     `Oldways-Praktizierende glauben, das Miasma – eine Wanecraft-Schöpfung, die die Marschen durchdringt – sei durch einen Oldways-Schrein in den Bounds in Schach gehalten worden, die sogenannte <strong><span class="gloss" onclick="openGloss('dolorous-lady')">Dolorous Lady</span></strong>, mittels eines Rituals, bei dem das <strong>Lied der Tränen</strong> gesungen wird. Doch das Ritual wurde seit Jahren nicht mehr vollzogen, und die Schutzbanne scheinen versagt zu haben. In Wahrheit ist es ein anderer, verwandter Schutz, der versagt – das wird erst viel später enthüllt (Core Revelation 5, S. 415).`,
     `Nun müssen sich die Helden der üblen Kraft von jenseits der Dales stellen, die sich seit Jahrhunderten nicht gezeigt hat, und aufbrechen, um die Quelle dieser bösartigen Einflüsse aufzudecken und ihre Heimat zu schützen.`,
     `<span class="callout"><span class="co-title">Ablauf</span>Nach dem optionalen Auftakt (oder als eigener Beginn) ziehen die Helden durch die Gerstenfelder und begegnen Willow, die vom Waken Sentry bedroht wird. Nachdem die Gefahr gebannt ist, kann die Gefährtenschaft entweder zurück nach Ravenhome, um das Dorf zu warnen, oder der Spur der Kreatur zum versunkenen Wachturm folgen. Sobald sie die Verderbnis entdecken, die ins Ravensdale sickert, reisen die Helden zur einsamen Hütte der Weisen Einen und beraten sich mit Rosamund. Schließlich müssen sie die Schutzbanne der Dolorous Lady wieder erwecken, um den Einbruch aus den Marschen zu verlangsamen. Nach dem Abschluss in den Marschen erhebt sich eine neue Bedrohung, wenn „Ein Mörder aus der Ferne" einen Anschlag auf das Leben der Weisen Einen oder eines Helden verübt.</span>`,
+    `<span class="callout"><span class="co-title">Nicht im Ravensdale?</span>Standardmäßig beginnt die Serie im Ravensdale wegen seiner geheimen Vergangenheit (S. 194), aber du kannst dieses Abenteuer so anpassen, dass es irgendwo anders in den Dales beginnt. Eine Karte der Dales findest du auf S. 34.</span>`,
+    `<span class="callout"><span class="co-title">Die Weise Eine als Heldin</span>Ist einer der Helden Rosamund, die Weise Eine (Legend in the Mist Character Pack), oder ein anderer Weiser-Eine-Charakter, kann er den NSC Rosamund ersetzen. Die Helden reisen dennoch zur einsamen Hütte der Weisen Einen, nur gehört das Haus in diesem Fall jenem Helden.</span>`,
+    `Die Helden kommen möglicherweise aus verschiedenen Teilen der Dales oder sind Einheimische des Ravensdale. Aus beliebigen Gründen können sie auf der Straße nach Ravenhome über die Gerstenfelder eintreffen.`,
   ],
   npcs:[],
   extra:{ heading:"Aufhänger", type:"list", items:[
@@ -28,16 +31,6 @@ Doch die Dinge sind nicht, wie sie scheinen. An diesem trüben Nachmittag, drau�
     "Ein Held besucht Willow und wurde angewiesen, sie auf den Feldern zu suchen.",
     "Einer oder mehrere Helden sind Red Marshals, die zum Schutz Ravenhomes abgestellt sind und beiläufig die Felder abgehen.",
     "Ein Held könnte ein zu Besuch weilender Oldways-Praktizierender oder die oberste Weise Eine des Ravensdale sein, unterwegs zum Dorf.",
-  ]},
-  extra2:{ heading:"Szenenfolge dieses Abenteuers", type:"list", items:[
-    "1 · Cooking the Sapsauce — optionaler, empfohlener Auftakt (Journey)",
-    "2 · The Barley Fields — Willow wird vom Waken Sentry bedroht",
-    "3 · Back at Ravenhome — Dorfversammlung (Countdown Challenge)",
-    "4 · The Sunken Watchtower — SorrowBalm, Tauchgang, die Truhe",
-    "5 · The Wise One's Lonesome Cabin — Rosamund",
-    "6 · The Dolorous Lady — Ritual im Grenzgebiete-Marschland, Mirelings",
-    "7 · A Murderer From Afar — optionaler Abschluss (Attentat)",
-    "8 · Aftermath",
   ]},
   challenges:[],
   revelations:[],
@@ -371,7 +364,8 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
 <li><strong>Der Krieg:</strong> Jenes Reich zerbrach, als die Thaumaturgen in einem gewaltigen Konflikt gegeneinander kämpften, der als der <strong>Krieg der Thaumaturgen</strong> bekannt wurde. Alt-Gwyrdolin zerfiel, doch ein Großteil seiner Magie blieb bestehen.</li>
 <li><strong>Das Wappen:</strong> Zeigt man ihr das Emblem auf dem Schwert aus dem Turm, erkennt Rosamund es als Insignie Alt-Gwyrdolins.</li>
 </ul>`,
-    `<span class="callout"><span class="co-title">Reihenfolge-Hinweis</span>Kommen die Helden vor dem Besuch des Versunkenen Wachturms zu Rosamund, bittet sie sie, den Turm aufzusuchen. Ist Rosamund nicht anwesend (z. B. weil sie selbst ein Hero ist), sucht die Gruppe zunächst allein in den Bounds nach dem Standstein — wählt ein bis zwei Vignetten aus <span class="gloss" onclick="openJourneyBySlug('morose-mire')">„Morose Mire“</span>, CBII 150.</span>`,
+    `<span class="callout"><span class="co-title">Die Weise Eine als Heldin</span>Spielt einer der Helden Rosamund (Legend in the Mist Character Pack) oder eine andere einheimische Weise Eine, wird diese Szene zu einem Besuch in deren Zuhause, wo sie ihre Funde, etwa die Miasma-Probe aus dem Teich, besser untersuchen können.</span>`,
+    `<span class="callout"><span class="co-title">Ankunft vor dem Versunkenen Wachturm</span>Kommen die Helden zur Weisen Einen, bevor sie den Versunkenen Wachturm besucht haben, bittet sie sie, den Turm aufzusuchen und mehr darüber herauszufinden, woher der Waken Sentry gekommen ist.</span>`,
   ],
   npcs:[],
   extra:{ heading:"Begleiterin", type:"companions", items:[
@@ -380,6 +374,7 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
   challenges:[],
   revelations:[
     { kind:"Lore", ref:"G", text:"In jüngster Zeit werden seltsame Kreaturen durch ein verfluchtes Miasma aus den Sümpfen erschaffen, berührt von einem uralten Hunger." },
+    { kind:"Lore", ref:"C", text:"Die Dales waren einst Teil von Alt-Gwyrdolin, einem Königreich, das von den Großen Thaumaturgen, Wundertätern und Wirkern von Wundern, regiert wurde." },
     { kind:"Lore", ref:"D", text:"Gwyrdolin fiel im Krieg der Thaumaturgen (War of the Thaumaturges)." },
   ],
   tips:[],
@@ -397,9 +392,10 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
   ],
   flow:[
     `<span class="section-heading">Reise zum Stein</span>Die Helden reisen von Ravenhome aus einige Tage südwärts über ein niedriges Gebirge in die Grenzgebiete. Dies lässt sich als <span class="gloss" onclick="openJourneyBySlug('rambling')">Rambling Journey</span> spielen (S. 276) — wählt drei bis fünf Vignetten, je nach gewünschtem Tempo. Ob die Gruppe zwischendurch eine Rastszene erhält, liegt bei euch. Schließlich erreicht die Gefährtenschaft die südlichen Grenzen der Dales, mit Blick auf die Shiverwash-Sümpfe: eine scheinbar endlose Weite aus fauligem Wasser, verdrehten Bäumen, stinkendem Gestrüpp und dichtem Nebel.`,
+    `<span class="callout"><span class="co-title">Rosamund nicht anwesend</span>Ist Rosamund nicht dabei, durchsucht die Gefährtenschaft zunächst selbst die Bounds nach dem Standstein. Wählt ein bis zwei Vignetten, die sich aus Morose Mire (CBII 150) ergeben.</span>`,
     `<span class="section-heading">Der Schrein der Trauernden Dame</span>Auf dem Gipfel eines gewundenen Hügels, den Shiverwash-Sümpfen zugewandt, als würde er die Grenze bewachen, trägt der überwucherte Stein das Bild einer weinenden Frau, die ihr Gesicht mit den Händen bedeckt. Ein giftiger Nebel überwältigt die Umgebung.`,
     `Rosamund bereitet das Ritual vor, entzündet Kerzen und bringt Opfergaben dar; sie bittet die Gefährtenschaft, sich ihr beim <strong>Song of Tears</strong> anzuschließen — ihrer Art, den Schrein zu pflegen. Der Song of Tears wird durch aufrichtigen Kummer gespeist, und jeder teilnehmende Hero sollte eine traurige Geschichte aus seinem Leben teilen. Oldways-praktizierende Helden können alternativ ihr eigenes Ritual beisteuern.`,
-    `<span class="callout"><span class="co-title">Unwillkommenes Publikum</span>Sobald die Helden versuchen, die Magie des Steins neu zu entfachen, beginnt sich der Sumpf auf unheimliche Weise zu regen. Der Nebel wallt und braut sich zusammen, das Wasser blubbert. Zwei oder drei Mirelings kriechen aus dem getrockneten Torf, um das Ritual zu stören, und krallen nach den Helden, Rosamund und dem Steinmal. Sie erscheinen zunächst far-away-2 vom Stein entfernt; nähern sie sich unaufgehalten, sinkt dieser Wert um jeweils 1. Wird ein Mireling überwunden, rückt ein weiteres nach — wieder bei far-away-2 — bis der Schrein wiederhergestellt oder zerstört ist.</span>`,
+    `<span class="callout"><span class="co-title">Unwillkommenes Publikum</span>Sobald die Helden versuchen, die Magie des Steins neu zu entfachen, beginnt sich der Sumpf auf unheimliche Weise zu regen. Der Nebel wallt und braut sich zusammen, das Wasser blubbert. Zwei oder drei Mirelings kriechen aus dem getrockneten Torf, um das Ritual zu stören, und krallen nach den Helden, Rosamund und dem Steinmal. Sie erscheinen zunächst far-away-2 vom Stein entfernt; nähern sie sich unaufgehalten, sinkt dieser Wert um jeweils 1. Wird ein Mireling überwunden, rückt ein weiteres nach — wieder bei far-away-2 — bis der Schrein wiederhergestellt oder zerstört ist. <br><strong>SOLO:</strong> Führt dein Hero das Ritual allein durch, beginnen die Mirelings bei far-away-4.</span>`,
     `<strong>Den Schrein neu entfachen:</strong> Ist der Standstein gepflegt, fliehen alle Mirelings zurück in die Sümpfe. Den Helden ist, als falle ihnen eine Last von den Schultern. Wird der Schrein stattdessen zerstört, ziehen sich die Mirelings mit tiefem, gluckerndem Lachen ins Moor zurück — dieses Fleckchen Land wird künftig nicht mehr sicher sein.`,
     `<strong>Schätze aus dem Sumpf:</strong> Gelingt das Ritual, wird die Umgebung des Standsteins weniger feindselig und kann durchsucht werden:<div class="reward-box"><ul style="margin:0; padding-left:18px;"><li style="margin-bottom:6px; line-height:1.55;">Ein angelaufener, aber noch stabiler <strong>Helm</strong>.</li><li style="margin-bottom:6px; line-height:1.55;"><strong>Seltene Sumpfkräuter</strong>, nützlich für Heilung oder Trankbrauerei.</li></ul></div>`,
   ],
@@ -562,9 +558,7 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
   revelations:[
     { kind:"Core", ref:"2", text:"Etwas, das die Dales seit Jahrhunderten vor äußeren Mächten geschützt hat, schwindet." },
   ],
-  tips:[
-    "Der Ton dieser Szene: kurz, scharf und schockierend — sogar ein schmerzhafter Wendepunkt, der zügig behandelt wird, aber eine bleibende Narbe hinterlässt.",
-  ],
+  tips:["Der Ton dieser Szene: kurz, scharf und schockierend — sogar ein schmerzhafter Wendepunkt, der zügig behandelt wird, aber eine bleibende Narbe hinterlässt."],
 },
 
 /* 8 --------------------------------------------------------- AFTERMATH */
@@ -577,6 +571,8 @@ Eure Anwesenheit bleibt unbemerkt, bis ihr endlich nah genug seid, dass die alte
   flow:[
     `Kehren die Helden nach Ravenhome zurück (falls sie zurückkehren), bereiten ihnen die Bewohner (falls noch dort) einen wahren Heldenempfang, gebannt von den Erzählungen ihrer schaurigen Begegnungen mit den Schrecken der Sümpfe.`,
     `Wird dies als Teil von Wake of the Oldways gespielt, erkennen die Helden — oder Rosamund teilt diese Erkenntnis mit ihnen —, dass die <span class="gloss" onclick="openGloss('dolorous-lady')">Dolorous Lady</span> die Korruption nicht umkehren und die Fäulnis auch nicht mehr lange zurückhalten kann. Die Magie des Standsteins schwindet weiterhin, und das Ritual hat sie nur vorübergehend neu belebt. Schwächelt die Dolorous Lady, könnten auch andere Schutzwarden betroffen sein. Ravenhome mag sicher sein — aber wie lange noch?`,
+    `<span class="callout"><span class="co-title">Ein Fellowship-Theme wählen</span>Nun, da die Helden das erste Abenteuer hinter sich haben und in die zentrale Motivation der Serie eingeführt wurden, sind sie durch eine neue Sache vereint. Wirf einen Blick auf die Fellowship-Hooks des Camps und die verwandten Fellowship-Themes auf S. 313.</span>`,
+    `Hier sind einige Fragen, um die Taten der Helden während des Abenteuers Revue passieren zu lassen:`,
   ],
   npcs:[],
   challenges:[],

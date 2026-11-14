@@ -35,7 +35,7 @@ function lmBlocks(bs){
     else if(b.fq){ var q=b.fq; h+='<div class="lm-fq"><span class="lm-fql">'+esc(q.l||"")+'</span><div><b>'+lmMd(q.q)+'</b>'+((q.tags&&q.tags.length)?'<p class="lm-tags">'+q.tags.map(function(g){return '<span>'+esc(g)+'</span>';}).join("")+'</p>':'')+'</div></div>'; }
     else if(b.tg){ var g=b.tg; h+='<div class="lm-tgrow">'+(g.t?'<u>'+lmMd(g.t)+'</u>':'')+g.i.map(function(s){return '<span class="lm-tg lm-tg-'+(g.k||"n")+'">'+esc(s)+'</span>';}).join("")+'</div>'; }
     else if(b.kv){ h+='<dl class="lm-kv">'+b.kv.map(function(p){return '<div><dt>'+lmMd(p[0])+'</dt><dd>'+lmMd(p[1])+'</dd></div>';}).join("")+'</dl>'; }
-    else if(b.img){ var m=b.img; h+='<figure class="lm-img"><img loading="lazy" decoding="async" alt="" src="assets/galerie/'+(m.d==='hr'?'hearts-of-ravensdale':'litm-core')+'/full/'+m.f+'.webp" width="'+m.w+'" height="'+m.h+'"></figure>'; }
+    else if(b.img){ var m=b.img; h+='<figure class="lm-img'+(m.w<m.h*1.05?' lm-fl':'')+'"><img loading="lazy" decoding="async" alt="" src="assets/galerie/'+(m.d==='hr'?'hearts-of-ravensdale':'litm-core')+'/full/'+m.f+'.webp" width="'+m.w+'" height="'+m.h+'"></figure>'; }
     else if(b.dlg){ h+='<div class="lm-dlg">'+b.dlg.map(function(p){return '<p><b>'+lmMd(p[0])+':</b> '+lmMd(p[1])+'</p>';}).join("")+'</div>'; }
   }
   return h;
@@ -53,7 +53,7 @@ function lmUnits(bs){
       i++; u.push({h:lmBlocks([b]),n:b.length,hd:b.indexOf("## ")===0||b.indexOf("### ")===0}); continue;
     }
     i++;
-    var n=lmLen(b), big=!!(b.box&&n>1100), wide=!!b.tbl||!!b.img||!!(b.kv&&(b.kv.length>=3||n>700))||big, h=lmBlocks([b]);
+    var n=lmLen(b), big=!!(b.box&&n>1100), wide=!!b.tbl||!!(b.img&&b.img.w>=b.img.h*1.05)||!!(b.kv&&(b.kv.length>=3||n>700))||big, h=lmBlocks([b]);
     if(big) h=h.replace('<section class="lm-bx ','<section class="lm-bx lm-bxw ');
     u.push({h:h,n:n,w:wide});
   }

@@ -52,7 +52,7 @@ var LM_IMGS = {
     ["hr_pdf056-057_B163ca_Oldways-Magic-and-Spells",2458,1589,170,"hr"],
     ["hr_pdf058-059_B163ca_Oldways-Magic-and-Spells",2458,1589,172,"hr"],
     ["hr_pdf064_B184_Of-Spirit-and-Stars_1",472,1588,184,"hr"],
-    ["hr_pdf068_B193_Winds-of-Change-Factions_1",1220,800,193,"hr"],
+    ["hr_pdf068_B193_Winds-of-Change-Factions_1_crop",770,800,193,"hr"],
     ["hr_pdf069_B199_Winds-of-Change-Factions_1",1220,704,198,"hr"]
   ]
 };

@@ -13,11 +13,11 @@ function mcBlocks(arr){
   }
   return h;
 }
-function mcEntry(o){
+function mcEntry(o,solo){
   var figs=(o.fig||[]).map(mcImg).join("");
   var box=(o.box||[]).map(function(x){ return '<aside class="mcbox"><h4>'+esc(x.t)+'</h4>'+mcBlocks(x.text)+'</aside>'; }).join("");
   var dg=(o.dangers||[]).map(function(d){ return dangerCard(d,true); }).join("");
-  return '<article class="mce" id="m-'+(o.id||"")+'"><h3>'+esc(o.name)+'</h3>'+pg(o.p,o.pe)+figs+mcBlocks(o.text)+box+(dg?'<div class="dgrid">'+dg+'</div>':'')+'</article>';
+  return '<article class="mce" id="m-'+(o.id||"")+'">'+(solo?'':'<h3>'+esc(o.name)+'</h3>'+pg(o.p,o.pe))+figs+mcBlocks(o.text)+box+(dg?'<div class="dgrid">'+dg+'</div>':'')+'</article>';
 }
 function pageMC(r){
   var N=CM_MC_NAV, tab=r.tab&&N.cats[r.tab]?r.tab:"start";
@@ -25,9 +25,9 @@ function pageMC(r){
   if(tab==="start") return tabs+pageMCStart();
   var cats=N.cats[tab], c=cats.filter(function(x){return x.id===r.sub;})[0]||cats[0];
   var have=CM_MCD[c.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
-  var es=c.e.map(function(e){ return names[e[0]]?mcEntry(names[e[0]]):stub(e[0],e[1]); }).join("");
+  var es=c.e.map(function(e){ return names[e[0]]?mcEntry(names[e[0]],c.e.length===1):stub(e[0],e[1]); }).join("");
   var extra=have.filter(function(o){return !c.e.some(function(e){return e[0]===o.name;});}).map(mcEntry).join("");
-  var subs=have.length?have.map(function(o){return '<a href="#" onclick="document.getElementById(\'m-'+(o.id||"")+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(o.name.split(':')[0])+'</a>';}).join(""):'';
+  var subs=have.length>1?have.map(function(o){return '<a href="#" onclick="document.getElementById(\'m-'+(o.id||"")+'\').scrollIntoView({behavior:\'smooth\'});return false">'+esc(o.name.split(':')[0])+'</a>';}).join(""):'';
   var btn=function(x){ return '<button class="ocat'+(x.id===c.id?' on':'')+'" onclick="gm(\''+tab+'/'+x.id+'\')">'+esc(x.t)+'</button>'; };
   var nav='<nav class="onav"><div class="otree">'+cats.map(function(x){return btn(x)+(x.id===c.id&&subs?'<div class="osub">'+subs+'</div>':'');}).join("")+'</div><div class="oflat"><div class="orow">'+cats.map(btn).join("")+'</div></div></nav>';
   var fig=c.fig?mcImg(c.fig):"";

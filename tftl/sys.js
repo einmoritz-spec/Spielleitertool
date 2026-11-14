@@ -19,7 +19,7 @@ window.SYS = {
   "line": "#d9cfba",
   "card": "#fffaf0",
   "top": "#f08a1c",
-  "topInk": "#ffffff",
+  "topInk": "#241c10",
   "logoFont": "Jost,Futura,sans-serif",
   "logoSize": "22px",
   "logoLs": ".03em",

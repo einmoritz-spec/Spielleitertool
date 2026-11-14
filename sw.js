@@ -705,6 +705,7 @@ const FILES = [
   "js/data/lm/einstieg.js",
   "js/data/lm/nr-einstieg.js",
   "js/data/lm/nr-sitzung.js",
+  "js/data/lm/nr-abenteuer.js",
   "js/data/lm/entwicklung.js",
   "js/data/lm/erschaffung-2.js",
   "js/data/lm/erschaffung.js",

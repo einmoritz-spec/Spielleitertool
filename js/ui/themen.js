@@ -73,7 +73,7 @@ function tbTree(cur){
   h += '<button class="lm-cat tb-cat' + (cur === "laden" ? " on" : "") + '" onclick="goThemen(\'laden\')">Gemischtwarenladen</button>';
   ["heroes-dalish","heroes-uncanny"].forEach(function(hk){
     h += '<button class="lm-cat tb-cat' + (cur === hk ? " on" : "") + '" onclick="goThemen(\'' + hk + '\')">' + TB_HERO[hk].t + '</button>';
-    if(cur === hk) h += '<div class="lm-sub"><a onclick="tbHeroScroll(\'hx-make\')">Erschaffung</a><a onclick="tbHeroScroll(\'hx-tropes\')">Tropes</a><a onclick="tbHeroScroll(\'hx-kits\')">Theme Kits</a>' + (hk === "heroes-uncanny" ? '<a onclick="tbHeroScroll(\'hx-comp\')">Companions</a>' : '') + '</div>';
+    if(cur === hk) h += '<div class="lm-sub"><a onclick="tbHeroScroll(\'hx-make\')">Erschaffung</a><a onclick="tbHeroScroll(\'hx-tropes\')">Tropes</a><a onclick="tbHeroScroll(\'hx-kits\')">Theme Kits</a>' + (hk === "heroes-uncanny" ? '<a onclick="tbHeroScroll(\'hx-comp\')">Companions</a><a onclick="tbHeroScroll(\'hx-rew\')">Belohnungen</a>' : '') + '</div>';
   });
   h += '</div>';
   // Handy: wischbare Zeile
@@ -189,7 +189,7 @@ var TB_HERO = {
   "heroes-dalish":  { t:"Dalish Heroes",  en:"The Dales", p:108, pe:125, src:"dales", img:"assets/litm/home-dales.webp", lm:["dales-b","dales-c"],
              make:["dales-b","Einen Dalish Hero erschaffen"], tropes:[["dales-b","Dalish-Hero-Tropes","###"]], more:"dales-c", companions:null },
   "heroes-uncanny": { t:"Uncanny Heroes", en:"Beyond the Dales", p:212, pe:231, src:"uncanny", img:"assets/galerie/hearts-of-ravensdale/full/hr_pdf071_B204_Winds-of-Change-Factions_1.webp", lm:["jenseits-b"],
-             make:["jenseits-b","Einen Uncanny Hero erschaffen"], tropes:[["jenseits-b","Uncanny-Hero-Tropes","##"]], more:null, companions:["jenseits-b","Companions"] }
+             make:["jenseits-b","Einen Uncanny Hero erschaffen"], tropes:[["jenseits-b","Uncanny-Hero-Tropes","##"]], more:null, companions:["jenseits-b","Companions"], rewards:["jenseits-b","Belohnungen"] }
 };
 function tbChap(id, name){ return (LM.data[id] || []).filter(function(c){ return c.name === name; })[0]; }
 function tbHeroTropes(h){
@@ -233,6 +233,7 @@ function tbHero(key){
   }).join("");
   o += '<h2 class="tbp-h" id="hx-kits">Theme Kits <small class="tbp-n">' + kn + '</small></h2>' + kitsH;
   if(h.companions){ var co = tbChap(h.companions[0], h.companions[1]); if(co) o += '<h2 class="tbp-h" id="hx-comp">Companions ' + tbPg("wake", co.p, co.pe) + '</h2>' + tbSections(co); }
+  if(h.rewards){ var rw = tbChap(h.rewards[0], h.rewards[1]); if(rw) o += '<h2 class="tbp-h" id="hx-rew">Belohnungen ' + tbPg("wake", rw.p, rw.pe) + '</h2>' + tbSections(rw); }
   return o + '</div></div>';
 }
 function tbHeroScroll(id){ var el = document.getElementById(id); if(el) el.scrollIntoView({ behavior:"smooth", block:"start" }); }

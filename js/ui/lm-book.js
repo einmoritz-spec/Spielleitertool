@@ -164,6 +164,7 @@ function tocSpy(toc, ids, offset){ var __sel=".lm-sub a";
 function lmJump(i){ var el=document.getElementById("lm-"+i); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
 function goBook(tab,sec){ if(sec==="themenbuecher"&&typeof goThemen==="function") return goThemen(); if(typeof guardEditLeave==="function"&&!guardEditLeave()) return; if(tab==="welt"){ tab=sec||"dales"; } else if(tab&&tab!=="regeln"&&!sec) sec=tab; if(tab&&tab!=="regeln"&&LM_NAV.secs.welt.some(function(x){return x.id===tab;})&&!sec) sec=tab; if(tab==="orte"&&sec!=="orte"&&!sec) sec="orte"; if(tab!=="orte") state.ortPlace=null; state.view="book"; state.bookTab=tab||state.bookTab||"regeln"; state.bookSec=sec||null; render(); scrollToTop(); if(typeof persist==="function") persist(); }
 function renderBook(){
+  if(state.bookTab==="jenseits-b"||state.bookSec==="jenseits-b"){ state.bookTab="orte"; state.bookSec="orte"; if(typeof goThemen==="function") return goThemen("heroes-uncanny"); }
   var tab=state.bookTab||"regeln"; if(tab==="welt") tab=state.bookSec||"dales"; var list=LM_NAV.secs[tab]||LM_NAV.secs.welt.filter(function(x){return x.id===tab;}), sid=state.bookSec, s=list.filter(function(x){return x.id===sid;})[0]||list[0];
   state.bookSec=s.id; state.bookTab=tab; lmKey=(tab==='regeln')?'core':'wake';
   var tabs=LM_NAV.tabs.map(function(t){ return '<button class="lm-tab'+(t.id===tab?' on':'')+'" onclick="goBook(\''+t.id+'\')">'+esc(t.t)+'</button>'; }).join("");
@@ -171,10 +172,10 @@ function renderBook(){
   var i=list.indexOf(s), prev=list[i-1], next=list[i+1];
   var nav='<div class="lm-pn">'+(prev?'<button onclick="goBook(\''+tab+'\',\''+prev.id+'\')"><small>Zurück</small>'+esc(prev.t)+'</button>':'<span></span>')+(next?'<button class="r" onclick="goBook(\''+tab+'\',\''+next.id+'\')"><small>Weiter</small>'+esc(next.t)+'</button>':'<span></span>')+'</div>';
   app.innerHTML=renderTopbar()+'<div class="lm-wrap"><div class="lm-shell"><nav class="lm-toc" id="lmToc"></nav><div class="lm-main"><nav class="lm-tabs">'+tabs+'</nav><div id="lmHost" class="lm-host"><p class="lm-load">Lade …</p></div>'+nav+'</div></div></div>';
-  lmLoad(s.id==="orte"?"dales-b":s.id,function(){
+  lmLoadMany(lmDeps(s.id),function(){
     var el=document.getElementById("lmHost"); if(!el||state.view!=="book"||state.bookSec!==s.id) return;
-    var es=(LM.data[s.id==="orte"?"dales-b":s.id]||[]).filter(function(c){ return s.id==="orte" ? ORT_NAMES.indexOf(c.name)>=0 : (s.id!=="dales-b"||ORT_NAMES.indexOf(c.name)<0); });
-    if(s.id==="orte"){ el.innerHTML=ortHtml(es); var r0=document.getElementById("lmToc"); if(r0) r0.innerHTML='<div class="lm-tree"></div>'; var sh0=document.querySelector(".lm-shell"); if(sh0){ sh0.classList.add("nontoc"); sh0.style.setProperty("grid-template-columns","minmax(0,1fr)","important"); } document.querySelectorAll(".pn-btn").forEach(function(b){ b.style.display="none"; }); return; }
+    var es=lmCompose(s.id);
+    if(s.id==="orte"){ el.innerHTML=ortHtml(); var r0=document.getElementById("lmToc"); if(r0) r0.innerHTML='<div class="lm-tree"></div>'; var sh0=document.querySelector(".lm-shell"); if(sh0){ sh0.classList.add("nontoc"); sh0.style.setProperty("grid-template-columns","minmax(0,1fr)","important"); } document.querySelectorAll(".pn-btn").forEach(function(b){ b.style.display="none"; }); return; }
     var sh=function(t){return String(t).split(":")[0];};
     var subs=es.length>1?es.map(function(c,i){ return '<a onclick="lmJump('+i+')">'+esc(sh(c.name))+'</a>'; }).join(""):"";
     var toc=list.map(function(x){ var on=x.id===s.id; return '<button class="lm-cat'+(on?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(sh(x.t))+'</button>'+(on&&subs?'<div class="lm-sub">'+subs+'</div>':''); }).join("");

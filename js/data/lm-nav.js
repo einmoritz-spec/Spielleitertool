@@ -7,8 +7,7 @@ const LM_NAV = {
     {id:"dales-b", t:"Gruppen und Helden", src:"Setting Book: The Dales"},
     {id:"dales-c", t:"Handwerk und Magie", src:"Setting Book: The Dales"},
     {id:"jenseits", t:"Welt und Mächte", src:"Setting Book: The Dales"},
-    {id:"jenseits-b", t:"Uncanny Heroes", src:"Setting Book: The Dales"},
-    {id:"jenseits-c", t:"Wesen und Orte", src:"Setting Book: The Dales"}
+    {id:"jenseits-c", t:"Wesen", src:"Setting Book: The Dales"}
   ],
   secs:{
     regeln:[
@@ -25,8 +24,7 @@ const LM_NAV = {
       {id:"dales-b", t:"Gruppen und Helden", p:67, pe:115},
       {id:"dales-c", t:"Handwerk und Magie", p:116, pe:163},
       {id:"jenseits", t:"Welt und Mächte", p:164, pe:210},
-      {id:"jenseits-b", t:"Uncanny Heroes", p:211, pe:260},
-      {id:"jenseits-c", t:"Wesen und Orte", p:261, pe:307}
+      {id:"jenseits-c", t:"Wesen", p:244, pe:307}
     ]
   }
 };

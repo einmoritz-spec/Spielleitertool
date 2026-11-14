@@ -33,16 +33,16 @@ function pageMC(r){
   var fig=c.fig?mcImg(c.fig):"";
   return tabs+'<div class="orail">'+nav+'<div class="omain"><section class="blk flat">'+sectionHead({t:c.t,en:c.en,p:c.p})+fig+'<div class="mcbody">'+es+extra+'</div></section></div></div>';
 }
+function mcCard(img,t,main,cats,tab){
+  return '<div class="ovc-card"><button class="ovc-img" onclick="'+main+'" aria-label="'+t+'"><img src="img/galerie/mc-toolkit/full/'+img+'.webp" alt="" loading="lazy"></button><div class="ovc-b"><h3 onclick="'+main+'">'+t+'</h3>'+
+    hubLinks(cats.map(function(c){return [c.t,"gm(\'"+tab+"/"+c.id+"\')"];}))+'</div></div>';
+}
 function pageMCStart(){
   var N=CM_MC_NAV;
-  var kc=N.kapitel.map(function(k,i){
-    var cats=N.cats[k.go].map(function(c){return [c.t,"gm(\'"+k.go+"/"+c.id+"\')",c.p];});
-    return kapCard(String(i+1),k.t,k.en,k.p,"gm(\'"+k.go+"\')",cats);
-  }).join("");
-  var ap=kapCard("","Avatare","Avatar Profiles",166,"gm(\'avatare\')",N.cats.avatare.map(function(c){return [c.t,"gm(\'avatare/"+c.id+"\')",c.p];}))+
-         kapCard("","Hilfsmittel","MC Sheets, Sample Case & Maps",220,"gm(\'hilfsmittel\')",N.cats.hilfsmittel.map(function(c){return [c.t,"gm(\'hilfsmittel/"+c.id+"\')",c.p];}));
+  var def=[["Die Stadt","stadt","mc_p18_1"],["Spielleitung","spielleitung","mc_p08_1"],["Dangers","dangers","mc_p193_1"],["Avatare","avatare","mc_p174_1"],["Hilfsmittel","hilfsmittel","mc_p242_1"]];
+  var grid=def.map(function(d){ return mcCard(d[2],d[0],"gm(\'"+d[1]+"\')",N.cats[d[1]],d[1]); }).join("");
   var c0=N.cats.start[0], have=CM_MCD.mc||[], nm={}; have.forEach(function(o){nm[o.name]=o;});
   var intro=c0.e.map(function(e){ return nm[e[0]]?mcEntry(nm[e[0]]):stub(e[0],e[1]); }).join("");
-  return '<section class="blk"><h2>MC Toolkit <button class="chip bookbtn" onclick="BV.open(\'mc\',1)">Buch öffnen</button></h2><div class="kcs">'+kc+ap+'</div></section>'+
+  return '<div class="ovc mcs"><div class="ovc-grid">'+grid+'</div></div>'+
     '<section class="blk flat"><div class="mcbody">'+intro+'</div></section>';
 }

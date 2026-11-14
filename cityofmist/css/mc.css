@@ -11,3 +11,7 @@
 #m-kt-karten>*{grid-column:1/-1}
 #m-kt-karten>.imf{grid-column:auto;float:none!important;width:100%!important;max-width:none!important;margin:0!important}
 @media(max-width:700px){#m-kt-karten{grid-template-columns:repeat(2,1fr)}}
+/* Startseite: Bildkarten ohne Hero */
+.ovc.mcs .ovc-grid{margin-top:18px;margin-bottom:26px;padding:0}
+.ovc.mcs .ovc-b .hl{flex-wrap:wrap;overflow:visible}
+.ovc.mcs .ovc-b .hl .chip{max-width:none;overflow:visible;text-overflow:clip}

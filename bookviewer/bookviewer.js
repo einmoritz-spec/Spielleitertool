@@ -93,11 +93,24 @@ var BV = (function(){
     return `<div class="bvs"><div class="bvs-title">Bücher (nur lokal)</div>${cfg.books.map(b=>`<div class="bvs-row"><div><b>${b.name}</b><small id="bvs_${b.key}">…</small></div><label class="bvs-btn">PDF wählen<input class="bvs-file" type="file" accept="application/pdf,.pdf" onchange="BV.load('${b.key}',this)"></label></div><div class="bvs-off">Seitenversatz (PDF-Seite minus Buchseite): <input type="number" value="${getOff(b.key)}" onchange="BV.setOffset('${b.key}',this.value)"></div>`).join("")}<p class="bvs-hint">Deine PDFs bleiben nur in diesem Browser (nichts wird hochgeladen). Seitenangaben wie „S. 315“ im Text öffnen dann die Originalseite. Passt die Seite nicht genau, stelle den Seitenversatz ein.</p></div>`;
   }
   /* Seitenverweise im Text automatisch anklickbar machen */
-  const RX = /(?:\bS\.|\bSeiten?)\s?(\d{1,3})(?:\s?[–-]\s?(\d{1,3}))?/g;
+  const RX = /\bCBII?\s?(\d{1,3})|(?:\bS\.|\bSeiten?)\s?(\d{1,3})(?:\s?[–-]\s?(\d{1,3}))?/g;
+  /* Core-Book-Verweise: CBI = gedruckte Seite = PDF-Seite; CBII = gedruckte Seite + 240 (Band II beginnt bei PDF-S. 241) */
+  function target(m, before, ctxBook){
+    const has = k=>cfg.books.some(b=>b.key===k);
+    if(m[0].slice(0,2)==="CB" && has("core")) return { book:"core", page:(parseInt(m[1])||1) + (m[0].slice(0,4)==="CBII" ? 240 : 0) };
+    const pg = parseInt(m[2]);
+    if(ctxBook==="core" && has("core")) return { book:"core", page: pg + (/Vol\. II/.test(before) ? 240 : 0) };
+    if(has("core")){
+      const mm = before.match(/(Core Book|CBII?|Erzähler-Buch)([^)]{0,45})$/);
+      if(mm) return { book:"core", page: pg + (mm[1]!=="Erzähler-Buch" && /Vol\. II|Core Book II|CBII|Kapitel V\b/.test(mm[0]) ? 240 : 0) };
+    }
+    return { book:cfg.defaultBook, page:pg };
+  }
+
   function linkify(root){
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode(n){
-      if(!n.nodeValue || !/(S\.|Seite)/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
-      const p = n.parentElement; if(!p || p.closest("script,style,textarea,input,select,button,a,[contenteditable],.bvx,.pg-link,.bvs")) return NodeFilter.FILTER_REJECT;
+      if(!n.nodeValue || !/(S\.|Seite|CBI)/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+      const p = n.parentElement; if(!p || p.closest("script,style,textarea,input,select,a,[contenteditable],.bvx,.pg-link,.bvs")) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT; } });
     const nodes = []; while(w.nextNode()) nodes.push(w.currentNode);
     for(const n of nodes){
@@ -105,7 +118,7 @@ var BV = (function(){
       const frag = document.createDocumentFragment(); let last = 0, m;
       while((m = RX.exec(txt))){
         frag.appendChild(document.createTextNode(txt.slice(last, m.index)));
-        const a = document.createElement("a"); a.className = "pg-link"; a.href = "#"; a.dataset.page = m[1]; a.title = "Originalseite im Buch ansehen"; a.textContent = m[0]; frag.appendChild(a); last = m.index + m[0].length;
+        const a = document.createElement("a"); a.className = "pg-link"; a.href = "#"; const cb = n.parentElement && n.parentElement.closest("[data-pgbook]"), tg = target(m, txt.slice(Math.max(0,m.index-70), m.index), cb && cb.dataset.pgbook); a.dataset.page = tg.page; a.dataset.book = tg.book; a.title = "Originalseite im Buch ansehen"; a.textContent = m[0]; frag.appendChild(a); last = m.index + m[0].length;
       }
       frag.appendChild(document.createTextNode(txt.slice(last))); n.parentNode.replaceChild(frag, n);
     }
@@ -113,7 +126,7 @@ var BV = (function(){
   function init(c){
     cfg = Object.assign(cfg, c);
     BASE = new URL(c.libBase, location.href.split("#")[0]).href;
-    document.addEventListener("click", e=>{ const a = e.target.closest && e.target.closest(".pg-link"); if(!a) return; e.preventDefault(); e.stopPropagation(); open(cfg.defaultBook, a.dataset.page); }, true);
+    document.addEventListener("click", e=>{ const a = e.target.closest && e.target.closest(".pg-link"); if(!a) return; e.preventDefault(); e.stopPropagation(); open(a.dataset.book || cfg.defaultBook, a.dataset.page); }, true);
     document.addEventListener("keydown", e=>{ const o = document.getElementById("bvOverlay"); if(!o||o.hidden) return; if(e.target && e.target.tagName==="INPUT" && e.key!=="Escape") return; if(e.key==="ArrowRight"||e.key==="PageDown") step(1); else if(e.key==="ArrowLeft"||e.key==="PageUp") step(-1); else if(e.key==="Escape") close(); else if(e.key==="z"||e.key==="Z") zoom(); });
     let pend = 0; const run = ()=>{ pend = 0; try{ linkify(document.body); }catch(e){} };
     new MutationObserver(()=>{ if(!pend) pend = setTimeout(run, 200); }).observe(document.body, { childList:true, subtree:true, characterData:true });

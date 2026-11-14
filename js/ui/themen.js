@@ -98,7 +98,7 @@ function tbOverview(){
       '<span class="tbx-sub">' + tbSub(b.sub) + '</span>' +
       '<span class="tbx-q"><i>A</i>' + esc(b.a) + '</span>' +
       '<span class="tbx-c">' + n.power + ' Power-Fragen · ' + n.weak + ' Weakness-Fragen · ' + n.imps + ' Verbesserungen · ' + kits + ' Theme Kits</span>' +
-      '<span class="tbx-m"><span>S. ' + b.p + '–' + b.pe + '</span><span class="tbx-go">Aufschlagen</span></span></span></button>';
+      '<span class="tbx-m"><span class="pg-link" data-book="core" data-page="' + b.p + '" title="Originalseite im Buch ansehen">S. ' + b.p + '–' + b.pe + '</span><span class="tbx-go">Aufschlagen</span></span></span></button>';
   }).join("");
   var chips = [["alle","Alle"],["origin","Origin"],["adventure","Adventure"],["greatness","Greatness"],["variable","Variable Might"]].map(function(c){
     return '<button class="tbx-chip' + (TB.filter === c[0] ? " on" : "") + '" onclick="tbFilter(\'' + c[0] + '\')">' + c[1] + '</button>';

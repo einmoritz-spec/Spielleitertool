@@ -23,7 +23,7 @@ function renderRuleItem(g, i){
       <button class="rg-head" onclick="toggleRuleItem(${i})">
         <span class="rg-head-text">
           <div class="rg-term">${esc(g.term)}</div>
-          ${g.page?`<div class="rg-page">${esc(g.page)}</div>`:""}
+          ${g.page?`<div class="rg-page" data-pgbook="core">${esc(g.page)}</div>`:""}
         </span>
         <svg class="rg-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </button>

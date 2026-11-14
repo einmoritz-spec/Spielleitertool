@@ -35,7 +35,7 @@ const SG_SCENES = [
    "Am <strong>Grund von Skunk Glen</strong> werden die Heroes aufgefordert, ein übliches Geschenk darzubringen, um durch den Müllhaufen in die Domäne des Heap-Thing zu gelangen. Dort finden sie sein <strong>Fest des Spotts</strong>, stellen sich der Kreatur und beenden das Debakel – so oder so.",
    "<span class=\"section-heading\">Die Wise One spielen</span> Ist einer der Heroes die Wise One (aus der Demo-Fassung von Legend in the Mist), lass diese Spielerin oder diesen Spieler wissen, was sie über die wahren Gründe des Alderman für die Abweichung von der Tradition weiß. Das sollte sie wohl für sich behalten: Es nützt niemandem, kurz vor der Zeremonie Panik im Dorf zu verbreiten. Ab diesem Zeitpunkt liegt es bei ihr, ob sie die Information preisgibt.",
    "<span class=\"section-heading\">Aufhänger: Wie sind die Heroes beteiligt?</span> Die Heroes deiner Fellowship – falls sie bereits eine bilden – können unterschiedliche Hintergründe und Motive haben, in dieses Abenteuer hineingezogen zu werden. Sie können sein:",
-   "<span class=\"section-heading\">Buchfassung</span> Den vollständigen Text im Buchaufbau findest du unter <a class=\"gloss\" onclick=\"goBook('skunk','nr-skunk')\">Skunk Glen im Erzähler-Buch (S. 448–465)</a>."
+   "<span class=\"section-heading\">Buchfassung</span> Den vollständigen Text im Buchaufbau findest du unter <a class=\"gloss\" onclick=\"goBook('skunk','nr-skunk')\">Skunk Glen</a> im Erzähler-Buch (S. 448–465)."
   ],
   "npcs": [],
   "challenges": [],

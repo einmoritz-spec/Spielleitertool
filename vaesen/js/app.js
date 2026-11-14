@@ -172,7 +172,22 @@ function vDetail(v){
 }
 
 /* ---------- Kapitelübersicht ---------- */
+function viewTanz(){
+  var T = VAE_KAP.tanz.tabs, p = sub.split("/"), tab = T.filter(function(t){ return t.id === p[0]; })[0] || T[0];
+  var bar = tabsBar(T.map(function(t){ return [t.t, "tanz/" + t.id + (t.secs ? "/" + t.secs[0].id : "")]; }), tab.t);
+  if(tab.figs){
+    return bar + '<div class="page"><div class="fgrid">' + tab.figs.map(function(f){
+      return '<details class="box fc"><summary>' + (f.img ? '<img src="' + IMG(f.img, "thumb") + '" alt="">' : '') + '<span><h3>' + esc(f.n) + '</h3><small>' + esc(f.s) + '</small></span></summary>' +
+       (f.q ? '<p class="quote">' + f.q + '</p>' : '') + '<p>' + f.x + '</p>' + (f.st ? '<p class="st">' + f.st + '</p>' : '') + '<i></i><b></b></details>'; }).join("") + '</div></div>';
+  }
+  if(!tab.secs) return bar + '<div class="page">' + flow(tab.b) + '</div>';
+  var sec = tab.secs.filter(function(x){ return x.id === p[1]; })[0] || tab.secs[0];
+  var side = [{i:tab.secs.map(function(x){ return {id:x.id, go:"tanz/" + tab.id + "/" + x.id, t:x.t}; })}];
+  var pic = sec.img ? '<div class="box card" style="max-width:360px;margin:0 0 16px" onclick="Galerie.open(\'vaesen\')"><div class="im" style="height:220px"><img src="' + IMG(sec.img, "thumb") + '"></div><i></i><b></b></div>' : '';
+  return bar + main(side, sec.id, '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(sec.t) + '</h1>' + bookLink(sec.p) + '</div><div style="margin-top:12px">' + pic + flow(sec.b) + '</div></div>');
+}
 function viewKapitel(id){
+  if(id === "tanz" && window.VAE_KAP && VAE_KAP.tanz && VAE_KAP.tanz.tabs) return viewTanz();
   if(window.VAE_KAP && VAE_KAP[id]){ var k = VAE_KAP[id]; var tabs0 = (id === "talente" || id === "konflikt") ? tabsBar(VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]), k.titel) : ""; return tabs0 + '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(k.titel) + '</h1>' + bookLink(k.p) + '</div><div style="margin-top:12px">' + flow(k.b) + '</div></div>'; }
   var t = toc(id); if(!t) return viewStart();
   var imgs = {norden:["norden_titel_reiter","norden_karte_upsala"], gesellschaft:["mysterium_dame_mit_laterne"], mysterium:["einleitung_naeck"], tanz:["tanz_karte_hexenkater","tanz_sami_harjula","tanz_sophia_harjula","tanz_oscar_hjort"], konflikt:[], talente:[]}[id] || [];

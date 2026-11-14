@@ -132,3 +132,8 @@ h1{overflow-wrap:anywhere}
 
 /* Spaltenfluss: Überschriften nie allein am Spaltenende; schmale Tabellen nicht über die ganze Breite */
 .page h2,.page h3,.page h4,.page .h{break-after:avoid;-webkit-column-break-after:avoid}
+
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;align-items:start}
+details.fc{padding:0}details.fc>summary{display:flex;align-items:center;gap:12px;padding:10px 16px;cursor:pointer;list-style:none}details.fc>summary::-webkit-details-marker{display:none}
+details.fc>summary img{width:54px;height:54px;object-fit:contain;mix-blend-mode:multiply}details.fc h3{margin:0;font-size:21px;text-transform:none;letter-spacing:.04em}details.fc small{display:block;color:var(--soft);font-size:14px}
+details.fc>p{margin:0 18px 10px}details.fc>p.st{padding:8px 0 14px;border-top:1px solid var(--line);font-size:15.5px}details.fc[open]>summary{padding-bottom:4px}details.fc>p.quote{font-style:italic}

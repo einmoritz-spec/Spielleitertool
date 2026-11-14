@@ -29,7 +29,7 @@ function renderOverview(){
     <button class="adv-card" ${ready?`onclick="goAdventure('${a.id}')"`:'disabled'}>
       ${imgOf[a.id]?`<img src="assets/hero/adv-${imgOf[a.id]}.webp" alt="" loading="lazy">`:''}
       <div class="b">
-        <div class="meta"><span>Abenteuer ${a.num}</span><span>${ready? a.scenes.length+' Szenen' : 'In Vorbereitung'}</span></div>
+        <div class="meta"><span>Abenteuer ${a.num}</span><span>${ready? a.scenes.filter(s=>s.kind==="scene").length+' Szenen' : 'In Vorbereitung'}</span></div>
         <h3>${esc(a.title)}</h3>
         <div class="en">${esc(a.en)}</div>
         <p>${esc(a.teaser.split(/(?<=[.!?])\s/)[0])}</p>
@@ -89,7 +89,7 @@ function renderPathrail(adv){
   <div class="pathrail ${state.pathrailCollapsed?'collapsed':''}">
     <button class="pathrail-toggle" onclick="togglePathrail()" title="${state.pathrailCollapsed?'Seitenleiste ausklappen (Taste <)':'Seitenleiste einklappen (Taste <)'}">${state.pathrailCollapsed?'›':'‹'}</button>
     <h2>${esc(adv.title)}</h2>
-    <div class="subhead">${adv.scenes.length} Szenen · ${esc(adv.en)}</div>
+    <div class="subhead">${adv.scenes.filter(s=>s.kind==="scene").length} Szenen · ${esc(adv.en)}</div>
     <div class="trail">${items}</div>
   </div>`;
 }

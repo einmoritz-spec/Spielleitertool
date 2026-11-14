@@ -453,6 +453,42 @@ function journeyMatchesFilter(j){
   return true;
 }
 
+// Journey-Bilder: kleiner Ausschnitt (assets/portraits/jn*.webp) -> Klick zeigt das ganze Bild.
+const JOURNEY_IMGS = {
+  "harvest-festival":["jnHarvestFestival","core","lmErzaehler_pdf082_B118_Challenges_1"],
+  "dark-forest":["jnDarkForest","core","lmErzaehler_pdf089_B144_Challenges_1"],
+  "echoing-cavern":["jnEchoingCavern","core","lmErzaehler_pdf090_B146_Challenges_1"],
+  "noble-banquet":["jnNobleBanquet","core","lmErzaehler_pdf100_B174_Challenges_1"],
+  "ongoing-battle":["jnOngoingBattle","core","lmErzaehler_pdf102_B180_Challenges_1"],
+  "desolate-wasteland":["jnDesolateWasteland","core","lmErzaehler_pdf104_B186_Challenges_1"],
+  "crafting":["jnCrafting","core","lmErzaehler_pdf106_B194_Challenges_1"],
+  "provisioning":["jnProvisioning","core","lmErzaehler_pdf107_B196_Challenges_1"],
+  "blood-water-feud":["jnBloodWaterFeud","hr","hr_pdf082_B252_Challenges_1"],
+  "common-weal":["jnCommonWeal","hr","hr_pdf083_B254_Challenges_1"],
+  "barrow":["jnBarrow","hr","hr_pdf090_B282_Challenges_1"]
+};
+function jnImgFull(slug){
+  const m = JOURNEY_IMGS[slug]; if(!m) return "";
+  return "assets/galerie/"+(m[1]==="hr"?"hearts-of-ravensdale":"litm-core")+"/full/"+m[2]+".webp";
+}
+function openJnImg(slug, ev){
+  if(ev) ev.stopPropagation();
+  const src = jnImgFull(slug); if(!src) return;
+  if(window.Zeigen){ Zeigen.open(0, [{src:new URL(src, location.href).href, el:null}]); return; }
+  const ov = document.createElement("div");
+  ov.className = "jn-lightbox";
+  ov.innerHTML = `<img src="${src}" alt="">`;
+  const close = ()=>{ ov.remove(); document.removeEventListener("keydown", onKey); };
+  const onKey = e=>{ if(e.key==="Escape") close(); };
+  ov.onclick = close;
+  document.addEventListener("keydown", onKey);
+  document.body.appendChild(ov);
+}
+function jnThumbHtml(j, cls){
+  const m = j.slug && JOURNEY_IMGS[j.slug]; if(!m) return "";
+  return `<img class="${cls}" src="assets/portraits/${m[0]}.webp" alt="" data-zg="no" loading="lazy" onclick="openJnImg('${j.slug}',event)" title="Ganzes Bild ansehen">`;
+}
+
 function renderJourneyCard(catIdx, jIdx, j){
   const domId = `jn_${catIdx}_${jIdx}`;
   const isOpen = state.openChallenges.has(domId);
@@ -472,6 +508,7 @@ function renderJourneyCard(catIdx, jIdx, j){
   <div class="challenge ${isOpen?'open':''}" id="${domId}">
     <button class="challenge-head" onclick="toggleChallenge('${domId}')">
       <span class="ch-type">${esc(j.journeyType||'Journey')}</span>
+      ${jnThumbHtml(j,"jn-head-img")}
       <span class="ch-name-wrap">
         <div class="ch-name">${esc(j.name)}${j.subtitle?` <span class="ch-subtitle">(${esc(j.subtitle)})</span>`:''}</div>
         <div class="ch-quicklimits">${(j.vignettes||[]).length} Vignette${(j.vignettes||[]).length===1?'':'n'}</div>
@@ -480,6 +517,7 @@ function renderJourneyCard(catIdx, jIdx, j){
     </button>
     <div class="challenge-body">
       <div class="ch-inner">
+        ${jnThumbHtml(j,"jn-body-img")}
         <div class="ch-desc">${descParagraphs(linkStatuses(esc(j.desc)))}</div>
         ${tagsHtml}
         ${rewardHtml}

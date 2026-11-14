@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v432narr";
+const VERSION = "v433jimg";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -767,6 +767,17 @@ const FILES = [
   "assets/tb/trait.webp",
   "assets/tb/uncanny.webp",
   "assets/portraits/aldermanBeaks.webp",
+  "assets/portraits/jnBarrow.webp",
+  "assets/portraits/jnBloodWaterFeud.webp",
+  "assets/portraits/jnCommonWeal.webp",
+  "assets/portraits/jnCrafting.webp",
+  "assets/portraits/jnDarkForest.webp",
+  "assets/portraits/jnDesolateWasteland.webp",
+  "assets/portraits/jnEchoingCavern.webp",
+  "assets/portraits/jnHarvestFestival.webp",
+  "assets/portraits/jnNobleBanquet.webp",
+  "assets/portraits/jnOngoingBattle.webp",
+  "assets/portraits/jnProvisioning.webp",
   "assets/portraits/aleonora.webp",
   "assets/portraits/azeria.webp",
   "assets/portraits/coldHeartedStabber.webp",

@@ -195,3 +195,10 @@
   .time-tracker{display:none;}
   .stage-wrap{padding:22px 18px 100px;}
 }
+
+/* Journey-Bilder: Ausschnitt, Klick = ganzes Bild */
+.jn-head-img{flex:none;width:40px;height:40px;border-radius:6px;object-fit:cover;border:1px solid #8a6f4a;box-shadow:0 1px 3px rgba(60,40,20,.35)}
+.jn-body-img{float:right;width:120px;height:120px;margin:0 0 8px 14px;border-radius:8px;object-fit:cover;border:2px solid #8a6f4a;box-shadow:0 2px 6px rgba(60,40,20,.4);cursor:zoom-in}
+.jn-lightbox{position:fixed;inset:0;z-index:99999;background:rgba(10,6,3,.92);display:flex;align-items:center;justify-content:center;padding:12px;cursor:zoom-out}
+.jn-lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+@media(max-width:600px){.jn-body-img{width:96px;height:96px}}

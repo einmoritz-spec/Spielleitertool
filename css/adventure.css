@@ -350,14 +350,12 @@ summary.growth-summary::before{
 }
 .vignette.played{border-color:rgba(111,145,99,.5);}
 .vignette .v-played-toggle{
-  float:right; margin:0 0 8px 12px; font-size:11.5px; font-weight:600;
-  color:var(--text-faint); background:var(--panel-raised); border:1px solid var(--panel-line);
-  border-radius:999px; padding:5px 11px; white-space:nowrap;
+  float:right; margin:0 0 8px 12px; width:20px; height:20px; padding:0; line-height:18px;
+  font-size:12px; font-weight:700; text-align:center; color:var(--moss-bright);
+  background:transparent; border:1.5px solid var(--panel-line); border-radius:50%; opacity:.7;
 }
-.vignette.played .v-played-toggle{
-  color:var(--moss-bright); background:rgba(111,145,99,.14); border-color:rgba(111,145,99,.45);
-}
-.vignette .v-played-toggle:hover{border-color:var(--gold);}
+.vignette.played .v-played-toggle{background:rgba(111,145,99,.18); border-color:var(--moss-bright); opacity:1;}
+.vignette .v-played-toggle:hover{border-color:var(--gold); opacity:1;}
 .vignette .v-name{font-family:var(--serif-display); font-weight:600; color:var(--moss-bright); font-size:15px; margin-bottom:4px;}
 .vignette .v-flavor{font-family:var(--serif-body); font-style:italic; font-size:calc(14px * var(--fs)); color:var(--text-faint); margin-bottom:9px; line-height:1.5;}
 .vignette ul{margin:0; padding-left:18px;}

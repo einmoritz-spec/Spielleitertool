@@ -1,0 +1,485 @@
+lmAdd("nr-sitzung", [
+  { name:"Abenteuer, Sitzung, Szene", sub:"Eine Sitzung narrieren", p:256,
+    body:[
+      "Der folgende Leitfaden führt dich durch alles, was du beim Leiten des Spiels wissen und bedenken musst – ob du Narrator für eine Gruppe bist oder für dich selbst (solo oder koop).",
+      "In jeder Sitzung spielt ihr eine oder mehrere Szenen deines Abenteuers, so viele, wie in die verfügbare Zeit passen. Wenn eine Szene endet, wählst du, wo die nächste spielt.",
+      "## Die Szenenfolge ist nicht festgelegt",
+      "Als Narrator hast du vielleicht einige Szenen mit Orten und Challenges vorbereitet, doch du weißt nie wirklich, wie sich die Geschichte entwickelt und welche Szene als Nächstes kommt. Die Heroes können unerwartete Entscheidungen treffen, oder die Würfel überraschen dich mit jähen Wendungen des Schicksals und lösen Szenen aus, die du nicht geplant hast.",
+      "## Ein typisches Abenteuer und seine Sitzungen",
+      "Nehmen wir als Beispiel die Geschichte dreier Heroes, deren Dorf von einem Wraith heimgesucht wird – einem verstorbenen Vorfahren, dessen vergessener Grabstein von einem vorbeiziehenden Pflug gestört wurde. Das Abenteuer könnte so ablaufen:",
+      "### Sitzung 1",
+      "1. **(Cutscene)** Nachts wird ein Bauer in seiner Scheune vom Wraith angegriffen.",
+      "2. **Untersuchung in der Scheune.** Am nächsten Morgen werden die Heroes gerufen, den Angriff zu untersuchen. Die Spuren weisen auf jemanden aus dem Dorf.",
+      "3. **Tavernenschlägerei.** Die Heroes beschließen, öffentlich Anschuldigungen in der Dorftaverne zu erheben – es kommt zu einer Prügelei.",
+      "4. **Bettruhe (Camping).** Die Heroes erholen sich zu Hause von der Schlägerei.",
+      "5. **Angriff!** Am Abend greift der Wraith einen der Heroes in dessen Garten an – die Sitzung endet mit einem Cliffhanger.",
+      "### Sitzung 2",
+      "5. **Angriff! (Fortsetzung)** Ein anderer Hero eilt zu Hilfe, und beide fliehen an einen sicheren Ort, den Schrein am Dorftor.",
+      "6. **Sumpf (Journey).** Am Morgen ziehen die Heroes durch einen nahen Sumpf auf der Suche nach einem Einsiedler, der helfen könnte.",
+      "7. **Hütte des Einsiedlers.** Die Heroes überzeugen die widerwillige Einsiedlerin, ihnen zu helfen, und sie gibt ihnen einen Zauber, der den Wraith sprechen lässt.",
+      "8. **Vorbereitungen (Camping).** Zurück zu Hause teilen die Heroes ihre Ängste, während sie sich auf die Konfrontation mit dem Wraith vorbereiten.",
+      "### Sitzung 3",
+      "9. **Sabotage.** Die Heroes ertappen eine Dörflerin dabei, ihr Ritual zu sabotieren, und entdecken einen Fluch, den ihre Familie über den Wraith gelegt hat.",
+      "10. **Ritual.** Die Heroes stellen den Wraith, er erzählt ihnen seinen Groll, doch einer von ihnen wird beim Ritual schwer verletzt.",
+      "11. **Dorftor.** Die Heroes überzeugen das Dorf, dass ein schöner neuer Grabstein errichtet werden muss, um den Fluch zu brechen.",
+      "12. **Nachwehen.** Die Heroes lösen das Problem, doch einer von ihnen verwandelt sich langsam in einen Wraith. Ein neues Abenteuer ruft!",
+      {box:{t:"Aktionen außerhalb des Szenenrahmens", b:["Will jemand eine Aktion ausführen, die den Rahmen der Szene sprengt – etwa mitten in einem Scharmützel ein Schwert schmieden oder sich mitten in einer Hofdebatte in die Wildnis aufmachen –, wird sie nicht in dieser Szene aufgelöst. Sie kann Thema einer eigenen Szene sein oder als etwas gelten, das „außerhalb des Bildes“ zwischen Szenen geschieht."]}},
+      {box:{t:"Szenen ohne Challenges oder mit geringen Stakes", b:["Ihr könnt auch Szenen ohne Challenge spielen und den Heroes Zeit geben, sich vorzubereiten, zu untersuchen, zu debattieren, ihr Ding zu tun oder gemeinsam Zeit zu verbringen."]}},
+      {box:{t:"Auf eine Vignette hineinzoomen", b:["Geschieht in einer Vignette etwas Interessantes, kannst du sie jederzeit zu einer Szene machen und das Ereignis genauer ausspielen."]}}
+    ] },
+
+  { name:"Was macht eine Szene aus?", p:258,
+    body:[
+      "Eine normale Szene findet zu einer bestimmten Zeit an einem bestimmten Ort statt, mit mindestens einem anwesenden Hero. Sie hat einen gewissen Umfang und ein Tempo – etwa ein gewalttätiger Hinterhalt, der in Sekunden vorbei ist, oder eine angespannte, stundenlange Debatte am Königshof. Heroes können in einer Szene meist mehrere Aktionen ausführen, solange diese zum Umfang der Szene passen.",
+      "Eine Szene hat **Scene Stakes** – etwas, das gewonnen oder verloren werden kann, einen Grund für die Heroes zu handeln. Vielleicht müssen sie eine Hecke aus verhexten Brombeeren überwinden oder die zurückgezogene Hexe überreden, ihnen eine Haarlocke zu geben. Die Stakes sollten mit den Quests der Heroes oder ihren kurzfristigen Zielen verbunden sein.",
+      "In den meisten Szenen stehen Challenges zwischen den Heroes und den Stakes. Eine Challenge ist alles, was die Heroes oder ihre Ziele bedroht – ein Widersacher, eine Gefahr, eine Barriere, eine Verfolgungsjagd und so weiter.",
+      "Eine Szene endet, wenn die Stakes gewonnen, verloren oder vertagt sind: wenn die Heroes die Haupt-Challenge überwinden (oft, aber nicht immer, gewinnen sie dann die Stakes), wenn sie besiegt werden (meist verlieren sie dann die Stakes oder zahlen anderweitig einen Preis) oder wenn die Chance, die Stakes zu gewinnen oder zu verlieren, vorbei ist (vertagte Stakes). Die Scene Stakes können auch ersetzt werden, sodass die Szene an gleicher Zeit und gleichem Ort mit anderem Fokus weitergeht.",
+      "Eine gute Szene hat außerdem **Threads** (S. 291), die auf die nächste(n) mögliche(n) Szene(n) deuten oder, wenn sie ein Abenteuer beschließt, auf das nächste Abenteuer."
+    ] },
+
+  { name:"Andere Szenenarten", p:258,
+    body:[
+      "## Montagen",
+      "Eine Montage ist eine Sammlung kurzer Geschichtsmomente, Schnappschüsse oder Höhepunkte, genannt **Vignetten**, die zusammen einen langen Vorgang beschreiben, indem sie nur seine wichtigen Eckpunkte zeigen. Jede Vignette konzentriert sich auf eine (oder sehr wenige) Aktion(en) und wird in groben Zügen beschrieben.",
+      "**Journeys** (S. 348) sind Montagen mit einer Challenge, die Reisen durch den Raum (Landscape), durch die Zeit (Occasion) oder durch einen Prozess (Undertaking) beschreiben. Sie sollen den Spieler:innen das Gefühl von Fortschritt und vergehender Zeit geben. Bei einer Journey geht es meist nicht darum, ob sie abgeschlossen wird (obwohl auch das sein kann), sondern um den Preis und darum, wie die Heroes daraus hervorgehen. Eine Journey besteht aus **Vignette Challenges**, kurzen Challenges, die mit einer Quick-Aktion aufgelöst werden.",
+      "**Camping & Sojourns** (Band I, S. 179) sind Montagen, die sich auf die Auszeit der Heroes konzentrieren – die Zeit zwischen Szenen oder Abenteuern. Diese Szenen haben selten eine Challenge; die Stakes liegen darin, was die Heroes mit ihrer begrenzten Zeit anfangen und was sie daraus gewinnen.",
+      "## Cutscenes",
+      "Cutscenes sind ein Erzählwerkzeug: Der Narrator beschreibt Ereignisse, die abseits der Heroes und ohne deren unmittelbares Wissen geschehen, oft um kommende Gefahr anzukündigen. In einer Cutscene können Heroes nicht handeln, es sei denn, einer von ihnen trifft ein und sie wird zur normalen Szene."
+    ] },
+
+  { name:"Die nächste Szene wählen", p:259,
+    body:[
+      "Wenn eine Szene endet, wählt der Narrator die nächste nach folgender Logik:",
+      "## Erwartete Szenen – wohin die Heroes als Nächstes gehen",
+      "- Gehen die Heroes an einen nahen Ort innerhalb kurzer Zeit, kann dort eine neue Szene beginnen.",
+      "- Reisen die Heroes weiter weg, spielt eine Journey-Montage oder überspringt die Reise und lasst sie einige Zeit später bei der nächsten Szene ankommen („Schnitt“ auf spätere Zeit und anderen Ort).",
+      "- Beschließen die Heroes zu campen oder irgendwo zu rasten, spielt diese Montage.",
+      "## Unerwartete Szenen – was geschieht, bevor die Heroes die nächste erwartete Szene erreichen",
+      "- Sucht jemand die Heroes auf oder überfällt sie, kann eine neue Szene beginnen, wann und wo die Heroes es zuerst bemerken.",
+      "- Geschieht zwischen zwei Szenen in der Nähe der Heroes etwas Wichtiges und sie beschließen, sich darauf einzulassen, kann dort und dann eine neue Szene beginnen.",
+      "## Das Oracle fragen",
+      "- Fällt dir die nächste logische Szene nicht ein, frage das **Conflict Oracle** (S. 486).",
+      {box:{t:"Split-Screen-Szenen", b:["Die meisten Arten von Filmszenen lassen sich in dein Spiel übertragen. Teilen sich die Heroes etwa auf und tun an verschiedenen Orten gleichzeitig verschiedene Dinge, kannst du diese zwei Szenen als parallel ablaufend beschreiben – ähnlich einer Split-Screen-Szene in Film oder Videospielen."]}},
+      {box:{t:"Eine Szene ausklingen lassen", b:["Nachdem die Szenen-Stakes gewonnen, verloren oder vertagt wurden, könnt ihr sie als Denouement (Ausklang) fortsetzen, statt direkt zur nächsten zu springen. Die Heroes wollen vielleicht untereinander oder mit beteiligten NPCs reden oder mehr über das Geschehene herausfinden. Siehe „Eine Szene abschließen“ (S. 278)."]}}
+    ] },
+
+  { name:"Die Spielschleife: eine Szene narrieren", sub:"Establish – Action – Consequences", p:260,
+    body:[
+      "Jede Szene wird mit der **Spielschleife** gespielt (dieselbe wie in Band I, S. 146). In jeder Szene handeln die Heroes reihum, und jeder Zug durchläuft drei Schritte: (Re-)Establish, Action, Consequences.",
+      "## Establish",
+      "Du stellst die Szene vor und beschreibst:",
+      "- wo die Heroes sind und was um sie herum geschieht,",
+      "- was die Stakes sind (warum die Heroes hier sind und warum es wichtig ist),",
+      "- was die Challenges sind (alles, was den Heroes auf dem Weg zu ihren Zielen im Weg steht),",
+      "- welche Threats den Heroes oder ihren Zielen drohen, falls vorhanden.",
+      "Dann fragst du „Was tust du?“ und gibst einem Hero das Spotlight, sodass alle ihm zuhören.",
+      "## Action",
+      "Steht ein Hero im Spotlight, beschreibt er, was er in der Szene tut, als Antwort auf alles Etablierte. Du kannst eine von drei Arten wählen, das Ergebnis der Aktion zu bestimmen: selbst entscheiden, was geschah, oder weitere Einzelheiten zur Szene geben (**Simple**), den Hero würfeln lassen (**Quick**) oder ihn würfeln lassen und – bei Erfolg – seine Power für Effects passend zur Aktion ausgeben lassen (**Detailed**).",
+      "## Consequences",
+      "Du verhängst negative Consequences für die Aktion des Heroes, wenn einer der folgenden Fälle eintrat:",
+      "- er hat einen Threat ignoriert,",
+      "- sein Wurf hat Consequences erzeugt,",
+      "- du entscheidest dich, seine Weakness-Tags für Consequences aufzurufen.",
+      "Du darfst Effects hinzufügen. Du kannst ihm (oder jedem betroffenen Hero) auch erlauben, diese Effects mit einem Reaktionswurf abzumildern."
+    ] },
+
+  { name:"Eine Szene etablieren", sub:"Establish", p:261,
+    body:[
+      "Immer wenn du eine Szene etablierst oder neu etablierst, gehe so vor:",
+      "- Male ein Bild der aktuellen Lage in der Fiktion.",
+      "- Erschaffe bei Bedarf Story-Tags.",
+      "- Betone die Stakes, damit die Spieler:innen fokussiert bleiben.",
+      "- Führe Challenges ein.",
+      "- Mache Threats.",
+      "- (Optional: Stelle ein Dilemma.)",
+      "- Gib das Spotlight.",
+      "Beim ersten Etablieren beschreibst du die Szene ausführlicher. Du **etablierst neu** nach jeder Aktion eines Heroes, sobald deren Consequences aufgelöst sind. Vieles in der Szene bleibt vermutlich gleich, doch nutze die Gelegenheit zu überlegen, ob etwas Neues geschieht:",
+      "- Wie haben Umgebung und NPCs der Szene auf die letzte Aktion des Heroes und die letzten Consequences reagiert?",
+      "- Haben sich die Stakes verschoben? Sind die Heroes dem Gewinnen oder Verlieren der Stakes näher gekommen?",
+      "- Sollten jetzt neue Challenges auftauchen?",
+      "- Welche Threats gehen als Nächstes von den Challenges der Szene aus?",
+      "## Kurzlebige Tags auslaufen lassen",
+      "Jetzt ist ein guter Zeitpunkt, Story-Tags oder Statuses früherer Züge, deren Zeit abgelaufen ist, auslaufen zu lassen (zum Beispiel hatte ein am Boden liegender Hero Zeit aufzustehen).",
+      {box:{t:"Schritt für Schritt: Narrator-Fähigkeiten entwickeln", b:["Dieser Leitfaden ist ein tiefer Tauchgang in die vielen Überlegungen der Narrator-Rolle, aber du musst nicht alles auf einmal meistern. Anfangs reicht es, die Spielschleife zu kennen, um das Spiel zu leiten. Dann nimm dir in jeder Sitzung eine Sache vor, etwa reichere Beschreibungen beim Etablieren oder Consequences aus Weakness-Tags."]}}
+    ] },
+
+  { name:"Ein Bild malen", sub:"Beschreiben beim Etablieren", p:261,
+    body:[
+      "Wie beim Erzählen am Lagerfeuer sind deine Worte, dein Ton, deine Körpersprache und sogar Pausen Kanäle, über die die Spieler:innen etwas über die Welt ihrer Heroes erfahren.",
+      "## Ort und Zeit beschreiben",
+      "Beginne mit dem Grundlegenden: Wie ist der Boden? Gibt es Wände oder Pflanzen? Was ist über oder unter den Heroes? Woher kommt das Licht, welche Geräusche hört man, welche Gerüche herrschen vor? Wie ist das Wetter? Ist es feucht? Regnet es? Zeige die Tageszeit nicht nur über den Stand der Sonne, sondern auch darüber, wer oder was da ist und was getan wird, sowie über Empfindungen der Heroes wie Hunger und Müdigkeit.",
+      "## Beschreiben, wer da ist und was geschieht",
+      "Stehen die Heroes einem wütenden Troll gegenüber, beschreibe sein tobendes Brüllen und seine spielenden Muskeln. Sind sie am Hof eines Häuptlings, beschreibe ihren misstrauischen Blick und das Flüstern der versammelten Höflinge und Schamanen. Sind sie an einem friedlichen Teich, beschreibe Frösche, Fische und Vögel, die Wellen aufs Wasser zeichnen.",
+      "## Die Atmosphäre beschreiben",
+      "Gib den Spieler:innen Hinweise auf Stimmung und Gefühl der Szene oder frag sie, wie sich ihre Heroes fühlen. Ist es ein angespannter oder ein amüsanter Moment? Ein peinliches Schweigen? Ist hier etwas furchtbar Trauriges geschehen, oder liegt Geschäftigkeit in der Luft? Vielleicht haben die Handlungen der Heroes die Stimmung gerade schlagartig verändert. Manchmal kann ein einziger Moment mehrere, sogar widersprüchliche Gefühle haben.",
+      "## Genug Details liefern",
+      "Du kannst Vorschläge und Fragen der Spieler:innen nutzen, um Staunen, Farbe und Grauen hinzuzufügen, aber zuerst musst du ihnen etwas zum Arbeiten geben. „Eine Person mit einem Karren“ bietet wenig Anlass, sich einzulassen, während „ein müder Händler, der einen Karren voller seltsamer Waren zieht“ den Spieler:innen die Gelegenheit gibt, nach den Waren zu fragen, neugierig oder misstrauisch zu sein.",
+      "## Die Sinne ansprechen",
+      "Sprich die fünf Sinne an – Sehen, Hören, Riechen, Schmecken, Tasten. Sage „geschäftiger Gewürzmarkt“ statt nur „geschäftiger Markt“, damit sie sich die schweren, dichten Gerüche vorstellen. Erwähne das Klingeln winziger Messingglöckchen am Schmuck des Zauberers, damit jede seiner Bewegungen gerade laut genug ist, um ein wenig zu nerven. Nutze Metaphern: Das Blut des Ogers ist dick wie Baumharz und härtet auf seiner Haut, statt zu tropfen. Füge gelegentlich einen Hauch von sechstem Sinn hinzu: Bauchgefühle, Ahnungen, unerklärliche Vorahnungen oder zweites Gesicht. Selbst der Begriffsstutzigste Hero spürt manchmal eine dunkle Präsenz in der Nähe.",
+      "## Es geheimnisvoll halten, indem du es nicht benennst",
+      "Beschreibst du ein Phänomen, das den Heroes unbekannt ist, fällst du leicht auf bekannte Tropen zurück, etwa „das ist im Grunde ein Zombie“. Solche vertraute Sprache mag in einem rein taktischen Spiel großartig sein, schafft aber wenig Atmosphäre für eine Fantasygeschichte. Das Staunen und das Gefühl des Geheimnisvollen der Spieler:innen wächst, wenn du seltsame Phänomene nie benennst. Die Heroes wissen nicht, was sie vor sich haben – vermeide also, es bei einem bestimmten Namen zu nennen, das erhöht die Immersion. Den Zombie kannst du als „diesen toten, uralten Wächter“ oder „einen triefenden, stöhnenden Moorleichnam“ beschreiben.",
+      "Lass dich nicht zu abgenutzten Definitionen verleiten. Selbst wenn die Spieler:innen handeln und enthüllen, was es wirklich ist, beschreibe es weiter mit Detail und Geschmack und umkreise stets einen tatsächlichen Namen: „Es ist ein bemerkenswert gut erhaltener Körper, der sehr lange im Wasser gelegen haben muss. Was ihm die Kraft gibt, sich zu bewegen, wisst ihr nicht; aber es ist sicher etwas Übles und Mächtiges, mehr als ihr je gesehen habt – und ihr habt viel gesehen.“",
+      {box:{t:"Krimskrams und Kleinkram", b:["Spielst du rustikale Fantasy, beschreibe einige Alltagsgegenstände in der Szene: ein dampfender, schmiedeeiserner Kessel, ein rostender Rechen, ein hängendes Fischernetz oder ein Bündel frisch gebackener Kekse verleihen einem Ort oder einer Figur mehr Tiefe."]}},
+      {box:{t:"Du musst kein Dichter sein …", b:["Geschichtenerzählen besteht aus vielen Fähigkeiten, und kein Narrator muss ein professioneller Autor sein, der alle Fantasy-Wörter kennt – Atmosphäre lässt sich auf viele Arten aufbauen. Vertraue deinen Stärken: Improvisierst du gut, bitte die Spieler:innen um Vorschläge und baue auf ihren Antworten auf; bist du gut mit Stimmen, nutze sie."]}},
+      {box:{t:"… aber es hilft", b:["Du kannst mehr als nur Inspiration von den Großen nehmen – du kannst ihre Worte nehmen! Lies Bücher und Gedichte, die zum Genre passen, das ihr spielt, und schreibe ihre Wortwahl und Stile auf. Nutze sie in deinen Beschreibungen, um die gewünschte Stimmung hervorzurufen."]}}
+    ] },
+
+  { name:"Story-Tags erschaffen", p:263,
+    body:[
+      "Scheint etwas, das du etablierst, die Szene wahrscheinlich zu beeinflussen, erwäge, es als Story-Tag hinzuzufügen. Als Narrator kannst du jederzeit Story-Tags und Statuses zur Szene hinzufügen, doch der beste Zeitpunkt ist die Establish-Phase (negative Story-Tags oder Statuses direkt auf einen Hero zu legen sollte nur als Consequence geschehen). Die Story-Tag-Spalte des Conflict Oracles (S. 486) kann dir helfen, Tags für deine Szene zu finden.",
+      "Story-Tags können Wetter, Gelände, Ambiente, Gefahren, Gegenstände, Umweltfaktoren und sogar einzelne Personen und Gruppen der Szene hervorheben. Statuses können vorübergehende, aber wirkungsvolle Bedingungen der Szene darstellen, etwa foggy-3 oder warded-against-demons-3.",
+      "Ein negatives Tag erschwert bestimmte Aktionen der Heroes (es senkt ihre Power), ein positives erleichtert sie (es erhöht sie). Manche Tags können beides sein, etwa Sturmböen, die Hero- und Feindbogenschützen betreffen.",
+      "Beim Hinzufügen von Tags denke daran:",
+      "- Ein Story-Tag zur Szene hinzuzufügen heißt, den Spieler:innen zu sagen: „Das ist wichtig“ oder „Das kann sich auf unsere Geschichte auswirken.“",
+      "- Eine Szene braucht nur wenige Tags, wenn überhaupt. Heroes und Challenges haben schon eigene Tags und Wege, weitere hinzuzufügen – füge also nur dann ein Tag hinzu, wenn die Heroes damit interagieren sollen.",
+      "- Tags beeinflussen nur Aktionen und Reaktionen der Heroes – sie schaden den Heroes nicht aktiv. Soll ein Element der Szene aktiv Consequences liefern, mache es zu einer Challenge und gib ihr die Tags, die du hinzufügen wolltest. Soll eine Gefahr einen Charakter ernsthaft verletzen können, etwa ein Abgrund oder ein Lavafluss, reicht es, sie so zu beschreiben – sie braucht kein Tag.",
+      {box:{t:"Beispiele für Szenen-Tags", b:[
+        "- **Wetter:** high winds, rain, sweltering heat, fog",
+        "- **Gelände:** uneven ground, thicket, mud, spike barricades",
+        "- **Ambiente:** mournful atmosphere, fragrant spring air, tense moment, boring conversation",
+        "- **Gefahren:** crackling bonfire, oil patch, poisonous fumes, thorny brambles",
+        "- **Gegenstände:** lantern, rake, barrel of fish, warm beef pie",
+        "- **Umweltfaktoren:** waning light, loud explosions, bar fight, too quiet",
+        "- **Einzelpersonen:** Farn, the fletcher; silent washerwoman; watchful raven; a local bard",
+        "- **Gruppen:** sentries everywhere, swarming gnats, swooning fans, concerned villagers"]}}
+    ] },
+
+  { name:"Die Stakes hervorheben", p:263,
+    body:[
+      "Halte die Heroes bei dem, was ihnen in dieser Szene wichtig ist. Bist du unsicher, frag sie. Bleib offen dafür, dass ein Hero andere Stakes verfolgt, und behalte diese im Blick.",
+      "**Sag es klar.** Sobald die Spieler:innen sich für ein Vorgehen entschieden haben, sage ihnen, was dafür nach bestem Wissen ihrer Heroes getan werden muss. Das sollte eine Aktion sein, die hier und jetzt möglich ist – ein Schritt in einer langen Reihe von Schritten zum großen Ziel der Serie. Wiederhole beim Etablieren die Stakes, damit alle wissen, worum es in der Szene geht und warum ihr sie spielt.",
+      "**Knüpfe die Stakes an die Quests oder kurzfristigen Ziele der Heroes.** Vielleicht muss ein Hero ein Monster vertreiben, um seinen Stamm zu schützen (seine Devotion-Quest) oder um Geld für die Überfahrt mit der Fähre von South Crossing zu verdienen. Verlieren sie aus den Augen, warum sie hier sind, erinnere sie.",
+      "**Bemerke, wenn sich die Stakes verschieben.** Wird das ursprüngliche Ziel unterlaufen – etwa wenn ein Verhör unterbrochen wird, weil der Raum plötzlich überflutet –, werden die Scene Stakes durch neue ersetzt, also etabliere sie neu.",
+      {box:{t:"Stakes für Heroes mit gemischten Might-Stufen", b:["Haben die Heroes einer Fellowship deutlich unterschiedliche Might-Stufen (ein einfacher Schuhmacher neben einem Meeresgott), denke an unterschiedliche Stakes für einzelne Personen: Der Gott will ein einfallendes Heer besiegen, während der Schuhmacher sich mit seinem Sohn aussöhnen will. Schenke beiden gleiche Aufmerksamkeit. Vielleicht sind den NPCs in der Welt die Invasion wichtiger, euren Spieler:innen aber die Stakes, die sie selbst gesetzt haben."]}},
+      {box:{t:"Ungesehene Gefahren", b:["Denke daran, dass du den Spieler:innen normalerweise nur beschreibst, was ihre Heroes wahrnehmen können. Weißt du, dass in einer Szene eine Challenge anwesend ist, aber keiner der Heroes sie bemerkt hat, dann wurde sie noch nicht in die Szene eingeführt, und du solltest sie nicht beschreiben. Beschreibe stattdessen Anzeichen oder Bauchgefühle, nach denen die Heroes Ausschau halten können, je nach deinen erzählerischen Überlegungen. Beschreibe die Challenge nur dann vollständig, wenn du sie einführst.",
+        "Fallen und unsichtbare Feinde sind das klassische Beispiel für Challenges, die in einer Szene vorhanden sein können, deren die Heroes sich aber erst bewusst werden, wenn es zu spät ist. Siehe „Fallen, Hinterhalte und Verrat: Tückische Threats“ (S. 268), wie man auf solche Challenges hinweist."]}}
+    ] },
+
+  { name:"Challenges einführen", p:264,
+    body:[
+      "Eine Challenge ist alles, was die Heroes oder ihre Ziele in Gefahr bringt. Sobald die Heroes merken, dass etwas oder jemand in der Szene sie oder ihre Ziele gefährdet, beschreibe es den Spieler:innen klar und erkläre, inwiefern.",
+      "Eine Wache sollte zum Beispiel „im Weg stehen“ oder „euch beobachten“ und nicht nur irgendwo in der Szene existieren. Eine Brücke über einen Abgrund zu überqueren ist an sich keine Challenge, es sei denn, du betonst, dass sie morsch ist oder dass die Dunkelheit des Abgrunds etwas Gefährliches verbergen könnte.",
+      "Das geht oft Hand in Hand mit dem Machen von Threats (unten): Sie sagen, was in diesem Moment geschieht, das die Challenge gefährlich macht.",
+      "## Eine Challenge wählen",
+      "Spielst du ein veröffentlichtes Abenteuer oder eine vorbereitete Szene, führt jede Szene bereits ihre möglichen Challenges auf. Improvisierst du eine Szene, kannst du eine Challenge mit dem Conflict Oracle (S. 486) wählen und ihr Profil erzeugen, indem du ein passendes Challenge-Profil aus dem Premade Profile Oracle (S. 488) nimmst oder eine Challenge spontan erschaffst (S. 490). Bedenke dabei:",
+      "- **Was für eine Szene soll das werden?** Challenges bestimmen den Charakter einer Szene. Führst du einen fliehenden Beutelschneider ein, wird die Szene zur Verfolgungsjagd, führst du einen gerissenen Minnesänger ein, wird sie vielleicht zur sozialen Intrige. Lass dich von der Liste der Challenge-Rollen (S. 350) inspirieren. Wähle eine Challenge, die zu Stimmung und Moment passt, nach deinen erzählerischen Überlegungen. Haben die Heroes gerade mehrere Tierwesen abgewehrt und scheinen an mehr Kampf nicht interessiert, ist das Tierwesen um die Ecke vielleicht eine Verhandlungs- oder Versuchungs-Challenge.",
+      "- **Wie fügt sich diese Challenge in unsere Geschichte ein?** In einer guten Geschichte gibt es keine wirklich zufälligen Begegnungen, und jede Challenge erscheint, wenn es erzählerisch Sinn ergibt. Selbst ein unerwarteter Kampf mit einem Tier oder Monster in der Wildnis hat einen Zweck: Er zeigt, wie gefährlich diese Lande sind oder geworden sind. Eine Challenge ohne guten Grund wirkt kitschig oder künstlich, als wolle der Narrator Platz füllen. Auch wenn du sie mit dem Oracle erwürfelt hast, überlege, warum sie hier ist, was sie will und wie du sie an die Szene oder die Themen des Abenteuers bindest.",
+      "- **Wie schwer soll diese Challenge für die Heroes sein?** Versuche abzuschätzen, was es die Heroes kosten würde, sie zu überwinden. Bedenke Might und Challenge-Rating der Challenge, wofür die Heroes gerüstet sind und in welchem Zustand sie sind – verwundet oder müde? Emotional verletzlich? Oder in einer Machtposition? Erwartest du, dass die Challenge leicht oder schwer zu überwinden ist? Welche Opfer werden sie bringen müssen? Bedenke, wie viele Challenges schon da sind und wie gut die Heroes bisher mit ihnen zurechtkommen. Willst du den Druck erhöhen oder mindern? Siehe auch „Die Schwierigkeit anpassen“ (S. 281).",
+      "- **Wie viel Sitzungszeit und Aufmerksamkeit soll diese Challenge einnehmen – also Kurz- oder Langform?** *Kurzform:* Eine Challenge mit einer Simple- oder Quick-Aktion aufzulösen nimmt nur einen kurzen Erzählmoment ein, liefert womöglich einmal Consequences (die trotzdem gewichtig sein können), dann geht die Geschichte weiter. *Langform:* Eine Challenge mit einem Limit, dessen Überwindung Detailed-Aktionen erfordert (die Statuses geben), bedeutet einen Schlagabtausch, für den mehrere Aktionen nötig sein können.",
+      "Meist enthält eine Szene mindestens eine Langform-Challenge (Limit), etwa ein Monster zum Bekämpfen, einen NPC zum Überzeugen oder ein Ritual, das durchgeführt oder gestoppt werden muss, ODER eine Reihe von Kurzform-Challenges wie eine verschlossene Tür, eine Falle und ein hohes Fenster zur Flucht.",
+      "Übertreib es nicht. Ein oder zwei Challenges gleichzeitig reichen völlig. Du kannst jederzeit eine neue einführen, beim Neu-Etablieren oder als Consequence. Denke auch daran, dass viele Schwierigkeiten keine neue Challenge sein müssen – sie können Story-Tags der Umgebung sein oder einer bestehenden Challenge hinzugefügt werden."
+    ] },
+
+  { name:"Beispiele für Kurz- und Langform-Challenges", p:265,
+    body:[
+      "## Ein Monster bekämpfen",
+      "**Kurzform (Simple oder Quick):** Der Hero tritt dem Wesen entgegen, hebt das Schwert, beschreibt kurz den Angriff, und wir schneiden zum Ergebnis: Ein Erfolg heißt, der Hero hat gewonnen; Consequences heißen, er hat eine schwere Wunde davongetragen.",
+      "**Langform (Detailed):** Eine ausgespielte Kampfszene, in der jeder Schwerthieb, jede Parade und jede Monsterfähigkeit einen eigenen dramatischen Moment bekommt. Die Szene endet erst, wenn eine Seite die andere tödlich verwundet oder flieht und ihrem Verfolger entkommt.",
+      "## Einen alten Söldner anwerben",
+      "**Kurzform (Simple oder Quick):** Wir sehen den Hero mit dem Söldner sprechen, wie aus der Ferne, ohne zu hören, was sie sagen. Ein Erfolg heißt, der Söldner stimmt zu, sich den Gefährten anzuschließen; Consequences heißen, er lehnte ab oder verlangte einen unverschämten Preis.",
+      "**Langform (Detailed):** Wir folgen dem Wortwechsel des Heroes mit dem Söldner Wort für Wort. Etwas, das der Hero sagt, lässt den Söldner aufhorchen, doch dann hört er, worum es geht, und überlegt es sich anders. Spannung und Frust liegen in der Luft. Das Gespräch endet erst, wenn der Hero den Söldner überzeugt hat oder der Söldner genug gehört hat.",
+      "## Dunkle Wälder durchqueren",
+      "**Kurzform (Simple oder Quick):** Der Hero marschiert, ohne viele Einzelheiten, durch den Wald, trotzt Gefahren, Kälte und Erschöpfung. Ein Erfolg heißt, er erreicht sein Ziel; Consequences heißen, die Reise hat Spuren hinterlassen.",
+      "**Langform (Journey):** Eine Journey-Montage, in der der Hero in jeder Vignette eine bestimmte Gefahr im dunklen Wald überwindet. Jeder dieser Momente hinterlässt Spuren, und der Hero muss vielleicht seine Pläne ändern oder einen Lagerplatz suchen. Die Journey endet erst, wenn der Hero alle Vignetten durchquert hat.",
+      "## Einen Fluch brechen",
+      "**Kurzform (Simple oder Quick):** Wir sehen den Hero eine Nacht lang mit Händen wedeln, Beschwörungen murmeln und getrocknete Kräuter über einem entstellten, verfluchten Menschen verbrennen. Ein Erfolg heißt, der Fluch ist gebrochen; Consequences heißen, das Ritual forderte einen hohen Tribut.",
+      "**Langform (Detailed):** Der Hero ringt eine ganze Szene lang mit dem Fluch. Der Fluch will Körper und Seele des Heroes befallen; der Hero drängt ihn zurück, versucht dann, einen heiligen Raum zu halten, doch es kostet ihn einen Teil seines Verstandes. Das geht Zug um Zug weiter, bis der Fluch bei Morgengrauen entweder gebrochen ist oder der Hero erschöpft oder sogar verflucht ist."
+    ] },
+
+  { name:"Challenges und Might", p:266,
+    body:[
+      "Challenges können in verschiedenen Aspekten **Mighty** sein (Band I, S. 171): körperlich, an Größe oder Zahl; sozial, an Einfluss; magisch, an Macht und so weiter. Wenn du eine Challenge für deine Szene wählst, vergleiche ihre Mighty-Aspekte mit denen der Heroes.",
+      "- **Oh nein!** Keiner der Heroes ist in diesem Aspekt so Mighty wie die Challenge. Die Heroes müssen Einfallsreichtum zeigen oder erhebliche Opfer bringen, um in dieser Szene die Oberhand zu gewinnen. Das ist spannend und daher spaßig, aber überlege, ob die Heroes es überleben können und zu welchem Preis.",
+      "- **Faires Match:** Nur einige Heroes sind in diesem Aspekt so Mighty wie die Challenge. Der Mighty Hero übernimmt meist die Führung in dieser Szene, während die anderen ihn unterstützen.",
+      "- **Kraftdemonstration:** Einige Heroes sind in diesem Aspekt Mightier als die Challenge. Diese Szene ist eine Chance für einen Mighty Hero, seine Macht zu zeigen. Vermeide zu viele solcher Szenen, sie werden schnell langweilig, aber gelegentlich ist es gut, die Heroes ihre Mighty-Aspekte ausspielen zu lassen. Vermeide, denselben Hero öfter ins Rampenlicht zu stellen als die anderen, indem du Rollen und Mighty-Aspekte deiner Challenges variierst.",
+      "- **Alle Mann an Deck:** Jeder Hero hat eine Challenge auf seiner Might-Stufe und in seinem Aspekt. Während der Szene hat jeder Hero eine klare Challenge zu bewältigen. Das ist die ideale Szene, die alle Heroes einbindet, aber schwer aufzubauen sein kann. Eine Szene, in der alle Heroes Mightier als die Challenge sind, lohnt sich selten, es sei denn, die Challenge kann die Might der Heroes gegen sie wenden und so das Kräfteverhältnis umkehren.",
+      {box:{t:"Mighty-Aspekte", b:["Die Mighty-Aspekte einer Challenge stehen im Challenge-Profil mit dem Greatness-Symbol. Erschaffst du eine Challenge spontan, überlege, in welchem Feld sie Mighty ist."]}},
+      {box:{t:"Eine Alle-Mann-an-Deck-Szene für eine Fellowship mit gemischten Might-Stufen aufbauen", b:[
+        "- Nutze Challenges mit unterschiedlichen Might-Stufen (z. B. ein gewaltiges Monster und seine Schergen).",
+        "- Nutze Challenges mit unterschiedlichen Mighty-Aspekten (z. B. kämpft der Krieger gegen einen Ritter, während der Barde die Königin überzeugen muss).",
+        "- Nutze eine einzelne Challenge in unterschiedlichen Maßstäben (z. B. ringt die Exorzistin mit einem ganzen Schwarm von Schreckgeistern, während die anderen Gefährten mit einzelnen ringen)."]}}
+    ] },
+
+  { name:"Threats machen", p:267,
+    body:[
+      "Threats sind das Mittel, mit dem Challenges handeln. Mit einem Threat zeigst du den Heroes an, dass eine Challenge im Begriff ist, eine Aktion auszuführen (oder damit begonnen hat), die den Heroes Consequences bringt, wenn sie vollendet wird. Das provoziert die Heroes, dagegen etwas zu tun. Verhindern, blockieren, vermeiden oder erledigen sie den Threat nicht anderweitig, erleiden sie nach ihrer Aktion Consequences – selbst wenn die Aktion gelingt.",
+      "Du machst einen Threat, indem du beschreibst, dass etwas Gefährliches oder Unerwünschtes bevorsteht oder beginnt.",
+      "**Erkläre, was geschieht.** Beschreibe, was wir „auf dem Bildschirm“ sehen, um die Geschichte reicher zu machen und Kontext zu geben, der der Spielerin bei der Wahl ihrer nächsten Aktion hilft.",
+      "**Lass es lebendig und unmittelbar wirken.** Verankere den Threat in der Umgebung. Der Raufbold sollte nicht bloß „versuchen, dich zu Fall zu bringen“, sondern „gegen dein Bein drücken und in den umgestürzten Baumstamm hinter dir, um dich von den Füßen zu holen“.",
+      "## Wie viele Threats?",
+      "Die Zahl der Threats bestimmt die aktuelle Intensität der Szene.",
+      "- **Keine Threats** ergeben eine entspannte Szene, in der die Heroes die Initiative ergreifen und den Ton setzen können. Gut, wenn die Heroes ermitteln oder beiläufig plaudern oder wenn ein bestimmter Hero ungehindert handeln kann.",
+      "- **Ein Threat pro Zug** ergibt eine engagierte Szene, in der jeder Hero etwas Unmittelbares zu bewältigen hat oder eine unmittelbare Gefahr für seine Person, seinen Besitz oder seine Ziele.",
+      "- **Mehr als ein Threat pro Zug** erhöht Intensität, Schwierigkeit und/oder Stress der Szene. Der Hero muss wählen, welchen Threat er mit seiner Aktion angeht und welche zu Consequences werden dürfen (was ihn wiederum zwingt, sich auf seine Reaktionen und Verteidigungs-Tags zu verlassen, um diese Consequences zu mindern).",
+      "Bist du unsicher, wer als Nächster handelt, kannst du mehrere Threats machen und jeden Hero einen wählen lassen, den er in seinem Zug angeht – das zählt weiterhin als ein Threat pro Zug. Oder mache mehr Threats, als es Heroes gibt, und stelle klar, dass einige Threats unerledigt bleiben, selbst nachdem alle dran waren.",
+      "Denke daran: Nicht jeder Threat muss in dem Zug eintreten, in dem du ihn machst. Du kannst einen Threat über den Köpfen der Heroes schweben lassen, um Spannung zu erzeugen, und seine Consequences zu einem Zeitpunkt deiner Wahl verzögern.",
+      "## Einen Threat wählen",
+      "Ein Challenge-Profil oder eine Vignette enthält typische Threats, die du nutzen kannst (und die darauf folgenden Consequences). Sieh die Liste durch und wähle den passendsten für den Moment. Improvisierst du eine Szene, kannst du einen Threat mit dem Behavior Oracle (S. 491) wählen oder spontan einen erfinden.",
+      {box:{t:"Beispiele für Threats", b:[
+        "- **Ein anrollender Angriff:** Die Piratin schwingt sich an einem Seil herab, ihr Säbel blitzt, während sie sich bereitmacht, dich aufzuschlitzen!",
+        "- **Eine wacklige Seilbrücke:** Als du die Mitte der Brücke erreichst, beginnt die alte, verrottete Schnur zu reißen!",
+        "- **Eine verbale Drohung:** Eglerion starrt dich an und sagt: „Wenn du diese Linie überschreitest, kann ich dir nicht helfen.“",
+        "- **Ein rachsüchtiger Blick:** Der Edelmann starrt dich höhnisch an, die Augen voller Hass. Er würde offenbar alles tun, um deinen Sieg im Rennen morgen zu verhindern.",
+        "- **Ein beschworener Zauber:** Die Finger der Thaumaturgin beginnen zu zucken, ihre Lippen zittern und murmeln, während die Luft um sie vibriert …",
+        "- **Ein Gift breitet sich aus:** Azure Kiss ist ein Gift, das sich bekanntlich schnell ausbreitet. Dir bleiben nur Sekunden, bis Feidhlims Herz zum letzten Mal schlägt."]}}
+    ] },
+
+  { name:"Fallen, Hinterhalte und Verrat: Tückische Threats", sub:"Nebulous Threats", p:268,
+    body:[
+      "Normalerweise muss jede Consequence, die eine Challenge verhängt, mit einem Threat beginnen. Selbst eine verborgene Falle oder ein lauernder Wolf sollte einen Threat aussprechen, damit die Spieler:innen durch eine Aktion reagieren können.",
+      "Manchmal verdirbt jedoch ein ausdrücklicher Threat die Überraschung oder ergibt keinen Sinn, weil der Hero die Challenge noch nicht wahrnehmen kann (Ungesehene Gefahren, S. 263). Manchmal willst du auch die Aufmerksamkeit der Heroes belohnen, statt ihnen den Threat auf dem Silbertablett zu servieren.",
+      "In solchen Fällen kannst du absichtlich vage Threats machen und versuchen, ihre wahre Natur – oder sogar dass es ein Threat ist – zu verschleiern. Du kannst sie als Teil deines Etablierens machen, möglicherweise lange bevor du die Consequence verhängst, was sie schwerer erkennbar macht. Widersprüchliche oder merkwürdige Beschreibungen wecken das Interesse der Spieler:innen und treiben sie zum Handeln, um mehr herauszufinden.",
+      "- An diesem Ort soll es Schätze geben, und doch ist nie jemand von hier zurückgekehrt. (Falle)",
+      "- Sie schenkt dir ein breites Lächeln, und doch verengen sich ihre Augen. (Verrat)",
+      "- Obwohl die Sonne gerade untergegangen ist, hörst du von überall das Rufen der Rustwood-Eulen. (Hinterhalt)",
+      "Ein aufmerksamer Hero kann nachfassen und prüfen, ob Fallen lauern oder wie jemand es wirklich meint, und sich so die Chance verdienen, die Consequence zu stoppen. Hat er nicht aufgepasst, können die Heroes später, wenn du die Consequences verhängst, über die übersehenen Zeichen nachdenken und für das nächste Mal lernen.",
+      {box:{t:"Schach und Matt", b:["Threats zu machen gleicht dem Schachmatt: Einen Threat zu machen heißt „Schach“ sagen, und tut der Hero nichts, um den Threat zu verhindern, zu vermeiden oder anzugehen, verhängst du die Consequences – das Matt (mit der Ausnahme, dass Consequences normalerweise nicht das Spiel beenden!). Eine andere Metapher: Einen Threat zu machen ist, als lade man eine Consequence und lege sie an; wird sie nicht abgewendet, wird sie auf die Heroes abgefeuert."]}}
+    ] },
+
+  { name:"Dilemmas stellen", p:268,
+    body:[
+      "Zu deiner Rolle als Narrator gehört es, den Heroes schwere Entscheidungen in den Weg zu legen. Beim Etablieren kannst du eine Situation erzählen, die für einen oder mehrere Heroes ein Dilemma darstellt. Ein wirksames Dilemma ist die Wahl zwischen zwei oder mehr Dingen, die der Hero will, oder zwei oder mehr Dingen, die der Hero nicht will, und sollte meist eine Quest des Heroes berühren:",
+      "- Wahl zwischen zwei Quests (etwa seiner Devotion zu helfen oder bei einem Meister zu lernen, um sein Skill or Trade zu verbessern).",
+      "- Wahl zwischen einer Quest und einem kurzfristigen Ziel (etwa den letzten Milestone seines Magic-Themes zu erreichen oder ein unschuldiges Leben zu retten).",
+      "Versuche, eine Situation zu schaffen, die einen Konflikt erzeugt und eine Wahl erzwingt. Du kannst zum Beispiel einen Threat gegen seinen Companion und gleichzeitig einen gegen sein Dorf stellen. Was wählt er?",
+      "Eine andere Möglichkeit ist, den Hero in der Consequence-Phase zwischen Consequences wählen zu **zwingen** (S. 273).",
+      {box:{t:"Von Spieler:innen getragene Charakterentwicklung", b:["Grundsätzlich ist es Aufgabe jedes Spielers, die Momente zu finden, in denen die Quests seines Heroes herausgefordert werden. Dem Narrator wird empfohlen, höchstens ein Dilemma pro Sitzung zu stellen und den Rest den Spieler:innen zu überlassen."]}}
+    ] },
+
+  { name:"Das Spotlight geben", p:268,
+    body:[
+      "Die Establish-Phase endet, wenn du die Heroes als Gruppe oder einen bestimmten Hero fragst: „Was tust du?“ Das ist das Signal, die Stakes, die Challenges, die gemachten Threats und die Dilemmas zu bedenken und die nächste Aktion zu wählen (Das Spotlight verwalten, Band I, S. 148)."
+    ] },
+
+  { name:"Die Aktion eines Heroes auflösen", sub:"Hero Action", p:270,
+    body:[
+      "Hast du den Hero gewählt, der das Spotlight bekommt und in diesem Zug handelt, richtet sich der Fokus auf ihn, und die Hero-Action-Phase der Spielschleife beginnt. Deine Rolle als Narrator ist in dieser Phase die des Schiedsrichters: Du hilfst zu entscheiden, was möglich ist und was nicht, welche Tags wie zählen und mehr.",
+      "## Auf die Beschreibung der Aktion hören",
+      "Stelle sicher, dass du verstehst, was der Hero will und wie es mit der Szene zusammenhängt. Frage bei Bedarf nach. Sage der Spielerin, wenn du die Aktion für unmöglich hältst oder sie nach Szene und Setting keinen Sinn ergibt oder sie den Rahmen der Szene sprengt (S. 258), und besprecht gemeinsam, wie man sie anpasst. Die Beschreibung einer Aktion ist wichtig: Sie bestimmt später, welche Tags relevant sind und welche Ergebnisse die Aktion haben kann.",
+      "## Wählen, wie das Ergebnis zustande kommt",
+      "Setze deinen Geschichtenerzähler-Hut auf. Denke an die Szene, die bisherige Sitzung und das Tempo, in dem die Geschichte läuft. Frage dich: *Wie tief soll unsere Geschichte in diese konkrete Aktion eintauchen?* Lautet die Antwort „nicht sehr“, also du bevorzugst Kürze, versuche ein Simple- oder Quick-Ergebnis. Willst du ins Detail gehen, nutze ein Detailed-Ergebnis. Mehr dazu unter „Eine Aktion ausführen“ (Band I, S. 149).",
+      "### Simple-Ergebnis (kein Wurf)",
+      "- **Für Aktionen, die die Szene erkunden und noch nicht dramatisch sind,** etwa beiläufiges Wahrnehmen, Bewegen oder Sprechen. Normalerweise kannst du dem Spieler das Spotlight lassen, bis er eine dramatische Aktion erreicht, die Erfolg, Consequence oder beides hat.",
+      "- **Wenn das Ergebnis sicher oder offensichtlich ist.** Gibt es keinen Widerstand gegen die Aktion, geschieht sie einfach. Ist sie unmöglich, geschieht sie nicht. Ist sie zum Scheitern verurteilt, scheitert sie mit Consequences. Gelingt sie, aber der Preis steht fest, dann gelingt sie, und der Preis sind die Consequences.",
+      "- **Wenn das Ergebnis nicht dramatisch genug ist, um mehr Sitzungszeit zu verdienen.** Du könntest hineinzoomen und den Hero würfeln lassen, aber es ist gerade nicht das Wichtige oder Interessante.",
+      "- **Wenn du es nicht den Würfeln überlassen willst.** Vielleicht hat der Hero hart gearbeitet, um hierher zu kommen, und du gönnst ihm jetzt einfach seinen Moment.",
+      "### Quick-Ergebnis (nur würfeln)",
+      "- **Für Aktionen, die eine Ja/Nein-Frage stellen, ohne sie zu quantifizieren.** Kann der Hero auf den nächsten Ast springen – ja oder nein? Kann er die Tür aufschließen – ja oder nein? Kann er ein herrliches Mahl kochen – ja oder nein?",
+      "- **Für unsichere, dramatische Aktionen, denen du wenig Sitzungszeit widmen willst.** Halte die Geschichte im Fluss, ohne in unnötige Einzelheiten zu gehen.",
+      "### Detailed-Ergebnis (würfeln und ausgeben)",
+      "- **Immer wenn der Hero versucht, das Limit einer Challenge zu erreichen, um sie zu überwinden.** Dazu gibt er seine Power aus, um der Challenge einen passenden Status zu geben – seine Aktion muss also Detailed sein.",
+      "- **Für Aktionen, deren Ergebnis du mit Spielelementen messen oder quantifizieren willst.** Wie viel hat der Hero beim Lauschen mitbekommen? Lass ihn seine Power für den Effect Discover ausgeben. Wie groß ist die Wirkung seiner Worte? Lass ihn sie für einen convince-Status ausgeben. Wie gut hat er seinen Verbündeten geheilt? Lass ihn sie dafür ausgeben, ein hacking-cough-Tag zu entfernen.",
+      "- **Wenn du den Hero seinen Erfolg selbst definieren lassen willst.** Manchmal will die Spielerin, dass ihre Aktion bestimmte Effects hat, etwa ein Wesen mit bestimmten Story-Tags zu beschwören.",
+      {box:{t:"Ein bestimmtes Tag verlangen", b:["Manche Aktionen können nur von Heroes ausgeführt werden, die eine bestimmte Fähigkeit besitzen, und verlangen ein Tag, das diese Fähigkeit anzeigt. Einen Schlafzauber zu wirken ist unmöglich, ohne zu wissen, wie, oder ohne Magier zu sein, oder ohne irgendein Tag dieser Art."]}},
+      {box:{t:"Kein Tag nötig", b:["Andere Aktionen kann jede:r versuchen, auch ohne ein Tag dafür. Die meisten Charaktere können ein Gespräch beginnen oder versuchen, aus der Gefahrenzone zu springen, selbst wenn sie kein relevantes Tag haben."]}},
+      {box:{t:"Verkettete Aktionen aufteilen", b:["Wenn Spieler:innen die Aktionen ihrer Heroes erzählen, packen sie oft mehrere Aktionen in eine: „Ich springe über den brennenden Wagen, schlage den bösen Ritter nieder, während ich seinen Gegenangriff blockiere, und fange den Bauern auf, der aus der Scheune fällt!“ Für Geschichten ist das großartig, im Spiel aber müssen wir das Ergebnis einer Aktion erfahren, bevor wir zur nächsten übergehen. Was, wenn der Hero es nicht am brennenden Wagen vorbei schafft?",
+        "Bitte die Spielerin, sich auf die erste einzelne dramatische Aktion zu konzentrieren: „Sehen wir erst, wie du über den Wagen purzelst …“ Es kann auch passend sein, anzunehmen, dass eine der Aktionen sicher oder nicht gefährlich ist (etwa der Wagen brennt gar nicht). Löse sie Simple auf und mache weiter."]}}
+    ] },
+
+  { name:"Ein Ergebnis erreichen", sub:"Simple, Quick und Detailed unterstützen", p:271,
+    body:[
+      "## Simple-Ergebnis: ein Urteil fällen",
+      "- **Bedenke die Situation,** die relevanten Tags und das Might des Heroes (Band I, S. 171), die Tags und das Might des Ziels der Aktion, die Umgebung und etwaige Unterstützung.",
+      "- **Entscheide, ob die Aktion gelingt.** Wenn ja, entscheide, wie dieser Erfolg die Erzählung verändert hat, welche neuen Informationen enthüllt werden und ob du das in einem Tag oder Status ausdrückst (oder indem du ein Tag oder einen Status entfernst).",
+      "- **Entscheide, ob die Aktion Consequences hat.** Wenn ja, bestimme sie in der Consequence-Phase (S. 273).",
+      {box:{t:"Das Tag respektieren", b:["Manchmal gelingt eine Aktion einfach, weil der Hero ein angemessenes Tag hat. Ein Hero mit der Kraft eines Titanen kann einen Felsbrocken ohne große Mühe anheben, und ein Hero, der gegen Gift immun ist, kann ein Fläschchen Schlangengift ohne Schaden trinken. Nutze ein Simple-Ergebnis, um einfach festzustellen, dass die Aktion gelingt, und mache weiter."]}},
+      {box:{t:"Das Tag in Frage stellen", b:["Ein anderes Mal reicht ein passendes Tag vielleicht nicht. Rüstung, Charme oder scharfe Sinne können dich zuweilen alle im Stich lassen. Dieses Zufallselement stellen die Würfel dar. Willst du testen, wie gut die Tags eines Heroes der Aufgabe standhalten, lass ihn würfeln – mit einer Quick- oder Detailed-Aktion."]}},
+      {box:{t:"Einen Wurf aussetzen", b:["Manchmal kannst du am Tisch Spannung erzeugen, indem du das Würfeln einer Aktion aufschiebst, bis ihr Ergebnis offenbar oder relevant wird. Verkleidet sich etwa ein Attentäter als örtlicher Hausierer, um in die Burg einzudringen, bitte ihn, den Wurf auszusetzen – er weiß nicht, ob die Verkleidung gut genug ist, bis sie auf die Probe gestellt wird. Erst später, wenn der verkleidete Hero das Burgtor erreicht und von den Wachen kontrolliert wird, bittest du ihn zu würfeln. Jetzt hat der Wurf von früher Drama: Hält die Verkleidung?"]}},
+      "## Quick-Ergebnis: den Wurf der Spielerin unterstützen",
+      "Bei einem Quick-Ergebnis beginnt die Spielerin, indem sie ihre Tags (einschließlich Statuses) aufruft, helfend und hindernd, um die Power der Aktion zu zählen (Power zählen, Band I, S. 152). Bedenke die Beschreibung der Aktion und darauf aufbauend:",
+      "- **Might bedenken.** Vergleiche das für die versuchte Aktion nötige Might mit den Mighty-Themes des Heroes (oder dem Fehlen davon). Ist der Hero stark unterlegen oder über seiner Gewichtsklasse, kann er **Imperiled** (−3 Power) oder **Extremely Imperiled** (−6 Power) sein. Übertrifft seine Fähigkeit bei Weitem, was die Aufgabe verlangt, kann er **Favored** (+3 Power) oder **Extremely Favored** (+6 Power) sein. Das kann sich umkehren, wenn er das Might eines Feindes gegen ihn nutzt oder sein eigenes Might gegen ihn arbeitet. Überlege an dieser Stelle, ob überhaupt ein Wurf nötig ist oder du zu einem Simple-Ergebnis zurückkehrst.",
+      "- **Irrelevante Tags ausschließen.** Ein Tag ist nur relevant, wenn es die Aktion wie beschrieben direkt beeinflusst.",
+      "- **Nur indirekt relevante Tags ausschließen** und den Hero fragen, ob er zuerst eine Prep-Aktion ausführen will, um mit seinen indirekten Tags direkter anwendbare zu erzeugen. Wenn ja, lege diese Aktion beiseite und beginne mit der Prep-Aktion von vorn (Indirekte Tags und Prep-Aktionen, Band I, S. 153).",
+      "- **Tags des Ziels der Aktion, des Gegners oder der Umgebung aufrufen.** Ein Challenge-Profil listet seine Tags auf, und du kannst jetzt neue hinzufügen. Sage die Tags laut und beschreibe, wie der Hero sie wahrnimmt, damit die Spielerin lernt, welche anderen Faktoren – vielleicht bisher unbekannte – ihre Aktion beeinflussen.",
+      "- **Weakness-Tags des Heroes aufrufen,** wenn er es nicht selbst getan hat und du sie für relevant hältst.",
+      "Diese Reihenfolge ist flexibel – enthüllst du etwa ein Tag, das der Hero nicht kannte, will er vielleicht ein eigenes Tag aufrufen, das dadurch relevant wird, etwa armor piercing gegen Rüstung. Ist die Power der Aktion gezählt, würfelt die Spielerin, addiert ihre Power, und das Ergebnis – Erfolg, Consequences oder beides – wird durch die Summe bestimmt.",
+      {box:{t:"Unnötige Detailed-Aktionen", b:["Denke daran, dass nicht alles durch ein Tag oder einen Status dargestellt werden muss – manchmal genügt es, die Erzählung ohne Spielelemente in eine neue Richtung zu lenken. In solchen Fällen sollte ein Quick-Ergebnis genutzt werden.",
+        "Zum Beispiel kann ein Hero versuchen, dem Gefängniswärter den Schlüssel zur Zelle vom Gürtel zu stehlen. Das ist ein Quick-Ergebnis; es besteht kein Grund, ein Schlüssel-Tag zu erschaffen, denn der Schlüssel selbst ist nicht interessant, und so ein Tag beeinflusst keinen Wurf (einen Schlüssel zu haben verbessert die Aktion, die Zelle abzuschließen, nicht – es macht sie nur möglich). Wichtig ist nur, dass der Charakter den Schlüssel hat, damit er seine Zelle verlassen kann."]}},
+      "## Detailed-Ergebnis: den Spend der Spielerin unterstützen",
+      "Die Spielerin würfelt, und du beurteilst den Wurf wie beim Quick-Ergebnis oben. War der Wurf ein Erfolg, gibt die Spielerin ihre Power für Effects aus: Tags erschaffen und scratchen, Statuses erhöhen und senken, Details entdecken und zusätzliche Feats wählen.",
+      "**Schließe Effects aus, die vernünftigerweise nicht zur Aktion passen.** Ein Hero, der einen Feind niederhaut, gibt diesem Feind wohl kaum einen freundlichen Status – es sei denn, er führt einen seltsamen Krummsäbel der Liebe.",
+      "## Die Aktion abschließen",
+      "Die Hero-Action-Phase endet, wenn das Ergebnis bekannt ist und – im Falle eines Erfolgs – alle Einzelheiten des Erfolgs aufgelöst sind. Erlaube der Spielerin, den Erfolg ihres Heroes zu beschreiben und ihm mehr Farbe zu geben."
+    ] },
+
+  { name:"Consequences verhängen", p:273,
+    body:[
+      "Nachdem die Aktion des Heroes für diesen Zug aufgelöst ist, verhängst du ihre Consequences – in einem von drei Fällen:",
+      "- Der Hero hat einen Threat ignoriert.",
+      "- Die Aktion des Heroes hat Consequences erzeugt.",
+      "- Du entscheidest dich, eines der Weakness-Tags des Heroes als Quelle von Consequences aufzurufen.",
+      "Trifft nichts davon zu, überspringe die Consequence-Phase.",
+      "Es gibt keine Obergrenze für Zahl oder Schwere der Consequences, die du verhängst. Nutze sie, um die Heroes herauszufordern, aber behalte deine erzählerischen Überlegungen im Blick (Wie man als Narrator Entscheidungen trifft, S. 251).",
+      "Die Consequences können rein erzählerisch sein, die Geschichte verändern und neue Wendungen einführen:",
+      "- **Blocked:** Ein Vorgehen ist nicht mehr möglich.",
+      "- **Complication:** Der Hero gerät in eine ungewisse, unliebsame oder peinliche Lage.",
+      "- **Exposure:** Etwas, das die Heroes nicht bekannt haben wollen, kommt ans Licht.",
+      "- **Ill Tidings:** Etwas Schlimmes geschieht um die Heroes herum (aber nicht ihnen) und weckt Schock, Wut oder Trauer.",
+      "- **New Challenge:** Ein neues Problem betritt die Szene.",
+      "- **Yes, but…:** Du knüpfst an eine gelungene Aktion eine Grenze oder Einschränkung.",
+      "Oder sie können auch negative Effects (Tags und Statuses) enthalten. Du darfst beliebig viele Tags oder Status-Stufen geben oder nehmen, je nachdem, wie gewichtig die Consequence sein soll (Die Schwierigkeit anpassen, S. 281):",
+      "- Dem Hero einen negativen Status oder ein Tag geben.",
+      "- Dem Hero einen positiven Status oder ein Tag nehmen.",
+      "- Einer Challenge einen positiven Status oder ein Tag geben.",
+      "- Einer Challenge einen negativen Status oder ein Tag nehmen.",
+      "- Einen Status, der einen Prozess verfolgt, vorrücken oder zurückwerfen (Progress Limits, Band I, S. 169).",
+      "Du kannst den Hero auch **zwingen, zwischen Consequences zu wählen**, etwa entweder sein Schwert oder seinen Verbündeten zu verlieren. Du darfst ihm erlauben zu reagieren und die Consequences zu mindern, wenn es Sinn ergibt. Consequences sind mit einem Totenkopf markiert.",
+      {box:{t:"Mighty Consequences", b:["**Consequences erhöhen:** Erhöhe die Consequences, die du normalerweise verhängen würdest, um 3 Status-Stufen oder 1 Tag bei einem Hero, der Imperiled ist (außerhalb seiner Tiefe), und um 6 Status-Stufen oder 3 Tags bei einem Hero, der Extremely Imperiled ist.",
+        "**Consequences verringern:** Verringere Consequences um 3 Status-Stufen oder 1 Tag bei einem Hero, der Favored ist (in dieser Situation überlegen), und um 6 Status-Stufen oder 3 Tags bei einem Hero, der Extremely Favored ist. Das kann die Consequences aufheben."]}},
+      "## Consequences, die andere Heroes betreffen",
+      "Meist verhängst du Consequences gegen den Hero, der in diesem Zug gehandelt hat, doch du bist nicht darauf beschränkt und kannst Consequences auch gegen andere Heroes oder nahe NPCs verhängen. Besonders passend ist das, wenn:",
+      "- ein anderer Hero oder NPC bedroht war und der handelnde Hero das nicht verhindert hat,",
+      "- ein Hero dem handelnden Hero geholfen hat und die Aktion Consequences hatte, sodass der helfende Hero in die Consequences verstrickt ist,",
+      "- der handelnde Hero nicht vorsichtig war, sodass die Consequences bedeuten können, dass andere in der Nähe verletzt oder betroffen werden.",
+      "## Consequences wählen",
+      "Deine Wahl der Consequences sollte auf dem aufbauen, was sie verursacht hat, wie unten erklärt.",
+      "War die Aktion eines Heroes ein Erfolg, kannst du ihn im selben Zug nicht mit Consequences ungeschehen machen (Erfolg gewährt einen erzählerischen Schild, Band I, S. 156). Höchstens kannst du mit Yes, but… einen Vorbehalt anfügen oder ein negatives Story-Tag an ein von ihm erschaffenes Story-Theme hängen. Du kannst auch nicht ungeschehen machen, was mit einem zusätzlichen Feat (Band I, S. 157) oder einem Great Success (Sein Glück herausfordern, Band I, S. 158) erreicht wurde. Ein Hero kann damit bestimmte Consequences für kurze Zeit blockieren, etwa um einen Gegenangriff zu vermeiden oder die Ausbreitung eines Gifts zu verhindern. Deine Wahl der Consequences ist für diesen Zug eingeschränkt, vielleicht auch länger, wenn die Entscheidung des Heroes mehr Gewicht haben soll.",
+      "Ein Hero, der bestimmte Consequences blockiert, kann trotzdem Consequences aus anderen Quellen erleiden. Er verhindert vielleicht einen Threat, fällt aber einem unerledigten zum Opfer, oder er vermeidet einen Threat und erleidet Consequences aus seiner Aktion wie Erschöpfung, Selbstenthüllung, gesellschaftlichen Gegenwind, Verlust eines Gegenstands oder von Ressourcen und so weiter.",
+      {box:{t:"Den Hero zur Wahl zwingen", b:["Du kannst der Spielerin zwei mögliche Consequences vorlegen und ihr die Wahl überlassen, welches das kleinere Übel ist. Das kann große emotionale Wirkung haben und lässt sich als Dilemma nutzen (Dilemmas stellen, S. 268)."]}},
+      "### Unerledigte Threats von Challenges",
+      "Hat eine Challenge in der Establish-Phase dieses Zugs oder davor (S. 268) einen Threat gemacht und wurde dieser nicht irgendwie abgewendet oder entschärft, darfst du die Consequences der Challenge verhängen.",
+      "Du als Narrator entscheidest, ob ein Threat vom Hero angegangen wurde. Ein Threat kann daran gehindert werden, zu Consequences zu werden, durch eine erfolgreiche Aktion, einen zusätzlichen Feat oder einen Great Success, die ihn direkt angehen (Erfolg gewährt einen erzählerischen Schild, Band I, S. 156). Eine Aktion, die nicht direkt darauf zielt, einen Threat zu stoppen, schützt den Hero nicht zwingend vor dessen Consequence.",
+      "Bedenke, dass Threats und die darauf folgenden Consequences das Mittel sind, mit dem Challenges handeln. Sie daran zu hindern, ihren Willen zu bekommen, sollte meist einige Anstrengung der Heroes erfordern. Einen Axthieb zu landen, selbst den tödlichen, verhindert nicht zwingend, dass das Monster den Hero im selben Zug beißt. Beide Aktionen kann man sich als ungefähr gleichzeitig vorstellen, oder die Kreatur handelt in ihren letzten Zuckungen. In so einem Fall sollte der Narrator entscheiden, ob der Angriff auf das Monster dessen Threat angeht oder nicht. Der Hero kann eine Verteidigungsaktion wählen, um sicherzustellen, nicht angegriffen zu werden, oder einen zusätzlichen Feat nutzen, um den Gegenangriff zu verhindern.",
+      "Siehe auch die Liste der typischen Challenge-Rollen (S. 350) und die vorgefertigten Challenges (S. 352) für weitere Beispiele für Consequences, die von Challenges ausgehen.",
+      "### Ein Weakness-Tag für Consequences aufrufen",
+      "In der Consequence-Phase können Weakness-Tags eines Heroes aufgerufen werden, um bei einer sonst consequence-freien Aktion Consequences zu verhängen oder um weitere, damit verbundene Consequences hinzuzufügen. Der Hero markiert dann Improve auf dem Theme des Tags (oder dem Fellowship-Theme, wenn es ein Fellowship-Weakness-Tag ist). Negative Story-Tags können so nicht aufgerufen werden.",
+      "Das aufgerufene Weakness-Tag muss zur Situation passen und erklären, warum die Aktion in Schwierigkeiten geraten ist. Es darf nicht schon in der Aktion aufgerufen worden sein, und, wenn aufgerufen, kann es bei der folgenden Reaktion nicht erneut aufgerufen werden.",
+      "Beispiel: Ein Hero, ein Taugenichts und Schurke, mit dem Weakness-Tag known in Soddenmore betritt eine Taverne in Soddenmore, um nach einer nahen Ruine zu fragen. Die Simple-Aktion gelingt ohne Consequences, doch der Narrator ruft dieses Tag auf, um Consequences zu verhängen: Einige Leute erkennen den Hero, versammeln sich um ihn, die Fingerknöchel knackend, bereit, ihm eine Lektion zu erteilen. Der Hero markiert Improve auf dem Theme des Tags und bereitet sich auf eine Schlägerei vor.",
+      {box:{t:"Beispiele für Consequences aus Threats", b:[
+        "- **Ein anrollender Angriff:** „Die Piratin schwingt sich an einem Seil herab, ihr Säbel blitzt, während sie sich bereitmacht, dich aufzuschlitzen!“ → Die Piratin stößt dir das Schwert in den Leib! (wounded-3)",
+        "- **Eine wacklige Seilbrücke:** „Als du die Mitte der Brücke erreichst, beginnt die alte, verrottete Schnur zu reißen!“ → Ein Seil reißt, die Brücke hat kein Geländer mehr. (Complication)",
+        "- **Eine verbale Drohung:** „Eglerion starrt dich an und sagt: ‚Wenn du diese Linie überschreitest, kann ich dir nicht helfen.‘“ → Eglerion geht wütend hinaus. Seine Hilfe im kommenden Kampf hast du nicht. (Blocked)"]}}
+    ] },
+
+  { name:"Consequences aufschieben und Zeit vergeht", p:274,
+    body:[
+      {box:{t:"Consequences aufschieben", b:["Eine weitere Möglichkeit, Spannung zu erzeugen, ist, Consequences auf später zu verschieben. Lass die Heroes wissen, dass ihre Aktion Consequences hatte, aber noch nicht, welche. Vielleicht ist das negative Ergebnis der Aktion oder Untätigkeit eines Heroes nicht sofort offensichtlich, und es dauert eine Weile, bis es sich zeigt.",
+        "Beispiel: Ein Hero beleidigt den Hausgeist, der sein Heim beschützt. Der Geist löst sich zornig auf, aber sonst geschieht nichts. Später findet der Hero heraus, dass mitten in seinem Haus eine unterirdische Wasserfontäne ausgebrochen ist und das Dach wegsprengt!"]}},
+      "## Beispiele für Consequences aus Threats (Fortsetzung)",
+      "- **Ein rachsüchtiger Blick:** „Der Edelmann starrt dich höhnisch an, die Augen voller Hass. Sie würde offenbar alles tun, um deinen Sieg im Rennen morgen zu verhindern.“ → Am nächsten Morgen wachst du auf und dein Pferd ist fort. (Scratch trusty horse)",
+      "- **Ein beschworener Zauber:** „Die Finger der Thaumaturgin beginnen zu zucken, ihre Lippen zittern und murmeln, während die Luft um sie vibriert …“ → Die Luft knistert um sie, während ihr Zauber sich verstärkt … (sie erhält drawing-power-3)",
+      "- **Ein Gift breitet sich aus:** „Azure Kiss ist ein Gift, das sich bekanntlich schnell ausbreitet. Dir bleiben nur Sekunden, bis Feidhlims Herz zum letzten Mal schlägt.“ → Feidhlim greift sich an die Brust und bricht zusammen. (Ill Tidings)",
+      {box:{t:"Die Consequence „Zeit vergeht“", b:["Wenn du die Consequence „Zeit vergeht“ einsetzt, muss sie Gewicht für die Heroes haben – hat sie keine Auswirkung, ist sie keine Consequence.",
+        "Nutzt die Szene oder das Abenteuer einen Status mit Progress Limit (Band I, S. 169), um bis zu einem festgelegten Ereignis herunterzuzählen, etwa etwas, das bei Sonnenuntergang geschieht (wie im Tutorial, Band I, S. 35) oder eine Invasion, die in einer Woche beginnt, kann vergehende Zeit heißen, dass du diesem Limit einen Status hinzufügst (etwa sunset-in-1). Das kann den Druck auf die Heroes durchaus erhöhen!",
+        "Andernfalls überlege, was geschieht, weil die Heroes Zeit verstreichen lassen, und mache daraus die Consequence. Vielleicht ist die Nacht hereingebrochen oder die Sicht schlecht (Complication), ein Feind hatte Zeit, sich neu zu formieren (New Challenge), ein Schiff ist abgesegelt (Blocked), ein Geheimnis wurde enthüllt (Exposure) oder ein Gift hat sich ausgebreitet (poisoned-4 oder Ill Tidings)."]}}
+    ] },
+
+  { name:"Consequences aus Aktionen", p:275,
+    body:[
+      "Das Ergebnis der Aktion eines Heroes kann zu Consequences von einer Challenge führen, der er gegenübersteht, aber auch zu solchen, die aus der Aktion selbst erwachsen: vielleicht geht sie schief oder verlangt einen Preis. Solche Consequences können von jedem Threat unabhängig sein. Auch bei einer erfolgreichen Aktion, die einen Threat verhindert, sind weitere Consequences möglich, etwa bei einem Wurf von 7–9.",
+      "- **Eine neue Gefahr:** Beim Ausführen der Aktion ist der Hero auf eine neue Challenge oder einen neuen Threat einer bestehenden Challenge gestoßen. (New Challenge, Complication, optional dem Hero surprised geben)",
+      "- **Gelegenheitsangriff:** Die Aktion des Heroes eröffnet einer Challenge in der Szene die Gelegenheit, Consequences zu verhängen, ob sie vorher einen Threat gemacht hat oder nicht. (Eine Challenge-Consequence nutzen, Yes, but…)",
+      "- **Kollateralschaden:** Die Aktion betrifft unbeabsichtigt etwas oder jemanden, den der Hero nicht betreffen wollte. (Einem Verbündeten einen negativen Status geben oder seine Tags scratchen, Ill Tidings)",
+      "- **Enthüllung (Exposure):** Bei der Aktion verrät der Hero seinen Gegnern wichtige Informationen wie Aufenthaltsort, Identität, Absichten oder Plan. (Exposure, der Challenge ein vorteilhaftes Tag oder einen Status geben)",
+      "- **Verbrauch:** Der Hero verbraucht bei der Aktion Ressourcen (Ausdauer, Pfeile, Zutaten, Mana usw.). (Ein Tag scratchen, einen negativen Status wie exhausted geben oder den Ressourcen-Status des Heroes wie mana senken)",
+      "- **Verletzung:** Der Hero wurde bei seiner Aktion verletzt. (Einen negativen Status wie bleeding, burned, upset usw. geben)",
+      "- **Unvollkommene Ausführung:** Der Hero hat nicht alles bekommen, was er von der Aktion wollte, etwa vage Informationen oder ein Gebräu mit nur einem Teil der gewünschten Wirkung. (Yes, but…, ein negatives Story-Tag oder einen Status hinzufügen)",
+      "- **Verlust eines Vorteils:** Der Hero hat einen Vorteil verloren, den er vorher hatte oder sich erarbeitet hatte. (Einen positiven Status des Heroes entfernen oder senken oder seine vorteilhaften Tags scratchen)",
+      "- **Nebenwirkungen:** Die Aktion des Heroes hatte unerwartete oder unerwünschte Folgen. (Ein negatives Tag in der Szene erschaffen oder dem Hero einen negativen Status oder ein Tag geben)",
+      "- **Verschwendete Zeit:** Der Hero hat zu viel Zeit auf diese Aktion verwendet und anderen negativen Komplikationen Raum zur Entfaltung gelassen (siehe Kasten „Zeit vergeht“)."
+    ] },
+
+  { name:"Reaktionen", p:276,
+    body:[
+      "Immer wenn du eine Consequence mit Effects verhängst, ob der Hero am Zug ist oder nicht, kannst du ihm erlauben zu reagieren und die Consequences zu mindern. Frage dich: *Kann sich der Hero hiergegen verteidigen?* Wenn ja, erlaube eine Reaktion.",
+      "Das Unterstützen des Reaktionswurfs eines Heroes ähnelt dem „Ein Detailed-Ergebnis erreichen“ (S. 272).",
+      "Eine Reaktion sollte nicht genutzt werden, um erzählerische Consequences zu verhindern (so wie Consequences keinen Erfolg ungeschehen machen können); um eine unerwünschte Situation zu vermeiden, muss der Hero darauf antworten, wenn der Threat erstmals gemacht wird."
+    ] },
+
+  { name:"Eine Szene abschließen", sub:"Wrapping Up a Scene", p:277,
+    body:[
+      "Sind die Stakes gewonnen, verloren oder vertagt, beende die Szene. Durchbrich die Schleife und höre auf, Threats auszusprechen. Mache den Spieler:innen klar, dass sich der Vorhang über diesem Moment schließt, und frage, was sie als Nächstes tun.",
+      "## Denouement",
+      "Die Heroes wollen die Szene vielleicht fortsetzen und weitere Aktionen ausführen, etwa ermitteln, mit NPCs sprechen, die am Hauptkonflikt der Szene beteiligt waren, oder untereinander Dinge besprechen. Vielleicht wollen sie Vorbereitungen treffen, bevor sie zur nächsten Szene übergehen. Erlaube das, soweit es in der Szene Sinn ergibt, aber erwäge auch, stattdessen in eine Camp-Szene zu wechseln (Band I, S. 179).",
+      "## Szenen- und Abenteuer-Consequences",
+      "Muss das Ende einer Szene die Heroes Ressourcen, Ansehen oder Fähigkeiten kosten oder haben sich die Dinge zum Schlechteren gewendet, kannst du das mit Consequences ausdrücken. Vielleicht wurden die Heroes besiegt und kamen an Körper, Geist oder Ruf angeschlagen davon und erhalten einen Status. Vielleicht wurden sie gefangen genommen, und die nächste Szene beginnt im Kerker ihrer Häscher. Wenn die Stakes verloren wurden: Was bedeutet das für die Heroes, ihre Quests und ihre Ziele?",
+      "Dasselbe gilt in größerem Maßstab, wenn die Szene euer aktuelles Abenteuer beschloss. Haben die Heroes ihr Ziel in diesem Abenteuer verfehlt, kann das erhebliche Consequences bedeuten. Selbst wenn sie ihre Ziele erreichten und die Abenteuer-Stakes gewannen, kann es Folgen ihres Handelns geben, die jetzt ans Licht kommen. Diese Fragen stellst du dir auch, wenn du ein eigenes Abenteuer entwirfst; siehe Aftermath (S. 291)."
+    ] },
+
+  { name:"Belohnungen", p:278,
+    body:[
+      "Haben die Heroes in der Szene etwas Bedeutendes erreicht, ob durch Gewinnen der Stakes oder auf anderem Weg, magst du sie belohnen. Eine Belohnung kann eine positive erzählerische Entwicklung sein oder positive Effects.",
+      "## Gewöhnliche Gegenstände und Gefallen",
+      "Die Heroes finden oder erlangen in der Szene vielleicht etwas Nützliches, das sie später verwenden können; das kannst du mit einem Story-Tag darstellen. Achte aber darauf, wie viele Story-Tags du als Belohnung verteilst, verglichen mit der Zahl der Tags, die du beim Camping auslaufen lässt. Zu viele Tags machen das Leben der Heroes zu leicht. Eine Liste von Beispiel-Tags, die du als Belohnung nutzen kannst, folgt unten.",
+      "## Münzen",
+      "Eine weitere übliche Belohnung ist Bezahlung. Wird sie in Waren gezahlt, nutze Story-Tags. Wird sie in Münzen gezahlt, gib den Heroes einen heavy-purse-Status, der zeigt, wie bedeutend die Zahlung im Vergleich zu ihren üblichen Mitteln war (Münzen, Band I, S. 137). Dieser Status kann später für Gegenstände und andere Vorteile ausgegeben werden.",
+      "## Bemerkenswerte Schätze",
+      "Manchmal stoßen die Heroes auf einen wirklich besonderen Gegenstand, ein Tier oder eine Gunst, die du als Story-Theme darstellen kannst. Story-Themes müssen im Camp unterhalten werden, wenn ein Hero sie behalten will, oder sie können zu einem Hero-Theme werden, wenn ein Hero das nächste Mal eines seiner Themes ersetzt."
+    ] },
+
+  { name:"Beispiel-Tags für Belohnungen", p:278,
+    body:[
+      {kv:[
+        ["Annehmlichkeiten","Beutel feinen Tabaks · Buch mit Geistergeschichten · kirschduftendes Brennholz · bequeme Hängematte · Büschel frischer Früchte · stählernes Besteck · Laib alten Käses · gewachstes Zelt · Feuerstein und Stahl · maßgeschneidertes Kleid · stabile Schriftrollenhülle · frisch genähte Tunika · frische Küchenkräuter · Daunenkissen · duftende Seife · Sattel mit versteckten Taschen · Glas konservierten Honigs · Klappstuhl · seidener Morgenmantel · tragbarer Spiegel"],
+        ["Magische Gegenstände","selbstspielende Leier · ewig leuchtende Kugel · Glückshufeisen · lautlose Stiefel · Feen-Abwehr-Emblem · Buch der Wasserzauber · Beutel Sprengkristalle · Karte ungegangener Pfade · dramatischer Windumhang · Fläschchen Mondlicht · Beutel reinigender Erde · spinnwebenerzeugende Handschuhe · schattige Roben · geisterrufende Glocke · sechs Meter unzerreißbares Seil · Armreife des Gleichgewichts · fünf Fernpfeile · Sturm in einer Flasche · Flasche destillierten Charismas · Amulett des Baumkletterns"],
+        ["Haustiere und Tierchen","verspielte Fledermaus · lebendige Glasmenagerie · verlorenes Fuchsjunges · wütende Fee in einer Flasche · Schwarm Motten · Krake im Glas · faule Eidechse · neugieriges Wolfsjunges · Greifenei · fünf blaue Geckos · Eule aus Uhrwerk · Beutel Kröten · freundliches Kätzchen · ewig hungriges Eichhörnchen · zwitschernder Schultervogel · Schach spielendes Huhn · exotischer Affe · dressierte Maus · Taschendrache · belebter Schatten"],
+        ["Bewaffnung","Schwert mit Saphirknauf · schwarze Stahlaxt mit Silbereinlage · Schichtbogen · Wappenschild · Bündel Dolche · stahlkappenbewehrte Stiefel · Dornen-Buckler · bunt gefärbte Armschienen · gut belüfteter Helm · Lamellenpanzer · Stiefelmesser · perfekt ausbalanciertes Schwert · Beutel Rauchbomben · Kletterhandschuhe mit Noppen · Rolle Krähenfüße · Hakenspeer (zum Entwaffnen) · robuste Pferderüstung · Köcher gerader Pfeile · Gürtel mit Wurfmessern · gut gepolstertes Kettenhemd"],
+        ["Vergünstigungen und Gefallen","ehrlicher Händlerfreund · Stammgast-Status in der Taverne · Gefallen eines Adligen · Einladung zu einer Feier · Gildenmitgliedschaft · Verbündete bei der Nachtwache · Waffentragerlaubnis · ortskundiger Führer · unbehelligt in zwielichtigen Vierteln · bestochene Wache · Gratis-Festessen · Kontakte zur Unterwelt · geduldet bei den Hochgeborenen · freie Kost und Logis · saftiger Klatsch · Soldateneskorte · freie Durchreise · selten von Wachen durchsucht · Herrschertitel samt Land · Gehör des Herrschers"],
+        ["Wertgegenstände","daumengroßer ungeschliffener Smaragd · aufwendiges Würfelspiel · silbernes Teeservice · Wandteppich mit Schlachtszene · sieben große Säcke Hafer · Fass Rotwein · verzierte Laterne · Käfigvogel · seltene Stofffarben · juwelenbesetzte Halskette · Opalbrosche · fremde Münzen · goldenes Krönchen · erlesene Marmorstatuette · mechanischer Vogel · Beutel Gewürze · feine Pferdekutsche · Satz Theatermasken · eingelegte Spieluhr · Siegelring der Königin"]
+      ]}
+    ] },
+
+  { name:"Beispiele für bemerkenswerte Schätze", sub:"Relikte und Einfluss als Story-Themes", p:279,
+    body:[
+      "Jeder Schatz ist ein Story-Theme mit zwei Power-Tags und einem Weakness-Tag (das jeweils letzte).",
+      {kv:[
+        ["Relikt – Stiefel des Marschländers","auf Morast laufen · immer sauber · kann nicht in trübe Gewässer tauchen"],
+        ["Relikt – Stab des Unheilskünders","meine Stimme tragen · vertrauenswürdige Warnungen · zu laut"],
+        ["Relikt – Schatzversteck","Reichtum zum Ausgeben · gewaltiges Bestechungsgeld · Neid und Gier"],
+        ["Relikt – Endloser Kelch","aller Wein, den du trinken kannst · unendliche Flüssigkeit · im Wein ertrinken"],
+        ["Relikt – Verfluchtes Bastardschwert","böse Klinge · eine Schneise schlagen · jeder Kampf endet im blutigen Tod"],
+        ["Relikt – Ringe der Verlobung","Gedankenverbindung zu meiner wahren Liebe · Band der Liebe · hört zu viel"],
+        ["Relikt – Rüstung von Sir Edric","makellos gefertigt · leicht und biegsam · zieht Aufmerksamkeit auf sich"],
+        ["Relikt – Der Verschwender (Schiff)","schnelles Segeln · Breitseite · Ruf der Piraterie"],
+        ["Relikt – Segen des Wilden Geistes","angenehmes Wetter · unversehrt von Bestien · Zorn des Geistes auf Respektlose"],
+        ["Relikt – Buch der Wahren Namen","Namen der Unsterblichen · Macht über die Benannten · Feindschaft unsterblicher Wesen"],
+        ["Relikt – Magischer Umhang des Spähers","Wetter ertragen · Essen und Wasser riechen · nutzlos in Städten"],
+        ["Einfluss – Gunst eines Lords","Ressourcen des Lords · Respekt bei Hofe · die Feinde des Lords sind meine"],
+        ["Relikt – Handschuh der Engel","das Unberührbare berühren · gefährliche Magie führen · von dunklen Mächten begehrt"],
+        ["Einfluss – Herr des Festes","Gästelisten-Kurator · den Ablauf lenken · öffentliche Prüfung"],
+        ["Relikt – Stab der Tagträume","sanfter Schlummer · Traumschmiedekunst · erfordert Berührung"]
+      ]}
+    ] },
+
+  { name:"Die Schwierigkeit anpassen", sub:"Adjusting the Difficulty", p:280,
+    body:[
+      "Das kannst du versuchen, wenn dir die Dinge für die Heroes zu leicht erscheinen. Haben die Heroes es schwer, kehre die folgenden Ratschläge um.",
+      "## Encounter-Design",
+      "- **Statte deine Challenges mit mehr Tags und Statuses aus.** Das senkt die Power der Aktionen deiner Heroes gegen diese Challenges oder zur Minderung ihrer Consequences.",
+      "- **Erhöhe die Limits deiner Challenges,** damit sie in einem Detailed-Konflikt länger durchhalten.",
+      "- **Stelle mehr Challenges.** Die Heroes müssen Aufmerksamkeit und Aktionen auf mehrere verteilen, etwa etwas beschützen, während sie einen Feind überwinden wollen und ein Progress Limit herunterzählt.",
+      "- **Konfrontiere die Heroes mit Challenges, die ihnen ungewohnt sind.** Nutze eine Challenge, die ungewöhnliche Tags oder Herangehensweisen verlangt, die der Gruppe fehlen. Ist die Gruppe auf eine Art Interaktion spezialisiert (z. B. Kampf oder Soziales), hat sie weniger Werkzeuge (und Tags) für eine Challenge anderer Art.",
+      "- **Stelle Mightiere Challenges.** Konfrontiere deine Crew mit Challenges, die sie an Fähigkeit, Macht, Größe oder Zahl übertreffen, mit den Might-Regeln (Band I, S. 171), sodass sie öfter Imperiled sind.",
+      "- **Schaffe härtere Umgebungen.** Nutze Story-Tags oder Sekundär-Challenges, die gegen die Heroes arbeiten, aber nicht gegen deine Challenges (z. B. eine gefährliche Umgebung, die deine Challenges überleben können).",
+      "## Während einer Szene",
+      "- **Mache mehr Threats.** Genauer: mehr als einen Threat vor dem Spotlight jedes Heroes, sodass er wählen muss, was er im Spotlight angeht und was er als Consequences hinnimmt. Siehe „Threats machen“ (S. 267).",
+      "- **Sei strenger bei Tags und Statuses, die du als direkt hilfreich zulässt.** Indirekt hilfreiche Tags und Statuses können weiter ins Spiel kommen, aber um den Preis einer zusätzlichen Prep-Aktion. Benenne völlig irrelevante Tags und sage deinen Spieler:innen, welche Grenzen des gesunden Menschenverstands du am Tisch akzeptierst.",
+      "- **Verhänge heftige Consequences.** Verhänge erhebliche Consequences nicht nur bei Misserfolg (6 oder weniger), sondern auch bei Erfolg (7–9) oder wenn sie ihr Glück herausfordern (10 oder mehr). Verhänge öfter höhere negative Statuses. Scratche mehr ihrer positiven Tags.",
+      "- **Nutze ihre Weakness-Tags öfter für Consequences.** Diese Art Consequences steht dir auch dann zu, wenn sie ohne Consequence Erfolg haben (es sei denn, sie nutzen einen zusätzlichen Feat, um die Nutzung der Schwäche ausdrücklich zu blockieren).",
+      "- **Ziele auf ihre wunden Punkte.** Kann ein Hero eine Art Status leicht senken, verhänge öfter eine Art Status, für die er anfällig ist oder von der er sich schwer erholt.",
+      "## Optionale Regeln",
+      "- Führe eine **Power-Tag-Obergrenze** ein: Ein Hero kann pro Wurf höchstens 3 Power-Tags aufrufen.",
+      "- **Senke die Limits der Heroes** (Band I, S. 169)."
+    ] },
+
+  { name:"Companions", p:281,
+    body:[
+      "Eine weitere Möglichkeit, es den Heroes leichter zu machen, ist, ihnen zusätzliche Tags zu geben. Das gilt besonders, wenn es in der Fellowship sehr wenige Heroes gibt, etwa im Solospiel oder zu zweit (Duo).",
+      "Eine erzählerisch interessante Art, einem Hero mehr Tags zu geben, ist ein **Companion-Story-Theme** (er kann es später jederzeit als eines seiner Hero-Themes übernehmen). Dieses Story-Theme stellt einen hilfreichen Verbündeten dar, der den Hero begleitet und bei seinen Aktionen unterstützt. Oft ist es praktisch, einen Companion zu haben, der die Fähigkeiten des Heroes ergänzt und Bereiche abdeckt, in denen der Hero nicht spezialisiert ist. Ein Companion-Theme hat zudem den Vorteil, dass in jeder Szene eine weitere Figur da ist, mit der der Hero sprechen und Gedanken teilen kann.",
+      "Jedes Companion-Theme hat zwei Power-Tags und ein Weakness-Tag (das jeweils letzte):",
+      {kv:[
+        ["Companion – Alter Freund","alte Geschichten und Witze · gegenseitiger Respekt · kennt meine Geheimnisse"],
+        ["Companion – Lehrling","demütigende Aufgaben · studiert meine Wege · übertrieben unterwürfig"],
+        ["Companion – Abgerichteter Falke","Tod von oben · weitsichtig · klein und zerbrechlich"],
+        ["Companion – Katzengestalt-Vertrauter","verstohlen · hilft bei Zaubern · zu neugierig"],
+        ["Companion – Treues Pferd","kommt auf Ruf · galoppiert hart · muss gefüttert werden"],
+        ["Companion – Waldgeschöpfe","viele winzige Helfer · schöne Lieder · leicht zu erschrecken"],
+        ["Companion – Gerissener Diener","hilfsbereit zur Hand · macht mich fertig · ich bin für ihn verantwortlich"],
+        ["Companion – Reisender Barde","inspirierendes Lied · Neuigkeiten von der Straße · leicht beleidigt"],
+        ["Companion – Bewaffneter Beschützer","verteidigt mich · erschlägt meine Feinde · Söldner-Moral"],
+        ["Companion – Wuchtiger Golem","stark wie Erde · zäh wie Stein · dumm wie Stroh"],
+        ["Companion – Geheimnisvoller Magier","Illusionszauber · umgeht Schutzzauber · unbekannte Motive"],
+        ["Companion – Befreundeter Drache","fliegender Schrecken · Feuer und Zähne · schon wieder hungrig"]
+      ]}
+    ] }
+]);

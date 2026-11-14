@@ -2,7 +2,7 @@ window.LM_FILES={
  "nr-einstieg": [
   "data/lm/nr-einstieg.js"
  ],
- "nr-sitzung": [],
+ "nr-sitzung": ["data/lm/nr-sitzung.js"],
  "nr-abenteuer": [],
  "nr-cauldron": [],
  "nr-challenges": [],

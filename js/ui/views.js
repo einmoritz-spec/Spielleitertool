@@ -31,7 +31,7 @@ function renderOverview(){
       <div class="b">
         <div class="meta"><span>Abenteuer ${a.num}</span><span>${ready? a.scenes.filter(s=>s.kind==="scene").length+' Szenen' : 'In Vorbereitung'}</span></div>
         <h3>${esc(a.title)}</h3>
-        <div class="en">${esc(a.en)}</div>
+        
         <p>${esc(a.teaser.split(/(?<=[.!?])\s/)[0])}</p>
       </div>
     </button>`;
@@ -43,7 +43,6 @@ function renderOverview(){
       <div class="b">
         <div class="meta"><span>Kampagnen-Abschluss</span><span>${af.scenes.length} Szenen</span></div>
         <h3>Campaign Aftermath</h3>
-        <div class="en">Personal Journeys &amp; Revelations Oracle</div>
       </div>
     </button>` : "") + (sg ? `
     <button class="adv-card ov2-tut" onclick="goAdventure('sg')">

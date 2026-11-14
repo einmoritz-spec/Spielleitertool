@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v528systeme20";
+const VERSION = "v529covers1";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -53,6 +53,26 @@ const FILES = [
   "assets/logos/slugblaster.webp",
   "assets/logos/the-spire.webp",
   "assets/logos/pico.webp",
+  "spire/img/cover/sp_a1.webp",
+  "spire/img/cover/sp_a2.webp",
+  "spire/img/cover/sp_qs.webp",
+  "spire/img/cover/sp_s3.webp",
+  "spire/img/cover/sp_z1.webp",
+  "spire/img/cover/sp_z3.webp",
+  "spire/img/cover/sp_z4.webp",
+  "spire/img/cover/sp_z5.webp",
+  "dragonbane/img/cover/db_m2.webp",
+  "dragonbane/img/cover/db_m3.webp",
+  "dragonbane/img/cover/db_z2.webp",
+  "heart/img/cover/ht_qs.webp",
+  "heart/img/cover/ht_z1.webp",
+  "heart/img/cover/ht_z2.webp",
+  "heart/img/cover/ht_z3.webp",
+  "heart/img/cover/ht_z4.webp",
+  "moerkborg/img/cover/mb_a1.webp",
+  "moerkborg/img/cover/mb_h1.webp",
+  "savageworlds/img/cover/sw_s2.webp",
+  "savageworlds/img/cover/sw_z1.webp",
   "shared/sysstart.js",
   "shared/sysstart.css",
   "assets/logos/broken-compass.webp",

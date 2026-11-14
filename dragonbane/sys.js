@@ -105,7 +105,8 @@ window.SYS = {
      "id": "db_z2",
      "name": "Additional Journeys Expanded",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     }
    ]
   },
@@ -122,13 +123,15 @@ window.SYS = {
      "id": "db_m2",
      "name": "Initiative Cards",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "db_m3",
      "name": "Treasure Cards",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "db_m4",

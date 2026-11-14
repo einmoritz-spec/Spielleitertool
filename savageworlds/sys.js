@@ -66,7 +66,8 @@ window.SYS = {
      "id": "sw_s2",
      "name": "The Last of Us",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "sw_s3",
@@ -83,7 +84,8 @@ window.SYS = {
      "id": "sw_z1",
      "name": "Villains Supplement",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "sw_z2",

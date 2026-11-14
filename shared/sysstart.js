@@ -8,7 +8,7 @@
   document.title = S.name;
   var logo = S.logoMask ? '<span class="lgm" role="img" aria-label="' + esc(S.name) + '" style="width:' + S.logoMask[1] + 'px;height:' + S.logoMask[2] + 'px;-webkit-mask-image:url(' + S.logoMask[0] + ');mask-image:url(' + S.logoMask[0] + ')"></span>' : S.logoImg ? '<img src="' + S.logoImg + '" alt="' + esc(S.name) + '">' : esc(S.logoText || S.name);
   var all = []; S.groups.forEach(function(g){ g.items.forEach(function(b){ all.push({key:b.id, name:b.name + " (" + b.lang + ")"}); }); });
-  function tile(b){ return '<button class="bk" onclick="BV.open(\'' + b.id + '\',1)"><b>' + esc(b.name) + '</b><small>' + (b.sub ? esc(b.sub) + ' · ' : '') + '<span class="lg ' + (b.lang === "DE" ? "de" : "") + '">' + b.lang + '</span></small></button>'; }
+  function tile(b){ var tx = '<b>' + esc(b.name) + '</b><small>' + (b.sub ? esc(b.sub) + ' · ' : '') + '<span class="lg ' + (b.lang === "DE" ? "de" : "") + '">' + b.lang + '</span></small>'; return '<button class="bk' + (b.cover ? ' has' : '') + '" onclick="BV.open(\'' + b.id + '\',1)">' + (b.cover ? '<img class="cv" src="img/cover/' + b.id + '.webp" alt="" loading="lazy"><span class="tx">' + tx + '</span>' : tx) + '</button>'; }
   document.body.innerHTML =
     '<div class="topbar"><button class="brand" onclick="location.hash=\'\';scrollTo(0,0)" aria-label="' + esc(S.name) + '">' + logo + '</button><div class="topbar-spacer"></div>' +
     '<button class="tb-burger" onclick="openMenu(true)" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>' +

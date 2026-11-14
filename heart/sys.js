@@ -50,7 +50,8 @@ window.SYS = {
      "id": "ht_qs",
      "name": "Quickstart v2",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     }
    ]
   },
@@ -78,25 +79,29 @@ window.SYS = {
      "id": "ht_z1",
      "name": "Sourcebook: Vermissian Blackops",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "ht_z2",
      "name": "Sourcebook: Doors to Elsewhere",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "ht_z3",
      "name": "Sourcebook: Burned and Broken",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "ht_z4",
      "name": "Sourcebook: Sanctum",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     }
    ]
   },

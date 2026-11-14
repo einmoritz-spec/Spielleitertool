@@ -44,7 +44,8 @@ window.SYS = {
      "id": "sp_qs",
      "name": "Quickstart",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "sp_gm",
@@ -79,7 +80,8 @@ window.SYS = {
      "id": "sp_s3",
      "name": "Blood and Dust",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     }
    ]
   },
@@ -90,13 +92,15 @@ window.SYS = {
      "id": "sp_a1",
      "name": "Campaign Frame: The Kings of Silver",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "sp_a2",
      "name": "Eidolon Sky",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     }
    ]
   },
@@ -107,7 +111,8 @@ window.SYS = {
      "id": "sp_z1",
      "name": "Book of Masks",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "sp_z2",
@@ -119,19 +124,22 @@ window.SYS = {
      "id": "sp_z3",
      "name": "Sourcebook: Shadow Operations",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "sp_z4",
      "name": "Sourcebook: Black Magic",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "sp_z5",
      "name": "Sourcebook: Secrets Kept from the Sun",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     }
    ]
   },

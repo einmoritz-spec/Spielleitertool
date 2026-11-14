@@ -63,7 +63,8 @@ window.SYS = {
      "id": "mb_a1",
      "name": "Adventures",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "mb_a2",
@@ -174,7 +175,8 @@ window.SYS = {
      "id": "mb_h1",
      "name": "Bork Borg",
      "lang": "EN",
-     "sub": ""
+     "sub": "",
+     "cover": true
     },
     {
      "id": "mb_h2",

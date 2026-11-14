@@ -276,7 +276,7 @@ lmAdd("nr-cauldron", [
       "Weitere Rote-Beispiele findest du am Ende des Action-Grimoire-Heftes."
     ] },
 
-  { name:"Rote: Rüstungs-Zerlegendes Klingenspiel", sub:"Armor-Dismantling Precision Flurry", p:339,
+  { name:"Rote – Rüstungs-Zerlegendes Klingenspiel", sub:"Armor-Dismantling Precision Flurry", p:339,
     body:[
       ["Ausübende","Schwertmeister, Zauberschwerter, Waffenträger, Kriegermönche"],
       ["Beschreibung","Der Krieger greift seinen Feind mit einem Schwall präziser Hiebe an, die die Befestigungen seiner Rüstung durchtrennen, zerreißen und brechen – insbesondere Schnallen, Riemen, Gelenke, Nieten und andere Elemente, die eine Rüstung zusammenhalten. Gelingt es, fällt die Rüstung des Gegners auseinander und wird unbrauchbar; er steht entblößt da, mit dem zusätzlichen Effekt von Schock und Demütigung."],
@@ -288,7 +288,7 @@ lmAdd("nr-cauldron", [
       ["Consequences","Das Manöver ist erschöpfend (winded) oder lässt dich ungedeckt (exposed) · Deine Waffe verheddert sich in der Rüstung des Ziels (Tags scratchen) · Du scheiterst so schlimm, dass es peinlich ist (humiliated, nur ohne Erfolg) · Du verletzt das Ziel, obwohl du es vermeiden wolltest (wounded oder Ill Tidings)"]
     ] },
 
-  { name:"Rote: Lied der Arbeiter", sub:"Laborer’s Refrain", p:339,
+  { name:"Rote – Lied der Arbeiter", sub:"Laborer’s Refrain", p:339,
     body:[
       ["Ausübende","Musiker, Sänger und alle Arten von Arbeitern: Weber, Bergleute, Bauern und ähnliche"],
       ["Beschreibung","Bei der Arbeit in einer Gruppe beginnt der Sänger, leise die Melodie des Arbeiterliedes zu summen, bis andere einstimmen, was einige Augenblicke oder lange dauern kann, je nach dem Geist der Mitarbeiter. Sind alle eingestimmt, beginnt der Sänger, den Text in uralter Zunge zu singen, und kann nun mit seiner Stimme die Gruppenmitglieder zur Arbeit beleben und beflügeln, sie aus der Verzweiflung heben oder sogar Müdigkeit und Verletzungen überwinden. Das ist eine Origin-Fähigkeit für eine kleine Gruppe, Adventure für eine große und Greatness, wenn sie ein ganzes Volk oder eine Nation von Arbeitern betrifft. Nutze Scale für genauere Gruppengrößen."],
@@ -301,7 +301,7 @@ lmAdd("nr-cauldron", [
       ["Consequences","Die Arbeitergruppe spürt die Erschöpfung später (tired) · Aufseher bemerken die Störung und greifen dich heraus (Exposure oder New Challenge) · Die Arbeitergruppe ignoriert das Lied und sinkt tiefer in Verzweiflung (nur ohne Erfolg) · Du verlierst die Hoffnung (despair oder hoffnungsspendende Tags scratchen) · Werkzeuge brechen oder Materialien gehen aus (ein Tag scratchen)"]
     ] },
 
-  { name:"Rote: Blitzbogen", sub:"Lightning Arc", p:340,
+  { name:"Rote – Blitzbogen", sub:"Lightning Arc", p:340,
     body:[
       ["Ausübende","Zauberer, Hexenmeister, Magier, Priester und Krieger von Donnergottheiten"],
       ["Beschreibung","Der Zauberwirker singt Worte der Macht und hebt die Hände, die zu glühen und vor Energie zu knistern beginnen, immer mehr Macht aufbauen, die schließlich in einem plötzlichen Blitzstoß entfesselt wird. Der Zauberwirker kann den Strahl in die gewünschte Richtung lenken. Beim Treffen seines ersten Opfers springt der Blitz auf einen nahen Körper oder Gegenstand über und trifft auch ihn, und so weiter, bis er alle Ziele in der Nähe getroffen hat und verpufft. Das ist eine Adventure-Machtdemonstration oder Greatness, wenn er ein großes Gebiet oder eine große Gruppe wie ein Heer anvisiert. Nutze Scale (detailliertes Might) für genauere Wirkbereiche."],
@@ -313,7 +313,7 @@ lmAdd("nr-cauldron", [
       ["Consequences","Der Blitz trifft einen Verbündeten (derselbe Status wie bei den Zielen) · Der Blitz trifft einen wichtigen Gegenstand (ein Tag scratchen) · Der Blitz explodiert in deinen Händen und verletzt dich und Verbündete in der Nähe (burnt, nur ohne Erfolg)"]
     ] },
 
-  { name:"Rote: Schneeweißer-Tod-Gebräu", sub:"Snow-White Death Concoction", p:341,
+  { name:"Rote – Schneeweißer-Tod-Gebräu", sub:"Snow-White Death Concoction", p:341,
     body:[
       ["Ausübende","Apotheker, Kräuterkundige, Druiden, Attentäter, Schmuggler"],
       ["Beschreibung","Das Schneeweißer-Tod-Gebräu ist eine verstärkte Essenz mehrerer seltener Kräuter, die beim Einnehmen einen todesähnlichen Zustand hervorruft. Wird die richtige Dosis auf die Zunge des Empfängers geträufelt, fällt er sofort in Ohnmacht und atmet so flach, dass nur ein Experte erkennt, dass er noch lebt. Herzschlag und Blutkreislauf des Empfängers sind ebenfalls unnatürlich verlangsamt. Die Wirkung klingt mit der Zeit ab, kann aber mit einem Gegenmittel beendet werden (eine Simple- oder Quick-Aktion). Das Gebräu wird oft von Ärzten Patienten mit schweren Leiden verabreicht, etwa Vergiftungen, wenn die Lebensfunktionen verlangsamt werden müssen, um weiteren Verfall zu vermeiden. Auch Gesetzlose nutzen es, um für tot gehalten zu werden. Der Narrator kann den Wurf für die Zubereitung des Gebräus aussetzen, bis es konsumiert wird. Das Gebräu zu konsumieren ist eine Simple- oder Quick-Aktion."],
@@ -325,7 +325,7 @@ lmAdd("nr-cauldron", [
       ["Consequences","Der Empfänger bleibt viel länger unter, als erwartet · Der Empfänger erwacht vor dem geplanten Zeitpunkt · Der Empfänger erwacht geschwächt · Der Empfänger ist nicht ganz unter der Wirkung, einige Lebenszeichen bleiben · Der Empfänger ist bei vollem Bewusstsein unter der Wirkung (paralyzed-5) · Du atmest oder schmeckst das Gebräu versehentlich (dizzy oder paralyzed)"]
     ] },
 
-  { name:"Rote: Netz der Geheimnisse", sub:"Web of Secrets", p:342,
+  { name:"Rote – Netz der Geheimnisse", sub:"Web of Secrets", p:342,
     body:[
       "„Fang Flüstern, das im Wind treibt. Jene, die uns binden wollen, wissen nicht, dass wir ihre Geheimnisse hören.“",
       ["Ausübende","Hexen, zauberische Höflinge, Werspinnen"],

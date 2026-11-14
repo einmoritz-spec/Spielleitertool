@@ -25,11 +25,12 @@ const LM_NAV = {
       {id:"nr-sitzung", t:"Eine Sitzung narrieren", p:256, pe:283},
       {id:"nr-abenteuer", t:"Abenteuer und Serien", p:284, pe:320},
       {id:"nr-cauldron", t:"Magic Cauldron", p:321, pe:341},
-      {id:"nr-challenges", t:"Beutel der Gefahren", p:342, pe:351}
+      {id:"nr-challenges", t:"Beutel der Gefahren", p:342, pe:351},
+      {id:"nr-skunk", t:"Skunk Glen", p:448, pe:465}
     ],
     welt:[
       {id:"orte", t:"Orte", p:76, pe:107},
-      {id:"dales", t:"Land und Leute", p:22, pe:66},
+      {id:"dales", t:"Land und Leute", p:18, pe:66},
       {id:"dales-b", t:"Gruppen und Helden", p:67, pe:115},
       {id:"dales-c", t:"Handwerk und Magie", p:116, pe:163},
       {id:"jenseits", t:"Welt und Mächte", p:164, pe:210},

@@ -7,10 +7,12 @@ window.LM_FILES={
  "tutorial": ["data/lm/tutorial.js"],
  "nr-cauldron": ["data/lm/nr-cauldron.js"],
  "nr-challenges": ["data/lm/nr-challenges.js"],
+ "nr-skunk": ["data/lm/nr-skunk.js"],
  "dales": [
   "data/lm/dales-2.js",
   "data/lm/dales-3.js",
-  "data/lm/dales.js"
+  "data/lm/dales.js",
+  "data/lm/dales-intro.js"
  ],
  "dales-b": [
   "data/lm/dales-b-2.js",

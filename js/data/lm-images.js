@@ -22,6 +22,9 @@ var LM_IMGS = {
     ["lmErzaehler_pdf071_B048_Designing-Adventures_1",544,1428,288],
     ["lmErzaehler_pdf073_B063_Designing-Adventures_1",1132,1588,303]
   ],
+  "nr-skunk":[
+    ["lmErzaehler_pdf111_B215ca_Heap-Thing-of-Skunk-Glen_1",1228,788,459]
+  ],
   "nr-cauldron":[
     ["lmErzaehler_pdf075_B081_Magic-Cauldron_1",860,676,321],
     ["lmErzaehler_pdf076_B095_Magic-Cauldron_1",1220,792,335],

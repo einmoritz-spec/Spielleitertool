@@ -90,7 +90,7 @@ function twoCol(blocks){ /* Fließtext in zwei Spalten, Boxen über die volle Br
 function flow(blocks){
   var out = "", txt = [], bx = [], tb = [];
   function ftb(){ if(tb.length){ out += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:0 28px;align-items:start">' + tb.map(blk).join("") + '</div>'; tb = []; } }
-  function ft(){ if(txt.length){ out += '<div style="column-width:420px;column-gap:40px;margin:6px 0">' + txt.map(blk).join("") + '</div>'; txt = []; } }
+  function ft(){ if(txt.length){ var len = JSON.stringify(txt).length; out += '<div style="' + (len > 900 ? 'column-width:420px;column-gap:40px;' : '') + 'margin:6px 0">' + txt.map(blk).join("") + '</div>'; txt = []; } }
   function fb(){ if(bx.length){ out += '<div class="cols" style="margin:10px 0">' + bx.map(function(b){ return box("<h3>" + b.h + "</h3><p>" + b.x + "</p>"); }).join("") + '</div>'; bx = []; } }
   blocks.forEach(function(b){
     if(b.t !== "tbl") ftb();

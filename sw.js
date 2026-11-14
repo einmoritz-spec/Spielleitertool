@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v512vaesen10";
+const VERSION = "v513vaesen11";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -29,6 +29,7 @@ const FILES = [
   "vaesen/js/data/kapitel-konflikt.js",
   "vaesen/js/data/kapitel-konflikt2.js",
   "vaesen/js/data/kapitel-vaesen.js",
+  "vaesen/js/data/kapitel-gesellschaft.js",
   "vaesen/js/data/vaesen-detail4.js",
   "vaesen/js/data/vaesen-detail3.js",
   "vaesen/js/data/vaesen-detail2.js",

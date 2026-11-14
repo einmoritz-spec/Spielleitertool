@@ -27,5 +27,24 @@ var LM_IMGS = {
     ["lmErzaehler_pdf076_B095_Magic-Cauldron_1",1220,792,335],
     ["lmErzaehler_pdf077_B101_Magic-Cauldron_1",972,1588,341],
     ["lmErzaehler_pdf078-079_B101ca_Magic-Cauldron",2458,1589,341]
+  ],
+  "dales":[
+    ["hr_pdf011_B024_Kap1_Hill-and-Valley_2",1224,632,24,"hr"],
+    ["hr_pdf012_B031_Familiar-Places_1",1100,1204,30,"hr"],
+    ["hr_pdf014_B037_Familiar-Places_1",544,864,36,"hr"],
+    ["hr_pdf025_B063_Dalish-Life_1",1220,588,62,"hr"]
+  ],
+  "dales-c":[
+    ["hr_pdf046_B130_Cooking-and-Crafting_2",1228,732,130,"hr"],
+    ["hr_pdf047_B152_Oldways-Magic-and-Spells_1",1224,740,152,"hr"]
+  ],
+  "jenseits":[
+    ["hr_pdf050-051_B163ca_Oldways-Magic-and-Spells",2458,1589,164,"hr"],
+    ["hr_pdf052-053_B163ca_Oldways-Magic-and-Spells",2458,1589,166,"hr"],
+    ["hr_pdf054-055_B163ca_Oldways-Magic-and-Spells",2458,1589,169,"hr"],
+    ["hr_pdf056-057_B163ca_Oldways-Magic-and-Spells",2458,1589,170,"hr"],
+    ["hr_pdf058-059_B163ca_Oldways-Magic-and-Spells",2458,1589,172,"hr"],
+    ["hr_pdf064_B184_Of-Spirit-and-Stars_1",472,1588,184,"hr"],
+    ["hr_pdf069_B199_Winds-of-Change-Factions_1",1220,704,198,"hr"]
   ]
 };

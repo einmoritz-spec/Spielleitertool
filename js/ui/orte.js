@@ -39,14 +39,15 @@ var ORT_GUIDE="Valley by Valley: Ein Führer durch die Dales";
 var ORT_LAND=["Paths & Crossroads","Dalish Hills & Woodlands","Ruins of Gwyrdolin","Wetland & Lake","Remote Outland","Aldenweald","Craggen Highlands"];
 var ORT_JOURNEY=["Travel On Dalish Roads","Rambling","Barrow","Aldenweald Outskirts","Across the Highlands"];
 function ortFind(name){ var ids=["dales-b","jenseits-b","jenseits-c","jenseits"]; for(var i=0;i<ids.length;i++){ var a=LM.data[ids[i]]||[]; for(var j=0;j<a.length;j++) if(a[j].name===name) return a[j]; } return null; }
+function lmByPage(a){ var last=0, o=a.map(function(c,i){ if(c.p) last=c.p; return {c:c,k:last,i:i}; }); o.sort(function(x,y){ return x.k-y.k||x.i-y.i; }); return o.map(function(x){return x.c;}); }
 function lmCompose(id){
   var D=function(k){return LM.data[k]||[];}, not=function(list){return function(c){return list.indexOf(c.name)<0;};};
   if(id==="dales-b") return D("dales-b").filter(not(ORT_NAMES.concat([ORT_GUIDE])));
   if(id==="dales-c") return D("dales-c").concat(D("jenseits-b").filter(function(c){return ORT_JB_MAGIE.indexOf(c.name)>=0;}));
-  if(id==="jenseits") return D("jenseits").filter(not([ORT_SECRETS]));
+  if(id==="jenseits") return lmByPage(D("jenseits").filter(not([ORT_SECRETS])));
   if(id==="jenseits-c"){ var jb=D("jenseits-b"), k=-1; jb.forEach(function(c,i){ if(k<0&&/^Challenges:/.test(c.name)) k=i; });
     return D("jenseits-c").filter(not(ORT_LAND.concat(ORT_JOURNEY))).concat(k>=0?jb.slice(k):[]); }
-  return D(id);
+  return lmByPage(D(id));
 }
 var ORT_TITLE={"Paths & Crossroads":"Wege und Kreuzungen","Dalish Hills & Woodlands":"Hügel und Wälder","Ruins of Gwyrdolin":"Ruinen von Gwyrdolin","Wetland & Lake":"Moor und See","Remote Outland":"Abgelegenes Hinterland","Aldenweald":"Der Aldenweald","Craggen Highlands":"Craggen Highlands"};
 ORT_TAG["Paths & Crossroads"]="Straßen und Brücken";ORT_TAG["Dalish Hills & Woodlands"]="Hügel, Wälder, Pfade";ORT_TAG["Ruins of Gwyrdolin"]="Dolmen, Hügelgräber";ORT_TAG["Wetland & Lake"]="Moor, See, Schilf";ORT_TAG["Remote Outland"]="Abgelegene Hinterländer";ORT_TAG["Aldenweald"]="Der große Wald";ORT_TAG["Craggen Highlands"]="Hochland und Craggen";

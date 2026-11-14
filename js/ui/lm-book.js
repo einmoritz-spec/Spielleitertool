@@ -35,7 +35,7 @@ function lmBlocks(bs){
     else if(b.fq){ var q=b.fq; h+='<div class="lm-fq"><span class="lm-fql">'+esc(q.l||"")+'</span><div><b>'+lmMd(q.q)+'</b>'+((q.tags&&q.tags.length)?'<p class="lm-tags">'+q.tags.map(function(g){return '<span>'+esc(g)+'</span>';}).join("")+'</p>':'')+'</div></div>'; }
     else if(b.tg){ var g=b.tg; h+='<div class="lm-tgrow">'+(g.t?'<u>'+lmMd(g.t)+'</u>':'')+g.i.map(function(s){return '<span class="lm-tg lm-tg-'+(g.k||"n")+'">'+esc(s)+'</span>';}).join("")+'</div>'; }
     else if(b.kv){ h+='<dl class="lm-kv">'+b.kv.map(function(p){return '<div><dt>'+lmMd(p[0])+'</dt><dd>'+lmMd(p[1])+'</dd></div>';}).join("")+'</dl>'; }
-    else if(b.img){ var m=b.img; h+='<figure class="lm-img"><img loading="lazy" decoding="async" alt="" src="assets/galerie/litm-core/full/'+m.f+'.webp" width="'+m.w+'" height="'+m.h+'"></figure>'; }
+    else if(b.img){ var m=b.img; h+='<figure class="lm-img"><img loading="lazy" decoding="async" alt="" src="assets/galerie/'+(m.d==='hr'?'hearts-of-ravensdale':'litm-core')+'/full/'+m.f+'.webp" width="'+m.w+'" height="'+m.h+'"></figure>'; }
     else if(b.dlg){ h+='<div class="lm-dlg">'+b.dlg.map(function(p){return '<p><b>'+lmMd(p[0])+':</b> '+lmMd(p[1])+'</p>';}).join("")+'</div>'; }
   }
   return h;
@@ -82,7 +82,7 @@ function lmWithImgs(sid,es){
   var out=es.slice();
   m.forEach(function(x){
     var k=-1,bp=-1,mp=1e9,mk=0; for(var j=0;j<out.length;j++){ var q=out[j].p; if(!q) continue; if(q<=x[3]&&q>bp){ bp=q; k=j; } if(q<mp){ mp=q; mk=j; } } if(k<0) k=mk;
-    var e=Object.assign({},out[k]); e.body=[{img:{f:x[0],w:x[1],h:x[2]}}].concat(e.body||[]); out[k]=e;
+    var e=Object.assign({},out[k]); e.body=[{img:{f:x[0],w:x[1],h:x[2],d:x[4]}}].concat(e.body||[]); out[k]=e;
   });
   return out;
 }
@@ -187,7 +187,7 @@ function renderBook(){
     var es=lmWithImgs(s.id,lmCompose(s.id));
     if(s.id==="orte"){ el.innerHTML=ortHtml(); var r0=document.getElementById("lmToc"); if(r0) r0.innerHTML='<div class="lm-tree"></div>'; var sh0=document.querySelector(".lm-shell"); if(sh0){ sh0.classList.add("nontoc"); sh0.style.setProperty("grid-template-columns","minmax(0,1fr)","important"); } document.querySelectorAll(".pn-btn").forEach(function(b){ b.style.display="none"; }); return; }
     var sh=function(t){return String(t).split(":")[0];};
-    var subs=es.length>1?es.map(function(c,i){ return '<a onclick="lmJump('+i+')">'+esc(sh(c.name))+'</a>'; }).join(""):"";
+    var hc={}; es.forEach(function(c){ var h=sh(c.name); hc[h]=(hc[h]||0)+1; }); var sh2=function(t){ var h=sh(t); return hc[h]>1&&String(t).indexOf(":")>0?String(t).split(":").slice(1).join(":").trim():h; }; var subs=es.length>1?es.map(function(c,i){ return '<a onclick="lmJump('+i+')">'+esc(sh2(c.name))+'</a>'; }).join(""):"";
     var toc=list.map(function(x){ var on=x.id===s.id; return '<button class="lm-cat'+(on?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(sh(x.t))+'</button>'+(on&&subs?'<div class="lm-sub">'+subs+'</div>':''); }).join("");
     var flat='<div class="lm-orow">'+list.map(function(x){ return '<button class="lm-cat'+(x.id===s.id?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(sh(x.t))+'</button>'; }).join("")+'</div>'+(subs?'<div class="lm-orow lm-osr lm-sub">'+subs+'</div>':'');
     el.innerHTML='<section class="lm-sec"><div class="lm-sh"><h2>'+esc(s.t)+'</h2>'+lmPg(s.p,s.pe)+'<select class="lm-sel" onchange="lmJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select></div>'+(es.length?'<div class="lm-body"><div class="lm-flow">'+lmCards(es)+'</div></div>':'<p class="lm-load">In Vorbereitung</p>')+'</section>';

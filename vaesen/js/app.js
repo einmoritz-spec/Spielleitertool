@@ -175,7 +175,7 @@ function vDetail(v){
 function viewTabbed(id){
   var k = VAE_KAP[id], base = cur === id ? id : "kapitel/" + id, p = (cur === id ? sub : sub.split("/").slice(1).join("/")).split("/");
   var bar = "", tab = null, secs, selId, side;
-  function sidePic(sec){ return sec.img ? '<div class="box card" style="max-width:360px;margin:0 0 16px" onclick="Galerie.open(\'vaesen\')"><div class="im" style="height:220px"><img src="' + IMG(sec.img, "thumb") + '"></div><i></i><b></b></div>' : ''; }
+  function sidePic(sec){ return sec.img ? '<div class="box card" style="max-width:360px;margin:0 0 16px" onclick="Galerie.image(\'vaesen\',\'' + sec.img + '\')"><div class="im" style="height:220px"><img src="' + IMG(sec.img, "thumb") + '"></div><i></i><b></b></div>' : ''; }
   if(k.tabs){
     var T = k.tabs; tab = T.filter(function(t){ return t.id === p[0]; })[0] || T[0];
     bar = tabsBar(T.map(function(t){ return [t.t, base + "/" + t.id + (t.secs ? "/" + t.secs[0].id : "")]; }), tab.t);
@@ -201,14 +201,14 @@ function viewKapitel(id){
   var imgs = {norden:["norden_titel_reiter","norden_karte_upsala"], gesellschaft:["mysterium_dame_mit_laterne"], mysterium:["einleitung_naeck"], tanz:["tanz_karte_hexenkater","tanz_sami_harjula","tanz_sophia_harjula","tanz_oscar_hjort"], konflikt:[], talente:[]}[id] || [];
   var secs = t.s.length ? t.s : [[t.t, t.p]];
   var tabs = t.s.length ? tabsBar(t.s.map(function(s){ return [s[0], "kapitel/" + id]; }), "") : "";
-  var pics = imgs.length ? '<div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:18px">' + imgs.map(function(n){ return '<div class="box card" onclick="Galerie.open(\'vaesen\')"><div class="im" style="height:200px"><img src="' + IMG(n, "thumb") + '"></div><i></i><b></b></div>'; }).join("") + '</div>' : "";
+  var pics = imgs.length ? '<div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:18px">' + imgs.map(function(n){ return '<div class="box card" onclick="Galerie.image(\'vaesen\',\'' + n + '\')"><div class="im" style="height:200px"><img src="' + IMG(n, "thumb") + '"></div><i></i><b></b></div>'; }).join("") + '</div>' : "";
   return '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(t.t) + '</h1>' + bookLink(t.p) + '</div><div style="margin-top:14px">' + pics + '</div><div class="cols">' + secs.map(function(s){ return box('<h3>' + esc(s[0]) + '</h3><p><span class="pg">S. ' + s[1] + '</span></p><p><button class="btn alt" onclick="' + inBook(s[1]) + '">Im Buch öffnen</button></p>'); }).join("") + '</div></div>';
 }
 
 /* ---------- Karten ---------- */
 function viewKarten(){
   var maps = [["norden_karte_mythischer_norden","Der Mythische Norden",99],["norden_karte_upsala","Upsala",106],["tanz_karte_hexenkater","Gasthaus „Zum Hexenkater“",200]];
-  return '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>Karten und Bilder</h1></div><div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:14px">' + maps.map(function(m){ return '<div class="box card" onclick="Galerie.open(\'vaesen\')"><div class="im" style="height:260px"><img src="' + IMG(m[0], "thumb") + '"></div><div class="tx"><h3>' + m[1] + '</h3><small>S. ' + m[2] + '</small></div><i></i><b></b></div>'; }).join("") + '</div><p style="margin-top:18px"><button class="btn fill" onclick="Galerie.open(\'vaesen\')">Galerie</button></p></div>';
+  return '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>Karten und Bilder</h1></div><div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:14px">' + maps.map(function(m){ return '<div class="box card" onclick="Galerie.image(\'vaesen\',\'' + m[0] + '\')"><div class="im" style="height:260px"><img src="' + IMG(m[0], "thumb") + '"></div><div class="tx"><h3>' + m[1] + '</h3><small>S. ' + m[2] + '</small></div><i></i><b></b></div>'; }).join("") + '</div><p style="margin-top:18px"><button class="btn fill" onclick="Galerie.open(\'vaesen\')">Galerie</button></p></div>';
 }
 
 /* ---------- Charaktererstellung ---------- */

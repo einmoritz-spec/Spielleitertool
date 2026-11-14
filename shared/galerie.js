@@ -46,7 +46,7 @@ var Galerie = (function(){
     show(start);
   }
   function close(){
-    if(!ov) return;
+    if(!ov) return; direct = false;
     window.removeEventListener("keydown", onKey, true); window.removeEventListener("resize", queue);
     ov.remove(); ov = grid = lb = cur = null; tiles = []; document.documentElement.classList.remove("gal-open");
   }
@@ -102,8 +102,18 @@ var Galerie = (function(){
   function queue(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(layout); }
 
   function openLb(i){ lb.hidden = false; showImg(i); lb.querySelector(".gal-next").focus({preventScroll:true}); }
+  var direct = false;
+  function image(setting, file){
+    var books = BOOKS[setting] || [], bk = null, i = -1;
+    books.forEach(function(b){ if(bk) return; b.items.forEach(function(it, k){ if(!bk && it[0] === file){ bk = b; i = k; } }); });
+    if(!bk) return open(setting);
+    if(ov) close();
+    open(setting, bk.key); direct = true; openLb(i);
+  }
   function closeLb(){
-    if(!lb || lb.hidden) return; lb.hidden = true;
+    if(!lb || lb.hidden) return;
+    if(direct){ direct = false; close(); return; }
+    lb.hidden = true;
     var t = tiles[idx]; if(t){ t.focus({preventScroll:true}); if(t.scrollIntoView) t.scrollIntoView({block:"nearest"}); }
   }
   function showImg(i){
@@ -127,5 +137,5 @@ var Galerie = (function(){
     else used = true;
     if(used){ e.preventDefault(); e.stopImmediatePropagation(); }
   }
-  return { reg: reg, open: open, close: close, has: function(s){ return !!(BOOKS[s] && BOOKS[s].length); } };
+  return { reg: reg, open: open, image: image, close: close, has: function(s){ return !!(BOOKS[s] && BOOKS[s].length); } };
 })();

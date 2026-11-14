@@ -409,6 +409,6 @@ html,body{overflow-x:hidden}
 @media(max-width:1100px){.cs-grid,.cs-grid.cs-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.cs-grid,.cs-grid.cs-four{grid-template-columns:1fr}.cs-head{height:120px}.cs-head h1{font-size:30px}}
 .cs{display:block}
-.cs-four .cs-img{aspect-ratio:4/3}
-.cs-four .cs-img img{height:128%;object-position:50% 0}
+.cs-four .cs-img{aspect-ratio:1.25/1}
+.cs-four .cs-img img{height:100%}
 .cs-four .cs-rows{grid-template-columns:1fr}

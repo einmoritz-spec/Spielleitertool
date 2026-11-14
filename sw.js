@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v507vaesen5";
+const VERSION = "v509vaesen7";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -37,6 +37,20 @@ const FILES = [
   "vaesen/img/paper.webp",
   "vaesen/img/hero_naeck.webp",
   "vaesen/img/cover_grundregelwerk.webp",
+  "vaesen/img/cover_wicked.webp",
+  "vaesen/img/titel/titel_wicked.webp",
+  "vaesen/img/cover_city.webp",
+  "vaesen/img/titel/titel_city.webp",
+  "vaesen/img/cover_lost.webp",
+  "vaesen/img/titel/titel_lost.webp",
+  "vaesen/img/cover_seasons.webp",
+  "vaesen/img/titel/titel_seasons.webp",
+  "vaesen/img/cover_mbi.webp",
+  "vaesen/img/titel/titel_mbi.webp",
+  "vaesen/img/cover_carp.webp",
+  "vaesen/img/titel/titel_carp.webp",
+  "vaesen/img/cover_solo.webp",
+  "vaesen/img/titel/titel_solo.webp",
   "vaesen/img/thumb/anhang_s236.webp",
   "vaesen/img/thumb/charaktere_archetyp_akademiker.webp",
   "vaesen/img/thumb/charaktere_archetyp_arzt.webp",

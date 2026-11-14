@@ -57,7 +57,7 @@ function box(inner, st){ return '<div class="box"' + (st ? ' style="' + st + '"'
 /* ---------- Startseite ---------- */
 function bookTile(b){
   var cv = b.cover ? 'style="background-image:url(img/' + b.cover + ')"' : '';
-  return '<button class="book' + (b.cover ? '' : ' ph') + '" onclick="BV.open(\'' + b.id + '\',1)"><div class="cv" ' + cv + '>' + (b.cover ? '' : esc(b.name)) + '</div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></button>';
+  return '<button class="book' + (b.cover ? '' : ' ph') + '" onclick="BV.open(\'' + b.id + '\',1)"><div class="cv" ' + cv + '>' + (b.titel ? '<img class="tt" src="img/' + b.titel + '" alt="">' : (b.cover ? '' : esc(b.name))) + '</div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></button>';
 }
 function bookInfo(id){ alert("Dieses Buch ist noch nicht eingebunden – sobald das PDF vorliegt, erscheinen hier Cover und Inhalt."); }
 function viewStart(){
@@ -67,9 +67,9 @@ function viewStart(){
    '<div class="page"><div class="sech" style="margin-top:0"><h2>Spielhilfen</h2></div><div class="tiles">' + tiles + '</div><div class="sech"><h2>Bücher</h2></div>' + shelf + '</div>';
 }
 function viewBuecher(){
-  var g = VAE_BUECHER[+sub] || VAE_BUECHER[0];
-  var rows = VAE_BUECHER.map(function(x, i){ return {id:String(i), go:"buecher/" + i, t:x.grp}; });
-  return main([{i:rows}], sub || "0", '<h1>' + esc(g.grp) + '</h1><div class="sg" style="margin-top:14px"><div class="books">' + g.items.map(bookTile).join("") + '</div></div>');
+  var h = VAE_BUECHER.map(function(g, i){ return '<div id="grp' + i + '" style="margin-bottom:26px"><h2 style="color:var(--red);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">' + esc(g.grp) + '</h2><div class="sg"><div class="books">' + g.items.map(bookTile).join("") + '</div></div></div>'; }).join("");
+  if(sub !== "" && sub != null) setTimeout(function(){ var e = document.getElementById("grp" + sub); if(e) e.scrollIntoView(); }, 30);
+  return '<div class="page">' + h + '</div>';
 }
 
 /* ---------- Blöcke ---------- */

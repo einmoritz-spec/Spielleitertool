@@ -1,12 +1,22 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v503vaesen1";
+const VERSION = "v504vaesen2";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
   "index.html",
   "manifest.webmanifest",
   "vaesen/index.html",
+  "vaesen/fonts/caveat-latin-500-normal.woff2",
+  "vaesen/fonts/cinzel-latin-600-normal.woff2",
+  "vaesen/fonts/cinzel-latin-700-normal.woff2",
+  "vaesen/fonts/eb-garamond-latin-400-italic.woff2",
+  "vaesen/fonts/eb-garamond-latin-400-normal.woff2",
+  "vaesen/fonts/eb-garamond-latin-500-italic.woff2",
+  "vaesen/fonts/eb-garamond-latin-500-normal.woff2",
+  "vaesen/fonts/eb-garamond-latin-600-italic.woff2",
+  "vaesen/fonts/eb-garamond-latin-600-normal.woff2",
+  "vaesen/fonts/marcellus-sc-latin-400-normal.woff2",
   "vaesen/style.css",
   "vaesen/js/app.js",
   "vaesen/js/tool-switch.js",
@@ -14,6 +24,7 @@ const FILES = [
   "vaesen/js/data/regeln.js",
   "vaesen/js/data/charaktere.js",
   "vaesen/js/data/vaesen.js",
+  "vaesen/js/data/vaesen-detail.js",
   "vaesen/js/data/galerie.js",
   "vaesen/js/data/galnames.js",
   "assets/logos/vaesen.webp",

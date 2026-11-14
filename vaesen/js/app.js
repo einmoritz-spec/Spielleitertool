@@ -39,117 +39,137 @@ function toc(id){ return TOC.filter(function(a){ return a.id === id; })[0]; }
 function go(id){ if(location.hash === "#" + id) render(); else location.hash = id; }
 function route(){ var h = (location.hash || "#start").slice(1).split("/"); cur = h[0] || "start"; sub = decodeURIComponent(h.slice(1).join("/") || ""); render(); }
 window.addEventListener("hashchange", route);
-function crumb(parts){ return '<div class="crumb"><a onclick="go(\'start\')">Vaesen</a>' + parts.map(function(p){ return ' › ' + (p[1] ? '<a onclick="go(\'' + p[1] + '\')">' + esc(p[0]) + '</a>' : esc(p[0])); }).join("") + '</div>'; }
-function lay(items, sel, content, group){
-  var side = '<nav class="side">' + items.map(function(g){ return (g.h ? '<h4>' + esc(g.h) + '</h4>' : '') + g.i.map(function(i){ return '<a class="' + (i.id === sel ? 'on' : '') + '" onclick="go(\'' + i.go + '\')">' + esc(i.t) + (i.s ? '<small>' + esc(i.s) + '</small>' : '') + '</a>'; }).join(""); }).join("") + '</nav>';
+function tabsBar(list, on){ return '<div class="tabs">' + list.map(function(t){ return '<a class="' + (t[0] === on ? 'on' : '') + '" onclick="go(\'' + t[1] + '\')">' + esc(t[0]) + '</a>'; }).join("") + '</div>'; }
+function main(items, sel, content){
+  var side = '<nav class="side">' + items.map(function(g){ return (g.h ? '<h4>' + esc(g.h) + '</h4>' : '') + g.i.map(function(i){ return '<a class="' + (i.id === sel ? 'on' : '') + '" onclick="go(\'' + i.go + '\')"><span>' + esc(i.t) + '</span>' + (i.s ? '<small>' + esc(i.s) + '</small>' : '') + '</a>'; }).join(""); }).join("") + '</nav>';
   var mob = '<div class="mob-nav">' + items.reduce(function(a, g){ return a.concat(g.i); }, []).map(function(i){ return '<a class="' + (i.id === sel ? 'on' : '') + '" onclick="go(\'' + i.go + '\')">' + esc(i.t) + '</a>'; }).join("") + '</div>';
-  return '<button class="fold-b" onclick="toggleFold()" title="Seitenleiste ein-/ausblenden (b)" aria-label="Seitenleiste">' + (folded ? '›' : '‹') + '</button><div class="lay' + (folded ? ' fold' : '') + '">' + side + '<div>' + mob + content + '</div></div>';
+  return '<div class="main' + (folded ? ' fold' : '') + '">' + side + '<div class="content">' + mob + content + '</div></div><button class="fold-b' + (folded ? ' f' : '') + '" onclick="toggleFold()" title="Seitenleiste ein-/ausblenden (b)" aria-label="Seitenleiste">' + (folded ? '›' : '‹') + '</button>';
 }
 function toggleFold(){ folded = !folded; try{ localStorage.setItem("vae_fold", folded ? "1" : "0"); }catch(e){} render(); }
 document.addEventListener("keydown", function(e){
   if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "")) return;
   if(e.key === "b") toggleFold();
-  if(e.key === "h"){ var t = document.querySelector(".topbar"); t.style.display = t.style.display === "none" ? "" : "none"; }
+  if(e.key === "h"){ var t = document.querySelector(".topbar"); t.style.display = t.style.display === "none" ? "" : "none"; document.documentElement.style.setProperty("--hd", t.style.display === "none" ? "0px" : "54px"); }
 });
+function bookLink(p){ return '<span class="pg">S. ' + p + ' · <a onclick="' + inBook(p) + '">im Buch</a></span>'; }
+function box(inner, st){ return '<div class="box"' + (st ? ' style="' + st + '"' : '') + '>' + inner + '<i></i><b></b></div>'; }
 
 /* ---------- Startseite ---------- */
 function bookTile(b){
   var cv = b.cover ? 'style="background-image:url(img/' + b.cover + ')"' : '';
-  return '<button class="book' + (b.on ? '' : ' ph') + '" onclick="' + (b.on ? "BV.open('core',1)" : "bookInfo('" + b.id + "')") + '"><div class="cv" ' + cv + '>' + (b.cover ? '' : esc(b.name)) + '</div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + (b.on ? '' : ' · PDF folgt') + '</small></button>';
+  return '<button class="book' + (b.on ? '' : ' ph') + '" onclick="' + (b.on ? "BV.open('core',1)" : "bookInfo('" + b.id + "')") + '"><div class="cv" ' + cv + '>' + (b.cover ? '' : esc(b.name)) + '</div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></button>';
 }
-function bookInfo(id){ alert("Dieses Buch ist noch nicht eingebunden – sobald das PDF vorliegt, erscheint hier das Cover und der Inhalt."); }
+function bookInfo(id){ alert("Dieses Buch ist noch nicht eingebunden – sobald das PDF vorliegt, erscheinen hier Cover und Inhalt."); }
 function viewStart(){
-  var tiles = AREAS.map(function(a){ return '<button class="tile" onclick="go(\'' + a.id + '\')"><div class="im" style="background-image:url(' + IMG(a.img, "thumb") + ');background-position:' + a.pos + '"></div><div class="tx"><h3>' + esc(a.t) + '</h3><small>' + esc(a.s) + '</small></div></button>'; }).join("");
+  var tiles = AREAS.map(function(a){ return '<div class="box tile" onclick="go(\'' + a.id + '\')"><div class="im" style="background-image:url(' + IMG(a.img, "thumb") + ');background-position:' + a.pos + '"></div><div class="tx"><h3>' + esc(a.t) + '</h3><small>' + esc(a.s) + '</small></div><i></i><b></b></div>'; }).join("");
   var shelf = '<div class="shelf">' + VAE_BUECHER.map(function(g){ return '<div class="sg"><div class="grp-h">' + esc(g.grp) + '</div><div class="books">' + g.items.map(bookTile).join("") + '</div></div>'; }).join("") + '</div>';
-  return '<div class="hero" style="background-image:url(img/hero_naeck.webp)"><div class="ht"><img src="../assets/logos/vaesen-rot.webp" alt="Vaesen"><p>Mythisches Skandinavien im 19. Jahrhundert. Die Gesellschaft jagt Vaesen – Wesen aus Sagen und Aberglauben.</p><div class="go"><button class="btn" onclick="go(\'tanz\')">Abenteuer starten</button></div></div></div>' +
-   '<div class="sech"><h2>Spielhilfen</h2></div><div class="tiles">' + tiles + '</div>' +
-   '<div class="sech"><h2>Bücher</h2></div>' + shelf;
+  return '<div class="hero" style="background-image:url(img/hero_naeck.webp)"><div class="ht"><img src="../assets/logos/vaesen-rot.webp" alt="Vaesen"><p>Mythisches Skandinavien im 19. Jahrhundert. Die Gesellschaft jagt Vaesen – Wesen aus Sagen und Aberglauben.</p><div class="go"><button class="btn fill" onclick="go(\'tanz\')">Abenteuer starten</button></div></div></div>' +
+   '<div class="page"><div class="sech" style="margin-top:0"><h2>Spielhilfen</h2></div><div class="tiles">' + tiles + '</div><div class="sech"><h2>Bücher</h2></div>' + shelf + '</div>';
 }
-
 function viewBuecher(){
   var g = VAE_BUECHER[+sub] || VAE_BUECHER[0];
-  var rows = VAE_BUECHER.map(function(x, i){ return {id:String(i), go:"buecher/" + i, t:x.grp, s:x.items.length + " Titel"}; });
-  var one = g.items.length === 1 && g.items[0].on;
-  return lay([{h:"Bücher", i:rows}], sub || "0", crumb([["Bücher"]]) + '<div class="sech" style="margin-top:0"><h2>' + esc(g.grp) + '</h2></div><div class="books">' + g.items.map(bookTile).join("") + '</div>' + (one ? '<p style="margin-top:18px"><button class="btn" onclick="go(\'regeln\')">Zu den Regeln</button> <button class="btn alt" onclick="go(\'charaktere\')">Charaktere</button> <button class="btn alt" onclick="go(\'vaesen\')">Vaesen</button></p>' : '<div class="empty" style="margin-top:16px">Sobald die PDFs dieser Bücher vorliegen, erscheinen hier Cover und Inhalte.</div>'));
+  var rows = VAE_BUECHER.map(function(x, i){ return {id:String(i), go:"buecher/" + i, t:x.grp}; });
+  return main([{i:rows}], sub || "0", '<h1>' + esc(g.grp) + '</h1><div class="sg" style="margin-top:14px"><div class="books">' + g.items.map(bookTile).join("") + '</div></div>');
 }
 
 /* ---------- Blöcke ---------- */
 function blk(b){
   switch(b.t){
    case "p": return "<p>" + b.x + "</p>";
-   case "h": return "<h4>" + b.x + "</h4>";
+   case "h": return "<h3>" + b.x + "</h3>";
    case "ul": return "<ul>" + b.x.map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul>";
-   case "box": return '<div class="box"><h3>' + b.h + "</h3><p>" + b.x + "</p></div>";
+   case "box": return box("<h3>" + b.h + "</h3><p>" + b.x + "</p>", "margin:8px 0 14px");
    case "tbl": return '<table class="t"><tr>' + b.head.map(function(h){ return "<th>" + h + "</th>"; }).join("") + "</tr>" + b.rows.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + c + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>";
-   case "cols": return '<div class="cols">' + b.x.map(function(c){ return '<div class="box"><h3>' + c[0] + "</h3><p>" + c[1] + "</p><p>" + c[2].map(function(x){ return '<span class="chip r">' + x + "</span>"; }).join("") + "</p></div>"; }).join("") + "</div>";
-   case "skills": return '<div class="cols">' + VAE_ATTR.map(function(a){ return '<div class="box"><h3>' + a.n + '</h3><p><i>' + a.c + '</i></p>' + a.s.map(function(s){ return "<h4>" + s[0] + ' <span class="pg">' + s[1] + '</span></h4><p>' + s[2] + "</p>"; }).join("") + "</div>"; }).join("") + "</div>";
+   case "cols": return '<div class="cols" style="margin:8px 0">' + b.x.map(function(c){ return box("<h3>" + c[0] + "</h3><p>" + c[1] + "</p><p>" + c[2].map(function(x){ return '<span class="chip r">' + x + "</span>"; }).join("") + "</p>"); }).join("") + "</div>";
+   case "skills": return '<div class="cols">' + VAE_ATTR.map(function(a){ return box('<h3>' + a.n + '</h3><p class="quote">' + a.c + '</p>' + a.s.map(function(s){ return '<p style="margin:0 0 .5em"><b>' + s[0] + '</b> <span class="pg">S. ' + s[1] + '</span><br>' + s[2] + '</p>'; }).join("")); }).join("") + "</div>";
   }
   return "";
 }
+function twoCol(blocks){ /* Fließtext in zwei Spalten, Boxen über die volle Breite */ return '<div style="column-width:420px;column-gap:40px">' + blocks.filter(function(b){ return b.t === "p" || b.t === "h" || b.t === "ul"; }).map(blk).join("") + '</div>' + blocks.filter(function(b){ return b.t !== "p" && b.t !== "h" && b.t !== "ul"; }).map(blk).join(""); }
 
 /* ---------- Regeln ---------- */
 function viewRegeln(){
+  var tabs = VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]);
   var id = sub || VAE_REGELN[0].id, s = VAE_REGELN.filter(function(x){ return x.id === id; })[0] || VAE_REGELN[0];
-  var items = [{h:"Regeln (Kap. 3)", i:VAE_REGELN.map(function(x){ return {id:x.id, go:"regeln/" + x.id, t:x.titel, s:"S. " + x.p}; })},
-               {h:"Weiter im Buch", i:[{id:"konflikt", go:"kapitel/konflikt", t:"Konflikt & Verletzungen", s:"S. 57"},{id:"talente", go:"kapitel/talente", t:"Talente", s:"S. 49"}]}];
-  var c = crumb([["Regeln"]]) + '<div class="sech"><h2>' + esc(s.titel) + '</h2><span class="pg">Buch S. ' + s.p + ' · <a style="color:var(--red);cursor:pointer" onclick="' + inBook(s.p) + '">im Buch öffnen</a></span></div>' + s.b.map(blk).join("");
-  return lay(items, s.id, c);
+  return tabsBar(tabs, s.titel) + '<div class="page"><div style="display:flex;align-items:baseline;gap:14px"><h1>' + esc(s.titel) + '</h1>' + bookLink(s.p) + '</div><div style="margin-top:12px">' + twoCol(s.b) + '</div></div>';
 }
 
 /* ---------- Charaktere ---------- */
-function archSide(){ return [{h:"Archetypen", i:VAE_ARCH.map(function(a){ return {id:a.id, go:"charaktere/" + a.id, t:a.name, s:a.attr}; })}, {h:"Erstellen", i:[{id:"erstellung", go:"erstellung", t:"Charaktererstellung"}]}]; }
+var CTABS = [["Archetypen","charaktere"],["Persönlichkeit","charaktere/persoenlichkeit"],["Eigenschaften","charaktere/eigenschaften"],["Fertigkeiten","charaktere/fertigkeiten"],["Talente","charaktere/talente"],["Ausrüstung und Ressourcen","charaktere/ausruestung"]];
+var RES = [["1","Mittellos","Du bist völlig auf andere angewiesen. Jeder Tag ist ein Kampf ums Essen."],["2","Arm","Du lebst sehr einfach. Meist gibt es etwas zu essen, aber zu wenig."],["3","Zurechtkommend","Bescheidenes Heim, festes Einkommen, aber keine Ersparnisse."],["4","Gesichert","Eigenes Heim und stetiges Einkommen; vermutlich etwas zurückgelegt."],["5","Mittelstand","Haus und Geschäft, vielleicht Angestellte; Ersparnisse und Kredit."],["6","Wohlhabend","Großes Haus, mehrere Einkommensquellen; Geld ist kein knappes Gut."],["7","Reich","Viel geerbtes Geld und Immobilien, Diener, Verbindungen zur Elite."],["8","Steinreich","Du gehörst zu den Reichsten des Landes und kennst die Herrscher persönlich."]];
+function archSide(){ return [{i:VAE_ARCH.map(function(a){ return {id:a.id, go:"charaktere/" + a.id, t:a.name}; })}]; }
 function viewCharaktere(){
-  if(sub){ var a = VAE_ARCH.filter(function(x){ return x.id === sub; })[0]; if(a) return lay(archSide(), a.id, archDetail(a)); }
-  var cards = VAE_ARCH.map(function(a){ return '<div class="card" onclick="go(\'charaktere/' + a.id + '\')"><div class="im" style="background-image:url(' + IMG(a.img, "thumb") + ')"></div><div class="tx"><h3>' + esc(a.name) + '</h3><small>' + esc(a.attr) + ' · ' + esc(a.skill) + '</small></div></div>'; }).join("");
-  var info = '<div class="cols"><div class="box"><h3>Alter</h3><table class="t"><tr><th>Gruppe</th><th>Jahre</th><th>Attribut</th><th>Fertigkeit</th></tr>' + VAE_ALTER.map(function(r){ return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td></tr>"; }).join("") + '</table></div><div class="box"><h3>Schritte</h3><p>1 Archetyp · 2 Alter · 3 Name · 4 Attribute · 5 Fertigkeiten &amp; Ressourcen · 6 Talent · 7 Motivation · 8 Trauma · 9 Dunkles Geheimnis · 10 Beziehungen · 11 Andenken · 12 Ausrüstung</p><button class="btn" onclick="go(\'erstellung\')">Charakter erstellen</button></div></div>';
-  return lay(archSide(), "", crumb([["Charaktere"]]) + '<div class="sech"><h2>Archetypen</h2></div><div class="cards">' + cards + '</div><div class="sech"><h2>Charakter erschaffen</h2></div>' + info);
+  var a = VAE_ARCH.filter(function(x){ return x.id === sub; })[0];
+  if(a) return tabsBar(CTABS, "Archetypen") + main(archSide(), a.id, archDetail(a));
+  var tab = {persoenlichkeit:"Persönlichkeit", eigenschaften:"Eigenschaften", fertigkeiten:"Fertigkeiten", talente:"Talente", ausruestung:"Ausrüstung und Ressourcen"}[sub];
+  if(tab) return tabsBar(CTABS, tab) + '<div class="page">' + charTab(sub) + '</div>';
+  var cards = VAE_ARCH.map(function(a){ return '<div class="box card" onclick="go(\'charaktere/' + a.id + '\')"><div class="im"><img src="' + IMG(a.img, "thumb") + '" alt="' + esc(a.name) + '"></div><div class="tx"><h3>' + esc(a.name) + '</h3><small>' + esc(a.attr) + ' · ' + esc(a.skill) + '</small></div><i></i><b></b></div>'; }).join("");
+  return tabsBar(CTABS, "Archetypen") + '<div class="page"><div class="cards a">' + cards + '</div></div>';
+}
+function charTab(k){
+  if(k === "persoenlichkeit") return '<div style="display:flex;align-items:baseline;gap:14px"><h1>Persönlichkeit</h1>' + bookLink(18) + '</div><div class="cols" style="margin-top:12px">' +
+   box('<h3>Alter</h3><table class="t"><tr><th>Gruppe</th><th>Jahre</th><th>Attributspunkte</th><th>Fertigkeitspunkte</th></tr>' + VAE_ALTER.map(function(r){ return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td></tr>"; }).join("") + '</table><p>In der Gruppe soll es nicht zwei Charaktere desselben Archetyps geben.</p>') +
+   box('<h3>Motivation</h3><p>Warum du bereit bist, dein Leben zu riskieren, um Vaesen aufzuspüren und zu bekämpfen. Wähle aus den Vorschlägen deines Archetyps oder erfinde eine eigene.</p><h3>Trauma</h3><p>Das Ereignis, das dir das Zweite Gesicht gab – körperlich oder seelisch, oft mit Bezug zum Übernatürlichen.</p>') +
+   box('<h3>Dunkles Geheimnis</h3><p>Ein Problem, für das du dich schämst und das du vor den anderen verbirgst. Es erschwert dir das Leben in Upsala und auf Reisen. Die Spielleitung sorgt dafür, dass es in den Geschichten eine Rolle spielt; ist es gelöst, tauschst du es aus.</p>') +
+   box('<h3>Die zwölf Schritte</h3><p>1 Archetyp · 2 Alter · 3 Name · 4 Attribute · 5 Fertigkeiten und Ressourcen · 6 Talent · 7 Motivation · 8 Trauma · 9 Dunkles Geheimnis · 10 Beziehungen · 11 Andenken · 12 Ausrüstung</p><p><button class="btn fill" onclick="go(\'erstellung\')">Charakter erstellen</button></p>') + '</div>';
+  if(k === "eigenschaften") return '<div style="display:flex;align-items:baseline;gap:14px"><h1>Eigenschaften</h1>' + bookLink(20) + '</div><p style="margin-top:10px">Vier Attribute mit Werten von 2 bis 5 bestimmen die Würfelzahl; Minimum 2, Maximum 4 – nur das Hauptattribut des Archetyps darf 5 erreichen.</p>' + blk({t:"skills"});
+  if(k === "fertigkeiten") return '<div style="display:flex;align-items:baseline;gap:14px"><h1>Fertigkeiten</h1>' + bookLink(21) + '</div><p style="margin-top:10px">Zwölf Fertigkeiten mit Wert 0–5. Zu Spielbeginn höchstens 2 in jeder Fertigkeit – außer der Hauptfertigkeit des Archetyps (3).</p>' + blk({t:"skills"});
+  if(k === "talente") return '<div style="display:flex;align-items:baseline;gap:14px"><h1>Talente</h1>' + bookLink(49) + '</div><div class="cols" style="margin-top:12px">' + box('<h3>Startwahl</h3><p>Dein Archetyp bietet drei Starttalente zur Wahl. Mit Erfahrungspunkten kannst du später weitere frei wählen – auch aus anderen Archetypen.</p><p><button class="btn alt" onclick="' + inBook(53) + '">Talente im Buch</button></p>') + '</div>';
+  return '<div style="display:flex;align-items:baseline;gap:14px"><h1>Ausrüstung und Ressourcen</h1>' + bookLink(22) + '</div><div class="cols" style="margin-top:12px">' + box('<h3>Ressourcen</h3><table class="t"><tr><th>Wert</th><th>Lebensstandard</th></tr>' + RES.map(function(r){ return "<tr><td>" + r[0] + "</td><td><b>" + r[1] + ".</b> " + r[2] + "</td></tr>"; }).join("") + '</table>') + box('<h3>Andenken</h3><p>Würfle mit zwei W6 (W66) – der erste Würfel zählt die Zehner. Oder wirf in der Charaktererstellung.</p><p><button class="btn alt" onclick="go(\'erstellung\')">Zur Charaktererstellung</button></p>') + '</div>';
 }
 function list(a){ return "<ul>" + a.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; }
+function lab(t){ return '<span class="hd" style="font-size:14px;letter-spacing:.1em;text-transform:uppercase">' + t + '</span> '; }
 function archDetail(a){
-  return crumb([["Charaktere", "charaktere"], [a.name]]) + '<div class="detail"><div class="pic"><img src="' + IMG(a.img) + '" alt="' + esc(a.name) + '"></div><div>' +
-   '<div class="sech" style="margin-top:0"><h2>' + esc(a.name) + '</h2><span class="pg">' + esc(a.en) + ' · Buch S. ' + a.p + ' · <a style="color:var(--red);cursor:pointer" onclick="' + inBook(a.p) + '">im Buch</a></span></div>' +
-   '<div class="stat"><div><b>' + esc(a.attr) + '</b><span>Hauptattribut</span></div><div><b>' + esc(a.skill) + '</b><span>Hauptfertigkeit</span></div><div><b>' + esc(a.res) + '</b><span>Ressourcen</span></div></div>' +
-   '<p style="font-style:italic;color:var(--soft)">' + esc(a.desc) + '</p>' +
-   '<div class="cols"><div class="box"><h3>Name</h3><p><b>Vornamen:</b> ' + esc(a.vor.join(", ")) + '</p><p><b>Nachnamen:</b> ' + esc(a.nach.join(", ")) + '</p></div><div class="box"><h3>Talente</h3><p>' + a.talente.map(function(t){ return '<span class="chip r">' + esc(t) + '</span>'; }).join("") + '</p><h4>Ausrüstung</h4>' + list(a.ausr) + '</div>' +
-   '<div class="box"><h3>Motivation</h3>' + list(a.mot) + '</div><div class="box"><h3>Trauma</h3>' + list(a.trauma) + '</div><div class="box"><h3>Dunkles Geheimnis</h3>' + list(a.geheim) + '</div><div class="box"><h3>Beziehungen</h3>' + list(a.beziehung) + '</div></div>' +
-   '<p><button class="btn" onclick="go(\'erstellung/' + a.id + '\')">Mit diesem Archetyp erstellen</button></p></div></div>';
+  return '<div class="dt"><div class="pic"><img src="' + IMG(a.img) + '" alt="' + esc(a.name) + '"></div><div class="tx">' +
+   '<div style="display:flex;align-items:baseline;gap:14px"><h1>' + esc(a.name) + '</h1>' + bookLink(a.p) + '</div>' +
+   '<p class="quote" style="margin-top:10px;max-width:60ch">' + esc(a.quote) + '</p>' +
+   '<div class="g2"><div><h3>Name</h3><ul><li>Vorname: ' + esc(a.vor.join(", ")) + '</li><li>Nachname: ' + esc(a.nach.join(", ")) + '</li></ul><h3>Motivation</h3>' + list(a.mot) + '<h3>Trauma</h3>' + list(a.trauma) + '</div><div><h3>Dunkles Geheimnis</h3>' + list(a.geheim) + '<h3>Beziehungen</h3>' + list(a.beziehung) + '</div></div>' +
+   box(lab("Hauptattribut") + esc(a.attr) + ' &nbsp;·&nbsp; ' + lab("Hauptfertigkeit") + esc(a.skill) + '<br>' + lab("Talente") + esc(a.talente.join(", ")) + ' &nbsp;·&nbsp; ' + lab("Ressourcen") + esc(a.res) + '<br>' + lab("Ausrüstung") + esc(a.ausr.join(", ")), "margin-top:18px;font-size:16px;line-height:1.55") +
+   '<p style="margin-top:14px"><button class="btn fill" onclick="go(\'erstellung/' + a.id + '\')">Mit diesem Archetyp erstellen</button></p></div></div>';
 }
 
 /* ---------- Vaesen ---------- */
-function vSide(){ return [{h:"Vaesen", i:VAE_WESEN.map(function(v){ return {id:v.id, go:"vaesen/" + v.id, t:v.name, s:"S. " + v.p}; })}]; }
+var VTABS = [["Vaesen","vaesen"],["Vaesen und Menschen","vaesen/t-menschen"],["Magische Kräfte","vaesen/t-magie"],["Regeln für Vaesen","vaesen/t-regeln"],["Nichtspielercharaktere","vaesen/t-nsc"],["Tiere","vaesen/t-tiere"]];
+var VBOOK = {"t-menschen":[112,"Vaesen und Menschen"],"t-magie":[115,"Magische Kräfte"],"t-regeln":[121,"Regeln für Vaesen"],"t-nsc":[166,"Nichtspielercharaktere"],"t-tiere":[168,"Tiere"]};
+var IMGS = {}; (window.__galNames || []).forEach(function(n){ IMGS[n] = 1; });
+function vSide(){ return [{i:VAE_WESEN.map(function(v){ return {id:v.id, go:"vaesen/" + v.id, t:v.name}; })}]; }
 function viewVaesen(){
-  if(sub){ var v = VAE_WESEN.filter(function(x){ return x.id === sub; })[0]; if(v) return lay(vSide(), v.id, vDetail(v)); }
-  var cards = VAE_WESEN.map(function(v){
-    var has = v.img && IMGS[v.img];
-    return '<div class="card" onclick="go(\'vaesen/' + v.id + '\')">' + (has ? '<div class="im" style="background-image:url(' + IMG(v.img, "thumb") + ')"></div>' : '<div class="im ph">Bild folgt</div>') + '<div class="tx"><h3>' + esc(v.name) + '</h3><small>' + (v.might != null ? 'Macht ' + v.might + ' · Magie ' + v.magic : 'Magie ' + v.magic) + '</small></div></div>'; }).join("");
-  return lay(vSide(), "", crumb([["Vaesen"]]) + '<div class="sech"><h2>Die Vaesen</h2><span class="pg">Buch Kap. 8, S. 111–168</span></div><p>Vaesen sind Wesen aus Sagen und Volksglauben. Jedes hat Werte (Macht, Körperkontrolle, Manipulation, Magie, Furcht), ein Ritual zum Bannen und Beispielkonflikte.</p><div class="cards">' + cards + '</div>');
+  if(VBOOK[sub]){ var b = VBOOK[sub]; return tabsBar(VTABS, b[1]) + '<div class="page"><div style="display:flex;align-items:baseline;gap:14px"><h1>' + b[1] + '</h1>' + bookLink(b[0]) + '</div><div class="cols" style="margin-top:14px">' + box('<h3>Im Buch</h3><p>Dieser Abschnitt steht im Grundregelwerk ab S. ' + b[0] + '. Die deutsche Aufbereitung folgt.</p><p><button class="btn alt" onclick="' + inBook(b[0]) + '">Im Buch öffnen</button></p>') + '</div></div>'; }
+  var v = VAE_WESEN.filter(function(x){ return x.id === sub; })[0];
+  if(v) return tabsBar(VTABS, "Vaesen") + main(vSide(), v.id, vDetail(v));
+  var cards = VAE_WESEN.map(function(v){ var has = IMGS[v.img];
+    return '<div class="box card" onclick="go(\'vaesen/' + v.id + '\')"><div class="im' + (has ? '' : ' ph') + '">' + (has ? '<img src="' + IMG(v.img, "thumb") + '" alt="' + esc(v.name) + '">' : 'Bild folgt') + '</div><div class="tx"><h3>' + esc(v.name) + '</h3></div><i></i><b></b></div>'; }).join("");
+  return tabsBar(VTABS, "Vaesen") + '<div class="page"><div class="cards v">' + cards + '</div></div>';
 }
-var IMGS = {}; VAE_GAL_NAMES();
-function VAE_GAL_NAMES(){ try{ (window.__galNames || []).forEach(function(n){ IMGS[n] = 1; }); }catch(e){} }
 function vDetail(v){
-  var has = IMGS[v.img];
-  function st(l, x){ return '<div><b>' + (x == null ? "–" : x) + '</b><span>' + l + '</span></div>'; }
-  return crumb([["Vaesen", "vaesen"], [v.name]]) + '<div class="detail"><div class="pic">' + (has ? '<img src="' + IMG(v.img) + '" alt="' + esc(v.name) + '">' : '<div class="empty">Bild folgt</div>') + '</div><div>' +
-   '<div class="sech" style="margin-top:0"><h2>' + esc(v.name) + '</h2><span class="pg">' + esc(v.en) + ' · Buch S. ' + v.p + ' · <a style="color:var(--red);cursor:pointer" onclick="' + inBook(v.p) + '">im Buch</a></span></div>' +
-   '<div class="stat">' + st("Macht", v.might) + st("Körperkontrolle", v.body) + st("Manipulation", v.manip) + st("Magie", v.magic) + st("Furcht", v.fear) + '</div>' +
-   '<div class="box"><h3>Beschreibung</h3><p>' + esc(v.text) + '</p></div><div class="box"><h3>Ritual · Bannen</h3><p>' + esc(v.ritual) + '</p></div>' +
-   '<p class="pg">Magische Kräfte, Zustände, Angriffe und Beispielkonflikte stehen im Buch (Seite ' + v.p + ').</p></div></div>';
+  var d = (window.VAE_DETAIL || {})[v.id] || {}, has = IMGS[v.img];
+  function st(l, x){ return '<div><span>' + l + '</span><b>' + (x == null ? "–" : x) + '</b></div>'; }
+  function li(a){ return "<ul>" + a.map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul>"; }
+  var quote = d.q ? '<p class="hand" style="margin:6px 0 0;max-width:90ch">„' + esc(d.q) + '“ <span style="font-size:17px">– Carl Linnaeus, ' + esc(d.qd) + '</span></p>' : '';
+  var head = '<div style="grid-column:1/3"><div style="display:flex;align-items:baseline;gap:14px"><h1>' + esc(v.name) + '</h1>' + bookLink(v.p) + '</div>' + quote + '</div>';
+  var left = '<div class="ph" style="margin-top:0">' + (has ? '<img src="' + IMG(v.img) + '" alt="' + esc(v.name) + '">' : '') + '<div><p style="font-size:17.5px">' + esc(v.text) + '</p></div></div>' +
+   (d.powers || d.cond ? '<div class="g2" style="margin-top:6px">' + (d.powers ? '<div><h3>Magische Kräfte</h3>' + li(d.powers) + '</div>' : '') + (d.cond ? '<div><h3>Zustände</h3>' + li(d.cond) + '</div>' : '') + '</div>' : '<p class="pg" style="margin-top:12px">Magische Kräfte, Zustände und Angriffe stehen im Buch auf S. ' + v.p + '.</p>');
+  var right = box('<div class="hd" style="text-align:center;letter-spacing:.14em;color:var(--red);font-size:15px">EIGENSCHAFTEN</div><div class="stat" style="margin-top:6px">' + st("Macht", v.might) + st("Körperkontr.", v.body) + st("Magie", v.magic) + st("Manipul.", v.manip) + st("Furcht", v.fear) + '</div>', "font-size:15.5px") +
+   (d.att && d.att.length ? '<h3>Angriffe</h3><table class="t"><tr><th>Angriff</th><th>Schaden</th><th>Reichweite</th></tr>' + d.att.map(function(r){ return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td></tr>"; }).join("") + '</table>' + (d.note ? '<p class="pg" style="white-space:normal">' + esc(d.note) + '</p>' : '') : '') +
+   '<h3>Ritual</h3>' + box('<p style="margin:0">' + esc(v.ritual) + '</p>', "font-size:16px");
+  var ex = d.ex ? '<div style="grid-column:1/3"><h3 style="margin-top:0">Beispiele für Konflikte</h3><div class="exg">' + d.ex.map(function(t){ return box(t); }).join("") + '</div></div>' : '';
+  return '<div class="vd">' + head + '<div>' + left + '</div><div style="font-size:17px">' + right + '</div>' + ex + '</div>';
 }
 
-/* ---------- Kapitelübersicht (Inhalte folgen / im Buch öffnen) ---------- */
+/* ---------- Kapitelübersicht ---------- */
 function viewKapitel(id){
   var t = toc(id); if(!t) return viewStart();
-  var a = area(id), imgs = {norden:["norden_titel_reiter","norden_karte_upsala"], gesellschaft:["mysterium_dame_mit_laterne"], mysterium:["einleitung_naeck"], tanz:["tanz_karte_hexenkater","tanz_sami_harjula","tanz_sophia_harjula","tanz_oscar_hjort"]}[id] || [];
+  var imgs = {norden:["norden_titel_reiter","norden_karte_upsala"], gesellschaft:["mysterium_dame_mit_laterne"], mysterium:["einleitung_naeck"], tanz:["tanz_karte_hexenkater","tanz_sami_harjula","tanz_sophia_harjula","tanz_oscar_hjort"], konflikt:[], talente:[]}[id] || [];
   var secs = t.s.length ? t.s : [[t.t, t.p]];
-  var cards = secs.map(function(s){ return '<div class="box"><h3>' + esc(s[0]) + '</h3><p class="pg">Buch S. ' + s[1] + '</p><p><button class="btn alt" onclick="' + inBook(s[1]) + '">Im Buch öffnen</button></p></div>'; }).join("");
-  var pics = imgs.length ? '<div class="cards" style="margin-bottom:16px">' + imgs.map(function(n){ return '<div class="card" onclick="Galerie.open(\'vaesen\')"><div class="im" style="background-image:url(' + IMG(n, "thumb") + ')"></div></div>'; }).join("") + '</div>' : "";
-  return crumb([[a ? a.t : t.t]]) + '<div class="sech"><h2>' + esc(t.n + ". " + t.t) + '</h2><span class="pg">ab Buch S. ' + t.p + '</span></div>' + pics + '<div class="cols">' + cards + '</div><div class="empty" style="margin-top:16px">Die ausführliche deutsche Aufbereitung dieses Kapitels folgt.</div>';
+  var tabs = t.s.length ? tabsBar(t.s.map(function(s){ return [s[0], "kapitel/" + id]; }), "") : "";
+  var pics = imgs.length ? '<div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-bottom:18px">' + imgs.map(function(n){ return '<div class="box card" onclick="Galerie.open(\'vaesen\')"><div class="im" style="height:200px"><img src="' + IMG(n, "thumb") + '"></div><i></i><b></b></div>'; }).join("") + '</div>' : "";
+  return '<div class="page"><div style="display:flex;align-items:baseline;gap:14px"><h1>' + esc(t.t) + '</h1>' + bookLink(t.p) + '</div><div style="margin-top:14px">' + pics + '</div><div class="cols">' + secs.map(function(s){ return box('<h3>' + esc(s[0]) + '</h3><p><span class="pg">S. ' + s[1] + '</span></p><p><button class="btn alt" onclick="' + inBook(s[1]) + '">Im Buch öffnen</button></p>'); }).join("") + '</div></div>';
 }
 
 /* ---------- Karten ---------- */
 function viewKarten(){
-  var maps = [["norden_karte_mythischer_norden","Der Mythische Norden","S. 99"],["norden_karte_upsala","Upsala","S. 106"],["tanz_karte_hexenkater","Gasthaus „Zum Hexenkater“","S. 200"]];
-  return crumb([["Karten & Bilder"]]) + '<div class="sech"><h2>Karten</h2></div><div class="tiles">' + maps.map(function(m){ return '<button class="tile" onclick="Galerie.open(\'vaesen\')"><div class="im" style="background-image:url(' + IMG(m[0], "thumb") + ');height:200px"></div><div class="tx"><h3>' + m[1] + '</h3><small>Buch ' + m[2] + '</small></div></button>'; }).join("") + '</div><div class="sech"><h2>Bildergalerie</h2></div><p><button class="btn" onclick="Galerie.open(\'vaesen\')">Alle Bilder des Grundregelwerks</button></p>';
+  var maps = [["norden_karte_mythischer_norden","Der Mythische Norden",99],["norden_karte_upsala","Upsala",106],["tanz_karte_hexenkater","Gasthaus „Zum Hexenkater“",200]];
+  return '<div class="page"><div style="display:flex;align-items:baseline;gap:14px"><h1>Karten und Bilder</h1></div><div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:14px">' + maps.map(function(m){ return '<div class="box card" onclick="Galerie.open(\'vaesen\')"><div class="im" style="height:260px"><img src="' + IMG(m[0], "thumb") + '"></div><div class="tx"><h3>' + m[1] + '</h3><small>S. ' + m[2] + '</small></div><i></i><b></b></div>'; }).join("") + '</div><p style="margin-top:18px"><button class="btn fill" onclick="Galerie.open(\'vaesen\')">Galerie</button></p></div>';
 }
 
 /* ---------- Charaktererstellung ---------- */
@@ -183,7 +203,7 @@ function viewErstellung(){
   var skH = SK.map(function(s){ var v = c.skills[s.n] || 0, mx = a.skill === s.n ? 3 : 2; return '<div style="display:flex;align-items:center;gap:6px;margin:2px 0"><span style="width:190px;white-space:nowrap">' + s.n + '<small class="pg"> ' + s.a + '</small></span><button class="btn alt" style="padding:3px 10px" onclick="adjS(\'' + s.n + '\',-1)">−</button><span class="hand" style="width:22px;text-align:center">' + v + '</span><button class="btn alt" style="padding:3px 10px" onclick="adjS(\'' + s.n + '\',1)">+</button><span class="pg">max ' + mx + (a.skill === s.n ? " · Haupt" : "") + '</span></div>'; }).join("");
   var arch = sel("f_arch", VAE_ARCH.map(function(x){ return [x.id, x.name]; }), c.arch, "setF('arch',this.value);render()");
   var alt = sel("f_alter", VAE_ALTER.map(function(x, i){ return [i, x[0] + " (" + x[1] + ")"]; }), c.alter, "setF('alter',+this.value);render()");
-  var body = crumb([["Charaktere", "charaktere"], ["Charaktererstellung"]]) + '<div class="sech" style="margin-top:0"><h2>Charaktererstellung</h2><span class="pg">Buch S. 17–25</span></div>' +
+  var body = '<div style="display:flex;align-items:baseline;gap:14px"><h1>Charaktererstellung</h1>' + bookLink(17) + '</div>' +
    '<div class="cols"><div class="box"><h3>1–3 · Grundlagen</h3><p>Archetyp ' + arch + '</p><p>Alter ' + alt + '</p><p>Name <input class="gloss-search" id="f_name" value="' + esc(c.name) + '" placeholder="' + esc(a.vor[0] + " " + a.nach[0]) + '" oninput="setF(\'name\',this.value,1)"></p><p>Spieler:in <input class="gloss-search" value="' + esc(c.spieler) + '" oninput="setF(\'spieler\',this.value,1)"></p></div>' +
    '<div class="box"><h3>4 · Attribute <span class="pg">übrig: ' + p.ap + '</span></h3>' + attrH + '</div></div>' +
    '<div class="cols"><div class="box"><h3>5 · Fertigkeiten <span class="pg">übrig: ' + p.sp + '</span></h3>' + skH + '</div><div>' + pick("talent", a.talente, "6 · Talent") +
@@ -192,7 +212,7 @@ function viewErstellung(){
    '<div class="cols"><div class="box"><h3>11 · Andenken <button class="btn alt" style="padding:3px 12px" onclick="rollMem()">W66 würfeln</button></h3><p class="hand" id="memOut">' + esc(c.andenken || "–") + '</p></div><div class="box"><h3>12 · Ausrüstung</h3>' + a.ausr.map(function(x){ return '<label style="display:block"><input type="checkbox" ' + (c.ausr.indexOf(x) > -1 ? "checked" : "") + ' onchange="togA(\'' + esc(x).replace(/'/g, "\\'") + '\',this.checked)"> ' + esc(x) + '</label>'; }).join("") + '</div></div>' +
    '<div class="box"><h3>Beschreibung</h3><textarea class="gloss-search" rows="3" oninput="setF(\'beschr\',this.value,1)">' + esc(c.beschr) + '</textarea></div>' +
    '<p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" onclick="saveCur()">Speichern</button><button class="btn alt" onclick="printSheet()">Als PDF / Drucken</button><button class="btn alt" onclick="shareLink()">Spieler-Link kopieren</button><button class="btn alt" onclick="shareFile()">Datei teilen</button></p><p class="pg" id="shMsg"></p>';
-  return lay(side, CH.id, body);
+  return tabsBar(CTABS, "") + main(side, CH.id, body);
 }
 function setF(k, v, quiet){ CH[k] = v; if(k === "arch"){ var a = VAE_ARCH.filter(function(x){ return x.id === v; })[0]; CH.skills = {}; CH.attr = {Physis:2, Präzision:2, Logik:2, Empathie:2}; CH.talent = CH.mot = CH.trauma = CH.geheim = CH.bez = ""; CH.ausr = []; CH.res = parseInt(a.res, 10) || 3; } if(!quiet && k !== "arch" && k !== "alter"){ } }
 function adj(k, d){ var a = VAE_ARCH.filter(function(x){ return x.id === CH.arch; })[0], mx = a.attr === k ? 5 : 4, n = CH.attr[k] + d; if(n < 2 || n > mx) return; if(d > 0 && pts(CH).ap <= 0) return; CH.attr[k] = n; render(); }
@@ -208,15 +228,15 @@ function shareLink(){ var u = location.href.split("#")[0] + "#spieler/" + b64(CH
 function shareFile(){ var f = new File([JSON.stringify(CH, null, 1)], (CH.name || "vaesen-charakter") + ".json", {type:"application/json"}); if(navigator.canShare && navigator.canShare({files:[f]})){ navigator.share({files:[f], title:"Vaesen: " + (CH.name || "Charakter")}).catch(function(){}); } else { var a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; a.click(); } }
 function sheetHTML(c){
   var a = VAE_ARCH.filter(function(x){ return x.id === c.arch; })[0], al = VAE_ALTER[c.alter] || VAE_ALTER[0];
-  var attrs = ATTRS.map(function(k){ return '<div><b>' + c.attr[k] + '</b><span>' + k + '</span></div>'; }).join("");
+  var attrs = ATTRS.map(function(k){ return '<div><span>' + k + '</span><b>' + c.attr[k] + '</b></div>'; }).join("");
   var sk = VAE_ATTR.map(function(g){ return '<div class="box"><h3>' + g.n + ' ' + c.attr[g.n] + '</h3>' + g.s.map(function(s){ return '<p style="display:flex;justify-content:space-between;margin:2px 0"><span>' + s[0] + '</span><b>' + (c.skills[s[0]] || 0) + '</b></p>'; }).join("") + '</div>'; }).join("");
-  return '<div class="sech" style="margin-top:0"><h2>' + esc(c.name || "Unbenannt") + '</h2><span class="pg">' + esc(a.name) + ' · ' + al[0] + (c.spieler ? ' · Spieler:in ' + esc(c.spieler) : '') + '</span></div><div class="stat">' + attrs + '<div><b>' + c.res + '</b><span>Ressourcen</span></div></div><div class="cols">' + sk + '</div>' +
+  return '<div style="display:flex;align-items:baseline;gap:14px"><h1>' + esc(c.name || "Unbenannt") + '</h1><span class="pg">' + esc(a.name) + ' · ' + al[0] + (c.spieler ? ' · Spieler:in ' + esc(c.spieler) : '') + '</span></div>' + box('<div class="stat">' + attrs + '<div><b>' + c.res + '</b><span>Ressourcen</span></div></div>') + '<div class="cols">' + sk + '</div>' +
    '<div class="cols"><div class="box"><h3>Talent</h3><p>' + esc(c.talent || "–") + '</p><h3>Ausrüstung</h3><p>' + esc((c.ausr || []).join(", ") || "–") + '</p><h3>Andenken</h3><p>' + esc(c.andenken || "–") + '</p></div><div class="box"><h3>Motivation</h3><p>' + esc(c.mot || "–") + '</p><h3>Trauma</h3><p>' + esc(c.trauma || "–") + '</p><h3>Dunkles Geheimnis</h3><p>' + esc(c.geheim || "–") + '</p><h3>Beziehung</h3><p>' + esc(c.bez || "–") + '</p></div></div><div class="box"><h3>Beschreibung</h3><p>' + esc(c.beschr || "–") + '</p></div>';
 }
 function printSheet(){ var w = window.open("", "_blank"); if(!w){ msg("Pop-up blockiert."); return; } w.document.write('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><title>' + esc(CH.name || "Charakter") + '</title><link rel="stylesheet" href="' + location.href.replace(/[^\/]*$/, "") + 'style.css"></head><body><div class="shell">' + sheetHTML(CH) + '</div><script>setTimeout(function(){print()},600)<\/script></body></html>'); w.document.close(); }
 function viewSpieler(){
-  var c; try{ c = unb64(sub); }catch(e){ return crumb([["Spielercharakter"]]) + '<div class="empty">Der Link ist ungültig.</div>'; }
-  return crumb([["Spielercharakter"]]) + sheetHTML(c) + '<p><button class="btn" onclick="importCh()">In meine Charaktere übernehmen</button></p>';
+  var c; try{ c = unb64(sub); }catch(e){ return '<div class="page"><div class="empty">Der Link ist ungültig.</div></div>'; }
+  return '<div class="page">' + sheetHTML(c) + '</div>' + '<p><button class="btn" onclick="importCh()">In meine Charaktere übernehmen</button></p>';
 }
 function importCh(){ var c = unb64(sub), a = loadChars(); c.id = "c" + Date.now(); a.push(c); saveChars(a); CH = c; go("erstellung/" + c.id); }
 
@@ -244,7 +264,7 @@ function buildMenu(){
   var p = document.getElementById("mmP");
   p.innerHTML = '<h3>Navigation</h3><button class="mi' + (cur === "start" ? " on" : "") + '" onclick="openMenu(false);go(\'start\')"><b>Startseite</b></button>' +
    AREAS.map(function(a){ return '<button class="mi' + (cur === a.id ? " on" : "") + '" onclick="openMenu(false);go(\'' + a.id + '\')"><b>' + esc(a.t) + '</b></button>'; }).join("") +
-   '<h3>Bilder</h3><button class="mi" onclick="openMenu(false);Galerie.open(\'vaesen\')"><b>Galerie</b> · alle Bilder des Grundregelwerks</button>' +
+   '<button class="mi" onclick="openMenu(false);openSearch()"><b>Suche</b></button><h3>Bilder</h3><button class="mi" onclick="openMenu(false);Galerie.open(\'vaesen\')"><b>Galerie</b> · alle Bilder des Grundregelwerks</button>' +
    '<h3>Buch-PDF</h3><div id="bvSettingsHost"></div>';
   if(window.BV){ document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh(); }
 }

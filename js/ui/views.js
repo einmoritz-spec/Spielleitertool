@@ -53,7 +53,7 @@ function renderOverview(){
     <div class="ov2-grid">${cards}${aftermath}</div>
     <div class="ov2-extra">
       <div class="ov2-extra-lbl"><span>Außerhalb der Kampagne</span></div>
-      <button class="adv-card ov2-tut" onclick="goBook('narrator','nr-skunk')">
+      <button class="adv-card ov2-tut" onclick="goBook('skunk','nr-skunk')">
         <img src="assets/galerie/litm-core/full/lmErzaehler_pdf111_B215ca_Heap-Thing-of-Skunk-Glen_1.webp" alt="" loading="lazy">
         <div class="b">
           <div class="meta"><span>Einsteiger-Abenteuer</span><span>Core Book S. 448–465</span></div>

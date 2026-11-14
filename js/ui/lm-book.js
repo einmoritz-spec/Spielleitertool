@@ -176,7 +176,7 @@ function goBook(tab,sec){ if(sec==="themenbuecher"&&typeof goThemen==="function"
 function renderBook(){
   if(state.bookTab==="jenseits-b"||state.bookSec==="jenseits-b"){ state.bookTab="orte"; state.bookSec="orte"; if(typeof goThemen==="function") return goThemen("heroes-uncanny"); }
   var tab=state.bookTab||"regeln"; if(tab==="welt") tab=state.bookSec||"dales"; var list=LM_NAV.secs[tab]||LM_NAV.secs.welt.filter(function(x){return x.id===tab;}), sid=state.bookSec, s=list.filter(function(x){return x.id===sid;})[0]||list[0];
-  state.bookSec=s.id; state.bookTab=tab; lmKey=(tab==='regeln'||tab==='narrator')?'core':'wake';
+  state.bookSec=s.id; state.bookTab=tab; lmKey=(tab==='regeln'||tab==='narrator'||tab==='skunk')?'core':'wake';
   var tabs=LM_NAV.tabs.map(function(t){ return '<button class="lm-tab'+(t.id===tab?' on':'')+'" onclick="goBook(\''+t.id+'\')">'+esc(t.t)+'</button>'; }).join("");
   var pills=list.map(function(x){ return '<button class="lm-pill'+(x.id===s.id?' on':'')+'" onclick="goBook(\''+tab+'\',\''+x.id+'\')">'+esc(x.t)+'</button>'; }).join("");
   var i=list.indexOf(s), prev=list[i-1], next=list[i+1];

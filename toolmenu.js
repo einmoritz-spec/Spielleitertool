@@ -12,8 +12,6 @@
     ["paynetown","Nights of Paynetown","Kampagne","nights/",2,"",{f:"TmOswald",s:15,ls:".05em",u:1}],
     ["otherscape","Otherscape","Cyberpunk-Fantasy","otherscape/",1,"",{m:"otherscape/img/logo.webp",w:86,h:18}],
     ["wake","Legend in the Mist","Wake of the Oldways","",1,"",{m:"assets/logos/legend-in-the-mist.webp",w:62,h:27}],
-    ["_havoc","Havoc Engine","","",0,"grp"],
-    ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{f:"TmBebas",s:20,ls:".06em",u:1}],
     ["_yze","Year Zero Engine","","",0,"grp"],
     ["vaesen","Vaesen","Mythisches Skandinavien","vaesen/",1,"",{m:"assets/logos/vaesen.webp",w:84,h:17}],
     ["vae_core","Grundregelwerk","Regeln, Charaktere, Vaesen","vaesen/#buecher/0",2,"",{f:"TmBebas",s:18,ls:".06em"}],
@@ -23,6 +21,7 @@
     ["tftl","Tales from the Loop","Stålenhag · 80er","tftl/",1,"",{f:"TmJost",s:17,ls:".03em",u:1}],
     ["forbidden","Forbidden Lands","Free League","forbidden/",1,"",{f:"TmFell",s:19,ls:".03em"}],
     ["_more","Weitere Systeme","","",0,"grp"],
+    ["etr","Eat the Reich","Vampir-Kommandos","etr/",1,"",{f:"TmBebas",s:20,ls:".06em",u:1}],
     ["wildsea","The Wildsea","Schiffe im Blätterwald","wildsea/",1,"",{f:"TmTeko",s:24,ls:".05em",u:1}],
     ["triangle","Triangle Agency","Büro-Horror","triangle/",1,"",{f:"TmArchivo",s:17,ls:"-.03em"}],
     ["compass","Broken Compass","Pulp-Abenteuer","compass/",1,"",{m:"assets/logos/broken-compass.webp",w:84,h:31}]

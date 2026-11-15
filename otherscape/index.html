@@ -94,6 +94,7 @@
     <input id="bvNum" type="number" min="1" onchange="bvGo(this.value)" aria-label="Seitennummer"><span id="bvOf" class="hint"></span>
     <button class="btn" onclick="bvStep(1)" aria-label="Nächste Seite">›</button>
     <button class="btn" onclick="bvZoom()">Zoom</button>
+    <button class="btn" onclick="BVFind.open()">Suche</button>
     <span class="bv-title" id="bvTitle"></span>
     <button class="btn" onclick="closeBook()">✕</button>
   </div>
@@ -144,6 +145,7 @@
 <script src="js/data/metro-setting-3.js"></script>
 <script src="js/data/overviews.js"></script>
 <script src="js/data/abenteuer/manifest.js"></script>
+<script src="../bookviewer/find.js"></script>
 <script src="js/viewer.js"></script>
 <script src="js/rules.js"></script>
 <script src="js/rail.js"></script>

@@ -52,6 +52,7 @@ async function bvShow(){
   const scale = BV.zoom ? W/vps[0].width : Math.min(W/sumW, H/maxH);
   const cvs = pages.map(pg=>{ const vp = pg.getViewport({scale: scale*dpr}), cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px"; return {pg,vp,cv}; });
   await Promise.all(cvs.map(o=>o.pg.render({canvasContext:o.cv.getContext("2d"), viewport:o.vp}).promise)); if(tok!==bvToken) return;
+  if(window.BVFind) await BVFind.hilite(cvs, nums, doc); if(tok!==bvToken) return;
   box.replaceChildren(...cvs.map(o=>o.cv)); stage.scrollTop = 0; stage.scrollLeft = 0;
 }
 
@@ -70,7 +71,8 @@ function bvBar(on, keep){
   const b = v.querySelector(".bv-bar"); b.addEventListener("focusin", ()=>bvBar(true,true)); b.addEventListener("focusout", ()=>bvBar(true));
   let rz = 0; window.addEventListener("resize", ()=>{ clearTimeout(rz); rz = setTimeout(()=>{ if(!v.hidden) bvShow(); }, 150); });
 })();
-document.addEventListener("keydown", e=>{ const v = document.getElementById("bookViewer"); if(!v||v.hidden) return; if(e.target && e.target.tagName==="INPUT" && e.key!=="Escape") return; if(e.key==="ArrowRight"||e.key==="PageDown") bvStep(1); else if(e.key==="ArrowLeft"||e.key==="PageUp") bvStep(-1); else if(e.key==="Escape") closeBook(); else if(e.key==="z"||e.key==="Z") bvZoom(); });
+document.addEventListener("keydown", e=>{ const v = document.getElementById("bookViewer"); if(!v||v.hidden) return; if(e.target && e.target.tagName==="INPUT" && e.key!=="Escape") return; if(e.key==="ArrowRight"||e.key==="PageDown") bvStep(1); else if(e.key==="ArrowLeft"||e.key==="PageUp") bvStep(-1); else if(e.key==="Escape"){ if(window.BVFind && BVFind.isOpen()) BVFind.close(); else closeBook(); } else if(e.key==="z"||e.key==="Z") bvZoom(); else if((e.key==="f"||e.key==="F") && !e.altKey){ e.preventDefault(); BVFind.open(); } });
+if(window.BVFind) BVFind.init({ doc:()=>getDoc(BV.book), cur:()=>BV.page, go:p=>bvGo(p), redraw:()=>{ const v = document.getElementById("bookViewer"); if(v && !v.hidden) bvShow(); } });
 
 function askBookUpload(book, page){
   let o = document.getElementById("osAsk"); if(o) o.remove();

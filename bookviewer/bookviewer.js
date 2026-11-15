@@ -17,9 +17,10 @@ var BV = (function(){
   function build(){
     if(document.getElementById("bvOverlay")) return;
     const d = document.createElement("div"); d.id = "bvOverlay"; d.className = "bvx"; d.hidden = true;
-    d.innerHTML = `<div class="bvx-bar"><button class="bvx-b" onclick="BV.step(-1)" aria-label="Vorherige Seite">‹</button><input id="bvxNum" type="number" min="1" onchange="BV.go(this.value)" aria-label="Seitennummer"><span id="bvxOf"></span><button class="bvx-b" onclick="BV.step(1)" aria-label="Nächste Seite">›</button><button class="bvx-b" onclick="BV.zoom()">Zoom</button><span class="bvx-t" id="bvxTitle"></span><button class="bvx-b" onclick="BV.close()">✕</button></div><div class="bvx-stage" id="bvxStage"><div class="bvx-pages" id="bvxPages"></div></div><button class="bvx-handle" aria-label="Leiste einblenden" title="Leiste einblenden" onclick="BV.bar(true)">▾</button>`;
+    d.innerHTML = `<div class="bvx-bar"><button class="bvx-b" onclick="BV.step(-1)" aria-label="Vorherige Seite">‹</button><input id="bvxNum" type="number" min="1" onchange="BV.go(this.value)" aria-label="Seitennummer"><span id="bvxOf"></span><button class="bvx-b" onclick="BV.step(1)" aria-label="Nächste Seite">›</button><button class="bvx-b" onclick="BV.zoom()">Zoom</button><button class="bvx-b" onclick="window.BVFind&&BVFind.open()">Suche</button><span class="bvx-t" id="bvxTitle"></span><button class="bvx-b" onclick="BV.close()">✕</button></div><div class="bvx-stage" id="bvxStage"><div class="bvx-pages" id="bvxPages"></div></div><button class="bvx-handle" aria-label="Leiste einblenden" title="Leiste einblenden" onclick="BV.bar(true)">▾</button>`;
     wireBar(d);
     document.body.appendChild(d);
+    if(window.BVFind) BVFind.init({ doc:()=>doc(S.key), cur:()=>S.page, go:p=>go(p), redraw:()=>{ if(!d.hidden) show(); } });
     (function(el, cb, ok){ var sx=null, sy=0, t0=0; el.addEventListener("touchstart", function(e){ if(e.touches.length!==1){ sx=null; return; } sx=e.touches[0].clientX; sy=e.touches[0].clientY; t0=Date.now(); }, {passive:true}); el.addEventListener("touchend", function(e){ if(sx==null) return; var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; sx=null; if(Date.now()-t0>800) return; if(Math.abs(dx)>50 && Math.abs(dx)>1.6*Math.abs(dy) && (!ok || ok(dx))) cb(dx<0?1:-1); }, {passive:true}); })(d.querySelector('.bvx-stage'), function(dir){ step(dir); }, function(dx){ var s=d.querySelector('.bvx-stage'); if(!S.zoom) return true; return dx>0 ? s.scrollLeft<=2 : s.scrollLeft+s.clientWidth>=s.scrollWidth-2; });
   }
   async function open(key, printed){
@@ -75,6 +76,7 @@ var BV = (function(){
     const sc = S.zoom ? W/vps[0].width : Math.min(W/sumW, H/maxH);
     const cvs = pages.map(pg=>{ const vp = pg.getViewport({scale:sc*dpr}), cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height; cv.style.width = (vp.width/dpr)+"px"; cv.style.height = (vp.height/dpr)+"px"; return {pg,vp,cv}; });
     await Promise.all(cvs.map(o=>o.pg.render({canvasContext:o.cv.getContext("2d"), viewport:o.vp}).promise)); if(t!==tok) return;
+    if(window.BVFind) await BVFind.hilite(cvs, nums, dc); if(t!==tok) return;
     box.replaceChildren(...cvs.map(o=>o.cv)); stage.scrollTop = 0; stage.scrollLeft = 0;
   }
   async function refresh(){ for(const b of cfg.books){ const el = document.getElementById("bvs_"+b.key); if(!el) continue; const has = !!(await dbGet(b.key)); el.innerHTML = has ? `✓ geladen <a href="#" onclick="BV.remove('${b.key}');return false">entfernen</a>` : "nicht geladen"; } }
@@ -128,7 +130,7 @@ var BV = (function(){
     cfg = Object.assign(cfg, c);
     BASE = new URL(c.libBase, location.href.split("#")[0]).href;
     document.addEventListener("click", e=>{ const a = e.target.closest && e.target.closest(".pg-link"); if(!a) return; e.preventDefault(); e.stopPropagation(); open(a.dataset.book || cfg.defaultBook, a.dataset.page); }, true);
-    document.addEventListener("keydown", e=>{ const o = document.getElementById("bvOverlay"); if(!o||o.hidden) return; if(e.target && e.target.tagName==="INPUT" && e.key!=="Escape") return; if(e.key==="ArrowRight"||e.key==="PageDown") step(1); else if(e.key==="ArrowLeft"||e.key==="PageUp") step(-1); else if(e.key==="Escape") close(); else if(e.key==="z"||e.key==="Z") zoom(); });
+    document.addEventListener("keydown", e=>{ const o = document.getElementById("bvOverlay"); if(!o||o.hidden) return; if(e.target && e.target.tagName==="INPUT" && e.key!=="Escape") return; if(e.key==="ArrowRight"||e.key==="PageDown") step(1); else if(e.key==="ArrowLeft"||e.key==="PageUp") step(-1); else if(e.key==="Escape"){ if(window.BVFind && BVFind.isOpen()) BVFind.close(); else close(); } else if(e.key==="z"||e.key==="Z") zoom(); else if((e.key==="f"||e.key==="F") && !e.altKey){ e.preventDefault(); if(window.BVFind) BVFind.open(); } });
     let pend = 0; const run = ()=>{ pend = 0; try{ linkify(document.body); }catch(e){} };
     new MutationObserver(()=>{ if(!pend) pend = setTimeout(run, 200); }).observe(document.body, { childList:true, subtree:true, characterData:true });
     run();

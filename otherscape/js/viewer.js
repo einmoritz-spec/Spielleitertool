@@ -56,6 +56,7 @@ async function bvShow(){
 }
 
 /* Obere Leiste blendet sich automatisch aus: Maus an den oberen Rand oder Tippen auf den Griff blendet sie ein */
+(function(el, cb, ok){ var sx=null, sy=0, t0=0; el.addEventListener("touchstart", function(e){ if(e.touches.length!==1){ sx=null; return; } sx=e.touches[0].clientX; sy=e.touches[0].clientY; t0=Date.now(); }, {passive:true}); el.addEventListener("touchend", function(e){ if(sx==null) return; var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; sx=null; if(Date.now()-t0>800) return; if(Math.abs(dx)>50 && Math.abs(dx)>1.6*Math.abs(dy) && (!ok || ok(dx))) cb(dx<0?1:-1); }, {passive:true}); })(document.getElementById('bvStage'), function(dir){ bvStep(dir); }, function(dx){ var s=document.getElementById('bvStage'); if(!BV.zoom) return true; return dx>0 ? s.scrollLeft<=2 : s.scrollLeft+s.clientWidth>=s.scrollWidth-2; });
 let bvBarT = 0;
 function bvBar(on, keep){
   const v = document.getElementById("bookViewer"); if(!v) return; clearTimeout(bvBarT);

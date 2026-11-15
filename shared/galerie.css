@@ -33,3 +33,5 @@ html.gal-open,html.gal-open body{overflow:hidden}
   .gal-nav{width:44px;opacity:.35}
   .gal-img{border-radius:0}
 }
+
+.gal-lb,.gal-stage,.gal-img{touch-action:pan-y pinch-zoom}

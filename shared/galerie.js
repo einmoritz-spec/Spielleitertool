@@ -33,12 +33,7 @@ var Galerie = (function(){
     lb.querySelector(".gal-next").onclick = function(e){ e.stopPropagation(); go(1); };
     lb.querySelector(".gal-lbx").onclick = function(e){ e.stopPropagation(); closeLb(); };
     lb.onclick = function(e){ if(e.target === lb || e.target.classList.contains("gal-stage")) closeLb(); };
-    var sx = null;
-    lb.addEventListener("touchstart", function(e){ sx = e.touches.length === 1 ? e.touches[0].clientX : null; }, {passive:true});
-    lb.addEventListener("touchend", function(e){
-      if(sx == null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
-      if(Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
-    }, {passive:true});
+    (function(el, cb, ok){ var sx=null, sy=0, t0=0; el.addEventListener("touchstart", function(e){ if(e.touches.length!==1){ sx=null; return; } sx=e.touches[0].clientX; sy=e.touches[0].clientY; t0=Date.now(); }, {passive:true}); el.addEventListener("touchend", function(e){ if(sx==null) return; var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; sx=null; if(Date.now()-t0>800) return; if(Math.abs(dx)>50 && Math.abs(dx)>1.6*Math.abs(dy) && (!ok || ok(dx))) cb(dx<0?1:-1); }, {passive:true}); })(lb, function(dir){ go(dir); });
     ov.appendChild(bar); ov.appendChild(grid); ov.appendChild(lb);
     document.body.appendChild(ov); document.documentElement.classList.add("gal-open");
     window.addEventListener("keydown", onKey, true); window.addEventListener("resize", queue);

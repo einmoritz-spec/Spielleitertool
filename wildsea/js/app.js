@@ -45,12 +45,13 @@ function render(){
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
   else if(v === "gefahren") out = viewGefahren(h[1]);
   else if(v === "schirm") out = viewSchirm();
+  else if(v === "galerie") out = viewGalerie();
   else if(v === "nach") out = viewNach(h[1] || "regeln", h[2]);
   else out = viewPlatzhalter(h.slice(1).join(" ") || v);
   var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; scrollTo(0, same ? y : 0);
 }
 function buildMenu(){
-  document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3><button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm &amp; Würfel</button><button onclick="openMenu(false);go(\'gefahren\')">Gefahren</button>' + WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
+  document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3><button onclick="openMenu(false);sOpen(true)">Suche</button><button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm &amp; Würfel</button><button onclick="openMenu(false);go(\'gefahren\')">Gefahren</button>' + WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); }
 document.addEventListener("keydown", function(e){

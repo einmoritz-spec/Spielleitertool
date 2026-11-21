@@ -18,6 +18,11 @@ Entwürfe (Screenshots 1440×900) liegen in `plan/pico/mockups/` – **die Umset
 | 6 | `m6-gefahren.jpg` | Gefahren-Browser + Begegnungsleiste |
 | 7 | `m7-nachschlagen-kaefer.jpg` | Nachschlagen · Käfer (Aspekt-Gruppe „Sauger“) |
 | 8 | `m8-streifzugbogen.jpg` | Streifzugbogen (Picotitan, Titanenbau, Bande, Wahrheiten, Beute) |
+| 9 | `m9-uebersicht-kaefer.jpg` | Übersicht Käfer: 18 Aspekt-Gruppen als Bildkarten + Fertigkeiten mit Original-Symbolen |
+| 10 | `m10-uebersicht-picotitanen.jpg` | Übersicht Picotitanen: 12 Titanen-Karten + 9 Titanenbau-Merkmale mit Brocken-Symbolen |
+| 11 | `m11-uebersicht-gefahren.jpg` | Übersicht Gefahren: 36 Karten mit Bild, Schlüsselwörtern, Herzleiste, Filter |
+
+**Stand 21. Nov. 2026, 23:20 – Moritz’ Änderungen:** (1) **Kein Kritzel-/Linien-Hintergrund** – Seiten clean weiß (dunkle Reiche: einfarbig dunkel). (2) Für alle Sammlungen (Käfer/Aspekt-Gruppen, Fertigkeiten, Picotitanen, Titanenbau, Gefahren, …) eine **Bild-Übersicht wie bei Vaesen/The Wildsea**: Kachelraster mit den Buchbildern, Klick öffnet die Detailansicht (Entwürfe 9–11).
 
 Die Texte in den Entwürfen sind teils gekürzt – im Tool steht immer der **vollständige** Buchtext.
 
@@ -148,7 +153,7 @@ Unbekannte Begriffe: sinngemäß übersetzen und ins Glossar eintragen, damit al
 - Aufzählungen mit `»` in Kastenfarbe.
 - Tabellen mit Zebrastreifen in der Tönung der Kastenfarbe; W6-Spalte in Baby-Doll.
 - **Herzleisten:** Herz = Feld, Punkt = Bruch (`♥♥•♥♥•♥` im Buch). Herzen als SVG (leer/markiert/verbrannt mit Kreuz), Bruchpunkt als kleiner Kreis.
-- Hintergrund: die Kritzel-Landkarte des Buchs (xref 2225, 2476×1576) als `pico/img/kritzel.webp` (liegt in `plan/pico/mockups/src/img/`), hell, `opacity .55`, fixiert. Auf dunklen Reichen invertiert mit `opacity .06`.
+- Hintergrund: **clean weiß, keine Kritzel-Landkarte, keine Linien** (Moritz’ Vorgabe). Dunkle Reiche: einfarbig `#1f2426`.
 - **Reich-Themen:** jedes Reich hat im Buch eine Leitfarbe/Stimmung: Hogwild Moosgrün `#405335` (hell), Shadow House **dunkel** (`#1f2426`-Seiten, Akzent `#979f32`), Skyglass Dome, Nekopolis, Westgate Mall → Leitfarbe am Seitenbild ablesen (Farbe der Fraktions-/Gebietsköpfe, `{farbe=…}` im Markdown) und in `reiche.js` als `farbe`, `dunkel:true|false` ablegen. Nekopolis-Seiten im Buch prüfen (ebenfalls dunkel?).
 - **Aspekt-Gruppen** und **Gefahren** haben je eine eigene Kopffarbe (Kopfband im Buch) → Gefahren: Spalte `kopffarbe` in `plan/pico/gefahren-liste.tsv`; Aspekt-Gruppen: am Seitenbild bzw. `{farbe=…}` der Augmente ablesen (Sauger `#c76f00`).
 
@@ -160,7 +165,8 @@ Unbekannte Begriffe: sinngemäß übersetzen und ins Glossar eintragen, damit al
 #start                        Vorbereitung (Entwurf 1) – erste Seite beim Öffnen
 #nach/<bereich>/<id>          Nachschlagen: welt | regeln | kaefer | titanen | weber | anhang (Entwurf 7)
 #reich/<id>/<tab>[/<anker>]   Reich-Leitstand: ueberblick | fraktionen | reisefuehrer | reise | gefahren (Entwürfe 2–6)
-#gefahren[/<id>]              Gefahren-Browser für alle Gefahren (gleiche Ansicht wie der Reich-Tab, ohne Reich-Filter)
+#gefahren                     Gefahren-Übersicht (Entwurf 11)
+#gefahren/<id>                Gefahren-Karte (Entwurf 6, ohne Reich-Filter)
 #streifzug                    Streifzugbogen der Gruppe (Entwurf 8)
 #schirm                       Spielleiterschirm = Regelübersicht S. 346–353
 #galerie                      alle Buchbilder
@@ -182,6 +188,21 @@ Unbekannte Begriffe: sinngemäß übersetzen und ins Glossar eintragen, damit al
 **Aspekt-Gruppe (Entwurf 7):** Kopfband über die volle Breite in Gruppenfarbe mit „Aspekt 3 Nektar · Augment +2 Nektar (max. 2 je Aspekt) · S. …“; darunter Überblick · Warum …? · Frag dich … · Bild (in einer Zeile, 4 Spalten); Aspekte als Karten im 4er-Raster (Name, Käfersprache-Name klein, Herzleiste im Kopf, „Teil“-Kennzeichen wo im Buch „PART“ steht); darunter Augmente als dichtes 4er-Raster. Jede der 18 Gruppen hat im Buch genau eine Doppelseite.
 
 **Titanen (Nachschlagen Picotitanen):** 12 Karten im Raster mit Kopf in Titan-Farbe (`{farbe=…}`), Gunst gewinnen / Gigafertigkeiten / Aura / Besonderer Vorteil; Bild nur, wo im Buch ein Bild zu genau diesem Titan steht.
+
+### Übersichten (Entwürfe 9–11) – für jede Sammlung
+Wie bei Vaesen („Vaesen“-Tab) und The Wildsea (Blutlinien/Posten): **Kachelraster mit Bild, Klick → Detail**. Diese Übersichten sind die Einstiegsseite des jeweiligen Bereichs (kein Baum links, Rule „Seiten mit Kachelraster brauchen keine Seitenleiste“); die Detailseite hat dann den Baum links.
+
+| Übersicht | Route | Karten | Karteninhalt |
+|---|---|---|---|
+| Aspekt-Gruppen (Entwurf 9 oben) | `#nach/kaefer` | 18 | Buchbild der Gruppe (`object-fit:contain`, ungeschnitten), Name in Baby-Doll in Gruppenfarbe, Rand in Gruppenfarbe, „9 Aspekte · 12 Augmente · S. 108“ (Werkzeuge/Waffen/Fäden haben einen anderen Aufbau – nur „S.“). Hover hebt die Karte leicht an. Chips rechts oben: Käfer bauen I, Schnellstarts, Käfer bauen II, Stimmungen, Rätsel |
+| Fertigkeiten (Entwurf 9 unten) | `#nach/kaefer` | 4 Kategorien × 6 | Kategoriekasten in Vollfarbe, je Fertigkeit das **Original-Symbol** (weiß) + Name; Klick → Fertigkeit |
+| Picotitanen (Entwurf 10 oben) | `#nach/titanen` | 12 | Kopf in Titanfarbe, Werte Rang-3-Gigafertigkeiten · Aura · Vorteil · Tragfähigkeit; **Bild nur beim Axolittle** (einziger Titan mit eigenem Bild beim Eintrag, S. 181). Titan der Bande (Streifzugbogen) gold umrandet |
+| Titanenbau (Entwurf 10 unten) | `#nach/titanen` | 9 | Symbolfeld in Merkmalsfarbe mit den Original-Brocken-Symbolen, Name, Ausbaustufen (aus dem Streifzugbogen), gebaut = durchgezogen, sonst gestrichelt |
+| Gefahren (Entwurf 11) | `#gefahren` | 36 | 9×4-Raster passt auf einen Bildschirm: Kopf in Buchfarbe der Gefahrenseite, Bild (nur wenn im Buch vorhanden), Schlüsselwörter deutsch, Herzleiste (verkleinert, **einzeilig** – bei sehr langen Leisten Herzen weiter verkleinern statt umbrechen), S.; Filter Alle/Schwarm/Lakai/Elite/Boss/„Im <Reich>“, Suche; Tabs oben: Alle Gefahren · Regeln für Gefahren · Begegnung |
+
+Weitere Sammlungen bekommen dasselbe Muster, sobald sie gebaut werden: Wettertypen (Reise-Tafel), Nicht-Käfer und Katzen (Welt), Siedlungen (Welt), NSC einer Fraktion (Initialen-Kreise, kein erfundenes Bild).
+
+**Bilder in Übersichten:** nur Bilder, die im Buch beim Eintrag stehen. Für die übrigen Titanen gibt es im Buch Bilder der jeweiligen Tierart an anderer Stelle (Fuchs S. 6/Cover, Otter S. 46, Hund S. 175/186, Katzen S. 25–27) – **nicht** verwenden, solange Moritz das nicht ausdrücklich freigibt.
 
 ### Reich-Leitstand (das Herzstück)
 Tabs: **Überblick · Fraktionen · Reiseführer · Reise · Gefahren**, aktiver Tab in Reich-Farbe, Stift-Symbol (Notizen je Reich und Tab) ganz rechts auf der Tab-Zeile. Dunkle Reiche (Shadow House, ggf. Nekopolis) komplett im dunklen Thema (Entwurf 3).
@@ -230,7 +251,7 @@ Gruppen-Spielstand (ein Spielstand, nicht pro Reich): Picotitan (Auswahl aus den
 
 ```
 pico/index.html                eigene Shell – Kopfzeile, #app, Burger, Suche, Skripte, toolmenu.js, gm_tool_mode_v1="pico"
-pico/style.css                 Design nach Abschnitt 3 (Baby-Doll/Rubik, Farben, Kästen, Herzen, Kritzel-Hintergrund, Dunkel-Thema)
+pico/style.css                 Design nach Abschnitt 3 (Baby-Doll/Rubik, Farben, Kästen, Herzen, weißer Hintergrund ohne Bild, Dunkel-Thema)
 pico/js/app.js                 Routing, Startseite, Seitenleiste, Blöcke, Tasten
 pico/js/nach.js                Nachschlagen (Kapitel, Aspekt-Gruppen, Titanen, Merkmale)
 pico/js/reich.js               Reich-Leitstand (Überblick, Fraktionen, Reiseführer)
@@ -247,7 +268,7 @@ pico/js/data/welt-a.js … (Kap. 1), regeln-2a.js … regeln-5c.js, kaefer-6a.js
 pico/js/data/reich-hogwild.js, reich-shadow-house.js, reich-skyglass-dome.js, reich-nekopolis.js, reich-westgate-mall.js
 pico/js/data/gefahren-1.js (Beastmice–Cordychaps), gefahren-2.js (Dracobats–Ground-Owls), gefahren-3.js (Groundbreaker Hogs–Lactogeists),
              gefahren-4.js (dandeLion's Manes–Quetzalcroakl), gefahren-5.js (Resinauts–Zygar), galerie.js
-pico/img/kritzel.webp, kapitel/, reich/, aspekt/, titan/, gefahr/, figur/, den/
+pico/img/kapitel/, reich/, aspekt/, titan/, gefahr/, figur/, den/, ico/ (Fertigkeits- und Brocken-Symbole)
 assets/fonts/pico-babydoll.woff2, rubik-latin-300-normal.woff2, rubik-latin-300-italic.woff2, rubik-latin-500-normal.woff2
 ```
 
@@ -302,15 +323,15 @@ PI_MERKMAL.push({ id:"kitchen", t:"Küche", p:185, brocken:["Blechdose","Streich
 
 **Priorität: Reiche (Abenteuer) zuerst**, Nachschlagen danach.
 
-0. **Gerüst, Design, Bilder.** Wildsea-Code nach `pico/` übernehmen (Abschnitt 5), Schriften nach `assets/fonts/`, `pico.css` → `pico/style.css`, Kritzel-Hintergrund. `extract_images.py` laufen lassen (nach `/tmp`), Kapitel- und Reich-Eröffnungen als Doppelseiten zusammensetzen und sprechend benennen (Abschnitt 7). Startseite (Entwurf 1), Bücher/Bookviewer (`off:2`), Burger, Tasten, SW. Würfel-Grundfunktion.
+0. **Gerüst, Design, Bilder.** Wildsea-Code nach `pico/` übernehmen (Abschnitt 5), Schriften nach `assets/fonts/`, `pico.css` → `pico/style.css` (ohne Hintergrundbild). `extract_images.py` laufen lassen (nach `/tmp`), Kapitel- und Reich-Eröffnungen als Doppelseiten zusammensetzen und sprechend benennen (Abschnitt 7). Startseite (Entwurf 1), Bücher/Bookviewer (`off:2`), Burger, Tasten, SW. Würfel-Grundfunktion.
 1. **Reich-Leitstand + The Hogwild komplett** (S. 272–285): `reich-hogwild.js`, `reich.js`, `reise.js`, `herz.js` (Entwürfe 2, 4, 5 und Fraktionen nach Entwurf 3 in hell). Gefahren-Chips dürfen noch ins Leere zeigen (grau). Schablone für alle Reiche.
-2. **Gefahren I:** `gefahr.js` (Entwurf 6) + Beastmice bis Groundbreaker Hogs (S. 212–235) + Begegnungsleiste, Kombo- und Rampenlicht-Leiste.
+2. **Gefahren I:** Gefahren-Übersicht (Entwurf 11) + `gefahr.js` (Entwurf 6) + Beastmice bis Groundbreaker Hogs (S. 212–235) + Begegnungsleiste, Kombo- und Rampenlicht-Leiste.
 3. **Gefahren II:** Gubs bis Zygar (S. 236–265). Alle Reich-Verweise verlinken.
 4. **The Shadow House** (dunkles Thema, Entwurf 3) + **Skyglass Dome** (S. 286–311).
 5. **The Nekopolis** + **Westgate Mall** (S. 312–337).
 6. **Regeln** (Kap. 2–5) + Würfel mit allen Wurfarten + Spielleiterschirm (S. 346–353) + Wetter-Daten für die Reise-Tafel.
-7. **Käfer I:** Kap. 6 Grundlagen, Nektar, Schnellstarts, 18 Aspekt-Gruppen (Entwurf 7), Fertigkeiten.
-8. **Käfer II + Picotitanen:** Kap. 7, Kap. 8 (12 Titanen, Titanenbau) + **Streifzugbogen** (Entwurf 8).
+7. **Käfer I:** Kap. 6 Grundlagen, Nektar, Schnellstarts, Übersicht (Entwurf 9) + 18 Aspekt-Gruppen (Entwurf 7), Fertigkeiten mit Symbolen.
+8. **Käfer II + Picotitanen:** Kap. 7, Kap. 8 – Übersicht (Entwurf 10), 12 Titanen, Titanenbau + **Streifzugbogen** (Entwurf 8).
 9. **Welt** (Kap. 1) + **Weber** (Kap. 9, S. 201–211, S. 266–267) + **Anhang** + Suche über alles + Galerie + Gesamtcheck (Handy 1280, keine JS-Fehler, keine Lücken) → diesen Plan als „erledigt“ markieren.
 
 Für jede Sitzung bittet Sonnet Moritz, das Corebook-PDF hochzuladen (für Bilder und Seitenbilder). Der Text liegt schon im Repo.
@@ -319,11 +340,12 @@ Für jede Sitzung bittet Sonnet Moritz, das Corebook-PDF hochzuladen (für Bilde
 
 ## 7. Bilder
 
-Inventar: `plan/pico/bilder-inventar.tsv` (279 Bilder; Name `S<Buchseite>_<nr>_<b>x<h>`). Übersprungen wird nur die Kritzel-Landkarte (2476×1576, auf jeder Seite). Viele schmale Bilder (z. B. `S012_01_9x998`, `S037_01_21x928`) sind Seiten-Ränder/Streifen bzw. die rechte Hälfte einer Doppelseite – nie allein verwenden. Weiße 186×156-Bilder (S. 148–151) sind die Fertigkeits-Symbole (weiß auf farbigem Grund) – im Tool auf Kastenfarbe legen.
+Inventar: `plan/pico/bilder-inventar.tsv` (279 Bilder; Name `S<Buchseite>_<nr>_<b>x<h>`). Übersprungen wird die Kritzel-Landkarte (2476×1576, auf jeder Seite) – sie wird **nicht** verwendet. Viele schmale Bilder (z. B. `S012_01_9x998`, `S037_01_21x928`) sind Seiten-Ränder/Streifen bzw. die rechte Hälfte einer Doppelseite – nie allein verwenden. Weiße 186×156-Bilder (S. 148–151) sind die Fertigkeits-Symbole (weiß auf farbigem Grund) – im Tool auf Kastenfarbe legen.
 
 | Bereich | Quelle (Buchseite) | Ziel |
 |---|---|---|
-| Kritzel-Hintergrund | xref 2225 | `img/kritzel.webp` (fertig in `plan/pico/mockups/src/img/`) |
+| Fertigkeits-Symbole (24, weiß) | S148_01–06 Bewegen · S149_01–06 Anfreunden · S150_01–06 Finden · S151_01–06 Raufen (Reihenfolge wie im Buch: Dash, Climb, Dig, Slink, Fly, Swim usw.) | `img/ico/fert-<fertigkeit>` – immer auf Kategoriefarbe legen |
+| Brocken-Symbole Titanenbau (weiß) | S185_01–04, S186_02–03, S187_01–05, S188_01–04, S189_01–02 – stehen im Buch im Kasten „Required Chunks“ des jeweiligen Merkmals; **Zuordnung am Seitenbild prüfen** | `img/ico/brocken-<name>` – auf Merkmalsfarbe |
 | Kapitel-Eröffnungen (Doppelseiten) | S. 6+7 · 28+29 · 48+49 · 68+69 · 82+83 · 98+99 · 152+153 · 170+171 · 190+191 · 200+201 · 268+269 · 338+339 (je großes Bild + schmaler Streifen) | `img/kapitel/k01-welt` … `k12-anhang` |
 | Reich-Eröffnungen (Doppelseiten) | Hogwild S272_01+S273_01 · Shadow House S286_01+S287_01 · Skyglass Dome S300_01+S301_01 · Nekopolis S312_01+S313_01 · Westgate Mall S324_01+S325_01 | `img/reich/hogwild` … (fertig zusammengesetzt in `plan/pico/mockups/src/img/reich-*.webp`) |
 | Aspekt-Gruppen | Figur auf der Doppelseite der Gruppe (S. 108–143), z. B. Sauger `S111_01` | `img/aspekt/sauger` |

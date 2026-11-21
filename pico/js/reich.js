@@ -64,23 +64,37 @@ function rGefahren(r, info){
 function RS(id){ var s = rs(id); s.reise = s.reise || {ziel:"", wege:6, weg:0, tick:0, log:[], aus:null}; return s.reise; }
 function rwDot(id, k, i){ var t = RS(id); t[k] = t[k] === i + 1 ? i : i + 1; save(); render(); }
 function rwTick(id, d){ var t = RS(id); t.tick = Math.max(0, Math.min(8, t.tick + d)); save(); render(); }
-function rwAct(id, a, n){ var t = RS(id); t.tick = Math.min(8, t.tick + n); t.log.unshift(a); t.log = t.log.slice(0, 6); save(); render(); }
+function rwAct(id, a, n, st){ var t = RS(id); t.tick = Math.min(8, t.tick + n); t.weg = Math.min(t.wege, t.weg + (st || 0)); t.log.unshift(a); t.log = t.log.slice(0, 6); save(); render(); }
 function rwWeg(id, d){ var t = RS(id); t.wege = Math.max(2, Math.min(12, t.wege + d)); t.weg = Math.min(t.weg, t.wege); save(); render(); }
 function rwZiel(id, v){ RS(id).ziel = v; save(); }
-var AUS = {6:["Wahrzeichen","Ein Wahrzeichen taucht auf – oder wird bemerkt."],5:["Haufen Zeug","Ein Haufen Krimskrams, Bröckchen oder Beute."],4:["Ereignis","Es passiert etwas."],3:["Wetter","Das Wetter schlägt um."],2:["NSC","Ein NSC kreuzt den Weg."],1:["Gefahr","Eine Gefahr bricht herein."]};
+function ausRows(){ var k = (window.PI_NACH && PI_NACH.regeln ? PI_NACH.regeln.kapitel : []).filter(function(x){ return x.id === "reisen-ausguck"; })[0]; var d = k && k.b.filter(function(b){ return b && b.t === "d6"; })[0]; return d ? d.rows : []; }
+function ausInfo(n){ var r = ausRows()[n - 1] || "", m = /^\*\*(?:Doppelt \d – )?([^*]+?):?\*\*\s*(.*)$/.exec(r); return m ? [m[1], m[2]] : ["Pasch", r]; }
+var AUS_TAB = {6:"wahrzeichen", 2:"nsc", 4:"ereignisse"};
+function rwTab(id, k){ var t = RS(id); var sel = document.getElementById("augeb"); t.geb = sel ? sel.value : t.geb; t.tr = {k:k, geb:t.geb, w:1 + Math.floor(Math.random() * 6)}; save(); render(); }
 function rwAus(id){ var t = RS(id), a = 1 + Math.floor(Math.random() * 6), b = 1 + Math.floor(Math.random() * 6); t.aus = [a, b]; save(); render(); }
+function ausBox(r, info, t){
+  var k = t.aus[0], a = ausInfo(k), tab = AUS_TAB[k], G = r.reise.gebiete.filter(function(g){ return g.erkunden && g.erkunden[tab]; }), extra = "";
+  if(tab && G.length){
+    var g0 = t.geb || G[0].id;
+    extra = '<div style="margin-top:8px"><select id="augeb" onchange="RS(\'' + info.id + '\').geb=this.value;save()">' + G.map(function(g){ return '<option value="' + g.id + '"' + (g.id === g0 ? ' selected' : '') + '>' + esc(g.t) + '</option>'; }).join("") + '</select> <button class="mini" style="width:auto;padding:4px 10px" onclick="rwTab(\'' + info.id + '\',' + k + ')">W6 auf Tabelle</button></div>';
+    if(t.tr && t.tr.k === k){ var gg = G.filter(function(g){ return g.id === t.tr.geb; })[0] || G[0]; extra += '<p style="margin-top:6px"><b>' + t.tr.w + ':</b> ' + md(gg.erkunden[tab][t.tr.w - 1] || "") + '</p>'; }
+  } else if(k === 1) extra = '<p style="margin-top:6px"><span class="chip ink" onclick="go(\'reich/' + info.id + '/gefahren\')">Gefahren des Reichs</span></p>';
+  else if(k === 5) extra = '<p style="margin-top:6px"><span class="chip ink" onclick="go(\'reich/' + info.id + '/ueberblick\')">Beute des Reichs</span></p>';
+  else if(k === 3) extra = '<p style="margin-top:6px"><span class="chip ink" onclick="go(\'nach/regeln/reisen-wettersysteme\')">Wettersysteme</span></p>';
+  return '<div class="box" style="--c:var(--teal)"><div class="hd">' + esc(a[0]) + '</div><div class="bd2">' + md(a[1]) + extra + '</div></div>';
+}
 function rTafel(r, info){
   var t = RS(info.id), pasch = t.aus && t.aus[0] === t.aus[1];
   var dots = ""; for(var i = 0; i < t.wege; i++) dots += '<i class="stp' + (i < t.weg ? ' m' : '') + '" onclick="rwDot(\'' + info.id + '\',\'weg\',' + i + ')"></i>';
   var clock = ""; for(var j = 0; j < 8; j++) clock += '<i class="tk' + (j < t.tick ? ' m' : '') + (j < 4 ? ' d' : ' n') + '"></i>';
-  var acts = [["Bummeln","1 Tick","Du lässt dir Zeit und erkundest.",1],["Marschieren","2 Ticks","Zügig voran: ein Wegschritt.",2],["Warten","1 Tick","Du wartest ab.",1],["Lagern","4 Ticks","Rast und Erholung.",4]].map(function(a){ return '<button class="act" onclick="rwAct(\'' + info.id + '\',\'' + a[0] + '\',' + a[3] + ')"><b>' + a[0] + '</b><small>' + a[1] + '</small>' + a[2] + '</button>'; }).join("");
+  var acts = [["Bummeln","1 Schritt · 1 Tick","Deine Gruppe kommt in gemütlichem Tempo voran und nimmt dabei die Umgebung in sich auf. Ausguck: ja.",1,1],["Marschieren","2 Schritte · 1 Tick","Ihr bewegt euch zügig und ernsthaft und kommt in überraschend kurzer Zeit gut voran. Ausguck: ja, Überraschung: ja.",1,2],["Warten","1 Tick","Ihr bleibt an einem Ort und bleibt wachsam. Ausguck: ja.",1,0],["Lagern","2 Ticks","Deine Gruppe macht eine Verschnaufpause und schlägt ein Lager auf, wodurch eine Montage beginnt.",2,0]].map(function(a){ return '<button class="act" onclick="rwAct(\'' + info.id + '\',\'' + a[0] + '\',' + a[3] + ',' + a[4] + ')"><b>' + a[0] + '</b><small>' + a[1] + '</small>' + a[2] + '</button>'; }).join("");
   return band(r, info) + '<div class="pad tafel"><div class="tbar"><label>Ziel<input value="' + esc(t.ziel) + '" onchange="rwZiel(\'' + info.id + '\',this.value)"></label>' +
    '<div class="trk"><span class="lb">Weg</span>' + dots + '<button class="mini" onclick="rwWeg(\'' + info.id + '\',-1)">−</button><button class="mini" onclick="rwWeg(\'' + info.id + '\',1)">+</button></div>' +
    '<div class="trk"><span class="lb">Uhr</span>' + clock + '<button class="mini" onclick="rwTick(\'' + info.id + '\',-1)">−</button><button class="mini" onclick="rwTick(\'' + info.id + '\',1)">+</button><span class="lb2">' + (t.tick >= 8 ? "Tag vorbei" : t.tick >= 4 ? "Nacht" : "Tag") + '</span></div></div>' +
    '<div class="grid2"><div><div class="sec"><h2>Reiseaktionen</h2></div><div class="acts">' + acts + '</div>' + (t.log.length ? '<p class="gm">Zuletzt: ' + t.log.map(esc).join(" · ") + '</p>' : '') + '</div>' +
    '<div><div class="sec"><h2>Ausguck</h2></div><div class="dice2"><div class="dd">' + (t.aus ? t.aus[0] : "–") + '</div><div class="dd">' + (t.aus ? t.aus[1] : "–") + '</div><button class="act" onclick="rwAus(\'' + info.id + '\')"><b>2W6 würfeln</b><small>Nur Pasche zählen</small></button></div>' +
-   (t.aus ? (pasch ? '<div class="box" style="--c:var(--teal)"><div class="hd">' + AUS[t.aus[0]][0] + '</div><div class="bd2">' + AUS[t.aus[0]][1] + '</div></div>' : '<p class="gm">Kein Pasch – nichts Besonderes.</p>') : '') + '</div></div>' +
-   '<div class="sec"><h2>Pasch-Tabelle</h2></div><table class="tbl"><tr>' + [6,5,4,3,2,1].map(function(k){ return '<td class="n">' + k + k + '</td><td><b>' + AUS[k][0] + '</b></td>'; }).join("") + '</tr></table></div>';
+   (t.aus ? (pasch ? ausBox(r, info, t) : '<p class="gm">Zwei verschiedene Zahlen: nichts entdeckt, das mehr als etwas Geplauder wert wäre.</p>') : '') + '</div></div>' +
+   '<div class="sec"><h2>Pasch-Tabelle</h2></div><table class="tbl">' + [6,5,4,3,2,1].map(function(k){ return '<tr><td class="n">' + k + k + '</td><td><b>' + esc(ausInfo(k)[0]) + '</b></td></tr>'; }).join("") + '</table></div>';
 }
 function gefById(id){ return (window.PI_GEFAHR || []).filter(function(g){ return g.id === id; })[0]; }
 function viewReich(id, tab, sel){

@@ -9,8 +9,8 @@ function bDot(v, k, i){ var o = BG(v).o; o[k] = o[k] === i + 1 ? i : i + 1; save
 function bAll(v){ var b = BG(v); if(!confirm("Den ganzen Bogen leeren?")) return; ST.bogen[v] = {f:{}, h:{}, s:{}, m:-1, o:{}}; save(); render(); }
 function bPrint(){ window.print(); }
 var BSK = [["Bewegen",[["Flitzen","flitzen"],["Schleichen","schleichen"],["Klettern","klettern"],["Fliegen","fliegen"],["Graben","graben"],["Schwimmen","schwimmen"]]],
- ["Anfreunden",[["Quasseln","quasseln"],["Erschrecken","erschrecken"],["Protzen","protzen"],["Kümmern","kuemmern"],["Blenden","blenden"],["Zähmen","zaehmen"]]],
- ["Finden",[["Spüren","spueren"],["Denken","denken"],["Jagen","jagen"],["Basteln","basteln"],["Wühlen","wuehlen"],["Kartieren","kartieren"]]],
+ ["Anfreunden",[["Quasseln","quasseln"],["Erschrecken","erschrecken"],["Prahlen","prahlen"],["Kümmern","kuemmern"],["Blenden","blenden"],["Zähmen","zaehmen"]]],
+ ["Finden",[["Spüren","spueren"],["Denken","denken"],["Jagen","jagen"],["Werkeln","werkeln"],["Stöbern","stoebern"],["Kartieren","kartieren"]]],
  ["Raufen",[["Hauen","hauen"],["Brutzeln","brutzeln"],["Beißen","beissen"],["Tanzen","tanzen"],["Schlitzen","schlitzen"],["Schützen","schuetzen"]]]];
 function bSkills(v){
   return '<div class="bx skills"><h2>Fertigkeiten</h2><small>Höchster Rang: 3</small>' + BSK.map(function(g){ return '<h5>' + g[0] + '</h5><div class="sk2">' + g[1].map(function(s){ var r = BG(v).s[s[1]] || 0; return '<span class="sk" onclick="bSkill(\'' + v + '\',\'' + s[1] + '\')"><i class="rk r' + r + '">' + (r || "") + '</i>' + s[0] + '</span>'; }).join("") + '</div>'; }).join("") + '</div>';

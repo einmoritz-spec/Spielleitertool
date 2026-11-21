@@ -76,7 +76,7 @@ PI_GTEXT["bugbarians"] = { schluessel:"Klein · Käferisch · Lakai", herzen:[["
   "Das Essen nehmen, die Wertsachen liegen lassen – die einzigen Bobs, die man behält, sind für Rüstung und Waffen!"]}]},
  {h:"Teile & Züge", b:[{t:"dl", x:[
   ["Keulen und Fackeln (Hauen 3 / Brutzeln 2)", "Im Schutz der Dunkelheit anzugreifen wäre feige, und bei all ihren Fehlern mangelt es Käferbarbaren nicht an Mut. Die Fackeln, die sie tragen, spenden Licht und vertreiben die Dunkelheit."],
-  ["Angriff! (Rasen 2)", "Der durchschnittliche Käferbarbar bevorzugt den klassischen Kampfstil, schreiend kopfüber auf seine Ziele zuzurennen. Diese Angriffe können für sich ein wenig Schaden anrichten, und Käfer, die sich dagegen verteidigen, behandeln Konflikte als Desaster."],
+  ["Angriff! (Flitzen 2)", "Der durchschnittliche Käferbarbar bevorzugt den klassischen Kampfstil, schreiend kopfüber auf seine Ziele zuzurennen. Diese Angriffe können für sich ein wenig Schaden anrichten, und Käfer, die sich dagegen verteidigen, behandeln Konflikte als Desaster."],
   ["Nektarischer Met (Spüren 1)", "Der verdorbene Nektar, den Käferbarbaren in ungesunden Mengen hinunterstürzen, dient nicht nur zum Betrinken, er hat auch taktische Verwendungen. Ein Käferbarbar kann verdorbenen Nektar über ein nahes Ziel spritzen und es mit einem süßen, klebrigen Rückstand überziehen, der einen Zähigkeitsabzug von 2 auf alle Aktionen verhängt, die Bewegen-Fertigkeiten nutzen (bis es sich gesäubert hat)."],
   ["Bissige Freunde (Beißen 4)", "Jeder Käferbarbar in einer Begegnung kann einmal eine abgerichtete Raubpflanze loslassen, die jeden Käfer ins Visier nimmt, den er sehen kann, unabhängig von der Entfernung."],
   ["Maßgeschneiderte Verteidigung (Schützen 1)", "Das Leben in der Wildnis hat Vorteile, einer davon ist eine Ausrede, sich auf wirksame Verteidigung zu konzentrieren. Die Ausrüstung eines Käferbarbaren verhängt einen Rüstungsabzug von 1 auf körperliche Angriffe gegen ihn, geht aber immer verloren, wenn sein Streifen bricht."]]}]},
@@ -117,7 +117,7 @@ PI_GTEXT["katzen"] = { schluessel:"Titan · Tierisch · Boss", herzen:[["Herzlei
  {h:"Teile & Züge", b:[{t:"dl", x:[
   ["Das rituelle Spiel (Jagen 3 / Schlitzen 3 / Beißen 4)", "Katzen kämpfen nicht gegen Dinge von Käfergröße, aber sie spielen vielleicht eine Weile mit ihnen. Jedes Mal, wenn eine Katze das Rampenlicht nimmt, um diesen Zug zu nutzen, kann sie zwei nahe Käfer gleichzeitig ins Visier nehmen."],
   ["Katzenverteidigung (Schützen 2)", "Durch eine Mischung aus Anmut, Witz und verfilztem Fell ist es äußerst schwer, eine Katze solide zu treffen. Jedes Mal, wenn eine Katze das Rampenlicht nimmt, würfle einen W6: Bei 1 oder 2 verhängt die Katze einen Tempoabzug von 2 auf eingehende Angriffe. Bei 3 oder 4 verhängt die Katze einen Rüstungsabzug von 2 auf eingehende Angriffe. Bei 5 oder 6 verhängt die Katze einen Komplexitätsabzug von 2 auf eingehende Angriffe. *Dieser Effekt hält an, bis die Katze das nächste Mal das Rampenlicht nimmt.*"],
-  ["Launisch (Angeben 2)", "Katzen sind von Natur aus Redner und teilen Beleidigungen und Komplimente zu gleichen Teilen aus. Ein von diesem Zug betroffener Käfer zieht seine Stimmung entweder ins Positive oder ins Negative (Wahl des Webers)."],
+  ["Launisch (Prahlen 2)", "Katzen sind von Natur aus Redner und teilen Beleidigungen und Komplimente zu gleichen Teilen aus. Ein von diesem Zug betroffener Käfer zieht seine Stimmung entweder ins Positive oder ins Negative (Wahl des Webers)."],
   ["Wahrer Titan (–)", "Als Titan hat die Katze wirklich beeindruckende Abwehr: Aktionen mit Gigawirkung oder solche, die eine ihrer Schwächen treffen, markieren ein Herz. Alle anderen Aktionen können erzählerisch trotzdem eine Wirkung haben, markieren aber nicht den Streifen des Titanen. Jedes markierte Herz auf dem Streifen des Titanen gilt außerdem als Bruch."]]},
   {t:"vl", x:"Frag nicht, wem die Katze jault – sie jault für dich!", wer:"Edgar Allen Krähe, Gefiederter Dichter in Ausbildung", c:"#5a3582"}]},
  {h:"Eine Katze überlisten", b:[
@@ -155,7 +155,7 @@ PI_GTEXT["klirrkatzen"] = { schluessel:"Titan · Tierisch · Klapprig · Boss", 
   ["Wahrer Titan (–)", "Als Titan hat die Klirrkatze wirklich beeindruckende Abwehr: Aktionen mit Gigawirkung oder solche, die eine ihrer Schwächen treffen, markieren ein Herz. Alle anderen Aktionen können erzählerisch trotzdem eine Wirkung haben, markieren aber nicht den Streifen des Titanen. Jedes markierte Herz auf dem Streifen des Titanen gilt außerdem als Bruch."]]}]},
  {h:"Abwehr", b:[{t:"ul", x:[
   "Immun gegen alles außer Gigaschaden und die unten genannten Schwächen – willst du das wirklich tun?",
-  "Widerstandsfähig gegen Basteln und Hauen, wegen solider Konstruktionsprinzipien und einer guten Menge Metall.",
+  "Widerstandsfähig gegen Werkeln und Hauen, wegen solider Konstruktionsprinzipien und einer guten Menge Metall.",
   "Schwach gegen Schwimmen, Quasseln und Denken. Genau wie eine echte Katze, aber mit höherer Chance, zufällig zu explodieren, wenn sie nass wird."]}]},
  {h:"Brüche", b:[{t:"ul", x:["Ein Teil fällt ab / Funken springen zwischen den Schnurrhaaren / Fehlerhafte Logik verkünden / Gegliedertes Strecken / Roboterhaft miauen"]}]},
  {h:"Zum Mitnehmen", b:[{t:"ul", x:["**Bobs:** Metallschnurrhaar, Rostige Kralle, Augenbirne, Klirrkatzen-Verkabelung, Winziges Herz eines Roboters"]}]},
@@ -204,14 +204,14 @@ PI_GTEXT["kometennasen-maulwuerfe"] = { schluessel:"Groß · Tierisch · Elite",
   "Als Taxidienst für Käfer unterwegs dienen.",
   "Gelegentlich ihre Kunden fressen."]}]},
  {h:"Teile & Züge", b:[{t:"dl", x:[
-  ["Mit Erdgeschwindigkeit rollen (Rasen 4)", "Kometennasen-Maulwürfe sind weder für ihre Kampfkraft noch für die Tiefe ihres Verstandes bekannt – so ziemlich jede Geschichte über sie hat mit Geschwindigkeit zu tun. Das ist verständlich: Alle Aktionen, die körperlichen Kontakt mit einem Kometennasen-Maulwurf erfordern würden, erleiden einen Tempoabzug von 2, solange er sich frei bewegen kann."],
+  ["Mit Erdgeschwindigkeit rollen (Flitzen 4)", "Kometennasen-Maulwürfe sind weder für ihre Kampfkraft noch für die Tiefe ihres Verstandes bekannt – so ziemlich jede Geschichte über sie hat mit Geschwindigkeit zu tun. Das ist verständlich: Alle Aktionen, die körperlichen Kontakt mit einem Kometennasen-Maulwurf erfordern würden, erleiden einen Tempoabzug von 2, solange er sich frei bewegen kann."],
   ["Grabkrallen (Graben 2 / Schlitzen 2)", "Ob ein Erdschauer vom unbedachten Tunnelgraben dich trifft oder ein Hieb quer über den Bug, wenn du im Weg stehst – es tut weh."],
   ["Drüber und drunter (Schleichen 1)", "Obwohl sie im Freien nicht besonders verstohlen sind, ist ein paar Zentimeter Erde zwischen dir und jemandem, der dich sucht, tatsächlich eine recht wirksame Tarnung. Kometennasen-Maulwürfe können sich schnell unter die Erde graben, und Aktionen, sie von der Oberfläche aus zu finden, behandeln Konflikte als Desaster."],
   ["Das Kometenwackeln (Denken 3)", "Haben wir die ganze Sache mit den geheimnisvollen Kräften erwähnt? Nicht? Nun, wahrscheinlich sollten wir das jetzt tun. Rund um die tentakelige Nase dieser Maulwürfe liegt etwas Seltsames – sie scheinen Gedanken erschnüffeln zu können und manchmal sogar mit dem Zucken einer Nasensehne Gegenstände schweben zu lassen. Komisches Zeug!"],
   ["Grobes Fell (–)", "Ignoriere den Abzug, wenn du einen Maulwurf anvisierst, den du erfolgreich *gegriffen* hast – aber halt dich gut fest!"]]}]},
  {h:"Abwehr", b:[{t:"ul", x:[
   "Immun gegen Blenden, weil ihre Sehkraft nicht die beste ist. Nicht schrecklich – nur nicht die beste.",
-  "Widerstandsfähig gegen Rasen, denn seien wir ehrlich – sie sind schneller als du.",
+  "Widerstandsfähig gegen Flitzen, denn seien wir ehrlich – sie sind schneller als du.",
   "Schwach gegen Graben, vor allem wegen der Überraschung, auf einen weiteren Tunnel zu stoßen, wenn sie festgestampfte Erde erwarten."]}]},
  {h:"Brüche", b:[{t:"ul", x:["Unter die Erde graben / Die Luft wittern und einen Käfer anpeilen / Aufleuchten und trompeten / Vom Kurs abkommen / Höhleneinsturz"]}]},
  {h:"Zum Mitnehmen", b:[{t:"ul", x:["**Bits:** Kometennasen-Tentakel, Maulwurfskralle, Büschel Maulwurfsfell, Tränen des Untergrunds"]}]}
@@ -230,7 +230,7 @@ PI_GTEXT["pilzkumpane"] = { schluessel:"Klein · Käferisch · Pilzig · Lakai",
   "Von Feuer fernbleiben!"]}]},
  {h:"Teile & Züge", b:[{t:"dl", x:[
   ["Betörender Verkaufsvortrag (Quasseln 1)", "Du hast noch nie darüber nachgedacht, dem Pilzkollektiv beizutreten? Nie, sagst du? Aber denk nur an all das, was du verpasst … Jeder Käfer, der durch den betörenden Verkaufsvortrag Schaden nimmt, senkt bis zum Ende der Szene die Wirkung von Aktionen, mit denen er einen nahen Pilzkumpan körperlich angreift."],
-  ["Vielversprechende Sporen (Umsorgen 2)", "Eine Wolke von Sporen, die Pilzkumpane freisetzen, wenn sie neuen potenziellen Mitgliedern nahe sind. Die Sporen *können* genutzt werden, um Schaden zu verursachen, aber das wäre furchtbar unhöflich – eine höflichere Methode ist, einem der Aspekte des Ziels einen neuen Nachteil hinzuzufügen: „*Nur in der Nähe von Pilzen nutzbar*“. Dieser Nachteil lässt sich entfernen, indem man eine Aufgabe aufwendet, um sich in frischem Wasser gründlich abzuschrubben … oder mit *FEUER*."],
+  ["Vielversprechende Sporen (Kümmern 2)", "Eine Wolke von Sporen, die Pilzkumpane freisetzen, wenn sie neuen potenziellen Mitgliedern nahe sind. Die Sporen *können* genutzt werden, um Schaden zu verursachen, aber das wäre furchtbar unhöflich – eine höflichere Methode ist, einem der Aspekte des Ziels einen neuen Nachteil hinzuzufügen: „*Nur in der Nähe von Pilzen nutzbar*“. Dieser Nachteil lässt sich entfernen, indem man eine Aufgabe aufwendet, um sich in frischem Wasser gründlich abzuschrubben … oder mit *FEUER*."],
   ["Reif fürs Wachstum (–)", "Bei einem guten Verkaufsvortrag kommt es auf das Timing an. Werden die Pilzkumpane in Dunkelheit, bei übermäßiger Feuchtigkeit oder mitten in einem Sporenado (S. 95) angetroffen, erleiden Käfer einen Komplexitätsabzug von 1, wenn sie versuchen, mit Anfreunden-Fertigkeiten vernünftig mit ihnen zu reden (da ihre parasitären Pilze dann noch größere Kontrolle haben als sonst)."],
   ["Letzte Gedanken (Brutzeln 1W6)", "Wird die letzte Markierung auf dem Streifen eines Pilzkumpans mit einem körperlichen Angriff gesetzt, platzt das unglückliche Individuum in eine Sporenwolke, die allen nahen Käfern automatisch 1W6 Brutzeln-Schaden zufügt. Nach Ermessen des Webers kann das auch andere nahe Pilzkumpane betreffen und eine potenziell verheerende Kettenreaktion auslösen."],
   ["Pilzmode (–)", "Man muss zugeben, es sieht irgendwie cool aus. Pilzkumpane setzen einen Schwall unentrinnbarer vielversprechender Sporen frei, wenn sie *gegriffen* werden."]]}]},
@@ -294,7 +294,7 @@ PI_GTEXT["picoranhas"] = { schluessel:"Klein · Schuppig · Schwarm", herzen:[["
   ["In ihrem Element (Schwimmen 2)", "Picoranha-Schwärme können nur im Wasser wirksam arbeiten (sonst zappeln sie nur herum und suchen nach Flüssigkeit zum Eintauchen). Im Wasser benötigen Angriffswürfe gegen sie Drillinge statt Pärchen, um eine Wendung (oder ein wendungsgleiches Ergebnis) zu erzeugen."]]}]},
  {h:"Abwehr", b:[{t:"ul", x:[
   "Widerstandsfähig gegen Schwimmen – du bist jetzt in ihrem Revier!",
-  "Schwach gegen Umsorgen und Basteln, aber nur, wenn sie genutzt werden, um beeindruckende Speisen als Bestechung herzustellen oder zu schwenken."]}]},
+  "Schwach gegen Kümmern und Werkeln, aber nur, wenn sie genutzt werden, um beeindruckende Speisen als Bestechung herzustellen oder zu schwenken."]}]},
  {h:"Brüche", b:[{t:"ul", x:["Sich zum Schwarm sammeln / Von allen Seiten angreifen / Ein nahes Bit oder Bob anknabbern / Zurückziehen und neu formieren / Den Schwächsten fressen und stärker werden"]}]},
  {h:"Zum Mitnehmen", b:[{t:"ul", x:["**Bits:** Picoranha-Schuppe, Erinnerung an volle Mägen, Große Biss-Medaillenschuppe"]}]}
 ]};
@@ -343,7 +343,7 @@ PI_GTEXT["froglins"] = { schluessel:"Groß · Schleimig · Lakai (Froglins) / Bo
   ["Springer-Logik (Tanzen 3)", "Mindestens eine Stunde Hüpfübung am Tag – das ist der Froglin-Weg, so heißt es. Alle Rauf-Aktionen gegen Froglins erleiden einen Tempoabzug von 1, solange sie in Bewegung bleiben können."],
   ["Flusskundig (–)", "Die meisten Froglins verbringen mehr als die Hälfte ihres Lebens im Wasser, sei es in Seen, Flüssen oder besonders großen Pfützen. Alle Aktionen gegen einen Froglin, der untergetaucht bleibt, erleiden einen Zähigkeitsabzug von 1."]]}]},
  {h:"Abwehr", b:[{t:"ul", x:[
-  "Widerstandsfähig gegen Angeben – sie haben genug eigenes.",
+  "Widerstandsfähig gegen Prahlen – sie haben genug eigenes.",
   "Schwach gegen Zähmen und Quasseln (nur Froglins), da das Untergraben ihres Quaklin-Anführers sie wahrscheinlich einknicken oder fliehen lässt.",
   "Schwach gegen Blenden, weil sich selbst der lauteste Haufen von einer guten Show ablenken oder beruhigen lässt."]}]},
  {h:"Brüche", b:[{t:"ul", x:["Zu neuen Positionen hüpfen / Den Quaklin die Führung übernehmen lassen / Ein Gewirr langer Beine / Rüpel gewinnen nie"]}]},
@@ -354,7 +354,7 @@ PI_GTEXT["froglins"] = { schluessel:"Groß · Schleimig · Lakai (Froglins) / Bo
   "Quaklins sind Froglins, die sich genug bewährt haben, um die Führung einer Bande zu übernehmen – sie haben Zugriff auf alle Froglin-Teile und -Züge und profitieren möglicherweise außerdem von …",
   {t:"dl", x:[
    ["Stampfer (Hauen 2)", "Ihr wisst, was man über Frösche mit großen Füßen sagt. Quaklins können eine Rauferei beginnen, indem sie eine Schockwelle aussenden, die allen nahen Käfern, die Bodenkontakt haben, zwei Markierungen Hauen-Schaden zufügt. Sie können das während eines Handgemenges wiederholen, indem sie eines ihrer eigenen Herzen markieren."],
-   ["Chef-Frosch-Klamotten (–)", "Aus Schilfkolben-Flaum gefertigt, meist um Hals, Taille und Arme gewickelt, damit ein Quaklin angeben kann. Quaklins erhalten eine zusätzliche Abwehr: Immun gegen Angeben und Erschrecken."],
+   ["Chef-Frosch-Klamotten (–)", "Aus Schilfkolben-Flaum gefertigt, meist um Hals, Taille und Arme gewickelt, damit ein Quaklin angeben kann. Quaklins erhalten eine zusätzliche Abwehr: Immun gegen Prahlen und Erschrecken."],
    ["Kriegswaffen (Schlitzen 3)", "Die stärksten Quaklins sind groß und zäh genug, um uralte Kriegswaffen zu führen, die trotz jahrelangem Anlaufen vor Potenzial glänzen. Jeder Käfer, der durch einen Kriegswaffen-Zug Schaden nimmt, erleidet einen zusätzlichen Effekt aus der folgenden Liste. + Ein Löffel kann den Käfer *wegschleudern*. + Eine Gabel kann den Käfer automatisch *greifen*. + Ein Messer kann entweder ein Bit oder ein Bob *zerstören*. + Ein Göffel kann alles oben Genannte."],
    ["Befehlsquaken (Erschrecken 1)", "Es hat keinen Sinn, Boss zu sein, wenn man nicht seine Macht ausspielen kann, wenn es darauf ankommt! Ein Quaklin kann ein Herz markieren, um einen neuen Froglin in eine Rauferei zu rufen. *Übertreib es nicht – endlose Kämpfe machen selten so viel Spaß, wie man denkt.*"]]}]}
 ]};

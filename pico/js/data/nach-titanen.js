@@ -229,7 +229,7 @@ PI_NACH.titanen.kapitel.push(
     ["Den Hund streicheln","Jeder Käfer, der die Pflegen-Aufgabe in einer Montage nutzt, kann seine Stimmung ins Positive ziehen."]),
   T("Hoglet",182,"#9f2320",null,
     "Diese Hauer, dieser Schwanz, dieser Schwung im Schritt – Hoglets sind von Natur aus fröhlich und unkompliziert, besonders wenn sie aus der trüffelbesessenen Hierarchie herausgenommen sind, in die die Natur sie gern presst. *Kann einen Brocken tragen.*",
-    ["Pflegen: 2 Aufgaben","Wühlen: 1 Aufgabe, verursacht eine Markierung Kümmern-Schaden","Einfaches Füttern: 3 Bröckchen","Luxus-Füttern: 1 pilzbasierte Mahlzeit"],
+    ["Pflegen: 2 Aufgaben","Stöbern: 1 Aufgabe, verursacht eine Markierung Kümmern-Schaden","Einfaches Füttern: 3 Bröckchen","Luxus-Füttern: 1 pilzbasierte Mahlzeit"],
     "Gigakartieren, Gigaschlitzen","Gigaschützen, Gigajagen",
     "Hüpfend: Verringere den Härte-Abzug um 1 bei Bewegen-Aktionen",
     ["Alte Gewohnheiten sterben langsam","Immer wenn ein Käfer ein Pilz- oder Schwammerl-Bröckchen erhält, füge ihm ein positives Etikett hinzu (vom Weber gewählt), und dieser Käfer leert eine Markierung Schaden von einer beliebigen seiner Leisten."]),

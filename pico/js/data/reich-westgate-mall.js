@@ -39,7 +39,7 @@ PI_REICH["westgate-mall"] = {
   x:["Wozu sind die weißen Kugeln da?","Warum macht Feuer Essen besser?","Was ist eine Schaufensterpuppe?","Wie entstehen Gebäude?","Woher kommt Musik?","Woher kommen Frösche?","Was ist um den Hals von Hunden?","Welches verblasste Taschenbuch birgt das tiefste Geheimnis?"]
  },
  beute:{
-  p:327, intro:"Das Einkaufszentrum ist ein Ort des Überflusses und der Fülle, aber auch von Verbrechen, Zöllen und aufdringlichen Händlern. Du findest Bröckchen und Krimskrams, ohne es zu versuchen, und verlierst sie ebenso leicht wieder. Aber bleib gewitzt, und vielleicht kommst du hier reicher heraus, als du hineingegangen bist. Die folgenden Listen helfen, wenn du den Spielern für Erkundung und Wühlen eine Belohnung geben willst.",
+  p:327, intro:"Das Einkaufszentrum ist ein Ort des Überflusses und der Fülle, aber auch von Verbrechen, Zöllen und aufdringlichen Händlern. Du findest Bröckchen und Krimskrams, ohne es zu versuchen, und verlierst sie ebenso leicht wieder. Aber bleib gewitzt, und vielleicht kommst du hier reicher heraus, als du hineingegangen bist. Die folgenden Listen helfen, wenn du den Spielern für Erkundung und Stöbern eine Belohnung geben willst.",
   bits:["Popcornkern","Salztütchen","Elsterfeder","Himbeerbeeren-Sirup","Zerbrochener Lutscher","Alter Preisaufkleber","Klecks Handcreme"],
   bobs:["Spiegelscherbe","Verlorene Geldbörse","Handdesinfektionsmittel in Reisegröße","Zwei Lego-Steine","Spielhallenmünze","Duftstäbchen"]
  },

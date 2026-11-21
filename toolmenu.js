@@ -40,20 +40,30 @@
   function cur(){ var p = location.pathname; return /\/locallegends\//.test(p) ? "locallegends" : /\/nights\//.test(p) ? "paynetown" : /\/otherscape\//.test(p) ? "otherscape" : /\/cityofmist\//.test(p) ? (/^#rw/.test(location.hash) ? "cm_rw" : /^#(ss|spieler|sl)/.test(location.hash) ? "cm_ss" : "cityofmist") : /\/etr\//.test(p) ? "etr" : /\/vaesen\//.test(p) ? "vaesen" : /\/tftl\//.test(p) ? "tftl" : /\/forbidden\//.test(p) ? "forbidden" : /\/wildsea\//.test(p) ? "wildsea" : /\/triangle\//.test(p) ? "triangle" : /\/compass\//.test(p) ? "compass" : /\/dragonbane\//.test(p) ? "dragonbane" : /\/heart\//.test(p) ? "heart" : /\/household\//.test(p) ? "household" : /\/moerkborg\//.test(p) ? "moerkborg" : /\/savageworlds\//.test(p) ? "savageworlds" : /\/slugblaster\//.test(p) ? "slugblaster" : /\/spire\//.test(p) ? "spire" : /\/pico\//.test(p) ? "pico" : "wake"; }
   var caret = null, dd = null;
   function close(){ if(dd){ dd.remove(); dd = null; } if(caret) caret.setAttribute("aria-expanded","false"); }
+  function lum(c){ var m = (c||"").match(/\d+(\.\d+)?/g); if(!m || m.length<3) return null; return 0.299*m[0]+0.587*m[1]+0.114*m[2]; }
+  function pal(){
+    var rs = getComputedStyle(document.documentElement), bar = document.querySelector(".topbar"), brand = document.querySelector(".topbar .brand");
+    function v(n){ return (rs.getPropertyValue(n)||"").trim(); }
+    var bg = v("--panel-raised") || v("--panel2") || v("--panel"), bodyC = getComputedStyle(document.body).color, fg = bodyC;
+    if(!bg){ var bb = bar ? getComputedStyle(bar).backgroundColor : ""; bg = (bb && lum(bb)!==null && !/rgba\(.*,\s*0\)$/.test(bb)) ? bb : "#1b1816"; }
+    var tmp = document.createElement("i"); tmp.style.color = bg; document.body.appendChild(tmp); var bgRgb = getComputedStyle(tmp).color; tmp.remove();
+    var lb = lum(bgRgb), lf = lum(fg);
+    if(lb !== null && (lf === null || Math.abs(lb - lf) < 90)) fg = lb < 128 ? "#f2ede4" : "#1b1816";
+    return {bg:bg, fg:fg, dark: lb === null ? true : lb < 128};
+  }
   function themed(el){
     var rs = getComputedStyle(document.documentElement), brand = document.querySelector(".topbar .brand"), bar = document.querySelector(".topbar");
     var bs = brand ? getComputedStyle(brand) : null, bb = bar ? getComputedStyle(bar) : null;
     function v(n){ return (rs.getPropertyValue(n)||"").trim(); }
-    var bg = v("--panel-raised") || v("--panel2") || v("--panel") || "#1b1816";
-    el.style.background = bg; el.style.color = getComputedStyle(document.body).color;
+    var P = pal();
+    el.style.background = P.bg; el.style.color = P.fg;
     el.style.border = "1px solid " + (bb && bb.borderBottomColor && bb.borderBottomColor!=="rgba(0, 0, 0, 0)" ? bb.borderBottomColor : "rgba(255,255,255,.15)");
     el.style.fontFamily = getComputedStyle(document.body).fontFamily;
     el.style.setProperty("--tm-acc", v("--acc") || v("--red") || (bs ? bs.color : "#c9a24b"));
   }
   function open(){
     close(); var c = cur(); dd = document.createElement("div"); dd.className = "tm-dd"; dd.setAttribute("role","menu");
-    var rs0 = getComputedStyle(document.documentElement), bg0 = (rs0.getPropertyValue("--panel-raised")||rs0.getPropertyValue("--panel2")||rs0.getPropertyValue("--panel")||"#1b1816").trim(), hx = bg0.replace("#",""); if(hx.length===3) hx = hx.replace(/./g,"$&$&");
-    var dark = /^[0-9a-f]{6}$/i.test(hx) ? (0.299*parseInt(hx.substr(0,2),16)+0.587*parseInt(hx.substr(2,2),16)+0.114*parseInt(hx.substr(4,2),16)) < 128 : true;
+    var dark = pal().dark;
     var par = "", touch = window.matchMedia && matchMedia("(hover:none)").matches, curPar = ""; TOOLS.forEach(function(t){ if(t[5]!=="grp"){ if(t[4]!==2) par = t[0]; if(t[0]===c) curPar = par; } }); par = "";
     dd.innerHTML = TOOLS.map(function(t){ if(t[5]==="grp") return (t[0]==="_mist" ? '' : '</div>')+'<div class="tm-grp">'+t[1]+'</div><div class="tm-grid">'; var st = t[6], nm = '<b>'+t[1]+'</b>';
       if(st && st.dm && dark) nm = '<b class="tm-logo" role="img" aria-label="'+t[1]+'" style="--lg:url('+BASE+st.dm+');width:'+st.w+'px;height:'+st.h+'px"></b>';

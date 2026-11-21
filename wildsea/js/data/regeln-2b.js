@@ -23,7 +23,7 @@ lei.b.push(
   ["Kyllian","Kann man sagen. Etwas unter den Wellen."],
   ["Laura","Gut, ich schnappe mir eines der Führungsseile und sehe nach. Muss ich dafür würfeln, um hinunterzukommen?"],
   ["Glühwürmchen","Nein, du bist nah genug am Schiff, dass das Führungsseil dich einigermaßen sichert. Wäre mehr Druck auf dir, sähe es anders aus."],
-  ["Laura","Verstanden. Ich lasse mich also ins Gestrüpp hinab und sehe mich um. Was sehe ich?"],
+  ["Laura","Verstanden. Ich lasse mich also ins Geflecht hinab und sehe mich um. Was sehe ich?"],
   ["Glühwürmchen","Du spürst die Temperatur steigen, während du in die Blätter hinabsteigst. Du bist von schwärmenden Insekten umgeben, aber wenn ich mich recht erinnere, musst du dafür keinen Schaden markieren?"],
   ["Laura","Nicht, es sei denn, sie sind besonders groß, nein – mein Aspekt Wildnis-Erkunder lässt mich die Wucht bei Bissen und Stichen verringern."],
   ["Glühwürmchen","Stimmt. Nun, die Insekten sind lästig, aber nichts, womit du nicht schon fertiggeworden bist. Du arbeitest dich zur Spitze vor und findest das Problem – eine verrostete Eisenkette hat sich darin verfangen und führt nach Osten davon."],
@@ -96,7 +96,7 @@ L.push({id:"abzug", k:K, t:"Abzug", p:43, b:[
  {bsp:"Aktionen im Spiel, alternativ", z:[
   ["Todd","Nun, ich schlage vor, wir machen uns rar, bevor der, der diese Falle aufgestellt hat, eintrifft!"],
   ["Laura","Einverstanden. Ich versuche, diese Kette vom Sägebug zu lösen. Muss ich dafür würfeln?"],
-  ["Glühwürmchen","Auf jeden Fall, und da du das an einem Seil mitten im Getöse baumelnd tust, gebe ich dir einen Abzug von eins."],
+  ["Glühwürmchen","Auf jeden Fall, und da du das an einem Seil mitten im Gestrüpp baumelnd tust, gebe ich dir einen Abzug von eins."],
   ["Laura","Fair … Nun, wie stelle ich das an?"],
   ["Freya","Ooh! Hast du nicht noch ein paar von diesen Rostkäfern, die wir in Myrin aufgelesen haben? Würden die sich für die Kette interessieren?"],
   ["Glühwürmchen","Auf jeden Fall! Das sind gefräßige kleine Dinger, also erhöhe ich tatsächlich deine Wucht."],

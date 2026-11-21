@@ -5,12 +5,12 @@ var NACH = [["regeln","Regeln"],["charaktere","Charaktere"],["schiffe","Schiffe"
 function nBlock(b){
   if(b.a != null) return '<p class="na">' + esc(b.a).replace(/\n/g, "<br>") + '</p>';
   if(b.h != null) return '<h3 class="nh">' + esc(b.h) + '</h3>';
-  if(b.l) return '<ul class="bul nl">' + b.l.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
   if(b.erz != null) return '<div class="vl nv"><p>' + esc(b.erz).replace(/\n/g, "</p><p>") + '</p></div>';
   if(b.bsp) return '<div class="nb"><h4>' + esc(b.bsp) + '</h4>' + b.z.map(function(z){ return '<p>' + (z[0] ? '<b>' + esc(z[0]) + ':</b> ' : '') + esc(z[1]) + '</p>'; }).join("") + '</div>';
   if(b.tab) return '<table class="nt"><thead><tr>' + b.tab.k.map(function(x){ return '<th>' + esc(x) + '</th>'; }).join("") + '</tr></thead><tbody>' + b.tab.z.map(function(r){ return '<tr>' + r.map(function(x){ return '<td>' + esc(x) + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table>';
   if(b.box) return '<div class="el nx"><h3>' + esc(b.box) + '</h3>' + b.x.map(function(x){ return '<p>' + esc(x).replace(/\n/g, "<br>") + '</p>'; }).join("") + '</div>';
   if(b.c) return '<div class="el nc"><h3>' + esc(b.c) + '</h3>' + (b.x ? '<p>' + esc(b.x).replace(/\n/g, "<br>") + '</p>' : '') + (b.l ? '<ul class="bul">' + b.l.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') + '</div>';
+  if(b.l) return '<ul class="bul nl">' + b.l.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
   return "";
 }
 function nGruppiert(bl){

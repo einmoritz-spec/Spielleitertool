@@ -46,3 +46,9 @@
 .ms-cols>div:last-child>.sub{grid-column:1/-1}
 .ms-cols>div:last-child>div[style]{margin-top:0!important}
 .ms-cols>div:last-child>.ms-fl{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 22px;align-items:start;margin-bottom:18px}.ms-cols>div:last-child>.ms-fl .kast{margin:0}
+.ms-an{display:block;column-count:3;column-gap:30px}
+.ms-an>div{display:contents}
+.ms-an .ttl,.ms-an .sub{break-after:avoid}
+.ms-an .kast,.ms-an .vl,.ms-an .ms-karte,.ms-an .clue,.ms-an .cl{break-inside:avoid}
+.ms-an .ms-karte{width:100%;margin-bottom:12px}
+@media(max-width:1100px){.ms-an{column-count:1}}

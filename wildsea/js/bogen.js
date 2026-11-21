@@ -1,7 +1,7 @@
 /* Interaktiver Charakterbogen: #bogen (leer) und #bogen/<pc-id> (fertiger Charakter). Zustand: ST.bogen["leer"] bzw. ST.bogen[<pc-id>]. */
 var BG_SK = ["Abfangen","Zerschlagen","Zusammenbrauen","Kochen","Schürfen","Glänzen","Hacken","Ernten","Jagen","Überlisten","Rasseln","Bergen","Spüren","Studieren","Beeinflussen","Pflegen","Springen","Wellenlauf"];
 var BG_ED = ["Anmut","Eisen","Instinkt","Schärfe","Zähne","Gezeiten","Schleier"];
-var BG_LA = ["Low Sour","Chthonisch","Saprekk","Gaudimm","Brasstongue","Raka Spit","Lyre-Bite","Alte Hand","Signalgebung","Highvin"];
+var BG_LA = ["Low Sour","Chthonisch","Saprekk","Gaudimm","Knock","Brasstongue","Raka Spit","Lyre-Bite","Alte Hand","Signalgebung","Highvin"];
 var BG_LA_ALIAS = {"Chthonic":"Chthonisch","Old Hand":"Alte Hand","Signalling":"Signalgebung","Messingzunge":"Brasstongue","Tiefsauer":"Low Sour"};
 var BG = {key:"leer", st:null};
 function bgTrack(n){ return {n:"", t:"", d:"", len:8, m:[0,0,0,0,0,0,0,0]}; }
@@ -61,7 +61,7 @@ function bgSheet(){
   var sk = "";
   for(var c = 0; c < 3; c++){ sk += '<div class="bcl">'; for(i = 0; i < 6; i++){ var k = c * 6 + i; sk += '<div class="br"><span>' + BG_SK[k] + '</span><span class="bds">' + bgDots(3, (s.s[BG_SK[k]] || 0), 's', k) + '</span></div>'; } sk += '</div>'; }
   var la = "";
-  for(var c2 = 0; c2 < 2; c2++){ la += '<div class="bcl">'; for(i = 0; i < 6; i++){ var q = c2 * 6 + i, nm = q < 10 ? BG_LA[q] : null, key = q < 10 ? nm : "_x";
+  for(var c2 = 0; c2 < 2; c2++){ la += '<div class="bcl">'; for(i = 0; i < 6; i++){ var q = c2 * 6 + i, nm = q < 11 ? BG_LA[q] : null, key = q < 11 ? nm : "_x";
     la += '<div class="br"><span>' + (nm ? nm : '<input class="lx" spellcheck="false" data-fit="12" ' + bgIn("lx", s.lx || "") + '>') + '</span><span class="bds">' + bgDots(3, s.l[key] || 0, 'l', q) + '</span></div>'; } la += '</div>'; }
   var lines = function(a){ return a.map(function(x){ return '<div class="bl2"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join(""); };
   var res = function(t, key){ return '<div class="rb"><h4>' + t + '</h4>' + bgTx("f." + key, f[key] || "", 12, "ln") + '</div>'; };
@@ -109,7 +109,7 @@ function bgSet(path, el){
 function bgClk(kind, a, b){
   var s = BG.st;
   if(kind === "e") s.e[a] = s.e[a] ? 0 : 1;
-  else if(kind === "s" || kind === "l"){ var key = kind === "s" ? BG_SK[a] : (a < 10 ? BG_LA[a] : "_x"), m = kind === "s" ? s.s : s.l; m[key] = (m[key] || 0) === b ? b - 1 : b; }
+  else if(kind === "s" || kind === "l"){ var key = kind === "s" ? BG_SK[a] : (a < 11 ? BG_LA[a] : "_x"), m = kind === "s" ? s.s : s.l; m[key] = (m[key] || 0) === b ? b - 1 : b; }
   else if(kind === "mo") s.mo[a].m[b] = s.mo[a].m[b] ? 0 : 1;
   else { var t = s[kind][a]; if(b >= t.len) t.len = b + 1; else t.m[b] = t.m[b] ? 0 : 1; }
   bgSave(); bgRepaint();

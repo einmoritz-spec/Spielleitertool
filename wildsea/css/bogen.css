@@ -99,3 +99,36 @@
   .cr.gh,.bch s.gh{visibility:hidden}
   .cr.f{background:var(--dk)!important}
 }
+/* ===== Angleichung ans Original (warmes Grau, schräge Balken) ===== */
+.bsheet{--dk:#3a382f;--md:#78766b;--ln:#4b493f;--lt:#9a998d}
+.bs h3{height:25px;font-size:22px;border-radius:0;margin-right:0;clip-path:polygon(0 0,100% 0,calc(100% - 7px) 100%,0 100%);padding-top:3px}
+.bsub h4,.rb h4{border-radius:0;clip-path:polygon(0 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+.bsub h4,.rb h4{background:linear-gradient(90deg,#6c6a60,#84827a)}
+.bs h3{background:linear-gradient(90deg,#2f2d26,#45433a)}
+.bb,.bsub,.rb{border-width:1.7px;border-color:var(--ln)}
+.bb{border-radius:0 0 16px 16px}
+.bsub,.rb{border-radius:0 0 12px 12px}
+.cr{border:1.4px solid var(--lt);background:transparent}
+.cr.f{background:var(--dk);border-color:var(--dk)}
+.bsk .bds .cr,.bds .cr{width:15px;height:15px}
+.bed .cr.big{width:17px;height:17px}
+.bla .bds .cr{width:15px;height:15px}
+.bti img{filter:brightness(.55) saturate(.4)}
+.bti div{color:#6b695f;font-size:16px}
+/* Aspekt- und Leistenkarten */
+.bk{grid-template-columns:54px 1fr;border:1.7px solid var(--ln);border-radius:0 16px 16px 0;position:relative}
+.bl{background:linear-gradient(180deg,#85837a,#6f6d63);font-size:16px;padding:6px 0 0 6px;letter-spacing:.03em}
+.bl.l3{font-size:11px;font-weight:600;padding-bottom:6px}
+.bk .bch{position:relative;z-index:2;margin-left:-8px;padding:0 6px 0 0;height:19px}
+.bk .bch .cr{width:17px;height:17px;border:1.8px solid #6d6b61;background:#fff}
+.bk .bch .cr.f{background:var(--dk)}
+.bk .bch s{width:4px;border-top:3px solid #6d6b61}
+.bk .bch .cr.gh{border-color:#d4d3c9}
+.bn .ty{font-size:7.5px;color:#55534a}
+.bn .nm{font-size:15px}
+.bm{border-width:1.7px;border-radius:0 13px 13px 0}
+.bm .bch .cr{width:17px;height:17px;border:1.8px solid #6d6b61}
+.bk{grid-template-rows:21px 21px 1fr}
+.bk .bch{height:21px}
+.bk .bd{padding-top:3px}
+.btr .bk{height:60px}

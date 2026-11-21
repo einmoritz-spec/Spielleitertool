@@ -218,6 +218,13 @@ var PI_GEFAHR = [
 "img": null
 },
 {
+"id": "shroominks",
+"t": "Shroominks",
+"p": 259,
+"farbe": "#839369",
+"img": null
+},
+{
 "id": "snydra",
 "t": "Snydra",
 "p": 260,

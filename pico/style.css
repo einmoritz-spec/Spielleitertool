@@ -237,3 +237,8 @@ body.dark .tbl tr:nth-child(odd) td{background:rgba(255,255,255,.06)}
 .go .gef{margin-top:12px;border:2.5px solid var(--rust);color:var(--rust);border-radius:12px;padding:10px 16px;font:24px Baby;width:100%}
 .chip.ink{--c:var(--fg)}
 @media (max-width:900px){.swrap{grid-template-columns:1fr}}
+.hl{margin:6px 0 10px}.hl b{display:block;font:20px Baby;font-weight:400;color:var(--c)}
+.gcols{columns:2 420px;column-gap:26px}.gab{break-inside:avoid-column;margin-bottom:10px}.gab h3{font-size:26px;color:var(--c);margin:6px 0 3px}
+.hl{margin:6px 0 10px}.hl b{display:block;font:20px Baby;font-weight:400;color:var(--c)}
+.gcols{columns:2 420px;column-gap:26px}.gab{break-inside:avoid-column;margin-bottom:10px}.gab h3{font-size:26px;color:var(--c);margin:6px 0 3px}
+.hx{font:20px Baby;color:var(--c);margin-left:6px}

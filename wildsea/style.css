@@ -271,3 +271,56 @@ h2.sec{font-size:30px;text-transform:uppercase;margin:0 0 12px;letter-spacing:.0
 .go .sc a{flex:1;display:block;cursor:pointer;border:1px solid rgba(255,255,255,.7);border-radius:4px;padding:7px 9px;font-size:12px;background:rgba(255,255,255,.1)}.go .sc a:hover{background:rgba(255,255,255,.22)}.go .sc a b{display:block}
 .sz a{display:block;cursor:pointer;border:1.5px solid #8aa05a;border-radius:7px;padding:14px 18px;background:#f3efe2}.sz a:hover{background:#e8e2cb}.sz a b{display:block;font-family:Teko,sans-serif;font-size:21px}.sz a small{color:var(--soft)}
 .nimgs.n1:has(.nimg.sq){float:left;margin:4px 22px 12px 0;display:block}@media(max-width:900px){.nimgs.n1:has(.nimg.sq){float:none}}
+
+/* === Quellen-Etiketten (Storm and Root · Schiffsgärten · Fertige Charaktere) === */
+.qt{display:inline-block;font:600 12px/1 Teko,sans-serif;letter-spacing:.09em;text-transform:uppercase;padding:3px 8px 1px;border-radius:9px;vertical-align:middle;white-space:nowrap;border:1px solid transparent}
+.qt.q-sr{background:#d7eaf6;color:#1d5f86;border-color:#a9cfe6}
+.qt.q-sg{background:#dcecd0;color:#3f6a22;border-color:#b5d49c}
+.qt.q-m1{background:#f3e3b6;color:#7a5a0e;border-color:#dcc47c}
+.hd .qt{margin-bottom:12px}.hz h1 .qt{align-self:center}.band h1 .qt{margin-left:12px;vertical-align:middle}.shd .qt{margin-left:8px}
+.qd{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:7px;vertical-align:1px}
+.qd.q-sr{background:#4f9fd1}.qd.q-sg{background:#5fa73a}.qd.q-m1{background:#c99a2e}
+.gq{padding:0 0 9px;margin-top:-4px}.cc .tx .qt{margin-top:5px}
+.gsep{width:1px;height:22px;background:var(--line);margin:0 6px}.gql{font:600 15px/1 Teko;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);padding-top:2px}
+
+/* === Fertige Charaktere: Übersicht === */
+.ccs.pcs{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.pcc2 .im{height:340px;padding-top:14px}.pcc2 .im img{max-width:90%}.pcc2 h3{font-size:26px}.pcc2 .tx{padding-bottom:14px}
+
+/* === Fertige Charaktere: Detailseite (Block {pc}) === */
+.pcw{display:grid;grid-template-columns:300px minmax(0,1fr);gap:28px;align-items:start;margin:10px 0 22px;max-width:1560px}
+.pcl{display:flex;flex-direction:column;gap:12px}
+.pcp{margin:0;border-radius:8px;overflow:hidden;background:#f3efe2;box-shadow:0 1px 6px rgba(0,0,0,.2);line-height:0}
+.pcp img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;cursor:zoom-in}
+.pch h1{font-size:58px;line-height:.95;text-transform:uppercase}
+.pcn{display:flex;align-items:center;gap:10px;margin:8px 0 2px}.pcn .pg{font-size:13px}.pcn .lk{margin:0}
+.pch .sub{font-size:25px;margin:8px 0 12px}
+.pgr{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px}
+.pcc{background:rgba(255,255,255,.92);border:1px solid var(--line);border-top:4px solid var(--sage);border-radius:5px;padding:9px 14px 11px;min-width:0}
+.pcc.w2{grid-column:1/-1}
+.pcl .pcc{border-top-color:var(--amber)}
+.pcc h4{font:600 20px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--sage3);margin:0 0 7px}
+.pcc h5,.prc h5{font:600 15px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);margin:6px 0 4px}
+.pstw{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.pst{display:flex;flex-direction:column;align-items:center;gap:4px}
+.pcr{width:36px;height:36px;border-radius:50%;border:2px solid #b7c5a2;background:#fff;display:grid;place-items:center;font:600 20px/1 Teko;color:#fff}
+.pst.f .pcr{background:var(--sage3);border-color:var(--sage3);box-shadow:0 0 0 3px #e3ead6}
+.pst b{font:600 17px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:var(--soft)}.pst.f b{color:var(--ink)}
+.prw{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:3px 0;border-bottom:1px dotted var(--line)}.prw:last-child{border-bottom:0}
+.prw b{font:600 19px/1.1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.03em}
+.pd{display:inline-block;width:14px;height:14px;border:2px solid var(--sage3);border-radius:50%;background:#fff;margin-left:4px;vertical-align:-2px}.pd.f{background:var(--sage3)}
+.pag{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.pas{border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:4px;background:#fff;padding:7px 11px 8px}
+.ph2{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.ph2 b{font:600 21px/1.1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.03em}
+.ph2 em{font:600 12px/1 Teko,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:#6b6554;background:#eeeadb;border-radius:9px;padding:3px 8px 1px;white-space:nowrap}
+.pbx{display:flex;gap:3px;margin:5px 0 5px}.pbx i{width:17px;height:15px;border:2px solid var(--sage3);border-radius:3px;background:#fff}
+.pas p{font-size:12.8px;line-height:1.45;margin:0}
+.prg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.prc{border-left:3px solid #dcd7c2;padding-left:10px}.prc h5{margin-top:0}.prc p{font-size:13px;line-height:1.4;margin:0 0 2px}.prc p.no{color:#b3b0a2}
+.pmo{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.8px;line-height:1.4;padding:5px 0;border-bottom:1px dotted var(--line)}.pmo:last-child{border-bottom:0}.pmo span{flex:1}.pmo .pd{margin:0 0 0 2px;flex:none}
+.pcl .bul li{font-size:13px}
+.pcd{max-width:none;columns:440px 2;column-gap:44px;margin-top:4px}.pcd .na,.pcd li{break-inside:avoid}.pcd .nh{break-after:avoid;margin-top:0}.pcd .nh:not(:first-child){margin-top:14px}.pcd .nl{margin-top:0}
+@media(min-width:1800px){.pcw{grid-template-columns:360px minmax(0,1fr)}}
+@media(max-width:1100px){.pgr{grid-template-columns:1fr}.prg{grid-template-columns:repeat(2,1fr)}}
+.ccs.pcs{grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}.pcc2 .im{height:400px}.pcc2 .qt{display:table;margin:7px auto 0}.pcc2 small{display:block;font-size:14px}

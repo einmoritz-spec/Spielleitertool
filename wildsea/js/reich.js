@@ -15,14 +15,14 @@ function rZoom(src){ var d = document.createElement("div"); d.className = "gzoom
 function rimg(b, k){ if(!b) return ""; var wide = b[1] / b[2] > 1.3; return '<img class="rimg ' + (k || (wide ? "wide" : "tall")) + '" loading="lazy" src="img/' + b[0] + '.webp" width="' + b[1] + '" height="' + b[2] + '" alt="" onclick="rZoom(this.src)">'; }
 function rband(b){ return b && b[1] / b[2] > 1.3 ? rimg(b, "wide") : ""; }
 function rtall(b){ return b && b[1] / b[2] <= 1.3 ? rimg(b, "tall") : ""; }
-function entry(e){ return '<div class="en" id="e_' + esc(e.t) + '"><h3>' + esc(e.t) + ' <span class="tag ' + (TYPC[e.typ] || "") + '">' + esc(e.typ) + '</span></h3>' + rimg(e.bild, "mini") + '<p>' + esc(e.x) + (e.i ? ' <i>' + esc(e.i) + '</i>' : '') + '</p>' + (e.bp ? '<a class="lk" onclick="openBook(\'ws_core\',' + e.bp + ')">S. ' + e.bp + '</a>' : '') + '</div>'; }
+function entry(e){ return '<div class="en" id="e_' + esc(e.t) + '"><h3>' + esc(e.t) + ' <span class="tag ' + (TYPC[e.typ] || "") + '">' + esc(e.typ) + '</span></h3>' + rimg(e.bild, "mini") + '<p>' + esc(e.x) + (e.i ? ' <i>' + esc(e.i) + '</i>' : '') + '</p>' + (e.bp ? '<a class="lk" onclick="openBook(\'' + qBuch(window.__rq) + '\',' + e.bp + ')">S. ' + e.bp + '</a>' : '') + '</div>'; }
 function facts(f){ return '<div class="facts">' + f.map(function(x){ return '<div><b>' + esc(x[0]) + '</b>' + esc(x[1]) + '</div>'; }).join("") + '</div>'; }
 
 function rUeberblick(r, S){
   var els = r.elemente.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + ' <span class="pg" style="float:right">S. ' + (r.p + 1) + '</span></h3><p>' + esc(e.x) + '</p>' + (e.erleben.length ? '<span class="k">Die Crew könnte erleben …</span><ul class="bul">' + e.erleben.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') + '</div>'; }).join("");
   var ru = '<div class="el ru"><h3>' + r.geruechte.t + ' <span class="pg">S. ' + r.geruechte.p + '</span></h3>' + (r.geruechte.intro ? '<p style="color:var(--soft);margin-bottom:8px">' + esc(r.geruechte.intro) + '</p>' : '') + '<div class="rs">' + r.geruechte.x.map(function(x, i){ return '<div class="cd' + (S.rumours[i] ? ' used' : '') + '" id="rumours_' + i + '" onclick="tog(\'' + r.id + '\',\'rumours\',' + i + ')">' + esc(x) + '</div>'; }).join("") + '</div></div>';
   var vl = r.erzaehl.map(function(v){ return '<div class="vl">' + paras(v.x) + '</div>'; }).join("");
-  return '<div class="band" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h1>' + esc(r.t) + '</h1><p>' + esc(r.kurz) + '</p></div><div class="grid3">' + els + ru + '</div>' + vl;
+  return '<div class="band" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h1>' + esc(r.t) + qTag(r) + '</h1><p>' + esc(r.kurz) + '</p></div><div class="grid3">' + els + ru + '</div>' + vl;
 }
 function sideTree(list, cur, tab, id){
   return '<nav class="side">' + list.map(function(x){ var on = x.id === cur.id;
@@ -79,7 +79,7 @@ function rSee(r, S){
 }
 function viewReich(id, tab, sel){
   var r = WS_REICH[id]; if(!r) return viewPlatzhalter((WS_REICHE.filter(function(x){ return x.id === id; })[0] || {t: "Reich"}).t);
-  r.id = id; tab = tab || "ueberblick"; var S = rs(id), b;
+  r.id = id; window.__rq = r; var rm = WS_REICHE.filter(function(x){ return x.id === id; })[0] || {}; r.q = r.q || rm.q; r.buch = r.buch || rm.buch; tab = tab || "ueberblick"; var S = rs(id), b;
   if(tab === "ueberblick") b = rUeberblick(r, S);
   else if(tab === "territorien") b = rListe(r, r.territorien, "territorien", sel);
   else if(tab === "haefen") b = rListe(r, r.haefen, "haefen", sel);

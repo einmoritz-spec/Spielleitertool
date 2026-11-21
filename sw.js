@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v597ws";
+const VERSION = "v598ws";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -61,6 +61,7 @@ const FILES = [
   "wildsea/img/regeln/eroeffnung-kap2-mechanik.webp",
   "wildsea/img/gefahr/eroeffnung-kap10-kraehen.webp",
   "wildsea/js/data/charaktere-8i.js",
+  "wildsea/js/data/pregens-a.js",
   "wildsea/js/data/szen-oas-a.js",
   "wildsea/js/data/szen-oas-b.js",
   "wildsea/js/data/szen-oas-c.js",
@@ -106,6 +107,8 @@ const FILES = [
   "wildsea/img/blut/ketra.webp",
   "wildsea/img/blut/mothryn.webp",
   "wildsea/img/blut/tzelicrae.webp",
+  "wildsea/img/pregen/aramin-su-chu.webp",
+  "wildsea/img/pregen/aramin-su-chu-bogen.webp",
   "wildsea/img/charaktere/antriebe-kriegerin.webp",
   "wildsea/img/charaktere/aspekte-botaniker.webp",
   "wildsea/img/charaktere/aspekte-karren.webp",

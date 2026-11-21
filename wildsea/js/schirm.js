@@ -33,7 +33,7 @@ function viewSchirm(){
       if(c.z) h += '<dl class="sz2">' + c.z.map(function(z){ return '<dt>' + esc(z[0]) + '</dt><dd>' + esc(z[1]) + '</dd>'; }).join("") + '</dl>';
       return h + '</div>';
     }).join("");
-    return '<h2 class="sec shd">' + esc(g.g) + ' <a class="pg" onclick="openBook(\'ws_core\',' + g.p + ')">S. ' + g.p + '</a></h2><div class="sg">' + cards + '</div>';
+    return '<h2 class="sec shd">' + esc(g.g) + ' <a class="pg" onclick="openBook(\'' + qBuch(g) + '\',' + g.p + ')">S. ' + g.p + '</a>' + qTag(g) + '</h2><div class="sg">' + cards + '</div>';
   }).join("");
   return '<div class="tabs"><a class="on">Spielleiterschirm</a></div><div class="pad">' + wTisch() + gr + '</div>';
 }

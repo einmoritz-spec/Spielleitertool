@@ -127,7 +127,7 @@ function viewStart(){
     '<div style="margin-top:14px"><span class="chip ink" onclick="bogen()">Charakterbogen</span><span class="chip ink" onclick="go(\'streifzug\')">Streifzugbogen</span><span class="chip ink" onclick="go(\'schirm\')">Regelübersicht</span><span class="chip ink" onclick="wOpen()">Würfel</span><span class="chip ink o" onclick="go(\'galerie\')">Galerie</span></div></div>' +
     '<div class="go"><h2>Losziehen</h2><div class="sub">Die Reiche · Kap. 11</div><div class="rl">' + rl + '</div><button class="gef" onclick="go(\'gefahren\')">Winzige Gefahren</button></div></div>';
 }
-function bogen(){ if(window.viewBogen) go("bogen"); else openBook("pi_core", 340); }
+function bogen(){ go("bogen/picnic"); }
 
 /* ---------- Render ---------- */
 function setTheme(dark, c, t){
@@ -142,10 +142,10 @@ function render(){ CARDS = [];
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
   else if(v === "gefahren") out = viewGefahren(h[1], h[2]);
   else if(v === "nach") out = window.viewNach ? viewNach(h[1] || "welt", h[2]) : viewStart();
-  else if(v === "streifzug") out = window.viewStreif ? viewStreif() : viewStart();
+  else if(v === "streifzug") out = viewStreif();
   else if(v === "schirm") out = window.viewSchirm ? viewSchirm(h[1]) : viewStart();
   else if(v === "galerie") out = window.viewGalerie ? viewGalerie() : viewStart();
-  else if(v === "bogen") out = window.viewBogen ? viewBogen() : viewStart();
+  else if(v === "bogen") out = viewBogen(h[1]);
   else out = viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);

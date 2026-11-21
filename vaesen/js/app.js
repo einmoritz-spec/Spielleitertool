@@ -307,10 +307,11 @@ function render(){
    case "erstellung": v = viewErstellung(); break;
    case "spieler": v = viewSpieler(); break;
    case "kapitel": v = viewKapitel(sub.split("/")[0]); break;
-   case "norden": case "gesellschaft": case "mysterium": case "tanz": v = viewKapitel(cur); break;
+   case "tanz": v = viewTanz(); break;
+   case "norden": case "gesellschaft": case "mysterium": v = viewKapitel(cur); break;
    default: v = viewStart();
   }
-  APP.innerHTML = v; window.scrollTo(0, 0);
+  APP.innerHTML = v; window.scrollTo(0, 0); if(window.tzAfter) tzAfter();
 }
 
 /* ---------- Menü & Suche ---------- */
@@ -318,7 +319,7 @@ function buildMenu(){
   var p = document.getElementById("mmP");
   p.innerHTML = '<h3>Navigation</h3><button class="mi' + (cur === "start" ? " on" : "") + '" onclick="openMenu(false);go(\'start\')"><b>Startseite</b></button>' +
    AREAS.map(function(a){ return '<button class="mi' + (cur === a.id ? " on" : "") + '" onclick="openMenu(false);go(\'' + a.id + '\')"><b>' + esc(a.t) + '</b></button>'; }).join("") +
-   '<button class="mi" onclick="openMenu(false);openSearch()"><b>Suche</b></button><h3>Bilder</h3><button class="mi" onclick="openMenu(false);Galerie.open(\'vaesen\')"><b>Galerie</b> · alle Bilder des Grundregelwerks</button>' +
+   '<button class="mi" onclick="openMenu(false);openSearch()"><b>Suche</b></button><button class="mi" onclick="openMenu(false);go(\'kapitel/tanz\')"><b>Tanz der Träume</b> · Buchansicht</button><h3>Bilder</h3><button class="mi" onclick="openMenu(false);Galerie.open(\'vaesen\')"><b>Galerie</b> · alle Bilder des Grundregelwerks</button>' +
    '<h3>Buch-PDF</h3><div id="bvSettingsHost"></div>';
   if(window.BV){ document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh(); }
 }

@@ -127,6 +127,20 @@ var VAE_WESEN = [
 "ritual": "Siehe Grundregelwerk S. 140 f."
 },
 {
+"id": "drache",
+"name": "Drache",
+"en": "Dragon",
+"p": 45,
+"img": "feuer_drache",
+"might": 14,
+"body": 8,
+"magic": 9,
+"manip": 10,
+"fear": "2/1",
+"text": "Von allen furchterregenden Vaesen, die in der Wildnis lauern, ist der Drache das gefährlichste und berüchtigtste. Drachen sind ungeheuerliche Bestien mit sich windenden Reptilienkörpern, riesigen ledrigen Flügeln und messerscharfen Klauen und Reißzähnen. Sie haben einen scharfen und bösartigen Verstand, gewaltigen Appetit und die Fähigkeit, Feuer zu speien. Viele Drachen können ihre Opfer mit ihrem Blick hypnotisieren und haben oft andere seltsame Fähigkeiten, darunter Gedankenlesen, Gestaltwandel und die Macht, die Sicht der Menschen zu verzerren.  Wenn der Drache nicht gerade Unheil stiftet, ruht er auf seinem Schatz in einem Lager unter einem Grabhügel oder einer uralten Familiengruft. Manche Drachen sammeln auch gern neue Reichtümer und können mehr als einen Schatzhort haben. Findige Leute versuchen vielleicht, den Schatz eines Drachen zu stehlen, sollten aber äußerste Vorsicht walten lassen, denn der Drache ist zweifellos in der Nähe und greift Diebe mit schrecklicher Wut an. Außerdem darf man nicht leicht zu erschrecken sein, denn der Drache kann die furchterregendsten Gestalten annehmen, um den Eindringling zu verscheuchen.  Wenn die Dunkelheit hereinbricht, besonders in klaren Herbstnächten, kann man Drachen über den Baumwipfeln auf dem Weg von einem Schatzhort zum nächsten dahinziehen sehen, gefolgt von Funken- und Flammenschauern.",
+"ritual": "Ein Stahlmesser, das über den Schatz des Drachen geworfen wird, raubt dem Untier seine Kraft und macht es harmlos."
+},
+{
 "id": "myling",
 "name": "Myling",
 "en": "Myling",

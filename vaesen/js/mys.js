@@ -64,7 +64,7 @@ function msHier(ids){ ids = ids.filter(function(k){ return MS.figs[k]; }); retur
 /* ---------- Tabs ---------- */
 function msViewHg(){
   var h = MS.hg, hi = h.hinter;
-  return '<div class="ms-hg"><div class="ms-top"><div class="ms-op"><img src="' + msImg(MS.bild.replace("som/", "")) + '" alt="" onclick="msZoom(this.src)"></div><div><div class="ms-wn">' + esc(MS.warnung) + '</div>' + msTtl(MS.titel, MS.p) + '<p>' + h.intro + '</p><p>' + h.vorspiel + '</p>' + (h.vl ? '<div class="vl" style="margin-top:12px;max-width:440px">' + h.vl + '</div>' : '') + '</div></div>' +
+  return '<div class="ms-hg"><div class="ms-top"><div class="ms-op"><img src="' + msImg(MS.bild.replace("som/", "")) + '" alt="" onclick="msZoom(this.src)"></div><div><div class="ms-wn">' + esc(MS.warnung) + '</div>' + msTtl(MS.titel, MS.p) + '<p>' + h.intro + '</p><p>' + h.vorspiel + '</p>' + (h.vl ? '<div class="vl" style="margin-top:12px;columns:2;column-gap:40px">' + h.vl + '</div>' : '') + '</div></div>' +
    '<div class="ms-cols"><div class="gtxt">' + msTtl("Hintergrund", msPp("hinter", 1)) + hi.map(function(t){ return '<p>' + t + '</p>'; }).join("") + '</div><div>' +
    (h.figs ? msSub("Figuren im Mysterium " + msPg(msPp("figs", 1))) + '<div class="ms-fl">' + h.figs.map(function(f){ return '<div class="kast"><b class="kt">' + esc(f[0]) + '</b>' + f[1] + '</div>'; }).join("") + '</div>' : '') +
    msSub("Konflikte " + msPg(msPp("konf", 2))) + h.konflikt.map(function(t, i){ return '<div class="kast"><b class="kt">' + ["Hauptkonflikt", "Nebenkonflikt"][i] + '</b>' + t + '</div>'; }).join("") +

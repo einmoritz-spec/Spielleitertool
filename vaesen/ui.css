@@ -152,3 +152,17 @@ body.has-dock{padding-bottom:116px}
 .vu-ac.vu-off .vu-tx{margin-bottom:12px}
 @media(max-width:900px){.vu-tools{grid-template-columns:repeat(2,minmax(0,1fr))}.vu-adv{grid-template-columns:1fr}}
 .vu-vw{margin-top:16px;border-top:1px dotted var(--line);padding-top:8px}.vu-vw summary{cursor:pointer;font-family:Mar;letter-spacing:.08em;text-transform:uppercase;font-size:14px;color:var(--soft)}.vu-vw summary span{font-style:italic;text-transform:none;font-size:12.5px}.vu-vw p{max-width:90ch;font-size:16.5px;margin:8px 0 0}
+
+.vu-sea{margin-top:26px;border:1px solid var(--line);background:rgba(244,239,226,.45);padding:14px 16px 16px;border-radius:2px}
+.vu-seah{display:flex;align-items:center;gap:14px}
+.vu-seah img{height:62px;width:44px;object-fit:cover;border:1px solid var(--line)}
+.vu-seah h2{margin:0;font-family:Mar;font-weight:400;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.vu-seah small{color:var(--soft);font-style:italic;font-size:14px}
+.vu-vwb{margin-left:auto;font-family:Mar;letter-spacing:.1em;text-transform:uppercase;font-size:13px;border:1px solid var(--red);color:var(--red);background:transparent;padding:6px 14px;border-radius:3px;cursor:pointer}
+.vu-vwb span{text-transform:none;font-style:italic}.vu-vwb:hover{background:var(--red);color:#f3ecd9}
+.vu-sea .vu-adv{margin-top:14px}
+.vu-offrow .vu-ac{grid-template-columns:90px minmax(0,1fr)}.vu-offrow .vu-ac .vu-im{min-height:80px}
+.vu-vwo{position:fixed;inset:0;background:rgba(30,20,10,.55);z-index:200;display:flex;align-items:center;justify-content:center}
+.vu-vwc{background:#f3ecd9;max-width:720px;max-height:84vh;overflow:auto;padding:22px 30px 26px;border:2px solid var(--line);position:relative}
+.vu-vwc h2{margin:0 0 10px;color:var(--red);font-family:Mar;font-weight:400;letter-spacing:.06em;text-transform:uppercase}.vu-vwc h2 small{font-size:14px;font-style:italic;text-transform:none}
+.vu-vwc p{font-size:17px;margin:0 0 10px}.vu-vwc .vu-x{position:absolute;top:10px;right:14px;cursor:pointer;font-size:18px}

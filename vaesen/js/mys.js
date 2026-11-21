@@ -89,7 +89,7 @@ function msViewOrte(ort){
   if(o.geschichten){ left += '<div style="margin-top:14px">' + right + '</div>'; right = rr; }
   if(o.paranoia) right += '<div style="margin-top:12px" class="kast"><b class="kt">' + esc(o.paranoia.t) + ' ' + msPg(12) + '</b>' + o.paranoia.x.map(function(t, i){ return i ? '<p style="margin:6px 0">· ' + msDec(t) + '</p>' : '<p>' + t + '</p>'; }).join("") + '</div>' +
    '<div style="margin-top:12px" class="kast"><b class="kt">' + esc(o.zettel.t) + '</b>' + o.zettel.x + ' <a class="lnk" onclick="go(\'som/' + MS_ID + '/ho\')">Handout 1B</a></div>';
-  return '<div class="ms-orte">' + '<div class="ms-ol">' + kar + '</div><div class="ort">' + bar + '<p class="ms-intro">' + MS.orteIntro + '</p><div class="cols2x"><div>' + left + '</div><div>' + right + '</div></div></div></div>';
+  return '<div class="ms-orte"><div class="ort">' + bar + '<p class="ms-intro">' + MS.orteIntro + '</p><div class="cols2x"><div>' + left + '</div><div><div class="ms-ol">' + kar + '</div>' + right + '</div></div></div></div>';
 }
 function msViewKf(){
   var k = MS.kf, secs = k.wege || [k.show, k.bann, k.nock];

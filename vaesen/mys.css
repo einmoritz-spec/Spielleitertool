@@ -6,9 +6,9 @@
 .ms-fl{display:grid;gap:8px}
 .ms-an{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.8fr);gap:28px;padding:18px 34px 40px}
 .ms-karte,.ms-map img{width:100%;display:block;cursor:zoom-in;box-shadow:2px 3px 10px rgba(60,40,20,.25)}
-.ms-orte{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:0 30px;padding:18px 34px 40px}
-.ms-ol{position:sticky;top:calc(var(--hd) + 46px + 42px + 14px);align-self:start}
-.ms-ol .ms-map img{max-height:calc(100vh - 220px);width:auto;max-width:100%;margin:0 auto}
+.ms-orte{display:block;padding:18px 34px 40px}
+.ms-ol{margin:0 0 14px}
+.ms-ol .ms-map img{max-height:520px;width:auto;max-width:100%;margin:0 auto;display:block}
 .ms-intro{font-size:15px;color:var(--soft);margin:0 0 10px}
 .ms-list p{margin:0 0 9px}
 .ms-kf{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:28px;padding:18px 34px 40px}

@@ -1,0 +1,18 @@
+/* Gefahr aus dem Interregnum (Corebook S. 305) */
+window.WS_GEFAHR = window.WS_GEFAHR || [];
+WS_GEFAHR.push({id:"taumelheilige", t:"Taumelheilige", en:"Stagger-Saint", kat:"konstrukte", p:305, groesse:"Riesig", unter:"Uraltes Konstrukt", reich:"interregnum",
+ x:"Die technischen Fähigkeiten der vorverdanten Welt sind selbst den ergebensten Gelehrten kaum verständlich, doch eine aus der Finsternis der Geschichte gezerrte Tatsache steht klar: Die Anbetung uralter Götter war oft eine zu komplexe Aufgabe für fleischliche Köpfe.\nTaumelheilige sind ein Zeugnis davon, riesige Maschinen mit Lochkartengeistern, gebaut, um Lobpreisungen zu singen und die Rituale vergessener Gottheiten zu beachten. Während viele im Unrat des Unter-Gebälks begraben liegen, haben manche überlebt und ziehen sich in die neue Welt darüber herauf, um ihre Mission fortzusetzen, den Glauben zu verbreiten und durchzusetzen.",
+ praesenz:{sicht:"Eine aufragende Gestalt, die auf euch zukommt. Lange Glieder und glimmendes Glas. Eine knisternde, versagende Kraftquelle.",
+  klang:"Ohrenbetäubende Lob- und Anbetungsgesänge. Das Kreischen und Ächzen schlecht gewarteter Gelenke.",
+  geruch:"Abblätterndes Maschinenöl, vorverdanter Weihrauch.",
+  geschmack:"Wie Messing und Schmiere und Inbrunst."},
+ ressourcen:{bergegut:["Göttlicher Brennstoff (verschiedene Arten)","Konstrukt-Zahnräder","Vorverdante Metalle","Uralter Motor"], proben:["Organischer Brennstoff"], gefluester:["Den Ruhm singen","Alter begrabener Götterling"], seekarten:["Verblasste Lochkarten","Ritualgezeichnetes Metall"]},
+ aspekte:[["Ergebenes Gehäuse","Selbst der schwächste Taumelheilige wurde auf Dauer gebaut. Er ist resistent gegen Stumpf-, Scharf-, Stich-, Säge- und Hieb-Schaden und immun gegen Gift."],
+  ["Ritual-Lochkarten","Der Geist eines Heiligen ist eine falsche Intelligenz, hochmotiviert, aber leicht durch kluge Strategien und unerwartete Aktionen zu verwirren. Entfernt man die Lochkarten (oder trennt man den Mechanismus, der sie mit dem Ganzen verbindet), kann der ganze Taumelheilige zusammenstürzen."],
+  ["Werkzeuge des Glaubens","Alle Taumelheiligen können mit ihren mechanischen Gliedern NK-Stumpf-Schaden verursachen, doch die meisten haben auch andere Methoden, sich zu verteidigen."]],
+ eigenheiten:[{t:"Okulares Himmelreich", x:"Verschiedene Taumelheilige haben verschiedene Arten, die Welt zu „sehen“. Manche nutzen lichtempfindliche Blenden, andere erkennen Ziele an Wärme, an Bewegung oder an der Stärke ihres Geistes."},
+  {t:"Dröhnende Stimme", x:"Die komplexesten Heiligen können mit Geflüster die Welt auf seltsame und unerwartete Weise beeinflussen."},
+  {t:"Rapturelung", x:"Erzeugt eine Aura schlechter Luft um die Maschine, sei es durch erstickende Dämpfe, halluzinogene Wolken oder Rauch, der eifernde Gefühle in den Vordergrund bringt."},
+  {t:"Steinhaut", x:"Der Taumelheilige ist so alt, dass er die bekannte vorverdante Welt überdauert. Er spuckt knirschende Mantras in einer verlorenen Sprache und ist mehr eine bewegte Skulptur aus gegliedertem Stein als eine Maschine. Immun gegen Hieb- und Säge-Schaden."},
+  {t:"Meergefressen", x:"Die Zeit unter den Wellen hat den Taumelheiligen mit Moosen und Ranken verstopft. Seine Bewegungen sind schwerfällig und stockend, doch er kann auch Bienenstöcke oder Tiernester tragen, die hervorbrechen, um ihr Zuhause zu verteidigen."},
+  {t:"Stierhaft", x:"Eine Maschine, die dem Lobpreis des Ewigen Stiers gewidmet ist, des abwesenden Gottes des Interregnum. Stürmt und durchbohrt Ungläubige mit riesigen Messinghörnern und verursacht massiven NK-Stich-Schaden."}]});

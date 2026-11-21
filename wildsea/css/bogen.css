@@ -109,3 +109,10 @@
 .bsheet .pill .bch .cr{width:21px;height:21px}
 @media print{.bsheet .cr:hover{box-shadow:none}}
 .bsheet .pill textarea{height:38px;padding-top:10px;line-height:1.15}
+/* alle Kreise identisch */
+.bsheet .cr,.bsheet .row .cr.e,.bsheet .bds .cr,.bsheet .bch .cr,.bsheet .pill .bch .cr{width:21px;height:21px;border:1.8px solid #77796d}
+.bsheet .cr.f,.bsheet .bch .cr.f{border-color:#3a372d}
+.bsheet .bch .cr.gh{border-color:#dddcd3}
+.bsheet .bch s{border-top:1.4px solid #77796d;border-bottom:1.4px solid #77796d}
+.bsheet .bch s.gh{border-color:#dddcd3}
+.bsheet .bk .bch{left:57.5px;top:24.5px}

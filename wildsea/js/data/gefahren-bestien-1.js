@@ -57,7 +57,7 @@ WS_GEFAHR.push(
  aspekte:[["Pfeilspitzen-Zunge","Wird mit hoher Geschwindigkeit aus dem zahnlosen Maul entrollt und kann entweder leicht gepanzerte Beute mit Stich-Schaden durchbohren oder sich um schwerere Beute wickeln. Einmal gefangen, werden Ziele durch die Umgebung geschleudert, mit steigendem Stumpf-Schaden."],["Kräftige Beine","Jikari können nicht klettern, aber beeindruckende Weiten springen und ihre Beine als letzten Ausweg einsetzen, um hohen NK-Stumpf-Schaden zu verursachen, wenn sie in die Enge getrieben werden."]],
  eigenheiten:[{t:"Giftig",x:"Die Zunge des Jikari kann aufplatzen und tödliches Gift verspritzen, das blendet oder Gift-Schaden verursacht."}]},
 
-{id:"mantikraehen", t:"Mantikrähen", en:"Manticrows", kat:"bestien", p:231, groesse:"Variabel", unter:"Wandelbare Vogelschrecken",
+{id:"mantikraehen", img:"manticrows", t:"Mantikrähen", en:"Manticrows", kat:"bestien", p:231, groesse:"Variabel", unter:"Wandelbare Vogelschrecken",
  x:"Die unbestrittenen Könige des Aases: Mantikrähen reichen von der Größe einer Katze bis zu der eines Pferdes, mit einigen unbestätigten Berichten über weit größere Exemplare. Bekannt für ihr lärmendes Krächzen und eine ungewöhnliche Geduld, lassen mehrere widersprüchliche Berichte über ihre Eigenschaften und Fähigkeiten alle bis auf die hingebungsvollsten Gelehrten über ihre wahre Natur im Unklaren.",
  i:"Setze Mantikrähen ein, wenn die Crew einem intelligenten Aasfresser begegnen soll, der die Angewohnheit hat, herabzustoßen und frische Leichen zu stehlen, und der dazu eine Reihe unbestätigter Fähigkeiten besitzt.",
  antriebe:[["Herabstoßen und greifen","Mantikrähen stürzen sich auf lebende Ziele und nehmen Leichen und Kadaver mit, wenn sie können, um sie in Ruhe zu verzehren."]],

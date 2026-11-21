@@ -10,7 +10,8 @@ function note(id, tab){ var s = rs(id), k = tab; s.notes = s.notes || {};
   var m = document.createElement("div"); m.className = "modal"; m.innerHTML = '<div><textarea id="nt"></textarea><button>Fertig</button></div>';
   m.onclick = function(e){ if(e.target === m || e.target.tagName === "BUTTON"){ s.notes[k] = document.getElementById("nt").value; save(); m.remove(); } };
   document.body.appendChild(m); document.getElementById("nt").value = s.notes[k] || ""; document.getElementById("nt").focus(); }
-function tabsR(id, tab){ return '<div class="tabs">' + RTABS.map(function(t){ return '<a class="' + (t[0] === tab ? 'on' : '') + '" onclick="go(\'reich/' + id + '/' + t[0] + '\')">' + t[1] + '</a>'; }).join("") + '<span class="r" onclick="note(\'' + id + '\',\'' + tab + '\')" style="cursor:pointer">' + PEN + '</span></div>'; }
+function hasSee(r){ return !!(r && r.see && r.see.wache && r.see.wache.frieden && r.see.wache.frieden.length); }
+function tabsR(id, tab){ return '<div class="tabs">' + RTABS.filter(function(t){ return t[0] !== "see" || hasSee(WS_REICH[id]); }).map(function(t){ return '<a class="' + (t[0] === tab ? 'on' : '') + '" onclick="go(\'reich/' + id + '/' + t[0] + '\')">' + t[1] + '</a>'; }).join("") + '<span class="r" onclick="note(\'' + id + '\',\'' + tab + '\')" style="cursor:pointer">' + PEN + '</span></div>'; }
 function rZoom(src){ var d = document.createElement("div"); d.className = "gzoom"; d.onclick = function(){ d.remove(); }; d.innerHTML = '<img src="' + src + '" alt="">'; document.body.appendChild(d); }
 function rimg(b, k){ if(!b) return ""; var wide = b[1] / b[2] > 1.3; return '<img class="rimg ' + (k || (wide ? "wide" : "tall")) + '" loading="lazy" src="img/' + b[0] + '.webp" width="' + b[1] + '" height="' + b[2] + '" alt="" onclick="rZoom(this.src)">'; }
 function rband(b){ return b && b[1] / b[2] > 1.3 ? rimg(b, "wide") : ""; }
@@ -22,7 +23,7 @@ function rUeberblick(r, S){
   var els = r.elemente.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + ' <span class="pg" style="float:right">S. ' + (r.p + 1) + '</span></h3><p>' + esc(e.x) + '</p>' + (e.erleben.length ? '<span class="k">Die Crew könnte erleben …</span><ul class="bul">' + e.erleben.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') + '</div>'; }).join("");
   var ru = '<div class="el ru"><h3>' + r.geruechte.t + ' <span class="pg">S. ' + r.geruechte.p + '</span></h3>' + (r.geruechte.intro ? '<p style="color:var(--soft);margin-bottom:8px">' + esc(r.geruechte.intro) + '</p>' : '') + '<div class="rs">' + r.geruechte.x.map(function(x, i){ return '<div class="cd' + (S.rumours[i] ? ' used' : '') + '" id="rumours_' + i + '" onclick="tog(\'' + r.id + '\',\'rumours\',' + i + ')">' + esc(x) + '</div>'; }).join("") + '</div></div>';
   var vl = r.erzaehl.map(function(v){ return '<div class="vl">' + paras(v.x) + '</div>'; }).join("");
-  return '<div class="band" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h1>' + esc(r.t) + qTag(r) + '</h1><p>' + esc(r.kurz) + '</p></div><div class="grid3">' + els + ru + '</div>' + vl;
+  return '<div class="band" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h1' + (r.t.length > 16 ? ' class="long"' : '') + '>' + esc(r.t) + qTag(r) + '</h1><p>' + esc(r.kurz) + '</p></div><div class="grid3">' + els + ru + '</div>' + vl;
 }
 function sideTree(list, cur, tab, id){
   return '<nav class="side">' + list.map(function(x){ var on = x.id === cur.id;
@@ -45,9 +46,9 @@ function rFraktionen(r, S, sel){
   return lay('<nav class="side">' + list.map(function(x){ return '<h4 class="' + (x.id === cur.id ? 'on' : '') + '" onclick="go(\'reich/' + r.id + '/fraktionen/' + x.id + '\')">' + esc(x.t) + '</h4>'; }).join("") + '</nav>', body);
 }
 function rGefahren(r){
-  var x = r.extra, g = r.see.gefahren;
-  return '<div class="ct" style="padding:18px 34px 40px">' + (x ? '<div class="hd"><h1>' + esc(x.t) + '</h1><span class="pg">S. ' + x.p + '</span></div>' + rband(x.bild) + '<div class="intro" style="margin-top:8px">' + rtall(x.bild) + paras(x.intro) + '</div><div class="grid3" style="padding:14px 0 20px">' + x.eintraege.map(function(e){ return '<div class="el">' + rimg(e.bild, "mini") + '<h3>' + esc(e.t) + '</h3>' + paras(e.x) + '</div>'; }).join("") + '</div>' : "") +
-   '<div class="hd"><h1 style="font-size:40px">Heimische Gefahren</h1><span class="pg">S. ' + r.see.p + '</span></div><div class="grid3" style="padding:12px 0">' + g.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3><p>' + esc(e.x) + '</p>' + (e.id ? '<a class="lk" onclick="go(\'gefahren/' + e.id + '\')">Gefahren-Karte</a>' : '') + '</div>'; }).join("") + '</div></div>';
+  var x = r.extra, g = (r.see && r.see.gefahren) || [];
+  return '<div class="ct" style="padding:18px 34px 40px">' + (x ? '<div class="hd"><h1>' + esc(x.t) + '</h1><span class="pg">S. ' + x.p + '</span></div>' + rband(x.bild) + '<div class="intro" style="margin-top:8px">' + rtall(x.bild) + paras(x.intro) + '</div><div class="grid3" style="padding:14px 0 20px">' + x.eintraege.map(function(e){ return '<div class="el">' + rimg(e.bild, "mini") + '<h3>' + esc(e.t) + '</h3>' + paras(e.x) + (e.id ? '<a class="lk" onclick="go(\'gefahren/' + e.id + '\')">Gefahren-Karte</a>' : '') + '</div>'; }).join("") + '</div>' : "") +
+   (g.length ? '<div class="hd"><h1 style="font-size:40px">Heimische Gefahren</h1><span class="pg">S. ' + r.see.p + '</span></div><div class="grid3" style="padding:12px 0">' + g.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3><p>' + esc(e.x) + '</p>' + (e.id ? '<a class="lk" onclick="go(\'gefahren/' + e.id + '\')">Gefahren-Karte</a>' : '') + '</div>'; }).join("") + '</div>' : '') + '</div>';
 }
 /* Auf See */
 var SW = ["Panzerung","Dichtung","Tempo","Sägen","Tarnung","Neigung"];
@@ -84,7 +85,7 @@ function viewReich(id, tab, sel){
   else if(tab === "territorien") b = rListe(r, r.territorien, "territorien", sel);
   else if(tab === "haefen") b = rListe(r, r.haefen, "haefen", sel);
   else if(tab === "fraktionen") b = rFraktionen(r, S, sel);
-  else if(tab === "see") b = rSee(r, S);
+  else if(tab === "see" && hasSee(r)) b = rSee(r, S);
   else b = rGefahren(r);
   return tabsR(id, tab) + b;
 }

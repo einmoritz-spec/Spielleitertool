@@ -10,6 +10,13 @@ window.WS_HERO = {
  "schiffe/einstieg":{k:"Kapitel 8", t:"Schiffe & Schiffsbau", s:"Alles beginnt irgendwo", img:"schiff/kapitel-schiffe.webp"},
  "leitfaden/kapitel":{k:"Kapitel 9", t:"Leitfaden", s:"Sitzung Null, Ton, Tempo, Werkzeugkasten, die Schichten der See", img:"leitfaden/kapitel-leitfaden.webp"},
  "gefahren":{k:"Kapitel 10", t:"Gefahren", s:"Naturgewalten, Bestien, Insekten, Pflanzen, Konstrukte, Plünderer, Krankheiten, Leviathane", img:"gefahr/eroeffnung-kap10-kraehen.webp", w:1400, h:1190},
+ "wildsee/sr-blau-kernkonzepte":{k:"Storm and Root · Kapitel 1", t:"Das Wilde Blau", s:"Die Welt über dem Kronendach: Aeronauten, Hochhäfen, Reisen im Himmel", img:"wildsee/sr-blau-eroeffnung-aeronaut-ueberm-kronendach.webp"},
+ "wildsee/sr-tiefe-kernkonzepte":{k:"Storm and Root · Kapitel 2", t:"Die erdrückenden Tiefen", s:"Das Leben unter dem Gestrüpp: Tiefhäfen, Tauchboote, Druck", img:"sr/tiefe-kapitelbild-lowport-bernsteinkuppel.webp"},
+ "charaktere/sr-optionen":{k:"Storm and Root · Kapitel 3", t:"Charakteroptionen", s:"Itzenko, neue Herkünfte und zwölf neue Posten", img:"sr/kap3-charakteroptionen-werkstatt.webp", w:1255, h:1067},
+ "schiffe/sr-schiffsbau":{k:"Storm and Root · Kapitel 4", t:"Erweiterter Schiffsbau", s:"Luftschiffe und Tauchboote", img:"schiff/sr-kapitel-erweiterter-schiffsbau.webp", w:1253, h:1067},
+ "leitfaden/sr-rat-kapitel":{k:"Storm and Root · Kapitel 7", t:"Ratschläge & Ressourcen", s:"Schicksalswürfe, Verzögertes An-sich-Reißen, Crezzerblüte", img:"leitfaden/sr-rat-kapitel7-eroeffnung-ruine-mit-maschinen.webp"},
+ "tisch/sr-glossar-a-p":{k:"Storm and Root · Kapitel 8", t:"Extras", s:"Glossar", img:"tisch/sr-glossar-kapitel8-eroeffnung-doppelseite.webp"},
+ "schiffe/sg-ernte-an-deck":{k:"Schiffsgärten", t:"Schiffsgärten", s:"Beete, Nährböden, Pflanzen und Kreuzung", img:"garten/titel-schiffsgaerten.webp"},
  "one-armed-scissor/ueberblick":{k:"Szenario", t:"One Armed Scissor", s:"Das Hanging Manor, Three Masks und Port Fyzeo", img:"szen/oas/titel-hanging-manor.webp"},
  "red-right-hand/ueberblick":{k:"Szenario", t:"Red Right Hand", s:"Nuskaro, der Hetterjin Tower und die Clockface Council", img:"szen/rrh/hetterjin-turm-titel.webp"},
  "tisch/gebraeuchliche-namen":{k:"Kapitel 12", t:"Am Tisch", s:"Namen, alternative Wendungen, Eintagsfliegen-Regeln, Glossar", img:"tisch/kapitel-tisch.webp"}

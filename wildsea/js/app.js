@@ -22,20 +22,22 @@ var KACHELN = [
 ];
 function viewStart(){
   var tiles = KACHELN.map(function(k){ return '<button class="ti" onclick="go(\'' + k.go + '\')"><div class="im" style="background-image:url(' + IMG(k.img) + ')"></div><div class="b"><h3>' + esc(k.t) + '</h3><p>' + esc(k.s) + '</p><span class="pg">' + esc(k.k) + '</span></div></button>'; }).join("");
-  var rs = WS_REICHE.map(function(r){ return '<a style="background-image:url(' + IMG("reich/" + r.id) + ')" onclick="go(\'reich/' + r.id + '\')"><span>' + esc(r.t.replace(/^The /, "")) + '</span></a>'; }).join("");
+  var rs = WS_REICHE.filter(function(r){ return !r.q; }).map(function(r){ return '<a style="background-image:url(' + IMG("reich/" + r.id) + ')" onclick="go(\'reich/' + r.id + '\')"><span>' + esc(r.t.replace(/^The /, "")) + '</span></a>'; }).join("");
   var sc = WS_SZENARIEN.slice(0, 2).map(function(s){ return s.id ? '<a onclick="go(\'szenario/' + s.id + '\')"><b>' + esc(s.t) + '</b>Szenario</a>' : '<div><b>' + esc(s.t) + '</b>Szenario</div>'; }).join("");
   return '<div class="hero"></div><div class="wrap"><div><h2 class="sec">Vorbereitung</h2><div class="tiles">' + tiles + '</div>' +
-    '<div class="chips"><button class="chip" onclick="openBook(\'ws_core\',362)">Charakterbogen</button><button class="chip" onclick="openBook(\'ws_core\',363)">Schiffsbogen</button><button class="chip" onclick="go(\'schirm\')">Spielleiterschirm</button><button class="chip" onclick="go(\'galerie\')">Galerie</button></div></div>' +
+    '<div class="chips"><button class="chip" onclick="openBook(\'ws_core\',362)">Charakterbogen</button><button class="chip" onclick="openBook(\'ws_core\',363)">Schiffsbogen</button><button class="chip" onclick="go(\'nach/charaktere\')">Fertige Charaktere</button><button class="chip" onclick="go(\'schirm\')">Spielleiterschirm</button><button class="chip" onclick="go(\'galerie\')">Galerie</button></div></div>' +
     '<div class="go"><h3>In See stechen</h3><div class="rs">' + rs + '</div><a class="bt" onclick="go(\'reiche\')">Reiche &amp; Szenarien</a><div class="sc">' + sc + '</div></div></div>';
 }
 function viewReiche(){
   var last = ST.last && (ST.last.split("/")[1] || "");
-  var cards = WS_REICHE.map(function(r){
+  var card = function(r){
     var n = 0, h = (ST.reiche && ST.reiche[r.id] && ST.reiche[r.id].hooks) || {}; for(var k in h) if(h[k]) n++;
-    return '<a class="rc' + (r.id === last ? ' cur' : '') + '" onclick="go(\'reich/' + r.id + '\')"><div class="im" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h3>' + esc(r.t) + '</h3></div><div class="b"><p>' + esc(r.kurz) + '</p><span class="st"><b>' + n + ' / 12</b>Aufhänger</span></div></a>';
-  }).join("");
+    var tot = ((window.WS_REICH[r.id] || {}).fraktionen || []).reduce(function(a, f){ return a + (f.haken || []).length; }, 0) || 12;
+    return '<a class="rc' + (r.id === last ? ' cur' : '') + '" onclick="go(\'reich/' + r.id + '\')"><div class="im" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h3>' + esc(r.t) + '</h3></div><div class="b"><p>' + esc(r.kurz) + '</p><span class="st"><b>' + n + ' / ' + tot + '</b>Aufhänger</span></div></a>';
+  };
+  var cards = WS_REICHE.filter(function(r){ return !r.q; }).map(card).join(""), cards2 = WS_REICHE.filter(function(r){ return r.q; }).map(card).join("");
   var sz = WS_SZENARIEN.map(function(s){ return (s.id ? '<a onclick="go(\'szenario/' + s.id + '\')">' : '<div>') + '<b>' + esc(s.t) + '</b><small>' + esc(s.s) + '</small>' + (s.id ? '</a>' : '</div>'); }).join("");
-  return '<div class="tabs"><a class="on">Reiche</a></div><div class="pad"><div class="rg">' + cards + '</div><h2 class="sec" style="margin-top:22px">Szenarien</h2><div class="sz">' + sz + '</div></div>';
+  return '<div class="tabs"><a class="on">Reiche</a></div><div class="pad"><div class="rg">' + cards + '</div>' + (cards2 ? '<h2 class="sec" style="margin-top:22px">Storm and Root</h2><div class="rg">' + cards2 + '</div>' : '') + '<h2 class="sec" style="margin-top:22px">Szenarien</h2><div class="sz">' + sz + '</div></div>';
 }
 function viewPlatzhalter(t){ return '<div class="tabs"><a class="on">' + esc(t) + '</a></div><div class="pad"><h2 class="sec">' + esc(t) + '</h2></div>'; }
 function render(){

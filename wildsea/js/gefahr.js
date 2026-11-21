@@ -15,7 +15,8 @@ function gQF(k){ GS().qf = k; save(); render(); }
 function gKat(k){ GS().kat = k; save(); render(); }
 function gList(){
   var s = GS(), q = (s.q || "").toLowerCase();
-  return (window.WS_GEFAHR || []).filter(function(g){ return (!s.kat || g.kat === s.kat) && (!s.qf || (s.qf === "core" ? !g.q : g.q === s.qf)) && (!q || (g.t + " " + (g.en || "")).toLowerCase().indexOf(q) >= 0); });
+  var KO = {}; GKAT.forEach(function(k, i){ KO[k[0]] = i; });
+  return (window.WS_GEFAHR || []).map(function(g, i){ return [g, i]; }).sort(function(a, b){ return ((KO[a[0].kat] || 0) - (KO[b[0].kat] || 0)) || (a[1] - b[1]); }).map(function(p){ return p[0]; }).filter(function(g){ return (!s.kat || g.kat === s.kat) && (!s.qf || (s.qf === "core" ? !g.q : g.q === s.qf)) && (!q || (g.t + " " + (g.en || "")).toLowerCase().indexOf(q) >= 0); });
 }
 function gGrid(){
   var L = gList();
@@ -38,7 +39,7 @@ function gKarte(g){
   var dm = g.img && window.GIMG ? GIMG[g.img] : null, hc = !dm ? ' none' : dm[0] / dm[1] > 1.3 ? ' wide' : ' tall';
   return '<div class="hz' + hc + '"><div class="l"><h1>' + esc(g.t) + ' ' + (g.kurz ? '' : '<span class="tag gr">' + esc(g.groesse) + '</span>') + '<span class="pg"><a onclick="openBook(\'' + qBuch(g) + '\',' + g.p + ')">S. ' + g.p + '</a></span>' + qTag(g) + '</h1>' + (g.kurz ? '' : '<div class="sub">' + esc(g.unter) + '</div>') + '<div class="desc">' + paras(g.x) + (g.i ? '<p><i style="color:#5f6d52">' + esc(g.i) + '</i></p>' : "") + '</div>' +
    (g.antriebe || g.praesenz ? '<div class="g3"' + (g.antriebe ? '' : ' style="grid-template-columns:1fr 1fr"') + '>' + (g.antriebe ? '<div><div class="k">Antriebe</div>' + g.antriebe.map(function(a){ return '<p><b>' + esc(a[0]) + ':</b> ' + esc(a[1]) + '</p>'; }).join("") + '</div>' : '') + '<div><div class="k">Präsenz</div>' + lab("Sicht", P.sicht) + lab("Klang", P.klang) + lab("Geruch", P.geruch) + lab("Gefühl", P.gefuehl) + lab("Geschmack", P.geschmack) + '</div><div><div class="k">Ressourcen</div>' + res + '</div></div>' +
-   '<div class="g2"><div class="asp"><div class="k">Aspekte</div>' + A.map(function(a){ return '<p><b>' + esc(a[0]) + ':</b> ' + esc(a[1]) + '</p>'; }).join("") + '</div><div><div class="k">Eigenheiten</div><div class="q">' + EG.map(function(e, i){ return '<div class="' + (E[i] ? 'on' : '') + '" onclick="gEig(\'' + g.id + '\',' + i + ')"><b>' + esc(e.t) + '</b>' + esc(e.x) + '</div>'; }).join("") + '</div></div></div>' : '') + (g.extra ? '<div class="g2" style="grid-template-columns:1fr 1fr">' + g.extra.map(function(e){ return '<div class="asp"><p><b>' + esc(e[0]) + '</b><br>' + esc(e[1]) + '</p></div>'; }).join("") + '</div>' : '') + '</div>' +
+   '<div class="g2"><div class="asp"><div class="k">Aspekte</div>' + A.map(function(a){ return '<p><b>' + esc(a[0]) + ':</b> ' + esc(a[1]) + '</p>'; }).join("") + '</div>' + (EG.length ? '<div><div class="k">Eigenheiten</div><div class="q">' : '') + EG.map(function(e, i){ return '<div class="' + (E[i] ? 'on' : '') + '" onclick="gEig(\'' + g.id + '\',' + i + ')"><b>' + esc(e.t) + '</b>' + esc(e.x) + '</div>'; }).join("") + (EG.length ? '</div></div>' : '') + '</div>' : '') + (g.extra ? '<div class="g2" style="grid-template-columns:1fr 1fr">' + g.extra.map(function(e){ return '<div class="asp"><p><b>' + esc(e[0]) + '</b><br>' + esc(e[1]) + '</p></div>'; }).join("") + '</div>' : '') + '</div>' +
    (g.img ? '<div class="im"><img src="img/gefahr/' + g.img + '.webp" alt="" onclick="gZoom(\'' + g.img + '\')"></div>' : '') + '</div>' + (g.erzaehl ? '<div class="vl" style="margin:12px 0 0">' + paras(g.erzaehl) + '</div>' : "") + haken + leisten;
 }
 function viewGefahren(id){

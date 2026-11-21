@@ -9,6 +9,5 @@ var WS_REICHE = [
 ];
 var WS_SZENARIEN = [
  {id:"red-right-hand", t:"Red Right Hand", s:"Szenario", buch:"ws_a1"},
- {id:"one-armed-scissor", t:"One Armed Scissor", s:"Szenario", buch:"ws_a2"},
- {t:"Storm and Root", s:"Erweiterung · weitere Reiche"}
+ {id:"one-armed-scissor", t:"One Armed Scissor", s:"Szenario", buch:"ws_a2"}
 ];

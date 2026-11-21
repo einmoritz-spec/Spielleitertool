@@ -59,7 +59,7 @@ h2.sec{font-size:30px;text-transform:uppercase;margin:0 0 12px;letter-spacing:.0
 .tag{display:inline-block;font:600 14px/1 Teko,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:4px 7px 2px;border-radius:3px;background:var(--sage);color:#fff;vertical-align:middle}
 .tag.am{background:var(--amber);color:#3a2a08}.tag.te{background:var(--teal)}.tag.rd{background:var(--red)}.tag.gr{background:#a9a79e}.tag.sg{background:var(--sage3)}
 .tabs .r{margin-left:auto;align-self:center;margin-bottom:6px}.pen{width:18px;height:18px;opacity:.5}.pen:hover{opacity:1}
-.band{height:150px;position:relative;display:flex;align-items:flex-end;padding:0 34px 16px;background-size:cover;background-position:center 30%}
+.band{min-height:150px;position:relative;display:flex;align-items:flex-end;padding:0 34px 16px;background-size:cover;background-position:center 30%}
 .band:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,30,25,.78),rgba(20,30,25,.1) 65%)}
 .band h1{position:relative;color:#fff;font-size:68px;text-transform:uppercase;letter-spacing:.04em}
 .band p{position:relative;color:#eef0e6;font-size:14px;margin:0 0 12px 22px;max-width:560px;font-style:italic}
@@ -324,3 +324,5 @@ button.fold{position:fixed;top:112px;left:238px;z-index:16;width:24px;height:24p
 @media(min-width:1800px){.pcw{grid-template-columns:360px minmax(0,1fr)}}
 @media(max-width:1100px){.pgr{grid-template-columns:1fr}.prg{grid-template-columns:repeat(2,1fr)}}
 .ccs.pcs{grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}.pcc2 .im{height:400px}.pcc2 .qt{display:table;margin:7px auto 0}.pcc2 small{display:block;font-size:14px}
+
+.band{padding-top:14px}.band h1.long{font-size:46px;line-height:1}

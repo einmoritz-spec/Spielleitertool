@@ -311,10 +311,11 @@ function render(){
    case "spieler": v = viewSpieler(); break;
    case "kapitel": v = viewKapitel(sub.split("/")[0]); break;
    case "tanz": v = viewTanz(); break;
+   case "som": v = viewMys(); break;
    case "norden": case "gesellschaft": case "mysterium": v = viewKapitel(cur); break;
    default: v = viewStart();
   }
-  APP.innerHTML = v; window.scrollTo(0, 0); if(window.tzAfter) tzAfter(); if(window.grpAfter) grpAfter();
+  APP.innerHTML = v; window.scrollTo(0, 0); if(window.tzAfter) tzAfter(); if(window.mysAfter) mysAfter(); if(window.grpAfter) grpAfter();
 }
 
 /* ---------- Menü & Suche ---------- */

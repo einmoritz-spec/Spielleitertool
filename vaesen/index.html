@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="tanz.css">
+<link rel="stylesheet" href="mys.css">
 <link rel="stylesheet" href="ui.css">
 <link rel="stylesheet" href="../shared/galerie.css">
 </head>
@@ -49,15 +50,17 @@
 <script src="js/data/kapitel-tanz.js"></script>
 <script src="js/data/kapitel-struktur.js"></script>
 <script src="js/data/tanz-leit.js"></script>
+<script src="js/data/som-tod.js"></script>
 <script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
 <script src="../shared/galerie.js"></script>
 <script src="js/data/galerie.js"></script>
 <script src="js/data/galnames.js"></script>
 <script src="js/tanz.js"></script>
+<script src="js/mys.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/gruppe.js"></script>
 <script src="js/app.js"></script>
-<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"vae_core", books:VAE_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+(b.id==="vae_core"?" (EN)":""), off:(b.id==="vae_core"?4:0)}; })); },[]), openSettings:function(){ openMenu(true); } });</script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"vae_core", books:VAE_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+(b.id==="vae_core"?" (EN)":""), off:(b.id==="vae_core"||b.id==="vae_seasons"?4:0)}; })); },[]), openSettings:function(){ openMenu(true); } });</script>
 <script src="../toolmenu.js"></script>
 <script>window.gmBook=function(){return {name:"Vaesen Grundregelwerk",open:function(){BV.open("vae_core",1);}};};</script>
 </body>

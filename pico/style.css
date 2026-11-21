@@ -312,3 +312,13 @@ body.dark .tbl tr:nth-child(odd) td{background:rgba(255,255,255,.06)}
 .sr .sc{display:block;font-size:12px;opacity:.6}
 .sr .sn{display:block;font-size:13.5px;margin-top:2px}
 .sr mark{background:#ffe27a;padding:0 1px}
+
+.ggr{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.gc.nt{min-height:0}
+.gc.nt h3{padding:8px 12px 5px}
+.gc .ex{padding:8px 12px 2px;font-size:13px;line-height:1.45;color:var(--fg);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.gc.nt small{padding:6px 12px 2px}.gc.nt .ex{padding-bottom:10px}
+.nnav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 0 8px;font-size:14px}
+.nnav a{cursor:pointer;color:var(--c,var(--teal));font-weight:500;padding:4px 10px;border:1.5px solid currentColor;border-radius:999px;margin-left:6px;white-space:nowrap}
+.nnav>a:first-child{margin-left:0}
+.nnav.end{margin-top:26px}

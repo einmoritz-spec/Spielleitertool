@@ -12,7 +12,7 @@ function save(){ try{ localStorage.setItem("pi_state_v1", JSON.stringify(ST)); }
 load();
 function go(h){ if(location.hash === "#" + h) render(); else location.hash = h; }
 function openBook(id, p){ try{ BV.open(id || "pi_core", p || 1); }catch(e){} }
-function pgl(p, txt){ return p ? '<span class="pg" onclick="event.stopPropagation();openBook(\'pi_core\',' + p + ')">' + (txt || "S. " + p) + '</span>' : ""; }
+function pgl(p, txt){ var n = parseInt(String(p || "").replace(/\D/g, ""), 10); return n ? '<span class="pg" onclick="event.stopPropagation();openBook(\'pi_core\',' + n + ')">' + (txt || "S. " + String(p).replace(/^S\.\s*/, "")) + '</span>' : ""; }
 window.addEventListener("hashchange", function(){ render(); });
 
 /* ---------- Blöcke ---------- */
@@ -42,9 +42,19 @@ function blk(L){
 }
 /* Bild-Übersicht: x:[{t,img?,p?,c?,k?(Kurztext),b:[Blöcke]}] – Klick öffnet Detail */
 var CARDS = [];
+function exc(L, n){
+  var t = ""; (L || []).some(function(x){ var v = typeof x === "string" ? x : (x && (x.t === "p" || x.t === "tint" || x.t === "box") && typeof x.x === "string" ? x.x : ""); if(v){ t = v; return true; } });
+  t = t.replace(/[*_]+/g, "").replace(/\s+/g, " ").trim(); return t.length > n ? t.slice(0, n).replace(/\s+\S*$/, "") + " …" : t;
+}
+/* Kachel: mit Bild → Bildkachel, sonst kompakte Textkachel */
+function tile(o){
+  var st = o.c ? '--c:' + o.c : "";
+  return '<div class="gc' + (o.img ? '' : ' nt') + '" style="' + st + '" onclick="' + o.go + '">' + (o.img ? '<div class="im"><img loading="lazy" src="' + IMG(o.img) + '" alt=""></div>' : '') +
+    '<h3>' + esc(o.t) + '</h3>' + (o.k ? '<small>' + esc(o.k) + '</small>' : '') + (!o.img && o.x ? '<p class="ex">' + esc(o.x) + '</p>' : '') + '</div>';
+}
 function cards(b){
   var base = CARDS.length; b.x.forEach(function(c){ CARDS.push(c); });
-  return '<div class="ggr" style="margin:10px 0">' + b.x.map(function(c, i){ return '<div class="gc" style="' + ((c.c || b.c) ? '--c:' + (c.c || b.c) : '') + '" onclick="cardOpen(' + (base + i) + ')"><div class="im">' + (c.img ? '<img loading="lazy" src="' + IMG(c.img) + '" alt="">' : '<span class="ph">' + esc(c.t.charAt(0)) + '</span>') + '</div><h3>' + esc(c.t) + '</h3>' + (c.k ? '<small>' + esc(c.k) + '</small>' : c.p ? '<small>S. ' + c.p + '</small>' : '') + '</div>'; }).join("") + '</div>';
+  return '<div class="ggr" style="margin:10px 0">' + b.x.map(function(c, i){ return tile({t:c.t, c:c.c || b.c, img:c.img, k:c.k || (c.p ? "S. " + c.p : ""), x:exc(c.b, 150), go:"cardOpen(" + (base + i) + ")"}); }).join("") + '</div>';
 }
 function cardOpen(i){ var c = CARDS[i]; modal('<div class="box"' + (c.c ? ' style="--c:' + c.c + '"' : '') + '><div class="hd">' + esc(c.t) + (c.p ? pgl(c.p) : "") + '</div><div class="bd2 gl txt">' + (c.img ? '<img class="eimg big" src="' + IMG(c.img) + '" alt="" onclick="zoom(this.src)">' : '') + blk(c.b) + '</div></div>', true, c.c); }
 function tbl(b){

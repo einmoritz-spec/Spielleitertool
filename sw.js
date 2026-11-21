@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v585ws";
+const VERSION = "v586ws";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -57,6 +57,25 @@ const FILES = [
   "wildsea/js/data/charaktere-8g.js",
   "wildsea/js/data/charaktere-8h.js",
   "wildsea/js/data/charaktere-8i.js",
+  "wildsea/js/data/tisch-a.js",
+  "wildsea/js/data/tisch-b.js",
+  "wildsea/js/data/wildsee-a.js",
+  "wildsea/js/data/wildsee-b.js",
+  "wildsea/js/data/wildsee-c.js",
+  "wildsea/js/data/wildsee-d.js",
+  "wildsea/js/data/schiffe-a.js",
+  "wildsea/js/data/schiffe-b.js",
+  "wildsea/js/data/schiffe-c.js",
+  "wildsea/js/data/schiffe-d.js",
+  "wildsea/js/data/schiffe-e.js",
+  "wildsea/js/data/schiffe-f.js",
+  "wildsea/js/data/leitfaden-a.js",
+  "wildsea/js/data/leitfaden-b.js",
+  "wildsea/js/data/leitfaden-c.js",
+  "wildsea/js/data/leitfaden-d.js",
+  "wildsea/js/data/leitfaden-e.js",
+  "wildsea/js/data/leitfaden-f.js",
+  "wildsea/js/data/leitfaden-g.js",
   "wildsea/js/reich.js",
   "wildsea/js/gefahr.js",
   "wildsea/js/data/gefahren-bilder.js",

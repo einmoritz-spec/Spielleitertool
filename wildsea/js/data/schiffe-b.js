@@ -1,0 +1,63 @@
+/* Schiffe, Kap. 8 – Schritt 1: Entwurf, Größe bis Rumpf (Corebook S. 166–169) */
+window.WS_NACH = window.WS_NACH || {}; WS_NACH.schiffe = WS_NACH.schiffe || [];
+(function(L){ var K = "Schritt 1 · Entwurf";
+function E(n){ return n === 0 ? "Gratis" : n === 1 ? "1 Einsatz" : n + " Einsätze"; }
+function I(n, k, x, l){ var c = {c:n + " · " + E(k)}; if(x) c.x = x; if(l) c.l = l; return c; }
+L.push({id:"groesse", k:K, t:"Größe [Pflicht]", p:166, b:[
+ {a:"Die Größe eines Schiffs bestimmt sein Profil auf den Wellen und die Zahl von Crewmitgliedern und Passagieren, die an Bord nebeneinander bestehen können, bevor es eng wird und die Nerven blank liegen.\nWenn du Einsätze für eine Größe ausgibst, notiere sie auf deinem Schiffsbogen, ebenso alle Wertestufen, die sie gibt. Du kannst nur eine Größe für dein Schiff wählen – wähle weise."},
+ {h:"Verfügbare Größen"},
+ {a:"Es mag Schiffe geben, die kleiner sind, und es gibt gewiss Schiffe, die weit gewaltiger sind. Deine Wahl bestimmt die Zahl der Crewmitglieder und Passagiere, die dein Schiff bequem fassen kann, sowie die tatsächliche körperliche Größe."},
+ I("Nano",1,"Geeignet für einen einzelnen Segler und vielleicht ein, zwei Passagiere. Perfekt für den einsamen Wildsegler, der von übermäßigem Mut (oder einem Todeswunsch) besessen ist.",["Tarnung +1"]),
+ I("Klein",1,"Geeignet für 2–4 Personen, beengt, aber brauchbar für doppelt so viele. Ideal für ein erstes Schiff.",["Tempo +1"]),
+ I("Standard",1,"Bequem für 5–10 Personen, kann aber bei Bedarf doppelt so viele fassen. Die Mehrheit der Schiffe auf der Wildsea hat Standardgröße, daher der Name.",["Panzerung +1"]),
+ I("Groß",1,"Kann 10–20 Crewmitglieder mit reichlich Platz beherbergen, bei Bedarf viele mehr, je nach Innenaufbau und zusätzlicher Ausstattung. Große Schiffe werden meist eingesetzt, um Handelsrouten in gesetzlicheren Gegenden zu patrouillieren oder um Siedler und Forschungsteams großer Fraktionen zu befördern.",["Panzerung +1","Tarnung −1"]),
+ {h:"Fragen des Platzes"},
+ {a:"Ein größeres Schiff mag erzählerisch mehr Frachtraum haben, doch wir haben keine harten Grenzen dafür gesetzt, wie viel ein Schiff je nach Größe tragen kann.\nEbenso haben wir nicht begrenzt, wie viele Innenräume oder zusätzliche Ausstattungen du später im Schiffsbauprozess einbauen möchtest. Dein Schiff soll nach Möglichkeit ein Produkt von Fantasie und Kreativität sein statt von Zahlenrechnerei."},
+ {h:"Die Optionen abwägen"},
+ {a:"Zum erfolgreichen Überleben auf den rauschenden Wellen gehört mehr, als einfach Besitzer des größten Schiffs zu sein. Größere Schiffe sind von Natur aus robuster, das stimmt, doch sie haben oft Schwierigkeiten, unbemerkt zu bleiben oder in bestimmten Häfen überhaupt anzulegen. Kleinere Schiffe sind oft schneller oder wendiger, können Katz und Maus mit Verfolgern spielen oder im taktisch günstigen Moment unbemerkt unter die Wellen gleiten."},
+ {erz:"Die Stadt Kyther (oder Kynner) hatte viele Glocken, jede mit eigenem Zweck geläutet. Die meisten warnten vor Gefahr, wie man es von einer Riffrücken-Siedlung mitten in einem gefährlichen Territorium erwarten würde. Manche läuteten zu allgemeinen Versammlungen, zur Verteilung frisch erworbener Nahrungsmittel oder zu Bestattungsriten.\nAber die Glocke, die Rolgis an jenem Morgen rief, war keine davon. Sie wurde so selten geläutet, dass er sie fast nicht erkannte, was besonders peinlich gewesen wäre, denn sie war einzig für ihn bestimmt.\nMeisterschiffbauer dringend gesucht.\nAls er die Werften erreichte, begann er an sich zu zweifeln – die Bucht war überfüllt mit Fell und Ketten und Eingeweiden, Arbeiter der Zerlegestation krochen über den Kadaver. Doch die Menge machte ihm Platz, und die Zerleger deuteten hoffnungsvoll auf die Knochen.\nSie hatten recht. Er wurde gebraucht."}
+]});
+L.push({id:"entwurf", k:K, t:"Schritt 1: Entwurf", p:166, b:[
+ {a:"Der Entwurf deines Schiffs deckt die meisten Hauptbestandteile ab, die es zu einem … nun ja, Schiff machen. Das sind die Grundlagen – das Material, aus dem der Rumpf besteht, die Methode, mit der ihr von Hafen zu Hafen kommt. In vieler Hinsicht sind dies die wichtigsten Entscheidungen, die ihr als Crew trefft, denn das Schiff ist euer gemeinsamer Besitz.\nWir empfehlen, die Einsätze für diesen Schritt des Schiffsbaus im Ausschuss auszugeben und mit allen am Tisch zu besprechen, was ihnen ins Auge fällt und wie es euch nützen könnte. Die Entscheidungen hier haben eine mechanische Komponente, denn sie sind der Hauptweg, die Werte deines Schiffs zu steigern, aber sie haben auch großes erzählerisches Gewicht (eine Crew, die in einem keuchenden Schrottkahn in einem neuen Hafen auftaucht, wird vielleicht ganz anders angesehen und behandelt als eine, die in einem eleganten, knochenbeplankten Segelschiff erscheint)."},
+ {a:"Stellt sicher, dass ihr mindestens eine Option aus jedem der Entwurfsbereiche wählt (Größe, Rahmen, Rumpf, Biss und Antrieb)."}
+]});
+L.push({id:"rahmen", k:K, t:"Rahmen [Pflicht]", p:167, b:[
+ {a:"Unter den Waffen, Ausstattungen und Rumpfplatten jedes Schiffs liegt ein solider Rahmen, ein Überbau-Skelett, gebaut, um dem ständigen, rüttelnden Stoßen der Fahrt über eine Wellenlandschaft aus chemikalienbeschichteten Blättern und dicken Holzästen standzuhalten.\nWenn du Einsätze für einen Rahmen ausgibst, notiere ihn auf deinem Schiffsbogen, ebenso alle Wertestufen, die er gibt. Du kannst nur einen Rahmen für dein Schiff wählen – wähle weise."},
+ {h:"Haltung"},
+ {a:"Deine Rahmenwahl sagt ein wenig über die Gesamtform deines Schiffs aus, aber nicht zu viel – letztlich entscheidet eure Crew, wie das Schiff aussehen soll. Was deine Rahmenwahl festlegt, ist eine gewisse Haltung: Obwohl von Rumpf und Beiwerk verdeckt, beeinflusst dein Rahmen, was andere Segler von deinem Gefährt denken, wenn es zum ersten Mal erscheint."},
+ {h:"Verfügbare Rahmen"},
+ {a:"Das nackte Gerippe eines Schiffs, eine Bühne für jede künftige Entscheidung. Der gewählte Rahmen kann beeinflussen, wie dein Schiff von anderen wahrgenommen wird."},
+ I("Stabil",1,"Gebaut, um an einem Ort vergänglicher Dinge zu bestehen: Ein stabiler Rahmen hilft, selbst die stärksten Angriffe zu überstehen.",["Panzerung +1"]),
+ I("Gegossen",1,"Eine einzige ungebrochene Struktur, die durch das ganze Schiff läuft – eine ziemliche Leistung sicherheitsbewusster Ingenieurskunst.",["Dichtung +1"]),
+ I("Leicht",1,"Aus den leichtestmöglichen Materialien in den geringstmöglichen Mengen gefertigt.",["Tempo +1"]),
+ I("Sensenartig",1,"Oft keil- oder klingenförmig; sensenartige Rahmen sind gezielt gebaut, um so effizient wie möglich durch die Wellen zu schneiden.",["Sägen +1"]),
+ I("Schnittig",1,"Ruhe ist auf der Wildsea schwer zu bekommen, doch ein schnittiger Rahmen sorgt dafür, dass du, egal wie laut Biss und Antrieb sein mögen, stets tief an den Wellen liegst.",["Tarnung +1"]),
+ I("Flexibel",1,"Gebaut für Anpassbarkeit und Reaktionsfähigkeit; flexible Rahmen sind oft mehrteilig oder irgendwie gegliedert.",["Neigung +1"])
+]});
+L.push({id:"rumpf", k:K, t:"Rumpf [Pflicht]", p:168, b:[
+ {a:"Obwohl die große Mehrheit der Schiffe aus ein paar gängigen Materialien gebaut ist (Holz der Eisenwurzeln, geborgenes Metall und robuste Knochen), sind sie bei Weitem nicht die einzigen im Angebot. Da die See so dominierend präsent ist, gibt es kaum etwas, das nicht irgendwann jemand versucht hat, zu einem Schiff zu machen.\nEin Rumpf hält die Wildsea draußen und Fracht und Crew drinnen. Er ist vielleicht der wichtigste Teil des Schiffs (und wenn nicht, wird er sich ganz sicher so anfühlen, sobald die Schrapnellkanonen zu feuern beginnen).\nWenn du Einsätze für einen Rumpf ausgibst, notiere ihn auf deinem Schiffsbogen, ebenso alle Wertestufen, die er gibt. Du kannst mehrere Rümpfe kaufen, wenn du möchtest, musst aber mindestens einen nehmen."},
+ {h:"Flickwerk oder makellos?"},
+ {a:"Obwohl deine Rumpfwahl meist ein einzelnes Material nennt, sind Wildsegler-Schiffe selten so unkompliziert. Die meisten Schiffe sind ein Flickwerk aus verschiedenen Materialien, aus den Wellen gefischten oder in Bergungshöfen entdeckten Absonderlichkeiten, minderwertigen Notreparaturen auf See und Fracht oder Ressourcen, die die Lücken füllen. Deine Rumpfwahl mag das ursprüngliche Material deines Rumpfs angeben, sagt aber nicht unbedingt etwas über deine Zeit auf See und den Schaden, den sie angerichtet hat. Wildsegler tragen ihre Narben meist mit Stolz – ihre Schiffe nicht anders.\nDennoch gibt es einige Gefährte, deren Crews sie so nah an der Perfektion halten wie möglich. Sie werden oft mit Argwohn betrachtet, manchmal mit Ehrfurcht. Wenn ihr eine dieser Crews seid, die ihr Schiff möglichst im „Werkszustand“ halten wollen, gelingt das am besten, wenn ihr bei der Reparatur von Schäden sorgfältig seid. Verwendet nach Möglichkeit dasselbe Material wie der Rumpf, oder wartet, bis ihr in einen Hafen zurückkehren und eine der dortigen Dockwerkstätten die Reparaturen ausführen lassen könnt. Es wird vielleicht nie wieder so gut wie neu, aber womöglich verdammt nah dran.\nUnd was ist auf den rauschenden Wellen überhaupt „neu“?"}
+]});
+L.push({id:"rumpf-arten", k:K, t:"Rümpfe", p:169, b:[
+ {h:"Gewöhnliche Rümpfe"},
+ {a:"Gewöhnliche Rümpfe unterscheiden sich weniger durch die Häufigkeit der verwendeten Materialien als dadurch, wie diese geformt und gehärtet werden, um dem ständigen, mahlenden Ebben der Wellen standzuhalten. Deine Rumpfwahl ist zugleich kosmetisch und unkompliziert – wähle einen, der zum Gefühl deiner Crew passt, der verkörpert, warum ihr auf den Wellen unterwegs seid."},
+ I("Riffeisen",1,"Metallplatten ausgemusterter Schiffe, für deinen Rahmen umgeformt. Haltbar und rostbeständig.",["Panzerung +1"]),
+ I("Leviathan-Knochen",1,"Ein Rumpf, gefertigt aus einem oder mehreren Stücken eines Leviathan-Skeletts. Solide, wenn auch ein wenig makaber.",["Dichtung +1"]),
+ I("Breitholz",1,"Holzplanken, geschnitten aus den verlässlicheren Bäumen der Wildsea. Stark und flexibel.",["Neigung +1"]),
+ I("Raue Rinde",1,"Von den Eisenwurzeln geerntet. Unregelmäßig und schwer zu pflegen, aber für andere über die Entfernung der Wellen hinweg leicht zu übersehen.",["Tarnung +1"]),
+ I("Chitin",1,"Aus den gesammelten Panzern der größeren Insekten der Wildsea gefertigt. Glatt, bietet wenig Reibung oder Hakenstellen.",["Tempo +1"]),
+ I("Klingenschuppen",1,"Eine Außenhaut aus ineinandergreifenden Schuppen, die einem Wildsea-Untier abgestreift oder abgeerntet und auf Wirkung geschärft wurden.",["Sägen +1"]),
+ I("Bestienrücken",2,"Ein halblebendiger Rumpf aus Fleisch und Knochen, flexibel und beunruhigend warm.",["Dichtung +1","Neigung +1"]),
+ I("Keramik",2,"Eine Hülle aus schwerem gebranntem Ton. Protzig und brüchig, wenn man sie nicht sehr sorgfältig pflegt.",["Panzerung +1","Dichtung +1"]),
+ I("Chrysalis",2,"Ein Rumpf, angepasst aus der abgeworfenen Puppenhülle eines gewaltigen Insekts, ausgezeichneter Schutz gegen das Eindringen der See.",["Dichtung +1","Tarnung +1"]),
+ I("Geisterreiche",2,"Blass wie der Tod und bemerkenswert flexibel; Geisterreiche wächst selten außerhalb der lichtlosen Tiefen der Tiefe.",["Panzerung +1","Neigung +1"]),
+ I("Arachnoid",2,"Weniger ein Rumpf als ein riesiges Insekt, gezüchtet, um zu den Vorgaben deines Rahmens zu passen, meist etwas Spinnenartiges.",["Neigung +1","Tarnung +1"]),
+ I("Exilkupfer",2,"Ein seltenes Metall, das weit, weit weniger wiegt, als es dürfte, begehrt für Rümpfe von Rennschiffen.",["Panzerung +1","Tempo +1"]),
+ {h:"Einzigartige Rümpfe"},
+ {a:"Eine Reihe von Rümpfen mit eigenen Sonderregeln, und nicht immer zum Besseren. Denk daran, diese Regeln im Notizbereich deines Schiffsbogens zu vermerken, wenn du eine der folgenden Optionen wählst."},
+ I("Schrottgeflickt",0,"Das Zeichen eines vernarbten, oft reparierten Schiffs: Ein schrottgeflickter Rumpf ist kaum ein Rumpf … eher eine Sammlung geborgenen Metalls, Treibholzes und Tierknochen; instabil, rostend und undicht.",["Panzerung +1","Dichtung −1","Markiere deine Dichtung oder Panzerung, um ein Stück nützliches Bergegut aus dem Rumpf zu ziehen."]),
+ I("Floratarnung",2,"Ein Rumpf aus lebender Vegetation, gezielt um deinen Rahmen gezogen. Verschmilzt mühelos mit der Seelandschaft.",["Tarnung +2","Panzerung −1","Ein ruhendes Floratarnung-Schiff ist fast unmöglich zu entdecken – steigere die Wucht, wenn du Tarnung einsetzt, während du regungslos bist."]),
+ I("Monument",3,"Eine absurde Spielerei in einer Welt aus biegsamen Ästen und endloser Tiefe: Monument-Rümpfe bestehen aus entsetzlich schwerem Bergstein.",["Panzerung +2","Dichtung +2","Ein Schiff mit Monument-Rumpf kann auf einer Reise nicht Vorwärtspreschen."])
+]});
+})(WS_NACH.schiffe);

@@ -1,0 +1,76 @@
+/* Schiffe, Kap. 8 – Schritt 3: Unterbesatzung (Corebook S. 182–185) */
+window.WS_NACH = window.WS_NACH || {}; WS_NACH.schiffe = WS_NACH.schiffe || [];
+(function(L){ var K = "Schritt 3 · Unterbesatzung";
+function E(n){ return n === 0 ? "Gratis" : n === 1 ? "1 Einsatz" : n + " Einsätze"; }
+function I(n, k, x, l, t){ var c = {c:n + " · " + (t ? t + " · " : "") + E(k)}; if(x) c.x = x; if(l) c.l = l; return c; }
+function D(n, k, x, l){ return I(n, k, x, l, "3-Leiste"); }
+L.push({id:"unterbesatzung", k:K, t:"Schritt 3: Unterbesatzung", p:182, b:[
+ {a:"Für manche Wildsegler genügt das enge Band der Freundschaft (oder zumindest des gegenseitigen Respekts) zwischen einem kleinen Kern von Gefährten, um sie durch ihre Expeditionen in die Wildnis zu tragen. Aber Schiffe können geräumige Orte sein, mit vielen beweglichen Teilen, die man im Auge behalten, pflegen und instand halten muss; dafür ist die Unterbesatzung da.\nEinsätze für eine Unterbesatzungs-Option auszugeben gibt dir einen zusätzlichen, auf deinem Schiff stationierten NSC, einen loyalen Crewkameraden, der in deinem besten Interesse arbeitet. Sie sind nicht ganz Crew – sie werden dich wahrscheinlich nicht in den Hafen begleiten, es sei denn, du brauchst sie ausdrücklich, und erzählerisch haben sie wenig Einfluss auf die Gesamtgeschichte. Aber sie sind nützlich, verlässlich und oft eifrig. Sie haben ihre eigenen Meinungen, ihre eigenen Hoffnungen und – am wichtigsten – ihre eigenen mechanischen Vorteile.\nUnterbesatzungs-Wahlen verhalten sich genau wie Aspekte – sie haben Namen, Beschreibungen, Leisten und Fähigkeiten. Viele dieser Fähigkeiten wirken nur auf einer Reise oder wenn sich das Spielgeschehen auf das Schiff konzentriert, einige können aber auch im Hafen nützlich sein.\nUnterbesatzungs-Optionen für dein Schiff hinzuzufügen ist völlig optional – wenn ihr lieber hättet, dass jede Person an Bord ein Spielercharakter ist, ist das ebenso in Ordnung."}
+]});
+L.push({id:"offiziere", k:K, t:"Offiziere [Optional]", p:182, b:[
+ {a:"Erfahrene Segler, im Grunde NSC-Crewmitglieder. Offiziere beeinflussen nicht den Betrieb des Schiffs, sondern füllen mögliche Lücken in den Fertigkeiten oder Aspekten der Crew.\nWenn du einen Offizier kaufst, gib ihm einen Namen und eine kurze Beschreibung und notiere dies (zusammen mit seiner Leiste und allen Vorteilen, die er gibt) auf deinem Schiffsbogen."},
+ {h:"Würfeln für Offiziere"},
+ {a:"Manche Offiziere kommen mit Fertigkeiten und Sprachen, die deiner Crew in der Not helfen können. Wenn du diese Fertigkeiten nutzen willst, lass einfach die Fertigkeits- oder Sprachränge eines Offiziers deine eigenen ersetzen. Du kannst bei den meisten Würfen außerdem einen zusätzlichen W6 erhalten, indem du den Offizier als Umgebungsvorteil behandelst."},
+ {h:"Schaden und Tod"},
+ {a:"Offiziere haben eine Leiste, die wie bei jedem anderen Aspekt vom Typ Gefährte markiert (oder geheilt) werden kann. Der Unterschied ist, dass ein Offizier, dessen Leiste vollständig markiert ist, ein sehr reales Risiko hat zu sterben – sie mögen Wildsegler sein, aber sie sind nicht so hart im Nehmen wie die eigentliche Crew."},
+ {h:"Offiziere steigern"},
+ {a:"Offiziere haben die Chance zu wachsen und sich zu entwickeln, genau wie ein Spielercharakter. Um einen Offizier zu steigern, indem du ihm einen neuen Fertigkeitsrang, Sprachrang oder Aspekt gibst, gib Einsätze aus, als wären es große Meilensteine."},
+ {h:"Verfügbare Offiziere"},
+ {a:"Einzelne Personen, angeheuert für eine bestimmte Fertigkeit, Sprache oder einen Aspekt, den sie besitzen. Denk daran, Offizieren einen Namen zu geben, wenn du Einsätze für sie ausgibst – das hilft, ihre Persönlichkeit im Spiel zu entwickeln."},
+ D("Geschickter Offizier",1,"Ein erfahrener Wildsegler, wahrscheinlich kurz davor, die Unterbesatzung zu verlassen und sich eine eigene Crewposition zu suchen. Geschickte Offiziere haben Zugriff auf …",["2 Ränge in einer beliebigen Fertigkeit","1 Rang in einer beliebigen anderen Fertigkeit"]),
+ D("Weitgereister Offizier",1,"Ein eifriger Gesprächsbeitragender und Quell des Wissens, bewandert in den Wegen der weiteren Wellen. Weitgereiste Offiziere haben Zugriff auf …",["2 Ränge in beliebigen Sprachen","1 Rang in einer beliebigen anderen Sprache"]),
+ I("Erfahrener Offizier",1,"Ein erfahrener Wildsegler, wahrscheinlich kurz davor, die Unterbesatzung zu verlassen und sich eine eigene volle Crewposition zu suchen. Erfahrene Offiziere haben Zugriff auf …",["Einen beliebigen Aspekt","Die Leiste eines erfahrenen Offiziers ist gleich der Leiste des Aspekts, auf den er Zugriff hat"],"X-Leiste"),
+ {erz:"Die Kombüse war ein Chaos, die Tische hoch gestapelt mit der Beute ihres jüngsten Bergungszugs. Rostiges Metall, morsche Seile, vom Lauf der Jahre glatt gewetzte Glasscherben.\nEine Armeleute-Ausbeute … zumindest für das ungeübte Auge, doch sie wusste es besser, als sie schon abzuschreiben.\n„Wie läuft es hier unten, Tamen?“\nDer drahtige kleine Gau tauchte auf, der Kopf schnellte hoch von der Töpferware, die er untersucht hatte.\n„Ich glaube, das wird dir gefallen, Kapitänin. Die Information war gut.“\nTamen winkte sie zum hinteren Teil der Kombüse, wo ein Topf sanft über einem ihrer alten chemischen Brenner brodelte. Durch den Dampf war es schwer zu sehen, doch sie konnte gerade so einen Satz Gläser unter der Oberfläche ausmachen.\n„Intakt?“, fragte sie. Tamen schenkte ihr ein Lächeln und nickte begeistert.\n„Nicht nur intakt, Chefin … Vor-V.“"}
+]});
+L.push({id:"banden", k:K, t:"Banden [Optional]", p:183, b:[
+ {a:"Kleine Crews frischer Wildsegler, meist Amateure, die die Wege der rauschenden Wellen lernen. Banden geben einzigartige Vorteile, oft aber nur auf Reisen oder in schiffsbasierten Szenen.\nWenn du eine Bande wählst, gib ihr einige unterscheidende Merkmale – etwa einen Beinamen, der auf ihrem Aussehen beruht, oder einen eingängigen Namen für ihre kleine Truppe."},
+ {h:"Würfeln für Banden"},
+ {a:"Wenn eine Bande in irgendeiner Weise außerhalb ihrer einzigartigen Fähigkeit handeln muss, genügt meist ein einzelner W6-Wurf. Oft ist es weit nützlicher, eine Bande beim eigenen Würfeln als Umgebungsvorteil zu behandeln, als zu versuchen, sie zu Handlungen zu lenken, die ihnen unvertraut sind."},
+ {h:"Und dann war da nur noch einer"},
+ {a:"Eine Bande ist nur so stark wie ihre Mitglieder, und die Wildsea ist ein Ort endlosen Hungers, endloser Gefahr und Jagd. Wenn die Leiste einer Bande markiert wird, stellt das meist den Tod eines der Segler darin dar. Der einzige Weg, einen solchen Verlust zu heilen, ist, im Hafen ein neues Bandenmitglied anzuheuern, meist auf Kosten eines Frachtstücks, das ihm vermacht wird.\nFür ein freundlicheres, helleres Spiel nehmt an, dass ein markiertes Kästchen auf der Leiste einer Bande eine Verletzung oder Erfahrung bedeutet, die das Mitglied veranlasst, sich eine Auszeit zu nehmen, um bei der nächsten Gelegenheit im Hafen durch einen Leckerbissen aus der Fracht erneuert und neu belebt zu werden."},
+ {h:"Verfügbare Banden"},
+ {a:"Rau, bereit und mit besorgniserregend hoher Sterblichkeitsrate. Banden verlassen das Schiff selten, sind aber geschickt darin, es bei Abwesenheit anderer Crewmitglieder zu schützen."},
+ D("Sterngucker",2,"Himmelsbeobachtende Geschichtenspinner.",["Du erhältst automatisch ein normales Flüstern, wenn du Anker wirfst"]),
+ D("Kartographen",2,"Navigator-Gehilfen, die damit betraut sind, die Reisen und die Umgebung des Schiffs aufzuzeichnen.",["Du erhältst automatisch eine normale Seekarte, wenn du Anker wirfst"]),
+ D("Deckingenieure",2,"Betraut damit, das Schiff in betriebsfähigem Zustand zu halten.",["Du leerst automatisch eine Markierung von einem beschädigten Schiffswert, wenn du Anker wirfst"]),
+ D("Knochensägen-Truppe",2,"Amateur-Chirurgen, eifrig bemüht, die Crew in einigermaßen guter Gesundheit zu halten.",["Ein einzelnes Crewmitglied kann eine Markierung von einer beschädigten Eigenschaft oder Verletzung heilen, wenn du Anker wirfst"]),
+ D("Tüftler-Truppe",2,"Amateur-Metallarbeiter und Schneider, die den Besitz der Crew so gut wie möglich instand halten.",["Ein einzelnes Crewmitglied kann eine Markierung von einer beliebigen Ausrüstung reparieren, wenn du Anker wirfst"]),
+ D("Gelehrte",2,"Studenten, die daran arbeiten, die Geheimnisse der See zu lüften.",["Du erfährst ein Geheimnis der umgebenden Wellen, wann immer du Anker wirfst, geliefert vom Glühwürmchen"]),
+ D("Marodeure",2,"Raue Gesellen, die den Schutz des Schiffs (und die Feiern nach einem Kampf) äußerst ernst nehmen.",["Sie kämpfen im Nahkampf, um das Schiff zu verteidigen, und gewinnen hin und wieder Fokus, um NK-Stumpf-, Scharf- oder Stich-Schaden zu verursachen"]),
+ D("Picaros",2,"Abenteuerlustige Schützen, bewaffnet mit Armbrüsten, Pistolen und Donnerbüchsen.",["Sie kämpfen auf Distanz, um das Schiff zu verteidigen, und gewinnen hin und wieder Fokus, um FK-Stumpf-, Scharf- oder Stich-Schaden zu verursachen"]),
+ D("Speerfischer",2,"Betraut damit, Insekten und kleine Säugetiere aus der See zu fischen, während ihr reist.",["Du erhältst automatisch eine normale Probe, wenn du Anker wirfst"]),
+ D("Magnetfischer",2,"Wortkarge Aasfresser, die den Komfort des Decks der Umarmung der Wellen vorziehen.",["Du erhältst automatisch ein normales Stück Bergegut, wenn du Anker wirfst"])
+]});
+L.push({id:"rudel", k:K, t:"Rudel [Optional]", p:184, b:[
+ {a:"Stell dir ein Rudel als äußerst wilde Version einer Bande vor: Bestien oder Insekten, gezähmt und abgerichtet, zum Nutzen eines Schiffs und seiner Crew zusammenzuarbeiten. Rudel sind weniger fähig als Banden und anfälliger für unerwartetes Verhalten.\nWenn du ein Rudel kaufst, notiere seinen Namen (zusammen mit seiner Leiste und allen Vorteilen, die es gibt) auf deinem Schiffsbogen."},
+ {h:"Die Illusion von Kontrolle"},
+ {a:"Ein Rudel an Bord zu haben ist nicht dasselbe wie einen Gefährten zu haben. Obwohl sie wahrscheinlich zumindest für einige der Crewmitglieder Zuneigung empfinden, sind sie weit schwerer direkt zu kontrollieren und haben meist nicht die Abrichtung, komplexe Befehle zu befolgen, die über ihr übliches Verhalten hinausgehen. Rudel handeln größtenteils instinktiv – in bestimmten Situationen sind sie ebenso wahrscheinlich eine Behinderung wie eine Hilfe."},
+ {h:"Bestienrudel"},
+ {a:"Es gibt bestimmte Bestien, die auf Schiffen über die wilden Wellen hinweg zu finden sind und in grober Eintracht mit ihren Crews existieren (oder zumindest wegen der Vorteile, die sie bieten, geduldet werden). Je nach den Kreaturen, aus denen sie bestehen, verteidigt sich ein Rudel oder flieht, wenn es angegriffen wird – etwas, das man im Kopf behalten sollte, falls dein Schiff je geentert wird."},
+ D("Lemuren-Rudel",1,"Eine Gruppe flinker Helfer, die das Schiff frei von kleineren Insekten halten."),
+ D("Springfüchse",1,"Eine Schule Springfüchse, die tanzend und springend durch die Wellen um dein Schiff herum huschen, während ihr reist. Ihr Verhalten kann vor Gefahren aus dem tieferen Blätterdach warnen.")
+]});
+L.push({id:"rudel-arten", k:K, t:"Verfügbare Rudel", p:185, b:[
+ {h:"Bestienrudel (Fortsetzung)"},
+ D("Ein Schleicher-Schwarm",1,"Halbgeisterhafte Katzen, meist in Werften und Gassen der Speistädte zu finden; schiffsgeborene Schleicher verbringen die meiste Zeit damit, Ratten zu jagen und Wege in die absurdesten engen Winkel zu finden."),
+ D("Eine Meute Hunde",1,"Vielleicht nicht der Stoff für beste Freunde, aber zumindest erbittert schützend gegenüber ihrem Schiff (obwohl sie kaum andere Verwendungen haben als Trost und die Fähigkeit, ein großartiges Apportierspiel zu spielen)."),
+ D("Takelage-Frettchen",1,"Werden benutzt, um hoch über dem Deck Knoten zu knüpfen und zu lösen, auf Schiffen, die das Gefühl der alten Salzsee heraufbeschwören."),
+ D("Wirbelnde Fledermäuse",1,"Verleihen deinem Schiff aus der Ferne einen merklich gotischen Anblick, sind aber aus der Nähe unerwartet freundlich."),
+ D("Raserei-Papagei",1,"Besitzt ein schrilles und lästiges Kreischen, wird aber als Frühwarnsystem vor gefährlichen Raubtieren in der Nähe geduldet."),
+ D("Abgerichteter Nadelwolf",2,"Eines der gefährlichsten Raubtiere der Wildsea, von Geburt an aufgezogen, ein Schiff als sein Zuhause und die Crew als sein Rudel zu betrachten.",["Er kämpft im Nahkampf, um das Schiff zu verteidigen, und gewinnt hin und wieder Fokus, um NK-Stumpf-, Scharf- oder Stich-Schaden zu verursachen"]),
+ D("Eichhörnchen-Schleuderer",2,"Winzig, aber grimmig: ein Rudel Eichhörnchen, bewaffnet mit Miniaturschleudern.",["Sie kämpfen auf Distanz, um das Schiff zu verteidigen, und gewinnen hin und wieder Fokus, um FK-Stumpf-, Scharf- oder Stich-Schaden zu verursachen"]),
+ {h:"Insektenrudel"},
+ {a:"Weit schwieriger abzurichten als Bestien, werden Insekten meist sich selbst überlassen, in der Hoffnung, dass sie dem Schiff als Ganzes irgendeinen Nutzen bringen. Genau wie Bestien können Insekten Enterer anfliehen oder angreifen, je nach ihrer Natur und der Lage."},
+ I("Drachenschwanz-Schmetterlinge",1,"Schmetterlinge mit wunderschönen, langgezogenen Flügeln. Tun nichts Nützliches, werden von vielen aber als Glücksbringer betrachtet.",null,"5-Leiste"),
+ D("Spinnenkolonie",1,"Einst eine Tzelicrae, nun kaum noch zusammenhaltend; eine Spinnenkolonie kann auf einem Schiff wenig mehr erreichen, als Insekten und Nagetiere fernzuhalten."),
+ D("Glasschalen-Schnecken",1,"Crews mit Glasschalen-Schnecken an Bord lernen, besonders nachts leise aufzutreten."),
+ D("Skorpionschar",1,"Mürrisch, geduldig und giftig, oft beim Sonnen auf Geländern oder versteckt in Stiefeln zu finden."),
+ D("Medizinische Mücken",2,"Ein Ärgernis, sicher, aber ein nützliches – sie tragen eine symptomlose Infektion, die die Widerstandskraft einer Crew gegen andere Infektionen erhöht.",["Infektionen und Viren übertragen sich nicht von selbst von Crewmitglied zu Crewmitglied"]),
+ D("Glühkäfer-Parade",2,"Ein Schwarm Glühwürmchen, der Crewmitgliedern folgt, während sie Decks und Gänge durchqueren.",["Gibt allen Crewmitgliedern ihr eigenes schwaches, laternenartiges Licht, solange sie an Bord sind (es sei denn, sie werden verscheucht)"]),
+ D("Gottesanbeterinnen-Wachen",2,"Reglose Wachen, die ihre Beute zu sich kommen lassen und auf den perfekten Moment zum Zuschlagen warten.",["Du erhältst automatisch eine normale Probe, wenn du im Hafen anlegst."]),
+ D("Rostschaben",2,"Sie ernähren sich von Rost und metallischen Verunreinigungen, und diese zähen kleinen Dinger neigen dazu, vergessene Schrottstücke für ihre Mahlzeiten aufzuspüren.",["Du erhältst automatisch ein normales Stück Bergegut, wenn du im Hafen anlegst."]),
+ D("Etterescu",2,"Lauernde Tausendfüßer, die dunklere Orte bevorzugen und Geheimnissen und Wissensfetzen lauschen.",["Du erhältst automatisch ein normales Flüstern, wenn du im Hafen anlegst."]),
+ D("Bibliotheks-Bootsleute",2,"Spinnenartige Kreaturen, die die Angewohnheit haben, ihr Zuhause in weggeworfenem, aus den Wellen gefischtem Papier zu bauen.",["Du erhältst automatisch eine normale Seekarte, wenn du im Hafen anlegst."]),
+ I("Geist-Oktopus",3,"Ein bisschen von allem in einem coolen Kopffüßer-Paket.",["Einmal pro Reise erlaubt der Geist-Oktopus einem einzelnen Crewmitglied, bei jeder Aufgabe, bei der er plausibel helfen könnte, 6W6 statt seines üblichen Würfelpools zu würfeln"],"5-Leiste")
+]});
+})(WS_NACH.schiffe);

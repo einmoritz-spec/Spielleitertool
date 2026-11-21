@@ -116,3 +116,22 @@
 .bsheet .bch s{border-top:1.4px solid #77796d;border-bottom:1.4px solid #77796d}
 .bsheet .bch s.gh{border-color:#dddcd3}
 .bsheet .bk .bch{left:57.5px;top:24.5px}
+
+/* Schiffsbogen */
+.bsheet.ship{width:1400px;height:1190px}
+.bx.grid textarea{line-height:30px;padding:0 8px;background:linear-gradient(#e6e5de 1px,transparent 1px) 0 0/30px 30px,linear-gradient(90deg,#e6e5de 1px,transparent 1px) 0 0/30px 30px;background-attachment:local}
+.bx.grid{border-radius:0 0 26px 26px}
+.nm1{font:600 26px/1.15 BgTeko,Teko,sans-serif!important;text-transform:uppercase;padding:10px 10px 0!important;letter-spacing:.02em}
+.rt{display:flex;align-items:center;border:2.8px solid #67655e;border-radius:12px 22px 22px 12px;background:#fff;overflow:hidden;padding-right:10px}
+.rt .rl{align-self:stretch;flex:none;width:80px;background:linear-gradient(180deg,#85877a,#74766a);color:#fff;font:600 23px/1 BgTeko,Teko,sans-serif;text-transform:uppercase;display:flex;align-items:center;padding-left:7px;white-space:nowrap}
+.rt .rl>span{display:inline-block;transform-origin:0 50%}
+.rt .bch{flex:1;margin-left:10px}
+.rt .bch s{flex:1;width:auto}
+.stk{align-items:center;justify-content:center;position:relative}
+.stk input{position:absolute;width:62px;height:24px;text-align:center;font:600 20px/24px BgTeko,Teko,sans-serif;color:#2d2b25}
+.stk .su{left:12px;top:8px;text-align:left}.stk .st{right:10px;bottom:6px;text-align:right}
+.stk i{position:absolute;left:58px;top:12px;width:2px;height:56px;background:#7b7a70;transform:rotate(22deg)}
+.bsheet .stk input::placeholder{color:#9b9a90;font-size:14px;opacity:1}
+@media print{.bsheet.ship{zoom:.66!important}.bsheet .stk input::placeholder{color:#9b9a90!important}}
+.bh>span,.bsb>span{display:inline-block;transform-origin:0 50%;white-space:nowrap}
+.rt .rl{width:88px}

@@ -35,7 +35,7 @@ function viewStart(){
   var szImg = {"red-right-hand":"szen/rrh/hetterjin-turm-titel", "one-armed-scissor":"szen/oas/titel-hanging-manor"};
   var sc = WS_SZENARIEN.filter(function(s){ return s.id && szImg[s.id]; }).map(function(s){ return stCard(szImg[s.id], "szenario/" + s.id, s.t, "Szenario"); }).join("");
   var ext = START_EXT.map(function(e){ return '<a onclick="go(\'' + e.go + '\')"><span class="im"><img src="' + IMG(e.img) + '" alt=""></span><span><h3>' + esc(e.t) + '</h3><span class="pg">' + esc(e.k) + '</span></span></a>'; }).join("");
-  var tools = '<button onclick="go(\'bogen\')">Charakterbogen</button><button onclick="openBook(\'ws_core\',363)">Schiffsbogen</button><button onclick="go(\'schirm\')">Spielleiterschirm</button><button onclick="go(\'galerie\')">Galerie</button>' + (typeof viewGarten === "function" ? '<button onclick="go(\'garten\')">Gartenbogen</button>' : '');
+  var tools = '<button onclick="go(\'bogen\')">Charakterbogen</button><button onclick="go(\'schiff\')">Schiffsbogen</button><button onclick="go(\'schirm\')">Spielleiterschirm</button><button onclick="go(\'galerie\')">Galerie</button>' + (typeof viewGarten === "function" ? '<button onclick="go(\'garten\')">Gartenbogen</button>' : '');
   return '<div class="st"><div class="st-hero"><img src="img/hero.webp" alt=""><h1>The Wildsea</h1></div>' +
     '<section class="st-sec"><h2>Vorbereitung</h2><div class="st-grid st-vor">' + vor + '</div></section>' +
     '<section class="st-sec"><h2>In See stechen</h2><div class="st-sub">Corebook</div><div class="st-grid st-reiche">' + rc + '</div>' +
@@ -66,6 +66,7 @@ function render(){
   else if(v === "garten") out = viewGarten();
   else if(v === "galerie") out = viewGalerie();
   else if(v === "bogen") out = viewBogen(h[1]);
+  else if(v === "schiff") out = viewSchiff();
   else if(v === "nach") out = viewNach(h[1] || "regeln", h[2]);
   else if(v === "szenario") out = viewNach(h[1] || "red-right-hand", h[2], true);
   else out = viewPlatzhalter(h.slice(1).join(" ") || v);

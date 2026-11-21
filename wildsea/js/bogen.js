@@ -51,18 +51,21 @@ function bgChain(t, kind, ai){
 function bgIn(path, v, fit){ return 'value="' + esc(v) + '" oninput="bgSet(\'' + path + '\',this)"' + (fit ? ' data-fit="' + fit + '"' : ''); }
 function bgTx(path, v, fit, cls){ return '<textarea class="' + (cls || '') + '" spellcheck="false" data-fit="' + fit + '" oninput="bgSet(\'' + path + '\',this)">' + esc(v) + '</textarea>'; }
 /* Alle Maße in Pixeln des Originalbogens (Corebook S. 362, 150 dpi), Ursprung oben links */
-function bgAb(x, y, w, h){ return 'style="left:' + x + 'px;top:' + y + 'px' + (w != null ? ';width:' + w + 'px' : '') + (h != null ? ';height:' + h + 'px' : '') + '"'; }
-function bgHd(t, x, y, w){ return '<div class="bh" ' + bgAb(x, y, w, 36) + '>' + t + '</div>'; }
-function bgSb(t, x, y, w){ return '<div class="bsb" ' + bgAb(x, y, w, 30) + '>' + t + '</div>'; }
+var BG_OX = 0, BG_OY = 0;
+function bgAb(x, y, w, h){ return 'style="left:' + (x - BG_OX) + 'px;top:' + (y - BG_OY) + 'px' + (w != null ? ';width:' + w + 'px' : '') + (h != null ? ';height:' + h + 'px' : '') + '"'; }
+function bgHd(t, x, y, w){ return '<div class="bh" ' + bgAb(x, y, w, 36) + '><span>' + t + '</span></div>'; }
+function bgSb(t, x, y, w){ return '<div class="bsb" ' + bgAb(x, y, w, 30) + '><span>' + t + '</span></div>'; }
 function bgBx(x, y, w, h, cls, inner){ return '<div class="bx ' + (cls || '') + '" ' + bgAb(x, y, w, h) + '>' + (inner || '') + '</div>'; }
 function bgLb(t, w, g){ return '<span class="lb" style="width:' + w + 'px"' + (g ? ' data-g="' + g + '"' : '') + '><span>' + t + '</span></span>'; }
-function bgCard(t, kind, i, hint, x, y, h){
+function bgCard(t, kind, i, hint, x, y, h, w){
   var ty = t.t || hint, tw = Math.max(5, ty.length) * 6.1 + 8;
-  return '<div class="bk" ' + bgAb(x, y, 351, h) + '><div class="bkp"><b>Name</b><i>Details ›</i></div>' +
+  return '<div class="bk" ' + bgAb(x, y, w || 351, h) + '><div class="bkp"><b>Name</b><i>Details ›</i></div>' +
     '<div class="bkn"><input class="nm" spellcheck="false" ' + bgIn(kind + '.' + i + '.n', t.n, 19) + '><input class="ty" spellcheck="false" style="width:' + tw.toFixed(0) + 'px" placeholder="' + hint + '" ' + bgIn(kind + '.' + i + '.t', t.t, 13) + '></div>' +
     bgChain(t, kind, i) + '<div class="bkd">' + bgTx(kind + '.' + i + '.d', t.d, 14, "bd") + '</div></div>';
 }
 function bgSheet(){
+  if(BG.key === "schiff") return bgShip();
+  BG_OX = 0; BG_OY = 0;
   var s = BG.st, f = s.f, i, o = "";
   var CL = [520, 717, 890], CC = [638, 812, 990], ROW = 25, RS = 24;
   /* Titel */
@@ -132,13 +135,77 @@ function bgAfterFonts(){
 }
 function bgCond(){
   var sh = document.getElementById("bsh"); if(!sh) return;
+  sh.querySelectorAll(".bh>span,.bsb>span,.rl>span").forEach(function(el){
+    el.style.transform = "";
+    var pr = el.parentNode, avail = pr.clientWidth - (pr.classList.contains("bh") ? 30 : pr.classList.contains("bsb") ? 22 : 12), r = avail / el.offsetWidth;
+    if(r < 1) el.style.transform = "scaleX(" + r.toFixed(3) + ")";
+  });
   sh.querySelectorAll(".lb>span").forEach(function(el){
     el.style.transform = "";
     var r = (el.parentNode.clientWidth - (+el.parentNode.getAttribute("data-g") || 0)) / el.offsetWidth;
     if(r < 1) el.style.transform = "scaleX(" + r.toFixed(3) + ")";
   });
 }
-function bgZoom(){ return Math.max(.3, Math.min(1.2, (Math.max(innerWidth, 1280) - 60) / 1460)); }
+
+var BG_RT = ["Panzerung","Dichtung","Tempo","Sägen","Tarnung","Neigung"];
+function bgShipNew(){
+  var o = {n:"", cond:"", used:"", total:"", d:{size:"", frame:"", hull:"", bite:"", engine:"", fit:"", arm:"", out:"", cargo:"", notes:""}, rt:[], rp:[], uc:[]}, i;
+  for(i = 0; i < 6; i++) o.rt.push({m:[0,0,0,0,0,0]});
+  for(i = 0; i < 5; i++) o.rp.push({t:"", m:[0,0,0]});
+  for(i = 0; i < 5; i++) o.uc.push(bgTrack());
+  return o;
+}
+function bgPills(n, marks, kind, idx){
+  var o = "";
+  for(var i = 0; i < n; i++) o += (i ? '<s></s>' : '') + '<button class="cr' + (marks[i] ? ' f' : '') + '" onclick="bgClk(\'' + kind + '\',' + idx + ',' + i + ')"></button>';
+  return '<div class="bch">' + o + '</div>';
+}
+function bgShip(){
+  BG_OX = 70; BG_OY = 58;
+  var s = BG.st, d = s.d, i, o = "";
+  var td = function(k, x, y, w, h, fit){ return bgBx(x, y, w, h, "sub", bgTx("d." + k, d[k] || "", fit || 15, "ln")); };
+  o += '<div class="bti" ' + bgAb(86, 62, 460) + '><div class="t1"><span class="lb" style="width:455px"><span>The Wildsea</span></span></div><div class="t2" style="text-align:left;padding-left:144px">Offizieller Schiffsbogen</div></div>';
+  /* Name */
+  o += bgBx(88, 211, 316, 77, "", '<textarea class="nm1" spellcheck="false" data-fit="26" oninput="bgSet(\'n\',this)">' + esc(s.n) + '</textarea>') + bgHd("Name", 85, 190, 322);
+  /* Werte */
+  o += bgHd("Werte", 85, 297, 322);
+  BG_RT.forEach(function(n, k){
+    o += '<div class="rt" ' + bgAb(93, 339 + k * 40.5, 305, 37) + '><span class="rl"><span>' + n + '</span></span>' + bgPills(6, s.rt[k].m, "rt", k) + '</div>';
+  });
+  /* Entwurf */
+  o += bgHd("Entwurf", 83, 587, 322);
+  [["Größe", "size", 628, 735], ["Rahmen", "frame", 748, 863], ["Rumpf", "hull", 872, 985], ["Biss", "bite", 994, 1107], ["Antrieb", "engine", 1116, 1227]].forEach(function(r){
+    o += td(r[1], 90, r[2] + 15, 312, r[3] - r[2] - 15, 17) + bgSb(r[0], 87, r[2], 315);
+  });
+  /* Ausstattung, Bewaffnung, Vorreiter */
+  o += bgHd("Ausstattung", 430, 202, 324);
+  o += td("fit", 433, 257, 318, 455, 15) + bgSb("Motive/Ergänzungen/Räume", 430, 242, 323);
+  o += td("arm", 433, 737, 318, 181, 15) + bgSb("Bewaffnung", 430, 722, 323);
+  o += td("out", 433, 945, 318, 282, 15) + bgSb("Vorreiter", 430, 930, 323);
+  /* Zustände, Einsätze */
+  o += bgBx(578, 110, 386, 80, "out", bgTx("cond", s.cond || "", 15, "ln")) + bgHd("Zustände", 575, 74, 389);
+  o += bgBx(981, 110, 125, 80, "out stk", '<input class="su" spellcheck="false" placeholder="Genutzt" ' + bgIn("used", s.used, 17) + '><i></i><input class="st" spellcheck="false" placeholder="Gesamt" ' + bgIn("total", s.total, 17) + '>') + bgHd("Einsätze", 978, 74, 128);
+  /* Ruf, Fracht */
+  o += bgHd("Ruf", 1121, 74, 323);
+  for(i = 0; i < 5; i++){
+    o += '<div class="pill" ' + bgAb(1121, 118 + i * 49.2, 317, 42) + '><div class="pt"><textarea spellcheck="false" data-fit="14" oninput="bgSet(\'rp.' + i + '.t\',this)">' + esc(s.rp[i].t) + '</textarea></div>' + bgPills(3, s.rp[i].m, "rp", i) + '</div>';
+  }
+  o += bgBx(1124, 395, 316, 439, "", bgTx("d.cargo", d.cargo || "", 15, "ln")) + bgHd("Fracht und Passagiere", 1121, 364, 323);
+  /* Unterbesatzung */
+  o += bgHd("Unterbesatzung", 774, 201, 323);
+  for(i = 0; i < 5; i++) o += bgCard(s.uc[i], "uc", i, "Offizier/Bande/Rudel", 775, 243 + i * 119.5, 112, 322);
+  /* Notizen */
+  o += bgBx(777, 884, 666, 343, "grid", bgTx("d.notes", d.notes || "", 16)) + bgHd("Notizen", 775, 848, 671);
+  return o;
+}
+function bgShipLoad(){ var st = ST.bogen && ST.bogen.schiff; return st || bgShipNew(); }
+function viewSchiff(){
+  BG.key = "schiff"; BG.st = bgShipLoad();
+  setTimeout(bgAfterFonts, 0);
+  return '<div class="tabs"><a class="on">Schiffsbogen</a><span class="r bbar"><button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
+    '<div class="bwrap"><div class="bsheet ship" id="bsh" style="zoom:' + bgZoom().toFixed(3) + '">' + bgSheet() + '</div></div>';
+}
+function bgZoom(){ return Math.max(.3, Math.min(1.2, (Math.max(innerWidth, 1280) - 60) / (BG.key === "schiff" ? 1400 : 1460))); }
 function viewBogen(id){
   var pcs = bgPcList(), s = id && pcs.filter(function(x){ return x.id === id; })[0];
   BG.key = s ? id : "leer"; BG.st = bgLoad(BG.key);
@@ -167,6 +234,7 @@ function bgClk(kind, a, b){
   if(kind === "e") s.e[a] = s.e[a] ? 0 : 1;
   else if(kind === "s" || kind === "l"){ var key = kind === "s" ? BG_SK[a] : (a < 11 ? BG_LA[a] : "_x"), m = kind === "s" ? s.s : s.l; m[key] = (m[key] || 0) === b ? b - 1 : b; }
   else if(kind === "mo") s.mo[a].m[b] = s.mo[a].m[b] ? 0 : 1;
+  else if(kind === "rt" || kind === "rp") s[kind][a].m[b] = s[kind][a].m[b] ? 0 : 1;
   else { var t = s[kind][a]; if(b >= t.len) t.len = b + 1; else t.m[b] = t.m[b] ? 0 : 1; }
   bgSave(); bgRepaint();
 }
@@ -177,7 +245,7 @@ function bgRepaint(){
 function bgReset(){
   if(!confirm("Bogen zurücksetzen?")) return;
   if(ST.bogen) delete ST.bogen[BG.key]; save();
-  BG.st = bgLoad(BG.key); bgRepaint();
+  BG.st = BG.key === "schiff" ? bgShipNew() : bgLoad(BG.key); bgRepaint();
 }
 function bgPrint(){ bgFit(); window.print(); }
 window.addEventListener("resize", function(){ var sh = document.getElementById("bsh"); if(sh) sh.style.zoom = bgZoom().toFixed(3); });

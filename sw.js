@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v622pi";
+const VERSION = "v623pi";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -353,6 +353,7 @@ const FILES = [
   "pico/js/data/nach-welt.js",
   "pico/js/nach.js",
   "pico/js/wuerfel.js",
+  "pico/js/suche.js",
   "pico/js/data/gefahren-text-a.js",
   "pico/js/data/gefahren-text-b.js",
   "pico/js/data/gefahren-text-c.js",
@@ -393,6 +394,11 @@ const FILES = [
   "pico/img/aspekt/statur.webp",
   "pico/img/aspekt/waffen.webp",
   "pico/img/aspekt/werkzeuge.webp",
+  "pico/img/figur/shadow-house-funkenfresser.webp",
+  "pico/img/figur/shadow-house-kabellabyrinth.webp",
+  "pico/img/figur/nekopolis-klingelstreicher.webp",
+  "pico/img/figur/nekopolis-kanalisation.webp",
+  "pico/img/figur/westgate-leuchtendes-reich.webp",
   "pico/img/figur/hogwild-anton.webp",
   "pico/img/figur/hogwild-entdecker.webp",
   "pico/img/figur/hogwild-odonatsar.webp",

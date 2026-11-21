@@ -171,5 +171,6 @@ document.addEventListener("keydown", function(e){
   if(e.key === "h") document.body.classList.toggle("notop");
   if(e.key === "b"){ foldSide(); }
   if(e.key === "w" && window.wOpen) wOpen();
+  if(e.key === "/" && window.sOpen){ e.preventDefault(); sOpen(); }
   if(e.key === "s" && window.viewSchirm) go("schirm");
 });

@@ -97,6 +97,7 @@ function viewNach(bereich, id, sz){
   if(!meta) return viewPlatzhalter(bereich);
   var tabs = '<div class="tabs">' + TL.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'' + P + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join("") + '</div>';
   var L = (window.WS_NACH || {})[bereich] || [];
+  (function(){ var o = [], m = {}; L.forEach(function(s){ if(!m[s.k]){ m[s.k] = []; o.push(s.k); } m[s.k].push(s); }); L = [].concat.apply([], o.map(function(k){ return m[k]; })); })();
   if(!L.length) return tabs + '<div class="pad"><p class="na">Dieser Bereich folgt.</p></div>';
   if(bereich === "charaktere" && !id) return tabs + viewCharUebersicht(L);
   var cur = L.filter(function(s){ return s.id === id; })[0] || L[0], ki = cur.k, side = "", last = null;

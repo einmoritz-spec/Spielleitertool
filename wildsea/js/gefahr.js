@@ -46,7 +46,7 @@ function viewGefahren(id){
   var tabs = '<div class="tabs"><a class="on">Gefahren</a></div>';
   if(!g){
     var chips = [["", "Alle"]].concat(GKAT).map(function(k){ return '<span class="chip' + ((s.kat || "") === k[0] ? ' on' : '') + '" onclick="gKat(\'' + k[0] + '\')">' + k[1] + '</span>'; }).join("");
-    return tabs + '<div class="ct gpage">' + enc + '<div class="gtop"><input class="srch" placeholder="Gefahr suchen …" value="' + esc(s.q || "") + '" oninput="gQ(this.value)">' + chips + '</div><div class="ggr" id="ggrid">' + gGrid() + '</div></div>';
+    return tabs + '<div class="ct gpage">' + nHero("gefahren") + enc + '<div class="gtop"><input class="srch" placeholder="Gefahr suchen …" value="' + esc(s.q || "") + '" oninput="gQ(this.value)">' + chips + '</div><div class="ggr" id="ggrid">' + gGrid() + '</div></div>';
   }
   var sib = L.filter(function(x){ return x.kat === g.kat; }), k = sib.indexOf(g), pv = sib[k - 1], nx = sib[k + 1];
   var nav = '<div class="gnav"><a onclick="go(\'gefahren\')">‹ Übersicht</a><span>' + (pv ? '<a onclick="go(\'gefahren/' + pv.id + '\')">‹ ' + esc(pv.t) + '</a>' : '') + (nx ? '<a onclick="go(\'gefahren/' + nx.id + '\')">' + esc(nx.t) + ' ›</a>' : '') + '</span></div>';

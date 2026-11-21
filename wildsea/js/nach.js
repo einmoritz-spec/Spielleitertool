@@ -15,9 +15,15 @@ function nBlock(b){
 }
 /* Bilder je Abschnitt: window.WS_NIMG[bereich][id] = [[datei,breite,hoehe],...] (Pfad relativ zu img/) */
 function nBilder(bereich, id){
-  var L = window.WS_NIMG && WS_NIMG[bereich] && WS_NIMG[bereich][id];
-  if(!L || !L.length) return "";
-  return '<div class="nimgs n' + Math.min(L.length, 4) + '">' + L.map(function(m){
+  var L = window.WS_NIMG && WS_NIMG[bereich] && WS_NIMG[bereich][id], hero = "";
+  if(L && window.WS_HERO && WS_HERO[bereich + "/" + id]){
+    var hk = WS_HERO[bereich + "/" + id], hi = -1;
+    L.forEach(function(m, i){ if(hi < 0 && "img/" + m[0] === "img/" + hk.img) hi = i; });
+    if(hi >= 0){ hero = nHero(bereich + "/" + id, L[hi]); L = L.filter(function(m, i){ return i !== hi; }); }
+    else hero = nHero(bereich + "/" + id);
+  } else if(!L && window.WS_HERO && WS_HERO[bereich + "/" + id]) hero = nHero(bereich + "/" + id);
+  if(!L || !L.length) return hero;
+  return hero + '<div class="nimgs n' + Math.min(L.length, 4) + '">' + L.map(function(m){
     var r = m[1] / m[2], k = r > 1.35 ? "wide" : r < 0.8 ? "tall" : "sq";
     return '<figure class="nimg ' + k + '" style="--r:' + r.toFixed(3) + '"><img loading="lazy" src="img/' + m[0] + '" alt="" onclick="nZoom(this.src)"></figure>';
   }).join("") + '</div>';

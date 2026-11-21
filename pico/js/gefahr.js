@@ -6,7 +6,8 @@ function gQ(v){ GS().q = v; save(); var e = document.getElementById("ggrid"); if
 function gGrid(){
   var q = (GS().q || "").toLowerCase();
   return PI_GEFAHR.filter(function(g){ return !q || g.t.toLowerCase().indexOf(q) >= 0; }).map(function(g){
-    return '<div class="gc" style="--c:' + g.farbe + '" onclick="go(\'gefahren/' + g.id + '\')"><span class="ad" title="Zur Begegnung" onclick="event.stopPropagation();gEnc(\'' + g.id + '\')">+</span><div class="im">' + (g.img ? '<img loading="lazy" src="img/gefahr/' + g.img + '.webp" alt="">' : '<span class="ph">' + esc(g.t.charAt(0)) + '</span>') + '</div><h3>' + esc(g.t) + '</h3><small>S. ' + g.p + '</small></div>';
+    var t = (window.PI_GTEXT || {})[g.id], ex = t && t.abschnitte && t.abschnitte[0] ? exc(t.abschnitte[0].b, 130) : "";
+    return '<div class="gc' + (g.img ? '' : ' nt') + '" style="--c:' + g.farbe + '" onclick="go(\'gefahren/' + g.id + '\')"><span class="ad" title="Zur Begegnung" onclick="event.stopPropagation();gEnc(\'' + g.id + '\')">+</span>' + (g.img ? '<div class="im"><img loading="lazy" src="img/gefahr/' + g.img + '.webp" alt=""></div>' : '') + '<h3>' + esc(g.t) + '</h3><small>' + (t && t.schluessel && !g.img ? esc(t.schluessel) + ' · ' : '') + 'S. ' + g.p + '</small>' + (!g.img && ex ? '<p class="ex">' + esc(ex) + '</p>' : '') + '</div>';
   }).join("");
 }
 function gHerz(k, n){ var s = GS(); s.h = s.h || {}; s.h[k] = s.h[k] || []; hCycle(s.h[k], n); save(); render(); }

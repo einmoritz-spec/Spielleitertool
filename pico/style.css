@@ -333,3 +333,10 @@ body.dark .tbl tr:nth-child(odd) td{background:rgba(255,255,255,.06)}
 .gcol .bf.box{height:34px;min-height:0;font-size:9px;line-height:1.1;padding:2px 3px;border-radius:6px;resize:none}
 .streifzug .tb{display:flex;flex-direction:column;min-height:0}.streifzug .tb .bf.box{flex:1;min-height:34px;height:auto}
 .picnic .sl2 .bf.pill{margin:0 0 2px;height:17px}.streifzug .tb .bf.box{min-height:20px}.streifzug .tb{gap:1px}.streifzug .tbs{gap:4px 8px}
+body.dark .mood b{color:var(--fg);opacity:.9}
+body.dark .act b,body.dark .dd,body.dark .vl,body.dark .sec h2,body.dark .fhead h1{color:var(--fg)}
+body.dark .stp,body.dark .tk,body.dark .act,body.dark .dd{border-color:#8a959a}
+body.dark .stp.m,body.dark .tk.m{background:#c9d2d6}
+body.dark .tbl td{color:var(--fg)}body.dark .tbl tr:nth-child(even) td{background:transparent}
+body.dark .tbl tr td{background:rgba(255,255,255,.03)!important;color:var(--fg)}body.dark .tbl tr:nth-child(odd) td{background:rgba(255,255,255,.08)!important}body.dark .tbl td.n,body.dark .tbl th{color:var(--fg)}
+body.dark .tbl tr{background:transparent!important}

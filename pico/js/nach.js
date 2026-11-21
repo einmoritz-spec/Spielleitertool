@@ -44,11 +44,12 @@ function viewNach(b, sel){
     var part = L.filter(function(x){ return x.g === gi; });
     return nTabs(b) + lay(side, '<div class="sec"><h2>' + esc(G[gi][0]) + '</h2></div><div class="ggr" style="margin:10px 0 22px">' + part.map(function(x){ return nTile(b, N, x); }).join("") + '</div>');
   }
+  var cb = cur.b; if(cb && cb[0] && cb[0].t === "h" && kurz(cb[0].x) === kurz(cur.t)) cb = cb.slice(1);
   var tg = G && G[cur.g][2], grp = tg ? L.filter(function(x){ return x.g === cur.g; }) : L, gx = grp.indexOf(cur);
   var pv = grp[gx - 1], nx = grp[gx + 1];
   var nav = '<div class="nnav">' + (tg ? '<a onclick="go(\'nach/' + b + '/g' + cur.g + '\')">‹ ' + esc(G[cur.g][0]) + '</a>' : '<span></span>') +
     '<span>' + (pv ? '<a onclick="go(\'nach/' + b + '/' + pv.id + '\')">‹ ' + esc(kurz(pv.t)) + '</a>' : '') + (nx ? '<a onclick="go(\'nach/' + b + '/' + nx.id + '\')">' + esc(kurz(nx.t)) + ' ›</a>' : '') + '</span></div>';
-  var body = (tg ? nav : '') + '<div class="sec"><h2>' + esc(cur.t) + '</h2>' + (cur.p ? pgl(cur.p) : "") + '</div><div class="txt nbody">' + blk(cur.b) + '</div>' +
+  var body = (tg ? nav : '') + '<div class="sec"><h2>' + esc(cur.t) + '</h2>' + (cur.p ? pgl(cur.p) : "") + '</div><div class="txt nbody">' + blk(cb) + '</div>' +
     '<div class="nnav end">' + (pv ? '<a onclick="go(\'nach/' + b + '/' + pv.id + '\')">‹ ' + esc(kurz(pv.t)) + '</a>' : '<span></span>') + (nx ? '<a onclick="go(\'nach/' + b + '/' + nx.id + '\')">' + esc(kurz(nx.t)) + ' ›</a>' : '') + '</div>';
   return nTabs(b) + lay(side, body);
 }

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v563vae";
+const VERSION = "v564vae";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -13,8 +13,24 @@ const FILES = [
   "forbidden/sys.js",
   "forbidden/img/hero.webp",
   "wildsea/index.html",
-  "wildsea/sys.js",
+  "wildsea/style.css",
+  "wildsea/js/app.js",
+  "wildsea/js/data/buecher.js",
+  "wildsea/js/data/reiche.js",
   "wildsea/img/hero.webp",
+  "wildsea/img/papier.webp",
+  "wildsea/img/reich/ambered.webp",
+  "wildsea/img/reich/foxloft.webp",
+  "wildsea/img/reich/icterine.webp",
+  "wildsea/img/reich/interregnum.webp",
+  "wildsea/img/reich/kremich.webp",
+  "wildsea/img/reich/prophet.webp",
+  "wildsea/img/kapitel/charaktere.webp",
+  "wildsea/img/kapitel/leitfaden.webp",
+  "wildsea/img/kapitel/regeln.webp",
+  "wildsea/img/kapitel/schiffe.webp",
+  "wildsea/img/kapitel/tisch.webp",
+  "wildsea/img/kapitel/wildsee.webp",
   "triangle/index.html",
   "triangle/sys.js",
   "triangle/img/hero.webp",

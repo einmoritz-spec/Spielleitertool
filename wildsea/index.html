@@ -3,19 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280, viewport-fit=cover">
-<meta name="theme-color" content="#0b120f">
+<meta name="theme-color" content="#fbfaf6">
 <title>The Wildsea</title>
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" type="image/png" href="../icons/icon-192.png">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
-<link rel="stylesheet" href="../shared/sysstart.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script src="sys.js"></script>
+<div class="topbar">
+  <button class="brand" onclick="go('start')" aria-label="The Wildsea"><img src="../assets/logos/the-wildsea.webp" alt="The Wildsea"></button>
+  <div class="topbar-spacer"></div>
+  <button class="ib" onclick="BV.open('ws_core',1)" aria-label="Buch öffnen" title="Buch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+  <button class="ib" onclick="openMenu(true)" aria-label="Menü" title="Menü"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP"></div>
+<script src="js/data/buecher.js"></script>
+<script src="js/data/reiche.js"></script>
 <script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
-<script src="../shared/sysstart.js"></script>
+<script src="js/app.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ws_core", books:WS_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")"}; })); },[]), openSettings:function(){ openMenu(true); } });</script>
 <script src="../toolmenu.js"></script>
+<script>try{localStorage.setItem("gm_tool_mode_v1","wildsea");}catch(e){} window.gmBook=function(){return {name:"The Wildsea Corebook",open:function(){BV.open("ws_core",1);}};};</script>
 </body>
 </html>

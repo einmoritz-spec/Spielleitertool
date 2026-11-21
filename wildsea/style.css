@@ -1,0 +1,57 @@
+@font-face{font-family:Teko;font-weight:600;src:url(../assets/fonts/teko-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Merri;font-weight:400;src:url(../assets/fonts/merriweather-latin-400-normal.woff2) format('woff2')}
+:root{--paper:#fbfaf6;--paper2:#f3f2ea;--ink:#323032;--soft:#6e6c66;--sage:#95ad72;--sage2:#83946a;--sage3:#667d4e;--amber:#ecac42;--teal:#175d7e;--line:#dcdbd0;--red:#b5523b;--hd:54px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-width:none}
+body{min-width:1280px;background:var(--paper) url(img/papier.webp) center/cover fixed;background-blend-mode:multiply;color:var(--ink);font:14.5px/1.6 Merri,Georgia,serif}
+h1,h2,h3,h4{font-family:Teko,Impact,sans-serif;font-weight:600;letter-spacing:.02em;line-height:1}
+a{color:inherit;text-decoration:none;cursor:pointer}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.topbar{position:sticky;top:0;z-index:20;height:54px;display:flex;align-items:center;padding:0 22px;background:var(--paper);border-bottom:2px solid var(--sage)}
+.brand img{height:34px;filter:brightness(.19);display:block}
+.topbar-spacer{flex:1}
+.ib{width:38px;height:38px;display:grid;place-items:center;border-radius:8px;margin-left:4px}
+.ib:hover{background:var(--paper2)}.ib svg{width:22px;height:22px}
+.tabs{position:sticky;top:54px;z-index:15;display:flex;gap:4px;padding:0 22px;background:var(--paper2);border-bottom:1px solid var(--line);height:46px;align-items:flex-end}
+.tabs a{font:600 22px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.05em;padding:10px 16px 8px;color:var(--soft);border-bottom:3px solid transparent}
+.tabs a.on{color:var(--ink);border-color:var(--amber)}
+.pg{font-size:12px;color:var(--soft);font-family:Merri,serif;font-weight:400;letter-spacing:0;text-transform:none}
+/* Startseite */
+.hero{height:300px;background:url(img/hero.webp) center 55%/cover;position:relative}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:90px;background:linear-gradient(transparent,var(--paper))}
+.wrap{display:grid;grid-template-columns:1fr 400px;gap:28px;padding:0 34px 40px;margin-top:-20px;position:relative}
+h2.sec{font-size:30px;text-transform:uppercase;margin:0 0 12px;letter-spacing:.05em}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ti{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-columns:118px 1fr;min-height:150px;box-shadow:0 1px 4px rgba(0,0,0,.05);text-align:left;cursor:pointer}
+.ti:hover{border-color:var(--sage)}
+.ti .im{background-size:cover;background-position:center}
+.ti .b{padding:12px 14px}.ti h3{font-size:26px;text-transform:uppercase}
+.ti p{font-size:12.5px;color:var(--soft);line-height:1.45;margin-top:5px}.ti .pg{display:block;margin-top:6px}
+.chips{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 14px 4px;font:600 17px/1 Teko;text-transform:uppercase;letter-spacing:.05em}
+.chip:hover{border-color:var(--sage)}
+.go{background:var(--teal);color:#fff;border-radius:8px;padding:20px 22px;align-self:start}
+.go h3{font-size:44px;text-transform:uppercase;letter-spacing:.04em}
+.go .rs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.go .rs a{height:78px;border-radius:4px;background-size:cover;background-position:center;position:relative}
+.go .rs span{position:absolute;left:6px;bottom:3px;font:600 17px/1 Teko;text-transform:uppercase;text-shadow:0 1px 4px #000}
+.go .bt{display:block;text-align:center;background:var(--amber);color:#3a2a08;font:600 24px/1 Teko;text-transform:uppercase;padding:12px 0 9px;border-radius:5px;letter-spacing:.06em}
+.go .sc{display:flex;gap:8px;margin-top:12px}.go .sc div{flex:1;border:1px dashed rgba(255,255,255,.45);border-radius:4px;padding:7px 9px;font-size:12px;opacity:.75}
+.go .sc b{display:block;font:600 18px/1 Teko;text-transform:uppercase}
+/* Reiche */
+.pad{padding:22px 34px 40px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rc{border-radius:7px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;display:block}
+.rc:hover{border-color:var(--sage)}.rc.cur{outline:3px solid var(--amber)}
+.rc .im{height:178px;background-size:cover;background-position:center;position:relative}
+.rc .im h3{position:absolute;left:16px;bottom:10px;color:#fff;font-size:44px;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.rc .b{padding:9px 16px 11px;display:flex;align-items:center;gap:14px}
+.rc .b p{font-size:12.4px;color:var(--soft);line-height:1.4;flex:1;font-style:italic}
+.st{font:600 15px/1.1 Teko;text-transform:uppercase;letter-spacing:.05em;color:var(--sage3);text-align:right;white-space:nowrap}.st b{font-size:20px;color:var(--ink);display:block}
+.sz{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sz div{border:1.5px dashed #c9c8bd;border-radius:7px;padding:14px 18px;color:var(--soft)}
+.sz b{display:block;font:600 28px/1 Teko;text-transform:uppercase;color:#9a998f}.sz small{font-size:12.5px}
+/* Burger */
+.mm-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;z-index:40;transition:.2s}.mm-backdrop.on{opacity:1;pointer-events:auto}
+.mm-panel{position:fixed;top:0;right:-320px;width:300px;height:100%;background:var(--paper);z-index:41;padding:18px;overflow:auto;transition:.2s;border-left:2px solid var(--sage)}.mm-panel.on{right:0}
+.mm-panel h3{font-size:22px;text-transform:uppercase;color:var(--sage3);margin:14px 0 4px}
+.mm-panel button{display:block;width:100%;text-align:left;padding:6px 8px;border-radius:4px}.mm-panel button:hover{background:var(--paper2)}

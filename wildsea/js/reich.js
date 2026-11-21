@@ -15,7 +15,7 @@ function entry(e){ return '<div class="en" id="e_' + esc(e.t) + '"><h3>' + esc(e
 function facts(f){ return '<div class="facts">' + f.map(function(x){ return '<div><b>' + esc(x[0]) + '</b>' + esc(x[1]) + '</div>'; }).join("") + '</div>'; }
 
 function rUeberblick(r, S){
-  var els = r.elemente.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + ' <span class="pg" style="float:right">S. ' + (r.p + 1) + '</span></h3><p>' + esc(e.x) + '</p><span class="k">Die Crew könnte erleben …</span><ul class="bul">' + e.erleben.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div>'; }).join("");
+  var els = r.elemente.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + ' <span class="pg" style="float:right">S. ' + (r.p + 1) + '</span></h3><p>' + esc(e.x) + '</p>' + (e.erleben.length ? '<span class="k">Die Crew könnte erleben …</span><ul class="bul">' + e.erleben.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') + '</div>'; }).join("");
   var ru = '<div class="el ru"><h3>' + r.geruechte.t + ' <span class="pg">S. ' + r.geruechte.p + '</span></h3>' + (r.geruechte.intro ? '<p style="color:var(--soft);margin-bottom:8px">' + esc(r.geruechte.intro) + '</p>' : '') + '<div class="rs">' + r.geruechte.x.map(function(x, i){ return '<div class="cd' + (S.rumours[i] ? ' used' : '') + '" id="rumours_' + i + '" onclick="tog(\'' + r.id + '\',\'rumours\',' + i + ')">' + esc(x) + '</div>'; }).join("") + '</div></div>';
   var vl = r.erzaehl.map(function(v){ return '<div class="vl">' + paras(v.x) + '</div>'; }).join("");
   return '<div class="band" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h1>' + esc(r.t) + '</h1><p>' + esc(r.kurz) + '</p></div><div class="grid3">' + els + ru + '</div>' + vl;

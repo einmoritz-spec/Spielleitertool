@@ -242,3 +242,11 @@ body.dark .tbl tr:nth-child(odd) td{background:rgba(255,255,255,.06)}
 .hl{margin:6px 0 10px}.hl b{display:block;font:20px Baby;font-weight:400;color:var(--c)}
 .gcols{columns:2 420px;column-gap:26px}.gab{break-inside:avoid-column;margin-bottom:10px}.gab h3{font-size:26px;color:var(--c);margin:6px 0 3px}
 .hx{font:20px Baby;color:var(--c);margin-left:6px}
+.nbody{max-width:1200px}.nbody p{margin-bottom:8px}
+.wcs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}.wc{display:flex;justify-content:space-between;align-items:center;border:2px solid var(--line);border-radius:10px;padding:6px 10px;font-size:13px}.wc span{display:flex;align-items:center;gap:8px}.wc i{font:24px Baby;font-style:normal;min-width:18px;text-align:center}.wc button{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line)}
+.wgo{background:var(--c);color:#fff;border-radius:99px;padding:8px 26px;font:24px Baby;margin:8px 0}
+.wdice{display:flex;gap:8px;margin:8px 0}.dv{width:46px;height:46px;border-radius:10px;border:2.5px solid var(--ink);display:grid;place-items:center;font:28px Baby}.dv.top{background:var(--ink);color:#fff}.dv.cut{opacity:.3;text-decoration:line-through}
+.wres{border-left:6px solid var(--c);padding:4px 12px;margin:6px 0 10px}.wres h3{font-size:30px}.wres.Triumph{border-color:var(--teal)}.wres.Konflikt{border-color:var(--gold)}.wres.Desaster{border-color:var(--red)}
+.warten{margin-top:8px}
+.modal.wide>div{width:min(900px,94vw);max-height:90vh;overflow:auto}
+.nbody .bimg{max-width:420px;max-height:420px;border-radius:12px;display:block;margin:8px 0;cursor:zoom-in}

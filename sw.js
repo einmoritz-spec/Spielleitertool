@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v609pi";
+const VERSION = "v610pi";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -340,6 +340,18 @@ const FILES = [
   "spire/sys.js",
   "pico/index.html",
   "pico/sys.js",
+  "pico/js/data/nach-anhang.js",
+  "pico/js/data/nach-kaefer-a.js",
+  "pico/js/data/nach-kaefer-b.js",
+  "pico/js/data/nach-kaefer-c.js",
+  "pico/js/data/nach-regeln-a.js",
+  "pico/js/data/nach-regeln-b.js",
+  "pico/js/data/nach-regeln-c.js",
+  "pico/js/data/nach-titanen.js",
+  "pico/js/data/nach-weber.js",
+  "pico/js/data/nach-welt.js",
+  "pico/js/nach.js",
+  "pico/js/wuerfel.js",
   "pico/js/data/gefahren-text-a.js",
   "pico/js/data/gefahren-text-b.js",
   "pico/js/data/gefahren-text-c.js",

@@ -26,19 +26,27 @@ function blk(L){
       case "ul": return '<ul class="bul">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
       case "dl": return '<ul class="bul">' + b.x.map(function(x){ return "<li><b>" + esc(x[0]) + ":</b> " + md(x[1]) + "</li>"; }).join("") + "</ul>";
       case "vl": return '<div class="vl"' + (b.c ? ' style="--c:' + b.c + '"' : '') + '>' + md(b.x) + (b.wer ? "<small>" + esc(b.wer) + "</small>" : "") + "</div>";
-      case "box": return '<div class="box" style="--c:' + (b.c || "var(--c)") + ';margin:10px 0"><div class="hd">' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</div><div class="bd2 txt">' + (b.b ? blk(b.b) : md(b.x)) + "</div></div>";
-      case "fill": return '<div class="fillbox" style="--c:' + (b.c || "var(--c)") + ';margin:10px 0">' + (b.h ? "<h3>" + esc(b.h) + "</h3>" : "") + '<div class="txt">' + (b.b ? blk(b.b) : md(b.x)) + "</div></div>";
+      case "box": return '<div class="box" style="' + (b.c ? '--c:' + b.c + ';' : '') + 'margin:10px 0"><div class="hd">' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</div><div class="bd2 txt">' + (b.b ? blk(b.b) : md(b.x)) + "</div></div>";
+      case "fill": return '<div class="fillbox" style="' + (b.c ? '--c:' + b.c + ';' : '') + 'margin:10px 0">' + (b.h ? "<h3>" + esc(b.h) + "</h3>" : "") + '<div class="txt">' + (b.b ? blk(b.b) : md(b.x)) + "</div></div>";
       case "tint": return '<div class="tint txt" style="margin:10px 0">' + (b.h ? '<b>' + esc(b.h) + '</b> ' : '') + (b.b ? blk(b.b) : md(b.x)) + "</div>";
       case "tbl": return tbl(b);
       case "bsp": return bsp(b);
       case "erg": return erg(b);
       case "d6": return d6tab(b.h, b.rows, b.id);
       case "img": return '<img class="bimg" src="' + IMG(b.src) + '" alt="" onclick="zoom(this.src)">';
+      case "cards": return cards(b);
       case "grid": return '<div class="grid' + (b.n || 2) + '" style="margin:10px 0">' + b.x.map(function(c){ return '<div class="txt">' + blk(c) + "</div>"; }).join("") + "</div>";
     }
     return "";
   }).join("");
 }
+/* Bild-Übersicht: x:[{t,img?,p?,c?,k?(Kurztext),b:[Blöcke]}] – Klick öffnet Detail */
+var CARDS = [];
+function cards(b){
+  var base = CARDS.length; b.x.forEach(function(c){ CARDS.push(c); });
+  return '<div class="ggr" style="margin:10px 0">' + b.x.map(function(c, i){ return '<div class="gc" style="' + ((c.c || b.c) ? '--c:' + (c.c || b.c) : '') + '" onclick="cardOpen(' + (base + i) + ')"><div class="im">' + (c.img ? '<img loading="lazy" src="' + IMG(c.img) + '" alt="">' : '<span class="ph">' + esc(c.t.charAt(0)) + '</span>') + '</div><h3>' + esc(c.t) + '</h3>' + (c.k ? '<small>' + esc(c.k) + '</small>' : c.p ? '<small>S. ' + c.p + '</small>' : '') + '</div>'; }).join("") + '</div>';
+}
+function cardOpen(i){ var c = CARDS[i]; modal('<div class="box"' + (c.c ? ' style="--c:' + c.c + '"' : '') + '><div class="hd">' + esc(c.t) + (c.p ? pgl(c.p) : "") + '</div><div class="bd2 gl txt">' + (c.img ? '<img class="eimg big" src="' + IMG(c.img) + '" alt="" onclick="zoom(this.src)">' : '') + blk(c.b) + '</div></div>', true, c.c); }
 function tbl(b){
   return '<table class="tbl" style="margin:8px 0">' + (b.head ? "<tr>" + b.head.map(function(h){ return "<th>" + esc(h) + "</th>"; }).join("") + "</tr>" : "") +
     b.rows.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + md(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>";
@@ -49,7 +57,7 @@ function bsp(b){
 }
 /* Ergebnis-Tabelle (Triumph/Konflikt/Desaster/Wendung) */
 function erg(b){
-  return '<div class="erg" style="--c:' + (b.c || "var(--c)") + '"><h4>' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</h4>' + b.rows.map(function(r){ return '<div><b>' + esc(r[0]) + '</b><span>' + md(r[1]) + '</span></div>'; }).join("") + "</div>";
+  return '<div class="erg" style="' + (b.c ? '--c:' + b.c : '') + '"><h4>' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</h4>' + b.rows.map(function(r){ return '<div><b>' + esc(r[0]) + '</b><span>' + md(r[1]) + '</span></div>'; }).join("") + "</div>";
 }
 /* W6-Tabellen (anklickbar) */
 var D6 = {};
@@ -64,7 +72,7 @@ function d6roll(id){ D6[id] = 1 + Math.floor(Math.random() * 6); render(); }
 function zoom(src){ var d = document.createElement("div"); d.className = "gzoom"; d.onclick = function(){ d.remove(); }; d.innerHTML = '<img src="' + src + '" alt="">'; document.body.appendChild(d); }
 function modal(html, wide, c){
   var m = document.createElement("div"); m.className = "modal" + (wide ? " wide" : "");
-  m.innerHTML = '<div style="--c:' + (c || "var(--ink)") + '">' + html + '</div>';
+  m.innerHTML = '<div' + (c ? ' style="--c:' + c + '"' : '') + '>' + html + '</div>';
   m.onclick = function(e){ if(e.target === m) m.remove(); };
   document.body.appendChild(m); return m;
 }
@@ -127,7 +135,7 @@ function setTheme(dark, c, t){
   document.documentElement.style.setProperty("--c", c || "var(--teal)");
   document.documentElement.style.setProperty("--t", t || "var(--t-teal)");
 }
-function render(){
+function render(){ CARDS = [];
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
   setTheme(false);
   if(v === "start") out = viewStart();

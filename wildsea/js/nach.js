@@ -42,6 +42,9 @@ function viewCharUebersicht(L){
   gr.sort(function(a, b){ return (PK[b.k] ? 1 : 0) - (PK[a.k] ? 1 : 0); });
   var out = gr.map(function(g){
     if(!PK[g.k]) return '<h2 class="sec">' + esc(g.k) + '</h2><div class="cl">' + g.a.map(function(s){ return '<a onclick="go(\'nach/charaktere/' + s.id + '\')">' + esc(s.t.split(":")[0]) + '<small>S. ' + s.p + '</small></a>'; }).join("") + '</div>';
+    if(g.k !== "Blutlinien") return '<h2 class="sec">' + esc(g.k) + '</h2><div class="cm">' + g.a.map(function(s){
+      var m = window.WS_NIMG && WS_NIMG.charaktere && WS_NIMG.charaktere[s.id], p = m && m[0] ? m[0][0] : null;
+      return '<a onclick="go(\'nach/charaktere/' + s.id + '\')"><span class="av">' + (p ? '<img loading="lazy" src="img/' + p + '" alt="">' : '') + '</span><b>' + esc(s.t.split(":")[0]) + '</b><small>S. ' + s.p + '</small></a>'; }).join("") + '</div>';
     return '<h2 class="sec">' + esc(g.k) + '</h2><div class="ccs">' + g.a.map(card).join("") + '</div>';
   }).join("");
   return '<div class="pad cuw">' + out + '</div>';

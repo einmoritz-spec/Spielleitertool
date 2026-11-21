@@ -24,7 +24,7 @@ function rwFigs(secId,e){
   }
   return e._f||[];
 }
-function rwFigParts(secId,e){ return {ban:"", pt:rwFigs(secId,e).map(function(pg){return imf("rw/fig_"+pg);}).join("")}; }
+function rwFigParts(secId,e){ return {ban:"", pt:(e._skipFig?[]:rwFigs(secId,e)).map(function(pg){return imf("rw/fig_"+pg);}).join("")}; }
 function rwHero(secId){ return RWI.hero[secId]?imf("rw/"+RWI.hero[secId]):""; }
 function rwLb(src){
   var d=document.getElementById("rwlb");

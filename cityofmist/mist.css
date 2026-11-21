@@ -437,3 +437,11 @@ html,body{overflow-x:hidden}
 .figc p{margin:0;font-size:15.5px}
 @media (max-width:1000px){.avhero{grid-template-columns:1fr}}
 .ort.avmain>summary{display:none}
+/* Eisberg in der Höhe begrenzen, Steckbrief bekommt die übrige Breite */
+.avhero{grid-template-columns:auto minmax(0,1fr)!important}
+.omain>.avhero .ice-wrap.org{width:fit-content!important;max-width:62%}
+.omain>.avhero .ice-wrap.org img{height:420px!important;width:auto!important;max-width:100%}
+@media (max-width:1000px){.avhero{grid-template-columns:1fr!important}.omain>.avhero .ice-wrap.org{max-width:100%}.omain>.avhero .ice-wrap.org img{height:auto!important}}
+.omain>.avhero .ice-wrap.org{width:auto!important;max-width:none!important}
+.omain>.avhero .ice-wrap.org img{max-width:none!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain}
+@media (max-width:1250px){.omain>.avhero .ice-wrap.org img{height:340px!important}}

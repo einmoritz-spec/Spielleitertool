@@ -234,3 +234,17 @@ input::placeholder{color:var(--text-faint)}
 .ov2-grid .adv-card p{display:none}
 .ov2-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));max-width:1400px}
 @media(max-width:640px){.ov2-grid{grid-template-columns:1fr}}
+/* Szenen-Raster: Vignetten und Challenges zu zweit nebeneinander */
+.stage-wrap .section:has(>.vignette),.stage-wrap .section:has(>.challenge){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.stage-wrap .section:has(>.vignette){align-items:stretch}
+.stage-wrap .section:has(>.vignette)>:not(.vignette),.stage-wrap .section:has(>.challenge)>:not(.challenge){grid-column:1/-1}
+.stage-wrap .section>.vignette,.stage-wrap .section>.challenge{margin:0!important}
+.stage-wrap .section>.vignette:last-child:nth-child(even),.stage-wrap .section>.challenge:last-child:nth-child(even){grid-column:1/-1}
+.stage-wrap .section>.challenge.open{grid-column:1/-1}
+.vignette{cursor:pointer;transition:background .15s,color .15s}
+.vignette .v-played-toggle{display:none!important}
+.vignette.played{background:#e3dfd7!important;border-color:#d3cec4!important;box-shadow:none!important}
+.vignette.played .v-name,.vignette.played .v-flavor,.vignette.played li{color:#9a958c!important}
+.vignette.played .tag,.vignette.played [class*=status]{filter:grayscale(1);opacity:.7}
+@media (max-width:900px){.stage-wrap .section:has(>.vignette),.stage-wrap .section:has(>.challenge){grid-template-columns:1fr}}
+.stage-wrap .section:has(>.challenge.open)>.challenge{grid-column:1/-1}

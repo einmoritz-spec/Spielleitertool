@@ -782,8 +782,7 @@ function renderScene(adv, scene, idx){
     scene.vignettes.forEach((v,vIdx)=>{
       const vUid = vignetteUid(adv.id, idx, vIdx);
       const played = !!state.vignettesPlayed[vUid];
-      html += `<div class="vignette ${played?'played':''}">
-        <button class="v-played-toggle" onclick="event.stopPropagation(); toggleVignettePlayed('${vUid}')" title="${played?'Als nicht gespielt markieren':'Als gespielt markieren — fließt in die PDF-Zusammenfassung ein'}">${played?'✓':''}</button>
+      html += `<div class="vignette ${played?'played':''}" onclick="vigClick(event,'${vUid}',this)" title="Klicken: als gespielt markieren">
         <div class="v-name"${EA("vignettes."+vIdx+".name")}>${esc(v.name)}</div><div class="v-flavor"${EA("vignettes."+vIdx+".flavor")}>${LS(esc(v.flavor))}</div><ul>${v.options.map((o,oi)=>`<li${EA("vignettes."+vIdx+".options."+oi)}>${LS(esc(o))}</li>`).join("")}</ul></div>`;
     });
     html += `</div>`;

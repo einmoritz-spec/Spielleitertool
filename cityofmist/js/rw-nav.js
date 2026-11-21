@@ -1,7 +1,7 @@
 /* Grundregelwerk (Spieler:innen-Handbuch, DE) – Gliederung. p = gedruckte Buchseite (PDF-Seite − 2).
    Daten pro Abschnitt: js/data/regelwerk/<id>*.js (rwAdd), Dateiliste in rw-files.js (erzeugt mit tools/regelwerk/build_manifest.py). */
 var CM_RW = {};
-function rwAdd(id, arr){ (CM_RW[id]=CM_RW[id]||[]).push.apply(CM_RW[id],arr); }
+function rwAdd(id, arr){ var L=(CM_RW[id]=CM_RW[id]||[]); arr.forEach(function(e){ if(!L.some(function(x){return x.name===e.name&&x.p===e.p;})) L.push(e); }); }
 var CM_RW_NAV = {
  tabs:[{id:"start",t:"Start"},{id:"welt",t:"Welt"},{id:"charakter",t:"Charakter"},{id:"regeln",t:"Regeln"},{id:"entwicklung",t:"Entwicklung"}],
  extra:[{id:"dokumente",t:"Dokumente"},{id:"spielbeispiel",t:"Spielbeispiel"}],

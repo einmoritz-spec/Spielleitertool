@@ -231,3 +231,22 @@ body.pn-off .ll-rail{padding-left:26px}
  .ll-rmain>*:first-child{border-top:0!important}
  .ll-rnav{margin-bottom:6px;border-bottom:1px solid #c9b88f;padding-bottom:4px}
 }
+/* Szenen-Bühne (wie Nights): Bild rechts neben dem Vorlesetext, Hinweise als angepinnte Karten */
+.lb-top{display:block!important}
+.lb-top::after{content:"";display:block;clear:both}
+.lb-a{display:block!important;width:auto!important}
+.lb-figs{float:right!important;width:44%!important;margin:0 0 14px 24px!important;display:flex;gap:10px}
+.lb-figs .ll-fig,.lb-figs img{width:100%!important;max-width:none!important;margin:0!important}
+.lb-a .readaloud{display:flow-root}
+.lb-a .gm-note{display:block!important;overflow:visible!important}
+.ra-label{display:none!important}
+.lb-b{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px 14px;clear:both;margin-top:14px;width:auto!important}
+.lb-b>:not(.clue-box){grid-column:1/-1}
+.clue-box{background:#fbf6e6!important;color:#2a251d!important;border:1px solid #e2d3a8!important;border-radius:2px!important;padding:16px 16px 12px!important;margin:0!important;font-size:.92em;box-shadow:0 3px 8px rgba(60,40,10,.14)!important;cursor:pointer;transition:background .15s,color .15s,box-shadow .15s}
+.clue-box .tick{display:none!important}
+.clue-box::after{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#c36bd8,#6a1f8f);box-shadow:0 2px 3px rgba(0,0,0,.35)}
+.clue-box.done{opacity:1!important;background:#e3dfd7!important;color:#9a958c!important;border-color:#d3cec4!important;box-shadow:none!important}
+.clue-box.done b,.clue-box.done strong,.clue-box.done .hl{color:#9a958c!important;background:transparent!important}
+.clue-box.done::after{background:radial-gradient(circle at 35% 35%,#c9c5bd,#8d8981)}
+@media (max-width:900px){.lb-figs{float:none!important;width:100%!important;margin:0 0 12px!important}}
+.clue-box.done,.clue-box.done *{text-decoration:none!important}

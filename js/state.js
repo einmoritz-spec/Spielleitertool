@@ -184,6 +184,12 @@ function vignetteUid(advId, sceneIdx, vIdx){
 // im Zuge des PDF-Zusammenfassungs-Features): jede Vignette lässt sich
 // als "gespielt" markieren, damit die Zusammenfassung später weiß, was
 // die Gruppe tatsächlich erlebt hat, statt nur was im Buch steht.
+function vigClick(ev,uid,el){
+  const t=ev.target; if(t.closest('a,button,input,textarea,[contenteditable="true"]')) return;
+  const oc=t.closest('[onclick]'); if(oc && oc!==el) return;
+  if(window.getSelection && String(window.getSelection()).length>2) return;
+  toggleVignettePlayed(uid);
+}
 function toggleVignettePlayed(uid){
   state.vignettesPlayed[uid] = !state.vignettesPlayed[uid];
   render();

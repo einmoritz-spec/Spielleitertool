@@ -234,15 +234,15 @@ function clueBoxes(list){
   // Original mehrere getrennte eingerückte Vorlesetext-Blöcke, nicht
   // nur einen am Anfang).
   return list.map(c=>{
-    if(c && typeof c === "object" && c.readaloud !== undefined) return `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${c.readaloud}</div></div>`;
+    if(c && typeof c === "object" && c.readaloud !== undefined) return `<div class="readaloud article"><div>${c.readaloud}</div></div>`;
     if(c && typeof c === "object" && c.text !== undefined) return `<p>${c.text}</p>`;
     const k = clueKey(c);
-    return `<div class="clue-box ${LL_DONE[k]?"done":""}"><button class="tick" onclick="toggleClue('${k}',this)" aria-label="Hinweis abhaken"></button>${c}</div>`;
+    return `<div class="clue-box ${LL_DONE[k]?"done":""}" onclick="if(!event.target.closest('a,button,.hl,.gl'))toggleClue('${k}',this)" title="Klicken: als erledigt markieren">${c}</div>`;
   }).join("");
 }
 let LL_DONE = {}; try{ LL_DONE = JSON.parse(localStorage.getItem("ll_done")||"{}"); }catch(e){}
 function clueKey(t){ let h=0; const x=String(t).replace(/<[^>]*>/g,"").slice(0,160); for(let i=0;i<x.length;i++){ h=(h*31+x.charCodeAt(i))|0; } return "c"+(h>>>0).toString(36); }
-function toggleClue(k,btn){ LL_DONE[k]=!LL_DONE[k]; if(!LL_DONE[k]) delete LL_DONE[k]; try{ localStorage.setItem("ll_done",JSON.stringify(LL_DONE)); }catch(e){} const b=btn.closest(".clue-box"); if(b) b.classList.toggle("done",!!LL_DONE[k]); }
+function toggleClue(k,btn){ LL_DONE[k]=!LL_DONE[k]; if(!LL_DONE[k]) delete LL_DONE[k]; try{ localStorage.setItem("ll_done",JSON.stringify(LL_DONE)); }catch(e){} const b=btn.classList.contains("clue-box")?btn:btn.closest(".clue-box"); if(b) b.classList.toggle("done",!!LL_DONE[k]); }
 function gmNote(text){
   if(!text) return "";
   return `<div class="gm-note"><span class="gm-label">Spielleitungs-Hinweis</span>${text}</div>`;
@@ -499,9 +499,9 @@ function toggleLoc(id){ state.openLoc[id] = !state.openLoc[id]; const el = docum
 function openLocEl(el){ const c = el && el.closest && el.closest(".loc-card"); if(c && !c.classList.contains("open")){ c.classList.add("open"); state.openLoc[c.id] = true; } }
 function locBlock(l, anchorId, scope){
   let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}">`;
-  html += `<h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span> ${l.name}</h4><div class="loc-body">`;
+  html += `<h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span> ${llCaps(l.name)}</h4><div class="loc-body">`;
   if(l.readaloud){
-    html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${l.readaloud}</div></div>`;
+    html += `<div class="readaloud article"><div>${l.readaloud}</div></div>`;
   }
   if(l.mythos){
     html += `<p style="font-size:12px;color:var(--text-faint);font-style:italic;margin:0 0 6px;">${l.mythos}</p>`;
@@ -541,9 +541,9 @@ function locBlock(l, anchorId, scope){
 }
 function hookBlock(h, anchorId){
   if(typeof h==="string") return `<div class="card"><p>${h}</p></div>`;
-  if(!h.name) return `<div class="card">${h.readaloud?`<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`:""}${h.text?`<p>${h.text}</p>`:""}${h.clues?clueBoxes(h.clues):""}${h.gmNote?gmNote(h.gmNote):""}</div>`;
-  let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}"><h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span> ${h.name}</h4><div class="loc-body">`;
-  if(h.readaloud) html += `<div class="readaloud article"><span class="ra-label">Vorlesen</span><div>${h.readaloud}</div></div>`;
+  if(!h.name) return `<div class="card">${h.readaloud?`<div class="readaloud article"><div>${h.readaloud}</div></div>`:""}${h.text?`<p>${h.text}</p>`:""}${h.clues?clueBoxes(h.clues):""}${h.gmNote?gmNote(h.gmNote):""}</div>`;
+  let html = `<div class="loc-card loc-anchor ${state.openLoc[anchorId]?"open":""}" id="${anchorId}"><h4 class="loc-h" onclick="toggleLoc('${anchorId}')"><span class="chev">▸</span> ${llCaps(h.name)}</h4><div class="loc-body">`;
+  if(h.readaloud) html += `<div class="readaloud article"><div>${h.readaloud}</div></div>`;
   if(h.text) html += `<p>${h.text}</p>`;
   if(h.clues) html += clueBoxes(h.clues);
   if(h.gmNote) html += gmNote(h.gmNote);
@@ -895,7 +895,7 @@ function llRestructure(root){
     });
     if(!A.length&&!C.length) return;
     var top=document.createElement("div"); top.className="lb-top";
-    var la=document.createElement("div"); la.className="lb-a", fg=document.createElement("div"); fg.className="lb-figs"; A.forEach(function(k){ if(/ll-fig/.test(k.className||"")||k.tagName==="FIGURE") fg.appendChild(k); else la.appendChild(k); }); if(fg.children.length) la.appendChild(fg);
+    var la=document.createElement("div"); la.className="lb-a", fg=document.createElement("div"); fg.className="lb-figs"; A.forEach(function(k){ if(/ll-fig/.test(k.className||"")||k.tagName==="FIGURE") fg.appendChild(k); else la.appendChild(k); }); if(fg.children.length) la.insertBefore(fg, la.firstChild);
     var lb=document.createElement("div"); lb.className="lb-b"; B.forEach(function(k){lb.appendChild(k);});
     if(A.length) top.appendChild(la); top.appendChild(lb);
     var lc=document.createElement("div"); lc.className="lb-c"; C.forEach(function(k){lc.appendChild(k);});
@@ -948,3 +948,5 @@ function llPips(root){
 
 /* Illustrationen aus dem Buch als Bilderband im Bezirk */
 function llGalerie(id){ const g=(typeof LL_GALERIE!=="undefined")&&LL_GALERIE[id]; return g&&g.length?`<div class="ll-galerie">${g.map(src=>`<img src="${src}" alt="" loading="lazy" draggable="false" onclick="mapFull(this.src)">`).join("")}</div>`:""; }
+
+function llCaps(n){ return String(n||"").replace(/(\w)(['’])S\b/g,"$1$2s"); }

@@ -255,3 +255,6 @@ body{background:radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%)
 .blk-card .ck{display:none}
 .blk-card.done{opacity:1!important;filter:grayscale(1);background:#e4ded0!important;color:#8a8475!important;box-shadow:none!important}
 .blk-card.done::before{background:#9a948a}
+.blk-card.done{filter:none!important;background:#e3dfd7!important;color:#9a958c!important;border-color:#d3cec4!important}
+.blk-card.done b,.blk-card.done u{color:#9a958c!important}
+.blk-card.done::before{background:radial-gradient(circle at 35% 35%,#c9c5bd,#8d8981)!important}

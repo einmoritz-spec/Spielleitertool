@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v569vae";
+const VERSION = "v570vae";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -26,6 +26,11 @@ const FILES = [
   "wildsea/js/data/gefahren-insekten-1.js",
   "wildsea/js/data/gefahren-pflanzen-1.js",
   "wildsea/js/data/gefahren-pflanzen-2.js",
+  "wildsea/js/data/gefahren-konstrukte-1.js",
+  "wildsea/js/data/gefahren-pluenderer-1.js",
+  "wildsea/js/data/gefahren-krankheiten.js",
+  "wildsea/js/data/gefahren-leviathane-1.js",
+  "wildsea/js/data/gefahren-leviathane-2.js",
   "wildsea/img/gefahr/manticrows.webp",
   "wildsea/img/gefahr/pangoska.webp",
   "wildsea/img/gefahr/pinwolves.webp",

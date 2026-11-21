@@ -132,6 +132,7 @@ var VAE_WESEN = [
 "en": "Dragon",
 "p": 45,
 "img": "feuer_drache",
+"book": "vae_seasons",
 "might": 14,
 "body": 8,
 "magic": 9,

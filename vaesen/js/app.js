@@ -6,7 +6,7 @@ function IMG(n, k){ return "img/" + (k || "full") + "/" + n + ".webp"; }
 var cur = "start", sub = "", folded = false;
 try{ folded = localStorage.getItem("vae_fold") === "1"; }catch(e){}
 var BOOK = 4; /* PDF-Seite = Buchseite + 4 */
-function inBook(p){ return "BV.open('vae_core'," + (p + BOOK) + ")"; }
+function inBook(p){ return "BV.open('vae_core'," + p + ")"; }
 
 /* ---------- Bereiche ---------- */
 var AREAS = [

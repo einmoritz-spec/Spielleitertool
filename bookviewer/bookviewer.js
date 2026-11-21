@@ -98,10 +98,14 @@ var BV = (function(){
   /* Seitenverweise im Text automatisch anklickbar machen */
   const RX = /\bCBII?\s?(\d{1,3})|(?:\bS\.|\bSeiten?)\s?(\d{1,3})(?:\s?[–-]\s?(\d{1,3}))?/g;
   /* Core-Book-Verweise: CBI = gedruckte Seite = PDF-Seite; CBII = gedruckte Seite + 240 (Band II beginnt bei PDF-S. 241) */
-  function target(m, before, ctxBook){
+  function target(m, before, ctxBook, after){
     const has = k=>cfg.books.some(b=>b.key===k);
     if(m[0].slice(0,2)==="CB" && has("core")) return { book:"core", page:(parseInt(m[1])||1) + (m[0].slice(0,4)==="CBII" ? 240 : 0) };
     const pg = parseInt(m[2]);
+    if(ctxBook && ctxBook!=="core" && has(ctxBook)){
+      if(cfg.defaultBook!==ctxBook && has(cfg.defaultBook) && (/Grundregelwerk\s*$/.test(before) || /^[^.;]{0,14}?im Grundregelwerk/.test(after||""))) return { book:cfg.defaultBook, page:pg };
+      return { book:ctxBook, page:pg };
+    }
     if(ctxBook==="core" && has("core")) return { book:"core", page: pg + (/Vol\. II|Band II/.test(before) ? 240 : 0) };
     if(has("core")){
       const mm = before.match(/(Core Book|CBII?|Erzähler-Buch)([^)]{0,45})$/);
@@ -121,7 +125,7 @@ var BV = (function(){
       const frag = document.createDocumentFragment(); let last = 0, m;
       while((m = RX.exec(txt))){
         frag.appendChild(document.createTextNode(txt.slice(last, m.index)));
-        const a = document.createElement("a"); a.className = "pg-link"; a.href = "#"; const cb = n.parentElement && n.parentElement.closest("[data-pgbook]"), tg = target(m, txt.slice(Math.max(0,m.index-70), m.index), cb && cb.dataset.pgbook); a.dataset.page = tg.page; a.dataset.book = tg.book; a.title = "Originalseite im Buch ansehen"; a.textContent = m[0]; frag.appendChild(a); last = m.index + m[0].length;
+        const a = document.createElement("a"); a.className = "pg-link"; a.href = "#"; const cb = n.parentElement && n.parentElement.closest("[data-pgbook]"), tg = target(m, txt.slice(Math.max(0,m.index-70), m.index), cb && cb.dataset.pgbook, txt.slice(m.index+m[0].length, m.index+m[0].length+30)); a.dataset.page = tg.page; a.dataset.book = tg.book; a.title = "Originalseite im Buch ansehen"; a.textContent = m[0]; frag.appendChild(a); last = m.index + m[0].length;
       }
       frag.appendChild(document.createTextNode(txt.slice(last))); n.parentNode.replaceChild(frag, n);
     }

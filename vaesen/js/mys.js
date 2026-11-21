@@ -8,7 +8,7 @@ var MS_SK = "WISSEN|UNTERSUCHUNG|EMPATHIE|BEOBACHTUNG|MANIPULATION|HEIMLICHKEIT|
 var MS_RE = new RegExp("(?<![A-ZÄÖÜ])(" + MS_SK + ")(?![A-ZÄÖÜ])", "g");
 function msDec(s){ return String(s).replace(MS_RE, '<span class="roll">$1</span>').replace(/Furchtprobe gegen Furcht (\d)/g, 'Furchtprobe gegen <span class="fear">FURCHT $1</span>'); }
 function msP(a){ return (a || []).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""); }
-function msPg(p, book){ return '<span class="pg"><a onclick="BV.open(\'vae_seasons\',' + (p + 4) + ')">S. ' + p + '</a></span>'; }
+function msPg(p, book){ return '<span class="pg"><a onclick="BV.open(\'vae_seasons\',' + p + ')">S. ' + p + '</a></span>'; }
 var MS_PEN = TZ_PEN;
 function msTtl(t, p, key){ return '<div class="ttl"><h2>' + esc(t) + '</h2>' + (p ? msPg(p) : '') + (key ? '<span class="pen' + (msLoad().note[key] ? ' has' : '') + '" onclick="msNote(\'' + key + '\',\'' + esc(t) + '\')" title="Notizen">' + MS_PEN + '</span>' : '') + '</div>'; }
 function msPp(k, d){ return MS.pp && MS.pp[k] != null ? MS.pp[k] : MS.p + d; }
@@ -147,6 +147,7 @@ function viewMys(){
   return msTabs(tab) + (["orte", "kf", "hw", "fg", "ho"].indexOf(tab) > -1 ? msCdBar() : "") + v;
 }
 function mysAfter(){
+  if(cur === "som") APP.dataset.pgbook = "vae_seasons"; else delete APP.dataset.pgbook;
   if(cur !== "som") return; tzPop(); tzShowClose();
   var p = sub.split("/"); if(p[1] === "fg" && p[2]){ var el = document.getElementById("fg-" + p[2]); if(el){ window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 150); el.classList.add("flash"); } }
 }

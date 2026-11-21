@@ -132,3 +132,6 @@ body.has-dock{padding-bottom:116px}
 .vu-pc{grid-template-columns:46px minmax(0,1fr);gap:8px;padding:9px 10px;flex:1 0 340px}.vu-pc img{width:46px;height:66px}
 .vu-zz{padding:0 5px}.vu-zr{gap:3px;flex-wrap:nowrap}
 .vu-ac .vu-cont{z-index:2}
+.vu-ac .vu-cont{position:static;order:9;margin:auto 14px 14px;padding:9px 0;text-align:center;font-size:15px;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.18);transition:filter .15s}
+.vu-ac .vu-tx{padding-bottom:12px}
+.vu-ac:hover .vu-cont{filter:brightness(1.12)}

@@ -221,7 +221,7 @@ VAE_MYS.tod = {
    x:"Die Almmägde sind relativ jung, die meisten in den Zwanzigern, einige Anfang dreißig. Sie werden von den Bauern dafür bezahlt, deren Vieh in Fudal zu hüten. Angestellte Mädchen sind fast ausschließlich unverheiratete Kullor – die verheirateten sind meist zu Hause und kümmern sich um den Hof, verbringen aber gelegentlich einige Zeit bei ihren Tieren auf der Fäbodvall. Die meisten Almmägde sind freundlich und fröhlich, und alle feiern und tanzen gern.",
    a:[2,2,3,3], f:[["Kraft",1],["Heimlichkeit",1],["Wachsamkeit",1]], z:[2,1], ausr:"Kuhhorn und Werkzeuge, etwa ein Messer oder eine Axt", hier:"Hüttendorf"}
  },
- nock: {n:"Der Nöck", p:144, x:"Werte im Grundregelwerk S. 144. Zauber im Mysterium: MAGISCHES INSTRUMENT (wirkt wie der Trollkunst-Zauber TANZ, Grundregelwerk S. 120). Furchtprobe gegen Furcht 1 beim ersten Anblick der wahren Gestalt. Empfindlich gegen christliche Symbole und Stahl."},
+ nock: {n:"Der Nöck", p:22, x:"Werte im Grundregelwerk S. 144. Zauber im Mysterium: MAGISCHES INSTRUMENT (wirkt wie der Trollkunst-Zauber TANZ, Grundregelwerk S. 120). Furchtprobe gegen Furcht 1 beim ersten Anblick der wahren Gestalt. Empfindlich gegen christliche Symbole und Stahl."},
 
  /* Handouts: Papier-Bild (img/som/ho_…), Text, Format */
  ho: [

@@ -1,6 +1,6 @@
 /* Gefahr aus dem Interregnum (Corebook S. 305) */
 window.WS_GEFAHR = window.WS_GEFAHR || [];
-WS_GEFAHR.push({id:"taumelheilige", t:"Taumelheilige", en:"Stagger-Saint", kat:"konstrukte", p:305, groesse:"Riesig", unter:"Uraltes Konstrukt", reich:"interregnum",
+WS_GEFAHR.push({id:"taumelheilige", img:"taumelheilige", t:"Taumelheilige", en:"Stagger-Saint", kat:"konstrukte", p:305, groesse:"Riesig", unter:"Uraltes Konstrukt", reich:"interregnum",
  x:"Die technischen Fähigkeiten der vorverdanten Welt sind selbst den ergebensten Gelehrten kaum verständlich, doch eine aus der Finsternis der Geschichte gezerrte Tatsache steht klar: Die Anbetung uralter Götter war oft eine zu komplexe Aufgabe für fleischliche Köpfe.\nTaumelheilige sind ein Zeugnis davon, riesige Maschinen mit Lochkartengeistern, gebaut, um Lobpreisungen zu singen und die Rituale vergessener Gottheiten zu beachten. Während viele im Unrat des Unter-Gebälks begraben liegen, haben manche überlebt und ziehen sich in die neue Welt darüber herauf, um ihre Mission fortzusetzen, den Glauben zu verbreiten und durchzusetzen.",
  praesenz:{sicht:"Eine aufragende Gestalt, die auf euch zukommt. Lange Glieder und glimmendes Glas. Eine knisternde, versagende Kraftquelle.",
   klang:"Ohrenbetäubende Lob- und Anbetungsgesänge. Das Kreischen und Ächzen schlecht gewarteter Gelenke.",

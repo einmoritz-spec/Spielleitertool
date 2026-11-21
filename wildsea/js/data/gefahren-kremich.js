@@ -1,6 +1,6 @@
 /* Gefahren aus dem Kremich Surge (Corebook S. 325) */
 window.WS_GEFAHR = window.WS_GEFAHR || [];
-WS_GEFAHR.push({id:"rissjaeger", t:"Rissjäger", en:"Riftstalker", kat:"bestien", p:325, groesse:"Mittel", unter:"Dimensionaler Schrecken", reich:"kremich",
+WS_GEFAHR.push({id:"rissjaeger", img:"riftstalker", t:"Rissjäger", en:"Riftstalker", kat:"bestien", p:325, groesse:"Mittel", unter:"Dimensionaler Schrecken", reich:"kremich",
  x:"Unheimliche Räuber, die wie Nebel um die Ränder von Rissen im Kronendach treiben. Der Fokus scheint von diesen Kreaturen abzugleiten, sodass Segler Mühe haben, sie zu beschreiben. Die meisten stimmen im Eindruck eines ausgezehrten Körperbaus, langer, kräftiger Glieder und viel zu vieler Zähne überein. Hat ein Rissjäger einmal Witterung aufgenommen, folgt er seiner Beute durchs ganze Reich.",
  i:"Setze einen Rissjäger ein, wenn die Crew einem unerbittlichen, verstörenden Jäger gegenüberstehen soll.",
  praesenz:{sicht:"Ein Schatten, halb erblickt am Rand des Decks. Ein rauchiger Pelz in der Farbe toten Holzes.", klang:"Klagendes Heulen, zugleich fern und dicht hinter euch.", geruch:"Der beißende Geruch verbrennenden Haars und gründlich zerbrochener Wirklichkeit.", geschmack:"Der Verzehr des blassen, herben Fleisches kann prophetische Träume schenken."},

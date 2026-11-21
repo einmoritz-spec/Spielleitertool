@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v591ws";
+const VERSION = "v592ws";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -180,6 +180,12 @@ const FILES = [
   "wildsea/img/reich/kremich_bitter-massing.webp",
   "wildsea/img/reich/prophet_outrim.webp",
   "wildsea/img/gefahr/spektrapeden.webp",
+  "wildsea/img/gefahr/temple-spine.webp",
+  "wildsea/img/gefahr/t/temple-spine.webp",
+  "wildsea/img/gefahr/taumelheilige.webp",
+  "wildsea/img/gefahr/t/taumelheilige.webp",
+  "wildsea/img/gefahr/riftstalker.webp",
+  "wildsea/img/gefahr/t/riftstalker.webp",
   "wildsea/img/gefahr/t/spektrapeden.webp",
   "wildsea/js/data/tisch-a.js",
   "wildsea/js/data/tisch-b.js",

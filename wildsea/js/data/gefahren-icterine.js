@@ -1,6 +1,6 @@
 /* Gefahr aus dem Icterine (Corebook S. 295) */
 window.WS_GEFAHR = window.WS_GEFAHR || [];
-WS_GEFAHR.push({id:"temple-spine", t:"Temple-Spine", en:"Temple-Spine", kat:"leviathane", p:295, groesse:"Protoleviathan", unter:"Pflanzenbestie", reich:"icterine",
+WS_GEFAHR.push({id:"temple-spine", img:"temple-spine", t:"Temple-Spine", en:"Temple-Spine", kat:"leviathane", p:295, groesse:"Protoleviathan", unter:"Pflanzenbestie", reich:"icterine",
  x:"Kaktoide Ungeheuer, die auf der Grenze zwischen gewöhnlichen Bestien und Leviathanen balancieren: Temple-Spines verschiedener Größe finden sich in jeder Schicht der dünengespickten Wellenlandschaft des Icterine.",
  i:"Setze einen Temple-Spine ein, wenn die Crew einem gewaltigen Hinterhalt-Jäger gegenüberstehen soll, einer Kraft, die groß genug ist, das Schiff zu verschlingen, wenn sie es will.",
  praesenz:{sicht:"Verkalkte rosa Blütenblätter an einem ansonsten unauffälligen Eisenstachel-Kaktus. Ein Zittern von Blüte und Faser, das nichts mit dem Wind zu tun hat. Ein rosenrosa Maul, klaffend.",

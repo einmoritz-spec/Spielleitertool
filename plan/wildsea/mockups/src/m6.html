@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ws.css"><style>
+.lay{display:flex;height:800px}.side{position:relative}
+.srch{margin:0 14px 10px;border:1px solid var(--line);background:#fff;border-radius:5px;padding:7px 10px;font-size:13px;color:#999}
+.side a{display:flex;justify-content:space-between;padding-left:18px}.side a.on{padding-left:15px}
+.side a small{color:#aaa}
+.ct{flex:1;padding:14px 30px;overflow:hidden}
+.enc{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.enc .lb{font:600 18px/1 Teko;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-right:4px}
+.ec{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:5px;padding:5px 10px 4px;font:600 18px/1 Teko;text-transform:uppercase}
+.ec.on{border-color:var(--amber);background:#fffaf0}
+.ec .dot{width:11px;height:11px;border-width:1.5px;margin-right:1px}
+.ec.add{color:var(--teal);border-style:dashed}
+.hz{background:#fff;border:1px solid var(--line);border-radius:6px;display:grid;grid-template-columns:1fr 250px;overflow:hidden}
+.hz .l{padding:16px 22px}
+.hz .im{background:#fff url(img/pangoska.webp) center/contain no-repeat;margin:12px;}
+.hz h1{font-size:46px;text-transform:uppercase;display:flex;gap:12px;align-items:center}
+.sub{font:600 21px/1 Teko;text-transform:uppercase;color:var(--sage3);letter-spacing:.04em;margin:2px 0 8px}
+.desc{font-size:14px;line-height:1.55}
+.g3{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:20px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.k{font:600 18px/1 Teko;text-transform:uppercase;color:var(--sage3);letter-spacing:.06em;margin-bottom:5px}
+.g3 p{font-size:12.8px;line-height:1.45;margin-bottom:4px}.g3 b{font-weight:400;font-family:Teko;font-size:16px;text-transform:uppercase;letter-spacing:.03em}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:12px}
+.asp p{font-size:12.8px;line-height:1.45;margin-bottom:6px}
+.q{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.q div{border:1px solid var(--line);border-radius:4px;padding:5px 8px;font-size:11.8px;line-height:1.35;color:var(--soft)}
+.q div b{display:block;font:600 16px/1 Teko;text-transform:uppercase;color:var(--ink);letter-spacing:.03em}
+.q div.on{border:2px solid var(--sage);background:#f5f8ef;color:var(--ink)}
+.trk{margin-top:12px;display:flex;gap:28px;align-items:center;background:#f5f4ec;border:1px solid var(--line);border-radius:5px;padding:10px 16px}
+.trk .t b{font:600 19px/1 Teko;text-transform:uppercase;letter-spacing:.04em;margin-right:8px}
+.trk .add{margin-left:auto;font:600 17px/1 Teko;text-transform:uppercase;color:var(--teal)}
+</style></head><body>
+<div class="top"><img class="logo" src="img/the-wildsea.webp"><div class="sp"></div>
+<span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></span>
+<span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span></div>
+
+<div class="tabs"><a>Überblick</a><a>Territorien</a><a>Häfen</a><a>Fraktionen</a><a>Auf See</a><a class="on">Gefahren</a><span class="r" style="align-self:center;margin-bottom:6px"><svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#323032" stroke-width="2"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span></div>
+<div class="lay">
+<nav class="side"><span class="fold">‹</span>
+<div class="srch">Gefahr suchen …</div>
+<h4 class="c">Heimisch im Foxloft</h4>
+<h4 class="c">Naturgewalten</h4>
+<h4>Bestien</h4>
+<a class="on">Pangoska</a><a>Nadelwölfe</a><a>Summvögel</a><a>Rattenwerk-Schwärme</a><a>Bastelaffen</a><a>Pfeilzungen-Jikari</a><a>Mantikrähen</a><a>Tryphoradons</a><a>Panra-Gärten</a><a>Elendsschnäbel</a><a>…</a>
+<h4 class="c">Insekten</h4><h4 class="c">Pflanzen</h4><h4 class="c">Konstrukte</h4><h4 class="c">Plünderer</h4><h4 class="c">Krankheiten</h4><h4 class="c">Leviathane</h4>
+</nav>
+<div class="ct">
+<div class="enc"><span class="lb">Begegnung</span>
+<span class="ec on">Pangoska <span class="dot m"></span><span class="dot m"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+<span class="ec">Glockenturm-Krabbe ×3 <span class="dot m"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+<span class="ec add">+ Gefahr</span></div>
+<div class="hz"><div class="l">
+<h1>Pangoska <span class="tag gr">Groß</span><span class="pg">S. 227</span></h1>
+<div class="sub">Bastionen aus Pflanze und Panzer</div>
+<p class="desc">Pangoska sind größere, affenartige Verwandte des bescheidenen Schuppentiers, deren Körperbau einzigartig an die lebendigen, ständig wechselnden Ökosysteme der rauschenden Wellen angepasst ist. Ihre Schutzplatten sind idealer Grund für symbiotische Moose und Flechten – Tarnung und Lockmittel für die Insekten, die sie fressen. <i style="color:#5f6d52">Setze eine Pangoska ein, wenn die Crew einem mächtigen Gegner begegnen soll, der lieber gar nicht kämpfen würde.</i></p>
+<div class="g3">
+<div><div class="k">Antriebe</div><p><b>Unauffällig bleiben:</b> Mächtig, aber sanft – meidet Kämpfe mit Raubtieren und Jägern, wo es geht.</p><p><b>Symbionten suchen:</b> … und sie pflegen, während sie deren Vorteile nutzt.</p></div>
+<div><div class="k">Präsenz</div><p><b>Sicht:</b> Ein zotteliger Pflanzenmantel. Leuchtende Blüten. Pralle Muskeln.</p><p><b>Klang:</b> Gedämpftes Schuppenschaben unter Grün. Leises Schnauben.</p><p><b>Geruch:</b> Pollen und Wüstenstaub.</p></div>
+<div><div class="k">Ressourcen</div><p><b>Proben:</b> Abgeworfene Platte, Bartmoos</p><p><b>Geflüster:</b> Widerwilliger Kämpfer, Lebendige Plattform</p></div>
+</div>
+<div class="g2">
+<div class="asp"><div class="k">Aspekte</div><p><b style="font:600 16px Teko;text-transform:uppercase">Stille Kraft:</b> Kämpft mit Fäusten, Klauen und Gewicht. NK-Schaden Stumpf und Scharf ist häufig, ebenso Griffe und Würfe.</p><p><b style="font:600 16px Teko;text-transform:uppercase">Tarnplatten:</b> Resistent gegen Stumpf, Scharf, Stich und Säge; mit Symbionten bewachsen eine hervorragende Tarnung.</p></div>
+<div><div class="k">Eigenheiten</div><div class="q">
+<div class="on"><b>Moosmantel</b>Immun gegen Stumpf, resistent gegen Flamme, Explosion, Gift.</div>
+<div><b>Rankenmantel</b>Ranken fangen alles im Nahkampf: Abzug oder geringere Wucht.</div>
+<div><b>Porzellanpanzer</b>Mehr Gewicht und Schaden, keine Tarnung.</div>
+<div><b>Verwelkt</b>Eine Krankheit hat die Symbionten verdorren lassen.</div>
+</div></div>
+</div>
+</div><div class="im"></div></div>
+<div class="trk"><span class="t"><b>Verwundung</b><span class="dot m"></span><span class="dot m"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><span class="t"><b>Beruhigen</b><span class="dot m"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><span class="add">+ Leiste</span></div>
+</div></div>
+</body></html>

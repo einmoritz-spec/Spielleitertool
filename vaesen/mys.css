@@ -45,3 +45,4 @@
 .ms-cols>div:last-child{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:0 22px;align-items:start}
 .ms-cols>div:last-child>.sub{grid-column:1/-1}
 .ms-cols>div:last-child>div[style]{margin-top:0!important}
+.ms-cols>div:last-child>.ms-fl{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 22px;align-items:start;margin-bottom:18px}.ms-cols>div:last-child>.ms-fl .kast{margin:0}

@@ -72,9 +72,9 @@ function msViewHg(){
 }
 function msViewAn(){
   var a = MS.an, b = a.brief;
-  return '<div class="ms-an"><div>' + msTtl("Einladung", msPp("einl", 2)) + '<p>' + a.einladung[0].replace(a.hoName, '<a class="lnk" onclick="go(\'som/' + MS_ID + '/ho\')">' + a.hoName + '</a>') + '</p><div class="vl"><b>' + b.t1 + '</b><br>' + b.x.join("<br>") + '<br><i>' + b.sig + '</i></div>' +
+  return '<div class="ms-an"><div>' + msTtl("Einladung", msPp("einl", 2)) + '<p>' + a.einladung[0].replace(a.hoName, '<a class="lnk" onclick="go(\'som/' + MS_ID + '/ho\')">' + a.hoName + '</a>') + '</p><div class="vl"><b>' + b.t1 + '</b><br>' + b.x.join("<br>") + '<br><i>' + b.sig + '</i></div>' + a.einladung.slice(1).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join("") +
    msTtl("Vorbereitungen", msPp("vorb", 3)) + msP(a.vorb) + (a.kultur ? msKast(a.kultur.t, a.kultur.x.join("<br><br>"), msPp("vorb", 3)) : '') + (a.kaesten || []).map(function(k){ return '<div style="margin-top:12px">' + msKast(k.t, msDec(k.x), k.p) + '</div>'; }).join("") + '</div><div>' +
-   msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + msTtl("Ankunft", msPp("ankunft", 4)) + '<p>' + a.ankunft[0] + '</p><div class="cl">' + a.jenny.map(function(t){ return '<div class="clue" style="cursor:default">' + t + '</div>'; }).join("") + '</div>' + a.ankunft.slice(1).map(function(t){ return '<p>' + t + '</p>'; }).join("") + '</div>' +
+   msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + msTtl("Ankunft", msPp("ankunft", 4)) + '<p>' + msDec(a.ankunft[0]) + '</p>' + (a.jenny ? '<div class="cl">' + a.jenny.map(function(t){ return '<div class="clue" style="cursor:default">' + t + '</div>'; }).join("") + '</div>' : '') + a.ankunft.slice(1).map(function(t){ return '<p>' + t + '</p>'; }).join("") + '</div>' +
    '<div>' + msSub("Karte " + msPg(msPp("karte", 2))) + a.karten.map(function(k){ return '<img class="ms-karte" src="' + msImg(k) + '" alt="" onclick="msZoom(this.src)">'; }).join("") + (a.hinterhalt ? '<div style="margin-top:12px">' + msKast(a.hinterhalt.t, msDec(a.hinterhalt.x), a.hinterhalt.p) + '</div>' : '') + msSub("Countdown und Katastrophe " + msPg(msPp("cd", 5))) + '<p style="font-size:15.5px">' + MS.cdIntro + '</p><div class="cl">' + MS.cd.map(function(s, i){ return '<div class="clue" style="cursor:default"><span class="q">' + (s.kat ? "Katastrophe" : "Schritt " + (i + 1) + " · " + esc(s.n)) + '</span>' + msDec(s.x) + '</div>'; }).join("") + '</div></div></div>';
 }
 function msViewOrte(ort){
@@ -113,6 +113,7 @@ function msViewHw(){
 function msHoCard(h){
   var paper = '<img class="ms-paper" src="' + msImg(h.paper) + '" alt="">';
   if(h.form === "zettel") return '<div class="ms-ho ms-zet" data-sh="1">' + paper + '<div class="ms-tx">' + h.x + '</div></div>';
+  if(h.form === "bild") return '<div class="ms-ho ms-bild" data-sh="1">' + paper + '</div>';
   if(h.form === "tagebuch") return '<div class="ms-ho ms-tag" data-sh="1">' + paper + '<div class="ms-tx">' + h.x + '</div></div>';
   var b = MS.an.brief, x = h.x || ('<b>' + b.t1 + '</b><br><br>' + b.x.join("<br><br>") + '<br><br><i>' + b.sig + '</i>');
   return '<div class="ms-ho ms-let' + (h.klein ? " l1a" : "") + '" data-sh="1">' + paper + '<div class="ms-tx">' + x + '</div></div>';

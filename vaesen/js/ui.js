@@ -15,7 +15,7 @@ function uiStart(){
   var books = [];
   VAE_BUECHER.forEach(function(g){ g.items.forEach(function(b){ if(b.cover) books.push(b); }); });
   var sm = window.VAE_MYS && VAE_MYS.tod ? 1 : 0;
-  ["tod", "feuer"].forEach(function(id){
+  ["tod", "feuer", "teufel"].forEach(function(id){
     var M = window.VAE_MYS && VAE_MYS[id]; if(!M) return;
     var st = JSON.parse(localStorage.getItem("vae_som_" + id + "_v1") || "{}"), scd = (st.cd || []).length, scl = Object.keys(st.clue || {}).length;
     adv += '<div class="vu-ac" onclick="go(\'som/' + id + '/' + (st.last || "hg") + '\')"><span class="vu-cont">' + (scd || scl ? "Weiterspielen" : "Starten") + '</span><div class="vu-im" style="background-image:url(img/' + M.bild + '.webp)"></div><div class="vu-tx"><h3>' + esc(M.titel) + '</h3><div class="vu-src">Seasons of Mystery · S. ' + M.p + '</div><div class="vu-prog"><span>Countdown <b>' + scd + ' / ' + (M.cd ? M.cd.length : 4) + '</b></span><span>Hinweise <b>' + scl + '</b></span></div></div></div>';

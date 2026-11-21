@@ -35,3 +35,5 @@
 .ms-kk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}@media(max-width:1100px){.ms-kk{grid-template-columns:1fr}}
 .ms-hw.w-2a,.ms-hw.w-2b{width:min(100%,470px)}.ms-hw.w-2b .ms-let .ms-tx{font-size:3.7cqw;inset:8% 8%}.ms-hw.w-2c .ms-tag .ms-tx{font-size:3.4cqw}
 .ms-hw.w-2a .ms-let .ms-tx{font-size:3.55cqw;inset:8% 8%}
+.ms-bild{width:100%}.ms-bild .ms-paper{display:block;width:100%;height:auto}.ms-hw.w-3a,.ms-hw.w-3b,.ms-hw.w-3e,.ms-hw.w-3f{width:min(100%,470px)}.ms-hw.w-3c,.ms-hw.w-3d{width:min(100%,520px)}.ms-hw.w-3g{width:min(100%,360px)}
+.ms-hw.w-3e .ms-tag .ms-tx,.ms-hw.w-3f .ms-tag .ms-tx{font-size:3.4cqw;line-height:1.5}.ms-bild .ms-paper{mix-blend-mode:multiply}

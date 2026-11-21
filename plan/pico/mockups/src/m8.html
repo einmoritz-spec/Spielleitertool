@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="pico.css"><style>
+.g{display:grid;grid-template-columns:420px minmax(0,1fr) 330px;gap:16px;padding:16px 22px}
+h2.k{font-size:32px;margin-bottom:6px;display:flex;align-items:baseline;gap:8px}
+.titan{--c:var(--red);border:3px solid var(--c);border-radius:16px;overflow:hidden;background:#fff}
+.titan .th{background:var(--c);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:10px}
+.titan .th h3{font-size:34px}
+.titan .th select{margin-left:auto;font:500 12px Rubik;border-radius:99px;border:0;padding:4px 8px}
+.titan .tb{padding:10px 14px;font-size:13.5px;line-height:1.45}
+.titan img{float:right;width:150px;height:130px;object-fit:contain;margin:-4px -4px 4px 8px}
+.titan h4{font-size:22px;color:var(--c);margin:8px 0 2px}
+.fav{display:flex;align-items:center;gap:6px;margin:6px 0}
+.fav .pt{width:22px;height:22px;border-radius:50%;border:2.5px solid var(--red)}
+.fav .pt.m{background:var(--red)}
+.den{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.ft{border:2.5px solid var(--c);border-radius:12px;padding:8px 10px;background:#fff;font-size:12.5px;line-height:1.4}
+.ft h4{font-size:22px;color:var(--c);display:flex;justify-content:space-between;align-items:center}
+.ft .up{display:flex;gap:4px}
+.ft .up i{width:12px;height:12px;border-radius:3px;border:2px solid var(--c)}
+.ft .up i.m{background:var(--c)}
+.ft.off{border-style:dashed;opacity:.55}
+.ft .ch{color:var(--soft);font-size:11.5px;margin-top:3px}
+.tr li{padding:6px 10px;border-radius:9px;margin-bottom:5px;background:var(--tint-lilac);list-style:none;font-size:13.5px}
+.tr li b{font:20px Baby;color:var(--violet);margin-right:6px}
+.bugs{display:grid;gap:8px;margin-top:10px}
+.bug{border:2px solid var(--ink);border-radius:12px;padding:7px 10px;display:flex;align-items:center;gap:10px;font-size:13px}
+.bug b{font:22px Baby}
+.mood{display:flex;gap:3px;margin-left:auto}
+.mood i{width:13px;height:13px;border-radius:50%;border:2px solid var(--ink)}
+.mood i.on{background:var(--gold);border-color:var(--gold)}
+</style></head><body>
+<!--TOP-->
+<div class="g">
+ <div>
+  <h2 class="k">Picotitan <span class="pg">S. 172 · Streifzugbogen</span></h2>
+  <div class="titan"><div class="th"><h3>Catling</h3><span style="font:300 13px Rubik">„Percival“</span><select><option>Titan wechseln</option></select></div>
+   <div class="tb"><img src="img/t-titan2.webp">Eine unterdurchschnittlich kleine Katze mit nur einem Hauch der göttlichen Präsenz größerer Katzen, so an Käfer gewöhnt, dass ihre bösen Krallen meist eingezogen bleiben … <i class="gm">Kann einen Brocken tragen.</i>
+    <h4>Gunst</h4><div class="fav"><span class="pt m"></span><span class="pt m"></span><span class="pt m"></span><span class="pt"></span><span class="pt"></span><span class="pt"></span><span style="margin-left:8px;font-size:12px;color:var(--soft)">Vorrat · S. 176</span></div>
+    <ul class="bul" style="--c:var(--red)"><li>Fellpflege: 2 Aufgaben</li><li>Verspielte Jagd: 1 Aufgabe, 1 Markierung Schlitzen-Schaden</li><li>Einfaches Füttern: 3 Fleisch-Bröckchen</li><li>Luxus-Füttern: 1 Fleisch-Mahlzeit</li></ul>
+    <h4>Gigafertigkeiten</h4><span class="chip" style="--c:var(--red)">Rang 3: Gigaschleichen</span><span class="chip" style="--c:var(--red)">Rang 3: Gigajagen</span><span class="chip o" style="--c:var(--red)">Rang 2: Gigaschlitzen</span><span class="chip o" style="--c:var(--red)">Rang 2: Gigatanzen</span>
+    <h4>Aura</h4><b>Kampflustig:</b> Härte-Abzug −1 bei Rauferei-Aktionen.
+    <h4>Besonderer Vorteil</h4><b>Raubtierinstinkt:</b> Bei jeder Montage ein freies Bröckchen: „Fleischiges Geschenk“ oder „Verdächtiger Knochen“.
+   </div></div>
+ </div>
+ <div>
+  <h2 class="k">Titanenbau <span class="pg">S. 184 · Brocken: Blechdose, Streichholzschachtel, Käfig …</span></h2>
+  <div class="den">
+   <div class="ft" style="--c:var(--amber)"><h4>Küche <span class="up"><i class="m"></i><i class="m"></i><i></i></span></h4><b>Hausmannskost:</b> In der Küche gekochte Mahlzeiten leeren beim Verzehr eine Schadensmarkierung. <b>Kaltes Blechdach:</b> …<div class="ch">Brocken: Blechdose, Streichholzschachtel · S. 185</div></div>
+   <div class="ft" style="--c:var(--blue)"><h4>Ausguck <span class="up"><i class="m"></i><i></i><i></i></span></h4>Vorteile beim Ausguck-Wurf auf Reisen … <div class="ch">S. 186</div></div>
+   <div class="ft off" style="--c:var(--tan)"><h4>Werkstatt <span class="up"><i></i><i></i><i></i></span></h4>Nicht gebaut – Klick zeigt Vorteile und benötigte Brocken.<div class="ch">S. 185</div></div>
+   <div class="ft off" style="--c:var(--plum)"><h4>Bar</h4><div class="ch">S. 187</div></div>
+   <div class="ft off" style="--c:var(--teal)"><h4>Schlafsaal</h4><div class="ch">S. 187</div></div>
+   <div class="ft off" style="--c:var(--slate)"><h4>Lager</h4><div class="ch">S. 187</div></div>
+   <div class="ft off" style="--c:var(--olive)"><h4>Garten</h4><div class="ch">S. 188</div></div>
+   <div class="ft off" style="--c:var(--coral)"><h4>Lazarett</h4><div class="ch">S. 188</div></div>
+   <div class="ft off" style="--c:var(--violet)"><h4>Bibliothek</h4><div class="ch">S. 189</div></div>
+  </div>
+  <h2 class="k" style="margin-top:14px">Bande</h2>
+  <div class="bugs" style="grid-template-columns:1fr 1fr">
+   <div class="bug"><b>Swift</b> Anführerin<span class="mood"><i></i><i></i><i></i><i class="on"></i><i></i></span></div>
+   <div class="bug"><b>Layla</b> Ausguck<span class="mood"><i></i><i class="on"></i><i></i><i></i><i></i></span></div>
+   <div class="bug"><b>Dunf</b> Ausguck<span class="mood"><i></i><i></i><i></i><i></i><i class="on"></i></span></div>
+   <div class="bug" style="border-style:dashed;color:var(--soft)">+ Käfer (Name, Stimmung, Rätsel) – Charakterbogen-PDF öffnen</div>
+  </div>
+ <div style="margin-top:14px">
+  <h2 class="k">Bröckchen, Krimskrams, Brocken &amp; Notizen <span class="pg">Streifzugbogen</span></h2>
+  <div class="tint" style="--t:var(--tint-gold);display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:13px">
+   <div><b>Bröckchen</b><br><span class="chip o" style="--c:var(--amber)">Geknackte Nuss</span><span class="chip o" style="--c:var(--amber)">Klebriger Saft</span><span class="chip o" style="--c:var(--amber)">Fleischiges Geschenk</span></div>
+   <div><b>Krimskrams</b><br><span class="chip o" style="--c:var(--blue)">Angelaufene Münze</span><span class="chip o" style="--c:var(--blue)">Mini-Schutzbrille</span></div>
+   <div><b>Brocken</b> <span class="pg">(Catling trägt 1)</span><br><span class="chip" style="--c:var(--ink)">Riesige Maulwurf-Laterne</span></div>
+  </div>
+ </div>
+ </div>
+ <div>
+  <h2 class="k">Wahrheiten <span class="pg">S. 44</span></h2>
+  <ul class="tr"><li><b>1</b>Die Schweine verstehen die alten Maschinen.</li><li><b>2</b>Unter Stump Lake liegt ein versunkenes Haus.</li><li style="opacity:.5"><b>3</b>Neue Wahrheit …</li></ul>
+  <div class="tint" style="--t:var(--tint-lilac);font-size:13px;margin-top:8px"><b>Nutzen:</b> Umweltvorteil bei passendem Wurf; jede Person einmal pro Sitzung eine freie Wendung.</div>
+  <h2 class="k" style="margin-top:14px">Reise</h2>
+  <div class="tint" style="--t:var(--tint-teal);font-size:13.5px">The Hogwild · Fringewood → Wurzelbau<br>Schritte 5/8 · Tag, 4. Tick</div>
+ </div>
+</div>
+<div class="anno" data-n="1" style="left:30px;top:800px;max-width:400px"><b>Streifzugbogen</b> (Burger-Menü + Startseiten-Chip): ein Spielstand für die ganze Gruppe – Titan wählen (12 aus S. 180–183, Bild nur wo im Buch vorhanden), Gunst-Vorrat klickbar.</div>
+<div class="anno" data-n="2" style="left:600px;top:250px;max-width:360px"><b>Titanenbau</b>: 9 Merkmale (S. 185–189), gebaut = farbig, Ausbaustufen anklickbar; ungebaute gestrichelt, Klick öffnet den vollen Buchtext.</div>
+</body></html>

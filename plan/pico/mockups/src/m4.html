@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="pico.css"><style>
+.main{display:flex;height:796px}
+.ct{flex:1;padding:16px 22px;overflow:hidden;--c:var(--gold);--t:var(--tint-gold)}
+.ah{display:flex;align-items:baseline;gap:14px;margin-bottom:4px}
+.ah h1{font-size:46px;color:var(--amber)}
+.intro{font-size:14.5px;max-width:1080px;margin-bottom:12px}
+.ent{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ent .box .hd{color:var(--ink);font-size:24px}
+.ent .bd2{font-size:13.5px;line-height:1.45}
+.ent .bul{margin-top:6px}
+.ent .bul li{padding:5px 8px 5px 22px;border-radius:7px;margin:3px 0}
+.ent .bul li:before{left:8px;top:5px}
+.ent .bul li:hover{background:var(--tint-gold)}
+.fig{float:right;width:96px;height:96px;object-fit:contain;margin:0 0 4px 8px}
+.mb{font-style:italic;color:var(--soft)}
+.ex{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:14px;margin-top:14px;align-items:start}
+.ex h3{font-size:28px;color:var(--amber);line-height:1}
+.ex .tb h4{font-size:22px;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.ex .tbl{font-size:13px}.ex .tbl td{padding:3px 8px}
+.ex .tbl td:first-child{font-size:20px}
+</style></head><body>
+<!--TOP-->
+<div class="tabs" style="--c:var(--moss)"><a>Überblick</a><a>Fraktionen</a><a class="on">Reiseführer</a><a>Reise</a><a>Gefahren</a><span class="r"><svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#1f2426" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></span></div>
+<div class="main">
+ <div class="side" style="--c:var(--gold)"><span class="fold">‹</span>
+  <h4 class="c">Am Waldrand</h4>
+  <h4>Fringewood</h4><a>Straßen vom Feld zum Wald</a><a>Tekso Quailheart</a><a>Stump Lake</a><a>Der Letzte Basar</a><a class="on">Eine Nacht der Farben</a><a>Noch ein Versuch!</a><a>Fringewood erkunden</a>
+  <h4 class="c">Saustiefen</h4><h4 class="c">Wurzelbau</h4><h4 class="c">Königsfluss</h4>
+ </div>
+ <div class="ct">
+  <div class="ah"><h1>Fringewood</h1><span class="pg">S. 279</span></div>
+  <p class="intro">Der Waldrand, wo die Bäume zögern und die Felder übernehmen: leicht zu bereisen, voller Händler, Abenteurer und Leute, die mit Abenteurern Geld verdienen. <i class="gm">Die folgenden Einträge stehen für Orte, Merkmale und Wahrzeichen, auf die eine Käferbande auf ihrer Reise stoßen könnte.</i></p>
+  <div class="ent">
+   <div class="box"><div class="hd">Tekso Quailheart <span class="typ">(Titan)</span><span class="pg" style="color:var(--ink);opacity:.6">S. 278</span></div><div class="bd2"><img class="fig" src="img/fig-tekso.webp">Füchse sind eher für List als für Mut bekannt. Vielleicht trifft das deshalb nicht auf Tekso zu – er ist ein Fuchs, der weder listig noch mutig ist. <span class="mb">Vielleicht …</span>
+    <ul class="bul"><li>Tekso hat irgendwo im Wald ein Stück seines buschigen Schwanzes verloren, traut sich aber nicht, es zu holen. Bringt es ihm jemand zurück?</li><li class="done">Er liebt Geschichten und tauscht gern Erzählungen über den tiefen Wald.</li><li>Er kann mutig sein, er ist nur noch nicht hineingewachsen.</li></ul></div></div>
+   <div class="box"><div class="hd">Stump Lake <span class="typ">(Wahrzeichen)</span></div><div class="bd2">Schlicht benannt ist Stump Lake ein … nun, das findet ihr selbst heraus. <span class="mb">Vielleicht …</span>
+    <ul class="bul"><li>Im Stumpf mitten im See steckt ein uraltes Beil. Wer es befreit, ist theoretisch König des Sees – muss aber erst etwas Fünfzigmal-so-Großes heben.</li><li>Wasserfreunde meiden den See, außer sie haben eine Abmachung mit den örtlichen Froglins.</li><li>Cassius Carvexo, ein silberrückiger Karpfen, taucht nur zur Nacht der Farben auf – letzte Woche fehlte er.</li></ul></div></div>
+   <div class="box"><div class="hd">Der Letzte Basar <span class="typ">(Wahrzeichen)</span></div><div class="bd2">Rund um den allerersten Baum am Weg in die Wildnis: Die Käfer hier wollen Beute, keinen Ruhm. <span class="mb">Vielleicht …</span>
+    <ul class="bul"><li>Für jede zäh aussehende Abenteurergruppe gibt es einen Wettpool. Wie lange hält <i>diese</i> Truppe wohl durch?</li><li>So viel Zeug auf den Tischen, dass ein Stoß an der falschen Stelle eine sehr teure Lawine auslöst.</li><li>Mindestens die Hälfte der Stände verkauft 100 % garantierten Schweineschutz.</li></ul></div></div>
+  </div>
+  <div class="ex">
+   <h3>Fringewood<br>erkunden<br><span class="pg" style="font-size:12px">S. 279</span></h3>
+   <div class="tb"><h4>Wahrzeichen <span class="dice">5</span></h4><table class="tbl"><tr><td>1</td><td>Ein kaputter Spaten an einem Baum.</td></tr><tr><td>2</td><td>Seehäuser auf Streichholz-Stelzen.</td></tr><tr><td>3</td><td>Ein alter Stiefelabdruck, jetzt Schwimmbad.</td></tr><tr><td>4</td><td>Ein Händlerkarren, für immer im Schlamm.</td></tr><tr class="hit"><td>5</td><td>Ein Vogelnest voller lecker aussehender Eier.</td></tr><tr><td>6</td><td>Ein Kartenmacherladen in einem Kompass.</td></tr></table></div>
+   <div class="tb"><h4>NSC <span class="dice">·</span></h4><table class="tbl"><tr><td>1</td><td>Gol &amp; Galo, zwei Schnecken, die die Zukunft sehen.</td></tr><tr><td>2</td><td>Long Lavaka, eine Gottesanbeterin auf Wanderschaft.</td></tr><tr><td>3</td><td>Sanjiv, ein Tabakkäfer mit örtlicher Medizin.</td></tr><tr><td>4</td><td>Oboe, ein Tausendfüßler-Bauer in der Pause.</td></tr><tr><td>5</td><td>Cedric Calo, Händler für Schweine-Amulette.</td></tr><tr><td>6</td><td>Lady Giis, verbannte Libellen-Adlige.</td></tr></table></div>
+   <div class="tb"><h4>Ereignisse <span class="dice">·</span></h4><table class="tbl"><tr><td>1</td><td>Ein Fest der Two-In-Ones mit sich ausbreitenden Flammen.</td></tr><tr><td>2</td><td>Streit zwischen zwei Händlern.</td></tr><tr><td>3</td><td>Raupen auf Klassenfahrt zum Waldrand.</td></tr><tr><td>4</td><td>Ein kleines Beben, die Sonne wird etwas dunkler.</td></tr><tr><td>5</td><td>Ein Behelfszelt stürzt ein, die Nachbarn johlen.</td></tr><tr><td>6</td><td>Ein Koch verteilt Kostproben: in Dreck gebratener Dreck.</td></tr></table></div>
+  </div>
+ </div>
+</div>
+<div class="anno" data-n="1" style="left:30px;top:560px;max-width:200px"><b>Baum</b>: Gebiete → Einträge (Klick springt). Gebietsfarbe aus dem Buch (Fringewood gold, Saustiefen moos, Wurzelbau rost, Königsfluss petrol).</div>
+<div class="anno" data-n="2" style="left:1010px;top:110px"><b>„Vielleicht …“</b>-Aufhänger: Klick irgendwo = erledigt (grau), kein Kästchen. Figur klein und ungeschnitten in der Karte.</div>
+<div class="anno" data-n="3" style="left:280px;top:700px;max-width:200px"><b>W6-Tabellen</b> im Buchstil (Zebrastreifen). Würfel-Knopf würfelt, Treffer-Zeile farbig. Wird auch vom Ausguck-Wurf im Reise-Tab benutzt.</div>
+</body></html>

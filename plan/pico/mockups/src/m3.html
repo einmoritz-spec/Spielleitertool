@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="pico.css"><style>
+.band{height:150px;background:url(img/reich-hogwild.webp) center 62%/cover;position:relative;display:flex;align-items:flex-end;padding:0 26px 16px;gap:26px}
+.band:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,36,38,.82),rgba(31,36,38,.2) 75%)}
+.band>*{position:relative}
+.band h1{font-size:62px;color:#fff}
+.band p{color:#fff;font-style:italic;max-width:560px;font-size:15px;opacity:.95;padding-bottom:6px}
+.g{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px;padding:16px 22px}
+.ov p{margin-bottom:8px;font-size:14.5px}
+.vibes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vibe{--c:var(--moss)}
+.vibe .hd{font-size:24px}
+.vibe .bd2{font-size:13.5px;line-height:1.45}
+.opt{display:grid;grid-template-columns:1fr 1fr;gap:10px;grid-column:span 2}
+.opt .box{--c:var(--moss)}
+.opt .bd2{font-size:13.5px;line-height:1.45}
+.sw{margin-left:auto;font:500 11px Rubik;background:rgba(255,255,255,.25);border-radius:99px;padding:3px 9px}
+.sw.on{background:var(--gold);color:var(--ink)}
+.weird .seg{display:flex;border:2px solid var(--blue);border-radius:99px;overflow:hidden;margin:2px 0 8px}
+.weird .seg span{flex:1;text-align:center;font:22px/1.6 Baby;color:var(--blue)}
+.weird .seg span.on{background:var(--blue);color:#fff}
+.my li{cursor:pointer}
+h2.k{font-size:30px;margin-bottom:6px}
+</style></head><body>
+<!--TOP-->
+<div class="tabs" style="--c:var(--moss)"><a class="on">Überblick</a><a>Fraktionen</a><a>Reiseführer</a><a>Reise</a><a>Gefahren</a><span class="r"><svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#1f2426" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></span></div>
+<div class="band"><h1>The Hogwild</h1><p>Ein dichter Wald voller Gefahren, in dem riesige, hungrige Schweine leben – und irgendwo zwischen den Wurzeln ein Schatz. … Wahrscheinlich jedenfalls.</p></div>
+<div class="g">
+ <div class="ov">
+  <h2 class="k">Überblick <span class="pg">S. 273</span></h2>
+  <p>In den finsteren Tiefen des Hogwild lauern Gefahren, deren Namen der gemeine Käfer nicht auszusprechen wagt.</p>
+  <p>Ach nein, doch, tun sie. Entschuldigung, da hatte ich an einen ganz anderen Ort gedacht.</p>
+  <p>In den finsteren Tiefen des Hogwild lauern Gefahren, und so gut wie <i>jeder</i> Einheimische könnte eine Liste davon aufsagen. Es gibt verwilderte Katzen, furchterregende Söldner, goldgehörnte Vipern und, am allerschlimmsten, die riesigen hungrigen Schweine, denen der Wald seinen Namen verdankt …</p>
+  <div class="tint" style="--t:var(--tint-moss);margin-top:10px"><b>Mögliche Gefahren</b><div style="margin-top:6px">
+   <span class="chip" style="--c:var(--moss)">Groundbreaker-Schweine</span><span class="chip" style="--c:var(--moss)">Kometennasen-Maulwürfe</span><span class="chip" style="--c:var(--moss)">Raubpflanzen</span><span class="chip" style="--c:var(--moss)">Mini-Söldner</span><span class="chip" style="--c:var(--moss)">Trommelvögel</span><span class="chip" style="--c:var(--moss)">Froglins &amp; Croaklins</span><span class="chip" style="--c:var(--moss)">Löwenmähnen</span></div></div>
+  <div class="vl" style="font-size:21px;margin-top:8px">„Man sagt, wenn man in etwas gut ist, sollte man es nie umsonst tun. Und ich bin gut im Kämpfen …“<small>Roland DeSola, Philosoph der Mini-Söldner</small></div>
+ </div>
+ <div>
+  <h2 class="k">Stimmung</h2>
+  <div class="vibes">
+   <div class="box vibe"><div class="hd">Überwuchert</div><div class="bd2">Viel Pflege bekommt der Wald seit der Mysteriokalypse nicht. Die Schweine hinterlassen eigene Pfade …</div></div>
+   <div class="box vibe"><div class="hd">Geheimnisvoll</div><div class="bd2">Je tiefer in die Wildnis, desto mehr Rätsel der Natur und der Geschichte …</div></div>
+   <div class="box vibe"><div class="hd">Moschusartig</div><div class="bd2">Gerüche, die Geschichten erzählen von Schweinekriegen und Libellentänzen …</div></div>
+   <div class="box vibe"><div class="hd">Friedlich</div><div class="bd2">Ja, es gibt Gruseliges im Dickicht … aber was für ein Frieden, wenn einen gerade <i>nichts</i> fressen will.</div></div>
+  </div>
+ </div>
+ <div>
+  <div class="box weird" style="--c:var(--blue)"><div class="hd">Hoch oder niedrig seltsam? <span class="pg">S. 274</span></div><div class="bd2"><div class="seg"><span>Hoch</span><span class="on">Mittel</span><span>Niedrig</span></div><span style="font-size:13.5px">Bring die Tiere des Hogwild so oft wie möglich in die Geschichte und zeig, dass ihre Bräuche und Kulturen – mit etwas Übung verständlich – sich stark von denen des gewöhnlichen Käfers unterscheiden.</span></div></div>
+  <div class="box my" style="--c:var(--moss);margin-top:12px"><div class="hd">Wilde Rätsel <span class="pg">S. 275</span></div><div class="bd2"><ul class="bul" style="--c:var(--moss);font-size:14px">
+   <li>Wer hat den ersten Baum gemacht?</li><li class="done">Was fressen Schweine, wenn keiner hinsieht?</li><li>Warum fließen Flüsse nur in eine Richtung?</li><li>Wissen Nüsse und Blätter, wann sie fallen?</li><li>Was zum Kuckuck war ein ITSY BITSY MART?</li></ul></div></div>
+ </div>
+ <div class="opt">
+  <div class="box"><div class="hd">Lichtflecken <span class="typ">(optionale Regel)</span><span class="sw on">aktiv</span></div><div class="bd2">Sonnenstrahlen durch Äste, kurze Schatten im Wind … <i class="gm">In Bereichen mit dichtem, bewegtem Laub darf ein Käfer bei einer Aktion wählen, ob er im Licht oder im Dunkeln steht (wenn es für seine Aspekte zählt).</i></div></div>
+  <div class="box"><div class="hd">Sprachbarrieren <span class="typ">(optionale Regel)</span><span class="sw">aus</span></div><div class="bd2">Wenn ein Tier sprechen kann, spricht es angeblich dieselbe Sprache wie die Käfer … <i class="gm">Bestien aus den tieferen Bereichen sprechen evtl. nicht dieselbe Sprache – Pantomime, Gesten und Absichten zählen umso mehr.</i></div></div>
+ </div>
+ <div class="box" style="--c:var(--gold)"><div class="hd" style="color:var(--ink)">Nützliche Beute <span class="pg">S. 275</span></div><div class="bd2" style="font-size:13.5px"><b>Bröckchen:</b> Geknackte Nuss, Klebriger Saft, Waldstaub, Blattabrieb, Winziger Trieb … <br><b>Krimskrams:</b> Vergrabene Haarnadel, Angelaufene Münze, Glasscherbe, Leere Streichholzschachtel …</div></div>
+</div>
+<div class="anno" data-n="1" style="left:980px;top:120px"><b>Tabs</b> wie im Buch-Kapitel: Überblick (Overview, Vibes, Particulars) · Fraktionen · Reiseführer · Reise · Gefahren. Stift = Notizen je Reich/Tab.</div>
+<div class="anno" data-n="2" style="left:300px;top:540px"><b>Gefahren-Chips</b> springen in den Gefahren-Tab (vorgefiltert auf dieses Reich).</div>
+<div class="anno" data-n="3" style="left:1200px;top:420px;max-width:220px"><b>Seltsamkeit</b>-Schalter zeigt nur den gewählten Buchabsatz, Wahl wird pro Reich gespeichert. <b>Rätsel</b>: Klick = vergeben (grau).</div>
+<div class="anno" data-n="4" style="left:420px;top:830px"><b>Optionale Regeln</b> als Karten, Schalter „aktiv“ (gespeichert) – aktive Regeln erscheinen zusätzlich als kleiner Hinweis im Reise-Tab.</div>
+</body></html>

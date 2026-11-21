@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="pico.css"><style>
+.g{display:grid;grid-template-columns:430px 1fr 360px;gap:16px;padding:14px 22px}
+.jt{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:12px 14px;grid-row:span 2}
+.jt h2,.col h2{font-size:30px}
+.ziel{font:300 14px Rubik;color:var(--soft);margin-bottom:4px}
+.ziel b{font:26px Baby;color:var(--ink)}
+.clock{display:flex;justify-content:center}
+.trk{display:flex;align-items:center;justify-content:center;margin:2px 0}
+.bx{width:34px;height:34px;border:2.5px solid var(--ink);border-radius:50%;background:#fff;display:inline-block}
+.bx.m{background:var(--teal);border-color:var(--teal)}
+.ln{width:12px;height:2.5px;background:var(--ink)}
+.row{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:13.5px}
+.lead{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.pill{font:500 12.5px Rubik;padding:6px 11px;border-radius:99px;border:1.5px solid var(--ink)}
+.pill.on{background:var(--ink);color:#fff}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.act{--c:var(--teal)}
+.act .hd{font-size:25px}
+.act .bd2{font-size:12.5px;line-height:1.4}
+.act dl{display:grid;grid-template-columns:auto auto;gap:1px 8px;margin-top:6px;font-size:12px}
+.act dt{color:var(--soft)}.act dd{font-weight:500}
+.act.sel{box-shadow:0 0 0 4px var(--gold)}
+.lo{grid-column:2}
+.lr{display:flex;gap:10px;align-items:center;margin:6px 0 10px}
+.res{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.rs{border-radius:10px;background:var(--tint-gold);padding:7px 8px;font-size:11.5px;line-height:1.3;text-align:center}
+.rs b{display:block;font:26px/1 Baby;color:var(--amber)}
+.rs.hit{background:var(--gold);color:var(--ink)}.rs.hit b{color:var(--ink)}
+.pull{margin-top:10px;border-radius:12px;background:var(--gold);padding:10px 14px;display:flex;gap:14px;align-items:center}
+.pull h3{font-size:26px}
+.pull .ch{margin-left:auto;display:flex;gap:6px}
+.pull .pill{border-color:var(--ink);background:#fff}
+.col .box{margin-bottom:10px}
+.col .bd2{font-size:13px;line-height:1.45}
+.wt{display:flex;flex-wrap:wrap;gap:6px}
+</style></head><body>
+<!--TOP-->
+<div class="tabs" style="--c:var(--moss)"><a>Überblick</a><a>Fraktionen</a><a>Reiseführer</a><a class="on">Reise</a><a>Gefahren</a><span class="r"><svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#1f2426" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></span></div>
+<div class="g">
+ <div class="jt">
+  <h2>Reiseleiste</h2>
+  <div class="ziel">Ziel: <b>Zum Wurzelbau</b> · Gebiet: <b style="font-size:22px">Fringewood ▾</b></div>
+  <svg viewBox="0 0 400 300" width="400" height="300">
+   <g transform="translate(200,150)" fill="none" stroke-width="3">
+    <!-- Tag: obere Hälfte 4 Segmente -->
+    <path d="M-150 0 A150 150 0 0 1 -106 -106" stroke="#1f2426"/><path d="M-150 0 A150 150 0 0 1 -106 -106 L0 0Z" fill="#eba300" stroke="#1f2426"/>
+    <path d="M-106 -106 A150 150 0 0 1 0 -150 L0 0Z" fill="#eba300" stroke="#1f2426"/>
+    <path d="M0 -150 A150 150 0 0 1 106 -106 L0 0Z" fill="#eba300" stroke="#1f2426"/>
+    <path d="M106 -106 A150 150 0 0 1 150 0 L0 0Z" fill="#fff" stroke="#1f2426"/>
+    <path d="M150 0 A150 150 0 0 1 106 106 L0 0Z" fill="#fff" stroke="#1f2426"/>
+    <path d="M106 106 A150 150 0 0 1 0 150 L0 0Z" fill="#fff" stroke="#1f2426"/>
+    <path d="M0 150 A150 150 0 0 1 -106 106 L0 0Z" fill="#fff" stroke="#1f2426"/>
+    <path d="M-106 106 A150 150 0 0 1 -150 0 L0 0Z" fill="#fff" stroke="#1f2426"/>
+    <rect x="-176" y="-26" width="352" height="52" rx="26" fill="#fff" stroke="none"/>
+   </g>
+   <text x="200" y="60" text-anchor="middle" font-family="Baby" font-size="22" fill="#1f2426">Tag</text>
+   <text x="200" y="250" text-anchor="middle" font-family="Baby" font-size="22" fill="#59676d">Nacht</text>
+  </svg>
+  <div style="margin-top:-176px;margin-bottom:120px" class="trk"><span class="bx m"></span><span class="ln"></span><span class="bx m"></span><span class="ln"></span><span class="bx m"></span><span class="ln"></span><span class="bx m"></span><span class="ln"></span><span class="bx m"></span><span class="ln"></span><span class="bx"></span><span class="ln"></span><span class="bx"></span><span class="ln"></span><span class="bx"></span></div>
+  <div class="row"><b>Anführer:in</b></div>
+  <div class="lead"><span class="pill">Kale</span><span class="pill on">Swift</span><span class="pill">Layla</span><span class="pill">Dunf</span><span class="pill" style="border-style:dashed;color:var(--soft)">+ Käfer</span></div>
+  <div class="row" style="margin-top:12px"><span class="chip" style="--c:var(--moss)">Lichtflecken aktiv</span></div>
+ </div>
+ <div>
+  <h2 style="font-size:30px;margin-bottom:6px">Reiseaktionen <span class="pg">S. 86</span></h2>
+  <div class="acts">
+   <div class="box act sel"><div class="hd">Marschieren</div><div class="bd2">Ihr bewegt euch schnell und ernsthaft und kommt in überraschend kurzer Zeit gut voran.<dl><dt>Ausguck</dt><dd>Ja</dd><dt>Überraschung!</dt><dd>Ja</dd><dt>Strecke</dt><dd>2 Schritte</dd><dt>Zeit</dt><dd>1 Tick</dd></dl></div></div>
+   <div class="box act"><div class="hd">Bummeln</div><div class="bd2">Eure Gruppe kommt gemächlich voran und nimmt dabei die Umgebung auf.<dl><dt>Ausguck</dt><dd>Ja</dd><dt>Überraschung!</dt><dd>Nein</dd><dt>Strecke</dt><dd>1 Schritt</dd><dt>Zeit</dt><dd>1 Tick</dd></dl></div></div>
+   <div class="box act"><div class="hd">Warten</div><div class="bd2">Ihr bleibt an einem Ort und bleibt wachsam.<dl><dt>Ausguck</dt><dd>Ja</dd><dt>Überraschung!</dt><dd>Nein</dd><dt>Strecke</dt><dd>–</dd><dt>Zeit</dt><dd>1 Tick</dd></dl></div></div>
+   <div class="box act"><div class="hd">Lagern</div><div class="bd2">Verschnaufpause, ihr schlagt ein Lager auf und beginnt eine Montage.<dl><dt>Ausguck</dt><dd>Vielleicht</dd><dt>Überraschung!</dt><dd>Vielleicht</dd><dt>Strecke</dt><dd>–</dd><dt>Zeit</dt><dd>2 Ticks</dd></dl></div></div>
+  </div>
+ </div>
+ <div class="col">
+  <div class="box" style="--c:var(--slate)"><div class="hd">Wetter <span class="pg">S. 94</span></div><div class="bd2"><div class="wt"><span class="chip" style="--c:var(--slate)">Ruhiger Himmel</span><span class="chip o" style="--c:var(--slate)">Regensturm</span><span class="chip o" style="--c:var(--slate)">Kälteeinbruch</span><span class="chip o" style="--c:var(--slate)">Hitzewelle</span><span class="chip o" style="--c:var(--slate)">Sturmböen</span><span class="chip o" style="--c:var(--slate)">Nebel</span></div><div style="margin-top:6px"><b>Regensturm:</b> Die Himmel öffnen sich … <b>Durchnässt (–):</b> Eine Szene, Montage oder zwei Schritte im Regen ziehen die Stimmung ins Negative. <b>Nasser Boden (–):</b> Bummeln und Marschieren +1 Tick.</div></div></div>
+  <div class="box" style="--c:var(--violet)"><div class="hd">Tageslicht &amp; Dunkelheit <span class="pg">S. 96</span></div><div class="bd2">Jeder Tag hat acht Ticks, vier am Tag, vier in der Nacht. Bei jedem Sonnenaufgang wird die Uhr gelöscht. <b>Gerade: Tag, 4. Tick</b> – nachts gelten die Regeln für Dunkelheit (Aspekte, Orte, Gefahren).</div></div>
+ </div>
+ <div class="lo" style="grid-column:2 / span 2">
+  <div class="lr"><h2 style="font-size:30px">Ausguck</h2><span class="pg">S. 88 · jeder außer der Anführerin würfelt 2W6 – nur Pasch zählt</span></div>
+  <div class="lr"><span class="pill">Kale</span><span class="dice">4</span><span class="dice">4</span><span style="width:20px"></span><span class="pill">Layla</span><span class="dice">2</span><span class="dice">5</span><span style="width:20px"></span><span class="pill">Dunf</span><span class="dice">6</span><span class="dice">1</span><span style="margin-left:auto" class="chip" style="--c:var(--ink)">Alle würfeln</span></div>
+  <div class="res"><div class="rs"><b>66</b>Unerwartetes Wahrzeichen</div><div class="rs"><b>55</b>Ein Haufen Zeug</div><div class="rs hit"><b>44</b>Ein laufendes Ereignis</div><div class="rs"><b>33</b>Wetterwechsel</div><div class="rs"><b>22</b>Ein NSC</div><div class="rs"><b>11</b>Drohende Gefahr</div></div>
+  <div class="pull"><h3>Fringewood · Ereignis 3</h3><span>Eine Gruppe Raupen auf Klassenfahrt zum Waldrand.</span><span class="ch"><span class="pill">Wahl</span><span class="pill">Begegnung</span></span></div>
+ </div>
+</div>
+<div class="anno" data-n="1" style="left:30px;top:690px;max-width:400px"><b>Reiseleiste + tickende Uhr</b> genau wie im Buch (S. 85): Halbkreis oben = 4 Tag-Ticks, unten = 4 Nacht-Ticks. Klick auf Felder/Segmente; Reiseaktion wählen markiert beides automatisch (Marschieren: +2 Schritte, +1 Tick). Länge per Rechtsklick.</div>
+<div class="anno" data-n="2" style="left:940px;top:812px;max-width:470px"><b>Ausguck</b>: würfelt für alle außer der Anführerin; Pasch wird hervorgehoben und zieht automatisch aus den W6-Tabellen des gewählten Gebiets (44 → Ereignisse, 66 → Wahrzeichen, 22 → NSC, 33 → Wetter, 55 → Beute, 11 → mögliche Gefahren des Reichs).</div>
+</body></html>

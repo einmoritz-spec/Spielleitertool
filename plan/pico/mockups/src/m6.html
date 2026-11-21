@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="pico.css"><style>
+.main{display:flex;height:796px}
+.side input{margin:0 16px 8px;width:218px;border:2px solid var(--ink);border-radius:99px;padding:7px 12px;font:300 13px Rubik}
+.ct{flex:1;padding:12px 22px;overflow:hidden}
+.enc{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.enc .e{display:flex;align-items:center;gap:8px;border:2px solid var(--c);border-radius:12px;padding:5px 10px;background:#fff;font:21px/1 Baby}
+.enc .e.on{background:var(--c);color:#fff}
+.enc .e.on .hearts .h{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21S1.5 14.2 1.5 7.2A5.4 5.4 0 0 1 12 4.6a5.4 5.4 0 0 1 10.5 2.6C22.5 14.2 12 21 12 21z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E")}.enc .e.on .hearts .h.m{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21S1.5 14.2 1.5 7.2A5.4 5.4 0 0 1 12 4.6a5.4 5.4 0 0 1 10.5 2.6C22.5 14.2 12 21 12 21z' fill='%23eba300' stroke='white' stroke-width='2'/%3E%3C/svg%3E")}
+.enc .h{width:15px;height:13px}
+.enc .add{font:500 12.5px Rubik;border:2px dashed var(--soft);color:var(--soft);border-radius:12px;padding:9px 12px}
+.card{--c:#405335;--t:var(--tint-moss);border:3px solid var(--c);border-radius:16px;overflow:hidden;background:#fff}
+.chd{background:var(--c);color:#fff;padding:10px 18px;display:flex;align-items:center;gap:18px}
+.chd h1{font-size:40px}
+.chd .kw{font:24px Baby;opacity:.9}
+.chd .hearts{margin-left:auto;gap:4px}
+.chd .hearts .h{width:30px;height:27px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21S1.5 14.2 1.5 7.2A5.4 5.4 0 0 1 12 4.6a5.4 5.4 0 0 1 10.5 2.6C22.5 14.2 12 21 12 21z' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E")}
+.chd .hearts .h.m{filter:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21S1.5 14.2 1.5 7.2A5.4 5.4 0 0 1 12 4.6a5.4 5.4 0 0 1 10.5 2.6C22.5 14.2 12 21 12 21z' fill='%23eba300' stroke='white' stroke-width='2'/%3E%3C/svg%3E")}
+.cb{display:grid;grid-template-columns:1fr 1.25fr 200px;gap:0}
+.cb>div{padding:12px 16px;font-size:13.5px;line-height:1.45}
+.cb h3{font-size:24px;color:var(--c);margin:6px 0 3px}
+.cb h3:first-child{margin-top:0}
+.mv{border-left:2px solid var(--c);background:#fff}
+.mv p{padding:6px 10px;border-radius:8px;margin-bottom:3px}
+.mv p:nth-child(odd){background:var(--t)}
+.dmg{display:inline-block;font:500 11.5px Rubik;background:var(--c);color:#fff;border-radius:99px;padding:2px 8px;margin-left:4px}
+.pic{border-left:2px solid var(--c);display:flex;align-items:flex-start;justify-content:center}
+.pic img{width:180px;height:180px;object-fit:contain}
+.cf{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-top:2px solid var(--c)}
+.cf>div{padding:10px 16px;font-size:13.5px}
+.cf>div+div{border-left:2px solid var(--c)}
+.brk2 span{display:inline-block;padding:5px 10px;border-radius:99px;border:1.5px solid var(--c);margin:3px 4px 3px 0;font-size:12.5px}
+.brk2 span.on{background:var(--c);color:#fff}
+.face{margin-top:12px;--c:#405335}
+</style></head><body>
+<!--TOP-->
+<div class="tabs" style="--c:var(--moss)"><a>Überblick</a><a>Fraktionen</a><a>Reiseführer</a><a>Reise</a><a class="on">Gefahren</a><span class="r"><svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#1f2426" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></span></div>
+<div class="main">
+ <div class="side" style="--c:var(--moss)"><span class="fold">‹</span>
+  <input placeholder="Gefahr suchen …">
+  <h4>Im Hogwild</h4><a class="on">Groundbreaker-Schweine</a><a>Kometennasen-Maulwürfe</a><a>Raubpflanzen</a><a>Mini-Söldner</a><a>Trommelvögel</a><a>Froglins &amp; Croaklins</a><a>Löwenmähnen</a>
+  <h4 class="c">Alle Gefahren A–Z</h4><h4 class="c">Nach Größe</h4><h4 class="c">Nach Bedrohung</h4><h4 class="c">Regeln für Gefahren</h4>
+ </div>
+ <div class="ct">
+  <div class="enc">
+   <span class="e on" style="--c:#405335">Groundbreaker-Schwein <span class="hearts"><i class="h m"></i><i class="h m"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i></span></span>
+   <span class="e" style="--c:#ec6b6b">Binwolf ×2 <span class="hearts"><i class="h m"></i><i class="h"></i><i class="brk"></i><i class="h"></i><i class="h"></i><i class="brk"></i><i class="h"></i></span></span>
+   <span class="e" style="--c:var(--violet)">Kombo <span class="hearts"><i class="h m"></i><i class="h"></i><i class="h"></i></span></span>
+   <span class="add">+ Gefahr</span><span class="add">Rampenlicht A/R</span>
+  </div>
+  <div class="card">
+   <div class="chd"><h1>Groundbreaker-Schweine</h1><span class="kw">[Titan/Bestial/Boss]</span><span class="pg">S. 234</span><span class="hearts"><i class="h m"></i><i class="h m"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i></span></div>
+   <div class="cb">
+    <div>
+     <h3>Überblick</h3><p>Ein schlurfender Berg aus Haut und Haar, mit zwei schlammigen Hauern in einem sabbernden Maul. Das Groundbreaker-Schwein ist ein Tier von gewaltiger Größe und unnatürlicher Kraft …</p><p class="gm" style="margin-top:4px">Titanen folgen bei Schaden besonderen Regeln; die meisten Banden schaffen das nur mit Plan und Voraussicht.</p>
+     <h3>Anzeichen</h3><ul class="bul" style="--c:#405335"><li>Aufgebrochener Boden, Hufabdrücke, fehlende Trüffel.</li><li>Zerfetzte Baumrinde, frisch zertrampelte Pfade.</li></ul>
+     <h3>Verhalten</h3><ul class="bul" style="--c:#405335"><li>Kämpfen gegen herausfordernde Artgenossen.</li><li>TRÜFFEL FINDEN. TRÜFFEL FRESSEN. MEHR TRÜFFEL.</li></ul>
+    </div>
+    <div class="mv">
+     <h3>Teile &amp; Züge</h3>
+     <p><b>Huftritt</b><span class="dmg">Hauen 3</span> Stark genug, um mehrere Käfer fliegen zu lassen – trifft bis zu drei Ziele.</p>
+     <p><b>Hauer-Schrecken</b><span class="dmg">Schlitzen 6</span> Ein Einzelziel-Zug, der bei einem Desaster in der Reaktion zusätzlich ein Bröckchen und ein Krimskrams zerbricht.</p>
+     <p><b>Nicht umsonst so genannt</b><span class="dmg">Graben 4</span> Bricht durch Erde, Holz und Stein wie ein hauerförmiges Messer durch Butter.</p>
+     <p><b>Zottel und Borsten</b><span class="dmg">–</span> Panzer-Abzug 1 und Härte-Abzug 1 auf alle eingehenden körperlichen Aktionen.</p>
+     <p><b>Wahrer Titan</b><span class="dmg">–</span> Nur Aktionen mit Giga-Wucht oder auf eine Schwäche markieren ein Herz. Jedes markierte Herz zählt auch als Bruch.</p>
+    </div>
+    <div class="pic"><img src="img/g-hog.webp"></div>
+   </div>
+   <div class="cf">
+    <div><h3 style="font-size:24px;color:#405335">Titanen-Abwehr</h3><ul class="bul" style="--c:#405335"><li><b>Immun</b> gegen alles außer Gigaschaden und die Schwächen unten.</li><li><b>Schwach gegen Zähmen und Kümmern</b> – unter der Zottelhaut wartet ein Herz.</li></ul></div>
+    <div class="brk2"><h3 style="font-size:24px;color:#405335">Brüche</h3><span>Neuen Trüffel wittern</span><span class="on">Quieken und angreifen</span><span>Schnell tunneln</span><span>Aufbäumen, Schwachstelle zeigen</span></div>
+    <div><h3 style="font-size:24px;color:#405335">Zum Mitnehmen</h3><b>Bröckchen:</b> Angekaute Trüffel, Riesiger Hauer-Splitter, Schweinehaar, Hauer-Moschus</div>
+   </div>
+  </div>
+  <div class="tint face" style="--t:var(--tint-moss)"><b style="font:24px Baby;color:#405335">Einem Groundbreaker-Schwein begegnen</b> <span class="pg">S. 235</span> &nbsp; » Das Schwein zum Trüffelsuch-Wettbewerb herausfordern … » Es mit Seil von bewohnten Gebieten wegdirigieren … » Es mit Feuer erschrecken …</div>
+ </div>
+</div>
+<div class="anno" data-n="1" style="left:880px;top:118px"><b>Begegnungsleiste</b>: Gefahren der laufenden Rauferei mit ihrer Herzleiste (Punkt = Bruch), Kombo-Leiste und Rampenlicht-Leiste (A/R) aus S. 57.</div>
+<div class="anno" data-n="2" style="left:1110px;top:240px;max-width:300px"><b>Herzen</b> im Kartenkopf anklickbar: leer → markiert → verbrannt. Kopf-Farbe = Farbe der Gefahrenseite im Buch.</div>
+<div class="anno" data-n="3" style="left:520px;top:770px;max-width:340px"><b>Brüche</b> sind Chips; erreicht die Herzleiste einen Bruch, blinkt die Liste kurz – Weber wählt, Chip wird markiert.</div>
+</body></html>

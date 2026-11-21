@@ -20,7 +20,7 @@ Die PDFs liegen nur während einer Sitzung unter `/mnt/user-data/uploads/`; für
 
 ---
 
-## 2. Grundsatzentscheidungen (zur Bestätigung durch Moritz)
+## 2. Grundsatzentscheidungen (von Moritz bestätigt, 21.11.2026)
 
 1. **Einsortieren statt eigener Bereich.** Die Erweiterungen erweitern dieselbe Welt. Ihre Inhalte kommen in die vorhandenen Bereiche (Regeln, Charaktere, Schiffe, Die Wildsee, Leitfaden, Am Tisch, Gefahren, Reiche) – dort, wo die Spielleitung sie im Spiel sucht. Jeder Abschnitt/Eintrag trägt ein kleines **Quellen-Etikett** („Storm and Root“, „Schiffsgärten“, „Fertige Charaktere“), und der S.-Link öffnet das richtige Buch.
 2. **Fertige Charaktere** bekommen eine eigene Gruppe ganz oben in der Charaktere-Übersicht (große Porträtkarten wie die Blutlinien) und eine eigene Detailseite im Stil eines schönen Charakterbogens (s. 4.2). Zusätzlich ein Chip „Fertige Charaktere“ auf der Startseite.
@@ -168,7 +168,7 @@ Bilder macht jedes AP für seinen Bereich selbst (Regeln in `/tmp/img_brief.md`)
 6. Screenshots 1440×900 **und** 1280×800 von: Charaktere-Übersicht, jeder fertige Charakter, 2 S&R-Posten, Itzenko, Luftschiffe, Gartenpflanzen, Gefahren-Browser mit Quellenfilter, jedes neue Reich (Übersicht + Auf See), Spielleiterschirm. Lücken/Überlauf beheben.
 7. Commit ohne Co-Authored-By/Claude-Session, Push, Screenshots an Moritz.
 
-### Welle 4 – optional (nur auf Wunsch)
+### Welle 4 – Werkzeuge (von Moritz gewünscht, nach Welle 3)
 - **Gartenbogen als Werkzeug:** Beete mit vier Vierteln, Pflanze wählen (aus den Buchpflanzen), Wachstums- und Ernte-Leisten anklicken, gespeichert im Spielstand.
 - **Auf See im Himmel/in der Tiefe:** Im Reich-Leitstand Umschalter „Wellen / Wildes Blau / Tiefe“ – nutzt die Wache-Ergebnisse von S&R S. 28 bzw. 56 und zeigt Höhe/Aufmerksamkeit bzw. Druck-Leiste.
 

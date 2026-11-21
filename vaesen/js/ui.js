@@ -15,7 +15,7 @@ function uiStart(){
   var books = [];
   VAE_BUECHER.forEach(function(g){ g.items.forEach(function(b){ if(b.cover) books.push(b); }); });
   var sm = window.VAE_MYS && VAE_MYS.tod ? 1 : 0;
-  ["tod", "feuer", "teufel"].forEach(function(id){
+  ["tod", "feuer", "teufel", "winter"].forEach(function(id){
     var M = window.VAE_MYS && VAE_MYS[id]; if(!M) return;
     var st = JSON.parse(localStorage.getItem("vae_som_" + id + "_v1") || "{}"), scd = (st.cd || []).length, scl = Object.keys(st.clue || {}).length;
     adv += '<div class="vu-ac" onclick="go(\'som/' + id + '/' + (st.last || "hg") + '\')"><span class="vu-cont">' + (scd || scl ? "Weiterspielen" : "Starten") + '</span><div class="vu-im" style="background-image:url(img/' + M.bild + '.webp)"></div><div class="vu-tx"><h3>' + esc(M.titel) + '</h3><div class="vu-src">Seasons of Mystery · S. ' + M.p + '</div><div class="vu-prog"><span>Countdown <b>' + scd + ' / ' + (M.cd ? M.cd.length : 4) + '</b></span><span>Hinweise <b>' + scl + '</b></span></div></div></div>';
@@ -69,8 +69,9 @@ function schGh(){
 }
 function schRender(){
   var ov = document.getElementById("schirm"); if(!ov) return;
-  var body = SCH.tab === "gh" ? '<div class="vu-cc">' + schHtml(schGh()) + '</div>' : (SCH.tab === "au" ? '<div class="vu-cc">' + schHtml(VAE_KONFLIKT_2.slice(schIdx(VAE_KONFLIKT_2, "Ausrüstung"))) + '</div>' : schBody());
-  ov.innerHTML = '<div class="vu-hd2">' + SCH_TABS.map(function(t){ return '<a class="' + (t[1] === SCH.tab ? "on" : "") + '" onclick="schTab(\'' + t[1] + '\')">' + t[0] + '</a>'; }).join("") + '<span class="vu-x" onclick="schClose()">✕</span></div><div class="vu-bd">' + body + '</div>';
+  var kl = VAE_MYS.winter && VAE_MYS.winter.kaelte, body = SCH.tab === "ka2" && kl ? '<div class="vu-cc"><div class="vu-sc"><h3>' + kl.t + ' <span class="pg">S. ' + kl.p + '</span></h3><p>' + kl.x.replace(/KRAFT/g, "<b>KRAFT</b>") + '</p></div></div>' : SCH.tab === "gh" ? '<div class="vu-cc">' + schHtml(schGh()) + '</div>' : (SCH.tab === "au" ? '<div class="vu-cc">' + schHtml(VAE_KONFLIKT_2.slice(schIdx(VAE_KONFLIKT_2, "Ausrüstung"))) + '</div>' : schBody());
+  var tabs = SCH_TABS.concat(window.VAE_MYS && VAE_MYS.winter && VAE_MYS.winter.kaelte && /^#som\/winter/.test(location.hash) ? [["Kälte", "ka2"]] : []);
+  ov.innerHTML = '<div class="vu-hd2">' + tabs.map(function(t){ return '<a class="' + (t[1] === SCH.tab ? "on" : "") + '" onclick="schTab(\'' + t[1] + '\')">' + t[0] + '</a>'; }).join("") + '<span class="vu-x" onclick="schClose()">✕</span></div><div class="vu-bd">' + body + '</div>';
   var h = document.getElementById("schHit"), w = ov.querySelector(".vu-ctw"); if(h && w) w.scrollTop = h.offsetTop - w.clientHeight / 2;
 }
 function schOpen(tab){

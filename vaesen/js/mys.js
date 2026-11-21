@@ -64,11 +64,11 @@ function msHier(ids){ ids = ids.filter(function(k){ return MS.figs[k]; }); retur
 /* ---------- Tabs ---------- */
 function msViewHg(){
   var h = MS.hg, hi = h.hinter;
-  return '<div class="ms-hg"><div class="ms-top"><div class="ms-op"><img src="' + msImg(MS.bild.replace("som/", "")) + '" alt="" onclick="msZoom(this.src)"></div><div><div class="ms-wn">' + esc(MS.warnung) + '</div>' + msTtl(MS.titel, MS.p) + '<p>' + h.intro + '</p><p>' + h.vorspiel + '</p></div></div>' +
+  return '<div class="ms-hg"><div class="ms-top"><div class="ms-op"><img src="' + msImg(MS.bild.replace("som/", "")) + '" alt="" onclick="msZoom(this.src)"></div><div><div class="ms-wn">' + esc(MS.warnung) + '</div>' + msTtl(MS.titel, MS.p) + '<p>' + h.intro + '</p><p>' + h.vorspiel + '</p>' + (h.vl ? '<div class="vl" style="margin-top:12px;max-width:440px">' + h.vl + '</div>' : '') + '</div></div>' +
    '<div class="ms-cols"><div class="gtxt">' + msTtl("Hintergrund", msPp("hinter", 1)) + hi.map(function(t){ return '<p>' + t + '</p>'; }).join("") + '</div><div>' +
    (h.figs ? msSub("Figuren im Mysterium " + msPg(msPp("figs", 1))) + '<div class="ms-fl">' + h.figs.map(function(f){ return '<div class="kast"><b class="kt">' + esc(f[0]) + '</b>' + f[1] + '</div>'; }).join("") + '</div>' : '') +
    msSub("Konflikte " + msPg(msPp("konf", 2))) + h.konflikt.map(function(t, i){ return '<div class="kast"><b class="kt">' + ["Hauptkonflikt", "Nebenkonflikt"][i] + '</b>' + t + '</div>'; }).join("") +
-   '<div style="margin-top:14px">' + msKast("Im Mythischen Britannien und Irland", h.mythic, msPp("myth", 1)) + '</div></div></div></div>';
+   (h.kaesten || []).map(function(k){ return '<div style="margin-top:14px">' + msKast(k.t, msDec(k.x), k.p) + '</div>'; }).join("") + '<div style="margin-top:14px">' + msKast("Im Mythischen Britannien und Irland", h.mythic, msPp("myth", 1)) + '</div></div></div></div>';
 }
 function msViewAn(){
   var a = MS.an, b = a.brief;
@@ -84,13 +84,14 @@ function msViewOrte(ort){
   var left = msTtl(o.t, o.p, o.id) + msHier(o.hier) + msP(o.text) + msSub("Herausforderungen") + '<div class="ms-list">' + o.herausf.map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join("") + '</div>';
   var right = o.hinw.length ? msSub("Hinweise") + '<p style="font-size:15.5px">' + msDec(o.hinwText) + '</p>' + msClueCol(o.hinw) : '';
   (o.kasten || []).forEach(function(k){ right += '<div style="margin-top:12px" class="kast"><b class="kt">' + esc(k.t) + (k.p ? ' ' + msPg(k.p) : '') + '</b>' + msDec(k.x) + (k.vor ? '<div class="vl" style="margin-top:8px">' + k.vor + '</div>' : '') + '</div>'; });
+  if(o.geschichten) right += '<div style="margin-top:12px">' + o.geschichten.map(function(g){ return '<details class="ms-gs"><summary><img src="' + msImg(g.img.replace("som/", "")) + '" alt=""><span>' + esc(g.n) + '</span></summary><p>' + g.x + '</p></details>'; }).join("") + '</div>';
   if(o.paranoia) right += '<div style="margin-top:12px" class="kast"><b class="kt">' + esc(o.paranoia.t) + ' ' + msPg(12) + '</b>' + o.paranoia.x.map(function(t, i){ return i ? '<p style="margin:6px 0">· ' + msDec(t) + '</p>' : '<p>' + t + '</p>'; }).join("") + '</div>' +
    '<div style="margin-top:12px" class="kast"><b class="kt">' + esc(o.zettel.t) + '</b>' + o.zettel.x + ' <a class="lnk" onclick="go(\'som/' + MS_ID + '/ho\')">Handout 1B</a></div>';
   return '<div class="ms-orte">' + '<div class="ms-ol">' + kar + '</div><div class="ort">' + bar + '<p class="ms-intro">' + MS.orteIntro + '</p><div class="cols2x"><div>' + left + '</div><div>' + right + '</div></div></div></div>';
 }
 function msViewKf(){
   var k = MS.kf, secs = k.wege || [k.show, k.bann, k.nock];
-  return '<div class="ms-kf"><div class="ms-kfl">' + msTtl("Konfrontation", k.p, "kf") + msP(k.einleitung) + '</div><div class="ms-wege">' + secs.map(function(s, i){ return '<div class="weg"><div class="c"><h4>' + esc(s.t) + '</h4>' + s.x.map(function(t){ return t.indexOf("##") === 0 ? '<h5>' + esc(t.slice(2)) + '</h5>' : '<p>' + msDec(t) + '</p>'; }).join("") + '</div></div>'; }).join("") + '</div></div>';
+  return '<div class="ms-kf"><div class="ms-kfl">' + msTtl("Konfrontation", k.p, "kf") + msP(k.einleitung) + '</div><div class="ms-wege' + (secs.length > 3 ? ' w4' : '') + '">' + secs.map(function(s, i){ return '<div class="weg"><div class="c"><h4>' + esc(s.t) + '</h4>' + s.x.map(function(t){ return t.indexOf("##") === 0 ? '<h5>' + esc(t.slice(2)) + '</h5>' : '<p>' + msDec(t) + '</p>'; }).join("") + '</div></div>'; }).join("") + '</div></div>';
 }
 function msViewFg(){
   var main = MS.figOrder;

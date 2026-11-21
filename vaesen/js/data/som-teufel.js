@@ -4,7 +4,7 @@ VAE_MYS.teufel = {
  titel: "Der Teufel im Moor", buch: "vae_seasons", p: 46, zeit: "Herbst", ort: "Jütland · Grimsted Lyng",
  warnung: "Gewalt, Tod von Kindern", bild: "som/teufel_eroeffnung",
  tabs: [["Hintergrund","hg"],["Anreise","an"],["Orte","orte"],["Konfrontation","kf"],["|"],["Figuren","fg"],["Hinweise","hw"],["Handouts","ho"],["Nachspiel","ns","end"]],
- pp: {hinter: 47, konf: 65, myth: 54, einl: 49, vorb: 50, reise: 50, ankunft: 51, karte: 56, cd: 54},
+ pp: {hinter: 47, konf: 49, myth: 54, einl: 49, vorb: 50, reise: 50, ankunft: 51, karte: 56, cd: 54},
 
  hg: {
   intro: "Die Spielercharaktere reisen in ein gottverlassenes Moor an der Westküste Jütlands, wo ehrgeizige Ingenieure im Streben, die Landschaft zu zähmen und zu modernisieren, dunkle Mächte geweckt haben.",

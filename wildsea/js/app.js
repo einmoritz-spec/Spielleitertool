@@ -25,7 +25,7 @@ function viewStart(){
   var rs = WS_REICHE.map(function(r){ return '<a style="background-image:url(' + IMG("reich/" + r.id) + ')" onclick="go(\'reich/' + r.id + '\')"><span>' + esc(r.t.replace(/^The /, "")) + '</span></a>'; }).join("");
   var sc = WS_SZENARIEN.slice(0, 2).map(function(s){ return '<div><b>' + esc(s.t) + '</b>Szenario · PDF fehlt</div>'; }).join("");
   return '<div class="hero"></div><div class="wrap"><div><h2 class="sec">Vorbereitung</h2><div class="tiles">' + tiles + '</div>' +
-    '<div class="chips"><button class="chip" onclick="openBook(\'ws_core\',362)">Charakterbogen</button><button class="chip" onclick="openBook(\'ws_core\',363)">Schiffsbogen</button><button class="chip" onclick="openBook(\'ws_core\',352)">Regelübersicht</button><button class="chip" onclick="go(\'galerie\')">Galerie</button></div></div>' +
+    '<div class="chips"><button class="chip" onclick="openBook(\'ws_core\',362)">Charakterbogen</button><button class="chip" onclick="openBook(\'ws_core\',363)">Schiffsbogen</button><button class="chip" onclick="go(\'schirm\')">Spielleiterschirm</button><button class="chip" onclick="go(\'galerie\')">Galerie</button></div></div>' +
     '<div class="go"><h3>In See stechen</h3><div class="rs">' + rs + '</div><a class="bt" onclick="go(\'reiche\')">Reiche &amp; Szenarien</a><div class="sc">' + sc + '</div></div></div>';
 }
 function viewReiche(){
@@ -44,12 +44,13 @@ function render(){
   else if(v === "reiche") out = viewReiche();
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
   else if(v === "gefahren") out = viewGefahren(h[1]);
+  else if(v === "schirm") out = viewSchirm();
   else if(v === "nach") out = viewNach(h[1] || "regeln", h[2]);
   else out = viewPlatzhalter(h.slice(1).join(" ") || v);
   var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; scrollTo(0, same ? y : 0);
 }
 function buildMenu(){
-  document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3><button onclick="openMenu(false);go(\'gefahren\')">Gefahren</button>' + WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
+  document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3><button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm &amp; Würfel</button><button onclick="openMenu(false);go(\'gefahren\')">Gefahren</button>' + WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); }
 document.addEventListener("keydown", function(e){

@@ -125,5 +125,28 @@ function bgReset(){
 }
 function bgPrint(){ bgFit(); window.print(); }
 window.addEventListener("resize", function(){ var sh = document.getElementById("bsh"); if(sh) sh.style.zoom = bgZoom().toFixed(3); });
-window.addEventListener("beforeprint", function(){ var sh = document.getElementById("bsh"); if(sh){ sh.style.zoom = 1; bgFit(); } });
-window.addEventListener("afterprint", function(){ var sh = document.getElementById("bsh"); if(sh) sh.style.zoom = bgZoom().toFixed(3); });
+var BG_PM = ["fontFamily","fontSize","fontWeight","fontVariant","fontStyle","lineHeight","letterSpacing","textTransform","textAlign","color","paddingTop","paddingRight","paddingBottom","paddingLeft","borderBottom","borderRadius","backgroundImage","backgroundSize","backgroundPosition","backgroundRepeat","flex","alignSelf"];
+function bgMirror(){
+  var sh = document.getElementById("bsh"); if(!sh) return;
+  Array.prototype.forEach.call(sh.querySelectorAll("input,textarea"), function(el){
+    var cs = getComputedStyle(el), m = document.createElement("div");
+    m.className = "pm";
+    BG_PM.forEach(function(k){ m.style[k] = cs[k]; });
+    m.style.width = el.offsetWidth + "px"; m.style.height = el.offsetHeight + "px";
+    m.style.boxSizing = "border-box"; m.style.overflow = "hidden";
+    m.style.whiteSpace = el.tagName === "TEXTAREA" ? "pre-wrap" : "pre";
+    m.style.wordBreak = "break-word";
+    m.style.display = cs.display === "inline" ? "inline-block" : cs.display;
+    m.textContent = el.value;
+    if(!el.value && el.classList.contains("ty")){ m.textContent = el.placeholder; m.style.color = "#8d9080"; }
+    el.parentNode.insertBefore(m, el); el.style.display = "none";
+    var fs = parseFloat(el.getAttribute("data-fit")), ta = el.tagName === "TEXTAREA";
+    if(fs){ m.style.fontSize = fs + "px"; while(fs > 6.5 && (ta ? m.scrollHeight > m.clientHeight + 1 : m.scrollWidth > m.clientWidth + 1)){ fs -= .5; m.style.fontSize = fs + "px"; } }
+  });
+}
+function bgUnmirror(){
+  Array.prototype.forEach.call(document.querySelectorAll("#bsh .pm"), function(m){ var e = m.nextSibling; if(e && e.style) e.style.display = ""; m.parentNode.removeChild(m); });
+}
+window.bgMirror = bgMirror; window.bgUnmirror = bgUnmirror;
+window.addEventListener("beforeprint", function(){ var sh = document.getElementById("bsh"); if(sh){ sh.style.zoom = 1; bgUnmirror(); bgMirror(); } });
+window.addEventListener("afterprint", function(){ bgUnmirror(); var sh = document.getElementById("bsh"); if(sh) sh.style.zoom = bgZoom().toFixed(3); });

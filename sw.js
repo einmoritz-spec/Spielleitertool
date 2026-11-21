@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v571vae";
+const VERSION = "v573vae";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -20,6 +20,7 @@ const FILES = [
   "wildsea/js/data/reich-foxloft.js",
   "wildsea/js/reich.js",
   "wildsea/js/gefahr.js",
+  "wildsea/js/data/gefahren-bilder.js",
   "wildsea/img/gefahr/balg-garl.webp",
   "wildsea/img/gefahr/blutschlund-piraten.webp",
   "wildsea/img/gefahr/eisenkiefer-rochen.webp",
@@ -35,6 +36,26 @@ const FILES = [
   "wildsea/img/gefahr/pangoska.webp",
   "wildsea/img/gefahr/pinwolves.webp",
   "wildsea/img/gefahr/schnappraupen.webp",
+  "wildsea/img/gefahr/t/balg-garl.webp",
+  "wildsea/img/gefahr/t/blutschlund-piraten.webp",
+  "wildsea/img/gefahr/t/eisenkiefer-rochen.webp",
+  "wildsea/img/gefahr/t/elendschnaebel.webp",
+  "wildsea/img/gefahr/t/kjartico.webp",
+  "wildsea/img/gefahr/t/koenigin-darunter.webp",
+  "wildsea/img/gefahr/t/loewenmaehne.webp",
+  "wildsea/img/gefahr/t/manticrows.webp",
+  "wildsea/img/gefahr/t/mantis-drachen.webp",
+  "wildsea/img/gefahr/t/oktotau.webp",
+  "wildsea/img/gefahr/t/old-ornail.webp",
+  "wildsea/img/gefahr/t/orchid-scar.webp",
+  "wildsea/img/gefahr/t/pangoska.webp",
+  "wildsea/img/gefahr/t/pinwolves.webp",
+  "wildsea/img/gefahr/t/schnappraupen.webp",
+  "wildsea/img/gefahr/t/terrapex.webp",
+  "wildsea/img/gefahr/t/toller-holzfaeller.webp",
+  "wildsea/img/gefahr/t/tryphoradons.webp",
+  "wildsea/img/gefahr/t/weisskragen-schlinge.webp",
+  "wildsea/img/gefahr/t/winterjacken.webp",
   "wildsea/img/gefahr/terrapex.webp",
   "wildsea/img/gefahr/toller-holzfaeller.webp",
   "wildsea/img/gefahr/tryphoradons.webp",

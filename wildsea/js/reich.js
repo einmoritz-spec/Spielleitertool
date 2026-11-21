@@ -68,8 +68,10 @@ function rSee(r, S){
   var tr = function(l, k){ return '<div><span class="lb">' + l + '</span>' + dots(k) + '</div>'; };
   var hm = [["pfad","Pfad schlagen · +1","Du markierst ein Kästchen auf deiner Fortschrittsleiste."],["vor","Vorpreschen · +2","Du markierst zwei Kästchen auf deiner Fortschrittsleiste."],["anker","Anker werfen","Montage; die Unterbesatzung hält Wache."]].map(function(h){ return '<div class="' + (s.ruder === h[0] ? 'on' : '') + '" onclick="ruder(\'' + h[0] + '\')"><b>' + h[1] + '</b>' + h[2] + '</div>'; }).join("");
   var pass = see.passagiere.map(function(x, i){ return '<li class="' + (S.pass[i] ? 'used' : '') + '" id="pass_' + i + '" onclick="tog(\'' + r.id + '\',\'pass\',' + i + ')">' + esc(x) + '</li>'; }).join("");
-  return '<div class="sp"><div class="bar"><div><span class="lb">Ziel</span><input value="' + esc(s.ziel) + '" onchange="RS().ziel=this.value;save()"></div>' + tr("Fortschritt", "fort") + tr("Risiko", "risk") + tr("Pfadfindung", "path") +
-   '<div class="rat">' + SW.map(function(k){ return '<span onclick="rat(\'' + k + '\',1)" oncontextmenu="event.preventDefault();rat(\'' + k + '\',-1)">' + k + '<b>' + (s.schiff[k] || 0) + '</b></span>'; }).join("") + '</div></div>' +
+  var mm = s.modus || "wellen", head = '<div class="sp">' + seeModusBar() + '<div class="bar"><div><span class="lb">Ziel</span><input value="' + esc(s.ziel) + '" onchange="RS().ziel=this.value;save()"></div>' + tr("Fortschritt", "fort") + tr("Risiko", "risk") + tr("Pfadfindung", "path") +
+   '<div class="rat">' + SW.map(function(k){ return '<span onclick="rat(\'' + k + '\',1)" oncontextmenu="event.preventDefault();rat(\'' + k + '\',-1)">' + k + '<b>' + (s.schiff[k] || 0) + '</b></span>'; }).join("") + '</div></div>';
+  if(mm !== "wellen") return head + rSeeExt(mm, r) + '</div>';
+  return head +
    '<div class="smain"><div><div class="h">Am Ruder</div><div class="helm">' + hm + '</div>' +
    '<div class="dice"><div class="die"><small>Wache</small><div class="n">' + (W || "–") + '</div><b>' + (W ? (col === "frieden" ? "Frieden" : col === "ordnung" ? "Ordnung" : "Natur") : "&nbsp;") + '</b></div><div class="die hid"><small>Bedrohung · verdeckt</small><div class="n">' + (s.t || "–") + '</div><b>' + (tl || "&nbsp;") + '</b></div></div>' +
    '<div class="btns"><button onclick="wuerfeln()">Wache würfeln</button></div><div class="chk" onclick="karte()">' + (s.karte ? '☑' : '☐') + ' Seekarte der Gegend (Bedrohung 2W6, höherer)</div></div>' +

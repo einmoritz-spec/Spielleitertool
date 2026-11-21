@@ -13,20 +13,36 @@ function route(){ render(); }
 window.addEventListener("hashchange", route);
 
 var KACHELN = [
- {t:"Die Wildsee", s:"Rauschende Wellen, Schichten der See, Zivilisation, Technik, Spiritualität, Arconautik", k:"Kap. 1 · S. 4", img:"kapitel/wildsee", go:"nach/wildsee"},
- {t:"Regeln", s:"Wild-Words-Engine, Leisten, Aktionen, Szenen, Montagen, Reisen", k:"Kap. 2–5 · S. 30", img:"kapitel/regeln", go:"nach/regeln"},
- {t:"Charaktere", s:"Blutlinien, Herkünfte, Posten, Stärken, Fertigkeiten, Aspekte", k:"Kap. 6–7 · S. 78", img:"kapitel/charaktere", go:"nach/charaktere"},
- {t:"Schiffe", s:"Entwurf, Ausstattung, Unterbesatzung, Schiffswerte", k:"Kap. 8 · S. 162", img:"kapitel/schiffe", go:"nach/schiffe"},
- {t:"Leitfaden", s:"Sitzung Null, Ton, Tempo, Werkzeugkasten, Belohnungen, NSC", k:"Kap. 9 · S. 186", img:"kapitel/leitfaden", go:"nach/leitfaden"},
- {t:"Am Tisch", s:"Namen, alternative Wendungen, Eintagsfliegen-Regeln, Glossar", k:"Kap. 12 · S. 336", img:"kapitel/tisch", go:"nach/tisch"}
+ {t:"Regeln", k:"Kap. 2–5 · S. 30", img:"kapitel/regeln", go:"nach/regeln"},
+ {t:"Charaktere", k:"Kap. 6–7 · S. 78", img:"kapitel/charaktere", go:"nach/charaktere"},
+ {t:"Schiffe", k:"Kap. 8 · S. 162", img:"kapitel/schiffe", go:"nach/schiffe"},
+ {t:"Die Wildsee", k:"Kap. 1 · S. 4", img:"kapitel/wildsee", go:"nach/wildsee"},
+ {t:"Leitfaden", k:"Kap. 9 · S. 186", img:"kapitel/leitfaden", go:"nach/leitfaden"},
+ {t:"Am Tisch", k:"Kap. 12 · S. 336", img:"kapitel/tisch", go:"nach/tisch"}
 ];
+var START_EXT = [
+ {t:"Fertige Charaktere", k:"Charaktere", img:"kapitel/charaktere", go:"nach/charaktere"},
+ {t:"Schiffsgärten", k:"Ship-Gardens", img:"garten/titel-schiffsgaerten", go:"nach/schiffe/sg-ernte-an-deck"},
+ {t:"Das Wilde Blau", k:"Storm and Root · S. 7", img:"wildsee/sr-blau-eroeffnung-aeronaut-ueberm-kronendach", go:"nach/wildsee/sr-blau-kernkonzepte"},
+ {t:"Die erdrückenden Tiefen", k:"Storm and Root · S. 41", img:"sr/tiefe-kapitelbild-lowport-bernsteinkuppel", go:"nach/wildsee/sr-tiefe-kernkonzepte"}
+];
+function stCard(img, go, t, k){ return '<a class="st-card" onclick="go(\'' + go + '\')"><img src="' + IMG(img) + '" alt=""><span class="t"><h3>' + esc(t) + '</h3>' + (k ? '<span class="pg">' + esc(k) + '</span>' : '') + '</span></a>'; }
 function viewStart(){
-  var tiles = KACHELN.map(function(k){ return '<button class="ti" onclick="go(\'' + k.go + '\')"><div class="im" style="background-image:url(' + IMG(k.img) + ')"></div><div class="b"><h3>' + esc(k.t) + '</h3><p>' + esc(k.s) + '</p><span class="pg">' + esc(k.k) + '</span></div></button>'; }).join("");
-  var rs = WS_REICHE.filter(function(r){ return !r.q; }).map(function(r){ return '<a style="background-image:url(' + IMG("reich/" + r.id) + ')" onclick="go(\'reich/' + r.id + '\')"><span>' + esc(r.t.replace(/^The /, "")) + '</span></a>'; }).join("");
-  var sc = WS_SZENARIEN.slice(0, 2).map(function(s){ return s.id ? '<a onclick="go(\'szenario/' + s.id + '\')"><b>' + esc(s.t) + '</b>Szenario</a>' : '<div><b>' + esc(s.t) + '</b>Szenario</div>'; }).join("");
-  return '<div class="hero"></div><div class="wrap"><div><h2 class="sec">Vorbereitung</h2><div class="tiles">' + tiles + '</div>' +
-    '<div class="chips"><button class="chip" onclick="openBook(\'ws_core\',362)">Charakterbogen</button><button class="chip" onclick="openBook(\'ws_core\',363)">Schiffsbogen</button><button class="chip" onclick="go(\'nach/charaktere\')">Fertige Charaktere</button><button class="chip" onclick="go(\'schirm\')">Spielleiterschirm</button><button class="chip" onclick="go(\'galerie\')">Galerie</button></div></div>' +
-    '<div class="go"><h3>In See stechen</h3><div class="rs">' + rs + '</div><a class="bt" onclick="go(\'reiche\')">Reiche &amp; Szenarien</a><div class="sc">' + sc + '</div></div></div>';
+  var vor = KACHELN.map(function(k){ return stCard(k.img, k.go, k.t, k.k); }).join("");
+  var reichCard = function(r){ return stCard("reich/" + r.id, "reich/" + r.id, r.t.replace(/^The /, "").replace(/^Weitere /, ""), r.p ? "S. " + r.p : ""); };
+  var rc = WS_REICHE.filter(function(r){ return !r.q; }).map(reichCard).join("");
+  var rsr = WS_REICHE.filter(function(r){ return r.q === "sr"; }).map(reichCard).join("");
+  var szImg = {"red-right-hand":"szen/rrh/hetterjin-turm-titel", "one-armed-scissor":"szen/oas/titel-hanging-manor"};
+  var sc = WS_SZENARIEN.filter(function(s){ return s.id && szImg[s.id]; }).map(function(s){ return stCard(szImg[s.id], "szenario/" + s.id, s.t, "Szenario"); }).join("");
+  var ext = START_EXT.map(function(e){ return '<a onclick="go(\'' + e.go + '\')"><span class="im"><img src="' + IMG(e.img) + '" alt=""></span><span><h3>' + esc(e.t) + '</h3><span class="pg">' + esc(e.k) + '</span></span></a>'; }).join("");
+  var tools = '<button onclick="go(\'bogen\')">Charakterbogen</button><button onclick="openBook(\'ws_core\',363)">Schiffsbogen</button><button onclick="go(\'schirm\')">Spielleiterschirm</button><button onclick="go(\'galerie\')">Galerie</button>' + (typeof viewGarten === "function" ? '<button onclick="go(\'garten\')">Gartenbogen</button>' : '');
+  return '<div class="st"><div class="st-hero"><img src="img/hero.webp" alt=""><h1>The Wildsea</h1></div>' +
+    '<section class="st-sec"><h2>Vorbereitung</h2><div class="st-grid st-vor">' + vor + '</div></section>' +
+    '<section class="st-sec"><h2>In See stechen</h2><div class="st-sub">Corebook</div><div class="st-grid st-reiche">' + rc + '</div>' +
+    '<div class="st-sub">Storm and Root</div><div class="st-grid st-sr">' + rsr + '</div>' +
+    '<div class="st-sub">Szenarien</div><div class="st-grid st-szen">' + sc + '</div></section>' +
+    '<section class="st-sec"><h2>Neu: Erweiterungen</h2><div class="st-grid st-ext">' + ext + '</div></section>' +
+    '<section class="st-sec"><h2>Werkzeuge</h2><div class="st-tools">' + tools + '</div></section></div>';
 }
 function viewReiche(){
   var last = ST.last && (ST.last.split("/")[1] || "");
@@ -47,14 +63,16 @@ function render(){
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
   else if(v === "gefahren") out = viewGefahren(h[1]);
   else if(v === "schirm") out = viewSchirm();
+  else if(v === "garten") out = viewGarten();
   else if(v === "galerie") out = viewGalerie();
+  else if(v === "bogen") out = viewBogen(h[1]);
   else if(v === "nach") out = viewNach(h[1] || "regeln", h[2]);
   else if(v === "szenario") out = viewNach(h[1] || "red-right-hand", h[2], true);
   else out = viewPlatzhalter(h.slice(1).join(" ") || v);
   var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; scrollTo(0, same ? y : 0);
 }
 function buildMenu(){
-  document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3><button onclick="openMenu(false);sOpen(true)">Suche</button><button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm &amp; Würfel</button><button onclick="openMenu(false);go(\'gefahren\')">Gefahren</button>' + WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
+  document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3><button onclick="openMenu(false);sOpen(true)">Suche</button><button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm &amp; Würfel</button><button onclick="openMenu(false);go(\'gefahren\')">Gefahren</button><button onclick="openMenu(false);go(\'garten\')">Gartenbogen</button><button onclick="openMenu(false);go(\'bogen\')">Charakterbogen</button>' + WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); }
 document.addEventListener("keydown", function(e){

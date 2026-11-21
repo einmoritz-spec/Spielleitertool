@@ -26,12 +26,13 @@ function pcRender(s, pc){
     pcBox("", "Morast") + (pc.morast || []).map(function(x){ return '<div class="pmo"><span>' + esc(x) + '</span><i class="pd"></i><i class="pd"></i></div>'; }).join("") + '</div>' + miH;
   var img = pc.bild ? '<img src="img/' + pc.bild + '" alt="" onclick="nZoom(this.src)">' : "";
   return '<div class="pcw"><div class="pcl"><figure class="pcp">' + img + '</figure><div class="pcs">' + side + '</div></div><div class="pcm">' +
-    '<div class="pch"><h1>' + esc(s.t) + '</h1><div class="pcn"><span class="pg">' + pgLink(s, s.p) + '</span>' + qTag(s) + (pc.bogen ? '<a class="lk" onclick="nZoom(\'img/' + pc.bogen + '\')">Originalbogen</a>' : '') + '</div>' + (sub ? '<div class="sub">' + esc(sub) + '</div>' : '') + '</div>' +
+    '<div class="pch"><h1>' + esc(s.t) + '</h1><div class="pcn"><span class="pg">' + pgLink(s, s.p) + '</span>' + qTag(s) + '<a class="lk" onclick="go(\'bogen/' + s.id + '\')">Bogen</a>' + (pc.bogen ? '<a class="lk" onclick="nZoom(\'img/' + pc.bogen + '\')">Originalbogen</a>' : '') + '</div>' + (sub ? '<div class="sub">' + esc(sub) + '</div>' : '') + '</div>' +
     '<div class="pgr">' + pcBox("w2", "Stärken") + '<div class="pstw">' + stk + '</div></div>' +
     pcBox("", "Fertigkeiten") + list(pc.fert, 3) + '</div>' + pcBox("", "Sprachen") + list(pc.spr, 3) + '</div>' +
     pcBox("w2", "Aspekte") + '<div class="pag">' + asp + '</div></div>' + pcBox("w2", "Ressourcen") + '<div class="prg">' + rc + '</div></div>' + le + '</div></div></div>';
 }
 function nBlock(b){
+  if(b.go) return '<p class="na"><button class="wgo" onclick="go(\'' + b.go[0] + '\')">' + esc(b.go[1]) + '</button></p>';
   if(b.a != null) return '<p class="na">' + esc(b.a).replace(/\n/g, "<br>") + '</p>';
   if(b.h != null) return '<h3 class="nh">' + esc(b.h) + '</h3>';
   if(b.erz != null) return '<div class="vl nv"><p>' + esc(b.erz).replace(/\n/g, "</p><p>") + '</p></div>';

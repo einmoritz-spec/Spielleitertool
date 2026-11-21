@@ -41,6 +41,7 @@ L.push({id:"sg-regeln", k:K, t:"Schiffsgarten-Regeln", p:6, q:Q, b:[
 ]});
 
 L.push({id:"sg-gartenbogen", k:K, t:"Der Gartenbogen", p:7, q:Q, b:[
+ {go:["garten","Gartenbogen öffnen"]},
  {a:"Der Bogen ist ein einfacher – er hat Platz für Notizen und mehrere Felder für Beete. Jedes dieser Beete kann bis zu vier verschiedene Pflanzen enthalten und ist in Viertel unterteilt. Wir erläutern den Bogen hier im Ganzen und gehen in den nächsten Seiten auf die Einzelheiten ein."},
  {c:"1. Notizen", x:"Neben Platz, um beliebige nützliche Notizen aufzuschreiben, ist dieses Feld lang genug, um bequem Projektleisten aufzunehmen, die ins Spiel kommen können, wenn Crews ihre eigenen Schiffsgärten bauen wollen (mit Zeit, Schrott und Ressourcen statt gekauften Teilen)."},
  {c:"2. Nummerierte Beete", x:"Jeder Bogen hat Platz für vier Beete, die Bereiche, in denen du am Ende Pflanzen anbauen wirst. Zwar gibt es technisch keine Obergrenze für die Zahl der Beete auf einem Schiff, doch versuche, die erzählerische Lage dieser Beete auf deinem Schiff im Kopf zu behalten (sie kann bei Kämpfen und anderen dramatischen Ereignissen während einer Reise ins Spiel kommen)."},

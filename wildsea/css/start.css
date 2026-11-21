@@ -1,0 +1,76 @@
+/* Startseite The Wildsea – alle Klassen mit Präfix st- */
+body:has(.st){min-width:0}
+.st{--gap:clamp(12px,1.6vw,22px);max-width:1380px;margin:0 auto;padding:clamp(12px,2vw,26px) clamp(14px,3vw,40px) 56px;font-family:Merri,Georgia,serif;font-size:14px;line-height:1.55;color:var(--ink)}
+.st *{min-width:0}
+.st img{display:block;width:100%;height:100%;object-fit:cover}
+.st h1,.st h2,.st h3{font-family:Teko,Impact,sans-serif;font-weight:600;text-transform:uppercase;line-height:1}
+.st .pg{font:400 12px/1.2 Merri,Georgia,serif;letter-spacing:.03em;text-transform:none;color:inherit;opacity:.8}
+
+/* Hero */
+.st-hero{position:relative;height:clamp(190px,24vw,330px);border-radius:12px;overflow:hidden;background:#1b2216;box-shadow:0 2px 12px rgba(30,40,20,.22)}
+.st-hero img{object-position:center 58%}
+.st-hero h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Bereiche */
+.st-sec{margin-top:clamp(26px,3.4vw,44px)}
+.st-sec>h2{display:flex;align-items:center;gap:14px;font-size:clamp(32px,3.2vw,44px);letter-spacing:.06em;margin:0 0 14px;color:var(--ink)}
+.st-sec>h2:after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--sage),transparent)}
+.st-sub{display:flex;align-items:center;gap:10px;margin:22px 0 10px;font:600 22px/1 Teko,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sage3)}
+.st-sub:before{content:"";width:22px;height:3px;background:var(--amber);border-radius:2px}
+.st-sec>.st-sub:first-of-type{margin-top:0}
+
+/* Bildkarten */
+.st-card{position:relative;display:block;overflow:hidden;border-radius:9px;background:#1b2216;text-align:left;box-shadow:0 1px 5px rgba(0,0,0,.14);transition:transform .18s,box-shadow .18s}
+.st-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(30,40,20,.26)}
+.st-card img{transition:transform .35s}.st-card:hover img{transform:scale(1.04)}
+.st-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,18,8,0) 42%,rgba(12,18,8,.82));pointer-events:none}
+.st-card .t{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:0 14px 11px;color:#fbf8ec;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.st-card h3{display:block;font-size:clamp(24px,2.2vw,32px);letter-spacing:.05em;line-height:.95;overflow-wrap:anywhere}
+.st-card .pg{display:block;margin-top:5px}
+
+.st-grid{display:grid;gap:var(--gap)}.st-grid>*{min-width:0}
+.st-vor{grid-template-columns:repeat(3,minmax(0,1fr))}
+.st-vor .st-card{aspect-ratio:16/9}
+.st-vor .st-card h3{font-size:clamp(30px,2.8vw,40px)}
+.st-reiche{grid-template-columns:repeat(6,minmax(0,1fr))}
+.st-reiche .st-card{aspect-ratio:6/5}
+.st-sr{grid-template-columns:repeat(7,minmax(0,1fr))}
+.st-sr .st-card{aspect-ratio:6/5}
+.st-reiche .st-card h3,.st-sr .st-card h3{font-size:clamp(19px,1.6vw,24px)}.st-card h3{word-break:normal;overflow-wrap:break-word;hyphens:auto}
+.st-szen{grid-template-columns:repeat(2,minmax(0,1fr))}
+.st-szen .st-card{aspect-ratio:21/9}
+.st-szen .st-card h3{font-size:clamp(32px,3.2vw,46px)}
+.st-szen .st-card .t{padding:0 18px 14px}
+
+/* Erweiterungen */
+.st-ext{grid-template-columns:repeat(4,minmax(0,1fr))}
+.st-ext a{text-align:left;display:flex;align-items:center;gap:12px;padding:8px 12px 8px 8px;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:border-color .15s,box-shadow .15s}
+.st-ext a:hover{border-color:var(--sage);box-shadow:0 4px 12px rgba(30,40,20,.14)}
+.st-ext .im{flex:0 0 76px;height:58px;border-radius:6px;overflow:hidden}
+.st-ext a>span:last-child{flex:1;min-width:0}.st-ext h3{white-space:normal;overflow-wrap:anywhere;font-size:23px;letter-spacing:.04em;line-height:.95}
+.st-ext .pg{display:block;margin-top:3px;color:var(--soft)}
+
+/* Werkzeuge */
+.st-tools{display:flex;flex-wrap:wrap;gap:10px}
+.st-tools button{background:#fff;border:1px solid var(--line);border-radius:20px;padding:7px 16px 5px;font:600 18px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.07em;transition:border-color .15s,background .15s}
+.st-tools button:hover{border-color:var(--sage);background:var(--paper2)}
+
+@media(max-width:1100px){
+ .st-reiche{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .st-sr{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .st-sr .st-card:first-child{grid-column:span 2;aspect-ratio:12/5}
+ .st-ext{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+ .st-vor{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+ .st-vor{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .st-vor .st-card{aspect-ratio:4/3}
+ .st-vor .st-card h3{font-size:26px}
+ .st-reiche,.st-sr{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .st-szen,.st-ext{grid-template-columns:minmax(0,1fr)}
+ .st-szen .st-card{aspect-ratio:16/9}
+ .st-card .t{padding:0 10px 8px}
+}
+.st-card h3{white-space:normal}.st-sr .st-card h3{font-size:clamp(17px,1.4vw,22px)}

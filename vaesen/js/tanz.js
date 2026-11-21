@@ -246,6 +246,7 @@ function viewTanz(){
    case "ns": v = tzViewNs(); break;
    default: tab = "hg"; v = tzViewHg();
   }
+  var st = tzLoad(); if(st.last !== tab){ st.last = tab; tzSave(); }
   return tzTabs(tab) + (["hx", "kf", "hw", "fg", "ho"].indexOf(tab) > -1 ? tzCdBar() : "") + v;
 }
 function tzAfter(){

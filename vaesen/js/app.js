@@ -60,12 +60,7 @@ function bookTile(b){
   return '<button class="book' + (b.cover ? '' : ' ph') + '" onclick="BV.open(\'' + b.id + '\',1)"><div class="cv" ' + cv + '>' + (b.titel ? '<img class="tt" src="img/' + b.titel + '" alt="">' : (b.cover ? '' : esc(b.name))) + '</div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></button>';
 }
 function bookInfo(id){ alert("Dieses Buch ist noch nicht eingebunden – sobald das PDF vorliegt, erscheinen hier Cover und Inhalt."); }
-function viewStart(){
-  var tiles = AREAS.map(function(a){ return '<div class="box tile" onclick="go(\'' + a.id + '\')"><div class="im" style="background-image:url(' + IMG(a.img, "thumb") + ');background-position:' + a.pos + '"></div><div class="tx"><h3>' + esc(a.t) + '</h3><small>' + esc(a.s) + '</small></div><i></i><b></b></div>'; }).join("");
-  var shelf = '<div class="shelf">' + VAE_BUECHER.map(function(g){ return '<div class="sg"><div class="grp-h">' + esc(g.grp) + '</div><div class="books">' + g.items.map(bookTile).join("") + '</div></div>'; }).join("") + '</div>';
-  return '<div class="hero" style="background-image:url(img/hero_naeck.webp)"><div class="ht"><img src="../assets/logos/vaesen-rot.webp" alt="Vaesen"><p>Mythisches Skandinavien im 19. Jahrhundert. Die Gesellschaft jagt Vaesen – Wesen aus Sagen und Aberglauben.</p><div class="go"><button class="btn fill" onclick="go(\'tanz\')">Abenteuer starten</button></div></div></div>' +
-   '<div class="page"><div class="sech" style="margin-top:0"><h2>Spielhilfen</h2></div><div class="tiles">' + tiles + '</div><div class="sech"><h2>Bücher</h2></div>' + shelf + '</div>';
-}
+function viewStart(){ return uiStart(); }
 function viewBuecher(){
   var h = VAE_BUECHER.map(function(g, i){ return '<div id="grp' + i + '" style="margin-bottom:26px"><h2 style="color:var(--red);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">' + esc(g.grp) + '</h2><div class="sg"><div class="books">' + g.items.map(bookTile).join("") + '</div></div></div>'; }).join("");
   if(sub !== "" && sub != null) setTimeout(function(){ var e = document.getElementById("grp" + sub); if(e) e.scrollIntoView(); }, 30);
@@ -87,12 +82,12 @@ function blk(b){
 }
 function twoCol(blocks){ /* Fließtext in zwei Spalten, Boxen über die volle Breite */ return '<div style="column-width:420px;column-gap:40px">' + blocks.filter(function(b){ return b.t === "p" || b.t === "h" || b.t === "ul"; }).map(blk).join("") + '</div>' + blocks.filter(function(b){ return b.t !== "p" && b.t !== "h" && b.t !== "ul"; }).map(blk).join(""); }
 
-function flow(blocks, fl){
+function flow(blocks, fl, cards){
   fl = (fl || []).slice();
   var out = "", txt = [], bx = [], tb = [];
   function ftb(){ if(tb.length){ out += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:0 28px;align-items:start">' + tb.map(blk).join("") + '</div>'; tb = []; } }
   function ft(){ if(txt.length){ var len = JSON.stringify(txt).length; out += '<div style="' + (len > 900 ? 'column-width:420px;column-gap:40px;' : '') + 'margin:6px 0">' + (fl.length ? fl.shift() : '') + txt.map(blk).join("") + '</div>'; txt = []; } }
-  function fb(){ if(bx.length){ out += '<div class="cols" style="margin:10px 0">' + bx.map(function(b){ return box("<h3>" + b.h + "</h3><p>" + b.x + "</p>"); }).join("") + '</div>'; bx = []; } }
+  function fb(){ if(bx.length && cards){ out += uiCards(bx); bx = []; } else if(bx.length){ out += '<div class="cols" style="margin:10px 0">' + bx.map(function(b){ return box("<h3>" + b.h + "</h3><p>" + b.x + "</p>"); }).join("") + '</div>'; bx = []; } }
   blocks.forEach(function(b){
     if(b.t !== "tbl") ftb();
     if(b.t === "box"){ ft(); bx.push(b); }
@@ -209,7 +204,15 @@ function viewTabbed(id){
     side = k.groups.map(function(g){ return {h:g.h, i:g.secs.map(function(x){ return {id:x.id, go:base + "/" + x.id, t:x.t}; })}; });
   }
   var sec = secs.filter(function(x){ return x.id === selId; })[0] || secs[0];
-  return bar + main(side, sec.id, '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(sec.t) + '</h1>' + (sec.p ? bookLink(sec.p) : '') + '</div><div style="margin-top:12px">' + sidePic(sec) + (function(){ var q = secImgs(id, sec, secs); return q.head + flow(sec.b, q.fl); })() + '</div></div>');
+  var cards = (id === "norden" || id === "gesellschaft");
+  function secBody(){ var q = secImgs(id, sec, secs); return q.head + flow(sec.b, q.fl, cards); }
+  if(id === "norden"){
+    var sh = function(t){ return t.split(" – ")[0]; }, map = {staedte:"norden_karte_mythischer_norden", upsala:"norden_karte_upsala"}[sec.id];
+    bar = tabsBar(secs.map(function(x){ return [sh(x.t), base + "/" + x.id]; }), sh(sec.t));
+    var pgl = '<div style="display:flex;justify-content:flex-end;margin:0 0 6px">' + (sec.p ? bookLink(sec.p) : '') + '</div>';
+    return bar + (map ? '<div class="vu-m4"><div><div class="vu-map" onclick="Galerie.image(\'vaesen\',\'' + map + '\')"><img src="' + IMG(map) + '" alt=""></div></div><div>' + pgl + secBody() + '</div></div>' : '<div class="page">' + pgl + secBody() + '</div>');
+  }
+  return bar + main(side, sec.id, '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(sec.t) + '</h1>' + (sec.p ? bookLink(sec.p) : '') + '</div><div style="margin-top:12px">' + sidePic(sec) + secBody() + '</div></div>');
 }
 function viewKapitel(id){
   if(window.VAE_KAP && VAE_KAP[id] && (VAE_KAP[id].tabs || VAE_KAP[id].groups)) return viewTabbed(id);
@@ -311,7 +314,7 @@ function render(){
    case "norden": case "gesellschaft": case "mysterium": v = viewKapitel(cur); break;
    default: v = viewStart();
   }
-  APP.innerHTML = v; window.scrollTo(0, 0); if(window.tzAfter) tzAfter();
+  APP.innerHTML = v; window.scrollTo(0, 0); if(window.tzAfter) tzAfter(); if(window.grpAfter) grpAfter();
 }
 
 /* ---------- Menü & Suche ---------- */
@@ -319,7 +322,7 @@ function buildMenu(){
   var p = document.getElementById("mmP");
   p.innerHTML = '<h3>Navigation</h3><button class="mi' + (cur === "start" ? " on" : "") + '" onclick="openMenu(false);go(\'start\')"><b>Startseite</b></button>' +
    AREAS.map(function(a){ return '<button class="mi' + (cur === a.id ? " on" : "") + '" onclick="openMenu(false);go(\'' + a.id + '\')"><b>' + esc(a.t) + '</b></button>'; }).join("") +
-   '<button class="mi" onclick="openMenu(false);openSearch()"><b>Suche</b></button><button class="mi" onclick="openMenu(false);go(\'kapitel/tanz\')"><b>Tanz der Träume</b> · Buchansicht</button><h3>Bilder</h3><button class="mi" onclick="openMenu(false);Galerie.open(\'vaesen\')"><b>Galerie</b> · alle Bilder des Grundregelwerks</button>' +
+   '<button class="mi" onclick="openMenu(false);openSearch()"><b>Suche</b></button><button class="mi" onclick="openMenu(false);schOpen()"><b>Spielleiterschirm</b> · Taste S</button><button class="mi" onclick="openMenu(false);go(\'kapitel/tanz\')"><b>Tanz der Träume</b> · Buchansicht</button><h3>Bilder</h3><button class="mi" onclick="openMenu(false);Galerie.open(\'vaesen\')"><b>Galerie</b> · alle Bilder des Grundregelwerks</button>' +
    '<h3>Buch-PDF</h3><div id="bvSettingsHost"></div>';
   if(window.BV){ document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh(); }
 }

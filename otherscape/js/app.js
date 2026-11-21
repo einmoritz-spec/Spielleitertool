@@ -134,9 +134,9 @@ function renderAdv(a, secId){
   <div class="adv-grid tab-layout${isAdv?"":" os-set"}" id="advGrid">
    <div class="content">
    <div class="chsec">
-   ${idx===0?ovBox(a):""}
-   ${osArt(a,idx)}
-   ${(()=>{ let Ls=[],R="",F=""; const bl = s.bloecke||[], side = bl.some(b=>["challenge","uhr"].includes(b.t));
+   ${(idx===0&&isAdv)?jobStart(a,s):""}
+   ${(idx===0&&isAdv)?"":(idx===0?ovBox(a):"")+osArt(a,idx)}
+   ${(idx===0&&isAdv)?"":(()=>{ let Ls=[],R="",F=""; const bl = s.bloecke||[], side = bl.some(b=>["challenge","uhr"].includes(b.t));
      bl.forEach((b,i)=>{ const x=renderBlock(a,s,b,i);
        if(["challenge","uhr"].includes(b.t) || (b.t==="hinweis" && (isAdv || side))) R+=x;
        else if(b.t==="hinweis") F+=x; else Ls.push(x); });
@@ -356,3 +356,33 @@ function osBannerSync(){
 }
 if($("app")) new MutationObserver(osBannerSync).observe($("app"),{childList:true});
 window.addEventListener("load",osBannerSync);
+
+/* Job-Akte (Entwurf D): Titelbild links, Briefing-Kasten, Hooks als Karten, Aufbau als Staffel */
+function jobStart(a,s){
+  const info = (typeof OS_ADV_LIST!=="undefined" && OS_ADV_LIST.find(x=>x.id===a.id)) || {}, c = OS_COVER[a.id];
+  window.OS_HERO_SKIP = c ? c[0] : null;
+  const bl = s.bloecke||[]; const segs = []; let cur = {h:null, b:[]}; segs.push(cur);
+  bl.forEach((b,i)=>{ if(b.t==="h"){ cur = {h:b.x, b:[]}; segs.push(cur); } else cur.b.push([b,i]); });
+  const kv = x => { const m = /^\*\*([^*]+?):?\*\*:?\s*([\s\S]*)$/.exec(String(x)); return m ? [m[1].replace(/:$/,""), m[2]] : null; };
+  const secFor = t => { const k = t.toLowerCase().replace(/\s*\(.*$/,"").trim(); const x = a.sektionen.find(z=>z.titel.toLowerCase().includes(k)); return x ? x.id : null; };
+  const norm = (b,i) => renderBlock(a,s,b,i);
+  let lead = "", body = "", aside = "";
+  segs.forEach((g,gi)=>{
+    const lists = g.b.filter(([b])=>b.t==="liste"), items = lists.length===1 ? lists[0][0].items||[] : [];
+    const allKv = items.length>=2 && items.every(x=>kv(x));
+    if(!g.h){ lead += g.b.map(([b,i])=>norm(b,i)).join(""); return; }
+    if(/hook/i.test(g.h) && allKv){
+      body += `<div class="jb-h">${esc(g.h)}</div>` + g.b.filter(([b])=>b.t!=="liste").map(([b,i])=>norm(b,i)).join("") + `<div class="jb-hooks">${items.map(x=>{ const q=kv(x); return `<article class="jb-hook"><b>${fmt(q[0])}</b>${fmt(q[1])}</article>`; }).join("")}</div>`; return; }
+    if(/aufbau/i.test(g.h) && allKv){
+      body += `<div class="jb-h">${esc(g.h)}</div><div class="jb-tiers">${items.map((x,n)=>{ const q=kv(x); const chips = q[1].split(/,\s*(?![^()]*\))/).map(t=>t.trim()).filter(Boolean).map(t=>{ const id = secFor(t); return id ? `<a href="#/adv/${a.id}/${id}">${fmt(t)}</a>` : `<span>${fmt(t)}</span>`; }).join("");
+        return `<div class="jb-tier t${n%3+1}" style="margin-left:${Math.min(n,4)*28}px"><div class="jb-tn">${fmt(q[0])}</div><div class="jb-ch">${chips}</div></div>`; }).join("")}</div>`; return; }
+    if(/briefing|auftrag|ausgangslage/i.test(g.h) && !aside){
+      aside = `<div class="jb-brief"><div class="jb-bh">${esc(g.h)}</div>${g.b.map(([b,i])=>norm(b,i)).join("")}</div>`; return; }
+    body += `<div class="jb-h">${esc(g.h)}</div>` + g.b.map(([b,i])=>norm(b,i)).join("");
+  });
+  const head = `<div class="jb-head">${c?`<figure class="jb-cover"><img src="${c[0]}" alt="${esc(a.titel)}" onclick="osZoom(this.src)"></figure>`:""}
+    <div class="jb-meta"><span class="jb-tag">${esc(info.tag||"Job")} · ${esc(a.buch||info.buch||"")}</span><a class="jb-pg" onclick="openBook('${a.buch}',${parseInt(String(a.seiten).replace(/\D+/,""))||0})">${esc(a.seiten||"")}</a></div>
+    <h1 class="jb-t">${esc(a.titel)}</h1>${a.sub?`<div class="jb-sub">${esc(a.sub)}</div>`:""}<div class="jb-lead">${lead}</div>${aside}</div>`;
+  const arts = osArt(a,0);
+  return head + `<div class="jb-body">${body}</div>` + (arts||ovBox(a) ? `<div class="jb-more">${ovBox(a)}${arts}</div>` : "");
+}

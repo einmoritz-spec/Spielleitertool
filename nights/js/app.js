@@ -222,11 +222,16 @@ function chapterView(c, ch){
     const blocks = secBlocks(c, sec.id);
     let L = "", R = "";
     buildThumbs(c);
-    const arts = [];
-    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && !f._card && figSec(c,f)===sec.id){ if(f.kind==="art") arts.push(figHtml(f, c)); else R += figHtml(f, c); }
-    L += arts.length>1 ? `<div class="figrow">${arts.join("")}</div>` : arts.join("");
-    for(const b of blocks){ if(b.t==="card"||b.t==="threat") R += blockHtml(c, b); else L += blockHtml(c, b); }
-    h += (R && L.trim() && blocks.filter(b=>b.t==="threat").length<=3) ? `<div class="scn"><div class="scn-l">${L}</div><aside class="scn-r"><div class="scn-rh">Werte &amp; Hinweise</div>${R}</aside></div>` : (L+R);
+    /* Szenen-Bühne: Bilder schweben rechts neben dem Text, Hinweise/Bedrohungen bleiben bei ihrer Überschrift (Raster) */
+    const figs = [], tcards = [];
+    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && !f._card && figSec(c,f)===sec.id){ const bl = cardBlocks(c,f); if(bl) tcards.push({f, t:bl[0].x.replace(/<[^>]+>/g,"").trim().toUpperCase()}); else figs.push(f); }
+    const fl = figs.slice(0,3).map(f=>figHtml(f, c)).join("");
+    const rest = figs.slice(3).map(f=>figHtml(f, c)).join("");
+    if(fl) L += `<div class="sfig n${Math.min(figs.length,3)}">${fl}</div>`;
+    const tcAt = {}; tcards.forEach(tc=>{ const i = blocks.findIndex(b=>b.t==="h" && b.x.replace(/<[^>]+>/g,"").trim().toUpperCase()===tc.t); (tcAt[i] = tcAt[i]||[]).push(figHtml(tc.f, c)); });
+    blocks.forEach((b,i)=>{ L += blockHtml(c, b); if(tcAt[i]) L += tcAt[i].map(x=>x.replace('class="fig tcard-fig"','class="fig tcard-fig tc-float"')).join(""); });
+    if(tcAt[-1]) L += tcAt[-1].join("");
+    h += L + rest + `<div class="sclear"></div>`;
     if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
     if(sub&&!single) h += `</div>`;
     h += `</section>`;
@@ -242,7 +247,7 @@ function blockHtml(c, b, idx){
     case "h": return `<h3 class="blk blk-h">${b.x}</h3>`;
     case "sh": return `<div class="blk blk-sh">${b.x}</div>`;
     case "ro": return `<div class="blk blk-ro">${b.x}</div>`;
-    case "card": { const d = ST.done[k]; return `<div class="blk blk-card ${b.k==="pink"?"pink":""} ${d?"done":""}"><button class="tick" onclick="toggleDone('${k}',this)" aria-label="Hinweis abhaken"></button>${b.x}</div>`; }
+    case "card": { const d = ST.done[k]; return `<div class="blk blk-card ${b.k==="pink"?"pink":""} ${d?"done":""}" onclick="if(!event.target.closest('a,button,u,.gl'))toggleDone('${k}',this.firstChild)" title="Klicken: als erledigt markieren"><span class="ck"></span>${b.x}</div>`; }
     case "threat": return threatHtml(c, b);
     default: return `<p class="blk blk-p">${b.x}</p>`;
   }

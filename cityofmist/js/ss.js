@@ -85,5 +85,39 @@ function pageSL(r){
   var have=CM_ORTE[cat.id]||[], names={}; have.forEach(function(o){names[o.name]=o;});
   var cards=cat.e.map(function(e){ return names[e[0]]?ortCard(names[e[0]]).replace('<details class="ort','<details open class="ort'):stub(e[0],e[1]); }).join("");
   var nav=treeNav(cats,cat.id,'sl/'+s.id,cat.e,names,function(c){return (CM_ORTE[c.id]||[]).length;});
+  var main=names&&have.filter(function(o){return o.id===cat.id;})[0];
+  if(s.id==="avatare"&&CM_ORG[cat.id]&&main&&main.bild){
+    cards=cat.e.map(function(e){ var o=names[e[0]]; if(!o) return stub(e[0],e[1]); return o===main?avDossierRest(o):(o.id==="figuren"?figurenCard(o):ortCard(o).replace('<details class="ort','<details open class="ort')); }).join("");
+    return h+'<div class="orail">'+nav+'<div class="omain">'+avDossierHead(main,cat,have)+'<section class="blk flat"><div class="orte">'+cards+'</div></section></div></div>';
+  }
   return h+'<div class="orail">'+nav+'<div class="omain">'+orgHtml(cat.id)+'<section class="blk flat">'+sectionHead(cat)+(cat.sub?'<p class="catsub">'+esc(cat.sub)+'</p>':'')+'<div class="orte">'+cards+'</div></section></div></div>';
+}
+
+/* Avatar-Dossier: Eisberg oben links, rechts Porträt + Steckbrief; Zitat als Comic-Kasten; Schlüsselfiguren als Karten */
+function avFacts(o){ var l=(o.listen||[]).filter(function(x){return /^Überblick/.test(x.t);})[0]; return l?l.items:[]; }
+function avDossierHead(o,cat,have){
+  var facts=avFacts(o), figs=[]; have.forEach(function(x){ (x.fig||[]).forEach(function(f){figs.push(f);}); });
+  var rows=facts.map(function(i){ var m=/^\*\*([^*:]+):\*\*\s*(.*)$/.exec(i); if(!m) return ''; var v=m[2], th='';
+    if(/^Hochburg/.test(m[1])){ var key=v.replace(/[*„“"]/g,'').split(/[,(]/)[0].trim(); figs.forEach(function(f){ if(!th&&key.length>4&&f[1]&&f[1].indexOf(key)>=0) th='<img class="avth" data-lb src="img/'+f[0]+'.webp" alt="">'; }); }
+    return '<dt>'+esc(m[1])+'</dt><dd>'+th+'<span>'+md(v)+'</span></dd>'; }).join("");
+  return '<div class="avhero">'+orgHtml(cat.id).replace('class="ice-wrap org"','class="ice-wrap org avorg"')+
+    '<div class="avwho"><img class="avpor" data-lb src="img/'+o.bild+'.webp" alt=""><div class="avname"><small>Avatar · '+pg(o.p)+'</small><h2>'+esc(o.name)+'</h2>'+(o.mythos?'<i>'+esc(o.mythos)+'</i>':'')+'</div>'+
+    (rows?'<dl class="avfacts">'+rows+'</dl>':'')+'</div></div>'+
+    (o.extra||[]).map(function(t){ var m=/^(.*)\s[–-]\s([^–-]{2,40})$/.exec(t); return '<blockquote class="avcap">'+md(m?m[1]:t)+(m?'<b>– '+esc(m[2])+'</b>':'')+'</blockquote>'; }).join("");
+}
+function avDossierRest(o){
+  var ls=(o.listen||[]).filter(function(x){return !/^Überblick/.test(x.t);});
+  var o2={}; for(var k in o) o2[k]=o[k]; o2.listen=ls; o2.extra=[]; o2.bild=null; o2.mythos=null;
+  return ortCard(o2).replace('<details class="ort','<details open class="ort avmain');
+}
+function figurenCard(o){
+  var h='', run=[]; function flush(){ if(run.length){ h+='<div class="figgrid">'+run.join("")+'</div>'; run=[]; } }
+  o.text.forEach(function(t){
+    if(t.indexOf('## ')===0){ flush(); h+='<h4 class="lh">'+esc(t.slice(3))+'</h4>'; return; }
+    var m=/\*\*([^*]+)\*\*[’']?S?\s*\(([^)]*)\)/.exec(t);
+    if(m){ var nm=m[1].replace(/[’']S?$/,'').trim(); run.push('<div class="figc"><div class="figh"><b>'+esc(nm.charAt(0)+nm.slice(1).toLowerCase().replace(/(^|[\s-])(\S)/g,function(a,b,c){return b+c.toUpperCase();}))+'</b><i>'+esc(m[2])+'</i></div><p>'+md(t)+'</p></div>'); }
+    else { flush(); h+='<p>'+md(t)+'</p>'; }
+  }); flush();
+  var dang=(o.dangers||[]).map(function(d){return dangerCard(d,true);}).join("");
+  return '<details open class="ort figuren" id="o-'+o.id+'"><summary><h3>'+esc(o.name)+'</h3>'+pg(o.p)+'</summary><div class="ob"><div class="otxt">'+h+'</div>'+(dang?'<aside class="dgrid">'+dang+'</aside>':'')+'</div></details>';
 }

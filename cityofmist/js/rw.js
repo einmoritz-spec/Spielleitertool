@@ -40,6 +40,7 @@ function rwBlocks(bs){
 }
 function rwIsSide(b){ return b&&typeof b==="object"&&((b.box&&b.box.b&&b.box.b.length)||b.tbl||b.dlg); }
 function rwCard(e,id,secId){
+  if(/^Kurzreferenz: Regeln für Spieler/.test(e.name||"")) return spickCard(e,id);
   var tb=rwTb(secId,e), doc=rwDoc(secId,e), fp=rwFigParts(secId,e), figs="";
   var body=e.body||[], main=body.filter(function(b){return !rwIsSide(b);}), side=body.filter(rwIsSide).concat(e.aside||[]);
   var sideHtml=figs+rwBlocks(side)+(doc?'<img class="rwdoc" data-lb loading="lazy" alt="" src="'+doc+'">':'');
@@ -69,7 +70,7 @@ function rwSection(tab,secId,cardIdx){
     var es=CM_RW[s.id]||[], many=es.length>1;
     var toc=es.map(function(c,i){return '<a onclick="rwJump(\'rw-'+s.id+'-'+i+'\')">'+esc(c.name)+'</a>';}).join("");
     var sel=many?'<select class="rwsel" onchange="if(this.value)rwJump(this.value)" aria-label="Springen"><option value="">Springen zu …</option>'+es.map(function(c,i){return '<option value="rw-'+s.id+'-'+i+'">'+esc(c.name)+'</option>';}).join("")+'</select>':'';
-    el.innerHTML='<section class="blk flat"><div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+sel+'</div>'+rwHero(s.id)+
+    el.innerHTML='<section class="blk flat"><div class="sh"><h2>'+esc(s.t)+'</h2>'+pg(s.p,s.pe)+sel+'</div>'+(s.id==="kurzreferenz"?(window.__spHero=rwHero(s.id),""):rwHero(s.id))+
      (es.length?'<div class="rwbody solo"><div class="rwflow">'+es.map(function(e,i){return rwCard(e,"rw-"+s.id+"-"+i,s.id);}).join("")+'</div></div>':'<div class="stub"><span>Noch keine Inhalte</span></div>')+'</section>'+rwPrevNext(tab,s.id);
     var h3=el.querySelector('.rwa>h3'); if(h3&&h3.firstChild&&(h3.firstChild.textContent||"").trim().toLowerCase()===s.t.toLowerCase()) h3.classList.add('dup');
     var rail=document.getElementById("rwRail");
@@ -98,4 +99,29 @@ function pageRW(r){
   var isStart=r.tab==="start"||!CM_RW_NAV.secs[r.tab];
   var body= isStart ? rwStart() : rwSection(r.tab,r.sub,r.cat);
   return '<div class="railshell'+(isStart?' nontoc':'')+'"><nav class="rwtoc" id="rwRail"></nav><div class="railmain">'+tabs+body+'</div></div>';
+}
+
+/* Kurzreferenz als Spickzettel (Entwurf C): Schritte, Ergebnisleiste, Kraft-Kacheln, Aktionskarten, Stufenleiste */
+function spickCard(e,id){
+  var bx={}, order=[]; (e.body||[]).forEach(function(b){ if(b&&b.box){ bx[b.box.t]=b.box; order.push(b.box); } });
+  var done={}, h='';
+  function head(x){ return '<div class="spt">'+md(x.t)+(x.p?'<span class="pg">S. '+x.p+'</span>':'')+'</div>'; }
+  var a=bx["Aktionen"]; if(a){ done[a.t]=1; h+='<section class="spb">'+head(a)+'<ol class="spsteps">'+a.b.map(function(l){return '<li>'+md(String(l).replace(/^\d+\.\s*/,''))+'</li>';}).join("")+'</ol></section>'; }
+  var r=bx["Ergebnisse der Aktionen"]; if(r){ done[r.t]=1; var seg=[], rest=[];
+    r.b.forEach(function(l){ l=String(l); var t=l.replace(/^-+\s*/,'');
+      if(/Misserfolg/.test(t)) seg.push(['b1','6−','Misserfolg',t.replace(/^\*\*Misserfolg:\*\*\s*/,'')]);
+      else if(/^7-9/.test(t)) seg.push(['b2','7–9','Schwacher Erfolg',t.replace(/^7-9\s*/,'')]);
+      else if(/^10\+/.test(t)) seg.push(['b3','10+','Guter Erfolg',t.replace(/^10\+\s*/,'')]);
+      else if(/^\+12/.test(t)) seg.push(['b4','12+','Mega!',t.replace(/^\+12\s*/,'')]);
+      else if(!/^\*\*Erfolg:\*\*/.test(t)) rest.push(l); });
+    h+='<section class="spb">'+head(r)+'<div class="spbar">'+seg.map(function(x){return '<div class="'+x[0]+'"><b>'+x[1]+'</b><small>'+x[2]+'</small><span>'+md(x[3])+'</span></div>';}).join("")+'</div>'+(rest.length?'<div class="spnote">'+rwBlocks(rest)+'</div>':'')+'</section>'; }
+  var k=bx["Kraft bestimmen"]; if(k){ done[k.t]=1; var bad={A:['+1','plus'],B:['−1','minus'],C:['+Stufe','plus'],D:['−Stufe','minus']};
+    h+='<section class="spb">'+head(k)+'<div class="spkraft">'+k.b.map(function(l){ l=String(l); var m=/^\*\*([A-D])\.\s*/.exec(l), q=m?bad[m[1]]:null; return '<div>'+(q?'<i class="'+q[1]+'">'+q[0]+'</i>':'')+md(m?l.replace(/^\*\*[A-D]\.\s*/,'**'):l)+'</div>'; }).join("")+'</div></section>'; }
+  var g=bx["Die grundlegenden Aktionen"]; if(g){ done[g.t]=1; var kv=(g.b.filter(function(x){return x&&x.kv;})[0]||{}).kv||[];
+    h+='<section class="spb">'+head(g)+'<div class="spmoves">'+kv.map(function(p){ var m=/^(.*?)\s*\((S\.\s*\d+)\)$/.exec(p[0]), c=/\(([^()]*\*\*[^()]*)\)\.?\s*$/.exec(p[1]), txt=c?p[1].slice(0,c.index).trim():p[1], cls=c&&/Zustand/.test(c[1])?' z':c&&/Hinweis/.test(c[1])?' h':'';
+      return '<div class="spmv"><b>'+esc(m?m[1]:p[0])+(m?'<span class="pg">'+m[2]+'</span>':'')+'</b><p>'+md(txt)+'</p>'+(c?'<span class="spchip'+cls+'">'+md(c[1]).replace(/<\/?strong>|<\/?b>/g,'')+'</span>':'')+'</div>'; }).join("")+'</div></section>'; }
+  var z=bx["Zustände"]; if(z){ done[z.t]=1; h+='<section class="spb">'+head(z)+'<div class="sptiers"><div>1</div><div>2</div><div>3</div><div>4</div><div>5<small>RAUS</small></div><div>6<small>SL</small></div></div>'+rwBlocks(z.b)+'</section>'; }
+  var others=order.filter(function(x){return !done[x.t];}).map(function(x){ return '<section class="spb">'+head(x)+rwBlocks(x.b)+'</section>'; }).join("");
+  var loose=(e.body||[]).filter(function(b){return !(b&&b.box);});
+  return '<article class="rwa spick" id="'+id+'"><h3>'+esc(e.name)+pg(e.p,e.pe)+'</h3>'+(loose.length?rwBlocks(loose):'')+'<div class="spgrid">'+(window.__spHero?'<div class="sphero">'+window.__spHero+'</div>':'')+h+'</div><div class="spgrid sprest">'+others+'</div></article>';
 }

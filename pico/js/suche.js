@@ -40,7 +40,7 @@ function sEsc(s){ return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 function sOpen(){
   var old = document.getElementById("sm"); if(old){ old.remove(); return; }
   if(!SIDX) sBuild();
-  var m = modal('<input id="sq" class="sq" placeholder="Suchen …" autocomplete="off"><div id="sr" class="sr"></div>', true);
+  var m = modal('<input id="sq" class="sqin" placeholder="Suchen …" autocomplete="off"><div id="sr" class="sr"></div>', true);
   m.id = "sm"; m.classList.add("smodal");
   var q = document.getElementById("sq"); q.focus();
   q.oninput = function(){ sRun(q.value); };

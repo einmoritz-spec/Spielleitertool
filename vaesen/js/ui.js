@@ -14,8 +14,12 @@ function uiStart(){
     '<div class="vu-prog"><span>Countdown <b>' + pr.cd + ' / ' + pr.cdTot + '</b></span><span>Hinweise <b>' + pr.got + ' / ' + pr.tot + '</b>' + (lastName ? '</span><span><b>' + lastName + '</b>' : '') + '</span></div><div class="vu-bar"><i style="width:' + pct + '%"></i></div></div></div>';
   var books = [];
   VAE_BUECHER.forEach(function(g){ g.items.forEach(function(b){ if(b.cover) books.push(b); }); });
-  var sm = window.VAE_MYS && VAE_MYS.tod ? JSON.parse(localStorage.getItem("vae_som_tod_v1") || "{}") : null;
-  if(sm){ var scd = (sm.cd || []).length, scl = Object.keys(sm.clue || {}).length; adv += '<div class="vu-ac" onclick="go(\'som/tod/' + (sm.last || "hg") + '\')"><span class="vu-cont">' + (scd || scl ? "Weiterspielen" : "Starten") + '</span><div class="vu-im" style="background-image:url(img/som/tod_eroeffnung.webp)"></div><div class="vu-tx"><h3>Ein Tanz mit dem Tod</h3><div class="vu-src">Seasons of Mystery · S. 4</div><div class="vu-prog"><span>Countdown <b>' + scd + ' / 4</b></span><span>Hinweise <b>' + scl + '</b></span></div></div></div>'; }
+  var sm = window.VAE_MYS && VAE_MYS.tod ? 1 : 0;
+  ["tod", "feuer"].forEach(function(id){
+    var M = window.VAE_MYS && VAE_MYS[id]; if(!M) return;
+    var st = JSON.parse(localStorage.getItem("vae_som_" + id + "_v1") || "{}"), scd = (st.cd || []).length, scl = Object.keys(st.clue || {}).length;
+    adv += '<div class="vu-ac" onclick="go(\'som/' + id + '/' + (st.last || "hg") + '\')"><span class="vu-cont">' + (scd || scl ? "Weiterspielen" : "Starten") + '</span><div class="vu-im" style="background-image:url(img/' + M.bild + '.webp)"></div><div class="vu-tx"><h3>' + esc(M.titel) + '</h3><div class="vu-src">Seasons of Mystery · S. ' + M.p + '</div><div class="vu-prog"><span>Countdown <b>' + scd + ' / ' + (M.cd ? M.cd.length : 4) + '</b></span><span>Hinweise <b>' + scl + '</b></span></div></div></div>';
+  });
   books.filter(function(b){ return [sm ? "" : "vae_seasons", "vae_wicked", "vae_city"].indexOf(b.id) > -1; }).forEach(function(b){
     adv += '<div class="vu-ac vu-off" onclick="BV.open(\'' + b.id + '\',1)"><div class="vu-im" style="background-image:url(img/' + b.cover + ')"></div><div class="vu-tx"><h3>' + esc(b.name) + '</h3><div class="vu-src">' + esc(b.sub) + '</div><div class="vu-st">Noch nicht eingebaut</div></div></div>';
   });

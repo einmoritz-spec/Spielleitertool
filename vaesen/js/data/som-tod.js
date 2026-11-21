@@ -34,6 +34,7 @@ VAE_MYS.tod = {
  },
 
  an: {
+  hoName: "Handout 1A", karten: ["tod_karte_siljan"],
   einladung: ["Dieses Mysterium spielt im späten Frühling, kurz nachdem das Vieh zur Weide auf die Sommeralm getrieben wurde. Es beginnt damit, dass die Gesellschaft in ihrem Hauptquartier in Upsala einen Brief erhält. Der Brief ist auch als Handout 1A am Ende dieses Buches abgedruckt und steht auf der Webseite von Free League zum Download bereit. Er lautet:"],
   brief: {
    t1: "An wen es betrifft,",
@@ -76,11 +77,12 @@ VAE_MYS.tod = {
   {n:"Fiedel am See", x:"Lisbets Boel bittet Jons Gustav, sie an der Fudalbucht zu treffen, doch dort erscheint der Nöck, und Jons Gustav begreift, dass er in eine Falle gelaufen ist. Der Nöck verzaubert Jons Gustav, sodass er nicht mehr aufhören kann zu fiedeln – er muss spielen, bis seine Finger bluten, und jedem Befehl des Nöcks gehorchen. Dann spielt Jons Gustav die Musik des Nöcks, und alle, die sie hören, werden verzaubert, zum Wasser gebracht und ertränkt. Ist Jons Gustav etwas zugestoßen, spielt der Nöck selbst die Fiedel. Mehr dazu unter Konfrontation."},
   {n:"Katastrophe", kat:1, x:"Greifen die Spielercharaktere nicht ein, bringt Jons Gustav Opfer ans Ufer des Siljan und ertränkt sie. Er ist nun dazu verdammt zu spielen, bis seine Knöchel ganz abgewetzt sind. Ist Jons Gustav etwas zugestoßen, holt der Nöck seine Opfer selbst. Lisbets Boel nimmt schließlich ihren Platz an der Seite des Nöcks ein, doch leider ertrinkt auch sie. Man sagt, nachts sei vom Siljan eine klagende Melodie zu hören, wie von jemandem, der Gesellschaft sucht, und wer Fudal besucht, wird dort nur den Tod finden."}
  ],
+ pp: {cd:9}, figOrder: ["jenny","boel","ida","gustav","freja","maegde"],
  cdIntro: "Das Eingreifen der Spielercharaktere löst Reaktionen bei Lisbets Boel und Jons Gustav aus, die in ihrem Handeln immer verzweifelter werden, je ungeduldiger der Nöck wird. Wenn die Spielercharaktere die Geschichte nicht in eine andere Richtung lenken, endet sie schließlich in einem Unglück. Nutze die folgenden Ereignisse, um das Spiel bei Bedarf zu beschleunigen und die Spieler auf die Konfrontation zuzutreiben.",
 
  orteIntro: "Die folgenden Absätze fassen die wichtigsten Orte zusammen, die die Spielercharaktere in diesem Mysterium besuchen können: die Wiese, das Hüttendorf, der Wald und die Fudalbucht. Wollen die Spielercharaktere andere Orte untersuchen, kannst du improvisieren; es ist aber auch völlig in Ordnung zu erklären, dass der betreffende Ort nicht zum Mysterium gehört und es dort nichts Interessantes gibt.",
  orte: [
-  {id:"wiese", t:"Die Wiese", p:10, karte:"fudal", hier:["gustav","jenny","freja","ida","boel"],
+  {id:"wiese", t:"Die Wiese", p:10, karte:"tod_karte_fudal", hier:["gustav","jenny","freja","ida","boel"],
    text:["Auf der Wiese rund um die Hütten grasen tagsüber die Kühe, bevor sie für die Nacht auf die eingezäunte Weide gebracht werden. Am Abend der Ankunft der Spielercharaktere findet eine Feier zu Lisbets Boels Geburtstag statt. Alle auf der Fäbodvall nehmen teil, und Jons Gustav spielt dazu auf.",
           "Die Mädchen haben sich in Volkstracht gekleidet und den Fiedler Jons Gustav eingeladen, auf dem Fest zu spielen. Als die Musik beginnt, kommt die Feier bald in Schwung, und alle Mädchen tanzen, besonders als der Aquavit herumgereicht wird. Es ist praktisch unmöglich, sich von der Musik nicht mitreißen zu lassen, die fast magisch ist. Die Weisen der Fiedel mischen sich mit Lachen und fröhlichem Rufen. Einen Moment lang lässt das Fest alle die seltsamen und rätselhaften Vorfälle vergessen.",
           "Nachts sind die Tiere auf einer Weide mit Rundholzzaun untergebracht, tagsüber grasen sie hier. Es sind mehrere Kühe sowie Ziegen, die den Bauern von Nusnäs gehören."],
@@ -108,7 +110,7 @@ VAE_MYS.tod = {
     "In der Nacht vor Schritt 2 des Countdowns tritt Pers Ida an die Spielercharaktere heran und bittet sie, morgen zu ihrer Hütte zu kommen. Sie glaubt, etwas gesehen zu haben, das ihnen helfen könnte, will aber nichts sagen, bevor sie sicher ist. Sie kann diese Botschaft auch als Zettel überbringen."]},
    zettel:{t:"Der Zettel auf dem Bett", x:"Neugierige Leute wie ihr täten gut daran, zu gehen. Lasst uns das selbst regeln."}
   },
-  {id:"huetten", t:"Das Hüttendorf", p:16, karte:"fudal", hier:["boel","freja","ida","jenny","maegde","nicklas"],
+  {id:"huetten", t:"Das Hüttendorf", p:16, karte:"tod_karte_fudal", hier:["boel","freja","ida","jenny","maegde","nicklas"],
    text:["Der größte Teil von Fudal besteht aus dem Hüttendorf mit mehreren Blockhütten unterschiedlicher Größe. Einige sind größer und bieten Platz für ganze Familien (eine davon bewohnen die Spielercharaktere), während viele der Almmägde in kleineren, einfacheren Hütten für ein bis vier Personen wohnen. Die großen Hütten haben eigene Küchen und Aborte, die kleinen teilen sich eine größere Küche und einen Abort.",
           "Swärds Jenny wohnt allein in einer der größeren Hütten, da ihre Familie derzeit auf dem Hof zu Hause ist, und sie bietet den Spielercharakteren gern eine Tasse Kaffee an, wenn sie reden möchten. Lisbets Boel und Mattias Freja teilen sich eine kleinere Hütte. Wenn die Spielercharaktere sie besuchen, bürstet Lisbets Boel sich das Haar, und Mattias Freja häkelt neben ihr, beide plaudern fröhlich über die jüngsten Feierlichkeiten. Pers Ida wohnt allein in einer der kleineren Hütten und ruht sich aus, als die Spielercharaktere sie aufsuchen."],
    herausf:["Haben die Spielercharaktere das Vertrauen der Almmägde noch nicht gewonnen, müssen sie Proben auf MANIPULATION bestehen, um sie zu befragen, besonders Lisbets Boel und Mattias Freja.",
@@ -133,7 +135,7 @@ VAE_MYS.tod = {
     {t:"Der Wandteppich", x:"Ein alter Wandteppich, höchstens 40 × 30 cm groß, hing früher in der Speisehütte. Er wurde im späten 17. Jahrhundert angefertigt und ist schlicht gearbeitet. Er zeigt eine grauenerregende menschenähnliche Gestalt, die zu einem See flieht, verfolgt von einem Priester mit einem Kruzifix in der Hand. Das Wesen hat drei Augen, und auf seiner Schulter sitzt eine schwarze Katze. Das Motiv zeigt, wie der Nöck von einem Priester gebannt wird.<br><br>Der Wandteppich wurde vor einer Weile gestohlen, entweder von Lisbets Boel oder von Jons Gustav, je nachdem, wo die Spielercharaktere ihn finden, damit niemand herausfindet, wie man den Nöck bannt. Das Mysterium nennt viele Vorschläge, wo er versteckt sein könnte, doch die Diebe können ihn auch am Körper tragen. Werden sie mit dem Wandteppich erwischt, behaupten sie, ihn gefunden zu haben und gerade im Begriff gewesen zu sein, ihn zurückzubringen. Lisbets Boel ist eine ausgezeichnete Lügnerin, und die Charaktere müssen eine herausfordernde Probe auf BEOBACHTUNG bestehen, um ihre Täuschung zu durchschauen.<br><br>Das Motiv des Wandteppichs ist nicht einzigartig – es gibt viele ähnliche Wandteppiche, die dunkle Mächte zeigen, die durch christliche Symbole gebannt werden, oder die vor den Gefahren der Versuchung warnen. Folglich kann keine der Almmägde den Wandteppich genau beschreiben, sondern nur als „noch ein Teufel, der gebannt wird“. Die meisten können sogar scherzhaft darüber reden.<br><br>Eine Spielerfigur, die den Wandteppich findet und untersucht, kann eine Probe auf WISSEN ablegen, um zu erkennen, dass die Gestalt den Nöck darstellt, der von christlichen Symbolen in die Tiefe zurückgetrieben wird.", p:18}
    ]
   },
-  {id:"wald", t:"Der Wald", p:18, karte:"fudal", hier:["gustav"],
+  {id:"wald", t:"Der Wald", p:18, karte:"tod_karte_fudal", hier:["gustav"],
    text:["Der Wald rund um das Hüttendorf besteht hauptsächlich aus hohen Kiefern und Fichten. Er ist dicht und verworren, und man sollte beim Gehen vorsichtig sein, denn in der Gegend gibt es Bären. Alle Almmägde meiden den Wald bei Nacht. Im Spätsommer und Herbst gehen sie meist dorthin, um Beeren oder Pilze zu sammeln.",
           "Tief im Dickicht des Waldes steht eine kleine Holzhütte, in der Jons Gustav bei seinen Besuchen die Nächte verbringt. Sie ist sehr bescheiden, mit einem Bett und einem Nachttisch, einer einfachen Küche und einem Esstisch."],
    herausf:["Folgen die Spielercharaktere den Fußspuren, die sie an der Weide gefunden haben, erfordert es eine gelungene Probe auf WACHSAMKEIT, sie durch das Dickicht zu verfolgen. Gelingt sie, führen die Spuren zu Jons Gustavs Hütte. Misslingt sie, verirren sie sich und laufen Gefahr, einem Bären zu begegnen. Die Werte des Bären stehen auf S. 168 im Grundregelwerk.",
@@ -152,7 +154,7 @@ VAE_MYS.tod = {
     {id:"f6", x:"Der alte Wandteppich kann hier gefunden werden. Er könnte unter einer Bodendiele in Jons Gustavs Hütte versteckt oder in einem Baumhain vergraben sein. In beiden Fällen erfordert das Finden eine gelungene Probe auf UNTERSUCHUNG. Mehr dazu im Kasten auf S. 18."}
    ]
   },
-  {id:"bucht", t:"Die Fudalbucht", p:20, karte:"fudal", hier:["boel","freja"],
+  {id:"bucht", t:"Die Fudalbucht", p:20, karte:"tod_karte_fudal", hier:["boel","freja"],
    text:["Die Fudalbucht ist eine Bucht im Siljan mit seinem herrlich blauen Wasser. Sie ist ein felsiger Strand, der flach beginnt, aber schnell tief wird, denn der Siljan ist 120 Meter tief. Der Nöck hat seine Behausung etwas weiter draußen, tief unten auf dem Grund des Sees, kommt aber näher ans Ufer, um Menschen ins Wasser zu locken.",
           "Die glatte Oberfläche des Sees ist mit Seerosen übersät, und nachts wimmelt es hier von Stechmücken. Obwohl es Frühling ist, ist das Wasser noch ziemlich kalt."],
    herausf:["Spielercharaktere, die nachts im Wasser laufen, laufen Gefahr, auf einem glitschigen Stein auszurutschen, wenn sie nicht WACHSAMKEIT einsetzen. Ein solcher Unfall führt zu einem körperlichen Zustand.",
@@ -223,7 +225,7 @@ VAE_MYS.tod = {
 
  /* Handouts: Papier-Bild (img/som/ho_…), Text, Format */
  ho: [
-  {id:"1a", t:"Handout 1A", u:"Brief von Swärds Jenny", paper:"ho_1a", form:"brief"},
+  {id:"1a", t:"Handout 1A", u:"Brief von Swärds Jenny", paper:"ho_1a", form:"brief", klein:1},
   {id:"1b", t:"Handout 1B", u:"Der Zettel auf dem Bett", paper:"ho_1b", form:"zettel", x:"Neugierige Leute wie ihr täten gut daran, zu gehen. Lasst uns das selbst regeln."},
   {id:"1c", t:"Handout 1C", u:"Jons Gustavs Liebesbrief", paper:"ho_1c", form:"brief", x:"Meine liebste Boel,<br><br>dein Haar ist so schön wie frisch gesponnene Saiten, und deine Stimme klingt wie die erlesenste Musik. Du bist die schönste Frau, die ich kenne. Du lässt mein Herz in meiner Brust schlagen wie eine Trommel. Es schlägt für dich und für dich allein.<br><br>Aber ich weiß, dass dein Herz für einen anderen schlägt. Ich weiß, dass auch er ein Fiedler ist.<br><br>Doch ich verspreche dir, meine Liebe, dass bald die Zeit kommen wird, in der ich der größte Fiedler sein werde, den Fudal je gesehen hat, und dann wirst du mir nicht mehr widerstehen können. Zusammen werden wir sehr süße Musik machen.<br><br>Dein liebender Jons Gustav"},
   {id:"1d", t:"Handout 1D", u:"Auszug aus Pers Idas Tagebuch", paper:"ho_1d", form:"tagebuch", x:"Seit die Kuh verschwunden ist, versuche ich, nachts Wache zu halten. Gestern habe ich etwas an der Bucht gesehen. Ich glaubte, jemanden im Wasser zu sehen. Aber am meisten überraschte mich eine Frau, die mit der seltsamen Gestalt sprach. Ich konnte nicht sehen, wer es war, bevor sie weglief. Sie muss mich gesehen haben. Ich muss herausfinden, wer das war. Vielleicht ist das der Schlüssel zu allem, was vor sich geht?"},

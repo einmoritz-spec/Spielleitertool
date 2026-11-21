@@ -187,3 +187,25 @@
 .lm-img.lm-fl{float:right;width:clamp(170px,34%,320px);margin:4px 0 12px 20px}
 .lm-img.lm-fl img{width:100%;max-height:none}
 .lm-cols>.lm-img.lm-fl,.lm-cols .lm-img.lm-fl{break-inside:avoid}
+
+/* Regeltext einspaltig, Kästen schweben rechts */
+.lm-cols{column-count:1;columns:auto;column-rule:none;display:flow-root}
+.lm-cols>.lm-bx{float:right;width:38%;margin:2px 0 12px 26px}
+.lm-a{display:flow-root}
+@media(max-width:900px){.lm-cols>.lm-bx{float:none;width:auto;margin:0 0 12px}}
+/* Wesen: zugeklappte Kartenübersicht, Klick öffnet über volle Breite */
+.lmc-chgrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.lmc-ch>header{cursor:pointer}
+.lmc-ch:not(.open) .lmc-cols{display:none}
+.lmc-ch .lmsum{display:block;font:11px/1.4 Cinzel,serif;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+.lmc-ch:not(.open){border:1px solid #d8c6a8;border-top:3px solid #7a1f1f}
+.lmc-ch:not(.open)>header{background:#f7efdf;color:#7a1f1f}
+.lmc-ch:not(.open)>header h3{color:#7a1f1f}
+.lmc-ch:not(.open)>header small{border-color:#b98a7a;color:#8a4a3a}
+.lmc-ch:not(.open)>header .lmsum{color:#7a6a58}
+.lmc-ch:not(.open)>header .lm-pg{color:#9a7a4a}
+.lmc-ch.open{grid-column:1/-1}
+.lmc-ch.open .lmc-cols{grid-template-columns:300px minmax(0,1fr)}
+.lmc-ch.open .lmc-sp{overflow:visible}
+.lmc-sp dl{display:block}.lmc-sp dl>div{display:block;position:static;width:auto}
+@media(max-width:720px){.lmc-ch.open .lmc-cols{grid-template-columns:1fr}}

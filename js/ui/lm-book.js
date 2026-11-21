@@ -129,7 +129,8 @@ function lmChallenge(e,i){
   });
   var left='<div class="lmc-l">'+(lim?'<div class="lmc-lab">Limits</div>'+lim:'')+(tags?'<div class="lmc-lab">Tags &amp; Statuses</div><div class="lmc-tags">'+tags+'</div>':'')+spec+'</div>';
   var right='<div class="lmc-r">'+(desc?'<div class="lmc-desc">'+desc+'</div>':'')+(thr?'<div class="lmc-lab">Threats &amp; Consequences</div>'+thr:'')+'</div>';
-  return '<article class="lmc lmc-ch" id="lm-'+i+'"><header>'+(e.sub?'<small>'+esc(e.sub)+'</small>':'')+'<h3>'+esc(e.name)+' '+lmPg(e.p,e.pe)+'</h3></header><div class="lmc-cols">'+left+right+'</div></article>';
+  var sum=""; if(lim){ var tmp=document.createElement("div"); tmp.innerHTML=lim; sum=[].map.call(tmp.querySelectorAll(".lmc-lim"),function(l){ var b=l.querySelector("b"); return (b?b.textContent:"")+" "+l.querySelectorAll(".lmc-pips i").length; }).join(" · "); }
+  return '<article class="lmc lmc-ch" id="lm-'+i+'"><header onclick="if(!event.target.closest(\'a,.lm-pg\'))this.parentNode.classList.toggle(\'open\')">'+(e.sub?'<small>'+esc(e.sub)+'</small>':'')+'<h3>'+esc(e.name)+' '+lmPg(e.p,e.pe)+'</h3>'+(sum?'<span class="lmsum">'+esc(sum)+'</span>':'')+'</header><div class="lmc-cols">'+left+right+'</div></article>';
 }
 function lmGroups(e,i,kind){
   var bs=(e.body||[]).concat(e.aside||[]), h="", cur=null, open=false, intro=[];

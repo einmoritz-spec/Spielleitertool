@@ -1,4 +1,5 @@
 /* Grundregelwerk – Karten, Kästen, Tabellen (Anlehnung an das Buch: Magenta-Überschriften, gelbe Regelkästen, markierte Tags) */
+@font-face{font-family:"Caveat Brush";src:url(../assets/fonts/caveat-brush-latin-400-normal.woff2) format("woff2");font-display:swap}
 :root{--mag:#e5007d;--mag2:#ff5cae;--yel:#fbf0a5;--cream:#f6eed6}
 .sh{align-items:center}
 .rwa p{margin:0 0 .85em}
@@ -169,3 +170,27 @@ mark{background:rgba(251,240,165,.85);color:#1b1a10;border-radius:2px;padding:0 
 .rwstrip{float:right;margin:4px 0 16px 26px;position:relative;z-index:1}
 .blk.flat>.rwbody .rwflow{display:block}
 @media (max-width:900px){.rwstrip{float:none;width:100%!important;margin:6px 0 14px}}
+
+/* Archetypen: je Thema eine Zeile mit Themenbuch-Bild */
+.kv.kvarch{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))!important;gap:12px!important}
+.kvarch .kvi{padding:0;overflow:hidden;border-top:3px solid var(--mag)}
+.kvarch .kvi dt{padding:10px 14px 6px;font:400 20px/1.05 var(--disp);letter-spacing:.04em}
+.kvarch .kvi dd{margin:0;padding:0 10px 10px}
+.arrows{display:flex;flex-direction:column;gap:6px}
+.arr{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;background:#f6f1f4;border-radius:6px;padding:5px 8px 5px 5px}
+.arr.lg{background:#f2f0e6}
+.arr img{width:40px;height:40px;object-fit:cover;object-position:50% 25%;border-radius:4px}
+.arr b{display:block;font:600 11.5px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--mag2)}
+.arr.lg b{color:#7a6a20}
+.arr i{display:block;font-size:14.5px;font-style:normal;line-height:1.3}
+/* Beispielkarten als helle Spielkarten, zu zweit unter dem Text */
+.rwa:has(>.bsrow){display:flow-root!important;max-width:none!important}
+.rwa>.bsrow{clear:both;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px;align-items:stretch}
+.bsrow>.bx{margin:0!important;background:#fffdf8!important;border:2px solid #1a0a2e!important;border-radius:10px;box-shadow:4px 4px 0 #1a0a2e;overflow:hidden}
+.bsrow>.bx header{background:#1a0a2e!important;color:#fff!important;border:0!important}
+.bsrow .bxb{background:transparent!important;padding:4px 6px 8px!important}
+.bsrow .kv{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:0!important}
+.bsrow .kvi{background:transparent!important;border:0!important;border-bottom:1px dashed #d9cfba!important;border-radius:0!important;box-shadow:none!important;padding:8px 10px!important}
+.bsrow .kvi dt{color:#c4006a!important;font-size:12px!important;letter-spacing:.1em}
+.bsrow .kvi dd{font-family:"Caveat Brush",cursive;font-size:19px;line-height:1.25;color:#1c1e25}
+@media(max-width:899px){.rwa>.bsrow{grid-template-columns:1fr}.bsrow .kv{grid-template-columns:repeat(2,minmax(0,1fr))!important}}

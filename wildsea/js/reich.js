@@ -43,7 +43,7 @@ function rFraktionen(r, S, sel){
 function rGefahren(r){
   var x = r.extra, g = r.see.gefahren;
   return '<div class="ct" style="padding:18px 34px 40px"><div class="hd"><h1>' + esc(x.t) + '</h1><span class="pg">S. ' + x.p + '</span></div><div class="intro" style="margin-top:8px">' + paras(x.intro) + '</div><div class="grid3" style="padding:14px 0 20px">' + x.eintraege.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3>' + paras(e.x).replace(/<p>/g, '<p>') + '</div>'; }).join("") + '</div>' +
-   '<div class="hd"><h1 style="font-size:40px">Heimische Gefahren</h1><span class="pg">S. 284</span></div><div class="grid3" style="padding:12px 0">' + g.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3><p>' + esc(e.x) + '</p></div>'; }).join("") + '</div></div>';
+   '<div class="hd"><h1 style="font-size:40px">Heimische Gefahren</h1><span class="pg">S. 284</span></div><div class="grid3" style="padding:12px 0">' + g.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3><p>' + esc(e.x) + '</p>' + (e.id ? '<a class="lk" onclick="go(\'gefahren/' + e.id + '\')">Gefahren-Karte</a>' : '') + '</div>'; }).join("") + '</div></div>';
 }
 /* Auf See */
 var SW = ["Panzerung","Dichtung","Tempo","Sägen","Tarnung","Neigung"];
@@ -71,7 +71,7 @@ function rSee(r, S){
    '<div><div class="h">Wache im Foxloft <span class="pg">S. ' + see.p + '</span></div><div class="wt">' + cols + '</div></div></div>' +
    '<div class="low"><div><div class="h">Passagiere</div><ul class="bul">' + pass + '</ul></div>' +
    '<div><div class="h">Handel &amp; Fracht</div><ul class="hdl">' + see.handel.map(function(h){ return '<li><span class="ex' + (h.d === "import" ? ' im' : '') + '">' + (h.d === "import" ? "Import" : "Export") + '</span><b>' + esc(h.t) + '</b> <small>' + esc(h.x) + '</small></li>'; }).join("") + '</ul></div>' +
-   '<div><div class="h">Heimische Gefahren</div>' + see.gefahren.map(function(g){ return '<span class="chip2" onclick="go(\'reich/' + r.id + '/gefahren\')">' + esc(g.t) + '</span>'; }).join("") + '</div></div></div>';
+   '<div><div class="h">Heimische Gefahren</div>' + see.gefahren.map(function(g){ return '<span class="chip2" onclick="go(\'' + (g.id ? 'gefahren/' + g.id : 'reich/' + r.id + '/gefahren') + '\')">' + esc(g.t) + '</span>'; }).join("") + '</div></div></div>';
 }
 function viewReich(id, tab, sel){
   var r = WS_REICH[id]; if(!r) return viewPlatzhalter((WS_REICHE.filter(function(x){ return x.id === id; })[0] || {t: "Reich"}).t);

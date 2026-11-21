@@ -120,7 +120,7 @@ WS_REICH.foxloft = {
   passagiere:["Ein junges Mitglied der Jagdfamilien, ein Fuchsabrichter auf dem Rückweg von einer erfolgreichen und unblutigen Jagd mit einem neuen pelzigen Freund.","Eine goldsichtige Baggerin mit sehr genauen Vorstellungen, wo sie abgesetzt werden will.","Ein alter Revolutionär aus Marrow mit einem riesigen stacheligen Bart, voller Geschichten aus den schlechten Zeiten vor der Thronbesteigung der Architektenkönigin.","Ein wortloses Promenossuarium, das genau dann geht, wenn es will.","Eine Gruppe neuer Writlings, die Kleidung schlicht und nur mit ein paar Münzen und Buchfetzen gesprenkelt.","Ein Zugführer der Mazoro-Linie, aus seinem Dienst verbannt, weil ihm ein Titanopede unter seiner Aufsicht gestorben ist."],
   gefahren:[
    {t:"Füchse in großer Vielfalt", x:"(siehe die nächste Seite), auch wenn sie für Wildsee-Crews selten eine direkte Bedrohung sind."},
-   {t:"Pfeilzungen-Jikari", x:"die von der Spitskill-Mesa herabkriechen, auf der Suche nach Feinschmecker-Beute."},
+   {t:"Pfeilzungen-Jikari", id:"jikari", x:"die von der Spitskill-Mesa herabkriechen, auf der Suche nach Feinschmecker-Beute."},
    {t:"Rotschwanzgleiter", x:"die Insekten aus der Luft schnappen, aber gelegentlich dazu getrieben werden, größere Beute anzugehen."},
    {t:"Wandersteine", x:"Teile der Sieben Mauern, die Bewusstsein erlangt haben und in den langen Jahren seit der Verdanz losgetrieben sind."},
    {t:"Titanopeden", x:"meist gut darauf abgerichtet, Handelskanälen und den Schienenlinien der Sieben Mauern zu folgen."},

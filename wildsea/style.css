@@ -267,3 +267,6 @@ h2.sec{font-size:30px;text-transform:uppercase;margin:0 0 12px;letter-spacing:.0
 .nhero h1{margin:0;font-size:clamp(40px,5.4vw,78px);line-height:.95;color:#faf6e8;text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .nhero p{margin:10px 0 0;font-size:17px;line-height:1.45;color:#e0dac2;max-width:34em}
 @media(max-width:900px){.nhero{flex-direction:column}.nhero .pic{height:auto;max-width:100%;width:100%}.nhero .tx{padding:20px 22px}}
+/* Szenarien */
+.go .sc a{flex:1;display:block;cursor:pointer;border:1px solid rgba(255,255,255,.7);border-radius:4px;padding:7px 9px;font-size:12px;background:rgba(255,255,255,.1)}.go .sc a:hover{background:rgba(255,255,255,.22)}.go .sc a b{display:block}
+.sz a{display:block;cursor:pointer;border:1.5px solid #8aa05a;border-radius:7px;padding:14px 18px;background:#f3efe2}.sz a:hover{background:#e8e2cb}.sz a b{display:block;font-family:Teko,sans-serif;font-size:21px}.sz a small{color:var(--soft)}

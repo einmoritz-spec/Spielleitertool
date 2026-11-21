@@ -55,20 +55,22 @@ function viewCharUebersicht(L){
   }).join("");
   return '<div class="pad cuw">' + out + '</div>';
 }
-function viewNach(bereich, id){
-  var meta = NACH.filter(function(n){ return n[0] === bereich; })[0];
+function viewNach(bereich, id, sz){
+  var P = sz ? "szenario/" : "nach/";
+  var TL = sz ? (window.WS_SZENARIEN || []).filter(function(x){ return x.id; }).map(function(x){ return [x.id, x.t]; }) : NACH;
+  var meta = TL.filter(function(n){ return n[0] === bereich; })[0];
   if(!meta) return viewPlatzhalter(bereich);
-  var tabs = '<div class="tabs">' + NACH.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'nach/' + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join("") + '</div>';
+  var tabs = '<div class="tabs">' + TL.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'' + P + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join("") + '</div>';
   var L = (window.WS_NACH || {})[bereich] || [];
   if(!L.length) return tabs + '<div class="pad"><p class="na">Dieser Bereich folgt.</p></div>';
   if(bereich === "charaktere" && !id) return tabs + viewCharUebersicht(L);
   var cur = L.filter(function(s){ return s.id === id; })[0] || L[0], ki = cur.k, side = "", last = null;
   L.forEach(function(s){
-    if(s.k !== last){ side += '<h4 class="' + (s.k === ki ? 'on' : '') + '" onclick="go(\'nach/' + bereich + '/' + s.id + '\')">' + esc(s.k) + '</h4>'; last = s.k; }
-    if(s.k === ki) side += '<a class="' + (s.id === cur.id ? 'on' : '') + '" onclick="go(\'nach/' + bereich + '/' + s.id + '\')">' + esc(s.t.split(":")[0]) + '</a>';
+    if(s.k !== last){ side += '<h4 class="' + (s.k === ki ? 'on' : '') + '" onclick="go(\'' + P + bereich + '/' + s.id + '\')">' + esc(s.k) + '</h4>'; last = s.k; }
+    if(s.k === ki) side += '<a class="' + (s.id === cur.id ? 'on' : '') + '" onclick="go(\'' + P + bereich + '/' + s.id + '\')">' + esc(s.t.split(":")[0]) + '</a>';
   });
   var i = L.indexOf(cur), pv = L[i - 1], nx = L[i + 1];
-  var nav = '<div class="gnav">' + (pv ? '<a onclick="go(\'nach/' + bereich + '/' + pv.id + '\')">‹ ' + esc(pv.t) + '</a>' : '<span></span>') + (nx ? '<a onclick="go(\'nach/' + bereich + '/' + nx.id + '\')">' + esc(nx.t) + ' ›</a>' : '') + '</div>';
-  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="pg"><a onclick="openBook(\'ws_core\',' + cur.p + ')">S. ' + cur.p + '</a></span></div>' + nBilder(bereich, cur.id) + '<div class="nbody">' + nGruppiert(cur.b) + '</div>' + nav;
+  var nav = '<div class="gnav">' + (pv ? '<a onclick="go(\'' + P + bereich + '/' + pv.id + '\')">‹ ' + esc(pv.t) + '</a>' : '<span></span>') + (nx ? '<a onclick="go(\'' + P + bereich + '/' + nx.id + '\')">' + esc(nx.t) + ' ›</a>' : '') + '</div>';
+  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="pg">' + (sz ? '<a style="text-decoration:none;cursor:default">S. ' + cur.p + '</a>' : '<a onclick="openBook(\'ws_core\',' + cur.p + ')">S. ' + cur.p + '</a>') + '</span></div>' + nBilder(bereich, cur.id) + '<div class="nbody">' + nGruppiert(cur.b) + '</div>' + nav;
   return tabs + lay('<nav class="side">' + side + '</nav>', body);
 }

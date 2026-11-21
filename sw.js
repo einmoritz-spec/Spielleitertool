@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v593ws";
+const VERSION = "v595ws";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -61,6 +61,19 @@ const FILES = [
   "wildsea/img/regeln/eroeffnung-kap2-mechanik.webp",
   "wildsea/img/gefahr/eroeffnung-kap10-kraehen.webp",
   "wildsea/js/data/charaktere-8i.js",
+  "wildsea/js/data/szen-oas-a.js",
+  "wildsea/js/data/szen-oas-b.js",
+  "wildsea/js/data/szen-oas-c.js",
+  "wildsea/js/data/szen-oas-d.js",
+  "wildsea/js/data/szen-oas-e.js",
+  "wildsea/js/data/szen-oas-f.js",
+  "wildsea/js/data/bilder-szen-oas.js",
+  "wildsea/img/szen/oas/fund-laterne-karte-und-krimskrams.webp",
+  "wildsea/img/szen/oas/jackalbone-marauder.webp",
+  "wildsea/img/szen/oas/librico-rochen.webp",
+  "wildsea/img/szen/oas/nadelwolf.webp",
+  "wildsea/img/szen/oas/spielograph.webp",
+  "wildsea/img/szen/oas/titel-hanging-manor.webp",
   "wildsea/js/data/bilder-charaktere.js",
   "wildsea/js/data/bilder-leitfaden.js",
   "wildsea/js/data/bilder-regeln.js",

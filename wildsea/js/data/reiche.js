@@ -8,7 +8,7 @@ var WS_REICHE = [
  {id:"prophet", t:"Prophet’s Fall", p:326, kurz:"Ein Reich aus trockenem braunem Laub, das träge in der flirrend heißen Luft wogt."}
 ];
 var WS_SZENARIEN = [
- {t:"Red Right Hand", s:"PDF hochladen, dann wird das Szenario wie ein Reich aufgebaut"},
- {t:"One Armed Scissor", s:"PDF hochladen"},
+ {id:"red-right-hand", t:"Red Right Hand", s:"Szenario"},
+ {id:"one-armed-scissor", t:"One Armed Scissor", s:"Szenario"},
  {t:"Storm and Root", s:"Erweiterung · weitere Reiche"}
 ];

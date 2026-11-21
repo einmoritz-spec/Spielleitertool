@@ -236,3 +236,14 @@ h2.sec{font-size:30px;text-transform:uppercase;margin:0 0 12px;letter-spacing:.0
 .gai img{width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in}
 .gai figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 5px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6));opacity:0;transition:.15s}
 .gai:hover figcaption{opacity:1}
+
+/* Charaktere-Übersicht */
+.cuw .sec{margin:22px 0 12px}.cuw .sec:first-child{margin-top:4px}
+.ccs{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:14px}
+.cc{background:#f6f2e4;border:1px solid #b9b08f;border-radius:6px;box-shadow:0 0 0 4px #f6f2e4,0 0 0 5px #cfc7a8;margin:5px;cursor:pointer;transition:transform .12s,box-shadow .12s;display:flex;flex-direction:column}
+.cc:hover{transform:translateY(-3px);box-shadow:0 0 0 4px #f6f2e4,0 0 0 5px #8aa05a,0 8px 18px rgba(0,0,0,.18)}
+.cc .im{height:250px;display:flex;align-items:flex-end;justify-content:center;padding:12px 8px 0}
+.cc .im img{max-width:92%;max-height:100%;object-fit:contain}
+.cc .ph{font-family:Teko,sans-serif;font-size:60px;color:#9aa57a;align-self:center}
+.cc .tx small a{text-decoration:none}.cc .tx{padding:8px 8px 12px;text-align:center}.cc h3{margin:0;font-size:22px;letter-spacing:.03em}.cc small{color:#6b6554;font-size:13px}
+.cl{display:flex;flex-wrap:wrap;gap:10px}.cl a{background:#f3efe2;border:1px solid #cfc7a8;border-radius:6px;padding:9px 16px;cursor:pointer;font-family:Teko,sans-serif;font-size:19px}.cl a small{margin-left:8px;color:#6b7a4c;font-family:inherit;font-size:13px}.cl a:hover{background:#e8e2cb}

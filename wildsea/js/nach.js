@@ -30,12 +30,29 @@ function nGruppiert(bl){
   bl.forEach(function(b){ if(b.c || b.box){ cards.push(nBlock(b)); } else { flush(); out += nBlock(b); } });
   flush(); return out;
 }
+/* Charaktere-Übersicht: Porträtkarten wie bei Vaesen */
+function viewCharUebersicht(L){
+  var gr = [], idx = {};
+  L.forEach(function(s){ if(!idx[s.k]){ idx[s.k] = {k:s.k, a:[]}; gr.push(idx[s.k]); } idx[s.k].a.push(s); });
+  function card(s){
+    var m = window.WS_NIMG && WS_NIMG.charaktere && WS_NIMG.charaktere[s.id], p = m && m[0] && /^(blut|herkunft|posten)\//.test(m[0][0]) ? m[0][0] : null;
+    return '<div class="cc" onclick="go(\'nach/charaktere/' + s.id + '\')"><div class="im">' + (p ? '<img loading="lazy" src="img/' + p + '" alt="">' : '<span class="ph">' + esc(s.t.charAt(0)) + '</span>') + '</div><div class="tx"><h3>' + esc(s.t.split(":")[0]) + '</h3><small>S. ' + s.p + '</small></div></div>';
+  }
+  var PK = {"Blutlinien":1, "Herkünfte":1, "Posten":1};
+  gr.sort(function(a, b){ return (PK[b.k] ? 1 : 0) - (PK[a.k] ? 1 : 0); });
+  var out = gr.map(function(g){
+    if(!PK[g.k]) return '<h2 class="sec">' + esc(g.k) + '</h2><div class="cl">' + g.a.map(function(s){ return '<a onclick="go(\'nach/charaktere/' + s.id + '\')">' + esc(s.t.split(":")[0]) + '<small>S. ' + s.p + '</small></a>'; }).join("") + '</div>';
+    return '<h2 class="sec">' + esc(g.k) + '</h2><div class="ccs">' + g.a.map(card).join("") + '</div>';
+  }).join("");
+  return '<div class="pad cuw">' + out + '</div>';
+}
 function viewNach(bereich, id){
   var meta = NACH.filter(function(n){ return n[0] === bereich; })[0];
   if(!meta) return viewPlatzhalter(bereich);
   var tabs = '<div class="tabs">' + NACH.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'nach/' + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join("") + '</div>';
   var L = (window.WS_NACH || {})[bereich] || [];
   if(!L.length) return tabs + '<div class="pad"><p class="na">Dieser Bereich folgt.</p></div>';
+  if(bereich === "charaktere" && !id) return tabs + viewCharUebersicht(L);
   var cur = L.filter(function(s){ return s.id === id; })[0] || L[0], ki = cur.k, side = "", last = null;
   L.forEach(function(s){
     if(s.k !== last){ side += '<h4 class="' + (s.k === ki ? 'on' : '') + '" onclick="go(\'nach/' + bereich + '/' + s.id + '\')">' + esc(s.k) + '</h4>'; last = s.k; }

@@ -11,6 +11,7 @@ window.WS_HERO = {
  "leitfaden/kapitel":{k:"Kapitel 9", t:"Leitfaden", s:"Sitzung Null, Ton, Tempo, Werkzeugkasten, die Schichten der See", img:"leitfaden/kapitel-leitfaden.webp"},
  "gefahren":{k:"Kapitel 10", t:"Gefahren", s:"Naturgewalten, Bestien, Insekten, Pflanzen, Konstrukte, Plünderer, Krankheiten, Leviathane", img:"gefahr/eroeffnung-kap10-kraehen.webp", w:1400, h:1190},
  "one-armed-scissor/ueberblick":{k:"Szenario", t:"One Armed Scissor", s:"Das Hanging Manor, Three Masks und Port Fyzeo", img:"szen/oas/titel-hanging-manor.webp"},
+ "red-right-hand/ueberblick":{k:"Szenario", t:"Red Right Hand", s:"Nuskaro, der Hetterjin Tower und die Clockface Council", img:"szen/rrh/hetterjin-turm-titel.webp"},
  "tisch/gebraeuchliche-namen":{k:"Kapitel 12", t:"Am Tisch", s:"Namen, alternative Wendungen, Eintagsfliegen-Regeln, Glossar", img:"tisch/kapitel-tisch.webp"}
 };
 function nHero(key, dims){

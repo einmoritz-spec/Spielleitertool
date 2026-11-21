@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v595ws";
+const VERSION = "v597ws";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -68,6 +68,25 @@ const FILES = [
   "wildsea/js/data/szen-oas-e.js",
   "wildsea/js/data/szen-oas-f.js",
   "wildsea/js/data/bilder-szen-oas.js",
+  "wildsea/js/data/szen-rrh-a.js",
+  "wildsea/js/data/szen-rrh-b.js",
+  "wildsea/js/data/szen-rrh-c.js",
+  "wildsea/js/data/szen-rrh-d.js",
+  "wildsea/js/data/szen-rrh-e.js",
+  "wildsea/js/data/szen-rrh-f.js",
+  "wildsea/js/data/szen-rrh-g.js",
+  "wildsea/js/data/szen-rrh-h.js",
+  "wildsea/js/data/szen-rrh-i.js",
+  "wildsea/js/data/bilder-szen-rrh.js",
+  "wildsea/img/szen/rrh/augmentor-figur.webp",
+  "wildsea/img/szen/rrh/chimaere-finale.webp",
+  "wildsea/img/szen/rrh/dockside-fortin-nachtwache.webp",
+  "wildsea/img/szen/rrh/gefahr-nachtwache.webp",
+  "wildsea/img/szen/rrh/gefahr-pinmane.webp",
+  "wildsea/img/szen/rrh/hetterjin-final-toll-schiff.webp",
+  "wildsea/img/szen/rrh/hetterjin-turm-titel.webp",
+  "wildsea/img/szen/rrh/innercog-ritualjaeger-figur.webp",
+  "wildsea/img/szen/rrh/labor-seven.webp",
   "wildsea/img/szen/oas/fund-laterne-karte-und-krimskrams.webp",
   "wildsea/img/szen/oas/jackalbone-marauder.webp",
   "wildsea/img/szen/oas/librico-rochen.webp",

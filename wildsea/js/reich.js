@@ -1,6 +1,6 @@
 /* Reich-Leitstand: Tabs Überblick · Territorien · Häfen · Fraktionen · Auf See · Gefahren */
 var RTABS = [["ueberblick","Überblick"],["territorien","Territorien"],["haefen","Häfen"],["fraktionen","Fraktionen"],["see","Auf See"],["gefahren","Gefahren"]];
-var TYPC = {"Wunder":"am","Fest":"am","Cartoika":"am","Docks":"te","Station":"te","Schiff":"te","Werkstatt":"te","Bedrohung":"rd","Schrecken":"rd","Strafe":"rd","Leviathan":"rd","Markt":"","Merkmal":"","Wahrzeichen":"sg","Anführer":"sg","Flotte":"sg","Hafen":"sg"};
+var TYPC = {"Wunder":"am","Fest":"am","Cartoika":"am","Docks":"te","Dock":"te","Mobiles Dock":"te","Kneipe":"te","Leviathanhafen":"sg","Station":"te","Schiff":"te","Werkstatt":"te","Bedrohung":"rd","Schrecken":"rd","Strafe":"rd","Leviathan":"rd","Markt":"","Merkmal":"","Wahrzeichen":"sg","Anführer":"sg","Flotte":"sg","Hafen":"sg"};
 var PEN = '<svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#323032" stroke-width="2"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg>';
 function paras(x){ return String(x).split("\n").map(function(p){ return "<p>" + esc(p) + "</p>"; }).join(""); }
 function rs(id){ ST.reiche = ST.reiche || {}; return ST.reiche[id] = ST.reiche[id] || {hooks:{}, rumours:{}, pass:{}, ruf:{}, note:""}; }
@@ -15,8 +15,8 @@ function entry(e){ return '<div class="en" id="e_' + esc(e.t) + '"><h3>' + esc(e
 function facts(f){ return '<div class="facts">' + f.map(function(x){ return '<div><b>' + esc(x[0]) + '</b>' + esc(x[1]) + '</div>'; }).join("") + '</div>'; }
 
 function rUeberblick(r, S){
-  var els = r.elemente.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + ' <span class="pg" style="float:right">S. 277</span></h3><p>' + esc(e.x) + '</p><span class="k">Die Crew könnte erleben …</span><ul class="bul">' + e.erleben.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div>'; }).join("");
-  var ru = '<div class="el ru"><h3>' + r.geruechte.t + ' <span class="pg">S. ' + r.geruechte.p + '</span></h3><div class="rs">' + r.geruechte.x.map(function(x, i){ return '<div class="cd' + (S.rumours[i] ? ' used' : '') + '" id="rumours_' + i + '" onclick="tog(\'' + r.id + '\',\'rumours\',' + i + ')">' + esc(x) + '</div>'; }).join("") + '</div></div>';
+  var els = r.elemente.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + ' <span class="pg" style="float:right">S. ' + (r.p + 1) + '</span></h3><p>' + esc(e.x) + '</p><span class="k">Die Crew könnte erleben …</span><ul class="bul">' + e.erleben.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div>'; }).join("");
+  var ru = '<div class="el ru"><h3>' + r.geruechte.t + ' <span class="pg">S. ' + r.geruechte.p + '</span></h3>' + (r.geruechte.intro ? '<p style="color:var(--soft);margin-bottom:8px">' + esc(r.geruechte.intro) + '</p>' : '') + '<div class="rs">' + r.geruechte.x.map(function(x, i){ return '<div class="cd' + (S.rumours[i] ? ' used' : '') + '" id="rumours_' + i + '" onclick="tog(\'' + r.id + '\',\'rumours\',' + i + ')">' + esc(x) + '</div>'; }).join("") + '</div></div>';
   var vl = r.erzaehl.map(function(v){ return '<div class="vl">' + paras(v.x) + '</div>'; }).join("");
   return '<div class="band" style="background-image:url(' + IMG("reich/" + r.id) + ')"><h1>' + esc(r.t) + '</h1><p>' + esc(r.kurz) + '</p></div><div class="grid3">' + els + ru + '</div>' + vl;
 }
@@ -42,8 +42,8 @@ function rFraktionen(r, S, sel){
 }
 function rGefahren(r){
   var x = r.extra, g = r.see.gefahren;
-  return '<div class="ct" style="padding:18px 34px 40px"><div class="hd"><h1>' + esc(x.t) + '</h1><span class="pg">S. ' + x.p + '</span></div><div class="intro" style="margin-top:8px">' + paras(x.intro) + '</div><div class="grid3" style="padding:14px 0 20px">' + x.eintraege.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3>' + paras(e.x).replace(/<p>/g, '<p>') + '</div>'; }).join("") + '</div>' +
-   '<div class="hd"><h1 style="font-size:40px">Heimische Gefahren</h1><span class="pg">S. 284</span></div><div class="grid3" style="padding:12px 0">' + g.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3><p>' + esc(e.x) + '</p>' + (e.id ? '<a class="lk" onclick="go(\'gefahren/' + e.id + '\')">Gefahren-Karte</a>' : '') + '</div>'; }).join("") + '</div></div>';
+  return '<div class="ct" style="padding:18px 34px 40px">' + (x ? '<div class="hd"><h1>' + esc(x.t) + '</h1><span class="pg">S. ' + x.p + '</span></div><div class="intro" style="margin-top:8px">' + paras(x.intro) + '</div><div class="grid3" style="padding:14px 0 20px">' + x.eintraege.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3>' + paras(e.x) + '</div>'; }).join("") + '</div>' : "") +
+   '<div class="hd"><h1 style="font-size:40px">Heimische Gefahren</h1><span class="pg">S. ' + r.see.p + '</span></div><div class="grid3" style="padding:12px 0">' + g.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3><p>' + esc(e.x) + '</p>' + (e.id ? '<a class="lk" onclick="go(\'gefahren/' + e.id + '\')">Gefahren-Karte</a>' : '') + '</div>'; }).join("") + '</div></div>';
 }
 /* Auf See */
 var SW = ["Panzerung","Dichtung","Tempo","Sägen","Tarnung","Neigung"];
@@ -68,7 +68,7 @@ function rSee(r, S){
    '<div class="smain"><div><div class="h">Am Ruder</div><div class="helm">' + hm + '</div>' +
    '<div class="dice"><div class="die"><small>Wache</small><div class="n">' + (W || "–") + '</div><b>' + (W ? (col === "frieden" ? "Frieden" : col === "ordnung" ? "Ordnung" : "Natur") : "&nbsp;") + '</b></div><div class="die hid"><small>Bedrohung · verdeckt</small><div class="n">' + (s.t || "–") + '</div><b>' + (tl || "&nbsp;") + '</b></div></div>' +
    '<div class="btns"><button onclick="wuerfeln()">Wache würfeln</button></div><div class="chk" onclick="karte()">' + (s.karte ? '☑' : '☐') + ' Seekarte der Gegend (Bedrohung 2W6, höherer)</div></div>' +
-   '<div><div class="h">Wache im Foxloft <span class="pg">S. ' + see.p + '</span></div><div class="wt">' + cols + '</div></div></div>' +
+   '<div><div class="h">Wache im ' + esc(r.t.replace(/^The /, "")) + ' <span class="pg">S. ' + see.p + '</span></div><div class="wt">' + cols + '</div></div></div>' +
    '<div class="low"><div><div class="h">Passagiere</div><ul class="bul">' + pass + '</ul></div>' +
    '<div><div class="h">Handel &amp; Fracht</div><ul class="hdl">' + see.handel.map(function(h){ return '<li><span class="ex' + (h.d === "import" ? ' im' : '') + '">' + (h.d === "import" ? "Import" : "Export") + '</span><b>' + esc(h.t) + '</b> <small>' + esc(h.x) + '</small></li>'; }).join("") + '</ul></div>' +
    '<div><div class="h">Heimische Gefahren</div>' + see.gefahren.map(function(g){ return '<span class="chip2" onclick="go(\'' + (g.id ? 'gefahren/' + g.id : 'reich/' + r.id + '/gefahren') + '\')">' + esc(g.t) + '</span>'; }).join("") + '</div></div></div>';

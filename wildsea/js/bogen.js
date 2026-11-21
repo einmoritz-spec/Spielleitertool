@@ -50,44 +50,100 @@ function bgChain(t, kind, ai){
 }
 function bgIn(path, v, fit){ return 'value="' + esc(v) + '" oninput="bgSet(\'' + path + '\',this)"' + (fit ? ' data-fit="' + fit + '"' : ''); }
 function bgTx(path, v, fit, cls){ return '<textarea class="' + (cls || '') + '" spellcheck="false" data-fit="' + fit + '" oninput="bgSet(\'' + path + '\',this)">' + esc(v) + '</textarea>'; }
-function bgSec(t, cls, inner){ return '<section class="bs ' + cls + '"><h3>' + t + '</h3><div class="bb">' + inner + '</div></section>'; }
-function bgCard(t, kind, i, hint, nameFit){
-  return '<div class="bk"><span class="bl l1">Name</span><div class="bn"><input class="nm" spellcheck="false" ' + bgIn(kind + '.' + i + '.n', t.n, nameFit) + '><input class="ty" spellcheck="false" placeholder="' + hint + '" ' + bgIn(kind + '.' + i + '.t', t.t, 9) + '></div>' +
-    '<span class="bl l2"></span>' + bgChain(t, kind, i) + '<span class="bl l3">Details</span>' + bgTx(kind + '.' + i + '.d', t.d, 10, "bd") + '</div>';
+/* Alle Maße in Pixeln des Originalbogens (Corebook S. 362, 150 dpi), Ursprung oben links */
+function bgAb(x, y, w, h){ return 'style="left:' + x + 'px;top:' + y + 'px' + (w != null ? ';width:' + w + 'px' : '') + (h != null ? ';height:' + h + 'px' : '') + '"'; }
+function bgHd(t, x, y, w){ return '<div class="bh" ' + bgAb(x, y, w, 36) + '>' + t + '</div>'; }
+function bgSb(t, x, y, w){ return '<div class="bsb" ' + bgAb(x, y, w, 30) + '>' + t + '</div>'; }
+function bgBx(x, y, w, h, cls, inner){ return '<div class="bx ' + (cls || '') + '" ' + bgAb(x, y, w, h) + '>' + (inner || '') + '</div>'; }
+function bgLb(t, w, g){ return '<span class="lb" style="width:' + w + 'px"' + (g ? ' data-g="' + g + '"' : '') + '><span>' + t + '</span></span>'; }
+function bgCard(t, kind, i, hint, x, y, h){
+  var ty = t.t || hint, tw = Math.max(5, ty.length) * 6.1 + 8;
+  return '<div class="bk" ' + bgAb(x, y, 351, h) + '><div class="bkp"><b>Name</b><i>Details ›</i></div>' +
+    '<div class="bkn"><input class="nm" spellcheck="false" ' + bgIn(kind + '.' + i + '.n', t.n, 19) + '><input class="ty" spellcheck="false" style="width:' + tw.toFixed(0) + 'px" placeholder="' + hint + '" ' + bgIn(kind + '.' + i + '.t', t.t, 13) + '></div>' +
+    bgChain(t, kind, i) + '<div class="bkd">' + bgTx(kind + '.' + i + '.d', t.d, 14, "bd") + '</div></div>';
 }
 function bgSheet(){
-  var s = BG.st, f = s.f, i;
-  var ed = BG_ED.map(function(n, i){ return '<div class="br"><span>' + n + '</span>' + '<button class="cr big' + (s.e[i] ? ' f' : '') + '" onclick="bgClk(\'e\',' + i + ',1)"></button></div>'; }).join("");
-  var sk = "";
-  for(var c = 0; c < 3; c++){ sk += '<div class="bcl">'; for(i = 0; i < 6; i++){ var k = c * 6 + i; sk += '<div class="br"><span>' + BG_SK[k] + '</span><span class="bds">' + bgDots(3, (s.s[BG_SK[k]] || 0), 's', k) + '</span></div>'; } sk += '</div>'; }
-  var la = "";
-  for(var c2 = 0; c2 < 2; c2++){ la += '<div class="bcl">'; for(i = 0; i < 6; i++){ var q = c2 * 6 + i, nm = q < 11 ? BG_LA[q] : null, key = q < 11 ? nm : "_x";
-    la += '<div class="br"><span>' + (nm ? nm : '<input class="lx" spellcheck="false" data-fit="12" ' + bgIn("lx", s.lx || "") + '>') + '</span><span class="bds">' + bgDots(3, s.l[key] || 0, 'l', q) + '</span></div>'; } la += '</div>'; }
-  var lines = function(a){ return a.map(function(x){ return '<div class="bl2"><span>' + x[0] + '</span><b>' + x[1] + '</b></div>'; }).join(""); };
-  var res = function(t, key){ return '<div class="rb"><h4>' + t + '</h4>' + bgTx("f." + key, f[key] || "", 12, "ln") + '</div>'; };
-  var fld = function(t, key){ return '<label class="fl"><span>' + t + ':</span><input spellcheck="false" ' + bgIn("f." + key, f[key] || "", 12) + '></label>'; };
-  var asp = "", tr = "";
-  for(i = 0; i < 7; i++) asp += bgCard(s.a[i], "a", i, "Eigenschaft/Ausrüstung/Gefährte", 15);
-  for(i = 0; i < 3; i++) tr += bgCard(s.tr[i], "tr", i, "Vorteil/Verletzung/Leiste", 15);
-  var mo = s.mo.map(function(m, i){ return '<div class="bm"><textarea spellcheck="false" data-fit="11" oninput="bgSet(\'mo.' + i + '.t\',this)">' + esc(m.t) + '</textarea><div class="bch">' + [0, 1].map(function(j){ return (j ? '<s></s>' : '') + '<button class="cr big' + (m.m[j] ? ' f' : '') + '" onclick="bgClk(\'mo\',' + i + ',' + j + ')"></button>'; }).join("") + '</div></div>'; }).join("");
-  var c1 = '<div class="bcol c1"><div class="bti"><img src="../assets/logos/the-wildsea.webp" alt="The Wildsea"><div>Charakterbogen</div></div>' +
-    bgSec("So wird gespielt", "bhp", '<div class="bhw"><div class="bsub w1"><h4>Würfeln</h4>' + lines([["Stärke", "(1W6)"], ["Fertigkeit", "(bis zu 3W6)"], ["Vorteil", "(bis zu 2W6)"]]) + '</div><div class="bsub"><h4>Ergebnisse</h4>' + lines([["Triumph", "[6]"], ["Konflikt", "[5/4]"], ["Desaster", "[3/2/1]"], ["Wendung", "[Pasch]"]]) + '</div></div>') +
-    bgSec("Hintergrund", "bbg", '<div class="bgw"><div>' + fld("Name", "name") + fld("Spieler", "spieler") + fld("Blutlinie", "blut") + fld("Herkunft", "herkunft") + fld("Posten", "posten") + '</div><div class="bno"><span>Weitere Notizen:</span>' + bgTx("f.notizen", f.notizen || "", 11, "ln") + '</div></div>') +
-    bgSec("Meilensteine", "bms", '<div class="bhw"><div class="bsub fl1"><h4>Große</h4>' + bgTx("f.gross", f.gross || "", 11, "ln") + '</div><div class="bsub fl1"><h4>Kleine</h4>' + bgTx("f.klein", f.klein || "", 11, "ln") + '</div></div>') +
-    bgSec("Antriebe", "bdr", bgTx("f.antriebe", f.antriebe || "", 12, "ln")) +
-    bgSec("Morast", "bmo", mo) + '</div>';
-  var c2 = '<div class="bcol c2">' + bgSec("Stärken", "bed", '<div class="bg3">' + ed + '</div>') + bgSec("Fertigkeiten", "bsk", '<div class="bg3">' + sk + '</div>') +
-    bgSec("Sprachen", "bla", '<div class="bg2">' + la + '</div>') +
-    bgSec("Ressourcen", "bre", '<div class="bgr">' + res("Bergegut", "bergegut") + res("Proben", "proben") + res("Geflüster", "fluester") + res("Seekarten", "seekarten") + '</div>') + '</div>';
-  var c3 = '<div class="bcol c3">' + bgSec("Aspekte", "bas", asp) + bgSec("Temporäre Leisten", "btr", tr) + '</div>';
-  return c1 + c2 + c3;
+  var s = BG.st, f = s.f, i, o = "";
+  var CL = [520, 719, 895], CC = [640, 816, 999], ROW = 25;
+  /* Titel */
+  o += '<div class="bti" ' + bgAb(26, 18, 456) + '><div class="t1"><span class="lb" style="width:452px"><span>The Wildsea</span></span></div><div class="t2">Offizieller Charakterbogen</div></div>';
+  /* So wird gespielt */
+  var lines = function(a, x, y, lw){ return a.map(function(r, k){ return '<div class="row" ' + bgAb(x, y + k * ROW, null, ROW) + '>' + bgLb(r[0], lw) + '<span class="v">' + r[1] + '</span></div>'; }).join(""); };
+  o += bgBx(24, 190, 457, 150, "out") + bgHd("So wird gespielt", 21, 154, 463);
+  o += bgBx(25, 210, 217, 123, "sub") + bgSb("Würfeln", 22, 195, 223);
+  o += bgBx(265, 210, 216, 123, "sub") + bgSb("Ergebnisse", 262, 195, 222);
+  o += lines([["Stärke", "(1W6)"], ["Fertigkeit", "(bis zu 3W6)"], ["Vorteil", "(bis zu 2W6)"]], 32, 230, 98);
+  o += lines([["Triumph", "[6]"], ["Konflikt", "[5/4]"], ["Desaster", "[3/2/1]"], ["Wendung", "[Pasch]"]], 272, 230, 98);
+  /* Hintergrund */
+  o += bgBx(24, 389, 457, 146) + bgHd("Hintergrund", 21, 353, 463);
+  [["Name", "name"], ["Spieler", "spieler"], ["Blutlinie", "blut"], ["Herkunft", "herkunft"], ["Posten", "posten"]].forEach(function(r, k){
+    o += '<label class="fl" ' + bgAb(35, 397 + k * ROW, 208, ROW) + '><span>' + r[0] + ':</span><input spellcheck="false" ' + bgIn("f." + r[1], f[r[1]] || "", 16) + '></label>';
+  });
+  o += '<div class="nt" ' + bgAb(266, 397, 205, 132) + '><span>Weitere Notizen:</span>' + bgTx("f.notizen", f.notizen || "", 14, "ln") + '</div>';
+  /* Meilensteine */
+  o += bgHd("Meilensteine", 21, 553, 463);
+  o += bgBx(25, 610, 217, 100, "sub", bgTx("f.gross", f.gross || "", 14, "ln")) + bgSb("Große", 22, 595, 223);
+  o += bgBx(263, 610, 218, 100, "sub", bgTx("f.klein", f.klein || "", 14, "ln")) + bgSb("Kleine", 260, 595, 224);
+  /* Antriebe */
+  o += bgBx(24, 756, 457, 130, "", bgTx("f.antriebe", f.antriebe || "", 15, "ln")) + bgHd("Antriebe", 21, 720, 463);
+  /* Morast */
+  o += bgHd("Morast", 21, 895, 463);
+  s.mo.forEach(function(m, k){
+    o += '<div class="pill" ' + bgAb(26, 942 + [0, 50, 101, 153][k], 455, 44) + '><div class="pt">' + '<textarea spellcheck="false" data-fit="14" oninput="bgSet(\'mo.' + k + '.t\',this)">' + esc(m.t) + '</textarea></div><div class="bch">' +
+      [0, 1].map(function(j){ return (j ? '<s></s>' : '') + '<button class="cr' + (m.m[j] ? ' f' : '') + '" onclick="bgClk(\'mo\',' + k + ',' + j + ')"></button>'; }).join("") + '</div></div>';
+  });
+  /* Stärken */
+  o += bgBx(510, 65, 557, 78) + bgHd("Stärken", 507, 29, 566);
+  BG_ED.forEach(function(n, k){
+    var c = k % 3, r = Math.floor(k / 3);
+    o += '<div class="row" ' + bgAb(CL[c], 68 + r * 24, null, 24) + '>' + bgLb(n, CC[c] - CL[c], 10) + '<button class="cr e' + (s.e[k] ? ' f' : '') + '" onclick="bgClk(\'e\',' + k + ',1)"></button></div>';
+  });
+  o += '<div class="row" ' + bgAb(CC[1], 116, null, 24) + '><span class="cr e x"></span></div><div class="row" ' + bgAb(CC[2], 116, null, 24) + '><span class="cr e x"></span></div>';
+  /* Fertigkeiten */
+  o += bgBx(510, 194, 557, 149) + bgHd("Fertigkeiten", 507, 158, 566);
+  for(i = 0; i < 18; i++){
+    var c2 = Math.floor(i / 6), r2 = i % 6;
+    o += '<div class="row" ' + bgAb(CL[c2], 194 + r2 * ROW, null, ROW) + '>' + bgLb(BG_SK[i], CC[c2] - CL[c2], 9) + '<span class="bds">' + bgDots(3, s.s[BG_SK[i]] || 0, 's', i) + '</span></div>';
+  }
+  /* Sprachen */
+  o += bgBx(510, 396, 557, 148) + bgHd("Sprachen", 507, 360, 566);
+  for(i = 0; i < 12; i++){
+    var c3 = Math.floor(i / 6), r3 = i % 6, lx = c3 ? 790 : 520, cx = c3 ? CC[2] : 700, nm = i < 11 ? BG_LA[i] : null, key = nm || "_x";
+    o += '<div class="row" ' + bgAb(lx, 396 + r3 * ROW, null, ROW) + '>' + (nm ? bgLb(nm, cx - lx, 10) : '<span class="lb lxw" style="width:' + (cx - lx) + 'px;padding-right:12px"><input class="lx" spellcheck="false" ' + bgIn("lx", s.lx || "", 16) + '></span>') +
+      '<span class="bds">' + bgDots(3, s.l[key] || 0, 'l', i) + '</span></div>';
+  }
+  /* Ressourcen */
+  o += bgHd("Ressourcen", 507, 560, 566);
+  [["Bergegut", "bergegut", 510, 602, 270], ["Proben", "proben", 790, 602, 283], ["Geflüster", "fluester", 510, 871, 270], ["Seekarten", "seekarten", 790, 871, 283]].forEach(function(r){
+    var bx = r[2] === 510 ? 513 : 793, bw = r[2] === 510 ? 264 : 274;
+    o += bgBx(bx, r[3] + 15, bw, (r[3] === 602 ? 856 : 1132) - r[3] - 15, "sub", bgTx("f." + r[1], f[r[1]] || "", 15, "ln")) + bgSb(r[0], r[2], r[3], r[4]);
+  });
+  /* Aspekte, Temporäre Leisten */
+  o += bgHd("Aspekte", 1090, 30, 354);
+  for(i = 0; i < 7; i++) o += bgCard(s.a[i], "a", i, "Eigenschaft/Ausrüstung/Gefährte", 1091, Math.round(75 + i * 101.8), 96);
+  o += bgHd("Temporäre Leisten", 1090, 792, 354);
+  for(i = 0; i < 3; i++) o += bgCard(s.tr[i], "tr", i, "Vorteil/Verletzung/Leiste", 1091, 836 + i * 103, 97);
+  return o;
 }
-function bgZoom(){ return Math.max(.3, Math.min(1.5, (Math.max(innerWidth, 1280) - 36) / 1122)); }
+function bgAfterFonts(){
+  bgFit(); bgCond();
+  if(!document.fonts || !document.fonts.load) return;
+  Promise.all(["20px BgFell", "600 20px BgTeko", "20px BgSerif", "20px BgBebas"].map(function(f){ return document.fonts.load(f).catch(function(){}); })).then(function(){ bgFit(); bgCond(); });
+}
+function bgCond(){
+  var sh = document.getElementById("bsh"); if(!sh) return;
+  sh.querySelectorAll(".lb>span").forEach(function(el){
+    el.style.transform = "";
+    var r = (el.parentNode.clientWidth - (+el.parentNode.getAttribute("data-g") || 0)) / el.offsetWidth;
+    if(r < 1) el.style.transform = "scaleX(" + r.toFixed(3) + ")";
+  });
+}
+function bgZoom(){ return Math.max(.3, Math.min(1.2, (Math.max(innerWidth, 1280) - 60) / 1460)); }
 function viewBogen(id){
   var pcs = bgPcList(), s = id && pcs.filter(function(x){ return x.id === id; })[0];
   BG.key = s ? id : "leer"; BG.st = bgLoad(BG.key);
   var opts = '<option value="">Leerer Bogen</option>' + pcs.map(function(x){ return '<option value="' + x.id + '"' + (x.id === BG.key ? ' selected' : '') + '>' + esc(x.t) + '</option>'; }).join("");
-  setTimeout(bgFit, 0);
+  setTimeout(bgAfterFonts, 0);
   return '<div class="tabs"><a class="on">Charakterbogen</a><span class="r bbar"><select onchange="go(this.value ? \'bogen/\' + this.value : \'bogen\')">' + opts + '</select><button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
     '<div class="bwrap"><div class="bsheet" id="bsh" style="zoom:' + bgZoom().toFixed(3) + '">' + bgSheet() + '</div></div>';
 }
@@ -116,7 +172,7 @@ function bgClk(kind, a, b){
 }
 function bgRepaint(){
   var sh = document.getElementById("bsh"); if(!sh) return;
-  var y = scrollY; sh.innerHTML = bgSheet(); bgFit(); scrollTo(0, y);
+  var y = scrollY; sh.innerHTML = bgSheet(); bgAfterFonts(); scrollTo(0, y);
 }
 function bgReset(){
   if(!confirm("Bogen zurücksetzen?")) return;
@@ -125,7 +181,7 @@ function bgReset(){
 }
 function bgPrint(){ bgFit(); window.print(); }
 window.addEventListener("resize", function(){ var sh = document.getElementById("bsh"); if(sh) sh.style.zoom = bgZoom().toFixed(3); });
-var BG_PM = ["fontFamily","fontSize","fontWeight","fontVariant","fontStyle","lineHeight","letterSpacing","textTransform","textAlign","color","paddingTop","paddingRight","paddingBottom","paddingLeft","borderBottom","borderRadius","backgroundImage","backgroundSize","backgroundPosition","backgroundRepeat","flex","alignSelf"];
+var BG_PM = ["fontFamily","fontFeatureSettings","borderBottomWidth","borderBottomStyle","borderBottomColor","marginTop","textIndent","fontSize","fontWeight","fontVariant","fontStyle","lineHeight","letterSpacing","textTransform","textAlign","color","paddingTop","paddingRight","paddingBottom","paddingLeft","borderBottom","borderRadius","backgroundImage","backgroundSize","backgroundPosition","backgroundRepeat","flex","alignSelf"];
 function bgMirror(){
   var sh = document.getElementById("bsh"); if(!sh) return;
   Array.prototype.forEach.call(sh.querySelectorAll("input,textarea"), function(el){
@@ -138,7 +194,7 @@ function bgMirror(){
     m.style.wordBreak = "break-word";
     m.style.display = cs.display === "inline" ? "inline-block" : cs.display;
     m.textContent = el.value;
-    if(!el.value && el.classList.contains("ty")){ m.textContent = el.placeholder; m.style.color = "#8d9080"; }
+    if(!el.value && el.classList.contains("ty")){ m.textContent = el.placeholder; m.style.color = "#3b3932"; }
     el.parentNode.insertBefore(m, el); el.style.display = "none";
     var fs = parseFloat(el.getAttribute("data-fit")), ta = el.tagName === "TEXTAREA";
     if(fs){ m.style.fontSize = fs + "px"; while(fs > 6.5 && (ta ? m.scrollHeight > m.clientHeight + 1 : m.scrollWidth > m.clientWidth + 1)){ fs -= .5; m.style.fontSize = fs + "px"; } }

@@ -241,3 +241,8 @@ Präfix im ZIP: `Abenteuer_Seasons-of-Mystery_`. Ziel: `vaesen/img/som/<name>.we
 ## 7. Startauftrag für jede Sonnet-Sitzung (zum Kopieren)
 
 > Lies `plan/VAESEN_SEASONS_PLAN.md` im Repo einmoritz-spec/Spielleitertool und setze **Schritt N** um. Vorbild ist der Tanz-der-Träume-Leitstand (`vaesen/js/tanz.js`). Halte dich an Abschnitt 3 (Grundregeln) und das Glossar. Die PDFs hänge ich an. Prüfe jede Ansicht per Screenshot, schick mir die Screenshots, committe ohne Co-Authored-By/Claude-Session und pushe.
+
+## Start-Prompt für Schritt 2 (Feuerherz) – Sonnet, Aufwand niedrig
+
+> Baue „Feuerherz“ (Seasons of Mystery, Buch S. 24–45, PDF 28–49) als Leitstand nach der Schablone „Ein Tanz mit dem Tod“. Lies zuerst `plan/VAESEN_SEASONS_PLAN.md` und `vaesen/js/data/som-tod.js` (Datenformat) sowie `vaesen/js/mys.js` (Engine). Lege `vaesen/js/data/som-feuer.js` mit `VAE_MYS.feuer` an, binde sie in `index.html` und `sw.js` ein (VERSION erhöhen, Bilder `img/som/feuer_*` vorcachen). Die Engine ist bisher auf `tod` zugeschnitten (z. B. `tod_karte_*` in `msViewAn`/`msViewOrte`, Hinweis-Seitenzahlen, `hg.figs`-Reihenfolge in `msViewFg`): verallgemeinere das über Felder in den Daten, ohne Tod zu verändern.
+> Regeln: nur der Buchtext, nichts erfunden, komplett auf Deutsch, Seitenangaben „S.“, Karten im Original lassen. Figurenwerte immer am gerenderten Seitenbild (pdftoppm) prüfen, nicht am Text. Handouts 1…: Feuerherz hat ho_2a–ho_2c. Danach alle Tabs per Playwright-Screenshot prüfen (Lücken, Überlauf), Screenshots schicken, committen **ohne** Co-Authored-By/Claude-Session-Zeilen, pushen.

@@ -46,7 +46,7 @@ function viewBogen(sel){
   setTheme(false, "var(--teal)");
   var v = sel === "odyssey" ? "odyssey" : "picnic";
   if(v === "picnic") return bogenPage(v, bTop(v, "Kurzes Pic-nic") + '<div class="g1">' + bKopf(v) + bild(v) + '</div><div class="g2">' + bSkills(v) + bAspekte(v, 4) + '</div><div class="g3">' + bStimmung(v) + bBits(v) + '</div><div class="g4">' + bRaetsel(v) + '<div class="bx creations"><h2>Kreationen</h2>' + bf(v, "kre", "", "box", 1) + '</div></div>', "7.5in 9.5in");
-  return bogenPage(v, bTop(v, "Langer Pic-odyssee") + '<div class="gl"><div class="col">' + bKopf(v) + bStimmung(v) + '<div class="bx creations"><h2>Kreationen</h2>' + bf(v, "kre", "", "box", 1) + '</div>' + bSkills(v) + '</div><div class="col">' + bRaetsel(v) + bBits(v, 1) + bAspekte(v, 6) + '</div></div>', "7.5in 9.5in");
+  return bogenPage(v, bTop(v, "Langer Pic-odyssee") + '<div class="bgl"><div class="col">' + bKopf(v) + bStimmung(v) + '<div class="bx creations"><h2>Kreationen</h2>' + bf(v, "kre", "", "box", 1) + '</div>' + bSkills(v) + '</div><div class="col">' + bRaetsel(v) + bBits(v, 1) + bAspekte(v, 6) + '</div></div>', "7.5in 9.5in");
 }
 /* ---- Streifzugbogen ---- */
 function bDots(v, k, n, cls){ var cur = BG(v).o[k] || 0, o = ""; for(var i = 0; i < n; i++) o += '<i class="dt ' + (cls || "") + (i < cur ? ' m' : '') + '" onclick="bDot(\'' + v + '\',\'' + k + '\',' + i + ')"></i>'; return o; }

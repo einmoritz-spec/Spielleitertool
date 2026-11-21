@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v538regeln";
+const VERSION = "v539etr";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -236,6 +236,7 @@ const FILES = [
   "etr/style.css",
   "assets/hero/etr-banner.webp",
   "etr/js/app.js",
+  "etr/js/spiel.js",
   "etr/js/tool-switch.js",
   "etr/js/data/einstieg.js",
   "etr/js/data/regeln.js",
@@ -833,6 +834,9 @@ const FILES = [
   "shared/stickynav.css",
   "css/home.css",
   "assets/fonts/bebas-neue-latin-400-normal.woff2",
+  "assets/fonts/courier-prime-latin-400-normal.woff2",
+  "assets/fonts/courier-prime-latin-700-normal.woff2",
+  "assets/fonts/courier-prime-latin-400-italic.woff2",
   "assets/fonts/oswald-latin-500-normal.woff2",
   "assets/fonts/oswald-latin-600-normal.woff2",
   "assets/fonts/source-serif-4-latin-400-italic.woff2",

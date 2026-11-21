@@ -1,7 +1,7 @@
 /* Eat the Reich – Renderer. Daten kommen aus js/data/*.js (globale ETR_*-Variablen). */
 /* Zwei Bereiche: Übersicht (Vorbereitung, nur über Karten/Burger erreichbar) und Abenteuer (Tab-Leiste: Karte, Sektoren, Gegner) */
 var ETR_TABS = [
- {id:"karte",t:"Karte"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"gegner",t:"Gegner"}];
+ {id:"karte",t:"Einsatz"},{id:"s3",t:"Sektor 3"},{id:"s2",t:"Sektor 2"},{id:"s1",t:"Sektor 1"},{id:"gegner",t:"Gegner"},{id:"trupp",t:"Trupp"}];
 var ETR_MENU = [
  {id:"intro",t:"Einführung"},{id:"regeln",t:"Regeln"},{id:"figuren",t:"Figuren"},{id:"mission",t:"Mission"},{id:"leitung",t:"Spielleitung"},{id:"check",t:"Evil-Check"},{id:"anhang",t:"Anhang"}];
 var ETR_ALL = ETR_TABS.concat(ETR_MENU);
@@ -54,8 +54,6 @@ function enemy(g){
   if(g.blut) h+='<div class="rl"><b>Blutgeschmack:</b> '+md(g.blut)+'</div>';
   return h+'</div>';
 }
-function sector(k){ var d=window["ETR_"+k.toUpperCase()]; if(!d) return '<p>In Arbeit.</p>'; return (d.intro?secs([{id:"intro-"+k,titel:d.titel,p:d.p,b:d.intro}]):'')+'<div class="locgrid">'+(d.orte||[]).map(ort).join("")+'</div>'+(d.outro?secs(d.outro):''); }
-function gegner(){ return secs([{id:"gegner",titel:"Gewöhnliche Gegner (Common Enemies)",p:61,b:[{t:"p",x:"Werte für die Standard-Gegner. Bedrohung = Threat, Angriff = Attack, Hürde = Challenge. Wo „Solo“ steht, nutzt der Gegner die Verstärkungsregeln nicht."}]}])+'<div class="enemies">'+(window.ETR_GEGNER||[]).map(enemy).join("")+'</div>'; }
 function figuren(){ return secs(window.ETR_FIGINTRO)+(window.ETR_FIGUREN||[]).map(fig).join(""); }
 function hero(){ return '<div class="hero" style="background-image:url(../assets/hero/etr-banner.webp)"><div class="ht"><span>Das Jahr 1943. Europa steht in Flammen. Ihr seid ein Kommandotrupp aus Vampiren mit einem einzigen Ziel: Adolf Hitlers gesamtes Blut aussaugen und die Nazi-Kriegsmaschine tödlich ins Wanken bringen.</span></div></div>'; }
 
@@ -77,29 +75,16 @@ function isAdv(id){ return ETR_TABS.some(function(t){return t.id===id;}); }
 function render(){
   var hp=parseHash(); cur=hp.id; if(!ETR_ALL.some(function(t){return t.id===cur;})&&cur!=="einstieg") cur="einstieg";
   var tabs=isAdv(cur)?'<nav class="tabs">'+ETR_TABS.map(function(x){return '<button class="tab'+(x.id===cur?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>';}).join("")+'</nav>':'';
-  var m={einstieg:overview,intro:function(){return secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:function(){return secs(window.ETR_KARTE);},s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegner,anhang:function(){return secs(window.ETR_ANHANG);}};
+  var m={einstieg:startView,intro:function(){return secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:einsatz,trupp:trupp,s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegnerView,anhang:function(){return secs(window.ETR_ANHANG);}};
   var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0];
-  document.getElementById("app").innerHTML=tabs+(m[cur]||overview)();
+  document.getElementById("app").innerHTML=tabs+(m[cur]||startView)();
   if(mi) etRail(mi); else if(/^s[123]$/.test(cur)) etSecRail();
+  etDock();
   var t=document.querySelector(".tab.on"); if(t&&t.scrollIntoView) t.scrollIntoView({inline:"center",block:"nearest"});
-  if(hp.sec){ var el=document.getElementById("s-"+hp.sec)||document.getElementById("f-"+hp.sec); if(el){ if(el.tagName==="DETAILS") el.open=true; el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); return; } }
+  if(hp.sec){ var el=document.getElementById("s-"+hp.sec)||document.getElementById("f-"+hp.sec)||document.getElementById("o-"+hp.sec); if(el){ if(el.tagName==="DETAILS") el.open=true; el.scrollIntoView({block:"start"}); window.scrollBy(0,-70); return; } }
   window.scrollTo(0,0);
 }
 function etShort(t){ return String(t).split(":")[0]; }
-function etSecRail(){
-  var app=document.getElementById("app"), locs=[].slice.call(app.querySelectorAll("details.loc"));
-  if(locs.length<2) return;
-  locs.forEach(function(e){ e.open=true; });
-  var link=function(e){ var h=e.querySelector("h3"); return '<a href="#" onclick="etGo(\''+e.id+'\');return false">'+esc(etShort(h?h.textContent:""))+'</a>'; };
-  var links=locs.map(link).join("");
-  var intro=app.querySelector("details.sec"); var sh=intro?intro.querySelector("h2"):null;
-  var head=sh?'<a href="#" onclick="etGo(\''+intro.id+'\');return false">Überblick</a>':"";
-  var main=document.createElement("div"); main.className="osmain";
-  [].slice.call(app.children).forEach(function(e){ if(!e.matches(".tabs")) main.appendChild(e); });
-  var wrap=document.createElement("div"); wrap.className="osrail etsec";
-  wrap.innerHTML='<nav class="osnav"><div class="otree"><div class="osub flatl">'+head+links+'</div></div><div class="oflat"><div class="orow osr">'+head+links+'</div></div></nav>';
-  wrap.appendChild(main); app.appendChild(wrap);
-}
 function etGo(id){ var e=document.getElementById(id); if(e){ if(e.tagName==="DETAILS") e.open=true; e.scrollIntoView({behavior:"smooth",block:"start"}); } }
 function etRail(mi){
   var app=document.getElementById("app"), kids=[].slice.call(app.children).filter(function(e){return e.matches("details.sec,section.fig");});

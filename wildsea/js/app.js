@@ -42,9 +42,9 @@ function render(){
   var h = (location.hash || "#start").slice(1).split("/"), v = h[0] || "start", out;
   if(v === "start") out = viewStart();
   else if(v === "reiche") out = viewReiche();
-  else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); var r = WS_REICHE.filter(function(x){ return x.id === h[1]; })[0]; out = viewPlatzhalter(r ? r.t : "Reich"); }
+  else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
   else out = viewPlatzhalter(h.slice(1).join(" ") || v);
-  APP.innerHTML = out; scrollTo(0, 0);
+  var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; scrollTo(0, same ? y : 0);
 }
 function buildMenu(){
   document.getElementById("mmP").innerHTML = WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");

@@ -44,6 +44,7 @@ function render(){
   else if(v === "reiche") out = viewReiche();
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
   else if(v === "gefahren") out = viewGefahren(h[1]);
+  else if(v === "nach") out = viewNach(h[1] || "regeln", h[2]);
   else out = viewPlatzhalter(h.slice(1).join(" ") || v);
   var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; scrollTo(0, same ? y : 0);
 }

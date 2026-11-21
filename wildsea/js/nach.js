@@ -1,0 +1,38 @@
+/* Nachschlagen: #nach/<bereich>/<abschnitt-id>. Daten: WS_NACH[bereich] = [{id,k,t,p,b:[Blöcke]}]
+   Blöcke: {a:Absatz} {h:Zwischentitel} {l:[Liste]} {c:Titel,x:Text[,l:[..]]} Karte (Raster) {erz:Text} Vorlesekasten
+           {bsp:Titel,z:[[Sprecher,Text]]} Beispiel {tab:{k:[Kopf],z:[[Zellen]]}} Tabelle {box:Titel,x:[Absätze]} Kasten */
+var NACH = [["regeln","Regeln"],["charaktere","Charaktere"],["schiffe","Schiffe"],["wildsee","Die Wildsee"],["leitfaden","Leitfaden"],["tisch","Am Tisch"]];
+function nBlock(b){
+  if(b.a != null) return '<p class="na">' + esc(b.a).replace(/\n/g, "<br>") + '</p>';
+  if(b.h != null) return '<h3 class="nh">' + esc(b.h) + '</h3>';
+  if(b.l) return '<ul class="bul nl">' + b.l.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
+  if(b.erz != null) return '<div class="vl nv"><p>' + esc(b.erz).replace(/\n/g, "</p><p>") + '</p></div>';
+  if(b.bsp) return '<div class="nb"><h4>' + esc(b.bsp) + '</h4>' + b.z.map(function(z){ return '<p>' + (z[0] ? '<b>' + esc(z[0]) + ':</b> ' : '') + esc(z[1]) + '</p>'; }).join("") + '</div>';
+  if(b.tab) return '<table class="nt"><thead><tr>' + b.tab.k.map(function(x){ return '<th>' + esc(x) + '</th>'; }).join("") + '</tr></thead><tbody>' + b.tab.z.map(function(r){ return '<tr>' + r.map(function(x){ return '<td>' + esc(x) + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table>';
+  if(b.box) return '<div class="el nx"><h3>' + esc(b.box) + '</h3>' + b.x.map(function(x){ return '<p>' + esc(x).replace(/\n/g, "<br>") + '</p>'; }).join("") + '</div>';
+  if(b.c) return '<div class="el nc"><h3>' + esc(b.c) + '</h3>' + (b.x ? '<p>' + esc(b.x).replace(/\n/g, "<br>") + '</p>' : '') + (b.l ? '<ul class="bul">' + b.l.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') + '</div>';
+  return "";
+}
+function nGruppiert(bl){
+  // aufeinanderfolgende Karten {c} zu einem Raster, Absätze/Listen in Lesebreite
+  var out = "", cards = [];
+  function flush(){ if(cards.length){ out += '<div class="ncg">' + cards.join("") + '</div>'; cards = []; } }
+  bl.forEach(function(b){ if(b.c || b.box){ cards.push(nBlock(b)); } else { flush(); out += nBlock(b); } });
+  flush(); return out;
+}
+function viewNach(bereich, id){
+  var meta = NACH.filter(function(n){ return n[0] === bereich; })[0];
+  if(!meta) return viewPlatzhalter(bereich);
+  var tabs = '<div class="tabs">' + NACH.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'nach/' + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join("") + '</div>';
+  var L = (window.WS_NACH || {})[bereich] || [];
+  if(!L.length) return tabs + '<div class="pad"><p class="na">Dieser Bereich folgt.</p></div>';
+  var cur = L.filter(function(s){ return s.id === id; })[0] || L[0], ki = cur.k, side = "", last = null;
+  L.forEach(function(s){
+    if(s.k !== last){ side += '<h4 class="' + (s.k === ki ? 'on' : '') + '" onclick="go(\'nach/' + bereich + '/' + s.id + '\')">' + esc(s.k) + '</h4>'; last = s.k; }
+    if(s.k === ki) side += '<a class="' + (s.id === cur.id ? 'on' : '') + '" onclick="go(\'nach/' + bereich + '/' + s.id + '\')">' + esc(s.t.split(":")[0]) + '</a>';
+  });
+  var i = L.indexOf(cur), pv = L[i - 1], nx = L[i + 1];
+  var nav = '<div class="gnav">' + (pv ? '<a onclick="go(\'nach/' + bereich + '/' + pv.id + '\')">‹ ' + esc(pv.t) + '</a>' : '<span></span>') + (nx ? '<a onclick="go(\'nach/' + bereich + '/' + nx.id + '\')">' + esc(nx.t) + ' ›</a>' : '') + '</div>';
+  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="pg"><a onclick="openBook(\'ws_core\',' + cur.p + ')">S. ' + cur.p + '</a></span></div><div class="nbody">' + nGruppiert(cur.b) + '</div>' + nav;
+  return tabs + lay('<nav class="side">' + side + '</nav>', body);
+}

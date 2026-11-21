@@ -10,7 +10,7 @@
 .vu-sh span{font-size:14px;color:var(--soft);font-style:italic}
 .vu-adv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
 .vu-ac{position:relative;border:2px solid var(--line);outline:1px solid var(--line);outline-offset:-6px;background:rgba(244,239,226,.9);cursor:pointer;display:flex;flex-direction:column}
-.vu-ac .vu-im{height:150px;background:#ded4bd center/contain no-repeat;border-bottom:1px solid var(--line);margin:8px 8px 0}
+.vu-ac .vu-im{height:210px;background:transparent center/contain no-repeat;mix-blend-mode:multiply;margin:12px 12px 0;border:0}.vu-ac .vu-tx{border-top:1px solid var(--line);margin:10px 14px 0;padding-top:2px}.vu-ac:hover{box-shadow:0 4px 14px rgba(60,40,20,.22)}
 .vu-ac .tx{padding:10px 14px 12px}
 .vu-ac h3{margin:0;font-size:19px}
 .vu-ac .vu-src{font-size:13.5px;color:var(--soft);font-style:italic}
@@ -131,3 +131,4 @@ body.has-dock{padding-bottom:128px}
 body.has-dock{padding-bottom:116px}
 .vu-pc{grid-template-columns:46px minmax(0,1fr);gap:8px;padding:9px 10px;flex:1 0 340px}.vu-pc img{width:46px;height:66px}
 .vu-zz{padding:0 5px}.vu-zr{gap:3px;flex-wrap:nowrap}
+.vu-ac .vu-cont{z-index:2}

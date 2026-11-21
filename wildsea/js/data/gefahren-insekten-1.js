@@ -62,7 +62,7 @@ WS_GEFAHR.push(
  aspekte:[["Weichkörper","Mantaschnecken sind resistent gegen Stumpf-, Frost-, Flammen- und Strom-Schaden. Sie sind schwach gegen Stich und Salz."],["Sturmangriff","Mantaschnecken nutzen ihre Geschwindigkeit, um in Ziele zu krachen und sie aus dem Gleichgewicht zu bringen. Verursacht leichten NK-Stumpf-Schaden und wirft Ziele zu Boden."],["Sengender Schleim","Freiliegende Haut, die mit dem Schleim einer Mantaschnecke in Berührung kommt, fühlt sich an, als stünde sie in Flammen, und erleidet schwereren NK-Flammen-Schaden."]],
  eigenheiten:[{t:"Horde",x:"Mantaschnecken bewegen sich mit Tausenden jüngerer Exemplare. Die Bereiche, die sie füllen, sind glitschig und instabil und verursachen einen Abzug, wann immer bewegungsbasierte Fertigkeiten eingesetzt werden."}]},
 
-{id:"spektrapeden", t:"Spektrapeden", en:"Spectrapedes", kat:"insekten", p:242, groesse:"Groß", unter:"Schlupfweise Spektralwesen",
+{id:"spektrapeden", img:"spektrapeden", t:"Spektrapeden", en:"Spectrapedes", kat:"insekten", p:242, groesse:"Groß", unter:"Schlupfweise Spektralwesen",
  x:"Eine gefräßige, insektenartige Kreatur, die zwischen der materiellen und der spektralen Welt wechseln kann. Obwohl sie große Gefahr darstellen, werden sie oft wegen ihrer einzigartigen Teile gejagt (die genutzt werden können, um die Verbindung eines Wildseglers zum Unheimlichen zu stärken). Setze eine Spektrapede ein, wenn du geisterlastige Crews gefährden oder die Verbindung zwischen den Welten betonen willst.",
  antriebe:[["Spuken","Wie die Geister, von denen sie sich ernähren, beziehen Spektrapeden Quartier in uralten und verlassenen Bauwerken."]],
  praesenz:{sicht:"Ein Aufblitzen von Panzer, das aus dem Blick verschwindet.", klang:"Flüsternde Klagen im Wind.", geruch:null},

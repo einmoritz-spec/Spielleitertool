@@ -11,7 +11,11 @@ function note(id, tab){ var s = rs(id), k = tab; s.notes = s.notes || {};
   m.onclick = function(e){ if(e.target === m || e.target.tagName === "BUTTON"){ s.notes[k] = document.getElementById("nt").value; save(); m.remove(); } };
   document.body.appendChild(m); document.getElementById("nt").value = s.notes[k] || ""; document.getElementById("nt").focus(); }
 function tabsR(id, tab){ return '<div class="tabs">' + RTABS.map(function(t){ return '<a class="' + (t[0] === tab ? 'on' : '') + '" onclick="go(\'reich/' + id + '/' + t[0] + '\')">' + t[1] + '</a>'; }).join("") + '<span class="r" onclick="note(\'' + id + '\',\'' + tab + '\')" style="cursor:pointer">' + PEN + '</span></div>'; }
-function entry(e){ return '<div class="en" id="e_' + esc(e.t) + '"><h3>' + esc(e.t) + ' <span class="tag ' + (TYPC[e.typ] || "") + '">' + esc(e.typ) + '</span></h3><p>' + esc(e.x) + (e.i ? ' <i>' + esc(e.i) + '</i>' : '') + '</p>' + (e.bp ? '<a class="lk" onclick="openBook(\'ws_core\',' + e.bp + ')">S. ' + e.bp + '</a>' : '') + '</div>'; }
+function rZoom(src){ var d = document.createElement("div"); d.className = "gzoom"; d.onclick = function(){ d.remove(); }; d.innerHTML = '<img src="' + src + '" alt="">'; document.body.appendChild(d); }
+function rimg(b, k){ if(!b) return ""; var wide = b[1] / b[2] > 1.3; return '<img class="rimg ' + (k || (wide ? "wide" : "tall")) + '" loading="lazy" src="img/' + b[0] + '.webp" width="' + b[1] + '" height="' + b[2] + '" alt="" onclick="rZoom(this.src)">'; }
+function rband(b){ return b && b[1] / b[2] > 1.3 ? rimg(b, "wide") : ""; }
+function rtall(b){ return b && b[1] / b[2] <= 1.3 ? rimg(b, "tall") : ""; }
+function entry(e){ return '<div class="en" id="e_' + esc(e.t) + '"><h3>' + esc(e.t) + ' <span class="tag ' + (TYPC[e.typ] || "") + '">' + esc(e.typ) + '</span></h3>' + rimg(e.bild, "mini") + '<p>' + esc(e.x) + (e.i ? ' <i>' + esc(e.i) + '</i>' : '') + '</p>' + (e.bp ? '<a class="lk" onclick="openBook(\'ws_core\',' + e.bp + ')">S. ' + e.bp + '</a>' : '') + '</div>'; }
 function facts(f){ return '<div class="facts">' + f.map(function(x){ return '<div><b>' + esc(x[0]) + '</b>' + esc(x[1]) + '</div>'; }).join("") + '</div>'; }
 
 function rUeberblick(r, S){
@@ -27,22 +31,22 @@ function sideTree(list, cur, tab, id){
 function lay(side, body){ var f = ST.fold ? ' fold' : ''; return '<div class="lay' + f + '">' + side + '<button class="fold" onclick="ST.fold=!ST.fold;save();render()">' + (ST.fold ? '›' : '‹') + '</button><div class="ct">' + body + '</div></div>'; }
 function rListe(r, list, tab, sel){
   var cur = list.filter(function(x){ return x.id === sel; })[0] || list[0];
-  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="tag sg">' + esc(cur.typ || (tab === "territorien" ? "Territorium" : "Fraktion")) + '</span><span class="pg">S. ' + cur.p + '</span></div>' + facts(cur.facts) + '<div class="intro">' + paras(cur.x) + '</div><div class="ents">' + cur.eintraege.map(entry).join("") + '</div>';
+  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="tag sg">' + esc(cur.typ || (tab === "territorien" ? "Territorium" : "Fraktion")) + '</span><span class="pg">S. ' + cur.p + '</span></div>' + rband(cur.bild) + facts(cur.facts) + '<div class="intro">' + rtall(cur.bild) + paras(cur.x) + '</div><div class="ents">' + cur.eintraege.map(entry).join("") + '</div>';
   return lay(sideTree(list, cur, tab, r.id), body);
 }
 function rFraktionen(r, S, sel){
   var list = r.fraktionen, cur = list.filter(function(x){ return x.id === sel; })[0] || list[0], H = S.hooks, i0 = list.indexOf(cur) * 6;
   var rf = '<div class="ruf">' + [["respekt","Respekt"],["furcht","Furcht"],["gunst","Gunst"]].map(function(w){ return '<button class="' + (S.ruf[cur.id + "_" + w[0]] ? 'on' : '') + '" onclick="ruf(\'' + r.id + '\',\'' + cur.id + '\',\'' + w[0] + '\')">' + w[1] + '</button>'; }).join("") + '</div>';
-  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="tag sg">Fraktion</span><span class="pg">S. ' + cur.p + '</span>' + rf + '</div>' + facts(cur.facts) + '<div class="intro">' + paras(cur.x) + '</div>' +
-   '<div class="row3"><div class="bx"><h3>Grundsätze</h3><p style="margin-bottom:6px;color:var(--soft)">' + esc(cur.grundsaetze.intro) + '</p><ul class="bul">' + cur.grundsaetze.x.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div>' +
+  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="tag sg">Fraktion</span><span class="pg">S. ' + cur.p + '</span>' + rf + '</div>' + rband(cur.bild) + facts(cur.facts) + '<div class="intro">' + paras(cur.x) + '</div>' +
+   '<div class="row3' + (rtall(cur.bild) ? ' r4' : '') + '"><div class="bx"><h3>Grundsätze</h3><p style="margin-bottom:6px;color:var(--soft)">' + esc(cur.grundsaetze.intro) + '</p><ul class="bul">' + cur.grundsaetze.x.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div>' +
    '<div class="bx"><h3>Schnelle NSC</h3>' + cur.nsc.map(function(n){ return '<div class="npc"><span class="av">' + n.n.split(/[ &]+/).filter(Boolean).slice(0, 2).map(function(w){ return w[0]; }).join("") + '</span><div><b>' + esc(n.n) + '</b> <span class="tag gr" style="font-size:11px">' + esc(n.b) + '</span><br>' + esc(n.x) + '</div></div>'; }).join("") + '</div>' +
-   '<div class="bx"><h3>Aufhänger</h3><div class="hooks">' + cur.haken.map(function(h, i){ var k = i0 + i; return '<div id="hooks_' + k + '" class="' + (H[k] ? 'used' : '') + '" onclick="tog(\'' + r.id + '\',\'hooks\',' + k + ')">' + esc(h) + '</div>'; }).join("") + '</div></div></div>' +
+   '<div class="bx"><h3>Aufhänger</h3><div class="hooks">' + cur.haken.map(function(h, i){ var k = i0 + i; return '<div id="hooks_' + k + '" class="' + (H[k] ? 'used' : '') + '" onclick="tog(\'' + r.id + '\',\'hooks\',' + k + ')">' + esc(h) + '</div>'; }).join("") + '</div></div>' + (rtall(cur.bild) ? '<div class="bx fig">' + rtall(cur.bild) + '</div>' : '') + '</div>' +
    '<div class="ents c4">' + cur.eintraege.map(entry).join("") + '</div>';
   return lay('<nav class="side">' + list.map(function(x){ return '<h4 class="' + (x.id === cur.id ? 'on' : '') + '" onclick="go(\'reich/' + r.id + '/fraktionen/' + x.id + '\')">' + esc(x.t) + '</h4>'; }).join("") + '</nav>', body);
 }
 function rGefahren(r){
   var x = r.extra, g = r.see.gefahren;
-  return '<div class="ct" style="padding:18px 34px 40px">' + (x ? '<div class="hd"><h1>' + esc(x.t) + '</h1><span class="pg">S. ' + x.p + '</span></div><div class="intro" style="margin-top:8px">' + paras(x.intro) + '</div><div class="grid3" style="padding:14px 0 20px">' + x.eintraege.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3>' + paras(e.x) + '</div>'; }).join("") + '</div>' : "") +
+  return '<div class="ct" style="padding:18px 34px 40px">' + (x ? '<div class="hd"><h1>' + esc(x.t) + '</h1><span class="pg">S. ' + x.p + '</span></div>' + rband(x.bild) + '<div class="intro" style="margin-top:8px">' + rtall(x.bild) + paras(x.intro) + '</div><div class="grid3" style="padding:14px 0 20px">' + x.eintraege.map(function(e){ return '<div class="el">' + rimg(e.bild, "mini") + '<h3>' + esc(e.t) + '</h3>' + paras(e.x) + '</div>'; }).join("") + '</div>' : "") +
    '<div class="hd"><h1 style="font-size:40px">Heimische Gefahren</h1><span class="pg">S. ' + r.see.p + '</span></div><div class="grid3" style="padding:12px 0">' + g.map(function(e){ return '<div class="el"><h3>' + esc(e.t) + '</h3><p>' + esc(e.x) + '</p>' + (e.id ? '<a class="lk" onclick="go(\'gefahren/' + e.id + '\')">Gefahren-Karte</a>' : '') + '</div>'; }).join("") + '</div></div>';
 }
 /* Auf See */

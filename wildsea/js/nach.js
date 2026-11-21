@@ -13,6 +13,16 @@ function nBlock(b){
   if(b.l) return '<ul class="bul nl">' + b.l.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>';
   return "";
 }
+/* Bilder je Abschnitt: window.WS_NIMG[bereich][id] = [[datei,breite,hoehe],...] (Pfad relativ zu img/) */
+function nBilder(bereich, id){
+  var L = window.WS_NIMG && WS_NIMG[bereich] && WS_NIMG[bereich][id];
+  if(!L || !L.length) return "";
+  return '<div class="nimgs n' + Math.min(L.length, 4) + '">' + L.map(function(m){
+    var r = m[1] / m[2], k = r > 1.35 ? "wide" : r < 0.8 ? "tall" : "sq";
+    return '<figure class="nimg ' + k + '" style="--r:' + r.toFixed(3) + '"><img loading="lazy" src="img/' + m[0] + '" alt="" onclick="nZoom(this.src)"></figure>';
+  }).join("") + '</div>';
+}
+function nZoom(src){ var d = document.createElement("div"); d.className = "gzoom"; d.onclick = function(){ d.remove(); }; d.innerHTML = '<img src="' + src + '" alt="">'; document.body.appendChild(d); }
 function nGruppiert(bl){
   // aufeinanderfolgende Karten {c} zu einem Raster, Absätze/Listen in Lesebreite
   var out = "", cards = [];
@@ -33,6 +43,6 @@ function viewNach(bereich, id){
   });
   var i = L.indexOf(cur), pv = L[i - 1], nx = L[i + 1];
   var nav = '<div class="gnav">' + (pv ? '<a onclick="go(\'nach/' + bereich + '/' + pv.id + '\')">‹ ' + esc(pv.t) + '</a>' : '<span></span>') + (nx ? '<a onclick="go(\'nach/' + bereich + '/' + nx.id + '\')">' + esc(nx.t) + ' ›</a>' : '') + '</div>';
-  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="pg"><a onclick="openBook(\'ws_core\',' + cur.p + ')">S. ' + cur.p + '</a></span></div><div class="nbody">' + nGruppiert(cur.b) + '</div>' + nav;
+  var body = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="pg"><a onclick="openBook(\'ws_core\',' + cur.p + ')">S. ' + cur.p + '</a></span></div>' + nBilder(bereich, cur.id) + '<div class="nbody">' + nGruppiert(cur.b) + '</div>' + nav;
   return tabs + lay('<nav class="side">' + side + '</nav>', body);
 }

@@ -337,6 +337,8 @@ function runSearch(q){
   VAE_REGELN.forEach(function(s){ var t = strip(s.b.map(blk).join(" ")); if((s.titel + " " + t).toLowerCase().indexOf(q) > -1) hits.push(["regeln/" + s.id, s.titel, "Regeln", t]); });
   VAE_ARCH.forEach(function(a){ var t = [a.desc, a.vor, a.nach, a.mot, a.trauma, a.geheim, a.talente, a.ausr].join(" "); if((a.name + " " + a.en + " " + t).toLowerCase().indexOf(q) > -1) hits.push(["charaktere/" + a.id, a.name, "Archetyp", t]); });
   VAE_WESEN.forEach(function(v){ var t = v.text + " " + v.ritual; if((v.name + " " + v.en + " " + t).toLowerCase().indexOf(q) > -1) hits.push(["vaesen/" + v.id, v.name, "Vaesen", t]); });
+  if(window.VAE_MYS) Object.keys(VAE_MYS).forEach(function(id){ var M = VAE_MYS[id], T = strip(JSON.stringify(M)).replace(/\\"/g, '"'), tab = {orte:"orte", figs:"fg", ho:"ho", kf:"kf", an:"an", ns:"ns"};
+    if((M.titel + " " + T).toLowerCase().indexOf(q) > -1) hits.push(["som/" + id + "/hg", M.titel, "Mysterium", T]); });
   out.innerHTML = hits.slice(0, 40).map(function(h){ var k = h[3].toLowerCase().indexOf(q), sn = k > -1 ? h[3].substr(Math.max(0, k - 40), 120) : ""; return '<button class="sr" onclick="closeSearch();go(\'' + h[0] + '\')"><b>' + esc(h[1]) + '</b><small>' + h[2] + (sn ? ' · …' + esc(sn) + '…' : '') + '</small></button>'; }).join("") || '<p class="pg">Keine Treffer.</p>';
 }
 (function(){ var g = (window.Galerie && Galerie) || null; })();

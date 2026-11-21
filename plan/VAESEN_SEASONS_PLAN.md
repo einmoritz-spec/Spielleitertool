@@ -151,6 +151,8 @@ Tabs: **Hintergrund · Anreise · Orte · Konfrontation | Figuren · Hinweise ·
 
 ---
 
+> **Status: alle fünf Schritte erledigt (Tod, Feuerherz, Teufel im Moor, Wintermärchen, Startseite/Suche/Galerie).**
+
 ## 5. Arbeitsschritte (jeweils eine Sitzung, jeweils mit Screenshots, Commit, Push)
 
 0. **Bilder & Gerüst:** ZIP entpacken, Bilder nach Tabelle (Abschnitt 6) umbenennen, als webp (Qualität 82, max. 1600 px breit, Porträts mit weißem Hintergrund lassen – im Tool `mix-blend-mode:multiply`) nach `vaesen/img/som/` legen; Karten mit deutschen Beschriftungsflächen vorbereiten. Leere Engine `mys.js` + Route `som` in `app.js` (`case "som": v = viewMys(); break;` und `if(window.mysAfter) mysAfter();` nach `render`). BV-Offset 4. SW-Liste.

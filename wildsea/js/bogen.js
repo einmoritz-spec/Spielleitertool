@@ -64,7 +64,7 @@ function bgCard(t, kind, i, hint, x, y, h){
 }
 function bgSheet(){
   var s = BG.st, f = s.f, i, o = "";
-  var CL = [520, 719, 895], CC = [640, 816, 999], ROW = 25;
+  var CL = [520, 717, 890], CC = [638, 812, 990], ROW = 25, RS = 24;
   /* Titel */
   o += '<div class="bti" ' + bgAb(26, 18, 456) + '><div class="t1"><span class="lb" style="width:452px"><span>The Wildsea</span></span></div><div class="t2">Offizieller Charakterbogen</div></div>';
   /* So wird gespielt */
@@ -103,13 +103,13 @@ function bgSheet(){
   o += bgBx(510, 194, 557, 149) + bgHd("Fertigkeiten", 507, 158, 566);
   for(i = 0; i < 18; i++){
     var c2 = Math.floor(i / 6), r2 = i % 6;
-    o += '<div class="row" ' + bgAb(CL[c2], 194 + r2 * ROW, null, ROW) + '>' + bgLb(BG_SK[i], CC[c2] - CL[c2], 9) + '<span class="bds">' + bgDots(3, s.s[BG_SK[i]] || 0, 's', i) + '</span></div>';
+    o += '<div class="row" ' + bgAb(CL[c2], 196 + r2 * RS, null, RS) + '>' + bgLb(BG_SK[i], CC[c2] - CL[c2], 9) + '<span class="bds">' + bgDots(3, s.s[BG_SK[i]] || 0, 's', i) + '</span></div>';
   }
   /* Sprachen */
   o += bgBx(510, 396, 557, 148) + bgHd("Sprachen", 507, 360, 566);
   for(i = 0; i < 12; i++){
     var c3 = Math.floor(i / 6), r3 = i % 6, lx = c3 ? 790 : 520, cx = c3 ? CC[2] : 700, nm = i < 11 ? BG_LA[i] : null, key = nm || "_x";
-    o += '<div class="row" ' + bgAb(lx, 396 + r3 * ROW, null, ROW) + '>' + (nm ? bgLb(nm, cx - lx, 10) : '<span class="lb lxw" style="width:' + (cx - lx) + 'px;padding-right:12px"><input class="lx" spellcheck="false" ' + bgIn("lx", s.lx || "", 16) + '></span>') +
+    o += '<div class="row" ' + bgAb(lx, 398 + r3 * RS, null, RS) + '>' + (nm ? bgLb(nm, cx - lx, 10) : '<span class="lb lxw" style="width:' + (cx - lx) + 'px;padding-right:12px"><input class="lx" spellcheck="false" ' + bgIn("lx", s.lx || "", 16) + '></span>') +
       '<span class="bds">' + bgDots(3, s.l[key] || 0, 'l', i) + '</span></div>';
   }
   /* Ressourcen */

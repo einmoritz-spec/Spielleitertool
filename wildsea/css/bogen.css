@@ -23,7 +23,7 @@
 .bx.sub{border-radius:0 6px 16px 16px;padding:18px 4px 4px}
 .bx.out{border-radius:0 0 20px 20px}
 /* Zeilen */
-.row{display:flex;align-items:center;white-space:nowrap;font-size:20px;padding-bottom:3px}.row .cr,.row .bds{margin-top:3px}
+.row{display:flex;align-items:center;white-space:nowrap;font-size:20px}.row .lb,.row .v{padding-bottom:2px}
 .lb{display:inline-block;overflow:visible;white-space:nowrap;flex:none}
 .lb>span{display:inline-block;transform-origin:0 50%}
 .row .v{font-size:20px;font-variant-numeric:oldstyle-nums}
@@ -95,3 +95,17 @@
 .fl input{padding-left:5px}
 .bk .bch{top:24px}
 .bkd{top:53px}
+
+/* saubere, echte Kreise überall */
+.bsheet .cr{-webkit-appearance:none;appearance:none;box-sizing:border-box;min-width:0;min-height:0;aspect-ratio:1/1;border-radius:50%;background:#fff;border:1.8px solid #8a8c80;box-shadow:none;line-height:0;font-size:0}
+.bsheet .cr:hover{box-shadow:0 0 0 2px #dfe5d2}
+.bsheet .cr.f{background:#3a372d;border-color:#3a372d;box-shadow:none}
+.bsheet .row .cr.e{width:22px;height:22px}
+.bsheet .bds .cr{width:20px;height:20px}
+.bsheet .bds{gap:2px}
+.bsheet .bch .cr{width:22px;height:22px;border:2px solid #6f7165}
+.bsheet .bch .cr.f{background:#3a372d;border-color:#3a372d}
+.bsheet .bch .cr.gh{border-color:#dddcd3;background:transparent}
+.bsheet .pill .bch .cr{width:21px;height:21px}
+@media print{.bsheet .cr:hover{box-shadow:none}}
+.bsheet .pill textarea{height:38px;padding-top:10px;line-height:1.15}

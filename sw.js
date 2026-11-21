@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v642pi";
+const VERSION = "v643info";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1196,6 +1196,16 @@ const FILES = [
   "otherscape/js/core.js",
   "otherscape/js/viewer.js",
   "toolmenu.js",
+  "shared/sysinfo.js",
+  "shared/info/wake.js",
+  "shared/info/cityofmist.js",
+  "shared/info/locallegends.js",
+  "shared/info/nights.js",
+  "shared/info/otherscape.js",
+  "shared/info/vaesen.js",
+  "shared/info/etr.js",
+  "shared/info/wildsea.js",
+  "shared/info/pico.js",
   "bookviewer/find.js",
   "bookviewer/bookviewer.js",
   "bookviewer/bookviewer.css",

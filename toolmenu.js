@@ -134,6 +134,9 @@
       b.insertAdjacentElement("beforebegin", m); }
   }
   function ensure(){ bookBtn(); var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
+  window.gmToolCur = cur; window.gmToolBase = BASE;
+  /* Info-Knopf (i) neben dem Buch-Symbol: shared/sysinfo.js, Inhalte in shared/info/<system>.js */
+  if(!document.querySelector('script[data-gm-info]')){ var si = document.createElement("script"); si.src = BASE + "shared/sysinfo.js"; si.setAttribute("data-gm-info","1"); document.head.appendChild(si); }
   new MutationObserver(ensure).observe(document.documentElement, {childList:true, subtree:true});
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", function(){ init(); bookBtn(); }); else { init(); bookBtn(); }
 })();

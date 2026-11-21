@@ -135,3 +135,19 @@ body.has-dock{padding-bottom:116px}
 .vu-ac .vu-cont{position:static;order:9;margin:auto 14px 14px;padding:9px 0;text-align:center;font-size:15px;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.18);transition:filter .15s}
 .vu-ac .vu-tx{padding-bottom:12px}
 .vu-ac:hover .vu-cont{filter:brightness(1.12)}
+/* Startseite v2: Spielhilfen oben als Info-Kacheln, Mysterien darunter als breite Karten */
+.vu-tools{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.vu-tl{display:flex;align-items:stretch;overflow:hidden;transition:box-shadow .15s,transform .15s}
+.vu-tl:hover{box-shadow:0 4px 12px rgba(60,40,20,.2);transform:translateY(-1px)}
+.vu-tl .vu-im{flex:0 0 78px;height:auto;min-height:66px}
+.vu-tl b{flex:1;display:flex;align-items:center;min-height:0;font-size:15px;line-height:1.15;padding:6px 12px}
+.vu-adv{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:12px}
+.vu-ac{display:grid;grid-template-columns:150px minmax(0,1fr);grid-template-rows:1fr auto;grid-template-areas:"im tx" "im bt";align-items:stretch}
+.vu-ac .vu-im{grid-area:im;height:auto;min-height:170px;margin:12px 0 12px 12px;background-size:contain}
+.vu-ac .vu-tx{grid-area:tx;border-top:0;margin:10px 14px 0 12px;padding:2px 0 0}
+.vu-ac .vu-cont{grid-area:bt;order:0;margin:8px 14px 14px 12px;padding:7px 0;font-size:14px;align-self:end}
+.vu-ac h3{font-size:21px;line-height:1.1}
+.vu-ac.vu-off{grid-template-rows:auto;grid-template-areas:"im tx"}
+.vu-ac.vu-off .vu-im{min-height:110px}
+.vu-ac.vu-off .vu-tx{margin-bottom:12px}
+@media(max-width:900px){.vu-tools{grid-template-columns:repeat(2,minmax(0,1fr))}.vu-adv{grid-template-columns:1fr}}

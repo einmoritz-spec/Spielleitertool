@@ -28,8 +28,8 @@ function uiStart(){
   }).join("");
   var shelf = books.map(function(b){ return '<div class="vu-bk" onclick="BV.open(\'' + b.id + '\',1)"><img src="img/' + b.cover + '" alt=""><div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></div></div>'; }).join("");
   return '<div class="vu-m1hero" style="background-image:url(img/hero_naeck.webp)"><div class="ht"><img src="../assets/logos/vaesen-rot.webp" alt="Vaesen"><p>Mythisches Skandinavien im 19. Jahrhundert. Die Gesellschaft jagt Vaesen – Wesen aus Sagen und Aberglauben.</p></div></div>' +
-   '<div class="vu-m1"><div><div class="vu-sh"><h2>Mysterien</h2></div><div class="vu-adv">' + adv + '</div>' +
-   '<div class="vu-sh" style="margin-top:22px"><h2>Spielhilfen</h2></div><div class="vu-tools">' + tools + '</div></div>' +
+   '<div class="vu-m1"><div><div class="vu-sh"><h2>Spielhilfen</h2></div><div class="vu-tools">' + tools + '</div>' +
+   '<div class="vu-sh" style="margin-top:26px"><h2>Mysterien</h2></div><div class="vu-adv">' + adv + '</div></div>' +
    '<div><div class="vu-sh"><h2>Bücher</h2></div><div class="vu-shelf2">' + shelf + '</div></div></div>';
 }
 

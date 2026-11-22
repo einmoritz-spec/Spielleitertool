@@ -25,6 +25,15 @@ function nbody(arr){
 /* Fertigkeits- / Talentkarte, einklappbar */
 function ncard(c, def, typ){
   var k = typ + "_" + slug(c.n), on = nkOpen(k, def);
+  if(typ === "zk"){
+    var mz = '<span class="mt">Rang ' + c.r + '</span>';
+    if(!on) return '<div class="zu nk" onclick="nkTog(\'' + k + '\',' + def + ')">' + md(c.n) + mz + '</div>';
+    function zl(l, v){ return '<div class="zl"><b>' + l + ':</b> ' + md(v) + '</div>'; }
+    var tx = (Array.isArray(c.t) ? c.t : [c.t]).map(function(t){ return '<p>' + md(t) + '</p>'; }).join("");
+    return '<div class="karte nsc nkc zkc"><div class="band" onclick="nkTog(\'' + k + '\',' + def + ')">' + esc(c.n) + '</div>' +
+      '<div class="zl zl1"><b>Rang:</b> ' + c.r + '</div>' + zl("Voraussetzung", c.v) + zl("Anforderung", c.a) + zl("Zauberdauer", c.z) + zl("Reichweite", c.w) + zl("Wirkungsdauer", c.d) +
+      '<div class="nt">' + tx + '</div><div class="kr u"><i></i><u></u><i></i></div></div>';
+  }
   var meta = typ === "ht" ? '<span class="mt">WP ' + esc(c.w) + '</span>' : '<span class="mt">' + esc(c.a) + '</span>';
   if(!on) return '<div class="zu nk" onclick="nkTog(\'' + k + '\',' + def + ')">' + esc(c.n) + meta + '</div>';
   var txt = typ === "ht" ? '<p>' + md(c.t) + '</p>' : c.t.map(function(t){ return '<p>' + md(t) + '</p>'; }).join("");
@@ -34,10 +43,10 @@ function ncard(c, def, typ){
 }
 /* Abschnitt → Raster-Zellen: Überschrift + Text je eine Zelle, Karten/Steinkästen eigene Zellen */
 function nabs(a){
-  var cells = [], cur = null;
-  function flush(){ if(cur){ cells.push('<div class="ab' + (cur.indexOf('<h3') === 0 || !cells.length ? '' : ' voll') + (cur.length > 1700 ? ' l2' : '') + '">' + cur + '</div>'); cur = null; } }
+  var cells = [], cur = null, curC = '';
+  function flush(){ if(cur){ cells.push('<div class="ab' + (cur.indexOf('<h3') === 0 || !cells.length ? '' : ' voll') + (curC || (cur.length > 1700 ? ' l2' : '')) + '">' + cur + '</div>'); cur = null; } }
   a.b.forEach(function(b){
-    if(b.h){ flush(); cur = '<h3 class="uh">' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</h3>'; return; }
+    if(b.h){ flush(); curC = b.cols ? ' c' + b.cols : ''; cur = '<h3 class="uh">' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</h3>'; return; }
     if(b.karte){ flush(); cells.push('<div class="karte nkk' + (function(l, u){ return l > 1500 && u ? ' voll kl2' : l > 900 ? ' z2' : ''; })(JSON.stringify(b.karte.b).length, JSON.stringify(b.karte.b).indexOf('"ul"') >= 0) + '"><div class="name">' + esc(b.karte.h) + pgl(b.karte.p) + '</div>' + nbody(b.karte.b) + '</div>'); return; }
     if(b.tbl && !cur && cells.length && /^<div class="zelle/.test(cells[cells.length - 1]) && !/<table/.test(cells[cells.length - 1])){
       var lc = cells.pop(); if(b.tbl.rows.length > 8 && lc.indexOf(' z2') < 0) lc = lc.replace('class="zelle', 'class="zelle z2');
@@ -45,6 +54,9 @@ function nabs(a){
     if(b.stein){ flush(); cells.push('<div class="zelle' + (JSON.stringify(b.stein.b).length > 420 ? ' z2' : '') + '"><div class="stein"><div class="bh">' + esc(b.stein.h) + '</div>' + nbody(b.stein.b) + '</div></div>'); return; }
     if(b.zit){ flush(); cells.push('<div class="vorlesen zit voll">' + b.zit.map(function(p){ return '<p>' + md(p) + '</p>'; }).join("") + (b.q ? '<div class="qu">– ' + md(b.q) + '</div>' : '') + '</div>'); return; }
     if(b.fk){ flush(); cells.push('<div class="kgrid voll">' + b.fk.map(function(c){ return ncard(c, true, "fk"); }).join("") + '</div>'); return; }
+    if(b.zk && cur && cur.indexOf('<h3') === 0 && cur.indexOf('<p') < 0 && cur.indexOf('<ul') < 0){
+      cells.push('<div class="ab voll">' + cur + '<div class="kgrid zg">' + b.zk.map(function(c){ return ncard(c, false, "zk"); }).join("") + '</div></div>'); cur = null; return; }
+    if(b.zk){ flush(); cells.push('<div class="kgrid voll zg">' + b.zk.map(function(c){ return ncard(c, false, "zk"); }).join("") + '</div>'); return; }
     if(b.ht){ flush(); cells.push('<div class="kgrid voll">' + b.ht.map(function(c){ return ncard(c, false, "ht"); }).join("") + '</div>'); return; }
     cur = (cur || "") + nbody([b]);
   });

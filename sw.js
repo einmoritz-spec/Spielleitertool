@@ -898,6 +898,8 @@ const FILES = [
   "moerkborg/js/tabellen.js",
   "moerkborg/js/orte.js",
   "moerkborg/js/suche.js",
+  "moerkborg/js/bibliothek.js",
+  "moerkborg/js/data/bibliothek.js",
   "moerkborg/js/galerie.js",
   "moerkborg/js/data/orte-a.js",
   "moerkborg/js/data/orte-b.js",

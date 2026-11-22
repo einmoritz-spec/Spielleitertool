@@ -30,7 +30,7 @@ function penOpen(v){ var m = modal('<textarea class="pennote" oninput="ST.notiz=
 
 /* ---------- Startseite = Register ---------- */
 function teilGo(t){ return t.nr === "I" && VIEWS.nach ? "go('nach/welt')" : "openBook('" + t.z[0][1] + "'," + t.z[0][2] + ")"; }
-function viewStart(){
+function viewRegister(){
   var zeilen = MB_TEILE.map(function(t){
     return '<div class="zeile"><div class="nr">' + t.nr + '</div><div><h2 onclick="' + teilGo(t) + '">' + esc(t.t) + '</h2><p>' +
       t.z.map(function(z){ var go2 = z[3] && VIEWS.nach ? "go(\'nach/welt/" + z[3] + "\')" : "openBook(\'" + z[1] + "\'," + z[2] + ")"; return '<span onclick="' + go2 + '">' + esc(z[0]) + '<i onclick="event.stopPropagation();openBook(\'' + z[1] + '\',' + z[2] + ')">S. ' + z[2] + '</i></span>'; }).join(" ") + '</p></div></div>';
@@ -42,9 +42,10 @@ function viewStart(){
   return '<div class="buehne"><div class="titel"><img src="' + IMG("start/cover-skelett") + '" alt=""></div><div class="reg"><div class="kopfz"><h1>Register</h1></div>' + zeilen + los + '</div></div>';
 }
 
+VIEWS.register = function(){ return tabsHtml('register') + viewRegister(); };
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
-  if(v !== "start" && VIEWS[v]) out = (v === "nach" ? "" : tabsHtml(v)) + VIEWS[v](h.slice(1)); else out = viewStart();
+  if(v !== "start" && VIEWS[v]) out = (v === "nach" ? "" : tabsHtml(v)) + VIEWS[v](h.slice(1)); else out = (window.viewBib || viewRegister)();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
   if(window.afterRender) afterRender();

@@ -23,6 +23,7 @@
 <div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
 <div class="mm-panel" id="mmP"></div>
 <script src="js/data/buecher.js"></script>
+<script src="js/data/bibliothek.js"></script>
 <script src="js/data/start.js"></script>
 <script src="js/data/glossar.js"></script>
 <script src="js/data/kalender.js"></script>
@@ -64,6 +65,7 @@
 <script src="js/tabellen.js"></script>
 <script src="js/orte.js"></script>
 <script src="js/suche.js"></script>
+<script src="js/bibliothek.js"></script>
 <script src="js/galerie.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"mb_core", books:MB_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>

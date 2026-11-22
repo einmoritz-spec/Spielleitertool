@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v724sp";
+const VERSION = "v725sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",

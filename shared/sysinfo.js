@@ -5,7 +5,7 @@
 (function(){
   var BASE = window.gmToolBase || "";
   /* Systemkennung (toolmenu) -> Info-Datei. Nur ausgebaute Systeme. */
-  var MAP = {wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", etr:"etr", wildsea:"wildsea", pico:"pico"};
+  var MAP = {wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", etr:"etr", wildsea:"wildsea", pico:"pico", spire:"spire"};
   window.GM_INFO = window.GM_INFO || {};
   function key(){ try{ return MAP[window.gmToolCur ? window.gmToolCur() : ""] || null; }catch(e){ return null; } }
 

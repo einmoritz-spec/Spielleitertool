@@ -286,7 +286,7 @@ SP_KLASSE.push({ id:"azurite", t:"Azurite", p:29, bild:"klasse/azurite", zitat:"
 
 Übersetzungsumfang: ≈ 1,25 Mio. Zeichen Englisch (Core ≈ 800 000, MG ≈ 180 000, QS ≈ 100 000). **Spielbare Teile zuerst.**
 
-0. **Gerüst, Design, Bilder.** Pico-Shell übernehmen (Abschnitt 5), Schriften nach `assets/fonts/`, `spire.css` → `spire/style.css`, Deko nach `spire/img/deko/`. `extract_images.py` für alle drei PDFs laufen lassen (nach `/tmp`), Bilder nach Abschnitt 7 benennen und einsortieren, `galerie.js`. Startseite (Entwurf 1) mit Platzhalter-Zielen, Bücher/Bookviewer (`off:5/0/1`), Burger, Tasten, i-Info, SW. **Würfel** komplett (kleiner Umfang, sofort nützlich).
+0. ✅ **(erledigt 22.11.2026)** **Gerüst, Design, Bilder.** Pico-Shell übernehmen (Abschnitt 5), Schriften nach `assets/fonts/`, `spire.css` → `spire/style.css`, Deko nach `spire/img/deko/`. `extract_images.py` für alle drei PDFs laufen lassen (nach `/tmp`), Bilder nach Abschnitt 7 benennen und einsortieren, `galerie.js`. Startseite (Entwurf 1) mit Platzhalter-Zielen, Bücher/Bookviewer (`off:5/0/1`), Burger, Tasten, i-Info, SW. **Würfel** komplett (kleiner Umfang, sofort nützlich).
 1. **Zelle** (Entwurf 4) + `fallout.js` (S. 12–15 vollständig, Bindungs-Fallout S. 15/24) + Fallout-Panel + Bindungs-Fallout + **6 vorgefertigte Figuren** (`vorgefertigt.js`, QS S. 25–36, Werte am Seitenbild ablesen).
 2. **Snuff Out the Sun** komplett (Entwurf 6) + Gegner-Karte-Baustein + Begegnungsleiste (vorerst nur mit den QS-Antagonisten).
 3. **Stadt I:** Karte + Klickflächen + Domänen (Entwurf 2), Distrikt-Seite (Entwurf 3), Domänen **Religion** und **Ordnung** komplett (S. 147–172) – Schablone.
@@ -323,6 +323,13 @@ Inventar: `plan/spire/bilder-inventar.tsv` (Name `<buch>_S<BUCHSEITE>_<nr>_<b>x<
 Regeln: sofort sprechend benennen; Großansicht immer ungeschnitten; nie ein Bild einer falschen Figur/eines falschen Distrikts zuordnen – im Zweifel weglassen. Alle Bilder in die Galerie (`spire/js/data/galerie.js`, Gruppen nach Bereich).
 
 ---
+
+### Stand nach Schritt 0 (für die folgenden Sitzungen)
+- Neue Ansichten melden sich in `SP_VIEW[<route>] = function(teile){ return html; }` an (`spire/js/app.js`); Nachschlage-Bereiche über `SP_NACH_VIEW[<id>]`. Ohne Anmeldung zeigt jede Route einen Platzhalter (Titel + Seitenlink).
+- Bereiche, Startkacheln, Spielbereiche, Abenteuer-Kacheln: `spire/js/data/bereiche.js`. Suche: `SP_SUCHE.push(function(add){…})`.
+- Seitenangaben immer mit `pgl(seite, "cmf"|"gm"|"qs")` (als `<a class="pg">`, damit der Bookviewer-Autolinker sie nicht auf das falsche Buch umbiegt); Container mit Text eines anderen Buchs bekommen `data-pgbook="sp_qs"` usw.
+- Ganzseitige Bilder, die im Buch genau an einer Kapitelgrenze stehen, heißen `img/kapitel/zwischen-…-S<nr>` (S068, S100, S116, S146, S154, S172) und stehen nur in der Galerie – Zuordnung erst, wenn der Buchtext sie eindeutig macht.
+- Die QS-Porträts (`img/figur/`) sind dieselben Bilder wie die Klassenbilder; in der Galerie nur einmal.
 
 ## 8. Startauftrag für jede Sonnet-Sitzung (zum Kopieren)
 

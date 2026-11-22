@@ -799,6 +799,7 @@ const FILES = [
   "heart/js/data/g-e.js",
   "heart/js/data/dk-intro-a.js",
   "heart/js/data/dk-intro-b.js",
+  "heart/js/data/dk-intro-c.js",
   "heart/js/data/dk-1.js",
   "heart/js/data/dk-2.js",
   "heart/js/data/dk-3.js",

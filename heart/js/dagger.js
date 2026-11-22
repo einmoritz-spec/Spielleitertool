@@ -86,12 +86,17 @@ function dokumente(K){
 }
 window.dkDok = function(n, i){ var d = kap(n).dok[i]; var m = document.createElement("div"); m.className = "dvoll"; m.onclick = function(){ m.remove(); }; m.innerHTML = '<div class="dzettel gross"><h4>' + esc(d.t) + "</h4>" + bls(d.x) + "</div>"; document.body.appendChild(m); };
 /* Wegekarte */
+function findExt(id, self){
+  var all = D().kap, r = null;
+  Object.keys(all).forEach(function(k){ if(r || String(k) === String(self)) return; (all[k].lm || []).forEach(function(l){ if(!r && l.id === id) r = {id: l.id, t: l.t, tiefe: l.tiefe, dom: l.dom, stress: l.stress, extern: k}; }); });
+  return r;
+}
 function route(K){
   var L = (K.lm || []).slice(), V = K.delves || [], byId = {}; L.forEach(function(l){ byId[l.id] = l; });
-  V.forEach(function(v){ [v.von, v.nach].forEach(function(i){ if(i && !byId[i]){ byId[i] = {id: i, t: i, tiefe: v.tiefe, extern: true}; L.push(byId[i]); } }); });
+  V.forEach(function(v){ [v.von, v.nach].forEach(function(i){ if(i && !byId[i]){ var f = findExt(i, K.n); byId[i] = f || {id: i, t: i, tiefe: v.tiefe, extern: true}; L.push(byId[i]); } }); });
   var order = [], seen = {}, nxt = {}; V.forEach(function(v){ if(!v.express) nxt[v.von] = v.nach; });
   var targets = {}; V.forEach(function(v){ targets[v.nach] = 1; });
-  L.forEach(function(l){ if(!targets[l.id]) walk(l.id); }); L.forEach(function(l){ walk(l.id); });
+  L.forEach(function(l){ if(!targets[l.id] && l.extern) walk(l.id); }); L.forEach(function(l){ if(!targets[l.id]) walk(l.id); }); L.forEach(function(l){ walk(l.id); });
   function walk(id){ while(id && !seen[id]){ seen[id] = 1; order.push(id); id = nxt[id]; } }
   return {order: order, byId: byId, V: V};
 }
@@ -104,7 +109,7 @@ function karte(K, sel){
   var rowsH = ""; for(var r = t0; r <= t1; r++) rowsH += '<div class="dtl" style="top:' + (y(r) - 4) + 'px">Tiefe ' + r + "</div>";
   R.V.forEach(function(v){ var a = R.byId[v.von], b = R.byId[v.nach]; if(!a || !b) return; svg += '<line x1="' + x[v.von] + '" y1="' + (y(a.tiefe) + 24) + '" x2="' + x[v.nach] + '" y2="' + (y(b.tiefe) + 24) + '" class="' + (v.express ? "ex" : "") + '"/>'; });
   svg += "</svg>";
-  var nodes = R.order.map(function(id){ var l = R.byId[id]; return '<div class="dnode' + (sel === id ? " on" : "") + (l.extern ? " ext" : "") + '" style="left:' + x[id] + "%;top:" + y(l.tiefe) + 'px" onclick="' + (l.extern ? "" : "go('dagger/" + K.n + "/landmarken/" + id + "')") + '"><span class="platte">' + esc(l.t) + "</span>" + (l.extern ? "<small>aus Kapitel " + esc(l.extern) + "</small>" : "<small>" + esc((l.dom || []).join(", ") + (l.stress ? " · " + l.stress : "")) + "</small>") + "</div>"; }).join("");
+  var nodes = R.order.map(function(id){ var l = R.byId[id]; return '<div class="dnode' + (sel === id ? " on" : "") + (l.extern ? " ext" : "") + '" style="left:' + x[id] + "%;top:" + y(l.tiefe) + 'px" onclick="' + (l.extern ? "" : "go('dagger/" + K.n + "/landmarken/" + id + "')") + '"><span class="platte">' + esc(l.t) + "</span>" + ((l.extern && l.extern !== true) ? "<small>aus Kapitel " + esc(l.extern) + "</small>" : l.extern ? "<small>aus anderem Kapitel</small>" : "<small>" + esc((l.dom || []).join(", ") + (l.stress ? " · " + l.stress : "")) + "</small>") + "</div>"; }).join("");
   var dn = R.V.map(function(v){ var a = R.byId[v.von], b = R.byId[v.nach]; if(!a || !b) return ""; var cx = (x[v.von] + x[v.nach]) / 2, cy = (y(a.tiefe) + y(b.tiefe)) / 2 + 20; return '<div class="ddelve' + (sel === "d:" + v.id ? " on" : "") + '" style="left:' + cx + "%;top:" + cy + 'px" onclick="go(\'dagger/' + K.n + "/landmarken/d:" + v.id + '\')">Delve · ' + esc(v.res) + "</div>"; }).join("");
   return '<div class="dkarte" style="height:' + H + 'px">' + rowsH + svg + nodes + dn + "</div>";
 }

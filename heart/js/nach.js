@@ -23,6 +23,7 @@ function blk(b){
     case "werte": return '<div class="werte">' + b.z.map(function(z){ return '<div><span class="lbl">' + esc(z[0]) + "</span> " + md(z[1]) + "</div>"; }).join("") + "</div>";
     case "karten": return '<div class="kkarten">' + b.x.map(function(k){ return '<div class="kkarte"><div class="platte">' + esc(k.t) + "</div>" + k.b.map(blk).join("") + "</div>"; }).join("") + "</div>";
     case "grid": return '<div class="bgrid n' + (b.n || 2) + '">' + b.x.map(function(c){ return "<div>" + c.map(blk).join("") + "</div>"; }).join("") + "</div>";
+    case "tab": return (b.h ? '<h3 class="h3">' + esc(b.h) + "</h3>" : "") + '<ol class="tab n' + (b.n || 2) + '">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ol>";
     case "img": return '<img class="bimg" src="' + IMG(b.src) + '" alt="" onclick="zoom(this.src)">';
     case "html": return b.x;
   }

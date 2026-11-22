@@ -53,9 +53,9 @@
     var h = "";
     (a.aerger || []).forEach(function(t){ h += '<div class="tr"><h4>' + esc(t.t) + '</h4>' + nm(t.html) + '</div>'; });
     (a.hinweise || []).forEach(function(t, i){ h += hinweis(a.id + "-" + i, t, S); });
-    (a.extra || []).forEach(function(t){ h += '<div class="tr bib"><h4>' + esc(t.t) + ' ' + (t.s ? '<span class="pg">' + pg(M.buch, t.s) + '</span>' : '') + '</h4>' + nm(t.html) + '</div>'; });
     return h;
   }
+  function extraCards(M, a){ var h = ""; (a.extra || []).forEach(function(t){ h += '<div class="tr bib full"><h4>' + esc(t.t) + ' ' + (t.s ? '<span class="pg">' + pg(M.buch, t.s) + '</span>' : '') + '</h4>' + nm(t.html) + '</div>'; }); return h; }
   function loopBox(M, a, S){
     var mine = (a.loop === (loop() === "boulder" ? "boulder" : "maelar"));
     var other = a.loop === "maelar" ? "Mälarinseln" : "Boulder City";
@@ -91,7 +91,7 @@
       else {
         ab = ab || P.abschnitte[0];
         main = '<div class="top3"><div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div><div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' + countdown(M, S) + '</div>' +
-          '<div class="txt">' + '<div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + '</div>';
+          '<div class="txt">' + '<div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + extraCards(M, ab) + '</div>';
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';
     } else {

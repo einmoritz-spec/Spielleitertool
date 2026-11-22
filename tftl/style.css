@@ -213,3 +213,4 @@ details.lk[open] summary{display:none}
 .cd .rest{display:none;font-style:normal;color:#5a564e;margin-top:3px}
 .cd li.open .rest{display:block}
 .cd li.dn .rest{color:#b3ada2}
+.tr.bib.full{clear:both;margin-top:14px}.tr.bib.full p{font-size:16.5px;line-height:1.5}

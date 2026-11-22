@@ -38,7 +38,7 @@ function note(k){
 }
 /* Tab-Leiste: list = [[id, Name]], href(id) → Hash; right = HTML rechts (Zeit, Stift …) */
 function tabs(list, cur, href, right){
-  return '<div class="tabs">' + list.map(function(t){ return '<a class="tab' + (t[0] === cur ? ' on' : '') + '" href="#' + href(t[0]) + '">' + esc(t[1]) + '</a>'; }).join("") + '<span class="sp"></span>' + (right || "") + '</div>';
+  return '<div class="tabs' + (list.length >= 8 ? ' viel' : '') + '">' + list.map(function(t){ return '<a class="tab' + (t[0] === cur ? ' on' : '') + '" href="#' + href(t[0]) + '">' + esc(t[1]) + '</a>'; }).join("") + '<span class="sp"></span>' + (right || "") + '</div>';
 }
 function penTab(k){ return '<span class="stift' + (ST.notes && ST.notes[k] ? ' has' : '') + '" onclick="note(\'' + k + '\')" title="Notizen">' + PEN + '</span>'; }
 /* Seitenleiste + Inhalt (sticky, einklappbar) */

@@ -303,3 +303,11 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .ls.spalte{grid-auto-flow:column;grid-template-rows:repeat(var(--r),auto)}
 .ls li{display:flex;gap:6px;align-items:baseline}
 .rimg img{width:100%;display:block;margin-bottom:18px;cursor:zoom-in}
+.rs table{border:2px solid #111;background:#fff;border-collapse:collapse}
+.rs td,.rs th{border:0;border-bottom:1px solid #111;padding:8px 12px;line-height:1.35}
+.rs tr:last-child td{border-bottom:0}
+.rs td:first-child{white-space:nowrap;background:#111;color:var(--gelb);font-weight:700;width:1%;border-bottom-color:#444}
+.rs td:first-child b{font-weight:700}
+.rg .rs table td{padding:9px 14px;font-size:15px}
+.rg .rs table td:first-child{padding:9px 12px;text-align:center}
+.rg .rs table tr+tr td{border-top:1px solid #111}

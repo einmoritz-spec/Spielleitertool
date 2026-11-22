@@ -547,7 +547,7 @@ table.d6 tr.hl td{background:var(--gelb2)!important}
 .rg66 .r{display:grid;grid-template-columns:30px 1fr;gap:8px;padding:5px 8px;font-size:13.5px;line-height:1.4;cursor:pointer;grid-column:auto}
 .rg66 .r:nth-child(4n+1),.rg66 .r:nth-child(4n+2){background:var(--lav)}
 .rg66 .r.hl{background:var(--gelb2)!important}.rg66 .n{font-weight:800;text-align:center}
-.rghoert{display:flex;flex-wrap:wrap;gap:6px 8px}.rghoert span{border:1px solid #d9d0ea;background:#faf7ff;padding:4px 9px;font-size:13px;line-height:1.3;cursor:pointer}.rghoert span.hl{background:var(--gelb2);border-color:var(--gelb)}
+.rghoert{display:flex;flex-wrap:wrap;gap:6px 8px}.rghoert span b{color:var(--mint);margin-right:3px}.rghoert span{border:1px solid #d9d0ea;background:#faf7ff;padding:4px 9px;font-size:13px;line-height:1.3;cursor:pointer}.rghoert span.hl{background:var(--gelb2);border-color:var(--gelb)}
 .rgle{margin:12px 0 4px}.rgle .lz{display:flex;gap:18px;align-items:center;margin:8px 0}.rgle .clock{width:54px;height:54px}
 .rgle .wortl{display:inline-flex;gap:3px}.rgle .wortl i{display:inline-block;width:24px;height:28px;border:2px solid #000;font:700 14px/24px var(--body);text-align:center;font-style:normal}.rgle .wortl i.x{background:#000;color:#fff}
 .rgle .strich b{font:400 22px var(--marker)}

@@ -272,6 +272,14 @@ details.lk[open] summary{display:none}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--acc);margin-right:10px}.dot.g{background:#bbb}
 /* Nachschlagen */
 .page.nach{padding:18px 22px 30px}
+.page.nach.nl{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:start;padding-left:0}.page.nach.nl.nsc{grid-template-columns:34px 1fr}
+.nside{position:sticky;top:0;align-self:start;max-height:calc(100vh - 110px);overflow:auto;padding-left:22px}.nside button{display:block;margin:0 0 8px auto;border:0;background:none;font-size:20px;cursor:pointer;color:var(--soft)}
+.nsc .nside .ni,.nsc .nside .ng{display:none}.nsc .nside{padding-left:0}.nsc .nside button{transform:rotate(180deg);margin:0}
+.ni{display:block;padding:8px 10px;font:500 15.5px var(--sans);color:var(--ink);text-decoration:none;border-left:3px solid transparent}.ni.on{color:var(--acc);border-left-color:var(--acc);background:#fff}
+.ng{font:700 11px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin:14px 0 4px 10px}
+.nmain{min-width:0}.ntext{background:#fff;padding:20px 26px}.ntext p{font-size:18px;line-height:1.6;margin:0 0 12px;max-width:1000px}.ntext h3{font:700 16px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--acc);margin:18px 0 8px}
+.ntext ul{margin:0 0 12px 22px;font-size:18px;line-height:1.55}.nkasten{background:#fde4d0;border-left:5px solid var(--acc);padding:12px 18px;margin:12px 0;max-width:1000px}.nkasten h4{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:6px}.nkasten p{margin:0 0 8px;font-size:17px}
+.ntab{border-collapse:collapse;margin:10px 0 16px;font-size:16.5px}.ntab th{background:#000;color:#fff;font:700 13px var(--sans);padding:7px 12px;text-align:left}.ntab td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 .nh{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}.nh small{font:700 12px var(--sans);color:var(--soft)}
 .nh .chip{background:#fff;font-family:var(--sans)}
 .pgl{cursor:pointer;color:var(--soft);border-bottom:1px dotted var(--soft)}
@@ -285,3 +293,6 @@ details.lk[open] summary{display:none}
 .nbox{background:#fff;padding:14px 16px;border-top:4px solid var(--acc)}.nbox h4{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:8px}
 .nbox ul{list-style:none}.nbox li{padding:6px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45}.nbox li:last-child{border:0}
 @media(max-width:1100px){.tgrid,.nbg{grid-template-columns:repeat(2,1fr)}}
+.tgrid,.nbg{grid-template-columns:repeat(4,minmax(0,1fr))}
+.page.nach.nl .tgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.page.nach.nl.nsc .tgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ty img{width:96px}

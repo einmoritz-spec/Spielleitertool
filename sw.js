@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v703sp";
+const VERSION = "v704sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -620,7 +620,20 @@ const FILES = [
   "savageworlds/index.html",
   "savageworlds/sys.js",
   "slugblaster/index.html",
-  "slugblaster/sys.js",
+  "slugblaster/style.css",
+  "slugblaster/js/app.js",
+  "slugblaster/js/data/buecher.js",
+  "slugblaster/js/data/start.js",
+  "slugblaster/img/start/cover.webp",
+  "slugblaster/img/oolroob/cover.webp",
+  "assets/fonts/sb-onedirection.woff2",
+  "assets/fonts/sb-hateyourwriting.woff2",
+  "assets/fonts/permanent-marker-latin-400-normal.woff2",
+  "assets/fonts/figtree-latin-400-normal.woff2",
+  "assets/fonts/figtree-latin-400-italic.woff2",
+  "assets/fonts/figtree-latin-600-normal.woff2",
+  "assets/fonts/figtree-latin-800-normal.woff2",
+  "assets/fonts/figtree-latin-900-normal.woff2",
   "spire/index.html",
   "spire/style.css",
   "spire/masken.css",
@@ -1692,6 +1705,7 @@ const FILES = [
   "shared/info/etr.js",
   "shared/info/wildsea.js",
   "shared/info/pico.js",
+  "shared/info/slugblaster.js",
   "bookviewer/find.js",
   "bookviewer/bookviewer.js",
   "bookviewer/bookviewer.css",

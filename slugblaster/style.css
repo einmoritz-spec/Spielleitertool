@@ -1,0 +1,154 @@
+/* ==========================================================
+   SLUGBLASTER – Farb-/Schriftsystem (aus dem Regelbuch 1.31 gemessen)
+   Ausgangspunkt für slugblaster/style.css
+   ========================================================== */
+@font-face{font-family:"SB Marker";src:url(../assets/fonts/sb-onedirection.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"SB Ziffern";src:url(../assets/fonts/permanent-marker-latin-400-normal.woff2) format("woff2");size-adjust:92%}
+@font-face{font-family:"SB Hand";src:url(../assets/fonts/sb-hateyourwriting.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Figtree";font-weight:400;src:url(../assets/fonts/figtree-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-weight:400;font-style:italic;src:url(../assets/fonts/figtree-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-weight:600;src:url(../assets/fonts/figtree-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-weight:800;src:url(../assets/fonts/figtree-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-weight:900;src:url(../assets/fonts/figtree-latin-900-normal.woff2) format("woff2")}
+
+:root{
+  /* Kapitel 1 – Lila (Regeln) */
+  --lila:#6d4d9f; --lila2:#866baf; --lila3:#785ba7; --lav:#d8d1e8; --lav2:#a997c8;
+  /* Kapitel 2 – Pink (Teenager) */
+  --pink:#f175ad; --mag:#ec008c; --rosa:#f7b8d4; --rosa2:#fbdbe9;
+  /* Kapitel 3 – Gelb (Multiversum) */
+  --gelb:#ffd457; --gelb2:#ffdc7b;
+  /* Kapitel 4 – Minze (Spielleitung) */
+  --mint:#2fb996; --mint2:#69c5a8; --teal:#008496;
+  /* Akzente */
+  --cyan:#00aeef; --cyan2:#7ed3f7; --cyan3:#6dcff6; --petrol:#5495a6;
+  /* Andere Welten – Nachtseiten */
+  --nacht:#292829; --nacht2:#3a383a;
+  --ink:#000; --grau:#6f6a78; --papier:#fff; --linie:#e6e1ef;
+  --c:var(--lila); --c2:var(--lila2);           /* Kapitelfarbe der aktuellen Ansicht */
+  --marker:"SB Marker","SB Ziffern",Impact,sans-serif;   /* Ziffern fehlen im Buch-Teilset → Permanent Marker */
+  --hand:"SB Hand","Caveat",cursive;
+  --body:"Figtree","Proxima Nova",system-ui,sans-serif;
+}
+.k1{--c:var(--lila);--c2:var(--lila2);--hc:var(--pink)}
+.k2{--c:var(--pink);--c2:var(--rosa);--hc:var(--pink)}
+.k3{--c:var(--gelb);--c2:var(--gelb2);--hc:var(--pink)}
+.k4{--c:var(--mint);--c2:var(--mint2);--hc:var(--lila2)}
+
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100vh;background:#fff;color:var(--ink);font:400 15px/1.5 var(--body)}
+button{font:inherit;color:inherit}
+
+/* ---------- Kopfzeile ---------- */
+.topbar{position:sticky;top:0;z-index:20;height:56px;display:flex;align-items:center;gap:8px;padding:0 14px 0 18px;background:var(--lila);color:#fff}
+.topbar .brand{height:44px;display:flex;align-items:center;background:none;border:0;padding:0;cursor:pointer}
+.topbar .brand img{height:42px;display:block;transform:rotate(-2deg)}
+.topbar .sp{flex:1}
+.ib{width:40px;height:40px;border-radius:10px;border:0;background:rgba(255,255,255,.12);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.ib svg{width:22px;height:22px}
+.ib.i{font:800 19px/1 Georgia,serif;font-style:italic}
+
+/* ---------- Tab-Leiste: aktiver Tab sitzt auf einem Farbklecks wie die Kapitelmarke im Buch ---------- */
+.tabs{position:sticky;top:56px;z-index:15;display:flex;align-items:stretch;gap:2px;padding:0 18px;height:46px;background:#fff;border-bottom:2px solid var(--linie)}
+.tabs a{position:relative;display:flex;align-items:center;padding:0 16px;font:900 12.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#4a4552;text-decoration:none;cursor:pointer}
+.tabs a.on{color:#fff}
+.tabs a.on::before{content:"";position:absolute;z-index:-1;left:2px;right:2px;top:6px;bottom:5px;background:var(--tc,var(--c));border-radius:46% 54% 38% 62% / 62% 44% 56% 38%;transform:rotate(-1.5deg)}
+.tabs .sp{flex:1}
+.tabs .pen{align-self:center;width:34px;height:34px;border:0;background:none;color:#9a93a8;cursor:pointer}
+
+/* ---------- Überschriften ---------- */
+.h1,.h2,.h3{font-family:var(--marker);font-weight:400;text-transform:uppercase;letter-spacing:.02em;margin:0;line-height:1.05}
+.h1{font-size:44px;color:var(--hc,var(--pink))}
+.h2{font-size:27px;color:var(--hc,var(--pink))}
+.h3{font-size:20px;color:var(--hc,var(--pink))}
+.cap{font:900 12px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;margin:0}
+.pg{font:600 11px var(--body);color:#a39cb0;letter-spacing:0;text-transform:none;margin-left:7px;cursor:pointer;white-space:nowrap}
+.pg:hover{color:var(--lila)}
+.sub{font:italic 400 14.5px/1.45 var(--body);margin:2px 0 0}
+
+/* ---------- Text ---------- */
+.txt p{margin:0 0 .7em}
+.txt b{font-weight:800}
+ul.dot{margin:.2em 0 .8em;padding:0;list-style:none}
+ul.dot li{position:relative;padding-left:16px;margin:0 0 .35em}
+ul.dot li::before{content:"";position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:50%;background:currentColor}
+
+/* ---------- Kästen wie im Buch ---------- */
+.box{background:var(--bc,var(--lila2));color:#fff;padding:16px 18px 14px;font-weight:600;font-size:14.5px;line-height:1.48}
+.box .cap{color:#fff;margin-bottom:8px}
+.box p{margin:0 0 .6em}
+.box.teal{--bc:var(--teal)} .box.cyan{--bc:var(--cyan)} .box.pink{--bc:var(--pink)} .box.mag{--bc:var(--mag)} .box.mint{--bc:var(--mint)} .box.lila{--bc:var(--lila)}
+.box.gelb{--bc:var(--gelb);color:#000}.box.gelb .cap{color:#000}
+.bar{border-left:7px solid var(--lila);padding:2px 0 2px 14px;margin:0 0 14px}
+.bar .cap{margin-bottom:4px}
+.tint{background:var(--lav);padding:12px 16px}
+
+/* ---------- Tabellen (W6) ---------- */
+table.d6{width:100%;border-collapse:collapse;font-size:13.5px}
+table.d6 th{font:900 11px var(--body);letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:4px 8px}
+table.d6 td{padding:5px 8px;vertical-align:top}
+table.d6 tr:nth-child(odd) td{background:var(--lav)}
+table.d6 td.n{width:30px;text-align:center;font-weight:800}
+table.d6.pinkt tr:nth-child(odd) td{background:var(--rosa2)}
+
+/* ---------- Randnotiz des Autors (Handschrift) ---------- */
+.note{font:400 19px/1.1 var(--hand);color:var(--teal);transform:rotate(-3deg);display:inline-block;max-width:190px}
+.note.pink{color:var(--pink)} .note.lila{color:var(--lila2)} .note.mag{color:var(--mag)}
+
+/* ---------- Kleckse (Kapitelmarken) ---------- */
+.blob{border-radius:58% 42% 51% 49% / 38% 57% 43% 62%}
+
+/* ---------- Leisten ---------- */
+.trk{display:flex;gap:5px;flex-wrap:wrap}
+.trk i{width:22px;height:22px;border:2.5px solid #000;border-radius:3px;display:block;background:#fff}
+.trk i.x{background:#000}
+.trk.rund i{border-radius:50%}
+.clock{width:58px;height:58px}
+
+
+a{color:inherit}
+body.notop .topbar{display:none}body.notop .tabs{top:0}
+.pg{display:inline}
+/* ---------- Startseite ---------- */
+.hero{position:relative;height:330px;background:var(--lila);color:#fff;display:grid;grid-template-columns:1fr 330px;overflow:hidden}
+.hero .l{padding:34px 40px 0 44px;position:relative}
+.hero .big{font:400 86px/.86 var(--marker);text-transform:uppercase;letter-spacing:-.01em;margin:0;color:#fff}
+.hero .big span{color:var(--pink)}
+.hero .pitch{font:400 34px/1.08 var(--hand);max-width:640px;margin:18px 0 0;color:#fff}
+.hero .r img{width:330px;height:330px;display:block}
+.hero .pinkblob{position:absolute;right:-40px;bottom:-70px;width:380px;height:150px;background:var(--mag);border-radius:60% 40% 0 0/90% 70% 0 0;transform:rotate(-8deg)}
+.hero .wtg{position:absolute;right:30px;bottom:16px;font:900 12px var(--body);letter-spacing:.16em;color:#fff;text-transform:uppercase;text-align:right;line-height:1.5}
+.wrap{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 300px;gap:18px;padding:22px 26px 40px}
+.wrap.n4{grid-template-columns:repeat(4,1fr)}
+.kc{position:relative;padding:22px 18px 14px;background:#fff;border:2px solid var(--linie);overflow:hidden;min-height:420px}
+.kc .bl{position:absolute;right:-18px;top:-26px;width:190px;height:62px;background:var(--c);border-radius:46% 54% 60% 40%/60% 44% 56% 40%;transform:rotate(-4deg)}
+.kc .bl b{position:absolute;right:34px;bottom:12px;font:900 10.5px var(--body);letter-spacing:.16em;color:#fff;text-transform:uppercase}
+.k3 .bl b{color:#000}
+.kc .h2{font-size:30px;margin:14px 0 2px;color:var(--hc);cursor:pointer}
+.kc .kn{font:400 17px var(--hand);color:var(--grau);margin:0 0 10px}
+.kc ul{list-style:none;margin:0;padding:0}
+.kc li{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px dashed #e3dfe9;font:600 14px var(--body);cursor:pointer}
+.kc li:hover{color:var(--lila)}
+.kc li i{font:600 11.5px var(--body);color:#a8a1b5;font-style:normal;white-space:nowrap}
+.side{display:flex;flex-direction:column;gap:14px}
+.go{position:relative;display:block;height:230px;background:var(--mag);color:#fff;border:0;padding:22px 24px;text-align:left;cursor:pointer;overflow:hidden}
+.go .t{font:400 46px/.92 var(--marker);text-transform:uppercase}
+.go .s{font:400 19px/1.1 var(--hand);margin-top:12px;max-width:200px}
+.go .arr{position:absolute;right:18px;bottom:14px;font:900 40px var(--body)}
+.go .last{position:absolute;left:24px;bottom:16px;font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.18);padding:5px 9px;border-radius:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--lila);color:var(--lila);background:#fff;font:800 12px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:40px 34px 38px 30px;cursor:pointer}
+.chip:hover{background:var(--lila);color:#fff}
+.oo{display:flex;gap:12px;align-items:center;background:#d37e2a;color:#3a1511;padding:10px;cursor:pointer;border:0;text-align:left;width:100%}
+.oo img{width:62px;height:62px}
+.oo b{font:400 26px var(--marker);color:#fdedb3;text-transform:uppercase;display:block;line-height:1}
+.oo small{font:600 12.5px var(--body)}
+/* ---------- Menü, Fenster ---------- */
+.mm-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;z-index:40;transition:.2s}.mm-backdrop.on{opacity:1;pointer-events:auto}
+.mm-panel{position:fixed;top:0;right:0;bottom:0;width:310px;background:#fff;color:var(--ink);z-index:41;padding:18px;overflow:auto;transform:translateX(105%);transition:.2s;border-left:3px solid var(--lila)}.mm-panel.on{transform:none}
+.mm-panel h3{font:400 22px var(--marker);text-transform:uppercase;color:var(--pink);margin:16px 0 4px}
+.mm-panel button{display:block;width:100%;text-align:left;padding:7px 10px;border:0;background:none;border-radius:8px;font:600 14.5px var(--body);cursor:pointer}.mm-panel button:hover{background:var(--lav)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal>div{background:#fff;color:var(--ink);padding:18px;width:min(560px,96vw);max-height:88vh;overflow:auto;border:3px solid var(--c)}
+.gzoom{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:70;display:flex;align-items:center;justify-content:center;cursor:zoom-out}
+.gzoom img{max-width:94vw;max-height:94vh}

@@ -26,13 +26,15 @@ Entwürfe (Screenshots 1440×900) liegen in `plan/slugblaster/mockups/` – **di
 
 ---
 
-## 0. Entscheidungen, die Moritz bestätigen soll (vor Schritt 1)
+## 0. Entscheidungen (von Moritz am 22. Nov. 2026 beantwortet – verbindlich)
 
-Diese Punkte sind im Plan so angenommen; wenn Moritz etwas anders will, **vor** dem Bau ändern:
-1. **Begriffe:** „Run“ → **Tour**, „Beat“ → **Moment**, „Downtime“ → **Auszeit**, „Bite“ → **Biss**, „Slam“ → **Sturz**, „Nope“ → **Nö!** (siehe Glossar). Alternative: „Run“, „Beat“, „Downtime“ englisch lassen.
-2. **Persönlichkeiten** (The Grit, The Guts, The Smarts, The Heart, The Chill, The Loner) und **Signatur-Geräte/Mod-Namen** (Gravity Blaster, Endurance Engine …) bleiben als Eigennamen **englisch** – der Titel-Schriftzug ist ein Bild aus dem Buch. Alles andere deutsch.
-3. **Oolroob** wird **Untersetting** (Dropdown: Slugblaster › Oolroob) mit eigenem Orange-Design – nicht nur ein Bonus-Heimatort.
-4. **Charakterbögen:** deutscher Nachbau im Stil der Original-Bögen (Grunge-Schwarzweiß) mit `shared/fillpdf.js`; zusätzlich Knopf „Original-Bogen (EN) ausfüllen“, der die ausfüllbaren Original-PDFs befüllt (Feldkarten liegen bereit, Abschnitt 1).
+1. **Begriffe bleiben ENGLISCH:** Run, Beat, Downtime, Bite, Slam, Nope, Trouble, Disaster, Doom, Style, Boost, Kick, Dare, Snag usw. werden **nicht** übersetzt (das Glossar in Abschnitt 2 gilt nur für die deutschen Alltagswörter; überall, wo dort ein **fettes** Wort steht, bleibt das englische Original). Fließtext ist deutsch, die Spielbegriffe englisch (z. B. „Mach einen Action Roll“, „Du nimmst einen Slam“).
+2. **Namen bleiben englisch** (Persönlichkeiten, Signaturen, Mods, Marken, Crews, Cliquen, Welt-Eigennamen) – wie in der Namensregel.
+3. **Oolroob = Untersetting** im Dropdown (Slugblaster › Oolroob), orange Design.
+4. **Charakterbogen:** wie bei den anderen Settings **ausfüllbar**, so nah wie möglich am Original, **deutsch** (deutscher Nachbau + PDF-Export mit `shared/fillpdf.js`).
+5. Repo-Schreibrechte sind erteilt – pushen.
+
+**Bauchronik:** Schritt 0 (Gerüst, Schriften, Startseite, i-Knopf, sw.js) gebaut am 22. Nov. 2026. Gemini-Skizzen Hyperoptic Visor + Voidwear Backpack liegen fertig in `plan/slugblaster/gemini/fertig/` (`sig-*.webp`, schon hellblau).
 
 ---
 

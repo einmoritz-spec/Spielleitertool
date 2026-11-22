@@ -5,8 +5,8 @@ window.VS = {
   /* Kachel: [Titel, Untertitel, Kap./Seite, Bild, Ziel, Klasse/Bildposition] */
   tile: function(t, href){ var pos = t[5] && t[5] !== "c" ? ';background-position:' + t[5] : '';
     return '<a class="vc' + (t[5] === "c" ? ' c' : '') + '" href="' + href + '"><div class="im" style="background-image:url(img/' + t[3] + '.webp)' + pos + '"></div><div class="tx"><h3>' + VS.esc(t[0]) + '</h3><span>' + VS.esc(t[2]) + '</span></div></a>'; },
-  /* Spalten nach Kachelzahl: 3/6/9 -> 3, 2/4 -> 2, sonst 3 mit breiter erster Kachel (keine Lücken) */
-  grid: function(list, href){ var n = list.length, c = n % 3 === 0 ? "c3" : n % 2 === 0 ? "c2" : n === 1 ? "c1" : "c3 w1";
+  /* Spalten nach Kachelzahl: 4/8 -> 4, 3/6/9 -> 3, 2 -> 2, sonst 3 mit breiter erster Kachel (keine Lücken) */
+  grid: function(list, href){ var n = list.length, c = n % 4 === 0 ? "c4" : n % 3 === 0 ? "c3" : n % 2 === 0 ? "c2" : n === 1 ? "c1" : "c3 w1";
     return '<div class="vg ' + c + '">' + list.map(function(t){ return VS.tile(t, href(t)); }).join("") + '</div>'; },
   sec: function(title, body, extra){ return '<section class="vs"><div class="vh2"><h2>' + title + '</h2>' + (extra || '') + '</div>' + body + '</section>'; },
   /* Weiterspielen: große Bildkarte */

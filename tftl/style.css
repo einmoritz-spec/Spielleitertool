@@ -64,21 +64,22 @@ body.flood .mc .s{background:var(--band2);color:#fff}
 body.flood .mc.x .im{display:none}body.flood .mc.x{border-left:6px solid var(--band2);padding-top:2px}
 /* ===== Vorbereitung (Startseite): gemeinsame Bausteine für TftL, Flood und ES (Farben über Variablen) ===== */
 main.start{padding:0;--vr:2.15;--vbd:none;--vcard:#fff;--vcink:var(--acc)}
-.vhero{height:clamp(280px,min(46vh,34vw),520px);background:#222 center 50%/cover;position:relative;transition:background-image .3s}
+.vhero{height:clamp(150px,min(24vh,17vw),240px);background:#222 center 50%/cover;position:relative;transition:background-image .3s}
 .vhero:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,18,24,.4),rgba(14,18,24,0) 40%)}
 .vloop{position:absolute;right:22px;bottom:18px;z-index:1;display:flex;gap:2px;background:rgba(14,18,24,.42);backdrop-filter:blur(4px);border-radius:999px;padding:3px}
 .vloop button{font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border:0;border-radius:999px;color:rgba(255,255,255,.8);background:none;cursor:pointer}
 .vloop button:hover{color:#fff}
 .vloop button.on{background:rgba(255,255,255,.92);color:var(--ink)}
 .vb{padding:0 26px;max-width:2400px;margin:0 auto}
-.vs{padding:34px 0 6px}
-.vh2{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-.vh2 h2{font:700 30px/1 var(--sans);text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
+.vs{padding:20px 0 2px}
+.vh2{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.vh2 h2{font:700 24px/1 var(--sans);text-transform:uppercase;letter-spacing:.02em;color:var(--ink)}
 .vh2:after{content:"";order:1;flex:1;border-top:2px solid var(--line)}
 .vh2 .va{order:2}
 .va{font:700 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--acc);text-decoration:none;white-space:nowrap}
 .va:hover{text-decoration:underline}
-.vg{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}
+.vg{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:8px}
+.vg.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .vg.c1{grid-template-columns:1fr}
 .vg.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .vg.w1 .vc:first-child{grid-column:span 2}
@@ -87,30 +88,32 @@ main.start{padding:0;--vr:2.15;--vbd:none;--vcard:#fff;--vcink:var(--acc)}
 .vc:hover{box-shadow:0 8px 22px rgba(0,0,0,.24);transform:translateY(-2px)}
 .vc .im{aspect-ratio:var(--vr);background:center/cover;flex:none;transition:filter .3s}
 .vc:hover .im{filter:brightness(1.06)}
-.vc .tx{padding:12px 16px 13px;display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex:1}
-.vc h3{font:700 21px/1.1 var(--sans);text-transform:uppercase;letter-spacing:.01em;color:var(--vcink)}
-.vc .tx span{font:500 13px var(--sans);color:var(--soft);white-space:nowrap}
+.vc .tx{padding:9px 13px 10px;display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex:1}
+.vc h3{font:700 17px/1.1 var(--sans);text-transform:uppercase;letter-spacing:.01em;color:var(--vcink)}
+.vc .tx span{font:500 12px var(--sans);color:var(--soft);white-space:nowrap}
 .vc.c{border-bottom:4px solid var(--band2,var(--band))}
-.vm{background:var(--night);margin-top:30px;padding:6px 0 44px;color:#fff}
+.vm{background:var(--night);margin-top:22px;padding:4px 0 32px;color:#fff}
 .vm .vh2 h2{color:#fff}.vm .vh2:after{border-color:rgba(255,255,255,.18)}
 .vm .va{color:var(--goh)}
 .vm .gh h2{color:#fff}.vm .gh .pg{color:rgba(255,255,255,.62)}.vm .gh:after{border-color:rgba(255,255,255,.18)}
 .vm .gh .t{background:var(--band2,var(--band))}.vm .gh .t.b{background:rgba(255,255,255,.22)}
-.vm .grp{margin-bottom:24px}
-.vm .acc{height:clamp(220px,min(34vh,20vw),360px)}
+.vm .grp{margin-bottom:18px}
+.vm .mys .acc{height:clamp(190px,min(28vh,17vw),270px)}
+.vm .mys .acc .mc .vt{top:50px;align-items:flex-end}.vm .mys .acc .mc .vt b{font-size:12.5px;max-height:100%}
 .vm .acc .mc{background:#10161d}
-.vl{display:block;position:relative;height:clamp(190px,26vh,280px);border-radius:4px;overflow:hidden;margin-bottom:26px;color:#fff;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.vl{display:block;position:relative;height:clamp(120px,17vh,170px);border-radius:4px;overflow:hidden;margin-bottom:18px;color:#fff;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.35)}
 .vl .im{position:absolute;inset:0;background:center 40%/cover;transition:transform .6s}
 .vl:hover .im{transform:scale(1.03)}
 .vl:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,14,20,.85),rgba(10,14,20,.1) 70%)}
 .vl .tx{position:absolute;z-index:2;left:26px;bottom:20px;right:26px}
 .vl small{display:block;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--goh)}
-.vl b{display:block;font:700 clamp(26px,3vw,42px)/1.05 var(--sans);text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.5);margin:4px 0}
+.vl b{display:block;font:700 clamp(22px,2.2vw,32px)/1.05 var(--sans);text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.5);margin:4px 0}
 .vl span{font:17px var(--serif);opacity:.85}
 .vcrew{font:15px/1.5 var(--serif);color:#dfe6e6;margin-top:4px}
 .vcrew span{font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--goh);margin-right:10px}
 .vcrew b{font:600 15px var(--head,var(--sans));text-transform:uppercase;letter-spacing:.03em;color:#fff}
-@media (max-width:700px){.vg,.vg.c3{grid-template-columns:1fr}.vg.w1 .vc:first-child{grid-column:auto}.vg.w1 .vc:first-child .im{aspect-ratio:var(--vr);height:auto}}
+@media (max-width:1000px){.vg.c4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.vg,.vg.c3,.vg.c4{grid-template-columns:1fr}.vg.w1 .vc:first-child{grid-column:auto}.vg.w1 .vc:first-child .im{aspect-ratio:var(--vr);height:auto}}
 /* The Electric State: Graublau/Teal */
 @media (max-width:700px){.tabs{overflow-x:auto}}
 /* Mysterien-Übersicht */
@@ -626,3 +629,18 @@ body.nohead .hb{--hh:100vh}
 .rail .ro2 .tr{font:14px/1.45 var(--serif)}
 .rail .ro2 .tr h4{font:700 13px var(--sans);letter-spacing:.04em}
 .rail a.rn span{display:grid;place-items:center;font:700 14px var(--sans);color:var(--acc)}
+
+/* Leitstand kompakt (22. Nov. 2026): kein Titel-Banner – Name + Bild stehen klein in der Tab-Leiste, alle Tabs gleich groß */
+.ls{--H:0px;--B:0px}
+.tabs .mt{gap:9px;padding-right:16px;margin-right:4px}
+.tabs .mt i{width:28px;height:28px;flex:none}
+.tabs .mt b{display:block!important;max-width:min(260px,19vw);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
+.tabs:has(.mt) a:not(.mt){padding:0 12px;font-size:14px}
+.tabs a.vp{font-size:14px;opacity:1}
+.tabs .tsep{margin:0 6px}
+.side a i{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--acc);color:#fff;font:700 11px var(--sans);font-style:normal;margin-right:8px;vertical-align:1px}
+.side a.dn i{background:var(--done)}
+.side a{padding:8px 16px 8px 14px}
+.ls .main>.txt:first-child>h2.loc:first-child,.ls .main>.txt:first-child>.side2+h2.loc,.ls .main>.top2+.flowrow+.txt>h2.loc:first-child{margin-top:4px}
+.ls .side{padding-top:30px}
+.top3.nocd:not(.t2){grid-template-columns:minmax(0,1.25fr) minmax(384px,.95fr)}

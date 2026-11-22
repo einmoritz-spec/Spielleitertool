@@ -29,23 +29,23 @@ body.es .tape{position:absolute;width:110px;height:26px;background:rgba(214,196,
 body.es .vq{border-left:4px solid var(--ink);background:#e6eded;padding:10px 16px;font-style:italic;margin:8px 0 12px}
 body.es .vq{font:italic 18px/1.5 var(--serif);color:var(--ink)}
 /* Vorbereitung: gleiche Bausteine wie TftL (style.css .v*), hier nur Farbwelt Petrol/Sand/Neonrot */
-body.es main.start{--vr:1.55;--vbd:2.5px solid var(--ink);--vcard:var(--paper);--vcink:var(--ink);--goh:var(--dust)}
+body.es main.start{--vr:1.6;--vbd:2.5px solid var(--ink);--vcard:var(--paper);--vcink:var(--ink);--goh:var(--dust)}
 body.es .vhero{background-position:center 38%}
 body.es .vhero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--red)}
 body.es .vloop button.on{color:var(--ink)}
-body.es .vh2 h2{font:600 34px var(--head);color:var(--ink);letter-spacing:.03em}
+body.es .vh2 h2{font:600 28px var(--head);color:var(--ink);letter-spacing:.03em}
 body.es .vh2:after{border-top:2.5px solid var(--ink)}
 body.es .vm .vh2 h2{color:#fff}body.es .vm .vh2:after{border-color:rgba(255,255,255,.3)}
 body.es .vc{border-radius:0;box-shadow:none}
 body.es .vc:hover{box-shadow:0 6px 0 var(--red);transform:translateY(-2px)}
 body.es .vc .im{border-bottom:2.5px solid var(--ink)}
-body.es .vc h3{font:600 24px/1.05 var(--head);letter-spacing:.03em;color:var(--ink)}
+body.es .vc h3{font:600 20px/1.05 var(--head);letter-spacing:.03em;color:var(--ink)}
 body.es .vc .tx span{font:500 13px var(--sans);letter-spacing:.06em}
 body.es .vm{border-top:8px solid var(--dust)}
 body.es .vm .gh h2{font:600 28px var(--head);letter-spacing:.03em}
 body.es .vm .gh .t{background:var(--red)}
 body.es .vm .acc .mc,body.es .vl{border-radius:0}
-body.es .vl b{font:600 clamp(28px,3.2vw,46px)/1.05 var(--head)}
+body.es .vl b{font:600 clamp(24px,2.4vw,34px)/1.05 var(--head)}
 body.es .va{font:600 16px var(--head);letter-spacing:.1em;background:var(--dust);color:var(--ink);padding:8px 18px;text-decoration:none}
 body.es .va:hover{background:#fff;text-decoration:none}
 /* i-Pop-up */
@@ -430,3 +430,9 @@ body.es .egrid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
 body.es .etile .im{height:auto;aspect-ratio:2.1/1}
 body.es .ert a{height:210px}
 body.es .shd{background:var(--night)}
+
+/* Vorbereitung: Die Welt und Das Spiel nebeneinander, damit alles auf einen Bildschirm passt */
+.vpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px}
+.vpair .vc .tx{flex-direction:column;align-items:flex-start;gap:3px}
+body.es .vpair .vc h3{font-size:19px}
+@media (max-width:1000px){.vpair{grid-template-columns:1fr}}

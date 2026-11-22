@@ -20,7 +20,7 @@ ES.renderStart = function(el){
   el.className = "page start";
   el.innerHTML =
     '<div class="vhero" style="background-image:url(img/' + D.hero + '.webp)"></div>' +
-    '<div class="vb">' + VS.sec("Die Welt", VS.grid(D.welt, href)) + VS.sec("Das Spiel", VS.grid(D.spiel, href)) + '</div>' +
+    '<div class="vb vpair">' + VS.sec("Die Welt", VS.grid(D.welt, href)) + VS.sec("Das Spiel", VS.grid(D.spiel, href)) + '</div>' +
     '<div class="vm"><div class="vb">' + VS.sec("Reise", lastHtml + strip + crewHtml, '<a class="va" href="#es/reise">Reise starten</a>') + '</div></div>';
   window.mysWire(el);
 };

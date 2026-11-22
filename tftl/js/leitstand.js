@@ -113,7 +113,8 @@
     var L = M.phasen.filter(function(p){ return p.id === "loesung"; })[0];
     var orte = L ? L.abschnitte.filter(function(x){ return x.ort; }) : [];
     var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
-    if(orte.length){ h += '<div class="rsx"><h5>Orte</h5>' + (hasMap && !(P.id === "loesung" && ab && ab === L.abschnitte[0]) ? '<div class="rmap">' + karte(M, ab && ab.ort, S) + '</div>' : '') + orte.map(function(x){ var o = (M.orte || []).filter(function(q){ return q.id === x.ort; })[0]; if(!o) return ""; var on = P.id === "loesung" && ab && ab.id === x.id;
+    if(orte.length && P.id === "loesung"){ if(hasMap && !(ab && ab === L.abschnitte[0])) h += '<div class="rsx"><h5>Karte</h5><div class="rmap">' + karte(M, ab && ab.ort, S) + '</div></div>'; }
+    else if(orte.length){ h += '<div class="rsx"><h5>Orte</h5>' + (hasMap && !(P.id === "loesung" && ab && ab === L.abschnitte[0]) ? '<div class="rmap">' + karte(M, ab && ab.ort, S) + '</div>' : '') + orte.map(function(x){ var o = (M.orte || []).filter(function(q){ return q.id === x.ort; })[0]; if(!o) return ""; var on = P.id === "loesung" && ab && ab.id === x.id;
       return '<a class="rl' + (on ? ' on' : '') + ((S.orte || {})[o.id] && !on ? ' dn' : '') + '" href="' + base + 'loesung/' + x.id + '"><i>' + esc(o.nr) + '</i>' + esc(tok(o.name)) + '</a>'; }).join("") + '</div>'; }
     h += '<div class="rsx"><h5>Hinweise</h5><a class="rl rh" href="' + base + 'loesung/_hinweise"><small class="hwc"></small></a></div>';
     var ks = Object.keys(M.nsc || {});
@@ -153,12 +154,12 @@
     var html = "";
     if(multi){
       var curOrt = ab && ab.ort || null;
-      var side = '<aside class="side"><button class="col" title="Seitenleiste einklappen (b)" aria-label="Seitenleiste einklappen">‹</button><h5>' + esc(P.name) + '</h5>' +
+      var side = '<aside class="side"><button class="col" title="Seitenleiste einklappen (b)" aria-label="Seitenleiste einklappen">‹</button>' +
         grp.map(function(g){ var x = g.items[0], o = x.ort ? M.orte.filter(function(q){ return q.id === x.ort; })[0] : null, on = ab && ab.id === x.id, dn = o && (S.orte || {})[o.id];
-          return '<a href="' + base + 'loesung/' + x.id + '" class="' + (on ? 'on' : '') + (dn && !on ? ' dn' : '') + '">' + (o ? 'Ort ' + o.nr + '<small>' + esc(o.name) + '</small>' : (x.ueberblick || x === P.abschnitte[0] ? 'Überblick<small>Karte · Ablauf · Countdown</small>' : esc(String(x.titel).split(":")[0]))) + '</a>' +
+          return '<a href="' + base + 'loesung/' + x.id + '" class="' + (on ? 'on' : '') + (dn && !on ? ' dn' : '') + '">' + (o ? '<i>' + esc(o.nr) + '</i>' + esc(tok(o.name)) : (x.ueberblick || x === P.abschnitte[0] ? 'Überblick' : esc(String(x.titel).split(":")[0]))) + '</a>' +
             g.items.slice(1).map(function(y){ return '<a class="nj" href="' + base + 'loesung/' + y.id + '" data-j="' + y.id + '">' + esc(String(y.titel).split(":")[0]) + '</a>'; }).join(""); }).join("") +
-        '<h5>Immer zur Hand</h5>' + (RAIL ? '' : '<a href="' + base + 'loesung/_countdown" class="' + (ab && ab.id === "_countdown" ? 'on' : '') + '">Countdown</a>') +
-        '<a href="' + base + 'loesung/_hinweise" class="' + (abId === "_hinweise" ? 'on' : '') + '">Hinweise<small class="hwc"></small></a></aside>';
+        (RAIL ? '' : '<h5>Immer zur Hand</h5><a href="' + base + 'loesung/_countdown" class="' + (ab && ab.id === "_countdown" ? 'on' : '') + '">Countdown</a>' +
+        '<a href="' + base + 'loesung/_hinweise" class="' + (abId === "_hinweise" ? 'on' : '') + '">Hinweise<small class="hwc"></small></a>') + '</aside>';
       var main = "";
       if(abId === "_countdown") main = '<div class="cdbig">' + countdown(M, S, 1) + '</div>';
       else if(abId === "_hinweise"){ P.abschnitte.forEach(function(x){ if(x.hinweise) main += '<h3 class="hh">' + esc(x.titel) + '</h3><div class="hgrid">' + x.hinweise.map(function(t, i){ return hinweis(x.id + "-" + i, t, S); }).join("") + '</div>'; }); }
@@ -197,12 +198,7 @@
     }
     if(RAIL) html = '<div class="ws' + (railZu ? ' rz' : '') + '"><div class="wsm">' + html + '</div>' + rail(M, S, P, multi ? ab : null, base, amOrt) + '</div>';
     app.className = "ls hasH" + (RAIL ? " mini" : "");
-    app.innerHTML = '<div class="shd"><div class="shi" style="background-image:url(img/' + M.bild + '.webp)"></div><div class="shg"></div><div class="shb"></div><div class="sht"><div><small>' + esc(P.name) + '</small><b>' + esc(M.name) + '</b></div></div></div>' + html;
-    (function(){ var sh = app.querySelector(".shd"), tk = 0; if(!sh) return; var H = sh.offsetHeight;
-      function upd(){ tk = 0; var B = parseFloat(getComputedStyle(sh).getPropertyValue("--B")) || 68, D = Math.max(1, sh.offsetHeight - B), p = RAIL ? 1 : Math.min(1, Math.max(0, (window.pageYOffset || 0) / D)); sh.style.setProperty("--p", p.toFixed(3)); }
-      window.__shOnScroll = function(){ if(!tk) tk = requestAnimationFrame(upd); };
-      if(!window.__shBound){ window.__shBound = 1; window.addEventListener("scroll", function(){ if(window.__shOnScroll) window.__shOnScroll(); }, {passive: true}); }
-      upd(); })();
+    app.innerHTML = html;
     var lay = app.querySelector(".lay");
     function hwCount(){ var els = app.querySelectorAll(".hwc"); if(!els.length) return; var all = 0, got = 0, hw = load(M.id).hw || {}; M.phasen.forEach(function(p){ p.abschnitte.forEach(function(x){ (x.hinweise || []).forEach(function(t, i){ all++; if(hw[x.id + "-" + i]) got++; }); }); }); els.forEach(function(el){ el.textContent = got + " von " + all + " gefunden"; }); }
     hwCount();

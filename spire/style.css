@@ -532,7 +532,7 @@ ul.pkt li{margin:2px 0}
 /* ---------- Stadt: Karte, Domänen, Distrikt-Seite (Entwurf 2 und 3) ---------- */
 .stadt{display:grid;grid-template-columns:auto minmax(0,1fr);gap:26px;padding:16px 28px 28px;align-items:start}
 .kw{position:sticky;top:calc(var(--top) + var(--tabh) + 14px);background:#fff;border:2px solid #000;line-height:0}
-.kw img{display:block;height:calc(100vh - var(--top) - var(--tabh) - 34px);width:auto;max-width:none;aspect-ratio:1700/2200}
+.kw img{display:block;height:min(calc(100vh - var(--top) - var(--tabh) - 34px),calc(56vw * 2200 / 1700));width:auto;max-width:none;aspect-ratio:1700/2200}
 .kw svg{position:absolute;inset:0;width:100%;height:100%}
 .kw polygon{fill:transparent;stroke:transparent;stroke-linejoin:round}
 .kw polygon.hv,.kw polygon:hover{fill:#981a3f33;stroke:var(--wein);stroke-width:4}

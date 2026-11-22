@@ -315,3 +315,4 @@ details.lk[open] summary{display:none}
 
 .txt.w2 .side2{width:min(560px,42%)}.txt.w3 .side2{width:min(760px,55%)}
 .figs{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}.figs .fig:only-child{max-width:760px}
+.top3.t2{grid-template-columns:1.6fr .9fr}

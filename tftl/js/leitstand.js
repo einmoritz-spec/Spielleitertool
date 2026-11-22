@@ -104,7 +104,7 @@
         ab = ab || P.abschnitte[0];
         var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
         var cdSide = (!hasMap && M.countdown) ? countdown(M, S) : "";
-        main = ((hasMap) ? '<div class="top3' + (hasMap ? '' : ' cdonly') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div><div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') + (M.countdown ? countdown(M, S) : '') + '</div>' : '') +
+        main = ((hasMap) ? '<div class="top3' + (hasMap && M.orte.length > 5 ? ' t2' : '') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' + (M.orte.length <= 5 ? '<div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') + (M.countdown ? countdown(M, S) : '') + '</div>' : '') +
           '<div class="txt">' + '<div class="side2">' + cdSide + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>';
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';

@@ -37,7 +37,7 @@
     else { lg = '<span class="lgm" role="img" aria-label="Tales from the Loop" style="width:' + S.logoMask[1] + 'px;height:' + S.logoMask[2] + 'px;-webkit-mask-image:url(' + S.logoMask[0] + ');mask-image:url(' + S.logoMask[0] + ')"></span>';
       if(d.sub) lg += '<span class="sub-logo"><i></i><span class="lgm" role="img" aria-label="' + esc(d.title) + '" style="width:' + d.subW + 'px;height:' + d.subH + 'px;-webkit-mask-image:url(../' + d.sub + ');mask-image:url(../' + d.sub + ')"></span></span>'; }
     document.getElementById("top").innerHTML =
-      '<button class="brand" onclick="go(\'' + a + '\',\'start\')" aria-label="' + esc(d.title) + '">' + lg + '</button><div class="topbar-spacer"></div>' +
+      '<button class="brand" onclick="go(\'tftl\',\'hub\')" aria-label="' + esc(d.title) + '">' + lg + '</button><div class="topbar-spacer"></div>' +
       '<button class="tb-burger" onclick="openMenu(true)" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>';
   }
   function menu(a){
@@ -56,6 +56,7 @@
     head(r.area); menu(r.area); if(window.TX) TX.info();
     if(r.area==="tftl" && r.page==="schirm"){ location.replace("#nach/schirm"); return; }
     var tabsEl = document.getElementById("tabs");
+    if(r.area==="tftl" && r.page==="hub" && window.renderHub){ document.body.classList.add("hub"); tabsEl.innerHTML = ""; var ha = document.getElementById("app"); ha.className = "page hub-pg"; ha.onclick = null; if(tc) tc.setAttribute("content", "#f08a1c"); window.renderHub(ha); window.scrollTo(0, 0); return; }
     document.getElementById("app").onclick = null;
     var tc = document.querySelector('meta[name=theme-color]'); if(tc) tc.setAttribute("content", r.area==="es" ? "#33464a" : "#f08a1c");
     if(r.area==="es" && window.ES && ES.route){ ES.route(r.page, r.rest, document.getElementById("app"), tabsEl); return; }
@@ -87,5 +88,6 @@
     var a = route().area, ids = B[a].books;
     return {name:nameOf(ids[0]), books: ids.length>1 ? ids.map(function(id){ var it; S.groups.forEach(function(g){ g.items.forEach(function(b){ if(b.id===id) it = b; }); }); return {name:it.name, sub:(it.sub||"") + " " + it.lang, open:function(){ BV.open(id, 1); }}; }) : null, open:function(){ BV.open(ids[0], 1); }};
   };
+  try{ if(!location.hash.replace(/^#/, "") && !sessionStorage.getItem("tftl_hub")) history.replaceState(null, "", "#hub"); sessionStorage.setItem("tftl_hub", "1"); }catch(e){}
   render();
 })();

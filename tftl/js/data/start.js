@@ -1,4 +1,4 @@
-/* Startseite: Kacheln, Kampagnen, Bildstreifen */
+/* Startseite: Kacheln (Mysterien kommen aus data/mysterien.js) */
 window.START = {
   loops: [["maelar","Mälarinseln"],["boulder","Boulder City"],["taunus","Taunus"]],
   welt: [
@@ -12,9 +12,5 @@ window.START = {
     ["Ärger","Würfelprobe · Zustände · Glück · Erweiterter Ärger · Fertigkeiten","Kap. 5 · S. 64","w-trouble","nach/aerger"],
     ["Das Mysterium","Wahrheit · Die sechs Phasen · Stimmung · Kampagnen","Kap. 6 · S. 76","w-mystery","nach/mysterium"],
     ["Mystery-Landschaft","Schulbibliothek · Traumladen · Kühltürme · NAAB …","Kap. 7 · S. 98","w-landscape","nach/landschaft"]
-  ],
-  chips: [["Charakterbogen","bogen",1],["Spielleiterschirm","schirm"],["Würfel","wuerfel"],["Loop-Karte","karte"],["Galerie","galerie"]],
-  strip: ["m-friends","m-easter","m-animalark","m-ndw","m-snowday","m-cretaceous"],
-  kampagnen: ["Die vier Jahreszeiten des verrückten Wissenschaftlers","They Grow Up So Fast","Out of Time"],
-  zahl: "19 Mysterien aus 6 Büchern · 3 Kampagnen · Mixtapes"
+  ]
 };

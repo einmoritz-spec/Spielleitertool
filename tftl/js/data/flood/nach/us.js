@@ -1,6 +1,6 @@
 window.FLOOD = window.FLOOD || {};
 window.FLOOD.NACHDATA = window.FLOOD.NACHDATA || {};
-window.FLOOD.NACHDATA.us = {kap:"Kapitel 3", titel:"Die Hoover-Damm-Katastrophe", s:36, abschnitte:[
+window.FLOOD.NACHDATA.us = {bild:"flood/w-hoover", kap:"Kapitel 3", titel:"Die Hoover-Damm-Katastrophe", s:36, abschnitte:[
  {id:"einleitung", titel:"Einleitung", s:36, bloecke:[
   ["kk","Die Hoover-Damm-Katastrophe",[
    "Ich erinnere mich an die Nacht, in der es passiert ist. Nicht an die Explosion selbst, ich schlief tief und fest in meinem kleinen Bett, träumte von Brenda Walker und verpasste sie komplett. Aber das tiefe Dröhnen der Hubschrauber, die über das Haus hinwegflogen, weckte mich. Schlaftrunken öffnete ich das Fenster, um zu sehen, was los war. Was ich da sah, werde ich nie vergessen. Das blinkende Rot und Blau von hundert Polizeiautos, Krankenwagen und Löschfahrzeugen spiegelte sich in den dunklen, dichten Rauchwolken, die Boulder einhüllten. Ich begriff nicht, was passiert war, aber ich wusste, dass sich etwas für immer verändert hatte."]],

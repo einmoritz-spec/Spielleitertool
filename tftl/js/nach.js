@@ -148,7 +148,20 @@
       jump = sec.id !== f0.id ? sec.id : null;
     }
     else main = '<div class="nh"><h1>' + esc(((C.NACH || window.NACH).filter(function(x){ return x[0] === tab; })[0] || [0, tab])[1]) + '</h1></div>';
-    return {tree: tree, main: main, typen: cur === "typen", jump: jump};
+    return {tree: tree, main: main, typen: cur === "typen", jump: jump, D: D};
+  }
+  /* Kapitel-Header: gleiche Bausteine wie der Mysterium-Header (.shd, Scroll-Variable --p); nur mit gesichertem Eröffnungsbild (Feld bild im NACH-Tab bzw. Set-Datensatz) */
+  function banner(tab, D){
+    var C = CX(), n = (C.NACH || window.NACH || []).filter(function(x){ return x[0] === tab; })[0] || [], img = n[2] || (D && D.bild);
+    if(!img) return "";
+    return '<div class="shd"><div class="shi" style="background-image:url(img/' + esc(img) + '.webp)"></div><div class="shg"></div><div class="shb"></div><div class="sht"><div><small>' + esc(D && D.kap || "") + '</small><b>' + esc(n[3] || (D && D.titel) || n[1] || "") + '</b></div></div></div>';
+  }
+  function bannerInit(app){
+    var sh = app.querySelector(".shd"), tk = 0; if(!sh) return;
+    function upd(){ tk = 0; var B = parseFloat(getComputedStyle(sh).getPropertyValue("--B")) || 68, D = Math.max(1, sh.offsetHeight - B), p = Math.min(1, Math.max(0, (window.pageYOffset || 0) / D)); sh.style.setProperty("--p", p.toFixed(3)); }
+    window.__shOnScroll = function(){ if(!tk) tk = requestAnimationFrame(upd); };
+    if(!window.__shBound){ window.__shBound = 1; window.addEventListener("scroll", function(){ if(window.__shOnScroll) window.__shOnScroll(); }, {passive: true}); }
+    upd();
   }
   window.renderNach = function(app, tabs, rest){
     var C = CX(), tab = rest[0] || "welt";
@@ -164,10 +177,14 @@
     if(kid && K.list().some(function(x){ return x.id === kid; })){ typ(app, kid); return; }
     var L = lese(app, tab, rest, tab === K.tab);
     app.className = "page nach" + (collapsed ? " nsc" : "");
-    if(L.typen){ var tmp = document.createElement("div"); typen(tmp); app.className = "page nach nl" + (collapsed ? " nsc" : ""); app.innerHTML = '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + tmp.innerHTML + '</div>'; return; }
+    var bn = banner(tab, L.D);
+    function wrap(inner){ return bn ? bn + '<div class="nbody">' + inner + '</div>' : inner; }
+    var cls = "page nach nl" + (bn ? " nhb" : "") + (collapsed ? " nsc" : "");
+    if(L.typen){ var tmp = document.createElement("div"); typen(tmp); app.className = cls; app.innerHTML = wrap('<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + tmp.innerHTML + '</div>'); if(bn) bannerInit(app); return; }
     if(!L.tree){ app.innerHTML = L.main; return; }
-    app.className = "page nach nl" + (collapsed ? " nsc" : "");
-    app.innerHTML = '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + L.main + '</div>';
+    app.className = cls;
+    app.innerHTML = wrap('<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + L.main + '</div>');
+    if(bn) bannerInit(app);
     var sd = app.querySelector(".nside"), on = app.querySelector(".ni.on"); if(sd && on) sd.scrollTop = Math.max(0, on.offsetTop - 60);
     if(L.jump){ var jt = document.getElementById("nj-" + L.jump); if(jt) setTimeout(function(){ jt.scrollIntoView({block:"start"}); }, 30); }
   };

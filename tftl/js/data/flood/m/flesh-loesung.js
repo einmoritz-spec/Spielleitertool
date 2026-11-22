@@ -7,9 +7,9 @@ M.countdown = [
   "Das Phänomen greift auf den Inseln um sich, viele sind betroffen, und aus den Träumen ist schwer aufzuwachen. Menschen taumeln schreiend durch die Stadt, Autos stehen verlassen auf der Straße, manche brechen auf dem Gehweg zusammen und ringen im Griff einer Panikattacke nach Luft. Betroffene Teens müssen einen Wurf auf <span class='f'>einfühlen</span> schaffen oder erleiden einen Zustand."
 ];
 M.orte = [
-  {id: "ort1", nr: 1, name: "Marks Haus", s: 140, pin: {maelar: [43.5, 27], boulder: [30.4, 79.7]}},
+  {id: "ort1", nr: 1, name: "Marks Haus", s: 140, pin: {maelar: [42.3, 26], boulder: [30.4, 79.7]}},
   {id: "ort2", nr: 2, name: "Die Torslunda-Sümpfe", s: 142, pin: {maelar: [42.5, 75.1], boulder: [26, 23.9]}},
-  {id: "ort3", nr: 3, name: "Primal-Force-Therapiezentrum", s: 143, pin: {maelar: [35.5, 28.5], boulder: [28.5, 56.5]}}
+  {id: "ort3", nr: 3, name: "Primal-Force-Therapiezentrum", s: 143, pin: {maelar: [36.3, 27.3], boulder: [28.5, 56.5]}}
 ];
 M.karte = {maelar: "flood/flesh-karte-maelar", boulder: "flood/flesh-karte-boulder"};
 M.pinShowdown = {maelar: [65.9, 21.3], boulder: [80, 25.1]};

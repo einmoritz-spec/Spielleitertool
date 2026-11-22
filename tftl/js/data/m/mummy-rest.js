@@ -9,7 +9,7 @@ M.countdown = [
 M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
 M.pinShowdown = {maelar: [67, 44], boulder: [39, 29]};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Die Grundschule", s: 56, pin: {maelar: [58, 42], boulder: [14.5, 78.8]}},
+  {id: "ort1", nr: 1, name: "Die Grundschule", s: 56, pin: {maelar: [64.2, 73.4], boulder: [14.5, 78.8]}},
   {id: "ort2", nr: 2, name: "Der Strand", s: 58, pin: {maelar: [55, 50.5], boulder: [28, 34.8]}},
   {id: "ort3", nr: 3, name: "Der Campingplatz", s: 59, pin: {maelar: [62.5, 58.1], boulder: [27.4, 40]}},
   {id: "ort4", nr: 4, name: "Die weiterführende Schule", s: 60, pin: {maelar: [66.9, 71.2], boulder: [17, 79.5]}},

@@ -27,42 +27,26 @@ body.es .stat .at b{display:block;font:600 18px var(--head)}
 body.es .stat p{font:13.5px/1.35 var(--sans)}
 body.es .tape{position:absolute;width:110px;height:26px;background:rgba(214,196,150,.75);box-shadow:0 1px 2px rgba(0,0,0,.08)}
 body.es .vl{border-left:4px solid var(--ink);background:#e6eded;padding:10px 16px;font-style:italic;margin:8px 0 12px}
-/* Vorbereitung */
-body.es main.start{padding:0}
-body.es .ehero{height:170px;background:center 38%/cover}
-body.es .ewrap{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:24px;padding:22px 22px 26px;align-items:start}
-body.es .esec{display:flex;align-items:center;gap:14px;font-size:28px;margin-bottom:12px}
-body.es .esec:after{content:"";flex:1;border-top:2.5px solid var(--ink)}
-body.es .grpl{font:700 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 8px}
-body.es .egrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-body.es .etile{background:var(--paper);border:2.5px solid var(--ink);display:flex;flex-direction:column;color:inherit;text-decoration:none}
-body.es .etile:hover{box-shadow:0 4px 12px rgba(0,0,0,.22)}
-body.es .etile .im{height:108px;background:center/cover;border-bottom:2.5px solid var(--ink)}
-body.es .etile .tx{padding:9px 12px 10px}
-body.es .etile h3{font-size:21px}
-body.es .etile p{font:14px/1.35 var(--serif);color:var(--soft);margin-top:3px}
-body.es .etile .k{font:500 11.5px var(--sans);color:var(--soft);margin-top:6px;letter-spacing:.04em}
-body.es .echips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
-body.es .echips .chip{text-decoration:none;margin:0}
-body.es .ego{background:var(--night);color:#fff;padding:16px 18px 18px;display:flex;flex-direction:column;gap:11px;border-top:8px solid var(--dust)}
-body.es .ego h2{font-size:34px;color:#fff}
-body.es .elast{display:flex;gap:12px;background:rgba(255,255,255,.07);overflow:hidden;color:#fff;text-decoration:none}
-body.es .elast .im{width:150px;min-height:94px;background:center/cover;flex:none}
-body.es .elast small{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--dust);margin-top:10px}
-body.es .elast b{display:block;font:600 19px/1.1 var(--head);text-transform:uppercase;margin:3px 0}
-body.es .elast span{font:14px var(--serif);opacity:.75}
-body.es .ert{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-body.es .ert a{height:150px;background:center/cover;position:relative;display:block}
-body.es .ert i{position:absolute;left:0;right:0;bottom:0;padding:16px 7px 5px;font:600 12.5px/1.15 var(--head);text-transform:uppercase;letter-spacing:.03em;font-style:normal;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.75))}
-body.es .eline{display:flex;align-items:center;font:500 12px var(--sans);color:#cfd8d8;margin:2px 0}
-body.es .eline span{white-space:nowrap}
-body.es .eline i{flex:1;height:2px;background:#6b7c80;margin:0 6px;position:relative}
-body.es .eline i:after{content:"";position:absolute;left:50%;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--night);border:2px solid #9fb0b3}
-body.es .emeta{font:14px var(--serif);opacity:.75}
-body.es .crew{font:14px/1.5 var(--serif);color:#dfe6e6;border-top:1px solid rgba(255,255,255,.15);padding-top:9px}
-body.es .crew span{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
-body.es .crew b{font:600 15px var(--head);text-transform:uppercase;letter-spacing:.03em;color:#fff}
-body.es .ebtn{display:block;text-align:center;background:var(--dust);color:var(--ink);font:600 19px var(--head);letter-spacing:.08em;text-transform:uppercase;padding:13px;text-decoration:none}
+/* Vorbereitung: gleiche Bausteine wie TftL (style.css .v*), hier nur Farbwelt Petrol/Sand/Neonrot */
+body.es main.start{--vr:1.55;--vbd:2.5px solid var(--ink);--vcard:var(--paper);--vcink:var(--ink);--goh:var(--dust)}
+body.es .vhero{background-position:center 38%}
+body.es .vhero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--red)}
+body.es .vloop button.on{color:var(--ink)}
+body.es .vh2 h2{font:600 34px var(--head);color:var(--ink);letter-spacing:.03em}
+body.es .vh2:after{border-top:2.5px solid var(--ink)}
+body.es .vm .vh2 h2{color:#fff}body.es .vm .vh2:after{border-color:rgba(255,255,255,.3)}
+body.es .vc{border-radius:0;box-shadow:none}
+body.es .vc:hover{box-shadow:0 6px 0 var(--red);transform:translateY(-2px)}
+body.es .vc .im{border-bottom:2.5px solid var(--ink)}
+body.es .vc h3{font:600 24px/1.05 var(--head);letter-spacing:.03em;color:var(--ink)}
+body.es .vc .tx span{font:500 13px var(--sans);letter-spacing:.06em}
+body.es .vm{border-top:8px solid var(--dust)}
+body.es .vm .gh h2{font:600 28px var(--head);letter-spacing:.03em}
+body.es .vm .gh .t{background:var(--red)}
+body.es .vm .acc .mc,body.es .vl{border-radius:0}
+body.es .vl b{font:600 clamp(28px,3.2vw,46px)/1.05 var(--head)}
+body.es .va{font:600 16px var(--head);letter-spacing:.1em;background:var(--dust);color:var(--ink);padding:8px 18px;text-decoration:none}
+body.es .va:hover{background:#fff;text-decoration:none}
 /* i-Pop-up */
 .esinfo{position:fixed;inset:0;z-index:200;display:grid;place-items:center}
 .esinfo-b{position:absolute;inset:0;background:rgba(0,0,0,.45)}

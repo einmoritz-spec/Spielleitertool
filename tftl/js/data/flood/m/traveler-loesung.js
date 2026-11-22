@@ -9,10 +9,10 @@ M.countdown = [
 M.orte = [
   {id: "ort1", nr: 1, name: "Mettes Haus", s: 175, pin: {maelar: [70, 88], boulder: [39, 45]}},
   {id: "ort2", nr: 2, name: "Der Präsident der UFO-Gesellschaft", s: 177, pin: {maelar: [46, 68], boulder: [43, 58]}},
-  {id: "ort3", nr: 3, name: "Der Strand", s: 177, pin: {maelar: [58, 28], boulder: [16, 38]}}
+  {id: "ort3", nr: 3, name: "Der Strand", s: 177, pin: {maelar: [58, 28], boulder: [17, 37.5]}}
 ];
 M.karte = {maelar: "flood/traveler-karte-maelar", boulder: "flood/traveler-karte-boulder"};
-M.pinShowdown = {maelar: [52, 31], boulder: [23, 25]};
+M.pinShowdown = {maelar: [53.1, 29.4], boulder: [21.2, 27.1]};
 M.ablauf = {
   knoten: [
     {id: "npc1", t: "NSC-Szene 1", sp: 0, z: 0.5, ziel: "loesung/npc1"},

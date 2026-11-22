@@ -1,5 +1,5 @@
 window.NACHDATA = window.NACHDATA || {};
-window.NACHDATA.taunus = {kap:"Zusatzband · Kapitel 2", titel:"Der Taunus-Loop", s:18, buch:"tftl_z1", abschnitte:[
+window.NACHDATA.taunus = {bild:"w-taunus", kap:"Zusatzband · Kapitel 2", titel:"Der Taunus-Loop", s:18, buch:"tftl_z1", abschnitte:[
  {id:"willkommen", titel:"Willkommen im Taunus", s:19, bloecke:[
   ["bild", "taunus-opener", "w"],
   ["p", "Es hatte nicht lange gedauert, bis das Königskron-Logo begann, überall aufzutauchen. Wir haben das gar nicht hinterfragt, haben uns gedacht, das ist bestimmt überall so. Ich? Ja, ich bin damals auch auf das Königskron-Gymnasium gegangen. War eine gute Schule. Ich hab erst im Nachhinein verstanden, wie gut die ganze Ausstattung war. Die Gerüchte? Klar, die kannte jeder. Ich hab eigentlich nie was Außergewöhnliches gesehen, nein. Wobei da war dieses eine Mal, als wir uns am Hausmeister vorbei ins zweite Untergeschoss geschlichen haben und dort auf diese riesigen, verwinkelten Rohre stießen, durch die irgendeine dickflüssige Masse gepumpt wurde. Und damit ging’s an dem Tag ja erst los …"],

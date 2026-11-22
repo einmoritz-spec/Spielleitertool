@@ -43,7 +43,7 @@
   function menu(a){
     var d = B[a], p = a==="tftl" ? "" : a + "/", C = ctx(a);
     var h = '<h3>Nachschlagen</h3>' + (d.nach || C.NACH || []).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + 'nach/' + n[0] + '\'">' + esc(n[1]) + '</button>'; }).join("") +
-      '<h3>Werkzeuge</h3>' + (d.werkzeuge || [["schirm","Spielleiterschirm"],["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]]).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + n[0] + '\'">' + n[1] + '</button>'; }).join("") +
+      '<h3>Werkzeuge</h3>' + (d.werkzeuge || [["schirm","Spielleiterschirm"],["bogen","Charakterbogen"],["galerie","Galerie"]]).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + n[0] + '\'">' + n[1] + '</button>'; }).join("") +
       '<h3>Bücher</h3>' + d.books.map(function(id){ return '<button onclick="openMenu(false);BV.open(\'' + id + '\',1)">' + esc(nameOf(id)) + '</button>'; }).join("");
     document.getElementById("mmP").innerHTML = h;
   }

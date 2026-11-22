@@ -13,13 +13,5 @@ window.FLOOD.START = {
     ["Ärger","Würfelprobe · Zustände · Scham und Narben · Fertigkeiten","Kap. 5 · S. 68","flood/w-trouble","nach/aerger"],
     ["Das Mysterium","Die sechs Phasen · SL-Techniken · Horror","Kap. 6 · S. 82","flood/w-mystery","nach/mysterium"],
     ["Mystery-Landschaft","Radiopiraten · Sunshine Farm · Little Doe · Schachclub …","Kap. 7 · S. 108","flood/w-landscape","nach/landschaft"]
-  ],
-  chips: [["Charakterbogen","bogen",1],["Würfel","wuerfel"],["Loop-Karte","karte"],["Galerie","galerie"]],
-  kampagne: "Die Propheten von Pandora",
-  liste: [
-    ["flesh","Aus Fleisch und Stahl","Kap. 9 · S. 134","flood/m-flesh","1"],
-    ["ugliness","Die Hässlichkeit","Kap. 10 · S. 152","flood/m-ugliness","2"],
-    ["traveler","Reisender","Kap. 11 · S. 168","flood/m-traveler","3"],
-    ["ash","Asche zur Ewigkeit","Kap. 12 · S. 186","flood/m-ash","4"]
   ]
 };

@@ -1,5 +1,5 @@
 window.NACHDATA = window.NACHDATA || {};
-window.NACHDATA.us = {kap:"Kapitel 3", titel:"Der US-Loop", s:34, abschnitte:[
+window.NACHDATA.us = {bild:"w-us", kap:"Kapitel 3", titel:"Der US-Loop", s:34, abschnitte:[
  {id:"einleitung", titel:"Der US-Loop", s:34, bloecke:[
   ["p","Ein Projekt von der Größe des Loops hätte nie ohne internationale Zusammenarbeit verwirklicht werden können. Auch wenn die Schweden es gern als durch und durch schwedisches Projekt gesehen hätten, war klar, dass ein Großteil der Technologie und des Fachwissens hinter der Anlage in anderen Ländern entwickelt wurde, vor allem in den USA. Amerikanische Erfahrung und Technologie aus ähnlichen Projekten in der Wüste von Nevada erwiesen sich beim Bau des Loops als unschätzbar. Manche behaupten sogar, das ganze Projekt sei nur möglich gewesen, weil die Amerikaner im Ostseeraum technologisch präsent sein wollten. Über die Rolle des Loops im Kalten Krieg wurde viel spekuliert, und manche Fragen werden vielleicht nie beantwortet."]
  ]},

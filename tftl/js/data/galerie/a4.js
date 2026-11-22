@@ -3,8 +3,6 @@ Galerie.reg("tftl", {key:"a4", name:"Out of Time", dir:"img/galerie/a4/", items:
 ["a_outoftime_S001_02_2230x1688",900,681,0],
 ["a_outoftime_S001_03_1314x1688",701,900,0],
 ["a_outoftime_S003-004_01_dbl_2436x1532",900,566,0],
-["a_outoftime_S003-004_02_dbl_2556x1653",900,582,0],
-["a_outoftime_S003-004_03_dbl_2556x1652",900,582,0],
 ["a_outoftime_S009-010_01_dbl_2133x911",900,384,4],
 ["a_outoftime_S011-012_01_dbl_2136x910",900,383,6],
 ["a_outoftime_S015_01_467x503",467,503,10],
@@ -47,7 +45,6 @@ Galerie.reg("tftl", {key:"a4", name:"Out of Time", dir:"img/galerie/a4/", items:
 ["a_outoftime_S132_01_1159x824",900,640,127],
 ["a_outoftime_S132_02_731x469",731,469,127],
 ["a_outoftime_S132_03_2036x1305",900,577,127],
-["a_outoftime_S132_04_1206x1051",900,784,127],
 ["a_outoftime_S133_01_2230x1688",900,681,128],
 ["a_outoftime_S133_02_2230x1688",900,681,128],
 ["a_outoftime_S133_03_1314x1688",701,900,128]

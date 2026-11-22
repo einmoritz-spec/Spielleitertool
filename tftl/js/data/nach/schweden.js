@@ -1,5 +1,5 @@
 window.NACHDATA = window.NACHDATA || {};
-window.NACHDATA.schweden = {kap:"Kapitel 2", titel:"Der schwedische Loop", s:14, abschnitte:[
+window.NACHDATA.schweden = {bild:"w-age", kap:"Kapitel 2", titel:"Der schwedische Loop", s:14, abschnitte:[
  {id:"einleitung", titel:"Das Zeitalter des Loops", s:14, bloecke:[
   ["p","Die Präsenz des Loops war auf den Mälaren-Inseln überall zu spüren. Unsere Eltern arbeiteten dort. Die Dienstfahrzeuge von Riksenergi patrouillierten auf den Straßen und in der Luft. Seltsame Maschinen streiften durch die Wälder, die Lichtungen und die Wiesen. Welche Kräfte auch immer tief unten herrschten, sie sandten Vibrationen durch das Grundgestein, die Kalksandsteinziegel und die Eternit-Fassaden – und bis in unsere Wohnzimmer."]
  ]},

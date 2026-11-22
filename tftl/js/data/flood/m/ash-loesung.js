@@ -8,15 +8,15 @@ M.countdown = [
 ];
 /* Orte: Nummer = Pin auf der Karte (Karten/Pins folgen in Paket D6) */
 M.orte = [
-  {id: "ort1", nr: 1, pin: {maelar: [96, 50], boulder: [25, 95]}, name: "Suzanne Krapp", s: 191},
-  {id: "ort2", nr: 2, pin: {maelar: [82.4, 89.3], boulder: [6.1, 94]}, name: "Louise Tannenbaum", s: 193},
+  {id: "ort1", nr: 1, pin: {maelar: [96, 50], boulder: [3, 55]}, name: "Suzanne Krapp", s: 191},
+  {id: "ort2", nr: 2, pin: {maelar: [82.4, 89.3], boulder: [6.1, 96.3]}, name: "Louise Tannenbaum", s: 193},
   {id: "ort3", nr: 3, pin: {maelar: [7.2, 7.8], boulder: [8.1, 28.9]}, name: "Sven Järnek auf Bastlagnö", s: 195},
   {id: "ort4", nr: 4, pin: {maelar: [43.3, 35.2], boulder: [42.0, 8.2]}, name: "Linnea Hall", s: 197},
   {id: "ort5", nr: 5, pin: {maelar: [42.3, 80.2], boulder: [27.9, 42.8]}, name: "Billy und Jane", s: 199},
-  {id: "ort6", nr: 6, pin: {maelar: [75, 6.5], boulder: [67.5, 19.1]}, name: "Der Röntgenturm", s: 200}
+  {id: "ort6", nr: 6, pin: {maelar: [73.8, 4.9], boulder: [67.5, 19.1]}, name: "Der Röntgenturm", s: 200}
 ];
 M.karte = {maelar: "flood/ash-karte-maelar", boulder: "flood/ash-karte-boulder"};
-M.pinShowdown = {maelar: [67.5, 5], boulder: [72.2, 35.1]};
+M.pinShowdown = {maelar: [68.7, 5], boulder: [72.2, 35.1]};
 M.ablauf = {
   knoten: [
     {id: "start", t: "Mysterium einführen", sp: 0, z: 0.5, ziel: "mysterium", art: "ende"},

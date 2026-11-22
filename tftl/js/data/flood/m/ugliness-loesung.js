@@ -7,7 +7,7 @@ M.countdown = [
   "Weitverbreitete Veränderungen. Der Mund auf dem Rücken spricht ununterbrochen, voll ausgebildete Kiemen erlauben das Atmen unter Wasser, eine Nase hat sich in einen großen Schweinerüssel verwandelt."
 ];
 M.orte = [
-  {id: "ort1", nr: 1, name: "Louise Tannenbaums Haus", s: 158, pin: {maelar: [69.5, 88.3], boulder: [3.5, 95]}},
+  {id: "ort1", nr: 1, name: "Louise Tannenbaums Haus", s: 158, pin: {maelar: [69.5, 88.3], boulder: [2, 96.8]}},
   {id: "ort2", nr: 2, name: "Das Schwarze Loch", s: 160, pin: {maelar: [12.9, 42.7], boulder: [16.6, 6]}},
   {id: "ort3", nr: 3, name: "Das Labor an der Berggården High School", s: 161, pin: {maelar: [66.9, 77.4], boulder: [19.9, 92.2]}}
 ];

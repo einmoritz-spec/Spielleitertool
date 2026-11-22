@@ -8,7 +8,7 @@ window.renderHub = function(el){
       ort:"Mälarinseln und Boulder City", pre:"#", btn:"start",
       lk:[["Vorbereitung","start"],["Mysterien","mysterien"],["Karte","karte"]], tools:[["Würfel","wuerfel"],["Galerie","galerie"]], nm:"Loop",
       last: T && T.id ? {href:"#m/" + T.id, name:T.name, ort:T.ort} : null},
-    {k:"f", logo:["../assets/logos/things-from-the-flood-stack.webp", 220, 147], w:300, hero:"flood/hero", fp:"84% 50%", fa:"68% 50%",
+    {k:"f", logo:["../assets/logos/things-from-the-flood-stack.webp", 900, 604], w:300, hero:"flood/hero", fp:"84% 50%", fa:"68% 50%",
       ort:"Mälarinseln und Boulder City", pre:"#flood/", btn:"start",
       lk:[["Vorbereitung","start"],["Mysterien","mysterien"],["Karte","karte"]], tools:[["Würfel","wuerfel"],["Galerie","galerie"]], nm:"Flut",
       last: F && F.id ? {href:"#flood/m/" + F.id, name:F.name, ort:F.ort} : null},
@@ -24,11 +24,10 @@ window.renderHub = function(el){
       '<div class="hp-im" style="background-image:url(img/' + p.hero + '.webp)"></div><div class="hp-sh"></div><div class="hp-fx"></div>' +
       '<div class="hp-in"><span class="hp-logo" role="img" aria-label="' + esc(p.nm) + '" style="-webkit-mask-image:url(' + lg[0] + ');mask-image:url(' + lg[0] + ')"></span>' +
       '<div class="hp-more"><div class="hp-ort">' + p.ort + '</div>' +
-      (p.last ? '<a class="hp-last" href="' + esc(p.last.href) + '"><b>' + esc(p.last.name) + '</b>' + (p.last.ort ? '<span>' + esc(p.last.ort) + '</span>' : '') + '</a>' : '') +
+      (p.last ? '<a class="hp-last" href="' + esc(p.last.href) + '"><b>' + esc(p.last.name) + '</b>' + (p.last.ort && p.last.ort !== p.last.name && String(p.last.name).indexOf(p.last.ort) < 0 ? '<span>' + esc(p.last.ort) + '</span>' : '') + '</a>' : '') +
       '<div class="hp-act"><a class="hp-go" href="' + p.pre + p.btn + '">Öffnen</a>' +
       '<nav class="hp-lk">' + p.lk.map(function(l){ return '<a href="' + p.pre + l[1] + '">' + l[0] + '</a>'; }).join("") + '</nav></div></div></div></article>';
-  }).join("") + '</div>' +
-  '<nav class="hb-tl">' + P.map(function(p){ return '<div class="g-' + p.k + '"><b>' + p.nm + '</b>' + p.tools.map(function(l){ return '<a href="' + p.pre + l[1] + '">' + l[0] + '</a>'; }).join("") + '</div>'; }).join("") + '</nav></div>';
+  }).join("") + '</div></div>';
   var ps = el.querySelectorAll(".hp"), touch = window.matchMedia && matchMedia("(hover:none)").matches;
   function setOn(c){ ps.forEach(function(x){ x.classList.toggle("on", x === c); }); }
   ps.forEach(function(c, i){

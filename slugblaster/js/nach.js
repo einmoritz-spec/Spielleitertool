@@ -1,7 +1,7 @@
 /* SLUGBLASTER – Nachschlagen · Teenager (S. 40–51 Mach dich selbst + Persönlichkeiten, S. 72–77 Crew + Ruhm). Weitere Bereiche folgen. */
 var SBN = (function(){
   var BER = [["regeln", "Spielablauf"], ["teenager", "Teenager"], ["spielleitung", "Spielleitung"], ["veraendern", "Spiel verändern"], ["demo", "Demo"]];
-  var SUB = [["mach", "Mach dich selbst"], ["pers", "Persönlichkeiten"], ["crew", "Crew"], ["ruhm", "Ruhm"]];
+  var SUB = [["mach", "Mach dich selbst"], ["pers", "Persönlichkeiten"], ["sig", "Signaturen"], ["ausr", "Ausrüstung"], ["stk", "Sticker & Co."], ["crew", "Crew"], ["ruhm", "Ruhm"]];
   var PCOL = "#008496";
   function pers(id){ var r = null; SB_PERS.forEach(function(p){ if(p.id === id) r = p; }); return r; }
   function nav(ber, sub, pid){
@@ -62,10 +62,65 @@ var SBN = (function(){
     return '<div class="fr"><div class="moh"><h1>Ruhm</h1>' + pgl(I.p) + '</div><p class="lead">' + md(I.x) + ' ' + esc(I.g) + '</p><div class="frg">' + [0, 2, 4].map(function(k){ return '<div class="frcol">' + [k, k + 1].map(function(j){ return cardN(j); }).join("") + '</div>'; }).join("") + '</div><div class="stim">' + I.stim.map(function(s){ return '<span>' + esc(s) + '</span>'; }).join("") + '</div></div>';
     function cardN(j){ return cards.split('<div class="frc rc">')[j + 1] ? '<div class="frc rc">' + cards.split('<div class="frc rc">')[j + 1] : ""; }
   }
+  /* ---------- Signaturen ---------- */
+  var KN = {L:"Linse", S:"Spule", D:"Scheibe", E:"Edelstein"};
+  function ico(k){
+    var p = {L:'<circle cx="12" cy="12" r="8"/><path d="M12 6l4 6-4 6-4-6z"/>', S:'<path d="M3 9c3-4 5 4 9 0s6 4 9 0M3 15c3-4 5 4 9 0s6 4 9 0"/>', D:'<rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/>', E:'<path d="M6 4h12l4 6-10 11L2 10z"/><path d="M2 10h20M9 4l3 17M15 4l-3 17"/>'}[k];
+    return '<svg class="ki" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-label="' + KN[k] + '">' + p + '</svg>';
+  }
+  function kosten(s){
+    if(!/^\d[LSDE]/.test(s)) return '<span class="kos var">' + esc(s) + '</span>';
+    return '<span class="kos">' + s.split(" ").map(function(c){ return '<span title="' + KN[c.charAt(1)] + '">' + c.charAt(0) + ico(c.charAt(1)) + '</span>'; }).join("") + '</span>';
+  }
+  function sigSide(){
+    var I = SB_SIGINTRO, L = I.lab, h = '<div class="sbx"><div class="ct">Turbo!</div><p>' + esc(I.turbo) + '</p></div>';
+    h += '<div class="sbx"><div class="ct">Bauteile ' + pgl(53) + '</div><p>' + md(I.teile.x) + '</p><div class="kgr">' + I.teile.l.map(function(k){ return '<div title="' + esc(k[2]) + '">' + ico(k[0]) + '<span>' + k[1] + '</span></div>'; }).join("") + '</div></div>';
+    h += '<div class="sbx"><div class="ct">Auszeit-Moment! ' + pgl(53) + '</div><p><b>' + L.t + ' (' + L.k + ' Style).</b> ' + esc(L.x) + '</p><ul>' + L.l.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul><table class="stb"><tr>' + [0, 1, 2].map(function(i){ return '<td><b>' + (i + 1) + '</b> ' + L.w[i] + '</td><td><b>' + (i + 4) + '</b> ' + L.w[i + 3] + '</td>'; }).join("</tr><tr>") + '</tr></table></div>';
+    h += '<div class="sbx"><div class="ct">Universelle Mods</div><p>' + esc(I.uni.x) + '</p>' + I.uni.l.map(function(m){ return '<div class="smo"><b>' + m[0] + '</b>' + kosten(m[1]) + '<p>' + esc(m[2]) + '</p></div>'; }).join("") + '</div>';
+    return h;
+  }
+  function sigUebersicht(){
+    var I = SB_SIGINTRO;
+    var cards = SB_SIG.map(function(s){ return '<a class="sgc" onclick="go(\'nach/teenager/sig/' + s.id + '\')"><img src="' + IMG("sig/" + s.id) + '" alt=""><h3>' + esc(s.t) + '</h3><p>' + esc(s.kurz) + '</p></a>'; }).join("");
+    return '<div class="sigw"><div class="moh"><h1>Signaturen</h1>' + pgl(I.p) + '</div><div class="sg2"><div><p class="lead">' + md(I.x) + '</p><div class="sgg">' + cards + '</div></div><div class="sgs">' + sigSide() + '</div></div></div>';
+  }
+  function sigDetail(id){
+    var S = null; SB_SIG.forEach(function(x){ if(x.id === id) S = x; }); if(!S) return sigUebersicht();
+    var I = SB_SIGINTRO, k = SB_SIG.indexOf(S);
+    var mods = S.mods.map(function(m, i){ var key = "sigmod/" + id + "/" + i; return '<div class="smo' + (ST.benutzt && ST.benutzt[key] ? " done" : "") + '" onclick="SBF.used(\'' + key + '\')"><b>' + esc(m[0]) + '</b>' + kosten(m[1]) + '<p>' + md(m[2]) + '</p></div>'; }).join("");
+    var lt = '<table class="stb"><tr><th>W6</th><th>1–2</th><th>3–4</th><th>5–6</th></tr>' + I.lookTab.map(function(r, i){ return '<tr><td><b>' + (i + 1) + '</b></td>' + r.map(function(c){ return '<td>' + esc(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</table>';
+    var L = '<div><img class="sgi" src="' + IMG("sig/" + id) + '" alt=""><p class="pt">' + md(S.x) + '</p><div class="ct">Look</div><p class="lk">' + esc(S.looks) + '</p>' + (S.frage ? '<div class="sbx"><div class="ct">' + esc(S.frage.t) + '</div>' + S.frage.x.map(function(x){ return '<p>' + esc(x) + '</p>'; }).join("") + '</div>' : "") + '</div>';
+    var M = '<div><div class="sbx fk"><div class="ct">Funktion</div><p>' + esc(S.f) + '</p></div><div class="ct">Mods</div>' + mods + '</div>';
+    var R = '<div class="sgs"><div class="sbx"><div class="ct">Look-Tabelle ' + pgl(52) + '</div>' + lt + '</div><div class="sbx"><div class="ct">Turbo!</div><p>' + esc(I.turbo) + '</p></div><div class="sbx"><div class="ct">Universelle Mods</div>' + I.uni.l.map(function(m){ return '<div class="smo"><b>' + m[0] + '</b>' + kosten(m[1]) + '<p>' + esc(m[2]) + '</p></div>'; }).join("") + '</div></div>';
+    var prev = SB_SIG[(k + 11) % 12], next = SB_SIG[(k + 1) % 12];
+    return '<div class="sigw"><div class="moh sgh"><a class="back" onclick="go(\'nach/teenager/sig\')">← Signaturen</a><h1>' + esc(S.t) + '</h1>' + pgl(S.p) + '<span class="sgn"><a onclick="go(\'nach/teenager/sig/' + prev.id + '\')">‹ ' + esc(prev.t) + '</a><a onclick="go(\'nach/teenager/sig/' + next.id + '\')">' + esc(next.t) + ' ›</a></span></div><div class="sg3">' + L + M + R + '</div></div>';
+  }
+  /* ---------- Ausrüstung ---------- */
+  function d6t(rows, hd){ return '<table class="stb"><tr><th>W6</th>' + hd.map(function(x){ return '<th>' + x + '</th>'; }).join("") + '</tr>' + rows.map(function(r, i){ return '<tr><td><b>' + (i + 1) + '</b></td>' + (r[1] === "" ? '<td colspan="' + hd.length + '">' + esc(r[0]) + '</td>' : r.map(function(c){ return '<td>' + esc(c) + '</td>'; }).join("")) + '</tr>'; }).join("") + '</table>'; }
+  function ul(a){ return '<ul>' + a.map(function(x){ return '<li>' + md(x) + '</li>'; }).join("") + '</ul>'; }
+  function ps(a){ return (Array.isArray(a) ? a : [a]).map(function(x){ return '<p>' + md(x) + '</p>'; }).join(""); }
+  function gcard(g, key){ var u = ST.benutzt && ST.benutzt[key]; return '<div class="smo' + (u ? " done" : "") + '" onclick="SBF.used(\'' + key + '\')"><b>' + esc(g[0]) + '</b>' + kosten(g[1]) + '<p>' + md(g[2]) + '</p></div>'; }
+  function ausr(){
+    var A = SB_AUSR, G = A.gear, H = A.handy, R = A.ray, B = A.board;
+    var c1 = '<div><div class="ct">' + G.t + ' ' + pgl(G.p) + '</div>' + ps(G.x) + ul(G.l) + '<div class="sbx"><div class="ct">' + esc(G.dmg.t) + '</div><p>' + esc(G.dmg.x) + '</p></div><div class="ct">' + H.t + ' ' + pgl(H.p) + '</div>' + ps(H.x) + ul(H.l) + '</div>';
+    var c2 = '<div><div class="ct">' + R.t + ' ' + pgl(R.p) + '</div>' + ps(R.x) + ul(R.l) + '<div class="sbx"><div class="ct">Andere Optionen</div>' + ps(R.opt) + '</div><div class="d2"><div><div class="ct">Raygun, Schritt A</div>' + d6t(R.a, ["1–3", "4–6"]) + '</div><div><div class="ct">Raygun, Schritt B</div>' + d6t(R.b, ["1–3", "4–6"]) + '</div></div></div>';
+    var c3 = '<div><div class="ct">' + B.t + ' ' + pgl(B.p) + '</div>' + ps(B.x) + '<div class="ct">Hoverboards 101</div>' + ul(B.h101) + '<div class="d2"><div><div class="ct">Grip-Farbe</div>' + d6t(B.grip, ["1–3", "4–6"]) + '</div><div><div class="ct">Grip-Schnitt</div>' + d6t(B.cut, ["1–3", "4–6"]) + '</div></div><div class="ct">Deck-Grafik</div>' + d6t(B.deck, ["1–3", "4–6"]) + '<div class="sbx"><div class="ct">Andere Optionen</div>' + ps(B.opt) + '</div></div>';
+    var more = A.andere.map(function(g, gi){ return '<div class="agr"><div class="ct">' + esc(g.t) + ' ' + pgl(g.p) + '</div>' + (g.x ? '<p class="lead">' + esc(g.x) + '</p>' : "") + '<div class="agc">' + g.l.map(function(m, i){ return gcard(m, "ausr/" + gi + "/" + i); }).join("") + '</div></div>'; }).join("");
+    return '<div class="sigw"><div class="moh"><h1>Ausrüstung</h1></div><div class="sg3 ag3">' + c1 + c2 + c3 + '</div>' + more + '</div>';
+  }
+  function stk(){
+    var S = SB_AUSR.sticker, sl = S.slogan;
+    var tab = function(a, o){ return '<table class="stb">' + a.map(function(x, i){ return '<tr><td><b>' + (o + i) + '</b></td><td>' + md(x) + '</td></tr>'; }).join("") + '</table>'; };
+    var oneto = function(a){ return a.map(function(x, i){ return '<tr><td><b>' + (i + 1) + '</b></td><td>' + esc(x) + '</td></tr>'; }).join(""); };
+    var rows = function(a, base){ var out = []; a.forEach(function(x, i){ var n = base + (Math.floor(i / 6) * 10) + (i % 6) + 1; out.push('<tr><td><b>' + n + '</b></td><td>' + md(x) + '</td></tr>'); }); return out.join(""); };
+    var half1 = sl.slice(0, 18), half2 = sl.slice(18);
+    function rr(a, tens){ return a.map(function(x, i){ return '<tr><td><b>' + (tens + Math.floor(i / 6) * 10 + (i % 6) + 1) + '</b></td><td>' + md(x) + '</td></tr>'; }).join(""); }
+    return '<div class="sigw"><div class="moh"><h1>Sticker, Pins, Aufnäher usw.</h1>' + pgl(S.p) + '</div><div class="sg2 stg"><div><p class="lead">' + esc(S.x) + '</p>' + ul(S.l) + '<div class="ct">Herkunft</div><table class="stb">' + oneto(S.origin) + '</table><div class="ct">Form</div><table class="stb">' + oneto(S.form) + '</table></div><div><div class="ct">Slogan</div><div class="d2"><table class="stb">' + rr(half1, 10) + '</table><table class="stb">' + rr(half2, 40) + '</table></div></div></div></div>';
+  }
   VIEWS.nach = function(a){
     var ber = a[0] || "teenager", sub = a[1] || "mach", pid = a[2] || "grit";
     if(ber !== "teenager") return '<div class="fr"><p class="lead">Dieser Bereich folgt.</p></div>';
-    var body = sub === "pers" ? persona(pid) : sub === "crew" ? crew() : sub === "ruhm" ? ruhm() : mach();
+    var body = sub === "ausr" ? ausr() : sub === "stk" ? stk() : sub === "sig" ? (a[2] ? sigDetail(a[2]) : sigUebersicht()) : sub === "pers" ? persona(pid) : sub === "crew" ? crew() : sub === "ruhm" ? ruhm() : mach();
     return '<div class="nachw">' + nav(ber, sub, pid) + (sub === "pers" ? '<div class="fr pfr">' + body + '</div>' : body) + '</div>';
   };
   VIEWS.nach.own = true;

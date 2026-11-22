@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v718sp";
+const VERSION = "v719sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -797,6 +797,20 @@ const FILES = [
   "slugblaster/js/fraktionen.js",
   "slugblaster/js/nach.js",
   "slugblaster/js/data/k2-teenager.js",
+  "slugblaster/js/data/signaturen.js",
+  "slugblaster/js/data/ausruestung.js",
+  "slugblaster/img/sig/gravity-blaster.webp",
+  "slugblaster/img/sig/reality-cannon.webp",
+  "slugblaster/img/sig/powered-armour.webp",
+  "slugblaster/img/sig/robotic-companion.webp",
+  "slugblaster/img/sig/riftninja-sneakers.webp",
+  "slugblaster/img/sig/skipmode-runners.webp",
+  "slugblaster/img/sig/photonic-jacket.webp",
+  "slugblaster/img/sig/hyperoptic-visor.webp",
+  "slugblaster/img/sig/negafriction-sword.webp",
+  "slugblaster/img/sig/kinetic-deck.webp",
+  "slugblaster/img/sig/voidwear-backpack.webp",
+  "slugblaster/img/sig/hardlight-board.webp",
   "slugblaster/img/pers/grit.webp",
   "slugblaster/img/pers/guts.webp",
   "slugblaster/img/pers/smarts.webp",

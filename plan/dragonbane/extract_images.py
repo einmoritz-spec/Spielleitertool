@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Dragonbane – Bilder aus dem Regelbuch ziehen (Buchseite = PDF-Seite − 4).
-  python3 -I extract_images.py <pdf> <ziel> inventar                 → bilder-inventar.tsv (nur Illustrationen; Ornamente,
+"""Dragonbane – Bilder aus einem Dragonbane-PDF ziehen (Buchseite = PDF-Seite − Offset; Offset 4 = Regelbuch,
+1 = Abenteuerband, 2 = Der versinkende Turm, 4 = Pfad des Ruhms; per Umgebungsvariable BUCHOFF oder letztes Argument "off=<n>").
+  python3 -I extract_images.py <pdf> <ziel> inventar off=<n>        → bilder-inventar.tsv (nur Illustrationen; Ornamente,
                                                                          die auf mehr als 2 Seiten vorkommen, stehen in ornamente.tsv)
   python3 -I extract_images.py <pdf> <ziel> xref <xref> <name>         → Rohbild mit Transparenz (SMask) als <name>.webp
   python3 -I extract_images.py <pdf> <ziel> clip <pdfseite> x0 y0 x1 y1 <name> [dpi]   → Seitenausschnitt (pt) als webp
@@ -12,9 +13,12 @@ Seitenformat 626×811 pt.
 import sys, pymupdf
 from collections import Counter
 from PIL import Image
+import os
+args = [a for a in sys.argv if not a.startswith('off=')]
+OFF = int(([a[4:] for a in sys.argv if a.startswith('off=')] or [os.environ.get('BUCHOFF', 4)])[0])
+sys.argv = args
 pdf, out, cmd = sys.argv[1], sys.argv[2], sys.argv[3]
 d = pymupdf.open(pdf) if pdf != '-' else None
-OFF = 4
 def raw(x):
     px = pymupdf.Pixmap(d, x)
     sm = d.xref_get_key(x, 'SMask')

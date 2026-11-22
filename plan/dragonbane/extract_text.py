@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Dragonbane – Buchtext des Regelbuchs (Rulebook v2, EN) als Markdown je Kapitel.
 
-  python3 -I extract_text.py <Rulebook.pdf> <ziel>
+  python3 -I extract_text.py <Rulebook.pdf> <ziel>                       → Regelbuch (Offset 4, feste Kapitelliste KAP)
+  python3 -I extract_text.py <pdf> <ziel> <offset> <name>=<von>-<bis>[+<von>-<bis>] …
+        → beliebiges Buch: Buchseite = PDF-Seite − offset; je Paket eine Datei <ziel>/<name>.md (PDF-Seiten!)
+        Beispiel Abenteuerband:  … 1 b2=34-55 b1a=4-14+29-33
 
-Seitenzählung: Buchseite = PDF-Seite − 4  (Bookviewer: off:4). Jede Seite beginnt mit
+Seitenzählung (Regelbuch): Buchseite = PDF-Seite − 4  (Bookviewer: off:4). Jede Seite beginnt mit
   <!-- S. <Buchseite> · PDF <PDF-Seite> -->
 Markierungen (aus Schrift + Farbe des PDFs abgeleitet):
   ## TITEL          Seitentitel  (Hideout Black 34 pt, Teal #237263)
@@ -101,7 +104,21 @@ def page_md(pg):
     return '\n'.join(res)
 
 
-def main(pdf, out):
+def paket(pdf, out, off, args):
+    d = pymupdf.open(pdf)
+    for arg in args:
+        name, rng = arg.split('=')
+        parts = []
+        for r in rng.split('+'):
+            a, b = map(int, r.split('-'))
+            parts += [f'<!-- S. {p-off} · PDF {p} -->\n' + page_md(d[p-1]) for p in range(a, b + 1)]
+        open(f'{out}/{name}.md', 'w').write(f'# {name}\n\n<!-- Hinweis: Zier-Initialen (große erste Buchstaben am Absatzanfang) fehlen im Textauszug – am Seitenbild ergänzen. -->\n\n' + '\n\n'.join(parts) + '\n')
+        print(name, rng, '(Buchseite = PDF −', off, ')')
+
+
+def main(pdf, out, *rest):
+    if rest:
+        return paket(pdf, out, int(rest[0]), rest[1:])
     d = pymupdf.open(pdf)
     for name, a, b in KAP:
         parts = [f'<!-- S. {p-OFF} · PDF {p} -->\n' + page_md(d[p-1]) for p in range(a, b + 1)]

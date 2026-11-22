@@ -15,7 +15,7 @@ load();
 function go(h){ if(location.hash === "#" + h) render(); else location.hash = h; }
 function openBook(id, p){ try{ BV.open(id || "db_rb", p || 1); }catch(e){} }
 /* Seitenangabe: klein hinter dem Namen, öffnet das Original */
-function pgl(p, txt){ var n = parseInt(String(p || "").replace(/\D/g, ""), 10); return n ? '<span class="pg" onclick="event.stopPropagation();openBook(\'db_rb\',' + n + ')">' + (txt || "S. " + n) + '</span>' : ""; }
+function pgl(p, txt, bk){ var n = parseInt(String(p || "").replace(/\D/g, ""), 10); return n ? '<span class="pg" onclick="event.stopPropagation();openBook(\'' + (bk || window.__bk || "db_rb") + '\',' + n + ')">' + (txt || "S. " + n) + '</span>' : ""; }
 window.addEventListener("hashchange", function(){ render(); });
 function slug(s){ return String(s).toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
 function kurz(t){ return String(t).split(":")[0]; }
@@ -86,7 +86,7 @@ function figur(id){
 /* ---------- Render ---------- */
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
-  window.__fk = "einf";
+  window.__fk = "einf"; window.__bk = "db_rb";
   var f = DB_VIEWS[v];
   out = f ? f(h) : viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;

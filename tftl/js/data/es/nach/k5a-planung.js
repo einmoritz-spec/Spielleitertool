@@ -1,6 +1,6 @@
 /* Paket C7 – Kapitel 5 „Die Reise“, S. 110–120 */
 window.NACHDATA_ES = window.NACHDATA_ES || {};
-window.NACHDATA_ES.k5a = {kap:"Kapitel 5", titel:"Die Reise", s:110, abschnitte:[
+window.NACHDATA_ES.k5a = {kap:"Kapitel 5", titel:"Reise planen", s:110, abschnitte:[
  {id:"einleitung", titel:"Einleitung", s:110, bloecke:[
   ["zit", "Ich wollte die großen Städte und die dicht besiedelten Gebiete im Westen so lange wie möglich meiden. Eins nach dem anderen. Zuerst mussten wir einfach nach Westen fahren, bis die Straßen besser wurden. Mit etwas Glück wäre die 395 im Norden offen, und wir könnten durch die ländlichen Gebiete östlich der Sierra Nevada weiterziehen. Genau das würden wir tun."],
   ["p", "Dieses Kapitel beschreibt, wie die Spielleitung die Reise und die Halte unterwegs vorbereitet und spielt. Da dieses Kapitel und der Rest des Buches vor allem für die Spielleitung gedacht sind, wendet sich der Text an sie. Wenn du Halte vorbereitest, kannst du Informationen aus dem nächsten Kapitel nutzen, das voller Beispiele für Bedrohungen ist, denen sich die Reisenden stellen müssen."]

@@ -41,7 +41,7 @@ window.NACHDATA_ES.k6 = {kap:"Kapitel 6", titel:"Bedrohungen", s:134, abschnitte
 "Beamte befragen die Reisenden auf ruppige Art.",
 "Die Beamten provozieren die Reisenden und versuchen, eine Schlägerei anzuzetteln.",
 "Die Beamten versuchen, die Reisenden zu verhaften."]],
-["stat",{name:"Ordnungskraft", w:[["Stärke",4],["Geschick",4],["Verstand",3],["Empathie",3]], z:[["Gesundheit","4"],["Talent","Pistolero"],["Typische Ausrüstung","Handfeuerwaffe oder Schrotflinte, Streifenwagen (Allradauto mit den Eigenschaften Kraftvoll und Schwer), 100 $"]]}],
+["stat",{name:"Ordnungskraft", w:[["Stärke",4],["Geschick",4],["Verstand",3],["Empathie",3]], z:[["Gesundheit","4"],["Talent","Pistolenschütze"],["Typische Ausrüstung","Handfeuerwaffe oder Schrotflinte, Streifenwagen (4WD-Auto mit den Eigenschaften Kraftvoll und Schwer), 100 $"]]}],
 ["h","Geheimagenten"],
 ["p","Sie reichen von Agenten des Pacifica Bureau of Investigation bis zu verschwiegenen Männern und Frauen in Schwarz, die für das Militär, Sentre oder Schlimmeres arbeiten. Sie sind in Täuschung, Spionage und einer Reihe anderer unerfreulicher Dinge geschult. Ironischerweise halten sie sich stärker an ihren Auftrag als der durchschnittliche Polizist in Pacifica. Bei der Anwerbung ist die Überprüfung der Loyalität der erste und letzte Schritt."],
 ["h","Beispiel-Countdown"],
@@ -71,7 +71,7 @@ window.NACHDATA_ES.k6 = {kap:"Kapitel 6", titel:"Bedrohungen", s:134, abschnitte
 "Ein NSC bittet die Reisenden um Hilfe im Umgang mit dem Mörder. Dieser NSC hat vielleicht nicht den Mut, sich dem Mörder zu stellen, oder hat andere Gründe, Hilfe zu suchen. Arbeite den NSC genug aus, damit seine Bitte glaubwürdig wirkt und nicht bloß „noch ein Auftrag“ ist.",
 "Der NSC wird getötet oder entführt. Wenn du den NSC wie oben vorgeschlagen ausgearbeitet hast, haben die Reisenden vielleicht einen Grund, den Mörder zu finden.",
 "Eine der Reisenden oder einer der Reisenden wird angegriffen. Es könnte ein zufälliger Angriff sein. Bedenke aber, dass der irre Mörder von einer höherrangigen Bedrohung manipuliert werden könnte."]],
-["stat",{name:"Irrer Mörder", w:[["Stärke",5],["Geschick",5],["Verstand",3],["Empathie",4]], z:[["Gesundheit","5"],["Talent","Messerkämpfer"],["Typische Ausrüstung","Messer, Schrotflinte, Zweiradantrieb-Auto, 50 $"]]}]
+["stat",{name:"Irrer Mörder", w:[["Stärke",5],["Geschick",5],["Verstand",3],["Empathie",4]], z:[["Gesundheit","5"],["Talent","Messerkämpfer"],["Typische Ausrüstung","Messer, Schrotflinte, 2WD-Auto, 50 $"]]}]
 ]},
 {id:"manipulativ", titel:"Manipulative Bedrohungen", s:142, bloecke:[
 ["p","Jeder, der am Ort Lügen verbreitet und Konflikte schürt, ist eine manipulative Bedrohung. Oft lassen sie Neben-NSC für sich arbeiten und kämpfen. Manipulative Bedrohungen können mit gewalttätigen Bedrohungen zusammenarbeiten oder von ihnen bekämpft werden."],
@@ -100,7 +100,7 @@ window.NACHDATA_ES.k6 = {kap:"Kapitel 6", titel:"Bedrohungen", s:134, abschnitte
 ["stat",{name:"Lokaler Machthaber", w:[["Stärke",4],["Geschick",3],["Verstand",4],["Empathie",5]], z:[["Gesundheit","4"],["Talent","Bedrohlich"],["Typische Ausrüstung","Handfeuerwaffe, 200 $"]]}],
 ["h","Geschäftsleute"],
 ["p","Zwielichtige Unternehmer, die versuchen, Menschen um ihr Geld zu betrügen oder ihre Gesundheit zu riskieren, um sich zu bereichern, sind in Pacifica keine Seltenheit – manche würden sogar sagen, solche Leute seien für den Zusammenbruch der Welt, wie wir sie kannten, verantwortlich."],
-["p","Wenn du die Geschäftsleute einführst, bedenke ihre Motive. Das ist leicht, denn die meisten haben nur eines: Profit. Geld, Geld, Geld. Was auch immer sie anpreisen, welche Versprechen sie über die mögliche Rendite machen, ihre erste Pflicht ist es, mehr Geld zu verdienen. Sie verbergen das mit dem Talent Hochstapler, aber denke daran, dass das eine Fassade ist."],
+["p","Wenn du die Geschäftsleute einführst, bedenke ihre Motive. Das ist leicht, denn die meisten haben nur eines: Profit. Geld, Geld, Geld. Was auch immer sie anpreisen, welche Versprechen sie über die mögliche Rendite machen, ihre erste Pflicht ist es, mehr Geld zu verdienen. Sie verbergen das mit dem Talent Trickbetrüger, aber denke daran, dass das eine Fassade ist."],
 ["p","Allerdings ist nicht alles, was ein Geschäftsmann sagt, eine Lüge. Sie verschaffen Menschen durchaus Geld. Meist verschaffen sie Leuten, die bereits Geld haben, mehr davon. Aber ein Geschäftsmann könnte den Reisenden etwas anbieten, das sie bereichern würde. In diesem Fall gestalte die Art, wie der Profit herausgeholt wird, moralisch fragwürdig oder den Zielen der Reisenden zuwiderlaufend."],
 ["h","Beispiel-Countdown"],
 ["p","Dies ist ein Beispiel für einen Halt-Countdown mit einem Geschäftsmann als Bedrohung:"],
@@ -109,7 +109,7 @@ window.NACHDATA_ES.k6 = {kap:"Kapitel 6", titel:"Bedrohungen", s:134, abschnitte
 "Die Bedrohung lässt eine Gruppe von NSC andere NSC angreifen oder bestehlen.",
 "Der Geschäftsmann vertreibt einige NSC aus ihren Häusern.",
 "Die Bedrohung erlangt die volle Kontrolle über das gesamte Gebiet des Halts."]],
-["stat",{name:"Geschäftsmann", w:[["Stärke",3],["Geschick",3],["Verstand",5],["Empathie",4]], z:[["Gesundheit","3"],["Talent","Hochstapler"],["Typische Ausrüstung","Handfeuerwaffe, 500 $"]]}]
+["stat",{name:"Geschäftsmann", w:[["Stärke",3],["Geschick",3],["Verstand",5],["Empathie",4]], z:[["Gesundheit","3"],["Talent","Trickbetrüger"],["Typische Ausrüstung","Handfeuerwaffe, 500 $"]]}]
 ]},
 {id:"technologisch", titel:"Technologische Bedrohungen", s:146, bloecke:[
 ["p","Manche glauben, Technologie sei der wichtigste Antrieb für kulturellen Wandel. Vom Bogen über die Schusswaffe bis zur Neuronik verändern uns unsere Erfindungen auf eine Weise, die wir unmöglich vorhersehen können. William Gibson bemerkte: „Die Straße findet ihre eigenen Verwendungen für die Dinge.“ Manche Verwendungen sind schlecht. In der Welt des Electric State verursachen sie den Untergang eines ohnehin zerbrochenen Amerikas. Technologische Bedrohungen in deinem Spiel stellen einen Mikrokosmos eines der größeren Konflikte und Themen dar. Aber sie funktionieren auch gut als ganz normale erzählerische Hindernisse."],

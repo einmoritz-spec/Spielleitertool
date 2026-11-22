@@ -21,7 +21,7 @@ ES.VORGEFERTIGT = [
 
 {id:"willy", name:"Wilhemina/William „Willy“ Carbone", archetyp:"ausreisser", s:222, bogen:224,
  text:"<p>Die Neurosucht deiner Eltern hat dich ins Waisensystem von Pacifica gebracht. Mit 12 bist du entkommen: Du bist aus dem Fenster deines abgeschlossenen Zimmers geklettert und auf die Straße gegangen. Jetzt bist du 16 und klüger als viele Menschen, die dreimal so alt sind. Gleichzeitig hast du dir bei manchen Dingen eine Unschuld bewahrt, die dich in Schwierigkeiten bringt. Du willst eine Familie finden. Keine Mama, keinen Papa und keinen kleinen Bruder, sondern eine Gruppe von Menschen, die du dir aussuchst und denen du vertraust. Du und Nancy/Pascal habt viel gemeinsam. Vielleicht könnt ihr beide zusammen eine Familie finden.</p>",
- a:{st:2,ge:6,ve:4,em:6}, ges:4, hof:4, talente:["Hochstapler"],
+ a:{st:2,ge:6,ve:4,em:6}, ges:4, hof:4, talente:["Trickbetrüger"],
  traum:"Dazugehören.",
  schwaeche:"Du bist übereifrig. Das Kind in dir nervt die zynischen Menschen dieser Welt oft.",
  song:"Friday, I’m in Love, The Cure",

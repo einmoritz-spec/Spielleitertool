@@ -1,5 +1,5 @@
 window.NACHDATA_ES = window.NACHDATA_ES || {};
-window.NACHDATA_ES.k4a = {kap:"Kapitel 4", titel:"Kampf & Neuronik", s:76, abschnitte:[
+window.NACHDATA_ES.k4a = {kap:"Kapitel 4", titel:"Kampf", s:76, abschnitte:[
 {id:"einleitung", titel:"Einleitung", s:76, bloecke:[
  ["zit","Ich hörte den Wind nicht mehr. Meine Schultern schmerzten vom Tragen der schweren Schrotflinte, und meine Füße bewegten sich mechanisch, als gehörten sie nicht zu mir."],
  ["p","DIESES KAPITEL HANDELT VON GEWALTSAMEN KONFLIKTEN und anderen gefährlichen Situationen, die über Worte hinaus eskalieren und in denen eine einfache Talentprobe nicht reicht, um den Ausgang zu bestimmen. Es enthält außerdem Regeln für die Benutzung von Neurocastern, um in die verführerischen Neurolandschaften des Electric State einzutauchen, und für die damit verbundenen Risiken."]
@@ -95,7 +95,7 @@ window.NACHDATA_ES.k4a = {kap:"Kapitel 4", titel:"Kampf & Neuronik", s:76, absch
  ["p","Erleidest du in einem einzigen Treffer Schaden in Höhe des Doppelten deiner maximalen Gesundheit, stirbst du sofort. Keine Todeswürfe, keine Chance zu überleben – du bist erledigt."],
  ["h","Aufrichten"],
  ["p","Wenn du kampfunfähig bist, kann jemand anderes in derselben Zone versuchen, dich wieder auf die Beine zu bringen. Dafür muss diese Person (als Aktion) auf Empathie würfeln. Gelingt das, erhältst du so viele Gesundheitspunkte zurück, wie 6er gewürfelt wurden, und kannst weiterkämpfen. Aufrichten bedeutet nicht, dass du stabilisiert bist – du musst weiterhin Todeswürfe machen."],
- ["p","Richtet dich niemand auf, richtest du dich nach einer Weile (sofern du noch lebst) selbst auf und erholst 1 Gesundheitspunkt, es sei denn, etwas blockiert die Erholung, etwa Krankheit oder Hunger (S. 89). Beachte, dass Aufrichten-Würfe nur bei kampfunfähigen Personen erlaubt sind."],
+ ["p","Richtet dich niemand auf, richtest du dich nach einer Zeitspanne (sofern du noch lebst) selbst auf und erholst 1 Gesundheitspunkt, es sei denn, etwas blockiert die Erholung, etwa Krankheit oder Hunger (S. 89). Beachte, dass Aufrichten-Würfe nur bei kampfunfähigen Personen erlaubt sind."],
  ["h","Stabilisieren"],
  ["p","Eine Person mit dem Talent Sanitäter kann eine kampfunfähige Person (als Aktion) mit einem Verstandes-Wurf stabilisieren, mit Bonuswürfeln durch einen Erste-Hilfe-Kasten (S. 109). Gelingt das, muss das Opfer keine weiteren Todeswürfe mehr machen. Es ist aber weiterhin kampfunfähig und muss aufgerichtet werden, um wieder auf die Beine zu kommen."],
  ["h","Zusätzlicher Schaden"],
@@ -106,7 +106,7 @@ window.NACHDATA_ES.k4a = {kap:"Kapitel 4", titel:"Kampf & Neuronik", s:76, absch
  ["h","Erholung"],
  ["p","Solange nichts deine Erholung blockiert (etwa Krankheit oder Hunger, siehe S. 89), erholst du automatisch 1 Gesundheitspunkt pro Schicht, solange du keine körperlich anstrengende Tätigkeit (wie Kämpfen) ausübst. Hingebungsvolle Pflege durch eine Person mit dem Talent Krankenpfleger erhöht diese Rate auf 2 Punkte pro Schicht."],
  ["h","Neurocasting-Schaden"],
- ["p","Wie auf S. 97 beschrieben, kannst du durch Schaden, den du in einer Neurolandschaft erleidest, kampfunfähig werden. Geschieht das, machst du keine Todeswürfe – stattdessen richtest du dich nach einer Weile automatisch auf und erholst 1 Gesundheitspunkt. Außerdem musst du statt auf eine schwere körperliche Verletzung auf ein mentales Trauma (S. 87) würfeln."],
+ ["p","Wie auf S. 97 beschrieben, kannst du durch Schaden, den du in einer Neurolandschaft erleidest, kampfunfähig werden. Geschieht das, machst du keine Todeswürfe – stattdessen richtest du dich nach einer Zeitspanne automatisch auf und erholst 1 Gesundheitspunkt. Außerdem musst du statt auf eine schwere körperliche Verletzung auf ein mentales Trauma (S. 87) würfeln."],
  ["h","Schwere Verletzungen"],
  ["p","Wenn du kampfunfähig warst, aber überlebt hast, hast du an der Schwelle des Todes gestanden, und das kann Folgen haben. Würfle auf der folgenden Tabelle, um zu sehen, welche schwere Verletzung du erlitten hast, welche Wirkung sie hat und wie lange sie zum Heilen braucht."],
  ["w","Schwere Verletzungen","D66",[
@@ -197,11 +197,11 @@ window.NACHDATA_ES.k4a = {kap:"Kapitel 4", titel:"Kampf & Neuronik", s:76, absch
  ["p","Feuer wird in Intensität gemessen. Ein typisches Feuer hat eine Intensität zwischen 4 und 8. Wenn du Feuer ausgesetzt bist, würfle so viele Würfel, wie die Intensität beträgt. Für jede 6 erleidest du 1 Schadenspunkt. Der Wurf kann nicht forciert werden. Bleibst du in den Flammen oder brennst du weiter, erleidest du weiter Schaden. Wenn sich das Feuer ausbreitet, steigt die Intensität, typischerweise um 2 Punkte pro Runde. Ein Geschick-Wurf kann verhindern, dass sich ein Feuer ausbreitet. Er wird als vergleichender Wurf gegen die Intensität des Feuers abgehandelt."],
  ["tabelle",["Feuer","Intensität"],[["Fackel","4"],["Brennende Möbel","6"],["Brennender Raum","8"]]],
  ["h","Kälte"],
- ["p","Wenn es kalt ist und du keine angemessene Kleidung oder Unterkunft hast (nach Ermessen der Spielleitung), musst du jede Schicht (unter extremen Bedingungen jede Weile) auf Stärke würfeln. Misslingt der Wurf, wirst du unterkühlt und erleidest 1 Schadenspunkt. Außerdem kannst du dich nicht auf natürliche Weise erholen. Du musst im selben Abstand weiter auf Stärke würfeln und erleidest bei jedem Misserfolg mehr Schaden. Erst wenn du dich aufgewärmt hast, und sei es nur an einem Lagerfeuer, kannst du wieder heilen."],
+ ["p","Wenn es kalt ist und du keine angemessene Kleidung oder Unterkunft hast (nach Ermessen der Spielleitung), musst du jede Schicht (unter extremen Bedingungen jede Zeitspanne) auf Stärke würfeln. Misslingt der Wurf, wirst du unterkühlt und erleidest 1 Schadenspunkt. Außerdem kannst du dich nicht auf natürliche Weise erholen. Du musst im selben Abstand weiter auf Stärke würfeln und erleidest bei jedem Misserfolg mehr Schaden. Erst wenn du dich aufgewärmt hast, und sei es nur an einem Lagerfeuer, kannst du wieder heilen."],
  ["h","Krankheit"],
  ["p","Krankheiten haben einen Virulenzwert, typischerweise zwischen 4 und 10. Wenn du einer Krankheit ausgesetzt bist, mache einen vergleichenden Wurf auf Stärke gegen die Virulenz der Krankheit. Gewinnst du, hat dein Körper die Krankheit abgewehrt und du bist gesund. Bei Gleichstand bist du infiziert, erleidest aber keinen Schaden."],
  ["p","Für jede 6, die für die Krankheit mehr gewürfelt wurde als von dir zum Widerstehen, erleidest du 1 Schadenspunkt. Mache jeden Tag einen vergleichenden Wurf gegen die Krankheit, bis du sie erfolgreich abwehrst, indem du einen Wurf gewinnst, oder kampfunfähig wirst. Solange du krank bist, kannst du keine verlorene Gesundheit zurückgewinnen."],
- ["p","Eine Person mit dem Talent Krankenpfleger, die dich mindestens eine Weile behandelt, kann auf Verstand würfeln, wenn du auf Stärke würfelst, um der Krankheit zu widerstehen. Die 6er aus beiden Würfen werden zusammengezählt. Ein Erste-Hilfe-Kasten (S. 109) gibt Bonuswürfel auf den Verstandes-Wurf."],
+ ["p","Eine Person mit dem Talent Krankenpfleger, die dich mindestens eine Zeitspanne behandelt, kann auf Verstand würfeln, wenn du auf Stärke würfelst, um der Krankheit zu widerstehen. Die 6er aus beiden Würfen werden zusammengezählt. Ein Erste-Hilfe-Kasten (S. 109) gibt Bonuswürfel auf den Verstandes-Wurf."],
  ["tabelle",["Krankheit","Virulenz"],[["Grippe","4"],["Lungenentzündung","6"],["Ebola","10"]]],
  ["h","Stürze"],
  ["p","Ein Sturz auf eine harte Fläche verursacht automatisch Schaden in Höhe der Höhe in Metern geteilt durch zwei, abgerundet. Bei einem kontrollierten Sprung würfle auf Geschick. Jede 6 verringert den Schaden um 1."],

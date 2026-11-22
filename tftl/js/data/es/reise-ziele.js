@@ -22,7 +22,7 @@ ES.ZIELE = {
    teilt:"wissenschaftler", countdown:[]},
   aussenseiter:{s:157, text:`<p>Für dich ist das Leben auf der Straße nichts Neues, es ist deine Lebensweise, solange du dich erinnern kannst. Normalos sehen es vielleicht nicht, aber San Francisco fällt auseinander. Es ist Zeit, die Stadt zu verlassen.</p>`,
    ziel:"Die Stadt verlassen und vielleicht in die Blackwelt-Sperrzone gehen.", bedrohung:"Dein alter Neurin-Dealer Carlos will dich zurück in der Stadt haben.",
-   countdown:["Carlos lässt den Außenseiter bzw. die Außenseiterin wissen, dass er in der Nähe ist – entweder indem er einen Gegenstand in seinem oder ihrem Zimmer hinterlässt, sich aus der Ferne zeigt oder einen NSC eine Nachricht überbringen lässt.","Carlos stellt den Außenseiter bzw. die Außenseiterin und versucht, ihn oder sie zur Rückkehr in die Stadt zu bewegen. Zuerst bietet er einen versetzten Drink an (ein Stärkewurf ist nötig, um nicht für eine Weile ausgeknockt zu werden), dann versucht er, den Reisenden zu überreden, und dann versucht er, ihn in sein Auto zu zwingen.","Mit einer Schrotflinte bewaffnet sucht Carlos den Außenseiter bzw. die Außenseiterin auf. Er ist bereit, jeden zu erschießen, der ihn daran hindert, sie oder ihn mitzunehmen."]},
+   countdown:["Carlos lässt den Außenseiter bzw. die Außenseiterin wissen, dass er in der Nähe ist – entweder indem er einen Gegenstand in seinem oder ihrem Zimmer hinterlässt, sich aus der Ferne zeigt oder einen NSC eine Nachricht überbringen lässt.","Carlos stellt den Außenseiter bzw. die Außenseiterin und versucht, ihn oder sie zur Rückkehr in die Stadt zu bewegen. Zuerst bietet er einen versetzten Drink an (ein Stärkewurf ist nötig, um nicht für eine Zeitspanne ausgeknockt zu werden), dann versucht er, den Reisenden zu überreden, und dann versucht er, ihn in sein Auto zu zwingen.","Mit einer Schrotflinte bewaffnet sucht Carlos den Außenseiter bzw. die Außenseiterin auf. Er ist bereit, jeden zu erschießen, der ihn daran hindert, sie oder ihn mitzunehmen."]},
   drohnenpilot:{s:157, text:`<p>Du bist nicht hier. Dein Körper aus Fleisch liegt irgendwo in der Blackwelt-Sperrzone, Tag und Nacht an einen Neurocaster angeschlossen, und steuert eine Drohne im fernen Pacifica. Du bist auf einer Mission. Ein Forscher in San Francisco Memorial City hat ein mögliches Heilmittel gegen die grassierende Neurocaster-Sucht entwickelt. Viele Interessenten wollen die Forschung in ihre Hände bekommen.</p>`,
    ziel:"Das Forschungsmaterial in Sicherheit bringen und das Zip-Laufwerk schließlich in die Blackwelt-Sperrzone bringen.", bedrohung:"Du wirst verfolgt – von Regierungsagenten, Sentre-Agenten oder Schlimmerem.",
    hinweis:"Wenn auf dieser Reise ein(e) Wissenschaftler(in) dabei ist, ist das der Forscher, dem du hilfst. Wenn nicht, wurde der Forscher getötet. Wenn auf dieser Reise ein(e) Ärztin/Arzt oder Ermittler(in) dabei ist, kennen sie dein Ziel und helfen dir.",
@@ -46,9 +46,9 @@ ES.ZIELE = {
  },
  nsc:{
   simone:{name:"Agent Simone", s:160, html:`<p>Agent Jack Simone vom Pacifica-Ermittlungsbüro war immer ein pflichtbewusster Mann. Heutzutage ist er sich aber zunehmend unsicher, was das bedeutet. Im Auftrag von Sentre irgendeinen armen Teufel bis ans Ende der Welt zu jagen, dafür hat er sich nicht verpflichtet.</p>`,
-   w:[["Stärke",5],["Geschick",6],["Verstand",5],["Empathie",3]], z:[["Gesundheit","6"],["Ausrüstung","Chrysler Vision (2WD-Wagen mit den Eigenschaften Geräumig und Zuverlässig), Pistole, 500 $"]]},
+   w:[["Stärke",5],["Geschick",6],["Verstand",5],["Empathie",3]], z:[["Gesundheit","6"],["Ausrüstung","Chrysler Vision (2WD-Auto mit den Eigenschaften Geräumig und Zuverlässig), Pistole, 500 $"]]},
   patrouille:{name:"Pacifica-Highway-Patrol", s:160,
-   w:[["Stärke",4],["Geschick",4],["Verstand",3],["Empathie",3]], z:[["Gesundheit","4"],["Ausrüstung","Pistole oder Schrotflinte, Streifenwagen (4WD-Wagen mit den Eigenschaften Leistungsstark und Schwer), 100 $"]]},
+   w:[["Stärke",4],["Geschick",4],["Verstand",3],["Empathie",3]], z:[["Gesundheit","4"],["Ausrüstung","Pistole oder Schrotflinte, Streifenwagen (4WD-Auto mit den Eigenschaften Leistungsstark und Schwer), 100 $"]]},
   soldaten:{name:"Pacifica-Soldaten", s:160,
    w:[["Stärke",4],["Geschick",4],["Verstand",3],["Empathie",3]], z:[["Gesundheit","4"],["Ausrüstung","Sturmgewehr, 50 $"]]},
   pink:{name:"Mr. Pink", s:160, html:`<p>Dieser hagere Mann im Anzug mit dunkler, runder Brille und stark zurückweichendem Haaransatz wird oft in der Nähe von Sentre-Agenten gesehen, denen er Befehle erteilt. Manche sagen, er sei auch eng mit dem Konvergenz-Kult verbunden, der ihre interzerebrale Gottheit anbetet. Wer weiß? Aber ihm will man ganz sicher nicht in die Quere kommen.</p>`,
@@ -56,10 +56,10 @@ ES.ZIELE = {
   biker:{name:"Biker", s:160,
    w:[["Stärke",5],["Geschick",4],["Verstand",3],["Empathie",3]], z:[["Gesundheit","5"],["Ausrüstung","Pistole oder Schrotflinte, Motorrad, 100 $"]]},
   carlos:{name:"Carlos", s:160, html:`<p>Carlos ist ein brutaler Schläger, nur sich selbst treu und völlig skrupellos.</p>`,
-   w:[["Stärke",5],["Geschick",5],["Verstand",3],["Empathie",4]], z:[["Gesundheit","5"],["Ausrüstung","Schrotflinte, 2WD-Wagen, 50 $"]]},
+   w:[["Stärke",5],["Geschick",5],["Verstand",3],["Empathie",4]], z:[["Gesundheit","5"],["Ausrüstung","Schrotflinte, 2WD-Auto, 50 $"]]},
   sentre:{name:"Sentre-Agenten", s:160,
    w:[["Stärke",4],["Geschick",5],["Verstand",3],["Empathie",2]], z:[["Gesundheit","5"],["Ausrüstung","Pistole oder Sturmgewehr, schwarzer Van (mit den Eigenschaften Leistungsstark und Schnell), 200 $"]]},
   watts:{name:"Jo Watts", s:160,
-   w:[["Stärke",3],["Geschick",4],["Verstand",5],["Empathie",6]], z:[["Gesundheit","4"],["Ausrüstung","AMC Pacer (2WD-Wagen mit den Eigenschaften Klapperkiste und Billigmodell), 200 $"]]}
+   w:[["Stärke",3],["Geschick",4],["Verstand",5],["Empathie",6]], z:[["Gesundheit","4"],["Ausrüstung","AMC Pacer (2WD-Auto mit den Eigenschaften Klapperkiste und Billigmodell), 200 $"]]}
  }
 };

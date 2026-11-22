@@ -1,5 +1,5 @@
 window.NACHDATA_ES = window.NACHDATA_ES || {};
-window.NACHDATA_ES.k2a = {kap:"Kapitel 2", titel:"Der Staat Pacifica", s:19, abschnitte:[
+window.NACHDATA_ES.k2a = {kap:"Kapitel 2", titel:"Geschichte & Neuronik", s:19, abschnitte:[
 {id:"einleitung", titel:"Einleitung", s:20, bloecke:[
 ["zit","Wann hat das alles angefangen? Ich kann mich nicht richtig erinnern. Es fing an wie jede Freizeitbeschäftigung, glaube ich. Wie Fernsehen. Manchmal haben sie ferngesehen, und manchmal saßen sie einfach da und trugen ihre Neurocaster. Mir war das egal. Nach dem großen Update von 1996 wurde es seltsam. Modus 6."],
 ["p","AUSSTERBEN IST DIE LANGSAM ROLLENDE APOKALYPSE. Der sprichwörtliche Frosch im immer heißeren Wasser. Und wir? Wir sind größtenteils Touristen und wollen das beste Foto vom Ende der Welt. Wenn etwas die nächste Generation betreffen könnte, tun die Mächtigen nichts. Aber Technologie? Sie lässt sich weder gesetzlich regeln noch kontrollieren, und sie bewegt sich schneller, als man blinzeln kann. Jedes technische Wunder führte diese Welt näher an eine sanfte Apokalypse. Die meisten schalten in ihren Neurocastern ab. Reisende wie ihr nicht."],

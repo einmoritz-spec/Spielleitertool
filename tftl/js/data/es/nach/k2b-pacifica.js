@@ -1,6 +1,6 @@
 /* Paket C3 – Kapitel 2, Teil 2: Pacifica, Die Konzerne, Andere Staaten (S. 38–47) */
 window.NACHDATA_ES = window.NACHDATA_ES || {};
-window.NACHDATA_ES.k2b = {kap:"Kapitel 2", titel:"Der Staat Pacifica", s:38, abschnitte:[
+window.NACHDATA_ES.k2b = {kap:"Kapitel 2", titel:"Land, Konzerne & Nachbarn", s:38, abschnitte:[
  {id:"land", titel:"Pacifica", s:38, bloecke:[
   ["p","Erinnerst du dich an die Artikel in den Technikmagazinen, die vorhersagten, die Neuronik würde eine postgeografische Welt hervorbringen, die nach so einem halbgaren Nirwana klang? Erinnerst du dich, als du dachtest, deine Stimme würde irgendwo anders landen als in einem riesigen neuronischen Codemonster? Pacifica nennt sich eine Demokratie, ist aber in Wahrheit eine Oligarchie. Zeig mir ein Land, das keine ist."],
   ["p","Auch wenn Pacifica behauptet, eine Demokratie zu sein, ist Präsidentin Latoya Griffin seit dem Bürgerkrieg im Amt. Doch Präsidentin Griffin ist nicht die wahre Quelle der Macht in Pacifica. Seit die Konzerne den Krieg geführt und gewonnen haben – allen voran Sentre –, steht das Land unter ihrer Herrschaft. Die Präsidentin trifft keine wichtige Entscheidung, ohne den Vorstand von Sentre zu konsultieren, der im Sentre-Wolkenkratzer in Los Angeles sitzt. Das ist die neuronische Version von 1984."],

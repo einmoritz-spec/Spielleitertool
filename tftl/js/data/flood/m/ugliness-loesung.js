@@ -2,7 +2,7 @@
 (function(){
 var M = window.FLOOD.MYS.ugliness;
 M.countdown = [
-  "Nur eine Handvoll Oberstufenschüler hat sich im Lauf einiger Monate infiziert. Sie entwickeln seltsame Wucherungen, Schwielen, eitergefüllte Hauttaschen oder verfärbte Hautstellen, die merkwürdig riechen. Ihre Körper wirken unförmig und entwickeln nach und nach Schwänze, Schweinerüssel, Hundeohren, längere Arme und Beine, neue Körperöffnungen, neue Gliedmaßen oder Fell.",
+  "Nur eine Handvoll Highschool-Schüler hat sich im Lauf einiger Monate infiziert. Sie entwickeln seltsame Wucherungen, Schwielen, eitergefüllte Hauttaschen oder verfärbte Hautstellen, die merkwürdig riechen. Ihre Körper wirken unförmig und entwickeln nach und nach Schwänze, Schweinerüssel, Hundeohren, längere Arme und Beine, neue Körperöffnungen, neue Gliedmaßen oder Fell.",
   "Die Ansteckung breitet sich aus. Die Symptome lassen sich nun nicht mehr verbergen: ein sprechender Mund auf dem Rücken, Tierohren, lange Schwänze, Kiemen, veränderte Stimmen, zusätzliche Augen oder Schwimmhäute zwischen Fingern und Zehen.",
   "Weitverbreitete Veränderungen. Der Mund auf dem Rücken spricht ununterbrochen, voll ausgebildete Kiemen erlauben das Atmen unter Wasser, eine Nase hat sich in einen großen Schweinerüssel verwandelt."
 ];

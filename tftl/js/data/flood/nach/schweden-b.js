@@ -1,7 +1,7 @@
 (function(){
 var A = window.FLOOD.NACHDATA.schweden.abschnitte;
 A.push(
- {id:"90er-fortsetzung", titel:"Schweden in den 90ern: Fortsetzung", s:27, bloecke:[
+ {id:"90er-fortsetzung", titel:"Fortsetzung der 90er", s:27, bloecke:[
   ["p","Schwedische Seifenopern werden enorm beliebt. Jeden Mittwoch kleben Tausende von Menschen vor dem Bildschirm, um die neueste Folge von Tre Kronor („Drei Kronen“) zu sehen. Auch Serien wie Rederiet („Hohe See“), Skilda världar („Getrennte Welten“) und Vita lögner („Weiße Lügen“) sind sehr beliebt."],
   ["p","Gegen Ende des Jahrzehnts kommt das schwedische Reality-TV auf. Die erste große Sendung ist Expedition Robinson, eine Show nach Art von Survivor, in der eine in zwei Teams aufgeteilte Gruppe auf einer einsamen Insel überleben muss, indem sie um Ressourcen konkurriert. Das jeweils unterlegene Team muss jede Woche eines seiner Mitglieder hinauswählen. Die Medien schelten die Sendung als „Mobbing zur Hauptsendezeit“, doch die reißerischen Schlagzeilen, die sie hervorbringt, machen sie nur noch beliebter."],
   ["h","Feminismus"],

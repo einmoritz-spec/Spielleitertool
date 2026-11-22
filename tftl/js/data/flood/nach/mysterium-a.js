@@ -112,11 +112,11 @@ window.FLOOD.NACHDATA.mysterium = {kap:"Kapitel 6", titel:"Das Mysterium", s:82,
   ["p","Das Mysterium beginnt immer damit, dass jeder der Teens eine Szene aus dem Alltag spielt, mit oder ohne Ärger. Diese Szene hilft den Spielern, die Teens kennenzulernen, da jede Figur der übrigen Gruppe vorgestellt wird. Die Spielleiterin kann die Szenen selbst setzen oder die Spieler um einen Vorschlag bitten. Sie kann sich von den Problemen, Scham und Beziehungen der Teens inspirieren lassen. Ein allgemeiner Rat: Wähle die naheliegendste Szene. Denke nicht zu viel nach. Die Spielleiterin sollte die Szene beenden, wenn sie sich fertig anfühlt, und zur nächsten übergehen. Diese Szenen sollten eher kurz gehalten werden. Nach Phase 1 werden die meisten Szenen mit allen Teens gespielt, die als Gruppe handeln."],
   ["kasten","Beispiel",[
    "Spielleiterin: Los geht’s! Es ist ein heißer Sommertag, und überall sind Fliegen und Mücken. Alles scheint in Zeitlupe zu geschehen, und die Hitze lässt die Felder in der Ferne verschwimmen. Wer möchte die erste Szene?",
-   "Spielerin 1 (Linda): Ich hätte gern eine Szene, in der Linda sich mit ihrer Pflegemutter streitet.",
+   "Spieler 1 (Linda): Ich hätte gern eine Szene, in der Linda sich mit ihrer Pflegemutter streitet.",
    "Spielleiterin: Was hast du getan, um sie zu verärgern?",
-   "Spielerin 1: Meinen Ferienjob geschwänzt und stattdessen Geld aus ihrem Portemonnaie genommen.",
+   "Spieler 1: Meinen Ferienjob geschwänzt und stattdessen Geld aus ihrem Portemonnaie genommen.",
    "Spielleiterin: Okay. Ihr sitzt im Auto vor dem Konsum und habt gerade alle Einkäufe auf die Rückbank geladen, aber deine Mutter startet den Wagen nicht. Sie raucht schweigend und blickt in die Ferne.",
-   "Spielerin 1: „Fahren wir jetzt oder was? Ich hab Gustaf versprochen, mich vor dem Training mit ihm zu treffen.“",
+   "Spieler 1: „Fahren wir jetzt oder was? Ich hab Gustaf versprochen, mich vor dem Training mit ihm zu treffen.“",
    "Spielleiterin: Sie drückt ihre Zigarette im Armaturenbrett-Aschenbecher aus. „Ich war heute früher in der Gärtnerei, um dich zu besuchen, aber Bertil sagte, du hättest gekündigt. Er sagte, du seist nur an den ersten beiden Tagen aufgetaucht.“"]]
  ]},
  {id:"phase2", titel:"Phase 2: Mysterium einführen", s:90, bloecke:[

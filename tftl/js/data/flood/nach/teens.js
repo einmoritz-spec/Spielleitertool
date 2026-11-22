@@ -23,50 +23,50 @@ window.FLOOD.NACHDATA.teens = {kap:"Kapitel 4", titel:"Die Teens", s:48, abschni
  ]},
  {id:"alter", titel:"Alter", s:60, bloecke:[
   ["p","Dein Teen ist zwischen vierzehn und neunzehn Jahre alt. Wähle dein Alter."],
-  ["p","<b>Geburtstag:</b> Wähle den Geburtstag deines Teens."]
+  ["p","Geburtstag: Wähle den Geburtstag deines Teens."]
  ]},
  {id:"attribute", titel:"Attribute", s:60, bloecke:[
   ["p","Dein Teen wird durch vier Attribute bestimmt, die dir sagen, worin du gut bist und wie du mit Ärger zurechtkommst. Die Attribute sind: Körper, Technik, Herz und Verstand. Die Attributswerte reichen von 1 bis 5 und entsprechen der Anzahl der Würfel, die du wirfst, wenn du versuchst, Ärger zu überwinden."],
   ["liste",[
-   "<b>KÖRPER</b> ist die Fähigkeit, hoch zu springen, schnell zu rennen, zu kämpfen, sich zu schleichen und zu klettern.",
-   "<b>TECHNIK</b> ist die Fähigkeit, Maschinen und Roboter zu verstehen, technische Dinge zu programmieren, verschlossene Türen zu öffnen und Dinge zu bauen.",
-   "<b>HERZ</b> ist die Fähigkeit, Freunde zu finden, zu lügen, die richtigen Leute zu kennen, eine gute Stimmung zu schaffen und andere zu überzeugen.",
-   "<b>VERSTAND</b> ist die Fähigkeit, Schwachstellen zu finden, Menschen, Situationen und Kreaturen zu verstehen, Rätsel zu lösen, Hinweise zu verstehen und im richtigen Moment das richtige Wissen zu haben."]],
+   "KÖRPER ist die Fähigkeit, hoch zu springen, schnell zu rennen, zu kämpfen, sich zu schleichen und zu klettern.",
+   "TECHNIK ist die Fähigkeit, Maschinen und Roboter zu verstehen, technische Dinge zu programmieren, verschlossene Türen zu öffnen und Dinge zu bauen.",
+   "HERZ ist die Fähigkeit, Freunde zu finden, zu lügen, die richtigen Leute zu kennen, eine gute Stimmung zu schaffen und andere zu überzeugen.",
+   "VERSTAND ist die Fähigkeit, Schwachstellen zu finden, Menschen, Situationen und Kreaturen zu verstehen, Rätsel zu lösen, Hinweise zu verstehen und im richtigen Moment das richtige Wissen zu haben."]],
   ["kasten","Startwerte",["Verteile 14 Punkte auf deine Attribute, nicht weniger als 1 und nicht mehr als 5 pro Attribut."]]
  ]},
  {id:"fertigkeiten", titel:"Fertigkeiten", s:60, bloecke:[
   ["p","Jedes Attribut hat drei zugehörige Fertigkeiten. Das sind Bereiche, in denen dein Teen besonders geschult oder bewandert sein kann. Die Stufe einer Fertigkeit liegt zwischen 0 und 5 und entspricht der Anzahl der Würfel, die du zusätzlich zu den Würfeln des Attributs zum Wurf hinzufügst, wenn du versuchst, Ärger zu überwinden. Verteile zu Spielbeginn 10 Punkte auf deine Fertigkeiten. Du darfst bis zu Stufe 3 in den drei Schlüsselfertigkeiten deines Typs nehmen. Bei anderen Fertigkeiten ist Stufe 1 die höchste Startstufe."],
   ["h","Körper"],
   ["liste",[
-   "<span class='f'>SCHLEICHEN</span> ist die Fähigkeit, sich zu verstecken und zu schleichen.",
-   "<span class='f'>KRAFT</span> ist die Fähigkeit, schwere Dinge zu heben, zu kämpfen und in körperlich belastenden Situationen durchzuhalten.",
-   "<span class='f'>BEWEGEN</span> ist die Fähigkeit, hoch zu klettern, das Gleichgewicht zu halten und schnell zu rennen."]],
+   "SCHLEICHEN ist die Fähigkeit, sich zu verstecken und zu schleichen.",
+   "KRAFT ist die Fähigkeit, schwere Dinge zu heben, zu kämpfen und in körperlich belastenden Situationen durchzuhalten.",
+   "BEWEGEN ist die Fähigkeit, hoch zu klettern, das Gleichgewicht zu halten und schnell zu rennen."]],
   ["h","Technik"],
   ["liste",[
-   "<span class='f'>BASTELN</span> ist die Fähigkeit, Maschinen und andere mechanische Gegenstände zu bauen und zu manipulieren.",
-   "<span class='f'>PROGRAMMIEREN</span> ist die Fähigkeit, Computerprogramme und elektronische Geräte zu erschaffen und zu manipulieren.",
-   "<span class='f'>RECHNEN</span> ist die Fähigkeit, Maschinen und andere technische Systeme zu verstehen."]],
+   "BASTELN ist die Fähigkeit, Maschinen und andere mechanische Gegenstände zu bauen und zu manipulieren.",
+   "PROGRAMMIEREN ist die Fähigkeit, Computerprogramme und elektronische Geräte zu erschaffen und zu manipulieren.",
+   "RECHNEN ist die Fähigkeit, Maschinen und andere technische Systeme zu verstehen."]],
   ["h","Herz"],
   ["liste",[
-   "<span class='f'>KONTAKTE</span> ist die Fähigkeit, die richtige Person zu kennen.",
-   "<span class='f'>CHARME</span> ist die Fähigkeit, zu bezaubern, zu lügen, sich anzufreunden und zu manipulieren.",
-   "<span class='f'>ANFÜHREN</span> ist die Fähigkeit, andere dazu zu bringen, gut zusammenzuarbeiten, und ihnen zu helfen, wenn sie Angst haben, traurig oder verwirrt sind."]],
+   "KONTAKTE ist die Fähigkeit, die richtige Person zu kennen.",
+   "CHARME ist die Fähigkeit, zu bezaubern, zu lügen, sich anzufreunden und zu manipulieren.",
+   "ANFÜHREN ist die Fähigkeit, andere dazu zu bringen, gut zusammenzuarbeiten, und ihnen zu helfen, wenn sie Angst haben, traurig oder verwirrt sind."]],
   ["h","Verstand"],
   ["liste",[
-   "<span class='f'>UNTERSUCHEN</span> ist die Fähigkeit, versteckte Gegenstände zu finden und Hinweise zu verstehen.",
-   "<span class='f'>BEGREIFEN</span> ist die Fähigkeit, die richtige Information zu haben oder sie in der Bibliothek finden zu können.",
-   "<span class='f'>EINFÜHLEN</span> ist die Fähigkeit zu verstehen, was einen Menschen, ein Tier oder irgendein bewusstes Wesen antreibt und wie man seine Schwachstelle findet."]],
+   "UNTERSUCHEN ist die Fähigkeit, versteckte Gegenstände zu finden und Hinweise zu verstehen.",
+   "BEGREIFEN ist die Fähigkeit, die richtige Information zu haben oder sie in der Bibliothek finden zu können.",
+   "EINFÜHLEN ist die Fähigkeit zu verstehen, was einen Menschen, ein Tier oder irgendein bewusstes Wesen antreibt und wie man seine Schwachstelle findet."]],
   ["kasten","Einen Kid aus Tales from the Loop als Teen spielen",[
    "Du kannst deinen alten Kid aus Tales from the Loop in diesem Spiel ohne Weiteres als Teen spielen. Du erhältst jedoch dieselbe Anzahl an Attributs- und Fertigkeitspunkten zum Verteilen wie bei einem neuen Teen. Dein Teen behält keine Steigerungen, die du in deinem vorherigen Spiel mit Erfahrungspunkten gekauft hast. Nutze die Ereignisse deines vorherigen Spiels als Richtschnur, wenn dein Kid ins Jugendalter übergeht. Bedenke, dass Tales from the Loop Ende der 80er spielt und dass Things from the Flood frühestens im Frühjahr 95 beginnt, da das Mälarö-Leck zu Weihnachten 1994 geschah. Wenn du nicht so viel Zeit vergangen haben möchtest, steht es dir natürlich frei zu entscheiden, dass das Leck in deinem Spiel früher geschah."]]
  ]},
  {id:"gegenstaende", titel:"Gegenstände", s:61, bloecke:[
-  ["p","Manche Gegenstände können nützlich sein, um Ärger zu überwinden. Gegenstände können einen Bonus auf den Wurf geben, zwischen 1 und 3 zusätzliche Würfel. Um von einem Gegenstand einen Bonus zu erhalten, muss offensichtlich sein, wie er dir nützt. Ein Moped gibt einen Bonus auf <span class='f'>bewegen</span>, wenn du vor einem aggressiven Androiden fliehst, aber nicht beim Klettern auf einen Baum. Der Spielleiter sollte unvernünftige Versuche, Gegenstände zu nutzen, untersagen."],
+  ["p","Manche Gegenstände können nützlich sein, um Ärger zu überwinden. Gegenstände können einen Bonus auf den Wurf geben, zwischen 1 und 3 zusätzliche Würfel. Um von einem Gegenstand einen Bonus zu erhalten, muss offensichtlich sein, wie er dir nützt. Ein Moped gibt einen Bonus auf bewegen, wenn du vor einem aggressiven Androiden fliehst, aber nicht beim Klettern auf einen Baum. Der Spielleiter sollte unvernünftige Versuche, Gegenstände zu nutzen, untersagen."],
   ["p","Die meisten Objekte, denen du in den Mysterien begegnest, sind Requisiten, alltägliche Dinge, die beschrieben werden, um Atmosphäre zu schaffen, aber keinen Einfluss auf Würfelwürfe haben. Das kann eine Sonnenbrille sein, ein Auto oder eine Packung Kaugummi. Der Spielleiter entscheidet, welche Objekte Gegenstände sind, die einen Bonus geben, und welche nur Requisiten sind."],
   ["h","Kultgegenstand"],
   ["p","Du beginnst das Spiel mit einem Kultgegenstand; er funktioniert wie andere Gegenstände, sagt aber auch etwas darüber aus, wer du bist. Dein Kultgegenstand gibt zwei Bonuswürfel in einer Situation, in der er dir helfen kann, Ärger zu überwinden. Dein Kultgegenstand verschwindet oder geht nie kaputt, was auch geschieht, es sei denn, du willst es. Wenn er gestohlen wird oder verloren geht, findest du ihn vor dem Ende des Mysteriums wieder. Dein Kultgegenstand kann von den anderen Teens nicht benutzt werden."],
   ["kasten","Beispiel",[
    "Spieler 2 (Gustaf): Ich lasse beiläufig meine Jacke aufgleiten, damit die anderen im Schachclub meinen brandneuen Pager sehen können, denn ich weiß, dass sie alle sehr beeindruckt davon sind. Ich schaue aus dem Fenster, sehe cool aus und sage: „Ich finde, wir sollten nicht zur Party gehen, keiner von uns. Mit dem Neuen stimmt etwas nicht.“",
-   "Spielleiter: Wirf auf <span class='f'>charme</span> mit zwei zusätzlichen Würfeln, da der Pager dein Kultgegenstand ist."]],
+   "Spielleiter: Wirf auf charme mit zwei zusätzlichen Würfeln, da der Pager dein Kultgegenstand ist."]],
   ["h","Neue Gegenstände erhalten"],
   ["p","Du kannst während eines Mysteriums Dinge finden oder bauen oder Kreaturen zähmen, um neue Gegenstände zu erhalten. Der Spielleiter gibt dem Gegenstand einen Bonus von +1 bis +3, je nachdem, wie mächtig er eingeschätzt wird. Vorschläge für Gegenstände, denen man begegnen kann, werden in den Mysterien beschrieben."],
   ["h","Gegenstände verlieren"],
@@ -88,7 +88,7 @@ window.FLOOD.NACHDATA.teens = {kap:"Kapitel 4", titel:"Die Teens", s:48, abschni
    "Spieler 2: Ich klatsche laut in die Hände, um sie aufzuwecken. „Frau Andersson, Sie schlafen!“",
    "Spielleiter: Sie reagiert nicht, und du begreifst, dass sie sich gleich aus dem Fenster stürzen wird. Was tust du?",
    "Spieler 2: Ich packe sie und versuche, sie herunterzuziehen.",
-   "Spielleiter: Wirf auf <span class='f'>kraft</span>.",
+   "Spielleiter: Wirf auf kraft.",
    "Spieler 2: Ich scheitere, aber ich aktiviere meine Scham, um den Wurf zu bestehen. Meine Scham ist „Mein Vater sitzt im Gefängnis“. Alle erwarten, dass ich genauso versage wie er, aber wenn ich Frau Andersson rette, zeige ich ihnen, dass ich anders bin!"]]
  ]},
  {id:"beziehungen", titel:"Beziehungen", s:63, bloecke:[
@@ -139,12 +139,12 @@ window.FLOOD.NACHDATA.teens = {kap:"Kapitel 4", titel:"Die Teens", s:48, abschni
    "Lange Narbe quer über der linken Wange von einem Messer"]],
   ["kasten","Beispiel",[
    "Spielleiter: Ihr klettert in die Kanalisation und sinkt bis zur Hüfte in braunes, übelriechendes Wasser. Die gewölbten Wände werden von schwachen Lichtern in einem kränklichen Grüngelb beleuchtet. Marias Mörder hat nicht bemerkt, dass ihr ihnen hinuntergefolgt seid. Sie sind etwa dreißig Meter vor euch im Tunnel, ihr langer Ledermantel schwebt hinter ihnen durch den Schlamm.",
-   "Spieler 2 (Gustaf): Ich folge ihnen. Ich würfle auf <span class='f'>schleichen</span>, scheitere aber.",
+   "Spieler 2 (Gustaf): Ich folge ihnen. Ich würfle auf schleichen, scheitere aber.",
    "Spielleiter: Der Mörder biegt um eine Ecke und verschwindet. Als ihr die Ecke erreicht, überrascht euch der Mörder und drängt sich in der Dunkelheit gegen dich. Du siehst sein Gesicht und erkennst ihn – es ist dein eigener Vater, aber er scheint nicht zu verstehen, wer du bist. Sein Gesicht ist zu einem grotesken Lächeln erstarrt, Eiter läuft über seine Wangen und das Weiße seiner Augen ist violett geworden.",
    "Spieler 2: „Papa, was machst du hier?“",
    "Spielleiter: Er richtet eine Waffe auf dich und drückt ab.",
    "Spieler 2: Ich versuche, die Waffe wegzudrücken und ihn zu Boden zu ringen.",
-   "Spielleiter: Wirf auf <span class='f'>kraft</span>, aber wenn du scheiterst, wirst du Gebrochen.",
+   "Spielleiter: Wirf auf kraft, aber wenn du scheiterst, wirst du Gebrochen.",
    "Spieler 2: Ich scheitere schon wieder!",
    "Spielleiter: Du hast bereits eine Narbe von früher, jetzt hast du zwei. Du musst mit einem Würfel eine 2 oder mehr würfeln, um zu überleben.",
    "Spieler 2: Eine Eins! Ich schaffe es nicht. Der Schuss löst sich und trifft Gustaf in die Brust. Er fällt in das schmutzige Wasser. Wenn die anderen rechtzeitig dort ankommen, wird Gustaf im Krankenhaus sterben, andernfalls wird der Körper in die Kanalisation gespült und nie gefunden."]]
@@ -162,7 +162,7 @@ window.FLOOD.NACHDATA.teens = {kap:"Kapitel 4", titel:"Die Teens", s:48, abschni
   ["kasten","Gefahrenstufe",[
    "Wenn ihr Things from the Flood als One-Shot spielt, könnt ihr den Schwierigkeitsgrad anpassen:",
    "Für ein gefährlicheres Spiel, das sich für One-Shots eignet, kann der Teen aus dem Spiel genommen werden, sobald sie ihre zweite Narbe erhält. Wenn sie die erste Narbe erhält, muss sie mit einem Würfel eine 4 oder mehr würfeln, um es zu schaffen.",
-   "Für längere Kampagnen könnt ihr erlauben, dass ein anderer Teen mit einer der folgenden Fertigkeiten hilft: <span class='f'>anführen</span>: jemandem helfen oder ihn aufmuntern. <span class='f'>bewegen</span>: jemandem bei der Flucht helfen. <span class='f'>kontakte</span>: die Polizei oder einen Krankenwagen rufen.",
+   "Für längere Kampagnen könnt ihr erlauben, dass ein anderer Teen mit einer der folgenden Fertigkeiten hilft: anführen: jemandem helfen oder ihn aufmuntern. bewegen: jemandem bei der Flucht helfen. kontakte: die Polizei oder einen Krankenwagen rufen.",
    "Der Wurf muss in derselben Szene stattfinden, in der der Gebrochene Teen ihre entscheidende Narbe erhält. Gelingt der Wurf, schafft der Teen es, aber die Narbe bleibt. Einem Teen, der eine sechste Narbe erhält, kann jedoch nichts helfen."]]
  ]},
  {id:"reibung", titel:"Reibung", s:66, bloecke:[

@@ -1,6 +1,6 @@
 /* C8 – Kap. 5 Die Reise: Halte vorbereiten (Szene bis Orte) und Halt spielen, S. 121–133 */
 window.NACHDATA_ES = window.NACHDATA_ES || {};
-window.NACHDATA_ES.k5b = {kap:"Kapitel 5", titel:"Die Reise", s:121, abschnitte:[
+window.NACHDATA_ES.k5b = {kap:"Kapitel 5", titel:"Halte vorbereiten & spielen", s:121, abschnitte:[
 {id:"szene", titel:"Die Szene setzen", s:121, bloecke:[
 ["p","Jede Sitzung, in der die Reisenden einen neuen Halt erreichen, beginnt damit, dass du die Szene setzt. Üblicherweise liest du dazu einen vorgefertigten Text laut vor oder improvisierst ihn. Diese Szene spielt, während die Reisenden noch auf der Straße sind und kurz davor stehen, den Halt zu erreichen. Sie soll die Landschaft beschreiben und die Bühne für das bereiten, was die Reisenden am Halt erwartet. Sie kann zum Beispiel etwas sagen über:"],
 ["liste",["Die Landschaft","Das Wetter","Jahres- und Tageszeit","Gerüche und Geräusche","Andere Autos auf der Straße","Die Bedürfnisse der Reisenden","Namen von Straßen und Geschäften","Seltsame Details"]],

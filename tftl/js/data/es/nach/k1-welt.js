@@ -134,11 +134,11 @@ window.NACHDATA_ES.k1 = {kap:"Kapitel 1", titel:"Willkommen im Electric State", 
  ["h","Es sind die Neunziger, aber auch nicht"],
  ["p","Da The Electric State in einer alternativen Version der Neunziger spielt, sollte euer Spiel vertraute Elemente aus dieser Zeit enthalten, etwa Kleidung, Frisuren, Musik und Filme. Dem steht die Neurotechnik gegenüber, die seltsam und bizarr ist. Nutzt diese Kontraste voll aus. Die tatsächlichen Neunziger waren sicherlich eine Zeit rasanten technologischen Wandels, in der eine ältere Lebensweise der neuen wich. Dieses Spiel verstärkt das."],
  ["kasten","Zeit messen",[
-  "Je nach Situation werden im Spiel üblicherweise drei verschiedene Zeiteinheiten verwendet. Siehe die Tabelle unten. Die genaue Dauer einer Runde, einer Spanne und einer Schicht kann je nach Situation variieren. Üblicherweise gibt es vier Schichten pro Tag: Morgen, Tag, Abend und Nacht."
+  "Je nach Situation werden im Spiel üblicherweise drei verschiedene Zeiteinheiten verwendet. Siehe die Tabelle unten. Die genaue Dauer einer Runde, einer Zeitspanne und einer Schicht kann je nach Situation variieren. Üblicherweise gibt es vier Schichten pro Tag: Morgen, Tag, Abend und Nacht."
  ]],
  ["tabelle",["Einheit","Dauer","Hauptverwendung"],[
   ["Runde","5–10 Sekunden","Kampf"],
-  ["Spanne","5–10 Minuten","Neurocasten"],
+  ["Zeitspanne","5–10 Minuten","Neurocasten"],
   ["Schicht","5–10 Stunden","Reise"]
  ]]
 ]}

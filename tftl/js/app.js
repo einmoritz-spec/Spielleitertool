@@ -39,7 +39,9 @@
     head(r.area); menu(r.area);
     document.getElementById("tabs").innerHTML = d.tabs.map(function(t){ return '<a href="#' + (r.area==="tftl" ? "" : r.area + "/") + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
     var tab = d.tabs.filter(function(t){ return t[0]===r.page; })[0];
-    document.getElementById("app").innerHTML = '<h1>' + esc(tab ? tab[1] : r.page) + '</h1>';
+    var app = document.getElementById("app"); app.className = "page";
+    if(r.area==="tftl" && r.page==="start" && window.renderStart) window.renderStart(app);
+    else app.innerHTML = '<h1>' + esc(tab ? tab[1] : r.page) + '</h1>';
     window.scrollTo(0, 0);
   }
   window.openMenu = function(on){ document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); };

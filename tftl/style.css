@@ -1,0 +1,64 @@
+/* Tales from the Loop – Farb-/Schriftsystem für die Entwürfe (aus dem Corebook gemessen).
+   Darf als Ausgangspunkt für tftl/style.css genutzt werden. */
+@font-face{font-family:Jost;src:url(../assets/fonts/jost-latin-700-normal.woff2);font-weight:700;font-display:swap}
+@font-face{font-family:Jost;src:url(../assets/fonts/jost-latin-500-normal.woff2);font-weight:500;font-display:swap}
+@font-face{font-family:Garamond;src:url(../assets/fonts/eb-garamond-latin-400-normal.woff2);font-weight:400;font-display:swap}
+@font-face{font-family:Garamond;src:url(../assets/fonts/eb-garamond-latin-400-italic.woff2);font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Garamond;src:url(../assets/fonts/eb-garamond-latin-600-normal.woff2);font-weight:600;font-display:swap}
+@font-face{font-family:Typewriter;src:url(../assets/fonts/special-elite-latin-400-normal.woff2);font-display:swap}
+@font-face{font-family:Hand;src:url(../assets/fonts/caveat-latin-400-normal.woff2);font-display:swap}
+:root{
+ --top:#f08a1c;      /* Kopfzeile (wie bisherige Startseite) */
+ --band:#fbba1c;     /* gelb-orange Kapitelband am Seitenrand */
+ --acc:#ee7113;      /* Überschriften-Orange (AvantGarde Bold im Buch) */
+ --ink:#1d1d1b; --soft:#6b665d; --line:#e4ddcf;
+ --paper:#ffffff;    /* Buchseiten sind weiß */
+ --bg:#f7f4ee;       /* leicht warmes Grau als Fläche hinter Karten */
+ --card:#fffdf8;     /* Karteikarte (Schreibmaschinen-Kästen) */
+ --grid:#dfe7ea;     /* Millimeterpapier der Grundrisse */
+ --night:#1f2a33;    /* dunkle Blöcke (Abendhimmel der Bilder) */
+ --done:#a9a49a;
+ --sans:Jost,Futura,"Century Gothic",sans-serif;
+ --serif:Garamond,Georgia,serif;
+ --type:Typewriter,"Courier Prime",monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.5 var(--serif)}
+.top{position:sticky;top:0;z-index:5;height:56px;background:var(--top);display:flex;align-items:center;padding:0 22px;gap:8px;color:#fff}
+.top .logo{height:30px;filter:brightness(0) invert(1);cursor:pointer}
+.top .dd{font:700 13px var(--sans);opacity:.8;margin-left:-2px}
+.top .sp{flex:1}
+.ib{width:36px;height:36px;display:grid;place-items:center;border-radius:6px;color:#fff;opacity:.92}
+.ib svg{width:22px;height:22px}
+.ib.bur{border:1.5px solid rgba(255,255,255,.8)}
+h1,h2,h3,h4,.h{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.08}
+.acc{color:var(--acc)}
+.tabs{display:flex;align-items:stretch;background:#fff;border-bottom:2px solid var(--line);height:50px;padding:0 22px;gap:4px}
+.tabs a{text-decoration:none;display:flex;align-items:center;padding:0 16px;font:700 15px var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--soft);border-bottom:4px solid transparent;margin-bottom:-2px}
+.tabs a.on{color:var(--ink);border-color:var(--acc)}
+.tabs .sp{flex:1}
+.tabs .pen{align-self:center;color:var(--soft)}
+.pg{font:500 12px var(--sans);color:var(--soft);letter-spacing:.02em;text-transform:none;opacity:.8}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border:1.5px solid var(--acc);border-radius:999px;font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--acc);background:#fff;margin:0 6px 6px 0}
+.chip.f{background:var(--acc);color:#fff}
+/* Karteikarte mit Schreibmaschinenschrift – im Buch für Countdown, Inspiration, Zeitleisten */
+.kk{background:var(--card) url(img/papier.webp) center/cover;border-radius:2px;box-shadow:0 1px 0 #d6cfc0,0 6px 16px rgba(0,0,0,.12);padding:16px 18px;font:15px/1.45 var(--type);color:#2b2a28}
+.kk h4{font:16px var(--type);text-transform:uppercase;margin-bottom:8px;letter-spacing:.02em}
+
+body{margin:0;min-height:100vh}
+.topbar{background:var(--top)}
+.topbar .brand .lgm{display:block;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.topbar .sub-logo{display:flex;align-items:center;gap:12px;margin-left:6px}
+.topbar .sub-logo i{width:1px;height:26px;background:rgba(255,255,255,.55)}
+.topbar .sub-logo .lgm{background:#fff;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
+.tabs{position:sticky;top:56px;z-index:40}
+body.nohead .topbar{display:none}body.nohead .tabs{top:0}
+.page{padding:26px 22px}
+.page h1{font-size:30px;color:var(--acc)}
+/* Things from the Flood: Weinrot */
+body.flood{--acc:#8f2c48;--band:#8f2c48;--bg:#eef0f2;--night:#2b2430}
+body.flood .topbar{background:#8f2c48}
+/* The Electric State: Graublau/Teal */
+body.es{--acc:#2f7f86;--band:#2f7f86;--bg:#eef2f2;--night:#1b2a30}
+body.es .topbar{background:#2f7f86}
+@media (max-width:700px){.tabs{overflow-x:auto}}

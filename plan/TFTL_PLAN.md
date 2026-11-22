@@ -37,7 +37,7 @@ PDFs (von Moritz hochgeladen, nicht im Repo). Kürzel = Präfix der Bilddateien.
 - **Doppelseiten:** Die Kapitel-/Mysterium-Eröffnungsbilder sind im PDF auf zwei Seiten verteilt (linke Hälfte ragt über den rechten Rand von Seite N, rechte beginnt am linken Rand von N+1). Das Skript setzt sie zu **einem** Bild `…_S<N>-<N+1>_<nr>_dbl_….webp` zusammen und schneidet den Beschnitt an der Naht ab. Die Naht sieht aus wie im gedruckten Buch (Bund) – so lassen. Querformat-Seiten (Core S. 3 = Inselkarte, ES S. 2–3 = Karte von Pacifica) sind im PDF schon eine Doppelseite.
 - **Karten und Grundrisse** sind im PDF **geschichtet** (Rasterbild + Vektor-Beschriftung + Papiertextur) oder ganz Vektor (Grundrisse auf Millimeterpapier, z. B. Core S. 120 „Mats Tingblad's House“, Ablaufdiagramme mit Pfeilen). Diese **nicht aus den Einzelbildern** bauen, sondern den Seitenausschnitt rendern: `page.get_pixmap(dpi=200, clip=Rect(...))` – das gelbe Kapitelband am Seitenrand (x > ~550 pt bei rechten Seiten, x < ~60 pt bei linken) **nicht** mit ausschneiden. Beispiele in `plan/tftl/mockups/src/img/karte-*.webp`.
 - **Seitenzählung** (PDF-Seite = Buchseite + Versatz, aus den Fußzeilen-Seitenzahlen gemessen): `core` **+3** (Kap. 4 „The Kids“ PDF 51 = S. 48) · `flood` +1 · `a_friends` +1 · `a_grow` +1 · `a_snow` +1 · `a_outoftime` **+5** · `z_de80` **+5** · `es` **+4**. Im Bookviewer als `off` eintragen. Alle „S.“-Angaben im Tool sind Buchseiten.
-- **Logos:** TftL-Logo liegt vor. „Things from the Flood“ und „The Electric State“: Logo auf dem Cover ist teils Vektor, teils maskiertes Rasterbild (Flood: „FLOOD“ = Bild xref 17476 mit Maske) → am besten liefert Moritz die Logos (wie bei den anderen Systemen), sonst Cover ohne Hintergrundbild rendern und zusammensetzen.
+- **Logos** (von Moritz geliefert, 22. Nov. 2026, freigestellt in `assets/logos/`): `tales-from-the-loop.webp` (orange) · `things-from-the-flood.webp` (waagerecht, schwarz auf transparent – für Kopfzeile und Dropdown per Maske/Filter einfärben, auf Weinrot weiß) · `things-from-the-flood-stack.webp` (dreizeilig, weiß, klein – nur für Kacheln/i-Pop-up) · `electric-state.webp` (dreizeilig, weiß, **ohne** „Roleplaying Game“-Zeile = Kopfzeile/Dropdown) · `electric-state-rpg.webp` (mit Zeile, für Cover-/Startkacheln).
 
 ---
 
@@ -198,7 +198,8 @@ Bilder sofort sprechend benennen (Bereich/Mysterium), wie in `plan/tftl/mockups/
 ## 8. Charakterbogen
 Klick auf „Charakterbogen“ öffnet eine interaktive, ausfüllbare Ansicht, so nah wie möglich am Original-Bogen (`Character Sheet PF` ist bereits ein ausfüllbares PDF – dessen Feldnamen für Ausgabe **und** Einlesen nutzen, `shared/fillpdf.js`). Export als ausfüllbares PDF (bleibt bearbeitbar), Einlesen eines ausgefüllten Bogens legt das Kid an. Flood: eigener Bogen (`Things from the Flood Character Sheet`).
 
-## 9. Offene Fragen an Moritz
-- Electric State: wirklich im TftL-Tool als Untersetting, oder eigenes System im Dropdown?
-- Snow Day in der Kampagne als „Winter (Alternative)“ – oder eigener Block?
-- Logos für Flood und Electric State liefern?
+## 9. Entscheidungen (Moritz, 22. Nov. 2026)
+- Alle Entwürfe freigegeben; Ablauf-Diagramm in Entwurf 3 neu gesetzt (sauber, rechtwinklig).
+- **The Electric State bleibt Untersetting** von Tales from the Loop (neben Things from the Flood).
+- **Snow Day** steht in der Kampagne „Die vier Jahreszeiten“ als **Winter (Alternative)** zur „Kreidezeit“.
+- Logos geliefert (s. Abschnitt 1).

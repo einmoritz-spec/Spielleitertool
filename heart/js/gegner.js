@@ -20,7 +20,7 @@ function detail(g, leg){
   var links = (g.text || []).map(blk).join("");
   var rechts = '<div class="gvs">' + w("Beschreibung:", g.besch) + w("Namen:", g.namen) + w("Motivation:", g.motiv) +
     '<div class="gv"><span class="lbl">Schwierigkeit:</span> ' + esc(wert(g.schw)) + " · <span class=\"lbl\">Resistenz:</span> " + esc(wert(g.res)) + " · <span class=\"lbl\">Schutz:</span> " + esc(wert(g.schutz)) + "</div>" +
-    w("Ressourcen:", g.ressourcen) + w("Ausrüstung:", g.ausr) + w("Resistenz:", g.resX) + w("Schwierigkeit:", g.schwx) + w("Besonderes:", g.besonders) + w("Domains:", (g.dom || []).join(", ")) + w("", g.domx) + "</div>" + fo;
+    w("Ressourcen:", g.ressourcen) + w("Ausrüstung:", g.ausr) + w("Resistenz:", g.resX) + w("Schwierigkeit:", g.schwx) + w("Besonderes:", g.besonders) + w("Domains:", (g.dom || []).join(", ")) + w("", g.domx) + "</div>" + fo + '<div class="gbtn"><button onclick="auffDieExpedition(\'' + g.id + '\')">Auf die Expedition</button></div>';
   return '<div class="gz auf' + (leg ? " leg" : "") + '"><div class="gh" onclick="gegnerAuf(null)"><span class="platte' + (leg ? " schwarz" : "") + '">' + esc(kurz(g)) + "</span> " + pg(g) + etikett(g) + '</div><div class="gcols"><div class="gtext">' + links + "</div><div>" + rechts + "</div></div></div>";
 }
 window.gegnerAuf = function(id){ offen = id; render(); };

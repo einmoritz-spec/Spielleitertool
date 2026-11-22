@@ -18,6 +18,8 @@ function daten(){
   return out;
 }
 function passt(f){ var t = f.tag.toLowerCase(); return filter === "alle" || t.indexOf(filter) >= 0; }
+window.falloutListe = function(){ var D = daten(), L = []; ST_ORDER.forEach(function(s){ RES.forEach(function(r){ (D[s + "|" + r] || []).forEach(function(f){ L.push({id: f.id, t: f.t, r: RN[r], s: s, tag: f.tag, html: (f.k.b || []).filter(function(q){ return !(q && q.t === "p" && q.k); }).map(blk).join("")}); }); }); }); return L; };
+var ST_ORDER = ["leicht","schwer","kritisch"];
 window.falloutFilter = function(f){ filter = f; render(); };
 window.falloutAuf = function(id){ offen[id] = !offen[id]; render(); };
 function karte(f){

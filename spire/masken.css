@@ -1,0 +1,173 @@
+/* THE SPIRE – Buch der Masken: Pergament-Katalog wie im PDF. Schriften: Rye (Titel), Pinyon Script (Namen), IM Fell English SC (Beschriftungen).
+   Gilt nur in der Ansicht #masken (body[data-view="masken"]); Shell (Kopfzeile, Tabs, Leiste) bekommt die warme Farbwelt. */
+@font-face{font-family:"MkRye";src:url(fonts/rye-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"MkPinyon";src:url(fonts/pinyon-script-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"MkFell";src:url(fonts/im-fell-english-sc-latin-400-normal.woff2) format("woff2");font-display:swap}
+
+body[data-view="masken"]{--papier:#ebe1cc;--papier2:#f6efdf;--blau:#3d3733;--wein:#8b2c36;--linie:#cdbb98;--grau:#6e6256;--tinte:#2a211b;background:#ebe1cc}
+body[data-view="masken"] .side{border-right-color:#cdbb98}
+body[data-view="masken"] .side h5{font-family:"MkRye",var(--f-titel);font-weight:400;font-size:13px;letter-spacing:.05em;color:#8b2c36}
+body[data-view="masken"] .side a{font-size:14.5px}
+body[data-view="masken"] .main{background:#e4dac4;padding:26px 30px 60px}
+body[data-view="masken"] .wrap.zu .main{padding-left:44px}
+body[data-view="masken"] .tabs{border-bottom-color:#8b2c36}
+body[data-view="masken"] .raster{margin:0}
+
+.mk{container-type:inline-size;max-width:1260px;margin:0 auto;color:#2a211b;font-size:16.5px;line-height:1.5}
+.mk p{margin:0 0 .6em}
+.mk .pg{font:400 13px var(--f-text);color:#7a6c5c}
+.mk .pg:hover{color:#8b2c36}
+
+/* ---------- Blatt = Pergament mit gerissenem Rand ---------- */
+.mk-blatt{position:relative;isolation:isolate;margin:0 0 38px;padding:44px 54px 46px;filter:drop-shadow(0 3px 5px rgba(70,45,20,.32))}
+.mk-blatt::before{content:"";position:absolute;inset:-4px -10px -4px -10px;z-index:-1;background:#efe3c6 url(img/masken/deko/pergament.webp) center/cover;-webkit-mask:var(--rand) center/100% 100% no-repeat;mask:var(--rand) center/100% 100% no-repeat}
+.mk-blatt.b1{--rand:url(img/masken/deko/blatt-1.webp)}
+.mk-blatt.b2{--rand:url(img/masken/deko/blatt-2.webp)}
+.mk-blatt.b3{--rand:url(img/masken/deko/blatt-3.webp)}
+.mk-blatt.b4{--rand:url(img/masken/deko/blatt-4.webp)}
+
+/* Eintrag: Bild neben Text, Regelkarte darunter (breit: rechts daneben) */
+.mk-blatt:not(.hi):not(.mk-hero):not(.mk-vor){display:grid;grid-template-columns:320px minmax(0,1fr);grid-template-areas:"bild text" "bild rg";grid-template-rows:auto 1fr;column-gap:42px;align-items:start;align-content:start}
+.mk-blatt.mr:not(.hi):not(.mk-hero):not(.mk-vor){grid-template-columns:minmax(0,1fr) 320px;grid-template-areas:"text bild" "rg bild";grid-template-rows:auto 1fr}
+.mk-bild{grid-area:bild;position:sticky;top:122px;display:flex;flex-direction:column;gap:20px;align-items:center}
+.mk-bild .mk-regel{align-self:stretch}
+.mk-blatt.rl:not(.hi):not(.mk-hero):not(.mk-vor){grid-template-areas:"bild text";grid-template-rows:auto}
+.mk-blatt.rl.mr:not(.hi):not(.mk-hero):not(.mk-vor){grid-template-areas:"text bild"}
+.mk-text{grid-area:text;min-width:0}
+.mk-rg{grid-area:rg;margin-top:14px;min-width:0}
+.mk-img{display:block;max-width:100%;max-height:430px;width:auto;height:auto;margin:0 auto;cursor:zoom-in;filter:drop-shadow(0 7px 7px rgba(60,35,15,.38))}
+.mk-name{font:400 46px/1.05 "MkPinyon","Brush Script MT",cursive;color:#3d3733;margin:0 0 12px;text-shadow:0 1px 0 #fff8}
+.mk-name .pg{font-size:13px;margin-left:12px;vertical-align:middle}
+.mk p.dc::first-letter{font:400 3.6em/.78 "MkPinyon",cursive;float:left;color:#3d3733;margin:.08em .3em 0 .04em;padding:0 .06em 0 0}
+
+/* Kasten „Das könnte Sie auch interessieren“ (gerissener weißer Kasten wie im PDF) */
+.mk-mehr{position:relative;isolation:isolate;align-self:stretch;padding:20px 20px 20px 22px;font-size:14.5px;line-height:1.42;filter:drop-shadow(0 1px 1px rgba(60,40,20,.4))}
+.mk-mehr::before{content:"";position:absolute;inset:0;z-index:-1;background:#fffdf8;-webkit-mask:url(img/masken/deko/kasten-a.webp) center/100% 100% no-repeat;mask:url(img/masken/deko/kasten-a.webp) center/100% 100% no-repeat}
+.mk-mehr .mk-mk{font:400 24px/1.05 "MkPinyon",cursive;color:#3d3733;margin:0 0 8px}
+.mk-mehr p{margin:0}
+.mk-mehr b{font:400 14px "MkFell",serif;letter-spacing:.06em;text-transform:uppercase;color:#3d3733}
+
+/* ---------- Regelkarte ---------- */
+.mk-regel{--c:#7a5a2e;background:#fbf5e6;border:1.5px solid #4b3f36;box-shadow:4px 4px 0 rgba(75,63,54,.2);padding:0 0 12px;font-size:15.5px;line-height:1.45;margin:0}
+.mk-regel.fortschritt{--c:#8b2c36}
+.mk-regel.szene{--c:#4b2a63}
+.mk-rk{display:flex;align-items:center;gap:10px;background:var(--c);color:#fbf1dc;padding:5px 14px}
+.mk-art{font:400 15.5px "MkFell",serif;letter-spacing:.09em;text-transform:uppercase}
+.mk-rk .pg{margin-left:auto;color:#f1dcc4}
+.mk-rk .pg:hover{color:#fff}
+.mk-regel h4{font:400 24px/1.1 "MkRye",var(--f-titel);color:#3d3733;margin:12px 14px 6px;text-transform:none;letter-spacing:.01em}
+.mk-regel>p,.mk-regel>.mk-tags,.mk-regel>.mk-von2{margin-left:14px;margin-right:14px}
+.mk-regel>p{margin-bottom:.5em}
+.mk-regel>p:last-child{margin-bottom:0}
+.mk-regel p.mk-fl{color:#4b3f36}
+.mk-tags{margin-top:2px;margin-bottom:6px}
+.mk-regel .chip{border-color:#4b3f36;color:#3d3733;background:#fffdf6;font-family:"MkFell",serif;font-weight:400;font-size:14px;letter-spacing:.07em}
+.mk-regel .chip.w{border-color:#8b2c36;color:#8b2c36}
+.mk-von2{font:400 14px "MkFell",serif;letter-spacing:.06em;text-transform:uppercase;color:#7a6c5c;margin-bottom:6px}
+.mk-von2 a{cursor:pointer;color:#3d3733;border-bottom:1px dotted #7a6c5c}
+.mk-von2 a:hover{color:#8b2c36}
+
+/* ---------- Kopf, Vorwort, Abschnittsbanner ---------- */
+.mk-hero{display:grid;grid-template-columns:340px minmax(0,1fr);gap:50px;align-items:center;padding:54px 60px 56px}
+.mk-cover{width:100%;max-height:430px;object-fit:contain;cursor:zoom-in;filter:drop-shadow(0 8px 9px rgba(60,35,15,.42))}
+.mk-kopf h1{font:400 64px/1 "MkRye",var(--f-titel);color:#3d3733;margin:0;text-transform:none;letter-spacing:.01em;text-shadow:0 2px 0 #fff9}
+.mk-en{font:400 20px "MkFell",serif;letter-spacing:.14em;text-transform:uppercase;color:#7a6c5c;margin:6px 0 16px}
+.mk-von{font:400 24px/1.2 "MkPinyon",cursive;color:#3d3733}
+.mk-von .en{font-size:19px;color:#7a6c5c}
+.mk-mit{font:400 16px/1.4 "MkFell",serif;letter-spacing:.05em;color:#5a4d42;margin:6px 0 20px}
+.mk-einl{border-top:1.5px solid #8b2c36;padding-top:14px;font-style:italic;max-width:62ch}
+.mk-einl p:first-child{font-size:17.5px}
+.mk-vor{padding:40px 60px 46px}
+.mk-h{font:400 40px/1.1 "MkRye",var(--f-titel);color:#3d3733;margin:0 0 16px;text-transform:none;letter-spacing:.01em;padding:0;border:0}
+.mk-h::after{display:none}
+.mk-h .pg{font-size:13px;margin-left:12px;vertical-align:middle}
+.mk-brief{columns:2;column-gap:50px}
+.mk-gruss{margin-top:6px;font-style:italic}
+.mk-gruss .sig{font:400 32px/1.1 "MkPinyon",cursive;font-style:normal;color:#3d3733}
+.mk-banner{position:relative;text-align:center;margin:12px 0 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0 22px}
+.mk-banner h2{font:400 46px/1.1 "MkRye",var(--f-titel);color:#3d3733;margin:0;text-transform:uppercase;letter-spacing:.05em;text-shadow:0 2px 0 #fff9;padding:0;border:0}
+.mk-banner h2::after{display:none}
+.mk-banner .ln{flex:1;height:10px;border-top:2px solid #3d3733;border-bottom:1px solid #3d3733;opacity:.7;min-width:40px}
+.mk-banner .u{flex-basis:100%;font:400 22px "MkFell",serif;letter-spacing:.22em;text-transform:uppercase;color:#7a6c5c;margin-top:4px}
+.mk-banner .pg{flex-basis:100%;margin-top:2px}
+
+/* ---------- Übersicht ---------- */
+.mk-ueb{margin:0 0 40px;background:#f1e7d0;border:1.5px solid #b6a27c;padding:18px 24px 6px;box-shadow:0 2px 6px rgba(70,45,20,.2)}
+.mk-uz{margin:0 0 14px}
+.mk-uz h2{font:400 17px "MkRye",var(--f-titel);letter-spacing:.08em;text-transform:uppercase;color:#8b2c36;margin:0 0 8px;padding:0 0 4px;border-bottom:1px solid #b6a27c;cursor:pointer}
+.mk-uz h2::after{display:none}
+.mk-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:8px}
+.mk-tile{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 6px 6px;cursor:pointer;border:1px solid transparent}
+.mk-tile:hover{background:#faf3e2;border-color:#cdbb98}
+.mk-tile .ti{height:112px;width:100%;display:grid;place-items:center}
+.mk-tile img{max-width:100%;max-height:108px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(60,35,15,.35))}
+.mk-tile b{font:400 22px/1.1 "MkPinyon",cursive;color:#3d3733;margin-top:6px}
+.mk-tile small{font:400 12.5px "MkFell",serif;letter-spacing:.08em;text-transform:uppercase;color:#7a6c5c}
+
+/* ---------- Himmelsmasken ---------- */
+.mk-blatt.hi .mk-hi-einl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin:0 0 18px}
+.mk-subs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 38px}
+.mk-sub{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;align-items:start}
+.mk-sub .mk-img{max-height:260px}
+.mk-sub h4{font:400 34px/1.05 "MkPinyon",cursive;color:#3d3733;margin:0 0 2px;text-transform:none}
+.mk-sub h4 .pg{font-size:13px;margin-left:10px;vertical-align:middle}
+.mk-sub .oder{font-size:14.5px;color:#6e5f52;margin-bottom:.4em}
+.mk-sub p{font-size:15.5px}
+.mk-blatt.hi{padding-top:62px}
+.mk-blatt.hi .mk-rg{margin-top:22px}
+
+/* ---------- Karten-Raster (Fortschritte, Ausrüstung) ---------- */
+.mk-liste{max-width:1500px}
+.mk-h2{font:400 26px "MkRye",var(--f-titel);letter-spacing:.06em;text-transform:uppercase;color:#3d3733;margin:6px 0 14px;padding:0 0 6px;border-bottom:2px solid #3d3733}
+.mk-h2::after{display:none}
+.mk-kr{gap:18px;margin-bottom:34px !important;align-items:start}
+.mk-kk{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;align-items:start;background:#efe3c6 url(img/masken/deko/pergament.webp) center/cover;border:1px solid #b6a27c;padding:16px 16px 16px 14px;box-shadow:0 2px 5px rgba(70,45,20,.25)}
+.mk-kb{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;min-height:130px;cursor:pointer}
+.mk-kb img{max-width:100%;max-height:150px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 5px 5px rgba(60,35,15,.38))}
+.mk-kk.viele .mk-kb{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mk-kk.viele .mk-kb img{max-height:72px}
+.mk-kk .mk-regel{box-shadow:3px 3px 0 rgba(75,63,54,.18)}
+.mk-kk .mk-regel h4{font-size:21px}
+.mk-kk .mk-von2 .pg{margin-left:8px}
+
+/* ---------- Breite: Regelkarte neben dem Text ---------- */
+@container (min-width:1220px){
+  .mk-blatt:not(.hi):not(.mk-hero):not(.mk-vor):not(.rl){grid-template-columns:300px minmax(0,1fr) 340px;grid-template-areas:"bild text rg";grid-template-rows:auto;column-gap:38px}
+  .mk-blatt.mr:not(.hi):not(.mk-hero):not(.mk-vor):not(.rl){grid-template-columns:340px minmax(0,1fr) 300px;grid-template-areas:"rg text bild";grid-template-rows:auto}
+  .mk-rg{margin-top:0}
+}
+@container (min-width:1560px){ .mk-kr.r2{grid-template-columns:repeat(3,minmax(0,1fr))} }
+
+/* ---------- schmale Fenster ---------- */
+@container (max-width:860px){
+  .mk-blatt{padding:32px 26px 34px}
+  .mk-blatt:not(.hi):not(.mk-hero):not(.mk-vor),.mk-blatt.mr:not(.hi):not(.mk-hero):not(.mk-vor){grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"bild" "text" "rg" !important;grid-template-rows:auto !important;row-gap:16px}
+  .mk-bild{position:static}
+  .mk-hero{grid-template-columns:minmax(0,1fr);gap:22px;padding:36px 26px}
+  .mk-cover{max-height:320px}
+  .mk-kopf h1{font-size:46px}
+  .mk-brief{columns:1}
+  .mk-blatt.hi .mk-hi-einl,.mk-subs{grid-template-columns:1fr}
+  .mk-banner h2{font-size:34px}
+  .mk-kr.r2{grid-template-columns:1fr}
+}
+@container (max-width:520px){
+  .mk-img{max-height:300px}
+  .mk-blatt{padding:26px 16px 28px}
+  .mk-name{font-size:38px}
+  .mk-kopf h1{font-size:36px}
+  .mk-vor,.mk-hero{padding:28px 16px}
+  .mk-sub{grid-template-columns:1fr}
+  .mk-sub .mk-img{max-height:220px}
+  .mk-banner h2{font-size:26px;letter-spacing:.02em}
+  .mk-banner .u{font-size:16px;letter-spacing:.12em}
+  .mk-kk{grid-template-columns:1fr}
+  .mk-kb{flex-direction:row;min-height:0}
+  .mk-kb img{max-height:110px}
+  .mk-h{font-size:30px}
+  .mk-regel h4{font-size:21px}
+}
+@media (max-width:900px){
+  body[data-view="masken"] .main{padding:16px 12px 40px}
+  body[data-view="masken"] .side{border-bottom-color:#cdbb98}
+}

@@ -190,7 +190,7 @@ function buildMenu(){
     return mb("openBook('" + b.id + "',1)", esc(b.name) + (b.sub ? '<small>' + esc(b.sub) + '</small>' : ''), "", c ? '<img src="' + c + '" alt="">' : '<i class="ph"></i>');
   }).join(""); }).join("");
   document.getElementById("mmP").innerHTML =
-    '<h3>Nachschlagen</h3>' + mb("go('start')", "Vorbereitung") + nach +
+    '<h3>Nachschlagen</h3>' + mb("go('start')", "Vorbereitung") + nach + mb("go('masken')", "Buch der Masken") +
     '<h3>Werkzeuge</h3>' + mb("schirmOpen()", "Spielleiterschirm", "s") + mb("wOpen()", "Würfel", "w") + mb("sOpen()", "Suche", "/") + mb("go('galerie')", "Galerie") + mb("charakterbogen()", "Charakterbogen") +
     '<h3>Bücher</h3>' + buecher + mb("modal(BV.settingsHTML())", "PDF hochladen …");
 }

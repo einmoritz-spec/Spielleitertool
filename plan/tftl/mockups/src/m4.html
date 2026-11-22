@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><style>
+.page{padding:16px 22px}
+.bar{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.bar h2{font-size:24px;color:var(--acc);margin-right:8px}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kid{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.14);border-top:6px solid var(--band)}
+.kh{display:flex;gap:12px;padding:10px 12px 8px;border-bottom:1.5px solid var(--line)}
+.kh .ph{width:54px;height:84px;background:center/contain no-repeat;flex:none}
+.kh b{display:block;font:700 20px/1.1 var(--sans);text-transform:uppercase}
+.kh small{font:600 13px var(--sans);color:var(--acc);text-transform:uppercase;letter-spacing:.06em}
+.kh .ln{font:14px var(--serif);color:var(--soft);margin-top:3px;line-height:1.3}
+.at{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1.5px solid var(--line)}
+.at div{text-align:center;padding:6px 2px;border-right:1px solid var(--line)}
+.at div:last-child{border:0}
+.at span{display:block;font:700 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.at b{font:700 22px var(--sans)}
+.sec{padding:7px 12px;border-bottom:1px solid var(--line)}
+.lab{font:700 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:3px;display:flex;justify-content:space-between}
+.pips{display:flex;gap:5px}
+.pips i{width:15px;height:15px;border-radius:50%;border:2px solid var(--acc)}
+.pips i.f{background:var(--acc)}
+.zs{display:flex;flex-wrap:wrap;gap:5px}
+.zs span{font:700 11.5px var(--sans);text-transform:uppercase;letter-spacing:.04em;padding:3px 7px;border:1.5px solid #d7cfbf;color:var(--soft);border-radius:2px}
+.zs span.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.zs span.br{border-style:dashed}
+.tx{font:15px/1.35 var(--serif)}
+.tx b{font:700 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-right:5px}
+.pr{display:flex;justify-content:space-between;align-items:center}
+.pr .u{font:700 11px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:#fff;background:#3a8a4f;padding:2px 7px;border-radius:2px}
+.pr .u.no{background:none;color:var(--soft);border:1.5px solid #d7cfbf}
+.row2{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:14px;margin-top:14px}
+.box{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.14);padding:12px 14px}
+.box h3{font-size:16px;color:var(--acc);margin-bottom:6px}
+.net{position:relative;height:150px}
+.net .n{position:absolute;font:700 12px var(--sans);text-transform:uppercase;background:#fdf1e6;border:1.5px solid var(--acc);padding:3px 8px;border-radius:999px}
+.net svg{position:absolute;inset:0;width:100%;height:100%}
+.net .rl{position:absolute;font:13px var(--hand,Hand);font-family:Hand;font-size:17px;color:#555}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><a>Vorbereitung</a><a>Mysterien</a><a class="on">Kids</a><a>Karte</a></div>
+<div class="page">
+ <div class="bar"><h2 class="h">Unsere Kids</h2><span class="chip">+ Kid</span><span class="chip">Bogen einlesen (PDF)</span><span class="chip">Leerer Bogen</span></div>
+ <div class="row">
+  <div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/typ-bookworm.webp)"></div><div><b>Anna Lindqvist</b><small>Bücherwurm · 12</small><div class="ln">Lieblingslied: „Forever Young“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>1</b></div><div><span>Technik</span><b>3</b></div><div><span>Herz</span><b>2</b></div><div><span>Verstand</span><b>4</b></div></div>
+   <div class="sec"><div class="lab">Glück <span>3 / 3</span></div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span>Verärgert</span><span class="on">Verängstigt</span><span>Erschöpft</span><span>Verletzt</span><span class="br">Gebrochen</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Stolz</b>Ich weiß mehr als alle anderen.</div><span class="u">frei</span></div>
+   <div class="sec tx"><b>Problem</b>Papa trinkt wieder.<br><b>Antrieb</b>Will die Wahrheit wissen.<br><b>Anker</b>Lehrerin Frau Berg</div>
+   <div class="sec tx" style="border:0"><b>Gegenstand</b>Taschenlampe (+2)</div>
+  </div>
+  <div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/typ-computergeek.webp)"></div><div><b>Olle Berg</b><small>Computerfreak · 13</small><div class="ln">Lieblingslied: „Tainted Love“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>2</b></div><div><span>Technik</span><b>5</b></div><div><span>Herz</span><b>1</b></div><div><span>Verstand</span><b>3</b></div></div>
+   <div class="sec"><div class="lab">Glück <span>1 / 2</span></div><div class="pips"><i class="f"></i><i></i></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span>Verärgert</span><span>Verängstigt</span><span>Erschöpft</span><span>Verletzt</span><span class="br">Gebrochen</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Stolz</b>Ich kann jede Maschine knacken.</div><span class="u no">eingesetzt</span></div>
+   <div class="sec tx"><b>Problem</b>Wird in der Schule gemobbt.<br><b>Antrieb</b>Neugier auf Technik.<br><b>Anker</b>Großvater Nils</div>
+   <div class="sec tx" style="border:0"><b>Gegenstand</b>Walkie-Talkie (+1)</div>
+  </div>
+  <div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/typ-jock.webp)"></div><div><b>Jonas Ek</b><small>Sportskanone · 14</small><div class="ln">Lieblingslied: „Eye of the Tiger“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>5</b></div><div><span>Technik</span><b>1</b></div><div><span>Herz</span><b>3</b></div><div><span>Verstand</span><b>1</b></div></div>
+   <div class="sec"><div class="lab">Glück <span>0 / 1</span></div><div class="pips"><i></i></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span class="on">Verärgert</span><span>Verängstigt</span><span class="on">Erschöpft</span><span>Verletzt</span><span class="br">Gebrochen</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Stolz</b>Ich lasse niemanden zurück.</div><span class="u">frei</span></div>
+   <div class="sec tx"><b>Problem</b>Muss das Team gewinnen lassen.<br><b>Antrieb</b>Will beschützen.<br><b>Anker</b>Trainer Svensson</div>
+   <div class="sec tx" style="border:0"><b>Gegenstand</b>Fahrrad (+2)</div>
+  </div>
+  <div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/typ-weirdo.webp)"></div><div><b>Mira Holm</b><small>Sonderling · 11</small><div class="ln">Lieblingslied: „Space Oddity“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>2</b></div><div><span>Technik</span><b>2</b></div><div><span>Herz</span><b>2</b></div><div><span>Verstand</span><b>4</b></div></div>
+   <div class="sec"><div class="lab">Glück <span>4 / 4</span></div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span>Verärgert</span><span>Verängstigt</span><span>Erschöpft</span><span>Verletzt</span><span class="br">Gebrochen</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Stolz</b>Ich sehe, was andere übersehen.</div><span class="u">frei</span></div>
+   <div class="sec tx"><b>Problem</b>Niemand glaubt ihr.<br><b>Antrieb</b>Sucht das Unerklärliche.<br><b>Anker</b>Schwester Lisa</div>
+   <div class="sec tx" style="border:0"><b>Gegenstand</b>Fernglas (+1)</div>
+  </div>
+ </div>
+ <div class="row2">
+  <div class="box"><h3>Beziehungen</h3><div class="net"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><g stroke="#ee7113" stroke-width=".6"><line x1="18" y1="20" x2="78" y2="20"/><line x1="18" y1="20" x2="22" y2="80"/><line x1="78" y1="20" x2="74" y2="80"/><line x1="22" y1="80" x2="74" y2="80"/></g></svg>
+   <span class="n" style="left:4%;top:8%">Anna</span><span class="n" style="left:70%;top:8%">Olle</span><span class="n" style="left:6%;top:72%">Jonas</span><span class="n" style="left:66%;top:72%">Mira</span>
+   <span class="rl" style="left:34%;top:2%">„Mein bester Freund“</span><span class="rl" style="left:34%;top:62%">„Nervt total“</span></div></div>
+  <div class="box"><h3>Versteck</h3><div class="tx">Alter Bootsschuppen am Ufer bei Färentuna – Matratzen, Walkman, eine Kiste Comics. <span class="pg">(vom Tisch festgelegt)</span></div><h3 style="margin-top:10px">Erfahrung</h3><div class="tx">Fragen am Ende der Sitzung (Spielhilfe) – je Kid abhaken: Teilgenommen? · Problem/Antrieb/Beziehung? · Etwas gelernt? …</div></div>
+  <div class="box"><h3>Würfelprobe</h3><div class="tx">Kid + Fertigkeit wählen → Würfelpool aus Attribut, Fertigkeit, Zuständen und Gegenstand wird automatisch berechnet; Würfeln, Glück, Stolz und Helfen nach Kap. 5.</div><div style="margin-top:8px"><span class="chip f">Anna · Untersuchen (Verstand) = 6 W6</span></div></div>
+ </div>
+</div>
+<div class="ann" style="left:640px;top:104px"><b>1</b>„Bogen einlesen“: ausgefüllten Original-Charakterbogen (PDF) laden → Kid wird komplett angelegt; Export wieder als ausfüllbares PDF.</div>
+<div class="ann" style="left:560px;top:830px"><b>2</b>Alles anklickbar: Glück, Zustände (orange = aktiv, „Gebrochen“ gestrichelt), Stolz frei/eingesetzt. Spielstand lokal. Klick auf den Namen öffnet den interaktiven Bogen.</div>
+</body></html>

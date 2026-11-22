@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><style>
+.page{padding:16px 22px 30px}
+.grp{margin-bottom:18px}
+.gh{display:flex;align-items:baseline;gap:12px;margin-bottom:9px}
+.gh h2{font-size:21px;color:var(--acc)}
+.gh .t{font:500 12px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:#fff;background:var(--acc);padding:2px 8px;border-radius:2px}
+.gh .t.b{background:var(--ink)}
+.gh .pg{font-size:12.5px}
+.gh:after{content:"";flex:1;border-top:2px solid var(--line);align-self:center}
+.row{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;align-items:start}
+.mc{background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.13);position:relative}
+.mc .im{height:96px;background:center/cover}
+.mc .tx{padding:8px 10px 9px}
+.mc b{display:block;font:700 14px/1.15 var(--sans);text-transform:uppercase}
+.mc small{display:block;font:13px var(--serif);color:var(--soft);margin-top:3px}
+.mc .s{position:absolute;left:0;top:8px;font:700 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;background:var(--band);color:var(--ink);padding:3px 8px 3px 8px}
+.mc.on{outline:3px solid var(--acc)}
+.mc.x .im{height:58px}
+.mc.x{background:var(--card)}
+.mc.x b{font:15px var(--type);text-transform:none}
+.mc .st{z-index:2;position:absolute;right:8px;top:8px;width:22px;height:22px;border-radius:50%;background:#3a8a4f;color:#fff;display:grid;place-items:center;font:700 13px var(--sans)}
+.mc.fertig .im{filter:grayscale(1) brightness(1.1);opacity:.75}.mc.fertig b,.mc.fertig small{color:var(--done)}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><a>Vorbereitung</a><a class="on">Mysterien</a><a>Kids</a><a>Karte</a></div>
+<div class="page">
+ <div class="grp"><div class="gh"><h2>Die vier Jahreszeiten des verrückten Wissenschaftlers</h2><span class="t">Kampagne</span><span class="pg">Grundregelwerk · S. 112</span></div>
+  <div class="row">
+   <div class="mc"><div class="im" style="background-image:url(img/k-vierjahreszeiten.webp)"></div><div class="tx"><b>Hintergrund der Kampagne</b><small>Gunnar Granat · Die Kids und die Kampagne</small></div></div>
+   <div class="mc on"><div class="s">Sommer</div><div class="im" style="background-image:url(img/m-killerbirds.webp)"></div><div class="tx"><b>Sommerferien und Killervögel</b><small>Kap. 9 · S. 116</small></div></div>
+   <div class="mc"><div class="s">Herbst</div><div class="im" style="background-image:url(img/m-grownup.webp)"></div><div class="tx"><b>Erwachsenen-Anziehung</b><small>Kap. 10 · S. 132</small></div></div>
+   <div class="mc"><div class="s">Winter</div><div class="im" style="background-image:url(img/m-cretaceous.webp)"></div><div class="tx"><b>Kreaturen aus der Kreidezeit</b><small>Kap. 11 · S. 144</small></div></div>
+   <div class="mc"><div class="s">Frühling</div><div class="im" style="background-image:url(img/m-wagner.webp)"></div><div class="tx"><b>Ich, Wagner</b><small>Kap. 12 · S. 160</small></div></div>
+   <div class="mc"><div class="s">Winter</div><div class="im" style="background-image:url(img/m-snowday.webp)"></div><div class="tx"><b>Snow Day</b><small>Alternative zu „Kreidezeit“ · Einzelheft</small></div></div>
+  </div></div>
+ <div class="grp"><div class="gh"><h2>Our Friends the Machines</h2><span class="t b">Mysterien</span><span class="pg">Abenteuerband</span></div>
+  <div class="row">
+   <div class="mc fertig"><div class="st">✓</div><div class="im" style="background-image:url(img/m-friends.webp)"></div><div class="tx"><b>Unsere Freunde, die Maschinen</b><small>S. 6</small></div></div>
+   <div class="mc"><div class="im" style="background-image:url(img/m-horror.webp)"></div><div class="tx"><b>Horrorfilm-Chaos</b><small>S. 32</small></div></div>
+   <div class="mc"><div class="im" style="background-image:url(img/m-mummy.webp)"></div><div class="tx"><b>Die Mumie im Nebel</b><small>S. 50</small></div></div>
+   <div class="mc x"><div class="im" style="background-image:url(img/m-mixtape.webp)"></div><div class="tx"><b>Mixtape der Mysterien</b><small>Kurz-Mysterien · S. 68</small></div></div>
+   <div class="mc x"><div class="im" style="background-image:url(img/m-blueprints.webp)"></div><div class="tx"><b>Maschinen-Baupläne</b><small>S. 88</small></div></div>
+   <div class="mc x"><div class="im" style="background-image:url(img/m-hometown.webp)"></div><div class="tx"><b>Heimatstadt-Hack</b><small>Eigene Loops · S. 98</small></div></div>
+  </div></div>
+ <div class="grp"><div class="gh"><h2>They Grow Up So Fast</h2><span class="t">Kampagne</span><span class="pg">Abenteuerband · Norfolk Broads</span></div>
+  <div class="row">
+   <div class="mc"><div class="im" style="background-image:url(img/k-grow.webp)"></div><div class="tx"><b>Die Norfolk Broads</b><small>Hintergrund · Kreatur · Regis &amp; Maff</small></div></div>
+   <div class="mc"><div class="s">Frühling</div><div class="im" style="background-image:url(img/m-easter.webp)"></div><div class="tx"><b>Ostereiersuche</b><small>S. 24</small></div></div>
+   <div class="mc"><div class="s">Sommer</div><div class="im" style="background-image:url(img/m-bestof.webp)"></div><div class="tx"><b>Das Beste von dem, was sein könnte</b><small>S. 44</small></div></div>
+   <div class="mc"><div class="s">Herbst</div><div class="im" style="background-image:url(img/m-lastsmile.webp)"></div><div class="tx"><b>Das letzte, schönste Lächeln des Jahres</b><small>S. 64</small></div></div>
+   <div class="mc"><div class="s">Winter</div><div class="im" style="background-image:url(img/m-toomuch.webp)"></div><div class="tx"><b>Man kann nie genug …</b><small>S. 78</small></div></div>
+  </div></div>
+ <div class="grp"><div class="gh"><h2>Out of Time</h2><span class="t">Trilogie</span><span class="pg">Abenteuerband · 1969 / 1984</span></div>
+  <div class="row">
+   <div class="mc"><div class="im" style="background-image:url(img/k-outoftime.webp)"></div><div class="tx"><b>Out of Time</b><small>Trilogie · Zeitparadoxon</small></div></div>
+   <div class="mc"><div class="s">1</div><div class="im" style="background-image:url(img/m-animalark.webp)"></div><div class="tx"><b>Die Arche der Tiere</b><small>S. 12</small></div></div>
+   <div class="mc"><div class="s">2</div><div class="im" style="background-image:url(img/m-summercamp.webp)"></div><div class="tx"><b>Sommerlager</b><small>S. 30</small></div></div>
+   <div class="mc"><div class="s">3</div><div class="im" style="background-image:url(img/m-hourglass.webp)"></div><div class="tx"><b>Der Sturm im Stundenglas</b><small>S. 50</small></div></div>
+   <div class="mc x"><div class="im" style="background-image:url(img/m-secret.webp)"></div><div class="tx"><b>Geheime Orte</b><small>9 Orte · S. 74</small></div></div>
+   <div class="mc x"><div class="im" style="background-image:url(img/m-machine.webp)"></div><div class="tx"><b>Die Mystery-Maschine</b><small>Zufallstabellen · S. 92</small></div></div>
+   <div class="mc x"><div class="im" style="background-image:url(img/m-mixcd.webp)"></div><div class="tx"><b>Mix-CD der Mysterien</b><small>Kurz-Mysterien · S. 104</small></div></div>
+  </div></div>
+ <div class="grp"><div class="gh"><h2>Deutschland in den 80ern</h2><span class="t b">Mysterien</span><span class="pg">Taunus-Loop · deutsch</span></div>
+  <div class="row">
+   <div class="mc"><div class="im" style="background-image:url(img/m-ndw.webp)"></div><div class="tx"><b>Neue Deutsche Welle</b><small>Kap. 3</small></div></div>
+   <div class="mc"><div class="im" style="background-image:url(img/m-baerchis.webp)"></div><div class="tx"><b>Im Bann der Bärchis</b><small>Kap. 4</small></div></div>
+   <div class="mc"><div class="im" style="background-image:url(img/m-riss.webp)"></div><div class="tx"><b>Der Riss im Schleier</b><small>Kap. 5</small></div></div>
+   <div class="mc"><div class="im" style="background-image:url(img/m-sirene.webp)"></div><div class="tx"><b>Wenn die Sirene schweigt</b><small>Kap. 6</small></div></div>
+  </div></div>
+</div>
+<div class="ann" style="left:850px;top:1060px"><b>1</b>Zuletzt gespieltes Mysterium orange umrandet; abgeschlossene werden grau (Klick im Leitstand „Nachspiel“).</div>
+<div class="ann" style="left:1040px;top:610px"><b>2</b>Ein Block je Buch, Kampagnen in Spielreihenfolge mit Jahreszeit-Fähnchen (wie im Buch). Kurz-Mysterien/Werkzeuge als Karteikarten.</div>
+</body></html>

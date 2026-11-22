@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><style>
+:root{--top:#8f2c48;--acc:#8f2c48;--band:#8f2c48;--bg:#eef0f3;--night:#1e2733}
+.top .logo{display:none}
+.top .ft{display:inline!important;font:700 21px/1 var(--sans);letter-spacing:.02em;color:#fff;text-transform:uppercase}
+.hero{height:170px;background:url(img/f-hero.webp) center 45%/cover}
+.wrap{display:grid;grid-template-columns:1fr 420px;gap:24px;padding:22px}
+.sec{display:flex;align-items:center;gap:14px;font-size:26px;color:var(--acc);margin-bottom:14px}
+.sec:after{content:"";flex:1;border-top:2px solid #d5d9df}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12);border-left:6px solid var(--acc)}
+.tile .im{height:92px;background:center/cover}
+.tile .tx{padding:10px 12px}
+.tile h3{font-size:17px;color:var(--acc)}
+.tile p{font:13.5px/1.35 var(--serif);color:var(--soft);margin-top:3px}
+.tile .k{font:500 11.5px var(--sans);color:var(--soft);margin-top:6px}
+.chip{border-color:var(--acc);color:var(--acc)}.chip.f{background:var(--acc);color:#fff}
+.go{background:var(--night);color:#fff;border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;border-left:8px solid var(--acc)}
+.go h2{font-size:30px;color:#e9a3b6}
+.mm{display:flex;gap:12px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.mm .im{width:150px;height:84px;background:center/cover;flex:none}
+.mm b{display:block;font:700 17px/1.15 var(--sans);text-transform:uppercase;margin-top:12px}
+.mm span{font:14px var(--serif);opacity:.75}
+/* Setting-Dropdown (wie toolmenu.js) */
+.dd{position:absolute;left:14px;top:52px;width:430px;background:#202326;color:#eee;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.55);padding:6px;z-index:30;font-family:var(--sans)}
+.dd .g{padding:8px 11px 3px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.5}
+.dd .gr{display:grid;grid-template-columns:1fr 1fr;gap:0 4px}
+.dd .b{display:flex;align-items:center;min-height:44px;padding:6px 12px;border-radius:8px;font:700 15px var(--sans);border:1px solid transparent}
+.dd .b img{height:20px;filter:brightness(0) invert(1)}
+.dd .b.on{border-color:#e9a3b6;background:rgba(255,255,255,.05)}
+.dd .s2{grid-column:1/-1;margin-left:24px;border-left:2px solid rgba(255,255,255,.14);border-radius:0 8px 8px 0;min-height:40px;font:700 15px var(--sans);text-transform:uppercase;letter-spacing:.03em;display:flex;align-items:center;padding:6px 12px}
+.dd .s2.on{border:1px solid #e9a3b6;border-left:2px solid #e9a3b6;background:rgba(255,255,255,.05)}
+.dd .dim{opacity:.45}
+</style></head><body>
+<!--TOP-->
+<div class="dd">
+ <div class="g">Mist Engine</div><div class="gr dim"><div class="b">Legend in the Mist</div><div class="b">City of Mist</div><div class="b">Otherscape</div></div>
+ <div class="g">Year Zero Engine</div>
+ <div class="gr"><div class="b dim">Vaesen</div><div class="b"><img src="img/tales-from-the-loop.webp"></div>
+  <div class="s2" style="color:#f0a15a">Tales from the Loop</div>
+  <div class="s2 on" style="color:#fff">Things from the Flood</div>
+  <div class="s2" style="color:#bcd3df">The Electric State</div></div>
+ <div class="g">Weitere Systeme</div><div class="gr dim"><div class="b">Forbidden Lands</div><div class="b">The Wildsea</div></div>
+</div>
+<div class="hero"></div>
+<div class="wrap">
+ <div><div class="sec h">Vorbereitung</div>
+  <div class="grid">
+   <div class="tile"><div class="im" style="background-image:url(img/f-hero.webp)"></div><div class="tx"><h3>Leben nach der Flut</h3><p>Prinzipien · Würfeln</p><div class="k">Kap. 1</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/f-ugliness.webp)"></div><div class="tx"><h3>Der Loop in einer neuen Zeit</h3><p>Die alternativen 90er · Schweden · Krafta</p><div class="k">Kap. 2</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/f-traveler.webp)"></div><div class="tx"><h3>Die Hoover-Damm-Katastrophe</h3><p>Teens in Amerika · Boulder City · Area 51</p><div class="k">Kap. 3</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/f-teen.webp)"></div><div class="tx"><h3>Die Teens</h3><p>Typen · Scham · Narben · Beziehungen</p><div class="k">Kap. 4</div></div></div>
+  </div>
+  <div class="grid" style="margin-top:14px">
+   <div class="tile"><div class="tx"><h3>Ärger</h3><p>Würfelprobe · Zustände · Erweiterter Ärger</p><div class="k">Kap. 5</div></div></div>
+   <div class="tile"><div class="tx"><h3>Das Mysterium</h3><p>Phasen · SL-Techniken · Horror</p><div class="k">Kap. 6</div></div></div>
+   <div class="tile"><div class="tx"><h3>Mystery-Landschaft</h3><p>Piratenschiff · Sunshine Farm · Little Doe …</p><div class="k">Kap. 7</div></div></div>
+   <div class="tile"><div class="tx"><h3>Die Propheten von Pandora</h3><p>Hintergrund der Kampagne</p><div class="k">Kap. 8</div></div></div>
+  </div>
+  <div style="margin-top:14px"><span class="chip f">Charakterbogen (Teen)</span><span class="chip">Spielleiterschirm</span><span class="chip">Würfel</span><span class="chip">Galerie</span></div>
+ </div>
+ <div class="go"><h2 class="h">Mysterien</h2>
+  <div class="mm"><div class="im" style="background-image:url(img/f-flesh.webp)"></div><div><b>Aus Fleisch und Stahl</b><span>Kap. 9</span></div></div>
+  <div class="mm"><div class="im" style="background-image:url(img/f-ugliness.webp)"></div><div><b>Die Hässlichkeit</b><span>Kap. 10</span></div></div>
+  <div class="mm"><div class="im" style="background-image:url(img/f-traveler.webp)"></div><div><b>Reisender</b><span>Kap. 11</span></div></div>
+ </div>
+</div>
+<div class="ann" style="left:470px;top:110px"><b>1</b>Setting-Dropdown: „Tales from the Loop“ ist Übersetting, „Things from the Flood“ und „The Electric State“ sind Untersettings (erst nach 1,5 s Hover sichtbar, wie bei City of Mist).</div>
+<div class="ann" style="left:1000px;top:640px"><b>2</b>Flood: gleiche Oberfläche wie TftL, aber eigenes Farbthema (Weinrot #8f2c48 aus dem Buch), Teens statt Kids (Scham, Narben).</div>
+</body></html>

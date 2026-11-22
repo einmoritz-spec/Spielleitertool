@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><style>
+.lay{display:grid;grid-template-columns:1fr 380px;gap:0;height:794px}
+.mapw{position:relative;background:#cfd8d4;overflow:hidden}
+.mapw{background:#e9e4d8}.mapin{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%)}.mapin img{display:block;width:100%}
+.sw{position:absolute;left:16px;top:14px;display:flex;background:rgba(255,255,255,.95);border-radius:999px;padding:4px;box-shadow:0 3px 10px rgba(0,0,0,.25);z-index:2}
+.sw span{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.05em;padding:7px 14px;border-radius:999px;color:var(--soft)}
+.sw span.on{background:var(--acc);color:#fff}
+.lg{position:absolute;left:16px;bottom:14px;display:flex;gap:6px;z-index:2}
+.lg span{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.05em;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--ink);display:flex;gap:6px;align-items:center}
+.lg i{width:12px;height:12px;border-radius:50%}
+.pin{position:absolute;width:24px;height:24px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4);z-index:2}
+.pin.o{background:var(--acc)}.pin.b{background:#2c5d7c}.pin.on{outline:4px solid var(--band)}
+.side{background:#fff;border-left:2px solid var(--line);padding:16px 18px;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.card .im{height:150px;background:url(img/w-welcome.webp) center/cover;border-radius:2px}
+.card h3{font-size:22px;color:var(--acc);margin:10px 0 4px}
+.card p{font-size:16px;line-height:1.5}
+.card .m{margin-top:6px}
+.lst h5{font:700 11px var(--sans);letter-spacing:.14em;color:var(--soft);text-transform:uppercase;margin:6px 0 4px}
+.lst a{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--line);font:500 14.5px var(--sans)}
+.lst a i{width:10px;height:10px;border-radius:50%;flex:none}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><a>Vorbereitung</a><a>Mysterien</a><a>Kids</a><a class="on">Karte</a></div>
+<div class="lay">
+ <div class="mapw">
+  <div class="sw"><span class="on">Mälarinseln</span><span>Boulder City</span><span>Taunus</span><span>Norfolk Broads</span></div>
+  <div class="lg"><span><i style="background:var(--acc)"></i>Mystery-Landschaft</span><span><i style="background:#2c5d7c"></i>Orte aus Kap. 2</span><span><i style="background:#888"></i>Orte aus Mysterien</span></div>
+  <div class="mapin"><img src="img/karte-maelaren.webp"><span class="pin o on" style="left:47.5%;top:44.0%"></span><span class="pin o" style="left:42.5%;top:62.0%"></span><span class="pin o" style="left:54.2%;top:35.0%"></span><span class="pin o" style="left:51.7%;top:70.0%"></span>
+  <span class="pin b" style="left:38.3%;top:30.0%"></span><span class="pin b" style="left:58.3%;top:52.0%"></span><span class="pin b" style="left:45.0%;top:78.0%"></span>
+ </div></div>
+ <div class="side">
+  <div class="card"><div class="im"></div><h3 class="h">Die Kühltürme <span class="pg">S. 106</span></h3><p>Ortsbeschreibung aus der Mystery-Landschaft (Kap. 7), vollständig, mit den Mystery-Aufhängern als Klick-zum-Abhaken-Liste und den passenden NSC als Chips.</p><div class="m"><span class="chip">NSC: …</span><span class="chip">In Mysterien: Kreidezeit</span></div></div>
+  <div class="lst"><h5>Mystery-Landschaft</h5><a><i style="background:var(--acc)"></i>Die Schulbibliothek</a><a><i style="background:var(--acc)"></i>Der Traumladen</a><a><i style="background:var(--acc)"></i>Der Naturschutzclub</a><a><i style="background:var(--acc)"></i>Die Kühltürme</a><a><i style="background:var(--acc)"></i>Die Polizeiwache Stenhamra</a><a><i style="background:var(--acc)"></i>NAAB</a>
+  <h5>Die Inseln</h5><a><i style="background:#2c5d7c"></i>Svartsjölandet</a><a><i style="background:#2c5d7c"></i>Munsö – Heimat des Loop</a><a><i style="background:#2c5d7c"></i>Adelsö</a></div>
+ </div>
+</div>
+<div class="ann" style="left:560px;top:58px"><b>1</b>Original-Karte aus dem Buch (Doppelseite S. 2–3 bzw. Boulder City S. 43, Taunus aus dem Zusatzband) – zoombar, Pins anklickbar.</div>
+<div class="ann" style="left:520px;top:780px"><b>2</b>Rechts die Ortskarte des gewählten Pins; darunter alle Orte als Liste.</div>
+</body></html>

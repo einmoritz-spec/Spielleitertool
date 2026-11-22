@@ -483,3 +483,5 @@ table.w6.kl tr.weg td{opacity:.4;text-decoration:line-through}
 .gr.mas>*{margin-bottom:0}
 .gr.mas .karte{margin-top:0}
 .karte.nkk .nt,.gr .karte.nkk p{color:var(--braun)}
+.gr.mas{width:100%;box-sizing:border-box}
+.gr .ab.voll.l2{grid-column:1/-1;column-count:1}

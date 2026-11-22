@@ -20,7 +20,7 @@ DB_NACH.ka.abs.push(
    "Ist die Schadensart nicht angegeben, hat die Rüstung ihre normale Wirkung."]}},
   {karte:{h:"Null TP bei NSC", p:50, b:["Erreicht ein NSC null TP, werden keine Todeswürfe abgelegt – die SL entscheidet, ob die Person lebt oder stirbt. Ein NSC stirbt jedoch, wenn ihn ein sofort tötender Angriff trifft, genau wie ein Spielercharakter."]}}
  ]},
- {id:"zustaende", t:"Zustände", p:51, b:[
+ {id:"zustaende", t:"Zustände", p:51, plain:true, b:[
   "In diesem Spiel kannst du sechs verschiedene Zustände erleiden. Jeder Zustand gibt dir einen Nachteil auf alle Würfe gegen ein bestimmtes Attribut und auf Fertigkeitswürfe, die auf diesem Attribut beruhen:",
   {ul:["**Erschöpft** – STÄ","**Kränklich** – KON","**Benommen** – GES","**Wütend** – INT","**Verängstigt** – WIL","**Entmutigt** – CHA"]},
   "**Einen Zustand erleiden:** Am häufigsten erleidest du Zustände, indem du einen Wurf strapazierst (optionale Regel, S. 32). Du musst dann einen Zustand wählen und beschreiben, wie du ihn bekommst. Zustände kannst du auch auf andere Weise erleiden, zum Beispiel durch Monsterangriffe oder Zauber.",

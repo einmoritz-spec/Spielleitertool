@@ -49,7 +49,7 @@ function nabs(a){
     cur = (cur || "") + nbody([b]);
   });
   flush();
-  return '<div class="gr' + (window.__fk === "ka" ? ' mas' : '') + '">' + cells.join("") + '</div>';
+  return '<div class="gr' + (window.__fk === "ka" && !a.plain ? ' mas' : '') + '">' + cells.join("") + '</div>';
 }
 function nachFlat(){ var r = []; NACH_TABS.forEach(function(t){ var d = nachKap(t[0]); if(d) d.abs.forEach(function(a){ r.push([t[0], a.id, d, a]); }); }); return r; }
 DB_VIEWS.n = function(h){

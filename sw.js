@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v734sp";
+const VERSION = "v735sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -745,6 +745,9 @@ const FILES = [
   "heart/js/data/nach-regeln-a.js",
   "heart/js/data/nach-regeln-b.js",
   "heart/js/data/nach-regeln-c.js",
+  "heart/js/data/nach-spielleitung.js",
+  "heart/js/data/nach-welt.js",
+  "heart/js/data/nach-regeluebersicht.js",
   "heart/js/data/nach-charaktere-bb.js",
   "heart/js/data/buecher.js",
   "heart/js/data/start.js",

@@ -231,3 +231,44 @@ table.rt td{padding:3px 12px 3px 0;vertical-align:top;border-bottom:1px solid va
  .kr .moral{gap:5px;font-size:11.5px}.kr .moral .lab{letter-spacing:.08em;font-size:10px}
 }
 .siegel b.end{width:36px;font-size:10px}
+
+/* ---------- Nachschlagen · Die sterbende Welt (Entwurf 7) ---------- */
+.leib{display:grid;grid-template-columns:calc((100vh - 104px) * .705) minmax(0,1fr);min-height:calc(100vh - 104px)}
+body.notop .leib{min-height:calc(100vh - 48px)}
+.karte{background:var(--gelb);position:sticky;top:104px;height:calc(100vh - 104px);overflow:hidden}
+body.notop .karte{top:48px;height:calc(100vh - 48px)}
+.kb{position:relative;height:100%;width:100%}
+.kb img{display:block;width:100%;height:100%;object-fit:contain;object-position:left top;cursor:zoom-in}
+.kb .hs{position:absolute;transform:translate(-50%,-50%);width:17%;height:3.8%;cursor:pointer}
+.kb .hs.on{outline:3px solid var(--pink);outline-offset:2px}
+.text{padding:22px 40px 48px;min-width:0}
+.orte{display:flex;flex-wrap:wrap;gap:6px 0;border-bottom:1px solid var(--linie);padding-bottom:12px;margin-bottom:22px}
+.orte span{font:500 14px var(--grotesk);color:#cfcab5;padding:4px 10px;cursor:pointer}
+.orte span:hover{color:var(--gelb)}
+.orte span.on{background:var(--gelb);color:var(--schwarz)}
+.orte b{font:700 10px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:#77756a;padding:6px 6px 0 14px}
+.orte b:first-child{padding-left:0}
+.zwei{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:36px;align-items:start}
+.ws h1,.ws h2{margin:0 0 4px;font:700 60px/1 var(--fraktur);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ws h2{font-size:40px}
+.ws .unter{font:700 11px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:var(--gelb);margin-bottom:14px}
+.ws p{margin:0 0 12px;font:400 17px/1.5 var(--text);color:#ebe7d6}
+.ws p b{color:var(--weiss)}
+.ws p.kl{font-style:italic;color:#a9a594;font-size:15.5px}
+.ws+.ws{margin-top:28px}
+.ws.sel h1,.ws.sel h2{text-decoration:underline;text-decoration-color:var(--gelb);text-decoration-thickness:4px;text-underline-offset:6px}
+.ws .box{border:1px dashed var(--grau);padding:12px 16px;margin-top:6px}
+.ws .box p{font-size:15.5px;line-height:1.45;margin:0;color:#ddd8c4}
+.ws .box.gelb{background:var(--gelb);border:0}.ws .box.gelb p{color:var(--schwarz)}.ws .box.gelb .etikett{margin-bottom:8px}
+.ws .bild{display:block;width:100%;height:auto;margin:6px 0 12px;cursor:zoom-in}
+.ws .bild.hoch{width:auto;max-width:100%;max-height:440px}
+.r>.bild,.r .bild.pal{width:100%}
+.zwei>.r>img.bild{display:block;width:100%;height:auto;max-height:calc(100vh - 220px);object-fit:contain;object-position:left top;cursor:zoom-in}
+.mehr{border-top:1px solid var(--linie);padding-top:10px;margin-top:20px;cursor:pointer}
+.mehr span{font:700 22px/1.1 var(--fraktur);display:flex;align-items:baseline;justify-content:space-between}
+.mehr:hover span{color:var(--gelb)}
+.fries{display:block;width:100%;height:auto;margin-top:28px;cursor:zoom-in}
+.ws .sn{margin:0 0 6px}.ws .sn .pg{margin-left:0}
+.ws h2 .pg,.ws h1 .pg{margin-left:0}
+.ws.unten{margin-top:24px;column-count:2;column-gap:36px;border-top:1px solid var(--linie);padding-top:16px}
+.ws.unten p{break-inside:avoid}

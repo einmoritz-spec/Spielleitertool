@@ -1,7 +1,8 @@
 /* Text-Blöcke (Plan Abschnitt 6) – Grundausstattung: p, h, ul, tab, etikett, box. Wird in den Bauschritten 2–7 erweitert. */
 function BLK(list){
  return (list || []).map(function(b){
-  if(b.t === "p") return '<p>' + md(b.x) + '</p>';
+  if(b.t === "p") return '<p' + (b.c ? ' class="' + b.c + '"' : "") + '>' + md(b.x) + '</p>';
+  if(b.t === "img") return '<img class="bild" src="' + IMG(b.src) + '" alt="" onclick="zoom(this.src)">';
   if(b.t === "h") return '<h4>' + md(b.x) + (b.p ? pgl(b.p) : "") + '</h4>';
   if(b.t === "ul") return '<ul>' + b.x.map(function(i){ return '<li>' + md(i) + '</li>'; }).join("") + '</ul>';
   if(b.t === "etikett") return '<span class="etikett">' + esc(b.h) + '</span><p>' + md(b.b || "") + '</p>';

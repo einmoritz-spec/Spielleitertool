@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v725sp";
+const VERSION = "v726sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -774,6 +774,16 @@ const FILES = [
   "moerkborg/style.css",
   "moerkborg/js/app.js",
   "moerkborg/js/blocks.js",
+  "moerkborg/js/nach.js",
+  "moerkborg/js/data/welt-a.js",
+  "moerkborg/js/data/welt-b.js",
+  "moerkborg/js/data/welt-c.js",
+  "moerkborg/js/data/weltkarte.js",
+  "moerkborg/img/welt/weltkarte.webp",
+  "moerkborg/img/welt/sarkash-wald.webp",
+  "moerkborg/img/welt/palast-schattenkoenig.webp",
+  "moerkborg/img/welt/kergues-anthelia.webp",
+  "moerkborg/img/welt/westliches-koenigreich-geister.webp",
   "moerkborg/js/spieltisch.js",
   "moerkborg/js/data/kalender.js",
   "moerkborg/js/data/kalender-psalmen.js",

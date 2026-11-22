@@ -29,10 +29,11 @@ function penHat(v){ try{ return !!((ST.notiz || {})[v] || "").trim(); }catch(e){
 function penOpen(v){ var m = modal('<textarea class="pennote" oninput="ST.notiz=ST.notiz||{};ST.notiz[\'' + v + '\']=this.value;save()">' + esc((ST.notiz || {})[v] || "") + '</textarea>'); setTimeout(function(){ var t = m.querySelector("textarea"); if(t) t.focus(); }, 30); }
 
 /* ---------- Startseite = Register ---------- */
+function teilGo(t){ return t.nr === "I" && VIEWS.nach ? "go('nach/welt')" : "openBook('" + t.z[0][1] + "'," + t.z[0][2] + ")"; }
 function viewStart(){
   var zeilen = MB_TEILE.map(function(t){
-    return '<div class="zeile"><div class="nr">' + t.nr + '</div><div><h2 onclick="openBook(\'' + t.z[0][1] + '\',' + t.z[0][2] + ')">' + esc(t.t) + '</h2><p>' +
-      t.z.map(function(z){ return '<span onclick="openBook(\'' + z[1] + '\',' + z[2] + ')">' + esc(z[0]) + '<i>S. ' + z[2] + '</i></span>'; }).join(" ") + '</p></div></div>';
+    return '<div class="zeile"><div class="nr">' + t.nr + '</div><div><h2 onclick="' + teilGo(t) + '">' + esc(t.t) + '</h2><p>' +
+      t.z.map(function(z){ var go2 = z[3] && VIEWS.nach ? "go(\'nach/welt/" + z[3] + "\')" : "openBook(\'" + z[1] + "\'," + z[2] + ")"; return '<span onclick="' + go2 + '">' + esc(z[0]) + '<i onclick="event.stopPropagation();openBook(\'' + z[1] + '\',' + z[2] + ')">S. ' + z[2] + '</i></span>'; }).join(" ") + '</p></div></div>';
   }).join("");
   var kk = ST.kal || {}, ein = kk.ein || {}, sg = "";
   for(var p = 1; p <= 6; p++){ var hat = false; for(var q = 1; q <= 6; q++) if(ein[p + ":" + q]) hat = true; sg += '<b' + (hat ? ' class="x"' : "") + '>' + p + '</b>'; }
@@ -43,14 +44,14 @@ function viewStart(){
 
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
-  if(v !== "start" && VIEWS[v]) out = tabsHtml(v) + VIEWS[v](h.slice(1)); else out = viewStart();
+  if(v !== "start" && VIEWS[v]) out = (v === "nach" ? "" : tabsHtml(v)) + VIEWS[v](h.slice(1)); else out = viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
   if(window.afterRender) afterRender();
 }
 function buildMenu(){
   document.getElementById("mmP").innerHTML = '<h3>Register</h3>' +
-    MB_TEILE.map(function(t){ return '<button onclick="openMenu(false);openBook(\'' + t.z[0][1] + '\',' + t.z[0][2] + ')">' + esc(t.t) + '</button>'; }).join("") +
+    MB_TEILE.map(function(t){ return '<button onclick="openMenu(false);' + teilGo(t) + '">' + esc(t.t) + '</button>'; }).join("") +
     '<h3>Bücher</h3>' + MB_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button class="k" onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
     '<button class="k" onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';
 }

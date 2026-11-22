@@ -24,11 +24,11 @@ function kurz(t){ return String(t).split(":")[0]; }
 
 var VIEWS = {};
 /* ---------- Startseite ---------- */
-VIEWS.start = function(){
+function viewStart(){
   var inh = HT_INHALT.map(function(col){
     return "<div>" + col.map(function(k){
       return '<div class="kap"><div class="bn" onclick="go(\'' + k.r + '\')">' + esc(k.t) + " <i>S. " + k.p + "</i></div>" +
-        (k.z.length ? "<ul>" + k.z.map(function(z){ return '<li onclick="go(\'' + k.r + '\')">' + esc(z[0]) + "<i>S. " + z[1] + "</i></li>"; }).join("") + "</ul>" : "") + "</div>";
+        (k.z.length ? "<ul>" + k.z.map(function(z){ return '<li onclick="go(\'' + (z[2] || k.r) + '\')">' + esc(z[0]) + "<i>S. " + z[1] + "</i></li>"; }).join("") + "</ul>" : "") + "</div>";
     }).join("") + "</div>";
   }).join("");
   var kl = HT_KLASSEN.map(function(c){ return '<a onclick="go(\'nach/klassen/' + c[0] + '\')"><img src="' + IMG("klasse/" + c[0]) + '" alt=""><span>' + esc(c[1]) + "</span></a>"; }).join("");
@@ -37,15 +37,8 @@ VIEWS.start = function(){
     '<button class="kamp" onclick="go(\'dagger\')"><img src="' + IMG("dagger/cover") + '" alt=""><span><b>Dagger in the Heart</b><small>Kampagne</small></span><span class="pf">→</span></button></div></div>' +
     '<div class="rechts"><div class="seite"><div class="gedicht">' + HT_GEDICHT.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
     '<div class="inhalt">' + inh + '</div><div class="reihe">' + kl + "</div></div></div></div>";
-};
-/* ---------- Nachschlage-Seite (Platzhalter bis Schritt 1) ---------- */
-VIEWS.nach = function(a){
-  var id = a[0], k = null;
-  HT_INHALT.forEach(function(c){ c.forEach(function(x){ if(x.r === "nach/" + id) k = x; }); });
-  var t = k ? k.t : (id === "klassen" ? "Klassen" : "");
-  return '<div class="wrap"><div class="seite"><h1 class="h1">' + esc(t) + (k ? pgl(k.p) : "") + "</h1></div></div>";
-};
-
+}
+VIEWS.start = viewStart;
 /* ---------- Render ---------- */
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;

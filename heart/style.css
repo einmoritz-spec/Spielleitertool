@@ -203,3 +203,47 @@ body.notop .topbar{display:none}body.notop .tabs{top:0}
 .reihe img{height:clamp(80px,10.5vh,122px)}
 .reihe span{min-height:24px;margin-top:2px}
 body{background-attachment:fixed}
+
+/* ── Nachschlagen: Unterleiste, Buchrücken-Seitenleiste, Inhalt ────────────── */
+.unter{position:sticky;top:calc(var(--kopf-h) + 46px);z-index:18;height:38px;display:flex;align-items:center;gap:22px;padding:0 20px;background:#1a110a;border-bottom:1px solid #000}
+.unter a{font:400 15px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#a8957f;cursor:pointer}
+.unter a:hover{color:#fff}
+.unter a.on{color:#fff;box-shadow:inset 0 -2px 0 var(--hell);padding-bottom:6px;margin-top:6px}
+.bereich{display:grid;grid-template-columns:206px minmax(0,1fr);align-items:start;min-height:calc(100vh - var(--kopf-h) - 46px)}
+.bereich.ohne{grid-template-columns:minmax(0,1fr)}
+.bereich.zu{grid-template-columns:46px minmax(0,1fr)}
+.ruecken{position:sticky;top:calc(var(--kopf-h) + 46px + 38px);height:calc(100vh - var(--kopf-h) - 84px);background:#0d0804 url(img/tex/dunkel.webp) 30% 0/900px auto;display:grid;grid-template-columns:40px 1fr;border-right:1px solid #000;overflow:hidden}
+.ruecken .vert{writing-mode:vertical-rl;font:400 21px/1 var(--plate);letter-spacing:.14em;color:#fff;text-transform:uppercase;padding:16px 0 0;margin:0 auto;background:#000;width:40px;white-space:nowrap}
+.ruecken ul{list-style:none;margin:0;padding:44px 10px 0 4px;overflow:auto}
+.ruecken li{font:400 16px/1.1 var(--plate);letter-spacing:.07em;text-transform:uppercase;color:#b9a690;padding:8px 8px 7px;cursor:pointer}
+.ruecken li:hover{color:#fff}
+.ruecken li.on{background:var(--platte);color:#fff}
+.ruecken .zubtn{position:absolute;right:8px;top:8px;width:26px;height:26px;border:0;background:none;color:#8f7d6c;font:400 20px/1 var(--body);cursor:pointer}
+.ruecken.zu{grid-template-columns:46px}.ruecken.zu ul{display:none}.ruecken.zu .vert{margin:0}.ruecken.zu .zubtn{right:auto;left:10px;top:auto;bottom:8px}
+.inh{padding:16px 18px 30px;min-width:0}
+.inh .seite{padding:2px 14px 12px}
+.inh .h1{margin:0 0 10px;font-size:40px}
+.flach{min-width:0}
+.flach p{font-size:16.5px;line-height:1.45;margin:0 0 9px}
+.flach p.kurs{font-style:italic}
+.flach .h3{font-size:20px;margin:14px 0 4px}
+.lst{margin:4px 0 10px;padding-left:20px}.lst li{margin:2px 0;font-size:16px;line-height:1.4}
+.bgrid{display:grid;gap:8px 28px;align-items:start;margin:6px 0}
+.bgrid.n2{grid-template-columns:1fr 1fr}.bgrid.n3{grid-template-columns:repeat(3,1fr)}
+.bgrid>div>*:first-child{margin-top:0}
+.kkarten{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0}
+.kkarte{border:1px solid var(--linie);background:rgba(255,253,248,.7);padding:0 0 8px}
+.kkarte .platte{display:block;margin-bottom:6px}
+.kkarte>*:not(.platte){margin-left:10px;margin-right:10px}
+.flach .schwarz{margin:8px 0}
+.flach .schwarz p{font-size:15px;margin:0 0 5px}
+.bimg{max-width:100%;display:block;cursor:zoom-in}
+.def{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px}
+.kurz{display:grid;grid-template-columns:1fr 1fr;gap:4px 34px;align-items:start}
+.kurz .kb{grid-column:1/-1}.kurz .wuerfel{display:flex;gap:10px;margin:8px 0}.kurz .wuerfel svg{width:52px;height:56px}
+.kurz .kzeile{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0}
+.kurz .kzeile i{font:700 22px var(--head);color:var(--blut);font-style:normal}
+.kurz .kw{background:#fff;border:2px solid var(--blut);padding:8px 12px;font:600 15px/1.2 var(--body);flex:1;text-align:center}
+.kurz .t4{display:grid;grid-template-columns:42px 130px 1fr;gap:8px;padding:3px 8px 3px 10px;font-size:15.5px}
+.kurz .t4.f2{grid-template-columns:260px 1fr}
+.kurz .kb{display:grid;grid-template-columns:1fr 1fr;gap:4px 34px}

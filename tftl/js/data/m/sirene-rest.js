@@ -9,14 +9,16 @@ M.countdown = [
   "Landrat Schultheiß reißt der Geduldsfaden und er ordnet eine Evakuierung der umliegenden Orte an. Niemand ist wirklich darauf vorbereitet und es kommt zu chaotischen Zuständen, als nach und nach zivile Busse akquiriert und ausgeschickt werden, um die Leute einzusammeln – notfalls mit Nachdruck.",
   "Die Kaiser-KI vollzieht ihre Krönung und reißt die Kontrolle an sich."
 ];
+M.pinShowdown = {maelar: [89.6, 69.4], boulder: [89.6, 69.4]};
+M.karte = {maelar: "sirene-karte", boulder: "sirene-karte"};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Daheim", s: 103},
-  {id: "ort2", nr: 2, name: "Recherche", s: 104},
-  {id: "ort3", nr: 3, name: "Auf zum Kaiser!", s: 105},
-  {id: "ort4", nr: 4, name: "Die Straßensperre", s: 106},
-  {id: "ort5", nr: 5, name: "Durch den Wald", s: 106},
-  {id: "ort6", nr: 6, name: "Der Wissenschaftler", s: 107},
-  {id: "ort7", nr: 7, name: "Das Königskron-Gebäude", s: 108}
+  {id: "ort1", nr: 1, name: "Daheim", s: 103, pin: {maelar: [60.3, 25.8], boulder: [60.3, 25.8]}},
+  {id: "ort2", nr: 2, name: "Recherche", s: 104, pin: {maelar: [41.9, 29.8], boulder: [41.9, 29.8]}},
+  {id: "ort3", nr: 3, name: "Auf zum Kaiser!", s: 105, pin: {maelar: [14.2, 18.4], boulder: [14.2, 18.4]}},
+  {id: "ort4", nr: 4, name: "Die Straßensperre", s: 106, pin: {maelar: [67.6, 57.9], boulder: [67.6, 57.9]}},
+  {id: "ort5", nr: 5, name: "Durch den Wald", s: 106, pin: {maelar: [74.5, 51.6], boulder: [74.5, 51.6]}},
+  {id: "ort6", nr: 6, name: "Der Wissenschaftler", s: 107, pin: {maelar: [81.8, 62.3], boulder: [81.8, 62.3]}},
+  {id: "ort7", nr: 7, name: "Das Königskron-Gebäude", s: 108, pin: {maelar: [86.1, 65.0], boulder: [86.1, 65.0]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Lösung des Mysteriums", s: 102, ueberblick: 1, bilder: [{b:"sirene-ablauf", t:"Ablauf des Mysteriums", s:101}, {b:"sirene-karte", t:"Karte der Schauplätze", s:105}], html: `

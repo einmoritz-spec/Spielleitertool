@@ -8,13 +8,15 @@ M.countdown = [
   "LKW des THW und Tieflader der Königskron GmbH, beladen mit Baustellenrobotern und Stahlträgerkonstruktionen, werden auf den Straßen gesichtet. An den Stadträndern von Königstein, Ruppertshain, Schlossborn, Glashütten und auf dem Großen Feldberg werden eilig Gebilde errichtet, die an Strommasten erinnern. Entsprechende Fragen beantworten die Mitarbeiter mit der einmaligen Gelegenheit, ein Erdbeben mit der neuesten Messtechnik untersuchen zu können. Zur Sicherheit werden die Anwohner innerhalb von ca. einem Kilometer evakuiert.",
   "Die Phasenverschiebung erfährt einen heftigen Wachstumsschub, die fremde Realität rollt über die Schutzpylonen des Kordons hinweg und verschlingt nicht nur sie, sondern auch die Außenbezirke von Königstein und Ruppertshain. Dutzende Gebäude verschmelzen mit umgebender Materie und einzelne glücklose Menschen sterben oder gehen in der nicht-euklidischen Geometrie einer fremden Dimension einfach verloren."
 ];
+M.pinShowdown = {maelar: [84.5, 40.2], boulder: [84.5, 40.2]};
+M.karte = {maelar: "riss-karte", boulder: "riss-karte"};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Phasenverschobenes Trümmerstück", s: 87},
-  {id: "ort2", nr: 2, name: "Zenit Systeme", s: 88},
-  {id: "ort3", nr: 3, name: "Schrenks Unterschlupf", s: 89},
-  {id: "ort4", nr: 4, name: "Das verschwundene Haus", s: 91},
-  {id: "ort5", nr: 5, name: "Der Schutzkordon", s: 92},
-  {id: "ort6", nr: 6, name: "Die Bergwerksanlage", s: 93}
+  {id: "ort1", nr: 1, name: "Phasenverschobenes Trümmerstück", s: 87, pin: {maelar: [40.8, 83.1], boulder: [40.8, 83.1]}},
+  {id: "ort2", nr: 2, name: "Zenit Systeme", s: 88, pin: {maelar: [67.8, 65.6], boulder: [67.8, 65.6]}},
+  {id: "ort3", nr: 3, name: "Schrenks Unterschlupf", s: 89, pin: {maelar: [63.4, 14.1], boulder: [63.4, 14.1]}},
+  {id: "ort4", nr: 4, name: "Das verschwundene Haus", s: 91, pin: {maelar: [31.1, 50.7], boulder: [31.1, 50.7]}},
+  {id: "ort5", nr: 5, name: "Der Schutzkordon", s: 92, pin: {maelar: [56.3, 46.6], boulder: [56.3, 46.6]}},
+  {id: "ort6", nr: 6, name: "Die Bergwerksanlage", s: 93, pin: {maelar: [87.8, 35.5], boulder: [87.8, 35.5]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Lösung des Mysteriums", s: 87, ueberblick: 1, bilder: [{b:"riss-ablauf", t:"Ablauf des Mysteriums", s:83}, {b:"riss-karte", t:"Karte der Schauplätze", s:84}], html: `

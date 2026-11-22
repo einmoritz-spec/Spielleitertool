@@ -9,14 +9,16 @@ M.countdown = [
   "Lastwagen voller Maschinen verlassen die Fabrik in Richtung Spielzeugläden in anderen Landesteilen."
 ];
 M.orte = [
-  {id: "ort1", nr: 1, name: "Der Spielzeugladen", s: 15},
-  {id: "ort2", nr: 2, name: "Das Heim der Erfinderin", s: 17},
-  {id: "ort3", nr: 3, name: "Das Motel", s: 20},
-  {id: "ort4a", nr: "4A", name: "Der Fabrikeingang", s: 21},
-  {id: "ort4b", nr: "4B", name: "Der Keller", s: 22},
-  {id: "ort4c", nr: "4C", name: "Die Fabrikhalle", s: 23},
-  {id: "ort4d", nr: "4D", name: "Die Büroetage", s: 24}
+  {id: "ort1", nr: 1, name: "Der Spielzeugladen", s: 15, pin: {maelar: [65, 72.5], boulder: [81.8, 58.6]}},
+  {id: "ort2", nr: 2, name: "Das Heim der Erfinderin", s: 17, pin: {maelar: [68, 66], boulder: [85.6, 49.2]}},
+  {id: "ort3", nr: 3, name: "Das Motel", s: 20, pin: {maelar: [70.5, 76.5], boulder: [87.9, 70.3]}},
+  {id: "ort4a", nr: "4A", name: "Der Fabrikeingang", s: 21, pin: {maelar: [76, 69], boulder: [64.5, 64.5]}},
+  {id: "ort4b", nr: "4B", name: "Der Keller", s: 22, pin: {maelar: [80.5, 69], boulder: [69.5, 64.5]}},
+  {id: "ort4c", nr: "4C", name: "Die Fabrikhalle", s: 23, pin: {maelar: [76, 76], boulder: [64.5, 72]}},
+  {id: "ort4d", nr: "4D", name: "Die Büroetage", s: 24, pin: {maelar: [80.5, 76], boulder: [69.5, 72]}}
 ];
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [84.5, 72.5], boulder: [74.5, 68.5]};
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 14, bilder: [{b:"friends-ablauf", t:"Ablauf des Mysteriums", s:13}, {b:"friends-karte-maelaren", t:"Karte: Stenhamra und Umgebung", s:14}, {b:"friends-karte-boulder", t:"Karte: Boulder City", s:15}], ueberblick: 1, html: `
 <p>Danach sind die Rollenspieler frei, das Mysterium zu erkunden. Wie können die Roboter lebendig sein? Warum fehlten {{Ulla Jönåker|Ursula Kerr}} und {{Helena Voss|Helen Voss}} bei der Eröffnungsfeier? Warum haben die Erwachsenen, die in der Fabrik arbeiten, begonnen, sich seltsam zu verhalten?</p>

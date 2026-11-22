@@ -154,12 +154,14 @@ M.countdown = [
   "Während die MAFF-Präsenz am Strand zunimmt, zieht sie örtliche BBC-Nachrichtenreporter an, die sich entscheiden, O-Töne von Einheimischen einzuholen, darunter von den Kindern.",
   "Verschwommene Fotos der Eikammer des Wesens werden an die BBC durchgestochen. Dementis der britischen Regierung halten Verschwörungstheoretiker kaum davon ab, in die Norfolk Broads zu reisen, in der Absicht, alle Geheimnisse des Loops aufzudecken."
 ];
+M.karte = {maelar: "easter-karte", boulder: "easter-karte"};
+M.pinShowdown = {maelar: [78,33], boulder: [78,33]};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Der Broads-Reaktor", s: 30},
-  {id: "ort2", nr: 2, name: "Great Yarmouth Market", s: 33},
-  {id: "ort3", nr: 3, name: "Der Strand", s: 35},
-  {id: "ort4", nr: 4, name: "Die Bibliothek", s: 36},
-  {id: "ort5", nr: 5, name: "Die Versorgungstunnel (5A)", s: 37},
-  {id: "ort6", nr: 6, name: "Die überflutete Höhle (5B)", s: 38}
+  {id: "ort1", nr: 1, name: "Der Broads-Reaktor", s: 30, pin: {maelar: [18,28], boulder: [18,28]}},
+  {id: "ort2", nr: 2, name: "Great Yarmouth Market", s: 33, pin: {maelar: [85,45], boulder: [85,45]}},
+  {id: "ort3", nr: 3, name: "Der Strand", s: 35, pin: {maelar: [89,54], boulder: [89,54]}},
+  {id: "ort4", nr: 4, name: "Die Bibliothek", s: 36, pin: {maelar: [78,41], boulder: [78,41]}},
+  {id: "ort5", nr: 5, name: "Die Versorgungstunnel (5A)", s: 37, pin: {maelar: [84,36], boulder: [84,36]}},
+  {id: "ort6", nr: 6, name: "Die überflutete Höhle (5B)", s: 38, pin: {maelar: [91,35], boulder: [91,35]}}
 ];
 })();

@@ -7,10 +7,12 @@ M.countdown = [
   "Noch mehr Erwachsene werden angezogen, jetzt sogar Leute {{von Adelsö|aus Boulder City}}. Ein Krankenwagen und eine Gruppe Journalisten werden zum Ort gezogen und schließen sich den anderen auf der Wiese an. Die Erwachsenen benutzen keine Worte mehr, manche gehen auf allen Vieren, und die Leute leiden unter Flüssigkeitsverlust und Hunger. Bald werden Menschen anfangen zu sterben."
 ];
 M.orte = [
-  {id: "ort1", nr: 1, name: "Der ArAN", s: 136},
-  {id: "ort2", nr: 2, name: "Die Echo-Sphäre", s: 138},
-  {id: "ort3", nr: 3, name: "Das Haus des Servicetechnikers", s: 139}
+  {id: "ort1", nr: 1, name: "Der ArAN", s: 136, pin: {maelar: [68, 35], boulder: [10.6, 55]}},
+  {id: "ort2", nr: 2, name: "Die Echo-Sphäre", s: 138, pin: {maelar: [71.5, 30], boulder: [10.6, 48.5]}},
+  {id: "ort3", nr: 3, name: "Das Haus des Servicetechnikers", s: 139, pin: {maelar: [63.5, 38], boulder: [16.4, 63.8]}}
 ];
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [67, 24.5], boulder: [10.8, 41.5]};
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 136, bilder: [{b:"grownup-ablauf", t:"Ablaufdiagramm", s:134}, {b:"grownup-karte-maelar", t:"Karte der Mälarinseln", s:135}, {b:"grownup-karte-boulder", t:"Karte von Boulder City", s:136}], ueberblick: 1, html: `
 <p class="hint">Vergiss nicht, eine Szene zu setzen, in der alle Kinder anwesend sind, bevor du zum nächsten Abschnitt übergehst. Erst danach bekommen die Kinder die Gelegenheit, einem Erwachsenen nach Väntholmen zum ArAN zu folgen.</p>

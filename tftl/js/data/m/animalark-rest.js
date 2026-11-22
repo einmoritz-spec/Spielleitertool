@@ -13,11 +13,13 @@ M.countdown = [
   "<b>DIE DRITTE AKTIVIERUNG:</b> Der Absturz wird dann erneut aktiviert. Er geht hinaus ins Auge des Sturms, genau dorthin, wo das Schiff in den See stürzt, um in die Zeitblase zu gehen und in die Zukunft zu reisen. Siehe KONFRONTATION."
 ];
 M.countdownKopf = "Die folgenden Ereignisse sind Dinge, die der Mathematiklehrer tut, um sein Experiment zu testen. Einige davon sollten die Kinder entdecken, wenn sie das Mysterium untersuchen. Du kannst einfach Aktivierungen hinzufügen oder entfernen, wenn du meinst, dass die Kinder mehr oder weniger Zeit im Szenario brauchen.";
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [46.5, 63], boulder: [41, 14]};
 M.orte = [
-  {id: "ort1a", nr: "1A", name: "Das Bauernhaus", s: 19},
-  {id: "ort1b", nr: "1B", name: "Die Jagdhütte", s: 20},
-  {id: "ort2a", nr: "2A", name: "Das Bootshaus", s: 22},
-  {id: "ort2b", nr: "2B", name: "Der Schrottplatz", s: 24}
+  {id: "ort1a", nr: "1A", name: "Das Bauernhaus", s: 19, pin: {maelar: [42.9, 36.1], boulder: [30.1, 53]}},
+  {id: "ort1b", nr: "1B", name: "Die Jagdhütte", s: 20, pin: {maelar: [42, 47], boulder: [26, 18]}},
+  {id: "ort2a", nr: "2A", name: "Das Bootshaus", s: 22, pin: {maelar: [49, 52.5], boulder: [33.4, 8]}},
+  {id: "ort2b", nr: "2B", name: "Der Schrottplatz", s: 24, pin: {maelar: [48.7, 35], boulder: [19, 29.9]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 18, bilder: [{b:"animalark-ablauf", t:"Ablauf des Mysteriums", s:16}, {b:"animalark-karte-orte", t:"Karte der Mälarinseln: Orte des Mysteriums", s:14, loop:"maelar"}, {b:"animalark-karte-schluessel", t:"Karte von Boulder City: Orte und zeitliche Schlüssel", s:15, loop:"boulder"}], ueberblick: 1, html: `

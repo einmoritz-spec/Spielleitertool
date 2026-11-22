@@ -9,10 +9,12 @@ M.countdown = [
   "Die Kinder sehen {{einen Schneepflug|einen Lastwagen}}, der auf die Seite gekippt und aufgerissen ist. Vom Fahrer gibt es keine Spur, nur der Sitz ist voller Blut. Plötzlich ragt in der Nähe im Wald eine mächtige Kreatur auf. Es ist der Tyrannosaurus Rex auf der Suche nach Futter."
 ];
 M.orte = [
-  {id: "ort1", nr: 1, name: "Die Jagdhütte", s: 151},
-  {id: "ort2", nr: 2, name: "Birgitta Nylanders Hof", s: 152},
-  {id: "ort3", nr: 3, name: "Lenas Hof", s: 154}
+  {id: "ort1", nr: 1, name: "Die Jagdhütte", s: 151, pin: {maelar: [38, 58.8], boulder: [3.5, 61.0]}},
+  {id: "ort2", nr: 2, name: "Birgitta Nylanders Hof", s: 152, pin: {maelar: [35.5, 50.5], boulder: [9.2, 52.4]}},
+  {id: "ort3", nr: 3, name: "Lenas Hof", s: 154, pin: {maelar: [28.6, 50.2], boulder: [12.4, 20.2]}}
 ];
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [28.6, 43], boulder: [19, 24]};
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 150, bilder: [{b:"cretaceous-ablauf", t:"Ablaufdiagramm", s:146}, {b:"cretaceous-karte-maelar", t:"Karte der Mälarinseln", s:147}, {b:"cretaceous-karte-boulder", t:"Karte von Boulder City", s:148}], ueberblick: 1, html: `
 <p>Das Mysterium spielt im mittleren und nördlichen Teil von Adelsö {{|rund um Red Mountain und die Canyon Road}}. Wenn die Kinder auf die Insel kommen, sollten sie zuerst einen Ort zum Lagern finden.</p>

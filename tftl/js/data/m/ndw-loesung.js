@@ -10,13 +10,15 @@ M.countdown = [
   "Showdown –1 Tage: Ein Mitschüler der Charaktere, der sonst immer unter dem Klassen-Bully leidet, geht ohne Rücksicht auf seine eigene Unversehrtheit auf seinen Peiniger los.",
   "Showdown: Während der Wunschkonzertsendung am Nachmittag rasten mehrere Leute in der Stadt gleichzeitig aus. Die Kinder müssen in den Radiosender eindringen und die Sendung abstellen, um Schlimmeres zu verhindern. Dabei beobachten sie, wie sich ihr Geschichtslehrer verdächtig verhält."
 ];
+M.pinShowdown = {maelar: [60.2, 72.6], boulder: [60.2, 72.6]};
+M.karte = {maelar: "ndw-karte", boulder: "ndw-karte"};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Der Crash", s: 48},
-  {id: "ort2", nr: 2, name: "Hobbyfunker", s: 49},
-  {id: "ort3", nr: 3, name: "Die Tankstelle", s: 52},
-  {id: "ort4", nr: 4, name: "Ein Rowdy rastet aus", s: 53},
-  {id: "ort5", nr: 5, name: "Sport ist Mord", s: 54},
-  {id: "ort6", nr: 6, name: "Under Pressure", s: 55}
+  {id: "ort1", nr: 1, name: "Der Crash", s: 48, pin: {maelar: [65.2, 55.3], boulder: [65.2, 55.3]}},
+  {id: "ort2", nr: 2, name: "Hobbyfunker", s: 49, pin: {maelar: [39.7, 53.9], boulder: [39.7, 53.9]}},
+  {id: "ort3", nr: 3, name: "Die Tankstelle", s: 52, pin: {maelar: [73.7, 36.6], boulder: [73.7, 36.6]}},
+  {id: "ort4", nr: 4, name: "Ein Rowdy rastet aus", s: 53, pin: {maelar: [31.2, 31.4], boulder: [31.2, 31.4]}},
+  {id: "ort5", nr: 5, name: "Sport ist Mord", s: 54, pin: {maelar: [46.0, 39.5], boulder: [46.0, 39.5]}},
+  {id: "ort6", nr: 6, name: "Under Pressure", s: 55, pin: {maelar: [57.0, 67.7], boulder: [57.0, 67.7]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Lösung des Mysteriums", s: 47, ueberblick: 1, bilder: [{b:"ndw-ablauf", t:"Ablauf des Mysteriums", s:46}, {b:"ndw-karte", t:"Karte: Beats FM, Schule und Tankstelle", s:47}], html: `

@@ -170,10 +170,12 @@ window.MYS.lastsmile.countdown = [
   "Das Geschöpf wird äußerst unruhig und sucht etwas zu fressen. In einer Szene bewegt es sich aggressiv auf eine Stromquelle wie eine Stromleitung oder ein mit Strom versorgtes Gebäude zu, in der Hoffnung, Neodym zu finden. Es handelt mit zielgerichtetem HUNGER 3 und ignoriert die Versuche der Kinder, es einzufangen, bis es sein Ziel erreicht und feststellt, dass das Gesuchte fehlt.",
   "Ein Angestellter von ReGIS entdeckt das Geschöpf mit den Kindern. Auch wenn die Kinder entkommen, hat ReGIS begonnen, wieder nach dem Geschöpf zu suchen."
 ];
+window.MYS.lastsmile.karte = {maelar: "lastsmile-pinkarte", boulder: "lastsmile-pinkarte"};
+window.MYS.lastsmile.pinShowdown = {maelar: [56,24], boulder: [56,24]};
 window.MYS.lastsmile.orte = [
-  {id: "ort1", nr: 1, name: "Der Garten", s: 70},
-  {id: "ort2", nr: 2, name: "Reise", s: 71},
-  {id: "ort3", nr: 3, name: "Ormesby Farm", s: 72}
+  {id: "ort1", nr: 1, name: "Der Garten", s: 70, pin: {maelar: [33,24], boulder: [33,24]}},
+  {id: "ort2", nr: 2, name: "Reise", s: 71, pin: {maelar: [50,48], boulder: [50,48]}},
+  {id: "ort3", nr: 3, name: "Ormesby Farm", s: 72, pin: {maelar: [46,15], boulder: [46,15]}}
 ];
 window.MYS.lastsmile.nsc = {
   kinder: {name: "Die anderen Kinder", s: 76, zitat: "„Habt ihr die Geschichte gehört, warum dieses Schiff dem Rost überlassen wurde? … Außerirdische.“", html: `

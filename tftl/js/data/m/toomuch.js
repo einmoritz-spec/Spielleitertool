@@ -143,12 +143,14 @@ window.MYS.toomuch.countdown = [
   "Daniel Wraff versucht, den Loop mit ähnlichen Einstellungen wie zuvor zu aktivieren. Leider berücksichtigt er einige besondere Umstände des ursprünglichen Experiments nicht, weshalb sein jetziger Versuch scheitert.",
   "ReGIS-Agenten stürmen in den Kontrollraum, überwältigen Daniel Wraff und übergeben ihn der Polizei."
 ];
+window.MYS.toomuch.karte = {maelar: "toomuch-karte", boulder: "toomuch-karte"};
+window.MYS.toomuch.pinShowdown = {maelar: [38,80], boulder: [38,80]};
 window.MYS.toomuch.orte = [
-  {id: "ort1", nr: 1, name: "Ormesby Farm", s: 83},
-  {id: "ort2", nr: 2, name: "Schule", s: 84},
-  {id: "ort3", nr: 3, name: "Freizeitzentrum", s: 85},
-  {id: "ort4", nr: 4, name: "Loop-Anlage", s: 86},
-  {id: "ort5", nr: 5, name: "Loop-Kontrollzentrum", s: 87}
+  {id: "ort1", nr: 1, name: "Ormesby Farm", s: 83, pin: {maelar: [42,11], boulder: [42,11]}},
+  {id: "ort2", nr: 2, name: "Schule", s: 84, pin: {maelar: [85,61], boulder: [85,61]}},
+  {id: "ort3", nr: 3, name: "Freizeitzentrum", s: 85, pin: {maelar: [81,67], boulder: [81,67]}},
+  {id: "ort4", nr: 4, name: "Loop-Anlage", s: 86, pin: {maelar: [31,75], boulder: [31,75]}},
+  {id: "ort5", nr: 5, name: "Loop-Kontrollzentrum", s: 87, pin: {maelar: [31,83], boulder: [31,83]}}
 ];
 window.MYS.toomuch.nsc = {
   daniel: {name: "Daniel Wraff", s: 89, zitat: "„Ich habe meinen Fehler erkannt. Es tut mir leid.“", html: `

@@ -8,12 +8,14 @@ M.countdown = [
   "Das verbundene Kind spürt den Hunger der Kreatur. Es wird frustriert vom Hunger, als wäre es sein eigener, selbst wenn es selbst etwas isst. Der Spieler kann das Kind den Zustand Verärgert annehmen lassen, wenn es passt.",
   "Die Kreatur steht kurz vor dem Tod. Geschieht das, kann ihr Körper nicht mehr zusammenhalten, und im Lauf von Stunden beginnt er auszutrocknen. Ihre Haut löst sich als feiner grauer Staub ab. Sie beginnt vor Schmerz zu schreien, ein extrem hohes Trillern, das die Kinder hören können, Erwachsene aber nicht."
 ];
+M.karte = {maelar: "bestof-karte", boulder: "bestof-karte"};
+M.pinShowdown = {maelar: [84,76], boulder: [84,76]};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Grove High School", s: 50},
-  {id: "ort2", nr: 2, name: "Daniels Haus", s: 53},
-  {id: "ort3", nr: 3, name: "Die Loop-Labore", s: 55},
-  {id: "ort4", nr: 4, name: "Der Loop-Reaktor", s: 57},
-  {id: "ort5", nr: 5, name: "Der Magnetrin-Hafen", s: 59}
+  {id: "ort1", nr: 1, name: "Grove High School", s: 50, pin: {maelar: [88,15], boulder: [88,15]}},
+  {id: "ort2", nr: 2, name: "Daniels Haus", s: 53, pin: {maelar: [50,76], boulder: [50,76]}},
+  {id: "ort3", nr: 3, name: "Die Loop-Labore", s: 55, pin: {maelar: [20,35], boulder: [20,35]}},
+  {id: "ort4", nr: 4, name: "Der Loop-Reaktor", s: 57, pin: {maelar: [26,27], boulder: [26,27]}},
+  {id: "ort5", nr: 5, name: "Der Magnetrin-Hafen", s: 59, pin: {maelar: [90,69], boulder: [90,69]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 47, bilder: [{b:"bestof-ablauf", t:"Ablauf des Mysteriums", s:48}, {b:"bestof-karte", t:"Karte der Orte", s:49}], ueberblick: 1, html: `

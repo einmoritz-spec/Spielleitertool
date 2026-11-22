@@ -7,12 +7,14 @@ M.countdown = [
   "Die Hornissen spüren gezielt Personen nach, die sie als Bedrohung einordnen, und überfallen sie: An erster Stelle ihrer „Most Wanted“-Liste steht der Kammerjäger Walter Richterle, dessen scheußliches Insektomobil sogar mit Facettenaugen leicht aufzuspüren ist. Es folgt die nahe Schrebergartensiedlung, lästige Sicherheitsleute, Eltern, die ihren Kindern die Bärchis wegnehmen – und neugierige Kinder, die den Hornissen nachspüren! Anhand der Hornissen-Sichtungen können die Kinder eine Karte entwerfen, die der aus dem Insektomobil ähnelt (weiterer Hinweis auf das Hornissennest). Kinder mit Loopie-Bärchi geraten immer häufiger in Gefahren. Es kommt zu ersten Verletzungen durch Abstürze und Autounfälle.",
   "Alle Kinder mit Loopie-Bärchi machen sich kurz nacheinander wie in Trance auf den Weg in Richtung des Nestes der Hornissenkönigin. Über Spurpheromone finden sie den Weg dorthin, falls sie nicht vorher aufgehalten werden. Einige verirren sich aber auch oder geraten unterwegs in sehr gefährliche Situationen (befahrene Straßen, steile Böschungen usw.)."
 ];
+M.pinShowdown = {maelar: [77.5, 41.5], boulder: [77.5, 41.5]};
+M.karte = {maelar: "baerchis-karte", boulder: "baerchis-karte"};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Spielwarenladen", s: 66},
-  {id: "ort2", nr: 2, name: "Tor des Loops", s: 69},
-  {id: "ort3", nr: 3, name: "Insektomobil", s: 71},
-  {id: "ort4", nr: 4, name: "Schrebergarten der Biolehrerin", s: 73},
-  {id: "ort5", nr: 5, name: "Hornissenfelsen", s: 74}
+  {id: "ort1", nr: 1, name: "Spielwarenladen", s: 66, pin: {maelar: [28.3, 23.8], boulder: [28.3, 23.8]}},
+  {id: "ort2", nr: 2, name: "Tor des Loops", s: 69, pin: {maelar: [35.7, 45.4], boulder: [35.7, 45.4]}},
+  {id: "ort3", nr: 3, name: "Insektomobil", s: 71, pin: {maelar: [49.5, 29.8], boulder: [49.5, 29.8]}},
+  {id: "ort4", nr: 4, name: "Schrebergarten der Biolehrerin", s: 73, pin: {maelar: [95.5, 57.0], boulder: [95.5, 57.0]}},
+  {id: "ort5", nr: 5, name: "Hornissenfelsen", s: 74, pin: {maelar: [81.1, 33.7], boulder: [81.1, 33.7]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Lösung des Mysteriums", s: 66, ueberblick: 1, bilder: [{b:"baerchis-ablauf", t:"Ablauf des Mysteriums", s:67}, {b:"baerchis-karte", t:"Karte der Schauplätze", s:67}], html: `

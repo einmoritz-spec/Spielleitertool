@@ -6,13 +6,15 @@ M.countdown = [
   "{{Die Bredängsskolan|Die Mitchell-Grundschule}} bekommt Besuch von Polizisten. Die Kinder scharen sich auf dem Schulhof um einen schönen blau-weißen Volvo. Die Polizeimeister {{Larsson und Benderman|Larsen und Benderman}} besuchen das Klassenzimmer der Kinder und mahnen die Klasse, unter keinen Umständen zum oder aufs Eis hinauszugehen, da es tückisch und gefährlich sei. Als Polizeimeister Benderman das sagt, schaut er direkt die Kinder an. Er scheint ihnen auf der Spur zu sein.",
   "Riksenergi verstärkt seine Präsenz am {{Mälarhöjden-Strand|Boulder Beach}}. Drei orangefarbene Riksenergi-Fahrzeuge parken am Strand, und ein halbes Dutzend Wachleute hält in der Gegend Ausschau. Eines der Autos fährt auf den Straßen zwischen Bredäng und Sätra hin und her, und im Wald sieht man Wachleute mit Taschenlampen umherstreifen. Es ist klar, dass sie nach etwas suchen."
 ];
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [67, 44], boulder: [39, 29]};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Die Grundschule", s: 56},
-  {id: "ort2", nr: 2, name: "Der Strand", s: 58},
-  {id: "ort3", nr: 3, name: "Der Campingplatz", s: 59},
-  {id: "ort4", nr: 4, name: "Die weiterführende Schule", s: 60},
-  {id: "ort5", nr: 5, name: "Die Höhle der Mumie", s: 61},
-  {id: "ort6", nr: 6, name: "Über das Eis", s: 63}
+  {id: "ort1", nr: 1, name: "Die Grundschule", s: 56, pin: {maelar: [58, 42], boulder: [14.5, 78.8]}},
+  {id: "ort2", nr: 2, name: "Der Strand", s: 58, pin: {maelar: [55, 50.5], boulder: [28, 34.8]}},
+  {id: "ort3", nr: 3, name: "Der Campingplatz", s: 59, pin: {maelar: [62.5, 58.1], boulder: [27.4, 40]}},
+  {id: "ort4", nr: 4, name: "Die weiterführende Schule", s: 60, pin: {maelar: [66.9, 71.2], boulder: [17, 79.5]}},
+  {id: "ort5", nr: 5, name: "Die Höhle der Mumie", s: 61, pin: {maelar: [55, 33], boulder: [17.5, 65]}},
+  {id: "ort6", nr: 6, name: "Über das Eis", s: 63, pin: {maelar: [70, 36], boulder: [36, 25]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 56, bilder: [{b:"mummy-ablauf", t:"Ablauf des Mysteriums", s:52}, {b:"mummy-karte-maelaren", t:"Karte: Bredäng und Umgebung", s:53}, {b:"mummy-karte-boulder", t:"Karte: Boulder City", s:54}], ueberblick: 1, html: `

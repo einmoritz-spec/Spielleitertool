@@ -2,12 +2,14 @@
 (function(){
 var M = window.MYS.wagner;
 M.orte = [
-  {id: "ort1", nr: 1, name: "Lenas Hof", s: 167},
-  {id: "ort2", nr: 2, name: "Die Polizeiwache in Stenhamra", s: 169},
-  {id: "ort3", nr: 3, name: "Microlex", s: 170},
-  {id: "ort4", nr: 4, name: "Husby-Wiese", s: 172},
-  {id: "ort5", nr: 5, name: "Kungsberga-Supermarkt", s: 175}
+  {id: "ort1", nr: 1, name: "Lenas Hof", s: 167, pin: {maelar: [28.6, 50.2], boulder: [12.4, 21.8]}},
+  {id: "ort2", nr: 2, name: "Die Polizeiwache in Stenhamra", s: 169, pin: {maelar: [67.3, 74.5], boulder: [16.2, 76.7]}},
+  {id: "ort3", nr: 3, name: "Microlex", s: 170, pin: {maelar: [72, 66.5], boulder: [19.1, 84.5]}},
+  {id: "ort4", nr: 4, name: "Husby-Wiese", s: 172, pin: {maelar: [54.0, 57.5], boulder: [36.4, 73.1]}},
+  {id: "ort5", nr: 5, name: "Kungsberga-Supermarkt", s: 175, pin: {maelar: [57.9, 33.5], boulder: [15.8, 65.0]}}
 ];
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [51.5, 26.4], boulder: [28.2, 14.3]};
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen – Teil eins", s: 167, bilder: [{b:"wagner-ablauf", t:"Ablaufdiagramm", s:164}, {b:"wagner-karte-maelar", t:"Karte der Mälarinseln", s:163}, {b:"wagner-karte-boulder", t:"Karte von Boulder City", s:165}], ueberblick: 1, html: `
 <p>Das Mysterium spielt {{auf allen Mälarinseln|in ganz Boulder City}}. Wenn die Kinder Wasser überqueren, kannst du es zu Ärger machen, ein Boot aufzutreiben und überzusetzen, oder du gehst einfach zur nächsten Szene über und nimmst an, dass sie es irgendwie geschafft haben. Wechsle ab zwischen Szenen aus dem Mysterium, aus dem Alltag und dem Countdown für Die Sonderbare.</p>`},

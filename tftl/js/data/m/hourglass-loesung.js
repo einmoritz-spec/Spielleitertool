@@ -7,11 +7,13 @@ M.countdown = [
   "Das Magnetrinschiff. Der Chronograph beginnt auch, Zeitblasen aus der Zukunft einzusammeln. Sie sind nicht so stabil wie die früheren und blinken ein und aus. Das gezeigte Ereignis ist ein Gauß-Frachter auf dem Weg nach {{Stockholm|Denver}}. Wenn der Chronograph seinen bevorstehenden Zusammenbruch erreicht, erschafft er eine Zeitblase, die das Schiff vom Himmel herunterzieht und sowohl im schwedischen als auch im amerikanischen Loop in die Meerenge stürzen lässt.",
   "Der Sturm. Dunkle Wolken bedecken den Himmel, und die Sonne ist fast völlig verdeckt. Plötzlich beginnt der Himmel in einem unheilvollen Gewitter zu vibrieren. Das Wasser ist mit geborstenen Eisschollen bedeckt, und der Wind schleudert Sand, Dreck und Hagel jedem ins Gesicht, der draußen ist. Mit dem Rad zu fahren ist mehr oder weniger unmöglich, und sich draußen überhaupt zu bewegen verlangt, dass eines der Kinder auf <span class='f'>bewegen</span> würfelt, um die Gruppe durch Regen und Wind zu führen."
 ];
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [55, 38], boulder: [38, 50]};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Zeitblase: Die Schulkantine", s: 58},
-  {id: "ort2", nr: 2, name: "Zeitblase: Der Scheunenboden", s: 62},
-  {id: "ort3", nr: 3, name: "Zeitblase: Die Kirche", s: 64},
-  {id: "ort4", nr: 4, name: "In die Tunnel", s: 69}
+  {id: "ort1", nr: 1, name: "Zeitblase: Die Schulkantine", s: 58, pin: {maelar: [40, 44.5], boulder: [14.8, 77.8]}},
+  {id: "ort2", nr: 2, name: "Zeitblase: Der Scheunenboden", s: 62, pin: {maelar: [38, 34], boulder: [31, 54]}},
+  {id: "ort3", nr: 3, name: "Zeitblase: Die Kirche", s: 64, pin: {maelar: [45.5, 34], boulder: [33, 42]}},
+  {id: "ort4", nr: 4, name: "In die Tunnel", s: 69, pin: {maelar: [48, 46], boulder: [23.5, 48]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 57, bilder: [{b:"hourglass-ablauf", t:"Ablauf des Mysteriums", s:56}, {b:"hourglass-karte-munso", t:"Karte der Mälarinseln: Orte des Mysteriums", s:54, loop:"maelar"}, {b:"hourglass-karte-gross", t:"Karte von Boulder City: Orte des Mysteriums", s:55, loop:"boulder"}], ueberblick: 1, html: `

@@ -8,10 +8,12 @@ M.countdown = [
   "Die Kinder werden Zeugen, wie ein Erwachsener entführt und in ein Auto geladen wird. Kurz darauf taucht dieselbe Person wieder auf, völlig verändert, und redet davon, dass alles perfekt sein sollte.",
   "Die Erwachsenen in einer oder mehreren Familien der Kinder wurden alle umprogrammiert und verhalten sich seltsam. Sie drohen mit Gewalt, wenn die Kinder sich nicht „angemessen“ verhalten."
 ];
+M.karte = {maelar: "karte-maelaren-voll", boulder: "karte-boulder-voll"};
+M.pinShowdown = {maelar: [65.5, 43.2], boulder: [28.5, 35.5]};
 M.orte = [
-  {id: "ort1", nr: 1, name: "Der Videoladen", s: 39},
-  {id: "ort2", nr: 2, name: "Die Fabrik", s: 41},
-  {id: "ort3", nr: 3, name: "Das PTA-Hauptquartier", s: 44}
+  {id: "ort1", nr: 1, name: "Der Videoladen", s: 39, pin: {maelar: [64.5, 73], boulder: [14, 79]}},
+  {id: "ort2", nr: 2, name: "Die Fabrik", s: 41, pin: {maelar: [56.5, 40.6], boulder: [25.7, 22.3]}},
+  {id: "ort3", nr: 3, name: "Das PTA-Hauptquartier", s: 44, pin: {maelar: [70.5, 69], boulder: [19.8, 80.7]}}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
   {id: "ueberblick", titel: "Das Mysterium lösen", s: 38, bilder: [{b:"horror-ablauf", t:"Ablauf des Mysteriums", s:34}, {b:"horror-karte-maelaren", t:"Karte: Stenhamra und Umgebung", s:35}, {b:"horror-karte-boulder", t:"Karte: Boulder City", s:36}], ueberblick: 1, html: `

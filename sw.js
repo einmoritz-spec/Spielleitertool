@@ -867,6 +867,8 @@ const FILES = [
   "moerkborg/img/abenteuer/raum7-pumpenraum.webp",
   "moerkborg/img/abenteuer/raum9-saeule-geiger.webp",
   "moerkborg/img/abenteuer/rotblack-karte.webp",
+  "moerkborg/js/tabellen.js",
+  "moerkborg/js/data/tabellen-a.js",
   "moerkborg/js/data/regeln-b.js",
   "moerkborg/js/data/maechte.js",
   "moerkborg/js/data/optional-a.js",

@@ -431,3 +431,28 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .zk ul{margin:0;padding-left:16px;font:15px/1.4 var(--text);list-style:"▸ "}
 .zk .ak{margin:8px 0 0}
 .rb{mix-blend-mode:multiply}
+/* Schritt 7a: Tabellen */
+.tbw{padding:24px 28px 40px;max-width:none;background:#f0ede4;color:#111;min-height:calc(100vh - 160px)}
+.tbh{font-family:var(--fraktur);font-size:44px;margin:0 0 16px;line-height:1.1}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px;align-items:start}
+.tt{border:2px solid #111;background:#fff;color:#111}.tt.breit{grid-column:1/-1}
+.tt header{display:flex;align-items:baseline;gap:10px;background:#111;color:#fff;padding:7px 12px}
+.tt header h3{font:400 22px var(--fraktur);margin:0}.tt header .w{font:700 13px var(--mono);color:#ffe600}
+.tt header .pg{color:#bbb}
+.hx{font:italic 15px var(--text);margin:8px 12px 0}
+.tr{display:grid;grid-template-columns:repeat(var(--c,1),minmax(0,1fr))}
+.r{display:flex;gap:10px;padding:7px 12px;border-bottom:1px solid #ddd;font:16px/1.35 var(--text);cursor:pointer}
+.r>b{font:700 14px var(--mono);color:#ff3eb5;min-width:3.2em;white-space:nowrap}.r>span b{font:inherit;font-weight:700;color:inherit}
+.r:hover{background:#faf7ee}.r.sel{background:#ffe600}.r.sel b{color:#111}
+.nm{border-collapse:collapse;width:100%;font:16px var(--text)}
+.nm th{font:700 14px var(--mono);color:#ff3eb5;padding:6px 10px;text-align:left;background:#faf7ee}
+.nm td{padding:6px 10px;border:1px solid #ddd;cursor:pointer}.nm td.sel,.nm tr.sel td,.nm tr.sel th{background:#ffe600}
+.nm.vs{max-width:520px}.nm.vs tr{cursor:pointer}
+.rg4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.rg4 .tg{border-right:1px solid #ddd}.rg4 .tg:last-child{border:0}
+.d4{display:block;font:700 13px var(--mono);background:#ffe600;padding:4px 12px}
+.yps{max-width:1280px}.yps .ypk h2{font:400 34px var(--fraktur);margin:0}.yps .ysub{font:italic 16px var(--text);margin:4px 0}.yps .ypw{font:700 13px var(--mono);background:#111;color:#fff;display:inline-block;padding:3px 10px}
+.ypg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:16px 0}
+.ypsm{border:2px solid #111;background:#fff;padding-bottom:6px}.ypsm h3{font:700 16px var(--grotesk);text-transform:uppercase;letter-spacing:.06em;margin:0;padding:8px 12px 0}
+.ypsm .yu{font:italic 16px var(--text);margin:0 12px 6px;color:#555}
+.ysl{font:italic 17px var(--text)}.yfu{font:15px var(--mono);max-width:640px}

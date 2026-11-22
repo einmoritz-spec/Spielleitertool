@@ -25,7 +25,7 @@ window.SP_KACHELN = [
   {t:"Spire in Kürze",              s:"Die Regeln aus dem Quickstart",                           buch:"qs",  p:1,   img:"titel/qs-cover",               pos:"center 60%", go:"nach/kurz"},
   {t:"Spielleitung",                s:"Revolution · Schwierigkeit · Schurken · Magie",           buch:"cmf", p:173, img:"kapitel/spielleitung-S180",    pos:"center 25%", go:"nach/spielleitung"},
   {t:"Magister's Guide",            s:"Freiheit · Beats · Erwerbungen · Unterschlupf",           buch:"gm",  p:4,   img:"kapitel/mg-unterschlupf-S016", pos:"center 30%", go:"nach/mg"},
-  {t:"Götter und Anhänge",          s:"Neue Götter · Drow-Glossar",                              buch:"cmf", p:183, img:"gott/luxulyan",                pos:"center 30%", go:"nach/goetter", folgt:1}
+  {t:"Götter und Anhänge",          s:"Neue Götter · Drow-Glossar",                              buch:"cmf", p:183, img:"gott/luxulyan",                pos:"center 30%", go:"nach/goetter"}
 ];
 /* Startseite, Block „Losschlagen“: die vier Spielbereiche (= Haupt-Tabs) */
 window.SP_SPIEL = [

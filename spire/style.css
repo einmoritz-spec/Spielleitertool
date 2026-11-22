@@ -873,3 +873,7 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .txt .schwarz{column-width:430px;column-gap:40px}
 .txt .schwarz h4{column-span:all}
 .txt .schwarz p{break-inside:avoid-column}
+/* Neue Götter */
+.go-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.go-grid .kl-t .im{height:300px}
+.go-grid .kl-t .im img{object-position:center 8%}

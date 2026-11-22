@@ -387,3 +387,8 @@ Vorbereitung = 3-spaltiges Kachelraster mit 9 Kacheln (Welt mit Stadtkarte, Rege
 - **MG-Zusatz je Klasse** (`mg-<klasse>.js`, `gegner-mg.js`, Route `nach/klassen/<id>/mg`, 5 MG-Klassen als violette Kacheln/Reiter), **MG-Systeme** (`mg-system.js`, Route `nach/mg[/<kapitel>]`), **Welt / Spielleitung / Spire in Kürze** (`welt.js`, `spielleitung.js`, `kurz.js`, Routen `nach/welt|spielleitung|kurz[/<kapitel>]`; Konverter `build_mg.py`, `build_mg2.py`, `build_text.py`).
 - QS S. 11 (Fallout-Listen) bewusst weggelassen (steht vollständig unter Regeln); MG S. 56 (Werbung) weggelassen.
 - Offen: Schritt 13 (Götter, Anhänge, Gesamtcheck), danach Charakterbogen.
+
+### Stand nach Schritt 13 (22. Nov. 2026) – Plan erledigt
+- **Neue Götter** (`goetter.js`, `data/goetter.js`, Konverter `build_goetter.py`; Route `nach/goetter[/<gott>]`: Kachelübersicht + je Gott Bild, Text, Fortschritte als Karten, besonderer Fallout). **Anhänge** (`data/anhang.js`, `build_anhang.py`; `nach/anhang[/glossar|antagonisten|medien]`: Drow-Glossar S. 205, Antagonisten S. 210, Medien S. 211; Ziegen/Arkologien stehen unter Zufall).
+- Gesamtcheck (1280 px, mit/ohne eingeklappte Leiste, 60 Routen): keine JS-Fehler, kein Seitwärtsüberlauf.
+- Offen: interaktiver Charakterbogen, Sourcebooks (Strata, Shadow Operations, Kampagnenrahmen) – siehe Abschnitt 6.

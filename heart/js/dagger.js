@@ -65,7 +65,7 @@ function beatBox(s, key){
 }
 function beats(){ var I = D().intro || {}, k4 = kap(4) || {}; return seite("Beat-Bögen", 22, beatBox(I.beat1, "b1") + beatBox(k4.beat2, "b2")); }
 function anhang(){
-  var A = D().app || {}, h = (A.index || []).map(function(g){ return '<h3 class="h3">Tiefe ' + esc(g.tiefe) + '</h3><table class="dtab">' + (g.lm || []).map(function(l){ return "<tr><td><b>" + esc(l.t) + "</b></td><td>" + pg(l.p) + "</td><td>" + esc(l.dom || "") + "</td><td>Kap. " + esc(l.kap || "") + "</td><td>" + md(l.notiz || "") + "</td></tr>"; }).join("") + "</table>"; }).join("") + (A.weitere || []).map(abschn).join("");
+  var A = D().app || {}, h = (A.hinweis ? "<p>" + md(A.hinweis) + "</p>" : "") + (A.index || []).map(function(g){ return '<h3 class="h3">' + (g.tiefe === "rogue" ? "Ungebunden" : "Tiefe " + esc(g.tiefe)) + '</h3><table class="dtab">' + (g.lm || []).map(function(l){ return "<tr><td><b>" + esc(l.t) + "</b></td><td>" + esc(l.ref || "") + "</td><td>" + esc(l.dom || "") + "</td><td>Kap. " + esc(l.kap || "") + ((l.auch && l.auch.length) ? " (auch " + esc([].concat(l.auch).join(", ")) + ")" : "") + "</td><td>" + md(l.notiz || "") + "</td></tr>"; }).join("") + "</table>"; }).join("") + (A.weitere || []).map(abschn).join("");
   return seite("Anhang: Landmarken-Index", 135, h);
 }
 /* ---------- Kapitel ---------- */
@@ -76,7 +76,7 @@ function ueberblick(K){
   return '<div class="wrap"><div class="seite dkseite"><h1 class="h1">' + esc(K.t) + pg(K.p) + "</h1>" + vs + '<div class="flach">' + bls(K.ueberblick) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
 }
 function inszen(K){
-  var h = (K.inszenierung || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + bls(a.b) + "</div>"; }).join("");
+  var h = (K.inszenierung || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + bls(a.b) + (a.figuren || []).map(fig).join("") + "</div>"; }).join("");
   var r = (K.rest || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + bls(a.b) + "</div>"; }).join("");
   return '<div class="dkgrid">' + h + r + "</div>";
 }
@@ -116,7 +116,7 @@ function delveKarte(K, v){
 }
 function lmSeite(l){
   if(!l) return "";
-  var wz = '<div class="dkw"><span><b>Domains:</b> ' + esc((l.dom || []).join(", ")) + "</span><span><b>Tiefe:</b> " + esc(l.tiefe) + "</span><span><b>Standard-Stress:</b> " + esc(l.stress || "") + "</span>" + ((l.haunts || []).length ? "<span><b>Haunts:</b> " + (l.haunts || []).map(md).join("; ") + "</span>" : "") + "</div>";
+  var wz = '<div class="dkw"><span><b>Domains:</b> ' + esc((l.dom || []).join(", ")) + "</span><span><b>Tiefe:</b> " + esc(l.tiefeText || l.tiefe) + "</span><span><b>Standard-Stress:</b> " + esc(l.stress || "") + "</span>" + ((l.haunts || []).length ? "<span><b>Haunts:</b> " + (l.haunts || []).map(md).join("; ") + "</span>" : "") + "</div>";
   var re = ((l.ressourcen || []).length ? '<h3 class="h3">Ressourcen</h3><ul class="lst">' + l.ressourcen.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "") + ((l.plots || []).length ? '<h3 class="h3">Mögliche Plots</h3><ul class="lst">' + l.plots.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "");
   return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc"><div>' + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
 }
@@ -124,10 +124,11 @@ function landmarken(K, sel){
   var V = K.delves || [], first = V[0] ? "d:" + V[0].id : ((K.lm || [])[0] || {}).id;
   sel = sel || first;
   if(!V.length && !(K.lm || []).length) return "<p>Keine Landmarken.</p>";
-  var inh;
-  if(sel && sel.indexOf("d:") === 0){ var v = V.filter(function(x){ return x.id === sel.slice(2); })[0]; inh = '<div class="dkl2">' + (v ? delveKarte(K, v) : "") + '<div class="dlmhint"></div></div>'; }
-  else { var l = (K.lm || []).filter(function(x){ return x.id === sel; })[0]; inh = lmSeite(l); }
-  return (V.length ? karte(K, sel) : "") + '<div class="dkdet">' + (sel && sel.indexOf("d:") === 0 ? "" : "") + inh + "</div>";
+  var isD = sel && sel.indexOf("d:") === 0, v, l;
+  if(isD){ v = V.filter(function(x){ return x.id === sel.slice(2); })[0]; l = v && (K.lm || []).filter(function(x){ return x.id === v.nach; })[0]; }
+  else { l = (K.lm || []).filter(function(x){ return x.id === sel; })[0]; v = V.filter(function(x){ return x.nach === sel; })[0] || V.filter(function(x){ return x.von === sel; })[0]; }
+  var links = v ? '<div class="dkl2">' + delveKarte(K, v) + "</div>" : "";
+  return (V.length ? karte(K, sel) : "") + '<div class="dkdet' + (links ? " zwei" : "") + '">' + links + lmSeite(l) + "</div>";
 }
 function kapitel(n, tab, id){
   var K = kap(n);

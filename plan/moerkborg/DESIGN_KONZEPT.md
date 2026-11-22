@@ -1,6 +1,6 @@
 # MÖRK BORG – Design-Konzept (Phase 1, Entwurf zur Freigabe)
 
-Stand: 22. Nov. 2026. Noch nichts im Tool gebaut. Der vollständige Bauplan `plan/MOERKBORG_PLAN.md` (Aufbau wie `SLUGBLASTER_PLAN.md`) folgt nach Moritz’ Freigabe der Entwürfe.
+Stand: 22. Nov. 2026. Entwürfe von Moritz freigegeben. Der vollständige Bauplan steht in `plan/MOERKBORG_PLAN.md`.
 
 ## Quellen
 | Was | Umfang | Seitenzählung |

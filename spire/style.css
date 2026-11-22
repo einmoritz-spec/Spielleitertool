@@ -1008,3 +1008,10 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .rgq.wt{width:210px}
 .rgfl{max-width:910px}
 .rgz{height:80px}
+.rgbr::before{display:none}
+.rgbr{top:126px;height:204px}
+.rgq.a2{height:52px;display:flex;align-items:center;justify-content:center}
+.rgln.v1{top:59px;height:141px}
+.rgln.h1,.rgln.h2{top:27px}
+.rgs span,.rgln.h2 span{top:50%;transform:translateY(-50%)}
+.rgb.sc{z-index:1}

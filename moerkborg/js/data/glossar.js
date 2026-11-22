@@ -8,5 +8,5 @@ var MB_GLOSSAR = [
  ["Grotesque / Wickhead / Wyvern","Fratze / Dochtkopf / Lindwurm"],["Outcasts (Earthbound, Wild Wickhead, Pale one, Prowler)","Ausgestoßene (Erdgebundener, Wilder Dochtkopf, Bleicher, Streuner)"],
  ["Quadraccoon / Virspider / Crawling Parasite","Vierwaschbär / Virspinne / Kriechender Parasit"],["Giant Land Squid / Deceit / Blight Pixies","Riesiger Landkalmar / Trug / Seuchenwichtel"],
  ["Gnoll / Milphage / Scryehawk / Rock Wolf","Gnoll / Milphage / Seherfalke / Steinwolf"],["Salt Priest / Stricken One","Salzpriester / Der Geschlagene"],
- ["Half-troll / War pig","Halbtroll / Kriegsschwein"]
+ ["Half-troll / War pig / Goblin wild mage","Halbtroll / Kriegsschwein / Goblin-Wildmagier"],["Wickhead Zündler","Dochtkopf Zündler (Name bleibt)"]
 ];

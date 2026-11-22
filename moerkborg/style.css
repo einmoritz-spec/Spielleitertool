@@ -369,3 +369,12 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .rt h4{background:var(--kfg);color:var(--kbg)}
 .rts{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .rts{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+
+.kr.besiegt{display:flex;align-items:center;gap:14px;padding:6px 14px 6px 8px;cursor:pointer;opacity:.6;background:#bdbab0}
+.kr.besiegt img{width:34px;height:34px;object-fit:cover;object-position:top;filter:grayscale(1)}
+.kr.besiegt h3{font:400 22px/1 var(--plakat);text-transform:uppercase;margin:0;text-decoration:line-through;text-decoration-thickness:3px}
+.kr.besiegt .anz{font:700 13px var(--mono)}
+.kr.besiegt .stempel{margin-left:auto;font:700 12px var(--grotesk);letter-spacing:.2em;text-transform:uppercase;border:2px solid #111;padding:3px 8px;transform:rotate(-4deg)}
+.kr.besiegt .x{background:none;border:0;font-size:20px;cursor:pointer;color:#111}
+.kr .zuk{background:none;border:0;font-size:16px;cursor:pointer;margin-left:6px}
+[data-akz=magenta]{--kak:#ec008c}[data-akz=gelb2]{--kak:#e0b800}

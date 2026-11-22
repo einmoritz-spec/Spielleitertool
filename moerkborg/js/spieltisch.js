@@ -108,12 +108,14 @@ var SP = {};
  }
  function krHtml(c, i){
   var s = kstat(c);
+  if(s.tot === c.sch.length && !c.auf) return '<div class="kr besiegt" onclick="SP.krAuf(' + i + ')">' + (c.img ? '<img src="' + IMG(c.img) + '" alt="">' : "") +
+   '<h3>' + esc(c.t) + '</h3><span class="anz">×' + c.sch.length + '</span><b class="stempel">Besiegt</b><button class="x" onclick="event.stopPropagation();SP.krDel(' + i + ')" aria-label="Entfernen">×</button></div>';
   var leben = c.sch.map(function(d, e){
    var box = ""; for(var b = 0; b < c.tp; b++) box += '<i class="' + (b < d ? "w" : "") + '" onclick="SP.kb(' + i + ',' + e + ',' + b + ')"></i>';
    return '<div class="e' + (d >= c.tp ? " tot" : "") + '"><span>' + (e + 1) + '</span>' + box + '</div>';
   }).join("");
   return '<div class="kr' + (c.img ? "" : " ohne") + '">' + (c.img ? '<img src="' + IMG(c.img) + '" alt="">' : "") +
-   '<div class="t"><h3>' + esc(c.t) + '</h3>' + (c.p ? pgl(c.p) : "") + '<span class="anz">×' + c.sch.length + '</span><button class="x" onclick="SP.krDel(' + i + ')" aria-label="Entfernen">×</button></div>' +
+   '<div class="t"><h3>' + esc(c.t) + '</h3>' + (c.p ? pgl(c.p) : "") + '<span class="anz">×' + c.sch.length + '</span>' + (s.tot === c.sch.length ? '<button class="zuk" onclick="SP.krAuf(' + i + ')" aria-label="Einklappen">▴</button>' : "") + '<button class="x" onclick="SP.krDel(' + i + ')" aria-label="Entfernen">×</button></div>' +
    '<div class="w">TP ' + c.tp + ' · Moral ' + c.moral + (c.w ? '<br><span>' + md(c.w) + '</span>' : "") + '</div>' +
    (c.sp ? '<div class="sp2">' + md(c.sp) + '</div>' : "") +
    '<div class="leben">' + leben + '</div>' +
@@ -125,10 +127,12 @@ var SP = {};
   var g = gw(), ini = ["Feinde zuerst", "Gruppe zuerst"], nr = ["1–3", "4–6"];
   return '<div class="spk"><h2>Gewalt</h2><button class="plus" onclick="SP.ende()">Kampf beenden</button></div>' +
    '<div class="ini"><span>Initiative W6</span>' + ini.map(function(t, i){ return '<button class="' + (g.ini === i ? "on" : "") + '" onclick="SP.ini(' + i + ')"><b>' + nr[i] + '</b>' + t + '</button>'; }).join("") + '</div>' +
-   g.kr.map(krHtml).join("") + '<button class="dazu" onclick="SP.kreaturForm()">+ Kreatur auf den Tisch</button>';
+   g.kr.map(function(c, i){ return [c, i]; }).sort(function(a, b){ var x = kstat(a[0]).tot === a[0].sch.length, y = kstat(b[0]).tot === b[0].sch.length; return (x - y) || (a[1] - b[1]); }).map(function(p){ return krHtml(p[0], p[1]); }).join("") + '<button class="dazu" onclick="SP.kreaturForm()">+ Kreatur auf den Tisch</button>';
  }
  SP.ini = function(i){ var g = gw(); g.ini = g.ini === i ? -1 : i; save(); neu(); };
  SP.kb = function(i, e, b){ var c = gw().kr[i]; c.sch[e] = c.sch[e] === b + 1 ? b : b + 1; save(); neu(); };
+ SP.krAuf = function(i){ var c = gw().kr[i]; c.auf = !c.auf; save(); neu(); };
+ SP.kb = (function(kb){ return function(i, e, b){ var c = gw().kr[i]; kb(i, e, b); if(kstat(c).tot === c.sch.length){ c.auf = false; save(); neu(); } }; })(SP.kb);
  SP.fuehrer = function(i){ var c = gw().kr[i]; c.fuehrer = !c.fuehrer; save(); neu(); };
  SP.krDel = function(i){ gw().kr.splice(i, 1); save(); neu(); };
  SP.ende = function(){ if(!gw().kr.length && gw().ini < 0) return; if(confirm("Kampf beenden? Alle Kreaturen verlassen den Tisch.")){ ST.gw = {kr:[], ini:-1}; save(); neu(); } };

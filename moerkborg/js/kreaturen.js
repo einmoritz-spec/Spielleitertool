@@ -11,7 +11,13 @@ var KR = {gruppe:"grund"};
   seth:["#fff","#111","pink","anton"], bent:["#0d0d0d","#f2f2f2","gelb","anton"], zukuma:["#fff","#111","schwarz","anton"],
   wrat:["#0d0d0d","#fff","pink","anton"], belze:["#ffe600","#111","rot","anton"], lich:["#0d0d0d","#f2f2f2","gelb","fraktur"],
   troll:["#cfcfcf","#111","rot","anton"], nodh:["#0d0d0d","#f2f2f2","pink","anton"], "lady-porcelain":["#f6f6f4","#111","schwarz","antiqua"],
-  thinx:["#fbf7f4","#111","rot","anton"], aland:["#ffe600","#111","rot","anton"], ewlotha:["#0d0d0d","#f2f2f2","pink","anton"], streuner:["#fff","#111","pink","fraktur"]
+  thinx:["#fbf7f4","#111","rot","anton"], aland:["#ffe600","#111","rot","anton"], ewlotha:["#0d0d0d","#f2f2f2","pink","anton"], streuner:["#fff","#111","pink","fraktur"],
+  vierwaschbaer:["#f6d3e6","#231f20","magenta","fraktur"], virspinne:["#111","#f4f1ea","weiss","fraktur"], orochi:["#fff","#111","schwarz","anton"], "kriechender-parasit":["#fff","#111","gelb2","anton"],
+  landkalmar:["#fff","#111","magenta","anton"], trug:["#5a2d47","#fbe9d7","weiss","antiqua"], "seuchenwichtel-magier":["#fff","#111","magenta","fraktur"], "seuchenwichtel-steinwerfer":["#fff","#111","magenta","fraktur"],
+  "seuchenwichtel-knoechelbeisser":["#fff","#111","magenta","fraktur"], gnoll:["#fff","#111","schwarz","anton"], milphage:["#fff","#111","schwarz","fraktur"], semyaza:["#3d6e73","#f4f1ea","weiss","fraktur"],
+  "jack-merit":["#8e4a68","#fbe9d7","weiss","fraktur"], minka:["#8e4a68","#fbe9d7","weiss","fraktur"], ramphas:["#ffdd00","#111","rot","anton"], seherfalke:["#000","#fff","weiss","fraktur"],
+  steinwolf:["#ec008c","#111","weiss","fraktur"], vroeg:["#fff","#111","magenta","anton"], salzpriester:["#000","#f4f1ea","rot","fraktur"], geschlagener:["#000","#f4f1ea","weiss","antiqua"],
+  halbtroll:["#fff","#111","rot","anton"], kriegsschwein:["#df0024","#fff","weiss","fraktur"], "goblin-magier":["#fff","#111","magenta","anton"], "dochtkopf-flammer":["#ffdd00","#111","schwarz","fraktur"]
  };
  var APO = [["#ffdd00","#231f20","rot","anton"],["#231f20","#f4f1ea","gelb","anton"],["#ec008c","#231f20","weiss","anton"],["#f4f1ea","#231f20","rot","anton"],["#df0024","#f4f1ea","gelb","anton"]];
  function look(k){ if(LOOK[k.id]) return LOOK[k.id]; if(k.buch === "mb_apo"){ var L = liste0(k.gruppe), i = L.indexOf(k); return APO[i % APO.length]; } return ["#ff3eb5","#111","weiss","fraktur"]; }

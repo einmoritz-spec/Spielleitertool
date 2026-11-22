@@ -6,16 +6,17 @@ var ST_ANKER = null;
 function stDom(id){ return SP_STADT_INDEX.filter(function(d){ return d.id === id; })[0]; }
 function stData(dom, id){ var D = SP_STADT[dom]; return D && (D.distrikte || []).filter(function(x){ return x.id === id; })[0]; }
 function stKurz(dom, d){ var D = stData(dom, d.id); return D ? D.kurz : d.t.replace(/ unserer .*$/, ""); }
-function stAnfang(L){
+function stAnfang(L, max){
+  max = max || 150;
   var t = ""; for(var i = 0; i < (L || []).length; i++){ if(typeof L[i] === "string" && L[i].charAt(0) !== "("){ t = L[i]; break; } }
   t = t.replace(/\*|\[\[.+?\]\]/g, ""); var s = "", par = t.split(/(?<=[.!?])(?<!Hl\.)\s/);
-  for(var j = 0; j < par.length && s.length < 70; j++) s += (s ? " " : "") + par[j];
-  if(s.length > 150){ s = s.slice(0, 150).replace(/\s+\S*$/, "") + " …"; } else if(s.length < t.length) s += " …";
+  for(var j = 0; j < par.length && s.length < (max > 150 ? max : 70); j++) s += (s ? " " : "") + par[j];
+  if(s.length > max){ s = s.slice(0, max).replace(/\s+\S*$/, "") + " …"; } else if(s.length < t.length) s += " …";
   return s;
 }
 
 /* ---------- Karte + Domänen ---------- */
-function stHv(key, on){ document.querySelectorAll('.kw polygon[data-d="' + key + '"]').forEach(function(p){ p.classList.toggle("hv", on); }); }
+function stHv(key, on){ document.querySelectorAll('.kw polygon[data-d~="' + key + '"]').forEach(function(p){ p.classList.toggle("hv", on); }); }
 function stPop(e, id){
   var f = SP_KARTE.flaechen.filter(function(x){ return x.id === id; })[0], pop = document.getElementById("kpop"), w = document.querySelector(".kw");
   if(!f || !pop) return;
@@ -29,14 +30,14 @@ function stPop(e, id){
 function stPopAus(){ var p = document.getElementById("kpop"); if(p) p.style.display = "none"; }
 function stKlick(id){
   var f = SP_KARTE.flaechen.filter(function(x){ return x.id === id; })[0]; if(!f) return;
-  if(f.dom){ go("stadt/" + f.dom + "/" + f.d); return; }
+  if(f.dom && !f.chips){ go("stadt/" + f.dom + "/" + f.d); return; }
   stPopAus();
-  var m = modal('<h3 class="un" style="margin-top:0">' + esc(f.t) + '</h3><p>' + esc(f.x) + '</p>' + (f.chips || []).map(function(c){ return '<span class="chip" onclick="document.querySelector(\'.modal\').remove();go(\'stadt/' + c[1] + '/' + c[2] + '\')">' + esc(c[0]) + '</span>'; }).join(""));
+  var m = modal('<h3 class="un" style="margin-top:0">' + esc(f.t) + '</h3><p>' + esc(f.x) + '</p>' + (f.dom ? [[f.t, f.dom, f.d]].concat(f.chips) : (f.chips || [])).map(function(c){ return '<span class="chip" onclick="document.querySelector(\'.modal\').remove();go(\'stadt/' + c[1] + '/' + c[2] + '\')">' + esc(c[0]) + '</span>'; }).join(""));
 }
 function stUebersicht(){
   var K = SP_KARTE;
   var poly = K.flaechen.map(function(f){
-    return '<polygon data-k="' + f.id + '"' + (f.dom ? ' data-d="' + f.dom + '/' + f.d + '" style="cursor:pointer"' : (f.chips ? ' style="cursor:pointer"' : '')) + ' points="' + f.poly + '" onmouseenter="stPop(event,\'' + f.id + '\')" onmousemove="stPop(event,\'' + f.id + '\')" onmouseleave="stPopAus()" onclick="stKlick(\'' + f.id + '\')"></polygon>';
+    return '<polygon data-k="' + f.id + '"' + ((f.dom || f.hv) ? ' data-d="' + (f.dom ? [f.dom + "/" + f.d] : []).concat(f.hv || []).join(" ") + '"' : '') + ((f.dom || f.chips) ? ' style="cursor:pointer"' : '') + ' points="' + f.poly + '" onmouseenter="stPop(event,\'' + f.id + '\')" onmousemove="stPop(event,\'' + f.id + '\')" onmouseleave="stPopAus()" onclick="stKlick(\'' + f.id + '\')"></polygon>';
   }).join("");
   var karte = '<div class="kw"><img src="' + IMG("karte") + '" alt=""><svg viewBox="0 0 ' + K.w + ' ' + K.h + '" preserveAspectRatio="none">' + poly + '</svg><div class="kpop" id="kpop"></div></div>';
   var dom = SP_STADT_INDEX.map(function(d){
@@ -58,7 +59,7 @@ function stDomaene(domId){
   var kach = I.distrikte.map(function(x){
     var D = stData(domId, x.id);
     return '<div class="dk2" onclick="go(\'stadt/' + domId + '/' + x.id + '\')">' + (D && D.bild ? '<div class="im"><img src="' + IMG(D.bild) + '" alt=""></div>' : '') +
-      '<h3>' + esc(x.t) + pgl(x.p) + '</h3>' + (D ? '<p>' + esc(stAnfang(D.abschnitte[0].b)) + '</p>' : '') + '</div>';
+      '<h3>' + esc(x.t) + pgl(x.p) + '</h3>' + (D ? '<p>' + esc(stAnfang(D.abschnitte[0].b, D.bild ? 150 : 520)) + '</p>' : '') + '</div>';
   }).join("");
   return spielTabs("stadt") + stSub(I, null) + voll('<div data-pgbook="sp_cmf"><h1 class="titel">' + esc(I.t) + pgl(I.p) + '</h1><div class="raster ' + (I.distrikte.length === 4 ? 'r2' : 'r3') + ' dkr">' + kach + '</div></div>');
 }

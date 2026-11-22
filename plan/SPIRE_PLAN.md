@@ -331,6 +331,14 @@ Regeln: sofort sprechend benennen; Großansicht immer ungeschnitten; nie ein Bil
 - Ganzseitige Bilder, die im Buch genau an einer Kapitelgrenze stehen, heißen `img/kapitel/zwischen-…-S<nr>` (S068, S100, S116, S146, S154, S172) und stehen nur in der Galerie – Zuordnung erst, wenn der Buchtext sie eindeutig macht.
 - Die QS-Porträts (`img/figur/`) sind dieselben Bilder wie die Klassenbilder; in der Galerie nur einmal.
 
+### Stand nach Schritt 4/5
+- **Schritt 4 erledigt:** Akademie, Handel, Verbrechen (S. 81–106) in `stadt-akademie/-handel/-verbrechen.js` + `gegner-*.js`.
+- **Schritt 5 erledigt:** Hohe Gesellschaft (`stadt-hoch.js`, `gegner-hoch.js`: Amaranth, Ivory Row, Silberviertel) und Niedere Gesellschaft (`stadt-nieder.js`, `gegner-nieder.js`: Derelictus, Perch, Gartendistrikt, Werke); Domänen-IDs im Index: `hoch`, `nieder`. Die Core-Schwarze-Garde heißt `schwarze-garde-cmf` (QS-Version bleibt `schwarze-garde`).
+- Bilder: Amaranth S108, Ivory Row S112 (steht im Buch mitten im Distrikt), Perch S120, Gartendistrikt S122, Werke S126; S116 nur Galerie.
+- Karte: Algenfarmen/Blutegelkanäle -> Gartendistrikt; Polygone mit `dom` und `chips` öffnen eine Auswahl (Sonnenbasilika: Himmelsdocks, Universität; Ivory Row: Perch); `hv` hebt Flächen für Distrikte ohne eigenes Polygon hervor (Norddocks, Blauer Hafen, Himmelsdocks, Universität, Red Row, Derelictus).
+- Für Schritt 9 anzulegende Extra-Fortschritt-IDs (Verweise): `stolz`, `king-teeth`, `hungrige-tiefe`, `greymanor`. Verweis `stadt/okkult/herz` (Die Höhle, S. 135) für Schritt 6.
+- Textkorrekturen: Ewigfrost (Glossar), Retroingenieure, „Verloren“ im Buch = Vorloren Standard.
+
 ## 8. Startauftrag für jede Sonnet-Sitzung (zum Kopieren)
 
 > Lies `plan/SPIRE_PLAN.md` im Repo einmoritz-spec/Spielleitertool und setze **Schritt N** um. Halte dich an Abschnitt 2 (Grundregeln, Namensregel, Glossar) und Abschnitt 3 (Design) und baue genau nach den Entwürfen in `plan/spire/mockups/`. Der englische Buchtext liegt in `quellen/spire/text/` (Seitenmarken = Buchseiten; PDF-Seite = Buchseite + 5 beim Grundregelwerk, + 0 beim Magister's Guide, + 1 beim Quickstart), die PDF hänge ich an. Übersetze vollständig ins Deutsche, nichts weglassen, nichts erfinden. Prüfe jede Ansicht per Screenshot (1440×900 und 1280×800), behebe Lücken/Überlauf, schick mir die Screenshots, committe ohne Co-Authored-By/Claude-Session-Zeilen und pushe.

@@ -104,5 +104,24 @@ window.SP_GLOSSAR = [
   ["Customs House / Bazaar / Low Wall Boarding House / Mercenary Houses / Aelfir District", "Zollhaus / Basar / Pensionshaus zur Niedrigen Mauer / Söldnerhäuser / Aelfir-Bezirk"],
   ["Mother Moon / The Sisters / Mr Winter", "Mother Moon / Die Schwestern / Mr Winter"],
   ["Arena / Brother Hellion's Church of the Gun / Vorloren Standard / Threadneedle Square / Kowz-Udder", "Arena / Brother Hellions Kirche der Pistole / Vorloren Standard / Threadneedle Square / Kowz-Udder"],
-  ["Drugs in Spire: Devil-root, Chum, Maiden's Prayer, Dagger, Godsmoke, Malak, Glimmer, Carotid, Corpsefruit, Ambrosia, Blues, Brimstone, Ivory, The Dose", "Drogen im Spire: Teufelswurzel, Chum, Gebet der Jungfrau, Dolch, Götterrauch, Malak, Glimmer, Karotide, Leichenfrucht, Ambrosia, Blues, Schwefel, Elfenbein, Die Dosis"]]]
+  ["Drugs in Spire: Devil-root, Chum, Maiden's Prayer, Dagger, Godsmoke, Malak, Glimmer, Carotid, Corpsefruit, Ambrosia, Blues, Brimstone, Ivory, The Dose", "Drogen im Spire: Teufelswurzel, Chum, Gebet der Jungfrau, Dolch, Götterrauch, Malak, Glimmer, Karotide, Leichenfrucht, Ambrosia, Blues, Schwefel, Elfenbein, Die Dosis"]]],
+ ["Stadt III: Hohe und Niedere Gesellschaft", [
+  ["Amaranth, Frozen Home of the High Elves / Black Guard / Crystal Temple / Ice Caves / Spiral Gardens", "Amaranth, die gefrorene Heimat der Hochelfen / Schwarze Garde / Kristalltempel / Eishöhlen / Spiralgärten"],
+  ["Ivory Row / Sunlight Collective / The Hidden / The Three", "Ivory Row / Sonnenlicht-Kollektiv / Die Verborgenen / Die Drei"],
+  ["Silver Quarter / The House / Clubs / Thrillseekers / The Mermaid / The Game", "Das Silberviertel / Das Haus / Clubs / Nervenkitzler / Die Meerjungfrau / Das Spiel"],
+  ["Order of St Perdita / Boating Club / Eternal Canal / Gilded Oyster / The Unmasked / Vire Club / The Hearts", "Orden der Heiligen Perdita / Bootsclub / Ewiger Kanal / Vergoldete Auster / Die Unmaskierten / Vire Club / Die Herzen"],
+  ["Rotters / Zebra club / Caraways / Feathers / Pistoliers", "Halunken / Zebra-Club / Kümmel / Federn / Pistoliers"],
+  ["Orbit (game)", "Orbit (Spiel, bleibt)"],
+  ["Hemlock Fruit Market / corpsefruit", "Schierlingsfruchtmarkt / Leichenfrucht"],
+  ["The Cannibals of Grist / King Teeth / ghoul", "Die Kannibalen von Grist / King Teeth (bleibt) / Ghul"],
+  ["Church of Absolution / Hungry Deep / Falling-Ash-On-Snow", "Kirche der Absolution / Hungrige Tiefe / Fallende-Asche-auf-Schnee"],
+  ["Civilisation (tavern) / The Gutter / Lady and Crow / A Land of Small Gods / Graveyard of Small Gods / The Dovecote / The Bound / Bound Vigilante", "Zivilisation / Die Gosse / Die Dame und die Krähe / Ein Land kleiner Götter / Friedhof der kleinen Götter / Der Taubenschlag / Die Bound (bleibt) / Bound-Selbstjustizler"],
+  ["Garden District / Dark-Farmers / Hanging Gardens / Hydroponic Vaults / Beast of Vat A-67 / Herald Corporation / City Druids and the Living Spire", "Gartendistrikt / Dunkelbauern / Hängende Gärten / Hydroponische Gewölbe / Biest von Bottich A-67 / Herold-Konzern / Stadtdruiden und der lebendige Spire"],
+  ["The Works / Blacktar / Printing Presses / The Furnace / Ambrosia / The Silhouette / The Chronicle / The Torch / Liberate!", "Die Werke / Schwarzteer / Druckerpressen / Der Hochofen / Ambrosia / Die Silhouette / Die Chronik / Die Fackel / Befreit!"],
+  ["Half-sten horrors", "Halb-Sten-Schocker"],
+  ["Gods of Fire, Metal, Profit / God-Machine / Forge-Father / Hearth-Mother / Bound Seraph / Masterless Mask / Machine Heart / harbingers", "Götter des Feuers, des Metalls, des Profits / Gott-Maschine / Schmiede-Vater / Herd-Mutter / Gebundener Seraph / Herrenlose Maske / Maschinenherz / Vorboten"],
+  ["Prokatakos / katakos", "Prokatakos / Katakos (bleibt)"],
+  ["Greymanor Services / Ptolemy Bay / Forge of Sun-On-Water / Parliament of Gutterkin", "Greymanor Services / Ptolemy Bay / Schmiede von Sonne-auf-Wasser / Parlament der Gutterkin"],
+  ["Who-Stands-On-Beams-Of-Sunlight / Petals-Cut-By-Razor / Thorns-on-Silk / Smoke-Within-The-Frost / Sun-on-Stone / Many-Rivers-Reaching / Sun-On-Water", "Die-auf-Sonnenstrahlen-Steht / Rasiermesser-Geschnittene-Blütenblätter / Dornen-auf-Seide / Rauch-im-Frost / Sonne-auf-Stein / Viele-Flüsse-Greifend / Sonne-auf-Wasser"],
+  ["Jackdaw pistol / Carog-pattern shotgun / Retroengineers", "Dohlenpistole / Schrotflinte im Carog-Modell / Retroingenieure"]]]
 ];

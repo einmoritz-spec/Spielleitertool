@@ -438,3 +438,10 @@ body.es .nw h4{font-size:17px;margin-bottom:6px;display:flex;align-items:baselin
 body.es .nwb{font:600 13px var(--head);letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--ink);background:var(--paper);padding:3px 10px;cursor:pointer}
 body.es .nw tr.hit td,body.es .nw tr.hit th{background:#e3ecec;font-weight:600}
 body.es .nw th{white-space:nowrap;text-align:left;width:1%}
+/* Bilder-Design ES */
+body.es .ehero{height:clamp(300px,44vh,460px);background-position:center 45%;position:relative}
+body.es .ehero:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,20,24,.5),rgba(14,20,24,0) 45%)}
+body.es .egrid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+body.es .etile .im{height:auto;aspect-ratio:2.1/1}
+body.es .ert a{height:210px}
+body.es .shd{background:var(--night)}

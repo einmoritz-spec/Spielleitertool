@@ -169,8 +169,13 @@
       });
       html = '<div class="main wide">' + (!main2 && right ? '<div class="boxgrid">' + right + '</div>' : '<div class="txt">' + (right ? '<div class="side2">' + right + '</div>' : '') + main2 + '</div>') + '</div>';
     }
-    app.className = "ls";
-    app.innerHTML = html;
+    app.className = "ls hasH";
+    app.innerHTML = '<div class="shd"><div class="shi" style="background-image:url(img/' + M.bild + '.webp)"></div><div class="shg"></div><div class="shb"></div><div class="sht"><div><small>' + esc(P.name) + '</small><b>' + esc(M.name) + '</b></div></div></div>' + html;
+    (function(){ var sh = app.querySelector(".shd"), tk = 0; if(!sh) return; var H = sh.offsetHeight;
+      function upd(){ tk = 0; var B = parseFloat(getComputedStyle(sh).getPropertyValue("--B")) || 68, D = Math.max(1, sh.offsetHeight - B), p = Math.min(1, Math.max(0, (window.pageYOffset || 0) / D)); sh.style.setProperty("--p", p.toFixed(3)); }
+      window.__shOnScroll = function(){ if(!tk) tk = requestAnimationFrame(upd); };
+      if(!window.__shBound){ window.__shBound = 1; window.addEventListener("scroll", function(){ if(window.__shOnScroll) window.__shOnScroll(); }, {passive: true}); }
+      upd(); })();
     var lay = app.querySelector(".lay");
     function hwCount(){ var el = document.getElementById("hwCount"); if(!el) return; var all = 0, got = 0, hw = load(M.id).hw || {}; M.phasen.forEach(function(p){ p.abschnitte.forEach(function(x){ (x.hinweise || []).forEach(function(t, i){ all++; if(hw[x.id + "-" + i]) got++; }); }); }); el.textContent = got + " von " + all + " gefunden"; }
     hwCount();

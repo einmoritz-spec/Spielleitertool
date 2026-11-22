@@ -5,9 +5,13 @@ function nachKap(id){ return (window.DB_NACH || {})[id]; }
 function nkOpen(k, def){ var o = (ST.open || {})["nk_" + k]; return o === undefined ? def : !!o; }
 function nkTog(k, def){ ST.open = ST.open || {}; ST.open["nk_" + k] = !nkOpen(k, def); save(); render(); }
 function nlist(items, tag){ return '<' + tag + (tag === "ul" ? ' class="st"' : '') + '>' + items.map(function(x){ return '<li>' + md(x) + '</li>'; }).join("") + '</' + tag + '>'; }
+/* Anklickbare W6-Tabellen: Klick = markiert (.an), nochmal = erledigt (.weg), nochmal = zurück; Zustand in ST.w6 */
+function w6Get(id, i){ try{ return ((ST.w6 || {})[id] || {})[i] || 0; }catch(e){ return 0; } }
+function w6Click(id, i){ try{ ST.w6 = ST.w6 || {}; ST.w6[id] = ST.w6[id] || {}; ST.w6[id][i] = (w6Get(id, i) + 1) % 3; if(!ST.w6[id][i]) delete ST.w6[id][i]; save(); }catch(e){} render(); }
 function ntbl(t){
-  return '<table class="w6' + (t.head ? (t.head.length === 4 && t.head[2] === t.head[0] ? ' q4' : '') : ' kv') + '">' + (t.head ? '<tr>' + t.head.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr>' : '') +
-    t.rows.map(function(r){ return '<tr>' + r.map(function(c){ return '<td>' + md(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</table>';
+  var klick = !!t.id;
+  return '<table class="w6' + (t.head ? (t.head.length === 4 && t.head[2] === t.head[0] ? ' q4' : '') : ' kv') + (klick ? ' kl' : '') + '">' + (t.head ? '<tr>' + t.head.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr>' : '') +
+    t.rows.map(function(r, i){ var z = klick ? w6Get(t.id, i) : 0; return '<tr' + (klick ? ' class="' + (z === 1 ? 'an' : z === 2 ? 'weg' : '') + '" onclick="w6Click(\'' + t.id + '\',' + i + ')"' : '') + '>' + r.map(function(c){ return '<td>' + md(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</table>';
 }
 function nbody(arr){
   return arr.map(function(b){
@@ -31,10 +35,13 @@ function ncard(c, def, typ){
 /* Abschnitt → Raster-Zellen: Überschrift + Text je eine Zelle, Karten/Steinkästen eigene Zellen */
 function nabs(a){
   var cells = [], cur = null;
-  function flush(){ if(cur){ cells.push('<div class="ab' + (cur.indexOf('<h3') === 0 || !cells.length ? '' : ' voll') + (cur.length > 2300 ? ' l2' : '') + '">' + cur + '</div>'); cur = null; } }
+  function flush(){ if(cur){ cells.push('<div class="ab' + (cur.indexOf('<h3') === 0 || !cells.length ? '' : ' voll') + (cur.length > 1700 ? ' l2' : '') + '">' + cur + '</div>'); cur = null; } }
   a.b.forEach(function(b){
     if(b.h){ flush(); cur = '<h3 class="uh">' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</h3>'; return; }
-    if(b.karte){ flush(); cells.push('<div class="karte nkk"><div class="name">' + esc(b.karte.h) + pgl(b.karte.p) + '</div>' + nbody(b.karte.b) + '</div>'); return; }
+    if(b.karte){ flush(); cells.push('<div class="karte nkk' + (function(l, u){ return l > 1500 && u ? ' voll kl2' : l > 900 ? ' z2' : ''; })(JSON.stringify(b.karte.b).length, JSON.stringify(b.karte.b).indexOf('"ul"') >= 0) + '"><div class="name">' + esc(b.karte.h) + pgl(b.karte.p) + '</div>' + nbody(b.karte.b) + '</div>'); return; }
+    if(b.tbl && !cur && cells.length && /^<div class="zelle/.test(cells[cells.length - 1]) && !/<table/.test(cells[cells.length - 1])){
+      var lc = cells.pop(); if(b.tbl.rows.length > 8 && lc.indexOf(' z2') < 0) lc = lc.replace('class="zelle', 'class="zelle z2');
+      cells.push(lc.replace(/<\/div>$/, ntbl(b.tbl) + '</div>')); return; }
     if(b.stein){ flush(); cells.push('<div class="zelle' + (JSON.stringify(b.stein.b).length > 420 ? ' z2' : '') + '"><div class="stein"><div class="bh">' + esc(b.stein.h) + '</div>' + nbody(b.stein.b) + '</div></div>'); return; }
     if(b.zit){ flush(); cells.push('<div class="vorlesen zit voll">' + b.zit.map(function(p){ return '<p>' + md(p) + '</p>'; }).join("") + (b.q ? '<div class="qu">– ' + md(b.q) + '</div>' : '') + '</div>'); return; }
     if(b.fk){ flush(); cells.push('<div class="kgrid voll">' + b.fk.map(function(c){ return ncard(c, true, "fk"); }).join("") + '</div>'); return; }

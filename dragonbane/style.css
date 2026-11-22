@@ -459,3 +459,18 @@ table.w6 td:first-child{white-space:nowrap}
 .gr .ab.l2{grid-column:span 2;column-count:2;column-gap:32px}
 .gr .ab.l2 p,.gr .ab.l2 ul.st li{break-inside:avoid}
 @media (max-width:1000px){.gr .ab.l2{grid-column:auto;column-count:1}}
+
+/* Anklickbare W6-Tabellen */
+table.w6.kl tr{cursor:pointer}
+table.w6.kl tr.an td{font-weight:600}
+table.w6.kl tr.weg td{opacity:.4;text-decoration:line-through}
+
+.gr{grid-auto-flow:dense}
+.gr .karte.kl2 ul{column-count:2;column-gap:28px}
+.gr .karte.kl2 li{break-inside:avoid}
+.gr .zelle table.w6{margin-top:14px}
+@media(max-width:1000px){.gr .karte.kl2 ul{column-count:1}}
+
+.gr .karte.z2{grid-column:span 2}
+.gr .karte.z2 p{column-gap:28px}
+@media(max-width:1000px){.gr .karte.z2{grid-column:auto}}

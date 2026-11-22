@@ -7,9 +7,9 @@ window.FLOOD.MYSTERIEN = [
     ["traveler","Reisender","Kap. 11 · S. 168","flood/m-traveler","3"],
     ["ash","Asche zur Ewigkeit","Kap. 12 · S. 186","flood/m-ash","4"]]},
   {t:"Mystery-Landschaft", tag:"Offenes Spiel", dark:1, sub:"Kap. 7 · S. 108", items:[
-    ["radio","Das Magnetrinschiff der Radiopiraten","S. 117","","","l","nach/landschaft/radio"],
+    ["radio","Das Magnetrinschiff der Radiopiraten","S. 117","flood/landschaft-radio-kopf","","l","nach/landschaft/radio"],
     ["sunshine","Sunshine Farm","S. 121","","","l","nach/landschaft/sunshine"],
-    ["littledoe","Little Doe Trailerpark","S. 123","","","l","nach/landschaft/littledoe"],
+    ["littledoe","Little Doe Trailerpark","S. 123","flood/landschaft-littledoe-bild","","l","nach/landschaft/littledoe"],
     ["liebe","Die Wissenschaft der Liebe","S. 125","","","l","nach/landschaft/liebe"],
-    ["schach","Der Serbische Schachclub","S. 127","","","l","nach/landschaft/schach"]]}
+    ["schach","Der Serbische Schachclub","S. 127","flood/landschaft-schach-kopf","","l","nach/landschaft/schach"]]}
 ];

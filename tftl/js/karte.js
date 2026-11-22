@@ -9,10 +9,10 @@
     if(!K){ app.className = "page"; app.innerHTML = '<h1>Karte</h1>'; return; }
     var l = loop(), sel = null;
     function draw(){
-      var pins = "", orte = K.orte.map(function(o){
+      var pins = "", orte = K.orte.filter(function(o){ return !o.l || o.l === l; }).map(function(o){
         var p = o.pin && o.pin[l];
         if(p) pins += '<a class="pin o' + (sel === o.id ? ' on' : '') + '" style="left:' + p[0] + '%;top:' + p[1] + '%" data-o="' + o.id + '" title="' + esc(nm(o.name, l)) + '"></a>';
-        return '<a class="ol' + (sel === o.id ? ' on' : '') + (p ? '' : ' np') + '" data-o="' + o.id + '"><i class="dot' + (p ? '' : ' g') + '"></i>' + esc(nm(o.name, l)) + ' <span class="pgl" data-b="' + C.book + '" data-s="' + o.s + '">S. ' + o.s + '</span></a>';
+        return '<a class="ol' + (sel === o.id ? ' on' : '') + (p ? '' : ' np') + '" data-o="' + o.id + '"><i class="dot' + (p ? '' : ' g') + '"></i>' + esc(nm(o.name, l)) + ' <span class="pgl" data-b="' + C.book + '" data-s="' + ((l === "boulder" && o.sb) || o.s) + '">S. ' + ((l === "boulder" && o.sb) || o.s) + '</span></a>';
       }).join("");
       app.className = "page karte";
       app.innerHTML = '<div class="kmap"><div class="ksw">' + K.loops.map(function(x){ return '<button class="' + (x[0] === l ? 'on' : '') + '" data-l="' + x[0] + '">' + x[1] + '</button>'; }).join("") + '</div>' +

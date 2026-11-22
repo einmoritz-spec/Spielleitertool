@@ -9,7 +9,7 @@ window.SP_VIEW = window.SP_VIEW || {};
 window.SP_NACH = window.SP_NACH || {};
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 /* Markup im Datentext: **fett**, *kursiv*, Zeilenumbruch */
-function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>").replace(/\n/g, "<br>"); }
+function md(s){ return esc(s).replace(/\[\[(.+?)\]\]/g, '<span class="en">($1)</span>').replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>").replace(/\n/g, "<br>"); }
 function IMG(p){ return "img/" + p + ".webp"; }
 
 /* ---------- Spielstand ---------- */
@@ -112,7 +112,7 @@ function lay(side, body, wirbel){
 function voll(body, wirbel){ return '<div class="main voll">' + (wirbel === false ? '' : '<img class="wirbel" src="img/deko/wirbel.webp" alt="">') + body + '</div>'; }
 function foldSide(){ ST.fold = !ST.fold; save(); var w = document.querySelector(".wrap"); if(w) w.classList.toggle("zu", !!ST.fold); }
 function kurz(t){ return String(t).split(":")[0]; }
-function jump(id){ var e = document.getElementById(id); if(!e) return; var y = e.getBoundingClientRect().top + scrollY - (document.body.classList.contains("notop") ? 0 : 56) - 62; scrollTo({top:y, behavior:"smooth"}); }
+function jump(id){ var e = document.getElementById(id); if(!e) return; var y = e.getBoundingClientRect().top + scrollY - (document.body.classList.contains("notop") ? 0 : 56) - 62 - (document.querySelector(".subtabs") ? 38 : 0); scrollTo({top:y, behavior:"smooth"}); }
 
 /* ---------- Startseite (Entwurf 1) ---------- */
 function viewStart(){

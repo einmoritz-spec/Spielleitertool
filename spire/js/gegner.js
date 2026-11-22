@@ -7,7 +7,7 @@ function gById(id){ return SP_GEGNER.filter(function(g){ return g.id === id; })[
 function gBeg(){ if(!Array.isArray(ST.begegnung)) ST.begegnung = []; return ST.begegnung; }
 function gEntry(id){ return gBeg().filter(function(e){ return e.id === id; })[0]; }
 function gWerte(g){ return (g.wid && g.wid.werte) || []; }
-function gMax(g, e){ var W = gWerte(g); return W[(e && e.v) || 0] || W[0] || 0; }
+function gMax(g, e){ var W = gWerte(g); return (W[(e && e.v) || 0] || W[0] || 0) + (g.wid && g.wid.plus && e ? (e.b || 0) : 0); }
 function gWidTxt(g){ return gWerte(g).join(" / "); }
 function gBuch(g){ return g.buch || "cmf"; }
 
@@ -45,8 +45,9 @@ function gStress(id, i){
   var e = gEntry(id); if(!e){ e = {id:id, n:1, s:0, v:0}; gBeg().push(e); }
   e.s = e.s === i + 1 ? i : i + 1; save(); render();
 }
+function gPlus(id){ var g = gById(id), e = gEntry(id); if(!e){ e = {id:id, n:1, s:0, v:0}; gBeg().push(e); } e.b = ((e.b || 0) + 1) % 7; save(); render(); }
 function gVar(id, v){ var e = gEntry(id); if(!e){ e = {id:id, n:1, s:0, v:0}; gBeg().push(e); } e.v = v; e.s = Math.min(e.s || 0, gMax(gById(id), e)); save(); render(); }
-function gZiel(g){ if(!g.ortId) return ""; return "abenteuer/snuff/" + (g.ortId === "karmesin" ? "figuren" : "orte") + "/" + g.ortId; }
+function gZiel(g){ if(g.ziel) return ("#" + g.ziel === location.hash.split("?")[0] || location.hash.indexOf("#" + g.ziel + "/") === 0) ? "" : g.ziel; if(!g.ortId) return ""; return "abenteuer/snuff/" + (g.ortId === "karmesin" ? "figuren" : "orte") + "/" + g.ortId; }
 
 /* Werteblock (Buchblock): schwarzer Kopf, Felder, Widerstand mit Stress-Kästchen */
 function gBlock(g, opt){
@@ -56,10 +57,12 @@ function gBlock(g, opt){
   var rows = "";
   var dt = function(k, x){ if(x) rows += '<dt>' + k + '</dt><dd>' + x + '</dd>'; };
   if(g.einl) rows += '<dd class="ein">' + md(g.einl) + '</dd>';
-  dt("Namen", g.namen ? g.namen.map(esc).join(", ") + (g.namenEn ? ' <span class="en">(' + g.namenEn.map(esc).join(", ") + ')</span>' : '') : "");
+  dt("Namen", g.namen ? g.namen.map(esc).join(", ") + (g.namenEn ? ' <span class="en">(' + g.namenEn.map(esc).join(", ") + ')</span>' : '') + (g.namenX ? '<br>' + md(g.namenX) : '') : "");
   dt("Beschreibung", g.beschr ? g.beschr.map(esc).join(" · ") : "");
   dt("Schwierigkeit", g.schw ? md(g.schw.x) : "");
-  dt("Widerstand", '<b class="wz">' + esc(W.length > 1 ? W[v] : gWidTxt(g)) + '</b>' + var_ + ' ' + gBoxen(g));
+  var wx = g.wid && g.wid.x && !/^[\d\s\/]+$/.test(g.wid.x) ? '<div class="wx">' + md(g.wid.x) + '</div>' : '';
+  var plus = g.wid && g.wid.plus ? ' <span class="chip w" onclick="event.stopPropagation();gPlus(\'' + g.id + '\')">' + esc(g.wid.plus) + (e && e.b ? ' · ×' + e.b : '') + '</span>' : '';
+  dt("Widerstand", '<b class="wz">' + esc(W.length > 1 ? W[v] + (g.wid.plus && e && e.b ? " + " + e.b : "") : gWidTxt(g) + (g.wid && g.wid.plus && e && e.b ? " + " + e.b : "")) + '</b>' + var_ + ' ' + gBoxen(g) + plus + wx);
   dt("Besonderes", g.bes ? md(g.bes) : "");
   dt("Ausrüstung", gAusr(g));
   dt("Druckmittel", g.druck ? md(g.druck) : "");

@@ -61,12 +61,20 @@ window.SP_GLOSSAR = [
  ["Orte (bleiben englisch)", [
   ["Spire, Amaranth, Derelictus, Perch, Red Row, Ivory Row, Aliquam, Ys, Destera, Charnel, Damnou, Limyé, Lombre, Lekolé, Azur", "unverändert"]]],
  ["Sprechende Namen (Drow, Aelfir)", [
+  ["Many-The-Seedlings", "Viele-der-Setzlinge"], ["Jubilant-the-Devoted", "Frohlockend-der-Ergebene"], ["Stars-Softly-Shine", "Sterne-leuchten-sanft"],
+  ["Light-Through-Splintered-Glass", "Licht-durch-Splitterglas"], ["Wander-the-Lost", "Wander-der-Verlorene"], ["Snow-on-Stone", "Schnee-auf-Stein"],
+  ["Hearts-Breath-Halting", "Herzens-Atem-Stocken"], ["Hare-Dashing-To-The-Hunter", "Hase-der-zum-Jäger-flitzt"],
+  ["Sunlight's-Eternal-Vigor", "Sonnenlichts-ewige-Kraft"], ["Shifting-Eternal-Blessing", "Wandelnder-ewiger-Segen"], ["Scythes-Mow-The-Weeping", "Sensen-mähen-die-Weinenden"], ["Glowing-Melts-The-Ice", "Glühen-schmilzt-das-Eis"],
   ["Crimson-Clouds-The-Sunrise", "Karmesinwolken-der-Sonnenaufgang"],
   ["Dreams-Spill-Outward", "Träume-fließen-hinaus"],
   ["Wisdom-Grace-The-Unwise", "Weisheit-begnadet-die-Unweisen"],
   ["Strides-Across-Dawn", "Schreitet-über-die-Morgenröte"],
   ["Ten-Thousand-Loves", "Zehntausend-Lieben"],
   ["Solemn-Rise-The-Fallen", "Feierlich-erhebt-die-Gefallenen"]]],
+ ["Stadt: Religion und Ordnung", [
+  ["Vigilite(s) / Vigilite Firebrand", "Vigilit(en) / Vigiliten-Brandstifter"], ["Crimson Vigil", "Karmesinrote Wacht"], ["Hallow", "Hallow (Heilige/r, bleibt)"],
+  ["Solar Pantheon", "Sonnenpantheon"], ["Hyena Pack", "Hyänenrudel"], ["Non-lethal", "Nicht tödlich"], ["Secret Police", "Geheimpolizei"], ["Hive (Bienenstock)", "Der Bienenstock"],
+  ["Skald Units / Special Tactics Corps", "Skaldeneinheiten / Korps für Sondertaktik"], ["Conscripts", "Eingezogene"], ["Maintainers", "Erhalter"], ["Eaters of the Dead", "Totenfresser"]]],
  ["Snuff Out the Sun (Quickstart)", [
   ["Sub-Abbess / Archbishop / Bishop / Sister", "Subäbtissin / Erzbischof / Bischof / Schwester"],
   ["Autumn Paladins / Autumn Church", "Herbstpaladine / Herbstkirche"],

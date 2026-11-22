@@ -20,10 +20,10 @@
       zitat:a.zitat ? ["„" + a.zitat.t + "“ – " + a.zitat.von] : null};
   }
   var TBES = [["zitat","Zitat"],["gegenstand","Persönlicher Gegenstand"],["talente","Talent"],["traum","Traum"],["schwaeche","Schwäche"],["neurocaster","Neurocaster"],["hinweis","Hinweis"]];
-  var SETS0 = {welt:["welt"], loops:["schweden","us","de80","taunus"], kids:["kids"], aerger:["aerger"], mysterium:["mysterium"], landschaft:["landschaft"]};
+  var SETS0 = {welt:["welt"], loops:["schweden","us","de80","taunus","broads"], schirm:["schirm"], kids:["kids"], aerger:["aerger"], mysterium:["mysterium"], landschaft:["landschaft"]};
   var TB0 = [["items","Kultgegenstand"],["problem","Problem"],["drive","Antrieb"],["pride","Stolz"],["relK","Beziehungen zu anderen Kids"],["relN","Beziehungen zu NSC"],["anker","Anker"],["namen","Typische Namen"]];
   function loop(){ var l = ""; try{ l = localStorage.getItem(CX().ls + "loop") || ""; }catch(e){} return l; }
-  function nm(t){ var b = loop() === "boulder"; return esc(t).replace(/\{\{([^|}]*)\|([^}]*)\}\}/g, function(m, a, c){ return b ? c : a; }); }
+  function nm(t){ var b = loop() === "boulder"; return esc(t).replace(/\{\{([^|}]*)\|([^}]*)\}\}/g, function(m, a, c){ return b ? c : a; }).replace(/&lt;(\/?)b&gt;/g, "<$1b>"); }
   function pg(s, b){ return '<a class="pgl" data-b="' + (b || CX().book) + '" data-s="' + s + '">S. ' + s + '</a>'; }
   function list(a){ return '<ul>' + a.map(function(x){ return '<li>' + nm(x) + '</li>'; }).join("") + '</ul>'; }
   function box(t, a){ return '<section class="nbox"><h4>' + t + '</h4>' + list(a) + '</section>'; }
@@ -63,14 +63,24 @@
     if(t === "zit") return '<blockquote class="nzit">' + nm(b[1]) + (b[2] ? '<cite>' + nm(b[2]) + '</cite>' : '') + '</blockquote>';
     if(t === "bsp") return '<section class="nbsp">' + b[1].map(function(x){ return '<p><b>' + nm(x[0]) + '</b> ' + nm(x[1]) + '</p>'; }).join("") + '</section>';
     if(t === "stat") return statBlock(b[1]);
+    if(t === "raster") return '<div class="nrast">' + b[1].map(function(c){ return '<div>' + c.map(bl).join("") + '</div>'; }).join("") + '</div>';
+    if(t === "fk") return fkCard(b[1]);
+    if(t === "orte") return '<div class="nort">' + b[1].map(function(g){ return '<section><h4>' + nm(g[0]) + '</h4><ul>' + g[1].map(function(o){ return '<li>' + nm(o[0]) + (o[1] ? ' ' + pg(o[1]) : '') + '</li>'; }).join("") + '</ul></section>'; }).join("") + '</div>';
     if(t === "w") return wuerfelTab(b);
     if(t === "bild" && b[2] && typeof b[2] === "object") return '<img class="nimg' + (b[2].klein ? ' k' : '') + '" src="img/' + esc(b[1]) + (/\.\w+$/.test(b[1]) ? '' : '.webp') + '" alt="">';
-    if(t === "bild" && b[2] && b[2] !== "w") return '<figure class="nfig' + (b[4] ? ' k' : '') + '"><img src="img/' + esc(b[1]) + '.webp" alt="' + esc(b[2]) + '" onclick="window.open(this.src)"><figcaption>' + nm(b[2]) + (b[3] ? ' · ' + pg(b[3]) : '') + '</figcaption></figure>';
-    if(t === "bild") return '<img class="nimg' + (b[2] ? ' w' : '') + '" src="img/' + esc(b[1]) + '.webp" alt="">';
+    if(t === "bild" && b[2] && b[2] !== "w" && b[2] !== true) return '<figure class="nfig' + (b[4] ? ' k' : '') + '"><img src="img/' + esc(b[1]) + '.webp" alt="' + esc(b[2]) + '" onclick="window.open(this.src)"><figcaption>' + nm(b[2]) + (b[3] ? ' · ' + pg(b[3]) : '') + '</figcaption></figure>';
+    if(t === "bild") return '<img class="nimg' + (b[2] ? ' w' : '') + '" src="img/' + esc(b[1]) + '.webp" alt=""' + (b[2] ? ' onclick="window.open(this.src)" style="cursor:zoom-in"' : '') + '>';
     if(t === "tabelle") return '<table class="ntab"><thead><tr>' + b[1].map(function(h){ return '<th>' + nm(h) + '</th>'; }).join("") + '</tr></thead><tbody>' + b[2].map(function(r){ return '<tr>' + r.map(function(c){ return '<td>' + nm(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table>';
     return "";
   }
   /* Werteblock (Buch-Kasten) und Zufallstabelle mit Würfelknopf (ES) */
+  function fkPart(o){
+    return (o.t ? '<p>' + nm(o.t) + '</p>' : '') + (o.l ? '<ul>' + o.l.map(function(x){ return '<li>' + nm(x) + '</li>'; }).join("") + '</ul>' : '') +
+      (o.tab ? bl(["tabelle", o.tab[0], o.tab[1]]) : '') + (o.b ? '<h5>Bonuseffekte</h5><ul>' + o.b.map(function(x){ return '<li>' + nm(x) + '</li>'; }).join("") + '</ul>' : '');
+  }
+  function fkCard(o){
+    return '<section class="nfk"><h4>' + nm(o.n) + '</h4>' + fkPart(o) + (o.u || []).map(function(u){ return '<h6>' + nm(u.n) + '</h6>' + fkPart(u); }).join("") + '</section>';
+  }
   function statBlock(o){
     return '<section class="stat"><h4>' + nm(o.name) + (o.s ? ' <small>' + pg(o.s) + '</small>' : '') + '</h4>' +
       (o.w ? '<div class="at">' + o.w.map(function(a){ return '<span>' + esc(a[0]) + '<b>' + esc(a[1]) + '</b></span>'; }).join("") + '</div>' : '') +
@@ -115,7 +125,7 @@
     });
     var main = "";
     if(cur === "typen") main = null;
-    else if(sec) main = '<div class="nh"><h1>' + nm(sec.titel) + '</h1><small>' + (D.kap ? esc(D.kap) + ' · ' : '') + pg(sec.s, D.buch) + '</small></div><div class="ntext">' + sec.bloecke.map(bl).join("") + '</div>';
+    else if(sec) main = '<div class="nh"><h1>' + nm(sec.titel) + '</h1><small>' + (D.kap ? esc(D.kap) + ' · ' : '') + (sec.s ? pg(sec.s, D.buch) : '') + '</small></div><div class="ntext">' + sec.bloecke.map(bl).join("") + '</div>';
     else main = '<div class="nh"><h1>' + esc(((C.NACH || window.NACH).filter(function(x){ return x[0] === tab; })[0] || [0, tab])[1]) + '</h1></div>';
     return {tree: tree, main: main, typen: cur === "typen"};
   }

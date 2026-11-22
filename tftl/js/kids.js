@@ -10,7 +10,7 @@
     BOOK = C.area === "flood" ? "Things from the Flood" : "Tales from the Loop";
   }
   function fresh(){ return F.scham ? {kids: [], reibung: "", thema: ""} : {kids: [], hideout: ["","","","",""]}; }
-  function load(){ try{ var d = JSON.parse(localStorage.getItem(KEY) || "null"); if(d && d.kids){ if(!F.scham && !d.hideout) d.hideout = ["","","","",""]; return d; } }catch(e){} return fresh(); }
+  function load(){ try{ var d = JSON.parse(localStorage.getItem(KEY) || "null"); if(d && d.kids){ d.kids.forEach(function(k){ if(k.s && k.s["tüfteln"] != null){ if(k.s.basteln == null) k.s.basteln = k.s["tüfteln"]; delete k.s["tüfteln"]; } }); if(!F.scham && !d.hideout) d.hideout = ["","","","",""]; return d; } }catch(e){} return fresh(); }
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(D)); }catch(e){} }
   function neu(){
     var id = "k" + Date.now().toString(36) + Math.floor(Math.random() * 99);

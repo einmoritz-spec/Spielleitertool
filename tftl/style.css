@@ -332,6 +332,7 @@ body.flood .pb:not(.used){background:var(--band2)}
 .kview.zoom .kin{width:220%;cursor:zoom-out}
 .pin.o{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4);background:var(--acc);z-index:2;cursor:pointer}.pin.o.on{outline:4px solid var(--band)}
 .kside{padding:18px 20px;background:#fff;align-self:stretch}.kside h3{font:700 11px var(--sans);text-transform:uppercase;letter-spacing:.14em;color:var(--soft);margin-bottom:8px}
+.kcard{background:var(--bg,#f7f4ee);border-left:6px solid var(--band);padding:12px 14px;margin:0 0 12px;max-height:46vh;overflow:auto}.kcard img{display:block;width:100%;margin:0 0 8px}.kcard h4{font:700 15px var(--sans);color:var(--acc);margin:0 0 6px}.kcard h4 .pgl{font-size:12px;color:var(--soft);font-weight:500;margin-left:4px}.kcard p{font-size:15px;line-height:1.5;margin:0 0 8px}.kcard ul{margin:0 0 8px 18px;font-size:15px;line-height:1.45}
 .ol{display:block;padding:10px 0;border-bottom:1px solid var(--line);font:500 16px var(--sans);cursor:pointer}.ol.on{color:var(--acc)}.ol .pgl{font-size:12px;color:var(--soft);margin-left:4px}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--acc);margin-right:10px}.dot.g{background:#bbb}
 /* Nachschlagen */
@@ -413,3 +414,7 @@ body.flood .cd li.dn{text-decoration:none}
 .nscc .nb{float:right;width:auto;max-width:112px;max-height:150px;margin:0 0 8px 14px;cursor:zoom-in;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 @media (max-width:900px){.top2{grid-template-columns:1fr}}
 body.flood .tabs a{padding:0 11px;white-space:nowrap}
+/* Nachschlagen: Raster, Fertigkeitenkarten (Spielleiterschirm), Ortslisten (Karte) */
+.nrast{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:8px 36px;align-items:start;margin:0 0 14px}.nrast .ntab{width:100%}.nrast>div>:first-child{margin-top:0}
+.nfk{background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.18);padding:14px 18px;margin:0 0 14px;font:16px/1.5 var(--sans)}.nfk h4{font:700 15px var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--acc);margin:0 0 6px}.nfk h5{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin:8px 0 2px}.nfk h6{font:700 14px var(--sans);color:var(--acc);margin:10px 0 2px}.nfk p{margin:0 0 6px}.nfk ul{margin:0 0 4px 20px;font-size:15.5px;line-height:1.5}.nfk .ntab{width:100%;margin:6px 0}
+.nort{display:block;margin:14px 0}.nort section{margin:0 0 6px}.nort h4{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin:0 0 4px}.nort ul{columns:4 230px;margin:0 0 10px 18px;font-size:16px;line-height:1.5}

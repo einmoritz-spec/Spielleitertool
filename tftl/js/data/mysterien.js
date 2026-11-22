@@ -15,7 +15,7 @@ window.MYSTERIEN = [
     ["blueprints","Maschinen-Baupläne","S. 88","m-blueprints","","x"],
     ["hometown","Heimatstadt-Hack","Eigene Loops · S. 98","m-hometown","","x"]]},
   {t:"They Grow Up So Fast", tag:"Kampagne", sub:"Abenteuerband · Norfolk Broads", items:[
-    ["grow-broads","Die Norfolk Broads","Hintergrund · Kreatur · Regis & Maff","k-grow"],
+    ["grow-broads","Die Norfolk Broads","Hintergrund · Wesen · Regis & Maff","k-grow"],
     ["easter","Ostereiersuche","S. 24","m-easter","Frühling"],
     ["bestof","Das Beste von dem, was sein könnte","S. 44","m-bestof","Sommer"],
     ["lastsmile","Das letzte, schönste Lächeln des Jahres","S. 64","m-lastsmile","Herbst"],

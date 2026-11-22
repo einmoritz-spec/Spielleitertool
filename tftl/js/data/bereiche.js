@@ -3,7 +3,7 @@ window.BEREICHE = {
   tftl: {
     cls: "", title: "Tales from the Loop",
     tabs: [["start","Vorbereitung"],["mysterien","Mysterien"],["kids","Kids"],["karte","Karte"]],
-    werkzeuge: [["schirm","Spielleiterschirm"],["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]],
+    werkzeuge: [["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]],
     books: ["tftl_core","tftl_a1","tftl_a2","tftl_a3","tftl_a4","tftl_z1"]
   },
   flood: {
@@ -20,4 +20,4 @@ window.BEREICHE = {
     books: ["tftl_es"]
   }
 };
-window.NACH = [["welt","Die Welt"],["loops","Loops"],["kids","Kids"],["aerger","Ärger"],["mysterium","Das Mysterium"],["landschaft","Mystery-Landschaft"]];
+window.NACH = [["welt","Die Welt"],["loops","Loops"],["kids","Kids"],["aerger","Ärger"],["mysterium","Das Mysterium"],["landschaft","Mystery-Landschaft"],["schirm","Spielleiterschirm"]];

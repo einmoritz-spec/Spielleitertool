@@ -54,6 +54,7 @@
     window.TCTX = ctx(r.area);
     var ok = r.area==="tftl" || r.area==="flood", pre = r.area==="tftl" ? "" : r.area + "/";
     head(r.area); menu(r.area);
+    if(r.area==="tftl" && r.page==="schirm"){ location.replace("#nach/schirm"); return; }
     var tabsEl = document.getElementById("tabs");
     document.getElementById("app").onclick = null;
     var tc = document.querySelector('meta[name=theme-color]'); if(tc) tc.setAttribute("content", r.area==="es" ? "#33464a" : "#f08a1c");

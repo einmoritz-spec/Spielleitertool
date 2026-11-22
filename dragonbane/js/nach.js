@@ -6,7 +6,7 @@ function nkOpen(k, def){ var o = (ST.open || {})["nk_" + k]; return o === undefi
 function nkTog(k, def){ ST.open = ST.open || {}; ST.open["nk_" + k] = !nkOpen(k, def); save(); render(); }
 function nlist(items, tag){ return '<' + tag + (tag === "ul" ? ' class="st"' : '') + '>' + items.map(function(x){ return '<li>' + md(x) + '</li>'; }).join("") + '</' + tag + '>'; }
 function ntbl(t){
-  return '<table class="w6' + (t.head ? '' : ' kv') + '">' + (t.head ? '<tr>' + t.head.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr>' : '') +
+  return '<table class="w6' + (t.head ? (t.head.length === 4 && t.head[2] === t.head[0] ? ' q4' : '') : ' kv') + '">' + (t.head ? '<tr>' + t.head.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr>' : '') +
     t.rows.map(function(r){ return '<tr>' + r.map(function(c){ return '<td>' + md(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</table>';
 }
 function nbody(arr){
@@ -31,11 +31,11 @@ function ncard(c, def, typ){
 /* Abschnitt → Raster-Zellen: Überschrift + Text je eine Zelle, Karten/Steinkästen eigene Zellen */
 function nabs(a){
   var cells = [], cur = null;
-  function flush(){ if(cur){ cells.push('<div class="ab' + (cur.indexOf('<h3') === 0 ? '' : ' voll') + '">' + cur + '</div>'); cur = null; } }
+  function flush(){ if(cur){ cells.push('<div class="ab' + (cur.indexOf('<h3') === 0 || !cells.length ? '' : ' voll') + (cur.length > 2300 ? ' l2' : '') + '">' + cur + '</div>'); cur = null; } }
   a.b.forEach(function(b){
     if(b.h){ flush(); cur = '<h3 class="uh">' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</h3>'; return; }
     if(b.karte){ flush(); cells.push('<div class="karte nkk"><div class="name">' + esc(b.karte.h) + pgl(b.karte.p) + '</div>' + nbody(b.karte.b) + '</div>'); return; }
-    if(b.stein){ flush(); cells.push('<div class="zelle"><div class="stein"><div class="bh">' + esc(b.stein.h) + '</div>' + nbody(b.stein.b) + '</div></div>'); return; }
+    if(b.stein){ flush(); cells.push('<div class="zelle' + (JSON.stringify(b.stein.b).length > 420 ? ' z2' : '') + '"><div class="stein"><div class="bh">' + esc(b.stein.h) + '</div>' + nbody(b.stein.b) + '</div></div>'); return; }
     if(b.zit){ flush(); cells.push('<div class="vorlesen zit voll">' + b.zit.map(function(p){ return '<p>' + md(p) + '</p>'; }).join("") + (b.q ? '<div class="qu">– ' + md(b.q) + '</div>' : '') + '</div>'); return; }
     if(b.fk){ flush(); cells.push('<div class="kgrid voll">' + b.fk.map(function(c){ return ncard(c, true, "fk"); }).join("") + '</div>'); return; }
     if(b.ht){ flush(); cells.push('<div class="kgrid voll">' + b.ht.map(function(c){ return ncard(c, false, "ht"); }).join("") + '</div>'); return; }
@@ -54,7 +54,7 @@ DB_VIEWS.n = function(h){
   var side = '<nav class="side">' + d.abs.map(function(a){ return '<a class="' + (a === cur ? 'on' : '') + '" href="#n/' + K.id + '/' + a.id + '"><span>' + esc(a.t) + '</span><i>S. ' + a.p + '</i></a>'; }).join("") + '</nav>';
   var flat = nachFlat(), i = flat.findIndex(function(x){ return x[3] === cur; }), pv = flat[i - 1], nx = flat[i + 1];
   function fl(x, dir){ return x ? '<a class="' + dir + '" href="#n/' + x[0] + '/' + x[1] + '">' + (dir === "pv" ? '‹ ' : '') + esc(x[3].t) + (dir === "nx" ? ' ›' : '') + '</a>' : '<span></span>'; }
-  var body = '<div class="kopf"><h1>' + esc(cur.t) + '</h1>' + pgl(cur.p) + '</div>' + nabs(cur) +
+  var body = (cur.fig ? figBody(cur, h[3]) : '<div class="kopf"><h1>' + esc(cur.t) + '</h1>' + pgl(cur.p) + '</div>' + nabs(cur)) +
     '<div class="fuss"><div class="fz">' + fl(pv, "pv") + '<div class="em" title="' + esc((K.n ? 'Kapitel ' + K.n + ' – ' : '') + K.t) + '">' + esc(K.n) + '</div>' + fl(nx, "nx") + '</div></div>';
   return tb + lay(side, body);
 };

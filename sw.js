@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v719sp";
+const VERSION = "v720sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -635,6 +635,11 @@ const FILES = [
   "dragonbane/js/nach.js",
   "dragonbane/js/data/nach-k1.js",
   "dragonbane/js/data/nach-k3.js",
+  "dragonbane/js/data/nach-k2.js",
+  "dragonbane/js/data/nach-k2-voelker.js",
+  "dragonbane/js/data/nach-k2-berufe-a.js",
+  "dragonbane/js/data/nach-k2-berufe-b.js",
+  "dragonbane/js/figuren.js",
   "dragonbane/js/data/abenteuer-burg.js",
   "dragonbane/js/data/tabellen.js",
   "shared/info/dragonbane.js",

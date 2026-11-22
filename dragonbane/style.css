@@ -421,3 +421,41 @@ table.w6.kv td:first-child{width:auto;text-align:left;font-family:var(--f-kopf)}
 .sg .zul{cursor:pointer;font:14px var(--f-kopf);letter-spacing:.06em;color:var(--braun)}
 .modal .grp{display:flex;flex-wrap:wrap;gap:10px;max-width:640px}
 @media (max-width:900px){.sg .gk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- Kapitel 2: Völker & Berufe (Figurenleiste) ---------- */
+.fbar{display:flex;align-items:flex-end;justify-content:space-between;gap:4px;margin:2px 0 6px}
+.fi{flex:1;min-width:0;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px}
+.fi img{height:clamp(52px,8vh,72px);width:auto;max-width:90%;object-fit:contain;opacity:.92;transition:transform .2s}
+.fi:hover img{transform:translateY(-3px)}
+.fi span{font:12px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);height:22px;display:flex;align-items:center;padding:0 4px;white-space:nowrap}
+.fi.on span{color:var(--stein-text);border-style:solid;border-width:0 10px;border-image:url(img/orn/steinband.png) 0 40 fill / 0 10px stretch;padding:0 6px}
+.ft{display:flex;align-items:center;gap:16px;margin:14px 0 18px}
+.ft i{flex:1;height:20px;border-style:solid;border-color:transparent}
+.ft i.a{border-width:0 0 0 26px;border-image:url(img/orn/rail-l.png) 0 0 0 70 fill / 0 0 0 26px stretch}
+.ft i.b{border-width:0 26px 0 0;border-image:url(img/orn/rail-r.png) 0 70 0 0 fill / 0 26px 0 0 stretch}
+.ft h1{font:normal 40px/1 var(--f-titel);color:var(--jade);text-transform:uppercase;white-space:nowrap;margin:0}
+.ft .pg{margin-left:8px}
+.fg3{display:grid;grid-template-columns:minmax(0,1.15fr) clamp(150px,22%,250px) minmax(0,1.05fr);gap:0 28px;align-items:start}
+.fg3 .f1{font:17px/1.5 var(--f-text);color:var(--tinte)}
+.fg3 .f2 img{width:100%;height:auto;max-height:calc(100vh - 340px);object-fit:contain;margin-top:8px;cursor:zoom-in}
+.fq{font:italic 17px/1.55 var(--f-kursiv);margin:0 0 14px}
+.fq .qu{font:12px/1.2 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;font-style:normal;margin-top:6px;color:var(--braun)}
+.fg3 .f3 table.w6{margin:0 0 22px}
+.fg3 .karte.fk{margin:20px 0 6px}
+.fg3 .karte .zl{font:14px var(--f-sans)}
+.fg3 .karte p{margin:6px 0 0;font:15px/1.42 var(--f-text)}
+.fg3 .stein.fst{margin:34px 0 14px;font-size:15px}
+table.w6.q4 td:nth-child(3){font-family:var(--f-kopf);width:34px;text-align:center}
+table.w6.q4 td:nth-child(2){width:auto}
+@media (max-width:1000px){.fg3{grid-template-columns:1fr}.fbar{overflow:auto;justify-content:flex-start}.fi{flex:0 0 90px}}
+.side a{text-decoration:none}
+.ft{margin-top:26px}
+.fg3{grid-template-columns:minmax(0,1.1fr) clamp(190px,26%,310px) minmax(0,1.05fr)}
+.fg3 .f1{font-size:16.5px;line-height:1.46}
+.fg3 .f3 table.w6 td:first-child,.fg3 .f3 table.w6.q4 td:nth-child(3){white-space:nowrap;width:46px}
+.gr .zelle.z2{grid-column:span 2}
+table.w6 td:first-child{white-space:nowrap}
+@media (max-width:1000px){.gr .zelle.z2{grid-column:auto}}
+.gr .ab.l2{grid-column:span 2;column-count:2;column-gap:32px}
+.gr .ab.l2 p,.gr .ab.l2 ul.st li{break-inside:avoid}
+@media (max-width:1000px){.gr .ab.l2{grid-column:auto;column-count:1}}

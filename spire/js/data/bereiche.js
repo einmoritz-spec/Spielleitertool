@@ -18,7 +18,7 @@ window.SP_NACH_BEREICHE = {
 };
 /* Startseite, Block „Vorbereitung“ (Entwurf 1): Kachelbild nur als Ausschnitt im Kachelkopf */
 window.SP_KACHELN = [
-  {t:"Die Welt",                    s:"Stadtkarte · Domänen · Drow, Aelfir, Menschen",           buch:"cmf", p:1,   img:"karte",                      pos:"center 18%", go:"nach/welt", folgt:1},
+  {t:"Die Welt",                    s:"Stadtkarte · Domänen · Drow, Aelfir, Menschen",           buch:"cmf", p:1,   img:"karte",                      pos:"center 18%", go:"stadt"},
   {t:"Regeln",                      s:"Kernmechanik · Stress · Fallout · Kampf",                 buch:"cmf", p:9,   img:"kapitel/regeln-S012",        pos:"center 22%", go:"nach/regeln"},
   {t:"Klassen",                     s:"10 Klassen · 5 aus dem Magister's Guide",                 buch:"cmf", p:25,  img:"klasse/azurite",             pos:"center 20%", go:"nach/klassen", folgt:1},
   {t:"Fertigkeiten und Ausrüstung", s:"Fertigkeiten · Domänen · Tags · Kaufen und Verkaufen",    buch:"cmf", p:17,  img:"kapitel/ausruestung-S020",   pos:"center 30%", go:"nach/fertigkeiten"},

@@ -135,5 +135,5 @@ var FillPDF = (function(){
     var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = datei;
     document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 4000);
   }
-  return {make:make};
+  return {make:make, lib:lib, ausgeben:ausgeben, sauber:sauber};
 })();

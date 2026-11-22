@@ -410,3 +410,4 @@ body.dark .abdl>div{background:rgba(255,255,255,.06)}
 .go .gef{background:var(--rust);color:#fff}
 .hero{background-position:center 0%}
 .hero{height:auto;aspect-ratio:1800/846;background-position:center;background-size:cover}
+.hero{aspect-ratio:1800/690;background-position:center 52%}

@@ -392,3 +392,6 @@ Vorbereitung = 3-spaltiges Kachelraster mit 9 Kacheln (Welt mit Stadtkarte, Rege
 - **Neue Götter** (`goetter.js`, `data/goetter.js`, Konverter `build_goetter.py`; Route `nach/goetter[/<gott>]`: Kachelübersicht + je Gott Bild, Text, Fortschritte als Karten, besonderer Fallout). **Anhänge** (`data/anhang.js`, `build_anhang.py`; `nach/anhang[/glossar|antagonisten|medien]`: Drow-Glossar S. 205, Antagonisten S. 210, Medien S. 211; Ziegen/Arkologien stehen unter Zufall).
 - Gesamtcheck (1280 px, mit/ohne eingeklappte Leiste, 60 Routen): keine JS-Fehler, kein Seitwärtsüberlauf.
 - Offen: interaktiver Charakterbogen, Sourcebooks (Strata, Shadow Operations, Kampagnenrahmen) – siehe Abschnitt 6.
+
+### Charakterbogen (22. Nov. 2026)
+- `spire/js/bogen.js`: Route `#bogen[/<figur>]`, Burger-Menü „Charakterbogen“. Der Bogen ist eine Ansicht derselben Figur wie in der Zelle (`ST.figuren`; Bogen-Texte in `f.bg`, Meisterschaft in `f.mei`) – Änderungen gelten in beiden. A4 hoch, Druck/PDF über `window.print()` (eine Seite, `@page A4`). **Teilen**: Figur als Link `#bogen/s/<base64url>` (Web-Share bzw. Zwischenablage); der Link legt beim Öffnen eine Kopie an. Fertigkeiten/Domänen: Klick leer → vorhanden → Meisterschaft. „Aus Vorlage füllen“ übernimmt Fähigkeiten und Ausrüstung der vorgefertigten Figur.

@@ -141,7 +141,7 @@ function viewStart(){
   '</div>';
 }
 function setRev(i){ ST.rev = i; save(); render(); }
-function charakterbogen(){ openBook("cmf", 212); }
+function charakterbogen(){ go("bogen"); }
 
 /* ---------- Platzhalter für Bereiche, die noch übertragen werden ---------- */
 function folgt(t, p, buch){ return '<h1 class="titel">' + esc(t) + (p != null ? pgl(p, buch) : '') + '</h1><p class="folgt">Noch nicht übertragen.</p>'; }

@@ -456,3 +456,37 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .ypsm{border:2px solid #111;background:#fff;padding-bottom:6px}.ypsm h3{font:700 16px var(--grotesk);text-transform:uppercase;letter-spacing:.06em;margin:0;padding:8px 12px 0}
 .ypsm .yu{font:italic 16px var(--text);margin:0 12px 6px;color:#555}
 .ysl{font:italic 17px var(--text)}.yfu{font:15px var(--mono);max-width:640px}
+
+/* 7b: Orte (Verliese, Etablissements, Auftragstafeln) – Präfix o */
+.onav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.onav button{font:700 14px var(--grotesk);background:#fff;color:#111;border:2px solid #111;padding:7px 14px;cursor:pointer}
+.onav button.on{background:#ffe600}
+.oort{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:22px;align-items:start}
+.oort:not(:has(.ob)){grid-template-columns:1fr}
+.ob{position:sticky;top:12px;background:#000;border:2px solid #111}
+.obild{display:block;width:100%;height:auto;cursor:zoom-in}
+.osp{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px;align-items:stretch}
+.osk{background:#fff;color:#111;border:2px solid #111;padding:12px 14px}
+.osk h3{font:400 24px var(--fraktur);margin:0 0 8px;display:flex;gap:10px;align-items:baseline}
+.osk h3 .pg{font:700 12px var(--mono);color:#777}
+.op{margin:0 0 8px;font:16px/1.5 var(--text)}
+.op.o-kl{font-style:italic;color:#555}.op.o-zit{border-left:4px solid #ff3eb5;padding-left:10px}.op.o-rosa{color:#d6168b;font-weight:700}.op.o-w{font-weight:700}
+.ol{list-style:none;margin:0 0 8px;padding:0}
+.okr{background:#111;color:#fff;padding:8px 12px;margin:0 0 8px}.okr h4{font:400 20px var(--fraktur);margin:0}.okr .ow{font:700 13px var(--mono);color:#ffe600;margin:2px 0 4px}.okr p{margin:0 0 4px;font:15px/1.45 var(--text)}
+.oh4{font:700 13px var(--mono);text-transform:uppercase;margin:6px 0}
+.okg{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:0 0 8px}
+.okk{border:2px solid #111;background:#fffbe6;cursor:pointer}.okk.sel{background:#ffe600}
+.okh{display:flex;gap:8px;align-items:baseline;padding:5px 8px;border-bottom:2px solid #111}
+.okn{font:400 20px var(--plakat);color:#d6168b}.okh h5{font:400 18px var(--fraktur);margin:0;flex:1}.okh i{font:700 13px var(--mono);font-style:normal;color:#d6168b}
+.okk p{margin:0;padding:7px 9px;font:14px/1.45 var(--text)}
+.opr>div{display:grid;grid-template-columns:90px 60px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed #999;font:14px/1.4 var(--text)}.opr b{font-family:var(--mono)}.opr i{font:700 14px var(--mono);font-style:normal;color:#d6168b}
+.onm{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px;margin:0 0 8px}.onm span{font:14px var(--text);padding:3px 6px;border:1px solid #bbb;cursor:pointer}.onm span.sel{background:#ffe600}.onm b{font:700 12px var(--mono);color:#d6168b;margin-right:6px}
+.otf{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-items:start}
+.oz{background:#f3e9c9;color:#111;border:2px solid #111;padding:14px 16px;transform:rotate(-.4deg);box-shadow:3px 3px 0 #111}.oz:nth-child(even){transform:rotate(.5deg)}
+.oz h4{font:400 24px var(--fraktur);margin:0 0 6px}.oz p{margin:0 0 8px;font:15px/1.5 var(--text)}.oz .ov{display:block;font-style:italic;margin-bottom:6px}
+.oz footer{display:flex;gap:12px;justify-content:space-between;font:12px var(--mono)}.oz footer a{color:#d6168b;cursor:pointer;text-decoration:underline}
+@media(max-width:800px){.oort{grid-template-columns:1fr}.ob{position:static}.osp{grid-template-columns:1fr}}
+.oort.ow2{grid-template-columns:1fr}.oort.ow2 .ob{position:static;max-width:900px}
+.okk.okz{display:flex;gap:8px;align-items:flex-start;padding:6px 8px}.okk.okz p{padding:0}
+.ob:has(.obild[src*=ketzer]){max-width:420px}
+.osk.osv{grid-column:1/-1}.osv .okg{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}

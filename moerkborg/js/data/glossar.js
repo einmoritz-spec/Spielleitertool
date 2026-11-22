@@ -11,5 +11,6 @@ var MB_GLOSSAR = [
  ["Half-troll / War pig / Goblin wild mage","Halbtroll / Kriegsschwein / Goblin-Wildmagier"],["Wickhead Zündler","Dochtkopf Zündler (Name bleibt)"],
  ["Toothed Deserter / Gutterborn Scum / Esoteric Hermit","Gezahnter Deserteur / Gossengeborener Abschaum / Esoterischer Einsiedler"],["Wretched Royalty / Heretical Priest / Occult Herbmaster","Elendes Königtum / Ketzerischer Priester / Okkulter Kräutermeister"],
  ["Accursed Den / Gutworm / Dusk gnoums / Mongrels / Nesting Death","Verfluchte Höhle / Darmwurm / Dämmergnome / Köter / Nistender Tod"],["Tired crystal demon / Distraught spirit / Fletcher the cannibal warlock","Müder Kristalldämon / Verzweifelter Geist / Fletcher, der kannibalische Hexenmeister (Namen Lesdy, Aldon, Sagsobuth bleiben)"],
- ["The Paunchy Swine / Even more reasons to risk one's life","Das Pummelige Schwein / Noch mehr Gründe, sein Leben zu riskieren"],["Bedeviled dungeons / Imminent danger / Distinctive feature","Verteufelte Verliese / Drohende Gefahr / Besonderes Merkmal"]
+ ["The Paunchy Swine / Even more reasons to risk one's life","Das Pummelige Schwein / Noch mehr Gründe, sein Leben zu riskieren"],["Bedeviled dungeons / Imminent danger / Distinctive feature","Verteufelte Verliese / Drohende Gefahr / Besonderes Merkmal"],
+ ["Fetid Sewers / Den of the Possessed Heretics / The Body Shop / The Forbidden Vault / The Hunters' Guild / Job Board","Stinkende Kanäle / Höhle der Besessenen Ketzer / Der Körperladen / Das Verbotene Gewölbe / Die Jägergilde / Auftragstafeln"]
 ];

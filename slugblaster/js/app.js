@@ -62,7 +62,7 @@ function penOpen(v){
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
   document.documentElement.style.setProperty("--c", "var(--lila)");
-  if(v !== "start" && VIEWS[v]) out = tabsHtml(v) + VIEWS[v](h.slice(1));
+  if(v !== "start" && VIEWS[v]) out = (VIEWS[v].own ? "" : tabsHtml(v)) + VIEWS[v](h.slice(1));
   else out = viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);

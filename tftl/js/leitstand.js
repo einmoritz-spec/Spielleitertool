@@ -103,6 +103,24 @@
     return '<details class="lk"' + (mine ? ' open' : '') + '><summary><span>Fassung ' + esc(a.fassung) + '</span><b>' + (mine ? '' : 'Fassung ' + esc(a.fassung) + ' ▸') + '</b></summary><div class="body">' + nm(a.html) + '</div></details>';
   }
 
+  /* Rechte Leiste im Spiel: Countdown, Am Ort, Orte, Hinweise, NSC */
+  var PREP = {wahrheit: 1, kids: 1, lesen: 1};
+  function tok(t){ var b = loop() === "boulder"; return String(t || "").replace(/\{\{([^|}]*)\|([^}]*)\}\}/g, function(m, a, c){ return b ? c : a; }); }
+  function rail(M, S, P, ab, base, amOrt){
+    var h = '<aside class="rail"><button class="rcol" title="Leiste einklappen (n)" aria-label="Leiste einklappen">›</button>';
+    if(M.countdown && M.countdown.length) h += '<div class="rsx">' + countdown(M, S) + '</div>';
+    if(amOrt) h += '<div class="rsx ro2"><h5>' + esc(String(ab.titel).split(":")[0]) + '</h5>' + amOrt + '</div>';
+    var L = M.phasen.filter(function(p){ return p.id === "loesung"; })[0];
+    var orte = L ? L.abschnitte.filter(function(x){ return x.ort; }) : [];
+    var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
+    if(orte.length){ h += '<div class="rsx"><h5>Orte</h5>' + (hasMap && !(P.id === "loesung" && ab && ab === L.abschnitte[0]) ? '<div class="rmap">' + karte(M, ab && ab.ort, S) + '</div>' : '') + orte.map(function(x){ var o = (M.orte || []).filter(function(q){ return q.id === x.ort; })[0]; if(!o) return ""; var on = P.id === "loesung" && ab && ab.id === x.id;
+      return '<a class="rl' + (on ? ' on' : '') + ((S.orte || {})[o.id] && !on ? ' dn' : '') + '" href="' + base + 'loesung/' + x.id + '"><i>' + esc(o.nr) + '</i>' + esc(tok(o.name)) + '</a>'; }).join("") + '</div>'; }
+    h += '<div class="rsx"><h5>Hinweise</h5><a class="rl rh" href="' + base + 'loesung/_hinweise"><small class="hwc"></small></a></div>';
+    var ks = Object.keys(M.nsc || {});
+    if(ks.length) h += '<div class="rsx"><h5>NSC</h5><div class="rnl">' + ks.map(function(k){ var n = M.nsc[k];
+      return '<a class="nsc rn" data-n="' + k + '">' + (n.bild ? '<img src="img/' + n.bild + '.webp" alt="" loading="lazy">' : '<span></span>') + '<b>' + esc(tok(nscName(M, k) || n.name)) + '</b></a>'; }).join("") + '</div></div>';
+    return h + '</aside>';
+  }
   /* Kurze Abschnitte ohne Ort/Ablauf-Ziel zu Gruppen zusammenfassen */
   function tlen(h){ return String(h || "").replace(/<[^>]+>/g, "").length; }
   function gruppen(M, list){
@@ -122,7 +140,8 @@
     var phase = rest[1] || S.phase || M.phasen[0].id;
     var P = M.phasen.filter(function(p){ return p.id === phase; })[0] || M.phasen[0];
     phase = P.id;
-    var multi = P.id === "loesung";
+    var multi = P.id === "loesung", RAIL = !PREP[P.id], amOrt = "";
+    var railZu = false; try{ railZu = localStorage.getItem(CX().ls + "railzu") === "1"; }catch(e){}
     var abId = rest[2] || (multi ? (S.ab || "ueberblick") : null);
     var ab = P.abschnitte.filter(function(x){ return x.id === abId; })[0], grp = null, jump = null;
     if(multi){ grp = gruppen(M, P.abschnitte); var gg = ab ? grp.filter(function(g){ return g.items.indexOf(ab) >= 0; })[0] : null; if(gg && gg.items[0] !== ab){ jump = ab.id; ab = gg.items[0]; } }
@@ -130,7 +149,7 @@
     noteLast(M, P.id, multi && ab ? ab.titel.replace(/^Ort (\d): /, "Ort $1 · ") : "");
     var base = "#" + C.p + "m/" + M.id + "/";
     tabs.innerHTML = '<a class="mt" href="#' + C.p + 'mysterien"><i style="background-image:url(img/' + M.bild + '.webp)"></i><b>' + esc(M.name) + '</b></a>' +
-      M.phasen.map(function(p){ return '<a href="' + base + p.id + '"' + (p.id === P.id ? ' class="on"' : '') + '>' + esc(p.name) + '</a>'; }).join("") + '<span class="tsp"></span>' + (window.TX ? TX.pen(M.id + "/" + P.id) : "");
+      M.phasen.map(function(p, i){ var nx = M.phasen[i + 1], vp = PREP[p.id]; return '<a href="' + base + p.id + '" class="' + (p.id === P.id ? 'on' : '') + (vp ? ' vp' : '') + '">' + esc(p.name) + '</a>' + (vp && nx && !PREP[nx.id] ? '<i class="tsep"></i>' : ''); }).join("") + '<span class="tsp"></span>' + (window.TX ? TX.pen(M.id + "/" + P.id) : "");
     var html = "";
     if(multi){
       var curOrt = ab && ab.ort || null;
@@ -138,8 +157,8 @@
         grp.map(function(g){ var x = g.items[0], o = x.ort ? M.orte.filter(function(q){ return q.id === x.ort; })[0] : null, on = ab && ab.id === x.id, dn = o && (S.orte || {})[o.id];
           return '<a href="' + base + 'loesung/' + x.id + '" class="' + (on ? 'on' : '') + (dn && !on ? ' dn' : '') + '">' + (o ? 'Ort ' + o.nr + '<small>' + esc(o.name) + '</small>' : (x.ueberblick || x === P.abschnitte[0] ? 'Überblick<small>Karte · Ablauf · Countdown</small>' : esc(String(x.titel).split(":")[0]))) + '</a>' +
             g.items.slice(1).map(function(y){ return '<a class="nj" href="' + base + 'loesung/' + y.id + '" data-j="' + y.id + '">' + esc(String(y.titel).split(":")[0]) + '</a>'; }).join(""); }).join("") +
-        '<h5>Immer zur Hand</h5><a href="' + base + 'loesung/_countdown" class="' + (ab && ab.id === "_countdown" ? 'on' : '') + '">Countdown</a>' +
-        '<a href="' + base + 'loesung/_hinweise" class="' + (abId === "_hinweise" ? 'on' : '') + '">Hinweise<small id="hwCount"></small></a></aside>';
+        '<h5>Immer zur Hand</h5>' + (RAIL ? '' : '<a href="' + base + 'loesung/_countdown" class="' + (ab && ab.id === "_countdown" ? 'on' : '') + '">Countdown</a>') +
+        '<a href="' + base + 'loesung/_hinweise" class="' + (abId === "_hinweise" ? 'on' : '') + '">Hinweise<small class="hwc"></small></a></aside>';
       var main = "";
       if(abId === "_countdown") main = '<div class="cdbig">' + countdown(M, S, 1) + '</div>';
       else if(abId === "_hinweise"){ P.abschnitte.forEach(function(x){ if(x.hinweise) main += '<h3 class="hh">' + esc(x.titel) + '</h3><div class="hgrid">' + x.hinweise.map(function(t, i){ return hinweis(x.id + "-" + i, t, S); }).join("") + '</div>'; }); }
@@ -147,14 +166,21 @@
         ab = ab || P.abschnitte[0];
         var gm = grp.filter(function(g){ return g.items[0] === ab; })[0], more = function(){ return gm ? gm.items.slice(1).map(function(y){ return '<div class="txt" id="nj-' + y.id + '"><div class="side2">' + sideCards(M, y, S) + '</div>' + section(M, y, S) + (y.plan ? fig(y, M) : '') + figs(y, M) + extraCards(M, y) + '</div>'; }).join("") : ""; };
         var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
-        if(M.ablauf){
+        var isUb = ab === P.abschnitte[0] || ab.ueberblick;
+        if(RAIL && !isUb) hasMap = false;
+        if(M.ablauf && (isUb || !RAIL)){
           main = '<div class="top2' + (hasMap ? '' : ' nomap') + '">' + (hasMap ? '<div class="mapcol"><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' : '') + '<div class="flowcol"><div class="cap">Ablauf</div><div class="flow g"></div></div></div><div class="flowrow g2" hidden><div class="cap">Ablauf</div></div>' +
-            '<div class="txt"><div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>' + more();
+            '<div class="txt">' + (RAIL ? '' : '<div class="side2">' + sideCards(M, ab, S) + '</div>') + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>' + more();
+          if(RAIL) amOrt = sideCards(M, ab, S);
           GCTX = {M: M, curKey: "loesung/" + ab.id, hasMap: hasMap};
+        } else if(M.ablauf){
+          main = '<div class="txt">' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>' + more();
+          amOrt = sideCards(M, ab, S);
         } else {
-        var cdSide = (!hasMap && M.countdown) ? countdown(M, S) : "";
-        main = ((hasMap) ? '<div class="top3' + (hasMap && M.orte.length > 3 ? ' t2' : '') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' + (M.orte.length <= 3 ? '<div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') + (M.countdown ? countdown(M, S) : '') + '</div>' + (M.orte.length > 3 ? '<div class="flowrow"><div class="cap">Ablauf</div><div class="flow wide">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') +
-          '<div class="txt">' + '<div class="side2">' + cdSide + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>' + more();
+        var cdSide = (!hasMap && M.countdown && !RAIL) ? countdown(M, S) : "";
+        if(RAIL){ amOrt = sideCards(M, ab, S); }
+        main = ((hasMap) ? '<div class="top3' + (hasMap && M.orte.length > 3 ? ' t2' : '') + (RAIL ? ' nocd' : '') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' + (M.orte.length <= 3 ? '<div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') + (M.countdown && !RAIL ? countdown(M, S) : '') + '</div>' + (M.orte.length > 3 ? '<div class="flowrow"><div class="cap">Ablauf</div><div class="flow wide">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') +
+          '<div class="txt">' + (RAIL ? '' : '<div class="side2">' + cdSide + sideCards(M, ab, S) + '</div>') + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>' + more();
         }
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';
@@ -169,15 +195,16 @@
       });
       html = '<div class="main wide">' + (!main2 && right ? '<div class="boxgrid">' + right + '</div>' : '<div class="txt">' + (right ? '<div class="side2">' + right + '</div>' : '') + main2 + '</div>') + '</div>';
     }
-    app.className = "ls hasH";
+    if(RAIL) html = '<div class="ws' + (railZu ? ' rz' : '') + '"><div class="wsm">' + html + '</div>' + rail(M, S, P, multi ? ab : null, base, amOrt) + '</div>';
+    app.className = "ls hasH" + (RAIL ? " mini" : "");
     app.innerHTML = '<div class="shd"><div class="shi" style="background-image:url(img/' + M.bild + '.webp)"></div><div class="shg"></div><div class="shb"></div><div class="sht"><div><small>' + esc(P.name) + '</small><b>' + esc(M.name) + '</b></div></div></div>' + html;
     (function(){ var sh = app.querySelector(".shd"), tk = 0; if(!sh) return; var H = sh.offsetHeight;
-      function upd(){ tk = 0; var B = parseFloat(getComputedStyle(sh).getPropertyValue("--B")) || 68, D = Math.max(1, sh.offsetHeight - B), p = Math.min(1, Math.max(0, (window.pageYOffset || 0) / D)); sh.style.setProperty("--p", p.toFixed(3)); }
+      function upd(){ tk = 0; var B = parseFloat(getComputedStyle(sh).getPropertyValue("--B")) || 68, D = Math.max(1, sh.offsetHeight - B), p = RAIL ? 1 : Math.min(1, Math.max(0, (window.pageYOffset || 0) / D)); sh.style.setProperty("--p", p.toFixed(3)); }
       window.__shOnScroll = function(){ if(!tk) tk = requestAnimationFrame(upd); };
       if(!window.__shBound){ window.__shBound = 1; window.addEventListener("scroll", function(){ if(window.__shOnScroll) window.__shOnScroll(); }, {passive: true}); }
       upd(); })();
     var lay = app.querySelector(".lay");
-    function hwCount(){ var el = document.getElementById("hwCount"); if(!el) return; var all = 0, got = 0, hw = load(M.id).hw || {}; M.phasen.forEach(function(p){ p.abschnitte.forEach(function(x){ (x.hinweise || []).forEach(function(t, i){ all++; if(hw[x.id + "-" + i]) got++; }); }); }); el.textContent = got + " von " + all + " gefunden"; }
+    function hwCount(){ var els = app.querySelectorAll(".hwc"); if(!els.length) return; var all = 0, got = 0, hw = load(M.id).hw || {}; M.phasen.forEach(function(p){ p.abschnitte.forEach(function(x){ (x.hinweise || []).forEach(function(t, i){ all++; if(hw[x.id + "-" + i]) got++; }); }); }); els.forEach(function(el){ el.textContent = got + " von " + all + " gefunden"; }); }
     hwCount();
     /* Interaktionen */
     app.onclick = function(e){
@@ -190,6 +217,7 @@
       if((el = t.closest("img[data-big]"))){ var d2 = document.createElement("div"); d2.className = "lbx"; d2.innerHTML = '<img src="' + el.dataset.big + '" alt="">'; d2.onclick = function(){ d2.remove(); }; document.body.appendChild(d2); return; }
       if(t.closest("#finBtn")){ var s3 = load(M.id); s3.fertig = !s3.fertig; save(M.id, s3); var dn = {}; try{ dn = JSON.parse(localStorage.getItem(CX().ls + "done") || "{}"); }catch(x){} if(s3.fertig) dn[M.id] = 1; else delete dn[M.id]; try{ localStorage.setItem(CX().ls + "done", JSON.stringify(dn)); }catch(x){} t.closest("#finBtn").textContent = s3.fertig ? "✓ Mysterium abgeschlossen" : "Mysterium abgeschlossen"; t.closest("#finBtn").classList.toggle("on", !!s3.fertig); return; }
       if((el = t.closest(".side a.nj"))){ var tg = document.getElementById("nj-" + el.dataset.j); if(tg){ e.preventDefault(); tg.scrollIntoView({behavior: "smooth", block: "start"}); return; } }
+      if(t.closest(".rail .rcol")){ toggleRail(); return; }
       if((el = t.closest(".side .col")) && lay){ lay.classList.toggle("collapsed"); return; }
     };
     /* Ort als besucht markieren */
@@ -199,8 +227,8 @@
       if(!ok){ t.classList.remove("w2", "w3"); t.classList.add("below"); } }); }
     function place(){ var G = GCTX; if(!G || !M.ablauf) return; var top = app.querySelector(".top2"), fc = app.querySelector(".flowcol"), row = app.querySelector(".flowrow.g2"), side2 = app.querySelector(".txt > .side2"), fl = app.querySelector(".flow.g"); if(!top || !fl) return;
       var A = M.ablauf, mx = Math.max(1, gMaxSp(A)), beside = G.hasMap && ((top.clientWidth - 404 - 16 - 2 * GP - GN) / mx >= GMIN);
-      Array.prototype.forEach.call(app.querySelectorAll(".cd"), function(c){ c.parentNode.removeChild(c); });
-      var cd = M.countdown ? countdown(M, load(M.id)) : "";
+      Array.prototype.forEach.call(app.querySelectorAll(".wsm .cd, .lay .cd, .main .cd"), function(c){ c.parentNode.removeChild(c); });
+      var cd = M.countdown && !app.querySelector(".rail") ? countdown(M, load(M.id)) : "";
       if(beside){ fc.appendChild(fl); fc.hidden = false; row.hidden = true; top.hidden = false; if(cd && side2) side2.insertAdjacentHTML("afterbegin", cd); var cc = top.querySelector(".cdcol"); if(cc) cc.parentNode.removeChild(cc); }
       else { row.appendChild(fl); row.hidden = false; fc.hidden = true; var c2 = top.querySelector(".cdcol");
         if(G.hasMap && cd){ if(!c2){ c2 = document.createElement("div"); c2.className = "cdcol"; top.appendChild(c2); } c2.innerHTML = cd; top.hidden = false; }
@@ -214,6 +242,8 @@
     window.scrollTo(0, 0);
     if(jump){ var jt = document.getElementById("nj-" + jump); if(jt) setTimeout(function(){ jt.scrollIntoView({block: "start"}); }, 60); }
   };
+  function toggleRail(){ var w = document.querySelector(".ws"); if(!w) return; w.classList.toggle("rz"); try{ localStorage.setItem(CX().ls + "railzu", w.classList.contains("rz") ? "1" : "0"); }catch(e){} if(window.__lsRelayout) setTimeout(window.__lsRelayout, 60); }
+  document.addEventListener("keydown", function(e){ if(e.key === "n" && !/INPUT|TEXTAREA/.test(e.target.tagName || "") && !e.ctrlKey && !e.metaKey){ toggleRail(); } });
   document.addEventListener("keydown", function(e){ if(/INPUT|TEXTAREA/.test(e.target.tagName || "")) return; if(e.key === "b"){ var l = document.querySelector(".lay"); if(l) l.classList.toggle("collapsed"); if(window.__lsRelayout) setTimeout(window.__lsRelayout, 60); } });
   window.renderLeitstand.ctx = true;
 })();

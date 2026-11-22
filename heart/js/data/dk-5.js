@@ -229,7 +229,7 @@ K.lm.push(
   "Während die meisten Aelfir-Gäste dieser hundert Jahre alten Party in der Zwischenzeit gestorben sind, sitzt in einer Ecke des Ballsaals eine Gruppe Kinder, unterhalten von einem außergewöhnlich gruseligen Puppenspiel des **Centipede Orison**, eines einst beliebten Clowns. Freunde dich mit diesen Kindern auf der Traum-Party an, und vielleicht werden ihre heutigen Inkarnationen dir unbewusst wohlgesonnen sein.",
   "Es gibt einen Gast auf der Party, der weiß, dass alles ein Traum ist, und trotzdem freiwillig herkommt. Aramos Brightness-Sears-The-Eye besucht diesen Ort jede Nacht in seinen Träumen, diese Gedenkfeier seines großen Sieges, die bitter und ruiniert wurde. Er ist sich auch im Traum bewusst – sein jugendlicher Traum-Avatar kann das Hotel nicht verlassen, aber er kann die Delver beobachten und auf der Party mit ihnen sprechen.",
   "Das echte Hotel Amaranthine existiert noch oben in der Spire (S. 15), und wenn die Bedingungen stimmen, überlappen sich die beiden Orte und erlauben Reisen von einem zum anderen. Aramos nutzt das als Hintertür ins Heart. Die beiden Versionen des Hotels richten sich aus, wenn sich die Energieflüsse der Pulse- und der Spiral-Linie kreuzen; diese Ausrichtung lässt sich durch Überwachung der Energieflüsse vorhersagen (**Discern+Technology**). Sie geschieht natürlich alle paar Tage, kann aber künstlich ausgelöst werden, indem man Züge umherbewegt. Ein paar Passagiere verschwinden, die Energieströme beschleunigen sich, und die Tür öffnet sich. Optional sind die beiden Versionen des Hotels ausgerichtet, wenn die Charaktere es besuchen, und die Delver könnten versehentlich in die Stadt Oben reisen, ohne es zu merken. Ein Geheimgang verbindet das Hotel in der oberen Spire mit Aramos’ Villa (S. 128), sodass die Charaktere ihren Weg in Aramos’ Versteck finden könnten.",
-  "Von hier aus gibt es zwei mögliche Verbindungen zur Elseworld Frozen Spire (S. 113). Erstens: Die Charaktere könnten so von der Party bezaubert sein, dass sie hinaus in eine Realität wandern, die die Feier rechtfertigt. Zweitens: Dringen sie durch den Geheimgang in Aramos’ Reich ein, könnte er auf dem Rückweg absichtlich die Verbindung zwischen den beiden Hotels stören und die Delver in der Frozen Spire abladen."],
+  "Von hier aus gibt es zwei mögliche Verbindungen zur Elseworld Gefrorene Spire (S. 113). Erstens: Die Charaktere könnten so von der Party bezaubert sein, dass sie hinaus in eine Realität wandern, die die Feier rechtfertigt. Zweitens: Dringen sie durch den Geheimgang in Aramos’ Reich ein, könnte er auf dem Rückweg absichtlich die Verbindung zwischen den beiden Hotels stören und die Delver in der Gefrorenen Spire abladen."],
  regeln:null, unter:[], figuren:[]}
 );
 K.delves.push(
@@ -265,3 +265,188 @@ K.delves.push(
  verb:"Halte eine Trauerrede auf den gefallenen Martyr.", express:false}
 );
 })(HT_DAGGER.kap["5"]);
+(function(K){
+K.lm.push(
+{id:"martyrs-close", t:"Martyr’s Close", p:106, tiefe:3, dom:["Haven"], stress:"W6",
+ haunts:["Schrein der Gefallenen (W8 Echo)","Heconias Heilmagie (W6 Blood)"],
+ text:[
+  "**Wake:** Die Delving Machine pflügt hier durch und zerstört alles.",
+  "Dieser Haven wurde von einem der Spielercharaktere erschaffen, als er starb. Sieh also die Zenith-Fähigkeiten des Spielers durch und wähle eine, die plausibel einen Haven hervorbringen könnte/das Gebiet ein wenig sicherer machen könnte/eine Handvoll Bösewichte töten und so eine Enklave relativer Sicherheit herausschlagen könnte. Dieser Charakter wird von den Bewohnern dieses kleinen Havens als der Founder bezeichnet.",
+  "Martyr’s Close wird von einem kleinen Kult bewohnt, den Mourners of [NAME DES FOUNDERS], die glauben, dem Beispiel des Founders zu folgen: Durch ihr Leiden verlangsamen sie die Ausbreitung der Amyrran Zone. Der Kult fürchtet, dass die Wunde des Amyrran, wenn sie ungehindert bleibt, die ganze Spire verschlingen wird, und dann die ganze Welt. Das Heart muss ungestört bleiben, um zu heilen. Die Vermissian war die erste Verletzung, aber jeder Versuch törichter Delver, Schätze oder Macht oder Transzendenz zu stehlen, jeder Besuch im Heart weitet die Wunde.",
+  "Die Glaubenssätze der Mourners lauten:",
+  {t:"ul", x:[
+   "Gestrandete Reisende im Heart retten und zurück in die Stadt Oben schicken. Reisende, die nicht gehen können (Witches und andere vom Heart berührte Kreaturen, solche mit viel **Echo**-Fallout und so weiter), werden eingeladen, sich den Mourners anzuschließen. Wer ablehnt, wird rituell mit der eigenen Waffe des Founders hingerichtet.",
+   "Kultisten nach Derelictus, zum Chaingod, zur Wormery und anderen wichtigen Wegpunkten auf der Route zum Amyrran schicken, um Tamburine zu schlagen und schlecht vervielfältigte Flugblätter zu verteilen, die vor den Gefahren des Heart warnen.",
+   "Wird ein Mourner zu alt oder zu Heart-verderbt, um weiterzumachen, muss er dem Beispiel des Founders folgen, hinausgehen, einen Teil der Verletzung des Heart auf sich nehmen und dann selbstlos sterben."]},
+  "Etwaige Ähnlichkeiten zwischen den Überzeugungen der Mourners und denen des Kults der Hungrigen Tiefe bleiben dem Leser als Übung überlassen.",
+  "Anführerin des Kults ist eine aufgeregte junge Drow-Priesterin namens Jagad. Sie ist eine relative Neuankömmlingin im Haven, aber ihre Träume vom Founder waren so lebhaft und detailliert, dass die anderen Mourners sie als Prophetin sehen. (Spiele das für Komik – sie ist im Grunde der GRÖSSTE FAN ALLER ZEITEN eines der Spielercharaktere, bekommt aber alle Details komisch falsch.)",
+  "Anwesend ist hier auch das letzte Mitglied der Expedition des Tower Institute, Heconia Læmas, eine menschliche Zauberin aus der Stadt Oben. Læmas wurde schwer verwundet, als sie versuchte, das Vermissian Operations Centre (S. 102) zu betreten, und landete hier. Für sie war das vor Jahrzehnten, und sie ist nun eine der Ältesten des Kults. Sie ist vollständig dem Glauben des Kults ergeben, dass das Heart in Ruhe gelassen werden sollte. Könnte sie, würde sie in das Tower Institute in der Stadt Oben zurückkehren und sie warnen, aufzuhören, sich in die kosmischen Kräfte unten einzumischen.",
+  "Körperlich ist dieser Ort ein windschiefes Lager aus Wurmhaut-Zelten und anderem Bergungsgut, errichtet um die vom Founder geschaffene Insel der Sicherheit.",
+  "**Ein Empfangskomitee für Gott:** Der Kult weiß, dass die Zeit im Heart verzerrt und gebrochen ist und dass sich Zeitlinien hier verdrehen. Das Eintreffen des Founders kommt nicht völlig unerwartet; besonders Jagad hatte viele prophetische Träume. Sobald die Kultisten erkennen, dass der Neuankömmling tatsächlich der Founder ist, versuchen sie, seine Billigung ihrer Überzeugungen sicherzustellen (die Suche nach der Delving Machine aufgeben, vom innersten Heart umkehren, jeden anderen aufhalten, der versucht, das Heart zu verwunden – und ach ja, selbstlos und heroisch sterben). Entspricht der Founder nicht den Erwartungen, arrangieren die Mourners eine passend heroische Todesszene, indem sie die Opposition oder ein anderes Ungeheuer einladen, den Haven anzugreifen."],
+ ressourcen:[], plots:[], regeln:null, unter:[],
+ figuren:[
+  {id:"opferbestie", t:"Opferbestie", p:107, text:[], namen:null,
+   besch:"Eine dahertaumelnde Heartsbeast, angelockt mit dem Versprechen von Fleisch; Münder, so viele Münder; Eine unwahrscheinliche Zahl Beine, auch.",
+   motiv:"Freies Mittagessen.", schw:"Riskant", res:"10", schutz:"2",
+   ressourcen:"Prächtiges Schneckenhaus (W8 Wild)", ausr:"Säurespucke (Kill W8, Fernkampf)", besonders:null, dom:["Wild","Warren"], fallout:[]}]},
+
+{id:"thron-aus-asche", t:"Der Thron aus Asche", p:107, tiefe:3, dom:["Religion","Desolate"], stress:"W8",
+ haunts:["Es ist hier seltsam heiter, am Rand von allem. Das Darbringen einer Opfergabe kann **Mind**- oder **Echo**-Stress heilen."],
+ text:[
+  "**Wake:** Sind die Charaktere in dieser Landmarke, wenn sich die Delving Machine nähert, dann gehe entweder über zum Hohlen Herzen (S. 114) oder deute Der Eine, der Fällt (S. 133) an, indem die Spielercharaktere die Maschine sehen – mit anderen Versionen von *ihnen* am Steuer.",
+  "Hier ist eine graue Grube, eine Wunde in der Welt. Sie fällt steil zu einem grauen Thron hin ab, der von etwas umringt ist, das die vergilbten Zähne eines längst toten Gottes sein könnten. Die Grube ist in toten Boden gegraben, lauter fettige Asche und ausgetrocknete Insektenpanzer. Dies ist der Thron der Hungrigen Tiefe, der Ort, an dem Der Eine, der in Asche wartet, wartet.",
+  "Der Thron erscheint leer, wenn man ihn von außerhalb der Grube betrachtet.",
+  "Die Grube ist in drei Stufen unterteilt, auch wenn diese Unterscheidungen für die meisten Menschen unsichtbar sind (**Discern+Religion**, um die unsichtbaren Kräfte wahrzunehmen). Ein Charakter, der auf die erste Stufe hinabsteigt, kann die Grube nicht verlassen, ohne W10 **Mind**-Stress zu erleiden. Er kann keine Probe ablegen, um dem zu widerstehen, aber jemand anderes außerhalb der Grube kann ihm mit einer **Compel+Religion**- oder **Mend+Desolate**-Probe helfen.",
+  "Der Übergang zur zweiten Stufe erhöht den Stress des Herausklettern auf W10 Brutal (zweimal würfeln und das höhere Ergebnis nehmen); beim Herausklettern darf der Reisende die Grube jedoch an *jedem* Tempel der Hungrigen Tiefe verlassen. Die Charaktere könnten also herauskriechen bei:",
+  {t:"ul", x:[
+   "Der Kirche der Absolution in Derelictus (S. 121)",
+   "Tollembrood (S. 39)",
+   "Der Insel Avallone (S. 78)",
+   "Wahrscheinlich der Perfiden Kathedrale (S. 38)",
+   "Oder jeder von der Hungrigen Tiefe unterwanderten Landmarke."]},
+  {t:"h", x:"Die dritte Stufe"},
+  "Betritt man die dritte Stufe, manifestiert sich Der Eine, der in Asche wartet (S. 10). Ist Der Eine in deiner Kampagne nur ein kleiner Schurke, dann ist er bloß eine ausgezehrte Priesterin des Verfalls, und es ist nur eine Kampfszene – lass Fruit-of-the-Rot aus den Grubenwänden schwärmen, um den Delvern eine fordernde Begegnung zu bieten.",
+  "Ist Der Eine, der wartet, ein Spielercharakter, gibt es zwei Möglichkeiten, das auszuspielen.",
+  "**Konfrontation mit dem Schatten:** Der Eine, der wartet, ist eine Version des Spielercharakters aus einer alternativen Zeitlinie, und diese Version wartet auf dem Thron. Der Eine bittet sein Gegenstück, sich der Vision des Einen zu unterwerfen, und versetzt die Spielercharaktere – in dem Versuch, sie von der Richtigkeit dieser verzweifelten Entscheidung zu überzeugen – in eine der anderen möglichen Zukünfte (Die Gefallene Spire, S. 111, oder Die Gefrorene Spire, S. 113, je nachdem, welche der anderen Oppositionskräfte das Rennen anführt). Misslingt das, folgt eine Kampfszene.",
+  "**Versuchung des Throns:** Alternativ ist der Thron leer – und wartet. Der Charakter, der Der Eine, der wartet, *werden könnte*, sieht eine Vision der Zukunft, in der er das Heart betritt und sein höchstes Begehren erreicht. Gibt der Spieler nach und besteigt den Thron, dann:",
+  {t:"ul", x:[
+   "Wird sein Charakter zu Der Eine, der wartet, und wird zum NSC. Der Spieler kann entweder einen neuen Spielercharakter erschaffen oder Papierkram sparen, indem er sich eine Inkarnation des Charakters aus einer alternativen Zeitlinie ausdenkt, die später in der Sitzung auftaucht. (Es gibt mindestens einen wesentlichen Unterschied zwischen dem alten und dem neuen Charakter – bitte den Spieler, ihn zu bestimmen.)",
+   "Erbebt das Gelände, und die übrigen Spielercharaktere werden gewaltsam an einem der Tempel der Hungrigen Tiefe hinausgeworfen."]}],
+ ressourcen:[], plots:[], regeln:null, unter:[], figuren:[]},
+
+{id:"schlummernde-sprengkoepfe", t:"Schlummernde Sprengköpfe", p:108, tiefe:3, dom:["Technology","Wild"], stress:"W8", haunts:[],
+ text:[
+  "**Wake:** Keine. Die Delving Machine kommt hier nicht durch. Wenn sie es täte … bumm.",
+  "Es fühlt sich an wie eine Krypta.",
+  "Dunkel. Still. Reihe um Reihe schlummernder Gestalten, wie Särge. Erst wenn man die Schatten vertreibt, sieht man, dass der Tod die *Zukunft* dieses Ortes ist, nicht seine Vergangenheit.",
+  "Der öffentliche Nahverkehr war nur der erste Teil des Vermissian-Projekts, der Machbarkeitsnachweis, um die Spire mit Aelfir-Ordnung zu verschnüren. Danach wären andere Eisenbahnlinien gekommen, die den Raum verdrehen, um ferne Orte zu verbinden. In Phase II hätten interkontinentale Expressverbindungen die gefrorenen Aelfir-Königreiche des Nordens, die Arkologien der Menschen und die Home Nations der Drow verbunden.",
+  "Und dann … wenn man einen Zug durch dimensionsverzerrte Tunnel rattern lassen kann, um irgendwo wieder aufzutauchen, warum sich auf Passagiere beschränken?",
+  "Diese Landmarke enthält dreiundzwanzig angereicherte Spireblack-Bomben, jede montiert auf einem Standard-Vermissian-Spur-Flachwagen. (Es gibt auch einen leeren Eisenbahnwagen.) Die Bomben sind alt, aber noch immer vollkommen imstande, mit genug Wucht zu explodieren, um eine Festung einzuebnen. Es gibt eine stillgelegte Vermissian-Nebenlinie, die, wenn reaktiviert, mit Terminus (*Heart*, S. 170) verbunden ist – und von dort mit jedem Ort der Stadt.",
+  "Die Eisenbahnwagen lassen sich mit roher Gewalt schieben, wenn man keine Lokomotive zur Hand hat. **Mend+Technology** setzt einen Zeitzünder."],
+ ressourcen:[
+  "Absurde Bombe (W12 Technology, Flüchtig, Unhandlich, Tabu, Nische, Unklug)",
+  "Veraltete Karten des gnollischen Reichs (W6 Occult)",
+  "Überreste eines Hound-Vorratslagers (W8 Haven, Leuchtfeuer)"],
+ plots:[
+  "Diese Landmarke ist ein mögliches Ende für die Delving Machine – steuere sie hierher und zerstöre sie für alle Zeiten, wobei Anfang und Ende des Vermissian-Projekts in einer endlosen Schleife zusammentreffen.",
+  "Weißt du, wer für diesen Ort töten würde? Das Ministry. Ein Lager einsatzbereiter Bomben, das auf einem Liefersystem sitzt, das sie überall in der Stadt Oben abwerfen kann – das ist ein paar Münzen wert. Sie bräuchten nur jemanden, der die Bomben durch die Vermissian hinauf in die Spire schleppt.",
+  "Auch Ptolemy Bay würde diesen Ort gern erwerben – und wenn er es tut, ist es von hier aus ein kurzer Weg zu Der Gefallenen Spire (S. 111), denn Bay kann Gywnn-Ardasi-Zauberei nutzen, um die Bomben mit Heart-Essenz zu durchtränken und noch zerstörerischer zu machen."],
+ regeln:null, unter:[],
+ figuren:[
+  {id:"hoellenhund", t:"Der Hellhound", p:109,
+   text:["Also, Teile der 33. – der Hounds – fanden diesen Ort vor Jahren. Zerschlagen und verängstigt stolperten sie hierher, von einem Engel verfolgt. Mit List und Mut lockten sie den Engel in eine Falle, und der Letzte des Trupps betätigte den Zünder einer der Spireblack-Bomben.","Die Hounds starben. Der Engel starb. Und etwas anderes wurde geboren, nass und rot aus den Trümmern kriechend. Der Hellhound ist eine grässliche Verschmelzung von Soldat und Geist, ein dahertaumelnder Riese, gepanzert in Schrapnell. Ein Arm besteht aus einem halben Dutzend zusammengeschnürter Lagrande-Gewehre, der andere trieft von Spireblack-durchtränktem Schleim. Der Hellhound streift durch diesen Ort und wacht über die schlummernden Bomben. Wenn jemand einen Sprengkopf stiehlt, verfolgt er ihn."],
+   namen:null,
+   besch:"Ein Wachposten, treu über den Tod hinaus; Schrott, zur groben Ähnlichkeit einer Hound-Uniform verdreht; Eine Stimme wie ein ferner Artilleriebeschuss.",
+   motiv:"Jeden davon abhalten, das Armageddon zu stören, das hier schlummert.",
+   schw:"Riskant", res:"20", schutz:"2",
+   ressourcen:"Die verschmolzenen, zerschossenen Überreste eines halben Dutzends Hound-Abzeichen (W10 Haven, Leuchtfeuer)",
+   ausr:"Lagrande-Gewehrsalve (Kill W8, Fernkampf, Durchschlagend)", besonders:null, dom:["Technology","Cursed"], fallout:[]}]},
+
+{id:"letzte-haltestelle", t:"Die Letzte Haltestelle", p:110, tiefe:"risse", dom:["Warren","Cursed"], stress:"W8", haunts:[],
+ text:[
+  "**Wake:** Besonders, siehe unten.",
+  "Ödland in der Amyrran Zone. Schutt und zerbrochener Beton übersäen ein Labyrinth enger Tunnel. Es ist schwer zu sagen, ob dies einst eine Vermissian-Station war oder ob es nur ihre Form nachahmt, als hätten Stein und Schorf und Sporen polierte Fliesen und Stahlschienen nachgeäfft. Stochert man durch die Kruste aus Trümmern, sondern die Wände dickes, fadenziehendes Blut ab. Das Gewirr von Tunnelmündungen, die sich in verschiedene Richtungen schlängeln, legt nahe, dass es viele Wege durch diese Landmarke gibt, aber die Gänge winden sich ineinander zurück oder enden abrupt.",
+  "Viele der Fliesen sind mit hingekritzelten Notizen oder arkanen Formeln bedeckt, hinterlassen vom einzigen Bewohner dieser Ruine: einem grauhaarigen alten Delver, einem Gestrandeten des Heart. Unter seinem verfilzten Haar und den Tintenkritzeleien auf seiner Haut, unter seinen Lumpen trägt er die zerschlagenen Überreste wissenschaftlicher Instrumente – denn dieser bedauernswerte Kerl ist alles, was von **Egrin Weselsmith** übrig ist, einst Teil der Expedition der Tower Division zum Amyrran.",
+  "Vor langer Zeit – damals, als er sich an Sonnenlicht oder Glück oder Baden erinnerte – suchte Egrin die Delving Machine. Gestützt auf die Arbeit seiner Schwester Hesha (S. 9) stellte er – korrekt – fest, dass die Delving Machine eines Tages durch diesen Punkt im Heart ziehen wird. Was er falsch einschätzte, war die Zeit – er wartet hier seit Jahrzehnten und hält alle seine Mühsal und Erfahrungen in seinem Tagebuch fest. Als ihm das Papier ausging, begann er, auf seine Haut und die Tunnelwände zu schreiben. (Die grauenhafte Wahrheit ist, dass das Heart in seiner entsetzlichen Großzügigkeit Egrin genau das gab, was er begehrte. Er suchte diesen Ort, und er fand ihn.)",
+  "Egrin hält die Spielercharaktere zunächst für Ungeheuer aus dem Heart und überlebt so, wie er es seit Jahren tut – indem er in die Tunnel rennt und sich versteckt. Die Delver können ihn herauslocken (**Compel+Warren**), um ihn zu befragen, ihn sogar zu seiner Schwester in die Stadt Oben zurückbringen oder einfach das Tagebuch mit seiner Geschichte an sich nehmen und ihn seinem traurigen Schicksal überlassen. Optional kann Egrin genutzt werden, um die möglichen Folgen der Kontrolle über die Delving Machine auszubuchstabieren. Er könnte den Charakteren sagen, dass nur einer von ihnen das innerste Heart erreichen kann, oder sie drängen, ihre eigenen Obsessionen abzulegen und die Delving Machine außer Gebrauch zu setzen."],
+ ressourcen:[],
+ plots:[
+  "Hast du noch keine Zenith-Nachwirkungs-Begegnung für einen der Spielercharaktere gehabt, streue hier eine ein. Lege nahe, dass die Zerstörung dessen, was hier einst stand, dadurch verursacht wurde, dass dieser Spielercharakter einen Zenith-Aufstieg nahm. Haben sie sich geopfert/werden sie sich opfern, um die Delving Machine aufzuhalten?",
+  "Haben die Charaktere noch nicht begonnen, nach spezialisierter Delve-Ausrüstung zu suchen, um die Delving Machine einzuholen, dann ist dies ein hervorragender Ort, um danach zu suchen.",
+  "Oder vielleicht rasen sie in der Verfolgung einfach an diesem Ort vorbei und erhaschen im Vorbeigehen einen kurzen Blick auf Egrin – ein Schatten gescheiterter Besessenheit."],
+ regeln:null, unter:[], figuren:[]}
+);
+K.rest.push({t:"Doors to Elsewhen", p:110, b:[
+  "Die folgenden drei Landmarken – Die Gefallene Spire, Die Gefrorene Spire und Das Hohle Herz – zeigen mögliche Zukünfte, in denen eine der Oppositionsfraktionen gesiegt hat. Verwende nur die Landmarken der Fraktionen, die ein wichtiger Teil deiner Kampagne sind. Beschreibe die Landmarke in jedem Fall als traumhaft und surreal; je näher die Delver dem Kern kommen, desto mehr manifestieren sich Begehren."]});
+})(HT_DAGGER.kap["5"]);
+(function(K){
+K.lm.push(
+{id:"gefallene-spire", t:"Die Gefallene Spire", p:111, tiefe:"risse", dom:["Desolate","Technology"], stress:"W8", haunts:[],
+ text:[
+  "**Wake:** Keine.",
+  "Ptolemy Bay hat gewonnen. Er handelte mit den Gnollen von Al’Marah und nahm Rache an der Stadt, in der er aufgewachsen war, die er aber nie liebte. Sein Handel war vom Handelsgott Azur gesegnet, sodass die Gnolle wussten, dass sie ihrem unwahrscheinlichen Verbündeten trauen konnten. Die Delving Machine war der letzte Teil seines Plans. Er nutzte sie, um die Macht des Heart in eine Waffe zu lenken.",
+  "Die Spire zerbrach. Bays verräterischer Angriff zerstörte das Aelfir-Viertel Amaranth, die heilige Solar Basilica, das strahlende Silver Quarter und die Luftdocks. Herabstürzende Trümmer zermalmten andere Teile der Stadt. Zugleich rückten die Gnollheere vor und ergriffen die Initiative.",
+  "Nun ist die Spire ein Katastrophengebiet. Die Aelfir sind geflohen, und die Drow herrschen über die Asche und versuchen, neutral zu bleiben, während der Krieg um den Fuß ihrer zerbrochenen Stadt brandet.",
+  "Die Spielercharaktere treten in plötzliches, unerwartetes Sonnenlicht hinaus, auch wenn die dicken Staubwolken, die über der ruinierten Stadt wirbeln, rasch die Dunkelheit zurückbringen. Sie klettern aus einem gewaltigen Krater am Fuß der Stadt und blicken hinauf zu den Trümmern. Schwärme von Pitchkin (*Heart*, S. 203) huschen durch die Ruinen und jagen nach Fleisch. (Das Verbrennen der Stadt hat dazu geführt, dass praktisch jedes Lebewesen in der Gefallenen Spire Spireblack in Lunge und Blutbahn hat.) Wohin flüchten die Charaktere?",
+  {t:"ul", x:[
+   "Nicht weit entfernt liegt ein **Tempel Unserer Verborgenen Herrin**, denn ihre Anbetung ist nun in der Spire erlaubt. Nach dem Fall der Stadt wurde jedoch die Anbetung des Moon Beneath verboten; der Moon Beneath soll der Blood Moon sein, der Verderben bringt. Reisende aus dem Heart gelten als vom Blood Moon berührt.",
+   "Es gibt reichlich Verstecke im Schutt, wo Drow ums Überleben kämpfen. Das sind die Ruinen von Derelictus, von denen Teile dank der Wucht der Explosion nun dem verhassten Himmel offenstehen. Die Charaktere könnten hier auf eine vertraute Landmarke oder einen vertrauten NSC stoßen.",
+   "Die Charaktere könnten zur Spire selbst gehen. Je näher sie der Stadt kommen, desto deutlicher wird das Ausmaß der Verwüstung. Nahe dem Eingang gibt es ein Lager voller Wartender, die hinein wollen. Der Kadaver eines ausgeweideten Skywhale liefert speckige Nahrung. Eine schmutzige, eine Woche alte Ausgabe der letzten überlebenden Zeitung der Spire, der Furnace Chronicle (eine unglücklich benannte Verschmelzung zweier anderer Publikationen), berichtet grelle Schlagzeilen von der Front – anscheinend haben Gnollheere die Grenzen der nördlichen Aelfir-Königreiche erreicht und beschießen die Eispaläste."]},
+  {t:"h", x:"Ein Andenken aus Bays Elsewhen"},
+  {t:"ul", x:[
+   "**1.** Zersplittertes Mauerwerk aus der Solar Basilica (W6 Religion, Nische)",
+   "**2.** Ein Exemplar von *EINE KURZE GESCHICHTE GEWALTSAMER TAGE*, einem Geschichtsbuch, das die Niederlage der Aelfir beschreibt.",
+   "**3.** Eine einst schöne Aelfir-Maske, an den ausgestopften Kopf einer Vogelscheuche gebunden.",
+   "**4.** Eine Handvoll mit Heartsblood durchtränkter Patronen.",
+   "**5.** Gnollischer Mantel, die Taschen vollgestopft mit Beute und gnollischen Rationspaketen.",
+   "**6.** Ein heiliges Symbol Azurs, nun angelaufen und blutrot."]},
+  "**Einschlag!** Aus den rauchverschmierten Wolken der Spire taucht eine scheußliche Erscheinung auf. Es ist ein toter Skywhale, Kopf und Flanken mit implantierter Maschinerie gespickt. Leuchtend blaue Banner flattern wie Fetzen schönerer Himmel hinter ihm. Auf der Seite des Ungeheuers prangt das Logo der Ptolemy Bay Company.",
+  "Direkt darüber stehen dichte Reihen von Kanonen. Die Besatzung des gepanzerten Skywhale sucht das Gelände mit Teleskopen und Wahrsagungen nach den Spielercharakteren ab. Sobald sie ihre Position ungefähr bestimmt hat, beginnt das Bombardement. Dieses ganze Elseworld ist Bays Begehren, geboren aus seinem Sieg im Heart. Er weiß auf instinktiver Ebene, dass die Spielercharaktere Rivalen um diesen Sieg sind und deshalb vernichtet werden müssen.",
+  "Sofern nicht alle von der Artilleriesalve zu Brei geschossen werden, können sie zurück ins Heart fliehen oder den Skywhale erledigen, was großartig, aber technisch unnötig ist."],
+ ressourcen:["Wenn sie den Skywhale erlegen: Lecke Kanister mit raffiniertem Heartsblood (W10 Cursed, Flüchtig)","Wenn sie den Skywhale erlegen: Brocken galvanischer Gehirnkontroll-Schaltkreise (W10 Technology)"],
+ plots:[], regeln:null, unter:[],
+ figuren:[
+  {id:"gepanzerter-skywhale", t:"Gepanzerter Skywhale", p:112, text:[], namen:null,
+   besch:"Hängt in der Luft, wie es Ziegel nicht tun; Trifft dich ins Gesicht, wie es Ziegel tun; Klagende Infraschall-Pfiffe und -Seufzer; Der Kanonenrückstoß presst Blut aus seinen Flanken wie roten Regen.",
+   motiv:"Drähte in sein Gehirn gerammt.", schw:"Standard", res:"30", schutz:"4*",
+   ressourcen:"Genug Skywhale-Fleisch für jeden denkbaren Zweck (W8 Haven, Unhandlich)",
+   ausr:"An den Flanken montierte Kanonen (Kill W10, Streuung, Nachladen)",
+   besonders:"Schutz 4 gegen Kill.", dom:["Wild"], fallout:[]},
+  {id:"bays-handlanger", t:"Bays Handlanger", p:112, text:[],
+   namen:"Griff, Roger, Skillet, Bart",
+   besch:"Eine bunt zusammengewürfelte Mannschaft aus Piraten/Kanonenfutter; Gut bewaffnet, aber übermütig; Stolzieren in grellbunter Kleidung.",
+   motiv:"Schläger. Angeheuerte Schläger.", schw:"Standard", res:"4 pro Handlanger", schutz:"1",
+   ressourcen:"Lose Münzen und andere Trophäen (W6 Haven)",
+   ausr:"Gewehr (Kill W6, Fernkampf, Durchschlagend, Nachladen); Entermesser (Kill W6, Brutal)",
+   besonders:null, dom:["Haven"], fallout:[]}]},
+
+{id:"gefrorene-spire", t:"Die Gefrorene Spire", p:113, tiefe:"risse", dom:["Haven","Warren"], stress:"W8", haunts:["Spire Market (W12 Blood oder Supplies)"],
+ text:[
+  "**Wake:** Keine.",
+  "Beim Erkunden des Heart gelangen die Delver zu einer längst verlassenen Vermissian-Station (vielleicht Well Station, *Heart* S. 157). Dort hören sie das Grollen eines herannahenden Zuges.",
+  "Der Zug, der einfährt, ist … sauber. Gut gewartet. Voller Pendler. Die Türen gleiten lautlos auf und laden die Delver zum Einsteigen ein. Drow weichen gehorsam zurück und machen den neuen Fahrgästen Platz.",
+  "Mit einem fröhlichen Pfiff und dem Ruf „Vorsicht vor dem Heart“ setzt sich der Zug in Richtung Stadt Oben in Bewegung.",
+  "Aramos Brightness-Sears-The-Eye hat gewonnen. Nicht jetzt, sondern vor mehr als einem Jahrhundert. Das Vermissian-Projekt war ein großer Erfolg, und es ging absolut nichts schief. (Er ermordete trotzdem die Gwynn-Ardasi-Kabale, aber ihre Unheilsprophezeiungen blieben ohne Folgen.) Arkane Maschinerie summt in vollkommener Harmonie, kanalisiert die Energie des Heart in die Vermissian und hält sie im Zaum.",
+  "Vermissian! Die Venen und Arterien des Handels! Die gesamte Spire wurde zu einer vollkommenen, geordneten Stadt unter Aelfir-Herrschaft zusammengeknüpft. Jeden Tag marschieren Zehntausende Drow gehorsam in die Zugwagen und werden zu ihren zugewiesenen Aufgaben gebracht. Jeden Tag treffen Touristen und Händler an den internationalen Terminals ein, angezogen von den Wundern und dem Wohlstand der Spire. Und jeden Tag sonnen sich die Aelfir im Ruhm und der Vollkommenheit von Aramos’ Schöpfung.",
+  "Vollkommene Ordnung. Überwachungsposten an jeder Vermissian-Station sortieren Dissidenten aus (und da das Netz nun der einzige Weg ist, zwischen den Bezirken der Spire zu reisen, haben sie die meisten Unruhestifter ausgedünnt). Züge, beladen mit Spireblack und Müll, kippen den Abfall der Spire weit außer Sicht. Die Stadt ist nun ein gefrorenes Monument der Vollkommenheit. Das Gnollische Reich ist auf dem Rückzug, seit die Kriegsanstrengungen von Vermissian-Nachschublinien und zuggestützten Bomben getragen werden.",
+  "Die Charaktere können eine Weile durch die Stadt wandern, Vorräte aufstocken oder alte Freunde besuchen (von denen viele in Aramos’ Brave New Spire vermutlich hingerichtet wurden), bis sie mit der elitären Black Guard in Konflikt geraten, die in diesem Elsewhen aus wiederbelebten Drow besteht, die von den Aelfir entsandt wurden, um Verräter zu beseitigen.",
+  {t:"h", x:"Souvenirs aus der Dystopie"},
+  {t:"ul", x:[
+   "**1.** Monatskarte der Vermissian.",
+   "**2.** Ausweispapiere (gefälscht).",
+   "**3.** Mit Beruhigungsmittel versetztes Zuckerwasser.",
+   "**4.** Rauchgläser, markiert mit Ortungsrunen.",
+   "**5.** Schlecht Korrektur gelesenes Drow-Samisdat.",
+   "**6.** Ein verlorenes Drow-Waisenkind, frisch geschlüpft, auf der Flucht vor den Eiersammlern."]}],
+ ressourcen:[
+  "Gestohlene Aelfir-Propaganda (W8 Haven)",
+  "Gestohlene Aelfir-Kunstwerke (W12 Haven, Nische)",
+  "Tatsächlich funktionierende Vermissian-Technologie (W12 Technology, Verderblich)"],
+ plots:[], regeln:null, unter:[],
+ figuren:[
+  {id:"wiederbelebte-black-guard", t:"Wiederbelebte Black Guard", p:114, text:[], namen:null,
+   besch:"Vollkommen regungslos, nicht einmal atmend; Verspiegelte Visiere; Völlig reuelos.",
+   motiv:"Den Aelfir dienen.", schw:"Riskant", res:"12", schutz:"3",
+   ressourcen:null, ausr:"Repetierflinten mit Ebenholzschaft (Kill W8, Streuung, Unzuverlässig), Breitklingen-Hellebarden (Kill W8)",
+   besonders:null, dom:["Haven"], fallout:[]}]},
+
+{id:"hohles-herz", t:"Das Hohle Herz", p:114, tiefe:"risse", dom:["Religion","Desolate"], stress:"W8", haunts:[],
+ text:[
+  "**Wake:** Keine.",
+  "Die Delver betreten dieses Elsewhen, während sie durch das Heart reisen. Das Gelände um sie herum verändert sich, während sie ihren Weg durch die Tunnel machen. Die fleischigen Wände, einst rotgeflammt und fest, werden langsam grauer und brüchiger, bis sie zu einer bröckelnden, körnigen Substanz zerfallen, als bestünde alles aus Asche. Die Reisenden erreichen die Landmarke, auf die sie zusteuerten, nur ist auch sie ebenso ausgedörrt, aller Bedeutung und Lebenskraft beraubt, eine Skulptur aus Staub. Möglicherweise wohnen noch Menschen an dem Ort, aber auch sie sind grau, ihnen wurde alle Hoffnung und alles Begehren genommen. Das gesamte Heart ist jetzt so. Keine Gefahr, keine Ungeheuer, keine Seltsamkeit, nur endlose bröckelnde graue Ruinen. Die Delver können dieses Hohle Herz leicht durchqueren, aber es gibt hier nichts zu finden, keine Schätze oder Geheimnisse zu entdecken. Stellenweise sind die Kavernen der Stadt Unten eingestürzt und haben riesige offene Wunden im Land aufgerissen, und die Charaktere können durch diese Lücken die Stadt Oben sehen.",
+  "Die Spire ist weniger beschädigt als das Heart, aber sie hat ihre Götter verloren. Alle Geister und Gottheiten sind geflohen – die Kathedralen und Tempel sind nun leer. Nur die Hungrige Tiefe ist geblieben.",
+  "**Refugee Gods & Fugitive Spirits:** Sind einige der Charaktere Heretics, Incarnadines, Witches oder stark mit einer bestimmten Gottheit verbunden, dann Glückwunsch! Als einziger Glaubensfunke im Umkreis von Hunderten Meilen um das Heart bist du soeben zur letzten Zuflucht des göttlichen Schurken geworden, den du verehrt hast. Zwangsweise mit einem Gott verbunden zu sein ist W10 **Mind**-Stress *und* einen kostenlosen Major Advance wert, der mit diesem Gott verbunden ist.",
+  "Ist keiner der Spielercharaktere eine offensichtliche Zuflucht für Gottheiten, dann wähle den Charakter mit der klarsten, leidenschaftlichsten Berufung. Da fast alles Begehren und aller Ehrgeiz aus diesem Elsewhen getilgt wurde, ist der Charakter ein loderndes psychisches Leuchtfeuer der Hoffnung.",
+  "Der Kontrast ist greifbar – qualifizierte Charaktere scheinen vor der grauen, leeren Welt von innen zu leuchten. Und das Dumme daran, ein Leuchtfeuer des Glaubens in einer Welt des Verfalls zu sein, ist, dass es *Aufmerksamkeit* anzieht.",
+  "Während die Charaktere diesen zerbrochenen Schatten des Heart erkunden, werden sie von einem Ungeheuer verfolgt. Es ist ganz Fäulnis und Entropie, ein Ding aus Maden und Grabeserde. Grob humanoid in der Gestalt, aber wandelbar im Wuchs: Es wächst zur Größe eines Riesen oder schrumpft auf die eines ausgemergelten Säuglings, um durch kleine Lücken zu schleichen. Das Ungeheuer verfolgt die Delver unerbittlich; sein Nahen kündigt sich durch das Huschen von Insekten und einen Kälteeinbruch an.",
+  "Zur gleichen Zeit hören die anderen Spielercharaktere – jene, die keine leuchtenden spirituellen Leuchtfeuer sind – die Stimme von Der Eine, der in Asche wartet, die in ihren Köpfen flüstert. Der Eine sagt ihnen, dass sie im Heart nie ihre Begehren erreichen werden, aber sie können sicher aufgeben und nach Hause gehen. Die Welt oben ist noch da – verkleinert, ja, aber noch da. Der Bann fruchtloser Besessenheit, den das Heart gewirkt hat, ist gebrochen. Sie können gehen. Alles, was sie tun müssen, ist … nichts. Wenn sie sich entscheiden, ihre Gefährten nicht zu verteidigen, wenn das Ungeheuer sie erwischt, werden sie verschont.",
+  "Den Entropic Shade zu erschlagen öffnet ein Portal zurück ins gewöhnliche Heart. Der Charakter, der den tödlichen Schlag gegen den Shade führt, erhält außerdem einen psychischen Einblick in den Aufenthaltsort von Der Eine, der in Asche wartet (wähle einen – die Insel Avallone (S. 78), die Kirche der Absolution in Derelictus (S. 121), die Perfide Kathedrale (S. 38) oder der Thron aus Asche (S. 107))."],
+ ressourcen:[], plots:[], regeln:null, unter:[],
+ figuren:[
+  {id:"entropic-shade", t:"Entropic Shade", p:115, text:[], namen:null,
+   besch:"Er geht nicht so sehr, als dass er fällt und sich im Gehen neu formt.",
+   motiv:"Alles beenden.", schw:"Riskant", res:"16", schutz:"2",
+   ressourcen:null, ausr:"Verdorrende Berührung (Kill W10, Schwächend)", besonders:null, dom:["Religion","Desolate"], fallout:[]}]}
+);
+})(HT_DAGGER.kap["5"]);
+HT_DAGGER.kap["5"].lm.unshift({id:"wormery", t:"The Wormery", extern:"4", tiefe:3, dom:[], stress:null, haunts:[], text:[], ressourcen:[], plots:[], figuren:[], unter:[], regeln:null});

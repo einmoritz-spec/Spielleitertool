@@ -103,15 +103,15 @@ function route(K){
 function karte(K, sel){
   var R = route(K), n = R.order.length; if(!n) return "";
   var W = Math.max(n, 2), x = {}; R.order.forEach(function(id, i){ x[id] = (i + 0.5) / W * 100; });
-  var ts = R.order.map(function(id){ return R.byId[id].tiefe; }).concat(R.V.map(function(v){ return v.tiefe; })).filter(function(t){ return typeof t === "number"; }), t0 = Math.min.apply(null, ts), t1 = Math.max.apply(null, ts), rows = t1 - t0 + 1;
-  var ROW = 74, H = rows * ROW + 20, y = function(t){ return 14 + ((typeof t === "number" ? t : t0) - t0) * ROW; };
+  var ts = R.order.map(function(id){ return R.byId[id].tiefe; }).concat(R.V.map(function(v){ return v.tiefe; })).filter(function(t){ return typeof t === "number"; }), t0 = Math.min.apply(null, ts), t1 = Math.max.apply(null, ts), hasS = R.order.some(function(id){ return typeof R.byId[id].tiefe !== "number"; }), rows = t1 - t0 + 1 + (hasS ? 1 : 0);
+  var ROW = 74, H = rows * ROW + 20, y = function(t){ return 14 + ((typeof t === "number" ? t : t1 + 1) - t0) * ROW; };
   var svg = '<svg class="dsvg" viewBox="0 0 100 ' + H + '" preserveAspectRatio="none">', pts = "";
-  var rowsH = ""; for(var r = t0; r <= t1; r++) rowsH += '<div class="dtl" style="top:' + (y(r) - 4) + 'px">Tiefe ' + r + "</div>";
+  var rowsH = ""; for(var r = t0; r <= t1; r++) rowsH += '<div class="dtl" style="top:' + (y(r) - 4) + 'px">Tiefe ' + r + "</div>"; if(hasS) rowsH += '<div class="dtl" style="top:' + (y("x") - 4) + 'px">Risse</div>';
   R.V.forEach(function(v){ var a = R.byId[v.von], b = R.byId[v.nach]; if(!a || !b) return; svg += '<line x1="' + x[v.von] + '" y1="' + (y(a.tiefe) + 24) + '" x2="' + x[v.nach] + '" y2="' + (y(b.tiefe) + 24) + '" class="' + (v.express ? "ex" : "") + '"/>'; });
   svg += "</svg>";
   var nodes = R.order.map(function(id){ var l = R.byId[id]; return '<div class="dnode' + (sel === id ? " on" : "") + (l.extern ? " ext" : "") + '" style="left:' + x[id] + "%;top:" + y(l.tiefe) + 'px" onclick="' + (l.extern ? "" : "go('dagger/" + K.n + "/landmarken/" + id + "')") + '"><span class="platte">' + esc(l.t) + "</span>" + ((l.extern && l.extern !== true) ? "<small>aus Kapitel " + esc(l.extern) + "</small>" : l.extern ? "<small>aus anderem Kapitel</small>" : "<small>" + esc((l.dom || []).join(", ") + (l.stress ? " · " + l.stress : "")) + "</small>") + "</div>"; }).join("");
   var dn = R.V.map(function(v){ var a = R.byId[v.von], b = R.byId[v.nach]; if(!a || !b) return ""; var cx = (x[v.von] + x[v.nach]) / 2, cy = (y(a.tiefe) + y(b.tiefe)) / 2 + 20; return '<div class="ddelve' + (sel === "d:" + v.id ? " on" : "") + '" style="left:' + cx + "%;top:" + cy + 'px" onclick="go(\'dagger/' + K.n + "/landmarken/d:" + v.id + '\')">Delve · ' + esc(v.res) + "</div>"; }).join("");
-  return '<div class="dkarte" style="height:' + H + 'px">' + rowsH + svg + nodes + dn + "</div>";
+  return '<div class="dkarte" style="height:' + (H + 16) + 'px"><div class="dkin" style="height:' + H + "px;min-width:" + (n * 215) + 'px">' + rowsH + svg + nodes + dn + "</div></div>";
 }
 function delveKarte(K, v){
   var used = dk().res[v.id] || 0, d = dk().erg;

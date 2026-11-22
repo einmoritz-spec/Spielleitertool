@@ -393,3 +393,5 @@ body{background-attachment:fixed}
 @media(max-width:1300px){.dkdet.zwei{grid-template-columns:1fr}}
 .dkfrei{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,520px));gap:14px;margin:14px}
 .dchips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 14px 0}.dchips .platte{cursor:pointer;font-size:14px}.dchips .platte.on{outline:3px solid #fff}
+.dkarte{overflow-x:auto;overflow-y:hidden}.dkin{position:relative;width:100%}.dnode{max-width:140px}.dtl{position:sticky;left:10px}
+.dnode{max-width:130px}.dnode small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}

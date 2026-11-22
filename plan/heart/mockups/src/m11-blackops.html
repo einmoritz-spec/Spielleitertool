@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>body{width:1440px;height:900px;overflow:hidden;position:relative;}
+
+:root{--candle:#e0a030;--fathom:#4aa3c8;--spiral:#a97be0;--loft:#e9e4da;--pulse:#e0402e}
+body{background:#0a0a0c url(img/tex-dunkel.webp) center/cover}
+.kopf,.tabs{background:#070709}.tabs{border-bottom-color:#e0402e}
+.tabs a.on{background:#e0402e;color:#0a0a0c}
+.logo b{font:400 22px/1 "HT BoldSans",var(--plate);letter-spacing:.1em;color:#f0ede6;text-transform:uppercase}
+.logo b i{font-style:normal;color:#e0402e}
+.feld{display:grid;grid-template-columns:1fr 440px;gap:14px;padding:14px 16px 0;height:799px}
+.plan{position:relative;background:#101014;box-shadow:0 0 0 1px #000;height:785px;overflow:hidden}
+.plan svg{position:absolute;inset:0}
+.pl{position:absolute;font:400 15px/1 "HT BoldSans",var(--plate);letter-spacing:.12em;text-transform:uppercase;padding:5px 9px 4px;color:#0a0a0c;z-index:3}
+.st{text-shadow:0 0 4px #101014,0 0 4px #101014,0 0 6px #101014;position:absolute;transform:translate(8px,-50%);font:500 12.5px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#cfcac0;z-index:3;white-space:nowrap}
+.st.l{transform:translate(calc(-100% - 8px),-50%)}
+.ger{position:absolute;right:16px;top:14px;display:flex;flex-direction:column;gap:6px;z-index:3}
+.ger span{font:400 13px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#cfcac0;display:flex;align-items:center;gap:8px}
+.ger i{display:inline-block;width:26px;height:6px}
+.rechts{display:flex;flex-direction:column;gap:12px;height:785px}
+.panel{background:#f2ede2;color:#16120d;padding:16px 18px;box-shadow:0 0 0 1px #000;border-top:8px solid var(--candle)}
+.panel h2{font:400 34px/1 "HT BoldSans",var(--plate);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px;color:#16120d}
+.panel h2 .s{font:500 12px var(--body);color:#7a746a;letter-spacing:0}
+.panel p{font-size:15px;line-height:1.4;margin:0 0 7px}
+.panel .meta{display:flex;gap:10px;margin:8px 0 10px}
+.panel .meta span{font:400 13px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;border:1.5px solid #16120d;padding:6px 8px 4px}
+.panel .meta span.k{background:var(--candle);border-color:var(--candle)}
+.lbl2{font:700 13px/1 var(--sc);color:#8a1a10;letter-spacing:.04em;margin:10px 0 4px}
+.zielz{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.zielz div{border:1.5px solid #16120d;padding:6px 6px 5px;font:400 13px/1.05 var(--plate);letter-spacing:.06em;text-transform:uppercase;text-align:center;background:#fff}
+.zielz div.on{background:#16120d;color:#fff}
+.atm{background:#16120d;color:#efe8dc;padding:10px 14px;font-size:14px;line-height:1.35}
+.atm .lbl{color:#e0a030}
+.atm ol{margin:4px 0 0;padding-left:20px;columns:2;column-gap:20px}
+.atm li{margin-bottom:2px}
+.tn{display:flex;gap:6px}
+.tn a{flex:1;text-align:center;font:400 13.5px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;padding:10px 4px 8px;color:#0a0a0c;opacity:.55;cursor:pointer}
+.tn a.on{opacity:1}
+</style></head><body>
+<div class="kopf"><button class="logo"><b>Black <i>Ops</i></b><span class="dd"></span></button><div class="sp"></div><button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><a class="">Regeln</a><a class="">Einsätze</a><a class="on">Die Vermissian</a><a class="">Gruppen</a><a class="">Ausrüstung</a><span class="sp"></span><button class="ik stift"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button></div>
+<div class="x"></div>
+<div class="feld"><div class="plan">
+<svg width="1000" height="785" viewBox="0 0 1000 785" fill="none" stroke-linecap="round" stroke-linejoin="round">
+ <!-- Loft: oben, Silber, horizontal -->
+ <path d="M90 90 H520 Q560 90 560 130 V150 H900" stroke="#e9e4da" stroke-width="9"/>
+ <!-- Candle: senkrecht, Bernstein, über die ganze Höhe -->
+ <path d="M300 70 V250 Q300 280 330 280 H430 Q460 280 460 310 V560 Q460 590 430 590 H300 V720" stroke="#e0a030" stroke-width="12"/>
+ <!-- Spiral: gewundene Mitte -->
+ <path d="M130 300 Q130 220 220 220 H380 Q430 220 430 270 Q430 330 360 330 Q290 330 290 390 Q290 450 360 450 H640 Q720 450 720 380 Q720 310 790 310 H900" stroke="#a97be0" stroke-width="9"/>
+ <!-- Fathom: unten, Blau, getaucht -->
+ <path d="M110 640 H330 Q380 640 380 600 V520 Q380 490 410 490 H700 Q760 490 760 550 V600 Q760 650 810 650 H920" stroke="#4aa3c8" stroke-width="9" stroke-dasharray="1 0"/>
+ <!-- Pulse: tief, Rot, zum Herzen -->
+ <path d="M600 330 V560 Q600 590 630 590 H690 Q720 590 720 620 V740" stroke="#e0402e" stroke-width="9"/>
+ <!-- Umsteige-Knoten -->
+ <g fill="#101014" stroke="#f0ede6" stroke-width="4"><circle cx="300" cy="90" r="10"/><circle cx="460" cy="330" r="10"/><circle cx="300" cy="590" r="10"/><circle cx="600" cy="450" r="10"/><circle cx="380" cy="560" r="10"/><circle cx="300" cy="220" r="10"/></g>
+ <!-- Stationen Candle -->
+ <g fill="#101014" stroke="#e0a030" stroke-width="3.5"><circle cx="300" cy="128" r="6"/><circle cx="300" cy="200" r="6"/><circle cx="380" cy="280" r="6"/><circle cx="460" cy="420" r="6"/><circle cx="460" cy="545" r="6"/><circle cx="300" cy="650" r="6"/></g>
+ <!-- Herz -->
+ <circle cx="720" cy="752" r="22" fill="#e0402e"/><circle cx="720" cy="752" r="34" fill="none" stroke="#e0402e" stroke-opacity=".4" stroke-width="3"/>
+</svg>
+<div class="pl" style="left:90px;top:56px;background:#e9e4da">Loft Line</div>
+<div class="pl" style="left:300px;top:36px;background:#e0a030;outline:3px solid #f2ede2;outline-offset:2px">Candle Line</div>
+<div class="pl" style="left:130px;top:262px;background:#a97be0">Spiral Line</div>
+<div class="pl" style="left:110px;top:648px;background:#4aa3c8">Fathom Line</div>
+<div class="pl" style="left:608px;top:332px;background:#e0402e">Pulse Line</div>
+<div class="st" style="left:300px;top:128px">Market</div><div class="st" style="left:300px;top:200px">Godsyard</div><div class="st" style="left:380px;top:252px;transform:translate(-50%,-50%)">Steerpike</div><div class="st" style="left:460px;top:420px">Fairfax</div><div class="st" style="left:460px;top:545px">Turbine</div>
+<div class="st l" style="left:684px;top:752px;font-size:14px;color:#e0402e">Das Herz selbst</div>
+<div class="ger"><span><i style="background:#e9e4da"></i>Loft – nur Aelfir</span><span><i style="background:#e0a030"></i>Candle – vertikal</span><span><i style="background:#a97be0"></i>Spiral – Mitte</span><span><i style="background:#4aa3c8"></i>Fathom – untergetaucht</span><span><i style="background:#e0402e"></i>Pulse – zum Herzen</span></div>
+</div>
+<div class="rechts">
+ <div class="panel"><h2>Candle Line <span class="s">S. 12</span></h2>
+  <div class="meta"><span class="k">Standard-Stress W4</span></div>
+  <p>Die Candle Line wurde als billiges, fröhliches Mittel gebaut, Touristen und Arbeiter nach Feierabend in die Vergnügungsviertel der North Docks zu bringen – sie war also nicht für die Ewigkeit gebaut. Heute nutzen manche Bewohner von Spire die bröckelnden senkrechten Tunnel als abgelegene (wenn auch gefährliche) Schmuggelroute …</p>
+  <div class="lbl2">Ziele in Spire · S. 13</div>
+  <div class="zielz"><div class="on">Market</div><div>Godsyard</div><div>Steerpike</div><div>Fairfax</div><div>Turbine</div><div>New Heaven</div></div>
+  <div class="lbl2">Besonderheiten</div>
+  <div class="zielz" style="grid-template-columns:1fr 1fr"><div>Aggressive Fauna</div><div>Knochenwarden</div><div style="grid-column:1/-1">Gebiet von Minister Falstadt</div></div>
+ </div>
+ <div class="atm"><div class="lbl">Atmosphäre (W10)</div><ol><li>Schleimiger grüner Schimmel auf jeder Fläche</li><li>Das hallende Gackern und verstreute Licht von Anglerkröten</li><li>Knöcheltiefes Wasser in seltsamen Mustern</li><li>Malak-Schmuggler mit gedimmten Laternen in der Ferne</li><li>Bröckelnder Stein und zackiges Metall</li></ol></div>
+ <div class="tn"><a class="on" style="background:#e9e4da">Loft</a><a class="on" style="background:#e0a030">Candle</a><a style="background:#a97be0">Spiral</a><a style="background:#4aa3c8">Fathom</a><a style="background:#e0402e">Pulse</a></div>
+</div></div>
+<div class="ann" style="left:640px;top:120px"><b>1</b>Der Netzplan (S. 11) ist die Navigation: Linie anklicken öffnet rechts ihre Seite</div>
+<div class="ann" style="left:36px;top:420px"><b>2</b>Linienfarben sind der einzige Akzent dieses Untersettings; Tiefe läuft wie im Hauptbereich von oben nach unten bis zum Herzen</div>
+<div class="ann" style="left:1130px;top:810px"><b>3</b>Atmosphäre-Tabelle als Kasten (Zeile anklicken = markieren), Linienwechsel unten als Leiste</div>
+
+</body></html>

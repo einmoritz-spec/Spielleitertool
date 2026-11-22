@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>body{width:1440px;height:900px;overflow:hidden;position:relative;}
+
+.feld{display:grid;grid-template-columns:1fr 300px;gap:14px;padding:14px 16px 0;height:799px}
+.kart{position:relative;box-shadow:0 0 0 1px #000;height:785px;overflow:hidden;background:#2a0806}
+.kart svg{position:absolute;inset:0}
+.band9{position:absolute;left:0;right:0}
+.achse{position:absolute;left:0;top:0;bottom:0;width:74px;z-index:3;background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,0))}
+.achse b{position:absolute;left:12px;font:400 14px/1 var(--plate);letter-spacing:.12em;text-transform:uppercase;color:#f0dfcf}
+.achse i{position:absolute;left:12px;font:italic 400 12px/1 var(--body);color:#b99d8a}
+.kn{position:absolute;transform:translate(-50%,-50%);text-align:center;z-index:4;cursor:pointer}
+.kn .platte{font-size:14px;line-height:1.05;white-space:normal;max-width:150px;box-shadow:0 2px 0 rgba(0,0,0,.45)}
+.kn small{display:block;font:700 11px/1 var(--sc);color:#f0cfc2;margin-top:3px;text-shadow:0 1px 2px #000}
+.kn.sel .platte{outline:3px solid #f4eee3;outline-offset:2px}
+.kn.fremd .platte{background:#8b7a6c}
+.dv{position:absolute;transform:translate(-50%,-50%);z-index:5;background:var(--teal);color:#fff;font:400 12.5px/1 var(--plate);letter-spacing:.07em;text-transform:uppercase;padding:4px 7px 3px;white-space:nowrap;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.4)}
+.dv.on{outline:3px solid #f4eee3;outline-offset:1px}
+.leer{position:absolute;transform:translate(-50%,-50%);z-index:4;width:40px;height:40px;border:2px dashed rgba(255,220,200,.4);border-radius:50%}
+.neben{display:flex;flex-direction:column;gap:12px;height:785px}
+.neben .kasten{background:#16120d;color:#f1ebe1;padding:12px 14px;box-shadow:0 0 0 1px #000}
+.neben h3{font:400 22px/1 var(--head);color:#f0dfcf;text-transform:uppercase;margin:0 0 8px;display:flex;justify-content:space-between;align-items:baseline}
+.neben h3 .s{color:#8f7d6c}
+.sw{display:flex;border:1px solid #5b0909}
+.sw a{flex:1;text-align:center;font:400 14px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;padding:9px 4px 7px;color:#cbbba6;cursor:pointer}
+.sw a.on{background:var(--platte);color:#fff}
+.lst .zl{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-top:1px solid rgba(255,220,200,.12);font-size:14.5px;color:#f3e4d6;cursor:grab}
+.lst .zl em{font:500 12px var(--body);font-style:normal;color:#8f7d6c}
+.lst .zl.da{color:#7d6b5d}
+.lst .tf{font:700 11.5px/1 var(--sc);color:#d8a9a1;margin:10px 0 2px;letter-spacing:.06em}
+.det{background:var(--pergament);color:var(--tinte);padding:12px 14px;box-shadow:0 0 0 1px #000}
+.neben .det h3.h3{margin:0 0 4px;font-size:20px;color:var(--blut)}.neben .det .s{color:#8a7f72}
+.det .werte>div{font-size:14px}
+.btn{display:block;text-align:center;background:var(--platte);color:#fff;font:400 15px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;padding:10px 8px 8px;margin-top:8px}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/logo.webp" alt="Heart"><span class="dd"></span></button><div class="sp"></div><button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><a class="">Expedition</a><a class="on">Karte</a><a class="">Landmarken</a><a class="">Gegner</a><a class="">Fallout</a><a class="">Gruppe</a><span class="sp"></span><button class="ik stift"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button></div>
+
+<div class="feld"><div class="kart" id="k">
+<div class="band9" style="top:0;height:25%;background:rgba(80,30,20,.0)"></div>
+<div class="band9" style="top:25%;height:25%;background:rgba(20,0,0,.18)"></div>
+<div class="band9" style="top:50%;height:25%;background:rgba(10,0,0,.36)"></div>
+<div class="band9" style="top:75%;height:25%;background:rgba(0,0,0,.55)"></div>
+<svg id="hx" width="1074" height="785"></svg>
+<svg id="ln" width="1074" height="785"></svg>
+<div class="achse"><b style="top:16px">Tiefe 0</b><i style="top:34px">Stadt oben</i><b style="top:213px">Tiefe 1</b><b style="top:410px">Tiefe 2</b><b style="top:607px">Tiefe 3</b></div>
+<div id="nodes"></div>
+</div>
+<div class="neben">
+ <div class="kasten"><div class="sw"><a class="on">SL-Karte</a><a>Spielerkarte</a></div></div>
+ <div class="kasten lst"><h3>Landmarken<span class="s">ziehen oder antippen</span></h3>
+  <div class="tf">TIEFE 0</div><div class="zl da">Derelictus, die Stadt dazwischen<em>gesetzt</em></div>
+  <div class="tf">TIEFE 1</div><div class="zl da">Grip Station<em>gesetzt</em></div><div class="zl da">Der Turm<em>gesetzt</em></div><div class="zl">Labyrinth<em>W6</em></div><div class="zl">Rotkappenhain<em>W6</em></div>
+  <div class="tf">TIEFE 2</div><div class="zl da">Avulse<em>gesetzt</em></div><div class="zl">Ghorryn<em>W6</em></div><div class="zl">Grin Station<em>W6</em></div>
+  <div class="tf">TIEFE 3</div><div class="zl">…<em></em></div>
+ </div>
+ <div class="det"><h3 class="h3">Grip Station <span class="s">S. 138</span></h3>
+  <div class="werte"><div><span class="lbl">Domains:</span> Haven, Technology</div><div><span class="lbl">Standard-Stress:</span> W6</div></div>
+  <div class="btn">Zur Landmarke</div></div>
+</div></div>
+<script>
+const W=1074,H=785,R=34,dx=R*Math.sqrt(3),dy=R*1.5;
+function hex(cx,cy){let p=[];for(let i=0;i<6;i++){const a=Math.PI/180*(60*i-30);p.push((cx+R*Math.cos(a)).toFixed(1)+','+(cy+R*Math.sin(a)).toFixed(1))}return p.join(' ')}
+let s='';for(let r=0;r*dy<H+R;r++)for(let c=0;c*dx<W+dx;c++){const cx=c*dx+(r%2?dx/2:0),cy=r*dy;s+='<polygon points="'+hex(cx,cy)+'" fill="none" stroke="#b4341d" stroke-opacity=".38" stroke-width="1.2"/>'}
+document.getElementById('hx').innerHTML=s;
+function P(c,r){return [c*dx+(r%2?dx/2:0)+10, r*dy+ 6]}
+const N=[['derel','Derelictus, die Stadt dazwischen','Haven · W4',5,2,0],['grip','Grip Station','Haven, Technology · W6',3,6,1,1],['turm','Der Turm','Haven, Warren · W4',9,7,1],['avu','Avulse','Cursed, Wild · W8',5,13,0]];
+let nodes='',pos={};
+N.forEach(n=>{const [x,y]=P(n[3],n[4]);pos[n[0]]=[x,y];nodes+='<div class="kn'+(n[6]?' sel':'')+'" style="left:'+x+'px;top:'+y+'px"><span class="platte">'+n[1]+'</span><small>'+n[2]+'</small></div>'});
+// Delves (Linien + Platten)
+const D=[['derel','grip','Delve W6'],['derel','turm','Delve W4'],['grip','avu','Delve W8',1]];
+let ln='',dv='';
+D.forEach(d=>{const a=pos[d[0]],b=pos[d[1]];ln+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="#7ba09e" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="'+(d[3]?'':'')+'"/>';dv+='<div class="dv'+(d[3]?' on':'')+'" style="left:'+((a[0]+b[0])/2)+'px;top:'+((a[1]+b[1])/2)+'px">'+d[2]+'</div>'});
+document.getElementById('ln').innerHTML=ln;
+document.getElementById('nodes').innerHTML=nodes+dv+'<div class="leer" style="left:'+P(10,12)[0]+'px;top:'+P(10,12)[1]+'px"></div><div class="leer" style="left:'+P(1,10)[0]+'px;top:'+P(1,10)[1]+'px"></div>';
+</script>
+<div class="ann" style="left:90px;top:228px"><b>1</b>Tiefe = Höhe: oben die Stadt, unten das Herz; der Grund wird mit jeder Tiefe dunkler</div>
+<div class="ann" style="left:560px;top:540px"><b>2</b>Sechseckraster wie die Buchkarte S. 208 – neu gesetzt, nicht als Bild</div>
+<div class="ann" style="left:640px;top:330px"><b>3</b>Delve = teal Platte auf der Linie mit Resistenz; Klick öffnet ihn in der Expedition</div>
+<div class="ann" style="left:1105px;top:150px"><b>4</b>Landmarke per Ziehen auf ein Feld setzen; gestrichelte Kreise = freie Felder</div>
+<div class="ann" style="left:1105px;top:628px"><b>5</b>Auswahl zeigt Kurzinfo + Sprung zur Landmarke; Schalter oben blendet die Spielerkarte (S. 103) ein</div>
+
+</body></html>

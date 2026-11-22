@@ -42,6 +42,7 @@
   }
   function hinweis(key, html, S){ return '<div class="cl' + ((S.hw || {})[key] ? ' dn' : '') + '" data-k="' + key + '"><b>Hinweis</b>' + nm(html) + '</div>'; }
   function fig(b, M){ return '<figure class="fig"><img src="img/' + b.plan + '.webp" alt="' + esc(b.planTitel) + '" data-big="img/' + b.plan + '.webp"><figcaption>' + esc(b.planTitel) + ' · ' + pg(M.buch, b.planS) + '</figcaption></figure>'; }
+  function figs(a, M){ var r = ""; (a.bilder || []).forEach(function(b){ r += '<figure class="fig' + (b.klein ? ' small' : '') + '"><img src="img/' + b.b + '.webp" alt="' + esc(b.t || "") + '" loading="lazy" data-big="img/' + b.b + '.webp">' + (b.t || b.s ? '<figcaption>' + esc(b.t || "") + (b.t && b.s ? ' · ' : '') + (b.s ? pg(M.buch, b.s) : '') + '</figcaption>' : '') + '</figure>'; }); return r; }
   function nscCard(M, k){ var n = M.nsc[k]; return '<article class="nscc"><h3>' + esc(n.name) + ' <small>' + (loop() === "boulder" ? "" : "") + '</small></h3><p class="zit">' + n.zitat + '</p>' + nm(n.html) + '<div class="pgr">' + pg(M.buch, n.s) + '</div></article>'; }
   function nscName(M, k){ var n = M.nsc[k]; return loop() === "boulder" ? n.alt : n.name; }
 
@@ -92,7 +93,7 @@
         ab = ab || P.abschnitte[0];
         var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
         main = ((hasMap || M.countdown) ? '<div class="top3' + (hasMap ? '' : ' cdonly') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div><div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') + (M.countdown ? countdown(M, S) : '') + '</div>' : '') +
-          '<div class="txt">' + '<div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + extraCards(M, ab) + '</div>';
+          '<div class="txt">' + '<div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>';
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';
     } else {
@@ -100,8 +101,8 @@
       P.abschnitte.forEach(function(x){
         if(x.nsc){ main2 += '<h2 class="loc">' + esc(x.titel) + '</h2><div class="body">' + nm(x.html) + '</div><div class="nscg">' + Object.keys(M.nsc || {}).map(function(k){ return nscCard(M, k); }).join("") + '</div>'; }
         else if(x.loop) main2 += loopBox(M, x, S);
-        else if(x.box) right += '<div class="tr"><h4>' + esc(x.titel) + ' ' + (x.s ? '<span class="pg">' + pg(M.buch, x.s) + '</span>' : '') + '</h4>' + nm(x.html) + '</div>';
-        else { main2 += section(M, x, S) + (x.plan ? fig(x, M) : ""); }
+        else if(x.box) right += '<div class="tr"><h4>' + esc(x.titel) + ' ' + (x.s ? '<span class="pg">' + pg(M.buch, x.s) + '</span>' : '') + '</h4>' + nm(x.html) + figs(x, M) + '</div>';
+        else { main2 += section(M, x, S) + (x.plan ? fig(x, M) : "") + figs(x, M); }
         if(x.abschluss) main2 += '<button class="fin' + ((load(M.id).fertig) ? ' on' : '') + '" id="finBtn">' + (S.fertig ? '✓ Mysterium abgeschlossen' : 'Mysterium abgeschlossen') + '</button>';
       });
       html = '<div class="main wide">' + (!main2 && right ? '<div class="boxgrid">' + right + '</div>' : '<div class="txt">' + (right ? '<div class="side2">' + right + '</div>' : '') + main2 + '</div>') + '</div>';

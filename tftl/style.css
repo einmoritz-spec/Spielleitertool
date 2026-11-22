@@ -304,3 +304,4 @@ details.lk[open] summary{display:none}
 .boxgrid .tr table{border-collapse:collapse;width:100%;font-size:.92rem}
 .boxgrid .tr th,.boxgrid .tr td{padding:4px 8px;vertical-align:top;border-bottom:1px solid #ddd}
 .boxgrid .tr th{text-align:left}
+.fig.small{max-width:300px}

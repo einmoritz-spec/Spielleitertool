@@ -29,7 +29,7 @@ function viewLm(a){
 }
 function nav(cur){ return window.spielNav(cur ? "" : "lm"); }
 window.spielNav = function(cur){
-  var T = [["lm","Landmarken","lm"],["gegner","Gegner","gegner"],["nach/spielleitung/landmarken-info","Über Landmarken",""]];
+  var T = [["lm","Landmarken","lm"],["gegner","Gegner","gegner"],["fallout","Fallout","fallout"],["nach/spielleitung/landmarken-info","Über Landmarken",""]];
   return '<nav class="tabs">' + T.map(function(t){ return '<a class="' + (t[2] && t[2] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + "</a>"; }).join("") + '<span class="sp"></span></nav>';
 };
 function viewDelve(id){

@@ -773,6 +773,7 @@ const FILES = [
   "heart/js/nach.js",
   "heart/js/landmarken.js",
   "heart/js/gegner.js",
+  "heart/js/fallout.js",
   "heart/js/data/nach-einfuehrung.js",
   "heart/js/data/nach-spielweise.js",
   "heart/js/data/nach-charaktere-a.js",

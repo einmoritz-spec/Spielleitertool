@@ -321,3 +321,13 @@ body{background-attachment:fixed}
 .gleg h2{font:400 32px/1 var(--head);margin:0 0 10px;color:#fff}.gleg .gz{border-color:#fff3}.gleg .gk b{color:#f0e4d4}.gleg .gw{opacity:.75}.gleg .gvs{background:#2a1c1c}.gleg .gv:nth-child(even){background:#331f1f}.gleg .gtext{color:#eadfce}
 @media(max-width:1100px){.gg{grid-template-columns:repeat(2,minmax(0,1fr))}.gz.auf{grid-column:span 2}.gcols{grid-template-columns:1fr}}
 .gleg .lbl{color:#d9a45a}.gleg .platte{background:#000;color:#fff}
+/* ---------- Fallout-Tab ---------- */
+.fowrap{margin:12px 14px;background:#f4eee3;padding:16px 20px 24px;border:1px solid #0006;color:#12120d}
+.fohead h1{display:inline;font:400 44px/1 var(--head);color:var(--platte);margin:0}.foin{font:italic 17px/1.35 var(--body);margin:6px 0 10px;max-width:820px}.foin a{cursor:pointer;color:var(--platte);text-decoration:underline}
+.fochips{margin:8px 0 6px}.fochips button{font:400 14px var(--plate);text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;margin-right:6px;background:none;border:1px solid #111;cursor:pointer}.fochips button.on{background:var(--platte);color:#fff;border-color:var(--platte)}
+.fostufe{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--platte);margin:18px 0 8px}.fostufe h2{font:400 30px/1 var(--head);text-transform:uppercase;margin:0}.fostufe i{font:italic 15px var(--body);opacity:.7}
+.fogrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;align-items:start}
+.foh{background:var(--platte);color:#fff;text-align:center;font:400 16px/1 var(--plate);text-transform:uppercase;letter-spacing:.08em;padding:8px}
+.fc{border:1px solid #0004;background:#fffaf0;margin-top:5px}.fk{display:flex;justify-content:space-between;gap:6px;padding:6px 9px;cursor:pointer;align-items:baseline}.fk b{font:400 15px/1.1 var(--plate);text-transform:uppercase;letter-spacing:.03em}.fk span{font:11px var(--plate);text-transform:uppercase;letter-spacing:.05em;opacity:.6;text-align:right}
+.fc.auf{border-color:#111;border-width:2px}.fc.auf .fk{background:var(--platte);color:#fff}.fi{padding:8px 10px 6px;font:15px/1.4 var(--body)}.fi p{margin:0 0 .6em}
+@media(max-width:1100px){.fogrid{grid-template-columns:repeat(2,minmax(0,1fr))}}

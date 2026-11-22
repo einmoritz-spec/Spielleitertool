@@ -654,6 +654,7 @@ const FILES = [
   "dragonbane/js/data/nach-k8-b.js",
   "dragonbane/js/data/nach-k8-c.js",
   "dragonbane/js/data/nach-k8-d.js",
+  "dragonbane/js/data/nach-ta.js",
   "dragonbane/js/data/nach-k2.js",
   "dragonbane/js/data/nach-k2-voelker.js",
   "dragonbane/js/data/nach-k2-berufe-a.js",

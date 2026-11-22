@@ -396,3 +396,28 @@ select.inp{appearance:auto}
 .mv .d6l .r{display:flex;gap:10px;padding:4px 8px;font-size:13px;cursor:pointer;border-bottom:1px solid #4a474a}.mv .d6l .r:nth-child(odd){background:#343234}.mv .d6l .r .n{color:var(--g);min-width:24px}.mv .d6l .r.done{opacity:.4;text-decoration:line-through}
 .tb{border-collapse:collapse;width:100%;font-size:13.5px;margin-bottom:6px}.tb th,.tb td{border-bottom:1px solid #4a474a;padding:5px 8px;text-align:left}.tb th{color:var(--g)}
 @media(max-width:1180px){.mvhome{grid-template-columns:1fr}.mvcards,.mvgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.mvw{grid-template-columns:1fr}}
+
+/* ===== Heimat (weiß + Gelb) ===== */
+.hmsub{display:flex;flex-wrap:wrap;gap:4px 18px;padding:14px 28px 14px;border-bottom:1px solid #e4dfee}
+.hmsub a{font:800 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:#8d8699;cursor:pointer;padding:3px 0;border-bottom:3px solid transparent}.hmsub a:hover{color:var(--lila)}.hmsub a.on{color:#000;border-bottom-color:var(--gelb)}
+.hm{padding:22px 28px 44px}
+.hmh{display:flex;align-items:baseline;gap:10px}.hmh h1{margin:0;font:400 52px/1 var(--marker);color:var(--pink);text-transform:uppercase}
+.hmw{display:grid;grid-template-columns:minmax(0,1fr) clamp(300px,25vw,360px);gap:34px;align-items:start}
+.hm .tx{columns:2;column-gap:32px;font-size:15px;line-height:1.55;margin-top:14px}.hm .tx p{margin:0 0 .8em;break-inside:avoid-column}
+.hm .nbs{font-size:12px;color:#8d8699;font-style:italic;margin:8px 0}
+.hmbx{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}.hmbx .box p:last-child{margin:0}
+.hmnull{margin-top:16px;border-top:2px solid var(--gelb);padding-top:8px}.hmnull summary{cursor:pointer;font:900 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--lila)}.hmnull summary span{font-weight:600;letter-spacing:0;text-transform:none;color:#8d8699;margin-left:8px}
+.hm .ct{font:900 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--lila);margin:0 0 8px;border-bottom:3px solid var(--gelb);padding-bottom:4px}.hmr .ct+.cl+.more+.ct,.hmr .cl+.ct{margin-top:20px}
+.hmmap{display:grid;grid-template-columns:minmax(420px,44%) minmax(0,1fr);gap:28px;margin-top:30px;align-items:start}
+.hmm{position:relative;line-height:0;box-shadow:0 4px 14px rgba(0,0,0,.18)}.hmm img{width:100%;height:auto;display:block}
+.pin{position:absolute;width:6%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:3px solid transparent;background:transparent;cursor:pointer;padding:0}.pin:hover{border-color:var(--gelb)}.pin.on{border-color:#000;background:rgba(255,216,77,.55)}
+.hmo{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;max-height:none}
+.hmo .o{display:flex;gap:10px;padding:8px 10px;cursor:pointer;border-left:4px solid transparent;font-size:13px;line-height:1.45}.hmo .o:hover{background:#faf7ff}.hmo .o.on{background:#fff3b8;border-left-color:#000}
+.hmo .o b{font:900 15px var(--body);color:var(--mag);min-width:22px}.hmo h4{margin:0 0 2px;font:800 13.5px var(--body)}.hmo p{margin:0}
+.hm .von{font-style:italic;color:#6d6677;font-size:14px;margin:8px 0 0}
+.hmf{list-style:none;margin:0;padding:0}.hmf li{padding:8px 10px;font-size:14px;line-height:1.45;border-bottom:1px solid #eee;cursor:pointer}.hmf li:hover{background:#faf7ff}.hmf li.done{color:#a9a3b0;text-decoration:line-through}
+.hmg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}.hmc{border-top:4px solid var(--gelb);background:#faf7ff;padding:12px 14px;cursor:pointer}.hmc:hover{background:#f1ebfb}.hmc h3{margin:0;font:400 22px/1.1 var(--marker);color:var(--pink);text-transform:uppercase}.hmc .von{margin:4px 0 6px;font-size:12px}.hmc p{margin:0;font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.hmt{max-width:640px}.hmt th,.hmt td{border-bottom:1px solid #e4dfee}.hmt th{color:var(--lila)}
+@media(max-width:1180px){.hmw,.hmmap{grid-template-columns:1fr}.hmg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hmo .o{margin:0!important;padding:6px 10px!important;min-height:0!important}.hmo{gap:2px 18px;align-content:start}
+.hmm{position:sticky;top:12px}

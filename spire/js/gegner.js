@@ -67,7 +67,7 @@ function gBlock(g, opt){
   dt("Ausrüstung", gAusr(g));
   dt("Druckmittel", g.druck ? md(g.druck) : "");
   var ziel = gZiel(g);
-  return '<div class="gegner gblk" data-pgbook="' + buchId(gBuch(g)) + '"><div class="kopf">' + (g.img ? '<img src="' + IMG(g.img) + '" alt="">' : '') + '<h4>' + esc(g.t) + (g.en && g.en !== g.t ? ' <span class="en">' + esc(g.en) + '</span>' : '') + '</h4>' + pgl(g.p, gBuch(g)) + '</div><dl>' + rows + '</dl>' +
+  return '<div class="gegner gblk" data-pgbook="' + buchId(gBuch(g)) + '"><div class="kopf">' + (g.img ? '<img src="' + IMG(g.img) + '" alt="">' : '') + '<h4>' + esc(g.t) + '</h4>' + pgl(g.p, gBuch(g)) + '</div><dl>' + rows + '</dl>' +
     '<div class="gfuss">' + (ziel && !opt.ohneZiel ? '<span class="chip" onclick="go(\'' + ziel + '\')">' + esc(g.ort) + '</span>' : '<i></i>') + '<span class="chip w" onclick="bgAdd(\'' + g.id + '\')">+ Begegnung</span></div></div>';
 }
 /* Gegner-Karte zum Einbinden in Texte: zugeklappt schlicht und klein, Klick klappt den Werteblock auf */
@@ -101,18 +101,26 @@ function begLeiste(immer){
   return '<div class="begl"><h5>Begegnung</h5>' + items + '<span class="bplus" onclick="bgPick()">+ Gegner</span>' + (L.length ? '<span class="bplus" onclick="bgClear()">Leeren</span>' : '') + '</div>';
 }
 
-/* ---------- Gegner-Browser: kompakte Karten links, Werteblock rechts (Entwurf 5) ---------- */
-function gKompakt(g, sel){
-  var e = gEntry(g.id), ziel = gZiel(g), on = sel ? sel.id === g.id : ST.gsel === g.id;
-  return '<div class="gc' + (on ? ' sel' : '') + '" onclick="gSel(\'' + g.id + '\')"><div class="gck"><h4>' + esc(g.kurz || g.t) + '</h4></div>' +
-    '<div class="gcz"><span>Schw. ' + esc(g.schw ? g.schw.k : "·") + '</span><span>Wid. ' + esc(gWidTxt(g)) + '</span></div>' +
-    '<div class="gcc">' + gKurzChips(g) + '</div><div class="gcf">' + esc(g.ort || "") + ' · ' + pgl(g.p, gBuch(g)) + '</div></div>';
+/* ---------- Gegner-Raster: gleichmäßige Kacheln, Klick klappt den Werteblock darunter über die volle Breite auf ---------- */
+function gKachel(g){
+  var on = ST.gsel === g.id, e = gEntry(g.id), dm = [], ru = [];
+  (g.ausr || []).forEach(function(a){ if(typeof a === "string") return; if(a.dmg && dm.indexOf(a.dmg) < 0) dm.push(a.dmg); (a.tags || []).forEach(function(t){ if(/^Rüstung/.test(t) && ru.indexOf(t) < 0) ru.push(t); }); });
+  return '<div class="gx' + (on ? ' on' : '') + (e ? ' inb' : '') + '" id="gx-' + g.id + '" onclick="gTog(\'' + g.id + '\')">' +
+    (g.img ? '<img class="gx-i" src="' + IMG(g.img) + '" alt="">' : '') +
+    '<div class="gx-t"><h4>' + esc(g.kurz || g.t) + '</h4><div class="gx-o">' + esc(g.ort || "") + '</div>' +
+    '<div class="gx-m"><span class="gx-s">Schw. ' + esc(g.schw ? g.schw.k : "·") + '</span>' + ru.concat(dm).map(function(t){ return '<span class="gx-d">' + esc(t) + '</span>'; }).join("") + '</div></div>' +
+    '<div class="gx-w"><b>' + esc(gWidTxt(g)) + '</b><small>Wid.</small></div></div>' +
+    (on ? '<div class="gx-det" onclick="event.stopPropagation()"><button class="gx-zu" onclick="gTog(\'' + g.id + '\')" title="Schließen">×</button>' + gBlock(g) + '</div>' : '');
 }
-function gegnerBrowser(L){
-  if(!L.length) return "";
-  var sel = L.filter(function(g){ return g.id === ST.gsel; })[0] || L[0];
-  return '<div class="gbr"><div class="gbl">' + L.map(function(g){ return gKompakt(g); }).join("") + '</div><div class="gbd">' + gBlock(sel) + '</div></div>';
+function gRaster(L){ return '<div class="gx-r">' + L.map(gKachel).join("") + '</div>'; }
+function gTog(id){
+  ST.gsel = ST.gsel === id ? null : id; save();
+  if(document.getElementById("gbl")) gAktual(); else render();
+  var k = document.getElementById("gx-" + id), d = document.querySelector(".gx-det");
+  if(k && d){ var oben = 240, r = k.getBoundingClientRect(), u = d.getBoundingClientRect(); if(r.top < oben || u.bottom > innerHeight) scrollBy({top:r.top - oben, behavior:"smooth"}); }
 }
+/* Snuff Out the Sun (Reiter Gegner): dasselbe Raster ohne Gruppen */
+function gegnerBrowser(L){ return L.length ? '<div class="gx-wrap">' + gRaster(L) + '</div>' : ""; }
 /* ---------- Gegner-Seite (#gegner): Baum nach Domäne links, Suche + Filter, Karten, Werteblock rechts ---------- */
 var GQ = "";
 function gKey(g){
@@ -138,12 +146,19 @@ function gFiltert(){
 }
 function gDom(k){ ST.gdom = k; save(); render(); }
 function gFilter(f){ ST.gf = f; save(); render(); }
-function gAktual(){
-  var L = gFiltert(), sel = L.filter(function(g){ return g.id === ST.gsel; })[0] || L[0];
-  var a = document.getElementById("gbl"), b = document.getElementById("gbd");
-  if(a) a.innerHTML = L.length ? L.map(function(g){ return gKompakt(g, sel); }).join("") : '<p class="leise">Kein Gegner gefunden.</p>';
-  if(b) b.innerHTML = sel ? gBlock(sel) : "";
+function gListe(){
+  var L = gFiltert(); if(!L.length) return '<p class="leise">Kein Gegner gefunden.</p>';
+  var h = "";
+  gGruppen().forEach(function(x){
+    var T = L.filter(function(g){ return gKey(g) === x.k; }); if(!T.length) return;
+    var n = T.some(function(g){ return g.id === ST.gsel; }) ? "v" : Math.min(T.length, 4);
+    h += '<section class="gx-g n' + n + '"><h3>' + esc(x.t) + (x.sek !== "Nach Domäne" ? '<small>' + esc(x.sek) + '</small>' : '') + '<em>' + T.length + '</em></h3>' + gRaster(T) + '</section>';
+  });
+  var R = L.filter(function(g){ return !gGruppen().some(function(x){ return x.k === gKey(g); }); });
+  if(R.length) h += '<section class="gx-g nv"><h3>Weitere</h3>' + gRaster(R) + '</section>';
+  return '<div class="gx-gs">' + h + '</div>';
 }
+function gAktual(){ var a = document.getElementById("gbl"); if(a) a.innerHTML = gListe(); }
 function gSuche(v){ GQ = v; gAktual(); }
 function gSeite(){
   var G = gGruppen(), alle = SP_GEGNER, dom = ST.gdom || "alle", f = ST.gf || "alle";
@@ -156,13 +171,12 @@ function gSeite(){
   });
   side += '<a onclick="go(\'nach/ausruestung/tags\')">Tags<span class="pg">S. 21</span></a><a onclick="go(\'nach/kampf\')">Kampf<span class="pg">S. 77</span></a>';
   var chips = [["alle", "Alle"], ["0", "Schwierigkeit 0"], ["1", "1"], ["2", "2+"], ["fern", "Mit Fernkampf"]].map(function(c){ return '<span class="' + (f === c[0] ? 'on' : '') + '" onclick="gFilter(\'' + c[0] + '\')">' + esc(c[1]) + '</span>'; }).join("");
-  var L = gFiltert(), sel = L.filter(function(g){ return g.id === ST.gsel; })[0] || L[0];
-  var body = '<div class="gbr"><div><div class="gfl"><input type="search" placeholder="Suchen …" value="' + esc(GQ) + '" oninput="gSuche(this.value)"><div class="wch">' + chips + '</div></div>' +
-    '<div class="gbl" id="gbl">' + (L.length ? L.map(function(g){ return gKompakt(g, sel); }).join("") : '<p class="leise">Kein Gegner gefunden.</p>') + '</div></div><div class="gbd" id="gbd">' + (sel ? gBlock(sel) : "") + '</div></div>';
+  var body = '<div class="gx-wrap"><div class="gfl"><input type="search" placeholder="Gegner suchen …" value="' + esc(GQ) + '" oninput="gSuche(this.value)"><div class="wch">' + chips + '</div></div>' +
+    '<div id="gbl">' + gListe() + '</div></div>';
   return lay(side, body, false).replace('<div class="wrap', '<div class="wrap gb');
 }
 SP_VIEW.gegner = function(teile){
-  if(teile[0] && gById(teile[0])){ ST.gsel = teile[0]; ST.gdom = gKey(gById(teile[0])); ST.gf = "alle"; GQ = ""; }
+  if(teile[0] && gById(teile[0])){ ST.gsel = teile[0]; ST.gdom = gKey(gById(teile[0])); ST.gf = "alle"; GQ = ""; setTimeout(function(){ var d = document.getElementById("gx-" + teile[0]); if(d) d.scrollIntoView({block:"center"}); }, 60); }
   return spielTabs("gegner") + begLeiste(true) + gSeite();
 };
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){

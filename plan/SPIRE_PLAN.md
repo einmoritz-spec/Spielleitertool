@@ -374,3 +374,6 @@ Regeln: sofort sprechend benennen; Großansicht immer ungeschnitten; nie ein Bil
 
 - **Weitere Bücher** aus dem Drive (Liste in `spire/sys.js`): Sourcebooks *Sin*, *Strata* (enthält u. a. die Grundklassen Blood-Witch/Gutter Cleric/Inksmith …), *Blood and Dust*, *Codex of the Deep Spire*, *Shadow Operations*, *Black Magic*, *Secrets Kept from the Sun*, *Book of Masks*, Abenteuer *The Kings of Silver* (Kampagnenrahmen), *Eidolon Sky*, *Maps*. Neue Abenteuer nutzen `abenteuer.js` (Tabs je nach Buchstruktur), neue Distrikte hängen sich an die Domänen, neue Klassen an die Klassen-Übersicht. Jedes Buch: eigene Bookviewer-ID + Seitenversatz, Bilder ins Inventar.
 - **Interaktiver Charakterbogen** (Klick auf „Charakterbogen“ öffnet eine ausfüllbare Ansicht des Bogens S. 212, perfekt passend als PDF druckbar) – **allerletzter Schritt**, wie bei Pico.
+
+### Stand Startseite (22. Nov. 2026)
+Vorbereitung = 3-spaltiges Kachelraster mit 9 Kacheln (Welt mit Stadtkarte, Regeln, Klassen, Fertigkeiten/Ausrüstung, Spire in Kürze, Spielleitung, Magister's Guide, Götter/Anhänge, Buch der Masken); Bereiche ohne Inhalt tragen ein kleines „folgt“. Werkzeug-Chips entfernt (nur Burger/Kopfzeile). Daten: `SP_KACHELN` in `spire/js/data/bereiche.js`.

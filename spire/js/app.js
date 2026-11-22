@@ -119,7 +119,7 @@ function jump(id){ var e = document.getElementById(id); if(!e) return; var y = e
 function viewStart(){
   var last = ST.last || "";
   var kach = SP_KACHELN.map(function(k){
-    return '<button class="k" onclick="go(\'' + k.go + '\')"><div class="im"><img src="' + IMG(k.img) + '" alt="" style="object-position:' + (k.pos || "center 30%") + '"></div><h3>' + esc(k.t) + '</h3><small>' + esc(k.s) + ' <i>·</i>' + pgl(k.p, k.buch).replace('class="pg"', 'class="pg kp"') + '</small></button>';
+    return '<button class="k' + (k.folgt ? ' fo' : '') + '" onclick="go(\'' + k.go + '\')"><div class="im"><img src="' + IMG(k.img) + '" alt="" style="object-position:' + (k.pos || "center 30%") + '"></div><h3>' + esc(k.t) + (k.folgt ? '<em>folgt</em>' : '') + '</h3><small>' + esc(k.s) + (k.p != null ? ' <i>·</i>' + pgl(k.p, k.buch).replace('class="pg"', 'class="pg kp"') : '') + '</small></button>';
   }).join("");
   var spiel = SP_SPIEL.map(function(z){ return '<button class="z' + (last === z.id ? ' on' : '') + '" onclick="go(\'' + z.id + '\')"><h4>' + esc(z.t) + '</h4><small>' + esc(z.s) + '</small></button>'; }).join("");
   var ab = Object.keys(SP_ABENTEUER).map(function(id){ var A = SP_ABENTEUER[id];
@@ -128,7 +128,7 @@ function viewStart(){
   var R = SP_REVOLUTION, rv = ST.rev || 0;
   return '<div class="hero"><div class="verlauf"></div><h1>Spire</h1><p>Spire ist eine meilenhohe, unmögliche Stadt, älter als irgendwer zurückdenken kann.</p></div>' +
     '<div class="start"><div><h2 class="ab" style="margin-top:4px">Vorbereitung</h2><div class="kach">' + kach + '</div>' +
-    '<div class="chips"><span onclick="charakterbogen()">Charakterbogen</span><span onclick="schirmOpen()">Spielleiterschirm</span><span onclick="wOpen()">Würfel</span><span onclick="go(\'nach/regeln/fallout\')">Fallout-Liste</span><span onclick="go(\'galerie\')">Galerie</span></div></div>' +
+    '</div>' +
     '<div class="los"><h2>Losschlagen</h2><div class="gross">' + spiel + '</div>' + ab +
     (bald.length ? '<div class="bald">Weitere Abenteuer<br>' + bald.map(function(b){ return '<span onclick="openBook(\'' + b.id + '\',1)">' + esc(b.abenteuer) + '</span>'; }).join("") + '</div>' : '') +
     '<div class="rev"><h5 onclick="go(\'nach/spielleitung/revolution\')">Die Revolution' + pgl(R.p) + '</h5><div class="stufen">' + R.stufen.map(function(s, i){ return '<button class="' + (rv === i ? 'on' : '') + '" onclick="setRev(' + i + ')">' + esc(s) + '</button>'; }).join("") + '</div></div>' +

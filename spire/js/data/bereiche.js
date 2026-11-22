@@ -18,14 +18,15 @@ window.SP_NACH_BEREICHE = {
 };
 /* Startseite, Block „Vorbereitung“ (Entwurf 1): Kachelbild nur als Ausschnitt im Kachelkopf */
 window.SP_KACHELN = [
-  {t:"Die Welt",                    s:"Willkommen in Spire · Die Welt von Spire · Drow, Aelfir, Menschen", buch:"cmf", p:1,   img:"kapitel/welt-S004",          pos:"center 30%", go:"nach/welt"},
-  {t:"Regeln",                      s:"Kernmechanik · Stress · Fallout · Bindungen · Kampf",               buch:"cmf", p:9,   img:"kapitel/regeln-S012",        pos:"center 22%", go:"nach/regeln"},
-  {t:"Klassen",                     s:"10 Klassen + 5 aus dem Magister's Guide · Extra-Fortschritte",      buch:"cmf", p:25,  img:"klasse/azurite",             pos:"center 20%", go:"nach/klassen"},
-  {t:"Fertigkeiten und Ausrüstung", s:"Fertigkeiten · Domänen · Tags · Kaufen und Verkaufen",              buch:"cmf", p:17,  img:"kapitel/ausruestung-S020",   pos:"center 30%", go:"nach/fertigkeiten"},
-  {t:"Spire in Kürze",              s:"Die Regeln aus dem Quickstart · Tipps und Hinweise",                buch:"qs",  p:1,   img:"titel/qs-cover",             pos:"center 92%", go:"nach/kurz"},
-  {t:"Spielleitung",                s:"Die Revolution · Schwierigkeit · Ein guter Schurke · Magie",         buch:"cmf", p:173, img:"kapitel/spielleitung-S180",  pos:"center 25%", go:"nach/spielleitung"},
-  {t:"Magister's Guide",            s:"Freiheit · Fortschritts-Beats · Erwerbungen · Unterschlupf · Essays", buch:"gm", p:4,   img:"kapitel/mg-unterschlupf-S016", pos:"center 30%", go:"nach/mg"},
-  {t:"Anhänge",                     s:"Neue Götter · Zufallstabellen · Drow-Glossar · Ziegen · Arkologien", buch:"cmf", p:183, img:"gott/luxulyan",              pos:"center 30%", go:"nach/goetter"}
+  {t:"Die Welt",                    s:"Stadtkarte · Domänen · Drow, Aelfir, Menschen",           buch:"cmf", p:1,   img:"karte",                      pos:"center 18%", go:"nach/welt", folgt:1},
+  {t:"Regeln",                      s:"Kernmechanik · Stress · Fallout · Kampf",                 buch:"cmf", p:9,   img:"kapitel/regeln-S012",        pos:"center 22%", go:"nach/regeln"},
+  {t:"Klassen",                     s:"10 Klassen · 5 aus dem Magister's Guide",                 buch:"cmf", p:25,  img:"klasse/azurite",             pos:"center 20%", go:"nach/klassen", folgt:1},
+  {t:"Fertigkeiten und Ausrüstung", s:"Fertigkeiten · Domänen · Tags · Kaufen und Verkaufen",    buch:"cmf", p:17,  img:"kapitel/ausruestung-S020",   pos:"center 30%", go:"nach/fertigkeiten"},
+  {t:"Spire in Kürze",              s:"Die Regeln aus dem Quickstart",                           buch:"qs",  p:1,   img:"titel/qs-cover",             pos:"center 92%", go:"nach/kurz", folgt:1},
+  {t:"Spielleitung",                s:"Revolution · Schwierigkeit · Ein guter Schurke · Magie",   buch:"cmf", p:173, img:"kapitel/spielleitung-S180",  pos:"center 25%", go:"nach/spielleitung", folgt:1},
+  {t:"Magister's Guide",            s:"Freiheit · Beats · Erwerbungen · Unterschlupf · Essays",  buch:"gm",  p:4,   img:"kapitel/mg-unterschlupf-S016", pos:"center 30%", go:"nach/mg", folgt:1},
+  {t:"Götter und Anhänge",          s:"Neue Götter · Zufallstabellen · Drow-Glossar",            buch:"cmf", p:183, img:"gott/luxulyan",              pos:"center 30%", go:"nach/goetter", folgt:1},
+  {t:"Buch der Masken",             s:"Masken · Fortschritte · Ausrüstung",                      buch:"z1",  p:null, img:"masken/titel",              pos:"center 20%", go:"masken"}
 ];
 /* Startseite, Block „Losschlagen“: die vier Spielbereiche (= Haupt-Tabs) */
 window.SP_SPIEL = [

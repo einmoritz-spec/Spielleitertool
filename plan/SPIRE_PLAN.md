@@ -377,3 +377,8 @@ Regeln: sofort sprechend benennen; Großansicht immer ungeschnitten; nie ein Bil
 
 ### Stand Startseite (22. Nov. 2026)
 Vorbereitung = 3-spaltiges Kachelraster mit 9 Kacheln (Welt mit Stadtkarte, Regeln, Klassen, Fertigkeiten/Ausrüstung, Spire in Kürze, Spielleitung, Magister's Guide, Götter/Anhänge, Buch der Masken); Bereiche ohne Inhalt tragen ein kleines „folgt“. Werkzeug-Chips entfernt (nur Burger/Kopfzeile). Daten: `SP_KACHELN` in `spire/js/data/bereiche.js`.
+
+### Stand nach Klassen (Schritt 8/9, 22. Nov. 2026)
+- **Klassen** (`spire/js/klassen.js`): `#nach/klassen` = Übersicht (Entwurf 7, 5 Spalten, 10 Kacheln) + Abschnitte Charaktere/Dienstzeit (S. 25–27, `klassen-charaktere.js`); `#nach/klassen/<id>` = Klassenseite (Entwurf 8) mit Reiterzeile zum Wechseln der Klasse; `#nach/extra[/<weg>]` = Extra-Fortschritte (11 Wege, Baum links). Daten je Klasse `klasse-<id>.js`, `extra-a/-b.js`; alle per `plan/spire/build_klassen.py` aus `quellen/spire/de/cmf/k06–k08` erzeugt (bei Textkorrekturen: Markdown ändern, Skript neu laufen lassen).
+- Fortschrittskarten: Flex-Raster (4/3 je Zeile, lange Karten doppelt breit), Stufen-Etikett links sticky (`.main:has(.kp){overflow:clip}` nötig). Waffenwerte in der Ausrüstung als Chips mit Tag-Tooltip.
+- Offen (Schritt 10): Magister's-Guide-Zusatz je Klasse + die 5 MG-Klassen (Kachelreihe lila, 5 Spalten passen); das Reiterzeilen-Feld „Magister's Guide: Zusatz“ kommt dann neben die Klassenreiter. Das MG-PDF enthält keine eigenen Klassenbilder (nur Hintergrund-Silhouetten); Gutter Cleric hat sein Bild aus dem Quickstart.

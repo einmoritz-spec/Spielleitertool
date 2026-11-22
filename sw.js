@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v663sp";
+const VERSION = "v664sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -387,6 +387,20 @@ const FILES = [
   "spire/js/stadt.js",
   "spire/js/abenteuer.js",
   "spire/js/nach.js",
+  "spire/js/data/klasse-azurite.js",
+  "spire/js/data/klasse-bound.js",
+  "spire/js/data/klasse-carrion-priest.js",
+  "spire/js/data/klasse-firebrand.js",
+  "spire/js/data/klasse-idol.js",
+  "spire/js/data/klasse-knight.js",
+  "spire/js/data/klasse-lajhan.js",
+  "spire/js/data/klasse-masked.js",
+  "spire/js/data/klasse-midwife.js",
+  "spire/js/data/klasse-vermissian-sage.js",
+  "spire/js/data/extra-a.js",
+  "spire/js/data/extra-b.js",
+  "spire/js/data/klassen-charaktere.js",
+  "spire/js/klassen.js",
   "spire/js/zufall.js",
   "spire/js/schirm.js",
   "spire/js/suche.js",

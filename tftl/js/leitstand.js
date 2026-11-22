@@ -22,7 +22,7 @@
 
   /* Ablauf: rechtwinklige SVG-Linien wie im Entwurf, Knoten anklickbar */
   function ablauf(M, cur, S){
-    var n = M.orte.length, W = 350, nodeW = 110, gap = (W - n * nodeW) / (n - 1), xs = [];
+    var n = M.orte.length, W = n > 3 ? Math.max(560, n * 132) : 350, nodeW = n > 3 ? 122 : 110, gap = (W - n * nodeW) / (n - 1), xs = [];
     for(var i = 0; i < n; i++) xs.push(Math.round(i * (nodeW + gap)));
     var mid = W / 2, y0 = 32, yb = 64, yn = 94, yb2 = 154, yj = 184, ys = 216;
     var vis = S.orte || {};
@@ -33,10 +33,10 @@
     var first = xs[0] + nodeW / 2, last = xs[n - 1] + nodeW / 2;
     g += '<path d="M' + first + ' ' + yb2 + 'V' + (yj - 8) + 'Q' + first + ' ' + yj + ' ' + (first + 8) + ' ' + yj + 'H' + (last - 8) + 'Q' + last + ' ' + yj + ' ' + last + ' ' + (yj - 8) + 'V' + yb2 + '" stroke="#bfb5a3"/>';
     g += '<path d="M' + mid + ' ' + yj + 'V' + ys + '" stroke="#bfb5a3" marker-end="url(#a)"/>';
-    var h = '<div class="fc"><svg width="350" height="250" viewBox="0 0 350 250"><defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#bfb5a3"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#ee7113"/></marker></defs><g fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + g + '</g></svg>' +
-      '<a class="nd end st" href="#m/' + M.id + '/mysterium">Mysterium einführen</a>';
-    M.orte.forEach(function(o, i){ var on = o.id === cur, dn = vis[o.id] && !on; h += '<a class="nd o' + (on ? ' on' : '') + (dn ? ' dn' : '') + '" style="left:' + xs[i] + 'px" href="#m/' + M.id + '/loesung/' + o.id + '"><i>' + o.nr + '</i><span>' + esc(o.name.replace(/^(Das|Der|Die) /, "").replace(/^Haus des Ornithologen$/, "Haus des Ornitho­logen").replace(/ verlassenes Haus$/, " Haus")) + '</span></a>'; });
-    return h + '<a class="nd end sd" href="#m/' + M.id + '/showdown">Showdown</a></div>';
+    var h = '<div class="fc" style="width:' + W + 'px"><svg width="' + W + '" height="250" viewBox="0 0 ' + W + ' 250"><defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#bfb5a3"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#ee7113"/></marker></defs><g fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + g + '</g></svg>' +
+      '<a class="nd end st" style="left:' + (W - 200) / 2 + 'px" href="#m/' + M.id + '/mysterium">Mysterium einführen</a>';
+    M.orte.forEach(function(o, i){ var on = o.id === cur, dn = vis[o.id] && !on; h += '<a class="nd o' + (on ? ' on' : '') + (dn ? ' dn' : '') + '" style="left:' + xs[i] + 'px;width:' + nodeW + 'px" href="#m/' + M.id + '/loesung/' + o.id + '"><i>' + o.nr + '</i><span>' + esc(o.name.replace(/^(Das|Der|Die) /, "").replace(/^Haus des Ornithologen$/, "Haus des Ornitho­logen").replace(/ verlassenes Haus$/, " Haus")) + '</span></a>'; });
+    return h + '<a class="nd end sd" style="left:' + (W - 200) / 2 + 'px" href="#m/' + M.id + '/showdown">Showdown</a></div>';
   }
   function karte(M, cur, S){
     var l = loop() === "boulder" ? "boulder" : "maelar", vis = S.orte || {};
@@ -104,7 +104,7 @@
         ab = ab || P.abschnitte[0];
         var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
         var cdSide = (!hasMap && M.countdown) ? countdown(M, S) : "";
-        main = ((hasMap) ? '<div class="top3' + (hasMap && M.orte.length > 3 ? ' t2' : '') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' + (M.orte.length <= 3 ? '<div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') + (M.countdown ? countdown(M, S) : '') + '</div>' : '') +
+        main = ((hasMap) ? '<div class="top3' + (hasMap && M.orte.length > 3 ? ' t2' : '') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' + (M.orte.length <= 3 ? '<div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') + (M.countdown ? countdown(M, S) : '') + '</div>' + (M.orte.length > 3 ? '<div class="flowrow"><div class="cap">Ablauf</div><div class="flow wide">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') +
           '<div class="txt">' + '<div class="side2">' + cdSide + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>';
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';

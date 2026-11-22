@@ -49,7 +49,7 @@ function nabs(a){
     cur = (cur || "") + nbody([b]);
   });
   flush();
-  return '<div class="gr">' + cells.join("") + '</div>';
+  return '<div class="gr' + (window.__fk === "ka" ? ' mas' : '') + '">' + cells.join("") + '</div>';
 }
 function nachFlat(){ var r = []; NACH_TABS.forEach(function(t){ var d = nachKap(t[0]); if(d) d.abs.forEach(function(a){ r.push([t[0], a.id, d, a]); }); }); return r; }
 DB_VIEWS.n = function(h){
@@ -65,3 +65,25 @@ DB_VIEWS.n = function(h){
     '<div class="fuss"><div class="fz">' + fl(pv, "pv") + '<div class="em" title="' + esc((K.n ? 'Kapitel ' + K.n + ' – ' : '') + K.t) + '">' + esc(K.n) + '</div>' + fl(nx, "nx") + '</div></div>';
   return tb + lay(side, body);
 };
+
+/* Masonry-Packung für .gr.mas: Zellen wandern in die jeweils kürzeste Spalte (keine Lücken); .voll-Zellen trennen Gruppen */
+function masPack(g){
+  if(!g._z){ g._z = Array.prototype.slice.call(g.children); }
+  var W = g.clientWidth, n = Math.max(1, Math.floor((W + 30) / 360));
+  if(g._n === n) return; g._n = n;
+  g.innerHTML = ""; var row = null, cols = null;
+  g._z.forEach(function(z){
+    if(z.classList.contains("voll") || n === 1){ row = null; g.appendChild(z); return; }
+    if(!row){ row = document.createElement("div"); row.className = "mrow"; cols = []; for(var i = 0; i < n; i++){ var c = document.createElement("div"); c.className = "mcol"; row.appendChild(c); cols.push(c); } g.appendChild(row); }
+    var m = cols[0]; cols.forEach(function(c){ if(c.offsetHeight < m.offsetHeight) m = c; }); m.appendChild(z);
+  });
+}
+(function(){
+  var prev = window.afterRender;
+  window.afterRender = function(){
+    if(prev) prev();
+    var g = document.querySelector(".gr.mas"); if(!g) return;
+    masPack(g);
+    if(window.ResizeObserver){ if(window.__mro) window.__mro.disconnect(); window.__mro = new ResizeObserver(function(){ var x = document.querySelector(".gr.mas"); if(x) masPack(x); }); window.__mro.observe(g); }
+  };
+})();

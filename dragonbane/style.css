@@ -474,3 +474,12 @@ table.w6.kl tr.weg td{opacity:.4;text-decoration:line-through}
 .gr .karte.z2{grid-column:span 2}
 .gr .karte.z2 p{column-gap:28px}
 @media(max-width:1000px){.gr .karte.z2{grid-column:auto}}
+
+.gr.mas .mrow{grid-column:1/-1;display:flex;gap:30px;align-items:flex-start}
+.gr.mas .mcol{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:22px}
+.gr.mas .ab.l2{column-count:1}
+.gr.mas .zelle{padding-top:26px}
+.gr.mas>.voll{margin-bottom:0}
+.gr.mas>*{margin-bottom:0}
+.gr.mas .karte{margin-top:0}
+.karte.nkk .nt,.gr .karte.nkk p{color:var(--braun)}

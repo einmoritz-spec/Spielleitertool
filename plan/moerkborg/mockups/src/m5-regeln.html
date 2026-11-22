@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="mb.css">
+<style>
+body{background:var(--weiss);color:var(--schwarz)}
+.leib{display:grid;grid-template-columns:256px 1fr;height:796px}
+.seite{background:var(--gelb);border-right:2px solid var(--schwarz);padding:48px 0 14px;position:relative}
+.seite .zu{position:absolute;right:10px;top:12px;width:26px;height:26px;border:1.5px solid var(--schwarz);display:grid;place-items:center;font:700 15px/1 var(--grotesk)}
+.seite .gr{font:700 10.5px var(--grotesk);letter-spacing:.18em;text-transform:uppercase;color:#6b6200;padding:6px 22px 8px}
+.seite a{display:flex;justify-content:space-between;align-items:baseline;padding:7px 22px;font:500 15.5px/1.25 var(--grotesk);color:var(--schwarz);text-decoration:none}
+.seite a i{font:400 11.5px var(--mono);font-style:normal;color:#6b6200}
+.seite a.on{background:var(--schwarz);color:var(--gelb)}
+.seite a.on i{color:#a89e2a}
+.inhalt{padding:26px 44px 0;overflow:hidden}
+.inhalt h1{margin:0;font:700 56px/1 var(--fraktur);display:flex;align-items:baseline;gap:12px}
+.lead{margin:6px 0 18px;font:700 15px/1.4 var(--mono);color:var(--pink);max-width:820px}
+.vier{display:grid;grid-template-columns:1fr 1.45fr;gap:36px;border-top:3px solid var(--schwarz);padding-top:12px}
+.vier h2{margin:0 0 6px;font:400 40px/1 var(--plakat);text-transform:uppercase}
+.vier p{margin:0 0 6px;font:400 14.5px/1.45 var(--mono)}
+.vier p b{color:var(--pink)}
+.proben>div{display:grid;grid-template-columns:200px 1fr;align-items:baseline;border-bottom:1px solid #eee;padding:3px 0 5px}
+.proben>div:first-child{padding-top:0}
+.proben h2{font-size:30px;margin:0}
+.proben p{margin:0}
+.spalte{display:flex;flex-direction:column;gap:18px}
+.drei{display:grid;grid-template-columns:1fr 1.35fr;gap:28px;margin-top:22px}
+.kasten{border-top:3px solid var(--schwarz);padding-top:12px}
+.kasten .etikett{margin-bottom:10px}
+.kasten p{margin:0 0 8px;font:400 15px/1.45 var(--grotesk)}
+.kasten p b{font-weight:700}
+.kasten table{border-collapse:collapse;width:100%;font:400 15px/1.4 var(--grotesk)}
+.kasten td{padding:2px 0;vertical-align:top;border-bottom:1px solid #eee}
+.kasten td:first-child{font:700 15px var(--mono);color:var(--pink);width:44px}
+.unten{display:grid;grid-template-columns:1fr 1.35fr;gap:28px;margin-top:20px;align-items:start}
+.ruest{display:flex;gap:10px;margin:0 0 8px}
+.ruest div{flex:1;border:2px solid var(--schwarz);padding:4px 10px;text-align:center}
+.ruest b{display:block;font:400 26px/1 var(--plakat)}
+.ruest b{font-size:24px}
+.ruest small{font:500 12px var(--grotesk)}
+.runde{background:var(--schwarz);color:var(--weiss);padding:14px 18px;margin-top:4px}
+.runde h3{margin:0 0 6px;font:700 22px/1 var(--fraktur);color:var(--gelb)}
+.runde p{margin:0;font:400 15px/1.45 var(--grotesk)}
+</style></head><body>
+<header class="kopf"><div class="logo"></div><div class="sp"></div>
+<button class="ib i"><b>i</b></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+<nav class="reiter gelb"><button>Die sterbende Welt</button><button class="on">Die Regeln</button><button>Die Verdammten</button><button>Die Apokryphen</button></nav>
+<div class="leib">
+ <aside class="seite"><button class="zu">‹</button>
+  <a>Fähigkeiten &amp; Proben<i>26</i></a><a>Tragkraft<i>27</i></a><a>Trefferpunkte<i>28</i></a><a class="on">Gewalt<i>29</i></a><a>Rast, Reaktion, Moral<i>31</i></a><a>Besser werden<i>33</i></a><a>Mächte<i>34</i></a><a>Unreine Schriftrollen<i>35</i></a><a>Heilige Schriftrollen<i>35</i></a><a>Die Basilisken fordern<i>37</i></a><a>Regelübersicht<i>90</i></a>
+ </aside>
+ <main class="inhalt">
+  <h1>Gewalt <span class="s">S. 29</span></h1>
+  <p class="lead">Die Spieler würfeln sowohl für ihre Angriffe als auch für ihre Verteidigung. Kreaturen und Feinde würfeln im Kampf nicht.</p>
+  <div class="vier">
+   <div class="ini"><h2>Initiative</h2><p><b>Würfle W6</b><br><b>1–3</b> Feinde handeln zuerst<br><b>4–6</b> SC handeln zuerst</p><p>Geschicklichkeit + W6 für individuelle Initiative oder um zu bestimmen, wer innerhalb der Gruppe zuerst handelt.</p></div>
+   <div class="proben">
+    <div><h2>Nahkampf</h2><p>Probe auf <b>Stärke SG12</b></p></div>
+    <div><h2>Fernkampf</h2><p>Probe auf <b>Präsenz SG12</b></p></div>
+    <div><h2>Verteidigung</h2><p>Probe auf <b>Geschicklichkeit SG12</b>. Misslingt sie, trifft dich der Feind. Feinde greifen einmal pro Runde an, sofern nicht anders angegeben.</p></div>
+   </div>
+  </div>
+  <div class="drei">
+   <div class="spalte">
+   <div class="kasten"><span class="etikett">Krit (natürliche 20)</span><p><b>Angriff:</b> Doppelter Schaden, Rüstung/Schutz wird außerdem um eine Stufe verringert.</p><p><b>Verteidigung:</b> SC erhält einen freien Angriff.</p>
+   <span class="etikett" style="margin-top:10px">Patzer (natürliche 1)</span><p><b>Angriff:</b> Die Waffe bricht oder geht verloren.</p><p><b>Verteidigung:</b> SC nimmt doppelten Schaden, und die Rüstung wird um eine Stufe verringert.</p></div>
+   <div class="runde"><h3>Wie lang ist eine Runde? <span class="s">S. 30</span></h3><p>Eine Runde ist genug Zeit, um einen Angriff auszuführen (oder eine Macht einzusetzen) und einen Raum normaler Größe zu durchqueren. Eine Minute hat meist 10 Runden.</p></div>
+   </div>
+   <div class="spalte">
+   <div class="kasten"><span class="etikett">Gebrochen (W4)</span><table>
+    <tr><td>1</td><td>W4 Runden bewusstlos, erwacht mit W4 TP.</td></tr>
+    <tr><td>2</td><td>Würfle W6: 1–5 = gebrochene oder abgetrennte Gliedmaße. 6 = Auge verloren. W4 Runden handlungsunfähig, dann wieder aktiv mit W4 TP.</td></tr>
+    <tr><td>3</td><td>Blutung: Tod in W2 Stunden ohne Behandlung. Alle Proben in der ersten Stunde SG16, in der letzten SG18.</td></tr>
+    <tr><td>4</td><td>Tot.</td></tr></table></div>
+   <div class="kasten"><span class="etikett">Rüstung</span>
+    <div class="ruest"><div><b>−W2</b><small>1. Stufe</small></div><div><b>−W4</b><small>2. Stufe</small></div><div><b>−W6</b><small>3. Stufe</small></div></div>
+    <p>Wird Rüstung beschädigt, ändern sich die Abzüge auf Stärke- und Geschicklichkeitsproben nicht. Rüstung, die <b>unter die 1. Stufe</b> sinkt, ist ruiniert und kann nicht repariert werden. Kosten für Rüstungsreparaturen siehe Ausrüstung, S. 25.</p></div>
+   </div>
+  </div>
+ </main>
+</div>
+<div class="ann" style="left:640px;top:62px"><b>1</b>Nachschlagen = Umkehrung des Spiels: gelbe Leiste, schwarzer aktiver Reiter. Die vier Teile wie im Register.</div>
+<div class="ann" style="left:40px;top:560px;max-width:200px"><b>2</b>Gelbe Seitenleiste, sticky, einklappbar (‹ und Taste). Kurze Abschnitte (Rast, Reaktion, Moral) zusammengefasst.</div>
+<div class="ann" style="left:560px;top:250px;max-width:320px"><b>3</b>Die vier großen Wörter in Plakatschrift mit pinken Schreibmaschinen-Regeln – wie S. 29 im Buch; die drei Proben als ruhige Zeilen neben der Initiative.</div>
+<div class="ann" style="left:920px;top:520px"><b>4</b>Alles, was im Buch ein Kasten ist, wird ein Kasten: schwarze Linie oben + schwarzes Etikett (Stil der Regelübersicht S. 90).</div>
+<script src="ann.js"></script></body></html>

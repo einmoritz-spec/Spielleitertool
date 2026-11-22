@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="mb.css">
+<style>
+.unter{height:52px;display:flex;align-items:center;gap:4px;padding:0 24px;border-bottom:1px solid var(--linie)}
+.unter button{font:700 20px/1 var(--fraktur);padding:8px 14px;color:#cfcab5}
+.unter button.on{background:var(--weiss);color:var(--schwarz)}
+.unter .sp{flex:1}
+.unter .pdf{font:700 11px var(--grotesk);letter-spacing:.14em;text-transform:uppercase;color:var(--gelb);border:1px solid #4a4a40;padding:8px 12px}
+.blatt{width:1200px;margin:20px auto 0;background:var(--weiss);color:var(--schwarz);display:grid;grid-template-columns:1fr 1fr;gap:0;height:704px}
+.hälfte{padding:22px 28px 24px;display:flex;flex-direction:column;gap:16px}
+.hälfte+.hälfte{border-left:2px solid var(--schwarz)}
+.feld{border-bottom:2px solid var(--schwarz);padding-bottom:4px}
+.lab{font:700 20px/1 var(--fraktur);display:flex;justify-content:space-between;align-items:baseline}
+.lab small{font:500 11px var(--grotesk);letter-spacing:.04em;color:#666}
+.ein{font:400 20px/1.3 var(--mono);min-height:26px}
+.kopfz{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.beschr{flex:1;display:flex;flex-direction:column}
+.beschr .ein{flex:1;font:400 16px/30px var(--mono);background:repeating-linear-gradient(transparent 0 29px,#ddd 29px 30px)}
+.fae{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.fae div{border:2px solid var(--schwarz);text-align:center;padding:14px 4px 10px}
+.fae b{display:block;font:400 52px/1 var(--plakat)}
+.fae span{font:700 10.5px var(--grotesk);letter-spacing:.14em;text-transform:uppercase}
+.dreier{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:12px}
+.dreier .box{min-height:140px}
+.box{border:2px solid var(--schwarz);padding:10px 12px}
+.tp{display:flex;align-items:baseline;gap:6px;font:400 44px/1 var(--plakat)}
+.tp small{font:400 22px var(--plakat);color:#777}
+.tp .wert{font:inherit;color:var(--pink)}
+.mini{font:400 11.5px/1.35 var(--grotesk);color:#444;margin-top:6px}
+.punkte{display:flex;gap:6px;margin-top:6px}
+.punkte i{width:18px;height:18px;border:2px solid var(--schwarz);border-radius:50%}
+.punkte i.v{background:var(--schwarz)}
+.waffe{display:grid;grid-template-columns:1fr 70px;gap:8px;border-bottom:1px solid #bbb;padding:7px 0;font:400 17px var(--mono)}
+.waffe b{font-weight:700;text-align:right}
+.ruest{display:flex;gap:8px;align-items:center;margin-top:6px}
+.ruest span{border:2px solid var(--schwarz);padding:3px 10px;font:700 14px var(--mono)}
+.ruest span.on{background:var(--schwarz);color:var(--weiss)}
+.ausr{columns:auto}
+.ausr{flex:1}
+.ausr .z{display:grid;grid-template-columns:22px 1fr;align-items:center;height:33px;border-bottom:1px solid #ddd;font:400 15.5px var(--mono)}
+.ausr .z i{font-style:normal;color:#999;font-size:12px}
+.unten{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}
+.heim{display:flex;gap:6px;margin-top:6px}
+.heim i{width:26px;height:26px;border:2px solid var(--schwarz);display:grid;place-items:center;font:700 11px var(--mono);font-style:normal}
+.heim i.x{background:var(--schwarz);color:var(--gelb)}
+</style></head><body>
+<header class="kopf"><div class="logo"></div><div class="sp"></div>
+<button class="ib i"><b>i</b></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+<nav class="reiter"><button class="on">Spieltisch</button><button>Abenteuer</button><button>Kreaturen</button><button>Tabellen</button><div class="sp"></div>
+<button class="stift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/></svg></button></nav>
+<div class="unter"><button class="on">Karg</button><button>Velma die Bleiche</button><button>Hargha</button><button>Brint</button><div class="sp"></div><button class="pdf">Als PDF</button></div>
+
+<div class="blatt">
+ <div class="hälfte">
+  <div class="kopfz"><div class="feld"><div class="lab">Name</div><div class="ein">Karg</div></div><div class="feld"><div class="lab">Klasse</div><div class="ein">Fangzahn-Deserteur</div></div></div>
+  <div class="feld beschr"><div class="lab">Beschreibung</div><div class="ein">Gebaut wie ein Stier. Früheste Erinnerung: in Schleswig bei Hunden geschlafen, im Gasthaus, auf jemanden wartend, der wiederkommt. Eine zerknüllte Monstermaske am Gürtel.</div></div>
+  <div class="fae"><div><b>+2</b><span>Stärke</span></div><div><b>−1</b><span>Geschicklichkeit</span></div><div><b>0</b><span>Präsenz</span></div><div><b>+1</b><span>Zähigkeit</span></div></div>
+  <div class="dreier">
+   <div class="box"><div class="lab">Trefferpunkte</div><div class="tp"><span class="wert">7</span><small>/ 11</small></div><div class="mini">aktuell / maximal</div></div>
+   <div class="box"><div class="lab">Omen <small>W2</small></div><div class="punkte"><i class="v"></i><i></i></div><div class="mini">Maximaler Schaden · Neu würfeln · −W6 Schaden · SG −4 · Kein Krit/Patzer</div></div>
+   <div class="box"><div class="lab">Mächte</div><div class="punkte"><i></i><i></i><i></i></div><div class="mini">Präsenz SG12, sonst −W2 TP und 1 Std. keine Mächte</div></div>
+  </div>
+ </div>
+ <div class="hälfte">
+  <div class="feld"><div class="lab">Waffen</div>
+   <div class="waffe">Zweihänder<b>W10</b></div><div class="waffe">Messer<b>W4</b></div></div>
+  <div class="feld"><div class="lab">Rüstung</div><div class="ruest"><span>1 −W2</span><span class="on">2 −W4</span><span>3 −W6</span></div></div>
+  <div class="feld ausr"><div class="lab">Ausrüstung <small>Stärke + 8 Gegenstände, sonst SG+2 auf Geschicklichkeit/Stärke</small></div>
+   <div class="z"><i>1</i>Rucksack für 7 normal große Gegenstände</div><div class="z"><i>2</i>Seil, 30 Fuß</div><div class="z"><i>3</i>Laterne mit Öl für Präsenz + 6 Stunden</div><div class="z"><i>4</i>Wasserschlauch, W4 Tage Essen</div><div class="z"><i>5</i>&nbsp;</div><div class="z"><i>6</i>&nbsp;</div><div class="z"><i>7</i>&nbsp;</div><div class="z"><i>8</i>&nbsp;</div><div class="z"><i>9</i>&nbsp;</div><div class="z"><i>10</i>&nbsp;</div></div>
+  <div class="unten">
+   <div class="box"><div class="lab">Silber</div><div class="tp" style="font-size:36px">82<small>s</small></div></div>
+   <div class="box"><div class="lab">Heimsuchungen</div><div class="heim"><i class="x">1</i><i class="x">2</i><i>3</i><i>4</i><i>5</i><i>6</i></div></div>
+  </div>
+ </div>
+</div>
+<div class="ann" style="left:400px;top:170px;max-width:360px"><b>1</b>Je SC ein Reiter; „Als PDF“ erzeugt ein ausfüllbares PDF (shared/fillpdf.js).</div>
+<div class="ann" style="left:120px;top:640px;max-width:420px"><b>2</b>VORLÄUFIG: Feldnamen und Hinweise stammen aus dem Original-Bogen (Text gelesen), das Layout nicht – bitte das PDF „Character Sheet“ hochladen, dann baue ich ihn genau nach.</div>
+<div class="ann" style="left:900px;top:600px"><b>3</b>Alle Felder direkt bearbeitbar; Klick auf Kreise/Kästen hakt ab.</div>
+<script src="ann.js"></script></body></html>

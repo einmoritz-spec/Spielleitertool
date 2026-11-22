@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="mb.css">
+<style>
+body{background:var(--weiss);color:var(--schwarz)}
+.unter{height:52px;display:flex;align-items:center;gap:0;padding:0 24px;border-bottom:2px solid var(--schwarz);background:var(--weiss)}
+.unter .titel{font:700 24px/1 var(--fraktur);margin-right:22px;white-space:nowrap}
+.unter .lk{font:500 14px var(--grotesk);padding:0 12px;color:#555;white-space:nowrap}
+.unter .nrn{display:flex;gap:3px;margin-left:10px}
+.unter .nrn b{width:30px;height:30px;display:grid;place-items:center;font:700 13px var(--mono);border:1.5px solid var(--schwarz);cursor:pointer}
+.unter .nrn b.on{background:var(--schwarz);color:var(--gelb)}
+.unter .nrn b.be{border-style:dashed}
+.unter .sp{flex:1}
+.leib{display:grid;grid-template-columns:474px 1fr;height:744px}
+.karte{position:relative;background:#cfd0d0;border-right:2px solid var(--schwarz);overflow:hidden}
+.karte img{display:block;height:744px;width:auto;margin:0 auto}
+.karte .hs{position:absolute;width:38px;height:38px;transform:translate(-50%,-50%);cursor:pointer}
+.karte .hs.on{outline:3px solid var(--pink);outline-offset:2px;background:rgba(255,65,180,.12)}
+.raeume{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;padding:26px 36px 0;align-content:start}
+.raum{padding-left:16px;border-left:4px solid transparent}
+.raum.on{border-left-color:var(--pink)}
+.raum h2{margin:0 0 4px;font:700 34px/1.05 var(--fraktur);display:flex;align-items:baseline;gap:10px}
+.raum .stim{margin:0 0 12px;font:italic 400 16.5px/1.4 var(--text);color:#333}
+.raum ul{margin:0 0 14px;padding:0;list-style:none}
+.raum li{position:relative;padding-left:16px;margin:0 0 5px;font:400 16.5px/1.42 var(--text)}
+.raum li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;background:var(--schwarz);border-radius:50%}
+.raum li .r{font:700 11px var(--grotesk);letter-spacing:.14em;text-transform:uppercase;margin-right:4px}
+.raum p{margin:0 0 10px;font:400 16.5px/1.42 var(--text)}
+.raum b{font-weight:800}
+.zb{display:inline-block;background:var(--schwarz);color:var(--weiss);font:700 11px/1 var(--grotesk);letter-spacing:.14em;text-transform:uppercase;padding:6px 8px 5px;vertical-align:4px}
+.wert{color:var(--pink)}
+.pille{display:inline-block;background:var(--schwarz);color:var(--weiss);font:700 13px/1.3 var(--grotesk);padding:8px 14px;margin-top:4px}
+.zbtab{grid-column:1/3;margin-top:22px;border:2px solid var(--schwarz);padding:12px 14px}
+.zbtab h4{margin:0 0 8px;display:flex;justify-content:space-between;align-items:center}
+.zbtab .rz{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.zbtab .rz div{font:400 14.5px/1.35 var(--text)}
+.zbtab .rz b{display:block;font:800 15px/1.25 var(--text);margin-bottom:2px}
+.zbtab .rz i{font:700 12px var(--mono);color:var(--pink);font-style:normal;display:block;margin-top:3px}
+</style></head><body>
+<header class="kopf"><div class="logo"></div><div class="sp"></div>
+<button class="ib i"><b>i</b></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+<nav class="reiter"><button>Spieltisch</button><button class="on">Abenteuer</button><button>Kreaturen</button><button>Tabellen</button><div class="sp"></div>
+<button class="stift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/></svg></button></nav>
+<div class="unter"><span class="titel">Rotblack Sludge</span><span class="lk">Einleitung</span><span class="lk">Was der Seher sieht</span><span class="lk">Zufallsbegegnungen</span>
+ <div class="nrn"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b class="on">6</b><b class="be">7</b><b class="be">8</b><b>9</b><b>10</b><b>11</b><b>12</b><b>13</b><b class="be">14</b><b>15</b></div><div class="sp"></div><span class="s">S. 73</span></div>
+
+<div class="leib">
+ <div class="karte"><img src="img/rotblack-karte.webp" alt="">
+  <span class="hs on" style="left:45.6%;top:38.6%"></span>
+ </div>
+ <div class="raeume">
+  <section class="raum on">
+   <h2>6. Korridor <span class="s">S. 80</span></h2>
+   <p class="stim">Dunkel und kalt, Licht am Ende des Korridors. Geigenmusik.</p>
+   <ul>
+    <li><b>Gemälde an den Wänden:</b> Landschaften, fade.</li>
+    <li><i><b>Große verborgene Fallgrube:</b> vor den Gemälden.</i> Erstreckt sich über die ganze Breite des Korridors.</li>
+    <li><span class="r">Norden:</span> <b>Licht</b> aus dem Pumpenraum.</li>
+    <li><span class="r">Osten:</span> <b>klemmende Tür</b> zu den Zellen. Kratzgeräusche.</li>
+    <li><span class="r">Süden:</span> <b>leise Tür</b> zum Speisesaal.</li>
+   </ul>
+   <p><b>Die Fallgrube entdecken:</b> Mit genug Licht und einer erfolgreichen Präsenzprobe <span class="wert">SG14</span> (durch den SC mit der höchsten Präsenz) sind kantige Linien im Boden zu erkennen.</p>
+   <p><b>Gemälde abnehmen oder geraderücken:</b> Nimmt jemand ein Gemälde ab, lässt die Fallgrube die SC in Raum 10 (den Tunnel) stürzen. Der Sturz verursacht <span class="wert">W6</span> Schaden.</p>
+  </section>
+  <section class="raum">
+   <h2>7. Pumpenraum <span class="zb">Zufallsbegegnung</span></h2>
+   <p class="stim">Leichter Schwefelgeruch. Geigenmusik ist zu hören.</p>
+   <ul>
+    <li><i>Zufallsbegegnung, S. 75.</i></li>
+    <li><b>3 Öllampen</b> hängen von der Decke.</li>
+    <li><b>Rostige Pumpe:</b> schlammige Flüssigkeit. Heilt <span class="wert">W4</span> TP.</li>
+    <li><b>Luke im Boden:</b> Trittleiter hinunter zu Raum 15 (Schmiede/Schlachthaus).</li>
+    <li><span class="r">Osten:</span> <b>Loch in der Wand:</b> Blick über den <b>Rotblack Sludge</b> (siehe Raum 9). Man sieht die Säule mit den Skeletten.</li>
+    <li><span class="r">Süden:</span> <b>dunkler Korridor.</b></li>
+   </ul>
+  </section>
+  <div class="zbtab"><h4><span class="etikett">W4 Zufallsbegegnungen · Tabelle A</span><span class="s">S. 75</span></h4>
+   <div class="rz"><div><b>1 · W4 Dämmergnome</b>Kriechen aus Löchern und klettern die Wände hoch. Klein, schnell, aber gebrechlich.<i>TP 4 · Moral 7</i></div>
+   <div><b>2 · Nistender Tod</b>Hundegroße Spinne, die sich ein Nest aus Knochen an der Decke gebaut hat.<i>TP 12 · Moral –</i></div>
+   <div><b>3 · W2 Köter</b>Riesige schwarze Hunde mit zotteligem, öligem Fell.<i>TP 8 · Moral 9</i></div>
+   <div><b>4 · W4 Wachen mit spitzen Zähnen</b>Schwach und hager. Lecken sich die Lippen.<i>TP 6 · Moral 7</i></div></div>
+  </div>
+ </div>
+</div>
+
+<div class="ann" style="left:260px;top:180px"><b>1</b>Unter-Leiste: alle 15 Räume als Nummern – ohne Aufklappen, auf einen Blick. Gestrichelt = Raum mit Zufallsbegegnung.</div>
+<div class="ann" style="left:40px;top:560px"><b>2</b>Die Buchkarte (ohne englische Legende) mit unsichtbaren Klickflächen: Klick auf einen Raum springt rechts hin, der aktive Raum ist pink umrandet.</div>
+<div class="ann" style="left:760px;top:300px;max-width:250px"><b>3</b>Räume wie im Buch: Fraktur-Titel, kursive Stimmung, Punkte mit fetten Stichworten, Himmelsrichtungen in Versalien. Zwei Räume nebeneinander, zeilenweise wie eine Doppelseite.</div>
+<div class="ann" style="left:1000px;top:560px;max-width:300px"><b>4</b>Klick auf „Zufallsbegegnung“ legt die W4-Tabelle direkt darunter; Klick auf einen Eintrag legt die Kreatur auf den Spieltisch.</div>
+<script src="ann.js"></script></body></html>

@@ -26,7 +26,7 @@ window.ES = window.ES || {};
   }
   ES.route = function(page, rest, app, tabs){
     var meta = document.querySelector('meta[name=theme-color]'); if(meta) meta.setAttribute("content", "#33464a");
-    infoBtn();
+    var oi = document.getElementById("esInfo"); if(oi) oi.remove(); /* i-Knopf: gemeinsames Überblick-Fenster (shared/info/tftl_es.js) */
     app.onclick = null; app.className = "page";
     var T = {reise:"renderReise", reisende:"renderReisende", karte:"renderKarte", bogen:"renderBogen", fahrzeug:"renderFahrzeug"};
     if(page === "nach" && window.renderNach){

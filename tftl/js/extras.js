@@ -32,21 +32,8 @@
     var id = isFlood() ? "flut" : "loop-spiel";
     return D && D.abschnitte && D.abschnitte.filter(function(a){ return a.id === id; })[0] || null;
   }
-  X.info = function(){
-    var top = document.getElementById("top"), old = document.getElementById("tInfo"); if(old) old.remove();
-    var C = window.TCTX || {}; if(!top || (C.area !== "tftl" && C.area !== "flood")) return;
-    var sec = infoSec(); if(!sec) return;
-    var b = document.createElement("button"); b.id = "tInfo"; b.className = "tb-info"; b.setAttribute("aria-label", sec.titel); b.title = sec.titel; b.textContent = "i";
-    b.onclick = function(){
-      var m = document.createElement("div"); m.className = "tinfo";
-      var logo = isFlood() ? "assets/logos/things-from-the-flood-stack.webp" : "assets/logos/tales-from-the-loop.webp";
-      var body = (sec.bloecke || []).filter(function(x){ return x[0] === "p" || x[0] === "h"; }).slice(0, 4).map(function(x){ return x[0] === "h" ? '<h3>' + x[1] + '</h3>' : '<p>' + x[1] + '</p>'; }).join("");
-      m.innerHTML = '<div class="tinfo-b"></div><div class="tinfo-p"><img class="tinfo-l' + (isFlood() ? ' fl' : '') + '" src="../' + logo + '" alt=""><h2>' + esc(sec.titel) + '</h2>' + body + '<a class="pgl" data-b="' + C.book + '" data-s="' + sec.s + '">S. ' + sec.s + '</a></div>';
-      m.onclick = function(e){ if(e.target.classList.contains("tinfo-b")) m.remove(); var a = e.target.closest(".pgl"); if(a){ m.remove(); BV.open(a.dataset.b, +a.dataset.s); } };
-      document.body.appendChild(m);
-    };
-    top.insertBefore(b, top.querySelector(".tb-burger"));
-  };
+  /* i-Knopf: gemeinsames Überblick-Fenster wie bei den anderen Settings (shared/sysinfo.js, Inhalte shared/info/tftl*.js) */
+  X.info = function(){ var old = document.getElementById("tInfo"); if(old) old.remove(); };
 
   /* ---------- Würfel ---------- */
   var W = {n: 4, dice: null, bonus: 0, pushed: false, luck: false, st: false, sh: false, sc: 0, kid: "", sk: "", it: "", scUsed: {}};

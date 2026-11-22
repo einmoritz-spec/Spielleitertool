@@ -38,7 +38,7 @@ window.MYS.easter = {
 <p>Wenn die Kinder ins Bett gehen, flackern die Lichter am Horizont leicht, weil der Loop für das Experiment hochfährt und Strom aus der Gegend zieht. Um die Aufmerksamkeit darauf zu lenken, was geschieht, und darauf, dass es ungewöhnlich ist, sollte einer der Eltern anmerken, dass der Loop normalerweise nicht so spät läuft.</p>`}
     ]},
     {id: "mysterium", name: "Mysterium einführen", abschnitte: [
-      {id: "mysterium", titel: "Das Mysterium einführen", s: 27, html: `
+      {id: "mysterium", titel: "Das Mysterium einführen", s: 27, bilder: [{b:"easter-lager", t:"Das Zeltlager", s:27}], html: `
 <p>Mitten in der Nacht erzählst du, wie eines der Kinder aufstehen muss, um normale Körperfunktionen zu erledigen. Hat eines der Kinder erzählt, etwas getrunken zu haben, wäre das eine gute Art, es auszuwählen; andernfalls wähle das jüngste Kind. Mit Hilfe einer nahen Pflanze oder, falls der Spieler es bevorzugt, einer Chemietoilette erledigt es sein Bedürfnis. Auf dem Rückweg zum Zelt bemerkt es, dass der Loop eine seltsame Störung durchläuft.</p>
 <p>Mit einem Lichtimpuls (nicht hell genug, um die anderen Kinder oder ihre Eltern zu wecken) sieht das wache Kind, wie sich über dem Loop, in der Mitte, ein kleines Loch öffnet, das sich rasch zu einem welligen Kreis ausdehnt. Aus diesem Kreis sieht es etwas herauskommen, vom Loop angestrahlt.</p>
 <ul>
@@ -61,11 +61,11 @@ window.MYS.easter = {
 </ol>`}
     ]},
     {id: "loesung", name: "Lösung", abschnitte: [
-      {id: "ueberblick", titel: "Das Mysterium lösen", s: 29, ueberblick: 1, html: `
+      {id: "ueberblick", titel: "Das Mysterium lösen", s: 29, bilder: [{b:"easter-ablauf", t:"Ablauf des Mysteriums", s:29}, {b:"easter-karte", t:"Karte der Orte", s:30}], ueberblick: 1, html: `
 <p>Nach der Einführung können die Kinder das Mysterium frei erkunden. Was war das Objekt? Was geschah im Loop? Wohin flog das Objekt? Hat sonst jemand es gesehen, als es über die Stadt flog?</p>
 <p>In diesem Mysterium gibt es neben dem anfänglichen Zeltplatz vier wichtige Orte: den Great Yarmouth Market, den Broads-Reaktor, den Strand und die Versorgungstunnel. Sie sind auf der Karte oben eingezeichnet.</p>
 <p>Da die Kinder gleich weit vom Broads-Reaktor und von Great Yarmouth entfernt sind, können sie beide Orte zuerst untersuchen. Da sie nicht gesehen haben, dass das Wesen in nennenswerter Weise mit der Stadt interagierte, werden sie wahrscheinlich den Broads-Reaktor untersuchen, und das umso eher, wenn sie gesehen haben, wie sich der Riss schloss, als das Wesen verschwand. Wissen die Spieler nicht weiter, schlage gern vor, den Reaktor zu untersuchen, da dort dieses Mysterium offenbar begann.</p>`},
-      {id: "ort1", titel: "Ort 1: Der Broads-Reaktor", s: 30, ort: "ort1", html: `
+      {id: "ort1", titel: "Ort 1: Der Broads-Reaktor", s: 30, bilder: [{b:"easter-labor-plan", t:"Plan der Labore", s:33}], ort: "ort1", html: `
 <p>Das Gebiet ist derzeit extrem geschäftig, da ReGIS-Agenten hektisch versuchen, Daniels Handeln zu vertuschen. MAFF-Beschäftigte tun meist, was man ihnen sagt, in dem Glauben, Überstunden zu machen, um wegen einer kleinen, alltäglichen Schwierigkeit in der Nacht die Energieleistung des Loops zu erhöhen, oder man hat ihnen gesagt, sie sollten die Daten des Experiments über Nacht zum Versand an eine andere Anlage zusammenpacken. Sprechen die Kinder mit einem dieser Beschäftigten, bemerken sie andere Gruppen in der Nähe, die sie aufmerksam beobachten.</p>
 <p>Weitere Informationen zum Broads-Reaktor findest du unter „Der Broads-Loop“ auf S. 12.</p>`,
        aerger: [{t: "Ärger", html: `<p>Besuchen die Kinder den Reaktor am Tag direkt nach der Öffnung des Risses, bemerken sie leicht das geschäftige Treiben, während Beschäftigte und Agenten mit Ausdrucken von Datensätzen und verschiedenen wissenschaftlichen Geräten zwischen Laboren und Büros pendeln, und Lastwagen von den Lagerhäusern in Richtung Great Yarmouth fahren, offenbar um die Lage einzudämmen.</p>
@@ -105,7 +105,7 @@ window.MYS.easter = {
          "Der Strand, auf dem es landete, wimmelt jetzt von ReGIS-Agenten.",
          "Daniel sah, wie es durch das Loch im Himmel verschwand, ist sich aber sicher, dass es den Strand entweder beeinflusst oder etwas am Strand zurückgelassen hat."
        ]},
-      {id: "ort3", titel: "Ort 3: Der Strand", s: 35, ort: "ort3", html: `
+      {id: "ort3", titel: "Ort 3: Der Strand", s: 35, bilder: [{b:"easter-strand", t:"Der abgesperrte Strand", s:34}, {b:"easter-karte-yarmouth", t:"Great Yarmouth", s:35}, {b:"easter-strand-plan", t:"Plan des Strandes", s:36}], ort: "ort3", html: `
 <p>Die „Golden Mile“ von Great Yarmouth erstreckt sich zwischen zwei Seebrücken mit Strandvergnügungen und ist überwiegend eine sandige Touristenattraktion. Es ist noch nicht Sommer, aber die malerische Atmosphäre wurde von einem hastig errichteten Maschendrahtzaun zerstört, der einen Abschnitt des Strandes vor dem örtlichen Aquarium absperrt.</p>
 <p>Wenn die Kinder sich dem Zaun nähern, sehen sie, dass Festzelte aufgestellt wurden, die einen Strandabschnitt nahe der Straße verbergen. Gelegentlich betreten oder verlassen Personen in Dekontaminationsanzügen das Zelt. Ein paar Stadtbewohner stehen in der Nähe, und eine große Absperrung wurde um den Ort errichtet. Örtliche Polizeibeamte hindern die Kinder daran, nah heranzukommen. Man hat ihnen gesagt, dass im Sand neben den Versorgungstunneln am Strand eine nicht explodierte Bombe aus dem Zweiten Weltkrieg vergraben gefunden wurde, was die Sicherheitsmaßnahmen rechtfertigt.</p>
 <p>In Wirklichkeit sind die Versorgungstunnel der Ort, von dem aus die ReGIS-Agenten kommen und gehen, um Zugang zum Ei des Wesens zu erhalten.</p>`,
@@ -137,7 +137,7 @@ window.MYS.easter = {
          "„Dieses Ding bringt alles Elektrische zum Ausfallen. Wenn es eine Batterie hat, funktioniert es nicht.“",
          "„Verdammte Wissenschaftler, sagen ‚Wir können es nicht bewegen‘ und ‚Es könnte es stören‘. Wir haben es schon zweimal verschoben … es ist in Ordnung. Aber nein, die dürfen die Entscheidungen treffen.“"
        ]},
-      {id: "ort6", titel: "Ort 5B: Die überflutete Höhle", s: 38, ort: "ort6", html: `
+      {id: "ort6", titel: "Ort 5B: Die überflutete Höhle", s: 38, bilder: [{b:"easter-ei", t:"Das Ei", s:38}], ort: "ort6", html: `
 <p>Gehen die Kinder die Versorgungstunnel weiter entlang, stoßen sie auf eine Doppeltür, die offen gelassen wurde. Aus dem Inneren kommen Stimmen. Hinter der Doppeltür sehen die Kinder eine tiefe, weite Höhle mit einem Durchmesser von etwa zehn Metern, mit Pfützen, die von tropfenden Stalaktiten darüber gebildet werden. Am Rand der Höhle stehen verschiedene elektrische Geräte, etwa Scheinwerfer, die auf ein Objekt in der Mitte gerichtet sind.</p>
 <p>Das Objekt ist ein länglicher Spheroid, etwa 80 Zentimeter lang und 30 Zentimeter breit. Seine weiß-grau-schwarz gesprenkelte Oberfläche scheint Rillen zu haben, die fast aussehen wie Wellen, die sich von einer Längsseite zur anderen ausbreiten. Es liegt in einer Pfütze. Eine ReGIS-Beschäftigte kniet daneben und schneidet einen winzigen Span von seiner organischen Oberfläche ab. Als sie das tut, versteht das Kind, das vom violetten Licht (von der Mutter) betroffen war, plötzlich, dass das seltsam aussehende Ding offenbar Schmerzen hat und Angst empfindet.</p>`,
        aerger: [{t: "Ärger", html: `<p>An diesem Punkt gehen weniger ReGIS-Beschäftigte zur Höhle aus und ein, aber drei sind gerade damit beschäftigt, wissenschaftliche Daten von dem Objekt in der Mitte des Raumes zu gewinnen. Es zu erreichen oder irgendetwas damit zu tun, erfordert, dass sich die Kinder dorthin schleichen. Das lässt sich viel leichter machen, indem man an den Geräten in der Gegend herumbastelt, um die Beschäftigten abzulenken, oder indem man einfach Lärm macht, etwa Gegenstände mit Gewalt zerbricht, während sich die übrigen Kinder dem Objekt nähern.</p>

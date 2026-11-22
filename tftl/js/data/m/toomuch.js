@@ -52,7 +52,7 @@ window.MYS.toomuch = {
 </ul>`}
     ]},
     {id: "loesung", name: "Lösung", abschnitte: [
-      {id: "ueberblick", titel: "Das Mysterium lösen", s: 83, ueberblick: 1, html: `
+      {id: "ueberblick", titel: "Das Mysterium lösen", s: 83, bilder: [{b:"toomuch-ablauf", t:"Ablauf des Mysteriums", s:81}, {b:"toomuch-karte", t:"Karte der Orte", s:82}], ueberblick: 1, html: `
 <p>Danach steht es den Kindern frei, das Mysterium zu erkunden. Sie können sich in der Gegend der Halbinsel umsehen oder weiterziehen. Alternativ können sie zur Schule oder zurück in ihr Versteck gehen, um das Mysterium im Lauf des Tages zu besprechen, bevor sie handeln.</p>
 <p>In diesem Mysterium gibt es drei wichtige Orte: Ormesby Farm, wo das Mysterium beginnt; das Freizeitzentrum, in dem das Geschöpf gehalten wird; und das Loop-Kontrollzentrum. Die Loop-Anlage ist jedoch am Showdown beteiligt, weshalb sie in der Zeitleiste des Mysteriums mehrfach markiert ist. Die Orte sind auf der Karte markiert.</p>
 <p>Die Kinder beginnen auf Ormesby Farm, müssen aber dort mit Leuten sprechen oder in der Schule oder an anderen Orten Gerüchte hören, um zu erfahren, dass sie zum Freizeitzentrum reisen müssen. Die Loop-Anlage kommt ins Spiel, wenn die Kinder das Geschöpf gerettet haben und es sie zur Anlage gebracht hat.</p>
@@ -87,7 +87,7 @@ window.MYS.toomuch = {
         "Ist das Geschöpf aus dem Becken heraus, müssen die Kinder vielleicht durchatmen oder ihren nächsten Schritt besprechen. Kurz nachdem das Geschöpf zu trocknen beginnt, bemerkt ein Kind drei Dinge: (1) Das Geschöpf gibt eine statische Ladung ab. Bei Berührung stellt das Kind fest, dass es an ihm haften bleibt. (2) Das Geschöpf blickt nach oben zum offenen Oberlicht in der Decke. (3) Das Geschöpf scheint ein paar Zentimeter über dem Boden zu schweben.",
         "Haben sie das bemerkt, lass das Geschöpf sich leicht drehen und ihnen den Rücken zuwenden, in einer Geste, die nahelegt, dass sie aufsteigen sollen. Es hält sie nicht auf, und sobald das letzte Kind am Geschöpf haftet, bewegt es sich schnell nach oben zum Oberlicht.",
         "Das Geschöpf akzeptiert im Allgemeinen, wenn man ihm sagt, wohin es soll, doch sich selbst überlassen fliegt es zur Loop-Anlage. Über dem Loop sehen die Kinder einen Anblick, der einem von ihnen vielleicht schon vertraut ist: einen dunklen Riss am Himmel, der an den Rändern der Wirklichkeit flackert."]},
-      {id: "ort4", titel: "Ort 4: Loop-Anlage", s: 86, ort: "ort4", html: `
+      {id: "ort4", titel: "Ort 4: Loop-Anlage", s: 86, bilder: [{b:"toomuch-loop-anlage", t:"Die Loop-Anlage", s:85}], ort: "ort4", html: `
 <p>Die Loop-Anlage ist ein großes kreisrundes Gelände im Zentrum der Norfolk Broads. Darin umgeben drei große Kühltürme einen Kraftwerks-Kontrollraum, eine Reihe von Laboren, die an neuen und interessanten Entdeckungen arbeiten, und ein kleineres Gebäude genau in der Mitte, das die Einrichtungen enthält, um die Kraft des Loops zu aktivieren, zu steuern und zu nutzen, Teilchen auf extreme Geschwindigkeiten zu beschleunigen. Im Lauf der Zeit wurde sie für verschiedene Zwecke genutzt, doch derzeit benutzt Daniel Wraff sie, um das Experiment nachzustellen, das er im Frühling durchführte (S. 24–43).</p>
 <p>Die Kinder können über die Sicherheitsanlagen rund um die Loop-Anlage hinwegfliegen und nahe an das Kontrollzentrum herankommen, doch vorerst ist das Geschöpf abgelenkt. Es hört durch den Riss die Echos seiner Familie und versucht, sich zum Riss im Raum durchzudrängen. Beim Näherkommen wird es jedoch von einer Art unsichtbarer Kraft zurückgestoßen. Auch die am Geschöpf haftenden Kinder können diese Kraft spüren, doch sie löst sie nicht.</p>`,
        aerger: [{t: "Ärger: Allgemeiner Ärger im Gebiet", html: `<p>Das Geschöpf wird verzweifelt, wenn es versucht, durch den Riss zu gelangen, und es nicht kann. Die Kinder können versuchen, es mit <span class='f'>charme</span> zu beruhigen oder dazu zu bringen, an einem Ort ihrer Wahl zu landen. Leider ist es AUFGEBRACHT 2, sodass es schwierig sein kann, es zur Landung zu bewegen.</p>`}],
@@ -109,7 +109,7 @@ window.MYS.toomuch = {
 <p>Haben die Kinder Erfolg, stabilisiert sich der Riss, und sie können schnell hinaus, um sich den sich nähernden ReGIS-Agenten zu stellen, bevor das Geschöpf geht. Scheitern sie, dringen ReGIS-Agenten ins Kontrollzentrum ein und schalten die Geräte ab, wodurch der Riss geschlossen wird und das Geschöpf auf der Erde gefangen bleibt.</p>`}]}
     ]},
     {id: "showdown", name: "Showdown", abschnitte: [
-      {id: "showdown", titel: "Showdown", s: 87, html: `
+      {id: "showdown", titel: "Showdown", s: 87, bilder: [{b:"toomuch-showdown", t:"Die Türme im Showdown", s:88}], html: `
 <p>Während sich der Riss am Himmel über dem Kontrollzentrum öffnet, blickt das Geschöpf zu ihm hinauf und dann zurück zu den Kindern. Leider nähern sich mehrere ReGIS-Agenten. Die Kinder haben die Chance, den Riss offen zu halten und die Agenten daran zu hindern, ihn zu schließen, und die Art, wie sie dem Geschöpf helfen, bestimmt, wie sie nach dem Mysterium von ReGIS behandelt werden. Sind die Kinder unsicher, wie sie vorgehen wollen, frage sie, welche der folgenden Möglichkeiten sie wählen wollen:</p>`},
       {id: "sh-mitgefuehl", titel: "An das Mitgefühl appellieren", s: 88, box: 1, html: `
 <ul>

@@ -30,7 +30,7 @@ window.MYS.snowday = {
 <p>Setze diese Szene als Erstes ein, wenn die Kinder noch nichts untersuchen. Wenn sie bereits ermitteln, kann diese Szene ein kurzer „Zusatz“ zu EINFÜHRUNGSSZENE B sein, der weitere Hinweise liefert, bevor die Kinder losziehen, um den Loop zu erkunden.</p>
 <p>Wenn bei einem der Kinder ein Elternteil im <b>Loop</b> arbeitet, hört das Kind mit, wie das Elternteil sagt, dass es länger oder über das Wochenende arbeiten muss. Die Stromversorgung des Loops hat plötzlich geschwankt, und dadurch ist ein Experiment fehlgeschlagen. Etwas verursacht große <b>Stromprobleme</b>. Die Wartung geht dem Problem nach, hat es aber noch nicht herausgefunden.</p>
 <p>Haben die Kinder keine Beziehungen zum Loop, können sie einfach ein Gespräch zwischen Loop-Wartungsarbeitern belauschen, die in der Nähe eine Zigarettenpause machen.</p>`},
-      {id: "szene-b", titel: "Einführungsszene B: Roboter und Wölfe", s: 2, ort: "ort2", html: `
+      {id: "szene-b", titel: "Einführungsszene B: Roboter und Wölfe", s: 2, bilder: [{b:"snowday-jaegerroboter", t:"Jägerroboter", s:3}], ort: "ort2", html: `
 <p>Im Zentrum der Stadt liegt eine Tankstelle mit Zapfsäulen für Diesel-Lastwagen. Eine kleine Menschenmenge hat sich um einen großen <b>Sattelauflieger</b> versammelt, der gerade eingefahren ist. Auf dem Auflieger stehen zwei <b>Roboter</b>. Zweibeinig. Aufgerichtet wären sie etwa 15 Fuß (rund 4,5 m) groß, doch sie befinden sich in ihrem „Transportmodus“. Die Beine der Roboter sind eingeklappt. Gurte halten sie fest. Zwischen den Beinen sitzen große kugelförmige „Köpfe“. Ein Teil jedes Kopfes scheint herausgeschnitten zu sein, sodass eine Öffnung entsteht, in der eine Glaskugel zu sitzen scheint. Unter den Roboterköpfen sind automatische Waffen im Kaliber .50 montiert. Sie wirken, als seien sie zum Töten gebaut, und sind furchteinflößend anzusehen.</p>
 <p>Auf dem Rücken jedes Roboters ist eingeprägt: Iwasaka SBR-71. Außerdem trägt jeder Roboter eine eigene Seriennummer, mit roter Farbe aufgeschablont.</p>
 <p>Wenn ein Spieler einen Wurf auf <span class='f'>begreifen</span> macht, erinnert er sich an weitere Informationen über die Roboter. Mit einem Wurf auf <span class='f'>untersuchen</span> oder <span class='f'>einfühlen</span> können die Kinder dieselben Informationen von verschiedenen Polizisten und Ingenieuren bekommen. (Siehe Abschnitt Jägerroboter.)</p>
@@ -66,7 +66,7 @@ window.MYS.snowday = {
        hinweise: [
          "Folgt man dem Kabel in den Wald, gelangt man zur Farm, wo die Maschine versteckt ist."
        ]},
-      {id: "wendung", titel: "Wendung und optionaler Ärger", s: 5, ort: "ort7", html: `
+      {id: "wendung", titel: "Wendung und optionaler Ärger", s: 5, bilder: [{b:"snowday-schlitten", t:"Der Schlitten", s:5, klein:1}], ort: "ort7", html: `
 <p>Die nächste Szene ist das <b>verlassene Farmhaus</b>. Sie bereitet den Boden für den Showdown des Mysteriums. Jetzt ist ein perfekter Zeitpunkt, um vor dem großen Finale zusätzlichen Ärger einzuführen, besonders wenn die Geschichte bisher zu glatt verlaufen ist.</p>
 <p>Es kann alles Mögliche geschehen:</p>`,
        aerger: [

@@ -37,7 +37,7 @@ window.MYS.hometown = {
       {id: "karte", titel: "Bereite die Karte vor", s: 100, html: `
 <p>Okay, du hast jetzt eine Stadt und das Kartengebiet festgelegt, jetzt ist es Zeit, die eigentliche Karte zu erstellen! Mach einen Screenshot des Gebiets, für das du dich entschieden hast, und importiere ihn dann in einen Bildeditor deiner Wahl, um den letzten Schliff anzubringen. Du kannst auch Dienste wie Snazzymaps oder OpenStreetMap ausprobieren, um deiner Karte etwas mehr Flair zu verleihen. Ein bisschen Recherche im Internet hilft sehr dabei, den Kartenstil zu finden, der zu dir passt.</p>`},
 
-      {id: "loop", titel: "Platziere den Loop", s: 100, html: `
+      {id: "loop", titel: "Platziere den Loop", s: 100, bilder: [{b:"hometown-karte-loop", t:"Der Loop: Gebietskarte", s:102}], html: `
 <p>Du hast eine Stadt und eine Karte, der nächste Schritt ist, den eigentlichen Loop an einer geeigneten Stelle zu platzieren. Denk daran, der Loop ist ein riesiger unterirdischer Beschleuniger und braucht viel Platz. Wenn du dir die Loops der Mälarinseln und von Boulder City ansiehst, wirst du feststellen, dass er aus diesen Elementen besteht:</p>
 <ul>
 <li>Der Reaktorkern in der Mitte des Loops</li>

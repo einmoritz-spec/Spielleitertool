@@ -27,7 +27,7 @@ window.MYS.bestof = {
 <ul class="sz">
 <li>die örtlichen Raufbolde, die man zuletzt im vorigen Mysterium gesehen hat, tauchen wieder auf, wenn die Kinder keine Hilfe der örtlichen Polizei mehr erwarten können.</li>
 </ul>`},
-      {id: "kreatur", titel: "Die Kreatur", s: 46, html: `
+      {id: "kreatur", titel: "Die Kreatur", s: 46, bilder: [{b:"bestof-kreatur-kind", t:"Ein Kind mit der Kreatur", s:56, klein:1}], html: `
 <p>Nach dem Schlüpfen ist die Kreatur etwa so groß wie eine Katze oder ein Zwergflusspferdbaby – rund 5 Kilogramm (12 lbs.) schwer und einen halben Meter (1,5 Fuß) lang. Sie prägt sich wahrscheinlich auf mindestens eines der Kinder und sucht bei ihm Nahrung und Gesellschaft. Ihre Bedürfnisse sind nicht leicht zu erfüllen und zwingen die Kinder, sich besondere Mühe zu geben, um seltene oder exotische Ressourcen zu beschaffen, die sie am Leben erhalten.</p>
 <p>Helfen die Kinder der Kreatur, ist sie sichtbar dankbar, zeigt Zuneigung und gibt gurrende oder hohe schnurrende Laute von sich, und zwar bei dem Kind, das ihr offensichtlich hilft. Um die Verletzlichkeit der Kreatur zu betonen, beschreibe, wie sie Kunststücke nicht schafft, zum Beispiel harmlos von kleinen Kisten fällt oder wie ein Kätzchen oder Hündchen erkunden will.</p>
 <p>In diesem Lebensabschnitt ist die Kreatur völlig auf andere angewiesen, die sie versorgen, und braucht die Kinder, damit diese den Transport über größere Entfernungen organisieren. Sie ist nicht schnell und fährt gern in einem Rucksack oder einer ähnlichen Tasche mit, ohne ein Geräusch zu machen, sofern sie nicht erschreckt wird.</p>

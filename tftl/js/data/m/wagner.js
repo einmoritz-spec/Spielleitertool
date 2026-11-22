@@ -59,7 +59,7 @@ window.MYS.wagner = {
 <li>Die Sonderbare versucht, die Kinder gefangen zu nehmen und einzusperren.</li>
 <li>Die Sonderbare und ihre Bande greifen die Kinder mit Stöcken und Steinen an und versuchen, sie zu töten.</li>
 </ol>`},
-      {id: "maschinen", titel: "Gedankenlose Maschinen", s: 167, box: 1, html: `
+      {id: "maschinen", titel: "Gedankenlose Maschinen", s: 167, bilder: [{b:"wagner-maschinen", t:"Gedankenlose Maschinen", s:167}], box: 1, html: `
 <p>Roboter haben fast nie eine KI, was bedeutet, dass sie eher Maschinen als lebendigen Wesen gleichen. In diesem Mysterium kannst du die Kinder jedoch daran zweifeln lassen, indem du ihnen Anzeichen gibst, dass die Maschinen vielleicht mehr verstehen, als die Menschen denken. Ein Roboter sieht die Kinder auf komische Weise an oder hört auf zu arbeiten, wenn sie vorbeigehen. Roboter sind selten, aber wenn die Kinder einen sehen, solltest du das voll ausnutzen, damit die Kinder an dem zweifeln, was sie wissen. Vielleicht sind die Roboter ja nicht nur gedankenlose Maschinen?</p>`}
     ]}
   ]

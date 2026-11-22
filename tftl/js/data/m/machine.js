@@ -376,7 +376,7 @@ window.MYS.machine = {
 <tr><td>Portalwesen „OW-1“</td><td>furchterregend 2, übernatürliche Stärke 3</td></tr>
 <tr><td>Dimensionswesen „DIM-9“</td><td>furchterregend 2, massig 3, Tentakel 2</td></tr>
 </table>`},
-      {id: "grenzen", titel: "Keine Grenzen", s: 103, box: 1, html: `
+      {id: "grenzen", titel: "Keine Grenzen", s: 103, bilder: [{b:"machine-keine-grenzen", t:"Keine Grenzen", s:103}], box: 1, html: `
 <p>Eine wichtige Regel in der Rollenspielwelt von Tales from the Loop und Things from the Flood ist, dass du als Spielleiter und deine Spielgruppe den Rahmen dafür setzt, was ihr in diesen alternativen 80ern und 90ern erleben wollt. Du entscheidest, welchen Ton, welches Genre und wie gewöhnlich, erstaunlich oder übernatürlich die Mysterien in der Welt des Loops sein sollen.</p>`}
     ]}
   ]

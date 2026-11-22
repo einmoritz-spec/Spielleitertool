@@ -15,7 +15,7 @@ window.MYS.blueprints = {
 <li><b>MG/S AURORA BOREALIS:</b> Ein schönes Beispiel für ein größeres Magnetrinschiff ist der Massengutfrachter Aurora Borealis. Mit seinem 172 Meter langen Rumpf zieht er überall Aufmerksamkeit auf sich, wo er anlegt. Die Aurora Borealis ist eines von vielen Magnetrin-Frachtschiffen, die den Frachtverkehr zu abgelegenen Orten wie Nowosibirsk revolutioniert haben.</li>
 </ul>`},
 
-      {id: "abm100", titel: "ALTA ABM100 – Autonome Feuerlöschmaschine", s: 90, box: 1, html: `
+      {id: "abm100", titel: "ALTA ABM100 – Autonome Feuerlöschmaschine", s: 90, bilder: [{b:"blueprints-abm100", t:"Bauplan ABM100", s:90}, {b:"blueprints-abm100-bild", t:"ABM100", s:91, klein:1}], box: 1, html: `
 <p><b>Technische Daten</b></p>
 <ul>
 <li>Hersteller: ALTA Robotteknik AB, Västerås, Schweden</li>
@@ -38,7 +38,7 @@ window.MYS.blueprints = {
 <li>Die Figuren kommen einem Sperrgebiet zu nahe. Ein Roboter entdeckt sie. Ein Katz-und-Maus-Spiel beginnt. Warum bemerkt kein Erwachsener, dass der Roboter sie jagt? Um die Dinge zu verkomplizieren, nähern sich aus der anderen Richtung ein paar seltsame Tiere ...</li>
 </ul>`},
 
-      {id: "mk79", titel: "PAARHUFER MK 79 – Teilautonome Serviceeinheit", s: 92, box: 1, html: `
+      {id: "mk79", titel: "PAARHUFER MK 79 – Teilautonome Serviceeinheit", s: 92, bilder: [{b:"blueprints-mk79", t:"Bauplan MK 79", s:92}, {b:"blueprints-mk79-bild", t:"MK 79", s:93, klein:1}], box: 1, html: `
 <p><b>Technische Daten</b></p>
 <ul>
 <li>Hersteller: Paarhufer Industrie GmbH, Düsseldorf, Westdeutschland</li>
@@ -62,7 +62,7 @@ window.MYS.blueprints = {
 <li>Die Figuren sind draußen im Wald, als sie auf einen rauchenden Serviceroboter stoßen. In seiner Klaue ist eine große Metallkiste mit Warntext. Von einem Bediener fehlt jede Spur. Wenn man eine Weile daran arbeitet, lässt sich die Kiste aus dem Griff der Klaue lösen. Was mag sie enthalten?</li>
 </ul>`},
 
-      {id: "m75", titel: "LIEBER-ALTA M75 – Lokomotivschiff", s: 94, box: 1, html: `
+      {id: "m75", titel: "LIEBER-ALTA M75 – Lokomotivschiff", s: 94, bilder: [{b:"blueprints-m75", t:"Bauplan M75", s:94}], box: 1, html: `
 <p><b>Technische Daten</b></p>
 <ul>
 <li>Hersteller: Lieber-ALTA Magnetrinindustri AB, Kalmar, Schweden</li>
@@ -92,7 +92,7 @@ window.MYS.blueprints = {
 <li>Auf der Brücke liegt eine Abendzeitung. Ihr Datum liegt eine Woche nach dem heutigen Datum, und auf der Titelseite steht eine große Schlagzeile über einen schweren Unfall im Loop. Wie ist sie hierhergekommen? Wie ist das ganze Lokomotivschiff in der Zeit zurückgekehrt? Lässt sich der Unfall verhindern?</li>
 </ul>`},
 
-      {id: "sierra-nevada", titel: "MG/S Sierra Nevada – Magnetrin-Frachtschiff", s: 96, box: 1, html: `
+      {id: "sierra-nevada", titel: "MG/S Sierra Nevada – Magnetrin-Frachtschiff", s: 96, bilder: [{b:"blueprints-sierra-nevada", t:"Bauplan Sierra Nevada", s:96}, {b:"blueprints-sierra-nevada-bild", t:"Sierra Nevada", s:97, klein:1}], box: 1, html: `
 <p><b>Technische Daten</b></p>
 <ul>
 <li>Betreiber: Southern Magnetrine Shipping, Inc.</li>

@@ -107,7 +107,7 @@ M.phasen.push({id: "anhang", name: "Anhang", abschnitte: [
 <p>Lieferwagen, Lastwagen, Anhänger, Quads und verschiedenste bizarre Magnetrin-Maschinen; es gibt keine Grenze für die Arten von Loop-Wartungsfahrzeugen, die ein Kind sehen kann. Doch alle teilen einen ähnlichen Erkennungsstil: silbergesprenkelte Lackierung und grüne Alarmlichter.</p>`},
   {id: "a-tankstelle", titel: "Shell-Tankstelle", s: 14, box: 1, html: `
 <p>Die Shell-Tankstelle im Zentrum der Stadt ist eine große Anlage. Sie ist die einzige Dieselquelle in der Gegend (abgesehen von den verschiedenen Wartungsgebäuden innerhalb des industriellen Komplexes des Loops). Sie kann große Lastwagen und Anhänger abfertigen, hat drei Werkstattboxen für Autoreparaturen und bietet einen voll besetzten Convenience-Store mit Feinkosttheke. Sie ist zu einem zentralen Treffpunkt für Kinder und Erwachsene geworden.</p>`},
-  {id: "tagebuch", titel: "Dianes Tagebuch", s: 15, html: `
+  {id: "tagebuch", titel: "Dianes Tagebuch", s: 15, bilder: [{b:"snowday-zeitmaschine", t:"Diagramm der Zeitmaschine", s:18}], html: `
 <h3>Eintrag eins</h3>
 <p>Ich, Diane Peterson, habe das Geheimnis der gezeitengravitationsunterstützten Raumzeit-Feldkrümmung gelüftet – was von all den maulatmenden Plebejern um mich herum höchstwahrscheinlich als „Zeitreise“ bezeichnet werden würde. Ich werde sofort damit beginnen, die richtigen Materialien zusammenzutragen, die für den Bau eines funktionierenden Prototyps zur Vorführung nötig sind.</p>
 <p>P.S. – Ich sollte erwähnen, dass das Ausarbeiten der Kernberechnungen zu diesem Phänomen nur etwa 20 Minuten konzentrierter Geistesarbeit gebraucht hat, während ich gestern Abend darauf wartete, dass mein Jasminreis kocht.</p>

@@ -6,7 +6,7 @@ window.MYS.mixtape = {
   intro: "Die Achtziger sind das Jahrzehnt, in dem Musik hauptsächlich über Kassetten gehört wird und das selbstgemachte Mixtape regiert. Im Mixtape der Mysterien in diesem Kapitel begegnen die Kinder träumenden Robotern, einer satanischen Verschwörung, zwei unsterblichen Jugendlichen, Horrorfilmen, die Wirklichkeit werden, und einem sehr seltsamen Kult, der sich im Untergrund versteckt. Einfach zurückspulen und auf Play drücken.",
   phasen: [
     {id: "lesen", name: "Lesen", abschnitte: [
-      {id: "mixtape", titel: "Mixtape der Mysterien", s: 68, html: `
+      {id: "mixtape", titel: "Mixtape der Mysterien", s: 68, bilder: [{b:"mixtape-karte-maelaren", t:"Karte: Die Mälarinseln", s:70}, {b:"mixtape-karte-boulder", t:"Karte: Boulder City und Lake Mead", s:79}], html: `
 <p>Diese acht Orte können als Mysterien-Landschaft verwendet, aber auch zu einer Reihe von Mysteriengeschichten ausgebaut oder zu einer Kampagne verknüpft werden. Jeder der Schauplätze ist von einem berühmten Lied der Achtziger inspiriert.</p>
 <p><b>Seite A</b></p>
 <ul>
@@ -61,7 +61,7 @@ window.MYS.mixtape = {
 <p>Falls AN-1 und DAV-4 je Persönlichkeiten hatten, sind diese verwischt und durch eine Vielzahl von Identitäten ersetzt worden, die sie aus den Träumen kopiert haben und zwischen denen sie ständig hin und her wechseln. Das bedeutet, dass sie regelmäßig ändern, wie sie sprechen, wie sie sich bewegen und welches Temperament sie haben. Die Kinder können durchaus die Stimmen und Ausdrucksweisen ihrer Eltern oder Freunde wiedererkennen. Stabil bleibt, dass AN-1 in ihrer „romantischen Beziehung“ eine traditionelle weibliche Rolle übernommen hat und DAV-4 die männliche. DAV-4 befiehlt AN-1 meistens, aufzuräumen, und macht dabei Witze über Frauen, über die er dann mechanisch lacht. AN-1 sorgt für „ihren Ehemann“ und versucht, ihr gemeinsam gebautes Roboterbaby GR-2 zum Leben zu erwecken. Die Roboter sind nicht aggressiv, außer in ihrer Nachstellung menschlicher Beziehungen. Werden sie bedroht, versuchen sie zuerst, ihre Lage zu erklären, bevor sie sich mit Gewalt verteidigen.</p>
 <p>AN-1 ist ein großer humanoider Roboter mit weißem Körper und orangefarbenem Kopf. Mit wenig erfolgreichem Ergebnis hat sie versucht, ihrem mechanischen Gesicht Make-up aufzutragen. AN-1 trägt ein Blumenkleid und hat eine Handtasche, in der sie einen Revolver aufbewahrt. DAV-4 ist ein kleiner, kräftiger Roboter aus weißem und rotem Kunststoff und Metall. Er trägt einen beigen Trenchcoat und hat eine Pfeife in der Hand. DAV-4 hat eine Schrotflinte, die er zur Hand nimmt, wenn er sich mit einem Eindringling auseinandersetzen muss.</p>`},
 
-      {id: "every-breath", titel: "Every Breath You Take", s: 72, box: 1, html: `
+      {id: "every-breath", titel: "Every Breath You Take", s: 72, bilder: [{b:"mixtape-robotor-paar", t:"AN-1 und DAV-4", s:72, klein:1}], box: 1, html: `
 <p class="hint">„Every Breath You Take“ – The Police</p>
 <p>Eine Welle der Paranoia hat sich unter den Schülern {{der Mälarinseln|von Boulder}} ausgebreitet. Sie drängen sich schweigend in Gruppen auf dem Schulhof, eilen nach Schulschluss schnell nach Hause und flüstern, dass jemand sie beobachtet. Es heißt, bewaffnete Jugendliche mit Gasmasken jagten Kinder. Entlang der Radwege und an verlassenen Häusern ist der Satz „BIG BROTHER SEES YOU“ gesprüht, dazu das Symbol eines Habichts.</p>
 <p><b>Die Wahrheit</b></p>

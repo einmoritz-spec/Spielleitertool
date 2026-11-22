@@ -19,7 +19,7 @@ M.orte = [
   {id: "ort7", nr: 7, name: "Das Königskron-Gebäude", s: 108}
 ];
 M.phasen.push({id: "loesung", name: "Lösung", abschnitte: [
-  {id: "ueberblick", titel: "Lösung des Mysteriums", s: 102, ueberblick: 1, html: `
+  {id: "ueberblick", titel: "Lösung des Mysteriums", s: 102, ueberblick: 1, bilder: [{b:"sirene-ablauf", t:"Ablauf des Mysteriums", s:101}, {b:"sirene-karte", t:"Karte der Schauplätze", s:105}], html: `
 <p>Im Grunde ist „Wenn die Sirene schweigt“ eine recht lineare Angelegenheit. Es gibt eine kleine Reihe von unvermeidlichen oder notwendigen Orten und Szenen, die von den Spielern erreicht und überwunden werden müssen, um zum Finale zu kommen. Zugleich ist das Szenario gerade zu Beginn sehr offen und diese schwelende Unsicherheit – „Was ist hier eigentlich los?!“ – ist beabsichtigt.</p>
 <p>Grundsätzlich ist der Ablauf aber folgender: Die Kinder kommen nach Hause und stellen fest, dass Dinge seltsam sind. Früher oder später erreicht sie Caesar und fordert sie auf, unverzüglich zum Königskron-Gebäude auf dem Altkönig zu kommen. Der Weg dorthin ist beschwerlich und einmal dort, müssen sie zudem noch in das Gebäude gelangen.</p>
 <p>Dann aber ist der Moment gekommen und sie müssen sich erstmals direkt der Kaiser-KI stellen. Das Finale kann auf mehreren Wegen bestritten werden; im Idealfall gelingt es den Kindern jedoch mit Argumenten und dem Wissen, das sie im Verlauf des „Kaiserspiels“ gesammelt haben, den Sieg davonzutragen.</p>`},

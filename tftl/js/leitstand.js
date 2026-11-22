@@ -42,7 +42,7 @@
   }
   function hinweis(key, html, S){ return '<div class="cl' + ((S.hw || {})[key] ? ' dn' : '') + '" data-k="' + key + '"><b>Hinweis</b>' + nm(html) + '</div>'; }
   function fig(b, M){ return '<figure class="fig"><img src="img/' + b.plan + '.webp" alt="' + esc(b.planTitel) + '" data-big="img/' + b.plan + '.webp"><figcaption>' + esc(b.planTitel) + ' · ' + pg(M.buch, b.planS) + '</figcaption></figure>'; }
-  function figs(a, M){ var r = ""; (a.bilder || []).forEach(function(b){ r += '<figure class="fig' + (b.klein ? ' small' : '') + '"><img src="img/' + b.b + '.webp" alt="' + esc(b.t || "") + '" loading="lazy" data-big="img/' + b.b + '.webp">' + (b.t || b.s ? '<figcaption>' + esc(b.t || "") + (b.t && b.s ? ' · ' : '') + (b.s ? pg(M.buch, b.s) : '') + '</figcaption>' : '') + '</figure>'; }); return r; }
+  function figs(a, M){ var r = ""; (a.bilder || []).forEach(function(b){ var bl = b.loop || (/maelar/.test(b.b) ? "maelar" : /boulder|lakemead/.test(b.b) ? "boulder" : ""); if(bl && bl !== (loop() === "boulder" ? "boulder" : "maelar")) return; r += '<figure class="fig' + (b.klein ? ' small' : '') + '"><img src="img/' + b.b + '.webp" alt="' + esc(b.t || "") + '" loading="lazy" data-big="img/' + b.b + '.webp">' + (b.t || b.s ? '<figcaption>' + esc(b.t || "") + (b.t && b.s ? ' · ' : '') + (b.s ? pg(M.buch, b.s) : '') + '</figcaption>' : '') + '</figure>'; }); return r ? '<div class="figs">' + r + '</div>' : r; }
   function nscCard(M, k){ var n = M.nsc[k]; return '<article class="nscc"><h3>' + esc(n.name) + ' <small>' + (loop() === "boulder" ? "" : "") + '</small></h3><p class="zit">' + n.zitat + '</p>' + nm(n.html) + '<div class="pgr">' + pg(M.buch, n.s) + '</div></article>'; }
   function nscName(M, k){ var n = M.nsc[k]; return loop() === "boulder" ? n.alt : n.name; }
 
@@ -126,6 +126,8 @@
     };
     /* Ort als besucht markieren */
     if(multi && ab && ab.ort){ var s4 = load(M.id); s4.orte = s4.orte || {}; if(!s4.orte[ab.ort]){ s4.orte[ab.ort] = 1; save(M.id, s4); } }
+    function flow(){ app.querySelectorAll(".txt").forEach(function(t){ var sd = t.querySelector(":scope > .side2"); if(!sd) return; t.classList.remove("below"); var th = 0; Array.prototype.forEach.call(t.children, function(c){ if(c !== sd) th += c.offsetHeight; }); if(sd.offsetHeight > th * 0.9) t.classList.add("below"); }); }
+    flow(); setTimeout(flow, 400); window.onresize = flow; app.addEventListener("click", function(){ setTimeout(flow, 60); });
     window.scrollTo(0, 0);
   };
   document.addEventListener("keydown", function(e){ if(/INPUT|TEXTAREA/.test(e.target.tagName || "")) return; if(e.key === "b"){ var l = document.querySelector(".lay"); if(l) l.classList.toggle("collapsed"); } });

@@ -305,3 +305,10 @@ details.lk[open] summary{display:none}
 .boxgrid .tr th,.boxgrid .tr td{padding:4px 8px;vertical-align:top;border-bottom:1px solid #ddd}
 .boxgrid .tr th{text-align:left}
 .fig.small{max-width:300px}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,520px));gap:14px;align-items:start;margin:14px 0}.figs .fig{margin:0;max-width:none}.figs .fig.small{max-width:300px}
+
+.txt.below .side2{float:none;width:auto;margin:18px 0 6px;display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));align-items:start;gap:14px;order:2}
+.txt.below{display:flex;flex-direction:column}
+.txt.below .side2{order:5}
+.txt.below .side2>:only-child{max-width:820px}
+.tr li{font-size:15px;line-height:1.45;margin-bottom:3px}.tr ul,.tr ol{padding-left:20px;margin-bottom:8px}.tr .bsp{font-size:15px}

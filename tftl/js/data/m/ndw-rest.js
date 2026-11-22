@@ -2,7 +2,7 @@
 (function(){
 var M = window.MYS.ndw;
 M.phasen.push({id: "showdown", name: "Showdown", abschnitte: [
-  {id: "showdown", titel: "Showdown", s: 55, html: `
+  {id: "showdown", titel: "Showdown", s: 55, bilder: [{b:"ndw-studio-plan", t:"Die Studioräume von Beats FM", s:56}], html: `
 <p>Zum Showdown kommt es wahrscheinlich während der angekündigten Wunschkonzert-Sendung. Es kann sich aus der Handlung ergeben, dass die Kinder schon zu einem früheren Zeitpunkt versuchen, die Radiosendung zu sabotieren, beispielweise weil sie dem Mann mit dem schwarzen Notizbuch an Schauplatz 3 oder Schauplatz 5 hierher gefolgt sind. Die Spielleiterin sollte die Spieler hier nicht unnötig aufhalten, sofern sie bereits die richtigen Schlüsse gezogen haben. Der Showdown muss dann leicht abgewandelt gespielt werden; so fallen zum Beispiel die tobenden Menschen weg und der Weg zum Sender ist frei. Auch sind beim Sendergebäude weder die Kantine noch die Anwaltskanzlei besetzt (siehe Ärger, S. 56), und auch bei Beats FM ist nur eine Rumpfmannschaft vorhanden.</p>
 <p>Die folgende Beschreibung geht allerdings davon aus, dass die Kinder am Samstagnachmittag während des Wunschkonzerts in den Sender einbrechen.</p>
 <p>Sollten die Kinder bis dahin nicht von selbst auf die Idee gekommen sein, dass die Gewaltwelle vom Sender ausgeht, wird Caesar sie kontaktieren. Er morst so lange auf allen von den Kindern genutzten Kanälen, bis einer der Charaktere den Empfang bestätigt. Er sendet immer wieder denselben Satz: „Die Welle rollt“. Spätestens jetzt sollten die Kinder den Schluss ziehen, dass alles mit den Funkwellen von Beats FM zu tun hat und sich zum Sender begeben.</p>
@@ -78,7 +78,7 @@ M.nsc = {
 <p>Der Mann mit dem schwarzen Notizbuch verfügt über das Sonderattribut (siehe Tales from the Loop S. 69) UNDURCHSCHAUBAR 2. Seine Motive sind schwer zu erkennen; er selbst verfügt aber über viel Charisma und kann vor allem Erwachsene sehr leicht von der Richtigkeit seiner Angaben überzeugen.</p>`}
 };
 M.phasen.push({id: "handouts", name: "Handouts", abschnitte: [
-  {id: "handouts", titel: "Handouts: Zeitungsartikel", s: 61, html: `
+  {id: "handouts", titel: "Handouts: Zeitungsartikel", s: 61, bilder: [{b:"ndw-zeitung-tankstelle", t:"Nach Schauplatz 3: „Randale an der Tankstelle“", s:61}, {b:"ndw-zeitung-rowdy", t:"Nach Schauplatz 4: „Da war Schluss mit lustig!“", s:61}, {b:"ndw-zeitung-tennis", t:"Nach Schauplatz 5: „Tennis-Schläger“", s:61}], html: `
 <p><b>Nach Schauplatz 3</b></p>
 <p class="zit"><b>Randale an der Tankstelle</b><br>Es war schon spät am Abend, als Anwohner auf ungewöhnliche Vorgänge an der gegenüberliegenden Tankstelle aufmerksam wurden. Die alarmierten Wachtmeister waren schnell zur Stelle, konnten aber auch nur noch … da eine eigene Meinung zu. „Ist man denn nirgends mehr sicher vor solchen Randalierern?“, beklagt die 86 Jahre alte Rentnerin. „Ich kaufe jeden Morgen in dieser Tankstelle meine Ziga…</p>
 <p><b>Nach Schauplatz 4</b></p>

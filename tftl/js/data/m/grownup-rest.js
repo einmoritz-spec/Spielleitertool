@@ -2,7 +2,7 @@
 (function(){
 var M = window.MYS.grownup;
 M.phasen.push({id: "showdown", name: "Showdown", abschnitte: [
-  {id: "showdown", titel: "Der Showdown", s: 141, html: `
+  {id: "showdown", titel: "Der Showdown", s: 141, bilder: [{b:"grownup-untergrund-plan", t:"Der unterirdische Serviceraum", s:141}], html: `
 <p>Die Kinder finden die überwucherte Luke im Wald nördlich des ArAN und der Echo-Sphäre. Unter dem Gras liegt eine Betonplatte mit einer schweren Luke, die sich mit einem Code öffnet. Eine Treppe führt hinab in dunkle Gänge, die endlos scheinen. Wenn die Kinder hinabsteigen, leuchten kleine blaue LEDs an den Wänden auf. An manchen Stellen hängen Notfalltelefone an den Wänden. Es ist feucht, und ein kalter Wind weht durch die Tunnel. Hin und wieder hören die Kinder etwas, das wie Schritte und sich bewegende Tiere irgendwo im Dunkeln klingt. Spinnweben verschmieren den Kindern das Gesicht, wenn sie sie nicht wegwischen.</p>
 <p>Nach zwanzig Minuten Fußmarsch kommen die Kinder in einen großen Serviceraum mit mehreren Eingängen. Die Wände sind mit Kabeln, Bildschirmen und Kontrollstationen bedeckt. Der Boden ist ein Gitter aus rostigem Metall in schlechtem Zustand. Mehrere Meter darunter fließt das Grundwasser mit lautem Rauschen. Es riecht schlecht. Von der Decke hängt ein grünes Kabel, das an eine der Stationen kurzgeschlossen ist. Das Kabel führt hinauf zum ArAN und verbindet ihn mit dem Gravitron.</p>
 <p>In zwei Nischen verstecken sich zwei Roboter. Lena hat sie hier platziert, um das Kabel zu bewachen. Die Kinder müssen Würfe auf <span class="f">untersuchen</span> machen, um sie zu entdecken. Die Roboter, genannt <a class="nsc" data-n="yinyang">Yin und Yang</a>, greifen an, wenn die Kinder den Raum betreten.</p>`,

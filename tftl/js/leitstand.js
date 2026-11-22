@@ -90,14 +90,15 @@
       else if(abId === "_hinweise"){ P.abschnitte.forEach(function(x){ if(x.hinweise) main += '<h3 class="hh">' + esc(x.titel) + '</h3><div class="hgrid">' + x.hinweise.map(function(t, i){ return hinweis(x.id + "-" + i, t, S); }).join("") + '</div>'; }); }
       else {
         ab = ab || P.abschnitte[0];
-        main = '<div class="top3"><div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div><div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' + countdown(M, S) + '</div>' +
+        var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
+        main = ((hasMap || M.countdown) ? '<div class="top3' + (hasMap ? '' : ' cdonly') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div><div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') + (M.countdown ? countdown(M, S) : '') + '</div>' : '') +
           '<div class="txt">' + '<div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + extraCards(M, ab) + '</div>';
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';
     } else {
       var main2 = "", right = "";
       P.abschnitte.forEach(function(x){
-        if(x.nsc){ main2 += '<h2 class="loc">' + esc(x.titel) + '</h2><div class="body">' + nm(x.html) + '</div><div class="nscg">' + Object.keys(M.nsc).map(function(k){ return nscCard(M, k); }).join("") + '</div>'; }
+        if(x.nsc){ main2 += '<h2 class="loc">' + esc(x.titel) + '</h2><div class="body">' + nm(x.html) + '</div><div class="nscg">' + Object.keys(M.nsc || {}).map(function(k){ return nscCard(M, k); }).join("") + '</div>'; }
         else if(x.loop) main2 += loopBox(M, x, S);
         else if(x.box) right += '<div class="tr"><h4>' + esc(x.titel) + ' ' + (x.s ? '<span class="pg">' + pg(M.buch, x.s) + '</span>' : '') + '</h4>' + nm(x.html) + '</div>';
         else { main2 += section(M, x, S) + (x.plan ? fig(x, M) : ""); }
@@ -117,7 +118,7 @@
       if((el = t.closest(".cd li"))){ var s = load(M.id); s.cd = s.cd || []; var i = +el.dataset.i; s.cd[i] = !s.cd[i]; save(M.id, s); app.querySelectorAll('.cd li[data-i="' + i + '"]').forEach(function(x){ x.classList.toggle("dn", !!s.cd[i]); }); return; }
       if((el = t.closest(".cl"))){ var s2 = load(M.id); s2.hw = s2.hw || {}; var k = el.dataset.k; s2.hw[k] = !s2.hw[k]; save(M.id, s2); app.querySelectorAll('.cl[data-k="' + k + '"]').forEach(function(x){ x.classList.toggle("dn", !!s2.hw[k]); }); hwCount(); return; }
       if((el = t.closest(".pgl"))){ e.preventDefault(); BV.open(el.dataset.b, +el.dataset.s); return; }
-      if((el = t.closest("a.nsc"))){ e.preventDefault(); var n = M.nsc[el.dataset.n]; if(!n) return; var d = document.createElement("div"); d.className = "nscm"; d.innerHTML = '<div class="box"><button class="x" aria-label="Schließen">✕</button>' + nscCard(M, el.dataset.n) + '</div>'; d.onclick = function(ev){ if(ev.target === d || ev.target.closest(".x")) d.remove(); }; document.body.appendChild(d); return; }
+      if((el = t.closest("a.nsc"))){ e.preventDefault(); var n = (M.nsc || {})[el.dataset.n]; if(!n) return; var d = document.createElement("div"); d.className = "nscm"; d.innerHTML = '<div class="box"><button class="x" aria-label="Schließen">✕</button>' + nscCard(M, el.dataset.n) + '</div>'; d.onclick = function(ev){ if(ev.target === d || ev.target.closest(".x")) d.remove(); }; document.body.appendChild(d); return; }
       if((el = t.closest("img[data-big]"))){ var d2 = document.createElement("div"); d2.className = "lbx"; d2.innerHTML = '<img src="' + el.dataset.big + '" alt="">'; d2.onclick = function(){ d2.remove(); }; document.body.appendChild(d2); return; }
       if(t.closest("#finBtn")){ var s3 = load(M.id); s3.fertig = !s3.fertig; save(M.id, s3); var dn = {}; try{ dn = JSON.parse(localStorage.getItem("tftl_done") || "{}"); }catch(x){} if(s3.fertig) dn[M.id] = 1; else delete dn[M.id]; try{ localStorage.setItem("tftl_done", JSON.stringify(dn)); }catch(x){} t.closest("#finBtn").textContent = s3.fertig ? "✓ Mysterium abgeschlossen" : "Mysterium abgeschlossen"; t.closest("#finBtn").classList.toggle("on", !!s3.fertig); return; }
       if((el = t.closest(".side .col")) && lay){ lay.classList.toggle("collapsed"); return; }

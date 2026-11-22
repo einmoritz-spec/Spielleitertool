@@ -359,3 +359,13 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .aint{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:16px 24px 0;background:#f2efe6;color:#111;font:17px/1.5 var(--text)}.aint p{margin:0}
 .kd[data-nf=fraktur] h1{line-height:1.1!important;margin-bottom:18px}
 [data-akz=weiss]{--kak:#fff}
+.kbild.leer{height:300px}.kbild.leer span{font:400 190px/1 var(--fraktur);color:var(--kak)}
+.kdb.glyph span{font:400 min(34vw,460px)/1 var(--fraktur);color:var(--kak);opacity:.9}
+.rts:has(.rt.frei){grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.kbild.leer{height:190px}.kbild.leer span{font-size:140px}
+.kd:has(.kdb.glyph){grid-template-columns:minmax(0,28%) 1fr}
+.kdb.glyph span{font-size:min(20vw,300px)}
+.kd:has(.kdb.glyph) .kdt{max-width:1000px}
+.rt h4{background:var(--kfg);color:var(--kbg)}
+.rts{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.rts{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}

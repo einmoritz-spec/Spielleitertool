@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v692sp";
+const VERSION = "v693sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -2523,6 +2523,7 @@ const FILES = [
   "tftl/js/data/nach/broads.js",
   "tftl/js/data/nach/schirm.js",
   "tftl/js/data/nach/schweden-karte.js",
+  "tftl/js/extras.js",
 ];
 
 self.addEventListener("install", e => {

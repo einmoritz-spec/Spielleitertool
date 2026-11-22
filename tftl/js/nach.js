@@ -100,6 +100,17 @@
     var m = String(k).match(/^\s*(\d+)\s*(?:[–-]\s*(\d+)|(\+))?\s*$/); if(!m) return false;
     var lo = +m[1], hi = m[3] ? Infinity : (m[2] ? +m[2] : lo); return v >= lo && v <= hi;
   }
+  /* Kurze Abschnitte zu Gruppen zusammenfassen (Seitenleisten-Eintrag + flach untereinander) */
+  function tlen(x){ if(x == null) return 0; if(typeof x === "string") return strip(x).length; if(typeof x === "number") return 0; if(Array.isArray(x)){ var n = 0; x.forEach(function(y){ n += tlen(y); }); return n; } if(typeof x === "object"){ var m = 0; Object.keys(x).forEach(function(k){ m += tlen(x[k]); }); return m; } return 0; }
+  function gruppen(list){
+    var out = [], g = null, tot = 0;
+    list.forEach(function(a){
+      var n = tlen(a.bloecke), kurz = n < 1800;
+      if(g && !g.zu && tot + n <= 4500 && (kurz || g.items.length)){ g.items.push(a); tot += n; if(!kurz) g.zu = 1; return; }
+      g = {items:[a], zu:!kurz}; tot = n; out.push(g);
+    });
+    return out;
+  }
   function lese(app, tab, rest, extraFirst){
     var C = CX(), ND = C.NACHDATA || window.NACHDATA, SETS = C.SETS || SETS0;
     var sets = (SETS[tab] || []).filter(function(k){ return ND && ND[k]; });
@@ -110,24 +121,32 @@
     else if(multi && rest[1] && sets.indexOf(rest[1]) >= 0){ setKey = rest[1]; cur = rest[2]; }
     else if(!multi){ cur = rest[1]; }
     var D = setKey ? ND[setKey] : null;
-    var sec = null;
+    var sec = null, jump = null;
     if(cur !== "typen" && D){ sec = D.abschnitte.filter(function(a){ return a.id === cur; })[0] || D.abschnitte[0]; }
     var base = "#" + C.p + "nach/" + tab + "/";
-    var tree = "";
+    var tree = "", grp = null;
     if(extraFirst) tree += '<a class="ni' + (cur === "typen" ? ' on' : '') + '" href="' + base + K.seg + '">' + K.label + '</a>';
     sets.forEach(function(k){
       var d = ND[k];
       if(multi) tree += '<div class="ng">' + esc(d.titel) + '</div>';
-      d.abschnitte.forEach(function(a){
-        var on = cur !== "typen" && sec && d === D && a.id === sec.id;
-        tree += '<a class="ni' + (on ? ' on' : '') + '" href="' + base + (multi ? k + "/" : "") + a.id + '">' + esc(a.titel.split(":")[0]) + '</a>';
+      gruppen(d.abschnitte).forEach(function(g){
+        var f = g.items[0], on = cur !== "typen" && sec && d === D && g.items.some(function(x){ return x.id === sec.id; });
+        if(on) grp = g;
+        var pre = base + (multi ? k + "/" : "");
+        tree += '<a class="ni' + (on ? ' on' : '') + '" href="' + pre + f.id + '">' + esc(f.titel.split(":")[0]) + '</a>';
+        g.items.slice(1).forEach(function(x){ tree += '<a class="nj" href="' + pre + x.id + '" data-j="' + x.id + '">' + esc(x.titel.split(":")[0]) + '</a>'; });
       });
     });
     var main = "";
     if(cur === "typen") main = null;
-    else if(sec) main = '<div class="nh"><h1>' + nm(sec.titel) + '</h1><small>' + (D.kap ? esc(D.kap) + ' · ' : '') + (sec.s ? pg(sec.s, D.buch) : '') + '</small></div><div class="ntext">' + sec.bloecke.map(bl).join("") + '</div>';
+    else if(sec){
+      var its = grp ? grp.items : [sec], f0 = its[0];
+      main = '<div class="nh"><h1>' + nm(f0.titel) + '</h1><small>' + (D.kap ? esc(D.kap) + ' · ' : '') + (f0.s ? pg(f0.s, D.buch) : '') + '</small></div><div class="ntext">' + f0.bloecke.map(bl).join("") +
+        its.slice(1).map(function(x){ return '<h2 class="nsub" id="nj-' + x.id + '">' + nm(x.titel) + (x.s ? ' <small>' + pg(x.s, D.buch) + '</small>' : '') + '</h2>' + x.bloecke.map(bl).join(""); }).join("") + '</div>';
+      jump = sec.id !== f0.id ? sec.id : null;
+    }
     else main = '<div class="nh"><h1>' + esc(((C.NACH || window.NACH).filter(function(x){ return x[0] === tab; })[0] || [0, tab])[1]) + '</h1></div>';
-    return {tree: tree, main: main, typen: cur === "typen"};
+    return {tree: tree, main: main, typen: cur === "typen", jump: jump};
   }
   window.renderNach = function(app, tabs, rest){
     var C = CX(), tab = rest[0] || "welt";
@@ -136,6 +155,7 @@
       var ty = e.target.closest(".ty"); if(ty && !e.target.closest(".pgl")){ location.hash = KA().href(ty.dataset.t); return; }
       var wb = e.target.closest(".nwb"); if(wb){ var sc = wb.closest(".nw"), v = roll(sc.dataset.d); sc.querySelectorAll("tr").forEach(function(tr){ tr.classList.toggle("hit", hit(tr.dataset.k, v)); }); wb.textContent = sc.dataset.d + ': ' + v; return; }
       var el = e.target.closest(".pgl"); if(el){ e.preventDefault(); e.stopPropagation(); if(window.BV) BV.open(el.dataset.b, +el.dataset.s); return; }
+      var nj = e.target.closest(".nj"); if(nj){ var tg = document.getElementById("nj-" + nj.dataset.j); if(tg){ e.preventDefault(); tg.scrollIntoView({behavior:"smooth", block:"start"}); return; } }
       if(e.target.closest("#nsT")){ collapsed = !collapsed; app.classList.toggle("nsc", collapsed); }
     };
     var K = KA(), kid = tab === K.tab ? K.rest(rest) : null;
@@ -147,6 +167,7 @@
     app.className = "page nach nl" + (collapsed ? " nsc" : "");
     app.innerHTML = '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + L.main + '</div>';
     var sd = app.querySelector(".nside"), on = app.querySelector(".ni.on"); if(sd && on) sd.scrollTop = Math.max(0, on.offsetTop - 60);
+    if(L.jump){ var jt = document.getElementById("nj-" + L.jump); if(jt) setTimeout(function(){ jt.scrollIntoView({block:"start"}); }, 30); }
   };
   document.addEventListener("keydown", function(e){
     if(e.key !== "b" || e.ctrlKey || e.metaKey || /INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "")) return;

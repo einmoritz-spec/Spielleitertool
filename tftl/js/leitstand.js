@@ -73,11 +73,12 @@
     var sp = M.pinShowdown[l]; h += '<a class="pin sd" style="left:' + sp[0] + '%;top:' + sp[1] + '%" href="#' + CX().p + 'm/' + M.id + '/showdown" title="' + esc(CX().L.showdown) + '">' + esc(CX().L.showdown.charAt(0)) + '</a>';
     return h + '</div>';
   }
+  function escb(t){ return esc(t).replace(/&lt;(\/?)(b|i)&gt;/g, "<$1$2>"); }
   function countdown(M, S, voll){
     var d = S.cd || [];
     return '<div class="kk cd"><h4>Countdown</h4><ol>' + M.countdown.map(function(t, i){
       var m = voll ? null : t.match(/^(.*?[.!?])\s+([\s\S]*)$/), kopf = m ? m[1] : t, rest = m ? m[2] : "";
-      return '<li data-i="' + i + '"' + (d[i] ? ' class="dn"' : '') + '><span>' + (i + 1) + '.</span> ' + nm(esc(kopf)) + (rest ? ' <button class="ex" aria-label="Mehr" title="Mehr">▾</button><em class="rest">' + nm(esc(rest)) + '</em>' : '') + '</li>'; }).join("") + '</ol></div>';
+      return '<li data-i="' + i + '"' + (d[i] ? ' class="dn"' : '') + '><span>' + (i + 1) + '.</span> ' + nm(escb(kopf)) + (rest ? ' <button class="ex" aria-label="Mehr" title="Mehr">▾</button><em class="rest">' + nm(escb(rest)) + '</em>' : '') + '</li>'; }).join("") + '</ol></div>';
   }
   function hinweis(key, html, S){ return '<div class="cl' + ((S.hw || {})[key] ? ' dn' : '') + '" data-k="' + key + '"><b>Hinweis</b>' + nm(html) + '</div>'; }
   function fig(b, M){ return '<figure class="fig"><img src="img/' + b.plan + '.webp" alt="' + esc(b.planTitel) + '" data-big="img/' + b.plan + '.webp"><figcaption>' + esc(b.planTitel) + ' · ' + pg(M.buch, b.planS) + '</figcaption></figure>'; }
@@ -102,6 +103,18 @@
     return '<details class="lk"' + (mine ? ' open' : '') + '><summary><span>Fassung ' + esc(a.fassung) + '</span><b>' + (mine ? '' : 'Fassung ' + esc(a.fassung) + ' ▸') + '</b></summary><div class="body">' + nm(a.html) + '</div></details>';
   }
 
+  /* Kurze Abschnitte ohne Ort/Ablauf-Ziel zu Gruppen zusammenfassen */
+  function tlen(h){ return String(h || "").replace(/<[^>]+>/g, "").length; }
+  function gruppen(M, list){
+    var zz = {}; if(M.ablauf) (M.ablauf.knoten || []).forEach(function(k){ zz[String(k.ziel).replace(/^loesung\//, "")] = 1; });
+    var out = [], g = null, tot = 0;
+    list.forEach(function(a, i){
+      var ok = i > 0 && !a.ort && !a.ueberblick && !zz[a.id], n = tlen(a.html) + tlen(JSON.stringify(a.extra || "")) + tlen(JSON.stringify(a.aerger || "")), kurz = n < 1800;
+      if(ok && g && !g.zu && tot + n <= 4500 && (kurz || g.items.length)){ g.items.push(a); tot += n; if(!kurz) g.zu = 1; return; }
+      g = ok ? {items: [a], zu: !kurz} : {items: [a], zu: 1}; tot = n; out.push(g);
+    });
+    return out;
+  }
   window.renderLeitstand = function(app, tabs, rest){
     var C = CX(), MY = C.MYS || window.MYS, M = MY && MY[rest[0]]; CUR = M || null; GCTX = null;
     if(!M){ tabs.innerHTML = ""; app.className = "page"; app.innerHTML = '<h1>Mysterium nicht gefunden</h1>'; return; }
@@ -111,18 +124,20 @@
     phase = P.id;
     var multi = P.id === "loesung";
     var abId = rest[2] || (multi ? (S.ab || "ueberblick") : null);
-    var ab = P.abschnitte.filter(function(x){ return x.id === abId; })[0];
+    var ab = P.abschnitte.filter(function(x){ return x.id === abId; })[0], grp = null, jump = null;
+    if(multi){ grp = gruppen(M, P.abschnitte); var gg = ab ? grp.filter(function(g){ return g.items.indexOf(ab) >= 0; })[0] : null; if(gg && gg.items[0] !== ab){ jump = ab.id; ab = gg.items[0]; } }
     S.phase = P.id; if(multi){ S.ab = ab ? ab.id : "ueberblick"; } S.besucht = S.besucht || {}; var bKey = multi ? "loesung/" + (ab ? ab.id : "ueberblick") : P.id; S.besucht[bKey] = 1; save(M.id, S);
     noteLast(M, P.id, multi && ab ? ab.titel.replace(/^Ort (\d): /, "Ort $1 · ") : "");
     var base = "#" + C.p + "m/" + M.id + "/";
     tabs.innerHTML = '<a class="mt" href="#' + C.p + 'mysterien"><i style="background-image:url(img/' + M.bild + '.webp)"></i><b>' + esc(M.name) + '</b></a>' +
-      M.phasen.map(function(p){ return '<a href="' + base + p.id + '"' + (p.id === P.id ? ' class="on"' : '') + '>' + esc(p.name) + '</a>'; }).join("");
+      M.phasen.map(function(p){ return '<a href="' + base + p.id + '"' + (p.id === P.id ? ' class="on"' : '') + '>' + esc(p.name) + '</a>'; }).join("") + '<span class="tsp"></span>' + (window.TX ? TX.pen(M.id + "/" + P.id) : "");
     var html = "";
     if(multi){
       var curOrt = ab && ab.ort || null;
       var side = '<aside class="side"><button class="col" title="Seitenleiste einklappen (b)" aria-label="Seitenleiste einklappen">‹</button><h5>' + esc(P.name) + '</h5>' +
-        P.abschnitte.map(function(x){ var o = x.ort ? M.orte.filter(function(q){ return q.id === x.ort; })[0] : null, on = ab && ab.id === x.id, dn = o && (S.orte || {})[o.id];
-          return '<a href="' + base + 'loesung/' + x.id + '" class="' + (on ? 'on' : '') + (dn && !on ? ' dn' : '') + '">' + (o ? 'Ort ' + o.nr + '<small>' + esc(o.name) + '</small>' : (x.ueberblick || x === P.abschnitte[0] ? 'Überblick<small>Karte · Ablauf · Countdown</small>' : esc(String(x.titel).split(":")[0]))) + '</a>'; }).join("") +
+        grp.map(function(g){ var x = g.items[0], o = x.ort ? M.orte.filter(function(q){ return q.id === x.ort; })[0] : null, on = ab && ab.id === x.id, dn = o && (S.orte || {})[o.id];
+          return '<a href="' + base + 'loesung/' + x.id + '" class="' + (on ? 'on' : '') + (dn && !on ? ' dn' : '') + '">' + (o ? 'Ort ' + o.nr + '<small>' + esc(o.name) + '</small>' : (x.ueberblick || x === P.abschnitte[0] ? 'Überblick<small>Karte · Ablauf · Countdown</small>' : esc(String(x.titel).split(":")[0]))) + '</a>' +
+            g.items.slice(1).map(function(y){ return '<a class="nj" href="' + base + 'loesung/' + y.id + '" data-j="' + y.id + '">' + esc(String(y.titel).split(":")[0]) + '</a>'; }).join(""); }).join("") +
         '<h5>Immer zur Hand</h5><a href="' + base + 'loesung/_countdown" class="' + (ab && ab.id === "_countdown" ? 'on' : '') + '">Countdown</a>' +
         '<a href="' + base + 'loesung/_hinweise" class="' + (abId === "_hinweise" ? 'on' : '') + '">Hinweise<small id="hwCount"></small></a></aside>';
       var main = "";
@@ -130,15 +145,16 @@
       else if(abId === "_hinweise"){ P.abschnitte.forEach(function(x){ if(x.hinweise) main += '<h3 class="hh">' + esc(x.titel) + '</h3><div class="hgrid">' + x.hinweise.map(function(t, i){ return hinweis(x.id + "-" + i, t, S); }).join("") + '</div>'; }); }
       else {
         ab = ab || P.abschnitte[0];
+        var gm = grp.filter(function(g){ return g.items[0] === ab; })[0], more = function(){ return gm ? gm.items.slice(1).map(function(y){ return '<div class="txt" id="nj-' + y.id + '"><div class="side2">' + sideCards(M, y, S) + '</div>' + section(M, y, S) + (y.plan ? fig(y, M) : '') + figs(y, M) + extraCards(M, y) + '</div>'; }).join("") : ""; };
         var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
         if(M.ablauf){
           main = '<div class="top2' + (hasMap ? '' : ' nomap') + '">' + (hasMap ? '<div class="mapcol"><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' : '') + '<div class="flowcol"><div class="cap">Ablauf</div><div class="flow g"></div></div></div><div class="flowrow g2" hidden><div class="cap">Ablauf</div></div>' +
-            '<div class="txt"><div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>';
+            '<div class="txt"><div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>' + more();
           GCTX = {M: M, curKey: "loesung/" + ab.id, hasMap: hasMap};
         } else {
         var cdSide = (!hasMap && M.countdown) ? countdown(M, S) : "";
         main = ((hasMap) ? '<div class="top3' + (hasMap && M.orte.length > 3 ? ' t2' : '') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div>' + (M.orte.length <= 3 ? '<div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') + (M.countdown ? countdown(M, S) : '') + '</div>' + (M.orte.length > 3 ? '<div class="flowrow"><div class="cap">Ablauf</div><div class="flow wide">' + ablauf(M, ab.ort, S) + '</div></div>' : '') : '') +
-          '<div class="txt">' + '<div class="side2">' + cdSide + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>';
+          '<div class="txt">' + '<div class="side2">' + cdSide + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>' + more();
         }
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';
@@ -168,6 +184,7 @@
       if((el = t.closest("a.nsc"))){ e.preventDefault(); var n = (M.nsc || {})[el.dataset.n]; if(!n) return; var d = document.createElement("div"); d.className = "nscm"; d.innerHTML = '<div class="box"><button class="x" aria-label="Schließen">✕</button>' + nscCard(M, el.dataset.n) + '</div>'; d.onclick = function(ev){ if(ev.target === d || ev.target.closest(".x")) d.remove(); }; document.body.appendChild(d); return; }
       if((el = t.closest("img[data-big]"))){ var d2 = document.createElement("div"); d2.className = "lbx"; d2.innerHTML = '<img src="' + el.dataset.big + '" alt="">'; d2.onclick = function(){ d2.remove(); }; document.body.appendChild(d2); return; }
       if(t.closest("#finBtn")){ var s3 = load(M.id); s3.fertig = !s3.fertig; save(M.id, s3); var dn = {}; try{ dn = JSON.parse(localStorage.getItem(CX().ls + "done") || "{}"); }catch(x){} if(s3.fertig) dn[M.id] = 1; else delete dn[M.id]; try{ localStorage.setItem(CX().ls + "done", JSON.stringify(dn)); }catch(x){} t.closest("#finBtn").textContent = s3.fertig ? "✓ Mysterium abgeschlossen" : "Mysterium abgeschlossen"; t.closest("#finBtn").classList.toggle("on", !!s3.fertig); return; }
+      if((el = t.closest(".side a.nj"))){ var tg = document.getElementById("nj-" + el.dataset.j); if(tg){ e.preventDefault(); tg.scrollIntoView({behavior: "smooth", block: "start"}); return; } }
       if((el = t.closest(".side .col")) && lay){ lay.classList.toggle("collapsed"); return; }
     };
     /* Ort als besucht markieren */
@@ -190,6 +207,7 @@
     window.__lsRelayout = relayout;
     relayout(); setTimeout(relayout, 400); window.onresize = relayout; app.addEventListener("click", function(){ setTimeout(relayout, 60); });
     window.scrollTo(0, 0);
+    if(jump){ var jt = document.getElementById("nj-" + jump); if(jt) setTimeout(function(){ jt.scrollIntoView({block: "start"}); }, 60); }
   };
   document.addEventListener("keydown", function(e){ if(/INPUT|TEXTAREA/.test(e.target.tagName || "")) return; if(e.key === "b"){ var l = document.querySelector(".lay"); if(l) l.classList.toggle("collapsed"); if(window.__lsRelayout) setTimeout(window.__lsRelayout, 60); } });
   window.renderLeitstand.ctx = true;

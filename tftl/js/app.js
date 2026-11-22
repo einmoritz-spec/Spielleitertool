@@ -53,7 +53,7 @@
     document.title = d.title;
     window.TCTX = ctx(r.area);
     var ok = r.area==="tftl" || r.area==="flood", pre = r.area==="tftl" ? "" : r.area + "/";
-    head(r.area); menu(r.area);
+    head(r.area); menu(r.area); if(window.TX) TX.info();
     if(r.area==="tftl" && r.page==="schirm"){ location.replace("#nach/schirm"); return; }
     var tabsEl = document.getElementById("tabs");
     document.getElementById("app").onclick = null;
@@ -69,6 +69,8 @@
     else if(ok && r.page==="kids" && window.renderKids && (r.area==="tftl" || window.renderKids.ctx)) window.renderKids(app);
     else if(ok && r.page==="bogen" && window.renderBogen && (r.area==="tftl" || window.renderKids.ctx)) window.renderBogen(app, r.rest[0]);
     else if(ok && r.page==="mysterien" && window.renderMysterien) window.renderMysterien(app);
+    else if(ok && r.page==="wuerfel" && window.renderWuerfel) window.renderWuerfel(app);
+    else if(ok && r.page==="galerie" && window.Galerie && Galerie.has(r.area==="flood" ? "tftl_flood" : "tftl")) Galerie.open(r.area==="flood" ? "tftl_flood" : "tftl");
     else app.innerHTML = '<h1>' + esc(tab ? tab[1] : r.page) + '</h1>';
     window.scrollTo(0, 0);
   }

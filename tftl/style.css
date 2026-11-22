@@ -297,3 +297,10 @@ details.lk[open] summary{display:none}
 .page.nach.nl .tgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.page.nach.nl.nsc .tgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .ty img{width:96px}
 .ty h3 small{font:700 12px var(--sans);color:var(--soft);margin-left:4px;text-transform:none}
+
+.boxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px;align-items:start;padding:8px 0}
+.boxgrid .tr{margin:0}
+.boxgrid .tr:has(table){grid-column:1/-1;overflow-x:auto}
+.boxgrid .tr table{border-collapse:collapse;width:100%;font-size:.92rem}
+.boxgrid .tr th,.boxgrid .tr td{padding:4px 8px;vertical-align:top;border-bottom:1px solid #ddd}
+.boxgrid .tr th{text-align:left}

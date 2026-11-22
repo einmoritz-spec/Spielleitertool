@@ -82,7 +82,7 @@
       var curOrt = ab && ab.ort || null;
       var side = '<aside class="side"><button class="col" title="Seitenleiste einklappen (b)" aria-label="Seitenleiste einklappen">‹</button><h5>Lösung</h5>' +
         P.abschnitte.map(function(x){ var o = x.ort ? M.orte.filter(function(q){ return q.id === x.ort; })[0] : null, on = ab && ab.id === x.id, dn = o && (S.orte || {})[o.id];
-          return '<a href="' + base + 'loesung/' + x.id + '" class="' + (on ? 'on' : '') + (dn && !on ? ' dn' : '') + '">' + (o ? 'Ort ' + o.nr + '<small>' + esc(o.name) + '</small>' : 'Überblick<small>Karte · Ablauf · Countdown</small>') + '</a>'; }).join("") +
+          return '<a href="' + base + 'loesung/' + x.id + '" class="' + (on ? 'on' : '') + (dn && !on ? ' dn' : '') + '">' + (o ? 'Ort ' + o.nr + '<small>' + esc(o.name) + '</small>' : (x.ueberblick || x === P.abschnitte[0] ? 'Überblick<small>Karte · Ablauf · Countdown</small>' : esc(String(x.titel).split(":")[0]))) + '</a>'; }).join("") +
         '<h5>Immer zur Hand</h5><a href="' + base + 'loesung/_countdown" class="' + (ab && ab.id === "_countdown" ? 'on' : '') + '">Countdown</a>' +
         '<a href="' + base + 'loesung/_hinweise" class="' + (abId === "_hinweise" ? 'on' : '') + '">Hinweise<small id="hwCount"></small></a></aside>';
       var main = "";
@@ -104,7 +104,7 @@
         else { main2 += section(M, x, S) + (x.plan ? fig(x, M) : ""); }
         if(x.abschluss) main2 += '<button class="fin' + ((load(M.id).fertig) ? ' on' : '') + '" id="finBtn">' + (S.fertig ? '✓ Mysterium abgeschlossen' : 'Mysterium abgeschlossen') + '</button>';
       });
-      html = '<div class="main wide"><div class="txt">' + (right ? '<div class="side2">' + right + '</div>' : '') + main2 + '</div></div>';
+      html = '<div class="main wide">' + (!main2 && right ? '<div class="boxgrid">' + right + '</div>' : '<div class="txt">' + (right ? '<div class="side2">' + right + '</div>' : '') + main2 + '</div>') + '</div>';
     }
     app.className = "ls";
     app.innerHTML = html;

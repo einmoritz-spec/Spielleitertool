@@ -1,4 +1,6 @@
-# SLUGBLASTER – Spielleiter-Tafel (Bauplan)
+# SLUGBLASTER – Spielleiter-Tafel (Bauplan)  
+
+> **Stand: erledigt** (Schritte 0–9 umgesetzt, Nov. 2026)
 
 Stand: 22. Nov. 2026. Arbeitsanweisung für die Umsetzung (gedacht für Sonnet, in mehreren Sitzungen).
 Nichts aus diesem Plan ist bisher gebaut. Heute ist `slugblaster/` nur eine Bücher-Startseite (`shared/sysstart.js` + `slugblaster/sys.js`, Logo `assets/logos/slugblaster.webp`, Platzhalter-Farben Dunkellila/Neonpink, die **nicht** zum Buch passen und ersetzt werden).
@@ -385,7 +387,7 @@ Regeln: Doppelseiten als **ein** Bild; nie ein Bild einer falschen Figur/Welt zu
 6. **Teenager II:** 12 Signaturen (Entwurf 6) inkl. Skizzen (Abschnitt 7; die zwei Gemini-Bilder bei Moritz anfragen, solange sie fehlen: gestrichelter Rahmen ohne Text), Ausrüstung, Sticker & Co.
 7. **Spielablauf** (Kap. 1 + Demo) und **Spielleitung** (Kap. 4) + Spiel verändern + Spielleiterschirm.
 8. **Oolroob** komplett (Entwurf 8) inkl. Dropdown-Untersetting.
-9. **Charakterbogen & Crewbogen** mit PDF-Export (Abschnitt 5.4) + Suche über alles + Galerie + Gesamtcheck (1280er-Viewport, keine JS-Fehler, keine Lücken, eingeklappte Seitenleiste) → diesen Plan als „erledigt“ markieren.
+9. ✅ **Charakterbogen & Crewbogen** mit PDF-Export (Abschnitt 5.4) + Suche über alles + Galerie + Gesamtcheck (1280er-Viewport, keine JS-Fehler, keine Lücken, eingeklappte Seitenleiste) → diesen Plan als „erledigt“ markieren.
 
 Für jede Sitzung bittet Sonnet Moritz, das Regelbuch-PDF (und für Schritt 6/8/9 das Oolroob-Heft bzw. die Bögen) hochzuladen. Der englische Text liegt schon im Repo.
 

@@ -35,7 +35,7 @@ function viewStart(){
       k.z.map(function(z){ return '<li onclick="openBook(\'sb_core\',' + z[1] + ')"><span>' + esc(z[0]) + '</span><i>S. ' + z[1] + '</i></li>'; }).join("") + '</ul></div>';
   }).join("");
   var side = (VIEWS.folge ? '<button class="go" onclick="go(\'folge\')"><div class="t">Los-<br>blasten!</div><div class="s">Folge, Crew &amp; Multiversum</div><span class="arr">→</span></button>' : "") +
-    chipsHtml([["bogen","Charakterbogen","bogen"],["bogen","Crewbogen","bogen/crew"],["schirm","Spielleiterschirm","schirm"],["galerie","Galerie","galerie"]]) +
+    chipsHtml([["crew","Charakterbögen","crew"],["crew","Crewbogen","crew/crew"],["schirm","Spielleiterschirm","schirm"],["galerie","Galerie","galerie"]]) +
     (VIEWS.oolroob ? '<button class="oo" onclick="go(\'oolroob\')"><img src="' + IMG("oolroob/cover") + '" alt=""><div><b>Oolroob</b><small>Zusatzheft</small></div></button>' : "");
   return '<div class="hero"><div class="l"><h1 class="big">Das ist<br><span>Slug</span>blaster</h1>' +
     '<p class="pitch">… ein Rollenspiel über Teenager, Riesenkäfer, Hoverboards mit Schaltkreisen und den Versuch, cool zu sein.</p>' +
@@ -71,7 +71,8 @@ function render(){
 function buildMenu(){
   document.getElementById("mmP").innerHTML = '<h3>Nachschlagen</h3>' +
     [["regeln","Spielablauf"],["teenager","Teenager"],["spielleitung","Spielleitung"],["veraendern","Spiel verändern"],["demo","Demo"]].map(function(b){ return '<button onclick="openMenu(false);go(\'nach/' + b[0] + '\')">' + b[1] + '</button>'; }).join("") +
-    '<button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm</button><h3>Kapitel</h3>' +
+    '<button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm</button>' +
+    '<button onclick="openMenu(false);go(\'crew\')">Charakterbögen</button><button onclick="openMenu(false);Galerie.open(\'slugblaster\')">Galerie</button><button onclick="openMenu(false);SBS.open()">Suche <small style="opacity:.5">( / )</small></button><h3>Kapitel</h3>' +
     SB_KAP.map(function(k){ return '<button onclick="openMenu(false);openBook(\'sb_core\',' + k.z[0][1] + ')">' + esc(k.k + " · " + k.t.replace(/<br>/g, " ")) + '</button>'; }).join("") +
     '<h3>Bücher</h3>' + SB_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
     '<button onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';

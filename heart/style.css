@@ -1,0 +1,205 @@
+/* HEART – Farb-, Schrift- und Baustein-System der Entwürfe (Ausgangspunkt für heart/style.css)
+   Alle Farben aus den Buch-PDFs gemessen (Füllfarben/Textfarben per pymupdf, Raster per Pixel-Median). */
+@font-face{font-family:"HT Pressed";src:url(../assets/fonts/ht-bartender-pressed.woff2) format("woff2")}
+@font-face{font-family:"HT Serif";src:url(../assets/fonts/ht-bartender-serif.woff2) format("woff2")}
+@font-face{font-family:"HT Sans";src:url(../assets/fonts/ht-bartender-sans.woff2) format("woff2")}
+@font-face{font-family:"HT BoldSans";src:url(../assets/fonts/ht-bartender-boldsans.woff2) format("woff2")}
+@font-face{font-family:Alegreya;src:url(../assets/fonts/alegreya-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Alegreya;src:url(../assets/fonts/alegreya-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic}
+@font-face{font-family:Alegreya;src:url(../assets/fonts/alegreya-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Alegreya;src:url(../assets/fonts/alegreya-latin-500-italic.woff2) format("woff2");font-weight:500;font-style:italic}
+@font-face{font-family:Alegreya;src:url(../assets/fonts/alegreya-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Alegreya;src:url(../assets/fonts/alegreya-latin-700-italic.woff2) format("woff2");font-weight:700;font-style:italic}
+@font-face{font-family:Alegreya;src:url(../assets/fonts/alegreya-latin-800-normal.woff2) format("woff2");font-weight:800}
+@font-face{font-family:"Alegreya SC";src:url(../assets/fonts/alegreya-sc-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Alegreya SC";src:url(../assets/fonts/alegreya-sc-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Caveat;src:url(../assets/fonts/caveat-latin-400-normal.woff2) format("woff2")}
+
+:root{
+  /* Grund (Schreibtisch / Seitenstreifen des Buchs) */
+  --grund:#150e06;      /* Median des schwarzen Seitenstreifens */
+  --grund2:#21170f;     /* aufgehellt für Flächen auf dem Grund */
+  --grund3:#2e221a;
+  --pergament:#f4eee3;  /* Ersatzfarbe, wenn die Papiertextur fehlt */
+  --pg-dunkel:#e6dccb;  /* Papierrand/Flecken */
+  /* Schrift */
+  --tinte:#12120d;      /* Fließtext Grundbuch (#12120d) */
+  --blut:#640000;       /* Überschriften, Etiketten (Grundbuch #640000, Kampagne #67000c) */
+  --platte:#5b0909;     /* Namensplatte (weiße Schrift auf Rot) – Füllfarbe #5b0909 */
+  --platte2:#690909;
+  --hell:#b4341d;       /* Logo-Rot S. 2 – nur Hover/aktive Markierung */
+  --rose:#eee6e6;       /* Zebra der Werte-Zeilen (Gegner, Kerneigenschaften) */
+  --rose2:#e8d6d2;      /* Werte-Zeilen Kampagnenband */
+  --teal:#7ba09e;       /* Delve-Platten (Kampagne) + Klassenname diagonal (#7da29f) */
+  --teal-hell:#ecefee;  /* Delve-Kartenfläche */
+  --nacht:#08151d;      /* Cover-Nacht */
+  --glut:#67b3b8;       /* Cover-Leuchten – nur im Querschnitt-Bild, nicht als UI-Farbe */
+  --grau:#8a7f72;
+  --linie:#d8cbb8;
+  --kopf-h:52px;--panel-raised:#1d140b;
+  /* Abstandsreihe */
+  --a1:4px;--a2:8px;--a3:12px;--a4:16px;--a5:24px;--a6:32px;--a7:48px;
+  --plate:"HT Sans","HT Serif",sans-serif;
+  --head:"HT Pressed","HT Serif",serif;
+  --body:Alegreya,Georgia,serif;
+  --sc:"Alegreya SC",Alegreya,serif;
+  --hand:Caveat,cursive;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:400 16px/1.42 var(--body);color:var(--tinte);background:var(--grund) url(img/tex/dunkel.webp) center/cover;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+
+/* ── Kopfzeile: schwarzer Streifen wie der Buchrücken ───────────────────────── */
+.topbar{height:var(--kopf-h);display:flex;align-items:center;gap:6px;padding:0 14px 0 20px;background:#0d0804;border-bottom:1px solid #000;z-index:20}
+.topbar .logo{display:flex;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer}
+.topbar .logo img{height:30px;display:block}
+.topbar .logo .dd{width:9px;height:9px;border-right:2px solid #8f7f70;border-bottom:2px solid #8f7f70;transform:rotate(45deg) translate(-3px,-3px);margin-left:6px}
+.topbar .sp{flex:1}
+.ik{width:38px;height:38px;border:0;background:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px}
+.ik:hover{background:rgba(255,255,255,.06)}
+.ik svg{width:22px;height:22px;stroke:#e9dfcf}
+.ik.i{font:italic 700 20px/1 Alegreya,serif;color:#e9dfcf}
+
+/* ── Tab-Leiste: auf dem Grund, aktiver Tab = rote Namensplatte ─────────────── */
+.tabs{position:sticky;top:var(--kopf-h);height:46px;display:flex;align-items:flex-end;gap:2px;padding:0 20px;background:#0d0804;border-bottom:3px solid var(--platte);z-index:19}
+.tabs a{font:400 17px/1 var(--plate);letter-spacing:.07em;text-transform:uppercase;color:#cbbba6;padding:12px 16px 11px;text-decoration:none;cursor:pointer}
+.tabs a:hover{color:#fff}
+.tabs a.on{background:var(--platte);color:#fff}
+.tabs .sp{flex:1}
+.tabs .stift{align-self:center;margin-bottom:6px}
+.tabs .stift svg{stroke:#cbbba6}
+
+/* ── Pergamentseite: Papiertextur mit Brandrand (9-Slice aus der Buchseite) ── */
+.seite{position:relative;border:30px solid transparent;border-image:url(img/tex/papier.webp) 46 fill / 30px stretch;background-clip:padding-box}
+.seite.dicht{border-width:22px;border-image-width:22px}
+.blatt{background:#f6f1e8 url(img/tex/papier.webp) center/100% 100%}
+
+/* ── Typografie ────────────────────────────────────────────────────────────── */
+.h1{font:400 44px/1 var(--head);color:var(--blut);text-transform:uppercase;letter-spacing:.01em;margin:0}
+.h2{font:400 28px/1.02 var(--head);color:var(--blut);text-transform:uppercase;margin:0 0 6px}
+.h3{font:400 19px/1.1 var(--head);color:var(--blut);text-transform:uppercase;margin:14px 0 4px}
+.lbl{font:700 14px/1.25 var(--sc);color:var(--blut);letter-spacing:.02em}
+.s{font:500 12px var(--body);color:var(--grau);white-space:nowrap;margin-left:6px;letter-spacing:.02em}
+.platte .s{color:#d8a9a1}
+p{margin:0 0 8px}
+.kurs{font-style:italic}
+b,strong{font-weight:700}
+
+/* Namensplatte: weiße Bartender-Versalien auf Rot (Landmarken, Gegner, Abstammungen …) */
+.platte{display:inline-block;background:var(--platte);color:#fff;font:400 17px/1 var(--plate);letter-spacing:.06em;text-transform:uppercase;padding:5px 9px 4px}
+.platte.gross{font-size:26px;padding:6px 12px 5px}
+.platte.teal{background:var(--teal)}
+.platte.schwarz{background:#0d0804}
+
+/* Werte-Zeilen wie die Statblöcke: Etikett rot, Zeilen im Wechsel rosa hinterlegt, rote Linie links */
+.werte{border-left:3px solid var(--platte);margin:8px 0}
+.werte>div{padding:3px 8px 3px 10px;font-size:15px;line-height:1.3}
+.werte>div:nth-child(odd){background:var(--rose)}
+.werte .lbl{margin-right:4px}
+
+/* schwarzer Kasten (Fallout, Seitenkästen) */
+.schwarz{background:#16120d;color:#f1ebe1;padding:12px 14px;font:500 15px/1.38 var(--body)}
+.schwarz .lbl{color:#fff}
+.schwarz b{color:#fff}
+
+/* Kästchen-Leisten (Resistenz, Stress, Schutz) – wie auf dem Bogen */
+.kk{display:inline-flex;gap:3px;vertical-align:middle}
+.kk i{width:13px;height:13px;border:1.6px solid var(--blut);background:#fffdf8;display:block}
+.kk i.x{background:var(--blut)}
+.kk.gross i{width:17px;height:17px}
+.kk.teal i{border-color:#4e7472}
+.kk.teal i.x{background:#4e7472}
+
+/* Ereignis-Liste W6 (Klick = benutzt → grau) */
+.erg{list-style:none;margin:6px 0;padding:0}
+.erg li{display:grid;grid-template-columns:22px 1fr;gap:4px;padding:3px 0;font-size:15px;line-height:1.32;cursor:pointer}
+.erg li b{font:700 15px var(--body);color:var(--blut)}
+.erg li.weg{color:#a99e90}.erg li.weg b{color:#c7b9a9}
+
+/* Domain-/Tag-Chips */
+.dom{font:700 13px/1 var(--sc);color:var(--blut);letter-spacing:.02em}
+
+/* Notiz (Handschrift auf Zettel – nur im Kampagnenband, wie „Gar's Note“) */
+.hand{font:400 21px/1.1 var(--hand);color:var(--blut)}
+
+
+/* ── Shell ─────────────────────────────────────────────────────────────────── */
+.topbar{position:sticky;top:0}
+.topbar .brand{display:flex;align-items:center;background:none;border:0;padding:0;cursor:pointer}
+.topbar .brand img{height:30px;display:block}
+.topbar{color:#e9dfcf}.topbar .tm-caret{color:#e9dfcf}
+.topbar .tm-book,.topbar .tm-info{background:none!important;border:0!important;color:#e9dfcf!important}
+.topbar .tm-book:hover,.topbar .tm-info:hover{background:rgba(255,255,255,.06)!important}
+body.notop .topbar{display:none}body.notop .tabs{top:0}
+.mm-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;z-index:40;transition:.2s}.mm-backdrop.on{opacity:1;pointer-events:auto}
+.mm-panel{position:fixed;top:0;right:0;bottom:0;width:330px;background:#1d140b url(img/tex/dunkel.webp) center/cover;color:#eadfce;z-index:41;padding:18px;overflow:auto;transform:translateX(105%);transition:.2s;border-left:3px solid var(--platte)}.mm-panel.on{transform:none}
+.mm-panel h3{font:400 18px var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--platte);margin:18px 0 6px;padding:5px 9px 4px}
+.mm-panel h3:first-child{margin-top:0}
+.mm-panel button{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;padding:6px 8px;border:0;background:none;font:500 15px/1.25 var(--body);color:#eadfce;cursor:pointer}.mm-panel button:hover{background:rgba(255,255,255,.07);color:#fff}
+.mm-panel button i{font-style:normal;color:#a39482;font-size:12.5px;white-space:nowrap}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal>div{background:#f6f1e8 url(img/tex/papier.webp) center/100% 100%;color:var(--tinte);padding:22px;width:min(560px,96vw);max-height:88vh;overflow:auto;border:2px solid var(--platte)}
+.gzoom{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:70;display:flex;align-items:center;justify-content:center;cursor:zoom-out}
+.gzoom img{max-width:94vw;max-height:94vh}
+.pennote{display:block;width:100%;height:min(300px,50vh);border:1px solid var(--linie);background:#fffdf8;padding:10px;font:400 16px/1.45 var(--body);color:var(--tinte)}
+.pg{font:500 12px var(--body);color:var(--grau);margin-left:6px;letter-spacing:.02em;cursor:pointer;white-space:nowrap}.pg:hover{color:var(--blut);text-decoration:underline}
+.tabs .stift{background:none;border:0;cursor:pointer;width:34px;height:34px}.tabs .stift.has svg{stroke:#fff}
+
+/* ── Startseite: Querschnitt links, Vorbereitung rechts ────────────────────── */
+.buehne{display:grid;grid-template-columns:auto 1fr;min-height:calc(100vh - var(--kopf-h))}
+.quer{position:sticky;top:var(--kopf-h);height:calc(100vh - var(--kopf-h));min-height:640px;background:#000;align-self:start}
+.quer>img{height:100%;width:auto;display:block}
+.quer .ab{position:absolute;left:28px;right:28px;bottom:28px;display:flex;flex-direction:column;gap:10px}
+.go{display:flex;align-items:center;justify-content:space-between;background:var(--platte);color:#fff;border:0;padding:14px 18px 12px 20px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.55);text-align:left}
+.go:hover{background:var(--hell)}
+.go .t{font:400 36px/1 var(--plate);letter-spacing:.06em;text-transform:uppercase}
+.go .w{font:500 14px var(--body);color:#f0cfc8;text-align:right;line-height:1.25}
+.go .w b{display:block;font:400 15px var(--plate);letter-spacing:.08em;color:#fff;text-transform:uppercase}
+.kamp{display:flex;align-items:center;gap:14px;background:rgba(13,8,4,.88);color:#eadfce;border:0;padding:8px 18px 8px 8px;cursor:pointer;text-align:left}
+.kamp:hover{background:rgba(13,8,4,.97)}
+.kamp img{width:46px;height:60px;object-fit:cover;display:block}
+.kamp b{display:block;font:400 21px/1 var(--plate);letter-spacing:.05em;text-transform:uppercase;color:#fff}
+.kamp small{font:500 13.5px var(--body);color:#b9a993}
+.kamp .pf{margin-left:auto;font:400 22px var(--plate);color:#c9b49c}
+.rechts{padding:14px 18px 22px 0;min-width:0}
+.rechts .seite{padding:4px 14px 0}
+.gedicht{font:700 12.8px/1.32 var(--body);color:var(--blut);text-transform:uppercase;text-align:center;letter-spacing:.01em;max-width:600px;margin:0 auto}
+.gedicht p{margin:0 0 5px}
+.inhalt{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+.kap{margin-bottom:10px}
+.kap .bn{display:flex;justify-content:space-between;align-items:baseline;background:#0d0804;color:#fff;font:400 17px/1 var(--plate);letter-spacing:.07em;text-transform:uppercase;padding:6px 8px 5px 9px;cursor:pointer}
+.kap .bn:hover{background:var(--platte)}
+.kap .bn i{font:400 15px var(--plate);font-style:normal;color:#cdb9a3}
+.kap ul{list-style:none;margin:4px 0 0;padding:0}
+.kap li{display:flex;justify-content:space-between;font:500 14.5px/1.25 var(--body);padding:2px 2px 2px 9px;border-bottom:1px solid #e4d9c8;cursor:pointer}
+.kap li i{font-style:normal;color:var(--grau);font-size:12.5px}
+.kap li:hover{color:var(--blut)}
+.reihe{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;align-items:end;margin-top:2px;border-top:2px solid var(--platte);padding-top:6px}
+.reihe a{display:flex;flex-direction:column;align-items:center;text-decoration:none;cursor:pointer}
+.reihe img{height:122px;max-width:100%;object-fit:contain;display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.reihe span{font:400 12.5px/1.05 var(--plate);letter-spacing:.06em;text-transform:uppercase;color:var(--blut);margin-top:4px;text-align:center;min-height:26px}
+.reihe a:hover span{color:var(--hell)}
+
+/* ── Nachschlage-Seite (leer, wird in Schritt 1 ff. gefüllt) ───────────────── */
+.wrap{max-width:1180px;margin:0 auto;padding:22px 20px 40px}
+
+.kap .bn,.kap li{gap:8px}
+.kap .bn i,.kap li i{white-space:nowrap;flex:none}
+.reihe img{height:clamp(92px,12.5vh,122px)}
+@media (max-width:1380px){
+  .rechts{padding-right:12px}
+  .inhalt{gap:14px}
+  .kap .bn{font-size:15.5px;letter-spacing:.05em;padding:6px 7px 5px 8px}
+  .kap .bn i{font-size:14px}
+  .kap li{font-size:14px;padding-left:7px}
+  .gedicht{font-size:12.2px}
+}
+.gedicht{max-width:none}
+.rechts{padding-top:8px;padding-bottom:10px}
+.rechts .seite{border-width:22px;border-image-width:22px}
+.kap{margin-bottom:7px}
+.kap li{padding-top:1px;padding-bottom:1px}
+.reihe img{height:clamp(80px,10.5vh,122px)}
+.reihe span{min-height:24px;margin-top:2px}
+body{background-attachment:fixed}

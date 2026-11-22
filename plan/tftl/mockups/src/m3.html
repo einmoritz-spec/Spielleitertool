@@ -18,12 +18,17 @@
 .pin.dn{background:#9b958a}
 .pin.on{background:var(--ink);outline:3px solid var(--band)}
 .cap{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:6px}
-.flow{background:#fff;border:1.5px solid var(--line);border-radius:2px;padding:12px;height:286px;position:relative}
-.nd{position:absolute;border:2px solid var(--acc);border-radius:50%;padding:7px 10px;font:13px/1.15 var(--type);text-align:center;background:#fff;color:#2b2a28}
-.nd.dn{border-color:#c9c3b8;color:var(--done)}
-.nd.on{background:var(--acc);color:#fff}
-.nd.sd{border-radius:4px;font-weight:700}
-svg.ar{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.flow{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);border-radius:2px;height:286px;position:relative;display:grid;place-items:center}
+.fc{position:relative;width:350px;height:250px}
+.fc svg{position:absolute;inset:0;overflow:visible}
+.nd{position:absolute;display:flex;align-items:center;gap:7px;background:#fff;border:1.5px solid #d9d1c2;border-radius:6px;padding:0 7px;font:600 12px/1.2 var(--sans);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.nd i{flex:none;width:20px;height:20px;border-radius:50%;background:var(--acc);color:#fff;font:700 11px var(--sans);font-style:normal;display:grid;place-items:center}
+.nd.o{width:110px;hyphens:manual;height:58px;top:96px}
+.nd.dn{color:var(--done);border-color:#e6e0d4}.nd.dn i{background:#b9b3a8}
+.nd.on{border:2px solid var(--acc);background:#fdf1e6}
+.nd.end{left:75px;width:200px;white-space:nowrap;height:32px;justify-content:center;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.nd.st{top:0;color:var(--done);border-color:#e6e0d4}
+.nd.sd{top:218px;background:var(--acc);border-color:var(--acc);color:#fff}
 .cd ol{list-style:none}
 .cd li{padding:3px 0 3px 0;border-bottom:1px dashed #cfc7b6}
 .cd li.dn{color:#b3ada2}
@@ -61,14 +66,22 @@ h2.loc{font-size:30px;color:var(--acc);margin:22px 0 2px;display:flex;align-item
   <div class="top3">
    <div><div class="cap">Mystery-Karte</div><div class="map"><img src="img/karte-mysterium.webp">
      <span class="pin dn" style="left:53%;top:43%">1</span><span class="pin on" style="left:40%;top:22%">2</span><span class="pin" style="left:59%;top:70%">3</span></div></div>
-   <div><div class="cap">Ablauf</div><div class="flow">
-     <svg class="ar" viewBox="0 0 100 100" preserveAspectRatio="none"><g stroke="#ee7113" stroke-width=".7" fill="none"><path d="M30 16 L64 16"/><path d="M22 26 L22 50"/><path d="M73 24 L73 50"/><path d="M30 60 L60 60"/><path d="M22 70 L40 86"/><path d="M73 70 L58 86"/></g></svg>
-     <div class="nd dn" style="left:4%;top:7%">Mysterium<br>einführen</div>
-     <div class="nd on" style="left:56%;top:7%">Tauben-<br>nest</div>
-     <div class="nd dn" style="left:2%;top:47%">Haus des<br>Ornitho-<br>logen</div>
-     <div class="nd" style="left:58%;top:48%">Gunnars<br>Haus</div>
-     <div class="nd sd" style="left:34%;top:82%">SHOWDOWN</div>
-   </div></div>
+   <div><div class="cap">Ablauf</div><div class="flow"><div class="fc">
+     <svg width="350" height="250" viewBox="0 0 350 250"><defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#bfb5a3"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#ee7113"/></marker></defs>
+      <g fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+       <path d="M175 32V64" stroke="#ee7113"/>
+       <path d="M175 64H63Q55 64 55 72V94" stroke="#ee7113" marker-end="url(#b)"/>
+       <path d="M175 64V94" stroke="#bfb5a3" marker-end="url(#a)"/>
+       <path d="M175 64H287Q295 64 295 72V94" stroke="#bfb5a3" marker-end="url(#a)"/>
+       <path d="M55 154V176Q55 184 63 184H287Q295 184 295 176V154" stroke="#bfb5a3"/>
+       <path d="M175 154V216" stroke="#bfb5a3" marker-end="url(#a)"/>
+      </g></svg>
+     <div class="nd end st">Mysterium einführen</div>
+     <div class="nd o dn" style="left:0"><i>1</i><span>Haus des Ornitho&shy;logen</span></div>
+     <div class="nd o on" style="left:120px"><i>2</i><span>Das Taubennest</span></div>
+     <div class="nd o" style="left:240px"><i>3</i><span>Gunnars Haus</span></div>
+     <div class="nd end sd">Showdown</div>
+   </div></div></div>
    <div class="kk cd"><h4>Countdown</h4><ol>
      <li class="dn"><span>1.</span> Große Vogelschwärme kreisen über Svartsjölandet.</li>
      <li class="dn"><span>2.</span> Ein junges Paar wird im Wald angegriffen.</li>

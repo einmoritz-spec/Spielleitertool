@@ -34,6 +34,9 @@
 <script src="js/data/optional-a.js"></script>
 <script src="js/data/optional-b.js"></script>
 <script src="js/data/vorsatz.js"></script>
+<script src="js/data/kreaturen-a.js"></script>
+<script src="js/data/kreaturen-b.js"></script>
+<script src="js/data/ausgestossene.js"></script>
 <script src="js/data/welt-a.js"></script>
 <script src="js/data/welt-b.js"></script>
 <script src="js/data/welt-c.js"></script>
@@ -43,6 +46,7 @@
 <script src="js/blocks.js"></script>
 <script src="js/spieltisch.js"></script>
 <script src="js/nach.js"></script>
+<script src="js/kreaturen.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"mb_core", books:MB_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
 <script src="../toolmenu.js"></script>

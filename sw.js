@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v733sp";
+const VERSION = "v734sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -808,6 +808,26 @@ const FILES = [
   "moerkborg/js/data/optional-a.js",
   "moerkborg/js/data/optional-b.js",
   "moerkborg/js/data/vorsatz.js",
+  "moerkborg/js/data/kreaturen-a.js",
+  "moerkborg/js/data/kreaturen-b.js",
+  "moerkborg/js/data/ausgestossene.js",
+  "moerkborg/js/kreaturen.js",
+  "moerkborg/img/kreaturen/seth.webp",
+  "moerkborg/img/kreaturen/bent.webp",
+  "moerkborg/img/kreaturen/zukuma.webp",
+  "moerkborg/img/kreaturen/wrat.webp",
+  "moerkborg/img/kreaturen/belze.webp",
+  "moerkborg/img/kreaturen/lich.webp",
+  "moerkborg/img/kreaturen/troll.webp",
+  "moerkborg/img/kreaturen/nodh.webp",
+  "moerkborg/img/kreaturen/lady-porcelain.webp",
+  "moerkborg/img/kreaturen/thinx.webp",
+  "moerkborg/img/kreaturen/aland.webp",
+  "moerkborg/img/kreaturen/ewlotha.webp",
+  "moerkborg/img/kreaturen/erdgebundener.webp",
+  "moerkborg/img/kreaturen/wilder-dochtkopf.webp",
+  "moerkborg/img/kreaturen/bleicher.webp",
+  "moerkborg/img/kreaturen/streuner.webp",
   "moerkborg/img/regeln/basilisken-fordern.webp",
   "moerkborg/js/data/buecher.js",
   "moerkborg/js/data/start.js",

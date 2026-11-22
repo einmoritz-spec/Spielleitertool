@@ -27,9 +27,11 @@ function viewLm(a){
   var dl = (window.HT_DELVE || []).length ? '<div class="lms"><h2>Delves</h2>' + HT_DELVE.map(function(d){ return '<a class="lmi" onclick="go(\'lm/d:' + d.id + '\')"><div class="n"><b>' + esc(d.t) + '</b><span>' + esc(ks(d.stress)) + ' · S. ' + d.p + ' <em class="bbt">B&amp;B</em></span></div><div class="d">' + esc((d.dom || []).join(", ")) + "</div></a>"; }).join("") + "</div>" : "";
   return nav("") + '<div class="lmwrap"><div class="lmhaupt">' + bands + herz + '</div><aside class="lmseite">' + seite + dl + "</aside></div>";
 }
-function nav(cur){
-  return '<nav class="tabs"><a class="' + (cur ? "" : "on") + '" onclick="go(\'lm\')">Landmarken</a><a onclick="go(\'nach/spielleitung/landmarken-info\')">Über Landmarken</a><span class="sp"></span></nav>';
-}
+function nav(cur){ return window.spielNav(cur ? "" : "lm"); }
+window.spielNav = function(cur){
+  var T = [["lm","Landmarken","lm"],["gegner","Gegner","gegner"],["nach/spielleitung/landmarken-info","Über Landmarken",""]];
+  return '<nav class="tabs">' + T.map(function(t){ return '<a class="' + (t[2] && t[2] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + "</a>"; }).join("") + '<span class="sp"></span></nav>';
+};
 function viewDelve(id){
   var d = HT_DELVE.filter(function(x){ return x.id === id; })[0]; if(!d) return viewLm([]);
   var wz = '<div class="lmwerte"><div><span class="lbl">Domains</span> ' + esc(d.domx || (d.dom || []).join(", ")) + '</div><div><span class="lbl">Tiefe</span> ' + esc(String(d.tiefe)) + '</div><div><span class="lbl">Stress</span> ' + esc(d.stress) + '</div><div><span class="lbl">Resistance</span> ' + d.res + "</div></div>";

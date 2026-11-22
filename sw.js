@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v710sp";
+const VERSION = "v711sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -764,6 +764,8 @@ const FILES = [
   "slugblaster/js/heimat.js",
   "slugblaster/js/monster.js",
   "slugblaster/js/data/monster.js",
+  "slugblaster/js/data/fraktionen.js",
+  "slugblaster/js/fraktionen.js",
   "slugblaster/js/data/heimat.js",
   "slugblaster/img/heimat/hillview-karte.jpg",
   "slugblaster/js/data/welten-b.js",

@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.feld{display:grid;grid-template-columns:1fr 300px;gap:14px;padding:14px 16px 0;height:799px}
+.tiefen{display:flex;flex-direction:column;height:785px;box-shadow:0 0 0 1px #000}
+.band{display:grid;grid-template-columns:190px 1fr;position:relative}
+.band .kopf2{padding:12px 14px 10px 18px;border-right:1px solid rgba(100,0,0,.25)}
+.band .kopf2 b{display:block;font:400 34px/1 var(--head);color:var(--blut);text-transform:uppercase}
+.band .kopf2 i{display:block;font:italic 500 13.5px/1.28 var(--body);color:#5c5248;margin-top:4px}
+.band .kopf2 .s{margin:0}
+.kacheln{display:grid;grid-template-columns:repeat(4,1fr);gap:0 18px;padding:10px 18px 10px 18px;align-content:start}
+.lm{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto 1fr;align-items:baseline;gap:2px 6px;padding:5px 0 4px;border-bottom:1px solid rgba(100,0,0,.16);cursor:pointer}
+.lm b{font:400 15.5px/1.08 var(--plate);letter-spacing:.05em;text-transform:uppercase;color:var(--blut)}
+.lm em{font:500 12.5px var(--body);font-style:normal;color:var(--grau);white-space:nowrap}
+.lm span{grid-column:1/-1;align-self:end;font:700 12.5px/1.2 var(--sc);color:#6f5f52;letter-spacing:.02em}
+.lm span q{quotes:none;font:500 11px var(--plate);letter-spacing:.08em;color:#fff;background:var(--teal);padding:1px 4px 0;margin-left:4px;vertical-align:1px}
+.lm:hover b{color:var(--hell)}
+.t0{background:#f5efe4 url(img/tex-papier.webp) 40% 45%/1500px auto;flex:0 0 auto}
+.t0 .kacheln{grid-template-columns:repeat(4,1fr)}
+.t0 .bild{position:absolute;right:10px;bottom:0;height:120px}
+.t1{background:#ebe0cd}
+.t2{background:#d9c6ab}
+.t3{background:#3a1913;color:#eadfce}
+.t3 .kopf2 b{color:#f0dfcf}.t3 .kopf2 i{color:#c9b29d}
+.t3 .lm{border-color:rgba(255,220,200,.14)}.t3 .lm b{color:#f3e4d6}.t3 .lm span{color:#c5a796}.t3 .lm em{color:#b49a87}
+.t4{background:radial-gradient(ellipse at 50% 140%,#d43a24 0%,#7d0d0b 40%,#2a0806 80%);color:#f3d8c8;flex:1 1 auto;display:flex;align-items:center;gap:16px;padding:0 18px}
+.t4 b{font:400 28px/1 var(--head);text-transform:uppercase;color:#ffe2d2}
+.t4 i{font:italic 500 14px/1.3 var(--body);color:#f1c3ad}
+.neben{background:#0d0804 url(img/tex-dunkel.webp) center/cover;color:#eadfce;padding:16px 16px 10px;height:785px;overflow:hidden;box-shadow:0 0 0 1px #000}
+.neben h3{font:400 24px/1 var(--head);color:#f0dfcf;text-transform:uppercase;margin:0 0 2px;display:flex;justify-content:space-between;align-items:baseline}
+.neben h3 .s{color:#8f7d6c}
+.neben .lm{grid-template-rows:auto;border-color:rgba(255,220,200,.12)}.neben .lm b{color:#f3e4d6;font-size:14.5px}.neben .lm span{color:#b99d8a}.neben .lm em{color:#8f7d6c}
+.neben .grp{margin-bottom:14px}
+.filter{display:flex;gap:6px;margin:0 0 10px}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/logo.webp" alt="Heart"><span class="dd"></span></button><div class="sp"></div>
+<button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><a>Expedition</a><a>Karte</a><a class="on">Landmarken</a><a>Gegner</a><a>Fallout</a><a>Gruppe</a><span class="sp"></span>
+<button class="ik stift"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button></div>
+
+<div class="feld">
+ <div class="tiefen">
+  <div class="band t0"><div class="kopf2"><b>Tiefe 0</b><i>Die Stadt oben, vom Herzen kaum berührt.</i></div>
+   <div class="kacheln">
+    <div class="lm"><b>Derelictus, die Stadt dazwischen</b><em>W4 · S. 136</em><span>Haven</span></div>
+    <div class="lm"><b>Die Kirche der Absolution</b><em>S. 4</em><span>Desolate, Religion<q>B&amp;B</q></span></div>
+    <div class="lm"><b>Schierlingsfrucht-Markt</b><em>S. 5</em><span>Haven<q>B&amp;B</q></span></div>
+    <div class="lm"><b>Haven Station</b><em>S. 5</em><span>Haven, Technology<q>B&amp;B</q></span></div>
+   </div>
+  </div>
+  <div class="band t1"><div class="kopf2"><b>Tiefe 1</b><i>Die Stadt dazwischen, vom Rand von Derelictus bis in die Tiefen der Unterstadt.</i></div>
+   <div class="kacheln">
+    <div class="lm"><b>Der Leichengott</b><em>W4 · S. 137</em><span>Haven, Religion</span></div>
+    <div class="lm"><b>Grip Station</b><em>W6 · S. 138</em><span>Haven, Technology</span></div>
+    <div class="lm"><b>Labyrinth</b><em>W6 · S. 139</em><span>Warren</span></div>
+    <div class="lm"><b>Rotkappenhain</b><em>W6 · S. 140</em><span>Wild</span></div>
+    <div class="lm"><b>Resonanzkammer Fünf</b><em>W4 · S. 140</em><span>Occult</span></div>
+    <div class="lm"><b>Sump Station</b><em>W4 · S. 141</em><span>Technology, Warren</span></div>
+    <div class="lm"><b>Der Tempel des Mondes darunter</b><em>W4 · S. 141</em><span>Haven, Religion · 4 Nebentempel</span></div>
+    <div class="lm"><b>Der Turm</b><em>W4 · S. 144</em><span>Haven, Warren</span></div>
+    <div class="lm"><b>Tunnel des nassen Drecks</b><em>W4 · S. 146</em><span>Religion, Warren</span></div>
+   </div>
+  </div>
+  <div class="band t2"><div class="kopf2"><b>Tiefe 2</b><i>Hier schleicht sich das Seltsame ein und verändert die Dinge.</i></div>
+   <div class="kacheln">
+    <div class="lm"><b>Avulse</b><em>W8 · S. 147</em><span>Cursed, Wild</span></div>
+    <div class="lm"><b>Ghorryn</b><em>W6 · S. 147</em><span>Occult, Warren</span></div>
+    <div class="lm"><b>Grin Station</b><em>W6 · S. 148</em><span>Technology</span></div>
+    <div class="lm"><b>Hallow</b><em>W4 · S. 149</em><span>Haven, Occult</span></div>
+    <div class="lm"><b>Hang Station</b><em>W6 · S. 150</em><span>Technology</span></div>
+    <div class="lm"><b>Der Erntebasar</b><em>W8 · S. 150</em><span>Cursed</span></div>
+    <div class="lm"><b>Highrise</b><em>W6 · S. 151</em><span>Haven, Desolate</span></div>
+    <div class="lm"><b>Der Hort</b><em>W6 · S. 152</em><span>Cursed, Occult</span></div>
+    <div class="lm"><b>Letzte Runde</b><em>W6 · S. 153</em><span>Cursed</span></div>
+    <div class="lm"><b>Die Maschinen aus Staub</b><em>W8 · S. 154</em><span>Cursed, Technology</span></div>
+    <div class="lm"><b>Der Rote Markt</b><em>W6 · S. 154</em><span>Warren, Haven</span></div>
+    <div class="lm"><b>Sightless – Tempel der Gnade</b><em>W6 · S. 156</em><span>Religion, Warren</span></div>
+    <div class="lm"><b>Swinefall</b><em>W8 · S. 156</em><span>Warren</span></div>
+    <div class="lm"><b>Trypogenese-Kammer</b><em>W6 · S. 156</em><span>Occult</span></div>
+    <div class="lm"><b>Well Station</b><em>W6 · S. 157</em><span>Technology</span></div>
+   </div>
+  </div>
+  <div class="band t3"><div class="kopf2"><b>Tiefe 3</b><i>Hier herrscht das Seltsame.</i></div>
+   <div class="kacheln">
+    <div class="lm"><b>Briar</b><em>W6 · S. 157</em><span>Wild</span></div>
+    <div class="lm"><b>Der Bunker</b><em>W6 · S. 158</em><span>Warren, Desolate</span></div>
+    <div class="lm"><b>Cairnmor</b><em>W6 · S. 159</em><span>Haven, Wild</span></div>
+    <div class="lm"><b>Ghastling-Ebene</b><em>W6 · S. 159</em><span>Desolate</span></div>
+    <div class="lm"><b>Der Schlund</b><em>W6 · S. 160</em><span>Cursed, Desolate</span></div>
+    <div class="lm"><b>Der Mondhain</b><em>W8 · S. 160</em><span>Religion</span></div>
+    <div class="lm"><b>Der Platz der Silikatblumen, falsch zugeordnet</b><em>W6 · S. 161</em><span>Haven, Technology</span></div>
+    <div class="lm"><b>Soufri – Tempel der Beharrlichkeit</b><em>W6 · S. 162</em><span>Cursed, Religion</span></div>
+    <div class="lm"><b>Terminus</b><em>W6 · S. 162</em><span>Technology</span></div>
+    <div class="lm"><b>Wardstone Nasonov</b><em>W4 · S. 163</em><span>Occult</span></div>
+   </div>
+  </div>
+  <div class="band t4"><b>Tiefe 4</b><i>Das Herz selbst: ein glühendes, unbeschreibliches Lodern, ein roter, nasser Himmel, der im Zentrum der Stadt darunter pocht und schlägt.</i></div>
+ </div>
+ <div class="neben">
+  <div class="grp"><h3>Ungebunden <span class="s">S. 164</span></h3>
+   <div class="lm"><b>Magi-Mals Domäne</b><em>W8</em><span>Cursed</span></div>
+   <div class="lm"><b>Der Raum</b><em>W4</em><span>Warren</span></div>
+   <div class="lm"><b>Der Salvatious-Gryndel-Jagdclub</b><em>W4</em><span>Haven</span></div></div>
+  <div class="grp"><h3>Risse <span class="s">S. 165</span></h3>
+   <div class="lm"><b>Elsewhere</b><em>W4/W8</em><span>beliebig</span></div>
+   <div class="lm"><b>Papilious Both</b><em>W4/W8</em><span>Religion, Occult</span></div>
+   <div class="lm"><b>UnSpire</b><em>W8</em><span>Occult</span></div></div>
+  <div class="grp"><h3>Die Acht Himmel <span class="s">S. 168</span></h3>
+   <div class="lm"><b>Der Wald</b><em>W8</em><span>Wild</span></div>
+   <div class="lm"><b>Die Gralsstraße</b><em>W6</em><span>Desolate, Religion</span></div>
+   <div class="lm"><b>Das Grau</b><em>W4</em><span>Desolate</span></div>
+   <div class="lm"><b>Die Gesichter des Mondes</b><em>W8</em><span>Die dunkle Stadt · Der Mondgarten · Der rote Mond</span></div>
+   <div class="lm"><b>Der vielfacettierte Palast</b><em>W8</em><span>Religion, Occult</span></div>
+   <div class="lm"><b>Die schlummernden Tiefen</b><em>W6</em><span>Religion, Wild</span></div>
+   <div class="lm"><b>Die Quelle</b><em>W8</em><span>Occult, Technology</span></div></div>
+ </div>
+</div>
+
+<div class="ann" style="left:640px;top:62px;max-width:360px"><b>1</b>Landmarken als Abstieg: jede Tiefe ein Band, je tiefer, desto dunkler – unten glüht das Herz selbst (Tiefe 4 hat keine Landmarken). Text links = der erste Satz aus dem Buch (S. 99).</div>
+<div class="ann" style="left:620px;top:178px;max-width:300px"><b>2</b>Landmarken aus Zusatzbüchern stehen in ihrer Tiefe mit kleinem Herkunfts-Etikett (B&amp;B = Burned and Broken) und Seitenzahl dieses Buchs.</div>
+<div class="ann" style="left:900px;top:420px;max-width:290px"><b>3</b>Je Eintrag: Name, Domains, Standard-Stress, S. – Klick öffnet die Landmarken-Seite (Text, Haunts, Ressourcen, mögliche Plots, Delves).</div>
+<div class="ann" style="left:1100px;top:600px;max-width:300px"><b>4</b>Was nicht an eine Tiefe gebunden ist (Ungebunden, Risse, die Acht Himmel), steht rechts auf dem dunklen Streifen.</div>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.buehne{display:grid;grid-template-columns:655px 1fr;height:848px}
+.quer{position:relative;height:848px;background:#000}
+.quer img{height:848px;width:655px;display:block}
+.quer .ab{position:absolute;left:32px;right:32px;bottom:30px;display:flex;flex-direction:column;gap:10px}
+.go{display:flex;align-items:center;justify-content:space-between;background:var(--platte);color:#fff;border:0;padding:14px 18px 12px 20px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.55)}
+.go .t{font:400 40px/1 var(--plate);letter-spacing:.06em;text-transform:uppercase}
+.go .w{font:500 14px var(--body);color:#f0cfc8;text-align:right;line-height:1.25}
+.go .w b{display:block;font:400 15px var(--plate);letter-spacing:.08em;color:#fff;text-transform:uppercase}
+.kamp{display:flex;align-items:center;gap:14px;background:rgba(13,8,4,.88);color:#eadfce;border:0;padding:8px 18px 8px 8px;cursor:pointer;text-align:left}
+.kamp img{width:46px;height:60px;object-fit:cover;display:block}
+.kamp b{display:block;font:400 22px/1 var(--plate);letter-spacing:.05em;text-transform:uppercase;color:#fff}
+.kamp small{font:500 13.5px var(--body);color:#b9a993}
+.kamp .pf{margin-left:auto;font:400 22px var(--plate);color:#c9b49c}
+.rechts{padding:14px 18px 14px 0}
+.rechts .seite{height:820px;padding:4px 14px 0}
+.gedicht{font:700 12.8px/1.32 var(--body);color:var(--blut);text-transform:uppercase;text-align:center;letter-spacing:.01em;max-width:600px;margin:0 auto 0}
+.gedicht p{margin:0 0 5px}
+.inhalt{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px}
+.kap{margin-bottom:10px}
+.kap .bn{display:flex;justify-content:space-between;align-items:baseline;background:#0d0804;color:#fff;font:400 17px/1 var(--plate);letter-spacing:.07em;text-transform:uppercase;padding:6px 8px 5px 9px;cursor:pointer}
+.kap .bn i{font:400 15px var(--plate);font-style:normal;color:#cdb9a3}
+.kap ul{list-style:none;margin:4px 0 0;padding:0}
+.kap li{display:flex;justify-content:space-between;font:500 14.5px/1.25 var(--body);padding:2px 2px 2px 9px;border-bottom:1px solid #e4d9c8;cursor:pointer}
+.kap li i{font-style:normal;color:var(--grau);font-size:12.5px}
+.kap li:hover{color:var(--blut)}
+.reihe{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;align-items:end;margin-top:2px;border-top:2px solid var(--platte);padding-top:6px}
+.reihe a{display:flex;flex-direction:column;align-items:center;text-decoration:none;cursor:pointer}
+.reihe img{height:122px;max-width:100%;object-fit:contain;display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.reihe span{font:400 12.5px/1.05 var(--plate);letter-spacing:.06em;text-transform:uppercase;color:var(--blut);margin-top:4px;text-align:center;min-height:26px}
+</style></head><body class="">
+<div class="kopf"><button class="logo"><img src="img/logo.webp" alt="Heart"><span class="dd"></span></button><div class="sp"></div>
+<button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+
+<div class="buehne">
+ <div class="quer"><img src="img/start-querschnitt.webp" alt="">
+  <div class="ab">
+   <button class="go"><span class="t">In die Tiefe</span><span class="w"><b>Weiter</b>Derelictus → Krähenfußpass</span></button>
+   <button class="kamp"><img src="img/dagger-cover.webp" alt=""><span><b>Dagger in the Heart</b><small>Kampagne · Kapitel 2: Eastern Express</small></span><span class="pf">→</span></button>
+  </div>
+ </div>
+ <div class="rechts"><div class="seite">
+  <div class="gedicht">
+   <p>Über uns die Stadt, Spire, reckt sich in den Himmel. Unter uns die Stadt, Heart, reckt sich in die Erde. Hinab durch Dreck und Fels und Wasser, hinab in die Tiefen der Finsternis, hinab in Wahnsinn und Krankheit, hinab in etwas Uraltes und Fremdes.</p>
+   <p>Leute gehen an diesen Ort und suchen etwas. Geheimnisse der Magie, längst verloren oder nie entdeckt. Zauber, die einem im Blut jucken. Unbegreifliche Kreaturen, die man jagen und ausschlachten kann. Einen Ort, um sich zu verstecken oder neu anzufangen. Vergebung von einem Gott, der sie nicht darum betteln hören kann.</p>
+   <p>Und jetzt: du, der glaubt, alles durchschaut zu haben. Frag dich, wonach du suchst.</p>
+   <p>Das Herz kann dich riechen. Das Herz weiß, dass du kommst. Wenn du aus dieser Tür trittst, wenn du die Schlucht am Ende der Straße hinabkletterst, wenn du auf dem Bauch durch das sich windende Gedränge des Felsens kriechst, wenn du geschlagen und blutig herauskommst, wird es dich haben.</p>
+   <p>Das Herz weiß, was du willst, und bei der Göttin, es wird es dir geben oder dich beim Versuch umbringen.</p>
+  </div>
+  <div class="inhalt">
+   <div>
+    <div class="kap"><div class="bn">Einführung <i>S. 1</i></div><ul><li>Sicherheitswerkzeuge<i>S. 1</i></li><li>Ton<i>S. 1</i></li><li>Das Spiel spielen<i>S. 2</i></li><li>Wichtige Begriffe<i>S. 2</i></li><li>Die Welt von Heart<i>S. 3</i></li></ul></div>
+    <div class="kap"><div class="bn">Spielweise <i>S. 5</i></div><ul><li>Resistenzen<i>S. 5</i></li><li>Skills, Domains und Knacks<i>S. 6</i></li><li>Regeln in Kürze<i>S. 8</i></li></ul></div>
+    <div class="kap"><div class="bn">Regelübersicht <i>S. 207</i></div></div>
+   </div>
+   <div>
+    <div class="kap"><div class="bn">Charaktere <i>S. 9</i></div><ul><li>Abstammungen<i>S. 12</i></li><li>Berufungen<i>S. 16</i></li><li>Klassen<i>S. 26</i></li></ul></div>
+    <div class="kap"><div class="bn">Regeln im Detail <i>S. 71</i></div><ul><li>Erfolg und Misserfolg<i>S. 71</i></li><li>Heilung<i>S. 76</i></li><li>Kampf<i>S. 78</i></li><li>Fallout<i>S. 80</i></li><li>Ressourcen und Ausrüstung<i>S. 90</i></li><li>Bindungen<i>S. 98</i></li><li>Erkundung<i>S. 99</i></li></ul></div>
+   </div>
+   <div>
+    <div class="kap"><div class="bn">Spielleitung <i>S. 104</i></div><ul><li>Tipps für Heart<i>S. 109</i></li><li>Landmarken und Delves<i>S. 118</i></li></ul></div>
+    <div class="kap"><div class="bn">Die Welt von Heart <i>S. 121</i></div><ul><li>Gesellschaft<i>S. 121</i></li><li>Geographie des Herzens<i>S. 126</i></li></ul></div>
+    <div class="kap"><div class="bn">Landmarken <i>S. 130</i></div><ul><li>Delves erstellen<i>S. 133</i></li></ul></div>
+    <div class="kap"><div class="bn">Gegner <i>S. 175</i></div><ul><li>Legendäre Gegner<i>S. 200</i></li></ul></div>
+   </div>
+  </div>
+  <div class="reihe">
+   <a><img src="img/klasse-cleaver.webp"><span>Cleaver</span></a>
+   <a><img src="img/klasse-deadwalker.webp"><span>Deadwalker</span></a>
+   <a><img src="img/klasse-deep-apiarist.webp"><span>Deep Apiarist</span></a>
+   <a><img src="img/klasse-heretic.webp"><span>Heretic</span></a>
+   <a><img src="img/klasse-hound.webp"><span>Hound</span></a>
+   <a><img src="img/klasse-incarnadine.webp"><span>Incarnadine</span></a>
+   <a><img src="img/klasse-junk-mage.webp"><span>Junk Mage</span></a>
+   <a><img src="img/klasse-vermissian-knight.webp"><span>Vermissian Knight</span></a>
+   <a><img src="img/klasse-witch.webp"><span>Witch</span></a>
+  </div>
+ </div></div>
+</div>
+
+<div class="ann" style="left:380px;top:70px"><b>1</b>Das Querschnitt-Bild aus dem Buch (PDF-Seite 5, Spire oben, das Herz rot darunter) <u>ungeschnitten</u> über die volle Höhe – die Leitidee des ganzen Bereichs: alles ist nach Tiefe geordnet.</div>
+<div class="ann" style="left:260px;top:640px;max-width:330px"><b>2</b>Unten, wo das Herz glüht: „In die Tiefe“ → Spielbereich (merkt sich Landmarke und Delve). Darunter die Kampagne (Untersetting, auch im Dropdown).</div>
+<div class="ann" style="left:1180px;top:84px"><b>3</b>Der Gedicht-Text der Buch-Innenseite (PDF-Seite 2) in roten Versalien wie im Buch, auf Pergament mit Brandrand.</div>
+<div class="ann" style="left:1170px;top:430px"><b>4</b>Vorbereitung im Stil der Inhaltsseite des Buchs: schwarze Balken = Kapitel, Zeilen = Unterkapitel mit S. → Nachschlagen.</div>
+<div class="ann" style="left:700px;top:806px;max-width:420px"><b>5</b>Die neun Klassen als freigestellte Figuren aus dem Buch → Klassen-Seite.</div>
+</body></html>

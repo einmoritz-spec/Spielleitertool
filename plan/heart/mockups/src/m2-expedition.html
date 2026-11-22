@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.feld{display:grid;grid-template-columns:430px 580px 370px;gap:14px;padding:14px 16px 0;height:799px}
+.feld>.seite{height:781px;overflow:hidden}
+.kopfz{display:flex;align-items:baseline;justify-content:space-between;margin:-2px 0 10px}
+.kopfz .h2{margin:0}
+.kopfz small{font:400 14px var(--plate);letter-spacing:.08em;color:var(--grau);text-transform:uppercase}
+/* Route */
+.route{position:relative;padding-left:26px}
+.route:before{content:"";position:absolute;left:8px;top:14px;bottom:30px;border-left:2px dashed #b39b84}
+.knoten{position:relative;margin-bottom:12px}
+.knoten:before{content:"";position:absolute;left:-24px;top:7px;width:12px;height:12px;background:var(--platte);transform:rotate(45deg)}
+.knoten .zeile{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.knoten .neben{font:500 14px var(--body);color:#5c5248;margin-top:3px}
+.tief{font:400 13px/1 var(--plate);letter-spacing:.08em;color:#fff;background:#0d0804;padding:4px 6px 3px;text-transform:uppercase}
+.delve{position:relative;background:rgba(255,255,255,.5);border:1px solid #d9c9b3;padding:10px 12px 10px;margin:4px 0 14px}
+.delve:before{content:"";position:absolute;left:-26px;top:16px;width:12px;height:12px;border:2px solid var(--platte);background:#f6f1e8;transform:rotate(45deg)}
+.delve .platte{margin-bottom:6px}
+.delve .kurs{font-size:15.5px;line-height:1.34;margin:0 0 6px}
+.res{display:flex;align-items:center;gap:10px;margin:8px 0 6px}
+.res .zahl{font:400 30px/1 var(--head);color:var(--blut);min-width:46px}
+.res .zahl small{font:500 13px var(--body);color:var(--grau)}
+/* Delver */
+.regel{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline}
+.regel .lbl{color:#fff;white-space:nowrap}
+.regel .w12{grid-column:1/-1;font:400 16px/1.1 var(--plate);letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:2px}
+.gruppe{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:14px}
+.dv{border-top:3px solid var(--platte);padding-top:6px}
+.dv .n{display:flex;justify-content:space-between;align-items:baseline}
+.dv .n b{font:400 24px/1 var(--head);color:var(--blut);text-transform:uppercase}
+.dv .n .sum{font:400 15px var(--plate);letter-spacing:.06em;color:#5c5248}
+.dv .n .sum em{font:400 26px var(--head);color:var(--blut);font-style:normal;margin-left:4px}
+.dv .k{font:500 14px var(--body);color:#5c5248;margin:1px 0 6px}
+.rz{display:grid;grid-template-columns:58px auto auto;justify-content:start;align-items:center;gap:8px;height:19px}
+.rz span{font:400 14px/1 var(--plate);letter-spacing:.05em;color:var(--blut);text-transform:uppercase}
+.rz .kk{gap:2px}.rz .kk i{width:9.5px;height:11px;border-width:1.3px}.rz .sch{margin-left:4px}
+.rz .sch i{border-color:#9a8572}
+.rz .sch i.x{background:#5c4a3b;border-color:#5c4a3b}
+.fo{margin-top:6px;font:500 13.5px/1.3 var(--body)}
+.fo b{font:400 14px var(--plate);letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#16120d;padding:3px 6px 2px;margin-right:4px}
+.fo i{color:#6f6458}
+.leer{color:#b3a593;font-style:italic}
+.aus{font:500 13.5px/1.3 var(--body);margin-top:4px;color:#3b342c}.aus .lbl{font-size:13px}.aus b{font-weight:700;color:var(--tinte)}
+/* Gegner */
+.gk{position:relative}
+.gk .bild{float:right;width:120px;margin:-4px -6px 4px 8px}
+.gk .bild img{width:100%;display:block}
+.gk .kurz{display:flex;gap:12px;margin:6px 0;font:500 14.5px var(--body)}
+.gk .kurz .lbl{margin-right:3px}
+.zu{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #d8c9b5;padding:8px 0 0;margin-top:10px}
+.zu .platte{font-size:15px}
+.zu small{font:500 13.5px var(--body);color:#5c5248}
+.falt{font:400 13.5px var(--plate);letter-spacing:.07em;text-transform:uppercase;color:var(--grau);margin:4px 0 2px;cursor:pointer}
+.plus{display:block;width:100%;margin-top:12px;background:none;border:1px dashed #b9a48d;color:#8a7766;font:400 15px var(--plate);letter-spacing:.08em;text-transform:uppercase;padding:7px;cursor:pointer}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/logo.webp" alt="Heart"><span class="dd"></span></button><div class="sp"></div>
+<button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><a class="on">Expedition</a><a>Karte</a><a>Landmarken</a><a>Gegner</a><a>Fallout</a><a>Gruppe</a><span class="sp"></span>
+<button class="ik stift"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button></div>
+
+<div class="feld">
+ <!-- Route -->
+ <div class="seite dicht">
+  <div class="kopfz"><h2 class="h2">Route</h2><small>Delve 2 von 3</small></div>
+  <div class="route">
+   <div class="knoten"><div class="zeile"><span class="platte">Derelictus, die Stadt dazwischen<span class="s">S. 136</span></span><span class="tief">Tiefe 0</span></div>
+    <div class="neben"><span class="dom">Haven</span> · Standard-Stress W4 · Haunts: alle, W10</div></div>
+   <div class="delve">
+    <div class="zeile" style="display:flex;justify-content:space-between;align-items:center"><span class="platte">Krähenfußpass<span class="s">S. 100</span></span><span class="tief">Tiefe 1–2</span></div>
+    <p class="kurs">Eine Reihe von Klippenpfaden und Brücken, die vor langer Zeit verfallen sind. In der Mitte liegt eine dreifache Wegkreuzung, die dem Ort seinen Namen gibt. Reisende markieren ihren Weg mit Federn, die sie mit dem Kiel voran in Felsspalten stecken.</p>
+    <div class="werte">
+     <div><span class="lbl">Domains:</span> Desolate, Wild</div>
+     <div><span class="lbl">Stress:</span> W6</div>
+    </div>
+    <div class="res"><span class="zahl">7<small> / 10</small></span><span class="kk gross"><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="lbl">Ereignisse:</div>
+    <ul class="erg">
+     <li class="weg"><b>1</b>Steinschlag</li>
+     <li><b>2</b>Angriff von Harpyien</li>
+     <li><b>3</b>Gefährliche Kletterpartie</li>
+     <li><b>4</b>Ausgelassene Swanfall-Kultisten auf Pilgerfahrt von Highrise</li>
+    </ul>
+    <div class="werte" style="margin-bottom:0"><div><span class="lbl">Verbindung:</span> Säubert die felsigen Höhlen vom Schlächter (S. 180), der den Pass bedroht.</div></div>
+   </div>
+   <div class="knoten"><div class="zeile"><span class="platte">Der Leichengott<span class="s">S. 137</span></span><span class="tief">Tiefe 1</span></div>
+    <div class="neben"><span class="dom">Haven, Religion</span> · Standard-Stress W4</div><div class="neben" style="margin-top:4px"><span class="lbl">Haunts:</span></div><ul class="erg" style="margin:0;font-size:14px"><li style="grid-template-columns:14px 1fr;cursor:default"><b>·</b>Galen Guides-the-Pulse und Doktor Haverick, eifrige Chirurgen (W10, Blood)</li><li style="grid-template-columns:14px 1fr;cursor:default"><b>·</b>Madb, triefäugiger Hierophant des Rippenkäfig-Markts (W8, Supplies)</li></ul></div>
+  </div>
+ </div>
+
+ <!-- Delver -->
+ <div class="seite dicht">
+  <div class="kopfz"><h2 class="h2">Die Delver</h2></div>
+  <div class="schwarz regel">
+   <div class="w12">Bei 7 oder weniger: Stress und Fallout abhandeln</div>
+   <span class="lbl">W12 &gt; Stress</span><span>Kein Fallout.</span>
+   <span class="lbl">≤ Stress, 6 oder weniger</span><span>Leichter Fallout; aller Stress der betroffenen Resistenz wird gelöscht.</span>
+   <span class="lbl">≤ Stress, 7 oder mehr</span><span>Schwerer Fallout; aller Stress wird gelöscht.</span>
+  </div>
+  <div class="gruppe">
+   <div class="dv"><div class="n"><b>Kesk</b><span class="sum">Stress<em>6</em></span></div><div class="k">Cleaver · Adventure</div>
+    <div class="rz"><span>Blood</span><span class="kk"><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Mind</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Echo</span><span class="kk"><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i class="x"></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Fortune</span><span class="kk"><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Supplies</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="aus"><span class="lbl">Ausrüstung:</span> Jagdmesser <b>Kill W6</b> · Hackbeil <b>Kill W8, Brutal, Tiring</b></div><div class="aus"><span class="lbl">Ressource:</span> Ein frisch geerntetes Herz, das noch ab und zu zuckt <b>W6 Wild</b></div><div class="fo"><b>Blutend</b><i>Blood · leicht · anhaltend</i></div></div>
+   <div class="dv"><div class="n"><b>Vel</b><span class="sum">Stress<em>4</em></span></div><div class="k">Heretic · Penitent</div>
+    <div class="rz"><span>Blood</span><span class="kk"><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Mind</span><span class="kk"><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i class="x"></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Echo</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Fortune</span><span class="kk"><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Supplies</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="aus"><span class="lbl">Ausrüstung:</span> Hinterlader-Pistole <b>Kill W6, Ranged, Reload</b> · Sucherklinge <b>Kill W6, Brutal</b></div><div class="aus"><span class="lbl">Ressource:</span> Eine einzelne Andachtskerze, die mit silberner Flamme brennt <b>W6 Religion</b></div><div class="fo leer">kein Fallout</div></div>
+   <div class="dv"><div class="n"><b>Orrin</b><span class="sum">Stress<em>8</em></span></div><div class="k">Hound · Forced</div>
+    <div class="rz"><span>Blood</span><span class="kk"><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i class="x"></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Mind</span><span class="kk"><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Echo</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Fortune</span><span class="kk"><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Supplies</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="aus"><span class="lbl">Ausrüstung:</span> Legrande-Dienstgewehr <b>Kill W8, Ranged, Piercing, Expensive</b></div><div class="aus"><span class="lbl">Ressource:</span> Flasche Fusel <b>W6 Haven</b></div><div class="fo"><b>Hinkend</b><i>Blood · leicht · anhaltend</i></div></div>
+   <div class="dv"><div class="n"><b>Mabbe</b><span class="sum">Stress<em>3</em></span></div><div class="k">Junk Mage · Enlightenment</div>
+    <div class="rz"><span>Blood</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Mind</span><span class="kk"><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Echo</span><span class="kk"><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i></span></div>
+    <div class="rz"><span>Fortune</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="rz"><span>Supplies</span><span class="kk"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="kk sch"><i class="x"></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="aus"><span class="lbl">Ausrüstung:</span> Zwei altmodische Pistolen <b>Kill W8, Ranged, Loud, One-Shot</b></div><div class="aus"><span class="lbl">Ressource:</span> Fläschchen verfluchter Tinte <b>W6 Occult</b></div><div class="fo leer">kein Fallout</div></div>
+  </div>
+ </div>
+
+ <!-- Gegner -->
+ <div class="seite dicht">
+  <div class="kopfz"><h2 class="h2">Gegner</h2></div>
+  <div class="gk">
+   <div class="bild"><img src="img/gegner-schlaechter.webp" alt=""></div>
+   <span class="platte">Schlächter<span class="s">S. 180</span></span>
+   <div class="kurz"><span class="lbl">Riskant</span><span><span class="lbl">Schutz</span> 3</span></div>
+   <div class="res"><span class="zahl">8<small> / 10</small></span><span class="kk"><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+   <div class="werte" style="clear:both">
+        <div><span class="lbl">Motivation:</span> Fleisch (wenn möglich lebendes) für seine Höhle holen.</div>
+    <div><span class="lbl">Ressourcen:</span> Schlächter-Eingeweide (W6, begehrt zum Anfertigen von Schutzsiegeln); Geweih (W6–W10, je nach Zahl der Enden); Hinterlassenschaften der Opfer, wenn ihr ihre Höhle findet und mit dem Gestank fertigwerdet (W8).</div>
+    <div><span class="lbl">Ausrüstung:</span> Albtraumklauen (W10)</div>
+    <div><span class="lbl">Domains:</span> Wild, Warren, Cursed</div>
+   </div>
+   <div class="schwarz"><span class="lbl">Fallout: Verschleppt.</span> [Blood, schwer] Du bist verletzt, kannst dich nicht richtig bewegen und wirst durch die Dunkelheit geschleift, um in die Fleischwand gepresst zu werden, die der Schlächter als stummen, schwachsinnigen Gott verehrt.</div>
+   <div class="falt">▸ Text, Namen, Beschreibung</div>
+  </div>
+  <div class="zu"><span class="platte">Harpyien<span class="s">S. 189</span></span><small>Riskant · Resistenz 4 · Schutz 0</small></div>
+  <button class="plus">+ Gegner</button>
+ </div>
+</div>
+
+<div class="ann" style="left:470px;top:58px;max-width:330px"><b>1</b>Tab-Leiste nur fürs laufende Spiel. Aktiver Tab = rote Namensplatte wie im Buch (Landmarken-/Gegnernamen), darunter die rote Linie. Stift = Notizen.</div>
+<div class="ann" style="left:56px;top:250px;max-width:200px"><b>2</b>Die Route als Abstieg: Start-Landmarke → aktiver Delve → Ziel. Raute = Landmarke, hohle Raute = Delve.</div>
+<div class="ann" style="left:250px;top:445px;max-width:230px"><b>3</b>Resistenz des Delves als Kästchen-Leiste (Klick = Stress abziehen). Ereignisse anklickbar → grau.</div>
+<div class="ann" style="left:860px;top:150px;max-width:290px"><b>4</b>Regel aus „Regeln in Kürze“ (S. 8) als schwarzer Kasten – genau so steht sie im Buch.</div>
+<div class="ann" style="left:780px;top:520px;max-width:300px"><b>5</b>Jeder Delver als Mini-Bogen: dieselben Kästchen wie auf dem Charakterbogen (10 Stress, 5 Schutz je Resistenz), Summe oben rechts für die W12-Probe, Fallout als schwarze Etiketten.</div>
+<div class="ann" style="left:1110px;top:330px;max-width:290px"><b>6</b>Gegner als Statblock wie im Buch: rote Linie links, rosa Zebra-Zeilen, Bild klein in der Karte, Fallout im schwarzen Kasten. Weitere Gegner zugeklappt.</div>
+</body></html>

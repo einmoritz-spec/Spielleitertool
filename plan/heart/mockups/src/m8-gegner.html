@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.feld{padding:14px 16px 0}
+.feld>.seite{height:785px;overflow:hidden;padding:0 4px}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:row dense;gap:0 22px}
+.gc{position:relative;height:62px;padding:8px 70px 6px 0;border-bottom:1px solid rgba(100,0,0,.16);cursor:pointer;overflow:hidden}
+.gc b{display:block;font:400 17px/1.05 var(--plate);letter-spacing:.05em;text-transform:uppercase;color:var(--blut)}
+.gc small{display:block;font:500 13.5px/1.2 var(--body);color:#5c5248;margin-top:4px}
+.gc img{position:absolute;right:0;top:3px;height:56px;max-width:66px;object-fit:contain}
+.gc:hover b{color:var(--hell)}
+.offen{grid-column:1/3;grid-row:2/span 11;padding:14px 18px 14px 0;border-bottom:1px solid rgba(100,0,0,.16)}
+.kopf5{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.tafel{background:#16120d;color:#efe4d4;border:0;font:400 14px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;padding:8px 10px 7px;cursor:pointer}
+.spalten{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.spalten p{font-size:15px;line-height:1.42;margin:0 0 7px}
+.gb{float:right;width:150px;margin:-6px 0 4px 10px}
+.legend{margin-top:14px;display:flex;align-items:center;gap:18px;background:#16120d;color:#eadfce;padding:10px 14px}
+.legend b{font:400 22px/1 var(--head);text-transform:uppercase;color:#f0dfcf;white-space:nowrap}
+.legend span{font:400 15px/1 var(--plate);letter-spacing:.06em;text-transform:uppercase;color:#d8c6b2;white-space:nowrap}
+.legend img{height:44px}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/logo.webp" alt="Heart"><span class="dd"></span></button><div class="sp"></div>
+<button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><a>Expedition</a><a>Karte</a><a>Landmarken</a><a class="on">Gegner</a><a>Fallout</a><a>Gruppe</a><span class="sp"></span>
+<button class="ik stift"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button></div>
+<div class="feld"><div class="seite dicht">
+ <div class="raster"><div class="gc"><b>Engel<span class="s">S. 176</span></b><small>Gefährlich · Resistenz 20 · Schutz = Tiefe</small></div>
+<div class="gc"><b>Lastenautomat<span class="s">S. 176</span></b><small>Normal · Resistenz 10 · Schutz 0</small></div>
+<div class="gc"><b>Die Verderbten<span class="s">S. 178</span></b><small>Normal · Resistenz 10 · Schutz 4*</small></div>
+<div class="gc"><b>Die Blutgeweihten<span class="s">S. 179</span></b><small>Normal · Resistenz 6 · Schutz 0*</small></div>
+<div class="gc"><b>Ausgebrannter Okkultist<span class="s">S. 179</span></b><small>Normal · Resistenz 6 · Schutz 0</small></div>
+<div class="offen">
+  <div class="kopf5"><span class="platte gross">Schlächter<span class="s">S. 180</span></span><button class="tafel">Auf die Expedition</button></div>
+  <div class="spalten">
+   <div>
+    <p>Das waren einst verzweifelte Leute, die trotz der warnenden Lieder und Volksmärchen das verbotene Fleisch aßen, das an geheimen Orten wächst, nasse, pulsierende Wände bildet und mit lippenlosen Mündern lockt. Mit der Zeit verwandelte es sie in grauenhafte Kreaturen aus Fäulnis und Knochen.</p>
+    <p>Sie sind gut doppelt so groß wie ein Mensch, mit langen, bleichen Gliedmaßen, die ihnen enorme Schnelligkeit und Kraft verleihen. Jeder verehrt die Höhle, aus der er frisst, und alle sind dem Herzfleisch hoffnungslos verfallen. Sie schleppen Beute oder Teile davon zurück, um sie in die Wand zu drücken und zu ersetzen, was sie gegessen haben.</p>
+    <p>Schlächter sind berüchtigt für ihr Revierverhalten und bringen einander auf der Stelle grausam um.</p>
+    <div class="werte"><div><span class="lbl">Namen:</span> Sie haben keine Namen mehr; müssen sie einander bezeichnen, tun sie es über ihre Stellung, ihren Geruch und ihre Taten.</div></div>
+   </div>
+   <div>
+    <img class="gb" src="img/gegner-schlaechter.webp" alt="">
+    <div class="werte">
+     <div><span class="lbl">Beschreibung:</span> Trägt mächtiges Geweih aus faulendem Holz; kratzt mit Steinen Symbole in Wände und Bäume; hockt auf einem Felsen und stößt ein klagendes Heulen aus, als Warnung an andere.</div>
+     <div><span class="lbl">Motivation:</span> Fleisch (wenn möglich lebendes) für seine Höhle holen.</div>
+     <div><span class="lbl">Schwierigkeit:</span> Riskant · <span class="lbl">Resistenz:</span> 10 · <span class="lbl">Schutz:</span> 3</div>
+     <div><span class="lbl">Ressourcen:</span> Schlächter-Eingeweide (W6, begehrt zum Anfertigen von Schutzsiegeln); Geweih (W6–W10, je nach Zahl der Enden); Hinterlassenschaften der Opfer, wenn ihr ihre Höhle findet und mit dem Gestank fertigwerdet (W8).</div>
+     <div><span class="lbl">Ausrüstung:</span> Albtraumklauen (W10)</div>
+     <div><span class="lbl">Domains:</span> Wild, Warren, Cursed</div>
+    </div>
+    <div class="schwarz"><span class="lbl">Fallout: Verschleppt.</span> [Blood, schwer] Du bist verletzt, kannst dich nicht richtig bewegen und wirst durch die Dunkelheit geschleift, um in die Fleischwand gepresst zu werden, die der Schlächter als stummen, schwachsinnigen Gott verehrt.</div>
+   </div>
+  </div>
+ </div>
+<div class="gc"><b>Der Jahrmarkt<span class="s">S. 181</span></b><small>Normal · Resistenz 4 · Schutz 0</small></div>
+<div class="gc"><b>Aasschwein<span class="s">S. 181</span></b><small>Riskant* · Resistenz 15 · Schutz 5</small></div>
+<div class="gc"><img src="img/gegner-kult-der-messer.webp" alt=""><b>Der Kult der Messer<span class="s">S. 182</span></b><small>Riskant · Resistenz 12 · Schutz 0</small></div>
+<div class="gc"><b>Druiden-Beinbrecher<span class="s">S. 183</span></b><small>Normal · Resistenz 8 · Schutz 1</small></div>
+<div class="gc"><b>Falsches Heiligtum<span class="s">S. 184</span></b><small>Gefährlich · Resistenz 8 · Schutz 3</small></div>
+<div class="gc"><b>Verwilderter Seelenführer<span class="s">S. 184</span></b><small>Normal · Resistenz 7 · Schutz 2</small></div>
+<div class="gc"><img src="img/gegner-eulenstock.webp" alt=""><b>Flugunfähiger Eulenstock<span class="s">S. 185</span></b><small>Normal · Resistenz 3 · Schutz 0</small></div>
+<div class="gc"><b>Geist<span class="s">S. 186</span></b><small>* · Resistenz 5 · Schutz 10</small></div>
+<div class="gc"><img src="img/gegner-gnoll-einsatztrupp.webp" alt=""><b>Gnoll-Einsatztrupp<span class="s">S. 188</span></b><small>Normal · Resistenz 5 · Schutz 2</small></div>
+<div class="gc"><b>Gottbestie<span class="s">S. 189</span></b><small>Normal* · Resistenz 30 · Schutz 3</small></div>
+<div class="gc"><b>Harpyien<span class="s">S. 189</span></b><small>Riskant* · Resistenz 4 · Schutz 0</small></div>
+<div class="gc"><b>Herzblutbestie<span class="s">S. 190</span></b><small>Normal · Resistenz 5 · Schutz 0*</small></div>
+<div class="gc"><b>Herzsamen<span class="s">S. 191</span></b><small>– · Resistenz – · Schutz –</small></div>
+<div class="gc"><b>Marktleibeigener<span class="s">S. 193</span></b><small>Normal · Resistenz 5 · Schutz 0*</small></div>
+<div class="gc"><img src="img/gegner-spiegelspinnen.webp" alt=""><b>Spiegelspinnen<span class="s">S. 194</span></b><small>Normal · Resistenz 6* · Schutz 4</small></div>
+<div class="gc"><b>Pechlinge<span class="s">S. 195</span></b><small>Normal · Resistenz 7 · Schutz 0</small></div>
+<div class="gc"><b>Roter Heiliger<span class="s">S. 195</span></b><small>Normal* · Resistenz 16 · Schutz 2</small></div>
+<div class="gc"><img src="img/gegner-stellwerk-kultisten.webp" alt=""><b>Stellwerk-Kultisten<span class="s">S. 196</span></b><small>Normal · Resistenz 4 · Schutz 0</small></div></div>
+ <div class="legend"><b>Legendäre Gegner <span class="s" style="color:#8f7d6c">S. 200</span></b><img src="img/gegner-basilisk.webp" alt=""><span>Der Basilisk</span><span>·</span><span>Die Gorgo</span><span>·</span><span>Die Hydra</span><span>·</span><span>Die Jägerin</span><span>·</span><span>Der Minotaurus</span></div>
+</div></div>
+<div class="ann" style="left:1050px;top:120px;max-width:340px"><b>1</b>Alle Gegner als zugeklappte Zeilen im 4er-Raster (Name, Schwierigkeit, Resistenz, Schutz, S.) – Bild nur, wo es im Buch eindeutig zu diesem Gegner gehört, klein rechts.</div>
+<div class="ann" style="left:430px;top:200px;max-width:280px"><b>2</b>Aufgeklappt über zwei Spalten: Statblock wie im Buch, Bild klein rechts oben, Fallout im schwarzen Kasten. „Auf die Expedition“ legt ihn mit Resistenz-Leiste auf die Tafel.</div>
+<div class="ann" style="left:620px;top:808px;max-width:330px"><b>3</b>Legendäre Gegner als dunkles Band darunter (S. 200–205).</div>
+</body></html>

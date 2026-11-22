@@ -40,7 +40,7 @@ window.MYS.bestof = {
 <li><b>Reaktor:</b> Der Loop-Reaktor erfüllt zwei Aufgaben. Erstens versorgt er den Loop selbst mit Strom – eine Anlage, die sonst enorme Mengen aus dem eigenen Stromnetz von Great Yarmouth ziehen würde. Dabei erzeugt er oft überschüssigen Strom, den er dann an das übrige Stadtgebiet abgeben kann. Zweitens führt der Loop-Reaktor eine eigene Reihe von Experimenten durch, wie sich Elektrizität auf verschiedene Weisen nutzbar machen lässt und wie tragbare Energiequellen entstehen können. Obwohl das Kraftwerk eine stabile Stromquelle liefert, hat ReGIS theoretische Wasserstofffusion, die Erzeugung von Antihelium-Teilchen für Materiekollisionen und Nullpunktenergie erforscht, alles ohne nennenswerten Erfolg.</li>
 </ul>`}
     ]},
-    {id: "kids", name: "Kids einführen", abschnitte: [
+    {id: "kids", name: "Kinder einführen", abschnitte: [
       {id: "kids", titel: "Die Kinder einführen", s: 47, html: `
 <p>Dieses Mysterium beginnt damit, dass das Ei schlüpft, bevor die Kinder zur Schule gehen. Es sollte also damit beginnen, dass jedes Kind eingeführt wird, indem man über seine Morgenroutine spricht. Sehen die Kinder morgens ihre Eltern? Wie gehen sie mit ihren Geschwistern oder Haustieren um? Arbeiten Eltern der Kinder im Loop, lass vielleicht als erzählerisches Detail ein Kind über einen Brief stolpern, in dem es um Entlassungen geht, neben einem vollen Aschenbecher oder einer Schachtel Taschentücher.</p>
 <p>Lass schließlich alle Kinder früh am Morgen an dem Ort zusammenkommen, wo das Ei im vorigen Mysterium versteckt wurde.</p>`}

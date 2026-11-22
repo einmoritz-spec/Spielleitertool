@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="es.css"><style>
+.page{padding:16px 22px}
+.kt{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.kt h1{font-size:30px;margin-right:10px}
+.kt .chip{margin:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tv{background:var(--paper);border:2.5px solid var(--ink);display:grid;grid-template-columns:92px 1fr;position:relative}
+.tv .fg{background:#e3eaea center bottom/contain no-repeat;border-right:2px solid var(--ink)}
+.tv .in{padding:9px 11px 10px;font:13.5px/1.35 var(--sans)}
+.tv h3{font-size:22px}
+.tv .sub{font:500 12px var(--sans);color:var(--soft);margin:1px 0 7px}
+.at{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:7px}
+.at span{border:1.8px solid var(--ink);text-align:center;font:600 9.5px var(--sans);text-transform:uppercase;letter-spacing:.04em;padding:2px 0 1px}
+.at b{display:block;font:600 19px var(--head);line-height:1.1}
+.tr{display:flex;align-items:center;gap:6px;margin:3px 0;font:600 11px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--soft)}
+.tr em{width:84px;font-style:normal}
+.tr i{width:13px;height:13px;border:1.8px solid var(--ink);border-radius:50%}
+.tr i.f{background:var(--ink)}
+.tr i.b{border-color:var(--acc)}.tr i.b.f{background:var(--acc)}
+.row{margin-top:6px}
+.row small{display:block;font:700 10px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--soft)}
+.row p{font:14px/1.3 var(--serif)}
+.jr{margin-top:8px;border-top:2px solid var(--ink);padding-top:6px}
+.jr h5{font:600 13px var(--head);text-transform:uppercase;letter-spacing:.05em}
+.jr .steps{display:flex;gap:4px;margin-top:5px}
+.jr .steps i{flex:1;height:7px;background:#d6dede}.jr .steps i.dn{background:var(--ink)}
+.low{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:14px;margin-top:14px}
+.bx h4{display:flex;align-items:baseline;gap:8px}
+table.ten{border-collapse:collapse;width:100%;font:13.5px var(--sans)}
+.ten th{font:600 12px var(--head);text-transform:uppercase;letter-spacing:.05em;padding:3px 6px;text-align:center}
+.ten th:first-child{text-align:left}
+.ten td{border-top:1px solid #dbe3e3;padding:4px 6px;text-align:center}
+.ten td:first-child{text-align:left;font-weight:600}
+.ten b{display:inline-grid;place-items:center;width:24px;height:24px;border:1.8px solid var(--ink);font:600 14px var(--head)}
+.ten b.t1{background:#cfdcdc}.ten b.t2{background:var(--ink);color:#fff}
+.ten td.x{color:#c3cbcc}
+.veh{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:6px 0}
+.veh span{border:1.8px solid var(--ink);text-align:center;font:600 9.5px var(--sans);text-transform:uppercase;padding:2px 0}
+.veh b{display:block;font:600 19px var(--head)}
+.dice{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.dice i{width:30px;height:30px;border:2px solid var(--ink);display:grid;place-items:center;font:600 15px var(--head);font-style:normal}
+.dice i.s{background:var(--ink);color:#fff}
+.sel{display:flex;gap:6px;flex-wrap:wrap}
+.sel span{font:600 12px var(--sans);border:1.5px solid var(--ink);padding:3px 8px;text-transform:uppercase;letter-spacing:.04em}
+.sel span.on{background:var(--ink);color:#fff}
+p.s{font:14px/1.4 var(--serif)}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><a>Vorbereitung</a><a>Reise</a><a class="on">Reisende</a><a>Karte</a></div>
+<div class="page">
+ <div class="kt"><h1>Unsere Reisenden</h1><span class="chip">+ Reisende(r)</span><span class="chip">Vorgefertigte Reisende</span><span class="chip">Bogen einlesen (PDF)</span><span class="chip">Leerer Bogen</span></div>
+ <div class="grid">
+  <div class="tv"><div class="fg" style="background-image:url(img/es-a-kuenstler.webp)"></div><div class="in"><h3>Cade Draper</h3><div class="sub">Künstler · Life on Mars, David Bowie</div>
+   <div class="at"><span>Stärke<b>3</b></span><span>Geschick<b>3</b></span><span>Verstand<b>4</b></span><span>Empathie<b>6</b></span></div>
+   <div class="tr"><em>Gesundheit</em><i class="f"></i><i class="f"></i><i></i></div><div class="tr"><em>Hoffnung</em><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="tr"><em>Rausch</em><i class="b f"></i><i class="b"></i><i class="b"></i></div>
+   <div class="row"><small>Talent</small><p>Musiker</p></div><div class="row"><small>Traum</small><p>Den Platz als Rockstar einnehmen, der ihm zusteht.</p></div>
+   <div class="jr"><h5>Reise</h5><p class="s"><b>Ziel:</b> Mit den Freunden in Las Vegas spielen.<br><b>Bedrohung:</b> Biker der Plattenfirma.</p><div class="steps"><i></i><i></i><i></i></div></div></div></div>
+  <div class="tv"><div class="fg" style="background-image:url(img/es-a-ausreisser.webp)"></div><div class="in"><h3>Willy Carbone</h3><div class="sub">Ausreißerin · Friday I’m in Love, The Cure</div>
+   <div class="at"><span>Stärke<b>2</b></span><span>Geschick<b>6</b></span><span>Verstand<b>4</b></span><span>Empathie<b>6</b></span></div>
+   <div class="tr"><em>Gesundheit</em><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="tr"><em>Hoffnung</em><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div><div class="tr"><em>Rausch</em><i class="b"></i><i class="b"></i></div>
+   <div class="row"><small>Talent</small><p>Trickbetrügerin</p></div><div class="row"><small>Traum</small><p>Dazugehören.</p></div>
+   <div class="jr"><h5>Reise</h5><p class="s"><b>Ziel:</b> Den Vater in der Sperrzone finden.<br><b>Bedrohung:</b> Sozialarbeiterin Jo Watts.</p><div class="steps"><i class="dn"></i><i></i><i></i></div></div></div></div>
+  <div class="tv"><div class="fg" style="background-image:url(img/es-a-aussenseiter.webp)"></div><div class="in"><h3>Nancy Alvarez</h3><div class="sub">Außenseiterin · Fall With Your Knife</div>
+   <div class="at"><span>Stärke<b>2</b></span><span>Geschick<b>4</b></span><span>Verstand<b>6</b></span><span>Empathie<b>2</b></span></div>
+   <div class="tr"><em>Gesundheit</em><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="tr"><em>Hoffnung</em><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div><div class="tr"><em>Rausch</em><i class="b"></i></div>
+   <div class="row"><small>Talent</small><p>Einzelgängerin</p></div><div class="row"><small>Traum</small><p>„Den großen amerikanischen Roman“ schreiben.</p></div>
+   <div class="jr"><h5>Reise</h5><p class="s"><b>Ziel:</b> Ein neues Leben ohne Spuren.<br><b>Bedrohung:</b> Carlos, der Kopfgeldjäger.</p><div class="steps"><i></i><i></i><i></i></div></div></div></div>
+  <div class="tv"><div class="fg" style="background-image:url(img/es-a-veteran.webp)"></div><div class="in"><h3>Francis Harker</h3><div class="sub">Veteran · We Gotta Get Outta This Place</div>
+   <div class="at"><span>Stärke<b>4</b></span><span>Geschick<b>6</b></span><span>Verstand<b>3</b></span><span>Empathie<b>3</b></span></div>
+   <div class="tr"><em>Gesundheit</em><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div><div class="tr"><em>Hoffnung</em><i class="f"></i><i class="f"></i><i></i></div><div class="tr"><em>Rausch</em><i class="b"></i><i class="b"></i></div>
+   <div class="row"><small>Talent</small><p>Abgehärtet</p></div><div class="row"><small>Traum</small><p>Die Erinnerungen an den Krieg loswerden.</p></div>
+   <div class="jr"><h5>Reise</h5><p class="s"><b>Ziel:</b> Die alten Kameraden wiederfinden.<br><b>Bedrohung:</b> Die Ehefrau will ihn zurück.</p><div class="steps"><i class="dn"></i><i class="dn"></i><i></i></div></div></div></div>
+ </div>
+ <div class="low">
+  <div class="bx"><h4><span class="sq"></span>Spannung <span class="pg">S. 64</span></h4>
+   <table class="ten"><tr><th>von ↓ zu →</th><th>Cade</th><th>Willy</th><th>Nancy</th><th>Francis</th></tr>
+    <tr><td>Cade</td><td class="x">–</td><td><b class="t1">1</b></td><td><b>0</b></td><td><b>0</b></td></tr>
+    <tr><td>Willy</td><td><b>0</b></td><td class="x">–</td><td><b class="t2">2</b></td><td><b>0</b></td></tr>
+    <tr><td>Nancy</td><td><b class="t1">1</b></td><td><b>0</b></td><td class="x">–</td><td><b class="t1">1</b></td></tr>
+    <tr><td>Francis</td><td><b>0</b></td><td><b class="t1">1</b></td><td><b>0</b></td><td class="x">–</td></tr></table></div>
+  <div class="bx"><h4><span class="sq"></span>Fahrzeug <span class="pg">S. 154</span></h4><p class="s"><b>Buick Roadmaster Estate, 1993</b> · 2WD · Geräumig, Schwer</p>
+   <div class="veh"><span>Manövrierb.<b>+2</b></span><span>Tempo<b>3</b></span><span>Rumpf<b>8</b></span><span>Panzerung<b>4</b></span></div>
+   <div class="tr"><em>Rumpf</em><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div>
+   <p class="s" style="margin-top:6px"><span class="chip" style="font-size:12px;padding:3px 9px">Fahrzeugbogen</span></p></div>
+  <div class="bx"><h4><span class="sq"></span>Würfelprobe</h4>
+   <div class="sel"><span>Cade</span><span class="on">Willy</span><span>Nancy</span><span>Francis</span></div>
+   <div class="sel" style="margin-top:6px"><span>Stärke</span><span class="on">Geschick</span><span>Verstand</span><span>Empathie</span><span>+ Ausrüstung</span><span>+ Spannung</span></div>
+   <div class="dice"><i class="s">6</i><i>4</i><i>3</i><i>2</i><i>2</i><i>1</i></div>
+   <p class="s">1 Erfolg · <span class="chip" style="font-size:12px;padding:3px 9px">Forcieren (−1 Hoffnung)</span></p></div>
+ </div>
+</div>
+<div class="ann" style="left:640px;top:62px;max-width:420px"><b>1</b>Reisende wie die Kids: Karte je Reisende(r) mit Archetyp-Figur aus dem Buch, Werte anklickbar; „Reise“ = persönliches Ziel und Bedrohung aus „Into the Dust“ mit Countdown. Klick auf den Namen → Bogen (nah am Original S. 220, ausfüllbares PDF).</div>
+<div class="ann" style="left:120px;top:830px;max-width:520px"><b>2</b>Spannung (0–2, asymmetrisch, Klick zählt hoch), Fahrzeug (Buick aus „Into the Dust“), Würfelprobe nach Kap. 3.</div>
+</body></html>

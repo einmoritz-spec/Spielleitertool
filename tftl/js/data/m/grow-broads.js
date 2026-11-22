@@ -21,7 +21,7 @@ window.MYS["grow-broads"] = {
 <li>Stranger Things 2</li>
 <li>Hot Fuzz</li>
 </ul>`},
-      {id: "themen", titel: "Themen", s: 7, html: `
+      {id: "themen", titel: "Themen", s: 8, html: `
 <p>Mit der Geschichte von They Grow Up So Fast hast du als Spielleiter viele Möglichkeiten, verschiedene Erfahrungen zu machen. Ähnlich wie du es bei einem Film tun würdest, in dem du mit den Menschen auf der Leinwand mitfühlst, hast du die Chance, ein wenig von dem zu spüren, was andere fühlen, und ihre Lebenserfahrungen zu verstehen.</p>
 <p>Sprich mit den anderen Spielern darüber, einige dieser Themen in den Vordergrund zu rücken. Überlege, beim Spielen einige der folgenden Fragen zu besprechen:</p>
 <ul>
@@ -221,26 +221,26 @@ window.MYS["grow-broads"] = {
 </ul>`},
       {id: "boulder", titel: "Boulder City", s: 21, html: `
 <p>Die folgenden Abschnitte erklären, wie man das Mysterium anpasst, wenn man in Boulder City statt in den Norfolk Broads spielt.</p>
-<h4>Easter Egg Hunt</h4>
+<h4>Ostereiersuche</h4>
 <p>Obwohl sich das Aussehen der Mutter des Wesens durch den Ort nicht wesentlich ändert, wird das Wesen wegen der Richtung von Boulder City aus gesehen vom Loop her wahrscheinlich ins Charlie Gate am Rand von Boulder City selbst hineingeboren. Alternativ kann die Mutter stattdessen auf die Versorgungstunnel entlang des Hoover-Damms zielen. Das würde den Kindern zusätzliche Gelegenheit geben, von den fortdauernden Auswirkungen des Mysteriums zu hören, da DARPA die Straße über den Damm gesperrt haben könnte. Als dritte Möglichkeit könnte das Wesen sein Ei sogar in Schmugglertunneln aus der Prohibitionszeit abgelegt haben, was dem Abenteuer ein Element lokaler Geschichte hinzufügt.</p>
 <p>Statt dass das Mysterium bei einem Campingausflug eingeführt wird, ist es in Boulder City wahrscheinlicher ein Ausflug zum Hafen an Bord eines Bootes, das einer Familie oder einem Familienfreund gehört. Sorge dafür, dass die Kinder einen Grund haben zu bleiben und sich nicht leicht davonschleichen können, um zu ermitteln, sobald sie das Wesen sehen. Ein Kind von einem Elternteil zum Hafen bringen und dann allein zu lassen, während der Elternteil etwas vom Boot holt, kann eine spannende Art sein, das Mysterium einzuführen.</p>
-<h4>The Best of What Might Be</h4>
+<h4>Das Beste von dem, was sein könnte</h4>
 <p>Die zwei wichtigsten Aspekte, die sich in einem Mysterium in Boulder City ändern müssten, sind der Magnetrin-Schiffshafen sowie die Loop-Forschungsanlage und die Reaktoren; letztere ist womöglich leichter zugänglich, weil eine Autobahn am Rand des Geländes entlangführt.</p>
 <p>Der Magnetrin-Schiffshafen könnte leicht irgendwo in Boulder liegen, am geeignetsten ist aber der Rand des Hemenway Harbour. Das erlaubt aus logistischen Gründen leichten Zugang zum Magnetrin-Schiffshafen über bestehende Straßennetze und gibt zugleich eine thematische Wendung, indem sich Freizeitsegler über große Magnetrin-Frachter ärgern, die „die Aussicht ruinieren“.</p>
 <p>Was die Loop-Anlage betrifft, bedeutet eine Autobahn als Hauptzugang, die durch ihre Grenzen führt, zusätzliche Gelegenheiten, aus einem Bus zu schleichen oder die Eltern der Kinder dazu zu bringen, sie zur Anlage zu fahren. Wenn die Spieler Mühe haben, sich einen Weg auszudenken, wie ihre Kinder dorthin kommen, lass die örtliche Schule einen verdächtig spontanen Wissenschaftsausflug zur Anlage organisieren, der den Kindern ein gewisses Maß an Freiheit gibt, das Gelände zu erkunden, und Daniel Wraff Gelegenheit, seinen alten Arbeitgeber auszukundschaften.</p>
-<h4>The Year’s Last, Loveliest Smile</h4>
+<h4>Das letzte, schönste Lächeln des Jahres</h4>
 <p>Sollte das Mysterium in Boulder City angesiedelt sein, betrifft die wichtigste Änderung den genauen Ort des ausgemusterten Schiffs. Während in den Norfolk Broads eine kleine Halbinsel in einem See verwendet werden muss, hat Boulder City den nahen Lake Mead, der zahlreiche kleine Inseln enthält. Keine dieser Inseln hat jedoch bewaldete Umgebung wie das Farmland in Norfolk. Stattdessen sind sie vollständig vom Festland getrennt und haben nichts von inhärentem Wert auf sich, was sie zum perfekten Ort macht, sowohl ein Wesen zu verstecken als auch einen Frachter abzustellen. Die Insel kurz vor Black Rock Point neben dem Alpha Gate ist besonders geeignet. Statt hier ausgemustert worden zu sein, könnte das Schiff jedoch zu einer Notlandung gezwungen worden sein und danach seine Triebwerke nicht wieder starten können, woraufhin es ausgeschlachtet und dem Rost überlassen wurde. Ein laufender Rechtsstreit mit den Behörden von Boulder bedeutet, dass es schließlich entfernt wird, aber der Gerichtsprozess wurde wegen verschiedener Komplikationen im Rechtsverfahren auf das nächste Jahr verschoben, sodass das Schiff noch einige Zeit dort bleibt.</p>
-<h4>You Can’t Get Too Much</h4>
+<h4>Man kann nie genug …</h4>
 <p>Als Fortsetzung des vorigen Mysteriums haben die Kinder es möglicherweise erneut mit der Insel zu tun, auf der das Schiff notlanden musste. Danach sollte das Abenteuer ziemlich ähnlich verlaufen.</p>`},
       {id: "schweden", titel: "Der schwedische Loop", s: 22, bilder: [{b:"grow-schweden-bild", t:"Ein Frachter über dem See", s:22}], html: `
 <p>Die folgenden Abschnitte erklären, wie man das Mysterium anpasst, wenn man auf den Mälarinseln statt in den Norfolk Broads spielt.</p>
-<h4>Easter Egg Hunt</h4>
+<h4>Ostereiersuche</h4>
 <p>Die Mutter des Wesens fliegt vom Loop aus über die Stadt Färentuna und weiter Richtung East Gate, wo sie ihr Ei ablegt. Die Kinder könnten auf Munsö campen, wo das Wesen über sie hinwegfliegen kann, bevor es nach Osten weiterfliegt. Das kalte Wetter kann bedeuten, dass die Kinder nicht im Freien campen, sondern in einem Campingbus oder einer ähnlichen wärmeren Situation über Nacht. In jedem Fall solltest du darauf achten, dass ein oder zwei Kinder sich von den anderen entfernen können, bevor das Mysterium eingeführt wird.</p>
-<h4>The Best of What Might Be</h4>
+<h4>Das Beste von dem, was sein könnte</h4>
 <p>Weil der schwedische Loop viele Häuser von Familien enthält, die dort arbeiten, haben es die Kinder hier möglicherweise leichter, Zugang zu den Anlagen zu bekommen. Wegen dieses Mangels an Sicherheit innerhalb der Grenzen kann es in den Anlagen selbst zusätzliche Sicherheit geben. Erhöhe gern den Ärger, den die Sicherheitsleute in den Laboren und Reaktorgebäuden darstellen, um das auszugleichen.</p>
-<h4>The Year’s Last, Loveliest Smile</h4>
+<h4>Das letzte, schönste Lächeln des Jahres</h4>
 <p>Weil der schwedische Loop auf einer eigenen Inselgruppe liegt, ist die Lösung der von Boulder City sehr ähnlich. Idealerweise sollte es eine Insel vor der Küste sein, auf der der Frachter landet, wobei ein laufender Rechtsstreit die Kinder zu der Annahme ermutigt, dass er eine Weile an seinem jetzigen Ort bleibt. Die geeignetste Platzierung liegt kurz südlich von Vastport 5A.</p>
-<h4>You Can’t Get Too Much</h4>
+<h4>Man kann nie genug …</h4>
 <p>Der schwedische Loop sollte einem ähnlichen Verlauf wie dieses Mysterium folgen, abgesehen vom Ort des Wesens zu Beginn. Führe das Mysterium ein, indem die Kinder versuchen, sich der Insel mit einem Ruderboot auf dem Meer zu nähern, nur um auf FOA-Agenten zu treffen, und lass FOA sie fragen, warum sie zu Besuch sind. FOA glaubt den Kindern, wenn sie etwas Harmloses sagen, und die Befragung dient nur dazu, sie zu erschrecken.</p>`}
     ]}
   ]

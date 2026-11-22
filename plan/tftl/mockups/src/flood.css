@@ -1,0 +1,10 @@
+/* Things from the Flood – Farbthema (aus dem Buch gemessen: Kapitelband/Überschriften #8f2c48, Band oben #768a9e, Kästen #ebeff2) */
+:root{
+ --top:#8f2c48; --acc:#8f2c48; --band:#8f2c48; --band2:#768a9e;
+ --accl:#f5e7ec;   /* helles Weinrot für aktive Zustände (TftL: #fdf1e6) */
+ --bg:#eef0f3; --line:#d6dce3; --soft:#5f6772; --done:#a4aab2;
+ --box:#ebeff2;    /* Kasten-Hintergrund im Buch */
+ --night:#1e2733; --pink:#e9a3b6;  /* Überschrift auf dunklen Blöcken */
+}
+.top .fl{height:26px;filter:brightness(0) invert(1)}
+.top .dd{margin-left:2px}

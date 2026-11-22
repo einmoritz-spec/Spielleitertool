@@ -35,7 +35,7 @@ window.MYS.toomuch = {
 <li><b>Auftreten:</b> Die Agenten von ReGIS sind sachlich, schenken den Kindern aber, wie alle Erwachsenen, wenig Glauben, dass sie reif handeln. Bewegen sich die Kinder an einem Ort, an dem sie sich aufhalten dürfen, sind die Agenten nicht misstrauisch gegenüber ihnen. Im Umgang mit den Kindern zögern sie, ihnen Schaden zuzufügen, doch Unfälle können passieren, wenn sie versuchen, die Kinder festzuhalten.</li>
 </ul>`}
     ]},
-    {id: "kids", name: "Kids einführen", abschnitte: [
+    {id: "kids", name: "Kinder einführen", abschnitte: [
       {id: "kids", titel: "Die Kinder einführen", s: 81, html: `
 <p>Die Kinder haben beschlossen, das Geschöpf vor der Schule zu besuchen. Es ist immer größer geworden und verhält sich etwas anders: Gelegentlich steht es am Wasserrand und blickt in Richtung der Mitte des Loops. Die Kinder wissen nicht, warum, doch es liegt daran, dass es ein Echo seiner Art von dem Ort hören kann, an dem sie ursprünglich hindurchkamen. Es will nach Hause.</p>
 <p>Die Kinder sollten ihre morgendliche Routine vorstellen und beschreiben, wie frühere Mysterien sie beeinflusst haben. Irgendwann erwähnt ein Elternteil, dass ReGIS in letzter Zeit viele Expeditionen in örtliche Höhlen und Tunnel finanziert hat und Boote aufs Wasser schickt, um den Umfang seiner wissenschaftlichen Erkundungen zu erweitern. Das liefert den Zusammenhang dafür, dass das Geschöpf gefunden wurde.</p>
@@ -65,7 +65,7 @@ window.MYS.toomuch = {
         "Wird ein ReGIS-Agent mit <span class='f'>charme</span> überzeugt, erzählt er den Kindern vielleicht, sie hätten einen „örtlichen Schadstoff“ gefunden, den sie „zur Sicherheit aller in der Gegend“ entfernt haben.",
         "Wenn sich die Kinder an ReGIS-Agenten heranschleichen, die in der Gegend arbeiten, belauschen sie, wie diese einander erklären, das Geschöpf sei zu weiteren Tests irgendwo in der Stadt weggebracht worden.",
         "Daniel Wraff ist für die Kinder gut sichtbar. Versuchen sie, sich einzufühlen, zeigt sich ihnen, dass er seine Wut kaum zurückhalten kann, während er hektisch mit einem ranghohen ReGIS-Agenten spricht. Er erwähnt, dass er Beweise dafür hat, dass das Geschöpf oder zumindest sein Elternteil Anzeichen einer angeborenen Intelligenz zeigt und dass sie viel vorsichtiger sein sollten. Beobachten die Kinder Daniel sehr lange, ohne sich heranzuschleichen, sieht er sie, als er sich frustriert abwendet und zu seinem Auto geht, und hält kurz inne, bevor er ins Auto steigt und wegfährt."],
-       extra: [{t: "Zwischen den Orten", html: `<p>Hier sind einige Beispiele für Dinge, denen die Kinder begegnen, während sie zwischen den verschiedenen Orten unterwegs sind:</p>
+       extra: [{t: "Zwischen den Orten", s: 84, html: `<p>Hier sind einige Beispiele für Dinge, denen die Kinder begegnen, während sie zwischen den verschiedenen Orten unterwegs sind:</p>
 <ul>
 <li>Während des Höhepunkts des Abenteuers ruft ein Teenager, der auf dem Dach eines brennenden Gebäudes festsitzt, die Kinder um Hilfe an, während sie darüber hinwegfliegen.</li>
 <li>Ein Kind lässt eine Puppe in einen Fluss fallen und weint, während sie davontreibt.</li>

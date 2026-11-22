@@ -198,7 +198,7 @@ window.MYS.mixtape = {
 <p><b>Daniel und Izolda Bukowski</b></p>
 <p class="zit">„Entschuldigung, aber ich möchte sagen, dass die Besetzung Polens 1939 komplexer war.“</p>
 <p>Daniel und Izolda kennen sich seit ihrer Kindheit. Izolda war die Tochter von Überlebenden eines Nazi-Konzentrationslagers, und Daniel war das einzige Kind eines Unternehmers, der im Krieg mit der Herstellung von Kleidung viel Geld verdient hatte. Daniel ließ alles für Izolda zurück, als sie fliehen musste, und sie war es, die ihn überredete, Moses-I zu benutzen. Er hat mehrfach beschlossen, die Morde zu beenden, wurde aber von der charismatischeren Izolda gedrängt weiterzumachen. Als Izolda beginnt, an dem zu zweifeln, was sie tun, wird Daniel wahnsinnig und kontrollsüchtig. Er hat seine Seele für sie aufgegeben.</p>
-<p>Daniel ist groß und schlank, mit einem schönen Gesicht mit androgynen Zügen und langen, dunklen Wimpern. Er spricht mehrere Sprachen, ist sehr belesen und selbstsicher. Daniel raucht polnische Zigaretten und studiert Wirtschaftszeitungen in mehreren Sprachen. Er vermutet, dass Cseslaw ihnen näher kommt, und hält stets ein Auge offen nach ihm. Izolda ist gut gekleidet, hat kurzes schwarzes Haar und dunkle, intensive Augen. Sie ist sehr intelligent und gut darin, andere dazu zu bringen, zu tun, was sie will. Sowohl Izolda als auch Daniel haben die besonderen Eigenschaften „Durchblick 2“ und „Charme 2“, was bedeutet, dass 2 Erfolge nötig sind, um sie zu überzeugen, hereinzulegen oder zu übertrumpfen.</p>`},
+<p>Daniel ist groß und schlank, mit einem schönen Gesicht mit androgynen Zügen und langen, dunklen Wimpern. Er spricht mehrere Sprachen, ist sehr belesen und selbstsicher. Daniel raucht polnische Zigaretten und studiert Wirtschaftszeitungen in mehreren Sprachen. Er vermutet, dass Cseslaw ihnen näher kommt, und hält stets ein Auge offen nach ihm. Izolda ist gut gekleidet, hat kurzes schwarzes Haar und dunkle, intensive Augen. Sie ist sehr intelligent und gut darin, andere dazu zu bringen, zu tun, was sie will. Sowohl Izolda als auch Daniel haben die besonderen Eigenschaften „Begreifen 2“ und „Charme 2“, was bedeutet, dass 2 Erfolge nötig sind, um sie zu überzeugen, hereinzulegen oder zu übertrumpfen.</p>`},
 
       {id: "thriller", titel: "Thriller", s: 82, box: 1, html: `
 <p class="hint">„Thriller“ – Michael Jackson</p>
@@ -227,10 +227,10 @@ window.MYS.mixtape = {
 <li>The Texas Chainsaw Massacre</li>
 <li>An American Werewolf in London</li>
 <li>Re-Animator</li>
-<li>Die Fliege (The Fly)</li>
+<li>The Fly</li>
 <li>Child’s Play</li>
 <li>A Nightmare on Elm Street</li>
-<li>Shining (The Shining)</li>
+<li>The Shining</li>
 </ul>
 <p><b>Gunilla „Vogelscheuche“ {{Petersén|Peters}}</b></p>
 <p class="zit">„Wir alle haben einen Teil in uns, der Sadismus genießt und den wir aus Scham verstecken. Durch eine fiktive Figur in einem Film, ein Monster, können wir das Gefühl genießen, ohne uns zu schämen.“</p>

@@ -317,3 +317,5 @@ details.lk[open] summary{display:none}
 .figs{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}.figs .fig:only-child{max-width:760px}
 .top3.t2{grid-template-columns:1.6fr .9fr}
 .flowrow{margin-top:18px}.flow.wide{overflow-x:auto;justify-items:center}.top3.t2{grid-template-columns:1.6fr .9fr}
+
+.ntext{display:flow-root}.ntext ol{margin:0 0 12px 24px;font-size:18px;line-height:1.55}.ntext .nimg{float:right;width:190px;margin:4px 0 10px 20px}.ntext .nimg.w{float:none;display:block;width:100%;max-width:1000px;margin:0 0 14px}.nkasten{display:flow-root}

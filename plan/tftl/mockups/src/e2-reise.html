@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="es.css"><style>
+.tabs{gap:0;padding-right:14px}
+.tabs .mt{display:flex;align-items:center;gap:10px;padding-right:16px;margin-right:4px;border-right:2px solid var(--line)}
+.tabs .mt i{width:30px;height:30px;background:url(img/es-r-dust.webp) center/cover}
+.tabs .mt b{white-space:nowrap;font:600 15px var(--head);text-transform:uppercase;letter-spacing:.04em}
+.tabs a{padding:0 10px;font-size:15px;white-space:nowrap}
+.vl{overflow:hidden}
+/* Routenleiste: die Halte als Knoten auf einer Straße */
+.route{display:flex;align-items:center;margin-left:8px;padding-left:10px;border-left:2px solid var(--line);flex:1}
+.route .end{font:500 12px var(--sans);color:var(--soft);white-space:nowrap;display:flex;align-items:center;gap:6px}
+.route .end:before{content:"";width:9px;height:9px;border:2px solid var(--soft);border-radius:50%}
+.route .rd{flex:1;min-width:12px;height:0;border-top:2px dashed #9aa7a9;margin:0 4px}
+.route .rd.gone{border-top:2.5px solid var(--ink)}
+.route a.st{padding:0 6px;display:flex;align-items:center;gap:6px;font:600 14px var(--head);letter-spacing:.04em;white-space:nowrap}
+.route a.st:before{content:"";width:11px;height:11px;border-radius:50%;background:var(--paper);border:2.5px solid var(--soft)}
+.route a.st.dn{color:var(--done)}.route a.st.dn:before{background:var(--ink);border-color:var(--ink)}
+.route a.st.on:before{background:var(--red);border-color:var(--red);box-shadow:0 0 0 4px rgba(227,38,42,.22)}
+.pen{align-self:center;color:var(--soft);margin-left:10px}
+.lay{display:grid;grid-template-columns:230px 1fr;min-height:794px}
+.side{background:var(--paper);border-right:2px solid var(--line);padding:12px 0;position:relative}
+.side .col{position:absolute;right:10px;top:10px;color:var(--soft);font:700 16px var(--sans)}
+.side h5{font:700 11px var(--sans);letter-spacing:.14em;color:var(--soft);text-transform:uppercase;padding:12px 18px 4px}
+.side a{display:block;padding:6px 18px 6px 16px;font:500 14.5px/1.25 var(--sans);color:var(--ink);border-left:4px solid transparent}
+.side a small{display:block;font:500 11px var(--sans);color:var(--soft);letter-spacing:.08em;text-transform:uppercase}
+.side a.on{border-color:var(--acc);background:#e3eded;font-weight:700}
+.side a.sub{padding:3px 18px 3px 30px;font-size:13.5px;color:var(--soft)}
+.side a.sub.dn{color:var(--done)}
+.main{padding:16px 22px 24px}
+.top3{display:grid;grid-template-columns:1.3fr .95fr .8fr;gap:16px;align-items:start}
+.cap{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:6px}
+.map{position:relative;border:2.5px solid var(--ink);background:#fff}
+.map img{display:block;width:100%}
+.pin{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--acc);border:2.5px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)}
+.pin.dn{background:#8d9799}.pin.on{background:var(--red)}
+.pin b{position:absolute;left:14px;top:-5px;white-space:nowrap;font:600 11px var(--sans);background:rgba(255,255,255,.92);padding:1px 5px;color:var(--ink)}
+.cd{position:relative}
+.cd ol{list-style:none;font:15px/1.4 var(--serif)}
+.cd li{padding:5px 0;border-bottom:1px solid #dde4e4;display:flex;gap:8px}
+.cd li span{font:600 15px var(--head);min-width:16px}
+.cd li.dn{color:var(--done)}
+.cd li.now{font-weight:600}
+.pt{display:flex;flex-direction:column;gap:10px}
+.pt .bx{padding:9px 12px}
+.pt h4{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;margin-bottom:3px}
+.pt h4 small{font:500 11px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--soft)}
+.pt p{font:14px/1.35 var(--serif)}
+.pt .steps{display:flex;gap:4px;margin-top:6px}
+.pt .steps i{flex:1;height:7px;background:#d6dede}.pt .steps i.dn{background:var(--ink)}
+h2.loc{font-size:32px;margin:22px 0 4px;display:flex;align-items:baseline;gap:12px}
+.txt{display:flow-root}
+.txt p{margin-bottom:10px;font-size:17.5px;line-height:1.55}
+.fig{float:right;width:300px;margin:4px 0 10px 22px;border:2.5px solid var(--ink)}
+.fig img{display:block;width:100%}
+.npc{color:var(--acc);font-weight:600}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><div class="mt"><i></i><b>Into the Dust</b></div><a>Route</a><a>Ziele &amp; Bedrohungen</a><a>Begegnungen</a>
+ <div class="route"><span class="end" title="San Francisco Memorial City"></span><span class="rd gone"></span><a class="st on">Der Engel in der Maschine</a><span class="rd"></span><a class="st">Mord am Straßenrand</a><span class="rd"></span><a class="st">Drohnenschiff-Friedhof</a><span class="rd"></span><span class="end" title="Grenzübergang Primm"></span></div>
+ <span class="pen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span></div>
+<div class="lay">
+ <div class="side"><span class="col">‹</span>
+  <h5>Der Engel in der Maschine</h5>
+  <a class="on">Überblick<small>Karte · Countdown</small></a>
+  <a>Das Hindernis</a>
+  <a>Die Lage</a>
+  <a>Orte<small>3 von 10 besucht</small></a>
+  <a class="sub dn">Ramona’s Food &amp; Liquor</a><a class="sub dn">Burger Box</a><a class="sub dn">Jimmy’s Auto Parts</a><a class="sub">Wohnhäuser</a><a class="sub">Church of the Angels</a><a class="sub">… 5 weitere</a>
+  <a>NSC<small>Ramona · Daisy · Marcos …</small></a>
+  <h5>Immer zur Hand</h5>
+  <a>Countdown</a><a>Persönliche Bedrohungen<small>2 laufen</small></a><a>Fahrzeug</a>
+ </div>
+ <div class="main">
+  <div class="top3">
+   <div><div class="cap">Littleville</div><div class="map"><img src="img/es-karte-littleville.webp">
+     <span class="pin dn" style="left:31%;top:30%"><b>Ramona’s</b></span><span class="pin on" style="left:47%;top:44%"><b>Burger Box</b></span><span class="pin dn" style="left:63%;top:35%"><b>Jimmy’s</b></span><span class="pin" style="left:78%;top:22%"><b>Church of the Angels</b></span><span class="pin" style="left:22%;top:60%"></span><span class="pin" style="left:57%;top:63%"></span></div></div>
+   <div class="bx cd"><span class="tape" style="right:-18px;top:-12px;transform:rotate(8deg)"></span><h4><span class="sq"></span>Countdown <span class="pg">S. 171</span></h4><ol>
+     <li class="dn"><span>1</span>Ein NSC lädt die Reisenden zur Predigt in der Church of the Angels ein.</li>
+     <li class="dn"><span>2</span>Die Gemeinde zieht nachts mit Kerzen zur Kirche.</li>
+     <li class="now"><span>3</span>Der „Erzengel“ ruft die Gläubigen in die Neurolandschaft.</li>
+     <li><span>4</span>Jimmy und seine Schläger tauchen auf …</li>
+     <li><span>5</span>…</li><li><span>6</span>…</li></ol></div>
+   <div class="pt"><div class="cap" style="margin:0">Persönliche Bedrohungen</div>
+     <div class="bx"><h4>Willy <small>Ausreißerin</small></h4><p>Die Sozialarbeiterin Jo Watts sucht nach ihr.</p><div class="steps"><i class="dn"></i><i></i><i></i></div></div>
+     <div class="bx"><h4>Francis <small>Veteran</small></h4><p>Die Ehefrau will ihn nach Hause holen.</p><div class="steps"><i class="dn"></i><i class="dn"></i><i></i></div></div>
+     <div class="bx" style="opacity:.55"><h4>Cade <small>Künstler</small></h4><p>Biker im Auftrag der Plattenfirma.</p><div class="steps"><i></i><i></i><i></i></div></div>
+   </div>
+  </div>
+  <h2 class="loc">Der Engel in der Maschine <span class="pg">S. 169</span></h2>
+  <div class="txt">
+   <figure class="fig"><img src="img/es-h-engel.webp"></figure>
+   <p class="vl">Vorlesetext aus dem Buch (Kasten ohne Beschriftung): Auf dem Parkplatz stand eine Menschenmenge um etwas herum, das wie eine gewaltige umgebaute Drohne aussah …</p>
+   <p>Buchtext des Halts, vollständig übersetzt und flach über die volle Breite: wofür der Halt gedacht ist, wo er liegt (Vororte von Stockton im Central Valley). Personen wie <span class="npc">Father Marcos</span> oder <span class="npc">Jimmy Shute</span> sind anklickbar und öffnen ihre NSC-Karte mit kleinem Porträt und Werteblock.</p>
+   <p>Das Hochformat-Eröffnungsbild steht ungeschnitten rechts, der Text fließt daneben und darunter weiter über die volle Breite – keine leere Spalte.</p>
+   <p>Abschnitte „Das Hindernis“, „Die Lage“, „Orte“ und „NSC“ liegen in der Seitenleiste; die Orte stehen auf einer Seite flach untereinander (Klick auf die Überschrift = besucht, grau).</p>
+  </div>
+ </div>
+</div>
+<div class="ann" style="left:600px;top:112px;max-width:330px"><b>1</b>Routenleiste = Tab-Leiste der Reise: die drei Halte als Knoten auf der Straße (rot = hier sind wir, schwarz = erledigt). Tabs nur mit Namen.</div>
+<div class="ann" style="left:1120px;top:520px"><b>2</b>Persönliche Bedrohungen der Reisenden der Gruppe (aus „Ziele &amp; Bedrohungen“), Countdown-Schritte anklickbar.</div>
+<div class="ann" style="left:262px;top:500px;max-width:240px"><b>3</b>Halt-Karte aus dem Buch (Seitenausschnitt), Punkte nur an Orten, die auf der Karte beschriftet sind.</div>
+</body></html>

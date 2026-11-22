@@ -32,7 +32,7 @@ window.MYS.lastsmile = {
 <p>Das verbundene Kind beginnt, Träume zu haben, in denen die Welt des Geschöpfs vorkommt. Hier sind drei Beispiele. Nutze sie als Anregung, um bei Bedarf weitere Träume zu improvisieren.</p>
 <ul>
 <li>Das Kind sieht eine wunderschöne, blaue Leere mit schwebenden Gastaschen und tiefen, schönen Farben, die vom hellen Licht mehrfarbiger, schwebender organischer Gasbeutel hervorgehoben werden. Hier empfindet es ein starkes Gefühl von Frieden und Zufriedenheit.</li>
-<li>Während das Kind hoch über dem Loop schwebt, wird es von Wesen umringt, die dem Geschöpf sehr ähnlich sehen und sich nur subtil in Farbe oder Größe unterscheiden. Dabei spürt das verbundene Kind die Einsamkeit des Geschöpfs und seinen Wunsch, seine eigene Herde zu finden.</li>
+<li>Während das Kind hoch über dem Loop schwebt, wird es von Wesen umringt, die dem Geschöpf sehr ähnlich sehen und sich nur subtil in Farbe oder Größe unterscheiden. Dabei spürt das verbundene Kind die Einsamkeit des Geschöpfs und seinen Wunsch, seine eigene Schule zu finden.</li>
 <li>Ein weites Loch wird in den Himmel gerissen. Das Kind kann sich ihm trotz aller Mühe nicht nähern. Dann beginnt es, aus dem Riss einen hohen Ruf zu hören, und sieht ein freundliches Geschöpf in dem Raum schweben. Während das Kind zusieht, spürt es einen Zug von hinten, und eine einzelne menschliche Hand greift nach seinem Rücken und zieht es hinab, hinab, zum weit entfernten Boden.</li>
 </ul>`},
       {id: "freetochoose", titel: "Die Free to Choose", s: 66, html: `
@@ -48,7 +48,7 @@ window.MYS.lastsmile = {
 <p class="zit"><b>„FREE TO CHOOSE“ – NICHT MEHR FREI</b></p>
 <p>Die HTMV <i>Free to Choose</i>, ein Magnetrin-Frachter aus der Gegend von Greater Yarmouth, hat ihre letzte Fahrt hinter sich. Benjamin Vickers, ihr Kapitän, sagte: „Ich bin dankbar für die Zeit, die ich mit ihr hatte, aber es kommt ein Moment, in dem man einfach weiß, dass ein Schiff nicht weitermachen kann. Die Besatzung hat sich verabschiedet, und wir haben einen Ort gefunden, an dem sie liegen kann, bis sie ordnungsgemäß außer Dienst gestellt werden kann. Sie verdient Respekt.“</p></div>`}
     ]},
-    {id: "kids", name: "Kids einführen", abschnitte: [
+    {id: "kids", name: "Kinder einführen", abschnitte: [
       {id: "kids", titel: "Die Kinder einführen", s: 67, html: `
 <p>Nutze diese Zeit, um den Kindern einige Fakten der laufenden Geschichte vorzustellen:</p>
 <ul>
@@ -85,9 +85,9 @@ window.MYS.lastsmile = {
       {id: "ufo", titel: "UFO-Club-Countdown", s: 70, box: 1, html: `
 <ol>
 <li>In der Schule der Kinder wird ein UFO-Club gegründet, und an mehreren Stellen in der Schule werden Flugblätter dafür aufgehängt.</li>
-<li>Die Kinder erfahren, dass die Rüpel aus den Mysterien des Frühlings und Sommers am UFO-Club beteiligt sind, von ihren Eltern zu außerschulischen Aktivitäten gedrängt. Die Rüpel beginnen, Leute in der Schule zu befragen, auch die Kinder, und stellen Fragen zu den seltsamen Erscheinungen am Himmel im Frühling.</li>
-<li>Die Rüpel erfahren über ihre Eltern (die es von anderen gehört haben), dass das verbundene Kind während des Campingausflugs im Frühling etwas Seltsames am Himmel gesehen hat, und beginnen, es zu befragen.</li>
-<li>Die Rüpel verteilen Flugblätter, die nahelegen, das verbundene Kind sei von Außerirdischen entführt worden, und der UFO-Club wird viel größer.</li>
+<li>Die Kinder erfahren, dass die Raufbolde aus den Mysterien des Frühlings und Sommers am UFO-Club beteiligt sind, von ihren Eltern zu außerschulischen Aktivitäten gedrängt. Die Raufbolde beginnen, Leute in der Schule zu befragen, auch die Kinder, und stellen Fragen zu den seltsamen Erscheinungen am Himmel im Frühling.</li>
+<li>Die Raufbolde erfahren über ihre Eltern (die es von anderen gehört haben), dass das verbundene Kind während des Campingausflugs im Frühling etwas Seltsames am Himmel gesehen hat, und beginnen, es zu befragen.</li>
+<li>Die Raufbolde verteilen Flugblätter, die nahelegen, das verbundene Kind sei von Außerirdischen entführt worden, und der UFO-Club wird viel größer.</li>
 <li>Der UFO-Club unternimmt Campingausflüge und erkundet die Norfolk Broads viel häufiger, auf der Suche nach weiteren Beweisen für außerirdische Aktivität. Man kann ihnen begegnen, wann immer die Kinder die Stadt verlassen.</li>
 </ol>`},
       {id: "ort1", titel: "Ort 1: Der Garten", s: 70, ort: "ort1", html: `
@@ -100,7 +100,7 @@ window.MYS.lastsmile = {
         "<b>Garten 3:</b> Dieser Garten enthält eine Erwachsene, Maria Guest (S. 77), die auf Gartenmöbeln sitzt und still ein Buch liest, und ihre einjährige Tochter Emma, die still in einem Plastikplanschbecken spielt.",
         "<b>Das Planschbecken:</b> Ein Kind, das den Garten mit dem Planschbecken untersucht, sieht etwas Merkwürdiges: Eine zylindrische Form von etwa 20 Zentimetern Breite scheint im Wasser des Beckens zu „fehlen“, als hätte jemand ein Glasrohr ins Wasser gedrückt. Das ist das Bein des Geschöpfs.",
         "Haben die Kinder das Geschöpf gefunden, müssen sie es mit freundlichem, vertrautem Auftreten mit <span class='f'>charme</span> aus der Gegend weglocken, dürfen dabei aber ihre Absichten vor Maria verbergen, um ihren Verdacht zu vermeiden."],
-       extra: [{t: "Zwischen den Orten", html: `<p>Hier sind einige Beispiele für Dinge, denen die Kinder begegnen, während sie zwischen den verschiedenen Orten unterwegs sind:</p>
+       extra: [{t: "Zwischen den Orten", s: 71, html: `<p>Hier sind einige Beispiele für Dinge, denen die Kinder begegnen, während sie zwischen den verschiedenen Orten unterwegs sind:</p>
 <ul>
 <li>Eine belebte Kreuzung, die zur Loop-Anlage führt, wird von einer wütenden Gruppe Randalierer blockiert, die mit der Polizei aneinandergeraten. Die Randalierer beschweren sich darüber, dass ReGIS die meisten, wenn nicht alle örtlichen Jobs im Loop neu vergeben hat, was in der Gegend zu hoher Arbeitslosigkeit führt.</li>
 <li>In der Nähe der Schule oder in der Schule geht Daniel Wraff seiner normalen Schulalltagsarbeit nach, offenbar nicht ganz zufrieden mit dem niedrigen Schwierigkeitsgrad der täglichen Aufgaben oder frustriert vom Umgang mit Kindern.</li>

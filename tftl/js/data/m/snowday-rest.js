@@ -2,10 +2,10 @@
 (function(){
 var M = window.MYS.snowday;
 M.countdown = [
-  "Der Wartungswagen. Ein Loop-Wartungsfahrzeug steht auf dem Schotterstreifen, sein Anhänger ist leer; Dreirad-Spuren führen die Wartungsstraße hinauf.",
-  "Gejagt in der Jagdhütte. Ein umgekipptes Dreirad, eine offene Hintertür und ein fallen gelassenes Tonbandgerät mit Sprachprotokollen.",
-  "Aaltemann-Messstation Nr. 23. Eine offene Zugangsluke, ein Computer im Müllsack und ein unbefugt verlegtes Kabel, das in den Wald führt.",
-  "Die verlassene Farm. Schneefeld, Farmhaus und Scheune – hier wartet der Showdown."
+  "Der Wartungswagen",
+  "Gejagt in der Jagdhütte",
+  "Aaltemann-Messstation Nr. 23",
+  "Die verlassene Farm (Showdown)"
 ];
 M.orte = [
   {id: "ort1", nr: 1, name: "Einführungsszene A: Probleme mit dem Loop-Strom", s: 2},
@@ -25,7 +25,7 @@ M.phasen.push({id: "showdown", name: "Showdown", abschnitte: [
 <p><b>Diane Peterson ist tot.</b> Die Kinder finden Teile von ihr auf dem Feld, wenn sie danach suchen. Sie öffnete das Portal direkt vor einem Paar <b>Raptoren</b>. Sie folgten ihr durch den Riss und griffen sie an.</p>
 <p><b>Dem Motor ist das Benzin ausgegangen.</b> Der Dieselmotor wurde nie abgestellt, also ist ihm der Treibstoff ausgegangen. Die Kinder müssen mehr Treibstoff dafür finden (vom alten <b>Traktor</b> auf dem nahen Feld).</p>
 <p><b>Es sind noch zwei Funken-Ladungen übrig.</b> Die Energie hat sich automatisch aufgebaut. Zwei Ladungen reichen für einen Fehler beim Versuch, das Portal zu schließen.</p>
-<p><b>Ein Passwort ist nötig.</b> Die Kinder bekommen vielleicht den Motor zum Laufen, aber um den Funken und die Leistungsregler der Magnetrin-Scheiben zu bedienen, wird ein Passwort gebraucht. Die Wissenschaftlerin erwähnt in ihrem Tagebuch, dass sie mit Passwörtern einen furchtbaren Ärger hat, sich Melodien aber leicht merken kann. Die Kinder müssen ihr Lieblingslied herausfinden (indem sie den <b>Walkman</b> im Farmhaus anhören) und dann die Melodie des Refrains auf dem <b>Kinder-Spielzeugklavier</b> eingeben.</p>
+<p><b>Ein Passwort ist nötig.</b> Die Kinder bekommen vielleicht den Motor zum Laufen, aber um den Funken und die Leistungsregler der Magnetrin-Scheiben zu bedienen, wird ein Passwort gebraucht. Die Wissenschaftlerin erwähnt in ihrem Tagebuch, dass sie mit Passwörtern furchtbar viel Mühe hat, sich Melodien aber leicht merken kann. Die Kinder müssen ihr Lieblingslied herausfinden (indem sie den <b>Walkman</b> im Farmhaus anhören) und dann die Melodie des Refrains auf dem <b>Kinder-Spielzeugklavier</b> eingeben.</p>
 <p>Haben die Spieler Schwierigkeiten, dieses Rätsel zu lösen, lass sie einen Wurf auf <span class='f'>begreifen</span> oder <span class='f'>einfühlen</span> machen.</p>
 <p><b>Den Riss schließen.</b> Sobald die Kinder das Passwort haben und den Motor starten, müssen sie die Leistung der Magnetrin-Scheibe erhöhen, um den Riss zu verkleinern, und dann den Funken auslösen, um den Riss zu schließen. Erscheinen Raptoren, während die Kinder die Maschine aktivieren?</p>`},
   {id: "dino", titel: "Dinogroßer Ärger", s: 10, html: `
@@ -97,7 +97,7 @@ M.nsc = {
   juneau: {name: "Juneau", s: 14, zitat: "", html: `
 <p>Juneau ist Nicholas Evans’ energiegeladener Alaskan-Malamute-Schlittenhund. Juneau begleitet Nicholas gewöhnlich auf seinen häufigen Joggingrunden. Man könnte sie leicht für einen Wolf halten. Sie ist im Allgemeinen ruhig und gehorsam, ist aber dafür bekannt, gelegentlich auszureißen und Ärger zu machen.</p>`},
   bobmike: {name: "Bob & Mike", s: 14, zitat: "„Mike, du bist so dumm, du könntest nicht mal Pisse aus einem Stiefel kippen, wenn die Anleitung auf der Ferse stünde.“", html: `
-<p>Bob & Mike sind zwei redselige Loop-Wartungsarbeiter. Sie sind laut und unbedacht, was soziale Situationen angeht, kennen sich aber sehr gut mit dem komplexen Loop-System aus. Sie werden oft gemeinsam eingeteilt. Bob & Mike haben eine seltsame Beziehung, denn sie streiten und beleidigen sich ständig, ohne je wirklich beleidigt oder wütend zu werden. Bob & Mike „überreden“ einander. Es ist für jeden anderen sehr schwierig, überhaupt zu Wort zu kommen.</p>
+<p>Bob & Mike sind zwei redselige Loop-Wartungsarbeiter. Sie sind laut und unbedacht, was soziale Situationen angeht, kennen sich aber sehr gut mit dem komplexen Loop-System aus. Sie werden oft gemeinsam eingeteilt. Bob & Mike haben eine seltsame Beziehung, denn sie streiten und beleidigen sich ständig, ohne je wirklich beleidigt oder wütend zu werden. Bob & Mike reden einander ständig ins Wort. Es ist für jeden anderen sehr schwierig, überhaupt zu Wort zu kommen.</p>
 <p class="zit">„Hab keine Angst, Bob hat schon immer so ausgesehen.“ – „Wie denn?“ – „Als hätte dein Gesicht Feuer gefangen und jemand hätte versucht, es mit einer Schaufel zu löschen.“</p>`},
   diane: {name: "Diane Peterson", s: 14, zitat: "", html: `
 <p>Diane Peterson ist in der Stadt gut bekannt, vor allem weil sie in jeder Situation die Aufmerksamkeit auf sich lenkt. Sie wurde als „Projekt-Innovatorin“ bei der Ricksenergi Advanced Research Cohort eingestellt – einem hochrangigen Zweig der Loop-Forschungsanlage. Das war vor drei Jahren. In letzter Zeit ist Diane aus dem Alltag der Stadt verschwunden (sehr zur Erleichterung der verschiedenen Einheimischen). Gerüchten zufolge wurde sie kürzlich von ihrem Posten entlassen und machte einen ziemlichen Aufruhr, als sie vom Gelände des Loops hinausbegleitet wurde.</p>`}
@@ -118,7 +118,7 @@ M.phasen.push({id: "anhang", name: "Anhang", abschnitte: [
 <p>Ich habe damit experimentiert, den Riss zu „dehnen“, und festgestellt, dass das mit Magnetrin-Scheiben möglich ist. Der Funke ist nicht stark genug, um den Riss zu schließen, sobald er gedehnt ist. Ich muss zusätzliche Energie zu den Magnetrin-Scheiben umleiten, sodass der Riss wieder auf seine ursprüngliche Größe schrumpft und der Funke ihn schließen kann.</p>
 <p>Ich habe außerdem ein Diagramm der Maschine gezeichnet. Es könnte meinen künftigen Assistenten helfen, die nicht in der Lage sind, die Komplexität des Geräts vollständig zu erfassen.</p>
 <h3>Eintrag vier</h3>
-<p>Um meine kostbare Arbeit zu schützen, habe ich ein genial ausgeklügeltes Sicherheitssystem eingerichtet! Ich hatte schon immer furchtbar viel Ärger mit Passwörtern, kann mir aber leicht Melodien merken. Niemand wird je meinen Code knacken können.</p>
+<p>Um meine kostbare Arbeit zu schützen, habe ich ein genial ausgeklügeltes Sicherheitssystem eingerichtet! Ich hatte schon immer furchtbar viel Mühe mit Passwörtern, kann mir aber leicht Melodien merken. Niemand wird je meinen Code knacken können.</p>
 <h3>Eintrag fünf</h3>
 <p>Ich habe beschlossen, dass es wirklich cool wäre, einen Haus-Dinosaurier zu haben. Könnte ich einen zähmen, ließe er sich als großartige Enthüllung nutzen, wenn ich meine Experimente der Öffentlichkeit präsentiere. Ich habe bereits ein paar Eier gesammelt, die in der Nähe des Risses lagen. Sie werden in diesem Farmhaus ausgebrütet.</p>`},
   {id: "tonband", titel: "Mikes Sprachprotokoll", s: 16, html: `

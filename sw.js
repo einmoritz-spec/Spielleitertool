@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v689sp";
+const VERSION = "v690sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -20,6 +20,8 @@ const FILES = [
   "tftl/js/data/nach/landschaft.js",
   "tftl/js/data/nach/mysterium.js",
   "tftl/js/data/nach/schweden.js",
+  "tftl/js/data/nach/de80.js",
+  "tftl/js/data/nach/taunus.js",
   "tftl/js/data/nach/us.js",
   "tftl/js/data/nach/welt.js",
   "tftl/js/data/typen.js",
@@ -27,6 +29,14 @@ const FILES = [
   "tftl/js/data/karte.js",
   "tftl/img/karte-maelaren-voll.webp",
   "tftl/img/karte-boulder-voll.webp",
+  "tftl/img/taunus-opener.webp",
+  "tftl/img/taunus-gorman.webp",
+  "tftl/img/taunus-karte.webp",
+  "tftl/img/taunus-dekker.webp",
+  "tftl/img/taunus-schultheiss.webp",
+  "tftl/img/taunus-waechterhaeuser.webp",
+  "tftl/img/taunus-schmitz.webp",
+  "tftl/img/taunus-taubmann.webp",
   "tftl/js/data/kids.js",
   "shared/fillpdf.js",
   "tftl/js/data/mysterien.js",

@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="es.css"><style>
+.hero{height:170px;background:url(img/es-hero.webp) center 38%/cover;position:relative}
+.wrap{display:grid;grid-template-columns:1fr 420px;gap:24px;padding:22px 22px 0}
+.sec{display:flex;align-items:center;gap:14px;font-size:28px;margin-bottom:12px}
+.sec:after{content:"";flex:1;border-top:2.5px solid var(--ink)}
+.grpl{font:700 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tile{background:var(--paper);border:2.5px solid var(--ink);display:flex;flex-direction:column}
+.tile .im{height:108px;background:center/cover;border-bottom:2.5px solid var(--ink)}
+.tile .tx{padding:9px 12px 10px}
+.tile h3{font-size:21px}
+.tile p{font:14px/1.35 var(--serif);color:var(--soft);margin-top:3px}
+.tile .k{font:500 11.5px var(--sans);color:var(--soft);margin-top:6px;letter-spacing:.04em}
+.chips{margin-top:16px}
+.go{background:var(--night);color:#fff;padding:16px 18px 18px;display:flex;flex-direction:column;gap:11px;position:relative;border-top:8px solid var(--dust)}
+.go h2{font-size:34px;color:#fff}
+.go .last{display:flex;gap:12px;background:rgba(255,255,255,.07);overflow:hidden}
+.go .last .im{width:150px;height:94px;background:url(img/es-h-engel.webp) center 30%/cover;flex:none}
+.go .last small{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--dust);margin-top:10px}
+.go .last b{display:block;font:600 19px/1.1 var(--head);text-transform:uppercase;margin:3px 0}
+.go .last span{font:14px var(--serif);opacity:.75}
+.rt{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.rt div{height:150px;background:center/cover;position:relative}
+.rt div i{position:absolute;left:0;right:0;bottom:0;padding:16px 7px 5px;font:600 12.5px/1.15 var(--head);text-transform:uppercase;letter-spacing:.03em;font-style:normal;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+.line{display:flex;align-items:center;gap:0;font:500 12px var(--sans);color:#cfd8d8;margin:2px 0}
+.line span{white-space:nowrap}
+.line i{flex:1;height:2px;background:#6b7c80;margin:0 6px;position:relative}
+.line i:after{content:"";position:absolute;left:50%;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--night);border:2px solid #9fb0b3}
+.go .meta{font:14px var(--serif);opacity:.75}
+.crew{font:14px/1.5 var(--serif);color:#dfe6e6;border-top:1px solid rgba(255,255,255,.15);padding-top:9px}.crew span{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}.crew b{font:600 15px var(--head);text-transform:uppercase;letter-spacing:.03em;color:#fff}
+.btn{display:block;text-align:center;background:var(--dust);color:var(--ink);font:600 19px var(--head);letter-spacing:.08em;text-transform:uppercase;padding:13px}
+</style></head><body>
+<!--TOP-->
+<div class="hero"></div>
+<div class="wrap"><div>
+ <div class="sec h">Vorbereitung</div>
+ <div class="grpl">Die Welt</div>
+ <div class="grid">
+  <div class="tile"><div class="im" style="background-image:url(img/es-w-welcome.webp)"></div><div class="tx"><h3>Willkommen im Electric State</h3><p>Das Spiel · Die Reise · Würfeln · Prinzipien</p><div class="k">Kap. 1 · S. 6</div></div></div>
+  <div class="tile"><div class="im" style="background-image:url(img/es-w-pacifica.webp);background-position:center 60%"></div><div class="tx"><h3>Der Staat Pacifica</h3><p>Wie es dazu kam · Neuronik · Pacifica · Konzerne · Nachbarn</p><div class="k">Kap. 2 · S. 19</div></div></div>
+  <div class="tile"><div class="im" style="background-image:url(img/es-w-bedrohungen.webp)"></div><div class="tx"><h3>Bedrohungen</h3><p>Gewalt · Manipulation · Technik · Umwelt · Persönlich</p><div class="k">Kap. 6 · S. 134</div></div></div>
+ </div>
+ <div class="grpl" style="margin-top:16px">Das Spiel</div>
+ <div class="grid">
+  <div class="tile"><div class="im" style="background-image:url(img/es-w-reisende.webp)"></div><div class="tx"><h3>Deine Reisenden</h3><p>Archetypen · Attribute · Gesundheit &amp; Hoffnung · Spannung</p><div class="k">Kap. 3 · S. 49</div></div></div>
+  <div class="tile"><div class="im" style="background-image:url(img/es-w-kampf.webp)"></div><div class="tx"><h3>Kampf &amp; Neuronik</h3><p>Zonen · Schaden · Neurocaster · Drohnen · Fahrzeuge</p><div class="k">Kap. 4 · S. 76</div></div></div>
+  <div class="tile"><div class="im" style="background-image:url(img/es-w-reise.webp);background-position:center 30%"></div><div class="tx"><h3>Die Reise</h3><p>Reise planen · Halte vorbereiten · Halte spielen</p><div class="k">Kap. 5 · S. 110</div></div></div>
+ </div>
+ <div class="chips"><span class="chip f">Charakterbogen</span><span class="chip">Fahrzeugbogen</span><span class="chip">Spielleiterschirm</span><span class="chip">Würfel</span><span class="chip">Karte von Pacifica</span><span class="chip">Galerie</span></div>
+</div>
+<aside class="go"><h2>Reise</h2>
+ <div class="last"><div class="im"></div><div><small>Weiterfahren</small><b>Der Engel in der Maschine</b><span>Orte · Burger Box</span></div></div>
+ <div class="rt"><div style="background-image:url(img/es-h-engel.webp);background-position:center 25%"><i>Der Engel in der Maschine</i></div><div style="background-image:url(img/es-h-mord.webp)"><i>Mord am Straßenrand</i></div><div style="background-image:url(img/es-h-drohnen.webp);background-position:center 40%"><i>Drohnenschiff-Friedhof</i></div></div>
+ <div class="line"><span>San Francisco Memorial City</span><i></i><span>Grenzübergang Primm</span></div>
+ <div class="crew"><span>Reisende</span><b>Cade</b> Künstler · <b>Willy</b> Ausreißerin · <b>Nancy</b> Außenseiterin · <b>Francis</b> Veteran</div>
+ <div class="meta">Into the Dust · Kap. 7 · S. 152 · 3 Halte · 6 Begegnungen</div>
+ <a class="btn">Reise starten</a>
+</aside></div>
+<div class="ann" style="left:470px;top:76px"><b>1</b>Eigenes Farbthema aus dem Buch: Schiefer-Petrol #33464a, Seiten #f0f4f4, schwarze Kastenrahmen, Überschriften schwarz in schmaler Versalschrift (Oswald statt Interstate Condensed).</div>
+<div class="ann" style="left:22px;top:856px;max-width:600px"><b>2</b>Erst Vorbereitung, die Reise erst per Klick. Sandfarbe = „Into the Dust“.</div>
+</body></html>

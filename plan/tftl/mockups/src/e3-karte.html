@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="es.css"><style>
+.page{display:flex;gap:18px;padding:16px 22px;height:calc(100vh - 106px)}
+.kmap{position:relative;display:flex;flex-direction:column;min-height:0;flex:none}
+.ksw{display:flex;gap:0;margin-bottom:10px;align-self:flex-start;border:2px solid var(--ink)}
+.ksw b{font:600 14px var(--head);text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;background:var(--paper)}
+.ksw b.on{background:var(--ink);color:#fff}
+.kview{flex:1;min-height:0;display:flex;justify-content:flex-start;align-items:flex-start}
+.kin{position:relative;height:calc(100vh - 186px);aspect-ratio:1341/1064;border:2.5px solid var(--ink);background:#fff}
+.kin img{display:block;width:100%;height:100%}
+.pin{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--acc);border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.5)}
+.pin.h{background:var(--ink)}.pin.on{background:var(--red);box-shadow:0 0 0 5px rgba(227,38,42,.25),0 1px 5px rgba(0,0,0,.5)}
+.pin.e{background:#fff;border-color:var(--ink)}
+.pin.u{border-style:dashed}
+.pin b{position:absolute;left:16px;top:-6px;white-space:nowrap;font:600 12px var(--sans);background:rgba(255,255,255,.93);padding:1px 6px}
+.kside{flex:1;min-width:340px;background:var(--paper);border:2.5px solid var(--ink);padding:14px 16px;overflow:auto}
+.kside h3{font-size:17px;letter-spacing:.04em;margin:4px 0 6px;display:flex;align-items:center}
+.ol{display:flex;align-items:center;gap:9px;padding:6px 4px;font:500 14.5px var(--sans);border-bottom:1px solid #e1e8e8}
+.ol .dot{width:11px;height:11px;border-radius:50%;background:var(--acc);flex:none}
+.ol .dot.h{background:var(--ink)}.ol .dot.on{background:var(--red)}.ol .dot.g{background:none;border:2px solid #b8c2c3}
+.ol .pg{margin-left:auto}
+.ol.on{background:#e3eded;font-weight:700}
+.card{margin:10px 0 14px;border-left:4px solid var(--red);padding:6px 10px;background:#f4f7f7}
+.card b{display:block;font:600 17px var(--head);text-transform:uppercase}
+.card p{font:14.5px/1.4 var(--serif);margin:3px 0 6px}
+.card a{font:600 13px var(--head);text-transform:uppercase;letter-spacing:.06em;color:var(--acc)}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><a>Vorbereitung</a><a>Reise</a><a>Reisende</a><a class="on">Karte</a></div>
+<div class="page">
+ <div class="kmap"><div class="ksw"><b>Pacifica</b><b class="on">Reiseroute</b></div>
+  <div class="kview"><div class="kin"><img src="img/es-karte-route.webp">
+   <span class="pin e" style="left:13.5%;top:17%"><b>San Francisco Memorial City</b></span>
+   <span class="pin h on" style="left:21%;top:21.5%"><b>Der Engel in der Maschine</b></span>
+   <span class="pin h u" style="left:38.5%;top:9%"><b>Mord am Straßenrand</b></span>
+   <span class="pin h" style="left:61%;top:42%"><b>Drohnenschiff-Friedhof</b></span>
+   <span class="pin e" style="left:72.5%;top:55%"><b>Grenzübergang Primm</b></span>
+  </div></div></div>
+ <aside class="kside">
+  <h3><span class="sq"></span>Into the Dust <span class="pg" style="margin-left:auto">S. 154</span></h3>
+  <div class="ol"><i class="dot g"></i>San Francisco Memorial City</div>
+  <div class="ol on"><i class="dot on"></i>Der Engel in der Maschine<span class="pg">S. 169</span></div>
+  <div class="card"><b>Der Engel in der Maschine</b><p>Vororte von Stockton im Central Valley.</p><a>Zum Halt ›</a></div>
+  <div class="ol"><i class="dot h"></i>Mord am Straßenrand<span class="pg">S. 180</span></div>
+  <div class="ol"><i class="dot h"></i>Drohnenschiff-Friedhof<span class="pg">S. 191</span></div>
+  <div class="ol"><i class="dot g"></i>Grenzübergang Primm</div>
+  <h3 style="margin-top:16px"><span class="sq"></span>Pacifica <span class="pg" style="margin-left:auto">S. 38</span></h3>
+  <div class="ol"><i class="dot"></i>Los Angeles<span class="pg">S. 40</span></div>
+  <div class="ol"><i class="dot"></i>Sacramento<span class="pg">S. 40</span></div>
+  <div class="ol"><i class="dot"></i>San Francisco<span class="pg">S. 42</span></div>
+  <div class="ol"><i class="dot g"></i>Der Norden und Osten<span class="pg">S. 42</span></div>
+  <div class="ol"><i class="dot g"></i>Die Küste und die Inseln<span class="pg">S. 43</span></div>
+  <div class="ol"><i class="dot"></i>Blackwelt-Sperrzone<span class="pg">S. 46</span></div>
+ </aside>
+</div>
+<div class="ann" style="left:560px;top:690px;max-width:330px"><b>1</b>Schalter: Karte von Pacifica (Vorsatz S. 2–3, ohne Route) oder Reiseroute (S. 154–155, mit eingezeichneter Route). Gerendert als Seitenausschnitt, Klick = Zoom.</div>
+<div class="ann" style="left:1000px;top:760px;max-width:400px"><b>2</b>Rechts: Halte (schwarz, rot = hier sind wir) und Orte aus Kap. 2. Gestrichelter Punkt = Ort steht nicht auf der Karte, nur die Gegend (Sierra Nevada).</div>
+</body></html>

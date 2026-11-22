@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><link rel="stylesheet" href="flood.css"><style>
+.tabs .mt{display:flex;align-items:center;gap:10px;padding-right:18px;margin-right:6px;border-right:2px solid var(--line)}
+.tabs .mt b{font:700 15px var(--sans);text-transform:uppercase;color:var(--acc);letter-spacing:.02em}
+.tabs .mt i{width:30px;height:30px;border-radius:2px;background:url(img/flood/m-flesh.webp) center/cover}
+.lay{display:grid;grid-template-columns:230px 1fr;min-height:794px}
+.side{background:#fff;border-right:2px solid var(--line);padding:14px 0;position:relative}
+.side .col{position:absolute;right:8px;top:10px;color:var(--soft);font:700 16px var(--sans)}
+.side a{display:block;padding:7px 18px 7px 16px;font:500 14.5px/1.25 var(--sans);color:var(--ink);border-left:4px solid transparent}
+.side a small{display:block;font:500 11px var(--sans);color:var(--soft);letter-spacing:.08em;text-transform:uppercase}
+.side a.on{border-color:var(--acc);background:var(--accl);font-weight:700}
+.side a.dn{color:var(--done)}
+.side h5{font:700 11px var(--sans);letter-spacing:.14em;color:var(--soft);text-transform:uppercase;padding:12px 18px 4px}
+.main{padding:16px 22px 24px}
+.top2{display:grid;grid-template-columns:404px 1fr;gap:16px;align-items:start}
+.map{position:relative;border-radius:2px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.2);background:#fff}
+.map img{display:block;width:100%}
+.pin{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:var(--acc);color:#fff;font:700 12px var(--sans);display:grid;place-items:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.pin.on{background:var(--ink);outline:3px solid var(--band2)}
+.pin.sd{background:var(--band2)}
+.cap{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:6px}
+.flow{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);border-radius:2px;height:220px;display:grid;place-items:center}
+.fc{position:relative;width:700px;height:200px}
+.fc svg{position:absolute;inset:0;overflow:visible}
+.nd{position:absolute;display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #d3d8df;border-radius:6px;padding:0 7px;font:600 12px/1.15 var(--sans);color:var(--ink);width:130px;height:48px;margin-top:-24px}
+.nd i{flex:none;width:20px;height:20px;border-radius:50%;background:var(--acc);color:#fff;font:700 11px var(--sans);font-style:normal;display:grid;place-items:center}
+.nd.dn{color:var(--done);border-color:#e1e5ea}.nd.dn i{background:#b4bac2}
+.nd.on{border:2px solid var(--acc);background:var(--accl)}
+.nd.end{justify-content:center;font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;text-align:center}
+.nd.end.dn{color:var(--done)}
+.nd.sd{background:var(--acc);border-color:var(--acc);color:#fff}
+.cd ol{list-style:none}
+.cd li{padding:3px 0;border-bottom:1px dashed #c9cdd3;font-size:14px}.cd li em{color:var(--soft);font-style:normal}.kk.cd{padding:12px 14px}
+.cd li.dn{color:#a9adb3}
+.cd li span{color:var(--acc)}
+h2.loc{font-size:30px;color:var(--acc);margin:22px 0 4px;display:flex;align-items:baseline;gap:12px}
+.txt{display:grid;grid-template-columns:1fr 340px;gap:22px;margin-top:6px}
+.txt p{margin-bottom:10px;font-size:17.5px;line-height:1.55}
+.npc{color:var(--acc);font-weight:600}
+.f{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.04em}
+.bsp{background:var(--box);padding:10px 14px;margin:4px 0 12px;font-size:16px;font-style:italic}
+.bsp b{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--acc);font-style:normal;display:block}
+.side2{display:flex;flex-direction:column;gap:12px}
+.tr{background:#fff;border-top:5px solid var(--acc);box-shadow:0 1px 3px rgba(0,0,0,.14);padding:10px 14px}
+.tr h4{font-size:15px;color:var(--acc);margin-bottom:4px}
+.tr p{font-size:15px;line-height:1.45}
+.cl{background:#fff;padding:9px 13px;box-shadow:0 1px 3px rgba(0,0,0,.14);font-size:15px;line-height:1.4;border-left:5px solid var(--band2)}
+.cl b{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.08em;display:block;color:var(--soft)}
+.cl.dn{color:var(--done);border-color:#dde1e6}
+.fig{margin-top:6px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.14);padding:8px;width:520px}
+.fig img{width:100%;display:block}
+.fig figcaption{font:500 12px var(--sans);color:var(--soft);margin-top:5px}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><div class="mt"><i></i><b>Aus Fleisch und Stahl</b></div><a>Wahrheit</a><a>Teens einführen</a><a>Mysterium einführen</a><a class="on">Ermittlung</a><a>Konfrontation</a><a>Nachspiel</a><a>NSC</a><span class="sp"></span><span class="pen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span></div>
+<div class="lay">
+ <div class="side"><span class="col">‹</span>
+  <h5>Ermittlung</h5>
+  <a class="dn">Überblick<small>Karte · Ablauf · Countdown</small></a>
+  <a class="on">Ort 1<small>Marks Haus</small></a>
+  <a>Ort 2<small>Die Torslunda-Sümpfe</small></a>
+  <a>Ort 3<small>Primal-Force-Therapiezentrum</small></a>
+  <h5>Immer zur Hand</h5>
+  <a>Countdown</a><a>Hinweise <small>1 von 7 gefunden</small></a>
+ </div>
+ <div class="main">
+  <div class="top2">
+   <div><div class="cap">Mystery-Karte</div><div class="map"><img src="img/flood/flesh-karte-maelar.webp">
+     <span class="pin on" style="left:69%;top:22%">1</span><span class="pin" style="left:44%;top:70%">2</span><span class="pin" style="left:31%;top:26%">3</span><span class="pin sd" style="left:84%;top:21%">K</span></div></div>
+   <div><div class="cap">Ablauf</div><div class="flow"><div class="fc">
+     <svg width="700" height="200" viewBox="0 0 700 200"><defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#b9bfc7"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#8f2c48"/></marker></defs>
+      <g fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+       <path d="M160 100V33Q160 28 165 28H378" stroke="#b9bfc7" marker-end="url(#a)"/>
+       <path d="M160 100V167Q160 172 165 172H378" stroke="#b9bfc7" marker-end="url(#a)"/>
+       <path d="M320 100H345Q350 100 350 95V33Q350 28 355 28H378" stroke="#b9bfc7"/>
+       <path d="M320 100H345Q350 100 350 105V167Q350 172 355 172H378" stroke="#b9bfc7"/>
+       <path d="M510 28H535Q540 28 540 33V95Q540 100 545 100H568" stroke="#b9bfc7" marker-end="url(#a)"/>
+       <path d="M510 172H535Q540 172 540 167V105Q540 100 545 100H568" stroke="#b9bfc7"/>
+       <path d="M130 100H188" stroke="#8f2c48" marker-end="url(#b)"/>
+      </g></svg>
+     <div class="nd end dn" style="left:0;top:100px">Mysterium einführen</div>
+     <div class="nd on" style="left:190px;top:100px"><i>1</i><span>Marks Haus</span></div>
+     <div class="nd" style="left:380px;top:28px"><i>3</i><span>Primal Force</span></div>
+     <div class="nd" style="left:380px;top:172px"><i>2</i><span>Torslunda-Sümpfe</span></div>
+     <div class="nd end sd" style="left:570px;top:100px">Konfrontation</div>
+   </div></div></div>
+   
+  </div>
+  <h2 class="loc h">Ort 1: Marks Haus <span class="pg">S. 140</span></h2>
+  <div class="txt">
+   <div>
+    <p>Mark lebte bei seiner Tante in einem einsamen Haus an einem kleinen See östlich von Sånga-Säby. Das zweistöckige Holzhaus ist von dichtem Wald umgeben. Windspiele hängen von den Ästen, und aus den offenen Fenstern dringen Grateful-Dead-Songs oder andere psychedelische Rockmusik.</p>
+    <p>Das Haus ist unordentlich. Musikinstrumente und gemaserte Steine liegen überall an den Wänden. Es riecht nach Schimmel, Räucherwerk und faulendem Essen. Überall stapeln sich Bücher über inneren Frieden, Heilung und Engel. <span class="npc">Tante Emi</span> öffnet nur zögernd die Tür.</p>
+    <div class="bsp"><b>Beispiel</b>Spielleiter: Noch immer keine Antwort, und vielleicht beschleicht euch das Gefühl, dass jemand die Musik noch lauter gedreht hat. – Spieler 3 (Esa): „Was zum …?“</div>
+    <p>Marks Zimmer im zweiten Stock ist sehr aufgeräumt. Er besaß eine teure Fotoausrüstung und hatte sich eine eigene Dunkelkammer gebaut. An den Wänden hängen Fotos der Vagabunden und ihrer Graffiti.</p>
+    <p class="pg" style="font-size:13px">(Platzhalter – im Tool steht der vollständige übersetzte Buchtext.)</p>
+   </div>
+   <div class="side2">
+    <div class="kk cd"><h4>Countdown</h4><ol>
+     <li class="dn"><span>1.</span> Die Albträume beginnen. <em>▾</em></li>
+     <li><span>2.</span> Ein Vagabund wird nachts gesehen. <em>▾</em></li>
+     <li><span>3.</span> Die Tiere werden unruhig. <em>▾</em></li>
+     <li><span>4.</span> …</li><li><span>5.</span> …</li></ol></div>
+    <div class="tr"><h4>Ärger</h4><p>Tante Emi ist nicht daran gewöhnt, Besuch zu haben. Haben die Teens Erfolg bei einer Probe auf <span class="f">charme</span>, lässt sie sie hinein …</p></div>
+    <div class="cl"><b>Hinweis</b>Untersuchen die Teens Marks Fotos mit <span class="f">begreifen</span>, sehen sie, dass die meisten in den Torslunda-Sümpfen aufgenommen wurden.</div>
+    <div class="cl"><b>Hinweis</b>Ein zerlesenes Exemplar von „Deine innere Urkraft“ von Doktor Liv Himmelshöjd liegt auf Marks Nachttisch.</div>
+   </div>
+  </div>
+  <figure class="fig"><img src="img/flood/flesh-marks-haus-plan.webp"><figcaption>Marks Haus · S. 141</figcaption></figure>
+ </div>
+</div>
+</body></html>

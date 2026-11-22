@@ -11,7 +11,7 @@ mv "$APP/electron.exe" "$APP/Erzaehler-Tafel.exe"
 rm -rf "$APP/resources/default_app.asar"
 mkdir -p "$APP/resources/app/www"
 cp "$REPO/desktop/package.json" "$REPO/desktop/main.js" "$APP/resources/app/"
-( cd "$REPO" && tar --exclude=.git --exclude=plan --exclude=tools --exclude=desktop --exclude=build --exclude=README.md -cf - . ) | tar -xf - -C "$APP/resources/app/www"
+( cd "$REPO" && tar --exclude=.git --exclude=plan --exclude=tools --exclude=desktop --exclude=build --exclude=quellen/bilder-zips --exclude=README.md -cf - . ) | tar -xf - -C "$APP/resources/app/www"
 cat > "$APP/LIES-MICH.txt" <<'T'
 Erzähler-Tafel – Windows-Fassung (läuft offline, kein GitHub nötig)
 

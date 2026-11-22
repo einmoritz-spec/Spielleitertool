@@ -202,7 +202,7 @@ function bgShipLoad(){ var st = ST.bogen && ST.bogen.schiff; return st || bgShip
 function viewSchiff(){
   BG.key = "schiff"; BG.st = bgShipLoad();
   setTimeout(bgAfterFonts, 0);
-  return '<div class="tabs"><a class="on">Schiffsbogen</a><span class="r bbar"><button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
+  return '<div class="tabs"><a class="on">Schiffsbogen</a><span class="r bbar">' + bgLinkBtn() + '<button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
     '<div class="bwrap"><div class="bsheet ship" id="bsh" style="zoom:' + bgZoom().toFixed(3) + '">' + bgSheet() + '</div></div>';
 }
 function bgZoom(){ return Math.max(.3, Math.min(1.2, (Math.max(innerWidth, 1280) - 60) / (BG.key === "schiff" ? 1400 : 1460))); }
@@ -211,7 +211,7 @@ function viewBogen(id){
   BG.key = s ? id : "leer"; BG.st = bgLoad(BG.key);
   var opts = '<option value="">Leerer Bogen</option>' + pcs.map(function(x){ return '<option value="' + x.id + '"' + (x.id === BG.key ? ' selected' : '') + '>' + esc(x.t) + '</option>'; }).join("");
   setTimeout(bgAfterFonts, 0);
-  return '<div class="tabs"><a class="on">Charakterbogen</a><span class="r bbar"><select onchange="go(this.value ? \'bogen/\' + this.value : \'bogen\')">' + opts + '</select><button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
+  return '<div class="tabs"><a class="on">Charakterbogen</a><span class="r bbar"><select onchange="go(this.value ? \'bogen/\' + this.value : \'bogen\')">' + opts + '</select>' + bgLinkBtn() + '<button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
     '<div class="bwrap"><div class="bsheet" id="bsh" style="zoom:' + bgZoom().toFixed(3) + '">' + bgSheet() + '</div></div>';
 }
 function bgFit(){
@@ -274,3 +274,12 @@ function bgUnmirror(){
 window.bgMirror = bgMirror; window.bgUnmirror = bgUnmirror;
 window.addEventListener("beforeprint", function(){ var sh = document.getElementById("bsh"); if(sh){ sh.style.zoom = 1; bgUnmirror(); bgMirror(); } });
 window.addEventListener("afterprint", function(){ bgUnmirror(); var sh = document.getElementById("bsh"); if(sh) sh.style.zoom = bgZoom().toFixed(3); });
+
+/* Link für Mitspieler: eigenständige Seite nur mit den Bögen (wildsea/bogen.html) */
+function bgLinkBtn(){ return window.SOLO ? "" : '<button class="chip" id="bgLink" onclick="bgCopyLink()">Link für Mitspieler</button>'; }
+function bgCopyLink(){
+  var u = new URL("bogen.html", location.href).href + (BG.key === "schiff" ? "#schiff" : ""), b = document.getElementById("bgLink");
+  var ok = function(){ if(b){ var t = b.textContent; b.textContent = "Kopiert"; setTimeout(function(){ b.textContent = t; }, 1600); } };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function(){ prompt("Link:", u); });
+  else { try{ var ta = document.createElement("textarea"); ta.value = u; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); ok(); }catch(e){ prompt("Link:", u); } }
+}

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v655sp";
+const VERSION = "v656sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -247,6 +247,8 @@ const FILES = [
   "wildsea/js/reich.js",
   "wildsea/js/seeext.js",
   "wildsea/js/bogen.js",
+  "wildsea/bogen.html",
+  "wildsea/js/solo.js",
   "wildsea/js/garten.js",
   "wildsea/css/bogen.css",
   "wildsea/css/start.css",
@@ -448,6 +450,8 @@ const FILES = [
   "pico/index.html",
   "pico/sys.js",
   "pico/js/bogen.js",
+  "pico/bogen.html",
+  "pico/js/solo.js",
   "pico/js/data/nach-anhang.js",
   "pico/js/data/nach-kaefer-a.js",
   "pico/js/data/nach-kaefer-b.js",

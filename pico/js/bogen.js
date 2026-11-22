@@ -40,7 +40,7 @@ function bTop(v, label){
 }
 function bogenPage(v, inner, size, label){
   var lv = v.split(":")[0];
-  return '<div class="bartabs noprint"><a class="' + (lv === "picnic" ? 'on' : '') + '" onclick="go(\'bogen/picnic\')">Charakterbogen (Pic-nic)</a><a class="' + (lv === "odyssey" ? 'on' : '') + '" onclick="go(\'bogen/odyssey\')">Charakterbogen (Pic-odyssey)</a><a class="' + (lv === "streifzug" ? 'on' : '') + '" onclick="go(\'streifzug\')">Streifzugbogen</a><span class="sp"></span><button class="chip ink" onclick="bPrint()">Drucken / als PDF</button><button class="chip o" style="--c:var(--ink)" onclick="bAll(\'' + v + '\')">Leeren</button></div>' +
+  return '<div class="bartabs noprint"><a class="' + (lv === "picnic" ? 'on' : '') + '" onclick="go(\'bogen/picnic\')">Charakterbogen (Pic-nic)</a><a class="' + (lv === "odyssey" ? 'on' : '') + '" onclick="go(\'bogen/odyssey\')">Charakterbogen (Pic-odyssey)</a><a class="' + (lv === "streifzug" ? 'on' : '') + '" onclick="go(\'streifzug\')">Streifzugbogen</a><span class="sp"></span>' + bLinkBtn() + '<button class="chip ink" onclick="bPrint()">Drucken / als PDF</button><button class="chip o" style="--c:var(--ink)" onclick="bAll(\'' + v + '\')">Leeren</button></div>' +
     '<style>@page{size:' + size + ';margin:0}</style><div class="sheetwrap"><div class="sheet ' + lv + '">' + inner + '</div></div>';
 }
 function viewBogen(sel, slot){
@@ -73,4 +73,14 @@ function viewStreif(){
    '<div class="sg3"><div class="bx"><h2>Gigafertigkeiten</h2><small>Höchster Rang: 3</small><div class="gcs">' + gs + '</div></div><div class="bx"><h2>Aura</h2>' + bf(v, "aura", "", "box", 1) + '</div><div class="bx"><h2>Besondere Vorteile</h2>' + bf(v, "vorteil", "", "box", 1) + '</div></div>' +
    '<div class="bx den"><h2>Titanenbau</h2><div class="tbs" style="grid-template-columns:repeat(' + (lang ? 3 : 2) + ',1fr)">' + tb + '</div></div>';
   return bogenPage(v, inner, "9.5in 7.5in").replace('<style>@page', '<div class="noprint tselbar">' + bTitanSel() + '</div><style>@page');
+}
+
+/* Link für Mitspieler: eigenständige Seite nur mit den Bögen (pico/bogen.html) */
+function bLinkBtn(){ return window.SOLO ? "" : '<button class="chip ink o" id="bLink" onclick="bCopyLink()">Link für Mitspieler</button>'; }
+function bCopyLink(){
+  var h = (location.hash || "").replace(/^#/, "").split("/"), keep = h[0] === "bogen" ? h.slice(0, 2) : h[0] === "streifzug" ? ["streifzug"] : [];
+  var u = new URL("bogen.html", location.href).href + (keep.length ? "#" + keep.join("/") : ""), b = document.getElementById("bLink");
+  var ok = function(){ if(b){ var t = b.textContent; b.textContent = "Kopiert"; setTimeout(function(){ b.textContent = t; }, 1600); } };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function(){ prompt("Link:", u); });
+  else { try{ var ta = document.createElement("textarea"); ta.value = u; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); ok(); }catch(e){ prompt("Link:", u); } }
 }

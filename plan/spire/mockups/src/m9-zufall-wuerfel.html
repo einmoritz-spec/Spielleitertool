@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="spire.css">
+<style>
+.lay{display:grid;grid-template-columns:1fr 380px;gap:22px;align-items:start}
+.w10t{background:var(--papier2);border:1px solid #9eb0c8}
+.w10t h4{font:700 18px/1.05 var(--f-titel);text-transform:uppercase;color:#fff;background:var(--blau);margin:0;padding:8px 10px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.w10t h4 .wb{background:#fff;color:var(--blau);font:700 15px var(--f-titel);padding:2px 8px;cursor:pointer;white-space:nowrap}
+.w10t ol{margin:0;padding:4px 0;list-style:none}
+.w10t li{display:grid;grid-template-columns:28px 1fr;font-size:14px;padding:2px 10px 2px 0;line-height:1.3}
+.w10t li:nth-child(odd){background:#dfe6f0}
+.w10t li b{font:700 14px var(--f-titel);color:var(--wein);text-align:right;padding-right:8px}
+.w10t li.hit{background:var(--gold);color:#000}
+.w10t li.hit b{color:#000}
+.wf{background:var(--nacht);color:#dbe3ef;padding:14px 16px;position:sticky;top:120px}
+.wf h3{font:700 24px var(--f-titel);text-transform:uppercase;color:#fff;margin:0 0 10px}
+.wf .zeile{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid #22384e;font-size:15px}
+.wf .tg{display:flex;gap:4px}
+.wf .tg span{font:700 14px var(--f-titel);text-transform:uppercase;padding:4px 9px;border:1px solid #3b5672;color:#9fb2c8;cursor:pointer}
+.wf .tg span.on{background:#dbe3ef;color:var(--nacht);border-color:#dbe3ef}
+.pool{display:flex;gap:8px;margin:14px 0 8px;justify-content:center}
+.pool i{width:52px;height:52px;display:grid;place-items:center;background:#fff;color:#000;font:700 26px var(--f-titel);font-style:normal;clip-path:polygon(50% 0,100% 38%,82% 100%,18% 100%,0 38%)}
+.pool i.top{background:var(--gold)}
+.res{text-align:center;font:700 26px var(--f-titel);text-transform:uppercase;color:var(--gold);margin:4px 0 2px}
+.res small{display:block;font:400 14px var(--f-text);text-transform:none;color:#c5d0de}
+.st{display:flex;gap:6px;margin-top:12px}
+.st button{flex:1;font:700 17px var(--f-titel);background:#172a3d;color:#fff;border:1px solid #3b5672;padding:8px 0;cursor:pointer}
+.tab5{width:100%;border-collapse:collapse;margin-top:12px;font-size:13.5px}
+.tab5 td{padding:3px 6px;border-top:1px solid #22384e}
+.tab5 td:first-child{font:700 14px var(--f-titel);color:#9fb2c8;width:46px}
+.tab5 tr.on td{background:#2b4258;color:#fff}
+</style></head><body><script src="top.js"></script>
+<div class="tabs"><a>Stadt</a><a>Zelle</a><a>Gegner</a><a class="on">Zufall</a><div class="sp"></div></div>
+<div class="wrap">
+ <div class="side"><span class="zu">‹</span>
+  <h5>Zufällige Dinge und Ereignisse</h5>
+  <a class="on">Gelehrte und Kunst</a><a>Kneipen und Nächte</a><a>Straße und Händler</a><a>Okkultes und Pflanzen</a><a>Aelfir</a>
+  <h5>Weitere Tabellen</h5>
+  <a class="sub">Ziegen von Spire · S. 207</a><a class="sub">Arkologien · S. 208</a><a class="sub">Namen (Drow-Glossar) · S. 205</a>
+ </div>
+ <div class="main"><div class="lay">
+  <div>
+   <h1 class="titel" style="font-size:40px">Zufällige Dinge und Ereignisse in Spire<span class="pg" style="font-size:14px">S. 200</span></h1>
+   <div class="raster r2">
+    <div class="w10t"><h4>Was liest diese Gelehrte?<span class="wb">W10 · 7</span></h4><ol>
+     <li><b>1</b>Göttliche Sprachkunde, eine Fibel</li><li><b>2</b>Erblinien der herrschenden Familien von Ys</li><li><b>3</b>Lords und Ladies von Amaranth</li><li><b>4</b>Whitecross und Umgebung</li><li><b>5</b>Die Middenmaske und anderes Volksgut</li><li><b>6</b>Eine präzise und innere Berechnung der niederen Rassen</li><li class="hit"><b>7</b>Die mannigfaltigen Künste der Nadel, eine Abhandlung über das Schließen von Wunden</li><li><b>8</b>Der Gnoll: eine Studie genetischer Schurkerei</li><li><b>9</b>Die Legende des heiligen Beneferas (ungeschwärzte Ausgabe)</li><li><b>10</b>Ziegen von Spire: eine Taxonomie und ein Kochbuch</li></ol></div>
+    <div class="w10t"><h4>Welche Kunst hängt in der Villa des Aelfir?<span class="wb">W10</span></h4><ol>
+     <li><b>1</b>Nass wirkendes Aquarell einer gefrorenen Landschaft</li><li><b>2</b>11 fast identische Bilder desselben Aelfir, aber mit verschiedenen Masken</li><li><b>3</b>Eine anatomische Zeichnung von unglaublicher Genauigkeit, aber nicht von einem Wesen, das du kennst</li><li><b>4</b>Darstellung von Spire vor dem Krieg</li><li><b>5</b>Die Sonne in dicken Ölfarben</li><li><b>6</b>Ein Selbstporträt, gemalt auf einen Drow</li><li><b>7</b>Eisskulptur einer zarten sechsfingrigen Hand</li><li><b>8</b>Eine Ziege, ihre Organe ausgebreitet und in Glasvitrinen aufbewahrt, irgendwie noch am Leben</li><li><b>9</b>…</li><li><b>10</b>…</li></ol></div>
+   </div>
+  </div>
+  <div class="wf"><h3>Würfel</h3>
+   <div class="zeile">Fertigkeit<span class="tg"><span class="on">Ja</span><span>Nein</span></span></div>
+   <div class="zeile">Domäne<span class="tg"><span class="on">Ja</span><span>Nein</span></span></div>
+   <div class="zeile">Meisterschaft<span class="tg"><span>Ja</span><span class="on">Nein</span></span></div>
+   <div class="zeile">Schwierigkeit<span class="tg"><span>0</span><span class="on">1</span><span>2</span></span></div>
+   <div class="zeile">Nur Schaden abwehren <span class="tg"><span>Ja</span><span class="on">Nein</span></span></div>
+   <div class="pool"><i class="top">7</i><i>3</i></div>
+   <div class="res">Erfolg mit Preis<small>3 Würfel − Schwierigkeit 1 = 2 · höchster zählt</small></div>
+   <table class="tab5"><tr><td>1</td><td>Kritischer Fehlschlag (doppelter Stress)</td></tr><tr><td>2–5</td><td>Fehlschlag (Stress nehmen)</td></tr><tr class="on"><td>6–7</td><td>Erfolg mit Preis (Stress nehmen)</td></tr><tr><td>8–9</td><td>Erfolg (kein Stress)</td></tr><tr><td>10</td><td>Kritischer Erfolg (+1 Stress je 10)</td></tr></table>
+   <div class="st"><button>W3</button><button>W6</button><button>W8</button><button>W10</button></div>
+  </div>
+ </div></div>
+</div>
+<div class="note" style="left:300px;top:640px"><b>1</b>Alle W10-Tabellen aus Anhang 2 (und weitere Listen) als Karten im 2er-Raster; Würfelknopf im Kopf, Treffer gold</div>
+<div class="note" style="left:1050px;top:770px"><b>2</b>Würfel (auch Taste „w“, im Burger-Menü): Pool nach S. 9 inkl. Abstufung unter 0 Würfeln; Stresswürfel W3/W6/W8</div>
+</body></html>

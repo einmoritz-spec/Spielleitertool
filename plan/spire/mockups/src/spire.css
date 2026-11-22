@@ -1,0 +1,107 @@
+/* The Spire – Design-System (aus dem Core-PDF „The City Must Fall“ gemessen).
+   Darf als Ausgangspunkt für spire/style.css übernommen werden. */
+@font-face{font-family:"SpOswald";src:url(../../../../assets/fonts/oswald-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"SpSerif";src:url(../../../../assets/fonts/source-serif-4-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"SpGeared";src:url(fonts/spire-geared-700.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"SpPlantin";src:url(fonts/spire-plantin-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"SpPlantin";src:url(fonts/spire-plantin-400i.woff2) format("woff2");font-weight:400;font-style:italic}
+@font-face{font-family:"SpPlantin";src:url(fonts/spire-plantin-700.woff2) format("woff2");font-weight:700}
+:root{
+  --papier:#dbe3ef;      /* Seitengrund im Buch */
+  --papier2:#e8edf5;     /* hellere Kästen/Karten */
+  --wirbel:#c6d4e6;      /* Fingerabdruck-Wirbel */
+  --blau:#194d71;        /* Kapitel-/Bereichstitel */
+  --wein:#981a3f;        /* Abschnittstitel + Linie */
+  --nacht:#0d1a27;       /* Kopfzeile, Riss-Band */
+  --tinte:#12120c;       /* Fließtext */
+  --grau:#5d6878;
+  --schiefer:#3c3b57;    /* Titel im Magister's Guide / Quickstart */
+  --violett:#3c0052;     /* Kästen Magister's Guide */
+  --gold:#d9a521;        /* Hervorhebung (gewählt, Treffer) */
+  --gift:#7fbf8a;        /* Neon-Grün aus den Illustrationen (sparsam) */
+  --f-titel:"SpGeared","SpOswald",Impact,sans-serif;   /* Oswald nur als Ersatz für fehlende Zeichen (&) */
+  --f-text:"SpPlantin","SpSerif",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--papier);color:var(--tinte);font:16px/1.45 var(--f-text)}
+body{min-height:100vh}
+/* ---------- Kopfzeile ---------- */
+.top{position:sticky;top:0;z-index:20;height:56px;background:var(--nacht);display:flex;align-items:center;gap:6px;padding:0 14px;box-shadow:0 2px 0 #000}
+.top .logo{height:40px;width:auto;display:block}
+.top .sp{flex:1}
+.top .ib{width:40px;height:40px;border:0;background:none;color:#dbe3ef;display:grid;place-items:center;border-radius:6px;cursor:pointer}
+.top .ib:hover{background:#1d3146}
+.top .ib svg{width:23px;height:23px}
+.top .ib.i{font:700 21px var(--f-text);font-style:italic}
+/* ---------- Tab-Leiste (volle Breite) ---------- */
+.tabs{position:sticky;top:56px;z-index:15;display:flex;gap:2px;padding:0 18px;background:var(--papier);border-bottom:2px solid var(--wein)}
+.tabs a{font:700 19px var(--f-titel);text-transform:uppercase;letter-spacing:.02em;color:var(--blau);padding:12px 16px 8px;text-decoration:none;border-bottom:4px solid transparent;margin-bottom:-2px}
+.tabs a.on{color:var(--wein);border-color:var(--wein)}
+.tabs .sp{flex:1}
+.tabs .stift{align-self:center;color:var(--grau);width:30px;height:30px;display:grid;place-items:center;cursor:pointer}
+.tabs .stift svg{width:19px;height:19px}
+/* ---------- Seitenaufbau ---------- */
+.wrap{display:grid;grid-template-columns:250px 1fr;min-height:calc(100vh - 104px)}
+.side{position:sticky;top:104px;align-self:start;height:calc(100vh - 104px);overflow:auto;padding:16px 10px 16px 18px;border-right:1px solid #bfcadb}
+.side .zu{float:right;color:var(--grau);font:700 16px var(--f-titel);cursor:pointer}
+.side h5{font:700 15px var(--f-titel);text-transform:uppercase;color:var(--wein);margin:14px 0 4px;letter-spacing:.03em}
+.side a{display:block;color:var(--tinte);text-decoration:none;padding:3px 8px;border-left:3px solid transparent;font-size:15px}
+.side a.on{border-color:var(--wein);background:var(--papier2);font-weight:700}
+.side a.sub{padding-left:20px;font-size:14px;color:#2e3a4a}
+.main{position:relative;padding:22px 34px 60px;overflow:hidden}
+.main.voll{grid-column:1/-1}
+.wirbel{position:absolute;right:-120px;top:40px;width:520px;opacity:.9;pointer-events:none;z-index:0}
+.main>*:not(.wirbel){position:relative;z-index:1}
+/* ---------- Typografie wie im Buch ---------- */
+h1.titel{font:700 58px/0.95 var(--f-titel);color:var(--blau);text-transform:uppercase;margin:4px 0 14px;letter-spacing:.01em}
+h2.ab{font:700 25px/1.1 var(--f-titel);color:var(--wein);text-transform:uppercase;margin:22px 0 8px;padding-bottom:3px;position:relative}
+h2.ab::after{content:"";position:absolute;left:-60px;right:0;bottom:0;border-bottom:1.6px solid var(--wein)}
+h3.un{font:700 21px var(--f-titel);color:var(--blau);text-transform:uppercase;margin:16px 0 6px}
+.pg{font:400 13px var(--f-text);color:var(--grau);margin-left:8px;text-transform:none;letter-spacing:0;cursor:pointer;font-style:normal}
+.pg:hover{color:var(--wein);text-decoration:underline}
+.intro{font-style:italic;font-size:17px;max-width:900px}
+p{margin:0 0 .7em}
+.txt{column-gap:34px}
+b.k{font-variant:small-caps;letter-spacing:.03em}
+ul.pkt{margin:4px 0 10px 0;padding-left:20px}
+ul.pkt li{margin:2px 0}
+/* ---------- Kästen ---------- */
+.schwarz{position:relative;color:#fff;padding:22px 24px 20px;margin:10px 0}
+.schwarz::before{content:"";position:absolute;inset:0;background:#000;-webkit-mask:url(img/kasten-schwarz.png) center/100% 100% no-repeat;mask:url(img/kasten-schwarz.png) center/100% 100% no-repeat;z-index:-1}
+.schwarz h4{font:700 23px var(--f-titel);text-transform:uppercase;margin:0 0 6px;color:#fff}
+.schwarz b{color:#fff}
+.violett{background:var(--violett);color:#fff;padding:16px 20px;border:2px solid #24002f;box-shadow:inset 0 0 0 3px #57306a;margin:10px 0}
+.violett h4{font:700 22px var(--f-titel);text-transform:uppercase;margin:0 0 6px}
+.hell{background:var(--papier2);border-left:4px solid var(--blau);padding:12px 16px;margin:10px 0}
+/* Karte (Fähigkeit, Ort, Eintrag) */
+.karte{background:var(--papier2);border:1px solid #b9c6d8;padding:12px 14px;break-inside:avoid}
+.karte h4{font:700 19px var(--f-titel);text-transform:uppercase;color:var(--blau);margin:0 0 4px}
+.karte .tag{font:700 12px var(--f-titel);letter-spacing:.06em;color:#fff;background:var(--wein);padding:2px 6px;margin-left:6px;vertical-align:2px}
+.karte .tag.g{background:var(--blau)}
+.raster{display:grid;gap:14px}
+.r2{grid-template-columns:1fr 1fr}.r3{grid-template-columns:repeat(3,1fr)}.r4{grid-template-columns:repeat(4,1fr)}.r5{grid-template-columns:repeat(5,1fr)}
+/* Gegner-Karte (Werteblock wie im Buch: Namen / Beschreibung / Schwierigkeit / Widerstand / Ausrüstung) */
+.gegner{background:var(--papier2);border:1px solid #9eb0c8;break-inside:avoid}
+.gegner .kopf{background:#000;color:#fff;display:flex;align-items:center;gap:10px;padding:7px 12px}
+.gegner .kopf h4{font:700 20px var(--f-titel);text-transform:uppercase;margin:0;flex:1}
+.gegner .kopf img{width:44px;height:58px;object-fit:contain;background:#111}
+.gegner .kopf .pg{color:#9aa}
+.gegner dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:0;padding:10px 12px}
+.gegner dt{font:700 14px var(--f-titel);text-transform:uppercase;color:var(--wein);padding-top:2px}
+.gegner dd{margin:0;font-size:15px}
+.zw{display:inline-flex;gap:3px;vertical-align:middle}
+.zw i{width:17px;height:17px;border:1.6px solid var(--tinte);background:#fff;display:inline-block;cursor:pointer}
+.zw i.x{background:var(--wein);border-color:var(--wein)}
+.chip{display:inline-block;font:700 13px var(--f-titel);letter-spacing:.05em;text-transform:uppercase;border:1.4px solid var(--blau);color:var(--blau);padding:2px 8px;margin:2px 3px 2px 0;background:#fff}
+.chip.w{border-color:var(--wein);color:var(--wein)}
+.chip.s{background:var(--nacht);color:#fff;border-color:var(--nacht)}
+/* Vorlesetext / Zitat */
+.zitat{font-style:italic;font-size:17px;border-left:3px solid var(--wein);padding:4px 0 4px 16px;margin:10px 0;color:#222}
+/* Bilder */
+.bild{display:block;max-width:100%;height:auto;box-shadow:0 2px 0 #0003}
+.knopf{font:700 16px var(--f-titel);text-transform:uppercase;letter-spacing:.04em;background:var(--wein);color:#fff;border:0;padding:8px 14px;cursor:pointer}
+.knopf.b{background:var(--blau)}
+.knopf.n{background:var(--nacht)}
+/* Erklärkästen nur im Entwurf */
+.note{position:absolute;z-index:99;background:#2f6fe4;color:#fff;font:600 13px/1.3 system-ui,sans-serif;padding:6px 9px;border-radius:6px;max-width:260px;box-shadow:0 3px 10px #0005}
+.note b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#e4352f;color:#fff;margin-right:5px;font-size:12px}

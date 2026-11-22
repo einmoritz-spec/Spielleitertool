@@ -1,0 +1,44 @@
+buch	datei	seite	name_en	schwierigkeit_roh	widerstand_roh
+cmf	k04-ausruestung.md	21	TAGS		
+cmf	k10a-akademie.md	87	STUDENTS	All the gear, no idea. Difficulty 0	3, but they move in large-ish groups
+cmf	k10b-handel.md	89	KNIGHTS	0 on the street, 1 if you take them on after a few drinks in their pub	5
+cmf	k10b-handel.md	92	HEAP DENIZENs	0	3
+cmf	k10b-handel.md	99	MERCENARIES	0 on patrol, 1 if they’re riled up and out for blood	6
+cmf	k10c-verbrechen.md	102	MOTHER MOON’S HAREM MEMBER	2 if they’ve got the crowd on their side, otherwise 0	7, and each time they take down an
+cmf	k10c-verbrechen.md	102	FOLLOWERS OF THE GUN	Most of these cultists are in need of a good night’s sleep and a hot meal. 0	4, 6 if you threaten Brother Hellion
+cmf	k10c-verbrechen.md	103	VORLOREN STANDARD GUARD	0, 1 if you take them on in their HQ	5
+cmf	k10c-verbrechen.md	103	L’ENFER NOIR STAFF MEMBER	0	6
+cmf	k10c-verbrechen.md	106	GUTTERKIN	0	3
+cmf	k10d-hohe-gesellschaft.md	109	BLACK GUARD	The Black Guard are elite warriors; tackling them head-on is a difficulty 2 acti	6
+cmf	k10e-niedere-gesellschaft.md	118	GHOUL	0	5
+cmf	k10e-niedere-gesellschaft.md	118	CULTIST OF THE HUNGRY DEEP	0 – The Hungry Deep doesn’t attract the best fighters, and membership doesn’t en	4, or 7 if they’re in so deep they’ve for-
+cmf	k10e-niedere-gesellschaft.md	121	BOUND VIGILANTE	1 on their home turf, and you’d be hard-pressed to find them anywhere else	5
+cmf	k10f-okkult.md	134	BLOOD-WITCH	0, but 1 if you upset her	6, 12 in her lair
+cmf	k10f-okkult.md	134	GHOSTS	0, for the most part	4, but you can’t hurt them with nor-
+cmf	k10f-okkult.md	139	EXECUTIONER	Executioners are hard-eyed men and women who, if they don’t take pleas- ure in t	8. Executioners will commonly sur-
+cmf	k10f-okkult.md	140	SPIRIT HOST	1, but you can’t fight it with mortal, unenchanted weapons. Weapons or items of 	15 and, unless laid to rest, it will re-
+cmf	k10f-okkult.md	140	MORTICIAN GUARDS	0 at the main gates; 1 as you approach the inner sanctums	6
+cmf	k10f-okkult.md	144	MIDWIFE	If you fight a midwife in her lair (and why would you?), her home advantage give	6, or 10 if she’s in her lair
+cmf	k10g-ordnung.md	147	CITY GUARD	0	5
+cmf	k10h-religion.md	163	VIGILITES	The Crimson Vigil doesn’t attract the most skilled warriors – difficulty 0, unle	3 if you catch them unawares, 5 if
+cmf	k10h-religion.md	163	VIGILITE FIREBRAND	For all their bluster, firebrands aren’t any more skilled than those that fol- l	6
+cmf	k10h-religion.md	167	PALADIN	best equipped. Difficulty 2 across the board, unless you can even the odds someh	7
+cmf	k10h-religion.md	170	CHARNEL-SWORN HYENA PACK	Hyenas aren’t especially skilled fight- ers: difficulty 0, but any attempt to es	3 per hyena, who’ll usually run off
+gm	g03-klassen-zusatz.md	19	BLUE MARKET THIEVES	0, or 1 if you’re trapped in their territory	
+gm	g03-klassen-zusatz.md	21	CITY GUARD BOUND SQUAD	0 at range, 1 when they’re close enough to use their nets	
+gm	g03-klassen-zusatz.md	23	HOUSE GRYNDEL WITCH-HUNTERS	1 if they’re on an official Hunt, 0 at all other times	
+gm	g03-klassen-zusatz.md	25	MORTICIAN DEATH-RUNNERS	**Difficulty** 0	
+gm	g03-klassen-zusatz.md	27	GARGOYLE	0, 1 if they’re trying to get away with information	
+gm	g03-klassen-zusatz.md	29	ETHICS BOARD ENFORCER SQUAD	1, or 2 if you use any Medium- level Gutter Cleric advances against them	
+gm	g03-klassen-zusatz.md	31	BATTLE CRITIC	0, unless you’re an Idol, in which case 1	
+gm	g03-klassen-zusatz.md	33	ATTRACTIVE FOIL	1. If you kiss each other, reduce the difficulty to 0 until the end of the situa	
+gm	g03-klassen-zusatz.md	37	PRIEST-CATCHERS	0 during the day, 1 at night	
+gm	g03-klassen-zusatz.md	39	YOUR LORD’S AWFUL NEPHEWS	0	
+gm	g03-klassen-zusatz.md	41	THE BLACK SHEEP	0, but 1 to the Midwife that raised them – there’s history there	
+gm	g03-klassen-zusatz.md	43	CHARNELITE BLOOD-HUNTER	1, but 2 if they manage to taste your blood	
+gm	g03-klassen-zusatz.md	45	MINISTRY GODHANDS	1 if you find them, 2 if they find you	
+gm	g03-klassen-zusatz.md	47	YOURSELVES, BUT FROM AN ALTERNATE DIMENSION	1; this isn’t the first dimension they’ve travelled to	
+qs	q02-snuff-out-the-sun.md	22	THE-SUNRISE	0 if she’s unaware, 1 if she knows you’re coming for her	
+qs	q02-snuff-out-the-sun.md	22	ANTAGONIST: AUTUMN PALADINS	Difficulty 2, unless you can even the odds somehow	
+qs	q02-snuff-out-the-sun.md	22	ANTAGONISTS: CITY GUARD	**Difficulty** 0	
+qs	q02-snuff-out-the-sun.md	23	ANTAGONISTS: BLACK GUARD	**Difficulty** The Black Guard are elite warriors;tackling them head-on is a dif	

@@ -62,6 +62,7 @@ window.SP_GALERIE = [
   {t:"The Masked God, S. 198", s:"gott/the-masked-god"}]},
  {g:"Snuff Out the Sun", id:"snuff", x:[
   {t:"Titelbild, QS S. 18", s:"abenteuer/snuff-titel"},
+  {t:"Seitenillustration, QS S. 20", s:"abenteuer/snuff-rednerpult"},
   {t:"Philydia, QS S. 21", s:"figur/philydia"}]},
  {g:"Magister's Guide", id:"mg", x:[
   {t:"Unterschlupf, MG S. 16", s:"kapitel/mg-unterschlupf-S016"},

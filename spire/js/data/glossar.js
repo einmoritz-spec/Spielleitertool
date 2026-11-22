@@ -64,5 +64,21 @@ window.SP_GLOSSAR = [
   ["Crimson-Clouds-The-Sunrise", "Karmesinwolken-der-Sonnenaufgang"],
   ["Dreams-Spill-Outward", "Träume-fließen-hinaus"],
   ["Wisdom-Grace-The-Unwise", "Weisheit-begnadet-die-Unweisen"],
-  ["Strides-Across-Dawn", "Schreitet-über-die-Morgenröte"]]]
+  ["Strides-Across-Dawn", "Schreitet-über-die-Morgenröte"],
+  ["Ten-Thousand-Loves", "Zehntausend-Lieben"],
+  ["Solemn-Rise-The-Fallen", "Feierlich-erhebt-die-Gefallenen"]]],
+ ["Snuff Out the Sun (Quickstart)", [
+  ["Sub-Abbess / Archbishop / Bishop / Sister", "Subäbtissin / Erzbischof / Bischof / Schwester"],
+  ["Autumn Paladins / Autumn Church", "Herbstpaladine / Herbstkirche"],
+  ["Black Guard / City Guard", "Schwarze Garde / Stadtwache"],
+  ["Jubilation House / Catacombs / Basilica Offices", "Jubelhaus / Katakomben / Basilika-Büros"],
+  ["Caliastro Boulevard", "Caliastro-Boulevard"],
+  ["The Ascension (Ceremony)", "Der Aufstieg (Aufstiegszeremonie)"],
+  ["leverage", "Druckmittel"],
+  ["props / antagonists", "Requisiten / Antagonisten"],
+  ["Purging Blade", "Läuterungsklinge"],
+  ["Debilitating", "Schwächend"],
+  ["everfrost", "Ewigfrost"],
+  ["Shrine of Conquest", "Schrein der Eroberung"],
+  ["Conspiracy Kit / Conspiracy Web", "Conspiracy Kit (Buchtitel bleibt) / Verschwörungsnetz"]]]
 ];

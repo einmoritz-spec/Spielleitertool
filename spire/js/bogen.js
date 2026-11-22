@@ -21,7 +21,10 @@ function bgVorlage(fid){
   f.bg.faehig = v.fae.map(function(a){ return a.t + (a.tag ? " [" + a.tag + "]" : "") + ": " + String(a.f || "").replace(/\*/g, "") + " " + String(a.x || "").replace(/\*/g, ""); }).join("\n\n");
   f.bg.ausr = v.ausr.join("\n"); save(); render();
 }
-function bgDruck(){ window.print(); }
+function bgPdf(fid, knopf){
+  var f = zFig(fid); if(!f || !window.FillPDF) return;
+  FillPDF.make(document.querySelector(".sheet"), {name:"Spire – " + (f.n || "Charakterbogen"), knopf:knopf, bg:"#dbe3ef", marks:[[".bgz i", "an me"], [".bgfr i", "x"], [".bgbk i", "x"]]});
+}
 /* ---- Teilen: Figur als Link ---- */
 function bgKodieren(f){
   var o = {n:f.n, klasse:f.klasse, dienst:f.dienst, auff:f.auff, frei:f.frei, fert:f.fert, dom:f.dom, mei:f.mei || [], kniffe:f.kniffe || [], bind:(f.bind || []).map(function(b){ return {n:b.n, ebene:b.ebene}; }), bg:f.bg || {}, stress:f.stress || {}, freiX:f.freiX || {}, fallout:f.fallout || [], vf:f.vf || null};
@@ -80,24 +83,24 @@ function bgBogen(f){
   }).join("") + '<div class="bgplus noprint" onclick="zBNeu(' + q + ')">+ Bindung</div>';
   h += bgBox(f, "bind", "Bindungen", 159.6, T + 105.1, 43, 81.5, '<div class="bgin">' + bind + '</div>');
   var fo = (f.fallout || []).map(function(o, i){ var e = (window.SP_FALLOUT && SP_FALLOUT.finde(o.id)) || {t:o.id}; return '<div class="bgfo" onclick="zChip(' + q + ',' + i + ')">' + esc(e.t) + ' <small>(' + zWidT(o.w) + ')</small></div>'; }).join("");
-  h += bgBox(f, "fallout", "Fallout", 159.6, T + 191.9, 43, 81.6, '<div class="bgin">' + fo + '</div>' + bgTa(f, "fallout"));
+  h += bgBox(f, "fallout", "Fallout", 159.6, T + 191.9, 43, 81.6, '<div class="bgin" data-pdftx>' + fo + '</div>' + bgTa(f, "fallout"));
   /* Unterer Block: Freiplätze · Widerstände · Aktueller Stress */
   h += '<div class="bgpap"></div>';
   h += '<h2 class="bgh" style="left:15mm;top:' + (T + 213.4) + 'mm">Freiplätze</h2><h2 class="bgh" style="left:63.4mm;top:' + (T + 213.4) + 'mm">Widerstände</h2><h2 class="bgh" style="left:111.5mm;top:' + (T + 213.4) + 'mm">Aktueller Stress</h2>';
   [["blut", "Blut"], ["verstand", "Verstand"], ["silber", "Silber"], ["schatten", "Schatten"], ["ruf", "Ruf"], ["ruest", "Rüstung"]].forEach(function(w, i){
     var y = T + 221.3 + i * 6.85, fr = f.frei[w[0]] || 0, x = (f.freiX && f.freiX[w[0]]) || 0, k = "";
     for(var j = 0; j < 5; j++) k += '<i class="' + (j < fr ? (j < x ? 'a x' : 'a') : '') + '" onclick="bgFreiKlick(' + q + ',\'' + w[0] + '\',' + j + ')" oncontextmenu="bgFreiWeg(event,' + q + ',\'' + w[0] + '\',' + j + ')"></i>';
-    var st = w[0] === "ruest" ? '' : '<span class="bgst"><s class="noprint" onclick="bgStress(' + q + ',\'' + w[0] + '\',-1)">−</s><b>' + ((f.stress && f.stress[w[0]]) || '') + '</b><s class="noprint" onclick="bgStress(' + q + ',\'' + w[0] + '\',1)">+</s></span>';
+    var st = w[0] === "ruest" ? '' : '<span class="bgst"><s class="noprint" onclick="bgStress(' + q + ',\'' + w[0] + '\',-1)">−</s><b data-pdftx>' + ((f.stress && f.stress[w[0]]) || '') + '</b><s class="noprint" onclick="bgStress(' + q + ',\'' + w[0] + '\',1)">+</s></span>';
     h += '<div class="bgrow' + (i % 2 ? '' : ' bgdk') + '" style="top:' + y + 'mm"><span class="bgfr">' + k + '</span><span class="bgwn">' + w[1] + '</span>' + st + '</div>';
   });
-  h += '<div class="bgges" style="top:' + (T + 265.3) + 'mm"><b>Gesamtstress:</b><span>' + (zTotal(f) || '') + '</span></div>';
+  h += '<div class="bgges" style="top:' + (T + 265.3) + 'mm"><b>Gesamtstress:</b><span data-pdftx>' + (zTotal(f) || '') + '</span></div>';
   return '<div class="sheet" data-pgbook="sp_cmf"><div class="bgrand"></div>' + h + '</div>';
 }
 function bgLeiste(f){
   var chips = zFigs().map(function(x){ return '<a class="' + (f && x.id === f.id ? 'on' : '') + '" onclick="go(\'bogen/' + x.id + '\')">' + esc(x.n) + '</a>'; }).join("");
   return '<div class="bgbar noprint"><div class="bgch">' + chips + '<a class="neu" onclick="bgNeu()">+ Neuer Bogen</a><a class="neu" onclick="zVfAuswahl()">Vorgefertigte Figur</a></div><div class="bga">' +
     (f && f.vf ? '<button class="knopf b" onclick="bgVorlage(\'' + f.id + '\')">Aus Vorlage füllen</button>' : '') +
-    (f ? '<button class="knopf b" id="bgTeil" onclick="bgTeilen(\'' + f.id + '\')">Teilen</button><button class="knopf" onclick="bgDruck()">Drucken / PDF</button><button class="knopf n" onclick="bgWeg(\'' + f.id + '\')">Entfernen</button>' : '') + '</div></div>';
+    (f ? '<button class="knopf b" id="bgTeil" onclick="bgTeilen(\'' + f.id + '\')">Teilen</button><button class="knopf" onclick="bgPdf(\'' + f.id + '\', this)">PDF</button><button class="knopf n" onclick="bgWeg(\'' + f.id + '\')">Entfernen</button>' : '') + '</div></div>';
 }
 SP_VIEW.bogen = function(rest){
   var f;

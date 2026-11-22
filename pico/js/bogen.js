@@ -8,6 +8,11 @@ function bMood(v, i){ var b = BG(v); b.m = b.m === i ? -1 : i; save(); render();
 function bDot(v, k, i){ var o = BG(v).o; o[k] = o[k] === i + 1 ? i : i + 1; save(); render(); }
 function bAll(v){ var b = BG(v); if(!confirm("Den ganzen Bogen leeren?")) return; ST.bogen[v] = {f:{}, h:{}, s:{}, m:-1, o:{}}; save(); render(); }
 function bPrint(){ window.print(); }
+function bPdf(knopf){
+  if(!window.FillPDF) return;
+  var nm = document.querySelector('.sheet .bf[data-k="name"], .sheet .bf[data-k="tname"]'), t = (location.hash || "").indexOf("streifzug") >= 0 ? "Streifzugbogen" : "Charakterbogen";
+  FillPDF.make(document.querySelector(".sheet"), {name:"Pico – " + ((nm && nm.value) || t), knopf:knopf, marks:[["i.h", "m x", "punkt"], [".mc", "on", "punkt"], ["i.dt", "m", "punkt"]], texts:[[".rk", "r1 r2 r3"]]});
+}
 var BSK = [["Bewegen",[["Flitzen","flitzen"],["Schleichen","schleichen"],["Klettern","klettern"],["Fliegen","fliegen"],["Graben","graben"],["Schwimmen","schwimmen"]]],
  ["Anfreunden",[["Quasseln","quasseln"],["Erschrecken","erschrecken"],["Prahlen","prahlen"],["Kümmern","kuemmern"],["Blenden","blenden"],["Zähmen","zaehmen"]]],
  ["Finden",[["Spüren","spueren"],["Denken","denken"],["Jagen","jagen"],["Werkeln","werkeln"],["Stöbern","stoebern"],["Kartieren","kartieren"]]],
@@ -40,7 +45,7 @@ function bTop(v, label){
 }
 function bogenPage(v, inner, size, label){
   var lv = v.split(":")[0];
-  return '<div class="bartabs noprint"><a class="' + (lv === "picnic" ? 'on' : '') + '" onclick="go(\'bogen/picnic\')">Charakterbogen (Pic-nic)</a><a class="' + (lv === "odyssey" ? 'on' : '') + '" onclick="go(\'bogen/odyssey\')">Charakterbogen (Pic-odyssey)</a><a class="' + (lv === "streifzug" ? 'on' : '') + '" onclick="go(\'streifzug\')">Streifzugbogen</a><span class="sp"></span>' + bLinkBtn() + '<button class="chip ink" onclick="bPrint()">Drucken / als PDF</button><button class="chip o" style="--c:var(--ink)" onclick="bAll(\'' + v + '\')">Leeren</button></div>' +
+  return '<div class="bartabs noprint"><a class="' + (lv === "picnic" ? 'on' : '') + '" onclick="go(\'bogen/picnic\')">Charakterbogen (Pic-nic)</a><a class="' + (lv === "odyssey" ? 'on' : '') + '" onclick="go(\'bogen/odyssey\')">Charakterbogen (Pic-odyssey)</a><a class="' + (lv === "streifzug" ? 'on' : '') + '" onclick="go(\'streifzug\')">Streifzugbogen</a><span class="sp"></span>' + bLinkBtn() + '<button class="chip ink" onclick="bPdf(this)">PDF</button><button class="chip o" style="--c:var(--ink)" onclick="bAll(\'' + v + '\')">Leeren</button></div>' +
     '<style>@page{size:' + size + ';margin:0}</style><div class="sheetwrap"><div class="sheet ' + lv + '">' + inner + '</div></div>';
 }
 function viewBogen(sel, slot){

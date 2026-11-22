@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v670sp";
+const VERSION = "v671sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1548,6 +1548,8 @@ const FILES = [
   "nights/js/data/case16.js",
   "creator/index.html",
   "shared/charsheet.js",
+  "shared/fillpdf.js",
+  "shared/lib/modern-screenshot.min.js",
   "shared/lib/pdf-lib.min.js",
   "shared/lib/fontkit.umd.min.js",
   "assets/fonts/pdf/labrada-latin-400-normal.ttf",

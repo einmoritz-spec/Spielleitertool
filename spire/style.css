@@ -1015,3 +1015,7 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .rgln.h1,.rgln.h2{top:27px}
 .rgs span,.rgln.h2 span{top:50%;transform:translateY(-50%)}
 .rgb.sc{z-index:1}
+.bgst b{display:inline-block;min-height:5mm}
+.bgges span{display:inline-block;min-width:14mm;min-height:7mm}
+.bgin[data-pdftx]{min-height:10mm}
+.bgz{font-size:14.5px;width:42.5mm}

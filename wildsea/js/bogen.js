@@ -202,7 +202,7 @@ function bgShipLoad(){ var st = ST.bogen && ST.bogen.schiff; return st || bgShip
 function viewSchiff(){
   BG.key = "schiff"; BG.st = bgShipLoad();
   setTimeout(bgAfterFonts, 0);
-  return '<div class="tabs"><a class="on">Schiffsbogen</a><span class="r bbar">' + bgLinkBtn() + '<button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
+  return '<div class="tabs"><a class="on">Schiffsbogen</a><span class="r bbar">' + bgLinkBtn() + '<button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPdf(this)">PDF</button></span></div>' +
     '<div class="bwrap"><div class="bsheet ship" id="bsh" style="zoom:' + bgZoom().toFixed(3) + '">' + bgSheet() + '</div></div>';
 }
 function bgZoom(){ return Math.max(.3, Math.min(1.2, (Math.max(innerWidth, 1280) - 60) / (BG.key === "schiff" ? 1400 : 1460))); }
@@ -211,7 +211,7 @@ function viewBogen(id){
   BG.key = s ? id : "leer"; BG.st = bgLoad(BG.key);
   var opts = '<option value="">Leerer Bogen</option>' + pcs.map(function(x){ return '<option value="' + x.id + '"' + (x.id === BG.key ? ' selected' : '') + '>' + esc(x.t) + '</option>'; }).join("");
   setTimeout(bgAfterFonts, 0);
-  return '<div class="tabs"><a class="on">Charakterbogen</a><span class="r bbar"><select onchange="go(this.value ? \'bogen/\' + this.value : \'bogen\')">' + opts + '</select>' + bgLinkBtn() + '<button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPrint()">Als PDF drucken</button></span></div>' +
+  return '<div class="tabs"><a class="on">Charakterbogen</a><span class="r bbar"><select onchange="go(this.value ? \'bogen/\' + this.value : \'bogen\')">' + opts + '</select>' + bgLinkBtn() + '<button class="chip" onclick="bgReset()">Zurücksetzen</button><button class="chip on" onclick="bgPdf(this)">PDF</button></span></div>' +
     '<div class="bwrap"><div class="bsheet" id="bsh" style="zoom:' + bgZoom().toFixed(3) + '">' + bgSheet() + '</div></div>';
 }
 function bgFit(){
@@ -248,6 +248,11 @@ function bgReset(){
   BG.st = BG.key === "schiff" ? bgShipNew() : bgLoad(BG.key); bgRepaint();
 }
 function bgPrint(){ bgFit(); window.print(); }
+function bgPdf(knopf){
+  var sh = document.getElementById("bsh"); if(!sh || !window.FillPDF) return;
+  var nm = (BG.st && (BG.st.n || BG.st.name)) || (BG.key === "schiff" ? "Schiffsbogen" : "Charakterbogen");
+  FillPDF.make(sh, {name:"Wildsea – " + nm, knopf:knopf, marks:[["button.cr", "f", "punkt"]], before:function(){ sh.style.zoom = 1; bgFit(); }, after:function(){ sh.style.zoom = bgZoom().toFixed(3); }});
+}
 window.addEventListener("resize", function(){ var sh = document.getElementById("bsh"); if(sh) sh.style.zoom = bgZoom().toFixed(3); });
 var BG_PM = ["fontFamily","fontFeatureSettings","borderBottomWidth","borderBottomStyle","borderBottomColor","marginTop","textIndent","fontSize","fontWeight","fontVariant","fontStyle","lineHeight","letterSpacing","textTransform","textAlign","color","paddingTop","paddingRight","paddingBottom","paddingLeft","borderBottom","borderRadius","backgroundImage","backgroundSize","backgroundPosition","backgroundRepeat","flex","alignSelf"];
 function bgMirror(){

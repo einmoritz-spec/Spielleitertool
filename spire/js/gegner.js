@@ -102,20 +102,68 @@ function begLeiste(immer){
 }
 
 /* ---------- Gegner-Browser: kompakte Karten links, Werteblock rechts (Entwurf 5) ---------- */
-function gKompakt(g){
-  var e = gEntry(g.id), ziel = gZiel(g);
-  return '<div class="gc' + (ST.gsel === g.id ? ' sel' : '') + '" onclick="gSel(\'' + g.id + '\')"><div class="gck"><h4>' + esc(g.kurz || g.t) + '</h4></div>' +
+function gKompakt(g, sel){
+  var e = gEntry(g.id), ziel = gZiel(g), on = sel ? sel.id === g.id : ST.gsel === g.id;
+  return '<div class="gc' + (on ? ' sel' : '') + '" onclick="gSel(\'' + g.id + '\')"><div class="gck"><h4>' + esc(g.kurz || g.t) + '</h4></div>' +
     '<div class="gcz"><span>Schw. ' + esc(g.schw ? g.schw.k : "·") + '</span><span>Wid. ' + esc(gWidTxt(g)) + '</span></div>' +
     '<div class="gcc">' + gKurzChips(g) + '</div><div class="gcf">' + esc(g.ort || "") + ' · ' + pgl(g.p, gBuch(g)) + '</div></div>';
 }
 function gegnerBrowser(L){
   if(!L.length) return "";
   var sel = L.filter(function(g){ return g.id === ST.gsel; })[0] || L[0];
-  return '<div class="gbr"><div class="gbl">' + L.map(gKompakt).join("") + '</div><div class="gbd">' + gBlock(sel) + '</div></div>';
+  return '<div class="gbr"><div class="gbl">' + L.map(function(g){ return gKompakt(g); }).join("") + '</div><div class="gbd">' + gBlock(sel) + '</div></div>';
+}
+/* ---------- Gegner-Seite (#gegner): Baum nach Domäne links, Suche + Filter, Karten, Werteblock rechts ---------- */
+var GQ = "";
+function gKey(g){
+  var m = /^stadt\/([a-z]+)\//.exec(g.ziel || ""); if(m) return m[1];
+  if(g.buch === "gm") return "mg"; if(g.id === "standard") return "regeln"; if(g.buch === "qs") return "snuff"; return "sonst";
+}
+function gGruppen(){
+  var G = SP_STADT_INDEX.map(function(d){ return {k:d.id, t:d.t, sek:"Nach Domäne"}; });
+  G.push({k:"mg", t:"Gegner der Klassen", sek:"Magister's Guide"}, {k:"snuff", t:"Antagonisten", sek:"Snuff Out the Sun"}, {k:"regeln", t:"Standardwerte für NSC", sek:"Regeln", p:22, buch:"qs"});
+  return G;
+}
+function gBase(g){ var n = parseInt(String(g.schw && g.schw.k != null ? g.schw.k : "").replace(/[^\d].*$/, ""), 10); return isNaN(n) ? 0 : n; }
+function gFern(g){ return (g.ausr || []).some(function(a){ return typeof a !== "string" && (a.tags || []).indexOf("Fernkampf") >= 0; }); }
+function gSortiert(){ var K = gGruppen().map(function(x){ return x.k; }); return SP_GEGNER.map(function(g, i){ return [K.indexOf(gKey(g)), i, g]; }).sort(function(a, b){ return a[0] - b[0] || a[1] - b[1]; }).map(function(x){ return x[2]; }); }
+function gFiltert(){
+  var q = GQ.trim().toLowerCase(), f = ST.gf || "alle", dom = ST.gdom || "alle";
+  return gSortiert().filter(function(g){
+    if(dom !== "alle" && gKey(g) !== dom) return false;
+    if(f === "0" && gBase(g) !== 0) return false; if(f === "1" && gBase(g) !== 1) return false; if(f === "2" && gBase(g) < 2) return false; if(f === "fern" && !gFern(g)) return false;
+    if(q && (g.t + " " + (g.en || "") + " " + (g.ort || "")).toLowerCase().indexOf(q) < 0) return false;
+    return true;
+  });
+}
+function gDom(k){ ST.gdom = k; save(); render(); }
+function gFilter(f){ ST.gf = f; save(); render(); }
+function gAktual(){
+  var L = gFiltert(), sel = L.filter(function(g){ return g.id === ST.gsel; })[0] || L[0];
+  var a = document.getElementById("gbl"), b = document.getElementById("gbd");
+  if(a) a.innerHTML = L.length ? L.map(function(g){ return gKompakt(g, sel); }).join("") : '<p class="leise">Kein Gegner gefunden.</p>';
+  if(b) b.innerHTML = sel ? gBlock(sel) : "";
+}
+function gSuche(v){ GQ = v; gAktual(); }
+function gSeite(){
+  var G = gGruppen(), alle = SP_GEGNER, dom = ST.gdom || "alle", f = ST.gf || "alle";
+  var cnt = {}; alle.forEach(function(g){ var k = gKey(g); cnt[k] = (cnt[k] || 0) + 1; });
+  var side = '<a class="' + (dom === "alle" ? 'on' : '') + '" onclick="gDom(\'alle\')">Alle Gegner<em>' + alle.length + '</em></a>', sek = "";
+  G.forEach(function(x){
+    if(!cnt[x.k]) return;
+    if(x.sek !== sek){ sek = x.sek; side += '<h5>' + esc(sek) + '</h5>'; }
+    side += '<a class="' + (dom === x.k ? 'on' : '') + '" onclick="gDom(\'' + x.k + '\')">' + esc(x.t) + (x.p ? '<span class="pg">QS S. ' + x.p + '</span>' : '') + '<em>' + cnt[x.k] + '</em></a>';
+  });
+  side += '<a onclick="openBook(\'cmf\',20)">Tags<span class="pg">S. 20</span></a><a onclick="openBook(\'cmf\',77)">Kampf<span class="pg">S. 77</span></a>';
+  var chips = [["alle", "Alle"], ["0", "Schwierigkeit 0"], ["1", "1"], ["2", "2+"], ["fern", "Mit Fernkampf"]].map(function(c){ return '<span class="' + (f === c[0] ? 'on' : '') + '" onclick="gFilter(\'' + c[0] + '\')">' + esc(c[1]) + '</span>'; }).join("");
+  var L = gFiltert(), sel = L.filter(function(g){ return g.id === ST.gsel; })[0] || L[0];
+  var body = '<div class="gbr"><div><div class="gfl"><input type="search" placeholder="Suchen …" value="' + esc(GQ) + '" oninput="gSuche(this.value)"><div class="wch">' + chips + '</div></div>' +
+    '<div class="gbl" id="gbl">' + (L.length ? L.map(function(g){ return gKompakt(g, sel); }).join("") : '<p class="leise">Kein Gegner gefunden.</p>') + '</div></div><div class="gbd" id="gbd">' + (sel ? gBlock(sel) : "") + '</div></div>';
+  return lay(side, body, false).replace('<div class="wrap', '<div class="wrap gb');
 }
 SP_VIEW.gegner = function(teile){
-  if(teile[0] && gById(teile[0])) ST.gsel = teile[0];
-  return spielTabs("gegner") + begLeiste(true) + gegnerBrowser(SP_GEGNER);
+  if(teile[0] && gById(teile[0])){ ST.gsel = teile[0]; ST.gdom = gKey(gById(teile[0])); ST.gf = "alle"; GQ = ""; }
+  return spielTabs("gegner") + begLeiste(true) + gSeite();
 };
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
   SP_GEGNER.forEach(function(g){ add(g.t + (g.en && g.en !== g.t ? " (" + g.en + ")" : ""), "Gegner", "gegner/" + g.id, g.p, [g.namen, g.beschr, g.schw && g.schw.x, g.bes, g.einl, g.druck, g.ausr.map(function(a){ return typeof a === "string" ? a : [a.x, a.dmg, a.tags]; })], gBuch(g)); });

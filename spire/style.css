@@ -266,6 +266,8 @@ ul.pkt li{margin:2px 0}
   .side{position:static;height:auto;display:flex;gap:6px;overflow-x:auto;white-space:nowrap;border-right:0;border-bottom:1px solid #bfcadb;padding:8px 12px}
   .side h5,.side a{flex:none;margin:0}
   .side .zu{display:none}
+  .gbr{grid-template-columns:1fr}
+  .gbd{position:static}
 }
 
 /* ---------- Zelle (Entwurf 4) ---------- */
@@ -437,6 +439,20 @@ ul.pkt li{margin:2px 0}
 .gbr{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,520px);gap:20px;padding:16px 24px 40px;align-items:start}
 .gbl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
 .gbd{position:sticky;top:calc(var(--top) + var(--tabh) + 62px)}
+.wrap.gb .side{top:calc(var(--top) + var(--tabh) + 50px);height:calc(100vh - var(--top) - var(--tabh) - 50px)}
+.wrap.gb .auf{top:calc(var(--top) + var(--tabh) + 64px)}
+.wrap.gb .main{padding:0;overflow:visible}
+.wrap.gb .gbr{padding:16px 24px 40px}
+.side a{position:relative}
+.side a em{position:absolute;right:8px;top:4px;font:normal 13px var(--f-text);color:var(--grau)}
+.side a .pg{display:block;margin:0;font-size:12.5px}
+.wrap.gb .side .zu + a em{right:30px}
+.raster.r5d{grid-template-columns:repeat(6,minmax(0,1fr))}
+.raster.r5d>*:nth-child(-n+3){grid-column:span 2}
+.raster.r5d>*:nth-child(n+4){grid-column:span 3}
+.gfl{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin:0 0 12px}
+.gfl input{flex:1 1 180px;min-width:140px;max-width:300px;font:400 16px var(--f-text);padding:8px 10px;border:1px solid #9eb0c8;background:#fff;color:var(--tinte)}
+.gfl .wch{margin:0}
 .gc{background:var(--papier2);border:1px solid #9eb0c8;cursor:pointer}
 .gc.sel{outline:2px solid var(--gold);outline-offset:-1px}
 .gc:hover{box-shadow:0 4px 10px #0d1a2722}
@@ -582,3 +598,16 @@ ul.pkt li{margin:2px 0}
 .schwarz .en{color:#9fb2c8}
 h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .dkr{align-items:start}
+
+/* Gegner-Seite und Fünfer-Raster auf schmalen Bildschirmen (nach den Basisregeln, damit sie greifen) */
+@media (max-width:900px){
+  .wrap.gb .side{position:static;top:auto;height:auto}
+  .wrap.gb .side a em,.wrap.gb .side .zu + a em{position:static;margin-left:6px}
+  .wrap.gb .side a .pg{display:inline;margin-left:6px}
+  .wrap.gb .auf{display:none}
+  .wrap.gb{align-content:start}
+  .raster.r5d{grid-template-columns:1fr}
+  .raster.r5d>*:nth-child(n){grid-column:auto}
+  .gbr{grid-template-columns:1fr}
+  .gbd{position:static}
+}

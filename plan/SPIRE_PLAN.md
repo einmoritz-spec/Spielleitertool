@@ -292,7 +292,7 @@ SP_KLASSE.push({ id:"azurite", t:"Azurite", p:29, bild:"klasse/azurite", zitat:"
 3. **Stadt I:** Karte + Klickflächen + Domänen (Entwurf 2), Distrikt-Seite (Entwurf 3), Domänen **Religion** und **Ordnung** komplett (S. 147–172) – Schablone.
 4. **Stadt II:** Akademie, Handel, Verbrechen (S. 81–106).
 5. **Stadt III:** Hohe und Niedere Gesellschaft (S. 107–128).
-6. **Stadt IV:** Okkultes (S. 129–146) + **Gegner-Browser** komplett (Entwurf 5, alle Core-Werteblöcke).
+6. ✅ **(erledigt 22.11.2026)** **Stadt IV:** Okkultes (S. 129–146) + **Gegner-Browser** komplett (Entwurf 5, alle Core-Werteblöcke).
 7. **Zufall** (Anhang 2, 4, 5; Entwurf 9) + **Regeln** S. 9–24, Kampf S. 77–80, Spielleiterschirm, `tags.js` (Tooltips).
 8. **Klassen I:** Übersicht (Entwurf 7) + Azurite bis Knight (S. 25–52), Entwurf 8.
 9. **Klassen II:** Lajhan bis Vermissian Sage (S. 53–68) + Extra-Fortschritte (S. 69–76).
@@ -338,6 +338,14 @@ Regeln: sofort sprechend benennen; Großansicht immer ungeschnitten; nie ein Bil
 - Karte: Algenfarmen/Blutegelkanäle -> Gartendistrikt; Polygone mit `dom` und `chips` öffnen eine Auswahl (Sonnenbasilika: Himmelsdocks, Universität; Ivory Row: Perch); `hv` hebt Flächen für Distrikte ohne eigenes Polygon hervor (Norddocks, Blauer Hafen, Himmelsdocks, Universität, Red Row, Derelictus).
 - Für Schritt 9 anzulegende Extra-Fortschritt-IDs (Verweise): `stolz`, `king-teeth`, `hungrige-tiefe`, `greymanor`. Verweis `stadt/okkult/herz` (Die Höhle, S. 135) für Schritt 6.
 - Textkorrekturen: Ewigfrost (Glossar), Retroingenieure, „Verloren“ im Buch = Vorloren Standard.
+
+### Stand nach Schritt 6
+- **Okkultes komplett** (S. 129–146): `stadt-okkult-a.js` (Das Vermissian, Das Herz, Gilde der Leichenbestatter) und `stadt-okkult-b.js` (Die Nekropole, Die Hebammen), Domänen-ID `okkult` (Distrikte `vermissian`, `herz`, `leichenbestatter`, `nekropole`, `hebammen`). Bild nur beim Vermissian (S130, Bahnhof-Szene); S132 bleibt in der Galerie (Zuordnung unklar, ev. Candlegate-Kerzen).
+- Kästen, die im Buch mitten im Text einer anderen Seite stehen, sind ans Ende des thematisch passenden Abschnitts gesetzt: „Vyskant-Wirt werden“ -> Die Höhle, „Mit den Toten sprechen“ -> Obsidian-Orrery, „Methoden der Wahrsagerei“ -> Choke. „Unsterbliche/Unsterblichen-Chirurgie“ einheitlich „Unsterblichen-Chirurgie“.
+- **6 Gegner** in `gegner-okkult.js` (Blood-Witch, Geister, Executioner, Geisterheer, Wachen der Leichenbestatter, Hebamme). Damit sind alle 24 Core-Werteblöcke + 5 QS-Blöcke im Gegner-Browser (29).
+- **Gegner-Browser (`#gegner`, Entwurf 5)** in `gegner.js`: Baum links (Alle · Nach Domäne · Magister's Guide [erscheint automatisch, sobald Gegner mit `buch:"gm"` angelegt sind] · Snuff Out the Sun · Regeln mit Standardwerte, Tags S. 20, Kampf S. 77), Suche + Filter (Schwierigkeit 0 / 1 / 2+ / Mit Fernkampf), kompakte Karten, Werteblock rechts sticky, Begegnungsleiste. Gruppe eines Gegners ergibt sich aus `ziel` (`stadt/<domäne>/…`) bzw. `buch`; neue Gegner brauchen nur den Eintrag in `SP_GEGNER`. Das Snuff-Tab „Gegner“ nutzt weiter `gegnerBrowser(L)`.
+- Domänenseite mit 5 Distrikten nutzt Raster `r5d` (3 + 2 ohne Lücke). Verweis aus Derelictus/Gartendistrikt -> `stadt/okkult/herz/die-hoehle` gelöst.
+- Offene Verweisziele für Schritt 8/9: `nach/klassen/carrion-priest`, `vermissian-sage`, `midwife`; `nach/extra/vyskant` (Titel im Buch „Der Vyskant“, S. 76).
 
 ## 8. Startauftrag für jede Sonnet-Sitzung (zum Kopieren)
 

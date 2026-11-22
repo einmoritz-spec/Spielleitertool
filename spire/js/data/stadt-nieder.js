@@ -162,7 +162,7 @@ SP_STADT.nieder.distrikte = (SP_STADT.nieder.distrikte || []).concat([
    {
     "t": "Die Höhle",
     "p": 135,
-    "ziel": "stadt/okkult/herz"
+    "ziel": "stadt/okkult/herz/die-hoehle"
    }
   ],
   "p": 121,

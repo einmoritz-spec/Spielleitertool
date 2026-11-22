@@ -61,7 +61,7 @@ function stDomaene(domId){
     return '<div class="dk2" onclick="go(\'stadt/' + domId + '/' + x.id + '\')">' + (D && D.bild ? '<div class="im"><img src="' + IMG(D.bild) + '" alt=""></div>' : '') +
       '<h3>' + esc(x.t) + pgl(x.p) + '</h3>' + (D ? '<p>' + esc(stAnfang(D.abschnitte[0].b, D.bild ? 150 : 520)) + '</p>' : '') + '</div>';
   }).join("");
-  return spielTabs("stadt") + stSub(I, null) + voll('<div data-pgbook="sp_cmf"><h1 class="titel">' + esc(I.t) + pgl(I.p) + '</h1><div class="raster ' + (I.distrikte.length === 4 ? 'r2' : 'r3') + ' dkr">' + kach + '</div></div>');
+  return spielTabs("stadt") + stSub(I, null) + voll('<div data-pgbook="sp_cmf"><h1 class="titel">' + esc(I.t) + pgl(I.p) + '</h1><div class="raster ' + (I.distrikte.length === 4 ? 'r2' : I.distrikte.length === 5 ? 'r5d' : 'r3') + ' dkr">' + kach + '</div></div>');
 }
 
 /* ---------- Distrikt-Seite (Entwurf 3) ---------- */

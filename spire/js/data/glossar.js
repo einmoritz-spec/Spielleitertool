@@ -123,5 +123,12 @@ window.SP_GLOSSAR = [
   ["Prokatakos / katakos", "Prokatakos / Katakos (bleibt)"],
   ["Greymanor Services / Ptolemy Bay / Forge of Sun-On-Water / Parliament of Gutterkin", "Greymanor Services / Ptolemy Bay / Schmiede von Sonne-auf-Wasser / Parlament der Gutterkin"],
   ["Who-Stands-On-Beams-Of-Sunlight / Petals-Cut-By-Razor / Thorns-on-Silk / Smoke-Within-The-Frost / Sun-on-Stone / Many-Rivers-Reaching / Sun-On-Water", "Die-auf-Sonnenstrahlen-Steht / Rasiermesser-Geschnittene-Blütenblätter / Dornen-auf-Seide / Rauch-im-Frost / Sonne-auf-Stein / Viele-Flüsse-Greifend / Sonne-auf-Wasser"],
-  ["Jackdaw pistol / Carog-pattern shotgun / Retroengineers", "Dohlenpistole / Schrotflinte im Carog-Modell / Retroingenieure"]]]
+  ["Jackdaw pistol / Carog-pattern shotgun / Retroengineers", "Dohlenpistole / Schrotflinte im Carog-Modell / Retroingenieure"]]],
+ ["Stadt IV: Okkultes", [
+  ["The Vermissian / Endline / Polaris Station / The Last Train / Candlegate Station / The Rats / Brook Street Bridge / The Vermissian Vault", "Das Vermissian / Endline / Polaris Station / Der Letzte Zug / Candlegate Station / Die Ratten / Brook Street Bridge / Das Vermissian-Gewölbe"],
+  ["The Heart / Peace Street / The Moon Garden / The Cave / Gnoll Research Post / The Sightless Bees / The Corpse Pit / Carter's Expeditionary Force / The Endless Bacchanal / Vanishing Point / The Mansion", "Das Herz / Friedensstraße / Der Mondgarten / Die Höhle / Gnoll-Forschungsposten / Die Augenlosen Bienen / Die Leichengrube / Carters Expeditionstruppe / Der Endlose Bacchanal / Fluchtpunkt / Das Herrenhaus"],
+  ["Blood-Witch / Ghosts / Spirit Host / Mortician Guards / Midwife / Executioner", "Blood-Witch (bleibt) / Geister / Geisterheer / Wachen der Leichenbestatter / Hebamme / Executioner (bleibt)"],
+  ["Undying Surgery / Dead Men Walking / The Ghost Plagues", "Unsterblichen-Chirurgie / Tote auf dem Weg / Die Geisterseuchen"],
+  ["Hall of Ancestors / Obsidian Orrery / Cult of Necrofusimancy / Library of Snuffed Candles / Graveyards / Grand Temple of Mehror / Choke", "Halle der Ahnen / Obsidian-Orrery / Kult der Nekrofusimantie / Bibliothek der Erloschenen Kerzen / Friedhöfe / Großer Tempel des Mehror / Choke"],
+  ["The Midwives / Dark Arts of Ishkrah / Structure / Blood Vintages", "Die Hebammen / Die dunklen Künste von Ishkrah / Struktur / Blutjahrgänge"]]]
 ];

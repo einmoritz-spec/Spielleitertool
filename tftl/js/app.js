@@ -45,6 +45,7 @@
     var tab = d.tabs.filter(function(t){ return t[0]===r.page; })[0];
     var app = document.getElementById("app"); app.className = "page";
     if(r.area==="tftl" && r.page==="start" && window.renderStart) window.renderStart(app);
+    else if(r.area==="tftl" && r.page==="karte" && window.renderKarte) window.renderKarte(app);
     else if(r.area==="tftl" && r.page==="kids" && window.renderKids) window.renderKids(app);
     else if(r.area==="tftl" && r.page==="bogen" && window.renderBogen) window.renderBogen(app, r.rest[0]);
     else if(r.area==="tftl" && r.page==="mysterien" && window.renderMysterien) window.renderMysterien(app);

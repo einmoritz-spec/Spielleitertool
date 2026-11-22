@@ -271,7 +271,7 @@ body{background-attachment:fixed}
 .kt{border-left:3px solid var(--platte)}
 .kt>div{display:grid;grid-template-columns:1fr auto;gap:8px;padding:4px 8px 3px 10px;font-size:14.5px;line-height:1.28}
 .kt>div:nth-child(odd){background:var(--rose)}
-.kt b{white-space:nowrap}.kt .eins{padding-left:22px}
+.kt b{white-space:normal;text-align:right;max-width:150px}.kt .eins{padding-left:22px}
 .abschnitt{margin-top:16px}
 .raster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 22px;align-items:start}
 .fk h4{font:400 17px/1.1 var(--plate);letter-spacing:.06em;text-transform:uppercase;color:var(--blut);margin:0 0 3px}

@@ -79,5 +79,5 @@ function klasseHtml(X){
   return '<div class="klz"><div class="diag"><div class="marmor"></div><img src="' + IMG("klasse/" + X.id) + '" alt=""><div class="name">' + esc(X.t) + '</div></div>' +
     '<div class="ktext"><div class="zeile"><div class="intro">' + K.intro.map(function(p){ return "<p>" + md(p) + "</p>"; }).join("") + "</div>" +
     '<div><h2 class="h2">Kerneigenschaften' + pgl(X.p + 1) + "</h2>" + kt + "</div></div>" +
-    sec("Kernfähigkeiten", K.core) + sec("Kleine Fähigkeiten", K.klein) + sec("Große Fähigkeiten", K.gross) + sec("Zenith-Fähigkeiten", K.zenith) + "</div></div>";
+    sec("Kernfähigkeiten", K.core) + sec("Kleine Fähigkeiten", K.klein) + sec("Große Fähigkeiten", K.gross) + sec("Zenith-Fähigkeiten", K.zenith) + (K.extra ? K.extra.map(function(e){ return '<div class="schwarz" style="margin-top:14px"><div class="lbl">' + esc(e[0]) + "</div><p>" + md(e[1]) + "</p></div>"; }).join("") : "") + "</div></div>";
 }

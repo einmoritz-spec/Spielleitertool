@@ -118,7 +118,7 @@
     h += '<div class="rsx"><h5>Hinweise</h5><a class="rl rh" href="' + base + 'loesung/_hinweise"><small class="hwc"></small></a></div>';
     var ks = Object.keys(M.nsc || {});
     if(ks.length) h += '<div class="rsx"><h5>NSC</h5><div class="rnl">' + ks.map(function(k){ var n = M.nsc[k];
-      return '<a class="nsc rn" data-n="' + k + '">' + (n.bild ? '<img src="img/' + n.bild + '.webp" alt="" loading="lazy">' : '<span></span>') + '<b>' + esc(tok(nscName(M, k) || n.name)) + '</b></a>'; }).join("") + '</div></div>';
+      return '<a class="nsc rn" data-n="' + k + '">' + (n.bild ? '<img src="img/' + n.bild + '.webp" alt="" loading="lazy">' : '<span>' + esc(tok(n.name).replace(/^[^A-Za-zÄÖÜ]+/, "").charAt(0)) + '</span>') + '<b>' + esc(tok(nscName(M, k) || n.name)) + '</b></a>'; }).join("") + '</div></div>';
     return h + '</aside>';
   }
   /* Kurze Abschnitte ohne Ort/Ablauf-Ziel zu Gruppen zusammenfassen */

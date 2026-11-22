@@ -19,6 +19,7 @@ function nbody(arr){
     if(b.ul) return nlist(b.ul, "ul");
     if(b.ol) return nlist(b.ol, "ol");
     if(b.tbl) return ntbl(b.tbl);
+    if(b.bild) return '<figure class="nbild'+(b.bild.kl?' kl':'')+'"><img class="mul" src="'+IMG(b.bild.img)+'" alt="'+esc(b.bild.t||"")+'" onclick="zoom(this.src)">'+(b.bild.t?'<figcaption>'+esc(b.bild.t)+(b.bild.p?pgl(b.bild.p):"")+'</figcaption>':'')+'</figure>';
     return "";
   }).join("");
 }

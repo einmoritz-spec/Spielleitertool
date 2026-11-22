@@ -179,7 +179,7 @@ function bereichTab(A, B, sel){
   ST.last = "a/" + A.id + "/" + B.id + "/" + o.n; ST.lastName = A.t + " · " + (o.n ? o.n + ". " : "") + o.t; save();
   var hash = function(x){ return "a/" + A.id + "/" + B.id + "/" + x.n; };
   var karte = B.karte && B.karte.img;
-  var pins = karte ? orte.filter(function(p){ return p.pin; }).map(function(p){ return '<span class="pin' + (p === o ? ' on' : '') + '" style="left:' + p.pin[0] + '%;top:' + p.pin[1] + '%" onclick="go(\'' + hash(p) + '\')">' + esc(p.n) + '</span>'; }).join("") : "";
+  var pins = karte ? orte.filter(function(p){ return p.pin; }).map(function(p){ var ps = Array.isArray(p.pin[0]) ? p.pin : [p.pin]; return ps.map(function(q){ return '<span class="pin' + (p === o ? ' on' : '') + '" style="left:' + q[0] + '%;top:' + q[1] + '%" onclick="go(\'' + hash(p) + '\')">' + esc(p.n) + '</span>'; }).join(""); }).join("") : "";
   var liste = orte.map(function(p){ return '<div class="' + (p === o ? 'on' : '') + '" onclick="go(\'' + hash(p) + '\')">' + (p.n ? '<b>' + esc(p.n) + '</b>' : '') + '<span>' + esc(p.t) + '</span></div>'; }).join("");
   var st = (o.st || []).map(function(e, i){
     var k = A.id + "_o" + o.n + "_" + i, weg = e.r && (ST.done || {})[k];
@@ -202,7 +202,7 @@ function bereichTab(A, B, sel){
     '<div class="rechts">' + rechts + '</div></div>';
 }
 function reisenTab(A){
-  var R = A.reisen, tb = R.tabellen || [], fg = R.figuren || [];
+  var R = A.reisen, fg = R.figuren || [], tb = (R.tabellen || []).map(function(t){ return typeof t === "string" ? (A.tabellen || []).filter(function(x){ return x.id === t; })[0] : t; }).filter(Boolean);
   return '<div class="reisen">' + ((R.b || []).length ? '<div class="rb">' + nabs({b:R.b}) + '</div>' : '') +
     (tb.length ? '<div class="tgrid">' + tb.map(function(t){ return '<div>' + tabHTML(A, t) + '</div>'; }).join("") + '</div>' : '') +
     (fg.length ? '<div class="fgrid">' + fg.map(function(id){ return A.figuren[id] ? '<div class="' + (A.figuren[id].angriffe ? 'lang' : '') + '">' + figZelle(A, id, fg.length <= 6) + '</div>' : ''; }).join("") + '</div>' : '') + '</div>';

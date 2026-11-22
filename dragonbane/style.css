@@ -621,3 +621,8 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .kk .kb.nb ~ .kn{margin-top:12px}
 .tafel.ohnekarte{grid-template-columns:clamp(220px,18vw,290px) minmax(0,1fr) clamp(280px,22vw,330px)}
 .einf.leer1{padding-bottom:6px}
+
+.nbild{margin:8px 0;text-align:center}.nbild img{max-width:100%;height:auto;cursor:zoom-in}.nbild.kl img{max-width:120px}.nbild figcaption{font-size:.8em;color:var(--braun)}
+
+.lage .lg1{position:sticky;top:70px}
+.gr.mas .mcol:empty{display:none}

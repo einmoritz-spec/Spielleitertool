@@ -81,3 +81,14 @@ function klasseHtml(X){
     '<div><h2 class="h2">Kerneigenschaften' + pgl(X.p + 1) + "</h2>" + kt + "</div></div>" +
     sec("Kernfähigkeiten", K.core) + sec("Kleine Fähigkeiten", K.klein) + sec("Große Fähigkeiten", K.gross) + sec("Zenith-Fähigkeiten", K.zenith) + (K.extra ? K.extra.map(function(e){ return '<div class="schwarz" style="margin-top:14px"><div class="lbl">' + esc(e[0]) + "</div><p>" + md(e[1]) + "</p></div>"; }).join("") : "") + "</div></div>";
 }
+/* ---------- Regelblatt-Overlay (Taste s): Regelübersicht S. 207 überall ---------- */
+function regelblatt(){
+  var C = HT_NACH.regeluebersicht; if(!C || !C.subs) return;
+  var m = modal('<div class="blatt seite dicht regelblatt">' + C.subs.map(function(S){ return S.secs.map(function(x){ return '<h1 class="h1">' + esc(x.t) + '</h1><div class="flach">' + x.b.map(blk).join("") + "</div>"; }).join(""); }).join("") + "</div>");
+  m.classList.add("blattmodal");
+}
+document.addEventListener("keydown", function(e){
+  if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
+  if(e.key === "s"){ var o = document.querySelector(".blattmodal"); if(o){ o.remove(); } else if(!document.querySelector(".modal,.gzoom")) regelblatt(); e.preventDefault(); }
+  if(e.key === "Escape"){ var q = document.querySelector(".blattmodal"); if(q) q.remove(); }
+});

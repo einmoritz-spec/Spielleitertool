@@ -626,3 +626,9 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 
 .lage .lg1{position:sticky;top:70px}
 .gr.mas .mcol:empty{display:none}
+.tabs .tab{padding:0 clamp(8px,1.05vw,18px);font-size:clamp(11px,.92vw,13px);letter-spacing:.1em}
+.tabs .tab.on{padding:0 clamp(8px,.9vw,14px)}
+.tabs .zeit{gap:10px;margin-right:6px}.tabs .zeit .ta{gap:8px}
+.tabs .zeit,.tabs .stift{position:sticky;right:0;background:linear-gradient(to right,rgba(236,226,204,0),#ece2cc 18px);padding-left:22px;z-index:3;height:32px;display:flex;align-items:center}
+.tabs .stift{right:0}
+@media (max-width:1500px){.tabs .tab{padding:0 7px;letter-spacing:.05em;font-size:11.5px}.tabs .zeit{font-size:10.5px;letter-spacing:.08em}.tabs .zeit .vt{padding-left:10px;gap:5px}}

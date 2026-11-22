@@ -501,3 +501,12 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .obx,.obb{margin:0;padding:8px 12px;font:14.5px/1.5 var(--text)}.obb{border-top:1px dashed #999}
 .obw{margin:auto 0 0;padding:6px 12px;background:#111;color:#ffe600;font:700 12.5px/1.45 var(--mono)}
 .obd{font:italic 14px var(--text);color:#555;margin:14px 0 0}
+/* 8: Suche, Galerie */
+.smodal>div{width:min(760px,94vw);max-height:84vh;display:flex;flex-direction:column;background:#fff;color:#111;padding:0}
+.sqin{font:700 20px var(--grotesk);padding:14px 18px;border:0;border-bottom:3px solid #111;outline:0;background:#ffe600;color:#111}
+.sr{overflow:auto}
+.sr a{display:block;padding:9px 18px;border-bottom:1px solid #ddd;color:#111;text-decoration:none}.sr a:hover,.sr a:first-child{background:#fffbe6}
+.sr a b{font:400 20px var(--fraktur)}.sr .sc{font:700 12px var(--mono);color:#d6168b;margin-left:10px}.sr .sn{display:block;font:14px/1.45 var(--text);color:#444;margin-top:2px}.sr mark{background:#ffe600}.sr .sx{padding:12px 18px;margin:0}
+.gal{padding:20px 28px}.gal h2{font:400 28px var(--fraktur);margin:18px 0 10px}
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;align-items:start}
+.gg figure{margin:0;background:#fff;color:#111;border:2px solid #111;cursor:zoom-in}.gg img{display:block;width:100%;height:auto}.gg figcaption{font:700 12px var(--mono);padding:5px 8px;border-top:2px solid #111}

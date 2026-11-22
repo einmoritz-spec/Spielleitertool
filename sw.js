@@ -895,6 +895,8 @@ const FILES = [
   "moerkborg/img/abenteuer/rotblack-karte.webp",
   "moerkborg/js/tabellen.js",
   "moerkborg/js/orte.js",
+  "moerkborg/js/suche.js",
+  "moerkborg/js/galerie.js",
   "moerkborg/js/data/orte-a.js",
   "moerkborg/js/data/orte-b.js",
   "moerkborg/js/data/orte-c.js",

@@ -52,7 +52,7 @@ function render(){
 function buildMenu(){
   document.getElementById("mmP").innerHTML = '<h3>Register</h3>' +
     MB_TEILE.map(function(t){ return '<button onclick="openMenu(false);' + teilGo(t) + '">' + esc(t.t) + '</button>'; }).join("") +
-    '<h3>Bücher</h3>' + MB_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button class="k" onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
+    '<h3>Werkzeuge</h3><button class="k" onclick="openMenu(false);sOpen()">Suche</button><button class="k" onclick="openMenu(false);go(\'galerie\')">Galerie</button><h3>Bücher</h3>' + MB_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button class="k" onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
     '<button class="k" onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); }

@@ -403,3 +403,8 @@ body.dark .tbl tr{background:transparent!important}
 .abdl>div{background:var(--paper2);border-radius:10px;padding:7px 12px}.abdl b{font:19px Baby;color:var(--c);font-weight:400}.abdl p{margin:2px 0 0!important;font-size:14px;line-height:1.45}
 .abspur .abnsc{border:2px solid var(--line)}
 body.dark .abdl>div{background:rgba(255,255,255,.06)}
+.swrap{align-items:stretch}.go{height:auto}
+.go .rl{flex:1;display:flex;flex-direction:column}.go .rl a{height:auto;min-height:62px;flex:1}
+.go .absub{margin:14px 0 8px;font:24px Baby;color:#fff;opacity:1}
+.go .abrl{flex:none}.go .abrl a{min-height:84px;flex:none;outline:3px solid var(--amber);outline-offset:-3px;font-size:26px}
+.go .gef{background:var(--rust);color:#fff}

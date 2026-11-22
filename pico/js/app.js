@@ -135,7 +135,7 @@ function viewStart(){
   var rl = PI_REICHE.map(function(r){ return '<a class="' + (r.id === last ? 'last' : '') + '" style="background-image:url(' + IMG("reich/" + r.id) + ')" onclick="go(\'reich/' + r.id + '\')"><span>' + esc(r.t) + '</span></a>'; }).join("");
   return '<div class="hero"></div><div class="swrap"><div><div class="sec"><h2 style="font-size:40px">Vorbereitung</h2></div><div class="tiles">' + tiles + '</div>' +
     '<div style="margin-top:14px"><span class="chip ink" onclick="bogen()">Charakterbogen</span><span class="chip ink" onclick="go(\'streifzug\')">Streifzugbogen</span><span class="chip ink" onclick="go(\'schirm\')">Regelübersicht</span><span class="chip ink" onclick="wOpen()">Würfel</span><span class="chip ink o" onclick="go(\'galerie\')">Galerie</span></div></div>' +
-    '<div class="go"><h2>Losziehen</h2><div class="sub">Die Reiche · Kap. 11</div><div class="rl">' + rl + '</div><button class="gef abgo" onclick="go(\'abenteuer\')">Abenteuer</button><button class="gef" onclick="go(\'gefahren\')">Winzige Gefahren</button></div></div>';
+    '<div class="go"><h2>Losziehen</h2><div class="sub">Die Reiche · Kap. 11</div><div class="rl">' + rl + '</div><div class="sub absub">Abenteuer</div><div class="rl abrl">' + Object.keys(window.PI_AB || {}).map(function(k){ var A = PI_AB[k]; return '<a style="background-image:url(' + IMG(A.img) + ')" onclick="go(\'abenteuer/' + k + '\')"><span>' + esc(A.t) + '</span></a>'; }).join("") + '</div><button class="gef" onclick="go(\'gefahren\')">Winzige Gefahren</button></div></div>';
 }
 function bogen(){ go("bogen/picnic"); }
 
@@ -145,6 +145,7 @@ function setTheme(dark, c, t){
   document.documentElement.style.setProperty("--c", c || "var(--teal)");
   document.documentElement.style.setProperty("--t", t || "var(--t-teal)");
 }
+function needJS(L){ if(!L.length){ render(); return; } var sc = document.createElement("script"); sc.src = L[0] + "?v=" + Date.now(); sc.onload = sc.onerror = function(){ needJS(L.slice(1)); }; document.body.appendChild(sc); }
 function render(){ CARDS = [];
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
   setTheme(false);
@@ -156,7 +157,7 @@ function render(){ CARDS = [];
   else if(v === "schirm") out = window.viewSchirm ? viewSchirm(h[1]) : viewStart();
   else if(v === "galerie") out = window.viewGalerie ? viewGalerie() : viewStart();
   else if(v === "bogen") out = viewBogen(h[1], h[2]);
-  else if(v === "abenteuer") out = window.viewAbenteuer ? viewAbenteuer(h[1], h[2], h[3]) : viewStart();
+  else if(v === "abenteuer"){ if(!window.viewAbenteuer || !window.PI_AB){ needJS(["js/data/abenteuer-trueffel.js", "js/data/abenteuer-trueffel-kaefer.js", "js/abenteuer.js"]); return; } out = viewAbenteuer(h[1], h[2], h[3]); }
   else out = viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);

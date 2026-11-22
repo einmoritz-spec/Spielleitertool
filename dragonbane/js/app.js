@@ -6,7 +6,7 @@ var APP = document.getElementById("app");
 var DB_VIEWS = {};
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 /* einfaches Markup im Datentext: **fett**, *kursiv* */
-function md(s){ return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>").replace(/\n/g, "<br>"); }
+function md(s){ return esc(s).replace(/§(.+?)§/g, '<span class="fs">$1</span>').replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>").replace(/\n/g, "<br>"); }
 function IMG(p){ return "img/" + p + ".webp"; }
 var ST = {};
 function load(){ try{ ST = JSON.parse(localStorage.getItem("db_state_v1") || "{}") || {}; }catch(e){ ST = {}; } }
@@ -22,8 +22,8 @@ function kurz(t){ return String(t).split(":")[0]; }
 
 /* ---------- Bausteine ---------- */
 function zoom(src){ var d = document.createElement("div"); d.className = "gzoom"; d.onclick = function(){ d.remove(); }; d.innerHTML = '<img src="' + src + '" alt="">'; document.body.appendChild(d); }
-function modal(html){
-  var m = document.createElement("div"); m.className = "modal";
+function modal(html, wide){
+  var m = document.createElement("div"); m.className = "modal" + (wide ? " wide" : "");
   m.innerHTML = "<div>" + html + "</div>";
   m.onclick = function(e){ if(e.target === m) m.remove(); };
   document.body.appendChild(m); return m;
@@ -62,7 +62,7 @@ function viewStart(){
     var v = (DB_VOELKER.filter(function(x){ return x[0] === c.volk; })[0] || [0, ""])[1], b = (DB_BERUFE.filter(function(x){ return x[0] === c.beruf; })[0] || [0, ""])[1];
     return '<div class="chip" onclick="figur(\'' + c.id + '\')">' + (c.beruf ? '<img class="fig" src="' + IMG("beruf/" + c.beruf) + '" alt="">' : '') + '<div><b>' + esc(c.name || "–") + '</b><span>' + esc(v) + (v && b ? " · " : "") + esc(b) + '</span></div></div>';
   }).join("");
-  var zul = ST.last ? '<div class="zul">Zuletzt: <b>' + esc(ST.lastName || "") + '</b></div>' : "";
+  var zul = ST.last ? '<div class="zul" style="cursor:pointer" onclick="go(ST.last)">Zuletzt: <b>' + esc(ST.lastName || "") + '</b></div>' : "";
   return '<div class="wrap" onmouseleave="front(\'einf\')"><div class="front" onclick="go(\'n/\' + (window.__fk || \'einf\'))">' +
     '<div class="fluegel"><div class="fl"></div><div class="fm"><span id="ft">' + esc(K1.t) + '</span></div><div class="fr"></div></div>' +
     '<div class="rahmen"><div class="stack">' + stack + '</div><i class="ro"></i><i class="ru"></i><i class="rl"></i><i class="rr"></i><i class="e1"></i><i class="e2"></i><i class="e3"></i><i class="e4"></i></div></div>' +

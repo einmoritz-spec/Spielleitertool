@@ -5,7 +5,7 @@ var SBN = (function(){
   var PCOL = "#008496";
   function pers(id){ var r = null; SB_PERS.forEach(function(p){ if(p.id === id) r = p; }); return r; }
   function nav(ber, sub, pid){
-    var top = '<nav class="tabs nbar">' + BER.filter(function(b){ return b[0] === "teenager"; }).map(function(b){ return '<a class="' + (b[0] === ber ? "on" : "") + '" onclick="go(\'nach/' + b[0] + '\')">' + b[1] + '</a>'; }).join("") + '<span class="sp"></span></nav>';
+    var top = SBR.nav(ber);
     var s = '<div class="frsub nsub">' + SUB.map(function(x){ return '<a class="' + (x[0] === sub ? "on" : "") + '" onclick="go(\'nach/teenager/' + x[0] + '\')">' + x[1] + '</a>'; }).join("");
     if(sub === "pers") s += '<i class="vr"></i>' + SB_PERS.map(function(p){ return '<a class="pn ' + (p.id === pid ? "on" : "") + '" onclick="go(\'nach/teenager/pers/' + p.id + '\')">' + esc(p.t) + '</a>'; }).join("");
     return top + s + '</div>';
@@ -119,7 +119,8 @@ var SBN = (function(){
   }
   VIEWS.nach = function(a){
     var ber = a[0] || "teenager", sub = a[1] || "mach", pid = a[2] || "grit";
-    if(ber !== "teenager") return '<div class="fr"><p class="lead">Dieser Bereich folgt.</p></div>';
+    if(ber === "multiversum"){ go("welten"); return ""; }
+    if(ber !== "teenager") return SBR.view(a);
     var body = sub === "ausr" ? ausr() : sub === "stk" ? stk() : sub === "sig" ? (a[2] ? sigDetail(a[2]) : sigUebersicht()) : sub === "pers" ? persona(pid) : sub === "crew" ? crew() : sub === "ruhm" ? ruhm() : mach();
     return '<div class="nachw">' + nav(ber, sub, pid) + (sub === "pers" ? '<div class="fr pfr">' + body + '</div>' : body) + '</div>';
   };

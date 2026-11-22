@@ -69,7 +69,9 @@ function render(){
   if(window.afterRender) afterRender();
 }
 function buildMenu(){
-  document.getElementById("mmP").innerHTML = '<h3>Kapitel</h3>' +
+  document.getElementById("mmP").innerHTML = '<h3>Nachschlagen</h3>' +
+    [["regeln","Spielablauf"],["teenager","Teenager"],["spielleitung","Spielleitung"],["veraendern","Spiel verändern"],["demo","Demo"]].map(function(b){ return '<button onclick="openMenu(false);go(\'nach/' + b[0] + '\')">' + b[1] + '</button>'; }).join("") +
+    '<button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm</button><h3>Kapitel</h3>' +
     SB_KAP.map(function(k){ return '<button onclick="openMenu(false);openBook(\'sb_core\',' + k.z[0][1] + ')">' + esc(k.k + " · " + k.t.replace(/<br>/g, " ")) + '</button>'; }).join("") +
     '<h3>Bücher</h3>' + SB_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
     '<button onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';

@@ -46,10 +46,23 @@ function viewStart(){
 
 /* ---------- Render ---------- */
 /* Ansichten werden in späteren Schritten ergänzt (window.viewXyz); bis dahin fällt alles Unbekannte auf die Startseite zurück */
+var SB_TABS = [["folge","Folge"],["crew","Crew"],["welten","Multiversum"],["heimat","Heimat"],["monster","Monster"],["fraktionen","Fraktionen"]];
+function tabList(){ return SB_TABS.filter(function(t){ return VIEWS[t[0]]; }); }
+function tabsHtml(cur){
+  return '<nav class="tabs">' + tabList().map(function(t){ return '<a class="' + (t[0] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + '</a>'; }).join("") + '<span class="sp"></span>' +
+    '<button class="pen' + (penHat(cur) ? " has" : "") + '" onclick="penOpen(\'' + cur + '\')" aria-label="Notizen" title="Notizen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>';
+}
+/* Notizen: Stift rechts in der Tab-Zeile; je Folge (Folge-Tafel) bzw. je Ansicht eine Notiz */
+function penKey(v){ return v === "folge" ? "folge-" + ((ST.folge && ST.folge.n) || 1) : v; }
+function penHat(v){ try{ return !!((ST.notiz || {})[penKey(v)] || "").trim(); }catch(e){ return false; } }
+function penOpen(v){
+  var k = penKey(v), m = modal('<textarea class="pennote" placeholder="Notizen …" oninput="ST.notiz=ST.notiz||{};ST.notiz[\'' + k + '\']=this.value;save()">' + esc((ST.notiz || {})[k] || "") + '</textarea>');
+  setTimeout(function(){ var t = m.querySelector("textarea"); if(t) t.focus(); }, 30);
+}
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
   document.documentElement.style.setProperty("--c", "var(--lila)");
-  if(v !== "start" && VIEWS[v]) out = VIEWS[v](h.slice(1));
+  if(v !== "start" && VIEWS[v]) out = tabsHtml(v) + VIEWS[v](h.slice(1));
   else out = viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
@@ -64,6 +77,14 @@ function buildMenu(){
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); }
 document.addEventListener("keydown", function(e){
   if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
-  if(e.key === "Escape"){ openMenu(false); document.querySelectorAll(".modal,.gzoom").forEach(function(m){ m.remove(); }); }
+  if(e.key === "Escape"){
+    var offen = document.querySelector(".modal,.gzoom") || document.getElementById("mmP").classList.contains("on");
+    openMenu(false); document.querySelectorAll(".modal,.gzoom").forEach(function(m){ m.remove(); });
+    if(!offen && (location.hash || "#start") !== "#start") go("start");
+  }
   if(e.key === "h") document.body.classList.toggle("notop");
+  if((e.key === "ArrowLeft" || e.key === "ArrowRight") && !document.querySelector(".modal,.gzoom")){
+    var L = tabList(), cur = (location.hash || "#start").slice(1).split("/")[0], ix = -1; L.forEach(function(t, i){ if(t[0] === cur) ix = i; });
+    if(ix >= 0){ var n = L[ix + (e.key === "ArrowRight" ? 1 : -1)]; if(n){ go(n[0]); e.preventDefault(); } }
+  }
 });

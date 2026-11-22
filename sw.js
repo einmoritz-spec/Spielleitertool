@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v704sp";
+const VERSION = "v705sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -622,6 +622,15 @@ const FILES = [
   "slugblaster/index.html",
   "slugblaster/style.css",
   "slugblaster/js/app.js",
+  "slugblaster/js/leiste.js",
+  "slugblaster/js/crew.js",
+  "slugblaster/js/folge.js",
+  "slugblaster/js/data/touren.js",
+  "slugblaster/js/data/momente.js",
+  "slugblaster/js/data/gelegenheiten.js",
+  "slugblaster/js/data/k2-persoenlichkeiten.js",
+  "slugblaster/js/data/welten-a.js",
+  "slugblaster/js/data/ruhm.js",
   "slugblaster/js/data/buecher.js",
   "slugblaster/js/data/start.js",
   "slugblaster/img/start/cover.webp",

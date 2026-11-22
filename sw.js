@@ -727,6 +727,7 @@ const FILES = [
   "heart/js/data/nach-klassen-a.js",
   "heart/js/data/nach-klassen-b.js",
   "heart/js/data/nach-klassen-c.js",
+  "heart/js/data/nach-charaktere-bb.js",
   "heart/js/data/buecher.js",
   "heart/js/data/start.js",
   "shared/info/heart.js",

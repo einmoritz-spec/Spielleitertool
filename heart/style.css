@@ -232,6 +232,7 @@ body{background-attachment:fixed}
 .bgrid.n2{grid-template-columns:1fr 1fr}.bgrid.n3{grid-template-columns:repeat(3,1fr)}
 .bgrid>div>*:first-child{margin-top:0}
 .kkarten{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0}
+.kkarten.n4{grid-template-columns:repeat(4,1fr);align-items:start}
 .kkarte{border:1px solid var(--linie);background:rgba(255,253,248,.7);padding:0 0 8px}
 .kkarte .platte{display:block;margin-bottom:6px}
 .kkarte>*:not(.platte){margin-left:10px;margin-right:10px}

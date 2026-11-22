@@ -17,11 +17,11 @@ function blk(b){
   if(typeof b === "string") return "<p>" + md(b) + "</p>";
   switch(b.t){
     case "p": return "<p" + (b.k ? ' class="kurs"' : "") + ">" + md(b.x) + "</p>";
-    case "h": return '<h3 class="h3">' + esc(b.x) + (b.p ? pgl(b.p) : "") + "</h3>";
+    case "h": return '<h3 class="h3">' + esc(b.x) + (b.p ? pgl(b.p, b.bl ? b.bl + " S. " + b.p : null, b.bk) : "") + "</h3>";
     case "ul": return '<ul class="lst">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
     case "kasten": return '<div class="schwarz">' + (b.h ? '<div class="lbl">' + esc(b.h) + "</div>" : "") + (b.b || [b.x]).map(blk).join("") + "</div>";
     case "werte": return '<div class="werte">' + b.z.map(function(z){ return '<div><span class="lbl">' + esc(z[0]) + "</span> " + md(z[1]) + "</div>"; }).join("") + "</div>";
-    case "karten": return '<div class="kkarten">' + b.x.map(function(k){ return '<div class="kkarte"><div class="platte">' + esc(k.t) + "</div>" + k.b.map(blk).join("") + "</div>"; }).join("") + "</div>";
+    case "karten": return '<div class="kkarten' + (b.n ? " n" + b.n : "") + '">' + b.x.map(function(k){ return '<div class="kkarte"><div class="platte">' + esc(k.t) + "</div>" + k.b.map(blk).join("") + "</div>"; }).join("") + "</div>";
     case "grid": return '<div class="bgrid n' + (b.n || 2) + '">' + b.x.map(function(c){ return "<div>" + c.map(blk).join("") + "</div>"; }).join("") + "</div>";
     case "tab": return (b.h ? '<h3 class="h3">' + esc(b.h) + "</h3>" : "") + '<ol class="tab n' + (b.n || 2) + '">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ol>";
     case "img": return '<img class="bimg" src="' + IMG(b.src) + '" alt="" onclick="zoom(this.src)">';
@@ -42,7 +42,7 @@ VIEWS.nach = function(a){
   var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><div class="vert">' + esc(S.t) + '</div><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
     S.secs.map(function(s){ return '<li class="' + (s === X ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + s.id + '\')">' + esc(kurz(s.t)) + "</li>"; }).join("") + "</ul></aside>" : "";
   if(X.kl){ var kin = '<div class="inh kl"><div class="blatt seite dicht">' + klasseHtml(X) + "</div></div>"; return head + unter + '<div class="bereich' + (side ? "" : " ohne") + (zu ? " zu" : "") + '">' + rk + kin + "</div>"; }
-  var inh = '<div class="inh"><div class="blatt seite dicht"><h1 class="h1">' + esc(X.t) + (X.p ? pgl(X.p) : "") + "</h1>" + '<div class="flach">' + X.b.map(blk).join("") + "</div></div></div>";
+  var inh = '<div class="inh"><div class="blatt seite dicht"><h1 class="h1">' + esc(X.t) + (X.p ? pgl(X.p, X.bl ? X.bl + " S. " + X.p : null, X.bk) : "") + "</h1>" + '<div class="flach">' + X.b.map(blk).join("") + "</div></div></div>";
   return head + unter + '<div class="bereich' + (side ? "" : " ohne") + (zu ? " zu" : "") + '">' + rk + inh + "</div>";
 };
 function ruecken(){ ST.zu = !ST.zu; save(); render(); }

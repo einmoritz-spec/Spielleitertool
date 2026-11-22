@@ -29,19 +29,26 @@ function kurz(t){ return String(t).split(":")[0]; }
 var VIEWS = {};
 function chipsHtml(L){ var h = L.filter(function(c){ return VIEWS[c[0]]; }).map(function(c){ return '<span class="chip" onclick="go(\'' + c[2] + '\')">' + c[1] + '</span>'; }).join(""); return h ? '<div class="chips">' + h + '</div>' : ""; }
 function viewStart(){
-  var kap = SB_KAP.map(function(k, i){
-    return '<div class="kc ' + k.id + '"><div class="bl"><b>' + esc(k.k) + '</b></div>' +
-      '<h2 class="h2" onclick="go(\'' + k.go + '\')">' + k.t + '</h2><p class="kn">' + esc(k.s) + '</p><ul>' +
-      k.z.map(function(z){ return '<li onclick="openBook(\'sb_core\',' + z[1] + ')"><span>' + esc(z[0]) + '</span><i>S. ' + z[1] + '</i></li>'; }).join("") + '</ul></div>';
+  var f = ST.folge || {}, t = ST.tour || {}, w = t.welt && window.sbWelt ? sbWelt(t.welt) : null, sc = ST.sc || [], c = ST.crew || {};
+  var kap = SB_KAP.map(function(k){
+    return '<div class="sx-k ' + k.id + '"><div class="sx-kh" onclick="go(\'' + k.go + '\')"><small>' + esc(k.k) + '</small><h2>' + k.t.replace(/<br>/g, " ") + '</h2><em>' + esc(k.s) + '</em></div><ul>' +
+      k.z.map(function(z){ return '<li onclick="go(\'' + z[2] + '\')"><span>' + esc(z[0]) + '</span><i onclick="event.stopPropagation();openBook(\'sb_core\',' + z[1] + ')">S. ' + z[1] + '</i></li>'; }).join("") + '</ul></div>';
   }).join("");
-  var side = (VIEWS.folge ? '<button class="go" onclick="go(\'folge\')"><div class="t">Los-<br>blasten!</div><div class="s">Folge, Crew &amp; Multiversum</div><span class="arr">→</span></button>' : "") +
-    chipsHtml([["crew","Charakterbögen","crew"],["crew","Crewbogen","crew/crew"],["schirm","Spielleiterschirm","schirm"],["galerie","Galerie","galerie"]]) +
-    (VIEWS.oolroob ? '<button class="oo" onclick="go(\'oolroob\')"><img src="' + IMG("oolroob/cover") + '" alt=""><div><b>Oolroob</b><small>Zusatzheft</small></div></button>' : "");
-  return '<div class="hero"><div class="l"><h1 class="big">Das ist<br><span>Slug</span>blaster</h1>' +
-    '<p class="pitch">… ein Rollenspiel über Teenager, Riesenkäfer, Hoverboards mit Schaltkreisen und den Versuch, cool zu sein.</p>' +
-    '<div class="pinkblob"></div><div class="wtg">Was dieses Spiel ist<br>und wie man es spielt</div></div>' +
-    '<div class="r"><img src="' + IMG("start/cover") + '" alt=""></div></div>' +
-    '<div class="wrap' + (side ? '' : ' n4') + '">' + kap + (side ? '<div class="side">' + side + '</div>' : '') + '</div>';
+  var crew = sc.length ? sc.map(function(p, i){ var P = sbPers(p.pers); return '<a style="--pc:' + P.farbe + '" onclick="go(\'crew/' + i + '\')"><b>' + esc(p.name || "Slugger") + '</b><small>' + esc(P.t.replace(/^The /, "")) + '</small></a>'; }).join("") + '<a class="cr" onclick="go(\'crew/crew\')"><b>' + esc(c.name || "Crew") + '</b><small>Crewbogen</small></a>'
+    : '<a class="neu" onclick="go(\'crew\')"><b>+ Crew anlegen</b></a>';
+  var pers = SB_PERS.map(function(p){ return '<a class="sx-pf" style="--pc:' + p.farbe + '" onclick="go(\'nach/teenager/pers/' + p.id + '\')"><img src="' + IMG("pers/" + p.id) + '" alt="" loading="lazy"><b>' + esc(p.t.replace(/^The /, "")) + '</b></a>'; }).join("");
+  var welten = [["thennis-spar","Thennis Spar","welt-thennis-spar"],["goldener-dschungel","Der Goldene Dschungel","welt-goldener-dschungel"],["calorium","Calorium","welt-calorium"],["erwachende-gruben","Die Erwachenden Gruben","welt-erwachende-gruben"]].map(function(x){
+    var id = (window.SB_WELTEN || []).filter(function(v){ return v.t === x[1]; })[0];
+    return '<a class="sx-w" onclick="go(\'welten' + (id ? "/" + id.id : "") + '\')"><img src="img/galerie/thumb/' + x[2] + '.webp" alt="" loading="lazy"><b>' + esc(x[1]) + '</b></a>';
+  }).join("") + (VIEWS.oolroob ? '<a class="sx-w oo2" onclick="go(\'oolroob\')"><img src="' + IMG("oolroob/cover") + '" alt="" loading="lazy"><b>Oolroob</b></a>' : "");
+  return '<div class="sx"><section class="sx-hero"><div class="sx-l">' +
+    '<h1>Das ist <span>Slug</span>blaster</h1><p>… ein Rollenspiel über Teenager, Riesenkäfer, Hoverboards mit Schaltkreisen und den Versuch, cool zu sein.</p>' +
+    '<div class="sx-act"><button class="sx-go" onclick="go(\'folge\')"><span>Los&shy;blasten!</span><small>' + (f.n ? "Folge " + f.n + (w ? " · " + esc(w.t) : "") : "Erste Folge starten") + '</small><i>→</i></button>' +
+    '<div class="sx-crew"><div class="cap">Crew</div><div class="sx-cl">' + crew + '</div></div></div></div>' +
+    '<img class="sx-cover" src="' + IMG("start/cover") + '" alt=""></section>' +
+    '<section class="sx-kaps">' + kap + '</section>' +
+    '<section class="sx-strips"><div><div class="sx-cap">Persönlichkeiten</div><div class="sx-ps">' + pers + '</div></div>' +
+    '<div><div class="sx-cap">Multiversum</div><div class="sx-ws">' + welten + '</div></div></section></div>';
 }
 
 /* ---------- Render ---------- */

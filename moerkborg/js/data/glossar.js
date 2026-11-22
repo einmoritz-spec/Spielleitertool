@@ -9,5 +9,6 @@ var MB_GLOSSAR = [
  ["Quadraccoon / Virspider / Crawling Parasite","Vierwaschbär / Virspinne / Kriechender Parasit"],["Giant Land Squid / Deceit / Blight Pixies","Riesiger Landkalmar / Trug / Seuchenwichtel"],
  ["Gnoll / Milphage / Scryehawk / Rock Wolf","Gnoll / Milphage / Seherfalke / Steinwolf"],["Salt Priest / Stricken One","Salzpriester / Der Geschlagene"],
  ["Half-troll / War pig / Goblin wild mage","Halbtroll / Kriegsschwein / Goblin-Wildmagier"],["Wickhead Zündler","Dochtkopf Zündler (Name bleibt)"],
- ["Toothed Deserter / Gutterborn Scum / Esoteric Hermit","Gezahnter Deserteur / Gossengeborener Abschaum / Esoterischer Einsiedler"],["Wretched Royalty / Heretical Priest / Occult Herbmaster","Elendes Königtum / Ketzerischer Priester / Okkulter Kräutermeister"]
+ ["Toothed Deserter / Gutterborn Scum / Esoteric Hermit","Gezahnter Deserteur / Gossengeborener Abschaum / Esoterischer Einsiedler"],["Wretched Royalty / Heretical Priest / Occult Herbmaster","Elendes Königtum / Ketzerischer Priester / Okkulter Kräutermeister"],
+ ["Accursed Den / Gutworm / Dusk gnoums / Mongrels / Nesting Death","Verfluchte Höhle / Darmwurm / Dämmergnome / Köter / Nistender Tod"],["Tired crystal demon / Distraught spirit / Fletcher the cannibal warlock","Müder Kristalldämon / Verzweifelter Geist / Fletcher, der kannibalische Hexenmeister (Namen Lesdy, Aldon, Sagsobuth bleiben)"]
 ];

@@ -386,3 +386,48 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .preis i{text-align:right;font-family:var(--mono);color:#ff3eb5;font-weight:700}
 .preis span{grid-column:1/3;font-size:.85em;margin-top:-1px;padding-top:0;opacity:.75}
 .card p{white-space:pre-line}.card p:has(br){margin:0}
+/* Schritt 6: Abenteuer Rotblack Sludge */
+.rl.ab .sb button u{text-decoration:none;display:inline-block;min-width:1.6em;color:#ff3eb5;font-family:var(--mono);font-weight:700}
+.rl.ab .sb button.zf u{color:#111;background:#ff3eb5;padding:0 3px;margin-right:4px;min-width:0}
+.abk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 36px;align-items:start}
+.abt{grid-column:1/3}
+.abt h1{font-family:var(--plakat);font-size:64px;line-height:1;text-transform:uppercase;margin:0}
+.abt .ob{font-family:var(--fraktur);font-size:30px;margin:6px 0 0}
+.abt .sb2{font-family:var(--mono);font-size:13px;margin:4px 0 14px;opacity:.7}
+.abt .vor{font-family:var(--text);font-size:19px;line-height:1.5;margin:0;max-width:980px}
+.abm .kartebox{position:relative;border:2px solid #111;background:#ddd}
+.abm .kartebox img{display:block;width:100%}
+.pin{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;border:2px solid #111;background:#ffe600;color:#111;font:700 13px var(--mono);padding:0;cursor:pointer}
+.pin.zf{background:#ff3eb5}.pin:hover{background:#111;color:#ffe600}
+.leg{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;margin-top:10px}
+.leg button{all:unset;cursor:pointer;font:500 14px var(--grotesk);padding:4px 0;border-bottom:1px solid #111;display:flex;gap:6px;align-items:baseline}
+.leg button u,.leg button em{text-decoration:none}.leg button u{color:#ff3eb5;font:700 13px var(--mono);min-width:1.5em}
+.leg button em{font-style:normal;font-size:11px;margin-left:auto;background:#ff3eb5;padding:0 4px}
+.abs .kl{font:italic 15px var(--text);margin:6px 0 10px}
+.ar{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px 36px;align-items:start}
+.art h1{font-family:var(--fraktur);font-size:46px;margin:0 0 4px;line-height:1.1}
+.art h1 .zfb{font:700 11px var(--grotesk);text-transform:none;background:#111;color:#fff;padding:3px 8px;margin-left:14px;vertical-align:middle;border-radius:6px}
+.art .st{font:italic 17px var(--text);margin:0 0 10px;padding-bottom:10px;border-bottom:1px dotted #111}
+.pk{margin:0 0 14px;padding-left:20px;font:17px/1.45 var(--text)}.pk li{margin:3px 0}
+.zb{font:700 13px var(--grotesk);background:#111;color:#fff;border:0;padding:3px 9px;cursor:pointer}
+.aa h5{font:700 13px var(--grotesk);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 4px}
+.aa p,.aa ol{font:17px/1.45 var(--text);margin:0}.aa ol{padding-left:22px}.aa li{margin:3px 0}
+.hin{background:#111;color:#fff;font:700 13px var(--grotesk);padding:8px 14px;border-radius:8px;display:inline-block;margin:14px 0 0}
+.mini{position:relative;width:150px;margin-bottom:12px}.mini img{display:block;width:100%;border:2px solid #111}
+.mini b{position:absolute;width:16px;height:16px;border-radius:50%;background:#ff3eb5;border:2px solid #111;transform:translate(-50%,-50%)}
+.ak{border:2px solid #111;padding:10px 12px;margin-bottom:12px;background:#fff}
+.ak img{float:right;width:96px;margin:0 0 6px 10px;cursor:zoom-in}
+.ak h4{font:700 19px var(--plakat);text-transform:uppercase;margin:0 0 4px}
+.ak .g{font:14px/1.4 var(--grotesk);color:#555;margin:0 0 6px}
+.ak .w{font:700 13px var(--mono);color:#ff3eb5;margin:0 0 4px;clear:none}
+.ak ul{margin:0;padding-left:16px;font:15px/1.4 var(--text);list-style:"▸ "}
+.rb{display:block;width:100%;max-width:420px;cursor:zoom-in}
+.zwo{display:flex;gap:28px;align-items:flex-start;margin:6px 0 16px}.zwo ul{margin:4px 0 0;padding-left:18px;font:16px var(--text)}.zwo p{font:15px var(--text);max-width:320px;margin:0}
+.zg{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px;margin:8px 0 18px}
+.zk{border:2px solid #111;background:#fff;padding:10px 12px}
+.zk .nr{display:inline-block;background:#111;color:#ffe600;font:700 14px var(--mono);padding:0 7px;margin-bottom:4px}
+.zk h4{font:700 19px var(--plakat);text-transform:uppercase;margin:0 0 4px}
+.zk p{font:15px/1.4 var(--text);margin:0 0 4px}.zk .w{font:700 13px var(--mono);color:#ff3eb5}
+.zk ul{margin:0;padding-left:16px;font:15px/1.4 var(--text);list-style:"▸ "}
+.zk .ak{margin:8px 0 0}
+.rb{mix-blend-mode:multiply}

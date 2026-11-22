@@ -88,7 +88,7 @@
   }
   function wuerfel(n){ var a = []; for(var i = 0; i < n; i++) a.push(1 + Math.floor(Math.random() * 6)); return a; }
   function erfolge(){ return ROLL ? ROLL.dice.filter(function(d){ return d === 6; }).length + ROLL.bonus : 0; }
-  function probe(){
+  function probe(){ return "";
     var k = kid(PRB.kid) || D.kids[0]; if(!k) return "";
     PRB.kid = k.id; if(!skill(PRB.sk)) PRB.sk = K.skills[0][0];
     if(!itemsOf(k).some(function(o){ return o[0] === PRB.it; })) PRB.it = "";

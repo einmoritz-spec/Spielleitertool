@@ -100,7 +100,7 @@ window.ES = window.ES || {};
     return spann(k, o) * (hasTal(k, "Dramaqueen") ? 2 : 1);
   }
   function nBase(k){ return Math.max(1, num(k.a[PRB.a]) + PRB.m + bonusSp(k)); }
-  function probe(){
+  function probe(){ return "";
     var k = kid(PRB.kid) || D[0]; if(!k) return "";
     PRB.kid = k.id; if(PRB.vs === k.id) PRB.vs = "";
     var r = ROLL && ROLL.kid === k.id ? ROLL : null, sp = bonusSp(k), body = "";

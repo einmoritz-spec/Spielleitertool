@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sb.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative;background:var(--nacht);color:#fff}
+.tabs{--tc:var(--gelb);background:var(--nacht);border-bottom-color:#3d3b3e}
+.tabs a{color:#cfcad6}.tabs a.on{color:#000}
+.tabs .pen{color:#7c7880}
+.wrap{display:grid;grid-template-columns:600px 1fr;gap:28px;padding:22px 26px 0}
+.map{position:relative;background:#fff;padding:14px;transform:rotate(-1.2deg);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.map img{width:100%;display:block}
+.tape{position:absolute;width:110px;height:30px;background:rgba(255,212,87,.85);top:-12px;left:40px;transform:rotate(-6deg)}
+.tape.r{left:auto;right:36px;transform:rotate(7deg);background:rgba(241,117,173,.8)}
+.hot{position:absolute;background:rgba(241,117,173,.35);outline:3px solid var(--mag);border-radius:4px}
+.map .note{position:absolute;color:var(--mag);font-size:18px}
+.ttl{display:flex;align-items:baseline;gap:14px;margin:0 0 12px}
+.ttl .h1{color:var(--pink);font-size:42px}
+.ttl .note{color:var(--gelb);font-size:19px;max-width:none}
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.w{position:relative;background:var(--nacht2);padding:12px 14px 11px;cursor:pointer;border-left:6px solid var(--pink);min-height:118px}
+.w.on{background:#4a3a4f;outline:2px solid var(--pink)}
+.w .h3{color:var(--pink);font-size:22px}
+.w p{margin:4px 0 0;font:italic 400 13px/1.35 var(--body);color:#e8e4ec;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.w .pr{position:absolute;right:12px;top:10px;font:400 14px var(--hand);color:var(--gelb)}
+.w .bd{display:inline-block;margin-top:6px;font:900 9.5px var(--body);letter-spacing:.12em;text-transform:uppercase;background:var(--gelb);color:#000;padding:3px 7px 2px;border-radius:10px}
+.w .bd.c{background:var(--cyan)}
+.w .pg{position:absolute;right:12px;bottom:9px;color:#8f8a95}
+.home{border-left-color:var(--gelb)}.home .h3{color:var(--gelb)}
+.bonus{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bonus .cap{color:var(--gelb);margin-right:6px}
+.bc{font:400 15px var(--marker);text-transform:uppercase;color:#fff;border:2px solid #5a575c;padding:5px 11px 3px;border-radius:22px 28px 24px 30px;cursor:pointer}
+.bc.mk{border-color:var(--gelb);color:var(--gelb)}
+</style></head><body>
+<div class="topbar"><button class="brand"><img src="img/logo.webp" alt=""></button><div class="sp"></div>
+<button class="ib i">i</button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<nav class="tabs"><a>Folge</a><a>Crew</a><a class="on">Multiversum</a><a>Heimat</a><a>Monster</a><a>Fraktionen</a><span class="sp"></span><button class="pen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>
+<div class="wrap">
+ <div>
+  <div class="map"><span class="tape"></span><span class="tape r"></span>
+   <img src="img/multiversum-karte.webp" alt="">
+   <div class="hot" style="left:400px;top:282px;width:84px;height:96px"></div>
+   <svg style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 572 494"><path d="M300 92 C 330 120, 350 150, 372 196" fill="none" stroke="#00aeef" stroke-width="3.5" stroke-dasharray="7 6" stroke-linecap="round"/><path d="M366 188l8 12 4-14" fill="none" stroke="#00aeef" stroke-width="3.5" stroke-linecap="round"/><circle cx="335" cy="140" r="11" fill="#00aeef"/><text x="335" y="145" font-family="Figtree" font-weight="900" font-size="13" fill="#fff" text-anchor="middle">3</text></svg>
+  </div>
+ </div>
+ <div>
+  <div class="ttl"><h1 class="h1">Andere Welten</h1><span class="pg" style="color:#8f8a95">S. 90</span><span class="note">wo ihr hingeht, um Spaß zu haben</span></div>
+  <div class="wg">
+   <div class="w home"><span class="pr">„Null“</span><h3 class="h3">Hillview</h3><p>Eure Welt – ein unscheinbarer Vorort, in dem DARA eine Forschungsanlage für Teilchenphysik gebaut hat.</p><span class="bd">Heimat</span><span class="pg">S. 80</span></div>
+   <div class="w"><span class="pr">„Vas-TIEHSCH“</span><h3 class="h3">Vastiche</h3><p>Ödland nach dem Chemiekrieg. Bröckelnde Parkhäuser, verblasste Plakatwände und eine verlassene Megamall unter Dünen aus rosa Sand.</p><span class="bd c">Maske</span><span class="pg">S. 96</span></div>
+   <div class="w on"><h3 class="h3">Thennis Spar</h3><p>Eine geschäftige, exotische Utopie-Stadt. Man handelt Oliven und Gewürze im Forum, diskutiert das Multiversum in uralten Tempeln und ignoriert die Geister.</p><span class="bd">CIV</span><span class="pg">S. 97</span></div>
+   <div class="w"><span class="pr">„DES-nien“</span><h3 class="h3">Desnine</h3><p>Ein unendlicher Ozean, Wasser, wo der Weltraum sein sollte. Die gläsernen Gänge einer verlassenen Beobachtungsstation winden sich um einen Korallenmond.</p><span class="pg">S. 100</span></div>
+   <div class="w"><h3 class="h3">Der Goldene Dschungel</h3><p>Die Ruinen einer Hochkultur, überwuchert von dichtem, funkelndem Regenwald. Ausgemusterte Gundams schlafen unter Moosdecken.</p><span class="pg">S. 101</span></div>
+   <div class="w"><span class="pr">„pris-MA-tia“</span><h3 class="h3">Prismatia</h3><p>Die Ebene des Lichts. Kein Himmel, kein Boden, kein Oben, kein Unten.</p><span class="pg">S. 104</span></div>
+   <div class="w"><span class="pr">„op-er-EH-blum“</span><h3 class="h3">Operaeblum</h3><p>Drei verfeindete Konzern-Megatürme, verbunden durch verschlungene Fußwege und Skytrains. Raves, Androiden, Spiegelbrillen.</p><span class="bd">CIV</span><span class="pg">S. 105</span></div>
+   <div class="w"><span class="pr">„ka-LOR-ium“</span><h3 class="h3">Calorium</h3><p>Die Ebene des Feuers. Seltsame Luftschiffe treiben auf Aufwinden, Flamingos versammeln sich in kochenden Limoseen.</p><span class="bd c">Schutzanzug</span><span class="pg">S. 106</span></div>
+   <div class="w"><h3 class="h3">Die Erwachenden Gruben</h3><p>Kalte, dunkle Hölle. Eine gefrorene Landschaft aus zerfallenden Burgen und Friedhöfen.</p><span class="pg">S. 109</span></div>
+   <div class="w"><span class="pr">„po-pu-LAH-ria“</span><h3 class="h3">Popularia</h3><p>Der Ort, an dem man sein muss. Künstler, Influencer und Models bevölkern die Cafés, Clubs und Skateshops.</p><span class="bd">CIV</span><span class="pg">S. 110</span></div>
+   <div class="w"><span class="pr">„em-PIE-rien“</span><h3 class="h3">Empyrean</h3><p>Unberührtes Paradies. Geflügelte Hirsche trinken aus Bächen. Vorsicht bei den Beeren.</p><span class="bd c">Logikbinder</span><span class="pg">S. 111</span></div>
+  </div>
+  <div class="bonus"><span class="cap">Bonus-Welten</span><span class="bc">Das Rauschen</span><span class="bc">Die Borel-Maschine</span><span class="bc">Spielshow-Archipel</span><span class="bc">Schlüpfmarkt</span><span class="bc">Formschnitt</span><span class="bc">Camp Fraktal</span><span class="bc">Die Leeren Ufer</span><span class="bc">Land der vergessenen Automaten</span><span class="bc">Ecclesiastica</span><span class="bc mk">+ Welt bauen (W6)</span></div>
+ </div>
+</div>
+<div class="ann" style="left:60px;top:640px;max-width:520px"><b>1</b>Die Karte „Kartiert das Multiversum“ (S. 94) als Zettel mit Klebeband: jede Welt ist eine unsichtbare Klickfläche (Hover pink) → Weltseite. Die Crew kann Portale einzeichnen (Pfeil ein-/zweiseitig, Komplikationsnummer) – wie auf dem Crewbogen.</div>
+<div class="ann" style="left:1180px;top:600px;max-width:250px"><b>2</b>Alle Welten als dunkle Karten wie die Nachtseiten im Buch; Aussprache-Randnotiz in Handschrift. Quahalia als 12. Karte. Karte im Tool als SVG aus den Vektorpfaden von S. 94 neu gesetzt – mit deutscher Beschriftung.</div>
+</body></html>

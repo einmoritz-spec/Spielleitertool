@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sb.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.tabs{--tc:var(--gelb)}.tabs a.on{color:#000}
+.sub2{display:flex;gap:4px;align-items:center;padding:8px 22px;border-bottom:2px solid var(--linie)}
+.sub2 a{font:800 12.5px var(--body);letter-spacing:.06em;color:#6b6575;padding:6px 11px;border-radius:20px}
+.sub2 a.on{background:#fff3c8;color:#7a5a00}
+.g{display:grid;grid-template-columns:minmax(0,1fr) 470px;gap:26px;padding:16px 24px 0}
+.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 22px;align-content:start}
+.kind .h3{font-size:22px;margin-bottom:4px;color:var(--pink)}
+.fr{display:grid;grid-template-columns:128px 1fr 30px;align-items:center;gap:6px;padding:4px 0;border-bottom:1px dashed #e7e2ee;cursor:pointer}
+.fr.sel{background:#fff8dc;margin:0 -8px;padding:4px 8px}
+.fr b{font:400 16px var(--marker);text-transform:uppercase}
+.sc{display:flex;gap:2px}
+.sc span{width:36px;text-align:center;font:400 25px/1.1 var(--hand);color:#c9c2d4;border-radius:40% 60% 50% 50%}
+.sc span.z{font-size:19px}
+.sc span.on{background:var(--lila2);color:#fff}
+.sc span.on.neg{background:var(--mag)}
+.un{font:400 25px var(--hand);color:#d8d2df;text-align:center}
+.un.on{color:var(--mag)}
+.det .h1{font-size:46px;color:var(--pink)}
+.det .lead{font-size:14px;line-height:1.5;margin:6px 0 10px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 10px;font-size:13.5px;line-height:1.42;margin-bottom:12px}
+.kv dt{font-weight:800}
+.kv dd{margin:0}
+.box.pink .cap{font-size:13px}
+.side{position:relative}
+.side .note{position:absolute;right:0;top:-6px;color:var(--lila2);font-size:22px;max-width:200px;transform:rotate(4deg)}
+.st{display:flex;gap:8px;align-items:center;margin:4px 0 10px}
+.st span{font:400 22px var(--hand);color:var(--lila2)}
+.st small{font:600 12.5px var(--body)}
+</style></head><body>
+<div class="topbar"><button class="brand"><img src="img/logo.webp" alt=""></button><div class="sp"></div>
+<button class="ib i">i</button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<nav class="tabs"><a>Folge</a><a>Crew</a><a>Multiversum</a><a>Heimat</a><a>Monster</a><a class="on">Fraktionen</a><span class="sp"></span><button class="pen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>
+<div class="sub2"><a class="on">Beziehungen</a><a>Crews</a><a>Obrigkeiten</a><a>Sponsoren</a><a>Cliquen</a><a>Mach eine Person</a></div>
+<div class="g k3">
+ <div class="cols">
+  <div class="kind"><h3 class="h3">Crews</h3>
+   <div class="fr"><b>BRB</b><div class="sc"><span>−3</span><span class="on neg">−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Jet Collective</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span class="on">+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Null Range</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z on" style="background:#e9e4f1;color:#555">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Lazy Bunny</b><div class="sc"><span>−3</span><span>−2</span><span class="on neg">−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un on">!!!</span></div>
+   <div class="fr"><b>The Wicks</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div></div>
+  <div class="kind"><h3 class="h3">Obrigkeiten</h3>
+   <div class="fr"><b>DARA</b><div class="sc"><span>−3</span><span>−2</span><span class="on neg">−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Die Arboristen</b><div class="sc"><span class="on neg">−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Shimmer</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span class="on">+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Doorways</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>The Old Guard</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span class="on">+2</span><span>+3</span></div><span class="un">!!!</span></div></div>
+  <div class="kind"><h3 class="h3">Sponsoren</h3>
+   <div class="fr sel"><b>Miper</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span class="on">+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Hardecker</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Wilkie’s</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span class="on">+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>Scram Cat</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>FUST</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span class="on">+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div></div>
+  <div class="kind"><h3 class="h3">Cliquen</h3>
+   <div class="fr"><b>The Thrashers</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span class="on">+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>The Heads</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>The Mavens</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span class="on">+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>The Freaks</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div>
+   <div class="fr"><b>The Normies</b><div class="sc"><span>−3</span><span>−2</span><span>−1</span><span class="z">0</span><span>+1</span><span>+2</span><span>+3</span></div><span class="un">!!!</span></div></div>
+ </div>
+ <div class="det side">
+  <span class="note">Unsere Beziehung: +1 freundlich</span>
+  <h1 class="h1">Miper <span class="pg">S. 136</span></h1>
+  <p class="lead">Manche Menschen sind anders. Sie wählen Exzellenz. Sie wählen Präzision. Sie wählen etwas mit klassischer Musik, verwirrenden Aufnahmen strenger Architektur und europäischen Models in der Werbung. Sie wählen Miper®, ein designorientiertes Tech-Unternehmen, das die Welt Innovation für Innovation verändern will.</p>
+  <dl class="kv"><dt>NSC</dt><dd>Der gefeierte Visionär und CEO Tristen Voss (leidenschaftlich, arrogant, ehrgeizig). CTO Jian-Jian Ren (verbittert). Unbezahlte Praktikantin Robin (verängstigt, überarbeitet).</dd>
+   <dt>Besitz</dt><dd>Ein teilweise funktionsfähiger interdimensionaler Zug, ein teurer F&amp;E-Campus in Popularia, … Scram Cat (Prüfung läuft).</dd>
+   <dt>Mag</dt><dd>Wissenschaftliche Entdeckungen, Innovation und Crews mit Leidenschaft – solange sie nichts Kritisches über Miper sagen.</dd>
+   <dt>Mag nicht</dt><dd>Respektlosigkeit, Crews, die das nicht ernst nehmen, Rescue, Doorways, die Arboristen und FUST.</dd></dl>
+  <div class="box pink"><div class="cap">Situation!</div>Miper hat eine Vision von einem besser vernetzten Multiversum. Dafür baut Miper einen enorm teuren interdimensionalen Zug, der eine völlig neue Q-Form braucht – damit sind alle aktuellen Nth-Gear-Produkte mit der örtlichen Raumzeit unvereinbar.</div>
+  <p style="font:400 22px/1.1 var(--hand);color:var(--teal);margin:12px 0 0;transform:rotate(-1.5deg)">Von Miper gesponserte Crews bekommen neue Handys – ganz bestimmt ohne Peilsender.</p>
+ </div>
+</div>
+<div class="ann" style="left:30px;top:800px;max-width:600px"><b>1</b>Beziehungen aller 20 Fraktionen auf einen Blick: Skala −3 … +3 mit den Handschrift-Zeichen aus S. 126 (Lila = positiv, Magenta = negativ), „!!!“ = instabil. Gespeichert im Spielstand; das Aufräumen auf der Folge-Tafel öffnet diese Ansicht.</div>
+<div class="ann" style="left:900px;top:800px;max-width:500px"><b>2</b>Klick auf eine Zeile → Fraktion rechts: Text, NSC, Besitz, Mag/Mag nicht, SITUATION!-Kasten, Randnotiz.</div>
+</body></html>

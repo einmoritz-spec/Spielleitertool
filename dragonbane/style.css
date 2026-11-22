@@ -493,3 +493,7 @@ table.w6.kl tr.weg td{opacity:.4;text-decoration:line-through}
 @media(max-width:1000px){.gr .ab.c3{column-count:1}}
 
 .kgrid.zg{align-items:start}
+
+table.w6.gt td:first-child{font-family:var(--f-text);font-weight:600;width:auto;text-align:left;white-space:normal;font-size:15.5px}
+table.w6.gt td:not(:first-child):not(:last-child){white-space:nowrap}
+table.w6.gt td:last-child{white-space:normal}

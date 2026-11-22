@@ -1,0 +1,67 @@
+/* Kapitel 6 – Teil C: Medizin, Behälter, Dienste, Reisemittel, Jagen & Fischen, Tiere */
+DB_NACH.au.abs.push(
+ {id:"dienste", t:"Medizin, Dienste & Reisen", p:79, b:[
+  {h:"Medizin", p:79, voll:1},
+  {tbl:{head:["Gegenstand","Preis","Verfügbarkeit","Gewicht","Wirkung"], rows:[
+   ["Gift, tödlich (Dosis)","2 Gold × Wirkstärke",AU,"1","Siehe S. 52."],
+   ["Gift, lähmend (Dosis)","12 Silber × Wirkstärke",AU,"1","Siehe S. 53."],
+   ["Gift, Schlaf (Dosis)","6 Silber × Wirkstärke",AU,"1","Siehe S. 53."],
+   ["Kräutertrunk (Dosis)","1 Gold",AU,"1","Vorteil auf Würfe auf §Heilkunde§, um einer Krankheit zu widerstehen (S. 53)."],
+   ["Heiltrank (Dosis)","50 Gold",AS,"1","Heilt sofort 2W6 TP. Stärkere Tränke heilen mehr TP, sind aber teurer."],
+   ["Verbände (10)","5 Silber",AG,"1","Nötig, um einen Nachteil auf Würfe auf §Heilkunde§ zum Lebenretten zu vermeiden. Jeder Versuch verbraucht einen Verband."],
+   ["Chirurgisches Besteck","15 Gold",AU,"1","Vorteil auf Würfe auf §Heilkunde§ zum Lebenretten."]]}},
+  {h:"Behälter", p:79, voll:1},
+  {tbl:{head:["Gegenstand","Preis","Verfügbarkeit","Gewicht","Wirkung"], rows:[
+   ["Rucksack","3 Gold",AG,"—","Erhöht die Tragkraft um 2. Eine Person kann nur einen Rucksack gleichzeitig benutzen."],
+   ["Fass","2 Gold",AG,"2","Fasst bis zu 15 Gewichtseinheiten. Hält 10 Schadenspunkte aus, Rüstungswert 3."],
+   ["Korb","4 Silber",AG,"1","Fasst bis zu 10 Gewichtseinheiten."],
+   ["Flasche","1 Gold",AG,"1","Enthält 1 Einheit Flüssigkeit."],
+   ["Eimer","5 Kupfer",AG,"1","Enthält bis zu 5 Einheiten Flüssigkeit."],
+   ["Truhe","5 Gold",AG,"3","Fasst bis zu 20 Gewichtseinheiten. Hält 25 Schadenspunkte aus, Rüstungswert 5."],
+   ["Tonkrug","5 Silber",AG,"1","Enthält 1 Einheit Flüssigkeit."],
+   ["Satteltasche","6 Gold",AG,"—","Erhöht die Tragkraft eines Tieres um 2. Ein Tier kann nicht mehr als zwei Satteltaschen tragen."]]}},
+  {h:"Dienste", p:80, voll:1},
+  {tbl:{head:["Dienst","Preis","Verfügbarkeit","Wirkung"], rows:[
+   ["Bad im Gasthaus","6 Kupfer",AG,"Heilt einen Zustand deiner Wahl in einem Viertel. Nur ein Bad pro Tag hat diese Wirkung."],
+   ["Leibwächter","2 Gold/Tag",AU,"Werte wie ein typischer Wächter auf S. 105."],
+   ["Schüssel Eintopf","5 Kupfer",AG,"Deckt den täglichen Nahrungsbedarf."],
+   ["Kleiderreparatur","5 Silber",AG,"Beseitigt die Wirkung zerrissener Kleidung (S. 102)."],
+   ["Kurier","1 Silber/Kilometer",AG,"Überbringt dem Empfänger eine Nachricht."],
+   ["Festmahl","2 Gold",AU,"Deckt den täglichen Nahrungsbedarf."],
+   ["Kelch Wein","2 Silber",AU,"Hast du in einem Tagesabschnitt zwei Kelche getrunken, verursacht jeder weitere Kelch einen Zustand deiner Wahl."],
+   ["Haarschnitt","2 Silber",AG,"Heilt einen gewählten Zustand in einem Viertel. Nur einmal pro Woche möglich."],
+   ["Heilung","5 Gold",AU,"Würfe auf §Heilkunde§ gelingen automatisch."],
+   ["Unterkunft im Gasthaus, Einzelzimmer","5 Silber",AG,"Eine Lange Rast ist ohne Wurf auf §Wildniskunde§ möglich."],
+   ["Unterkunft im Gasthaus, Schlafsaal","1 Silber",AG,"Eine Lange Rast ist ohne Wurf auf §Wildniskunde§ möglich, aber würfle in jedem Tagesabschnitt W4. Bei einer 1 hindert jemandes Schnarchen alle anderen im Raum am Schlafen."],
+   ["Unterkunft im Gasthaus, Luxussuite","2 Gold",AU,"Eine Lange Rast ist ohne Wurf auf §Wildniskunde§ möglich."],
+   ["Mahlzeit im Gasthaus","3 Silber",AG,"Deckt den täglichen Nahrungsbedarf."],
+   ["Wegzoll","2 Kupfer",AG,"Erlaubt die Durchreise."],
+   ["Postkutsche","3 Kupfer/Kilometer",AG,"Beförderung zu einem bestimmten Ziel."],
+   ["Krug Met","4 Kupfer",AG,"Hast du in einem Tagesabschnitt drei Krüge getrunken, verursacht jeder weitere Krug einen Zustand deiner Wahl."],
+   ["Lehrer","5 Gold/Tagesabschnitt oder mehr",AU,"Ein Tagesabschnitt Unterricht gewährt einen zusätzlichen Steigerungswurf (S. 29)."]]}},
+  {h:"Reisemittel", p:81, voll:1},
+  {tbl:{head:["Fahrzeug","Preis","Verfügbarkeit","Wirkung"], rows:[
+   ["Kanu","6 Gold",AG,"Kann zwei Personen und 10 Gewichtseinheiten tragen."],
+   ["Karren","15 Gold",AG,"Wird von einem Pferd oder Esel gezogen. Kann zwei Personen und 50 Gewichtseinheiten tragen."],
+   ["Ruderboot","15 Gold",AG,"Kann vier Personen und 50 Gewichtseinheiten tragen."],
+   ["Segelboot","40 Gold",AU,"Kann sechs Personen und 100 Gewichtseinheiten tragen."],
+   ["Wagen","30 Gold",AG,"Wird von zwei Pferden oder Eseln gezogen. Kann vier Personen und 100 Gewichtseinheiten tragen."]]}},
+  {h:"Jagen & Fischen", p:81, voll:1},
+  {tbl:{head:["Gegenstand","Preis","Verfügbarkeit","Gewicht","Wirkung"], rows:[
+   ["Bärenfalle","3 Gold",AU,"1","Kann zur Jagd benutzt werden (S. 103)."],
+   ["Angelrute","8 Silber",AG,"1","Liefert beim Angeln W4 Rationen Essen (S. 103)."],
+   ["Fischernetz","2 Gold",AG,"2","Liefert beim Fischen W6 Rationen Essen (S. 103)."],
+   ["Schlinge","5 Kupfer",AG,"1","Kann zur Jagd benutzt werden (S. 103). Nur einmal verwendbar."]]}},
+  {h:"Tiere", p:81, voll:1},
+  {tbl:{head:["Tier","Preis","Verfügbarkeit","Anmerkung"], rows:[
+   ["Huhn","4 Silber",AG,"Liefert beim Schlachten eine Ration Essen. Das Fleisch sollte gekocht werden (S. 103)."],
+   ["Kampfgeübtes Pferd","400 Gold",AS,"Kann einen Reiter und 10 Gewichtseinheiten tragen oder zwei Reiter."],
+   ["Kuh","10 Gold",AU,"Liefert täglich W4 Rationen Essen (Milch) und beim Schlachten 2W10 Rationen Essen. Das Fleisch sollte gekocht werden (S. 103)."],
+   ["Esel","12 Gold",AG,"Kann 10 Gewichtseinheiten tragen. Kann nicht geritten werden."],
+   ["Wachhund","15 Gold",AG,"Beschützt seinen Besitzer. Werte siehe S. 99."],
+   ["Brieftaube im Käfig","2 Gold",AU,"Fliegt, wenn sie freigelassen wird, zu ihrem Taubenschlag zurück, wo auch immer sie ist."],
+   ["Schwein","2 Gold",AG,"Liefert beim Schlachten 2W6 Rationen Essen. Das Fleisch sollte gekocht werden (S. 103)."],
+   ["Reitpferd","60 Gold",AU,"Kann einen Reiter und 10 Gewichtseinheiten tragen oder zwei Reiter."],
+   ["Schaf","3 Gold",AG,"Liefert beim Schlachten 2W4 Rationen Essen. Das Fleisch sollte gekocht werden (S. 103)."]]}}
+ ]}
+);

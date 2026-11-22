@@ -21,7 +21,7 @@ ES.HALTE.mord = {id:"mord", name:"Mord am Straßenrand", s:180, bild:"es/h-mord"
 <li>Das Opfer wurde durch einen scharfen Schlag auf den Hinterkopf getötet, wahrscheinlich mit einer Axt. Die Leiche wurde zerstückelt, wahrscheinlich nach seinem Tod, und über die Straße verteilt. Die Leiche wurde von einem Lastwagenfahrer gemeldet, der die Polizeiwache in Bishop verständigte.</li>
 <li>Dies ist der dritte Mord rund um Liberty in den letzten zwei Monaten.</li>
 <li>Die Ermittlungen leitet Sheriff Toby „Old Toby“ Henderson.</li></ul>`},
-  {id:"lage", titel:"Die Lage", s:181,
+  {id:"lage", titel:"Die Lage", s:181, bild:"es/h-mord-amador",
    html:`<p>Der Hauptkonflikt bei diesem Halt besteht zwischen dem Sheriff <a class='nsc' data-n='toby'>Old Toby</a> und <a class='nsc' data-n='harney'>Lolly und Jack Harney</a>, denen das Amador Inn gehört, ein wichtiger Ort und Treffpunkt in Liberty. Er hängt mit der Mordserie in und bei der Stadt zusammen. Da die Harneys die prominentesten Einwohner der Stadt sind, glaubt Sheriff Toby, dass sie etwas über die Morde wissen, aber aus Angst, ihrem Geschäft zu schaden, nichts sagen wollen.</p>
 <p>Die Harneys ihrerseits glauben, dass Old Toby nicht der ist, der er vorgibt zu sein. Sie halten ihn für einen Mann namens Allan Brown, der hier in Liberty in seinen Zwanzigern seine Schwester ermordet hat. Lolly und Jack denken, dass Allan verkleidet aus dem Gefängnis in Los Angeles zurückgekehrt ist, um weiter zu töten. Dass der Sheriff sie schikaniert und für die Morde verantwortlich macht, seit sie ihren Verdacht mit anderen geteilt haben, ist für die Harneys Beweis genug.</p>
 <h3>Der Mörder</h3>

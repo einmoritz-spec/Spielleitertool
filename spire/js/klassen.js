@@ -169,3 +169,26 @@ SP_NACH_VIEW.extra = function(teile){
     ["niedrig", "mittel", "hoch"].forEach(function(g){ w.fort[g].forEach(function(a){ add(a.t, "Extra-Fortschritt " + KL_STUFE[g] + " · " + w.t, "nach/extra/" + w.id, a.p, [a.fl, a.x]); }); });
   });
 });
+
+/* ---------- Magister's Guide: Neue Systeme und Essays (MG S. 4–55) ---------- */
+function mgsBlk(L){
+  return (L || []).map(function(b){
+    if(b && b.t === "kk") return '<div class="kfs' + (b.n === 1 ? ' kfs-k' : '') + '">' + b.x.map(function(a){ return klKarte(a, "gm"); }).join("") + '</div>';
+    if(b && b.t === "h4") return '<h3 class="un mgs-h4">' + esc(b.x) + (b.p ? pgl(b.p, "gm") : "") + '</h3>';
+    if(b && b.t === "h3") return '<h3 class="un">' + esc(b.x) + (b.p ? pgl(b.p, "gm") : "") + '</h3>';
+    return blk([b]);
+  }).join("");
+}
+SP_NACH_VIEW.mg = function(teile){
+  var L = window.SP_MGS || []; nAnker("mg", teile, L[0] && L[0].id);
+  var gr = "", side = '<h5 onclick="scrollTo({top:0,behavior:\'smooth\'})">Magister\'s Guide</h5>';
+  L.forEach(function(k, i){ if(k.grp !== gr){ gr = k.grp; if(i) side += '<h5>' + esc(gr) + '</h5>'; } side += nLink({id:k.id, t:k.t}, i); });
+  var body = '<div class="kp mgv"><h1 class="titel">Magister\'s Guide' + pgl(4, "gm") + '</h1>' + L.map(function(k){
+    return '<section id="ab-' + k.id + '"><h2 class="ab">' + esc(k.t) + pgl(k.p, "gm") + '</h2>' + mgsBlk(k.b) + '</section>';
+  }).join("") + '</div>';
+  var A = SP_NACH_ANKER.mg; SP_NACH_ANKER.mg = null; if(A) ST_ANKER = A;
+  return nachTabs("mg") + lay(side, '<div class="dbody" data-pgbook="sp_gm">' + body + '</div>');
+};
+(window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
+  (window.SP_MGS || []).forEach(function(k){ add(k.t, "Magister's Guide · " + k.grp, "nach/mg/" + k.id, k.p, [k.b], "gm"); });
+});

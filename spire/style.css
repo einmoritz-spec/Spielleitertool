@@ -866,3 +866,7 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .kl-nuetz ul.pkt{columns:2;column-gap:36px;margin:6px 0 0;padding-left:18px}
 .kl-nuetz li{break-inside:avoid;margin:0 0 .4em;font-size:15.5px}
 .kl-geg{align-items:start}
+/* Magister's Guide: Neue Systeme und Essays */
+.mgs-h4{font-size:15px;letter-spacing:.06em;color:var(--violett);margin:14px 0 4px}
+.kfs-k .kf{flex-basis:calc(20% - 10px);min-width:190px}
+.kfs-k .kf ul.pkt{margin:4px 0 0;padding-left:16px;font-size:14.5px}

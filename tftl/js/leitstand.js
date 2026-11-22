@@ -2,7 +2,18 @@
 (function(){
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
   function loop(){ var l = "maelar"; try{ l = localStorage.getItem("tftl_loop") || l; }catch(e){} return l; }
-  function nm(h){ var b = loop() === "boulder"; return h.replace(/\{\{([^|}]*)\|([^}]*)\}\}/g, function(m, a, c){ return b ? c : a; }); }
+  var CUR = null, NOLINK = 0, STOP = /^(Herr|Herrn|Frau|Fräulein|Dr|Doktor|Prof|Professor|Die|Der|Das|Den|Dem|Des|Ein|Eine|Und|Von|Vom|Zum|Zur|Mit|Bei|Kind|Kinder|Agent|Agenten|Hund|Mann|Lehrer|Lehrerin|Polizist|Polizistin)$/;
+  function cands(M){ var out = [], all = Object.keys(M.nsc || {}), b = loop() === "boulder", cnt = {};
+    all.forEach(function(k){ var n = M.nsc[k], nmx = (b && n.alt) ? n.alt : n.name; nmx = String(nmx).replace(/\{\{([^|}]*)\|([^}]*)\}\}/g, function(m, a, c){ return b ? c : a; }); n._n = nmx; nmx.split(/[\s,]+/).forEach(function(t){ if(t.length >= 4 && /^[A-ZÄÖÜ]/.test(t) && !STOP.test(t)){ cnt[t] = (cnt[t] || 0) + 1; } }); });
+    all.forEach(function(k){ var n = M.nsc[k]; if(!n._n) return; var list = [n._n]; n._n.split(/[\s,]+/).forEach(function(t){ if(t.length >= 4 && /^[A-ZÄÖÜ]/.test(t) && !STOP.test(t) && cnt[t] === 1 && list.indexOf(t) < 0) list.push(t); }); list.forEach(function(t){ out.push([t, k]); }); });
+    return out.sort(function(a, c){ return c[0].length - a[0].length; }); }
+  function linkNsc(h){ if(!CUR || !CUR.nsc || NOLINK) return h; var cs = cands(CUR), done = {};
+    if(!cs.length) return h; var inA = 0, inH = 0;
+    return h.split(/(<[^>]+>)/).map(function(seg){ if(seg.charAt(0) === "<"){ if(/^<a[\s>]/i.test(seg)) inA++; else if(/^<\/a>/i.test(seg)) inA = Math.max(0, inA - 1); else if(/^<h[1-6][\s>]/i.test(seg)) inH++; else if(/^<\/h[1-6]>/i.test(seg)) inH = Math.max(0, inH - 1); return seg; }
+      if(inA || inH) return seg;
+      cs.forEach(function(c){ if(done[c[1]]) return; var re = new RegExp("(^|[^A-Za-zÄÖÜäöüß])(" + c[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")(?![A-Za-zÄÖÜäöüß])"); if(re.test(seg) && seg.indexOf('class="nsc"') < 0){ seg = seg.replace(re, function(m, pre, t){ return pre + '<a class="nsc" data-n="' + c[1] + '">' + t + '</a>'; }); done[c[1]] = 1; } });
+      return seg; }).join(""); }
+  function nm(h){ var b = loop() === "boulder"; h = h.replace(/\{\{([^|}]*)\|([^}]*)\}\}/g, function(m, a, c){ return b ? c : a; }); return linkNsc(h); }
   function load(id){ try{ return JSON.parse(localStorage.getItem("tftl_st_" + id) || "{}"); }catch(e){ return {}; } }
   function save(id, s){ try{ localStorage.setItem("tftl_st_" + id, JSON.stringify(s)); }catch(e){} }
   function pg(book, s){ return '<a class="pgl" data-b="' + book + '" data-s="' + s + '">S. ' + s + '</a>'; }
@@ -43,7 +54,7 @@
   function hinweis(key, html, S){ return '<div class="cl' + ((S.hw || {})[key] ? ' dn' : '') + '" data-k="' + key + '"><b>Hinweis</b>' + nm(html) + '</div>'; }
   function fig(b, M){ return '<figure class="fig"><img src="img/' + b.plan + '.webp" alt="' + esc(b.planTitel) + '" data-big="img/' + b.plan + '.webp"><figcaption>' + esc(b.planTitel) + ' · ' + pg(M.buch, b.planS) + '</figcaption></figure>'; }
   function figs(a, M){ var r = ""; (a.bilder || []).forEach(function(b){ var bl = b.loop || (/maelar/.test(b.b) ? "maelar" : /boulder|lakemead/.test(b.b) ? "boulder" : ""); if(bl && bl !== (loop() === "boulder" ? "boulder" : "maelar")) return; r += '<figure class="fig' + (b.klein ? ' small' : '') + '"><img src="img/' + b.b + '.webp" alt="' + esc(b.t || "") + '" loading="lazy" data-big="img/' + b.b + '.webp">' + (b.t || b.s ? '<figcaption>' + esc(b.t || "") + (b.t && b.s ? ' · ' : '') + (b.s ? pg(M.buch, b.s) : '') + '</figcaption>' : '') + '</figure>'; }); return r ? '<div class="figs">' + r + '</div>' : r; }
-  function nscCard(M, k){ var n = M.nsc[k]; return '<article class="nscc"><h3>' + esc(n.name) + ' <small>' + (loop() === "boulder" ? "" : "") + '</small></h3><p class="zit">' + n.zitat + '</p>' + nm(n.html) + '<div class="pgr">' + pg(M.buch, n.s) + '</div></article>'; }
+  function nscCard(M, k){ var n = M.nsc[k]; NOLINK++; try{ return '<article class="nscc"><h3>' + esc(n.name) + ' <small>' + (loop() === "boulder" ? "" : "") + '</small></h3><p class="zit">' + n.zitat + '</p>' + nm(n.html) + '<div class="pgr">' + pg(M.buch, n.s) + '</div></article>'; }finally{ NOLINK--; } }
   function nscName(M, k){ var n = M.nsc[k]; return loop() === "boulder" ? n.alt : n.name; }
 
   function section(M, a, S){
@@ -64,7 +75,7 @@
   }
 
   window.renderLeitstand = function(app, tabs, rest){
-    var M = window.MYS && window.MYS[rest[0]];
+    var M = window.MYS && window.MYS[rest[0]]; CUR = M || null;
     if(!M){ tabs.innerHTML = ""; app.className = "page"; app.innerHTML = '<h1>Mysterium nicht gefunden</h1>'; return; }
     var S = load(M.id);
     var phase = rest[1] || S.phase || M.phasen[0].id;

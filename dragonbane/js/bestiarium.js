@@ -7,8 +7,8 @@ function tpSet(id, d){
   render();
 }
 function beKurz(m){
-  if(m.npc) return m.typen.map(function(t){ return t.n; }).join(" · ");
-  return 'Grimmigkeit ' + esc(m.gr) + ' · ' + esc(m.gs) + ' · TP ' + esc(m.tp);
+  if(m.npc) return '<span>' + m.typen.map(function(t){ return esc(t.n); }).join(" · ") + '</span><span>NSC</span>';
+  return '<span>Grimmigkeit ' + esc(m.gr.replace("/Harpyie", "")) + ' · ' + esc(m.gs) + '</span><span>' + esc(m.tp.replace("/Harpyie", " je Harpyie")) + ' TP</span>';
 }
 function beKopf(titel, p, aktiv){
   var l = [["be", "Monster"], ["be/imspiel", "Monster im Spiel"], ["be/tiere", "Gewöhnliche Tiere"]];
@@ -16,8 +16,8 @@ function beKopf(titel, p, aktiv){
 }
 function beUebersicht(){
   return beKopf("Bestiarium", 82, "be") + '<div class="mk">' + DB_MON.map(function(m){
-    return '<a class="mt" href="#n/be/' + m.id + '"><div class="mi vig"><img src="img/monster/' + m.img + '.webp" alt="" loading="lazy"></div>' +
-      '<div class="mn">' + esc(m.t) + pgl(m.p) + '</div><div class="ms">' + beKurz(m) + '</div></a>';
+    return '<a class="mt" href="#n/be/' + m.id + '"><div class="mi"><img src="img/monster/' + m.img + '.webp" alt="" loading="lazy"></div>' +
+      '<div class="mn">' + esc(m.t) + '</div><div class="ms">' + beKurz(m) + '</div></a>';
   }).join("") + '</div>';
 }
 function beWerte(m){
@@ -35,14 +35,15 @@ function beSeite(m){
   var rechts;
   if(m.npc){
     rechts = '<div class="band">Typen</div><div class="tg">' + m.typen.map(function(t){
-      return '<div class="karte nsc"><h3>' + esc(t.n) + '</h3><dl>' + t.r.map(function(r){ return '<dt>' + md(r[0]) + '</dt><dd>' + md(r[1]) + '</dd>'; }).join("") + '</dl></div>'; }).join("") + '</div>' +
+      return '<div class="karte ty"><h3>' + esc(t.n) + '</h3><div class="tw">' + t.r.filter(function(r){ return r[1].length <= 8; }).map(function(r){ return '<span><i>' + md(r[0]) + '</i>' + md(r[1]) + '</span>'; }).join("") + '</div>' +
+        t.r.filter(function(r){ return r[1].length > 8; }).map(function(r){ return '<div class="tl"><i>' + md(r[0]) + '</i>' + md(r[1]) + '</div>'; }).join("") + '</div>'; }).join("") + '</div>' +
       '<div class="so3">' + m.sonder.map(function(s){ return '<div class="so"><b>' + md(s[0]) + ':</b> ' + md(s[1]) + '</div>'; }).join("") + '</div>';
   } else {
     var lb = m.attw || ["1", "2", "3", "4", "5", "6"];
     rechts = '<div class="band">Monsterangriffe</div>' + ntbl({id: "mon_" + m.id, head: ["W6", "Angriff"], rows: m.att.map(function(a, k){ return [lb[k], a]; })});
   }
   return beKopf(m.t, m.p, "") .replace('<span class="bl">', '<span class="bl" style="display:none">') +
-    '<div class="mp' + (m.npc ? ' npc' : '') + '"><div class="ml"><div class="mb vig"><img src="img/monster/' + m.img + '.webp" alt=""></div>' + beWerte(m) + '</div>' +
+    '<div class="mp' + (m.npc ? ' npc' : '') + '"><div class="ml"><div class="mb"><img src="img/monster/' + m.img + '.webp" alt=""></div>' + beWerte(m) + '</div>' +
     '<div class="mr"><div class="mtx">' + tx + '</div>' + rechts + '</div></div>' +
     '<div class="fuss"><div class="fz">' + (pv ? '<a class="pv" href="#n/be/' + pv.id + '">‹ ' + esc(pv.t) + '</a>' : '<a class="pv" href="#n/be">‹ Alle Monster</a>') + '<div class="em">7</div>' + (nx ? '<a class="nx" href="#n/be/' + nx.id + '">' + esc(nx.t) + ' ›</a>' : '<a class="nx" href="#n/be/tiere">Gewöhnliche Tiere ›</a>') + '</div></div>';
 }

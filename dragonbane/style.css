@@ -350,3 +350,56 @@ table.w6 tr{cursor:pointer}
 .karte .zl.drei span{white-space:nowrap}
 .vig{-webkit-mask-image:radial-gradient(ellipse 68% 70% at 50% 50%,#000 52%,transparent 97%);mask-image:radial-gradient(ellipse 68% 70% at 50% 50%,#000 52%,transparent 97%)}
 .rechts .nkb{width:64px}
+
+/* ---------- Nachschlagen ---------- */
+.lay{display:grid;grid-template-columns:236px minmax(0,1fr);gap:0 30px;padding:10px var(--rand) 40px;position:relative}
+.lay.fold-on{grid-template-columns:0 minmax(0,1fr);gap:0}
+.lay.fold-on .side{display:none}
+.side{position:sticky;top:10px;align-self:start;max-height:calc(100vh - 20px);overflow:auto;padding-right:6px}
+.side a{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:9px 12px 9px 26px;font:14px/1.2 var(--f-kopf);letter-spacing:.06em;color:var(--jade-d);position:relative;border-bottom:1px solid rgba(75,45,27,.15)}
+.side a i{font:italic 12px var(--f-kursiv);color:var(--braun);opacity:.7;white-space:nowrap}
+.side a:hover{color:var(--jade)}
+.side a.on{color:var(--jade);font-weight:normal}
+.side a.on::before{content:"";position:absolute;left:0;top:50%;width:22px;height:20px;transform:translateY(-50%);background:url(img/orn/knoten-l.png) center/contain no-repeat}
+.lay .fold{position:absolute;left:calc(var(--rand) + 214px);top:2px;z-index:3;width:22px;height:22px;border:0;background:none;color:var(--jade-d);font:20px/1 var(--f-sans);cursor:pointer}
+.lay.fold-on .fold{left:calc(var(--rand) - 24px)}
+.ct{min-width:0}
+.kopf{text-align:center;margin:4px 0 22px}
+.kopf h1{font:normal 40px/1.1 var(--f-kopf);color:var(--jade-d);margin:0;display:inline}
+.kopf .pg{margin-left:10px}
+.leer{text-align:center;padding:60px;font:italic 18px var(--f-kursiv);color:var(--braun)}
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:28px 30px;align-items:start}
+.gr .voll{grid-column:1/-1}
+.gr .ab,.gr .zelle{font:17px/1.5 var(--f-text);color:var(--braun)}
+.gr .zelle{padding-top:30px}
+.gr .ab p{margin:0 0 9px}
+.gr .ab h3.uh,.karte .name{font:15px/1.2 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--jade-d);margin:0 0 8px}
+.karte.nkk .name{text-align:center;color:var(--braun)}
+.gr .ab ol{margin:0 0 9px 22px}
+.gr .karte{font:16px/1.45 var(--f-text);margin-top:12px}
+table.w6.kv td:first-child{width:auto;text-align:left;font-family:var(--f-kopf)}
+.vorlesen.zit{font:italic 17px/1.55 var(--f-kursiv)}
+.vorlesen.zit p{margin:0 0 10px}
+.vorlesen .qu{text-align:right;font:13px var(--f-kopf);letter-spacing:.06em;color:var(--braun)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px 22px;align-items:start}
+.zu.nk{display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer}
+.zu.nk .mt{font:11px var(--f-kopf);letter-spacing:.08em;opacity:.8}
+.nkc{grid-column:span 2;margin-top:6px}
+.nkc .zl{font:14px var(--f-sans)}
+.nkc .nt p{margin:6px 0}
+.fuss{margin:44px 0 0;text-align:center}
+.fuss .fz{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(75,45,27,.3);padding-top:14px}
+.fuss .em{font:13px var(--f-kopf);letter-spacing:.18em;text-transform:uppercase;color:var(--jade-d)}
+.fuss a{font:14px var(--f-kopf);letter-spacing:.08em;color:var(--jade-d)}
+@media (max-width:1000px){.lay{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;max-height:none}.side a{white-space:nowrap}.lay .fold{display:none}.nkc{grid-column:auto}}
+.kgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px 24px}
+.nkc{grid-column:auto;margin-top:22px;padding:30px 18px 24px;font-size:15px}
+.nkc .band{transform:translateX(-50%) scale(.8);transform-origin:center bottom}
+.nkc .nt{font:15px/1.42 var(--f-text)}
+.gr .ab.voll{max-width:none}
+.kgrid{align-items:stretch}.nkc{display:flex;flex-direction:column}
+.lay.fold-on{display:block}
+.karte table.w6{width:100%;margin:8px 0 2px;font-size:14px}
+.karte table.w6 td,.karte table.w6 th{padding:5px 6px}
+.karte table.w6 td:first-child{width:auto;text-align:left;font-family:var(--f-kopf)}
+.karte.nkk{min-width:0;overflow:visible}

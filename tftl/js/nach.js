@@ -11,7 +11,7 @@
   function typen(app){
     app.className = "page nach";
     app.innerHTML = '<div class="nh"><h1>Die Typen</h1><small>Kap. 4 · ' + pg(49) + '</small></div><div class="tgrid">' + window.TYPEN.map(function(t){
-      return '<div class="ty" data-t="' + t.id + '"><img src="img/' + t.bild + '.webp" alt=""><div><h3>' + esc(t.name) + '</h3><small>' + pg(t.s) + '</small>' +
+      return '<div class="ty" data-t="' + t.id + '"><img src="img/' + t.bild + '.webp" alt=""><div><h3>' + esc(t.name) + ' <small>' + pg(t.s) + '</small></h3>' +
         '<h5>Schlüsselfertigkeiten</h5><div>' + chips(t.key) + '</div><h5>Typischer Gegenstand</h5><p>' + nm(t.items.join(" · ")) + '</p></div></div>';
     }).join("") + '</div>';
   }

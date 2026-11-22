@@ -296,3 +296,4 @@ details.lk[open] summary{display:none}
 .tgrid,.nbg{grid-template-columns:repeat(4,minmax(0,1fr))}
 .page.nach.nl .tgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.page.nach.nl.nsc .tgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .ty img{width:96px}
+.ty h3 small{font:700 12px var(--sans);color:var(--soft);margin-left:4px;text-transform:none}

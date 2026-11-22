@@ -1,0 +1,297 @@
+
+
+<!-- S. 141 (PDF 146) -->
+
+## 141
+# THE FORGOTTEN {farbe=#194d71}
+*Von Laurence Phillips*
+**Inhaltswarnungen:** Ableismus, erzwungene Operationen und Body-Horror.
+## ÜBERBLICK {farbe=#981a3f}
+[Lies den folgenden Abschnitt deinen Spielern laut vor oder gib ihn sinngemäß wieder, um sie über die Ereignisse rund um die Kampagne auf den neuesten Stand zu bringen.]
+Der Pilgerweg ist ein einträglicher Ort für alle, die bereit sind, sich die Hände schmutzig zu machen, und im Spire ist das keine kurze Liste.
+Kultisten, Quacksalber, Schmuggler und Betrüger drängeln sich in verwinkelten Gängen, die nach Kerzentalg, faulendem Weihrauch und allerlei Unrat stinken. Die Kranken, Behinderten und Armen werden gnadenlos ausgebeutet und von Scharlatan zu Hochstapler zu unaufrichtigem Menschenfreund weitergereicht. Echtes Mitgefühl ist eine Seltenheit und wird oft ausgenutzt, wenn es doch einmal auftaucht.
+Während den meisten diese Not gleichgültig ist, gibt es Einzelne, die Mitgefühl für jene empfinden, die die Gesellschaft vergisst. Einer von ihnen ist Jarome Patallion, ein Kleriker unserer Glorreichen Herrin und heimliches Mitglied des Ministeriums unserer Verborgenen Herrin.
+Patallions Elternhaus im Gewirr des Pilgerwegs dient als Zuflucht für jene, die die Gesellschaft für Freaks und Irre hält. Manche kommen einmal die Woche auf ein Gespräch und eine warme Mahlzeit vorbei; andere leben langfristig bei Patallion und helfen ihm bei seiner Arbeit (der rechtmäßigen wie der anderen).
+Anderswo ist ein neuer Kult, der Orden der Seligen Säfte [[Order of Beatified Humours]], zu großer Bedeutung aufgestiegen, indem er verspricht, jedem leidgeprüften Pilger durch geheime Riten und Rituale seine Gebrechen zu nehmen. Obwohl seine Praktiken zu wirken scheinen, sind jene, die seine Hallen betreten, hinterher nie mehr ganz dieselben. Seine Fürsprecher sind erbittert loyal und werden von Tag zu Tag mehr.
+Der Fressrausch des hinterhältigen Profits hat einen Höchststand erreicht, steht aber auf wackligem Grund: Die Stadtwache scheint ein gewaltiges Durchgreifen im ganzen Distrikt vorzubereiten. Wachen, die früher mit rostigen Klingen und geflicktem Lederharnisch auftraten, erscheinen nun zu ihren Schichten mit blitzenden Hellebarden, gut geölten Kettenhemden und wilden Hunden. Bekannte Anführer der Unterwelt rücken zusammen und schließen Abkommen, um sich auf einen heranziehenden Sturm gefasst zu machen.
+Inmitten dieser Ungewissheit regt sich das Ministerium. Jede Nacht tauchen brutal zugerichtete Leichen von Wachen auf, Nachschublieferungen verschwinden auf rätselhafte Weise, und in den Ecken so mancher übel beleumundeten Taverne werden Gespräche im Halbdunkel geführt.
+Ein Sturm zieht auf, und der Pilgerweg wird ihn nicht unversehrt überstehen.
+[Hör auf, laut zu lesen!]
+## WAS WIRKLICH VOR SICH GEHT {farbe=#981a3f}
+Zu Beginn der Geschichte wird Jarome Patallion entführt und seine Zuflucht bis auf die Grundmauern niedergebrannt. Seine Entführung ist Teil eines Geflechts aus Bündnissen und Verrat.
+Patallion war ein fähiger und angesehener Minister in einer der halben Dutzend Zellen des Pilgerwegs, mit besonderem Geschick in logistischer Planung und Führung. Auch wenn manche ihn für zu weichherzig hielten, waren seine Fähigkeiten so groß, dass man ihn zum Magister aufbauen wollte. Tatsächlich war er nur noch wenige Tage davon entfernt, die Stellung zu übernehmen, als die Wachen ihn ergriffen.
+Sein direkter Vorgesetzter, die grimmige Ex-Soldatin Maren Verser, sollte gerade zum Exarch befördert werden. Patallion galt trotz seiner seltsamen Zuneigung zu „Freaks“ als natürlicher Nachfolger, bis Verser ihn in eine bevorstehende Operation einweihte.
+Bei einem der größten Sabotageakte, die je in der Gegend unternommen wurden, sollen mehrere ausgeklügelte Rituale die örtliche Stadtwache lahmlegen und schließlich zu einer faktischen Übernahme der Institution führen, die das Ministerium zum verborgenen Puppenspieler des Pilgerwegs macht. Der Haken: Die Rituale erfordern eine große Zahl entbehrlicher Körper – Körper, die Verser aus Patallions Zuflucht beziehen wollte, einer wahren Schatzkammer vergessener Identitäten.
+
+<!-- S. 142 (PDF 147) -->
+
+## 142
+Patallions Proteste stießen auf taube Ohren, und so traf er in einem letzten verzweifelten Schritt eine Vereinbarung mit den Aelfir. Er würde ihnen Informationen über die Operationen und Zellen des Ministeriums liefern. Im Gegenzug sollten die Bewohner der Zuflucht in eine angesehene Einrichtung in der Oberstadt verlegt werden.
+Patallion hatte nie vor, seinen Teil der Abmachung einzuhalten, und wollte seinen Aelfir-Kontakten wertlose Fehlinformationen und unbelegte Gerüchte zuspielen ... aber die Aelfir hatten es ebenso wenig vor.
+Anstatt sich von einem bekannten Mitstreiter des Ministeriums hinhalten zu lassen, entschieden sie sich für den direkteren Weg: Sie entführten ihn aus seiner geliebten Zuflucht, brannten sie nieder und überließen jene, die auf sie angewiesen sind, dem Hungertod in der Gosse. Hauptmann Atem-auf-Silber [[Breath-on-Silver]] von der Wache hält Patallion zum Verhör fest. Er kooperiert zwar ganz gewiss nicht, doch ein sterblicher Körper kann bestimmten Bedingungen nur eine begrenzte Zeit standhalten.
+Maren Verser kennt die Einzelheiten von Patallions Abmachung mit der Wache nicht, hegt aber einen Verdacht; ihr Wunsch, den verlorenen Kleriker wieder einzufangen, speist sich kaum aus Mitgefühl und Kameradschaft. Ganz gleich, ob sich ihr Verdacht bestätigt: Dem Ministerium wäre weit besser gedient, wenn Patallion für immer beseitigt würde.
+Die Stadtwache hat ihre eigenen Pläne. Schon vor der jüngsten Verschärfung der Sicherheit auf den Straßen waren Agenten der Wache in der Unterwelt des Pilgerwegs unterwegs. Ein Durchgreifen steht bevor, und hinter verschlossenen Türen werden Abkommen geschlossen. Die widerspenstigeren Kultgruppen, Verbrecherorganisationen und Banden sollen niedergebrannt, ihre Mitglieder zusammengetrieben und eingesperrt werden.
+Wer kooperiert und bei der Unterdrückung des Pilgerwegs hilft, darf sich eine eigene Ecke des Weges nach Belieben beschmutzen, solange er die Wache nicht noch einmal hintergeht. Während manche durchaus zufrieden damit sind, in einem Käfig zu leben, machen sich viele Organisationen bereit zurückzuschlagen. Das Ministerium nutzt diesen neuen Rebellengeist in vollem Umfang aus.
+## HINWEISE ZUM SPIELEN {farbe=#194d71}
+## BEHINDERTE FIGUREN {farbe=#194d71}
+*The Forgotten* bittet die Spielenden, sich in die Lage einer Gruppe behinderter Figuren zu versetzen. Die Absicht ist, das Spire-Rollenspiel, das Themen wie rassische und politische Unterdrückung ohnehin so gut auslotet, zu nutzen, um die Frustration zu vermitteln, behindert zu sein und in einer Gesellschaft zu leben, die deine Existenz nicht duldet.
+Vor diesem Hintergrund hier eine kurze Liste mit Tipps, wie sich behinderte Figuren einfühlsam darstellen lassen, entstanden mit Hilfe der Rollenspiel-Community behinderter Menschen.
+• Behinderte Figuren sind zuerst Figuren, dann behindert. Auch wenn eine Behinderung das Leben und die Persönlichkeit stark prägt, sind behinderte Menschen keine wandelnden Diagnosen. Sie sind vielschichtige Menschen mit ihrer eigenen Art, an Leben, Not und Vorurteile heranzugehen.
+• Vermittle Gefühle; mach keine Imitationen. Das ist besonders wichtig, wenn du eine kognitiv behinderte Figur spielst. Statt nachzuahmen, wie ein autistischer Mensch klingen könnte, vermittle lieber die zutiefst menschlichen Gefühle. Zum Beispiel: „Mein Charakter versucht zu erklären, wie er sich dabei fühlt, findet es aber schwierig und wirkt aufgewühlt.“
+• Behinderte Menschen sind nicht hilflos. Trotz ihrer Einschränkungen sind behinderte Menschen immer noch Menschen, und Menschen sind einfallsreich. Statt dich an eine andere Figur um Hilfe zu wenden, überlege, wie ein behinderter Mensch ein Problem selbst umgehen könnte.
+• Such nicht nach einfachen Lösungen. Während du in manchen Rollenspielen vielleicht eine Prothesenhand herbeizaubern oder einen Trank gegen den Wahnsinn trinken kannst, widerspricht das dem Geist von Spire wie auch von The Forgotten. Versuche nicht, deine Figuren zu „heilen“; versetze dich stattdessen in ihre Lage und erlebe ihre Kämpfe.
+• Lenk den Humor in die richtige Richtung. Viele behinderte Menschen entwickeln einen Sinn für Humor, was ihre Schwierigkeiten betrifft, daher ist es durchaus vernünftig, dass deine Figuren das ebenfalls tun. Dennoch gilt: lieber vorsichtig sein. Wenn du dir nicht sicher bist, ob ein Witz sich über tatsächlich behinderte Menschen lustig macht, lass ihn weg. Richte den Humor gegen die Ignoranten und Urteilenden, nicht gegen die Ausgegrenzten.
+## BEHINDERUNG IM SPIRE {farbe=#981a3f}
+Der Spire bietet den Versehrten, den Abnormen und den Abartigen kaum ein Sicherheitsnetz. Für jene, die das Glück haben, in Reichtum und Macht hineingeboren zu werden, können Menschen mit ungewöhnlichen Leiden zu einer geduldeten Peinlichkeit werden: eine unerwünschte Wahrheit, versteckt in Hinterzimmern fernab der Blicke wohlhabender Gäste oder in überaus teure (und überaus unterschlagene) Einrichtungen abgeschoben.
+Für die Armen des Spire wäre ein solches Dasein ein Luxus. Wenn sie das Erwachsenenalter erreichen, ist das Dasein körperlich und geistig Behinderter öfter als nicht
+
+<!-- S. 143 (PDF 148) -->
+
+## 143
+ein langsames Abgleiten in Elend, Armut und ein kaltes, unbemerktes Ende in den Gossen überfüllter Straßen.
+Patallions Zuflucht ist ein äußerst seltener Ort. Wer sie nicht bereits kennt, wird sie seltsam finden, und die Spielerfiguren werden aus vielen Richtungen wahrscheinlich auf Vorurteile, Angst und Gefühllosigkeit stoßen. Selbst jene, die Mitgefühl haben, wissen oft nicht, was Behinderung ist und was sie verursacht, was zu frustrierenden Gesprächen führt. Das darzustellen ist für die Spielleitung wichtig, aber es sollten auch freundliche NSC auftreten, um die bedrückende Atmosphäre aufzulockern.
+Diese Geschichte handelt ausdrücklich von der empfundenen Entbehrlichkeit der Behinderten, doch achte darauf, sie innerhalb dessen zu halten, womit deine Spielenden sich wohlfühlen. Sie sollten sich herausgefordert fühlen, aber nicht aktiv unwohl oder angegriffen.
+## BEHINDERTE FIGUREN {farbe=#194d71}
+Die Auswirkungen der Behinderung auf die Spielerfiguren werden durch einen nicht entfernbaren Fallout-Zustand dargestellt:
+**Behindert:** Deine Figur hat eine bestehende Behinderung. Beschreibe, welche Situationen dadurch erschwert werden (z. B. Kraftakte, das Vermitteln von Gedanken oder Gefühlen, das Aufrechterhalten der Konzentration). In diesen Situationen erhöhst du die Schwierigkeit von Aktionen um 1.
+Du kannst deine Behinderung überwinden und die zusätzliche Schwierigkeit für die Dauer einer Szene aufheben, indem du W3 Stress bei einem passenden Widerstand markierst. Solange die Spielerin oder der Spieler im Spiel begründen kann, welchen Widerstand sie oder er zur Überwindung der Schwierigkeiten einsetzt, erlaube es.
+Zum Beispiel könnte eine Figur mit einem chronischen Schmerzsyndrom verpflichtet sein, in sehr kurzer Zeit quer durch den Distrikt zu reisen, womit sie zu kämpfen hat. Die Spielerin oder der Spieler könnte W3 Stress bei Verstand markieren (um darzustellen, dass die Figur sich durch den Schmerz kämpft) oder bei Silber (um darzustellen, dass die Figur eine teure Privatkutsche heranwinkt, die sie hinbringt).
+Denk daran, dass behinderte Figuren nicht hilflos sind, aber vielleicht zusätzliche Mühe aufwenden müssen, um bestimmte Aufgaben zu bewältigen.
+## NICHT-DROW-FIGUREN {farbe=#194d71}
+Obwohl die meisten von Patallions Gästen Drow waren, findet sich Behinderung in allen Völkern und Kulturen. Der gütige Kleriker nahm Drow, Menschen und sogar den einen oder anderen Aelfir auf. Manche der bestehenden Spire-Klassen brauchen Rollenspielhinweise, um sie an menschliche und Aelfir-SC anzupassen, während andere ganz vermieden werden sollten. Daher hier einige knappe Tipps zum Erschaffen und Spielen von Nicht-Drow-Figuren:
+### MENSCHEN
+Obwohl technologisch fortgeschritten, haben Menschen kaum Anstrengungen unternommen, ihr Wissen zu nutzen, um das Leben der Behinderten zu verbessern. Deshalb zieren viele behinderte Menschen die Gossen des Pilgerwegs. Menschen im Distrikt haben es womöglich schwer, viele einladende Kulte zu finden, da die meisten gezielt auf Drow zugeschnitten sind, doch sie werden kaum auf mehr als milde Neugier oder distanziertes Desinteresse stoßen.
+• Azurite – Menschen haben ihre eigenen Handelsgötter. Während eine menschliche Figur ähnlich funktioniert wie die Drow-Version, wird sie ihrer eigenen gierigen Gottheit ergeben sein. Echte Azurites werden sie wohl für eine oberflächliche Nachahmung halten.
+• Bound – Zwar gibt es eine Handvoll Menschen in Perch, doch ein menschlicher Bound ist eher ein Selbstjustizler aus einer verarmten Stadt in seinen eigenen Landen, der die Philosophie der kleinen Götter angenommen hat, seit er im Spire ist.
+• Carrion-Priest – Unter den Anhängern von Charnel wirst du kaum Menschen finden. Menschliche Carrion-Priests würden im besten Fall gemieden, im schlimmsten verfolgt.
+• Firebrand – Trotz ihres kurzen Lebens sind Menschen ein unbeständiges Volk. Aufwiegelei ist in den Reichen der Menschen gang und gäbe; tatsächlich ist es ein ruhiges politisches Jahr, wenn es nicht mindestens einen Putschversuch gibt.
+• Idol – Als Fenster in fremde Kulturen steigen und fallen Menschen in der Gesellschaftsordnung der Spire-Idols. Meist gelten sie jedoch eher als vorübergehende Kuriosität denn als kultureller Maßstab.
+• Knight – Menschliche Knights gehören kaum zu den rauen und bodenständigen Norddocks des Spire, aber seien wir ehrlich: Alle Knights, ob Mensch oder Drow, sind im Grunde Schlägerbanden.
+• Lajhan – Es ist äußerst unwahrscheinlich, dass jemand den Mantel eines Lajhan übernehmen dürfte, ohne dass es sofort Folgen hätte.
+• Masked – Menschen leisten im Spire keine Dienstzeit, wurden aber schon vom einen oder anderen exzentrischen Aelfir-Herrn angestellt.
+• Midwife – Der Orden der Midwives würde eher einen Gnoll in seinen Dienst ziehen als einen Menschen. Sie haben kein Verständnis für das große Netz, das die Drow verbindet.
+• Vermissian Sage – Da das Vermissian hauptsächlich ein Projekt menschlicher Ingenieure war, ist es überhaupt nicht schwer,
+
+<!-- S. 144 (PDF 149) -->
+
+## 144
+Menschen zu finden, die das große gescheiterte Netzwerk studieren.
+### AELFIR
+Die Haltungen der Aelfir gegenüber Behinderung sind höchst unterschiedlich. Manche haben eine fast fetischhafte Faszination für Behinderte und behandeln sie wie unterhaltsame Jahrmarktsattraktionen oder stattliche Zierstücke. Andere zählen sie als Zeichen von Schwäche und Schande.
+Behinderte Aelfir aus wohlhabenden Familien werden womöglich vor der feinen Gesellschaft versteckt und in prunkvollen Schlafzimmern eingesperrt. Jene aus weniger gut gestellten Verhältnissen werden vielleicht als Kuriositäten verkauft, in unterfinanzierte Irrenhäuser abgeschoben oder einfach auf die Straße geworfen und dem Hungertod überlassen.
+Die in Ungnade gefallenen Aelfir, die man im Pilgerweg antrifft, werden, wenn überhaupt, noch stärker verfolgt als die Drow. Von den Drow-Bewohnern wie von der Aelfir-Stadtwache wie Abschaum behandelt, gibt es nur wenige Orte, an denen ein behinderter Aelfir im Pilgerweg willkommen geheißen wird.
+• Azurite – Wie Menschen haben auch Aelfir ihre eigenen Handelsgötter. Echte Azurites werden die Aelfir-Versionen ihrer Praktiken verabscheuen.
+• Bound – Ein Aelfir mag sich als Selbstjustizler in Perch durchschlagen können, würde aber vermutlich ein grausiges Ende finden, wenn seine Identität entdeckt würde.
+• Carrion-Priest – Ein in Ungnade gefallener Aelfir, der von seinesgleichen verstoßen und in die Gosse geworfen wurde, könnte durchaus Trost in den zwielichtigen Techniken der Carrion-Priests finden.
+• Firebrand – Auch wenn sie es schwer haben werden, die Hingabe der Drow zu wecken, haben behinderte Aelfir im Spire gewiss eine mächtige Sache, um die sie sich scharen können. Es ist ein riskantes Unterfangen, aber definitiv eines mit reichlich Zündstoff.
+• Idol – Da behinderte Aelfir oft selbst als Kunstobjekte (objet d’art) gelten, kommen viele dieser Personen mit dem Leben eines Idols gut zurecht.
+• Knight – Ein Aelfir-Knight ist wahrscheinlich ein ehemaliger Stadtwächter ohne Zugehörigkeit zu den Ritterorden der Docks. Daher wird empfohlen, dass deine SC keine Fortschritte wählt, die sich auf ritterlichen Ruf oder Ordensmitgliedschaft beziehen.
+• Lajhan – Die Aelfir haben ihr eigenes Pantheon, doch es ist nicht unmöglich, dass ein verbannter Aelfir die religiösen Praktiken jener annimmt, die ihm Mitleid und Hilfe boten.
+• Masked – Ein gängiger Beruf für Aelfir jeder Art, besonders für jene mit körperlichen Merkmalen, die ein exzentrischer Herr ästhetisch reizvoll finden könnte.
+• Midwife – Auf gar keinen Fall.
+• Vermissian Sage – Auch wenn es ein ungewöhnlicher Anblick wäre, gibt es keinen besonderen Grund, warum ein Aelfir sich nicht der Gelehrsamkeit der Vermissian Sage widmen könnte.
+## DIE GESCHICHTE {farbe=#981a3f}
+*The Forgotten* ist um zwei sich abzeichnende Ereignisse herum aufgebaut: das Durchgreifen der Wache im Pilgerweg und den Plan des Ministeriums, die örtliche Verwaltung zu übernehmen. Die folgenden Handlungsstränge hängen alle in unterschiedlichem Maß mit diesen zentralen Ereignissen zusammen.
+Deshalb hängen Art und Reihenfolge, in der deine Spielenden mit diesen Strängen in Berührung kommen, von ihren Entscheidungen ab. Versuche, sie nicht in einer einzigen Ermittlungslinie festzuhalten. Idealerweise ermitteln die Spielenden in allen dreien gleichzeitig und entdecken allmählich, wie sie zusammenhängen. Die relevanten NSC finden sich in einem späteren Abschnitt.
+Mach dir keine Sorgen, wenn du meinst, einige Einzelheiten ändern zu müssen; wichtig ist, dass du ein Spiel leitest, mit dem du dich wohlfühlst, also nutze die folgenden Handlungsstränge gern als Sprungbrett für deine eigenen Ideen.
+Die erste Szene, die du ausspielen solltest, ist die Brandstiftung an der Zuflucht und die Entführung Patallions. Dann lass die Gruppe einen sicheren Ort finden, um die Ereignisse zu besprechen, einander kennenzulernen und ihr Vorgehen zu planen. Sobald sie sich klar sind, was sie tun, kannst du die Handlungsstränge ganz natürlich einflechten. Sei flexibel – wenn die Spielenden ihren eigenen Weg einschlagen, lass es einfach geschehen. Neue Aufhänger kannst du später immer noch einstreuen. Die Spielenden sollten ermutigt werden, sich zwischen der kantigen, brutalen Pragmatik von Maren Verser und dem Ministerium und dem wohlmeinenden, aber ausnutzbaren Mitgefühl von Patallion und seiner Zuflucht zu entscheiden.
+## HANDLUNGSSTRANG: {farbe=#194d71}
+## PATALLIONS ENTFÜHRUNG {farbe=#194d71}
+**Auslösende Szene:** Kurz nach dem Brand der Zuflucht und Patallions Verschwinden tritt ein Vertreter des Ministeriums an die SC heran (wobei er das nicht zugeben wird, es sei denn, die Spielenden kommen selbst darauf). Der Minister gibt ihnen eine Spur, der sie folgen können – vielleicht einen Kontakt aus der Unterwelt, der Unterschlüpfe für illegale Aktivitäten stellt, oder eine bestechliche Wache, die in der Nacht zuvor beim Annehmen einer stattlichen Bestechungssumme gesehen wurde.
+
+<!-- S. 145 (PDF 150) -->
+
+## 145
+### DIE FIGUREN ERMITTELN ZU
+### PATALLIONS ENTFÜHRUNG
+**• Das war ein professioneller Job.** Das Feuer brach in Patallions Zimmer aus, vermutlich nachdem er überwältigt worden war. Die Brandstifter benutzten ein Päckchen aus körnigem weißem Phosphor, eingewickelt in paraffingetränktes Zeitungspapier, mit einer Schießpulverspur als Zündschnur. Eine Figur mit der Domäne Akademie kann diese Information herausfinden und versuchen, die Materialien aufzuspüren, indem sie die Trümmer des Brandes genau untersucht; oder die Gruppe befragt einen Alchemisten.
+**• Die Täter wurden von jemand anderem angeheuert.** Die Täter waren die Mannschaft der bekannten „ehrbaren Geschäftsfrau“ Yolea Merentu. In Vorbereitung auf eine bevorstehende Säuberung des Pilgerwegs schließt die Stadtwache Abkommen mit der Unterwelt. Merentu wurde im Rahmen ihrer Vereinbarung mit der Wache mit Patallions Entführung betraut. So muss sich die Wache nicht die Hände schmutzig machen und hat einen Vorwand, die Anführerin zu Fall zu bringen, sollte sie aus der Reihe tanzen.
+**• Das Ministerium hält sich bewusst fern.** Es bereitet offenbar etwas Großes vor und will sich nicht übernehmen, bevor es bereit ist. Maren Verser, Magister und Patallions Vorgesetzte im Ministerium, fürchtet, dass der weichherzige Kleriker entweder umgekippt ist oder als Köder für eine Falle benutzt wird. Sie ordnete an, die Spielerfiguren anzuwerben, damit sie ihn finden, um Abstand zu wahren und keine „wertvollen Agenten“ zu riskieren.
+**• Vor seinem Verschwinden suchte Patallion eine Alternative zu Versers Plan, die Gäste der Zuflucht zu opfern.** Insbesondere fand er heraus, dass der Orden der Seligen Säfte organisches Material hortete, das statt lebender Wesen in den Ritualen verwendet werden könnte. Es wäre komplexer und riskanter (und würde entweder einen Angriff auf den Orden oder einen Handel mit ihm erfordern), aber er hielt es für den zusätzlichen Aufwand wert. Die SC finden in Patallions Zimmer möglicherweise Fetzen, die auf Treffen mit prominenten Mitgliedern des Ordens hindeuten.
+**• Patallions Entführung war die Folge seines gescheiterten Versuchs, mit den Aelfir ins Geschäft zu kommen.** Der Kleriker wird in einem Unterschlupf der Unterwelt tief im Labyrinth des Pilgerwegs festgehalten und täglich von den Besten der Wache verhört. Wenn es den Spielenden gelingt, ihn lebend zurückzubringen, erklärt er, was geschehen ist und warum er getan hat, was er getan hat. Bringen die Spielenden ihn nicht wie gewünscht zum Ministerium zurück, werden sie zu Feinden.
+## HANDLUNGSSTRANG: {farbe=#194d71}
+## OPERATION MIMICRY {farbe=#194d71}
+**Auslösende Szene:** Ein Fremder in Lumpen platzt in eine Taverne oder einen Laden, wo die Spielenden Vorräte auffüllen oder Informationen suchen. Er ist blutüberströmt, wildäugig und wirr. Er behauptet, ein alter Freund einer der SC zu sein, doch niemand erkennt ihn. Nach einem kurzen, hektischen Gespräch stirbt der Fremde an seinen Verletzungen. Bei näherer Untersuchung zeigt sich, dass die Wunden von einer extrem scharfen, kleinen Klinge stammen, etwa einem Skalpell. Sein Gesicht und sein Körper sind von Schnitten übersät.
+### DIE FIGUREN ERMITTELN ZU
+### OPERATION MIMICRY
+**• Behinderte Bettler verschwinden von den Straßen.** Beim Durchstreifen der Hinterhöfe bemerken die Spielerfiguren eine verdächtige Gestalt, die den körperlich entstellten und behinderten Bettlern an der Straße der Götter Beutel mit Essen oder Gold anbietet. Wer annimmt, wird in die Menge geführt. Folgt eine SC erfolgreich, wird sie zu einem verschlossenen Lagerhaus auf der reicheren Seite der Stadt geführt, wo die Bettler durch einen Lieferanteneingang verschwinden.
+**• Das Lagerhaus gehört Tanara Wellen-im-Glas [[Ripples-Within-Glass]].** Als experimentelle Chirurgin bietet sie verzweifelten Bettlern Essen oder Geld im Austausch für die Erlaubnis, invasive und oft entstellende Untersuchungen an ihnen durchzuführen. Unter den Geschundenen des Pilgerwegs ist sie wohlbekannt; eine SC mit der Domäne Niedere Gesellschaft hat womöglich von ihr gehört. Ungewöhnlich ist, dass Tanaras neueste Patienten nicht wieder auf den Straßen auftauchen. Obwohl sie ihre Versuchspersonen selten unversehrt gehen lässt, ist die sadistische Chirurgin nicht dafür bekannt, eine Mörderin oder Entführerin zu sein.
+**• Tanaras Patienten werden chirurgisch so verändert, dass sie prominenten politischen Persönlichkeiten gleichen.** Die Chirurgin hat mit dem Ministerium eine Abmachung, ihm Doppelgänger zu liefern, im Austausch dafür, dass es die bevorstehenden Razzien der Wache verhindert, von denen sie fürchtet, dass sie ihre Lieferkette williger Probanden ruinieren. Die Patienten werden nach der Operation festgebunden und in Unterschlupfe des Ministeriums verfrachtet.
+**• Die Operation ist höchst gefährlich, und keiner hat danach lange gelebt.** Sie hat eine äußerst hohe Misserfolgsquote. Selbst wenn sie gelingt, leben die Probanden selten länger als eine Woche. Um eine vollständige Übernahme des Distrikts zu ermöglichen, werden
+
+<!-- S. 146 (PDF 151) -->
+
+## 146
+dutzende und aberdutzende Opfer benötigt. Da die Menge der verschwindenden Obdachlosen auffällig wird, wollte Verser Patallions Zuflucht als Quelle für Probanden nutzen.
+**• Das Ministerium setzt die chirurgisch veränderten Menschen in Ritualen ein.** Die Unterschlupfe des Ministeriums enthalten Material für experimentelle Blutrituale, deren letztendliches Ziel es ist, das Fleisch williger Minister zu einer identischen Nachbildung eines ausgewählten Subjekts zu formen. Diese Rituale tragen endlich Früchte, auch wenn das kopierte Subjekt unweigerlich mitten im Prozess geopfert werden muss und nichts als einen Haufen formlosen Fleisches und sich ausbreitende Flüssigkeiten hinterlässt.
+**• Die Rituale haben eine auffällige Spur hinterlassen.** Da sie höchst experimentell (und höchst illegal) sind, haben die Rituale des Ministeriums unmäßig viel Material verschlungen. Dazu gehören unter anderem: halluzinogene Drogen von Petyr Duos; reiner Schwefelabfluss aus Dämonenritualen; abgefüllte Geister (sowohl alkoholische als auch ätherische); Fässer voll Blut; die Menge einer ganzen Bibliothek an verstaubten okkulten Wälzern; und genug religiösen Krimskrams, um einen Flohmarkt zu füllen. Zudem musste das Ministerium seinen Ritualort wegen Razzien der Stadtwache schon zweimal verlegen. Zum Glück für die Ritualisten begriff die Wache die Bedeutung des beschlagnahmten Materials nicht.
+**• Eine Serie von Bombenanschlägen wird an öffentlichen Orten ausgeführt.** Bei diesen Anschlägen werden ausgewählte Aelfir-Anführer ermordet und durch Doppelgänger des Ministeriums ersetzt.
+**• Maren Verser betrachtet die Enteigneten des Pilgerwegs als entbehrlich.** Verser widmet sich dem Sturz der Aelfir mit allen nötigen Mitteln. Das bedeutet, jene zu nutzen, die sie sonst als nutzlos für die Sache erachten würde, notfalls auch mit Gewalt.
+## HANDLUNGSSTRANG: DER ORDEN {farbe=#194d71}
+## DER SELIGEN SÄFTE {farbe=#194d71}
+**Auslösende Szene:** Die Spielenden werden Zeugen eines rasenden Straßenpredigers. Er wirkt aus dem Gleichgewicht und aufgewühlt, brüllt Umstehende an und schluchzt. Zwei Personen in bräunlich-roten Roben, behängt mit seltsamen Gläsern an Schnüren, treten an ihn heran. Sie sprechen kurz mit ihm und führen ihn dann fort. Später begegnen die Spielenden demselben Prediger erneut, nun sanftmütig, leer im Blick und im Namen des Ordens predigend.
+### DIE FIGUREN ERMITTELN ZUM
+### ORDEN
+**• Der Glaube des Ordens dreht sich um Körperflüssigkeiten.** Er scheint willkürlich zwischen jenen mit „verdorbenen“ Flüssigkeiten und jenen mit
+> ## DIE TODESLISTE
+> Die Ziele der Operation Mimicry stammen aus dem ganzen Spire und umfassen Militärführer, leitende Bürokraten und einflussreiche Schmetterlinge der Hohen Gesellschaft. Unten stehen die sechs wichtigsten Ziele der Operation Mimicry:
+> **• Lucia Regen-unter-Blätterdächern [[Rain-Below-Canopies]], Oberverwalterin des Gartendistrikts:** Man sagt, eine Armee marschiert auf ihrem Magen, und Lucia sorgt dafür, dass diese Mägen gefüllt sind. Sie überwacht die Versorgungslinien des Spire und stellt sicher, dass Transport und Verteilung von Nahrung und Wasser effizient erfolgen.
+> **• Brigadier Spiegelungen-auf-Stahl [[Reflections-On-Steel]], oberster Verbindungsmann zu den verschiedenen Distriktkapitänen des Spire:** Selbst Hauptmann Atem-auf-Silber nimmt Befehle von jemandem entgegen. Der Brigadier bündelt Berichte von unten und überbringt Befehle von oben und fungiert als wichtigster Kommunikationskanal in der Hierarchie der Wache.
+> **• Ingram Verschleiert-vor-Vielen [[Veiled-Before-Many]], Gastgeber der beliebtesten Aelfir-Feste der Hohen Gesellschaft:** Aelfir-Regierungsarbeit geschieht ebenso in den schattigen Ecken feiner Ballsäle wie in den staubigen Hallen des Staates. Daher macht Ingrams Rolle als Gastgeber der Reichen und Einflussreichen ihn zum Türsteher der Macht.
+> **• Ogden Laissels, Drow-Kulturberater und Botschafter:** Speichellecker und Kollaborateure sind auf ihre Weise schlimmer als die Unterdrücker selbst. Laissels verdient seinen Lebensunterhalt damit, die Aelfir zu Drow-Psychologie, -Kultur und -Politik zu beraten und als williger Sündenbock für jede grauenhafte neue Maßnahme seiner Aelfir-Herren zu dienen.
+> **• Belinda Staines, Söldnerhauptfrau:** Belinda wird von den Aelfir beschäftigt, um die verschiedenen menschlichen Söldnerbanden zu organisieren, die durch den Spire ziehen. Sie ist zudem die wichtigste Ansprechpartnerin für Händler aus den Menschenlanden.
+> **• Richter Echos-zwischen-Hügelkuppen [[Echoes-Between-Hilltops]], einflussreicher Aelfir-Richter:** Die Kontrolle über diesen Richter könnte die Chancen der Rebellen im Spire drastisch verbessern, da er die erste Anlaufstelle für Terrorismusfälle mit Beteiligung des Ministeriums ist.
+
+<!-- S. 147 (PDF 152) -->
+
+## 147
+„reinen“ Flüssigkeiten zu unterscheiden. Er behauptet, durch das Ablassen giftiger Flüssigkeit könne man den Drang zum Bösen ebenso beseitigen wie Krankheit und Behinderung.
+**• Menschen, die sich der Behandlung des Ordens unterziehen, sind verändert.** Auch wenn sie mit dem Vorgang und seinem Ergebnis glücklich zu sein scheinen, sind sie friedlich, geistesabwesend und reagieren langsam. Außerdem können sie sich an nichts von den Ritualen des Ordens erinnern.
+**• Der Orden hortet Körperflüssigkeiten.** Er hat zwei große Lagerkammern in den Katakomben: eine für verdorbene und eine für reine Flüssigkeiten. In seinen Ritualen entzieht er verschiedenen Körperteilen allerlei Schleim, einschließlich dem Gehirn.
+**• Der Orden plant ein Dämonenritual.** Das Horten der Flüssigkeiten ist nicht bloß eine müßige Angewohnheit. Der Orden plant, zwei große Golems zu erschaffen – einen reinen, einen verdorbenen –, die als dämonische Gefäße dienen sollen.
+**• Die Vorräte des Ordens könnten für andere Rituale genutzt werden.** Auch wenn er sich ohne große Überzeugungsarbeit kaum dafür interessieren dürfte, könnten die Meister der Fleischverformung des Ordens durchaus Nachbildungen der Opferelemente herstellen, die für viele gefährliche Rituale nötig sind.
+**• Patallion stand vor seinem Verschwinden mit der Führung des Ordens in Kontakt.** Das war höchstwahrscheinlich Teil seiner Bemühungen, die Entführung und Ermordung der Bewohner der Zuflucht zu verhindern. Die Gespräche kamen zwar nicht sehr weit, doch der Orden schien bereit zuzuhören.
+## NICHTSPIELERFIGUREN {farbe=#981a3f}
+## DIE STADTWACHE {farbe=#194d71}
+Obwohl die Stadtwache mit der Brutstätte aus Religion, Verbrechen und Armut unzufrieden ist, hinderten die labyrinthische Struktur des Distrikts und die Fülle fanatischer Privatarmeen sie daran, über eine kleinere Schadensbegrenzung hinaus etwas Wesentliches zu unternehmen. Das wird sich bald ändern, denn die Wache plant ein massives Durchgreifen im gesamten Distrikt.
+### BEDEUTENDE MITGLIEDER
+**Hauptmann Atem-auf-Silber**
+Eine brutale Aelfir-Frau ohne Mitleid für die Enteigneten des Pilgerwegs. Die Hauptmannin der Distriktwache verabscheut ihre Verwaltung dessen, was sie einen „abergläubischen Müllhaufen“ nennt. Dass ihr Plan zur Säuberung des Distrikts viele der Schwächsten durchs Raster fallen lässt, ist kein Fehler: Es ist Teil des Entwurfs.
+**Leutnant Guillory**
+Drow-Wachoffizier mittleren Alters mit Mitgefühl für die Schwachen des Pilgerwegs. Als früherer Freund Patallions und häufiger Besucher der Zuflucht würde er alles, was auf eine Ministeriumszugehörigkeit des Klerikers hindeutete, geflissentlich übersehen.
+### VORGESCHLAGENE SZENEN
+• Eine Gruppe von Wachen, neu mit erstklassiger Ausrüstung ausgestattet, führt eine hochöffentliche Razzia in einem Buchladen für Okkultes an.
+• Hauptmann Atem-auf-Silber leitet die öffentliche Bestrafung einer Gruppe Drow und hält eine kurze Rede. Sie macht klar, dass das Gesetz in den Pilgerweg zurückkehrt, und richtet die Drow dann persönlich hin.
+• Leutnant Guillory wird in Zivilkleidung in der dunklen Ecke einer Taverne gesehen, wie er ein heimliches Gespräch mit einer Auswahl rau aussehender Drow führt. Das Gespräch schaukelt sich zu einem Streit und schließlich zu einer Rangelei hoch.
+• Wachen durchsuchen öffentlich die Beinprothese eines Bettlers, der des Drogenschmuggels verdächtigt wird.
+• Ein Aelfir-Kultführer hält Umstehenden einen Vortrag über einen kommenden Sturm und die Notwendigkeit, sich der Autorität zu unterwerfen.
+• Ein Ermittler der Wache versucht, die SC im Zuge seiner Untersuchung eines möglichen Komplotts des Ministeriums aufzugreifen.
+• Ein Drogenhändler, den eine der SC zur Selbstmedikation nutzt, verschwindet plötzlich von der Bildfläche.
+## DAS MINISTERIUM DES PILGERWEGS {farbe=#194d71}
+Aufgrund der relativen Gesetzlosigkeit und des Chaos hatte das Ministerium im Distrikt schon immer eine starke Präsenz. Das hat allerdings seine eigenen Nachteile: Die Bewohner des Pilgerwegs sind so mit
+> ## EURE SÄFTE GEREINIGT
+> Sollte eine eurer unerschrockenen SC den Ritualen des Ordens unterzogen werden (freiwillig oder nicht), wende den folgenden Fallout-Zustand an:
+> **GEREINIGT.** [Verstand] Du fühlst dich gelassen und zufrieden, hast aber Mühe, dir wichtige Einzelheiten zu merken, und brauchst zusätzliche Zeit, um Informationen zu verarbeiten. Außerdem kannst du dich an nichts erinnern, was der Orden mit dir getan hat. Erhöhe die Schwierigkeit jeder Aufgabe, die Konzentration erfordert, um 1.
+
+<!-- S. 148 (PDF 153) -->
+
+## 148
+ihrem Kultkrieg beschäftigt, dass ihnen oft die Konzentration fehlt, sich um die revolutionäre Sache zu scharen. Vor diesem Hintergrund hat die Führungsebene des Ministeriums direktere Maßnahmen für nötig befunden – daher die Operation Mimicry.
+### BEDEUTENDE MITGLIEDER
+**Jarome Patallion**
+Ein gutherziger und hingebungsvoller Drow-Kleriker, der sein Elternhaus als Zuflucht für jeden Benachteiligten nutzt, der seine Hilfe sucht. Als Meistertaktiker war er für das Ministerium von unschätzbarem Wert, koordinierte Operationen und ersann geniale politische Fallen für die örtlichen Aelfir.
+Trotz seiner Fähigkeiten misstraut Magister Maren Verser seiner „Weichherzigkeit“ und glaubt, ihm fehle die Schärfe, die nötig ist, um ihre Unterdrückung zu stürzen. Patallion ist seit der Nacht vermisst, in der seine Zuflucht niederbrannte.
+**Maren Verser**
+Eine grimmige und vernarbte Drow-Ex-Soldatin, der revolutionären Sache mit Haut und Haaren verschrieben, aber oft blind für die Folgen. Sie betrachtet die Geschundenen, Versehrten und Enteigneten des Pilgerwegs als lästiges Ärgernis und kostet die Gelegenheit aus, sie endlich nützlich zu machen – mit oder ohne ihre Erlaubnis.
+**Petyr Duos**
+Ein rauer, jovialer Drow mit einem beeindruckenden Drogenschmuggel; Petyr ist ein enger Freund und Vertrauter von Jarome Patallion. Er steht einem Netzwerk von Gnoll-Gärtnern vor, die exotische Pflanzen und Kräuter aus den Gärten zerstreuter oder desinteressierter Aelfir-Adliger schmuggeln. Er ist außerdem der Hauptlieferant der Zuflucht für Selbstmedikation und bietet jenen, die es brauchen, Vorzugspreise an.
+### VORGESCHLAGENE SZENEN
+• Arbeiten die Spielenden mit dem Ministerium zusammen, wird ihnen Leutnant Guillory als eines der Ziele genannt. (Das ist besonders wirkungsvoll, wenn du Guillory früher im Abenteuer als sympathisches Gesicht eingeführt hast.)
+• Wenn die SC das Ministerium treffen, lässt ein Agent durchblicken, dass eine behinderte SC eine Last für die revolutionäre Sache sei.
+• Verser findet Gefallen an einer der SC und bietet ihr eine offizielle Position in der Organisation an, sollte sie einen besonderen Auftrag erfüllen.
+• Petyr Duos bittet die SC um Hilfe beim Abholen von Waren bei seinen Gnoll-Schmugglerkontakten. Bei der Abholung überfallen die Wachen die Gruppe.
+• Angenommen, Patallion wird gerettet, bittet er die SC, ihm bei der Beschaffung eines neuen Gebäudes zu helfen, in dem er die Zuflucht wiedererrichten kann. Angesichts der gnadenlosen Art des Immobilienmarkts im Pilgerweg ist das keine leichte Aufgabe.
+## DER ORDEN {farbe=#194d71}
+## DER SELIGEN SÄFTE {farbe=#194d71}
+Der Orden der Seligen Säfte steigt zu einer bedeutenden Macht im Distrikt auf, hat sich im aufziehenden Krieg aber noch auf keine Seite geschlagen. Anhänger des neuen Kults sind an jeder Straßenecke zu sehen, mit leerem und zugleich besessenem Blick, in Roben aus kränklichem Bräunlichrot und behängt mit Gläsern voll trüber Schmiere und gallertartigem Schleim.
+Der Kult verspricht den Kranken und Leidenden eine schnelle Lösung: Nimm an seinen Ritualen teil, und solange du nie ein Wort darüber verlierst, was geschehen ist, wirst du geheilt. Seltsamerweise gehen jene, die teilnehmen, um die Geheimnisse aufzudecken, mit seltsam verschwundener Neigung dazu wieder hinaus.
+Der Orden glaubt, der Körper sei ein Tempel der Anbetung und die verschiedenen Formen von Eiter, Schleim und anderen Körperausscheidungen seien gesegnete Substanzen. Er glaubt, dass die ekelhaften, giftigen Säfte, die sich im sterblichen Körper ansammeln, die Ursache dafür sind, dass Wesen sündigen, altern und an Krankheit oder Not leiden. Durch das Bearbeiten der rohen Substanz des Fleisches mittels „uralter Rituale“ könne man, so behauptet er, das vollkommene unsterbliche Wesen erschaffen.
+### BEDEUTENDE MITGLIEDER
+**Großer Schleim Jonkole**
+Betagter und nachweislich unangenehmer Drow-Patriarch des Ordens. Er hortet zwanghaft seine eigenen Ausscheidungen und fürchtet ständig die Verderbnis seiner kostbaren Körperflüssigkeiten.
+**Vizeschleim Nawlin**
+Das öffentliche Gesicht des Ordens: ein junger, attraktiver Mensch mit einnehmendem Wesen. Im Gespräch gibt sich Nawlin so zurückhaltend wie möglich, was die Aktivitäten des Ordens betrifft, und bedient sich ausgiebig der Anspielung.
+### VORGESCHLAGENE SZENEN
+• Eine öffentliche Anwerbekampagne des Ordens zieht eine große Menge an. Der Große Schleim wird für eine kurze Runde Applaus herausgerollt
+
+<!-- S. 149 (PDF 154) -->
+
+## 149
+und dann wieder weggebracht, bevor er seine Rede halten kann.
+• Auf der Straße bricht eine Massenschlägerei zwischen Mitgliedern des Ordens und Mitgliedern des rivalisierenden Kults „Die Geheiligte Seele“ aus. Der Kampf hinterlässt die Straße in einem ziemlich widerlichen Zustand.
+• Vizeschleim Nawlin ist ein Ehrengast bei einer Spendengala der Merentu-Liga. Obwohl er charmant ist, scheint kaum jemand bereit, ihm die Hand zu schütteln.
+• In der Nacht, nachdem ein Kontakt einer der SC eine „Behandlung“ beim Orden erhalten hat, fällt er ins Koma.
+• Die Spielenden erhalten einen Brief an Patallion vom Großen Schleim, in dem er fragt, ob dieser noch daran interessiert sei, mit dem Orden ins Geschäft zu kommen.
+• Eine Detonation hallt aus den Tiefen unter dem Hauptquartier des Ordens (vermutlich verursacht durch seine verschiedenen Dämonenexperimente). Die Kultisten beharren darauf, es sei ein Problem mit den Rohrleitungen.
+## DIE MERENTU- {farbe=#194d71}
+## HANDELSLIGA {farbe=#194d71}
+Alle Jubeljahre ziert das seltenste aller Einhörner die Straßen des Spire: der mitfühlende Kapitalist. Leider musst du dafür woanders suchen: Yolea Merentu ist so skrupellos und ausbeuterisch, wie man nur sein kann.
+Als Finanzierungsagentur für wohltätige Einrichtungen und religiöse Organisationen getarnt, ist die Liga in Wahrheit ein System aus Scheinfirmen, das Geld zur Drow-Magnatin nach oben leiten soll. Merentu unterhält ihre eigene Privatarmee aus straßenerprobten Schlägern, die pflichtbewusst Konkurrenten verprügeln und lästige Gutmenschen vertreiben.
+### BEDEUTENDE MITGLIEDER
+**Yolea Merentu**
+Eine Kindheit in Armut und Ausbeutung lehrte Merentu eine Sache: Um im Leben voranzukommen, musst du andere reinlegen, bevor sie dich reinlegen. Obwohl sie eine offensichtliche Kriminelle ist, sorgt die geschäftstüchtige Drow mit ihrer rechtmäßigen Fassade dafür, dass die Wache ein Auge zudrückt, solange die Zahlungen weiterfließen.
+**Anton Bordelone**
+Der Consigliere der Merentu-Operation, dieser gerissene Drow-Gangster verfügt über eine beeindruckende Reihe von Straßenverbindungen. Trotz seines harten Äußeren ist Bordelon ein Opfer von Wunderheilmitteln und beginnt, George bei der Zahl der Kultmitgliedschaften Konkurrenz zu machen.
+### VORGESCHLAGENE SZENEN
+• Merentu heuert verzweifelte Obdachlose an, in verschiedenen Gebäuden zu hausen, um die Bewohner zu vertreiben und die Preise zu drücken.
+• Bordelones Ansehen und Autorität geraten in Gefahr, als die Spielenden Beweise für umfangreiche Schulden bei verschiedenen Kulten finden.
+• Ein rivalisierender Geschäftsmann oder eine rivalisierende Geschäftsfrau blamiert Merentu bei einem Wortgefecht auf einer offiziellen Spendengala. Hinterher wundert sich die siegreiche Person, warum die anderen Gäste es betont meiden, mit ihr zu verkehren.
+• Arbeiten die Spielenden gegen das Ministerium, vereinbart Merentu ein Treffen mit ihnen und bietet Hilfe an. Sie hat ein berechtigtes Interesse daran, dass der Plan der Wache reibungslos aufgeht.
+• Merentu greift nach der Spitze, untergräbt Ashter und Quinn und unternimmt Schritte, um deren Gebiet zu erwerben.
+• Im Rahmen laufender Hinterzimmerabkommen werden mehrere von Merentus Straßenschlägern aus dem Gewahrsam der Stadtwache entlassen, was eine Welle betrunkener, gewalttätiger Feiern auslöst.
+## WEITERE NSC {farbe=#981a3f}
+## DR. TANARA {farbe=#194d71}
+## WELLEN-IM-GLAS {farbe=#194d71}
+Eine beunruhigend sadistische Aelfir-Chirurgin, die in Vivisektion, unnötigen Operationen und schlichter Verstümmelung schwelgt. Obwohl sie an der Spitze der Aelfir-Medizinforschung steht, wird die gute Ärztin von gesellschaftlichen Ereignissen der Gegend generell ausgeschlossen. Der wahrscheinliche Grund ist ihr schlechter Draht bei Abendgesellschaften, nicht irgendwelche ethischen Bedenken.
+### VORGESCHLAGENE SZENEN
+• Die Ärztin besucht eine Veranstaltung der Hohen Gesellschaft und vergrault die anderen Gäste, indem sie verschiedene invasive medizinische Eingriffe bis ins Detail beschreibt.
+• Tanara entwickelt ein neues chirurgisches Verfahren, das Hunderte von Leben retten könnte, aber extrem teuer ist und nur den Reichsten zugutekommt.
+• Bei den Ermittlungen zu den verschwundenen Obdachlosen finden die SC eine Müllkippe voller verstümmelter Leichen nahezu völlig identischer Menschen.
+## ASHTER UND QUINN {farbe=#194d71}
+Dieses ausschweifende Paar von Vermietern des Pilgerwegs interessiert sich kaum für die bevorstehenden Pläne der Wache und des Ministeriums. Sie sind sich sicher, dass
+
+<!-- S. 150 (PDF 155) -->
+
+## 150
+der Schlüssel zum Königreich, woher auch immer der Wind weht, sicher in ihren krümeligen Taschen bleibt.
+### VORGESCHLAGENE SZENEN
+• Quinn verbreitet aus purem Vergnügen Gerüchte über einen Minister in der Wache und eine Wache im Ministerium.
+• Ashter schickt einen Ritualisten, um dem Orden bei seinen bizarren Experimenten zu helfen, unter der Bedingung, dass dieser schriftliche Berichte über jedes erfolgreiche Ritual liefert.
+• Das Paar macht aus dem Kampf im Pilgerweg ein Spiel, wettet Geld auf den Erfolg bestimmter Fraktionen und versucht scheinbar willkürlich, die Waage zu ihren Gunsten zu neigen.
+## EVERETT LANGLEY {farbe=#194d71}
+Ein exzentrischer menschlicher Erfinder mit einem einträglichen Nebengeschäft in höchst teuren, höchst verzierten, höchst unpraktischen Prothesen für alle, die reich genug sind, sie sich leisten zu können (meist Aelfir). Das Los der Benachteiligten kümmert ihn nur insoweit, als er ihre Schwierigkeiten zu Geld machen kann.
+### VORGESCHLAGENE SZENEN
+• Ein exzentrischer Aelfir lässt sich den Arm durch eine äußerst unpraktische (aber wunderschöne) Prothese von Langley ersetzen.
+• Langley versucht, einer der SC ein überteuertes, zerbrechliches Gerät anzudrehen, das ihre Schwierigkeiten lindern soll. Es ist völlig untauglich.
+## DAS ENDE DER GESCHICHTE {farbe=#981a3f}
+Wenn die Spielenden sich nicht in die Ereignisse im Pilgerweg einmischen, sind die Folgen verheerend. Patallion wird in Gefangenschaft vermutlich zusammenbrechen, was dazu führt, dass die Pläne des Ministeriums vereitelt werden und das Durchgreifen der Stadtwache im Distrikt reibungslos über die Bühne geht – bis der Orden der Seligen Säfte seine Dämonengolems entfesselt, die im Distrikt wüten. Die gesamte Gegend versinkt in einer abscheulichen Flutwelle aus geronnenen Körperflüssigkeiten.
+Es gibt dutzende mögliche Endpunkte für diese Geschichte, doch hier eine Übersicht möglicher Ausgänge für die verschiedenen Fraktionen.
+## EINE VERRATENE HERRIN {farbe=#194d71}
+Die Spielenden könnten Anstoß an Maren Versers kaltherzigem Opfern der Schwachen nehmen und ihren Plan gänzlich zu stoppen versuchen. Wird nicht ein anderer Plan zur Untergrabung der Pläne der Stadtwache entwickelt, fällt der Hammer, und das Ministerium wird ausgemerzt. Mit der Kooperation der Vermieter und Unterweltgrößen der Gegend wird der Pilgerweg endgültig gezähmt.
+## ES LEBE DIE HERRIN {farbe=#194d71}
+Der Plan des Ministeriums geht über Versers ursprüngliche Strategie oder eine abgewandelte Form davon auf. Das Ministerium übernimmt verdeckt die Kontrolle über die Stadtwache und macht den Pilgerweg zum ultimativen Zufluchtsort des Spire für Revolutionäre und Kriminelle. Im darauf folgenden Chaos reichen nur wenige den zurückgelassenen Schwachen eine helfende Hand.
+## EIN UNSICHERES GLEICHGEWICHT {farbe=#194d71}
+Die Spielenden untergraben die Pläne sowohl der Wache als auch des Ministeriums und übernehmen vielleicht selbst die Kontrolle im Distrikt. Obwohl der Sturm vorerst abgewendet ist, brütet der Pilgerweg Chaos aus, wie faulendes Fleisch Krankheit ausbrütet. Es wird nicht lange dauern, bis der Kreislauf von Neuem beginnt.
+## SCHWEIGEGELÜBDE {farbe=#194d71}
+Anstatt sich mit den verschiedenen politischen Gruppen zu verbünden, die um die Kontrolle ringen, machen die Spielenden stattdessen eigene Geschäfte und helfen einer der vielen kriminellen Organisationen, im Distrikt eine beherrschende Rolle einzunehmen.
+## DIE REINIGUNG {farbe=#194d71}
+## DES PILGERWEGS {farbe=#194d71}
+Der Orden der Seligen Säfte entfesselt einen dämonischen Einfall im Pilgerweg und macht die Gegend für alle außer den Verzweifeltsten und Zähesten nahezu unbewohnbar. Danach werden der Orden zu Terroristen erklärt und seine Überzeugungen und Praktiken verboten.
+## VORGEFERTIGTE FIGUREN {farbe=#981a3f}
+## DER KNIGHT – NADIA LOUVON {farbe=#194d71}
+Als ehemaliges Mitglied des gladiatorischen Ritterordens Sack voller Nägel [[The Bag o’ Nails]] (benannt nach der einzigen Kneipe im Pilgerweg mit einer Kampfgrube rund um die Uhr) wurde Louvon häufig von Kulten und Verbrecherbanden als zusätzliche Sicherheit angeheuert. In einer schicksalhaften Nacht erschien Louvon nicht zu einem wichtigen Geleitauftrag, was den Tod von Claude Merentu zur Folge hatte – Sohn der berüchtigten „Geschäftsfrau“ des Distrikts, Yolea Merentu. Zur Vergeltung nahm die Gangsterin Louvon gefangen und zerlegte sie langsam. Der zähen Knight gelang die Flucht, aber erst, nachdem sie ein Auge, die meisten
+
+<!-- S. 151 (PDF 156) -->
+
+ihrer Zähne, mehrere Finger und Zehen und ihren rechten Arm ab dem Ellbogen verloren hatte.
+Über ihre ritterlichen Kontakte hat Louvon kürzlich erfahren, dass die Jobs für kleine Schläger im Distrikt auf rätselhafte Weise versiegen und Verbrecherorganisationen zusammenrücken und untertauchen.
+## DER FIREBRAND – MAURICE {farbe=#194d71}
+## VALJOUX {farbe=#194d71}
+Mit Kleinwuchs geboren, war das Leben von Maurice Valjoux ein ständiger Kampf darum, von den Ignoranten und Engstirnigen ernst genommen zu werden. Valjoux leistete seine Dienstzeit als Diener im Haus eines Aelfir-Adligen ab, der sein Aussehen äußerst amüsant fand und ihn eher wie einen Hofnarren als wie einen Angestellten behandelte. Diese Demütigung nährte einen leidenschaftlichen Hass auf die Aelfir. Seit dem Ende seiner Dienstzeit widmet Valjoux sein Leben dem Streben, vom Ministerium wahrgenommen und akzeptiert zu werden, und hat unter den Gebeutelten des Pilgerwegs eine recht ansehnliche Gemeinde von Ministeriumsanhängern aufgebaut. Bisher hat ihn seine Statur zurückgehalten, trotz seines offensichtlichen Geschicks im Aufwiegeln, denn Maren Verser hält ihn für zu auffällig und zu schwach, um als Agent von Nutzen zu sein.
+## DIE CARRION-PRIEST – JAGO {farbe=#194d71}
+## OBIENNE {farbe=#194d71}
+Jago verlor schon früh im Leben das Augenlicht, kommt aber dank der Unterstützung ihrer treuen Hyänenbegleiterin Divorao zurecht. Sie leistete ihre Dienstzeit in einem Tempel des Sonnenpantheons ab, wo sie Jarome Patallion kennenlernte und trotz ihrer gegensätzlichen religiösen Überzeugungen eng mit dem gütigen Priester befreundet wurde.
+Jago wusste besser als jeder andere, worin Patallion insgeheim verwickelt war, auch wenn ihr der Magen für Ministeriumsarbeit fehlte. Sie unterstützte lieber indirekt, indem sie den zwielichtigen Gestalten, die hin und wieder die Zuflucht zierten, (oft unwillkommenen) geistlichen Beistand bot. Für Petyr Duos bot Jago mehr als geistlichen Beistand, denn die beiden begannen eine Beziehung, die schnell zum offenen Geheimnis wurde.
+## DAS IDOL – HASILIA {farbe=#194d71}
+## GLEITET-ÜBER-NEBEL {farbe=#194d71}
+Hasilia ist geschickt in Malerei, Gesang und Dichtung, war aber vor allem als erhabene Tänzerin bekannt. Selbst für eine Aelfir wirkte sie auf andere distanziert und seltsam, eine Wesensart, die von einer kognitiven Störung herrührt, die es ihr schwer macht, emotional zu anderen eine Beziehung aufzubauen. Hasilia erlitt bei einer großen Vorstellung für einen Aelfir-Adligen auf Besuch eine explosive Panikattacke, die einen Skandal auslöste, der ihren Ruf ruinierte und sie schließlich in die Mittellosigkeit trieb.
+Seither schlägt sie sich im Pilgerweg durch, indem sie anonym Gemälde an Straßenhändler verkauft und gelegentlich Almosen von ihrer Tante Tanara annimmt, einer Chirurgin auf der reichen Seite des Distrikts. Obwohl ihr die Bewohner der Zuflucht im Allgemeinen misstrauen, hieß Patallion sie als Gast willkommen – eine Reaktion, die bei seinen Vorgesetzten Verwirrung und Missfallen ausgelöst hat.
+## DER VERMISSIAN SAGE – {farbe=#194d71}
+## HERSCHEL SADDLER {farbe=#194d71}
+Ein munterer und gutmütiger Akademiker, Saddler ist der Nachkomme eines der ursprünglichen menschlichen Ingenieure, die am Vermissian arbeiteten, und hat sein Leben der Aufgabe gewidmet herauszufinden, wo sein Urgroßvater scheiterte. Obwohl der Geist willig ist, wird Saddler von chronischen Schmerzen und Erschöpfung (umgangssprachlich „schweres Blut“ genannt) ausgebremst, ein Leiden, das seine Erkundungen des großen gescheiterten Netzwerks noch gefährlicher gemacht hat als ohnehin.
+Nach einem jüngsten Fehlabbiegen im Vermissian stieß Saddler irgendwo im Pilgerweg auf einen seltsamen, blutbefleckten Raum, der wie der Keller eines Herrenhauses aussah.
+
+<!-- S. 152 (PDF 157) -->
+
+## 152
+> Ein haiköpfiger Gott des kannibalischen Handels mit aufgedunsenem Bauch herrscht über den Ironshrike-Markt.

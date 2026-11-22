@@ -76,6 +76,40 @@
     window.scrollTo(0, 0);
   }
   window.openMenu = function(on){ document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); };
+  /* Pfeiltasten: links/rechts = Tabs oben, hoch/runter = Kapitel in der Seitenleiste; Esc = eine Ebene zurück */
+  function sicht(el){ return !!(el.offsetWidth || el.offsetHeight) && getComputedStyle(el).visibility !== "hidden"; }
+  function schritt(list, d){
+    list = list.filter(sicht); if(!list.length) return false;
+    var i = -1; list.forEach(function(x, k){ if(i < 0 && /(^|\s)on(\s|$)/.test(x.className)) i = k; });
+    var j = i < 0 ? (d > 0 ? 0 : list.length - 1) : i + d; if(j < 0 || j >= list.length) return true;
+    location.hash = list[j].getAttribute("href"); return true;
+  }
+  function eltern(h){
+    var m = h.match(/^(flood\/|es\/)?(.*)$/), p = m[1] || "", r = (m[2] || "").split("/").filter(Boolean), es = p === "es/";
+    if(!r.length || r[0] === "start") return r.length || p ? "hub" : "hub";
+    if(r[0] === "hub") return "";
+    if(r[0] === "m") return p + "mysterien";
+    if(r[0] === "nach") return r.length > 2 ? p + "nach/" + r[1] : p + "start";
+    if(r[0] === "bogen") return es ? "es/reisende" : p + "kids";
+    if(es && r[0] === "fahrzeug") return "es/reisende";
+    return p + "start";
+  }
+  function offen(){
+    var o = document.getElementById("bvOverlay"); if(o && !o.hidden) return true;
+    var m = document.querySelector(".nscm, .lbx"); if(m){ m.remove(); return true; }
+    var mp = document.getElementById("mmP"); if(mp && mp.classList.contains("on")){ openMenu(false); return true; }
+    return false;
+  }
+  document.addEventListener("keydown", function(e){
+    if(/INPUT|TEXTAREA|SELECT/.test((e.target.tagName || "")) || e.target.isContentEditable || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+    if(e.key === "Escape"){ if(offen()) return; var z = eltern(location.hash.replace(/^#/, "")); if(z){ e.preventDefault(); location.hash = z; } return; }
+    if(!/^Arrow(Left|Right|Up|Down)$/.test(e.key)) return;
+    var o = document.getElementById("bvOverlay"); if((o && !o.hidden) || document.querySelector(".nscm, .lbx")) return;
+    var d = /Right|Down/.test(e.key) ? 1 : -1, ok;
+    if(/Left|Right/.test(e.key)) ok = schritt(Array.prototype.slice.call(document.querySelectorAll('.tabs a[href^="#"]:not(.mt)')), d);
+    else { var sd = document.querySelector(".lay:not(.collapsed) .side, #app:not(.nsc) .nside"); ok = sd && schritt(Array.prototype.slice.call(sd.querySelectorAll('a[href^="#"]:not(.nj)')), d); }
+    if(ok) e.preventDefault();
+  });
   document.addEventListener("keydown", function(e){
     if(e.key === "Escape") openMenu(false);
     if(/INPUT|TEXTAREA|SELECT/.test((e.target.tagName||"")) || e.ctrlKey || e.metaKey || e.altKey) return;

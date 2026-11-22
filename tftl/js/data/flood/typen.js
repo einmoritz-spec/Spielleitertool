@@ -1,0 +1,1 @@
+/* PLATZHALTER – Paket B0 (FLOOD.TYPEN) */

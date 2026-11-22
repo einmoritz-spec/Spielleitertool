@@ -3,10 +3,12 @@ window.BEREICHE = {
   tftl: {
     cls: "", title: "Tales from the Loop",
     tabs: [["start","Vorbereitung"],["mysterien","Mysterien"],["kids","Kids"],["karte","Karte"]],
+    werkzeuge: [["schirm","Spielleiterschirm"],["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]],
     books: ["tftl_core","tftl_a1","tftl_a2","tftl_a3","tftl_a4","tftl_z1"]
   },
   flood: {
-    cls: "flood", title: "Things from the Flood", sub: "assets/logos/things-from-the-flood.webp", subW: 190, subH: 20,
+    cls: "flood", title: "Things from the Flood", logo: "assets/logos/things-from-the-flood.webp", logoW: 252, logoH: 26,
+    werkzeuge: [["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]],
     tabs: [["start","Vorbereitung"],["mysterien","Mysterien"],["kids","Teens"],["karte","Karte"]],
     books: ["tftl_flood"]
   },

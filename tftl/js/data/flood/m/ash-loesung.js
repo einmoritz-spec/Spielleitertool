@@ -1,0 +1,1 @@
+/* PLATZHALTER – Folgedatei ash-loesung */

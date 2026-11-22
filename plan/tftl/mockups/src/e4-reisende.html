@@ -3,14 +3,15 @@
 .kt{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .kt h1{font-size:30px;margin-right:10px}
 .kt .chip{margin:0}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.tv{background:var(--paper);border:2.5px solid var(--ink);display:grid;grid-template-columns:92px 1fr;position:relative}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tv .in{min-width:0}
+.tv{background:var(--paper);border:2.5px solid var(--ink);display:grid;grid-template-columns:clamp(70px,6.5vw,92px) minmax(0,1fr);position:relative}
 .tv .fg{background:#e3eaea center bottom/contain no-repeat;border-right:2px solid var(--ink)}
 .tv .in{padding:9px 11px 10px;font:13.5px/1.35 var(--sans)}
 .tv h3{font-size:22px}
 .tv .sub{font:500 12px var(--sans);color:var(--soft);margin:1px 0 7px}
 .at{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:7px}
-.at span{border:1.8px solid var(--ink);text-align:center;font:600 9.5px var(--sans);text-transform:uppercase;letter-spacing:.04em;padding:2px 0 1px}
+.at span{min-width:0;overflow:hidden;border:1.8px solid var(--ink);text-align:center;font:600 8.5px var(--sans);text-transform:uppercase;letter-spacing:.04em;padding:2px 0 1px}
 .at b{display:block;font:600 19px var(--head);line-height:1.1}
 .tr{display:flex;align-items:center;gap:6px;margin:3px 0;font:600 11px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--soft)}
 .tr em{width:84px;font-style:normal}
@@ -89,6 +90,6 @@ p.s{font:14px/1.4 var(--serif)}
    <p class="s">1 Erfolg · <span class="chip" style="font-size:12px;padding:3px 9px">Forcieren (−1 Hoffnung)</span></p></div>
  </div>
 </div>
-<div class="ann" style="left:640px;top:62px;max-width:420px"><b>1</b>Reisende wie die Kids: Karte je Reisende(r) mit Archetyp-Figur aus dem Buch, Werte anklickbar; „Reise“ = persönliches Ziel und Bedrohung aus „Into the Dust“ mit Countdown. Klick auf den Namen → Bogen (nah am Original S. 220, ausfüllbares PDF).</div>
-<div class="ann" style="left:120px;top:830px;max-width:520px"><b>2</b>Spannung (0–2, asymmetrisch, Klick zählt hoch), Fahrzeug (Buick aus „Into the Dust“), Würfelprobe nach Kap. 3.</div>
+<div class="ann" style="left:680px;top:800px;max-width:700px"><b>1</b>Reisende wie die Kids: Karte je Reisende(r) mit Archetyp-Figur aus dem Buch, Werte anklickbar; „Reise“ = persönliches Ziel und Bedrohung aus „Into the Dust“ mit Countdown. Klick auf den Namen → Bogen (nah am Original S. 220, ausfüllbares PDF).</div>
+<div class="ann" style="left:22px;top:800px;max-width:620px"><b>2</b>Spannung (0–2, asymmetrisch, Klick zählt hoch), Fahrzeug (Buick aus „Into the Dust“), Würfelprobe nach Kap. 3.</div>
 </body></html>

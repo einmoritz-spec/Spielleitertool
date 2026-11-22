@@ -14,12 +14,24 @@
     if(page === "flood" || page === "es"){ area = page; page = h[1] || "start"; }
     return {area:area, page:page, rest:h.slice(area==="tftl"?1:2)};
   }
+  /* Kontext je Bereich: Präfix, Speicher-Präfix, Buch und Daten – Renderer lesen window.TCTX */
+  function ctx(a){
+    var F = window.FLOOD || {};
+    if(a === "flood") return {area:"flood", p:"flood/", ls:"flood_", book:"tftl_flood",
+      START:F.START, MYSTERIEN:F.MYSTERIEN, MYS:F.MYS, NACH:F.NACH, NACHDATA:F.NACHDATA, SETS:F.SETS,
+      TYPEN:F.TYPEN, KIDS:F.KIDS, KARTE:F.KARTE, kidsKey:"flood_teens_v1", sheet:"FLOODSHEET", L:F.L};
+    return {area:a, p:a==="tftl" ? "" : a + "/", ls:"tftl_", book:"tftl_core",
+      START:window.START, MYSTERIEN:window.MYSTERIEN, MYS:window.MYS, NACH:window.NACH, NACHDATA:window.NACHDATA,
+      SETS:null, TYPEN:window.TYPEN, KIDS:window.KIDS, KARTE:window.KARTE, kidsKey:"tftl_kids_v1", sheet:null,
+      L:{kid:"Kid", kids:"Kids", unsere:"Unsere Kids", showdown:"Showdown", typBoxes:null}};
+  }
   function go(area, page){ location.hash = (area==="tftl" ? "" : area + "/") + page; }
   window.go = go;
 
   function head(a){
     var d = B[a], lg;
-    if(d.logo) lg = '<span class="lgm" role="img" aria-label="' + esc(d.title) + '" style="width:' + d.logoW + 'px;height:' + d.logoH + 'px;-webkit-mask-image:url(../' + d.logo + ');mask-image:url(../' + d.logo + ')"></span>';
+    if(d.logo && a === "flood") lg = '<span class="lgm" role="img" aria-label="' + esc(d.title) + '" style="width:' + d.logoW + 'px;height:' + d.logoH + 'px;-webkit-mask-image:url(../' + d.logo + ');mask-image:url(../' + d.logo + ')"></span>';
+    else if(d.logo) lg = '<span class="lgm" role="img" aria-label="' + esc(d.title) + '" style="width:' + d.logoW + 'px;height:' + d.logoH + 'px;-webkit-mask-image:url(../' + d.logo + ');mask-image:url(../' + d.logo + ')"></span>';
     else { lg = '<span class="lgm" role="img" aria-label="Tales from the Loop" style="width:' + S.logoMask[1] + 'px;height:' + S.logoMask[2] + 'px;-webkit-mask-image:url(' + S.logoMask[0] + ');mask-image:url(' + S.logoMask[0] + ')"></span>';
       if(d.sub) lg += '<span class="sub-logo"><i></i><span class="lgm" role="img" aria-label="' + esc(d.title) + '" style="width:' + d.subW + 'px;height:' + d.subH + 'px;-webkit-mask-image:url(../' + d.sub + ');mask-image:url(../' + d.sub + ')"></span></span>'; }
     document.getElementById("top").innerHTML =
@@ -27,9 +39,9 @@
       '<button class="tb-burger" onclick="openMenu(true)" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>';
   }
   function menu(a){
-    var d = B[a], p = a==="tftl" ? "" : a + "/";
-    var h = '<h3>Nachschlagen</h3>' + window.NACH.map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + 'nach/' + n[0] + '\'">' + esc(n[1]) + '</button>'; }).join("") +
-      '<h3>Werkzeuge</h3>' + [["schirm","Spielleiterschirm"],["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]].map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + n[0] + '\'">' + n[1] + '</button>'; }).join("") +
+    var d = B[a], p = a==="tftl" ? "" : a + "/", C = ctx(a);
+    var h = '<h3>Nachschlagen</h3>' + (C.NACH || []).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + 'nach/' + n[0] + '\'">' + esc(n[1]) + '</button>'; }).join("") +
+      '<h3>Werkzeuge</h3>' + (d.werkzeuge || [["schirm","Spielleiterschirm"],["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]]).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + n[0] + '\'">' + n[1] + '</button>'; }).join("") +
       '<h3>Bücher</h3>' + d.books.map(function(id){ return '<button onclick="openMenu(false);BV.open(\'' + id + '\',1)">' + esc(nameOf(id)) + '</button>'; }).join("");
     document.getElementById("mmP").innerHTML = h;
   }
@@ -37,19 +49,21 @@
     var r = route(), d = B[r.area];
     document.body.className = (d.cls || "") + (document.body.classList.contains("nohead") ? " nohead" : "");
     document.title = d.title;
+    window.TCTX = ctx(r.area);
+    var ok = r.area==="tftl" || r.area==="flood", pre = r.area==="tftl" ? "" : r.area + "/";
     head(r.area); menu(r.area);
     var tabsEl = document.getElementById("tabs");
     document.getElementById("app").onclick = null;
-    if(r.area==="tftl" && r.page==="m" && window.renderLeitstand){ window.renderLeitstand(document.getElementById("app"), tabsEl, r.rest); return; }
-    if(r.area==="tftl" && r.page==="nach" && window.renderNach){ document.getElementById("app").className = "page"; window.renderNach(document.getElementById("app"), tabsEl, r.rest); window.scrollTo(0, 0); return; }
-    tabsEl.innerHTML = d.tabs.map(function(t){ return '<a href="#' + (r.area==="tftl" ? "" : r.area + "/") + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
+    if(ok && r.page==="m" && window.renderLeitstand && (r.area==="tftl" || window.renderLeitstand.ctx)){ window.renderLeitstand(document.getElementById("app"), tabsEl, r.rest); return; }
+    if(ok && r.page==="nach" && window.renderNach){ document.getElementById("app").className = "page"; window.renderNach(document.getElementById("app"), tabsEl, r.rest); window.scrollTo(0, 0); return; }
+    tabsEl.innerHTML = d.tabs.map(function(t){ return '<a href="#' + pre + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
     var tab = d.tabs.filter(function(t){ return t[0]===r.page; })[0];
     var app = document.getElementById("app"); app.className = "page";
-    if(r.area==="tftl" && r.page==="start" && window.renderStart) window.renderStart(app);
-    else if(r.area==="tftl" && r.page==="karte" && window.renderKarte) window.renderKarte(app);
-    else if(r.area==="tftl" && r.page==="kids" && window.renderKids) window.renderKids(app);
-    else if(r.area==="tftl" && r.page==="bogen" && window.renderBogen) window.renderBogen(app, r.rest[0]);
-    else if(r.area==="tftl" && r.page==="mysterien" && window.renderMysterien) window.renderMysterien(app);
+    if(ok && r.page==="start" && window.renderStart) window.renderStart(app);
+    else if(ok && r.page==="karte" && window.renderKarte) window.renderKarte(app);
+    else if(ok && r.page==="kids" && window.renderKids && (r.area==="tftl" || window.renderKids.ctx)) window.renderKids(app);
+    else if(ok && r.page==="bogen" && window.renderBogen && (r.area==="tftl" || window.renderKids.ctx)) window.renderBogen(app, r.rest[0]);
+    else if(ok && r.page==="mysterien" && window.renderMysterien) window.renderMysterien(app);
     else app.innerHTML = '<h1>' + esc(tab ? tab[1] : r.page) + '</h1>';
     window.scrollTo(0, 0);
   }

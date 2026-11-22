@@ -744,6 +744,7 @@ const FILES = [
   "heart/js/data/nach-klassen-c.js",
   "heart/js/data/nach-regeln-a.js",
   "heart/js/data/nach-regeln-b.js",
+  "heart/js/data/nach-regeln-c.js",
   "heart/js/data/nach-charaktere-bb.js",
   "heart/js/data/buecher.js",
   "heart/js/data/start.js",

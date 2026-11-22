@@ -282,3 +282,4 @@ body{background-attachment:fixed}
 .fk ul.sub{list-style:none;margin:4px 0 0;padding:0;border-left:3px solid var(--platte)}
 .fk ul.sub li{font-size:14px;line-height:1.34;padding:3px 6px 3px 9px}.fk ul.sub li:nth-child(odd){background:var(--rose)}
 @media (max-width:1380px){.klz{grid-template-columns:260px minmax(0,1fr)}.diag .name{font-size:50px}.raster{grid-template-columns:repeat(2,minmax(0,1fr))}.ktext .zeile{grid-template-columns:minmax(0,1fr) 270px}}
+.schwarz .h3{color:#c8a15a;margin:.6em 0 .15em}

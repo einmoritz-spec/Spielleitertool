@@ -86,3 +86,148 @@ body.notop .titel{top:0;height:100vh}
 .gzoom{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:70;display:flex;align-items:center;justify-content:center;cursor:zoom-out}
 .gzoom img{max-width:94vw;max-height:94vh}
 .pennote{display:block;width:100%;height:min(300px,50vh);border:2px solid var(--schwarz);padding:10px;font:400 15px/1.45 var(--mono)}
+
+/* ---------- Spieltisch (Entwurf 2) ---------- */
+.kal{min-height:128px;display:grid;grid-template-columns:minmax(380px,470px) minmax(0,1fr) 150px;border-bottom:1px solid var(--linie)}
+.wuerfel{display:grid;grid-template-columns:repeat(5,1fr);margin:18px 0 18px 24px}
+.wuerfel button{border-left:1px solid #4a4a40;text-align:center;padding:4px 4px 0;color:#bdb9a6}
+.wuerfel button:first-child{border-left:0}
+.wuerfel small{display:block;font:500 11.5px/1.25 var(--grotesk);height:30px}
+.wuerfel b{display:block;font:700 34px/1 var(--fraktur);margin-top:6px}
+.wuerfel button:hover b{color:var(--gelb)}
+.wuerfel button.on{color:var(--gelb)}
+.wuerfel button.on b{color:var(--schwarz);background:var(--gelb);margin:6px 10px 0;padding:2px 0 4px}
+.psalm{padding:14px 22px 0;border-left:1px solid var(--linie);border-right:1px solid var(--linie);min-width:0}
+.netz{display:flex;gap:10px}
+.ps span{display:block;font:700 9.5px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:#8d8a78;margin-bottom:4px;white-space:nowrap}
+.ps div{display:grid;grid-template-columns:repeat(3,27px);grid-auto-rows:20px;gap:2px}
+.ps b{font:700 10px/18px var(--mono);text-align:center;color:#8d8a78;border:1px solid #3c3c33;cursor:pointer}
+.ps b:hover{border-color:var(--gelb);color:var(--gelb)}
+.ps b.x{background:var(--gelb);color:var(--schwarz);border-color:var(--gelb)}
+.ps.end div{grid-template-columns:40px}
+.ps.end b{grid-row:1/3;line-height:36px;border:3px double var(--gelb);color:var(--gelb);font-size:11px}
+.ps.end b.x{background:var(--gelb);color:var(--schwarz)}
+.psalm .zuletzt{font:italic 400 14.5px/1.35 var(--text);color:#e9e5d3;margin-top:9px;height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.psalm .zuletzt b{font:700 12px var(--mono);font-style:normal;color:var(--gelb);margin-right:8px}
+.tag{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:8px 0}
+.tag .versal{color:#8d8a78}
+.tag .n{font:700 52px/1 var(--fraktur);color:var(--weiss)}
+.tag .ctl{display:flex;gap:6px}
+.tag .ctl button{width:30px;height:26px;border:1px solid #4a4a40;color:var(--gelb);font:700 16px/1 var(--grotesk)}
+.tag .ctl button:hover{background:var(--gelb);color:var(--schwarz)}
+.versal{font:700 11px/1.2 var(--grotesk);letter-spacing:.16em;text-transform:uppercase}
+.tisch{display:grid;grid-template-columns:minmax(330px,392px) minmax(0,1fr) minmax(330px,392px);gap:24px;padding:20px 24px 32px;align-items:start}
+.spk{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;min-height:34px}
+.spk h2{margin:0;font:700 26px/1 var(--fraktur);color:var(--weiss)}
+.spk .plus{font:700 11px var(--grotesk);letter-spacing:.14em;text-transform:uppercase;color:var(--gelb);border:1px solid #4a4a40;padding:6px 9px}
+.spk .plus:hover{background:var(--gelb);color:var(--schwarz)}
+/* Gruppe */
+.sc{border-top:1px solid var(--linie);padding:12px 0;display:grid;grid-template-columns:1fr auto;gap:2px 12px;cursor:pointer}
+.sc:hover .n{color:var(--gelb)}
+.sc .n{font:700 23px/1.05 var(--fraktur)}
+.sc .kl{font:400 12.5px var(--mono);color:#a9a594}
+.sc .tp{grid-row:1/3;grid-column:2;text-align:right;font:700 30px/1 var(--mono);color:var(--pink)}
+.sc .tp small{font-size:15px;color:#8d8a78}
+.sc .tp .k{display:flex;justify-content:flex-end;align-items:center;gap:6px;font:700 10px var(--grotesk);letter-spacing:.16em;color:#8d8a78;margin-top:4px}
+.sc .tp .k button{width:20px;height:18px;border:1px solid #4a4a40;color:var(--gelb);font:700 12px/1 var(--grotesk)}
+.sc .tp .k button:hover{background:var(--gelb);color:var(--schwarz)}
+.sc .zl{grid-column:1/3;display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font:400 12.5px var(--mono);color:#cfcab5;align-items:center}
+.sc .zl b{color:var(--weiss)}
+.sc .om{display:inline-flex;gap:3px}
+.sc .om i{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--pink);cursor:pointer}
+.sc .om i.v{background:var(--pink)}
+.sc .mc{cursor:pointer}
+.sc .si input{width:52px;background:none;border:0;border-bottom:1px solid #4a4a40;color:var(--weiss);font:700 12.5px var(--mono);padding:0 2px;text-align:right}
+.sc .ch{margin-left:auto;font:700 10px var(--grotesk);letter-spacing:.12em;text-transform:uppercase;background:var(--pink);color:var(--schwarz);padding:3px 6px;cursor:pointer}
+.sc .gz{width:22px;height:20px;border:1px solid #4a4a40;font:700 12px var(--mono);color:var(--weiss)}
+.sc .gz.on{background:var(--gelb);color:var(--schwarz);border-color:var(--gelb)}
+.sc .gt{flex-basis:100%;color:#cfcab5;line-height:1.35}
+.sc.tot .n,.sc.tot .kl{color:#5d5b50;text-decoration:line-through}
+/* Gewalt */
+.ini{display:flex;margin-bottom:16px;border:1px solid #4a4a40}
+.ini span{padding:10px 14px;font:700 11px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:#8d8a78;border-right:1px solid #4a4a40;white-space:nowrap}
+.ini button{flex:1;padding:9px 12px;font:500 14px var(--grotesk);color:#cfcab5;border-right:1px solid #4a4a40}
+.ini button:last-child{border-right:0}
+.ini button b{font:700 14px var(--mono);color:var(--pink);margin-right:6px}
+.ini button.on{background:var(--weiss);color:var(--schwarz)}
+.kr{background:var(--weiss);color:var(--schwarz);display:grid;grid-template-columns:76px minmax(0,1fr);gap:0 16px;padding:14px 16px 14px 12px;margin-bottom:14px}
+.kr.ohne{grid-template-columns:minmax(0,1fr);padding-left:16px}
+.kr img{width:76px;height:96px;object-fit:contain;grid-row:1/4}
+.kr .t{display:flex;align-items:baseline;gap:8px}
+.kr .t h3{margin:0;font:400 28px/1 var(--plakat);text-transform:uppercase}
+.kr .t .anz{font:700 15px var(--mono);margin-left:auto}
+.kr .t .x{font:700 18px/1 var(--grotesk);color:#aaa;padding:0 2px}.kr .t .x:hover{color:var(--schwarz)}
+.kr .w{font:700 13.5px/1.5 var(--mono);color:var(--pink);margin-top:4px}
+.kr .w span{color:var(--schwarz);font-weight:400}
+.kr .sp2{font:italic 400 14px/1.35 var(--text);color:#333;margin-top:2px}
+.kr .leben{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px;padding-top:10px;border-top:1px solid var(--linie-h);align-items:center}
+.kr .leben .e{display:flex;align-items:center;gap:5px;font:700 12px var(--mono)}
+.kr .leben .e i{width:13px;height:13px;border:1.5px solid var(--schwarz);cursor:pointer}
+.kr .leben .e i.w{background:var(--pink);border-color:var(--pink)}
+.kr .leben .e.tot{color:#aaa}
+.kr .leben .e.tot i{border-color:#ccc}.kr .leben .e.tot i.w{background:#ccc}
+.kr .moral{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center;font:400 12.5px var(--grotesk)}
+.kr .moral .lab{font:700 10.5px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--schwarz);padding:3px 7px}
+.kr .moral .lab:hover{background:var(--schwarz);color:var(--gelb)}
+.kr .moral span{border:1px solid #cfcab5;padding:3px 7px}
+.kr .moral span.an{background:var(--schwarz);color:var(--gelb);border-color:var(--schwarz)}
+.dazu{display:block;width:100%;border:1px dashed #4a4a40;color:#8d8a78;padding:12px;text-align:center;font:500 14px var(--grotesk)}
+.dazu:hover{border-color:var(--gelb);color:var(--gelb)}
+/* Regelspiegel */
+.spiegel{background:var(--gelb);color:var(--schwarz);padding:16px 20px 18px;position:sticky;top:112px;max-height:calc(100vh - 128px);overflow:auto}
+body.notop .spiegel{top:56px;max-height:calc(100vh - 72px)}
+.spiegel .tabs{display:flex;align-items:center;border-bottom:2px solid var(--schwarz);margin:0 -20px 14px;padding:0 20px}
+.spiegel .tabs button{font:700 19px/1 var(--fraktur);padding:6px 10px 8px}
+.spiegel .tabs button.on{background:var(--schwarz);color:var(--gelb)}
+.spiegel .tabs .pg{margin-left:auto;color:#6b6200}
+.spiegel .sec{margin-top:12px}.spiegel .sec:first-of-type{margin-top:0}
+.spiegel .sec .etikett{margin-bottom:6px}
+.spiegel table{width:100%;border-collapse:collapse;font:400 13.5px/1.3 var(--grotesk)}
+.spiegel td{padding:2px 0;vertical-align:top}
+.spiegel td:first-child{font-weight:700;white-space:nowrap;padding-right:12px;width:1%}
+.spiegel .zw{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin-top:12px}
+.spiegel .zw .etikett{margin-bottom:6px}
+.spiegel p{margin:0;font:400 13.5px/1.3 var(--grotesk)}
+.spiegel .fn{margin-top:4px;font-size:12px}
+/* Fenster: Formulare, Kalenderverse, Regeltabellen */
+.modal.breit>div{width:min(760px,96vw)}
+.modal h3.mt{margin:0 0 10px;font:700 26px/1 var(--fraktur)}
+.modal h4{margin:14px 0 4px;font:700 11px var(--grotesk);letter-spacing:.16em;text-transform:uppercase}
+.modal h4.ph{background:var(--schwarz);color:var(--weiss);padding:5px 8px 4px;display:inline-block}
+.modal p{margin:0 0 8px;font:400 16px/1.4 var(--text)}
+.modal p.q{font-style:italic;color:#555}
+.modal p.vs{cursor:pointer;padding:3px 6px 3px 56px;position:relative;margin:0}
+.modal p.vs b{position:absolute;left:6px;font:700 12px/1.9 var(--mono);color:#6b6200}
+.modal p.vs:hover{background:#f3f0dc}
+.modal p.vs.ein{background:var(--gelb)}.modal p.vs.ein b{color:var(--schwarz)}
+.fm label{display:block;margin:0 0 10px;font:700 10.5px var(--grotesk);letter-spacing:.14em;text-transform:uppercase}
+.fm input[type=text],.fm input[type=number]{display:block;width:100%;margin-top:3px;border:1px solid var(--schwarz);padding:7px 8px;font:400 15px var(--mono)}
+.fm .row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.fm .row:has(> :nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+.fm label.cb{display:flex;gap:8px;align-items:center;text-transform:none;letter-spacing:0;font:500 15px var(--grotesk)}
+.fm .bt{display:flex;gap:10px;margin-top:6px}
+.btn{background:var(--schwarz);color:var(--gelb);font:700 12px var(--grotesk);letter-spacing:.14em;text-transform:uppercase;padding:10px 16px}
+.btn.l{background:none;color:var(--schwarz);border:1px solid var(--schwarz)}
+.kl2{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.kl2 button{border:1px solid var(--schwarz);padding:5px 9px;font:500 14px var(--grotesk)}.kl2 button i{font:400 11px var(--mono);margin-left:6px;color:#666;font-style:normal}
+.kl2 button:hover{background:var(--schwarz);color:var(--gelb)}
+table.rt{border-collapse:collapse;margin:6px 0 12px;font:400 14px/1.35 var(--grotesk)}
+table.rt th{text-align:left;font:700 10.5px var(--grotesk);letter-spacing:.14em;text-transform:uppercase;padding:3px 12px 3px 0;border-bottom:2px solid var(--schwarz)}
+table.rt td{padding:3px 12px 3px 0;vertical-align:top;border-bottom:1px solid var(--linie-h)}
+@media (max-width:1400px){
+ .kal{grid-template-columns:minmax(340px,420px) minmax(0,1fr) 130px}
+ .wuerfel{margin-left:20px}
+ .psalm{padding:14px 16px 0}
+ .netz{gap:8px}
+ .ps div{grid-template-columns:repeat(3,25px)}
+ .ps.end div{grid-template-columns:36px}
+ .ini span{padding:10px 10px;letter-spacing:.1em}
+ .ini button{padding:9px 6px;font-size:13px;white-space:nowrap}
+ .kr .moral{gap:6px;font-size:12px}.kr .moral span,.kr .moral .lab{padding:3px 5px}
+}
+@media (max-width:1400px){
+ .kal{grid-template-columns:430px minmax(0,1fr) 120px}
+ .wuerfel small{font-size:11px}
+ .kr .moral{gap:5px;font-size:11.5px}.kr .moral .lab{letter-spacing:.08em;font-size:10px}
+}
+.siegel b.end{width:36px;font-size:10px}

@@ -32,7 +32,7 @@ Entwürfe (Screenshots 1440×900) liegen in `plan/moerkborg/mockups/` – **die 
 7. **Troll:** Der Eigenname auf S. 64 (Bild-Schriftzug, im PDF nur angeschnitten) wird beim Bau am Seitenbild geklärt. Bis dahin „Troll“.
 8. Repo-Schreibrechte: in der Phase-1-Sitzung nachträglich freigeschaltet, Push funktioniert.
 
-**Bauchronik:** Schritt 0 (Gerüst, Schriften, Register-Startseite, i-Knopf, Menü, sw.js) gebaut am 22. Nov. 2026.
+**Bauchronik:** Schritt 0 (Gerüst, Schriften, Register-Startseite, i-Knopf, Menü, sw.js) gebaut am 22. Nov. 2026. **Schritt 1** (Spieltisch + Kalender: `spieltisch.js`, `blocks.js`, `kalender.js`, `kalender-psalmen.js`, `regelspiegel.js`, `regeln-a.js` = c04 S. 26–31) gebaut am 22. Nov. 2026; offen für Schritt 3: c04 S. 28 (TP-Seite, nur Überschriften im Text) und S. 33 „Besser werden“ am Seitenbild prüfen.
 
 ---
 

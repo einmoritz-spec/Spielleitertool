@@ -34,8 +34,10 @@ function viewStart(){
     return '<div class="zeile"><div class="nr">' + t.nr + '</div><div><h2 onclick="openBook(\'' + t.z[0][1] + '\',' + t.z[0][2] + ')">' + esc(t.t) + '</h2><p>' +
       t.z.map(function(z){ return '<span onclick="openBook(\'' + z[1] + '\',' + z[2] + ')">' + esc(z[0]) + '<i>S. ' + z[2] + '</i></span>'; }).join(" ") + '</p></div></div>';
   }).join("");
-  var los = VIEWS.spiel ? '<div class="los" onclick="go(\'spiel\')"><div class="t">Zum Spieltisch<span>→</span></div><div class="stand"><div class="siegel">' +
-    '<b' + (((ST.kal || {}).n || 0) >= 1 ? ' class="x"' : "") + '>1:3</b><b>4:6</b><b></b><b></b><b></b><b></b><b class="end">7:7</b></div></div></div>' : "";
+  var kk = ST.kal || {}, ein = kk.ein || {}, sg = "";
+  for(var p = 1; p <= 6; p++){ var hat = false; for(var q = 1; q <= 6; q++) if(ein[p + ":" + q]) hat = true; sg += '<b' + (hat ? ' class="x"' : "") + '>' + p + '</b>'; }
+  sg += '<b class="end' + (ein["7:7"] ? " x" : "") + '">7:7</b>';
+  var los = VIEWS.spiel ? '<div class="los" onclick="go(\'spiel\')"><div class="t">Zum Spieltisch<span>→</span></div><div class="stand"><div class="siegel">' + sg + '</div><div class="z">Tag ' + (kk.n || 1) + '</div></div></div>' : "";
   return '<div class="buehne"><div class="titel"><img src="' + IMG("start/cover-skelett") + '" alt=""></div><div class="reg"><div class="kopfz"><h1>Register</h1></div>' + zeilen + los + '</div></div>';
 }
 

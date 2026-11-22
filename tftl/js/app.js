@@ -41,6 +41,7 @@
     var tab = d.tabs.filter(function(t){ return t[0]===r.page; })[0];
     var app = document.getElementById("app"); app.className = "page";
     if(r.area==="tftl" && r.page==="start" && window.renderStart) window.renderStart(app);
+    else if(r.area==="tftl" && r.page==="mysterien" && window.renderMysterien) window.renderMysterien(app);
     else app.innerHTML = '<h1>' + esc(tab ? tab[1] : r.page) + '</h1>';
     window.scrollTo(0, 0);
   }

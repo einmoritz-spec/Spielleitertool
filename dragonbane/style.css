@@ -542,3 +542,4 @@ table.w6.gt td:last-child{white-space:normal}
 .tw span{display:flex;flex-direction:column;font:20px/1.1 var(--f-text);color:var(--braun)}
 .tw i,.tl i{font:11px/1.3 var(--f-kopf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d)}
 .tl{font:16px/1.4 var(--f-text);margin-top:7px}.tl i{display:block}
+table.w6.wd td:first-child{width:auto;text-align:left;font-family:var(--f-text);font-weight:700}table.w6.wd th,table.w6.wd td{padding:6px 10px}table.w6.wd{font-size:15px}

@@ -10,7 +10,7 @@ function w6Get(id, i){ try{ return ((ST.w6 || {})[id] || {})[i] || 0; }catch(e){
 function w6Click(id, i){ try{ ST.w6 = ST.w6 || {}; ST.w6[id] = ST.w6[id] || {}; ST.w6[id][i] = (w6Get(id, i) + 1) % 3; if(!ST.w6[id][i]) delete ST.w6[id][i]; save(); }catch(e){} render(); }
 function ntbl(t){
   var klick = !!t.id;
-  return '<table class="w6' + (t.head ? (t.head.length === 4 && t.head[2] === t.head[0] ? ' q4' : '') : ' kv') + (klick ? ' kl' : '') + (window.__fk === "au" ? ' gt' : '') + '">' + (t.head ? '<tr>' + t.head.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr>' : '') +
+  return '<table class="w6' + (t.head && t.head.length >= 5 ? ' wd' : '') + (t.head ? (t.head.length === 4 && t.head[2] === t.head[0] ? ' q4' : '') : ' kv') + (klick ? ' kl' : '') + (window.__fk === "au" ? ' gt' : '') + '">' + (t.head ? '<tr>' + t.head.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join("") + '</tr>' : '') +
     t.rows.map(function(r, i){ var z = klick ? w6Get(t.id, i) : 0; return '<tr' + (klick ? ' class="' + (z === 1 ? 'an' : z === 2 ? 'weg' : '') + '" onclick="w6Click(\'' + t.id + '\',' + i + ')"' : '') + '>' + r.map(function(c){ return '<td>' + md(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</table>';
 }
 function nbody(arr){
@@ -48,8 +48,10 @@ function nabs(a){
   a.b.forEach(function(b){
     if(b.h){ flush(); curC = b.cols ? ' c' + b.cols : (b.voll ? ' voll' : ''); cur = '<h3 class="uh">' + esc(b.h) + (b.p ? pgl(b.p) : "") + '</h3>'; return; }
     if(b.karte){ flush(); cells.push('<div class="karte nkk' + (function(l, u){ return l > 1500 && u ? ' voll kl2' : l > 900 ? ' z2' : ''; })(JSON.stringify(b.karte.b).length, JSON.stringify(b.karte.b).indexOf('"ul"') >= 0) + '"><div class="name">' + esc(b.karte.h) + pgl(b.karte.p) + '</div>' + nbody(b.karte.b) + '</div>'); return; }
+    if(b.tbl && b.tbl.head && b.tbl.head.length >= 5){ var hc = cur || ""; cur = null; cells.push('<div class="ab voll">' + hc + ntbl(b.tbl) + '</div>'); return; }
     if(b.tbl && !cur && cells.length && /^<div class="zelle/.test(cells[cells.length - 1]) && !/<table/.test(cells[cells.length - 1])){
       var lc = cells.pop(); if(b.tbl.rows.length > 8 && lc.indexOf(' z2') < 0) lc = lc.replace('class="zelle', 'class="zelle z2');
+      if(b.tbl.head && b.tbl.head.length >= 5) lc = lc.replace('class="zelle', 'class="zelle voll');
       cells.push(lc.replace(/<\/div>$/, ntbl(b.tbl) + '</div>')); return; }
     if(b.stein){ flush(); cells.push('<div class="zelle' + (JSON.stringify(b.stein.b).length > 420 ? ' z2' : '') + '"><div class="stein"><div class="bh">' + esc(b.stein.h) + '</div>' + nbody(b.stein.b) + '</div></div>'); return; }
     if(b.zit){ flush(); cells.push('<div class="vorlesen zit voll">' + b.zit.map(function(p){ return '<p>' + md(p) + '</p>'; }).join("") + (b.q ? '<div class="qu">– ' + md(b.q) + '</div>' : '') + '</div>'); return; }
@@ -61,7 +63,7 @@ function nabs(a){
     cur = (cur || "") + nbody([b]);
   });
   flush();
-  return '<div class="gr' + ((window.__fk === "ka" || window.__fk === "be") && !a.plain ? ' mas' : '') + '">' + cells.join("") + '</div>';
+  return '<div class="gr' + ((window.__fk === "ka" || window.__fk === "be" || window.__fk === "ab") && !a.plain ? ' mas' : '') + '">' + cells.join("") + '</div>';
 }
 function nachFlat(){ var r = []; NACH_TABS.forEach(function(t){ var d = nachKap(t[0]); if(d) d.abs.forEach(function(a){ r.push([t[0], a.id, d, a]); }); }); return r; }
 DB_VIEWS.n = function(h){

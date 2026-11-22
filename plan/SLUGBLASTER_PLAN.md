@@ -6,7 +6,7 @@ Ziel: ein vollständiges Setting wie **Pico** (`pico/`) bzw. **The Wildsea** (`w
 
 **Wichtig zum Verständnis:** Slugblaster (Mikey Hamm, auf Basis von *Blades in the Dark*) hat **keine fertigen Abenteuer**. Gespielt wird in **Folgen** (Episoden, 2–4 Std.) mit festem Kreislauf (S. 13): *Tour wählen → Auffrischen → Die Tour! → Desaster?? → Aufräumen → Auszeit!* – die Spieler denken sich die Touren selbst aus, die SL liefert Hindernisse und Folgen. Das Herz des Tools ist deshalb die **Folge-Tafel** (Entwurf 2). Die „Abenteuer-Orte“ sind die **Welten** des Multiversums (11 + 9 Bonus-Welten), **Hillview** + 12 Bonus-Heimatorte und **Oolroob**.
 
-Entwürfe (Screenshots 1440×900) liegen in `plan/slugblaster/mockups/` – **die Umsetzung muss diesen Entwürfen genau entsprechen**. Die HTML/CSS-Quellen liegen in `plan/slugblaster/mockups/src/` (`sb.css` = fertiges Farb-/Schrift-System, Ausgangspunkt für `slugblaster/style.css`; `fonts/` = fertige Schriften; `img/` = Beispielbilder). Blaue Kästen mit roter Nummer sind nur Erklärungen im Entwurf, nicht Teil der Oberfläche. Texte in den Entwürfen sind teils gekürzt – im Tool steht immer der **vollständige** Buchtext.
+Entwürfe (Screenshots 1440×900) liegen in `plan/slugblaster/mockups/` – **die Umsetzung muss diesen Entwürfen genau entsprechen**. Je Entwurf gibt es eine saubere Fassung (`m2-folge.jpg`) und eine mit Erklärungen (`m2-folge-erklaert.jpg`). Die HTML/CSS-Quellen liegen in `plan/slugblaster/mockups/src/` (`sb.css` = fertiges Farb-/Schrift-System, Ausgangspunkt für `slugblaster/style.css`; `fonts/` = fertige Schriften; `img/` = Beispielbilder). Blaue Kästen mit roter Nummer sind nur Erklärungen im Entwurf, nicht Teil der Oberfläche. Texte in den Entwürfen sind teils gekürzt – im Tool steht immer der **vollständige** Buchtext.
 
 | Nr. | Datei | Ansicht |
 |---|---|---|
@@ -18,6 +18,11 @@ Entwürfe (Screenshots 1440×900) liegen in `plan/slugblaster/mockups/` – **di
 | 6 | `m6-signaturen.jpg` | Nachschlagen · Teenager · Signaturen-Übersicht (lila Seiten) |
 | 7 | `m7-fraktionen.jpg` | Fraktionen: Beziehungsliste −3…+3 aller 20 Fraktionen + Fraktions-Detail |
 | 8 | `m8-oolroob.jpg` | Untersetting Oolroob: Karte mit Pins + Orte (orange) |
+
+**Stand 22. Nov. 2026, 19:10 – Moritz’ Änderungen nach der ersten Runde:**
+1. **Randnotizen mit Zeigelinien** wie im Original: die geschwungenen Linien/Pfeile, die von der Notiz zum Teil der Figur zeigen, gehören dazu (Abschnitt 3, „Randnotiz-Bühne“; Entwurf 5 neu).
+2. **Ruhiger, durchgestaltet, nicht überladen** – verbindliche Gestaltungsregeln in Abschnitt 3a; Folge-Tafel (Entwurf 2) neu geordnet: Kreislauf in sechs gleich breiten Stationen, aktive Station mit genug Rand auf dem Klecks, Crew als ruhige Tabelle, Welt-Listen gekürzt mit „+ weitere“.
+3. **Signatur-Bilder:** 10 von 12 sind Original-Skizzen (Buch + Bögen, Entwurf 6 neu). Für **Voidwear Backpack** und **Hyperoptic Visor** erstellt Moritz Skizzen mit Gemini – Prompts und Vorlagen in `plan/slugblaster/gemini/`.
 
 ---
 
@@ -41,7 +46,9 @@ Diese Punkte sind im Plan so angenommen; wenn Moritz etwas anders will, **vor** 
 | Buchtext je Kapitel als Markdown | `quellen/slugblaster/text/k1-das-ist-slugblaster.md` … `k4b-spiel-veraendern-solo.md`, `oolroob.md` |
 | Bild-Inventar Regelbuch | `plan/slugblaster/bilder-inventar.tsv` (Seite, Nr, xref, Pixelgröße, Lage in pt) |
 | Formularfelder der Original-Bögen | `plan/slugblaster/felder/<Bogen>.tsv` (Seite, Feldname, Typ, Rechteck, nächstes Wort) |
-| Skripte | `plan/slugblaster/build_fonts.py`, `extract_images.py`, `extract_text.py` |
+| Skripte | `plan/slugblaster/build_fonts.py`, `extract_images.py`, `extract_text.py`, `extract_notes.py` (Randnotizen + Zeigelinien), `tint_sketch.py` (Skizzen freistellen + einfärben) |
+| Randnotiz-Bühnen der Persönlichkeiten | `plan/slugblaster/notizen-persoenlichkeiten.json` |
+| Gemini-Prompts + Vorlagen | `plan/slugblaster/gemini/GEMINI_PROMPTS.md` und die PNGs daneben |
 | Logo | `assets/logos/slugblaster.webp` (weiß, freigestellt) |
 
 **Seitenzählung:** **Buchseite = PDF-Seite** (kein Versatz, `off:0`). Oolroob ebenso. Seitenbild zum Prüfen: `pdftoppm -r 80 -f <S> -l <S> -png <pdf> /tmp/s`.
@@ -151,12 +158,29 @@ Das Buch ist ein **Zine/Skater-Magazin**: weiße Seiten mit knalligen Farbkäste
 - **Farbkasten:** Vollfarbe (lila2/teal/cyan/pink/magenta/minze), weißer Semibold-Text, Kopf in Versalien. Keine Rundung, kein Rand.
 - **Balken-Kasten** (BOOST/KICK/DARE S. 19): 7-px-Balken links in Lila.
 - **W6-Tabellen:** Zebra in Lavendel (Kap. 1/4) bzw. Rosa (Kap. 2) bzw. Gelb (Kap. 3), Zahl fett, Spaltenköpfe in Versalien. W66-Tabellen (Tour-Ideen S. 28–29, Crew-Namen S. 74) zweispaltig wie im Buch.
-- **Randnotiz:** Handschrift, Farbe Teal/Pink/Lila/Magenta wie im Buch (Farbe steht im PDF, siehe `extract_text.py`), leicht gedreht (−3°). Bei Figuren an der Stelle wie im Buch (Prozent-Positionen relativ zur Figur, aus den Koordinaten im PDF berechnen – Entwurf 5).
+- **Randnotiz:** Handschrift, Farbe wie im Buch (meist Teal `#008496`, sonst Pink/Lila/Magenta). Im Fließtext als kleine Notiz, leicht gedreht (−3°).
+- **Randnotiz-Bühne (Figuren, Signatur-Skizzen, Karten – Entwurf 5):** Figur, Notizen **und Zeigelinien** genau wie im Buch. `plan/slugblaster/extract_notes.py <pdf> <seite>` liefert je Seite eine „Bühne“ (alle Maße in pt): Lage der Figur, jede Notiz (Rechteck, Farbe, englischer Text) und jede Zeigelinie als **SVG-Pfad** (die Original-Vektorlinien des PDFs). Fertig für die fünf Persönlichkeiten: `plan/slugblaster/notizen-persoenlichkeiten.json` (S. 43/45/47/49/51); auch für S. 52/53/58/61 (Signatur-Skizzen), S. 94 und alle anderen Seiten mit Randnotizen verwenden.
+  - Aufbau: `<div class="stage" style="width:460px;aspect-ratio:w/h">` → Figur absolut in % · Notizen absolut in % · darüber `<svg viewBox="0 0 w h">` mit den Pfaden (`fill:none; stroke:<Notizfarbe>; stroke-width:1.7px; vector-effect:non-scaling-stroke; stroke-linecap:round`).
+  - **Schriftgröße proportional** zum Buch: `font-size = Originalgröße(pt) × Bühnenbreite(px)/w` (bei 460 px ≈ 17 px), `line-height:.84`, `white-space:nowrap`, Zeilenumbrüche fest im Datentext (`<br>`).
+  - **Anker:** Jede Notiz bleibt an der Seite fest, an der ihre Linie andockt – `a:"r"` (rechte Kante fest, Text rechtsbündig, wächst nach links), `a:"l"` (links fest), `v:"b"` (Unterkante fest, wenn die Linie unten andockt). So überdeckt längerer deutscher Text nie eine Linie.
+  - **Übersetzung knapp halten:** höchstens so viele Zeilen wie im Original; eher kürzer formulieren als die Notiz zu verbreitern. Jede Bühne per Screenshot prüfen: kein Text über Linien oder über dem Gesicht der Figur.
 - **Aufzählungen:** gefüllte schwarze Punkte (auf Nachtseiten pink).
 - **Beat-Kosten:** Plaketten „3 STYLE“ (Pink) / „4 ÄRGER“ (Schwarz).
 - **Leisten** (S. 149): Uhren 4/6/8 als SVG-Torten, Kästchen, Wort-Leiste (Buchstaben eines Wortes durchstreichen), Strichliste 3/5. Fortschritt = Minze, Gefahr = Magenta.
 - **Klebeband** (gelb/pink, halbtransparent) für Karten/Zettel (Multiversum-Karte, Entwurf 3).
 - **Fraktions-Skala** −3 … +3 und `!!!` in Handschrift (S. 126).
+
+### 3a. Gestaltungsregeln – ruhig und durchgestaltet (verbindlich)
+Moritz will jede Ansicht **gut sortiert und nicht überladen**. Das Buch ist laut und bunt – das Tool übernimmt die Bausteine, aber **sparsam**:
+1. **Festes Raster:** höchstens **drei Spalten** je Ansicht, feste Spaltenbreiten wie in den Entwürfen; Abstände nur aus der Reihe 4 · 8 · 12 · 16 · 20 · 28 px; Seitenrand 24 px.
+2. **Eine Hauptfarbe je Ansicht** (Kapitelfarbe) + Pink für Überschriften + höchstens **eine** Kastenfarbe dazu. Kein Regenbogen aus Kästen.
+3. **Höchstens ein Farbkasten je Spalte.** Alles andere ist Text auf Weiß mit Versalien-Kopf (Figtree 900, 11 px, `letter-spacing:.14em`) und dünner Trennlinie `#e6e1ef`.
+4. **Überschriften-Hierarchie:** Seitentitel Marker 44–58 px · Abschnitt Versalien-Kopf · Eintrag fett. Nie zwei Marker-Größen nebeneinander.
+5. **Lange Listen kürzen:** auf der Folge-Tafel höchstens 5 Einträge je Liste sichtbar, Rest hinter „+ N weitere“ (aufklappen). Auf Nachschlage-Seiten voller Text.
+6. **Kleckse nur als Markierung** (aktiver Tab, aktive Phase, Kapitelmarke) – Text darauf immer **mittig mit mind. 14 px Rand**, nie abgeschnitten (Entwurf 2: sechs gleich breite Stationen, Pfeile in den Spaltenlücken, nicht über dem Klecks).
+7. **Zahlen/Leisten wie auf dem Bogen** (Dreiecke, Rauten, Würfel-/Blitz-Symbole) – nie eigene Ersatzsymbole, keine leeren Platzhalter-Kreise.
+8. **Randnotizen** höchstens dort, wo das Buch sie hat; nie als Deko.
+9. Jede Ansicht vor dem Fertigmelden als Screenshot gegen diese Liste prüfen (Ausrichtung, Abstände, Überlauf, abgeschnittene Texte, leere Flächen).
 
 **Themen je Bereich (wie die Kapitel im Buch):**
 | Bereich | Seite | Aktiver Tab / Akzent |
@@ -204,7 +228,7 @@ Das Buch ist ein **Zine/Skater-Magazin**: weiße Seiten mit knalligen Farbkäste
 - Muss auf 1440×900 und 1280×800 ohne Scrollen passen.
 
 ### 5.2 Folge-Tafel (Entwurf 2) – das Herzstück
-**Kreislauf-Leiste** oben (S. 13, Reihenfolge laut SL-Bogen): „Folge N“ + „Staffel: N von 5–10“ · Tour wählen → Auffrischen → **Die Tour!** → Desaster?? → Aufräumen → Auszeit!. Aktive Phase auf Magenta-Klecks, erledigte grau, Pfeile handgezeichnet. Rechts der **Biss-Zähler** (Minze, Zähne als Dreiecke, −/+). Klick auf Phase wechselt den Inhalt darunter. „Auszeit!“ → Knopf „Nächste Folge“ (Folge +1, Phase = Tour wählen). Letzte Folge der Staffel: Schalter „Finale“ → statt Desaster der **Epilog** (S. 30).
+**Kreislauf-Leiste** oben (S. 13, Reihenfolge laut SL-Bogen): „Folge N“ + „Staffel: N von 5–10“ · Tour wählen → Auffrischen → **Die Tour!** → Desaster?? → Aufräumen → Auszeit!. Aktive Phase auf Magenta-Klecks, erledigte grau, Pfeile handgezeichnet. Rechts der **Biss-Zähler** (Minze, Zähne als Dreiecke, −/+). Die sechs Stationen sind **gleich breit**, die Pfeile stehen in den Spaltenlücken, die aktive Station sitzt mittig auf dem Klecks (Regel 3a.6). Klick auf Phase wechselt den Inhalt darunter. „Auszeit!“ → Knopf „Nächste Folge“ (Folge +1, Phase = Tour wählen). Letzte Folge der Staffel: Schalter „Finale“ → statt Desaster der **Epilog** (S. 30).
 
 Inhalt je Phase (immer dreispaltig: links Phase-Werkzeug, Mitte Crew-Status, rechts Welt/SL-Hilfe – keine leeren Spalten):
 | Phase | Links | Rechts |
@@ -216,7 +240,7 @@ Inhalt je Phase (immer dreispaltig: links Phase-Werkzeug, Mitte Crew-Status, rec
 | Aufräumen | Je SC Style-Bonus seiner Persönlichkeit (Text + „+1“-Knopf), „Stürze löschen“ (Super-Stürze → normale Stürze), Preis verteilen (Crew-Style, Bauteile), Link „Fraktionen anpassen“ → `#fraktionen` | Crew-Zeile groß (Crew-Style, Ruhm-Stufe mit Kosten der nächsten Stufe) |
 | Auszeit! | Je SC verfügbare **Momente** (Eigenschafts-Moment, Persönlichkeits-Bogen in fester Reihenfolge, Familien-, Angst-Bogen, weitere Momente, In der Werkstatt, Signatur-Moment); Klick zieht die Kosten ab (Style bzw. Ärger) und hakt Einmal-Momente ab; Folgen (+1 Vermächtnis …) als Hinweis. Crew-Momente (S. 25). | **Gelegenheiten** und **Herausforderungen** (W6 + Alternativspalte, S. 26–27, mit Modifikatoren), Ereignisse |
 
-**Crew-Status (Mitte):** je SC Name (Marker) + Persönlichkeits-Plakette, **Ärger 8 Dreiecke** (das 8. mit Ausrufezeichen, markiert → Desaster-Hinweis), **Haltung** (genau die Symbole der Persönlichkeit wie auf dem Bogen: Würfel = Boost, Blitz = Kick – je Persönlichkeit am Bogen ablesen; Guts = 1 Boost + 3 Kick), **Style 8 Rauten**, **2 Sturz-Felder** als Etiketten (voll + neuer Sturz → Desaster), Verhängnis/Vermächtnis klein. Crew-Zeile wie Crewbogen: **Hype** (4 Boost-Würfel + 4 Kick-Blitze), Crew-Style (10 Rauten), Ruhm, **2 Bruch-Felder** (voll + neuer Bruch → Trennung, S. 21). Klick auf Namen → Charakterbogen.
+**Crew-Status (Mitte, Entwurf 2):** ruhige Tabelle mit vier Spalten (Name/Persönlichkeit · Ärger + Style · Haltung · Stürze). Je SC Name (Marker) + Persönlichkeits-Plakette, **Ärger 8 Dreiecke** (das 8. mit Ausrufezeichen, markiert → Desaster-Hinweis), **Haltung** (genau die Symbole der Persönlichkeit wie auf dem Bogen: Würfel = Boost, Blitz = Kick – je Persönlichkeit am Bogen ablesen; Guts = 1 Boost + 3 Kick), **Style 8 Rauten**, **2 Sturz-Felder** als Etiketten (voll + neuer Sturz → Desaster), Verhängnis/Vermächtnis klein. Crew-Zeile wie Crewbogen: **Hype** (4 Boost-Würfel + 4 Kick-Blitze), Crew-Style (10 Rauten), Ruhm, **2 Bruch-Felder** (voll + neuer Bruch → Trennung, S. 21). Klick auf Namen → Charakterbogen.
 
 ### 5.3 Crew
 Crewbogen nach S. 72–77 und Crew-Sheet: Name (W6-Tabellen S. 74 als Hilfe), Marke, Treffpunkt (W6 S. 73), Die Karte (→ Multiversum), Fraktionen (Start-Beziehungen, S. 73), Start-Vorteil, Hype, Brüche, **Ruhm**: Stufenleiter Niemande → Legenden (S. 76–77) mit Kosten und Vorteilen; gekaufte Vorteile abhaken (Masken, Schutzanzüge, Logikbinder schalten Gefahrenstufen der Welten frei – Plakette auf den Weltenkarten). SC-Karten (Bild = Figur der Persönlichkeit klein, Name, Signatur) → Charakterbogen.
@@ -333,8 +357,7 @@ Skript: `python3 -I plan/slugblaster/extract_images.py <pdf> /tmp/sb <befehl>` �
 | Cover | S. 1 (clip ganz) | `img/start/cover` – quadratisch, ungeschnitten |
 | Persönlichkeits-Figuren | xref 499 (Grit S. 43), 530 (Guts S. 45), 558 (Smarts S. 47), 585 (Heart S. 49), 615 (Chill S. 51) | `img/pers/<id>` – freigestellt (SMask), Hochformat |
 | Persönlichkeits-Schriftzüge | Vektor auf S. 42/44/46/48/50 → `clip` (z. B. Guts `clip 44 20 30 340 215`) | `img/pers/titel-<id>` |
-| Signatur-Skizzen (hellblau) | Buch: xref 623 (S. 52, Negafriction Sword), 630 (S. 53, Power-Armour-Antrieb), 649 (S. 58, Photonic Jacket), 666 (S. 61, Hardlight Board) – **Zuordnung am Seitenbild prüfen** | `img/sig/<id>` |
-| Signatur-Skizzen (übrige) | aus den Signatur-Bögen (All Sheets S. 11–16 bzw. Deluxe Signature Devices): Zeichnung freistellen und **hellblau `#7ed3f7` einfärben** (Graustufe → Alpha). Achtung: bei manchen Bildern steckt die Zeichnung in der SMask (Basisbild schwarz) → SMask als Alpha nehmen; Grunge-Texturen (große Flächen) nicht verwenden | `img/sig/<id>` |
+| Signatur-Skizzen | **Buch** (schon hellblau, `extract_images.py xref`, danach auf Alpha-Rahmen zuschneiden): Negafriction Sword xref 623 (S. 52) · Powered Armour xref 630 (S. 53) · Photonic Jacket xref 649 (S. 58) · Hardlight Board xref 666 (S. 61). **Bögen** (`All_Sheets_Combined`, schwarz → mit `tint_sketch.py <pdf> <xref> <ziel>` freistellen und hellblau `#7ed3f7` färben): Reality Cannon 808 (S. 11) · Gravity Blaster 863 (S. 12) · Riftninja Sneakers 856 (S. 12) · Kinetic Deck 944 (S. 14) · Skipmode Runners 978 (S. 15) · Robotic Companion 1023 (S. 16). **Gemini** (Bogen zeigt nicht das Gerät): Voidwear Backpack, Hyperoptic Visor – Moritz liefert PNG, dann `tint_sketch.py <bild.png> - <ziel>`. Fertige Beispiele: `mockups/src/img/sig-*.webp` | `img/sig/<id>` – die zwei Gemini-Bilder nicht in die Galerie „Buchbilder“ |
 | Kapitel-Eröffnungen | S. 4–5, 38–39, 78–79, 142–143 (Bild + Vektor-Titel → `clip` ganze Seite/Doppelseite) | `img/kap/k1` … `k4` – für Galerie und Nachschlagen-Köpfe |
 | Welt-Bilder | Doppelseite S. 98–99 → **Thennis Spar**; S. 102–103 → **Der Goldene Dschungel** (moosbedeckter Riesenroboter); S. 107 → **Calorium**; S. 108 → **Die Erwachenden Gruben** | `img/welt/<id>` – nur diese vier Welten haben ein Bild |
 | Multiversum-Karte | S. 94 – **nicht als Bild**, sondern SVG aus `get_drawings()` | `js/data/karte-multiversum.js` |
@@ -356,8 +379,8 @@ Regeln: Doppelseiten als **ein** Bild; nie ein Bild einer falschen Figur/Welt zu
 2. **Multiversum:** SVG-Karte (S. 94) + Portale, Weltenkarten, Welt-Seite, alle 11 Welten (S. 96–112), Portale & Dünnzonen (S. 90–93), Bonus-Welten (S. 114–117), Welt bauen (S. 113).
 3. **Heimat:** Hillview mit Karte/Pins (S. 80–83) + 12 Bonus-Heimatorte (S. 84–88).
 4. **Monster** (S. 118–125) + **Fraktionen** mit Beziehungen (S. 126–141, Entwurf 7) + Mach eine Person.
-5. **Crew** (S. 72–77) + **Teenager I:** Mach dich selbst, 5 Persönlichkeiten (Entwurf 5; Loner weglassen).
-6. **Teenager II:** 12 Signaturen (Entwurf 6) inkl. Skizzen-Einfärbung, Ausrüstung, Sticker & Co.
+5. **Crew** (S. 72–77) + **Teenager I:** Mach dich selbst, 5 Persönlichkeiten (Entwurf 5 mit Randnotiz-Bühne aus `notizen-persoenlichkeiten.json`; Loner weglassen).
+6. **Teenager II:** 12 Signaturen (Entwurf 6) inkl. Skizzen (Abschnitt 7; die zwei Gemini-Bilder bei Moritz anfragen, solange sie fehlen: gestrichelter Rahmen ohne Text), Ausrüstung, Sticker & Co.
 7. **Spielablauf** (Kap. 1 + Demo) und **Spielleitung** (Kap. 4) + Spiel verändern + Spielleiterschirm.
 8. **Oolroob** komplett (Entwurf 8) inkl. Dropdown-Untersetting.
 9. **Charakterbogen & Crewbogen** mit PDF-Export (Abschnitt 5.4) + Suche über alles + Galerie + Gesamtcheck (1280er-Viewport, keine JS-Fehler, keine Lücken, eingeklappte Seitenleiste) → diesen Plan als „erledigt“ markieren.

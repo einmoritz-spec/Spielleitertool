@@ -243,6 +243,7 @@ var SBF = (function(){
   }
 
   return {
+    liste: liste,
     view: view,
     phase: function(id){ F().phase = id; save(); render(); },
     finale: function(){ var f = F(); f.finale = !f.finale; save(); render(); },

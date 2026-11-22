@@ -7,12 +7,24 @@ M.countdown = [
   "Das Phänomen greift auf den Inseln um sich, viele sind betroffen, und aus den Träumen ist schwer aufzuwachen. Menschen taumeln schreiend durch die Stadt, Autos stehen verlassen auf der Straße, manche brechen auf dem Gehweg zusammen und ringen im Griff einer Panikattacke nach Luft. Betroffene Teens müssen einen Wurf auf <span class='f'>einfühlen</span> schaffen oder erleiden einen Zustand."
 ];
 M.orte = [
-  {id: "ort1", nr: 1, name: "Marks Haus", s: 140},
-  {id: "ort2", nr: 2, name: "Die Torslunda-Sümpfe", s: 142},
-  {id: "ort3", nr: 3, name: "Primal-Force-Therapiezentrum", s: 143}
+  {id: "ort1", nr: 1, name: "Marks Haus", s: 140, pin: {maelar: [43.5, 27], boulder: [30.4, 79.7]}},
+  {id: "ort2", nr: 2, name: "Die Torslunda-Sümpfe", s: 142, pin: {maelar: [42.5, 75.1], boulder: [26, 23.9]}},
+  {id: "ort3", nr: 3, name: "Primal-Force-Therapiezentrum", s: 143, pin: {maelar: [35.5, 28.5], boulder: [28.5, 56.5]}}
 ];
+M.karte = {maelar: "flood/flesh-karte-maelar", boulder: "flood/flesh-karte-boulder"};
+M.pinShowdown = {maelar: [65.9, 21.3], boulder: [80, 25.1]};
+M.ablauf = {
+  knoten: [
+    {id: "start", t: "Mysterium einführen", sp: 0, z: 1, ziel: "mysterium", art: "ende"},
+    {id: "ort1", t: "Marks Haus", sp: 1, z: 1, ziel: "loesung/ort1", nr: 1},
+    {id: "ort3", t: "Primal-Force-Therapiezentrum", sp: 2, z: 0, ziel: "loesung/ort3", nr: 3},
+    {id: "ort2", t: "Torslunda-Sümpfe", sp: 2, z: 2, ziel: "loesung/ort2", nr: 2},
+    {id: "konf", t: "Konfrontation", sp: 3, z: 1, ziel: "showdown", art: "sd"}
+  ],
+  kanten: [["start", "ort1"], ["start", "ort3"], ["start", "ort2"], ["ort1", "ort3", 2], ["ort1", "ort2"], ["ort3", "ort2", 2], ["ort3", "konf"], ["ort2", "konf"]]
+};
 M.phasen.push({id: "loesung", name: "Ermittlung", abschnitte: [
-  {id: "ort1", titel: "Ort 1: Marks Haus", s: 140, ort: "ort1", html: `
+  {id: "ort1", titel: "Ort 1: Marks Haus", s: 140, ort: "ort1", bilder: [{b: "flood/flesh-plan-marks-haus", t: "Marks Haus", s: 141}, {b: "flood/flesh-buch-urkraft", t: "Buchcover „Deine innere Urkraft“", s: 141, klein: 1}], html: `
 <p>Mark und seine Tante wohnen in einem abgelegenen Haus an einem kleinen See namens Igelviken {{östlich von Sånga-Säby|nördlich von Boulder City}}. Das zweistöckige Backsteinhaus ist von einer dichten Wand aus Bäumen umgeben. An den Ästen schwingen Windspiele und Traumfänger, und durch die offenen Fenster hört man Songs der Grateful Dead oder andere psychedelische Rockmusik.</p>
 <p>Im Inneren des Hauses herrscht Unordnung. Musikinstrumente und signierte Rockposter bedecken die Wände. Es riecht nach Schimmel, Räucherwerk und verfaulendem Essen. Überall liegen Stapel von Büchern über inneren Frieden, Heilung und Engel. Die laute Musik kommt von der Stereoanlage im Wohnzimmer. Überall im Haus hängen gerahmte Bilder von Marks Mutter, auf einigen ist neben ihr ein Mann (Marks Vater) zu sehen, der durchgekratzt wurde.</p>
 <p>Marks Zimmer liegt im zweiten Stock. Es ist sehr aufgeräumt. Er besaß jede Menge Fotoausrüstung und hat sich eine eigene Dunkelkammer gebaut. Fotos der Vagabunden und ihres Graffitis bedecken die Wände.</p>`,
@@ -40,7 +52,7 @@ M.phasen.push({id: "loesung", name: "Ermittlung", abschnitte: [
     "Der Schamane heißt die Teens willkommen und bietet ihnen Kräutertee von einem Spirituskocher an. Er tut so, als würde er mit ihnen trinken, und gießt sich den Tee über Gesicht und Brust. Er kann bestätigen, dass Mark sie oft besucht hat, und glaubt, dass sie seine einzigen Freunde waren. Der Schamane beschreibt die Vagabunden als Liebhaber des Lebens und der Natur, obwohl sie selbst nicht Teil davon sind. Eine Gruppe von Vagabunden, die sich Totem-Clan nennt, wollte das nicht akzeptieren und ließ sich von {{Livs|Destinys}} Versprechen, selbst Leben zu erschaffen, in den Bann ziehen. Der Schamane weiß, dass {{Liv|Destiny}} ein Therapiezentrum namens Primal Force am Rand von {{Sånga-Säby|Hemenway Park}} betreibt.",
     "Der Schamane enthüllt, dass der Totem-Clan Mark getötet hat. Die Vagabunden in den Sümpfen sahen, wie der Clan seine Leiche auf das Feld außerhalb von {{Sånga-Säby|Hemenway Park}} brachte, woraufhin die Leute des Schamanen ihm ihren Respekt erwiesen, indem sie den Ort mit Schmuckstücken verzierten, die ihnen kostbar sind. Der Schamane weiß, dass der Clan sich in einem alten Armeebunker verschanzt hat, der als KAB-III bekannt ist. Ein Besuch in der Bibliothek oder ein Blick auf eine Karte kann den Teens helfen, den Bunker zu finden, der {{im östlichen Svartsjölandet|bei Cape Horn}} liegt."
    ]},
-  {id: "ort3", titel: "Ort 3: Primal-Force-Therapiezentrum", s: 143, ort: "ort3", html: `
+  {id: "ort3", titel: "Ort 3: Primal-Force-Therapiezentrum", s: 143, ort: "ort3", bilder: [{b: "flood/flesh-plan-primal-force", t: "Primal-Force-Therapiezentrum", s: 144}], html: `
 <p>{{Liv|Destiny}} arbeitet in ihrem Zuhause, einem braunen zweistöckigen Haus am Rand von {{Sånga-Säby|Hemenway Park}}. Der Garten ist schlecht gepflegt, die Jalousien sind geschlossen, und alle Fenster und Türen sind verriegelt. Ein Schild neben der Eingangstreppe besagt „Primal Force Therapiezentrum“. Ein paar Stufen unterhalb der Haustür liegt die Garage, die von innen mit einem stabilen Vorhängeschloss verschlossen ist.</p>
 <p>Als der Clan {{Liv|Destiny}} entführte, schnitt er dem Haus den Strom ab. Die Einbruchalarmanlage hat eine Notbatterie und ist das einzige elektrische Gerät, das noch funktioniert. Im Haus ist es sehr dunkel, da alle Jalousien geschlossen sind.</p>
 <p>Im Erdgeschoss befinden sich die Küche, das Wohnzimmer und ein Behandlungszimmer. In der Küche sind deutliche Kampfspuren zu finden – Stühle sind umgeworfen, und der Tisch ist zerbrochen. Um den Kühlschrank und die Gefriertruhe hängt ein übler Geruch, und darum hat sich eine Wasserlache gebildet. Vom Flur führen Treppen in den zweiten Stock und in den Keller, dessen abgeschlossene Tür hinter einem Vorhang verborgen ist. Im zweiten Stock liegen {{Livs|Destinys}} Büro, ihr Schlafzimmer, ein nie benutztes Gästezimmer und ein Trainingsraum. {{Livs|Destinys}} Computer steht in ihrem Büro.</p>

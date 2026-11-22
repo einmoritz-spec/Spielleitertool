@@ -7,10 +7,25 @@ M.countdown = [
   "Große (aber noch plausible) Veränderungen. Ein Teen wohnt in einem anderen Haus, und ihre Eltern sind geschieden. Ihr Vater ist aufs Festland gezogen, ihr Bruder hat die Schule abgebrochen, und ihre Mutter hat den Schulleiter geheiratet."
 ];
 M.orte = [
-  {id: "ort1", nr: 1, name: "Mettes Haus", s: 175},
-  {id: "ort2", nr: 2, name: "Der Präsident der UFO-Gesellschaft", s: 177},
-  {id: "ort3", nr: 3, name: "Der Strand", s: 177}
+  {id: "ort1", nr: 1, name: "Mettes Haus", s: 175, pin: {maelar: [70, 88], boulder: [39, 45]}},
+  {id: "ort2", nr: 2, name: "Der Präsident der UFO-Gesellschaft", s: 177, pin: {maelar: [46, 68], boulder: [43, 58]}},
+  {id: "ort3", nr: 3, name: "Der Strand", s: 177, pin: {maelar: [58, 28], boulder: [16, 38]}}
 ];
+M.karte = {maelar: "flood/traveler-karte-maelar", boulder: "flood/traveler-karte-boulder"};
+M.pinShowdown = {maelar: [52, 31], boulder: [23, 25]};
+M.ablauf = {
+  knoten: [
+    {id: "npc1", t: "NSC-Szene 1", sp: 0, z: 0.5, ziel: "loesung/npc1"},
+    {id: "teens", t: "Teens einführen", sp: 1, z: 0.5, ziel: "kids", art: "ende"},
+    {id: "myst", t: "Mysterium einführen", sp: 2, z: 0.5, ziel: "mysterium", art: "ende"},
+    {id: "mette", t: "Mettes Haus", sp: 3, z: 0, ziel: "loesung/ort1", nr: 1},
+    {id: "praesident", t: "Präsident der UFO-Gesellschaft", sp: 3, z: 1, ziel: "loesung/ort2", nr: 2},
+    {id: "strand", t: "Der Strand", sp: 4, z: 0.5, ziel: "loesung/ort3", nr: 3},
+    {id: "npc23", t: "NSC-Szenen 2 und 3", sp: 5, z: 0.5, ziel: "loesung/npc2"},
+    {id: "konf", t: "Konfrontation", sp: 6, z: 0.5, ziel: "showdown", art: "sd"}
+  ],
+  kanten: [["npc1","teens"],["teens","myst"],["myst","mette"],["myst","praesident"],["mette","praesident",2],["mette","strand"],["praesident","strand"],["strand","npc23"],["npc23","konf"]]
+};
 M.phasen.push({id: "loesung", name: "Ermittlung", abschnitte: [
   {id: "ueberblick", titel: "NSC-Szenen", s: 172, ueberblick: 1, html: `
 <p>An drei Stellen im Mysterium wechseln die Spieler dazu, eine Gruppe abenteuerlustiger Kids statt ihrer eigenen Teens zu spielen. Die erste Szene – die Kids, die mysteriöse Lichter im Wald untersuchen und von Elisabeth entführt werden – sollte als allererste Szene des Mysteriums gespielt werden. Die anderen beiden finden unmittelbar vor der Konfrontation statt. Die Spieler können eigene Kids erschaffen oder einen der vier unten beschriebenen vorgefertigten Charaktere wählen. Erschaffst du eigene Kids, gib einem von ihnen den selbstgebauten Photonen-Deduktor von {{Sixten|Jared}} (siehe unten) und ersetze {{Mette|Zoe}} an Ort 1 durch einen deiner neuen Charaktere.</p>
@@ -26,7 +41,7 @@ M.phasen.push({id: "loesung", name: "Ermittlung", abschnitte: [
 <p class="zit">Ohne euren Eltern etwas zu sagen, habt ihr euch aus euren Häusern geschlichen, ausgerüstet mit Taschenlampen, Kameras und Proviant, um das Rätsel hinter den seltsamen Lichtern über den Wäldern ein für alle Mal zu lösen. Ihr habt ein Gerät mitgebracht, das euch helfen soll: einen selbstgebauten Photonen-Deduktor, der Informationen über Licht sammelt und analysiert. Ihr sitzt seit anderthalb Stunden in den Wäldern östlich der Bucht, die von Süden her durch den östlichen Teil von Svartsjölandet schneidet, und nichts ist passiert. Euch sind der Proviant und die Gespenstergeschichten ausgegangen, ihr habt euch eine Weile gezankt und langweilt euch allmählich. Beschreibt eure Kids und sagt, was ihr als Nächstes tun wollt.</p>
 <p>Lass die Spieler ein paar Minuten lang ihre Kids spielen, bevor sie plötzlich zwei Lichtpunkte in einem Baum sehen. Es ist jedoch nur der gespenstische Blick einer Eule, der ihnen aber einen ordentlichen Schrecken einjagen kann, als sie in die Nacht davonfliegt. Kurz darauf beobachten sie, weswegen sie gekommen sind – seltsame Lichter, die rasend schnell über den Himmel schießen. Die Lichter sind ein Nebeneffekt der Risse in der Raumzeit, die vom Verschwimmen der Realität verursacht werden, verhalten sich aber zufällig wie UFOs. Der Photonen-Deduktor misst die Geschwindigkeit der Punkte mit etwa Mach 2 und stellt fest, dass sie besser manövrieren als jedes bekannte menschliche Flugzeug. Die Punkte halten plötzlich an und sinken langsam auf den Strand unter den Kids hinab. Als sie zum Strand hinuntergehen, sehen sie die drei beleuchteten Radioteleskope der Clovers-Anlage {{auf der anderen Seite des Wassers|hoch oben auf dem Red Mountain}}.</p>
 <p>Ein blendendes Licht und ein lauter Knall werfen die Kids zu Boden. Als sie die Augen öffnen, sind die Lichter am Himmel verschwunden, und Elisabeth liegt nackt und brennend vor ihnen im Sand. Der Sand um sie herum ist geschmolzen und hat klumpige Pfützen aus schwarzem Glas gebildet. Sie scheint vom Feuer unversehrt und sieht aus, als schliefe sie. Sie wacht nur auf, wenn die Kids sie berühren. Sie steht auf, bittet um etwas, womit sie sich bedecken kann, und sagt lächelnd: „Ihr werdet jetzt helfen.“ Danach endet die Szene.</p>`},
-  {id: "ort1", titel: "Ort 1: Mettes Haus", s: 175, ort: "ort1", html: `
+  {id: "ort1", titel: "Ort 1: Mettes Haus", s: 175, ort: "ort1", bilder: [{b: "flood/traveler-mettes-haus", t: "Mettes Haus", s: 176}], html: `
 <p>{{Mette|Zoe}} und ihre Schwester {{Lisa|Mia}} wohnen mit ihrem Vater und dessen neuer Frau in einem Haus bei Troxhammar {{im südlichen Svartsjölandet|im Nordteil von Boulder City}}. Ihr Vater {{Kurt|Paul}} wurde bei {{Riksenergi|DART}} entlassen, als der Loop an {{Krafta Corp|AEP}} verkauft wurde, und behauptet, an der Loop-Störung zu leiden. Er und seine Frau {{Ulla|Caitlin}} sind starke Trinker und überlassen den Kindern alles rund um das Haus. Kurt ist depressiv, weint viel und gibt seinen Kindern die Schuld an allem, was in seinem Leben schiefgelaufen ist. Ulla ist eine aggressive, kontrollsüchtige Kettenraucherin, die {{Mette|Zoe}} und Lisa das Leben zur Hölle macht. Im umzäunten Garten lebt Killer, der Deutsche Schäferhund der Familie. Das Haus ist verdreckt, voller leerer Wein- und Bierflaschen und riecht stark nach Zigaretten. Die ältere Schwester Lisa ist meist in der Küche anzutreffen, während die Eltern auf der Veranda trinken.</p>
 <p>{{Ing-Marie|Karen Richards}} hat {{Mette|Zoe}} vor zwei Tagen gefunden. Seitdem hat sie kein Wort gesprochen und sich in ihr Bett im Obergeschoss zurückgezogen. Das Obergeschoss, in Wahrheit ein notdürftig bewohnbar gemachter Dachboden, ist schlecht isoliert, noch nicht gestrichen und hat keine Fenster. Die Schwestern teilen sich ein Bett am hinteren Ende des Raums, unter dem sie einen Becher Wasser und ein paar Kräcker aufbewahren. Kurt und Ulla sind überzeugt, dass {{Mette|Zoe}} nur vorgibt, krank zu sein, um ihren Freunden bei irgendeinem Unfug zu helfen. Sie bestrafen sie, indem sie ihr das Essen vorenthalten.</p>`,
    aerger: [{t: "Ärger", html: `<p>Kurt und Ulla lassen die Teens nicht zu {{Mette|Zoe}} und hetzen Killer auf sie, wenn sie nicht gehen. Sie sind beide Egozentrische Besserwisser (<span class='f'>charme</span>) 2. Bestechungen in Form von Geld oder Wertgegenständen geben den Teens einen Gegenstandsbonus von +2. Lisa macht sich Sorgen um ihre Schwester und hilft ihnen nur zu gern, sich ins Haus zu schleichen.</p>

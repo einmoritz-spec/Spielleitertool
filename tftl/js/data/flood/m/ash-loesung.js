@@ -8,13 +8,29 @@ M.countdown = [
 ];
 /* Orte: Nummer = Pin auf der Karte (Karten/Pins folgen in Paket D6) */
 M.orte = [
-  {id: "ort1", nr: 1, name: "Suzanne Krapp", s: 191},
-  {id: "ort2", nr: 2, name: "Louise Tannenbaum", s: 193},
-  {id: "ort3", nr: 3, name: "Sven Järnek auf Bastlagnö", s: 195},
-  {id: "ort4", nr: 4, name: "Linnea Hall", s: 197},
-  {id: "ort5", nr: 5, name: "Billy und Jane", s: 199},
-  {id: "ort6", nr: 6, name: "Der Röntgenturm", s: 200}
+  {id: "ort1", nr: 1, pin: {maelar: [96, 50], boulder: [25, 95]}, name: "Suzanne Krapp", s: 191},
+  {id: "ort2", nr: 2, pin: {maelar: [82.4, 89.3], boulder: [6.1, 94]}, name: "Louise Tannenbaum", s: 193},
+  {id: "ort3", nr: 3, pin: {maelar: [7.2, 7.8], boulder: [8.1, 28.9]}, name: "Sven Järnek auf Bastlagnö", s: 195},
+  {id: "ort4", nr: 4, pin: {maelar: [43.3, 35.2], boulder: [42.0, 8.2]}, name: "Linnea Hall", s: 197},
+  {id: "ort5", nr: 5, pin: {maelar: [42.3, 80.2], boulder: [27.9, 42.8]}, name: "Billy und Jane", s: 199},
+  {id: "ort6", nr: 6, pin: {maelar: [75, 6.5], boulder: [67.5, 19.1]}, name: "Der Röntgenturm", s: 200}
 ];
+M.karte = {maelar: "flood/ash-karte-maelar", boulder: "flood/ash-karte-boulder"};
+M.pinShowdown = {maelar: [67.5, 5], boulder: [72.2, 35.1]};
+M.ablauf = {
+  knoten: [
+    {id: "start", t: "Mysterium einführen", sp: 0, z: 0.5, ziel: "mysterium", art: "ende"},
+    {id: "ort1", t: "Suzanne Krapp", sp: 1, z: 0, ziel: "loesung/ort1", nr: 1},
+    {id: "ort2", t: "Louise Tannenbaum", sp: 1, z: 1, ziel: "loesung/ort2", nr: 2},
+    {id: "ort3", t: "Sven Järnek", sp: 2, z: 0.5, ziel: "loesung/ort3", nr: 3},
+    {id: "wende", t: "Die Wendung", sp: 3, z: 0.5, ziel: "loesung/wendung", art: "wende"},
+    {id: "ort4", t: "Linnea Hall", sp: 4, z: 0, ziel: "loesung/ort4", nr: 4},
+    {id: "ort5", t: "Billy und Jane", sp: 4, z: 1, ziel: "loesung/ort5", nr: 5},
+    {id: "ort6", t: "Der Röntgenturm", sp: 5, z: 1, ziel: "loesung/ort6", nr: 6},
+    {id: "konf", t: "Konfrontation", sp: 6, z: 0.5, ziel: "showdown", art: "sd"}
+  ],
+  kanten: [["start", "ort1"], ["start", "ort2"], ["ort1", "ort2", 2], ["ort2", "ort3"], ["ort3", "wende"], ["wende", "ort4"], ["wende", "ort5"], ["ort4", "ort5", 2], ["ort4", "konf"], ["ort5", "ort6"], ["ort6", "konf", 2]]
+};
 M.phasen.push({id: "loesung", name: "Ermittlung", abschnitte: [
   {id: "ort1", titel: "Ort 1: Suzanne Krapp", s: 191, ort: "ort1", html: `
 <p>{{Suzanne|Samantha}} wohnt in einer Wohnung im Hägerstalund-Turm, einer der zwölf vertikalen Städte {{Stockholms|von Las Vegas}}. Die Teens bekommen ihre Adresse von {{Mia|Kate}} und können mit dem Bus oder der U-Bahn hinfahren. Der Turm ragt hoch in den Himmel, ist hell erleuchtet und besteht vor allem aus Wohnungen, enthält aber auch Kindertagesstätten, Geschäfte und Kinos. Einst an der Spitze der schwedischen Sozialplanung und Architektur, leidet der Turm heute unter vernachlässigter Instandhaltung, ist schmutzig und voller Graffiti, und die meisten seiner Bewohner haben harte Zeiten hinter sich.</p>
@@ -63,7 +79,7 @@ M.phasen.push({id: "loesung", name: "Ermittlung", abschnitte: [
     "{{Louise|Kelly}} hat die E-Mails von Prometheus bis nach {{Bastlagnö|den River Mountains}} nordwestlich von Adelsö zurückverfolgt, konnte aber nicht hinfahren, weil ihr {{Boot|Auto}} nicht mehr funktioniert. Wenn die Teens ihr beim Reparieren helfen, bietet sie an, es ihnen zu leihen, oder fragt, ob sie sie begleiten wollen, um Prometheus zu besuchen.",
     "Haben die Teens in den früheren Mysterien wichtige Fakten über die Propheten verpasst, kann {{Louise|Kelly}} die Lücken füllen (siehe unten). Sie kann auf der Karte der Teens den ursprünglichen Standort des Hephaesteums markieren."
    ]},
-  {id: "ort3", titel: "Ort 3: Sven Järnek auf Bastlagnö", s: 195, ort: "ort3", html: `
+  {id: "ort3", titel: "Ort 3: Sven Järnek auf Bastlagnö", s: 195, ort: "ort3", bilder: [{b: "flood/ash-plan-sven", t: "Svens Haus", s: 196}], html: `
 <p>{{Sven|John}} versteckt sich in einer Hütte {{auf Bastlagnö nordwestlich von Adelsö|in den River Mountains nordwestlich von Adelsö}} in der törichten Hoffnung, dass {{Elisabeth|Elizabeth}} ohne ihn weitermacht. Bastlagnö ist mit Birken, Büschen und Schafweiden bedeckt. An der Nordseite der Insel steht eine zweistöckige Hütte mit einem kleinen Steg. Die Hütte hat kein fließendes Wasser, hinter dem Haus steht ein Plumpsklo. {{Sven|John}} hat das Schloss aufgebrochen, um hineinzukommen. Die meisten Tage verbringt er in Unterwäsche am Computer in der Küche, trinkt Schnaps direkt aus der Flasche und isst Cracker.</p>
 <p>Damit {{Elisabeth|Elizabeth}} und {{Liv|Destiny}} ihn nicht finden, hat {{Sven|John}} einen experimentellen Dünger, den er in den Achtzigern entwickelt hat, benutzt, um die Brombeersträucher rund um den Steg auf das Zehnfache ihrer üblichen Größe wachsen zu lassen, mit dolchartigen Dornen. Der Dünger wurde für einen Agrarkonzern entwickelt, konnte aber nicht kommerziell genutzt werden, da das enorme Wachstum zwangsläufig zu Mutationen und Nekrose führte. Die Chemikalie hat außerdem Fliegen, Mücken, Zecken und Nachtvipern auf das Zehnfache vergrößert, und sie greifen sowohl große Tiere als auch Menschen an. Riesige Kröten und Libellen bewachen den Steg, und das Schilf ist so hoch und dicht, dass ein Durchkommen fast unmöglich ist.</p>`,
    extra: [
@@ -86,7 +102,7 @@ M.phasen.push({id: "loesung", name: "Ermittlung", abschnitte: [
     {t: "Louise und die Wahrheit", s: 197, html: `
 <p>Erzählen die Teens {{Louise|Kelly}}, dass {{Sven|John}} ihre Mutter ermordet hat, wirkt sie erleichtert. Die Ungewissheit sei die größte Last gewesen, sagt sie. Innerlich ist sie jedoch von Wut verzehrt und plant ihre Rache. Sie trägt einen Revolver in ihrer Handtasche und wartet auf eine Gelegenheit, {{Sven|John}} zu erschießen. Als Spielleiter(in) entscheidest du, ob sie bereit ist, einem anderen Menschen das Leben zu nehmen, wenn es ernst wird. Sie wird ihre Rache jedoch nicht {{Mia|Kate}} oder unschuldige Unbeteiligte gefährden lassen und nichts tun, was die Bemühungen der Teens, das Mysterium zu lösen, behindert.</p>`}
    ]},
-  {id: "ort4", titel: "Ort 4: Linnea Hall", s: 197, ort: "ort4", html: `
+  {id: "ort4", titel: "Ort 4: Linnea Hall", s: 197, ort: "ort4", bilder: [{b: "flood/ash-plan-linnea", t: "Linneas Haus", s: 198}], html: `
 <p>Nach den Ereignissen in Reisender bat {{Elisabeth|Elizabeth}} {{Linnea Hall|Isabella Ward}}, ihr bei einer Reihe von Experimenten zu helfen. {{Linnea|Isabella}}, die {{Elisabeth|Elizabeth}} verehrt, sagte zu. Es stellte sich jedoch heraus, dass {{Elisabeth|Elizabeth}} nur {{Linneas|Isabellas}} Wissen und Geld wollte. Nachdem sie {{Linneas|Isabellas}} gesamte Ersparnisse für den Bau der Grundlage des späteren Futurum-Teleskops ausgegeben hatte, warf sie sie beiseite und verschwand. {{Linnea|Isabella}} war am Boden zerstört und wurde sehr verbittert. In der Leere und Apathie, die darauf folgten, wurde sie in einer Bar von einem gewalttätigen, kriminellen Rocker namens {{Ragnar Rask|Russell Jones}} verführt. {{Ragnar|Russell}} ist in ihr Haus gezogen und behandelt sie dort wie eine Sklavin. Er hat gedroht, sie zu töten, wenn sie versucht zu fliehen oder sich weigert zu tun, was man ihr sagt.</p>
 <p>{{Linnea|Isabella}} lebt in einem alten Sommerhaus am Strand {{südlich von Wäsby auf Munsö|westlich von Boulder Harbor}}. Die Holzhütte ist leuchtend gelb gestrichen. Die Jalousien sind geschlossen, und vor dem Haus steht ein großes Motorrad mit Beiwagen. {{Ragnars|Russells}} aggressiver Chihuahua Hitler bewacht das Motorrad.</p>
 <p>{{Ragnar|Russell}} hat {{Linneas|Isabellas}} Haus mit den Zeitschriften Guns &amp; Ammo und Hog Life MC, Schusswaffen, Drogen und schmutziger Wäsche gefüllt. Poster halbnackter Frauen bedecken die Wände. {{Ragnar|Russell}} ist paranoid und glaubt, dass entweder seine alte Gang, die Dirty Bastards, oder die Polizei hinter ihm her ist. Er verdächtigt {{Linnea|Isabella}}, ihn auszuspionieren, und kontrolliert jede ihrer Bewegungen. Wenn sie nicht genau tut, was er sagt, bestraft er sie seelisch und körperlich. Meistens findet man {{Ragnar|Russell}} auf dem Sofa vor dem Fernseher, die Schrotflinte im Schoß, während {{Linnea|Isabella}} in der Küche kocht oder Wäsche wäscht. Sie hat {{Elisabeths|Elizabeths}} Verrat noch nicht verkraftet und redet und bewegt sich, als stünde sie unter Drogen – was manchmal tatsächlich der Fall ist.</p>`,

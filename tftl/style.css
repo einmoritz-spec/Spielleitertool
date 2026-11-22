@@ -74,8 +74,6 @@ body.flood .go .last{border:1.5px solid rgba(233,163,182,.55)}
 body.flood .mc .s{background:var(--band2);color:#fff}
 body.flood .mc.x .im{display:none}body.flood .mc.x{border-left:6px solid var(--band2);padding-top:2px}
 /* The Electric State: Graublau/Teal */
-body.es{--acc:#2f7f86;--band:#2f7f86;--bg:#eef2f2;--night:#1b2a30}
-body.es .topbar{background:#2f7f86}
 @media (max-width:700px){.tabs{overflow-x:auto}}
 /* Startseite */
 main.start{padding:0}

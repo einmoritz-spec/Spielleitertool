@@ -20,6 +20,8 @@
     if(a === "flood") return {area:"flood", p:"flood/", ls:"flood_", book:"tftl_flood",
       START:F.START, MYSTERIEN:F.MYSTERIEN, MYS:F.MYS, NACH:F.NACH, NACHDATA:F.NACHDATA, SETS:F.SETS,
       TYPEN:F.TYPEN, KIDS:F.KIDS, KARTE:F.KARTE, kidsKey:"flood_teens_v1", sheet:"FLOODSHEET", L:F.L};
+    if(a === "es"){ var E = window.ES || {}; return {area:"es", p:"es/", ls:"es_", book:"tftl_es",
+      START:E.START, NACH:B.es.nach, NACHDATA:window.NACHDATA_ES, SETS:E.NACHSETS, L:{}}; }
     return {area:a, p:a==="tftl" ? "" : a + "/", ls:"tftl_", book:"tftl_core",
       START:window.START, MYSTERIEN:window.MYSTERIEN, MYS:window.MYS, NACH:window.NACH, NACHDATA:window.NACHDATA,
       SETS:null, TYPEN:window.TYPEN, KIDS:window.KIDS, KARTE:window.KARTE, kidsKey:"tftl_kids_v1", sheet:null,
@@ -40,7 +42,7 @@
   }
   function menu(a){
     var d = B[a], p = a==="tftl" ? "" : a + "/", C = ctx(a);
-    var h = '<h3>Nachschlagen</h3>' + (C.NACH || []).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + 'nach/' + n[0] + '\'">' + esc(n[1]) + '</button>'; }).join("") +
+    var h = '<h3>Nachschlagen</h3>' + (d.nach || C.NACH || []).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + 'nach/' + n[0] + '\'">' + esc(n[1]) + '</button>'; }).join("") +
       '<h3>Werkzeuge</h3>' + (d.werkzeuge || [["schirm","Spielleiterschirm"],["bogen","Charakterbogen"],["wuerfel","Würfel"],["galerie","Galerie"]]).map(function(n){ return '<button onclick="openMenu(false);location.hash=\'' + p + n[0] + '\'">' + n[1] + '</button>'; }).join("") +
       '<h3>Bücher</h3>' + d.books.map(function(id){ return '<button onclick="openMenu(false);BV.open(\'' + id + '\',1)">' + esc(nameOf(id)) + '</button>'; }).join("");
     document.getElementById("mmP").innerHTML = h;
@@ -54,6 +56,8 @@
     head(r.area); menu(r.area);
     var tabsEl = document.getElementById("tabs");
     document.getElementById("app").onclick = null;
+    var tc = document.querySelector('meta[name=theme-color]'); if(tc) tc.setAttribute("content", r.area==="es" ? "#33464a" : "#f08a1c");
+    if(r.area==="es" && window.ES && ES.route){ ES.route(r.page, r.rest, document.getElementById("app"), tabsEl); return; }
     if(ok && r.page==="m" && window.renderLeitstand && (r.area==="tftl" || window.renderLeitstand.ctx)){ window.renderLeitstand(document.getElementById("app"), tabsEl, r.rest); return; }
     if(ok && r.page==="nach" && window.renderNach){ document.getElementById("app").className = "page"; window.renderNach(document.getElementById("app"), tabsEl, r.rest); window.scrollTo(0, 0); return; }
     tabsEl.innerHTML = d.tabs.map(function(t){ return '<a href="#' + pre + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");

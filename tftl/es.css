@@ -1,0 +1,86 @@
+/* The Electric State – Theme und gemeinsame Bausteine. Alles mit body.es eingeleitet (TftL/Flood bleiben unberührt). */
+@font-face{font-family:Oswald;src:url(../assets/fonts/oswald-latin-600-normal.woff2);font-weight:600;font-display:swap}
+@font-face{font-family:Oswald;src:url(../assets/fonts/oswald-latin-500-normal.woff2);font-weight:500;font-display:swap}
+@font-face{font-family:Jost;src:url(../assets/fonts/jost-latin-500-normal.woff2);font-weight:500;font-display:swap}
+@font-face{font-family:Garamond;src:url(../assets/fonts/eb-garamond-latin-400-normal.woff2);font-weight:400;font-display:swap}
+@font-face{font-family:Garamond;src:url(../assets/fonts/eb-garamond-latin-400-italic.woff2);font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Garamond;src:url(../assets/fonts/eb-garamond-latin-600-normal.woff2);font-weight:600;font-display:swap}
+body.es{--top:#33464a;--acc:#3d7378;--band:#3d7378;--red:#e3262a;--ink:#231f20;--soft:#5d6a6c;--line:#cdd8d8;--bg:#f0f4f4;--paper:#fcfdfd;--card:#fcfdfd;--night:#25323a;--dust:#cca98b;--done:#a3abac;--accl:#e3ecec;--accl2:#edf3f3;
+ --head:Oswald,"Arial Narrow",sans-serif;--sans:Jost,Futura,sans-serif;--serif:Garamond,Georgia,serif}
+body.es .topbar{background:var(--top)}
+body.es h1,body.es h2,body.es h3,body.es h4,body.es .h{font-family:var(--head);font-weight:600;color:var(--ink);line-height:1.05}
+body.es .page h1{color:var(--ink)}
+body.es .tabs{background:var(--paper)}
+body.es .tabs a{font:600 16px var(--head);letter-spacing:.05em}
+body.es .chip{border:2px solid var(--ink);border-radius:2px;font:600 14px var(--head);letter-spacing:.06em;color:var(--ink);background:var(--paper)}
+body.es .chip.f{background:var(--ink);color:#fff}
+body.es .tb-info{width:36px;height:36px;border:1.5px solid rgba(255,255,255,.8);border-radius:50%;background:none;color:#fff;font:italic 600 18px var(--serif);cursor:pointer;margin-right:8px}
+/* Bausteine */
+body.es .bx{background:var(--paper);border:2.5px solid var(--ink);padding:12px 14px}
+body.es .bx h4{font-size:15px;letter-spacing:.04em;margin-bottom:6px}
+body.es .sq{display:inline-block;width:10px;height:10px;background:var(--ink);margin-right:7px;vertical-align:1px}
+body.es .stat{background:var(--paper);border:2.5px solid var(--ink);padding:8px 12px 10px;font:14px/1.35 var(--sans)}
+body.es .stat h4{text-align:center;font-size:15px;margin-bottom:6px}
+body.es .stat .at{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:6px}
+body.es .stat .at span{border:1.5px solid var(--ink);text-align:center;font:600 10.5px var(--sans);text-transform:uppercase;letter-spacing:.05em;padding:2px 0}
+body.es .stat .at b{display:block;font:600 18px var(--head)}
+body.es .stat p{font:13.5px/1.35 var(--sans)}
+body.es .tape{position:absolute;width:110px;height:26px;background:rgba(214,196,150,.75);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+body.es .vl{border-left:4px solid var(--ink);background:#e6eded;padding:10px 16px;font-style:italic;margin:8px 0 12px}
+/* Vorbereitung */
+body.es main.start{padding:0}
+body.es .ehero{height:170px;background:center 38%/cover}
+body.es .ewrap{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:24px;padding:22px 22px 26px;align-items:start}
+body.es .esec{display:flex;align-items:center;gap:14px;font-size:28px;margin-bottom:12px}
+body.es .esec:after{content:"";flex:1;border-top:2.5px solid var(--ink)}
+body.es .grpl{font:700 12px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 8px}
+body.es .egrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+body.es .etile{background:var(--paper);border:2.5px solid var(--ink);display:flex;flex-direction:column;color:inherit;text-decoration:none}
+body.es .etile:hover{box-shadow:0 4px 12px rgba(0,0,0,.22)}
+body.es .etile .im{height:108px;background:center/cover;border-bottom:2.5px solid var(--ink)}
+body.es .etile .tx{padding:9px 12px 10px}
+body.es .etile h3{font-size:21px}
+body.es .etile p{font:14px/1.35 var(--serif);color:var(--soft);margin-top:3px}
+body.es .etile .k{font:500 11.5px var(--sans);color:var(--soft);margin-top:6px;letter-spacing:.04em}
+body.es .echips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+body.es .echips .chip{text-decoration:none;margin:0}
+body.es .ego{background:var(--night);color:#fff;padding:16px 18px 18px;display:flex;flex-direction:column;gap:11px;border-top:8px solid var(--dust)}
+body.es .ego h2{font-size:34px;color:#fff}
+body.es .elast{display:flex;gap:12px;background:rgba(255,255,255,.07);overflow:hidden;color:#fff;text-decoration:none}
+body.es .elast .im{width:150px;min-height:94px;background:center/cover;flex:none}
+body.es .elast small{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--dust);margin-top:10px}
+body.es .elast b{display:block;font:600 19px/1.1 var(--head);text-transform:uppercase;margin:3px 0}
+body.es .elast span{font:14px var(--serif);opacity:.75}
+body.es .ert{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+body.es .ert a{height:150px;background:center/cover;position:relative;display:block}
+body.es .ert i{position:absolute;left:0;right:0;bottom:0;padding:16px 7px 5px;font:600 12.5px/1.15 var(--head);text-transform:uppercase;letter-spacing:.03em;font-style:normal;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+body.es .eline{display:flex;align-items:center;font:500 12px var(--sans);color:#cfd8d8;margin:2px 0}
+body.es .eline span{white-space:nowrap}
+body.es .eline i{flex:1;height:2px;background:#6b7c80;margin:0 6px;position:relative}
+body.es .eline i:after{content:"";position:absolute;left:50%;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--night);border:2px solid #9fb0b3}
+body.es .emeta{font:14px var(--serif);opacity:.75}
+body.es .crew{font:14px/1.5 var(--serif);color:#dfe6e6;border-top:1px solid rgba(255,255,255,.15);padding-top:9px}
+body.es .crew span{display:block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
+body.es .crew b{font:600 15px var(--head);text-transform:uppercase;letter-spacing:.03em;color:#fff}
+body.es .ebtn{display:block;text-align:center;background:var(--dust);color:var(--ink);font:600 19px var(--head);letter-spacing:.08em;text-transform:uppercase;padding:13px;text-decoration:none}
+/* i-Pop-up */
+.esinfo{position:fixed;inset:0;z-index:200;display:grid;place-items:center}
+.esinfo-b{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.esinfo-p{position:relative;background:#fcfdfd;border:2.5px solid #231f20;max-width:680px;max-height:80vh;overflow:auto;padding:18px 22px;font:17px/1.5 Garamond,Georgia,serif;color:#231f20}
+.esinfo-p h2{font:600 26px Oswald,sans-serif;text-transform:uppercase;margin-bottom:8px}
+.esinfo-p .zit{font-style:italic}
+/* B1 */
+/* B2 */
+/* E2 */
+@media (max-width:1100px){body.es .egrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Nachschlage-Bausteine (zit, bsp, stat, w) */
+body.es .nzit{border-left:4px solid var(--ink);background:#e6eded;padding:10px 16px;margin:10px 0;font-style:italic}
+body.es .nzit cite{display:block;font:500 13px var(--sans);font-style:normal;color:var(--soft);margin-top:4px}
+body.es .nbsp{background:var(--paper);border:1.5px solid var(--line);padding:8px 14px;margin:10px 0}
+body.es .nbsp p{margin:3px 0}
+body.es .ntext .stat{margin:12px 0;max-width:460px}
+body.es .nw{margin:12px 0}
+body.es .nw h4{font-size:17px;margin-bottom:6px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+body.es .nwb{font:600 13px var(--head);letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--ink);background:var(--paper);padding:3px 10px;cursor:pointer}
+body.es .nw tr.hit td,body.es .nw tr.hit th{background:#e3ecec;font-weight:600}
+body.es .nw th{white-space:nowrap;text-align:left;width:1%}

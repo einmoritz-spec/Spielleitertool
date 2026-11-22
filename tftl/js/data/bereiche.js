@@ -15,6 +15,8 @@ window.BEREICHE = {
   es: {
     cls: "es", title: "The Electric State", logo: "assets/logos/electric-state.webp", logoW: 54, logoH: 36,
     tabs: [["start","Vorbereitung"],["reise","Reise"],["reisende","Reisende"],["karte","Karte"]],
+    nach: [["welt","Willkommen"],["pacifica","Pacifica"],["reisende","Reisende"],["kampf","Kampf & Neuronik"],["reise","Die Reise"],["bedrohungen","Bedrohungen"]],
+    werkzeuge: [["bogen","Charakterbogen"],["fahrzeug","Fahrzeugbogen"],["galerie","Galerie"]],
     books: ["tftl_es"]
   }
 };

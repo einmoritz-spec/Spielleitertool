@@ -39,10 +39,35 @@
     if(t === "nliste") return '<ol>' + b[1].map(function(x){ return '<li>' + nm(x) + '</li>'; }).join("") + '</ol>';
     if(t === "kliste") return '<section class="nkasten"><h4>' + nm(b[1]) + '</h4>' + list(b[2]) + '</section>';
     if(t === "kk") return '<section class="nkk"><h4>' + nm(b[1]) + '</h4>' + (b[2] || []).map(function(x){ return '<p>' + nm(x) + '</p>'; }).join("") + '</section>';
+    if(t === "zit") return '<blockquote class="nzit">' + nm(b[1]) + (b[2] ? '<cite>' + nm(b[2]) + '</cite>' : '') + '</blockquote>';
+    if(t === "bsp") return '<section class="nbsp">' + b[1].map(function(x){ return '<p><b>' + nm(x[0]) + '</b> ' + nm(x[1]) + '</p>'; }).join("") + '</section>';
+    if(t === "stat") return statBlock(b[1]);
+    if(t === "w") return wuerfelTab(b);
+    if(t === "bild" && b[2] && typeof b[2] === "object") return '<img class="nimg' + (b[2].klein ? ' k' : '') + '" src="img/' + esc(b[1]) + (/\.\w+$/.test(b[1]) ? '' : '.webp') + '" alt="">';
     if(t === "bild" && b[2] && b[2] !== "w") return '<figure class="nfig' + (b[4] ? ' k' : '') + '"><img src="img/' + esc(b[1]) + '.webp" alt="' + esc(b[2]) + '" onclick="window.open(this.src)"><figcaption>' + nm(b[2]) + (b[3] ? ' · ' + pg(b[3]) : '') + '</figcaption></figure>';
     if(t === "bild") return '<img class="nimg' + (b[2] ? ' w' : '') + '" src="img/' + esc(b[1]) + '.webp" alt="">';
     if(t === "tabelle") return '<table class="ntab"><thead><tr>' + b[1].map(function(h){ return '<th>' + nm(h) + '</th>'; }).join("") + '</tr></thead><tbody>' + b[2].map(function(r){ return '<tr>' + r.map(function(c){ return '<td>' + nm(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table>';
     return "";
+  }
+  /* Werteblock (Buch-Kasten) und Zufallstabelle mit Würfelknopf (ES) */
+  function statBlock(o){
+    return '<section class="stat"><h4>' + nm(o.name) + (o.s ? ' <small>' + pg(o.s) + '</small>' : '') + '</h4>' +
+      (o.w ? '<div class="at">' + o.w.map(function(a){ return '<span>' + esc(a[0]) + '<b>' + esc(a[1]) + '</b></span>'; }).join("") + '</div>' : '') +
+      (o.z || []).map(function(z){ return '<p><b>' + nm(z[0]) + ':</b> ' + nm(z[1]) + '</p>'; }).join("") + (o.html || "") + '</section>';
+  }
+  function wuerfelTab(b){
+    return '<section class="nw" data-d="' + esc(b[2]) + '"><h4>' + nm(b[1]) + (b[4] ? ' <small>' + pg(b[4]) + '</small>' : '') + ' <button class="nwb" type="button">' + esc(b[2]) + ' würfeln</button></h4>' +
+      '<table class="ntab"><tbody>' + b[3].map(function(r){ return '<tr data-k="' + esc(r[0]) + '"><th>' + nm(r[0]) + '</th><td>' + nm(r[1]) + '</td></tr>'; }).join("") + '</tbody></table></section>';
+  }
+  function roll(d){
+    function d6(){ return 1 + Math.floor(Math.random() * 6); }
+    if(d === "D66") return d6() * 10 + d6();
+    if(d === "2D6") return d6() + d6();
+    return d6();
+  }
+  function hit(k, v){
+    var m = String(k).match(/^\s*(\d+)\s*(?:[–-]\s*(\d+)|(\+))?\s*$/); if(!m) return false;
+    var lo = +m[1], hi = m[3] ? Infinity : (m[2] ? +m[2] : lo); return v >= lo && v <= hi;
   }
   function lese(app, tab, rest, extraFirst){
     var C = CX(), ND = C.NACHDATA || window.NACHDATA, SETS = C.SETS || SETS0;
@@ -77,6 +102,7 @@
     tabs.innerHTML = (C.NACH || []).map(function(n){ return '<a href="#' + C.p + 'nach/' + n[0] + '"' + (n[0] === tab ? ' class="on"' : '') + '>' + esc(n[1]) + '</a>'; }).join("");
     app.onclick = function(e){
       var ty = e.target.closest(".ty"); if(ty && !e.target.closest(".pgl")){ location.hash = C.p + "nach/kids/" + ty.dataset.t; return; }
+      var wb = e.target.closest(".nwb"); if(wb){ var sc = wb.closest(".nw"), v = roll(sc.dataset.d); sc.querySelectorAll("tr").forEach(function(tr){ tr.classList.toggle("hit", hit(tr.dataset.k, v)); }); wb.textContent = sc.dataset.d + ': ' + v; return; }
       var el = e.target.closest(".pgl"); if(el){ e.preventDefault(); e.stopPropagation(); if(window.BV) BV.open(el.dataset.b, +el.dataset.s); return; }
       if(e.target.closest("#nsT")){ collapsed = !collapsed; app.classList.toggle("nsc", collapsed); }
     };

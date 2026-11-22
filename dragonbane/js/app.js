@@ -51,33 +51,21 @@ function foldSide(){ ST.fold = !ST.fold; save(); render(); }
 function kapHash(k, u){ return "n/" + k.id + (u ? "/" + u : ""); }
 function kapKopf(k){ return k.kopf ? k.kopf : "Kapitel " + k.n; }
 function viewStart(){
-  var K1 = DB_KAP[0], liste = DB_KAP.slice(1);
-  var bilder = DB_KAP.filter(function(k){ return k.img; });
-  var stack = bilder.map(function(k, i){ return '<img data-k="' + k.id + '" class="' + (i === 0 ? 'on' : '') + '" src="' + IMG(k.img) + '" alt="">'; }).join("");
-  var inh = liste.map(function(k){
-    var u = k.u.map(function(x){ return '<a onclick="go(\'' + kapHash(k, x[1]) + '\')">' + (x[0].length > 26 ? esc(x[0]) : esc(x[0]).replace(/ /g, "&nbsp;")) + '</a>'; }).join('&nbsp;<i class="sep">·</i> ');
-    return '<div class="ke" data-k="' + k.id + '" onmouseenter="front(\'' + k.id + '\')"><div class="kap" onclick="go(\'' + kapHash(k) + '\')">' + kapKopf(k) + pgl(k.p) + '</div><div class="kt" onclick="go(\'' + kapHash(k) + '\')">' + esc(k.t) + '</div><div class="ku">' + u + '</div></div>';
+  var t = DB_KAP.filter(function(k){ return k.img; }).map(function(k){
+    return '<div class="sk" onclick="go(\'' + kapHash(k) + '\')"><div class="bi"><img src="' + IMG(k.img) + '" alt=""></div>' +
+      '<div class="kn">' + kapKopf(k) + pgl(k.p) + '</div><div class="kti">' + esc(k.t) + '</div></div>';
   }).join("");
+  var zul = ST.last ? '<div class="zul" onclick="go(ST.last)">Zuletzt: <b>' + esc(ST.lastName || "") + '</b></div>' : "";
+  return '<div class="sg"><div class="gk">' + t + '</div><div class="unten"><div class="fluegel" onclick="go(\'abenteuer\')"><div class="fl"></div><div class="fm"><span>Zu den Abenteuern</span></div><div class="fr"></div></div>' + zul + '</div></div>';
+}
+/* Die Gruppe (Menü) */
+function gruppe(){
   var grp = (ST.gruppe || []).map(function(c){
     var v = (DB_VOELKER.filter(function(x){ return x[0] === c.volk; })[0] || [0, ""])[1], b = (DB_BERUFE.filter(function(x){ return x[0] === c.beruf; })[0] || [0, ""])[1];
-    return '<div class="chip" onclick="figur(\'' + c.id + '\')">' + (c.beruf ? '<img class="fig" src="' + IMG("beruf/" + c.beruf) + '" alt="">' : '') + '<div><b>' + esc(c.name || "–") + '</b><span>' + esc(v) + (v && b ? " · " : "") + esc(b) + '</span></div></div>';
+    return '<div class="chip" data-id="' + c.id + '">' + (c.beruf ? '<img class="fig" src="' + IMG("beruf/" + c.beruf) + '" alt="">' : '') + '<div><b>' + esc(c.name || "–") + '</b><span>' + esc(v) + (v && b ? " · " : "") + esc(b) + '</span></div></div>';
   }).join("");
-  var zul = ST.last ? '<div class="zul" style="cursor:pointer" onclick="go(ST.last)">Zuletzt: <b>' + esc(ST.lastName || "") + '</b></div>' : "";
-  return '<div class="wrap" onmouseleave="front(\'einf\')"><div class="front" onclick="go(\'n/\' + (window.__fk || \'einf\'))">' +
-    '<div class="fluegel"><div class="fl"></div><div class="fm"><span id="ft">' + esc(K1.t) + '</span></div><div class="fr"></div></div>' +
-    '<div class="rahmen"><div class="stack">' + stack + '</div><i class="ro"></i><i class="ru"></i><i class="rl"></i><i class="rr"></i><i class="e1"></i><i class="e2"></i><i class="e3"></i><i class="e4"></i></div></div>' +
-    '<div class="inh"><div class="kg" onmouseleave="front(\'einf\')">' + inh + '</div>' +
-    '<div class="grp"><span class="kap">Die Gruppe</span>' + grp + '<div class="chip neu" onclick="figur()" title="Charakter">+</div></div>' +
-    '<div class="cta"><div class="fluegel" onclick="go(\'abenteuer\')"><div class="fl"></div><div class="fm"><span>Zu den Abenteuern</span></div><div class="fr"></div></div>' + zul + '</div></div></div>';
-}
-/* Frontispiz: zeigt die Eröffnung des Kapitels unter der Maus */
-function front(id){
-  var k = DB_KAP.filter(function(x){ return x.id === id; })[0];
-  if(!k || !k.img){ return; }
-  window.__fk = id;
-  document.querySelectorAll(".stack img").forEach(function(i){ i.classList.toggle("on", i.dataset.k === id); });
-  var t = document.getElementById("ft"); if(t){ t.style.opacity = 0; setTimeout(function(){ t.textContent = k.t; t.style.opacity = 1; }, 140); }
-  document.querySelectorAll(".ke").forEach(function(e){ e.classList.toggle("on", e.dataset.k === id); });
+  var m = modal('<div class="titel m" style="margin-bottom:14px">Die Gruppe</div><div class="grp">' + grp + '<div class="chip neu" data-id="">+</div></div>');
+  m.querySelectorAll(".chip").forEach(function(c){ c.onclick = function(){ m.remove(); figur(c.dataset.id || undefined); }; });
 }
 /* Charakter der Gruppe anlegen / ändern */
 function figur(id){
@@ -107,7 +95,7 @@ function render(){
 }
 function buildMenu(){
   document.getElementById("mmP").innerHTML = '<button onclick="openMenu(false);go(\'start\')">Startseite</button>' +
-    '<h3>Nachschlagen</h3>' + DB_KAP.map(function(k){ return '<button onclick="openMenu(false);go(\'' + kapHash(k) + '\')">' + esc((k.n ? k.n + ". " : "") + k.t) + '</button>'; }).join("") + '<button onclick="openMenu(false);go(\'abenteuer\')">Abenteuer</button>' +
+    '<h3>Nachschlagen</h3>' + DB_KAP.map(function(k){ return '<button onclick="openMenu(false);go(\'' + kapHash(k) + '\')">' + esc((k.n ? k.n + ". " : "") + k.t) + '</button>'; }).join("") + '<button onclick="openMenu(false);go(\'abenteuer\')">Abenteuer</button><button onclick="openMenu(false);gruppe()">Die Gruppe</button>' +
     '<h3>Bücher</h3>' + DB_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
     '<button onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';
 }

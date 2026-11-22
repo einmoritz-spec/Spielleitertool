@@ -39,13 +39,14 @@ function bTop(v, label){
   return '<div class="btop"><div class="bl"><img src="../assets/logos/pico.webp" alt="Pico"><span>Charakterbogen</span></div><div class="bv">' + label + '</div>' + bf(v, "spieler", "[Spielername]", "pill s") + '</div>';
 }
 function bogenPage(v, inner, size, label){
-  return '<div class="bartabs noprint"><a class="' + (v === "picnic" ? 'on' : '') + '" onclick="go(\'bogen/picnic\')">Charakterbogen (Pic-nic)</a><a class="' + (v === "odyssey" ? 'on' : '') + '" onclick="go(\'bogen/odyssey\')">Charakterbogen (Pic-odyssey)</a><a class="' + (v === "streifzug" ? 'on' : '') + '" onclick="go(\'streifzug\')">Streifzugbogen</a><span class="sp"></span><button class="chip ink" onclick="bPrint()">Drucken / als PDF</button><button class="chip o" style="--c:var(--ink)" onclick="bAll(\'' + v + '\')">Leeren</button></div>' +
-    '<style>@page{size:' + size + ';margin:0}</style><div class="sheetwrap"><div class="sheet ' + v + '">' + inner + '</div></div>';
+  var lv = v.split(":")[0];
+  return '<div class="bartabs noprint"><a class="' + (lv === "picnic" ? 'on' : '') + '" onclick="go(\'bogen/picnic\')">Charakterbogen (Pic-nic)</a><a class="' + (lv === "odyssey" ? 'on' : '') + '" onclick="go(\'bogen/odyssey\')">Charakterbogen (Pic-odyssey)</a><a class="' + (lv === "streifzug" ? 'on' : '') + '" onclick="go(\'streifzug\')">Streifzugbogen</a><span class="sp"></span><button class="chip ink" onclick="bPrint()">Drucken / als PDF</button><button class="chip o" style="--c:var(--ink)" onclick="bAll(\'' + v + '\')">Leeren</button></div>' +
+    '<style>@page{size:' + size + ';margin:0}</style><div class="sheetwrap"><div class="sheet ' + lv + '">' + inner + '</div></div>';
 }
-function viewBogen(sel){
+function viewBogen(sel, slot){
   setTheme(false, "var(--teal)");
-  var v = sel === "odyssey" ? "odyssey" : "picnic";
-  if(v === "picnic") return bogenPage(v, bTop(v, "Kurzes Pic-nic") + '<div class="g1">' + bKopf(v) + bild(v) + '</div><div class="g2">' + bSkills(v) + bAspekte(v, 4) + '</div><div class="g3">' + bStimmung(v) + bBits(v) + '</div><div class="g4">' + bRaetsel(v) + '<div class="bx creations"><h2>Kreationen</h2>' + bf(v, "kre", "", "box", 1) + '</div></div>', "7.5in 9.5in");
+  var v = sel === "odyssey" ? "odyssey" : "picnic"; if(slot) v += ":" + slot;
+  if(v.split(":")[0] === "picnic") return bogenPage(v, bTop(v, "Kurzes Pic-nic") + '<div class="g1">' + bKopf(v) + bild(v) + '</div><div class="g2">' + bSkills(v) + bAspekte(v, 4) + '</div><div class="g3">' + bStimmung(v) + bBits(v) + '</div><div class="g4">' + bRaetsel(v) + '<div class="bx creations"><h2>Kreationen</h2>' + bf(v, "kre", "", "box", 1) + '</div></div>', "7.5in 9.5in");
   return bogenPage(v, bTop(v, "Langer Pic-odyssee") + '<div class="bgl"><div class="col">' + bKopf(v) + bStimmung(v) + '<div class="bx creations"><h2>Kreationen</h2>' + bf(v, "kre", "", "box", 1) + '</div>' + bSkills(v) + '</div><div class="col">' + bRaetsel(v) + bBits(v, 1) + bAspekte(v, 6) + '</div></div>', "7.5in 9.5in");
 }
 /* ---- Streifzugbogen ---- */

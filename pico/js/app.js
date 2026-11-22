@@ -135,7 +135,7 @@ function viewStart(){
   var rl = PI_REICHE.map(function(r){ return '<a class="' + (r.id === last ? 'last' : '') + '" style="background-image:url(' + IMG("reich/" + r.id) + ')" onclick="go(\'reich/' + r.id + '\')"><span>' + esc(r.t) + '</span></a>'; }).join("");
   return '<div class="hero"></div><div class="swrap"><div><div class="sec"><h2 style="font-size:40px">Vorbereitung</h2></div><div class="tiles">' + tiles + '</div>' +
     '<div style="margin-top:14px"><span class="chip ink" onclick="bogen()">Charakterbogen</span><span class="chip ink" onclick="go(\'streifzug\')">Streifzugbogen</span><span class="chip ink" onclick="go(\'schirm\')">Regelübersicht</span><span class="chip ink" onclick="wOpen()">Würfel</span><span class="chip ink o" onclick="go(\'galerie\')">Galerie</span></div></div>' +
-    '<div class="go"><h2>Losziehen</h2><div class="sub">Die Reiche · Kap. 11</div><div class="rl">' + rl + '</div><button class="gef" onclick="go(\'gefahren\')">Winzige Gefahren</button></div></div>';
+    '<div class="go"><h2>Losziehen</h2><div class="sub">Die Reiche · Kap. 11</div><div class="rl">' + rl + '</div><button class="gef abgo" onclick="go(\'abenteuer\')">Abenteuer</button><button class="gef" onclick="go(\'gefahren\')">Winzige Gefahren</button></div></div>';
 }
 function bogen(){ go("bogen/picnic"); }
 
@@ -155,7 +155,8 @@ function render(){ CARDS = [];
   else if(v === "streifzug") out = viewStreif();
   else if(v === "schirm") out = window.viewSchirm ? viewSchirm(h[1]) : viewStart();
   else if(v === "galerie") out = window.viewGalerie ? viewGalerie() : viewStart();
-  else if(v === "bogen") out = viewBogen(h[1]);
+  else if(v === "bogen") out = viewBogen(h[1], h[2]);
+  else if(v === "abenteuer") out = window.viewAbenteuer ? viewAbenteuer(h[1], h[2], h[3]) : viewStart();
   else out = viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
@@ -170,6 +171,7 @@ function buildMenu(){
     '<button onclick="openMenu(false);go(\'streifzug\')">Streifzugbogen</button>' +
     '<button onclick="openMenu(false);bogen()">Charakterbogen</button>' +
     '<button onclick="openMenu(false);go(\'galerie\')">Galerie</button>' +
+    '<h3>Abenteuer</h3>' + Object.keys(window.PI_AB || {}).map(function(k){ return '<button onclick="openMenu(false);go(\'abenteuer/' + k + '\')">' + esc(PI_AB[k].t) + '</button>'; }).join("") +
     '<h3>Nachschlagen</h3>' + KACHELN.map(function(k){ return '<button onclick="openMenu(false);go(\'' + k.go + '\')">' + esc(k.t) + '</button>'; }).join("") +
     '<h3>Bücher</h3>' + PI_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
     '<button onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';

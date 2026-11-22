@@ -41,6 +41,7 @@ VIEWS.nach = function(a){
   var side = S.secs.length > 1, zu = !!ST.zu;
   var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><div class="vert">' + esc(S.t) + '</div><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
     S.secs.map(function(s){ return '<li class="' + (s === X ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + s.id + '\')">' + esc(kurz(s.t)) + "</li>"; }).join("") + "</ul></aside>" : "";
+  if(X.kl){ var kin = '<div class="inh kl"><div class="blatt seite dicht">' + klasseHtml(X) + "</div></div>"; return head + unter + '<div class="bereich' + (side ? "" : " ohne") + (zu ? " zu" : "") + '">' + rk + kin + "</div>"; }
   var inh = '<div class="inh"><div class="blatt seite dicht"><h1 class="h1">' + esc(X.t) + (X.p ? pgl(X.p) : "") + "</h1>" + '<div class="flach">' + X.b.map(blk).join("") + "</div></div></div>";
   return head + unter + '<div class="bereich' + (side ? "" : " ohne") + (zu ? " zu" : "") + '">' + rk + inh + "</div>";
 };
@@ -60,3 +61,23 @@ document.addEventListener("keydown", function(e){
   }
   if(e.key === "[" ) ruecken();
 });
+
+/* ---------- Klassenseite: Diagonale (Figur + Name) · Intro · Kerneigenschaften · Fähigkeiten im Raster ---------- */
+function fk(a){
+  return '<div class="fk"><h4>' + esc(a[0]) + "</h4>" + (a[1] ? '<p class="kurs">' + md(a[1]) + "</p>" : "") + (a[2] ? "<p>" + md(a[2]) + "</p>" : "") +
+    (a[3] ? '<ul class="sub">' + a[3].map(function(u){ return "<li><b>" + esc(u[0]) + ".</b> " + md(u[1]) + "</li>"; }).join("") + "</ul>" : "") + "</div>";
+}
+function klasseHtml(X){
+  var K = X.kl, T = K.kern;
+  var kt = '<div class="kt">' + T.map(function(r){
+    if(r[0] === "h") return '<div><span class="lbl">' + esc(r[1]) + "</span></div>";
+    if(r[0] === "w") return '<div><i>' + esc(r[1]) + "</i></div>";
+    if(r[0] === "e") return '<div class="eins"><span>' + md(r[1]) + "</span><b>" + esc(r[2]) + "</b></div>";
+    return "<div><span>" + (r[0] === "l" ? '<span class="lbl">' + esc(r[1]) + "</span> " : "") + md(r[0] === "l" ? (r[2] || "") : r[1]) + "</span>" + (r[0] === "x" ? "<b>" + esc(r[2]) + "</b>" : (r[0] === "l" && r[3] ? "<b>" + esc(r[3]) + "</b>" : "")) + "</div>";
+  }).join("") + "</div>";
+  var sec = function(t, L){ return L.length ? '<div class="abschnitt"><h2 class="h2">' + esc(t) + '</h2><div class="raster">' + L.map(fk).join("") + "</div></div>" : ""; };
+  return '<div class="klz"><div class="diag"><div class="marmor"></div><img src="' + IMG("klasse/" + X.id) + '" alt=""><div class="name">' + esc(X.t) + '</div></div>' +
+    '<div class="ktext"><div class="zeile"><div class="intro">' + K.intro.map(function(p){ return "<p>" + md(p) + "</p>"; }).join("") + "</div>" +
+    '<div><h2 class="h2">Kerneigenschaften' + pgl(X.p + 1) + "</h2>" + kt + "</div></div>" +
+    sec("Kernfähigkeiten", K.core) + sec("Kleine Fähigkeiten", K.klein) + sec("Große Fähigkeiten", K.gross) + sec("Zenith-Fähigkeiten", K.zenith) + "</div></div>";
+}

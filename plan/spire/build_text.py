@@ -116,6 +116,10 @@ def main():
         if d2:
             Z2 = zeilen(d2, r2); K += kapitel(bid, Z2, k2, False)
         for k in K: k["buch"] = buch
+        if bid == "kurz":  # QS S. 7 „Regeln in Kürze“ ist eine Grafik: als eigener Baustein nachgebaut (spire/js/regelgrafik.js)
+            for k in K:
+                ix = [n for n, b in enumerate(k["b"]) if isinstance(b, dict) and b.get("x") == "Regeln in Kürze"]
+                if ix: k["b"] = k["b"][:ix[0] + 1] + [{"t": "regelgrafik"}]
         s = "/* The Spire – %s (aus quellen/spire/de, erzeugt mit plan/spire/build_text.py) */\nwindow.SP_TEXT = window.SP_TEXT || {};\nSP_TEXT[%s] = %s;\n" % (bid, json.dumps(bid), json.dumps(K, ensure_ascii=False, indent=1))
         open(os.path.join(OUT, bid + ".js"), "w").write(s)
         for k in K: print(bid, k["id"], k["p"], len(k["b"]), [b["t"] if isinstance(b, dict) else "p" for b in k["b"]][:25])

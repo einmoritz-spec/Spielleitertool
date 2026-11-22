@@ -174,6 +174,7 @@ SP_NACH_VIEW.extra = function(teile){
 function mgsBlk(L, bu){ bu = bu || "gm";
   return (L || []).map(function(b){
     if(b && b.t === "kk") return '<div class="kfs' + (b.n === 1 ? ' kfs-k' : '') + '">' + b.x.map(function(a){ return klKarte(a, bu); }).join("") + '</div>';
+    if(b && b.t === "regelgrafik") return window.regelGrafik ? regelGrafik() : "";
     if(b && b.t === "h4") return '<h3 class="un mgs-h4">' + esc(b.x) + (b.p ? pgl(b.p, bu) : "") + '</h3>';
     if(b && b.t === "h3") return '<h3 class="un">' + esc(b.x) + (b.p ? pgl(b.p, bu) : "") + '</h3>';
     return blk([b]);

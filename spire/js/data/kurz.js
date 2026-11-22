@@ -163,43 +163,7 @@ SP_TEXT["kurz"] = [
     "p": 7
    },
    {
-    "t": "h4",
-    "x": "1. Würfelpool Zusammenstellen",
-    "p": 7
-   },
-   {
-    "t": "h4",
-    "x": "2. Würfelpool Werfen",
-    "p": 7
-   },
-   "**Wird der Würfelpool auf 0 oder weniger reduziert,** werft 1W10.",
-   {
-    "t": "h4",
-    "x": "3. Erfolg und Fehlschlag Bestimmen",
-    "p": 7
-   },
-   "**Prüft euren höchsten Würfel:**",
-   "**Wurde euer Würfelpool in Schritt 2 auf 0 oder weniger reduziert,** verringert euer Ergebnis um eine Stufe: 8-9 auf 6-7, 6-7 auf 2-5 usw.",
-   {
-    "t": "h4",
-    "x": "4. Fallout Erleiden",
-    "p": 7
-   },
-   "**Wenn ihr Stress erlitten habt,** prüft die Spielleitung auf Fallout, und zwar so:",
-   {
-    "t": "schwarz",
-    "h": "Kein Fallout Leichter Fallout Mittlerer Fallout Schwerer Fallout",
-    "b": []
-   },
-   {
-    "t": "schwarz",
-    "h": "Sc Erleidet Fallout",
-    "b": []
-   },
-   {
-    "t": "schwarz",
-    "h": "1w10 Werfen",
-    "b": []
+    "t": "regelgrafik"
    }
   ],
   "buch": "qs"

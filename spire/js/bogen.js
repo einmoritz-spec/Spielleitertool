@@ -38,37 +38,60 @@ function bgTeilen(fid){
   if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(fertig, function(){ prompt("Link zum Teilen:", url); }); }
   else prompt("Link zum Teilen:", url);
 }
-function bgKarte(f){ return f; }
-/* ---- Bogen ---- */
-function bgBoxen(f, r, art){ return '<span class="bgb">' + zBoxen(f, r, art) + '</span>'; }
-function bgReihe(f, art, L){
-  return L.map(function(n){
-    var hat = f[art].indexOf(n) >= 0, mei = f.mei.indexOf(n) >= 0;
-    return '<li onclick="bgSk(\'' + f.id + '\',\'' + art + '\',\'' + n + '\')"><i class="m' + (hat ? ' an' : '') + (mei ? ' me' : '') + '"></i><span>' + esc(n) + '</span></li>';
-  }).join("");
+/* ---- Bogen: Aufbau wie im Buch (S. 212), Maße in mm auf A4 ---- */
+function bgSk2(f, art, n, y){
+  var hat = f[art].indexOf(n) >= 0, mei = f.mei.indexOf(n) >= 0;
+  return '<div class="bgz" style="top:' + y + 'mm" onclick="bgSk(\'' + f.id + '\',\'' + art + '\',\'' + n + '\')"><span>' + esc(n) + '</span><i class="' + (hat ? 'an' : '') + (mei ? ' me' : '') + '"></i></div>';
 }
+function bgFreiKlick(fid, r, i){
+  var f = zFig(fid); if(!f) return; f.freiX = f.freiX || {}; var fr = f.frei[r] || 0, x = f.freiX[r] || 0;
+  if(i >= fr){ f.frei[r] = i + 1; }
+  else if(i < x){ f.freiX[r] = i; }
+  else { f.freiX[r] = i + 1; }
+  save(); render();
+}
+function bgFreiWeg(ev, fid, r, i){ ev.preventDefault(); var f = zFig(fid); if(!f) return; f.frei[r] = i; f.freiX = f.freiX || {}; f.freiX[r] = Math.min(f.freiX[r] || 0, i); save(); render(); }
+function bgStress(fid, r, d){ var f = zFig(fid); if(!f) return; f.stress = f.stress || {}; f.stress[r] = Math.max(0, Math.min(10, (f.stress[r] || 0) + d)); save(); render(); }
+function bgBox(f, k, lab, x, y, w, h, inner){ return '<div class="bgbx" style="left:' + x + 'mm;top:' + y + 'mm;width:' + w + 'mm;height:' + h + 'mm"><h3>' + lab + '</h3>' + inner + '</div>'; }
 function bgTa(f, k, cls){ return '<textarea class="bgt ' + (cls || "") + '" oninput="bgSet(\'' + f.id + '\',\'' + k + '\',this.value)">' + esc(f.bg[k] || "") + '</textarea>'; }
-function bgIn(f, k, lab, ziel){ var v = ziel === "f" ? f[k] : f.bg[k]; return '<label class="bgl"><span>' + lab + '</span><input value="' + esc(v || "") + '" oninput="' + (ziel === "f" ? 'bgSetF' : 'bgSet') + '(\'' + f.id + '\',\'' + k + '\',this.value)"></label>'; }
 function bgBogen(f){
-  if(f.vf && f.bg.faehig === undefined && f.bg.ausr === undefined){ var v = vfDaten(f.vf); if(v){ bgVorlage(f.id); f = zFig(f.id); } }
-  var q = "'" + f.id + "'";
+  if(f.vf && f.bg.faehig === undefined && f.bg.ausr === undefined && vfDaten(f.vf)){ bgVorlage(f.id); f = zFig(f.id); }
+  var q = "'" + f.id + "'", T = 8, h = "";
+  /* Kopfzeilen */
+  [["Spielername", "spieler", 0], ["Figurenname", "n", 1], ["Klasse", "klasse", 1], ["Dienstzeit", "dienst", 1]].forEach(function(z, i){
+    var v = z[2] ? f[z[1]] : f.bg[z[1]];
+    h += '<div class="bgkz" style="top:' + (T + 13.5 + i * 9.5) + 'mm"><b>' + z[0] + '</b><input value="' + esc(v || "") + '" oninput="' + (z[2] ? 'bgSetF' : 'bgSet') + '(' + q + ',\'' + z[1] + '\',this.value)"></div>';
+  });
+  /* Fertigkeiten und Domänen */
+  h += '<h2 class="bgh" style="left:15mm;top:' + (T + 59.3) + 'mm">Fertigkeiten</h2>';
+  SP_FERTIGKEITEN.forEach(function(n, i){ h += bgSk2(f, "fert", n, T + 68.2 + i * 6.83); });
+  h += '<h2 class="bgh" style="left:15mm;top:' + (T + 134.4) + 'mm">Domänen</h2>';
+  SP_DOMAENEN.forEach(function(n, i){ h += bgSk2(f, "dom", n, T + 143.3 + i * 6.83); });
+  /* Kästen */
+  h += bgBox(f, "kniffe", "Kniffe", 63.4, T + 56, 43, 43.8, '<textarea class="bgt" oninput="bgKniffe(' + q + ',this.value)">' + esc((f.kniffe || []).join("\n")) + '</textarea>');
+  h += bgBox(f, "ausr", "Ausrüstung", 111.8, T + 56, 43, 43.8, bgTa(f, "ausr", (f.bg.ausr || "").length > 200 ? "kl2" : (f.bg.ausr || "").length > 120 ? "kl" : ""));
+  h += bgBox(f, "auff", "Auffrischen", 159.6, T + 56, 43, 43.8, '<textarea class="bgt" oninput="bgSetF(' + q + ',\'auff\',this.value)">' + esc(f.auff || "") + '</textarea>');
+  var fl = (f.bg.faehig || "").length;
+  h += bgBox(f, "faehig", "Fähigkeiten", 63.4, T + 105.1, 91.1, 103.4, bgTa(f, "faehig", fl > 1500 ? "kl2" : fl > 900 ? "kl" : ""));
   var bind = f.bind.map(function(b, i){
-    var n = ({einzel:3, figur:3, strasse:4, stadt:5})[b.ebene] || 3, h = "";
-    for(var j = 0; j < n; j++) h += '<i class="' + (j < (b.s || 0) ? 'x' : '') + '" onclick="zBindBox(' + q + ',' + i + ',' + j + ')"></i>';
-    return '<div class="bgbd"><input value="' + esc(b.n) + '" oninput="bgBindName(' + q + ',' + i + ',this.value)"><span class="bgb">' + h + '</span><s class="noprint" onclick="bgBindWeg(' + q + ',' + i + ')" title="Entfernen">×</s></div>';
+    var n = ({einzel:3, figur:3, strasse:4, stadt:5})[b.ebene] || 3, k = "";
+    for(var j = 0; j < n; j++) k += '<i class="' + (j < (b.s || 0) ? 'x' : '') + '" onclick="zBindBox(' + q + ',' + i + ',' + j + ')"></i>';
+    return '<div class="bgbd"><input value="' + esc(b.n) + '" oninput="bgBindName(' + q + ',' + i + ',this.value)"><span class="bgbk">' + k + '</span><s class="noprint" onclick="bgBindWeg(' + q + ',' + i + ')">×</s></div>';
   }).join("") + '<div class="bgplus noprint" onclick="zBNeu(' + q + ')">+ Bindung</div>';
-  var fo = (f.fallout || []).map(function(o, i){ var e = (window.SP_FALLOUT && SP_FALLOUT.finde(o.id)) || {t:o.id}; return '<span class="bgfo" onclick="zChip(' + q + ',' + i + ')">' + esc(e.t) + ' <small>' + zWidT(o.w) + '</small></span>'; }).join("");
-  var wid = BG_WID.map(function(w){
-    return '<div class="bgw"><b>' + w[1] + '</b><label class="noprint"><select onchange="bgFrei(' + q + ',\'' + w[0] + '\',this.value)">' + [0, 1, 2, 3, 4, 5].map(function(n){ return '<option' + (f.frei[w[0]] === n ? ' selected' : '') + '>' + n + '</option>'; }).join("") + '</select></label>' + bgBoxen(f, w[0], "f") + bgBoxen(f, w[0], "s") + '</div>';
-  }).join("") + '<div class="bgw"><b>Rüstung</b><label class="noprint"><select onchange="bgFrei(' + q + ',\'ruest\',this.value)">' + [0, 1, 2, 3, 4, 5].map(function(n){ return '<option' + (f.frei.ruest === n ? ' selected' : '') + '>' + n + '</option>'; }).join("") + '</select></label>' + bgBoxen(f, "ruest", "f") + '</div>';
-  return '<div class="sheet" data-pgbook="sp_cmf"><div class="bgk"><b>Spire</b><span>Charakterbogen</span>' + bgIn(f, "spieler", "Spielername") + '</div>' +
-    '<div class="bgr bg4">' + bgIn(f, "n", "Figurenname", "f") + bgIn(f, "klasse", "Klasse", "f") + bgIn(f, "dienst", "Dienstzeit", "f") + bgIn(f, "auff", "Auffrischen", "f") + '</div>' +
-    '<div class="bgr bg3"><section><h3>Fertigkeiten</h3><ul class="bgs">' + bgReihe(f, "fert", SP_FERTIGKEITEN) + '</ul></section><section><h3>Domänen</h3><ul class="bgs">' + bgReihe(f, "dom", SP_DOMAENEN) + '</ul></section>' +
-    '<section><h3>Kniffe</h3><textarea class="bgt" oninput="bgKniffe(' + q + ',this.value)">' + esc((f.kniffe || []).join("\n")) + '</textarea></section></div>' +
-    '<div class="bgr bg2"><section class="gr"><h3>Fähigkeiten</h3>' + bgTa(f, "faehig", "hoch" + ((f.bg.faehig || "").length > 650 ? " kl" : "")) + '</section><section><h3>Bindungen</h3>' + bind + '</section></div>' +
-    '<div class="bgr bg3"><section><h3>Fallout</h3><div class="bgfos">' + fo + '</div></section><section><h3>Ausrüstung</h3>' + bgTa(f, "ausr") + '</section><section><h3>Notizen</h3>' + bgTa(f, "notiz") + '</section></div>' +
-    '<div class="bgr"><section class="res"><h3>Widerstände <small>Freiplätze · Stress</small></h3>' + wid + '<div class="bgges"><span>Gesamtstress</span><b>' + zTotal(f) + '</b></div></section></div>' +
-    '<div class="bgfuss">Charakterbogen nach The Spire · The City Must Fall, S. 212</div></div>';
+  h += bgBox(f, "bind", "Bindungen", 159.6, T + 105.1, 43, 81.5, '<div class="bgin">' + bind + '</div>');
+  var fo = (f.fallout || []).map(function(o, i){ var e = (window.SP_FALLOUT && SP_FALLOUT.finde(o.id)) || {t:o.id}; return '<div class="bgfo" onclick="zChip(' + q + ',' + i + ')">' + esc(e.t) + ' <small>(' + zWidT(o.w) + ')</small></div>'; }).join("");
+  h += bgBox(f, "fallout", "Fallout", 159.6, T + 191.9, 43, 81.6, '<div class="bgin">' + fo + '</div>' + bgTa(f, "fallout"));
+  /* Unterer Block: Freiplätze · Widerstände · Aktueller Stress */
+  h += '<div class="bgpap"></div>';
+  h += '<h2 class="bgh" style="left:15mm;top:' + (T + 213.4) + 'mm">Freiplätze</h2><h2 class="bgh" style="left:63.4mm;top:' + (T + 213.4) + 'mm">Widerstände</h2><h2 class="bgh" style="left:111.5mm;top:' + (T + 213.4) + 'mm">Aktueller Stress</h2>';
+  [["blut", "Blut"], ["verstand", "Verstand"], ["silber", "Silber"], ["schatten", "Schatten"], ["ruf", "Ruf"], ["ruest", "Rüstung"]].forEach(function(w, i){
+    var y = T + 221.3 + i * 6.85, fr = f.frei[w[0]] || 0, x = (f.freiX && f.freiX[w[0]]) || 0, k = "";
+    for(var j = 0; j < 5; j++) k += '<i class="' + (j < fr ? (j < x ? 'a x' : 'a') : '') + '" onclick="bgFreiKlick(' + q + ',\'' + w[0] + '\',' + j + ')" oncontextmenu="bgFreiWeg(event,' + q + ',\'' + w[0] + '\',' + j + ')"></i>';
+    var st = w[0] === "ruest" ? '' : '<span class="bgst"><s class="noprint" onclick="bgStress(' + q + ',\'' + w[0] + '\',-1)">−</s><b>' + ((f.stress && f.stress[w[0]]) || '') + '</b><s class="noprint" onclick="bgStress(' + q + ',\'' + w[0] + '\',1)">+</s></span>';
+    h += '<div class="bgrow' + (i % 2 ? '' : ' bgdk') + '" style="top:' + y + 'mm"><span class="bgfr">' + k + '</span><span class="bgwn">' + w[1] + '</span>' + st + '</div>';
+  });
+  h += '<div class="bgges" style="top:' + (T + 265.3) + 'mm"><b>Gesamtstress:</b><span>' + (zTotal(f) || '') + '</span></div>';
+  return '<div class="sheet" data-pgbook="sp_cmf"><div class="bgrand"></div>' + h + '</div>';
 }
 function bgLeiste(f){
   var chips = zFigs().map(function(x){ return '<a class="' + (f && x.id === f.id ? 'on' : '') + '" onclick="go(\'bogen/' + x.id + '\')">' + esc(x.n) + '</a>'; }).join("");

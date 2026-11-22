@@ -49,6 +49,7 @@ function blk(L){
       case "schwarz": return '<div class="schwarz">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (Array.isArray(b.b) ? blk(b.b) : "<p>" + md(b.b || b.x) + "</p>") + "</div>";
       case "violett": return '<div class="violett">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (Array.isArray(b.b) ? blk(b.b) : "<p>" + md(b.b || b.x) + "</p>") + "</div>";
       case "vl": return '<div class="zitat">' + md(b.x) + (b.wer ? '<div class="leise">' + esc(b.wer) + "</div>" : "") + "</div>";
+      case "dialog": return '<div class="dlg">' + b.x.map(function(z){ return z[0] ? '<p><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>' : '<p class="reg">' + md(z[1]) + '</p>'; }).join("") + '</div>';
       case "bsp": return '<div class="zitat" style="border-color:var(--blau)">' + md(b.x) + "</div>";
       case "tbl": return tbl(b);
       case "w10": return w10(b);
@@ -60,7 +61,7 @@ function blk(L){
   }).join("");
 }
 function tbl(b){
-  return '<table class="tbl">' + (b.head ? "<tr>" + b.head.map(function(h){ return "<th>" + esc(h) + "</th>"; }).join("") + "</tr>" : "") +
+  return '<table class="tbl' + (!b.head && b.rows.length && b.rows[0].length === 2 ? ' kv' : '') + '">' + (b.head ? "<tr>" + b.head.map(function(h){ return "<th>" + esc(h) + "</th>"; }).join("") + "</tr>" : "") +
     b.rows.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + md(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>";
 }
 /* W10-Tabelle (Entwurf 9): Würfelknopf im Kopf, Treffer gold; Würfe in ST.zufall */
@@ -127,7 +128,7 @@ function viewStart(){
   var R = SP_REVOLUTION, rv = ST.rev || 0;
   return '<div class="hero"><div class="verlauf"></div><h1>Spire</h1><p>Spire ist eine meilenhohe, unmögliche Stadt, älter als irgendwer zurückdenken kann.</p></div>' +
     '<div class="start"><div><h2 class="ab" style="margin-top:4px">Vorbereitung</h2><div class="kach">' + kach + '</div>' +
-    '<div class="chips"><span onclick="charakterbogen()">Charakterbogen</span><span onclick="go(\'schirm\')">Spielleiterschirm</span><span onclick="wOpen()">Würfel</span><span onclick="go(\'nach/regeln/fallout\')">Fallout-Liste</span><span onclick="go(\'galerie\')">Galerie</span></div></div>' +
+    '<div class="chips"><span onclick="charakterbogen()">Charakterbogen</span><span onclick="schirmOpen()">Spielleiterschirm</span><span onclick="wOpen()">Würfel</span><span onclick="go(\'nach/regeln/fallout\')">Fallout-Liste</span><span onclick="go(\'galerie\')">Galerie</span></div></div>' +
     '<div class="los"><h2>Losschlagen</h2><div class="gross">' + spiel + '</div>' + ab +
     (bald.length ? '<div class="bald">Weitere Abenteuer<br>' + bald.map(function(b){ return '<span onclick="openBook(\'' + b.id + '\',1)">' + esc(b.abenteuer) + '</span>'; }).join("") + '</div>' : '') +
     '<div class="rev"><h5 onclick="go(\'nach/spielleitung/revolution\')">Die Revolution' + pgl(R.p) + '</h5><div class="stufen">' + R.stufen.map(function(s, i){ return '<button class="' + (rv === i ? 'on' : '') + '" onclick="setRev(' + i + ')">' + esc(s) + '</button>'; }).join("") + '</div></div>' +
@@ -170,7 +171,6 @@ function render(){
   else if(v === "nach") out = viewNach(rest);
   else if(SPIEL_IDS[v]) out = viewSpielPlatzhalter(v);
   else if(v === "abenteuer") out = viewAbenteuerPlatzhalter(rest);
-  else if(v === "schirm") out = tabs([["schirm","Spielleiterschirm"]], "schirm") + voll(folgt("Spielleiterschirm", 9));
   else if(v === "galerie") out = viewGalerie();
   else out = viewStart();
   if(out == null) return;
@@ -191,7 +191,7 @@ function buildMenu(){
   }).join(""); }).join("");
   document.getElementById("mmP").innerHTML =
     '<h3>Nachschlagen</h3>' + mb("go('start')", "Vorbereitung") + nach +
-    '<h3>Werkzeuge</h3>' + mb("go('schirm')", "Spielleiterschirm", "s") + mb("wOpen()", "Würfel", "w") + mb("sOpen()", "Suche", "/") + mb("go('galerie')", "Galerie") + mb("charakterbogen()", "Charakterbogen") +
+    '<h3>Werkzeuge</h3>' + mb("schirmOpen()", "Spielleiterschirm", "s") + mb("wOpen()", "Würfel", "w") + mb("sOpen()", "Suche", "/") + mb("go('galerie')", "Galerie") + mb("charakterbogen()", "Charakterbogen") +
     '<h3>Bücher</h3>' + buecher + mb("modal(BV.settingsHTML())", "PDF hochladen …");
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); }
@@ -217,5 +217,5 @@ document.addEventListener("keydown", function(e){
   else if(e.key === "b") foldSide();
   else if(e.key === "w" && window.wOpen) wOpen();
   else if(e.key === "/" && window.sOpen){ e.preventDefault(); sOpen(); }
-  else if(e.key === "s") go("schirm");
+  else if(e.key === "s" && window.schirmOpen) schirmOpen();
 });

@@ -1,6 +1,6 @@
 /* THE SPIRE – Zelle (Entwurf 4): Spielerfiguren mit Stress/Freiplätzen je Widerstand, Gesamtstress, Fallout-Wurf mit Fallout-Panel,
    Bindungen mit Bindungs-Fallout, Auffrischen, vorgefertigte Figuren (Quickstart S. 25–36).
-   Regeln: Kernmechanik/Stress S. 10, Gesamtstress und Fallout S. 12, Weniger tödlicher Fallout S. 13, Bindungs-Fallout S. 15 und S. 24.
+   Regeln: Kernmechanik/Stress S. 10, Gesamtstress und Fallout S. 11, Weniger tödlicher Fallout S. 13, Bindungs-Fallout S. 15 und S. 24.
    Spielstand: ST.figuren (siehe plan/SPIRE_PLAN.md, Abschnitt 5), ST.weniger. Das Fallout-Panel (ZP) wird nicht gespeichert. */
 var ZR = ["blut", "verstand", "silber", "schatten", "ruf"];
 var ZBOX = {einzel:3, figur:3, strasse:4, stadt:5};   /* Stress-Kästchen je Bindungsebene (Entwurf 4) */
@@ -278,7 +278,7 @@ SP_VIEW.zelle = function(){
   var karten = F.map(zKarte).join("") +
     '<div class="zneu"><button onclick="zVfAuswahl()">Vorgefertigte Figur</button><button onclick="zNeueFigur()">Neue Figur</button></div>';
   var rp = zPanel() +
-    '<div class="zinfo"><h4>Schwellen' + pgl(12) + '</h4><p>2–4 Stress: leicht (−3) · 5–8: mittel (−5) · 9+: schwer (−7)</p><button class="tog' + (ST.weniger ? ' on' : '') + '" onclick="zToedlich()" title="Optionalregel S. 13">Weniger tödlich</button> <a class="pg" onclick="go(\'nach/regeln/fallout\')">Fallout-Liste</a></div>' +
+    '<div class="zinfo"><h4>Schwellen' + pgl(11) + '</h4><p>2–4 Stress: leicht (−3) · 5–8: mittel (−5) · 9+: schwer (−7)</p><button class="tog' + (ST.weniger ? ' on' : '') + '" onclick="zToedlich()" title="Optionalregel S. 13">Weniger tödlich</button> <a class="pg" onclick="go(\'nach/regeln/fallout\')">Fallout-Liste</a></div>' +
     '<div class="zinfo"><h4>Sitzungsende</h4><p>Bindungen mit Stress in dieser Sitzung: Bindungs-Fallout würfeln' + pgl(24) + '</p><button class="knopf b" onclick="zSitzungsende()">Bindungen prüfen</button></div>';
   return spielTabs("zelle") + '<div class="zelle"><div class="zfig">' + karten + '</div><div class="zrp">' + rp + '</div></div>';
 };

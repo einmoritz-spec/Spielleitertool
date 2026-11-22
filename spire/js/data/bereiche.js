@@ -29,7 +29,7 @@ window.SP_KACHELN = [
 ];
 /* Startseite, Block „Losschlagen“: die vier Spielbereiche (= Haupt-Tabs) */
 window.SP_SPIEL = [
-  {id:"zelle",  t:"Die Zelle", tab:"Zelle",  s:"Stress, Fallout, Bindungen der Spielerfiguren", buch:"cmf", p:12},
+  {id:"zelle",  t:"Die Zelle", tab:"Zelle",  s:"Stress, Fallout, Bindungen der Spielerfiguren", buch:"cmf", p:11},
   {id:"stadt",  t:"Die Stadt", tab:"Stadt",  s:"Karte · 8 Domänen, alle Distrikte",             buch:"cmf", p:81},
   {id:"gegner", t:"Gegner",    tab:"Gegner", s:"Alle Werteblöcke mit Widerstand",               buch:"cmf", p:77},
   {id:"zufall", t:"Zufall",    tab:"Zufall", s:"W10-Tabellen für die Straße",                   buch:"cmf", p:200}

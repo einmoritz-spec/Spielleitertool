@@ -293,7 +293,7 @@ SP_KLASSE.push({ id:"azurite", t:"Azurite", p:29, bild:"klasse/azurite", zitat:"
 4. **Stadt II:** Akademie, Handel, Verbrechen (S. 81–106).
 5. **Stadt III:** Hohe und Niedere Gesellschaft (S. 107–128).
 6. ✅ **(erledigt 22.11.2026)** **Stadt IV:** Okkultes (S. 129–146) + **Gegner-Browser** komplett (Entwurf 5, alle Core-Werteblöcke).
-7. **Zufall** (Anhang 2, 4, 5; Entwurf 9) + **Regeln** S. 9–24, Kampf S. 77–80, Spielleiterschirm, `tags.js` (Tooltips).
+7. ✅ **(erledigt 22.11.2026)** **Zufall** (Anhang 2, 4, 5; Entwurf 9) + **Regeln** S. 9–24, Kampf S. 77–80, Spielleiterschirm, `tags.js` (Tooltips).
 8. **Klassen I:** Übersicht (Entwurf 7) + Azurite bis Knight (S. 25–52), Entwurf 8.
 9. **Klassen II:** Lajhan bis Vermissian Sage (S. 53–68) + Extra-Fortschritte (S. 69–76).
 10. **Magister's Guide I:** Klassen-Zusätze (MG S. 17–48) für alle 15 Klassen + MG-Gegenspieler in den Gegner-Browser.
@@ -346,6 +346,16 @@ Regeln: sofort sprechend benennen; Großansicht immer ungeschnitten; nie ein Bil
 - **Gegner-Browser (`#gegner`, Entwurf 5)** in `gegner.js`: Baum links (Alle · Nach Domäne · Magister's Guide [erscheint automatisch, sobald Gegner mit `buch:"gm"` angelegt sind] · Snuff Out the Sun · Regeln mit Standardwerte, Tags S. 20, Kampf S. 77), Suche + Filter (Schwierigkeit 0 / 1 / 2+ / Mit Fernkampf), kompakte Karten, Werteblock rechts sticky, Begegnungsleiste. Gruppe eines Gegners ergibt sich aus `ziel` (`stadt/<domäne>/…`) bzw. `buch`; neue Gegner brauchen nur den Eintrag in `SP_GEGNER`. Das Snuff-Tab „Gegner“ nutzt weiter `gegnerBrowser(L)`.
 - Domänenseite mit 5 Distrikten nutzt Raster `r5d` (3 + 2 ohne Lücke). Verweis aus Derelictus/Gartendistrikt -> `stadt/okkult/herz/die-hoehle` gelöst.
 - Offene Verweisziele für Schritt 8/9: `nach/klassen/carrion-priest`, `vermissian-sage`, `midwife`; `nach/extra/vyskant` (Titel im Buch „Der Vyskant“, S. 76).
+
+### Stand nach Schritt 7
+- **Zufall** (`zufall.js`, Daten `zufall-a.js` = Anhang 2 mit 17 Tabellen in 5 Gruppen, `zufall-b.js` = Ziegen S. 207 und Arkologien S. 208 als Listen mit Zufallswahl): Route `#zufall[/<gruppe>|ziegen|arkologien]`, Baum links, Tabellen als Karten (2er-Raster, bei 3 Tabellen 3er-Raster), Würfelknopf je Tabelle (W10, bei den zwei 12er-Tabellen W12), „Alle würfeln“ je Gruppe, Treffer gold, Würfe in `ST.zufall`. Das Drow-Glossar (Anhang 3, S. 205) bleibt für Schritt 13.
+- **Nachschlagen** in `nach.js` (ersetzt `regeln-fallout.js`): `#nach/regeln` (S. 9–16; Kernmechanik bis Zusätzliche Widerstandsplätze aus `regeln.js`, danach alle Fallout-Abschnitte aus `fallout.js`, Route `#nach/regeln/fallout[/<abschnitt>]` springt dorthin), `#nach/kampf` (S. 77–80, `kampf.js`, Beispielkampf als Dialog-Block `{t:"dialog", x:[[Sprecher, Text], …]}`), `#nach/fertigkeiten` (S. 17–18), `#nach/ausruestung` (S. 19–22 mit Waffen-/Rüstungsbeispielen), `#nach/bindungen` (S. 23–24). Alle Seiten: Baum links, `data-j`-Scroll-Spy, Sprung per `#nach/<bereich>/<abschnitt-id>`.
+- **Tags**: `data/tags.js` (25 Waffen- und 5 Rüstungs-Tags). Chips mit Tag-Namen in den Gegner-Karten (`gChip`, `gKurzChips`) bekommen per `tagAttr()` einen Tooltip mit der Regel (Hover oder Tippen). Gegner-Baum: „Tags“ (S. 21) und „Kampf“ (S. 77) führen auf die neuen Seiten.
+- **Spielleiterschirm** (`schirm.js`, Taste `s`, Burger, Chip auf der Startseite; `#schirm` öffnet ihn über der Startseite): Reiter Würfeln · Stress · Fallout (Schwellen, alle Namen als Chips mit Tooltip, Bindungs-Fallout) · Tags · Gegner (Standardwerte QS S. 22).
+- **Fallout-Namen** in allen neuen Texten nach `fallout.js` (Müde, Panisch, Ausrasten, Kompromittiert, Bewusstlos, Gedächtnislücken, Gedemütigt, Kriminell, Erwählt, Abtrünnig, Verachtet; Bindungs-Fallout Ausgelaugt); die Varianten der Quelle (Erschöpft, In Panik, Bloßgestellt, KO geschlagen …) kommen nirgends mehr vor.
+- **Seitenkorrektur** gegenüber Schritt 1: „Den Überblick behalten“, „Zusätzliche Widerstandsplätze“ und „Fallout“ stehen im Buch auf **S. 11** (S. 12 ist die ganzseitige Illustration, `kapitel/regeln-S012`, jetzt im Abschnitt Fallout); `fallout.js`, Zelle (Schwellen) und die Zellen-Kachel angepasst. Tags beginnen im Buch auf S. 21 (S. 20 ist nur das Waffenbild, jetzt im Abschnitt Ausrüstung).
+- Quelltext-Fehler korrigiert: der Verweis „Bindungs-Fallout … auf S. 11“ im Kapitel Bindungen steht so im Buch (Fallout-Abschnitt beginnt auf S. 11) und wurde übernommen; „abtauchen“ im Buch = „untertauchen“ (Glossar); Seitenköpfe/Spaltenreihenfolge in k02 neu geordnet (Beispiel „Stress entfernen“ zusammengesetzt).
+- Offen für Schritt 8 ff.: `nach/klassen`, `nach/extra` zeigen weiter den Platzhalter; Verweise der Klassen auf Tags/Regeln können `nach/ausruestung/tags` bzw. `nach/regeln/<abschnitt>` nutzen.
 
 ## 8. Startauftrag für jede Sonnet-Sitzung (zum Kopieren)
 

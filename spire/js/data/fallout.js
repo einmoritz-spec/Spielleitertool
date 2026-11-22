@@ -15,16 +15,16 @@ window.SP_FALLOUT = {
     {id:"mittel", t:"Mittlerer Fallout", von:5, bis:8,  abzug:5},
     {id:"schwer", t:"Schwerer Fallout",  von:9, bis:99, abzug:7}
   ],
-  /* Regeltext S. 12–13, als Blöcke (Format wie spire/js/app.js, blk) */
+  /* Regeltext S. 11–13, als Blöcke (Format wie spire/js/app.js, blk) */
   regel:{
-    behalten:{t:"Den Überblick behalten", p:12, b:[
+    behalten:{t:"Den Überblick behalten", p:11, b:[
       "Die Spielleitung führt den Stress der Spielerfiguren. Das hat zwei Wirkungen: 1) Es macht das Würfeln auf Fallout viel einfacher, und 2) es verlagert Stress von einer mechanischen Wirkung in eine erzählerische Beschreibung. Wenn die Spielleitung einer Spielerfigur Stress zuteilt, sollte sie beschreiben, was in der Welt geschieht – nicht nur die Zahl nennen und weitermachen.",
       "Wenn eine Spielerin oder ein Spieler wissen will, wie viel Stress die Figur erleidet, kann die Spielleitung es entweder in Zahlen sagen (einfach, aber ein wenig langweilig) oder wiederum erzählerisch beschreiben. Statt zu sagen „Du hast je 4 Stress auf Verstand und Blut“, könnte die Spielleitung sagen: „Du spürst deinen Herzschlag in den Ohren. Du schmeckst Blech im Mund. Du kannst dich nicht darauf konzentrieren, was irgendjemand sagt.“",
       "Die Spielleitung kann die Spielenden bitten, ihren eigenen Stress selbst festzuhalten und selbst auf Fallout zu würfeln, aber in der Praxis vergessen sie meist den zweiten Teil. Das ist euch überlassen; wir bevorzugen es so, aber für eure Gruppe funktioniert es vielleicht nicht."]},
-    plaetze:{t:"Zusätzliche Widerstandsplätze", p:12, b:[
+    plaetze:{t:"Zusätzliche Widerstandsplätze", p:11, b:[
       "Jede Figur hat zusätzliche Widerstandsplätze gegen bestimmte Widerstände, festgelegt durch ihre Klasse und ihre Fähigkeiten. Stress, der in diesen zusätzlichen Widerstandsplätzen markiert ist, zählt nicht zum Gesamtstress der Figur, wenn bestimmt wird, ob es zu Fallout kommt; sie sind „frei“. Auch Rüstung funktioniert als zusätzliche Widerstandsplätze für Blut; mehr dazu im Abschnitt über Ausrüstung (siehe S. 19).",
       "Diese Plätze werden in Fähigkeiten als „+X [Widerstand]“ beschrieben; „+1 Blut“ würde dir also Zugang zu einem zusätzlichen Platz in Blut geben, der nicht für Fallout zählt."]},
-    fallout:{t:"Fallout", p:12, b:[
+    fallout:{t:"Fallout", p:11, b:[
       "Jedes Mal, wenn eine Spielerfigur Stress erleidet, prüft die Spielleitung auf Fallout – ob irgendeine Art von andauernder, ernster Wirkung im Spiel ist. Die Spielleitung würfelt einen W10 und vergleicht ihn mit dem aktuellen Gesamtstress, der gegen die Widerstände der Figur markiert ist – ist das Ergebnis des W10 niedriger, erleidet die Figur Fallout. Die Stufe des Fallouts hängt davon ab, wie viel Gesamtstress die Figur hatte, als der Fallout ausgelöst wurde:",
       {t:"dl", x:[["2–4 Stress","Leichter Fallout"],["5–8 Stress","Mittlerer Fallout"],["9+ Stress","Schwerer Fallout"]]},
       "Überlegt, was geschieht, anhand der Art von Stress, die den Fallout ausgelöst hat; üblicherweise ist das der Widerstand, gegen den am meisten Stress markiert ist. Bei einer Mischung oder wenn es nicht eindeutig ist, nehmt, was interessanter klingt. Ihr könnt aus der Liste unten wählen oder euch etwas Eigenes ausdenken.",

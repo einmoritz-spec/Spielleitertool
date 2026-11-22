@@ -15,7 +15,7 @@ function gBuch(g){ return g.buch || "cmf"; }
 function gChip(a){
   var h = "";
   if(a.dmg) h += '<span class="chip w">' + esc(a.dmg) + '</span>';
-  (a.tags || []).forEach(function(t){ h += '<span class="chip">' + esc(t) + '</span>'; });
+  (a.tags || []).forEach(function(t){ h += '<span class="chip"' + (window.tagAttr ? tagAttr(t) : '') + '>' + esc(t) + '</span>'; });
   return h;
 }
 function gAusr(g){
@@ -32,7 +32,7 @@ function gKurzChips(g){
     if(a.dmg && dm.indexOf(a.dmg) < 0) dm.push(a.dmg);
     (a.tags || []).forEach(function(t){ var L = /^Rüstung/.test(t) ? ru : tg; if(L.indexOf(t) < 0) L.push(t); });
   });
-  return ru.map(function(t){ return '<span class="chip">' + esc(t) + '</span>'; }).concat(dm.map(function(t){ return '<span class="chip w">' + esc(t) + '</span>'; }), tg.map(function(t){ return '<span class="chip">' + esc(t) + '</span>'; })).slice(0, 6).join("");
+  return ru.map(function(t){ return '<span class="chip"' + (window.tagAttr ? tagAttr(t) : '') + '>' + esc(t) + '</span>'; }).concat(dm.map(function(t){ return '<span class="chip w">' + esc(t) + '</span>'; }), tg.map(function(t){ return '<span class="chip"' + (window.tagAttr ? tagAttr(t) : '') + '>' + esc(t) + '</span>'; })).slice(0, 6).join("");
 }
 /* Widerstands-Kästchen (Stress) – gekoppelt an die Begegnung */
 function gBoxen(g){
@@ -154,7 +154,7 @@ function gSeite(){
     if(x.sek !== sek){ sek = x.sek; side += '<h5>' + esc(sek) + '</h5>'; }
     side += '<a class="' + (dom === x.k ? 'on' : '') + '" onclick="gDom(\'' + x.k + '\')">' + esc(x.t) + (x.p ? '<span class="pg">QS S. ' + x.p + '</span>' : '') + '<em>' + cnt[x.k] + '</em></a>';
   });
-  side += '<a onclick="openBook(\'cmf\',20)">Tags<span class="pg">S. 20</span></a><a onclick="openBook(\'cmf\',77)">Kampf<span class="pg">S. 77</span></a>';
+  side += '<a onclick="go(\'nach/ausruestung/tags\')">Tags<span class="pg">S. 21</span></a><a onclick="go(\'nach/kampf\')">Kampf<span class="pg">S. 77</span></a>';
   var chips = [["alle", "Alle"], ["0", "Schwierigkeit 0"], ["1", "1"], ["2", "2+"], ["fern", "Mit Fernkampf"]].map(function(c){ return '<span class="' + (f === c[0] ? 'on' : '') + '" onclick="gFilter(\'' + c[0] + '\')">' + esc(c[1]) + '</span>'; }).join("");
   var L = gFiltert(), sel = L.filter(function(g){ return g.id === ST.gsel; })[0] || L[0];
   var body = '<div class="gbr"><div><div class="gfl"><input type="search" placeholder="Suchen …" value="' + esc(GQ) + '" oninput="gSuche(this.value)"><div class="wch">' + chips + '</div></div>' +

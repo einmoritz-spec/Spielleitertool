@@ -611,3 +611,70 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
   .gbr{grid-template-columns:1fr}
   .gbd{position:static}
 }
+
+/* ---------- Regeln, Kampf, Fertigkeiten, Ausrüstung, Bindungen (Schritt 7) ---------- */
+.dbody .karte p,.dbody .karte ul{text-indent:0}
+.dbody .karte p:last-child{margin-bottom:0}
+.dbody .karte{font-size:15.5px;line-height:1.38}
+.dbody .karte ul.pkt{margin:4px 0 0}
+.dbody .einl{font-style:italic;color:var(--grau);text-indent:0;margin:0 0 6px}
+.dbody table.tbl{margin:6px 0 12px}
+.dbody .raster{margin:10px 0 14px}
+.dbody .raster.tabk{align-items:start}
+.dbody .raster.tabk .tbl{margin:0}
+.dbody h3.un{margin:14px 0 4px}
+.dbody .dlg{border-left:3px solid var(--blau);padding:2px 0 2px 16px;margin:10px 0;display:flow-root}
+.dbody .dlg p{text-indent:0;margin:0 0 .45em}
+.dbody .dlg p.reg{color:#3a4658;font-style:italic}
+.dbody .dlg b{color:var(--blau);font-family:var(--f-titel);font-weight:700;letter-spacing:.03em}
+.dbody .zitat+.zitat{margin-top:-4px}
+.dbody ul.pkt{margin:4px 0 10px}
+.dbody .chip{cursor:pointer}
+.tagtip{position:fixed;z-index:80;max-width:340px;background:var(--nacht);color:#e8eef6;font:400 14.5px/1.38 var(--f-text);padding:9px 12px 10px;box-shadow:0 6px 22px #0007;border-top:3px solid var(--wein);pointer-events:none}
+.tagtip b{display:block;font:700 15px var(--f-titel);text-transform:uppercase;letter-spacing:.04em;color:#fff;margin-bottom:2px}
+[data-tip]{cursor:help}
+
+/* Zufall (Entwurf 9) */
+.dbody.zf h1.titel{margin-bottom:14px}
+.zfk{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px}
+.zfk h2.ab{flex:1;margin:0}
+.zfk .einl{flex:1}
+.zfk .alle{flex:none;font:700 15px var(--f-titel);text-transform:uppercase;letter-spacing:.04em;border:1.5px solid var(--blau);color:var(--blau);padding:5px 14px;background:#fff;cursor:pointer}
+.zfk .alle:hover{background:var(--blau);color:#fff}
+.dbody .zfr{align-items:stretch;margin-top:0}
+.dbody .zfr .w10t li{font-size:15.5px;padding:3px 10px 3px 0}
+.dbody .zll{align-items:stretch;margin-top:0}
+.dbody .zll .karte.hit{background:var(--gold);border-color:#a97d10}
+.dbody .zll .karte.hit h4{color:#000}
+.dbody .zll .karte.hit .pg{color:#4a3a08}
+
+/* Spielleiterschirm (Overlay) */
+.modal.schirm>div{width:min(1120px,97vw);padding:0;max-height:90vh;border-top:5px solid var(--wein)}
+.schtabs{position:sticky;top:0;z-index:2;display:flex;gap:2px;align-items:flex-end;background:var(--papier);padding:0 16px;border-bottom:2px solid var(--wein)}
+.schtabs a{font:700 19px var(--f-titel);text-transform:uppercase;color:var(--blau);padding:12px 14px 7px;border-bottom:4px solid transparent;margin-bottom:-2px;cursor:pointer}
+.schtabs a:hover{color:var(--wein)}
+.schtabs a.on{color:var(--wein);border-color:var(--wein)}
+.schtabs .x{margin-left:auto;align-self:center;font:400 26px/1 var(--f-text);color:var(--grau);cursor:pointer;padding:0 4px}
+.schtabs .x:hover{color:var(--wein)}
+.schb{padding:12px 20px 20px;font-size:15.5px}
+.schb h3.un{margin:12px 0 4px}
+.schb h3.un:first-child{margin-top:0}
+.schb table.tbl{margin:4px 0 8px}
+.schb ul.pkt{margin:4px 0 8px}
+.sch2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 28px;align-items:start}
+.sch3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:8px}
+.schf h4{font:700 18px var(--f-titel);text-transform:uppercase;color:var(--blau);margin:0 0 4px;border-bottom:2px solid var(--blau)}
+.schf p{margin:0 0 6px;font-size:14px;line-height:1.7}
+.schf p b{font:700 12px var(--f-titel);text-transform:uppercase;letter-spacing:.05em;color:var(--wein);display:block;line-height:1.2}
+.schb .chip{font-size:11.5px;padding:1px 6px;margin:1px 3px 1px 0}
+.sbf{line-height:1.9}
+.sch4{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 22px;margin-bottom:6px}
+.sch4 p{margin:0 0 5px;font-size:14px;line-height:1.32}
+.sch4 b{color:var(--blau)}
+.schb .gegner{margin:0}
+@media (max-width:900px){
+  .sch2,.sch3,.sch4{grid-template-columns:1fr}
+  .zfk{flex-wrap:wrap}
+}
+.tbl.kv td:first-child{width:72px;white-space:nowrap;font-weight:700;color:var(--blau)}
+@media (max-width:1000px){ .dbody .zfr.r3{grid-template-columns:repeat(2,minmax(0,1fr))} }

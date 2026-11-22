@@ -2,6 +2,24 @@
 (function(){
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
   function CX(){ return window.TCTX || {p:"", ls:"tftl_", book:"tftl_core", NACH:window.NACH, NACHDATA:window.NACHDATA, TYPEN:window.TYPEN, SETS:null, L:{}}; }
+  /* Kachelraster-Konfiguration: TftL/Flood „Die Typen“ im Tab kids; ES „Die Archetypen“ im Tab reisende (#es/nach/reisende/archetypen[/<id>]) */
+  function KA(){
+    var C = CX();
+    if(C.KACHEL) return C.KACHEL;
+    if(C.area === "es") return {tab:"reisende", seg:"archetypen", label:"Die Archetypen", kap:"Kap. 3", s:66, es:1,
+      list:function(){ return (window.ES && ES.ARCHETYPEN || []).map(esAdapt); }, href:function(id){ return "es/nach/reisende/archetypen/" + id; }, rest:function(r){ return r[1] === "archetypen" ? r[2] : null; }};
+    return {tab:"kids", seg:"typen", label:"Die Typen", kap:"Kap. 4", s:49,
+      list:function(){ return CX().TYPEN || []; }, href:function(id){ return CX().p + "nach/kids/" + id; }, rest:function(r){ return r[1]; }};
+  }
+  function strip(h){ return String(h || "").replace(/<[^>]+>/g, ""); }
+  function tab2(a){ return (a || []).map(function(x){ return x[0] + ": " + x[1]; }); }
+  /* ES: Archetyp -> Typ-Form (Raster + Detail). Ein eigener Renderer ES.archetypen(app, id) aus E2 hat Vorrang. */
+  function esAdapt(a){
+    return {id:a.id, name:a.name, s:a.s, bild:a.bild, key:[a.schluessel], items:[a.geld || "Keines"], text:strip(a.html),
+      gegenstand:(a.gegenstand || []).length ? tab2(a.gegenstand) : null, talente:tab2(a.talente), traum:tab2(a.traum), schwaeche:tab2(a.schwaeche), neurocaster:tab2(a.neurocaster), hinweis:a.hinweis ? [strip(a.hinweis)] : null,
+      zitat:a.zitat ? ["„" + a.zitat.t + "“ – " + a.zitat.von] : null};
+  }
+  var TBES = [["zitat","Zitat"],["gegenstand","Persönlicher Gegenstand"],["talente","Talent"],["traum","Traum"],["schwaeche","Schwäche"],["neurocaster","Neurocaster"],["hinweis","Hinweis"]];
   var SETS0 = {welt:["welt"], loops:["schweden","us","de80","taunus"], kids:["kids"], aerger:["aerger"], mysterium:["mysterium"], landschaft:["landschaft"]};
   var TB0 = [["items","Kultgegenstand"],["problem","Problem"],["drive","Antrieb"],["pride","Stolz"],["relK","Beziehungen zu anderen Kids"],["relN","Beziehungen zu NSC"],["anker","Anker"],["namen","Typische Namen"]];
   function loop(){ var l = ""; try{ l = localStorage.getItem(CX().ls + "loop") || ""; }catch(e){} return l; }
@@ -12,20 +30,23 @@
   function chips(a){ return a.map(function(k){ return '<span class="kc2">' + esc(k) + '</span>'; }).join(""); }
 
   function typen(app){
-    var TY = CX().TYPEN || [];
+    var K = KA();
+    if(K.es && window.ES && typeof ES.archetypen === "function"){ ES.archetypen(app, null); return; }
+    var TY = K.list();
     app.className = "page nach";
-    app.innerHTML = '<div class="nh"><h1>Die Typen</h1><small>Kap. 4 · ' + pg(49) + '</small></div><div class="tgrid">' + TY.map(function(t){
+    app.innerHTML = '<div class="nh"><h1>' + K.label + '</h1><small>' + K.kap + ' · ' + pg(K.s) + '</small></div><div class="tgrid">' + TY.map(function(t){
       return '<div class="ty" data-t="' + t.id + '"><img src="img/' + t.bild + '.webp" alt=""><div><h3>' + esc(t.name) + ' <small>' + pg(t.s) + '</small></h3>' +
-        '<h5>Schlüsselfertigkeiten</h5><div>' + chips(t.key) + '</div><h5>Typischer Gegenstand</h5><p>' + nm(t.items.join(" · ")) + '</p></div></div>';
+        '<h5>' + (K.es ? 'Schlüsselattribut' : 'Schlüsselfertigkeiten') + '</h5><div>' + chips(t.key) + '</div><h5>' + (K.es ? 'Bargeld' : 'Typischer Gegenstand') + '</h5><p>' + nm(t.items.join(" · ")) + '</p></div></div>';
     }).join("") + '</div>';
   }
   function typ(app, id){
-    var C = CX(), t = (C.TYPEN || []).filter(function(x){ return x.id === id; })[0];
+    var C = CX(), K = KA(), t = K.list().filter(function(x){ return x.id === id; })[0];
     if(!t) return typen(app);
+    if(K.es && window.ES && typeof ES.archetypen === "function"){ ES.archetypen(app, id); return; }
     app.className = "page nach";
-    app.innerHTML = '<div class="nh"><a class="chip" href="#' + C.p + 'nach/kids">‹ Typen</a><h1>' + esc(t.name) + '</h1><small>' + pg(t.s) + '</small></div>' +
-      '<div class="tdet"><img src="img/' + t.bild + '.webp" alt=""><div><p class="tx">' + esc(t.text) + '</p><h5>Schlüsselfertigkeiten</h5><div>' + chips(t.key) + '</div></div></div>' +
-      '<div class="nbg">' + (C.L && C.L.typBoxes || TB0).map(function(x){ var v = t[x[0]]; return v ? box(x[1], typeof v === "string" ? [v] : v) : ""; }).join("") + '</div>';
+    app.innerHTML = '<div class="nh"><a class="chip" href="#' + C.p + 'nach/' + K.tab + (K.es ? '/' + K.seg : '') + '">‹ ' + (K.es ? 'Archetypen' : 'Typen') + '</a><h1>' + esc(t.name) + '</h1><small>' + pg(t.s) + '</small></div>' +
+      '<div class="tdet"><img src="img/' + t.bild + '.webp" alt=""><div><p class="tx">' + esc(t.text) + '</p><h5>' + (K.es ? 'Schlüsselattribut' : 'Schlüsselfertigkeiten') + '</h5><div>' + chips(t.key) + '</div></div></div>' +
+      '<div class="nbg">' + (K.es ? TBES : C.L && C.L.typBoxes || TB0).map(function(x){ var v = t[x[0]]; return v ? box(x[1], typeof v === "string" ? [v] : v) : ""; }).join("") + '</div>';
   }
 
   /* ---------- Lesekapitel (Baum links, Inhalt flach) ---------- */
@@ -74,7 +95,8 @@
     var sets = (SETS[tab] || []).filter(function(k){ return ND && ND[k]; });
     var multi = sets.length > 1;
     var cur = null, setKey = sets[0];
-    if(extraFirst && (!rest[1] || rest[1] === "typen")){ cur = "typen"; }
+    var K = KA();
+    if(extraFirst && (!rest[1] || rest[1] === K.seg)){ cur = "typen"; }
     else if(multi && rest[1] && sets.indexOf(rest[1]) >= 0){ setKey = rest[1]; cur = rest[2]; }
     else if(!multi){ cur = rest[1]; }
     var D = setKey ? ND[setKey] : null;
@@ -82,7 +104,7 @@
     if(cur !== "typen" && D){ sec = D.abschnitte.filter(function(a){ return a.id === cur; })[0] || D.abschnitte[0]; }
     var base = "#" + C.p + "nach/" + tab + "/";
     var tree = "";
-    if(extraFirst) tree += '<a class="ni' + (cur === "typen" ? ' on' : '') + '" href="' + base + 'typen">Die Typen</a>';
+    if(extraFirst) tree += '<a class="ni' + (cur === "typen" ? ' on' : '') + '" href="' + base + K.seg + '">' + K.label + '</a>';
     sets.forEach(function(k){
       var d = ND[k];
       if(multi) tree += '<div class="ng">' + esc(d.titel) + '</div>';
@@ -101,13 +123,14 @@
     var C = CX(), tab = rest[0] || "welt";
     tabs.innerHTML = (C.NACH || []).map(function(n){ return '<a href="#' + C.p + 'nach/' + n[0] + '"' + (n[0] === tab ? ' class="on"' : '') + '>' + esc(n[1]) + '</a>'; }).join("");
     app.onclick = function(e){
-      var ty = e.target.closest(".ty"); if(ty && !e.target.closest(".pgl")){ location.hash = C.p + "nach/kids/" + ty.dataset.t; return; }
+      var ty = e.target.closest(".ty"); if(ty && !e.target.closest(".pgl")){ location.hash = KA().href(ty.dataset.t); return; }
       var wb = e.target.closest(".nwb"); if(wb){ var sc = wb.closest(".nw"), v = roll(sc.dataset.d); sc.querySelectorAll("tr").forEach(function(tr){ tr.classList.toggle("hit", hit(tr.dataset.k, v)); }); wb.textContent = sc.dataset.d + ': ' + v; return; }
       var el = e.target.closest(".pgl"); if(el){ e.preventDefault(); e.stopPropagation(); if(window.BV) BV.open(el.dataset.b, +el.dataset.s); return; }
       if(e.target.closest("#nsT")){ collapsed = !collapsed; app.classList.toggle("nsc", collapsed); }
     };
-    if(tab === "kids" && rest[1] && (C.TYPEN || []).some(function(x){ return x.id === rest[1]; })){ typ(app, rest[1]); return; }
-    var L = lese(app, tab, rest, tab === "kids");
+    var K = KA(), kid = tab === K.tab ? K.rest(rest) : null;
+    if(kid && K.list().some(function(x){ return x.id === kid; })){ typ(app, kid); return; }
+    var L = lese(app, tab, rest, tab === K.tab);
     app.className = "page nach" + (collapsed ? " nsc" : "");
     if(L.typen){ var tmp = document.createElement("div"); typen(tmp); app.className = "page nach nl" + (collapsed ? " nsc" : ""); app.innerHTML = '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + tmp.innerHTML + '</div>'; return; }
     if(!L.tree){ app.innerHTML = L.main; return; }

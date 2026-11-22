@@ -18,22 +18,21 @@ window.SP_NACH_BEREICHE = {
 };
 /* Startseite, Block „Vorbereitung“ (Entwurf 1): Kachelbild nur als Ausschnitt im Kachelkopf */
 window.SP_KACHELN = [
-  {t:"Die Welt",                    s:"Stadtkarte · Domänen · Drow, Aelfir, Menschen",           buch:"cmf", p:1,   img:"karte",                      pos:"center 18%", go:"stadt"},
-  {t:"Regeln",                      s:"Kernmechanik · Stress · Fallout · Kampf",                 buch:"cmf", p:9,   img:"kapitel/regeln-S012",        pos:"center 22%", go:"nach/regeln"},
-  {t:"Klassen",                     s:"10 Klassen · 5 aus dem Magister's Guide",                 buch:"cmf", p:25,  img:"klasse/azurite",             pos:"center 20%", go:"nach/klassen", folgt:1},
-  {t:"Fertigkeiten und Ausrüstung", s:"Fertigkeiten · Domänen · Tags · Kaufen und Verkaufen",    buch:"cmf", p:17,  img:"kapitel/ausruestung-S020",   pos:"center 30%", go:"nach/fertigkeiten"},
-  {t:"Spire in Kürze",              s:"Die Regeln aus dem Quickstart",                           buch:"qs",  p:1,   img:"titel/qs-cover",             pos:"center 92%", go:"nach/kurz", folgt:1},
-  {t:"Spielleitung",                s:"Revolution · Schwierigkeit · Ein guter Schurke · Magie",   buch:"cmf", p:173, img:"kapitel/spielleitung-S180",  pos:"center 25%", go:"nach/spielleitung", folgt:1},
-  {t:"Magister's Guide",            s:"Freiheit · Beats · Erwerbungen · Unterschlupf · Essays",  buch:"gm",  p:4,   img:"kapitel/mg-unterschlupf-S016", pos:"center 30%", go:"nach/mg", folgt:1},
-  {t:"Götter und Anhänge",          s:"Neue Götter · Zufallstabellen · Drow-Glossar",            buch:"cmf", p:183, img:"gott/luxulyan",              pos:"center 30%", go:"nach/goetter", folgt:1},
-  {t:"Buch der Masken",             s:"Masken · Fortschritte · Ausrüstung",                      buch:"z1",  p:null, img:"masken/titel",              pos:"center 20%", go:"masken"}
+  {t:"Regeln",                      s:"Kernmechanik · Stress · Fallout · Kampf",                 buch:"cmf", p:9,   img:"kapitel/regeln-S012",          pos:"center 30%", go:"nach/regeln"},
+  {t:"Fertigkeiten und Ausrüstung", s:"Domänen · Kniffe · Tags · Bindungen",                     buch:"cmf", p:17,  img:"kapitel/ausruestung-S020",     pos:"center 30%", go:"nach/fertigkeiten"},
+  {t:"Buch der Masken",             s:"22 Masken · Fortschritte · Ausrüstung",                   buch:"z1",  p:null, img:"masken/titel",               pos:"center 35%", go:"masken"},
+  {t:"Klassen",                     s:"10 Klassen · 5 aus dem Magister's Guide",                 buch:"cmf", p:25,  img:"klasse/azurite",               pos:"center 20%", go:"nach/klassen", folgt:1},
+  {t:"Spire in Kürze",              s:"Die Regeln aus dem Quickstart",                           buch:"qs",  p:1,   img:"titel/qs-cover",               pos:"center 60%", go:"nach/kurz", folgt:1},
+  {t:"Spielleitung",                s:"Revolution · Schwierigkeit · Schurken · Magie",           buch:"cmf", p:173, img:"kapitel/spielleitung-S180",    pos:"center 25%", go:"nach/spielleitung", folgt:1},
+  {t:"Magister's Guide",            s:"Freiheit · Beats · Erwerbungen · Unterschlupf",           buch:"gm",  p:4,   img:"kapitel/mg-unterschlupf-S016", pos:"center 30%", go:"nach/mg", folgt:1},
+  {t:"Götter und Anhänge",          s:"Neue Götter · Drow-Glossar",                              buch:"cmf", p:183, img:"gott/luxulyan",                pos:"center 30%", go:"nach/goetter", folgt:1}
 ];
 /* Startseite, Block „Losschlagen“: die vier Spielbereiche (= Haupt-Tabs) */
 window.SP_SPIEL = [
-  {id:"zelle",  t:"Die Zelle", tab:"Zelle",  s:"Stress, Fallout, Bindungen der Spielerfiguren", buch:"cmf", p:11},
-  {id:"stadt",  t:"Die Stadt", tab:"Stadt",  s:"Karte · 8 Domänen, alle Distrikte",             buch:"cmf", p:81},
-  {id:"gegner", t:"Gegner",    tab:"Gegner", s:"Alle Werteblöcke mit Widerstand",               buch:"cmf", p:77},
-  {id:"zufall", t:"Zufall",    tab:"Zufall", s:"W10-Tabellen für die Straße",                   buch:"cmf", p:200}
+  {id:"zelle",  t:"Die Zelle", tab:"Zelle",  s:"Stress · Fallout · Bindungen", buch:"cmf", p:11, img:"kapitel/zwischen-klassen-extra-S068", pos:"center 40%"},
+  {id:"stadt",  t:"Die Stadt", tab:"Stadt",  s:"Karte · Domänen · Distrikte", buch:"cmf", p:81, img:"kapitel/welt-S004", pos:"center 35%"},
+  {id:"gegner", t:"Gegner",    tab:"Gegner", s:"Werteblöcke · Begegnungen", buch:"cmf", p:77, img:"kapitel/kampf-S078", pos:"center 30%"},
+  {id:"zufall", t:"Zufall",    tab:"Zufall", s:"W10-Tabellen für die Straße", buch:"cmf", p:200, img:"kapitel/zwischen-hoch-nieder-S116", pos:"center 45%"}
 ];
 /* Abenteuer (Leitstand folgt in spire/js/abenteuer.js) */
 window.SP_ABENTEUER = window.SP_ABENTEUER || {};

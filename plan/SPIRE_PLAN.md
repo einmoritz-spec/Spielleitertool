@@ -382,3 +382,8 @@ Vorbereitung = 3-spaltiges Kachelraster mit 9 Kacheln (Welt mit Stadtkarte, Rege
 - **Klassen** (`spire/js/klassen.js`): `#nach/klassen` = Übersicht (Entwurf 7, 5 Spalten, 10 Kacheln) + Abschnitte Charaktere/Dienstzeit (S. 25–27, `klassen-charaktere.js`); `#nach/klassen/<id>` = Klassenseite (Entwurf 8) mit Reiterzeile zum Wechseln der Klasse; `#nach/extra[/<weg>]` = Extra-Fortschritte (11 Wege, Baum links). Daten je Klasse `klasse-<id>.js`, `extra-a/-b.js`; alle per `plan/spire/build_klassen.py` aus `quellen/spire/de/cmf/k06–k08` erzeugt (bei Textkorrekturen: Markdown ändern, Skript neu laufen lassen).
 - Fortschrittskarten: Flex-Raster (4/3 je Zeile, lange Karten doppelt breit), Stufen-Etikett links sticky (`.main:has(.kp){overflow:clip}` nötig). Waffenwerte in der Ausrüstung als Chips mit Tag-Tooltip.
 - Offen (Schritt 10): Magister's-Guide-Zusatz je Klasse + die 5 MG-Klassen (Kachelreihe lila, 5 Spalten passen); das Reiterzeilen-Feld „Magister's Guide: Zusatz“ kommt dann neben die Klassenreiter. Das MG-PDF enthält keine eigenen Klassenbilder (nur Hintergrund-Silhouetten); Gutter Cleric hat sein Bild aus dem Quickstart.
+
+### Stand nach Schritt 10–12 (22. Nov. 2026)
+- **MG-Zusatz je Klasse** (`mg-<klasse>.js`, `gegner-mg.js`, Route `nach/klassen/<id>/mg`, 5 MG-Klassen als violette Kacheln/Reiter), **MG-Systeme** (`mg-system.js`, Route `nach/mg[/<kapitel>]`), **Welt / Spielleitung / Spire in Kürze** (`welt.js`, `spielleitung.js`, `kurz.js`, Routen `nach/welt|spielleitung|kurz[/<kapitel>]`; Konverter `build_mg.py`, `build_mg2.py`, `build_text.py`).
+- QS S. 11 (Fallout-Listen) bewusst weggelassen (steht vollständig unter Regeln); MG S. 56 (Werbung) weggelassen.
+- Offen: Schritt 13 (Götter, Anhänge, Gesamtcheck), danach Charakterbogen.

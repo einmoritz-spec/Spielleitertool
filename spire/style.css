@@ -870,3 +870,6 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .mgs-h4{font-size:15px;letter-spacing:.06em;color:var(--violett);margin:14px 0 4px}
 .kfs-k .kf{flex-basis:calc(20% - 10px);min-width:190px}
 .kfs-k .kf ul.pkt{margin:4px 0 0;padding-left:16px;font-size:14.5px}
+.txt .schwarz{column-width:430px;column-gap:40px}
+.txt .schwarz h4{column-span:all}
+.txt .schwarz p{break-inside:avoid-column}

@@ -22,8 +22,8 @@ window.SP_KACHELN = [
   {t:"Fertigkeiten und Ausrüstung", s:"Domänen · Kniffe · Tags · Bindungen",                     buch:"cmf", p:17,  img:"kapitel/ausruestung-S020",     pos:"center 30%", go:"nach/fertigkeiten"},
   {t:"Buch der Masken",             s:"22 Masken · Fortschritte · Ausrüstung",                   buch:"z1",  p:null, img:"masken/titel",               pos:"center 35%", go:"masken"},
   {t:"Klassen",                     s:"10 Klassen · Extra-Fortschritte · Dienstzeit",                 buch:"cmf", p:25,  img:"klasse/azurite",               pos:"center 20%", go:"nach/klassen"},
-  {t:"Spire in Kürze",              s:"Die Regeln aus dem Quickstart",                           buch:"qs",  p:1,   img:"titel/qs-cover",               pos:"center 60%", go:"nach/kurz", folgt:1},
-  {t:"Spielleitung",                s:"Revolution · Schwierigkeit · Schurken · Magie",           buch:"cmf", p:173, img:"kapitel/spielleitung-S180",    pos:"center 25%", go:"nach/spielleitung", folgt:1},
+  {t:"Spire in Kürze",              s:"Die Regeln aus dem Quickstart",                           buch:"qs",  p:1,   img:"titel/qs-cover",               pos:"center 60%", go:"nach/kurz"},
+  {t:"Spielleitung",                s:"Revolution · Schwierigkeit · Schurken · Magie",           buch:"cmf", p:173, img:"kapitel/spielleitung-S180",    pos:"center 25%", go:"nach/spielleitung"},
   {t:"Magister's Guide",            s:"Freiheit · Beats · Erwerbungen · Unterschlupf",           buch:"gm",  p:4,   img:"kapitel/mg-unterschlupf-S016", pos:"center 30%", go:"nach/mg"},
   {t:"Götter und Anhänge",          s:"Neue Götter · Drow-Glossar",                              buch:"cmf", p:183, img:"gott/luxulyan",                pos:"center 30%", go:"nach/goetter", folgt:1}
 ];

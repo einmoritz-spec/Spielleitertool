@@ -171,11 +171,11 @@ SP_NACH_VIEW.extra = function(teile){
 });
 
 /* ---------- Magister's Guide: Neue Systeme und Essays (MG S. 4–55) ---------- */
-function mgsBlk(L){
+function mgsBlk(L, bu){ bu = bu || "gm";
   return (L || []).map(function(b){
-    if(b && b.t === "kk") return '<div class="kfs' + (b.n === 1 ? ' kfs-k' : '') + '">' + b.x.map(function(a){ return klKarte(a, "gm"); }).join("") + '</div>';
-    if(b && b.t === "h4") return '<h3 class="un mgs-h4">' + esc(b.x) + (b.p ? pgl(b.p, "gm") : "") + '</h3>';
-    if(b && b.t === "h3") return '<h3 class="un">' + esc(b.x) + (b.p ? pgl(b.p, "gm") : "") + '</h3>';
+    if(b && b.t === "kk") return '<div class="kfs' + (b.n === 1 ? ' kfs-k' : '') + '">' + b.x.map(function(a){ return klKarte(a, bu); }).join("") + '</div>';
+    if(b && b.t === "h4") return '<h3 class="un mgs-h4">' + esc(b.x) + (b.p ? pgl(b.p, bu) : "") + '</h3>';
+    if(b && b.t === "h3") return '<h3 class="un">' + esc(b.x) + (b.p ? pgl(b.p, bu) : "") + '</h3>';
     return blk([b]);
   }).join("");
 }
@@ -191,4 +191,24 @@ SP_NACH_VIEW.mg = function(teile){
 };
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
   (window.SP_MGS || []).forEach(function(k){ add(k.t, "Magister's Guide · " + k.grp, "nach/mg/" + k.id, k.p, [k.b], "gm"); });
+});
+
+/* ---------- Welt, Spielleitung, Spire in Kürze: Kapitel als Baum links, Text flach rechts ---------- */
+function txtView(id, titel, p, buch, pb){
+  return function(teile){
+    var L = (window.SP_TEXT || {})[id] || []; nAnker(id, teile, L[0] && L[0].id);
+    var side = '<h5 onclick="scrollTo({top:0,behavior:\'smooth\'})">' + esc(titel) + '</h5>' + L.map(function(k, i){ return nLink({id:k.id, t:k.t}, i); }).join("");
+    var body = '<div class="kp mgv txt"><h1 class="titel">' + esc(titel) + pgl(p, buch) + '</h1>' + L.map(function(k){
+      return '<section id="ab-' + k.id + '"><h2 class="ab">' + esc(k.t) + pgl(k.p, buch) + '</h2>' + mgsBlk(k.b, buch) + '</section>';
+    }).join("") + '</div>';
+    var A = SP_NACH_ANKER[id]; SP_NACH_ANKER[id] = null; if(A) ST_ANKER = A;
+    return nachTabs(id) + lay(side, '<div class="dbody" data-pgbook="' + pb + '">' + body + '</div>');
+  };
+}
+SP_NACH_VIEW.welt = txtView("welt", "Die Welt", 1, "cmf", "sp_cmf");
+SP_NACH_VIEW.spielleitung = txtView("spielleitung", "Spielleitung", 173, "cmf", "sp_cmf");
+SP_NACH_VIEW.kurz = txtView("kurz", "Spire in Kürze", 1, "qs", "sp_qs");
+(window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
+  var N = {welt:["Die Welt", "cmf"], spielleitung:["Spielleitung", "cmf"], kurz:["Spire in Kürze", "qs"]};
+  Object.keys(N).forEach(function(id){ ((window.SP_TEXT || {})[id] || []).forEach(function(k){ add(k.t, N[id][0], "nach/" + id + "/" + k.id, k.p, [k.b], N[id][1]); }); });
 });

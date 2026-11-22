@@ -41,6 +41,7 @@
     var tabsEl = document.getElementById("tabs");
     document.getElementById("app").onclick = null;
     if(r.area==="tftl" && r.page==="m" && window.renderLeitstand){ window.renderLeitstand(document.getElementById("app"), tabsEl, r.rest); return; }
+    if(r.area==="tftl" && r.page==="nach" && window.renderNach){ document.getElementById("app").className = "page"; window.renderNach(document.getElementById("app"), tabsEl, r.rest); window.scrollTo(0, 0); return; }
     tabsEl.innerHTML = d.tabs.map(function(t){ return '<a href="#' + (r.area==="tftl" ? "" : r.area + "/") + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
     var tab = d.tabs.filter(function(t){ return t[0]===r.page; })[0];
     var app = document.getElementById("app"); app.className = "page";

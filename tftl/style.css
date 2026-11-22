@@ -270,3 +270,18 @@ details.lk[open] summary{display:none}
 .kside{padding:18px 20px;background:#fff;align-self:stretch}.kside h3{font:700 11px var(--sans);text-transform:uppercase;letter-spacing:.14em;color:var(--soft);margin-bottom:8px}
 .ol{display:block;padding:10px 0;border-bottom:1px solid var(--line);font:500 16px var(--sans);cursor:pointer}.ol.on{color:var(--acc)}.ol .pgl{font-size:12px;color:var(--soft);margin-left:4px}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--acc);margin-right:10px}.dot.g{background:#bbb}
+/* Nachschlagen */
+.page.nach{padding:18px 22px 30px}
+.nh{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}.nh small{font:700 12px var(--sans);color:var(--soft)}
+.nh .chip{background:#fff;font-family:var(--sans)}
+.pgl{cursor:pointer;color:var(--soft);border-bottom:1px dotted var(--soft)}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ty{cursor:pointer;display:flex;gap:10px;background:#fff;border-left:6px solid var(--band);padding:14px;color:inherit;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.12);min-height:300px}
+.ty img{width:110px;height:auto;object-fit:contain;align-self:flex-end;flex:none}.ty h3{color:var(--acc);font-size:21px}.ty h5,.tdet h5{font:700 10.5px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin:12px 0 5px}
+.ty p{font-size:15.5px;line-height:1.4}
+.kc2{display:inline-block;font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.04em;background:#fde4d0;padding:3px 8px;margin:0 4px 4px 0}
+.tdet{display:flex;gap:24px;background:#fff;padding:18px 22px;margin-bottom:14px;border-left:6px solid var(--band)}.tdet img{height:260px;width:auto;flex:none}.tdet .tx{font-size:19px;line-height:1.6;max-width:900px}
+.nbg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start}
+.nbox{background:#fff;padding:14px 16px;border-top:4px solid var(--acc)}.nbox h4{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:8px}
+.nbox ul{list-style:none}.nbox li{padding:6px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45}.nbox li:last-child{border:0}
+@media(max-width:1100px){.tgrid,.nbg{grid-template-columns:repeat(2,1fr)}}

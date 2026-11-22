@@ -120,7 +120,7 @@ window.ES = window.ES || {};
     ["ziel", "fahrzeug"].forEach(function(id){ var x = by[id]; if(!x) return; right += '<div class="erb">' + secHead(x.titel, x.s) + '<div class="body">' + x.html + '</div>' + (x.fahrzeug ? stat({name: x.fahrzeug.name, w: x.fahrzeug.w, z: [["Antrieb", x.fahrzeug.antrieb], ["Eigenschaften", (x.fahrzeug.eigenschaften || []).join(", ")]]}) : '') + '</div>'; });
     if(by.ersatz) right += bx(by.ersatz.titel, by.ersatz.s, '<div class="body">' + by.ersatz.html + '</div>');
     var low = ["einleitung", "spielbeginn"].map(function(id){ var x = by[id]; return x ? '<div class="erb">' + secHead(x.titel, x.s) + '<div class="body">' + x.html + '</div></div>' : ''; }).join("");
-    return '<div class="main wide">' + (Rr.zitat ? '<div class="vl">' + Rr.zitat + '</div>' : '') +
+    return '<div class="main wide">' + (Rr.zitat ? '<div class="vq">' + Rr.zitat + '</div>' : '') +
       '<div class="rtop"><div class="rmap">' + '<div class="map">' + imgs(mapSrc, "", 'data-big="img/' + esc(mapSrc) + '.webp"') + pins + '</div></div><div class="rright">' + right + '</div></div><div class="rlow">' + low + '</div></div>';
   }
 
@@ -183,11 +183,11 @@ window.ES = window.ES || {};
     var G = crew(), top = '<div class="top3" data-top>' + mapBlock(H, S) + '<div class="cdc"><div class="cap">Countdown</div>' + cdBox(H, S) + '</div>' +
       '<div class="pbc"><div class="cap">Persönliche Bedrohungen</div>' + pbHtml(G, S, false) + '</div></div>';
     var bx2 = boxesFor(H, a).map(function(b){ return bx(b.titel, b.s, '<div class="body">' + b.html + '</div>'); }).join("");
-    return top + '<div class="txt"><div class="side2">' + figs(a) + bx2 + '</div>' + secHead(H.name, a.s) + (a.vl ? '<div class="vl">' + a.vl + '</div>' : '') + '<div class="body">' + (a.html || "") + '</div></div>';
+    return top + '<div class="txt"><div class="side2">' + figs(a) + bx2 + '</div>' + secHead(H.name, a.s) + (a.vl ? '<div class="vq">' + a.vl + '</div>' : '') + '<div class="body">' + (a.html || "") + '</div></div>';
   }
   function pageGeneric(H, a, S){
     var side2 = figs(a) + boxesFor(H, a).map(function(b){ return bx(b.titel, b.s, '<div class="body">' + b.html + '</div>' + stat(b.stat)); }).join("") + arr(a.kaesten).map(kasten).join("") + stat(a.stat);
-    return '<div class="txt"><div class="side2">' + side2 + '</div>' + secHead(a.titel, a.s) + (a.vl ? '<div class="vl">' + a.vl + '</div>' : '') + '<div class="body">' + (a.html || "") + '</div>' + (a.w ? wtab(a.w, a.wt || a.titel) : '') + '</div>';
+    return '<div class="txt"><div class="side2">' + side2 + '</div>' + secHead(a.titel, a.s) + (a.vl ? '<div class="vq">' + a.vl + '</div>' : '') + '<div class="body">' + (a.html || "") + '</div>' + (a.w ? wtab(a.w, a.wt || a.titel) : '') + '</div>';
   }
   function pageOrte(H, a, S){
     var od = S.orte[H.id] || {}, bxs = boxesFor(H, a).map(function(b){ return bx(b.titel, b.s, '<div class="body">' + b.html + '</div>'); }).join("");

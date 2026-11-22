@@ -31,7 +31,7 @@
     ["heart","Heart","","heart/",1,"",{m:"assets/logos/heart.webp",w:66,h:27}],
     ["ht_dagger","Dagger in the Heart","Kampagne","heart/#dagger",2,"",{m:"heart/img/dagger/logo-zeile-hell.svg",w:150,h:18}],
     ["household","Household","Tierische Abenteuer","household/",1,"",{m:"assets/logos/household.webp",w:50,h:30}],
-    ["moerkborg","Mörk Borg","Apokalypse-Metal","moerkborg/",1,"",{m:"assets/logos/moerk-borg.webp",w:44,h:31}],
+    ["moerkborg","Mörk Borg","","moerkborg/",1,"",{m:"assets/logos/moerk-borg.webp",w:44,h:31}],
     ["savageworlds","Savage Worlds","Universalsystem","savageworlds/",1,"",{i:"assets/logos/savage-worlds.webp",h:34}],
     ["slugblaster","Slugblaster","","slugblaster/",1,"",{m:"assets/logos/slugblaster.webp",w:64,h:37}],
     ["spire","The Spire","","spire/",1,"",{m:"assets/logos/the-spire.webp",w:34,h:34}],

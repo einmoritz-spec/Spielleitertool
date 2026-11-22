@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v716sp";
+const VERSION = "v717sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -762,6 +762,24 @@ const FILES = [
   "household/index.html",
   "household/sys.js",
   "moerkborg/index.html",
+  "moerkborg/style.css",
+  "moerkborg/js/app.js",
+  "moerkborg/js/data/buecher.js",
+  "moerkborg/js/data/start.js",
+  "moerkborg/js/data/glossar.js",
+  "moerkborg/img/start/cover-skelett.webp",
+  "shared/info/moerkborg.js",
+  "assets/fonts/mb-alegreya-latin-400-italic.woff2",
+  "assets/fonts/mb-alegreya-latin-400-normal.woff2",
+  "assets/fonts/mb-alegreya-latin-700-normal.woff2",
+  "assets/fonts/mb-alegreya-latin-800-normal.woff2",
+  "assets/fonts/mb-anton-latin-400-normal.woff2",
+  "assets/fonts/mb-courier-prime-latin-400-normal.woff2",
+  "assets/fonts/mb-courier-prime-latin-700-normal.woff2",
+  "assets/fonts/mb-jost-latin-400-normal.woff2",
+  "assets/fonts/mb-jost-latin-500-normal.woff2",
+  "assets/fonts/mb-jost-latin-700-normal.woff2",
+  "assets/fonts/mb-unifrakturcook-latin-700-normal.woff2",
   "moerkborg/sys.js",
   "savageworlds/index.html",
   "savageworlds/sys.js",

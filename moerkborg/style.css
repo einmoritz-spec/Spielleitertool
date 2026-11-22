@@ -1,0 +1,88 @@
+/* MÖRK BORG – Design (aus dem Corebook gemessen; Entwurf plan/moerkborg/mockups). Schwarz = Spiel · Gelb = Nachschlagen · Weiß = Papier · Pink nur Spielwerte */
+@font-face{font-family:"MB Fraktur";src:url(../assets/fonts/mb-unifrakturcook-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"MB Plakat";src:url(../assets/fonts/mb-anton-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"MB Grotesk";src:url(../assets/fonts/mb-jost-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"MB Grotesk";src:url(../assets/fonts/mb-jost-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"MB Grotesk";src:url(../assets/fonts/mb-jost-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"MB Mono";src:url(../assets/fonts/mb-courier-prime-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"MB Mono";src:url(../assets/fonts/mb-courier-prime-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"MB Text";src:url(../assets/fonts/mb-alegreya-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"MB Text";src:url(../assets/fonts/mb-alegreya-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"MB Text";src:url(../assets/fonts/mb-alegreya-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"MB Text";src:url(../assets/fonts/mb-alegreya-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+:root{--schwarz:#12120d;--tief:#020200;--gelb:#ffe800;--pink:#ff41b4;--weiss:#fff;--silber:#bfc1c1;--creme:#fffae5;--grau:#7b7d7c;--linie:#2b2b24;--linie-h:#d9d6c8;
+ --a-gelb:#ffdd00;--a-magenta:#ec008c;--a-rot:#df0024;--a-tinte:#231f20;
+ --fraktur:"MB Fraktur",serif;--plakat:"MB Plakat","Impact",sans-serif;--grotesk:"MB Grotesk","Futura",sans-serif;--mono:"MB Mono","Courier New",monospace;--text:"MB Text",Georgia,serif;
+ --r1:8px;--r2:16px;--r3:24px;--r4:32px;--r5:48px}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--schwarz);color:var(--weiss);font:400 16px/1.45 var(--text);-webkit-font-smoothing:antialiased;min-height:100vh}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+/* Kopfzeile: links nur das Logo, rechts i-Knopf, Buch, Burger */
+.topbar{position:sticky;top:0;z-index:20;height:56px;background:var(--tief);display:flex;align-items:center;gap:6px;padding:0 18px 0 22px;color:var(--gelb)}
+.topbar .brand{display:flex;align-items:center;height:44px}
+.topbar .logo{display:block;width:64px;height:44px;background:var(--gelb);-webkit-mask:url(../assets/logos/moerk-borg.webp) center/contain no-repeat;mask:url(../assets/logos/moerk-borg.webp) center/contain no-repeat}
+.topbar .sp{flex:1}
+.topbar .ib{width:40px;height:40px;display:grid;place-items:center;color:var(--gelb)}
+.topbar .ib svg{width:23px;height:23px}
+body.notop .topbar{display:none}
+
+/* Reiter: Spiel schwarz, Nachschlagen gelb (Umkehrung) */
+.reiter{position:sticky;top:56px;z-index:15;height:48px;display:flex;align-items:stretch;gap:2px;padding:0 22px;background:var(--schwarz);border-bottom:2px solid var(--gelb)}
+body.notop .reiter{top:0}
+.reiter button{padding:0 18px;font:700 22px/48px var(--fraktur);color:#e8e4d2;letter-spacing:.01em}
+.reiter button.on{background:var(--gelb);color:var(--schwarz)}
+.reiter .sp{flex:1}
+.reiter .stift{width:40px;color:var(--grau);display:grid;place-items:center}.reiter .stift.has{color:var(--gelb)}
+.reiter .stift svg{width:20px;height:20px}
+.reiter.gelb{background:var(--gelb);border-bottom:2px solid var(--schwarz)}
+.reiter.gelb button{color:var(--schwarz)}.reiter.gelb button.on{background:var(--schwarz);color:var(--gelb)}
+
+/* Bausteine */
+.etikett{display:inline-block;background:var(--schwarz);color:var(--weiss);font:700 11px/1 var(--grotesk);letter-spacing:.16em;text-transform:uppercase;padding:5px 8px 4px}
+.etikett.g{background:var(--gelb);color:var(--schwarz)}
+.s,.pg{font:400 12px var(--mono);color:var(--grau);white-space:nowrap;margin-left:6px;cursor:pointer}
+.wert{font:700 1em var(--mono);color:var(--pink)}
+.fraktur{font-family:var(--fraktur);font-weight:700}
+.plakat{font-family:var(--plakat);text-transform:uppercase;letter-spacing:.01em}
+
+/* Startseite „Register“ */
+.buehne{display:grid;grid-template-columns:560px minmax(0,1fr);min-height:calc(100vh - 56px)}
+body.notop .buehne{min-height:100vh}
+.titel{background:var(--gelb);position:sticky;top:56px;height:calc(100vh - 56px);align-self:start;overflow:hidden}
+body.notop .titel{top:0;height:100vh}
+.titel img{position:absolute;left:50%;bottom:0;height:96%;transform:translateX(-50%)}
+.reg{padding:36px 56px 0 52px;display:flex;flex-direction:column}
+.reg .kopfz{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--gelb);padding-bottom:10px;margin-bottom:4px}
+.reg .kopfz h1{margin:0;font:700 30px/1 var(--fraktur);color:var(--gelb)}
+.zeile{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:8px;padding:18px 16px 18px 12px;border-bottom:1px solid var(--linie);margin:0 -16px 0 -12px}
+.zeile .nr{font:800 34px/1 var(--text);color:var(--gelb);padding-top:6px;letter-spacing:.04em}
+.zeile h2{margin:0 0 8px;font:700 40px/1 var(--fraktur);color:var(--weiss);cursor:pointer}
+.zeile p{margin:0;font:400 14px/1.75 var(--mono);color:#cfcab5}
+.zeile p span{white-space:nowrap;margin-right:20px;cursor:pointer}
+.zeile p span:hover{text-decoration:underline}
+.zeile p span,.zeile p i{border:0}
+.zeile p i{font-style:normal;text-decoration:none;color:#6f6e63;font-size:12px;margin:0 2px 0 4px}
+.zeile:hover{background:var(--gelb)}
+.zeile:hover .nr,.zeile:hover h2,.zeile:hover p{color:var(--schwarz)}
+.zeile:hover p i{color:#6b6200}
+.los{margin-top:auto;margin-bottom:36px;display:grid;grid-template-columns:1fr auto;align-items:center;background:var(--gelb);color:var(--schwarz);padding:22px 28px;cursor:pointer}
+.los .t{font:700 48px/1 var(--fraktur)}.los .t span{font-family:var(--grotesk);font-weight:500;margin-left:14px}
+.los .stand{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.siegel{display:flex;gap:5px}
+.siegel b{width:22px;height:22px;border:2px solid var(--schwarz);display:grid;place-items:center;font:700 9px var(--mono)}
+.siegel b.x{background:var(--schwarz);color:var(--gelb)}.siegel b.end{border-style:double;border-width:4px}
+.los .z{font:700 13px var(--mono)}
+
+/* Menü, Fenster, Bildzoom */
+.mm-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;z-index:40;transition:.2s}.mm-backdrop.on{opacity:1;pointer-events:auto}
+.mm-panel{position:fixed;top:0;right:0;bottom:0;width:320px;background:var(--gelb);color:var(--schwarz);z-index:41;padding:18px;overflow:auto;transform:translateX(105%);transition:.2s;border-left:3px solid var(--schwarz)}.mm-panel.on{transform:none}
+.mm-panel h3{font:700 11px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;margin:18px 0 4px;color:var(--schwarz)}
+.mm-panel button{display:block;width:100%;text-align:left;padding:7px 10px;font:700 22px/1.2 var(--fraktur)}.mm-panel button:hover{background:var(--schwarz);color:var(--gelb)}
+.mm-panel button.k{font:500 15px var(--grotesk)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal>div{background:var(--weiss);color:var(--schwarz);padding:18px;width:min(560px,96vw);max-height:88vh;overflow:auto;border-top:4px solid var(--schwarz)}
+.gzoom{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:70;display:flex;align-items:center;justify-content:center;cursor:zoom-out}
+.gzoom img{max-width:94vw;max-height:94vh}
+.pennote{display:block;width:100%;height:min(300px,50vh);border:2px solid var(--schwarz);padding:10px;font:400 15px/1.45 var(--mono)}

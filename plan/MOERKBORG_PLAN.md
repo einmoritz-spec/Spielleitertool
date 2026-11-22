@@ -30,7 +30,9 @@ Entwürfe (Screenshots 1440×900) liegen in `plan/moerkborg/mockups/` – **die 
 5. **Weitere Bücher im Drive** (Abenteuer, Kulte, Book of Misery, Hacks): später. Abenteuer kommen in den Reiter „Abenteuer“, Hacks (Cy_Borg …) werden **Untersettings im Dropdown** (Mörk Borg › Cy_Borg), nach dem Muster City of Mist.
 6. **Charakterbogen:** Entwurf 8 ist vorläufig. Für den Bau lädt Moritz das PDF „Character Sheet“ (Drive, 05 Material) hoch; dann deutscher, ausfüllbarer Nachbau + PDF-Export mit `shared/fillpdf.js`.
 7. **Troll:** Der Eigenname auf S. 64 (Bild-Schriftzug, im PDF nur angeschnitten) wird beim Bau am Seitenbild geklärt. Bis dahin „Troll“.
-8. Repo-Schreibrechte: Der Push aus der Phase-1-Sitzung scheiterte mit 403 (Repo nicht für die Sitzung freigeschaltet). Vor Schritt 0 prüfen, ob `git push` funktioniert; sonst Moritz bitten, das Repo freizuschalten.
+8. Repo-Schreibrechte: in der Phase-1-Sitzung nachträglich freigeschaltet, Push funktioniert.
+
+**Bauchronik:** Schritt 0 (Gerüst, Schriften, Register-Startseite, i-Knopf, Menü, sw.js) gebaut am 22. Nov. 2026.
 
 ---
 

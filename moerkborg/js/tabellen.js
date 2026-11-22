@@ -11,7 +11,7 @@ var TB = {gruppe:"unterwegs"};
   {id:"schaetze", gruppe:"unterwegs", t:V.schaetze.t, w:V.schaetze.w, rows:num(V.schaetze.rows), cols:1, breit:1},
   {id:"namen", gruppe:"unterwegs", t:V.namen.t, w:V.namen.w, x:V.namen.u, namen:V.namen.spalten}
  ].concat(MB_TAB);
- var GRUPPEN = [["unterwegs","Unterwegs"],["anfang","Anfang"],["verlies","Verlies"],["verliese","Verliese"],["etab","Etablissements"],["tafeln","Auftragstafeln"],["psalme","Psalmen"]];
+ var GRUPPEN = [["unterwegs","Unterwegs"],["anfang","Anfang"],["verlies","Verlies"],["verliese","Verliese"],["etab","Etablissements"],["tafeln","Auftragstafeln"],["besch","Beschwörungen"],["psalme","Psalmen"]];
  TB.gruppen = GRUPPEN;
  function kopf(t){ return '<header><h3>' + esc(t.t) + '</h3><span class="w">' + esc(t.w || "") + '</span>' + (t.p ? pgl(t.p, 0, t.buch) : "") + '</header>' + (t.x ? '<p class="hx">' + md(t.x) + '</p>' : ""); }
  function zeilen(t){ return '<div class="tr" style="--c:' + (t.cols || 1) + '">' + t.rows.map(function(r){ return '<div class="r" onclick="this.classList.toggle(\'sel\')"><b>' + esc(r[0]) + '</b><span>' + md(r[1]) + '</span></div>'; }).join("") + '</div>'; }

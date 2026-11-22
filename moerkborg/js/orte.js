@@ -25,8 +25,15 @@
    return '<article class="oz">' + (z.h ? '<h4>' + esc(z.h) + '</h4>' : "") + '<p>' + md(z.x) + '</p>' + (z.v ? '<span class="ov">~ ' + esc(z.v) + '</span>' : "") + '<footer>' + pgl(z.p, 0, "mb_apo") + (z.k ? '<a onclick="go(\'kreaturen/' + z.k + '\')">Kreatur</a>' : "") + '</footer></article>';
   }).join("") + '</div>';
  }
+ function besch(){
+  var B = O.besch, h = '<div class="obk"><h2>' + esc(B.t) + pgl(B.p, 0, "mb_apo") + '</h2><p>' + esc(B.kopf) + '</p><div class="obm"><b>' + esc(B.macht.h) + '</b><span>' + esc(B.macht.x) + '</span></div></div><div class="obg">';
+  B.e.forEach(function(e){
+   h += '<article class="obc" onclick="this.classList.toggle(\'sel\')"><header><b class="okn">' + e.n + '</b><h3>' + esc(e.t) + '</h3>' + pgl(e.p, 0, "mb_apo") + '</header><p class="obx">' + md(e.x) + '</p><p class="obw">' + esc(e.w) + '</p>' + (e.b ? '<p class="obb">' + md(e.b) + '</p>' : "") + '</article>';
+  });
+  return h + '</div><p class="obd">' + esc(B.dank) + '</p>';
+ }
  TB.orte = {
-  has: function(g){ return g === "verliese" || g === "etab" || g === "tafeln"; },
-  render: function(g, id){ return '<div class="tbw">' + (g === "tafeln" ? tafeln() : ort(g, id)) + '</div>'; }
+  has: function(g){ return g === "verliese" || g === "etab" || g === "tafeln" || g === "besch"; },
+  render: function(g, id){ return '<div class="tbw">' + (g === "tafeln" ? tafeln() : g === "besch" ? besch() : ort(g, id)) + '</div>'; }
  };
 })();

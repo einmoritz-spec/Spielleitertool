@@ -879,6 +879,7 @@ const FILES = [
   "moerkborg/js/orte.js",
   "moerkborg/js/data/orte-a.js",
   "moerkborg/js/data/orte-b.js",
+  "moerkborg/js/data/orte-c.js",
   "moerkborg/img/orte/verlies-kanaele-karte.webp",
   "moerkborg/img/orte/verlies-ketzer-karte.webp",
   "moerkborg/js/data/tabellen-a.js",

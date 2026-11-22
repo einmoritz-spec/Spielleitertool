@@ -46,7 +46,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%}
 body{font:17px/1.5 var(--f-text);color:var(--tinte);
-  background:var(--perg) url(img/orn/pergament-seite.webp) center top/100% 100% fixed;overflow-x:hidden}
+  background:var(--perg);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--perg) url(img/orn/pergament-seite.webp) center/100% 100% no-repeat;pointer-events:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ── Kopfzeile ───────────────────────────────────────────── */
@@ -389,7 +390,7 @@ table.w6.kv td:first-child{width:auto;text-align:left;font-family:var(--f-kopf)}
 .nkc .nt p{margin:6px 0}
 .fuss{margin:44px 0 0;text-align:center}
 .fuss .fz{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(75,45,27,.3);padding-top:14px}
-.fuss .em{font:13px var(--f-kopf);letter-spacing:.18em;text-transform:uppercase;color:var(--jade-d)}
+.fuss .em{font:15px/1 var(--f-kopf);letter-spacing:0;color:var(--jade-d);flex:none;align-items:center;padding-top:9px;text-shadow:0 0 3px var(--perg),0 0 3px var(--perg)}
 .fuss a{font:14px var(--f-kopf);letter-spacing:.08em;color:var(--jade-d)}
 @media (max-width:1000px){.lay{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;max-height:none}.side a{white-space:nowrap}.lay .fold{display:none}.nkc{grid-column:auto}}
 .kgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px 24px}

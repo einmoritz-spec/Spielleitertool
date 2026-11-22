@@ -112,7 +112,7 @@ function delveKarte(K, v){
   var used = dk().res[v.id] || 0, d = dk().erg;
   var bx = ""; for(var i = 0; i < v.res; i++) bx += '<i class="dkb' + (i < used ? " an" : "") + '" onclick="dkRes(\'' + v.id + "'," + i + ')"></i>';
   var a = (K.lm || []).filter(function(l){ return l.id === v.von; })[0], b = (K.lm || []).filter(function(l){ return l.id === v.nach; })[0];
-  return '<div class="ddk"><div class="ddh"><b>' + esc(((a && a.t) || v.von) + " → " + ((b && b.t) || v.nach)) + "</b>" + pg(v.p) + '</div><div class="ddb"><p class="dw"><b>Tiefe:</b> ' + esc(v.tiefe) + " · <b>Domains:</b> " + esc(v.dom || "") + " · <b>Stress:</b> " + esc(v.stress || "") + '</p><div class="ddr"><span class="gz">' + v.res + '</span><span class="kbs">' + bx + '</span></div><p><b class="dlb">Beschreibung:</b> ' + md(v.besch || "") + '</p><b class="dlb">Ereignisse:</b><ol class="dee">' + (v.erg || []).map(function(e, i){ return '<li class="' + (d[v.id + i] ? "ok" : "") + '" onclick="dkErg(\'' + v.id + i + '\')">' + md(e) + "</li>"; }).join("") + "</ol>" + (v.verb ? '<p><b class="dlb">Verbindung:</b> ' + md(v.verb) + "</p>" : "") + '<button class="dkbtn" onclick="dkExpedition(' + K.n + ",'" + v.id + '\')">Auf die Expedition</button></div></div>';
+  return '<div class="ddk"><div class="ddh"><b>' + esc(v.von && v.nach ? ((a && a.t) || v.von) + " → " + ((b && b.t) || v.nach) : v.t) + "</b>" + pg(v.p) + '</div><div class="ddb"><p class="dw"><b>Tiefe:</b> ' + esc(v.tiefe) + " · <b>Domains:</b> " + esc(v.dom || "") + " · <b>Stress:</b> " + esc(v.stress || "") + '</p><div class="ddr"><span class="gz">' + v.res + '</span><span class="kbs">' + bx + '</span></div><p><b class="dlb">Beschreibung:</b> ' + md(v.besch || "") + '</p><b class="dlb">Ereignisse:</b><ol class="dee">' + (v.erg || []).map(function(e, i){ return '<li class="' + (d[v.id + i] ? "ok" : "") + '" onclick="dkErg(\'' + v.id + i + '\')">' + md(e) + "</li>"; }).join("") + "</ol>" + (v.verb ? '<p><b class="dlb">Verbindung:</b> ' + md(v.verb) + "</p>" : "") + '<button class="dkbtn" onclick="dkExpedition(' + K.n + ",'" + v.id + '\')">Auf die Expedition</button></div></div>';
 }
 function lmSeite(l){
   if(!l) return "";
@@ -121,14 +121,16 @@ function lmSeite(l){
   return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc"><div>' + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
 }
 function landmarken(K, sel){
-  var V = K.delves || [], first = V[0] ? "d:" + V[0].id : ((K.lm || [])[0] || {}).id;
+  var V = (K.delves || []).filter(function(v){ return v.von && v.nach; }), freie = (K.delves || []).filter(function(v){ return !(v.von && v.nach); }), first = V[0] ? "d:" + V[0].id : ((K.lm || [])[0] || {}).id;
   sel = sel || first;
-  if(!V.length && !(K.lm || []).length) return "<p>Keine Landmarken.</p>";
+  if(!V.length && !(K.lm || []).length && !freie.length) return "<p>Keine Landmarken.</p>";
   var isD = sel && sel.indexOf("d:") === 0, v, l;
   if(isD){ v = V.filter(function(x){ return x.id === sel.slice(2); })[0]; l = v && (K.lm || []).filter(function(x){ return x.id === v.nach; })[0]; }
   else { l = (K.lm || []).filter(function(x){ return x.id === sel; })[0]; v = V.filter(function(x){ return x.nach === sel; })[0] || V.filter(function(x){ return x.von === sel; })[0]; }
   var links = v ? '<div class="dkl2">' + delveKarte(K, v) + "</div>" : "";
-  return (V.length ? karte(K, sel) : "") + '<div class="dkdet' + (links ? " zwei" : "") + '">' + links + lmSeite(l) + "</div>";
+  var fr = freie.length ? '<div class="dkfrei">' + freie.map(function(x){ return '<div class="dkl2">' + delveKarte(K, x) + "</div>"; }).join("") + "</div>" : "";
+  var chips = V.length ? "" : '<div class="dchips">' + (K.lm || []).map(function(x){ return '<span class="platte' + (x.id === sel ? " on" : "") + '" onclick="go(\'dagger/' + K.n + "/landmarken/" + x.id + '\')">' + esc(x.t) + "</span>"; }).join("") + "</div>";
+  return (V.length ? karte(K, sel) : chips) + fr + '<div class="dkdet' + (links ? " zwei" : "") + '">' + links + lmSeite(l) + "</div>";
 }
 function kapitel(n, tab, id){
   var K = kap(n);

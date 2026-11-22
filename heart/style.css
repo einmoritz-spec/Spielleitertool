@@ -391,3 +391,5 @@ body{background-attachment:fixed}
 @media(max-width:1300px){.dkstair{width:100%;height:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.dkk{position:static;margin:0!important;width:auto}.dkk img{width:100%;height:auto}.dkopen,.dkz{position:static;width:auto;margin-top:14px}.dkbuehne{display:block}.dkgrid,.dkgrid.dok{grid-template-columns:1fr}.dlmc{grid-template-columns:1fr}}
 .dkdet.zwei{grid-template-columns:minmax(380px,520px) minmax(0,1fr);align-items:start}.dkdet .dlm{min-width:0}.dkdet.zwei .dlmc{grid-template-columns:1fr}
 @media(max-width:1300px){.dkdet.zwei{grid-template-columns:1fr}}
+.dkfrei{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,520px));gap:14px;margin:14px}
+.dchips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 14px 0}.dchips .platte{cursor:pointer;font-size:14px}.dchips .platte.on{outline:3px solid #fff}

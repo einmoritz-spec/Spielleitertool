@@ -56,6 +56,7 @@ var SBL = (function(){
       else { t.typ = "wort"; t.wort = (NEU.wort || "").replace(/[^A-Za-zÄÖÜäöüß]/g, "").toUpperCase() || "WORT"; t.n = t.wort.length; }
       L().push(t); save(); NEU.m.remove(); NEU = null; render();
     },
+    gefahr: function(name){ L().push({ id:"l" + Date.now().toString(36), t:name, art:"gefahr", typ:"uhr", n:6, x:0 }); save(); },
     set: function(id, i){ var t = find(id); if(!t) return; t.x = (t.x === i + 1) ? i : i + 1; save(); render(); },
     add: function(id, d){ var t = find(id); if(!t) return; t.x = Math.max(0, Math.min(t.n, t.x + d)); save(); render(); },
     del: function(id){ ST.leisten = L().filter(function(t){ return t.id !== id; }); save(); render(); }

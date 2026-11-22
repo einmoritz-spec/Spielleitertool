@@ -6,7 +6,7 @@ Name: <buch>_S<BUCHSEITE>_<nr>_<b>x<h>.webp  (Buchseite wie im Tool; PDF-Seite =
 import sys, os, collections, pymupdf
 bid, pdf, out = sys.argv[1], sys.argv[2], sys.argv[3]
 dpi = int(sys.argv[4]) if len(sys.argv) > 4 else 150
-OFF = {"cmf": 5, "gm": 0, "qs": 1}[bid]
+OFF = {"cmf": 5, "gm": 0, "qs": 1, "sin": 0, "str": 5, "kos": 2, "eid": 2, "bd": 2, "bom": 0, "bm": 2, "cod": 2, "skfs": 2, "sop": 2}[bid]
 os.makedirs(out, exist_ok=True)
 d = pymupdf.open(pdf)
 cnt = collections.Counter()

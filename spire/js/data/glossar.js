@@ -88,5 +88,21 @@ window.SP_GLOSSAR = [
   ["Debilitating", "Schwächend"],
   ["everfrost", "Ewigfrost"],
   ["Shrine of Conquest", "Schrein der Eroberung"],
-  ["Conspiracy Kit / Conspiracy Web", "Conspiracy Kit (Buchtitel bleibt) / Verschwörungsnetz"]]]
+  ["Conspiracy Kit / Conspiracy Web", "Conspiracy Kit (Buchtitel bleibt) / Verschwörungsnetz"]]],
+ ["Stadt II: Akademie, Handel, Verbrechen", [
+  ["The Benevolent Order of Wisdom and Discovery", "Der Wohlwollende Orden der Weisheit und Entdeckung"],
+  ["Brotherhood of the Unlidded Eye / Sisterhood of Illumination / College of the Undying Light", "Bruderschaft des Ungelideten Auges / Schwesternschaft der Erleuchtung / Kolleg des Unsterblichen Lichts"],
+  ["Brazacott Technical Institute / Shards of the Intelligence", "Brazacott Technisches Institut / Splitter der Intelligenz"],
+  ["High Elven University of Divine Magic", "Hochelfische Universität der Göttlichen Magie"],
+  ["Great Telescope, Inverted / Infinite Library / Moon Font / Interview Rooms", "Das Große Teleskop, umgekehrt / Unendliche Bibliothek / Mondbrunnen / Befragungsräume"],
+  ["Westward-March-The-Faithful / New-Rivers-Broken / Hair-Smouldering-On-Pyre", "Westwärts-Marschieren-Die-Gläubigen / Neue-Flüsse-Gebrochen / Haar-Schwelend-Auf-Scheiterhaufen"],
+  ["Academy of Gywnn-Enforr / Computational / Volatility Research / Tower Division", "Akademie von Gywnn-Enforr / Abteilung für Rechenkunst / Forschung zur Flüchtigkeit / Turmabteilung"],
+  ["The Duke / The Castle / The Range / The Sundered Bell / The Heap", "Der Herzog / Die Burg / Der Schießstand / Die Gespaltene Glocke / Der Haufen"],
+  ["The Carmine Sceptre / The Last Leg / The Wizened Weasel", "Das Karmesinrote Zepter / Das Letzte Bein / Das Gerunzelte Wiesel"],
+  ["Megacorvids / Skywhales / Airlarks / Ballistae / Instrumentalists", "Megakorviden / Himmelswale / Luftlerchen / Ballisten / Instrumentalisten"],
+  ["Corvid Court / Crowmen", "Rabenhof / Rabenmänner"],
+  ["Customs House / Bazaar / Low Wall Boarding House / Mercenary Houses / Aelfir District", "Zollhaus / Basar / Pensionshaus zur Niedrigen Mauer / Söldnerhäuser / Aelfir-Bezirk"],
+  ["Mother Moon / The Sisters / Mr Winter", "Mother Moon / Die Schwestern / Mr Winter"],
+  ["Arena / Brother Hellion's Church of the Gun / Vorloren Standard / Threadneedle Square / Kowz-Udder", "Arena / Brother Hellions Kirche der Pistole / Vorloren Standard / Threadneedle Square / Kowz-Udder"],
+  ["Drugs in Spire: Devil-root, Chum, Maiden's Prayer, Dagger, Godsmoke, Malak, Glimmer, Carotid, Corpsefruit, Ambrosia, Blues, Brimstone, Ivory, The Dose", "Drogen im Spire: Teufelswurzel, Chum, Gebet der Jungfrau, Dolch, Götterrauch, Malak, Glimmer, Karotide, Leichenfrucht, Ambrosia, Blues, Schwefel, Elfenbein, Die Dosis"]]]
 ];

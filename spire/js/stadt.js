@@ -8,7 +8,7 @@ function stData(dom, id){ var D = SP_STADT[dom]; return D && (D.distrikte || [])
 function stKurz(dom, d){ var D = stData(dom, d.id); return D ? D.kurz : d.t.replace(/ unserer .*$/, ""); }
 function stAnfang(L){
   var t = ""; for(var i = 0; i < (L || []).length; i++){ if(typeof L[i] === "string" && L[i].charAt(0) !== "("){ t = L[i]; break; } }
-  t = t.replace(/\*|\[\[.+?\]\]/g, ""); var s = "", par = t.split(/(?<=[.!?])\s/);
+  t = t.replace(/\*|\[\[.+?\]\]/g, ""); var s = "", par = t.split(/(?<=[.!?])(?<!Hl\.)\s/);
   for(var j = 0; j < par.length && s.length < 70; j++) s += (s ? " " : "") + par[j];
   if(s.length > 150){ s = s.slice(0, 150).replace(/\s+\S*$/, "") + " …"; } else if(s.length < t.length) s += " …";
   return s;
@@ -60,7 +60,7 @@ function stDomaene(domId){
     return '<div class="dk2" onclick="go(\'stadt/' + domId + '/' + x.id + '\')">' + (D && D.bild ? '<div class="im"><img src="' + IMG(D.bild) + '" alt=""></div>' : '') +
       '<h3>' + esc(x.t) + pgl(x.p) + '</h3>' + (D ? '<p>' + esc(stAnfang(D.abschnitte[0].b)) + '</p>' : '') + '</div>';
   }).join("");
-  return spielTabs("stadt") + stSub(I, null) + voll('<div data-pgbook="sp_cmf"><h1 class="titel">' + esc(I.t) + pgl(I.p) + '</h1><div class="raster r3 dkr">' + kach + '</div></div>');
+  return spielTabs("stadt") + stSub(I, null) + voll('<div data-pgbook="sp_cmf"><h1 class="titel">' + esc(I.t) + pgl(I.p) + '</h1><div class="raster ' + (I.distrikte.length === 4 ? 'r2' : 'r3') + ' dkr">' + kach + '</div></div>');
 }
 
 /* ---------- Distrikt-Seite (Entwurf 3) ---------- */

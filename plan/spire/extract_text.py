@@ -9,7 +9,7 @@ import sys, os, pymupdf
 bid, pdf, out = sys.argv[1], sys.argv[2], sys.argv[3]
 os.makedirs(out, exist_ok=True)
 d = pymupdf.open(pdf)
-OFF = {"cmf": 5, "gm": 0, "qs": 1}[bid]
+OFF = {"cmf": 5, "gm": 0, "qs": 1, "sin": 0, "str": 5, "kos": 2, "eid": 2, "bd": 2, "bom": 0, "bm": 2, "cod": 2, "skfs": 2, "sop": 2}[bid]
 CH = {
  "cmf": [(1,"k00-willkommen"),(3,"k01-welt"),(9,"k02-regeln"),(17,"k03-fertigkeiten-domaenen"),(19,"k04-ausruestung"),
          (23,"k05-bindungen"),(25,"k06-charaktere"),(29,"k07a-azurite"),(33,"k07b-bound"),(37,"k07c-carrion-priest"),
@@ -22,6 +22,23 @@ CH = {
  "gm": [(1,"g00-titel"),(4,"g01-einleitung"),(5,"g02a-freiheit"),(8,"g02b-fortschritt-beats"),(10,"g02c-erwerbungen"),
         (13,"g02d-unterschlupf"),(17,"g03-klassen-zusatz"),(49,"g04-essays")],
  "qs": [(0,"q00-titel"),(1,"q01-regeln-kurz"),(18,"q02-snuff-out-the-sun"),(25,"q03-vorgefertigte-charaktere")],
+ "sin": [(1,"s00-einleitung"),(5,"s01a-neue-klassen"),(7,"s01b-gutter-cleric"),(13,"s01c-mortician-executioner"),
+         (19,"s02a-verbrechen"),(23,"s02b-red-row"),(38,"s02c-schreine-des-verbrechens"),(45,"s02d-norddocks"),(57,"s02e-verbrechen-oben"),(62,"s02f-verbrechen-extra"),
+         (67,"s03-second-hand-rain"),(93,"s04a-ordnung"),(110,"s04b-ordnung-lokal-adf"),(122,"s04c-kolonialherrschaft-extra"),
+         (135,"s05-geburt-brother-harvest"),(153,"s06a-religion-ministerium-kirche"),(168,"s06b-karmesinrote-wacht"),(182,"s06c-sonnenkirche-viele"),(196,"s06d-pilgerweg-extra"),
+         (205,"s07-in-den-haenden-der-goetter"),(223,"s08-kulte"),(237,"s09-anhang")],
+ "str": [(-4,"t00-einleitung"),(1,"t01-neue-klassen"),(11,"t02a-setting-hohe-gesellschaft"),(41,"t02b-niedere-gesellschaft"),(71,"t03-szenarien"),
+         (73,"t04a-eye-of-the-beholder"),(85,"t04b-home-is-where-the-hatred-is"),(95,"t04c-bisquiet"),(109,"t04d-fall-of-glasshelm"),(125,"t04e-better-the-devil"),
+         (141,"t04f-the-forgotten"),(153,"t04g-ironshrike"),(165,"t04h-sulphurous-presses"),(183,"t04i-lines-in-the-dirt"),(199,"t04j-dark-harvest"),(217,"t05-kulte"),(226,"t06-anhang")],
+ "sop": [(-1,"o00-einleitung"),(7,"o01-life-and-soul"),(11,"o02-the-last-train"),(15,"o03-shotgun-wedding"),(19,"o04-powderkeg"),(23,"o05-show-must-go-on"),
+         (27,"o06-jailbreak"),(31,"o07-how-to-steal-a-body"),(35,"o08-rime-and-reason"),(39,"o09-house-of-leaving"),(43,"o10-moon-beneath"),(47,"o11-feral-saints"),(51,"o12-one-shots-leiten")],
+ "bm":  [(-1,"b00-einleitung"),(3,"b01-blood-witch"),(8,"b02-grangou"),(11,"b03-deep-apiarist"),(14,"b04-daemonen"),(18,"b05-daemonologe"),(20,"b06-okkulter-fallout")],
+ "kos": [(-1,"k01-kampagne"),(21,"k02-vorgefertigte-charaktere")],
+ "eid": [(-1,"e01-kampagne"),(17,"e02-vorgefertigte-charaktere")],
+ "bd":  [(-1,"d01-kampagne"),(9,"d02-vorgefertigte-charaktere")],
+ "bom": [(0,"m01-buch-der-masken")],
+ "cod": [(-1,"c01-codex")],
+ "skfs":[(-1,"x01-geheimnisse")],
 }[bid]
 def chap(p):
     n = CH[0][1]
@@ -41,7 +58,7 @@ for i in range(d.page_count):
                 f = s["font"]; tot += len(t.strip())
                 if s["color"] in (0xffffff, 0xe2e2e6): white += len(t.strip())
                 bold = "Bold" in f or "Semibold" in f or "Extrabold" in f
-                if "Geared" in f or "Desdemona" in f or "BuiltTitling" in f or "buick" in f:
+                if "Geared" in f or "Desdemona" in f or "BuiltTitling" in f or "buick" in f or "Rumble" in f or "Inthewood" in f or "UniversLTStd-UltraCn" in f:
                     gs += len(t.strip()); line += t
                     if len(t.strip()) > 1: head = max(head, s["size"])
                     if s["color"] not in (0, 0x12120c, 0xffffff): hcol = "#%06x" % s["color"]

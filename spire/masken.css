@@ -19,12 +19,16 @@ body[data-view="masken"] .raster{margin:0}
 .mk .pg:hover{color:#8b2c36}
 
 /* ---------- Blatt = Pergament mit gerissenem Rand ---------- */
-.mk-blatt{position:relative;isolation:isolate;margin:0 0 38px;padding:44px 54px 46px;filter:drop-shadow(0 3px 5px rgba(70,45,20,.32))}
-.mk-blatt::before{content:"";position:absolute;inset:-4px -10px -4px -10px;z-index:-1;background:#efe3c6 url(img/masken/deko/pergament.webp) center/cover;-webkit-mask:var(--rand) center/100% 100% no-repeat;mask:var(--rand) center/100% 100% no-repeat}
-.mk-blatt.b1{--rand:url(img/masken/deko/blatt-1.webp)}
-.mk-blatt.b2{--rand:url(img/masken/deko/blatt-2.webp)}
-.mk-blatt.b3{--rand:url(img/masken/deko/blatt-3.webp)}
-.mk-blatt.b4{--rand:url(img/masken/deko/blatt-4.webp)}
+/* Der Rand wird als 9-Teile-Maske (mask-border) mit festen Eckgrößen gezeichnet – die Risse behalten so auf jedem Blatt dieselbe Tiefe,
+   statt mit der Blatthöhe mitzuwachsen. Innenabstand = Risstiefe (--il/--ir/--it/--ib in Quellpixeln) * Maßstab --k + fester Abstand. */
+.mk-blatt{--k:.5;--px:34px;--py:28px;--il:60px;--ir:60px;--it:60px;--ib:60px;position:relative;isolation:isolate;margin:0 0 38px;
+  padding:calc(var(--it)*var(--k) + var(--py)) calc(var(--ir)*var(--k) + var(--px)) calc(var(--ib)*var(--k) + var(--py)) calc(var(--il)*var(--k) + var(--px));filter:drop-shadow(0 3px 5px rgba(70,45,20,.32))}
+.mk-blatt::before{content:"";position:absolute;inset:0;z-index:-1;background:#efe3c6 url(img/masken/deko/pergament.webp) center/cover;
+  -webkit-mask-box-image:var(--rand) 110 fill / calc(110px*var(--k)) stretch;mask-border:var(--rand) 110 fill / calc(110px*var(--k)) stretch}
+.mk-blatt.b1{--rand:url(img/masken/deko/blatt-1.webp);--il:86px;--ir:60px;--it:60px;--ib:80px}
+.mk-blatt.b2{--rand:url(img/masken/deko/blatt-2.webp);--il:80px;--ir:60px;--it:110px;--ib:80px}
+.mk-blatt.b3{--rand:url(img/masken/deko/blatt-3.webp);--il:60px;--ir:100px;--it:80px;--ib:60px}
+.mk-blatt.b4{--rand:url(img/masken/deko/blatt-4.webp);--il:60px;--ir:80px;--it:80px;--ib:110px}
 
 /* Eintrag: Bild neben Text, Regelkarte darunter (breit: rechts daneben) */
 .mk-blatt:not(.hi):not(.mk-hero):not(.mk-vor){display:grid;grid-template-columns:320px minmax(0,1fr);grid-template-areas:"bild text" "bild rg";grid-template-rows:auto 1fr;column-gap:42px;align-items:start;align-content:start}
@@ -36,7 +40,7 @@ body[data-view="masken"] .raster{margin:0}
 .mk-text{grid-area:text;min-width:0}
 .mk-rg{grid-area:rg;margin-top:14px;min-width:0}
 .mk-img{display:block;max-width:100%;max-height:430px;width:auto;height:auto;margin:0 auto;cursor:zoom-in;filter:drop-shadow(0 7px 7px rgba(60,35,15,.38))}
-.mk-name{font:400 46px/1.05 "MkPinyon","Brush Script MT",cursive;color:#3d3733;margin:0 0 12px;text-shadow:0 1px 0 #fff8}
+.mk-name{font:400 46px/1.25 "MkPinyon","Brush Script MT",cursive;color:#3d3733;margin:0 0 8px;overflow-wrap:anywhere;text-shadow:0 1px 0 #fff8}
 .mk-name .pg{font-size:13px;margin-left:12px;vertical-align:middle}
 .mk p.dc::first-letter{font:400 3.6em/.78 "MkPinyon",cursive;float:left;color:#3d3733;margin:.08em .3em 0 .04em;padding:0 .06em 0 0}
 
@@ -68,7 +72,7 @@ body[data-view="masken"] .raster{margin:0}
 .mk-von2 a:hover{color:#8b2c36}
 
 /* ---------- Kopf, Vorwort, Abschnittsbanner ---------- */
-.mk-hero{display:grid;grid-template-columns:340px minmax(0,1fr);gap:50px;align-items:center;padding:54px 60px 56px}
+.mk-hero{display:grid;grid-template-columns:340px minmax(0,1fr);gap:50px;align-items:center}
 .mk-cover{width:100%;max-height:430px;object-fit:contain;cursor:zoom-in;filter:drop-shadow(0 8px 9px rgba(60,35,15,.42))}
 .mk-kopf h1{font:400 64px/1 "MkRye",var(--f-titel);color:#3d3733;margin:0;text-transform:none;letter-spacing:.01em;text-shadow:0 2px 0 #fff9}
 .mk-en{font:400 20px "MkFell",serif;letter-spacing:.14em;text-transform:uppercase;color:#7a6c5c;margin:6px 0 16px}
@@ -77,7 +81,6 @@ body[data-view="masken"] .raster{margin:0}
 .mk-mit{font:400 16px/1.4 "MkFell",serif;letter-spacing:.05em;color:#5a4d42;margin:6px 0 20px}
 .mk-einl{border-top:1.5px solid #8b2c36;padding-top:14px;font-style:italic;max-width:62ch}
 .mk-einl p:first-child{font-size:17.5px}
-.mk-vor{padding:40px 60px 46px}
 .mk-h{font:400 40px/1.1 "MkRye",var(--f-titel);color:#3d3733;margin:0 0 16px;text-transform:none;letter-spacing:.01em;padding:0;border:0}
 .mk-h::after{display:none}
 .mk-h .pg{font-size:13px;margin-left:12px;vertical-align:middle}
@@ -109,11 +112,10 @@ body[data-view="masken"] .raster{margin:0}
 .mk-subs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 38px}
 .mk-sub{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;align-items:start}
 .mk-sub .mk-img{max-height:260px}
-.mk-sub h4{font:400 34px/1.05 "MkPinyon",cursive;color:#3d3733;margin:0 0 2px;text-transform:none}
+.mk-sub h4{font:400 34px/1.25 "MkPinyon",cursive;color:#3d3733;margin:0 0 2px;overflow-wrap:anywhere;text-transform:none}
 .mk-sub h4 .pg{font-size:13px;margin-left:10px;vertical-align:middle}
 .mk-sub .oder{font-size:14.5px;color:#6e5f52;margin-bottom:.4em}
 .mk-sub p{font-size:15.5px}
-.mk-blatt.hi{padding-top:62px}
 .mk-blatt.hi .mk-rg{margin-top:22px}
 
 /* ---------- Karten-Raster (Fortschritte, Ausrüstung) ---------- */
@@ -140,10 +142,10 @@ body[data-view="masken"] .raster{margin:0}
 
 /* ---------- schmale Fenster ---------- */
 @container (max-width:860px){
-  .mk-blatt{padding:32px 26px 34px}
+  .mk-blatt{--k:.4;--px:22px;--py:22px}
   .mk-blatt:not(.hi):not(.mk-hero):not(.mk-vor),.mk-blatt.mr:not(.hi):not(.mk-hero):not(.mk-vor){grid-template-columns:minmax(0,1fr) !important;grid-template-areas:"bild" "text" "rg" !important;grid-template-rows:auto !important;row-gap:16px}
   .mk-bild{position:static}
-  .mk-hero{grid-template-columns:minmax(0,1fr);gap:22px;padding:36px 26px}
+  .mk-hero{grid-template-columns:minmax(0,1fr);gap:22px}
   .mk-cover{max-height:320px}
   .mk-kopf h1{font-size:46px}
   .mk-brief{columns:1}
@@ -153,10 +155,9 @@ body[data-view="masken"] .raster{margin:0}
 }
 @container (max-width:520px){
   .mk-img{max-height:300px}
-  .mk-blatt{padding:26px 16px 28px}
+  .mk-blatt{--k:.3;--px:14px;--py:18px}
   .mk-name{font-size:38px}
   .mk-kopf h1{font-size:36px}
-  .mk-vor,.mk-hero{padding:28px 16px}
   .mk-sub{grid-template-columns:1fr}
   .mk-sub .mk-img{max-height:220px}
   .mk-banner h2{font-size:26px;letter-spacing:.02em}

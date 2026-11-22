@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v683sp";
+const VERSION = "v684sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -86,6 +86,8 @@ const FILES = [
   "tftl/js/data/m/sirene.js",
   "tftl/js/data/m/sirene-rest.js",
   "tftl/img/hero.webp",
+  "tftl/img/hero-boulder.webp",
+  "tftl/img/hero-taunus.webp",
   "forbidden/index.html",
   "forbidden/sys.js",
   "forbidden/img/hero.webp",

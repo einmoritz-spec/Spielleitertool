@@ -64,7 +64,7 @@ body.es .topbar{background:#2f7f86}
 @media (max-width:700px){.tabs{overflow-x:auto}}
 /* Startseite */
 main.start{padding:0}
-.hero{height:170px;background:url(img/hero.webp) center 42%/cover;position:relative}
+.hero{height:170px;transition:background-image .3s;background:url(img/hero.webp) center 42%/cover;position:relative}
 .hero .loop{position:absolute;right:22px;bottom:16px;display:flex;background:rgba(255,255,255,.94);border-radius:999px;padding:4px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .hero .loop button{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.05em;padding:7px 14px;border:0;border-radius:999px;color:var(--soft);background:none;cursor:pointer}
 .hero .loop button.on{background:var(--acc);color:#fff}

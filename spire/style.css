@@ -836,3 +836,33 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 }
 
 .main:has(.kp){overflow:clip}
+
+/* Magister's Guide: Zusatz */
+.kl-t.mg{background:var(--violett);border-color:#24002f}
+.kl-t.mg .im{background:linear-gradient(180deg,#3c0052,#1c0027);display:grid;place-items:center}
+.kl-t.mg .im i{font:700 86px/1 var(--f-titel);color:#b98fc9;font-style:normal;letter-spacing:.02em}
+.kl-t.mg small{color:#d9c4e2}
+.kl-t.mg .pg{color:#b98fc9}
+.kl-st{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.kl-st a{font-size:13.5px;padding:11px 9px 10px}
+.kl-st a.mgt{color:var(--violett)}
+.kl-st a.mgt.on{background:var(--violett);color:#fff}
+.kl-st a.mgt:first-of-type{margin-left:8px}
+.kp-tx{position:relative;min-width:0}
+.kp-modus{position:absolute;right:0;top:4px;display:flex;z-index:2}
+.kp-modus a{font:700 14px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.03em;padding:9px 13px;border:1.5px solid var(--blau);color:var(--blau);cursor:pointer;background:var(--papier2)}
+.kp-modus a+a{border-left:0;border-color:var(--violett);color:var(--violett)}
+.kp-modus a.on{background:var(--blau);color:#fff}
+.kp-modus a+a.on{background:var(--violett);color:#fff}
+.kp-kopf.ohne{grid-template-columns:1fr}
+.mgv h1.titel{color:var(--schiefer)}
+.mgv h2.ab{color:var(--violett)}
+.mgv .kf{border-top:3px solid var(--violett)}
+.mgv .kf h4{color:var(--schiefer)}
+.mgv .kf .tag{background:var(--violett)}
+.kf-tags{margin:0 0 4px}
+.kf-tags .chip{border-color:var(--violett);color:var(--violett);margin:0 4px 0 0;font-size:12px}
+.kl-nuetz{margin:16px 0 0}
+.kl-nuetz ul.pkt{columns:2;column-gap:36px;margin:6px 0 0;padding-left:18px}
+.kl-nuetz li{break-inside:avoid;margin:0 0 .4em;font-size:15.5px}
+.kl-geg{align-items:start}

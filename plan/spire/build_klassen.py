@@ -303,4 +303,5 @@ def main():
     print("charaktere", [(a["id"], len(a["b"])) for a in C["abschnitte"]], len(C["dienst"]["x"]), len(C["dienst"]["oder"]))
 
 
-main()
+if __name__ == "__main__":
+    main()

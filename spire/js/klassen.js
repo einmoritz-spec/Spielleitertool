@@ -56,6 +56,11 @@ function klKurz(k){ var s = String(k.intro[0] || "").replace(/\*/g, ""), m = s.m
 function klKachel(k){
   return '<div class="kl-t" onclick="go(\'nach/klassen/' + k.id + '\')"><span class="im"><img src="' + IMG("klasse/" + k.id) + '" alt="" loading="lazy"></span><span class="tx"><b>' + esc(k.t) + '</b><small>' + esc(klKurz(k)) + '</small>' + pgl(k.p) + '</span></div>';
 }
+function klMgKachel(id){
+  var M = SP_MG[id], bild = id === "gutter-cleric", ini = M.t.split(/[\s-]+/).map(function(w){ return w.charAt(0); }).join("").slice(0, 2).toUpperCase();
+  var kurz = String(M.intro[0] || "").replace(/\*/g, ""); kurz = kurz.length > 70 ? kurz.slice(0, 70).replace(/\s+\S*$/, "") + " …" : kurz;
+  return '<div class="kl-t mg" onclick="go(\'nach/klassen/' + id + '\')"><span class="im">' + (bild ? '<img src="' + IMG("klasse/" + id) + '" alt="" loading="lazy">' : '<i>' + ini + '</i>') + '</span><span class="tx"><b>' + esc(M.t) + '</b><small>' + esc(kurz) + '</small>' + pgl(M.p, "gm") + '</span></div>';
+}
 function klDienst(D){
   var wert = function(w){ return w ? w.split(/,\s*/).map(function(x){ return '<span class="chip' + (/^\+/.test(x) ? ' w' : '') + '">' + esc(x) + '</span>'; }).join("") : ""; };
   return '<p class="einl">' + md(D.intro) + '</p><div class="raster r4 kl-dz">' + D.x.map(function(d){
@@ -70,7 +75,7 @@ function klUebersicht(){
   var dz = ab("dienstzeit");
   var kasten = dz.b.filter(function(b){ return b && b.t === "schwarz"; }), text = dz.b.filter(function(b){ return !(b && b.t === "schwarz"); });
   var body = '<h1 class="titel">Klassen' + pgl(25) + '</h1>' +
-    '<div class="kl-grid">' + SP_KLASSE.map(klKachel).join("") + '</div>' +
+    '<div class="kl-grid">' + SP_KLASSE.map(klKachel).join("") + KL_MG_ONLY.filter(function(id){ return window.SP_MG && SP_MG[id]; }).map(klMgKachel).join("") + '</div>' +
     '<h2 class="ab" id="ab-charaktere">Charaktere' + pgl(25) + '</h2>' +
     '<div class="raster r3 kl-kurz">' + kurz.map(function(s){ return '<div class="karte"><h4>' + esc(s.t.charAt(0) + s.t.slice(1).toLowerCase()) + pgl(s.p) + '</h4>' + blk(s.b) + '</div>'; }).join("") + '</div>' +
     '<h2 class="ab" id="ab-dienstzeit">Dienstzeit' + pgl(25) + '</h2>' +
@@ -80,12 +85,35 @@ function klUebersicht(){
 }
 
 /* ---------- Klassenseite (Entwurf 8) ---------- */
+var KL_MG_ONLY = ["blood-witch", "gutter-cleric", "inksmith", "mortician-executioner", "shadow-agent"];
+var KL_MG_KURZ = {"mortician-executioner":"Mortician"};
 function klSubtabs(cur){
-  return '<div class="subtabs">' + SP_KLASSE.map(function(k){ return '<a class="' + (k.id === cur ? 'on' : '') + '" onclick="go(\'nach/klassen/' + k.id + '\')">' + esc(k.t) + '</a>'; }).join("") + '</div>';
+  return '<div class="subtabs kl-st">' + SP_KLASSE.map(function(k){ return '<a class="' + (k.id === cur ? 'on' : '') + '" onclick="go(\'nach/klassen/' + k.id + '\')">' + esc(k.t) + '</a>'; }).join("") +
+    KL_MG_ONLY.filter(function(id){ return window.SP_MG && SP_MG[id]; }).map(function(id){ return '<a class="mgt' + (id === cur ? ' on' : '') + '" onclick="go(\'nach/klassen/' + id + '\')">' + esc(KL_MG_KURZ[id] || SP_MG[id].t) + '</a>'; }).join("") + '</div>';
+}
+function klModus(id, mg){
+  return '<div class="kp-modus"><a class="' + (mg ? '' : 'on') + '" onclick="go(\'nach/klassen/' + id + '\')">Klasse</a><a class="' + (mg ? 'on' : '') + '" onclick="go(\'nach/klassen/' + id + '/mg\')">Magister\'s Guide: Zusatz</a></div>';
+}
+/* ---------- Magister's Guide: Zusatz zur Klasse (MG S. 17–48) ---------- */
+function klMgKarten(L){
+  return '<div class="kfs">' + L.map(function(a){ return klKarte(a, "gm"); }).join("") + '</div>';
+}
+function klMgSeite(id){
+  var M = SP_MG[id], K = klById(id), bild = (K || id === "gutter-cleric") ? IMG("klasse/" + id) : "";
+  var nu = M.nuetz.length ? '<div class="violett kl-nuetz"><h4>Nützliche Elemente</h4><ul class="pkt">' + M.nuetz.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + '</ul></div>' : '';
+  var kopf = '<div class="kp-kopf' + (bild ? '' : ' ohne') + '">' + (bild ? '<img class="kp-bild" src="' + bild + '" alt="" onclick="zoom(this.src)">' : '') + '<div class="kp-tx">' + (K ? klModus(id, true) : '') +
+    '<h1 class="titel">' + esc(M.t) + pgl(M.p, "gm") + '</h1>' + M.intro.map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") + '</div></div>' + nu;
+  var sek = function(t, inner){ return inner ? '<h2 class="ab">' + esc(t) + '</h2>' + inner : ''; };
+  var geg = M.gegner.length ? '<div class="raster r2 kl-geg"' + (M.gegner.length < 2 ? ' style="grid-template-columns:1fr"' : '') + '>' + M.gegner.map(function(g){ return window.gegnerKarte ? gegnerKarte(g, "mg") : ""; }).join("") + '</div>' : '';
+  var fo = M.fallout.length ? '<div class="kfs">' + M.fallout.map(function(a){
+    return '<div class="kf" style="flex-basis:calc(33.333% - 10px)"><h4>' + esc(a.t) + pgl(a.p, "gm") + '</h4>' + (a.tag ? '<div class="kf-tags">' + a.tag.split(/,\s*/).map(function(t){ return '<span class="chip">' + esc(t) + '</span>'; }).join("") + '</div>' : '') + (a.fl ? '<p class="fl">' + md(a.fl) + '</p>' : '') + blk(a.x) + '</div>'; }).join("") + '</div>' : '';
+  return nachTabs("klassen") + klSubtabs(id) + voll('<div class="kp mgv" data-pgbook="sp_gm">' + kopf +
+    sek("Fähigkeiten", M.faehig.length ? klMgKarten(M.faehig) : "") + sek("Ausrüstung", M.ausr.length ? klMgKarten(M.ausr) : "") + sek(M.besT || "Besondere Ausrüstung", M.bes.length ? klMgKarten(M.bes) : "") +
+    sek("Gegenspieler", geg) + sek("Fallout", fo) + '</div>');
 }
 function klSeite(K){
   var kern = K.kern, kk = function(l, v){ return v ? '<div class="kk"><h5>' + l + '</h5><p>' + md(v) + '</p></div>' : ''; };
-  var kopf = '<div class="kp-kopf"><img class="kp-bild" src="' + IMG("klasse/" + K.id) + '" alt="" onclick="zoom(this.src)"><div class="kp-tx">' +
+  var kopf = '<div class="kp-kopf"><img class="kp-bild" src="' + IMG("klasse/" + K.id) + '" alt="" onclick="zoom(this.src)"><div class="kp-tx">' + (window.SP_MG && SP_MG[K.id] ? klModus(K.id, false) : '') +
     '<h1 class="titel">' + esc(K.t) + pgl(K.p) + '</h1><p class="kp-zitat">' + md(K.zitat) + '</p>' + K.intro.map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") +
     '<div class="kp-kern">' + kk("Widerstände", kern.wid) + kk("Auffrischen", kern.auff) + kk("Fertigkeiten", kern.fert) + kk("Domänen", kern.dom) + '</div></div></div>' +
     '<div class="kp-bk"><div class="kk"><h5>Bindungen</h5><ul class="pkt">' + K.bind.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + '</ul></div>' +
@@ -97,7 +125,9 @@ function klSeite(K){
 }
 SP_NACH_VIEW.klassen = function(teile){
   var K = teile[0] && klById(teile[0]);
+  if(K && teile[1] === "mg" && window.SP_MG && SP_MG[K.id]) return klMgSeite(K.id);
   if(K) return klSeite(K);
+  if(teile[0] && window.SP_MG && SP_MG[teile[0]]) return klMgSeite(teile[0]);
   return nachTabs("klassen") + voll('<div class="kp kl-ue" data-pgbook="sp_cmf">' + klUebersicht() + '</div>');
 };
 
@@ -127,6 +157,11 @@ SP_NACH_VIEW.extra = function(teile){
     add(K.t, "Klasse", "nach/klassen/" + K.id, K.p, [K.zitat, K.intro, K.kern, K.bind, K.ausr]);
     K.kfae.forEach(function(a){ add(a.t, "Kernfähigkeit · " + K.t, "nach/klassen/" + K.id, a.p, [a.fl, a.x]); });
     ["niedrig", "mittel", "hoch"].forEach(function(g){ K.fort[g].forEach(function(a){ add(a.t, "Fortschritt " + KL_STUFE[g] + " · " + K.t, "nach/klassen/" + K.id, a.p, [a.fl, a.x]); }); });
+  });
+  Object.keys(window.SP_MG || {}).forEach(function(id){
+    var M = SP_MG[id], r = "nach/klassen/" + id + (klById(id) ? "/mg" : "");
+    add(M.t + " – Magister's Guide", "Klasse · Zusatz", r, M.p, [M.intro, M.nuetz], "gm");
+    ["faehig", "ausr", "bes", "fallout"].forEach(function(k){ M[k].forEach(function(a){ add(a.t, {faehig:"MG-Fähigkeit", ausr:"MG-Ausrüstung", bes:"MG-Besondere Ausrüstung", fallout:"MG-Fallout"}[k] + " · " + M.t, r, a.p, [a.tag, a.fl, a.x], "gm"); }); });
   });
   var X = window.SP_EXTRA; if(!X) return;
   X.wege.forEach(function(w){

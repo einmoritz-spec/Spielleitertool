@@ -92,8 +92,9 @@
       else {
         ab = ab || P.abschnitte[0];
         var hasMap = M.karte && M.orte && M.orte.length > 1 && M.orte.every(function(o){ return o.pin; }) && M.pinShowdown;
-        main = ((hasMap || M.countdown) ? '<div class="top3' + (hasMap ? '' : ' cdonly') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div><div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') + (M.countdown ? countdown(M, S) : '') + '</div>' : '') +
-          '<div class="txt">' + '<div class="side2">' + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>';
+        var cdSide = (!hasMap && M.countdown) ? countdown(M, S) : "";
+        main = ((hasMap) ? '<div class="top3' + (hasMap ? '' : ' cdonly') + '">' + (hasMap ? '<div><div class="cap">Mystery-Karte</div>' + karte(M, ab.ort, S) + '</div><div><div class="cap">Ablauf</div><div class="flow">' + ablauf(M, ab.ort, S) + '</div></div>' : '') + (M.countdown ? countdown(M, S) : '') + '</div>' : '') +
+          '<div class="txt">' + '<div class="side2">' + cdSide + sideCards(M, ab, S) + '</div>' + section(M, ab, S) + (ab.plan ? fig(ab, M) : '') + figs(ab, M) + extraCards(M, ab) + '</div>';
       }
       html = '<div class="lay">' + side + '<div class="main">' + main + '</div></div>';
     } else {
@@ -126,7 +127,9 @@
     };
     /* Ort als besucht markieren */
     if(multi && ab && ab.ort){ var s4 = load(M.id); s4.orte = s4.orte || {}; if(!s4.orte[ab.ort]){ s4.orte[ab.ort] = 1; save(M.id, s4); } }
-    function flow(){ app.querySelectorAll(".txt").forEach(function(t){ var sd = t.querySelector(":scope > .side2"); if(!sd) return; t.classList.remove("below"); var th = 0; Array.prototype.forEach.call(t.children, function(c){ if(c !== sd) th += c.offsetHeight; }); if(sd.offsetHeight > th * 0.9) t.classList.add("below"); }); }
+    function flow(){ app.querySelectorAll(".txt").forEach(function(t){ var sd = t.querySelector(":scope > .side2"); if(!sd) return; var ok = false;
+      ["", "w2", "w3"].forEach(function(w){ if(ok) return; t.classList.remove("below", "w2", "w3"); if(w) t.classList.add(w); var th = 0; Array.prototype.forEach.call(t.children, function(c){ if(c !== sd) th += c.offsetHeight; }); if(sd.offsetHeight <= th * 0.95) ok = true; });
+      if(!ok){ t.classList.remove("w2", "w3"); t.classList.add("below"); } }); }
     flow(); setTimeout(flow, 400); window.onresize = flow; app.addEventListener("click", function(){ setTimeout(flow, 60); });
     window.scrollTo(0, 0);
   };

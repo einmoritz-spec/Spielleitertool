@@ -310,5 +310,8 @@ details.lk[open] summary{display:none}
 .txt.below .side2{float:none;width:auto;margin:18px 0 6px;display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));align-items:start;gap:14px;order:2}
 .txt.below{display:flex;flex-direction:column}
 .txt.below .side2{order:5}
-.txt.below .side2>:only-child{max-width:820px}
+.txt.below .side2>:only-child{grid-column:1/-1}
 .tr li{font-size:15px;line-height:1.45;margin-bottom:3px}.tr ul,.tr ol{padding-left:20px;margin-bottom:8px}.tr .bsp{font-size:15px}
+
+.txt.w2 .side2{width:min(560px,42%)}.txt.w3 .side2{width:min(760px,55%)}
+.figs{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}.figs .fig:only-child{max-width:760px}

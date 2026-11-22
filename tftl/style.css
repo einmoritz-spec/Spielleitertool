@@ -436,3 +436,4 @@ body.flood .tabs a{padding:0 11px;white-space:nowrap}
 .tinfo-p .pgl{font:600 12px var(--sans);color:var(--soft);cursor:pointer}
 .wz{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:14px 0}.wz-n{display:flex;align-items:center;gap:10px}.wz-n b{font:700 34px var(--sans);min-width:40px;text-align:center}.wz-n span{font:700 15px var(--sans);color:var(--soft)}.wz .chip{margin:0}
 .wz-d .d{width:46px;height:46px;font-size:24px}.wz-d{gap:8px}
+.ng.zu{display:block;text-decoration:none;cursor:pointer}.ng.zu:hover{color:var(--acc)}

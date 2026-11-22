@@ -109,9 +109,9 @@
     var zz = {}; if(M.ablauf) (M.ablauf.knoten || []).forEach(function(k){ zz[String(k.ziel).replace(/^loesung\//, "")] = 1; });
     var out = [], g = null, tot = 0;
     list.forEach(function(a, i){
-      var ok = i > 0 && !a.ort && !a.ueberblick && !zz[a.id], n = tlen(a.html) + tlen(JSON.stringify(a.extra || "")) + tlen(JSON.stringify(a.aerger || "")), kurz = n < 1800;
-      if(ok && g && !g.zu && tot + n <= 4500 && (kurz || g.items.length)){ g.items.push(a); tot += n; if(!kurz) g.zu = 1; return; }
-      g = ok ? {items: [a], zu: !kurz} : {items: [a], zu: 1}; tot = n; out.push(g);
+      var ok = i > 0 && !a.ort && !a.ueberblick && !zz[a.id], n = tlen(a.html) + tlen(JSON.stringify(a.extra || "")) + tlen(JSON.stringify(a.aerger || ""));
+      if(ok && g && g.m && tot < 3500 && tot + n <= 9000){ g.items.push(a); tot += n; return; }
+      g = {items: [a], m: ok}; tot = n; out.push(g);
     });
     return out;
   }

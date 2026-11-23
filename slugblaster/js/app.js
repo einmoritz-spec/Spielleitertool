@@ -53,7 +53,7 @@ function viewStart(){
 
 /* ---------- Render ---------- */
 /* Ansichten werden in späteren Schritten ergänzt (window.viewXyz); bis dahin fällt alles Unbekannte auf die Startseite zurück */
-var SB_TABS = [["folge","Folge"],["crew","Crew"],["welten","Multiversum"],["heimat","Heimat"],["monster","Monster"],["fraktionen","Fraktionen"]];
+var SB_TABS = [["folge","Folge"],["abenteuer","Abenteuer"],["crew","Crew"],["welten","Multiversum"],["heimat","Heimat"],["monster","Monster"],["fraktionen","Fraktionen"]];
 function tabList(){ return SB_TABS.filter(function(t){ return VIEWS[t[0]]; }); }
 function tabsHtml(cur){
   return '<nav class="tabs">' + tabList().map(function(t){ return '<a class="' + (t[0] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + '</a>'; }).join("") + '<span class="sp"></span>' +

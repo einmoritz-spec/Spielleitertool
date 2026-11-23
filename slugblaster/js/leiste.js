@@ -37,6 +37,10 @@ var SBL = (function(){
   function neu(){ NEU = { t:"", art:"fortschritt", form:"uhr6", n:4, wort:"" }; var m = modal(form()); NEU.m = m; setTimeout(function(){ var i = document.getElementById("lName"); if(i) i.focus(); }, 30); }
   function redraw(){ if(NEU && NEU.m && NEU.m.isConnected){ NEU.m.firstChild.innerHTML = form(); } }
   return {
+    /* Abenteuer: vordefinierte Leiste anzeigen bzw. auf die Tafel legen */
+    ein: function(id){ var t = find(id); return t ? eintrag(t) : ""; },
+    hat: function(id){ return !!find(id); },
+    lege: function(o){ if(!find(o.id)){ L().push(o); save(); } render(); },
     liste: function(){
       var l = L(), h = l.length ? l.map(eintrag).join("") : "";
       return h + '<button class="add" onclick="SBL.neu()">+ Leiste</button>';

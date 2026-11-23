@@ -59,6 +59,11 @@ var SBS = (function(){
     (window.SB_FRAKTIONEN || []).forEach(function(f){ add(f.t, "Fraktionen", "fraktionen/" + f.g, f.p, f); });
     if(window.SB_HILLVIEW) add("Hillview", "Heimat", "heimat", SB_HILLVIEW.p, SB_HILLVIEW);
     (window.SB_HEIMATORTE || []).forEach(function(o){ add(o.t, "Heimat", "heimat/" + o.id, o.p, o); });
+    if(window.SB_AB_SZ){
+      add(SB_AB.t, "Abenteuer", "abenteuer", null, [SB_AB.kurz, SB_AB.geheim, SB_AB.run]);
+      SB_AB_SZ.forEach(function(s){ s.u.forEach(function(u){ add(u.t, "Abenteuer › " + s.t, "abenteuer/" + s.id, null, u.b); }); });
+      SB_AB.nsc.forEach(function(n){ add(n.t, "Abenteuer › Figuren", "abenteuer/figuren", n.p, n); });
+    }
     if(window.SB_OO){
       var O = SB_OO, OB = "sb_oolroob";
       add("Oolroob", "Oolroob", "oolroob/ueber", O.ueber && O.ueber.p, [O.ueber, O.gebiete], OB);

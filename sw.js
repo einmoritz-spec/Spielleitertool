@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v831sp";
+const VERSION = "v832sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1535,6 +1535,19 @@ const FILES = [
   "spire/js/masken.js",
   "spire/js/karte.js",
   "spire/js/eidolon.js",
+  "spire/js/kings.js",
+  "spire/js/data/kos-ueberblick.js",
+  "spire/js/data/kos-tabellen.js",
+  "spire/js/data/kos-dossier.js",
+  "spire/js/data/kos-manticore.js",
+  "spire/js/data/kos-personen.js",
+  "spire/js/data/kos-orte.js",
+  "spire/js/data/kos-ende.js",
+  "spire/js/data/kos-figuren.js",
+  "spire/js/data/gegner-kos.js",
+  "spire/img/kapitel/kos-dossier-S006.webp",
+  "spire/img/kapitel/kos-dossier-S007.webp",
+  "spire/img/kapitel/kos-dossier-S008.webp",
   "spire/js/data/eid-ueberblick.js",
   "spire/js/data/eid-dreck.js",
   "spire/js/data/eid-schwan.js",

@@ -53,7 +53,10 @@ function blk(L){
       case "bsp": return '<div class="zitat" style="border-color:var(--blau)">' + md(b.x) + "</div>";
       case "hw": return '<div class="hwk">' + b.x.map(function(k){ return edCard("hw", EID_CTX + ":" + edHash(k.x.slice(0, 40)), '<h4>' + esc(k.k) + '</h4><p>' + md(k.x) + '</p>'); }).join("") + '</div>';
       case "szenen": return '<div class="szk">' + b.x.map(function(x){ return edCard("sz", EID_CTX + ":" + edHash(x.slice(0, 40)), '<p>' + md(x) + '</p>'); }).join("") + '</div>';
-      case "qa": return '<div class="qak">' + b.x.map(function(q){ return '<div class="qa"><b>' + md(q[0]) + '</b><p>' + md(q[1]) + '</p></div>'; }).join("") + '</div>';
+      case "qa": return '<div class="qak">' + b.x.map(function(q){ return '<div class="qa"><b>' + md(q[0]) + '</b>' + q[1].split("\n\n").map(function(a){ return '<p>' + md(a) + '</p>'; }).join("") + '</div>'; }).join("") + '</div>';
+      case "kk": return '<div class="hwk">' + b.x.map(function(k){ return '<div class="hw ort"><h4>' + esc(k.k) + pgl(k.p, "a1") + '</h4>' + k.x.split("\n\n").map(function(a){ return '<p>' + md(a) + '</p>'; }).join("") + '</div>'; }).join("") + '</div>';
+      case "w10k": return '<div class="w10k">' + b.x.map(w10).join("") + '</div>';
+      case "grp": return '<div class="grpk">' + b.x.map(function(g){ return '<div class="hw ort"><h4>' + esc(g.h) + '</h4><ul class="pkt">' + g.li.map(function(x){ return '<li>' + md(x) + '</li>'; }).join("") + '</ul></div>'; }).join("") + '</div>';
       case "tbl": return tbl(b);
       case "w10": return w10(b);
       case "img": return '<img class="bild" src="' + IMG(b.src) + '" alt="" onclick="zoom(this.src)">';
@@ -126,7 +129,7 @@ function viewStart(){
     return '<button class="st-z' + (last === z.id ? ' on' : '') + '" onclick="go(\'' + z.id + '\')">' + bild(z.img, z.pos) + '<span class="st-zt"><b>' + esc(z.t) + '</b><small>' + esc(z.s) + '</small></span></button>';
   }).join("");
   var abL = [{t:"Snuff Out the Sun", img:"abenteuer/snuff-titel", go:"go('abenteuer/snuff')", on:last === "abenteuer/snuff"},
-    {t:"The Kings of Silver", img:"cover/sp_a1", go:"openBook('sp_a1',1)"}, {t:"Eidolon Sky", img:"cover/sp_a2", go:"go('abenteuer/eidolon')", on:last === "abenteuer/eidolon"}];
+    {t:"The Kings of Silver", img:"cover/sp_a1", go:"go('abenteuer/kings')", on:last === "abenteuer/kings"}, {t:"Eidolon Sky", img:"cover/sp_a2", go:"go('abenteuer/eidolon')", on:last === "abenteuer/eidolon"}];
   var ab = '<div class="st-abk"><h3>Abenteuer</h3><div class="st-abl">' + abL.map(function(x){
     return '<button class="st-abc' + (x.on ? ' on' : '') + '" onclick="' + x.go + '"><img src="' + IMG(x.img) + '" alt="" loading="lazy"><b>' + esc(x.t) + '</b></button>'; }).join("") + '</div></div>';
   var kach = function(k){

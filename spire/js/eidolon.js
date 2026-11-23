@@ -8,8 +8,8 @@ function edSide(L, tab, cur, sub){
   return '<h5 onclick="scrollTo({top:0,behavior:\'smooth\'})">' + (tab === "nsc" ? "Weitere NSC" : "Vorgefertigte Charaktere") + '</h5>' +
     L.map(function(e){ return '<a class="' + (e.id === cur ? 'on' : '') + '" onclick="go(\'abenteuer/eidolon/' + tab + '/' + e.id + '\')">' + esc(e.t) + '<small class="ed-sub">' + esc(sub(e)) + '</small></a>'; }).join("");
 }
-function edKopf(e, sub){
-  return '<h1 class="titel">' + esc(e.t) + (e.en ? ' <span class="en">(' + esc(e.en) + ')</span>' : '') + pgl(e.p, "a2") + '</h1>' + (sub ? '<p class="kp-zitat">' + esc(sub) + '</p>' : '');
+function edKopf(e, sub, buch){
+  return '<h1 class="titel">' + esc(e.t) + (e.en ? ' <span class="en">(' + esc(e.en) + ')</span>' : '') + pgl(e.p, buch || "a2") + '</h1>' + (sub ? '<p class="kp-zitat">' + esc(sub) + '</p>' : '');
 }
 function edNsc(id){
   var L = SP_EID.nsc.liste, e = L.filter(function(x){ return x.id === id; })[0] || L[0]; EID_CTX = "nsc:" + e.id;

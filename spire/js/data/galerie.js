@@ -71,6 +71,11 @@ window.SP_GALERIE = [
  {g:"Magister's Guide", id:"mg", x:[
   {t:"Unterschlupf, MG S. 16", s:"kapitel/mg-unterschlupf-S016"},
   {t:"MG S. 48", s:"kapitel/mg-S048"}]},
+ {g:"The Kings of Silver", id:"kings", x:[
+  {t:"The Kings of Silver, Titel", s:"cover/sp_a1"},
+  {t:"Dossier-Notizen, KoS S. 6", s:"kapitel/kos-dossier-S006"},
+  {t:"Dossier-Notizen, KoS S. 7", s:"kapitel/kos-dossier-S007"},
+  {t:"Dossier-Notizen, KoS S. 8", s:"kapitel/kos-dossier-S008"}]},
  {g:"Eidolon Sky", id:"eidolon", x:[
   {t:"Eidolon Sky, Titel", s:"cover/sp_a2"},
   {t:"Eidolon Sky S. 14", s:"kapitel/eidolon-zwischen-nsc-ende-S014"}]}

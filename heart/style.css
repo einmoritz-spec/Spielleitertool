@@ -454,3 +454,5 @@ body{background-attachment:fixed}
 .dfr{float:right;width:29%;shape-outside:polygon(59% 0,100% 0,100% 100%,3% 100%,3% 65%,59% 38%)}
 @media(max-width:1000px){.dfl,.dfr{display:none}.dhbox.form{height:auto!important;overflow:visible}}
 .dhbox.form{text-shadow:0 0 6px #000,0 0 12px #000}
+.dfx{display:block;height:100%}.dhbox.form:not([style*="top:0;"]){padding-top:1.5%}@media(max-width:1000px){.dfx{display:none}}
+.dhvor{text-align:left!important}

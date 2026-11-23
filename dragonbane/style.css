@@ -769,3 +769,39 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .tafel>.tl,.lk{mix-blend-mode:multiply}
 .plan img,.lk .bild{mix-blend-mode:normal}
 .lk .lkb{line-height:0}
+
+/* ===== Aufgeräumte Figurenkarten, Streifen und Ortsliste ===== */
+/* Figurenkarte: schlichter Kasten mit grüner Namensleiste (statt Totenkopf-Hack, lange Namen passen) */
+.karte.nsc{border:1.5px solid rgba(16,90,74,.6);border-image:none;border-radius:4px;padding:0 0 14px!important;margin-top:0;background:rgba(252,248,235,.55);box-shadow:0 2px 8px rgba(60,40,20,.14);overflow:hidden}
+.karte.nsc .kr{display:none}
+.karte.nsc .band,.nkc.karte.nsc .band{position:static;transform:none;width:auto;height:auto;background:var(--jade-d);color:#f6efdc;display:block;text-align:left;padding:11px 16px 10px;margin:0 0 12px;font:15px/1.15 var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.karte.nsc .band.sm{font-size:15px;letter-spacing:.1em;padding:11px 16px 10px;text-align:left}
+.karte.nsc .vollname{margin:-4px 16px 10px;text-align:left;font:600 12px/1.25 var(--f-halb);letter-spacing:.06em;color:var(--jade-d);opacity:1}
+.karte.nsc>.nk,.karte.nsc>.nt,.karte.nsc>table,.karte.nsc>.w6box{margin-left:16px;margin-right:16px}
+.karte.nsc>.nk{display:flex;gap:14px}
+.karte.nsc .nkb{width:72px}
+.karte.nsc .zl{font:14.5px/1.4 var(--f-sans);padding:6px 0}
+.karte.nsc .zl b{font-family:var(--f-kopf);font-weight:normal;letter-spacing:.04em;color:var(--jade-d)}
+.karte.nsc .zl.drei{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:2px 0 9px}
+.karte.nsc .tpz{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;margin:0;color:var(--tp)}
+.karte.nsc .tpz button{width:24px;height:24px;margin:0;border:1.5px solid rgba(184,45,41,.55);background:rgba(255,250,235,.6);border-radius:50%;font:15px/1 var(--f-kopf);display:inline-grid;place-items:center;padding:0}
+.karte.nsc .nt{margin-top:8px;padding-top:10px;border-top:1px solid rgba(16,90,74,.22)}
+/* Zugeklappte Figuren/Kästen: ruhige Streifen mit grünem Griff */
+.zu{border:1.5px solid rgba(16,90,74,.5);border-left:5px solid var(--jade-d);border-image:none;border-radius:3px;background:rgba(252,248,235,.55);min-height:40px;padding:0 14px 0 14px;color:var(--jade-d);font:13px/1.15 var(--f-kopf);letter-spacing:.1em;transition:background .15s}
+.zu:hover{background:rgba(16,110,90,.13)}
+.zu .s{color:var(--grau)}
+.zu.st{background:var(--jade-d);border-color:var(--jade-d);color:#f3eee6}
+.zu.st:hover{background:#136a58}
+.zu.st .s{color:#bcd9cf}
+.zu.an{outline:none;background:var(--jade-d);border-color:var(--jade-d);color:#f3eee6}
+.zu.an .s{color:#bcd9cf}
+/* Ortsliste unter der Karte: nummerierte Marken wie die Pins */
+.orte{gap:0 20px;margin-top:16px}
+.orte div{align-items:center;gap:11px;padding:6px 8px 6px 4px;border-radius:3px;border-bottom:1px solid rgba(16,90,74,.16);transition:background .15s}
+.orte div:hover{background:rgba(16,110,90,.1)}
+.orte div b{flex:none;width:auto;min-width:27px;height:27px;padding:0 4px;box-sizing:border-box;display:inline-grid;place-items:center;border:1.5px solid var(--jade);border-radius:14px;background:rgba(255,250,235,.7);font:600 12px/1 var(--f-halb);color:var(--jade-d)}
+.orte div span{line-height:1.2}
+.orte div.on{background:rgba(16,110,90,.14);box-shadow:inset 3px 0 0 var(--jade)}
+.orte div.on b{background:var(--jade);border-color:var(--jade);color:#f6efdc}
+.orte div.on span{color:var(--jade-d)}
+.zu.st,.zu.an{border-image:none;border-width:1.5px 1.5px 1.5px 5px;border-style:solid}

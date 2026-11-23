@@ -22,7 +22,7 @@ function beUebersicht(){
   var gruppen = [], cur = null;
   DB_MON.forEach(function(m){ var k = m.kat || "Grundregelwerk"; if(!cur || cur.k !== k){ cur = {k: k, l: []}; gruppen.push(cur); } cur.l.push(m); });
   return beKopf("Bestiarium", 82, "be") + gruppen.map(function(g){
-    return (gruppen.length > 1 ? '<h2 class="mkat">' + esc(g.k) + '</h2>' : '') + '<div class="mk">' + g.l.map(function(m){
+    return (gruppen.length > 1 ? '<h2 class="mkat">' + esc(g.k.replace(/^Zusatzband:\s*/, "")) + '</h2>' : '') + '<div class="mk">' + g.l.map(function(m){
       return '<a class="mt" href="#n/be/' + m.id + '"><div class="mi"><img src="img/monster/' + m.img + '.webp" alt="" loading="lazy"></div>' +
         '<div class="mn">' + esc(m.t) + (m.npc ? '' : beKurz(m)) + '</div>' + (m.npc ? beKurz(m) : '') + '</a>';
     }).join("") + '</div>';

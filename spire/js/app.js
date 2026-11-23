@@ -122,11 +122,10 @@ function viewStart(){
   var spiel = SP_SPIEL.map(function(z){
     return '<button class="st-z' + (last === z.id ? ' on' : '') + '" onclick="go(\'' + z.id + '\')">' + bild(z.img, z.pos) + '<span class="st-zt"><b>' + esc(z.t) + '</b><small>' + esc(z.s) + '</small></span></button>';
   }).join("");
-  var ab = Object.keys(SP_ABENTEUER).map(function(id){ var A = SP_ABENTEUER[id];
-    return '<div data-pgbook="' + buchId(A.buch) + '" class="st-ab' + (last === "abenteuer/" + id ? ' on' : '') + '" onclick="go(\'abenteuer/' + id + '\')">' + bild(A.img, "center 20%") +
-      '<div class="st-abt"><span class="st-kl">Abenteuer</span><h3>' + esc(A.t) + '</h3><p>' + esc(A.k) + '</p><p class="q">' + esc(A.q[0]) + ' · ' + pgl(A.p, A.buch) + ' · ' + esc(A.q[2]) + '</p></div></div>';
-  }).join("");
-  var bald = []; SP_BUECHER.forEach(function(g){ g.items.forEach(function(b){ if(b.abenteuer) bald.push(b); }); });
+  var abL = [{t:"Snuff Out the Sun", img:"abenteuer/snuff-titel", go:"go('abenteuer/snuff')", on:last === "abenteuer/snuff"},
+    {t:"The Kings of Silver", img:"cover/sp_a1", go:"openBook('sp_a1',1)"}, {t:"Eidolon Sky", img:"cover/sp_a2", go:"openBook('sp_a2',1)"}];
+  var ab = '<div class="st-abk"><h3>Abenteuer</h3><div class="st-abl">' + abL.map(function(x){
+    return '<button class="st-abc' + (x.on ? ' on' : '') + '" onclick="' + x.go + '"><img src="' + IMG(x.img) + '" alt="" loading="lazy"><b>' + esc(x.t) + '</b></button>'; }).join("") + '</div></div>';
   var kach = function(k){
     return '<button class="st-k' + (k.folgt ? ' fo' : '') + '" onclick="go(\'' + k.go + '\')"><span class="im">' + bild(k.img, k.pos) + '</span><span class="tx"><b>' + esc(k.t) + '</b><small>' + esc(k.s) + '</small></span>' + (k.folgt ? '<em>in Arbeit</em>' : '') + '</button>';
   };
@@ -136,7 +135,7 @@ function viewStart(){
       '<div class="st-rev"><h5 onclick="go(\'nach/spielleitung/revolution\')">Revolution' + pgl(R.p) + '</h5><div class="st-stufen">' +
       R.stufen.map(function(s, i){ return '<button class="' + (rv === i ? 'on' : '') + (i < rv ? ' vor' : '') + '" onclick="setRev(' + i + ')"><i>' + (i + 1) + '</i>' + esc(s) + '</button>'; }).join("") + '</div></div></header>' +
     '<section class="st-sek"><h2 class="st-h">Am Spieltisch</h2><div class="st-tisch"><div class="st-spiel">' + spiel + '</div>' + ab + '</div>' +
-      (bald.length ? '<p class="st-bald">Weitere Abenteuer in Vorbereitung: ' + bald.map(function(b){ return '<a onclick="openBook(\'' + b.id + '\',1)">' + esc(b.abenteuer) + '</a>'; }).join(" · ") + '</p>' : '') + '</section>' +
+      '</section>' +
     '<section class="st-sek"><h2 class="st-h">Nachschlagen</h2><div class="st-nach">' + fertig.map(kach).join("") + offen.map(kach).join("") + '</div></section>' +
   '</div>';
 }

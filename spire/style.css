@@ -676,10 +676,9 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .st-k.fo{background:transparent;border-style:dashed}
 .st-k.fo .im img{filter:grayscale(.85);opacity:.55}
 .st-k.fo b{color:#5d6f86}
-@media (max-width:1280px){
+@media (max-width:900px){
   .st-tisch{grid-template-columns:1fr}
-  .st-ab{min-height:220px}
-  .st-abt{width:50%}
+  .st-abl{max-width:520px}
 }
 @media (max-width:1100px){
   .st-nach{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1031,3 +1030,12 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .kr-b{width:36px;padding:0;font-size:18px}
 .kr-tab:hover,.kr-b:hover{background:rgba(255,255,255,.1)}
 .kr-tab.on:hover{background:#5d1a8a}
+
+/* Startseite: Abenteuer – eine Kachel mit allen Abenteuern */
+.st-abk{background:var(--nacht);color:#e3e9f2;padding:16px 18px 18px;display:flex;flex-direction:column;min-width:0}
+.st-abk h3{margin:0 0 12px;font:700 20px/1 var(--f-titel);letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+.st-abl{flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.st-abc{display:flex;flex-direction:column;gap:8px;text-align:left;color:inherit;transition:transform .18s}
+.st-abc img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;background:#000;outline:2px solid transparent;outline-offset:-2px;transition:outline-color .18s}
+.st-abc b{font:700 15px/1.1 var(--f-titel);letter-spacing:.03em;text-transform:uppercase;color:#fff}
+.st-abc:hover{transform:translateY(-3px)}.st-abc:hover img,.st-abc.on img{outline-color:var(--gold)}

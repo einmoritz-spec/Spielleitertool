@@ -21,6 +21,7 @@ function bl(b){
   if(b && typeof b === "object" && b.t === "zettel") return '<div class="dzettel">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (b.x || b.b || []).map(bl).join("") + "</div>";
   if(b && typeof b === "object" && b.t === "zettelstapel") return '<div class="dzst">' + b.x.map(function(t, i){ return '<div class="dzs z' + (i + 1) + '"><span>' + esc(t) + "</span></div>"; }).join("") + "</div>";
   if(b && typeof b === "object" && b.t === "garnotiz") return '<div class="dgn"><div class="dgz w"><span>' + esc(b.w) + '</span></div><div class="dgz lb">Gars Notiz</div><div class="dgz g"><span>' + esc(b.g) + '</span></div><i class="pn"></i><div class="dgz ez">' + esc(b.e) + "</div></div>";
+  if(b && typeof b === "object" && b.t === "kleinzettel") return '<div class="dkz2 ' + b.v + '"><div class="dkp"><span>' + md(b.x) + "</span></div>" + (b.v === "fuss" ? '<div class="dkl">Gars Notiz</div><i class="dkt"></i>' : "") + "</div>";
   return blk(b);
 }
 function bls(a){ return (a || []).map(bl).join(""); }

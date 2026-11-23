@@ -648,3 +648,11 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 .dgz.lb{left:0;top:0;width:210px;height:96px;background-image:url(img/dagger/zettel/gars-etikett.webp);background-size:100% 100%;transform:rotate(-7deg);justify-content:center;font-size:30px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#2b1d14;padding-top:6px;box-sizing:border-box}
 .dgn .pn{position:absolute;left:372px;top:186px;width:30px;height:54px;background:url(img/dagger/zettel/gars-nadel.webp) center/contain no-repeat;transform:rotate(-20deg)}
 .dgz.ez{left:405px;top:560px;width:230px;height:76px;background-image:url(img/dagger/zettel/gars-band.webp);transform:rotate(-8deg);justify-content:center;font-size:32px;font-weight:700;color:#4a0a0e;background-color:transparent;padding:6px 0 0 34px;box-sizing:border-box;text-shadow:0 0 3px #f3dcc8,0 0 3px #f3dcc8}
+
+.dkz2{position:relative;margin:14px 0 18px;font-family:Caveat,cursive}
+.dkz2 .dkp{display:flex;align-items:center;justify-content:center;background-size:100% 100%;background-repeat:no-repeat;filter:drop-shadow(0 3px 4px #0005)}
+.dkz2 .dkp span{display:block}
+.dkz2.rot{width:min(560px,100%)}.dkz2.rot .dkp{height:176px;background-image:url(img/dagger/zettel/gars-grau-breit.webp);transform:rotate(-.8deg);color:#7a1218;font-size:29px;font-weight:700;line-height:1.05}.dkz2.rot .dkp span{padding:6px 7% 0;text-align:center}
+.dkz2.fuss{width:min(440px,100%);margin:52px 0 18px 40px}.dkz2.fuss .dkp{height:178px;background-image:url(img/dagger/zettel/gars-grau-fuss.webp);transform:rotate(-1.2deg);color:#1c1c24;font-size:29px;font-style:italic;line-height:1.05}.dkz2.fuss .dkp span{padding:14px 10% 0 12%}
+.dkz2 .dkl{position:absolute;left:-40px;top:-40px;width:150px;height:62px;background:url(img/dagger/zettel/gars-etikett.webp) center/100% 100% no-repeat;transform:rotate(-8deg);display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#2b1d14;padding-top:3px;box-sizing:border-box}
+.dkz2 .dkt{position:absolute;right:-10px;bottom:-14px;width:100px;height:70px;background:url(img/dagger/zettel/gars-klebe.webp) center/contain no-repeat;transform:rotate(8deg)}

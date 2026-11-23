@@ -22,7 +22,7 @@
 
   /* Hat das Raster sichtbare Lücken durch ungleich hohe Zeilenelemente? */
   function gappy(g, its){
-    if(its.length < MINCH) return false;
+    if(its.length < 2) return false;
     var rows = [], i;
     its.forEach(function(c){
       var r = c.getBoundingClientRect(); if(r.height < MINH) return;
@@ -33,6 +33,14 @@
     return rows.some(function(row){ if(row.b.length < 2) return false; var mx = Math.max.apply(null, row.b); return row.b.some(function(b){ return mx - b > SLACK; }); });
   }
 
+  /* Zwei Blöcke nebeneinander, einer deutlich kürzer: untereinander statt Leerfläche (nur Text-/Kartenblöcke, keine Seitenleisten) */
+  function stackable(g, its){
+    if(its.length !== 2) return false;
+    var r = its.map(function(c){ return c.getBoundingClientRect(); });
+    if(r[0].width < 330 || r[1].width < 330) return false;
+    var sh = Math.min(r[0].height, r[1].height);
+    return sh < 460 && !g.closest(".nomas") && !its.some(function(c){ return c.querySelector("canvas,iframe") || c.matches("aside,nav"); });
+  }
   function pack(g){
     var cs = getComputedStyle(g), its = items(g); if(!its.length) return;
     if(!g._mg){ g._mg = parseFloat(cs.rowGap) || 0; }
@@ -55,7 +63,7 @@
       var all = document.querySelectorAll("body *");
       for(var i = 0; i < all.length; i++){
         var g = all[i];
-        if(g.children.length < MINCH && g.dataset.mas === undefined) continue;
+        if(g.children.length < 2 && g.dataset.mas === undefined) continue;
         var cs = getComputedStyle(g);
         if(cs.display !== "grid" || cols(cs) < 2 && g.dataset.mas === undefined) continue;
         if(g.dataset.mas === "0") continue;
@@ -63,7 +71,11 @@
         if(cs.gridTemplateRows !== "none" && /px/.test(cs.gridTemplateRows) && cs.gridTemplateRows.split(" ").length > 1 && !g._auto) { /* explizite Zeilen: nur testen */ }
         if(g.closest(".nomas")) continue;
         var its = items(g);
-        if(gappy(g, its)){ g._auto = 1; pack(g); }
+        if(g._stack){ g.style.gridTemplateColumns = "minmax(0,1fr)"; continue; }
+        if(gappy(g, its)){
+          if(its.length < MINCH){ if(stackable(g, its)){ g._stack = 1; g.style.gridTemplateColumns = "minmax(0,1fr)"; g.style.rowGap = g.style.rowGap || "24px"; } }
+          else { g._auto = 1; pack(g); }
+        }
       }
     }catch(e){}
     busy = false;

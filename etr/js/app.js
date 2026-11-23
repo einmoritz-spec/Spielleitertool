@@ -57,7 +57,7 @@ function enemy(g){
 function figuren(){ return secs(window.ETR_FIGINTRO)+(window.ETR_FIGUREN||[]).map(fig).join(""); }
 function hero(){ return '<div class="hero" style="background-image:url(../assets/hero/etr-banner.webp)"><div class="ht"><span>Das Jahr 1943. Europa steht in Flammen. Ihr seid ein Kommandotrupp aus Vampiren mit einem einzigen Ziel: Adolf Hitlers gesamtes Blut aussaugen und die Nazi-Kriegsmaschine tödlich ins Wanken bringen.</span></div></div>'; }
 
-function pgRange(list){ var p=(list||[]).map(function(x){return x.p;}).filter(Boolean); return p.length?"S. "+Math.min.apply(null,p)+"–"+Math.max.apply(null,p):""; }
+function pgRange(list){ var p=(list||[]).map(function(x){return x.p;}).filter(Boolean); var lo=Math.min.apply(null,p),hi=Math.max.apply(null,p); return p.length?"S. "+lo+(hi>lo?"–"+hi:""):""; }
 function ovCard(id,t,list,rows){
   var r=(rows||list.map(function(x){return [x.titel,x.p];})).map(function(x){return '<li><button onclick="go(\''+id+'/'+(x[2]||"")+'\')"><span>'+esc(x[0])+'</span><i>'+(x[1]?'S. '+x[1]:'')+'</i></button></li>';}).join("");
   return '<div class="oc"><button class="oh" onclick="go(\''+id+'\')"><b>'+t+'</b><i>'+(list?pgRange(list):"")+'</i></button><ul>'+r+'</ul></div>';

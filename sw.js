@@ -1949,6 +1949,7 @@ const FILES = [
   "vaesen/img/thumb/vorspann_s-3.webp",
   "etr/index.html",
   "etr/style.css",
+  "etr/start.css",
   "assets/hero/etr-banner.webp",
   "etr/js/app.js",
   "etr/js/spiel.js",

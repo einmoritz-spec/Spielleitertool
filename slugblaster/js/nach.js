@@ -17,7 +17,7 @@ var SBN = (function(){
   function stage(id){
     var F = SB_PTEXT[id].fig, w = F.w, h = F.h;
     function pc(v, t){ return (v / t * 100).toFixed(3) + "%"; }
-    var s = '<div class="fgs" style="aspect-ratio:' + w + '/' + h + '"><img src="' + IMG(F.img) + '" alt="">';
+    var s = '<div class="fgs" onclick="SBN.fig(\'' + id + '\')" style="aspect-ratio:' + w + '/' + h + '"><img src="' + IMG(F.img) + '" alt="">';
     F.notes.forEach(function(n){
       /* Deutsch ist länger: Box wächst, Textanker (links/Mitte) bleibt wie im Buch */
       var r = n.t.replace(/\u00ad/g, "").length / Math.max(8, n.en.replace(/ \/ /g, " ").length);
@@ -132,5 +132,5 @@ var SBN = (function(){
     return '<div class="nachw">' + nav(ber, sub, pid) + (sub === "pers" ? '<div class="fr pfr">' + body + '</div>' : body) + '</div>';
   };
   VIEWS.nach.own = true;
-  return {};
+  return {fig: function(id){ modal("<div class=\"fgb\">" + stage(id) + "</div>", "fgm"); }};
 })();

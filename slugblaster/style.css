@@ -715,3 +715,6 @@ body.ooth .tabs.oob a.on{background:none}body.ooth .tabs.oob a.on::before{backgr
 .sx-hero{height:360px;background:var(--lila) radial-gradient(ellipse 420px 140px at 170px 390px,var(--mag) 0 99%,transparent 100%)}.sx-cover{height:360px;width:360px}.sx-l{padding-top:30px}
 .fgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .fgn{font:400 3.4cqw/1.15 "SB Hand",cursive;text-align:left;hyphens:manual;overflow-wrap:break-word}.fgn.c{text-align:center}
+.pcm .fgs{cursor:zoom-in}
+.fgm>div{max-width:none;width:auto;background:#fff;padding:14px;max-height:96vh;overflow:auto}
+.fgb{height:min(84vh,calc(100vh - 150px))}.fgb .fgs{height:100%;width:auto;cursor:default}

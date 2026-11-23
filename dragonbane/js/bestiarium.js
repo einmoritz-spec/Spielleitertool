@@ -11,9 +11,8 @@ var BE_HZ = '<svg viewBox="0 0 32 29" aria-hidden="true"><path d="M16 28.5C6.5 2
 function beKurz(m){
   if(m.npc) return '<div class="mtyp">' + m.typen.map(function(t){ return '<span>' + esc(t.n) + '</span>'; }).join("") + '</div>';
   var je = (m.gr.split("/")[1] || ""), g = parseInt(m.gr, 10) || 0, tp = m.tp.split("/"), z = /^\d+$/.test(tp[1] || "x") ? tp[0] + "–" + tp[tp.length - 1] : tp[0];
-  return '<div class="mwr"><span class="mgr" title="Grimmigkeit ' + g + '">' + new Array(g + 1).join(BE_FL) + '</span>' +
-    '<span class="mhz' + (z.length > 3 ? ' lang' : '') + '" title="' + esc(m.tp) + ' TP">' + BE_HZ + '<b>' + esc(z) + '</b></span></div>' +
-    (je ? '<div class="mje">je ' + esc(je) + '</div>' : '');
+  return '<span class="mwr"><span class="mgr" title="Grimmigkeit ' + g + '">' + new Array(g + 1).join(BE_FL) + '</span>' +
+    '<span class="mhz' + (z.length > 3 ? ' lang' : '') + '" title="' + esc(m.tp) + ' TP">' + BE_HZ + '<b>' + esc(z) + '</b></span>' + (je ? '<i class="mje">je ' + esc(je) + '</i>' : '') + '</span>';
 }
 function beKopf(titel, p, aktiv){
   var l = [["be", "Monster"], ["be/imspiel", "Monster im Spiel"], ["be/tiere", "Gewöhnliche Tiere"]];
@@ -25,7 +24,7 @@ function beUebersicht(){
   return beKopf("Bestiarium", 82, "be") + gruppen.map(function(g){
     return (gruppen.length > 1 ? '<h2 class="mkat">' + esc(g.k) + '</h2>' : '') + '<div class="mk">' + g.l.map(function(m){
       return '<a class="mt" href="#n/be/' + m.id + '"><div class="mi"><img src="img/monster/' + m.img + '.webp" alt="" loading="lazy"></div>' +
-        '<div class="mn">' + esc(m.t) + '</div>' + beKurz(m) + '</a>';
+        '<div class="mn">' + esc(m.t) + (m.npc ? '' : beKurz(m)) + '</div>' + (m.npc ? beKurz(m) : '') + '</a>';
     }).join("") + '</div>';
   }).join("");
 }

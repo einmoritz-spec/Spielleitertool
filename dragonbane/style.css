@@ -856,14 +856,15 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .tw{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px}
 .tw i{letter-spacing:.06em}
 
-/* Bestiarium-Kacheln: Grimmigkeit als Flammen, TP im Herz */
-.mwr{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:9px}
-.mgr{display:flex;gap:2px;align-items:flex-end}
-.mgr .fl{width:18px!important;height:22px!important;flex:none;fill:var(--jade)}
-.mhz{position:relative;width:42px;height:38px;display:inline-flex;align-items:center;justify-content:center}
+/* Bestiarium-Kacheln: Grimmigkeit als Flammen, TP im Herz – klein hinter dem Namen */
+.mn .mwr{display:inline-flex;align-items:center;gap:6px;margin-left:9px;vertical-align:2px;opacity:.8}
+.mt:hover .mn .mwr{opacity:1}
+.mgr{display:inline-flex;gap:1px;align-items:flex-end}
+.mgr .fl{width:9px!important;height:11px!important;flex:none;fill:var(--jade-d)}
+.mhz{position:relative;width:24px;height:22px;display:inline-flex;align-items:center;justify-content:center}
 .mhz svg{position:absolute;inset:0;width:100%;height:100%;fill:var(--tp)}
-.mhz b{position:relative;font:16px/1 var(--f-kopf);color:#fff;margin-top:-3px;letter-spacing:.02em}
-.mhz.lang{width:52px;height:44px}.mhz.lang b{font-size:12px}
-.mje{margin-top:3px;font:10px var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);opacity:.7}
-.mtyp{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:10px}
-.mtyp span{font:10.5px/1 var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d);border:1px solid rgba(0,0,0,.14);border-radius:20px;padding:4px 9px 3px}
+.mhz b{position:relative;font:10px/1 var(--f-kopf);color:#fff;margin-top:-2px}
+.mhz.lang{width:36px;height:30px}.mhz.lang b{font-size:9px}
+.mje{font:9px var(--f-kopf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d)}
+.mtyp{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin-top:8px;opacity:.8}
+.mtyp span{font:9.5px/1 var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d);border:1px solid rgba(0,0,0,.12);border-radius:20px;padding:3px 8px 2px}

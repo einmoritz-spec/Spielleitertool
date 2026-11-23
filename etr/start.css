@@ -1,0 +1,51 @@
+/* Eat the Reich – Startseite „Geheimakte“: Telegramm, Einsatzbefehl, Aktenmappen */
+@font-face{font-family:"Special Elite";src:url(../assets/fonts/special-elite-latin-400-normal.woff2);font-display:swap}
+.sa{--tele:"Special Elite","Courier Prime",monospace;--wine:#7d1650;display:grid;grid-template-rows:auto 1fr;gap:42px;padding-top:6px}
+.sa .paper{color:var(--ink);background:
+ radial-gradient(120px 90px at 88% 12%,rgba(150,95,40,.18),transparent 70%),
+ radial-gradient(160px 120px at 8% 92%,rgba(150,95,40,.16),transparent 70%),
+ radial-gradient(90px 70px at 40% 60%,rgba(255,47,146,.06),transparent 70%),
+ linear-gradient(#efe3bf,#e4d4a6);box-shadow:0 10px 28px rgba(0,0,0,.55),inset 0 0 50px rgba(120,80,30,.22)}
+.sa .strip{background:#14110d;color:#f4ecd4;padding:1px 7px;-webkit-box-decoration-break:clone;box-decoration-break:clone;line-height:1.9}
+.sa .strip.red{background:#c2185b;color:#fff}
+.sa .pg{color:var(--ink2);font-size:12px;white-space:nowrap;text-decoration:none;border:0}
+.sa-top{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:18px;min-height:378px}
+.sa-scene{position:relative;border-radius:6px;overflow:hidden;background:#000 url(../assets/hero/etr-aerial.webp) center 70%/cover;box-shadow:0 14px 40px rgba(0,0,0,.6);min-height:300px}
+.sa-scene::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,20,36,.55),transparent 55%)}
+.sa-tele{position:absolute;z-index:2;left:24px;top:24px;width:min(560px,calc(100% - 48px));padding:16px 20px 18px;transform:rotate(-1.4deg);border-radius:2px}
+.sa-tele .th{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1.5px solid #8a7550;padding-bottom:6px;margin-bottom:10px;font:400 13px var(--tele);letter-spacing:.14em;color:#5a4a30}
+.sa-tele .th b{font:400 24px var(--disp);letter-spacing:.12em;color:var(--wine)}
+.sa-tele p{margin:0;font:400 16px/1.95 var(--tele)}
+.sa-tele .clip{position:absolute;top:-16px;left:210px;width:22px;height:58px;border:3px solid #9aa3ad;border-radius:12px;box-shadow:1px 1px 2px rgba(0,0,0,.4)}
+.sa-order{position:relative;border-radius:6px;padding:20px 24px;background:linear-gradient(160deg,#ff4f9e,#d81b78 70%,#a3135c);color:#2a0a1a;box-shadow:0 14px 40px rgba(0,0,0,.6),inset 0 0 60px rgba(80,0,40,.35);display:flex;flex-direction:column}
+.sa-order .k{font:400 14px var(--tele);letter-spacing:.2em;color:#4a0b2a}
+.sa-order h2{margin:2px 0 14px;font:400 52px/.95 var(--disp);letter-spacing:.04em;color:#fff;text-shadow:0 2px 0 rgba(80,0,40,.4)}
+.sa-order h2 small{display:block;font-size:22px;letter-spacing:.16em;color:#ffe3f0}
+.sa-order .stamp{position:absolute;right:22px;top:20px;display:inline-block;border:3px solid #fff;color:#fff;font:400 22px var(--disp);letter-spacing:.14em;padding:0 10px;transform:rotate(-6deg);opacity:.75;border-radius:3px}
+.sa-route{list-style:none;margin:0;padding:0}
+.sa-route li{margin:0}
+.sa-route button{display:grid;grid-template-columns:34px 1fr;width:100%;align-items:baseline;background:none;border:0;border-bottom:1.5px dotted rgba(60,0,30,.45);padding:4px 0;color:#fff;font:700 15px var(--typ);text-align:left;cursor:pointer}
+.sa-route button i{font:400 17px var(--disp);font-style:normal;letter-spacing:.1em;color:#4a0b2a}
+.sa-route button:hover{background:rgba(255,255,255,.14)}
+.sa-go{margin-top:auto;display:flex;align-items:center;justify-content:space-between;width:100%;background:#14110d;color:#fff;border:0;border-radius:4px;padding:14px 18px;font:400 30px var(--disp);letter-spacing:.12em;box-shadow:0 6px 0 #4a0b2a;cursor:pointer}
+.sa-go em{font:400 26px var(--disp);color:var(--pink);font-style:normal}
+.sa-go:hover{filter:brightness(1.25)}
+.sa-files{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;align-items:stretch}
+.sa-file{position:relative;padding:18px 16px 14px;border-radius:0 4px 4px 4px}
+.sa-file>.tab{position:absolute;top:-24px;left:0;height:26px;padding:3px 14px 0;border:0;border-radius:6px 6px 0 0;font:400 19px var(--disp);letter-spacing:.1em;color:var(--wine);background:#eadcb3;box-shadow:0 -3px 8px rgba(0,0,0,.3);cursor:pointer}
+.sa-file:nth-child(2)>.tab{left:26px}.sa-file:nth-child(3)>.tab{left:52px}.sa-file:nth-child(5)>.tab{left:26px}
+.sa-file>.tab:hover{color:var(--pink2)}
+.sa-file h3{margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline}
+.sa-file h3 .strip{font:700 13px var(--typ);letter-spacing:.06em;text-transform:uppercase}
+.sa-file ul{list-style:none;margin:0;padding:0}
+.sa-file li button{display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;padding:5px 0;border:0;border-bottom:1px dashed rgba(107,90,62,.45);background:none;color:var(--ink);font:400 14px/1.25 var(--typ);text-align:left;cursor:pointer}
+.sa-file li:last-child button{border-bottom:0}
+.sa-file li button:hover span:first-child{color:var(--pink2)}
+.sa-file li .pg{flex:none}
+.sa-who li button{align-items:center;justify-content:flex-start;gap:10px}
+.sa-who img{width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:2px solid var(--pink2);flex:none}
+.sa-stack{display:grid;grid-template-rows:auto 1fr;gap:40px}
+.sa-stack .sa-file>.tab{left:0}
+@media(max-width:1100px){.sa-top{grid-template-columns:1fr}.sa-files{grid-template-columns:repeat(3,minmax(0,1fr));gap:42px 16px}.sa-stack{display:contents}.sa-stack .sa-file>.tab{left:0}}
+.sa .sa-file .pg,.sa .sa-file li .pg{text-decoration:none!important;border:0!important;background:none!important}
+.sa-file li button>span:first-child{min-width:0;overflow-wrap:break-word}.sa-file li button{font-size:13.5px}

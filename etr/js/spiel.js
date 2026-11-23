@@ -156,7 +156,16 @@ function gegnerView(){
 
 /* ---------- Startseite ---------- */
 function startView(){
-  var flow=["Briefing","Sargsturz","Sektor 3","Sektor 2","Sektor 1","Showdown","Epilog"].map(function(t){return '<span>'+t+'</span>';}).join('<i>›</i>');
-  var ov=overview().replace(/^<div class="hero"[\s\S]*?<\/div><\/div>/,"").replace(/<button class="go-adv"[\s\S]*$/,"");
-  return '<div class="st-top"><img src="../assets/hero/etr-banner.webp" alt=""><div class="st-r"><p>Das Jahr 1943. Europa steht in Flammen. Ihr seid ein Kommandotrupp aus Vampiren mit einem einzigen Ziel: Adolf Hitlers gesamtes Blut aussaugen und die Nazi-Kriegsmaschine tödlich ins Wanken bringen.</p><div class="st-flow">'+flow+'</div><button class="go-adv" onclick="go(\'karte\')"><b>Abenteuer starten</b><small>Paris, 1943</small></button></div></div>'+ov;
+  var tele=[["DAS JAHR 1943.","EUROPA STEHT IN FLAMMEN."],["IHR SEID EIN KOMMANDOTRUPP AUS VAMPIREN"],["MIT EINEM EINZIGEN ZIEL:"],["ADOLF HITLERS GESAMTES BLUT AUSSAUGEN","red"],["UND DIE NAZI-KRIEGSMASCHINE TÖDLICH INS WANKEN BRINGEN."]];
+  var tx=tele.map(function(l){ return l.length===2&&l[1]!=="red"?'<span class="strip">'+l[0]+'</span> <span class="strip">'+l[1]+'</span>':'<span class="strip'+(l[1]==="red"?' red':'')+'">'+l[0]+'</span>'; }).join("<br>");
+  var route=[["01","Briefing","mission/briefing"],["02","Sargsturz","mission/sargsturz"],["03","Sektor 3","s3"],["04","Sektor 2","s2"],["05","Sektor 1","s1"],["06","Showdown · Epilog","mission/showdown"]].map(function(r){return '<li><button onclick="go(\''+r[2]+'\')"><i>'+r[0]+'</i><span>'+r[1]+'</span></button></li>';}).join("");
+  function file(n,id,t,list,rows,cls,rng){
+    var li=(rows||list.map(function(x){return {t:etShort(x.titel).replace(/\s*\(.*\)/,""),p:x.p,s:x.id};})).map(function(x){return '<li><button onclick="go(\''+id+(x.s?'/'+x.s:'')+'\')">'+(x.img?'<img src="img/'+x.img+'.webp" alt="">':'')+'<span>'+esc(x.t)+'</span>'+(x.p?'<span class="pg">S. '+x.p+'</span>':'')+'</button></li>';}).join("");
+    return '<div class="sa-file paper'+(cls?' '+cls:'')+'"><button class="tab" onclick="go(\''+id+'\')">'+t+'</button><h3><span class="strip">Akte '+n+'</span><span class="pg">'+(rng||(list?pgRange(list):""))+'</span></h3><ul>'+li+'</ul></div>';
+  }
+  var fg=(window.ETR_FIGUREN||[]).map(function(c){return {t:c.name,s:c.id,img:c.id};});
+  return '<div class="sa"><div class="sa-top"><div class="sa-scene"><div class="sa-tele paper"><div class="clip"></div><div class="th"><b>Telegramm</b><span>NUR FÜR DIE AUGEN · F.A.N.G.</span></div><p>'+tx+'</p></div></div>'+
+   '<div class="sa-order"><span class="stamp">Streng geheim</span><div class="k">EINSATZBEFEHL Nr. 1943/P</div><h2>Paris<small>Sargsturz über der Stadt</small></h2><ul class="sa-route">'+route+'</ul><button class="sa-go" onclick="go(\'karte\')">Abenteuer starten <em>›</em></button></div></div>'+
+   '<div class="sa-files">'+file("01","intro","Einführung",window.ETR_EINSTIEG)+file("02","regeln","Regeln",window.ETR_REGELN)+file("03","figuren","Figuren",window.ETR_FIGINTRO,fg,"sa-who","S. 11–25")+file("04","mission","Mission",window.ETR_MISSION)+file("05","leitung","Spielleitung",window.ETR_LEITUNG)+
+   '<div class="sa-stack">'+file("06","check","Evil-Check",window.ETR_CHECK)+file("07","anhang","Anhang",window.ETR_ANHANG)+'</div></div></div>';
 }

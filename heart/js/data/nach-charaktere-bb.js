@@ -152,6 +152,48 @@ C.subs.push({id:"herkuenfte", t:"Herkünfte", secs:[
   "Discern","Technology","Zusammenklappbare Armbrust (**Kill W6, Ranged, Reload**)")
 ]});
 
+/* ---------- Sturz aus der Gnade: Spielleitung (Kapitel „Falling from Grace: Running the Game“, B&B S. 19–20) ---------- */
+C.subs.push({id:"sturz-spiel", t:"Sturz aus der Gnade", secs:[
+ bb({id:"spielleitung", t:"Spielleitung", p:19, b:[
+  {t:"grid", n:2, x:[[
+    "Was folgt, ist eine lose Sammlung von Ratschlägen für die Leitung von Spielen im Rahmen von *Burned and Broken*; wir hoffen, sie sind nützlich.",
+    {t:"h", x:"Passt Burned and Broken zu uns?"},
+    "*Burned and Broken* erzählt eine ganz bestimmte Geschichte: eine Zelle, die vom Ministerium verstoßen wird und beschließt, in die Unterstadt des Heart zu fliehen, um zu überleben. Das ist bei Weitem nicht so offen wie die Grundregeln von *Heart* (oder auch *Spire*).",
+    "Sorge dafür, dass die Spieler das vor dem Spiel wissen. Es ist eine Methode, Figuren durch eine feste Reihe von Impulsen von einem Zustand und Ort in einen anderen zu überführen. Die Figuren können dem Gang ins Heart nicht ausweichen. Sie können nicht beschließen, die Stadt zu verlassen und auf einem Himmelswal nach Aliquam zu fliegen; sie können sich nicht in Red Row verstecken; sie können nicht in die Heimatnationen fliehen.",
+    "Wenn es trotzdem so kommt und ihr dabei Spaß habt: in Ordnung! Dann denkt euch einfach im Spiel etwas aus. Aber dann spielt ihr dieses Spiel nicht mehr."
+   ],[
+    {t:"h", x:"Eine Anmerkung zum Ort"},
+    "Wir gehen davon aus, dass der Großteil eines *Burned-and-Broken*-Spiels in Derelictus und den oberen Ebenen des Heart stattfindet. Es könnte aber Spaß machen, das Spiel in der Stadt oben zu beginnen und die Flucht der Figuren aus Spire auszuspielen.",
+    "Denk zum Beispiel an einen Delve in den North Docks. Nicht gefräßige Monster und wacklige Brücken bedrohen die Delver, sondern die Stadtwache, die sich ihrem Aufenthaltsort nähert. Was sonst ein einfacher Gang die Straße entlang oder eine Fahrt im Aufzug wäre, wird gefährlich. So lernen die Spieler die neuen Mechaniken des Spiels kennen, bevor du sie ins eigentliche Heart wirfst.",
+    {t:"h", x:"Eine Anmerkung zur Zeit"},
+    "Der Sturz aus dem Ministerium ist kein schneller Vorgang, und ebenso wenig der Weg zu jemandem, der im Heart überlebt. Wenn ihr die Spiele durchspielt, in denen die Spielerfiguren vom Minister zum Delver werden, musst du womöglich Zeitabschnitte – einige Tage oder sogar Wochen – streichen, wie es dir angemessen erscheint.",
+    "Beispiel: Hat ein Spieler die Kernfähigkeiten der Klasse Vermissian Knight verdient, gehört dazu eine kraftverstärkte Rüstung, die er zumindest teilweise selbst gebaut hat. Das kann dauern. Was tun die anderen Figuren in der Zwischenzeit? (Viel müssen sie nicht tun – sie halten ja still.)",
+    {t:"h", x:"Gegnerwerte"},
+    "Zusätzlich zu den oben bei Derelictus aufgeführten Gegnern haben wir einige Werte für die Leute zusammengestellt, die euch durch die Städte Oben, Dazwischen und Darunter jagen könnten. Beachte, dass die Paladine und die Silence Operatives besonders tödlich sind und du sie sparsam einsetzen solltest. Ob die Spieler einen Kampf mit einem (oder mehreren) von ihnen wollen, lassen sie dich wissen, indem sie die entsprechenden Beats wählen."
+   ]]}
+ ]}),
+ bb({id:"umrechnung", t:"Spire-Figuren im Heart: schnell und schmutzig", p:20, b:[
+  {t:"grid", n:2, x:[[
+    "Okay. Wir haben euch gehört. Ihr wolltet eine direkte Übersetzungsanleitung von *Spire* nach *Heart*, Fähigkeit für Fähigkeit, und das hier ist sie nicht. Wenn ihr unbedingt *Spire*-Figuren im *Heart* spielen wollt, empfehlen wir Folgendes:",
+    {t:"ul", x:[
+     "Ändere jedes **W3** in **W4**.",
+     "Ändere **Silver**-Stress in **Supplies**-Stress.",
+     "Ändere **Shadow**- und **Reputation**-Stress in **Fortune**-Stress.",
+     "Rüstung bringt zusätzliche **Blood**-Slots, keine eigene Resistenz-Kategorie.",
+     "Teile die Zahl der zusätzlichen Slots in der Resistenz einer Figur durch drei, um ihren Protection-Wert in dieser Resistenz zu bestimmen.",
+     "Refreshes funktionieren nicht mehr."]}
+   ],[
+    {t:"ul", x:[
+     "Bonds werden entfernt, außer sie liegen in Derelictus oder im Vermissian.",
+     "Ersetze den Skill **Deceive** durch **Compel**; **Fight** wird zu **Kill**; **Fix** wird zu **Mend**; **Investigate** wird zu **Discern**; **Pursue** wird zu **Hunt** oder **Evade** (wähle eins); **Resist** wird zu **Endure**. **Steal** entfällt.",
+     "Entferne alle Domains außer **Occult**, **Religion** und **Technology**.",
+     "Erhöhe die Würfelgröße allen zugefügten und/oder erlittenen Stresses um eine Stufe.",
+     "Finde heraus, ob Fähigkeiten im Heart funktionieren oder nicht. Die Fähigkeit PUBCRAWLER des Knight etwa funktioniert in der Stadt darunter nicht, weil dort unten nicht getrunken wurde. Das musst du nach Gefühl entscheiden."]},
+    "Ist dieses System fair? Erzeugt es brauchbare Figuren? Vielleicht! Aber im Notfall ist es eine nützliche Anleitung."
+   ]]}
+ ]})
+]});
+
 /* ---------- Minister (Kapitel „The Ministry Beneath“, B&B S. 21–26) ---------- */
 function hooks(L){ return {t:"ul", x:L.map(function(x){ return "*" + x + "*"; })}; }
 C.subs.push({id:"minister", t:"Minister", secs:[

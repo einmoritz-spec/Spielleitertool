@@ -186,3 +186,37 @@ HT_GEGNER.push({id:"ebony-row-pirscher", t:"Ebony Row Stalker (Ebony-Row-Pirsche
  ausr:"Menschenfänger und Jutesäcke (Kill W4, Debilitating) oder lange Messer (W6)",
  besonders:"Kämpfst du gegen ein Rudel Pirscher und reduzierst den ersten auf 0 Resistance (oder zeigst anderweitig deine Macht), erkennen sie, dass du vielleicht keine leichte Beute bist, und wirken geliehene Magie, um sich zu schützen. Ihr Schutz steigt für den Rest der Situation auf 1.",
  dom:["Occult"], fallout:[]});
+
+/* ---------- B&B „Falling from Grace: Running the Game“: Gegner (B&B S. 19–20) ---------- */
+HT_GEGNER.push({id:"spire-stadtwache", t:"Spire City Guard (Stadtwache von Spire)", q:"bb", bk:"ht_z3", bl:"B&B", p:19, legendaer:false,
+ text:[],
+ namen:"Gavain, Hostler, Buller",
+ besch:"Versucht, hinter die anderen Wachen zu gelangen, um sich nicht stellen zu müssen; Scheucht verwirrte Passanten aus dem Weg; Kippt bei einem Schusswechsel einen Karren als Deckung um",
+ motiv:"Die Gesetze von Spire durchsetzen, was im Großen und Ganzen darauf hinausläuft, zu tun, was ihre Aelfir-Herren ihnen sagen",
+ schw:"Standard", res:"5", schutz:"1",
+ ressourcen:"Kleingeld und zerfledderte Ausweispapiere (W6, Haven)",
+ ausr:"Standard-Schlagstock (Kill W6); Standard-Armbrust (Kill W6, Ranged, Reload)",
+ besonders:null, dom:["Haven"], fallout:[]});
+
+HT_GEGNER.push({id:"paladin-herbstkirche", t:"Paladin of the Autumn Church (Paladin der Herbstkirche)", q:"bb", bk:"ht_z3", bl:"B&B", p:20, legendaer:false,
+ text:[],
+ namen:"Bruder Pierce-the-Brow-with-Wisdom, Schwester Westward-March-the-Faithful, Souvain Thousand-Feathers-Bleeding",
+ besch:"Strahlt wie die Sonne in völliger Finsternis; Murmelt Gebete an ihren Reaper-Gott, während sie nachladen; Schüttelt Kleinwaffenfeuer ab",
+ motiv:"Das Ministerium von Our Hidden Mistress zerstören und dabei gut aussehen",
+ schw:"Riskant", res:"9", schutz:"2 im Kampf; 1, wenn überrascht",
+ ressourcen:"Paladin-Uniform (W10, Haven; W6, wenn sie voller Blut und Einschusslöcher ist); Hochwertige Munition (W8, Technology)",
+ ausr:"Fein ausbalanciertes Kurzschwert (Kill W6, Brutal) und Enfor-9-Pistole mit Magazin (Kill W6, Piercing, Ranged, Expensive); oder Custom-Legrand-Gewehr (Kill W8, Piercing, Ranged, Expensive)",
+ besonders:"Überraschen die Paladine dich, schleudern sie dir einen Sprengkörper entgegen, der mit Sonnenenergie detoniert. Jeder in der Nähe muss eine Probe auf Endure+Religion bestehen; bei einem Fehlschlag markiert er W8 Stress auf Blood, weil er geblendet, betäubt und aus dem Tritt gebracht wird.",
+ dom:["Religion"], fallout:[]});
+
+HT_GEGNER.push({id:"ministerium-silence", t:"Ministry Silence Operative (Silence-Agent des Ministeriums)", q:"bb", bk:"ht_z3", bl:"B&B", p:20, legendaer:false,
+ text:[],
+ namen:"Livrette, Barnstal, Poe",
+ besch:"Als Passant verkleidet, der in Derelictus arbeitet; Versiegelt per Zauber die Tür, während du zu fliehen versuchst; Erwürgt eine deiner Bonds",
+ motiv:"Abweichler und alle ausschalten, die das Ministerium enttäuscht haben",
+ schw:"Riskant", res:"8", schutz:"0",
+ ressourcen:"Reliquien von Our Hidden Mistress (W8, Religion)",
+ ausr:"Verborgene, rasiermesserscharfe Waffen (W6, Piercing, Ranged, Unreliable)",
+ besonders:"Silence-Teams weben Bindungszauber über die Gebiete, in denen sie jagen; zu fliehen, sobald ein Kampf begonnen hat, ist Gefährlich.",
+ dom:["Religion"], fallout:[]});
+

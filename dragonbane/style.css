@@ -805,3 +805,27 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .orte div.on b{background:var(--jade);border-color:var(--jade);color:#f6efdc}
 .orte div.on span{color:var(--jade-d)}
 .zu.st,.zu.an{border-image:none;border-width:1.5px 1.5px 1.5px 5px;border-style:solid}
+
+/* ===== Einheitlicher ruhiger Stil für alle Kästen (Steinkästen, Pergament-Karten) ===== */
+.stein{border:1.5px solid rgba(16,90,74,.55);border-left:5px solid var(--jade-d);border-image:none;border-radius:4px;background:rgba(16,110,90,.09);color:var(--braun);font:15.5px/1.5 var(--f-text);padding:12px 18px 10px;margin-top:0;box-shadow:0 2px 8px rgba(60,40,20,.1)}
+.stein .bh{position:static;transform:none;white-space:normal;display:block;background:none;border:0;padding:0;margin:0 0 6px;font:14px/1.2 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);text-align:left}
+.stein .bh::before,.stein .bh::after{display:none}
+.stein.bk,.fg3 .stein.fst{margin:0 0 14px}
+.stein p{margin:0 0 7px}.stein p:last-child{margin-bottom:0}
+.stein b,.stein strong{color:var(--jade-d)}
+.stein a,.stein .pg{color:inherit}
+.karte:not(.nsc){border:1.5px solid rgba(16,90,74,.55);border-image:none;border-radius:4px;background:rgba(252,248,235,.55);padding:14px 18px 12px;box-shadow:0 2px 8px rgba(60,40,20,.12)}
+.karte:not(.nsc) .kr{display:none}
+.karte:not(.nsc) .name,.karte.nkk .name{text-align:left;color:var(--jade-d);font:15px/1.2 var(--f-kopf);letter-spacing:.12em;margin:0 0 8px;padding-bottom:7px;border-bottom:1px solid rgba(16,90,74,.25)}
+.karte:not(.nsc) .zl b{font-family:var(--f-kopf);font-weight:normal;color:var(--jade-d)}
+/* Bilder in Einführung/Texten: ohne Zierrahmen, einfach ins Pergament */
+.einf .rahmen,.bildr .rahmen{padding:0}
+.einf .rahmen i,.bildr .rahmen i{display:none}
+.einf .rahmen img.bild,.bildr .rahmen img.bild{border-radius:3px;box-shadow:0 3px 12px rgba(60,40,20,.3)}
+
+/* Ausgewähltes minimalistisch hervorheben – keine dicken grünen Balken links */
+.orte div.on{background:rgba(16,110,90,.09);box-shadow:none}
+.orte div.on span{color:var(--jade-d);font-weight:600}
+.zu,.zu.st,.zu.an{border-left-width:1.5px;border-left-style:solid}
+.zu.st,.zu.an{border-width:1.5px;border-style:solid}
+.stein{border-left:1.5px solid rgba(16,90,74,.55)}

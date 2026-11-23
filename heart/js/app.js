@@ -40,26 +40,18 @@ function viewStart(){
     startRechts(inh, kl) + "</div>";
 }
 function startRechts(inh, kl){
-  var V = (location.hash.split("/")[1] || "");
   var G = HT_GEDICHT, alle = [];
   HT_INHALT.forEach(function(c){ c.forEach(function(k){ alle.push(k); }); });
-  function sub(k){ return k.z.map(function(z){ return '<a onclick="event.stopPropagation();go(\'' + (z[2] || k.r) + '\')">' + esc(z[0]) + "</a>"; }).join(""); }
-  if(V === "a"){
-    var satz = G[3].split(". ");
-    return '<div class="rechts va"><div class="seite"><div class="vazit"><h2>' + esc(satz[0]) + ".</h2><p>" + esc(G[4]) + '</p><details><summary>…</summary>' + G.slice(0, 4).map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</details></div>" +
-      '<div class="inhalt">' + inh + '</div><div class="reihe">' + kl + "</div></div></div>";
-  }
-  if(V === "b"){
-    return '<div class="rechts vb"><div class="seite"><div class="vbtext"><p><span class="vbinit">' + esc(G[0].charAt(0)) + "</span>" + esc(G[0].slice(1)) + "</p>" + G.slice(1).map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
-      '<div class="vbkap">' + alle.map(function(k){ return '<div class="vbk" onclick="go(\'' + k.r + '\')"><div class="vbb"><b>' + esc(k.t) + "</b><i>S. " + k.p + '</i></div><div class="vbz">' + sub(k) + "</div></div>"; }).join("") + '</div><div class="reihe">' + kl + "</div></div></div>";
-  }
-  if(V === "c"){
-    var ord = ["Einführung","Spielweise","Charaktere","Regeln im Detail","Spielleitung","Die Welt von Heart","Landmarken","Gegner","Regelübersicht"], L = ord.map(function(t){ return alle.filter(function(k){ return k.t === t; })[0]; }).filter(Boolean);
-    alle.forEach(function(k){ if(L.indexOf(k) < 0) L.push(k); });
-    return '<div class="rechts vc"><div class="vckopf"><h2>' + esc(G[0].split(". ").slice(0, 2).join(". ")) + '.</h2><p>' + esc(G[2]) + '</p></div><div class="vcband">' + L.map(function(k, i){ var t = i / (L.length - 1); return '<div class="vcr' + (t > 0.4 ? " hell" : "") + '" style="--t:' + t.toFixed(2) + '" onclick="go(\'' + k.r + '\')"><b>' + esc(k.t) + "<i>S. " + k.p + '</i></b><div class="vcz">' + sub(k) + "</div></div>"; }).join("") + '</div><div class="vcreihe"><div class="reihe">' + kl + "</div></div></div>";
-  }
-  return '<div class="rechts"><div class="seite"><div class="gedicht">' + G.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
-    '<div class="inhalt">' + inh + '</div><div class="reihe">' + kl + "</div></div></div>";
+  var ord = ["Einführung","Spielweise","Charaktere","Regeln im Detail","Spielleitung","Die Welt von Heart","Landmarken","Gegner","Regelübersicht"], L = ord.map(function(t){ return alle.filter(function(k){ return k.t === t; })[0]; }).filter(Boolean);
+  alle.forEach(function(k){ if(L.indexOf(k) < 0) L.push(k); });
+  var auf = !!ST.gedichtAuf;
+  var kopf = '<div class="vckopf' + (auf ? " auf" : "") + '" onclick="ST.gedichtAuf=!ST.gedichtAuf;save();render()"><p class="vczeile">Frag dich, wonach du suchst.</p>' + (auf ? '<div class="vcged">' + G.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") + "</div>";
+  var band = L.map(function(k, i){
+    var t = i / (L.length - 1);
+    var z = k.z.map(function(x){ return '<a onclick="event.stopPropagation();go(\'' + (x[2] || k.r) + '\')">' + esc(x[0]) + "<i>" + x[1] + "</i></a>"; }).join("");
+    return '<div class="vcr' + (t > 0.4 ? " hell" : "") + '" style="--t:' + t.toFixed(2) + '" onclick="go(\'' + k.r + '\')"><span class="vcn">' + (i < 9 ? "0" : "") + (i + 1) + '</span><span class="vct"><b>' + esc(k.t) + '</b><span class="vcp">S. ' + k.p + '</span></span><div class="vcz">' + z + '</div><span class="vcpf">→</span></div>';
+  }).join("");
+  return '<div class="rechts vc">' + kopf + '<div class="vcband">' + band + '</div><div class="vcreihe"><div class="reihe">' + kl + "</div></div></div>";
 }
 VIEWS.start = viewStart;
 /* ---------- Render ---------- */

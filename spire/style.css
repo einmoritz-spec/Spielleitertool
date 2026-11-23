@@ -1039,3 +1039,20 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .st-abc img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;background:#000;outline:2px solid transparent;outline-offset:-2px;transition:outline-color .18s}
 .st-abc b{font:700 15px/1.1 var(--f-titel);letter-spacing:.03em;text-transform:uppercase;color:#fff}
 .st-abc:hover{transform:translateY(-3px)}.st-abc:hover img,.st-abc.on img{outline-color:var(--gold)}
+
+/* Eidolon Sky (Kampagnenrahmen) */
+.eid>p,.eid>.hwk,.eid>.szk,.eid>.qak{max-width:1280px}
+.eid>p,.dbody.eid>p{font-size:17px;line-height:1.5;max-width:1180px}
+.hwk{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin:10px 0 16px}
+.szk{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px;margin:10px 0 16px}
+.hwk>.hw:only-child{grid-column:1/-1}
+.hw,.sz{background:var(--papier2);border:1px solid #b9c6d8;padding:11px 14px 12px;cursor:pointer;transition:opacity .15s,background .15s}
+.hw:hover,.sz:hover{background:#f1f4f9}
+.hw h4{margin:0 0 4px;font:700 18px/1.1 var(--f-titel);text-transform:uppercase;color:var(--blau)}
+.hw p,.sz p{margin:0;font-size:15.5px;line-height:1.42}
+.sz{border-left:4px solid var(--wein)}
+.hw.done,.sz.done{opacity:.45;background:#cfd8e4}.hw.done h4{color:var(--grau)}
+.qak{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:10px 22px;align-items:start;margin:8px 0 14px}
+.qa b{display:block;font:italic 700 15px var(--f-text);color:var(--wein);margin-bottom:2px}.qa p{margin:0;font-size:16px;line-height:1.45}
+.side a small.ed-sub{display:block;font-size:12px;color:var(--grau);font-weight:400}
+.eid .schwarz{max-width:1280px}

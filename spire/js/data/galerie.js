@@ -70,5 +70,8 @@ window.SP_GALERIE = [
   {t:"Philydia, QS S. 21", s:"figur/philydia"}]},
  {g:"Magister's Guide", id:"mg", x:[
   {t:"Unterschlupf, MG S. 16", s:"kapitel/mg-unterschlupf-S016"},
-  {t:"MG S. 48", s:"kapitel/mg-S048"}]}
+  {t:"MG S. 48", s:"kapitel/mg-S048"}]},
+ {g:"Eidolon Sky", id:"eidolon", x:[
+  {t:"Eidolon Sky, Titel", s:"cover/sp_a2"},
+  {t:"Eidolon Sky S. 14", s:"kapitel/eidolon-zwischen-nsc-ende-S014"}]}
 ];

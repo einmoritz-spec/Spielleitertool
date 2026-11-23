@@ -11,7 +11,7 @@ var SP_BUECHER = [
   {id:"sp_s3", name:"Blood and Dust", lang:"EN", cover:true, abenteuer:"Blood and Dust"}]},
  {grp:"Abenteuer", items:[
   {id:"sp_a1", name:"Campaign Frame: The Kings of Silver", lang:"EN", cover:true, abenteuer:"The Kings of Silver"},
-  {id:"sp_a2", name:"Eidolon Sky", lang:"EN", cover:true, abenteuer:"Eidolon Sky"}]},
+  {id:"sp_a2", name:"Eidolon Sky", lang:"EN", off:2, pre:"ES ", cover:true, abenteuer:"Eidolon Sky"}]},
  {grp:"Zusatz", items:[
   {id:"sp_z1", name:"Book of Masks", lang:"EN", cover:true},
   {id:"sp_z2", name:"Sourcebook: Codex of the Deep Spire", lang:"EN"},

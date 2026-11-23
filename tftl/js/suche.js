@@ -62,5 +62,10 @@ GSuche.add(function(add0){
   if(E.ZIELE) add("Ziele und Bedrohungen", L, "#es/reise/ziele", E.ZIELE);
   if(E.BEGEGNUNGEN) add("Begegnungen", L, "#es/reise/begegnungen", [E.BEGEGNUNGEN_INTRO, E.BEGEGNUNGEN]);
   (E.VORGEFERTIGT || []).forEach(function(v){ add("Vorgefertigte Reisende › " + v.name, "Electric State: Reisende", "#es/reisende", v); });
+  /* Startkacheln (Untertitel) */
+  [["", window.START], ["es/", (window.ES || {}).START]].forEach(function(x){
+    var S = x[1]; if(!S) return;
+    (S.welt || []).concat(S.spiel || []).forEach(function(k){ if(k && k[4]) add(k[0], "Start", "#" + x[0] + k[4], [k[1], k[2]]); });
+  });
 });
 window.sucheOpen = GSuche.open;

@@ -65,6 +65,8 @@ GSuche.add(function(add){
     if(m.wesen || m.nock || m.kaesten) put("Figuren", "fg", [m.wesen, m.nock, m.kaesten]);
   });
 
+  if(window.VU_VW) add("Vorwort (S. 3)", "Bücher", function(){ if(window.uiVorwort) uiVorwort(); }, window.VU_VW);
+
   /* Bücher */
   (window.VAE_BUECHER || []).forEach(function(g){ (g.items || []).forEach(function(b){ add(b.name, "Bücher", "#buecher", [b.name, b.sub]); }); });
 });

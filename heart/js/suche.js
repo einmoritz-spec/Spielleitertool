@@ -23,6 +23,7 @@ GSuche.add(function(add){
   if(window.falloutListe){
     try{ falloutListe().forEach(function(f){ add("Fallout › " + f.t + " (" + f.r + ", " + f.s + ")", "Fallout", "#fallout", [f.t, f.tag, f.html]); }); }catch(e){}
   }
+  if(window.HT_GEDICHT) add("Gedicht", "Start", "#", window.HT_GEDICHT);
   var D = window.HT_DAGGER || {};
   var I = D.intro || {};
   Object.keys(I).forEach(function(k){ var s = I[k]; if(!s || typeof s !== "object") return;

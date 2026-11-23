@@ -47,7 +47,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font:400 16px/1.42 var(--body);color:var(--tinte);background:var(--grund) url(img/tex/dunkel-kachel.webp) center top/1200px auto repeat;-webkit-font-smoothing:antialiased}
+body{font:400 16px/1.42 var(--body);color:var(--tinte);background:var(--grund) url(img/tex/dunkel-kachel.webp) center top/1100px auto repeat;-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit}
 
 /* ── Kopfzeile: schwarzer Streifen wie der Buchrücken ───────────────────────── */

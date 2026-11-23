@@ -77,7 +77,9 @@ function ueberblick(K){
   var gar = (K.gar || []).map(function(g){ return '<div class="dgar"><b>Gars Notiz ' + esc(g.n) + "</b> " + md(g.x) + "</div>"; }).join("");
   var leg = (K.legenden || []).length ? '<h2 class="dh2">Legenden und Gerüchte</h2><ul class="lst">' + K.legenden.map(function(l){ return "<li>" + md(l) + "</li>"; }).join("") + "</ul>" : "";
   var vs = (K.verse || []).length ? '<p class="kurs dverse">' + K.verse.map(esc).join("<br>") + "</p>" : "";
-  return '<div class="wrap"><div class="seite dkseite"><h1 class="h1">' + esc(K.t) + pg(K.p) + "</h1>" + dbild(DART.kap[K.n], "r gross") + vs + '<div class="flach">' + bls(K.ueberblick) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
+  var vh = (K.verse || []).length ? '<div class="dhv' + (K.verse.join("").length > 800 ? " lang" : "") + '">' + K.verse.map(function(v){ var c = /^[–—-]\s/.test(v) || /^\*\*.*\*\*$/.test(v.trim()); v = v.trim().replace(/^\*+|\*+$/g, ""); return c ? "<cite>" + md(v) + "</cite>" : "<p>" + md(v) + "</p>"; }).join("") + "</div>" : "";
+  var hero = '<div class="dhero" style="background-image:url(' + IMG("dagger/kap" + K.n + "-hero") + ')"><div class="dhtx"><h1><small>Kapitel ' + K.n + ":</small>" + esc(K.t) + "</h1>" + vh + "</div></div>";
+  return hero + '<div class="wrap dhwrap"><div class="seite dkseite"><h2 class="dh2 dueb">Überblick' + pg(K.p) + '</h2><div class="flach">' + bls(K.ueberblick) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
 }
 function inszen(K){
   var h = (K.inszenierung || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + Object.keys(DART.ins).map(function(k){ return a.t.indexOf(k) >= 0 ? dbild(DART.ins[k], "r klein") : ""; }).join("") + bls(a.b) + (a.figuren || []).map(fig).join("") + "</div>"; }).join("");

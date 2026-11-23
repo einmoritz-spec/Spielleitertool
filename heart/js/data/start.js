@@ -17,8 +17,8 @@ var HT_INHALT = [
  ],[
   {t:"Spielleitung", p:104, r:"nach/spielleitung", z:[["Tipps für Heart",109],["Landmarken und Delves",118]]},
   {t:"Die Welt von Heart", p:121, r:"nach/welt", z:[["Gesellschaft",121],["Geographie des Herzens",126]]},
-  {t:"Landmarken", p:130, r:"nach/landmarken", z:[["Delves erstellen",133]]},
-  {t:"Gegner", p:175, r:"nach/gegner", z:[["Legendäre Gegner",200]]}
+  {t:"Landmarken", p:130, r:"lm", z:[["Delves erstellen",133,"nach/spielleitung/landmarken-info/delves"]]},
+  {t:"Gegner", p:175, r:"gegner", z:[["Legendäre Gegner",200,"gegner"]]}
  ]
 ];
 var HT_KLASSEN = [["cleaver","Cleaver"],["deadwalker","Deadwalker"],["deep-apiarist","Deep Apiarist"],["heretic","Heretic"],["hound","Hound"],["incarnadine","Incarnadine"],["junk-mage","Junk Mage"],["vermissian-knight","Vermissian Knight"],["witch","Witch"]];

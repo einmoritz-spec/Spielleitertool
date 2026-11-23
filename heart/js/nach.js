@@ -46,7 +46,7 @@ VIEWS.nach = function(a){
   var xid = a[2], X = null; S.secs.forEach(function(s){ if(s.id === xid) X = s; }); if(!X) X = S.secs[0];
   var unter = C.subs.length > 1 ? '<div class="unter">' + C.subs.map(function(s){ return '<a class="' + (s === S ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + s.id + '\')">' + esc(s.t) + "</a>"; }).join("") + "</div>" : "";
   var side = S.secs.length > 1, zu = !!ST.zu;
-  var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><div class="vert">' + esc(S.t) + '</div><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
+  var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
     S.secs.map(function(s){ return '<li class="' + (s === X ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + s.id + '\')">' + esc(kurz(s.t)) + "</li>"; }).join("") + "</ul></aside>" : "";
   if(X.kl){ var kin = '<div class="inh kl"><div class="blatt seite dicht">' + klasseHtml(X) + "</div></div>"; return head + unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + rk + kin + "</div>"; }
   var inh = '<div class="inh"><div class="blatt seite dicht"><h1 class="h1">' + esc(X.t) + (X.p ? pgl(X.p, X.bl ? X.bl + " S. " + X.p : null, X.bk) : "") + "</h1>" + '<div class="flach">' + X.b.map(blk).join("") + "</div></div></div>";

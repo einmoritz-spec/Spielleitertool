@@ -31,7 +31,7 @@ function viewStart(){
         (k.z.length ? "<ul>" + k.z.map(function(z){ return '<li onclick="go(\'' + (z[2] || k.r) + '\')">' + esc(z[0]) + "<i>S. " + z[1] + "</i></li>"; }).join("") + "</ul>" : "") + "</div>";
     }).join("") + "</div>";
   }).join("");
-  var kl = HT_KLASSEN.map(function(c){ return '<a onclick="go(\'nach/klassen/' + c[0] + '\')"><img src="' + IMG("klasse/" + c[0]) + '" alt=""><span>' + esc(c[1]) + "</span></a>"; }).join("");
+  var kl = HT_KLASSEN.map(function(c){ return '<a onclick="go(\'nach/charaktere/klassen/' + c[0] + '\')"><img src="' + IMG("klasse/" + c[0]) + '" alt=""><span>' + esc(c[1]) + "</span></a>"; }).join("");
   return '<div class="buehne"><div class="quer"><img src="' + IMG("start/querschnitt") + '" alt="">' +
     '<div class="ab"><button class="go" onclick="go(\'nach/einfuehrung\')"><span class="t">In die Tiefe</span></button>' +
     '<button class="kamp" onclick="go(\'dagger\')"><img src="' + IMG("dagger/cover") + '" alt=""><span><b>Dagger in the Heart</b><small>Kampagne</small></span><span class="pf">→</span></button>' +

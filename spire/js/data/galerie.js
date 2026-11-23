@@ -28,6 +28,10 @@ window.SP_GALERIE = [
   {t:"Midwife, S. 60 · Bonchance, QS S. 35", s:"klasse/midwife"},
   {t:"Vermissian Sage, S. 64 · Derwent, QS S. 29", s:"klasse/vermissian-sage"},
   {t:"Gutter Cleric · Alabast Defoy, QS S. 27", s:"klasse/gutter-cleric"},
+  {t:"Blood-Witch", s:"klasse/blood-witch"},
+  {t:"Inksmith", s:"klasse/inksmith"},
+  {t:"Mortician Executioner", s:"klasse/mortician-executioner"},
+  {t:"Shadow Agent", s:"klasse/shadow-agent"},
   {t:"S. 68 (zwischen Klassen und Extra-Fortschritten)", s:"kapitel/zwischen-klassen-extra-S068"}]},
  {g:"Domänen der Stadt", id:"domaenen", x:[
   {t:"Akademie, S. 84", s:"kapitel/akademie-S084"},

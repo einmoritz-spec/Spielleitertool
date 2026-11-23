@@ -52,12 +52,13 @@ function klFort(F, intro, hinweis, boxen, buch){
 function klById(id){ var r = null; (window.SP_KLASSE || []).forEach(function(k){ if(k.id === id) r = k; }); return r; }
 function klKurz(k){ var s = String(k.intro[0] || "").replace(/\*/g, ""), m = s.match(/^.{20,70}?(?:[ ,](?=\S))/); var t = s.length > 70 ? s.slice(0, 70).replace(/\s+\S*$/, "") + " …" : s; return t; }
 
+var MG_BILD = ["gutter-cleric", "blood-witch", "inksmith", "mortician-executioner", "shadow-agent"];
 /* ---------- Übersicht (Entwurf 7) ---------- */
 function klKachel(k){
   return '<div class="kl-t" onclick="go(\'nach/klassen/' + k.id + '\')"><span class="im"><img src="' + IMG("klasse/" + k.id) + '" alt="" loading="lazy"></span><span class="tx"><b>' + esc(k.t) + '</b><small>' + esc(klKurz(k)) + '</small>' + pgl(k.p) + '</span></div>';
 }
 function klMgKachel(id){
-  var M = SP_MG[id], bild = id === "gutter-cleric", ini = M.t.split(/[\s-]+/).map(function(w){ return w.charAt(0); }).join("").slice(0, 2).toUpperCase();
+  var M = SP_MG[id], bild = MG_BILD.indexOf(id) >= 0, ini = M.t.split(/[\s-]+/).map(function(w){ return w.charAt(0); }).join("").slice(0, 2).toUpperCase();
   var kurz = String(M.intro[0] || "").replace(/\*/g, ""); kurz = kurz.length > 70 ? kurz.slice(0, 70).replace(/\s+\S*$/, "") + " …" : kurz;
   return '<div class="kl-t mg" onclick="go(\'nach/klassen/' + id + '\')"><span class="im">' + (bild ? '<img src="' + IMG("klasse/" + id) + '" alt="" loading="lazy">' : '<i>' + ini + '</i>') + '</span><span class="tx"><b>' + esc(M.t) + '</b><small>' + esc(kurz) + '</small>' + pgl(M.p, "gm") + '</span></div>';
 }
@@ -99,7 +100,7 @@ function klMgKarten(L){
   return '<div class="kfs">' + L.map(function(a){ return klKarte(a, "gm"); }).join("") + '</div>';
 }
 function klMgSeite(id){
-  var M = SP_MG[id], K = klById(id), bild = (K || id === "gutter-cleric") ? IMG("klasse/" + id) : "";
+  var M = SP_MG[id], K = klById(id), bild = (K || MG_BILD.indexOf(id) >= 0) ? IMG("klasse/" + id) : "";
   var nu = M.nuetz.length ? '<div class="violett kl-nuetz"><h4>Nützliche Elemente</h4><ul class="pkt">' + M.nuetz.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + '</ul></div>' : '';
   var kopf = '<div class="kp-kopf' + (bild ? '' : ' ohne') + '">' + (bild ? '<img class="kp-bild" src="' + bild + '" alt="" onclick="zoom(this.src)">' : '') + '<div class="kp-tx">' + (K ? klModus(id, true) : '') +
     '<h1 class="titel">' + esc(M.t) + pgl(M.p, "gm") + '</h1>' + M.intro.map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") + '</div></div>' + nu;

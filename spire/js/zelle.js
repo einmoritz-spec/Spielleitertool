@@ -4,7 +4,7 @@
    Spielstand: ST.figuren (siehe plan/SPIRE_PLAN.md, Abschnitt 5), ST.weniger. Das Fallout-Panel (ZP) wird nicht gespeichert. */
 var ZR = ["blut", "verstand", "silber", "schatten", "ruf"];
 var ZBOX = {einzel:3, figur:3, strasse:4, stadt:5};   /* Stress-Kästchen je Bindungsebene (Entwurf 4) */
-var KLASSEN_BILD = ["azurite", "bound", "carrion-priest", "firebrand", "gutter-cleric", "idol", "knight", "lajhan", "masked", "midwife", "vermissian-sage"];
+var KLASSEN_BILD = ["azurite", "bound", "carrion-priest", "firebrand", "gutter-cleric", "idol", "knight", "lajhan", "masked", "midwife", "vermissian-sage", "blood-witch", "inksmith", "mortician-executioner", "shadow-agent"];
 var KLASSEN_LISTE = ["Azurite", "Bound", "Carrion-Priest", "Firebrand", "Idol", "Knight", "Lajhan", "Masked", "Midwife", "Vermissian Sage", "Blood-Witch", "Gutter Cleric", "Inksmith", "Mortician Executioner", "Shadow Agent"];
 var ZP = null;   /* Fallout-Panel: {fid, w10, wid, zwei, pick:[], erzwingen} */
 

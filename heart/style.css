@@ -438,3 +438,4 @@ body{background-attachment:fixed}
 .dfo p{margin:0 0 .4em}.dfo b{color:#5e0f0c}.dfon{font-variant:small-caps;font-size:1.08em;letter-spacing:.02em}.dfo .lst li{font-size:15px}
 .dkas{border-left:4px solid var(--platte);background:#7a17120b;padding:10px 16px 8px;margin:12px 0;font:16px/1.5 var(--body)}.dkas h4{font:400 19px var(--head);color:var(--platte);text-transform:uppercase;margin:0 0 4px}.dkas p{margin:0 0 .5em}
 .dbild.r.weit{width:min(58%,560px)}
+.dkfrei{grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}

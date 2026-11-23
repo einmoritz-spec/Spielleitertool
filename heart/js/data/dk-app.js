@@ -871,7 +871,7 @@ HT_DAGGER.app = {
 "notiz": "Elsewhen, in dem Aramos gewonnen hat"
 },
 {
-"t": "Das Hohle Herz (The Hollow Heart)",
+"t": "Das Hohle Herz (The Hohles Herz)",
 "ref": "Dagger S. 114",
 "dom": "Desolate, Cursed",
 "kap": "5",
@@ -971,7 +971,7 @@ HT_DAGGER.app = {
 "Delve Jinx (Echo) – S. 59",
 "Vom Seilsteg gestürzt (Fortune) – S. 29",
 "Flensling Eggs (Blood/Fortune) – S. 81",
-"Hollow Heart (Echo) – S. 55",
+"Hohles Herz (Echo) – S. 55",
 "Nahtoderfahrung (Echo) – S. 55",
 "On Fire (Blood) – S. 87"
 ]

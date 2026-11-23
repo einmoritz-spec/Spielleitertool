@@ -19,6 +19,7 @@ function bl(b){
   }
   if(b && typeof b === "object" && b.t === "kasten") return '<div class="dkas">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (b.b || [b.x]).map(bl).join("") + "</div>";
   if(b && typeof b === "object" && b.t === "zettel") return '<div class="dzettel">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (b.x || b.b || []).map(bl).join("") + "</div>";
+  if(b && typeof b === "object" && b.t === "zettelstapel") return '<div class="dzst">' + b.x.map(function(t, i){ return '<div class="dzs z' + (i + 1) + '"><span>' + esc(t) + "</span></div>"; }).join("") + "</div>";
   return blk(b);
 }
 function bls(a){ return (a || []).map(bl).join(""); }

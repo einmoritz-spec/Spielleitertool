@@ -629,3 +629,13 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 .tabs a.on{background:transparent;color:#f2e9da;box-shadow:inset 0 -2px 0 #b5463a}
 .unter a{font-size:13px;color:#8f7d6c}
 .unter a.on{color:#f2e9da;box-shadow:inset 0 -1px 0 #b5463a}
+
+.dzst{position:relative;width:min(430px,100%);height:480px;margin:14px 0 8px 6px}
+.dzs{position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Caveat,cursive;background:center/100% 100% no-repeat;filter:drop-shadow(0 3px 5px #0006)}
+.dzs span{display:block;padding:0 9%;position:relative;z-index:1}
+.dzs.z1{left:0;top:0;width:88%;height:150px;background-image:url(img/dagger/zettel/aramos-zettel-1.webp);transform:rotate(-1.5deg);color:#1c2f78;font-size:38px;line-height:.95}
+.dzs.z1:before{content:"";position:absolute;left:34%;top:14%;width:34%;height:70%;background:url(img/dagger/zettel/aramos-stempel.webp) center/contain no-repeat;opacity:.35}
+.dzs.z2{left:-6px;top:128px;width:98%;height:170px;background-image:url(img/dagger/zettel/aramos-zettel-2.webp);transform:rotate(1deg);color:#7a1218;font-size:34px;line-height:1}
+.dzs.z2:before{content:"";position:absolute;left:6%;top:10%;width:20%;height:80%;background:url(img/dagger/zettel/aramos-daumen.webp) center/contain no-repeat;opacity:.5}
+.dzs.z3{left:60px;top:272px;width:calc(100% - 60px);height:170px;background-image:url(img/dagger/zettel/aramos-zettel-3.webp);transform:rotate(-1deg);color:#16110c;font-size:36px;line-height:1;font-weight:700}
+.dzs.z3:after{content:"";position:absolute;right:0;top:0;width:55%;height:60%;background:url(img/dagger/zettel/aramos-blut.webp) right top/cover no-repeat;opacity:.8;mix-blend-mode:multiply}

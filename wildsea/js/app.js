@@ -27,15 +27,15 @@ var START_EXT = [
  {t:"Die erdrückenden Tiefen", k:"Storm and Root · S. 41", img:"sr/tiefe-kapitelbild-lowport-bernsteinkuppel", go:"nach/wildsee/sr-tiefe-kernkonzepte"}
 ];
 var stN = 0;
-function stPanel(img, go, t, k){ return '<a class="st-p" tabindex="0" style="--n:' + (stN++) + '" onclick="go(\'' + go + '\')" onkeydown="if(event.key===\'Enter\')go(\'' + go + '\')"><span class="i" style="background-image:url(' + IMG(img) + ')"></span><span class="t"><b>' + esc(t) + '</b>' + (k ? '<em class="pg">' + esc(k) + '</em>' : '') + '<u></u></span></a>'; }
+function stPanel(img, go, t, k){ return '<a class="st-p" tabindex="0" style="--n:' + (stN++) + '" onclick="go(\'' + go + '\')" onkeydown="if(event.key===\'Enter\')go(\'' + go + '\')"><span class="i" style="background-image:url(' + IMG(img) + ')"></span><span class="t"><b>' + esc(t) + '</b>' + (k ? '<em>' + esc(k) + '</em>' : '') + '<u></u></span></a>'; }
 function stStrip(cls, panels){ stN = 0; return '<div class="st-strip ' + cls + '">' + panels + '</div>'; }
 function viewStart(){
-  var vor = stStrip("big", KACHELN.map(function(k){ return stPanel(k.img, k.go, k.t, k.k); }).join(""));
+  var vor = stStrip("s", KACHELN.map(function(k){ return stPanel(k.img, k.go, k.t, k.k); }).join(""));
   var reichCard = function(r){ return stPanel("reich/" + r.id, "reich/" + r.id, r.t.replace(/^The /, "").replace(/^Weitere /, ""), r.p ? "S. " + r.p : ""); };
   var rc = stStrip("m", WS_REICHE.filter(function(r){ return !r.q; }).map(reichCard).join(""));
   var rsr = stStrip("m", WS_REICHE.filter(function(r){ return r.q === "sr"; }).map(reichCard).join(""));
   var szImg = {"red-right-hand":"szen/rrh/hetterjin-turm-titel", "one-armed-scissor":"szen/oas/titel-hanging-manor"};
-  var sc = stStrip("big", WS_SZENARIEN.filter(function(s){ return s.id && szImg[s.id]; }).map(function(s){ return stPanel(szImg[s.id], "szenario/" + s.id, s.t, "Szenario"); }).join(""));
+  var sc = stStrip("big", WS_SZENARIEN.filter(function(s){ return s.id && szImg[s.id]; }).map(function(s){ return stPanel(szImg[s.id], "szenario/" + s.id, s.t, ""); }).join(""));
   var ext = stStrip("m", START_EXT.map(function(e){ return stPanel(e.img, e.go, e.t, e.k); }).join(""));
   var tools = '<button onclick="go(\'bogen\')">Charakterbogen</button><button onclick="go(\'schiff\')">Schiffsbogen</button><button onclick="go(\'schirm\')">Spielleiterschirm</button><button onclick="go(\'galerie\')">Galerie</button>' + (typeof viewGarten === "function" ? '<button onclick="go(\'garten\')">Gartenbogen</button>' : '');
   return '<div class="st"><div class="st-hero"><img src="img/hero.webp" alt=""><h1>The Wildsea</h1></div>' +

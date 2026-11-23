@@ -439,3 +439,11 @@ body{background-attachment:fixed}
 .dkas{border-left:4px solid var(--platte);background:#7a17120b;padding:10px 16px 8px;margin:12px 0;font:16px/1.5 var(--body)}.dkas h4{font:400 19px var(--head);color:var(--platte);text-transform:uppercase;margin:0 0 4px}.dkas p{margin:0 0 .5em}
 .dbild.r.weit{width:min(58%,560px)}
 .dkfrei{grid-template-columns:repeat(auto-fill,minmax(400px,1fr))}
+
+.dhero{position:relative;height:auto!important;min-height:0!important;aspect-ratio:1870/1210;background-size:100% 100%!important;display:block!important;box-shadow:none}.dhero::before{display:none}
+.dhbox{position:absolute;color:#ece4d6;text-shadow:0 1px 6px #000}.dhbox.ac{text-align:center}.dhbox.al{text-align:left}.dhbox.vl .dhv{text-align:left}
+.dhbox h1{font:400 3.3vw/1 var(--head);letter-spacing:.07em;text-transform:uppercase;color:#f4ecdf;margin:0 0 1.6vw}.dhbox h1 small{display:block;font-size:.5em;letter-spacing:.14em;color:#e9dfcfdd;margin-bottom:.35vw}
+.dhbox .dhv{font:italic 500 1.02vw/1.45 var(--body)}.dhbox .dhv p{margin:0 0 .6em}.dhbox .dhv cite{display:block;font-style:normal;font-size:.95em;color:#d9b9a8;margin:0 0 1.1em;text-align:inherit}
+.dhbox.al .dhv cite{text-align:left}
+.dhwrap{margin-top:-4vw}
+@media(max-width:1000px){.dhero{aspect-ratio:auto;background-size:100% auto!important;background-repeat:no-repeat;padding-top:64.7vw}.dhbox{position:static;width:auto!important;padding:0 18px 14px;background:#151110}.dhbox h1{font-size:34px}.dhbox .dhv{font-size:16px}.dhwrap{margin-top:0}}

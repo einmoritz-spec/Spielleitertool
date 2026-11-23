@@ -88,8 +88,11 @@ function ueberblick(K){
   var gar = (K.gar || []).map(function(g){ return '<div class="dgar"><b>Gars Notiz ' + esc(g.n) + "</b> " + md(g.x) + "</div>"; }).join("");
   var leg = (K.legenden || []).length ? '<h2 class="dh2">Legenden und Gerüchte</h2><ul class="lst">' + K.legenden.map(function(l){ return "<li>" + md(l) + "</li>"; }).join("") + "</ul>" : "";
   var vs = (K.verse || []).length ? '<p class="kurs dverse">' + K.verse.map(esc).join("<br>") + "</p>" : "";
-  var vh = (K.verse || []).length ? '<div class="dhv' + (K.verse.join("").length > 800 ? " lang" : "") + '">' + K.verse.map(function(v){ var c = /^[–—-]\s/.test(v) || /^\*\*.*\*\*$/.test(v.trim()); v = v.trim().replace(/^\*+|\*+$/g, ""); return c ? "<cite>" + md(v) + "</cite>" : "<p>" + md(v) + "</p>"; }).join("") + "</div>" : "";
-  var hero = '<div class="dhero" style="background-image:url(' + IMG("dagger/kap" + K.n + "-hero") + ')"><div class="dhtx"><h1><small>Kapitel ' + K.n + ":</small>" + esc(K.t) + "</h1>" + vh + "</div></div>";
+  var HL = {1:{t:[4,5,44,"c"], v:[53,8.5,31,"l"]}, 2:{t:[57,37,32,"c"], v:[58.5,53,29,"l"]}, 3:{t:[56,9,34,"c"]}, 4:{t:[56,9,34,"c"]}, 5:{t:[56,9,34,"c"]}, 6:{t:[56,9,34,"c"]}, 7:{t:[56.5,12,33,"c"], va:"l"}}[K.n] || {t:[56,9,34,"c"]};
+  var vh = (K.verse || []).length ? '<div class="dhv">' + K.verse.map(function(v){ var c = /^[–—-]\s/.test(v) || /^\*\*.*\*\*$/.test(v.trim()); v = v.trim().replace(/^\*+|\*+$/g, ""); return c ? "<cite>" + md(v) + "</cite>" : "<p>" + md(v) + "</p>"; }).join("") + "</div>" : "";
+  function box(p, inner, cls){ return '<div class="dhbox ' + (cls || "") + " a" + p[3] + '" style="left:' + p[0] + "%;top:" + p[1] + "%;width:" + p[2] + '%">' + inner + "</div>"; }
+  var tit = '<h1><small>Kapitel ' + K.n + ":</small>" + esc(K.t) + "</h1>";
+  var hero = '<div class="dhero" style="background-image:url(' + IMG("dagger/kap" + K.n + "-hero") + ')">' + (HL.v ? box(HL.t, tit) + box(HL.v, vh, "nurv") : box(HL.t, tit + vh, HL.va === "l" ? "vl" : "")) + "</div>";
   return hero + '<div class="wrap dhwrap"><div class="seite dkseite"><h2 class="dh2 dueb">Überblick' + pg(K.p) + '</h2><div class="flach">' + bls(K.ueberblick) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
 }
 function inszen(K){

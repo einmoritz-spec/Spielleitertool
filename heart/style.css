@@ -614,9 +614,18 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 .bereich.zu{grid-template-columns:30px minmax(0,1fr)}.ruecken.zu .zubtn{left:2px}
 
 .inh .h1.nxt{margin-top:30px}
-.ruecken ul{padding:48px 12px 14px 8px;display:flex;flex-direction:column;gap:8px}
-.ruecken li{padding:15px 14px 14px 16px;border-left:3px solid transparent;background:rgba(255,255,255,.04);line-height:1.2;font-size:17px}
-.ruecken li:hover{background:rgba(255,255,255,.09)}
-.ruecken li.on{border-left-color:#ff8a7a;background:var(--platte)}
+.bereich{grid-template-columns:212px minmax(0,1fr)}
+.bereich.zu{grid-template-columns:46px minmax(0,1fr)}
+.ruecken ul{padding:44px 10px 14px 6px;display:flex;flex-direction:column;gap:2px}
+.ruecken li{padding:9px 10px 8px 12px;border-left:2px solid transparent;background:transparent;line-height:1.2;font-size:13.5px;letter-spacing:.06em;color:#9c8a76}
+.ruecken li:hover{background:rgba(255,255,255,.05);color:#e8dccb}
+.ruecken li.on{border-left-color:#b5463a;background:rgba(255,255,255,.07);color:#f2e9da}
 .ruecken li .rt{display:block}
-.ruecken li .rt.n2{font-size:14px;letter-spacing:.05em;margin-top:7px;padding-top:7px;border-top:1px solid rgba(255,255,255,.14);opacity:.75}
+.ruecken li .rt.n2{font-size:12px;letter-spacing:.05em;margin-top:5px;padding-top:0;border-top:0;opacity:.8}
+/* Minimalistisch: dezente Markierung statt roter Flächen */
+.tabs{border-bottom:1px solid #2a1c14}
+.tabs a{font-size:14.5px;letter-spacing:.08em;padding:12px 14px 11px;color:#a8957f}
+.tabs a:hover{color:#f2e9da}
+.tabs a.on{background:transparent;color:#f2e9da;box-shadow:inset 0 -2px 0 #b5463a}
+.unter a{font-size:13px;color:#8f7d6c}
+.unter a.on{color:#f2e9da;box-shadow:inset 0 -1px 0 #b5463a}

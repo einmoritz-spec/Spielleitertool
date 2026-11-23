@@ -545,3 +545,41 @@ body.bo{background:#0b0b0c}
 .bolkopf.ohne{grid-template-columns:minmax(0,1fr)}.bokarte.breit{grid-column:1/-1}.bokarte.breit .kkarten:not(.n4){grid-template-columns:repeat(3,1fr)}.bokarte .bobanner{width:min(36%,300px)}.bokarte .kkarte .platte{font-family:"HT BoldSans"}
 .bogrid.zwei{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:1100px){.bogrid.zwei{grid-template-columns:1fr}}
 .bogrid.drei{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:1100px){.bogrid.drei{grid-template-columns:1fr}}.bokarte .bgrid{clear:both}
+
+/* ---------- Doors to Elsewhere ---------- */
+body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
+.do .tabs{background:#0b1f20}.do .tabs a.on{background:#e86f86}
+.donacht{display:flex;border:1px solid #e86f8688;margin-right:8px;cursor:pointer;background:none;padding:0}.donacht span{font:400 14px var(--head);letter-spacing:.08em;text-transform:uppercase;color:#cfe;padding:5px 12px 3px}.donacht span.on{background:#e86f86;color:#0b1f20}
+.dowrap{max-width:1500px;margin:0 auto;padding:18px 22px 60px;color:#eaf3ef;font:17px/1.55 var(--body)}
+.dowrap p{margin:0 0 .7em}
+.dowrap h1,.dowrap h2,.dowrap h3,.dowrap h4{font-family:var(--head);text-transform:uppercase;letter-spacing:.05em}
+.doh1{font-size:44px;line-height:1;color:#fff;margin:0 0 12px}.doh1 .pgl,.doh2 .pgl{font-size:13px;color:#9cc;letter-spacing:0}
+.doh2{font-size:30px;color:#e86f86;margin:26px 0 8px}.doeinl{font-style:italic;color:#bfd8d2}.doeinl2{max-width:1100px}
+.dohero{display:grid;grid-template-columns:minmax(240px,360px) 1fr;gap:28px;align-items:start;margin-bottom:22px}.dohero>img{width:100%;box-shadow:0 10px 30px #000a;cursor:zoom-in}
+.dohtx h1{font-size:64px;line-height:.95;color:#fff;margin:0 0 10px;text-shadow:0 3px 0 #e86f86}
+.doverse{font:400 24px/1.2 var(--head);text-transform:uppercase;letter-spacing:.08em;color:#e86f86;margin-bottom:16px}.doverse p{margin:0 0 4px}
+.doein{font-size:18px}
+.dogrid{display:grid;gap:16px;align-items:start;margin-bottom:16px}.dogrid.zwei{grid-template-columns:repeat(2,minmax(0,1fr))}.dogrid.drei{grid-template-columns:repeat(3,minmax(0,1fr))}.dogrid.vier{grid-template-columns:repeat(4,minmax(0,1fr))}
+.dokarte,.dodim,.dolm{background:#f4ede6;color:#1b2526;padding:14px 18px 10px;border-top:6px solid #e86f86;font-size:16px;margin-bottom:16px}
+.dogrid>.dokarte,.dogrid>.dodim,.dogrid>.dolm{margin-bottom:0}
+.dokarte h3,.dodim h3{font-size:22px;color:#1f6f6d;margin:0 0 8px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}.dokarte h3 .pgl,.dodim h3 .pgl,.dolm h3 .pgl{font:12px var(--body);color:#777;text-transform:none;letter-spacing:0}
+.dokarte .kkarte .platte{background:#1f6f6d}.dokarte .schwarz{background:#123334}.dokarte.zenit{border-top-color:#1f6f6d}
+.dostadt{display:grid;grid-template-columns:minmax(260px,560px) 1fr;gap:26px;align-items:start;background:#f4ede6;color:#1b2526;padding:18px;border-top:8px solid #e86f86;margin-bottom:16px}
+.dostadt.nacht{grid-template-columns:minmax(220px,360px) 1fr minmax(300px,420px);background:#0d1416;color:#dfe9e6;border-top-color:#1f6f6d}
+.dostbild{width:100%;cursor:zoom-in}.dosttx h1{font-size:44px;color:#1f6f6d;margin:0 0 10px}.dostadt.nacht h1{color:#e86f86}.dostadt.nacht .schwarz{background:#1f2d30}
+.dostat{background:#f4ede6;color:#1b2526;padding:12px 14px}.dostat .gvs{background:#e4efec}.dostat .gv{padding:5px 8px;font:15px/1.35 var(--body)}.dostat .gv:nth-child(even){background:#d6e6e2}.dostat .platte{background:#1f6f6d}
+.dolm h3{margin:0 0 8px;display:flex;gap:10px;align-items:baseline}.doplatte{background:#e86f86;color:#fff;font:400 22px var(--head);padding:4px 10px 2px}
+.dolw{font-size:15px;line-height:1.4;margin-bottom:10px}.dolw b{color:#1f6f6d;font-variant:small-caps;font-size:1.06em}
+.dolm.breit{grid-column:1/-1}.dolm.breit .dolmt{column-count:2;column-gap:28px}
+.doh4{font-size:20px;color:#1f6f6d;margin:14px 0 8px}.dowaren{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.doware{background:#123334;color:#e8f2ef;padding:10px 12px;font-size:15px}.doware b{font:400 18px var(--head);text-transform:uppercase;letter-spacing:.04em;color:#ffc2cd}.doware i{display:block;font-weight:700;margin:2px 0 4px}.doware p{margin:0}
+.dokost{float:right;font:400 13px var(--head);background:#e86f86;color:#123;padding:2px 7px 0}
+.dotab{background:#123334;color:#e8f2ef;padding:12px 16px 8px;font-size:15px}.dotab h4{font-size:18px;color:#ffc2cd;margin:0 0 6px}.dotab ol{margin:0;padding-left:26px}.dotab li{margin-bottom:3px}
+.dolm .dotab{float:right;width:min(46%,380px);margin:0 0 10px 18px}
+.dores{font-size:15px;border-left:3px solid #e86f86;padding-left:10px}
+.dofr{display:grid;grid-template-columns:minmax(0,3fr) minmax(320px,2fr);gap:26px;align-items:start}
+.dofbild{float:right;width:min(44%,420px);margin:0 0 12px 20px;cursor:zoom-in}
+.dopers{background:#f4ede6;color:#1b2526;padding:12px 16px;border-top:6px solid #e86f86;font-size:16px;margin-bottom:14px}.dopers h3{font-size:20px;color:#1f6f6d;margin:0 0 8px}
+.dofr .schwarz{background:#123334;margin-bottom:12px}.dofr .dfo{margin-bottom:12px}
+.dodimkopf{display:grid;grid-template-columns:1fr minmax(240px,360px);gap:26px;align-items:start}.dodimkopf>img{width:100%;cursor:zoom-in}.dodimkopf .schwarz{background:#123334}
+@media(max-width:1100px){.dohero,.dostadt,.dostadt.nacht,.dofr,.dodimkopf{grid-template-columns:1fr}.dogrid.zwei,.dogrid.drei,.dogrid.vier{grid-template-columns:1fr}.dolm.breit .dolmt{column-count:1}}

@@ -34,7 +34,9 @@ function viewStart(){
   var kl = HT_KLASSEN.map(function(c){ return '<a onclick="go(\'nach/klassen/' + c[0] + '\')"><img src="' + IMG("klasse/" + c[0]) + '" alt=""><span>' + esc(c[1]) + "</span></a>"; }).join("");
   return '<div class="buehne"><div class="quer"><img src="' + IMG("start/querschnitt") + '" alt="">' +
     '<div class="ab"><button class="go" onclick="go(\'nach/einfuehrung\')"><span class="t">In die Tiefe</span></button>' +
-    '<button class="kamp" onclick="go(\'dagger\')"><img src="' + IMG("dagger/cover") + '" alt=""><span><b>Dagger in the Heart</b><small>Kampagne</small></span><span class="pf">→</span></button></div></div>' +
+    '<button class="kamp" onclick="go(\'dagger\')"><img src="' + IMG("dagger/cover") + '" alt=""><span><b>Dagger in the Heart</b><small>Kampagne</small></span><span class="pf">→</span></button>' +
+    '<button class="kamp" onclick="go(\'blackops\')"><img src="' + IMG("blackops/cover") + '" alt=""><span><b>Vermissian Black Ops</b><small>Einsätze in der Vermissian</small></span><span class="pf">→</span></button>' +
+    '<button class="kamp" onclick="go(\'doors\')"><img src="' + IMG("doors/cover") + '" alt=""><span><b>Doors to Elsewhere</b><small>Abenteuer</small></span><span class="pf">→</span></button></div></div>' +
     '<div class="rechts"><div class="seite"><div class="gedicht">' + HT_GEDICHT.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
     '<div class="inhalt">' + inh + '</div><div class="reihe">' + kl + "</div></div></div></div>";
 }

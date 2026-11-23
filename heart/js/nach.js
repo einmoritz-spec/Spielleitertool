@@ -43,15 +43,25 @@ VIEWS.nach = function(a){
   var head = tabsHtml(cid);
   if(!C){ var kk = null; HT_INHALT.forEach(function(c){ c.forEach(function(x){ if(x.r === "nach/" + cid) kk = x; }); }); return head + '<div class="wrap"><div class="seite"><h1 class="h1">' + esc(tab[1]) + (kk ? pgl(kk.p) : "") + "</h1></div></div>"; }
   var sid = a[1] || C.subs[0].id, S = C.subs.filter(function(s){ return s.id === sid; })[0] || C.subs[0];
-  var xid = a[2], X = null; S.secs.forEach(function(s){ if(s.id === xid) X = s; }); if(!X) X = S.secs[0];
+  var GR = secGroups(S), xid = a[2], G = GR.filter(function(g){ return g.secs.some(function(s){ return s.id === xid; }); })[0] || GR[0], X = G.secs[0];
   var unter = C.subs.length > 1 ? '<div class="unter">' + C.subs.map(function(s){ return '<a class="' + (s === S ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + s.id + '\')">' + esc(s.t) + "</a>"; }).join("") + "</div>" : "";
-  var side = S.secs.length > 1, zu = !!ST.zu;
+  var side = GR.length > 1, zu = !!ST.zu;
   var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
-    S.secs.map(function(s){ return '<li class="' + (s === X ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + s.id + '\')">' + esc(kurz(s.t)) + "</li>"; }).join("") + "</ul></aside>" : "";
+    GR.map(function(g){ return '<li class="' + (g === G ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + g.secs[0].id + '\')">' + g.secs.map(function(s){ return esc(kurz(s.t)); }).join(" · ") + "</li>"; }).join("") + "</ul></aside>" : "";
   if(X.kl){ var kin = '<div class="inh kl"><div class="blatt seite dicht">' + klasseHtml(X) + "</div></div>"; return head + unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + rk + kin + "</div>"; }
-  var inh = '<div class="inh"><div class="blatt seite dicht"><h1 class="h1">' + esc(X.t) + (X.p ? pgl(X.p, X.bl ? X.bl + " S. " + X.p : null, X.bk) : "") + "</h1>" + '<div class="flach">' + X.b.map(blk).join("") + "</div></div></div>";
+  var inh = '<div class="inh"><div class="blatt seite dicht">' + G.secs.map(function(x, i){ return '<h1 class="h1' + (i ? " nxt" : "") + '">' + esc(x.t) + (x.p ? pgl(x.p, x.bl ? x.bl + " S. " + x.p : null, x.bk) : "") + "</h1>" + '<div class="flach">' + x.b.map(blk).join("") + "</div>"; }).join("") + "</div></div>";
   return head + unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + rk + inh + "</div>";
 };
+/* Kurze Abschnitte teilen sich einen Seitenleisten-Eintrag und stehen rechts untereinander (Klassenseiten bleiben einzeln) */
+function secGroups(S){
+  var out = [], cur = null, w = 0;
+  S.secs.forEach(function(s){
+    var sw = s.kl ? 1e9 : JSON.stringify(s.b || []).length;
+    if(cur && !s.kl && !cur.secs[0].kl && w < 7000 && w + sw < 16000){ cur.secs.push(s); w += sw; }
+    else { cur = {secs:[s]}; out.push(cur); w = sw; }
+  });
+  return out;
+}
 function ruecken(){ ST.zu = !ST.zu; save(); render(); }
 document.addEventListener("keydown", function(e){
   if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey || document.querySelector(".modal,.gzoom")) return;
@@ -63,8 +73,8 @@ document.addEventListener("keydown", function(e){
   }
   if((e.key === "ArrowUp" || e.key === "ArrowDown") && C){
     var S = C.subs.filter(function(s){ return s.id === (h[2] || C.subs[0].id); })[0] || C.subs[0], i2 = 0;
-    S.secs.forEach(function(s, i){ if(s.id === h[3]) i2 = i; });
-    var m = S.secs[i2 + (e.key === "ArrowDown" ? 1 : -1)]; if(m){ go("nach/" + cid + "/" + S.id + "/" + m.id); e.preventDefault(); }
+    var GK = secGroups(S); GK.forEach(function(g, i){ if(g.secs.some(function(s){ return s.id === h[3]; })) i2 = i; });
+    var m = GK[i2 + (e.key === "ArrowDown" ? 1 : -1)]; if(m){ go("nach/" + cid + "/" + S.id + "/" + m.secs[0].id); e.preventDefault(); }
   }
   if(e.key === "[" ) ruecken();
 });

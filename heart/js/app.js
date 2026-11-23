@@ -37,8 +37,29 @@ function viewStart(){
     '<button class="kamp" onclick="go(\'dagger\')"><img src="' + IMG("dagger/cover") + '" alt=""><span><b>Dagger in the Heart</b><small>Kampagne</small></span><span class="pf">→</span></button>' +
     '<button class="kamp" onclick="go(\'blackops\')"><img src="' + IMG("blackops/cover") + '" alt=""><span><b>Vermissian Black Ops</b><small>Einsätze in der Vermissian</small></span><span class="pf">→</span></button>' +
     '<button class="kamp" onclick="go(\'doors\')"><img src="' + IMG("doors/cover") + '" alt=""><span><b>Doors to Elsewhere</b><small>Abenteuer</small></span><span class="pf">→</span></button></div></div>' +
-    '<div class="rechts"><div class="seite"><div class="gedicht">' + HT_GEDICHT.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
-    '<div class="inhalt">' + inh + '</div><div class="reihe">' + kl + "</div></div></div></div>";
+    startRechts(inh, kl) + "</div>";
+}
+function startRechts(inh, kl){
+  var V = (location.hash.split("/")[1] || "");
+  var G = HT_GEDICHT, alle = [];
+  HT_INHALT.forEach(function(c){ c.forEach(function(k){ alle.push(k); }); });
+  function sub(k){ return k.z.map(function(z){ return '<a onclick="event.stopPropagation();go(\'' + (z[2] || k.r) + '\')">' + esc(z[0]) + "</a>"; }).join(""); }
+  if(V === "a"){
+    var satz = G[3].split(". ");
+    return '<div class="rechts va"><div class="seite"><div class="vazit"><h2>' + esc(satz[0]) + ".</h2><p>" + esc(G[4]) + '</p><details><summary>…</summary>' + G.slice(0, 4).map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</details></div>" +
+      '<div class="inhalt">' + inh + '</div><div class="reihe">' + kl + "</div></div></div>";
+  }
+  if(V === "b"){
+    return '<div class="rechts vb"><div class="seite"><div class="vbtext"><p><span class="vbinit">' + esc(G[0].charAt(0)) + "</span>" + esc(G[0].slice(1)) + "</p>" + G.slice(1).map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
+      '<div class="vbkap">' + alle.map(function(k){ return '<div class="vbk" onclick="go(\'' + k.r + '\')"><div class="vbb"><b>' + esc(k.t) + "</b><i>S. " + k.p + '</i></div><div class="vbz">' + sub(k) + "</div></div>"; }).join("") + '</div><div class="reihe">' + kl + "</div></div></div>";
+  }
+  if(V === "c"){
+    var ord = ["Einführung","Spielweise","Charaktere","Regeln im Detail","Spielleitung","Die Welt von Heart","Landmarken","Gegner","Regelübersicht"], L = ord.map(function(t){ return alle.filter(function(k){ return k.t === t; })[0]; }).filter(Boolean);
+    alle.forEach(function(k){ if(L.indexOf(k) < 0) L.push(k); });
+    return '<div class="rechts vc"><div class="vckopf"><h2>' + esc(G[0].split(". ").slice(0, 2).join(". ")) + '.</h2><p>' + esc(G[2]) + '</p></div><div class="vcband">' + L.map(function(k, i){ var t = i / (L.length - 1); return '<div class="vcr' + (t > 0.4 ? " hell" : "") + '" style="--t:' + t.toFixed(2) + '" onclick="go(\'' + k.r + '\')"><b>' + esc(k.t) + "<i>S. " + k.p + '</i></b><div class="vcz">' + sub(k) + "</div></div>"; }).join("") + '</div><div class="vcreihe"><div class="reihe">' + kl + "</div></div></div>";
+  }
+  return '<div class="rechts"><div class="seite"><div class="gedicht">' + G.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
+    '<div class="inhalt">' + inh + '</div><div class="reihe">' + kl + "</div></div></div>";
 }
 VIEWS.start = viewStart;
 /* ---------- Render ---------- */

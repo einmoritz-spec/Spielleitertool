@@ -15,10 +15,14 @@ function beKopf(titel, p, aktiv){
   return '<div class="kopf bk"><h1>' + esc(titel) + '</h1>' + pgl(p) + '<span class="bl">' + l.map(function(x){ return '<a class="' + (x[0] === aktiv ? 'on' : '') + '" href="#n/' + x[0] + '">' + x[1] + '</a>'; }).join("") + '</span></div>';
 }
 function beUebersicht(){
-  return beKopf("Bestiarium", 82, "be") + '<div class="mk">' + DB_MON.map(function(m){
-    return '<a class="mt" href="#n/be/' + m.id + '"><div class="mi"><img src="img/monster/' + m.img + '.webp" alt="" loading="lazy"></div>' +
-      '<div class="mn">' + esc(m.t) + '</div><div class="ms">' + beKurz(m) + '</div></a>';
-  }).join("") + '</div>';
+  var gruppen = [], cur = null;
+  DB_MON.forEach(function(m){ var k = m.kat || "Grundregelwerk"; if(!cur || cur.k !== k){ cur = {k: k, l: []}; gruppen.push(cur); } cur.l.push(m); });
+  return beKopf("Bestiarium", 82, "be") + gruppen.map(function(g){
+    return (gruppen.length > 1 ? '<h2 class="mkat">' + esc(g.k) + '</h2>' : '') + '<div class="mk">' + g.l.map(function(m){
+      return '<a class="mt" href="#n/be/' + m.id + '"><div class="mi"><img src="img/monster/' + m.img + '.webp" alt="" loading="lazy"></div>' +
+        '<div class="mn">' + esc(m.t) + '</div><div class="ms">' + beKurz(m) + '</div></a>';
+    }).join("") + '</div>';
+  }).join("");
 }
 function beWerte(m){
   if(m.npc) return "";
@@ -28,6 +32,7 @@ function beWerte(m){
     '<div class="tpl">TP</div><div class="tpz"><button onclick="tpSet(\'' + m.id + '\',-1)">−</button><span class="tpn">' + v + '</span><button onclick="tpSet(\'' + m.id + '\',1)">+</button></div>' +
     (m.sonder || []).map(function(s){ return '<div class="so"><b>' + md(s[0]) + ':</b> ' + md(s[1]) + '</div>'; }).join("") + '</div>';
 }
+function zbKarte(t, a){ return a ? '<div class="karte zbk"><h3>' + t + '</h3>' + [].concat(a).map(function(x){ return '<p>' + md(x) + '</p>'; }).join("") + '</div>' : ""; }
 function beSeite(m){
   var i = DB_MON.indexOf(m), pv = DB_MON[i - 1], nx = DB_MON[i + 1];
   var links = '<div class="bl"><a href="#n/be">‹ Alle Monster</a></div>';
@@ -43,8 +48,8 @@ function beSeite(m){
     rechts = '<div class="band">Monsterangriffe</div>' + ntbl({id: "mon_" + m.id, head: ["W6", "Angriff"], rows: m.att.map(function(a, k){ return [lb[k], a]; })});
   }
   return beKopf(m.t, m.p, "") .replace('<span class="bl">', '<span class="bl" style="display:none">') +
-    '<div class="mp' + (m.npc ? ' npc' : '') + '"><div class="ml"><div class="mb"><img src="img/monster/' + m.img + '.webp" alt=""></div>' + beWerte(m) + '</div>' +
-    '<div class="mr"><div class="mtx">' + tx + '</div>' + rechts + '</div></div>' +
+    '<div data-mas="0" class="mp' + (m.npc ? ' npc' : '') + '"><div class="ml"><div class="mb"><img src="img/monster/' + m.img + '.webp" alt=""></div>' + beWerte(m) + zbKarte("Zufallsbegegnung", m.zb) + '</div>' +
+    '<div class="mr"><div class="mtx">' + tx + '</div>' + zbKarte("Abenteueraufhänger", m.ah) + rechts + '</div></div>' +
     '<div class="fuss"><div class="fz">' + (pv ? '<a class="pv" href="#n/be/' + pv.id + '">‹ ' + esc(pv.t) + '</a>' : '<a class="pv" href="#n/be">‹ Alle Monster</a>') + '<div class="em">7</div>' + (nx ? '<a class="nx" href="#n/be/' + nx.id + '">' + esc(nx.t) + ' ›</a>' : '<a class="nx" href="#n/be/tiere">Gewöhnliche Tiere ›</a>') + '</div></div>';
 }
 (function(){
@@ -54,6 +59,7 @@ function beSeite(m){
     if(h[1] !== "be") return alt(h);
     window.__fk = "be";
     var tb = tabs(NACH_TABS, "be", function(id){ return "n/" + id; }), s = h[2], m = DB_MON.filter(function(x){ return x.id === s; })[0], b;
+    window.__bk = m && m.bk ? m.bk : "db_rb";
     if(m) b = beSeite(m);
     else if(s === "imspiel") b = beKopf("Monster im Spiel", 83, "be/imspiel") + nabs(DB_BEKOPF.abs[0]);
     else if(s === "tiere") b = beKopf("Gewöhnliche Tiere", 99, "be/tiere") + '<div class="gr"><div class="ab voll">' + ntbl(DB_TIERE) + '</div></div>';

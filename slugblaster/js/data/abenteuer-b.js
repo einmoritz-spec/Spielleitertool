@@ -47,7 +47,7 @@ var SB_AB_SZ = [
     "Unangekündigte Übung der DARA-Rescue-Abteilung: Sirenen, Leute in Kraftanzügen.",
     "Dein Schwarm ist hier. Ausgerechnet heute."
    ]},
-   {t: "links", x: [["fraktionen/obrig", "DARA & Doorways"], ["heimat", "Hillview-Karte"]]}
+   {t: "links", x: [["fraktion/dara,doorways", "DARA & Doorways"], ["heimat", "Hillview-Karte"]]}
   ]},
   {id: "burn", t: "Der Burn", b: [
    {t: "p", x: "Kurze Montage: Akkus checken, Rucksäcke packen, eine Ausrede per Nachricht verschicken. Dann der Burn (S. 91): Aktionswurf mit Hoverboard oder Ersatz-Portalgerät, genug Tempo und eine Dünnzone."},
@@ -102,7 +102,7 @@ var SB_AB_SZ = [
    ]},
    {t: "p", x: "Das ist der Fangplatz, an dem Miper Sudsy eingefangen hat. Wer genauer hinschaut (Aktionswurf), findet: einen Lieferschein „1× Exemplar, lebend, an: Popularia, Jam-Bühne, Ankunft vor Sonnenuntergang“ – und angeätzte Schuhabdrücke, die in einem Kreis laufen, als hätte jemand panisch gesucht."},
    {t: "wege", x: [
-    ["Die Miper-Bahn", "Ein halbfertiges Netz aus Hartlicht-Röhren führt Richtung Popularia-Ausgang. Skitchen an einem Testzug spart Zeit (**1 Feld *Sonnenuntergang* löschen**), aber ein [[monster|Surveillance Orb]] filmt euch dabei."],
+    ["Die Miper-Bahn", "Ein halbfertiges Netz aus Hartlicht-Röhren führt Richtung Popularia-Ausgang. Skitchen an einem Testzug spart Zeit (**1 Feld *Sonnenuntergang* löschen**), aber ein [[monster/surveillance-orb|Surveillance Orb]] filmt euch dabei."],
     ["Die Wanda-Kurve", "Ein uralter Glasring, der summt. Die ganze Innenkante entlangskaten = legendärer Clip-Moment (**+1 *Der Clip***, mit Kick +2), kostet aber 1 Feld *Sonnenuntergang*."],
     ["Direkt zum Ausgang", "Der Ausgang ist in ständiger Bewegung – ein Gruppenwurf, um ihn zu erwischen."]
    ]},
@@ -118,7 +118,7 @@ var SB_AB_SZ = [
     "Ein Schaumflocken-Feld: alles wird *glitschig*.",
     "Hardecker-Bergbaudrohnen halten euch für Schrott."
    ]},
-   {t: "links", x: [["welten/prismatia", "Prismatia"], ["monster", "Sudsy & Monster"]]}
+   {t: "links", x: [["welten/prismatia", "Prismatia"], ["monster/sudsy", "Sudsy"]]}
   ]}
  ]},
 
@@ -168,7 +168,7 @@ var SB_AB_SZ = [
     ["Sudsy befreien", "Ganz schlechte Idee. Ganz großartige Szene. Sofort *Schaumalarm*."],
     ["Ignorieren", "Kein Problem. Der Laster brummt weiter. Die Leiste tickt weiter."]
    ]},
-   {t: "links", x: [["monster", "Sudsy (S. 124)"]]}
+   {t: "links", x: [["monster/sudsy", "Sudsy"]]}
   ]},
   {id: "imani", t: "Imani", b: [
    {t: "vor", x: [
@@ -216,7 +216,7 @@ var SB_AB_SZ = [
    {t: "info", h: "Game of HUBBA", x: ["Wie Game of SKATE: Eine Seite legt einen Trick vor, die andere muss ihn nachmachen.", "Crew verpatzt (1–3): 1 Buchstabe auf *HUBBA – Crew*. BRB verpatzt einen Trick der Crew: 1 Buchstabe auf *HUBBA – BRB* (SL würfelt für BRB; je verrückter der vorgelegte Trick, desto eher scheitern sie).", "Wer zuerst HUBBA hat, verliert. Gewinnt die Crew: Abendlicht-Slots und Respekt (BRB: ein Feld Richtung *freundlich*). Verliert sie: Whiplash erzählt es überall."]},
    {t: "leiste", id: "hubbaC"},
    {t: "leiste", id: "hubbaB"},
-   {t: "links", x: [["fraktionen/crews", "BRB & andere Crews"]]}
+   {t: "links", x: [["fraktion/brb", "BRB"], ["fraktionen/crews", "Weitere Crews"]]}
   ]},
   {id: "clip", t: "Der Clip", b: [
    {t: "p", x: "Jetzt wird gefilmt. Jeder gelandete Trick an einem guten Spot markiert *Der Clip* – Kick bringt mehr (S. 19). Tricks sind gefährlich: Probleme werden schlimmer (S. 23)."},
@@ -253,7 +253,7 @@ var SB_AB_SZ = [
     "Der Tank kippt. Eine Welle aus schillerndem Schaum rollt in den Lichtkäfig, und darin richtet sich etwas auf – zwei Meter, drei, vier. Zwei Seifenblasen-Augen drehen sich über die Menge. Über tausend verschwitzte Teenager. Über Infinite Pizza. Über euch.",
     "Sudsy blubbert. Dann quietscht es wie hundert nasse Turnschuhe. Der Lichtkäfig flackert. Und platzt."
    ]},
-   {t: "links", x: [["monster", "Sudsy (S. 124)"]]}
+   {t: "links", x: [["monster/sudsy", "Sudsy"]]}
   ]},
   {id: "sudsy", t: "Sudsy", b: [
    {t: "nsc", x: ["sudsy"]},

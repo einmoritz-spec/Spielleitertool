@@ -70,6 +70,7 @@
 <script src="js/data/abenteuer-a.js"></script>
 <script src="js/data/abenteuer-b.js"></script>
 <script src="js/abenteuer.js"></script>
+<script src="js/popup.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"sb_core", books:SB_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")"}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
 <script src="../shared/masonry.js" defer></script>

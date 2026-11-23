@@ -8,7 +8,7 @@ var SBA = (function(){
   function tog(k){ ST.benutzt = ST.benutzt || {}; if(ST.benutzt[k]) delete ST.benutzt[k]; else ST.benutzt[k] = 1; save(); render(); }
   /* Text: Markdown, S. n → Regelbuch, [[route|Text]] → Seite im Tool */
   function tx(s){
-    return md(s).replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, function(m, r, t){ return '<a class="abl" onclick="go(\'' + r + '\')">' + t + '</a>'; })
+    return md(s).replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, function(m, r, t){ return '<a class="abl" onclick="SBP.open(\'' + r + '\')">' + t + '</a>'; })
       .replace(/S\. (\d+)(–\d+)?/g, function(m, a){ return '<span class="pg" onclick="openBook(\'sb_core\',' + a + ')">' + m + '</span>'; });
   }
   function nsc(id){ var r = null; A().nsc.forEach(function(n){ if(n.id === id) r = n; }); return r; }
@@ -30,7 +30,7 @@ var SBA = (function(){
     wp: function(b){ return '<div class="abwp"><div class="cap">Wegpunkte</div><ol>' + b.x.map(function(w){ return '<li><b>' + esc(w[0]) + '</b> ' + tx(w[1]) + '</li>'; }).join("") + '</ol></div>'; },
     trick: function(b){ return '<div class="abt"><div class="cap">Trick-Gelegenheiten</div><ul>' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul></div>'; },
     res: function(b){ return '<div class="abres">' + b.x.map(function(r){ return '<div><b>' + esc(r[0]) + '</b><p>' + tx(r[1]) + '</p></div>'; }).join("") + '</div>'; },
-    links: function(b){ return '<div class="abch">' + b.x.map(function(l){ return '<a onclick="go(\'' + l[0] + '\')">' + esc(l[1]) + ' ›</a>'; }).join("") + '</div>'; },
+    links: function(b){ return '<div class="abch">' + b.x.map(function(l){ return '<a onclick="SBP.open(\'' + l[0] + '\')">' + esc(l[1]) + ' ›</a>'; }).join("") + '</div>'; },
     nsc: function(b){ return '<div class="abch nsc">' + b.x.map(function(id){ var n = nsc(id); return n ? '<a onclick="SBA.fig(\'' + id + '\')">' + (n.bild ? '<img src="img/' + n.bild + '.webp" alt="">' : '<span class="ini">' + esc(n.t.charAt(0)) + '</span>') + '<span><b>' + esc(n.t) + '</b><small>' + tx(n.rolle) + '</small></span></a>' : ""; }).join("") + '</div>'; },
     leiste: function(b){
       var L = A().leisten[b.id], id = "ab-" + b.id;
@@ -69,7 +69,7 @@ var SBA = (function(){
       '<p class="abz">' + tx(n.zitat) + '</p>' +
       '<dl><dt>Wesen</dt><dd>' + tx(n.wesen) + '</dd><dt>Will</dt><dd>' + tx(n.will) + '</dd><dt>Spielen</dt><dd>' + tx(n.stimme) + '</dd></dl>' +
       (n.werte ? '<div class="cap">Was Sudsy tut</div><ul class="dot abu">' + n.werte.map(function(w){ return '<li>' + tx(w) + '</li>'; }).join("") + '</ul>' : "") +
-      (n.frak ? '<div class="abch"><a onclick="go(\'fraktionen/' + fGruppe(n.frak[0]) + '\')">' + esc(n.frak[1]) + ' ›</a></div>' : "") + '</div>';
+      ((n.frak || n.monster) ? '<div class="abch">' + (n.monster ? '<a onclick="SBP.open(\'monster/' + n.monster + '\')">Monsterwerte ›</a>' : "") + (n.frak ? '<a onclick="SBP.open(\'fraktion/' + n.frak[0] + '\')">' + esc(n.frak[1]) + ' ›</a>' : "") + '</div>' : "") + '</div>';
   }
   function fGruppe(id){ var g = "crews"; (window.SB_FRAKTIONEN || []).forEach(function(f){ if(f.id === id) g = f.g; }); return g; }
   function figuren(){ return '<div class="abfg">' + A().nsc.map(karte).join("") + '</div>'; }

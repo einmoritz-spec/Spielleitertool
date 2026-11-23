@@ -31,5 +31,5 @@ var SBM = (function(){
   function tafel2(t){ SBL.gefahr(t); modal('<div class="cap" style="color:var(--lila)">„' + esc(t) + '“ liegt als Gefahrenleiste (6) auf der Folge-Tafel.</div><div class="chips" style="margin-top:12px"><span class="chip" onclick="this.closest(\'.modal\').remove();go(\'folge\')">Zur Tafel</span></div>'); }
   function slam(i, c){ var p = SBC.list()[i]; p.stuerze = p.stuerze || []; if(p.stuerze.length < 2) p.stuerze.push({ t:c, s:false }); save(); document.querySelectorAll(".modal").forEach(function(m){ m.remove(); }); render(); }
   VIEWS.monster = function(a){ return '<div class="mowrap">' + (a[0] === "bau" ? bau() : uebersicht()) + '</div>'; };
-  return { tafel2:tafel2, tafel:tafel, sturz:sturz, slam:slam };
+  return { karte:karte, tafel2:tafel2, tafel:tafel, sturz:sturz, slam:slam };
 })();

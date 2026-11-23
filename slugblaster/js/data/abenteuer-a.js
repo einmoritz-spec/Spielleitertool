@@ -9,13 +9,13 @@ var SB_AB = {
   /* ---------- Überblick ---------- */
   kurz: [
     "Morgen übernimmt **Miper** den Kult-Laden **Scram Cat**. Heute steigt deshalb der allerletzte **Scram Cat Jam**: ein Video-Wettbewerb an der legendären **12-Stufen-Hubba** auf der Promenade von [[welten/popularia|Popularia]]. Wer bis Sonnenuntergang den besten 60-Sekunden-Clip bei Corey vom *Slugblaster Magazine* abgibt, landet auf dem Cover der Abschiedsausgabe.",
-    "Die Crew muss aus Hillview raus (die übliche Dünnzone ist dicht), eine Line durch [[welten/vastiche|Vastiche]] und [[welten/prismatia|Prismatia]] fahren, in Popularia an ein Jam-Bändchen kommen, die Rivalen-Crew [[fraktionen/crews|BRB]] ausstechen und ihren Clip drehen."
+    "Die Crew muss aus Hillview raus (die übliche Dünnzone ist dicht), eine Line durch [[welten/vastiche|Vastiche]] und [[welten/prismatia|Prismatia]] fahren, in Popularia an ein Jam-Bändchen kommen, die Rivalen-Crew [[fraktion/brb|BRB]] ausstechen und ihren Clip drehen."
   ],
   geheim: {
     t: "Was wirklich los ist",
     x: [
       "Miper-CEO **Tristen Voss** will die Übernahme mit einem Knall feiern: Bei Sonnenuntergang präsentiert er auf der Jam-Bühne **Miper Sauber®** – ein Hartlicht-Käfig mit Fangdrohnen, der „Slugblasting endlich sicher macht“.",
-      "Für die Live-Vorführung hat ein Miper-Trupp in Prismatia ein echtes Monster eingefangen: [[monster|Sudsy]], das Seifenmonster (S. 124). Es schwappt in einem Tank in einem Laster hinter dem Scram-Cat-Laden. Babysitterin ist die unbezahlte Praktikantin **Robin**, die seit 31 Stunden nicht geschlafen hat.",
+      "Für die Live-Vorführung hat ein Miper-Trupp in Prismatia ein echtes Monster eingefangen: [[monster/sudsy|Sudsy]], das Seifenmonster (S. 124). Es schwappt in einem Tank in einem Laster hinter dem Scram-Cat-Laden. Babysitterin ist die unbezahlte Praktikantin **Robin**, die seit 31 Stunden nicht geschlafen hat.",
       "Sudsy wird von Schmutz angezogen. Und nichts ist schmutziger als eine Promenade voller verschwitzter Slugger, Pizzafett und Kids, die seit drei Welten durch Staub fahren. Das geht schief. Die Frage ist nur, wann – und ob die Crew dabei die Kamera laufen lässt."
     ]
   },
@@ -37,7 +37,7 @@ var SB_AB = {
   vorbereitung: [
     "Druckt die Bögen aus oder nutzt die [[crew|Charakterbögen]] im Tool.",
     "Startet auf der [[folge|Folge-Tafel]] den Run und frischt auf: Boost und Kick voll, Bite = 1 pro Spieler **+2**.",
-    "Lest **Was wirklich los ist** und den Eintrag zu [[monster|Sudsy]] (S. 124).",
+    "Lest **Was wirklich los ist** und den Eintrag zu [[monster/sudsy|Sudsy]] (S. 124).",
     "Die Leisten startet ihr direkt aus den Szenen – sie erscheinen dann auch auf der Folge-Tafel."
   ],
   ablauf: [

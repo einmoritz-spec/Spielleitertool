@@ -806,3 +806,14 @@ body.ooth .tabs.oob a.on{background:none}body.ooth .tabs.oob a.on::before{backgr
 .sx-abc i{grid-area:i;font:900 28px var(--body);font-style:normal;color:var(--pink);transition:transform .15s}
 .sx-abc:hover i{transform:translateX(4px)}
 @media(max-width:1100px){.sx-abl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Pop-ups für Monster, Orte, Welten, Fraktionen */
+.modal.pop{align-items:flex-start;padding:4vh 16px;overflow:auto}
+.modal.pop>div{position:relative;width:min(1180px,98vw);max-height:none;overflow:visible;padding:0;background:#fff}
+.modal.pop.schmal>div{width:min(620px,98vw)}
+.modal.pop .px{position:sticky;top:0;float:right;z-index:5;width:36px;height:36px;margin:0;border:0;background:var(--lila);color:#fff;font:400 24px/36px var(--body);cursor:pointer}
+.modal.pop .px:hover{background:var(--pink)}
+.pcards{display:grid;gap:16px;padding:16px}.pcards.mehr{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.pview{min-width:0}
+.pview .hmw{grid-template-columns:1fr}
+@media(max-width:700px){.modal.pop{padding:0}.modal.pop>div{width:100vw}}

@@ -49,5 +49,5 @@ var SBFR = (function(){
     return unter("person") + '<div class="fr"><div class="moh"><h1>Mach eine Person</h1>' + pgl(P.p) + '</div><p class="lead">' + esc(P.intro) + '</p><div class="frp"><div><div class="ct">Namen</div>' + P.namen.map(function(n){ return '<p class="mx"><b>' + esc(n[0]) + '.</b> ' + esc(n[1]) + '</p>'; }).join("") + '<p class="nbs">' + esc(P.nbn) + '</p><div class="ct">Wünsche / Bedürfnisse (W6)</div><table class="tb"><tr><th>W6</th><th>1–2</th><th>3–4</th><th>5–6</th></tr>' + P.wunsch.map(function(r, i){ return '<tr><td>' + (i + 1) + '</td>' + r.map(function(c){ return '<td>' + esc(c) + '</td>'; }).join("") + '</tr>'; }).join("") + '</table></div><div><div class="ct">Art (W66)</div>' + liste(P.manner, "frp/manner") + '</div><div><div class="ct">Details (W66)</div>' + liste(P.details, "frp/details") + '</div></div></div>';
   }
   VIEWS.fraktionen = function(a){ return '<div class="frwrap">' + (a[0] === "person" ? person() : gid(a[0] || "") ? gruppe(a[0]) : beziehungen()) + '</div>'; };
-  return { setze:setze };
+  return { setze:setze, karte:karte };
 })();

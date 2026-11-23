@@ -778,6 +778,8 @@ const FILES = [
   "dragonbane/js/data/bestiarium-c.js",
   "dragonbane/js/data/bestiarium-d.js",
   "dragonbane/js/data/bestiarium-z1.js",
+  "dragonbane/js/data/bestiarium-z2.js",
+  "dragonbane/js/data/bestiarium-z2b.js",
   "dragonbane/js/data/bestiarium-e.js",
   "dragonbane/js/data/nach-k8-a.js",
   "dragonbane/js/data/nach-k8-b.js",

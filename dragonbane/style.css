@@ -693,11 +693,8 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .stein b,.stein strong{color:inherit}
 
 /* Lage: keine Leerfläche unter dem Bild – Bild und Zellen bilden ein lückenloses Raster (shared/masonry.js) */
-.lage:not(.ohne):not(.es){grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:0 clamp(28px,3vw,44px)}
-.lage:not(.ohne):not(.es) .lg2,.lage:not(.ohne):not(.es) .lg3,.lage:not(.ohne):not(.es) .gr{display:contents}
 .lage:not(.es) .lg1{position:static}
 .lage:not(.es) .gr .ab.l2{grid-column:auto;column-count:1}
-.lage:not(.ohne):not(.es) .hint{margin-bottom:0}
 @media(max-width:760px){.lage:not(.es) .gr .ab.l2,.lage .gr .zelle.z2,.lage .gr .karte.z2{grid-column:auto;column-count:1}}
 /* Wenig Inhalt: Bild links schwebt, Text fließt darunter über die volle Breite */
 .lage.es{display:block}
@@ -706,3 +703,12 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .lage.es::after{content:"";display:block;clear:both}
 @media(max-width:760px){.lage.es .lg1{float:none;width:auto;margin-right:0}}
 .lage:not(.es) .gr .zelle.z2,.lage:not(.es) .gr .karte.z2{grid-column:auto}
+.lage .abg .ab{max-width:none}.lage .abg .ab.voll{margin-top:0}
+/* Lage: Bild schwebt links, Text fließt drumherum und darunter über volle Breite, Kästen als Raster darunter */
+.lage.zw{display:block;padding-bottom:32px}
+.lage.zw .lg1{float:left;width:clamp(340px,32vw,460px);margin:0 clamp(28px,3vw,44px) 18px 0;position:static}
+.lage.zw .lg2,.lage.zw .lg3{display:block}
+.lage.zw .lgt .ab{max-width:none;margin:0 0 14px;column-count:1;font-size:17.5px}
+.lage.zw .lgb{clear:both;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:0 32px;align-items:start;padding-top:34px}
+.lage.zw .lgb>*{margin:0;max-width:none;grid-column:auto}
+@media(max-width:760px){.lage.zw .lg1{float:none;width:auto;margin-right:0}}

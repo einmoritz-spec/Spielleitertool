@@ -167,11 +167,29 @@ DB_VIEWS.a = function(h){
   else { tab = "lage"; body = lageTab(A); }
   return tabs(tl, tab, function(t){ return "a/" + A.id + "/" + t; }, zeitHTML(A.id) + penTab("a_" + A.id)) + body;
 };
+/* Aufeinanderfolgende Textblöcke (.ab) zu einer Gruppe verbinden, damit sie im Raster nicht auseinandergerissen werden */
+function abGruppen(html){
+  var d = document.createElement("div"); d.innerHTML = html;
+  var g = d.querySelector(".gr"); if(!g) return html;
+  var kids = Array.prototype.slice.call(g.children), grp = null;
+  kids.forEach(function(k){
+    if(k.classList.contains("ab")){ if(!grp){ grp = document.createElement("div"); grp.className = "abg"; g.insertBefore(grp, k); } grp.appendChild(k); } else grp = null;
+  });
+  return d.innerHTML;
+}
 function lageTab(A){
   var bl = (A.lage || []).concat(A.schluss || []), cells = (nabs({b:bl}).match(/class="(ab|zelle|karte|kgrid|vorlesen)/g) || []).length;
   var links = (A.img ? '<div class="bildr">' + rahmenHTML('<img class="bild mul" src="' + IMG(A.img) + '" alt="" onclick="event.stopPropagation()">') + '</div>' : '') + (A.vl ? '<div class="vorlesen">' + md(A.vl) + '</div>' : '');
-  var rechts = (A.hinweis ? '<div class="hint">' + A.hinweis.map(function(t){ return '<p>' + md(t) + '</p>'; }).join("") + '</div>' : '') + nabs({b:bl, plain:cells < 3});
-  return '<div class="lage' + (links ? '' : ' ohne') + (cells < 3 ? ' es' : '') + '"' + (links && cells >= 3 ? ' data-mas data-mas-gap="28"' : '') + '>' + (links ? '<div class="lg1">' + links + '</div>' : '') + '<div class="lg2"><div class="lg3' + (cells < 3 ? ' einsp' : '') + '">' + rechts + '</div></div></div>';
+  var hint = A.hinweis ? '<div class="hint">' + A.hinweis.map(function(t){ return '<p>' + md(t) + '</p>'; }).join("") + '</div>' : '';
+  if(links && cells >= 3){
+    /* Links: Bild + Kästen/Karten untereinander, rechts: Text – beide Spalten ähnlich lang, keine Leerfläche */
+    var d = document.createElement("div"); d.innerHTML = nabs({b:bl, plain:false});
+    var g = d.querySelector(".gr"), txt = "", box = "";
+    if(g) Array.prototype.forEach.call(g.children, function(k){ if(k.classList.contains("ab")) txt += k.outerHTML; else box += k.outerHTML; });
+    return '<div class="lage zw"><div class="lg1">' + links + '</div><div class="lg2"><div class="lg3">' + hint + '<div class="lgt">' + txt + '</div></div></div>' + (box ? '<div class="lgb" data-mas data-mas-gap="26">' + box + '</div>' : '') + '</div>';
+  }
+  var rechts = hint + nabs({b:bl, plain:true});
+  return '<div class="lage' + (links ? '' : ' ohne') + (cells < 3 ? ' es' : '') + '">' + (links ? '<div class="lg1">' + links + '</div>' : '') + '<div class="lg2"><div class="lg3 einsp">' + rechts + '</div></div></div>';
 }
 function bereichTab(A, B, sel){
   var key = A.bereiche.length > 1 ? A.id + "/" + B.id : A.id, orte = B.orte || [];

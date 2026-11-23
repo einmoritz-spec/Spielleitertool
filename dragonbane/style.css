@@ -829,3 +829,8 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .zu,.zu.st,.zu.an{border-left-width:1.5px;border-left-style:solid}
 .zu.st,.zu.an{border-width:1.5px;border-style:solid}
 .stein{border-left:1.5px solid rgba(16,90,74,.55)}
+
+/* Nebeltal-Karte: volle Breite, ohne Kasten/Schatten, in den Hintergrund überblendet */
+.ntk{padding:6px var(--rand) 24px}
+.ntw{display:block;width:100%;max-width:1700px;margin:0 auto;box-shadow:none}
+.ntw>img{width:100%;max-width:100%;max-height:none;height:auto}

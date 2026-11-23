@@ -92,6 +92,7 @@ function ueberblick(K){
   var UB = (K.ueberblick || []).slice(), vor = [];
   while(UB.length && typeof UB[0] === "string" && /^\*\*[\s\S]*\*\*$/.test(UB[0].trim()) && (K.verse || []).length) vor.push(UB.shift().trim().replace(/^\*\*|\*\*$/g, ""));
   if(vor.length && UB[0] && UB[0].t === "h" && /^Überblick$/i.test(UB[0].x)) UB.shift(); else if(!vor.length) UB = K.ueberblick || [];
+  if(UB[0] && UB[0].t === "h" && /^Kapitel\s*\d/i.test(UB[0].x)) UB = UB.slice(1);
   var vh = (K.verse || []).length ? '<div class="dhv">' + K.verse.map(function(v){ var c = /^[–—-]\s/.test(v) || /^\*\*.*\*\*$/.test(v.trim()); v = v.trim().replace(/^\*+|\*+$/g, ""); return c ? "<cite>" + md(v) + "</cite>" : "<p>" + md(v) + "</p>"; }).join("") + (vor.length ? '<div class="dhvor">' + vor.map(function(v){ return "<p>" + md(v) + "</p>"; }).join("") + "</div>" : "") + "</div>" : "";
   function box(p, inner, cls){ return '<div class="dhbox ' + (cls || "") + " a" + p[4] + '" data-t="' + p[1] + '" data-b="' + p[3] + '" style="left:' + p[0] + "%;top:" + p[1] + "%;width:" + p[2] + '%">' + inner + "</div>"; }
   var tit = '<h1><small>Kapitel ' + K.n + ":</small>" + esc(K.t) + "</h1>";

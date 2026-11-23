@@ -38,8 +38,34 @@
     if(its.length !== 2) return false;
     var r = its.map(function(c){ return c.getBoundingClientRect(); });
     if(r[0].width < 330 || r[1].width < 330) return false;
-    var sh = Math.min(r[0].height, r[1].height);
-    return sh < 460 && !g.closest(".nomas") && !its.some(function(c){ return c.querySelector("canvas,iframe") || c.matches("aside,nav"); });
+    var sh = Math.min(r[0].height, r[1].height), lg = Math.max(r[0].height, r[1].height);
+    return lg - sh > 250 && lg > sh * 1.5 && !g.closest(".nomas") && !its.some(function(c){ return c.querySelector("canvas,iframe") || c.matches("aside,nav"); });
+  }
+  /* Zwei Textspalten, eine deutlich kürzer: kürzere schwebt als Seitenelement, längere fließt darum und darunter über die volle Breite */
+  var floated = [];
+  function plain(c){
+    if(c.querySelector("img,table,figure,canvas,iframe,svg,button,input,textarea,select")) return false;
+    var cs = getComputedStyle(c);
+    return cs.backgroundImage === "none" && (!cs.backgroundColor || cs.backgroundColor === "rgba(0, 0, 0, 0)") && parseFloat(cs.borderTopWidth) === 0 && parseFloat(cs.borderLeftWidth) === 0 && cs.display === "block";
+  }
+  function floatable(g, its){
+    if(its.length !== 2) return false;
+    var r = its.map(function(c){ return c.getBoundingClientRect(); });
+    var a = r[0].height <= r[1].height ? 0 : 1, sh = r[a], lo = r[1 - a];
+    if(sh.width < 300 || lo.width < 300 || sh.height < 120) return false;
+    var gr = g.getBoundingClientRect(), gap = parseFloat(getComputedStyle(g).columnGap) || 24;
+    return plain(its[0]) && plain(its[1]) && { a: a, w: sh.width / gr.width * 100, gap: gap };
+  }
+  function doFloat(g, its, f){
+    var A = its[f.a], B = its[1 - f.a], left = f.a === 0;
+    g.style.display = "flow-root";
+    A.style.float = left ? "left" : "right"; A.style.width = "calc(" + f.w.toFixed(2) + "% - " + (f.gap / 2) + "px)";
+    A.style[left ? "marginRight" : "marginLeft"] = f.gap + "px"; A.style.marginBottom = "18px";
+    B.style.minWidth = "0";
+    floated.push(g);
+  }
+  function undoFloat(g){
+    g.style.display = ""; [].forEach.call(g.children, function(c){ c.style.float = c.style.width = c.style.marginRight = c.style.marginLeft = c.style.marginBottom = c.style.minWidth = ""; });
   }
   function pack(g){
     var cs = getComputedStyle(g), its = items(g); if(!its.length) return;
@@ -60,6 +86,7 @@
   function run(){
     busy = true;
     try{
+      floated.forEach(undoFloat); floated = []; window.__masF = floated;
       var all = document.querySelectorAll("body *");
       for(var i = 0; i < all.length; i++){
         var g = all[i];

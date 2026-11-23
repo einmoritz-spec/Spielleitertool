@@ -185,7 +185,7 @@ function lageKarten(A){
   if(!L.length) return "";
   var id = "lk_" + A.id.replace(/\W/g, "_");
   var bilder = L.map(function(b, i){
-    return '<div class="lkb' + (i ? ' aus' : '') + '" data-i="' + i + '" onclick="go(\'a/' + A.id + '/' + b.id + '\')">' + rahmenHTML('<img class="bild mul" src="' + IMG(b.karte.img) + '" alt="">') + '</div>';
+    return '<div class="lkb' + (i ? ' aus' : '') + '" data-i="' + i + '" onclick="go(\'a/' + A.id + '/' + b.id + '\')">' + '<img class="bild" src="' + IMG(b.karte.img) + '" alt="">' + '</div>';
   }).join("");
   var chips = L.length > 1 ? '<div class="lkt">' + L.map(function(b, i){ return '<span class="' + (i ? '' : 'on') + '" onclick="lageKarte(this,' + i + ')">' + esc(b.t) + '</span>'; }).join("") + '</div>' : "";
   return '<div class="lk" id="' + id + '">' + chips + bilder + '</div>';

@@ -45,9 +45,10 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%}
+body{position:relative;min-height:100vh}
 body{font:17px/1.5 var(--f-text);color:var(--tinte);
   background:var(--perg);overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--perg) url(img/orn/pergament-seite.webp) center/100% 100% no-repeat;pointer-events:none}
+body::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--perg) url(img/orn/pergament-seite.webp) center/100% 100% no-repeat;pointer-events:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ── Kopfzeile ───────────────────────────────────────────── */
@@ -759,3 +760,7 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .rechts .rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;align-items:start}
 .rechts .rs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 12px;align-items:start}
 @media(max-width:1000px){.tafel,.tafel.ohnekarte{grid-template-columns:minmax(0,1fr)}.tafel>.tl,.tafel>.ort,.tafel>.rechts,.tafel>.extra{grid-column:1;grid-row:auto}}
+
+/* Karten freigestellt (ohne weißen Kasten): weicher Schatten folgt dem Umriss */
+.plan img,.lk .bild{filter:drop-shadow(0 3px 8px rgba(60,40,20,.38))}
+.lk .lkb{line-height:0}

@@ -119,6 +119,7 @@
 <script src="js/suche.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"sp_cmf", books:SP_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
+<script src="../shared/masonry.js" defer></script>
 <script src="../toolmenu.js"></script>
 <script>try{localStorage.setItem("gm_tool_mode_v1","spire");}catch(e){} window.gmBook=function(){return {name:"The City Must Fall",open:function(){BV.open("sp_cmf",1);}};};</script>
 </body>

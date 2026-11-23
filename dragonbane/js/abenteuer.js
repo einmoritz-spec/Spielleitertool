@@ -171,7 +171,7 @@ function lageTab(A){
   var bl = (A.lage || []).concat(A.schluss || []), cells = (nabs({b:bl}).match(/class="(ab|zelle|karte|kgrid|vorlesen)/g) || []).length;
   var links = (A.img ? '<div class="bildr">' + rahmenHTML('<img class="bild mul" src="' + IMG(A.img) + '" alt="" onclick="event.stopPropagation()">') + '</div>' : '') + (A.vl ? '<div class="vorlesen">' + md(A.vl) + '</div>' : '');
   var rechts = (A.hinweis ? '<div class="hint">' + A.hinweis.map(function(t){ return '<p>' + md(t) + '</p>'; }).join("") + '</div>' : '') + nabs({b:bl, plain:cells < 3});
-  return '<div class="lage' + (links ? '' : ' ohne') + '">' + (links ? '<div class="lg1">' + links + '</div>' : '') + '<div class="lg2"><div class="lg3' + (cells < 3 ? ' einsp' : '') + '">' + rechts + '</div></div></div>';
+  return '<div class="lage' + (links ? '' : ' ohne') + (cells < 3 ? ' es' : '') + '"' + (links && cells >= 3 ? ' data-mas data-mas-gap="28"' : '') + '>' + (links ? '<div class="lg1">' + links + '</div>' : '') + '<div class="lg2"><div class="lg3' + (cells < 3 ? ' einsp' : '') + '">' + rechts + '</div></div></div>';
 }
 function bereichTab(A, B, sel){
   var key = A.bereiche.length > 1 ? A.id + "/" + B.id : A.id, orte = B.orte || [];

@@ -136,6 +136,7 @@
 <script>PanelUI.init({nav:".ll-rnav",rail:".ll-rail"});</script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ll", books:[{key:"ll", name:"Local Legends (EN)"}], openSettings:function(){ openModal("settingsModal"); } });
 document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh();</script>
+<script src="../shared/masonry.js" defer></script>
 <script src="../toolmenu.js"></script>
 <script>window.gmMap=function(){openCityMap();};</script>
 <script>window.gmBook=function(){return {name:"Local Legends",open:function(){BV.open("ll",1);}};};</script>

@@ -691,3 +691,18 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .nsc .vollname{font:600 12px/1.25 var(--f-halb);letter-spacing:.06em;text-transform:uppercase;text-align:center;color:var(--braun);opacity:.8;margin:12px 0 8px}
 .bl .fluegel .fm.lg{font-size:15px;letter-spacing:.02em;padding-left:34px;padding-right:34px}.bl .fluegel .fm.lg span{text-align:center;line-height:1.05}
 .stein b,.stein strong{color:inherit}
+
+/* Lage: keine Leerfläche unter dem Bild – Bild und Zellen bilden ein lückenloses Raster (shared/masonry.js) */
+.lage:not(.ohne):not(.es){grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:0 clamp(28px,3vw,44px)}
+.lage:not(.ohne):not(.es) .lg2,.lage:not(.ohne):not(.es) .lg3,.lage:not(.ohne):not(.es) .gr{display:contents}
+.lage:not(.es) .lg1{position:static}
+.lage:not(.es) .gr .ab.l2{grid-column:auto;column-count:1}
+.lage:not(.ohne):not(.es) .hint{margin-bottom:0}
+@media(max-width:760px){.lage:not(.es) .gr .ab.l2,.lage .gr .zelle.z2,.lage .gr .karte.z2{grid-column:auto;column-count:1}}
+/* Wenig Inhalt: Bild links schwebt, Text fließt darunter über die volle Breite */
+.lage.es{display:block}
+.lage.es .lg1{float:left;width:clamp(380px,36vw,520px);margin:0 clamp(28px,3vw,44px) 18px 0;position:static}
+.lage.es .lg2,.lage.es .lg3{display:block}
+.lage.es::after{content:"";display:block;clear:both}
+@media(max-width:760px){.lage.es .lg1{float:none;width:auto;margin-right:0}}
+.lage:not(.es) .gr .zelle.z2,.lage:not(.es) .gr .karte.z2{grid-column:auto}

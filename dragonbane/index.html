@@ -103,6 +103,7 @@
 <script src="js/suche.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"db_rb", books:DB_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
+<script src="../shared/masonry.js" defer></script>
 <script src="../toolmenu.js"></script>
 <script>try{localStorage.setItem("gm_tool_mode_v1","dragonbane");}catch(e){} window.gmBook=function(){return {name:"Dragonbane Regelbuch",open:function(){BV.open("db_rb",1);}};};</script>
 </body>

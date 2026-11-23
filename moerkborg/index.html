@@ -69,6 +69,7 @@
 <script src="js/galerie.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"mb_core", books:MB_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
+<script src="../shared/masonry.js" defer></script>
 <script src="../toolmenu.js"></script>
 <script>try{localStorage.setItem("gm_tool_mode_v1","moerkborg");}catch(e){} window.gmBook=function(){return {name:"Mörk Borg Corebook",open:function(){BV.open("mb_core",1);}};};</script>
 </body>

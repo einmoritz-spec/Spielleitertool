@@ -403,3 +403,4 @@ button.fold{position:fixed;top:112px;left:238px;z-index:16;width:24px;height:24p
 .sxc .btns{margin-top:0}.sxc .dice{margin-top:0}
 @media(max-width:1100px){.sxg,.sxrow2.w{grid-template-columns:1fr}.sx2,.sxrow2{grid-template-columns:1fr}}
 @media(max-width:560px){.sxm{display:flex}.sxm a{flex:1;text-align:center;padding:8px 4px 6px}.sxr em{display:none}.wt{grid-template-columns:1fr}}
+.hd.mh{margin-top:26px}

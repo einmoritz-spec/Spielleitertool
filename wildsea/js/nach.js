@@ -106,11 +106,20 @@ function viewNach(bereich, id, sz){
     if(s.k !== last){ side += '<h4 class="' + (s.k === ki ? 'on' : '') + '" onclick="go(\'' + P + bereich + '/' + s.id + '\')">' + esc(s.k) + '</h4>'; last = s.k; }
     if(s.k === ki) side += '<a class="' + (s.id === cur.id ? 'on' : '') + '" onclick="go(\'' + P + bereich + '/' + s.id + '\')">' + esc(s.t.split(":")[0]) + qDot(s) + '</a>';
   });
-  var i = L.indexOf(cur), pv = L[i - 1], nx = L[i + 1];
+  /* Kurze Einstiegsseiten (nur Kapitelbild + ein Satz): nächste Abschnitte direkt darunter mitlaufen lassen */
+  var more = "", mi = L.indexOf(cur), tl = JSON.stringify(cur.b).length;
+  if(!pcOf(cur) && tl < 500){
+    for(var q = mi + 1, cnt = 0; q < L.length && cnt < 2 && tl < 2500 && L[q].k === cur.k; q++, cnt++){
+      var ms = L[q]; tl += JSON.stringify(ms.b).length;
+      more += '<div class="hd mh"><h1>' + esc(ms.t) + '</h1><span class="pg"><a onclick="openBook(\'' + qBuch(ms) + '\',' + ms.p + ')">S. ' + ms.p + '</a></span>' + qTag(ms) + '</div>' + nBilder(bereich, ms.id) + '<div class="nbody">' + nGruppiert(ms.b) + '</div>';
+      mi = q;
+    }
+  }
+  var i = mi, pv = L[L.indexOf(cur) - 1], nx = L[i + 1];
   var nav = '<div class="gnav">' + (pv ? '<a onclick="go(\'' + P + bereich + '/' + pv.id + '\')">‹ ' + esc(pv.t) + '</a>' : '<span></span>') + (nx ? '<a onclick="go(\'' + P + bereich + '/' + nx.id + '\')">' + esc(nx.t) + ' ›</a>' : '') + '</div>';
   var pc = pcOf(cur), bk = sz ? (SZBUCH[bereich] || "ws_core") : qBuch(cur);
   var hd = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="pg"><a onclick="openBook(\'' + bk + '\',' + cur.p + ')">S. ' + cur.p + '</a></span>' + qTag(cur) + '</div>';
   var body = pc ? pcRender(cur, pc) + '<div class="nbody pcd">' + nGruppiert(cur.b.filter(function(b){ return !b.pc; })) + '</div>' + nav
-    : hd + nBilder(bereich, cur.id) + '<div class="nbody">' + nGruppiert(cur.b) + '</div>' + nav;
+    : hd + nBilder(bereich, cur.id) + '<div class="nbody">' + nGruppiert(cur.b) + '</div>' + more + nav;
   return tabs + lay('<nav class="side">' + side + '</nav>', body);
 }

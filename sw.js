@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v762sp";
+const VERSION = "v764sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1042,6 +1042,9 @@ const FILES = [
   "heart/img/tex/zettel-rolle.webp",
   "heart/img/dagger/cover.webp",
   "heart/img/dagger/kap1.webp",
+  "heart/img/dagger/art/h1-s46.webp",
+  "heart/img/dagger/art/h4-s48.webp",
+  "heart/img/dagger/art/h6-s50.webp",
   "heart/img/dagger/art/a011-s6.webp",
   "heart/img/dagger/art/a012-s9.webp",
   "heart/img/dagger/art/a013-s10.webp",

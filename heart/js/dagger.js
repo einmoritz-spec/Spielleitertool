@@ -83,11 +83,21 @@ function inszen(K){
   var r = (K.rest || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + bls(a.b) + "</div>"; }).join("");
   return '<div class="dkgrid">' + h + r + "</div>";
 }
+var DOKB = {"Handout 1": "dagger/art/h1-s46", "Handout 4": "dagger/art/h4-s48", "Handout 6": "dagger/art/h6-s50"};
+var RISS = ["polygon(0 2%,6% 0,14% 1.5%,25% 0,38% 1%,52% 0,66% 1.5%,80% 0,92% 1%,100% 0,99% 12%,100% 30%,98.5% 48%,100% 66%,99% 84%,100% 100%,88% 99%,74% 100%,60% 98.5%,44% 100%,30% 99%,16% 100%,5% 98.5%,0 100%,1% 82%,0 64%,1.5% 46%,0 28%,1% 12%)","polygon(1% 0,12% 1%,26% 0,41% 1.5%,57% 0,71% 1%,86% 0,100% 1.5%,99% 16%,100% 34%,98% 52%,100% 70%,99% 88%,100% 100%,90% 98.5%,76% 100%,61% 99%,46% 100%,31% 98.5%,17% 100%,6% 99%,0 100%,1.5% 84%,0 66%,1% 48%,0 30%,1.5% 14%)","polygon(0 1%,9% 0,20% 1.5%,34% 0,49% 1%,63% 0,78% 1.5%,91% 0,100% 1%,98.5% 15%,100% 33%,99% 51%,100% 69%,98.5% 86%,100% 99%,92% 100%,79% 98.5%,64% 100%,47% 99%,33% 100%,19% 98.5%,8% 100%,0 99%,1% 85%,0 68%,1.5% 50%,0 32%,1% 15%)"];
+function zettel(d, K, i, gross){
+  var bild = DOKB[d.t];
+  var kopf = '<h4>' + esc(d.t) + (gross ? "" : pg(d.p)) + "</h4>";
+  if(bild) return '<div class="dzw bild' + (gross ? " gross" : "") + '"' + (gross ? "" : ' onclick="dkDok(' + K.n + "," + i + ')"') + ">" + kopf + dbild(bild, "") + "</div>";
+  var rot = ((i * 37) % 7 - 3) * 0.25;
+  var lang = !gross && JSON.stringify(d.x).length > 1500;
+  return '<div class="dzw' + (gross ? " gross" : "") + (lang ? " lang" : "") + '"' + (gross ? "" : ' onclick="dkDok(' + K.n + "," + i + ')" style="transform:rotate(' + rot + 'deg)"') + '>' + kopf + '<div class="dzettel papier" style="clip-path:' + RISS[i % 3] + '">' + bls(d.x) + "</div></div>";
+}
 function dokumente(K){
   var L = K.dok || [];
-  return '<div class="dkgrid dok">' + (L.length ? L.map(function(d, i){ return '<div class="dzettel klick" onclick="dkDok(' + K.n + "," + i + ')"><h4>' + esc(d.t) + pg(d.p) + "</h4>" + bls(d.x).slice(0, 1200) + '<span class="dzeig">Zeigen</span></div>'; }).join("") : "<p>Keine Dokumente in diesem Kapitel.</p>") + "</div>";
+  return '<div class="dkgrid dok">' + (L.length ? L.map(function(d, i){ return zettel(d, K, i, false); }).join("") : "<p>Keine Dokumente in diesem Kapitel.</p>") + "</div>";
 }
-window.dkDok = function(n, i){ var d = kap(n).dok[i]; var m = document.createElement("div"); m.className = "dvoll"; m.onclick = function(){ m.remove(); }; m.innerHTML = '<div class="dzettel gross"><h4>' + esc(d.t) + "</h4>" + bls(d.x) + "</div>"; document.body.appendChild(m); };
+window.dkDok = function(n, i){ var d = kap(n).dok[i]; var m = document.createElement("div"); m.className = "dvoll"; m.onclick = function(){ m.remove(); }; m.innerHTML = zettel(d, kap(n), i, true); document.body.appendChild(m); };
 /* Wegekarte */
 function findExt(id, self){
   var all = D().kap, r = null;

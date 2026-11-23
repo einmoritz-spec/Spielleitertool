@@ -401,3 +401,10 @@ body{background-attachment:fixed}
 .dbild.breit{width:100%;max-height:200px;object-fit:contain;margin-bottom:12px}
 .dkfin{cursor:pointer;opacity:.75;font-size:14px}.dkfin.on{opacity:1;color:#9c9}
 .dkk.aktuell{outline:3px solid #b3251e;outline-offset:2px}.dkk.aktuell::after{content:"Aktuell";position:absolute;top:8px;left:8px;background:#b3251e;color:#fff;font:400 15px var(--head);text-transform:uppercase;padding:2px 9px;letter-spacing:.06em}
+.dkgrid.dok{align-items:start;gap:26px 22px}
+.dzw{cursor:pointer;transition:transform .15s}.dzw:hover{transform:rotate(0)!important}.dzw h4{font:400 22px var(--head);color:var(--platte);text-transform:uppercase;margin:0 0 6px;padding-left:6px}.dzw h4 .pgl{font-size:12px}
+.dzettel.papier{background:linear-gradient(135deg,#f6edd6,#eadcbc);padding:20px 24px 24px;font:italic 17px/1.5 var(--body);filter:none;box-shadow:none}.dzw{filter:drop-shadow(0 4px 7px #000a)}.dzw h4{color:#e9dfcf}
+.dzw.bild{text-align:center}.dzw.bild .dbild{margin:4px auto 0;max-height:640px;width:auto;max-width:100%}
+.dzw.gross{width:min(820px,94vw);height:fit-content;cursor:default}.dzw.gross .dzettel.papier{font-size:20px}.dzw.gross.bild .dbild{max-height:86vh}
+.dkgrid.dok{grid-template-columns:repeat(4,minmax(0,1fr))}.dzw.lang{grid-column:span 2}.dzw.lang .dzettel.papier{column-count:2;column-gap:26px;font-size:16px}.dzw.lang .dzettel.papier p{break-inside:avoid-column}
+@media(max-width:1300px){.dkgrid.dok{grid-template-columns:repeat(2,minmax(0,1fr))}}

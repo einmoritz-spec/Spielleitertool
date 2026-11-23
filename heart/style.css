@@ -456,3 +456,12 @@ body{background-attachment:fixed}
 .dhbox.form{text-shadow:0 0 6px #000,0 0 12px #000}
 .dfx{display:block;height:100%}.dhbox.form:not([style*="top:0;"]){padding-top:1.5%}@media(max-width:1000px){.dfx{display:none}}
 .dhvor{text-align:left!important}
+/* Suche im Heart-Design */
+.gs{background:rgba(12,8,7,.72)!important;backdrop-filter:blur(3px)}
+.gs-in{background:#16110f url(img/tex/dunkel.webp) center/cover!important;color:#e9dfcf!important;border:1px solid #4a2a22!important;border-radius:2px!important;font-family:var(--body)!important}
+.gs input{font:italic 22px var(--body)!important;background:#f2e8d0!important;color:#1a1410!important;border:0!important;border-left:6px solid var(--platte)!important;border-radius:0!important}
+.gs-z{font:400 14px var(--head)!important;letter-spacing:.12em;color:#d9b9a8;opacity:1!important}
+.gs-g{font:400 22px var(--head)!important;letter-spacing:.06em!important;color:#fff;opacity:1!important;display:inline-block;background:var(--platte);padding:4px 12px 2px;margin:20px 0 10px!important}
+.gs-k{background:linear-gradient(135deg,#f4ebd6,#e6d7b6)!important;color:#1a1410!important;border:0!important;border-top:3px solid var(--platte)!important;border-radius:0!important;box-shadow:0 3px 8px #000a}
+.gs-k:hover{background:#fff7e6!important}.gs-k b{font:400 18px var(--head)!important;letter-spacing:.03em;text-transform:uppercase;color:#7a1712}.gs-k span{font:15px/1.4 var(--body)!important;opacity:1!important;color:#3a2e24}
+.gs mark{background:#b3251e33!important;color:#7a1712!important;font-weight:700}

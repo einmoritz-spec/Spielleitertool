@@ -268,6 +268,26 @@ var spiel = {id:"zuflucht-spiel", t:"Haven-Spielleitung", p:13, secs:[
    ])
   ]])
  ])
+,
+ sec("gris", "Gris Hannemans Hinterlassenschaften", 24, [
+  p("Es folgt eine Liste der Ausrüstung, die Gris Hanneman benutzte (oder die er laut seinem Buch benutzte). Wo es passt, sind Werte für die erfundene und die tatsächliche Fassung angegeben – zuerst das Artefakt aus dem Buch, dann der weniger beeindruckende echte Gegenstand."),
+  {t:"karten", n:3, x:[
+   {t:"Die Pistole der Familie Hanneman", b:[p("**Kill W8, Ranged, Reload, Good-Quality**"), p("*Echt:* Die Pistole, die Gris in Redcap Grove aus den Händen einer Leiche zog – **Kill W8, Ranged, One-shot.** Verleiht **Knack: Raub**.")]},
+   {t:"Engelskugeln", b:[p("**Wie Waffe, Limited 6.** Fügt der Benutzer einem Engel Stress zu, wird der **Protection**-Wert des Engels nicht vom Stress abgezogen.")]},
+   {t:"Geistschärfende Pillen", b:[p("In Hannemans Unterkunft gefunden. **Limited 6.** Verursacht bei Einnahme W6 Stress auf **Mind**, verleiht aber bis zum Ende der Sitzung **Knack: Engel aufspüren**.")]},
+   {t:"Die Findeknochen", b:[p("**Delve W8, Wyrd, Excellent Quality**"), p("*Echt:* Ein Gewirr aus blutbefleckten Vogelknochen und Schnur – **Delve W4.** Verleiht **Knack: Einbruch**.")]},
+   {t:"Die Mutter des Fleisches", b:[p("**Mend Blood W8, Potent, Wyrd.** Einmal pro Sitzung einsetzbar, um ein leichtes oder schweres **Blood**-Fallout zu entfernen; die geheilte Person markiert W6 Stress auf **Echo**.")]},
+   {t:"Gris Hannemans Finger", b:[p("Auffällig abwesend von seiner Hand, als man ihn zuletzt sah. **Delve W6.** Drei Finger, die in die Richtung des nächsten Engels, Havens und Rauschmittels in der Umgebung zeigen.")]},
+   {t:"Der stolze Bociferous, Canid Corvidae", b:[p("**Delve W8, Good Quality**"), p("*Echt:* Der elende Bociferous, ein räudiger Halbhund, der glaubt, er sei eine Krähe – **Delve W6, Expensive** (insofern, als er deine Vorräte frisst, wenn du nicht hinsiehst).")]}
+  ]},
+  G(3, [[
+   note("Gris’ Notiz", ["Meine vorrangige Aufgabe ist es, Engel zu dokumentieren, nicht sie zu jagen, doch ich bin mir der Notwendigkeit eines Mindestmaßes an Selbstverteidigung durchaus bewusst. Zu diesem Zweck habe ich eine Pistole feiner Machart mitgebracht: ein Geschenk meines Vaters, selbst ein Entdecker, der sie mir auf dem Sterbebett überließ, als er erkannte, dass es Zeit war, die Fackel weiterzureichen. Von den Büchsenmachern des Hauses Gryndel gefertigt, hat diese Pistole einen gewaltigen Bums (mit entsprechendem Rückstoß) und hat mich nie im Stich gelassen – bis sie mir während meiner Zeit im Leichengott von einem langfingrigen Lumpen gestohlen wurde.", "Während meiner Zeit im Heart entwickelte ich ein Gebräu, mit dem ich meine Munition behandelte, damit die Kugeln Engel besser von weiteren Angriffen abhielten. Es bestand hauptsächlich aus Material, das von den Kreaturen selbst gewonnen wurde (oder aus der kosmischen Losung, die sie hinterlassen), zu Pulver zerrieben. Dieses wird beim Kugelgießen dem Blei beigemischt."])
+  ], [
+   note("Gris’ Notiz", ["Eine abtrünnige Bluthexe, die den hinterhältigen Zauberern von Hallow den Rücken gekehrt hatte, lehrte mich während unserer kurzen (aber ereignisreichen) Affäre das Geheimnis, Seherknochen herzustellen. Mein eigener Satz Knochen enthielt okkulte Erkenntnisse außerhalb ihres Verständnisses; ich glaube, das brachte sie gegen mich auf und führte zu ihrem Fortgang.", "Nach einer Auseinandersetzung mit ein paar Taugenichtsen verlor ich drei Finger meiner linken Hand. Zum Glück nahm mich eine Heartsblood-Enklave auf und zeigte mir ihre seltsamen Heilkünste. Am seltsamsten war die Mutter des Fleisches: ein Glas zappelnden, halblebendigen Hackfleischs, das mit Pflanzenmaterial vermischt und als eine Art Umschlag auf Wunden gelegt wird. Meine Finger wuchsen viel kräftiger nach als zuvor, auch wenn ich den Anblick ihrer Fingerabdrücke nicht mehr ertrug."])
+  ], [
+   note("Gris’ Notiz", ["In High Rise lernte ich meinen Gefährten Bociferous kennen – einen Hund irgendeiner Art oder vielleicht einen entfernten Verwandten eines solchen. Bociferous hatte die Merkmale der Albinokrähen angenommen, die dort auf jedem Geländer und jedem Fensterbrett sitzen: gelbweiße Federn, rosige Augen und einen Schnabel. Trotz seiner Vogelmutationen behielt er die allgemeine Gestalt und das unterwürfige Wesen eines Hundes, und seine Federn erlaubten ihm zu gleiten (wenn auch nicht wirklich zu fliegen). Ich vergötterte Bociferous, und mit echter, aufrichtiger Trauer aß ich ihn, als unserer Gruppe Essen und entbehrliche Teammitglieder ausgingen."])
+  ]])
+ ])
 ]};
 var S = window.HT_NACH.spielleitung = window.HT_NACH.spielleitung || {t:"Spielleitung", p:104, subs:[]};
 S.subs.push(haven, spiel);

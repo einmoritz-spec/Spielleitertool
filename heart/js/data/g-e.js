@@ -147,6 +147,25 @@ HT_GEGNER.push({id:"logos-engel", t:"Logos-Engel", q:"sanctum", bk:"ht_z4", bl:"
   {t:"Known", r:"Blood/Echo", s:"kritisch", x:"Der Logos-Engel nimmt dich vollständig in sich auf und gibt diese Daten an das Heart Itself weiter. Der nächste Engel, dem du begegnest, wird dich töten, und du kannst ihm in keiner Weise schaden; bestenfalls kannst du deinen Tod als Ablenkung nutzen. [Ongoing]"}
  ]});
 
+HT_GEGNER.push({id:"penumbra-engel", t:"Penumbra-Engel", q:"sanctum", bk:"ht_z4", bl:"Sanctum", p:23, legendaer:false,
+ text:[
+  "Ich sprach mit dem Penumbra-Engel. Er küsste mich mit Lippen aus Glas und sprach Rätsel unter meine Haut. Er flüsterte mir von der Convocation und sprach Worte wie silberne Skalpelle, die mich aufschlitzten für eine neue, atemberaubende Welt; Worte, die die nackten Knochen meines Selbst einer Wahrheit aussetzten, wie ich sie nie zuvor erfahren hatte; Worte, die noch immer in meinem Kopf widerhallen; Worte, die mir als Phantom in den Fingerspitzen prickeln und darum betteln, aufgeschrieben zu werden.",
+  "(Ich kann sie nicht aufschreiben. Ich bin Lehm und Dreck, ein elendes Ding. Mein Verstand ist pfützentief neben dem tosenden, stürmischen Ozean der Convocation.)",
+  "Er traf mich in High Rise während meiner Zeit beim Swanfall-Kult. Er wandelte unter den Leuten des Havens, als wäre er einer von ihnen: Er trug die Haut eines Drow, doch meinem erfahrenen Auge erschien sie schlecht sitzend – als pulsierte die Kreatur darunter gegen sie, knapp außerhalb des Bereichs gewöhnlicher Sicht. Ich folgte ihm in eine verlassene Wohnung zwei Stockwerke unter dem großen Feuer auf dem zentralen Bau, und er wartete auf mich.",
+  "Der Penumbra-Engel sprach meinen Namen wie brennenden Phosphor; nicht den Namen auf dem Umschlag dieses Buches, nicht die kindliche Ansammlung von Silben, auf die ich höre, sondern meinen wahren Namen. Er allein hat mich gesehen. Er sagte mir, er sei nicht Teil der Convocation, sondern er sei die Convocation. Er zeigte mir – indem er meine Haut wie Papier aufschälte, um den glänzenden Muskel darunter zu enthüllen –, dass auch ich die Convocation war. Oder vielmehr, dass ich es sein könnte; dass der Vorgang bereits begonnen hatte."],
+ namen:"Penumbra – jeder von ihnen trägt denselben Namen, und vielleicht sind sie alle Ausstülpungen desselben Wesens",
+ besch:"Schwebt einen Viertelzoll über dem Boden, als würde das niemand bemerken; Hat Augen, die jedes Mal die Farbe wechseln, wenn man wegsieht; Schüchtert ein Rudel verwilderter Hunde allein durch seine Gegenwart zu kauernder Unterwürfigkeit ein",
+ motiv:"Jemanden ansprechen, den das Heart als möglichen Rekruten gezeichnet hat, und ihn zu Offenbarungen lenken",
+ schw:"Riskant", res:"12", schutz:"1 (in Menschengestalt), 3 (enthüllt)",
+ ressourcen:"Personenhaut-Anzug (W10, Occult, Taboo. Aus einer echten Person gemacht. Trägst du ihn, siehst du genau aus wie diese Person und klingst wie sie.)",
+ ausr:"Verderblicher Schatten (Kill W8, Brutal, Obscuring); Worte der Macht (Kill W8, Ranged, Piercing. Dieser Angriff verursacht Stress auf Mind.)",
+ besonders:"Du kannst den Penumbra-Engel in seiner verhüllten Gestalt ohne üble Folgen sehen, auch wenn ein erfolgreicher **Discern+Cursed**-Check enthüllt, dass er eigentlich keine Person ist. Entschließt er sich, sich zu enthüllen (meist als Reaktion auf einen Angriff oder seine Entdeckung), würfle **Endure+Cursed**, um dem Schock zu widerstehen; bei einem Fehlschlag markiere W8 Stress auf **Echo**.",
+ dom:["Cursed","Occult","Haven"],
+ fallout:[
+  {t:"Falscher Segen", r:"Mind", s:"leicht", x:"Du bist überzeugt, dass jemand in deiner unmittelbaren Nähe ein Penumbra-Engel ist, prall und durchsetzt von Geheimnissen der Welt jenseits. Vielleicht hast du sogar recht; seine Beteuerungen, kein Engel zu sein, könnten nur eine weitere Prüfung sein. [Sofort]"},
+  {t:"Gesegnet", r:"Echo", s:"schwer", x:"Ein Penumbra-Engel spricht dich an, und dein Verstand wird gewaltsam mit Visionen des Heart Itself erweitert. Solange du dieses Fallout hast, würfelst du mit Mastery, wenn du mit Engeln zu tun hast oder ihren Aufenthaltsort erforschst. Markierst du dabei Stress, steigt die Würfelgröße um eine Stufe. [Anhaltend]"}
+ ]});
+
 /* ---------- B&B Derelictus: Gegner (B&B S. 6–7) ---------- */
 HT_GEGNER.push({id:"ghul", t:"Ghoul (Ghul)", q:"bb", bk:"ht_z3", bl:"B&B", p:6, legendaer:false,
  text:[],

@@ -18,7 +18,7 @@ var GSuche = (function(){
     if(typeof o === "string"){ if(!PFAD.test(o) && o.charAt(0) !== "#") out.push(clean(o)); return out; }
     if(typeof o !== "object") return out;
     if(Array.isArray(o)){ o.forEach(function(x){ flat(x, out, (d || 0) + 1); }); return out; }
-    Object.keys(o).forEach(function(k){ if(!SKIP[k] && !GSuche.skip[k]) flat(o[k], out, (d || 0) + 1); });
+    Object.keys(o).forEach(function(k){ if(SKIP[k] || GSuche.skip[k]) return; if(k === "t" && typeof o[k] === "string" && /^(p|h|ul|ol|kasten|zettel|werte|grid|karten|tab|html|img|notiz|zitat|w)$/.test(o[k])) return; flat(o[k], out, (d || 0) + 1); });
     return out;
   }
   function add(titel, bereich, hash, daten){

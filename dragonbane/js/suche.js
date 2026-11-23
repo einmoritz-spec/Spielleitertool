@@ -47,6 +47,7 @@
       else add("Abenteuer", BD[b].t + " › Einführung", "k/" + b + "/einf", E);
     });
   }
+  var RE = {};
   function treffer(q){
     var w = norm(q).split(/\s+/).filter(function(x){ return x.length > 1 || /\d/.test(x); });
     if(!w.length) return {w: w, r: []};
@@ -54,8 +55,8 @@
     IDX.forEach(function(e){
       var s = 0;
       for(var i = 0; i < w.length; i++){
-        var p = e.n.indexOf(w[i]);
-        if(p < 0) return;
+        var re = RE[w[i]] || (RE[w[i]] = new RegExp("(^|[^a-z0-9])" + w[i].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+        if(!re.test(e.n)) return;
         s += 1 + (e.nt.indexOf(w[i]) >= 0 ? 12 : 0) + Math.min(5, (e.n.split(w[i]).length - 1) * .5);
       }
       r.push({e: e, s: s});
@@ -82,8 +83,7 @@
     if(!IDX) bauen();
     var out = document.getElementById("sErg"); if(!out) return;
     var R = treffer(q), r = R.r;
-    try{ history.replaceState(null, "", "#suche/" + encodeURIComponent(q)); window.__lh = location.hash; }catch(e){}
-    if(!R.w.length){ out.innerHTML = ""; return; }
+        if(!R.w.length){ out.innerHTML = ""; return; }
     if(!r.length){ out.innerHTML = '<div class="s-leer">Nichts gefunden.</div>'; return; }
     var gr = {}, order = [];
     ["Regelbuch", "Bestiarium", "Abenteuer"].forEach(function(t){ gr[t] = []; }); r.forEach(function(x){ var g = gr[x.e.typ]; if(g.length < 30) g.push(x.e); }); order = ["Regelbuch", "Bestiarium", "Abenteuer"].filter(function(t){ return gr[t].length; });
@@ -93,10 +93,18 @@
       }).join("") + '</div>';
     }).join("");
   };
+  /* Suche als Overlay (Taste „f“ oder Lupe) */
+  window.sucheOpen = function(q){
+    if(document.getElementById("sIn")){ document.getElementById("sIn").focus(); document.getElementById("sIn").select(); return; }
+    var m = modal('<div class="suche"><input id="sIn" type="search" autocomplete="off" placeholder="Suchen in Regelbuch, Bestiarium und Abenteuern …" value="' + esc(q || "") + '" oninput="sucheLauf(this.value)"><div id="sErg" onclick="if(event.target.closest(\'a\')) document.querySelector(\'.sov\').remove()"></div></div>', true);
+    m.classList.add("sov");
+    var i = document.getElementById("sIn"); i.focus();
+    i.onkeydown = function(e){ if(e.key === "Escape"){ m.remove(); return; } if(e.key === "Enter"){ var a = document.querySelector("#sErg a"); if(a){ a.click(); } } };
+    if(q) sucheLauf(q);
+  };
   DB_VIEWS.suche = function(h){
-    var q = h[1] || "";
-    setTimeout(function(){ var i = document.getElementById("sIn"); if(i){ if(document.activeElement !== i) i.focus(); sucheLauf(i.value); } }, 0);
-    return '<div class="suche"><input id="sIn" type="search" autocomplete="off" placeholder="Suchen in Regelbuch, Bestiarium und Abenteuern …" value="' + esc(q) + '" oninput="sucheLauf(this.value)"><div id="sErg"></div></div>';
+    setTimeout(function(){ sucheOpen(h[1] || ""); }, 0);
+    return viewStart();
   };
 
   /* ---------- Galerie ---------- */
@@ -157,14 +165,14 @@
     function btn(id, titel, svg, hash){
       var b = document.createElement("button"); b.className = "ib tm-info"; b.id = id; b.title = titel; b.setAttribute("aria-label", titel);
       b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + svg + '</svg>';
-      b.onclick = function(){ go(hash); }; burger.parentNode.insertBefore(b, burger);
+      b.onclick = function(){ if(hash === "suche") sucheOpen(); else go(hash); }; burger.parentNode.insertBefore(b, burger);
     }
     btn("tbSuche", "Suche", '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/>', "suche");
     btn("tbGalerie", "Galerie", '<rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/>', "galerie");
   }
   document.addEventListener("DOMContentLoaded", knoepfe); setTimeout(knoepfe, 400); setTimeout(knoepfe, 1500);
   document.addEventListener("keydown", function(e){
-    if(e.key !== "/" || /INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
-    e.preventDefault(); go("suche");
+    if((e.key !== "f" && e.key !== "F" && e.key !== "/") || /INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
+    e.preventDefault(); sucheOpen();
   });
 })();

@@ -146,3 +146,26 @@
   new MutationObserver(ensure).observe(document.documentElement, {childList:true, subtree:true});
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", function(){ init(); bookBtn(); }); else { init(); bookBtn(); }
 })();
+
+/* Taste „f“: Suche als Overlay in jedem System. Nutzt die eigene Volltextsuche des Systems (sOpen / SBS / srOpen / sucheOpen);
+   ohne eigene Suche öffnet sich das Buch mit der PDF-Textsuche. Im geöffneten Buchleser bleibt „f“ die PDF-Suche. */
+(function(){
+  document.addEventListener("keydown", function(e){
+    if((e.key !== "f" && e.key !== "F") || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target || {};
+    if(/INPUT|TEXTAREA|SELECT/.test(t.tagName || "") || t.isContentEditable) return;
+    var v = document.getElementById("bvOverlay") || document.getElementById("bookViewer");
+    if(v && !v.hidden && v.style.display !== "none") return;
+    if(document.querySelector(".zg-fs")) return;
+    var w = window;
+    var fn = typeof w.sucheOpen === "function" ? function(){ w.sucheOpen(); } :
+      w.SBS && typeof w.SBS.open === "function" ? function(){ w.SBS.open(); } :
+      typeof w.srOpen === "function" ? function(){ w.srOpen(); } :
+      typeof w.sOpen === "function" ? function(){ w.sOpen(true); } : null;
+    if(!fn){
+      var b = document.querySelector(".tm-book"); if(!b || !w.BVFind) return;
+      e.preventDefault(); b.click(); setTimeout(function(){ try{ w.BVFind.open(); }catch(x){} }, 700); return;
+    }
+    e.preventDefault(); fn();
+  });
+})();

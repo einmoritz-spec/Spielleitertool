@@ -88,12 +88,15 @@ function ueberblick(K){
   var gar = (K.gar || []).map(function(g){ return '<div class="dgar"><b>Gars Notiz ' + esc(g.n) + "</b> " + md(g.x) + "</div>"; }).join("");
   var leg = (K.legenden || []).length ? '<h2 class="dh2">Legenden und Gerüchte</h2><ul class="lst">' + K.legenden.map(function(l){ return "<li>" + md(l) + "</li>"; }).join("") + "</ul>" : "";
   var vs = (K.verse || []).length ? '<p class="kurs dverse">' + K.verse.map(esc).join("<br>") + "</p>" : "";
-  var HL = {1:{t:[4,5,44,"c"], v:[53,8.5,31,"l"]}, 2:{t:[57,37,32,"c"], v:[58.5,53,29,"l"]}, 3:{t:[56,9,34,"c"]}, 4:{t:[56,9,34,"c"]}, 5:{t:[56,9,34,"c"]}, 6:{t:[56,9,34,"c"]}, 7:{t:[56.5,12,33,"c"], va:"l"}}[K.n] || {t:[56,9,34,"c"]};
-  var vh = (K.verse || []).length ? '<div class="dhv">' + K.verse.map(function(v){ var c = /^[–—-]\s/.test(v) || /^\*\*.*\*\*$/.test(v.trim()); v = v.trim().replace(/^\*+|\*+$/g, ""); return c ? "<cite>" + md(v) + "</cite>" : "<p>" + md(v) + "</p>"; }).join("") + "</div>" : "";
-  function box(p, inner, cls){ return '<div class="dhbox ' + (cls || "") + " a" + p[3] + '" style="left:' + p[0] + "%;top:" + p[1] + "%;width:" + p[2] + '%">' + inner + "</div>"; }
+  var HL = {1:{t:[23,3,54,44,"c"]}, 2:{t:[57,37,32,0,"c"], v:[58.5,53,29,97,"l"]}, 3:{t:[63.5,7,33,95,"c"]}, 4:{t:[59,8,36,90,"c"]}, 5:{t:[54,7,40,95,"c"]}, 6:{t:[60.5,7,35.5,82,"c"]}, 7:{t:[56.5,8,38.5,82,"c"], va:"l"}}[K.n] || {t:[54,7,40,90,"c"]};
+  var UB = (K.ueberblick || []).slice(), vor = [];
+  while(UB.length && typeof UB[0] === "string" && /^\*\*[\s\S]*\*\*$/.test(UB[0].trim()) && (K.verse || []).length) vor.push(UB.shift().trim().replace(/^\*\*|\*\*$/g, ""));
+  if(vor.length && UB[0] && UB[0].t === "h" && /^Überblick$/i.test(UB[0].x)) UB.shift(); else if(!vor.length) UB = K.ueberblick || [];
+  var vh = (K.verse || []).length ? '<div class="dhv">' + K.verse.map(function(v){ var c = /^[–—-]\s/.test(v) || /^\*\*.*\*\*$/.test(v.trim()); v = v.trim().replace(/^\*+|\*+$/g, ""); return c ? "<cite>" + md(v) + "</cite>" : "<p>" + md(v) + "</p>"; }).join("") + (vor.length ? '<div class="dhvor">' + vor.map(function(v){ return "<p>" + md(v) + "</p>"; }).join("") + "</div>" : "") + "</div>" : "";
+  function box(p, inner, cls){ return '<div class="dhbox ' + (cls || "") + " a" + p[4] + '" data-t="' + p[1] + '" data-b="' + p[3] + '" style="left:' + p[0] + "%;top:" + p[1] + "%;width:" + p[2] + '%">' + inner + "</div>"; }
   var tit = '<h1><small>Kapitel ' + K.n + ":</small>" + esc(K.t) + "</h1>";
   var hero = '<div class="dhero" style="background-image:url(' + IMG("dagger/kap" + K.n + "-hero") + ')">' + (HL.v ? box(HL.t, tit) + box(HL.v, vh, "nurv") : box(HL.t, tit + vh, HL.va === "l" ? "vl" : "")) + "</div>";
-  return hero + '<div class="wrap dhwrap"><div class="seite dkseite"><h2 class="dh2 dueb">Überblick' + pg(K.p) + '</h2><div class="flach">' + bls(K.ueberblick) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
+  return hero + '<div class="wrap dhwrap"><div class="seite dkseite"><h2 class="dh2 dueb">Überblick' + pg(K.p) + '</h2><div class="flach">' + bls(UB) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
 }
 function inszen(K){
   var h = (K.inszenierung || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + Object.keys(DART.ins).map(function(k){ return a.t.indexOf(k) >= 0 ? dbild(DART.ins[k], "r klein") : ""; }).join("") + bls(a.b) + (a.figuren || []).map(fig).join("") + "</div>"; }).join("");
@@ -229,6 +232,12 @@ VIEWS.dagger = function(a){
 var prev = window.afterRender;
 window.afterRender = function(){
   if(prev) prev();
+  var hero = document.querySelector(".dhero");
+  if(hero && innerWidth > 1000) hero.querySelectorAll(".dhbox").forEach(function(bx){
+    var b = +bx.dataset.b; if(!b) return; var max = hero.clientHeight * (b - bx.dataset.t) / 100, v = bx.querySelector(".dhv"); if(!v) return;
+    var f = innerWidth * 0.0135; v.style.fontSize = f + "px";
+    while(bx.offsetHeight > max && f > 11){ f -= 0.5; v.style.fontSize = f + "px"; }
+  });
   var ka = document.querySelector(".dkarte"), on = ka && ka.querySelector(".dnode.on,.ddelve.on"); if(on) ka.scrollLeft = on.offsetLeft - ka.clientWidth / 2;
   if(/^#dagger/.test(location.hash)){ var rt = document.querySelector(".dkgrid,.dlm,.dkseite"); if(rt) document.querySelectorAll(".dkgrid,.dlm,.dkseite").forEach(handChips); }
   var img = document.querySelector(".brand img"); if(!img) return;

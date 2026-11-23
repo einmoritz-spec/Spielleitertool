@@ -447,3 +447,5 @@ body{background-attachment:fixed}
 .dhbox.al .dhv cite{text-align:left}
 .dhwrap{margin-top:-4vw}
 @media(max-width:1000px){.dhero{aspect-ratio:auto;background-size:100% auto!important;background-repeat:no-repeat;padding-top:64.7vw}.dhbox{position:static;width:auto!important;padding:0 18px 14px;background:#151110}.dhbox h1{font-size:34px}.dhbox .dhv{font-size:16px}.dhwrap{margin-top:0}}
+.dhbox.vl .dhv p{text-align:left}.dhbox.vl .dhv cite{text-align:right}.dhbox.ac .dhv cite{text-align:center}
+.dhvor{font-style:normal;font-weight:400;text-align:left;margin-top:1.4em}.dhvor p{margin:0 0 .7em}

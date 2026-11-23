@@ -716,3 +716,13 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .tafel>.extra>.stein.bk{margin:0}
 .tafel>.tl,.tafel>.rechts{position:sticky;top:10px}
 .gr.mas>.voll{grid-column:1/-1}
+
+/* Karte(n) auf der Lage-Seite */
+.lk{margin-top:0}
+.lk .lkb{cursor:pointer;text-align:center}
+.lk .lkb.aus{display:none}
+.lk .rahmen{display:inline-block;max-width:100%}
+.lk .bild{height:auto;width:auto;max-width:100%;max-height:calc(100vh - 220px)}
+.lkt{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0 0 10px;font:13px/1.2 var(--f-kopf);text-transform:uppercase;letter-spacing:.04em}
+.lkt span{cursor:pointer;color:#7d7266;padding-bottom:2px;border-bottom:2px solid transparent}
+.lkt span.on{color:var(--jade);border-bottom-color:var(--jade)}

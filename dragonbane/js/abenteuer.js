@@ -177,9 +177,25 @@ function abGruppen(html){
   });
   return d.innerHTML;
 }
+/* Karte(n) des Abenteuers gleich auf der Lage-Seite: Klick aufs Bild öffnet den Orte-Reiter, bei mehreren Karten Umschalter über dem Bild */
+function lageKarten(A){
+  var L = (A.bereiche || []).filter(function(b){ return b.karte && b.karte.img; });
+  if(!L.length) return "";
+  var id = "lk_" + A.id.replace(/\W/g, "_");
+  var bilder = L.map(function(b, i){
+    return '<div class="lkb' + (i ? ' aus' : '') + '" data-i="' + i + '" onclick="go(\'a/' + A.id + '/' + b.id + '\')">' + rahmenHTML('<img class="bild mul" src="' + IMG(b.karte.img) + '" alt="">') + '</div>';
+  }).join("");
+  var chips = L.length > 1 ? '<div class="lkt">' + L.map(function(b, i){ return '<span class="' + (i ? '' : 'on') + '" onclick="lageKarte(this,' + i + ')">' + esc(b.t) + '</span>'; }).join("") + '</div>' : "";
+  return '<div class="lk" id="' + id + '">' + chips + bilder + '</div>';
+}
+function lageKarte(el, i){
+  var w = el.closest(".lk"); if(!w) return;
+  Array.prototype.forEach.call(w.querySelectorAll(".lkt span"), function(c, j){ c.classList.toggle("on", j === i); });
+  Array.prototype.forEach.call(w.querySelectorAll(".lkb"), function(c, j){ c.classList.toggle("aus", j !== i); });
+}
 function lageTab(A){
   var bl = (A.lage || []).concat(A.schluss || []), cells = (nabs({b:bl}).match(/class="(ab|zelle|karte|kgrid|vorlesen)/g) || []).length;
-  var links = (A.img ? '<div class="bildr">' + rahmenHTML('<img class="bild mul" src="' + IMG(A.img) + '" alt="" onclick="event.stopPropagation()">') + '</div>' : '') + (A.vl ? '<div class="vorlesen">' + md(A.vl) + '</div>' : '');
+  var kk = lageKarten(A), links = (A.img && !kk ? '<div class="bildr">' + rahmenHTML('<img class="bild mul" src="' + IMG(A.img) + '" alt="" onclick="event.stopPropagation()">') + '</div>' : '') + kk + (A.vl ? '<div class="vorlesen">' + md(A.vl) + '</div>' : '');
   var hint = A.hinweis ? '<div class="hint">' + A.hinweis.map(function(t){ return '<p>' + md(t) + '</p>'; }).join("") + '</div>' : '';
   if(links && cells >= 3){
     /* Links: Bild + Kästen/Karten untereinander, rechts: Text – beide Spalten ähnlich lang, keine Leerfläche */

@@ -639,3 +639,12 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 .dzs.z2:before{content:"";position:absolute;left:6%;top:10%;width:20%;height:80%;background:url(img/dagger/zettel/aramos-daumen.webp) center/contain no-repeat;opacity:.5}
 .dzs.z3{left:60px;top:272px;width:calc(100% - 60px);height:170px;background-image:url(img/dagger/zettel/aramos-zettel-3.webp);transform:rotate(-1deg);color:#16110c;font-size:36px;line-height:1;font-weight:700}
 .dzs.z3:after{content:"";position:absolute;right:0;top:0;width:55%;height:60%;background:url(img/dagger/zettel/aramos-blut.webp) right top/cover no-repeat;opacity:.8;mix-blend-mode:multiply}
+
+.dgn{position:relative;width:min(640px,100%);height:640px;margin:10px 0 6px}
+.dgz{position:absolute;background-size:100% 100%;background-repeat:no-repeat;font-family:Caveat,cursive;color:#1c1c24;display:flex;align-items:center;filter:drop-shadow(0 3px 4px #0005)}
+.dgz span{display:block}
+.dgz.w{left:10px;top:50px;width:340px;height:340px;background-image:url(img/dagger/zettel/gars-weiss.webp);transform:rotate(-2deg);font-size:23px;line-height:1.08;font-style:italic}.dgz.w span{padding:0 9% 0 11%}
+.dgz.g{left:300px;top:200px;width:340px;height:380px;background-image:url(img/dagger/zettel/gars-gelb.webp);transform:rotate(3deg);font-size:27px;line-height:1.05;font-weight:700}.dgz.g span{padding:0 12% 0 14%}
+.dgz.lb{left:0;top:0;width:210px;height:96px;background-image:url(img/dagger/zettel/gars-etikett.webp);background-size:100% 100%;transform:rotate(-7deg);justify-content:center;font-size:30px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#2b1d14;padding-top:6px;box-sizing:border-box}
+.dgn .pn{position:absolute;left:372px;top:186px;width:30px;height:54px;background:url(img/dagger/zettel/gars-nadel.webp) center/contain no-repeat;transform:rotate(-20deg)}
+.dgz.ez{left:405px;top:560px;width:230px;height:76px;background-image:url(img/dagger/zettel/gars-band.webp);transform:rotate(-8deg);justify-content:center;font-size:32px;font-weight:700;color:#4a0a0e;background-color:transparent;padding:6px 0 0 34px;box-sizing:border-box;text-shadow:0 0 3px #f3dcc8,0 0 3px #f3dcc8}

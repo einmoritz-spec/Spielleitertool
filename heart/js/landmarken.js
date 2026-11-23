@@ -11,13 +11,15 @@ function kopf(t){
   s = s.replace(/\*+/g, ""); var m = s.match(/^[^.!?]+[.!?]/); return m ? m[0] : s;
 }
 function item(l){
-  return '<a class="lmi" onclick="go(\'lm/' + l.id + '\')"><div class="n"><b>' + esc(l.t) + '</b><span>' + esc(ks(l.stress)) + " · S. " + l.p + (l.q === "bb" ? ' <em class="bbt">B&amp;B</em>' : "") + "</span></div><div class=\"d\">" + esc((l.dom || []).join(", ")) + "</div></a>";
+  var bl = ((window.HT_BILD || {}).lm || {})[l.id];
+  return '<a class="lmi' + (bl ? " mitbild" : "") + '" onclick="go(\'lm/' + l.id + '\')">' + (bl ? '<img class="lmmini" src="' + IMG(bl) + '" alt="">' : "") + '<div class="n"><b>' + esc(l.t) + '</b><span>' + esc(ks(l.stress)) + " · S. " + l.p + (l.q === "bb" ? ' <em class="bbt">B&amp;B</em>' : "") + "</span></div><div class=\"d\">" + esc((l.dom || []).join(", ")) + "</div></a>";
 }
 function viewLm(a){
   if(a[0]) return viewLmEinzeln(a[0]);
   var bands = STUFEN.map(function(s){
     var L = lms(s[0]);
-    return '<section class="lmb t' + s[0] + '"><div class="lmk"><h2>' + s[1] + "</h2><p>" + esc(kopf(s[0])) + '</p></div><div class="lmg">' + L.map(item).join("") + "</div></section>";
+    var tb = ((window.HT_BILD || {}).tiefe || {})[s[0]];
+    return '<section class="lmb t' + s[0] + '"><div class="lmk">' + (tb ? '<img class="lmtb" src="' + IMG(tb) + '" alt="">' : "") + "<h2>" + s[1] + "</h2><p>" + esc(kopf(s[0])) + '</p></div><div class="lmg">' + L.map(item).join("") + "</div></section>";
   }).join("");
   var herz = '<section class="lmb t4"><div class="lmk"><h2>Tiefe 4</h2><p>Das Heart Itself: ein gleißendes, unbestimmbares Feuer, ein roter, nasser Himmel, der im Zentrum der Stadt unter der Stadt pocht und schlägt.</p></div></section>';
   var seite = SEITE.map(function(s){
@@ -36,7 +38,7 @@ function viewDelve(id){
   var d = HT_DELVE.filter(function(x){ return x.id === id; })[0]; if(!d) return viewLm([]);
   var wz = '<div class="lmwerte"><div><span class="lbl">Domains</span> ' + esc(d.domx || (d.dom || []).join(", ")) + '</div><div><span class="lbl">Tiefe</span> ' + esc(String(d.tiefe)) + '</div><div><span class="lbl">Stress</span> ' + esc(d.stress) + '</div><div><span class="lbl">Resistance</span> ' + d.res + "</div></div>";
   var l = '<p class="kurs">' + md(d.besch) + '</p><h3 class="h3">Ereignisse</h3><ul class="lst">' + (d.erg || []).map(function(e){ return "<li>" + md(e) + "</li>"; }).join("") + "</ul>" + (d.verb ? '<h3 class="h3">Verbindung</h3><p>' + md(d.verb) + "</p>" : "");
-  var r = (d.fallout || []).map(function(f){ return '<div class="schwarz"><div class="lbl">' + esc(f.t) + " · " + esc(f.stufe || "") + " · " + esc(f.res || "") + "</div><p>" + md(f.x) + "</p></div>"; }).join("") +
+  var r = (d.fallout || []).map(function(f){ return '<div class="dfo"><p><b class="dfon">Fallout: ' + esc(f.t) + ".</b> [" + esc([f.stufe, f.res].filter(Boolean).join(", ")) + "] " + md(f.x) + "</p></div>"; }).join("") +
     (d.gegner || []).map(function(g){ return '<div class="schwarz"><div class="lbl">' + esc(g.t) + '</div><p>' + md(g.motivation || "") + '</p><p><b>Schwierigkeit:</b> ' + esc(g.schwierigkeit) + " · <b>Resistance:</b> " + g.res + " · <b>Schutz:</b> " + g.schutz + (g.ausruestung ? "<br><b>Ausrüstung:</b> " + md(g.ausruestung) : "") + "</p></div>"; }).join("");
   return nav("x") + '<div class="wrap"><div class="seite lmseitebl"><a class="zur" onclick="go(\'lm\')">‹ Landmarken</a><h1 class="h1">' + esc(d.t) + pgl(d.p, d.bl ? d.bl + " S. " + d.p : null, d.bk) + ' <em class="bbt">Delve</em></h1>' + wz + '<div class="bgrid n2 lmsp"><div>' + l + "</div><div>" + r + "</div></div></div></div>";
 }
@@ -47,9 +49,10 @@ function viewLmEinzeln(id){
   var done = ST.lmdone || {};
   var wz = '<div class="lmwerte"><div><span class="lbl">Domains</span> ' + esc((l.dom || []).join(", ")) + '</div><div><span class="lbl">Tiefe</span> ' + esc(tf) + '</div><div><span class="lbl">Standard-Stress</span> ' + esc(l.stress || "") + "</div>" +
     ((l.haunts || []).length ? '<div class="hn"><span class="lbl">Haunts</span><ul>' + l.haunts.map(function(h){ return "<li>" + md(h) + "</li>"; }).join("") + "</ul></div>" : "") + "</div>";
-  var links = (l.text || []).map(blk).join("") + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + (u.b || []).map(blk).join(""); }).join("");
+  var bl = ((window.HT_BILD || {}).lm || {})[l.id];
+  var links = (bl ? '<img class="lmbild" src="' + IMG(bl) + '" alt="" onclick="zoom(this.src)">' : "") + (l.text || []).map(blk).join("") + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + (u.b || []).map(blk).join(""); }).join("");
   var rechts = "";
-  if(l.regeln && l.regeln.length) rechts += '<div class="schwarz"><div class="lbl">Besondere Regeln</div>' + l.regeln.map(blk).join("") + "</div>";
+  if(l.regeln && l.regeln.length) rechts += '<div class="dkas"><h4>Besondere Regeln</h4>' + l.regeln.map(blk).join("") + "</div>";
   if((l.ressourcen || []).length) rechts += '<h3 class="h3">Ressourcen</h3><ul class="lst">' + l.ressourcen.map(function(r){ return "<li>" + md(r) + "</li>"; }).join("") + "</ul>";
   if((l.plots || []).length) rechts += '<h3 class="h3">Mögliche Plots</h3><ul class="lst plots">' + l.plots.map(function(r, i){ var k = l.id + ":" + i; return '<li class="' + (done[k] ? "ok" : "") + '" onclick="lmPlot(\'' + k + '\')">' + md(r) + "</li>"; }).join("") + "</ul>";
   return nav("x") + '<div class="wrap"><div class="seite lmseitebl"><a class="zur" onclick="go(\'lm\')">‹ Landmarken</a><h1 class="h1">' + esc(l.t) + seitenlink(l) + (l.q === "bb" ? ' <em class="bbt">B&amp;B</em>' : "") + "</h1>" + wz +

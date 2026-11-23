@@ -19,7 +19,14 @@ function blk(b){
     case "p": return "<p" + (b.k ? ' class="kurs"' : "") + ">" + md(b.x) + "</p>";
     case "h": return '<h3 class="h3">' + esc(b.x) + (b.p ? pgl(b.p, b.bl ? b.bl + " S. " + b.p : null, b.bk) : "") + "</h3>";
     case "ul": return '<ul class="lst">' + b.x.map(function(x){ return x && typeof x === "object" ? '<li style="list-style:none;margin-left:-4px">' + blk(x) + "</li>" : "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
-    case "kasten": return '<div class="schwarz">' + (b.h ? '<div class="lbl">' + esc(b.h) + "</div>" : "") + (b.b || [b.x]).map(blk).join("") + "</div>";
+    case "kasten":
+      if(/^Fallout:/.test(b.h || "")){
+        var fh = b.h.replace(/^Fallout:\s*/, ""), ftag = "", fm, FB = (b.b || [b.x]).slice();
+        if((fm = fh.match(/^(.*?)\s*\[([^\]]+)\]\s*$/))){ fh = fm[1]; ftag = fm[2]; } else if(fh.indexOf(" · ") > 0){ var FP = fh.split(" · "); fh = FP.shift(); ftag = FP.join(", "); }
+        if(typeof FB[0] === "string"){ FB[0] = FB[0].replace(/^\*\*[^*]+\.?\*\*\.?\s*/, ""); if(!ftag && (fm = FB[0].match(/^\[([^\]]+)\]\s*/))){ ftag = fm[1]; FB[0] = FB[0].slice(fm[0].length); } }
+        return '<div class="dfo"><p><b class="dfon">Fallout: ' + esc(fh) + ".</b>" + (ftag ? " [" + esc(ftag) + "]" : "") + " " + (typeof FB[0] === "string" ? md(FB[0]) : "") + "</p>" + (typeof FB[0] === "string" ? FB.slice(1) : FB).map(blk).join("") + "</div>";
+      }
+      return '<div class="schwarz">' + (b.h ? '<div class="lbl">' + esc(b.h) + "</div>" : "") + (b.b || [b.x]).map(blk).join("") + "</div>";
     case "werte": return '<div class="werte">' + b.z.map(function(z){ return '<div><span class="lbl">' + esc(z[0]) + "</span> " + md(z[1]) + "</div>"; }).join("") + "</div>";
     case "karten": return '<div class="kkarten' + (b.n ? " n" + b.n : "") + '">' + b.x.map(function(k){ return '<div class="kkarte"><div class="platte">' + esc(k.t) + "</div>" + k.b.map(blk).join("") + "</div>"; }).join("") + "</div>";
     case "grid": return '<div class="bgrid n' + (b.n || 2) + '">' + b.x.map(function(c){ return "<div>" + c.map(blk).join("") + "</div>"; }).join("") + "</div>";

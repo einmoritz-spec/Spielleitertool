@@ -465,3 +465,10 @@ body{background-attachment:fixed}
 .gs-k{background:linear-gradient(135deg,#f4ebd6,#e6d7b6)!important;color:#1a1410!important;border:0!important;border-top:3px solid var(--platte)!important;border-radius:0!important;box-shadow:0 3px 8px #000a}
 .gs-k:hover{background:#fff7e6!important}.gs-k b{font:400 18px var(--head)!important;letter-spacing:.03em;text-transform:uppercase;color:#7a1712}.gs-k span{font:15px/1.4 var(--body)!important;opacity:1!important;color:#3a2e24}
 .gs mark{background:#b3251e33!important;color:#7a1712!important;font-weight:700}
+
+.gbild{float:right;width:min(42%,230px);max-height:300px;object-fit:contain;margin:0 0 10px 14px;cursor:zoom-in;filter:drop-shadow(0 3px 6px #0006)}
+.gz.mitbild{position:relative;padding-right:64px}.gmini{position:absolute;right:6px;top:50%;transform:translateY(-50%);height:calc(100% - 8px);max-height:58px;width:52px;object-fit:contain}
+.lmbild{float:right;width:min(46%,440px);margin:4px 0 12px 20px;cursor:zoom-in}
+.lmk .lmtb{display:block;width:calc(100% + 32px);margin:-16px -16px 12px;max-height:180px;object-fit:cover;object-position:center 35%}
+.lmi.mitbild{position:relative;padding-left:52px}.lmmini{position:absolute;left:0;top:2px;width:44px;height:calc(100% - 10px);object-fit:cover;object-position:center 30%;border:1px solid #0004}
+.lmmini{object-fit:contain;border:0;object-position:center}.lmk .lmtb{max-height:none;height:auto;object-fit:contain}

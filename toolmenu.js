@@ -163,9 +163,18 @@
       typeof w.srOpen === "function" ? function(){ w.srOpen(); } :
       typeof w.sOpen === "function" ? function(){ w.sOpen(true); } : null;
     if(!fn){
-      var b = document.querySelector(".tm-book"); if(!b || !w.BVFind) return;
+      var b = document.querySelector(".tm-book:not(.tm-map)"); if(!b || !w.BVFind) return;
       e.preventDefault(); b.click(); setTimeout(function(){ try{ w.BVFind.open(); }catch(x){} }, 700); return;
     }
     e.preventDefault(); fn();
+  });
+})();
+
+/* Taste „m“: Karte öffnen (wo ein System eine Karte hat) */
+(function(){
+  document.addEventListener("keydown", function(e){
+    if((e.key !== "m" && e.key !== "M") || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target || {}; if(/INPUT|TEXTAREA|SELECT/.test(t.tagName || "") || t.isContentEditable) return;
+    var b = document.querySelector(".tm-map"); if(b){ e.preventDefault(); b.click(); }
   });
 })();

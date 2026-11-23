@@ -16,8 +16,9 @@ function ktitel(n){ var k = kap(n); return k && k.t ? k.t : KT[n]; }
 function nav(n, tab){
   var tabs = [["ueberblick","Überblick"],["inszenierung","Inszenierung"],["landmarken","Landmarken"],["dokumente","Dokumente"]];
   var sel = '<select class="dksel" onchange="go(\'dagger/\'+this.value+\'/ueberblick\')">' + [1,2,3,4,5,6,7].map(function(i){ return '<option value="' + i + '"' + (i == n ? " selected" : "") + ">Kapitel " + i + " · " + esc(ktitel(i)) + "</option>"; }).join("") + "</select>";
-  return '<nav class="tabs dknav"><a class="kb0" onclick="go(\'dagger\')">‹ Kampagne</a>' + (n ? sel + tabs.map(function(t){ return '<a class="' + (t[0] === tab ? "on" : "") + '" onclick="go(\'dagger/' + n + "/" + t[0] + '\')">' + t[1] + "</a>"; }).join("") : "") + '<span class="sp"></span></nav>';
+  return '<nav class="tabs dknav"><a class="kb0" onclick="go(\'dagger\')">‹ Kampagne</a>' + (n ? sel + tabs.map(function(t){ return '<a class="' + (t[0] === tab ? "on" : "") + '" onclick="go(\'dagger/' + n + "/" + t[0] + '\')">' + t[1] + "</a>"; }).join("") : "") + '<span class="sp"></span>' + (n ? '<a class="dkfin' + (dk().done[n] ? " on" : "") + '" onclick="dkFin(' + n + ')">' + (dk().done[n] ? "✓ Abgeschlossen" : "Abschließen") + "</a>" : "") + "</nav>";
 }
+window.dkFin = function(n){ var d = dk().done; d[n] = !d[n]; save(); render(); };
 /* ---------- Übersicht ---------- */
 function opps(){ return D().opp || []; }
 function plan(id){ var o = dk().opp[id] || 0, h = ""; PL.forEach(function(l, i){ h += '<span class="dpl' + (i < o ? " an" : "") + '" onclick="event.stopPropagation();dkPlan(\'' + id + "'," + i + ')"><i></i></span>'; }); return '<span class="dplw">' + h + "</span>"; }
@@ -25,7 +26,7 @@ function uebersicht(){
   var I = D().intro || {}, h = '<div class="dkbuehne"><div class="dkstair">';
   [1,2,3,4,5,6,7].forEach(function(n){
     var done = dk().done[n];
-    h += '<div class="dkk' + (done ? " fertig" : "") + '" style="margin-left:' + ((n - 1) * 194) + 'px;margin-top:' + (n === 1 ? 0 : 0) + 'px;top:' + ((n - 1) * 66) + 'px" onclick="go(\'dagger/' + n + '/ueberblick\')"><img src="' + IMG("dagger/kap" + n) + '" alt=""><div class="dkkl"><small>Kapitel ' + n + " · S. " + KP[n] + "</small><b>" + esc(ktitel(n)) + "</b></div></div>";
+    h += '<div class="dkk' + (done ? " fertig" : "") + (dk().cur === n && !done ? " aktuell" : "") + '" style="margin-left:' + ((n - 1) * 194) + 'px;margin-top:' + (n === 1 ? 0 : 0) + 'px;top:' + ((n - 1) * 66) + 'px" onclick="go(\'dagger/' + n + '/ueberblick\')"><img src="' + IMG("dagger/kap" + n) + '" alt=""><div class="dkkl"><small>Kapitel ' + n + " · S. " + KP[n] + "</small><b>" + esc(ktitel(n)) + "</b></div></div>";
   });
   h += "</div>";
   var vs = (I.hintergrund && I.hintergrund.verse) || [];
@@ -141,6 +142,7 @@ function landmarken(K, sel){
 }
 function kapitel(n, tab, id){
   var K = kap(n);
+  if(dk().cur !== +n){ dk().cur = +n; save(); }
   if(!K) return nav(n, tab) + '<div class="wrap"><div class="seite dkseite"><h1 class="h1">Kapitel ' + n + " · " + esc(KT[n]) + "</h1><p>Inhalt wird übersetzt.</p></div></div>";
   var inh = tab === "inszenierung" ? inszen(K) : tab === "landmarken" ? landmarken(K, id) : tab === "dokumente" ? dokumente(K) : ueberblick(K);
   return nav(n, tab) + inh;

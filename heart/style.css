@@ -399,3 +399,5 @@ body{background-attachment:fixed}
 .dbild{display:block;max-width:100%;height:auto;margin:2px 0 10px}.dbild.r{float:right;width:min(40%,420px);margin:0 0 12px 22px}.dbild.r.gross{width:min(34%,460px)}.dbild.r.klein{width:min(34%,220px)}
 @media(max-width:900px){.dbild.r,.dbild.r.gross,.dbild.r.klein{float:none;width:100%;max-width:420px;margin:0 auto 12px}}
 .dbild.breit{width:100%;max-height:200px;object-fit:contain;margin-bottom:12px}
+.dkfin{cursor:pointer;opacity:.75;font-size:14px}.dkfin.on{opacity:1;color:#9c9}
+.dkk.aktuell{outline:3px solid #b3251e;outline-offset:2px}.dkk.aktuell::after{content:"Aktuell";position:absolute;top:8px;left:8px;background:#b3251e;color:#fff;font:400 15px var(--head);text-transform:uppercase;padding:2px 9px;letter-spacing:.06em}

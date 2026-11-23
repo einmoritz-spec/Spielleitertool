@@ -834,3 +834,12 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .ntk{padding:6px var(--rand) 24px}
 .ntw{display:block;width:100%;max-width:1700px;margin:0 auto;box-shadow:none}
 .ntw>img{width:100%;max-width:100%;max-height:none;height:auto}
+
+/* Einführung mit Seitenleiste: Titelbild schmal links neben dem Text statt riesig darüber */
+.lay .einf{display:grid;grid-template-columns:clamp(200px,19vw,260px) minmax(0,1fr);gap:0 clamp(24px,2.6vw,40px);align-items:start}
+.lay .einf .eb{position:static}
+.lay .einf .eb .rahmen img.bild{width:100%;max-height:none}
+.lay .einf .kopf{text-align:left}
+@media (max-width:1000px){.lay .einf{grid-template-columns:1fr}.lay .einf .eb{max-width:260px}}
+.side .sbild{padding:16px 6px 0 0}
+.side .sbild .rahmen img.bild{width:100%;max-height:none}

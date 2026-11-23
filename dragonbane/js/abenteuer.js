@@ -138,7 +138,7 @@ function einfTab(b, sec){
     var cur = e.filter(function(s){ return s.id === sec; })[0] || e[0], first = cur === e[0];
     var side = '<nav class="side">' + e.map(function(s){ return '<a class="' + (s === cur ? 'on' : '') + '" href="#k/' + b.id + '/einf/' + s.id + '"><span>' + esc(kurz(s.t)) + '</span>' + (s.p ? '<i>S. ' + s.p + '</i>' : '') + '</a>'; }).join("") + '</nav>';
     var inh = '<div class="kopf"><h1>' + esc(cur.t) + '</h1>' + (cur.p ? pgl(cur.p) : "") + '</div>' + nabs({b:cur.b});
-    return lay(side, first && bild ? '<div class="einf"><div class="eb">' + bild + '</div><div class="et">' + inh + '</div></div>' : inh);
+    return lay(side, inh);
   }
   if(!e.length) return '<div class="einf leer1"><div class="eb">' + bild + '</div></div>';
   return '<div class="einf"><div class="eb">' + bild + '</div><div class="et">' + nabs({b:e}) + '</div></div>';

@@ -718,3 +718,6 @@ body.ooth .tabs.oob a.on{background:none}body.ooth .tabs.oob a.on::before{backgr
 .pcm .fgs{cursor:zoom-in}
 .fgm>div{max-width:none;width:auto;background:#fff;padding:14px;max-height:96vh;overflow:auto}
 .fgb{height:min(84vh,calc(100vh - 150px))}.fgb .fgs{height:100%;width:auto;cursor:default}
+.nsub{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.nsub::-webkit-scrollbar{display:none}.nsub>*{flex:none;white-space:nowrap}
+.nsub a.pn{font-size:13px;letter-spacing:.02em;padding-left:9px;padding-right:9px}
+.nsub a{padding-left:7px;padding-right:7px}.nsub a.pn{padding-left:6px;padding-right:6px}.nsub{padding-left:10px;padding-right:6px;gap:0}.nsub .vr{margin:0 2px}

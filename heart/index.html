@@ -71,6 +71,10 @@
 <script src="js/expedition.js"></script>
 <script src="js/dagger.js"></script>
 <script src="js/karte.js"></script>
+<script src="js/data/bo-a.js"></script>
+<script src="js/data/bo-b.js"></script>
+<script src="js/data/bo-c.js"></script>
+<script src="js/blackops.js"></script>
 <script src="../shared/gsuche.js"></script>
 <script src="js/suche.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ht_core", books:HT_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });

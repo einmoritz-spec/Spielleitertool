@@ -489,3 +489,59 @@ body{background-attachment:fixed}
 .kpick input{width:100%;box-sizing:border-box;font:italic 18px var(--body);padding:8px 12px;border:0;border-left:5px solid var(--platte);background:#f2e8d0}
 .kpg{display:flex;flex-wrap:wrap;gap:6px}.kpg button{background:#f4ebd6;color:#7a1712;border-top:2px solid var(--platte);box-shadow:0 1px 3px #0005}
 #kl{max-height:60vh;overflow:auto}.kbtn{display:flex;gap:8px;margin-top:12px}.kpick label{font:16px var(--body);display:flex;gap:10px;align-items:center}.kpick label input{width:100px}
+
+/* ---------- Vermissian Black Ops ---------- */
+body.bo{background:#0b0b0c}
+.bo .tabs{background:#000}.bo .tabs a.on{background:#e8262c}
+.bowrap{max-width:1500px;margin:0 auto;padding:18px 22px 60px;color:#e9e4dc;font:17px/1.55 var(--body)}
+.bowrap .flach p,.bowrap p{margin:0 0 .7em}
+.bowrap h1,.bowrap h2,.bowrap h3{font-family:"HT BoldSans",var(--plate);text-transform:uppercase;letter-spacing:.04em}
+.bohero{display:grid;grid-template-columns:minmax(240px,360px) 1fr;gap:28px;align-items:start;margin-bottom:28px}
+.bohero>img{width:100%;box-shadow:0 8px 28px #000}.bohtx h1{font-size:54px;line-height:1;color:#fff;margin:0 0 4px;display:inline-block;background:#e8262c;padding:8px 14px 4px}
+.bohtx .pgl{color:#aaa}.bohtx .flach{margin-top:14px;font-size:18px}.bobuch{background:#141010;border-left:6px solid #e8262c;padding:12px 18px 4px;margin-top:14px;font-size:16px;color:#cfc8bd}.bobuch h3,.bobuch .h3{margin-top:0}.bohtx h3,.bohtx .h3{color:#e8262c;font-family:"HT BoldSans";text-transform:uppercase;break-after:avoid}
+.boreihe{display:grid;grid-template-columns:minmax(420px,46%) 1fr;gap:30px;align-items:start;margin-bottom:24px}
+.bonetz{position:relative;background:#260707}.bonetz>img{display:block;width:100%;cursor:pointer}
+.botitel{position:absolute;left:0;right:0;top:2.3%;text-align:center;font:400 clamp(18px,2.1vw,30px)/1 "HT BoldSans";text-transform:uppercase;color:#fff;letter-spacing:.03em}
+.bokompl{position:absolute;left:26.5%;top:60.2%;font:400 clamp(8px,.75vw,11px) "HT BoldSans";text-transform:uppercase;color:#000;transform:rotate(0)}
+.bolegende{position:absolute;left:4.5%;top:41.5%;border:4px solid #fff;background:#260707;padding:8px 12px 10px}.bolegende h3{margin:0 0 6px;font-size:clamp(16px,1.6vw,24px);color:#fff}
+.bolegende a{display:flex;align-items:center;gap:8px;font:400 clamp(11px,1vw,15px)/1.6 "HT BoldSans";text-transform:uppercase;color:#fff;cursor:pointer}.bolegende a:hover,.bolegende a.on{color:#ffd}
+.bolegende i{display:inline-block;width:30px;height:7px;border-radius:4px}
+.boseite .boh2,.boh2{font-size:28px;color:#fff;margin:22px 0 12px;border-left:8px solid #e8262c;padding-left:12px}.boseite .boh2{margin-top:0}
+.bokarten{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:16px}
+.bok{display:block;cursor:pointer;background:#000;border-top:6px solid var(--lf);text-decoration:none;color:#fff;transition:transform .15s}.bok:hover{transform:translateY(-3px)}
+.bok img{display:block;width:100%;aspect-ratio:3/4.3;object-fit:cover}.bokleer{display:block;aspect-ratio:3/4.3;background:repeating-linear-gradient(0deg,var(--lf) 0 12px,#000 12px 24px);opacity:.6}
+.bok b{display:block;font:400 18px "HT BoldSans";text-transform:uppercase;padding:8px 10px 0;color:var(--lf)}.bok small{display:block;padding:0 10px 10px;font:13px var(--body);color:#bbb}
+.bounter a{display:inline-flex;align-items:center;gap:6px}.bounter a i{width:16px;height:5px;border-radius:3px;background:var(--lf)}
+.bolkopf{display:grid;grid-template-columns:minmax(220px,340px) 1fr minmax(240px,320px);gap:24px;background:#120d0d;border:3px solid var(--lf);padding:18px;align-items:start}
+.bolbild{width:100%;cursor:zoom-in;border:3px solid var(--lf)}.bowill{font:400 22px "HT BoldSans";text-transform:uppercase;color:#fff}
+.bolk h1{font-size:56px;line-height:.95;color:var(--lf);margin:2px 0 8px}.bolk h1 .pgl{font-size:14px;color:#aaa;vertical-align:middle}
+.bostress{display:inline-block;background:var(--lf);color:#000;font:400 18px "HT BoldSans";text-transform:uppercase;padding:4px 12px 2px;margin-bottom:14px}
+.boeinl{font-weight:600}.boeinl.dunkel{font-weight:400;color:#ccc}.bohin{font-style:italic;color:#bbb}
+.boatmo{background:#7a0f12;color:#fff;padding:12px 16px}.boatmo h3{margin:0 0 6px;font-size:20px}.boatmo ol{margin:0;padding-left:24px;font-size:15px;line-height:1.4}.boatmo li{margin-bottom:4px}
+.bostreifen{position:relative;display:flex;justify-content:space-between;margin:20px 0 6px;padding:0 6px;overflow-x:auto}
+.bosl{position:absolute;left:0;right:0;top:12px;height:10px;background:var(--lf);border-radius:5px}
+.bost{position:relative;flex:1 0 64px;text-align:center}.bost i{display:block;width:12px;height:16px;margin:8px auto 4px;background:var(--lf);border:3px solid #120d0d;border-radius:3px}
+.bost.knoten i{width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #000;margin-top:4px}
+.bost span{display:block;font:400 13px/1.1 "HT BoldSans";text-transform:uppercase;color:#fff;padding:0 2px}
+.bogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;align-items:start}.bogrid.zwei{grid-template-columns:repeat(auto-fill,minmax(520px,1fr))}
+.bokarte{background:#f3eee5;color:#18120f;padding:14px 18px 10px;border-top:6px solid #e8262c;font-size:16px}
+.bokarte h3{font-size:21px;color:#b3121a;margin:0 0 8px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}.bokarte h3 .pgl{font:12px var(--body);color:#777;text-transform:none}
+.bokarte.voll{margin-bottom:18px}.bokarte .h3,.bokarte h3.h3{font-family:"HT BoldSans"}
+.bokarte a{color:#b3121a;cursor:pointer;text-decoration:underline dotted}
+.bokost{font:400 14px "HT BoldSans";color:#fff;background:#18120f;padding:3px 8px 1px;white-space:nowrap}.bow{font-weight:700;font-style:italic}
+.bobanner{float:right;width:min(32%,380px);margin:0 0 16px 22px;cursor:zoom-in}
+.boseitef{display:grid;grid-template-columns:minmax(0,3fr) minmax(320px,2fr);gap:26px;align-items:start}.boseitef.eins{grid-template-columns:1fr}.boseitef.eins .flach{font-size:17.5px}.boseitef.eins .bofbild{width:min(36%,460px)}
+.boh1{font-size:46px;color:#fff;margin:0 0 6px;line-height:1}.boh1 .pgl{font-size:14px;color:#aaa}
+.bozitat{font-style:italic;color:#e8262c;font-size:19px}.bofbild{float:right;width:min(44%,380px);margin:0 0 12px 20px;cursor:zoom-in}
+.bofl .schwarz{background:#3a0b0d}.bofl h3,.bofl .h3{color:#e8262c}
+.bostat{background:#f3eee5;color:#18120f;padding:12px 14px;margin-bottom:14px;border-top:6px solid #e8262c}.bostat .gvs{background:#ede1e1}.bostat .gv{padding:5px 8px;font:15px/1.35 var(--body)}.bostat .gv:nth-child(even){background:#e6d6d6}.bostat p{font-size:15.5px}
+@media(max-width:1100px){.bohero,.boreihe,.bolkopf,.boseitef{grid-template-columns:1fr}.bohtx .flach{column-count:1}}
+.bobuch .bokarten{margin-top:0}.bohtx .bokarten{grid-template-columns:repeat(5,1fr)}.bobuch{margin-top:0}
+.bolegende{left:3.6%;top:40.8%;padding:.6% 1% .8%;border-width:3px}.bolegende a{font-size:clamp(10px,.85vw,13px);line-height:1.55}.bolegende i{width:22px;height:6px}.bolegende h3{font-size:clamp(14px,1.3vw,20px)}
+.bokompl{left:27.2%;top:59.9%;font-size:clamp(8px,.62vw,10px);letter-spacing:.02em}
+.bolkopf{grid-template-columns:minmax(220px,340px) 1fr}.boatmo{margin-top:16px}.boatmo ol{column-count:2;column-gap:30px}.boatmo li{break-inside:avoid}
+.bolk .bostreifen{margin:22px 0 0}.bost{flex:1 0 58px}.bost span{font-size:12px}
+.bolkopf{grid-template-columns:minmax(220px,340px) minmax(0,1fr)}.bolk{min-width:0}.bolk .bostreifen{overflow-x:auto;padding-bottom:6px}
+.bolkopf.ohne{grid-template-columns:minmax(0,1fr)}.bokarte.breit{grid-column:1/-1}.bokarte.breit .kkarten:not(.n4){grid-template-columns:repeat(3,1fr)}.bokarte .bobanner{width:min(36%,300px)}.bokarte .kkarte .platte{font-family:"HT BoldSans"}
+.bogrid.zwei{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:1100px){.bogrid.zwei{grid-template-columns:1fr}}
+.bogrid.drei{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:1100px){.bogrid.drei{grid-template-columns:1fr}}.bokarte .bgrid{clear:both}

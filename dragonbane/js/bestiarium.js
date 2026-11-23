@@ -6,9 +6,14 @@ function tpSet(id, d){
   try{ ST.tp = ST.tp || {}; var v = Math.max(0, tpGet(m) + d); if(v === m.tpn) delete ST.tp[id]; else ST.tp[id] = v; save(); }catch(e){}
   render();
 }
+var BE_FL = '<svg class="fl" width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><path d="M9.6 0c.5 3.4 3.2 5.2 5.3 8.1C16.6 10.4 18 12.6 18 15c0 4-3.9 7-9 7s-9-3-9-7c0-2.6 1.3-4.6 3-6.4.2 1.8 1 3.1 2.3 3.8C4.6 8 6.5 3.4 9.6 0zM9 13.2c-1.6 1.6-3 3-3 4.8 0 1.7 1.3 2.8 3 2.8s3-1.1 3-2.8c0-1.9-1.4-3.2-3-4.8z"/></svg>';
+var BE_HZ = '<svg viewBox="0 0 32 29" aria-hidden="true"><path d="M16 28.5C6.5 21.3 1 15.6 1 9.3 1 4.6 4.6 1 9 1c3 0 5.4 1.6 7 4 1.6-2.4 4-4 7-4 4.4 0 8 3.6 8 8.3 0 6.3-5.5 12-15 19.2z"/></svg>';
 function beKurz(m){
-  if(m.npc) return '<span>' + m.typen.map(function(t){ return esc(t.n); }).join(" · ") + '</span><span>NSC</span>';
-  return '<span>Grimmigkeit ' + esc(m.gr.replace("/Harpyie", "")) + ' · ' + esc(m.gs) + '</span><span>' + esc(m.tp.replace("/Harpyie", " je Harpyie")) + ' TP</span>';
+  if(m.npc) return '<div class="mtyp">' + m.typen.map(function(t){ return '<span>' + esc(t.n) + '</span>'; }).join("") + '</div>';
+  var je = (m.gr.split("/")[1] || ""), g = parseInt(m.gr, 10) || 0, tp = m.tp.split("/"), z = /^\d+$/.test(tp[1] || "x") ? tp[0] + "–" + tp[tp.length - 1] : tp[0];
+  return '<div class="mwr"><span class="mgr" title="Grimmigkeit ' + g + '">' + new Array(g + 1).join(BE_FL) + '</span>' +
+    '<span class="mhz' + (z.length > 3 ? ' lang' : '') + '" title="' + esc(m.tp) + ' TP">' + BE_HZ + '<b>' + esc(z) + '</b></span></div>' +
+    (je ? '<div class="mje">je ' + esc(je) + '</div>' : '');
 }
 function beKopf(titel, p, aktiv){
   var l = [["be", "Monster"], ["be/imspiel", "Monster im Spiel"], ["be/tiere", "Gewöhnliche Tiere"]];
@@ -20,7 +25,7 @@ function beUebersicht(){
   return beKopf("Bestiarium", 82, "be") + gruppen.map(function(g){
     return (gruppen.length > 1 ? '<h2 class="mkat">' + esc(g.k) + '</h2>' : '') + '<div class="mk">' + g.l.map(function(m){
       return '<a class="mt" href="#n/be/' + m.id + '"><div class="mi"><img src="img/monster/' + m.img + '.webp" alt="" loading="lazy"></div>' +
-        '<div class="mn">' + esc(m.t) + '</div><div class="ms">' + beKurz(m) + '</div></a>';
+        '<div class="mn">' + esc(m.t) + '</div>' + beKurz(m) + '</a>';
     }).join("") + '</div>';
   }).join("");
 }

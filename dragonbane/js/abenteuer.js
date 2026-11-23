@@ -124,9 +124,11 @@ DB_VIEWS.k = function(h){
   var b = DB_BAND[h[1]]; if(!b) return viewStart();
   if(b.ab.length === 1 && !(b.setting && b.einf && b.einf.length)){ location.replace("#a/" + b.ab[0] + "/lage"); return ""; }
   window.__bk = b.buch; window.__fk = "ab";
+  if(b.id === "dk" && h[2] !== "einf" && h[2] !== "ab") return nebeltalKarte(b);
   var has = b.einf && b.einf.length, tab = h[2] === "einf" || h[2] === "ab" ? h[2] : (has ? "einf" : "ab");
   var tl = [["einf", "Einführung"], ["ab", "Abenteuer"]]; if(b.setting) tl.unshift(["arkand", "Karte"]);
-  var tb = tabs(tl, tab, function(t){ return t === "arkand" ? "arkand" : "k/" + b.id + "/" + t; });
+  if(b.id === "dk") tl = [["karte", "Karte"], ["einf", "Einführung"], ["ab", "Abenteuer"]];
+  var tb = tabs(tl, tab, function(t){ return t === "arkand" ? "arkand" : "k/" + b.id + (t === "karte" ? "" : "/" + t); });
   return tb + (tab === "ab" ? bandAbTab(b) : einfTab(b, h[3]));
 };
 function einfTab(b, sec){
@@ -257,4 +259,22 @@ function tabellenTab(A){
   var hd = (A.handouts || []).length ? '<div class="hgrid">' + A.handouts.map(function(x){
     return '<figure class="hd"><img class="mul" src="' + IMG(x.img) + '" alt="' + esc(x.t) + '" onclick="zoom(this.src)"><figcaption>' + esc(x.t) + (x.p ? pgl(x.p) : "") + '</figcaption></figure>'; }).join("") + '</div>' : "";
   return '<div class="tgrid">' + t + '</div>' + hd;
+}
+
+/* ---------- Nebeltal-Karte als Startseite des Abenteuerbands ---------- */
+/* Klickflächen über den eingedruckten Kartenbeschriftungen: [Abenteuer-Id, x %, y %, Breite %] */
+var NEBELTAL_PINS = [
+  ["dk-eroeffnung", 43.4, 89.4, 8.8], ["nebelinsel", 39.1, 14.1, 10.6], ["purpurflamme", 58.9, 25.3, 17.8], ["vortag", 78.8, 23.2, 15.8],
+  ["malus", 11.7, 13.6, 7.8], ["trollspitze", 11.9, 27.6, 8.6], ["seufzer", 87.7, 48.1, 11], ["orakel", 9.2, 51.4, 8.6],
+  ["wegesende", 75.7, 57.1, 10.6], ["ridderhoehe", 32.6, 58.2, 9.6], ["aussenposten", 56.7, 65, 7.2], ["bothild", 10.5, 75.3, 10.4], ["totaugen", 74.4, 90.6, 10.6]
+];
+function nebeltalKarte(b){
+  var pins = NEBELTAL_PINS.map(function(q){
+    var A = advOf(q[0]); if(!A) return "";
+    return '<a class="npin" style="left:' + q[1] + '%;top:' + q[2] + '%;width:' + q[3] + '%" onclick="go(\'a/' + q[0] + '/lage\')"><span>' + esc(A.t) + (A.p ? ' · S. ' + A.p : '') + '</span></a>';
+  }).join("");
+  var tl = [["karte", "Karte"], ["einf", "Einführung"], ["ab", "Abenteuer"]];
+  var reisen = advOf("nebeltal-reisen");
+  return tabs(tl, "karte", function(t){ return "k/" + b.id + (t === "karte" ? "" : "/" + t); }, reisen ? '<a class="tab" onclick="go(\'a/nebeltal-reisen/lage\')">Reisen</a>' : "") +
+    '<div class="ntk"><div class="ntw"><img class="mul" src="' + IMG("abenteuer/dk-nebeltal-karte") + '" alt="">' + pins + '</div></div>';
 }

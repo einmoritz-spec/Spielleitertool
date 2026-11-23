@@ -40,10 +40,11 @@
       (A.tabellen || []).forEach(function(t){ add(g, A.t + " › " + t.h, "a/" + id + "/tabellen", t); });
       if(A.reisen) add(g, A.t + " › Reisen", "a/" + id + "/reisen", A.reisen);
     });
+    add("Arkand", "Arkand › Stadtkarte", "arkand", (window.ARK_ORTE || []).map(function(o){ return o.t; }).concat(["Die Stadt", "Der Hafen", "Der Dung"]));
     var BD = window.DB_BAND || {};
     Object.keys(BD).forEach(function(b){
       var E = BD[b].einf; if(!E) return;
-      if(E.length && E[0] && E[0].b) E.forEach(function(s){ add("Abenteuer", BD[b].t + " › " + s.t, "k/" + b + "/einf", s.b); });
+      if(E.length && E[0] && E[0].b) E.forEach(function(s){ add(BD[b].setting ? "Arkand" : "Abenteuer", (BD[b].setting ? "Arkand › " + (BD[b].t === "Arkand" ? "" : BD[b].t + " › ") : BD[b].t + " › ") + s.t, "k/" + b + "/einf" + (s.id ? "/" + s.id : ""), s.b); });
       else add("Abenteuer", BD[b].t + " › Einführung", "k/" + b + "/einf", E);
     });
   }
@@ -86,7 +87,7 @@
         if(!R.w.length){ out.innerHTML = ""; return; }
     if(!r.length){ out.innerHTML = '<div class="s-leer">Nichts gefunden.</div>'; return; }
     var gr = {}, order = [];
-    ["Regelbuch", "Bestiarium", "Abenteuer"].forEach(function(t){ gr[t] = []; }); r.forEach(function(x){ var g = gr[x.e.typ]; if(g.length < 30) g.push(x.e); }); order = ["Regelbuch", "Bestiarium", "Abenteuer"].filter(function(t){ return gr[t].length; });
+    ["Regelbuch", "Bestiarium", "Abenteuer", "Arkand"].forEach(function(t){ gr[t] = []; }); r.forEach(function(x){ var g = gr[x.e.typ]; if(g.length < 30) g.push(x.e); }); order = ["Regelbuch", "Bestiarium", "Abenteuer", "Arkand"].filter(function(t){ return gr[t].length; });
     out.innerHTML = '<div class="s-zahl">' + r.length + ' Treffer' + (order.length ? ' (je Bereich die besten 30)' : '') + '</div>' + order.map(function(t){
       return '<h3 class="s-gr">' + esc(t) + '</h3><div class="s-raster">' + gr[t].map(function(e){
         return '<a class="s-karte" href="#' + e.hash + '"><b>' + marke(esc(e.titel), R.w) + '</b><span>' + marke(ausschnitt(e, R.w), R.w) + '</span></a>';
@@ -134,6 +135,7 @@
       Object.keys(A.kaesten || {}).forEach(function(f){ walk(A.kaesten[f], q, A.t, "a/" + id + "/figuren"); });
       walk(A.handouts, q, A.t + " · Handout", "a/" + id + "/lage"); walk(A.lage, q, A.t, "a/" + id + "/lage"); walk(A.reisen, q, A.t, "a/" + id + "/reisen"); walk(A.schluss, q, A.t, "a/" + id + "/lage");
     });
+    if(!seen["abenteuer/ark-karte"]){ seen["abenteuer/ark-karte"] = 1; GAL.push({src: "abenteuer/ark-karte", label: "Stadtkarte von Arkand", q: "Arkand", hash: "arkand"}); }
     var BD = window.DB_BAND || {};
     Object.keys(BD).forEach(function(b){ walk(BD[b].einf, BD[b].t || "Abenteuer", BD[b].t, "k/" + b + "/einf"); });
   }

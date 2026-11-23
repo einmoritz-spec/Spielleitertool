@@ -71,7 +71,9 @@ function nscCard(A, id, kopf){
   var img = f.img ? '<div class="nkb"><img class="mul vig" src="' + IMG(f.img) + '" alt="' + esc(f.t) + '" onclick="zoom(this.src)"></div>' : "";
   var tab = f.angriffe ? w6tab("ang_" + id, f.angriffe.h, [f.angriffe.w || "W6", "Angriff"], f.angriffe.rows) : "";
   var be = f.be ? '<div class="zl be"><a onclick="event.stopPropagation();go(\'n/be/' + f.be + '\')">Bestiarium' + (monP(f.be) ? ' S. ' + monP(f.be) : '') + '</a></div>' : "";
-  return '<div class="karte nsc' + (f.angriffe ? ' lang' : '') + '"><div class="band" onclick="' + kopf + '">' + esc(f.t) + '</div>' +
+  var bn = f.t; if(bn.length > 17){ bn = bn.split(/,| des | der | von | vom /)[0]; }
+  var voll = bn !== f.t ? '<div class="vollname">' + esc(f.t.slice(bn.length).replace(/^[,\s]+/, "")) + '</div>' : "";
+  return '<div class="karte nsc' + (f.angriffe ? ' lang' : '') + '"><div class="band' + (bn.length > 14 ? ' sm' : '') + '" onclick="' + kopf + '">' + esc(bn) + '</div>' + voll +
     '<div class="nk"><div class="nkl">' + ((f.werte || []).length ? '<div class="zl drei">' + f.werte.map(function(w){ return stat(w, f, id); }).join("") + '</div>' : '') +
     (f.zl || []).map(function(z){ return '<div class="zl"><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</div>'; }).join("") + be + '</div>' + img + '</div>' +
     ((f.text || []).length ? '<div class="nt">' + f.text.map(function(t){ return '<p>' + md(t) + '</p>'; }).join("") + '</div>' : '') + tab +
@@ -93,20 +95,20 @@ function figZelle(A, id, dflt){
 
 /* ---------- Übersicht ---------- */
 function rahmenHTML(inner){ return '<div class="rahmen">' + inner + '<i class="ro"></i><i class="ru"></i><i class="rl"></i><i class="rr"></i><i class="e1"></i><i class="e2"></i><i class="e3"></i><i class="e4"></i></div>'; }
-function bandGo(b){ return b.ab.length === 1 ? "a/" + b.ab[0] + "/lage" : "k/" + b.id; }
+function bandGo(b){ return b.ab.length === 1 && !b.setting ? "a/" + b.ab[0] + "/lage" : "k/" + b.id; }
 function bandAktiv(){ var m = /^a\/([^\/]+)\//.exec(ST.last || ""); var A = m && advOf(m[1]); return A ? A.band : null; }
 function bildStreifen(items, akt){
   if(!akt) akt = items[0] && items[0].id;
   return '<div class="bs">' + items.map(function(it){
     return '<a class="bi' + (it.id === akt ? ' akt' : '') + (it.stub ? ' stub' : '') + '" onclick="go(\'' + it.go + '\')"><div class="bb">' +
       (it.img ? '<img class="bimg' + (it.mul ? ' mul' : '') + '" src="' + IMG(it.img) + '" alt="">' : '<div class="bimg leer"></div>') + '</div>' +
-      '<div class="bv">' + esc(it.t) + '</div><div class="bl"><div class="fluegel"><div class="fl"></div><div class="fm"><span>' + esc(it.t) + '</span></div><div class="fr"></div></div>' +
+      '<div class="bv">' + esc(it.t) + '</div><div class="bl"><div class="fluegel"><div class="fl"></div><div class="fm' + (it.t.length > 20 ? ' lg' : '') + '"><span>' + esc(it.t) + '</span></div><div class="fr"></div></div>' +
       (it.q ? '<div class="bq">' + esc(it.q) + (it.p ? pgl(it.p, null, it.buch) : '') + '</div>' : '') + '</div></a>';
   }).join("") + '</div>';
 }
 DB_VIEWS.abenteuer = function(){
   var akt = bandAktiv();
-  var items = DB_BAENDE.map(function(b){
+  var items = DB_BAENDE.filter(function(b){ return !b.setting; }).map(function(b){
     var a = bandAb(b), q = bandBuch(b), n = b.ab.length;
     var z = n > 1 ? n + " Abenteuer" : (a[0] && kurzTxt(a[0]));
     return {id:b.id, t:b.t, img:b.img, go:bandGo(b), buch:b.buch, mul:b.mul, q:(q === b.t ? "" : q) + (z ? (q === b.t ? "" : " · ") + z : "")};
@@ -120,14 +122,15 @@ DB_VIEWS.abenteuer = function(){
 /* ---------- Band-Seite ---------- */
 DB_VIEWS.k = function(h){
   var b = DB_BAND[h[1]]; if(!b) return viewStart();
-  if(b.ab.length === 1){ location.replace("#a/" + b.ab[0] + "/lage"); return ""; }
+  if(b.ab.length === 1 && !(b.setting && b.einf && b.einf.length)){ location.replace("#a/" + b.ab[0] + "/lage"); return ""; }
   window.__bk = b.buch; window.__fk = "ab";
   var has = b.einf && b.einf.length, tab = h[2] === "einf" || h[2] === "ab" ? h[2] : (has ? "einf" : "ab");
-  var tb = tabs([["einf", "Einführung"], ["ab", "Abenteuer"]], tab, function(t){ return "k/" + b.id + "/" + t; });
+  var tl = [["einf", "Einführung"], ["ab", "Abenteuer"]]; if(b.setting) tl.unshift(["arkand", "Karte"]);
+  var tb = tabs(tl, tab, function(t){ return t === "arkand" ? "arkand" : "k/" + b.id + "/" + t; });
   return tb + (tab === "ab" ? bandAbTab(b) : einfTab(b, h[3]));
 };
 function einfTab(b, sec){
-  var bild = b.img ? '<div class="bildr">' + rahmenHTML('<img class="bild mul" src="' + IMG(b.img) + '" alt="">') + '</div>' : "";
+  var bild = b.img && !b.setting ? '<div class="bildr">' + rahmenHTML('<img class="bild mul" src="' + IMG(b.img) + '" alt="">') + '</div>' : "";
   var e = b.einf || [];
   if(e.length && e[0] && e[0].b && e[0].t){
     var cur = e.filter(function(s){ return s.id === sec; })[0] || e[0], first = cur === e[0];
@@ -140,7 +143,7 @@ function einfTab(b, sec){
 }
 function bandAbTab(b){
   var L = bandAb(b), akt = (/^a\/([^\/]+)\//.exec(ST.last || "") || [])[1];
-  if(L.length <= 6 && L.some(function(A){ return A.img; })) return '<div class="bsw">' + bildStreifen(L.map(function(A){ return {id:A.id, t:A.t, img:A.img, go:"a/" + A.id + "/lage", stub:A.stub, q:"S. " + A.p + (kurzTxt(A) ? " · " + kurzTxt(A) : "")}; }), akt) + '</div>';
+  if(L.length <= 6 && L.some(function(A){ return A.img; })) return '<div class="bsw">' + bildStreifen(L.map(function(A){ return {id:A.id, t:A.t, img:A.img, go:"a/" + A.id + "/lage", stub:A.stub, mul:A.mul || b.mul, q:"S. " + A.p + (kurzTxt(A) ? " · " + kurzTxt(A) : "")}; }), akt) + '</div>';
   return '<div class="kach">' + L.map(function(A){
     return '<a class="kk' + (A.stub ? ' stub' : '') + (A.id === akt ? ' akt' : '') + '" onclick="go(\'a/' + A.id + '/lage\')"><div class="kb' + (A.img ? '' : ' nb') + '">' + (A.img ? '<img src="' + IMG(A.img) + '" alt="">' : '') + '</div>' +
       '<div class="kn">' + esc(A.t) + '</div><div class="kq">S. ' + A.p + (kurzTxt(A) ? ' · ' + esc(kurzTxt(A)) : '') + '</div></a>';

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v815sp";
+const VERSION = "v816sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -844,7 +844,7 @@ const FILES = [
   "dragonbane/img/orn/medaillon.png",
   "dragonbane/img/orn/pergament-karte-hoch.png",
   "dragonbane/img/orn/pergament-karte.png",
-  "dragonbane/img/orn/pergament-seite.webp",
+  "dragonbane/img/orn/pergament-kachel.webp",
   "dragonbane/img/orn/rahmen-l.png",
   "dragonbane/img/orn/rahmen-o.png",
   "dragonbane/img/orn/rahmen-ol.png",

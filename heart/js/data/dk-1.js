@@ -43,8 +43,8 @@ HT_DAGGER.kap["1"] = {
           besonders: "Schutz 2 gegen Kill.",
           dom: ["Haven", "Warren"],
           fallout: [
-            {t: "Robbed", r: "Blood/Fortune", s: "leicht", x: "Du bist benommen, und dein Körper wird von den Halunken geplündert; verliere einen Gegenstand oder eine Ressource, die die SL bestimmt. [Sofort]"},
-            {t: "Abducted", r: "Blood/Fortune", s: "schwer", x: "Wie **Robbed**, aber du bist für eine kurze Weile aus dem Spiel, während derer du … nun ja, du hast nur vage, von Drogen vernebelte Erinnerungen an dein Verhör. Wenn du zurückkehrst, tausche dies gegen **Beaten but not Broken** oder **You Gave In**. [Anhaltend]"},
+            {t: "Ausgeraubt", r: "Blood/Fortune", s: "leicht", x: "Du bist benommen, und dein Körper wird von den Halunken geplündert; verliere einen Gegenstand oder eine Ressource, die die SL bestimmt. [Sofort]"},
+            {t: "Entführt", r: "Blood/Fortune", s: "schwer", x: "Wie **Ausgeraubt**, aber du bist für eine kurze Weile aus dem Spiel, während derer du … nun ja, du hast nur vage, von Drogen vernebelte Erinnerungen an dein Verhör. Wenn du zurückkehrst, tausche dies gegen **Beaten but not Broken** oder **You Gave In**. [Anhaltend]"},
             {t: "Beaten But Not Broken", r: "Blood", s: "schwer", x: "Du wurdest bis kurz vor den Tod verprügelt. Bis du geheilt bist, würfelst du bei Proben W8 statt W10. [Anhaltend]"},
             {t: "You Gave In", r: "Fortune", s: "leicht", x: "Du hast deinem Verhörer etwas erzählt, aber du weißt nicht, was. Irgendwann in der Zukunft wird die ganze Gruppe wegen dem, was du ausgeplaudert hast, einen Rückschlag oder zusätzliche Gefahr erleiden. Aber hey, deine Fingernägel durftest du behalten. [Anhaltend]"}
           ]
@@ -158,9 +158,9 @@ HT_DAGGER.kap["1"] = {
       ],
       figuren: [], unter: [],
       regeln: [
-        {t: "kasten", h: "Fallout: Dropped My Favourite Scarf Off a Rope Walkway [Fortune, leicht]", b: ["Alle Handlungen, die nicht direkt damit zu tun haben, deinen Lieblingsschal zurückzubekommen, sind **Riskant**, es sei denn, sie wären stattdessen **Gefährlich**. [Anhaltend]"]},
-        {t: "kasten", h: "Fallout: Fell off a Rope Walkway [Fortune, schwer]", b: ["Du fällst also in einen angeblich bodenlosen Abgrund. Denk schnell nach und opfere ein Stück Ausrüstung, um deinen Sturz zu stoppen. Hast du keine geeignete Ausrüstung, wird dies zu **Found the Bottom**. [Sofort]"]},
-        {t: "kasten", h: "Fallout: Found the Bottom [Fortune, kritisch]", b: ["**Die gute Nachricht:** Der Abgrund ist nicht bodenlos.", "**Die schlechte Nachricht:** Du hast gerade den Boden gefunden."]}
+        {t: "kasten", h: "Fallout: Lieblingsschal vom Seilsteg fallen lassen [Fortune, leicht]", b: ["Alle Handlungen, die nicht direkt damit zu tun haben, deinen Lieblingsschal zurückzubekommen, sind **Riskant**, es sei denn, sie wären stattdessen **Gefährlich**. [Anhaltend]"]},
+        {t: "kasten", h: "Fallout: Vom Seilsteg gestürzt [Fortune, schwer]", b: ["Du fällst also in einen angeblich bodenlosen Abgrund. Denk schnell nach und opfere ein Stück Ausrüstung, um deinen Sturz zu stoppen. Hast du keine geeignete Ausrüstung, wird dies zu **Den Grund gefunden**. [Sofort]"]},
+        {t: "kasten", h: "Fallout: Den Grund gefunden [Fortune, kritisch]", b: ["**Die gute Nachricht:** Der Abgrund ist nicht bodenlos.", "**Die schlechte Nachricht:** Du hast gerade den Boden gefunden."]}
       ]
     },
     {

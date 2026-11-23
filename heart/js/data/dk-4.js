@@ -94,7 +94,7 @@ lm: [
      "Die Gelehrten der nahen Wurm-Forschungsstation glauben, dass die Würmer irgendwie mit den Bienen des Hive verwandt sind. Wenn der Hive vollkommene Ordnung ist, könnten diese Würmer Avatare oder Inkarnationen der Entropie sein (und wohl auf irgendeiner metaphysischen Ebene mit dem Hungry Deep verbunden). Die Forscher streben nach Kommunion auf derselben Ebene wie die Deep Apiarists, doch nach einer Reihe enttäuschender und grotesker Fehlschläge haben sie alle Symbiose-Versuche vorläufig ausgesetzt."
    ],
    regeln: [
-     {t: "kasten", h: "Wormleather Armour (Wurmlederrüstung)", b: [
+     {t: "kasten", h: "Wurmlederrüstung", b: [
        "Ehrlich gesagt ist es miese Rüstung – sie bietet keinen **Blood**-Schutz (auch wenn gute oder ausgezeichnete Leder im Kampf helfen können; siehe *Heart* S. 95). Ihr Hauptvorzug ist, dass sie **Echo**-Schutz gibt und die **Echo**-Resistenz des Trägers um 1 erhöht. Wurmlederrüstung zu kaufen kostet eine W8-Ressource (W12 für gute Qualität; ausgezeichnetes Leder ist nirgends zu haben)."
      ]}
    ],

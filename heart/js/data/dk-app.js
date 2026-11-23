@@ -939,18 +939,18 @@ HT_DAGGER.app = {
 "Awkward Liason (Fortune) – S. 101",
 "Blessed Forgiveness Poisoning (Blood) – S. 43",
 "Burnt (Blood) – S. 87",
-"Divine Chew-Toy (Blood) – S. 58",
-"Dropped My Favourite Scarf Off a Rope Walkway (Fortune) – S. 29",
+"Göttliches Kauspielzeug (Blood) – S. 58",
+"Lieblingsschal vom Seilsteg fallen lassen (Fortune) – S. 29",
 "Flensling Sting (Blood/Fortune) – S. 81",
 "Invaded (Echo) – S. 100",
 "Lingering Curse (Fortune) – S. 118",
-"Marked by the Amyrran (Echo) – S. 55",
+"Vom Amyrran gezeichnet (Echo) – S. 55",
 "Near Miss (Fortune) – S. 89",
 "Overwhelmed with Nostalgia (Mind) – S. 39",
 "Robbed (Blood/Fortune) – S. 25",
-"Silver Barbs (Blood) – S. 65",
+"Silberwiderhaken (Blood) – S. 65",
 "Transfixed by the Head-lamp (Fortune) – S. 30",
-"Unsettling Echo (Echo) – S. 55",
+"Verstörendes Echo (Echo) – S. 55",
 "You Gave In (Fortune) – S. 25"
 ]
 },
@@ -963,16 +963,16 @@ HT_DAGGER.app = {
 "x": [
 "Abducted (Blood/Fortune) – S. 25",
 "Beaten But Not Broken (Blood) – S. 25",
-"Bewitched by the Party (Fortune) – S. 101",
+"Von der Feier verzaubert (Fortune) – S. 101",
 "Blessed Forgiveness Overdose (Blood) – S. 43",
 "Caught in the Gears (Blood) – S. 89",
 "Chomp (Blood) – S. 58",
-"Claimed by the Amyrran (Echo) – S. 55",
+"Vom Amyrran beansprucht (Echo) – S. 55",
 "Delve Jinx (Echo) – S. 59",
-"Fell off a Rope Walkway (Fortune) – S. 29",
+"Vom Seilsteg gestürzt (Fortune) – S. 29",
 "Flensling Eggs (Blood/Fortune) – S. 81",
 "Hollow Heart (Echo) – S. 55",
-"Near-Death Experience (Echo) – S. 55",
+"Nahtoderfahrung (Echo) – S. 55",
 "On Fire (Blood) – S. 87"
 ]
 },
@@ -983,9 +983,9 @@ HT_DAGGER.app = {
 {
 "t": "ul",
 "x": [
-"Cursed Immortality (Echo) – S. 55",
-"Found the Bottom (Fortune) – S. 29",
-"I Turned Into an Equation and Sublimed (Fortune) – S. 88"
+"Verfluchte Unsterblichkeit (Echo) – S. 55",
+"Den Grund gefunden (Fortune) – S. 29",
+"Ich wurde zur Gleichung und sublimierte (Fortune) – S. 88"
 ]
 }
 ]

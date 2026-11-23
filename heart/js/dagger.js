@@ -6,7 +6,18 @@ var KP = {1:24,2:35,3:53,4:71,5:89,6:117,7:131};
 var PL = ["Klein","Klein","Groß","Groß","Zenit"];
 function pg(p){ return p ? pgl(p, "S. " + p, "ht_a1") : ""; }
 function dk(){ ST.dk = ST.dk || {opp:{}, done:{}, res:{}, erg:{}, beat:{}, hand:{}}; if(!ST.dk.hand) ST.dk.hand = {}; return ST.dk; }
+function falloutZ(name, tags, b){
+  return '<div class="dfo"><p><b class="dfon">Fallout: ' + esc(name) + ".</b>" + (tags ? " [" + esc(tags) + "]" : "") + " " + (b.length && typeof b[0] === "string" ? md(b[0]) : "") + "</p>" + (b.length && typeof b[0] === "string" ? b.slice(1) : b).map(blk).join("") + "</div>";
+}
 function bl(b){
+  if(b && typeof b === "object" && b.t === "kasten" && /^Fallout:/.test(b.h || "")){
+    var h = b.h.replace(/^Fallout:\s*/, ""), tags = "", m, B = (b.b || [b.x]).slice();
+    if((m = h.match(/^(.*?)\s*\[([^\]]+)\]\s*$/))){ h = m[1]; tags = m[2]; }
+    else if(h.indexOf(" · ") > 0){ var P = h.split(" · "); h = P.shift(); tags = P.join(", "); }
+    if(!tags && typeof B[0] === "string" && (m = B[0].match(/^\[([^\]]+)\]\s*/))){ tags = m[1]; B[0] = B[0].slice(m[0].length); }
+    return falloutZ(h, tags, B);
+  }
+  if(b && typeof b === "object" && b.t === "kasten") return '<div class="dkas">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (b.b || [b.x]).map(bl).join("") + "</div>";
   if(b && typeof b === "object" && b.t === "zettel") return '<div class="dzettel">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (b.x || b.b || []).map(bl).join("") + "</div>";
   return blk(b);
 }
@@ -42,7 +53,7 @@ var DART = {"opp": {"ptolemy-bay": [[0, "dagger/art/a011-s6"], ["Abayghur", "dag
 function dbild(f, cls){ return f ? '<img class="dbild ' + (cls || "") + '" src="' + IMG(f) + '" alt="">' : ""; }
 function abschn(a, oid, i){ var im = ""; (DART.opp[oid] || []).forEach(function(r){ if(!im && (r[0] === i || (typeof r[0] === "string" && a.t.indexOf(r[0]) >= 0))) im = dbild(r[1], "r"); }); return im + '<h2 class="dh2">' + esc(a.t) + pg(a.p) + "</h2>" + bls(a.b) + (a.figuren || []).map(fig).join(""); }
 function fig(g){
-  var fo = (g.fallout || []).map(function(f){ return '<div class="schwarz"><div class="lbl">Fallout: ' + esc(f.t) + " · " + esc(f.r || "") + ", " + esc(f.s || "") + "</div><p>" + md(f.x) + "</p></div>"; }).join("");
+  var fo = (g.fallout || []).map(function(f){ return falloutZ(f.t, [f.s, f.r].filter(Boolean).join(", "), [f.x]); }).join("");
   function w(l, v){ return v ? '<div class="gv"><span class="lbl">' + l + "</span> " + md(v) + "</div>" : ""; }
   return '<div class="dfig"><div class="gh"><span class="platte">' + esc(g.t) + "</span> " + pg(g.p) + "</div>" + bls(g.text) + '<div class="gvs">' + w("Beschreibung:", g.besch) + w("Namen:", g.namen) + w("Motivation:", g.motiv) +
     '<div class="gv"><span class="lbl">Schwierigkeit:</span> ' + esc(g.schw == null ? "–" : g.schw) + ' · <span class="lbl">Resistenz:</span> ' + esc(g.res == null ? "–" : g.res) + ' · <span class="lbl">Schutz:</span> ' + esc(g.schutz == null ? "–" : g.schutz) + "</div>" +
@@ -163,9 +174,11 @@ function delveKarte(K, v){
 }
 function lmSeite(l){
   if(!l) return "";
-  var wz = '<div class="dkw"><span><b>Domains:</b> ' + esc((l.dom || []).join(", ")) + "</span><span><b>Tiefe:</b> " + esc(l.tiefeText || (l.tiefe === "risse" ? "Risse" : l.tiefe)) + "</span><span><b>Standard-Stress:</b> " + esc(l.stress || "") + "</span>" + ((l.haunts || []).length ? "<span><b>Haunts:</b> " + (l.haunts || []).map(md).join("; ") + "</span>" : "") + "</div>";
-  var re = ((l.ressourcen || []).length ? '<h3 class="h3">Ressourcen</h3><ul class="lst">' + l.ressourcen.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "") + ((l.plots || []).length ? '<h3 class="h3">Mögliche Plots</h3><ul class="lst">' + l.plots.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "");
-  return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc' + (re ? "" : " eins") + '"><div>' + dbild(DART.lm[l.id], l.id === "grinding-halls" ? "breit" : "r") + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
+  function z(k, v){ return v ? '<div><b>' + k + ":</b> " + v + "</div>" : ""; }
+  var kopf = '<div class="dlkopf"><h1 class="dlplatte">' + esc(l.t) + "</h1>" + pg(l.p) + '<div class="dlwerte">' + z("Domains", esc((l.dom || []).join(", "))) + z("Tiefe", esc(l.tiefeText || (l.tiefe === "risse" ? "Risse" : l.tiefe))) + z("Standard-Stress", esc(l.stress || "")) + z("Haunts", (l.haunts || []).map(md).join("; ")) + "</div></div>";
+  var re = ((l.ressourcen || []).length ? '<h3 class="dlab">Ressourcen</h3><ul class="lst">' + l.ressourcen.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "") + ((l.plots || []).length ? '<h3 class="dlab">Mögliche Plots</h3><ul class="lst">' + l.plots.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "");
+  var breit = false, bild = dbild(DART.lm[l.id], l.id === "grinding-halls" ? "r weit" : "r");
+  return '<div class="dlm seite"><div class="dlmc' + (re ? "" : " eins") + '"><div class="dltext">' + (breit ? kopf + bild : bild + kopf) + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="dlab">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
 }
 function landmarken(K, sel){
   var V = (K.delves || []).filter(function(v){ return v.von && v.nach; }), freie = (K.delves || []).filter(function(v){ return !(v.von && v.nach); }), first = V[0] ? "d:" + V[0].id : ((K.lm || [])[0] || {}).id;

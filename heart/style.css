@@ -36,7 +36,7 @@
   --glut:#67b3b8;       /* Cover-Leuchten – nur im Querschnitt-Bild, nicht als UI-Farbe */
   --grau:#8a7f72;
   --linie:#d8cbb8;
-  --kopf-h:52px;--panel-raised:#1d140b;
+  --kopf-h:52px;--bh:min(100vh,65vw);--panel-raised:#1d140b;
   /* Abstandsreihe */
   --a1:4px;--a2:8px;--a3:12px;--a4:16px;--a5:24px;--a6:32px;--a7:48px;
   --plate:"HT Sans","HT Serif",sans-serif;
@@ -147,8 +147,8 @@ body.notop .topbar{display:none}body.notop .tabs{top:0}
 .tabs .stift{background:none;border:0;cursor:pointer;width:34px;height:34px}.tabs .stift.has svg{stroke:#fff}
 
 /* ── Startseite: Querschnitt links, Vorbereitung rechts ────────────────────── */
-.buehne{display:grid;grid-template-columns:auto 1fr;min-height:calc(100vh - var(--kopf-h))}
-.quer{position:sticky;top:var(--kopf-h);height:calc(100vh - var(--kopf-h));min-height:640px;background:#000;align-self:start}
+.buehne{display:grid;grid-template-columns:auto 1fr;min-height:calc(var(--bh) - var(--kopf-h))}
+.quer{position:sticky;top:var(--kopf-h);height:calc(var(--bh) - var(--kopf-h));min-height:640px;background:#000;align-self:start}
 .quer>img{height:100%;width:auto;display:block}
 .quer .ab{position:absolute;left:28px;right:28px;bottom:28px;display:flex;flex-direction:column;gap:10px}
 .go{display:flex;align-items:center;justify-content:space-between;background:var(--platte);color:#fff;border:0;padding:14px 18px 12px 20px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.55);text-align:left}
@@ -585,7 +585,7 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 @media(max-width:1100px){.dohero,.dostadt,.dostadt.nacht,.dofr,.dodimkopf{grid-template-columns:1fr}.dogrid.zwei,.dogrid.drei,.dogrid.vier{grid-template-columns:1fr}.dolm.breit .dolmt{column-count:1}}
 
 /* Startseite: Tiefen-Bänder */
-.rechts.vc{padding:0;display:flex;flex-direction:column;min-height:calc(100vh - var(--kopf-h))}
+.rechts.vc{padding:0;display:flex;flex-direction:column;min-height:calc(var(--bh) - var(--kopf-h))}
 .vckopf{background:#efe4d0 url(img/tex/papier.webp) center/cover;padding:18px 40px 16px;text-align:center;cursor:pointer;border-bottom:1px solid #7a0e0a33}
 .vczeile{margin:0;font:italic 500 clamp(22px,1.9vw,30px)/1.2 var(--body);color:#5e0907;letter-spacing:.01em}
 .vczeile::before,.vczeile::after{content:"";display:inline-block;width:42px;height:1px;background:#7a0e0a66;vertical-align:middle;margin:0 16px}

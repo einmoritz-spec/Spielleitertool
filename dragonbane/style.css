@@ -735,3 +735,16 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .npin:hover{background:rgba(255,246,214,.18);box-shadow:0 0 0 2px #f4e6b0,0 0 18px 6px rgba(255,236,170,.75);z-index:3}
 .npin span{position:absolute;left:50%;bottom:118%;transform:translateX(-50%);white-space:nowrap;background:var(--jade-d,#1d5a4e);color:#f6efdc;font:13px/1 var(--f-kopf);text-transform:uppercase;letter-spacing:.04em;padding:6px 10px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .15s}
 .npin:hover span{opacity:1}
+
+/* Arkand-Startseite: Karte auf Bildschirmhöhe, daneben die drei Bezirke als Bildstreifen */
+.ark2{display:flex;gap:clamp(16px,2vw,32px);justify-content:center;align-items:flex-start;padding:10px var(--rand) 22px}
+.ark2 .am2{flex:0 0 auto}
+.ark2 .am{position:relative;line-height:0;box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 8px 22px rgba(60,40,20,.35)}
+.ark2 .am>img{display:block;height:calc(100vh - 150px);min-height:520px;width:auto;max-width:100%;cursor:zoom-in}
+.ark2 .arkbd2{flex:1 1 0;min-width:0;max-width:760px;display:flex;flex-direction:column;gap:12px;height:calc(100vh - 150px);min-height:520px}
+.ab3{position:relative;flex:1 1 0;min-height:0;overflow:hidden;cursor:pointer;box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 4px rgba(234,224,200,.9),0 0 0 5.5px rgba(16,90,74,.55),0 6px 18px rgba(60,40,20,.3);transition:flex-grow .35s ease}
+.ab3 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.ab3:hover{flex-grow:1.6}.ab3:hover img{transform:scale(1.04)}
+.ab3 .at{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 12px;background:linear-gradient(transparent,rgba(12,48,40,.88));display:flex;align-items:baseline;gap:12px}
+.ab3 .at b{font:clamp(20px,2vw,30px)/1.05 var(--f-titel);color:#f6efdc;text-transform:uppercase}
+.ab3 .at span{font:600 13px var(--f-halb);color:#e2d9bc}

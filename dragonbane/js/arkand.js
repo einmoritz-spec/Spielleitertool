@@ -27,8 +27,7 @@ DB_VIEWS.arkand = function(){
   var geb = ARK_GEBIETE.map(function(g){ return '<a class="ag" style="left:' + g.x + '%;top:' + g.y + '%" onclick="go(\'' + g.go + '\')"><span>' + esc(g.t) + '</span></a>'; }).join("");
   var karten = ["ark", "ark-hafen", "ark-dung"].map(function(id){
     var b = DB_BAND[id], a = bandAb(b), n = a.length;
-    return '<a class="ab2" onclick="go(\'k/' + id + '\')"><div class="ai">' + (b.img ? '<img class="' + (b.mul ? 'mul' : '') + '" src="' + IMG(b.img) + '" alt="">' : '') + '</div><div class="at"><b>' + esc(b.t) + '</b><span>' + (n > 1 ? n + ' Orte' : 'Das Lied des Mantikors') + '</span></div></a>';
+    return '<a class="ab3" onclick="go(\'k/' + id + '\')">' + (b.img ? '<img src="' + IMG(b.img) + '" alt="">' : '') + '<div class="at"><b>' + esc(b.t) + '</b><span>' + (n > 1 ? n + ' Orte' : 'Das Lied des Mantikors') + '</span></div></a>';
   }).join("");
-  return '<div class="kt"><i class="a"></i><span class="titel m">Arkand</span><i class="b"></i></div>' +
-    '<div class="arkgr"><div class="arkmap"><div class="am"><img src="' + IMG("abenteuer/ark-karte") + '" alt="Karte von Arkand" onclick="zoom(this.src)">' + geb + pins + '</div></div><div class="arkbd">' + karten + '</div></div>';
+  return '<div class="ark2"><div class="am2"><div class="am"><img src="' + IMG("abenteuer/ark-karte") + '" alt="Karte von Arkand" onclick="zoom(this.src)">' + geb + pins + '</div></div><div class="arkbd2">' + karten + '</div></div>';
 };

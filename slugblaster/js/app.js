@@ -28,6 +28,14 @@ function kurz(t){ return String(t).split(":")[0]; }
 /* ---------- Startseite ---------- */
 var VIEWS = {};
 function chipsHtml(L){ var h = L.filter(function(c){ return VIEWS[c[0]]; }).map(function(c){ return '<span class="chip" onclick="go(\'' + c[2] + '\')">' + c[1] + '</span>'; }).join(""); return h ? '<div class="chips">' + h + '</div>' : ""; }
+/* Abenteuer-Leiste der Startseite: jedes weitere Abenteuer = ein Eintrag in SB_ABL (id, Titel, Zeile, Dauer, Route) */
+function abHtml(){
+  var L = (window.SB_AB && VIEWS.abenteuer) ? [{t: SB_AB.t, z: SB_AB.zeile, d: SB_AB.dauer, go: "abenteuer"}] : [];
+  if(!L.length) return "";
+  return '<section class="sx-ab"><div class="sx-cap">Abenteuer</div><div class="sx-abl">' + L.map(function(a){
+    return '<a class="sx-abc" onclick="go(\'' + a.go + '\')"><span class="n">' + esc(a.t) + '</span><span class="z">' + esc(a.z) + '</span><span class="d">' + esc(a.d) + '</span><i>→</i></a>';
+  }).join("") + '</div></section>';
+}
 function viewStart(){
   var f = ST.folge || {}, t = ST.tour || {}, w = t.welt && window.sbWelt ? sbWelt(t.welt) : null, sc = ST.sc || [], c = ST.crew || {};
   var kap = SB_KAP.map(function(k){
@@ -46,6 +54,7 @@ function viewStart(){
     '<div class="sx-act"><button class="sx-go" onclick="go(\'folge\')"><span>Los&shy;blasten!</span><small>' + (f.n ? "Folge " + f.n + (w ? " · " + esc(w.t) : "") : "Erste Folge starten") + '</small><i>→</i></button>' +
     '<div class="sx-crew"><div class="cap">Crew</div><div class="sx-cl">' + crew + '</div></div></div></div>' +
     '<img class="sx-cover" src="' + IMG("start/cover") + '" alt=""></section>' +
+    abHtml() +
     '<section class="sx-kaps">' + kap + '</section>' +
     '<section class="sx-strips"><div><div class="sx-cap">Persönlichkeiten</div><div class="sx-ps">' + pers + '</div></div>' +
     '<div><div class="sx-cap">Multiversum</div><div class="sx-ws">' + welten + '</div></div></section></div>';

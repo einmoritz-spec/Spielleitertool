@@ -794,3 +794,15 @@ body.ooth .tabs.oob a.on{background:none}body.ooth .tabs.oob a.on::before{backgr
 .abls .tk .clock{width:52px;height:52px;display:block}
 .tk .tx{columns:auto;column-count:auto;font-size:inherit}
 .abtafel{display:block;width:100%;margin:4px 0 18px;padding:10px 14px;background:var(--teal);color:#fff;border:0;font:800 13px var(--body);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.abtafel:hover{background:var(--lila)}
+
+/* Startseite: Abenteuer-Leiste */
+.sx-ab{padding:20px 26px 0}
+.sx-abl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.sx-abc{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-areas:"n i" "z z" "d d";gap:4px 14px;align-items:start;align-content:start;cursor:pointer;background:var(--lila);color:#fff;padding:16px 20px 14px 26px;border-left:10px solid var(--mag);box-shadow:5px 5px 0 rgba(109,77,159,.22);transition:transform .15s,box-shadow .15s}
+.sx-abc:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(109,77,159,.28)}
+.sx-abc .n{grid-area:n;font:400 30px/.95 var(--marker);text-transform:uppercase}
+.sx-abc .z{grid-area:z;font:400 16px/1.15 var(--hand);opacity:.95}
+.sx-abc .d{grid-area:d;font:800 10.5px var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--gelb);margin-top:4px}
+.sx-abc i{grid-area:i;font:900 28px var(--body);font-style:normal;color:var(--pink);transition:transform .15s}
+.sx-abc:hover i{transform:translateX(4px)}
+@media(max-width:1100px){.sx-abl{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -37,7 +37,7 @@
     var cs = getComputedStyle(g), its = items(g); if(!its.length) return;
     if(!g._mg){ g._mg = parseFloat(cs.rowGap) || 0; }
     if(g.dataset.mas !== "1" && g.dataset.mas !== "") { /* auto */ }
-    g.style.gridAutoRows = "1px"; g.style.rowGap = "0px"; g.style.alignItems = "start"; g.style.gridAutoFlow = "row";
+    g.style.gridAutoRows = "1px"; g.style.rowGap = "0px"; g.style.alignItems = "start"; g.style.gridAutoFlow = "row dense";
     var gap = g.dataset.masGap ? parseFloat(g.dataset.masGap) : g._mg;
     its.forEach(function(c){ c.style.gridRowEnd = ""; c.style.alignSelf = "start"; });
     var h = its.map(function(c){ var s = getComputedStyle(c); return c.getBoundingClientRect().height + (parseFloat(s.marginTop) || 0) + (parseFloat(s.marginBottom) || 0); });

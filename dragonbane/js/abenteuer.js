@@ -209,7 +209,7 @@ function bereichTab(A, B, sel){
   /* Wesen/Kästen: offen die des Ortes, übrige zugeklappt (bei > 12 nur die des Bereichs) */
   var alle = figIds(A).concat(kastIds(A)), ids = alle;
   if(alle.length > 12){ var u = {}; orte.forEach(function(p){ (p.wesen || []).forEach(function(w){ u[w] = 1; }); }); ids = alle.filter(function(x){ return u[x]; }); }
-  var rechts = "", extra = "";
+  var rechts = "", extra = (o.b || []).filter(function(x){ return x.stein; }).map(blk).join("");
   ids.forEach(function(id){
     var kast = !(A.figuren && A.figuren[id]), f = kast ? A.kaesten[id] : A.figuren[id], op = isOpen(id, o), breit = kast || f.angriffe;
     if(op && breit){ extra += kast ? steinBox(f, "figTog('" + id + "',true)") : nscCard(A, id, "figTog('" + id + "',true)"); rechts += strip(kast ? f.k : f.t, f.p, "figTog('" + id + "',true)", kast, 1); }
@@ -219,8 +219,8 @@ function bereichTab(A, B, sel){
   (A.tabellen || []).forEach(function(t){ if(t.strip) rechts += strip(t.strip, t.p, "go('a/" + A.id + "/tabellen')"); });
   return '<div class="tafel' + (karte ? '' : ' ohnekarte') + '"><div class="tl">' + (karte ? '<div class="plan"><img class="mul" src="' + IMG(B.karte.img) + '" alt="">' + pins + '</div>' : '') + '<div class="orte' + (karte ? '' : ' eins') + '">' + liste + '</div></div>' +
     '<div class="ort">' + (B.einl ? '<p class="bein">' + md(B.einl) + '</p>' : '') + '<div class="titel m">' + (o.n ? esc(o.n) + '. ' : '') + esc(o.t) + pgl(o.p) + '</div>' + (o.vl ? '<div class="vorlesen">' + md(o.vl) + '</div>' : '') +
-    (st ? '<ul class="st">' + st + '</ul>' : '') + (o.b ? '<div class="ob">' + o.b.map(blk).join("") + '</div>' : '') + (o.nach ? '<p class="nach">' + md(o.nach) + '</p>' : '') + '<div class="extra">' + extra + '</div></div>' +
-    '<div class="rechts">' + rechts + '</div></div>';
+    (st ? '<ul class="st">' + st + '</ul>' : '') + (o.b ? '<div class="ob">' + o.b.filter(function(x){ return !x.stein; }).map(blk).join("") + '</div>' : '') + (o.nach ? '<p class="nach">' + md(o.nach) + '</p>' : '') + '</div>' +
+    '<div class="rechts">' + rechts + '</div>' + (extra ? '<div class="extra" data-mas data-mas-gap="40">' + extra + '</div>' : '') + '</div>';
 }
 function reisenTab(A){
   var R = A.reisen, fg = R.figuren || [], tb = (R.tabellen || []).map(function(t){ return typeof t === "string" ? (A.tabellen || []).filter(function(x){ return x.id === t; })[0] : t; }).filter(Boolean);

@@ -150,6 +150,7 @@ details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content
   .eis-split{display:block!important}
   .eis-side{position:static!important;float:left;max-width:58%;margin:0 36px 14px 0}
   .eis-text{display:block}
+  .eis-text>.chsec:first-child .blk-sh,.eis-text>.chsec:first-child .sclear{clear:none}
   .eis-split::after{content:"";display:block;clear:both}
 }
 

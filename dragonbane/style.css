@@ -345,8 +345,6 @@ table.w6 tr{cursor:pointer}
 .lg3 p{font-size:17.5px}
 .tpz{white-space:nowrap}
 .zu.an{outline:2px solid var(--jade-d);outline-offset:-5px}
-.ort .extra{display:grid;gap:44px;margin-top:40px}
-.ort .extra:empty{display:none}
 .fgrid .fw{grid-column:auto}
 .karte .zl.drei span{white-space:nowrap}
 .vig{-webkit-mask-image:radial-gradient(ellipse 68% 70% at 50% 50%,#000 52%,transparent 97%);mask-image:radial-gradient(ellipse 68% 70% at 50% 50%,#000 52%,transparent 97%)}
@@ -478,7 +476,7 @@ table.w6.kl tr.weg td{opacity:.4;text-decoration:line-through}
 
 .gr.mas .mrow{grid-column:1/-1;display:flex;gap:30px;align-items:flex-start}
 .gr.mas .mcol{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:22px}
-.gr.mas .ab.l2{column-count:1}
+.gr.mas .ab.l2{column-count:2;column-gap:32px}
 .gr.mas .zelle{padding-top:26px}
 .gr.mas>.voll{margin-bottom:0}
 .gr.mas>*{margin-bottom:0}
@@ -712,3 +710,9 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .lage.zw .lgb{clear:both;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:0 32px;align-items:start;padding-top:34px}
 .lage.zw .lgb>*{margin:0;max-width:none;grid-column:auto}
 @media(max-width:760px){.lage.zw .lg1{float:none;width:auto;margin-right:0}}
+/* Kästen/Wesen-Karten eines Ortes: ganze Breite unter den drei Spalten als lückenloses Raster */
+.tafel>.extra{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:0 36px;align-items:start;padding-top:46px}
+@media(max-width:1000px){.tafel>.extra{grid-template-columns:minmax(0,1fr)}}
+.tafel>.extra>.stein.bk{margin:0}
+.tafel>.tl,.tafel>.rechts{position:sticky;top:10px}
+.gr.mas>.voll{grid-column:1/-1}

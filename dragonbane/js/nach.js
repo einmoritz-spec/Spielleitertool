@@ -97,8 +97,7 @@ function masPack(g){
   var prev = window.afterRender;
   window.afterRender = function(){
     if(prev) prev();
-    var g = document.querySelector(".gr.mas"); if(!g) return;
-    masPack(g);
-    if(window.ResizeObserver){ if(window.__mro) window.__mro.disconnect(); window.__mro = new ResizeObserver(function(){ var x = document.querySelector(".gr.mas"); if(x) masPack(x); }); window.__mro.observe(g); }
+    document.querySelectorAll(".gr.mas").forEach(function(g){ g.setAttribute("data-mas", ""); g.setAttribute("data-mas-gap", "28"); });
+    if(window.MasonryRun) setTimeout(MasonryRun, 30);
   };
 })();

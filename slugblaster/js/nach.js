@@ -13,12 +13,19 @@ var SBN = (function(){
   function plak(k){ return '<span class="plk ' + (k[1] === "trouble" ? "tr" : "st") + '">' + k[0] + ' ' + (k[1] === "trouble" ? "Trouble" : "Style") + '</span>'; }
   function dice(n){ var h = ""; for(var i = 0; i < n; i++) h += '<svg class="hs" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="#fff"/><circle cx="8" cy="8" r="2" fill="' + PCOL + '"/><circle cx="16" cy="8" r="2" fill="' + PCOL + '"/><circle cx="12" cy="12" r="2" fill="' + PCOL + '"/><circle cx="8" cy="16" r="2" fill="' + PCOL + '"/><circle cx="16" cy="16" r="2" fill="' + PCOL + '"/></svg>'; return h; }
   function bolt(n){ var h = ""; for(var i = 0; i < n; i++) h += '<svg class="hs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M13.5 3 7 13h4.5L10 21l7-11h-4.5z" fill="' + PCOL + '"/></svg>'; return h; }
+  /* Figur der Persönlichkeit: Buchseite ohne englische Texte (Linien und PAC-PAC usw. im Bild), deutsche Texte an den Original-Positionen */
   function stage(id){
-    var F = SB_PTEXT[id].fig, w = F.w, h = F.h, I = F.img;
+    var F = SB_PTEXT[id].fig, w = F.w, h = F.h;
     function pc(v, t){ return (v / t * 100).toFixed(3) + "%"; }
-    var s = '<div class="fgs" style="aspect-ratio:' + w + '/' + h + '"><img src="' + IMG("pers/" + id) + '" alt="" style="left:' + pc(I.x, w) + ';top:' + pc(I.y, h) + ';width:' + pc(I.w, w) + ';height:' + pc(I.h, h) + '">';
-    s += '<svg viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none">' + F.lines.map(function(d){ return '<path d="' + d + '"/>'; }).join("") + '</svg>';
-    F.notes.forEach(function(n){ s += '<div class="fgn" style="left:' + pc(n.x, w) + ';top:' + pc(n.y, h) + ';width:' + pc(n.w + 8, w) + '">' + esc(n.t) + '</div>'; });
+    var s = '<div class="fgs" style="aspect-ratio:' + w + '/' + h + '"><img src="' + IMG(F.img) + '" alt="">';
+    F.notes.forEach(function(n){
+      /* Deutsch ist länger: Box wächst, Textanker (links/Mitte) bleibt wie im Buch */
+      var r = n.t.replace(/\u00ad/g, "").length / Math.max(8, n.en.replace(/ \/ /g, " ").length);
+      var bw = Math.min(Math.max(n.w * 1.25, n.w * r * 1.15), n.w + 42);
+      var x = n.al === "c" ? n.x + n.w / 2 - bw / 2 : n.x;
+      bw = Math.min(bw, w - x - 2);
+      s += '<div lang="de" class="fgn' + (n.al === "c" ? " c" : "") + '" style="left:' + pc(x, w) + ';top:' + pc(n.y, h) + ';width:' + pc(bw, w) + '">' + esc(n.t) + '</div>';
+    });
     return s + '</div>';
   }
   function persona(id){

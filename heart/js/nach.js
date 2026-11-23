@@ -47,7 +47,7 @@ VIEWS.nach = function(a){
   var unter = C.subs.length > 1 ? '<div class="unter">' + C.subs.map(function(s){ return '<a class="' + (s === S ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + s.id + '\')">' + esc(s.t) + "</a>"; }).join("") + "</div>" : "";
   var side = GR.length > 1, zu = !!ST.zu;
   var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
-    GR.map(function(g){ return '<li class="' + (g === G ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + g.secs[0].id + '\')">' + g.secs.map(function(s){ return esc(kurz(s.t)); }).join(" · ") + "</li>"; }).join("") + "</ul></aside>" : "";
+    GR.map(function(g){ return '<li class="' + (g === G ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + g.secs[0].id + '\')">' + g.secs.map(function(s, i){ return '<span class="rt' + (i ? " n2" : "") + '">' + esc(kurz(s.t)) + "</span>"; }).join("") + "</li>"; }).join("") + "</ul></aside>" : "";
   if(X.kl){ var kin = '<div class="inh kl"><div class="blatt seite dicht">' + klasseHtml(X) + "</div></div>"; return head + unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + rk + kin + "</div>"; }
   var inh = '<div class="inh"><div class="blatt seite dicht">' + G.secs.map(function(x, i){ return '<h1 class="h1' + (i ? " nxt" : "") + '">' + esc(x.t) + (x.p ? pgl(x.p, x.bl ? x.bl + " S. " + x.p : null, x.bk) : "") + "</h1>" + '<div class="flach">' + x.b.map(blk).join("") + "</div>"; }).join("") + "</div></div>";
   return head + unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + rk + inh + "</div>";

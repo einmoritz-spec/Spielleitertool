@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v828sp";
+const VERSION = "v829sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1533,6 +1533,9 @@ const FILES = [
   "spire/style.css",
   "spire/masken.css",
   "spire/js/masken.js",
+  "spire/js/karte.js",
+  "spire/img/karte-spire.webp",
+  "spire/img/karte-unterspire.webp",
   "spire/js/data/masken-index.js",
   "spire/js/data/masken-neuerscheinung.js",
   "spire/js/data/masken-klassiker.js",

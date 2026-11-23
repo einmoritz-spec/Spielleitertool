@@ -18,6 +18,7 @@
   <button class="brand" onclick="go('start')" aria-label="Spire"><img src="../assets/logos/the-spire.webp" alt="Spire"></button>
   <div class="topbar-spacer"></div>
   <button class="ib i tm-info-own" onclick="window.gmInfoOpen&&gmInfoOpen()" aria-label="Überblick" title="Überblick">i</button>
+  <button class="ib kt" onclick="karteOpen()" aria-label="Karte öffnen" title="Karte (m)"><svg viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="30" stroke-linejoin="round" stroke-linecap="round"><path d="M30 118 176 64 336 118 482 64V394L336 448 176 394 30 448Z"/><path d="M176 64V394M336 118V448"/></svg></button>
   <button class="ib bk" onclick="bookMenu(event)" aria-label="Buch öffnen" title="Buch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
   <button class="ib" onclick="openMenu(true)" aria-label="Menü" title="Menü"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div>
@@ -117,6 +118,7 @@
 <script src="js/masken.js"></script>
 <script src="js/schirm.js"></script>
 <script src="js/suche.js"></script>
+<script src="js/karte.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"sp_cmf", books:SP_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
 <script src="../shared/masonry.js" defer></script>

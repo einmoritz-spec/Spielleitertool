@@ -1019,3 +1019,15 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .bgges span{display:inline-block;min-width:14mm;min-height:7mm}
 .bgin[data-pdftx]{min-height:10mm}
 .bgz{font-size:14.5px;width:42.5mm}
+
+/* Kartenansicht (Header-Symbol / Taste m) */
+.kr-ov{position:fixed;inset:0;z-index:80;background:#0b1018;overflow:hidden;cursor:grab;touch-action:none}
+.kr-ov.drag{cursor:grabbing}
+.kr-img{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;user-select:none;background:#f1ece0;box-shadow:0 6px 30px rgba(0,0,0,.6)}
+.kr-bar{position:absolute;left:0;right:0;top:0;height:52px;z-index:2;display:flex;align-items:center;gap:6px;padding:0 12px;background:rgba(11,16,24,.96);border-bottom:1px solid rgba(255,255,255,.14);cursor:default}
+.kr-sp{flex:1}
+.kr-tab,.kr-b{font:inherit;color:#e8e2d4;background:transparent;border:1px solid rgba(255,255,255,.25);border-radius:8px;height:34px;padding:0 14px;cursor:pointer;font-family:"Geared Slab","Rye",serif;letter-spacing:.04em}
+.kr-tab.on{background:#4a1170;border-color:#4a1170;color:#fff}
+.kr-b{width:36px;padding:0;font-size:18px}
+.kr-tab:hover,.kr-b:hover{background:rgba(255,255,255,.1)}
+.kr-tab.on:hover{background:#5d1a8a}

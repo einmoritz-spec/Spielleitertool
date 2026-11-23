@@ -187,8 +187,14 @@ function lageKarten(A){
   var bilder = L.map(function(b, i){
     return '<div class="lkb' + (i ? ' aus' : '') + '" data-i="' + i + '" onclick="go(\'a/' + A.id + '/' + b.id + '\')">' + '<img class="bild" src="' + IMG(b.karte.img) + '" alt="">' + '</div>';
   }).join("");
-  var chips = L.length > 1 ? '<div class="lkt">' + L.map(function(b, i){ return '<span class="' + (i ? '' : 'on') + '" onclick="lageKarte(this,' + i + ')">' + esc(b.t) + '</span>'; }).join("") + '</div>' : "";
+  var chips = L.length > 1 ? '<div class="lkt">' + L.map(function(b, i){ return '<span class="' + (i ? '' : 'on') + '" onclick="lageKarte(this,' + i + ')">' + esc(kartenKurz(b.t)) + '</span>'; }).join("") + '</div>' : "";
   return '<div class="lk" id="' + id + '">' + chips + bilder + '</div>';
+}
+/* Kurzname für den Kartenschalter: „Das erste Stockwerk“ → „1. OG“, sonst ohne Artikel */
+function kartenKurz(t){
+  var n = {erste:1, zweite:2, dritte:3, vierte:4, fünfte:5}, m = /^(?:das|die|der)\s+(\w+)\s+stockwerk$/i.exec(t);
+  if(m && n[m[1].toLowerCase()]) return n[m[1].toLowerCase()] + ". OG";
+  return t.replace(/^(das|die|der)\s+/i, "");
 }
 function lageKarte(el, i){
   var w = el.closest(".lk"); if(!w) return;

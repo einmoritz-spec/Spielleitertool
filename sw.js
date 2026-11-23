@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v767sp";
+const VERSION = "v768sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -2788,6 +2788,19 @@ const FILES = [
   "css/responsive.css",
   "shared/tabpick.js",
   "shared/galerie.js",
+  "shared/gsuche.js",
+  "compass/js/suche.js",
+  "forbidden/js/suche.js",
+  "household/js/suche.js",
+  "savageworlds/js/suche.js",
+  "triangle/js/suche.js",
+  "otherscape/js/suche.js",
+  "etr/js/suche.js",
+  "vaesen/js/suche.js",
+  "nights/js/suche.js",
+  "locallegends/js/suche.js",
+  "heart/js/suche.js",
+  "tftl/js/suche.js",
   "js/data/tb/circumstance.js",
   "js/data/tb/companion.js",
   "js/data/tb/destiny.js",

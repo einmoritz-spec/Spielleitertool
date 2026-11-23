@@ -329,7 +329,7 @@ function buildMenu(){
   if(window.BV){ document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh(); }
 }
 function openMenu(on){ if(on) buildMenu(); document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on); }
-function openSearch(){ document.getElementById("searchModal").classList.add("on"); document.getElementById("searchInput").focus(); }
+function openSearch(){ if(window.sucheOpen){ window.sucheOpen(); return; } document.getElementById("searchModal").classList.add("on"); document.getElementById("searchInput").focus(); }
 function closeSearch(){ document.getElementById("searchModal").classList.remove("on"); }
 function strip(h){ return String(h).replace(/<[^>]+>/g, " "); }
 function runSearch(q){

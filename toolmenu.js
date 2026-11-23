@@ -143,12 +143,51 @@
       m.addEventListener("click", function(e){ e.stopPropagation(); try{ window.gmMap(); }catch(x){} });
       b.insertAdjacentElement("beforebegin", m); }
   }
-  function ensure(){ bookBtn(); var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
+  /* Such- und Galerie-Knopf im Header (überall, wo es Suche bzw. Galerie-Bilder gibt): sitzen rechts vor dem Burger, wie bei Dragonbane */
+  var scss = document.createElement("style");
+  scss.textContent = ".topbar .tm-sg{flex:none;width:40px;height:40px;padding:0;margin:0 6px 0 0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;cursor:pointer;transition:filter .15s}.topbar .tm-sg:hover{filter:brightness(.96)}.topbar .tm-sg svg{width:22px;height:22px}.topbar .tm-sg + .tb-burger{margin-left:0!important}.topbar .tm-book + .tm-sg{margin-left:0}";
+  document.head.appendChild(scss);
+  var GALKEY = {wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", slugblaster:"slugblaster", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es"};
+  function searchFn(){
+    var w = window;
+    return typeof w.sucheOpen === "function" ? function(){ w.sucheOpen(); } :
+      w.SBS && typeof w.SBS.open === "function" ? function(){ w.SBS.open(); } :
+      typeof w.srOpen === "function" ? function(){ w.srOpen(); } :
+      typeof w.sOpen === "function" ? function(){ w.sOpen(true); } : null;
+  }
+  window.gmSearchFn = searchFn;
+  function sgBtns(){
+    var bar = document.querySelector(".topbar"); if(!bar || bar.querySelector(".topbar-actions")) return;
+    var burger = bar.querySelector(".tb-burger") || bar.querySelector('button[aria-label="Menü"]'); if(!burger) return;
+    var cs = getComputedStyle(burger), ibc = burger.classList.contains("ib") ? " ib" : "";
+    function mk(id, titel, svg, fn){
+      var b = document.createElement("button"); b.type = "button"; b.className = "tm-sg" + ibc; b.id = id; b.title = titel; b.setAttribute("aria-label", titel);
+      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + svg + '</svg>';
+      if(cs.color) b.style.color = cs.color; ["backgroundColor","borderTopColor","borderTopWidth","borderTopStyle","borderRadius"].forEach(function(k){ if(cs[k]) b.style[k] = cs[k]; });
+      b.style.borderStyle = cs.borderTopStyle; b.style.height = "40px";
+      b.addEventListener("click", function(e){ e.stopPropagation(); fn(); });
+      burger.insertAdjacentElement("beforebegin", b);
+    }
+    if(!document.getElementById("tbSuche") && searchFn()) mk("tbSuche", "Suche", '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/>', function(){ var f = searchFn(); if(f) f(); });
+    var gk = GALKEY[cur()], gf = window.gmGalerie || (gk && window.Galerie && Galerie.has && Galerie.has(gk) ? function(){ Galerie.open(gk); } : null);
+    if(!document.getElementById("tbGalerie") && gf) mk("tbGalerie", "Galerie", '<rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/>', gf);
+  }
+  function ordnen(){
+    var bar = document.querySelector(".topbar"); if(!bar) return;
+    var burger = bar.querySelector(".tb-burger") || bar.querySelector('button[aria-label="Menü"]'); if(!burger) return;
+    var seq = [].concat([].slice.call(bar.querySelectorAll(".tm-info")), [].slice.call(bar.querySelectorAll(".tm-map")), [].slice.call(bar.querySelectorAll(".tm-book:not(.tm-map)")), [].slice.call(bar.querySelectorAll(".tm-sg")));
+    var kids = [].slice.call(bar.children), ok = true, last = -1;
+    seq.forEach(function(e){ var i = kids.indexOf(e); if(i < last) ok = false; last = i; });
+    if(ok) return;
+    seq.forEach(function(e){ burger.insertAdjacentElement("beforebegin", e); });
+  }
+  function ensure(){ bookBtn(); sgBtns(); ordnen(); var b = document.querySelector(".topbar .brand"); if(b && !(b.nextElementSibling && b.nextElementSibling.classList.contains("tm-caret"))){ caret = null; init(); } }
   window.gmToolCur = cur; window.gmToolBase = BASE;
   /* Info-Knopf (i) neben dem Buch-Symbol: shared/sysinfo.js, Inhalte in shared/info/<system>.js */
   if(!document.querySelector('script[data-gm-info]')){ var si = document.createElement("script"); si.src = BASE + "shared/sysinfo.js"; si.setAttribute("data-gm-info","1"); document.head.appendChild(si); }
   new MutationObserver(ensure).observe(document.documentElement, {childList:true, subtree:true});
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", function(){ init(); bookBtn(); }); else { init(); bookBtn(); }
+  [400,1200,3000].forEach(function(t){ setTimeout(sgBtns, t); });
 })();
 
 /* Taste „f“: Suche als Overlay in jedem System. Nutzt die eigene Volltextsuche des Systems (sOpen / SBS / srOpen / sucheOpen);

@@ -53,8 +53,7 @@ function beSeite(m){
   }
   return beKopf(m.t, m.p, "") .replace('<span class="bl">', '<span class="bl" style="display:none">') +
     '<div data-mas="0" class="mp' + (m.npc ? ' npc' : '') + '"><div class="ml"><div class="mb"><img src="img/monster/' + m.img + '.webp" alt=""></div>' + beWerte(m) + zbKarte("Zufallsbegegnung", m.zb) + '</div>' +
-    '<div class="mr"><div class="mtx">' + tx + '</div>' + zbKarte("Abenteueraufhänger", m.ah) + rechts + '</div></div>' +
-    '<div class="fuss"><div class="fz">' + (pv ? '<a class="pv" href="#n/be/' + pv.id + '">‹ ' + esc(pv.t) + '</a>' : '<a class="pv" href="#n/be">‹ Alle Monster</a>') + '<div class="em">7</div>' + (nx ? '<a class="nx" href="#n/be/' + nx.id + '">' + esc(nx.t) + ' ›</a>' : '<a class="nx" href="#n/be/tiere">Gewöhnliche Tiere ›</a>') + '</div></div>';
+    '<div class="mr"><div class="mtx">' + tx + '</div>' + zbKarte("Abenteueraufhänger", m.ah) + rechts + '</div></div>';
 }
 (function(){
   window.DB_NACH = window.DB_NACH || {}; DB_NACH.be = DB_BEKOPF;

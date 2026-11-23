@@ -161,18 +161,8 @@
       '</div><input id="gIn" type="search" placeholder="Bilder filtern …" oninput="galFilter()"><span id="gZahl" class="g-zahl"></span></div><div id="gGrid" class="g-raster"></div></div>';
   };
 
-  /* Knöpfe in der Kopfzeile + Taste „/“ */
-  function knoepfe(){
-    var burger = document.querySelector(".topbar .tb-burger"); if(!burger || document.getElementById("tbSuche")) return;
-    function btn(id, titel, svg, hash){
-      var b = document.createElement("button"); b.className = "ib tm-info"; b.id = id; b.title = titel; b.setAttribute("aria-label", titel);
-      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + svg + '</svg>';
-      b.onclick = function(){ if(hash === "suche") sucheOpen(); else go(hash); }; burger.parentNode.insertBefore(b, burger);
-    }
-    btn("tbSuche", "Suche", '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/>', "suche");
-    btn("tbGalerie", "Galerie", '<rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/>', "galerie");
-  }
-  document.addEventListener("DOMContentLoaded", knoepfe); setTimeout(knoepfe, 400); setTimeout(knoepfe, 1500);
+  /* Knöpfe (Suche, Galerie) setzt toolmenu.js in die Kopfzeile; Galerie führt auf #galerie */
+  window.gmGalerie = function(){ go("galerie"); };
   document.addEventListener("keydown", function(e){
     if((e.key !== "f" && e.key !== "F" && e.key !== "/") || /INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
     e.preventDefault(); sucheOpen();

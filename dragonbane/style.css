@@ -242,8 +242,8 @@ body.notop .topbar,body.notop .rail{display:none}
 .cta .fluegel .fm{font-size:30px}
 .cta .zul{text-align:center;font:13px var(--f-sans);color:var(--grau);margin-top:clamp(6px,1.6vh,16px)}
 .cta .zul b{font-family:var(--f-kopf);font-weight:normal;color:var(--jade-d)}
-.topbar .tm-book,.topbar .tm-info,.topbar .tb-burger{color:var(--jade-d);border:1px solid rgba(0,96,77,.32);background:none;border-radius:4px}
-.topbar .tm-book:hover,.topbar .tm-info:hover,.topbar .tb-burger:hover{background:rgba(0,96,77,.08);filter:none}
+.topbar .tm-book,.topbar .tm-info,.topbar .tm-sg,.topbar .tb-burger{color:var(--jade-d);border:1px solid rgba(0,96,77,.32);background:none;border-radius:4px}
+.topbar .tm-book:hover,.topbar .tm-info:hover,.topbar .tm-sg:hover,.topbar .tb-burger:hover{background:rgba(0,96,77,.08);filter:none}
 .topbar .tb-burger{margin-left:6px}
 .topbar .tm-caret{color:var(--jade-d)}
 

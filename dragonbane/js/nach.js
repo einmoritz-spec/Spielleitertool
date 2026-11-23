@@ -76,8 +76,7 @@ DB_VIEWS.n = function(h){
   var side = '<nav class="side">' + d.abs.map(function(a){ return '<a class="' + (a === cur ? 'on' : '') + '" href="#n/' + K.id + '/' + a.id + '"><span>' + esc(a.t) + '</span><i>S. ' + a.p + '</i></a>'; }).join("") + '</nav>';
   var flat = nachFlat(), i = flat.findIndex(function(x){ return x[3] === cur; }), pv = flat[i - 1], nx = flat[i + 1];
   function fl(x, dir){ return x ? '<a class="' + dir + '" href="#n/' + x[0] + '/' + x[1] + '">' + (dir === "pv" ? '‹ ' : '') + esc(x[3].t) + (dir === "nx" ? ' ›' : '') + '</a>' : '<span></span>'; }
-  var body = (cur.fig ? figBody(cur, h[3]) : '<div class="kopf"><h1>' + esc(cur.t) + '</h1>' + pgl(cur.p) + '</div>' + nabs(cur)) +
-    '<div class="fuss"><div class="fz">' + fl(pv, "pv") + '<div class="em" title="' + esc((K.n ? 'Kapitel ' + K.n + ' – ' : '') + K.t) + '">' + esc(K.n) + '</div>' + fl(nx, "nx") + '</div></div>';
+  var body = (cur.fig ? figBody(cur, h[3]) : '<div class="kopf"><h1>' + esc(cur.t) + '</h1>' + pgl(cur.p) + '</div>' + nabs(cur));
   return tb + lay(side, body);
 };
 

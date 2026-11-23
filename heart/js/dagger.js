@@ -5,7 +5,7 @@ var KT = {1:"Trainkill",2:"Eastern Express",3:"Von Oben",4:"The Wormery",5:"Das 
 var KP = {1:24,2:35,3:53,4:71,5:89,6:117,7:131};
 var PL = ["Klein","Klein","Groß","Groß","Zenit"];
 function pg(p){ return p ? pgl(p, "S. " + p, "ht_a1") : ""; }
-function dk(){ ST.dk = ST.dk || {opp:{}, done:{}, res:{}, erg:{}, beat:{}}; return ST.dk; }
+function dk(){ ST.dk = ST.dk || {opp:{}, done:{}, res:{}, erg:{}, beat:{}, hand:{}}; if(!ST.dk.hand) ST.dk.hand = {}; return ST.dk; }
 function bl(b){
   if(b && typeof b === "object" && b.t === "zettel") return '<div class="dzettel">' + (b.h ? "<h4>" + esc(b.h) + "</h4>" : "") + (b.x || b.b || []).map(bl).join("") + "</div>";
   return blk(b);
@@ -15,6 +15,7 @@ function kap(n){ return D().kap[String(n)]; }
 function ktitel(n){ var k = kap(n); return k && k.t ? k.t : KT[n]; }
 function nav(n, tab){
   var tabs = [["ueberblick","Überblick"],["inszenierung","Inszenierung"],["landmarken","Landmarken"],["dokumente","Dokumente"]];
+  if(n && !((kap(n) || {}).dok || []).length) tabs.pop();
   var sel = '<select class="dksel" onchange="go(\'dagger/\'+this.value+\'/ueberblick\')">' + [1,2,3,4,5,6,7].map(function(i){ return '<option value="' + i + '"' + (i == n ? " selected" : "") + ">Kapitel " + i + " · " + esc(ktitel(i)) + "</option>"; }).join("") + "</select>";
   return '<nav class="tabs dknav"><a class="kb0" onclick="go(\'dagger\')">‹ Kampagne</a>' + (n ? sel + tabs.map(function(t){ return '<a class="' + (t[0] === tab ? "on" : "") + '" onclick="go(\'dagger/' + n + "/" + t[0] + '\')">' + t[1] + "</a>"; }).join("") : "") + '<span class="sp"></span>' + (n ? '<a class="dkfin' + (dk().done[n] ? " on" : "") + '" onclick="dkFin(' + n + ')">' + (dk().done[n] ? "✓ Abgeschlossen" : "Abschließen") + "</a>" : "") + "</nav>";
 }
@@ -87,15 +88,33 @@ var DOKB = {"Handout 1": "dagger/art/h1-s46", "Handout 4": "dagger/art/h4-s48", 
 var RISS = ["polygon(0 2%,6% 0,14% 1.5%,25% 0,38% 1%,52% 0,66% 1.5%,80% 0,92% 1%,100% 0,99% 12%,100% 30%,98.5% 48%,100% 66%,99% 84%,100% 100%,88% 99%,74% 100%,60% 98.5%,44% 100%,30% 99%,16% 100%,5% 98.5%,0 100%,1% 82%,0 64%,1.5% 46%,0 28%,1% 12%)","polygon(1% 0,12% 1%,26% 0,41% 1.5%,57% 0,71% 1%,86% 0,100% 1.5%,99% 16%,100% 34%,98% 52%,100% 70%,99% 88%,100% 100%,90% 98.5%,76% 100%,61% 99%,46% 100%,31% 98.5%,17% 100%,6% 99%,0 100%,1.5% 84%,0 66%,1% 48%,0 30%,1.5% 14%)","polygon(0 1%,9% 0,20% 1.5%,34% 0,49% 1%,63% 0,78% 1.5%,91% 0,100% 1%,98.5% 15%,100% 33%,99% 51%,100% 69%,98.5% 86%,100% 99%,92% 100%,79% 98.5%,64% 100%,47% 99%,33% 100%,19% 98.5%,8% 100%,0 99%,1% 85%,0 68%,1.5% 50%,0 32%,1% 15%)"];
 function zettel(d, K, i, gross){
   var bild = DOKB[d.t];
-  var kopf = '<h4>' + esc(d.t) + (gross ? "" : pg(d.p)) + "</h4>";
-  if(bild) return '<div class="dzw bild' + (gross ? " gross" : "") + '"' + (gross ? "" : ' onclick="dkDok(' + K.n + "," + i + ')"') + ">" + kopf + dbild(bild, "") + "</div>";
+  var hn = (d.t.match(/\d+/) || [])[0], gv = dk().hand[hn];
+  var kopf = '<h4>' + esc(d.t) + (gross ? "" : pg(d.p)) + '<span class="dvg' + (gv ? " an" : "") + '" onclick="event.stopPropagation();dkHand(' + hn + ')">' + (gv ? "✓ Ausgegeben" : "Ausgeben") + "</span></h4>";
+  if(bild) return '<div class="dzw bild' + (gv ? " vergeben" : "") + (gross ? " gross" : "") + '"' + (gross ? "" : ' onclick="dkDok(' + K.n + "," + i + ')"') + ">" + kopf + dbild(bild, "") + "</div>";
   var rot = ((i * 37) % 7 - 3) * 0.25;
   var lang = !gross && JSON.stringify(d.x).length > 1500;
-  return '<div class="dzw' + (gross ? " gross" : "") + (lang ? " lang" : "") + '"' + (gross ? "" : ' onclick="dkDok(' + K.n + "," + i + ')" style="transform:rotate(' + rot + 'deg)"') + '>' + kopf + '<div class="dzettel papier" style="clip-path:' + RISS[i % 3] + '">' + bls(d.x) + "</div></div>";
+  return '<div class="dzw' + (gross ? " gross" : "") + (lang ? " lang" : "") + (gv ? " vergeben" : "") + '"' + (gross ? "" : ' onclick="dkDok(' + K.n + "," + i + ')" style="transform:rotate(' + rot + 'deg)"') + '>' + kopf + '<div class="dzettel papier" style="clip-path:' + RISS[i % 3] + '">' + bls(d.x) + "</div></div>";
 }
 function dokumente(K){
   var L = K.dok || [];
   return '<div class="dkgrid dok">' + (L.length ? L.map(function(d, i){ return zettel(d, K, i, false); }).join("") : "<p>Keine Dokumente in diesem Kapitel.</p>") + "</div>";
+}
+window.dkHand = function(n){ var h = dk().hand; h[n] = !h[n]; save(); var m = document.querySelector(".dvoll"); if(m) m.remove(); render(); };
+window.dkDokN = function(n){ var K = kap(2); if(K && K.dok && K.dok[n - 1]) dkDok(2, n - 1); };
+function handChips(root){
+  var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), nodes = [], t;
+  while((t = w.nextNode())) if(/Handouts?\s+\d/.test(t.nodeValue) && !t.parentNode.closest(".dvoll,nav,.dzw")) nodes.push(t);
+  nodes.forEach(function(tn){
+    var re = /(Handouts?)\s+(\d+(?:\s*(?:–|-|,|und)\s*\d+)*)/g, v = tn.nodeValue, last = 0, m, html = "";
+    while((m = re.exec(v))){
+      var nums = [], parts = m[2].split(/\s*(?:,|und)\s*/);
+      parts.forEach(function(p){ var r = p.split(/\s*[–-]\s*/); if(r.length === 2){ for(var i = +r[0]; i <= +r[1]; i++) nums.push(i); } else nums.push(+r[0]); });
+      html += esc(v.slice(last, m.index)) + '<span class="dhands">' + m[1] + " " + nums.map(function(n){ return '<a class="dhand' + (dk().hand[n] ? " ok" : "") + '" onclick="dkDokN(' + n + ')">' + n + "</a>"; }).join("") + "</span>";
+      last = m.index + m[0].length;
+    }
+    html += esc(v.slice(last));
+    var sp = document.createElement("span"); sp.innerHTML = html; tn.parentNode.replaceChild(sp, tn);
+  });
 }
 window.dkDok = function(n, i){ var d = kap(n).dok[i]; var m = document.createElement("div"); m.className = "dvoll"; m.onclick = function(){ m.remove(); }; m.innerHTML = zettel(d, kap(n), i, true); document.body.appendChild(m); };
 /* Wegekarte */
@@ -136,7 +155,7 @@ function lmSeite(l){
   if(!l) return "";
   var wz = '<div class="dkw"><span><b>Domains:</b> ' + esc((l.dom || []).join(", ")) + "</span><span><b>Tiefe:</b> " + esc(l.tiefeText || l.tiefe) + "</span><span><b>Standard-Stress:</b> " + esc(l.stress || "") + "</span>" + ((l.haunts || []).length ? "<span><b>Haunts:</b> " + (l.haunts || []).map(md).join("; ") + "</span>" : "") + "</div>";
   var re = ((l.ressourcen || []).length ? '<h3 class="h3">Ressourcen</h3><ul class="lst">' + l.ressourcen.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "") + ((l.plots || []).length ? '<h3 class="h3">Mögliche Plots</h3><ul class="lst">' + l.plots.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "");
-  return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc"><div>' + dbild(DART.lm[l.id], l.id === "grinding-halls" ? "breit" : "r") + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
+  return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc' + (re ? "" : " eins") + '"><div>' + dbild(DART.lm[l.id], l.id === "grinding-halls" ? "breit" : "r") + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
 }
 function landmarken(K, sel){
   var V = (K.delves || []).filter(function(v){ return v.von && v.nach; }), freie = (K.delves || []).filter(function(v){ return !(v.von && v.nach); }), first = V[0] ? "d:" + V[0].id : ((K.lm || [])[0] || {}).id;
@@ -184,6 +203,7 @@ VIEWS.dagger = function(a){
 var prev = window.afterRender;
 window.afterRender = function(){
   if(prev) prev();
+  if(/^#dagger/.test(location.hash)){ var rt = document.querySelector(".dkgrid,.dlm,.dkseite"); if(rt) document.querySelectorAll(".dkgrid,.dlm,.dkseite").forEach(handChips); }
   var img = document.querySelector(".brand img"); if(!img) return;
   var d = /^#dagger/.test(location.hash);
   img.src = d ? "img/dagger/logo-zeile-hell.svg" : "../assets/logos/heart.webp";

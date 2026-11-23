@@ -18,7 +18,7 @@ function blk(b){
   switch(b.t){
     case "p": return "<p" + (b.k ? ' class="kurs"' : "") + ">" + md(b.x) + "</p>";
     case "h": return '<h3 class="h3">' + esc(b.x) + (b.p ? pgl(b.p, b.bl ? b.bl + " S. " + b.p : null, b.bk) : "") + "</h3>";
-    case "ul": return '<ul class="lst">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
+    case "ul": return '<ul class="lst">' + b.x.map(function(x){ return x && typeof x === "object" ? '<li style="list-style:none;margin-left:-4px">' + blk(x) + "</li>" : "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
     case "kasten": return '<div class="schwarz">' + (b.h ? '<div class="lbl">' + esc(b.h) + "</div>" : "") + (b.b || [b.x]).map(blk).join("") + "</div>";
     case "werte": return '<div class="werte">' + b.z.map(function(z){ return '<div><span class="lbl">' + esc(z[0]) + "</span> " + md(z[1]) + "</div>"; }).join("") + "</div>";
     case "karten": return '<div class="kkarten' + (b.n ? " n" + b.n : "") + '">' + b.x.map(function(k){ return '<div class="kkarte"><div class="platte">' + esc(k.t) + "</div>" + k.b.map(blk).join("") + "</div>"; }).join("") + "</div>";

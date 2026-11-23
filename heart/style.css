@@ -408,3 +408,8 @@ body{background-attachment:fixed}
 .dzw.gross{width:min(820px,94vw);height:fit-content;cursor:default}.dzw.gross .dzettel.papier{font-size:20px}.dzw.gross.bild .dbild{max-height:86vh}
 .dkgrid.dok{grid-template-columns:repeat(4,minmax(0,1fr))}.dzw.lang{grid-column:span 2}.dzw.lang .dzettel.papier{column-count:2;column-gap:26px;font-size:16px}.dzw.lang .dzettel.papier p{break-inside:avoid-column}
 @media(max-width:1300px){.dkgrid.dok{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.dvg{float:right;font:400 13px var(--head);letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border:1px solid #e9dfcf88;color:#e9dfcf;cursor:pointer}.dvg.an{background:#2d5a36;border-color:#2d5a36;color:#fff}.dzw.vergeben{opacity:.6}
+.dhands{white-space:nowrap}.dhand{display:inline-block;min-width:1.5em;text-align:center;margin-left:4px;padding:0 5px;background:var(--platte);color:#fff;font:400 .85em var(--head);cursor:pointer;border-radius:2px}.dhand.ok{background:#2d5a36}
+.dgars{filter:drop-shadow(0 3px 5px #0006)}.dgar{border:0!important;padding:12px 16px 14px!important;background:linear-gradient(135deg,#f6edd6,#eadcbc)!important;clip-path:polygon(0 2%,8% 0,20% 2%,34% 0,50% 1.5%,66% 0,82% 2%,100% 0,99% 25%,100% 55%,98.5% 80%,100% 100%,84% 98.5%,66% 100%,48% 98.5%,30% 100%,14% 98.5%,0 100%,1.5% 70%,0 45%,1.5% 20%)}
+.dlmc.eins{grid-template-columns:1fr}.dlmc.eins>.dlmr{display:none}
+.dvoll{background:#000e}

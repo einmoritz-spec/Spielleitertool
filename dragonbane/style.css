@@ -748,3 +748,14 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .ab3 .at{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 12px;background:linear-gradient(transparent,rgba(12,48,40,.88));display:flex;align-items:baseline;gap:12px}
 .ab3 .at b{font:clamp(20px,2vw,30px)/1.05 var(--f-titel);color:#f6efdc;text-transform:uppercase}
 .ab3 .at span{font:600 13px var(--f-halb);color:#e2d9bc}
+
+/* Orte-Tafel: Karte links, Text oben rechts, Figuren darunter als Raster (statt langer Spalte ganz rechts) */
+.tafel,.tafel.ohnekarte{grid-template-columns:clamp(340px,32.6vw,470px) minmax(0,1fr)}
+.tafel.ohnekarte{grid-template-columns:clamp(220px,18vw,290px) minmax(0,1fr)}
+.tafel>.tl{grid-column:1;grid-row:1/4}
+.tafel>.ort{grid-column:2;grid-row:1}
+.tafel>.extra{grid-row:2;grid-column:2;padding-top:30px}
+.tafel>.rechts{grid-column:2;grid-row:3;position:static;padding-top:22px;gap:14px}
+.rechts .rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;align-items:start}
+.rechts .rs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 12px;align-items:start}
+@media(max-width:1000px){.tafel,.tafel.ohnekarte{grid-template-columns:minmax(0,1fr)}.tafel>.tl,.tafel>.ort,.tafel>.rechts,.tafel>.extra{grid-column:1;grid-row:auto}}

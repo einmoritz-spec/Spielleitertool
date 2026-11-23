@@ -49,7 +49,7 @@ function render(){
 }
 function buildMenu(){
   var kap = []; HT_INHALT.forEach(function(c){ c.forEach(function(k){ kap.push(k); }); });
-  document.getElementById("mmP").innerHTML = '<h3>Spielbereich</h3>' + [["exp","Expedition"],["lm","Landmarken"],["gegner","Gegner"],["fallout","Fallout"]].map(function(t){ return '<button onclick="openMenu(false);go(\'' + t[0] + '\')">' + t[1] + '</button>'; }).join("") + '<h3>Nachschlagen</h3>' +
+  document.getElementById("mmP").innerHTML = '<h3>Spielbereich</h3>' + [["exp","Expedition"],["karte","Karte"],["lm","Landmarken"],["gegner","Gegner"],["fallout","Fallout"]].map(function(t){ return '<button onclick="openMenu(false);go(\'' + t[0] + '\')">' + t[1] + '</button>'; }).join("") + '<h3>Nachschlagen</h3>' +
     kap.map(function(k){ return '<button onclick="openMenu(false);go(\'' + k.r + '\')">' + esc(k.t) + '<i>S. ' + k.p + '</i></button>'; }).join("") +
     HT_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + '<i>' + b.lang + '</i></button>'; }).join(""); }).join("") +
     '<h3>PDF</h3><button onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';

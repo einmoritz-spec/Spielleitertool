@@ -1,7 +1,7 @@
 window.HT_DAGGER = window.HT_DAGGER || {intro:{}, opp:[], kap:{}, app:{}};
 /* Dagger in the Heart – Kapitel 4: The Wormery (Buch S. 71–88) */
 HT_DAGGER.kap["4"] = {
-n: 4, id: "k4", t: "The Wormery", p: 71,
+n: 4, id: "k4", t: "Wormery", p: 71,
 verse: [
   "Der Wurm geht hinein, doch heraus kommt er nicht,",
   "Was drinnen ist, hat sich im Kreis verirrt,",
@@ -55,7 +55,7 @@ beat2: {
   ]
 },
 inszenierung: [
-  {t: "Das Wormery finden", p: 73, b: [
+  {t: "Wormery finden", p: 73, b: [
     "Der einzige Haven von nennenswerter Größe in der Amyrran ist das Wormery, also ist es der nächste Halt für die Spielercharaktere. Die meisten, denen die Charaktere in der Amyrran Zone begegnen, kennen das Wormery."
   ]},
   {t: "Ein Ort zum Atmen", p: 73, b: [
@@ -210,7 +210,7 @@ lm: [
    ],
    figuren: [], unter: []},
 
-  {id: "wormery", t: "Das Wormery", p: 80, tiefe: 2, dom: ["Cursed", "Warren", "Haven"], stress: null,
+  {id: "wormery", t: "Wormery", p: 80, tiefe: 2, dom: ["Cursed", "Warren", "Haven"], stress: null,
    haunts: [
      "Die Last Gasp Tavern (Fortune W8)",
      "Torstens General Store (Supplies W8)",

@@ -141,7 +141,7 @@ beat1: {t:"Beat-Bogen #1", p:22, bk:"ht_a1", sub:"Für die Kapitel 1, 2 und 3",
     {t:"Verehre – oder verschwöre dich energisch gegen – einen neuen, gefährlichen Gott", x:""}
   ],
   zenit:[
-    {t:"Der Mirror of Unreflected Thought (S. 64)", x:"ist eine melancholische, distanzierte Auslegung der Idee – das große Opfer des Spielers liegt so lange zurück, dass alles vergessen und verblasst ist."},
+    {t:"Mirror of Unreflected Thought (S. 64)", x:"ist eine melancholische, distanzierte Auslegung der Idee – das große Opfer des Spielers liegt so lange zurück, dass alles vergessen und verblasst ist."},
     {t:"Der Place You Made (S. 77)", x:"ist der direkteste Ausdruck des Konzepts – die Charaktere finden einen Ort, an dem einer von ihnen kürzlich in einem Feuerwerk des Ruhms umgekommen ist."},
     {t:"Martyr’s Close (S. 106)", x:"dreht sich um Motivation und Nachwirkung des Todes des Charakters, da der Ort zum Zentrum eines Kults geworden ist."}
   ]},

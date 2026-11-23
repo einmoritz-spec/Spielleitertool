@@ -25,7 +25,7 @@ HT_DAGGER.kap["7"] = {
    "Frage jeden Spielercharakter privat, welche Art von Gelände er erwartet. Wirf alles zusammen. Verlange dann je nach Situation **Delve/Endure/Discern/Evade**-Proben, um sich durch diesen Wahnsinn zu bewegen. Gelingt es, packen die Charaktere die dahinrasende Maschine und ziehen sich an Bord. Wer scheitert, nimmt W10 Stress. Sie können es weiter versuchen, doch die Schwierigkeit steigt mit jedem Versuch um eine Stufe. Wer aufgibt, kann der Maschine noch hinterherfolgen, aber ihren Kurs nicht beeinflussen."]}
  ],
  lm:[
-  {id:"delving-machine", t:"Die Delving Machine", p:132, tiefe:"Fracture", dom:["Technology"], stress:"W12", haunts:[],
+  {id:"delving-machine", t:"Delving Machine", p:132, tiefe:"Fracture", dom:["Technology"], stress:"W12", haunts:[],
    text:["Die Delving Machine wurde auf dem Fahrgestell einer Vermissian-Zuglokomotive gebaut. Auf den ersten Blick mag sie einer gewöhnlichen Tunnelbohrmaschine ähneln, doch sie bohrt sich nicht durch das Fleisch des Herzens – sie brennt sich durch Wirklichkeiten und versengt einen Pfad wie ein heißer Draht durch Möglichkeiten, während sie ihn zugleich ausbrennt. Die ursprüngliche Besatzung der Delving Machine ist verschwunden, ins Herz sublimiert, als die Maschine immer tiefer stürzte. Die verlassenen Mannschaftsquartiere liegen in einem Tender am Heck der Maschine, die Steuerung im Führerstand."],
    ressourcen:[], plots:[], figuren:[], unter:[], regeln:null}
  ],

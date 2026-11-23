@@ -108,7 +108,7 @@ inszenierung: [
 ]}
 ],
 lm: [
-{id: "inkhive", t: "Der Inkhive", p: 58, tiefe: 1, dom: ["Occult"], stress: "W4",
+{id: "inkhive", t: "Inkhive", p: 58, tiefe: 1, dom: ["Occult"], stress: "W4",
 haunts: ["Der Farbgarten (W8 Echo, W4 Supplies)", "Razthers Leichenhalle (W6 Blood)"],
 text: [
 "Der Inkhive ist eine unruhige Zusammenarbeit abtrünniger Gelehrter des Vermissian Corrective und jener unheimlichen Gelassenheiten, die Deep Apiarists heißen. Das Haupt-Vermissian-Collective nutzt die Tunnel der Vermissian-Linie, um Archive zu lagern und Geheimnisse aus dem wechselnden Herzen zu sammeln, während das Vermissian Corrective glaubt, dieses Bemühen sei letztlich selbstzerstörerisch, denn selbst die dem Herzen entnommene Information trage die Saat des Chaos in sich. Das Corrective fürchtet, dass die von den Kollegen so geschätzten Bücher und Aufzeichnungen sich unmerklich verändern und den Geist ihrer Leser verzerren. Dieser Glaube hat sich als gewalttätig umstritten erwiesen: Das Collective beschuldigt Mitglieder des Corrective, Agenten der Aelfir zu sein, die die grundlegende Gültigkeit ihrer Arbeit untergraben, indem sie Zweifel säen.",
@@ -125,7 +125,7 @@ plots: [
 "Eine drowsche Gelehrte, **Hayice Merewel**, hat *Todesangst* vor einer Ansteckung durch das Chaos des Herzens. Sie sieht überall Verderbnis. Sie fleht die Delver an, einen Informationsspeicher auszuräumen (wie den Hoard, *Heart* S. 160, oder eine vom Collective gehaltene Vermissian-Station), damit die Bücher in den Inkhive gebracht und auf ein stabiles Medium übertragen werden können. Merewel – eine ehemalige Archivarin des Collective – hat ihre Haut mit Tätowierungen bedeckt, die ihre eigene Vergangenheit festhalten, und prüft sie zwanghaft auf Anzeichen von Veränderung. (W6 Haven)"
 ],
 figuren: [], unter: [], regeln: null},
-{id: "chaingod", t: "Der Chaingod", p: 59, tiefe: 2, dom: ["Cursed", "Wild"], stress: "W6",
+{id: "chaingod", t: "Chaingod", p: 59, tiefe: 2, dom: ["Cursed", "Wild"], stress: "W6",
 haunts: ["Hound-Kontrollposten Cerby, Notversorgungslager (W8 Supplies)"],
 text: [
 "Für einen Gott hat er schon bessere Tage gesehen. Er ist ein titanischer Schrecken, grob humanoid, etwa zehn Stockwerke hoch. Ach ja, und zweieinhalb Köpfe. Einst war er ein rasendes Ungeheuer, das durch das Herz streifte – wahrscheinlich verwandt mit dem Minotaurus (*Heart*, S. 213) –, bis jemand ihn betäubte, indem er einen seiner Köpfe sprengte. (Forensische Theologie deutet auf eine Explosion im Inneren: Der Knall riss den Kiefer des linken Kopfes ab, drang aber auch durch den weichen Gaumen und zermatschte das göttliche Gehirn.) Der bewusstlose Gott wurde mit einem Maulkorb versehen, in verzauberte Ketten gelegt und in eine Grube gestopft, und dort bleibt er – auch wenn er inzwischen mit einem ordentlichen Brummschädel wieder aufgewacht ist.",
@@ -173,7 +173,7 @@ unter: [
 {t: "kasten", h: "Fallout: Chomp · schwer, Blood · Anhaltend", b: ["Tja, da geht die Gliedmaße hin. Alle Aufgaben, die davon profitieren würden, von dieser bestimmten Gliedmaße zwei zu haben, werden mindestens **Riskant**, möglicherweise **Gefährlich** oder **Unmöglich**. Wenn du die Gliedmaße nachwachsen lässt oder einen mechanischen Ersatz erhältst, wird dieser Fallout zu einem der leichten Fallouts **Battered** oder **Limping**."]}
 ]}
 ]},
-{id: "scabbery", t: "Die Scabbery", p: 62, tiefe: 2, dom: ["Warren"], stress: "W6",
+{id: "scabbery", t: "Scabbery", p: 62, tiefe: 2, dom: ["Warren"], stress: "W6",
 haunts: ["Das Lager des Knochennadel-Volkes (W8 Supplies)"],
 text: [
 "Die Scabbery ist der Punkt, an dem die Delving-Maschine zum ersten Mal ins lebende Herz schnitt; sie markiert den Rand des Einschnitts, die äußerste Wunde. Es ist eine Landschaft aus … nun, aus Schorf. Ein Reich hängender Vorhänge aus ledrigem Fleisch und zackiger Schorfhügel, manche noch sacht nässend. Stellenweise ist die Kruste wie abkühlende Lava und neigt zum Aufreißen, wenn man zu fest auftritt. Anderswo ist der Schorf fest genug, um abgepult zu werden. Hier gibt es eine ganze Heimindustrie, die sich der Nutzung dieser einzigartig ekligen erneuerbaren Ressource widmet. Herzgewebe-Schorf dient hauptsächlich zur Herstellung einer Art Rüstung, kann aber mit erweichenden Säuren zu einem Stoff- oder Lederersatz verarbeitet oder in Wasser eingeweicht werden, um ihn essbar zu machen. Schorfstaub wird in die Stadt oben geschmuggelt, wo er Zutat verschiedener Patentmedizinen ist (er ist auch ein drowsches Aphrodisiakum). Die Schorfarbeiter sind Nomaden: Sie bearbeiten einen Schorf, bis er zu zäh zum Pulen wird, und ziehen dann weiter.",
@@ -188,7 +188,7 @@ plots: [
 "Die Delving-Maschine kam vor langer Zeit hier durch, und eine Durchsuchung des Inneren (**Discern+Technology** oder Wild) fördert die unverwechselbare Kombination aus Spuren, Bohrmarken, verdrehten Energien und blutiger Verwüstung zutage, die eine Maschine hinterlässt, die dazu gebaut wurde, ins lebende Herz zu schneiden. Diese Spuren zu erkennen erleichtert jeden künftigen Versuch, die Delving-Maschine aufzuspüren."
 ],
 figuren: [], unter: []},
-{id: "spiegel", t: "Der Mirror of Unreflected Thought", p: 64, tiefe: 2, dom: ["Cursed"], stress: "W6",
+{id: "spiegel", t: "Mirror of Unreflected Thought", p: 64, tiefe: 2, dom: ["Cursed"], stress: "W6",
 haunts: ["Wahrscheinlich keine."],
 text: [
 "Diese Landmarke am Rand der Amyrran Zone ist die erste, die von den Spielercharakteren geformt wurde. Was auch immer hier ist, entstand als Ergebnis einer ihrer Zenith-Fähigkeiten (oder eines wirklich dramatischen kritischen Fallouts). Nun, wir sind noch im frühen Teil der Kampagne, daher ist das Ziel hier, Seltsames und Dramatisches anzudeuten, das noch kommt. Wir wollen eine Stimmung unheimlicher Fremdheit, nicht schockierende Konfrontation. Idealerweise machen die Spieler verwirrte Gesichter und murren, dies sei ein sinnloses, verwirrendes Zwischenspiel – und erkennen dann *im Rückblick*, nachdem sie weiteren Orten wie diesem begegnet sind, was los war.",
@@ -207,7 +207,7 @@ plots: [
 "Ein Gnoll-Einsatzteam (*Heart*, S. 196) ist an den Rand des Amyrran gewandert und versucht gerade zu verstehen, *was* es entdeckt hat. Sie wären sehr daran interessiert, *ihre* arkano-technologischen Messwerte mit den Messungen der Zauberer des Black Casern (S. 42) zu vergleichen, falls die Spielercharaktere ihre Daten teilen möchten. Sie wären noch interessierter daran, die Karte des Herzens zu erwerben – und schrecken vor ein bisschen Mord nicht zurück, um sie zu bekommen."
 ],
 figuren: [], unter: []},
-{id: "galerie", t: "Die Receding Gallery", p: 65, tiefe: 2, dom: ["Occult"], stress: "W6",
+{id: "galerie", t: "Receding Gallery", p: 65, tiefe: 2, dom: ["Occult"], stress: "W6",
 haunts: ["Geschenkladen, geführt von einer Geheimnisvollen Verschleierten Präsenz (W8 Mind)", "Café, geführt von einer Geheimnisvollen Verschleierten Präsenz, die die andere Verschleierte Präsenz nicht leiden kann (W6 Supplies)"],
 text: [
 "Es war einmal eine Delverin, eine Drow namens **Magdalena Azbar**. Sie begegnete im Herzen *etwas* – einem Schrecken oder einer Schönheit, die sie nie in Worte fassen konnte (oder, wie sie manchmal andeutete, *daran gehindert wurde*, sie in Worte zu fassen). Sie wurde Künstlerin und arbeitete in einem schmuddeligen Atelier in Derelictus, wo sie eine Reihe fesselnder Heartscapes schuf, die bei Sammlern noch immer gefragt sind. Dann verschwand sie – und ihr Atelier mit ihr.",
@@ -248,7 +248,7 @@ plots: [
 "Denkbar ist, dass Trake – oder jemand, der ihren Platz einnimmt – mit anderen überlebenden Teilen des Vermissian-Netzes (wie dem Arch of Gwynn-Ardasi, S. 98) oder dem Vermissian Operations Centre (S. 102) verbunden werden und die ganze Region stabilisieren könnte, was die Resistenz aller Delves senkt."
 ],
 figuren: [], unter: []},
-{id: "haus-der-tueren", t: "Das House of Doors", p: 68, tiefe: 2, dom: ["Occult"], stress: "W8",
+{id: "haus-der-tueren", t: "House of Doors", p: 68, tiefe: 2, dom: ["Occult"], stress: "W8",
 haunts: ["Keine"],
 text: [
 "Tython Ardasi ist ein Junk Mage in den Diensten von Aramos Brightness-Sears-The-Eye. Tython ist besessen von den Versuchen der Ardasi-Kabale, die Macht des Herzens zu kanalisieren. Und das für ein bloßes Bahnnetz? Unsinn! Nein, diese Macht lässt sich zu Magie formen, zu gebundenen Göttern und Dienergeistern. Aramos steckte Tython einige der Aufzeichnungen der Gwynn-Ardasi-Kabale zu, und er nutzte sie, um diesen Ort zu finden, an dem viele Herzströmungen zusammentreffen.",
@@ -282,7 +282,7 @@ dom: ["Occult", "Technology"], fallout: []}
 unter: []}
 ],
 delves: [
-{id: "inkhive-chaingod", t: "Der Inkhive zum Chaingod", p: 59, von: "inkhive", nach: "chaingod", tiefe: 2, dom: "Warren, Religion", stress: "W6", res: 14,
+{id: "inkhive-chaingod", t: "Inkhive zum Chaingod", p: 59, von: "inkhive", nach: "chaingod", tiefe: 2, dom: "Warren, Religion", stress: "W6", res: 14,
 besch: "Schmale Tunnel, knietief voller Schlamm und weggeworfener Patronenhülsen; Fernes Heulen, das durch die Hallen hallt; Die Überreste eines von den Kultisten überrannten Hound-Feuerstützpunkts; Geröll und der Gestank von Kordit; Die Buchstaben EC und ein Pfeil, an die Wand gekreidet.",
 erg: [
 "Ein hungriger und halb wahnsinniger Cleaver schnuppert im Schlamm nach Stücken explodierten Schädels und dem Hirnfleisch des angeketteten Gottes. Er nimmt an, einer der Spielercharaktere halte etwas vor ihm zurück.",
@@ -293,7 +293,7 @@ erg: [
 "Agenten einer der Opposition-Fraktionen lauern Felise/Excalibur Carter/den Spielercharakteren auf."
 ],
 verb: "Melde dich freiwillig bei den Hounds, um eine Weile die Tunnel zu patrouillieren.", express: false},
-{id: "chaingod-spiegel", t: "Der Chaingod zum Mirror of Unreflected Thought", p: 62, von: "chaingod", nach: "spiegel", tiefe: 2, dom: "Cursed, Religion", stress: "W6", res: 12,
+{id: "chaingod-spiegel", t: "Chaingod zum Mirror of Unreflected Thought", p: 62, von: "chaingod", nach: "spiegel", tiefe: 2, dom: "Cursed, Religion", stress: "W6", res: 12,
 besch: "Schmale Steindurchgänge triefen vor Blut; Gefühle widerwärtiger Falschheit und überwältigenden Déjà-vus; Knochenhaufen, als hätte jemand ein Beinhaus ausgegraben; Eine Kreuzung, an der einer der Spielercharaktere mit seltsamer, aber absoluter Gewissheit weiß, dass der linke Gang der beste Weg ist.",
 erg: [
 "Eine Gestalt schlurft aus dem Dunkel auf einen der Spielercharaktere zu und ruft: „Du! Ich kenne dich! Ich habe dich seit Jahren nicht gesehen!“ Leuchte ihr ins Gesicht, und es wird klar, dass sie ein Geist/Zombie/hässliches vom Herzen mutiertes Monster/eine Ziege ist.",
@@ -304,7 +304,7 @@ erg: [
 "Das unheimliche Lachen von Kindern löst gewaltsam einen Flashback an eine unerwünschte Erinnerung aus."
 ],
 verb: "Besiegelt der Charakter, der den Mirror of Unreflected Thought geschaffen hat/schaffen wird, die Verbindung durch vergossenes Blut, ist sie gesichert.", express: false},
-{id: "scabbery-spiegel", t: "Die Scabbery zum Mirror of Unreflected Thought", p: 63, von: "scabbery", nach: "spiegel", tiefe: 2, dom: "Warren, Desolate", stress: "W6", res: 14,
+{id: "scabbery-spiegel", t: "Scabbery zum Mirror of Unreflected Thought", p: 63, von: "scabbery", nach: "spiegel", tiefe: 2, dom: "Warren, Desolate", stress: "W6", res: 14,
 besch: "Endlose Wüste aus Schorf, die in zerklüftete Narbenschluchten übergeht; Geht man tiefer (und nasser), wachsen die Schluchten wie sich schließende Wunden zusammen und werden zu Tunneln; Seltsame Zeichen an den Wänden wie alte Tätowierungen, die die Taten eines der Spielercharaktere feiern; Ein weiteres mit Kreide gezeichnetes Initialenpaar (EC) und ein Pfeil, nur hat jemand das EC durchgestrichen und „dieser Mistkerl“ als Anmerkung hingekritzelt.",
 erg: [
 "Schorfkäfer von gewaltiger Größe und minimalem Charme wünschen sich eine Diätumstellung.",

@@ -36,7 +36,9 @@ function uebersicht(){
 }
 /* ---------- Seiten ---------- */
 function seite(t, p, inh, extra){ return nav(0) + '<div class="wrap"><div class="seite dkseite"><h1 class="h1">' + esc(t) + pg(p) + "</h1>" + (extra || "") + '<div class="flach">' + inh + "</div></div></div>"; }
-function abschn(a){ return '<h2 class="dh2">' + esc(a.t) + pg(a.p) + "</h2>" + bls(a.b) + (a.figuren || []).map(fig).join(""); }
+var DART = {"opp": {"ptolemy-bay": [[0, "dagger/art/a011-s6"], ["Abayghur", "dagger/art/a012-s9"]], "der-eine": [[0, "dagger/art/a013-s10"], ["Medicant", "dagger/art/a014-s13"]], "aramos": [[0, "dagger/art/a015-s14"], ["Agenten", "dagger/art/a016-s17"]]}, "kap": {"1": "dagger/art/a031-s24", "2": "dagger/art/a035-s34", "5": "dagger/art/a080-s88", "6": "dagger/art/a093-s116", "7": "dagger/art/a099-s130"}, "lm": {"shuntyard": "dagger/art/a033-s25", "white-station": "dagger/art/a062-s66", "haus-der-tueren": "dagger/art/a063-s68", "avallone": "dagger/art/a070-s78", "wormery": "dagger/art/a075-s84", "grinding-halls": "dagger/art/a081-s93", "arch-gwynn-ardasi": "dagger/art/a083-s98", "vermissian-operations-centre": "dagger/art/a084-s102", "schlummernde-sprengkoepfe": "dagger/art/a086-s109", "gefallene-spire": "dagger/art/a088-s111", "gefrorene-spire": "dagger/art/a090-s113", "hohles-herz": "dagger/art/a092-s115"}, "ins": {"Excalibur": "dagger/art/a060-s61"}};
+function dbild(f, cls){ return f ? '<img class="dbild ' + (cls || "") + '" src="' + IMG(f) + '" alt="">' : ""; }
+function abschn(a, oid, i){ var im = ""; (DART.opp[oid] || []).forEach(function(r){ if(!im && (r[0] === i || (typeof r[0] === "string" && a.t.indexOf(r[0]) >= 0))) im = dbild(r[1], "r"); }); return im + '<h2 class="dh2">' + esc(a.t) + pg(a.p) + "</h2>" + bls(a.b) + (a.figuren || []).map(fig).join(""); }
 function fig(g){
   var fo = (g.fallout || []).map(function(f){ return '<div class="schwarz"><div class="lbl">Fallout: ' + esc(f.t) + " · " + esc(f.r || "") + ", " + esc(f.s || "") + "</div><p>" + md(f.x) + "</p></div>"; }).join("");
   function w(l, v){ return v ? '<div class="gv"><span class="lbl">' + l + "</span> " + md(v) + "</div>" : ""; }
@@ -50,7 +52,7 @@ function opposition(id){
     var I = D().intro || {};
     return seite("Die Opposition", 5, (I.opposition ? bls(I.opposition.b) : "") + O.map(function(x){ return '<div class="dor big" onclick="go(\'dagger/opposition/' + x.id + '\')"><div class="don"><b>' + esc(x.t) + "</b><i>" + esc(x.sub || "") + "</i></div>" + plan(x.id) + "</div>"; }).join(""));
   }
-  return seite(o.t, o.p, (o.abschnitte || []).map(abschn).join(""), '<p class="kurs">' + esc(o.sub || "") + "</p>" + plan(o.id));
+  return seite(o.t, o.p, (o.abschnitte || []).map(function(a, i){ return abschn(a, o.id, i); }).join(""), '<p class="kurs">' + esc(o.sub || "") + "</p>" + plan(o.id));
 }
 function einfuehrung(){
   var I = D().intro || {}, h = "";
@@ -73,10 +75,10 @@ function ueberblick(K){
   var gar = (K.gar || []).map(function(g){ return '<div class="dgar"><b>Gars Notiz ' + esc(g.n) + "</b> " + md(g.x) + "</div>"; }).join("");
   var leg = (K.legenden || []).length ? '<h2 class="dh2">Legenden und Gerüchte</h2><ul class="lst">' + K.legenden.map(function(l){ return "<li>" + md(l) + "</li>"; }).join("") + "</ul>" : "";
   var vs = (K.verse || []).length ? '<p class="kurs dverse">' + K.verse.map(esc).join("<br>") + "</p>" : "";
-  return '<div class="wrap"><div class="seite dkseite"><h1 class="h1">' + esc(K.t) + pg(K.p) + "</h1>" + vs + '<div class="flach">' + bls(K.ueberblick) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
+  return '<div class="wrap"><div class="seite dkseite"><h1 class="h1">' + esc(K.t) + pg(K.p) + "</h1>" + dbild(DART.kap[K.n], "r gross") + vs + '<div class="flach">' + bls(K.ueberblick) + leg + "</div>" + (gar ? '<div class="dgars">' + gar + "</div>" : "") + "</div></div>";
 }
 function inszen(K){
-  var h = (K.inszenierung || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + bls(a.b) + (a.figuren || []).map(fig).join("") + "</div>"; }).join("");
+  var h = (K.inszenierung || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + Object.keys(DART.ins).map(function(k){ return a.t.indexOf(k) >= 0 ? dbild(DART.ins[k], "r klein") : ""; }).join("") + bls(a.b) + (a.figuren || []).map(fig).join("") + "</div>"; }).join("");
   var r = (K.rest || []).map(function(a){ return '<div class="dscene"><h3>' + esc(a.t) + pg(a.p) + "</h3>" + bls(a.b) + "</div>"; }).join("");
   return '<div class="dkgrid">' + h + r + "</div>";
 }
@@ -123,7 +125,7 @@ function lmSeite(l){
   if(!l) return "";
   var wz = '<div class="dkw"><span><b>Domains:</b> ' + esc((l.dom || []).join(", ")) + "</span><span><b>Tiefe:</b> " + esc(l.tiefeText || l.tiefe) + "</span><span><b>Standard-Stress:</b> " + esc(l.stress || "") + "</span>" + ((l.haunts || []).length ? "<span><b>Haunts:</b> " + (l.haunts || []).map(md).join("; ") + "</span>" : "") + "</div>";
   var re = ((l.ressourcen || []).length ? '<h3 class="h3">Ressourcen</h3><ul class="lst">' + l.ressourcen.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "") + ((l.plots || []).length ? '<h3 class="h3">Mögliche Plots</h3><ul class="lst">' + l.plots.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "");
-  return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc"><div>' + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
+  return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc"><div>' + dbild(DART.lm[l.id], l.id === "grinding-halls" ? "breit" : "r") + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
 }
 function landmarken(K, sel){
   var V = (K.delves || []).filter(function(v){ return v.von && v.nach; }), freie = (K.delves || []).filter(function(v){ return !(v.von && v.nach); }), first = V[0] ? "d:" + V[0].id : ((K.lm || [])[0] || {}).id;

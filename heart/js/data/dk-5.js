@@ -31,7 +31,7 @@ HT_DAGGER.kap["5"] = {n:5, id:"k5", t:"Das Verwundete Reich", p:89,
 };
 (function(K){
 K.lm.push(
-{id:"lodernde-auge", t:"Das Blazing Eye", p:91, tiefe:3, dom:["Occult","Technology"], stress:"W8", haunts:[],
+{id:"lodernde-auge", t:"Blazing Eye", p:91, tiefe:3, dom:["Occult","Technology"], stress:"W8", haunts:[],
  text:[
   "**Wake:** Blitze grünen Lichts; Fetzen zerschossenen Metalls liegen über der Landschaft verstreut, während der Turm auf die Delving Machine feuert.",
   "Eine Landschaft aus zerschossenem Geröll unter einem rußverschmierten Himmel. Die Tunnel, die zum Rest des Heart führen, sind steilwandige Schluchten – um zwischen ihnen zu wechseln, müssen Reisende an die Oberfläche klettern und von Deckung zu Deckung huschen.",
@@ -56,7 +56,7 @@ K.lm.push(
     {t:"Burnt", r:"Blood", s:"leicht", x:"Alle brennbaren Gegenstände, die du bei dir trägst, entzünden sich. [Sofort]"},
     {t:"On Fire", r:"Blood", s:"schwer", x:"Würfle jede Runde einen W4. Bei 2–4 nimmst du entsprechend viel Stress auf **Fortune**, **Supplies** oder **Blood**, oder gibst einem anderen Spielercharakter den Fallout **Burnt**. Bei 1 wird dies gegen **Downed** getauscht. [Anhaltend]"}]}]},
 
-{id:"grinding-halls", t:"Die Grinding Halls", p:92, tiefe:3, dom:["Warren","Technology"], stress:"W8", haunts:[],
+{id:"grinding-halls", t:"Grinding Halls", p:92, tiefe:3, dom:["Warren","Technology"], stress:"W8", haunts:[],
  text:[
   "**Wake:** Die Delving Machine zieht durch einen Vermissian-Tunnel direkt unter den Grinding Halls hindurch. Das Rattern ihres Durchzugs verrät die Lage des verborgenen Tunnels.",
   "Die Grinding Halls sind schon lange hörbar, bevor ein Delver sie betritt. In diesen Hallen drehen sich endlos riesige Zahnräder, schwere Pendel schwingen, rätselhafte Getriebe greifen ineinander und ticken, während sie eine gewaltige Berechnung ausführen. Hier gibt es keinen festen Boden – jede Oberfläche ist Teil desselben großen Uhrwerks, auch wenn sich manche Räder langsamer drehen als andere. Wie ein vertracktes Rätsel ordnen sich die Hallen in neue Konfigurationen um, unsichtbare Scharniere und Achsen bewegen die Zahnräder in Position. Einen Weg durch dieses riesige lebende Uhrwerk zu finden, erfordert eine erfolgreiche **Delve+Technology**-Probe.",
@@ -74,7 +74,7 @@ K.lm.push(
   "**Die Expedition der Tower Division:** Beim Erkunden der Grinding Halls stoßen die Delver auf einen Schwarm Krabben, der unordentliche, faserige Stoff- und Fleischfetzen aus einem schnell rotierenden Satz Zahnräder zieht. Das ist alles, was von einem Forscher aus der Stadt Oben übrig ist. Ein weiteres Mitglied der Expedition steckt in einem nahen Teil der Hallen fest, der nur durch einen gefährlichen Spießrutenlauf aus Zahnrädern und Klingen erreichbar ist. Die Delver können einander über den Lärm des rotierenden Metalls hinweg Botschaften zurufen, aber tatsächlich zu dem eingeschlossenen Forscher zu gelangen, erfordert eine **Gefährliche Evade+Technology**-Probe, und ein Scheitern bedeutet … nun, wir verweisen auf die schon erwähnten unordentlichen, faserigen Fleischfetzen, die die Zahnräder verstopfen.\n\nAlternativ kann ein ausreichend stabiler Gegenstand die Zahnräder vorübergehend anhalten (würfle jedes Mal, wenn ein Charakter versucht durchzukommen, den dem Gegenstand zugeordneten Ressourcenwürfel; bei 4+ ist er sicher).\n\n**Fallout: Near Miss.** [Fortune, leicht] Du bist dem Tod von der Schippe gesprungen, und der Tod ist ein schlechter Verlierer. Wenn du das nächste Mal Stress nimmst, ist er **Brutal** (würfle den Stresswürfel zweimal und nimm den höheren Wert). [Sofort]\n\n**Fallout: Caught in the Gears.** [Blood, schwer] Als du dich aus den Zahnrädern befreist, bist du zerkaut und zermalmt. Du hast so viele Knochenbrüche und innere Blutungen, dass du nicht sagen kannst, wie schwer du verletzt bist. Solange du diese Folge hast, nimmst du jedes Mal, wenn du auf Fallout prüfst, mindestens leichten Fallout. [Anhaltend]\n\nDer einzige Überlebende ist **Parvedides Mammon**, ein menschlicher Zauberer (wobei *menschlich* hier womöglich Etikettenschwindel ist – er hat überlebt, indem er sich von Fleisch aus den Wänden ernährt hat, und steht kurz davor, zum Butcher zu werden (*Heart*, S. 188)). Er erklärt durch eine Reihe von Gebrüllen:\n- Er gehört zu einer Expedition aus der Stadt Oben – von der Tower Division der Akademie von Gwynn-Enforr. Man sieht es ihm vielleicht nicht an, da er zerlumpt, blutig, verdreckt und in einer wütenden Uhr eingeklemmt ist – aber er ist Akademiker.\n- Ursprünglich waren es sieben Mitglieder der Expedition. Zwei – Osiren und Lejan, die Drow-Diener – haben sich hier in den Grinding Halls verirrt. Diese verdammten Zahnräder bewegen sich. Nicht nur … schau, er weiß, dass sie rotieren, aber sie auch … die Wände … schau, sie sind weg.\n- Sie hatten einen Weg gefunden, die Zahnräder vorübergehend anzuhalten, indem sie sie mit Waffen verkeilten, aber das Schwert brach und teilte die Expedition. Egrin Weselsmith und Dr. Merelack blieben auf der anderen Seite zurück (derselben Seite wie die Spielercharaktere) und versprachen, Hilfe zu holen.\n- Eine weitere Zauberin, Heconia, ging voraus und kehrte nie zurück.\n- Es blieben also nur Parvedides und Kudel, und Kudel … nun, er hat es nicht geschafft. (Parvedides hat ihn ganz sicher nicht gegessen, und wie können Sie so etwas auch nur andeuten!? Es waren die geheimnisvollen weißen Schattenungeheuer aus den Wänden, die Kudel gefressen haben, und es ist reiner Zufall, dass die geheimnisvollen weißen Schattenungeheuer genau dasselbe Gebiss haben wie Parvedides.)\n\nWollen die Charaktere Parvedides retten, können sie entweder riskieren, den Zahnrädern auszuweichen, oder etwas finden, um sie zu verkeilen. Parvedides steht kurz vor der Mutation zum Butcher, und ohne eine erfolgreiche **Compel- oder Mend+Cursed**-Probe ist ihm der Geruch frischen Spielercharakter-Fleisches zu viel, und er versucht, die Charaktere zu fressen.\n\nParvedides’ Notizen zur Expedition der Tower Division sind eine W8-Occult-Ressource, aber wertvoller, wenn sie an Hesha Weselsmith oben in der Stadt Oben zurückgegeben werden (S. 9, S. 126)."],
  regeln:null, unter:[], figuren:[]},
 
-{id:"red-litten-caves", t:"Die Red-Litten Caves", p:95, tiefe:3, dom:["Warren","Cursed"], stress:"W8",
+{id:"red-litten-caves", t:"Red-Litten Caves", p:95, tiefe:3, dom:["Warren","Cursed"], stress:"W8",
  haunts:["*„Esst vom Fleisch und trinkt vom Blut“*, sagen die übertrieben freundlichen Cleaver (W10 Blood)","Die Gunst des Wounded King (W10 Fortune)"],
  text:[
   "**Wake:** Die Delving Machine zieht durch die Höhle des Wounded King. Sie verursacht außerdem einen gewaltigen Heartsblood-Ausbruch, der die unteren Kavernen flutet.",
@@ -93,7 +93,7 @@ K.lm.push(
   "Verbinde die Abzeichennummer des Königs mit den Aufzeichnungen im Haus von Aramos Brightness-Sears-The-Eye, um den Drow als **Galec Snare** zu identifizieren. Seine Tochter Medel lebt noch in der Stadt Oben – ihre Familie verlor alles, als das OCM das Vermissian-Projekt einstellte, und nun gehört sie zur Gemeinde der Hungrigen Tiefe in Derelictus (S. 121). Wird Medel zu ihrem Vater gebracht, gewinnt man eine Gunst des Königs."],
  regeln:null, unter:[], figuren:[]},
 
-{id:"castle-of-skin", t:"Die Castle of Skin", p:96, tiefe:3, dom:["Desolate","jede beliebige weitere"], stress:"W8",
+{id:"castle-of-skin", t:"Castle of Skin", p:96, tiefe:3, dom:["Desolate","jede beliebige weitere"], stress:"W8",
  haunts:["Keine, technisch gesehen. Aber praktisch jeder Fallout lässt sich hier entfernen"],
  text:[
   "**Wake:** Die Delving Machine reißt durch die untere Ebene der Burg – und verursacht entsprechende Stigmata bei dem Bonded.",
@@ -115,7 +115,7 @@ K.lm.push(
  regeln:null, unter:[], figuren:[]}
 );
 K.delves.push(
-{id:"d-lodernde-auge-grinding-halls", t:"Das Blazing Eye zu den Grinding Halls", p:92, von:"lodernde-auge", nach:"grinding-halls", tiefe:3, dom:"Technology", stress:"W8", res:14,
+{id:"d-lodernde-auge-grinding-halls", t:"Blazing Eye zu den Grinding Halls", p:92, von:"lodernde-auge", nach:"grinding-halls", tiefe:3, dom:"Technology", stress:"W8", res:14,
  besch:"Gräben und Tunnel, versengt von Energiebeschuss; Verbrannte Skelette von Dingen, die niemals hätten leben dürfen; Höhlen, die kaum eng genug sind, um sich hindurchzuquetschen; Der Geruch verbrannten Fleisches, der in den von verbranntem Metall und Kupferspänen übergeht; Das donnernde Läuten einer fernen Uhr.",
  erg:[
   "Das Licht jagt durch den Korridor. Es sind nur W6 **Blood**-Stress – aber man kann sich nirgends verstecken.",
@@ -136,7 +136,7 @@ K.delves.push(
   "Heartsbeasts streifen durch die Tunnel, ihre Reißzahn-Rachen brüllen zum Lob des Wounded King.",
   "Drei uralte Hexen erscheinen den Spielercharakteren und prophezeien. Sie werden keine Ruhe finden, bis die Weiße Königin den Roten König ehelicht, sie werden Verderben über die Stadt Oben bringen, sie werden die in Feuer und Wasser geschriebene Wahrheit finden."],
  verb:"Gewinne die Gunst des Wounded King, und er wird den Pfad zu seiner Burg begradigen.", express:false},
-{id:"d-castle-of-skin-aetherstorm", t:"Die Castle of Skin zum Aetherstorm", p:97, von:"castle-of-skin", nach:"aetherstorm", tiefe:3, dom:"Wild", stress:"W8", res:12,
+{id:"d-castle-of-skin-aetherstorm", t:"Castle of Skin zum Aetherstorm", p:97, von:"castle-of-skin", nach:"aetherstorm", tiefe:3, dom:"Wild", stress:"W8", res:12,
  besch:"Die Ziergärten und Waldparks der Burg werden von einem anwachsenden Sturm zu Splittern zerblasen; Tunnel ächzen und bersten und brechen in schwebende Felsbrocken; Der Bonded krampft, und sein Körper explodiert zu einer fleischigen Tür zum Aetherstorm (sie finden den Bonded-Charakter auf der anderen Seite, oder zumindest jemanden, der ihm genug ähnelt und genug wie er denkt, um denselben Charakterbogen zu haben).",
  erg:[
   "Kindheitsfreunde des Bonded kauern sich vor dem Sturm zusammen, der sie verschlingen wird.",
@@ -150,7 +150,7 @@ K.delves.push(
 })(HT_DAGGER.kap["5"]);
 (function(K){
 K.lm.push(
-{id:"arch-gwynn-ardasi", t:"Der Arch of Gwynn-Ardasi", p:98, tiefe:3, dom:["Technology","Cursed"], stress:"W8", haunts:[],
+{id:"arch-gwynn-ardasi", t:"Arch of Gwynn-Ardasi", p:98, tiefe:3, dom:["Technology","Cursed"], stress:"W8", haunts:[],
  text:[
   "**Wake:** Keine. Die Delving Machine kommt nicht hier entlang.",
   "Die Delver stoßen auf eine unwahrscheinliche Eisenbahnlinie, die mit dem übrigen Vermissian-Netz nicht verbunden ist. Die Linie windet sich durch Gänge, denen kein Zug jemals folgen könnte – vielleicht verläuft sie entlang eines schmalen Felsgrats oder schlängelt sich durch enge Kavernen. Unerbittlich führt sie zu einem titanischen Steinbogen, umwickelt mit Kabeln und behängt mit arkanen Geräten. (Er ähnelt sehr dem Nameless Summer Country, S. 40 – aber wo jenes verlassen und melancholisch war, wirkt dieser noch aktiv und … zornig.) Jenseits des Bogens liegt brodelndes rotes Chaos; das Gelände – einschließlich des Bogens selbst – löst sich in das urtümliche Heart auf. Strömungen fließen und winden sich in diesem Chaos, Energieflüsse, kartiert und geformt von der Maschinerie.",
@@ -166,7 +166,7 @@ K.lm.push(
   "Eine genaue Untersuchung (**Discern+Technology**) des Bogens zeigt, dass er nicht nur mit verschiedenen Sensoren und Messgeräten verbunden ist, die die Strömungen des Heart messen – es gibt auch eine Steuerleitung, die sich einen Tunnel entlangschlängelt. Ihr zu folgen führt schließlich zum Vermissian Operations Centre (S. 102)."],
  regeln:null, unter:[], figuren:[]},
 
-{id:"aetherstorm", t:"Der Aetherstorm", p:100, tiefe:3, dom:["Wild","Occult"], stress:"W8", haunts:["Das Witchhouse (siehe unten)"],
+{id:"aetherstorm", t:"Aetherstorm", p:100, tiefe:3, dom:["Wild","Occult"], stress:"W8", haunts:["Das Witchhouse (siehe unten)"],
  text:[
   "**Wake:** Die Delving Machine hat diesen Abgrund aufgerissen.",
   "Wenn sie hier ist, überlappen sich Vergangenheit und Gegenwart, sodass sie anscheinend durch Stein reißt, der vor ihr auftaucht und in ihrem Kielwasser verschwindet. Gewandte Charaktere könnten den Abgrund womöglich überqueren, indem sie der Maschine folgen und im zeitgefalteten Bereich bleiben.",
@@ -186,7 +186,7 @@ K.lm.push(
   "**Sweathboth der Fährmann** rudert sein schwebendes Ruderboot zwischen den Inseln und liefert Vorräte an die verschiedenen Arkanisten. Berüchtigt wortkarg, will er nicht darüber sprechen (und scheint nicht zu bemerken), dass sein Boot schwebt. Er kann Reisende über den Sturm bringen, aber nur, wenn sie zuvor ein paar Besorgungen für ihn erledigen – etwa den ganzen Weg bis Wormsea zu wandern, um Vorräte an Wurmfleisch zu holen."],
  regeln:null, unter:[], figuren:[]},
 
-{id:"vermissian-operations-centre", t:"Das Vermissian Operations Centre", p:102, tiefe:3, dom:["Technology","Cursed"], stress:"W10", haunts:[],
+{id:"vermissian-operations-centre", t:"Vermissian Operations Centre", p:102, tiefe:3, dom:["Technology","Cursed"], stress:"W10", haunts:[],
  text:[
   "**Wake:** Der Durchzug der Delving Machine lässt die Überwachungstafeln hier aufleuchten und macht deutlich, dass dieser Ort mit der Maschine verbunden ist. Die Maschine rattert durch einen Tunnel unter dem Centre.",
   "Die Aufzeichnungen des Vermissian-Projekts sind lückenhaft und verworren. Wahrscheinlich ist die einzige lebende Seele, die weiß, ob dieser Ort gebaut wurde oder nicht, Aramos Brightness-Sears-The-Eye. Aber ob er von Sterblichen errichtet wurde oder dem fruchtbaren, traumgeformten Fleisch des Heart entsprang – er ist jetzt hier.",
@@ -214,7 +214,7 @@ K.lm.push(
     {t:"Attunement", r:"Echo", s:"leicht", x:"Deine Haut kribbelt, während du zwangsweise auf die Vermissian eingestimmt wirst. Immer wenn du das Vermissian-Netz bereist, besteht die Chance (nach Gutdünken der SL), dass du für einige Minuten verschwindest und an einem zufälligen und meist gefährlichen Ort im Netz auftauchst. [Anhaltend]"},
     {t:"Invaded", r:"Echo", s:"leicht", x:"Deine Vergangenheit ist nun mit der eines längst (fast) toten Vermissian-Technikers verstrickt. Schreibe die Geschichte deines Charakters so um, dass sie die Anwesenheit eines mörderischen, schreienden Cyber-Ghuls in vielen Ereignissen deines Lebens enthält. Er hat im Lauf der Jahre mindestens W6 dir nahestehende Menschen ermordet. [Sofort]"}]}]},
 
-{id:"hotel-amaranthine", t:"Das Hotel Amaranthine", p:104, tiefe:3, dom:["Haven. Na ja. Irgendwie. Oder wirklich schickes Desolate."], stress:"W6", haunts:["Exquisite Canapés und kostenlose Weinbar (W4 Supplies)"],
+{id:"hotel-amaranthine", t:"Hotel Amaranthine", p:104, tiefe:3, dom:["Haven. Na ja. Irgendwie. Oder wirklich schickes Desolate."], stress:"W6", haunts:["Exquisite Canapés und kostenlose Weinbar (W4 Supplies)"],
  text:[
   "**Wake:** Die Delving Machine bricht durch das Hotel und tötet alle. Wenig später formieren sie sich neu, und aus ihrer Sicht war es einer dieser peinlichen Momente auf einer Party, in denen alle gleichzeitig verstummen.",
   "In irgendeinem vergessenen Archiv liegt ein Dokument mit dem Titel VERMISSIAN-SICHERHEITSPROTOKOLLE, und es ist vielleicht zwei Seiten lang. Daneben liegt ein weiterer Ordner mit der Aufschrift VERMISSIAN-STARTFEIERLICHKEITEN, und er ist dick genug, um einen Gutterkin zu erschlagen. Der Start der Vermissian-Linie sollte die großartigste Feier in der Spire sein, seit die Aelfir die Stadt erobert hatten. Natürlich hat sie nie stattgefunden.",
@@ -233,7 +233,7 @@ K.lm.push(
  regeln:null, unter:[], figuren:[]}
 );
 K.delves.push(
-{id:"d-arch-aetherstorm", t:"Der Arch of Gwynn-Ardasi zum Aetherstorm", p:99, von:"arch-gwynn-ardasi", nach:"aetherstorm", tiefe:3, dom:"Technology", stress:"W8", res:14,
+{id:"d-arch-aetherstorm", t:"Arch of Gwynn-Ardasi zum Aetherstorm", p:99, von:"arch-gwynn-ardasi", nach:"aetherstorm", tiefe:3, dom:"Technology", stress:"W8", res:14,
  besch:"Eine gefährliche Überquerung der Berge, in denen auch der Himmel aus Bergen besteht; Alte Eisenbahntunnel und Brücken über zunehmend absurde Abgründe; Wachsende Winde drohen Reisende in den Untergang zu schleudern; Unterirdische Yeti lauern in Eisenbahntunneln.",
  erg:[
   "Ein verlassener Vermissian-Zug entpuppt sich als ein Wurm, der einen Zug als Rüstung trägt.",
@@ -243,7 +243,7 @@ K.delves.push(
   "Ein freundlicher Bergtrapper bietet Tee, Mitgefühl und Kannibalismus an.",
   "Der Marsch wird unmöglich mühsam und bedroht die Vorräte."],
  verb:null, express:false},
-{id:"d-aetherstorm-operations-centre", t:"Der Aetherstorm zum Vermissian Operations Centre", p:101, von:"aetherstorm", nach:"vermissian-operations-centre", tiefe:3, dom:"Cursed", stress:"W8", res:12,
+{id:"d-aetherstorm-operations-centre", t:"Aetherstorm zum Vermissian Operations Centre", p:101, von:"aetherstorm", nach:"vermissian-operations-centre", tiefe:3, dom:"Cursed", stress:"W8", res:12,
  besch:"Rasch einstürzende Tunnel, der Fels löst sich mit jedem Schritt in brodelndes Heartsblood auf; Zerschmetterte Schutzschilde, von gigantischen Klauen zerrissen; Schreiende Geister, vom Wind erfasst; Überreste der letzten verzweifelten Verteidigung der Vermissian vor ihrem Zusammenbruch.",
  erg:[
   "Gnollische Forscher versuchten und scheiterten daran, das Operations Centre zu erreichen. Nun sind sie tot, und zornige Dschinn surren um ihre Leichen.",
@@ -449,4 +449,4 @@ K.lm.push(
    ressourcen:null, ausr:"Verdorrende Berührung (Kill W10, Schwächend)", besonders:null, dom:["Religion","Desolate"], fallout:[]}]}
 );
 })(HT_DAGGER.kap["5"]);
-HT_DAGGER.kap["5"].lm.unshift({id:"wormery", t:"The Wormery", extern:"4", tiefe:3, dom:[], stress:null, haunts:[], text:[], ressourcen:[], plots:[], figuren:[], unter:[], regeln:null});
+HT_DAGGER.kap["5"].lm.unshift({id:"wormery", t:"Wormery", extern:"4", tiefe:3, dom:[], stress:null, haunts:[], text:[], ressourcen:[], plots:[], figuren:[], unter:[], regeln:null});

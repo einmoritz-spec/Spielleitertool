@@ -45,7 +45,7 @@ function startRechts(inh, kl){
   var ord = ["Einführung","Spielweise","Charaktere","Regeln im Detail","Spielleitung","Die Welt von Heart","Landmarken","Gegner","Regelübersicht"], L = ord.map(function(t){ return alle.filter(function(k){ return k.t === t; })[0]; }).filter(Boolean);
   alle.forEach(function(k){ if(L.indexOf(k) < 0) L.push(k); });
   var auf = !!ST.gedichtAuf;
-  var kopf = '<div class="vckopf' + (auf ? " auf" : "") + '" onclick="ST.gedichtAuf=!ST.gedichtAuf;save();render()"><p class="vczeile">Frag dich, wonach du suchst.</p>' + (auf ? '<div class="vcged">' + G.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") + "</div>";
+  var kopf = '<div class="vckopf' + (auf ? " auf" : "") + '" onclick="ST.gedichtAuf=!ST.gedichtAuf;save();render()"><p class="vczeile">Über uns die Stadt, Spire. Unter uns die Stadt, Heart.</p>' + (auf ? '<div class="vcged">' + G.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") + "</div>";
   var band = L.map(function(k, i){
     var t = i / (L.length - 1);
     var z = k.z.map(function(x){ return '<a onclick="event.stopPropagation();go(\'' + (x[2] || k.r) + '\')">' + esc(x[0]) + "<i>" + x[1] + "</i></a>"; }).join("");

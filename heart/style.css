@@ -608,3 +608,4 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 .vcp{text-decoration:none}
 .vcr{grid-template-columns:30px 300px 1fr 20px}.vct{display:flex;align-items:baseline;gap:10px}.vcz{column-gap:20px}
 @media(max-width:1100px){.vcr{grid-template-columns:28px 1fr}.vcz{grid-column:2/-1}}
+.vczeile{font:700 clamp(15px,1.15vw,18px)/1.3 var(--body);font-variant:small-caps;font-style:normal;letter-spacing:.09em;color:#7a0e0a}.vczeile::before,.vczeile::after{width:56px;background:#7a0e0a55}.vckopf{padding:14px 40px 12px}

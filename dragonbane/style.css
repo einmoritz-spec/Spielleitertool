@@ -416,8 +416,9 @@ table.w6.kv td:first-child{width:auto;text-align:left;font-family:var(--f-kopf)}
 .sk .kn{font:12px var(--f-kopf);letter-spacing:.2em;text-transform:uppercase;color:var(--jade-d);margin:15px 0 3px}
 .sk .kn .pg{margin-left:8px;letter-spacing:0;text-transform:none}
 .sk .kti{font:normal 21px/1.15 var(--f-kopf);color:var(--braun)}
-.sg .unten{display:flex;flex-direction:column;align-items:center;margin-top:30px;gap:8px}
-.sg .unten .fluegel{width:min(560px,90%);cursor:pointer}
+.sg .unten{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:30px;gap:8px 36px}
+.sg .unten .zul{flex-basis:100%;text-align:center}
+.sg .unten .fluegel{width:min(480px,90%);cursor:pointer}
 .sg .zul{cursor:pointer;font:14px var(--f-kopf);letter-spacing:.06em;color:var(--braun)}
 .modal .grp{display:flex;flex-wrap:wrap;gap:10px;max-width:640px}
 @media (max-width:900px){.sg .gk{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -56,7 +56,7 @@ function viewStart(){
       '<div class="kn">' + kapKopf(k) + pgl(k.p) + '</div><div class="kti">' + esc(k.t) + '</div></div>';
   }).join("");
   var zul = ST.last ? '<div class="zul" onclick="go(ST.last)">Zuletzt: <b>' + esc(ST.lastName || "") + '</b></div>' : "";
-  return '<div class="sg"><div class="gk">' + t + '</div><div class="unten"><div class="fluegel" onclick="go(\'abenteuer\')"><div class="fl"></div><div class="fm"><span>Zu den Abenteuern</span></div><div class="fr"></div></div>' + zul + '</div></div>';
+  return '<div class="sg"><div class="gk">' + t + '</div><div class="unten"><div class="fluegel" onclick="go(\'abenteuer\')"><div class="fl"></div><div class="fm"><span>Zu den Abenteuern</span></div><div class="fr"></div></div><div class="fluegel" onclick="go(\'arkand\')"><div class="fl"></div><div class="fm"><span>Arkand</span></div><div class="fr"></div></div>' + zul + '</div></div>';
 }
 /* Die Gruppe (Menü) */
 function gruppe(){

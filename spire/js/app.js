@@ -140,6 +140,10 @@ function viewStart(){
     '<section class="st-sek"><h2 class="st-h">Nachschlagen</h2><div class="st-nach">' + fertig.map(kach).join("") + offen.map(kach).join("") + '</div></section>' +
   '</div>';
 }
+(window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
+  SP_KACHELN.forEach(function(k){ add(k.t, "Nachschlagen", k.go, k.p, k.s, k.buch); });
+  add("Revolution", "Spielleitung", "nach/spielleitung/revolution", SP_REVOLUTION.p, SP_REVOLUTION.stufen, "cmf");
+});
 function setRev(i){ ST.rev = i; save(); render(); }
 function charakterbogen(){ go("bogen"); }
 

@@ -125,6 +125,7 @@ function klSeite(K){
 }
 SP_NACH_VIEW.klassen = function(teile){
   var K = teile[0] && klById(teile[0]);
+  if(teile[0] === "charaktere" || teile[0] === "dienstzeit") ST_ANKER = teile[0];
   if(K && teile[1] === "mg" && window.SP_MG && SP_MG[K.id]) return klMgSeite(K.id);
   if(K) return klSeite(K);
   if(teile[0] && window.SP_MG && SP_MG[teile[0]]) return klMgSeite(teile[0]);
@@ -153,19 +154,25 @@ SP_NACH_VIEW.extra = function(teile){
 
 /* ---------- Suche ---------- */
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
+  var C = window.SP_CHARAKTERE; if(C){
+    C.abschnitte.forEach(function(s){ add(s.t.charAt(0) + s.t.slice(1).toLowerCase(), "Klassen · Charaktere", "nach/klassen/" + (s.id === "dienstzeit" ? "dienstzeit" : "charaktere"), s.p, s.b); });
+    add("Dienstzeit", "Klassen · Charaktere", "nach/klassen/dienstzeit", C.dienst.x[0] && C.dienst.x[0].p, [C.dienst.intro, C.dienst.oderT]);
+    C.dienst.x.concat(C.dienst.oder).forEach(function(d){ add(d.t, "Dienstzeit", "nach/klassen/dienstzeit", d.p, [d.w, d.x]); });
+  }
   (window.SP_KLASSE || []).forEach(function(K){
-    add(K.t, "Klasse", "nach/klassen/" + K.id, K.p, [K.zitat, K.intro, K.kern, K.bind, K.ausr]);
+    add(K.t, "Klasse", "nach/klassen/" + K.id, K.p, [K.zitat, K.intro, K.kern, K.bind, K.ausr, K.fortIntro, K.hinweis, K.boxen]);
     K.kfae.forEach(function(a){ add(a.t, "Kernfähigkeit · " + K.t, "nach/klassen/" + K.id, a.p, [a.fl, a.x]); });
     ["niedrig", "mittel", "hoch"].forEach(function(g){ K.fort[g].forEach(function(a){ add(a.t, "Fortschritt " + KL_STUFE[g] + " · " + K.t, "nach/klassen/" + K.id, a.p, [a.fl, a.x]); }); });
   });
   Object.keys(window.SP_MG || {}).forEach(function(id){
     var M = SP_MG[id], r = "nach/klassen/" + id + (klById(id) ? "/mg" : "");
-    add(M.t + " – Magister's Guide", "Klasse · Zusatz", r, M.p, [M.intro, M.nuetz], "gm");
+    add(M.t + " – Magister's Guide", "Klasse · Zusatz", r, M.p, [M.intro, M.nuetz, M.besT], "gm");
     ["faehig", "ausr", "bes", "fallout"].forEach(function(k){ M[k].forEach(function(a){ add(a.t, {faehig:"MG-Fähigkeit", ausr:"MG-Ausrüstung", bes:"MG-Besondere Ausrüstung", fallout:"MG-Fallout"}[k] + " · " + M.t, r, a.p, [a.tag, a.fl, a.x], "gm"); }); });
   });
   var X = window.SP_EXTRA; if(!X) return;
+  add("Extra-Fortschritte", "Extra-Fortschritte", "nach/extra", 69, [X.intro, (X.boxen || []).filter(function(b){ return !X.wege.some(function(w){ return w.id === b.nach; }); })]);
   X.wege.forEach(function(w){
-    add(w.t, "Extra-Fortschritte", "nach/extra/" + w.id, w.p, [w.vor, w.auff, w.ein, w.info, w.tab]);
+    add(w.t, "Extra-Fortschritte", "nach/extra/" + w.id, w.p, [w.vor, w.auff, w.ein, w.info, w.tab, (X.boxen || []).filter(function(b){ return b.nach === w.id; })]);
     ["niedrig", "mittel", "hoch"].forEach(function(g){ w.fort[g].forEach(function(a){ add(a.t, "Extra-Fortschritt " + KL_STUFE[g] + " · " + w.t, "nach/extra/" + w.id, a.p, [a.fl, a.x]); }); });
   });
 });
@@ -210,6 +217,7 @@ SP_NACH_VIEW.welt = txtView("welt", "Die Welt", 1, "cmf", "sp_cmf");
 SP_NACH_VIEW.spielleitung = txtView("spielleitung", "Spielleitung", 173, "cmf", "sp_cmf");
 SP_NACH_VIEW.kurz = txtView("kurz", "Spire in Kürze", 1, "qs", "sp_qs");
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
+  add("Regeln in Kürze", "Spire in Kürze", "nach/kurz/kernmechanik", 7, ["Würfelpool zusammenstellen: Mit 1W10 beginnen, passende Fertigkeit, passende Domäne, passende Meisterschaft, +1W10 pro Helfer, −1W10 pro Schwierigkeit", "Würfelpool werfen. Wird der Würfelpool auf 0 oder weniger reduziert, werft 1W10", "Erfolg und Fehlschlag bestimmen: Prüft euren höchsten Würfel. 1 Kritischer Fehlschlag: Doppelten Stress erleiden. 2–5 Fehlschlag: Ihr und alle Helfer erleidet Stress auf einem passenden Widerstand. 6–9 Erfolg: Kein Stress. Fügt einem Gegner mit den Würfeln eurer Ausrüstung Stress zu. 10 Kritischer Erfolg: +1 Stress zufügen", "Wurde euer Würfelpool auf 0 oder weniger reduziert, verringert euer Ergebnis um eine Stufe: 8–9 auf 6–7, 6–7 auf 2–5", "Fallout erleiden: Wenn ihr Stress erlitten habt, prüft die Spielleitung auf Fallout. 1W10 werfen, niedriger als Gesamtstress? Nein: kein Fallout. Ja: SC erleidet Fallout. 2–4 Gesamtstress leichter Fallout, 5–8 Gesamtstress mittlerer Fallout, 9+ Gesamtstress schwerer Fallout. Für weniger tödlichen Fallout Regeln, siehe Spire S. 13"], "qs");
   var N = {welt:["Die Welt", "cmf"], spielleitung:["Spielleitung", "cmf"], kurz:["Spire in Kürze", "qs"]};
   Object.keys(N).forEach(function(id){ ((window.SP_TEXT || {})[id] || []).forEach(function(k){ add(k.t, N[id][0], "nach/" + id + "/" + k.id, k.p, [k.b], N[id][1]); }); });
 });

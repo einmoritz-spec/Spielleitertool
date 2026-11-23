@@ -96,6 +96,10 @@ function stDistrikt(domId, distId, anker){
 
 SP_VIEW.stadt = function(teile){
   if(!teile[0]) return stUebersicht();
+  if(teile[0] === "karte"){
+    var kf = teile[1]; if(kf && SP_KARTE.flaechen.some(function(x){ return x.id === kf; })) setTimeout(function(){ history.replaceState(null, "", "#stadt"); window.__lh = "#stadt"; stKlick(kf); }, 30);
+    return stUebersicht();
+  }
   if(!teile[1]) return stDomaene(teile[0]);
   return stDistrikt(teile[0], teile[1], teile[2]);
 };
@@ -116,7 +120,11 @@ SP_VIEW.stadt = function(teile){
   }, {passive:true});
 })();
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
+  SP_KARTE.flaechen.forEach(function(f){
+    var I = f.dom && stDom(f.dom);
+    add(f.t, "Stadtkarte" + (I ? " · " + I.t : ""), (f.dom && !f.chips) ? "stadt/" + f.dom + "/" + f.d : "stadt/karte/" + f.id, f.p, [f.x, (f.chips || []).map(function(c){ return c[0]; })]);
+  });
   Object.keys(SP_STADT).forEach(function(k){ var I = stDom(k); (SP_STADT[k].distrikte || []).forEach(function(D){
-    D.abschnitte.forEach(function(s, i){ add(i ? D.t + " – " + s.t : D.t + (D.en ? " (" + D.en + ")" : ""), "Stadt · " + (I ? I.t : k), "stadt/" + k + "/" + D.id + (i ? "/" + s.id : ""), s.p, s.b.filter(function(b){ return !(b && b.t === "gegner"); }), "cmf"); });
+    D.abschnitte.forEach(function(s, i){ add(i ? D.t + " – " + s.t : D.t + (D.en ? " (" + D.en + ")" : ""), "Stadt · " + (I ? I.t : k), "stadt/" + k + "/" + D.id + (i ? "/" + s.id : ""), s.p, [s.b.filter(function(b){ return !(b && b.t === "gegner"); }), i || !I ? null : (I.distrikte.filter(function(x){ return x.id === D.id; })[0] || {}).t], "cmf"); });
   }); });
 });

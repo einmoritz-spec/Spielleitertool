@@ -148,6 +148,11 @@ function tagAttr(n){ var x = tagTip(n); return x ? ' data-tip="' + esc(x) + '" d
   SP_AUSR.abschnitte.forEach(function(s){ add(s.t, "Ausrüstung", "nach/ausruestung/" + s.id, s.p, s.b); });
   SP_TAGS.waffen.concat(SP_TAGS.ruestung).forEach(function(t){ add(t.t, "Tag", "nach/ausruestung/" + (SP_TAGS.ruestung.indexOf(t) >= 0 ? "ruestung" : "tags"), t.p, t.x); });
   add("Waffen und Rüstungen (Beispiele)", "Ausrüstung", "nach/ausruestung/eigene", 22, [SP_AUSR.waffenTabelle.rows, SP_AUSR.ruestungTabelle.rows]);
-  SP_BIND.abschnitte.forEach(function(s){ add(s.t, "Bindungen", "nach/bindungen/" + s.id, s.p, s.b); });
-  SP_VORGEFERTIGT.forEach(function(v){ add(v.n + " (" + v.klasse + ")", "Vorgefertigte Figur", "zelle", v.p, [v.hinter, v.fae, v.ausr, v.bindtext], "qs"); });
+  SP_BIND.abschnitte.forEach(function(s){ add(s.t, "Bindungen", "nach/bindungen/" + s.id, s.p, [s.b, s.chip && s.chip.t]); });
+  SP_VORGEFERTIGT.forEach(function(v){ add(v.n + " (" + v.klasse + ")", "Vorgefertigte Figur", "zelle/" + v.id, v.p, [v.titel, v.dienst, v.auff, v.spielen, v.hinter, v.bindtext, v.bind, v.fae, v.ausr, v.kniffe, v.haeuser], "qs"); });
+  ["leicht", "mittel", "schwer"].forEach(function(k){ var S = F.stufen[k]; add(S.t, "Regeln · Fallout", "nach/regeln/fallout/" + k, S.p, S.intro); });
+  add(F.bindung.t, "Regeln · Fallout", "nach/regeln/fallout/bindung", F.bindung.p, [F.bindung.intro, F.bindung.regel]);
+  add(SP_KAMPF.t, "Kampf", "nach/kampf", SP_KAMPF.p, SP_KAMPF.einl);
+  add(D.t, "Fertigkeiten und Domänen", "nach/fertigkeiten", D.p, [D.einl, D.fertigkeiten.intro, D.domaenen.intro, D.domaenen.bsp]);
+  add(SP_BIND.t, "Bindungen", "nach/bindungen", SP_BIND.p, SP_BIND.einl);
 });

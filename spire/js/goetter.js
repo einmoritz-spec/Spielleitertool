@@ -40,7 +40,7 @@ SP_NACH_VIEW.anhang = function(teile){
   var O = window.SP_GOETTER; if(O){
     add("Die neuen Götter", "Neue Götter", "nach/goetter", O.p, [O.intro, O.box]);
     O.goetter.forEach(function(g){
-      add(g.t, "Neuer Gott", "nach/goetter/" + g.id, g.p, [g.sub, g.intro, g.vor, g.auff, g.boxen]);
+      add(g.t, "Neuer Gott", "nach/goetter/" + g.id, g.p, [g.sub, g.patron, g.intro, g.vor, g.auff, g.boxen]);
       ["niedrig", "mittel", "hoch"].forEach(function(s){ g.fort[s].forEach(function(a){ add(a.t, "Gott-Fortschritt · " + g.t, "nach/goetter/" + g.id, a.p, [a.fl, a.x]); }); });
       g.fallout.forEach(function(f){ f.x.forEach(function(a){ add(a.t, "Gott-Fallout · " + g.t, "nach/goetter/" + g.id, a.p, [a.x]); }); });
     });

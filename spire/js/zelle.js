@@ -273,8 +273,9 @@ function zBogen(id){
 }
 
 /* ---------- Ansicht ---------- */
-SP_VIEW.zelle = function(){
+SP_VIEW.zelle = function(teile){
   var F = zFigs();
+  if(teile && teile[0] && vfDaten(teile[0])) setTimeout(function(){ history.replaceState(null, "", "#zelle"); window.__lh = "#zelle"; zBogen(teile[0]); }, 30);
   var karten = F.map(zKarte).join("") +
     '<div class="zneu"><button onclick="zVfAuswahl()">Vorgefertigte Figur</button><button onclick="zNeueFigur()">Neue Figur</button></div>';
   var rp = zPanel() +

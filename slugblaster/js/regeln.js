@@ -155,5 +155,5 @@ var SBR = (function(){
       var m = d.s[cur + (e.key === "ArrowDown" ? 1 : -1)]; if(m){ go("nach/" + ber + "/" + m.id); e.preventDefault(); }
     }
   });
-  return {view: view, BER: BER, nav: nav, toggle: toggle, hl: hl};
+  return {STA: STA, PARTY: PARTY, view: view, BER: BER, nav: nav, toggle: toggle, hl: hl};
 })();

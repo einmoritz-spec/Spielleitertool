@@ -109,6 +109,11 @@ window.afterRender = function(){
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
   var S = SP_SNUFF, r = "abenteuer/snuff/";
   add(S.titel, "Abenteuer · Auftrag", r + "auftrag", 19, [S.einl, S.laufen.karten, S.auftrag.vl, S.tagwerk.b, S.dominion.b], "qs");
+  add(S.laufen.t, "Snuff Out the Sun · Auftrag", r + "auftrag", S.laufen.p, S.laufen.karten, "qs");
+  add(S.auftrag.t, "Snuff Out the Sun · Auftrag", r + "auftrag", S.auftrag.p, [S.auftrag.einl, S.auftrag.vl], "qs");
+  add(S.tagwerk.h, "Snuff Out the Sun · Auftrag", r + "auftrag", S.tagwerk.p, S.tagwerk.b, "qs");
+  add("Orte", "Snuff Out the Sun · Orte", r + "orte", S.orteP, S.orteEinl, "qs");
+  add("Der Aufstieg", "Snuff Out the Sun · Der Aufstieg", r + "aufstieg", 24, S.aufstieg.einl, "qs");
   S.figuren.forEach(function(f){ add(f.t + " (" + f.en + ")", "Snuff Out the Sun · Figuren", r + "figuren/" + f.id, f.p, [f.b, f.druck, f.nach], "qs"); });
   S.orte.forEach(function(o){ add(o.t + " (" + o.en + ")", "Snuff Out the Sun · Orte", r + "orte/" + o.id, o.p, [o.b, o.req], "qs"); });
   S.aufstieg.phasen.forEach(function(p){ add(p.t + " (" + p.en + ")", "Snuff Out the Sun · Der Aufstieg", r + "aufstieg", 24, p.b, "qs"); });

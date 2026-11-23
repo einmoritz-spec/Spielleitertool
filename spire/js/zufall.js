@@ -38,6 +38,7 @@ SP_VIEW.zufall = function(teile){
   return spielTabs("zufall") + lay(zfSide(id), '<div class="dbody zf" data-pgbook="sp_cmf">' + body + '</div>');
 };
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
-  SP_ZUFALL.gruppen.forEach(function(g){ g.tabellen.forEach(function(t){ add(t.t, "Zufall · " + g.t, "zufall/" + g.id, t.p, t.rows); }); });
-  SP_ZUFALL_LISTEN.forEach(function(L){ L.x.forEach(function(x){ add(x.t, L.k, "zufall/" + L.id, x.p, x.x); }); });
+  add(SP_ZUFALL.t, "Zufall", "zufall", SP_ZUFALL.p, [SP_ZUFALL.einl, SP_ZUFALL.gruppen.map(function(g){ return g.t; })]);
+  SP_ZUFALL.gruppen.forEach(function(g){ add(g.t, "Zufall", "zufall/" + g.id, null, g.tabellen.map(function(t){ return t.t; })); g.tabellen.forEach(function(t){ add(t.t, "Zufall · " + g.t, "zufall/" + g.id, t.p, t.rows); }); });
+  SP_ZUFALL_LISTEN.forEach(function(L){ add(L.t, L.k, "zufall/" + L.id, L.p, [L.einl, L.wahl]); L.x.forEach(function(x){ add(x.t, L.k, "zufall/" + L.id, x.p, x.x); }); });
 });

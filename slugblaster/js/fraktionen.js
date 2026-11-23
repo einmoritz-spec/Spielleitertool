@@ -1,11 +1,11 @@
 /* SLUGBLASTER – Fraktionen (S. 126–141): Beziehungen (+3…−3, !!!), Gruppen-Kartenraster, Mach eine Person. */
-var SBR = (function(){
+var SBFR = (function(){
   var GR = [["", "Beziehungen"], ["crews", "Crews"], ["obrig", "Obrigkeiten"], ["spons", "Sponsoren"], ["cliquen", "Crowds"], ["person", "Mach eine Person"]];
   var SYM = ["−3", "−2", "−1", "0", "+1", "+2", "+3", "!!!"];
   function unter(cur){ return '<div class="frsub">' + GR.map(function(x){ return '<a class="' + (x[0] === cur ? "on" : "") + '" onclick="go(\'fraktionen' + (x[0] ? "/" + x[0] : "") + '\')">' + x[1] + '</a>'; }).join("") + '</div>'; }
   function rel(id){ return (ST.frak && ST.frak[id]) || "0"; }
   function setze(id, s){ ST.frak = ST.frak || {}; if(s === "0") delete ST.frak[id]; else ST.frak[id] = s; save(); render(); }
-  function skala(id){ var c = rel(id); return '<div class="frs">' + SYM.map(function(s){ return '<span class="' + (s === c ? "on " : "") + (s[0] === "−" ? "neg" : s === "!!!" ? "uns" : s[0] === "+" ? "pos" : "") + '" onclick="SBR.setze(\'' + id + '\',\'' + s + '\')">' + s + '</span>'; }).join("") + '</div>'; }
+  function skala(id){ var c = rel(id); return '<div class="frs">' + SYM.map(function(s){ return '<span class="' + (s === c ? "on " : "") + (s[0] === "−" ? "neg" : s === "!!!" ? "uns" : s[0] === "+" ? "pos" : "") + '" onclick="SBFR.setze(\'' + id + '\',\'' + s + '\')">' + s + '</span>'; }).join("") + '</div>'; }
   function gid(g){ return SB_FRAKREGELN.gruppen[g]; }
   function karte(f){
     var h = '<div class="frc"><div class="moh"><h3>' + esc(f.t) + '</h3>' + pgl(f.p) + '</div><div class="frk">' + esc(f.kurz) + '</div>' + skala(f.id) + '<p class="mx">' + md(f.x) + '</p>';

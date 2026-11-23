@@ -136,9 +136,10 @@ SP_VIEW.masken = function(teile){
 
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
   var M = SP_MASKEN;
-  add(M.t + " (" + M.en + ")", "Buch der Masken", "masken", 1, [M.einl, M.von], "z1");
-  add(M.vorwort.t, "Buch der Masken", "masken/vorwort", M.vorwort.p, M.vorwort.b, "z1");
+  add(M.t + " (" + M.en + ")", "Buch der Masken", "masken", 1, [M.einl, M.von, M.mit, M.fuer], "z1");
+  add(M.vorwort.t, "Buch der Masken", "masken/vorwort", M.vorwort.p, [M.vorwort.b, M.vorwort.gruss], "z1");
   M.abschnitte.forEach(function(a){
+    add(a.t, "Buch der Masken", "masken", null, [a.u, a.masken.map(function(m){ return m.t; })], "z1");
     a.masken.forEach(function(m){
       add(m.t, "Buch der Masken · " + a.t, "masken/" + m.id, m.p, [m.b, m.regel, m.mehr, m.sub], "z1");
       if(m.regel) add(m.regel.t, "Buch der Masken · " + mkArt(m.regel), "masken/" + m.id, m.regel.p, [m.t, m.regel], "z1");

@@ -11,9 +11,19 @@ function sFlat(o, out){
   Object.keys(o).forEach(function(k){ if(!S_SKIP[k]) sFlat(o[k], out); });
   return out;
 }
+/* Faltung für die Suche: Groß-/Kleinschreibung, Umlaute (ä/ae → a …), ß/ss, typografische Striche und Apostrophe */
+function sFold(s){
+  return String(s).toLowerCase().replace(/[\u2019\u2018\u02bc]/g, "'").replace(/[\u2013\u2014\u2011]/g, "-").replace(/\u00df/g, "ss")
+    .replace(/ae|\u00e4/g, "a").replace(/oe|\u00f6/g, "o").replace(/ue|\u00fc/g, "u").replace(/ss/g, "s").replace(/\u00e9|\u00e8|\u00ea/g, "e");
+}
+/* Suchmuster für Markierung und Ausschnitt: passt auf alle Schreibweisen des gefalteten Suchworts */
+function sPat(w){
+  var m = {a:"(?:a|\u00e4|ae)", o:"(?:o|\u00f6|oe)", u:"(?:u|\u00fc|ue)", s:"(?:\u00df|ss|s)", e:"[e\u00e9\u00e8\u00ea]", "-":"[-\u2013\u2014]", "'":"['\u2019\u2018]"};
+  return w.split("").map(function(c){ return m[c] || c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("");
+}
 function sBuild(){
   SIDX = [];
-  var add = function(t, ctx, route, p, data, buch){ var x = sFlat(data, []).join(" ").replace(/\*+/g, "").replace(/\s+/g, " "); SIDX.push({t:t, ctx:ctx, r:route, p:p, buch:buch, x:x, l:(t + " " + x).toLowerCase()}); };
+  var add = function(t, ctx, route, p, data, buch){ var x = sFlat(data, []).join(" ").replace(/\[\[(.+?)\]\]/g, "($1)").replace(/\*+/g, "").replace(/\s+/g, " "); SIDX.push({t:t, ctx:ctx, r:route, p:p, buch:buch, x:x, l:sFold(t + " " + ctx + " " + x)}); };
   Object.keys(SP_NACH_BEREICHE).forEach(function(k){ var B = SP_NACH_BEREICHE[k]; add(B.t, "Nachschlagen", "nach/" + k, B.p, window.SP_NACH[k] || null, B.buch); });
   SP_SPIEL.forEach(function(z){ add(z.t, "Losschlagen", z.id, z.p, z.s, z.buch); });
   Object.keys(SP_ABENTEUER).forEach(function(k){ var A = SP_ABENTEUER[k]; add(A.t, "Abenteuer", "abenteuer/" + k, A.p, A.k, A.buch); });
@@ -30,20 +40,22 @@ function sOpen(){
   q.onkeydown = function(e){ if(e.key === "Enter"){ var a = document.querySelector("#sr a"); if(a) a.click(); } if(e.key === "Escape") m.remove(); };
 }
 function sRun(v){
-  var box = document.getElementById("sr"); v = v.trim().toLowerCase();
+  var box = document.getElementById("sr"); v = sFold(v.trim());
   if(v.length < 2){ box.innerHTML = ""; return; }
   var ws = v.split(/\s+/), res = [];
   SIDX.forEach(function(e){
     if(!ws.every(function(w){ return e.l.indexOf(w) >= 0; })) return;
-    var tl = e.t.toLowerCase(), sc = 0;
+    var tl = sFold(e.t), sc = 0;
     ws.forEach(function(w){ if(tl.indexOf(w) === 0) sc += 6; else if(tl.indexOf(w) >= 0) sc += 4; sc += Math.min(3, e.l.split(w).length - 1) * .3; });
     res.push({e:e, s:sc});
   });
   res.sort(function(a, b){ return b.s - a.s; });
   var tot = res.length; res = res.slice(0, 40);
-  var hl = function(s){ s = esc(s); ws.forEach(function(w){ s = s.replace(new RegExp("(" + esc(w).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig"), "<mark>$1</mark>"); }); return s; };
+  var pats = ws.map(sPat);
+  var re = new RegExp("(" + pats.join("|") + ")", "ig");
+  var hl = function(s){ return String(s).split(re).map(function(t, i){ return i % 2 ? "<mark>" + esc(t) + "</mark>" : esc(t); }).join(""); };
   box.innerHTML = res.length ? res.map(function(o){
-    var e = o.e, i = e.x.toLowerCase().indexOf(ws[0]), sn = "";
+    var e = o.e, mt = new RegExp(pats[0], "i").exec(e.x), i = mt ? mt.index : -1, sn = "";
     if(i >= 0){ var a = Math.max(0, i - 50); sn = (a ? "… " : "") + e.x.slice(a, i + 110) + " …"; } else sn = e.x.slice(0, 120);
     return '<a href="#' + e.r + '" onclick="document.getElementById(\'sm\').remove()"><b>' + hl(e.t) + '</b><span class="sc">' + esc(e.ctx) + (e.p != null ? " · " + esc(pgTxt(e.p, e.buch)) : "") + '</span>' + (sn ? '<span class="sn">' + hl(sn) + '</span>' : '') + '</a>';
   }).join("") + (tot > 40 ? '<p class="sc" style="padding:8px 18px">' + tot + ' Treffer, die ersten 40</p>' : "") : '<p class="sc" style="padding:12px 18px">Keine Treffer</p>';

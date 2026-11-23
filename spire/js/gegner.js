@@ -180,5 +180,5 @@ SP_VIEW.gegner = function(teile){
   return spielTabs("gegner") + begLeiste(true) + gSeite();
 };
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
-  SP_GEGNER.forEach(function(g){ add(g.t + (g.en && g.en !== g.t ? " (" + g.en + ")" : ""), "Gegner", "gegner/" + g.id, g.p, [g.namen, g.beschr, g.schw && g.schw.x, g.bes, g.einl, g.druck, g.ausr.map(function(a){ return typeof a === "string" ? a : [a.x, a.dmg, a.tags]; })], gBuch(g)); });
+  SP_GEGNER.forEach(function(g){ add(g.t + (g.en && g.en !== g.t ? " (" + g.en + ")" : ""), "Gegner", "gegner/" + g.id, g.p, [g.namen, g.namenEn, g.namenX, g.beschr, g.wid, g.schw && g.schw.x, g.bes, g.einl, g.druck, g.ausr.map(function(a){ return typeof a === "string" ? a : [a.x, a.dmg, a.tags]; })], gBuch(g)); });
 });

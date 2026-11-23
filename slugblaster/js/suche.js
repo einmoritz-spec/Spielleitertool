@@ -3,14 +3,32 @@ var SBS = (function(){
   var IDX = null, SKIP = {farbe:1, c:1, bild:1, img:1, id:1, p:1, fig:1, go:1, x0:1, y0:1};
   function flat(o, out){
     if(o == null) return out;
-    if(typeof o === "string"){ if(o.charAt(0) !== "#" && !/^(lila|pink|blau|gelb|gruen|orange|box)$/.test(o)) out.push(o.replace(/<br>/g, " ")); return out; }
+    if(typeof o === "string"){ if(o.charAt(0) !== "#" && !/^(lila|pink|blau|gelb|gruen|orange|box)$/.test(o)) out.push(o.replace(/<br>/g, " ").replace(/\u00ad/g, "")); return out; }
     if(typeof o === "number" || typeof o === "boolean") return out;
     if(Array.isArray(o)){ o.forEach(function(v){ flat(v, out); }); return out; }
     Object.keys(o).forEach(function(k){ if(!SKIP[k]) flat(o[k], out); });
     return out;
   }
+  /* Blöcke, die ihre Daten aus anderen Globals ziehen (Beats, Gelegenheiten, Run-Ideen, Preise, SL-Aktionen, Gefahren …), mitindexieren */
+  function refs(o, out){
+    if(!o || typeof o !== "object") return out;
+    if(Array.isArray(o)){ o.forEach(function(v){ refs(v, out); }); return out; }
+    var b = o.t, k = o.k, R = window.SBR || {};
+    if(b === "mom" && window.SB_MOMENTE && SB_MOMENTE[k]) out.push(SB_MOMENTE[k]);
+    else if(b === "gel"){ var G = k === "g" ? window.SB_GELEGENHEITEN : window.SB_HERAUSFORDERUNGEN; if(G) out.push(o.m ? G.mods : G); }
+    else if(b === "w66") out.push([window.SB_TOUREN, window.SB_TOUREN_NOTIZ]);
+    else if(b === "preise") out.push(window.SB_PREISE);
+    else if(b === "slakt") out.push(window.SB_SLAKTIONEN);
+    else if(b === "slbite") out.push(window.SB_SLAKTIONEN && SB_SLAKTIONEN.biteText);
+    else if(b === "gefahr" && window.SB_GEFAHR){ out.push(SB_GEFAHR[k]); if(k === "disaster") out.push(SB_GEFAHR.ideen); }
+    else if(b === "hind") out.push(window.SB_HINDERNISSE);
+    else if(b === "cyc") out.push(R.STA);
+    else if(b === "party") out.push(R.PARTY);
+    Object.keys(o).forEach(function(kk){ if(o[kk] && typeof o[kk] === "object") refs(o[kk], out); });
+    return out;
+  }
   function add(t, ctx, r, p, data, book){
-    var x = flat(data, []).join(" ").replace(/\*\*|__|\*/g, "").replace(/\s+/g, " ");
+    var x = flat([data, refs(data, [])], []).join(" ").replace(/\*\*|__|\*/g, "").replace(/\s+/g, " ");
     IDX.push({t:String(t).replace(/<br>/g, " "), ctx:ctx, r:r, p:p, b:book, x:x, l:(t + " " + x).toLowerCase()});
   }
   function build(){
@@ -20,13 +38,24 @@ var SBS = (function(){
     });
     if(window.SB_DEMO) add("Demo", "Nachschlagen", "nach/demo", null, SB_DEMO);
     if(window.SB_MACH) add("Mach dich selbst", "Teenager", "nach/teenager/mach", SB_MACH.p, SB_MACH);
-    (window.SB_PERS || []).forEach(function(p){ add(p.t, "Teenager › Persönlichkeiten", "nach/teenager/pers/" + p.id, p.p, [p, (window.SB_PTEXT || {})[p.id]]); });
-    (window.SB_SIG || []).forEach(function(s){ add(s.t, "Teenager › Signaturen", "nach/teenager/sig/" + s.id, s.p, s); });
+    (window.SB_PERS || []).forEach(function(p){ add(p.t, "Teenager › Persönlichkeiten", "nach/teenager/pers/" + p.id, p.p, [p, (window.SB_PTEXT || {})[p.id], (((window.SB_PTEXT || {})[p.id] || {}).fig || {notes:[]}).notes.map(function(n){ return n.t; })]); });
+    if(window.SB_SIGINTRO) add("Signaturen", "Teenager › Signaturen", "nach/teenager/sig", SB_SIGINTRO.p, SB_SIGINTRO);
+    (window.SB_SIG || []).forEach(function(s){ add(s.t, "Teenager › Signaturen", "nach/teenager/sig/" + s.id, s.p, [s, window.SB_SIGINTRO]); });
     if(window.SB_AUSR){ var A = SB_AUSR; add("Ausrüstung", "Teenager", "nach/teenager/ausr", A.gear && A.gear.p, [A.gear, A.handy, A.ray, A.board, A.andere]); add("Sticker, Pins, Aufnäher usw.", "Teenager", "nach/teenager/stk", A.sticker && A.sticker.p, A.sticker); }
     if(window.SB_CREWBAU) add("Crew bauen", "Teenager", "nach/teenager/crew", SB_CREWBAU.p, SB_CREWBAU);
+    if(window.SB_RUHM_INTRO) add("Ruhm", "Teenager › Ruhm", "nach/teenager/ruhm", SB_RUHM_INTRO.p, SB_RUHM_INTRO);
     (window.SB_RUHM || []).forEach(function(r){ add("Ruhm " + r.id + ": " + r.t, "Teenager › Ruhm", "nach/teenager/ruhm", 76, r); });
     (window.SB_WELTEN || []).forEach(function(w){ if(w.heim) return; add(w.t, "Multiversum", "welten/" + w.id, w.p, (window.SB_WELT || {})[w.id] || {}); });
+    if(window.SB_MONSTER_INTRO) add("Monster", "Monster", "monster", SB_MONSTER_INTRO.p, SB_MONSTER_INTRO);
+    if(window.SB_MONSTERBAU) add("Mach ein Monster", "Monster", "monster/bau", SB_MONSTERBAU.p, SB_MONSTERBAU);
     (window.SB_MONSTER || []).forEach(function(m){ add(m.t, "Monster", "monster", m.p, m); });
+    if(window.SB_BONUS) add("Bonus-Welten", "Multiversum", "welten/bonus", null, SB_BONUS);
+    if(window.SB_BAUEN) add("Welt bauen", "Multiversum", "welten/bauen", SB_BAUEN.p, SB_BAUEN);
+    if(window.SB_PORTALE) add("Portale & Dünnzonen", "Multiversum", "welten/portale", null, [SB_PORTALE, "Slugger-Slang Downtime-Beat"]);
+    if(window.SB_FRAKREGELN) add("Fraktionen", "Fraktionen", "fraktionen", SB_FRAKREGELN.p, SB_FRAKREGELN);
+    if(window.SB_PERSON) add("Mach eine Person", "Fraktionen", "fraktionen/person", SB_PERSON.p, SB_PERSON);
+    if(window.SB_CROWDSIT) add("Crowd-Situation", "Fraktionen", "fraktionen/cliquen", null, SB_CROWDSIT);
+    if(window.SB_SCHIRM) add("Spielleiterschirm", "Nachschlagen", "schirm", null, SB_SCHIRM);
     (window.SB_FRAKTIONEN || []).forEach(function(f){ add(f.t, "Fraktionen", "fraktionen/" + f.g, f.p, f); });
     if(window.SB_HILLVIEW) add("Hillview", "Heimat", "heimat", SB_HILLVIEW.p, SB_HILLVIEW);
     (window.SB_HEIMATORTE || []).forEach(function(o){ add(o.t, "Heimat", "heimat/" + o.id, o.p, o); });
@@ -36,7 +65,7 @@ var SBS = (function(){
       (O.orte || []).forEach(function(o){ add(o[1], "Oolroob › Roob", "oolroob/roob", null, o[2], OB); });
       add("Probleme & Checkpoints", "Oolroob", "oolroob/probleme", null, [O.probleme, O.checkpoints, O.cpNote, O.mega], OB);
     }
-    if(window.SB_OO_FRAK) SB_OO_FRAK.gruppen.forEach(function(g){ (g.f || []).forEach(function(f){ add(f.t, "Oolroob › " + g.t, "oolroob/fraktionen", f.p, f, "sb_oolroob"); }); });
+    if(window.SB_OO_FRAK) SB_OO_FRAK.gruppen.forEach(function(g){ (g.f || []).forEach(function(f){ add(f.t, "Oolroob › " + g.t, "oolroob/fraktionen", f.p, f, "sb_oolroob"); }); if(g.situation || g.megashift) add(g.t, "Oolroob › Fraktionen", "oolroob/fraktionen", g.p, [g.situation, g.megashift], "sb_oolroob"); });
     if(window.SB_OO_C){
       var SG = SB_OO_C.sig || {}; (Array.isArray(SG) ? SG : SG.neu || []).forEach(function(s){ add(s.t, "Oolroob › Signaturen", "oolroob/signaturen", s.p || SG.p, s, "sb_oolroob"); });
       (SB_OO_C.kreaturen || []).forEach(function(k){ add(k.t, "Oolroob › Kreaturen", "oolroob/kreaturen", k.p, k, "sb_oolroob"); });
@@ -59,7 +88,7 @@ var SBS = (function(){
     };
   }
   function run(v){
-    var box = document.getElementById("sbr"); v = v.trim().toLowerCase();
+    var box = document.getElementById("sbr"); v = v.replace(/\u00ad/g, "").trim().toLowerCase();
     if(v.length < 2){ box.innerHTML = ""; return; }
     var ws = v.split(/\s+/), res = [];
     IDX.forEach(function(x){

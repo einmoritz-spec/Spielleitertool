@@ -868,3 +868,12 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .mje{font:9px var(--f-kopf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d)}
 .mtyp{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin-top:8px;opacity:.8}
 .mtyp span{font:9.5px/1 var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d);border:1px solid rgba(0,0,0,.12);border-radius:20px;padding:3px 8px 2px}
+/* Bestiarium-Kacheln: ruhiger */
+.mt .mn::after{display:none}
+.mt .mn{padding-bottom:0}
+.mn .mwr{opacity:.65}
+.mgr .fl{fill:#6f6a60}
+.mhz svg{fill:#8c5a52}
+.mje{color:#7a756b}
+.mtyp{gap:3px 8px;margin-top:4px;opacity:1}
+.mtyp span{font-size:8.5px;letter-spacing:.12em;color:#8a857b;border:0;padding:0}

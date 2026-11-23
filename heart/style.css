@@ -379,10 +379,6 @@ body{background-attachment:fixed}
 .dvoll{position:fixed;inset:0;background:#000d;z-index:90;overflow:auto;display:flex;justify-content:center;padding:30px}.dzettel.gross{width:min(760px,92vw);height:fit-content;font-size:18px}
 .dfig{border-top:2px solid var(--platte);margin:16px 0;padding-top:8px}.dfig .gvs{background:#ede1e1}.dfig .gv{padding:5px 8px;font:15px/1.35 var(--body)}.dfig .gv:nth-child(even){background:#e6d6d6}.dfig .schwarz{margin-top:8px}
 .dtab{border-collapse:collapse;width:100%;font:15px/1.35 var(--body)}.dtab td{padding:4px 8px;border-bottom:1px solid #0002;vertical-align:top}.beat li{cursor:pointer;margin:4px 0}.beat li.ok{opacity:.45;text-decoration:line-through}
-.dkarte{position:relative;margin:12px 14px 0;background:#f2eee6;border:1px solid #0006;overflow:hidden}.dsvg{position:absolute;inset:0;width:100%;height:100%}.dsvg line{stroke:#7a6f63;stroke-width:2;vector-effect:non-scaling-stroke}.dsvg line.ex{stroke-dasharray:6 5}
-.dtl{position:absolute;left:10px;font:400 12px var(--plate);letter-spacing:.1em;text-transform:uppercase;opacity:.55}
-.dnode{position:absolute;transform:translateX(-50%);text-align:center;cursor:pointer;max-width:12%}.dnode .platte{display:inline-block;font-size:13px;line-height:1.1;padding:6px 8px}.dnode small{display:block;font:11px/1.2 var(--body);margin-top:2px;color:#222}.dnode.on .platte{outline:3px solid #111}.dnode.ext .platte{background:#8a8279}
-.ddelve{position:absolute;transform:translate(-50%,-50%);background:#7fa3a5;color:#fff;font:400 12px var(--plate);letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;cursor:pointer}.ddelve.on{outline:3px solid #111}
 .dkdet{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin:14px}.dkl2{max-width:620px}
 .ddk{border:1px solid #0006;background:#ecefee;color:#12120d}.ddh{background:#7fa3a5;color:#fff;padding:9px 14px;display:flex;justify-content:space-between;font:400 19px var(--plate);text-transform:uppercase;letter-spacing:.04em}.ddb{padding:12px 16px;font:15px/1.4 var(--body)}.dlb{font:400 13px var(--plate);color:var(--platte);text-transform:uppercase;letter-spacing:.05em}
 .ddr{display:flex;align-items:center;gap:10px;margin:8px 0}.ddr .gz{font:400 30px var(--head)}.dkb{display:inline-block;width:16px;height:16px;border:1px solid #4d8a8c;background:#fff;cursor:pointer;margin-right:2px;box-sizing:border-box}.dkb.an{background:#4d8a8c}
@@ -393,8 +389,6 @@ body{background-attachment:fixed}
 @media(max-width:1300px){.dkdet.zwei{grid-template-columns:1fr}}
 .dkfrei{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,520px));gap:14px;margin:14px}
 .dchips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 14px 0}.dchips .platte{cursor:pointer;font-size:14px}.dchips .platte.on{outline:3px solid #fff}
-.dkarte{overflow-x:auto;overflow-y:hidden}.dkin{position:relative;width:100%}.dnode{max-width:140px}.dtl{position:sticky;left:10px}
-.dnode{max-width:130px}.dnode small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 .dbild{display:block;max-width:100%;height:auto;margin:2px 0 10px}.dbild.r{float:right;width:min(40%,420px);margin:0 0 12px 22px}.dbild.r.gross{width:min(34%,460px)}.dbild.r.klein{width:min(34%,220px)}
 @media(max-width:900px){.dbild.r,.dbild.r.gross,.dbild.r.klein{float:none;width:100%;max-width:420px;margin:0 auto 12px}}
@@ -413,3 +407,14 @@ body{background-attachment:fixed}
 .dgars{filter:drop-shadow(0 3px 5px #0006)}.dgar{border:0!important;padding:12px 16px 14px!important;background:linear-gradient(135deg,#f6edd6,#eadcbc)!important;clip-path:polygon(0 2%,8% 0,20% 2%,34% 0,50% 1.5%,66% 0,82% 2%,100% 0,99% 25%,100% 55%,98.5% 80%,100% 100%,84% 98.5%,66% 100%,48% 98.5%,30% 100%,14% 98.5%,0 100%,1.5% 70%,0 45%,1.5% 20%)}
 .dlmc.eins{grid-template-columns:1fr}.dlmc.eins>.dlmr{display:none}
 .dvoll{background:#000e}
+
+.dkarte{position:relative;margin:12px 14px 0;background:#15110f;border:1px solid #3b2a22;box-shadow:inset 0 0 40px #000c,0 4px 14px #0008;overflow-x:auto;overflow-y:hidden}.dkin{position:relative;margin:0 auto}
+.drow{position:absolute;left:0;right:0;border-top:1px dashed #e9dfcf1c}.drow:first-child{border-top:0}.drow span{position:sticky;left:0;display:inline-block;padding:8px 14px;font:400 14px var(--head);letter-spacing:.14em;text-transform:uppercase;color:#e9dfcf80}
+.dsvg{position:absolute;left:0;top:0}.dsvg path{fill:none;stroke:#b3251e;stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 4px #b3251e88)}.dsvg path.ex{stroke-dasharray:2 8;stroke:#d9a38f}
+.dnode{position:absolute;transform:translate(-50%,-50%);background:linear-gradient(135deg,#f4ebd6,#e6d7b6);color:#1a1410;padding:7px 12px 6px;min-width:112px;max-width:172px;text-align:center;box-shadow:0 4px 10px #000b;cursor:pointer;border-top:3px solid #b3251e;transition:transform .15s,box-shadow .15s;z-index:2}
+.dnode:hover{transform:translate(-50%,-52%);box-shadow:0 6px 16px #000d}.dnode b{display:block;font:400 15px/1.05 var(--head);text-transform:uppercase;letter-spacing:.03em;color:#7a1712}.dnode small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:italic 12px/1.2 var(--body);color:#5a4d40;margin-top:3px}
+.dnode.on{background:#b3251e;border-top-color:#fff}.dnode.on b,.dnode.on small{color:#fff}
+.dnode.ext{background:#2c2420;border-top-color:#6b5e52;cursor:default}.dnode.ext b{color:#d8cbb6}.dnode.ext small{color:#a8998a}
+.ddelve{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#1b2526;border:2px solid #7fa3a5;color:#d6e8e8;font:400 17px/34px var(--head);text-align:center;cursor:pointer;box-shadow:0 0 0 5px #15110fcc;z-index:3;transition:transform .15s}.ddelve:hover{transform:translate(-50%,-50%) scale(1.12)}
+.ddelve.on{background:#7fa3a5;color:#111;border-color:#fff}.ddelve.fertig{background:#2d5a36;border-color:#9c9;color:#fff}
+.dchips{background:#15110f;border:1px solid #3b2a22;box-shadow:inset 0 0 40px #000c;padding:14px;gap:10px}.dchips .platte{background:linear-gradient(135deg,#f4ebd6,#e6d7b6);color:#7a1712;border-top:3px solid #b3251e;box-shadow:0 3px 8px #000b;padding:7px 12px 5px;font-size:15px}.dchips .platte.on{outline:0;background:#b3251e;color:#fff;border-top-color:#fff}

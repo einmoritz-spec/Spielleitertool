@@ -134,16 +134,24 @@ function route(K){
 }
 function karte(K, sel){
   var R = route(K), n = R.order.length; if(!n) return "";
-  var W = Math.max(n, 2), x = {}; R.order.forEach(function(id, i){ x[id] = (i + 0.5) / W * 100; });
   var ts = R.order.map(function(id){ return R.byId[id].tiefe; }).concat(R.V.map(function(v){ return v.tiefe; })).filter(function(t){ return typeof t === "number"; }), t0 = Math.min.apply(null, ts), t1 = Math.max.apply(null, ts), hasS = R.order.some(function(id){ return typeof R.byId[id].tiefe !== "number"; }), rows = t1 - t0 + 1 + (hasS ? 1 : 0);
-  var ROW = 74, H = rows * ROW + 20, y = function(t){ return 14 + ((typeof t === "number" ? t : t1 + 1) - t0) * ROW; };
-  var svg = '<svg class="dsvg" viewBox="0 0 100 ' + H + '" preserveAspectRatio="none">', pts = "";
-  var rowsH = ""; for(var r = t0; r <= t1; r++) rowsH += '<div class="dtl" style="top:' + (y(r) - 4) + 'px">Tiefe ' + r + "</div>"; if(hasS) rowsH += '<div class="dtl" style="top:' + (y("x") - 4) + 'px">Risse</div>';
-  R.V.forEach(function(v){ var a = R.byId[v.von], b = R.byId[v.nach]; if(!a || !b) return; svg += '<line x1="' + x[v.von] + '" y1="' + (y(a.tiefe) + 24) + '" x2="' + x[v.nach] + '" y2="' + (y(b.tiefe) + 24) + '" class="' + (v.express ? "ex" : "") + '"/>'; });
+  var L = 104, ROW = 92, PAD = 26, H = rows * ROW + PAD, STEP = Math.max(190, Math.min(320, ((window.innerWidth || 1400) - 60 - L) / n)), Wd = L + n * STEP;
+  var x = {}; R.order.forEach(function(id, i){ x[id] = L + (i + 0.5) * STEP; });
+  var row = function(t){ return (typeof t === "number" ? t : t1 + 1) - t0; }, y = function(t){ return PAD + row(t) * ROW + ROW / 2; };
+  var bands = ""; for(var r = 0; r < rows; r++) bands += '<div class="drow" style="top:' + (r ? PAD + r * ROW : 0) + "px;height:" + (r ? ROW : ROW + PAD) + "px;background:rgba(150,24,18," + (0.05 + r * 0.07).toFixed(2) + ')"><span>' + (hasS && r === rows - 1 ? "Risse" : "Tiefe " + (t0 + r)) + "</span></div>";
+  var svg = '<svg class="dsvg" width="' + Wd + '" height="' + H + '" viewBox="0 0 ' + Wd + " " + H + '">', dn = "";
+  R.V.forEach(function(v){
+    var a = R.byId[v.von], b = R.byId[v.nach]; if(!a || !b) return;
+    var x1 = x[v.von], y1 = y(a.tiefe), x2 = x[v.nach], y2 = y(b.tiefe), xm = (x1 + x2) / 2, ym = (y1 + y2) / 2;
+    var bogen = Math.abs(R.order.indexOf(v.von) - R.order.indexOf(v.nach)) > 1 && R.order.slice(Math.min(R.order.indexOf(v.von), R.order.indexOf(v.nach)) + 1, Math.max(R.order.indexOf(v.von), R.order.indexOf(v.nach))).some(function(i){ return Math.abs(y(R.byId[i].tiefe) - ym) < 40; });
+    if(bogen){ var yb = Math.min(y1, y2) - 62; svg += '<path d="M' + x1 + " " + y1 + " C" + x1 + " " + yb + "," + x2 + " " + yb + "," + x2 + " " + y2 + '"' + (v.express ? ' class="ex"' : "") + "/>"; ym = (y1 + y2) / 8 + yb * 0.75; }
+    else svg += '<path d="M' + x1 + " " + y1 + " C" + xm + " " + y1 + "," + xm + " " + y2 + "," + x2 + " " + y2 + '"' + (v.express ? ' class="ex"' : "") + "/>";
+    var fertig = (dk().res[v.id] || 0) >= v.res;
+    dn += '<div class="ddelve' + (sel === "d:" + v.id ? " on" : "") + (fertig ? " fertig" : "") + '" style="left:' + xm + "px;top:" + ym + 'px" title="Delve · Resistenz ' + esc(v.res) + '" onclick="go(\'dagger/' + K.n + "/landmarken/d:" + v.id + '\')">' + (fertig ? "✓" : esc(v.res)) + "</div>";
+  });
   svg += "</svg>";
-  var nodes = R.order.map(function(id){ var l = R.byId[id]; return '<div class="dnode' + (sel === id ? " on" : "") + (l.extern ? " ext" : "") + '" style="left:' + x[id] + "%;top:" + y(l.tiefe) + 'px" onclick="' + (l.extern ? "" : "go('dagger/" + K.n + "/landmarken/" + id + "')") + '"><span class="platte">' + esc(l.t) + "</span>" + ((l.extern && l.extern !== true) ? "<small>aus Kapitel " + esc(l.extern) + "</small>" : l.extern ? "<small>aus anderem Kapitel</small>" : "<small>" + esc((l.dom || []).join(", ") + (l.stress ? " · " + l.stress : "")) + "</small>") + "</div>"; }).join("");
-  var dn = R.V.map(function(v){ var a = R.byId[v.von], b = R.byId[v.nach]; if(!a || !b) return ""; var cx = (x[v.von] + x[v.nach]) / 2, cy = (y(a.tiefe) + y(b.tiefe)) / 2 + 20; return '<div class="ddelve' + (sel === "d:" + v.id ? " on" : "") + '" style="left:' + cx + "%;top:" + cy + 'px" onclick="go(\'dagger/' + K.n + "/landmarken/d:" + v.id + '\')">Delve · ' + esc(v.res) + "</div>"; }).join("");
-  return '<div class="dkarte" style="height:' + (H + 16) + 'px"><div class="dkin" style="height:' + H + "px;min-width:" + (n * 215) + 'px">' + rowsH + svg + nodes + dn + "</div></div>";
+  var nodes = R.order.map(function(id){ var l = R.byId[id]; return '<div class="dnode' + (sel === id ? " on" : "") + (l.extern ? " ext" : "") + '" style="left:' + x[id] + "px;top:" + y(l.tiefe) + 'px" onclick="' + (l.extern ? "" : "go('dagger/" + K.n + "/landmarken/" + id + "')") + '"><b>' + esc(l.t) + "</b><small>" + (l.extern ? (l.extern !== true ? "aus Kapitel " + esc(l.extern) : "aus anderem Kapitel") : esc((l.dom || []).join(", ") + (l.stress ? " · " + l.stress : ""))) + "</small></div>"; }).join("");
+  return '<div class="dkarte"><div class="dkin" style="height:' + H + "px;width:" + Wd + 'px">' + bands + svg + nodes + dn + "</div></div>";
 }
 function delveKarte(K, v){
   var used = dk().res[v.id] || 0, d = dk().erg;
@@ -153,7 +161,7 @@ function delveKarte(K, v){
 }
 function lmSeite(l){
   if(!l) return "";
-  var wz = '<div class="dkw"><span><b>Domains:</b> ' + esc((l.dom || []).join(", ")) + "</span><span><b>Tiefe:</b> " + esc(l.tiefeText || l.tiefe) + "</span><span><b>Standard-Stress:</b> " + esc(l.stress || "") + "</span>" + ((l.haunts || []).length ? "<span><b>Haunts:</b> " + (l.haunts || []).map(md).join("; ") + "</span>" : "") + "</div>";
+  var wz = '<div class="dkw"><span><b>Domains:</b> ' + esc((l.dom || []).join(", ")) + "</span><span><b>Tiefe:</b> " + esc(l.tiefeText || (l.tiefe === "risse" ? "Risse" : l.tiefe)) + "</span><span><b>Standard-Stress:</b> " + esc(l.stress || "") + "</span>" + ((l.haunts || []).length ? "<span><b>Haunts:</b> " + (l.haunts || []).map(md).join("; ") + "</span>" : "") + "</div>";
   var re = ((l.ressourcen || []).length ? '<h3 class="h3">Ressourcen</h3><ul class="lst">' + l.ressourcen.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "") + ((l.plots || []).length ? '<h3 class="h3">Mögliche Plots</h3><ul class="lst">' + l.plots.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>" : "");
   return '<div class="dlm seite"><h1 class="h1">' + esc(l.t) + pg(l.p) + "</h1>" + wz + '<div class="dlmc' + (re ? "" : " eins") + '"><div>' + dbild(DART.lm[l.id], l.id === "grinding-halls" ? "breit" : "r") + bls(l.text) + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + bls(u.b); }).join("") + bls(l.regeln) + '</div><div class="dlmr">' + re + "</div></div>" + (l.figuren || []).map(fig).join("") + "</div>";
 }
@@ -203,6 +211,7 @@ VIEWS.dagger = function(a){
 var prev = window.afterRender;
 window.afterRender = function(){
   if(prev) prev();
+  var ka = document.querySelector(".dkarte"), on = ka && ka.querySelector(".dnode.on,.ddelve.on"); if(on) ka.scrollLeft = on.offsetLeft - ka.clientWidth / 2;
   if(/^#dagger/.test(location.hash)){ var rt = document.querySelector(".dkgrid,.dlm,.dkseite"); if(rt) document.querySelectorAll(".dkgrid,.dlm,.dkseite").forEach(handChips); }
   var img = document.querySelector(".brand img"); if(!img) return;
   var d = /^#dagger/.test(location.hash);

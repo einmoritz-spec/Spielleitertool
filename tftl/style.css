@@ -697,3 +697,8 @@ body.flood #tabs a{padding:0 9px}
 /* Header-Knöpfe rechts ohne Umrandung */
 .topbar button,.topbar .tm-book,.topbar .tm-sg,.topbar .tm-gal,.topbar .tb-burger,.topbar [class*="tm-"],.topbar .ib{border:0!important;box-shadow:none!important;outline:0}
 #tabs .tsep{display:none}
+.vm .grp .gh{cursor:pointer;position:relative;padding-right:28px}
+.vm .grp .gh::after{content:"";position:absolute;right:6px;top:50%;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);opacity:.6;transition:transform .2s}
+.vm .grp.zu .gh::after{transform:translateY(-30%) rotate(-45deg)}
+.vm .grp.zu .acc{display:none}
+.vm .grp{margin-bottom:6px}

@@ -29,5 +29,6 @@ window.renderStart = function(el){
     '<div class="vm"><div class="vb">' + VS.sec("Mysterien", lastCard + '<div class="mys">' + window.mysHtml(C.MYSTERIEN || window.MYSTERIEN, st, {compact:true}) + '</div>', more) + '</div></div>';
   setHero(loop);
   window.mysWire(el);
+  el.querySelectorAll(".vm .grp").forEach(function(g){ g.classList.add("zu"); g.querySelector(".gh").onclick = function(){ g.classList.toggle("zu"); }; });
   el.querySelectorAll(".vloop button").forEach(function(b){ b.onclick = function(){ setHero(b.dataset.l); try{ localStorage.setItem(C.ls + "loop", b.dataset.l); }catch(e){} el.querySelectorAll(".vloop button").forEach(function(x){ x.classList.toggle("on", x===b); }); }; });
 };

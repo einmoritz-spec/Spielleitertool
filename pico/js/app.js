@@ -98,6 +98,7 @@ function note(k){
 function penTab(k){ return '<span class="r' + (ST.notes && ST.notes[k] ? ' has' : '') + '" onclick="note(\'' + k + '\')" title="Notizen">' + PEN + '</span>'; }
 /* Seitenleiste + Inhalt */
 function lay(side, body){
+  if(!side) return '<div class="lay solo"><div class="ct">' + body + '</div></div>';
   return '<div class="lay' + (ST.fold ? ' fold-on' : '') + '">' + side + '<button class="fold" onclick="foldSide()">' + (ST.fold ? '›' : '‹') + '</button><div class="ct">' + body + '</div></div>';
 }
 function foldSide(){ ST.fold = !ST.fold; save(); render(); }
@@ -131,11 +132,16 @@ var KACHELN = [
 ];
 function viewStart(){
   var last = ST.last ? ST.last.split("/")[0] : "";
-  var tiles = KACHELN.map(function(k){ return '<button class="ti" style="--c:' + k.c + '" onclick="go(\'' + k.go + '\')"><div class="im" style="background-image:url(' + IMG(k.img) + ')"></div><div class="tx"><h3>' + esc(k.t) + '</h3><p>' + esc(k.s) + '</p><span class="k">' + esc(k.k) + '</span></div></button>'; }).join("");
+  var BILD = {"Die Welt":"kapitel/k01-welt", "Regeln":"kapitel/k02-grundregeln", "Käfer":"kapitel/k06-kaefer-1", "Spielleitung":"kapitel/k09-weber"};
+  var FARBE = {"Die Welt":"var(--teal)", "Regeln":"var(--violet)", "Käfer":"var(--amber)", "Spielleitung":"var(--blue)"};
+  var areas = (window.piAreas ? piAreas() : []).map(function(a){
+    var ls = a[1].length > 1 ? '<nav class="pbl">' + a[1].map(function(x){ return '<a onclick="go(\'' + x[0] + '\')">' + esc(x[1]) + '</a>'; }).join("") + '</nav>' : '';
+    return '<section class="pbx" style="--c:' + FARBE[a[0]] + '"><a class="pbi" onclick="go(\'' + a[1][0][0] + '\')" style="background-image:url(' + IMG(BILD[a[0]]) + ')"><h2>' + esc(a[0]) + '</h2></a>' + ls + '</section>';
+  }).join("");
   var rl = PI_REICHE.map(function(r){ return '<a class="' + (r.id === last ? 'last' : '') + '" style="background-image:url(' + IMG("reich/" + r.id) + ')" onclick="go(\'reich/' + r.id + '\')"><span>' + esc(r.t) + '</span></a>'; }).join("");
-  return '<div class="hero"></div><div class="swrap"><div><div class="sec"><h2 style="font-size:40px">Vorbereitung</h2></div><div class="tiles">' + tiles + '</div>' +
-    '<div style="margin-top:14px"><span class="chip ink" onclick="bogen()">Charakterbogen</span><span class="chip ink" onclick="go(\'streifzug\')">Streifzugbogen</span><span class="chip ink" onclick="go(\'schirm\')">Regelübersicht</span><span class="chip ink" onclick="wOpen()">Würfel</span><span class="chip ink o" onclick="go(\'galerie\')">Galerie</span></div></div>' +
-    '<div class="go"><h2>Losziehen</h2><div class="sub">Die Reiche · Kap. 11</div><div class="rl">' + rl + '</div><div class="sub absub">Abenteuer</div><div class="rl abrl">' + Object.keys(window.PI_AB || {}).map(function(k){ var A = PI_AB[k]; return '<a style="background-image:url(' + IMG(A.img) + ')" onclick="go(\'abenteuer/' + k + '\')"><span>' + esc(A.t) + '</span></a>'; }).join("") + '</div><button class="gef" onclick="go(\'gefahren\')">Winzige Gefahren</button></div></div>';
+  var ab = Object.keys(window.PI_AB || {}).map(function(k){ var A = PI_AB[k]; return '<a style="background-image:url(' + IMG(A.img) + ')" onclick="go(\'abenteuer/' + k + '\')"><span>' + esc(A.t) + '</span></a>'; }).join("");
+  return '<div class="hero"></div><div class="swrap"><div class="pbr">' + areas + '</div>' +
+    '<div class="go"><h2>Losziehen</h2><div class="rl">' + rl + '</div>' + (ab ? '<div class="sub absub">Abenteuer</div><div class="rl abrl">' + ab + '</div>' : '') + '</div></div>';
 }
 function bogen(){ go("bogen/picnic"); }
 
@@ -146,7 +152,7 @@ function setTheme(dark, c, t){
   document.documentElement.style.setProperty("--t", t || "var(--t-teal)");
 }
 function needJS(L){ if(!L.length){ render(); return; } var sc = document.createElement("script"); sc.src = L[0] + "?v=" + Date.now(); sc.onload = sc.onerror = function(){ needJS(L.slice(1)); }; document.body.appendChild(sc); }
-function render(){ CARDS = [];
+function render(){ CARDS = []; window.__nk = ""; window.__pen = "";
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
   setTheme(false);
   if(v === "start") out = viewStart();
@@ -160,7 +166,11 @@ function render(){ CARDS = [];
   else if(v === "abenteuer"){ if(!window.viewAbenteuer || !window.PI_AB){ needJS(["js/data/abenteuer-trueffel.js", "js/data/abenteuer-trueffel-kaefer.js", "js/abenteuer.js"]); return; } out = viewAbenteuer(h[1], h[2], h[3]); }
   else out = viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
-  APP.innerHTML = out; scrollTo(0, same ? y : 0);
+  if(v === "gefahren") window.__nk = "gefahren";
+  var NV = window.piNav ? piNav(window.__nk) : {tabs:"", sub:""};
+  var kt = document.getElementById("ktabs"); if(kt) kt.innerHTML = v === "start" ? "" : NV.tabs;
+  document.body.classList.toggle("mitunter", !!NV.sub);
+  APP.innerHTML = NV.sub + out; scrollTo(0, same ? y : 0);
   if(window.afterRender) afterRender();
 }
 function buildMenu(){

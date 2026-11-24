@@ -417,3 +417,36 @@ body.dark .abdl>div{background:rgba(255,255,255,.06)}
 .kfk img{width:100%;height:210px;object-fit:contain;transition:transform .25s}
 .kfk:hover img{transform:translateY(-4px) scale(1.04)}
 .kfk b{font:400 15px/1.1 var(--head,inherit);letter-spacing:.02em;color:var(--c,#c76f00);text-align:center}
+
+/* ===== Navigation wie bei Heart: Bereiche in der Kopfzeile, aktiver Reiter geht in die Unterleiste über ===== */
+.ktabs{display:flex;align-items:flex-end;align-self:stretch;gap:2px;margin-left:28px;min-width:0}
+.ktabs a{display:flex;align-items:center;height:44px;padding:0 16px;font:22px/1 Baby,sans-serif;color:rgba(255,255,255,.72);cursor:pointer;white-space:nowrap;border-radius:10px 10px 0 0}
+.ktabs a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.ktabs a.on{color:#fff;background:var(--c)}
+#app>.unter{position:sticky;top:56px;z-index:25;display:flex;align-items:center;gap:4px;height:42px;padding:0 22px;background:var(--c);color:#fff}
+#app>.unter a{padding:0 12px;height:42px;display:flex;align-items:center;font:500 14px Rubik,sans-serif;color:rgba(255,255,255,.8);cursor:pointer;white-space:nowrap}
+#app>.unter a:hover{color:#fff}
+#app>.unter a.on{color:#fff;box-shadow:inset 0 -3px 0 #fff}
+#app>.unter .sp{flex:1}
+#app>.unter .r{cursor:pointer;opacity:.7;color:#fff}#app>.unter .r:hover{opacity:1}#app>.unter .r svg{stroke:#fff}
+.side{top:56px;height:calc(100vh - 56px)}
+body.mitunter .side{top:98px;height:calc(100vh - 98px)}
+.fold{top:66px}body.mitunter .fold{top:108px}
+.side{padding-top:10px}
+.side a{font-size:15px;padding:6px 16px 6px 22px}.side a.on{padding-left:18px}
+.lay.solo .ct{width:100%}
+.nnav:first-child{display:none}
+/* Startseite: vier Bereichs-Einstiege + Losziehen */
+.pbr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-content:start}
+.pbx{border:2.5px solid var(--c);border-radius:16px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+.pbi{display:flex;align-items:flex-end;aspect-ratio:16/8;background:center 35%/cover;cursor:pointer;position:relative}
+.pbi:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0) 55%)}
+.pbi h2{position:relative;padding:0 16px 10px;font:40px/1 Baby,sans-serif;color:#fff}
+.pbi:hover{filter:brightness(1.07)}
+.pbl{display:flex;flex-wrap:wrap;gap:6px 8px;padding:12px 14px 14px}
+.pbl a{padding:5px 12px;border-radius:99px;border:2px solid var(--c);color:var(--c);font:500 14px Rubik,sans-serif;cursor:pointer}
+.pbl a:hover{background:var(--c);color:#fff}
+.hero{width:100%;aspect-ratio:1800/560}
+.pbx .pbi{aspect-ratio:16/7}
+.pbx:not(:has(.pbl)) .pbi{aspect-ratio:auto;flex:1;min-height:180px}
+.tabs{height:42px}.tabs a{font-size:21px;padding:8px 13px 6px}

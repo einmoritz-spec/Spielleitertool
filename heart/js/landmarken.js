@@ -10,23 +10,29 @@ function kopf(t){
   var s = ""; (g.intro || []).some(function(b){ var x = typeof b === "string" ? b : (b.t === "p" ? b.x : ""); if(x){ s = x; return true; } return false; });
   s = s.replace(/\*+/g, ""); var m = s.match(/^[^.!?]+[.!?]/); return m ? m[0] : s;
 }
-function item(l){
-  var bl = ((window.HT_BILD || {}).lm || {})[l.id];
-  return '<a class="lmi' + (bl ? " mitbild" : "") + '" onclick="go(\'lm/' + l.id + '\')">' + (bl ? '<img class="lmmini" src="' + IMG(bl) + '" alt="">' : "") + '<div class="n"><b>' + esc(l.t) + '</b><span>' + esc(ks(l.stress)) + " · S. " + l.p + (l.q === "bb" ? ' <em class="bbt">B&amp;B</em>' : "") + "</span></div><div class=\"d\">" + esc((l.dom || []).join(", ")) + "</div></a>";
+function meta(l, bb){
+  var m = (l.dom || []).join(", ");
+  var w = ks(l.stress); if(w) m += (m ? " · " : "") + w;
+  if(bb) m += " · B&B";
+  return '<span class="d">' + esc(m) + "</span>";
+}
+function item(l, pfad, bb){
+  var bl = pfad ? null : ((window.HT_BILD || {}).lm || {})[l.id];
+  return '<a class="lmi' + (bl ? " mitbild" : "") + '" onclick="go(\'' + (pfad || "lm/" + l.id) + '\')">' + (bl ? '<img class="lmmini" src="' + IMG(bl) + '" alt="">' : "") + '<span class="tx"><b>' + esc(l.t) + "</b>" + meta(l, bb === undefined ? l.q === "bb" : bb) + "</span></a>";
 }
 function viewLm(a){
   if(a[0]) return viewLmEinzeln(a[0]);
   var bands = STUFEN.map(function(s){
     var L = lms(s[0]);
     var tb = ((window.HT_BILD || {}).tiefe || {})[s[0]];
-    return '<section class="lmb t' + s[0] + '"><div class="lmk">' + (tb ? '<img class="lmtb" src="' + IMG(tb) + '" alt="">' : "") + "<h2>" + s[1] + "</h2><p>" + esc(kopf(s[0])) + '</p></div><div class="lmg">' + L.map(item).join("") + "</div></section>";
+    return '<section class="lmb t' + s[0] + '"><div class="lmk">' + (tb ? '<img class="lmtb" src="' + IMG(tb) + '" alt="">' : "") + "<h2>" + s[1] + "</h2><p>" + esc(kopf(s[0])) + '</p></div><div class="lmg">' + L.map(function(l){ return item(l); }).join("") + "</div></section>";
   }).join("");
   var herz = '<section class="lmb t4"><div class="lmk"><h2>Tiefe 4</h2><p>Das Heart Itself: ein gleißendes, unbestimmbares Feuer, ein roter, nasser Himmel, der im Zentrum der Stadt unter der Stadt pocht und schlägt.</p></div></section>';
   var seite = SEITE.map(function(s){
-    var g = (window.HT_LMG || {})[s[0]], L = lms(s[0]);
-    return '<div class="lms"><h2>' + s[1] + (g && g.p ? pgl(g.p) : "") + "</h2>" + L.map(function(l){ return '<a class="lmi" onclick="go(\'lm/' + l.id + '\')"><div class="n"><b>' + esc(l.t) + "</b><span>" + esc(ks(l.stress)) + '</span></div><div class="d">' + esc((l.dom || []).join(", ")) + "</div></a>"; }).join("") + "</div>";
+    var L = lms(s[0]);
+    return '<div class="lms"><h2>' + s[1] + "</h2>" + L.map(function(l){ return item(l, null, false); }).join("") + "</div>";
   }).join("");
-  var dl = (window.HT_DELVE || []).length ? '<div class="lms"><h2>Delves</h2>' + HT_DELVE.map(function(d){ return '<a class="lmi" onclick="go(\'lm/d:' + d.id + '\')"><div class="n"><b>' + esc(d.t) + '</b><span>' + esc(ks(d.stress)) + ' · S. ' + d.p + ' <em class="bbt">B&amp;B</em></span></div><div class="d">' + esc((d.dom || []).join(", ")) + "</div></a>"; }).join("") + "</div>" : "";
+  var dl = (window.HT_DELVE || []).length ? '<div class="lms"><h2>Delves</h2>' + HT_DELVE.map(function(d){ return item(d, "lm/d:" + d.id, true); }).join("") + "</div>" : "";
   return nav("") + '<div class="lmwrap"><div class="lmhaupt">' + bands + herz + '</div><aside class="lmseite">' + seite + dl + "</aside></div>";
 }
 function nav(cur){ return window.spielNav(cur ? "" : "lm"); }

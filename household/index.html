@@ -3,22 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280, viewport-fit=cover">
-<meta name="theme-color" content="#34502b">
+<meta name="theme-color" content="#35203b">
 <title>Household</title>
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" type="image/png" href="../icons/icon-192.png">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
-<link rel="stylesheet" href="../shared/sysstart.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="topbar">
+  <button class="brand" onclick="go('start')" aria-label="Household"><img src="../assets/logos/household.webp" alt="Household"></button>
+  <nav class="ktabs" id="ktabs"></nav>
+  <div class="topbar-spacer"></div>
+  <button class="ib tb-burger" onclick="openMenu(true)" aria-label="Menü" title="Menü"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP"></div>
 <script src="sys.js"></script>
+<script src="js/data/nav.js"></script>
 <script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
-<script src="../shared/sysstart.js"></script>
+<script src="js/app.js"></script>
 <script src="../shared/gsuche.js"></script>
 <script src="js/suche.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"hh_r1", books:SYS.groups.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")"}; })); },[]), openSettings:function(){ openMenu(true); } });
+render();</script>
 <script src="../shared/masonry.js" defer></script>
 <script src="../toolmenu.js"></script>
+<script>try{localStorage.setItem("gm_tool_mode_v1","household");}catch(e){}</script>
+<script src="../shared/seitenleiste.js"></script>
 </body>
 </html>

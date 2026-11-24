@@ -145,7 +145,7 @@ Aufräumen beim Bau: Tapetenstücke hinter den Saga-Figuren (z. B. fp-s018-…, 
 ## 7. Bauschritte (Vorschlag, auf Moritz’ „Ja“ je Schritt)
 0. Bildlisten (Abschnitt 6, Schritt 1) fertig; Entscheidungen stehen oben
 1. **Design + Mockups (Opus):** Startseite, Welt/Haus/Atlas, Regeln, Spielleitung, Garten, Saga-Übersicht, Abenteuer-Leitstand, Charakter – erst nach Moritz’ Startschuss
-2. Gerüst, Logo, Dropdown, Kopfzeile, Tastenkürzel, Buch-Auswahl (PDF-Upload), Galerie-Gerüst
+2. ✅ **Gerüst gebaut (25. Nov. 2026):** `household/` mit `index.html`, `style.css`, `sys.js` (Bücherliste), `js/app.js` (Router `#<reiter>/<unter>/<umschalter>/<eintrag>`, `#g/…` Garten, `#fp|#lw` Sagas), `js/data/nav.js` (Reiter → Unterleiste → Seitenleiste), Dropdown-Eintrag „Der Garten“ in `toolmenu.js`, Tastenkürzel, Buch-Knopf/PDF-Upload; Inhalte kommen über `HH_INH["<modus>/<reiter>/<unter>[/<umschalter>]"] = function(P){…}`, bis dahin Platzhalter. Galerie-Gerüst und Startseite A folgen
 3. Grundbuch: Völker, Berufe, Regeln, Verträge, Ausrüstung, Geschichte
 4. Grundbuch: Das Haus (Räume), Gegner, Anhang
 5. Practical Guide: Nationen, Mysterien, Atlas, neue Charaktere

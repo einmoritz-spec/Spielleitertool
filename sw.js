@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v901sq";
+const VERSION = "v902sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1314,6 +1314,11 @@ const FILES = [
   "assets/fonts/alegreya-sc-latin-700-normal.woff2",
   "household/index.html",
   "household/sys.js",
+  "household/style.css",
+  "household/js/app.js",
+  "household/js/data/nav.js",
+  "household/img/deko/papier-kachel.jpg",
+  "household/img/deko/papier-garten-kachel.jpg",
   "moerkborg/index.html",
   "moerkborg/style.css",
   "moerkborg/js/app.js",

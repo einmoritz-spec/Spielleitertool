@@ -110,6 +110,13 @@ Alles, was im Buch Kasten/Karte ist (Gegner, Gegenstände, Verträge, Mysterien,
 5. Galerie pro Buch (Kachelraster, Großansicht mit Pfeiltasten); Schlüssel eintragen.
 6. Vor jedem Push per Screenshot prüfen (Lücken, schiefe/abgeschnittene Bilder, weiße Ränder).
 
+### 6a. Fertige Bilder (Stand 24. Nov. 2026)
+- Liegen unter `household/img/<kz>/{full,thumb}/` (kz = grundbuch, guide, garten, fp, lw), 579 Dateien, ca. 147 MB. Namen `<kz>-s<seite>[-<seite2>]-<slug>[-ganz].webp`. Full: lange Kante max. 1600 px, Doppelseiten 1900 px, Karten/Atlas/Hauspläne 2200 px; Thumb 360 px. Englische Beschriftung in den Karten bleibt (Entscheidung Moritz).
+- Bilder, die über den Falz laufen, sind aus den PDF-Seiten selbst zusammengesetzt (Seiten ohne Text, Hintergrund und andere Bilder rendern, an der Seitenkante abschneiden, nebeneinanderlegen). Eine Platzierung nach Bildrahmen ist falsch, weil die Bilder im PDF leicht gedreht sind. Endung `-ganz`.
+- Tapeten, Papier und Banner sind Seitendeko und kommen nie in die Sammlung.
+- Hundertfüßer Grundbuch S.300/301: zwei einzelne Gegner („Giant Centipede's Tail“ S.300, „Giant Centipede“ S.301); im Tool beide schön zusammen auf einer Seite anzeigen, Doppelseiten-Bild bleibt das gemeinsame Bild.
+- Offen: feinere Zuordnung Bild → Figur/Gegner/Raum (TSV `zuordnung` nur auf Kapitelebene); Bilder aus mehreren übereinanderliegenden Ebenen nur von Hand (z. B. Garten S.308).
+
 ## 7. Bauschritte (Vorschlag, auf Moritz’ „Ja“ je Schritt)
 0. Bildlisten (Abschnitt 6, Schritt 1) fertig; Entscheidungen stehen oben
 1. **Design + Mockups (Opus):** Startseite, Welt/Haus/Atlas, Regeln, Spielleitung, Garten, Saga-Übersicht, Abenteuer-Leitstand, Charakter – erst nach Moritz’ Startschuss

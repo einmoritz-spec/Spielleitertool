@@ -1,23 +1,18 @@
 pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 1	-1	438	458	Umschlag/Vorspann	
-1	-1	2324	3042	Umschlag/Vorspann	
 1	-1	2324	3042	Umschlag/Vorspann	ganzseitig
-5	3	2473	2778	Umschlag/Vorspann	
 5	3	2473	2778	Umschlag/Vorspann	ganzseitig
 6	4	341	340	Umschlag/Vorspann	
 6	4	1160	799	Umschlag/Vorspann	
 7	5	1774	1327	Umschlag/Vorspann	
 10	8	2559	1228	The Historian’s Club	
-12	10	2835	2130	Historical Time-line	
 12	10	2835	2130	Historical Time-line	ganzseitig
-13	11	2834	2130	Historical Time-line	
 13	11	2834	2130	Historical Time-line	ganzseitig
 14	12	2019	2645	Historical Time-line	ganzseitig
 16	14	2384	2017	Figur: Dimitri Sokov	
 17	15	816	2017	Figur: Dimitri Sokov	
 18	16	1754	1877	Figur: Ira Poole	
 20	18	1336	862	Figur: Jemma Reed	
-20	18	2600	2183	Figur: Jemma Reed	
 20	18	2600	2183	Figur: Jemma Reed	ganzseitig
 22	20	1467	862	Figur: Tubo	
 22	20	1961	1802	Figur: Tubo	
@@ -50,13 +45,9 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 66	64	1074	1664	Adventures in the Saga	
 66	64	2559	1284	Adventures in the Saga	
 70	68	2019	2645	Adventures in the Saga	ganzseitig
-73	71	2555	1864	I: Argo’s Diary	
 73	71	2555	1864	I: Argo’s Diary	ganzseitig
 74	72	1200	1278	I: Argo’s Diary	
-76	74	2024	2660	I: Argo’s Diary	
-76	74	2024	2660	I: Argo’s Diary	
 76	74	2024	2660	I: Argo’s Diary	ganzseitig
-81	79	3112	2613	I: The Epidemic	
 81	79	3112	2613	I: The Epidemic	ganzseitig
 82	80	2167	1810	I: The Epidemic	
 87	85	2496	3330	I: The Epidemic	ganzseitig
@@ -64,19 +55,15 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 89	87	2559	1704	I: The Case of the Missing Bumblebee	
 92	90	2053	2396	I: The Case of the Missing Bumblebee	
 97	95	1584	2316	I: The Stolen Shipment	
-98	96	3508	2914	I: The Stolen Shipment	
 98	96	3508	2914	I: The Stolen Shipment	ganzseitig, Doppelseite? (zusammensetzen prüfen)
-99	97	3508	2914	I: The Stolen Shipment	
 99	97	3508	2914	I: The Stolen Shipment	ganzseitig, Doppelseite? (zusammensetzen prüfen)
 106	104	1809	2067	I: The Wax Trap	
 107	105	1472	2011	I: The Wax Trap	
 109	107	1030	1014	I: The Wax Trap	
 111	109	2645	3358	I: The Wax Trap	ganzseitig
-113	111	3556	2743	I: The Blue Rat	
 113	111	3556	2743	I: The Blue Rat	ganzseitig
 114	112	1393	1634	I: The Blue Rat	
 116	114	1573	1925	I: The Blue Rat	
-117	115	2403	3094	I: The Blue Rat	
 117	115	2403	3094	I: The Blue Rat	ganzseitig
 120	118	2503	3236	I: The Blue Rat	ganzseitig, Doppelseite? (zusammensetzen prüfen)
 121	119	2503	3236	I: The Blue Rat	ganzseitig, Doppelseite? (zusammensetzen prüfen)

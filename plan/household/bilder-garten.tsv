@@ -1,5 +1,4 @@
 pdf_seite	buch_seite	breite	hoehe	zuordnung	art
-1	-1	1755	2258	Umschlag/Vorspann	
 1	-1	1755	2258	Umschlag/Vorspann	ganzseitig
 4	2	499	414	Umschlag/Vorspann	
 8	6	1706	2207	Umschlag/Vorspann	ganzseitig, Doppelseite? (zusammensetzen prüfen)
@@ -27,16 +26,12 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 39	37	654	1040	II. Berufe: Einleitung	
 39	37	1706	1099	II. Berufe: Einleitung	
 39	37	1706	1668	II. Berufe: Einleitung	
-41	39	1700	2206	II. Soldiers	
 41	39	1700	2206	II. Soldiers	ganzseitig
 45	43	1707	2207	II. Soldiers	ganzseitig
-49	47	1706	2190	II. Hunters	
 49	47	1706	2190	II. Hunters	ganzseitig
 53	51	1707	2207	II. Hunters	ganzseitig
-57	55	1706	2202	II. Duelists	
 57	55	1706	2202	II. Duelists	ganzseitig
 61	59	1706	2207	II. Duelists	ganzseitig
-65	63	1690	2147	II. Animal Handlers	
 65	63	1690	2147	II. Animal Handlers	ganzseitig
 68	66	933	908	II. Frog	
 69	67	1004	984	II. Ladybug	
@@ -46,7 +41,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 81	79	1240	2207	III. Hereditary Contracts	
 83	81	1275	2206	III. Hereditary Contracts	
 85	83	1252	2206	III. Hereditary Contracts	
-93	91	1703	2206	III. Favors	
 93	91	1703	2206	III. Favors	ganzseitig
 98	96	654	1378	IIII. Coins & Barter	
 100	98	1072	1572	IIII. Weapons	
@@ -128,7 +122,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 221	219	1576	1788	VII. The Rushes	
 222	220	1010	2155	VII. The Rushes	
 223	221	654	1457	VII. The Rushes	
-225	223	1703	2207	VII. The Rushes	
 225	223	1703	2207	VII. The Rushes	ganzseitig
 226	224	654	1528	VII. The Rushes	
 227	225	1088	1672	VII. The Rushes	
@@ -139,7 +132,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 235	233	1541	1942	VII. The Rushes	
 236	234	564	795	VII. Four Oaks	
 241	239	1608	1142	VIII. Travel	
-243	241	1704	2207	VIII. Travel	
 243	241	1704	2207	Reisekarte des Gartens (The Outhold)	Karte
 245	243	1222	1307	VIII. Travel	
 250	248	1550	1921	VIII. Travel	
@@ -153,7 +145,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 272	270	1706	1003	VIII. Summer	
 273	271	654	1210	VIII. Summer	
 275	273	1501	1211	VIII. Autumn	
-278	276	1704	2207	VIII. Autumn	
 278	276	1704	2207	VIII. Autumn	ganzseitig
 281	279	654	838	Anhang: Opponent Traits	
 282	280	1706	1169	Anhang: Opponents	

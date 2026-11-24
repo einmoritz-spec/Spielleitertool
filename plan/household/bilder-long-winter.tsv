@@ -1,6 +1,5 @@
 pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 1	-1	1564	2207	Umschlag/Vorspann	
-4	2	1703	2207	Umschlag/Vorspann	
 4	2	1703	2207	Umschlag/Vorspann	ganzseitig
 5	3	499	414	Umschlag/Vorspann	
 9	7	1246	2206	Umschlag/Vorspann	
@@ -86,7 +85,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 181	179	1706	1132	Epilog Winter	
 183	181	654	1062	Epilog Winter	
 183	181	1500	1375	Epilog Winter	
-185	183	1707	2157	Epilog Winter	
 185	183	1707	2157	Epilog Winter	ganzseitig
 186	184	393	818	Epilog Winter	
 186	184	1707	481	Epilog Winter	

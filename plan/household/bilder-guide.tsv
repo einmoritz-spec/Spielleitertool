@@ -13,32 +13,25 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 19	17	2539	1597	I. Realm Politics	
 20	18	2596	3356	I. Realm Politics	ganzseitig
 21	19	987	1560	I. Realm Politics	
-23	21	2988	1800	I. Mystery Zlad of Wall-lachia	
 23	21	2988	1800	I. Mystery Zlad of Wall-lachia	ganzseitig
 26	24	2567	1658	I. Armed Forces of the Realm	
 27	25	2639	1658	I. Armed Forces of the Realm	
 30	28	2907	3766	I. Armed Forces of the Realm	ganzseitig
 34	32	1022	2276	I. Armed Forces of the Realm	
 40	38	1761	3003	I. Life in the Realm	
-41	39	3627	2245	I. Life in the Realm	
 41	39	3627	2245	I. Life in the Realm	ganzseitig
-42	40	2487	1842	I. Life in the Realm	
 42	40	2487	1842	I. Life in the Realm	ganzseitig
 43	41	2399	1943	I. Life in the Realm	
 46	44	1303	1188	I. Institutions of the Realm	
 47	45	1168	1186	I. Institutions of the Realm	
-49	47	2632	2567	I. Institutions of the Realm	
 49	47	2632	2567	I. Institutions of the Realm	ganzseitig
-50	48	3113	2069	I. Institutions of the Realm	
 50	48	3113	2069	I. Institutions of the Realm	ganzseitig
 53	51	2555	1349	I. The Kitchen	
 55	53	929	1233	I. The Kitchen	
 56	54	1443	1575	II. Hearth: Einleitung	
 58	56	2559	3309	Hausplan Erdgeschoss (Doppelseite links)	Karte
 59	57	2559	3309	Hausplan Erdgeschoss (Doppelseite rechts)	Karte
-62	60	2700	2120	II. Hearth Politics	
 62	60	2700	2120	II. Hearth Politics	ganzseitig
-63	61	2682	1885	II. Hearth Politics	
 63	61	2682	1885	II. Hearth Politics	ganzseitig
 68	66	2451	1533	II. Armed Forces of the Hearth	
 69	67	2524	1533	II. Armed Forces of the Hearth	
@@ -48,19 +41,15 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 78	76	1500	2485	II. The Church of Safekeeping	
 83	81	864	1453	II. Life in the Hearth	
 85	83	2401	1779	II. Life in the Hearth	
-87	85	2542	2411	II. Institutions of the Hearth	
 87	85	2542	2411	II. Institutions of the Hearth	ganzseitig
 89	87	1968	1419	II. Institutions of the Hearth	
 90	88	1541	2209	II. Institutions of the Hearth	
 93	91	2113	1806	II. Institutions of the Hearth	
-95	93	3662	2440	II. Institutions of the Hearth	
 95	93	3662	2440	II. Institutions of the Hearth	ganzseitig
 98	96	1308	1236	III. Free Dominions: Einleitung	
 100	98	2559	3309	Hausplan Obergeschoss (Doppelseite links)	Karte
 101	99	2559	3309	Hausplan Obergeschoss (Doppelseite rechts)	Karte
-104	102	2951	2081	III. Politics of the Free Dominions	
 104	102	2951	2081	III. Politics of the Free Dominions	ganzseitig, Doppelseite? (zusammensetzen prüfen)
-105	103	2951	2081	III. Politics of the Free Dominions	
 105	103	2951	2081	III. Politics of the Free Dominions	ganzseitig, Doppelseite? (zusammensetzen prüfen)
 108	106	2417	1608	III. Armed Forces of the Free Dominions	
 109	107	2421	1608	III. Armed Forces of the Free Dominions	
@@ -72,15 +61,12 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 120	118	702	765	III. Institutions of the Free Dominions	
 121	119	621	837	III. Institutions of the Free Dominions	
 123	121	2676	3463	III. Institutions of the Free Dominions	ganzseitig
-125	123	2722	2570	III. Institutions of the Free Dominions	
 125	123	2722	2570	III. Institutions of the Free Dominions	ganzseitig
 126	124	1638	3602	III. Institutions of the Free Dominions	
 127	125	1690	3493	III. Institutions of the Free Dominions	
 129	127	2151	1851	III. Mystery The Mechanical Wonder	
-132	130	2487	1842	III. Life in the Free Dominions	
 132	130	2487	1842	III. Life in the Free Dominions	ganzseitig
 133	131	2399	1970	III. Life in the Free Dominions	
-135	133	1807	3774	III. Argo’s Legacy	
 135	133	1807	3774	III. Argo’s Legacy	ganzseitig
 139	137	2555	1393	III. The Smaller Bedroom	
 141	139	1209	1466	III. The Smaller Bedroom	
@@ -92,7 +78,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 150	148	1814	1278	IIII. Horde Politics	
 152	150	2561	1287	IIII. Idol Worship	
 153	151	2556	1430	IIII. Idol Worship	
-159	157	2451	1842	IIII. Life in the Horde	
 159	157	2451	1842	IIII. Life in the Horde	ganzseitig
 165	163	2555	3310	IIII. Life in the Horde	ganzseitig
 168	166	2532	1726	IIII. Armed Forces of the Horde	

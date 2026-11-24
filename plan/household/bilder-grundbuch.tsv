@@ -11,7 +11,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 12	10	1446	1607	Vorwort	
 14	12	1331	1882	Vorwort	
 17	15	2753	3560	Vorwort	ganzseitig
-19	17	3282	2124	I. Faeries	
 19	17	3282	2124	I. Faeries	ganzseitig
 20	18	1240	2152	I. Faeries	
 21	19	992	1623	I. Realm	
@@ -27,21 +26,17 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 33	31	992	1728	I. Free Dominions	
 33	31	1496	2176	I. Free Dominions	
 34	32	1695	2069	I. Free Dominions	
-36	34	3143	2654	I. Sluagh	
 36	34	3143	2654	I. Sluagh	ganzseitig
-37	35	3454	2654	I. Sluagh	
 37	35	3454	2654	I. Sluagh	ganzseitig
 38	36	1528	2200	I. Sluagh	
 39	37	992	1344	I. Horde	
 39	37	1509	2637	I. Horde	
 41	39	1154	2174	I. Horde	
-42	40	1937	2564	I. Horde	
 42	40	1937	2564	I. Horde	ganzseitig
 44	42	1742	3200	II. Charakter	
 45	43	1267	2602	II. Charakter	
 48	46	1968	1244	II. Charakter	
 53	51	3211	3863	II. Charakter	ganzseitig
-57	55	2552	3035	III. Scholars	
 57	55	2552	3035	III. Scholars	ganzseitig
 61	59	2767	3640	III. Scholars	ganzseitig
 65	63	3338	4188	III. Scholars	ganzseitig
@@ -53,18 +48,13 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 79	77	1573	1878	III. Mouse	
 80	78	1296	1594	III. Traits	
 81	79	3141	4069	III. Traits	ganzseitig
-84	82	2480	2377	III. Traits	
 84	82	2480	2377	III. Traits	ganzseitig
 86	84	1472	1070	IIII. Regeln: Einleitung	
-87	85	2365	3508	IIII. Regeln: Einleitung	
 87	85	2365	3508	IIII. Regeln: Einleitung	ganzseitig
-89	87	3128	2137	IIII. Action Rolls	
 89	87	3128	2137	IIII. Action Rolls	ganzseitig
-92	90	3346	2124	IIII. Action Rolls	
 92	90	3346	2124	IIII. Action Rolls	ganzseitig
 94	92	1219	1728	IIII. Action Rolls	
 98	96	3759	4861	IIII. Action Rolls	ganzseitig
-100	98	3536	2848	IIII. Stress	
 100	98	3536	2848	IIII. Stress	ganzseitig
 102	100	959	1426	IIII. Fields & Skills	
 103	101	874	1236	IIII. Fields & Skills	
@@ -82,9 +72,7 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 128	126	3086	1442	IIII. Conditions & Decorum	
 135	133	2463	3405	IIII. Conditions & Decorum	ganzseitig
 137	135	1734	3582	V. Hereditary Contracts	
-139	137	2106	3549	V. Hereditary Contracts	
 139	137	2106	3549	V. Hereditary Contracts	ganzseitig
-141	139	2235	3164	V. Hereditary Contracts	
 141	139	2235	3164	V. Hereditary Contracts	ganzseitig
 144	142	3137	4056	V. Hereditary Contracts	ganzseitig
 154	152	1368	772	VI. Wealth	
@@ -98,18 +86,14 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 165	163	3334	1629	VI. Weapons	
 166	164	2016	1464	VI. Weapons	
 167	165	2232	953	VI. Weapons	
-168	166	1854	2404	VI. Weapons	
 168	166	1854	2404	VI. Weapons	ganzseitig
 172	170	2679	3467	VI. Weapons	ganzseitig
 174	172	1491	1741	VII. First Household War	
 175	173	2559	3309	VII. First Household War	ganzseitig
 177	175	2019	1525	VII. Battle of Quillwaters	
-178	176	2453	3172	VII. Battle of Quillwaters	
 178	176	2453	3172	VII. Battle of Quillwaters	ganzseitig
-179	177	2454	3172	VII. Battle of Quillwaters	
 179	177	2454	3172	VII. Battle of Quillwaters	ganzseitig
 182	180	1135	2144	VII. High Council	
-183	181	2884	1861	VII. High Council	
 183	181	2884	1861	VII. High Council	ganzseitig
 184	182	821	1147	VII. High Council	
 187	185	2662	3442	VII. High Council	ganzseitig
@@ -134,7 +118,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 224	222	1030	1459	IX. Dining Hall	
 226	224	3254	4208	IX. Dining Hall	ganzseitig
 228	226	1425	2016	IX. Dining Hall	
-231	229	2458	3185	IX. Dining Hall	
 231	229	2458	3185	IX. Dining Hall	ganzseitig
 232	230	2503	3236	IX. Dining Hall	ganzseitig, Doppelseite? (zusammensetzen prüfen)
 233	231	2503	3236	IX. Dining Hall	ganzseitig, Doppelseite? (zusammensetzen prüfen)
@@ -161,7 +144,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 273	271	2661	3442	IX. Basement	ganzseitig
 274	272	2330	1298	IX. Basement	
 276	274	2777	3591	IX. Basement	ganzseitig
-279	277	2559	1919	Anhang I: Einleitung	
 279	277	2559	1919	Anhang I: Einleitung	ganzseitig
 282	280	2166	1263	Anhang I: Weak Spots	
 283	281	2171	1263	Anhang I: Weak Spots	
@@ -174,11 +156,9 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung	art
 297	295	1520	2011	Anhang I: Opponents	
 298	296	1838	1561	Anhang I: Opponents	
 300	298	2032	3048	Anhang I: Opponents	ganzseitig
-301	299	3380	2237	Anhang I: Opponents	
 301	299	3380	2237	Anhang I: Opponents	ganzseitig
 302	300	2406	1654	Anhang I: Opponents	
 303	301	2407	1653	Anhang I: Opponents	
-304	302	2628	2014	Anhang I: Opponents	
 304	302	2628	2014	Anhang I: Opponents	ganzseitig
 309	307	1441	1932	Anhang II: Pride & Prejudice & Centipedes	
 310	308	1251	1652	Anhang II: Pride & Prejudice & Centipedes	

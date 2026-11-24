@@ -22,7 +22,7 @@ jobs:
       - name: Seite ohne Quellen und Planung zusammenstellen
         run: |
           mkdir _site
-          rsync -a --exclude='.git' --exclude='.github' --exclude='quellen' --exclude='plan' --exclude='_site' ./ _site/
+          rsync -a --exclude='.git' --exclude='.github' --exclude='quellen' --exclude='plan' --exclude='CLAUDE.md' --exclude='_site' ./ _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

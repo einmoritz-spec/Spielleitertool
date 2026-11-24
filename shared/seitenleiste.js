@@ -1,7 +1,7 @@
 /* Taste „<“ (Windows-Tastatur, links neben Y): Seitenleiste in jedem System ein-/ausklappen.
    Klickt den vorhandenen Einklapp-Knopf des Systems; sonst die system-eigene Taste „b“. */
 (function(){
-  var SEL = ".pathrail-toggle,.zubtn,.orail-x,.fold-b,.rgz,.sbx[onclick],.col[aria-label*='Seitenleiste']";
+  var SEL = "#nsT,.side .fold,.fold.fx,.ruecken .zubtn,.pathrail-toggle,.zubtn,.orail-x,.fold-b,.rgz,.sbx[onclick],.col[aria-label*='Seitenleiste']";
   document.addEventListener("keydown", function(e){
     if(e.ctrlKey || e.metaKey || e.altKey || e.defaultPrevented) return;
     if(e.key !== "<" && e.code !== "IntlBackslash") return;

@@ -312,7 +312,30 @@
     var el = L[j]; el.click(); if(mem){ last = el; lastH = location.hash; setTimeout(function(){ lastH = location.hash; var M = sideBar(); if(M){ var t = el.textContent; last = M.filter(function(x){ return x.textContent === t; })[0] || null; } }, 120); }
     return true;
   }
+  /* Kopfzeilen-Reiter: Links in der Kopfzeile, sonst die Hauptleiste direkt darunter */
+  function headBar(){
+    var top = document.querySelector(".topbar,header"); if(!top) return null;
+    var tb = top.getBoundingClientRect().bottom;
+    var L = Array.prototype.filter.call(document.querySelectorAll("a,[onclick],button"), function(e){ if(!vis(e) || e.closest(".brand,.mm-panel") || e.textContent.trim().length < 3) return false; var q = e.getBoundingClientRect(); return q.top >= 0 && q.bottom <= tb + 2; })
+      .sort(function(a, b){ return a.getBoundingClientRect().left - b.getBoundingClientRect().left; });
+    if(L.length >= 2) return L;
+    var best = null;
+    document.querySelectorAll("nav,div,ul").forEach(function(b){
+      if(best || b.closest(".topbar,header,.modal,.mm-panel")) return;
+      var r = b.getBoundingClientRect(); if(r.top < tb - 2 || r.top > tb + 10 || r.height > 70 || r.width < innerWidth * .3) return;
+      var M = items(b, "h"); if(M.length >= 2) best = M;
+    });
+    return best;
+  }
   window.addEventListener("keydown", function(e){
+    if((e.ctrlKey || e.metaKey) && !e.altKey && !e.shiftKey && (e.key === "ArrowLeft" || e.key === "ArrowRight")){
+      if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || (e.target && e.target.isContentEditable)) return;
+      var H = headBar(); if(!H) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      var d = e.key === "ArrowRight" ? 1 : -1, i = -1; H.forEach(function(x, k){ if(isOn(x) && i < 0) i = k; });
+      var j = i < 0 ? (d > 0 ? 0 : H.length - 1) : i + d; if(j >= 0 && j < H.length) H[j].click();
+      return;
+    }
     if(e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
     if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || (e.target && e.target.isContentEditable)) return;
     if(document.querySelector(".modal,.gzoom,.mm-panel.on,.bv-open")) return;

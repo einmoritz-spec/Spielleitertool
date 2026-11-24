@@ -656,3 +656,32 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 .dkz2.fuss{width:min(440px,100%);margin:52px 0 18px 40px}.dkz2.fuss .dkp{height:178px;background-image:url(img/dagger/zettel/gars-grau-fuss.webp);transform:rotate(-1.2deg);color:#1c1c24;font-size:29px;font-style:italic;line-height:1.05}.dkz2.fuss .dkp span{padding:14px 10% 0 12%}
 .dkz2 .dkl{position:absolute;left:-40px;top:-40px;width:150px;height:62px;background:url(img/dagger/zettel/gars-etikett.webp) center/100% 100% no-repeat;transform:rotate(-8deg);display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#2b1d14;padding-top:3px;box-sizing:border-box}
 .dkz2 .dkt{position:absolute;right:-10px;bottom:-14px;width:100px;height:70px;background:url(img/dagger/zettel/gars-klebe.webp) center/contain no-repeat;transform:rotate(8deg)}
+/* Charakterbogen (Original-Bogen, ausfüllbar) */
+.bgw{padding:0 0 40px}
+.bgbar{position:sticky;top:var(--kopf-h);z-index:15;display:flex;align-items:center;gap:14px;padding:9px 20px;background:#0d0804;border-bottom:1px solid #2a2118}
+.bgch{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:0}
+.bgch a{font:400 14px/1 "HT BoldSans",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#cbbba6;padding:8px 12px;border:1px solid #3a2e22;cursor:pointer}
+.bgch a.on{background:#8a1d1d;border-color:#8a1d1d;color:#fff}
+.bgch a.neu{border-style:dashed;color:#9c8a76}
+.bga{display:flex;gap:6px}
+.bga button{font:400 14px/1 "HT BoldSans",sans-serif;letter-spacing:.07em;text-transform:uppercase;background:#f2e9da;color:#2b1d14;border:0;padding:9px 14px;cursor:pointer}
+.bga button:hover{background:#fff}
+.bga button.weg{background:transparent;color:#9c8a76;border:1px solid #3a2e22}
+.bga button:disabled{opacity:.6;cursor:wait}
+.bgseiten{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:1640px;margin:0 auto;padding:22px 20px}
+@media(max-width:900px){.bgseiten{grid-template-columns:minmax(0,1fr)}}
+.bgs{position:relative;aspect-ratio:612/792;background:#fff center/100% 100% no-repeat;container-type:inline-size;box-shadow:0 8px 26px #000b}
+.bgf{position:absolute;box-sizing:border-box;margin:0;padding:0 .1634cqw;border:0;background:transparent;color:#1a1410;font-family:Alegreya,serif;line-height:1.2;outline:none;border-radius:2px;transition:background .15s}
+textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cqw 0;line-height:1.633}
+.bgf:hover{background:rgba(138,29,29,.06)}
+.bgf:focus{background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(138,29,29,.35)}
+.bgx{position:absolute;cursor:pointer;border-radius:1px}
+.bgx:hover{background:rgba(138,29,29,.14)}
+.bgx.an:before,.bgx.an:after{content:"";position:absolute;left:-8%;top:50%;width:116%;height:13%;background:#1a1410;border-radius:1px}
+.bgx.an:before{transform:translateY(-50%) rotate(45deg)}.bgx.an:after{transform:translateY(-50%) rotate(-45deg)}
+.bgcam{position:absolute;width:2.6cqw;height:2.6cqw;cursor:pointer;opacity:.35;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b0b0c' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E")}
+.bgcam:hover{opacity:1}
+.bgbild{position:absolute;display:flex;align-items:center;justify-content:center}
+.bgbild img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 1px 4px #0004}
+.bgbild s{position:absolute;right:-1cqw;top:-1cqw;width:3cqw;height:3cqw;border-radius:50%;background:#1a1410;color:#fff;text-decoration:none;font:400 2.4cqw/3cqw sans-serif;text-align:center;cursor:pointer;opacity:0;transition:opacity .15s}
+.bgbild:hover s{opacity:.85}

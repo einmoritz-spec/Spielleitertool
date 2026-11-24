@@ -175,14 +175,15 @@
   function extras(C, gi){
     var tl = ((window.BEREICHE[C.area] || {}).tabs || []).map(function(t){ return t[0]; }), out = [];
     if(gi === 0 && tl.indexOf("karte") >= 0) out.push(["Karte", "karte", "karte"]);
-    if(C.area !== "es" && gi === 1 && tl.indexOf("kids") >= 0) out.push(["Meine " + ((C.L && C.L.kids) || "Kids"), "kids", "kids"]);
-    if(C.area !== "es" && gi === 2 && tl.indexOf("mysterien") >= 0) out.push(["Mysterien", "mysterien", "mysterien"]);
+    if(C.area !== "es" && gi === 1 && tl.indexOf("kids") >= 0) out.push([(C.L && C.L.kids) || "Kids", "kids", "kids"]);
+    if(C.area !== "es" && gi === 2 && tl.indexOf("mysterien") >= 0) out.push(["Abenteuer", "mysterien", "mysterien"]);
     return out;
   }
   window.TX_ITEMS = function(C, gi, tab, setKey, page){
     var g = window.TX_G(C)[gi]; if(!g) return "";
     var nm2 = {}; (C.NACH || []).forEach(function(n){ nm2[n[0]] = KURZ[n[1]] || n[1]; });
     var ND = C.NACHDATA || window.NACHDATA, SETS = C.SETS || SETS0, it = [];
+    if(C.area !== "es" && nm2.kids) nm2.kids = "Typen";
     g.keys.forEach(function(k){
       var ss = (SETS[k] || []).filter(function(x){ return ND && ND[x]; });
       if(C.area === "tftl" && k === "loops" && ss.length > 1) ss.forEach(function(x){ it.push([SETLBL[x] || x, "nach/loops/" + x + "/" + ND[x].abschnitte[0].id, !page && tab === "loops" && setKey === x]); });

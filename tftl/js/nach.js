@@ -171,33 +171,38 @@
     return out;
   };
   var SETLBL = {schweden:"Schweden", us:"USA", de80:"Deutschland", taunus:"Taunus", broads:"Norfolk Broads"};
-  window.TX_WELT = function(C, tab, setKey, karte){
-    var g = window.TX_G(C)[0]; if(!g) return "";
+  /* Einträge der Unterleiste eines Bereichs: Kapitel, bei Tales from the Loop die Loops einzeln, dazu Werkzeug-Seiten (Karte, Kids, Mysterien) */
+  function extras(C, gi){
+    var tl = ((window.BEREICHE[C.area] || {}).tabs || []).map(function(t){ return t[0]; }), out = [];
+    if(gi === 0 && tl.indexOf("karte") >= 0) out.push(["Karte", "karte", "karte"]);
+    if(C.area !== "es" && gi === 1 && tl.indexOf("kids") >= 0) out.push(["Meine " + ((C.L && C.L.kids) || "Kids"), "kids", "kids"]);
+    if(C.area !== "es" && gi === 2 && tl.indexOf("mysterien") >= 0) out.push(["Mysterien", "mysterien", "mysterien"]);
+    return out;
+  }
+  window.TX_ITEMS = function(C, gi, tab, setKey, page){
+    var g = window.TX_G(C)[gi]; if(!g) return "";
     var nm2 = {}; (C.NACH || []).forEach(function(n){ nm2[n[0]] = KURZ[n[1]] || n[1]; });
     var ND = C.NACHDATA || window.NACHDATA, SETS = C.SETS || SETS0, it = [];
     g.keys.forEach(function(k){
       var ss = (SETS[k] || []).filter(function(x){ return ND && ND[x]; });
-      if(C.area === "tftl" && k === "loops" && ss.length > 1) ss.forEach(function(x){ it.push([SETLBL[x] || x, "nach/loops/" + x + "/" + ND[x].abschnitte[0].id, tab === "loops" && setKey === x]); });
-      else it.push([nm2[k], "nach/" + k, !karte && k === tab]);
+      if(C.area === "tftl" && k === "loops" && ss.length > 1) ss.forEach(function(x){ it.push([SETLBL[x] || x, "nach/loops/" + x + "/" + ND[x].abschnitte[0].id, !page && tab === "loops" && setKey === x]); });
+      else it.push([nm2[k], "nach/" + k, !page && k === tab]);
     });
-    if(((window.BEREICHE[C.area] || {}).tabs || []).some(function(t){ return t[0] === "karte"; })) it.push(["Karte", "karte", !!karte]);
+    extras(C, gi).forEach(function(x){ it.push([x[0], x[1], page === x[2]]); });
+    if(it.length < 2) return "";
     return it.map(function(x){ return '<a' + (x[2] ? ' class="on"' : '') + ' href="#' + C.p + x[1] + '">' + esc(x[0]) + '</a>'; }).join("");
   };
-  window.TX_PLAY = function(C){ var B = (window.BEREICHE || {})[C.area]; return B ? (B.tabs || []).filter(function(t){ return t[0] !== "start" && t[0] !== "karte"; }).map(function(t){ return [t[0], t[0] === "kids" ? ((C.L && C.L.kids) || "Kids") : t[1]]; }) : []; };
-  window.TX_SUBHTML = function(C, on){
-    var pl = window.TX_PLAY(C); if(C.area === "es" || !pl.some(function(t){ return t[0] === on; })) return "";
-    return pl.map(function(t){ return '<a' + (t[0] === on ? ' class="on"' : '') + ' href="#' + C.p + t[0] + '">' + esc(t[1]) + '</a>'; }).join("");
+  var PG = {karte: 0, kids: 1, mysterien: 2};
+  window.TX_SUBHTML = function(C, page){
+    if(!(page in PG)) return ""; var gi = PG[page]; if(C.area === "es" && gi !== 0) return "";
+    return window.TX_ITEMS(C, gi, "", "", page);
   };
   window.TX_TABS = function(C, on){
     var B = (window.BEREICHE || {})[C.area], p = C.p || "";
     if(!B) return null;
-    function a(href, label, key){ return '<a href="#' + href + '"' + (key === on ? ' class="on"' : '') + '>' + esc(label) + '</a>'; }
-    var h = "", tl = B.tabs || [];
-    tl.forEach(function(t){ if(t[0] === "start") h += a(p + "start", t[1], "start"); });
-    var pl = window.TX_PLAY(C);
-    if(C.area === "es") tl.forEach(function(t){ if(t[0] !== "start" && t[0] !== "karte") h += a(p + t[0], t[1], t[0]); });
-    else if(pl.length) h += '<a' + (pl.some(function(t){ return t[0] === on; }) ? ' class="on"' : '') + ' href="#' + p + pl[0][0] + '">Spiel</a>';
-    window.TX_G(C).forEach(function(g, gi){ var tk = on === "karte" ? "welt" : (on && on.indexOf("nach/") === 0 ? on.split("/")[1] : ""); h += (gi === 0 ? '<span class="tsep"></span>' : '') + '<a' + (g.keys.indexOf(tk) >= 0 ? ' class="on"' : '') + ' href="#' + p + 'nach/' + g.keys[0] + '">' + esc(g.name) + '</a>'; });
+    var gs = window.TX_G(C), gi = on in PG ? PG[on] : -1, tk = on && on.indexOf("nach/") === 0 ? on.split("/")[1] : "", h = "";
+    if(C.area === "es") (B.tabs || []).forEach(function(t){ if(t[0] !== "start" && t[0] !== "karte") h += '<a' + (t[0] === on ? ' class="on"' : '') + ' href="#' + p + t[0] + '">' + esc(t[1]) + '</a>'; });
+    gs.forEach(function(g, i){ h += '<a' + (i === gi || g.keys.indexOf(tk) >= 0 ? ' class="on"' : '') + ' href="#' + p + 'nach/' + g.keys[0] + '">' + esc(g.name) + '</a>'; });
     return h;
   };
   window.renderNach = function(app, tabs, rest){
@@ -217,8 +222,8 @@
     var bn = "", solo = L.n < 2 && !L.typen;
     var grp = window.TX_G(C).filter(function(g){ return g.keys.indexOf(tab) >= 0; })[0], nm2 = {};
     (C.NACH || []).forEach(function(n){ nm2[n[0]] = KURZ[n[1]] || n[1]; });
-    var isW = grp && grp.keys[0] === window.TX_G(C)[0].keys[0], wh = isW ? window.TX_WELT(C, tab, L.setKey, false) : "";
-    var kap = isW && wh ? '<div class="unter">' + wh + '</div>' : grp && grp.keys.length > 1 ? '<div class="unter">' + grp.keys.map(function(k){ return '<a' + (k === tab ? ' class="on"' : '') + ' href="#' + C.p + 'nach/' + k + '">' + esc(nm2[k]) + '</a>'; }).join("") + '</div>' : "";
+    var gix = grp ? window.TX_G(C).map(function(g){ return g.keys[0]; }).indexOf(grp.keys[0]) : -1, wh = gix >= 0 ? window.TX_ITEMS(C, gix, tab, L.setKey, "") : "";
+    var kap = wh ? '<div class="unter">' + wh + '</div>' : grp && grp.keys.length > 1 ? '<div class="unter">' + grp.keys.map(function(k){ return '<a' + (k === tab ? ' class="on"' : '') + ' href="#' + C.p + 'nach/' + k + '">' + esc(nm2[k]) + '</a>'; }).join("") + '</div>' : "";
     var u2 = (L.sub || "").replace('class="unter"', 'class="unter u2"');
     function wrap(inner){ return kap + u2 + '<div class="nbody">' + inner + '</div>'; }
     function side(){ return solo ? "" : '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav>'; }

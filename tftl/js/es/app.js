@@ -34,7 +34,7 @@ window.ES = window.ES || {};
       window.renderNach(app, tabs, rest); window.scrollTo(0, 0); return;
     }
     tabs.innerHTML = tabsHtml(page === "start" ? "start" : page);
-    if(page === "karte" && window.TX_WELT){ var t3 = document.createElement("nav"); t3.id = "tabs2"; t3.className = "unter u0"; t3.innerHTML = window.TX_WELT(window.TCTX, "", "", true); tabs.parentNode.insertBefore(t3, tabs.nextSibling); document.body.classList.add("hu"); }
+    if(page === "karte" && window.TX_SUBHTML){ var t3 = document.createElement("nav"); t3.id = "tabs2"; t3.className = "unter u0"; t3.innerHTML = window.TX_SUBHTML(window.TCTX, "karte"); tabs.parentNode.insertBefore(t3, tabs.nextSibling); document.body.classList.add("hu"); }
     if(page === "start" && ES.renderStart) ES.renderStart(app);
     else if(page === "galerie" && window.Galerie && Galerie.has && Galerie.has("tftl_es")) Galerie.open("tftl_es");
     else if(T[page] && typeof ES[T[page]] === "function") ES[T[page]](app, rest);

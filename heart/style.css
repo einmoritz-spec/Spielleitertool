@@ -783,3 +783,5 @@ body.weg #app>.unter{transform:translateY(-100%)}
 .gleg .gz{border-color:#ffffff1a}.gleg .gw{opacity:.5}
 .gmobsz{margin:0 0 10px}.gmobsz .gmobs{margin:6px 0 0}
 .gleg{margin-top:16px}
+.gleg .gg{grid-template-columns:repeat(5,minmax(0,1fr));gap:2px 22px}.gleg .gg>.gz:not(.auf){border-bottom:0}
+@media(max-width:1100px){.gleg .gg{grid-template-columns:repeat(2,minmax(0,1fr))}}

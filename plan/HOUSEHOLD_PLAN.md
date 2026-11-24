@@ -20,6 +20,12 @@ Ziel: ein **System „Household“** mit **Untersetting „Der Garten“** (Vol.
 3. **Karte:** die Taste „m“ öffnet die jeweils passende Karte (Haus, Atlas oder Garten).
 4. **Charakterbogen:** nur der normale Household-Bogen, deutscher Nachbau + ausfüllbares PDF, ganz zum Schluss.
 
+### Begriffsliste (Entscheidung Moritz, 24. Nov. 2026)
+- **Spielbegriffe englisch:** Stress, Action Roll, Reaction Roll, Basic Success, Critical Success, Moves, Traits, Hindrance, Decorum, Wealth, Coins, Contracts, Aces, Field Point, Skill Points, Weak Spot, Crucial Box, Double Trouble, Triple Threat, Animal Companion; Fertigkeitsfelder Society, Academia, War, Street und alle Fertigkeiten (Athletics, Authority, Caution, Charm, Craft, Dexterity, Elusion, Eloquence, Etiquette, Exploration, Fight, Grace, Insight, Investigation, Strength, Will, Shoot).
+- **Eigennamen englisch** (Völker, Orte, Personen, Organisationen, im Garten-Buch auch The Outhold, Colossi, Seelie Court, Seasons): Boggarts, Faeries/Fairy, Sluagh, Sprites, Undines, Salamanders, Littlings, House, Household, Hearth, Inbetweens, Realm, Basement, Upper Floor, Living Room usw.
+- **Deutsch:** Narrator → Spielleitung, Player → Spieler:in, Opponent → Gegner, Chapter → Kapitel, Roll → Wurf, Condition → Zustand, Folk → Volk, React → Reagieren; Abenteuertitel werden übersetzt.
+- **Zustände deutsch, einheitlich** (Vorschlag, beim Übersetzen gegen das Buch prüfen): Hurt → Verletzt, Tired → Erschöpft, Broken → Gebrochen, Overstressed → Überlastet, Scared → Verängstigt, Frightened → Erschrocken, Embarrassed → Beschämt, Sick → Krank, Poisoned → Vergiftet, Drunk → Betrunken, Confused → Verwirrt, Blinded → Geblendet, Soaked → Durchnässt, Frozen → Durchgefroren, Sweaty → Verschwitzt, Snuffly → Verschnupft.
+
 ## 1. Quellen (liegen bei Moritz im Drive „Pen and Paper/Household“, Upload in den Chat)
 
 | Kürzel | Datei | Seiten | Versatz (PDF = Buch + n) | Rolle |

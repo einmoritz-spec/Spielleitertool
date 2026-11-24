@@ -561,3 +561,5 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 /* Seitenleiste beginnt ganz oben; Einklapp-Pfeil schwebt rechts neben dem ersten Eintrag */
 .rl .sb{padding-top:0}.rl .sb .sbx{position:absolute;right:4px;top:6px;z-index:2;padding:2px 8px}
 .rl .sb .sbx+button{padding-right:34px}
+/* Seitenzahlen erscheinen im Seitenmenü nie (Pfeil und Zahlen kamen sich in die Quere) */
+.rl .sb button i{display:none}.rl .sb .sbx+button{padding-right:14px}

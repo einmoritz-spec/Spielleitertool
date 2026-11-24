@@ -725,3 +725,19 @@ body.es .vbl a{font-family:var(--head);font-weight:600;font-size:15px}
 .vbi h2,body.es .vbi h2{color:#fff!important}
 body.es .vbx{border:0;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.14)}
 body.es .vbl a{border-top-color:rgba(0,0,0,.08)}
+/* Mysterien-Bände: Cover-Raster, darunter der aufgeklappte Bildstreifen */
+.mbd{display:grid;gap:14px;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));margin:4px 0 6px}
+.mbd.c1{--n:1}.mbd.c2{--n:2}.mbd.c3{--n:3}.mbd.c4{--n:4}.mbd.c5{--n:5}
+.mbk{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;aspect-ratio:4/5;padding:14px;border:0;border-radius:4px;overflow:hidden;cursor:pointer;text-align:left;background:#111;color:#fff;font:inherit;box-shadow:0 2px 10px rgba(0,0,0,.35);transition:transform .2s,box-shadow .2s}
+.mbd.c2 .mbk,.mbd.c1 .mbk{aspect-ratio:16/7}
+.mbk i{position:absolute;inset:0;background:center/cover;transition:transform .5s}
+.mbk:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,10,14,.92) 0,rgba(8,10,14,.55) 38%,rgba(8,10,14,0) 70%)}
+.mbk>*:not(i){position:relative;z-index:2}
+.mbk:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.45)}.mbk:hover i{transform:scale(1.05)}
+.mbk .t{align-self:flex-start;font:700 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px;background:var(--acc);color:#1b1b1b}
+.mbk .t.b{background:rgba(255,255,255,.18);color:#fff}
+.mbk b{font:700 19px/1.1 var(--sans);text-transform:uppercase;letter-spacing:.01em}
+.mbk small{font:500 12px/1.3 var(--sans);color:rgba(255,255,255,.72)}
+.mbk.on{box-shadow:0 0 0 3px var(--acc),0 10px 26px rgba(0,0,0,.45)}
+.mbk.on:after{content:"";position:absolute;left:50%;bottom:-1px;z-index:3;border:9px solid transparent;border-bottom-color:var(--acc);transform:translateX(-50%)}
+.mbp{padding-top:14px}.mbp .gh{display:none}.mbp .grp{margin:0}

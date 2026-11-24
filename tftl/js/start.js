@@ -19,6 +19,14 @@ window.VS = {
       return '<section class="vbx"><a class="vbi" href="#' + p + 'nach/' + g.keys[0] + '" style="background-image:url(img/' + t[3] + '.webp)"><h2>' + VS.esc(g.name) + '</h2></a><nav class="vbl">' + sub + '</nav></section>';
     }).join("") + '</div>';
   },
+  /* Mysterien-Bände als Cover-Raster (sortiert: Kampagnen, Trilogien, Sammlungen); Klick öffnet den Bildstreifen darunter */
+  baende: function(groups, st){
+    var R = {"Kampagne":0, "Trilogie":1, "Mysterien":2}, gs = groups.filter(function(g){ return g.items.some(function(m){ return m[3]; }); })
+      .map(function(g, i){ return {g:g, i:i}; }).sort(function(a, b){ return ((R[a.g.tag] != null ? R[a.g.tag] : 3) - (R[b.g.tag] != null ? R[b.g.tag] : 3)) || a.i - b.i; });
+    return '<div class="mbd c' + Math.min(gs.length, 5) + '">' + gs.map(function(x, k){ var g = x.g, pic = g.items.filter(function(m){ return m[3]; })[0], n = g.items.filter(function(m){ return m[5] !== "x" && !/hintergrund|broads/.test(m[0]); }).length;
+      return '<button type="button" class="mbk" data-k="' + k + '"><i style="background-image:url(img/' + pic[3] + '.webp)"></i><span class="t' + (g.dark ? ' b' : '') + '">' + g.tag + '</span><b>' + g.t + '</b><small>' + g.sub.replace(/ · S\. \d+/, "") + ' · ' + n + (g.tag === "Offenes Spiel" ? ' Orte' : ' Mysterien') + '</small></button>'; }).join("") + '</div>' +
+      gs.map(function(x, k){ return '<div class="mbp" data-k="' + k + '" hidden>' + window.mysHtml([x.g], st, {compact:true}) + '</div>'; }).join("");
+  },
   sec: function(title, body, extra){ return '<section class="vs"><div class="vh2"><h2>' + title + '</h2>' + (extra || '') + '</div>' + body + '</section>'; },
   /* Weiterspielen: große Bildkarte */
   last: function(href, img, pos, name, ort, label){
@@ -37,9 +45,14 @@ window.renderStart = function(el){
   el.innerHTML =
     '<div class="vhero"><div class="vloop">' + D.loops.map(function(l){ return '<button data-l="' + l[0] + '"' + (l[0]===loop ? ' class="on"' : '') + '>' + l[1] + '</button>'; }).join("") + '</div></div>' +
     '<div class="vb">' + VS.bereiche(C, D.welt.concat(D.spiel)) + '</div>' +
-    '<div class="vm"><div class="vb">' + VS.sec("Mysterien", lastCard + '<div class="mys">' + window.mysHtml(C.MYSTERIEN || window.MYSTERIEN, st, {compact:true}) + '</div>', more) + '</div></div>';
+    '<div class="vm"><div class="vb">' + VS.sec("Mysterien", lastCard + '<div class="mys">' + VS.baende(C.MYSTERIEN || window.MYSTERIEN, st) + '</div>', more) + '</div></div>';
   setHero(loop);
   window.mysWire(el);
-  el.querySelectorAll(".vm .grp").forEach(function(g){ g.classList.add("zu"); g.querySelector(".gh").onclick = function(){ g.classList.toggle("zu"); }; });
+  el.querySelectorAll(".mbk").forEach(function(b){ b.onclick = function(){
+    var k = b.dataset.k, auf = !b.classList.contains("on");
+    el.querySelectorAll(".mbk").forEach(function(x){ x.classList.toggle("on", auf && x === b); });
+    el.querySelectorAll(".mbp").forEach(function(p){ p.hidden = !(auf && p.dataset.k === k); });
+    if(auf){ var p = el.querySelector('.mbp[data-k="' + k + '"]'); setTimeout(function(){ p.scrollIntoView({behavior:"smooth", block:"nearest"}); }, 30); }
+  }; });
   el.querySelectorAll(".vloop button").forEach(function(b){ b.onclick = function(){ setHero(b.dataset.l); try{ localStorage.setItem(C.ls + "loop", b.dataset.l); }catch(e){} el.querySelectorAll(".vloop button").forEach(function(x){ x.classList.toggle("on", x===b); }); }; });
 };

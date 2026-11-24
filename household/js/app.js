@@ -54,7 +54,8 @@ function platzhalter(titel){ return '<div class="sec"><h2>' + esc(titel) + '</h2
 /* ---------- Seiten ---------- */
 function viewSeite(P){
   var u = P.unter, key = P.mode + "/" + P.area.id + "/" + u.id + (P.sw ? "/" + P.sw : ""), side = "", body;
-  var fn = HH_INH[key];
+  var fn = HH_INH[key], tx = HH_TEXT[key];
+  if(!fn && tx) fn = function(P){ return textSeite(P, tx, "hh_r1"); };
   if(u.seiten && u.seiten.length > 1){
     side = u.seiten.map(function(x){ return '<a class="' + (x[0] === P.sel ? 'on' : '') + '" onclick="go(\'' + href(P, P.area.id, u.id, P.sw, x[0]) + '\')">' + esc(x[1]) + '</a>'; }).join("");
   }

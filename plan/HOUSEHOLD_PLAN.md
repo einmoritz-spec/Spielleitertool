@@ -20,6 +20,9 @@ Ziel: ein **System „Household“** mit **Untersetting „Der Garten“** (Vol.
 3. **Karte:** die Taste „m“ öffnet die jeweils passende Karte (Haus, Atlas oder Garten).
 4. **Charakterbogen:** nur der normale Household-Bogen, deutscher Nachbau + ausfüllbares PDF, ganz zum Schluss.
 
+### Regeltext-Begriffe (beim Übersetzen, 25. Nov. 2026)
+Goal → Ziel, Approach → Vorgehen, Difficulty → Schwierigkeit (Stufen Basic/Critical/Extreme/Impossible englisch), Success → Erfolg (Basic/Critical/Extreme/Impossible Success und Jackpot! englisch), Failure → Misserfolg, Consequences → Konsequenzen, Modifiers → Modifikatoren, Re-roll/Free Re-roll/All In englisch, Raising the Stakes → Einsatz erhöhen, Extra Actions → Zusatzaktionen, Giving Away a Success → Erfolg abgeben, Dice Pool englisch. Regeln-Etappen: 1 ✅ S.83–92 (`regeln-spielen-a.js`), 2 Reaction/Stress/Skills/Moves, 3 Konflikte/Kampf/Zustände/Decorum, 4 Charakter+Berufe, 5 Contracts, 6 Ausrüstung. Textdaten: `HH_TEXT["haus/regeln/spielen"]` (`js/blocks.js`).
+
 ### Begriffsliste (Entscheidung Moritz, 24. Nov. 2026)
 - **Spielbegriffe englisch:** Stress, Action Roll, Reaction Roll, Basic Success, Critical Success, Moves, Traits, Hindrance, Decorum, Wealth, Coins, Contracts, Aces, Field Point, Skill Points, Weak Spot, Crucial Box, Double Trouble, Triple Threat, Animal Companion; Fertigkeitsfelder Society, Academia, War, Street und alle Fertigkeiten (Athletics, Authority, Caution, Charm, Craft, Dexterity, Elusion, Eloquence, Etiquette, Exploration, Fight, Grace, Insight, Investigation, Strength, Will, Shoot).
 - **Eigennamen englisch** (Völker, Orte, Personen, Organisationen, im Garten-Buch auch The Outhold, Colossi, Seelie Court, Seasons): Boggarts, Faeries/Fairy, Sluagh, Sprites, Undines, Salamanders, Littlings, House, Household, Hearth, Inbetweens, Realm, Basement, Upper Floor, Living Room usw.

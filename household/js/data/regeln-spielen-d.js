@@ -1,0 +1,220 @@
+/* Regeln › Wie man spielt, Teil 4 (Grundbuch S. 118–127): Schießen, Rangelei & Duell, Zustände, Decorum. Deutsche Übersetzung. */
+(function(){
+var K = "haus/regeln/spielen", L = (HH_TEXT[K] = HH_TEXT[K] || []);
+L.push(
+{id: "schiessen", t: "Schießen, Rangelei & Duell", p: 118, b: [
+ {t: "h", x: "Schießen"},
+ "Seit die Sluagh dem Kleinen Volk das Geheimnis des Schwarzpulvers beibrachten, haben sich Feuerwaffen schnell im ganzen House verbreitet und ältere Fernkampfwaffen verdrängt. Mit dem Skill Shoot triffst du Ziele, die sonst außerhalb deiner Reichweite lägen, mit Feuerwaffen, Fernkampfwaffen oder Wurfwaffen.",
+ {t: "h", x: "Reichweite"},
+ "Die Spielleitung legt die Entfernung zwischen dir und dem Ziel fest. Je nach Entfernung kann ein Ziel schwerer oder sogar unmöglich zu treffen sein.",
+ {t: "ul", x: [
+  "**Adjacent:** Das Ziel ist ganz nah oder im Nahkampf.",
+  "**At Short Distance:** Das Ziel ist nur wenige winzige Meter entfernt und schnell zu erreichen.",
+  "**Within Range:** Das Ziel ist mehrere winzige Meter entfernt. Du bräuchtest einen ganzen Zug, um es zu erreichen.",
+  "**At Long Distance:** Das Ziel ist sehr weit entfernt, deutlich außerhalb der Reichweite der meisten Littlings.",
+  "**Out of Range:** Das Ziel ist in Sichtweite, aber zu weit weg, um getroffen zu werden."]},
+ "Ein Adjacent-Ziel kann mit jeder Waffe getroffen werden, auch mit Nahkampfwaffen. Ein Ziel At Short Distance liegt außerhalb der Reichweite von Nahkampfwaffen, kann aber von allen Feuerwaffen, Fernkampf- und Wurfwaffen sowie Waffen mit Reichweite erreicht werden. Ein Ziel Within Range oder At Long Distance kann nur mit einer Feuer- oder Fernkampfwaffe getroffen werden. Schießt du auf ein Ziel At Long Distance, erleidest du immer −2 auf deinen Wurf, es sei denn, deine Waffe hat den Trait Accurate. Ein Ziel Out of Range schließlich liegt völlig außer Reichweite. Willst du es treffen, musst du einen Weg finden, näher heranzukommen.",
+ {t: "h", x: "Nachladen"},
+ "Alle Feuer- und Fernkampfwaffen des Household sind Einzelschuss-Waffen und müssen nach jedem Gebrauch nachgeladen werden. Eine Waffe nachzuladen ist eine komplexe Aktion, die einen ganzen Zug und beide Hände erfordert. Vielleicht musst du das Schießpulver genau in den Lauf schütten, die Kugel einsetzen und sie bis zum Ende des Laufs schieben. Oder du musst deine Armbrust spannen, indem du mit beiden Händen an der Sehne ziehst oder einen Hebel kurbelst.",
+ "In Kämpfen, Fluchten und ähnlich hektischen Szenen kannst du deine Waffe mit einem Critical Action Roll auf Dexterity nachladen. Du kannst auch einen überzähligen Critical Success ausgeben, um deine Waffe unter allen Umständen schnell nachzuladen. Waffen mit dem Trait Double Barreled müssen zweimal nachgeladen werden.",
+ "Um den Fluss der Geschichte zu erleichtern, empfehle ich, nicht über die Munition Buch zu führen. Hast du eine Waffe, hast du auch Munition. Nur in besonders spannenden Szenen oder nach einem problematischen Ereignis kann die Spielleitung festlegen, dass du nur noch wenige Kugeln hast. Das ist ein guter Weg, die Spannung zu erhöhen!",
+ {t: "h", x: "Deckung"},
+ "Wenn du an der Reihe bist, beschossen zu werden, kannst du immer nach einem umgekippten Tisch, einem Pilz oder einem anderen Gegenstand suchen, der dir Partial Cover oder Total Cover bietet.",
+ {t: "ul", x: [
+  "**Partial Cover:** Du erhältst +1 auf Reaction Rolls, um Kugeln oder anderen Fernangriffen auszuweichen. Für deine Aktion musst du die Deckung verlassen oder erleidest −1 auf deinen Wurf. Ist in der Nähe eine niedrige Mauer oder etwas Ähnliches, kannst du einen überzähligen Basic Success ausgeben, um Partial Cover zu erreichen.",
+  "**Total Cover:** Du bestehst automatisch jeden Reaction Roll, um Kugeln und Fernangriffen auszuweichen. Für deine Aktion musst du die Deckung verlassen oder erleidest −3 auf deinen Wurf. Ist in der Nähe eine hohe Mauer oder ein großes Hindernis, kannst du einen überzähligen Critical Success ausgeben, um Total Cover zu erreichen."]},
+
+ {t: "h", x: "Rangelei"},
+ "Man muss nicht immer die Klingen ziehen, um einen Streit zu lösen. Eine gute Rangelei ist eine Debatte mit den Fäusten, die jedem die Gelegenheit gibt, seinen Standpunkt mit mäßiger Gewalt darzulegen. Kämpfen die Figuren und ihre Littling-Gegner mit bloßen Händen, erklärt die Spielleitung den Beginn einer Rangelei.",
+ "Eine Rangelei ist viel einfacher als eine Kampfszene, sie ist schnell erledigt und hat keine schweren Folgen. Alle Würfe in einer Rangelei werden im Field War abgelegt, und die Schwierigkeit der Würfe richtet sich nach der Schwierigkeit des Gegners. Für jeden Erfolg bei einem Action oder Reaction Roll erleidet der Gegner 1 Stress. Für jeden Misserfolg erleidet die Figur den Stress, mit der üblichen Möglichkeit zu Damage Control.",
+ "In der Praxis funktionieren die Action Turns und Reaction Turns einer Rangelei genau gleich, mit der einzigen Ausnahme, dass du im Action Turn selbst entscheidest, welchen Skill du würfelst, während im Reaction Turn die Spielleitung den Skill bestimmt, mit dem du reagierst, wie üblich.",
+ {t: "h", x: "Gegner in der Rangelei"},
+ "Nur Littling-Gegner können an einer Rangelei teilnehmen. In einer Rangelei können die Gegner keine ihrer Traits oder Moves einsetzen. Allein die Schwierigkeit und die Stress-Kästchen des Gegners zählen.",
+ {t: "h", x: "K. o."},
+ "Die Rangelei endet, wenn alle Figuren oder Gegner besiegt sind, wenn alle aufgeben oder wenn alle fliehen. Sie endet auch, sobald jemand eine Waffe zieht und damit in einen echten Kampf übergeht.",
+ "Wirst du Überlastet, heißt das, dass du einen Schlag zu viel eingesteckt hast und nicht mehr kämpfen kannst. Du wirst entweder bewusstlos geschlagen oder gibst auf. Du verlässt die Rangelei jedenfalls mit einer klingenden Niederlage und erleidest den Zustand Erschöpft. Fühlst du dich schon Erschöpft, wirst du Verletzt. Wegen einer einfachen Rangelei musst du nie Bow Out!",
+
+ {t: "h", x: "Duell"},
+ "Duelle sind nervenaufreibende Konflikte, in denen eine Figur direkt einem tapferen Herausforderer gegenübertreten muss. Das Duell schlechthin ist ein romantischer Degenkampf. Er ist der Höhepunkt jedes Abenteuerromans, der Moment, in dem der Held seinem Erzfeind gegenübersteht, um seine Freunde und vielleicht sogar das House zu retten.",
+ "Es gibt jedoch viele Arten von Duellen, und nicht alle sind so vorhersehbar. Duelle können Bälle bei Hof oder Verführungsspiele sein. Es können Straßenkämpfe oder Armdrücken sein. Sogar eine Debatte kann zu einem echten Duell werden! Jede einprägsame Herausforderung zwischen zwei Littlings lässt sich mit den Regeln dieses Kapitels nachbilden.",
+ "Duelle bestehen aus zwei sich abwechselnden Zugarten. In der einen führst du den Angriff und legst einen Action Roll ab. In der anderen hältst du dem Angriff deines Herausforderers stand und musst mit dem richtigen Reaction Roll antworten. Du kannst den Herausforderer in beiden Zugarten treffen und läufst ebenso in beiden Gefahr, getroffen zu werden.",
+ {t: "h", x: "Der Herausforderer"},
+ "In einem Duell übernimmt die Spielleitung die Rolle des Herausforderers und würfelt, in einer einzigartigen Ausnahme, auch selbst für ihn wie eine Spielerin oder ein Spieler für seine Figur. Der Dice Pool der Spielleitung richtet sich nach Talent und Können des Herausforderers.",
+ {t: "ul", x: [
+  "**4 Würfel:** ein unerfahrener oder nicht besonders guter Fechter.",
+  "**5 Würfel:** ein geschickter Fechter, der weiß, was er tut.",
+  "**6 Würfel:** ein ausgezeichneter Fechter oder ein Offizier in Bestform.",
+  "**7 Würfel:** ein berühmter Duellant, dessen Taten im ganzen House bekannt sind.",
+  "**8 Würfel:** ein Meisterduellant von legendärem Talent."]},
+ {t: "h", x: "Den Angriff führen"},
+ "Führst du den Angriff, kannst du den Action Roll wählen, mit dem du den Herausforderer bedrängst und ihm mit gezielten Angriffen auf den Fersen bleibst.",
+ {t: "bsp", b: [["Spieler:in", "„En garde, Schurke!“ Ich ziehe die Nadel und stürze mich ohne zu zögern auf ihn."]]},
+ "Im Zweifel kannst du auf den Skill Fight würfeln, um den Herausforderer direkt anzugreifen. Du kannst aber auch kreativ sein und kühne Lösungen finden, um den Skill ins Spiel zu bringen, in dem du dich sicherer fühlst. Einige Beispiele:",
+ {t: "ul", x: [
+  "Ich täusche eine Finte an, um den Herausforderer zu verwirren. Ich würfle Dexterity.",
+  "Ich lasse meine Klinge gegen die des Herausforderers krachen. Ich würfle Strength.",
+  "Ich durchschneide das Seil, an dem der Kronleuchter hängt. Ich würfle Craft."]},
+ {t: "h", x: "Dem Angriff standhalten"},
+ "Hältst du einem Angriff stand, bedrängt dich der Herausforderer und drängt dich in die Defensive. Dann bestimmt die Spielleitung den Skill, den du für deinen Reaction Roll nutzen musst.",
+ {t: "bsp", b: [["Spielleitung", "Der Herausforderer überbrückt mit langen Schritten die Entfernung zwischen euch und greift an: „Ergib dich, du Kakerlake!“"]]},
+ "Wie zuvor kann die Spielleitung dich einfach um einen Wurf auf Fight bitten oder versuchen, originelle Herausforderungen zu finden, die dich mit Skills in die Enge treiben, in denen du im Nachteil bist. Einige Beispiele:",
+ {t: "ul", x: [
+  "Der Herausforderer täuscht eine Finte an, um dich zu verwirren. Würfle Insight.",
+  "Der Herausforderer drängt dich auf einen hängenden Balken. Würfle Grace.",
+  "Der Herausforderer führt mit der Klinge eine Reihe schneller Stöße. Würfle Elusion."]},
+ {t: "h", x: "Gewinnen und Verlieren"},
+ "In einem Duell zählst du Erfolge nicht wie sonst. Dein Ziel ist, einen besseren Erfolg zu erzielen als dein Gegenüber. Würfelst du zum Beispiel einen Critical Success und der Herausforderer einen Extreme Success, hat der Herausforderer den Angriff gewonnen. Würfelst du einen Critical Success + einen Basic Success und der Herausforderer nur einen Critical Success, hast du den Angriff gewonnen. Erzielen du und der Herausforderer gleiche Erfolge, ist der Angriff unentschieden. Keiner von euch wird getroffen, und ihr geht zum nächsten Angriff über.",
+ "Gewinnst du einen Angriff, erleidet der Herausforderer einen Jab, körperlich oder im übertragenen Sinn. Hat der Herausforderer 3 Jabs erlitten, ist er besiegt. Verlierst du einen Angriff, erleidest du einen passenden Zustand, den die Spielleitung wählt. Meist wirst du nach dem ersten verlorenen Angriff Erschöpft, falls du es nicht schon bist. Wirst du Gebrochen, hast du das Duell verloren. Der Herausforderer hat dein Schicksal in der Hand, er kann dich gefangen nehmen oder dich verspotten, wenn er unhöflich ist.",
+ "In einem Duell verursacht jeder Move, der sonst Stress verursachen würde, stattdessen einen Jab. Der Herausforderer ist jedoch stärker als ein durchschnittlicher Gegner, deshalb kannst du jeden Move in einem Duell nur einmal einsetzen.",
+ {t: "h", x: "Re-rolls"},
+ "Sowohl du als auch die Spielleitung könnt einen Re-roll wagen oder All In gehen, aber die Spielleitung kann nie Free Re-rolls machen. Nach dem ersten Wurf hat, wer weniger erzielt hat, das Recht, zuerst einen Re-roll zu machen, falls möglich.",
+ {t: "box", h: "Geheimnisvoller Herausforderer (optionale Regel)", b: ["Die Spielleitung kann die Spannung noch höher treiben, indem sie ihre Würfe geheim hält. Diese kleine Variante genügt, um selbst den geschicktesten Duellanten weiche Knie zu machen!"]},
+ {t: "box", h: "Strong Spots und Weak Spots (optionale Regel)", b: [
+  "Die Spielleitung kann heimlich bis zu 3 Strong Spots für den Herausforderer wählen. Jeder Strong Spot ist ein Skill, etwa Dexterity oder Strength, in dem der Herausforderer ein wahrer Experte ist. Legst du einen Action Roll mit einem Skill ab, der ein Strong Spot des Herausforderers ist, erhält die Spielleitung +1 auf ihren Wurf.",
+  "Ebenso kann die Spielleitung dem Herausforderer bis zu 3 Weak Spots geben. Legst du einen Action Roll mit einem Skill ab, der ein Weak Spot des Herausforderers ist, erleidet die Spielleitung −1 auf ihren Wurf.",
+  "Strong Spots oder Weak Spots deines Herausforderers findest du mit jedem Move, der sonst erlaubt, den Weak Spot eines Gegners zu finden. Jeder Strong Spot und jeder Weak Spot kann in einem Duell nur einmal ins Spiel kommen."]},
+ {t: "h", x: "Vergleichende Würfe"},
+ "Ich rate den Spieler:innen allgemein, jede Meinungsverschiedenheit zwischen Figuren durch Rollenspiel zu lösen, ohne zu den Würfeln zu greifen. Wird es aber je absolut notwendig, können die Spieler:innen die Regeln dieses Kapitels nutzen, um mit vergleichenden Würfen (Opposed Rolls) zu bestimmen, welche ihrer Figuren die Oberhand behält."
+]},
+
+{id: "zustaende", t: "Zustände", p: 122, b: [
+ "Eltern und Erziehungsberechtigte im ganzen House weisen ihre weniger gewissenhaften Kinder oft mit einem lauten „Zieh dich an!“ und einem schrillen „Kämm dir die Haare!“ zurecht, was selten eine Reaktion hervorruft. Vielleicht sind diese fürsorglichen Menschen aufdringlich, aber ihre Sorgen sind berechtigt: Wer auf Abenteuer geht, sollte immer sehr auf Gesundheit und Anstand achten.",
+ "Zustände stehen für deinen körperlichen und seelischen Zustand und fassen zusammen, wie es dir geht und wie du dich fühlst. Zustände kommen ins Spiel, wenn du gefährlichen oder anstrengenden Umständen begegnest, und sie machen alles komplizierter.",
+ "Decorum steht dafür, wie du dich gibst, für deinen Stil und nicht zuletzt für deine Körperpflege. Ein hohes Decorum heißt, dass du gepflegt und gut gekleidet aussiehst oder sogar bereit für ein großes Ereignis bist. Ein niedriges Decorum heißt dagegen, dass du ungehobelt und schäbig wirkst. Decorum ist wichtig im Umgang mit der feinen Gesellschaft oder mit zwielichtigem Volk und kommt generell ins Spiel, wann immer jemand dein Äußeres beurteilt.",
+ {t: "h", x: "Zustände"},
+ "Auf deinem Bogen stehen 8 Haupt-Zustände. Einige davon sind je einem der Fields zugeordnet und geben dir −1, wann immer du im jeweiligen Field würfelst. Andere bringen besondere Nachteile mit sich und hindern dich daran, allen Stress loszuwerden. Die Spielleitung kann diese Zustände auch als Hindrances werten, die deine Handlung auf bedeutendere Weise stören. Die Haupt-Zustände sind:",
+ {t: "ul", x: [
+  "**Beschämt:** −1 in Society",
+  "**Verwirrt:** −1 in Academia",
+  "**Verletzt:** −1 in War",
+  "**Verängstigt:** −1 in Street",
+  "**Erschöpft:** keine Folgen",
+  "**Krank:** Du hast immer mindestens 3 Stress.",
+  "**Vergiftet:** Einmal pro Runde riskierst du, 1 Stress zu erleiden.",
+  "**Gebrochen:** zusätzlich −1 auf alle Würfe, dein Stress kann nicht unter die Crucial Box sinken."]},
+ {t: "h", x: "Einen Zustand erhalten"},
+ "Es gibt 3 Wege, einen Zustand zu erhalten:",
+ {t: "ul", x: [
+  "Misslingt dir ein Wurf, kann die Spielleitung bestimmen, dass du als Konsequenz einen Zustand erleidest.",
+  "Du willst +1 auf einen Action oder Reaction Roll und entscheidest dich freiwillig, einen Zustand zu erleiden, um ihn zu bekommen.",
+  "Du erreichst die Crucial Box deines Stress und erleidest sofort einen Zustand."]},
+ "Misslingt dir ein Wurf, der Spuren an deiner Figur hinterlässt, erleidest du einen Zustand, der zu den Umständen und zum Field deines Misserfolgs passt. In Sonderfällen kann die Spielleitung dir außerdem zusätzlichen Stress geben, wenn du einen Zustand erleidest. Das kann sein, wenn du einen Extreme Success brauchst und nicht einmal einen Basic Success erzielst, oder wenn dir eine Handlung so gefährlich misslingt, dass bloßer Stress als Konsequenz nicht genügen würde.",
+ {t: "bsp", b: [["Spielleitung", "Dir ist der Wurf auf Will + War misslungen, mit dem du der Angst widerstehen wolltest. Die Spinne hebt ihre Beine und schreit mit aller Kraft. Du bist Verängstigt."]]},
+ "Bevor du einen Action oder Reaction Roll ablegst, kannst du entscheiden, einen Zustand zu erleiden, um +1 oder sogar noch größere Hilfe zu bekommen. Du bleibst zum Beispiel die ganze Nacht wach, um dein Keysket zu reparieren, und erhältst +1 auf deinen Wurf auf Craft, wirst dafür aber Erschöpft.",
+ {t: "bsp", b: [["Sarada", "Ich muss die Spinne um jeden Preis erledigen. Ich renne auf sie zu und versuche, sie zwischen die Augen zu treffen, ohne an meine eigene Sicherheit zu denken. Ich würde gern Verletzt werden und dafür +1 auf meinen nächsten Wurf auf Fight erhalten."]]},
+ "Schließlich erleidest du immer sofort einen passenden Zustand, wenn du die Crucial Box deines Stress ausfüllst, je nach Umständen und Field deines Misserfolgs.",
+ {t: "bsp", b: [["Spielleitung", "Dir ist der Critical Wurf auf Athletics + War misslungen, um dich im Sattel der aufbäumenden Maus zu halten. Du erleidest 3 Stress, die zusammen mit den früheren über die Crucial Box hinausgehen. Die Maus bäumt sich weiter auf und schüttelt dich, bis dir der Kopf schwirrt. Du bist sehr Verwirrt."]]},
+ "Hast du bereits 3 Zustände und solltest einen vierten erleiden, wirst du stattdessen Gebrochen. Von da an kannst du keine weiteren Zustände mehr erleiden, bis du geheilt bist.",
+ {t: "h", x: "Einen Zustand entfernen"},
+ "Einen Zustand zu entfernen braucht Zeit und Aufmerksamkeit. Du kannst Zustände nur entfernen, wenn du vor Gefahren sicher bist und kein unmittelbares Risiko läufst, zum Beispiel wenn du die Gelegenheit hast, dich auszuruhen und Stress abzubauen, oder wenn du nach Hause, in dein Hotelzimmer oder ins Lager zurückkehrst.",
+ "Du kannst Zustände entfernen, indem du bestimmte Würfe ablegst, Coins zahlst oder mit deinen Freunden interagierst. Auf den folgenden Seiten findest du kurze Beschreibungen der Zustände und nützliche Hinweise, wie du sie entfernst. Du kannst höchstens 2 Zustände pro Tag entfernen. Misslingt ein Versuch, kannst du denselben Zustand erst am nächsten Tag wieder versuchen. Versuchst du, einen Zustand allein zu entfernen, hast du immer −1.",
+ {t: "box", h: "Beschämt", b: [
+  "−1 auf alle Würfe im Field Society.",
+  "Du kannst Beschämt werden, weil du dich zum Narren gemacht hast, weil dich jemand schlecht dastehen ließ oder weil du eine brennende Demütigung oder Niederlage erleidest.",
+  "Um diesen Zustand zu entfernen, musst du dir jemandes Respekt oder Achtung verdienen, etwa indem du jemandem in Not hilfst oder deinen Mut beweist. Alternativ kann ein Freund den Zustand entfernen, indem er dich mit einem Critical Wurf auf Care + Society aufmuntert.",
+  "*„Du stolperst mitten im Ballsaal und reißt beim Fallen einen armen Kellner samt Tablett voller Kristallgläser mit. Alle drehen sich um: Du bist Beschämt.“*"]},
+ {t: "box", h: "Verängstigt", b: [
+  "−1 auf alle Würfe im Field Street.",
+  "Du kannst Verängstigt werden, weil du etwas wirklich Beängstigendes, Plötzliches oder Schockierendes erlebt hast oder weil du in einer verzweifelten Lage festsitzt.",
+  "Um diesen Zustand zu entfernen, nimm dir Zeit für ein offenes Gespräch mit einem deiner Freunde und geh ehrlich durch, was dir passiert ist und wie du dich dabei gefühlt hast. Alternativ kannst du dich deiner Angst stellen oder in einer schwierigen Lage deine Willenskraft oder deinen Mut beweisen.",
+  "*„Die Spinne senkt sich über dir herab und verfehlt dein Versteck nur knapp. Als sie weiterzieht, bist du endlich sicher, aber auch sehr Verängstigt.“*"]},
+ {t: "box", h: "Verwirrt", b: [
+  "−1 auf alle Würfe im Field Academia.",
+  "Du kannst Verwirrt werden, weil du den Faden verloren oder dich zu sehr konzentriert hast, weil du einen Schlag auf den Kopf bekommen hast oder weil du aufgebracht, wütend oder abgelenkt bist.",
+  "Um diesen Zustand zu entfernen, musst du dir Zeit nehmen, den Kopf freizubekommen oder zu entspannen, etwa indem du 2 Coins ausgibst, um essen oder ins Theater zu gehen.",
+  "*„Du beginnst, alle Bücher im Arbeitszimmer nacheinander zu lesen, in der Hoffnung, eine Spur zu finden. Du findest nichts, und obendrein bist du hinterher verwirrter als zuvor.“*"]},
+ {t: "box", h: "Erschöpft", b: [
+  "Du erleidest keinen Nachteil, bist aber einen Schritt näher dran, Gebrochen zu werden.",
+  "Du kannst Erschöpft werden nach großer Anstrengung oder nachdem du zu lange nicht genug gegessen, getrunken oder geschlafen hast.",
+  "Um diesen Zustand zu entfernen, schlafe in einem warmen Bett oder iss in einem Restaurant gut, was 2 Coins kostet. Im Lager kannst du oder ein Freund einen Critical Wurf auf Craft + Society ablegen, um ein schönes Essen zuzubereiten, das alle, die davon essen, ausgeruht fühlen lässt.",
+  "*„Während die anderen ruhen, bleibst du wach und hältst Wache. Als dich endlich jemand ablöst, merkst du, dass du dich sehr Erschöpft fühlst.“*"]},
+ {t: "box", h: "Verletzt", b: [
+  "−1 auf alle Würfe im Field War.",
+  "Du kannst Verletzt werden, wenn du eine große Wunde erleidest, wenn dich ein Feind richtig hart trifft oder wenn du aus großer Höhe fällst.",
+  "Um diesen Zustand zu entfernen, lege einen Critical Wurf auf Care + Academia ab. Alternativ kannst du in der Stadt zu einem Arzt gehen, der sich für 2 Coins um deine Wunden kümmert.",
+  "*„Du verlierst den Halt und stürzt unglücklich in die Schlucht. Beim Aufprall hast du einen schlimm verstauchten Knöchel und üble Prellungen. Du bist Verletzt.“*"]},
+ {t: "box", h: "Krank", b: [
+  "Du hast immer mindestens 3 Stress, auch nach einer Rast oder einer Verschnaufpause.",
+  "Du kannst Krank werden, weil du in der Kälte draußen schlafen musstest, weil du etwas Verdorbenes gegessen hast oder weil du mit brennenden Pflanzen oder schädlichen Sporen in Berührung gekommen bist.",
+  "Um diesen Zustand zu entfernen, verbringe 3 Tage, ohne einen anderen Zustand zu erleiden, bei gutem Essen und mit einem Unterschlupf.",
+  "*„Es scheint, als wäre die Pilzpastete, die du neulich gegessen hast, nicht mehr ganz frisch gewesen. Die Krämpfe im Magen und die Übelkeit sagen dir, dass du Krank bist.“*"]},
+ {t: "box", h: "Vergiftet", b: [
+  "Zu Beginn eines Zuges wirft die Spielleitung einen Zahlenwürfel. Ist das Ergebnis gerade, erleidest du 1 Stress. Bist du Überlastet und erleidest durch diesen Zustand zusätzlichen Stress, wirst du Gebrochen, musst aber nicht Bow Out.",
+  "Du kannst Vergiftet werden, weil du mit einer giftigen Substanz in Berührung gekommen oder von einer widerlichen Bestie verwundet worden bist.",
+  "Um diesen Zustand zu entfernen, kannst du mit einem Critical Wurf auf Exploration + Academia ein Gegenmittel herstellen oder eines für 3 Coins kaufen. Gelegentlich kann die Spielleitung entscheiden, dass du für die Wirkung eines bestimmten Gifts seltene, schwer zu findende Zutaten brauchst.",
+  "*„Der Schnitt von der Klaue des Tausendfüßlers ist nicht wirklich tief, aber dein Arm verkrampft. Du wurdest Vergiftet.“*"]},
+ {t: "box", h: "Gebrochen", b: [
+  "Zusätzlich −1 auf alle Würfe. Du hast immer mindestens 8 Stress, auch nach einer Rast oder einer Verschnaufpause.",
+  "Hast du bereits 3 Zustände und solltest einen vierten erleiden, wirst du stattdessen Gebrochen. Du kannst keinen anderen Zustand erleiden, bis du einen entfernt hast.",
+  "Um diesen Zustand zu entfernen, kannst du einen Extreme Wurf auf Care + Academia ablegen oder für 4 Coins ins Krankenhaus gehen.",
+  "*„Dieser Schlag ist der Tropfen, der das Fass zum Überlaufen bringt. Du hast schon zu viele Zustände, du bist Gebrochen!“*"]},
+ {t: "h", x: "Allgemeine Zustände"},
+ "Hier findest du einige seltenere Zustände, die nicht auf dem Bogen stehen. Du kannst gern neue Zustände erfinden, wenn sie dein Abenteuer unterhaltsamer und packender machen.",
+ {t: "box", h: "Betrunken", b: [
+  "−1 auf Würfe, um das Gleichgewicht zu halten, zu bezaubern oder zu lügen oder um dich nicht verführen oder betrügen zu lassen.",
+  "Du kannst Betrunken werden, wenn du zu viel Alkohol trinkst. Die Spielleitung kann dich einen Wurf auf Strength + War ablegen lassen, um zu sehen, wie gut du deinen Alkohol verträgst.",
+  "Um diesen Zustand zu entfernen, kannst du eine gute Nacht schlafen, wachst aber Erschöpft auf.",
+  "*„Es fühlt sich an, als hättest du ein Glas zu viel getrunken, denn selbst als die Musik aufhört, dreht sich der Raum weiter. Du solltest nach Hause gehen, du bist Betrunken!“*"]},
+ {t: "box", h: "Geblendet", b: [
+  "−1 auf Würfe, die Sehvermögen erfordern.",
+  "Du kannst Geblendet werden, wenn dich helles Licht trifft oder wenn dir etwas in die Augen gerät.",
+  "Um diesen Zustand zu entfernen, kannst du dir Zeit nehmen, die Augen auszuruhen oder gründlich auszuspülen.",
+  "*„Die dichte Staubwolke hüllt dich ein. Du versuchst, dir die Augen sauber zu reiben, aber du bist Geblendet.“*"]},
+ {t: "box", h: "Lächerlich", b: [
+  "Dein Decorum kann manchmal zur Hindrance werden.",
+  "Du kannst Lächerlich werden, wenn dir ein Wurf misslingt, um ein höheres Decorum zu erreichen, wenn du eine Torte ins Gesicht bekommst oder wenn du deine Schamhaftigkeit verlierst.",
+  "Um diesen Zustand zu entfernen, kehre nach Hause oder in dein Zimmer zurück und senke freiwillig dein Decorum.",
+  "*„Als du in den Spiegel siehst, wird dir plötzlich klar, dass dieser Friseur kein Profi war. Mit diesen gepuderten Locken siehst du einfach Lächerlich aus.“*"]},
+ {t: "box", h: "Schuldig", b: [
+  "−1 auf Würfe, um zu lügen oder auf böse oder unangemessene Weise zu handeln.",
+  "Du kannst Schuldig werden, wenn dir klar wird, dass du jemandem Unrecht getan hast, der es nicht verdient hat, wenn dir jemand die Leviten liest oder wenn du Hilfe oder Mitgefühl von einem früheren Opfer erhältst.",
+  "Um diesen Zustand zu entfernen, kannst du dich bessern und deine früheren Untaten wiedergutmachen. Alternativ kann ein Freund den Zustand entfernen, indem er mit einem Critical Wurf auf Authority + Society eine Aussprache herbeiführt.",
+  "*„Der Littling, den du bestehlen wolltest, bemerkt dich und ruft zu deiner großen Überraschung nicht nach den Gendarmen. Er lächelt und bietet dir ein paar Münzen an: ‚Ich habe selbst schwere Zeiten durchgemacht.‘ Dir schnürt es die Kehle zu, als du das Geld nimmst, und du fühlst dich Schuldig.“*"]}
+]},
+
+{id: "decorum", t: "Decorum", p: 126, b: [
+ "Du kannst nicht ernsthaft hoffen, in Lumpen oder mit zerzaustem Schnurrbart beim Großen Julball in Tournoire aufzutreten, aber ebenso wenig kannst du ehrlich glauben, dass dich die schlimmsten Banden von Tuberdam ernst nehmen, wenn du eine gepuderte Perücke trägst. Ich meine: So oder so ist unbestreitbar, dass das Decorum eines Littlings immer zählt und die Meinung, die andere von dir haben, drastisch beeinflusst.",
+ "Es gibt 5 Stufen von Decorum:",
+ {t: "ul", x: [
+  "**Uncouth:** Du bist schmutzig und schlecht gekleidet, du siehst rundum verrufen aus.",
+  "**Shabby:** Du trägst zerlumpte Kleider, würdig eines Raufbolds.",
+  "**Decent:** Du bist gekämmt und für die meisten Anlässe angemessen gekleidet.",
+  "**Elegant:** Du achtest sehr auf dein Äußeres und trägst feine Kleidung.",
+  "**Pompous:** Du bist nach der neuesten Mode frisiert und voll geschminkt. Deine Kleidung ist praktisch ein Kunstwerk."]},
+ {t: "h", x: "Hilfe und Hindrance"},
+ "Dein Decorum kann je nach Umständen und den Leuten, mit denen du zusammen bist, hilfreich oder hinderlich sein. Dein Decorum ist aber nicht immer für die Geschichte wichtig und sollte nur ins Spiel kommen, wenn es wirklich einen Unterschied macht oder wenn es nützlich, interessant oder unterhaltsam ist.",
+ "Ein hohes Decorum ist hilfreich im Umgang mit adligen oder höheren Littlings und wenn du in der feinen Gesellschaft einen guten Eindruck machen willst. Um an noblen Orten oder äußerst noblen Festen teilzunehmen, kann zudem eine strenge Kleiderordnung gelten. Bei solchen Anlässen ist ein hohes Decorum sogar eine wichtige Voraussetzung. Ein niedriges Decorum lässt dich hingegen wie einen Rowdy aussehen und ist nur eine Hindrance, wenn du das Vertrauen von Würdenträgern oder politischen Figuren gewinnen willst.",
+ "Bedenke, dass ein hohes Decorum nicht immer die beste Idee ist, denn Elegant oder Pompous auszusehen kann auch eine Hindrance sein, wenn du dich in den guten Littlings der Elendsviertel und in Kriminelle einfühlen willst oder wenn du einfach nicht auffallen und nicht die Aufmerksamkeit von Dieben und Profiteuren erregen willst. Ebenso kann ein niedriges Decorum hilfreich sein, wenn du jemanden einschüchtern oder dich unter die Kriminellen schlimmer Banden mischen willst.",
+ "Hinzu kommt: Auf jeden Littling des Household, der von eleganter Kleidung und gestutzten Frisuren verzaubert ist, kommt ein anderer, der viel lieber mit einem verwahrlosten Littling mit etwas Moschus zusammen wäre. Geschmäcker sind verschieden!",
+ {t: "h", x: "Decorum verlieren"},
+ "Es gibt 4 Wege, dein Decorum zu senken:",
+ {t: "ul", x: [
+  "Misslingt dir ein Wurf, kann die Spielleitung als Konsequenz dein Decorum senken.",
+  "Du willst +1 auf einen Wurf und senkst freiwillig dein Decorum, um ihn zu bekommen.",
+  "Du verlierst die Voraussetzungen für deine aktuelle Decorum-Stufe.",
+  "Du entscheidest dich, dein Decorum zu senken."]},
+ "Misslingt dir ein Wurf, der deine Figur schmutzig machen oder ihre Kleidung ruinieren könnte, kann die Spielleitung dein Decorum senken.",
+ {t: "bsp", b: [["Spielleitung", "Du springst ab und machst dich auf eine harte Landung gefasst … die überraschend von einem Haufen warmer Mäuseköttel abgefedert wird. Senke dein Decorum."]]},
+ "Bevor du einen Action oder Reaction Roll ablegst, kannst du entscheiden, dein Decorum für +1 oder eine noch größere Hilfe zu senken.",
+ {t: "bsp", b: [["Jacob", "Ich reiße mir den Ärmel vom Hemd und benutze ihn als Verband für die Wunde. Ich würde gern mein Decorum senken, um +1 auf den Wurf auf Care zu bekommen."]]},
+ "Um Elegant oder Pompous zu sein, musst du außerdem passende Kleidung tragen. Verlierst du diese kostbaren Kleidungsstücke aus irgendeinem Grund oder beschmutzt sie, kannst du diese Stufe nicht mehr beanspruchen.",
+ {t: "bsp", b: [["Spielleitung", "Während du auf der Toilette warst, hat jemand deine Jacke und sogar deinen Hut gestohlen. Ohne deine elegante Kleidung bist du nicht mehr Elegant und fällst auf Decent zurück."]]},
+ "Selbstverständlich kannst du dein Decorum jederzeit aus beliebigem Grund senken, vielleicht indem du die gute Kleidung ausziehst oder dich etwas schmutzig machst und deine Frisur zerzausst.",
+ {t: "bsp", b: [["Sarada", "Ich konnte es kaum erwarten, dieses dumme Kleid loszuwerden. Ich nehme das Make-up ab und ziehe wieder meine Reisekleidung an. Ich wäre viel lieber wieder Decent, als auch nur eine Sekunde länger Elegant zu bleiben!"]]},
+ {t: "h", x: "Decorum erhöhen"},
+ "Du kannst dein Decorum erhöhen, indem du bestimmte Handlungen ausführst oder die Dienste eines Barbiers, Friseurs oder Wäschers bezahlst. Außerdem brauchst du neue Kleidung, die du immer kaufen oder … ausleihen kannst.",
+ {t: "box", h: "Von Uncouth zu Shabby", b: [
+  "Wasche dich und deine Kleidung in einer Pfütze oder unter einem Leck der Piping. Oder nimm ein schönes warmes Bad in einer einfachen Wanne für 1 Coin.",
+  "*„Während deine Kleider auf der Pilzkappe trocknen, genießt du ein gutes Bad in einer Tau-Pfütze. Nachdem du dich angezogen hast, bist du Shabby.“*"]},
+ {t: "box", h: "Von Shabby zu Decent", b: [
+  "Putz dich gründlich in einem gut ausgestatteten Bad heraus und kauf neue Kleidung. Oder besuche den Barbier oder Friseur und lass dich für 2 Coins herrichten.",
+  "*„Der Barbier säubert dein Gesicht, und du betrachtest dein frisch rasiertes Spiegelbild. Du bist jetzt Decent.“*"]},
+ {t: "box", h: "Von Decent zu Elegant", b: [
+  "Erfordert elegante Kleidung. Du besuchst einen feinen Barbier oder Friseur für 2 Coins. Oder lege einen Critical Wurf auf Grace + Academia ab, um dich oder einen Freund zu stylen. Misslingt er, erhöht der arme Littling sein Decorum trotzdem, erleidet aber auch den Zustand Lächerlich.",
+  "*„Deine rostfarbene Tunika fließt weich um dich. Du nimmst dir einen Moment, um die zarte, schimmelartige Stickerei zu bewundern, bevor du aufbrichst. Du bist wahrhaft Elegant.“*"]},
+ {t: "box", h: "Von Elegant zu Pompous", b: [
+  "Erfordert Galakleidung. Lass dich in einem Schönheitssalon herausputzen. Make-up und Frisur, Bart und Schnurrbart inklusive, zum bescheidenen Preis von 3 Coins. Oder lege einen Extreme Wurf auf Grace + Academia ab, um dich oder einen Freund herauszuputzen. Misslingt er, erhöht der arme Littling sein Decorum trotzdem, erleidet aber auch den Zustand Lächerlich.",
+  "*„Du bist wirklich stolz auf die weiche, voluminöse Frisur, die man dir gemacht hat. Und erst das glänzende Make-up! Du siehst einfach Pompous aus. Nicht umsonst nennt man das den besten Salon der Dining Hall.“*"]}
+]}
+);
+})();

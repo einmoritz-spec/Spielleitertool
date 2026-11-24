@@ -288,8 +288,8 @@ body{background-attachment:fixed}
 .blattmodal .regelblatt{margin:0}
 .schwarz .werte>div,.schwarz .werte>div:nth-child(odd),.schwarz .werte>div:nth-child(even){background:none;color:inherit}.schwarz .werte{border-left:0}
 /* ---------- Landmarken ---------- */
-.lmwrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:12px;padding:12px 14px}
-.lmhaupt{border:1px solid #0006}
+.lmwrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:12px;padding:12px 14px;align-items:start}
+.lmhaupt{border:0}
 .lmb{display:grid;grid-template-columns:200px minmax(0,1fr);min-height:96px}
 .lmk{padding:16px 16px;border-right:1px solid #0003}.lmk h2{font:400 38px/1 var(--head);margin:0 0 8px;color:inherit}.lmk p{font:italic 14px/1.35 var(--body);margin:0;opacity:.85}
 .lmg{display:grid;grid-template-columns:repeat(4,1fr);gap:2px 22px;padding:14px 18px;align-content:start;align-items:start}
@@ -757,3 +757,5 @@ body.weg #app>.unter{transform:translateY(-100%)}
 .domz{display:flex;align-items:center;gap:4px 14px;flex-wrap:wrap}.dchip{display:inline-flex;align-items:center;gap:6px}
 .dhex.mini{width:30px}.dhex.mini>span{display:none}
 @media(max-width:1100px){.domraster{grid-template-columns:1fr}}
+
+.lmseite{padding-bottom:6px;border:0}.lms:last-child{margin-bottom:0}.lms:last-child .lmi:last-child{border-bottom:0}.lmb.t4{border:0}

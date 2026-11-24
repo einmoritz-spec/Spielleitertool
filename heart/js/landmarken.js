@@ -17,9 +17,7 @@ function meta(l, bb){
   return '<span class="d">' + esc(m) + "</span>";
 }
 function item(l, pfad, bb){
-  var B = window.HT_BILD || {}, bl = pfad ? null : (B.lm || {})[l.id];
-  if(bl && bl === (B.tiefe || {})[String(l.tiefe)]) bl = null;
-  return '<a class="lmi' + (bl ? " mitbild" : "") + '" onclick="go(\'' + (pfad || "lm/" + l.id) + '\')">' + (bl ? '<img class="lmmini" src="' + IMG(bl) + '" alt="">' : "") + '<span class="tx"><b>' + esc(l.t) + "</b>" + meta(l, bb === undefined ? l.q === "bb" : bb) + "</span></a>";
+  return '<a class="lmi" onclick="go(\'' + (pfad || "lm/" + l.id) + '\')"><span class="tx"><b>' + esc(l.t) + "</b>" + meta(l, bb === undefined ? l.q === "bb" : bb) + "</span></a>";
 }
 function viewLm(a){
   if(a[0]) return viewLmEinzeln(a[0]);

@@ -702,3 +702,5 @@ body.flood #tabs a{padding:0 9px}
 .vm .grp.zu .gh::after{transform:translateY(-30%) rotate(-45deg)}
 .vm .grp.zu .acc{display:none}
 .vm .grp{margin-bottom:6px}
+.ty{min-height:0}
+.ty img{align-self:flex-start;max-height:230px;width:auto;max-width:110px;object-position:top}

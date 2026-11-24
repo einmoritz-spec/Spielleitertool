@@ -99,7 +99,8 @@ function penTab(k){ return '<span class="r' + (ST.notes && ST.notes[k] ? ' has' 
 /* Seitenleiste + Inhalt */
 function lay(side, body){
   if(!side) return '<div class="lay solo"><div class="ct">' + body + '</div></div>';
-  return '<div class="lay' + (ST.fold ? ' fold-on' : '') + '">' + side + '<button class="fold" onclick="foldSide()">' + (ST.fold ? '›' : '‹') + '</button><div class="ct">' + body + '</div></div>';
+  if(ST.fold) return '<div class="lay fold-on"><button class="fold fx" onclick="foldSide()" title="Leiste ausklappen">›</button><div class="ct">' + body + '</div></div>';
+  return '<div class="lay">' + side.replace('<nav class="side">', '<nav class="side"><button class="fold" onclick="foldSide()" title="Leiste einklappen">‹</button>') + '<div class="ct">' + body + '</div></div>';
 }
 function foldSide(){ ST.fold = !ST.fold; save(); render(); }
 function kurz(t){ return String(t).split(":")[0]; }

@@ -450,3 +450,24 @@ body.mitunter .side{top:98px;height:calc(100vh - 98px)}
 .pbx .pbi{aspect-ratio:16/7}
 .pbx:not(:has(.pbl)) .pbi{aspect-ratio:auto;flex:1;min-height:180px}
 .tabs{height:42px}.tabs a{font-size:21px;padding:8px 13px 6px}
+/* Seitenleiste schlicht: Pfeil neben dem ersten Eintrag */
+.side{border-right:1px solid rgba(0,0,0,.12);padding:8px 0 30px;width:240px}
+body.dark .side{border-right-color:rgba(255,255,255,.12)}
+.side a{position:relative;padding:7px 36px 7px 22px;font:400 14.5px/1.35 Rubik,sans-serif;color:var(--sub);border-left:3px solid transparent;background:none}
+.side a:hover{color:var(--fg)}
+.side a.on{color:var(--c);font-weight:500;background:none;border-left:3px solid var(--c);padding-left:22px}
+body.dark .side a.on{background:none}
+.side .fold{position:absolute;right:8px;top:11px;margin:0;width:24px;height:24px;border:0;border-radius:6px;background:none;color:var(--sub);font:400 20px/1 Rubik,sans-serif;display:grid;place-items:center;cursor:pointer;z-index:2}
+.side .fold:hover{color:var(--fg);background:rgba(0,0,0,.06)}
+.fold.fx{position:sticky;top:66px;margin:10px 0 0 8px;width:24px;height:24px;border:0;background:none;color:var(--sub);font:400 20px/1 Rubik,sans-serif;cursor:pointer;flex:none}
+body.mitunter .fold.fx{top:108px}
+/* Unterleiste in derselben Schrift wie die Kopfzeile */
+#app>.unter a{font:19px/1 Baby,sans-serif;padding:0 13px}
+/* Startseite: Unterpunkte als ruhige Liste unter dem Bild */
+.pbl{display:flex;flex-direction:column;gap:0;padding:4px 0 6px}
+.pbl a{display:flex;align-items:center;justify-content:space-between;border:0;border-top:1.5px solid rgba(0,0,0,.08);border-radius:0;padding:9px 16px;font:20px/1 Baby,sans-serif;color:var(--fg);background:none}
+.pbl a:first-child{border-top:0}
+.pbl a:after{content:"›";font:400 22px/1 Rubik,sans-serif;color:var(--c);opacity:.5;transition:transform .2s,opacity .2s}
+.pbl a:hover{background:none;color:var(--c)}.pbl a:hover:after{opacity:1;transform:translateX(3px)}
+.pbr{align-items:start}
+body .side .fold{top:11px}

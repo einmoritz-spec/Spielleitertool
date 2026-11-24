@@ -14,7 +14,7 @@ function gHerz(k, n){ var s = GS(); s.h = s.h || {}; s.h[k] = s.h[k] || []; hCyc
 function viewGefahren(id){
   var s = GS(), g = id ? gefById(id) : null;
   var enc = '<div class="enc"><span class="lb">Begegnung</span>' + s.enc.map(function(e){ var x = gefById(e.id); return '<span class="ec' + (g && x.id === g.id ? ' on' : '') + '" onclick="go(\'gefahren/' + x.id + '\')" oncontextmenu="gDel(event,\'' + x.id + '\')">' + esc(x.t) + ' <i>×' + e.n + '</i></span>'; }).join("") + (g ? '<span class="ec add" onclick="gEnc(\'' + g.id + '\')">+ Gefahr</span>' : '') + '</div>';
-  var tabs = '<div class="tabs"><a class="on">Gefahren</a></div>';
+  var tabs = '';
   setTheme(false, g ? g.farbe : "var(--rust)");
   if(!g) return tabs + '<div class="ct gpage">' + enc + '<div class="gtop"><input class="srch" placeholder="Gefahr suchen …" value="' + esc(s.q) + '" oninput="gQ(this.value)"></div><div class="ggr" id="ggrid">' + gGrid() + '</div></div>';
   var k = PI_GEFAHR.indexOf(g), pv = PI_GEFAHR[k - 1], nx = PI_GEFAHR[k + 1];

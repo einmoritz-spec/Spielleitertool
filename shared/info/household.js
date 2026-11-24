@@ -1,6 +1,6 @@
 /* Überblick: Household (Grundbuch Vol. I, Kapitel „How to Play“, Kapitel VIII „Saga“). Eigenes Layout (html + css). */
 GM_INFO.household = {
-  tag: "Tierische Abenteuer",
+  tag: "",
   stil: { bg: "#f4eee2", fg: "#2d2530", acc: "#6e4b8c", ff: "Gar,Georgia,serif", hf: "Fell,serif" },
   css: ".gi-own-body{padding:16px 28px 4px;font-size:15px;line-height:1.5}.gi-own-body h3{font:400 15px Fell,serif;letter-spacing:.12em;text-transform:uppercase;color:#6e4b8c;margin:0 0 10px;display:flex;align-items:center;gap:12px}.gi-own-body h3:after{content:'';flex:1;height:1px;background:#c9b27a}"
    + ".hi-top{display:grid;grid-template-columns:1fr 1.15fr;gap:30px}.hi-top p{margin:0 0 12px}"

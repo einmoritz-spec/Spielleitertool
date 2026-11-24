@@ -124,19 +124,18 @@
     var sec = null, jump = null;
     if(cur !== "typen" && D){ sec = D.abschnitte.filter(function(a){ return a.id === cur; })[0] || D.abschnitte[0]; }
     var base = "#" + C.p + "nach/" + tab + "/";
-    var tree = "", grp = null;
+    var tree = "", grp = null, subs = [];
     if(extraFirst) tree += '<a class="ni' + (cur === "typen" ? ' on' : '') + '" href="' + base + K.seg + '">' + K.label + '</a>';
     sets.forEach(function(k){
       var d = ND[k];
       var aktiv = !multi || d === D || cur === "typen" && false;
-      if(multi) tree += aktiv ? '<div class="ng">' + esc(d.titel) + '</div>' : '<a class="ng zu" href="' + base + k + '/' + d.abschnitte[0].id + '">' + esc(d.titel) + ' ▸</a>';
+      if(multi) subs.push('<a' + (aktiv ? ' class="on"' : '') + ' href="' + base + k + '/' + d.abschnitte[0].id + '">' + esc(d.titel.split(":")[0]) + '</a>');
       if(!aktiv) return;
       gruppen(d.abschnitte).forEach(function(g){
         var f = g.items[0], on = cur !== "typen" && sec && d === D && g.items.some(function(x){ return x.id === sec.id; });
         if(on) grp = g;
         var pre = base + (multi ? k + "/" : "");
         tree += '<a class="ni' + (on ? ' on' : '') + '" href="' + pre + f.id + '">' + esc(f.titel.split(":")[0]) + '</a>';
-        g.items.slice(1).forEach(function(x){ tree += '<a class="nj" href="' + pre + x.id + '" data-j="' + x.id + '">' + esc(x.titel.split(":")[0]) + '</a>'; });
       });
     });
     var main = "";
@@ -148,7 +147,7 @@
       jump = sec.id !== f0.id ? sec.id : null;
     }
     else main = '<div class="nh"><h1>' + esc(((C.NACH || window.NACH).filter(function(x){ return x[0] === tab; })[0] || [0, tab])[1]) + '</h1></div>';
-    return {tree: tree, main: main, typen: cur === "typen", jump: jump, D: D};
+    return {tree: tree, main: main, typen: cur === "typen", jump: jump, D: D, sub: subs.length ? '<div class="unter">' + subs.join("") + "</div>" : "", n: (tree.match(/class="ni/g) || []).length};
   }
   /* Kapitel-Header: gleiche Bausteine wie der Mysterium-Header (.shd, Scroll-Variable --p); nur mit gesichertem Eröffnungsbild (Feld bild im NACH-Tab bzw. Set-Datensatz) */
   function banner(tab, D){
@@ -163,9 +162,22 @@
     if(!window.__shBound){ window.__shBound = 1; window.addEventListener("scroll", function(){ if(window.__shOnScroll) window.__shOnScroll(); }, {passive: true}); }
     upd();
   }
+  /* Eine Tab-Leiste für alles: Vorbereitung, Spielwerkzeuge, Trenner, Buchkapitel (TftL und Flood) */
+  var KURZ = {"Das Mysterium":"Mysterium","Mystery-Landschaft":"Landschaft","Spielleiterschirm":"Schirm"};
+  window.TX_TABS = function(C, on){
+    var B = (window.BEREICHE || {})[C.area], p = C.p || "";
+    if(!B || C.area === "es") return null;
+    function a(href, label, key){ return '<a href="#' + href + '"' + (key === on ? ' class="on"' : '') + '>' + esc(label) + '</a>'; }
+    var h = "", tl = B.tabs || [];
+    tl.forEach(function(t){ if(t[0] === "start") h += a(p + "start", t[1], "start"); });
+    tl.forEach(function(t){ if(t[0] !== "start") h += a(p + t[0], t[0] === "kids" && C.L && C.L.unsere ? C.L.unsere : t[1], t[0]); });
+    h += '<span class="tsep"></span>';
+    (C.NACH || []).forEach(function(n){ h += a(p + "nach/" + n[0], KURZ[n[1]] || n[1], "nach/" + n[0]); });
+    return h;
+  };
   window.renderNach = function(app, tabs, rest){
     var C = CX(), tab = rest[0] || "welt";
-    tabs.innerHTML = (C.NACH || []).map(function(n){ return '<a href="#' + C.p + 'nach/' + n[0] + '"' + (n[0] === tab ? ' class="on"' : '') + '>' + esc(n[1]) + '</a>'; }).join("");
+    tabs.innerHTML = window.TX_TABS(C, "nach/" + tab) || (C.NACH || []).map(function(n){ return '<a href="#' + C.p + 'nach/' + n[0] + '"' + (n[0] === tab ? ' class="on"' : '') + '>' + esc(n[1]) + '</a>'; }).join("");
     app.onclick = function(e){
       var ty = e.target.closest(".ty"); if(ty && !e.target.closest(".pgl")){ location.hash = KA().href(ty.dataset.t); return; }
       var wb = e.target.closest(".nwb"); if(wb){ var sc = wb.closest(".nw"), v = roll(sc.dataset.d); sc.querySelectorAll("tr").forEach(function(tr){ tr.classList.toggle("hit", hit(tr.dataset.k, v)); }); wb.textContent = sc.dataset.d + ': ' + v; return; }
@@ -177,14 +189,14 @@
     if(kid && K.list().some(function(x){ return x.id === kid; })){ typ(app, kid); return; }
     var L = lese(app, tab, rest, tab === K.tab);
     app.className = "page nach" + (collapsed ? " nsc" : "");
-    var bn = banner(tab, L.D);
-    function wrap(inner){ return bn ? bn + '<div class="nbody">' + inner + '</div>' : inner; }
-    var cls = "page nach nl" + (bn ? " nhb" : "") + (collapsed ? " nsc" : "");
-    if(L.typen){ var tmp = document.createElement("div"); typen(tmp); app.className = cls; app.innerHTML = wrap('<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + tmp.innerHTML + '</div>'); if(bn) bannerInit(app); return; }
+    var bn = "", solo = L.n < 2 && !L.typen;
+    function wrap(inner){ return (L.sub || "") + '<div class="nbody">' + inner + '</div>'; }
+    function side(){ return solo ? "" : '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav>'; }
+    var cls = "page nach nl nhb" + (L.sub ? " mu" : "") + (solo ? " ns1" : "") + (collapsed && !solo ? " nsc" : "");
+    if(L.typen){ var tmp = document.createElement("div"); typen(tmp); app.className = cls; app.innerHTML = wrap(side() + '<div class="nmain">' + tmp.innerHTML + '</div>'); return; }
     if(!L.tree){ app.innerHTML = L.main; return; }
     app.className = cls;
-    app.innerHTML = wrap('<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav><div class="nmain">' + L.main + '</div>');
-    if(bn) bannerInit(app);
+    app.innerHTML = wrap(side() + '<div class="nmain">' + L.main + '</div>');
     var sd = app.querySelector(".nside"), on = app.querySelector(".ni.on"); if(sd && on) sd.scrollTop = Math.max(0, on.offsetTop - 60);
     if(L.jump){ var jt = document.getElementById("nj-" + L.jump); if(jt) setTimeout(function(){ jt.scrollIntoView({block:"start"}); }, 30); }
   };

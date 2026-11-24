@@ -62,7 +62,7 @@
     if(r.area==="es" && window.ES && ES.route){ ES.route(r.page, r.rest, document.getElementById("app"), tabsEl); return; }
     if(ok && r.page==="m" && window.renderLeitstand && (r.area==="tftl" || window.renderLeitstand.ctx)){ window.renderLeitstand(document.getElementById("app"), tabsEl, r.rest); return; }
     if(ok && r.page==="nach" && window.renderNach){ document.getElementById("app").className = "page"; window.renderNach(document.getElementById("app"), tabsEl, r.rest); window.scrollTo(0, 0); return; }
-    tabsEl.innerHTML = d.tabs.map(function(t){ return '<a href="#' + pre + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
+    tabsEl.innerHTML = (window.TX_TABS && window.TX_TABS(window.TCTX, r.page)) || d.tabs.map(function(t){ return '<a href="#' + pre + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
     var tab = d.tabs.filter(function(t){ return t[0]===r.page; })[0];
     var app = document.getElementById("app"); app.className = "page";
     if(ok && r.page==="start" && window.renderStart) window.renderStart(app);

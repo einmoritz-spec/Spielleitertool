@@ -12,8 +12,7 @@ function kurz(g){ return g.legendaer && g.t.indexOf(": ") > 0 ? g.t.split(": ").
 function kopf(g){ return '<div class="gk"><b>' + esc(kurz(g)) + "</b> " + pg(g) + etikett(g) + "</div>"; }
 function zeil(g, leg){
   if(offen === g.id) return detail(g, leg);
-  var bi = ((window.HT_BILD || {}).gegner || {})[g.id];
-  return '<div class="gz' + (leg ? " leg" : "") + (bi ? " mitbild" : "") + '" onclick="gegnerAuf(\'' + g.id + '\')">' + (bi ? '<img class="gmini" src="' + IMG(bi) + '" alt="">' : "") + kopf(g) + '<div class="gw">' + esc(zeile(g)) + "</div></div>";
+  return '<div class="gz' + (leg ? " leg" : "") + '" onclick="gegnerAuf(\'' + g.id + '\')"><div class="gk"><b>' + esc(kurz(g)) + "</b>" + etikett(g) + '</div><div class="gw">' + esc(zeile(g)) + "</div></div>";
 }
 function w(l, v){ return v ? '<div class="gv"><span class="lbl">' + l + "</span> " + md(v) + "</div>" : ""; }
 function detail(g, leg){
@@ -25,12 +24,14 @@ function detail(g, leg){
     w("Ressourcen:", g.ressourcen) + w("Ausrüstung:", g.ausr) + w("Resistenz:", g.resX) + w("Schwierigkeit:", g.schwx) + w("Besonderes:", g.besonders) + w("Domains:", (g.dom || []).join(", ")) + w("", g.domx) + "</div>" + fo + '<div class="gbtn"><button onclick="auffDieExpedition(\'' + g.id + '\')">Auf die Expedition</button></div>';
   return '<div class="gz auf' + (leg ? " leg" : "") + '"><div class="gh" onclick="gegnerAuf(null)"><span class="platte' + (leg ? " schwarz" : "") + '">' + esc(kurz(g)) + "</span> " + pg(g) + etikett(g) + '</div><div class="gcols"><div class="gtext">' + links + "</div><div>" + rechts + "</div></div></div>";
 }
+var mobsAuf = false;
+window.gegnerMobs = function(){ mobsAuf = !mobsAuf; render(); };
 window.gegnerAuf = function(id){ offen = id; render(); };
 function viewGegner(){
   var G = window.HT_GEGNER || [], I = window.HT_GEGNER_INFO || {};
   var norm = G.filter(function(g){ return !g.legendaer; }).sort(function(a, b){ return (a.q !== "core") - (b.q !== "core") || a.p - b.p; });
   var leg = G.filter(function(g){ return g.legendaer; }).sort(function(a, b){ return a.p - b.p; });
-  var mobs = I.mobs && I.mobs.length ? '<div class="schwarz gmobs">' + I.mobs.map(blk).join("") + "</div>" : "";
+  var mobs = I.mobs && I.mobs.length ? '<div class="foreg gmobsz"><a onclick="gegnerMobs()">Optionale Regel: Mobs ' + (mobsAuf ? "▾" : "▸") + "</a>" + (mobsAuf ? '<div class="schwarz gmobs">' + I.mobs.map(blk).join("").replace(/<div class="lbl">[^<]*Mobs<\/div>/, "") + "</div>" : "") + "</div>" : "";
   return window.spielNav("gegner") + '<div class="gwrap">' + mobs + '<div class="gg">' + norm.map(function(g){ return zeil(g, false); }).join("") + "</div>" +
     (leg.length ? '<section class="gleg"><h2>Legendäre Gegner</h2>' + (I.legendaer && I.legendaer.length ? '<div class="gli">' + I.legendaer.map(blk).join("") + "</div>" : "") + '<div class="gg">' + leg.map(function(g){ return zeil(g, true); }).join("") + "</div></section>" : "") + "</div>";
 }

@@ -32,6 +32,9 @@ function blk(b){
     case "tab": return (b.h ? '<h3 class="h3">' + esc(b.h) + "</h3>" : "") + '<ol class="tab n' + (b.n || 2) + '">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ol>";
     case "img": return '<img class="bimg" src="' + IMG(b.src) + '" alt="" onclick="zoom(this.src)">';
     case "html": return b.x;
+    case "doms":
+      var dk = function(d){ return '<div class="domkarte">' + domHex(d.id) + '<p class="kurs">' + md(d.it) + "</p><p>" + md(d.x) + "</p></div>"; }, hz = Math.ceil(b.x.length / 2);
+      return '<div class="domraster"><div class="domspalte">' + b.x.slice(0, hz).map(dk).join("") + '</div><div class="domspalte">' + b.x.slice(hz).map(dk).join("") + "</div></div>";
   }
   return "";
 }

@@ -55,7 +55,7 @@ function viewLmEinzeln(id){
   var l = HT_LM.filter(function(x){ return x.id === id; })[0]; if(!l) return viewLm([]);
   var tf = {"ungebunden":"Ungebunden","risse":"Risse","himmel":"Die Acht Himmel"}[l.tiefe] || String(l.tiefeText || l.tiefe);
   var done = ST.lmdone || {};
-  var wz = '<div class="lmwerte"><div><span class="lbl">Domains</span> ' + esc((l.dom || []).join(", ")) + '</div><div><span class="lbl">Tiefe</span> ' + esc(tf) + '</div><div><span class="lbl">Standard-Stress</span> ' + esc(l.stress || "") + "</div>" +
+  var wz = '<div class="lmwerte"><div class="domz"><span class="lbl">Domains</span> ' + (l.dom || []).map(function(d){ return domKey(d) ? '<span class="dchip">' + domHex(d, "mini") + esc(d) + "</span>" : esc(d); }).join("") + '</div><div><span class="lbl">Tiefe</span> ' + esc(tf) + '</div><div><span class="lbl">Standard-Stress</span> ' + esc(l.stress || "") + "</div>" +
     ((l.haunts || []).length ? '<div class="hn"><span class="lbl">Haunts</span><ul>' + l.haunts.map(function(h){ return "<li>" + md(h) + "</li>"; }).join("") + "</ul></div>" : "") + "</div>";
   var bl = ((window.HT_BILD || {}).lm || {})[l.id];
   var links = (bl ? '<img class="lmbild" src="' + IMG(bl) + '" alt="" onclick="zoom(this.src)">' : "") + (l.text || []).map(blk).join("") + (l.unter || []).map(function(u){ return '<h3 class="h3">' + esc(u.t) + "</h3>" + (u.b || []).map(blk).join(""); }).join("");

@@ -40,6 +40,14 @@ function viewStart(){
     '<button class="kamp karte" onclick="go(\'karte\')"><img src="' + IMG("start/karte") + '" alt=""><span><b>Karte des Herzens</b><small>Landmarken setzen, Delves verbinden</small></span><span class="pf">→</span></button></div></div>' +
     startRechts(inh, kl) + "</div>";
 }
+/* Unterpunkte der Startseite = genau die Untermenüs, die der Bereich oben in der Unterleiste hat */
+function startUnter(k){
+  var id = k.r.replace("nach/", ""), C = (window.HT_NACH || {})[id];
+  if(k.r === "lm") return [["Landmarken","lm"],["Karte","karte"],["Expedition","exp"]];
+  if(k.r === "gegner") return [];
+  if(!C || C.subs.length < 2) return [];
+  return C.subs.filter(function(s){ return id !== "regeln" || ["leicht","schwer","kritisch"].indexOf(s.id) < 0; }).map(function(s){ return [s.t, id === "regeln" && s.id === "fallout" ? "fallout" : k.r + "/" + s.id]; });
+}
 function startRechts(inh, kl){
   var G = HT_GEDICHT, alle = [];
   HT_INHALT.forEach(function(c){ c.forEach(function(k){ alle.push(k); }); });
@@ -49,7 +57,7 @@ function startRechts(inh, kl){
   var kopf = '<div class="vckopf' + (auf ? " auf" : "") + '" onclick="ST.gedichtAuf=!ST.gedichtAuf;save();render()"><p class="vczeile">Über uns die Stadt, Spire. Unter uns die Stadt, Heart.</p>' + (auf ? '<div class="vcged">' + G.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") + "</div>";
   var band = L.map(function(k, i){
     var t = i / (L.length - 1);
-    var z = k.z.map(function(x){ return '<a onclick="event.stopPropagation();go(\'' + (x[2] || k.r) + '\')">' + esc(x[0]) + "</a>"; }).join("");
+    var z = startUnter(k).map(function(x){ return '<a onclick="event.stopPropagation();go(\'' + x[1] + '\')">' + esc(x[0]) + "</a>"; }).join("");
     return '<div class="vcr' + (t > 0.4 ? " hell" : "") + '" style="--t:' + t.toFixed(2) + '" onclick="go(\'' + k.r + '\')"><span class="vct"><b>' + esc(k.t) + '</b></span><div class="vcz">' + z + '</div><span class="vcpf">→</span></div>';
   }).join("");
   return '<div class="rechts vc">' + kopf + '<div class="vcband">' + band + '</div><div class="vcreihe"><div class="reihe">' + kl + "</div></div></div>";

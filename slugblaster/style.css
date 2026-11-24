@@ -817,3 +817,6 @@ body.ooth .tabs.oob a.on{background:none}body.ooth .tabs.oob a.on::before{backgr
 .pview{min-width:0}
 .pview .hmw{grid-template-columns:1fr}
 @media(max-width:700px){.modal.pop{padding:0}.modal.pop>div{width:100vw}}
+/* Seitenleiste beginnt ganz oben; Einklapp-Pfeil schwebt rechts neben dem ersten Eintrag */
+.rgs{padding-top:10px}.rgs .rgz{position:absolute;right:16px;top:12px;margin:0;z-index:2}
+.rgs a:first-of-type{margin-right:44px}

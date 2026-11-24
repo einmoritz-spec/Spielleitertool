@@ -103,7 +103,9 @@
     if(W) right += '<div class="gi-roll"><p class="gi-f"><b>'+esc(W.f)+'</b>'+(W.n ? md(W.n) : '')+'</p><div class="gi-bands">'+W.s.map(function(s){ return '<div class="gi-band '+(s[2]||'')+'"><b'+hst+'>'+esc(s[0])+'</b><span>'+md(s[1])+'</span></div>'; }).join("")+'</div></div>';
     right += '<div class="gi-cards">'+(D.kern||[]).map(function(k){ return '<div class="gi-card"><b>'+esc(k[0])+'</b><span>'+md(k[1])+'</span></div>'; }).join("")+'</div></div>';
     var flow = D.ablauf ? '<div class="gi-flow"><h3 class="gi-h"'+hst+'>'+esc(D.ablauf.t)+'</h3>'+D.ablauf.s.map(function(x){ return '<span>'+md(x)+'</span>'; }).join('<i>›</i>')+'</div>' : '';
-    box.innerHTML = head + '<div class="gi-body">'+left+right+flow+'</div><div class="gi-foot"></div>';
+    if(D.html){ if(D.css){ var cst = document.createElement("style"); cst.className = "gi-own"; cst.textContent = D.css; box.appendChild(cst); }
+      box.innerHTML = head + (D.css ? '<style>'+D.css+'</style>' : '') + '<div class="gi-own-body">'+(typeof D.html === "function" ? D.html(window.gmToolBase || "") : D.html)+'</div><div class="gi-foot"></div>'; }
+    else box.innerHTML = head + '<div class="gi-body">'+left+right+flow+'</div><div class="gi-foot"></div>';
     if(brand){ var lg = brand.cloneNode(true); lg.removeAttribute("href"); lg.removeAttribute("onclick"); lg.removeAttribute("id"); copyLook(brand, lg); lg.style.margin = "0"; lg.style.pointerEvents = "none"; lg.style.border = "0"; lg.style.boxShadow = "none"; box.querySelector(".gi-logo").appendChild(lg); }
     ov.appendChild(box);
     ov.addEventListener("click", function(e){ if(e.target===ov || e.target.closest(".gi-x")) close(); });

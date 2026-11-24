@@ -124,12 +124,12 @@
     var sec = null, jump = null;
     if(cur !== "typen" && D){ sec = D.abschnitte.filter(function(a){ return a.id === cur; })[0] || D.abschnitte[0]; }
     var base = "#" + C.p + "nach/" + tab + "/";
-    var tree = "", grp = null, subs = [];
+    var tree = "", grp = null, subs = [], chips = multi && C.area === "tftl" && tab === "loops";
     if(extraFirst) tree += '<a class="ni' + (cur === "typen" ? ' on' : '') + '" href="' + base + K.seg + '">' + K.label + '</a>';
     sets.forEach(function(k){
       var d = ND[k];
       var aktiv = !multi || d === D;
-      if(multi) tree += aktiv ? '<div class="ng">' + esc(d.titel.split(":")[0]) + '</div>' : '<a class="ng zu" href="' + base + k + '/' + d.abschnitte[0].id + '">' + esc(d.titel.split(":")[0]) + ' ▸</a>';
+      if(chips){ if(d !== D) return; } else if(multi) tree += aktiv ? '<div class="ng">' + esc(d.titel.split(":")[0]) + '</div>' : '<a class="ng zu" href="' + base + k + '/' + d.abschnitte[0].id + '">' + esc(d.titel.split(":")[0]) + ' ▸</a>';
       if(!aktiv && sets.length > 3) return;
       gruppen(d.abschnitte).forEach(function(g){
         var f = g.items[0], on = cur !== "typen" && sec && d === D && g.items.some(function(x){ return x.id === sec.id; });
@@ -147,7 +147,7 @@
       jump = sec.id !== f0.id ? sec.id : null;
     }
     else main = '<div class="nh"><h1>' + esc(((C.NACH || window.NACH).filter(function(x){ return x[0] === tab; })[0] || [0, tab])[1]) + '</h1></div>';
-    return {tree: tree, main: main, typen: cur === "typen", jump: jump, D: D, sub: "", n: (tree.match(/class="ni/g) || []).length};
+    return {setKey: setKey, tree: tree, main: main, typen: cur === "typen", jump: jump, D: D, sub: "", n: (tree.match(/class="ni/g) || []).length};
   }
   /* Kapitel-Header: gleiche Bausteine wie der Mysterium-Header (.shd, Scroll-Variable --p); nur mit gesichertem Eröffnungsbild (Feld bild im NACH-Tab bzw. Set-Datensatz) */
   function banner(tab, D){
@@ -170,7 +170,20 @@
     GR.forEach(function(g){ var k = g[1].filter(function(x){ return have.indexOf(x) >= 0; }); if(k.length) out.push({name: k.length > 1 ? g[0] : (function(){ var n = (C.NACH || []).filter(function(y){ return y[0] === k[0]; })[0]; return KURZ[n[1]] || n[1]; })(), keys: k}); });
     return out;
   };
-  window.TX_PLAY = function(C){ var B = (window.BEREICHE || {})[C.area]; return B ? (B.tabs || []).filter(function(t){ return t[0] !== "start"; }).map(function(t){ return [t[0], t[0] === "kids" ? ((C.L && C.L.kids) || "Kids") : t[1]]; }) : []; };
+  var SETLBL = {schweden:"Schweden", us:"USA", de80:"Deutschland", taunus:"Taunus", broads:"Norfolk Broads"};
+  window.TX_WELT = function(C, tab, setKey, karte){
+    var g = window.TX_G(C)[0]; if(!g) return "";
+    var nm2 = {}; (C.NACH || []).forEach(function(n){ nm2[n[0]] = KURZ[n[1]] || n[1]; });
+    var ND = C.NACHDATA || window.NACHDATA, SETS = C.SETS || SETS0, it = [];
+    g.keys.forEach(function(k){
+      var ss = (SETS[k] || []).filter(function(x){ return ND && ND[x]; });
+      if(C.area === "tftl" && k === "loops" && ss.length > 1) ss.forEach(function(x){ it.push([SETLBL[x] || x, "nach/loops/" + x + "/" + ND[x].abschnitte[0].id, tab === "loops" && setKey === x]); });
+      else it.push([nm2[k], "nach/" + k, !karte && k === tab]);
+    });
+    if(((window.BEREICHE[C.area] || {}).tabs || []).some(function(t){ return t[0] === "karte"; })) it.push(["Karte", "karte", !!karte]);
+    return it.map(function(x){ return '<a' + (x[2] ? ' class="on"' : '') + ' href="#' + C.p + x[1] + '">' + esc(x[0]) + '</a>'; }).join("");
+  };
+  window.TX_PLAY = function(C){ var B = (window.BEREICHE || {})[C.area]; return B ? (B.tabs || []).filter(function(t){ return t[0] !== "start" && t[0] !== "karte"; }).map(function(t){ return [t[0], t[0] === "kids" ? ((C.L && C.L.kids) || "Kids") : t[1]]; }) : []; };
   window.TX_SUBHTML = function(C, on){
     var pl = window.TX_PLAY(C); if(C.area === "es" || !pl.some(function(t){ return t[0] === on; })) return "";
     return pl.map(function(t){ return '<a' + (t[0] === on ? ' class="on"' : '') + ' href="#' + C.p + t[0] + '">' + esc(t[1]) + '</a>'; }).join("");
@@ -182,9 +195,9 @@
     var h = "", tl = B.tabs || [];
     tl.forEach(function(t){ if(t[0] === "start") h += a(p + "start", t[1], "start"); });
     var pl = window.TX_PLAY(C);
-    if(C.area === "es") tl.forEach(function(t){ if(t[0] !== "start") h += a(p + t[0], t[1], t[0]); });
+    if(C.area === "es") tl.forEach(function(t){ if(t[0] !== "start" && t[0] !== "karte") h += a(p + t[0], t[1], t[0]); });
     else if(pl.length) h += '<a' + (pl.some(function(t){ return t[0] === on; }) ? ' class="on"' : '') + ' href="#' + p + pl[0][0] + '">Spiel</a>';
-    window.TX_G(C).forEach(function(g){ h += (g === window.TX_G(C)[0] ? '<span class="tsep"></span>' : '') + '<a' + (on && g.keys.indexOf((on.split("/")[1] || "")) >= 0 && on.indexOf("nach/") === 0 ? ' class="on"' : '') + ' href="#' + p + 'nach/' + g.keys[0] + '">' + esc(g.name) + '</a>'; });
+    window.TX_G(C).forEach(function(g, gi){ var tk = on === "karte" ? "welt" : (on && on.indexOf("nach/") === 0 ? on.split("/")[1] : ""); h += (gi === 0 ? '<span class="tsep"></span>' : '') + '<a' + (g.keys.indexOf(tk) >= 0 ? ' class="on"' : '') + ' href="#' + p + 'nach/' + g.keys[0] + '">' + esc(g.name) + '</a>'; });
     return h;
   };
   window.renderNach = function(app, tabs, rest){
@@ -204,7 +217,8 @@
     var bn = "", solo = L.n < 2 && !L.typen;
     var grp = window.TX_G(C).filter(function(g){ return g.keys.indexOf(tab) >= 0; })[0], nm2 = {};
     (C.NACH || []).forEach(function(n){ nm2[n[0]] = KURZ[n[1]] || n[1]; });
-    var kap = grp && grp.keys.length > 1 ? '<div class="unter">' + grp.keys.map(function(k){ return '<a' + (k === tab ? ' class="on"' : '') + ' href="#' + C.p + 'nach/' + k + '">' + esc(nm2[k]) + '</a>'; }).join("") + '</div>' : "";
+    var isW = grp && grp.keys[0] === window.TX_G(C)[0].keys[0], wh = isW ? window.TX_WELT(C, tab, L.setKey, false) : "";
+    var kap = isW && wh ? '<div class="unter">' + wh + '</div>' : grp && grp.keys.length > 1 ? '<div class="unter">' + grp.keys.map(function(k){ return '<a' + (k === tab ? ' class="on"' : '') + ' href="#' + C.p + 'nach/' + k + '">' + esc(nm2[k]) + '</a>'; }).join("") + '</div>' : "";
     var u2 = (L.sub || "").replace('class="unter"', 'class="unter u2"');
     function wrap(inner){ return kap + u2 + '<div class="nbody">' + inner + '</div>'; }
     function side(){ return solo ? "" : '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav>'; }

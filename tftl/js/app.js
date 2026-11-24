@@ -65,6 +65,7 @@
     if(ok && r.page==="nach" && window.renderNach){ document.getElementById("app").className = "page"; window.renderNach(document.getElementById("app"), tabsEl, r.rest); window.scrollTo(0, 0); return; }
     tabsEl.innerHTML = (window.TX_TABS && window.TX_TABS(window.TCTX, r.page)) || d.tabs.map(function(t){ return '<a href="#' + pre + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
     var sh = window.TX_SUBHTML && window.TX_SUBHTML(window.TCTX, r.page);
+    if(!sh && r.page === "karte" && window.TX_WELT) sh = window.TX_WELT(window.TCTX, "", "", true);
     if(sh){ var t2 = document.createElement("nav"); t2.id = "tabs2"; t2.className = "unter u0"; t2.innerHTML = sh; tabsEl.parentNode.insertBefore(t2, tabsEl.nextSibling); document.body.classList.add("hu"); }
     var tab = d.tabs.filter(function(t){ return t[0]===r.page; })[0];
     var app = document.getElementById("app"); app.className = "page";

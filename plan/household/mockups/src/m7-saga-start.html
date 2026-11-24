@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script><script src="sagadaten.js"></script>
+<style>
+.sl{position:sticky;top:var(--kopf);z-index:19;height:44px;display:flex;align-items:center;gap:4px;padding:0 18px;color:#e8eef2}
+.sl .nm{font:19px Fell,serif;letter-spacing:.03em;margin-right:16px;color:#f3e7c8}
+.sl a{font:16px Fell,serif;padding:6px 11px;color:#d3d0dc;border-radius:2px}
+.sl a.on{background:#f4eee2;color:var(--sc)}
+.hero{position:relative;height:300px;background:#222 center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,10,20,.82) 0,rgba(15,10,20,.45) 45%,rgba(15,10,20,0) 75%)}
+.hero .t{position:absolute;left:44px;bottom:36px;z-index:1;color:#f6ecd2;max-width:620px}
+.hero .t h1{color:#f6ecd2;font-size:46px;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.hero .t div{font:italic 18px Gar,serif;opacity:.9;margin-top:6px}
+.wrapS{padding:26px 40px 50px}
+.oben{display:grid;grid-template-columns:1fr 360px;gap:36px;align-items:start}
+.intro p{font-size:17.5px;margin-bottom:10px}
+.fakten{background:rgba(250,246,236,.95);border:1px solid var(--rule);border-radius:3px;padding:6px 18px}
+.fakten div{display:grid;grid-template-columns:118px 1fr;gap:10px;padding:7px 0;border-bottom:1px dotted #d6c79f;font-size:15.5px;line-height:1.35}
+.fakten div:last-child{border:0}
+.fakten b{font:400 14px Fell,serif;letter-spacing:.05em;color:var(--sc);padding-top:2px}
+h2.ab{font-size:28px;color:var(--sc);margin:30px 0 12px;display:flex;align-items:center;gap:14px}
+h2.ab:after{content:"";flex:1;height:1px;background:var(--rule)}
+.wege{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.weg{padding:14px 16px;border-top:3px solid var(--sc);background:rgba(250,246,236,.9);font-size:15.5px;line-height:1.45}
+.weg b{display:block;font:400 19px Fell,serif;color:var(--sc);margin-bottom:5px}
+.tipp{padding:14px 16px;background:#fbf7ee;border:1px solid #c9b27a;outline:3px double #d8c48e;outline-offset:-7px;font-size:15px;line-height:1.45}
+.tipp b{display:block;font:400 19px Fell,serif;color:var(--sc);margin-bottom:6px}
+.tipp .pp{display:flex;gap:6px;margin-top:10px}
+.tipp .pp span{text-align:center;font:13px Fell,serif;color:#6b5f6b}
+.tipp .pp img{display:block;width:54px;height:54px;object-fit:cover;object-position:center 12%;border-radius:50%;border:2px solid #d8c48e;background:#efe7d8;margin:0 auto 2px}
+.zus{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:18px;font-size:15.5px;line-height:1.5}.zus b{display:block;font:400 18px Fell,serif;color:var(--sc);margin-bottom:4px;border-bottom:1px solid var(--rule);padding-bottom:3px}.zus u{text-decoration:none;font-weight:600}
+.plan{border-top:1px solid var(--rule)}
+.par{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid rgba(191,164,104,.45)}
+.par .lb{padding:12px 12px 10px 0}
+.par .lb b{display:block;font:400 17px/1.15 Fell,serif;color:var(--sc)}
+.par .lb i{font-size:13.5px;color:#8f8496}
+.par .lb em{display:inline-block;margin-top:6px;font:12.5px Fell,serif;font-style:normal;letter-spacing:.06em;color:#7a5f16;background:#f3e5b8;padding:1px 7px;border-radius:2px}
+.reihe6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
+.abt{display:flex;gap:9px;align-items:center;padding:10px 10px 9px;border-left:1px solid rgba(191,164,104,.3);border-bottom:3px solid transparent}
+.abt:hover{background:rgba(255,255,255,.5)}
+.abt .q{flex:none;display:grid;grid-template-columns:28px 28px;gap:2px}
+.abt .q img{width:28px;height:28px;object-fit:cover;object-position:center 10%;background:#e9e0d0;border-radius:2px}
+.abt span{font-size:14.5px;line-height:1.2;hyphens:auto;overflow-wrap:anywhere;min-width:0}
+.leg{display:flex;gap:20px;justify-content:flex-end;margin:10px 0 0;font:14px Fell,serif;color:#6b5f6b}
+.leg i{display:inline-block;width:28px;height:3px;vertical-align:middle;margin-right:6px}
+</style></head><body>
+<script>
+var LW=location.hash=='#lw', SC=LW?'#2f4e74':'#5b3f78';
+document.documentElement.style.setProperty('--sc',SC);
+if(LW)document.body.style.backgroundImage='url(deko/papier-lw-kachel.jpg)';
+kopf({on:''});
+var tabs=LW?['Überblick','Figuren','Kapitel VI','Kapitel VII','Epilog','Zeitleiste']:['Überblick','Figuren','Kapitel I','Kapitel II','Kapitel III','Kapitel IIII','Kapitel V','Epilog','Zeitleiste'];
+document.write('<div class="sl" style="background:'+(LW?'#24364a':'#2c2038')+';border-bottom:2px solid #b9a36a"><span class="nm">'+(LW?'Saga vom Langen Winter':'Saga vom Brüchigen Frieden')+'</span>'+tabs.map(function(t,i){return '<a class="'+(i==0?'on':'')+'">'+t+'</a>'}).join('')+'</div>');
+</script>
+<div class="hero" id="he"><div class="t"><h1 id="ti"></h1><div id="ut"></div></div></div>
+<div class="wrapS">
+ <div class="oben"><div><div class="intro" id="in"></div><h2 class="ab" style="margin-top:18px">Wege in die Saga</h2><div class="wege" id="wg"></div><div class="zus" id="zs"></div></div><div><div class="fakten" id="fk"></div><div id="tp" style="margin-top:16px"></div></div></div>
+ <h2 class="ab">Saga-Plan</h2>
+ <div class="plan" id="pl"></div>
+ <div class="leg" id="lg"></div>
+</div>
+<script>
+var NC={common:'#7b4f9c',realm:'#3f7a3a',hearth:'#2b4f8e',dominions:'#b8262f',horde:'#a8601f'};
+var SZ={'Winter':'#6f93b5','Frühling':'#6f9a4a','Sommer':'#c9a13a','Herbst':'#a85a2a'};
+var S=LW?{
+ bild:img('lw-s112-113-vi-winter-ganz'),pos:'center 62%',ti:'Eine Saga vom Langen Winter',ut:'Kapitel VI und VII · Epilog',
+ intro:['Nach dem Brüchigen Frieden führt Herasmo J. Hemingway seine Forschung in den Garden: 30 Geschichten von Littlings, die den Langen Winter im Outhold erlebt haben – Gnome wie die Sammlerin Koko Sandoval, Fae wie der charmante Ajax Orus, und alte Bekannte aus dem Brüchigen Frieden wie Gwen Summers, Icarus König und Jemma Reed.','Wieder bittet er den Historians’ Club, die Ereignisse des Langen Winters zusammenzusetzen und diesen Littlings ihren Platz in der Geschichte zu geben.'],
+ fakten:[['Zeitraum','Dez. XII – Feb. XV H.C.'],['Schauplatz','The Garden (Outhold)'],['Figuren','30, davon 6 Wandering Characters'],['Ausgearbeitet','6 Einstiegsabenteuer (Kapitel VI, Winter)'],['Skizziert','42 Abenteuer, je eine Seite'],['Epilog','für jede Figur, u. a. die Schlacht von Frostwing'],['Gruppe','4 Spieler:innen + Spielleitung']],
+ wege:[['Alle Figuren','Jede:r spielt eine Figur vom Anfang bis zum Ende – viele Freunde und mindestens 50 Sitzungen.'],['Einer Figur folgen','Eine Figur von Kapitel VI bis zum Epilog; die übrigen wechseln je nach Abenteuer.'],['Als Inspiration','Eigene Saga vom Langen Winter, eigene Figuren, Noteworthy Characters als Nebenfiguren.']],
+ tipp:['Empfohlene Figuren','Für eine einzelne Figur oder eine kleine Gruppe eignen sich besonders:',['Gwen','Soya','Ajax','Koko']],
+ data:LWD,P:LWP,fertig:1
+}:{
+ bild:img('fp-s-01-umschlag-vorspann-b'),pos:'center 32%',ti:'Eine Saga vom Brüchigen Frieden',ut:'Kapitel I–V · Epilog: Der Fall von Faeriyev',
+ intro:['Alle Abenteuer dieses Buchs spielen während des Brüchigen Friedens, fast 100 Jahre nach dem Verschwinden des Masters. Im Mittelpunkt stehen 24 Noteworthy Characters aus verschiedenen Völkern und Nationen, jede:r mit eigenem Beruf und eigener Berufung.','Herasmo J. Hemingway gründet dafür den Historians’ Club: Die Spielrunde soll Stück für Stück rekonstruieren, was diese Littlings in den fünf Jahren des Brüchigen Friedens erlebt haben.'],
+ fakten:[['Zeitraum','Sept. VI – Okt. X H.C.'],['Schauplatz','Das House'],['Figuren','24 Noteworthy Characters'],['Ausgearbeitet','6 Einstiegsabenteuer (Kapitel I)'],['Skizziert','60 Abenteuer in Kapitel II–V, je eine Seite'],['Epilog','Der Fall von Faeriyev'],['Gruppe','4 Spieler:innen + Spielleitung']],
+ wege:[['Einer Figur folgen','Eine Figur durch mehrere Paragraphen und Kapitel begleiten und nach jedem Abenteuer die Figuren dazunehmen, die sie trifft.'],['Kapitel für Kapitel','Alle Abenteuer von Kapitel I spielen, dann Kapitel II und so weiter, bis die Saga ganz rekonstruiert ist.'],['Einen Raum wählen','Sich auf einen Raum des House konzentrieren oder einer Figur folgen und den Fokus wechseln, wenn es passt.']],
+ tipp:['Ein kleiner Schritt','Für einen leichteren Einstieg: dem Leben von Gwen Summers folgen, beginnend mit Kapitel I, „Argos Tagebuch“.',['Gwen']],
+ data:FPD,P:FPP,fertig:1
+};
+zs.innerHTML='<div><b>Wenige oder viele Spieler:innen</b>Jedes Abenteuer ist für 4 Spieler:innen und die Spielleitung gedacht. Ist die Gruppe größer, kommen Figuren aus „Weitere Figuren“ des Abenteuers dazu'+(LW?', Wandering Characters':'')+' oder eigene Figuren. Ist sie kleiner, spielt die Spielleitung ein oder zwei Noteworthy Characters als Nebenfiguren.</div>'+(LW?'<div><b>Merkmale der Figuren</b><u>Roots:</u> Lockins stammen aus dem House, Outsiders aus dem Garden.<br><u>Type:</u> Recurring Characters kennt man aus dem Brüchigen Frieden, New Characters sind neu, Wandering Characters gehören zu keinem Abenteuer.</div>':'<div><b>Epilog</b>Der Fall von Faeriyev ist in zwei parallele Abenteuer geteilt. Sie lassen sich gleichzeitig von zwei Gruppen oder nacheinander spielen.</div>');
+he.style.backgroundImage='url('+S.bild+')';he.style.backgroundPosition=S.pos;ti.textContent=S.ti;ut.textContent=S.ut;
+S.intro.forEach(function(p){inn=document.getElementById('in');inn.innerHTML+='<p>'+p+'</p>'});
+S.fakten.forEach(function(f){fk.innerHTML+='<div><b>'+f[0]+'</b><span>'+f[1]+'</span></div>'});
+S.wege.forEach(function(w){wg.innerHTML+='<div class="weg"><b>'+w[0]+'</b>'+w[1]+'</div>'});
+tp.innerHTML='<div class="tipp"><b>'+S.tipp[0]+'</b>'+S.tipp[1]+'<div class="pp">'+S.tipp[2].map(function(n){return '<span><img src="'+img(S.P[n],1)+'">'+n+'</span>'}).join('')+'</div></div>';
+S.data.forEach(function(p,pi){
+ var szn=Object.keys(SZ).filter(function(k){return p[0].indexOf(k)>=0})[0];
+ var h='<div class="par"><div class="lb" style="'+(szn?'box-shadow:inset 4px 0 0 '+SZ[szn]+';padding-left:12px':'')+'"><b>'+p[0].replace(' · ','<br>')+'</b><i>'+p[1]+'</i>'+(pi==0?'<br><em>ausgearbeitet</em>':'')+'</div><div class="reihe6">';
+ p[2].forEach(function(a){h+='<div class="abt" style="'+(a[2]?'border-bottom-color:'+NC[a[2]]:'')+'">'+(a[1].length?'<div class="q">'+a[1].map(function(f){return '<img src="'+img(f,1)+'">'}).join('')+'</div>':'')+'<span>'+a[0]+'</span></div>';});
+ pl.innerHTML+=h+'</div></div>';});
+lg.innerHTML=LW?Object.keys(SZ).map(function(k){return '<span><i style="background:'+SZ[k]+'"></i>'+k+'</span>'}).join(''):[['common','Common Lands'],['realm','Realm'],['hearth','Hearth'],['dominions','Free Dominions'],['horde','Horde']].map(function(k){return '<span><i style="background:'+NC[k[0]]+'"></i>'+k[1]+'</span>'}).join('');
+</script>
+<div class="note" style="left:760px;top:130px;max-width:330px">„Überblick“ als erster Reiter der Saga – die Seite, auf der man beim Klick auf die Saga landet</div>
+<div class="note" style="left:420px;top:560px;max-width:330px">Wege in die Saga und Empfehlung aus dem Buch, kurz zusammengefasst</div>
+<div class="note" style="left:860px;top:1040px;max-width:330px">Saga-Plan wie im Buch: jedes Abenteuer mit seinen vier Protagonisten und der Farbe seiner Nation bzw. Jahreszeit – Klick öffnet den Leitstand</div>
+</body></html>

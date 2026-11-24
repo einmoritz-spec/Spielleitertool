@@ -35,8 +35,8 @@
     var TY = K.list();
     app.className = "page nach";
     app.innerHTML = '<div class="nh"><h1>' + K.label + '</h1><small>' + K.kap + ' · ' + pg(K.s) + '</small></div><div class="tgrid">' + TY.map(function(t){
-      return '<div class="ty" data-t="' + t.id + '"><img src="img/' + t.bild + '.webp" alt=""><div><h3>' + esc(t.name) + ' <small>' + pg(t.s) + '</small></h3>' +
-        '<h5>' + (K.es ? 'Schlüsselattribut' : 'Schlüsselfertigkeiten') + '</h5><div>' + chips(t.key) + '</div><h5>' + (K.es ? 'Bargeld' : 'Typischer Gegenstand') + '</h5><p>' + nm(t.items.join(" · ")) + '</p></div></div>';
+      return '<div class="ty" data-t="' + t.id + '"><img src="img/' + t.bild + '.webp" alt=""><div><h3>' + esc(t.name) + '</h3>' +
+        '<div>' + chips(t.key) + '</div><h5>' + (K.es ? 'Bargeld' : 'Typischer Gegenstand') + '</h5><p>' + nm(t.items.join(" · ")) + '</p></div></div>';
     }).join("") + '</div>';
   }
   function typ(app, id){
@@ -164,8 +164,20 @@
   }
   /* Eine Tab-Leiste für alles: Vorbereitung, Spielwerkzeuge, Trenner, Buchkapitel (TftL und Flood) */
   var KURZ = {"Das Mysterium":"Mysterium","Mystery-Landschaft":"Landschaft","Spielleiterschirm":"Schirm"};
-  var GR = [["Die Welt",["welt","loops","pacifica"]],["Regeln",["kids","aerger","reisende","kampf","reise"]],["Spielleitung",["mysterium","landschaft","schirm","bedrohungen"]]];
+  var GR = [["Die Welt",["welt","loops","pacifica"]],["Regeln",["spielen","kids","aerger","reisende","kampf","reise"]],["Spielleitung",["mysterium","landschaft","schirm","bedrohungen"]]];
+  /* „Spielen“: Spielprinzipien, Rollenspiel und Würfeln aus Kapitel 1 als eigener Eintrag unter Regeln */
+  var SPIEL_RE = /Spiel$|Rollenspiel|Würfeln|Prinzipien|Kid erschaffen|Spiel\b/;
+  function ensureSpielen(C){
+    var ND = C.NACHDATA || window.NACHDATA; if(!ND || !ND.welt || ND.spielen || C.area === "es") return;
+    var w = ND.welt, sel = w.abschnitte.filter(function(a, i){ return i > 0 && SPIEL_RE.test(a.titel); }); if(!sel.length) return;
+    var rest = w.abschnitte.filter(function(a){ return sel.indexOf(a) < 0; });
+    ND.spielen = {kap: w.kap, titel: "Spielen", s: sel[0].s || w.s, buch: w.buch, abschnitte: sel};
+    ND.welt = Object.assign({}, w, {abschnitte: rest});
+    var SS = C.SETS || SETS0; SS.spielen = ["spielen"];
+    if(C.NACH && !C.NACH.some(function(n){ return n[0] === "spielen"; })) C.NACH.push(["spielen", "Spielen", "", "Spielen"]);
+  }
   window.TX_G = function(C){
+    ensureSpielen(C);
     var have = (C.NACH || []).map(function(n){ return n[0]; }), out = [];
     GR.forEach(function(g){ var k = g[1].filter(function(x){ return have.indexOf(x) >= 0; }); if(k.length) out.push({name: k.length > 1 ? g[0] : (function(){ var n = (C.NACH || []).filter(function(y){ return y[0] === k[0]; })[0]; return KURZ[n[1]] || n[1]; })(), keys: k}); });
     return out;
@@ -207,7 +219,7 @@
     return h;
   };
   window.renderNach = function(app, tabs, rest){
-    var C = CX(), tab = rest[0] || "welt";
+    var C = CX(), tab = rest[0] || "welt"; ensureSpielen(C);
     tabs.innerHTML = window.TX_TABS(C, "nach/" + tab) || (C.NACH || []).map(function(n){ return '<a href="#' + C.p + 'nach/' + n[0] + '"' + (n[0] === tab ? ' class="on"' : '') + '>' + esc(n[1]) + '</a>'; }).join("");
     app.onclick = function(e){
       var ty = e.target.closest(".ty"); if(ty && !e.target.closest(".pgl")){ location.hash = KA().href(ty.dataset.t); return; }

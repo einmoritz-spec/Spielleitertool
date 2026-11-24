@@ -751,3 +751,8 @@ body.es .vbl a{border-top-color:rgba(0,0,0,.08)}
 .n66 td.hit{background:var(--acc);color:#fff}.n66 td.hit i{color:rgba(255,255,255,.8)}
 .nw .n66 td{width:auto;border-bottom:0}
 .n66 td i{font-size:12px;color:var(--acc)}
+/* Unterabschnitte des aktiven Eintrags: klein und zurückhaltend */
+.nside .njs{margin:2px 0 8px 12px;border-left:1px solid rgba(0,0,0,.14)}
+.nside .njs .nj{display:block;padding:3px 10px 3px 12px;font:400 13px/1.3 var(--sans);color:var(--soft);text-decoration:none;border:0;background:none;margin:0}
+.nside .njs .nj:hover{color:var(--ink)}
+.nsc .nside .njs{display:none}

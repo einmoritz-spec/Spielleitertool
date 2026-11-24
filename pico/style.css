@@ -475,3 +475,8 @@ body .side .fold{top:11px}
 .sec.nsub{margin-top:26px;padding-top:18px;border-top:1.5px solid rgba(0,0,0,.1);scroll-margin-top:100px}
 body.dark .sec.nsub{border-top-color:rgba(255,255,255,.12)}
 .nnav.end{display:none}
+/* Unterabschnitte des aktiven Eintrags: klein und zurückhaltend */
+.side .sj{margin:0 0 6px 22px;border-left:1px solid rgba(0,0,0,.12)}
+body.dark .side .sj{border-left-color:rgba(255,255,255,.15)}
+.side .sj a{padding:3px 14px 3px 12px;font-size:13px;color:var(--sub);opacity:.85;border-left:0}
+.side .sj a:hover{opacity:1;color:var(--fg)}

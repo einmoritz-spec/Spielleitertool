@@ -54,7 +54,8 @@ function viewNach(b, sel){
   var tgr = cur && G && G[cur.g] && G[cur.g][2], packs = [], pk = null, tot = 0;
   mine.forEach(function(x){ var n = nLen(x.b); if(!tgr && pk && tot < 7000 && tot + n <= 15000){ pk.push(x); tot += n; } else { pk = [x]; tot = n; packs.push(pk); } });
   var myPack = packs.filter(function(q){ return q.indexOf(cur) >= 0; })[0] || [cur];
-  side += packs.map(function(q){ return '<a class="' + (q === myPack ? 'on' : '') + '" onclick="go(\'nach/' + b + '/' + q[0].id + '\')">' + esc(kurz(q[0].t)) + '</a>'; }).join("");
+  side += packs.map(function(q){ return '<a class="' + (q === myPack ? 'on' : '') + '" onclick="go(\'nach/' + b + '/' + q[0].id + '\')">' + esc(kurz(q[0].t)) + '</a>' +
+    (q === myPack && q.length > 1 ? '<div class="sj">' + q.slice(1).map(function(x){ return '<a onclick="jump(\'nj-' + x.id + '\')">' + esc(kurz(x.t)) + '</a>'; }).join("") + '</div>' : ''); }).join("");
   if(packs.length < 2 || !cur) side = "";
   if(side) side += '</nav>';
   if(!cur){

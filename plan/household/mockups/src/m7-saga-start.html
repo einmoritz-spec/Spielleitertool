@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script><script src="sagadaten.js"></script>
 <style>
 .sl{position:sticky;top:var(--kopf);z-index:19;height:44px;display:flex;align-items:center;gap:4px;padding:0 18px;color:#e8eef2}
-.sl .nm{font:19px Fell,serif;letter-spacing:.03em;margin-right:16px;color:#f3e7c8}
+.sl .nm{font:19px Fell,serif;letter-spacing:.03em;margin-right:10px;color:#f3e7c8;padding:5px 12px;border-radius:2px}.sl .nm.on{background:#f4eee2;color:var(--sc)}
 .sl a{font:16px Fell,serif;padding:6px 11px;color:#d3d0dc;border-radius:2px}
 .sl a.on{background:#f4eee2;color:var(--sc)}
 .hero{position:relative;height:300px;background:#222 center/cover}
@@ -47,8 +47,8 @@ var LW=location.hash=='#lw', SC=LW?'#2f4e74':'#5b3f78';
 document.documentElement.style.setProperty('--sc',SC);
 if(LW)document.body.style.backgroundImage='url(deko/papier-lw-kachel.jpg)';
 kopf({on:''});
-var tabs=LW?['Überblick','Figuren','Kapitel VI','Kapitel VII','Epilog','Zeitleiste']:['Überblick','Figuren','Kapitel I','Kapitel II','Kapitel III','Kapitel IIII','Kapitel V','Epilog','Zeitleiste'];
-document.write('<div class="sl" style="background:'+(LW?'#24364a':'#2c2038')+';border-bottom:2px solid #b9a36a"><span class="nm">'+(LW?'Saga vom Langen Winter':'Saga vom Brüchigen Frieden')+'</span>'+tabs.map(function(t,i){return '<a class="'+(i==0?'on':'')+'">'+t+'</a>'}).join('')+'</div>');
+var tabs=LW?['Figuren','Kapitel VI','Kapitel VII','Epilog','Zeitleiste']:['Figuren','Kapitel I','Kapitel II','Kapitel III','Kapitel IIII','Kapitel V','Epilog','Zeitleiste'];
+document.write('<div class="sl" style="background:'+(LW?'#24364a':'#2c2038')+';border-bottom:2px solid #b9a36a"><span class="nm on">'+(LW?'Saga vom Langen Winter':'Saga vom Brüchigen Frieden')+'</span>'+tabs.map(function(t,i){return '<a>'+t+'</a>'}).join('')+'</div>');
 </script>
 <div class="hero" id="he"><div class="t"><h1 id="ti"></h1><div id="ut"></div></div></div>
 <div class="wrapS">
@@ -88,7 +88,7 @@ S.data.forEach(function(p,pi){
  pl.innerHTML+=h+'</div></div>';});
 lg.innerHTML=LW?Object.keys(SZ).map(function(k){return '<span><i style="background:'+SZ[k]+'"></i>'+k+'</span>'}).join(''):[['common','Common Lands'],['realm','Realm'],['hearth','Hearth'],['dominions','Free Dominions'],['horde','Horde']].map(function(k){return '<span><i style="background:'+NC[k[0]]+'"></i>'+k[1]+'</span>'}).join('');
 </script>
-<div class="note" style="left:760px;top:130px;max-width:330px">„Überblick“ als erster Reiter der Saga – die Seite, auf der man beim Klick auf die Saga landet</div>
+<div class="note" style="left:430px;top:110px;max-width:330px">Der Saga-Name ist selbst der Reiter: ausgewählt zeigt er diese Startseite</div>
 <div class="note" style="left:420px;top:560px;max-width:330px">Wege in die Saga und Empfehlung aus dem Buch, kurz zusammengefasst</div>
 <div class="note" style="left:860px;top:1040px;max-width:330px">Saga-Plan wie im Buch: jedes Abenteuer mit seinen vier Protagonisten und der Farbe seiner Nation bzw. Jahreszeit – Klick öffnet den Leitstand</div>
 </body></html>

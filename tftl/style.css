@@ -644,3 +644,6 @@ body.nohead .hb{--hh:100vh}
 .ls .main>.txt:first-child>h2.loc:first-child,.ls .main>.txt:first-child>.side2+h2.loc,.ls .main>.top2+.flowrow+.txt>h2.loc:first-child{margin-top:4px}
 .ls .side{padding-top:30px}
 .top3.nocd:not(.t2){grid-template-columns:minmax(0,1.25fr) minmax(384px,.95fr)}
+/* Seitenleiste beginnt ganz oben; Einklapp-Pfeil schwebt rechts neben dem ersten Eintrag */
+.nside{padding-top:4px}.nside #nsT{position:absolute;right:2px;top:6px;margin:0;z-index:2}
+.nsc .nside #nsT{position:static;margin:0}

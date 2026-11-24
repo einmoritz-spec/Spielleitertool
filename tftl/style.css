@@ -663,15 +663,16 @@ body.nohead .hb{--hh:100vh}
 .unter.u2 a{font-size:12px}
 .nhb{--B:38px}.nhb.mu2{--B:72px}
 
-/* Tabs wandern in die Kopfzeile (neben Logo und Symbole), nicht bei Electric State */
-:root{--hd:56px}body.nohead{--hd:0px}body.es{--hd:106px}
-body:not(.es) .tabs{position:sticky;top:0;margin-top:-56px;height:56px;background:transparent;border:0;padding:0 190px 0 250px;z-index:60;pointer-events:none;overflow:hidden}
-body.flood .tabs{padding-left:340px}
-body:not(.es) .tabs a,body:not(.es) .tabs .tsep{pointer-events:auto}
-body:not(.es) .tabs a{color:rgba(255,255,255,.82);border-bottom-width:3px;height:56px;padding:0 10px;font-size:13.5px}
-body:not(.es) .tabs a:hover{color:#fff}
-body:not(.es) .tabs a.on{color:#fff;border-color:#fff}
-body:not(.es) .tabs .tsep{background:rgba(255,255,255,.45)}
-body:not(.es) .tabs a.bu.on{background:rgba(0,0,0,.16);box-shadow:none;border-color:#fff;margin:0;height:56px}
-body:not(.es) .unter{top:var(--hd)}body:not(.es) .unter.u2{top:calc(var(--hd) + 38px)}
-body.nohead:not(.es) .tabs{margin-top:0;padding-left:22px}
+/* Tabs wandern in die Kopfzeile (neben Logo und Symbole) */
+:root{--hd:56px}body.nohead{--hd:0px}body.rz{--hd:106px}body.rz.nohead{--hd:50px}
+#tabs{position:sticky;top:0;margin-top:-56px;height:56px;background:transparent;border:0;padding:0 190px 0 250px;z-index:60;pointer-events:none;overflow:hidden}
+body.flood #tabs{padding-left:340px}body.es #tabs{padding-left:200px}
+#tabs a,#tabs .tsep{pointer-events:auto}
+#tabs a{color:rgba(255,255,255,.82);border-bottom-width:3px;height:56px;padding:0 10px;font-size:13.5px}
+#tabs a:hover{color:#fff}
+#tabs a.on{color:#fff;border-color:#fff}
+#tabs .tsep{background:rgba(255,255,255,.45)}
+#tabs a.bu.on{background:rgba(0,0,0,.16);box-shadow:none;border-color:#fff;margin:0;height:56px}
+.unter{top:var(--hd)}.unter.u2{top:calc(var(--hd) + 38px)}
+body.nohead #tabs{margin-top:0;padding-left:22px}
+#tabs2{position:sticky;top:56px;z-index:40;margin:0}body.nohead #tabs2{top:0}

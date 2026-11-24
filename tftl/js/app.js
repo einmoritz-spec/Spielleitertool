@@ -49,6 +49,7 @@
   }
   function render(){
     var r = route(), d = B[r.area];
+    var t2 = document.getElementById("tabs2"); if(t2) t2.remove();
     document.body.className = (d.cls || "") + (document.body.classList.contains("nohead") ? " nohead" : "");
     document.title = d.title;
     window.TCTX = ctx(r.area);

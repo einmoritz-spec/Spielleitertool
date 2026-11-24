@@ -248,7 +248,9 @@ window.ES = window.ES || {};
       try{ localStorage.setItem("es_last", JSON.stringify({teil: teil, name: R().name || "Into the Dust", ort: nm[teil]})); }catch(e){}
     }
     save(S);
-    tabs.innerHTML = tabsHtml(teil, S, nk);
+    tabs.innerHTML = (window.TX_TABS && window.TX_TABS(window.TCTX, "reise")) || "";
+    var t2 = document.getElementById("tabs2"); if(!t2){ t2 = document.createElement("nav"); t2.id = "tabs2"; t2.className = "tabs"; tabs.parentNode.insertBefore(t2, tabs.nextSibling); }
+    t2.innerHTML = tabsHtml(teil, S, nk); document.body.classList.add("rz");
     app.className = "ls"; app.innerHTML = html;
     var lay = app.querySelector(".lay");
 
@@ -290,7 +292,7 @@ window.ES = window.ES || {};
       if((el = t.closest(".eb h3.eol"))){ var b = el.closest(".eb"), bid = b.dataset.b; S.beg[bid] = S.beg[bid] ? 0 : 1; save(S); b.classList.toggle("dn", !!S.beg[bid]); return; }
     };
     /* Routenleiste: Halt öffnen und als „hier sind wir“ setzen */
-    tabs.onclick = function(e){
+    var tabs = document.getElementById("tabs2"); tabs.onclick = function(e){
       var el, t = e.target;
       if((el = t.closest("a.rn"))){ var s2 = load(); setPos(s2, el.dataset.h); save(s2); return; }
       if((el = t.closest(".epen"))){ notePop(el, nk); return; }

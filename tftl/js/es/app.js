@@ -3,6 +3,7 @@ window.ES = window.ES || {};
 (function(){
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
   function tabsHtml(on){
+    var X = window.TX_TABS && window.TX_TABS(window.TCTX, on); if(X) return X;
     return window.BEREICHE.es.tabs.map(function(t){ return '<a href="#es/' + t[0] + '"' + (t[0] === on ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
   }
   function ph(app, title){ app.className = "page"; app.innerHTML = '<h1>' + esc(title) + '</h1>'; }
@@ -27,7 +28,7 @@ window.ES = window.ES || {};
   ES.route = function(page, rest, app, tabs){
     var meta = document.querySelector('meta[name=theme-color]'); if(meta) meta.setAttribute("content", "#33464a");
     var oi = document.getElementById("esInfo"); if(oi) oi.remove(); /* i-Knopf: gemeinsames Überblick-Fenster (shared/info/tftl_es.js) */
-    app.onclick = null; app.className = "page";
+    app.onclick = null; app.className = "page"; var t2 = document.getElementById("tabs2"); if(t2) t2.remove(); document.body.classList.remove("rz");
     var T = {reise:"renderReise", reisende:"renderReisende", karte:"renderKarte", bogen:"renderBogen", fahrzeug:"renderFahrzeug"};
     if(page === "nach" && window.renderNach){
       window.renderNach(app, tabs, rest); window.scrollTo(0, 0); return;

@@ -166,7 +166,7 @@
   var KURZ = {"Das Mysterium":"Mysterium","Mystery-Landschaft":"Landschaft","Spielleiterschirm":"Schirm"};
   window.TX_TABS = function(C, on){
     var B = (window.BEREICHE || {})[C.area], p = C.p || "";
-    if(!B || C.area === "es") return null;
+    if(!B) return null;
     function a(href, label, key){ return '<a href="#' + href + '"' + (key === on ? ' class="on"' : '') + '>' + esc(label) + '</a>'; }
     var h = "", tl = B.tabs || [];
     tl.forEach(function(t){ if(t[0] === "start") h += a(p + "start", t[1], "start"); });

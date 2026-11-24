@@ -170,13 +170,20 @@
     GR.forEach(function(g){ var k = g[1].filter(function(x){ return have.indexOf(x) >= 0; }); if(k.length) out.push({name: k.length > 1 ? g[0] : (function(){ var n = (C.NACH || []).filter(function(y){ return y[0] === k[0]; })[0]; return KURZ[n[1]] || n[1]; })(), keys: k}); });
     return out;
   };
+  window.TX_PLAY = function(C){ var B = (window.BEREICHE || {})[C.area]; return B ? (B.tabs || []).filter(function(t){ return t[0] !== "start"; }).map(function(t){ return [t[0], t[0] === "kids" && C.L && C.L.unsere ? C.L.unsere : t[1]]; }) : []; };
+  window.TX_SUBHTML = function(C, on){
+    var pl = window.TX_PLAY(C); if(C.area === "es" || !pl.some(function(t){ return t[0] === on; })) return "";
+    return pl.map(function(t){ return '<a' + (t[0] === on ? ' class="on"' : '') + ' href="#' + C.p + t[0] + '">' + esc(t[1]) + '</a>'; }).join("");
+  };
   window.TX_TABS = function(C, on){
     var B = (window.BEREICHE || {})[C.area], p = C.p || "";
     if(!B) return null;
     function a(href, label, key){ return '<a href="#' + href + '"' + (key === on ? ' class="on"' : '') + '>' + esc(label) + '</a>'; }
     var h = "", tl = B.tabs || [];
     tl.forEach(function(t){ if(t[0] === "start") h += a(p + "start", t[1], "start"); });
-    tl.forEach(function(t){ if(t[0] !== "start") h += a(p + t[0], t[0] === "kids" && C.L && C.L.unsere ? C.L.unsere : t[1], t[0]); });
+    var pl = window.TX_PLAY(C);
+    if(C.area === "es") tl.forEach(function(t){ if(t[0] !== "start") h += a(p + t[0], t[1], t[0]); });
+    else if(pl.length) h += '<a' + (pl.some(function(t){ return t[0] === on; }) ? ' class="on"' : '') + ' href="#' + p + pl[0][0] + '">Spiel</a>';
     window.TX_G(C).forEach(function(g){ h += (g === window.TX_G(C)[0] ? '<span class="tsep"></span>' : '') + '<a' + (on && g.keys.indexOf((on.split("/")[1] || "")) >= 0 && on.indexOf("nach/") === 0 ? ' class="on"' : '') + ' href="#' + p + 'nach/' + g.keys[0] + '">' + esc(g.name) + '</a>'; });
     return h;
   };

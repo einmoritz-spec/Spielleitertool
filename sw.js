@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v902sq";
+const VERSION = "v903sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1317,6 +1317,22 @@ const FILES = [
   "household/style.css",
   "household/js/app.js",
   "household/js/data/nav.js",
+  "household/img/deko/tapete-s19-273.jpg",
+  "household/img/deko/tapete-s84-1391.jpg",
+  "household/img/deko/tapete-s31-493.jpg",
+  "household/img/grundbuch/full/grundbuch-s212-213-ix-wheel-of-the-year.webp",
+  "household/img/grundbuch/full/grundbuch-s-01-umschlag-vorspann-c.webp",
+  "household/img/grundbuch/full/grundbuch-s258-259-ix-upper-floor.webp",
+  "household/img/grundbuch/full/grundbuch-s230-231-ix-dining-hall.webp",
+  "household/img/grundbuch/full/grundbuch-s244-245-ix-living-room.webp",
+  "household/img/grundbuch/full/grundbuch-s262-ix-basement.webp",
+  "household/img/garten/full/garten-s-01-umschlag-vorspann.webp",
+  "household/img/fp/full/fp-s-01-umschlag-vorspann-b.webp",
+  "household/img/lw/full/lw-s-01-umschlag-vorspann.webp",
+  "household/img/guide/thumb/guide-s010-i-realm-einleitung.webp",
+  "household/img/guide/thumb/guide-s054-ii-hearth-einleitung.webp",
+  "household/img/guide/thumb/guide-s096-iii-free-dominions-einleitung.webp",
+  "household/img/guide/thumb/guide-s140-iiii-horde-einleitung.webp",
   "household/img/deko/papier-kachel.jpg",
   "household/img/deko/papier-garten-kachel.jpg",
   "moerkborg/index.html",

@@ -15,7 +15,7 @@ window.HH_NAV = {
    {id: "charakter", t: "Charakter", seiten: [["bogen", "Der Charakterbogen"]]},
    {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["handlers", "Animal Handlers"], ["traits", "Traits"]]},
    {id: "spielen", t: "Wie man spielt", seiten: [["action", "Action Rolls"], ["reaction", "Reaction Rolls"], ["stress", "Stress"], ["skills", "Fields & Skills"], ["moves", "Moves"], ["conflicts", "Konflikte"], ["combat", "Kampf"], ["zustaende", "Zustände & Decorum"]]},
-   {id: "vertraege", t: "Verträge", seiten: [["hereditary", "Hereditary"], ["personal", "Personal"], ["ttt", "Terrible Terrible Things"], ["welcoming", "Welcoming"]]},
+   {id: "vertraege", t: "Contracts", seiten: [["hereditary", "Hereditary"], ["personal", "Personal"], ["ttt", "Terrible Terrible Things"], ["welcoming", "Welcoming"]]},
    {id: "ausruestung", t: "Ausrüstung", seiten: [["wealth", "Wealth"], ["equipment", "Equipment"], ["gadgets", "Gadgets"], ["weapons", "Weapons"]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [
@@ -34,7 +34,7 @@ window.HH_NAV = {
   ]},
   {id: "regeln", t: "Regeln", unter: [
    {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["wayfarers", "Wayfarers"], ["handlers", "Animal Handlers"]]},
-   {id: "vertraege", t: "Verträge", seiten: [["ttt", "Terrible Terrible Things"], ["hereditary", "Hereditary"], ["personal", "Personal"], ["welcoming", "Welcoming"], ["favors", "Favors"]]},
+   {id: "vertraege", t: "Contracts", seiten: [["ttt", "Terrible Terrible Things"], ["hereditary", "Hereditary"], ["personal", "Personal"], ["welcoming", "Welcoming"], ["favors", "Favors"]]},
    {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Coins & Barter"], ["goods", "Goods & Services"], ["weapons", "Weapons"], ["concoctions", "Natural Concoctions"], ["mounts", "Mounts"]]},
    {id: "reise", t: "Reise & Jahreszeiten", seiten: [["travel", "Travel"], ["darkness", "Darkness"], ["stress", "Severe Stress"], ["seasons", "Seasons"]]}
   ]},
@@ -54,5 +54,5 @@ window.HH_SAGAS = {
 
 /* Bereiche der Startseite (Einstiege), Reihenfolge wie die Reiter */
 window.HH_START = {
- haus: [["welt", "Welt", "Völker, das Haus, Geschichte, Atlas"], ["regeln", "Regeln", "Charakter, Berufe, Proben, Verträge"], ["sl", "Spielleitung", "Saga, Gegner, Mysterien"]]
+ haus: [["welt", "Welt", "Völker, das Haus, Geschichte, Atlas"], ["regeln", "Regeln", "Charakter, Berufe, Proben, Contracts"], ["sl", "Spielleitung", "Saga, Gegner, Mysterien"]]
 };

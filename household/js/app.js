@@ -65,12 +65,35 @@ function viewSeite(P){
   }
   return lay(side, body);
 }
+function IMGP(n, t){ return "img/" + n.split("-")[0] + "/" + (t ? "thumb" : "full") + "/" + n + ".webp"; }
+var STOCK = [
+ {id:"s1", bild:"grundbuch-s258-259-ix-upper-floor", etage:"Obergeschoss", t:"Free Dominions", k:"Sprites · Bedroom, Bathlantis", em:"guide-s096-iii-free-dominions-einleitung", go:"welt/alltag/dominions"},
+ {id:"s2a", bild:"grundbuch-s230-231-ix-dining-hall", etage:"Erdgeschoss", t:"Realm", k:"Faeries · Dining Hall", em:"guide-s010-i-realm-einleitung", go:"welt/alltag/realm"},
+ {id:"s2b", bild:"grundbuch-s244-245-ix-living-room", t:"Hearth", k:"Boggarts · Living Room", em:"guide-s054-ii-hearth-einleitung", go:"welt/alltag/hearth"},
+ {id:"s3", bild:"grundbuch-s262-ix-basement", etage:"Keller", t:"Horde", k:"Sluagh · Basement", em:"guide-s140-iiii-horde-einleitung", go:"welt/alltag/horde"}
+];
+function stk(s){ return '<div class="st" style="background-image:url(' + IMGP(s.bild) + ')" onclick="go(\'' + s.go + '\')">' + (s.etage ? '<span class="etage">' + s.etage + '</span>' : '') +
+  '<div class="lab"><img src="' + IMGP(s.em, 1) + '" alt=""><div><b>' + s.t + '</b><i>' + s.k + '</i></div></div></div>'; }
+var BAND = {welt: "tapete-s19-273", regeln: "tapete-s84-1391", sl: "tapete-s31-493"};
 function viewStart(mode){
-  var g = mode === "garten", pre = g ? "g/" : "";
-  var cards = HH_NAV[mode].map(function(a){ return '<a class="bereich" onclick="go(\'' + pre + a.id + '\')"><h2>' + esc(a.t) + '</h2><p>' + a.unter.map(function(u){ return esc(u.t); }).join(" · ") + '</p></a>'; }).join("");
-  var ab = g ? "" : '<div class="ab-reihe">' + Object.keys(HH_SAGAS).map(function(k){ var S = HH_SAGAS[k]; return '<a style="background:' + S.farbe + '" onclick="go(\'' + k + '\')">' + esc(S.t) + '</a>'; }).join("") + '<a style="background:#26391f" onclick="go(\'g\')">Der Garten<small>Household Vol. II</small></a></div>';
-  return '<div class="hero"></div><div class="sw-start"><div class="bereiche">' + cards + '</div>' + ab + '</div>';
+  if(mode === "garten"){
+    var gc = HH_NAV.garten.map(function(a){ return '<a class="bereich" onclick="go(\'g/' + a.id + '\')"><h2>' + esc(a.t) + '</h2><p>' + a.unter.map(function(u){ return esc(u.t); }).join(" · ") + '</p></a>'; }).join("");
+    return '<div class="hero"></div><div class="sw-start"><div class="bereiche nomas">' + gc + '</div></div>';
+  }
+  var bk = HH_NAV.haus.map(function(a){
+    return '<div class="bk"><div class="band" style="background-image:url(img/deko/' + BAND[a.id] + '.jpg)"></div><div class="schild"><h2>' + esc(a.t) + '</h2></div><ul>' +
+      a.unter.map(function(u){ return '<li onclick="go(\'' + a.id + '/' + u.id + '\')">' + esc(u.t) + '</li>'; }).join("") + '</ul></div>';
+  }).join("");
+  var sg = Object.keys(HH_SAGAS).map(function(k, i){
+    var S = HH_SAGAS[k], chips = S.unter.filter(function(u){ return u[0] !== "zeit"; }).map(function(u){ return '<span onclick="event.stopPropagation();go(\'' + k + '/' + u[0] + '\')">' + esc(u[1].replace("Kapitel ", "")) + '</span>'; }).join("");
+    return '<div class="sg' + (i === 0 ? ' auf' : '') + '" style="background-image:url(' + IMGP(k === "fp" ? "fp-s-01-umschlag-vorspann-b" : "lw-s-01-umschlag-vorspann") + ');background-position:center ' + (k === "fp" ? "30%" : "center") + '" onclick="go(\'' + k + '\')" onmouseenter="sagaAuf(this)"><div class="t"><b>' + esc(S.t) + '</b><i>' + (k === "fp" ? "Kapitel I–V · 24 Figuren" : "Kapitel VI–VII · 30 Figuren") + '</i><div class="ks">' + chips + '</div></div></div>';
+  }).join("");
+  return '<div class="hero2" style="background-image:url(' + IMGP("grundbuch-s212-213-ix-wheel-of-the-year") + ')"><img class="lg" src="' + IMGP("grundbuch-s-01-umschlag-vorspann-c") + '" alt="Household"></div>' +
+    '<div class="sek"><h2 class="zt">Das Haus</h2><div class="haus nomas"><div class="stw" id="w1">' + stk(STOCK[0]) + '</div><div class="stw halb" id="w2">' + stk(STOCK[1]) + stk(STOCK[2]) + '</div><div class="stw" id="w3">' + stk(STOCK[3]) + '</div>' +
+    '<div class="gt" style="background-image:url(' + IMGP("garten-s-01-umschlag-vorspann") + ')" onclick="go(\'g\')"><div class="lab"><div><b>Der Garten</b><i>The Outhold · Vol. II</i></div></div></div></div></div>' +
+    '<div class="sek"><div class="ber nomas">' + bk + '</div></div><div class="sek" style="padding-bottom:50px"><h2 class="zt">Sagas</h2><div class="sagas">' + sg + '</div></div>';
 }
+function sagaAuf(el){ document.querySelectorAll(".sg").forEach(function(x){ x.classList.toggle("auf", x === el); }); }
 function viewSaga(P){
   var S = HH_SAGAS[P.s], sub = "";
   S.unter.forEach(function(u){ if(u[0] === P.sub) sub = u[0]; });

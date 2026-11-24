@@ -87,3 +87,43 @@ body.saga .fold.fx{top:calc(var(--kopf) + var(--sl) + 6px)}
 .mm-panel button{display:block;width:100%;text-align:left;padding:6px 10px;border-radius:4px}.mm-panel button:hover{background:rgba(0,0,0,.06)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal>div{background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:18px;width:min(560px,96vw);max-height:88vh;overflow:auto}
+/* Startseite A: Hero, Haus im Schnitt, Bereichskarten, Sagas */
+.hero2{position:relative;height:440px;background:#1b1020 center 42%/cover;overflow:hidden}
+.hero2:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,16,32,.05) 40%,rgba(27,16,32,.75) 100%)}
+.hero2 .lg{position:absolute;left:50%;top:62px;transform:translateX(-50%);width:330px;z-index:2;filter:drop-shadow(0 4px 12px rgba(0,0,0,.7))}
+.sek{max-width:1180px;margin:0 auto;padding:34px 0 10px}
+.zt{text-align:center;margin-bottom:10px}
+.haus{display:grid;grid-template-columns:1fr 250px;grid-template-rows:170px 190px 170px;border:2px solid #6b5333;background:#2a1a12;box-shadow:0 10px 30px rgba(60,30,20,.35)}
+.stw{grid-column:1;min-height:0;display:flex;border-bottom:6px solid #6b5333}
+#w1{grid-row:1}#w2{grid-row:2}#w3{grid-row:3;border-bottom:0}
+.stw .st{flex:1;position:relative;background:center/cover;display:flex;align-items:flex-end;cursor:pointer}
+.stw.halb .st:first-child{border-right:6px solid #6b5333}
+.stw .st:hover{filter:brightness(1.12)}
+.lab{display:flex;align-items:center;gap:12px;margin:0 0 12px 14px;padding:6px 14px 6px 8px;background:rgba(244,238,226,.93);border:1px solid var(--rule);border-radius:3px}
+.lab img{height:44px}
+.lab b{display:block;font:400 21px/1 Fell,serif;color:#35203b}
+.lab i{display:block;font:14px Gar,serif;color:#7c6e74;font-style:normal}
+.etage{position:absolute;right:12px;top:10px;font:15px Fell,serif;color:#f6ead0;letter-spacing:.08em;text-shadow:0 1px 3px #000;text-transform:uppercase}
+.gt{grid-row:1/4;grid-column:2;background:center/cover;border-left:6px solid #6b5333;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer}
+.gt:hover{filter:brightness(1.08)}
+.gt .lab{margin:0 12px 14px;padding:10px 14px}
+.gt .lab b{color:#3f6a34}
+.ber{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.bk{background:rgba(250,246,236,.96);border:1px solid var(--rule);border-radius:3px;overflow:hidden;box-shadow:0 3px 10px rgba(90,60,40,.12)}
+.bk .band{height:92px;background:center/cover no-repeat;border-bottom:1px solid #c9b27a;box-shadow:inset 0 -10px 14px -10px rgba(0,0,0,.25)}
+.bk .schild{width:max-content;margin:-34px auto 0;position:relative;padding:8px 30px 9px;background:#fbf7ee;border:1px solid #c9b27a;outline:3px double #d6c08a;outline-offset:-7px;box-shadow:0 3px 8px rgba(0,0,0,.22)}
+.bk h2{font-size:28px;margin:0}
+.bk ul{list-style:none;padding:12px 26px 18px}
+.bk li{font-size:16px;line-height:1.8;color:#4b3f48;border-bottom:1px dotted #d6c79f;text-align:center;cursor:pointer}
+.bk li:hover{color:var(--akz)}
+.bk li:last-child{border:0}
+.sagas{display:flex;height:330px;overflow:hidden;border-radius:3px;box-shadow:0 8px 26px rgba(40,20,40,.3)}
+.sg{position:relative;flex:1;background:center/cover;transition:flex .4s;cursor:pointer}
+.sg.auf{flex:2.3}
+.sg .t{position:absolute;left:0;right:0;bottom:0;padding:60px 26px 20px;background:linear-gradient(transparent,rgba(20,10,25,.88));color:#f3e7cc}
+.sg .t b{display:block;font:400 30px/1.05 Fell,serif}
+.sg .t i{font:15px Gar,serif;opacity:.85}
+.sg .ks{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;max-height:0;overflow:hidden;opacity:0;transition:.3s}
+.sg.auf .ks{max-height:80px;opacity:1}
+.sg .ks span{font:14px Fell,serif;letter-spacing:.04em;padding:4px 10px;border:1px solid rgba(243,231,204,.6);border-radius:2px}
+.sg .ks span:hover{background:rgba(255,255,255,.18)}

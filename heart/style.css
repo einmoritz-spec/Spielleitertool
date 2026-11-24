@@ -748,3 +748,12 @@ body.weg .topbar{transform:translateY(-100%)}
 body.weg #app>.unter{transform:translateY(-100%)}
 
 .lmb.t0 .lmk{display:flex;align-items:center;gap:14px}.lmb.t0 .lmk{padding:12px 14px}.lmb.t0 .lmk .lmtb{width:64px;margin:0;flex:0 0 64px}.lmb.t0 .lmk h2{margin:0;white-space:nowrap}
+
+/* Domain-Hexagone */
+.dhex{position:relative;display:inline-block;width:150px;line-height:0;flex:none}.dhex img{width:100%;height:auto;display:block}
+.dhex>span{position:absolute;left:22%;right:22%;top:74%;transform:translateY(-50%);font:400 13px/1 var(--plate);text-transform:uppercase;letter-spacing:.05em;color:#3a1410;text-align:center}
+.domraster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 34px;margin-top:6px;align-items:start}.domspalte{display:flex;flex-direction:column;gap:22px;min-width:0}
+.domkarte .dhex{float:left;width:140px;margin:2px 18px 6px 0}.domkarte p{margin:0 0 .6em}.domkarte .kurs{margin-bottom:.5em}
+.domz{display:flex;align-items:center;gap:4px 14px;flex-wrap:wrap}.dchip{display:inline-flex;align-items:center;gap:6px}
+.dhex.mini{width:30px}.dhex.mini>span{display:none}
+@media(max-width:1100px){.domraster{grid-template-columns:1fr}}

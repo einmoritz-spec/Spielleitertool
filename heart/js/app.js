@@ -108,3 +108,8 @@ document.addEventListener("keydown", function(e){
     else if(e.clientY > 110 && document.body.classList.contains("weg") === false){ clearTimeout(t); t = setTimeout(function(){ if(aus) setze(true); }, 250); }
   });
 })();
+
+/* Domain-Hexagone (Grundbuch S. 128–129): Bild mit Namen auf der Schriftrolle */
+var HT_DOM = {cursed:"Cursed", desolate:"Desolate", haven:"Haven", occult:"Occult", religion:"Religion", technology:"Technology", warren:"Warren", wild:"Wild"};
+function domKey(n){ var k = String(n || "").toLowerCase().trim(); return HT_DOM[k] ? k : null; }
+function domHex(n, cls){ var k = domKey(n); return k ? '<span class="dhex' + (cls ? " " + cls : "") + '"><img src="' + IMG("domain/" + k) + '" alt=""><span>' + HT_DOM[k] + "</span></span>" : ""; }

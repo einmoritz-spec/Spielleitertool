@@ -188,7 +188,6 @@
     var tl = ((window.BEREICHE[C.area] || {}).tabs || []).map(function(t){ return t[0]; }), out = [];
     if(gi === 0 && tl.indexOf("karte") >= 0) out.push(["Karte", "karte", "karte"]);
     if(C.area !== "es" && gi === 1 && tl.indexOf("kids") >= 0) out.push([(C.L && C.L.kids) || "Kids", "kids", "kids"]);
-    if(C.area !== "es" && gi === 2 && tl.indexOf("mysterien") >= 0) out.push(["Abenteuer", "mysterien", "mysterien"]);
     return out;
   }
   window.TX_ITEMS = function(C, gi, tab, setKey, page){

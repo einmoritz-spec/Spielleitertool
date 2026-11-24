@@ -8,12 +8,12 @@ L.push(
  {t: "h", x: "Reichweite"},
  "Die Spielleitung legt die Entfernung zwischen dir und dem Ziel fest. Je nach Entfernung kann ein Ziel schwerer oder sogar unmöglich zu treffen sein.",
  {t: "ul", x: [
-  "**Adjacent:** Das Ziel ist ganz nah oder im Nahkampf.",
-  "**At Short Distance:** Das Ziel ist nur wenige winzige Meter entfernt und schnell zu erreichen.",
-  "**Within Range:** Das Ziel ist mehrere winzige Meter entfernt. Du bräuchtest einen ganzen Zug, um es zu erreichen.",
-  "**At Long Distance:** Das Ziel ist sehr weit entfernt, deutlich außerhalb der Reichweite der meisten Littlings.",
-  "**Out of Range:** Das Ziel ist in Sichtweite, aber zu weit weg, um getroffen zu werden."]},
- "Ein Adjacent-Ziel kann mit jeder Waffe getroffen werden, auch mit Nahkampfwaffen. Ein Ziel At Short Distance liegt außerhalb der Reichweite von Nahkampfwaffen, kann aber von allen Feuerwaffen, Fernkampf- und Wurfwaffen sowie Waffen mit Reichweite erreicht werden. Ein Ziel Within Range oder At Long Distance kann nur mit einer Feuer- oder Fernkampfwaffe getroffen werden. Schießt du auf ein Ziel At Long Distance, erleidest du immer −2 auf deinen Wurf, es sei denn, deine Waffe hat den Trait Accurate. Ein Ziel Out of Range schließlich liegt völlig außer Reichweite. Willst du es treffen, musst du einen Weg finden, näher heranzukommen.",
+  "**Angrenzend:** Das Ziel ist ganz nah oder im Nahkampf.",
+  "**Kurze Distanz:** Das Ziel ist nur wenige winzige Meter entfernt und schnell zu erreichen.",
+  "**In Reichweite:** Das Ziel ist mehrere winzige Meter entfernt. Du bräuchtest einen ganzen Zug, um es zu erreichen.",
+  "**Große Distanz:** Das Ziel ist sehr weit entfernt, deutlich außerhalb der Reichweite der meisten Littlings.",
+  "**Außer Reichweite:** Das Ziel ist in Sichtweite, aber zu weit weg, um getroffen zu werden."]},
+ "Ein angrenzendes Ziel kann mit jeder Waffe getroffen werden, auch mit Nahkampfwaffen. Ein Ziel in kurzer Distanz liegt außerhalb der Reichweite von Nahkampfwaffen, kann aber von allen Feuerwaffen, Fernkampf- und Wurfwaffen sowie Waffen mit Reichweite erreicht werden. Ein Ziel in Reichweite oder in großer Distanz kann nur mit einer Feuer- oder Fernkampfwaffe getroffen werden. Schießt du auf ein Ziel in großer Distanz, erleidest du immer −2 auf deinen Wurf, es sei denn, deine Waffe hat den Trait Accurate. Ein Ziel außer Reichweite ist schließlich völlig unerreichbar. Willst du es treffen, musst du einen Weg finden, näher heranzukommen.",
  {t: "h", x: "Nachladen"},
  "Alle Feuer- und Fernkampfwaffen des Household sind Einzelschuss-Waffen und müssen nach jedem Gebrauch nachgeladen werden. Eine Waffe nachzuladen ist eine komplexe Aktion, die einen ganzen Zug und beide Hände erfordert. Vielleicht musst du das Schießpulver genau in den Lauf schütten, die Kugel einsetzen und sie bis zum Ende des Laufs schieben. Oder du musst deine Armbrust spannen, indem du mit beiden Händen an der Sehne ziehst oder einen Hebel kurbelst.",
  "In Kämpfen, Fluchten und ähnlich hektischen Szenen kannst du deine Waffe mit einem Critical Action Roll auf Dexterity nachladen. Du kannst auch einen überzähligen Critical Success ausgeben, um deine Waffe unter allen Umständen schnell nachzuladen. Waffen mit dem Trait Double Barreled müssen zweimal nachgeladen werden.",
@@ -176,15 +176,15 @@ L.push(
  "Du kannst nicht ernsthaft hoffen, in Lumpen oder mit zerzaustem Schnurrbart beim Großen Julball in Tournoire aufzutreten, aber ebenso wenig kannst du ehrlich glauben, dass dich die schlimmsten Banden von Tuberdam ernst nehmen, wenn du eine gepuderte Perücke trägst. Ich meine: So oder so ist unbestreitbar, dass das Decorum eines Littlings immer zählt und die Meinung, die andere von dir haben, drastisch beeinflusst.",
  "Es gibt 5 Stufen von Decorum:",
  {t: "ul", x: [
-  "**Uncouth:** Du bist schmutzig und schlecht gekleidet, du siehst rundum verrufen aus.",
-  "**Shabby:** Du trägst zerlumpte Kleider, würdig eines Raufbolds.",
-  "**Decent:** Du bist gekämmt und für die meisten Anlässe angemessen gekleidet.",
+  "**Ungehobelt:** Du bist schmutzig und schlecht gekleidet, du siehst rundum verrufen aus.",
+  "**Schäbig:** Du trägst zerlumpte Kleider, würdig eines Raufbolds.",
+  "**Ordentlich:** Du bist gekämmt und für die meisten Anlässe angemessen gekleidet.",
   "**Elegant:** Du achtest sehr auf dein Äußeres und trägst feine Kleidung.",
-  "**Pompous:** Du bist nach der neuesten Mode frisiert und voll geschminkt. Deine Kleidung ist praktisch ein Kunstwerk."]},
+  "**Pompös:** Du bist nach der neuesten Mode frisiert und voll geschminkt. Deine Kleidung ist praktisch ein Kunstwerk."]},
  {t: "h", x: "Hilfe und Hindrance"},
  "Dein Decorum kann je nach Umständen und den Leuten, mit denen du zusammen bist, hilfreich oder hinderlich sein. Dein Decorum ist aber nicht immer für die Geschichte wichtig und sollte nur ins Spiel kommen, wenn es wirklich einen Unterschied macht oder wenn es nützlich, interessant oder unterhaltsam ist.",
  "Ein hohes Decorum ist hilfreich im Umgang mit adligen oder höheren Littlings und wenn du in der feinen Gesellschaft einen guten Eindruck machen willst. Um an noblen Orten oder äußerst noblen Festen teilzunehmen, kann zudem eine strenge Kleiderordnung gelten. Bei solchen Anlässen ist ein hohes Decorum sogar eine wichtige Voraussetzung. Ein niedriges Decorum lässt dich hingegen wie einen Rowdy aussehen und ist nur eine Hindrance, wenn du das Vertrauen von Würdenträgern oder politischen Figuren gewinnen willst.",
- "Bedenke, dass ein hohes Decorum nicht immer die beste Idee ist, denn Elegant oder Pompous auszusehen kann auch eine Hindrance sein, wenn du dich in den guten Littlings der Elendsviertel und in Kriminelle einfühlen willst oder wenn du einfach nicht auffallen und nicht die Aufmerksamkeit von Dieben und Profiteuren erregen willst. Ebenso kann ein niedriges Decorum hilfreich sein, wenn du jemanden einschüchtern oder dich unter die Kriminellen schlimmer Banden mischen willst.",
+ "Bedenke, dass ein hohes Decorum nicht immer die beste Idee ist, denn Elegant oder Pompös auszusehen kann auch eine Hindrance sein, wenn du dich in den guten Littlings der Elendsviertel und in Kriminelle einfühlen willst oder wenn du einfach nicht auffallen und nicht die Aufmerksamkeit von Dieben und Profiteuren erregen willst. Ebenso kann ein niedriges Decorum hilfreich sein, wenn du jemanden einschüchtern oder dich unter die Kriminellen schlimmer Banden mischen willst.",
  "Hinzu kommt: Auf jeden Littling des Household, der von eleganter Kleidung und gestutzten Frisuren verzaubert ist, kommt ein anderer, der viel lieber mit einem verwahrlosten Littling mit etwas Moschus zusammen wäre. Geschmäcker sind verschieden!",
  {t: "h", x: "Decorum verlieren"},
  "Es gibt 4 Wege, dein Decorum zu senken:",
@@ -197,24 +197,24 @@ L.push(
  {t: "bsp", b: [["Spielleitung", "Du springst ab und machst dich auf eine harte Landung gefasst … die überraschend von einem Haufen warmer Mäuseköttel abgefedert wird. Senke dein Decorum."]]},
  "Bevor du einen Action oder Reaction Roll ablegst, kannst du entscheiden, dein Decorum für +1 oder eine noch größere Hilfe zu senken.",
  {t: "bsp", b: [["Jacob", "Ich reiße mir den Ärmel vom Hemd und benutze ihn als Verband für die Wunde. Ich würde gern mein Decorum senken, um +1 auf den Wurf auf Care zu bekommen."]]},
- "Um Elegant oder Pompous zu sein, musst du außerdem passende Kleidung tragen. Verlierst du diese kostbaren Kleidungsstücke aus irgendeinem Grund oder beschmutzt sie, kannst du diese Stufe nicht mehr beanspruchen.",
- {t: "bsp", b: [["Spielleitung", "Während du auf der Toilette warst, hat jemand deine Jacke und sogar deinen Hut gestohlen. Ohne deine elegante Kleidung bist du nicht mehr Elegant und fällst auf Decent zurück."]]},
+ "Um Elegant oder Pompös zu sein, musst du außerdem passende Kleidung tragen. Verlierst du diese kostbaren Kleidungsstücke aus irgendeinem Grund oder beschmutzt sie, kannst du diese Stufe nicht mehr beanspruchen.",
+ {t: "bsp", b: [["Spielleitung", "Während du auf der Toilette warst, hat jemand deine Jacke und sogar deinen Hut gestohlen. Ohne deine elegante Kleidung bist du nicht mehr Elegant und fällst auf Ordentlich zurück."]]},
  "Selbstverständlich kannst du dein Decorum jederzeit aus beliebigem Grund senken, vielleicht indem du die gute Kleidung ausziehst oder dich etwas schmutzig machst und deine Frisur zerzausst.",
- {t: "bsp", b: [["Sarada", "Ich konnte es kaum erwarten, dieses dumme Kleid loszuwerden. Ich nehme das Make-up ab und ziehe wieder meine Reisekleidung an. Ich wäre viel lieber wieder Decent, als auch nur eine Sekunde länger Elegant zu bleiben!"]]},
+ {t: "bsp", b: [["Sarada", "Ich konnte es kaum erwarten, dieses dumme Kleid loszuwerden. Ich nehme das Make-up ab und ziehe wieder meine Reisekleidung an. Ich wäre viel lieber wieder Ordentlich, als auch nur eine Sekunde länger Elegant zu bleiben!"]]},
  {t: "h", x: "Decorum erhöhen"},
  "Du kannst dein Decorum erhöhen, indem du bestimmte Handlungen ausführst oder die Dienste eines Barbiers, Friseurs oder Wäschers bezahlst. Außerdem brauchst du neue Kleidung, die du immer kaufen oder … ausleihen kannst.",
- {t: "box", h: "Von Uncouth zu Shabby", b: [
+ {t: "box", h: "Von Ungehobelt zu Schäbig", b: [
   "Wasche dich und deine Kleidung in einer Pfütze oder unter einem Leck der Piping. Oder nimm ein schönes warmes Bad in einer einfachen Wanne für 1 Coin.",
-  "*„Während deine Kleider auf der Pilzkappe trocknen, genießt du ein gutes Bad in einer Tau-Pfütze. Nachdem du dich angezogen hast, bist du Shabby.“*"]},
- {t: "box", h: "Von Shabby zu Decent", b: [
+  "*„Während deine Kleider auf der Pilzkappe trocknen, genießt du ein gutes Bad in einer Tau-Pfütze. Nachdem du dich angezogen hast, bist du Schäbig.“*"]},
+ {t: "box", h: "Von Schäbig zu Ordentlich", b: [
   "Putz dich gründlich in einem gut ausgestatteten Bad heraus und kauf neue Kleidung. Oder besuche den Barbier oder Friseur und lass dich für 2 Coins herrichten.",
-  "*„Der Barbier säubert dein Gesicht, und du betrachtest dein frisch rasiertes Spiegelbild. Du bist jetzt Decent.“*"]},
- {t: "box", h: "Von Decent zu Elegant", b: [
+  "*„Der Barbier säubert dein Gesicht, und du betrachtest dein frisch rasiertes Spiegelbild. Du bist jetzt Ordentlich.“*"]},
+ {t: "box", h: "Von Ordentlich zu Elegant", b: [
   "Erfordert elegante Kleidung. Du besuchst einen feinen Barbier oder Friseur für 2 Coins. Oder lege einen Critical Wurf auf Grace + Academia ab, um dich oder einen Freund zu stylen. Misslingt er, erhöht der arme Littling sein Decorum trotzdem, erleidet aber auch den Zustand Lächerlich.",
   "*„Deine rostfarbene Tunika fließt weich um dich. Du nimmst dir einen Moment, um die zarte, schimmelartige Stickerei zu bewundern, bevor du aufbrichst. Du bist wahrhaft Elegant.“*"]},
- {t: "box", h: "Von Elegant zu Pompous", b: [
+ {t: "box", h: "Von Elegant zu Pompös", b: [
   "Erfordert Galakleidung. Lass dich in einem Schönheitssalon herausputzen. Make-up und Frisur, Bart und Schnurrbart inklusive, zum bescheidenen Preis von 3 Coins. Oder lege einen Extreme Wurf auf Grace + Academia ab, um dich oder einen Freund herauszuputzen. Misslingt er, erhöht der arme Littling sein Decorum trotzdem, erleidet aber auch den Zustand Lächerlich.",
-  "*„Du bist wirklich stolz auf die weiche, voluminöse Frisur, die man dir gemacht hat. Und erst das glänzende Make-up! Du siehst einfach Pompous aus. Nicht umsonst nennt man das den besten Salon der Dining Hall.“*"]}
+  "*„Du bist wirklich stolz auf die weiche, voluminöse Frisur, die man dir gemacht hat. Und erst das glänzende Make-up! Du siehst einfach Pompös aus. Nicht umsonst nennt man das den besten Salon der Dining Hall.“*"]}
 ]}
 );
 })();

@@ -615,7 +615,7 @@ body.do{background:#0f2a2b}body.do.donachtmodus{background:#07090b}
 .bereich.zu{grid-template-columns:30px minmax(0,1fr)}.ruecken.zu .zubtn{left:2px}
 
 .inh .h1.nxt{margin-top:30px}
-.bereich{grid-template-columns:212px minmax(0,1fr)}
+.bereich{grid-template-columns:160px minmax(0,1fr)}
 .bereich.zu{grid-template-columns:46px minmax(0,1fr)}
 .ruecken ul{padding:44px 10px 14px 6px;display:flex;flex-direction:column;gap:2px}
 .ruecken li{padding:9px 10px 8px 12px;border-left:2px solid transparent;background:transparent;line-height:1.2;font-size:13.5px;letter-spacing:.06em;color:#9c8a76}

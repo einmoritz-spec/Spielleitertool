@@ -686,8 +686,8 @@ textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cq
 .bgbild s{position:absolute;right:-1cqw;top:-1cqw;width:3cqw;height:3cqw;border-radius:50%;background:#1a1410;color:#fff;text-decoration:none;font:400 2.4cqw/3cqw sans-serif;text-align:center;cursor:pointer;opacity:0;transition:opacity .15s}
 .bgbild:hover s{opacity:.85}
 /* Beispielkampagne */
-.kbsp{position:absolute;right:28px;top:26px;z-index:5;font:400 14px/1 var(--head);letter-spacing:.07em;text-transform:uppercase;background:#f4ecdf;color:#2b1d14;border:0;padding:9px 14px;cursor:pointer;box-shadow:0 3px 10px #0008}
-.kbsp:hover{background:#fff}
+.tabs a.kbsp{font:italic 13px/1 Alegreya,serif;letter-spacing:.02em;text-transform:none;color:#7d6c5b;padding:0 0 12px;align-self:flex-end}
+.tabs a.kbsp:hover{color:#f2e9da;background:none}
 .bspw{max-width:1500px;margin:0 auto;padding:20px 20px 50px}
 .bspkopf{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
 .bspkopf h1{margin:0;font:400 34px var(--head);text-transform:uppercase;letter-spacing:.03em;color:#f2e9da}

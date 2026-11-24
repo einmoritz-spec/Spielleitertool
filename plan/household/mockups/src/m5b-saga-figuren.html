@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script>
+<style>
+body{background-image:url(deko/papier-lw-kachel.jpg)}
+.sl{position:sticky;top:var(--kopf);z-index:19;height:44px;display:flex;align-items:center;gap:6px;padding:0 18px;background:#24364a;color:#e8eef2;border-bottom:2px solid #b9a36a}
+.sl .nm{font:19px Fell,serif;letter-spacing:.03em;margin-right:18px;color:#f3e7c8}
+.sl a{font:16px Fell,serif;padding:6px 12px;color:#c9d6df;border-radius:2px}
+.sl a.on{background:#e9eef0;color:#24364a}
+.main{padding:18px 40px 40px}
+h3{color:#2f4e74;margin:18px 0 6px}
+.reihe{display:grid;grid-template-columns:repeat(6,1fr);gap:4px 16px}
+.f{text-align:center;padding:4px 2px 10px;border-radius:4px}
+.f:hover{background:rgba(226,233,238,.7)}
+.f{padding-left:7px;padding-right:7px}.f .gr{font:14px Fell,serif;letter-spacing:.08em;color:#a8893f;text-align:left;border-top:1px solid #c9b27a;margin:0 -7px;padding:3px 7px 4px}.f.st .gr{margin-left:6px;padding-left:1px}.f .b{height:170px;background:center bottom/contain no-repeat;filter:drop-shadow(0 6px 6px rgba(40,50,60,.22))}
+.f b{display:block;font:400 17px/1.15 Fell,serif;color:#2f4e74;margin-top:6px}
+.f i{display:block;font-size:13.5px;color:#8f8a93;font-style:normal}
+</style></head><body>
+<script>kopf({on:''})</script>
+<div class="sl"><span class="nm">Saga vom Langen Winter</span><a class="on">Figuren</a><a>Kapitel VI</a><a>Kapitel VII</a><a>Epilog</a><a>Zeitleiste</a></div>
+<div class="main" id="mn"></div>
+<script>
+var G=[['Soldaten',[['Jemma Reed','Barghest · Brambles','lw-s012-figur-jemma-reed'],['Kaelan Oakstone','Gnome · Citadel','lw-s014-figur-kaelan-oakstone'],['Nadja Vokos','Fae · Seelie Court','lw-s016-figur-nadja-vokos'],['Tentomushi Soya','Shinigami · Shogunate','lw-s018-figur-soya']]],
+['Gelehrte',[['Chaska Agatanai','Gnome · Citadel','lw-s020-figur-chaska-agatanai'],['Gwen Summers','Boggart · Hearth','lw-s022-023-figur-gwen-summers-ganz'],['Sasaki Naoko','Shinigami · Shogunate','lw-s024-figur-sasaki-naoko'],['Pierre Delacroyance','Fairy · Realm','lw-s026-figur-pierre-delacroyance']]],
+['Jäger',[['Fandango','Sluagh · Horde','lw-s028-figur-fandango'],['Humphrey Lockwood','Boggart · Hearth','lw-s030-figur-humphrey-lockwood'],['Icarus König','Fairy · Realm','lw-s032-figur-icarus-koenig'],['John Sawyer','Barghest · Brambles','lw-s034-figur-john-sawyer'],['Koko Sandoval','Gnome · Citadel','lw-s036-figur-koko-sandoval']]],
+['Kriminelle',[['Gunther Lichtmann','Sylph · Realm','lw-s038-figur-gunther-lichtmann'],['Jiroku Yoshimasa','Shinigami · Shogunate','lw-s040-figur-jiroku-sensei'],['Pascal Demarteau','Fairy · Realm','lw-s042-figur-pascal'],['Sienna Blackwell','Boggart · Hearth','lw-s044-figur-sienna-blackwell-b']]],
+['Duellanten',[['Rubio Adhair','Salamander · ohne Nation','lw-s046-figur-rubio-adhair'],['Santiago Vilfredo','Sluagh · Horde','lw-s048-figur-santiago-vilar'],['Shiro Nezumi','Boggart · Shogunate','lw-s050-figur-shiro-c'],['Yuliya Dragomirov','Fairy · Realm','lw-s052-figur-yuliya-dragomirov']]],
+['Wanderer',[['Ajax Orus','Fae · Seelie Court','lw-s054-figur-ajax'],['Lachlan Galloway','Barghest · Brambles','lw-s056-figur-lachlan-v-galloway'],['Monika Zee','Undine · Free Dominions','lw-s058-figur-monika-zee'],['Ronja Rami','Sluagh · Realm','lw-s060-figur-ronja-rami-b']]],
+['Tierführer',[['Cora Idalia','Fae · Seelie Court','lw-s062-figur-cora-idalia'],['Elsie','Sluagh · Realm','lw-s064-figur-elsie'],['Fiona McInnis','Barghest · Brambles','lw-s066-figur-fiona-mcinnis'],['Kurai','Shinigami · Shogunate','lw-s068-figur-kurai'],['Sakari Redland','Gnome · Citadel','lw-s070-figur-sakari-redland']]]];
+var h='<div class="reihe" style="grid-template-columns:repeat(8,1fr);gap:14px 0">';
+G.forEach(function(g){g[1].forEach(function(f,i){h+='<div class="f'+(i==0?' st':'')+'"><div class="gr">'+(i==0?g[0]:'&nbsp;')+'</div><div class="b" style="background-image:url('+img(f[2],1)+')"></div><b>'+f[0]+'</b><i>'+f[1]+'</i></div>';});});
+mn.innerHTML=h+'</div>';
+</script>
+<div class="note" style="left:520px;top:110px;max-width:330px">Figuren-Übersicht der Saga, gruppiert nach Beruf wie im Buch – Klick öffnet den Mini-Bogen</div>
+</body></html>

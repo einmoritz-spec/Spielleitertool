@@ -17,3 +17,14 @@ function kopf(o){
 }
 if(location.search.indexOf('clean')>=0)document.documentElement.classList.add('clean');
 document.write('<style>.clean .note{display:none}</style>');
+
+function spot(el,pts,lab,lx,ly,eckig){
+ // weiche, runde Kontur: Catmull-Rom -> Bezier (geschlossen); eckig=1 laesst Ecken
+ function pfad(P){ if(eckig) return 'M'+P.map(function(q){return q[0]+' '+q[1]}).join(' L')+'Z';
+  var n=P.length,d='M'+P[0][0]+' '+P[0][1];
+  for(var i=0;i<n;i++){var p0=P[(i-1+n)%n],p1=P[i],p2=P[(i+1)%n],p3=P[(i+2)%n];
+   d+=' C'+(p1[0]+(p2[0]-p0[0])/6)+' '+(p1[1]+(p2[1]-p0[1])/6)+' '+(p2[0]-(p3[0]-p1[0])/6)+' '+(p2[1]-(p3[1]-p1[1])/6)+' '+p2[0]+' '+p2[1];}
+  return d+'Z';}
+ var k=pfad(pts);
+ el.insertAdjacentHTML('beforeend','<svg class="spot" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><filter id="wb" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="0.7"/></filter></defs><path class="dim" filter="url(#wb)" d="M-5 -5H105V105H-5Z '+k+'"/><path class="rand" d="'+k+'"/></svg><div class="spotlab" style="left:'+lx+'%;top:'+ly+'%">'+lab+'</div>');
+}

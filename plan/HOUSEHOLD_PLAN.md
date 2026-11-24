@@ -123,14 +123,16 @@ Alles, was im Buch Kasten/Karte ist (Gegner, Gegenstände, Verträge, Mysterien,
 - Hundertfüßer Grundbuch S.300/301: zwei einzelne Gegner („Giant Centipede's Tail“ S.300, „Giant Centipede“ S.301); im Tool beide schön zusammen auf einer Seite anzeigen, Doppelseiten-Bild bleibt das gemeinsame Bild.
 - Offen: feinere Zuordnung Bild → Figur/Gegner/Raum (TSV `zuordnung` nur auf Kapitelebene); Bilder aus mehreren übereinanderliegenden Ebenen nur von Hand (z. B. Garten S.308).
 
-## 6b. Mockups (24. Nov. 2026, warten auf Moritz' Wahl)
-Unter `plan/household/mockups/` (je mit `-erklaert`-Fassung), Quellen in `src/` (Screenshots mit `python3 shot.py <name>`):
-- **m1-start-haus** – Startseite A: Hero mit Gold-Logo, darunter das Haus im Schnitt (Obergeschoss Free Dominions, Erdgeschoss Realm | Hearth, Keller Horde, rechts die Garten-Tür), Bereichs-Karten mit Tapeten-Bannern, Sagas als Hover-Bildstreifen.
-- **m2-start-tapete** – Startseite B: Cover links, Bereiche als hängende Tapetenbahnen mit Schild und Fraktions-Medaille, Sagas mit Figuren-Porträts.
-- **m3-welt-haus** – Welt › Das Haus: Hausplan als Kopf mit leuchtendem Raum, Stockwerk-Umschalter, Lesetext mit schwebendem Bild, Orte und Persönlichkeiten als Bildkarten.
-- **m4-gegner** – Spielleitung › Gegner: Liste links, Doppelseiten-Bild ungeschnitten, Gegner im Buchstil (lila Kasten, Stress-Kästchen, Aktionen I–VI); Hundertfüßer als zwei Gegner mit Pfeil.
-- **m5-saga** – Saga-Leitstand (Long Winter): eigene blaue Saga-Leiste mit Jahreszeiten-Umschalter, Abenteuer links, Steckbrief, Protagonisten vor ihrer Tapete, Szenen offen untereinander, Gegner als Chip, Notiz-Stift.
-- **m6-garten** – Untersetting Garten: grünes Schema, Outhold-Karte stehend links mit leuchtendem Gebiet, Gebiet rechts mit Panorama und Ortskarten.
+## 6b. Mockups (Runde 2, 24. Nov. 2026)
+Unter `plan/household/mockups/` (je mit `-erklaert`-Fassung), Quellen in `src/` (Screenshots mit `python3 shot.py <name>`).
+**Moritz' Entscheidungen Runde 1:** Startseite A (Haus im Schnitt) gewählt, B verworfen. Keine Trennlinie zwischen Kopfzeile und Unterleiste (gilt überall). Karten nicht abschneiden; Markierung schöner als Rahmen/Oval. Gegner und Saga-Figuren bekommen eine Übersicht als freie Kachelansicht ohne Kästen (bei Gegnern „Übersicht“ ganz oben in der Seitenleiste).
+- **m1-start-haus** – Startseite: Hero (Platzhalter), Haus im Schnitt (Obergeschoss Free Dominions, Erdgeschoss Realm | Hearth, Keller Horde, rechts Garten), Bereichs-Karten mit Tapetenstreifen der Fraktion und Titel-Schild wie im Buch, Sagas als Hover-Bildstreifen.
+- **m3-welt-haus** – Welt › Das Haus: Hausplan ungeschnitten neben dem Einleitungstext, Bereich hervorgehoben durch Abdunkeln des Rests, feine Goldlinie und Namensschild; Orte/Persönlichkeiten als Bildkarten (nur belegte Bilder).
+- **m4b-gegner-uebersicht** – Gegner-Übersicht: alle Gegner mit eigenem Buchbild frei auf dem Papier (Name, Stufe grau), Riesenhundertfüßer breit als Abschluss; Gegner ohne Bild als ruhige Liste darunter. Bildzuordnung geprüft (Bild steht im Buch über dem Gegner auf derselben Seite).
+- **m4-gegner** – Gegner-Detail: Doppelseiten-Bild, Gegner im Buchstil; Hundertfüßer als zwei Gegner mit Pfeil.
+- **m5b-saga-figuren** – Saga-Figuren-Übersicht (Long Winter, 30 Figuren) frei in einem Raster, Beruf als feine Linie über der Gruppe, darunter Volk · Nation.
+- **m5-saga** – Saga-Leitstand mit Jahreszeiten-Umschalter.
+- **m6-garten** – Garten: Outhold-Karte ohne Rahmen, größer, gleiche Markierung wie beim Haus.
 Schriften im Entwurf: IM Fell English SC (Überschriften) und EB Garamond (Text) als Ersatz für Sydonia/Minion; die Buchschriften sind nur als Teilsätze eingebettet und müssten wie bei Heart zusammengesetzt werden.
 Deko aus dem Grundbuch in `src/deko/`: Seitenpapier, Tapeten-Banner (grün Realm, blau Hearth, rot Free Dominions, gold Horde, lila Regeln), Fraktions-Medaillen mit Band.
 Aufräumen beim Bau: Tapetenstücke hinter den Saga-Figuren (z. B. fp-s018-…, lw-s024-…, lw-s050-shiro-b) und Banner (garten-s152, garten-s157, lw-s075) aus der Bildsammlung entfernen; Medaillen mit Band in die Sammlung aufnehmen.

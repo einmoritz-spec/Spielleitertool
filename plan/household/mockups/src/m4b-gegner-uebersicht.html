@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script>
+<style>
+.raster{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 22px;grid-auto-flow:dense}.g.voll{grid-column:1/-1}.g.voll .b{height:230px}
+.g{text-align:center;padding:4px 4px 12px;border-radius:4px}
+.g:hover{background:rgba(236,227,240,.6)}
+.g .b{height:190px;background:center bottom/contain no-repeat;filter:drop-shadow(0 6px 6px rgba(60,40,50,.22))}
+.g b{display:block;font:400 20px/1.15 Fell,serif;color:var(--vio);margin-top:6px}
+.g i{display:block;font:13.5px Fell,serif;font-style:normal;letter-spacing:.06em;color:#a3949d}
+.g.br{grid-column:span 2}
+.weitere{columns:4;column-gap:26px;margin-top:6px}
+.weitere a{display:block;break-inside:avoid;padding:5px 0;border-bottom:1px dotted #d6c79f;font-size:16.5px}
+.weitere a i{font:12.5px Fell,serif;font-style:normal;letter-spacing:.06em;color:#a3949d;margin-left:6px}
+</style></head><body>
+<script>kopf({on:'Spielleitung',unter:['Saga','Gegner','Mysterien','Pride & Prejudice & Centipedes','Neue Figuren'],uon:'Gegner'})</script>
+<div class="wrap">
+ <div class="side" id="sd"></div>
+ <div class="main">
+  <div class="raster" id="ra"></div>
+  <h3 style="margin:26px 0 4px">Weitere Gegner</h3>
+  <div class="weitere" id="we"></div>
+ </div>
+</div>
+<script>
+var M=[['Kakerlaken','Basic','grundbuch-s282-anhang-i-opponents'],['Wespen','Basic','grundbuch-s284-285-anhang-i-opponents-ganz',1],['Soldaten','Critical','grundbuch-s287-anhang-i-opponents'],['Gemeine Spinne','Critical','grundbuch-s288-anhang-i-opponents'],['Große Spinne','Critical','grundbuch-s292-anhang-i-opponents'],['Gespornter Hundertfüßer','Critical','grundbuch-s294-anhang-i-opponents'],['Golden Backs','Critical','grundbuch-s295-anhang-i-opponents'],['Janitscharen','Critical','grundbuch-s296-anhang-i-opponents'],['Radnetzspinne','Critical','grundbuch-s298-anhang-i-opponents'],['Kescherspinne','Critical','grundbuch-s299-anhang-i-opponents'],['Riesenhundertfüßer','Critical · Extreme','grundbuch-s300-301-anhang-i-opponents-ganz',2],['Riesenkrabbenspinne','Critical · Extreme','grundbuch-s302-anhang-i-opponents']];
+M.forEach(function(o){ra.innerHTML+='<div class="g'+(o[3]==1?' br':o[3]==2?' voll':'')+'"><div class="b" style="background-image:url('+img(o[2])+')"></div><b>'+o[0]+'</b><i>'+o[1]+'</i></div>';});
+var W=[['Hooligans','Basic'],['Gendarmen','Basic'],['Ohrwürmer','Basic'],['Hundertfüßer','Critical'],['Duellanten','Critical'],['Späher','Critical'],['Hornissen','Critical'],['Käfer','Critical'],['Eidechse','Critical'],['Kürassiere','Critical'],['Ratte','Critical'],['Ehrengarde','Critical'],['Meisterduellanten','Critical'],['Cinder Knights','Critical'],['Porzellan-Infanterie','Critical']];
+W.forEach(function(o){we.innerHTML+='<a>'+o[0]+'<i>'+o[1]+'</i></a>';});
+sd.innerHTML='<a class="on">Übersicht <span class="k">‹</span></a>';
+['Kakerlaken','Hooligans','Gendarmen','Wespen','Ohrwürmer','Hundertfüßer','Duellanten','Späher','Soldaten','Gemeine Spinne','Hornissen','Käfer','Eidechse','Kürassiere','Ratte','Große Spinne','Ehrengarde','Meisterduellanten','Gespornter Hundertfüßer','Golden Backs','Janitscharen','Cinder Knights','Porzellan-Infanterie','Radnetzspinne','Kescherspinne','Riesenhundertfüßer','Riesenkrabbenspinne'].forEach(function(n){sd.innerHTML+='<a style="padding:5px 18px 5px 20px">'+n+'</a>';});
+</script>
+<div class="note" style="left:20px;top:140px;max-width:200px">„Übersicht“ ganz oben, danach alle Gegner</div>
+<div class="note" style="left:880px;top:330px;max-width:300px">Gegner frei auf dem Papier, ohne Kästen – Klick öffnet die Gegnerseite</div>
+<div class="note" style="left:760px;top:1310px;max-width:330px">Gegner ohne eigenes Bild im Buch als ruhige Liste darunter</div>
+</body></html>

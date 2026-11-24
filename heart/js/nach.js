@@ -38,6 +38,15 @@ function blk(b){
   }
   return "";
 }
+/* Unterleiste eines Kapitels; bei Regeln im Detail steht hinter „Fallout“ die Fallout-Übersicht (Tabelle Resistenz × Stufe) */
+window.regelnUnter = function(akt, cid, S){
+  cid = cid || "regeln"; var C = HT_NACH[cid];
+  return '<div class="unter">' + C.subs.map(function(s){
+    var h = '<a class="' + ((S ? s === S : s.id === akt && akt !== "fallout") ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + s.id + '\')">' + esc(s.t) + "</a>";
+    if(cid === "regeln" && s.id === "fallout") h += '<a class="' + (akt === "fallout" && !S ? "on" : "") + '" onclick="go(\'fallout\')">Fallout-Übersicht</a>';
+    return h;
+  }).join("") + "</div>";
+};
 /* ---------- Ansicht ---------- */
 VIEWS.nach = function(a){
   var cid = a[0] || "einfuehrung", C = HT_NACH[cid], tab = HT_TABS.filter(function(t){ return t[0] === cid; })[0];
@@ -46,7 +55,7 @@ VIEWS.nach = function(a){
   if(!C){ var kk = null; HT_INHALT.forEach(function(c){ c.forEach(function(x){ if(x.r === "nach/" + cid) kk = x; }); }); return head + '<div class="wrap"><div class="seite"><h1 class="h1">' + esc(tab[1]) + (kk ? pgl(kk.p) : "") + "</h1></div></div>"; }
   var sid = a[1] || C.subs[0].id, S = C.subs.filter(function(s){ return s.id === sid; })[0] || C.subs[0];
   var GR = secGroups(S), xid = a[2], G = GR.filter(function(g){ return g.secs.some(function(s){ return s.id === xid; }); })[0] || GR[0], X = G.secs[0];
-  var unter = C.subs.length > 1 ? '<div class="unter">' + C.subs.map(function(s){ return '<a class="' + (s === S ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + s.id + '\')">' + esc(s.t) + "</a>"; }).join("") + "</div>" : "";
+  var unter = C.subs.length > 1 ? regelnUnter(cid === "regeln" ? S.id : null, cid, S) : "";
   var side = GR.length > 1, zu = !!ST.zu;
   var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
     GR.map(function(g){ return '<li class="' + (g === G ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + g.secs[0].id + '\')">' + g.secs.map(function(s, i){ return '<span class="rt' + (i ? " n2" : "") + '">' + esc(kurz(s.t)) + "</span>"; }).join("") + "</li>"; }).join("") + "</ul></aside>" : "";

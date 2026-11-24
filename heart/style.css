@@ -209,6 +209,7 @@ body{background-attachment:fixed}
 .unter{position:sticky;top:var(--kopf-h);z-index:18;height:38px;display:flex;align-items:center;gap:22px;padding:0 20px;background:#1a110a;border-bottom:1px solid #000}
 .unter a{font:400 15px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#a8957f;cursor:pointer}
 .unter a:hover{color:#fff}
+.unter .sp{flex:1}
 .unter a.on{color:#fff;box-shadow:inset 0 -2px 0 var(--hell);padding-bottom:6px;margin-top:6px}
 .bereich{display:grid;grid-template-columns:236px minmax(0,1fr);align-items:start;min-height:calc(100vh - var(--kopf-h) - var(--unter-h))}
 .bereich.ohne{grid-template-columns:minmax(0,1fr)}
@@ -688,8 +689,8 @@ textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cq
 .bgbild s{position:absolute;right:-1cqw;top:-1cqw;width:3cqw;height:3cqw;border-radius:50%;background:#1a1410;color:#fff;text-decoration:none;font:400 2.4cqw/3cqw sans-serif;text-align:center;cursor:pointer;opacity:0;transition:opacity .15s}
 .bgbild:hover s{opacity:.85}
 /* Beispielkampagne */
-.tabs a.kbsp{font:italic 13px/1 Alegreya,serif;letter-spacing:.02em;text-transform:none;color:#7d6c5b;padding:0 0 12px;align-self:flex-end}
-.tabs a.kbsp:hover{color:#f2e9da;background:none}
+.unter a.kbsp{font:italic 13px/1 Alegreya,serif;letter-spacing:.02em;text-transform:none;color:#7d6c5b}
+.unter a.kbsp:hover{color:#f2e9da;background:none}
 .bspw{max-width:1500px;margin:0 auto;padding:20px 20px 50px}
 .bspkopf{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
 .bspkopf h1{margin:0;font:400 34px var(--head);text-transform:uppercase;letter-spacing:.03em;color:#f2e9da}
@@ -719,9 +720,9 @@ textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cq
 .bspa{margin-top:8px;border-top:1px solid #0002;padding-top:8px}
 .bspa ul{margin:6px 0 0;padding-left:18px;font-size:15px;line-height:1.45}.bspa li{margin-bottom:6px}
 
-.tabs a.kreset{display:inline-flex;align-self:flex-end;box-sizing:content-box;padding:0 0 11px 12px;color:#7d6c5b;cursor:pointer}
-.tabs a.kreset svg{width:14px;height:14px;flex:none}
-.tabs a.kreset:hover{color:#f2e9da;background:none}
+.unter a.kreset{display:inline-flex;align-items:center;color:#7d6c5b;cursor:pointer}
+.unter a.kreset svg{width:14px;height:14px;flex:none}
+.unter a.kreset:hover{color:#f2e9da;background:none}
 .modal>div:has(.kreq){width:auto;max-width:400px}.kreq p{margin:0 0 4px;font:17px/1.4 var(--body)}
 /* Übersetzung englischer Begriffe per Hover */
 .gl{text-decoration:underline dotted;text-decoration-color:color-mix(in srgb,currentColor 32%,transparent);text-decoration-thickness:1px;text-underline-offset:.18em;cursor:help}

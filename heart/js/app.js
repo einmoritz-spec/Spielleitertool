@@ -73,7 +73,8 @@ function kopfTabs(v, h){
   var L = KOPF_ORD.map(function(t){ return alle.filter(function(k){ return k.t === t; })[0]; }).filter(Boolean);
   var aus = v === "start" || v === "dagger" || v === "blackops" || v === "doors";
   document.body.classList.toggle("ohnektabs", aus);
-  var cur = v === "nach" ? "nach/" + (h[1] || "einfuehrung") : v;
+  var BER = {lm: "lm", karte: "lm", exp: "lm", kampagne: "lm", gegner: "gegner", fallout: "nach/regeln", bogen: "nach/charaktere"};
+  var cur = v === "nach" ? "nach/" + (h[1] || "einfuehrung") : (BER[v] || v);
   el.innerHTML = aus ? "" : L.map(function(k){ return '<a class="' + (k.r === cur ? "on" : "") + '" onclick="go(\'' + k.r + '\')">' + esc(KOPF_KURZ[k.t] || k.t) + "</a>"; }).join("");
   document.body.classList.toggle("mitreiter", !aus && !!document.querySelector("#app > .unter"));
 }

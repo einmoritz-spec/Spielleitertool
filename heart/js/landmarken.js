@@ -37,8 +37,10 @@ function viewLm(a){
 }
 function nav(cur){ return window.spielNav(cur ? "" : "lm"); }
 window.spielNav = function(cur){
-  var T = [["exp","Expedition","exp"],["karte","Karte","karte"],["lm","Landmarken","lm"],["gegner","Gegner","gegner"],["fallout","Fallout","fallout"],["nach/spielleitung/landmarken-info","Über Landmarken",""]];
-  return '<nav class="tabs">' + T.map(function(t){ return '<a class="' + (t[2] && t[2] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + "</a>"; }).join("") + '<span class="sp"></span></nav>';
+  if(cur === "gegner") return "";
+  if(cur === "fallout") return window.regelnUnter("fallout");
+  var T = [["lm","Landmarken","lm"],["karte","Karte","karte"],["exp","Expedition","exp"]];
+  return '<div class="unter">' + T.map(function(t){ return '<a class="' + (t[2] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + "</a>"; }).join("") + '<span class="sp"></span></div>';
 };
 function viewDelve(id){
   var d = HT_DELVE.filter(function(x){ return x.id === id; })[0]; if(!d) return viewLm([]);

@@ -32,7 +32,7 @@ function karte(f){
 function viewFallout(){
   var D = daten();
   var chips = [["alle","Alle"],["sofort","Sofort"],["anhaltend","Anhaltend"]].map(function(c){ return '<button class="' + (filter === c[0] ? "on" : "") + '" onclick="falloutFilter(\'' + c[0] + '\')">' + c[1] + "</button>"; }).join("");
-  var h = window.spielNav("fallout") + '<div class="fowrap"><div class="fohead"><h1>Fallout</h1> ' + pgl(80, "S. 80") +
+  var h = window.regelnUnter("fallout") + '<div class="fowrap"><div class="fohead"><h1>Fallout</h1> ' + pgl(80, "S. 80") +
     '<p class="foin">Sobald du Stress erleidest, würfelt die SL W12 gegen deinen aktuellen Gesamt-Stress. Ist das Ergebnis gleich oder niedriger, erleidest du Fallout. <a onclick="go(\'nach/regeln/fallout\')">Regeln im Detail</a></p></div><div class="fochips">' + chips + "</div>";
   ST.forEach(function(s){
     h += '<div class="fostufe"><h2>' + s[1] + "</h2><i>" + s[2] + '</i></div><div class="fogrid">';

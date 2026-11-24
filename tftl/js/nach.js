@@ -170,7 +170,7 @@
     GR.forEach(function(g){ var k = g[1].filter(function(x){ return have.indexOf(x) >= 0; }); if(k.length) out.push({name: k.length > 1 ? g[0] : (function(){ var n = (C.NACH || []).filter(function(y){ return y[0] === k[0]; })[0]; return KURZ[n[1]] || n[1]; })(), keys: k}); });
     return out;
   };
-  window.TX_PLAY = function(C){ var B = (window.BEREICHE || {})[C.area]; return B ? (B.tabs || []).filter(function(t){ return t[0] !== "start"; }).map(function(t){ return [t[0], t[0] === "kids" && C.L && C.L.unsere ? C.L.unsere : t[1]]; }) : []; };
+  window.TX_PLAY = function(C){ var B = (window.BEREICHE || {})[C.area]; return B ? (B.tabs || []).filter(function(t){ return t[0] !== "start"; }).map(function(t){ return [t[0], t[0] === "kids" ? ((C.L && C.L.kids) || "Kids") : t[1]]; }) : []; };
   window.TX_SUBHTML = function(C, on){
     var pl = window.TX_PLAY(C); if(C.area === "es" || !pl.some(function(t){ return t[0] === on; })) return "";
     return pl.map(function(t){ return '<a' + (t[0] === on ? ' class="on"' : '') + ' href="#' + C.p + t[0] + '">' + esc(t[1]) + '</a>'; }).join("");

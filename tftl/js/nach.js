@@ -128,9 +128,7 @@
     if(extraFirst) tree += '<a class="ni' + (cur === "typen" ? ' on' : '') + '" href="' + base + K.seg + '">' + K.label + '</a>';
     sets.forEach(function(k){
       var d = ND[k];
-      var aktiv = !multi || d === D || cur === "typen" && false;
-      if(multi) subs.push('<a' + (aktiv ? ' class="on"' : '') + ' href="' + base + k + '/' + d.abschnitte[0].id + '">' + esc(d.titel.split(":")[0]) + '</a>');
-      if(!aktiv) return;
+      if(multi) tree += '<div class="ng">' + esc(d.titel.split(":")[0]) + '</div>';
       gruppen(d.abschnitte).forEach(function(g){
         var f = g.items[0], on = cur !== "typen" && sec && d === D && g.items.some(function(x){ return x.id === sec.id; });
         if(on) grp = g;
@@ -147,7 +145,7 @@
       jump = sec.id !== f0.id ? sec.id : null;
     }
     else main = '<div class="nh"><h1>' + esc(((C.NACH || window.NACH).filter(function(x){ return x[0] === tab; })[0] || [0, tab])[1]) + '</h1></div>';
-    return {tree: tree, main: main, typen: cur === "typen", jump: jump, D: D, sub: subs.length ? '<div class="unter">' + subs.join("") + "</div>" : "", n: (tree.match(/class="ni/g) || []).length};
+    return {tree: tree, main: main, typen: cur === "typen", jump: jump, D: D, sub: "", n: (tree.match(/class="ni/g) || []).length};
   }
   /* Kapitel-Header: gleiche Bausteine wie der Mysterium-Header (.shd, Scroll-Variable --p); nur mit gesichertem Eröffnungsbild (Feld bild im NACH-Tab bzw. Set-Datensatz) */
   function banner(tab, D){

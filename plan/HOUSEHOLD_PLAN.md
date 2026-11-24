@@ -96,6 +96,7 @@ Alles, was im Buch Kasten/Karte ist (Gegner, Gegenstände, Verträge, Mysterien,
 **Technik:** `pdfimages -all -p` extrahiert alle Rohbilder in ~2 Minuten pro Buch (PNG-Ausgabe ist 10× langsamer, nicht nutzen). Figuren, Tiere und Gegenstände liegen **schon freigestellt** als Bild + Maske (smask) vor → zu RGBA zusammensetzen, nicht neu ausschneiden. Doppelseiten sind meist ein eigenes großes Bild. Wo eine Illustration aus mehreren Stücken besteht oder Text darüberliegt, die Stelle aus dem Seitenbild rendern. Dekoration erkennt man an wiederkehrenden Größen (Banner 2564×1287, Papier 862×…/980×…, Rahmen 644×…), einfarbiger Mitte und fehlender Seitenzuordnung.
 
 **Vorgehen:**
+0. **Stand 24. Nov.:** Spalte `zuordnung` ist auf **Abschnittsebene** (Kapitel/Figur/Abenteuer laut Inhaltsverzeichnis, nur nach Buchseite) vorbelegt – noch **nicht** am Bild geprüft; Figur/Gegner/Gegenstand je Bild folgt beim Bau des jeweiligen Kapitels. Saga Long Winter: Abenteuer-Ebene noch nicht aufgeteilt.
 1. Pro Buch Kontaktbogen der Kandidaten prüfen (Filter ist nur eine Schätzung), Ausschuss löschen, **Liste `plan/household/bilder-<kürzel>.tsv` mit Spalte `zuordnung` füllen** (Figur/Ort/Raum/Abenteuer/Gegner/Kapitel-Eröffnung).
 2. Dateien sofort eindeutig benennen: `<kürzel>-<kapitel>-<motiv>.webp` (z. B. `core-haus-esszimmer.webp`, `fp-figur-jemma-reed.webp`).
 3. Nur zuordnen, was im Buch **direkt** dazugehört (Figur ↔ Porträt, Gegner ↔ Bild, Ort ↔ Ortsbild, Raum ↔ Raumbild); sonst weglassen.

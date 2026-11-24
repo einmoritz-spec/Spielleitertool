@@ -1,118 +1,118 @@
 pdf_seite	buch_seite	breite	hoehe	zuordnung
-1	-1	438	458	
-1	-1	517	472	
-1	-1	750	690	
-4	2	341	340	
-4	2	1160	799	
-6	4	2019	1525	
-7	5	980	2605	
-9	7	2555	1467	
-12	10	980	1304	
-12	10	1321	1843	
-17	15	962	3309	
-18	16	2538	1597	
-19	17	2539	1597	
-21	19	987	1560	
-23	21	2988	1800	
-25	23	980	1702	
-26	24	2567	1658	
-27	25	2639	1658	
-28	26	962	3155	
-34	32	1022	2276	
-37	35	980	1817	
-40	38	1761	3003	
-41	39	3627	2245	
-42	40	2487	1842	
-43	41	2399	1943	
-44	42	1360	1812	
-45	43	1360	1748	
-46	44	1303	1188	
-47	45	1168	1186	
-49	47	2632	2567	
-50	48	3113	2069	
-53	51	2555	1349	
-55	53	929	1233	
-56	54	1064	1128	
-56	54	1443	1575	
-62	60	2700	2120	
-63	61	2682	1885	
-65	63	1360	1812	
-68	66	2451	1533	
-69	67	2524	1533	
-71	69	2540	1697	
-72	70	1758	2003	
-75	73	947	2041	
-76	74	1360	1632	
-77	75	1360	1600	
-78	76	1500	2485	
-80	78	1312	1633	
-83	81	864	1453	
-85	83	2401	1779	
-87	85	2542	2411	
-89	87	1968	1419	
-90	88	1541	2209	
-93	91	2113	1806	
-95	93	3662	2440	
-96	94	1013	1772	
-96	94	1013	1772	
-98	96	1008	932	
-98	96	1308	1236	
-104	102	2951	2081	
-105	103	2951	2081	
-108	106	2417	1608	
-109	107	2421	1608	
-115	113	2037	1165	
-117	115	825	831	
-118	116	1003	1007	
-118	116	1125	1518	
-119	117	1928	1565	
-120	118	702	765	
-121	119	621	837	
-125	123	2722	2570	
-126	124	1638	3602	
-127	125	1690	3493	
-129	127	2151	1851	
-132	130	2487	1842	
-133	131	2399	1970	
-135	133	1807	3774	
-136	134	1333	1044	
-137	135	1333	1006	
-139	137	2555	1393	
-141	139	962	2064	
-141	139	1209	1466	
-142	140	980	1016	
-142	140	1478	1587	
-148	146	1852	3817	
-148	146	1852	3817	
-149	147	1640	3603	
-150	148	1360	972	
-150	148	1814	1278	
-152	150	2561	1287	
-153	151	2556	1430	
-159	157	2451	1842	
-160	158	1360	1696	
-161	159	1360	1580	
-168	166	2532	1726	
-169	167	2538	1726	
-171	169	1770	3210	
-173	171	1676	1760	
-175	173	1174	1427	
-175	173	1658	2306	
-177	175	1209	1251	
-180	178	1725	1856	
-182	180	1990	1537	
-183	181	388	258	
-183	181	388	258	
-186	184	1583	1577	
-187	185	436	302	
-187	185	436	302	
-188	186	1348	1220	
-188	186	1522	862	
-190	188	1546	862	
-190	188	1607	1434	
-192	190	1609	862	
-192	190	1784	1470	
-194	192	1407	1379	
-196	194	1754	1470	
-198	196	1467	862	
-198	196	1518	1473	
+1	-1	438	458	Umschlag/Vorspann
+1	-1	517	472	Umschlag/Vorspann
+1	-1	750	690	Umschlag/Vorspann
+4	2	341	340	Umschlag/Vorspann
+4	2	1160	799	Umschlag/Vorspann
+6	4	2019	1525	Vorwort
+7	5	980	2605	Vorwort
+9	7	2555	1467	The Porch
+12	10	980	1304	I. Realm: Einleitung
+12	10	1321	1843	I. Realm: Einleitung
+17	15	962	3309	I. Realm Politics
+18	16	2538	1597	I. Realm Politics
+19	17	2539	1597	I. Realm Politics
+21	19	987	1560	I. Realm Politics
+23	21	2988	1800	I. Mystery Zlad of Wall-lachia
+25	23	980	1702	I. Mystery Zlad of Wall-lachia
+26	24	2567	1658	I. Armed Forces of the Realm
+27	25	2639	1658	I. Armed Forces of the Realm
+28	26	962	3155	I. Armed Forces of the Realm
+34	32	1022	2276	I. Armed Forces of the Realm
+37	35	980	1817	I. Mystery The House of Cards
+40	38	1761	3003	I. Life in the Realm
+41	39	3627	2245	I. Life in the Realm
+42	40	2487	1842	I. Life in the Realm
+43	41	2399	1943	I. Life in the Realm
+44	42	1360	1812	I. Life in the Realm
+45	43	1360	1748	I. Life in the Realm
+46	44	1303	1188	I. Institutions of the Realm
+47	45	1168	1186	I. Institutions of the Realm
+49	47	2632	2567	I. Institutions of the Realm
+50	48	3113	2069	I. Institutions of the Realm
+53	51	2555	1349	I. The Kitchen
+55	53	929	1233	I. The Kitchen
+56	54	1064	1128	II. Hearth: Einleitung
+56	54	1443	1575	II. Hearth: Einleitung
+62	60	2700	2120	II. Hearth Politics
+63	61	2682	1885	II. Hearth Politics
+65	63	1360	1812	II. Hearth Politics
+68	66	2451	1533	II. Armed Forces of the Hearth
+69	67	2524	1533	II. Armed Forces of the Hearth
+71	69	2540	1697	II. Armed Forces of the Hearth
+72	70	1758	2003	II. Mystery The Flame of Love
+75	73	947	2041	II. The Church of Safekeeping
+76	74	1360	1632	II. The Church of Safekeeping
+77	75	1360	1600	II. The Church of Safekeeping
+78	76	1500	2485	II. The Church of Safekeeping
+80	78	1312	1633	II. Mystery A Cold Heart
+83	81	864	1453	II. Life in the Hearth
+85	83	2401	1779	II. Life in the Hearth
+87	85	2542	2411	II. Institutions of the Hearth
+89	87	1968	1419	II. Institutions of the Hearth
+90	88	1541	2209	II. Institutions of the Hearth
+93	91	2113	1806	II. Institutions of the Hearth
+95	93	3662	2440	II. Institutions of the Hearth
+96	94	1013	1772	II. Mystery The City Inbetween
+96	94	1013	1772	II. Mystery The City Inbetween
+98	96	1008	932	III. Free Dominions: Einleitung
+98	96	1308	1236	III. Free Dominions: Einleitung
+104	102	2951	2081	III. Politics of the Free Dominions
+105	103	2951	2081	III. Politics of the Free Dominions
+108	106	2417	1608	III. Armed Forces of the Free Dominions
+109	107	2421	1608	III. Armed Forces of the Free Dominions
+115	113	2037	1165	III. Mystery Bathlantis
+117	115	825	831	III. Institutions of the Free Dominions
+118	116	1003	1007	III. Institutions of the Free Dominions
+118	116	1125	1518	III. Institutions of the Free Dominions
+119	117	1928	1565	III. Institutions of the Free Dominions
+120	118	702	765	III. Institutions of the Free Dominions
+121	119	621	837	III. Institutions of the Free Dominions
+125	123	2722	2570	III. Institutions of the Free Dominions
+126	124	1638	3602	III. Institutions of the Free Dominions
+127	125	1690	3493	III. Institutions of the Free Dominions
+129	127	2151	1851	III. Mystery The Mechanical Wonder
+132	130	2487	1842	III. Life in the Free Dominions
+133	131	2399	1970	III. Life in the Free Dominions
+135	133	1807	3774	III. Argo’s Legacy
+136	134	1333	1044	III. Mystery Through the Looking Glass
+137	135	1333	1006	III. Mystery Through the Looking Glass
+139	137	2555	1393	III. The Smaller Bedroom
+141	139	962	2064	III. The Smaller Bedroom
+141	139	1209	1466	III. The Smaller Bedroom
+142	140	980	1016	IIII. Horde: Einleitung
+142	140	1478	1587	IIII. Horde: Einleitung
+148	146	1852	3817	IIII. Horde Politics
+148	146	1852	3817	IIII. Horde Politics
+149	147	1640	3603	IIII. Horde Politics
+150	148	1360	972	IIII. Horde Politics
+150	148	1814	1278	IIII. Horde Politics
+152	150	2561	1287	IIII. Idol Worship
+153	151	2556	1430	IIII. Idol Worship
+159	157	2451	1842	IIII. Life in the Horde
+160	158	1360	1696	IIII. Life in the Horde
+161	159	1360	1580	IIII. Life in the Horde
+168	166	2532	1726	IIII. Armed Forces of the Horde
+169	167	2538	1726	IIII. Armed Forces of the Horde
+171	169	1770	3210	IIII. Armed Forces of the Horde
+173	171	1676	1760	IIII. Institutions of the Horde
+175	173	1174	1427	IIII. Institutions of the Horde
+175	173	1658	2306	IIII. Institutions of the Horde
+177	175	1209	1251	IIII. Institutions of the Horde
+180	178	1725	1856	IIII. Mystery The Spider Convent
+182	180	1990	1537	IIII. Mystery The Spider Convent
+183	181	388	258	Anhang I: Neue Optionen
+183	181	388	258	Anhang I: Neue Optionen
+186	184	1583	1577	Anhang I: Snail
+187	185	436	302	Anhang II: Neue Charaktere
+187	185	436	302	Anhang II: Neue Charaktere
+188	186	1348	1220	Anhang II: Achilles
+188	186	1522	862	Anhang II: Achilles
+190	188	1546	862	Anhang II: Barron Hargrave
+190	188	1607	1434	Anhang II: Barron Hargrave
+192	190	1609	862	Anhang II: Mey Sòng
+192	190	1784	1470	Anhang II: Mey Sòng
+194	192	1407	1379	Anhang II: Alexandrine Regret
+196	194	1754	1470	Anhang II: Vega Vankhade
+198	196	1467	862	Anhang II: Petrolio
+198	196	1518	1473	Anhang II: Petrolio

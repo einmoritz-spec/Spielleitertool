@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="theme-color" content="#6d4d9f">
+<title>Slugblaster</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="../shared/galerie.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="go('start')" aria-label="Slugblaster"><img src="../assets/logos/slugblaster.webp" alt="Slugblaster"></button>
+  <div class="sp"></div>
+  <button class="ib" onclick="BV.open(window.SB_BOOK||'sb_core',1)" aria-label="Buch öffnen" title="Buch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+  <button class="ib" onclick="openMenu(true)" aria-label="Menü" title="Menü"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP"></div>
+<script src="js/data/buecher.js"></script>
+<script src="js/data/start.js"></script>
+<script src="js/data/touren.js"></script>
+<script src="js/data/momente.js"></script>
+<script src="js/data/gelegenheiten.js"></script>
+<script src="js/data/k2-persoenlichkeiten.js"></script>
+<script src="js/data/welten-a.js"></script>
+<script src="js/data/ruhm.js"></script>
+<script src="js/data/welten-b.js"></script>
+<script src="js/data/welten-c.js"></script>
+<script src="js/data/heimat.js"></script>
+<script src="js/data/monster.js"></script>
+<script src="js/data/fraktionen.js"></script>
+<script src="js/data/k2-teenager.js"></script>
+<script src="js/data/signaturen.js"></script>
+<script src="js/data/ausruestung.js"></script>
+<script src="js/data/k1.js"></script>
+<script src="js/data/k1b.js"></script>
+<script src="js/data/k4.js"></script>
+<script src="js/data/veraendern.js"></script>
+<script src="js/data/demo.js"></script>
+<script src="js/data/schirm.js"></script>
+<script src="js/data/oolroob-a.js"></script>
+<script src="js/data/oolroob-b.js"></script>
+<script src="js/data/oolroob-c.js"></script>
+<script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
+<script src="js/app.js"></script>
+<script src="js/leiste.js"></script>
+<script src="../shared/fillpdf.js"></script>
+<script src="js/crew.js"></script>
+<script src="js/data/boegen.js"></script>
+<script src="js/bogen.js"></script>
+<script src="js/suche.js"></script>
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie.js"></script>
+<script src="js/folge.js"></script>
+<script src="js/welten.js"></script>
+<script src="js/heimat.js"></script>
+<script src="js/monster.js"></script>
+<script src="js/fraktionen.js"></script>
+<script src="js/regeln.js"></script>
+<script src="js/nach.js"></script>
+<script src="js/schirm.js"></script>
+<script src="js/oolroob.js"></script>
+<script src="js/data/abenteuer-a.js"></script>
+<script src="js/data/abenteuer-b.js"></script>
+<script src="js/abenteuer.js"></script>
+<script src="js/popup.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"sb_core", books:SB_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")"}; })); },[]), openSettings:function(){ openMenu(true); } });
+render();</script>
+<script src="../shared/masonry.js" defer></script>
+<script src="../toolmenu.js"></script>
+<script>try{localStorage.setItem("gm_tool_mode_v1","slugblaster");}catch(e){} window.gmBook=function(){return {name:"Slugblaster Regelbuch",open:function(){BV.open("sb_core",1);}};};</script>
+</body>
+</html>

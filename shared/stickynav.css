@@ -1,0 +1,13 @@
+/* Linke Navigation/Kapitelleiste: bleibt stehen, nur der Inhalt rechts scrollt.
+   Grund für „weggescrollt“: eine sticky-Leiste, die als Raster-/Flex-Element auf volle Spaltenhöhe gestreckt wird, kann nicht kleben.
+   Deshalb überall align-self:flex-start, und die Leiste scrollt bei Bedarf in sich selbst. */
+.onav,.rwtoc,.ll-rnav,.ni-nav,.osnav,.lm-toc,.m2-side,.ux-side,.prail,.pn-nav{align-self:flex-start!important;position:sticky;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.rwtoc{top:76px!important;max-height:calc(100vh - 90px)!important}
+.onav{top:76px!important;max-height:calc(100vh - 90px)!important}
+.osnav{top:70px!important;max-height:calc(100vh - 84px)!important}
+.ni-nav{top:74px!important;max-height:calc(100vh - 90px)!important}
+.ll-rnav{top:74px!important;max-height:calc(100vh - 90px)!important}
+@media(max-width:860px){.onav,.ll-rnav,.ni-nav{position:static!important;max-height:none!important}}
+
+/* html+body mit overflow-x:hidden macht body zum Scroll-Container und bricht sticky – clip tut dasselbe ohne diesen Nebeneffekt */
+html,body{overflow-x:clip!important}

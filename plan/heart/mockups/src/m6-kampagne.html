@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative;background:#0b0705 url(img/tex-dunkel.webp) center/cover}
+.kopf .logo img{height:26px}
+.treppe{position:absolute;left:0;top:52px;width:1440px;height:848px}
+.kk7{position:absolute;width:180px;cursor:pointer;transition:transform .25s}
+.kk7 img{width:180px;height:233px;display:block;box-shadow:0 10px 28px rgba(0,0,0,.6)}
+.kk7 .pl{background:#0d0804;color:#e9dccb;padding:6px 8px 6px;border-top:3px solid #3b2a20}
+.kk7 .pl small{display:block;font:400 12px/1 var(--plate);letter-spacing:.12em;text-transform:uppercase;color:#9b8673}
+.kk7 .pl b{display:block;font:400 19px/1.02 var(--plate);letter-spacing:.05em;text-transform:uppercase;margin-top:3px}
+.kk7.fertig img{filter:grayscale(.85) brightness(.55)}
+.kk7.fertig .pl b{color:#8a7766}
+.kk7.jetzt .pl{background:var(--platte);border-top-color:#a01c16}
+.kk7.jetzt .pl small{color:#f0c3b8}
+
+.intro{position:absolute;left:640px;top:66px;width:760px;color:#e8dccb}
+.intro .vers{font:italic 500 25px/1.3 var(--body);color:#f1e5d4;margin-bottom:8px}
+.intro p{font:500 18px/1.45 var(--body);margin:0;color:#cdbda9}
+/* angeheftete Zettel wie im Kampagnenband */
+.zettel{position:absolute;color:var(--tinte);padding:22px 24px 18px}
+.zettel .h2{font-size:26px;margin-bottom:4px}
+.z-gruen{background:url(img/tex-zettel-gruen.webp) center/100% 100% no-repeat;padding-left:40px}
+.z-rolle{background:url(img/tex-zettel-gefaltet.webp) center/100% 100% no-repeat}
+.opp{display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:center;padding:6px 0;border-bottom:1px solid rgba(100,0,0,.18)}
+.opp b{font:400 17px/1.05 var(--plate);letter-spacing:.05em;text-transform:uppercase;color:var(--blut)}
+.opp i{grid-column:1;font:italic 500 13.5px/1.25 var(--body);color:#3b342c}
+.opp .plan{grid-column:2;grid-row:1/3;display:flex;gap:8px;align-items:center;margin-right:14px}
+.opp .plan span{display:flex;flex-direction:column;align-items:center;gap:3px;font:400 10.5px/1 var(--plate);letter-spacing:.08em;color:#6f5f52;text-transform:uppercase}
+.opp .plan .kk i{width:12px;height:12px}
+.hand{position:absolute;font:400 22px/1 var(--hand);color:var(--blut)}
+.link{display:flex;justify-content:space-between;font:500 15px/1.3 var(--body);padding:5px 0;border-bottom:1px dashed rgba(100,0,0,.25)}
+.link b{font:400 17px var(--plate);letter-spacing:.05em;text-transform:uppercase;color:var(--blut)}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/dagger-logo-zeile-hell.svg" alt="Dagger in the Heart"><span class="dd"></span></button><div class="sp"></div>
+<button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+
+<div class="treppe">
+ <div class="kk7 fertig" style="left:40px;top:12px"><img src="img/dagger-kap1.webp"><div class="pl"><small>Kapitel 1 · S. 24</small><b>Trainkill</b></div></div>
+ <div class="kk7 jetzt" style="left:234px;top:78px"><img src="img/dagger-kap2.webp"><div class="pl"><small>Kapitel 2 · S. 35</small><b>Eastern Express</b></div></div>
+ <div class="kk7" style="left:428px;top:144px"><img src="img/dagger-kap3.webp"><div class="pl"><small>Kapitel 3 · S. 53</small><b>Von oben</b></div></div>
+ <div class="kk7" style="left:622px;top:210px"><img src="img/dagger-kap4.webp"><div class="pl"><small>Kapitel 4 · S. 71</small><b>The Wormery</b></div></div>
+ <div class="kk7" style="left:816px;top:276px"><img src="img/dagger-kap5.webp"><div class="pl"><small>Kapitel 5 · S. 89</small><b>Das verwundete Reich</b></div></div>
+ <div class="kk7" style="left:1010px;top:342px"><img src="img/dagger-kap6.webp"><div class="pl"><small>Kapitel 6 · S. 117</small><b>Randlande</b></div></div>
+ <div class="kk7" style="left:1204px;top:408px"><img src="img/dagger-kap7.webp"><div class="pl"><small>Kapitel 7 · S. 131</small><b>Ein Dolch in deiner Hand</b></div></div>
+</div>
+
+<div class="intro" style="left:830px;top:84px;width:560px">
+ <div class="vers">Unten sterben wir im Dunkeln.<br>Unten ein rot erleuchteter Himmel.<br>Unten steigen wir auf.</div>
+ <p><i>Dagger in the Heart</i> lockt die Spielercharaktere mit einer Kette von Hinweisen, die in die innersten Bereiche des Herzens führt – und zu dem, was ihr Herz begehrt. Sie führt sie auch in Gefahr, in den Wahnsinn – und in ihren eigenen Tod. Mehrfach.</p>
+</div>
+
+<div class="zettel z-gruen" style="left:22px;top:500px;width:590px;height:272px;transform:rotate(-1deg)">
+ <h2 class="h2">Die Opposition <span class="s">S. 5</span></h2>
+ <div class="opp"><b>Ptolemy Bay</b><i>Waffenhändler, Azurit-Handelskultist und gieriger Industrieller</i>
+  <div class="plan"><span>klein<em class="kk"><i class="x"></i><i></i></em></span><span>groß<em class="kk"><i></i><i></i></em></span><span>Zenit<em class="kk"><i></i></em></span></div></div>
+ <div class="opp"><b>Aramos Brightness-Sears-The-Eye</b><i>In Ungnade gefallener Aelfir-Drahtzieher</i>
+  <div class="plan"><span>klein<em class="kk"><i class="x"></i><i class="x"></i></em></span><span>groß<em class="kk"><i class="x"></i><i></i></em></span><span>Zenit<em class="kk"><i></i></em></span></div></div>
+ <div class="opp" style="border:0"><b>Der Eine, der in Asche wartet</b><i>Finsterer Kultist der Hungrigen Tiefe</i>
+  <div class="plan"><span>klein<em class="kk"><i></i><i></i></em></span><span>groß<em class="kk"><i></i><i></i></em></span><span>Zenit<em class="kk"><i></i></em></span></div></div>
+</div>
+
+<div class="zettel z-rolle" style="left:640px;top:628px;width:360px;height:262px;transform:rotate(1.2deg);padding:30px 32px 18px">
+ <h2 class="h2">Für die Runde</h2>
+ <div class="link"><b>Beat-Bogen #1</b><span>Kap. 1–3 · S. 22</span></div>
+ <div class="link"><b>Beat-Bogen #2</b><span>Kap. 4–6 · S. 72</span></div>
+ <div class="link"><b>Schlüsselfragen</b><span>je Delver · S. 23</span></div>
+ <div class="link" style="border:0"><b>Gebrochene Zukünfte</b><span>S. 20</span></div>
+</div>
+
+<div class="ann" style="left:20px;top:380px;max-width:360px"><b>1</b>Die sieben Kapitel als Treppe abwärts – jedes tiefer als das vorige, Kapitelbild aus dem Buch ungeschnitten. Erledigte Kapitel ausgegraut, aktuelles auf roter Platte.</div>
+<div class="ann" style="left:1060px;top:180px;max-width:300px"><b>2</b>Eröffnungstext von S. 1 (weiß auf Schwarz wie im Buch).</div>
+<div class="ann" style="left:60px;top:800px;max-width:520px"><b>3</b>Angeheftete Zettel wie im Kampagnenband (grünes Notizpapier, gefaltetes Blatt). Die Opposition mit Plan-Leiste: 2 kleine → großer Plan, 2 große → Zenit-Plan (S. 5).</div>
+<div class="ann" style="left:1050px;top:790px;max-width:360px"><b>4</b>Kopfzeile: Schriftzug „Dagger in the Heart“ aus dem Buch (Vektor, neu gesetzt). Untersetting im Dropdown unter Heart.</div>
+</body></html>

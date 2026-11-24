@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><link rel="stylesheet" href="flood.css"><style>
+.page{padding:16px 22px}
+.bar{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.bar h2{font-size:24px;color:var(--acc);margin-right:8px}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kid{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.14);border-top:6px solid var(--band)}
+.kh{display:flex;gap:12px;padding:10px 12px 8px;border-bottom:1.5px solid var(--line)}
+.kh .ph{width:54px;height:84px;background:center/contain no-repeat;flex:none}
+.kh b{display:block;font:700 20px/1.1 var(--sans);text-transform:uppercase}
+.kh small{font:600 13px var(--sans);color:var(--acc);text-transform:uppercase;letter-spacing:.06em}
+.kh .ln{font:14px var(--serif);color:var(--soft);margin-top:3px;line-height:1.3}
+.at{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1.5px solid var(--line)}
+.at div{text-align:center;padding:6px 2px;border-right:1px solid var(--line)}
+.at div:last-child{border:0}
+.at span{display:block;font:700 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.at b{font:700 22px var(--sans)}
+.sec{padding:7px 12px;border-bottom:1px solid var(--line)}
+.lab{font:700 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:3px;display:flex;justify-content:space-between}
+.pips{display:flex;gap:5px}
+.pips i{width:15px;height:15px;border-radius:50%;border:2px solid var(--acc)}
+.pips i.f{background:var(--acc)}
+.zs{display:flex;flex-wrap:wrap;gap:5px}
+.zs span{font:700 11.5px var(--sans);text-transform:uppercase;letter-spacing:.04em;padding:3px 7px;border:1.5px solid #d7cfbf;color:var(--soft);border-radius:2px}
+.zs span.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.zs span.br{border-style:dashed}
+.tx{font:15px/1.35 var(--serif)}
+.tx b{font:700 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-right:5px}
+.pr{display:flex;justify-content:space-between;align-items:center}
+.pr .u{font:700 11px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:#fff;background:#3a8a4f;padding:2px 7px;border-radius:2px}
+.pr .u.no{background:none;color:var(--soft);border:1.5px solid #d7cfbf}
+.row2{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:14px;margin-top:14px}
+.box{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.14);padding:12px 14px}
+.box h3{font-size:16px;color:var(--acc);margin-bottom:6px}
+.net{position:relative;height:150px}
+.net .n{position:absolute;font:700 12px var(--sans);text-transform:uppercase;background:#fdf1e6;border:1.5px solid var(--acc);padding:3px 8px;border-radius:999px}
+.net svg{position:absolute;inset:0;width:100%;height:100%}
+.net .rl{position:absolute;font:13px var(--hand,Hand);font-family:Hand;font-size:17px;color:#555}
+
+.kid{border-top-color:var(--band)}
+.zs span.on{background:var(--acc);border-color:var(--acc)}
+.nar{display:flex;flex-direction:column;gap:3px}
+.nar div{display:flex;justify-content:space-between;align-items:center;gap:6px;font:14px/1.3 var(--serif)}
+.nar div.used{color:var(--done)}
+.nar em{font:700 10.5px var(--sans);text-transform:uppercase;letter-spacing:.06em;font-style:normal;border:1.5px solid #cfd4db;color:var(--soft);padding:1px 6px;border-radius:2px;flex:none}
+.nar div.used em{background:#e7eaee}
+.nar .leer{color:var(--done);font-style:italic}
+.pr .u{background:#3c6e8f}
+.net .n{background:var(--accl);border-color:var(--acc)}
+.fr{font:15px/1.4 var(--serif)}
+.fr .th{display:inline-block;font:700 11px var(--sans);text-transform:uppercase;letter-spacing:.06em;background:var(--band2);color:#fff;padding:2px 7px;border-radius:2px;margin:6px 4px 0 0}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><a>Vorbereitung</a><a>Mysterien</a><a class="on">Teens</a><a>Karte</a></div>
+<div class="page">
+ <div class="bar"><h2 class="h">Unsere Teens</h2><span class="chip">+ Teen</span><span class="chip">Bogen einlesen (PDF)</span><span class="chip">Leerer Bogen</span></div>
+ <div class="row"><div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/flood/typ-hacker.webp)"></div><div><b>Hena Lund</b><small>Hacker · 16</small><div class="ln">Lieblingslied: „Firestarter“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>2</b></div><div><span>Technik</span><b>5</b></div><div><span>Herz</span><b>2</b></div><div><span>Verstand</span><b>5</b></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span class="">Verärgert</span><span class="">Verängstigt</span><span class="on">Erschöpft</span><span class="">Verletzt</span><span class="br">Gebrochen &amp; vernarbt</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Scham</b>Ich bin noch nie geküsst worden.</div><span class="u">frei</span></div>
+   <div class="sec"><div class="lab">Narben <span>0 / 5</span></div><div class="nar"><div class="leer">Keine Narben</div></div></div>
+   <div class="sec tx"><b>Problem</b>Ich werde in der Schule gemobbt.<br><b>Antrieb</b>Ich will zeigen, was ich kann.<br><b>Anker</b>Älterer Hacker aus dem Forum</div>
+   <div class="sec tx" style="border:0"><b>Kultgegenstand</b>Selbstgebauter Mini-Roboter (+2)</div></div><div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/flood/typ-lonewolf.webp)"></div><div><b>Örjan Berg</b><small>Einzelgänger · 17</small><div class="ln">Lieblingslied: „Zombie“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>4</b></div><div><span>Technik</span><b>2</b></div><div><span>Herz</span><b>3</b></div><div><span>Verstand</span><b>5</b></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span class="on">Verärgert</span><span class="on">Verängstigt</span><span class="">Erschöpft</span><span class="">Verletzt</span><span class="br">Gebrochen &amp; vernarbt</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Scham</b>Mein Vater sitzt im Gefängnis.</div><span class="u no">eingesetzt</span></div>
+   <div class="sec"><div class="lab">Narben <span>1 / 5</span></div><div class="nar"><div class="used"><span>Vom Einbrecher angeschossen</span><em>akzeptiert</em></div></div></div>
+   <div class="sec tx"><b>Problem</b>…<br><b>Antrieb</b>…<br><b>Anker</b>…</div>
+   <div class="sec tx" style="border:0"><b>Kultgegenstand</b>… (+2)</div></div><div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/flood/typ-raver.webp)"></div><div><b>Monika Ek</b><small>Raver · 18</small><div class="ln">Lieblingslied: „Born Slippy“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>3</b></div><div><span>Technik</span><b>2</b></div><div><span>Herz</span><b>5</b></div><div><span>Verstand</span><b>4</b></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span class="">Verärgert</span><span class="">Verängstigt</span><span class="">Erschöpft</span><span class="">Verletzt</span><span class="br">Gebrochen &amp; vernarbt</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Scham</b>…</div><span class="u">frei</span></div>
+   <div class="sec"><div class="lab">Narben <span>0 / 5</span></div><div class="nar"><div class="leer">Keine Narben</div></div></div>
+   <div class="sec tx"><b>Problem</b>…<br><b>Antrieb</b>…<br><b>Anker</b>…</div>
+   <div class="sec tx" style="border:0"><b>Kultgegenstand</b>… (+2)</div></div><div class="kid"><div class="kh"><div class="ph" style="background-image:url(img/flood/typ-motorhead.webp)"></div><div><b>Lukas Holm</b><small>Schrauber · 15</small><div class="ln">Lieblingslied: „Song 2“</div></div></div>
+   <div class="at"><div><span>Körper</span><b>5</b></div><div><span>Technik</span><b>4</b></div><div><span>Herz</span><b>2</b></div><div><span>Verstand</span><b>3</b></div></div>
+   <div class="sec"><div class="lab">Zustände</div><div class="zs"><span class="">Verärgert</span><span class="">Verängstigt</span><span class="">Erschöpft</span><span class="on">Verletzt</span><span class="br on">Gebrochen &amp; vernarbt</span></div></div>
+   <div class="sec pr"><div class="tx"><b>Scham</b>…</div><span class="u">frei</span></div>
+   <div class="sec"><div class="lab">Narben <span>2 / 5</span></div><div class="nar"><div class=""><span>Hinke seit dem Unfall am Damm</span><em>frei</em></div><div class=""><span>Kann nicht mehr allein schlafen</span><em>frei</em></div></div></div>
+   <div class="sec tx"><b>Problem</b>…<br><b>Antrieb</b>…<br><b>Anker</b>…</div>
+   <div class="sec tx" style="border:0"><b>Kultgegenstand</b>… (+2)</div></div></div>
+ <div class="row2">
+  <div class="box"><h3>Beziehungen</h3><div class="net"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><g stroke="#8f2c48" stroke-width=".6"><line x1="18" y1="20" x2="78" y2="20"/><line x1="18" y1="20" x2="22" y2="80"/><line x1="78" y1="20" x2="74" y2="80"/><line x1="22" y1="80" x2="74" y2="80"/></g></svg>
+   <span class="n" style="left:4%;top:8%">Hena</span><span class="n" style="left:70%;top:8%">Örjan</span><span class="n" style="left:6%;top:72%">Lukas</span><span class="n" style="left:66%;top:72%">Monika</span>
+   <span class="rl" style="left:30%;top:2%">„Mein einziger Freund“</span><span class="rl" style="left:34%;top:62%">„Will ihn beeindrucken“</span></div></div>
+  <div class="box"><h3>Reibung</h3><div class="fr">Zwei von euch konkurrieren um die Führung in der Gruppe.<br><span class="th">Rivalität</span></div><h3 style="margin-top:12px">Erfahrung</h3><div class="tx">Fragen am Ende der Sitzung (Kap. 6) – je Teen abhaken.</div></div>
+  <div class="box"><h3>Würfelprobe</h3><div class="tx">Teen + Fertigkeit wählen → Würfelpool aus Attribut, Fertigkeit, Zuständen und Gegenstand; Scham (einmal je Mysterium) und Narben (einmal) als automatischer Erfolg (Kap. 5, S. 71).</div><div style="margin-top:8px"><span class="chip f">Hena · Programmieren (Technik) = 8 W6</span></div></div>
+ </div>
+</div>
+</body></html>

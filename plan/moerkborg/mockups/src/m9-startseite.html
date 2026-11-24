@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><title>Mörk Borg – Startseite (Entwurf)</title>
+<style>
+@font-face{font-family:F;src:url(../../../../assets/fonts/mb-unifrakturcook-latin-700-normal.woff2)}
+@font-face{font-family:P;src:url(../../../../assets/fonts/mb-anton-latin-400-normal.woff2)}
+@font-face{font-family:G;font-weight:700;src:url(../../../../assets/fonts/mb-jost-latin-700-normal.woff2)}
+@font-face{font-family:G;font-weight:400;src:url(../../../../assets/fonts/mb-jost-latin-400-normal.woff2)}
+@font-face{font-family:M;src:url(../../../../assets/fonts/mb-courier-prime-latin-700-normal.woff2)}
+@font-face{font-family:T;src:url(../../../../assets/fonts/mb-alegreya-latin-400-italic.woff2)}
+:root{--s:#020200;--g:#ffe800;--p:#ff41b4;--w:#fff;--c:#fffae5}
+*{box-sizing:border-box}body{margin:0;background:var(--s);color:var(--w);font-family:G}
+.top{height:56px;display:flex;align-items:center;padding:0 24px;border-bottom:1px solid #222;position:sticky;top:0;z-index:9;background:var(--s)}
+.top b{font:28px F;color:var(--g)}.top i{margin-left:auto;width:22px;height:2px;background:var(--g);box-shadow:0 7px var(--g),0 -7px var(--g)}
+/* HERO: der Kalender des Untergangs */
+.hero{position:relative;height:620px;overflow:hidden;border-bottom:6px solid var(--g)}
+.hero img{position:absolute;right:4%;top:-30px;height:700px;filter:contrast(1.2)}
+.hero h1{position:absolute;left:3%;top:40px;margin:0;font:400 230px/.8 F;color:var(--g);letter-spacing:-4px;text-shadow:6px 6px 0 #000;transform:rotate(-3deg);z-index:2}
+.hero .vers{position:absolute;left:4.5%;top:528px;max-width:560px;font:22px/1.35 T;color:#ddd;z-index:2}
+.uhr{position:absolute;left:4.5%;top:440px;display:flex;gap:6px;z-index:3}
+.uhr span{width:58px;height:58px;display:grid;place-items:center;font:30px P;border:3px solid var(--g);color:var(--g)}
+.uhr span.x{background:var(--g);color:#000}.uhr span.e{background:var(--p);border-color:var(--p);color:#000;width:auto;padding:0 12px}
+.los{position:absolute;right:3%;bottom:34px;z-index:3;background:var(--p);color:#000;font:46px/1 P;padding:16px 26px;transform:rotate(2deg);box-shadow:8px 8px 0 var(--g);text-transform:uppercase}
+.los small{display:block;font:14px M;margin-top:6px}
+/* Kapitel-Bänder */
+.band{padding:46px 3% 30px;position:relative}
+.kopf{display:flex;align-items:flex-end;gap:22px;margin-bottom:22px}
+.kopf .n{font:110px/.8 F;color:var(--g)}
+.kopf h2{margin:0;font:400 64px/1 F}.kopf p{margin:0 0 6px auto;font:15px M;color:#999;max-width:380px;text-align:right}
+/* I Regelwerke: zwei riesige Plakate */
+.duo{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
+.pl{position:relative;min-height:380px;overflow:hidden;cursor:pointer;transition:.2s}
+.pl:hover{transform:rotate(-1deg) scale(1.01)}
+.pl.core{background:var(--g);color:#000}.pl.core img{position:absolute;right:-30px;bottom:-40px;height:470px;mix-blend-mode:multiply}
+.pl.apo{background:#000;border:4px solid var(--p)}
+.pl h3{position:relative;margin:0;padding:24px 26px 0;font:400 92px/.85 F}
+.pl.apo h3{color:var(--p);font:110px/.85 P;text-transform:uppercase}
+.pl ul{position:relative;list-style:none;padding:0 26px;margin:18px 0 0;font:700 17px/1.7 G;max-width:55%}
+.pl ul li::before{content:"✠ "}
+.stempel{position:absolute;font:20px P;letter-spacing:.06em;padding:6px 12px;border:4px solid;transform:rotate(-8deg);text-transform:uppercase}
+.st-ok{color:#000;border-color:#000;background:rgba(255,255,255,.25)}.pl.apo .st-ok{color:var(--g);border-color:var(--g);background:none}
+.st-pdf{color:#999;border-color:#666;border-style:dashed}
+/* II Abenteuer: Hover-Bildstreifen */
+.streif{display:flex;height:430px;gap:8px}
+.ab{flex:1;position:relative;overflow:hidden;cursor:pointer;transition:flex .5s cubic-bezier(.2,.8,.2,1);border:3px solid var(--w);background:#111}
+.ab:hover{flex:3.2}.ab img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) contrast(1.1);transition:.5s}
+.ab:hover img{filter:none}
+.ab .tx{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.92))}
+.ab h4{margin:0;font:400 40px/.95 F;color:var(--w)}.ab .art{font:13px M;color:var(--g);margin-top:4px}
+.ab .typo{position:absolute;inset:0;display:grid;place-items:center;font:96px/.85 P;text-transform:uppercase;color:var(--p);text-align:center;padding:20px;writing-mode:vertical-rl;transform:rotate(180deg)}
+.ab:hover .typo{writing-mode:horizontal-tb;transform:none;font-size:110px}
+.ab .stempel{top:14px;right:14px;font-size:15px}
+/* III Zusatz: Collage aus gekippten Zetteln */
+.coll{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;grid-auto-rows:150px}
+.z{position:relative;padding:14px 16px;cursor:pointer;transition:.18s;overflow:hidden}
+.z:hover{transform:rotate(0) scale(1.06)!important;z-index:2;box-shadow:10px 10px 0 var(--p)}
+.z h5{margin:0;font:400 34px/.9 F}.z .art{font:12px M;margin-top:6px;opacity:.75}
+.z .stempel{right:10px;bottom:10px;font-size:13px;border-width:3px}
+.z.w{background:var(--c);color:#000}.z.y{background:var(--g);color:#000}.z.k{background:#000;border:3px solid #fff}.z.p{background:var(--p);color:#000}
+.z.big{grid-column:span 2;grid-row:span 2}.z.big h5{font-size:62px}.z.wide{grid-column:span 2}
+.z.k h5{font:52px/.9 P;text-transform:uppercase}
+/* IV Hacks: Laufschrift-Bänder */
+.hacks{display:flex;flex-direction:column;gap:0;margin:0 -3.2%}
+.hk{display:flex;align-items:center;gap:30px;padding:10px 3%;border-top:2px solid #000;cursor:pointer;white-space:nowrap;overflow:hidden;transition:.25s}
+.hk:hover{padding-left:6%}
+.hk b{font:72px/1 P;text-transform:uppercase}.hk span{font:14px M;opacity:.8}.hk em{margin-left:auto;font:15px P;letter-spacing:.06em;font-style:normal;border:3px dashed;padding:4px 10px;transform:rotate(-4deg)}
+.h1{background:#00f0ff;color:#000}.h1 b{font-family:M;letter-spacing:-2px}
+.h2{background:#c8102e;color:#000}.h3{background:#fff;color:#000}.h3 b{font-family:F;text-transform:none}
+.h4{background:#2f5d1f;color:#d6ff3a}.h5{background:#0b3a66;color:#7fe0ff}.h6{background:#111;color:#ffe800}.h7{background:#7a0000;color:#fff}.h8{background:#f2c200;color:#000}.h9{background:#ff7a00;color:#000}
+/* V Material + Register */
+.fuss{display:grid;grid-template-columns:1fr 1fr 2fr;gap:22px;padding:40px 3% 60px}
+.fz{border:3px solid var(--g);padding:18px;cursor:pointer}.fz h5{margin:0;font:400 36px F;color:var(--g)}.fz .art{font:12px M;color:#999}
+.reg{background:var(--c);color:#000;padding:18px 22px}.reg h5{margin:0 0 8px;font:13px G;letter-spacing:.2em;text-transform:uppercase}
+.reg a{display:inline-block;font:400 30px F;margin:0 18px 6px 0}.reg a i{font:16px P;color:var(--p);margin-right:6px;font-style:normal}
+.filter{display:flex;gap:6px;margin-left:auto}.filter span{font:13px M;padding:6px 10px;border:2px solid #444;color:#aaa}.filter span.on{border-color:var(--g);color:var(--g)}
+</style></head><body>
+<div class="top"><b>Mörk Borg</b><i></i></div>
+
+<section class="hero">
+ <img src="../../../../moerkborg/img/start/cover-skelett.webp" alt="">
+ <h1>Mörk<br>Borg</h1>
+ <div class="uhr"><span class="x">1</span><span class="x">2</span><span>3</span><span>4</span><span>5</span><span>6</span><span class="e">7:7</span></div>
+ <p class="vers">„Und die Erde wird beben und sich spalten. Und aus den Rissen wird ein giftiger Nebel steigen …“ — Psalm II, Tag 14</p>
+ <div class="los">Zum Spieltisch →<small>Tag 14 · zwei Psalmen erfüllt · 4 Verdammte</small></div>
+</section>
+
+<section class="band">
+ <div class="kopf"><span class="n">I</span><h2>Die Schriften</h2></div>
+ <div class="duo">
+  <div class="pl core"><img src="../../../../moerkborg/img/kreaturen/lich.webp" alt="" style="height:420px;right:10px;bottom:-10px"><h3>Das Grund-<br>regelwerk</h3><ul><li>Die sterbende Welt</li><li>Die Regeln &amp; Mächte</li><li>Die Verdammten</li><li>Kreaturen</li><li>Rotblack Sludge</li></ul><span class="stempel st-ok" style="left:26px;top:-6px;transform:rotate(-4deg);position:relative;display:inline-block;margin:20px 0 0 26px">Spielbereit</span></div>
+  <div class="pl apo"><h3>Apo&shy;kry&shy;phen</h3><ul style="max-width:80%"><li>Sternzeichen &amp; Krankheiten</li><li>Monströse Völker</li><li>Verliese, Etablissements, Auftragstafeln</li><li>d86 Beschwörungen</li></ul><span class="stempel st-ok" style="right:24px;bottom:22px">Spielbereit</span></div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="kopf"><span class="n">II</span><h2>Abenteuer</h2></div>
+ <div class="streif">
+  <div class="ab"><img src="../../../../moerkborg/img/abenteuer/rotblack-karte.webp" alt=""><span class="stempel st-ok" style="background:var(--g)">Spielbereit</span><div class="tx"><h4>Rotblack Sludge</h4><div class="art">Grundregelwerk · S. 73</div></div></div>
+  <div class="ab"><img src="../../../../moerkborg/img/cover/mb_a1.webp" alt="" style="object-position:30% 30%"><span class="stempel st-pdf">Nur PDF</span><div class="tx"><h4>Abenteuer-Sammelband</h4><div class="art">Adventures for Mörk Borg</div></div></div>
+  <div class="ab"><div class="typo">Tragic Castle</div><span class="stempel st-pdf">Nur PDF</span><div class="tx"><h4>Tragic Castle Obsession</h4><div class="art">Abenteuer</div></div></div>
+  <div class="ab" style="border-color:var(--p)"><div class="typo" style="color:var(--g)">Demon Dog</div><span class="stempel st-pdf">Nur PDF</span><div class="tx"><h4>Demon Dog</h4><div class="art">Abenteuer</div></div></div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="kopf"><span class="n">III</span><h2>Zusatz</h2><div class="filter"><span class="on">Alle</span><span>Spielbereit</span><span>Nur PDF</span></div></div>
+ <div class="coll">
+  <div class="z y big" style="transform:rotate(-1.5deg)"><h5>Book of<br>Misery</h5><div class="art">Klassen, Tabellen, Elend</div><div style="position:absolute;right:-20px;bottom:-60px;font:260px/1 F;opacity:.12">✠</div><span class="stempel st-pdf" style="color:#000;border-color:#000">Nur PDF</span></div>
+  <div class="z k" style="transform:rotate(1.2deg)"><h5>Cult<br>Heretic</h5><span class="stempel st-pdf">PDF</span></div>
+  <div class="z w" style="transform:rotate(-2deg)"><h5>Cult Feretory</h5><div class="art">Kult-Zine</div><span class="stempel st-pdf">PDF</span></div>
+  <div class="z p wide" style="transform:rotate(.8deg)"><h5>Box of Shadows</h5><div class="art">Schachtel voller Unheil</div><span class="stempel st-pdf" style="color:#000;border-color:#000">PDF</span></div>
+  <div class="z k wide" style="transform:rotate(-.6deg)"><h5>Forbidden Psalm</h5><div class="art">Skirmish-Regeln · v1</div><span class="stempel st-pdf">PDF</span></div>
+  <div class="z w" style="transform:rotate(2deg)"><h5>Rotten Bits</h5><div class="art">Forbidden Psalm</div><span class="stempel st-pdf">PDF</span></div>
+  <div class="z y" style="transform:rotate(-1deg)"><h5>Vast Grimm</h5><span class="stempel st-pdf" style="color:#000;border-color:#000">PDF</span></div>
+  <div class="z p" style="transform:rotate(1.6deg)"><h5>Porkin the Void</h5><span class="stempel st-pdf" style="color:#000;border-color:#000">PDF</span></div>
+  <div class="z k wide" style="transform:rotate(1deg)"><h5>Solitary Depths</h5><span class="stempel st-pdf">PDF</span></div>
+  <div class="z w wide" style="transform:rotate(-1.4deg)"><h5>Innistrad × Mörk Borg</h5><div class="art">Ausrüstung</div><span class="stempel st-pdf">PDF</span></div>
+  <div class="z y" style="transform:rotate(.5deg)"><h5>Gutter PVNKS</h5><div class="art">Cy_Borg</div><span class="stempel st-pdf" style="color:#000;border-color:#000">PDF</span></div>
+ </div>
+</section>
+
+<section class="band" style="padding-bottom:0">
+ <div class="kopf"><span class="n">IV</span><h2>Hacks</h2></div>
+ <div class="hacks">
+  <div class="hk h1"><b>Cy_Borg</b><span>Cyberpunk · 2 Fassungen</span><em>PDF</em></div>
+  <div class="hk h2"><b>Ronin</b><span>Samurai im Untergang</span><em>PDF</em></div>
+  <div class="hk h3"><b>Bork Borg</b><span>Die gutesten Jungs in den schlimmsten Zeiten</span><em>PDF</em></div>
+  <div class="hk h4"><b>Orc Borg</b><span>Grünhäute</span><em>PDF</em></div>
+  <div class="hk h5"><b>Fisk Borg</b><span>Aus der Tiefe</span><em>PDF</em></div>
+  <div class="hk h6"><b>Star Borg</b><span>Rebellen-Handbuch</span><em>PDF</em></div>
+  <div class="hk h7"><b>Blood Borg</b><span>Vampire</span><em>PDF</em></div>
+  <div class="hk h8"><b>Dukk Borg</b><span>Runde 3</span><em>PDF</em></div>
+ </div>
+</section>
+
+<section class="fuss">
+ <div class="fz"><h5>Charakterbogen</h5><div class="art">Material · PDF</div></div>
+ <div class="fz"><h5>Cy-Karte</h5><div class="art">Material · PDF</div></div>
+ <div class="reg"><h5>Nachschlagen</h5><a><i>I</i>Die sterbende Welt</a><a><i>II</i>Die Regeln</a><a><i>III</i>Die Verdammten</a><a><i>IV</i>Tabellen</a></div>
+</section>
+</body></html>

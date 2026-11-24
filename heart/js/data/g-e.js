@@ -1,0 +1,222 @@
+window.HT_GEGNER = window.HT_GEGNER || []; window.HT_GEGNER_INFO = window.HT_GEGNER_INFO || {};
+
+/* ---------- Legendäre Gegner (Core S. 200–206) ---------- */
+HT_GEGNER_INFO.legendaer = [];
+
+HT_GEGNER_INFO.engel = [
+ "Engel sind die Gesandten des Heart selbst. Viele halten sie für die gefährlichsten Kreaturen der City Beneath, und sie sind so selten, dass man von ihnen wie von Legenden spricht. Das Heart bewegt sich in geografischem Maßstab und betrachtet die Bewohner als lästige, letztlich unwichtige Parasiten. Erst wenn die Bewohner eine seiner unergründlichen Regeln brechen, handelt es direkt.",
+ "Tötest du einen Engel – schneidest den unheimlichen Kokon aus Fleisch auf, der seine brodelnde Unwirklichkeit kaum zusammenhält, und lässt sein zischendes Blut zu Boden rinnen –, stirbt er nicht. Er wird Meilen unter dir in irgendeinem fernen steinernen Schoß wiedergeboren. Du kannst einen Engel nicht ewig bekämpfen, denn er hat die Ewigkeit und du nicht. Das Beste, worauf du hoffen kannst, ist zu begreifen, was er will, indem du die ausgeweideten Havens deutest, die er hinterlässt, und dein Verhalten entsprechend zu ändern.",
+ "Aber Menschen sind stur. Vielleicht kannst du einen Engel so lange totschlagen, bis er sich langweilt oder bis die Intelligenz, die ihn lenkt, etwas anderes versucht; vielleicht kannst du dich vor ihm verstecken oder ihn überzeugen, stattdessen woandershin zu gehen als in dein Zuhause.",
+ "In diesem Kapitel findest du vier Varianten von Engeln: drei, die weniger gefährlich sind als der normale Engel im Grundbuch, und einen, der deutlich gefährlicher ist. Beschrieben werden sie vom wahnsinnigen Reiseschriftsteller Gris Hanneman; und da das Heart die Fähigkeit hat, Eingebildetes in Wirkliches zu verwandeln, ist schwer zu sagen – und völlig unerheblich –, ob er alles nur erfunden hat."
+];
+
+HT_GEGNER.push({id:"basilisk", t:"Blight Unending: Der Basilisk", q:"core", bk:"ht_core", bl:"Core", p:200, legendaer:true,
+ text:[
+  "Der Basilisk (und es gibt immer nur einen, denn welche so erbärmliche Kreatur könnte je hoffen, sich fortzupflanzen) will einen Freund. Er sehnt sich nach der Sicherheit von Gesellschaft, nach dem Gefühl eines Körpers an seinem eigenen, nach einer behaglichen Routine, einem Lächeln, einer einzigen Freundlichkeit.",
+  "Allerdings ist der Basilisk das Abscheulichste, was man sich vorstellen kann. Er ist ein proteischer Klumpen aus Fleisch, Krebsgeschwüren, Narbengewebe und nässender Gewebeflüssigkeit. Er bewegt sich selten schneller als im langsamen Kriechen, denn er verabscheut sich selbst so sehr, dass er seine eigenen Beine kaum heben mag. Er riecht nach saurer Milch und ist so hässlich, dass das Licht sich weigert, ihn zu berühren; schon sein Blick lässt Felsen bersten und Glas zerspringen. Das ganze Ding ist randvoll mit Gift und Toxinen, so potent, dass Vögel, die darüber hinwegfliegen, vom Himmel taumeln und tot zu Boden schlagen.",
+  "Die Weisen des Heart glauben, er sei ein Experiment der Intelligenz, die die Domäne beherrscht: der Versuch, das Konzept von Gift, Toxin oder Zersetzung zu begreifen. Er ist wandelnder, roher Ekel und Tod. Er ist kein Raubtier; er frisst Aas, meist andere Kreaturen, die von seiner Macht überwältigt wurden und bereits verwesen, wenn er sich ihnen nähert. Er scheint andere Kreaturen eher aus Neugier als aus Hunger aufzusuchen.",
+  "Jedes Mal, wenn er stirbt – durch Verhungern oder weil ihn etwas zerreißt, das seine Gegenwart keinen Augenblick länger erträgt –, wird er wiedergeboren, noch giftiger und erbärmlicher, in irgendeiner abscheulichen Grube in den Eingeweiden des Heart. Und wieder arbeitet er sich langsam zur Oberwelt vor, auf der Suche nach Gesellschaft.",
+  "Schon sich dem Gebiet des Basilisken zu nähern, verlangt von den Charakteren einen **Endure+Cursed**-Check. Bei einem Fehlschlag erleiden sie W6 **Blood**- oder **Supplies**-Stress (bei einem Teilerfolg W4), da ihre Körper und ihre Ausrüstung beim Näherkommen verfallen.",
+  "Ein zweiter, riskanter **Endure+Cursed**-Check ist nötig, um in Reichweite des Dings zu gelangen; diesmal verursacht ein Fehlschlag W8 Stress (W6 bei einem Teilerfolg). Auf dieser Entfernung ist der Beweis für die Verderbnis des Basilisken unübersehbar: tote Pflanzen, verwesende Kadaver kleiner Tiere, bröckelnder Stein und ein ranziger Gestank. In der Mitte sitzt der Basilisk, in Schatten gehüllt, tut gelegentlich einen Schritt nach vorn oder stößt ein kümmerliches Krächzen aus.",
+  "Schließlich ist ein Angriff auf die Kreatur in jeder Form eine gefährliche Aktion, die bei einem Fehlschlag oder Teilerfolg W10 Stress verursacht – doch jeder Erfolg oder Teilerfolg tötet ihn. Ist er tot, wird die Kreatur etwas erträglicher; Sammler besonders virulenter Gifte zahlen fürstlich für die Flüssigkeiten aus seinem Kadaver (W12, Cursed, Dangerous). Außerdem soll die gegerbte Haut eines Basilisken beim Tragen Schutz vor allen Toxinen bieten – sogar vor jenseitigen –, doch Träger werden mit demselben extremen Abscheu behandelt wie das ursprüngliche Wesen. Havens verwehren ihnen den Zutritt, Pfade bröckeln unter ihren Füßen, und die ganze Welt scheint sich gegen sie zu wenden.",
+  "Delver müssen die Kreatur nicht angreifen (obwohl sie es wollen werden, denn schon ihr Anblick erfüllt sie mit zwanghaftem Abscheu) und können stattdessen versuchen, sich mit ihr anzufreunden. Das wird sie töten."],
+ namen:null, besch:null, motiv:"Einen Freund finden", schw:"Gefährlich", res:null, schutz:null,
+ ressourcen:"Flüssigkeiten aus dem Kadaver (W12, Cursed, Dangerous)", ausr:null,
+ besonders:null,
+ dom:["Cursed"], fallout:[]});
+
+HT_GEGNER.push({id:"gorgone", t:"Nicodemai Shadow-Damns-The-Seedlings: Die Gorgone", q:"core", bk:"ht_core", bl:"Core", p:201, legendaer:true,
+ text:[
+  "Vor etwa fünfzig Jahren meditierte in der City Above eine Sekte lächerlich reicher Aelfir über das Konzept des Maskentragens, wie es die religiöse Doktrin vorschreibt, und begriff plötzlich wirklich die Macht des unverhüllten Gesichts. Sie glaubten, dass die Gesichter der Aelfir, wie der Mond die Sonne spiegelt, die Herrlichkeit des Himmels selbst widerspiegelten. Sterbliche, unfähig, die überwältigende Anmut des Solaren Pantheons zu ertragen, würden zu Stein erstarren, wenn sie auf ein unverhülltes blickten.",
+  "Das stimmte nicht im Geringsten – es war nachweislich falsch –, aber eine Mischung aus unerschütterlichem Aelfir-Stolz und der Art schwarzer Magie, die auf Hochelfenpartys herumgereicht wird, sorgte dafür, dass sie es wahr machten. Zuerst nutzten sie ihre Macht, um bevorzugte Liebhaber oder Haustiere in perfekte Statuen zu verwandeln, für immer erstarrt im Augenblick des Todes: nie alternd und makellos erhalten. Irgendwann wurde der Sohn des falschen Ratsmitglieds zu Stein, die Leute wurden sauer, und die Sekte wurde aus ihren hohen Stellungen in der Spire verbannt und in die Undercity getrieben.",
+  "Noch immer lächerlich reich, heuerten sie Führer an, beanspruchten Land und etablierten eine Präsenz im Heart. Ihre Kräfte wuchsen immer weiter, verstärkt durch die lockere Realität dieses Ortes, aber sie selbst wurden täglich älter, während ihre Liebhaber makellos und perfekt in Stein verharrten. Um ihre Schönheit zu bewahren, begannen die Mitglieder des Kults, einander zu „heiraten“. Am Höhepunkt der tagelangen Zeremonie hoben sie gegenseitig ihre Schleier und blickten einander in die Augen, bis beide zu Stein wurden. Die gesamte Sekte fand sich zu Paaren – alle bis auf einen.",
+  "Nicodemai Shadow-Damns-The-Seedlings ist das letzte überlebende Mitglied; das letzte Paar hat vor Jahren geheiratet, und er blieb allein zurück. Seither hat er auf dem verfallenen Anwesen der Sekte überall Spiegel aufgestellt; er verbringt seine wachen Stunden damit, hineinzustarren und verzweifelt zu versuchen, sich selbst in Stein zu verwandeln. Er verfällt von Tag zu Tag, seine Vorräte sind längst aufgebraucht, und er ernährt sich von Rattenfleisch und schmutzigem Wasser. Er kann jedes lebende Wesen, das er sieht, in Stein verwandeln (er kann gar nicht anders) – nur sich selbst nicht. Er zerfällt, ist furchtbar einsam und muss sich vervollkommnen, bevor es zu spät ist."],
+ namen:null,
+ besch:"Schleppt eine weitere Statue heran, damit sie ihm beim Auftritt „zusieht“; Zerschmettert wütend Spiegel, indem er Teller und Möbel nach ihnen schleudert; Sticht sich mit Nadeln in den Oberschenkel, um wach zu bleiben; Jagt mit verbundenen Augen Ratten, um sie nicht zu Stein zu verwandeln, bevor er sie essen kann",
+ motiv:"In Stein verwandelt werden; er ist ziemlich wahnsinnig, aber bereit, Hilfe anzunehmen – im Austausch gegen Zugang zu seinen riesigen Vorräten an verborgenem okkultem Wissen.",
+ schw:"Gefährlich", res:"9", schutz:"2",
+ ressourcen:"Arkanes Zierwerk und Talismane (W6, Occult); teilweise zerbrochene, gruselig akkurate Statuen anderer Sektenmitglieder (W8, Occult, Heavy); billige Aufputschmittel (W6, Haven)",
+ ausr:"Tödlicher Blick (W8, Ranged). Wenn du seine Augen verdecken oder verletzen kannst, sinkt er auf W6.",
+ besonders:"Gefährlich – wenn er dich ansieht, wirst du zu Stein. Seine versteckten okkulten Bücher enthalten eine gewaltige Menge Wissen und sind für den richtigen Sammler enorm viel wert (W12, Occult); aber ihn zu töten verschafft dir keinen Zugang zu ihnen – du musst mit ihm verhandeln.",
+ dom:["Occult","Cursed"], fallout:[]});
+
+HT_GEGNER.push({id:"hydra", t:"Carotid Forest: Die Hydra", q:"core", bk:"ht_core", bl:"Core", p:202, legendaer:true,
+ text:[
+  "Es gibt eine alte Geschichte – jeder kennt sie – über eine riesige amphibische Echse mit vielen Köpfen auf vielen langen Hälsen. Sie zertrümmert Dörfer und frisst Reisende und Vieh, bricht aus scheinbar flachem Wasser hervor, um ihre Beute zu überfallen. Jedes Mal, wenn man einen Hals durchtrennt, wachsen aus dem Stumpf sofort zwei neue; ein kluger Held findet heraus, dass der Hals sich nicht regenerieren kann, wenn man die Wunde ausbrennt.",
+  "Das ist allerdings nur die Geschichte. In Wirklichkeit geriet alles außer Kontrolle, weil der kluge Held nicht rechtzeitig auftauchte. Die große Echse, so dumm sie war, erkannte, dass sie neue Köpfe und Hälse erzeugen konnte, indem sie sich selbst verstümmelte – warum also warten, bis jemand mit einem Schwert kam? Anfangs experimentierte sie vorsichtig, durchtrennte sorgsam einen Hals und umsorgte die entstehenden Köpfe, doch ihr Selbstvertrauen wuchs, bis sie eines Tages in einem Rausch aus Reißen und Zerfetzen über ihr eigenes Fleisch herfiel. Hundert neue Köpfe erblühten aus dem Körper. Sie waren hungrig, ihre Zähne scharf; sie fraßen.",
+  "Der Amoklauf dauerte einige Monate, und am Ende konnte sich die Echse wegen des enormen Gewichts ihrer Hälse nicht mehr bewegen. Aber das musste sie auch nicht: Sie war größer denn je, die Hälse länger und geschickter. Ihr Körper wurde fett und krebsartig, während er in den Tiefen ihres Baus zuckte und krampfte.",
+  "Das ist Jahrzehnte her – vielleicht Jahrhunderte. Mit der Zeit hat die Echse alles gefressen, was in Reichweite war. Nur wenige Kreaturen nähern sich dem Wald aus sanft schwankenden, moosbewachsenen Stämmen, die aus dem aufgerissenen Boden sprießen, doch gelegentlich sucht ein törichtes Tier oder ein verzweifelter Reisender dort Schutz oder Nahrung. Wenn die uralten, ausgehungerten Gehirne der Echse sein Eintreffen spüren, schnellen die „Bäume“ mit furchterregender Geschwindigkeit herab und zerfetzen den armen Unglücklichen mit geifernden Kiefern."],
+ namen:null,
+ besch:"Knarrt sanft in einer Brise, die es nicht gibt; Was wie Früchte aussieht, ist eine Blüte aus dunkelroten Heartsblood-Augen an einem Hals; Singt in einem schrillen Klagen, um die Not- oder Paarungsrufe anderer Arten (auch humanoider) nachzuahmen und Beute anzulocken",
+ motiv:"Fressen!",
+ schw:"Standard am Rand, Riskant weiter drinnen", res:"6 pro Hals", schutz:"2",
+ ressourcen:"Moosbewachsene Schuppen (W6, Wild); frisches Halsfleisch (für Forschungszwecke, da es unglaublich giftig ist) (W8, Wild, Niche); das Hydra-Herz (W12, Occult, Wild)",
+ ausr:"Schnappende Kiefer (Kill W8; wirken zwei oder mehr Hälse zusammen, erhält dieser Angriff den Tag Brutal)",
+ besonders:"Im Carotid Forest gibt es über hundert Hälse, aber sie haben eine maximale Reichweite von etwa zwanzig Fuß. Der Carotid Forest ist selbst eine Landmarke. Um die Echse zu töten, müssen Delver in ihr Zentrum vordringen (keine leichte Aufgabe) und ihr Herz zerstören oder entfernen. Der Körper selbst ist wehrlos und verlässt sich auf seine enorme Masse und die Hilfe der vielen Köpfe, um am Leben zu bleiben.",
+ dom:["Wild","Warren"], fallout:[]});
+
+HT_GEGNER.push({id:"huntress", t:"Lady Salvatious Gryndel: Die Huntress", q:"core", bk:"ht_core", bl:"Core", p:204, legendaer:true,
+ text:[
+  "Das Haus Gryndel, eine der adligen Familien der Dunkelelfen, die die ferne westliche Nation Ys regieren, liebt die Jagd. Lady Salvatious Gryndel war es, die den Trend anführte, in die wildesten und gefährlichsten Orte der Welt hinabzusteigen, um Beute aufzuspüren und zu töten. Sie verbrachte Urlaube in den gnadenlosen Hügelgräbern von Whitecross, harpunierte mit den Windelfen in den Bergen von Spur Himmelswale und jagte den skelettierten Wvyern Undying durch die weglosen Wüsten von Nujab.",
+  "Doch Befriedigung blieb ihr versagt, und in der Natur fand sie keine würdige Herausforderung. Also entschied sie sich, in eine unnatürliche hinabzusteigen: das Heart. Hier, wo die Realität dünn geworden war, würde sie sicher etwas finden, das ihrer Fähigkeiten würdig war?",
+  "Salvatious Gryndel wurde zuletzt vor etwa sechzig Jahren gesehen. An ihrer Stelle steht etwas weit Furchterregenderes als jene wilde Drow-Matriarchin: die Huntress, unvergleichliche Fährtenleserin der Wildnisse des Heart. Die räumlich verbundenen Jagdclubs, die sie vor ihrer Verwandlung gründete, stehen noch immer, und jeder von ihnen lässt einen leeren zeremoniellen Stuhl am Feuer stehen, falls sie es für nötig hält zurückzukehren.",
+  "Die Huntress hat Bestien schon vor langer Zeit satt. Es gab keine Kreatur, die sie nicht finden konnte, kein Fell, das ihr Speer und ihre Pfeile nicht durchbohren konnten, keine tierische Intelligenz, die die ihre übertraf.",
+  "Stattdessen suchte sie Menschen, die ihrer Ansicht nach Strafe (oder Belohnung) verdienten. Mit uralter Gryndel-Magie, verstärkt durch das mächtige Ichor der Herzen, die sie ausgewachsenen Deep-Gryphons herausriss, verwandelte sie diese Menschen in Bestien.",
+  "Unklar ist, was in den Augen der Huntress als „verdient“ gilt. Vielleicht wählt sie große Jäger wegen der Herausforderung, oder nur die klügsten und feigsten Menschen als ultimative Beute. Es gibt auch das Gerücht, sie bestrafe jene, die Frauen etwas antun, und mehr als eine Frau im Heart trägt ein Amulett, das ihr den Schutz (oder zumindest die Vergeltung) der Huntress gewähren soll. Aber vielleicht hat es mit der Farbe der Augen ihrer Beute zu tun. Niemand weiß es sicher.",
+  "Wenn du erfährst, dass die Huntress Interesse an dir hat (du siehst sie kurz an der Baumgrenze aufblitzen, oder ein Warnschuss schlägt hinter dir in die Wand), ist es bereits zu spät. Sie hat dein Essen mit Chemikalien versetzt, die deinen Geist verdrehen und dich ihrer Zauberei öffnen; sie hat dir im Schlaf uralte Lieder vorgesungen, die sie den Kehlen von Godbeasts gestohlen hat; sie hat Knochenamulette unter deine Habe geschmuggelt. Die Verwandlung hat bereits begonnen.",
+  "Bald wird sich dein Körper zu dem einer Bestie verformen und strecken. Manchmal ist es ein bestimmtes Tier, aber sie ist gern kreativ und vermengt oft Merkmale verschiedener Kreaturen zu einer einzigen Chimäre. Deine Hände lässt sie intakt und gibt dir Waffen, die sie selbst gefertigt hat: Dinge aus Holz, Sehnen und Metall, aufgelesen von denen, die sie zuvor bekämpft hat. Sie wird ihr Horn blasen, und dann beginnt die glorreiche Jagd."],
+ namen:null,
+ besch:"Sägt einem Hirsch den Kopf ab, der früher ein Incarnadine war; Raucht Pfeife, während sie an einem schwelenden Lagerfeuer sitzt; Schießt dir einen Pfeil in die Schulter statt in den Kopf, um sportlich zu sein",
+ motiv:"Die größte aller Trophäen erringen",
+ schw:"Riskant", res:"15", schutz:"3",
+ ressourcen:"Gewehr (siehe unten); mehrere Lebenszeiten an Trophäen (W12, Wild)",
+ ausr:"Bistouri-Spezialgewehr (Kill W10, Debilitating, Extreme Range. Wunden dieser Waffe sind stets sauber und beschädigen keine Trophäen, die man dem Ziel entnehmen mag. Ohne Zugang zu den Munitionsvorräten der Huntress wird die Waffe zu Limited 5.)",
+ besonders:null,
+ dom:["Wild"],
+ fallout:[
+  {t:"Marked", r:"Blood/Mind", s:"leicht", x:"Die Huntress kann dich auf jede Entfernung und durch feste Oberflächen hindurch spüren. Das ist nicht exakt, aber alle Versuche, dich vor der Huntress zu verbergen, werden Gefährlich."},
+  {t:"Wildest Hunt", r:"Echo/Mind", s:"schwer", x:"Die Huntress verformt deine Gestalt zu einer bestialischen Chimäre. Deine Stimme wird tierisch und gebrochen, und dein Anblick ist für fast jeden, der dich sieht, entsetzlich. Solange du unter diesem Fluch stehst, kannst du mit niemandem kommunizieren, der nicht ebenfalls dieses Fallout trägt, und die meisten Leute greifen dich auf Sicht an. Dafür erhältst du das **Evade**-Knack „Flee the Huntress“."}
+ ]});
+
+HT_GEGNER.push({id:"minotaurus", t:"That-Which-Escapes: Der Minotaurus", q:"core", bk:"ht_core", bl:"Core", p:205, legendaer:true,
+ text:[
+  "Die Opfer des Labyrinth-Fluchs – ein mimetisches Virus, das Menschen zwingt, komplexe Labyrinthe um Dinge zu bauen, die sie für wichtig halten – sind im Vergleich zu den übrigen Problemen im Heart ziemlich harmlos. Gelegentlich kehrt eine Gruppe Delver in einen Haven zurück und findet ihn von Reihen um Reihen aus Mauern und Fallen umgeben, aber verglichen mit der purpurnen Unwirklichkeit von Engeln oder der schaudernden Falschheit von Heartsblood-Bestien ist das nichts, womit sie nicht fertigwürden. Die echten Schwierigkeiten beginnen, wenn das Labyrinth vollendet ist.",
+  "Alle Labyrinthe sind Spiegelbilder des Labyrinths mit großem L: eines Fracture, in dem vor sehr langer Zeit etwas Großes, Dunkles und Schreckliches eingesperrt wurde. Wird ein Labyrinth gefährlich und komplex genug, wirkt es als Tür zum Ur-Labyrinth, und das Wesen darin versucht daraufhin zu entkommen.",
+  "Die gute Nachricht: Das Wesen (genannt That-Which-Escapes oder Der Minotaurus) ist so riesig, dass es nicht ohne Weiteres durch die Gänge passt, die Menschen für den eigenen Gebrauch gebaut haben. Wie groß es ist, lässt sich nicht sagen, denn niemand hat es je stehen sehen. Das erste Anzeichen seines Nahens sind die Geräusche titanischer, ausgerenkter Gelenke und dröhnendes Schmerzgeheul tief im Labyrinth, während es sich aus seiner eigenen Domäne in die City Beneath zu ziehen versucht. Von dort aus, wie es sich weiterschiebt und zwängt, sieht ein unglückseliger Reisender vielleicht eine türgroße Hand, deren Finger nach Halt tasten, oder ein einziges riesiges, wahnsinniges Auge, das durch ein Fenster auf der Suche nach einem Weg späht. Schließlich kann jeder in der Nähe des Labyrinths seine Schreie hören, während das Wesen seinen gewaltigen Körper durch die erdrückende Umgebung des Irrgartens zerrt und wuchtet.",
+  "Es ist humanoid, mit bleicher Haut und borstigem dunklem Haar. Es hasst das Labyrinth und will mehr als alles andere hinaus, aber trotz seiner massiven Kraft kann es den Ort nicht zerstören – es kann nichts beschädigen, das Teil des Irrgartens ist.",
+  "Den Minotaurus kann man nicht bekämpfen, jedenfalls nicht im eigentlichen Sinn; er ist einfach zu groß. Beschädigst du das Labyrinth oder lässt es auf die Kreatur einstürzen, riskierst du, ihr die Flucht zu erleichtern. Vielleicht kannst du das Labyrinth verstärken oder es leichter machen, seine Verbindung zum Labyrinth mit großem L zu kappen. Vielleicht kannst du es vertreiben, aber dazu musst du schlimmer sein als das, wovor es flieht. Du könntest mit ihm verhandeln, aber das birgt eigene Risiken: Es könnte dich versehentlich plattdrücken, und um nah genug an sein Gesicht zu kommen, um richtig mit ihm zu sprechen, musst du an seinen greifenden, zerschundenen Händen vorbei.",
+  "Bislang ist es ihm nicht gelungen, die Grenzen seines Gefängnisses zu verlassen, aber was geschähe, wenn doch, ist eigentlich nicht auszudenken."],
+ namen:null, besch:null, motiv:"Aus dem Labyrinth entkommen", schw:null, res:null, schutz:null,
+ ressourcen:null, ausr:null,
+ besonders:null,
+ dom:[], fallout:[]});
+
+/* ---------- Sanctum: Engel (Sanctum S. 19–22) ---------- */
+HT_GEGNER.push({id:"blossom-engel", t:"Blossom-Engel", q:"sanctum", bk:"ht_z4", bl:"Sanctum", p:20, legendaer:false,
+ text:[
+  "„Blossom“, wie in „Blüte“, wie in „entfalten“: ein schreckliches Ding, das man mit ansehen muss. Es ist eher für das Leben auf dem Meeresgrund geeignet als für trockenes Land; ein einzelner Muskelklumpen in schneckenähnlicher Gestalt, ohne Auge, Mund oder Ohr. Blind und wütend weiß es nur, dass es nicht dort sein kann, wo es ist, und stattdessen dorthin reisen muss, wo es sein wird: ein Ziel, das ihm die Convocation im Schlaf zugeflüstert hat. Dieser eine Gedanke hallt durch seinen stumpfen, höhlenartigen Verstand.",
+  "Es treibt sich voran, indem es mit enormer Geschwindigkeit fleischige Haken aus seiner zentralen Masse schleudert; diese Haken verankern sich im umliegenden Gelände und verschaffen ihm Halt, um sich weiterzuzerren. In Tunneln und engen Räumen ist es am schnellsten: Es scheint darin durch die Luft zu fliegen, unheimlich lautlos bis auf das Ft-Thunk der Haken und das zuckende Lied sich zusammenziehender Muskelfasern. Auf offenem Gelände ist es langsamer und behilft sich damit, sich wie eine lebendige, einem Mann aus dem Kopf geschnittene Zunge am Boden zu winden – doch es mag offene Räume nicht und scheint sogar unter ihnen zu leiden. Es blutet und windet sich höchst unerfreulich, wenn es mit der offenen Luft einer großen Höhle konfrontiert wird, und sucht Zuflucht an einem Ort, der seiner Art der Fortbewegung besser entspricht.",
+  "Erreicht es seinen Zielort, birst es in einen Sturm aus Haken, durchbohrt jeden in der Nähe und nagelt dessen Leichen fest. Es heftet sich an Wände, Decke und Boden, spannt jeden Muskel an und hängt zitternd in der Luft.",
+  "Dann: blüht es auf. Ein verzückendes Ding, dieser Engel; er entfaltet sich mit den Versprechen der Convocation und kündet von der Ankunft einer neuen purpurnen Welt, die die triste Ebene ablösen soll, auf der wir unsere Handvoll Augenblicke vertändeln. Er dehnt sich von innen aus wie eine Knochenmarkblume und flutet den Raum mit neuer Fruchtbarkeit: Wände aus Fleisch und Zähnen, ein schwerer Puls in den dunkelsten Echsenwinkeln des Geistes, ein zwischenräumliches Brüllen der Geburt. Der ursprüngliche Ort ist nicht mehr, bis auf die Echos einer Struktur hier oder da. An seine Stelle tritt etwas Scharfes, Nasses und Neues."],
+ namen:"Synsthreethseis, Culcationarian, Geoch",
+ besch:"Tintenschwarz und schwer anzusehen, als wäre zu viel auf einen einzigen Punkt zusammengepresst; Zitternd und verloren, reißt eine Steinwand auf, um einem offenen Raum zu entkommen; Lässt sich einen langen Schacht über einem bevölkerten Haven hinab",
+ motiv:"Durch Tunnel und enge Räume zu einer bestimmten Landmarke zu reisen, sich dann in den Wänden zu verankern und zu erblühen",
+ schw:"Riskant", res:"25", schutz:"2",
+ ressourcen:"Handvoll triefendes Protoplasma (W8, Cursed, Mobile)",
+ ausr:"Schwarze Knochenhaken (Kill W6, Piercing, Point-Blank)",
+ besonders:"Wenn du einen Blossom-Engel zum ersten Mal siehst, würfle **Endure+Cursed** und markiere bei einem Fehlschlag W6 Stress auf Fortune, da er Haken aus sich schleudert, die deine Bewegung einschränken und dich aus dem Gleichgewicht ziehen. Erreichst du die „Oberseite“ eines Blossom-Engels, kannst du das freiliegende Organ angreifen, das das Heart Itself heraufbeschwört. Solche Angriffe negieren den **Protection**-Wert der Kreatur. Gelingt es dem Blossom-Engel, sich festzuhaken und auf volle Größe auszudehnen, erhält die von ihm besetzte Landmarke die Domains **Cursed** und **Warren** und verliert alle bisherigen Domains.",
+ dom:["Cursed","Warren"],
+ fallout:[{t:"Hooked", r:"Blood/Fortune", s:"leicht", x:"Mehrere widerhakige Knochenspeere durchschlagen deine Rüstung und haken sich in dein Fleisch: Du wirst zum brodelnden Muskelzentrum des Engels gezogen und kannst nicht fliehen. In dieser Lage gilt der Tag Point-Blank der Knochenhaken des Engels stets als aktiv. Ein Verbündeter kann dich befreien, indem er die fleischigen Taue durchhackt; das verursacht dem Engel keinen Stress, entfernt aber dieses Fallout von deinem Charakter. [Immediate, Ongoing]"}]});
+
+HT_GEGNER.push({id:"cacophony-engel", t:"Cacophony-Engel", q:"sanctum", bk:"ht_z4", bl:"Sanctum", p:21, legendaer:false,
+ text:[
+  "Der Cacophony-Engel ist zwanzig Fuß groß und in schimmernden Chitin gehüllt. Anders als viele seiner Artgenossen ist sein Nahen kein langsames, surreales Auftrennen des Realen, sondern ein brüllendes Dröhnen, das die Grundfesten eines Havens erschüttert.",
+  "Es scheint, als sei er für den direkten Angriff entworfen (falls „entworfen“ ein Wort ist, das sich auf die Convocation anwenden lässt; vielleicht passt „erträumt“ besser, oder vielleicht kann unser Geist das eigentliche Wort nicht fassen, und der Versuch, ihre Machenschaften zu verstehen, ist für alle außer den brillantesten sinnlos). Während der Invasion des Heart vor einem halben Jahrhundert setzten die Aelfir-Kommandanten des Damned 33rd Regiment ihre seltsame Magie gegen die monströse Frucht der Convocation ein: summende Laternen, die realitätsstabilisierende Muster aus Glyphen und Siegeln projizierten, rasiermesserscharfe Lieder, die die Gehirne ihrer Truppen durchbohrten, um sie furchtlos zu machen, und mehr. Sie begannen, Boden zu gewinnen; aber dieses Ungleichgewicht durfte nicht andauern.",
+  "Die Dutzend Münder des Cacophony-Engels künden sein Kommen mit einem schaudernden Gesang an, zugleich atonal und harmonisch, der Männern die Nase bluten und die Sicht verschwimmen lässt. Wenn er auf jene trifft, die er zu vernichten geschaffen wurde, sind sie oft bereits zersprengt und desorganisiert; einer von dreien überlebt das Hören des Gesangs nicht und bricht einfach in wahnsinnigen Krämpfen zusammen.",
+  "Dieser brachiale Rammbock von einer Kreatur zerschmettert daraufhin mühelos Verteidigungen und zerfetzt Regimenter. Nicht einmal anhaltendes Gewehrfeuer kann ihn überwältigen, und offensive Zauberei ist dank seines unablässigen Gesangs, der die Gehirne der Hörer verdreht und aufreißt, nahezu unmöglich.",
+  "In seinem Gefolge hinterlässt er ein Gemetzel, das selbst jene sich nicht vorgestellt hätten, die die Wirkungen anderer Engel gesehen haben. Wo er die Erde berührt, ist der Boden schwefelgelb vernarbt und raucht unablässig. Gebäude werden zu Splittern und Staub zermahlen; Verteidiger werden von seinen faustartigen Gliedmaßen zu Brei zerstampft, jede so groß wie ein ausgewachsener Mann. Wo seine Artgenossen sich mit fremdartiger Anmut durch das Heart bewegen und die Welt um sich umformen, sind die Amokläufe des Cacophony-Engels direkte Machtdemonstrationen, die, so vermute ich, jenen zeigen sollen, die mit der Convocation spielen wollen, dass sie auch zu den Bedingungen der Invasoren kämpfen kann."],
+ namen:"Hymnal, Bray, Tumultuan",
+ besch:"Reißt eine Säule aus dem Boden und schleudert sie in eine Gruppe von Verteidigern; Klettert auf einen Glockenturm und heult ein Lied vom Ende; Bewegt sich mit unmenschlicher Anmut im Takt einer fernen Trommel",
+ motiv:"Verteidigungen völlig zu zerschmettern, die Werke der Sterblichen in Trümmer zu legen, Dominanz zu zeigen und alles auf seinem Weg zu zerstören",
+ schw:"Gefährlich", res:"30", schutz:"5",
+ ressourcen:"Rissige Panzerplatten (W8, Cursed; verleiht den Tag **BLOCK**, wenn sie zu Rüstung verarbeitet werden)",
+ ausr:"Verkalkte Knochenhämmer (Kill W12)",
+ besonders:"Wenn du den Gesang des Cacophony-Engels hörst, würfle **Endure+Cursed**, um ihm standzuhalten; bei einem Fehlschlag markiere W8 Stress auf **Blood**.",
+ dom:["Cursed","Desolate"], fallout:[]});
+
+HT_GEGNER.push({id:"logos-engel", t:"Logos-Engel", q:"sanctum", bk:"ht_z4", bl:"Sanctum", p:22, legendaer:false,
+ text:[
+  "Die Convocation ist neugierig. Unsere Welt ist anders als ihre: kalt, dunkel und seltsam für sie, eine Realität, gesehen durch Rauchglas, die sie mit ihren fremdartigen Sinnen kaum zu erfassen vermag. Deshalb wurde der Logos geboren: ein lebendes, wandelndes Sinnesorgan.",
+  "Ich bin nicht ganz sicher, wie der Logos aussieht, denn wenn er beobachtet wird, wird er weniger wirklich. Er ist so kaum auf unserer Existenzebene, dass eine kleine Gruppe von Leuten, die ihn ansieht (oder nach ihm sucht), ihn dazu bringt, sich körperlich gar nicht mehr zu manifestieren. Er hat einen Ort, aber keine Präsenz; seine bloße Existenz widersetzt sich dem Verstehen.",
+  "Doch aus dem, was ich bei unserer Expedition in ein verlassenes Dorf erhaschte, und den Augenzeugenberichten von Überlebenden ergibt sich ein grober Umriss seines Aussehens. Für einen Engel ist er klein – etwa so groß wie ein Pferd – und besteht aus vielen klauenbewehrten, knochigen Gliedern. An der Unterseite der Kreatur hängt ein riesiger, zungenartiger Auswuchs, zuckend und bleich; ich glaube nicht, dass er ihn einziehen kann.",
+  "Dieser Engel versteckt sich, anders als andere. Er verbirgt sich in Kellern, Dachböden, verlassenen Zimmern oder auf verfallenen Dächern und wartet, dass sich ein Mensch nähert. Menschen sind sein absolutes Lieblingsding. Schläft jemand in der Nähe des Engels ein, entfaltet er sich und kriecht ganz leise über ihn. Er träufelt eine klebrige, einschläfernde Flüssigkeit aus seinem Maul und macht das unglückliche Ziel unfähig, klar zu denken oder sich effizient zu bewegen. Dann, langsam, wissbegierig und völlig unbösartig, drückt er seine Zunge herab und schmeckt.",
+  "Ich glaube, er schmeckt auf eine Weise, die ganz anders ist als unsere. Er schmeckt den ganzen Menschen allein von seiner Haut und nimmt aus dem Schweiß eine Welt an Information auf. Er schmeckt die Vergangenheit, die Familie und Gefährten, die Ängste, die man nicht einmal sich selbst eingesteht, und den schrecklichen Bogen aus Unglück und Besessenheit, der ihn dazu brachte, im Heart zu leben und in irgendeinem verlassenen Gebäude einzuschlafen.",
+  "Nach einigen Sitzungen des Schmeckens wendet sich der Engel einem anderen Ziel zu oder vielleicht einem ganz anderen Haven. Doch das Opfer (wenn es sich der Lage bewusst ist) hat das unheimliche Gefühl, auf eine Weise gesehen zu werden, wie es noch nie gesehen wurde: die halbbewusste Erkenntnis, dass jemand es anstarrt, aber im Großen. Das Heart kennt seinen Namen."],
+ namen:"Itch, Restrict, Yondarian",
+ besch:"Zusammengefaltet in einem Schrank, füllt ihn völlig aus und wartet, bis du einschläfst; Stürmt auf einen Marktplatz zu, damit genug Leute ihn bemerken und er unsichtbar und ungreifbar werden kann; Leckt leere Bücherregale ab, um die Erinnerungen der Bücher aufzusaugen",
+ motiv:"Alles an dir zu schmecken und dann zum nächsten Menschen weiterzuziehen; der Gefahr zu entkommen und sich zu verstecken, bis sich die Lage beruhigt hat",
+ schw:"Standard", res:"16",
+ schutz:"Der Protection-Wert des Engels entspricht der Zahl der Personen, die seinen Aufenthaltsort kennen oder aktiv nach ihm suchen; erreicht er 6 oder mehr, kann er nicht mehr gesehen werden oder mit ihm interagiert werden.",
+ ressourcen:"Geistbetäubende Chemikalien (W8, Cursed, Harmful. Bei einem Mend-Blood- oder Mind-Check einsetzen, um mit Mastery zu würfeln.)",
+ ausr:"Einschläfernde Spucke (Kill W4, Ranged, Point-Blank); perfekt getimter Sprung (Kill W10, One-Shot. Diese Waffe verursacht Stress auf Echo.)",
+ besonders:"Wenn du einen bestimmten Logos-Engel zum ersten Mal erlebst, würfle **Endure+Cursed**; bei einem Fehlschlag markiere W6 Stress auf **Echo**, während er zurückblickt.",
+ dom:["Cursed","Haven"],
+ fallout:[
+  {t:"Night Terrors", r:"Echo/Fortune", s:"leicht", x:"Wenn du das nächste Mal aufwachst, schmerzt dein Kopf, als wärst du betäubt worden, und dein Bettzeug ist mit seltsamer, klebriger Spur bedeckt. Du wurdest von einem Logos-Engel geschmeckt, aber er ist noch nicht fertig. Alle Aktionen gegen den Engel werden Riskant, bis du eine gute Nacht ohne seinen Besuch geschlafen hast."},
+  {t:"Spit", r:"Blood/Fortune", s:"leicht", x:"Du bekommst etwas von der tropfenden Flüssigkeit des Engels auf Haut oder Lippen, und deine Sicht verschwimmt. Hunt- oder Evade-Aktionen werden Riskant, bis dieses Fallout entfernt ist. [Ongoing]"},
+  {t:"Known", r:"Blood/Echo", s:"kritisch", x:"Der Logos-Engel nimmt dich vollständig in sich auf und gibt diese Daten an das Heart Itself weiter. Der nächste Engel, dem du begegnest, wird dich töten, und du kannst ihm in keiner Weise schaden; bestenfalls kannst du deinen Tod als Ablenkung nutzen. [Ongoing]"}
+ ]});
+
+HT_GEGNER.push({id:"penumbra-engel", t:"Penumbra-Engel", q:"sanctum", bk:"ht_z4", bl:"Sanctum", p:23, legendaer:false,
+ text:[
+  "Ich sprach mit dem Penumbra-Engel. Er küsste mich mit Lippen aus Glas und sprach Rätsel unter meine Haut. Er flüsterte mir von der Convocation und sprach Worte wie silberne Skalpelle, die mich aufschlitzten für eine neue, atemberaubende Welt; Worte, die die nackten Knochen meines Selbst einer Wahrheit aussetzten, wie ich sie nie zuvor erfahren hatte; Worte, die noch immer in meinem Kopf widerhallen; Worte, die mir als Phantom in den Fingerspitzen prickeln und darum betteln, aufgeschrieben zu werden.",
+  "(Ich kann sie nicht aufschreiben. Ich bin Lehm und Dreck, ein elendes Ding. Mein Verstand ist pfützentief neben dem tosenden, stürmischen Ozean der Convocation.)",
+  "Er traf mich in High Rise während meiner Zeit beim Swanfall-Kult. Er wandelte unter den Leuten des Havens, als wäre er einer von ihnen: Er trug die Haut eines Drow, doch meinem erfahrenen Auge erschien sie schlecht sitzend – als pulsierte die Kreatur darunter gegen sie, knapp außerhalb des Bereichs gewöhnlicher Sicht. Ich folgte ihm in eine verlassene Wohnung zwei Stockwerke unter dem großen Feuer auf dem zentralen Bau, und er wartete auf mich.",
+  "Der Penumbra-Engel sprach meinen Namen wie brennenden Phosphor; nicht den Namen auf dem Umschlag dieses Buches, nicht die kindliche Ansammlung von Silben, auf die ich höre, sondern meinen wahren Namen. Er allein hat mich gesehen. Er sagte mir, er sei nicht Teil der Convocation, sondern er sei die Convocation. Er zeigte mir – indem er meine Haut wie Papier aufschälte, um den glänzenden Muskel darunter zu enthüllen –, dass auch ich die Convocation war. Oder vielmehr, dass ich es sein könnte; dass der Vorgang bereits begonnen hatte."],
+ namen:"Penumbra – jeder von ihnen trägt denselben Namen, und vielleicht sind sie alle Ausstülpungen desselben Wesens",
+ besch:"Schwebt einen Viertelzoll über dem Boden, als würde das niemand bemerken; Hat Augen, die jedes Mal die Farbe wechseln, wenn man wegsieht; Schüchtert ein Rudel verwilderter Hunde allein durch seine Gegenwart zu kauernder Unterwürfigkeit ein",
+ motiv:"Jemanden ansprechen, den das Heart als möglichen Rekruten gezeichnet hat, und ihn zu Offenbarungen lenken",
+ schw:"Riskant", res:"12", schutz:"1 (in Menschengestalt), 3 (enthüllt)",
+ ressourcen:"Personenhaut-Anzug (W10, Occult, Taboo. Aus einer echten Person gemacht. Trägst du ihn, siehst du genau aus wie diese Person und klingst wie sie.)",
+ ausr:"Verderblicher Schatten (Kill W8, Brutal, Obscuring); Worte der Macht (Kill W8, Ranged, Piercing. Dieser Angriff verursacht Stress auf Mind.)",
+ besonders:"Du kannst den Penumbra-Engel in seiner verhüllten Gestalt ohne üble Folgen sehen, auch wenn ein erfolgreicher **Discern+Cursed**-Check enthüllt, dass er eigentlich keine Person ist. Entschließt er sich, sich zu enthüllen (meist als Reaktion auf einen Angriff oder seine Entdeckung), würfle **Endure+Cursed**, um dem Schock zu widerstehen; bei einem Fehlschlag markiere W8 Stress auf **Echo**.",
+ dom:["Cursed","Occult","Haven"],
+ fallout:[
+  {t:"Falscher Segen", r:"Mind", s:"leicht", x:"Du bist überzeugt, dass jemand in deiner unmittelbaren Nähe ein Penumbra-Engel ist, prall und durchsetzt von Geheimnissen der Welt jenseits. Vielleicht hast du sogar recht; seine Beteuerungen, kein Engel zu sein, könnten nur eine weitere Prüfung sein. [Sofort]"},
+  {t:"Gesegnet", r:"Echo", s:"schwer", x:"Ein Penumbra-Engel spricht dich an, und dein Verstand wird gewaltsam mit Visionen des Heart Itself erweitert. Solange du dieses Fallout hast, würfelst du mit Mastery, wenn du mit Engeln zu tun hast oder ihren Aufenthaltsort erforschst. Markierst du dabei Stress, steigt die Würfelgröße um eine Stufe. [Anhaltend]"}
+ ]});
+
+/* ---------- B&B Derelictus: Gegner (B&B S. 6–7) ---------- */
+HT_GEGNER.push({id:"ghul", t:"Ghoul (Ghul)", q:"bb", bk:"ht_z3", bl:"B&B", p:6, legendaer:false,
+ text:[],
+ namen:"Sie hatten einmal Namen; jetzt trägt jeder einen Titel, der in kehligem Kläffen und Bellen ausgestoßen wird",
+ besch:"Mit riesigen reißenden Eckzähnen, die sich in den Unterkiefer graben; Jemanden im Ganzen verschlingen und davontorkeln, während er verdaut wird; An einer weggeworfenen Hand nagen, an der noch ein Ehering steckt",
+ motiv:"Menschen töten und fressen, beginnend mit den Schwächsten",
+ schw:"Standard", res:"5", schutz:"1", ressourcen:"Nichts von Wert",
+ ausr:"Zähne und Klauen, gestützt von seilartigen Muskeln (Kill W6, Brutal)", besonders:null, dom:["Warren"],
+ fallout:[{t:"Half-Swallowed", r:"Blood", s:"schwer", x:"Ein Ghul reißt den Kiefer auf und stürzt sich heftig auf dich, wobei er einen Großteil deines Oberkörpers in seinen Schlund hüllt. Du kannst versuchen, dich zu befreien (Gefährlich), oder einfach ausharren, bis ein Verbündeter dich befreit."}]});
+
+HT_GEGNER.push({id:"ebony-row-pirscher", t:"Ebony Row Stalker (Ebony-Row-Pirscher)", q:"bb", bk:"ht_z3", bl:"B&B", p:7, legendaer:false,
+ text:[],
+ namen:"Griswyn, Dreggor, Violetta",
+ besch:"Zieht ein gefesseltes Ziel hinter sich her; Murmelt Gesänge von Schatten und Schutz über sich; Schwingt einen bösartig aussehenden Haken in Bögen über dem Kopf",
+ motiv:"Leute (lebend, wenn auch nicht unversehrt) für ihre okkulten Meister fangen",
+ schw:"Standard", res:"5", schutz:"0, aber siehe unten",
+ ressourcen:"Arkane Abschnitte und magische Stummel (W4, Occult)",
+ ausr:"Menschenfänger und Jutesäcke (Kill W4, Debilitating) oder lange Messer (W6)",
+ besonders:"Kämpfst du gegen ein Rudel Pirscher und reduzierst den ersten auf 0 Resistance (oder zeigst anderweitig deine Macht), erkennen sie, dass du vielleicht keine leichte Beute bist, und wirken geliehene Magie, um sich zu schützen. Ihr Schutz steigt für den Rest der Situation auf 1.",
+ dom:["Occult"], fallout:[]});
+
+/* ---------- B&B „Falling from Grace: Running the Game“: Gegner (B&B S. 19–20) ---------- */
+HT_GEGNER.push({id:"spire-stadtwache", t:"Spire City Guard (Stadtwache von Spire)", q:"bb", bk:"ht_z3", bl:"B&B", p:19, legendaer:false,
+ text:[],
+ namen:"Gavain, Hostler, Buller",
+ besch:"Versucht, hinter die anderen Wachen zu gelangen, um sich nicht stellen zu müssen; Scheucht verwirrte Passanten aus dem Weg; Kippt bei einem Schusswechsel einen Karren als Deckung um",
+ motiv:"Die Gesetze von Spire durchsetzen, was im Großen und Ganzen darauf hinausläuft, zu tun, was ihre Aelfir-Herren ihnen sagen",
+ schw:"Standard", res:"5", schutz:"1",
+ ressourcen:"Kleingeld und zerfledderte Ausweispapiere (W6, Haven)",
+ ausr:"Standard-Schlagstock (Kill W6); Standard-Armbrust (Kill W6, Ranged, Reload)",
+ besonders:null, dom:["Haven"], fallout:[]});
+
+HT_GEGNER.push({id:"paladin-herbstkirche", t:"Paladin of the Autumn Church (Paladin der Herbstkirche)", q:"bb", bk:"ht_z3", bl:"B&B", p:20, legendaer:false,
+ text:[],
+ namen:"Bruder Pierce-the-Brow-with-Wisdom, Schwester Westward-March-the-Faithful, Souvain Thousand-Feathers-Bleeding",
+ besch:"Strahlt wie die Sonne in völliger Finsternis; Murmelt Gebete an ihren Reaper-Gott, während sie nachladen; Schüttelt Kleinwaffenfeuer ab",
+ motiv:"Das Ministerium von Our Hidden Mistress zerstören und dabei gut aussehen",
+ schw:"Riskant", res:"9", schutz:"2 im Kampf; 1, wenn überrascht",
+ ressourcen:"Paladin-Uniform (W10, Haven; W6, wenn sie voller Blut und Einschusslöcher ist); Hochwertige Munition (W8, Technology)",
+ ausr:"Fein ausbalanciertes Kurzschwert (Kill W6, Brutal) und Enfor-9-Pistole mit Magazin (Kill W6, Piercing, Ranged, Expensive); oder Custom-Legrand-Gewehr (Kill W8, Piercing, Ranged, Expensive)",
+ besonders:"Überraschen die Paladine dich, schleudern sie dir einen Sprengkörper entgegen, der mit Sonnenenergie detoniert. Jeder in der Nähe muss eine Probe auf Endure+Religion bestehen; bei einem Fehlschlag markiert er W8 Stress auf Blood, weil er geblendet, betäubt und aus dem Tritt gebracht wird.",
+ dom:["Religion"], fallout:[]});
+
+HT_GEGNER.push({id:"ministerium-silence", t:"Ministry Silence Operative (Silence-Agent des Ministeriums)", q:"bb", bk:"ht_z3", bl:"B&B", p:20, legendaer:false,
+ text:[],
+ namen:"Livrette, Barnstal, Poe",
+ besch:"Als Passant verkleidet, der in Derelictus arbeitet; Versiegelt per Zauber die Tür, während du zu fliehen versuchst; Erwürgt eine deiner Bonds",
+ motiv:"Abweichler und alle ausschalten, die das Ministerium enttäuscht haben",
+ schw:"Riskant", res:"8", schutz:"0",
+ ressourcen:"Reliquien von Our Hidden Mistress (W8, Religion)",
+ ausr:"Verborgene, rasiermesserscharfe Waffen (W6, Piercing, Ranged, Unreliable)",
+ besonders:"Silence-Teams weben Bindungszauber über die Gebiete, in denen sie jagen; zu fliehen, sobald ein Kampf begonnen hat, ist Gefährlich.",
+ dom:["Religion"], fallout:[]});
+

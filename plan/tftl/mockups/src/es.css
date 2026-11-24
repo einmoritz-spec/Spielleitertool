@@ -1,0 +1,55 @@
+/* The Electric State – Farb-/Schriftsystem für die Entwürfe (aus dem Buch gemessen, PDF es.pdf).
+   Buch: Seiten #f0f4f4, Text #231f20 (Caslon Book), Überschriften Interstate Condensed Black (schwarz, Versalien),
+   Kästen = schwarzer Rahmen, Klebeband-Streifen, Kapitel-Emblem neonrot #e3262a.
+   Darf als Ausgangspunkt für den ES-Teil von tftl/style.css (body.es …) dienen. */
+@font-face{font-family:Oswald;src:url(/assets/fonts/oswald-latin-600-normal.woff2);font-weight:600;font-display:swap}
+@font-face{font-family:Oswald;src:url(/assets/fonts/oswald-latin-500-normal.woff2);font-weight:500;font-display:swap}
+@font-face{font-family:Jost;src:url(/assets/fonts/jost-latin-700-normal.woff2);font-weight:700;font-display:swap}
+@font-face{font-family:Jost;src:url(/assets/fonts/jost-latin-500-normal.woff2);font-weight:500;font-display:swap}
+@font-face{font-family:Garamond;src:url(/assets/fonts/eb-garamond-latin-400-normal.woff2);font-weight:400;font-display:swap}
+@font-face{font-family:Garamond;src:url(/assets/fonts/eb-garamond-latin-400-italic.woff2);font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Garamond;src:url(/assets/fonts/eb-garamond-latin-600-normal.woff2);font-weight:600;font-display:swap}
+:root{
+ --top:#33464a;   /* Kopfzeile: Schiefer-Petrol der Kapitel-Eröffnungsbilder (Mittel #3a4c4f) */
+ --acc:#3d7378;   /* Akzent: Petrol (Karte von Pacifica #728d91, abgedunkelt) – Links, aktiver Tab */
+ --red:#e3262a;   /* Neonrot des Kapitel-Emblems/Drohnenlichter – nur „aktuell/hier sind wir“ */
+ --ink:#231f20; --soft:#5d6a6c; --line:#cdd8d8;
+ --bg:#f0f4f4;    /* Buchseite */
+ --paper:#fcfdfd; --night:#25323a; --dust:#cca98b; /* Sand des „Into the Dust“-Bilds */
+ --done:#a3abac;
+ --head:Oswald,"Arial Narrow",sans-serif; --sans:Jost,Futura,sans-serif; --serif:Garamond,Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.5 var(--serif);min-height:100vh;position:relative;overflow:hidden}
+h1,h2,h3,h4,.h{font-family:var(--head);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:var(--ink)}
+.top{position:relative;z-index:5;height:56px;background:var(--top);display:flex;align-items:center;padding:0 22px;gap:8px;color:#fff}
+.top .logo{height:38px;filter:brightness(0) invert(1)}
+.top .dd{font:700 13px var(--sans);opacity:.7;margin-left:2px}
+.top .sp{flex:1}
+.ib{width:36px;height:36px;display:grid;place-items:center;border-radius:6px;color:#fff;opacity:.92}
+.ib svg{width:22px;height:22px}
+.ib.bur{border:1.5px solid rgba(255,255,255,.8)}
+.tabs{display:flex;align-items:stretch;background:var(--paper);border-bottom:2px solid var(--line);height:50px;padding:0 22px;gap:4px}
+.tabs a{display:flex;align-items:center;padding:0 16px;font:600 16px var(--head);text-transform:uppercase;letter-spacing:.05em;color:var(--soft);border-bottom:4px solid transparent;margin-bottom:-2px}
+.tabs a.on{color:var(--ink);border-color:var(--acc)}
+.tabs .sp{flex:1}
+.pg{font:500 12px var(--sans);color:var(--soft);letter-spacing:.02em;text-transform:none;opacity:.85}
+.chip{display:inline-flex;align-items:center;padding:6px 13px;border:2px solid var(--ink);border-radius:2px;font:600 14px var(--head);text-transform:uppercase;letter-spacing:.06em;color:var(--ink);background:var(--paper);margin:0 6px 6px 0}
+.chip.f{background:var(--ink);color:#fff}
+/* Buch-Kasten: schwarzer Rahmen wie die Seitenkästen im Buch */
+.bx{background:var(--paper);border:2.5px solid var(--ink);padding:12px 14px}
+.bx h4{font-size:15px;letter-spacing:.04em;margin-bottom:6px}
+.sq{display:inline-block;width:10px;height:10px;background:var(--ink);margin-right:7px;vertical-align:1px}
+/* Werteblock (Statblock) */
+.stat{background:var(--paper);border:2.5px solid var(--ink);padding:8px 12px 10px;font:14px/1.35 var(--sans)}
+.stat h4{text-align:center;font-size:15px;margin-bottom:6px}
+.stat .at{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:6px}
+.stat .at span{border:1.5px solid var(--ink);text-align:center;font:600 10.5px var(--sans);text-transform:uppercase;letter-spacing:.05em;padding:2px 0}
+.stat .at b{display:block;font:600 18px var(--head)}
+.stat p{font:13.5px/1.35 var(--sans)}
+/* Klebeband */
+.tape{position:absolute;width:110px;height:26px;background:rgba(214,196,150,.75);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+/* Vorlesetext */
+.vl{border-left:4px solid var(--ink);background:#e6eded;padding:10px 16px;font-style:italic;margin:8px 0 12px}
+.ann{position:absolute;z-index:20;background:#1565c0;color:#fff;font:600 12.5px/1.35 system-ui,sans-serif;padding:7px 10px;border-radius:6px;max-width:280px;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.ann b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#e53935;margin-right:6px;font-size:12px}

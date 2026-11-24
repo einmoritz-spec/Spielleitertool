@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="theme-color" content="#eadcb8">
+<title>Local Legends — Fall-Akte</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="../shared/cards.css">
+<link rel="stylesheet" href="../shared/notes.css">
+<link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="../shared/layout.css">
+<link rel="stylesheet" href="../shared/prep.css">
+<link rel="stylesheet" href="akte.css">
+<link rel="stylesheet" href="hell.css">
+<link rel="stylesheet" href="overview.css">
+<link rel="stylesheet" href="themes.css">
+<link rel="stylesheet" href="../shared/panels.css">
+<link rel="stylesheet" href="../shared/galerie.css">
+<link rel="stylesheet" href="../shared/stickynav.css">
+<script>try{var q=/[?&]theme=([abc])/.exec(location.search);if(q)localStorage.setItem("ll_theme",q[1]);document.documentElement.dataset.ll=localStorage.getItem("ll_theme")||"c";}catch(e){document.documentElement.dataset.ll="c";}</script>
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="goOverview()">Local Legends</button>
+  <div class="topbar-spacer"></div>
+  <button class="tb-btn" id="tb-case-btn" style="display:none;" onclick="goCase(state.districtId)"><span class="tb-lbl">Fall öffnen</span></button>
+  <button class="tb-btn" onclick="openCityMap()"><span class="tb-lbl">Stadtkarte</span></button>
+  <button class="tb-btn" onclick="openModal('rulesModal')"><span class="tb-lbl">Regeln</span></button>
+  <button class="tb-btn" onclick="openModal('glossModal')"><span class="tb-lbl">Glossar</span></button>
+  <button class="tb-btn" onclick="goNpcs()"><span class="tb-lbl">Gegner</span></button>
+  <button class="tb-btn" onclick="goPlayer()"><span class="tb-lbl">Spieler</span></button>
+  <button class="tb-btn" id="tb-extra-guide" style="display:none" onclick="goGuide()"><span class="tb-lbl">Einleitung</span></button>
+  <button class="tb-btn" id="tb-extra-app" style="display:none" onclick="goAppendix()"><span class="tb-lbl">Register</span></button>
+  <button class="tb-btn" id="tb-extra-ff" style="display:none" onclick="goCase('forged_framed')"><span class="tb-lbl">Forged &amp; Framed</span></button>
+  <button class="tb-btn" onclick="BV.open('ll',1)"><span class="tb-lbl">Buch (PDF)</span></button>
+  <button class="tb-btn tb-gear" onclick="openModal('settingsModal')" aria-label="Einstellungen" title="Einstellungen">Einstellungen</button>
+  <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen" title="Menü"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app" class="shell"></div>
+
+<!-- Volltextsuche Modal -->
+<div class="modal-overlay" id="searchModal" onclick="if(event.target===this)closeModal('searchModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Volltextsuche — alle Bezirke &amp; Fälle</h2><button class="modal-close" onclick="closeModal('searchModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="gloss-search" id="searchInput" placeholder="Suche über alle 9 Bezirke und Fälle… (mind. 2 Zeichen)" oninput="runSearch(this.value)">
+      <div id="searchCount" class="search-count"></div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Regelglossar Modal -->
+<div class="modal-overlay" id="rulesModal" onclick="if(event.target===this)closeModal('rulesModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Regelglossar — City of Mist</h2><button class="modal-close" onclick="closeModal('rulesModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="gloss-search" placeholder="Suche…" oninput="filterList('rulesList', this.value)">
+      <div id="rulesList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Bezirks-/Case-Glossar Modal -->
+<div class="modal-overlay" id="glossModal" onclick="if(event.target===this)closeModal('glossModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Glossar — Lore & NPCs</h2><button class="modal-close" onclick="closeModal('glossModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="gloss-search" placeholder="Suche…" oninput="filterList('glossList', this.value)">
+      <div id="glossList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Einstellungen / Umschalten zwischen den Tools -->
+<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)closeModal('settingsModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Einstellungen</h2><button class="modal-close" onclick="closeModal('settingsModal')">✕</button></div>
+    <div class="modal-body">
+      <div class="set-section">
+        <div class="set-title">Tool wechseln</div>
+        <button class="set-tool active" disabled><span><b>Local Legends</b><small>City of Mist – Fall-Akte (aktuell)</small></span></button>
+        <button class="set-tool" onclick="switchTool('wake')"><span><b>Legend in the Mist</b><small>Wake of the Oldways – Erzähler-Tafel</small></span></button>
+        <button class="set-tool" onclick="switchTool('paynetown')"><span><b>Nights of Paynetown</b><small>City of Mist – Kampagne (in Vorbereitung)</small></span></button>
+        <button class="set-tool" onclick="switchTool('cityofmist')"><span><b>City of Mist</b><small>Regeln · Shadows &amp; Showdowns</small></span></button>
+        <button class="set-tool" onclick="switchTool('etr')"><span><b>Eat the Reich</b><small>Havoc Engine – Vampir-Kommandos</small></span></button>
+        <button class="set-tool" onclick="switchTool('otherscape')"><span><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Tokyo, Abenteuer</small></span></button>
+      </div>
+      <div id="bvSettingsHost"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/tool-switch.js"></script>
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie-buch.js"></script>
+<script src="js/mobile-menu.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/data/core.js"></script>
+<script src="js/data/pages.js"></script>
+<script src="js/data/iceberg-hot.js"></script>
+<script src="js/data/karten.js"></script>
+<script src="js/data/szenen.js"></script>
+<script src="js/data/galerie.js"></script>
+<script src="js/data/chinatown.js"></script>
+<script src="js/data/fortune-row.js"></script>
+<script src="js/data/happyville.js"></script>
+<script src="js/data/independence.js"></script>
+<script src="js/data/colonia-sombras.js"></script>
+<script src="js/data/campus.js"></script>
+<script src="js/data/sunken-city.js"></script>
+<script src="js/data/tourist-trap.js"></script>
+<script src="js/data/undertrash.js"></script>
+<script src="js/data/forged-framed.js"></script>
+<script src="js/data/guide.js"></script>
+<script src="js/data/villains.js"></script>
+<script src="js/data/appendix.js"></script>
+<script src="js/data/rules-glossary.js"></script>
+<script src="../shared/notes.js"></script>
+<script src="../shared/tabpick.js"></script>
+<script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
+<script src="../shared/prep.js"></script>
+<script src="../shared/gsuche.js"></script>
+<script src="js/app.js"></script>
+<script src="js/suche.js"></script>
+<script src="../shared/panels.js"></script>
+<script>PanelUI.init({nav:".ll-rnav",rail:".ll-rail"});</script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ll", books:[{key:"ll", name:"Local Legends (EN)"}], openSettings:function(){ openModal("settingsModal"); } });
+document.getElementById("bvSettingsHost").innerHTML = BV.settingsHTML(); BV.refresh();</script>
+<script src="../shared/masonry.js" defer></script>
+<script src="../toolmenu.js"></script>
+<script>window.gmMap=function(){openCityMap();};</script>
+<script>window.gmBook=function(){return {name:"Local Legends",open:function(){BV.open("ll",1);}};};</script>
+<script>window.UX_CFG={cols:[],noKeys:true};</script>
+<script src="../shared/ux.js"></script>
+<script src="../shared/zeigen.js"></script>
+<script>
+// PWA: Service Worker über http(s); bei neuer Version einmal automatisch neu laden.
+if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
+  var __had = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener("controllerchange",function(){ if(__had) location.reload(); });
+  window.addEventListener("load",function(){ navigator.serviceWorker.register("../sw.js").then(function(r){ r.update(); }).catch(function(){}); });
+}
+</script>
+<script src="../shared/zurueck.js"></script>
+</body>
+</html>

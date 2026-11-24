@@ -1,0 +1,159 @@
+/* ---------- player profiles modal ---------- */
+.profiles-modal{max-width:640px;}
+
+.rules-modal{max-width:min(94vw, 760px); max-height:90vh; padding:20px 20px 16px; display:flex; flex-direction:column;}
+
+/* Rasten-Modal (Camping & Sojourns) — breiter als das schmale Standard-
+   Glossar-Modal, da der Text lang ist; nutzt zusätzlich die .flow-Klasse
+   aus der Szenen-Darstellung (section-heading/callout) für farbige
+   Zwischenüberschriften wie in den Abenteuern selbst (neu, Juli 2026). */
+.rest-modal{max-width:min(96vw, 1100px); max-height:97vh; overflow-y:auto; padding:20px 26px 18px;}
+/* Kompaktere Abstände speziell im Rasten-Modal (neu, Juli 2026) — der
+   Inhalt ist lang, und bei kleineren Bildschirmhöhen wurde zuvor "Danach"
+   unten abgeschnitten. Reduziert Zwischenraum um Überschriften/Callout/
+   Karten, ohne den Standard-.flow-Stil in den Szenen anzufassen. */
+.rest-modal .flow .section-heading{margin:14px 0 5px; padding-top:12px;}
+.rest-modal .flow p{margin:0 0 9px;}
+.rest-modal .rest-activities{margin:10px 0 12px;}
+.rest-modal .flow .callout{margin:12px 0; padding:8px 14px;}
+
+/* Zweispaltige Info-Listen für breite ("wide") Glossareinträge mit sehr
+   vielen Detailinfos (z. B. Rollen-/Vorfallslisten) — neu, Juli 2026. */
+.gm-two-col{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:14px 0 18px;}
+.gm-two-col h5{
+  font-family:var(--sans); font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.05em; color:var(--gold-bright); margin:0 0 9px;
+}
+.gm-tag-list{display:flex; flex-wrap:wrap; gap:6px;}
+.gm-tag{
+  font-family:var(--sans); font-size:11.5px; color:var(--text-lo);
+  background:var(--panel-raised); border:1px solid var(--panel-line);
+  border-radius:999px; padding:4px 11px;
+}
+/* Kompakte Tabellen innerhalb von Glossar-/Regelglossar-Einträgen
+   (z. B. die Scale-Tabelle im Might-Eintrag) — neu, Juli 2026. */
+.rg-table{
+  width:100%; border-collapse:collapse; margin:10px 0 14px;
+  font-family:var(--sans); font-size:12.5px;
+}
+.rg-table th,.rg-table td{
+  border:1px solid var(--panel-line); padding:6px 10px; text-align:left;
+}
+.rg-table th{
+  background:var(--panel-raised); color:var(--gold-bright); font-weight:700;
+  text-transform:uppercase; letter-spacing:.03em; font-size:11px;
+}
+.rg-table td{color:var(--text-lo);}
+.rg-table tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+@media (max-width:640px){
+  .gm-two-col{grid-template-columns:1fr;}
+}
+.rest-activities{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px;
+  margin:14px 0 18px;
+}
+.rest-activity{
+  background:var(--panel-raised); border:1px solid var(--panel-line); border-radius:9px;
+  padding:12px 14px;
+}
+.rest-activity .ra-title{
+  display:block; font-family:var(--sans); font-weight:700; font-size:12.5px;
+  text-transform:uppercase; letter-spacing:.05em; color:var(--gold-bright); margin-bottom:6px;
+}
+.rest-activity p{margin:0; font-size:calc(13.5px * var(--fs)); line-height:1.55; color:var(--text-lo);}
+.rest-activity p strong{color:var(--text-hi);}
+
+.big-modal{
+  max-width:min(97vw, 1320px); max-height:96vh; width:97vw;
+  padding:0; display:flex; flex-direction:column; overflow:hidden;
+}
+.big-modal .gm-close{
+  position:absolute; top:14px; right:16px; z-index:30;
+  background:var(--panel); border:1px solid var(--panel-line); border-radius:50%;
+  width:34px; height:34px; display:flex; align-items:center; justify-content:center;
+}
+.big-modal-scroll{overflow-y:auto; flex:1; min-height:0; padding:26px 28px 30px;}
+@media (max-width:720px){
+  .big-modal{width:100vw; max-width:100vw; max-height:100vh; height:100vh; border-radius:0;}
+  .big-modal-scroll{padding:20px 16px 24px;}
+}
+.rules-modal .gm-eyebrow{margin-bottom:2px;}
+.rules-modal .gm-title{margin-bottom:12px;}
+.rg-search{
+  width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14.5px;
+  color:var(--text-hi); background:var(--panel); border:1px solid var(--panel-line);
+  border-radius:10px; padding:11px 15px; margin-bottom:12px; flex:none;
+}
+.rg-search:focus{outline:none; border-color:var(--gold);}
+.rg-search::placeholder{color:var(--text-faint);}
+.rg-count{font-size:11.5px; color:var(--text-faint); margin:0 0 10px; font-style:italic; flex:none;}
+.rg-list{overflow-y:auto; flex:1; min-height:0; display:flex; flex-direction:column; gap:2px;}
+.rg-item{border-bottom:1px solid var(--panel-line-soft); transition:background-color .4s ease;}
+.rg-item:last-child{border-bottom:none;}
+.rg-item.rg-flash{background-color:rgba(201,162,75,.18); border-radius:6px;}
+.rg-head{
+  display:flex; align-items:center; gap:10px; width:100%; text-align:left;
+  background:none; border:none; padding:12px 2px; cursor:pointer; font:inherit;
+}
+.rg-head-text{flex:1; min-width:0;}
+.rg-term{font-family:var(--serif-display); font-weight:600; font-size:15.5px; color:var(--text-hi);}
+.rg-term .rg-en{font-family:var(--sans); font-weight:600; font-size:10.5px; letter-spacing:.04em; color:var(--gold-bright); text-transform:uppercase; margin-left:8px;}
+.rg-page{font-size:11px; color:var(--text-faint); margin:1px 0 0;}
+.rg-chev{flex:none; width:15px; height:15px; color:var(--text-faint); transition:transform .25s ease;}
+.rg-item.open .rg-chev{transform:rotate(180deg); color:var(--gold);}
+.rg-body-wrap{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+.rg-item.open .rg-body-wrap{max-height:4000px;}
+.rg-body{font-family:var(--serif-body); font-size:13.5px; line-height:1.62; color:var(--text-lo); padding:0 2px 14px;}
+.rg-body p{margin:0 0 8px;}
+
+/* Volltextsuche (neu, Juli 2026) — Ergebnisliste teilt sich #rg-list/
+   #rg-search-Optik mit dem Regelglossar, eigene Item-Karten. */
+.search-item{
+  display:block; width:100%; text-align:left; background:none; border:none;
+  border-bottom:1px solid var(--panel-line-soft); padding:12px 4px; cursor:pointer;
+  border-radius:6px;
+}
+.search-item:last-child{border-bottom:none;}
+.search-item:hover{background:var(--panel-raised);}
+.search-item-head{
+  display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+  margin-bottom:2px;
+}
+.search-adv{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--gold);}
+.search-page{font-size:11px; color:var(--text-faint); white-space:nowrap;}
+.search-scene{font-family:var(--serif-display); font-weight:600; font-size:15px; color:var(--text-hi); margin-bottom:4px;}
+.search-snippet{font-size:13px; line-height:1.55; color:var(--text-lo);}
+.search-snippet mark{background:rgba(201,162,75,.32); color:var(--text-hi); border-radius:2px; padding:0 1px;}
+.search-empty{color:var(--text-faint); font-size:13.5px; font-style:italic; padding:10px 4px;}
+/* Favoriten-Fenster (neu) — Karten teilen sich die .search-item-Optik mit
+   der Volltextsuche, damit kein neues Listen-Layout nötig war; nur ein
+   paar zusätzliche Klassen für Section-Abstand, Entfernen-Pille und
+   Leer-/Fehlend-Zustände. */
+.fav-section{margin-bottom:4px;}
+.fav-section:last-child{margin-bottom:0;}
+.fav-section .ch-section-label{margin:14px 2px 4px;}
+.fav-section:first-child .ch-section-label{margin-top:2px;}
+.fav-remove{
+  flex:none; font-family:var(--sans); font-size:10.5px; color:var(--text-faint);
+  border:1px solid var(--panel-line); border-radius:999px; padding:2px 9px; white-space:nowrap;
+}
+.fav-remove:hover{color:var(--rust-bright); border-color:var(--rust);}
+.fav-empty{color:var(--text-faint); font-size:13px; font-style:italic; padding:8px 4px 18px;}
+.fav-missing{padding:10px 4px; font-size:12.5px; color:var(--text-faint); font-style:italic;}
+.fav-missing-tag{opacity:.7;}
+.rg-body p:last-child{margin-bottom:0;}
+.rg-body ul{margin:0 0 8px; padding-left:18px;}
+.rg-body li{margin-bottom:4px;}
+.rg-empty{font-size:13px; color:var(--text-faint); font-style:italic; padding:16px 2px;}
+/* Regelglossar-Kategorien (neu, Juli 2026) — Chip-Filter teilt sich die
+   .ch-role-chip(s)-Optik mit dem Action Grimoire; Gruppenkopf analog zu
+   .ag-chapter-heading, aber ohne Akzentfarbvariable (Regelglossar bleibt
+   einheitlich golden, keine Kapitel-Farbcodierung nötig). */
+.rg-cat-chips{margin-bottom:6px;}
+.rg-cat-group{margin-bottom:4px;}
+.rg-cat-heading{
+  font-family:var(--serif-display); font-weight:700; font-size:15.5px; color:var(--gold-bright);
+  padding:14px 2px 4px; border-top:1px solid var(--panel-line-soft); margin-top:6px;
+  display:flex; align-items:baseline; gap:10px;
+}
+.rg-cat-group:first-child .rg-cat-heading{border-top:none; margin-top:0; padding-top:2px;}

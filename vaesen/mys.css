@@ -1,0 +1,57 @@
+/* Seasons of Mystery – Leitstand (ergänzt tanz.css) */
+.ms-top{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;padding:18px 34px 6px;align-items:start}
+.ms-op img{width:100%;display:block;box-shadow:2px 3px 10px rgba(60,40,20,.3);cursor:zoom-in}
+.ms-wn{font:400 12.5px Mar;letter-spacing:.16em;color:var(--soft);text-transform:uppercase}
+.ms-cols{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;padding:8px 34px 40px}
+.ms-fl{display:grid;gap:8px}
+.ms-an{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.8fr);gap:28px;padding:18px 34px 40px}
+.ms-karte,.ms-map img{width:100%;display:block;cursor:zoom-in;box-shadow:2px 3px 10px rgba(60,40,20,.25)}
+.ms-orte{display:block;padding:18px 34px 40px}
+.ms-ol{margin:0 0 14px}
+.ms-ol .ms-map img{max-height:520px;width:auto;max-width:100%;margin:0 auto;display:block}
+.ms-intro{font-size:15px;color:var(--soft);margin:0 0 10px}
+.ms-list p{margin:0 0 9px}
+.ms-kf{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:28px;padding:18px 34px 40px}
+.ms-wege{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.ms-wege .weg .c{background:rgba(247,242,231,.9);padding:12px 16px;box-shadow:0 1px 5px rgba(60,40,20,.18);font-size:15.5px;line-height:1.38}
+.ms-wege h4{margin:0 0 6px;font:400 14px Mar;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+.ms-wege p{margin:0 0 8px}
+.ms-hos{display:flex;flex-wrap:wrap;gap:34px;padding:22px 34px 40px;align-items:flex-start}
+.ms-hw{width:min(100%,380px)}
+.ms-ho{container-type:inline-size;position:relative;cursor:zoom-in;box-shadow:3px 5px 14px rgba(50,30,15,.35);font:500 18px/1.2 Cav,EBG,serif;color:#2e2a3c}
+.ms-ho .ms-paper{display:block;width:100%}
+.ms-ho .ms-tx{position:absolute;inset:9% 9%;overflow:hidden}
+.ms-zet{width:70%}.ms-zet .ms-tx{inset:14% 10%;font-size:7.4cqw}
+.ms-tag .ms-tx{inset:12% 8%;font-size:4.2cqw;line-height:1.5}
+.ms-let .ms-tx{font-size:3.8cqw;line-height:1.18}
+.ms-ho.big{width:min(88vw,720px,calc(88vh * .78))}
+.ms-zet.big{width:min(70vw,460px)}
+.ms-ns{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:18px 34px 40px}
+.ms-zoom{position:fixed;inset:0;z-index:300;background:rgba(20,14,8,.88);display:grid;place-items:center;cursor:zoom-out}
+.ms-zoom img{max-width:94vw;max-height:94vh}
+@media(max-width:1100px){.ms-top,.ms-cols,.ms-an,.ms-orte,.ms-kf,.ms-ns{grid-template-columns:1fr;padding-left:16px;padding-right:16px}.ms-wege{grid-template-columns:1fr}.ms-ol{position:static}.ms-op{max-width:260px}}
+.ms-hw.w-1a{width:min(100%,470px)}.ms-hw.w-1a .ms-let .ms-tx,.ms-let.l1a .ms-tx{font-size:2.95cqw;line-height:1.14;inset:7% 8%}
+.ms-tag.l1a .ms-tx{font-size:3.3cqw;line-height:1.35;inset:11% 8%}.ms-wege h5{margin:10px 0 4px;font:600 15px EBG;color:var(--ink)}
+.ms-kk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}@media(max-width:1100px){.ms-kk{grid-template-columns:1fr}}
+.ms-hw.w-2a,.ms-hw.w-2b{width:min(100%,470px)}.ms-hw.w-2b .ms-let .ms-tx{font-size:3.7cqw;inset:8% 8%}.ms-hw.w-2c .ms-tag .ms-tx{font-size:3.4cqw}
+.ms-hw.w-2a .ms-let .ms-tx{font-size:3.55cqw;inset:8% 8%}
+.ms-bild{width:100%}.ms-bild .ms-paper{display:block;width:100%;height:auto}.ms-hw.w-3a,.ms-hw.w-3b,.ms-hw.w-3e,.ms-hw.w-3f{width:min(100%,470px)}.ms-hw.w-3c,.ms-hw.w-3d{width:min(100%,520px)}.ms-hw.w-3g{width:min(100%,360px)}
+.ms-hw.w-3e .ms-tag .ms-tx,.ms-hw.w-3f .ms-tag .ms-tx{font-size:3.4cqw;line-height:1.5}.ms-bild .ms-paper{mix-blend-mode:multiply}
+.ms-wege.w4{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:1100px){.ms-wege.w4{grid-template-columns:1fr}}.ms-gs{background:rgba(255,255,255,.55);border:1px solid rgba(120,90,60,.25);margin:0 0 8px;border-radius:2px}.ms-gs summary{display:flex;align-items:center;gap:10px;padding:6px 10px;cursor:pointer;font-variant:small-caps;letter-spacing:.06em;color:var(--red)}.ms-gs summary img{width:34px;height:34px;object-fit:contain;mix-blend-mode:multiply}.ms-gs p{padding:4px 14px 12px;margin:0;font-size:15.5px;line-height:1.5}.ms-hw.w-4a,.ms-hw.w-4b{width:min(100%,470px)}.ms-hw.w-4c{width:min(100%,520px)}.ms-hw.w-4b .ms-tag .ms-tx{font-size:3.1cqw}
+.ms-cols{grid-template-columns:minmax(0,1fr)}
+.ms-cols>.gtxt{column-count:3;column-width:auto;column-gap:34px}
+.ms-cols>.gtxt>.ttl{column-span:all}
+@media(max-width:1100px){.ms-cols>.gtxt{column-count:1}}
+.ms-cols>div:last-child{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:0 22px;align-items:start}
+.ms-cols>div:last-child>.sub{grid-column:1/-1}
+.ms-cols>div:last-child>div[style]{margin-top:0!important}
+.ms-cols>div:last-child>.ms-fl{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 22px;align-items:start;margin-bottom:18px}.ms-cols>div:last-child>.ms-fl .kast{margin:0}
+.ms-an{display:block;column-count:3;column-gap:30px}
+.ms-an>div{display:contents}
+.ms-an .ttl,.ms-an .sub{break-after:avoid}
+.ms-an .kast,.ms-an .vl,.ms-an .ms-karte,.ms-an .clue,.ms-an .cl{break-inside:avoid}
+.ms-an .ms-karte{width:100%;margin-bottom:12px}
+@media(max-width:1100px){.ms-an{column-count:1}}
+.ms-kf{grid-template-columns:minmax(0,1fr)}
+.ms-kf>.ms-kfl{max-width:72ch}
+.ms-kf>.ms-wege{align-items:start}

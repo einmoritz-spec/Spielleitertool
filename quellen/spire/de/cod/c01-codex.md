@@ -1,0 +1,319 @@
+<!-- S. -1 (PDF 1) -->
+
+> # Codex of the Deep Spire
+> ## Ein Quellenbuch für das Spire-Rollenspiel
+> ## Von Jordan Shiveley
+
+<!-- S. 0 (PDF 2) -->
+
+(ausgelassen: Danksagung/Werbung/Index)
+
+<!-- S. 1 (PDF 3) -->
+
+1
+## HAFTUNGSAUSSCHLUSS {farbe=#981a3f}
+Euer Spire wird sich von unserem unterscheiden, und wir haben das Spiel mit diesem Gedanken geschrieben. Wie beim Grundbuch seid ihr eingeladen, den Codex of the Deep Spire zu durchforsten und das zu verwenden, was für eure Kampagne am nützlichsten ist. Die „kanonischen“ Wahrheiten von Spire sind das, was ihr und eure Gruppe dazu bestimmt.
+Wir erwähnen das, weil Jordan Shiveley – der Mann hinter DREAD SINGLES – in diesem Buch eine Fülle an Einzelheiten über allerlei seltsame Kulte, verborgene Verschwörungen und verheerende Geheimnisse ausgebreitet hat. Sie alle in ein Spiel einzubauen, könnte zu Verwirrung und Übersättigung führen. Das mag natürlich genau das sein, was ihr in eurer Geschichte wollt – dann nur zu.
+Wir hoffen, ihr genießt diese Albtraum-Leckerbissen.
+— Grant Howitt und Chris Taylor
+
+<!-- S. 2 (PDF 4) -->
+
+2
+# EINLEITUNG {farbe=#184d71}
+*Leser, hier ist ein Bericht darüber, wie wir Escatoph Tembrark im Herzen fanden. Vielleicht wirst du über seine Worte weniger spotten als jene, die versuchten, sie zu entziffern. Vielleicht beherzigst du sie und ersparst dir dasselbe Schicksal.*
+## 5. DES STURZREGENS, JAHR DER {farbe=#981a3f}
+## VIELEN HÄNDE: DER TAG, AN DEM WIR {farbe=#981a3f}
+## TEMBRARK FANDEN. {farbe=#981a3f}
+*Tembrark war einer der besten Delver unserer Schule gewesen. Weder zuvor noch danach hat jemand eine feinere Hülse gefertigt oder besessen. Er war ein führender Theoretiker über das Wesen von Spire. Im Hörsaal zu sitzen, wenn er sprach, war ein Quell der Inspiration.*
+*Als er verschwand, nahmen die meisten an, er sei auf einer seiner vielen Expeditionen gestorben. Es wäre ein gnädigeres Schicksal gewesen. Jahre später fanden wir ihn tobend in den Tiefen des Herzens. Er befand sich in einer uralten Krypta voller Würfel und noch funktionierender Magielichter, umgeben von Papier, zerfetzten Lumpen und fein gebundenen Büchern.*
+*Er hatte seinen Abstieg in den Wahnsinn auf jeder verfügbaren Fläche festgehalten, auch auf jedem Quadratzoll der Wände und des Bodens. Stellenweise hatte er dafür sein eigenes Blut benutzt und sich dazu die Fingerspitzen aufgerissen.*
+*Selbst jetzt, unter unserer wachsamen Obhut, ist er nur noch ein Schatten des brillanten Geistes und begabten Delvers, der er einst war. Er faselt von gewaltigen Verschwörungen und Dingen, die unter der Stadt erwachen. Alles, was wir jetzt tun können, ist, ihn so gut wir können zu versorgen und zu versuchen, zu retten, was noch übrig ist.*
+
+<!-- S. 3 (PDF 5) -->
+
+3
+## EXTRA-FORTSCHRITT - {farbe=#981a3f}
+## KATAKOS-DELVER {farbe=#981a3f}
+*„Öffne deinen Geist für die Sprache des Metalls. Öffne deinen Geist für das verlorene Alphabet von Spire. Worte aus Eisen. Worte aus Leere. Zungen vergessener Macht.“*
+— Escatoph Tembrark, A Primer To Interfacing and Understanding Basic Tenets of Spire and Its Ontological Interactions
+Die Katakos-Delver sind ein Zirkel, der sich den Geheimnissen von Spire und seines Herzens widmet, weder rein weltlich noch ganz okkult. Sie sind dogmatisch aufgeschlossen und wandeln auf dem schmalen Grat zwischen Archäo-Wissenschaftlern und Suchern nach mystischem Wissen. Sie weigern sich, sich auf irgendeine feste Theorie über Spire festzulegen; stattdessen predigen sie, dass sich alle der Magie der Stadt öffnen und sie durch sich hindurchfließen lassen sollen.
+Der eine Kerngrundsatz, dem sich alle verschreiben, lautet, dass die Struktur von Spire das Gegenmittel zum Herzen ist. Sie glauben, dass die ständigen Anpassungen der Stadt wie arkane Antikörper sind, die sich weiterentwickeln, um dem nie endenden Vordringen der brodelnden Unwirklichkeit zu begegnen. Ob dieses Phänomen die Überreste selbstbewusster Katakos-Technologie oder eine tatsächliche okkulte Manifestation sind, ist Gegenstand einer lebhaften, aber höflichen Debatte.
+Delver sehen sich als Archäologen oder akademische Abenteurer und pflegen eine freundschaftliche, aber scharfe Rivalität mit den Gelehrten des Vermissian-Gewölbes. Dennoch decken sich ihre Interessen weitgehend, und es ist nicht unüblich, dass sich die beiden Organisationen für die richtige Belohnung verbünden.
+**VORAUSSETZUNG:** Beweise dich des Zirkels der Delver würdig, indem du einzigartiges Wissen ausgräbst und einen wertvollen Beitrag zu ihrer Forschung leistest.
+**AUFFRISCHEN:** Entdecke eine verborgene Wahrheit über Spire oder nutze zum ersten Mal ein neuartiges Stück Katakos-Technologie.
+## FORTSCHRITTE {farbe=#981a3f}
+## NIEDRIG {farbe=#184d71}
+**WERDE DIE STADT.** [Göttlich] *Du verschmilzt körperlich mit den Strukturen von Spire und verschwindest in den Mauern, Gebäuden und Straßen.* Markiere W3 Stress, um diesen Zauber zu wirken. Du kannst bis zum nächsten Sonnenaufgang verborgen bleiben, es sei denn, es gibt ein entschlossenes Bemühen, dein Versteck zu zerstören. Du kannst nichts außerhalb deiner Zuflucht wahrnehmen, und wenn du wieder auftauchst, bist du benommen und seltsam.
+**ZWIESPRACHE MIT SPIRE.** [Göttlich] *Du erlernst die verborgene Sprache der Stadt. Einmal pro Sitzung: Verbringe zehn Minuten sitzend an einem Ort von Bedeutung für Spire und stelle eine Frage.* Die Spielleitung liefert eine Reihe von Visionen direkt aus der Stadt, die Licht in die Antwort bringen können. Würfle mit Meisterschaft, wenn du diese Visionen zum ersten Mal mit den Ereignissen deiner Geschichte verknüpfst und danach handelst.
+## MITTEL {farbe=#184d71}
+**SPIRE-WEBEN.** [Göttlich] *Du beschwörst einen Schild aus Spirestein. Markiere W3 Stress, um diesen Zauber zu wirken.* Bei einem Erfolg umgeben dich Mauerwerk, Ziegel und sogar Pflaster und schützen dich vor Schaden; du erhältst Rüstung 4, bis die Situation endet. Solange du diese Rüstung „trägst“, würfelst du bei Verfolgen-Proben mit Meisterschaft, da der Boden selbst dich vorwärtsträgt. Aus naheliegenden Gründen kannst du dich jedoch nicht verstecken oder versuchen, in einer Menschenmenge aufzugehen.
+**HÜLSE BESITZEN.** [Göttlich] *Hülsen sind seltsame und unberechenbare Dinge. Du gehst eine Bindung mit einer ein.* Du hast Zugang zu einem fremdartigen Roboterwesen, das als Hülse bekannt ist, und kannst es mit den richtigen Riten geistig bewohnen. Weitere Einzelheiten findest du im Kasten HÜLSEN.
+## HOCH {farbe=#184d71}
+**UMGEBUNG ERWECKEN.** [Göttlich] *Du wurdest jahrelang von Visionen des „wahren“ Spire geplagt; nun kannst du sie Wirklichkeit werden lassen.* Der Delver lenkt seinen Willen in die Stadt um sich herum und erweckt sie vorübergehend zu ihrer „wahren“ Gestalt. Markiere W6 Stress, um diesen Zauber als Teil eines zehnminütigen Rituals zu wirken, oder W8 Stress, um ihn sofort zu wirken.
+
+<!-- S. 4 (PDF 6) -->
+
+Der Zauberer kann nicht steuern, zu was sich Spire umformt, denn das liegt weitgehend bei der Spielleitung. Die Veränderungen mögen nützlich sein oder auch nicht, aber beeindruckend werden sie gewiss. Bei einem Erfolg kannst du erwarten, dass Wände sich zu schlurfenden Homunkuli aus Schutt auflösen, seltsame Skulpturen erscheinen oder sich neue Wege zu Orten öffnen, die zuvor nicht da waren.
+**HÜLSE HERBEIRUFEN.** [Göttlich] Wie HÜLSE BESITZEN, aber im Austausch dafür, dass du W6 Stress markierst und ein einstündiges Ritual vollziehst, konstruierst du aus der Struktur von Spire die ideale Hülse für deine Zwecke.
+> ## HÜLSEN
+> Hülsen unterscheiden sich in ihrer Bauweise enorm. Die meisten sind kleine Erkundungseinheiten, übersät mit kaum verstandener Sensorik und Abwehrvorrichtungen. Zu diesen Abwehrvorrichtungen können „Tinten“-Düsen gehören, die als Tarnung in der Luft hängen, federbetriebene Beine, um Gefahren zu entspringen, oder galvanisch geladene Exoskelette, die neugierige Hände verbrennen.
+> Hülsen können auch katzen- oder schlangengroß sein (gedacht für Spionage und andere subtile Arbeiten) oder schwerfällige Kolosse, die dafür gebaut sind, herabgestürztes Mauerwerk zu räumen oder mit eingebauten Waffen zu kämpfen.
+> Wenn du die Fähigkeit HÜLSE BESITZEN erhältst, kannst du auf eines dieser seltsamen, einzigartigen Geräte zugreifen. Behandle den Besitz als NSC-Bindung, wenn auch als eine, die verlangt, dass du dein Bewusstsein aus deinem sterblichen Körper in einen Roboter hinauswirfst.
+> Diese Bindung sammelt Stress auf die normale Weise an, doch eine Hülse kann dich nicht bei den Behörden verraten: Aller Stress wird durch Verschleiß an der Maschine dargestellt. Du kannst Stress (oder Fallout) abbauen, indem du die Hülse reparierst, sie mit neuen Materialien verbesserst oder mit ihrem labyrinthischen Geist Zwiesprache hältst.
+
+<!-- S. 5 (PDF 7) -->
+
+5
+# DIE SPIEGELWELT {farbe=#184d71}
+# UND IHRE UNHOLDE {farbe=#184d71}
+*„Nicht alles ist, wie es hinter dem Glas scheint. Warum hat dein Spiegelbild so viele Zähne? Warum sind deine Hände so rot befleckt?“*
+— Verfasser unbekannt, The Refracted Fiend Folio
+## AUSZUG AUS TEMBRARKS {farbe=#981a3f}
+## JOURNALEN BAND IV, BLATT 138. {farbe=#981a3f}
+*Ich hätte es besser wissen müssen, als diese Glasscherbe aufzuheben.*
+*Die erste Lektion, die wir Initianden erteilen, lautet, schlicht zu Beobachten und Aufzuzeichnen, und ich habe sie missachtet. Aber es war, als flüsterte mir etwas zu; ich schwöre, das Glas bebte, als ich es berührte. Ich wickelte es in ein Stück Stoff und packte es weg, ohne mich zu schneiden.*
+*Beim zweiten Stück hatte ich nicht so viel Glück.*
+*Während ich dies schreibe, versteckt in einer eingestürzten Krypta, ohne jede Ahnung, wie ich entkommen soll, frage ich mich: Wie konnte ich nicht sehen, was geschah? Sobald ich mich an der zweiten Scherbe geritzt hatte, begann sie zu zittern wie die erste. Mein Blut glitt auf sie zu, als hätte es einen eigenen Willen, und wurde gierig aufgesogen.*
+*Schon zu Beginn dessen, was ich nun als Dämmerzustand erkenne, wusste ich, dass dies schlimm war – sehr schlimm. Ich versuchte, die Scherbe wegzuschleudern, nur um stattdessen festzustellen, dass ich sie sorgsam in meinen Rucksack gesteckt hatte. Danach ist meine Erinnerung für eine Weile bestenfalls verschwommen. Ich erinnere mich, dass ich das Herz nach weiteren Scherben durchkämmte und instabile Gänge und vergessene Pfade erkundete, die ich bei klarem Verstand niemals gewagt hätte.*
+*Schließlich kam ich in einer staubigen Kapelle zur Besinnung. Ein Spiegel war zusammengesetzt worden und lag vor mir in einer Lache von etwas, von dem ich hoffe, dass es mein eigenes Blut war. Das Flüstern, das ich zuerst gehört hatte, erfüllte nun den Raum und wirbelte mit körperlicher Wucht um mich herum; der Spiegel pulsierte in rotem Licht, während er das Blut langsam aufsog.*
+*Ich sah Gestalten im Spiegel umherwandern und konnte mich nicht davon abhalten, mich ihm zu nähern. Etwas an der Art, wie sie sich bewegten, ließ mich sicher sein, dass sie mir entgegenkamen – dass sie mich kannten! Ich erinnere mich, dass ich sie treffen wollte, mehr als ich je etwas gewollt habe, vorher oder seither.*
+*Ich werde nicht viel von dem niederschreiben, was ich sah, als ich das Glas betrat; ich wage es nicht, irgendwie die Aufmerksamkeit der Albtraumwesen zu erregen, die dort leben. Aber ich will sagen, dass sie uns nichts als Verderben bringen wollen.*
+*Da war ein Meer aus Zähnen und greifenden Klauen und harten, hellen Augen, die meinen begegneten, während die Kreaturen vorrückten. Ich weiß nicht, woher ich den Willen zur Flucht nahm, aber ich floh. Ihr hungriges Wispern folgte mir, als ich durch den Spiegel zurück nach Spire fiel, wo ich instinktiv die Hand nach den Mauern um mich ausstreckte, um sie anzuflehen. Verzweifelt riss ich sie nieder*
+
+<!-- S. 6 (PDF 8) -->
+
+6
+*in den Spiegel, in der Hoffnung, ihn zu Staub zu zermahlen. Ich hörte nicht auf, mich mit meiner Umgebung zu verweben, bis die Kapelle ein massiver Felsblock geworden war, der alles einschloss, was darin war.*
+*Ich bin sicher, dass irgendwo anders jemand gerade im Begriff ist, eine zitternde Glasscherbe zu finden oder vielleicht einen ganzen Spiegel, der in einem vergessenen Raum wartet. Dieser Gedanke ist einer von vielen, die mir jeden Schlaf rauben.*
+**Anmerkung des Chronisten 24-b11:** *Die Menge an Unrat, die Tembrark in seiner Krypta angehäuft hat, ist erstaunlich. Hier ist eine kleine Auswahl der vielen Dinge, die wir stundenlang katalogisiert haben.*
+**Exponat 24-a** Eine kleine Kristallscherbe, offenbar aus einem Magielicht, die aber statt Helligkeit Dunkelheit ausstrahlt.
+**Exponat 12-n** Eine Sammlung verblasster Daguerreotypien, die denselben Drow zeigen, wie er sich langsam der Kamera nähert. Sobald man sie jedoch weglegt, kann man sich nicht mehr an das Gesicht des Drow erinnern. Stattdessen überkommt einen ein überwältigendes Hungergefühl.
+**Exponat 346-x** Eine kleine, versiegelte Bleikiste, die ein sich windendes Insekt aus goldenen Schaltkreisen und Kristallen barg. Es schien beim Bewegen in die Wirklichkeit hinein- und wieder aus ihr herauszugleiten. Leider sprang es, als die Kiste geöffnet wurde, sofort in den Mund des unglücklichen Adepten Negil. Wir halten ihn unter Beobachtung.
+**Exponat 67-v** Ein kleiner, pechschwarzer Würfel aus einer unbestimmten Substanz mit einem einfachen Knopf auf der Oberseite. Keiner von uns war sonderlich erpicht darauf, ihn zu drücken, denn die Kiste flüstert und fleht uns an, es zu tun.
+**Exponat 87-g** Ein schmutziges Stück Pergament mit einer unmöglich detaillierten Zeichnung von Spire. Teile davon scheinen sich zu verändern, wenn niemand hinsieht.
+**Exponat 40-b** Eine einzelne Glasscherbe, die an der Luft dampft, sich aber eiskalt anfühlt.
+**Exponat 29-h** Ein Satz von zehn Fingerringen, verbunden durch feine, schimmernde Drähte und mit winzigen arkanen Symbolen graviert. Wer sie trägt, bezeugt das Gefühl, etwas von gewaltiger Masse zu bewegen oder zu steuern, hat aber keine Ahnung, was oder wo es ist. Wir fürchten, dies ist nur ein Teil eines größeren Ganzen.
+**Exponat 73-k** Zehn Fläschchen Blut. Alle stammen aus der Zeit, in der Tembrark vermisst wurde, und sind als seines gekennzeichnet. Manches Blut bewegt sich mit einem Eigenleben und reagiert auf Licht und Lärm wie ein einfaches Tier, etwa ein Schmutzwurm oder ein Kleinmaulwurf.
+### HABT IHR EUCH JE GEFRAGT, {farbe=#231f20}
+### WAS DIE SPINNEN, DIE NACHTS {farbe=#231f20}
+### IN EUREN MUND KRIECHEN, WIRKLICH {farbe=#231f20}
+### DENKEN, WÄHREND SIE IHRE {farbe=#231f20}
+### VERBORGENEN NETZE SPINNEN? DANN {farbe=#231f20}
+### SOLLTET IHR DAS SPINNEN-MELD-ÖL {farbe=#231f20}
+### WEGWERFEN, DAS IHR GESTERN {farbe=#231f20}
+### GEKAUFT HABT. WIR BEOBACHTEN {farbe=#231f20}
+### EUCH. {farbe=#231f20}
+
+<!-- S. 7 (PDF 9) -->
+
+7
+**Anmerkung des Chronisten 34-n6:** *Der folgende Eintrag beunruhigt mich ziemlich. „Das Ding, das jenseits der kältesten Flammen wartet“ (seine Bezeichnung, nicht meine) treibt Tembrark zu seinen schlimmsten Tiraden. Wenn man ihn befragt, wird er von dem Gedanken besessen, dass dieses boshafte Wesen ihm unablässig näher kommt. Ich werde mein Bestes tun, seine Journaleinträge und meine eigenen Aufzeichnungen zu einem vollständigeren Bericht zusammenzustellen.*
+## AUSZUG AUS TEMBRARKS {farbe=#981a3f}
+## JOURNALEN BAND III, BLATT 24. {farbe=#981a3f}
+*Ich weiß nicht, wie lange ich vor jenem verfluchten Türrahmen kniete. Meine Arme hingen schlaff an meinen Seiten, und mein Mund stand offen, während ich über die Schwelle hinausstarrte. Erst nachdem der Khaat Renfrik mich weggezogen hatte, begann ich mich daran zu erinnern, wie ich mich dem Portal genähert und eine tödliche Besessenheit entwickelt hatte.*
+*Ich hatte die Tür, eingelassen in ihr eigenes kleines Vestibül, bei früheren Vorstößen gesehen und mir notiert. Irgendetwas an ihr zog meine Aufmerksamkeit an, wie ein Leuchtfeuer auf meiner psychischen Karte des Herzens – oder genauer: wie ein dunklerer Streifen im Wasser, der das Ende des sicheren Flachwassers anzeigt. Was dort lag, war kalt und unbekannt.*
+*Doch jedes Mal, wenn ich versuchte, mich darauf zu konzentrieren, huschten meine Gedanken davon, als sei die Tür nicht bereit für mich. Ich vermute nun, dass ich es war, der nicht bereit war. Oder sollte ich sagen: Ich war nicht reif? Ich vergaß sie, so sehr ich mich auch zu erinnern bemühte. Aber ich ertappte mich trotzdem oft dabei, wie ich die Tür anstarrte, ohne jede Erinnerung daran, wie ich dorthin gelangt war.*
+*Die Nische war übersät mit verrottenden Rucksäcken, Ausrüstung und ziemlich vielen verwesenden Leichen. Normalerweise wäre das Warnung genug gewesen, meiner Wege zu gehen, aber irgendwie lösten sie keine Besorgnis aus. Ich wusste natürlich, dass sie da waren, aber sie erweckten keinerlei Furcht oder Vorsicht.*
+*Als ich vor der Tür stand, hörte ich ein beharrliches Wispern. Es war, als übten viele trockene Zungen, meinen Namen auf tausendundtausend Arten auszusprechen, ohne es je ganz zu schaffen. Mit der Zeit konnte ich diese kratzenden Stimmen im Luftzug wahrnehmen, selbst wenn die Tür und ich weit voneinander entfernt waren. Das geschah immer häufiger, bis ich mich eines Tages schließlich auf der Schwelle wiederfand.*
+*Das Flüstern donnerte in meinen Ohren. Selbst jetzt, aus der vergleichsweisen Sicherheit meines Kapellen-Refugiums und unter dem Schutz der Banne des Khaats, wage ich nicht niederzuschreiben, was das Wesen jenseits der Tür sagte. Worte haben Macht, besonders solche, die so hungrig sind.*
+*Ich starrte einen scheinbar harmlosen Gang hinab. Zuerst sah ich nichts, doch dann war das Ding da, und ich wusste, dass es immer schon da gewesen war – möglicherweise bevor dieser Gang gebaut wurde, vielleicht sogar bevor Spire selbst existierte. Ich konnte keine klaren Züge ausmachen. Es war, als blicke man durch Rauchglas oder einen Wasservorhang. In einem Moment war es am fernen Ende; im nächsten stand es an der unsichtbaren Schranke des Türrahmens und drängte durchzubrechen. Manchmal war es an beiden Orten zugleich.*
+*Ich sank inmitten von Knochen und Verwesung auf die Knie und wollte nichts mehr, als seinem Flüstern zu lauschen, für es da zu sein, ihm zu helfen, wie ich nur konnte. Ich erinnere mich an wenig mehr, bis der Khaat mich weckte. Ich bin sicher, ich hätte dort verzückt gesessen, während mein Leben diesen Gang hinabrann und das Ding einen Schritt näher an die Freiheit brachte.*
+*Aber ich erwachte. Ich erinnere mich an den schweren Geruch nach Gewürz und süßen Atem, noch ehe ich die Augen öffnete. Dann hörte ich eine Stimme sagen, mit beißender Gereiztheit: „Keine Zeit zum Dösen, Tembrark. Wir haben jede Menge Arbeit für dich. Hoch mit dir.“*
+*Ich blickte nach unten und starrte in die sieben dunklen, glänzenden Augen von etwas, das einer der sagenumwobenen Khaats sein musste. Selbst wir Delver haben außer der bloßen Tatsache ihrer Existenz nur die spärlichsten Gerüchte über sie gehört.*
+*Der Khaat wandte den Blick von der Stelle ab, an der er zwei Katzenpfoten gegen meine Brust gestemmt hatte, und drehte sich zur Türöffnung und dem Ding, das dort wartete. Wieder hallte seine Stimme durch meinen Geist: „Verzeih, Tembrark. Ich muss etwas an seine Stelle setzen.“*
+*Die Luft um den Khaat knisterte, als er auf die Tür zuschritt. Die Knochen um mich begannen zu klappern und dann zu schweben, die Luft lebendig von unvorstellbarer, brodelnder Zauberei. Ich fiel erneut in Bewusstlosigkeit, und ich muss gestehen, dass ich dafür dankbar bin: Ich fürchte, mein Gehirn hätte es nicht ertragen,*
+### GEISTERSCHREIBER ZU VERMIETEN! {farbe=#231f20}
+### UMFANGREICHE REFERENZEN IM {farbe=#231f20}
+### ABSCHREIBEN VON GEISTERHAFTEN {farbe=#231f20}
+### EDIKTEN VON SCHATTEN. ZAHLUNG {farbe=#231f20}
+### NUR IN FLÜSSIGEN MITTELN. {farbe=#231f20}
+
+<!-- S. 8 (PDF 10) -->
+
+*die Majestät der Künste mitanzusehen, die an dem Ding jenseits der Türöffnung gewirkt wurden.*
+*Als ich zu mir kam, wirkte der Gang hinter der Tür matter. Ein undurchsichtiges Schimmern erfüllte ihn, und ich konnte das Wesen darin nicht mehr flüstern hören. Der Khaat blickte auf von dem Ort, an dem er sich mit einer rosa gespaltenen Zunge geputzt hatte.*
+*„Komm jetzt. Es ist Zeit, diesen Ort zu verlassen. Wir haben viel zu besprechen, du und ich.“*
+## HABT IHR EINEN HUNGER? WECKT {farbe=#231f20}
+## EUCH DER GESCHMACK VON EISEN {farbe=#231f20}
+## NACHTS AUF? FINDET IHR, DASS EURE {farbe=#231f20}
+## HAUT EINE UNNÖTIGE LAST IST? NUN, {farbe=#231f20}
+## WIR HABEN EIN ANGEBOT FÜR EUCH! {farbe=#231f20}
+## TRIFFT GLEICHGESINNTE UNTER DER {farbe=#231f20}
+## AAS-EICHE, WENN DIE VORBOTEN- {farbe=#231f20}
+## MOTTEN IM FLUG SIND. {farbe=#231f20}
+
+<!-- S. 9 (PDF 11) -->
+
+9
+# DAS DING, DAS WARTET {farbe=#184d71}
+# JENSEITS DER KÄLTESTEN {farbe=#184d71}
+# FLAMMEN {farbe=#184d71}
+Das Ding, das wartet, hat viele Namen und erscheint jeder Rasse in anderer Gestalt, doch eine Tatsache bleibt gleich: Es will nach Spire kommen. Die wenigen, die seinem flüsternden Bann entkommen sind, sprechen von etwas unsagbar Altem und Hungrigem, das unermüdlich jenen unheimlichen Gang entlangwandert.
+Das Ding, das wartet, ruft Wesen an seine Türschwelle, verzaubert sie mit seinem Flüstern und saugt ihnen das Leben aus. So wird es stärker und zieht sich näher an unsere Wirklichkeit heran. Die Tür wurde geschlossen, versperrt, zerstört, aus der Wirklichkeit verbannt und mit Dämonenhilfe zur Absolution gequält, doch sie kehrt immer wieder – und Das Ding, das wartet, kommt mit ihr.
+## DAS KONKLAVE DER KHAATS {farbe=#981a3f}
+*„Den Geist eines Khaats zu kennen heißt, den Fluss der Sphären in der hohlen Hand halten zu wollen. Es ist besser, den Khaat dich kennen zu lassen und in diesem Erkennen ein Spiegelbild finden zu lassen.“*
+— Cartiphas Blail, dritter Epistarch des Vermissian-Zirkels
+Die siebenäugigen Khaats kommen von Anderswo. Sie sind verschwiegen und seltsam und tauchen nur an den tiefen, dunklen Orten von Spire auf.
+Sie haben ihre eigenen Zaubereien und Pläne und auch ihre eigene Kultur. Jeder von ihnen trägt ein Abzeichen um den Hals, doch sie verraten Außenstehenden nie dessen Bedeutung. Sie erscheinen in Schattenflecken, die jahrhundertelang unberührt lagen, auf der Suche nach verzweifelten Sterblichen, die in ihrem Auftrag handeln.
+Im Austausch für seltsame Gefallen – als Rasse, die außerhalb von linearer Zeit und Raum lebt, sind alle Bitten der Khaats zumindest sonderbar – erhalten diese Handlanger psychische Gaben von ihren katzenhaften Herren, ob sie sie wollen oder nicht.
+## AUSZUG AUS TEMBRARKS {farbe=#981a3f}
+## JOURNALEN BAND V, {farbe=#981a3f}
+## BLATT 245. {farbe=#981a3f}
+*Ich hatte nur spärliche Geschichten über die Staubwächter gehört und ihre mürrischen Gestalten nur gelegentlich auf den Straßen von Spire gesehen. Die Ironie ihres Verhältnisses zum Tod und dass ich einem von ihnen begegnete, während ich meinem eigenen Ende ins Auge starrte, entgeht mir nicht.*
+Es geschah, nachdem ich aus einem meiner Dämmerzustände erwacht war, die seit meiner Begegnung mit Dem Ding, das hinter den kältesten Flammen wartet, immer häufiger geworden waren.
+**(Anmerkung des Chronisten: Siehe Band III, Blatt 24 von Tembrarks Journalen.)**
+*Ich erinnere mich, dass ich dumpf auf meine Hände starrte, die mit getrocknetem Blut verkrustet waren. Meine Fingerspitzen waren wund und die Nägel abgebrochen, als hätte ich sie an einer rauen Fläche entlanggeschleift: aber warum? Ich weiß nicht, wie lange ich dort gesessen hatte wie ein sonnentrunkener Korvide, doch das Geräusch rutschender Steine und ein leises, klagendes Totenlied rissen mich aus meiner Versunkenheit.*
+
+<!-- S. 10 (PDF 12) -->
+
+## 10 {farbe=#231f20}
+*Eine Unmöglichkeit quoll aus einer Lücke im nahen Mauerwerk. Zuerst sah ich nur eine Masse Fleisch, die sich durch den Türrahmen schlängelte und weiteres bröckelndes Mauerwerk lockerte.*
+*Als sie sich in das flackernde Funkenlicht des Ganges bewegte, konnte ich mehr von ihrer abscheulichen Gestalt erkennen. Ich sprang unwillkürlich zurück und zog damit ihre Aufmerksamkeit auf mich; und als sie sich in meine Richtung drehte, sah ich, dass es die sich windende, schlängelnde, abgezogene Haut eines männlichen Drow war.*
+*Sie bewegte sich, als besäße sie eine unheilvolle Intelligenz, doch durch ihren schlaffen Mund sah ich, dass sie hohl war. Ihre Gliedmaßen streckten sich grotesk, während sie nach allem griffen, woran sie sich vorwärtsziehen konnten, und die Haut flappte beim Bewegen den Gang entlang.*
+*Als ich mit zitternden Händen meine Dohlenpistole zu ziehen versuchte, erstarrte ich beim Anblick einer zweiten Hautkreatur, die durch die Tür kam. Der Neuankömmling schnupperte in die Luft, sein Mund hing grauenvoll herab. Er pfiff seiner Sippe einen tiefen Ton zu und stürmte in den Gang, ihre Stimmen verschmolzen zu einem hungrigen Heulen, als sie auf mich zustürzten. In diesem Augenblick gab sich die Staubwächterin zu erkennen.*
+*Die Wächterin ging an mir vorbei, kaum eine Handbreit entfernt. Sie sah aus wie ein kleines Mädchen, bleich und grau, eine Aura aus Alter und Staub über Haut und altmodischer Kleidung. Trotzdem bewegte sie sich mit der ungekünstelten Anmut eines Kindes.*
+*Sie drückte beiläufig den Lauf meiner Pistole nach unten, bevor sie sich zwischen mich und die albtraumhaften Hautkreaturen stellte, die nass flatternd den Gang entlangkamen. Ich bin kein Krieger – ich bin ein Gelehrter, ein Forscher –, aber im Laufe der Jahre hat mein Forschungsgegenstand verlangt, dass ich gewisse kriegerische Vorkehrungen treffe. Ich schäme mich, dass ich ein scheinbar wehrloses Kind geradewegs auf jene geistverwirrenden Schrecken zugehen ließ.*
+*Ihre ruhige Haltung schien sie einen Moment lang zögern zu lassen. Doch dann sammelten sie sich, kreischend, und stürzten auf sie zu. Ich setzte mich in Bewegung, wenn auch ohne Plan – ich dachte nur, ich müsse etwas tun, bevor dieses Kind Glied für Glied zerrissen wurde. Bevor ich irgendwohin kam, änderte sie ihre Haltung, und mir sträubten sich die Nackenhaare. Ein Schauer lief durch mich hindurch. Sie war plötzlich etwas anderes geworden: ein angespanntes Raubtier, das zum Sprung bereit ist.*
+*Sie bewegte sich, noch ehe die Schrecken sie umschwärmen konnten, tanzte der Schwerkraft zum Trotz die Seite der bröckelnden Wand hinauf und zog mit der Gelassenheit einer erfahrenen Kämpferin eine kunstvolle Unheilfeuer-Pistole. Sie schoss direkt in den klaffenden Schlund des ersten Schreckens, die Waffe knisterte vor Schießpulver und Zauberei. Sein flatternder Körper wurde in fleischige Brocken zerfetzt, die sich beim Fallen durch die Luft auflösten. Ohne einen zweiten Blick landete sie mit tödlicher Gelassenheit hinter der anderen Kreatur, der Lauf ihrer Waffe hell glühend und zischend in der plötzlich hereinbrechenden Stille.*
+*Die zweite Kreatur wirbelte zu ihr herum, spreizte sich zu ihrer vollen Höhe auf und verzerrte dabei grauenvoll die Züge ihres einstigen Bewohners. Die Wächterin ließ ihren noch glühenden Revolver mit einem dumpfen Schlag fallen, schloss die Augen und hob eine Hand vor sich.*
+*Wieder gab es jenen unbeschreiblichen Wandel, den ich schon erlebt hatte, doch diesmal veränderte sich ihre Haltung von angespannter Gewalt zu ruhig ausstrahlender Macht.*
+*Sie begann, komplexe, knisternde arkane Muster in die Luft zu zeichnen, die Nachbilder ihrer Hände verschwammen zu einer geisterhaften Vielzahl von Gesten. Spuren kalten Lichts schossen aus ihren Fingern und den Mustern, die sie zeichnete, und verdichteten sich zu einem schimmernden Käfig um die Kreatur. Die Wächterin vollführte eine letzte Bewegung, und der Käfig begann sich zu drehen, schneller und schneller, funkelnd und zischend vor arkanen Energien. Er zog sich zu einem einzigen leuchtenden Punkt zusammen und verschwand – und nahm den sich windenden Schrecken mit sich.*
+*Wieder schloss die Wächterin die Augen und atmete aus, als lege sie eine Last ab. Als sie sie öffnete, war sie schlicht wieder ein Kind. Sie deutete auf die Schatten hinter mir, während ich mit offenem Mund dastand, wie angewurzelt. Eine*
+
+<!-- S. 11 (PDF 13) -->
+
+## 11 {farbe=#231f20}
+*vertraute katzenhafte Stimme schlich sich in meinen Geist, als der Khaat aus der Dunkelheit trat.*
+*„Na na, Tembrark“, sagte er. „Du kannst noch nicht sterben. Wir haben noch so viel zu besprechen.“*
+**Anmerkung zum Text von Varleis Embryn, dem derzeitigen Chronisten der Katakos-Savants:**
+*Der Bericht bricht hier ärgerlicherweise ab. Keine noch so gründliche Gegenprüfung kann enthüllen, was genau sie besprachen. Tembrark selbst verfällt bei Nachfragen schlicht in Schweigen. Wird er bedrängt, wird er wochenlang katatonisch. Es ist, als täte er es uns zum Trotz; oder vielleicht versucht er, sich zu schützen. So oder so ist es zum Verrücktwerden.*
+*Dieser Khaat könnte dieselbe Kreatur sein wie die aus Tembrarks Erfahrung mit Dem Ding, das hinter den kältesten Flammen wartet, aber ohne weitere Quellen ist das bloße Spekulation. Und wer sagt überhaupt, dass es mehr als einen Khaat gibt? Vielleicht sind sie alle dasselbe Wesen, verstreut durch Raum und Zeit, und spielen mit uns, wie eine Katze mit einer Maus spielt.*
+
+<!-- S. 12 (PDF 14) -->
+
+## 12 {farbe=#231f20}
+# EXTRA-FORTSCHRITT - {farbe=#184d71}
+# DER STAUBWÄCHTER {farbe=#184d71}
+Die Staubwächter sind Zweimalgeborene; bleiche, geisterhafte Drow, die sich willentlich mit den Geistern der Toten verbunden haben. Sie nehmen verlorene Seelen in ihre Körper auf und verschmelzen deren Erinnerungen und Fähigkeiten zu einem neuen Verständnis, das in einer einzigen körperlichen Form geteilt wird.
+> ## DIE ERSCHAFFUNG EINES STAUB-
+> ## WÄCHTERS
+> Ein Staubwächter wird mit Ritual und Zauberei am Brunnen der Wiedergeburt erschaffen. Der Leichnam des Verstorbenen wird in zauberbeschriebenes Totentuch gehüllt und in den Brunnen gelassen, während der amtierende Abt der Wächter dem Gesang der Gewundenen Pfade und der Öffnung der Türen vorsteht.
+> Was danach geschieht, hat nie jemand außerhalb der Sekte gesehen, wurde aber in den Worten von Abt Benjin Vrelik festgehalten:
+> „...und aus dem Brunnen der Wiedergeburt sah ich ein überaus heiliges Wesen steigen. Zuerst hatte es keinerlei Ähnlichkeit mit dem Mann, den wir in die Tiefe geschickt hatten: Es war nur wandelndes, leuchtendes Fleisch, das zugleich da und nicht da zu sein schien. Als es den Hof durchquerte, stotternd in die Wirklichkeit hinein und wieder aus ihr heraus, begann es die Gestalt des Toten anzunehmen – als erinnere die Luft von Spire es daran, wer es gewesen war. Als es sich dem knienden Bittsteller der Erhebung näherte, hielt es inne; dann zog es den Bittsteller auf die Füße, küsste ihn fest auf den Mund und schien in seinen Körper zu zerfließen...“
+> Diese Verbindung verleiht den Wächtern ihre seltsame Aura. Sie scheint ein von ihnen ausgehendes Energiefeld zu sein, keine tatsächliche Verwandlung ihres Körpers oder Besitzes: Jeder Gegenstand, den sie tragen, erhält diese Wirkung, kehrt aber in seinen ursprünglichen Zustand zurück, sobald er abgelegt wird.
+> Höherrangige Wächter können die Erlaubnis erhalten, sich mit mehreren Seelen zu verbinden und nach Belieben durch deren Erinnerungen und Fähigkeiten zu strömen.
+
+<!-- S. 13 (PDF 15) -->
+
+**VORAUSSETZUNG:** Nimm am Brunnen der Wiedergeburt, tief im Herzen gelegen, eine verlorene Seele in deinen Körper auf.
+**AUFFRISCHEN:** Erlange ein größeres Verständnis mit der Seele, die deinen Körper teilt.
+## MITTEL {farbe=#184d71}
+**SEELE BINDEN.** *Du bindest eine verlorene Seele an die deine.* Wenn du diesen Fortschritt nimmst, lege zwei Fertigkeiten, drei Domänen und einen Kniff fest, die der Geist besitzt. Markiere W3 Stress auf Verstand, um deine eigenen Fertigkeiten, Domänen und Kniffe für den Rest der Situation durch die des Geistes zu ersetzen.
+Die Seele hat auch eigene Beweggründe, Eigenheiten und eine eigene Persönlichkeit, die sie zeigt, solange du auf ihre Fertigkeiten zugreifst, und die deinen Körper überlagert. Es sei jedoch betont, dass ihr dieselbe Absicht teilt. Dies ist kein besitzergreifender Geist, der dich auf wilde Abenteuer schickt: Ihr seid Verbündete.
+Du kannst diesen Fortschritt mehrfach nehmen und deinem Körper nach Belieben Seelen hinzufügen.
+
+<!-- S. 14 (PDF 16) -->
+
+## 14 {farbe=#231f20}
+# HAUTSÄNGER {farbe=#184d71}
+Selbst der gefährlichste Bewohner von Spire murmelt furchtsam über die Hautsänger und ihre Machenschaften. Niemand weiß sicher, ob diese Hexenwirker ein Kult mit einem grauenhaften Ziel sind oder einzelne Ausübende der dunkelsten Künste. Der Hautsänger lockt und fängt seine Beute mit einem Lied arkaner Macht und belebt dann die Haut seines Opfers mit einem Eigenleben. Der Hautsänger kann diese gleitende Hülle dann rufen, damit sie seinen Willen ausführt, während der unglückliche Körper verzaubert und enthäutet daliegt. Die meisten Hautsänger rufen ihre Knechte nur nachts, wenn die Opfer zu Hause sind, und verstecken die erstarrten, rohen Körper, bis die Hülle zurückkehrt, um ruhend zu liegen, ihr Zweck erfüllt.
+## EXTRA-FORTSCHRITT - MAID DER {farbe=#981a3f}
+## MUTTER DER SCHATTEN {farbe=#981a3f}
+Die Mutter der Schatten existiert so lange wie die Schatten selbst; oder zumindest wird das in den verstohlenen Kreisen tief in Spire geflüstert. Was genau sie ist, ist im Unterspire Gegenstand von Mythen und Legenden, doch bekannt ist die Natur ihrer Schülerinnen: der Maiden. Hohläugig und grimmig steigen sie aus den Schatten, um ihren Willen auszuführen und unergründlichen Plänen zu folgen. Die dunkle Kommunion, die die Maiden an ihre Mutter bindet, höhlt sie vollständig aus: Blut, Eingeweide, Knochen, Gehirn, alles fort. Die körperliche Hülle der Maid wird dann mit einem Teil der Schattengestalt der Mutter gefüllt. Sie sind eine Verlängerung von ihr, mit Macht beschenkt für ihre Hingabe.
+
+<!-- S. 15 (PDF 17) -->
+
+Keine setzt sich zum Ziel, eine Maid zu werden: Es ist eine Strafe für jene, die zu tief in das multifraktale Netz aus Bündnissen, Geheimnissen und Lügen graben, das die Stadt aufrechterhält. Je tiefer diese Spionagemeister graben, desto überzeugter werden sie von einer gewaltigen, unmöglichen Verschwörung: einem Geheimnis hinter allen Geheimnissen. Sie erweisen sich auf die schrecklichste Weise als im Recht, was zu ihrer Aufnahme in die schattigen Reihen der Maiden führt.
+Angesichts der Besessenheit des Ministeriums von Geheimhaltung gibt es unter seinen Mitgliedern (oft in hohen Positionen) mehrere Maiden, die der letzten Wahrheit der Mutter erlegen sind. Sie versuchen, die wahre Natur ihres Wesens so lange wie möglich zu verbergen, und sind darin sehr gut.
+**VORAUSSETZUNG:** Unterziehe dich der schrecklichen Kommunion der Mutter der Schatten und werde an ihren arkanen Plan gebunden.
+**AUFFRISCHEN:** Erfülle den bösartigen und widerlichen Willen deiner Mutter.
+## MITTEL {farbe=#184d71}
+**IM SCHATTEN IHRER SCHWINGEN.** [Göttlich] *Du springst zwischen Schatten.* Markiere W3 Stress auf Blut, um in einen Schattenfleck zu treten und aus jedem anderen Schatten, den du sehen kannst, wieder hervorzukommen.
+**DIE DUNKELHEIT WIRD IHREN WILLEN BEKOMMEN.** [Göttlich] *Die Mutter beschützt ihre Kinder.* Das erste Mal, dass du in einer Situation leichten oder mittleren Blut-Fallout erleidest, beschwörst du dunkle Ranken zu deiner Verteidigung. Du erhältst sofort 3 Rüstung. Alle deine Waffen erhalten bis zum Ende der Situation das Merkmal Brutal.
+**UND DUNKEL VERBUNDEN STANDEN SIE.** [Göttlich] *Dein Blut und deine Knochen sind Schattenstoff.* Einmal pro Sitzung: Markiere W3 Stress auf Verstand, um ein Blut-Fallout-Ergebnis deiner Wahl zu entfernen, indem du Schatten beschwörst, die deinen Körper flicken. Jedes Mal, wenn du diesen Ritus vollziehst, verändert sich dein Körper dauerhaft auf eine Weise, die deine Albtraumgestalt widerspiegelt: pechschwarze Augen, Stacheln an den Unterarmen, eine lange gespaltene Zunge usw. Diese sind rein kosmetisch und haben keine mechanischen Vor- oder Nachteile, können aber normaler gesellschaftlicher Interaktion im Weg stehen.
+## HOCH {farbe=#184d71}
+**DAS KIND DER MUTTER IST ZUR HAND.** [Göttlich] *Du bist das, woraus Albträume gemacht sind.* Du führst eine Gemeinde mehrerer anderer Maiden an und vollziehst ein schreckliches Ritual, das euch in einem sich windenden Gewirr aus Gliedmaßen, Fleisch, Schatten und Furcht zusammenbindet. In dieser Gestalt könnt ihr euch nicht in der realen Welt bewegen, aber ihr könnt die Träume anderer infizieren. Ihr breitet euch wie ein Virus von Schläfer zu Schläfer aus, bis ihr das träumende Spire in Besitz nehmt. Dort seid ihr die linke Hand der Mutter, ein Agent des Grauens und der Schatten. Die Stadt wird nur von eurem schrecklichen Griff befreit werden, indem das schlummernde Ungeheuer zerstört wird, das ihr aus euch selbst gemacht habt.
+
+<!-- S. 16 (PDF 18) -->
+
+## 16 {farbe=#231f20}
+# DIE AAS-EICHE {farbe=#184d71}
+# DER ZWEIHEIT {farbe=#184d71}
+## AN EINER PILGERWEG-STRASSENECKE {farbe=#981a3f}
+## VON EINER SCHÖNEN JUNGEN DROW, {farbe=#981a3f}
+## BEHÄNGT MIT TEUREM SCHMUCK, {farbe=#981a3f}
+## GEBRÜLLT GEHÖRT: {farbe=#981a3f}
+*„Heil, das Kommen der Aas-Eiche! Heil dem Heiligen und Höchsten! Prachtvoll und verächtlich, vollkommen in deiner Unvollkommenheit! Bei Sonnenaufgang erblühst du auf den duftenden Dächern von Amaranth; bei Sonnenuntergang eiterst du in einer Grube in Derelictus. Wie herrlich und elend du bist! Wir flehen dich an, fruchtbarster und fauligster, gewähre uns unsere Wünsche in dieser unserer Stunde tiefster Not. Wir werden deine Befehle ausführen, o große Eiche! Deine Gunstbezeugungen, ob bösartig oder gnädig, werden wir mit unseren treuesten Händen vollziehen, denn DIE GROSSE EICHE SORGT VOR.*
+*Die Aas-Eiche! Kein größerer Meister, kein höherer Gott! Ding und Nicht-Ding, Schöpfer und Zerstörer! Erfüller von Wünschen und Mörder von Königen! Wir sind nur Werkzeuge in ihrem göttlichen Plan, flackernde Kerzen inmitten des TOSENDEN FLAMMENMEERS ihrer Mittel und Absichten!“*
+**Anmerkung des Chronisten 84-x7:** *Wir fanden Hunderte dieser seltsamen Botschaften und Vorhersagen auf Papierfetzen, auf Buchrücken und sogar auf Tembrarks eigenem Körper. Sie beziehen sich auf jede wichtige Religion von Spire, scheinen aber keinem Muster zu folgen. Für wen wurden sie geschrieben? Hatte Tembrark sie Leuten überbracht? Hier ist eine Auswahl aus einem Satz, den er auf einem abgegriffenen Flugblatt eingekreist hatte:*
+### DIE VYSKANT SIND DIE ZUKUNFT. {farbe=#231f20}
+### WÄHLT EUREN NÄCHSTEN {farbe=#231f20}
+### VYSKANT-GASTGEBER BEI ALLEN {farbe=#231f20}
+### WAHLEN. DIESE BOTSCHAFT WURDE {farbe=#231f20}
+### BEREITGESTELLT VON DER VYSKANT- {farbe=#231f20}
+### BEHÖRDE, FRÜHER BEKANNT ALS {farbe=#231f20}
+### DER RAT FÜR VYSKANT- {farbe=#231f20}
+### WIDERLEGUNG UND {farbe=#231f20}
+### EINDÄMMUNG {farbe=#231f20}
+
+<!-- S. 17 (PDF 19) -->
+
+Du, der du zwischen den Schatten wandelst und das Lied hörst, das nie war
+MAGST DU TIERBAUE? DUNKLE, MUFFIGE ORTE, DIE VOR… INNEREM POTENZIAL WIMMELN? NUN, DIESE ORTE MÖGEN DICH AUCH! WAGE ETWAS… HOHLES.
+Geliebte der Jägerin-Mutter
+OH, DIE IRONIE! ENTSCHULDIGUNG, ICH LACHE NICHT. ES IST NUR, DASS DAS ERWACHTE AAS-KIND, NUN JA, AUS UNENDLICH HUNGERNDEN HÖRNERN BESTEHT, UND ES STEHT HINTER DIR.
+Du, der du den Ruf der Tiefe verschmäht hast und die Leere nicht suchst
+JA, DIE STERNE SPRECHEN TATSÄCHLICH ZU DIR. SIE FLÜSTERN, WAS DU TUN MUSST, WELCHE TREPPEN DU HINABSTEIGEN MUSST, UNTER WELCHE SCHWARZEN WASSER DU SINKEN MUSST.
+Die hungernde Dunkelheit, die in dir wächst
+DU HAST ES SO WEIT GESCHAFFT. GLÜCKWUNSCH! DEINE ZUKUNFT IST ERFÜLLT VON… VON… OH JE… NUN, SIE IST DEFINITIV KEINE ENDLOSE SPIRALE AUS KNIRSCHENDEN ZÄHNEN. GANZ BESTIMMT NICHT DAS.
+Du, der du das karmesinrote Verlangen hast
+ICH GLAUBE, DU WEISST SCHON, WAS ICH SAGEN WERDE. ES STEHT IN DEINEN GEPLAGTEN AUGEN, IM STOCKEN DEINES ATEMS. ES IST OKAY. WAS KOMMT, HÄTTE NIE VERMIEDEN WERDEN KÖNNEN. SCHLIESS EINFACH DIE AUGEN.
+Du, der du im Schweigen hinter dem Schleier wächst
+ÖFFNE DIE TÜR. DU WEISST, WELCHE. DU HAST SIE IMMER GEKANNT. ES IST DIE TÜR, DIE TÜR, DIE DEN HUNGER IN IHREM INNERN KENNT. ÖFFNE SIE.
+Kind der Sterne, Kind der Omen
+DAS… SIEHT NICHT GUT AUS. HMM. SIEH MAL, DAS PROBLEM IST, OH, WIE SOLL ICH ES SAGEN? NUN, DU WÄRST WOHL KEIN FAN VON ENDLOSEM KUMMER, ODER ETWA DOCH?
+Wandler des wilden Pfades
+OH, VERBLENDETE WILDE WEGE! NEIN, ICH WEINE NICHT, WÄHREND ICH IN DEINE ZUKUNFT BLICKE. NEIN, ICH BIN NICHT ZUSAMMENGEZUCKT, ALS ICH DEINE HAND NAHM. OH, DU ARMER, ARMER WANDLER.
+Blutfreund der atmenden Schatten
+BLUTFREUND, DU BIST UNTERNEHMUNGSLUSTIG UND MUTIG, ODER? DICH WÜRDE DOCH NICHT ABSCHRECKEN, WAS EINE ALTE AAS-EICHE NACHTS IN DEIN SCHLÜSSELLOCH FLÜSTERT, ODER?
+Greisin des Blutes und der Knochen
+OH GREISIN! WANDLE HINAUS UNTER DAS REINE LICHT DER JÄGERIN MOTHER MOON. LAUSCHE IHREN ANWEISUNGEN. DU WEISST, WAS GETAN WERDEN MUSS. VIEL GLÜCK.
+Du, der du Warnungen nicht beachtet hast und suchst, was du nicht kennst
+OH SUCHER, DU PIONIER IM GEISTE! IMMER VORANPRESCHEND IN TIEFE, DUNKLE, VERBOTENE ORTE. VERLORENE WILDE TÜREN ÖFFNEND. OH! SUCHER? LAUF?!
+Kind der Unmöglichkeit
+UNMÖGLICHES KIND, HÜTE DICH VOR SPIEGELN… UND KRÄHEN, UND BÄUMEN, UND SCHATTEN, UND ZÄHNEN, UND GLÜHWÜRMCHEN, UND GEBÄCK, UND DIVANEN, UND DEM HIMMEL.
+## DIE VYSKANT EXISTIEREN NICHT. IHR {farbe=#231f20}
+## SOLLTET EUCH KEINE SORGEN UM DIE {farbe=#231f20}
+## VYSKANT MACHEN. DIE VYSKANT SIND {farbe=#231f20}
+## UNTER KONTROLLE. DIESE BOTSCHAFT {farbe=#231f20}
+## WURDE BEREITGESTELLT VOM RAT FÜR {farbe=#231f20}
+## VYSKANT-WIDERLEGUNG UND {farbe=#231f20}
+## EINDÄMMUNG {farbe=#231f20}
+
+<!-- S. 18 (PDF 20) -->
+
+## 18 {farbe=#231f20}
+# ANMERKUNG DES CHRONISTEN: {farbe=#184d71}
+# LETZTER EINTRAG {farbe=#184d71}
+*Ich wünschte, ich hätte die Aufgabe, Escatoph Tembrark zu befragen, nie übernommen. Kein Wissen, das er uns bieten mag, ist dies wert. Ich weiß, dass das Ketzerei ist, aber es ist auch meine aufrichtige Überzeugung. Da dies mein letzter Eintrag ist, sowohl als Chronist als auch als Delver, lasse ich die Aufzeichnung so stehen.*
+*Ich sichtete gerade eine Sammlung von Gegenständen aus Tembrarks Krypta, als ich auf eine abgewetzte Lederkladde stieß. Darin fand ich eine kunstvolle Papierschnittmaske, völlig bedeckt mit Katakos-Glyphen. Ich las törichterweise die Glyphe auf der Stirn, ohne Quarantänebanne zu errichten, und besiegelte damit mein Schicksal. Die Glyphen lösten sich sofort ab und glitten auf mein Gesicht zu.*
+*Ich konnte nicht entkommen. Ich spürte die kalte Gegenwart von Zauberei, als sie sich an meiner Haut festsetzten. Von jeder Glyphe griffen schattenhafte Ranken nach der Maske und ließen sie auf mein erstarrtes Gesicht zuschweben. Die Maske presste sich auf meine Haut, und oh, Göttin, die Dinge, die ich sah...*
+Ein Drow, bis zur Hüfte entblößt und maskenlos, verneigt sich vor einem Biest aus Metall und Zauberei. Das Biest senkt sich herab, Metallwindungen schlängeln sich aus seinem klaffenden Maul und tauchen in den Körper des wartenden Elfen ein...
+Eine Frau steht auf einer kargen Ebene. Ihr unmöglich langes Haar fließt in unfassbaren Mustern und treibt durch die Luft. Sie wendet sich mir zu, und ihr Lächeln ist wie eine Messerwunde, zu breit und gefüllt mit Ring um Ring endloser, sägezahnartiger Zähne...
+Ein Obelisk steht allein in einem Raum aus reinem Licht. Aus ihm breitet sich wie ein Bluterguss eine Pfütze glänzenden Ichors aus. Die Oberfläche der Pfütze beginnt zu wogen; dann stürzt ein Schwall dunklen Regens nach oben in den endlosen weißen Himmel...
+Eine uralte Tür steht allein in einer vergessenen Vorratskammer, unter Jahrhunderten von Staub an die Wand gelehnt. Doch ein Geräusch dringt aus ihr. Etwas kratzt. Etwas will hindurch...
+Ein Gott aus Mandibeln und Obsidianzähnen wartet hinter dem Tresen seines Ladens auf Kundschaft. Er schnuppert in die Luft. Etwas stimmt nicht. Ein Gleichgewicht wurde gestört...
+Eine Schar von Gefährten blickt sich in den Trümmern einer jüngsten Schlacht um. Die zerbrochenen Metallkörper
+
+<!-- S. 19 (PDF 21) -->
+
+uralter Automaten liegen verdreht und von Zauberei und Gewalt verkohlt da. Die Gruppe blickt auf das, wofür sie gekämpft hat. Ein mondbleiches Kind sitzt schlafend auf einem durchscheinenden Kristallthron. Die Inschrift auf dem Thron lautet...
+Der Geruch von Blut und brennendem Fleisch erfüllt die Luft. Der Wärter füllt seine Lungen und zieht die zeremonielle Sense erneut über den flüsternden Stein auf seinem Schoß. Bald wird die Herrin aus ihrem ewigen Schlaf erwachen, und die letzte Jagd beginnt...
+Tief unter der Stadt graben sie sich nach oben und zirpen einander zu. Ihre Herzen pochen im Takt ihres uralten Hasses. Bald werden sie zurückkehren zu dem, aus dem sie vor langer Zeit verbannt wurden. Bald wird ganz Spire vor dem Namen erzittern...
+Der Junge wimmert im Schlaf, sein Feldbett kalt und hart. Zauberische Tätowierungen und Brandmale bedecken seine Haut. Er weiß nicht, worauf die vermummten Gestalten ihn vorbereiten, oder was die Glorreiche Hülse der Wiedergeburt ist. Vorerst schläft er unruhig, einen Augenblick lang sicher vor dem, was vor ihm liegt…
+Die Attentäterin springt vom Dachgeländer zu einem tief hängenden Gesimsstein. Irgendwo hinter ihr, über dem Labyrinth grauer Schieferdächer, brüllt etwas Bestialisches und Mechanisches. Sie flucht leise. Das hätte ein einfacher Auftrag sein sollen: ein niederer Stadtbeamter, minimale Sicherheit. Etwas bricht durch einen Hain von Schornsteinaufsätzen. Nichts daran ist einfach...
+Die Priester singen Hymnen aus gutturalem Kreischen und verdrehtem Metall. Ihr Gott schläft, aber nicht für immer. Sie werden ihre Gottheit aus Metall und Draht zum Leben singen. Sie werden in ihn eintreten und sein schlagendes Herz werden. Bald...
+Blut sickert aus jeder Ritze und Spalte herein. Drei Gestalten sind davon umringt, Rücken an Rücken in der Mitte des Raumes. Ihre Hände zeichnen komplexe Banne, während sie heiser und verzweifelt singen. Das Blut kreischt und kreist um sie, windet sich in unnatürlichem Leben, während es sich zum letzten Schlag sammelt...
+Dann war die Maske mit mir fertig. Sie verdorrte und zerfiel zu Asche, die sich über meine Stirn schmierte, als ich sie abzuwischen versuchte. Diese Bilder blitzen weiter durch meinen Geist, während ich dies schreibe; ich bezweifle, dass ich je von ihnen frei sein werde. Trotz all meiner Vorsichtsmaßnahmen und Studien hat mich der Wahnsinn des Herzens ergriffen. Ich dachte immer, ich würde bis zu meinem Tod Chronist sein. Aber diese Stadt ruiniert unsere bestgeplanten Pläne, und nun fliehe ich vor meinem Leben und meiner Berufung. Ich hoffe, ich kann retten, was mir an Verstand noch bleibt.
+— Varleis Embryn, Chronist der Katakos-Delver

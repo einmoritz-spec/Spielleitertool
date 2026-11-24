@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><style>
+.tabs .mt{display:flex;align-items:center;gap:10px;padding-right:18px;margin-right:6px;border-right:2px solid var(--line)}
+.tabs .mt b{font:700 15px var(--sans);text-transform:uppercase;color:var(--acc);letter-spacing:.02em}
+.tabs .mt i{width:30px;height:30px;border-radius:2px;background:url(img/m-killerbirds.webp) center/cover}
+.lay{display:grid;grid-template-columns:230px 1fr;min-height:794px}
+.side{background:#fff;border-right:2px solid var(--line);padding:14px 0;position:relative}
+.side .col{position:absolute;right:8px;top:10px;color:var(--soft);font:700 16px var(--sans)}
+.side a{display:block;padding:7px 18px 7px 16px;font:500 14.5px/1.25 var(--sans);color:var(--ink);border-left:4px solid transparent}
+.side a small{display:block;font:500 11px var(--sans);color:var(--soft);letter-spacing:.08em;text-transform:uppercase}
+.side a.on{border-color:var(--acc);background:#fdf1e6;font-weight:700}
+.side a.dn{color:var(--done)}
+.side h5{font:700 11px var(--sans);letter-spacing:.14em;color:var(--soft);text-transform:uppercase;padding:12px 18px 4px}
+.main{padding:16px 22px 24px}
+.top3{display:grid;grid-template-columns:1.25fr .95fr .8fr;gap:16px;align-items:start}
+.map{position:relative;border-radius:2px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.2);background:#fff}
+.map img{display:block;width:100%}
+.pin{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font:700 13px var(--sans);display:grid;place-items:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.pin.dn{background:#9b958a}
+.pin.on{background:var(--ink);outline:3px solid var(--band)}
+.cap{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:6px}
+.flow{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);border-radius:2px;height:286px;position:relative;display:grid;place-items:center}
+.fc{position:relative;width:350px;height:250px}
+.fc svg{position:absolute;inset:0;overflow:visible}
+.nd{position:absolute;display:flex;align-items:center;gap:7px;background:#fff;border:1.5px solid #d9d1c2;border-radius:6px;padding:0 7px;font:600 12px/1.2 var(--sans);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.nd i{flex:none;width:20px;height:20px;border-radius:50%;background:var(--acc);color:#fff;font:700 11px var(--sans);font-style:normal;display:grid;place-items:center}
+.nd.o{width:110px;hyphens:manual;height:58px;top:96px}
+.nd.dn{color:var(--done);border-color:#e6e0d4}.nd.dn i{background:#b9b3a8}
+.nd.on{border:2px solid var(--acc);background:#fdf1e6}
+.nd.end{left:75px;width:200px;white-space:nowrap;height:32px;justify-content:center;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.nd.st{top:0;color:var(--done);border-color:#e6e0d4}
+.nd.sd{top:218px;background:var(--acc);border-color:var(--acc);color:#fff}
+.cd ol{list-style:none}
+.cd li{padding:3px 0 3px 0;border-bottom:1px dashed #cfc7b6}
+.cd li.dn{color:#b3ada2}
+.cd li.now{font-weight:bold}
+.cd li span{color:var(--acc)}
+h2.loc{font-size:30px;color:var(--acc);margin:22px 0 2px;display:flex;align-items:baseline;gap:12px}
+.txt{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:8px}
+.txt p{margin-bottom:10px;font-size:17.5px;line-height:1.55}
+.txt p em{font-style:italic}
+.npc{color:var(--acc);font-weight:600}
+.side2{display:flex;flex-direction:column;gap:12px}
+.tr{background:#fff;border-top:5px solid var(--acc);box-shadow:0 1px 3px rgba(0,0,0,.14);padding:10px 14px}
+.tr h4{font-size:15px;color:var(--acc);margin-bottom:4px}
+.tr .r{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0}
+.tr .r span{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.04em;background:#fdf1e6;color:var(--ink);padding:3px 8px;border-radius:2px}
+.tr p{font-size:15px;line-height:1.45}
+.cl{background:#fff;padding:9px 13px;box-shadow:0 1px 3px rgba(0,0,0,.14);font-size:15px;line-height:1.4;border-left:5px solid var(--band)}
+.cl b{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.08em;display:block;color:var(--soft)}
+.cl.dn{color:var(--done);border-color:#ddd7cc}
+.lp{margin:6px 0 4px;background:#fff8ec;border:1.5px dashed var(--band);padding:8px 12px;font:600 14px var(--sans);color:var(--soft);display:flex;justify-content:space-between}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><div class="mt"><i></i><b>Sommerferien und Killervögel</b></div><a>Wahrheit</a><a>Kids einführen</a><a>Mysterium einführen</a><a class="on">Lösung</a><a>Showdown</a><a>Nachspiel</a><a>NSC</a><span class="sp"></span><span class="pen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span></div>
+<div class="lay">
+ <div class="side"><span class="col">‹</span>
+  <h5>Lösung</h5>
+  <a class="dn">Überblick<small>Karte · Ablauf · Countdown</small></a>
+  <a class="dn">Ort 1<small>Das Haus des Ornithologen</small></a>
+  <a class="on">Ort 2<small>Das Taubennest</small></a>
+  <a>Ort 3<small>Gunnars verlassenes Haus</small></a>
+  <h5>Immer zur Hand</h5>
+  <a>Countdown</a><a>Hinweise <small>4 von 9 gefunden</small></a><a>Handouts</a>
+ </div>
+ <div class="main">
+  <div class="top3">
+   <div><div class="cap">Mystery-Karte</div><div class="map"><img src="img/karte-mysterium.webp">
+     <span class="pin dn" style="left:53%;top:43%">1</span><span class="pin on" style="left:40%;top:22%">2</span><span class="pin" style="left:59%;top:70%">3</span></div></div>
+   <div><div class="cap">Ablauf</div><div class="flow"><div class="fc">
+     <svg width="350" height="250" viewBox="0 0 350 250"><defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#bfb5a3"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#ee7113"/></marker></defs>
+      <g fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+       <path d="M175 32V64" stroke="#ee7113"/>
+       <path d="M175 64H63Q55 64 55 72V94" stroke="#ee7113" marker-end="url(#b)"/>
+       <path d="M175 64V94" stroke="#bfb5a3" marker-end="url(#a)"/>
+       <path d="M175 64H287Q295 64 295 72V94" stroke="#bfb5a3" marker-end="url(#a)"/>
+       <path d="M55 154V176Q55 184 63 184H287Q295 184 295 176V154" stroke="#bfb5a3"/>
+       <path d="M175 154V216" stroke="#bfb5a3" marker-end="url(#a)"/>
+      </g></svg>
+     <div class="nd end st">Mysterium einführen</div>
+     <div class="nd o dn" style="left:0"><i>1</i><span>Haus des Ornitho&shy;logen</span></div>
+     <div class="nd o on" style="left:120px"><i>2</i><span>Das Taubennest</span></div>
+     <div class="nd o" style="left:240px"><i>3</i><span>Gunnars Haus</span></div>
+     <div class="nd end sd">Showdown</div>
+   </div></div></div>
+   <div class="kk cd"><h4>Countdown</h4><ol>
+     <li class="dn"><span>1.</span> Große Vogelschwärme kreisen über Svartsjölandet.</li>
+     <li class="dn"><span>2.</span> Ein junges Paar wird im Wald angegriffen.</li>
+     <li class="now"><span>3.</span> Tauben greifen den Laden in Stenhamra an.</li>
+     <li><span>4.</span> Die Vögel sammeln sich am Kühlturm …</li>
+     <li><span>5.</span> …</li></ol></div>
+  </div>
+  <h2 class="loc h">Ort 2: Das Taubennest <span class="pg">S. 124</span></h2>
+  <div class="lp"><span>Fassung Mälarinseln</span><span>Boulder City-Fassung ▸</span></div>
+  <div class="txt">
+   <div>
+    <p>Buchtext des Ortes, vollständig übersetzt und flach über die volle Breite. Personen wie <span class="npc">Mats Tingblad</span> sind anklickbar und öffnen die NSC-Karte als kleines Fenster. Absätze, Beispiel-Dialoge und Vorlesetext erscheinen wie im Buch, aber ohne Spaltenfluss.</p>
+    <p><em>Beispiel</em> – Spielleitung: „Ihr steht vor dem alten Taubenschlag. Es ist still, viel zu still …“ Spieler 1: „Ich klettere aufs Dach.“ (Beispiel-Dialoge stehen im Buch kursiv in eigenen Blöcken und bleiben so.)</p>
+    <p>Wenn ein Ort eine eigene Karte oder einen Grundriss hat (z. B. <span class="npc">Mats Tingblads Haus</span>, Millimeterpapier S. 120), steht er als Bild neben dem Text – ungeschnitten, Klick vergrößert.</p>
+   </div>
+   <div class="side2">
+    <div class="tr"><h4>Ärger: In den Taubenschlag</h4><div class="r"><span>Bewegen (Körper)</span><span>Schwierigkeit 2</span></div><p>Erfolg: … · Misserfolg: … (Text aus dem Buch)</p></div>
+    <div class="cl dn"><b>Hinweis</b>Federn mit Metallringen – Ring-Nr. führt zum Ornithologen.</div>
+    <div class="cl"><b>Hinweis</b>Der Futterautomat ist mit Magnetrin-Teilen umgebaut.</div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="ann" style="left:700px;top:600px"><b>1</b>Tabs = die sechs Phasen des Mysteriums aus dem Buch (+ NSC). Mysteriumsname klein vorne, ohne Kopfbereich.</div>
+<div class="ann" style="left:640px;top:440px"><b>2</b>Karte mit Pins, nachgebauter Ablauf (Knoten anklickbar) und Countdown als Karteikarte – Klick auf einen Schritt = erledigt (grau).</div>
+<div class="ann" style="left:430px;top:780px"><b>3</b>Loop-Kästen: nur die Fassung des gewählten Loops ist offen.</div>
+<div class="ann" style="left:1120px;top:820px"><b>4</b>Ärger-Proben und Hinweise als Karten neben dem Text; Klick = gefunden (grau).</div>
+</body></html>

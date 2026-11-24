@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="mb.css">
+<style>
+body{background:var(--weiss);color:var(--schwarz)}
+.unter{height:52px;display:flex;align-items:center;gap:4px;padding:0 24px;border-bottom:2px solid var(--schwarz)}
+.unter button{font:500 15px var(--grotesk);padding:7px 12px;color:#444}
+.unter button b{font:700 12px var(--mono);color:var(--grau);margin-left:6px}
+.unter button.on{background:var(--schwarz);color:var(--weiss)}
+.unter button.on b{color:var(--gelb)}
+.unter .sp{flex:1}
+.raster{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:146px;gap:0 28px;padding:12px 24px 0}
+.k{border-top:2px solid var(--schwarz);padding:12px 0 0;display:grid;grid-template-columns:1fr 70px;gap:0 12px;cursor:pointer;overflow:hidden}
+.k img{grid-column:2;grid-row:1/5;width:70px;height:122px;object-fit:contain;object-position:top}
+.k h3{margin:0;font:400 27px/1 var(--plakat);text-transform:uppercase;display:flex;align-items:baseline}
+.k .typ{font:700 11px/1.2 var(--grotesk);letter-spacing:.14em;text-transform:uppercase;color:#555;margin-top:5px}
+.k .w{font:700 13px/1.45 var(--mono);color:var(--pink);margin-top:8px}
+.k .w span{color:var(--schwarz);font-weight:400}
+.k .beute{font:400 11.5px var(--mono);color:#666;margin-top:3px}
+.k.offen{grid-column:1/3;grid-row:1/5;grid-template-columns:200px 1fr;gap:0 28px;cursor:default;border-top-width:4px;align-content:start}
+.k.offen .links{display:flex;flex-direction:column;gap:16px}
+.k.offen .links img{width:200px;height:340px;object-fit:contain;object-position:top}
+.k.offen .links .beute{display:grid;grid-template-columns:1fr auto;gap:4px 8px;font:400 13px var(--mono);color:#555;border-top:1px solid var(--linie-h);padding-top:10px;margin:0}
+.k.offen .links .beute b{color:var(--schwarz);text-align:right}
+.k.offen h3{font-size:54px}
+.k.offen .typ{font-size:12px}
+.k.offen .wb{margin-top:10px;font:700 14.5px/1.55 var(--mono);color:var(--pink)}
+.k.offen .wb span{color:var(--schwarz)}
+.k.offen .wb em{font-style:normal;font-weight:400;color:var(--schwarz)}
+.k.offen p{margin:12px 0 0;font:400 16px/1.45 var(--text);color:#1e1e18}
+.tisch{align-self:flex-start;background:var(--schwarz);color:var(--gelb);font:700 12px var(--grotesk);letter-spacing:.14em;text-transform:uppercase;padding:10px 14px}
+</style></head><body>
+<header class="kopf"><div class="logo"></div><div class="sp"></div>
+<button class="ib i"><b>i</b></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+<nav class="reiter"><button>Spieltisch</button><button>Abenteuer</button><button class="on">Kreaturen</button><button>Tabellen</button><div class="sp"></div>
+<button class="stift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/></svg></button></nav>
+<div class="unter"><button class="on">Grundbuch<b>12</b></button><button>Ausgestoßene<b>4</b></button><button>Apokryphen<b>17</b></button><button>Rotblack Sludge<b>9</b></button><button>Verliese<b>6</b></button></div>
+
+<div class="raster">
+ <article class="k offen"><div class="links"><img src="img/kreatur-goblin.webp" alt="">
+  <div class="beute"><span>Kopf</span><b>7s</b><span>Gefangen</span><b>150s</b><span>Tot</span><b>20s</b></div>
+  <button class="tisch">Auf den Spieltisch</button></div>
+  <div><h3>Seth<span class="s">S. 58</span></h3><div class="typ">Goblin</div>
+  <div class="wb">TP 6 · Moral 7<br><span>Sehnige Haut</span> −W2<br><span>Messer/Kurzbogen</span> W4<br><span>Besonderes</span> <em>Schnell, Angriffe und Verteidigung sind SG14.</em></div>
+  <p>Alle Goblins tragen einen Fluch. Einst wie du, sind sie nun im Gefängnis ihres wahnsinnigen Goblinfleisches gefangen. Nur ihre Augen verraten die Wahrheit: ein zerrütteter Geist, der zusieht, wie sein Körpergefängnis schreckliche Taten begeht. Schon von Goblins angegriffen zu werden, überträgt den Fluch, getragen von den Winden ihres Hasses. Treffer oder nicht, es spielt keine Rolle. Im Dunkel von Sarkash schießen sie mit sirrenden Bögen auf Vorüberziehende. Du musst den Goblin finden und töten, bevor dein Geist gelähmt ist. Lebt die fluchtragende Kreatur W6 Tage nach dem Angriff noch, verwandelst du dich unwiderruflich in einen von ihnen. Dann wird dich nur noch das Dunkel von Sarkash verbergen.</p></div>
+ </article>
+ <article class="k"><img src="img/kreatur-abschaum.webp" alt=""><h3>Bent<span class="s">S. 59</span></h3><div class="typ">Abschaum</div><div class="w">TP 7 · Moral 8<br><span>Vergiftetes Messer</span> W4+</div><div class="beute">Gefangen 50–120s · Tot 20–70s</div></article>
+ <article class="k"><img src="img/kreatur-berserker.webp" alt=""><h3>Zukuma<span class="s">S. 60</span></h3><div class="typ">Berserker</div><div class="w">TP 13 · Moral 9<br><span>Gehärtete Haut</span> −W2</div><div class="beute">Gefangen 55s · Tot 20s</div></article>
+ <article class="k"><img src="img/kreatur-gespenst.webp" alt=""><h3>Wrat<span class="s">S. 61</span></h3><div class="typ">Gespenst</div><div class="w">TP 15 · Moral –<br><span>Berührung</span> W4+</div><div class="beute">Gefangen 120s · Schädel 70s</div></article>
+ <article class="k"><img src="img/kreatur-blutskelett.webp" alt=""><h3>Belze<span class="s">S. 62</span></h3><div class="typ">Blutgetränktes Skelett</div><div class="w">TP 7 · Moral 8<br><span>Kurzschwert</span> W4</div><div class="beute">Gefangen 35s · Zerstört 7s</div></article>
+ <article class="k"><img src="img/kreatur-nekromant.webp" alt=""><h3>Lich<span class="s">S. 63</span></h3><div class="typ">Untoter Nekromant (schwach)</div><div class="w">TP 15 · Moral –<br><span>Schlag</span> W6+</div><div class="beute">Gefangen 200s · Schädel 100s</div></article>
+ <article class="k"><img src="img/kreatur-troll.webp" alt=""><h3>Troll<span class="s">S. 64</span></h3><div class="typ">Troll</div><div class="w">TP 32 · Moral bes.<br><span>Faust</span> 2W6</div><div class="beute">Gefangen 200s · Leiche 70s</div></article>
+ <article class="k"><img src="img/kreatur-zombie.webp" alt=""><h3>Nodh<span class="s">S. 65</span></h3><div class="typ">Zombie</div><div class="w">TP 7 · Moral –<br><span>Klaue/Biss</span> W2+</div><div class="beute">Gefangen 30s · Blut je Liter 5s</div></article>
+ <article class="k"><img src="img/kreatur-puppe.webp" alt=""><h3>Lady Porcelain<span class="s">S. 66</span></h3><div class="typ">Untote Puppe</div><div class="w">TP 11 · Moral –<br><span>Klauen/Biss</span> W4</div><div class="beute">Gefangen 80s · Kopf 20s</div></article>
+ <article class="k"><img src="img/kreatur-fratze.webp" alt=""><h3>Thinx<span class="s">S. 67</span></h3><div class="typ">Fratze</div><div class="w">TP 18 · Moral –<br><span>Klauen</span> W6 · <span>Augenstrahl</span> W8</div><div class="beute">Gefangen 190s · Tot 100s</div></article>
+ <article class="k"><img src="img/kreatur-dochtkopf.webp" alt=""><h3>Aland<span class="s">S. 68</span></h3><div class="typ">Dochtkopf-Messerstecher</div><div class="w">TP 10 · Moral 7<br><span>Messer</span> W4</div><div class="beute">Gefangen 60s · Laterne 15s</div></article>
+ <article class="k"><img src="img/kreatur-lindwurm.webp" alt=""><h3>Ewlotha<span class="s">S. 69</span></h3><div class="typ">Lindwurm</div><div class="w">TP 25 · Moral 10<br><span>Biss/Stachel</span> W6</div><div class="beute">Gefangen 200s · Leiche 100s</div></article>
+</div>
+
+<div class="ann" style="left:250px;top:170px"><b>1</b>Unter-Leiste nach Quelle: Grundbuch, Ausgestoßene, Apokryphen, Kreaturen aus den Abenteuern/Verliesen.</div>
+<div class="ann" style="left:250px;top:470px;max-width:260px"><b>2</b>Aufgeklappte Karte: Bild ungeschnitten, Eigenname groß (wie der Schriftzug im Buch), Werte-Block pink in Schreibmaschine, Buchtext, Beute in Silber.</div>
+<div class="ann" style="left:40px;top:690px"><b>3</b>„Auf den Spieltisch“ legt die Kreatur in „Gewalt“.</div>
+<div class="ann" style="left:1080px;top:240px"><b>4</b>Zugeklappt: Name, Art, Werte, Beute, Bild klein rechts. Kein Rahmen – nur die schwarze Linie oben (wie die Regel-Kästen im Buch).</div>
+<script src="ann.js"></script></body></html>

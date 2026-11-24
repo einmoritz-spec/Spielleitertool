@@ -1,0 +1,35 @@
+/* Charaktere · Posten Wordbearer (Corebook S. 160–161) */
+(function(L){ var H = WSH, K = "Posten", A = H.asp;
+L.push({id:"wordbearer", k:K, t:"Wordbearer", p:160, b:[
+ {a:"Die Routen mögen länger und weit gefährlicher sein als in vorverdanten Zeiten, aber die Post muss trotzdem von A nach B.\nManche halten die Stellung des Wordbearers für kaum mehr als eine lächerliche Marotte – wie kann ein Absender sicher sein, dass seine Nachricht zugestellt wird, wo die Wellen so unberechenbar sind? Wie kann man mit Worten betraut werden in einer Welt, in der sie bekanntlich parasitär im Geist haften? Wer schickt bei abgerichteten Krähen und Libellenboten überhaupt noch Briefe zur Zustellung von Hand?\nAber dieser Spott und Unglaube verstummt, wenn ein echter Wordbearer vorbeigeht, beladen mit Schnur und Paketen, Seekarten und Umschlägen und Käfigen. Seine Narben sprechen Bände, sein Blick (zumindest bei denen, die Augen haben) erzählt Geschichten, und seine Lippen formen Geheimnisse, die nur von einem Geist zum anderen gehen sollen. Sie sind die Verkörperung des Flüsterns, die Wordbearer – Überbringer leiser Wahrheit."},
+ {c:"Der Eid", x:"Vier Worte: Das wird zugestellt.\nDer Eid eines Wordbearers ist eine mächtige Kraft; manche sagen, so mächtig wie das wildeste Flüstern. Der Großteil ihrer Rolle auf einem Schiff besteht darin, Pakete und Sendschreiben an den Knotenpunkten abzuholen, an denen sie halten, Nachrichten von Crews fern der Heimat entgegenzunehmen und Sätze und gute Wünsche für jene auswendig zu lernen, denen es an Tinte fehlt. Die Leute bezahlen für ihre Dienste und für das Vertrauen, das sie sich verdient haben. In abgelegeneren Regionen wäre es etwas nahe an Gotteslästerung, sich als Wordbearer auszugeben und die Lieferungen für sich zu nehmen."},
+ {c:"Weder Regen noch Schnee", x:"Unerbittlich ist ein häufig mit diesem Posten verbundenes Wort, und das aus äußerst gutem Grund. Wordbearer haben sich einen wohlverdienten Ruf erworben, ihre Zustellungseide ernst zu nehmen, manchmal ernst genug, um monatelang zu reisen, nur um einen einzigen Brief zu übergeben. Es kann kaum eine praktische Art zu leben sein, aber es ist der Pfad, den sie gewählt haben."},
+ H.fragen("des Wordbearers",["Was war das Erste, das du zugestellt hast, und was war daran besonders?","Hast du je den Eid des Wordbearers gebrochen? Wenn ja, war es aus Versehen oder mit Absicht?","Gibt es ein Sendschreiben, das du nicht trägst, ein Material, dessen Transport du ablehnst? Warum, und welche Erfahrungen führten zu dieser persönlichen Regel?"]),
+ {c:"Alternative Darstellungen", x:"Der Wordbearer kann einen fantastischen diplomatischen Typ abgeben, das vertrauenswürdige Gesicht einer Crew im Umgang mit Fremden. Umgekehrt können sich viele seiner Geheimhaltungs-Aspekte gut für die Rolle eines Spions oder Saboteurs eignen, und wenn du bei einem besonders nautischen Thema bleiben willst, wäre ein Eidträger ein ausgezeichneter Schmuggler."}
+ ].concat(H.aspHead(),[
+ A("Respekt reicht tief",3,"Eigenschaft","Deine Kleidung, deine Haltung, dein Aussehen – Wordbearern wird seltener Respekt zuteil. Konflikte zählen als Triumphe, wenn du in einer Siedlung mit Knotenpunkt Autorität ausübst."),
+ A("Die Worte wissen es immer",3,"Eigenschaft","Einmal pro Szene kannst du ein Bruchstück genauer Information über den Aufenthaltsort einer Person erhalten, der du etwas zustellen willst."),
+ A("Die sicherste Verpackung",4,"Eigenschaft","Nutze eine Aufgabe, um eine gesprochene oder physische Nachricht irgendeiner Art in ein Flüstern zu verwandeln (war die Nachricht eine Ressource, behältst du sie zusätzlich zum Flüstern)."),
+ A("Rechtmäßiger Besitzer",4,"Eigenschaft","Erhöhe die Wucht beim Verteidigen deiner Lieferungen und beim Versuch, etwas wiederzuholen, das dir oder deiner Crew gestohlen wurde."),
+ A("Eidgebunden",4,"Eigenschaft","Du bist immun gegen chemische, arkonautische und mesmerische Wirkungen, die darauf ausgelegt sind, dir Informationen zu entlocken."),
+ A("Wettergegerbt",3,"Eigenschaft","Du bist widerstandsfähig gegen drei Schadensarten, gewählt aus dieser Liste: Explosion, Säure, Gift, Frost, Flamme."),
+ A("Versprechensschnur",4,"Ausrüstung","Wenn eine Ressource, die du zuzustellen versuchst, zerstört oder verloren würde, verschlechtert sie sich stattdessen und erhält einen negativen Marker (hat sie schon einen negativen Marker, wird sie wie üblich verbraucht)."),
+ A("Kurierkäfig",3,"Ausrüstung","Verbrauche eine Probe, um ein nahes Botengeschöpf sicher zu dir zu rufen, und erhalte sowohl das Geschöpf als auch die Nachricht, die es hält, als Ressourcen."),
+ A("Glyphen-Leuchtraketen",4,"Ausrüstung","Ein Satz chemischer Feuerwerkskörper, die in hellen, erkennbaren Glyphenformen platzen."),
+ A("Mustertaster",4,"Ausrüstung","Ein Miniatur-Grammofon zum Abspielen beschriebener Zylinder aus Wachs, Keramik oder gehärteter Rinde. Markiere, um ein Bruchstück einer Unterhaltung oder eines Geräuschs aufzunehmen, das du hören kannst, zum späteren Abspielen."),
+ A("Unzustellbares",5,"Ausrüstung","Manchmal wird der Eid durch den Tod eines Empfängers gebrochen. Du trägst diese unzugestellten Briefe und Pakete als Mahnmal herum, oder vielleicht als Buße."),
+ A("Leinwandschleuder",3,"Ausrüstung","Eine einfache, aber wirksame Waffe. Verursacht FK-Stumpf-Schaden und erhöht die Wucht bei NK-Aktionen, ein Ziel zu Fall zu bringen oder festzuhalten."),
+ A("Sortomat",2,"Gefährte","Eine keuchende Maschine zum Sortieren und Kategorisieren von Post. Du zählst als fließend in allen Sprachen, aber nur beim Lesen von Adressen, Anhören von Wegbeschreibungen oder Einprägen der Nachricht eines Absenders."),
+ A("Pensionierte Kurier-Libelle",4,"Gefährte","Noch immer flink, aber ohne Ausdauer. Markiere, um aus deiner Umgebung eine Ressource zu erhalten, die irgendeine Art Text als Bestandteil hat, etwa eine Seekarte oder ein gemaltes Schild.")
+ ],H.kit("Wordbearer als Posten",[
+  ["Stärke (wähle 1)","Eisen, Gezeiten, Schleier"],
+  ["Fertigkeiten & Sprachen (wähle 5) – Fertigkeiten","Schürfen, Jagen, Bergen, Studieren, Beeinflussen, Springen, Wellenlauf"],
+  ["Fertigkeiten & Sprachen – Sprachen","Chthonisch, Alte Hand"],
+  ["Ressourcen (wähle 2) – Bergegut","Packschnur, Verbeulter Vogelkäfig, Altes Wachs"],
+  ["Ressourcen – Proben","Beschriebener Tausendfüßler, Schneckengummi-Siegel"],
+  ["Ressourcen – Flüstern","Mein Herz zu deinem, Sicher und geborgen"],
+  ["Ressourcen – Seekarten","Ein Knotenpunkt-Netzbuch, Ein gekritzelter Umschlag, Ein zerfledderter Fahrplan"],
+  ["Antrieb (wähle 1)","Ein zerbrechliches Paket oder Sendschreiben an einen fernen Empfänger zustellen · Verbindung und Gemeinschaft zwischen Ungleichen herstellen"],
+  ["Morast (wähle 1)","Natürlich könntest du eines öffnen … Wer würde es wissen? · Traurige alte Geheimnisse vergangener Nachrichten zerren an deinen Träumen"]]),
+ [H.q("Das wird zugestellt, sagte ich, und sie lachte. Aber sechs Monate, drei Reichweiten und zwei Leviathane später wurde es das.","Half-Ghost Galway, Ketra-Wordbearer")])});
+})(WS_NACH.charaktere);

@@ -1,0 +1,6 @@
+/* Bilder aus dem Grundbuch: nur dort, wo sie im Buch zur Landmarke bzw. zum Gegner gehören */
+window.HT_BILD = {
+ lm:{"derelictus":"lm/derelictus-s136","tempel-des-mondes-darunter":"lm/sonderwood-s142","grin-station":"lm/grin-station-s148","hallow":"lm/hallow-s149","letzte-runde":"lm/letzte-runde-s153","roter-markt":"lm/roter-markt-s155","papilious-both":"lm/papilious-both-s166","die-gralsstrasse":"lm/gralsstrasse-s169","die-schlummernden-tiefen":"lm/schlummernde-tiefen-s173"},
+ tiefe:{"1":"lm/tiefe1-s138","3":"lm/tiefe3-s158"},
+ gegner:{"die-verderbten":"gegner/verderbte-s178","schlaechter":"gegner/schlaechter-s180","kult-der-messer":"gegner/kult-der-messer-s182","eulenstock":"gegner/eulenstock-s185","geist":"gegner/geist-s187","gnoll-einsatztrupp":"gegner/gnoll-einsatztrupp-s188","heartsblood-bestie":"gegner/heartsblood-bestie-s191","herzsamen":"gegner/herzsamen-s192","spiegelspinnen":"gegner/spiegelspinnen-s194","stellwerk-kultisten":"gegner/stellwerk-kultisten-s196","quellgeborenes-konstrukt":"gegner/quellgeborenes-konstrukt-s197","wrack":"gegner/wrack-s199","basilisk":"gegner/basilisk-s200","gorgone":"gegner/gorgone-s201","hydra":"gegner/hydra-s203","huntress":"gegner/jaegerin-s204","minotaurus":"gegner/minotaurus-s206"}
+};

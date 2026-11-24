@@ -1,0 +1,51 @@
+/* Tales from the Loop – Farb-/Schriftsystem für die Entwürfe (aus dem Corebook gemessen).
+   Darf als Ausgangspunkt für tftl/style.css genutzt werden. */
+@font-face{font-family:Jost;src:url(jost-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:Jost;src:url(jost-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:Garamond;src:url(eb-garamond-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:Garamond;src:url(eb-garamond-latin-400-italic.woff2);font-weight:400;font-style:italic}
+@font-face{font-family:Garamond;src:url(eb-garamond-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:Typewriter;src:url(special-elite-latin-400-normal.woff2)}
+@font-face{font-family:Hand;src:url(caveat-latin-400-normal.woff2)}
+:root{
+ --top:#f08a1c;      /* Kopfzeile (wie bisherige Startseite) */
+ --band:#fbba1c;     /* gelb-orange Kapitelband am Seitenrand */
+ --acc:#ee7113;      /* Überschriften-Orange (AvantGarde Bold im Buch) */
+ --ink:#1d1d1b; --soft:#6b665d; --line:#e4ddcf;
+ --paper:#ffffff;    /* Buchseiten sind weiß */
+ --bg:#f7f4ee;       /* leicht warmes Grau als Fläche hinter Karten */
+ --card:#fffdf8;     /* Karteikarte (Schreibmaschinen-Kästen) */
+ --grid:#dfe7ea;     /* Millimeterpapier der Grundrisse */
+ --night:#1f2a33;    /* dunkle Blöcke (Abendhimmel der Bilder) */
+ --done:#a9a49a;
+ --sans:Jost,Futura,"Century Gothic",sans-serif;
+ --serif:Garamond,Georgia,serif;
+ --type:Typewriter,"Courier Prime",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;background:var(--bg);color:var(--ink);font:17px/1.5 var(--serif)}
+.top{position:sticky;top:0;z-index:5;height:56px;background:var(--top);display:flex;align-items:center;padding:0 22px;gap:8px;color:#fff}
+.top .logo{height:30px;filter:brightness(0) invert(1);cursor:pointer}
+.top .dd{font:700 13px var(--sans);opacity:.8;margin-left:-2px}
+.top .sp{flex:1}
+.ib{width:36px;height:36px;display:grid;place-items:center;border-radius:6px;color:#fff;opacity:.92}
+.ib svg{width:22px;height:22px}
+.ib.bur{border:1.5px solid rgba(255,255,255,.8)}
+h1,h2,h3,h4,.h{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.08}
+.acc{color:var(--acc)}
+.tabs{display:flex;align-items:stretch;background:#fff;border-bottom:2px solid var(--line);height:50px;padding:0 22px;gap:4px}
+.tabs a{display:flex;align-items:center;padding:0 16px;font:700 15px var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--soft);border-bottom:4px solid transparent;margin-bottom:-2px}
+.tabs a.on{color:var(--ink);border-color:var(--acc)}
+.tabs .sp{flex:1}
+.tabs .pen{align-self:center;color:var(--soft)}
+.pg{font:500 12px var(--sans);color:var(--soft);letter-spacing:.02em;text-transform:none;opacity:.8}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border:1.5px solid var(--acc);border-radius:999px;font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--acc);background:#fff;margin:0 6px 6px 0}
+.chip.f{background:var(--acc);color:#fff}
+/* Karteikarte mit Schreibmaschinenschrift – im Buch für Countdown, Inspiration, Zeitleisten */
+.kk{background:var(--card) url(img/papier.webp) center/cover;border-radius:2px;box-shadow:0 1px 0 #d6cfc0,0 6px 16px rgba(0,0,0,.12);padding:16px 18px;font:15px/1.45 var(--type);color:#2b2a28}
+.kk h4{font:16px var(--type);text-transform:uppercase;margin-bottom:8px;letter-spacing:.02em}
+/* Notiz-Annotation der Entwürfe (nicht Teil der Oberfläche) */
+.ann{position:absolute;z-index:20;background:#1565c0;color:#fff;font:600 12.5px/1.35 system-ui,sans-serif;padding:7px 10px;border-radius:6px;max-width:270px;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.ann b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#e53935;margin-right:6px;font-size:12px}
+.done{color:var(--done)!important}
+.top .ft{display:none}

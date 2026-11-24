@@ -1,0 +1,66 @@
+/* Buchbilder je Abschnitt: [Datei in assets/galerie/litm-core/full, Breite, Höhe, Seite (bei Band II + 240)] – wird im Eintrag mit der passenden Seite eingefügt */
+var LM_IMGS = {
+  "handlung":[
+    ["lmHeld_pdf038_B145_Action-and-Drama_2",1220,568,145],
+    ["lmHeld_pdf039_B148_Action-and-Drama_1",1220,820,148],
+    ["lmHeld_pdf041_B154_Action-and-Drama_1",1228,572,154],
+    ["lmHeld_pdf042_B156_Action-and-Drama",1229,1589,156],
+    ["lmHeld_pdf046_B180_Action-and-Drama_1",1228,772,180]
+  ],
+  "entwicklung":[
+    ["lmHeld_pdf047_B186_Hero-Development_1",1228,824,186],
+    ["lmHeld_pdf049-050_B191ca_Hero-Development",2458,1589,191]
+  ],
+  "magie":[
+    ["lmHeld_pdf052_B203_Fundamentals-of-Magic_1",1220,652,203],
+    ["lmHeld_pdf056_B212_Ways-of-Magic_1",328,756,212],
+    ["lmHeld_pdf061_B226_Ways-of-Magic",1229,1589,226],
+    ["lmHeld_pdf063-064_B227ca_Ways-of-Magic",2458,1589,227]
+  ],
+  "nr-sitzung":[["lmErzaehler_pdf069_B043_Narrating-a-Session",1229,1589,283]],
+  "nr-abenteuer":[
+    ["lmErzaehler_pdf071_B048_Designing-Adventures_1",544,1428,288],
+    ["lmErzaehler_pdf073_B063_Designing-Adventures_1",1132,1588,303]
+  ],
+  "nr-anhang":[
+    ["lmErzaehler_pdf468_B226_Anhang-Berg-Serien-Karte",1650,1014,468],
+    ["lmErzaehler_pdf469_B227_Anhang-Kreuzweg-Serien-Karte",1650,1014,469]
+  ],
+  "nr-skunk":[
+    ["lmErzaehler_pdf111_B215ca_Heap-Thing-of-Skunk-Glen_1",1228,788,459]
+  ],
+  "nr-cauldron":[
+    ["lmErzaehler_pdf075_B081_Magic-Cauldron_1",860,676,321],
+    ["lmErzaehler_pdf076_B095_Magic-Cauldron_1",1220,792,335],
+    ["lmErzaehler_pdf077_B101_Magic-Cauldron_1",972,1588,341],
+    ["lmErzaehler_pdf078-079_B101ca_Magic-Cauldron",2458,1589,341]
+  ],
+  "dales":[
+    ["hr_pdf011_B024_Kap1_Hill-and-Valley_2",1224,632,24,"hr"],
+    ["hr_pdf012_B031_Familiar-Places_1",1100,1204,30,"hr"],
+    ["hr_pdf014_B037_Familiar-Places_1",544,864,36,"hr"],
+    ["hr_pdf025_B063_Dalish-Life_1",1220,588,62,"hr"]
+  ],
+  "dales-c":[
+    ["hr_pdf046_B130_Cooking-and-Crafting_2",1228,732,130,"hr"],
+    ["hr_pdf047_B152_Oldways-Magic-and-Spells_1",1224,740,152,"hr"]
+  ],
+  "jenseits":[
+    ["hr_pdf050-051_B163ca_Oldways-Magic-and-Spells",2458,1589,164,"hr"],
+    ["hr_pdf052-053_B163ca_Oldways-Magic-and-Spells",2458,1589,166,"hr"],
+    ["hr_pdf054-055_B163ca_Oldways-Magic-and-Spells",2458,1589,169,"hr"],
+    ["hr_pdf056-057_B163ca_Oldways-Magic-and-Spells",2458,1589,170,"hr"],
+    ["hr_pdf058-059_B163ca_Oldways-Magic-and-Spells",2458,1589,172,"hr"],
+    ["hr_pdf064_B184_Of-Spirit-and-Stars_1",472,1588,184,"hr"],
+    ["hr_pdf068_B193_Winds-of-Change-Factions_1_crop",770,800,193,"hr"],
+    ["hr_pdf069_B199_Winds-of-Change-Factions_1",1220,704,198,"hr"]
+  ]
+};
+
+/* Abenteuer-Bilder (Hearts of Ravensdale): "Abenteuer:Szene" -> [Datei, Breite, Höhe] aus assets/galerie/hearts-of-ravensdale/full */
+var ADV_FIGS = {
+  "a1:watchtower":[["hr_pdf104_B325_Kap3_Wake-of-the-Oldways_1",472,1588]],
+  "a3:starless":[["hr_pdf113_B353_Kap3_Wake-of-the-Oldways_1",616,708]],
+  "a3:foxden":[["hr_pdf114_B358_Kap3_Wake-of-the-Oldways_1",504,804]],
+  "a6:council-oldways":[["hr_pdf120_B395_Kap3_Wake-of-the-Oldways_1",607,885]]
+};

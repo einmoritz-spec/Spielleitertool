@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sb.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.tabs{--tc:var(--lila)}
+.cyc{display:grid;column-gap:26px;grid-template-columns:110px repeat(6,1fr) 190px;align-items:center;height:92px;padding:0 24px;border-bottom:2px solid var(--linie)}
+.ep b{display:block;font:400 30px/1 var(--marker);text-transform:uppercase;color:var(--lila)}
+.ep small{display:block;font:600 12px var(--body);color:#8b8496;margin-top:4px}
+.ph{position:relative;isolation:isolate;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:0;background:none;cursor:pointer;padding:0}
+.ph b{font:400 19px/1 var(--marker);text-transform:uppercase;color:#2a2533;white-space:nowrap}
+.ph small{font:600 11.5px/1.2 var(--body);color:#8b8496;margin-top:5px;white-space:nowrap}
+.ph+.ph::after{content:"";position:absolute;left:-22px;top:50%;width:18px;height:2px;background:#cfc9d9;transform:translateY(-50%)}
+.ph+.ph::before{content:"";position:absolute;left:-7px;top:50%;width:7px;height:7px;border-top:2px solid #cfc9d9;border-right:2px solid #cfc9d9;transform:translate(-50%,-50%) rotate(45deg)}
+.ph.done b,.ph.done small{color:#b9b3c4}
+.ph.on b,.ph.on small{color:#fff}
+.ph.on .bl{position:absolute;z-index:-1;inset:-6px -2px;background:var(--mag);border-radius:48% 52% 45% 55%/58% 46% 54% 42%;transform:rotate(-2deg)}
+.bite{justify-self:end;display:flex;align-items:center;gap:10px;background:var(--mint);color:#fff;height:52px;padding:0 10px 0 16px;border-radius:26px 30px 28px 32px}
+.bite .cap{color:#fff;font-size:10.5px}
+.teeth{display:flex;gap:2px;margin-top:3px}
+.teeth i{width:10px;height:13px;background:#fff;clip-path:polygon(0 0,100% 0,50% 100%)}
+.teeth i.o{opacity:.3}
+.bite .n{font:900 30px/1 var(--body);min-width:22px;text-align:center}
+.bite button{width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:none;color:#fff;font:900 15px/1 var(--body);cursor:pointer;padding:0}
+.g{display:grid;grid-template-columns:420px minmax(0,1fr) 340px;gap:28px;padding:20px 24px 0}
+.ct{font:900 11.5px var(--body);letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px;display:flex;align-items:baseline;gap:8px}
+.tour .h2{font-size:25px;color:var(--pink);margin-bottom:12px}
+.gpo{display:grid;grid-template-columns:86px 1fr;gap:8px 12px;font-size:14px;line-height:1.42;margin:0 0 18px}
+.gpo dt{font:900 10.5px var(--body);letter-spacing:.13em;text-transform:uppercase;color:var(--lila);padding-top:3px}
+.gpo dd{margin:0}
+.wchip{display:inline-flex;align-items:center;gap:8px;background:var(--nacht);color:var(--pink);font:400 15px var(--marker);text-transform:uppercase;padding:5px 6px 4px 12px;border-radius:24px 30px 26px 32px}
+.wchip i{font:900 9.5px var(--body);font-style:normal;background:var(--gelb);color:#000;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center}
+.tk{display:grid;grid-template-columns:50px 1fr;gap:14px;align-items:center;padding:8px 0;border-top:1px solid var(--linie)}
+.tk b{font:800 14px var(--body);display:block}
+.tk small{display:block;font:900 9.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin-bottom:2px}
+.tk.gef small{color:var(--mag)}
+.clock{width:46px;height:46px}
+.boxes{display:flex;gap:3px}.boxes i{width:10px;height:10px;border:2px solid #000}.boxes i.x{background:#000}
+.add{margin-top:6px;font:800 11.5px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--lila);background:none;border:0;padding:6px 0;cursor:pointer}
+.crew{display:grid;grid-template-columns:110px auto auto 1fr;column-gap:16px;align-items:center}
+.crew .hd{font:900 9.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#9a93a6;padding-bottom:6px}
+.crew .c{padding:9px 0;border-top:1px solid var(--linie);height:100%;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nm b{font:400 20px/1 var(--marker);text-transform:uppercase;color:#1c1824;display:block}
+.nm span{display:inline-block;margin-top:4px;font:900 9px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--pink);padding:3px 7px 2px;border-radius:10px}
+.col2{display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.tb{display:flex;gap:2px}.tb svg{width:16px;height:14px;display:block}
+.st{display:flex;gap:1px}.st i{width:11px;height:11px;border:2px solid #000;transform:rotate(45deg) scale(.8)}.st i.x{background:var(--pink);border-color:var(--pink)}
+.hl{display:flex;gap:4px}.hl svg{width:18px;height:18px}
+.sl{font:600 12px var(--body);background:var(--rosa2);padding:3px 9px;border-radius:10px}
+.sl.e{background:none;border:1.5px dashed #d6d0e0;color:#b3adbd}
+.crewl{display:flex;gap:28px;align-items:center;margin-top:14px;padding:12px 16px;background:var(--lav)}
+.crewl .ct{margin:0 0 4px;font-size:9.5px;color:var(--lila)}
+.crewl .v{font:800 14px var(--body)}
+.frk{display:flex;gap:4px}.frk i{width:26px;height:16px;border:2px solid #000;background:#fff}.frk i.x{background:#000}
+.world{background:var(--nacht);color:#fff;padding:16px 18px 14px}
+.world .h2{color:var(--pink);font-size:24px}
+.world .ct{color:#fff;margin:14px 0 6px;font-size:10px}
+.cl{list-style:none;margin:0;padding:0;font-size:13.5px;line-height:1.35}
+.cl li{display:flex;gap:8px;padding:3px 0;cursor:pointer}
+.cl li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);flex:none;margin-top:6px}
+.cl li.done{color:#77737b}.cl li.done::before{background:#77737b}
+.more{font:800 11px var(--body);letter-spacing:.1em;text-transform:uppercase;color:#a7a2ad;margin-top:6px}
+.gm{margin-top:14px;padding:13px 16px;font-size:13px;line-height:1.45}
+.gm b{font-weight:800}
+</style></head><body>
+<div class="topbar"><button class="brand"><img src="img/logo.webp" alt=""></button><div class="sp"></div>
+<button class="ib i">i</button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<nav class="tabs"><a class="on">Folge</a><a>Crew</a><a>Multiversum</a><a>Heimat</a><a>Monster</a><a>Fraktionen</a><span class="sp"></span><button class="pen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>
+<div class="cyc">
+ <div class="ep"><b>Folge 3</b><small>von 5–10</small></div>
+ <button class="ph done"><b>Tour wählen</b><small>Ziel · Preis · Hindernis</small></button>
+ <button class="ph done"><b>Auffrischen</b><small>Boost &amp; Kick · Biss</small></button>
+ <button class="ph on" style="padding:0 8px"><span class="bl"></span><b>Die Tour!</b><small>Action! Abenteuer! Unfug!</small></button>
+ <button class="ph"><b>Desaster??</b><small>Desasterwürfe</small></button>
+ <button class="ph"><b>Aufräumen</b><small>Style · Stürze · Fraktionen</small></button>
+ <button class="ph"><b>Auszeit!</b><small>Schule! Pflichten! Gefühle!</small></button>
+ <div class="bite"><div><div class="cap">Biss</div><div class="teeth"><i></i><i></i><i></i><i></i><i class="o"></i><i class="o"></i></div></div><span class="n">4</span><button>−</button><button>+</button></div>
+</div>
+<div class="g">
+ <div class="tour">
+  <h2 class="h2">Der Arboristen-Tempel</h2>
+  <dl class="gpo"><dt>Ziel</dt><dd>Ins innere Heiligtum und die gehortete Technik finden.</dd>
+   <dt>Preis</dt><dd><b>Zeug:</b> 2 Edelsteine, 1 Linse · <b>Gunst:</b> Shimmer</dd>
+   <dt>Hindernis</dt><dd>Der Weg zum Preis ist schwer bewacht.</dd>
+   <dt>Welt</dt><dd><span class="wchip">Thennis Spar <i>CIV</i></span></dd></dl>
+  <div class="ct" style="color:var(--lila)">Leisten <span class="pg">S. 149</span></div>
+  <div class="tk"><svg class="clock" viewBox="0 0 58 58"><circle cx="29" cy="29" r="26" fill="#fff" stroke="#000" stroke-width="3"/><path d="M29 29V3A26 26 0 0 1 55 29Z" fill="#2fb996"/><path d="M29 29H55A26 26 0 0 1 29 55Z" fill="#2fb996"/><path d="M29 3v52M3 29h52" stroke="#000" stroke-width="3"/></svg><div><small>Fortschritt</small><b>In den inneren Garten gelangen</b></div></div>
+  <div class="tk gef"><svg class="clock" viewBox="0 0 58 58"><circle cx="29" cy="29" r="26" fill="#fff" stroke="#000" stroke-width="3"/><path d="M29 29V3A26 26 0 0 1 51.5 16Z" fill="#ec008c"/><path d="M29 29 51.5 16A26 26 0 0 1 51.5 42Z" fill="#ec008c"/><path d="M29 29 51.5 42A26 26 0 0 1 29 55Z" fill="#ec008c"/><path d="M29 3v52M6.5 16l45 26M6.5 42l45-26" stroke="#000" stroke-width="3"/></svg><div><small>Gefahr</small><b>Die Wachen schlagen Alarm</b></div></div>
+  <div class="tk"><div class="boxes"><i class="x"></i><i class="x"></i><i></i><i></i></div><div><small>Fortschritt</small><b>Den Ausgang finden</b></div></div>
+  <button class="add">+ Leiste</button>
+ </div>
+ <div>
+  <div class="ct" style="color:var(--pink)">Crew · Fiese Fünf</div>
+  <div class="crew" id="crew"><div class="hd"></div><div class="hd">Ärger · Style</div><div class="hd">Haltung</div><div class="hd">Stürze</div></div>
+  <div class="crewl">
+   <div><div class="ct">Hype</div><div class="hl" id="hype"></div></div>
+   <div><div class="ct">Crew-Style</div><div class="v">7</div></div>
+   <div><div class="ct">Ruhm</div><div class="v">Aufsteiger</div></div>
+   <div><div class="ct">Brüche</div><div class="frk"><i class="x"></i><i></i></div></div>
+  </div>
+ </div>
+ <div>
+  <div class="world">
+   <div style="display:flex;align-items:baseline;justify-content:space-between"><h2 class="h2">Thennis Spar</h2><span class="pg" style="color:#9d98a3">S. 97</span></div>
+   <div class="ct">Probleme</div>
+   <ul class="cl"><li class="done">strenge Arboristen-Wachen</li><li>Aufmerksamkeit der Geister</li><li>riesiger Negawraith</li><li>intrigante Rivalen-Crew</li><li>Shimmer-Söldner</li></ul>
+   <div class="more">+ 6 weitere</div>
+   <div class="ct">Wegpunkte</div>
+   <ul class="cl"><li>ein Olivenhain</li><li class="done">ein Balkon über dem Markt</li><li>eine efeuberankte Mauer</li><li>ein riskanter Sprung zum Aquädukt</li></ul>
+   <div class="more">+ 7 weitere</div>
+  </div>
+  <div class="box mint gm"><div class="cap">Biss ausgeben</div><b>1 Biss:</b> Überraschungsproblem · mitten ins Geschehen schneiden · Bedrohung vorrücken<br><b>2 Biss:</b> zusätzlicher Desasterwurf · zufällige Herausforderung</div>
+ </div>
+</div>
+<script>
+var T=function(f,l){return '<svg viewBox="0 0 18 16"><path d="M9 1.5 16.5 14.5H1.5Z" fill="'+(f?'#000':'#fff')+'" stroke="#000" stroke-width="2" stroke-linejoin="round"/>'+(l&&!f?'<path d="M9 6v4.5" stroke="#000" stroke-width="2"/><circle cx="9" cy="12.3" r="1"/>':'')+'</svg>';};
+var D='<svg viewBox="0 0 20 20"><rect x="1" y="1" width="18" height="18" rx="4" fill="CC"/><g fill="#fff"><circle cx="6" cy="6" r="1.7"/><circle cx="14" cy="14" r="1.7"/><circle cx="14" cy="6" r="1.7"/><circle cx="6" cy="14" r="1.7"/><circle cx="10" cy="10" r="1.7"/></g></svg>';
+var K='<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="CC"/><path d="M11.5 3 6 11h3.6l-1.4 6 5.4-8.6H10z" fill="#fff"/></svg>';
+function hal(b,bn,k,kn,c,e){e=e||'#d9d4e2';var o='';for(var i=0;i<b;i++)o+=D.replace('CC',i<bn?c:e);for(i=0;i<k;i++)o+=K.replace('CC',i<kn?c:e);return o;}
+var P=[["Kiara","The Guts","#f175ad",5,3,[1,1,3,1],["angeschmort","gedemütigt"]],["Doug","The Smarts","#866baf",2,1,[2,1,2,0],["verschleimt"]],["Sara","The Chill","#008496",7,2,[1,0,3,0],[]],["Joshy","The Heart","#ec008c",1,0,[2,2,2,1],["gestresst"]]];
+var h='';P.forEach(function(p){var tr='';for(var i=0;i<8;i++)tr+=T(i<p[3],i==7);var st='';for(i=0;i<8;i++)st+='<i'+(i<p[4]?' class="x"':'')+'></i>';
+ var sl=p[6].map(function(x){return '<span class="sl">'+x+'</span>';}).join('');for(i=p[6].length;i<2;i++)sl+='<span class="sl e">frei</span>';
+ h+='<div class="c nm"><div><b>'+p[0]+'</b><span style="background:'+p[2]+'">'+p[1]+'</span></div></div><div class="c col2"><span class="tb">'+tr+'</span><span class="st">'+st+'</span></div><div class="c"><span class="hl">'+hal(p[5][0],p[5][1],p[5][2],p[5][3],'#00aeef')+'</span></div><div class="c">'+sl+'</div>';});
+document.getElementById('crew').insertAdjacentHTML('beforeend',h);
+document.getElementById('hype').innerHTML=hal(4,2,4,1,'#6d4d9f','#bcb0d6');
+</script>
+<div class="ann" style="left:560px;top:150px;max-width:380px"><b>1</b>Sechs gleich breite Stationen; aktive Station mittig auf dem Magenta-Klecks (genug Rand, nichts abgeschnitten).</div>
+<div class="ann" style="left:470px;top:700px;max-width:520px"><b>2</b>Crew als ruhige Tabelle: Name/Persönlichkeit · Ärger (8 Dreiecke) + Style (8 Rauten) · Haltung (Original-Symbole Würfel/Blitz) · 2 Sturz-Felder.</div>
+<div class="ann" style="left:1080px;top:760px;max-width:340px"><b>3</b>Welt-Spalte zeigt die ersten Einträge, „+ weitere“ klappt auf.</div>
+</body></html>

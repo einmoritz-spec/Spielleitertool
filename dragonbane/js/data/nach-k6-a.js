@@ -1,0 +1,82 @@
+/* Kapitel 6 – Ausrüstung (S. 72–81), Teil A: Einführung, Verfügbarkeit, Waffen & Rüstung */
+window.DB_NACH = window.DB_NACH || {};
+window.AG = "Gewöhnlich"; window.AU = "Ungewöhnlich"; window.AS = "Selten"; window.AE = "Einzigartig";
+DB_NACH.au = {id:"au", n:"6", t:"Ausrüstung", p:72, abs:[
+ {id:"einfuehrung", t:"Verfügbarkeit & Waffenwerte", p:73, b:[
+  "Dieses Kapitel behandelt verschiedene Arten von Waren und Diensten, die es in der Welt von *Dragonbane* gibt, und ihre üblichen Kosten. Die Tabellen führen außerdem das Gewicht der Gegenstände (S. 28) und ihre mechanischen Wirkungen auf.",
+  {h:"Verfügbarkeit"},
+  "Manche Waren und Dienste sind selten, und die Spielercharaktere können nicht erwarten, in jedem kleinen Dorf alles zu finden, wonach sie suchen. Jeder aufgeführte Gegenstand hat eine Verfügbarkeitsstufe nach der folgenden Skala.",
+  {ul:[
+   "**Gewöhnlich:** In jedem Dorf oder auf jedem Marktplatz erhältlich.",
+   "**Ungewöhnlich:** Meist nur bei dem Handwerker zu kaufen, der den Gegenstand herstellt, was nicht heißt, dass er in jedem Dorf zu haben ist.",
+   "**Selten:** Muss in der Regel eigens bei Handwerkern bestellt werden.",
+   "**Einzigartig:** Nur in Schatzverstecken oder von der Person zu bekommen, die den kostbaren Gegenstand gefunden hat."]},
+  {h:"Waffen & Rüstung"},
+  "Als Abenteurer willst du immer eine Waffe griffbereit haben – du weißt nie, wo Gefahr lauert. Die Tabellen auf S. 74–75 führen gängige Waffenarten auf. Die Werte in den Tabellen werden unten erklärt.",
+  "**Griff** gibt an, ob du eine oder zwei Hände zum Führen der Waffe brauchst. Mehr dazu auf S. 45.",
+  "**STÄ** gibt an, wie viel STÄ du brauchst, um die Waffe wirksam zu benutzen. Mehr dazu auf S. 45.",
+  "**Schaden** gibt an, wie viel Schaden die Waffe bei einem Treffer verursacht. Der Schaden kann durch den Schadensbonus erhöht und durch Rüstung verringert werden.",
+  "**Haltbarkeit** bestimmt, wie viel Schaden du parieren kannst, ohne die Waffe zu beschädigen. Mehr zum Parieren auf S. 46.",
+  "**Reichweite** gibt die größte Entfernung in Metern an, auf die die Waffe wirksam eingesetzt werden kann. Mehr dazu auf S. 49.",
+  "**Preis** gibt den üblichen Preis der Waffe an. Der tatsächliche Preis kann je nach örtlichem Angebot und Nachfrage schwanken.",
+  "**Merkmale** gibt an, welche Eigenschaften die Waffe hat:",
+  {ul:[
+   "**Unauffällig:** Die Waffe gibt bei Schleichangriffen (S. 43) einen Vorteil und erhöhten Schaden.",
+   "**Lang:** Angriffe mit dieser Nahkampfwaffe können einen Feind in bis zu 4 Metern Entfernung treffen (zwei Felder).",
+   "**Umwerfen:** Die Waffe gibt einen Vorteil, wenn du versuchst, einen Gegner umzuwerfen (S. 48).",
+   "**Stechend:** Die Waffe verursacht stechenden Schaden, der die Wirksamkeit von Rüstung beeinflussen kann (S. 50).",
+   "**Hauend:** Die Waffe verursacht hauenden Schaden. Ist die Waffe sowohl hauend als auch stechend, musst du vor dem Angriffswurf wählen, ob du haust oder stichst.",
+   "**Wuchtig:** Die Waffe verursacht wuchtigen Schaden, der die Wirksamkeit von Rüstung beeinflusst (S. 50)."]},
+  "**Rüstungswert** gibt an, wie viel Schaden die Rüstung von einem Angriff abzieht. Du kannst nur eine Rüstung gleichzeitig tragen, Rüstungen lassen sich aber mit einem Helm kombinieren."
+ ]},
+ {id:"waffen", t:"Rüstungen & Waffen", p:73, b:[
+  {h:"Rüstungen & Helme", p:73, voll:1},
+  {tbl:{head:["Rüstung","Rüstungswert","Preis","Verfügbarkeit","Wirkung"], rows:[
+   ["Leder","1","2 Gold",AG,"—"],
+   ["Beschlagenes Leder","2","10 Gold",AU,"Nachteil auf Würfe auf §Heimlichkeit§."],
+   ["Kettenhemd","4","50 Gold",AU,"Nachteil auf Würfe auf §Ausweichen§ und §Heimlichkeit§."],
+   ["Plattenrüstung","6","500 Gold",AS,"Nachteil auf Würfe auf §Akrobatik§, §Ausweichen§ und §Heimlichkeit§."],
+   ["Offener Helm","+1","12 Gold",AU,"Nachteil auf Würfe auf §Wahrnehmung§."],
+   ["Topfhelm","+2","100 Gold",AS,"Nachteil auf Würfe auf §Wahrnehmung§ und alle Fernkampfangriffe."]]}},
+  {h:"Nahkampfwaffen", p:74, voll:1},
+  {tbl:{head:["Waffe","Griff","STÄ","Reichweite","Schaden","Haltbarkeit","Preis","Verfügbarkeit","Merkmale"], rows:[
+   ["Unbewaffnet","—","—","2","W6","—","—","—","Wuchtig"],
+   ["Stumpfer Gegenstand, leicht","1H","—","STÄ","W8","3","—","—","Wuchtig, kann geworfen werden"],
+   ["Stumpfer Gegenstand, schwer","2H","16","2","2W8","3","—","—","Wuchtig"],
+   ["Messer","1H","—","STÄ","W8","6","5 Silber",AG,"Unauffällig, stechend, kann geworfen werden"],
+   ["Dolch","1H","—","STÄ","W8","9","1 Gold",AG,"Unauffällig, stechend, hauend, kann geworfen werden"],
+   ["Parierdolch","1H","—","2","W6","15","2 Gold",AU,"Unauffällig, stechend, hauend"],
+   ["Kurzschwert","1H","7","2","W10","12","8 Gold",AG,"Stechend, hauend"],
+   ["Breitschwert","1H","10","2","2W6","15","12 Gold",AG,"Stechend, hauend"],
+   ["Langschwert","1H","13","2","2W8","15","25 Gold",AU,"Stechend, hauend"],
+   ["Zweihänder","2H","16","2","2W10","15","50 Gold",AS,"Stechend, hauend"],
+   ["Krummsäbel","1H","10","2","2W6","12","10 Gold",AU,"Umwerfen, hauend"],
+   ["Handbeil","1H","7","STÄ","2W6","9","2 Gold",AG,"Umwerfen, hauend, kann geworfen werden"],
+   ["Streitaxt","1H","13","2","2W8","9","10 Gold",AU,"Umwerfen, hauend"],
+   ["Zweihandaxt","2H","16","2","2W10","9","25 Gold",AU,"Umwerfen, hauend"],
+   ["Streitkolben","1H","7","2","2W4","12","8 Gold",AG,"Wuchtig"],
+   ["Morgenstern","1H","13","2","2W8","12","14 Gold",AU,"Wuchtig"],
+   ["Flegel","1H","13","2","2W8","—","16 Gold",AU,"Wuchtig, umwerfen, kann nicht zum Parieren benutzt werden"],
+   ["Kriegshammer, leicht","1H","10","2","2W6","12","10 Gold",AU,"Wuchtig, umwerfen"],
+   ["Kriegshammer, schwer","2H","16","2","2W10","12","20 Gold",AU,"Wuchtig, umwerfen"],
+   ["Holzkeule, klein","1H","7","2","W8","9","1 Silber",AG,"Wuchtig"],
+   ["Holzkeule, groß","2H","16","2","2W8","12","2 Silber",AG,"Wuchtig"],
+   ["Stab","2H","7","2","W8","9","2 Silber",AG,"Wuchtig, umwerfen"],
+   ["Kurzspeer","1H","7","STÄ×2","W10","9","5 Silber",AG,"Stechend, kann geworfen werden"],
+   ["Langspeer","2H","10","4","2W8","9","1 Gold",AG,"Lang, stechend"],
+   ["Lanze","1H","13","4","2W10","12","12 Gold",AS,"Lang, stechend, benötigt kampfgeübtes Reittier"],
+   ["Hellebarde","2H","13","4","2W8","12","20 Gold",AS,"Lang, umwerfen, stechend, hauend"],
+   ["Dreizack","1H","10","STÄ","2W6","9","5 Gold",AU,"Umwerfen, stechend, kann geworfen werden"],
+   ["Schild, klein","1H","7","2","W8","15","4 Gold",AG,"Wuchtig"],
+   ["Schild, groß","1H","13","2","W8","18","12 Gold",AG,"Wuchtig"],
+   ["Meisterarbeit","—","—","—","—","—","×10","—","Senkt die STÄ-Voraussetzung um 3, erhöht die Haltbarkeit um 3"]]}},
+  {h:"Fernkampfwaffen", p:75, voll:1},
+  {tbl:{head:["Waffe","Griff","STÄ","Reichweite","Schaden","Haltbarkeit","Preis","Verfügbarkeit","Merkmale"], rows:[
+   ["Schleuder","1H","—","20","W8","—","1 Silber",AG,"Wuchtig, Kleinkram"],
+   ["Kurzbogen","2H","7","30","W10","3","25 Gold",AG,"Stechend, erfordert Köcher"],
+   ["Langbogen","2H","13","100","W12","6","50 Gold",AU,"Stechend, erfordert Köcher"],
+   ["Armbrust, leicht","2H","7","40","2W6","6","75 Gold",AU,"Stechend, erfordert Köcher, kein Schadensbonus"],
+   ["Armbrust, schwer","2H","13","60","2W8","9","200 Gold",AS,"Stechend, erfordert Köcher, kein Schadensbonus"],
+   ["Handarmbrust","1H","7","30","2W6","6","90 Gold",AS,"Stechend, erfordert Köcher, kein Schadensbonus"]]}}
+ ]}
+]};

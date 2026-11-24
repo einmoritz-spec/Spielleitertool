@@ -1,0 +1,77 @@
+/* PICO – Entwurfs-CSS (Farben/Schriften exakt aus dem Corebook-PDF) */
+@font-face{font-family:Baby;src:url(pico-babydoll.woff2) format('woff2')}
+@font-face{font-family:Rubik;font-weight:300;src:url(rubik-latin-300-normal.woff2) format('woff2')}
+@font-face{font-family:Rubik;font-weight:300;font-style:italic;src:url(rubik-latin-300-italic.woff2) format('woff2')}
+@font-face{font-family:Rubik;font-weight:500;src:url(rubik-latin-500-normal.woff2) format('woff2')}
+:root{
+ --ink:#1f2426;--soft:#59676d;--paper:#ffffff;--paper2:#f6f6f3;--line:#d2d3cc;
+ --teal:#008999;--blue:#185d7e;--sky:#008bd2;--plum:#8a3578;--violet:#593582;--lilac:#af8ec1;
+ --moss:#405335;--olive:#969f31;--sage:#839369;--gold:#eba300;--amber:#c76f00;--brown:#6e4018;--tan:#a16426;
+ --rust:#b34c25;--red:#9e2220;--coral:#ec6b6b;--peach:#d98d61;--apricot:#f2a477;--pink:#ee7bae;--slate:#59676d;--night:#1f2426;
+ --tint-teal:#d5e6ea;--tint-coral:#fce5e1;--tint-olive:#e9ead5;--tint-lilac:#eee8f4;--tint-gold:#fcecd3;--tint-moss:#dde8d5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:#fff;color:var(--ink);font:300 15px/1.55 Rubik,system-ui,sans-serif;position:relative}
+/* kein Kritzel-Hintergrund – clean (Moritz, 21.11.) */
+body>*{position:relative;z-index:1}
+b,strong{font-weight:500}
+i,em{font-style:italic}
+.bd,h1,h2,h3,h4{font-family:Baby,Rubik,sans-serif;font-weight:400;line-height:1.05;letter-spacing:.01em}
+/* Kopfzeile: nur Logo links, Buch + Burger rechts */
+.top{height:56px;display:flex;align-items:center;padding:0 22px;background:var(--night);position:relative;z-index:5}
+.logo{height:36px}
+.sp{flex:1}
+.ib{width:38px;height:38px;display:grid;place-items:center;color:#fff;margin-left:6px}
+.ib svg{width:22px;height:22px}
+/* Tab-Leiste */
+.tabs{display:flex;gap:2px;padding:0 22px;background:#fff;border-bottom:2px solid var(--ink);height:48px;align-items:flex-end;position:relative;z-index:4}
+.tabs a{font:30px/1 Baby,sans-serif;padding:10px 16px 8px;color:var(--soft);border-radius:10px 10px 0 0}
+.tabs a.on{color:#fff;background:var(--c,var(--teal))}
+.tabs .r{margin-left:auto;align-self:center;opacity:.45}
+.pen{width:19px;height:19px}
+.pg{font:300 12px Rubik,sans-serif;color:var(--soft);letter-spacing:0;text-transform:none;margin-left:6px;white-space:nowrap}
+.on .pg,.hd .pg{color:rgba(255,255,255,.75)}
+/* Buch-Kästen */
+.box{border:2.5px solid var(--c,var(--teal));border-radius:12px;background:#fff;overflow:hidden}
+.box>.hd{background:var(--c,var(--teal));color:#fff;padding:7px 14px 5px;font:27px/1.1 Baby,sans-serif;display:flex;align-items:baseline;gap:8px}
+.box>.bd2{padding:10px 14px 12px}
+.fill{background:var(--c,var(--teal));color:#fff;border-radius:12px;padding:14px 18px}
+.fill h3{font-size:28px;margin-bottom:4px}
+.tint{background:var(--t,var(--tint-teal));border-radius:12px;padding:12px 16px}
+.typ{font:300 14px Rubik,sans-serif;opacity:.85;text-transform:lowercase}
+.chip{display:inline-flex;align-items:center;gap:5px;font:500 12.5px/1 Rubik,sans-serif;padding:6px 10px;border-radius:999px;background:var(--c,var(--teal));color:#fff;margin:0 5px 6px 0;white-space:nowrap}
+.chip.o{background:#fff;color:var(--c,var(--teal));border:1.5px solid var(--c,var(--teal))}
+.chip.g{background:#e6e7df;color:var(--soft)}
+.bul{list-style:none}
+.bul li{position:relative;padding-left:16px;margin:4px 0}
+.bul li:before{content:"»";position:absolute;left:0;top:0;font-family:Baby;color:var(--c,var(--teal))}
+.vl{font:28px/1.2 Baby,sans-serif;color:var(--c,var(--moss));padding:6px 4px}
+.vl small{display:block;font:italic 300 13px Rubik,sans-serif;color:var(--soft);margin-top:4px}
+.gm{font-style:italic;color:#4a5658}
+/* Herzleisten: Herz = Feld, Punkt = Bruch */
+.hearts{display:inline-flex;align-items:center;gap:2px;font:20px/1 Baby,sans-serif;letter-spacing:0}
+.h{width:19px;height:17px;display:inline-block;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21S1.5 14.2 1.5 7.2A5.4 5.4 0 0 1 12 4.6a5.4 5.4 0 0 1 10.5 2.6C22.5 14.2 12 21 12 21z' fill='white' stroke='%231f2426' stroke-width='2'/%3E%3C/svg%3E")}
+.h.m{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21S1.5 14.2 1.5 7.2A5.4 5.4 0 0 1 12 4.6a5.4 5.4 0 0 1 10.5 2.6C22.5 14.2 12 21 12 21z' fill='%231f2426' stroke='%231f2426' stroke-width='2'/%3E%3C/svg%3E")}
+.h.x{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21S1.5 14.2 1.5 7.2A5.4 5.4 0 0 1 12 4.6a5.4 5.4 0 0 1 10.5 2.6C22.5 14.2 12 21 12 21z' fill='%239e2220' stroke='%239e2220' stroke-width='2'/%3E%3Cpath d='M6 5l12 12M18 5L6 17' stroke='white' stroke-width='2.4'/%3E%3C/svg%3E")}
+.hearts.w .h{filter:invert(1)}
+.brk{width:6px;height:6px;border-radius:50%;background:currentColor;margin:0 3px}
+.box{position:relative}
+.done{opacity:.38}
+/* Seitenleiste / Baum */
+.side{width:250px;flex:none;border-right:2px solid var(--ink);padding:14px 0;background:rgba(255,255,255,.92);height:100%;position:relative}
+.side h4{font-size:25px;padding:8px 18px 4px;display:flex;justify-content:space-between;color:var(--ink)}
+.side a{display:block;padding:4px 18px 4px 30px;font-size:14px;color:var(--soft)}
+.side a.on{color:var(--ink);font-weight:500;background:var(--tint-gold);border-left:4px solid var(--c,var(--gold));padding-left:26px}
+.side h4.c{color:var(--soft)}
+.fold{position:absolute;top:10px;right:-14px;width:26px;height:26px;border-radius:50%;background:#fff;border:2px solid var(--ink);display:grid;place-items:center;font:500 14px Rubik;color:var(--ink);z-index:3}
+.dice{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:7px;background:#fff;border:2px solid var(--ink);font:26px/1 Baby;color:var(--ink)}
+.dice.k{background:var(--ink);color:#fff}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl td{padding:5px 10px;vertical-align:top}
+.tbl tr:nth-child(odd) td{background:var(--t,var(--tint-teal))}
+.tbl td:first-child{font:26px/1 Baby;width:34px;text-align:center;color:var(--c,var(--teal))}
+.tbl tr.hit td{background:var(--c,var(--teal));color:#fff}
+.tbl tr.hit td:first-child{color:#fff}
+.anno{position:absolute;background:#1e3a5f;color:#fff;font:12.5px/1.35 system-ui,sans-serif;padding:7px 10px;border-radius:6px;max-width:260px;box-shadow:0 3px 12px rgba(0,0,0,.25);z-index:50}
+.anno b{color:#ffd47a;font-weight:700}
+.anno:before{content:attr(data-n);position:absolute;left:-11px;top:-11px;width:22px;height:22px;border-radius:50%;background:#e24a33;color:#fff;font:700 12px/22px system-ui;text-align:center}

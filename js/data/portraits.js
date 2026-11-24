@@ -1,0 +1,26 @@
+// Kleine, komprimierte Portrait-Thumbnails (WebP, 96px, base64) fuer NPC-/Challenge-Karten.
+// Referenziert ueber ch.img / n.img (siehe renderChallenge/renderNpcCard).
+const PORTRAITS = {
+  aldermanBeaks: "assets/portraits/aldermanBeaks.webp",
+  aleonora: "assets/portraits/aleonora.webp",
+  azeria: "assets/portraits/azeria.webp",
+  coldHeartedStabber: "assets/portraits/coldHeartedStabber.webp",
+  concernedVillagers: "assets/portraits/concernedVillagers.webp",
+  kerrid: "assets/portraits/kerrid.webp",
+  mireling1: "assets/portraits/mireling1.webp",
+  mireling2: "assets/portraits/mireling2.webp",
+  mireling3: "assets/portraits/mireling3.webp",
+  poisonedWurm: "assets/portraits/poisonedWurm.webp",
+  rosamund: "assets/portraits/rosamund.webp",
+  sorrowbalm: "assets/portraits/sorrowbalm.webp",
+  stormhelmKnight: "assets/portraits/stormhelmKnight.webp",
+  thaneCodprice: "assets/portraits/thaneCodprice.webp",
+  greenMaiden: "assets/portraits/greenMaiden.webp",
+  paintedBeast: "assets/portraits/paintedBeast.webp",
+  verdan: "assets/portraits/verdan.webp",
+  wakenSentry: "assets/portraits/wakenSentry.webp",
+  walric: "assets/portraits/walric.webp",
+  willow: "assets/portraits/willow.webp",
+  gajowy: "assets/portraits/gajowy.webp",
+  mackross: "assets/portraits/mackross.webp",
+};

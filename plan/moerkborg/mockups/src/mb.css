@@ -1,0 +1,74 @@
+/* MÖRK BORG – Design-System (aus dem Corebook gemessen). Ausgangspunkt für moerkborg/style.css
+   Flächen:  Schwarz = Spiel (Spieltisch, Welt, Tabellen) · Gelb = Nachschlagen/Regeln · Weiß = Abenteuer, Kreaturen, Bogen
+   Signal:   Pink nur für Spielwerte (TP, Moral, SG, Schaden, Würfel) – wie die pinken Werte-Zeilen im Buch */
+@font-face{font-family:"MB Fraktur";src:url(fonts/unifrakturcook-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"MB Plakat";src:url(fonts/anton-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"MB Grotesk";src:url(fonts/jost-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"MB Grotesk";src:url(fonts/jost-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"MB Grotesk";src:url(fonts/jost-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"MB Mono";src:url(fonts/courier-prime-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"MB Mono";src:url(fonts/courier-prime-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"MB Text";src:url(fonts/alegreya-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"MB Text";src:url(fonts/alegreya-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic}
+@font-face{font-family:"MB Text";src:url(fonts/alegreya-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"MB Text";src:url(fonts/alegreya-latin-800-normal.woff2) format("woff2");font-weight:800}
+
+:root{
+ --schwarz:#12120d;   /* Seitenschwarz + Text (gemessen, 51 % aller Textzeichen) */
+ --tief:#020200;      /* tiefstes Schwarz (Flächen) – Kopfzeile */
+ --gelb:#ffe800;      /* Corebook-Gelb (größte Farbfläche) */
+ --pink:#ff41b4;      /* Corebook-Pink (Werte, Akzentseiten) */
+ --weiss:#ffffff;
+ --silber:#bfc1c1;    /* graue Flächen (Kreaturen-Seiten) */
+ --creme:#fffae5;     /* Fähigkeiten-Seite S. 26 */
+ --grau:#7b7d7c;      /* grauer Nebentext */
+ --linie:#2b2b24;     /* Linien auf Schwarz */
+ --linie-h:#d9d6c8;   /* Linien auf Weiß */
+ /* Apokryphen (Rules Apocrypha) */
+ --a-gelb:#ffdd00; --a-magenta:#ec008c; --a-rot:#df0024; --a-tinte:#231f20;
+ --fraktur:"MB Fraktur",serif;
+ --plakat:"MB Plakat","Impact",sans-serif;
+ --grotesk:"MB Grotesk","Futura",sans-serif;
+ --mono:"MB Mono","Courier New",monospace;
+ --text:"MB Text",Georgia,serif;
+ --r1:8px;--r2:16px;--r3:24px;--r4:32px;--r5:48px;   /* Abstandsreihe */
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{width:1440px;height:900px;overflow:hidden;position:relative;background:var(--schwarz);color:var(--weiss);font:400 16px/1.45 var(--text);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+/* ── Kopfzeile ───────────────────────────── */
+.kopf{height:56px;background:var(--tief);display:flex;align-items:center;gap:6px;padding:0 18px 0 22px;position:relative;z-index:5}
+.kopf .logo{width:64px;height:44px;background:var(--gelb);-webkit-mask:url(img/logo.webp) center/contain no-repeat;mask:url(img/logo.webp) center/contain no-repeat}
+.kopf .sp{flex:1}
+.kopf .ib{width:40px;height:40px;display:grid;place-items:center;color:var(--gelb)}
+.kopf .ib svg{width:23px;height:23px}
+.kopf .ib.i b{width:23px;height:23px;border:2px solid var(--gelb);border-radius:50%;display:grid;place-items:center;font:700 13px/1 var(--grotesk)}
+
+/* ── Spiel-Leiste (schwarz) ─────────────── */
+.reiter{height:48px;display:flex;align-items:stretch;gap:2px;padding:0 22px;background:var(--schwarz);border-bottom:2px solid var(--gelb)}
+.reiter button{padding:0 18px;font:700 22px/48px var(--fraktur);color:#e8e4d2;letter-spacing:.01em}
+.reiter button.on{background:var(--gelb);color:var(--schwarz)}
+.reiter .sp{flex:1}
+.reiter .stift{width:40px;color:var(--grau);display:grid;place-items:center}
+.reiter .stift svg{width:20px;height:20px}
+
+/* ── Nachschlage-Leiste (gelb, Umkehrung) ── */
+.reiter.gelb{background:var(--gelb);border-bottom:2px solid var(--schwarz)}
+.reiter.gelb button{color:var(--schwarz)}
+.reiter.gelb button.on{background:var(--schwarz);color:var(--gelb)}
+
+/* ── Bausteine ──────────────────────────── */
+.etikett{display:inline-block;background:var(--schwarz);color:var(--weiss);font:700 11px/1 var(--grotesk);letter-spacing:.16em;text-transform:uppercase;padding:5px 8px 4px}
+.etikett.g{background:var(--gelb);color:var(--schwarz)}
+.versal{font:700 11px/1.2 var(--grotesk);letter-spacing:.16em;text-transform:uppercase}
+.s{font:400 12px var(--mono);color:var(--grau);white-space:nowrap;margin-left:6px}   /* „S. 58“ unscheinbar hinter dem Namen */
+.wert{font:700 1em var(--mono);color:var(--pink)}
+.fraktur{font-family:var(--fraktur);font-weight:700}
+.plakat{font-family:var(--plakat);text-transform:uppercase;letter-spacing:.01em}
+
+/* Erklär-Kästen (nur im Entwurf) */
+.ann{display:none;position:absolute;z-index:99;background:#1f6feb;color:#fff;font:600 12.5px/1.32 system-ui,sans-serif;padding:6px 9px;border-radius:6px;max-width:270px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.ann b{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:#e5352b;color:#fff;font-size:11px;margin-right:6px;vertical-align:-1px}
+body.erklaert .ann{display:block}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="theme-color" content="#fbfaf6">
+<title>The Wildsea</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/bogen.css">
+<link rel="stylesheet" href="css/start.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="go('start')" aria-label="The Wildsea"><img src="../assets/logos/the-wildsea.webp" alt="The Wildsea"></button>
+  <div class="topbar-spacer"></div>
+  <button class="ib" onclick="BV.open('ws_core',1)" aria-label="Buch öffnen" title="Buch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+  <button class="ib" onclick="openMenu(true)" aria-label="Menü" title="Menü"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP"></div>
+<script src="js/data/buecher.js"></script>
+<script src="js/data/reiche.js"></script>
+<script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
+<script src="js/data/reich-foxloft.js"></script>
+<script src="js/data/reich-icterine.js"></script>
+<script src="js/data/gefahren-icterine.js"></script>
+<script src="js/data/reich-interregnum.js"></script>
+<script src="js/data/gefahren-interregnum.js"></script>
+<script src="js/data/reich-ambered.js"></script>
+<script src="js/data/reich-kremich.js"></script>
+<script src="js/data/gefahren-kremich.js"></script>
+<script src="js/data/reich-prophet.js"></script>
+<script src="js/data/reich-duzakh.js"></script>
+<script src="js/data/reich-fjandango.js"></script>
+<script src="js/data/reich-myconica.js"></script>
+<script src="js/data/reich-nadir.js"></script>
+<script src="js/data/reich-raoze.js"></script>
+<script src="js/data/reich-sr-bausteine.js"></script>
+<script src="js/data/reich-zentinel.js"></script>
+<script src="js/data/reiche-sr-a.js"></script>
+<script src="js/data/reiche-sr-b.js"></script>
+<script src="js/data/reiche-sr-c.js"></script>
+<script src="js/data/reiche-sr-d.js"></script>
+<script src="js/data/gefahren-bilder.js"></script>
+<script src="js/data/gefahren-natur.js"></script>
+<script src="js/data/gefahren-bestien-1.js"></script>
+<script src="js/data/gefahren-bestien-2.js"></script>
+<script src="js/data/gefahren-insekten-1.js"></script>
+<script src="js/data/gefahren-pflanzen-1.js"></script>
+<script src="js/data/gefahren-pflanzen-2.js"></script>
+<script src="js/data/gefahren-konstrukte-1.js"></script>
+<script src="js/data/gefahren-pluenderer-1.js"></script>
+<script src="js/data/gefahren-krankheiten.js"></script>
+<script src="js/data/gefahren-leviathane-1.js"></script>
+<script src="js/data/gefahren-leviathane-2.js"></script>
+<script src="js/data/gefahren-sg.js"></script>
+<script src="js/data/gefahren-sr-a.js"></script>
+<script src="js/data/gefahren-sr-a2.js"></script>
+<script src="js/data/gefahren-sr-b.js"></script>
+<script src="js/data/gefahren-sr-b2.js"></script>
+<script src="js/data/gefahren-sr-myconica.js"></script>
+<script src="js/data/gefahren-sr-raoze.js"></script>
+<script src="js/data/gefahren-sr-reiche-a.js"></script>
+<script src="js/reich.js"></script>
+<script src="js/seeext.js"></script>
+<script src="js/gefahr.js"></script>
+<script src="js/nach.js"></script>
+<script src="../shared/fillpdf.js"></script>
+<script src="js/bogen.js"></script>
+<script src="js/garten.js"></script>
+<script src="js/schirm.js"></script>
+<script src="js/data/schirm.js"></script>
+<script src="js/data/schirm-sr.js"></script>
+<script src="js/data/regeln-2.js"></script>
+<script src="js/data/regeln-2b.js"></script>
+<script src="js/data/regeln-3a.js"></script>
+<script src="js/data/regeln-3b.js"></script>
+<script src="js/data/regeln-3c.js"></script>
+<script src="js/data/regeln-4.js"></script>
+<script src="js/data/regeln-5a.js"></script>
+<script src="js/data/regeln-5b.js"></script>
+<script src="js/data/regeln-5c.js"></script>
+<script src="js/data/regeln-sr-a.js"></script>
+<script src="js/data/regeln-sr-b.js"></script>
+<script src="js/data/charaktere-6a.js"></script>
+<script src="js/data/charaktere-6b.js"></script>
+<script src="js/data/charaktere-h.js"></script>
+<script src="js/data/charaktere-7a.js"></script>
+<script src="js/data/charaktere-7b.js"></script>
+<script src="js/data/charaktere-7c.js"></script>
+<script src="js/data/charaktere-7d.js"></script>
+<script src="js/data/charaktere-7e.js"></script>
+<script src="js/data/charaktere-7f.js"></script>
+<script src="js/data/charaktere-erz.js"></script>
+<script src="js/data/charaktere-8a.js"></script>
+<script src="js/data/charaktere-8b.js"></script>
+<script src="js/data/charaktere-8c.js"></script>
+<script src="js/data/charaktere-8d.js"></script>
+<script src="js/data/charaktere-8e.js"></script>
+<script src="js/data/charaktere-8f.js"></script>
+<script src="js/data/charaktere-8g.js"></script>
+<script src="js/data/charaktere-8h.js"></script>
+<script src="js/data/charaktere-8i.js"></script>
+<script src="js/data/pregens-a.js"></script>
+<script src="js/data/charaktere-sg.js"></script>
+<script src="js/data/charaktere-sr-a.js"></script>
+<script src="js/data/charaktere-sr-b.js"></script>
+<script src="js/data/charaktere-sr-c.js"></script>
+<script src="js/data/pregens-b.js"></script>
+<script src="js/data/charaktere-sr-reiche.js"></script>
+<script src="js/data/tisch-a.js"></script>
+<script src="js/data/tisch-b.js"></script>
+<script src="js/data/tisch-sr.js"></script>
+<script src="js/data/wildsee-a.js"></script>
+<script src="js/data/wildsee-b.js"></script>
+<script src="js/data/wildsee-c.js"></script>
+<script src="js/data/wildsee-d.js"></script>
+<script src="js/data/wildsee-sr-a.js"></script>
+<script src="js/data/wildsee-sr-b.js"></script>
+<script src="js/data/schiffe-a.js"></script>
+<script src="js/data/schiffe-b.js"></script>
+<script src="js/data/schiffe-c.js"></script>
+<script src="js/data/schiffe-d.js"></script>
+<script src="js/data/schiffe-e.js"></script>
+<script src="js/data/schiffe-f.js"></script>
+<script src="js/data/schiffe-sg-daten.js"></script>
+<script src="js/data/schiffe-sg-a.js"></script>
+<script src="js/data/schiffe-sg-b.js"></script>
+<script src="js/data/schiffe-sg-bogen.js"></script>
+<script src="js/data/schiffe-sg-kreuzung.js"></script>
+<script src="js/data/schiffe-sg-pflanzen.js"></script>
+<script src="js/data/schiffe-sr-a.js"></script>
+<script src="js/data/schiffe-sr-b.js"></script>
+<script src="js/data/schiffe-sr-c.js"></script>
+<script src="js/data/schiffe-sr-d.js"></script>
+<script src="js/data/leitfaden-a.js"></script>
+<script src="js/data/leitfaden-b.js"></script>
+<script src="js/data/leitfaden-c.js"></script>
+<script src="js/data/leitfaden-d.js"></script>
+<script src="js/data/leitfaden-e.js"></script>
+<script src="js/data/leitfaden-f.js"></script>
+<script src="js/data/leitfaden-g.js"></script>
+<script src="js/data/leitfaden-sr.js"></script>
+<script src="js/data/bilder-charaktere.js"></script>
+<script src="js/data/bilder-wildsee.js"></script>
+<script src="js/data/bilder-regeln.js"></script>
+<script src="js/data/bilder-schiffe.js"></script>
+<script src="js/data/bilder-leitfaden.js"></script>
+<script src="js/data/bilder-tisch.js"></script>
+<script src="js/data/bilder-sg.js"></script>
+<script src="js/data/bilder-sr-blau.js"></script>
+<script src="js/data/bilder-sr-char-a.js"></script>
+<script src="js/data/bilder-sr-char-b.js"></script>
+<script src="js/data/bilder-sr-schiffe.js"></script>
+<script src="js/data/bilder-sr-tiefe.js"></script>
+<script src="js/data/bilder-sr-rat.js"></script>
+<script src="js/data/bilder-sr-reiche.js"></script>
+<script src="js/data/szen-oas-a.js"></script>
+<script src="js/data/szen-oas-b.js"></script>
+<script src="js/data/szen-oas-c.js"></script>
+<script src="js/data/szen-oas-d.js"></script>
+<script src="js/data/szen-oas-e.js"></script>
+<script src="js/data/szen-oas-f.js"></script>
+<script src="js/data/bilder-szen-oas.js"></script>
+<script src="js/data/szen-rrh-a.js"></script>
+<script src="js/data/szen-rrh-b.js"></script>
+<script src="js/data/szen-rrh-c.js"></script>
+<script src="js/data/szen-rrh-d.js"></script>
+<script src="js/data/szen-rrh-e.js"></script>
+<script src="js/data/szen-rrh-f.js"></script>
+<script src="js/data/szen-rrh-g.js"></script>
+<script src="js/data/szen-rrh-h.js"></script>
+<script src="js/data/szen-rrh-i.js"></script>
+<script src="js/data/bilder-szen-rrh.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/suche.js"></script>
+<script src="js/app.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ws_core", books:WS_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")"}; })); },[]), openSettings:function(){ openMenu(true); } });</script>
+<script src="../shared/masonry.js" defer></script>
+<script src="../toolmenu.js"></script>
+<script>try{localStorage.setItem("gm_tool_mode_v1","wildsea");}catch(e){} window.gmBook=function(){return {name:"The Wildsea Corebook",open:function(){BV.open("ws_core",1);}};};</script>
+</body>
+</html>

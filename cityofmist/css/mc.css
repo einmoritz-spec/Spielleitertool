@@ -1,0 +1,17 @@
+/* MC Toolkit – Bilder: Überschrift und Seitenangabe bleiben oben; Hochformat-Reihen (ab 3 Bildern) nebeneinander, sonst rechts neben dem Text */
+.mce>.pg::after{content:"";display:block;height:0;margin-bottom:8px}
+.mce>.imf.im-strip{float:none;width:100%;margin:0 0 14px}
+.mce>.imf.im-port{width:min(26%,250px)}
+.mce:has(>.im-port~.im-port~.im-port)>.imf.im-port{float:left;width:calc(33.333% - 12px);max-width:300px;margin:2px 12px 12px 0}
+.mce:has(>.im-port~.im-port~.im-port~.im-port)>.imf.im-port{width:calc(25% - 12px);max-width:250px}
+.mce:has(>.im-port~.im-port~.im-port)>.imf.im-port+*:not(.imf){clear:left}
+@media(max-width:700px){.mce>.imf.im-port,.mce:has(>.im-port~.im-port~.im-port)>.imf.im-port{width:calc(33.3% - 8px);margin-right:8px}.mce>.imf.im-land{float:none;width:100%}}
+.dg .dimg{float:right;width:clamp(110px,32%,190px);height:auto;margin:2px 0 8px 14px;border-radius:5px}
+#m-kt-karten{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+#m-kt-karten>*{grid-column:1/-1}
+#m-kt-karten>.imf{grid-column:auto;float:none!important;width:100%!important;max-width:none!important;margin:0!important}
+@media(max-width:700px){#m-kt-karten{grid-template-columns:repeat(2,1fr)}}
+/* Startseite: Bildkarten ohne Hero */
+.ovc.mcs .ovc-grid{margin-top:18px;margin-bottom:26px;padding:0}
+.ovc.mcs .ovc-b .hl{flex-wrap:wrap;overflow:visible}
+.ovc.mcs .ovc-b .hl .chip{max-width:none;overflow:visible;text-overflow:clip}

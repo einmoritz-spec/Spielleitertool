@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.kopf .logo img{height:26px}
+.tabs .kap{align-self:center;font:400 15px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#8f7d6c;margin:0 18px 6px 0;cursor:pointer}
+.tabs .kap b{color:#e9dccb;font-weight:400}
+.karte{position:relative;height:176px;margin:12px 16px 0;background:#f4eee3 url(img/tex-papier.webp) 40% 30%/1500px auto;box-shadow:0 0 0 1px #000}
+.karte svg{position:absolute;inset:0}
+.karte .tl{position:absolute;left:12px;font:400 13px/1 var(--plate);letter-spacing:.1em;text-transform:uppercase;color:#a08a76}
+.kn{position:absolute;transform:translate(-50%,-50%);text-align:center;cursor:pointer}
+.kn .platte{font-size:15px;line-height:1.05;white-space:normal;max-width:170px;display:inline-block}
+.kn small{display:block;white-space:nowrap;font:700 11.5px/1 var(--sc);color:#6f5f52;margin-top:3px}
+.kn.weg .platte{background:#8b7a6c}
+.dv2{position:absolute;transform:translate(-50%,0);background:var(--teal);color:#fff;font:400 13px/1 var(--plate);letter-spacing:.07em;text-transform:uppercase;padding:4px 7px 3px;white-space:nowrap;cursor:pointer}
+.dv2.on{outline:3px solid #0d0804;outline-offset:1px}
+.unten{display:grid;grid-template-columns:520px 1fr;gap:14px;margin:12px 16px 0;height:600px}
+/* Delve-Karte wie im Kampagnenband */
+.dk{background:var(--teal-hell);box-shadow:0 0 0 1px #000;overflow:hidden}
+.dk .kopf3{background:var(--teal);color:#fff;font:400 19px/1 var(--plate);letter-spacing:.06em;text-transform:uppercase;padding:9px 14px 7px;display:flex;justify-content:space-between;align-items:baseline}
+.dk .kopf3 .s{color:#e6f0ef}
+.dk .in{padding:10px 14px}
+.dk .zeilen>div{font-size:14.5px;line-height:1.32;padding:3px 0}
+.dk .lbl{color:var(--blut)}
+.dk .res{display:flex;align-items:center;gap:10px;margin:4px 0 8px}
+.dk .res b{font:400 28px/1 var(--head);color:var(--blut)}
+.dk .erg li{font-size:14px;line-height:1.3;padding:2px 0}
+.lmk{overflow:hidden}
+.lmk .seite{height:600px;padding:0 6px}
+.lmk .kopf4{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.lmk .h1{font-size:40px}
+.lmk .reihe{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:8px}
+.lmk p{font-size:15.5px;line-height:1.45;margin:0 0 7px}
+.lmk ul{margin:2px 0 8px;padding-left:16px}
+.lmk li{font-size:15px;line-height:1.38;margin-bottom:4px}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/dagger-logo-zeile-hell.svg" alt="Dagger in the Heart"><span class="dd"></span></button><div class="sp"></div>
+<button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><span class="kap">Kapitel 2 · <b>Eastern Express</b> ▾</span><a>Überblick</a><a>Inszenierung</a><a class="on">Landmarken</a><a>Dokumente</a><span class="sp"></span>
+<button class="ik stift"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button></div>
+
+<div class="karte">
+ <svg viewBox="0 0 1408 176" width="1408" height="176">
+  <line x1="0" y1="50" x2="1408" y2="50" stroke="#c9b7a2" stroke-dasharray="2 6"/>
+  <line x1="0" y1="124" x2="1408" y2="124" stroke="#c9b7a2" stroke-dasharray="2 6"/>
+  <g stroke="#5b0909" stroke-width="2.4" fill="none">
+   <path d="M125 50 L330 50"/>
+   <path d="M330 50 C440 50 460 124 570 124" stroke-dasharray="6 6" stroke="#9b8574"/>
+   <path d="M570 124 L1300 124"/>
+  </g>
+ </svg>
+ <div class="tl" style="top:30px">Tiefe 1</div><div class="tl" style="top:104px">Tiefe 2</div>
+ <div class="kn weg" style="left:125px;top:50px"><span class="platte">Shuntyard</span><small>aus Kapitel 1</small></div>
+ <div class="kn" style="left:330px;top:50px"><span class="platte">Die Perfide Kathedrale<span class="s">S. 38</span></span><small>Wild, Religion · W6</small></div>
+ <div class="kn" style="left:570px;top:124px"><span class="platte">Tollembrood<span class="s">S. 39</span></span><small>Haven, Religion · W6</small></div>
+ <div class="kn" style="left:815px;top:124px"><span class="platte">Das namenlose Sommerland<span class="s">S. 40</span></span><small>Wild, Cursed · W6</small></div>
+ <div class="kn" style="left:1060px;top:124px"><span class="platte">Die Schwarze Kaserne<span class="s">S. 42</span></span><small>Technology, Desolate · W8</small></div>
+ <div class="kn" style="left:1300px;top:124px"><span class="platte">Eastern Express<span class="s">S. 44</span></span><small>Technology, Cursed · W8</small></div>
+ <div class="dv2 on" style="left:212px;top:58px">Delve · 14</div>
+ <div class="dv2" style="left:692px;top:132px">Delve · 14</div>
+ <div class="dv2" style="left:938px;top:132px">Delve · 16</div>
+ <div class="dv2" style="left:1180px;top:132px">Delve · 16</div>
+</div>
+
+<div class="unten">
+ <div class="dk">
+  <div class="kopf3">Shuntyard → Die Perfide Kathedrale<span class="s">S. 38</span></div>
+  <div class="in">
+   <div class="zeilen">
+    <div><span class="lbl">Tiefe:</span> 1 · <span class="lbl">Domains:</span> <b>Technology</b>, <b>Religion</b> · <span class="lbl">Stress:</span> W4</div>
+   </div>
+   <div class="res"><b>14</b><span class="kk teal gross"><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+   <div class="zeilen"><div><span class="lbl">Beschreibung:</span> Ein alter Eisenbahntunnel wird zusehends überwuchert; Dornbüsche sprießen aus hölzernen Schwellen – und bleiche Metallbinsen wachsen aus dem Rost verrotteter Schienen; Abfall aus einem verlassenen Waggon wurde zu einem Schrein für einen unbekannten Gott angeordnet – oder fällt ganz von selbst so; das Gefühl des Numinosen erfüllt jedes Stück Gerümpel mit unmöglicher, verrückt machender Bedeutung.</div></div>
+   <div class="lbl" style="margin-top:6px">Ereignisse:</div>
+   <ul class="erg">
+    <li class="weg"><b>1.</b>Ein Dutzend fetter Kröten hält einen der Delver für einen Gott und rülpst eine Lobeshymne. Sie werden feindselig, wenn ihr Glaube zurückgewiesen wird.</li>
+    <li><b>2.</b>Ein unwahrscheinlicher Obstgarten treibt Blätter aus Fahrkarten. Seine Früchte schmecken nach Schinkenbroten aus dem Zug und bitterem Tee. Zerlumpte Vogelscheuchen in Schaffneruniform lassen vermuten, dass jemand diesen Hain pflegt.</li>
+    <li><b>3.</b>Ein Tunnel stürzt über den Delvern ein. Einen Augenblick vor dem Einsturz erblicken religiöse Charaktere den Himmel ihres Glaubens.</li>
+    <li><b>4.</b>Ein Rudel streunender Hunde, vom Herzen zu monströsen Bestien verformt, benimmt sich wie religiöse Inquisitoren und verfolgt die Delver. …</li>
+    <li><b>5.</b>Der Durchgang ist von einer Tür aus einem Vermissian-Waggon versperrt. …</li>
+    <li><b>6.</b>Der Wald voraus droht die Delver zu verschlingen, sie in einem langsamen Schwall aus Laubstreu und Wurzeln zu ertränken.</li>
+   </ul>
+   <div class="zeilen"><div><span class="lbl">Verbindung:</span> Schlagt mit Feuer und Schwert einen Pfad durch den Wald.</div></div>
+  </div>
+ </div>
+ <div class="lmk"><div class="seite dicht">
+  <div class="kopf4"><h1 class="h1">Die Perfide Kathedrale <span class="s">S. 38</span></h1></div>
+  <div class="werte" style="display:grid;grid-template-columns:repeat(4,auto);justify-content:start;border-left:3px solid var(--platte)">
+   <div><span class="lbl">Domains:</span> Wild, Religion</div><div><span class="lbl">Tiefe:</span> 1</div><div><span class="lbl">Standard-Stress:</span> W6</div><div><span class="lbl">Haunts:</span> Die Einsiedelei im Glockenstuhl (W6 Mind)</div>
+  </div>
+  <div class="reihe">
+   <div>
+    <p>Auf den ersten Blick ähnelt die Perfide Kathedrale einem Tempel oder einer Kirche, die von der Natur überwuchert wurde. Efeu bedeckt die Mauern und verhüllt die Statuen von Heiligen und Geistern an den Außenwänden (bei genauerem Hinsehen zeigt sich allerdings, dass Mauern wie Statuen aus gräulichem Holz bestehen). Drinnen haben Pilzgeflechte die Bänke verschlungen, und der Altar ist ein kantiger Ameisenhügel. Die Buntglasfenster wirken zunächst unversehrt, bis man bemerkt, dass sie aus Tausenden von Schmetterlingen bestehen. Chöre aus Singvögeln und Ochsenfröschen stimmen getragene Gesänge an. Die Kathedrale ist das aus den Fugen geratene Wilde, das sich nach Ordnung sehnt und die Insignien und Formen der Oberflächenreligion nachahmt.</p>
+    <p>Warum perfide? Die Kathedrale schmarotzt am Glauben ihrer Besucher. Glaubst du etwa an Damnou, zeigt die Perfide Kathedrale die Insignien eines Tempels der Mondgöttin, mit leuchtenden Motten und Spinnenschleiern. …</p>
+   </div>
+   <div>
+    <div class="lbl">Ressourcen:</div>
+    <ul><li>Von der Kathedrale nachgeahmte religiöse Texte, die sich bei genauem Hinsehen als wirklich kluge Ameisen entpuppen, aufgereiht auf papierenen Blättern (W8 Occult, Mobile)</li><li>Geschlachtetes Fleisch eines ungeborenen Wilden Gottes (W10 Wild, Taboo, und du musst danach graben)</li></ul>
+    <div class="lbl">Mögliche Plots:</div>
+    <ul><li>Die Kathedrale will Gebete. Was bringt Menschen dazu, inbrünstig und verzweifelt zu beten? Situationen auf Leben und Tod. Die Kathedrale lockt eure Feinde hierher, damit ihr um euer Überleben betet.</li><li>Überreste früherer Verkleidungen liegen verstreut. Statuen werfen Gesichter ab wie gehäutete Panzer, und gefälschte heilige Bücher verrotten in Pilzhaufen. …</li></ul>
+   </div>
+  </div>
+ </div></div>
+</div>
+
+<div class="ann" style="left:430px;top:58px;max-width:300px"><b>1</b>Kapitelwahl links in der Tab-Leiste (Esc → Kampagnen-Übersicht). Tabs nur fürs laufende Spiel.</div>
+<div class="ann" style="left:380px;top:200px;max-width:320px"><b>2</b>Wegekarte des Kapitels: Landmarken als rote Platten, Delves als Teal-Platten auf den Linien (wie die Delve-Köpfe im Buch), Höhe = Tiefe. Klick wählt aus.</div>
+<div class="ann" style="left:200px;top:470px;max-width:300px"><b>3</b>Delve-Karte genau wie im Kampagnenband: Teal-Kopf, hellgraue Fläche, rote Etiketten, Resistenz als Kästchen, Ereignisse 1–6 anklickbar (erledigt = grau).</div>
+<div class="ann" style="left:1080px;top:520px;max-width:300px"><b>4</b>Landmarke auf Pergament: Werte-Zeile oben, Text links, Ressourcen und mögliche Plots rechts – zeilenweise, kein Spaltenfluss.</div>
+</body></html>

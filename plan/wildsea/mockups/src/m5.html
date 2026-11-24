@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ws.css"><style>
+.pad{padding:14px 28px}
+.bar{display:flex;gap:26px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 18px}
+.bar .lb{font:600 17px/1 Teko;text-transform:uppercase;letter-spacing:.05em;color:var(--sage3);display:block;margin-bottom:5px}
+.bar .dest{font:600 26px/1 Teko;text-transform:uppercase}
+.rat{display:flex;gap:6px;margin-left:auto}
+.rat span{border:1px solid var(--line);border-radius:4px;padding:4px 8px 2px;text-align:center;font:600 15px/1.05 Teko;text-transform:uppercase;letter-spacing:.04em;color:var(--soft);background:var(--paper)}
+.rat b{display:block;font-size:22px;color:var(--ink)}
+.main{display:grid;grid-template-columns:330px 1fr;gap:18px;margin-top:14px}
+.h{font:600 23px/1 Teko;text-transform:uppercase;letter-spacing:.05em;margin:0 0 7px}
+.helm{display:grid;gap:6px}
+.helm div{background:#fff;border:1px solid var(--line);border-radius:5px;padding:7px 11px;font-size:12px;line-height:1.35}
+.helm div b{font:600 19px/1 Teko;text-transform:uppercase;letter-spacing:.04em;display:block}
+.helm div.on{border:2px solid var(--amber);background:#fffaf0}
+.dice{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.die{background:#fff;border:1px solid var(--line);border-radius:6px;padding:9px;text-align:center}
+.die .n{width:46px;height:46px;margin:2px auto 5px;border-radius:9px;background:var(--sage3);color:#fff;font:600 34px/50px Teko}
+.die.hid .n{background:#3c4a54}
+.die small{display:block;font:600 15px/1 Teko;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.die b{font:600 21px/1 Teko;text-transform:uppercase}
+.btns{display:flex;gap:8px;margin-top:9px}
+.btns span{flex:1;white-space:nowrap;text-align:center;background:var(--teal);color:#fff;border-radius:5px;padding:8px 0 6px;font:600 17px/1 Teko;text-transform:uppercase;letter-spacing:.03em}
+.btns span.o{background:#fff;color:var(--teal);border:1px solid #b9cdd6}
+.chk{font-size:12px;color:var(--soft);margin-top:8px}
+.wt{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tb{border:2px solid var(--sage2);border-radius:5px;overflow:hidden;background:#fff}
+.tb .th{background:var(--sage2);color:#fff;font:600 20px/1 Teko;text-transform:uppercase;letter-spacing:.05em;padding:7px 10px 4px;display:flex;justify-content:space-between}
+.tb .row{display:grid;grid-template-columns:22px 1fr;gap:6px;padding:5px 9px;font-size:12px;line-height:1.35}
+.tb .row:nth-child(odd){background:#f2f4ee}
+.tb .row i{font:600 17px/1 Teko;font-style:normal;color:var(--sage3)}
+.tb .row.hit{background:#fff1d2!important;outline:2px solid var(--amber);outline-offset:-2px}
+.tb.act{border-color:var(--amber)}.tb.act .th{background:#c98d22}
+.low{display:grid;grid-template-columns:1.25fr 1.25fr 1fr;gap:16px;margin-top:14px}
+.low ul{font-size:12.2px;line-height:1.4}
+.low .bul li{margin:2px 0}
+.chip{display:inline-block;border:1px solid #b9cdd6;background:#f1f7f9;color:var(--teal);border-radius:3px;font:600 15px/1 Teko;text-transform:uppercase;letter-spacing:.04em;padding:5px 7px 3px;margin:0 5px 5px 0}
+.ex{font:600 13px/1 Teko;letter-spacing:.06em;color:#fff;background:var(--sage);border-radius:2px;padding:2px 4px 1px;margin-right:4px}
+.ex.im{background:var(--teal)}
+</style></head><body>
+<div class="top"><img class="logo" src="img/the-wildsea.webp"><div class="sp"></div>
+<span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></span>
+<span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span></div>
+
+<div class="tabs"><a>Überblick</a><a>Territorien</a><a>Häfen</a><a>Fraktionen</a><a class="on">Auf See</a><a>Gefahren</a><span class="r" style="align-self:center;margin-bottom:6px"><svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#323032" stroke-width="2"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span></div>
+<div class="pad">
+<div class="bar">
+<div><span class="lb">Ziel</span><span class="dest">Tall Mauzer</span></div>
+<div><span class="lb">Fortschritt</span><span class="dot m"></span><span class="dot m"></span><span class="dot m"></span><span class="dot m"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+<div><span class="lb">Risiko</span><span class="dot m"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+<div><span class="lb">Pfadfindung</span><span class="dot m"></span><span class="dot m"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+<div class="rat"><span>Panzer<b>3</b></span><span>Dichtung<b>2</b></span><span>Tempo<b>4</b></span><span>Sägen<b>3</b></span><span>Tarnung<b>2</b></span><span>Neigung<b>3</b></span></div>
+</div>
+<div class="main">
+<div>
+<div class="h">Am Ruder</div>
+<div class="helm">
+<div class="on"><b>Pfad schlagen · +1</b>Sicher und zügig; der Wache bleibt Zeit, auszuweichen.</div>
+<div><b>Vorpreschen · +2</b>Rau und schnell; man rauscht meist mitten in die Begegnung.</div>
+<div><b>Anker werfen</b>Rast: Montage, die Unterbesatzung hält Wache.</div>
+</div>
+<div class="dice">
+<div class="die"><small>Wache</small><div class="n">4</div><b>Ordnung</b></div>
+<div class="die hid"><small>Bedrohung · verdeckt</small><div class="n">5</div><b>Gefahr mit Nutzen</b></div>
+</div>
+<div class="btns"><span>Wache würfeln</span><span class="o">Wetter</span><span class="o">Entdeckung</span></div>
+<div class="chk">☐ Seekarte der Gegend (Bedrohung 2W6, höherer)</div>
+</div>
+<div>
+<div class="h" style="display:flex;justify-content:space-between">Wache im Foxloft <span class="pg">S. 284</span></div>
+<div class="wt">
+<div class="tb"><div class="th">Frieden <span>6</span></div>
+<div class="row"><i>6</i>Eine Knochenspitze, mit einer groben Karte der umliegenden Wellen bemalt.</div>
+<div class="row"><i>5</i>Ein ferner Rudel Springfüchse, das im Gestrüpp spielt.</div>
+<div class="row"><i>4</i>Eine arconautische Welle von unten – für kurze Zeit hört die Crew vollkommen.</div>
+<div class="row"><i>3</i>Zwei Gefährten balgen sich spielerisch an Deck.</div>
+<div class="row"><i>2</i>Jemand von der Unterbesatzung erzählt von den Bergern, die die Bottom Dollar suchten – und was sie stattdessen fanden.</div>
+<div class="row"><i>1</i>Ein großartiger Blick auf eine der Sieben Mauern von einem Wellenkamm aus.</div></div>
+<div class="tb act"><div class="th">Ordnung <span>5–4</span></div>
+<div class="row"><i>6</i>Ein Schiff der Jagdfamilien legt längsseits an – mit frischem Fleisch und starkem Schnaps, ohne Gegenleistung.</div>
+<div class="row"><i>5</i>Ein Hochschaft mit Raka-Spit-Schrift: das Gedicht eines Jägers für lang verlorene Beute.</div>
+<div class="row"><i>4</i>Ein Knochenspitzen-Archipel, besiedelt von Flüchtlingen aus einem fernen Reich.</div>
+<div class="row hit"><i>3</i>Ein Gespann abgerichteter Füchse zieht eine Lustbarke der Writlings.</div>
+<div class="row"><i>2</i>Eine Begegnung mit einem der Tapfersten Wenigen, der für Trophäendiebstahl büßt.</div>
+<div class="row"><i>1</i>Ein schwer beschädigtes Schiff der Jagdfamilien auf der Flucht vor einem Leviathan.</div></div>
+<div class="tb"><div class="th">Natur <span>3–1</span></div>
+<div class="row"><i>6</i>Eine Schar Springfüchse tanzt im Kielwasser – ein ausgesprochen gutes Omen.</div>
+<div class="row"><i>5</i>Ein rachsüchtiger Sturm, dessen Blitze wieder und wieder ein isoliertes Writling-Baggerschiff treffen.</div>
+<div class="row"><i>4</i>Ein Schwarm winziger Taschenfüchse quillt über die Reling, auf der Jagd nach Kleinkram.</div>
+<div class="row"><i>3</i>Ein Regen aus Zähnen.</div>
+<div class="row"><i>2</i>Gesplitterte Äste und vernarbte Stämme – ein Leviathan ist kürzlich aufgetaucht.</div>
+<div class="row"><i>1</i>Eine Woke-Bone-Marionette zieht sich an Deck und schreit um Hilfe, während sie gezwungen wird anzugreifen.</div></div>
+</div>
+</div></div>
+<div class="low">
+<div><div class="h">Passagiere</div><ul class="bul"><li>Junges Mitglied der Jagdfamilien, Fuchsabrichter, mit neuem pelzigem Freund</li><li>Goldsichtige Baggerin mit sehr genauen Vorstellungen, wo sie abgesetzt werden will</li><li>Alter Revolutionär aus Marrow mit stacheligem Bart, voller Geschichten</li><li class="used">Ein wortloses Promenossuarium, das geht, wann es will</li></ul></div>
+<div><div class="h">Handel &amp; Fracht</div><ul style="list-style:none"><li><span class="ex">Export</span>Baggerausrüstung</li><li><span class="ex">Export</span>Bestienfleisch</li><li><span class="ex">Export</span>Feingefertigte Gewehre</li><li><span class="ex im">Import</span>Münzen und Banknoten</li><li><span class="ex im">Import</span>Unerprobte Bestien</li><li><span class="ex im">Import</span>Erz</li></ul></div>
+<div><div class="h">Heimische Gefahren</div><span class="chip">Füchse aller Art</span><span class="chip">Woke-Bone-Krankheit</span><span class="chip">The Howling Wax</span><span class="chip">Glockenturm-Krabben</span><span class="chip">Robicheks Narreteien</span></div>
+</div>
+</div>
+</body></html>

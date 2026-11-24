@@ -1,0 +1,274 @@
+
+
+<!-- S. 73 (PDF 78) -->
+
+## 73
+# EYE OF THE BEHOLDER {farbe=#194d71}
+*Von Christine Beard*
+**Inhaltswarnungen:** Missbrauch (emotional, psychisch, körperlich), Entmenschlichung, medizinisches Trauma, Verstümmelung, Sklaverei
+## EINLEITUNG {farbe=#981a3f}
+Eine der Aelfir, Anessa Sonnenaufgang-blutet-auf-Schnee [[Sunrise-Bleeds-on-Snow]], hat es sich zur Aufgabe gemacht, die ihrer Familie verpflichteten Drow zu „verbessern“. Ihr Haus ist besonders beliebt, wenn es darum geht, Dienst zu tun, denn nur wenige, die ihre Dienstzeit vollenden, werden je wieder gesehen – ihre Familien erhalten allerdings Briefe, Geld und gelegentlich ein üppiges Geschenk.
+Ihre Anwärter steigen zwar auf, aber kaum so, wie sie einst waren. Verstümmelt, gefoltert und zum Gegenstand von Experimenten gemacht, begleiten ihre „Puppen“ sie als stumme Menge, wohin sie auch geht. Sie tragen besondere Masken: Ihre eigenen Gesichter, dauerhaft in seligem Lächeln gelähmt, werden nur durch die Angst, den Schmerz und die Niederlage in ihren Augen Lügen gestraft.
+Anessa ist erpicht darauf, aus ihrer wachsenden Beliebtheit Kapital zu schlagen: Sie führt ihre Puppen immer öfter vor und experimentiert mit vielfältigeren, übersteigerten Ausdrücken. Besonders angetan ist sie von strahlendem Lächeln, doch ihre „Sammlung“ umfasst inzwischen die ganze Bandbreite der Gefühle ihrer Haustiere. Ihre Puppen sind im Moment in Mode, und sie hat sich als Künstlerin etabliert. Ihre erste Galerieausstellung wird in Kürze mit einer Gala eröffnet, bei der eine Reihe ihrer Schöpfungen gezeigt wird.
+Lyrana Baez – eine Drow, die sich als Aelfir ausgibt und unter ihrem Decknamen Kastrias Feder-fällt-mit-der-Dämmerung [[Feather-Falls-With-Dawn]] besser bekannt ist – nimmt an diesen Praktiken außerordentlich Anstoß. Sie hat ihre Verbindungen genutzt, um eine Zelle anzuwerben, die etwas dagegen unternehmen soll. Schließlich drang die Kunde bis zum Ministerium vor, wo sie euch und die Euren erreichte.
+Ihr sollt die Gala in Anessas privaten Gärten infiltrieren, die von ihr eingekerkerten Drow befreien und mit der Puppenmacherin selbst verfahren, wie ihr es für richtig haltet.
+## NICHTSPIELERFIGUREN {farbe=#981a3f}
+Im Folgenden einige der Schlüsselfiguren, denen die Zelle im Verlauf des Abenteuers wahrscheinlich begegnen wird. Auch wenn sie derzeit in Verbündete, Rivalen und Antagonisten eingeteilt sind, sind dies nur Vorschläge oder wahrscheinliche Ausgangshaltungen. Ihre Beweggründe und Ansichten sind nicht in Stein gemeißelt und werden sich wahrscheinlich ändern, während die Spielenden mit ihnen interagieren – zum Besseren oder zum Schlechteren.
+## VERBÜNDETE {farbe=#194d71}
+Die Zelle hat eine überraschende Zahl potenzieller Verbündeter: eine Mischung aus Figuren, die wissen, was die Zelle vorhat, und helfen wollen, prominenten Künstlern und Auteurs, die darauf brennen, als Erste jemand Neuen als Blender abzutun, und allerlei anderen, die einfach die ungeheuerliche Behauptung missbilligen, Anessas Hobby sei „Kunst“.
+Die mörderische Natur der Aelfir-Kultur und ihr starres Festhalten an der Etikette erlauben es sogar anderen Hochelfen, der Gruppe unwissentlich zu helfen, besonders wenn sie davon überzeugt werden können, dass Anessas unkonventionelle Ideen der ultimative Fauxpas sind. Während die Zelle ihre Tarnung wahren muss, ist es nicht sonderlich schwer, die öffentliche Meinung zu beeinflussen, wenn die Saat bereits gesät ist.
+### LYRANA BAEZ/KASTRIAS FEDER-
+### FÄLLT-MIT-DER-DÄMMERUNG
+Kastrias Feder-fällt-mit-der-Dämmerung ist eine Lüge, gesponnen aus einer Maske, einer Mutprobe und einem Todeswunsch. Nachdem Lyrana und drei ihrer Freunde (allesamt vom Pech verfolgt und darauf aus, wenigstens mit einem Knall abzutreten) die Nachwehen einer brutalen Auseinandersetzung zwischen einer mutmaßlichen Ministeriumszelle und einer Gruppe ahnungsloser Aelfir entdeckt hatten, schlossen sie einen Pakt. Jeder würde eine Maske nehmen, eine neue Identität erschaffen und
+
+<!-- S. 74 (PDF 79) -->
+
+## 74
+sehen, wie lange die List standhielte. Sie staffelten ihre Einführungen, um nicht zu viel Verdacht zu erregen, und das Spiel begann.
+Eins nach dem anderen sah Lyrana, wie ihre Freunde aufflogen und dann nach den Launen der Aelfir gefoltert oder hingerichtet wurden. Sie hütet ihr eigenes Geheimnis streng und tritt selten öffentlich auf; sie überlebt aus Trotz und um ihre gefallenen Freunde zu ehren.
+Jeden Tag, der ohne Zwischenfall vergeht, erlebt sie als Wunder, und sie könnte jetzt nicht mehr aussteigen, selbst wenn sie wollte. Sie ist als geheimnisvolle Einflussnehmerin in der Gesellschaft verwurzelt und verlässt ihr Heim kaum; stattdessen besteht sie darauf, dass die anderen zu ihr kommen. Ihr Domizil hält sie schwach beleuchtet und in satten, dunklen Farben mit Silberakzenten eingerichtet, was kurzzeitig eine Mode in Kleidung und Einrichtung auslöste. Mit ihrem Ruf hat sie auch beträchtlichen Reichtum angehäuft; Lyrana fördert Drow, die sonst im unteren Spire nicht überleben könnten. Anderen Aelfir mag es verdächtig erscheinen, dass sie „kaputte“ Diener haben will, doch sie beteuert, es gebe ihr die Gelegenheit, sie zu verbessern, wie alle Aelfir alles verbessern wollen, was sie anfassen. Ihre Verbesserungen sind funktional, nicht ästhetisch: Sie versorgt ihre Diener mit Gehhilfen, bei Bedarf oder Wunsch mit Prothesen und anderen Hilfsmitteln, die ihnen das Leben erleichtern.
+Ist ein Entwurf ausgereift, lässt sie ihn oft über ihre Kanäle durchsickern, damit er billiger hergestellt und an jene verkauft werden kann, denen sie nicht direkt helfen kann; mit einem Teil des Gewinns finanziert sie ihr Netz aus Strohmännern und Spitzeln.
+**Beweggründe**
+Abgesehen von der offensichtlichen Ablehnung der Qual von Drow zum Vergnügen anderer macht Lyrana sich selbst für Anessas wachsende Beliebtheit verantwortlich. Sie glaubt, ihr „Modifizieren“ ihrer Diener habe die Folter inspiriert, die Anessa als Kunst ausgibt.
+Auch wenn es unmöglich ist, diese Büchse der Pandora wieder zu schließen, hält sie es als Kastrias für ihr gutes Recht, ein Monopol auf das Konzept zu beanspruchen. Anessas kosmetische Eingriffe fasst sie als verhüllte Beleidigung ihrer praktischeren Prothesen auf und weigert sich, die Sache ohne Vergeltung auf sich beruhen zu lassen. Sie plant, Anessas Vorhaben so weit wie möglich zu sabotieren und dabei weiterhin glaubwürdig als Aelfir aufzutreten.
+**Druckmittel**
+Selbstverständlich darf Lyrana ihre wahre Identität nicht preisgeben. Würde sich herausstellen, dass Kastrias die ganze Zeit eine Drow war, würde ihr gesamtes Leben zusammenbrechen, und sie würde wohl kaum unversehrt davonkommen. Da sie nicht mehr so abgestumpft gegenüber ihrem eigenen Leben ist wie früher, hat sie mehr als einmal gesehen, was geschieht, wenn solche Entdeckungen gemacht werden. Sie wird mit Zähnen und Klauen kämpfen, um ihren Lebensstil zu bewahren.
+Obwohl Kastrias als mutmaßliche Drow-Sympathisantin gilt, ist eines von Lyranas bestgehüteten Geheimnissen ihr engster Gefährte. Die beiden sind Freunde aus Kindertagen, wurden als Heranwachsende geblendet, und nun arbeitet er als Kastrias’ persönlicher Assistent. Ihre alte Romanze ist hinter verschlossenen Türen neu entflammt, aber die beiden dürfen natürlich nie entdeckt werden.
+Dass Kastrias’ öffentliche Auftritte auf ein Minimum beschränkt sind, macht es leichter, doch nun stehen sie vor der schwierigen Entscheidung, was mit dem Eiersack geschehen soll, der sich derzeit in der Obhut ihrer Geliebten befindet und von Hebammen bewacht wird, die für ihre Verschwiegenheit fürstlich belohnt werden.
+**Verhaltensweisen**
+Entgegen ihrer selbst hat Lyrana sich an die ungeschickte Schar von Außenseitern gewöhnt, die ihr Komplize Hiram ihr aufgenötigt hat. Sie beschützt die Ihren und behandelt sie mit einem Mindestmaß an Respekt, obwohl die meisten von ihnen sie nur als Kastrias kennen.
+Dennoch ist sie von den Jahren unter den Aelfir zermürbt, und ihre Empathie ist erheblich geschwunden. Sie ist verpflichtet, sich so zu verhalten, dass sie im Gedächtnis der Öffentlichkeit bleibt und ihre Verkleidung nicht verrät.
+Die Gala ist einer ihrer wenigen öffentlichen Auftritte, bei dem sie die Nase rümpfen und hoffentlich Anessas Praktiken als abgekupfert, abscheulich und wahnhaft in Verruf bringen will.
+Lyrana kennt außerdem einige clevere Wege, ohne Sprechen zu kommunizieren, darunter eine Zeichensprache, die sie und alle ihre Diener beherrschen. So mag sie wie eine Elfe weniger Worte wirken, doch ihre Gesten sagen jenen, die zu achten wissen, mehr als genug.
+### HIRAM LECHANCE
+Hiram ist eine verhutzelte, gebeugte Gestalt und einer der wenigen, die Kastrias’ Geheimnis kennen. Von Geburt an taub, verständigt er sich in einer Zeichensprache aus präzisen, verschlungenen Gesten. Den Großteil seines Lebens überlebte er unter den Verborgenen (Spire S. 111), wo er einen kleinen Ring ähnlich gebeutelter Drow leitete und ihnen beibrachte, sich besser an ihre Umgebung anzupassen.
+Nachdem er sich in Lyranas Plan hineinverhandelt hatte, entwickelte er deren Vorhaben, vergessenen und verlassenen Drow zu helfen. Über ihre alten Kanäle und Hirams bestehende Kontakte werden Entwürfe und Prototypen aus Amaranth herausgeschmuggelt und im unteren Spire verteilt.
+Mit seinem Anteil am Gewinn nimmt er eine kleine Gruppe vom Pech verfolgter Drow auf. Im Gegenzug für seine Unterstützung erledigen sie Aufgaben, die sich nicht mit Kastrias in Verbindung bringen lassen dürfen, und leiten Informationen an Hiram weiter.
+
+<!-- S. 75 (PDF 80) -->
+
+## 75
+**Beweggründe**
+In erster Linie arbeitet Hiram daran, Kastrias’ Ruf und die Lügen dahinter zu bewahren. Er weiß, dass ihr Sturz auch für ihn den Untergang bedeuten würde – so edel seine Absichten also scheinen mögen, sie sind auch eigennützig. Er spielt die Rolle des fähigen, aber tattrigen alten Narren, während er im Stillen alles um sich herum orchestriert.
+Obwohl er keine lebenden Verwandten hat, sind die unter Kastrias’ Namen geförderten Drow so etwas wie eine Ersatzfamilie für ihn geworden. Der ungebärdige Haufen aus Taschendieben, Kleinganoven und allerlei Taugenichtsen hat sich an sein Leben als Diener gewöhnt, unsicher über Hirams Beweggründe, aber ohne bessere Möglichkeit.
+Geduldig mit den neuen und lernenden Mitgliedern des Haushalts, genießt Hiram die Möglichkeiten, die seine Arbeit ihm bietet – besonders wenn sie es ihm erlaubt, mehr Schmutz über die Menschen um ihn herum auszugraben.
+**Druckmittel**
+Hiram und Lyrana verbindet ein unruhiges, aber funktionierendes Bündnis. Während er bei den Verborgenen lebte, führte Hiram eine Gruppe jüngerer Drow an, hielt sie mit seiner Kenntnis der Row in Sicherheit und schickte sie im Gegenzug los, um seine Aufträge zu erledigen.
+Er stolperte zufällig über Lyranas Maskerade, als er ihr verstecktes Lager aelfirischer Habseligkeiten entdeckte. Indem er sie erpresste, seine zusammengewürfelte Truppe einzustellen, sicherte er sich und seinen Gefährten ein besseres Leben in Amaranth als Personal des Hauses Feder-fällt-mit-der-Dämmerung. Obwohl er und Lyrana inzwischen meist miteinander auskommen, weiß er, dass sie nicht davor zurückschreckt, ihn zu zwingen; aber das tut er ebenso wenig.
+Mit seinem Druckmittel gegenüber Lyrana hat er Forschung finanziert, um den Drow unter seiner Obhut und anderen im unteren Spire zu helfen, die Hilfe gebrauchen können.
+**Verhaltensweisen**
+Obwohl er vor den Aelfir oft den Narren spielt, ist Hiram erstaunlich aufmerksam und einfallsreich. Die Diener, die mit Kastrias und Hiram reisen, dienen ihm als Augen und Ohren, während er sich um seine Herrin kümmert. Die ganze Gruppe verständigt sich lautlos und kann so unvorstellbare Mengen an Informationen unter den Nasen der Aelfir weiterreichen.
+Von einem Leben gehärtet, in dem er für sich selbst sorgen musste, ist Hiram stets wachsam. Trotz seiner Taubheit nimmt er in einem Augenblick mehr über eine Person oder einen Raum wahr als die meisten während eines ganzen Abends, und er kann eine Gruppe mit der Präzision einer Militäreinheit lenken.
+## RIVALEN UND DISSIDENTEN {farbe=#194d71}
+Unter den Gästen der Gala von Sonnenaufgang-blutet-auf-Schnee finden sich eine Reihe von Gruppen und Einzelpersonen, die das Ereignis lieber verurteilen als unterstützen würden. Tatsächlich zu protestieren wäre natürlich viel zu plump; stattdessen erscheinen sie mit der festen Absicht, die vernichtendste Kritik auszuteilen, zu der sie fähig sind. Eine Mischung aus Meistern der Kunstszene und wohlhabenden, einflussreichen Drow – jeder hat seine eigenen Gründe, sich Anessa zu widersetzen.
+**Dreaux Cantor** ist einer der wenigen Drow-Kunsthandwerker, die die Aelfir für begabt genug halten, um sie regelmäßig zu beauftragen. Er kann bei den meisten Misshandlungen seiner weniger glücklichen Verwandten ein Auge zudrücken, doch selbst er kann die wahrhaft grauenvolle Natur von Anessas Kunst nicht ignorieren. Er weiß, dass er riskiert, einige seiner älteren Kunden zu verlieren, wenn er sich gegen sie ausspricht, doch er könnte auch die Aufmerksamkeit anderer Gegner gewinnen. Mit vielen wohlhabenden Gönnern auf seiner Seite ist er sowohl dreist genug, sich offen gegen sie zu stellen, als auch sicher genug, den möglichen Gegenwind auszuhalten.
+Meist hält er den Mund und wartet auf den günstigsten Moment, um seinen trockenen, schneidenden Witz zu entfesseln. Als eine Art Hofnarr geduldet, will er die Gala besuchen, um alte Kontakte aufzufrischen und neue zu knüpfen: Einigen seiner langjährigsten Kunden hat er Masken geschenkt, um für seine Dienste zu werben. Er hofft, die traditionelleren Aelfir unter den Anwesenden anzusprechen, die den Gedanken vulgärer „lebender Masken“ meiden.
+**Indira Stille-fällt-vor-ihr** [[Hush-Falls-Before-Her]], die gefeiertste Tätowiererin in ganz Amaranth, findet die Vorstellung, Drow als Leinwände zu benutzen, abstoßend. Sie arbeitet ausschließlich an anderen Aelfir, da sie glaubt, alles andere wäre eine fehlerhafte Linse, um ihr Werk zu zeigen. Da die meisten Aelfir sich der Kunst als Mittel der Selbstreflexion zuwenden, hält sie es für eine Herabwürdigung des ganzen Konzepts, auf den Gesichtern von Drow (die ohnehin nur schlechte Annäherungen an Aelfir sind) Gefühle zu übertreiben (etwas, das die Aelfir nach eigenem Bekunden nicht empfinden) – und dabei ist die grelle Ausführung noch nicht einmal berücksichtigt.
+**Kessler Stone**, eine Menschenfrau, die an der Bohème-Art des Sonnenlicht-Kollektivs festhält, betrachtet Anessa als ihre Rivalin. Ihre eigene Galerieausstellung findet nicht heute Abend statt, doch sie ist überzeugt, dass Anessa diese „Kunstschau“ erst zusammengeworfen hat, nachdem eines der Experimente des Kollektivs ein Loch in das Eis geschmolzen hatte, das ihren privaten Landsitz abschirmt. Das Kollektiv feierte dies als Segen und enorme Belohnung für seine Ausdauer, doch Anessa empfand es als Beleidigung höchsten 
+
+<!-- S. 76 (PDF 81) -->
+
+## 76
+Grades. Glaubt man der Darstellung des Kollektivs, will sie den heutigen Abend zum meistbesprochenen Ereignis in Amaranth machen, um die nächste Veranstaltung des Kollektivs zu überschatten, die nur noch wenige Tage entfernt ist.
+## ANTAGONISTEN {farbe=#194d71}
+Natürlich ist Anessa selbst das Hauptziel der Gerechtigkeit, die Lyrana sucht, doch kein Aelfir ist ohne seinen eigenen Kreis aus Dienern, Unterstützern, Mitläufern und Anhängern. Für jeden Hochelfen, der hofft, dass der Abend im Desaster endet (und sich auf den Klatsch freut, der sicher folgen wird), gibt es einen, der nur Potenzial sieht und eine neue Stufe der Kultur in die Gesellschaft eingeführt wird.
+Da ihre Meinungen stärker auf sie selbst als auf ihr Thema zurückfallen, sind Anessas Unterstützer überzeugt, dass der Abend eine Bewegung in ganz Amaranth und Neuer Himmel entfachen wird. Obwohl sie sich kaum abbringen lassen, wären ihre Anhänger vielleicht bereit, mit anderen Aelfir zu debattieren. Doch alle Diener oder „geringeren“ Wesen, die aus der Reihe tanzen, um darüber zu sprechen, werden wahrscheinlich rasch bestraft.
+### ANESSA SONNENAUFGANG-BLUTET-AUF-SCHNEE
+Die Puppenmacherin selbst steht hochgewachsen, unnatürlich schlank und schneeweiß da. Ihre Augen, Lippen, Haut und Haar haben alle denselben einheitlichen Farbton, der nur von den feinen, geschwungenen Tätowierungen durchbrochen wird, die ihre Gestalt betonen. Die haardünnen Linien wechseln langsam durch verschiedene Töne von Kupfer, Silber und Gold, passend zum aufwendigen Filigran ihrer wahren Maske: ein Porzellanstück, unter den Metallakzenten so weiß wie der Rest ihres Körpers.
+Entgegen der Konvention trägt sie sie meist an einem kunstvollen Kopfschmuck mit Scharnier, sodass sie sie über ihr Gesicht senken oder heben kann, um eine andere Maske zu tragen. Diese Praxis hat ihr bei vielen Drow und anderen Dienern den Spitznamen „Zweigesicht“ eingebracht, den sie flüstern, wenn sie sich sicher glauben.
+Während es als plump oder als Zeichen ernster finanzieller Not gelten kann, seine wahre Maske zu tragen, nutzt Anessa die ihre, um ihr Gesicht zu bedecken, während sie etwas Esoterischeres „trägt“. Sie hat kürzlich beschlossen, dass ihre allgegenwärtigen Puppen Teil ihrer Maskensammlung sind, und hat eine Philosophie, die das stützt.
+Die Drow, die sie als Haustiere fördert, zeigen technisch gesehen vielleicht ihre nackten Gesichter, doch ihre Gesichter sind ihre Masken – und noch dazu von ihr gefertigte. Wenn ihre Puppen und anderen Haustiere als Objets d’art vorgeführt werden, sind sie kaum mehr als Besitztümer; und was ist eine Maske anderes als ein weiteres Besitztum? Ihre Puppen und ihre Masken sind in ihrem Kopf ein und dasselbe. Jede Drow, die ihr vorausgeht oder neben ihr schreitet, ist eine Maske, die sie trägt.
+**Beweggründe**
+Anessa glaubt wahrhaftig, ihren Puppen ein besseres Leben zu geben, als sie es je im unteren Spire haben könnten – und das tut sie auch. Die Drow in ihren Diensten sind gut genährt, gut gekleidet und entbehren kaum materielle Besitztümer. Sie besuchen regelmäßig die exklusivsten Veranstaltungen in Amaranth und Neuer Himmel, wo sie die erlesensten Speisen und Getränke kosten, während sie Darbietungen der talentiertesten Musiker und Schauspieler des Spire beiwohnen. Wäre da nicht ihr Status irgendwo zwischen „Sklave“ und „Objekt“ (und die invasiven Veränderungen ihrer Körper), wäre ihres wahrhaft ein verzaubertes Leben.
+Ihre Faszination dafür, Drow als Leinwände und Musen zu benutzen, rührt von Anessas Ziel her, sie in den Augen der anderen Aelfir zu erhöhen. Natürlich hält sie sie nicht für gleichwertig; sie versucht vielmehr, jemanden davon zu überzeugen, dass das, was er für eine Kakerlake hielt, in Wahrheit ein Schmetterling ist. Entzückt von dem, was sie tun, wenn sie nicht zur Schau gestellt werden, gibt sie ihnen sogar Zuwendungen, nur um zu sehen, wie sie ihr überschüssiges Silber verwenden, neugierig, warum manche es an ihre Familien schicken, während andere sich Drogen oder anderen Fluchtmitteln hingeben.
+Zudem will Anessa, die aus einer bekannten und einflussreichen Aelfir-Familie stammt, ihre eigene Spur in der Welt hinterlassen. Sie geht ihren eigenen Weg und bricht mit der Familientradition, um ihrer Kunst nachzugehen. Der exzentrische Aridan Klang-läutenden-Frostes [[Sound-of-Chiming-Frost]], ihr Mentor und Gönner, ist ihr lautester Unterstützer. Ihre Familie schweigt zu dem Thema verdächtig.
+**Druckmittel**
+Selbst für Aelfir-Maßstäbe exzentrisch, haben sich vage Gerüchte verbreitet, Anessa sei ein wenig „hitzköpfig“, durch zu viel Zeit fern der Kälte seltsam geworden. Ihre Besessenheit von Drow – ein weiteres sicheres Zeichen von Seltsamkeit – beunruhigt einige und erfreut andere. Deren Meinungen haben weniger mit Anessa selbst zu tun als damit, wie jeder Aelfir seine verfluchten Vettern betrachtet, doch sie gibt einen wunderbaren Sündenbock für ihre eigenen Ansichten ab.
+Außerdem schätzen es Aelfir, die sich als Künstler mit etablierter Praxis verstehen, nicht, wenn jemand sein Hobby als hohe Kunst bezeichnet. Während alle Aelfir danach streben, die Welt um sich herum zu verbessern und zu verschönern, glauben sie, Künstler sollten alles bereits Bestehende übersteigen. Anessa bleibt, egal wie sie sich nennt, weit dahinter zurück.
+Ihre Eltern gehören nicht zu ihren geringsten Kritikern. Sie werden nie offen sagen, dass die Besessenheit ihrer Tochter von Drow unangemessen und skandalös ist, doch sie haben andere Wege gefunden, ihr Missfallen auszudrücken. Sie fehlen auffällig auf der Gästeliste.
+
+<!-- S. 77 (PDF 82) -->
+
+## 77
+**Verhaltensweisen**
+Wie von einer der Aelfir zu erwarten, ist Anessa distanziert, überlegen und völlig von ihrem eigenen Genie überzeugt. Man kann ihr nicht sagen, dass das, was sie getan hat, barbarisch oder Folter ist; sie behauptet, ihre Puppen sollten dankbar sein, dass sie sie überhaupt für würdige Leinwände hält, geschweige denn für (mit ihrer Hilfe) schön genug, um eine Maske zu sein. Sie verkörpert alles, was die Drow gern übertreiben und an den Aelfir aufrichtig verabscheuen.
+Wenn sie ihre wahre Maske nicht über dem Kopf trägt, trägt sie kunstvolle Schuhe, die sie einen ganzen Kopf über andere Aelfir erheben, oder lässt sich von Dienern oder Puppen tragen, um denselben Effekt mit weniger Aufwand zu erzielen. Selbst in Gesprächen unter vier Augen gebärdet sie sich, als spräche sie zu einer Menge, und spricht mit ausladenden Gesten, das Kinn hoch erhoben, während sie alles um sich herum überblickt. Bei ihrer hochaufragenden Haltung und dem Umstand, dass sie nicht einmal an ihrer eigenen Nase hinabsieht, geht das Gerücht, sie habe nie jemandem direkt in die Augen geblickt.
+### SYLVARIS SÜNDEN-DER-VERGANGENHEIT
+Bei aller Besessenheit von Drow hält Anessa eine Aelfir als Haushaltsvorsteherin und persönliche Assistentin. Sylvaris, eine junge Nachfahrin einer längst in Ungnade gefallenen Linie, dient ihrer Herrin pflichtbewusst und demütig. Von Kopf bis Fuß mit winzigen, kunstvollen Tätowierungen bedeckt, ist sie leicht mit einer Drow zu verwechseln; ihre Haut wirkt durch die eng gesetzte Tinte schwarz, und sie trägt nichts Extravaganteres als die anderen Diener.
+Sieht man genau genug auf ihre Tätowierungen, sind es allesamt verschiedene Erklärungen von Buße und Sühne. Die Maske, die sie trägt (sie darf nur eine tragen), ist aus abgewetztem weißem Samt, mit einem Band aus schwarzer Spitze über den Augen, das das Stück hält. Ihr wahrer Familienname, den man als „Sylvaris Sünden-der-Vergangenheit“ [[Sins-of-the-Past]] verspottet, ist unbekannt, und sowohl sie als auch Anessa sind froh, ihn so zu belassen. Meist nennt man sie nur beim Vornamen. Sehr wenige Aelfir haben je erkannt, dass sie eine der ihren ist.
+**Beweggründe**
+Sylvaris betrachtet ihre Dienstzeit als Anessas Dienstmagd als Lehrzeit. Sie ist ihrer Herrin nicht sonderlich zugetan, und noch weniger der Art, wie diese ihre kostbaren Puppen besser behandelt als Sylvaris selbst. Bietet sich reichlich Gelegenheit, wird sie fliehen, um ihr eigenes Leben zu beginnen, selbst wenn sie sich von Grund auf neu erfinden muss.
+Da sie das Ereignis hinter den Kulissen orchestriert, kennt Sylvaris jeden Weg in und aus dem Gelände, den Zeitplan des Abends und den Zugang zu allen Exponaten. Läuft alles gut, bleibt sie wahrscheinlich Anessas Dienerin – aber bei der Menge an Silber, die bei einem solchen Ereignis wohl herumgeworfen wird, könnte ein Unterschlagungsvorhaben ihr das Kapital verschaffen, das sie zur Flucht braucht.
+**Druckmittel**
+Trotz der Geschichte ihrer Familie ist Sylvaris noch immer eine der Aelfir und nicht ohne Stolz. Unter Anessa zu dienen kratzt an ihrer Würde. Während sie hofft, schließlich entweder sich selbst oder künftige Generationen ihrer Familie neu zu erfinden, schreckt sie nicht davor zurück, jemand anderen zu Fall zu bringen, um das zu erreichen. Wegen der Folter und Schande, die sie durch Anessas Hand erlitten hat, ist sie auch nicht besonders loyal; sie würde wohl jede Gelegenheit ergreifen, ihr eigenes Schicksal zu wenden.
+**Verhaltensweisen**
+Sylvaris ist immer still, steht oft mit vor sich gefalteten Händen und gesenktem Blick da. Sie spricht kaum lauter als im Flüsterton und wie jede gute Dienerin nur, wenn sie angesprochen wird. Selten mehr als ein oder zwei Schritte hinter Anessa, fungiert Sylvaris zusätzlich zum Tragen aller Masken, Accessoires oder Kleiderwechsel, die Anessa verlangt, als Hüterin der Puppen.
+## UNTERSTÜTZER UND GÖNNER {farbe=#194d71}
+Die Gala hat allerlei Gäste angezogen, sei es, dass sie die Neuheit von Anessas Schöpfungen unterhält oder sie zu distanziert sind, um sich um das Leid anderer im Namen der Kunst zu scheren. Während nur Aelfir wahrscheinlich genug Silber haben, um möglicherweise zu investieren, erfreuen sich andere schlicht ein wenig an Schadenfreude.
+**Kaiden Rask**, ein Drow, der sich zu einem respektablen Leben als etwas anderes denn ein Diener hochgekämpft hat, verbrachte seine Dienstzeit als ganz wörtlicher Prügelknabe, Nadelkissen und Sündenbock. Zutiefst verbittert von seinen Erfahrungen, kann er nicht anders, als sie offen zu tragen: Die rosaweißen Narben stehen in scharfem Kontrast zu seinem dunklen Hautton.
+Seine Empathie wurde durch die Erfahrung völlig dezimiert, und er glaubt, alle Drow sollten so leiden wie er. Er verachtet jene, die das bequeme, gemütliche Leben eines Haustiers führen dürfen, und sieht in Anessas Puppen den einzig gültigen Ausdruck dieser Stellung. Aus kranker Neugier und einem fehlgeleiteten Rachegefühl nimmt er teil und will die Drow genau im Auge behalten, die im Haus Sonnenaufgang-blutet-auf-Schnee dienen.
+In seinen Augen haben sie ihren Tribut gezahlt. Sollten sie nach ihrer Dienstzeit im unteren Spire landen, sind sie es wert, mit ihm zusammenzuarbeiten.
+
+<!-- S. 78 (PDF 83) -->
+
+## 78
+> Die Auktion wird von allerlei Machern
+> und Strippenziehern der Modewelt besucht,
+> die mit ungeheuerlicher Kleidung
+> und ungewöhnlichen chirurgischen
+> Modifikationen prahlen.
+
+
+<!-- S. 79 (PDF 84) -->
+
+## 79
+**Aridan Klang-läutenden-Frostes**, ein Aelfir, der vor Jahrhunderten durch eine Unsterblichkeitsoperation konserviert wurde, bewohnt einen Körper, der kaum der Jugend entwachsen ist. Angetan von Anessa und ihrem unkonventionellen Denken, hat er seine gesamte Unterstützung hinter sie gestellt und ist ihr verlässlichster Gönner. Obwohl es nur wenige wissen, stammen Anessas Tätowierungen von Aridan, der sie nach einer Kombination aus ihrer wahren Maske und den Adern gestaltete, die infolge der Unsterblichkeitsoperation seinen Körper überziehen. Er sieht in der jüngeren Aelfir seine Protegéee und will, dass sie ihre Muse weiter erforscht.
+Hat die Zelle Bindungen zu Figuren der Hohen Gesellschaft, lassen sich diese wahrscheinlich zum Kommen überreden (wenngleich sie vielleicht nicht bleiben wollen, wenn es schiefgeht). Ebenso gestaltet es einen interessanten Abend, wenn die Gruppe Feinde in der Aelfir-Gesellschaft oder der Drow-Oberschicht hat und diese anwesend sind.
+## GÄSTE {farbe=#194d71}
+Selbst jene, die keinen Anteil an den Festlichkeiten des Abends haben, halten wachsam Ausschau nach Verstößen gegen den Gesellschaftsvertrag, seltsamen Gestalten und allen, die fehl am Platz sind. Zwar mögen einige Drow mit der Elite verkehren, doch die Veranstaltung richtet sich eindeutig an andere Aelfir. Sie sind schließlich die Einzigen, die etwas, das von einem der Ihren geschaffen wurde, wirklich zu würdigen wissen.
+Einige Menschen mögen anwesend sein (meist als Leibwächter), und es ist wahrscheinlich, dass einige Aelfir die Gnolle mitgebracht haben, die ihre eigenen Gärten pflegen. Ob das angemessen ist oder nicht, wird hin und her diskutiert, doch wer ein Urteil fällen oder sich selbst ein oder zwei Anregungen holen will, wischt alle Einwände beiseite.
+## DIE PUPPEN {farbe=#194d71}
+Es gibt zwei unterschiedliche Gruppen von Puppen auf der Gala: ihre Schar persönlicher Favoriten, die zugleich als Masken und Gefolge dienen, und die „Skulpturen“, die in verschiedenen Installationen überall in ihren Gärten aufgestellt sind.
+Alle stehen unter Drogen – manche tiefer, manche flacher, je nach Temperament und Aufgaben – und nur wenige, wenn überhaupt, haben den Willen, sich zu widersetzen. Einige haben eine Art perverse Bindung an Anessa entwickelt, sehen in ihr eine Retterin und scheinen ihr Leben zu genießen. Die meisten tun teilnahmslos, was man ihnen sagt, elend, aber in der Hoffnung, weiterer Qual zu entgehen.
+Da Anessa gewöhnlich von vier bis sechs Puppen als wechselnder Maskenriege begleitet wird, wird sie bei einem so denkwürdigen Anlass mit guter Wahrscheinlichkeit ein noch größeres Gefolge haben als sonst. Da jede Installation durchschnittlich vier Puppen beherbergt, sind es möglicherweise zwei bis drei Dutzend, die gerettet werden können.
+Nicht alle müssen entkommen: Lyrana ist realistisch genug, um zu begreifen, dass die Logistik, zwanzig und mehr sedierte Drow herauszuschmuggeln, nicht unbedingt leicht zu planen oder umzusetzen ist. Wenn auch nur eine den Abend sicher und unversehrt übersteht, ist sie zufrieden; aber je mehr, desto besser.
+**Isbell Faas**, eine zierliche, reizende junge Frau, die einst davon träumte, Tänzerin zu werden, hat ihr Gesicht in einem dauerhaften Augenblick der Sehnsucht erstarrt. Als eine von Anessas liebsten Masken bewegt sie sich lautlos und mit unbestreitbarer Anmut und sagt sich dabei immer wieder, sie würde nie ein so großes Publikum erreichen, wenn sie unter den Unglücklichen unten gerade so über die Runden käme.
+**Raisch Cuodor** verkörpert beständig Frechheit und kecke Art, mit einem einladenden, rätselhaften Grinsen. Mit dem Taschengeld von Anessa frei, sich auszudrücken, wie sie wollen, wechseln sie zwischen Männlichkeit und Weiblichkeit, wie es ihnen passt, und sind überzeugt, ohne ihre Unterstützung nicht die Mittel zu haben, ihre wandelbare Identität auszudrücken.
+**Intris Soldum** findet Trost in dem finsteren Stirnrunzeln, zu dem sein Gesicht verzerrt wurde; wenigstens muss er seinen brodelnden Hass auf jene, die ihn wie ein Stück Vieh anstoßen und betasten, nicht verbergen. Häufig als Dekoration oder Möbelstück unter Drogen gesetzt oder vorübergehend gelähmt, schmiedet er in allen Einzelheiten Rachepläne, um sich die Zeit zu vertreiben.
+## DIE GESCHICHTE {farbe=#981a3f}
+Bis zur Gala hat die Zelle etwas Zeit, zu planen, wie sie ihre Aufgabe angehen will. Ob sie sich als Diener ausgeben, einen oder mehrere von ihnen als Aelfir durchgehen lassen oder eine andere Lösung finden – sie werden sich auch die namhaften Gäste des Abends ansehen wollen. Die von Lyrana bereitgestellte Liste hilft ihnen, mögliche Verbündete, um jeden Preis zu meidende Figuren und vielleicht einige zu identifizieren, die sie auf ihre Seite ziehen können.
+Während die Gala die beste Gelegenheit ist, an Anessa heranzukommen, sind die Puppen die kniffligere Aufgabe. Sie alle in einem Abend zu retten ist völlig unpraktikabel, manche würden sagen unmöglich. Allerdings werden die lautesten Fürsprecher der „künstlerischen Bewegung“ sicher dort sein – und bei der geplanten Auktion lässt sich leicht erkennen, wo einige Puppen landen werden. Zu beobachten, was mit Anessas Sammlung geschieht, wenn sich der Staub gelegt hat, erlaubt es der Zelle, weitere Raubzüge und Rettungsmissionen zu planen, falls sie das wünscht.
+
+<!-- S. 80 (PDF 85) -->
+
+## 80
+Einige im Verlauf des Ereignisses hinauszugeleiten ist eine Möglichkeit, besonders wenn die Gruppe daran gedacht hat, Verkleidungen für ihre Schützlinge mitzubringen. Unter Hirams Regie stehen Kastrias’ andere Diener bereit, die Puppen in Sicherheit zu bringen – vorausgesetzt, sie können aus Anessas Gärten geschmuggelt werden. Ist die Zelle bereit, Lyrana auch nach der Gala weiter zu helfen, zahlt sie einen Aufpreis für jede Puppe, die ihr von anderen Aelfir zurückgebracht wird.
+## VORBEREITUNG {farbe=#194d71}
+Auch wenn sie es in ihrer Aelfir-Persona nie zugeben würde, besitzt Lyrana ein Anwesen in der Verwahrlosung von Ivory Row. Sie nutzt ihren erheblichen Reichtum und Einfluss, damit das Kommen und Gehen rund um den Ort nie aufgezeichnet oder irgendjemandem gemeldet wird und die Wachen bequemerweise vergessen, wann das Anwesen auf ihrer Streife liegt.
+Eine der Wände im Anwesen ist mit den Identitäten der Galagäste gefüllt, lose sortiert auf einer Skala von potenziellen Verbündeten bis zu bestätigten Feinden (siehe den Abschnitt „Nichtspielerfiguren“ oben). Die Zelle kann beliebige Nachforschungen anstellen, bis hin zur Kontaktaufnahme als Dienerin des Hauses Feder-fällt-mit-der-Dämmerung, um Verbündete zu gewinnen oder herauszufinden, ob für den Abend noch andere Pläne bestehen.
+### HINDERNISSE UND GELEGENHEITEN
+• Lyrana ist bereit, im vernünftigen Rahmen für die Bedürfnisse der Zelle zu zahlen. Sie hat jedem einen kleinen Gefallen gewährt, wäre aber bereit, darauf zu verzichten, um etwas Größeres zu bewilligen, das der ganzen Zelle nützt.
+Es liegt an ihnen, alles tatsächlich zu besorgen. Sie müssen ihre Verbindungen und ihre List einsetzen, um sich bereitzumachen und sicherzustellen, dass sie nicht mit Schmuggelware erwischt werden. Lyranas einzige Regel lautet, dass sie keine Waffen liefert. Wollen sie bewaffnet hineingehen, müssen sie ihr eigenes Silber ausgeben (und aufpassen, ihre Werkzeuge verborgen zu halten).
+• Aelfir auf die Veranstaltung anzusprechen ist von fragwürdigem Nutzen; nicht viele sind bereit, mit Drow ausführlich ihre Meinung zu erörtern.
+• Weitere wohlhabende Drow zum Kommen zu überreden verschiebt das Zielpublikum des Abends drastisch, trübt Anessas Ruf und könnte andere Aelfir vom Konzept der Puppen abbringen. Außerdem helfen mehr Drow in der Umgebung der Zelle, sich einzufügen, und könnten ein paar freundlichere Augen und Ohren mehr bringen.
+## DIE GÄRTEN {farbe=#194d71}
+Nachdem sie erfolgreich den Weg zu Anessas Anwesen gefunden hat, trifft die Gruppe wieder auf Kastrias und Hiram. Obwohl sie nicht offen sprechen können, können sie während des Ereignisses kommunizieren. Die Galerie in Anessas Gärten steht den Gästen offen.
+Anessas Gärten sind nach Eiskristallen und Schneeflocken gestaltet und haben ein zentrales Amphitheater mit fünf Flügeln, die zu sterilen, kuratierten Pflanzenausstellungen führen. Der östlichste Strahl führt zurück zum Haus und dem eigentlichen Gelände, während die übrigen durch einen gewundenen Pfad verbunden sind, der den äußeren Rand bildet. Gleich dahinter schirmen Wände aus eisigem, filigranem Gitterwerk ihr Anwesen vom Rest Amaranths ab. Tore in unregelmäßigen Abständen erlauben es den Dienern, alle Bereiche des Gartens zu erreichen, ohne die Gäste zu stören.
+Der Empfang findet entlang des Eingangspfads statt, wo Diener die Gäste mit Erfrischungen begrüßen und jeden ihrer Wünsche erfüllen. Jenseits des Eingangs und des Amphitheaters werden die Gäste daran erinnert, nur im gedämpften Flüsterton zu sprechen, da manche der Pflanzen so zart sind, dass schon ein normaler Sprechton sie stören könnte. Während jeder der vier anderen Strahlen eine Installation beherbergt, schlängelt sich eine fünfte über die fraktalen Pfade zwischen den Flügeln.
+Sobald die Zelle auf Anessas Anwesen eingetroffen ist, beginnt die eigentliche Herausforderung. Ganz im Aelfir-Stil hat Anessa nicht bloß ein oder zwei Stücke ausgestellt: Sie hat eine weitläufige Anlage mit mehreren „Installationen“. Ihre Puppen stehen entweder stundenlang erstarrt in aufwendigen Tableaus, führen avantgardistische Wiedergaben beliebter Aelfir-Stücke auf oder dienen als funktionale Dekoration.
+Der Höhepunkt des Abends soll eine Kombination aus Auktion und theatralischer Operation sein: Der Höchstbietende bestimmt den Ausdruck, den er auf einer neuen Puppe sehen will, die dann vor den Augen der Menge angefertigt wird.
+### HINDERNISSE UND GELEGENHEITEN
+• Die zarte Flora verlangt, dass der Lärm auf der Veranstaltung auf ein Minimum beschränkt bleibt. Das bedeutet, dass Neuigkeiten sich nicht so schnell verbreiten können, doch es ist ein zweischneidiges Schwert: Die Wachen und Gäste können nicht schreien, aber die Zelle kann auch keine Geräusche als Signal nutzen.
+• Obwohl es leise ist, ist eine Menge los. Das macht es leicht, in einer bequemen Menge zu verschwinden, bedeutet aber auch mehr Augen, falls jemand Alarm schlägt.
+• Anessas Gnolle, die den Garten während des Ereignisses überwachen, kennen alle verborgenen Zugangspunkte, den Zeitplan der Installationen und welche Pflanzen das potenteste Gift haben.
+
+<!-- S. 81 (PDF 86) -->
+
+## 81
+## DIE INSTALLATIONEN {farbe=#194d71}
+Als Hauptattraktionen des Abends hat jedes von Anessas „Meisterwerken“ seine eigene einzigartige Darbietung. Manche mögen schwerer zu retten sein als andere, doch die einzelnen Herausforderungen an den jeweiligen Orten bleiben dem Ermessen der Spielleitung überlassen.
+## Der Stimmlose Chor {farbe=#194d71}
+Der Stimmlose Chor wandert durch Anessas Gärten und folgt einem scheinbar zufälligen, gewundenen Pfad über das Gelände. Obwohl sie weder summen noch singen, trägt jede Puppe ein kleines, zylindrisches Instrument, das einen schwachen, gespenstischen Ton von sich gibt, wenn Luft hindurchströmt. Irgendwo zwischen dem Wind, der durch Eishöhlen seufzt, einem musikalischen Klagen und einem Todesröcheln gehen die sich stets wandelnden Töne der Gruppe voraus und verweilen hinter ihr, während sie ihren Umweg durch die Gärten nimmt.
+Um ihren „stimmlosen“ Beinamen zu betonen, tragen alle Mitglieder des Chors geschlossene Lippen im Ausdruck, der von Frohsinn bis zu Elend reicht. Obwohl es vier sind, sind sie nicht an eine Gruppe gebunden und trennen sich hin und wieder, bevor sie sich den anderen wieder anschließen. Ihre einzige Leitanweisung lautet, dass sie nie stehen bleiben dürfen; ihr Chor verstummt, wenn er sich nicht bewegt, was Anessa für inakzeptabel hält.
+### HINDERNISSE UND GELEGENHEITEN
+• Die Anwesenden werden bemerken, wenn der Klang des Chors aufhört.
+• Die einzelnen Mitglieder des Chors sind schwer aufzuspüren, wenn sie getrennt sind.
+• Trotz ihres scheinbar zufälligen Pfads muss der Chor in regelmäßigen Abständen an festgelegten Orten einchecken.
+• Ihr Umherwandern macht es schwierig, genau zu bestimmen, wann, wie und wo sie verschwunden sind.
+• Anders als die anderen Installationen kann der Chor nicht unter Drogen gesetzt werden – zumindest nicht so stark.
+## Die Galerie der Gesichter {farbe=#194d71}
+Die im Gartenflügel nahe dem Eingang aufgestellte Galerie der Gesichter ist eine Sammlung von Anessas feinsten Schöpfungen, die Gäste ausleihen und als Masken „tragen“ können. Während die Gäste ermutigt werden, einen kurzen Rundgang durch die Gärten zu machen und zurückzukehren, damit jemand anderes sie ausprobieren kann, sind längere Begutachtungen selbstverständlich für jene möglich, die ein Stück der Installation erwerben möchten.
+Obwohl die Puppen alle gut abgerichtet und gehorsam sind, schweigend unmittelbar vor ihrem „Träger“ stehen und sogar gestikulieren, um seine Rede auszuschmücken, stehen Leinen für jene bereit, die ein praktischeres Erlebnis bevorzugen.
+### HINDERNISSE UND GELEGENHEITEN
+• Angeleinte Puppen sind schwer von ihren „Trägern“ zu trennen.
+• Stärker unter Drogen gesetzte Drow sind schwer schnell zu bewegen.
+• Stärker unter Drogen gesetzte Drow stellen Anweisungen, die man ihnen gibt, seltener infrage oder bemerken Ungewöhnliches seltener.
+• Von den Drow in diesem Stück wird erwartet, dass sie über längere Zeit fehlen.
+• Verschwundene Puppen lassen sich leicht damit erklären, dass sie gekauft wurden.
+## La Troupe Tormentee {farbe=#194d71}
+La Troupe Tormentee sind wohl die Glücklichsten unter den ausgestellten Puppen. Statt erstarrt an Ort und Stelle zu stehen oder den Launen des Publikums überlassen zu werden, führen sie avantgardistische Wiedergaben berühmter Aelfir-Stücke auf. Sie haben das Glück, versteckte Heizungen zu haben, die ihnen helfen, die Kälte zu ertragen, zumal sie originalgetreue Nachbildungen sehr leichter Kostüme tragen.
+Sie deuten die Stücke durch Tanz und Gesten statt durch Klang und bewegen sich in sorgfältig choreografierten Abläufen. Während die meisten Aelfir behaupten werden, genau zu erkennen, welcher Akt, welche Szene und welcher Monolog gerade zu sehen ist, ist das meist vages Gerede, um der Kultivierteste im Raum zu sein.
+### HINDERNISSE UND GELEGENHEITEN
+• Die unvorhersehbaren Auf- und Abtritte der Abläufe machen es schwer zu sagen, wie viele Puppen gerade auftreten sollen.
+• Das Fehlen von Dialog macht es leichter, dass „Schauspieler“ verschwinden, ohne die Szene zu stören.
+• Die Installation ist eher performativ als interaktiv, was es schwierig macht, sie zu stören.
+• Die Kostüme, die die Puppen für die Aufführung tragen, machen sie für alle Anwesenden sofort erkennbar.
+## Das Puppenhaus {farbe=#194d71}
+Am weitesten vom Eingang entfernt und in einem feuchten Gewächshaus ausgestellt, zeigt das Puppenhaus eine Reihe von Drow, die in einem kunstvollen Tableau posiert sind. Ihre Posen wechseln hin und wieder, wenn das Glas beschlägt; bis es 
+
+<!-- S. 82 (PDF 87) -->
+
+## 82
+sich klärt, hat sich die Zahl der Puppen in der Szene verändert, ebenso die Szene, die sie bilden.
+Auch wenn sie nicht aktiv Teil der Szene sind, stehen die Puppen regungslos seitlich, damit das Publikum sie beobachten und studieren kann. Drow und Menschen mögen verwirrt sein, weil die Gefühle auf den Gesichtern der Puppen nicht zu den Szenen passen, in denen sie posiert sind, doch die Aelfir haben wenig Kontext für die Ausdrücke und finden es bezaubernd.
+### HINDERNISSE UND GELEGENHEITEN
+• Die Puppen sind in einem Gewächshaus ohne erkennbare Eingänge eingeschlossen.
+• Die Gäste werden bemerken, wenn sich das Tableau nicht ändert.
+• Um ausgedehnte Posen besser halten zu können, wird den Puppen ein mildes Lähmungsmittel verabreicht.
+• Halbgelähmte Drow sind schwer zu transportieren.
+• Eine ausreichend detaillierte Nachbildung kann den Platz einer Puppe einnehmen; zwei könnten sogar eine ganze Szene für einen Zyklus bilden.
+## Die Marionetten {farbe=#194d71}
+Die Marionetten sind, ähnlich wie das Puppenhaus, posiert und warten auf ein Publikum. Anders als die gelähmten Puppen ist die Marionetten-Ausstellung interaktiv gestaltet. Gäste können die Puppen posieren, anweisen, führen, anstupsen, anstoßen oder anderweitig lenken. Beliebte „Spiele“ umfassen, immer längere und kunstvollere Anweisungsketten zu geben, um die Fähigkeit der Puppe zu testen, oder zu verlangen, dass esoterische Themen pantomimisch dargestellt werden.
+Während fast alles erlaubt ist, ist es ein unzulässiger Verstoß gegen die Etikette, eine Puppe zu verletzen, kampfunfähig zu machen oder tödlich zu verwunden. Ebenso gilt allgemein, dass die Puppen ihren Installationsbereich nicht verlassen sollen.
+### HINDERNISSE UND GELEGENHEITEN
+• Erschöpfte oder „disqualifizierte“ Puppen können zu einer kurzen Pause weggebracht werden, was ihren Transport erleichtert.
+• Die Neuheit des Erlebnisses nutzt sich für die Aelfir schnell ab, was es zu einem weniger beliebten Anlaufpunkt macht.
+• Ihre Lage nahe dem Garteneingang macht es erheblich leichter, in Eile hinauszukommen.
+• Unter Drogen gesetzte Drow in der Nähe hochgiftiger Pflanzen sind ein möglicher Unfall, der nur darauf wartet, zu passieren.
+## DIE AUKTION {farbe=#194d71}
+Dies ist das einzige Ereignis mit festem Beginn: Ein sanftes Läuten durch die Gärten kündigt an, dass sie gleich beginnt. Das eingesenkte Amphitheater ist als Beobachtungstheater eingerichtet, wobei der eisige Steintisch in seiner Mitte magisch vergrößert und auf dem teilweise gefrorenen Wasserfall gezeigt wird, der einen Vorhang um den Rand der behelfsmäßigen Bühne bildet.
+Seitlich wartet eine kleine Gruppe Drow, halb bei Bewusstsein und träge in der Kälte. Die Gönner der Gala haben die Gelegenheit, auf ihre Favoriten zu bieten, und der Gewinner jeder Auktion erwirbt eine maßgefertigte Puppe, die er nach Belieben verwenden kann.
+Die Modifikationen sollen vor Ort vor der Menge in einer Verschmelzung aus Magie und Medizin vorgenommen werden. Das wird als Performancekunst und Krönung des Abends angepriesen. Unter Drogen, aber nicht sediert, werden die Probanden angestoßen und betastet, bis der Gönner mit ihrem Ausdruck zufrieden ist, der dann dauerhaft eingefroren wird.
+### HINDERNISSE UND GELEGENHEITEN
+• Will die Zelle die zur Auktion stehenden Puppen retten, muss sie eine erhebliche Ablenkung schaffen: Alle Augen sind auf die der Menge präsentierten Figuren gerichtet.
+• Sind sie bereit, diese Puppen zurückzulassen, wird das Hinausschaffen der anderen durch die fertige Ablenkung erleichtert.
+• Die Erschaffung einer Puppe mit anzusehen ist für alle außer den Abgestumpftesten oder Gefühllosesten traumatisch. Ist die Zelle bei der Auktion anwesend, riskiert sie, ihre Tarnung zu verraten, indem sie auf das Gesehene reagiert.
+## GEGENSPIELER {farbe=#194d71}
+### SCHWARZE GARDE
+**Namen:**
+Felix, Haste, Chet, Tamn
+**Beschreibung:** Tatendurstig; Paranoid; Intensiv; Patrouillierend
+**Schwierigkeit:**
+2 im offenen Kampf, 1 für einen Hinterhalt oder Überraschungsangriff. Die Garde ist in höchster Alarmbereitschaft, da Gemurmel des Widerspruchs durch die Gala geht
+**Widerstand:**  6
+**Ausrüstung:**  Polierte Rüstung der Schwarzen Garde (Rüstung 3); Hellebarde (W6, Brutal); Fesseln und Beruhigungsmittel
+
+<!-- S. 83 (PDF 88) -->
+
+### GNOLL-„GÄRTNER“
+**Namen:**
+Krist, Limb, Flit, Thresh
+**Beschreibung:** Gepflegt; Maulkorb tragend; Fügsam; Neugierig
+**Schwierigkeit:**
+0; wenn der Garten Schaden genommen hat, 2.
+**Widerstand:**  4
+**Ausrüstung:**  Gartenschere (W3); Gegengifte; Fläschchen mit gewonnenen Giften (W3, Anhaltend, Fernkampf, Einweg); Pflanzenschnitte; schwere Handschuhe; Schutzverkleidung (Rüstung 1).
+### PARTYGÄSTE
+**Namen:**
+Maji Corrina Quinn, Ilyan Gesegnet-vom-Überfluss [[Blessed-by-Bounty]], Mette Shanea Kessock, Qira Tanz-unter-Träumern [[Dance-Among-Dreamers]]
+**Beschreibung:** Die Vergoldeten; Glitzernd Geschmückt; Die Berüchtigten; Elegant
+**Schwierigkeit:**
+0
+**Widerstand:**  3
+**Ausrüstung:**  Dekadente Kleidung und Maske; Schuldscheine; kleine, aber wertvolle Schmuckstücke und Gefälligkeiten; aufwendiger Schmuck
+## DAS ENDE DER GESCHICHTE {farbe=#981a3f}
+Sollte die Zelle beschließen, Lyrana nicht dabei zu helfen, die Gala zu stören, besucht sie sie dennoch mit ihrem Haus und sammelt die anderen Dissidenten, um Anessa zu diskreditieren. Ihre Bemühungen werden das Publikum wahrscheinlich spalten, aber der Beliebtheit der Puppen als Accessoires und lebende Kunstwerke keinen echten Abbruch tun.
+Eine oder zwei finden vielleicht bessere Heime bei Lyrana und ihrer Truppe, doch die große Mehrheit der Puppen bleibt entweder bei Anessa oder wird von anderen Aelfir gekauft. Ob sie als Diener umfunktioniert, als Möbel benutzt oder zu dauerhaften Installationen werden, hängt vom Käufer ab – aber es ist unwahrscheinlich, dass ihr Leben angenehmer wird. Je nach betreffendem Aelfir erhalten sie womöglich keine Medikamente mehr, sodass der Schmerz der Operation mit voller Wucht zurückkehren kann, während sie völlig still und stumm verharren müssen.
+Der Erfolg des Abends facht die Flammen des Trends an. Viele Aelfir gehen dazu über, Puppen als Masken zu „tragen“ (meist unmittelbar vor oder neben ihren Herren stehend) oder große Gruppen zu erwerben, die ihnen ständig folgen und um sie herum posieren. In Derelictus beginnen Razzien, um die Nachfrage zu decken, die darauf abzielen, genügend Körper zu „verhaften“, um die Investoren zufriedenzustellen.
+Da die Kosten für Anessas Puppen als Reaktion auf ihre wachsende Beliebtheit in die Höhe schießen, entsteht unter den weniger wohlhabenden Aelfir ein blühender Schwarzmarkt. Noch mehr Drow werden verschleppt und unsachgemäßen Operationen unterzogen, um billigere Versionen von Anessas Werk herzustellen. Diese unglücklichen Drow (manchmal „Lumpenpuppen“ genannt) bleiben oft mit anhaltenden Schmerzen oder völligem Gefühlsverlust zurück und werden gewöhnlich weggeworfen, wenn Komplikationen aus den Operationen auftreten.
+## DIE DROW HERAUSBRINGEN {farbe=#194d71}
+Wie auch immer sie es zurück zum Unterschlupf schaffen, hat die Zelle hoffentlich mindestens eine Puppe im Schlepptau oder auf sie wartend. Je nach den Reaktionen der anderen Aelfir kann Lyrana sie womöglich nicht sofort treffen, doch Hiram und ein Assistent treffen vor Sonnenaufgang ein, um die Zelle und die Flüchtlinge zu begrüßen.
+Er verabreicht jenen Drow, die es brauchen, Schmerzmittel und erklärt mit Hilfe seines Assistenten, dass seine Herrin dafür sorgen wird, dass sich um alle gekümmert wird und sie sicher versteckt werden, bis sich ein Weg finden lässt, Anessas chirurgische Eingriffe rückgängig zu machen. Danach gibt es Arbeit für jene, die sie wollen, und Unterstützung für jene, die sie brauchen.
+## ANESSA ZU FALL BRINGEN {farbe=#194d71}
+Hat die Gruppe es geschafft, Anessa in Verruf zu bringen, spricht sich das von Amaranth bis in den unteren Spire herum. Die Drow feiern nicht nur den Sturz einer Aelfir, sondern die Familien der Puppen erfahren genau, was ihre Lieben erlitten haben.
+Obwohl sie wissen, dass eine Reihe von Puppen der Gala entkommen ist, gibt es keine offizielle Folgemeldung darüber, ob sie wieder eingefangen wurden. Manche Ex-Puppen entscheiden sich vielleicht, in Lyranas Obhut ihren Lieben zu schreiben, doch nicht alle sind bereit, solchen Kontakt zuzulassen, bevor sie mehr Gewissheit über ihr Schicksal haben.
+## SCHEITERN {farbe=#194d71}
+Sollte die Zelle scheitern, wird sie gefangen genommen und wahrscheinlich selbst zu Puppen gemacht, sofern sie nicht klug genug ist, zu entkommen. Kastrias kann ihren Ruf nicht riskieren, um ihnen zu helfen, und könnte sogar leugnen, sie überhaupt zu kennen. Ob die Zelle eine ausreichende Bindung zu ihr oder ihren Dienern hat, um etwas auszuhandeln, hängt von ihren früheren Handlungen ab.
+
+<!-- S. 84 (PDF 89) -->
+
+## 84
+> Qiliza Mondlicht-auf-leuchtenden-
+> Blättern [[Moonlight-On-Shining-Leaves]] hält die Herzen
+> ihrer Familie griffbereit für den
+> Fall von Ungehorsam.

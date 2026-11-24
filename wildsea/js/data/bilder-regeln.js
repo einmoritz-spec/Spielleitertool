@@ -1,0 +1,24 @@
+/* Bilder regeln (Corebook-Illustrationen) */
+window.WS_NIMG = window.WS_NIMG || {}; WS_NIMG.regeln = WS_NIMG.regeln || {};
+WS_NIMG.regeln["charakterbogen"] = [["regeln/charakterbogen.webp", 1307, 1111]];
+WS_NIMG.regeln["crewbogen"] = [["regeln/crewbogen.webp", 1265, 1077]];
+WS_NIMG.regeln["fokus"] = [["regeln/fokus-figur-mit-wolf.webp", 1304, 1400]];
+WS_NIMG.regeln["aufhaenger"] = [["regeln/aufhaenger-saegeschwert.webp", 729, 389]];
+WS_NIMG.regeln["handlungsboegen"] = [["regeln/handlungsboegen-figur.webp", 831, 1400]];
+WS_NIMG.regeln["leisten"] = [["regeln/leisten-bienen.webp", 1347, 1117]];
+WS_NIMG.regeln["wendungen"] = [["regeln/wendungen-pirat.webp", 1322, 1400]];
+WS_NIMG.regeln["zeit-zu-handeln"] = [["regeln/eroeffnung-kap3-seilbruecke.webp", 1400, 1190]];
+WS_NIMG.regeln["erkundung-spiel"] = [["regeln/erkundung-laternentraegerin.webp", 1149, 1400]];
+WS_NIMG.regeln["ressourcen-sammeln"] = [["regeln/begleiter-greifwolf.webp", 1400, 453]];
+WS_NIMG.regeln["interaktion"] = [["regeln/interaktion-skelett.webp", 1081, 1400]];
+WS_NIMG.regeln["kampf"] = [["regeln/kampf-schildtraeger.webp", 1192, 1400]];
+WS_NIMG.regeln["drohender-tod"] = [["regeln/todesdrohung-springer.webp", 1282, 1400]];
+WS_NIMG.regeln["ruhe-vorbereitung"] = [["regeln/eroeffnung-kap4-ruinentempel.webp", 1400, 1190]];
+WS_NIMG.regeln["erkundung-montage"] = [["regeln/aufgaben-jaeger-mit-hund.webp", 1049, 1105]];
+WS_NIMG.regeln["projekte"] = [["regeln/projekte-schutzbrille.webp", 792, 379]];
+WS_NIMG.regeln["laengere-montagen"] = [["regeln/laengere-montagen-ast-figur.webp", 1400, 1219]];
+WS_NIMG.regeln["wellen-durchqueren"] = [["regeln/eroeffnung-kap5-leviathan.webp", 1400, 1188]];
+WS_NIMG.regeln["ohne-schiff"] = [["regeln/schiff-bugsaege.webp", 1400, 889]];
+WS_NIMG.regeln["fortschritt"] = [["regeln/fortschritt-navigator.webp", 668, 1400]];
+WS_NIMG.regeln["entdeckungen"] = [["regeln/entdeckungen-schamane.webp", 1372, 1400]];
+WS_NIMG.regeln["ankunft"] = [["regeln/ankunft-schiff-mit-stelzen.webp", 1400, 833]];

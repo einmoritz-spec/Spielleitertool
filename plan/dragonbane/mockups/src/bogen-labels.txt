@@ -1,0 +1,98 @@
+<span style="left:33.6px;top:23.2px;font:6.54px/1 var(--f-halb);color:#231f20">SPIELER</span>
+<span style="left:33.6px;top:56.7px;font:6.54px/1 var(--f-halb);color:#231f20">BERUF</span>
+<span style="left:33.6px;top:73.8px;font:6.54px/1 var(--f-halb);color:#231f20">SCHWÄCHE</span>
+<span style="left:158.2px;top:190.1px;transform:translateX(-50%);font:6.04px/1 var(--f-titel);color:#ffffff;letter-spacing:-.02em">ERSCHÖPFT</span>
+<span style="left:214.7px;top:190.1px;transform:translateX(-50%);font:6.04px/1 var(--f-titel);color:#ffffff;letter-spacing:-.02em">KRÄNKELND</span>
+<span style="left:273.4px;top:190.1px;transform:translateX(-50%);font:6.04px/1 var(--f-titel);color:#ffffff;letter-spacing:-.02em">BENOMMEN</span>
+<span style="left:331.4px;top:190.1px;transform:translateX(-50%);font:6.04px/1 var(--f-titel);color:#ffffff">WÜTEND</span>
+<span style="left:388.9px;top:190.1px;transform:translateX(-50%);font:6.04px/1 var(--f-titel);color:#ffffff;letter-spacing:-.02em">VERÄNGSTIGT</span>
+<span style="left:445.7px;top:190.1px;transform:translateX(-50%);font:5.74px/1 var(--f-titel);color:#ffffff">VERZAGT</span>
+<span style="left:137.1px;top:40.0px;font:6.54px/1 var(--f-halb);color:#231f20">ALTER</span>
+<span style="left:158.2px;top:142.6px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">STÄ</span>
+<span style="left:215.3px;top:142.6px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">KON</span>
+<span style="left:273.1px;top:142.6px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">GEW</span>
+<span style="left:330.2px;top:142.6px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">INT</span>
+<span style="left:388.1px;top:142.6px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">WIL</span>
+<span style="left:444.7px;top:142.6px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">CHA</span>
+<span style="left:33.6px;top:40.0px;font:6.54px/1 var(--f-halb);color:#231f20">VOLK</span>
+<span style="left:54.6px;top:259.5px;font:7.55px/1 var(--f-titel);color:#ffffff">TALENTE & ZAUBER</span>
+<span style="left:54.6px;top:225.8px;font:7.55px/1 var(--f-titel);color:#ffffff">SCHADENSBON. STÄ</span>
+<span style="left:239.2px;top:225.8px;font:7.55px/1 var(--f-titel);color:#ffffff">SCHADENSBON. GEW</span>
+<span style="left:423.8px;top:225.8px;font:7.55px/1 var(--f-titel);color:#ffffff">BEWEGUNG</span>
+<span style="left:455.1px;top:259.3px;font:7.55px/1 var(--f-titel);color:#ffffff">INVENTAR</span>
+<span style="left:286.9px;top:258.8px;font:7.55px/1 var(--f-titel);color:#ffffff">FERTIGKEITEN</span>
+<span style="left:218.3px;top:283.0px;font:8.05px/1 var(--f-sans);color:#231f20">Akrobatik <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:218.3px;top:296.9px;font:8.05px/1 var(--f-sans);color:#231f20">Wahrnehmung <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:310.9px;font:8.05px/1 var(--f-sans);color:#231f20">Feilschen <small style="font-size:.8em;margin-left:.25em">(CHA)</small></span>
+<span style="left:218.3px;top:325.0px;font:8.05px/1 var(--f-sans);color:#231f20">Tierkunde <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:339.0px;font:8.05px/1 var(--f-sans);color:#231f20">Täuschen <small style="font-size:.8em;margin-left:.25em">(CHA)</small></span>
+<span style="left:218.3px;top:352.9px;font:8.05px/1 var(--f-sans);color:#231f20">Wildniskunde <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:366.9px;font:8.05px/1 var(--f-sans);color:#231f20">Handwerk <small style="font-size:.8em;margin-left:.25em">(STÄ)</small></span>
+<span style="left:218.3px;top:380.9px;font:8.05px/1 var(--f-sans);color:#231f20">Ausweichen <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:218.3px;top:394.8px;font:8.05px/1 var(--f-sans);color:#231f20">Heilkunde <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:408.8px;font:8.05px/1 var(--f-sans);color:#231f20">Jagen & Fischen <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:218.3px;top:422.8px;font:8.05px/1 var(--f-sans);color:#231f20">Fremdsprachen <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:436.9px;font:8.05px/1 var(--f-sans);color:#231f20">Mythen & Legenden <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:450.8px;font:8.05px/1 var(--f-sans);color:#231f20">Darbietung <small style="font-size:.8em;margin-left:.25em">(CHA)</small></span>
+<span style="left:218.3px;top:464.8px;font:8.05px/1 var(--f-sans);color:#231f20">Überzeugen <small style="font-size:.8em;margin-left:.25em">(CHA)</small></span>
+<span style="left:218.3px;top:478.8px;font:8.05px/1 var(--f-sans);color:#231f20">Reiten <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:218.3px;top:492.8px;font:8.05px/1 var(--f-sans);color:#231f20">Seefahrt <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:506.7px;font:8.05px/1 var(--f-sans);color:#231f20">Fingerfertigkeit <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:218.3px;top:520.7px;font:8.05px/1 var(--f-sans);color:#231f20">Heimlichkeit <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:218.3px;top:534.7px;font:8.05px/1 var(--f-sans);color:#231f20">Entdecken <small style="font-size:.8em;margin-left:.25em">(INT)</small></span>
+<span style="left:218.3px;top:548.8px;font:8.05px/1 var(--f-sans);color:#231f20">Schwimmen <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:402.8px;top:23.2px;font:6.54px/1 var(--f-halb);color:#231f20">AUSSEHEN</span>
+<span style="left:446.9px;top:424.3px;font:6.54px/1 var(--f-halb);color:#231f20">MEMENTO</span>
+<span style="left:447.6px;top:365.9px;font:6.54px/1 var(--f-halb);color:#231f20">7</span>
+<span style="left:447.6px;top:324.0px;font:6.54px/1 var(--f-halb);color:#231f20">4</span>
+<span style="left:447.6px;top:310.0px;font:6.54px/1 var(--f-halb);color:#231f20">3</span>
+<span style="left:447.6px;top:295.6px;font:6.54px/1 var(--f-halb);color:#231f20">2</span>
+<span style="left:448.6px;top:281.6px;font:6.54px/1 var(--f-halb);color:#231f20">1</span>
+<span style="left:497.2px;top:244.9px;font:6.54px/1 var(--f-halb);color:#231f20">TRAGLAST</span>
+<span style="left:409.5px;top:677.2px;font:7.55px/1 var(--f-titel);color:#ffffff">TREFFERPUNKTE</span>
+<span style="left:410.8px;top:730.4px;font:7.55px/1 var(--f-halb);color:#231f20">TODESWÜRFE</span>
+<span style="left:491.9px;top:726.1px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">ERFOLGE</span>
+<span style="left:540.9px;top:726.1px;transform:translateX(-50%);font:6.54px/1 var(--f-halb);color:#231f20">FEHLSCHLÄGE</span>
+<span style="left:409.5px;top:611.9px;font:7.55px/1 var(--f-titel);color:#ffffff">WILLENSKRAFTPUNKTE</span>
+<span style="left:454.5px;top:489.2px;font:6.54px/1 var(--f-halb);color:#231f20">KLEINKRAM</span>
+<span style="left:343.4px;top:296.9px;font:8.05px/1 var(--f-sans);color:#231f20">Äxte <small style="font-size:.8em;margin-left:.25em">(STÄ)</small></span>
+<span style="left:343.4px;top:310.9px;font:8.05px/1 var(--f-sans);color:#231f20">Bögen <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:343.4px;top:325.0px;font:8.05px/1 var(--f-sans);color:#231f20">Raufen <small style="font-size:.8em;margin-left:.25em">(STÄ)</small></span>
+<span style="left:343.4px;top:338.9px;font:8.05px/1 var(--f-sans);color:#231f20">Armbrüste <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:343.4px;top:352.9px;font:8.05px/1 var(--f-sans);color:#231f20">Hämmer <small style="font-size:.8em;margin-left:.25em">(STÄ)</small></span>
+<span style="left:343.4px;top:366.9px;font:8.05px/1 var(--f-sans);color:#231f20">Messer <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:343.4px;top:380.9px;font:8.05px/1 var(--f-sans);color:#231f20">Schleudern <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:343.4px;top:394.8px;font:8.05px/1 var(--f-sans);color:#231f20">Speere <small style="font-size:.8em;margin-left:.25em">(STÄ)</small></span>
+<span style="left:343.4px;top:408.8px;font:8.05px/1 var(--f-sans);color:#231f20">Stäbe <small style="font-size:.8em;margin-left:.25em">(GEW)</small></span>
+<span style="left:343.4px;top:422.8px;font:8.05px/1 var(--f-sans);color:#231f20">Schwerter <small style="font-size:.8em;margin-left:.25em">(STÄ)</small></span>
+<span style="left:309.2px;top:283.4px;font:7.55px/1 var(--f-kopf);color:#603617">WAFFENFERTIGKEITEN</span>
+<span style="left:309.2px;top:451.3px;font:7.55px/1 var(--f-kopf);color:#603617">SEKUNDÄRE FERTIGKEITEN</span>
+<span style="left:54.9px;top:682.6px;font:7.55px/1 var(--f-titel);color:#ffffff">WAFFE / SCHILD</span>
+<span style="left:139.8px;top:683.3px;font:6.54px/1 var(--f-titel);color:#ffffff">GRIFF</span>
+<span style="left:174.2px;top:683.3px;font:6.54px/1 var(--f-titel);color:#ffffff">REICHW.</span>
+<span style="left:291.3px;top:683.3px;font:6.54px/1 var(--f-titel);color:#ffffff">MERKMALE</span>
+<span style="left:215.0px;top:683.3px;font:6.54px/1 var(--f-titel);color:#ffffff">SCHADEN</span>
+<span style="left:257.9px;top:680.0px;font:6.54px/1 var(--f-titel);color:#ffffff">HALT-</span>
+<span style="left:256.8px;top:686.4px;font:6.54px/1 var(--f-titel);color:#ffffff">BARKEIT</span>
+<span style="left:93.4px;top:600.4px;font:7.55px/1 var(--f-halb);color:#231f20">RÜSTUNG</span>
+<span style="left:85.1px;top:637.3px;font:6.54px/1 var(--f-kopf);color:#231f20">NACHTEIL AUF:</span>
+<span style="left:93.7px;top:645.7px;font:6.54px/1 var(--f-halb);color:#231f20"> HEIMLICHKEIT </span>
+<span style="left:148.0px;top:645.7px;font:6.54px/1 var(--f-halb);color:#231f20"> AUSWEICHEN</span>
+<span style="left:93.7px;top:654.0px;font:6.54px/1 var(--f-halb);color:#231f20"> AKROBATIK</span>
+<span style="left:257.9px;top:600.4px;font:7.55px/1 var(--f-halb);color:#231f20">HELM</span>
+<span style="left:260.7px;top:637.3px;font:6.54px/1 var(--f-kopf);color:#231f20">NACHTEIL AUF:</span>
+<span style="left:269.5px;top:645.7px;font:6.54px/1 var(--f-halb);color:#231f20"> WAHRNEHMUNG</span>
+<span style="left:269.5px;top:654.0px;font:6.54px/1 var(--f-halb);color:#231f20"> FERNKAMPF</span>
+<span style="left:41.2px;top:561.6px;font:6.54px/1 var(--f-titel);color:#ffffff">KUPFER</span>
+<span style="left:41.2px;top:532.2px;font:6.54px/1 var(--f-titel);color:#ffffff">SILBER</span>
+<span style="left:41.2px;top:503.1px;font:6.54px/1 var(--f-titel);color:#ffffff">GOLD</span>
+<span style="left:446.3px;top:407.4px;font:6.54px/1 var(--f-halb);color:#231f20">10</span>
+<span style="left:447.6px;top:393.5px;font:6.54px/1 var(--f-halb);color:#231f20">9</span>
+<span style="left:447.6px;top:379.5px;font:6.54px/1 var(--f-halb);color:#231f20">8</span>
+<span style="left:447.6px;top:351.9px;font:6.54px/1 var(--f-halb);color:#231f20">6</span>
+<span style="left:447.6px;top:337.9px;font:6.54px/1 var(--f-halb);color:#231f20">5</span>
+<span style="left:431.3px;top:589.9px;font:6.54px/1 var(--f-halb);color:#231f20"> VERSCHNAUFEN</span>
+<span style="left:494.3px;top:589.9px;font:6.54px/1 var(--f-halb);color:#231f20"> KURZE RAST</span>
+<span style="left:302.0px;top:99.5px;transform:translateX(-50%);font:6.41px/1 var(--f-halb);color:#231f20">NAME</span>
+<svg class="bg" style="left:36.1px;top:608.4px;width:47.4px;height:47.4px" viewBox="0 0 48 48"><path id="a60" d="M5,24 A19,19 0 0 1 43,24" fill="none"/><text font-size="6.2" style="font-family:var(--f-halb);letter-spacing:.3px" fill="#231f20"><textPath href="#a60" startOffset="50%" text-anchor="middle">RÜSTUNGSWERT</textPath></text></svg>
+<svg class="bg" style="left:211.4px;top:598.5px;width:47.4px;height:47.4px" viewBox="0 0 48 48"><path id="a238" d="M5,24 A19,19 0 0 1 43,24" fill="none"/><text font-size="6.2" style="font-family:var(--f-halb);letter-spacing:.3px" fill="#231f20"><textPath href="#a238" startOffset="50%" text-anchor="middle">RÜSTUNGSWERT</textPath></text></svg>

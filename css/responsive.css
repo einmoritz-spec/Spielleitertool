@@ -1,0 +1,206 @@
+/* ==================================================================
+   RESPONSIVE: große Bildschirme nutzen die Breite, Handys bekommen
+   ein eigenes Layout. Bewusst als LETZTE Datei geladen (überschreibt
+   die Grundwerte aus den anderen CSS-Dateien).
+   --wscale skaliert Spaltenbreiten, --fs den Lesetext, --ts Überschriften/Labels.
+   ================================================================== */
+:root{ --wscale:1; --ts:1; }
+@media (min-width:1600px){ :root{ --wscale:1.15; --fs:1.0; --ts:1.1; } }
+@media (min-width:1920px){ :root{ --wscale:1.4;  --fs:1.12; --ts:1.25; } }
+@media (min-width:2300px){ :root{ --wscale:1.75; --fs:1.3;  --ts:1.5; } }
+@media (min-width:2800px){ :root{ --wscale:2.2;  --fs:1.5;  --ts:1.8; } }
+
+.shell{max-width:calc(1480px * var(--wscale));}
+.pathrail:not(.collapsed){width:calc(250px * var(--wscale));}
+.content-col{max-width:calc(1180px * var(--wscale));}
+.pathrail.collapsed ~ .content-col{max-width:calc(1280px * var(--wscale));}
+.overview{max-width:calc(1180px * var(--wscale));}
+.ch-library{max-width:calc(900px * var(--wscale));}
+.ch-library.lore-library, .ch-library.place-library{max-width:calc(1180px * var(--wscale));}
+.rules-modal{max-width:min(94vw, calc(760px * var(--wscale)));}
+.profiles-modal{max-width:min(94vw, calc(640px * var(--wscale)));}
+.tb-modal{max-width:min(96vw, calc(1180px * var(--wscale)));}
+.big-modal{max-width:min(97vw, calc(1320px * var(--wscale)));}
+@media (min-width:1600px){
+  .scene-head h1{font-size:clamp(28px, 3.6vw, calc(40px * var(--ts)));}
+  .scene-head .en-title{font-size:calc(15px * var(--ts));}
+  .scene-eyebrow, .section-label{font-size:calc(12px * var(--ts));}
+  .pathrail h2{font-size:calc(19px * var(--ts));}
+  .pathrail .subhead, .trail-item .t-eyebrow{font-size:calc(11px * var(--ts));}
+  .trail-item .t-title{font-size:calc(13px * var(--ts));}
+  .npc-card .npc-name{font-size:calc(16.5px * var(--ts));}
+  .npc-card .npc-role{font-size:calc(11.5px * var(--ts));}
+  .rest-btn{font-size:calc(11.5px * var(--ts));}
+  .nav-btn{font-size:calc(11px * var(--ts));}
+  .stage-wrap{padding-left:calc(34px * var(--wscale)); padding-right:calc(34px * var(--wscale));}
+  .has-time-tracker .stage-wrap{padding-right:calc(104px * var(--wscale));}
+}
+
+/* ---------- Handy & schmale Fenster ---------- */
+.scene-picker-wrap{display:none;}
+.tb-burger{
+  display:flex; align-items:center; justify-content:center; width:42px; height:40px; flex:none; margin-left:8px;
+  color:var(--gold-bright); background:rgba(201,162,75,.08); border:1px solid var(--panel-line); border-radius:10px; padding:0; cursor:pointer;
+}
+@media (max-width:1000px){
+  /* Kopfzeile: nur Marke + Drei-Striche-Menü, alle Knöpfe wandern ins Seitenmenü */
+  .topbar{padding:8px 10px; gap:8px; justify-content:space-between;}
+  .topbar-spacer, .topbar-actions{display:none;}
+  .tb-burger{
+    display:flex; align-items:center; justify-content:center; width:42px; height:40px; flex:none;
+    color:var(--gold-bright); background:rgba(201,162,75,.08); border:1px solid var(--panel-line); border-radius:10px; padding:0;
+  }
+  .topbar .brand{flex:1; min-width:0; overflow:hidden;}
+  .scene-picker-wrap{display:flex; gap:8px; align-items:stretch; margin:0 0 16px;}
+  .scene-head .edit-toggle{display:none;}               /* Stift sitzt hier neben der Auswahl */
+  .edit-toggle-m{position:static; flex:none; width:46px; height:auto; opacity:1;}
+  .edit-toggle-m.active{color:var(--ink); background:var(--gold); border-color:var(--gold);}
+  .scene-picker-wrap{align-items:center; position:sticky; top:0; z-index:5; margin:0 -14px 14px; padding:8px 14px; background:linear-gradient(180deg,var(--bg) 70%,transparent);}
+  .scene-chips{flex:1; min-width:0; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; padding:2px 0; scroll-snap-type:x proximity;}
+  .scene-chips::-webkit-scrollbar{display:none;}
+  .sc-chip{flex:none; display:inline-flex; align-items:center; gap:8px; height:34px; min-width:34px; padding:0 11px; justify-content:center; border-radius:999px; border:1px solid var(--panel-line); background:var(--panel); color:var(--text-lo); font:600 13px var(--sans); cursor:pointer; scroll-snap-align:center; position:relative;}
+  .sc-chip.done::after{content:""; position:absolute; top:3px; right:3px; width:7px; height:7px; border-radius:50%; background:var(--moss-bright,#6fa06a);}
+  .sc-chip.active{background:rgba(201,162,75,.16); border-color:rgba(201,162,75,.6); color:var(--gold-bright,#e0b95a); padding:0 14px 0 11px;}
+  .sc-t{font:500 13px var(--sans); max-width:48vw; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--text-hi);}
+  /* Zeit-Tracker (Abenteuer 2) bleibt sichtbar: kompakte Leiste über der Szenen-Navigation */
+  .time-tracker{
+    display:flex; flex-direction:row; align-items:center; gap:10px; width:auto;
+    top:auto; bottom:58px; right:10px; padding:6px 10px;
+  }
+  .time-tracker .tt-head{margin-bottom:0;}
+  .time-tracker .tt-pips{flex-direction:row; gap:4px;}
+  .time-tracker .pip{width:24px; height:22px;}
+  .time-tracker .limit-reset{margin-top:0;}
+}
+@media (max-width:720px){
+  .topbar .brand{font-size:15px;}
+  .stage-wrap{padding:16px 14px 150px;}
+  .scene-head h1{font-size:26px;}
+  .scene-eyebrow{font-size:11px; flex-wrap:wrap;}
+  .section{margin-bottom:24px;}
+  .readaloud{padding:16px 16px;}
+  .readaloud p{font-size:calc(16px * var(--fs));}
+  .npc-grid{grid-template-columns:1fr;}
+  .adv-grid{grid-template-columns:1fr;}
+  .overview{padding:20px 14px 100px;}
+  .welcome-dales{padding-bottom:24px; margin-bottom:28px;}
+  .ch-library{padding:28px 14px 100px;}
+  .edit-bar{top:54px;}
+  .edit-toggle{width:36px; height:36px;}
+  .scenenav{padding:6px 10px calc(6px + env(safe-area-inset-bottom)); gap:6px;}
+  .nav-dots{display:none;}
+  .nav-btn{flex:1; max-width:50%; min-height:40px; padding:8px 10px; font-size:12px; border-color:var(--panel-line);}
+  .nav-btn[style*="flex-end"]{justify-content:flex-end;}
+  .gloss-modal-backdrop{padding:8px;}
+  .gloss-modal{padding:20px 16px 18px; max-height:94vh; border-radius:10px;}
+  .rest-modal, .rules-modal, .tb-modal, .map-modal, .profiles-modal{max-width:100%; max-height:96vh;}
+  .shortcuts-grid{flex-direction:column; row-gap:8px;}
+  .shortcut-chip{white-space:normal;}
+  .tb-set-row{grid-template-columns:1fr auto; gap:8px;}
+  .tb-set-row label:last-child{grid-column:1 / -1;}
+  .tb-set-head{display:none;}
+  .pf-list-item{padding:12px;}
+  .rest-activities{grid-template-columns:1fr;}
+}
+@media (max-width:720px){ body{padding-top:54px;} }
+
+/* Sehr breite Bildschirme: Ablauftext in Spalten, damit Zeilen lesbar kurz bleiben
+   und die Breite trotzdem genutzt wird. Vorlesetext-Boxen, Figuren und Challenges
+   bleiben ungeteilt in einer Spalte. */
+@media (min-width:2300px){
+  .flow{column-count:2; column-gap:calc(34px * var(--wscale)); column-rule:1px solid var(--panel-line-soft);}
+  .flow > *{break-inside:avoid;}
+}
+@media (min-width:3200px){
+  .flow{column-count:3;}
+}
+
+/* ---------- Handy-/Tablet-Seitenmenü ---------- */
+.mobile-menu{position:fixed; inset:0; z-index:150;}
+.mm-backdrop{
+  position:absolute; inset:0; background:rgba(6,9,7,.62);
+  -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px);
+  opacity:0; transition:opacity .2s ease;
+}
+.mm-panel{
+  position:absolute; top:0; right:0; bottom:0; width:min(310px, 84vw);
+  display:flex; flex-direction:column;
+  background:linear-gradient(170deg, var(--panel-raised), var(--panel));
+  border-left:1px solid rgba(201,162,75,.35); box-shadow:-20px 0 50px -20px rgba(0,0,0,.8);
+  transform:translateX(100%); transition:transform .2s ease;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.mobile-menu.open .mm-backdrop{opacity:1;}
+.mobile-menu.open .mm-panel{transform:none;}
+.mm-head{
+  display:flex; align-items:center; justify-content:space-between; padding:16px 16px 10px;
+  font-family:var(--serif-display); font-size:20px; font-weight:600; color:var(--gold-bright);
+}
+.mm-close{width:38px; height:38px; background:none; border:1px solid var(--panel-line); border-radius:10px; color:var(--text-lo); font-size:15px;}
+.mm-list{flex:1; overflow-y:auto; padding:4px 10px; display:flex; flex-direction:column; gap:2px;}
+.mm-foot{padding:8px 10px 14px; border-top:1px solid var(--panel-line);}
+.mm-item{
+  display:flex; align-items:center; gap:14px; width:100%; text-align:left;
+  background:none; border:none; border-radius:10px; padding:13px 12px;
+  color:var(--text-hi); font-family:var(--sans); font-size:16px;
+}
+.mm-item:active, .mm-item:hover{background:rgba(201,162,75,.12);}
+.mm-ic{width:28px; text-align:center; font-size:20px; flex:none;}
+body.menu-open{overflow:hidden;}
+/* Kopfzeile überall: nur Name + Burger-Menü, alle Knöpfe liegen im Menü */
+.topbar{justify-content:space-between;}
+.topbar-spacer, .topbar-actions{display:none;}
+.topbar .brand{flex:1; min-width:0;}
+.mm-panel{max-width:min(380px,100vw);}
+
+/* ---------- Bibliotheks-Fenster (Challenges, Lore, Shop, Orte …) auf dem Handy ---------- */
+@media (max-width:720px){
+  .gloss-modal.big-modal{width:100vw; max-width:100vw; height:100dvh; max-height:100dvh; border-radius:0; border:none; padding:0;}
+  .big-modal-scroll{padding:0 14px calc(24px + env(safe-area-inset-bottom));}
+  .big-modal .gm-close{top:10px; right:10px; width:38px; height:38px;}
+  .ch-lib-hero{margin:0 0 22px; padding-top:58px;}
+  .ch-lib-hero h1{font-size:24px;}
+  .ch-lib-hero p{font-size:13.5px; text-align:left;}
+  /* Suche bleibt oben angeheftet – jetzt mit deckendem Hintergrund und Platz für den Schließen-Knopf */
+  .ch-lib-controls{
+    background:transparent; margin:0; padding:6px 0 4px; border:none; top:0;
+    -webkit-backdrop-filter:none; backdrop-filter:none;
+  }
+  /* nur wenn die Leiste wirklich am Rand klebt, bekommt sie einen unauffälligen Untergrund (per JS-Klasse) */
+  .ch-lib-controls.stuck{background:var(--panel-raised); margin:0 -14px; padding:10px 58px 8px 14px; box-shadow:0 8px 14px -10px rgba(0,0,0,.7);}
+  .ch-lib-controls-row{flex-wrap:wrap; gap:8px; margin-bottom:0;}
+  .ch-lib-controls-row .ch-search, .ch-lib-controls-row .rg-search{flex:1 1 100%; padding:11px 14px; font-size:15px;}
+  .collapse-all-btn{flex:none; padding:6px 12px; font-size:12px;}
+  .ch-role-chips-wrap{padding-top:12px;}
+  /* Kategorie-Köpfe */
+  .ch-cat-head{padding:14px; gap:10px;}
+  .ch-cat-title{font-size:16px; min-width:0; overflow-wrap:anywhere;}
+  .ch-cat-body, .ch-cat.open .ch-cat-body{padding-left:10px; padding-right:10px;}
+  .ch-cat.open .ch-cat-body{padding-bottom:12px;}
+  /* Karten: Typ-Plakette oben, Name darunter über die volle Breite */
+  .challenge-head{padding:13px 14px; gap:10px;}
+  .challenge-head:has(.ch-type){display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:6px 10px;}
+  .challenge-head:has(.ch-type) .ch-type{grid-column:1 / -1; justify-self:start;}
+  .challenge-head:has(.ch-type) .ch-chev{grid-column:2; grid-row:2;}
+  .ch-name-wrap{min-width:0;}
+  .ch-name{font-size:16px; line-height:1.3; overflow-wrap:anywhere;}
+  .ch-subtitle{display:block; font-size:12.5px; line-height:1.35; margin-top:2px;}
+  .ch-quicklimits{margin-top:3px;}
+  .ch-inner{padding:0 14px 14px;}
+  .limit-label{width:100%;}
+  .store-items{gap:6px;}
+}
+
+/* Kopfzeile einheitlich: Text statt Symbole, Burger immer sichtbar */
+.mm-ic,.tb-ic{display:none!important}
+.tb-burger{display:flex!important;align-items:center;justify-content:center;width:40px;height:38px;padding:0;margin-left:8px;flex:none;cursor:pointer}
+.tb-burger svg{display:block}
+.topbar .tb-btn,.topbar-actions,.topbar-spacer{display:none!important}.topbar{justify-content:space-between}.topbar .brand{font-size:15px;white-space:nowrap}.tb-burger{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.18)!important;color:var(--text,#e8e8ee)!important;border-radius:10px!important;margin-left:auto}
+
+/* Seitenleisten-Modus (Leiste sichtbar ab 881 px): die runden Szenen-Chips oben sind dann überflüssig,
+   nur Notiz-Stift/Bearbeiten bleiben. Unter 881 px ist die Leiste weg – dort bleiben die Chips als Navigation. */
+@media (min-width:881px){
+  .shell:not(.tabs-top) .scene-chips{display:none}
+  .shell:not(.tabs-top) .scene-picker-wrap{float:right;position:relative;z-index:5;margin:-4px 0 -34px 12px!important;padding:0!important;background:none!important;width:auto}
+  .shell:not(.tabs-top) .scene-picker-wrap .edit-toggle-m{width:38px}
+}

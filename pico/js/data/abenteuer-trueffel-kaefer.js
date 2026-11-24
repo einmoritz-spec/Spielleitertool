@@ -1,0 +1,42 @@
+/* Fertige Käfer für „Trüffel für die Nacht der Farben“. Larve: 25 Nektar (S. 102).
+   Kosten: Aspekt 3, Augment 2, Fertigkeit Rang 1 = 1, Rang 2 = 3, Rang 3 = 6 (S. 104, S. 144).
+   asp: [Anzeigename, [Kartentitel aus „Käfer bauen“ …], Wahl/Notiz] – Regeltext kommt aus PI_NACH.kaefer. */
+var PI_AB = window.PI_AB || {};
+PI_AB.trueffel.kaefer = [
+  {id:"summsel", t:"Summsel", art:"Biene", rolle:"die Freundliche", c:"#eba300",
+   pseudo:"Bulmufwasomijoza", schnell:"Biene (S. 107)",
+   desc:"Eine rundliche Biene, die jeden duzt und allen etwas Süßes anbietet. Fliegt lieber, als dass sie läuft, und redet lieber, als dass sie fliegt.",
+   asp:[["Süßling-Rüssel", ["Rüssel", "Süßling"]], ["Stachel", ["Stachel"]], ["Drohnenflügel", ["Drohnenflügel"]]],
+   sk:{"Fliegen":2, "Quasseln":2, "Kümmern":2, "Schlitzen":1, "Tanzen":1, "Blenden":1, "Spüren":1, "Stöbern":1},
+   mood:["Fröhlich", "Gereizt"], bits:["Zuckerwürfel", "Cocktailschirmchen"], raetsel:"Woraus besteht Gelée Royale?"},
+  {id:"knolle", t:"Knolle", art:"Mistkäfer", rolle:"der Gräber", c:"#185d7e",
+   pseudo:"Athrokogorzovoli", schnell:"",
+   desc:"Ein breiter, glänzender Mistkäfer, der jedes Problem zuerst mit Graben und dann mit Hauen löst. Brummelt viel, meint es aber gut. Rollt überall eine Nuss vor sich her.",
+   asp:[["Robuster Hartpanzer", ["Hartpanzer", "Robust"], "Resistent gegen Hauen und Beißen."], ["Wühlende Sechsfüßler", ["Sechsfüßler", "Wühlend"], "Immun gegen Stoßen."], ["Mandibeln", ["Mandibeln"]]],
+   sk:{"Graben":2, "Hauen":2, "Beißen":1, "Prahlen":1, "Klettern":1, "Jagen":1, "Kartieren":1, "Zähmen":1},
+   mood:["Entschlossen", "Mürrisch"], bits:["Rammnuss", "Bauklotz"], raetsel:"Was liegt unter den Wurzeln?"},
+  {id:"fips", t:"Fips", art:"Hundertfüßer", rolle:"der Späher", c:"#c76f00",
+   pseudo:"Kyatosnapo", schnell:"Hundertfüßer (S. 107)",
+   desc:"Lang, flink und immer schon zwei Ecken weiter. Riecht Wege, statt sie zu sehen, und kann nie stillstehen. Zählt seine Beine, wenn er nervös ist, und kommt jedes Mal auf eine andere Zahl.",
+   asp:[["Hundertfüßler", ["Hundertfüßler"]], ["Scherenkiefer", ["Scherenkiefer"]], ["Schnüffelnde Infratennen", ["Infratennen", "Schnüffelnd"]]],
+   sk:{"Flitzen":2, "Spüren":2, "Schleichen":2, "Kartieren":1, "Jagen":1, "Beißen":1, "Klettern":1, "Denken":1},
+   mood:["Energiegeladen", "Distanziert"], bits:["Süßgras", "Kompassnadel"], raetsel:"Wo ist Norden?"},
+  {id:"funzel", t:"Funzel", art:"Glühwürmchen-Larve", rolle:"die Tüftlerin", c:"#969f31",
+   pseudo:"Voltobiozo", schnell:"",
+   desc:"Eine Glühwürmchen-Larve, deren Hinterteil leuchtet, wenn sie aufgeregt ist (also immer). Lehrling bei den Zwei-in-Einern, hat aber noch nie etwas explodieren lassen – darüber schämt sie sich ein bisschen.",
+   asp:[["Biokundige Biobatterie", ["Biobatterie", "Biokundig"]], ["Mörser & Stößel", ["Mörser & Stößel"]], ["Kritzeljournal", ["Kritzeljournal"]]],
+   sk:{"Kümmern":2, "Brutzeln":2, "Denken":2, "Werkeln":1, "Blenden":1, "Quasseln":1, "Stöbern":1, "Schleichen":1},
+   mood:["Kreativ", "Schüchtern"], bits:["Zapp-Saft (funkig)", "Glühende Kohlen"], raetsel:"Warum brennt Feuer?"},
+  {id:"zirp", t:"Zirp", art:"Grille", rolle:"der Musiker", c:"#405335", reserve:true,
+   pseudo:"Tetrokachunlalakatkata", schnell:"Grille (S. 107)",
+   desc:"Eine Grille mit Sprungbeinen und einem Lied für jede Lage. Die Lieder sind nicht immer gut. Aber laut.",
+   asp:[["Doppelknie-Klangvierfüßler", ["Vierfüßler", "Doppelknie", "Klangvoll"]], ["Mahlwerk", ["Mahlwerk"]], ["Drohnenflügel", ["Drohnenflügel"]]],
+   sk:{"Tanzen":2, "Blenden":2, "Flitzen":1, "Klettern":1, "Quasseln":1, "Prahlen":1, "Hauen":1, "Spüren":1},
+   mood:["Witzig", "Weinerlich"], bits:["Marmeladenbier", "Kassettenspule"], raetsel:"Wie viele Klänge gibt es?"},
+  {id:"hebe", t:"Hebe", art:"Ameise", rolle:"die Starke", c:"#a3402c", reserve:true,
+   pseudo:"Makastrogorzo", schnell:"Ameise (S. 107)",
+   desc:"Eine Ameise, die alles trägt, was nicht festgewachsen ist – und manches, was es ist. Hat einen Plan für alles und eine Liste für den Plan.",
+   asp:[["Megamuskel-Mandibeln", ["Mandibeln", "Megamuskulös"]], ["Sechsfüßler", ["Sechsfüßler"], "Immun gegen Ziehen."], ["Infratennen", ["Infratennen"]]],
+   sk:{"Hauen":2, "Werkeln":2, "Klettern":2, "Kartieren":1, "Kümmern":1, "Schützen":1, "Graben":1, "Denken":1},
+   mood:["Hoffnungsvoll", "Rachsüchtig"], bits:["Steinsplitter", "Drahtspule"], raetsel:"Wer hat die Welt zerbrochen?"}
+];

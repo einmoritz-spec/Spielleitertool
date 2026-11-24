@@ -1,0 +1,31 @@
+/* ============================================================
+   REGELGLOSSAR (City of Mist — Kernbegriffe)
+   ============================================================ */
+const RULES_GLOSSARY = [
+  {t:"Mythos", d:"Die legendäre, archetypische Seite einer Figur — die Identität des Mythos-Wesens (Gottheit, Fabelwesen, Sagenfigur), das in einem Rift schlummert oder erwacht ist. Mythos-Themen liefern übernatürliche Kraft, kosten aber emotionale Distanz zum Alltag."},
+  {t:"Logos", d:"Die alltägliche, menschliche Seite einer Figur — Beruf, Beziehungen, Persönlichkeit, Vergangenheit. Logos-Themen verankern die Figur in der Realität der Stadt und den Sleepern um sie herum."},
+  {t:"Rift", d:"Ein Mensch, dessen Mythos erwacht ist — eine Person, die zugleich eine legendäre Figur verkörpert. Die meisten Spielfiguren sind Rifts."},
+  {t:"Sleeper", d:"Ein gewöhnlicher Mensch ohne erwachten Mythos, der die Existenz des Mystischen entweder nicht wahrnimmt oder verdrängt. Der „Nebel“ sorgt dafür, dass Sleeper übernatürliche Ereignisse vergessen oder rational umdeuten."},
+  {t:"Avatar", d:"Ein extrem mächtiger Rift, dessen Logos vollständig vom Mythos verdrängt wurde — meist ein einflussreicher, oft korrumpierter Strippenzieher der Stadt."},
+  {t:"Der Nebel (The Mist)", d:"Die übernatürliche Kraft, die das Mystische vor den Augen der Sleeper verbirgt und ihre Erinnerung daran verzerrt oder auslöscht."},
+  {t:"Gatekeepers", d:"Eine geheime Organisation, die über die Balance zwischen Mythos und Logos in der Stadt wacht und den Nebel aktiv steuert."},
+  {t:"Tags (Power/Weakness)", d:"Kurze, beschreibende Begriffe auf den Themenkarten einer Figur. Power-Tags verschaffen Bonuswürfel bei passenden Aktionen, Weakness-Tags können gegen die Figur eingesetzt werden, liefern aber ebenfalls Würfelboni, wenn man sie einsetzt, um sich selbst zu schaden (Danger-Move)."},
+  {t:"Status", d:"Ein temporärer oder dauerhafter Effekt mit Stufe (z. B. verletzt-2), der eine Figur oder Szene beeinflusst. Höhere Stufen wirken stärker; Status kann durch passende Fähigkeiten „abgebaut“ (reduziert) werden."},
+  {t:"Theme (Thema)", d:"Ein Baustein der Figur, dargestellt als eigene Karte mit Identität, Power-/Weakness-Tags und einem Verbesserungspfad. Themen gehören zu Mythos oder Logos und können Typen wie Destiny, Tradition, Relic, Routine u. a. haben."},
+  {t:"Clue (Hinweis)", d:"Eine Ressource, die durch Ermitteln gewonnen wird und ausgegeben werden kann, um Informationen zu erhalten oder bestimmte Effekte auszulösen."},
+  {t:"Juice (Saft)", d:"Eine Ressource, gewonnen durch Das Blatt wenden/Cineastische Aktionen, die eingesetzt werden kann, um Würfe zu verbessern oder besondere Effekte zu erzielen."},
+  {t:"Momentum", d:"Eine geteilte Erzählressource, die sich aus Fehlschlägen (Fehlern) aufbaut und für dramatische Wendungen genutzt werden kann."},
+  {t:"Danger", d:"Der Statblock eines Gegners oder Hindernisses — mit Spektren (z. B. „Schaden oder Unterwerfen 3“), Custom Moves, weichen (Soft) und harten (Hard) Zügen sowie Tell-Zügen (typische Verhaltensweisen)."},
+  {t:"Spektrum", d:"Eine Fortschrittsleiste auf einem Danger-Statblock (z. B. Verbannen, Anfreunden), die anzeigt, wie viele Stufen an Zuständen nötig sind, bis ein bestimmter Effekt eintritt."},
+  {t:"Iceberg (Eisberg)", d:"Die Struktur eines City-of-Mist-Falls: von den sichtbaren „Aufhängern“ (Depth 0) über zunehmend tiefere Wahrheiten (Depth 1–3) bis zum verborgenen Kern der Verschwörung."},
+  {t:"Enclave (Enklave)", d:"Ein Ort, der jenseits der normalen Stadtgeographie liegt — eine mystische Parallelwelt oder ein verstecktes Reich, oft nur über eine bestimmte Bedingung zugänglich."},
+  {t:"Conjuration (Konjuration)", d:"Ein von einem Mythos-Wesen erschaffenes, meist untergeordnetes übernatürliches Wesen ohne eigene menschliche Logos-Seite."},
+  {t:"Relic (Relikt)", d:"Ein Themen-Typ für magische Gegenstände mit eigenen Power-/Weakness-Tags und oft einer „Direktive“, die den Umgang mit dem Relikt einschränkt."},
+  {t:"MC (Master of Ceremonies)", d:"Die Spielleitung in City of Mist — im Deutschen häufig einfach „Spielleitung“."},
+  {t:"Investigate (Ermitteln)", d:"Grundaktion: Hinweise sammeln, um Informationen über eine Situation, Person oder einen Ort zu erhalten."},
+  {t:"Convince (Überzeugen)", d:"Grundaktion: jemanden durch Argumente, Bestechung oder Drohung zu einer Handlung bewegen."},
+  {t:"Change the Game (Das Blatt wenden)", d:"Grundaktion: eine mächtige, thematisch untermauerte Handlung ausführen, die die Situation grundlegend verändert."},
+  {t:"Go Toe to Toe (Mann gegen Mann)", d:"Grundaktion für direkten körperlichen oder sozialen Schlagabtausch mit einem klaren Gegenüber."},
+  {t:"Take the Risk (Das Risiko eingehen)", d:"Grundaktion für riskante, unsichere Unternehmungen mit ungewissem Ausgang."},
+  {t:"Look Beyond the Mist (Jenseits des Nebels blicken)", d:"Die Fähigkeit eines Rifts, die mystische Wahrheit hinter einer Erscheinung, Person oder einem Ort zu erkennen."},
+];

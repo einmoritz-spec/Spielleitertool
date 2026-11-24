@@ -1,0 +1,28 @@
+{
+ "title": "Einleitung",
+ "subtitle": "",
+ "level": "Buchteile",
+ "pages": [
+  1,
+  19
+ ],
+ "introTitle": "Einleitung",
+ "figures": [
+  {
+   "id": "kampagnenuebersicht",
+   "page": 17,
+   "kind": "plan",
+   "title": "Kampagnenüberblick: Die zehn Fälle und ihre Gegenspieler",
+   "box": [
+    100,
+    422,
+    520,
+    792
+   ]
+  }
+ ],
+ "secSize": [
+  20,
+  80
+ ]
+}

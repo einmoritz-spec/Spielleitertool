@@ -1,0 +1,222 @@
+{
+ "title": "Parzival",
+ "subtitle": "",
+ "level": "Finale",
+ "pages": [
+  259,
+  284
+ ],
+ "introTitle": "Titel und Pitch",
+ "figures": [
+  {
+   "id": "parzival-titel",
+   "page": 259,
+   "kind": "art",
+   "title": "Parzival – Titelbild",
+   "box": [
+    0,
+    0,
+    595,
+    676
+   ]
+  },
+  {
+   "id": "eisberg",
+   "page": 262,
+   "kind": "eisberg",
+   "title": "Der Eisberg",
+   "box": [
+    0,
+    20,
+    295,
+    770
+   ]
+  },
+  {
+   "id": "zustandskarten",
+   "page": 264,
+   "kind": "handout",
+   "title": "Zustandskarten „Verwundet“",
+   "box": [
+    58,
+    34,
+    258,
+    284
+   ]
+  },
+  {
+   "id": "corbin-payne",
+   "page": 268,
+   "kind": "art",
+   "title": "Corbin Payne",
+   "box": [
+    0,
+    0,
+    565,
+    795
+   ]
+  },
+  {
+   "id": "zeitung-gala",
+   "page": 270,
+   "kind": "handout",
+   "title": "Zeitung: Stadt nach Schüssen auf Gala unter Schock",
+   "box": [
+    28,
+    643,
+    285,
+    795
+   ]
+  },
+  {
+   "id": "zeitung-willkommen",
+   "page": 270,
+   "kind": "handout",
+   "title": "Zeitung: Willkommen in Payne Town",
+   "box": [
+    235,
+    560,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "galahads-dolch",
+   "page": 273,
+   "kind": "handout",
+   "title": "Relikt: Galahads Dolch",
+   "box": [
+    50,
+    325,
+    290,
+    660
+   ]
+  },
+  {
+   "id": "corbin-tower",
+   "page": 274,
+   "kind": "art",
+   "title": "Corbin Tower",
+   "box": [
+    0,
+    0,
+    296,
+    795
+   ]
+  },
+  {
+   "id": "avatar-szene",
+   "page": 278,
+   "kind": "art",
+   "title": "Corbin Payne und der Turm",
+   "box": [
+    0,
+    0,
+    595,
+    795
+   ]
+  },
+  {
+   "id": "rio-cafe",
+   "page": 282,
+   "kind": "art",
+   "title": "Parkside Cafe",
+   "box": [
+    0,
+    497,
+    595,
+    795
+   ]
+  }
+ ],
+ "eisberg": {
+  "page": 262,
+  "fig": "eisberg",
+  "nodes": [
+   {
+    "label": "Nachforschungen über Corbin Payne",
+    "cx": 10.9,
+    "cy": 29.5,
+    "layer": 1,
+    "target": "nachforschungen-ueber-corbin-payne"
+   },
+   {
+    "label": "Die erste Gralsritter:in",
+    "cx": 24.2,
+    "cy": 24.4,
+    "layer": 1,
+    "target": "die-erste-gralsritter-in"
+   },
+   {
+    "label": "Nachforschungen über den geheimen Schmerz",
+    "cx": 38.1,
+    "cy": 29.5,
+    "layer": 1,
+    "target": "nachforschungen-ueber-den-geheimen-schmerz"
+   },
+   {
+    "label": "Die zweite Gralsritter:in",
+    "cx": 23.3,
+    "cy": 42.8,
+    "layer": 2,
+    "target": "die-zweite-gralsritter-in"
+   },
+   {
+    "label": "Corbin Tower",
+    "cx": 10.0,
+    "cy": 47.9,
+    "layer": 2,
+    "target": "akt-2"
+   },
+   {
+    "label": "Angriff auf die Stadt",
+    "cx": 37.6,
+    "cy": 47.9,
+    "layer": 2,
+    "target": "akt-2"
+   },
+   {
+    "label": "Corbin Payne höchstpersönlich",
+    "cx": 23.9,
+    "cy": 52.6,
+    "layer": 2,
+    "target": "corbin-payne-hoechstpersoenlich"
+   },
+   {
+    "label": "Nachforschungen über den Gral",
+    "cx": 39.1,
+    "cy": 57.0,
+    "layer": 2,
+    "target": "nachforschungen-ueber-den-gral"
+   },
+   {
+    "label": "Die dritte Gralsritter:in",
+    "cx": 23.9,
+    "cy": 68.3,
+    "layer": 3,
+    "target": "die-dritte-gralsritter-in"
+   },
+   {
+    "label": "Parkside Café",
+    "cx": 10.6,
+    "cy": 73.0,
+    "layer": 3,
+    "target": "parkside-cafe"
+   },
+   {
+    "label": "Was sein muss",
+    "cx": 36.1,
+    "cy": 72.7,
+    "layer": 3,
+    "target": "was-sein-muss"
+   },
+   {
+    "label": "Die Abwrackwerft",
+    "cx": 25.0,
+    "cy": 79.0,
+    "layer": 3,
+    "target": "abwrackwerft"
+   }
+  ]
+ }
+}

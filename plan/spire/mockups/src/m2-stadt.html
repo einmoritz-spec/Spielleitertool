@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="spire.css">
+<style>
+.stadt{display:grid;grid-template-columns:600px 1fr;gap:26px;padding:16px 28px 20px;height:calc(100vh - 104px)}
+.karte-w{position:relative;width:fit-content;background:#fff;border:2px solid #000;align-self:start}
+.karte-w img{display:block;height:calc(100vh - 140px);width:auto;max-width:100%}
+.karte-w svg{position:absolute;inset:0;width:100%;height:100%}
+.karte-w svg polygon{fill:transparent;stroke:transparent;cursor:pointer}
+.karte-w svg polygon.hv{fill:#981a3f33;stroke:var(--wein);stroke-width:4}
+.pop{position:absolute;left:300px;top:610px;background:var(--nacht);color:#fff;padding:8px 12px;font:700 18px var(--f-titel);text-transform:uppercase;box-shadow:0 4px 12px #0007}
+.pop small{display:block;font:400 13px var(--f-text);text-transform:none;color:#b8c6d8}
+.dom{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-content:start}
+.d{background:var(--papier2);border:1px solid #b5c3d6;display:flex;flex-direction:column}
+.d .im{height:96px;overflow:hidden;background:#0d1a27}
+.d .im img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.d h3{font:700 19px/1 var(--f-titel);text-transform:uppercase;color:var(--blau);margin:8px 10px 6px}
+.d h3 .pg{font-size:12px}
+.d ul{list-style:none;margin:0 10px 10px;padding:0}
+.d li{font-size:14.5px;padding:2px 0;border-top:1px dotted #b5c3d6;cursor:pointer;display:flex;gap:6px;align-items:baseline;justify-content:space-between;line-height:1.25}
+.d li:hover,.d li.hv{color:var(--wein);font-weight:700}
+.d li span{color:var(--grau);font-size:12px;flex:none}
+.leg{grid-column:1/-1;font-size:14px;color:var(--grau)}
+</style></head><body><script src="top.js"></script>
+<div class="tabs"><a class="on">Stadt</a><a>Zelle</a><a>Gegner</a><a>Zufall</a><div class="sp"></div></div>
+<div class="stadt">
+ <div class="karte-w"><img src="img/karte.webp">
+  <svg viewBox="0 0 1275 1650" preserveAspectRatio="none"><polygon class="hv" points="1000,1190 1130,1075 1270,1200 1270,1560 1050,1560 975,1400"/></svg>
+  <div class="pop">Pilgerweg<small>Religion · S. 163 – Götterstraße, Schreine, Sekten</small></div>
+ </div>
+ <div class="dom">
+  <div class="d"><div class="im"><img src="img/cmf_S084.webp"></div><h3>Akademie<span class="pg">S. 81</span></h3><ul><li>Wohlwollender Orden der Weisheit und Entdeckung<span>81</span></li><li>Brazacott Technisches Institut<span>83</span></li><li>Hochelfische Universität der Göttlichen Magie<span>85</span></li><li>Akademie von Gywnn-Enforr<span>87</span></li></ul></div>
+  <div class="d"><div class="im"><img src="img/cmf_S090.webp"></div><h3>Handel<span class="pg">S. 89</span></h3><ul><li>Die Norddocks<span>89</span></li><li>Die Himmelsdocks<span>93</span></li><li>Der Blaue Hafen<span>97</span></li></ul></div>
+  <div class="d"><div class="im"><img src="img/cmf_S100.webp"></div><h3>Verbrechen<span class="pg">S. 101</span></h3><ul><li>Red Row<span>101</span></li></ul></div>
+  <div class="d"><div class="im"><img src="img/cmf_S108.webp"></div><h3>Hohe Gesellschaft<span class="pg">S. 107</span></h3><ul><li>Amaranth<span>107</span></li><li>Elfenbeinzeile (Ivory Row)<span>110</span></li><li>Das Silberviertel<span>113</span></li></ul></div>
+  <div class="d"><div class="im"><img src="img/cmf_S116.webp"></div><h3>Niedere Gesellschaft<span class="pg">S. 117</span></h3><ul><li>Derelictus<span>117</span></li><li>Perch<span>119</span></li><li>Der Gartendistrikt<span>121</span></li><li>Die Werke<span>124</span></li></ul></div>
+  <div class="d"><div class="im"><img src="img/cmf_S130.webp"></div><h3>Okkultes<span class="pg">S. 129</span></h3><ul><li>Das Vermissian<span>129</span></li><li>Das Herz<span>133</span></li><li>Gilde der Leichenbestatter<span>137</span></li><li>Die Nekropole<span>140</span></li><li>Die Hebammen<span>144</span></li></ul></div>
+  <div class="d"><div class="im"><img src="img/cmf_S146.webp"></div><h3>Ordnung<span class="pg">S. 147</span></h3><ul><li>Die Stadtwache<span>147</span></li><li>Hauptquartier der Alliierten Verteidigung<span>149</span></li><li>Der Rat<span>151</span></li></ul></div>
+  <div class="d"><div class="im"><img src="img/cmf_S154.webp"></div><h3>Religion<span class="pg">S. 155</span></h3><ul><li>Kathedrale unserer Glorreichen Herrin<span>155</span></li><li>Ministerium unserer Verborgenen Herrin<span>157</span></li><li>Sekte unserer Karmesinroten Wacht<span>161</span></li><li class="hv">Pilgerweg<span>163</span></li><li>Die Sonnenbasilika<span>165</span></li><li>Neuer Himmel<span>169</span></li></ul></div>
+ </div>
+</div>
+<div class="note" style="left:40px;top:150px"><b>1</b>Stadtkarte S. 0 ungeschnitten; unsichtbare Klickflächen je Bezirk (nur beim Hover sichtbar + Pop-up mit deutschem Namen)</div>
+<div class="note" style="left:1080px;top:820px"><b>2</b>8 Domänen wie im Buch; Hover auf einen Distrikt hebt ihn auf der Karte hervor, Klick → Distrikt-Seite</div>
+</body></html>

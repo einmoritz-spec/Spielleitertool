@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="mb.css">
+<style>
+.leib{display:grid;grid-template-columns:562px 1fr;height:796px}
+.karte{position:relative;background:var(--gelb);overflow:hidden}
+.karte img{display:block;height:796px;width:auto}
+.karte .hs{position:absolute;transform:translate(-50%,-50%);width:96px;height:30px;cursor:pointer}
+.karte .hs.on{outline:3px solid var(--pink);outline-offset:2px}
+.text{padding:22px 40px 0;overflow:hidden}
+.orte{display:flex;flex-wrap:wrap;gap:6px 0;border-bottom:1px solid var(--linie);padding-bottom:12px;margin-bottom:22px}
+.orte span{font:500 14px var(--grotesk);color:#cfcab5;padding:4px 10px;cursor:pointer}
+.orte span.on{background:var(--gelb);color:var(--schwarz)}
+.orte b{font:700 10px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:#77756a;padding:6px 6px 0 14px}
+.orte b:first-child{padding-left:0}
+.zwei{display:grid;grid-template-columns:1.35fr 1fr;gap:36px}
+h1{margin:0 0 2px;font:700 60px/1 var(--fraktur);display:flex;align-items:baseline;gap:12px}
+.unter{font:700 11px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:var(--gelb);margin-bottom:14px}
+.zwei p{margin:0 0 12px;font:400 17px/1.5 var(--text);color:#ebe7d6}
+.zwei p b{color:var(--weiss)}
+.basil{border:1px dashed #7b7d7c;padding:12px 16px;margin-top:6px}
+.basil .etikett{background:var(--weiss);color:var(--schwarz);margin-bottom:8px}
+.basil p{font:400 15.5px/1.45 var(--text);margin:0;color:#ddd8c4}
+.neben h2{margin:0 0 4px;font:700 40px/1 var(--fraktur);display:flex;align-items:baseline;gap:10px}
+.neben img{display:block;width:100%;height:auto;margin:6px 0 12px}
+.neben p{font-size:16px}
+.neben .mehr{border-top:1px solid var(--linie);padding-top:10px;display:flex;flex-direction:column;gap:6px}
+.neben .mehr span{font:700 22px/1.1 var(--fraktur);display:flex;align-items:baseline;justify-content:space-between}
+</style></head><body>
+<header class="kopf"><div class="logo"></div><div class="sp"></div>
+<button class="ib i"><b>i</b></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+<nav class="reiter gelb"><button class="on">Die sterbende Welt</button><button>Die Regeln</button><button>Die Verdammten</button><button>Die Apokryphen</button></nav>
+<div class="leib">
+ <div class="karte"><img src="img/welt-karte.webp" alt="">
+  <span class="hs on" style="left:54.5%;top:47.7%"></span>
+ </div>
+ <div class="text">
+  <div class="orte"><span>Was geschrieben steht</span><span>Karte</span><b>Tveland</b><span class="on">Galgenbeck</span><span>Sarkash</span><span>Palast des Schattenkönigs</span><b></b><span>Grift</span><span>Kergüs</span><b>Westliches Königreich</b><span>Onda-See</span><span>Schleswig</span><span>Tal der Unglücklichen Untoten</span><b></b><span>Kalender des Nechrubel</span></div>
+  <div class="zwei">
+   <div>
+    <h1>Galgenbeck <span class="s">S. 9</span></h1><div class="unter">im Land Tveland</div>
+    <p>Galgenbeck im Land Tveland ist die größte Stadt, die es je gab. Kein König und keine Königin herrscht in Galgenbeck, sondern eine Erzpriesterin: <b>Josilfa Migol</b>. Tief unter der Kathedrale der Zweiköpfigen Basilisken, in einer kühlen schwarzen Kammer, die von Lichtsplittern durchkreuzt wird, steht ihr Thron. <b>Josilfa, alt, aber noch immer jung,</b> munkelt das gemeine Volk, stehe im Bund mit dem Gott Nechrubel, der ihr ewiges Leben schenkte. Nechrubel: der Schatten, der alles bedeckt. Nechrubel ist Schwermut, Missernte, Zwietracht und Krieg. Man sagt, sie habe Verhu die apokalyptischen Prophezeiungen ins Ohr geflüstert.</p>
+    <div class="basil"><span class="etikett">Die Zweiköpfigen Basilisken</span><p>Je knapper die Zeit wird, desto verzweifelter werben die Zweiköpfigen Basilisken um Anhänger. Sich das eigene Leben zu nehmen, gilt als sündige Feigheit. Der Weg zur Erlösung führt über die Abtötung des Fleisches: Der Apokalypse ist mit Peitschenhieben und weit offenen Augen zu begegnen. Nur dann darf die Seele in die Schimmernden Gefilde übergehen. Ketzer und Abtrünnige werden gejagt und von der Inquisition gebessert – öffentlich und ausgiebig.</p></div>
+   </div>
+   <div class="neben">
+    <h2>Sarkash <span class="s">S. 9</span></h2>
+    <img src="img/sarkash-wald.webp" alt="">
+    <p>Der Wald scheint in letzter Zeit unnatürlich schnell zu wachsen. Pfade verheddern sich, und Wind im überwucherten Dunkel führt Wanderer in die Irre. Tief in Sarkash, wo man es am wenigsten erwartet, in einem Kranz sterbender Bäume, liegt <b>Graven-Tosk</b>: ein wahrhaft uralter Friedhof voller Mausoleen, blickloser Cherubim, stehender Brunnen, Pestgruben und gewöhnlicher Gräber.</p>
+    <div class="mehr"><span>Palast des Schattenkönigs<i class="s">S. 10</i></span></div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="ann" style="left:150px;top:700px;max-width:300px"><b>1</b>Die Weltkarte S. 8 ungeschnitten in voller Höhe; unsichtbare Klickflächen auf den Ortsnamen, der gewählte Ort ist pink markiert.</div>
+<div class="ann" style="left:880px;top:130px;max-width:330px"><b>2</b>Orte als einzeilige Leiste, nach Land gruppiert (kleine graue Landnamen) – Klick = Ort, die Karte markiert mit.</div>
+<div class="ann" style="left:700px;top:620px"><b>3</b>Kästen des Buchs (gestrichelt, S. 9) bleiben Kästen.</div>
+<div class="ann" style="left:1140px;top:460px;max-width:250px"><b>4</b>Was im Buch auf derselben Seite steht, steht nebeneinander – mit dem Bild, das im Buch dazugehört (Wald von Sarkash).</div>
+<script src="ann.js"></script></body></html>

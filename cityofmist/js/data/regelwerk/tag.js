@@ -1,0 +1,91 @@
+rwAdd("tag", [
+  { name:"Ein Tag wie jeder andere", p:156, pe:159, body:[
+    "Du und der Rest der Gruppe kommt nun zur eigentlichen Pilotfolge, einer kurzen, lockeren Spielsitzung, die alles miteinander verbindet und fehlende Details zu ergänzen. Der Hauptzweck dieser kurzen Spielsitzung ist es, eure Charaktere, ihr Leben und die Orte und Figuren, die in eurer Serie auftauchen werden, auszugestalten sowie der SL genug Material an die Hand zu geben, um mit der Serie zu beginnen.",
+    "Während ihr diesen „Tag wie jeder andere“ eurer Charaktere durchspielt, könnt ihr vielleicht sogar einige der Grundregeln, wie z. B. das Ausführen von Aktionen, kennenlernen. Allerdings sollten das Lernen der Regeln und das Vorantreiben der Handlung zweitrangig sein, das Hauptaugenmerk gilt dem Finden von Details der Geschichte. Die SL sollte klarstellen, dass „Ein Tag wie jeder andere“ ein Prozess ist, der das Setting aufbaut, weshalb niemand irgendwelche dramatischen Ereignisse erwarten sollte (die kommen, wenn ihr mit dem eigentlichen Spiel beginnt).",
+    "Wenn diese Phase beginnt, sollten eure Charakter-, Themen- sowie die Team-Themenkarte bereits ausgefüllt sein, ihr habt also eure Konzepte, Themen, Stärken und Schwächen, Mysterien und Identitäten vor euch. Diese Elemente bilden den Kern eurer Charaktere und des Spiels, etwas, auf dem ihr aufbauen könnt, wenn ihr diese erste Mini-Spielsitzung angeht.",
+    "## Beginn",
+    "Die SL wählt eine Tageszeit aus und fragt die Spieler:innen, wo sich ihre Charaktere zu dieser Zeit befinden und was sie tun.",
+    {box:{t:"Wo sind eure Charaktere und was machen sie an diesem Tag?", k:"frage", b:[]}},
+    "Die Spieler:innen stellen sich das Leben ihrer Charaktere vor und antworten, indem sie deren Aktivitäten an einem Tag wie jeder andere beschreiben. Der Schauplatz der beschriebenen Szenen kann je nach Konzept eurer Serie stark variieren. Wenn ihr **Die Profis** spielt, dreht sich euer „Tag wie jeder andere“ vielleicht um einen Job, den ihr als Team übernommen habt. Wenn ihr **Maskierte Verbrechensbekämpfer:innen** spielt, arbeitet ihr vielleicht an einem Fall oder bekämpft spät in der Nacht Verbrechen und so weiter.",
+    "Beispiel:",
+    {dlg:[
+      ["SL","Es ist ein schöner, friedlicher Morgen in Lakeside Drive. Wo sind eure Charaktere? Was tun sie gerade?"],
+      ["Mel (alias Gutfreund)","Gutfreund ist in der Küche seines Reihenhauses und liest mit einer kalten Tasse Kaffee in der Hand Zeitung. Er ist Rentner, also hat er nichts zu tun. Gutfreund erledigt die meisten seiner Geschäfte bei Nacht."],
+      ["Oliver (alias Det. Enkidu)","Die Detective fährt einen Streifenwagen mit heulenden Sirenen. Sie ist auf dem Weg zu einem Tatort. Sagen wir mal, jemand hat eine Leiche gefunden."],
+      ["SL","Oh, das ist schnell eskaliert! Was ist mit Lance Sullivan?"],
+      ["Jan (alias Sullivan)","Sullivan wacht erst jetzt auf, geblendet vom Sonnenlicht, das durch die Jalousien fällt. Um ihn herum ist ein unordentliches Schlafzimmer. Er stöhnt und dreht sich träge um, dann sieht er den Wecker. Sein Wecker hat nicht geklingelt, und heute ist der Abgabetermin für seinen aktuellen Artikel! Er springt aus dem Bett."]
+    ]},
+    "## Fragen und Antworten",
+    "**Wann immer euch während „Ein Tag wie jeder andere“ ein neues, interessantes Detail der Geschichte auffällt, worüber du gerne etwas wissen würdest, frag laut danach.** Alle erfragen, was für sie persönlich interessant ist. Durch diese Fragen entdeckt ihr, was euch darin verbindet.",
+    "**Stellt und beantwortet so viele interessante Fragen wie möglich.** Während dies bei einer normalen Spielsitzung das Tempo drosseln kann, geht es bei „ Ein Tag wie jeder andere“ vor allem darum. Du kannst die anderen Spieler:innen, die SL und dich selbst (laut) befragen, und zwar alles, einschließlich:",
+    "- das Aussehen eines SC",
+    "- die Lebenssituation eines Charakters, einschließlich Lebensstil, Wohnung, Familie, Einkommen usw.",
+    "- den Tagesablauf eines Charakters",
+    "- wichtige NSC im Leben der Charaktere, als Einzelpersonen und als Team",
+    "- wichtige Schauplätze der Serie",
+    "- Ereignisse, die die Serie beeinflussen",
+    "- die Mythos-Kräfte eines Charakters, wie sie sich manifestieren, wie sie für Risse oder Schläfer aussehen",
+    "- der Stand der Dinge in der Stadt und speziell in dem Bereich, in dem die Charaktere agieren (ein Stadtteil, die Wirtschaft, die Unterwelt, die Kommunalpolitik usw.)",
+    "**Wenn jemand eine Frage aufwirft, schlage Antworten vor.** Während „Ein Tag wie jeder andere“ kannst du Antworten auf jede Frage vorschlagen, auch wenn sie sich nicht auf deinen Charakter bezieht. Du kannst alles vorschlagen, von kleinen coolen Details, die dem Spiel das richtige Flair verleihen, bis hin zu entscheidenden Punkten, die einen dramatischen Effekt auf die Serie haben. Später wird die SL die NSC und die Ereignisse in der Stadt lenken. Jetzt bestimmt ihr das Spiel noch gemeinsam.",
+    "**Die Spieler:innen haben das letzte Wort bei der Ausgestaltung ihrer Charaktere. Details, die sich auf das Team oder die Serie als Ganzes beziehen, werden offiziell Teil eures Kanons, wenn alle damit einverstanden sind.** Ihr könnt gegenseitig auf eure Vorschläge aufbauen oder Alternativen vorschlagen. Denkt jedoch daran, dass dies ein gemeinsamer Weltenbauprozess ist: Die Gruppe wird einige eurer Ideen akzeptieren und andere nicht, so läuft das nun einmal. Die SL sollte sicherstellen, dass alle ein Mitspracherecht bei der Richtung, die das Spiel nimmt, haben, wenn sie das wollen. Das Ziel ist, eine offene Diskussion zu führen, die nach und nach genügend Details hervorbringt, damit sich eure *City of Mist*-Serie echt und interessant anfühlt. Beispiel:",
+    {dlg:[
+      ["Julia, die SL, fragt Jan","Was bedeutet Sullivans *Lanze der Ehre* eigentlich genau, wie sieht sie aus? Was sehen Risse und was die Schläfer?"],
+      ["Jan","Ich denke, es ist wie ein funkelnder, flackernder, bunter Lichtstrahl, den er wie eine Lanze hält, aber er reicht sehr weit, vielleicht zehn Meter. Vielleicht sieht man manchmal auch eine geisterhafte Silhouette eines Reiters. Ich schätze, es ist eine imaginäre Lanze, so dass selbst Risse sie immer wieder verschwinden sehen. Schläfer sehen höchstens einen Lichtblitz, wie einen Scheinwerfer oder das Blitzlicht einer Kamera."]
+    ]},
+    "Oder:",
+    {dlg:[
+      ["Jan fragt Mel","Sag mal, ist Gutfreund eigentlich verheiratet?"],
+      ["Mel","Hmm … gute Frage. Ich würde sagen, seine Frau ist nicht da, aber es gibt da Geschichten …"],
+      ["Julia (SL)","Ist sie tot?"],
+      ["Mel","Nein, eher nicht. Ich denke, es wäre interessanter, wenn sie eine Art Joker in seiner Hintergrundgeschichte ist."],
+      ["Jan","Wie wäre es, wenn sie während der Lakeside-Drive-Katastrophe verschwunden wäre?"],
+      ["Mel","Das klingt gut! Das gibt ihm ein gutes Motiv, um mit dem Team zu ermitteln, besonders, wenn er glaubt, dass sie noch irgendwo da draußen ist."],
+      ["Julia (SL)","Hat er sonst Familie? Wenn es Schläfer sind, wüssten sie nichts von der Katastrophe. Aber sind sie das ..."],
+      ["Mel","Ich würde sagen, er hat Kinder und Enkel. Sie sind alle Schläfer, von denen einige vielleicht im Laufe der Serie erwachen. Ich denke, es wäre interessant, wenn sie alle denken, dass seine Frau verstorben ist, Gutfreund aber der Einzige ist, der weiß, dass das falsch sein könnte. Vielleicht fürchten sie, er verliert den Verstand."],
+      ["Jan","Das ist super."]
+    ]},
+    "Oder:",
+    {dlg:[
+      ["Oliver fragt Julia, die SL","Was wissen wir über die Katastrophe?"],
+      ["Julia (SL)","Sag du es mir, was wisst ihr denn?"],
+      ["Mel","Wie wäre es, wenn die Katastrophe und die Überschwemmung in derselben schicksalhaften Nacht geschahen? Wir hörten ein ohrenbetäubendes Geräusch und spürten eine gewaltige Explosion in der Nähe des Zentrums des Viertels. Dann strömte das Wasser aus allen Richtungen herbei."],
+      ["Jan","Klingt gut. Vielleicht wissen wir nicht einmal, dass es getrennte Ereignisse waren. Erst später, als wir merkten, dass jemand alles vertuscht, haben wir eine Verschwörung vermutet und ermitteln seither."]
+    ]},
+    "… und so weiter.",
+    "## Was man tun und lassen sollte",
+    "In euren Fragen solltet ihr die folgenden Bereiche abdecken:",
+    "(a) eure Charaktere,",
+    "(b) euer Team und was ihr gemeinsam tut,",
+    "(c) allgemeine Fakten und den aktuellen Stand der Dinge in der Stadt sowie",
+    "(d) alle potenziellen Fälle, an denen ihr arbeitet, und Bedrohungen, von denen ihr zu Beginn der Serie wisst.",
+    "**Vermeidet es, offene Fragen zu beantworten.** Wenn jemand wissen will, welche Legende hinter dem neuen prominenten Superstar steckt oder was wirklich am Hafen läuft, kann das warten, bis ihr es im Laufe der Serie herausfindet, indem ihr dazu recherchiert.",
+    "## Szenen",
+    "Manchmal werdet ihr während „Ein Tag wie jeder andere“ die Möglichkeit haben, eine Szene eurer Geschichte zu spielen. Die SL oder jemand, der die Regeln in Kapitel 3: Ermittlungen gelesen hat, kann die Grundlagen erklären. Ihr spielt jeweils eure Charaktere, und die SL verkörpert alle NSC. Ihr improvisiert alle, also geht es locker an und hab Spaß. Während ihr die Szene durchspielt, könnt ihr weiter Fragen stellen und Details hinzufügen.",
+    {dlg:[
+      ["Julia (SL)","Spulen wir ein wenig vor. Es ist Nachmittag, und ihr seid alle in Louis‘ Diner, eurem zweiten Wohnzimmer."],
+      ["Jan","Sullivan ist dort und trinkt einen Kaffee, um nach dem hektischen Tag, den er hatte, seine Nerven zu beruhigen."],
+      ["Mel","Gutfreund ist auch da, er sitzt Sullivan gegenüber und liest immer noch Zeitung."],
+      ["Oliver","Det. Enkidu stürmt herein, bedeutet Sullivan rüberzurutschen und wirft sich auf den roten Ledersitz. Sie bestellt beim Louis das Übliche und murmelt, als ihr Essen kommt und sie es unappetitlich verschlingt, vor sich hin: „Mord letzte Nacht am See. Die Sache stinkt zum Himmel.“"],
+      ["Mel","Gutfreund lässt seine Zeitung fallen. „Im übertragenen Sinne?“"],
+      ["Oliver fragt die SL","Kann ich Details hinzufügen oder muss ich eine Aktion machen?"],
+      ["Julia (SL)","Wir sind noch in der Pilotfolge, also mach ruhig."],
+      ["Oliver antwortet Mel","Detective Enkidu zuckt die Achseln. „Nein, ich meine das wörtlich. Der ganze Tatort roch nach Fisch.“"],
+      ["Julia (SL)","Louis, der Besitzer des Diners, kommt mit ein paar Pommes und Pancakes. „Was habt ihr denn diesmal vor?“"],
+      ["Jan","Moment, ist Louis auch ein Riss?"]
+    ]},
+    "Wenn ihr weiterspielt, kann sich euer „Tag wie jeder andere“ in viele verschiedene Richtungen entwickeln und zusätzliche Aspekte eurer Serie antriggern. Wenn ihr möchtet, könnt ihr auch die Grundregeln lernen und versuchen, ein paar der Grundlegenden Aktionen auszuführen, wie sie in Kapitel 3: Ermittlungen erklärt sind.",
+    {dlg:[
+      ["Julia (SL)","Als ihr in dieser Nacht in Sullivans altem Mustang um den Teich fahrt, seht ihr die dunkle Gestalt eines Mannes am Rande der Bäume des Lakeside Drive Parks. Als er die Scheinwerfer eures Autos sieht, flieht er."],
+      ["Jan","Ich will ihn überholen und ihm mit dem Mustang den Fluchtweg abschneiden."],
+      ["Julia (SL)","Das ist wohl ein guter Zeitpunkt, um zu erklären, wie Aktionen funktionieren. Indem du versuchst, die dunkle Gestalt auszumanövrieren, gehst du auf Konfrontation mit ihr. Welche Stärken hast du, die diese Aktion direkt unterstützen?"]
+    ]},
+    "## Schluss",
+    "Spielt weiter und stellt Fragen, bis ihr das Gefühl habt, genug Details und Ermittlungsansätze zu haben, um weiterzumachen. Dann stellt ein paar Fragen zusammen, denen das Team zu Beginn der Serie nachgehen wird.",
+    "Die SL wird sie notieren. Beispiel:",
+    "- Was befindet sich am Grunde des Sees?",
+    "- Was geschah wirklich in der Nacht der Katastrophe?",
+    "- Wer ist für die Katastrophe verantwortlich?",
+    "- Wer steckt hinter den Morden am See?",
+    "Beendet dann euren „Tag wie jeder andere“ und damit die Pilotfolge. Ihr habt jetzt eure Charaktere und das Team, und die SL hat genug Informationen gesammelt, um den ersten Fall zu schreiben oder bestehende Fälle für eure Serie zu adaptieren."
+  ]}
+]);

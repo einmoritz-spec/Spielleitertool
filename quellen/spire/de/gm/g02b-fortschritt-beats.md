@@ -1,0 +1,22 @@
+<!-- S. 8 (PDF 8) -->
+
+## Leitfaden des Magisters {farbe=#3c0052}
+8
+In *Heart: The City Beneath* haben wir das breite Fortschrittssystem von *Spire* („verändere etwas in der Stadt und gewinne Macht“) durch etwas Fokussierteres und Kontrollierteres ersetzt – Beats. Kurz gesagt sind Beats Herausforderungen, Ziele oder Errungenschaften, die ein Spieler am Ende einer Sitzung auswählt und in der nächsten (oder in mehreren Sitzungen) verfolgt – erreicht er diese Beats, kann er aufsteigen, indem er eine neue Fähigkeit aus denen auswählt, die seine Klasse bietet. Sobald ein Spieler einen Beat erreicht (oder „getroffen“) hat, streicht er ihn von seiner Liste – er kann ihn kein zweites Mal erreichen.
+Jeder Charakter hat zu Beginn jeder Sitzung zwei „aktive“ Beats – das sind die Ereignisse, von denen er der Spielleitung signalisiert, dass sie eintreten sollen. Es steht den Spielern frei, so viele verschiedene Beats zu verfolgen, wie sie möchten, aber sie können pro Partie höchstens zwei und pro Situation einen einfordern; diese Grenze besteht, um die geistige Gesamtbelastung der Spielleitung zu verringern und zu verhindern, dass proaktive Spieler zu weit an passiven vorbeiziehen.
+*Heart* nutzt Berufungen (Callings) – tragische Motivationen, die die Spieler bei der Charaktererschaffung wählen –, um Beats bereitzustellen. Manche Beats sind für den Charakter erstrebenswert („einen wertvollen Gegenstand erlangen“, „einen Freund gewinnen“), doch oft sind es Dinge, die er sich gar nicht wünschen würde. Stattdessen sind es ausschließlich Dinge, die der Spieler zu verfolgen wählt – Ereignisse wie „leichten **Blut**-Fallout erleiden“ oder „jemanden verraten, dem man am Herzen liegt“.
+Beats haben für *Heart* wirklich gut funktioniert, und obwohl das Fortschrittssystem von *Spire* in seiner jetzigen Form gut funktioniert, wollten wir einige Regeln anbieten, um Beats in deinen Partien *Spire* zu verwenden. Du musst sie selbst erstellen, statt sie aus einer Liste zu wählen, aber wir tun alles, um den Vorgang so unkompliziert wie möglich zu machen.
+## ART UND STUFE {farbe=#3c3b57}
+Anders als in *Heart* teilen die Spielercharaktere in *Spire* ein gemeinsames Ziel – die glorreiche Revolution und den Sturz des grausamen Spiralrats. Das führt zu zwei grundlegenden Arten von Beats.
+Gemeinsame Beats betreffen die ganze Gruppe und sind für jeden der Spieler zugänglich. Sie können einen offiziellen Auftrag darstellen, den das Ministerium ihnen erteilt hat, Ziele, die sie sich selbst gesetzt haben, oder gemeinsames Unglück. Zusammen betrachtet bilden sie den Umriss einer Kampagne. Gemeinsame Beats können so oft genutzt werden, wie es Charaktere gibt, aber von jedem Charakter nur einmal.
+Persönliche Beats sind für jeden Charakter einzigartig und spiegeln seine Entwicklung, seinen Handlungsbogen und seine Beziehungen zu NSC und zueinander wider. Persönliche Beats können nur einmal genutzt werden.
+Es gibt drei Stufen von Beats, die jeweils mit Fortschritten des entsprechenden Grades verbunden sind – niedrig, mittel und hoch. Ein Spieler kann damit rechnen, einen niedrigen Beat in der Sitzung nach der Auswahl zu erfüllen, wenn er sich darum bemüht (und du eine passende Gelegenheit bietest); mittlere Beats sollten 2–3 Sitzungen dauern, und hohe Beats sind das, wofür man 4–5 Sitzungen braucht. Alternativ kannst du die Stufe als Ausdruck der Bedeutung und Schwere des Beats sehen oder dessen, wie sehr er die Person verwandeln würde, die ihn durchlebt.
+Wir haben unten einige Beispiele für Beats angegeben, um dir eine Vorstellung davon zu geben, wie man sie ausbalanciert. Als Richtlinie gilt: Du brauchst mehr niedrige Fortschritte als mittlere und mehr mittlere als hohe, und du brauchst mehr persönliche Beats als gemeinsame.
+# FORTSCHRITTS-BEATS {farbe=#3c3b57}
+
+<!-- S. 9 (PDF 9) -->
+
+## Neue Systeme: Fortschritts-Beats {farbe=#3c0052}
+9
+## BEATS IN SPIRE ERSTELLEN {farbe=#3c3b57}
+Du kannst alle Beats für eine Kampagne selbst erstellen, aber das erfordert von dir einen enormen Aufwand, und wenn du es falsch machst, erhältst du einen Fortschrittsmechanismus, der nicht richtig funktioniert und zu Frust bei den Spielern führen kann. Viel einfacher (und effizienter) ist es, die Spieler zusammenzurufen, sobald alle ihren Charakter erschaffen haben, und gemeinsam die Beats durchzusprechen, die ihr alle gern treffen würdet. Am besten tut man das direkt nach der Charaktererschaffung, solange die Spieler begeistert und engagiert sind, einige mögliche Zukünfte für ihre Charaktere aufzubauen.

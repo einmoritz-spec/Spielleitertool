@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="mb.css">
+<style>
+/* Kalender-Band */
+.kal{height:128px;display:grid;grid-template-columns:470px 1fr 150px;border-bottom:1px solid var(--linie)}
+.wuerfel{display:grid;grid-template-columns:repeat(5,1fr);margin:18px 0 18px 24px}
+.wuerfel button{border-left:1px solid #4a4a40;text-align:center;padding:4px 4px 0;color:#bdb9a6}
+.wuerfel button:first-child{border-left:0}
+.wuerfel small{display:block;font:500 11.5px/1.25 var(--grotesk);height:30px}
+.wuerfel b{display:block;font:700 34px/1 var(--fraktur);margin-top:6px}
+.wuerfel button.on{color:var(--gelb)}
+.wuerfel button.on b{color:var(--schwarz);background:var(--gelb);margin:6px 10px 0;padding:2px 0 4px}
+.psalm{padding:14px 22px 0;border-left:1px solid var(--linie);border-right:1px solid var(--linie)}
+.netz{display:flex;gap:10px}
+.ps span{display:block;font:700 9.5px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:#8d8a78;margin-bottom:4px}
+.ps div{display:grid;grid-template-columns:repeat(3,27px);grid-auto-rows:20px;gap:2px}
+.ps b{font:700 10px/18px var(--mono);text-align:center;color:#8d8a78;border:1px solid #3c3c33;cursor:pointer}
+.ps b.x{background:var(--gelb);color:var(--schwarz);border-color:var(--gelb)}
+.ps.end div{grid-template-columns:40px}
+.ps.end b{grid-row:1/3;line-height:36px;border:3px double var(--gelb);color:var(--gelb);font-size:11px}
+.psalm .zuletzt{font:italic 400 14.5px/1.35 var(--text);color:#e9e5d3;margin-top:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.psalm .zuletzt b{font:700 12px var(--mono);font-style:normal;color:var(--gelb);margin-right:8px}
+.tag{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+.tag .n{font:700 52px/1 var(--fraktur);color:var(--weiss)}
+.tag .ctl{display:flex;gap:6px}
+.tag .ctl button{width:30px;height:26px;border:1px solid #4a4a40;color:var(--gelb);font:700 16px/1 var(--grotesk)}
+/* drei Spalten */
+.tisch{display:grid;grid-template-columns:392px 1fr 392px;gap:24px;padding:20px 24px 0;height:668px}
+.spk{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.spk h2{margin:0;font:700 26px/1 var(--fraktur);color:var(--weiss)}
+.spk .plus{font:700 11px var(--grotesk);letter-spacing:.14em;text-transform:uppercase;color:var(--gelb);border:1px solid #4a4a40;padding:6px 9px}
+/* Gruppe */
+.sc{border-top:1px solid var(--linie);padding:12px 0 12px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;cursor:pointer}
+.sc .n{font:700 23px/1.05 var(--fraktur)}
+.sc .kl{font:400 12.5px var(--mono);color:#a9a594}
+.sc .tp{grid-row:1/3;grid-column:2;text-align:right;font:700 30px/1 var(--mono);color:var(--pink)}
+.sc .tp small{font-size:15px;color:#8d8a78}
+.sc .tp .k{display:block;font:700 10px var(--grotesk);letter-spacing:.16em;color:#8d8a78;margin-top:4px}
+.sc .zl{grid-column:1/3;display:flex;gap:16px;margin-top:8px;font:400 12.5px var(--mono);color:#cfcab5;align-items:center}
+.sc .zl b{color:var(--weiss)}
+.sc .om{display:inline-flex;gap:3px;vertical-align:-1px}
+.sc .om i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--pink)}
+.sc .om i.v{background:var(--pink)}
+.sc .ch{margin-left:auto;font:700 10px var(--grotesk);letter-spacing:.12em;text-transform:uppercase;background:var(--pink);color:var(--schwarz);padding:3px 6px}
+.sc.tot .n,.sc.tot .kl{color:#5d5b50;text-decoration:line-through}
+/* Gewalt */
+.ini{display:flex;gap:0;margin-bottom:16px;border:1px solid #4a4a40}
+.ini span{padding:10px 14px;font:700 11px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;color:#8d8a78;border-right:1px solid #4a4a40}
+.ini button{flex:1;padding:9px 12px;font:500 14px var(--grotesk);color:#cfcab5;border-right:1px solid #4a4a40}
+.ini button:last-child{border-right:0}
+.ini button b{font:700 14px var(--mono);color:var(--pink);margin-right:6px}
+.ini button.on{background:var(--weiss);color:var(--schwarz)}
+.kr{background:var(--weiss);color:var(--schwarz);display:grid;grid-template-columns:76px 1fr;gap:0 16px;padding:14px 16px 14px 12px;margin-bottom:14px}
+.kr img{width:76px;height:96px;object-fit:contain;grid-row:1/4}
+.kr .t{display:flex;align-items:baseline;gap:8px}
+.kr .t h3{margin:0;font:400 28px/1 var(--plakat);text-transform:uppercase}
+.kr .t .anz{font:700 15px var(--mono);margin-left:auto}
+.kr .w{font:700 13.5px/1.5 var(--mono);color:var(--pink);margin-top:4px}
+.kr .w span{color:var(--schwarz);font-weight:400}
+.kr .sp2{font:italic 400 14px/1.35 var(--text);color:#333;margin-top:2px}
+.kr .leben{grid-column:1/3;display:flex;gap:14px;margin-top:12px;padding-top:10px;border-top:1px solid var(--linie-h);align-items:center}
+.kr .leben .e{display:flex;align-items:center;gap:5px;font:700 12px var(--mono)}
+.kr .leben .e i{width:13px;height:13px;border:1.5px solid var(--schwarz)}
+.kr .leben .e i.w{background:var(--pink);border-color:var(--pink)}
+.kr .leben .e.tot{color:#aaa;text-decoration:line-through}
+.kr .leben .e.tot i{border-color:#ccc}
+.kr .moral{grid-column:1/3;display:flex;gap:8px;margin-top:10px;align-items:center;font:400 12.5px var(--grotesk)}
+.kr .moral .lab{font:700 10.5px var(--grotesk);letter-spacing:.16em;text-transform:uppercase;margin-right:4px}
+.kr .moral span{border:1px solid #cfcab5;padding:3px 7px}
+.kr .moral span.an{background:var(--schwarz);color:var(--gelb);border-color:var(--schwarz)}
+.dazu{border:1px dashed #4a4a40;color:#8d8a78;padding:12px;text-align:center;font:500 14px var(--grotesk)}
+/* Regelspiegel */
+.spiegel{background:var(--gelb);color:var(--schwarz);padding:16px 20px 18px;height:640px}
+.spiegel .tabs{display:flex;gap:0;border-bottom:2px solid var(--schwarz);margin:0 -20px 14px;padding:0 20px}
+.spiegel .tabs button{font:700 19px/1 var(--fraktur);padding:6px 10px 8px}
+.spiegel .tabs button.on{background:var(--schwarz);color:var(--gelb)}
+.spiegel h4{margin:12px 0 5px}
+.spiegel table{width:100%;border-collapse:collapse;font:400 13.5px/1.3 var(--grotesk)}
+.spiegel td{padding:2px 0;vertical-align:top}
+.spiegel td:first-child{font-weight:700;white-space:nowrap;padding-right:12px;width:1%}
+.spiegel .zw{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.spiegel p{margin:0;font:400 13.5px/1.3 var(--grotesk)}
+</style></head><body>
+<header class="kopf"><div class="logo"></div><div class="sp"></div>
+<button class="ib i"><b>i</b></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+<nav class="reiter"><button class="on">Spieltisch</button><button>Abenteuer</button><button>Kreaturen</button><button>Tabellen</button><div class="sp"></div>
+<button class="stift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/></svg></button></nav>
+
+<section class="kal">
+ <div class="wuerfel">
+  <button><small>Jahre der Pein</small><b>W100</b></button>
+  <button class="on"><small>Ein trostloses Halbjahr</small><b>W20</b></button>
+  <button><small>Ein Herbst in Qual</small><b>W10</b></button>
+  <button><small>Ein grausamer Monat</small><b>W6</b></button>
+  <button><small>Das Ende ist nah!</small><b>W2</b></button>
+ </div>
+ <div class="psalm">
+  <div class="netz"><div class="ps"><span>Psalm I</span><div><b class="">1:1</b><b class="">1:2</b><b class="x">1:3</b><b class="">1:4</b><b class="">1:5</b><b class="">1:6</b></div></div><div class="ps"><span>Psalm II</span><div><b class="">2:1</b><b class="">2:2</b><b class="">2:3</b><b class="">2:4</b><b class="x">2:5</b><b class="">2:6</b></div></div><div class="ps"><span>Psalm III</span><div><b class="">3:1</b><b class="">3:2</b><b class="">3:3</b><b class="">3:4</b><b class="">3:5</b><b class="">3:6</b></div></div><div class="ps"><span>Psalm IV</span><div><b class="">4:1</b><b class="">4:2</b><b class="">4:3</b><b class="">4:4</b><b class="">4:5</b><b class="x">4:6</b></div></div><div class="ps"><span>Psalm V</span><div><b class="">5:1</b><b class="">5:2</b><b class="">5:3</b><b class="">5:4</b><b class="">5:5</b><b class="">5:6</b></div></div><div class="ps"><span>Psalm VI</span><div><b class="">6:1</b><b class="">6:2</b><b class="">6:3</b><b class="">6:4</b><b class="">6:5</b><b class="">6:6</b></div></div><div class="ps end"><span>Der letzte</span><div><b>7:7</b></div></div></div>
+  <div class="zuletzt"><b>4:6</b>Und Leviathan wird unter euch kommen. Kinder, im Winter geboren und bestimmt, vor dem Schnee zu fallen – beide wird es nehmen.</div>
+ </div>
+ <div class="tag"><span class="versal" style="color:#8d8a78">Tag</span><span class="n">23</span><div class="ctl"><button>−</button><button>+</button></div></div>
+</section>
+
+<section class="tisch">
+ <div>
+  <div class="spk"><h2>Die Gruppe</h2><span class="plus">+ Charakter</span></div>
+  <div class="sc"><div class="n">Karg</div><div class="tp">7<small>/11</small><span class="k">TP</span></div><div class="kl">Fangzahn-Deserteur</div>
+   <div class="zl"><span>STÄ <b>+2</b></span><span>GES <b>−1</b></span><span>PRÄ <b>0</b></span><span>ZÄH <b>+1</b></span><span class="om"><i class="v"></i><i></i></span><span class="ch">Infiziert</span></div></div>
+  <div class="sc"><div class="n">Velma die Bleiche</div><div class="tp">4<small>/6</small><span class="k">TP</span></div><div class="kl">Esoterische Eremitin</div>
+   <div class="zl"><span>STÄ <b>−2</b></span><span>GES <b>0</b></span><span>PRÄ <b>+3</b></span><span>ZÄH <b>−1</b></span><span>Mächte <b>2/5</b></span><span class="om"><i class="v"></i><i class="v"></i></span></div></div>
+  <div class="sc"><div class="n">Hargha</div><div class="tp">9<small>/9</small><span class="k">TP</span></div><div class="kl">Gossenabschaum</div>
+   <div class="zl"><span>STÄ <b>0</b></span><span>GES <b>+2</b></span><span>PRÄ <b>+1</b></span><span>ZÄH <b>0</b></span><span class="om"><i></i><i></i></span></div></div>
+  <div class="sc tot"><div class="n">Brint</div><div class="tp">0<small>/8</small><span class="k">TP</span></div><div class="kl">Ketzerpriester</div>
+   <div class="zl"><span>Gebrochen: <b>W4 = 3</b> · Blutung, Tod in W2 Std.</span></div></div>
+ </div>
+
+ <div>
+  <div class="spk"><h2>Gewalt</h2><span class="plus">Kampf beenden</span></div>
+  <div class="ini"><span>Initiative W6</span><button><b>1–3</b>Feinde zuerst</button><button class="on"><b>4–6</b>Gruppe zuerst</button></div>
+  <div class="kr"><img src="img/kreatur-goblin.webp" alt="">
+   <div class="t"><h3>Goblin</h3><span class="s">S. 58</span><span class="anz">×3</span></div>
+   <div class="w">TP 6 · Moral 7<br><span>Sehnige Haut</span> −W2 · <span>Messer/Kurzbogen</span> W4</div>
+   <div class="sp2">Schnell, Angriffe und Verteidigung gegen ihn sind SG14.</div>
+   <div class="leben"><div class="e">1 <i class="w"></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i></div><div class="e">2 <i></i><i></i><i></i><i></i><i></i><i></i></div><div class="e tot">3 <i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+   <div class="moral"><span class="lab">Moral prüfen</span><span>Anführer tot</span><span class="an">Hälfte ausgeschaltet</span><span>⅓ TP übrig</span></div>
+  </div>
+  <div class="kr"><img src="img/kreatur-berserker.webp" alt="">
+   <div class="t"><h3>Zukuma</h3><span class="s">S. 60</span><span class="anz">×1</span></div>
+   <div class="w">TP 13 · Moral 9<br><span>Gehärtete Haut</span> −W2<br><span>Führt (W4): Langer Flegel</span> W8 · <span>Schwerer Streitkolben</span> W6 · <span>Kettenschwert</span> W6 · <span>Riesiger Kriegshammer</span> W10</div>
+   <div class="sp2">Greift pro Runde zweimal an, hat aber keine Zeit zur Verteidigung (SG10, um ihn zu treffen).</div>
+   <div class="leben"><div class="e">1 <i class="w"></i><i class="w"></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+  </div>
+  <div class="dazu">+ Kreatur auf den Tisch</div>
+ </div>
+
+ <aside class="spiegel">
+  <div class="tabs"><button>Proben</button><button class="on">Kampf</button><button>Unterwegs</button><button>Mächte</button></div>
+  <span class="etikett">Initiative W6</span>
+  <table><tr><td>1–3</td><td>Feinde beginnen</td></tr><tr><td>4–6</td><td>Spielercharaktere beginnen</td></tr><tr><td>einzeln</td><td>Geschicklichkeit + W6</td></tr></table>
+  <h4><span class="etikett">Angriff &amp; Verteidigung</span></h4>
+  <table><tr><td>Nahkampf</td><td>SG12 Stärke</td></tr><tr><td>Fernkampf</td><td>SG12 Präsenz</td></tr><tr><td>Verteidigung</td><td>SG12 Geschicklichkeit</td></tr></table>
+  <div class="zw">
+   <div><h4><span class="etikett">Krit · 20</span></h4><p><b>Angriff:</b> ×2 Schaden, Rüstung/Schutz eine Stufe niedriger. <b>Verteidigung:</b> SC erhält einen freien Angriff.</p></div>
+   <div><h4><span class="etikett">Patzer · 1</span></h4><p><b>Angriff:</b> Waffe bricht oder geht verloren. <b>Verteidigung:</b> SC nimmt doppelten Schaden, Rüstung eine Stufe niedriger.</p></div>
+  </div>
+  <h4><span class="etikett">Gebrochen (0 TP) W4</span></h4>
+  <table><tr><td>1</td><td>W4 Runden bewusstlos, erwacht mit W4 TP.</td></tr><tr><td>2</td><td>W6: 1–5 gebrochene/abgetrennte Gliedmaße, 6 Auge verloren. W4 Runden handlungsunfähig, dann W4 TP.</td></tr><tr><td>3</td><td>Blutung: Tod in W2 Stunden ohne Behandlung. Alle Proben in der ersten Stunde SG16, in der letzten SG18.</td></tr><tr><td>4</td><td>Tot.</td></tr></table>
+ </aside>
+</section>
+
+<div class="ann" style="left:150px;top:96px"><b>1</b>Kalender des Nechrubel: genau die Würfel-Leiste von S. 16 (Würfel + Name, senkrechte Linien). Aktiver Würfel gelb.</div>
+<div class="ann" style="left:560px;top:236px;max-width:300px"><b>2</b>Alle 36 Heimsuchungen als W66-Netz (Psalm I–VI, je 1–6) + 7:7. Klick = eingetreten (gelb), darunter der Psalmvers der letzten; Klick darauf öffnet alle Verse.</div>
+<div class="ann" style="left:1160px;top:140px"><b>3</b>Tag-Zähler: „jeden Morgen würfelt die SL“.</div>
+<div class="ann" style="left:120px;top:690px"><b>4</b>Gruppe: TP groß in Pink, Fähigkeiten, Omen als Punkte, Mächte pro Tag, Zustände. Klick = Charakterbogen.</div>
+<div class="ann" style="left:640px;top:470px;max-width:300px"><b>5</b>Kreaturen kommen aus dem Kreaturen-Tab auf den Tisch: Werte-Zeile wie im Buch, je Exemplar TP-Kästchen, Moral-Auslöser zum Antippen. Bild klein in der Karte.</div>
+<div class="ann" style="left:1000px;top:420px"><b>6</b>Regelspiegel = die gelbe Regelübersicht S. 90, in ihre vier Kästen geteilt.</div>
+<script src="ann.js"></script></body></html>

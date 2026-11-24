@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="pico.css"><style>
+body{background:#1f2426;color:#e9ecea}
+
+.tabs{background:#1f2426;border-color:#e9ecea}.tabs a{color:#9aa5a9}.tabs a.on{color:#1f2426}
+.main{display:flex;height:796px}
+.side{background:rgba(31,36,38,.95);border-color:#e9ecea}.side h4{color:#e9ecea}.side h4.c{color:#7f8a8e}.side a{color:#9aa5a9}.side a.on{background:rgba(151,159,50,.22);color:#fff}
+.fold{background:#1f2426;color:#fff;border-color:#e9ecea}
+.ct{flex:1;padding:16px 22px;overflow:hidden;--c:#979f32}
+.fh{display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start}
+.fh h1{font-size:50px;color:var(--c)}
+.facts{display:flex;gap:10px;margin:4px 0 8px}
+.facts div{background:rgba(151,159,50,.18);border-radius:10px;padding:6px 12px;font-size:13px}
+.facts b{display:block;font:20px Baby;color:var(--c)}
+.fh p{font-size:14.5px}
+.fh img{width:300px;height:250px;object-fit:contain;margin-top:-10px}
+.ent{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px}
+.ent .box{background:#262c2e;border-color:var(--c)}
+.ent .box .hd{color:#1f2426;font-size:24px}
+.ent .bd2{font-size:13.5px;line-height:1.45}
+.ent .bul li{padding:4px 8px 4px 22px;border-radius:7px;margin:3px 0}
+.ent .bul li:before{left:8px;top:4px}
+.gm{color:#b9c2c4}
+.npc{display:grid;gap:6px;margin-top:6px}
+.npc div{display:flex;gap:8px;align-items:flex-start}
+.npc i.ini{flex:none;width:30px;height:30px;border-radius:50%;background:var(--c);color:#1f2426;font:18px/30px Baby;text-align:center;font-style:normal}
+.done{opacity:.35}
+</style></head><body>
+<!--TOP-->
+<div class="tabs" style="--c:#979f32"><a>Überblick</a><a class="on">Fraktionen</a><a>Reiseführer</a><a>Reise</a><a>Gefahren</a><span class="r"><svg class="pen" viewBox="0 0 24 24" fill="none" stroke="#e9ecea" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></span></div>
+<div class="main">
+ <div class="side"><span class="fold">‹</span>
+  <h4>Die Unerschrockenen</h4><a>Ein Haus im Haus</a><a class="on">Sicht jenseits der Sicht</a><a>Schatzsuche</a>
+  <h4 class="c">Die Funkenbeißer</h4>
+ </div>
+ <div class="ct">
+  <div class="fh"><div>
+   <h1>Die Unerschrockenen <span class="pg" style="color:#9aa5a9">The Indomitables · S. 290</span></h1>
+   <div class="facts"><div><b>Grundstimmung</b>Mutig und ängstlich zu gleichen Teilen</div><div><b>Revier</b>Die Hundert Kammern</div></div>
+   <p>Kaum jemand sieht wirklich Geister durch die Hundert Kammern ziehen, aber wenn man den Legenden glaubt, ist die Chance immer da. Die Unerschrockenen (ja, sie haben sich selbst so genannt, und ja, sie meinten es sehr ernst) sind eine Gruppe schatzsuchender Käfer, die die Räume des Shadow House nach geheimnisvollen Schätzen durchsuchen. Das ist schwieriger als gedacht, denn jede von ihnen trägt jederzeit etwas vor den Augen – von der Augenbinde bis zur Tüte über dem Kopf. Denn: Wenn du keinen Geist siehst, sieht er dich auch nicht. Das ist <i>Wissenschaft</i>, das.</p>
+  </div><img src="img/fig-indomitable.webp"></div>
+  <div class="ent">
+   <div class="box"><div class="hd">Ein Haus im Haus <span class="typ">(Wahrzeichen)</span></div><div class="bd2">Ein Puppenhaus auf einem Tisch in den Hundert Kammern, fast perfekt in Käfergröße. <i class="gm">Vielleicht …</i><ul class="bul"><li>Die bekannten Geister des großen Hauses stehen hier als Kerzenwachs-Miniaturen. Sie bewegen sich auch von selbst …</li><li class="done">Angeblich ändert sich der Grundriss des Shadow House mit der Zeit. Würden sie es überhaupt merken?</li></ul></div></div>
+   <div class="box"><div class="hd">Sicht jenseits der Sicht <span class="typ">(NSC)</span></div><div class="bd2">Die Neuesten bleiben nah am Puppenhaus und markieren ihre Wege mit Faden. Die Erfahrensten sind anders.
+    <div class="npc"><div><i class="ini">O</i><span><b>Olgenfrold</b>, ein Skorpion mit dem Stachel stets vor den Augen. Kein Orientierungstalent, aber erstaunlich weise in vor-mysteriokalyptischer Geschichte.</span></div><div><i class="ini">P</i><span><b>Pease Pottage</b>, weise Schnecken-Anführerin, seit über tausend Jahren nicht aus ihrem Haus gekommen. <i class="gm">Fast sicher nicht wahr.</i></span></div><div><i class="ini">L</i><span><b>Li Cheng</b>, Geister-Experte Nr. 1 – hat selbst nie einen gesehen.</span></div></div></div></div>
+   <div class="box"><div class="hd">Schatzsuche <span class="typ">(Merkmal)</span></div><div class="bd2">Wer lange genug herumtappt, findet bestimmt etwas Interessantes! <i class="gm">Vielleicht …</i><ul class="bul"><li>Im Puppenhaus gibt es ein kleines Museum. Die Hälfte der Vitrinen ist leer – hätten sie keine Augenbinden, wäre es ihnen aufgefallen.</li><li>In einer kaputten Schublade nahe der alten Haustür liegt eine ganze Stadt der Unerschrockenen.</li></ul></div></div>
+  </div>
+ </div>
+</div>
+<div class="anno" data-n="1" style="left:880px;top:118px;max-width:330px"><b>Reich-Thema</b>: Shadow House ist im Buch dunkel gesetzt → ganzer Leitstand dunkel (Kritzel-Hintergrund invertiert). Jedes Reich bekommt seine Leitfarbe aus dem Buch.</div>
+<div class="anno" data-n="2" style="left:300px;top:640px;max-width:250px"><b>Fraktion</b>: Kennzahlen (Grundstimmung, Revier) als Kacheln, Figur aus dem Buch rechts, Einträge darunter im Raster – gleiche Bausteine wie im Reiseführer.</div>
+<div class="anno" data-n="3" style="left:560px;top:780px;max-width:330px"><b>NSC-Listen</b> („npcs“-Einträge) mit Initialen-Kreis; Kursives (Hinweis an den Weber) heller grau.</div>
+</body></html>

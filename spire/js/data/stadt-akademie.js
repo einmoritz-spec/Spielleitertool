@@ -1,0 +1,249 @@
+/* The Spire – Stadt: Domäne Akademie (Core S. 81–88): Wohlwollender Orden, Brazacott, Hochelfische Universität, Akademie von Gywnn-Enforr. Format: plan/SPIRE_PLAN.md, Abschnitt 5. Strings = Absatz, [[…]] = Originalname klein grau. */
+window.SP_STADT = window.SP_STADT || {};
+SP_STADT.akademie = SP_STADT.akademie || {t:"Akademie", p:81};
+SP_STADT.akademie.distrikte = (SP_STADT.akademie.distrikte || []).concat([
+ {
+  "id": "orden",
+  "t": "Der Wohlwollende Orden der Weisheit und Entdeckung",
+  "en": "The Benevolent Order of Wisdom and Discovery",
+  "kurz": "Orden",
+  "p": 81,
+  "abschnitte": [
+   {
+    "id": "einleitung",
+    "t": null,
+    "p": 81,
+    "b": [
+     "„Niemand soll ohne Wissen bleiben“, rufen die Straßendozenten, die sich vor dem Wohlwollenden Orden drängen, „denn durch Wissen können wir die vollkommene Schöpfung der Götter besser verstehen und dadurch ihrer Erhabenheit näherkommen! Kommt alle, kommt herbei und empfangt den unvorstellbaren Segen der Weisheit, ganz ohne Kosten für euch! Bildung, Wohlstand und Frömmigkeit für alle!“",
+     "Der Wohlwollende Orden der Weisheit und Entdeckung ist eine freie Schule, die Unterricht in einer Vielzahl von Fächern anbietet, gelehrt von begeisterten Freiwilligen – von praktischen Dingen wie Grundkenntnissen im Lesen und Schreiben oder einfacher Mathematik bis hin zu fortgeschrittenen Kursen in theoretischer Biologie und angewandter Theologie.",
+     "Er ist die Fassade für nicht wenige finstere Organisationen, von denen viele sogar von der Existenz einiger anderer wissen; es ist schwer, eine Schule zu finden, die nicht zugleich Anwerbestelle für einen dunklen Kult, eine heimtückische Verschwörung oder eine Apokalypse-Kabale ist, und so tun eingeweihte Studenten ihr Bestes, zu lernen, was sie können, und zu verschwinden, bevor man sie dazu einspannt, einen Stadtbeamten zu ermorden oder einen blinden Gutterkin auf einem Altar der hungrigen Tiefe zu opfern. Manchen gelingt das sogar."
+    ]
+   },
+   {
+    "id": "die-bruderschaft-des-ungelideten-auges",
+    "t": "Die Bruderschaft des Ungelideten Auges",
+    "p": 81,
+    "b": [
+     "Dämonologie ist in ganz Spire eine verbotene Magick, ja in jedem Land, über das die Aelfir die Herrschaft haben – sie sehen darin eine völlige Abscheulichkeit, eine unkontrollierbare Kraft der Un-Natur, die imstande ist, die Welt entzweizureißen, wenn man sie nicht richtig beherrscht. Dämonologen werden, sofern man sie aufspürt, in eigens errichtete Gefängniszellen verfrachtet, wo sie auf ihre Abfertigung warten, und nur wenige werden je wieder gesehen.",
+     "(Natürlich sind die Berichte, die Aelfir setzten dämonische Einfälle als Kriegswaffe in Far Nujab und anderswo ein, als plumpe antiautoritäre Propaganda drowscher Separatisten zu betrachten.)",
+     "Das macht das Geschäft der Bruderschaft nur umso gefährlicher, denn ihr Geschäft sind Dämonen und deren Beschwörung. Sie arbeitet als vielschichtige und nahezu völlig undurchschaubare Abfolge von äußeren Zirkeln, inneren Zirkeln, Kabalen und Konklaven, wobei jede Schicht allem Wissen über die darüberliegende abschwört, aber alles tut, um in sie aufzusteigen. Ob es an der Spitze der Organisation eine oberste Autorität gibt oder ob das Ganze, von einer unsichtbaren Hand erzeugt, in endlosen Ebenen immer weiter spiralt und kreist, bleibt abzuwarten.",
+     "Die Bruderschaft ist auf Attentate, Rufmordkampagnen, Erpressung und die Bedrohung von Familien spezialisiert, nicht aber auf das eigentliche Wirken von Zaubern – ihre Dämonologie ist fast ausschließlich theoretisch, vielleicht weil ihr bewusst ist, wie gefährlich die ganze Angelegenheit ist. Die gelehrten dunklen Künste werden durch eine Auswahl an Kursen in Ätherik, praktischem Okkultismus, angewandter Soziologie und Arkanomechanik ergänzt, was sie zu einer soliden Wahl für arme, aber begabte Intellektuelle macht – sofern diese den Fallout schwarzer Magie aushalten. Wer in die Organisation eintritt, kommt nur sehr schwer wieder heraus, selbst wenn die Studienzeit vorbei ist, und unzählige wohlhabende Drow schulden der Bruderschaft furchtbare Gefälligkeiten."
+    ]
+   },
+   {
+    "id": "die-schwesternschaft-der-erleuchtung",
+    "t": "Die Schwesternschaft der Erleuchtung",
+    "p": 82,
+    "b": [
+     "Dieser Ableger der Kirche unserer Glorreichen Herrin predigt, das Licht, das sie über die Welt scheinen lässt, zeige sich nicht nur im wahrnehmbaren Mondlicht, sondern auch in der Verbreitung von Information und Verständnis. Die Studentinnen und Studenten unternehmen häufig Ausflüge nach Neuer Himmel oder zu den Himmelsdocks, um sich im Licht des Vollmonds zu baden und so die Weisheit aufzunehmen, die sie herabstrahlt.",
+     "Auch sie sind Dämonologen, jedoch aus Gründen der Zweckmäßigkeit und nicht aus der okkulten Finsternis der Bruderschaft des Ungelideten Auges – sie betrachten Dämonologie als Wissen wie jedes andere, und Wissen zu verschleiern oder zu verbieten, weil es gefährlich ist, ist Frevel. Seit zwanzig Jahren befinden sie sich im Krieg mit der Bruderschaft, unterwandern und untergraben deren komplexe Hierarchien, und die Bruderschaft hat eine Reihe brutaler Vergeltungsschläge unternommen, die viele ranghohe Mitglieder der Schwesternschaft tot zurückließen, mit zeremoniellen Nägeln kopfüber an ihre Schreibtische geheftet."
+    ]
+   },
+   {
+    "id": "das-kolleg-des-unsterblichen-lichts",
+    "t": "Das Kolleg des Unsterblichen Lichts",
+    "p": 82,
+    "b": [
+     "Zwischen der Bruderschaft und der Schwesternschaft steht das Kolleg des Unsterblichen Lichts, ein Leuchtfeuer der Hoffnung, das zum Teil von der Sonnenkirche der Aelfir finanziert wird. Das Kolleg folgt dem Grundsatz, dass der Kosmos und alles in ihm ein einziges göttliches Wesen oder dessen Aspekte sei, zentriert um die große Sonne, die dem Planeten Wärme, Licht und Wachstum schenkt. Aus dieser Sicht ist alles Wissen und Lernen – alle Kunst und Dichtung – nur das Götterwesen, das zu sich selbst spricht und die Erhabenheit besser begreift, die es geschaffen hat. Sie verehren das Wissen, besonders Mathematik und Physik, und arbeiten eng mit den Retroingenieuren in Gywnn-Enforr zusammen, um die Rätsel besser zu verstehen, die aus den Arkologien derer, die vor uns kamen, ausgegraben wurden. Sie bemühen sich, die Spannungen im Bezirk zu beruhigen, und arbeiten mit der Bruderschaft und der Schwesternschaft als Schlichter und Diplomaten zusammen.",
+     "Sie sind ein Haufen lügender, ränkeschmiedender Dämonologen.",
+     "Sie, die Bruderschaft des Ungelideten Auges und die Schwesternschaft der Erleuchtung sind entweder von illegaler Dämonologie-Forschung der Hochelfen unterwandert und untergraben worden oder waren schon immer deren Fassade, und jene, die in allen drei Zweigen besondere Begabung zeigen, werden abgeschöpft, um in versteckten, verstärkten Hinterzimmern und magisch verschleierten Versuchskammern Experimente durchzuführen. Viele von ihnen wissen nichts von der wahren Natur ihrer Studien – ihre aelfirschen Aufseher achten darauf, die Gesamtheit des Wissens aus den Händen jedes einzelnen Forschers fernzuhalten, und teilen den Prozess stattdessen in abgeschottete Arbeitsgruppen auf, die für sich allein nicht in der Lage sind, einen Einfall militärischen Ausmaßes zu beschwören. Es geht langsam voran, aber die Aelfir sind langlebig, und Zeit ist etwas, wovon sie reichlich haben.",
+     {
+      "t": "h3",
+      "x": "Über Dämonologie"
+     },
+     "Die Gnolle weit im Süden, jenseits des Reichs von Far Nujab in ihrer Hauptstadt Al’Marah, haben die Kunst der Dämonologie so weit gemeistert, dass sie den Großteil ihrer Zivilisation antreibt. Djinn (wie sie Dämonen nennen), durch Linsen aus farbigem Glas und Metall heraufbeschworen, werden in Messingkugeln gebunden, die endlose Hitze abgeben, aus eigener Kraft kreiseln und schweben können und als gleißende, zerstörerische Sprengkörper entfesselt werden können.",
+     "Die Drow haben seit vielen Jahrhunderten nicht mehr offen Dämonologie angewandt, doch als sie es taten, geschah es mithilfe uralter verzauberter Gegenstände, bekannt als Eidolons: die Krakenglocke, die über den Norddocks hängt; das Chaosherz, das arrhythmisch in der Brust des neunzehnten Zauberer-Königs von Gryndel schlug und von dem Helden namens Unquiet zerstört wurde; oder das Messer, das Göttern wie Wirklichkeiten gleichermaßen die Kehle durchschneiden konnte.",
+     "Die Aelfir haben die Künste der Dämonologie von... irgendwoher entdeckt, vielleicht von gefangenen Gnollen während ihrer Kriege, vielleicht von einer uralten Göttin, die unter dem Immerfrost im Norden erwacht, vielleicht von wahnsinnigen menschlichen Retroingenieuren, die aus ihren Gemeinschaften vertrieben wurden. Ihr Beschwörungskreis besteht aus Fleisch und Blut, eingeschrieben in die Seele ahnungsloser Wirker, ihnen als memetischer Fluch ins Ohr geflüstert, während sie schlafen; sie verstärken den Willen eines einzelnen Dämonologen über ein Netzwerk aus Drohnen und reißen ein Portal dorthin auf, woher auch immer die Dämonen kommen, und lassen sie auf die Welt los.",
+     "Wenn sie das tun, ist es grauenhaft anzusehen. Die Gesetze von Raum und Zeit lösen sich auf und werden noch unbeständiger und sinnloser als der Raum um das Herz von Spire: Stein schmilzt und fließt wie Wachs, verirrte Gedanken nehmen Gestalt an als turmhohe Albträume, Tentakel aus wandelndem schwarzem Kristall flimmern ins Dasein und wieder hinaus, Augen verrotten in ihren Höhlen, und die Substanz von Haut und Knochen zersplittert in schimmernde Lieder. Und dann, so schnell, wie es kam, ist es vorbei, und die Welt rastet wieder ein. In den Ecken der Gebäude zurückgelassen und aus den Lungen der Betroffenen gehustet bleibt ein durchscheinend-obsidianfarbener Rückstand namens Schwefel, der aufbereitet und in Spire als Luxusdroge verkauft wird."
+    ]
+   }
+  ]
+ },
+ {
+  "id": "brazacott",
+  "t": "Brazacott Technisches Institut",
+  "en": "Brazacott Technical Institute",
+  "kurz": "Brazacott",
+  "bild": "kapitel/akademie-S084",
+  "p": 83,
+  "abschnitte": [
+   {
+    "id": "einleitung",
+    "t": null,
+    "p": 83,
+    "b": [
+     "Brazacott ist eine Organisation, die teils aus Geldern von Oben-Spire betrieben wird und sich auf die Freiwilligenarbeit „richtiger“ Universitäten stützt, um Kurse in Ingenieurwesen, Informationstheorie, Soziologie und Biologie neben einer Vielzahl weiterer Fächer zu halten. Die Studenten sind dafür bekannt, schwierige Konzepte mühelos und schnell zu erfassen, und für einen einzigartigen Kleidungsstil – graue gelehrte Roben und Hosen, weiße Kopftücher und dunkle Brillen.",
+     "Es ist natürlich eine Fassade. Alle anständigen Schulen unter dem Dach des Wohlwollenden Ordens sind das – aber nicht für dunkle Magie oder verbotene Religionen, sondern für eine Gruppe von Akademikern, die Implantate aus uraltem Kristall tragen, den menschliche Gräber in jüngster Vergangenheit aus einer Arkologie geborgen haben. Diese Implantate, in die Masse des Gehirns der Betroffenen getrieben, verstärken deren Denkvorgänge und erlauben es ihnen, ohne Worte und über große Entfernungen miteinander zu kommunizieren, indem sie die seltsamen Schwingungen der Kristallsplitter nutzen.",
+     "Manche Studenten unterziehen sich dem Verfahren freiwillig – andere werden dazu gezwungen und im bewusstlosen Zustand in den Plan eingespannt. Der Hauptkristall, von dem die Implantate abgeschlagen werden, ist seinen Anhängern – wenn man sie so nennen kann – als Die Intelligenz bekannt: ein Experiment zur Fernkommunikation und Informationsspeicherung derer, die vor uns kamen, und ein unergründlicher Intellekt an sich. In den Zeiten davor, so vermuten die Menschen, besaß jede Arkologie einen solchen Kristallknoten – oder mehrere, im Fall größerer Arkologien –, der es den Bewohnern erlaubte, mittels gläserner Schauschränke Informationen auszutauschen und über Hunderte von Meilen augenblicklich zu kommunizieren.",
+     {
+      "t": "schwarz",
+      "h": "Regeln für Dämonologie",
+      "b": [
+       "Wenn du aus irgendeinem Grund in den Besitz der Mittel kommst, einen dämonischen Einfall beliebiger Größe zu beschwören, sind die zum Wirken des Zaubers nötigen Materialien entweder außerordentlich selten, kostspielig oder beides. Er ist schwer erfolgreich zu wirken, doch gelingt es, so ist jedes lebende Wesen in der unmittelbaren Umgebung des Wirkers, und der Wirker selbst (außer er bündelt seine Macht durch einen Leiter, wie es beim Militär geschieht), tot. Oder: schlimmer als tot. Je mächtiger der Zauber, desto größer das betroffene Gebiet. Über den Zauber hast du nach dem Wirken keine Kontrolle, doch es ist unerhört, dass ein Riss länger als eine Minute offen gehalten wird. Mehr Einzelheiten zur Dämonologie findest du im Quellenband *Black Magic*.",
+       "Einen dämonischen Einfall zu entfesseln ist eines der schlimmsten Dinge, die ein Mensch tun kann, und die meisten würden es nicht einmal ihren Feinden wünschen. Es aus der Ferne mit anzusehen erfordert eine Probe auf Widerstehen+Okkultes mit W8 Verstandsstress bei einem Fehlschlag und W6 bei einem Erfolg."
+      ]
+     },
+     {
+      "t": "schwarz",
+      "h": "Splitter der Intelligenz",
+      "b": [
+       "Wenn du einen Splitter der Intelligenz als Gehirnimplantat erhältst und er dich wider Erwarten nicht umbringt, erhältst du über das verknüpfte neuronale Netz deiner Gefährten Zugang zu allen Domänen. Jedes Mal, wenn du eine Domäne nutzt, die du nicht auf normalem Wege erworben hast, würfle eine Probe auf Widerstehen+Akademie und markiere bei einem Fehlschlag W6 Stress auf Verstand und bei einem Teilerfolg W3 Stress auf Verstand.",
+       "Außerdem darf ein Aufgestiegener mit der Intelligenz selbst in Verbindung treten, um zu versuchen, ein bestimmtes Wissen zu ergründen, doch das ist gefährlich, da sterbliche Geister nicht dazu gedacht waren, auf so grundlegender Ebene mit dem Kristall zu wechselwirken. Du darfst der Spielleitung eine Frage stellen – irgendeine Frage – und W6 Tage in tiefer Verbindung mit der Intelligenz verbringen, während derer du in einer kataleptischen, ekstatischen Trance besinnungslos bist. (Du musst andere Leute anwerben, die dir während der Trance Wasser und Nahrung geben, sonst stirbst du an Austrocknung oder Verhungern.) Am Ende der Trance verlierst du einen Stressplatz auf Verstand – hast du keinen, erleidest du sofort schweren Fallout. Du kennst nun die Antwort auf die Frage."
+      ]
+     },
+     "Da sie die Schauschränke nicht wieder instand setzen können und feststellen mussten, dass die meisten anderen Kristallknoten genommen oder zerstört wurden, als die uralte Rasse, die sie erbaute, aus diesen Landen floh, haben die Menschen stattdessen die Substanzen so angepasst, dass sie in den Windungen der Gehirne intelligenter Wesen mitschwingen. Jeder Träger dient als Eingabe eines großen Netzwerks, das selbst Wissen besitzt, das weit jenseits des Fassungsvermögens selbst des einfallsreichsten menschlichen Retroingenieurs liegt, und mit jedem hochgeladenen Geist kommt die Organisation der Entschlüsselung immer weiterer uralter Geheimnisse näher.",
+     "Die Implantierten (oder „Aufgestiegenen“, wie sie sich selbst nennen) sagen, die Resonanz des Kristalls in ihren Gehirnen könne anfangs seltsam sein und zu Nasenbluten, Albträumen, Halluzinationen und Gedächtnislücken führen – doch wenn sie im Einklang miteinander arbeiten oder mit dem großen Überbewusstsein in Verbindung treten, gleiche das Gefühl einer spirituellen Ekstase."
+    ]
+   }
+  ]
+ },
+ {
+  "id": "universitaet",
+  "t": "Die Hochelfische Universität der Göttlichen Magie",
+  "en": "The High Elven University of Divine Magic",
+  "kurz": "Universität",
+  "p": 85,
+  "abschnitte": [
+   {
+    "id": "einleitung",
+    "t": null,
+    "p": 85,
+    "b": [
+     "Die Universität der Göttlichen Magie gilt vielen Aelfir als der bisherige Gipfel ihrer Zivilisation. Sie besteht aus einem weitläufigen Alabastercampus, angelegt nach irgendeinem vergessenen Diagramm, das in einer der vielen Bibliotheken verloren ging; stellenweise sind Hörsäle und Labore fünf oder sechs Stockwerke hoch aufeinandergepackt, mit prekären Marmortreppen, die Gehwege und Korridore zwischen ihnen verbinden oder gelegentlich nichts Bestimmtes verbinden und sich spiralförmig in die Decke davonwinden. In anderen Bereichen quellen große offene Plätze mit Brunnen und Sitzgelegenheiten über vor Studenten und Professoren, die in Cafés sitzen, nujabischen Kafee schlürfen und über die neueste Abhandlung zum Göttlichen streiten. Allein den Weg von einer Seite der Universität zur anderen zu finden gilt als lobenswerte Leistung, und genaue Karten (die selten sind) werden zu maßlos überhöhten Preisen an verzweifelte, verirrte Erstsemester verkauft."
+    ]
+   },
+   {
+    "id": "das-grosse-teleskop-umgekehrt",
+    "t": "Das Große Teleskop, umgekehrt",
+    "p": 85,
+    "b": [
+     "Mit ihren eigenen genialen Schautechniken und der klugen Maschinenkunst der Menschen ließen die Aelfir kurz nach Abschluss ihrer Invasion von Spire ein gewaltiges Teleskop errichten. Das enorme Gerät, auf der Universität aufgestellt, erlaubte den Gelehrten, in die Himmel zu blicken und die dort verborgenen Geheimnisse zu ergründen – nicht nur, um den scheinbar vorbestimmten Bahnen zu folgen und womöglich vorherzusagen, die die Sterne durch den Kosmos ziehen, sondern auch, um die Bewegungen der merkwürdigen Geschöpfe zu beobachten, die ihr Leben weit über der Welt führen.",
+     "Sternsegler, huschend und flüchtig, die mit der Dämmerung kommen und an der Glut des Sonnenuntergangs picken; aufgestiegene Himmelswale, bleich und riesig, die die Bande der Erde abgestreift haben und nur die seltsame Frucht fressen, die an den tiefer hängenden Strängen der Nebel wächst; und die Mondelfen, schwarzäugig und zart, die verständigen, indem sie mit schwelender Biophosphoreszenz Glyphen in den Nachthimmel brennen.",
+     "(Und dabei sind noch nicht einmal die dort oben gesichteten Wesen erwähnt, deren bloße Existenz heftig umstritten ist. Was ist mit den unmöglich riesigen Leerenbehemoths, die das wandernde Dunkel hinter den Sternen erzeugen und deren Augen Supernovae bergen? Was mit den elektrischen Engeln, die als Nachbilder im Auge erscheinen, wenn ein Blitz eingeschlagen hat? Was mit jenen Forschern, die unwiderruflich wahnsinnig geworden sind, die Augen zu geschwärzten Höhlen ausgebrannt, und berichten, sie hätten direkt in die Gesichter des Sonnenpantheons oder der Glorreichen Herrin selbst geblickt?)",
+     "Doch: Eine kleine, aber einflussreiche Gruppe von Professoren wurde es leid, ihre Nächte damit zu verbringen, in den Himmel zu starren, um das Himmlische zu betrachten, und argumentierte stattdessen, man könne mehr lernen, wenn man seine Energien auf erdgebundene übernatürliche Phänomene richte. Und so wurde, unter großen Kosten für die Universität, das Teleskop umgekehrt und mehr oder weniger direkt in das Herz von Spire gerichtet.",
+     "Nun verbringen Reihen von Forschern Tag um Tag damit, die Tiefen der Stadt, in der sie leben, abzusuchen und Theorien darüber aufzustellen, warum in ihrer Mitte ein weinendes, zerfetztes Loch in der Wirklichkeit klafft. Ein beliebter Vorschlag lautet, Chaos und Unordnung seien der natürliche Zustand aller Dinge, und die Struktur von Spire sei im großen Ganzen weit unnatürlicher als eine jenseitige Kraft der Verderbnis, und das Herz versuche bloß, das Gleichgewicht wiederherzustellen. Oder: Es ist der Leichnam eines Gottes, und wo Gase aus seinem verwesenden Körper entweichen, löst sich die Wirklichkeit auf; oder es ist ein entflohener, wahnsinniger Dämon, der versucht, sich zurück in den Albtraumbereich zu arbeiten, aus dem er stammt; oder es ist ein Versuch uralter drowscher Zauberer-Könige, das volle Ausmaß des Fluchs einzudämmen, der ihr Volk verdammt, und sollte er je vollständig durchbrochen werden, wird jeder Drow einen grausigen Tod sterben.",
+     "Keine dieser Theorien ist richtig."
+    ]
+   },
+   {
+    "id": "die-unendliche-bibliothek",
+    "t": "Die Unendliche Bibliothek",
+    "p": 86,
+    "b": [
+     "Die Unendliche Bibliothek ist ein Halo, der den Kern der Institution umfasst – ein riesiger senkrechter Kreis, meilenweit sichtbar. Sie ist nicht wirklich unendlich, auch wenn die Aelfir, die sie nutzen, das gern glauben, und es ist eine beliebte Übung in Kursen zu Paralogischem Denken, dass ein Student zugleich weiß, dass die Bibliothek endlich ist, und glaubt, dass sie unendlich ist.",
+     "Durch geschickte Architektur und ihre Nähe zu den arkanen Energien des Mondbrunnens ist sie tatsächlich eine Schleife – wer lange genug weitergeht, landet nahe dem Ort, an dem er begonnen hat. Die Bibliothek ist auf der Innenseite eines Möbiusbands errichtet, und der einzige Pfad windet sich durch schlecht geordnete Regale, vollgestopft mit den religiösen Texten jedes in Spire bekannten Glaubens. Die göttlichen Wahrheiten von Propheten und Wahnsinnigen verstopfen die Regale wie Treibholz, das einen Fluss staut."
+    ]
+   },
+   {
+    "id": "der-mondbrunnen",
+    "t": "Der Mondbrunnen",
+    "p": 86,
+    "b": [
+     "Im Zentrum der Unendlichen Bibliothek befindet sich der Mondbrunnen: eines der größten Werke der Aelfir. Tatsächlich scheint die Bibliothek selbst ursprünglich bloß eine Stützstruktur für die kolossale Anordnung aus Linsen und gesplittertem Glas gewesen zu sein, die alle Licht von außerhalb Spires auf einen einzigen Punkt bündeln. Hier wird Mondlicht körperlich destilliert und gehärtet, quälend langsam Tropfen um Tropfen, in winzigen Fläschchen, die zur Eindämmung des Lichts mit dicken Schichten Spireblack überzogen sind. Das hellste Mondlicht einer Sommernacht ergibt kaum einen halben Tropfen dieser heiligen Flüssigkeit; tagsüber ist das hoch in der Wand von Spire gelegene Fenster fest verschlossen, doch nachts wird es aufgerissen, ungeachtet des Wetters oder anderer äußerer Bedingungen, alles in der Hoffnung, ein wenig mehr destillierte Essenz des Göttlichen zu gewinnen.",
+     "Die Hälfte dieser Substanz wird zur Sonnenbasilika verschifft, wo sie von aelfirschen Mysterienkulten zur Anbetung verwendet wird – für die Drow ein völlig profaner Akt. Die andere wird nach Neuer Himmel in die wartenden Hände der Gilde der Leichenbestatter überführt, die sie zur Erschaffung von Untoten verwenden; sie verleiht dem stillgelegten Blut der Patienten den Anstoß, sich wieder zu bewegen, durch ihre Körper gezogen von den Energien des weit entfernten Mondes statt gepumpt von ihrem nun abwesenden Herzen."
+    ]
+   },
+   {
+    "id": "der-kult-des-aufsteigenden-spire",
+    "t": "Der Kult des Aufsteigenden Spire",
+    "p": 86,
+    "b": [
+     "Die Stadt Spire, behauptet der Kult, war ein Gott, und dann starb er, und die Aelfir leben in seinem Leichnam. Oder: Spire ist ein Gott, aber noch nicht geboren. Oder: Es ist eine lebende Brücke in das Reich der Götter. Oder: Es ist ein Gott, und er schläft und muss erweckt werden. (Oder: nicht erweckt, niemals erweckt, es sei denn, man will, dass die Welt endet. Aber manche wollen das.)",
+     "Der Aufsteigende Spire ist eine lose Ansammlung von Akademikern und Theologen, die glauben, Spire sei die körperliche Form – tot oder lebendig oder beides – einer Gottheit irgendeiner Art. (Er gleicht jedenfalls keinem verzeichneten Werk, das von sterblicher Hand geschaffen wurde.) Sie eint der Wunsch, Spire wieder zum Leben zu erwecken und zu seiner Rechten als Engel oder Propheten zu sitzen, und ihre Unterstützung reicht bis hinauf zum Rat selbst."
+    ]
+   },
+   {
+    "id": "die-befragungsraeume",
+    "t": "Die Befragungsräume",
+    "p": 86,
+    "b": [
+     "Die Befragungsräume der Universität sind in ganz Spire und tatsächlich in der ganzen Welt berühmt. Hier geschehen jeden Tag große Fortschritte in Medizin und Psychologie – was die meisten jedoch nicht wissen, ist die Natur der Räume selbst und was in ihnen lebt. Aus Eisen, Stein und Glas errichtet, ist jede Zelle der Gipfel der Einschließungstechnik – oft eigens gebaut, um den Insassen einzuschließen, wenn besondere Anforderungen erfüllt werden müssen, unter Verwendung von gesegnetem Mondsilber, eigens verstärktem Sandwandlerleder, dreifach verfluchtem Hornholz oder jeder anderen Spielart natürlicher oder übernatürlicher Abwehr. Mutierte Kreaturen, intelligente Gutterkin, groteske Spinnen, reinblütige Hebammen, nicht wenige Drow, Gnolle und andere Schrecken werden hier festgehalten. Sie werden jeden Tag ihres verlängerten Lebens Tests, Folter, Verhören und Eingriffen unterzogen. Ungeachtet der ihnen zugefügten Grausamkeit wird aus ihrem Leiden viel gelernt, und die Aelfir können das Konzept der Grausamkeit, angewandt auf geringere Rassen als sie selbst, nur gerade so begreifen."
+    ]
+   },
+   {
+    "id": "das-schlachtfeld",
+    "t": "Das Schlachtfeld",
+    "p": 86,
+    "b": [
+     "Man geht nicht aufs Schlachtfeld, wenn man nicht gerufen wird. (Oder an die Front, oder in die Schützengräben, oder wie auch immer dein Klassenlehrer es nennt.) Was vor fünfundzwanzig Jahren als harmloser Streich begann (bei dem die Schlafmaske von Professor Westwärts-Marschieren-Die-Gläubigen [[Westward-March-The-Faithful]] gegen seine Amtsmaske ausgetauscht wurde, sodass er sozusagen im Pyjama vor dem Kollegium erschien, nach Art der Hochelfen), ist zu einem ausgewachsenen Krieg zwischen Studentenfraktionen und verbündeten Verbindungen eskaliert, die den Bereich des Campus zwischen dem Wohnheim der ursprünglichen Täter und dem Büro von Professor Westwärts-Marschieren-Die-Gläubigen als Schlachtfeld beanspruchen.",
+     "Heute dient das Niemandsland vor allem als Ort, um zu posieren und illegal besessene Schwerter und Pistolen herumzuschwenken, ohne allzu viel Aufsehen zu erregen – es sind schließlich Studenten und Lehrassistenten, keine Soldaten und Gangster. Doch wenn der Wein reichlich fließt – wie bei den vierteljährlichen Festen, die den Wechsel der Hierarchie des Sonnenpantheons feiern –, dann hallen die Gänge von Schreien und Schüssen wider, während alte Rechnungen hervorgezerrt werden, um beglichen zu werden, und die Wachleute des Campus wissen gut genug, das gesamte Gebiet in Ruhe zu lassen.",
+     "Es heißt, ein gezeichneter und vernarbter Professor Westwärts-Marschieren-Die-Gläubigen, für immer verbittert über die Schmach, in seiner Schlafmaske erschienen zu sein, führe eine der Fraktionen bei der Ausübung blutiger Rache an.",
+     {
+      "t": "gegner",
+      "id": "studenten"
+     }
+    ]
+   },
+   {
+    "id": "der-vorlesungssaal",
+    "t": "Der Vorlesungssaal",
+    "p": 87,
+    "b": [
+     "Der Vorlesungssaal (und es gibt natürlich viele Vorlesungssäle in der Universität, aber dies ist „Der“ Vorlesungssaal) ist ein einziges kolossales Theater, in dem der gelehrten Elite der Universität neue Theorien und Erkenntnisse erklärt werden. Er fasst bequem 6.000 Studenten und Professoren (und unbequem 7.500), und ein kleines Wunder der Akustik lässt jeden Anwesenden den Sprecher so klar hören, als säßen sie nebeneinander.",
+     "Den Vorlesungssaal zu buchen ist eine ganz andere Sache, unterliegt er doch einer noch esoterischeren Bürokratie als der Rest des Campus; Vorlesungen sind für mindestens das nächste Jahrzehnt ausgebucht, und viele von ihnen finden gleichzeitig statt. Der De-facto-Hüter des Stundenplans ist eine winzige Drow-Dienerin namens Pao, die derzeit vier gleichzeitige Dienstzeiten ableistet, aus Gründen, die sie nicht zu nennen geruht; der Stress der Arbeit hat sie ziemlich in den Wahnsinn getrieben, sodass sie sich vor plötzlichen Bewegungen, Temperaturwechseln, lauten Geräuschen oder der falschen Tintenfarbe fürchtet, von den Raubzügen boshafter aelfirscher Professoren ganz zu schweigen, die versuchen, ihren Kurs in einen ohnehin überbuchten Platz zu zwängen. Sie ernährt sich fast ausschließlich von süßlich-klebriger Paste, die sie aus Tuben saugt und die ihr die Zähne zu schwarzen Stümpfen verfaulen ließ.",
+     "Viele Studenten studieren an anderen Universitäten in Spire in der Hoffnung, eines Tages die nötigen Qualifikationen zu erwerben, um an der Universität der Göttlichen Magie Terminplanung zu studieren."
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gywnn",
+  "t": "Die Akademie von Gywnn-Enforr",
+  "en": "The Academy of Gywnn-Enforr",
+  "kurz": "Gywnn-Enforr",
+  "verweise": [
+   {
+    "t": "Brazacott Technisches Institut",
+    "p": 83,
+    "ziel": "stadt/akademie/brazacott"
+   }
+  ],
+  "p": 87,
+  "abschnitte": [
+   {
+    "id": "einleitung",
+    "t": null,
+    "p": 87,
+    "b": [
+     "Die Akademie von Gywnn-Enforr, eine Heimat in der Fremde für viele der menschlichen Retroingenieure, die in Spire ihr Gewerbe treiben, ist ein Knotenpunkt für die Entwicklung der Prokatakos-Technologie. Diese merkwürdigen Maschinen, aus uralten Arkologien tief unter der Erde geborgen, werden untersucht und in ihre Bestandteile zerlegt, um ihr Innenleben zu verstehen."
+    ]
+   },
+   {
+    "id": "die-abteilung-fuer-rechenkunst",
+    "t": "Die Abteilung für Rechenkunst",
+    "p": 87,
+    "b": [
+     "Menschen glauben, Maschinen könnten für sie denken. Die Aelfir halten das für Unsinn, und die Drow begegnen dem mit einer Art argwöhnischem Unglauben, doch den Menschen ist es gelungen – nicht zuletzt dank der Entdeckung der Intelligenz, eines riesigen Prokatakos-Kristalls, der so mitschwingt, dass er Informationen verarbeiten kann.",
+     "Die Abteilung für Rechenkunst ist größtenteils eine Fassade für den Kult der Intelligenz – Menschen, die sich den Kristall ins Fleisch ihres Gehirns implantieren und zu lebenden Datenknoten werden –, die im Technischen Institut Brazacott auf S. 83 ausführlicher beschrieben sind. Jene, die nicht bereit sind, geheimnisvolle uralte Steine in ihr noch lebendes Gehirn zu versenken, versuchen, Geräte zu bauen, die es ihnen ermöglichen, die vom Kristall verarbeiteten Informationen auf Schauspiegeln zu lesen, doch Erfolge sind dünn gesät, und gegen den Schwarmgeist des Kults anzukämpfen ist schwierig."
+    ]
+   },
+   {
+    "id": "forschung-zur-fluechtigkeit",
+    "t": "Forschung zur Flüchtigkeit",
+    "p": 87,
+    "b": [
+     "Über die seltsame menschliche Technologie namens Galvanik ist wenig bekannt; zischende, funkensprühende Geräte, die in unnatürlichen Farben summen und glühen, sind an Maschinen gekettet und treiben sie mit surrender Energie an. (Die Methoden, galvanische Energie zu gewinnen, sind vielfältig und alle unzuverlässig, doch die beiden wichtigsten sind, Blitze in Stapeln aus Kupfer und Glas einzufangen oder speziell behandelten Bernstein rasch gegen sich selbst zu schlagen, um Funken zu erzeugen.)",
+     "Derzeit ist galvanische Energie eine Randwissenschaft, die viele Menschen als amüsantes Spielzeug betrachten; als Kultur beschäftigen sie sich viel mehr mit dem ernsten Geschäft der Massenproduktion und dem Bau immer ausgefeilterer Geräte, die mit Dampfkraft laufen. Doch in letzter Zeit hat die Galvanik einen Aufschwung an Beliebtheit erlebt, und mehrere namhafte Wissenschaftler der Abteilung für Forschung zur Flüchtigkeit führen Gespräche mit den aelfirschen Geldgebern der Armee, um Waffen zu schaffen, die diese ungewöhnliche Energiequelle nutzen."
+    ]
+   },
+   {
+    "id": "klein-whitecross",
+    "t": "Klein-Whitecross",
+    "p": 88,
+    "b": [
+     "Whitecross ist das menschliche Zentrum von Handel und Religion – eine riesige Arkologie, errichtet in einem ausgehöhlten Berg weit im Westen, wo die Rasse vor Jahrhunderten ihre ersten Vorstöße in die Geheimnisse unter der Erde unternahm. In Klein-Whitecross treiben menschlich gestaltete Gasthäuser und Bars ihr Geschäft vor einem begeisterten Publikum, und die neuesten Unterhaltungen aus dem Westen werden allabendlich aufgeführt.",
+     "Derzeit beliebt sind: ein halb improvisiertes Komödienstück über die Mühen und Plagen des Wanderkönigs Marazion der Taugenichts; experimentelle galvanische Lichtprojektionen, begleitet von traditionellen Trommeln und Pfeifen; und Cross, ein enorm komplizierter menschlicher Sport, bei dem Teams listiger Spieler Schutzanzüge anlegen und „nicht tödliche“ Schusswaffen tragen, um in wettbewerbsmäßigen Nachstellungen berühmter historischer Schlachten gegeneinander anzutreten."
+    ]
+   },
+   {
+    "id": "die-turmabteilung",
+    "t": "Die Turmabteilung",
+    "p": 88,
+    "b": [
+     "Viele glauben, dass Spire selbst prokatakischer Bauart ist, und das Argument hat Hand und Fuß (auch wenn es architektonisch kaum Ähnlichkeit mit anderen Bauwerken der Vorläufer hat). Die Turmabteilung versucht daher, die wahre Natur des gewaltigen Gebäudes zu verstehen und dieses Wissen vielleicht auf die Forschung in anderen Bereichen anzuwenden.",
+     "Die Turmabteilung unternimmt deshalb häufig Ausflüge in das Herz, wobei sie argumentiert, die Struktur der Stadt erzeuge es entweder oder halte es in Schach, und zahlt großzügig für jene, die ihre Mitglieder durch die umliegenden gesetzlosen Bezirke geleiten und durch die wahnsinnige, unsinnige Geografie des Herzens selbst führen würden. Sie hat eine beeindruckend hohe Fluktuationsrate (viele Mitglieder enden nach ihrer ersten Reise nach Unten-Spire tot, wahnsinnig oder beides), und bislang waren ihre Bemühungen fruchtlos. Wäre da nicht die unermüdliche Fürsprache von Professor Arkwright, der sein zehnjähriges Forschungsprojekt zum Loch in der Wirklichkeit fast vollendet hat, wäre die Abteilung längst aufgelöst worden."
+    ]
+   }
+  ]
+ }
+]);

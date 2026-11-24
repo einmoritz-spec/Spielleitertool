@@ -1,0 +1,70 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><title>Dragonbane – Nachschlagen</title>
+<link rel="stylesheet" href="db.css">
+<style>
+.nb{display:grid;grid-template-columns:236px 1fr;gap:0 44px;padding:12px var(--rand) 0;height:calc(100vh - 132px)}
+.side{position:relative;border-right:1px solid var(--linie);padding:6px 20px 0 0;align-self:start}
+.side .zu{position:absolute;right:-12px;top:0;width:24px;height:24px;border-radius:50%;background:var(--perg);border:1px solid var(--linie);color:var(--jade-d);font:15px/22px var(--f-kopf);text-align:center}
+.side a{display:flex;align-items:baseline;gap:6px;padding:7px 0 7px 26px;font:16px/1.25 var(--f-text);color:var(--tinte);text-decoration:none;position:relative}
+.side a .s{margin-left:auto}
+.side a.on{color:var(--jade);font-family:var(--f-kopf);font-size:15.5px}
+.side a.on::before{content:"";position:absolute;left:0;top:8px;width:18px;height:18px;background:url(img/orn/knoten.png) center/contain no-repeat}
+.inh{overflow:hidden}
+.kopf{text-align:center;margin:0 0 16px}
+.kopf .titel{display:inline-block}
+.gr{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:22px 36px;align-items:start;font-size:16px;line-height:1.46}
+.abs{margin-top:22px}
+table.w6{font-size:14px}
+.gr .h3{margin-top:2px}
+.ab{margin-bottom:18px}
+.stein{margin-top:22px}
+.w6wrap{margin-top:14px}
+</style>
+<body>
+<div class="top"><img class="logo" src="img/logo.webp" alt="Dragonbane"><div class="sp"></div>
+<button class="ib"><span class="i">i</span></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="rail"><div class="rl"></div><div class="md"></div><div class="rr"></div></div>
+
+<div class="tabs"><button class="tab">Spielercharakter</button><button class="tab">Fertigkeiten</button><button class="tab on">Kampf &amp; Schaden</button><button class="tab">Magie</button><button class="tab">Ausrüstung</button><button class="tab">Bestiarium</button><button class="tab">Abenteuer</button><button class="tab">Tabellen</button><div class="sp"></div></div>
+<div class="nb">
+ <nav class="side"><button class="zu">‹</button>
+  <a>Runden &amp; Initiative<span class="s">S. 41</span></a><a>Aktionen &amp; Bewegung<span class="s">S. 42</span></a><a>Nahkampf<span class="s">S. 45</span></a>
+  <a class="on">Fernkampf<span class="s">S. 49</span></a><a>Schaden<span class="s">S. 50</span></a><a>Zustände<span class="s">S. 51</span></a><a>Heilung &amp; Rast<span class="s">S. 52</span></a>
+  <a>Weitere Gefahren<span class="s">S. 52</span></a><a>Reittiere<span class="s">S. 55</span></a><a>Improvisierte Waffen<span class="s">S. 55</span></a>
+ </nav>
+ <div class="inh">
+  <div class="kopf"><span class="titel">Fernkampf</span><span class="s">S. 49</span></div>
+  <div class="gr">
+<div class="col"><p>Um eine Fernkampfwaffe einzusetzen, musst du sie zuerst ziehen (freie Aktion) – genau wie im Nahkampf. Du solltest möglichst mehr als 2 Meter von deinem Ziel entfernt stehen (also nicht auf einem angrenzenden Feld der Karte). Stehst du 2 Meter entfernt oder näher, erhältst du einen Nachteil. Würfle auf die Fertigkeit der Waffe. Für Wurfwaffen gilt dieselbe Fertigkeit wie im Nahkampf (etwa <span class="fs">Messer</span>) …</p><div class="abs"><div class="h3">Kritischer Treffer</div>
+    <p>Würfelst du bei einem Fernkampfangriff einen Drachen, ist das ein kritischer Treffer: Dem Angriff kann nur ausgewichen (oder er mit einem Schild pariert) werden, wenn der Gegner ebenfalls einen Drachen würfelt. Wähle außerdem einen dieser Effekte:</p>
+    <ul class="st"><li>Der Waffenschaden verdoppelt sich (ohne Boni) – ein Langbogen macht 2W12.</li>
+    <li>Rüstung wirkt nicht – der Angriff trifft eine Lücke (nur Stichschaden) …</li></ul></div></div>
+<div class="col">
+    <div class="ab"><span class="ein">Schadensbonus:</span> Auch bei Fernkampfwaffen erhältst du einen Schadensbonus, wie im Nahkampf. Beachte aber, dass Armbrüste dir keinen Schadensbonus geben.</div>
+    <div class="ab"><span class="ein">Reichweite:</span> Die Waffentabellen auf S. 74–75 nennen die Reichweite der Waffen – die größte Entfernung in Metern, auf die eine Waffe wirksam eingesetzt werden kann. Du kannst auf Ziele bis zur doppelten Reichweite schießen, erhältst dann aber einen Nachteil.</div>
+   <div class="abs"><div class="h3">Parieren &amp; Ausweichen</div>
+    <p>Um einen Fernkampfangriff zu parieren, brauchst du einen Schild. Das funktioniert wie im Nahkampf, nur erlaubt ein Drache beim Parieren keinen Gegenangriff. Ausweichen kannst du wie im Nahkampf.</p>
+    <div class="h3" style="margin-top:16px">Verdeckte Ziele</div>
+    <p>Ist dein Ziel teilweise durch einen Gegenstand oder eine Person verdeckt – Freund oder Feind –, erhältst du einen Nachteil auf den Angriff …</p></div></div>
+   <div >
+    <div class="stein"><div class="bh">Dämon im Fernkampf</div>Würfelst du beim Fernkampfangriff einen Dämon, verfehlst du dein Ziel und kannst den Wurf nicht strapazieren. Außerdem kann dir ein zusätzliches Missgeschick passieren. Würfle auf der Tabelle unten.</div>
+    <div class="w6wrap"><table class="w6"><tr><th>W6</th><th>Effekt</th></tr>
+     <tr><td>1</td><td>Du lässt deine Waffe vor deine Füße fallen. Sie aufzuheben ist eine Aktion.</td></tr>
+     <tr class="an"><td>2</td><td>Dir gehen die Pfeile aus; du musst Nachschub holen, bevor du die Waffe wieder benutzen kannst. Bei Schleuder oder Wurfwaffe neu würfeln.</td></tr>
+     <tr><td>3</td><td>Du triffst einen wertvollen oder wichtigen Gegenstand in der Nähe. Die SL entscheidet, welchen.</td></tr>
+     <tr><td>4</td><td>Du beschädigst deine Waffe. Jeder Einsatz erhält einen Nachteil, bis ein Handwerker sie repariert hat.</td></tr>
+     <tr><td>5</td><td>Du triffst versehentlich einen zufälligen Spielercharakter oder befreundeten NSC. Würfle normal Schaden, mit Schadensbonus.</td></tr>
+     <tr><td>6</td><td>Du triffst dich aus Versehen selbst. Würfle normal Schaden, aber ohne Schadensbonus.</td></tr></table></div>
+   </div>
+  </div>
+<div class="fuss"><a>‹ Nahkampf</a><div class="em">Kapitel 4 – Kampf &amp; Schaden</div><a>Schaden ›</a></div>
+ </div>
+</div>
+<div class="ann" style="left:60px;top:470px;max-width:220px"><b>1</b>Seitenleiste wie das Inhaltsverzeichnis: Abschnitte mit S., aktiver mit Jade-Knoten. Sticky, einklappbar (‹ und Taste), ↑/↓ wechselt.</div>
+<div class="ann" style="left:520px;top:160px;max-width:320px"><b>2</b>Seitentitel wie im Buch zentriert in Hideout Black. Inhalt als Raster in Abschnitten – jede Zelle ein eigener Abschnitt, kein Spaltenfluss.</div>
+<div class="ann" style="left:1020px;top:640px;max-width:330px"><b>3</b>Was im Buch ein grüner Steinkasten ist, wird ein echter Steinkasten mit Banner-Titel. W6-Tabellen im Buch-Zebra; Klick markiert eine Zeile (kein Würfel-Tool).</div>
+<div class="ann" style="left:560px;top:820px;max-width:360px"><b>4</b>Seitenende = Fuß-Emblem des Buchs mit Kapitelname, daneben Zurück/Weiter.</div>
+<div class="ann" style="left:640px;top:20px;max-width:420px"><b>5</b>Nachschlagen (aus dem Burger-Menü): Kapitel als Tabs, aktiver Tab auf dem Stein-Band wie „MONSTER ATTACKS“ im Buch.</div>
+</body></html>
+<style>.fuss{margin:18px 0 0}</style>

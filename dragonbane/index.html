@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="theme-color" content="#f3eee6">
+<title>Dragonbane</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="go('start')" aria-label="Dragonbane"><img src="../assets/logos/dragonbane.webp" alt="Dragonbane"></button>
+  <div class="topbar-spacer"></div>
+  <button class="ib tb-burger" onclick="openMenu(true)" aria-label="Menü" title="Menü"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div class="rail"><div class="rl"></div><div class="md"></div><div class="rr"></div></div>
+<div id="app"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP"></div>
+<script src="js/data/buecher.js"></script>
+<script src="js/data/kapitel.js"></script>
+<script src="js/data/abenteuer-baende.js"></script>
+<script src="js/data/ab-burg.js"></script>
+<script src="js/data/ab-dk-eroeffnung.js"></script>
+<script src="js/data/ab-aussenposten-a.js"></script>
+<script src="js/data/ab-aussenposten-b.js"></script>
+<script src="js/data/ab-nebeltal-reisen.js"></script>
+<script src="js/data/ab-ridderhoehe.js"></script>
+<script src="js/data/ab-bothild.js"></script>
+<script src="js/data/ab-purpurflamme.js"></script>
+<script src="js/data/ab-seufzer.js"></script>
+<script src="js/data/ab-orakel.js"></script>
+<script src="js/data/ab-trollspitze.js"></script>
+<script src="js/data/ab-totaugen.js"></script>
+<script src="js/data/ab-malus.js"></script>
+<script src="js/data/ab-vortag.js"></script>
+<script src="js/data/ab-wegesende.js"></script>
+<script src="js/data/ab-nebelinsel-a.js"></script>
+<script src="js/data/ab-nebelinsel-b.js"></script>
+<script src="js/data/ab-turm.js"></script>
+<script src="js/data/ab-turm-sc.js"></script>
+<script src="js/data/ab-pg-wald-a.js"></script>
+<script src="js/data/ab-pg-wald-b.js"></script>
+<script src="js/data/ab-pg-tore-a.js"></script>
+<script src="js/data/ab-pg-tore-b.js"></script>
+<script src="js/data/ab-pg-herz-a.js"></script>
+<script src="js/data/ab-pg-herz-b.js"></script>
+<script src="js/data/ab-pg-herz-c.js"></script>
+<script src="js/data/ab-ark-lied.js"></script>
+<script src="js/data/ab-ark-tempel.js"></script>
+<script src="js/data/ab-ark-tiefe.js"></script>
+<script src="js/data/ab-ark-feder.js"></script>
+<script src="js/data/ab-ark-feder4.js"></script>
+<script src="js/data/ab-ark-gilde.js"></script>
+<script src="js/data/ab-ark-einhorn.js"></script>
+<script src="js/data/ab-ark-perle.js"></script>
+<script src="js/data/ab-ark-tinte.js"></script>
+<script src="js/data/ab-ark-palast.js"></script>
+<script src="js/data/abenteuer-baende-dk.js"></script>
+<script src="js/data/abenteuer-baende-pg.js"></script>
+<script src="js/data/ark-einf-stadt-a.js"></script>
+<script src="js/data/ark-einf-stadt-b.js"></script>
+<script src="js/data/ark-einf-hafen.js"></script>
+<script src="js/data/ark-einf-dung.js"></script>
+<script src="js/data/tabellen.js"></script>
+<script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
+<script src="js/app.js"></script>
+<script src="js/abenteuer.js"></script>
+<script src="js/arkand.js"></script>
+<script src="js/data/nach-k1.js"></script>
+<script src="js/data/nach-k2.js"></script>
+<script src="js/data/nach-k2-voelker.js"></script>
+<script src="js/data/nach-k2-berufe-a.js"></script>
+<script src="js/data/nach-k2-berufe-b.js"></script>
+<script src="js/data/nach-k3.js"></script>
+<script src="js/data/nach-k4-a.js"></script>
+<script src="js/data/nach-k4-b.js"></script>
+<script src="js/data/nach-k4-c.js"></script>
+<script src="js/data/nach-k5-a.js"></script>
+<script src="js/data/nach-k5-allgemein.js"></script>
+<script src="js/data/nach-k5-elementar.js"></script>
+<script src="js/data/nach-k6-a.js"></script>
+<script src="js/data/nach-k6-b.js"></script>
+<script src="js/data/nach-k6-c.js"></script>
+<script src="js/data/bestiarium-a.js"></script>
+<script src="js/data/bestiarium-b.js"></script>
+<script src="js/data/bestiarium-c.js"></script>
+<script src="js/data/bestiarium-d.js"></script>
+<script src="js/data/bestiarium-z1.js"></script>
+<script src="js/data/bestiarium-z2.js"></script>
+<script src="js/data/bestiarium-z2b.js"></script>
+<script src="js/data/bestiarium-z3.js"></script>
+<script src="js/data/bestiarium-z4.js"></script>
+<script src="js/data/bestiarium-z5.js"></script>
+<script src="js/data/bestiarium-z6.js"></script>
+<script src="js/data/bestiarium-z7.js"></script>
+<script src="js/data/bestiarium-z8.js"></script>
+<script src="js/data/bestiarium-z9.js"></script>
+<script src="js/data/bestiarium-z10.js"></script>
+<script src="js/data/bestiarium-e.js"></script>
+<script src="js/data/nach-k8-a.js"></script>
+<script src="js/data/nach-k8-b.js"></script>
+<script src="js/data/nach-k8-c.js"></script>
+<script src="js/data/nach-k8-d.js"></script>
+<script src="js/data/nach-ta.js"></script>
+<script src="js/nach.js"></script>
+<script src="js/bestiarium.js"></script>
+<script src="js/figuren.js"></script>
+<script src="js/suche.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"db_rb", books:DB_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off}; })); },[]), openSettings:function(){ openMenu(true); } });
+render();</script>
+<script src="../shared/masonry.js" defer></script>
+<script src="../toolmenu.js"></script>
+<script>try{localStorage.setItem("gm_tool_mode_v1","dragonbane");}catch(e){} window.gmBook=function(){return {name:"Dragonbane Regelbuch",open:function(){BV.open("db_rb",1);}};};</script>
+</body>
+</html>

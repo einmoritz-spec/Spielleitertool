@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>
+body{width:1440px;height:900px;overflow:hidden;position:relative}
+.unter{height:38px;display:flex;align-items:center;gap:22px;padding:0 20px;background:#1a110a;border-bottom:1px solid #000}
+.unter a{font:400 15px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#a8957f;cursor:pointer}
+.unter a.on{color:#fff;box-shadow:inset 0 -2px 0 var(--hell);padding-bottom:6px;margin-top:6px}
+.bereich{display:grid;grid-template-columns:206px 1fr;height:761px}
+/* Seitenleiste = Buchrücken */
+.ruecken{position:relative;background:#0d0804 url(img/tex-dunkel.webp) 30% 0/900px auto;display:grid;grid-template-columns:40px 1fr;border-right:1px solid #000}
+.ruecken .vert{writing-mode:vertical-rl;font:400 21px/1 var(--plate);letter-spacing:.14em;color:#fff;text-transform:uppercase;padding:16px 0 0;margin:0 auto;background:#000;width:40px;display:flex;align-items:center;justify-content:flex-start}
+.ruecken ul{list-style:none;margin:0;padding:44px 10px 0 4px}
+.ruecken li{font:400 16px/1 var(--plate);letter-spacing:.07em;text-transform:uppercase;color:#b9a690;padding:8px 8px 7px;cursor:pointer}
+.ruecken li.on{background:var(--platte);color:#fff}
+.ruecken .zu{position:absolute;right:8px;top:8px;width:26px;height:26px;border:0;background:none;color:#8f7d6c;font:400 20px/1 var(--body);cursor:pointer}
+.inhalt{display:grid;grid-template-columns:400px 1fr;background:#f5efe4 url(img/tex-papier.webp) 50% 0/1700px auto;overflow:hidden}
+/* Diagonale wie S. 26 */
+.diag{position:relative;height:761px;overflow:hidden;background:#f5efe4}
+.diag .marmor{position:absolute;inset:0;background:#0f0c0a url(img/tex-dunkel.webp) center/cover;clip-path:polygon(0 0,100% 0,100% 6%,0 72%)}
+.diag img{position:absolute;z-index:2;left:120px;bottom:0;height:600px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
+.diag .name{position:absolute;z-index:3;left:8px;top:752px;transform:rotate(-50deg);transform-origin:left top;white-space:nowrap;font:400 70px/1 var(--plate);letter-spacing:.04em;color:var(--teal);text-transform:uppercase}
+.text{padding:24px 34px 0 30px;overflow:hidden}
+.zeile2{display:grid;grid-template-columns:repeat(6,1fr);gap:18px 26px;align-items:start}.intro p{font:italic 400 15.5px/1.44 var(--body);margin:0 0 4px;text-indent:1.2em}.intro p:first-child{text-indent:0}
+.oben .kurs p{font-size:16px;line-height:1.45;margin:0 0 6px;text-indent:1em}
+.oben .kurs p:first-child{text-indent:0}
+.kt{border-left:3px solid var(--platte)}
+.kt>div{display:grid;grid-template-columns:1fr auto;gap:8px;padding:4px 8px 3px 10px;font-size:14.5px;line-height:1.28}
+.kt>div:nth-child(odd){background:var(--rose)}
+.kt .lbl{grid-column:1/-1}
+.kt b{white-space:nowrap}
+.kt .eins{padding-left:22px}
+.abschnitt{margin-top:18px}
+.abschnitt .h2{display:flex;align-items:baseline;gap:10px}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 26px}
+.raster.zwei{grid-template-columns:1fr 1fr}
+.fk h4{font:400 17px/1.1 var(--plate);letter-spacing:.06em;text-transform:uppercase;color:var(--blut);margin:0 0 3px}
+.fk p{font-size:14.5px;line-height:1.36;margin:0}
+.fk p i{font-style:italic}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/logo.webp" alt="Heart"><span class="dd"></span></button><div class="sp"></div>
+<button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><a>Einführung</a><a>Spielweise</a><a class="on">Charaktere</a><a>Regeln im Detail</a><a>Spielleitung</a><a>Die Welt</a><a>Regelübersicht</a><span class="sp"></span></div>
+<div class="unter"><a>Charaktererstellung</a><a>Abstammungen</a><a>Berufungen</a><a class="on">Klassen</a></div>
+
+<div class="bereich">
+ <div class="ruecken"><div class="vert">Klassen</div>
+  <button class="zu">‹</button>
+  <ul><li class="on">Cleaver</li><li>Deadwalker</li><li>Deep Apiarist</li><li>Heretic</li><li>Hound</li><li>Incarnadine</li><li>Junk Mage</li><li>Vermissian Knight</li><li>Witch</li></ul>
+ </div>
+ <div class="inhalt">
+  <div class="diag"><div class="marmor"></div><img src="img/klasse-cleaver.webp" alt=""><div class="name">Cleaver</div></div>
+  <div class="text">
+   <div class="zeile2">
+   <div class="intro" style="grid-column:1/5;grid-row:1">
+    <p>Das Herz ist ein wilder Ort, und es ruft wilde Leute – jene am Rand der Gesellschaft, denen das Joch der Zivilisation auf der Haut scheuert. Die Wildesten von allen nennt man Cleaver. Sie treten hinaus in den sich wandelnden Albtraum der Stadt darunter und machen ihn zu ihrem Zuhause. Sie sind die Ersten, die jede neue Kammer dieses Ortes betreten, und dringen in eine dunkle, fremde Grenzwildnis vor.</p>
+    <p>Ihre Körper verändern sich. Manche begrüßen die Verwandlung und suchen sie, unzufrieden mit ihrer körperlichen Gestalt – sie verändern ihre Körper mit Eingriffen, die in der Stadt oben unmöglich sind, oder jagen und verzehren Bestien des Herzens, um deren Macht zu erlangen. Manche ringen mit der Veränderung, doch sie ist unausweichlich. So wie sie das Herz mit jedem Schritt nach vorn zu neuen Mustern vernarben, vernarbt das Herz sie und formt sie zu einer passenderen Gestalt um: gewundene Hörner, nachtschwarze Augen, sonderbare Sinne, die der Oberwelt unbekannt sind, und so weiter.</p>
+    <p>Cleaver sieht man häufig in Gruppen von Delvern, besonders bei denen, die eine Führung brauchen – niemand kennt das Herz so wie sie. Keine noch so gründliche Forschung, kein technisches Gerät und kein arkanes Wahrsageritual kann dir so viel verraten, wie dich hüfttief im roten, nassen Himmel zu vergraben und die Fülle zu essen, die er dir großzügig darbietet.</p>
+   </div>
+    <div style="grid-column:5/7;grid-row:1"><h2 class="h2" style="font-size:25px;white-space:nowrap">Kerneigenschaften<span class="s">S. 27</span></h2>
+     <div class="kt">
+      <div><span class="lbl" style="grid-column:auto">Skill:</span><b>Hunt</b></div>
+      <div><span class="lbl" style="grid-column:auto">Domain:</span><b>Cursed</b></div>
+      <div><span class="lbl">Ressource:</span></div>
+      <div><span>Ein frisch geerntetes Herz, das noch gelegentlich zuckt</span><b>W6 Wild</b></div>
+      <div><span class="lbl">Ausrüstung:</span></div>
+      <div><span>Jagdmesser</span><b>Kill W6</b></div>
+      <div><i>Wähle eins:</i><span></span></div>
+      <div class="eins"><span>Hackbeil</span><b>Kill W8, Brutal, Tiring</b></div>
+      <div class="eins"><span>Knochenamulette und Tierdarm-Nähte</span><b>Mend Blood W6</b></div>
+      <div class="eins"><span>Schwerer Bogen</span><b>Kill W8, Ranged, Tiring</b></div>
+     </div></div>
+    <div style="grid-column:1/4;grid-row:2"><h2 class="h2">Kernfähigkeiten</h2>
+     <div class="fk"><h4>Herzblut</h4><p><i>Du hast eine knochentiefe Verbindung zum Herzen selbst; je näher du ihm kommst, desto mächtiger wirst du.</i> Dein Mindestwert an Schutz ist für alle Resistenzen gleich der Tiefe des Herzens, auf der du dich gerade befindest. Dieser Wert addiert sich nicht zu anderen Schutzquellen, aber dein Grundschutz kann nicht unter deine aktuelle Tiefe fallen, außer du verlierst durch Fallout ausdrücklich den Zugriff darauf.</p></div></div>
+    <div style="grid-column:4/7;grid-row:2"><h2 class="h2">&nbsp;</h2>
+     <div class="fk"><h4>Das rote Festmahl</h4><p><i>Deine Schmelztiegel-Eingeweide klauben Erinnerungen aus dem Fleisch.</i> Wenn du eine Ressource isst, erhältst du bis zum Ende der Situation alle Domains, die mit dieser Ressource verbunden sind. Hast du die Domain schon, erhältst du einen passenden Knack. Was du essen kannst, ist unbegrenzt, aber zähe oder giftige Stoffe können eine Probe auf <b>Endure+Cursed</b> erfordern, damit du dir nicht schadest. Ressourcen zu verzehren beansprucht deine Aufmerksamkeit und macht dich angreifbar; in belastenden Situationen (etwa im Kampf) kann es daher einen Wurf auf <b>Sneak</b> oder <b>Evade</b> erfordern.</p></div></div>
+   </div>
+   <div class="abschnitt"><h2 class="h2">Kleine Fähigkeiten</h2>
+    <div class="raster">
+     <div class="fk"><h4>Ruf der Wildnis</h4><p><i>Mit einem gewaltigen Heulen oder einem dröhnenden Stoß in dein Horn stürzt du deine Umgebung ins Chaos.</i> Erhalte die Domain <b>Wild</b>. Einmal pro Sitzung kannst du eine chaotische Horde Tiere herbeirufen …</p></div>
+     <div class="fk"><h4>Dunkelaugen</h4><p><i>Jahre in der Stadt darunter haben dich vom Bedürfnis nach Wärme, Licht und Obdach befreit.</i> Erhalte den Skill <b>Delve</b>. Deine pechschwarzen Augen sehen in tiefster Finsternis, als wäre heller Tag.</p></div>
+     <div class="fk"><h4>Verzweifelte Maßnahmen</h4><p><i>Du hast Menschen gegessen. Manchmal, um zu überleben; manchmal, um zu gedeihen.</i> Erhalte die Domain <b>Desolate</b>. Du kannst das Fleisch von etwas oder jemandem essen, das du kürzlich getötet hast …</p></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="ann" style="left:30px;top:250px;max-width:170px"><b>1</b>Seitenleiste = der schwarze Buchschnitt: Kapitelname senkrecht wie im Buch, Abschnitte als Liste, aktiver = rote Platte. Eingeklappt bleibt nur der senkrechte Streifen.</div>
+<div class="ann" style="left:640px;top:66px;max-width:330px"><b>2</b>Oben Kapitel (Tabs), darunter Unterkapitel über die volle Breite – Seitenleiste erst darunter.</div>
+<div class="ann" style="left:250px;top:520px;max-width:200px"><b>3</b>Die Diagonale von S. 26: Marmor oben links, Figur freigestellt und ungeschnitten, Klassenname schräg in Teal.</div>
+<div class="ann" style="left:1080px;top:300px;max-width:300px"><b>4</b>Kerneigenschaften als Werte-Tabelle mit rosa Zebra und roter Linie wie im Buch.</div>
+<div class="ann" style="left:760px;top:720px;max-width:380px"><b>5</b>Fähigkeiten zeilenweise im Raster (kein Spaltenfluss): Kern · Klein · Groß · Zenit – voller Buchtext (hier gekürzt).</div>
+</body></html>

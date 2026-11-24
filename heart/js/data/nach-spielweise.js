@@ -1,0 +1,52 @@
+/* Spielweise (Grundbuch S. 5–8) – übersetzt */
+window.HT_NACH = window.HT_NACH || {};
+(function(){
+var W = function(n){ return '<span class="wf">' + n + "</span>"; };
+var kurz = '<div class="kurz">' +
+ '<div class="ks"><h3 class="h3">1. Würfelpool bilden</h3><div class="kzeile"><span class="kw">Start mit 1W10</span><i>+</i><span class="kw">passender Skill</span><i>+</i><span class="kw">passende Domain</span><i>+</i><span class="kw">passender Knack</span></div></div>' +
+ '<div class="ks"><h3 class="h3">2. Würfelpool werfen</h3><div class="wuerfel">' + [9,7,3,1].map(function(n){ return '<svg viewBox="0 0 48 52"><path d="M24 3 44 14v24L24 49 4 38V14z" fill="#fffdf8" stroke="#640000" stroke-width="2.4" stroke-linejoin="round"/><text x="24" y="33" text-anchor="middle" font-family="HT Pressed,serif" font-size="22" fill="#640000">' + n + '</text></svg>'; }).join("") + '</div></div>' +
+ '<div class="ks"><h3 class="h3">3. Würfel für Schwierigkeit entfernen</h3><div class="kzeile"><span class="kw"><b>Riskant:</b> den höchsten Würfel entfernen</span><span class="kw"><b>Gefährlich:</b> die 2 höchsten Würfel entfernen</span></div><p>Wird der Würfelpool auf 0 oder weniger verringert, wirf 1W10 – bei einer 10 Erfolg mit Preis, sonst Fehlschlag.</p></div>' +
+ '<div class="ks"><h3 class="h3">4. Erfolg und Misserfolg bestimmen</h3><p class="kurs">Vergleiche deinen höchsten verbliebenen Würfel mit dieser Tabelle:</p><div class="werte">' +
+ [["1:","Kritischer Fehlschlag","Misserfolg, und du nimmst doppelten Stress."],["2–5:","Fehlschlag","Misserfolg, und du nimmst Stress."],["6–7:","Erfolg mit Preis","Erfolg, aber du nimmst Stress."],["8–9:","Erfolg","Erfolg, und du nimmst keinen Stress."],["10:","Kritischer Erfolg","Dramatischer Erfolg; der ausgehende Stress-Würfel steigt um 1 Stufe."]].map(function(r){ return '<div class="t4"><b>' + r[0] + "</b><b>" + r[1] + "</b><span>" + r[2] + "</span></div>"; }).join("") + "</div></div>" +
+ '<div class="ks kbk"><div><h3 class="h3">Bei 6 oder mehr: Stress zufügen (gegen einen Gegner oder Delve)</h3><p>Füge einem passenden Gegner oder Delve Stress zu, mit der Würfelgröße der Ausrüstung der Figur.</p></div>' +
+ '<div><h3 class="h3">Bei 7 oder weniger: Stress und Fallout auflösen</h3><p class="kurs">Die Spielleitung wirft einen W12 und vergleicht ihn mit dem Gesamtstress:</p><div class="werte">' +
+ [[">Stress","Es entsteht kein Fallout."],["≤Stress und 6 oder weniger","Die Figur erleidet leichten Fallout und löscht allen Stress in der zugehörigen Resistenz."],["≤Stress und 7 oder mehr","Die Figur erleidet schweren Fallout und löscht allen Stress."]].map(function(r){ return '<div class="t4 f2"><b>' + r[0] + "</b><span>" + r[1] + "</span></div>"; }).join("") + "</div></div></div></div>";
+HT_NACH.spielweise = {t:"Spielweise", p:5, subs:[{id:"spielweise", t:"Spielweise", secs:[
+ {id:"rollen", t:"Was tun Spielende?", p:5, b:[
+  {t:"grid", n:2, x:[[
+   {t:"h", x:"Was tun Spielende?"},
+   "Als Spieler oder Spielerin ist deine Hauptaufgabe im Spiel, die Rolle einer einzelnen Figur zu übernehmen – jemand, der sich entschieden hat oder gezwungen wurde, in die Stadt darunter vorzudringen. Du sprichst für sie, bestimmst ihre Handlungen und triffst die Entscheidungen, die sie durch die Unterwelt führen.",
+   "Du erschaffst diese Figur – wahrscheinlich gemeinsam mit den anderen Spielenden, vielleicht aber auch allein. Mach eine Figur, auf die du Lust hast und die Fragen hat, die unbeantwortet sind. Statt seitenweise Hintergrundtext darüber zu schreiben, was deine Figur in der Vergangenheit getan hat, konzentriere dich darauf, was sie gerade tut und wie sich das greifbar äußert. Mach dir keine Sorgen, mit etwas Vollständigem an den Tisch zu kommen; es macht viel mehr Spaß und ist leichter, eine Figur mit Lücken mitzubringen, die du im Spiel füllen kannst.",
+   "Deine Figur sollte jemand sein, den die anderen Figuren zumindest ertragen können. Heart ist ein Spiel darüber, gegen die Widrigkeiten zusammenzuhalten und aus der Gemeinschaft Kraft zu ziehen. Wenn du also einen hartgesottenen, wortkargen Schurken ohne goldenes Herz bauen willst oder einen selbstsüchtigen okkulten Sonderling, der nie ein Wort benutzt, wo zwanzig reichen, dann wundere dich nicht, wenn es für dich nicht gut läuft. Sei jemand, mit dem sich Abenteuer lohnen!",
+   "Wenn du die Verantwortung für deine Figur hast, triff interessante Entscheidungen. Wäre deine Figur jemand, der nur vernünftige Dinge tut, wäre sie nicht im Herz; also triff gefährliche Entscheidungen. Führe spannende, aufregende Handlungen aus: zieh in die unbekannte Wildnis hinaus, opfere alles, was du hast, um Wissen zu erlangen, bring dein Leben in Gefahr, um Leuten zu helfen. Sei mutig und geh Risiken ein. Hänge nicht zu sehr an deiner Figur, denn sie wird wahrscheinlich nicht überleben; versuche stattdessen, einen glorreichen, bunten, unterhaltsamen Untergang zu haben.",
+   "Triff fundierte Entscheidungen, indem du die Regeln verstehst, die deine Figur nutzt – hat sie zum Beispiel einen ungewöhnlichen Aufstieg, lerne die Regeln dafür. Merke dir, auf welche Skills und Domains sie Zugriff hat, und merke dir, was diese Skills und Domains bewirken.",
+   "Und schließlich: Das Wichtigste, was du als Spielender tun musst, ist, dir zu merken, dass dies ein Spiel ist und du genauso dafür verantwortlich bist wie die Spielleitung, es zu einer befriedigenden Erfahrung zu machen. Sei nett zu den anderen Spielenden, respektiere ihre Entscheidungen und versuche im Allgemeinen, die Art Mensch zu sein, mit der du selbst gern Rollenspiel spielen würdest."
+  ],[
+   {t:"h", x:"Was tut die Spielleitung?"},
+   "Als Spielleitung kontrollierst du alles in der Spielwelt, was keine Spielerfigur ist. Du bist für alle Nichtspielerfiguren und die Umgebung zuständig, aber auch dafür, die Regeln auszulegen und den Spielfluss zu lenken. Wie die Spielenden hast du die Aufgabe, interessante Entscheidungen zu treffen und die Geschichte in eine fesselnde Richtung zu lenken – du reagierst auf die Spielerfiguren und veränderst die Welt als Antwort auf ihre Handlungen.",
+   "Wir haben weiter hinten in diesem Buch einen vollständigen Leitfaden für die Spielleitung geschrieben – er beginnt auf S. 104 und enthält Ratschläge für alle Erfahrungsstufen.",
+   {t:"h", x:"Resistenzen"},
+   "Heart nutzt das Resistenz-System, das sich darauf konzentriert, was in jedem Konflikt auf dem Spiel steht. Spielerfiguren haben fünf Resistenzen; deine Figur kann je nach Geschehen in der Geschichte Stress auf jede davon nehmen.",
+   {t:"werte", z:[["BLOOD:","Körperliche Erschöpfung, Schmerz, Blutverlust und Verletzung."],["ECHO:","Verdrehung von Körper und Geist durch die unwirklichen Energien des Herzens."],["MIND:","Wahnsinn, Instabilität und Seltsamkeiten."],["FORTUNE:","Pech, Unfähigkeit und Selbstüberschätzung."],["SUPPLIES:","Verlust von Ressourcen, beschädigte Ausrüstung und Schulden."]]},
+   "Deine Klasse, Berufung, Ausrüstung und Fähigkeiten können dir **Schutz** geben, der die Menge an Stress verringert, die du nimmst. Mehr zu Stress und wie man ihn anwendet findest du auf S. 73."
+  ]]}
+ ]},
+ {id:"skills", t:"Skills, Domains und Knacks", p:6, b:[
+  "Skills sind Dinge, die du tun kannst; Domains sind Wissens- und Erfahrungsbereiche. Skills gelten speziell für Handlungen, während Domains breiter sind und deine Kontakte und/oder deine Fähigkeit, in verschiedenen Bereichen des Herzens zu bestehen, beeinflussen können. Beide geben deiner Figur eine bestimmte Note und besondere Arten von Expertise. Eine Figur mit dem Skill **Mend** und der Domain **Religion** hat wahrscheinlich eine ganz andere Persönlichkeit und Spielweise als eine mit dem Skill **Kill** und der Domain **Cursed**.",
+  "Deine Figur hat bei Spielbeginn Zugriff auf Skills und Domains und kann durch Aufstieg weitere erwerben. Deine Klasse und Berufung können dir automatisch bestimmte Skills und Domains geben, andere stehen zur Auswahl. Es gibt dabei keine Stufen oder Werte – du hast sie oder du hast sie nicht.",
+  {t:"grid", n:3, x:[[
+   {t:"h", x:"Skills", p:7},
+   {t:"werte", z:[["COMPEL:","Bringe Leute durch Drohungen, Lügen, Schmeichelei oder vernünftige Argumente dazu, zu tun, was du willst."],["DELVE:","Dringe in gefährliches oder unbekanntes Gebiet vor."],["DISCERN:","Verstehe die Welt, indem du auf zugängliche Informationen zurückgreifst."],["ENDURE:","Widerstehe den Auswirkungen des Herzens auf Körper und Geist."],["EVADE:","Entkomme jemandem oder etwas, das dich aufspüren will."],["HUNT:","Spüre jemanden oder etwas auf, das dir entkommen will."],["KILL:","Beende das Leben von Leuten und Dingen mit Waffen oder bloßen Händen."],["MEND:","Repariere etwas oder jemanden, das oder der kaputt ist; baue etwas Neues."],["SNEAK:","Verbirg dich oder Dinge vor der Aufmerksamkeit anderer."]]},
+   "Wenn du einen Skill hast, fügst du deinem Würfelpool einen W10 hinzu und nimmst das höchste Ergebnis, wenn du die zum Skill gehörige Handlung ausführst. Es gibt keinen „ungeübten“ Skill; jeder kann die meisten Handlungen ohne Abzug versuchen. Einen Skill zu haben bedeutet ernsthafte Hingabe an die Praxis."
+  ],[
+   {t:"h", x:"Domains"},
+   {t:"werte", z:[["CURSED:","Aktiv schädliche Orte. Orte, die das Herz berührt hat."],["DESOLATE:","Ödländer und verlassene Städte."],["HAVEN:","Siedlungen, in denen Leute leben, arbeiten und Gemeinschaften bilden."],["OCCULT:","Verborgenes Wissen und schwarze Magie."],["RELIGION:","Götter und Dinge, die wie Götter verehrt werden."],["TECHNOLOGY:","Maschinen, Gebäude und Geräte."],["WARREN:","Enge, dichte Gänge."],["WILD:","Wildnis, Pflanzen und Tiere."]]},
+   "Wenn du die passende Domain für eine Situation besitzt, fügst du deinem Würfelpool einen W10 hinzu und nimmst das höchste Ergebnis. Domains sind nicht von Haus aus an Handlungsarten gebunden, sondern an Bereiche des Herzens, breite Wissensgebiete und Verbindungen, die du zu den Leuten der Stadt darunter haben könntest."
+  ],[
+   {t:"h", x:"Knacks"},
+   "Wenn du einen Skill oder eine Domain besitzt und sie ein zweites Mal erhältst, bekommst du einen Knack. Das ist Fertigkeit in einem bestimmten Teilbereich des breiten Spektrums, das der Skill oder die Domain abdeckt. Mit einem Knack würfelst du mit Meisterschaft, aber du kannst pro Wurf nie mehr als einen Würfel durch Meisterschaft erhalten."
+  ]]}
+ ]},
+ {id:"kuerze", t:"Regeln in Kürze", p:8, b:[{t:"html", x:kurz}]}
+]}]};
+})();

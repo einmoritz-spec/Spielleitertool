@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="mb.css">
+<style>
+.buehne{display:grid;grid-template-columns:560px 1fr;height:844px}
+.titel{background:var(--gelb);position:relative;overflow:hidden}
+.titel img{position:absolute;left:50%;bottom:0;height:806px;transform:translateX(-50%)}
+.reg{padding:36px 56px 0 52px;display:flex;flex-direction:column}
+.reg .kopfz{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--gelb);padding-bottom:10px;margin-bottom:4px}
+.reg .kopfz h1{margin:0;font:700 30px/1 var(--fraktur);color:var(--gelb)}
+.zeile{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:8px;padding:18px 16px 18px 12px;border-bottom:1px solid var(--linie);cursor:pointer;margin:0 -16px 0 -12px}
+.zeile .nr{font:800 34px/1 var(--text);color:var(--gelb);padding-top:6px;letter-spacing:.04em}
+.zeile h2{margin:0 0 8px;font:700 40px/1 var(--fraktur);color:var(--weiss)}
+.zeile p{margin:0;font:400 14px/1.75 var(--mono);color:#cfcab5}
+.zeile p span{white-space:nowrap;margin-right:20px}
+.zeile p i{font-style:normal;color:#6f6e63;font-size:12px;margin:0 2px 0 4px}
+.zeile p em{font-style:normal;color:#55544b;margin:0 2px}
+.zeile.hover{background:var(--gelb)}
+.zeile.hover .nr,.zeile.hover h2,.zeile.hover p{color:var(--schwarz)}
+.zeile.hover p i,.zeile.hover p em{color:#6b6200}
+.los{margin-top:auto;margin-bottom:36px;display:grid;grid-template-columns:1fr auto;align-items:center;background:var(--gelb);color:var(--schwarz);padding:22px 28px;cursor:pointer}
+.los .t{font:700 48px/1 var(--fraktur)}
+.los .t span{font-family:var(--grotesk);font-weight:500;margin-left:14px}
+.los .stand{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.siegel{display:flex;gap:5px}
+.siegel b{width:22px;height:22px;border:2px solid var(--schwarz);display:grid;place-items:center;font:700 9px var(--mono)}
+.siegel b.x{background:var(--schwarz);color:var(--gelb)}
+.siegel b.end{border-style:double;border-width:4px}
+.los .z{font:700 13px var(--mono)}
+</style></head><body>
+<header class="kopf"><div class="logo"></div><div class="sp"></div>
+<button class="ib i"><b>i</b></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></header>
+
+<div class="buehne">
+ <div class="titel"><img src="img/cover-skelett.webp" alt=""></div>
+ <div class="reg">
+  <div class="kopfz"><h1>Register</h1></div>
+  <div class="zeile"><div class="nr">I</div><div><h2>Die sterbende Welt</h2>
+   <p><span>Was geschrieben steht<i>S. 4</i></span> <span>Tveland<i>S. 9</i></span> <span>Galgenbeck<i>S. 9</i></span> <span>Sarkash<i>S. 9</i></span> <span>Palast des Schattenkönigs<i>S. 10</i></span> <span>Grift<i>S. 11</i></span> <span>Kergüs<i>S. 12</i></span> <span>Das Westliche Königreich<i>S. 14</i></span> <span>Kalender des Nechrubel<i>S. 16</i></span></p></div></div>
+  <div class="zeile hover"><div class="nr">II</div><div><h2>Die Regeln</h2>
+   <p><span>Fähigkeiten &amp; Proben<i>S. 26</i></span> <span>Tragkraft<i>S. 27</i></span> <span>Trefferpunkte<i>S. 28</i></span> <span>Gewalt<i>S. 29</i></span> <span>Rast, Reaktion, Moral<i>S. 31</i></span> <span>Besser werden<i>S. 33</i></span> <span>Mächte &amp; Schriftrollen<i>S. 34</i></span> <span>Die Basilisken fordern<i>S. 37</i></span></p></div></div>
+  <div class="zeile"><div class="nr">III</div><div><h2>Die Verdammten</h2>
+   <p><span>Charakter erschaffen<i>S. 18</i></span> <span>Waffen, Rüstung, Ausrüstung<i>S. 20</i></span> <span>Sechs Klassen<i>S. 46</i></span> <span>Omen<i>S. 38</i></span> <span>Schreckliche Eigenschaften<i>S. 39</i></span> <span>Gebrochene Körper<i>S. 40</i></span> <span>Arkane Katastrophen<i>S. 44</i></span> <span>Monströse Völker<i>S. 20</i></span></p></div></div>
+  <div class="zeile"><div class="nr">IV</div><div><h2>Die Apokryphen</h2>
+   <p><span>Unheilige Wiederkehr<i>S. 4</i></span> <span>Sternzeichen<i>S. 6</i></span> <span>Apokryphen<i>S. 8</i></span> <span>Krankheiten &amp; Heilmittel<i>S. 10</i></span> <span>Etablissements<i>S. 28</i></span></p></div></div>
+  <div class="los"><div class="t">Zum Spieltisch<span>→</span></div>
+   <div class="stand"><div class="siegel"><b class="x">1:3</b><b class="x">4:6</b><b></b><b></b><b></b><b></b><b class="end">7:7</b></div>
+   <div class="z">W20 · Rotblack Sludge · Raum 6</div></div></div>
+ </div>
+</div>
+
+<div class="ann" style="left:300px;top:96px"><b>1</b>Titelbild = das Cover-Skelett, freigestellt (ohne Titel­schrift), ungeschnitten auf dem Cover-Gelb – volle Höhe, wie eine Buchseite.</div>
+<div class="ann" style="left:1080px;top:76px"><b>2</b>Die Startseite ist das „Register“ des Buchs (Vorsatzseite S. 91), nicht ein Kachelraster: vier Teile, römisch nummeriert, Fraktur-Titel. Klick auf Titel = Teil, auf ein Stichwort = Abschnitt.</div>
+<div class="ann" style="left:1120px;top:300px"><b>3</b>Darüberfahren kehrt die Zeile um: Gelb mit schwarzer Schrift (Signatur des Buchs).</div>
+<div class="ann" style="left:640px;top:700px"><b>4</b>Erst per Klick geht es zum Spiel. Rechts der Stand: gebrochene Siegel des Kalenders (Heimsuchungen), Kalenderwürfel, Abenteuer + Raum.</div>
+<script src="ann.js"></script></body></html>

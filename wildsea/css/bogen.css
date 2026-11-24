@@ -1,0 +1,137 @@
+@font-face{font-family:BgTeko;font-weight:600;src:url(../../assets/fonts/teko-latin-600-normal.woff2?b=1) format('woff2')}
+@font-face{font-family:BgFell;font-weight:400;src:url(../../assets/fonts/im-fell-double-pica-sc-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:BgBebas;font-weight:400;src:url(../../assets/fonts/bebas-neue-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:BgSerif;font-weight:400;src:url(../../assets/fonts/source-serif-4-latin-400-normal.woff2) format('woff2')}
+/* Interaktiver Charakterbogen (#bogen) – Nachbau von Corebook S. 362; Maße in Pixeln des Originals (150 dpi) */
+.tabs .bbar{display:flex;gap:8px;align-items:center}
+.bbar select{font:600 17px/1 BgTeko,Teko,sans-serif;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--sage);border-radius:16px;background:#fff;padding:5px 10px 3px;color:var(--ink)}
+.bwrap{padding:18px 0 30px;background:var(--paper2);min-height:calc(100vh - 100px)}
+.bsheet{--hd:#423e30;--sb:#615f52;--bd:#6f6d66;--pn:#878a77;--cr:#8f9184;--ink:#2d2b25;
+  position:relative;width:1460px;height:1170px;margin:0 auto;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.22);font-family:BgFell,Georgia,serif;color:var(--ink);overflow:hidden}
+.bsheet>*{position:absolute}
+.bsheet *{box-sizing:border-box}
+/* Titel */
+.bti{text-align:center;color:#62645e}
+.bti .t1{font:400 113px/.84 BgBebas,Teko,sans-serif;text-transform:uppercase;letter-spacing:0;white-space:nowrap;height:84px;overflow:visible}
+.bti .t2{font:400 27px/1 BgBebas,Teko,sans-serif;text-transform:uppercase;letter-spacing:.01em;margin-top:10px}
+/* Balken */
+.bh,.bsb{color:#fff;font:600 35px/1 BgTeko,Teko,sans-serif;text-transform:uppercase;letter-spacing:.01em;white-space:nowrap;padding:5px 0 0 10px;z-index:2}
+.bh{background:linear-gradient(180deg,#2f2c22 0,#3f3b2e 6%,#47422f 85%,#2f2b21 100%);clip-path:polygon(0 0,100% 0,calc(100% - 15px) 100%,0 100%)}
+.bsb{background:linear-gradient(180deg,#56544a,#66645a 70%,#57554b);font-size:25px;padding:5px 0 0 7px;clip-path:polygon(0 0,100% 0,calc(100% - 13px) 100%,0 100%)}
+/* Kästen */
+.bx{border:2.6px solid var(--bd);border-top:0;border-radius:0 0 22px 22px;display:flex;flex-direction:column;padding:4px 6px 6px}
+.bx.sub{border-radius:0 6px 16px 16px;padding:18px 4px 4px}
+.bx.out{border-radius:0 0 20px 20px}
+/* Zeilen */
+.row{display:flex;align-items:center;white-space:nowrap;font-size:20px}.row .lb,.row .v{padding-bottom:2px}
+.lb{display:inline-block;overflow:visible;white-space:nowrap;flex:none}
+.lb>span{display:inline-block;transform-origin:0 50%}
+.row .v{font-size:20px;font-variant-numeric:oldstyle-nums}
+.fl{display:flex;align-items:flex-end;font-size:19px;padding-bottom:3px}
+.fl span{flex:none;margin-right:2px}
+.fl input{flex:1;height:22px;border-bottom:1.6px solid #77756e!important;font-size:16px}
+.nt{display:flex;flex-direction:column;font-size:19px}
+.nt span{height:25px;padding-top:3px}
+.nt textarea{flex:1;line-height:24px;font-size:15px}
+/* Eingaben */
+.bsheet input,.bsheet textarea{font-family:BgSerif,Georgia,serif;color:#24231e;background:transparent;border:0;outline:0;border-radius:0;padding:0;margin:0;min-width:0}
+.bsheet textarea{resize:none;width:100%;height:100%;display:block;overflow:hidden;line-height:1.3}
+.bsheet textarea.ln{flex:1;line-height:30px;padding:0 6px;background:repeating-linear-gradient(transparent 0 24px,#e9e8e1 24px 25px,transparent 25px 30px);background-attachment:local}
+.bx.sub textarea.ln{padding-top:0}
+.bsheet input:focus,.bsheet textarea:focus{background-color:#f3f5ec}
+.bsheet textarea.ln:focus{background-color:#f7f8f2}
+.bsheet ::placeholder{color:#a9a79c;opacity:1}
+.bsheet textarea::-webkit-scrollbar{display:none}
+/* Kreise */
+.cr{width:21px;height:21px;border-radius:50%;border:1.6px solid var(--cr);background:#fff;box-shadow:inset 0 0 0 2px #e1e2d9;flex:none;padding:0;cursor:pointer;display:inline-block}
+.cr:hover{box-shadow:inset 0 0 0 2px #e1e2d9,0 0 0 2px #dfe5d2}
+.cr.f{background:#3a372d;border-color:#3a372d;box-shadow:inset 0 0 0 2px #6b6960}
+.cr.e{width:22px;height:22px}
+.cr.x{cursor:default}
+.bds{display:flex;gap:2px;flex:none}
+.bds .cr{width:19px;height:19px}
+.lxw{padding-right:0}
+.lx{width:100%;height:20px;font-size:16px;border-bottom:1.2px solid #c9c7bd!important}
+/* Ketten */
+.bch{display:flex;align-items:center}
+.bch s{display:block;width:8px;height:4px;border-top:1.4px solid #75776a;border-bottom:1.4px solid #75776a;flex:none;text-decoration:none;background:#fff}
+.bch .cr{width:22px;height:22px;border:2px solid #75776a;box-shadow:inset 0 0 0 2.5px #dcded2}
+.bch .cr.f{background:#3a372d;border-color:#3a372d;box-shadow:inset 0 0 0 2.5px #6b6960}
+.bch .cr.gh{border-color:#dddcd3;box-shadow:none}.bch s.gh{border-color:#dddcd3}
+/* Morast */
+.pill{border:2.8px solid #67655e;border-radius:0 23px 23px 0;display:flex;align-items:center;padding:0 12px 0 10px;gap:10px}
+.pill .pt{flex:1;height:100%;display:flex;align-items:center}
+.pill textarea{height:32px;font-size:14px;line-height:1.15;padding-top:1px}
+.pill .bch .cr{width:21px;height:21px}
+.pill .bch s{width:6px}
+/* Aspekt- und Leistenkarten */
+.bk{border:2.8px solid #5f5d56;border-left:0;border-radius:0 26px 26px 0}
+.bkp{position:absolute;left:0;top:-2.8px;bottom:-2.8px;width:68px;background:linear-gradient(180deg,#7f8270,#8a8d7a 45%,#878a77);color:#fff;font-family:BgTeko,Teko,sans-serif;font-weight:600}
+.bkp b{position:absolute;left:8px;top:12px;font-size:25px;line-height:1;letter-spacing:.01em;text-transform:uppercase}
+.bkp i{position:absolute;left:8px;top:52px;font-size:14px;font-style:normal;line-height:1}
+.bkn{position:absolute;left:78px;right:14px;top:1px;height:23px;display:flex;align-items:flex-start;gap:6px}
+.bkn .nm{flex:1;height:23px;font:600 20px/23px BgTeko,Teko,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#2d2b25}
+.bkn .ty{flex:none;height:18px;margin-top:3px;text-align:right;font:600 13px/18px BgTeko,Teko,sans-serif;color:#3b3932}
+.bsheet .bkn .ty::placeholder{color:#3b3932}
+.bk .bch{position:absolute;left:57px;top:25px;z-index:2}
+.bkd{position:absolute;left:78px;right:16px;top:52px;bottom:3px}
+.bkd textarea{font-size:14px;line-height:1.2}
+@media screen and (max-width:1000px){.bsheet{margin:0 auto}}
+@media print{
+  @page{size:A4 landscape;margin:0}
+  html,body{margin:0!important;padding:0!important;background:#fff!important;min-width:0!important;height:auto!important;overflow:hidden!important}
+  body>*:not(#app){display:none!important}
+  #app>*:not(.bwrap){display:none!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .bwrap{padding:0!important;margin:0!important;background:#fff!important;min-height:0!important}
+  .bsheet{zoom:.665!important;margin:12px auto 0!important;box-shadow:none!important;page-break-after:avoid;break-after:avoid}
+  .bsheet input,.bsheet textarea{background-color:transparent!important;caret-color:transparent}
+  .cr:hover{box-shadow:inset 0 0 0 2px #e1e2d9}
+  .bsheet ::placeholder{color:transparent!important}
+  .bsheet .bkn .ty::placeholder{color:#3b3932!important}
+  .cr.gh,.bch s.gh{visibility:hidden}
+}
+.bch .cr.gh{background:transparent}
+.fl input{padding-left:5px}
+.bk .bch{top:24px}
+.bkd{top:53px}
+
+/* saubere, echte Kreise überall */
+.bsheet .cr{-webkit-appearance:none;appearance:none;box-sizing:border-box;min-width:0;min-height:0;aspect-ratio:1/1;border-radius:50%;background:#fff;border:1.8px solid #8a8c80;box-shadow:none;line-height:0;font-size:0}
+.bsheet .cr:hover{box-shadow:0 0 0 2px #dfe5d2}
+.bsheet .cr.f{background:#3a372d;border-color:#3a372d;box-shadow:none}
+.bsheet .row .cr.e{width:22px;height:22px}
+.bsheet .bds .cr{width:20px;height:20px}
+.bsheet .bds{gap:2px}
+.bsheet .bch .cr{width:22px;height:22px;border:2px solid #6f7165}
+.bsheet .bch .cr.f{background:#3a372d;border-color:#3a372d}
+.bsheet .bch .cr.gh{border-color:#dddcd3;background:transparent}
+.bsheet .pill .bch .cr{width:21px;height:21px}
+@media print{.bsheet .cr:hover{box-shadow:none}}
+.bsheet .pill textarea{height:38px;padding-top:10px;line-height:1.15}
+/* alle Kreise identisch */
+.bsheet .cr,.bsheet .row .cr.e,.bsheet .bds .cr,.bsheet .bch .cr,.bsheet .pill .bch .cr{width:21px;height:21px;border:1.8px solid #77796d}
+.bsheet .cr.f,.bsheet .bch .cr.f{border-color:#3a372d}
+.bsheet .bch .cr.gh{border-color:#dddcd3}
+.bsheet .bch s{border-top:1.4px solid #77796d;border-bottom:1.4px solid #77796d}
+.bsheet .bch s.gh{border-color:#dddcd3}
+.bsheet .bk .bch{left:57.5px;top:24.5px}
+
+/* Schiffsbogen */
+.bsheet.ship{width:1400px;height:1190px}
+.bx.grid textarea{line-height:30px;padding:0 8px;background:linear-gradient(#e6e5de 1px,transparent 1px) 0 0/30px 30px,linear-gradient(90deg,#e6e5de 1px,transparent 1px) 0 0/30px 30px;background-attachment:local}
+.bx.grid{border-radius:0 0 26px 26px}
+.nm1{font:600 26px/1.15 BgTeko,Teko,sans-serif!important;text-transform:uppercase;padding:10px 10px 0!important;letter-spacing:.02em}
+.rt{display:flex;align-items:center;border:2.8px solid #67655e;border-radius:12px 22px 22px 12px;background:#fff;overflow:hidden;padding-right:10px}
+.rt .rl{align-self:stretch;flex:none;width:80px;background:linear-gradient(180deg,#85877a,#74766a);color:#fff;font:600 23px/1 BgTeko,Teko,sans-serif;text-transform:uppercase;display:flex;align-items:center;padding-left:7px;white-space:nowrap}
+.rt .rl>span{display:inline-block;transform-origin:0 50%}
+.rt .bch{flex:1;margin-left:10px}
+.rt .bch s{flex:1;width:auto}
+.stk{align-items:center;justify-content:center;position:relative}
+.stk input{position:absolute;width:62px;height:24px;text-align:center;font:600 20px/24px BgTeko,Teko,sans-serif;color:#2d2b25}
+.stk .su{left:12px;top:8px;text-align:left}.stk .st{right:10px;bottom:6px;text-align:right}
+.stk i{position:absolute;left:58px;top:12px;width:2px;height:56px;background:#7b7a70;transform:rotate(22deg)}
+.bsheet .stk input::placeholder{color:#9b9a90;font-size:14px;opacity:1}
+@media print{.bsheet.ship{zoom:.66!important}.bsheet .stk input::placeholder{color:#9b9a90!important}}
+.bh>span,.bsb>span{display:inline-block;transform-origin:0 50%;white-space:nowrap}
+.rt .rl{width:88px}

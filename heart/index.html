@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="theme-color" content="#0d0804">
+<title>Heart</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="go('start')" aria-label="Heart"><img src="../assets/logos/heart.webp" alt="Heart"></button>
+  <nav class="ktabs" id="ktabs"></nav>
+  <div class="sp"></div>
+  <button class="ik i tm-info-own" onclick="window.gmInfoOpen&&gmInfoOpen()" aria-label="Überblick" title="Überblick">i</button>
+  <button class="ik" onclick="openBook('ht_core',1)" aria-label="Buch öffnen" title="Buch"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+  <button class="ik" onclick="go('karte')" aria-label="Karte des Herzens" title="Karte (m)"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l4 2.3v4.6l-4 2.3-4-2.3V5.8z"/><path d="M8 12.7l4 2.3v4.6l-4 2.3-4-2.3v-4.6z" opacity=".55"/><path d="M16 12.7l4 2.3v4.6l-4 2.3-4-2.3v-4.6z" opacity=".55"/></svg></button>
+  <button class="ik" onclick="openMenu(true)" aria-label="Menü" title="Menü"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app"></div>
+<div class="mm-backdrop" id="mmB" onclick="openMenu(false)"></div>
+<div class="mm-panel" id="mmP"></div>
+<script src="js/data/buecher.js"></script>
+<script src="js/data/start.js"></script>
+<script src="js/data/nach-einfuehrung.js"></script>
+<script src="js/data/nach-spielweise.js"></script>
+<script src="js/data/nach-charaktere-a.js"></script>
+<script src="js/data/nach-charaktere-b.js"></script>
+<script src="js/data/nach-klassen-a.js"></script>
+<script src="js/data/nach-klassen-b.js"></script>
+<script src="js/data/nach-klassen-c.js"></script>
+<script src="js/data/nach-regeln-a.js"></script>
+<script src="js/data/nach-regeln-b.js"></script>
+<script src="js/data/nach-regeln-c.js"></script>
+<script src="js/data/nach-spielleitung.js"></script>
+<script src="js/data/nach-zuflucht.js"></script>
+<script src="js/data/lm-a.js"></script>
+<script src="js/data/lm-b.js"></script>
+<script src="js/data/lm-c.js"></script>
+<script src="js/data/lm-d.js"></script>
+<script src="js/data/nach-landmarken-info.js"></script>
+<script src="js/data/g-a.js"></script>
+<script src="js/data/g-b.js"></script>
+<script src="js/data/g-c.js"></script>
+<script src="js/data/g-d.js"></script>
+<script src="js/data/g-e.js"></script>
+<script src="js/data/bilder.js"></script>
+<script src="js/data/dk-intro-a.js"></script>
+<script src="js/data/dk-intro-b.js"></script>
+<script src="js/data/dk-intro-c.js"></script>
+<script src="js/data/dk-1.js"></script>
+<script src="js/data/dk-2.js"></script>
+<script src="js/data/dk-3.js"></script>
+<script src="js/data/dk-4.js"></script>
+<script src="js/data/dk-5.js"></script>
+<script src="js/data/dk-6.js"></script>
+<script src="js/data/dk-7.js"></script>
+<script src="js/data/dk-app.js"></script>
+<script src="js/data/nach-welt.js"></script>
+<script src="js/data/nach-regeluebersicht.js"></script>
+<script src="js/data/nach-charaktere-bb.js"></script>
+<script src="js/data/bogen-layout.js"></script>
+<script src="js/data/kampagne-beispiel.js"></script>
+<script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
+<script src="js/app.js"></script>
+<script src="js/nach.js"></script>
+<script src="js/landmarken.js"></script>
+<script src="js/gegner.js"></script>
+<script src="js/fallout.js"></script>
+<script src="js/expedition.js"></script>
+<script src="js/dagger.js"></script>
+<script src="js/karte.js"></script>
+<script src="js/data/bo-a.js"></script>
+<script src="js/data/bo-b.js"></script>
+<script src="js/data/bo-c.js"></script>
+<script src="js/blackops.js"></script>
+<script src="js/data/doors-a.js"></script>
+<script src="js/data/doors-b.js"></script>
+<script src="js/data/doors-c.js"></script>
+<script src="js/doors.js"></script>
+<script src="js/bogen.js"></script>
+<script src="js/kampagne.js"></script>
+<script src="js/glossar.js"></script>
+<script src="../shared/gsuche.js"></script>
+<script src="js/suche.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ht_core", books:HT_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });
+render();</script>
+<script src="../shared/masonry.js" defer></script>
+<script src="../toolmenu.js"></script>
+<script>try{localStorage.setItem("gm_tool_mode_v1","heart");}catch(e){} window.gmBook=function(){return {name:"Heart Regelbuch",open:function(){BV.open("ht_core",1);}};};</script>
+</body>
+</html>

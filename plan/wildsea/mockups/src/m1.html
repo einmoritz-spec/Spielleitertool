@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ws.css"><style>
+.hero{height:300px;background:url(img/hero.webp) center 55%/cover;position:relative}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:90px;background:linear-gradient(transparent,var(--paper))}
+.wrap{display:grid;grid-template-columns:1fr 400px;gap:28px;padding:0 34px;margin-top:-20px;position:relative}
+h2{font-size:30px;text-transform:uppercase;margin:0 0 12px;letter-spacing:.05em}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ti{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-columns:118px 1fr;min-height:150px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.ti .im{background-size:cover;background-position:center}
+.ti .b{padding:12px 14px}
+.ti h3{font-size:26px;text-transform:uppercase}
+.ti p{font-size:12.5px;color:var(--soft);line-height:1.45;margin-top:5px}
+.ti .pg{display:block;margin-top:6px}
+.go{background:var(--teal);color:#fff;border-radius:8px;padding:20px 22px;position:relative;overflow:hidden}
+.go h3{font-size:44px;text-transform:uppercase;letter-spacing:.04em}
+.go .rs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 14px}
+.go .rs div{height:78px;border-radius:4px;background-size:cover;background-position:center;position:relative}
+.go .rs span{position:absolute;left:6px;bottom:3px;font:600 17px/1 Teko;text-transform:uppercase;text-shadow:0 1px 4px #000}
+.go .bt{display:block;text-align:center;background:var(--amber);color:#3a2a08;font:600 24px/1 Teko;text-transform:uppercase;padding:12px 0 9px;border-radius:5px;letter-spacing:.06em}
+.go .sc{display:flex;gap:8px;margin-top:12px}
+.go .sc div{flex:1;border:1px dashed rgba(255,255,255,.45);border-radius:4px;padding:7px 9px;font-size:12px;opacity:.75}
+.go .sc b{display:block;font:600 18px/1 Teko;text-transform:uppercase}
+.lastrow{margin-top:18px;display:flex;gap:10px;align-items:center}
+.lastrow .ch{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 14px 4px;font:600 17px/1 Teko;text-transform:uppercase;letter-spacing:.05em}
+</style></head><body>
+<div class="top"><img class="logo" src="img/the-wildsea.webp"><div class="sp"></div>
+<span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></span>
+<span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span></div>
+
+<div class="hero"></div>
+<div class="wrap">
+<div>
+<h2>Vorbereitung</h2>
+<div class="tiles">
+<div class="ti"><div class="im" style="background-image:url(img/cover.webp)"></div><div class="b"><h3>Die Wildsee</h3><p>Rauschende Wellen, Schichten der See, Zivilisation, Technik, Spiritualität, Arconautik</p><span class="pg">Kap. 1 · S. 4</span></div></div>
+<div class="ti"><div class="im" style="background-image:url(img/k02.webp)"></div><div class="b"><h3>Regeln</h3><p>Wild-Words-Engine, Leisten, Aktionen, Szenen, Montagen, Reisen</p><span class="pg">Kap. 2–5 · S. 30</span></div></div>
+<div class="ti"><div class="im" style="background-image:url(img/k07.webp)"></div><div class="b"><h3>Charaktere</h3><p>Blutlinien, Herkünfte, Posten, Stärken, Fertigkeiten, Aspekte</p><span class="pg">Kap. 6–7 · S. 78</span></div></div>
+<div class="ti"><div class="im" style="background-image:url(img/k08.webp)"></div><div class="b"><h3>Schiffe</h3><p>Entwurf, Ausstattung, Unterbesatzung, Schiffswerte</p><span class="pg">Kap. 8 · S. 162</span></div></div>
+<div class="ti"><div class="im" style="background-image:url(img/k09.webp)"></div><div class="b"><h3>Leitfaden</h3><p>Sitzung Null, Ton, Tempo, Werkzeugkasten, Belohnungen, NSC</p><span class="pg">Kap. 9 · S. 186</span></div></div>
+<div class="ti"><div class="im" style="background-image:url(img/k12.webp)"></div><div class="b"><h3>Am Tisch</h3><p>Namen, alternative Wendungen, Eintagsfliegen-Regeln, Glossar</p><span class="pg">Kap. 12 · S. 336</span></div></div>
+</div>
+<div class="lastrow"><span class="ch">Charakterbogen</span><span class="ch">Schiffsbogen</span><span class="ch">Regelübersicht</span><span class="ch">Galerie</span></div>
+</div>
+<div class="go">
+<h3>In See stechen</h3>
+<div class="rs">
+<div style="background-image:url(img/foxloft.webp)"><span>Foxloft</span></div>
+<div style="background-image:url(img/icterine.webp)"><span>Icterine</span></div>
+<div style="background-image:url(img/interregnum.webp)"><span>Interregnum</span></div>
+<div style="background-image:url(img/ambered.webp)"><span>Ambered Irons</span></div>
+<div style="background-image:url(img/kremich.webp)"><span>Kremich Surge</span></div>
+<div style="background-image:url(img/prophet.webp)"><span>Prophet’s Fall</span></div>
+</div>
+<span class="bt">Reiche &amp; Szenarien</span>
+<div class="sc"><div><b>Red Right Hand</b>Szenario · PDF fehlt</div><div><b>One Armed Scissor</b>Szenario · PDF fehlt</div></div>
+</div>
+</div>
+</body></html>

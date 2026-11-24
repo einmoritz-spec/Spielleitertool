@@ -1,0 +1,7 @@
+{
+  "name": "erzaehler-tafel",
+  "productName": "Erzähler-Tafel",
+  "version": "1.0.0",
+  "description": "Erzähler-Tafel – Spielleiter-Werkzeuge (Windows-Desktop-Fassung, läuft offline)",
+  "main": "main.js"
+}

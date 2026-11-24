@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="spire.css">
+<style>
+.beg{display:flex;gap:10px;align-items:center;background:var(--nacht);color:#dbe3ef;padding:8px 14px;margin:-22px -34px 16px;flex-wrap:wrap}
+.beg>b{font:700 16px var(--f-titel);text-transform:uppercase;color:#9fb2c8;letter-spacing:.04em}
+.bc{background:#172a3d;border:1px solid #2a425b;padding:5px 9px;display:flex;gap:8px;align-items:center}
+.bc.on{outline:2px solid var(--gold)}
+.bc span{font:700 15px var(--f-titel);text-transform:uppercase}
+.bc .zw i{width:13px;height:13px;border-color:#dbe3ef;background:transparent}
+.bc .zw i.x{background:var(--wein);border-color:var(--wein)}
+.bc small{color:#8ea2b9;font-size:12px}
+.plus{font:700 15px var(--f-titel);text-transform:uppercase;border:1px dashed #4a627c;padding:5px 10px;color:#9fb2c8}
+.filter{display:flex;gap:6px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.filter input{font:15px var(--f-text);padding:6px 10px;border:1px solid #9eb0c8;width:240px;background:#fff}
+.bereich{display:grid;grid-template-columns:1fr 540px;gap:16px;align-items:start}.g4{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}.gk.sel{outline:3px solid var(--gold)}
+.gk{background:var(--papier2);border:1px solid #9eb0c8;cursor:pointer}
+.gk .kopf{background:#000;color:#fff;padding:6px 10px;display:flex;align-items:center;gap:8px}
+.gk .kopf h4{font:700 17px/1.05 var(--f-titel);text-transform:uppercase;margin:0;flex:1}
+.gk .kopf img{width:34px;height:44px;object-fit:cover;object-position:center 20%}
+.gk .wt{display:flex;justify-content:space-between;padding:6px 10px;font-size:13.5px}
+.gk .wt b{font:700 13px var(--f-titel);text-transform:uppercase;color:var(--wein)}
+.gk .t{padding:0 10px 8px}
+.gk .t .chip{font-size:11px}
+.gk .q{padding:0 10px 6px;font-size:12px;color:var(--grau)}
+.gross{position:sticky;top:120px;cursor:default}
+.gross dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:0;padding:10px 12px}
+.gross dt{font:700 14px var(--f-titel);text-transform:uppercase;color:var(--wein)}
+.gross dd{margin:0;font-size:15px}
+.gross .bildr{float:right;width:120px;margin:10px 12px 6px 10px}
+.side a span{float:right;color:var(--grau);font-size:12px}
+</style></head><body><script src="top.js"></script>
+<div class="tabs"><a>Stadt</a><a>Zelle</a><a class="on">Gegner</a><a>Zufall</a><div class="sp"></div></div>
+<div class="wrap">
+ <div class="side"><span class="zu">‹</span>
+  <h5>Nach Domäne</h5>
+  <a>Akademie<span>1</span></a><a>Handel<span>3</span></a><a>Verbrechen<span>5</span></a><a>Hohe Gesellschaft<span>1</span></a><a>Niedere Gesellschaft<span>3</span></a><a>Okkultes<span>6</span></a><a>Ordnung<span>1</span></a><a class="on">Religion<span>4</span></a>
+  <h5>Magister's Guide</h5>
+  <a>Gegner der Klassen<span>14</span></a>
+  <h5>Snuff Out the Sun</h5>
+  <a>Antagonisten<span>3</span></a>
+  <h5>Regeln</h5>
+  <a class="sub">Standardwerte für NSC · QS S. 21</a>
+  <a class="sub">Tags · S. 20</a>
+  <a class="sub">Kampf · S. 77</a>
+ </div>
+ <div class="main">
+  <div class="beg"><b>Begegnung</b>
+   <div class="bc on"><span>Paladin</span><span class="zw"><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i></span><small>3/7</small></div>
+   <div class="bc"><span>Vigilit ×3</span><span class="zw"><i class="x"></i><i></i><i></i><i></i><i></i></span><small>1/5</small></div>
+   <div class="bc"><span>Stadtwache</span><span class="zw"><i></i><i></i><i></i><i></i><i></i></span><small>0/5</small></div>
+   <span class="plus">+ Gegner</span>
+  </div>
+  <div class="filter"><input placeholder="Suchen …"><span class="chip s">Alle</span><span class="chip">Schwierigkeit 0</span><span class="chip">1</span><span class="chip">2+</span><span class="chip w">Mit Fernkampf</span></div>
+  <div class="bereich"><div class="g4">
+   <div class="gk sel"><div class="kopf"><h4>Paladin</h4></div><div class="wt"><span><b>Schw.</b> 2</span><span><b>Wid.</b> 7</span></div><div class="t"><span class="chip">Rüstung 4</span><span class="chip w">W6</span><span class="chip w">W3</span><span class="chip">Fernkampf</span></div><div class="q">Religion · Die Sonnenbasilika · S. 167</div></div>
+   <div class="gk"><div class="kopf"><h4>Vigiliten</h4></div><div class="wt"><span><b>Schw.</b> 0 (1)</span><span><b>Wid.</b> 3 / 5</span></div><div class="t"><span class="chip w">W6</span><span class="chip">Streuung W3</span><span class="chip">Einweg</span></div><div class="q">Religion · Karmesinrote Wacht · S. 163</div></div>
+   <div class="gk"><div class="kopf"><h4>Vigiliten-Brandstifter</h4></div><div class="wt"><span><b>Schw.</b> 0 (2)</span><span><b>Wid.</b> 6+</span></div><div class="t"><span class="chip w">W6</span><span class="chip">Fernkampf</span><span class="chip">Gefährlich</span></div><div class="q">Religion · Karmesinrote Wacht · S. 163</div></div>
+   <div class="gk"><div class="kopf"><h4>Hyänenrudel der Charnel-Geschworenen</h4></div><div class="wt"><span><b>Schw.</b> ·</span><span><b>Wid.</b> ·</span></div><div class="t"><span class="chip w">W6</span></div><div class="q">Religion · Neuer Himmel · S. 171</div></div>
+   <div class="gk"><div class="kopf"><h4>Stadtwache</h4></div><div class="wt"><span><b>Schw.</b> 0</span><span><b>Wid.</b> 5</span></div><div class="t"><span class="chip">Rüstung 2</span><span class="chip w">W3</span><span class="chip w">W6</span><span class="chip">Brutal</span></div><div class="q">Ordnung · Die Stadtwache · S. 147</div></div>
+   <div class="gk"><div class="kopf"><h4>Herbst-Paladine</h4></div><div class="wt"><span><b>Schw.</b> ·</span><span><b>Wid.</b> ·</span></div><div class="t"><span class="chip w">W8</span></div><div class="q">Snuff Out the Sun · QS S. 22</div></div>
+   <div class="gk"><div class="kopf"><h4>Schwarze Garde</h4></div><div class="wt"><span><b>Schw.</b> ·</span><span><b>Wid.</b> ·</span></div><div class="t"><span class="chip w">W8</span></div><div class="q">Hohe Gesellschaft · Amaranth · S. 109</div></div>
+  </div>
+   <div class="gk gross"><div class="kopf"><h4>Paladin</h4><span class="pg" style="color:#9aa">S. 167</span></div>
+    <img class="bildr" src="img/cmf_S168.webp">
+    <dl>
+     <dt>Namen</dt><dd>Schreitet-über-die-Morgenröte, Hase-der-zum-Jäger-flitzt, Zehntausend-Lieben</dd>
+     <dt>Beschreibung</dt><dd>Trägt viele Reliquien · Rotes Haar, zurückgebunden · Liest laut aus dem Dritten Buch der Ernte vor</dd>
+     <dt>Schwierigkeit</dt><dd>Die Paladine gehören zu den besten Kämpfern der ganzen Stadt und sind zudem am besten ausgerüstet. Schwierigkeit 2 durchweg, es sei denn, man kann die Chancen irgendwie ausgleichen</dd>
+     <dt>Widerstand</dt><dd>7 <span class="zw"><i class="x"></i><i class="x"></i><i class="x"></i><i></i><i></i><i></i><i></i></span></dd>
+     <dt>Ausrüstung</dt><dd>Paladin-Dienstplatte <span class="chip">Rüstung 4</span>, Legrand-Militärgewehre <span class="chip w">W6</span><span class="chip">Fernkampf</span><span class="chip">Durchschlagend</span> oder Carog-Schrotflinten <span class="chip w">W6</span><span class="chip">Fernkampf</span><span class="chip">Kernschuss</span><span class="chip">Nachladen</span> und Schlingen <span class="chip w">W3</span><span class="chip">Schwächend</span>, dazu Sonnenbomben <span class="chip">Fernkampf</span><span class="chip">Streuung W3</span><span class="chip">Nicht tödlich</span>, die sie vor dem Angriff in Räume schleudern</dd>
+    </dl>
+    <div style="padding:0 12px 10px;font-size:13px;color:var(--grau)">Religion › Die Sonnenbasilika › Die Paladine <span class="chip" style="font-size:11px">→ zum Distrikt</span> <span class="chip w" style="font-size:11px">+ Begegnung</span></div>
+   </div>
+  </div>
+  </div>
+ </div>
+</div>
+<div class="note" style="left:760px;top:105px"><b>1</b>Begegnungsleiste: Gegner der laufenden Szene, Widerstand je Gegner anklickbar, Gruppen „×3“</div>
+<div class="note" style="left:900px;top:680px"><b>2</b>Großkarte = Buch-Werteblock vollständig; kleines Bild nur, wenn es im Buch zu genau diesem Gegner gehört</div>
+<div class="note" style="left:300px;top:640px"><b>3</b>Kompakte Karten (zugeklappt): Name, Schwierigkeit, Widerstand, Waffen-Tags, Fundort</div>
+</body></html>

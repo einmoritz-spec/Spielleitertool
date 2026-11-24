@@ -1,0 +1,58 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><title>Dragonbane – Beruf</title>
+<link rel="stylesheet" href="db.css">
+<style>
+.nb{display:grid;grid-template-columns:226px 1fr;gap:0 40px;padding:12px var(--rand) 0;height:calc(100vh - 132px)}
+.side{position:relative;border-right:1px solid var(--linie);padding:6px 18px 0 0;align-self:start}
+.side .zu{position:absolute;right:-12px;top:0;width:24px;height:24px;border-radius:50%;background:var(--perg);border:1px solid var(--linie);color:var(--jade-d);font:15px/22px var(--f-kopf);text-align:center}
+.side a{display:flex;align-items:baseline;gap:6px;padding:7px 0 7px 26px;font:16px/1.25 var(--f-text);position:relative}
+.side a .s{margin-left:auto}
+.side a.on{color:var(--jade);font-family:var(--f-kopf);font-size:15.5px}
+.side a.on::before{content:"";position:absolute;left:0;top:8px;width:18px;height:18px;background:url(img/orn/knoten.png) center/contain no-repeat}
+.strip{display:flex;justify-content:space-between;align-items:flex-end;padding:0 4px 10px;border-bottom:1px solid var(--linie)}
+.bf{display:flex;flex-direction:column;align-items:center;gap:6px;width:96px;cursor:pointer}
+.bf img{height:64px;width:80px}
+.bf span{font:11px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d)}
+
+.bf.on span{color:var(--stein-text);padding:5px 10px;margin:-5px 0;border-style:solid;border-width:0 10px;border-image:url(img/orn/steinband.png) 0 40 fill / 0 10px stretch}
+.kt{display:flex;align-items:center;gap:16px;margin:16px 0 12px}
+.kt i{flex:1;height:20px;border-style:solid;border-color:transparent}
+.kt i.a{border-width:0 0 0 26px;border-image:url(img/orn/rail-l.png) 0 0 0 70 fill / 0 0 0 26px stretch}
+.kt i.b{border-width:0 26px 0 0;border-image:url(img/orn/rail-r.png) 0 70 0 0 fill / 0 26px 0 0 stretch}
+.dr{display:grid;grid-template-columns:1fr 330px 1fr;gap:0 34px;align-items:start;font-size:16px;line-height:1.46}
+.zit{font:17px/1.4 var(--f-kursiv);font-style:italic;margin-bottom:6px}
+.wer{font:11px var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--tinte);margin-bottom:14px}
+.dr .fig{width:330px;height:auto;margin-top:-8px}
+.dr table+table{margin-top:18px}
+table.w6{font-size:14px}
+table.w6 td:first-child{white-space:nowrap;width:42px}
+table.w6.zwei td:nth-child(3){font-family:var(--f-kopf);width:34px;text-align:center}
+</style><body>
+<!--KOPF-->
+<div class="tabs"><button class="tab on">Spielercharakter</button><button class="tab">Fertigkeiten</button><button class="tab">Kampf &amp; Schaden</button><button class="tab">Magie</button><button class="tab">Ausrüstung</button><button class="tab">Bestiarium</button><button class="tab">Abenteuer</button><button class="tab">Tabellen</button><div class="sp"></div></div>
+<div class="nb">
+ <nav class="side"><button class="zu">‹</button><a>Einführung<span class="s">S. 9</span></a><a>Völker<span class="s">S. 9</span></a><a class=on>Berufe<span class="s">S. 13</span></a><a>Alter &amp; Name<span class="s">S. 24</span></a><a>Attribute<span class="s">S. 24</span></a><a>Abgeleitete Werte<span class="s">S. 25</span></a><a>Fertigkeiten<span class="s">S. 25</span></a><a>Heroische Talente<span class="s">S. 26</span></a><a>Ausrüstung<span class="s">S. 27</span></a><a>Traglast &amp; Aussehen<span class="s">S. 28</span></a><a>Erfahrung<span class="s">S. 29</span></a></nav>
+ <div>
+  <div class="strip"><a class="bf"><img class="fig" src="img/beruf/handwerker.webp"><span>Handwerker</span></a><a class="bf"><img class="fig" src="img/beruf/barde.webp"><span>Barde</span></a><a class="bf"><img class="fig" src="img/beruf/krieger.webp"><span>Krieger</span></a><a class="bf on"><img class="fig" src="img/beruf/jaeger.webp"><span>Jäger</span></a><a class="bf"><img class="fig" src="img/beruf/ritter.webp"><span>Ritter</span></a><a class="bf"><img class="fig" src="img/beruf/magier.webp"><span>Magier</span></a><a class="bf"><img class="fig" src="img/beruf/seefahrer.webp"><span>Seefahrer</span></a><a class="bf"><img class="fig" src="img/beruf/haendler.webp"><span>Händler</span></a><a class="bf"><img class="fig" src="img/beruf/gelehrter.webp"><span>Gelehrter</span></a><a class="bf"><img class="fig" src="img/beruf/dieb.webp"><span>Dieb</span></a></div>
+  <div class="kt"><i class="a"></i><span class="titel">Jäger</span><span class="s" style="margin-left:-8px">S. 17</span><i class="b"></i></div>
+  <div class="dr">
+   <div>
+    <div class="zit">„Was braucht man nicht alles, um ein geschickter Jäger zu werden? Gewandtheit, Heimlichkeit? Treffsicherheit mit dem Bogen, List mit den Schlingen? Kenntnis von Jagdgrund und Beute? Sicher, auf feine Manieren und schöne Worte kannst du verzichten – aber wen kümmert schon solcher Unsinn?“</div>
+    <div class="wer">– Ciliel Nachtsee</div>
+    <p>Hasen in Schlingen fangen, Keiler abstechen und lautlos Hirsche in den Tiefen des Waldes pirschen, den Pfeil auf der Sehne. Jäger leben für die Jagd und die Beute. Ein Tier respektvoll zu töten und alles von ihm zu nutzen – für Nahrung, Kleidung, Werkzeug und Waffen – ist für alle wahren Jäger eine heilige Berufung …</p>
+    <ul class="st"><li><b>Schlüsselattribut:</b> GEW</li><li><b>Fertigkeiten:</b> Akrobatik, Wahrnehmung, Bögen, Wildniskunde, Jagen &amp; Fischen, Messer, Schleudern, Heimlichkeit</li><li><b>Heroisches Talent:</b> Gefährte</li></ul>
+   </div>
+   <img class="fig" src="img/beruf/jaeger.webp" alt="">
+   <div>
+    <table class="w6"><tr><th>W6</th><th>Ausrüstung</th></tr>
+     <tr><td>1–2</td><td>Dolch, Kurzbogen, Köcher, Lederrüstung, Schlafsack, Fackel, Feuerstein &amp; Zunder, Seil (Hanf), Schlinge, W8 Essensrationen, W6 Silber</td></tr>
+     <tr><td>3–4</td><td>Messer, Langbogen, Köcher, Lederrüstung, Schlafsack, Fackel, Feuerstein &amp; Zunder, Seil (Hanf), Angelrute, W8 Essensrationen, W6 Silber</td></tr>
+     <tr><td>5–6</td><td>Dolch, Schleuder, Lederrüstung, Schlafsack, Fackel, Feuerstein &amp; Zunder, Seil (Hanf), Schlinge, W8 Essensrationen, W6 Silber</td></tr></table>
+    <table class="w6 zwei"><tr><th>W6</th><th>Beiname</th><th>W6</th><th>Beiname</th></tr>
+     <tr><td>1</td><td>Waldfuchs</td><td>4</td><td>Der Verwitterte</td></tr><tr><td>2</td><td>Wolfsbann</td><td>5</td><td>Blutdurst</td></tr><tr><td>3</td><td>Pfadfinder</td><td>6</td><td>Schattenbolzen</td></tr></table>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="ann" style="left:520px;top:120px;max-width:420px"><b>1</b>Die zehn Berufe als Figurenleiste (Original-Figuren des Buchs); bei „Völker“ ebenso die sechs Völker. ↑/↓ in der Seitenleiste, ←/→ in der Leiste.</div>
+<div class="ann" style="left:940px;top:300px;max-width:330px"><b>2</b>Kopf wie im Buch: Name zwischen zwei Jade-Leisten. Darunter drei feste Spalten: Text, Figur ungeschnitten, W6-Tabellen.</div>
+</body></html>

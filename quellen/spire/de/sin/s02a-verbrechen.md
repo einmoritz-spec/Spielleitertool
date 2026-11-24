@@ -1,0 +1,67 @@
+<!-- S. 19 (PDF 19) -->
+
+Man sagt, Verbrechen lohne sich nicht, aber Worte sind billig – und gemessen an den Münzen, die aus den Schatztruhen der Verbrecherfürsten, selbsternannten Räuberprinzessinnen und ränkeschmiedenden Aelfir quellen, sind sie eindeutig aus angelaufenem Silber gemacht.
+Der Rat verurteilt das Verbrechen einmal pro Jahreszeit, um zu zeigen, dass keiner von ihnen ellbogentief im Morast des kriminellen Gewerbes steckt, der regelmäßig bis vor die Augen des ehrbaren Drow-Mittelstands überläuft. Diese fleißigen Bürger wiederum beharren darauf, dass *etwas* getan werden muss; dann packen sie ihr schwarzmarktliches Malak aus, lesen ein wenig verbotene Literatur und würzen ihr Essen mit geschmuggelten nujabischen Gewürzen.
+Verbrechen ist im Spire eine Lebensweise. Die Obere Stadt ist riesig, die Mittel der Wache sind überdehnt, und die Bedürfnisse der Menschen sind größer als die Bereitschaft des Rates, sie zu befriedigen. In den Ritzen der gesetzestreuen Gesellschaft ist ein Ökosystem derer entstanden, die bereit sind, die Regeln zu brechen, um zu bekommen, was sie wollen, und das beinahe jedes Bedürfnis stillt.
+Die meisten Bewohner des Spire haben einen Zeh in den gewaltigen kriminellen Unternehmungen, die die Stadt tragen. Die Schattenwirtschaft bietet denen, die Schläue und Entschlossenheit besitzen, nicht nur Reichtum und Macht, sondern auch eine seltene Chance auf sozialen Aufstieg.
+Bei all ihrem Gerede von Recht, Ordnung und Verantwortung lechzen die Aelfir nach dem Unerlaubten und Verbotenen. Der richtige Verbrechertyp kann die gesellschaftliche Ordnung durchschneiden und im Oberen Spire sogar zu Berühmtheit gelangen. Doch auch wenn man sie für modisch halten und sogar bewundern mag, sind sie für die Aelfir nicht mehr als Kuriositäten oder Schoßtiere – und wer ihnen nacheifern will, den treffen sie mit voller Härte.
+# VERBRECHEN {farbe=#194d71}
+*Von JP Bradley*
+
+<!-- S. 20 (PDF 20) -->
+
+20
+## SIN {farbe=#3c0052}
+# VERBRECHEN IM SPIRE {farbe=#3c3b57}
+Es gibt im Spire so viele Verbrechen, wie es Einwohner gibt, und das Gesetzbuch ist ein Kriegsschauplatz einander widersprechender Urteile über die Generationen hinweg. Es ist inzwischen auch das Schlachtfeld eines ganz bestimmten ehemals verheirateten Paares, das seine lange und erbitterte Scheidung in täglichen Urteilen und Gegenurteilen austrägt.
+Die folgenden Verbrechen sind in der Vergangenheit durchaus verfolgt worden, schweben aber allesamt in ständiger Gefahr von Änderung, Ergänzung, Verschärfung und Neuauslegung – meist in dem rachsüchtigen Versuch, sich für inzwischen hinfällige Hochzeitsgeschenke zu revanchieren.
+#### SCHMUGGEL IM VERMISSIAN. {farbe=#3c3b57}
+Von allen Arten, Schmuggelware durch den Spire zu bewegen, ist dies mit Abstand die gefährlichste. Das Vermissian selbst, angebunden an die überreifen Wirklichkeiten, die das Herz ausschwitzt, und befallen von den Bewohnern der Unteren Stadt, ist ein gewundenes Labyrinth aus sich verschiebenden, fraktalen Wirklichkeiten. Man kann sich darin für immer verlieren, an Geist wie an Körper, was es ebenso schwer zu bestreifen wie zu durchqueren macht. Zum größten Teil macht sich die Wache gar nicht erst die Mühe.
+Die wenigen erfolgreichen Vermissian-Schmuggler werden außergewöhnlich gut bezahlt und neigen zum Hedonismus, denn jeder Vorstoß könnte ihr letzter sein. Sie versammeln sich trotz der Wachpräsenz offen im Schaffnerklub [[Conductor's Club]] auf der Ivory Row, im Wissen, dass sie unantastbar sind, solange man sie nicht auf frischer Tat ertappt.
+Die Wache ihrerseits versucht, diese Schmuggler zu schnappen, wenn sie das Vermissian verlassen. Doch es ist ihr nicht gelungen, die zahllosen Ein- und Ausgänge zu kartieren, die überall im Spire erscheinen und verschwinden, scheinbar mit einem eigenen Willen.
+#### EINBRUCH {farbe=#3c3b57}
+Die strafrechtliche Definition von Einbruch ist das Betreten einer Wohnstätte oder eines Bauwerks in der Absicht, eine Straftat zu begehen, nicht bloß der Akt des Diebstahls (wie viele Drow irrtümlich glauben). Da die gesamten Distrikte des Oberen Spire innerhalb des Bauwerks selbst liegen und die Aelfir von Amaranth es als ihren angestammten Wohnbereich betrachten, lässt sich Einbruch mühelos zu anderen Straftaten hinzufügen, um Anklagen aufzublasen und Vergehen um Gefängniszeit zu verlängern.
+#### LEITUNGSVERSTRICKUNG {farbe=#3c3b57}
+Das Vermissian ist eine nützliche Ressource für Verbrecher, die kühn genug sind, sie zu nutzen, denn das gescheiterte Geflecht aus Leitungen verbindet den größten Teil des Spire über diskrete Unterdimensionen und grell unmathematische Räume.
+Die verborgenen und sich verschiebenden Durchgänge des Vermissian zu betreten und zu verlassen gilt als tollkühn und gefährlich; etwas ganz anderes aber ist es, eine neue Verbindung zwischen seiner höhlenhaften Unwirklichkeit und der Oberen Stadt zu schmieden. Das ist, wenig überraschend, außerordentlich illegal.
+„Leitungsverstrickung“ ist definiert als jede Methode, mit der man Zugang zu parallelen Versionen des Vermissian erlangt, um den Spire zu durchqueren.
+Die Vermissian Sages kennen eine Form dieser Macht und finden Zugänge zum verderbten Metrosystem, wo immer es gerade passt; doch das geschieht von außen. Blind einen Zugangsweg von innerhalb des Vermissian zu öffnen und an einem gewählten Ziel zu landen, ist hochgefährlich für den Ausübenden, für das Gefüge der Wirklichkeit selbst und (vor allem) für die rechtlichen und körperlichen Barrieren, die die Aelfir errichtet haben.
+Zu den mutmaßlichen Ausübenden der Kunst zählen Saint Trespass und die gnollische Liebhaberin Innan von Spring Water, die ihre Macht nutzte, um in die Schlafgemächer ihrer aelfirischen Geliebten einzudringen und spurlos zu entkommen, selbst mit den Sonnenpaladinen auf den Fersen.
+#### SPLITTERSCHMIEDEN {farbe=#3c3b57}
+Der Akt, einen „Splitter“ mit retroingenieurtechnischen Mitteln herzustellen. Splitter sind illegale Scherben geborgener Prokatakos-Technologie, die, in einen Organismus aus Fleisch implantiert, dessen körperliche Struktur verändern oder verstärken können.
+Dass sie per Gesetz verboten sind, liegt an der äußerst gefährlichen Natur der Splitter-Implantation. Sie kann eine ganze Reihe von Nebenwirkungen haben, von Abstoßung über dauerhafte neurologische Schäden bis hin zum Tod.
+All das stimmt. Die wenigen Chirurgen im Spire, die den Eingriff durchführen können, arbeiten im Verborgenen und sind den Scharlatanen und Pfuschern zahlenmäßig weit unterlegen. Doch wenn man einen hinreichend fähigen Praktiker findet (etwa Doktor Abete von Red Row oder den schwer fassbaren Schneider Sark [[Cutter Sark]] aus Derelictus), kann der Lohn das Risiko durchaus wert sein.
+#### DIENSTZEITBRUCH {farbe=#3c3b57}
+Der Akt, die eigene Dienstzeit durch Flucht zu brechen. Dies wird von den Banden der Drow-Fänger im Spire durchgesetzt. Gefasste Drow werden zu ihrer Dienstzeit zurückgebracht oder eingekerkert, doch die Glücklichen finden womöglich Zuflucht in der Unterstadt, wo sie mit gefälschten Papieren und Blutschrift eine neue Identität annehmen können, wenn sie das Geld dafür haben oder die richtigen Freunde finden.
+#### RÄUMLICHE INVERSION {farbe=#3c3b57}
+Ein abgegrenzter Innenbereich eines Bauwerks wird samt allem, was sich darin befindet (einschließlich Personen), mit dem Außenraum „vertauscht“. Niemand weiß genau, wie das gelingt. Einmal wurde es jedoch von Übeltäter Y eingesetzt, einem so gefährlichen Missetäter, dass seine Verbrechen aus den Akten getilgt wurden. Räumliche Inversion wurde gleich am nächsten Tag in einer Dringlichkeitssitzung des Rates für illegal erklärt.
+
+<!-- S. 21 (PDF 21) -->
+
+## Verbrechen {farbe=#3c0052}
+21
+#### UNTOTEN-CHIRURGIE OHNE LIZENZ {farbe=#3c3b57}
+Die Chirurgische Lizenz für Untote ist eine Initiative der Gilde der Leichenbestatter, um ihr Monopol zu wahren. Wo es einst eine Reihe unabhängiger „Clinicians Immortalis“ im Silberviertel gab, sind sie inzwischen alle geschlossen oder in den Untergrund gedrängt worden. Unlizenzierte Untoten-Chirurgie ist nicht unbedingt gefährlicher als die der Leichenbestatter; sie ist jedoch unreguliert, und man liefert sich seinem Arzt vollständig aus.
+Die Leichenbestatter sprechen oft von diesen Gefahren und verbreiten Geschichten von Personen (nie identifiziert), die sich ihrer Organe beraubt wiederfinden, und von skrupellosen Gangstern, die die Herzen der Untoten zurückhalten, um sie zur Knechtschaft zu zwingen. Gildenbestatter würden so etwas niemals ohne die gehörigen Papiere tun.
+#### MANIPULATION POSTMORTALER ENERGIEN {farbe=#3c3b57}
+Auch bekannt als Mortipulation. Eine weitere von den Leichenbestattern geschaffene Vorschrift, um ihr Monopol auf den Tod durchzusetzen; das Gesetz wurde nach dem Winter der Banshee durch eine Reihe von Unterklauseln verschärft. In diesem Ereignis wurden unheilvolle Geister manipuliert, bis sie glaubten, eine Reihe (zu Unrecht beschuldigter) Personen habe ihren Tod verursacht.
+Der Täter wurde nie gefasst, doch man mutmaßte, er habe mit okkulter Nötigung falsche Erinnerungen in die formbareren und bruchstückhaften Erinnerungen der Toten eingepflanzt. Mortipulation wurde von einem kleinen Gebiet berufsständischer Zuständigkeit zu einer Frage der nationalen Sicherheit, und man kam überein, dass die Erinnerungen der Toten unter staatliche und unternehmerische Kontrolle gestellt werden sollten.
+#### ERSCHAFFUNG EINES LEBENDEN MECHANISMUS {farbe=#3c3b57}
+Das heißt: die Erschaffung einer Maschine, die den Geist eines Drow – oder schlimmer, eines Aelfir – besitzt. Die Technik ist eine Erweiterung der Splitter-Technologie (oder, wie manche sagen würden, deren logisches Ende). Der Geist in der Maschine mag aus Fleisch geboren oder eine emergente Eigenschaft des Geräts selbst sein. So oder so ist ein Maschinengeist ein Gräuel für die Aelfir, die bei jeder Gelegenheit seine Zerstörung angeordnet haben.
+Und doch gelüstet es manche weiterhin nach dem Reiz des Metalls, der Beständigkeit silikatener Synapsen und stählerner Sehnen. Durch-meine-Asche-ertränkt [[By-My-Ashes-Drowned]], ein führender Akademiker, der sich einen gewissen Ruf damit erworben hat, die Forschung menschlicher Retroingenieure umzuschreiben und zu korrigieren, hat auf eine Lockerung dieser Beschränkungen gedrängt, um Forschung auf diesem Gebiet zu erlauben. Doch Durch-meine-Asche-ertränkt ist alt, und seine Gesundheit schwindet. Manche Kritiker haben laut gefragt, ob er wirklich akademische Erleuchtung sucht oder nur eine billigere, sauberere Alternative zur Untoten-Chirurgie.
+#### FALSCHE ABSTAMMUNG {farbe=#3c3b57}
+Abstammung ist den Drow wichtig. Jeder Drow soll von mindestens einem der Adelshäuser der Heimatnationen abstammen, wobei sich welches, je nach Gesprächspartner, ändern kann. Von der richtigen Blutlinie zu sein, hilft sehr beim sozialen Aufstieg, aber auch bei Angelegenheiten wie dem Verkauf von Blut an die Hebammen.
+Blutschreiber sind spezialisierte Okkultisten, die Blut manipulieren können, indem sie die darin verborgene Sprache umordnen, um sowohl die Wache als auch den feinen Geschmack der Hebammen zu verwirren. In älteren Zeiten war letzteres Motiv häufiger: Der Verkauf erlesenen Blutes, um die Jungen zu nähren, ist eine gute Einnahmequelle für die Mittellosen, und der Gewinn ließ sich mit dem Blutschreiber teilen. Sie haben auch ein gutes Geschäft darin gefunden, Blutproben für viele Kunden zu fälschen, darunter Kriminelle, die einer Identifizierung entgehen wollen, die Wache, wenn sie eine rasche Verurteilung braucht, und natürlich die Gesellschaft der Alten Spitze [[Old Lace Society]].
+Madam Pavane, eine ehemalige Hebamme und Hexe, betreibt ihre „Praxis“ im Silberviertel. Sie versteht sich darauf, falsche Jahrgänge zu erzeugen, durch eine Kombination aus Archymistik, dem Ritual des Mondes darunter und nicht wenig Manipulation von Rechtsdokumenten.
+Einen adligen Stammbaum zu fälschen gilt im ganzen Spire als schweres Verbrechen, sowohl unter den Drow (denen diese Abstammungslinien heilig sind) als auch unter den Aelfir (die einen solchen sozialen Aufstieg missbilligen).
+#### BEHINDERUNG {farbe=#3c3b57}
+Der Akt, eine Durchgangsstraße im Spire zu versperren, den Verkehrsfluss zu hemmen und/oder Aelfir in irgendeiner Weise zu belästigen. Ähnlich dem Herumlungern wird der Vorwurf der Behinderung von der Wache häufig eingesetzt, um Drow von jedem Ort zu vertreiben, an dem man sie nicht haben will.
+#### LEITERNUTZUNG OHNE GENEHMIGUNG {farbe=#3c3b57}
+Dies wurde ursprünglich ins Gesetzbuch aufgenommen, damit die inzwischen aufgelöste Gilde der Wegehüter den Verkehr auf Durchgangsstraßen beschränken konnte. Leiternutzung ist der Gebrauch jeglicher Leiter, um den Spire zu erklimmen und vereinbarte Routen zu umgehen. Herstellung und Verkauf von Leitern sind angeblich reguliert; jede Leiter erhält eine Seriennummer, bevor sie aus den Werken ausgeliefert wird.
+Die Strafen für Leiternutzung wurden kürzlich erhöht, nach einer Welle von Verbrechen mit Leitern, deren Seriennummern abgefeilt waren. Juristen streiten derzeit darüber, ob das Gesetz auch für aufgehängte Netze oder herausgerissene Zäune gilt, die irgendwo angelehnt werden.
+Versuche, Seile gesetzlich zu erfassen, indem man sie als „biegsame stufenlose Leiter“ definiert, sind an baumelnden Protesten aus Perch gescheitert, zusammen mit Lobbyarbeit der Gilde der Glanzputzer und Scheibenwäscher [[Shiners & PaneWashers Guild]].
+
+<!-- S. 22 (PDF 22) -->
+
+22
+## SIN {farbe=#3c0052}

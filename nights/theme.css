@@ -1,0 +1,261 @@
+/* Nights of Paynetown – Fallakte: helles Aktenpapier, Rost, Aktenreiter (nach dem Original-Layout) */
+:root{--bg:#e8dcc0;--bg2:#e1d4b5;--panel:#f6efdc;--panel2:#efe5cc;--line:#c9b98f;--text:#2a251d;--mute:#7a6e55;--mag:#a63a2b;--cyan:#9b3526;--amber:#9b3526;--paper:#fbf6e6;--ink:#211e18;--clue:#f7e48a;--clue-ink:#2a2412;--acc:#9b3526;--tone:#9b3526;--fold:#e9a93f;--rust:#8a3a1c;--cond:"Liberation Sans Narrow","Arial Narrow","Bahnschrift Condensed",Impact,sans-serif}
+body{background:radial-gradient(1100px 600px at 50% -5%,#f3ead3 0%,transparent 70%),#e6d9bb!important;color:var(--text);font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif}
+a{color:var(--cyan)}
+.topbar{background:#2a2521!important;border-bottom:3px solid #9b3526!important;backdrop-filter:none}
+.brand,.brand *{color:#f3ead3!important;text-shadow:none!important;font-family:var(--cond);letter-spacing:.05em}
+.tb-btn{background:#3a332c;border-color:#54483a;color:#f3ead3}
+.crumbs,.crumbs a{color:var(--mute)!important}.crumbs a:last-of-type{color:#9b3526!important}
+/* Aktenreiter */
+.case-tabbar{border-bottom:3px solid var(--fold)!important;gap:4px!important}
+.case-tab{background:#dccda6!important;color:#6b5a3a!important;border:1px solid #bda97a!important;border-bottom:none!important;border-radius:14px 14px 0 0!important;font-family:var(--cond);font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:8px 18px 7px}
+.case-tab small{font-family:var(--cond);opacity:.8}
+.case-tab:hover{background:#e6d6ae!important}
+.case-tab.active{background:linear-gradient(#f0b955,#e9a93f)!important;color:var(--rust)!important;border-color:#d48f25!important;font-size:1.05em;box-shadow:none!important;position:relative;top:1px}
+/* Text */
+.blk-p,.blk-card,.content{color:var(--text)!important}
+.blk-p{font-size:1.12rem;line-height:1.7}
+.blk-sh,.blk-h{color:var(--rust)!important;font-family:var(--cond);letter-spacing:.07em;font-weight:800}
+.blk-sh{font-size:1rem;border-bottom:1px solid #c9b98f;padding-bottom:3px}
+.tab-layout .chsec>.blk-p,.tab-layout .chsec>.blk-h,.tab-layout .chbody>.blk-p,.tab-layout .chbody>.blk-h,.tab-layout .chsec>.blk-list,.tab-layout .chsec>.blk-ro{max-width:none!important}
+.scn-l .blk-p,.scn-l .blk-ro{max-width:none!important}
+/* Kapitel-Zettel (wie "Die erste Ebene" im Eisberg) */
+.sec-sub{display:flex;background:#efe3a8;color:var(--rust)!important;font-family:var(--cond);font-weight:800;letter-spacing:.06em;border:none!important;border-radius:2px;padding:9px 20px 9px 16px;margin:34px 0 16px;box-shadow:0 2px 6px rgba(90,70,20,.3);position:relative}
+.sec-sub::before{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#b9a24a,#7d6a22);box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.sec-sub .chev{color:var(--rust)}
+/* schlichte Abschnittsüberschrift: keine Kästen, keine Linien */
+.sec-sub{background:none!important;box-shadow:none!important;border-radius:0;padding:6px 0!important;margin:22px 0 8px!important;font-size:1.3rem}
+.sec-sub::before{display:none!important}
+.chsec.coll+.chsec.coll>.sec-sub{margin-top:6px!important}
+.chsec.coll:not(.open)>.sec-sub{margin:4px 0!important}
+.pagetag{background:transparent!important;color:#8a7a55!important;border-color:#bda97a!important}
+/* Vorlesetext & Hinweise */
+.blk-ro{background:#fffaf0!important;color:#2a2418!important;border-left:5px solid #9b3526!important;box-shadow:0 3px 10px rgba(80,60,20,.25)!important}
+.blk-card{background:#f7e48a!important;color:#2a2412!important;box-shadow:2px 3px 8px rgba(80,60,20,.3)!important}
+.blk-card.pink{background:#f1c3c0!important}
+.threat,.blk.threat{background:#fbf6e6!important;color:#2a251d!important;border:1px solid #c9b98f!important}
+.scn-r{border-left:1px dashed #bba979!important}.scn-rh{background:var(--bg)!important;color:var(--mute)!important}
+.notes-tile{background:#d8c9a2!important;color:#4a4130!important}
+.pager{background:#2a2521!important;border-top:3px solid #9b3526!important}.pager *{color:#f3ead3}
+.fig img,.fig.art img{border:1px solid #c9b98f;box-shadow:0 3px 10px rgba(80,60,20,.3)}
+.tcard{box-shadow:2px 4px 10px rgba(80,60,20,.4)}
+.level.ice{--tone:#2b6f9e}.level.amber{--tone:#6f46b8}.level.neon{--tone:#b3236f}.level.gold{--tone:#9a6a00}
+.level{background:linear-gradient(180deg,#f8f1de,#efe4c7);box-shadow:0 2px 8px rgba(80,60,20,.18)}
+.tb-burger{background:#3a332c!important;border-color:#54483a!important;color:#f3ead3!important}
+.tb-burger svg,.tb-burger svg *{stroke:#f3ead3}
+.case-card{background:#fbf6e6;border-color:#c9b98f}
+.tm-dd button.on b{color:#9b3526!important}
+.tm-dd button.on{background:rgba(155,53,38,.08)!important}
+@media (max-width:700px){
+  .sec-sub{flex-wrap:wrap;gap:4px 10px;padding:8px 12px;font-size:1.05rem;margin:26px 0 12px}
+  .sec-sub .chev{order:0}
+  .blk-p{font-size:1.04rem;line-height:1.65}
+}
+/* Helle Kopf- und Fußleiste */
+.topbar{background:linear-gradient(#f4ead0,#eadcb8)!important;border-bottom:3px solid var(--fold)!important;box-shadow:0 2px 8px rgba(90,70,20,.18)}
+.brand,.brand *{color:#6d2f15!important}
+.tb-btn,.tb-burger{background:#e3d2a6!important;border-color:#c4ae7a!important;color:#6d2f15!important}
+.tb-burger svg,.tb-burger svg *{stroke:#6d2f15!important}
+.topbar .tm-caret{color:#6d2f15!important;opacity:.7}.topbar .tm-caret:hover,.topbar .tm-caret[aria-expanded=true]{background:rgba(109,47,21,.1)!important}
+.pager{background:linear-gradient(#eadcb8,#e2d1a6)!important;border-top:3px solid var(--fold)!important}
+.pager *{color:#6d2f15!important}
+.pager .pg-arrow{border-color:#9b3526!important}
+.tm-dd button b{color:#2a251d!important}
+.tm-dd button.on b{color:#9b3526!important}
+.tm-dd button small{color:#6f6450!important;opacity:1!important}
+.case-card b{color:#2a251d!important;font-size:1.15rem;line-height:1.25}
+.case-card small{color:#6f6450!important}
+
+/* Ebenen-Kopf kompakt: Name + Einführung in einer Zeile, Antagonist darunter */
+details.level>summary.level-head{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2px 12px;padding:14px 44px 6px 18px}
+.level-head h2{grid-column:1;grid-row:1}
+.level-head .lv-intro{grid-column:2;grid-row:1;margin:0}
+.level-head .lv-sub{grid-column:1/-1;grid-row:2;color:#6f6450;font-size:.95rem}
+.level .cases{padding:6px 14px 14px;gap:10px}
+.case-card{min-height:0!important;padding:10px 14px!important;gap:2px!important}
+.case-card{display:grid!important;grid-template-columns:1fr auto;align-items:baseline;gap:0 10px!important}
+.case-card .nr{grid-column:1;grid-row:1;margin:0}
+.case-card small{grid-column:2;grid-row:1;margin:0!important}
+.case-card b{grid-column:1/-1;grid-row:2;margin:2px 0 0!important}
+.case-card .badge{grid-column:1/-1;justify-self:start}
+@media (max-width:480px){.level-head h2{letter-spacing:.05em!important;font-size:1.05rem!important;white-space:normal;min-width:0;overflow-wrap:anywhere;hyphens:auto}.level-head .lv-intro{padding:2px 8px;white-space:nowrap}}
+@media (max-width:700px){.sec-sub{flex-wrap:nowrap!important;align-items:baseline!important;gap:8px!important}.sec-sub .pg,.sec-sub small,.sec-sub .pgtag,.sec-sub>span:last-child{flex:none;white-space:nowrap}}
+.sec-sub .pagetag{white-space:nowrap;flex:none}
+.chsec.coll:not(.open){margin-bottom:2px!important}
+.chsec.coll.open{margin-bottom:22px}
+
+details.level>summary.level-head{grid-template-columns:minmax(0,1fr) max-content!important}.level-head h2{min-width:0}
+@media (max-width:480px){.level-head h2{font-size:.95rem!important;letter-spacing:.03em!important}.level-head .lv-intro{font-size:.72rem!important;padding:2px 7px}}
+
+/* Illustration klein in der Bedrohungskarte */
+.threat-head{align-items:center!important}
+.th-thumb{width:52px;height:52px;flex:none;object-fit:cover;object-position:50% 12%;border-radius:8px;border:1px solid #bda97a;box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:zoom-in}
+.threat-head .stars{margin-left:auto}
+
+.th-thumb{width:68px!important;height:68px!important}
+/* gestapelt: Text oben, Werte & Hinweise als Kartenraster darunter */
+.scn.stack{display:block!important}
+.scn.stack .scn-r{position:static!important;max-height:none!important;overflow:visible!important;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start;border-left:0!important;padding:0!important;margin:10px 0 0!important}
+.scn.stack .scn-rh{grid-column:1/-1;margin:0}
+.scn.stack .scn-r>*{margin:0!important}
+.scn.stack .scn-r{display:grid!important;columns:auto!important}
+.scn.stack .scn-r>*{break-inside:avoid;margin:0 0 12px!important}
+.scn.stack .scn-rh{column-span:all}
+.th-thumb{object-position:35% 18%!important}
+
+@media (max-width:700px){.pager .pg-more{display:none}}
+.scn.stack .threat{transform:none!important;max-width:none!important;margin:16px 0 18px!important}
+.scn.stack .scn-r>*{margin-bottom:14px!important}
+.scn.stack .scn-r>*{display:block;width:auto;box-sizing:border-box}
+.scn.stack .scn-rh{display:block}
+
+/* Bedrohungskarten: schlicht, kompakt, Pin vollständig sichtbar */
+.threat .pin{top:-6px!important;width:14px!important;height:14px!important}
+.blk.threat{margin-top:14px!important}
+.scn-r{padding-top:12px}
+.threat.thr-coll .threat-head::after{display:none!important}
+.threat.thr-coll:not(.open){padding:10px 16px!important}
+.threat.thr-coll:not(.open) .threat-head{border-bottom:0!important;margin:0!important;padding:0!important}
+.th-thumb{width:44px!important;height:44px!important}
+.threat.thr-coll.open .th-thumb{width:52px!important;height:52px!important}
+/* mehrere Illustrationen nebeneinander statt untereinander */
+.figrow{display:flex;flex-wrap:wrap;gap:10px 12px;margin:6px 0 12px}
+.figrow .fig{flex:1 1 150px;max-width:340px!important;margin:0!important}
+.figrow .fig img{aspect-ratio:4/3;width:100%!important;height:auto!important;max-height:220px!important;object-fit:cover!important;object-position:50% 22%!important}
+.threat.thr-coll:not(.open) .threat-head b{font-size:1.05rem}
+
+/* Themenkarten (Relikte usw.): standardmäßig zu, per Klick auf den dunklen Kopf offen */
+.tcard.tc-coll .tc-head{cursor:pointer}
+.tcard.tc-coll:not(.open){padding-bottom:0}
+.tcard.tc-coll:not(.open) .tc-head{border-bottom:0}
+.tcard.tc-coll:not(.open)>:not(.tc-head){display:none}
+.threat .pin{z-index:3}
+
+/* Notiz-Popup im Aktenmappen-Look */
+.notes-pop{background:#fbf6e6!important;border:1px solid #c9b98f!important;box-shadow:0 10px 30px rgba(80,60,20,.35)!important}
+.notes-pop textarea{background:#fffaf0!important;color:#2a251d!important;border:1px solid #d9c9a0!important;font-family:Georgia,serif}
+.notes-pop textarea::placeholder{color:#9a8b6a}
+.notes-pop textarea:focus{border-color:#e9a93f!important}
+.notes-pop .np-x{background:#e9a93f!important;color:#6a2a12!important;border:1px solid #d48f25!important}
+
+/* Seitenlinks direkt hinter dem Titel, nicht nach rechts geschoben */
+.sec-sub .pagetag{margin-left:10px!important}
+/* „Werte & Hinweise“-Kopf deckt Karten nicht durchscheinend ab */
+.scn-rh{background:#e6d9b8!important}
+.sec-sub{flex-wrap:nowrap!important;align-items:baseline!important;gap:8px!important}
+.sec-sub .pagetag{flex:none;white-space:nowrap;align-self:center}
+
+/* Bild links: Text umfließt es und läuft darunter über die volle Breite */
+@media (min-width:1100px){
+  .eis-split{display:block!important}
+  .eis-side{position:static!important;float:left;max-width:58%;margin:0 36px 14px 0}
+  .eis-text{display:block}
+  .eis-text>.chsec:first-child .blk-sh,.eis-text>.chsec:first-child .sclear{clear:none}
+  .eis-split::after{content:"";display:block;clear:both}
+}
+
+/* Layout: Breite nutzen, kein Breadcrumb */
+.lvgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:18px;align-items:start;padding:18px 0}
+.lvgrid .level{margin:0}
+.lvgrid .cases{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.case-tabbar{align-items:flex-end}
+.case-pg{margin-left:auto;align-self:center;font-size:12px;color:var(--mute);text-decoration:underline dotted;cursor:pointer;padding:0 10px;white-space:nowrap}
+.shell{padding-top:14px}
+
+/* Baum-Navigation links, flacher Inhalt rechts */
+.ni-rail{display:grid;grid-template-columns:200px minmax(0,1fr);gap:26px;align-items:start;margin-top:10px}
+.ni-nav{position:sticky;top:74px;display:flex;flex-direction:column;gap:2px;max-height:calc(100vh - 150px);overflow:auto;padding-right:8px;border-right:2px solid rgba(180,120,40,.35)}
+.ni-nav a{padding:7px 10px;font-weight:700;font-size:.86rem;line-height:1.25;border-radius:6px;text-decoration:none;color:inherit}
+.ni-nav a:hover{background:rgba(224,150,40,.18)}
+.ni-body{min-width:0}
+.ni-flat .sec-sub{cursor:default;pointer-events:none}
+.ni-flat .sec-sub .chev{display:none}
+.ni-flat .sec-sub .pagetag{pointer-events:auto}
+.ni-flat{scroll-margin-top:76px;margin-bottom:22px}
+@media(max-width:860px){
+ .ni-rail{grid-template-columns:minmax(0,1fr)}
+ .ni-nav{position:static;flex-direction:row;overflow-x:auto;border:0;padding:0 0 8px;max-height:none;scrollbar-width:none;border-bottom:2px solid rgba(180,120,40,.35);margin-bottom:10px}
+ .ni-nav a{flex:none;white-space:nowrap;padding:6px 10px;background:rgba(224,150,40,.15);border-radius:999px;font-size:.82rem}
+}
+
+/* Einleitungssatz klein, grau, einzeilig */
+.ni-intro,.ni-intro p{font-size:.82rem!important;line-height:1.3!important;color:#8a7a62!important;margin:2px 0 6px!important;}
+.ni-intro{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0!important;border:0!important;background:none!important}
+.ni-intro p{margin:0!important;display:inline}
+.ni-rail{margin-top:6px!important}
+.ni-body>.ni-flat:first-child{margin-top:0!important;padding-top:0!important}.ni-body>.ni-flat:first-child .sec-sub{margin-top:0!important}.ni-nav{padding-top:2px}
+
+/* Fall-Karten mit Titelbild */
+.lvgrid .cases:has(.has-img){grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px}
+.case-card.has-img{display:flex!important;flex-direction:column;padding:0!important;overflow:hidden;border-radius:12px;transition:transform .15s,box-shadow .15s}
+.case-card.has-img:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(40,25,5,.3)}
+.case-card.has-img .cc-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-bottom:3px solid var(--tone)}
+.case-card.has-img .cc-txt{padding:8px 12px 10px;display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 8px}
+.case-card.has-img .nr{grid-column:1}
+.case-card.has-img small{grid-column:2}
+.case-card.has-img b{grid-column:1/-1;margin-top:2px}
+.case-card.has-img .badge{position:absolute;top:8px;left:8px;z-index:1}
+@media (max-width:480px){.lvgrid .cases:has(.has-img){grid-template-columns:repeat(2,minmax(0,1fr))}.case-card.has-img b{font-size:1rem}}
+
+/* ===== B · Fallakte (Aktenmappe) ===== */
+body{background:radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%),#d9c9a3!important}
+.level{background:#f3e9cc!important;border:1px solid #b9a578!important;border-top:1px solid #b9a578!important;border-radius:4px 14px 6px 6px;margin-top:20px;overflow:visible;box-shadow:0 6px 14px rgba(70,50,15,.3),0 0 0 6px #dccaa0,0 0 0 7px #b39d6c!important}
+.level::before{content:"";position:absolute;left:18px;top:-30px;height:24px;width:44%;background:var(--tone);border-radius:10px 10px 0 0;opacity:.92}
+.level{position:relative}
+.level-head h2{font-family:"Courier New",monospace;letter-spacing:.12em;border-bottom:2px dashed #b9a578;padding-bottom:3px}
+.level-head .lv-sub{font-style:italic}
+.case-card.has-img{background:#fffdf5!important;border:1px solid #cdbf98!important;border-radius:2px;padding:8px 8px 0!important;box-shadow:0 3px 8px rgba(60,40,10,.35);transform:rotate(-1.2deg)}
+.case-card.has-img:nth-child(even){transform:rotate(1deg)}
+.case-card.has-img:hover{transform:rotate(0) translateY(-3px) scale(1.02);z-index:3}
+.case-card.has-img::before{content:"";position:absolute;top:-6px;left:50%;width:54px;height:16px;margin-left:-27px;background:rgba(235,215,140,.85);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.25);z-index:3}
+.case-card .cc-img{border-bottom:none;filter:sepia(.18) contrast(1.03)}
+.case-card .cc-txt{padding:8px 4px 10px}
+.case-card .nr{font-family:"Courier New",monospace}
+
+.level-head .lv-sub{display:none!important}
+
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:14px 16px;align-items:start;margin:12px 0 16px}
+.cardgrid>.blk-card,.cardgrid>.threat{max-width:none!important;margin:0!important;width:auto}
+@media(max-width:700px){.cardgrid{grid-template-columns:1fr}}
+/* mehr Luft: Ebenen, Reiter, Karten */
+.lvgrid{display:flex;flex-direction:column;gap:56px;padding-top:34px}
+.lvgrid .level{margin:0!important}
+.level-head{padding:18px 48px 10px 22px!important}
+.level .cases,.lvgrid .cases:has(.has-img){padding:14px 22px 28px!important;gap:26px 22px!important}
+.lvgrid .cases:has(.has-img){grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+@media (max-width:520px){.lvgrid .cases:has(.has-img){grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px!important;padding:12px 16px 24px!important}.lvgrid{gap:50px}}
+/* PC: drei Ebenen nebeneinander, Fälle untereinander, Finale unten mittig */
+@media (min-width:1000px){
+ .lvgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 36px;align-items:start}
+ .lvgrid .level.gold{grid-column:1/-1;justify-self:center;width:min(100%,calc((100% - 72px)/3))}
+ .lvgrid .cases:has(.has-img){grid-template-columns:1fr;max-width:300px;margin:0 auto;gap:26px!important}
+}
+/* Szenen-Bühne (Entwurf B): Bilder schwebend rechts, Hinweise als angepinnte Karten */
+.sfig{float:right;display:flex;gap:12px;align-items:flex-start;margin:2px 0 14px 26px;max-width:46%}
+.sfig{flex-wrap:nowrap;justify-content:flex-end;max-width:58%!important}
+.sfig .fig{margin:0!important;flex:0 1 auto;min-width:0;max-width:100%!important;width:auto!important}
+.sfig .fig img{height:230px!important;width:auto!important;max-width:100%;object-fit:contain!important;aspect-ratio:auto!important}
+.sfig.n1 .fig img{height:auto!important;max-height:380px;max-width:460px}
+.sfig .fig figcaption{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sfig .fig.tall{max-width:none}
+.sclear{clear:both}
+.chsec .blk-sh{clear:both}
+.cardgrid{clear:both;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))!important;align-items:stretch!important;gap:18px 14px!important;margin:16px 0 20px!important}
+.cardgrid:has(.threat){grid-template-columns:repeat(auto-fill,minmax(380px,1fr))!important;align-items:start!important}
+.blk-card{background:#fbf6e6!important;color:#2a251d!important;border:1px solid #e2d3a8;border-radius:2px!important;box-shadow:0 3px 8px rgba(60,40,10,.14)!important;padding:16px 14px 12px 42px!important;font-size:.93em;line-height:1.5}
+.blk-card::before{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e46a55,#8f2416);box-shadow:0 2px 3px rgba(0,0,0,.35)}
+.blk-card.pink{background:#2f3a3c!important;color:#e8e2cf!important;border-color:#2f3a3c}
+.blk-card.pink b{color:#f7e48a}
+.blk-card .tick{top:16px!important;width:18px!important;height:18px!important;border-width:1.5px!important;border-color:rgba(60,40,10,.35)!important;background:transparent!important}
+.tc-float{float:right;width:340px;max-width:40%;margin:4px 0 14px 26px!important}
+@media (max-width:900px){.sfig,.tc-float{float:none;max-width:100%;margin:10px 0!important}}
+.chsec .blk-ro{display:flow-root;overflow:hidden}
+.sfig{max-width:none!important}.sfig .fig{flex:none!important}.sfig .fig img{max-width:none!important}
+@media (max-width:1250px){.sfig .fig img{height:180px!important}}
+.blk-card{padding:16px 16px 12px!important;cursor:pointer;transition:filter .15s,opacity .15s}
+.blk-card .ck{display:none}
+.blk-card.done{opacity:1!important;filter:grayscale(1);background:#e4ded0!important;color:#8a8475!important;box-shadow:none!important}
+.blk-card.done::before{background:#9a948a}
+.blk-card.done{filter:none!important;background:#e3dfd7!important;color:#9a958c!important;border-color:#d3cec4!important}
+.blk-card.done b,.blk-card.done u{color:#9a958c!important}
+.blk-card.done::before{background:radial-gradient(circle at 35% 35%,#c9c5bd,#8d8981)!important}

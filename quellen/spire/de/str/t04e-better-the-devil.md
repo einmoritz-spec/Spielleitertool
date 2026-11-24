@@ -1,0 +1,376 @@
+
+
+<!-- S. 125 (PDF 130) -->
+
+## 125
+# BETTER THE DEVIL {farbe=#194d71}
+*Von Grant Howitt und Chris Taylor*
+**Inhaltswarnungen:** Gedankenkontrolle, Indoktrination, erzwungene Implantation
+## EINLEITUNG {farbe=#981a3f}
+Spire hat sich verändert. Du und deine Zelle wart ein Jahr oder so lang im Auftrag des Ministeriums außerhalb der Stadt; in dieser Zeit ist Haus Starys zu großer Bedeutung aufgestiegen.
+Die vielgescholtene Adelsfamilie ist in die Gesellschaft der Drow zurückgekehrt. Sie will sich einen guten Namen machen, indem sie Wohnraum für die Armen finanziert, die Künste fördert und sich unter die Reichen und Berühmten mischt.
+Währenddessen ist das Ministerium nach einer Reihe von Angriffen auf seine Unterschlupfe in Aufruhr geraten. Deine Zelle erhält von ihrem Magister hastige Anweisungen, Haus Starys zu untersuchen, herauszufinden, ob es eine Gefahr für die Operationen darstellt, und es auszunutzen, falls nicht. Du hast ein Dossier mit Informationen über die Personen und Situationen bekommen, die ihr untersuchen sollt, dazu die Schlüssel zu einem heruntergekommenen Unterschlupf in Ivory Row – und dann wurdest du sich selbst überlassen. Hoffentlich erinnern sich alle deine Freunde noch daran, wer du bist.
+## WAS HAT HAUS STARYS VOR ALL {farbe=#194d71}
+## DEN JAHREN GETAN? {farbe=#194d71}
+Die Berichte sind unklar, aber gut war es nicht. Haus Starys herrschte einst über die Heimatnationen – so wie es jetzt Haus Yssen tut – von der versunkenen Stadt Fathom aus. Ihr Ruf für Grausamkeit und Macht war legendär, doch die anderen Adelshäuser waren ihnen zahlenmäßig überlegen, und nach einem langen Feldzug in den halb gefluteten Tunneln, die ihre Hauptstadt durchzogen, fielen sie. Die Sieger ordneten an, das gefallene Haus im Fluss zu ertränken, und so entstand der Beiname der Familie: die Ertrunkenen Könige.
+Darauf können sich die Historiker einigen. Was die Einzelheiten betrifft, so könnte jede der folgenden Gräueltaten wahr oder falsch sein:
+• Die Starys waren Sklavenhalter par excellence und nutzten dunkle technologische Wunderwerke, sogenannte Splitter, um ihre Schutzbefohlenen zu unterjochen. Sie beschränkten sich nicht darauf, andere Völker zu versklaven, wie es die meisten Nationen tun: Stattdessen pflegten sie, einander durch verschlungene Machenschaften in Demütigungsabsicht aufzukaufen. Die besten und mächtigsten Splitter behielten sie für sich und ihre auserwählten Leibwächter, um deren körperliche Fähigkeiten weit über das hinaus zu steigern, was mit Training und Übung möglich war.
+• Die Starys waren Schwarzmagier und gaben sich mit Dingen ab, mit denen man nicht handeln sollte, in der chthonischen Finsternis, die unter den durchnässten Straßen von Fathom atmet. Bekommt selbst der geringste Starys genug Zeit, mit der schrecklichen Intelligenz Zwiesprache zu halten, die die Blutlinie befallen hat, vermag er gewaltige Zauberkunststücke zu vollbringen, die Geist und Körper verzerren.
+• Die Starys verehrten ihren Familiennamen, nicht die Drei Göttinnen. Sie füllten ihre privaten Schreine mit Bergen genealogischer Schriften und bebilderten Stammbäumen und stillten ihre hungrige Ahnenreihe, indem sie ihr unschuldige Drow opferten: mit durchschnittener Kehle an den Füßen aufgehängt, damit das Blut über Marmorstatuen uralter Könige spritzte.
+• Die Starys waren grausame Barone, die jeweils als kleine Herren in ihrem eigenen Herrschaftsgebiet lebten. Die Ergebenheit gegenüber dem Baron (oder der Baronin) war für die Bevölkerung Pflicht. Im Lauf der Zeit kamen allerlei Gesetze auf, um jeden Gedanken an eine Revolution im Keim zu ersticken. Dazu gehörten ein Verbot des Lesens und Schreibens unter den unteren Schichten,
+
+<!-- S. 126 (PDF 131) -->
+
+## 126
+das Verbot von Versammlungen von fünf oder mehr Personen, bewaffnete Milizen anstelle von Stadtwachen und die Erlaubnis zur Fortpflanzung nur mit Genehmigung des örtlichen Herrn.
+• Die Starys waren – und sind noch immer – grausame, hungrige Geister, die in den Körpern von Elfen leben. Diese Phantome sind die Überreste uralter Wesen, die nach ewigem Leben strebten und es erlangten, wenn auch nicht, ohne etwa alle hundert Jahre den Körper zu wechseln. Je öfter ein Wesen als anderes Mitglied der Starys wiedergeboren wird, desto nebliger wird seine Erinnerung an die Vergangenheit und daran, wer es wirklich ist. Viele glauben ihr Leben lang, sie seien Drow, und tun den Gedanken an generationenübergreifende Besessenheit als Geschwätz von Wahnsinnigen ab.
+Spielleitung: Wähle einige, alle oder keine davon, um zu erklären, warum Haus Starys in der Gesellschaft der Drow so verrufen ist – oder erfinde deine eigene Quelle uralten Übels. Was auch immer du wählst, die Starys sind mächtig, hinterlistig und haben im Vergleich zu den meisten anderen Dunkelelfen etwas Ungewöhnliches und ganz bestimmt *Schlechtes* an sich.
+## WARUM WARST DU NICHT IN SPIRE? {farbe=#194d71}
+• Ihr wurdet als Militäreinheit entsandt, um im Rahmen der Kriegsanstrengungen in Nujab etwas furchtbar Geheimes zu tun.
+• Ihr habt als verdeckte Agenten des Ministeriums in den Karawanenstädten von Aliquam gearbeitet.
+• Ihr wart in einem überwucherten Bereich des Gartendistrikts gefangen und seid erst vor Kurzem wieder aufgetaucht.
+• Ihr wart im Vermissian. Ihr wisst nicht genau, wo, aber was euch wie ein paar Tage vorkam, waren in Wirklichkeit zwei Jahre in der Oberwelt. Nun hat sich alles verändert.
+• Ihr wurdet als Diplomaten für Haus Yssen in die Heimatnationen geschickt, während es einen entscheidenden Angriff gegen Haus Quinn vorbereitet; sie wollten die Unterstützung des Ministeriums.
+• Ihr habt in den Menschenländern im Osten nach Prokatakos-Technologie gegraben, aber nach vielen Monaten der Erkundung wurden eure Führer von uralten Automaten getötet, und ihr seid nach Spire zurückgeflohen.
+## WAS GEHT WIRKLICH VOR SICH? {farbe=#981a3f}
+Haus Starys will wieder mitspielen.
+Angeführt von Philydia Starys, die sich selbst zur Königin des noch unerobertern Starys-Reiches gekrönt hat (und die anderen dazu gebracht hat, sich zu fügen), wollen sie Spire übernehmen, indem sie die arbeitenden Schichten so weit unter Kontrolle bringen, dass sie einen Sitz im Rat erlangen. Von dort aus wird die Herrschaft über die Stadt ein leichter Schritt sein; dann weiter zu den Heimatnationen, mit dem Zorn von Spires Armee in ihrer Hand.
+Die Starys werden wieder über die Drow herrschen. Die Aelfir sind ein vorübergehendes, wenn auch nicht unbedeutendes Hindernis auf ihrem Weg. Philydia kümmert sich eigentlich nicht um Spire – es ist ein Provinznest voller Fremder und Aelfir, verglichen mit ihrem angestammten Recht auf den Thron der Heimatnationen. Sie wird Spire gern zerstören, wenn es ihr hilft, zu bekommen, was sie will, aber im Moment ist es unversehrt mehr wert.
+## ABENTEUERVORBEREITUNG {farbe=#981a3f}
+## KONTROLLE {farbe=#194d71}
+Die wichtigste Änderung gegenüber normalen Spire-Kampagnen ist, dass die Spielerfiguren einen neuen Widerstand namens Kontrolle haben, der von der ganzen Gruppe geteilt wird. Kontrolle ist ein Maß für den Einfluss, den die Starys in der Stadt und in den Organisationen haben, die sie beherrschen.
+Immer wenn die Spieler untertauchen, um Aufmerksamkeit abzulenken, gegen die Rivalen der Starys kämpfen (ob sie es wissen oder nicht) oder den Starys bei ihren Plänen helfen, markiere Stress auf Kontrolle. Die Spielleitung behält die Kontrolle im Blick, und wir empfehlen, dass sie die Gesamtsumme vor den Spielern geheim hält. Stattdessen vermittle das „Gefühl“ der Stadt in erzählerischen Worten.
+Wenn die Spieler die Machenschaften der Starys aktiv stören – Vorräte zerstören, politisch nützliche Heiraten in den Adelshäusern arrangieren, Anti-Starys-Kundgebungen abhalten usw. –, können sie Stress von Kontrolle entfernen. Es gilt das übliche Muster: W3 Stress für leichte Handlungen, W6 für mittlere und W8 für schwere.
+Wie üblich würfelt die Spielleitung auf Fallout gegen Kontrolle, wann immer sie Stress darauf markiert. Würfelt sie gleich oder niedriger als die aktuelle Stresshöhe, erleidet die Gruppe Fallout.
+Am Ende jedes Handlungsstrang-Abschnitts haben wir einige Fallout-Ergebnisse umrissen, aber du kannst gern eigene erfinden. Als grobe Richtschnur: Leichter Fallout ist eine Unannehmlichkeit, mittlerer Fallout ist ein Problem, das gelöst werden muss, und schwerer Fallout ist die Art von Ding, die den Handlungsbogen einer Figur umlenken kann.
+Was riesige, abschließende Ereignisse betrifft, so gibt es keinen Fallout „Die Starys beherrschen die Stadt“ oder „Die Starys sind besiegt“. Das sind Dinge, die dann aufkommen sollten, wenn die Erzählung es verlangt, und nicht, wenn die Spielleitung auf einem W10 eine bestimmte Zahl würfelt.
+## AUFTRAG DES MINISTERIUMS {farbe=#194d71}
+Dieser wird der Zelle von einem angemessen geheimnisvollen Fremden überreicht. Wie die meisten Schreiben des Ministeriums ist er in einer Mischung aus kryptischen Versen und Rotwelsch verfasst, um Leute abzuschütteln, die versuchen könnten, ihn zu lesen. Außerdem liegt er unter zwei Schichten
+
+<!-- S. 127 (PDF 132) -->
+
+## 127
+Code, die die Zelle entschlüsseln kann, indem sie ihre Chiffrierbücher mit Zeitungsnachrufen und Kleinanzeigen abgleicht (ein angemessen langwieriges und umständliches Verfahren, das wir die Spieler nicht durchlaufen lassen). Der Auftrag ist unten fett wiedergegeben, mit einer groben Übersetzung in Kursivschrift unter jedem Abschnitt.
+**Mettes,**
+**Wie Wasser bergauf gepumpt. Karmesin in Fülle, Raben satt. Schale ausgestreckt gehalten.**
+*Wir haben euch zurückgerufen, weil die Lage gefährlich ist und wir euch brauchen.*
+**Hallow Jubilex im Überfluss; Rauch, Erde, Silber aus der Fassung oder am Boden. Unser Schurke trug eine Maske.**
+*Wir wurden sehr heftig angegriffen. Zellen in den Werken, im Garten und im Silberviertel sind kompromittiert oder zerstört. Wir wissen nicht, wer es war.*
+**Ertrunkene Krone treibt an die Oberfläche. Herd und Heim ein Ketzer. Blick zur Seite; kapern oder zerschellen, wenn die Speisekarte es verlangt.**
+*Haus Starys, einst für verrucht und gefallen gehalten, ist mit Macht wieder aufgetaucht. Sie errichten Gemeinschaften für die Armen und heiraten in reiche Familien ein. Ihr müsst sie untersuchen. Wenn sie uns gefährlich werden, kontrolliert oder zerstört sie.*
+**Scharfe Scherben der Geschichte vermengen das Fleisch, und wir sind blind. Die Würmer werden es wissen.**
+*Sie benutzen eine alte Technologie, bekannt als Splitter – magisches Metall, das Körper verändert. Wir wissen nicht viel darüber. Die Vermissian Sages vielleicht schon.*
+**Suche Engel an dunklen Orten; edel und höchst erhaben, karmesinrote Jäger, silberblütig.**
+*Ihr werdet jeden Verbündeten brauchen, den ihr gewinnen könnt. Sucht bei den Häusern Quinn, Gryndel und Valwa nach ihnen.*
+**Sie scheint nicht auf deine Hand.**
+*Möge die Göttin dir den Weg leuchten.*
+## DIE GESCHICHTE {farbe=#981a3f}
+## HANDLUNGSSTRANG: {farbe=#194d71}
+## DIE NEUE KÖNIGSFAMILIE {farbe=#194d71}
+Die Starys wollen mit allen nötigen Mitteln über die Dunkelelfen herrschen. Der nächste Schritt ihres Plans ist die Eroberung von Spire.
+An ihrer Spitze steht Königin Philydia Starys, die ihre Untergebenen mit brutaler Effizienz lenkt. Zu Beginn von Better the Devil steuert sie die Ereignisse aus der Ferne, wird aber einige Sitzungen später mit großem Pomp im Rahmen einer Parade in den Norddocks eintreffen.
+Ihr uralter Körper (sie behauptet, mehrere hundert Jahre alt zu sein und älter als der Fall der Starys) wird von einer Vielzahl von Splittern am Leben erhalten. Sie ist trotz ihrer schlanken Gestalt unergründlich stark, und man sagt, dass sie beim Gehen ein schabendes Geräusch macht, weil ihre Splitter aneinander reiben.
+Ihr wichtigster Ansprechpartner in Spire ist ihr Ehemann, König Kislin Starys, den die Familie vor Jahren entsandte. Durch sorgfältige politische Manöver begann er, den Namen seines Hauses in den Augen der Drow von Spire reinzuwaschen und bereitete so Philydias Ankunft und die endgültige Vorherrschaft vor. Bald wird er in den Rat gewählt werden; danach sollte es leicht sein, den Rest von Spires Führung zu unterwandern.
+Ihr ältester Sohn, Halcyon Starys, ist eine ständige Peinlichkeit für die Familie. Er weigert sich, seine Stellung ernst zu nehmen, und ist nicht besonders klug, sodass seine Eskapaden etwa alle vierzehn Tage unerwünschte Aufmerksamkeit erregen. Er spielt gern Leuten Streiche, und manchmal enden diese Leute (oder ihre Freunde) tot. Kislin kümmert es nicht, dass Menschen sterben, aber es macht sich schlecht in den Zeitungen.
+Unter ihnen bemühen sich einige Dutzend Starys-Adlige nach Kräften, in die Hohe Gesellschaft von Spire einzuheiraten, und sie machen das ziemlich gut. Sie haben bereits das Ministerium getroffen und die Organisation nach mehreren Angriffen taumeln lassen. Jetzt nutzen sie das Chaos, um sie von innen zu infiltrieren und zu kontrollieren.
+### DAS STARYS-HERRENHAUS
+Tief im Gebiet von Mister Alas in Ivory Row hat Philydia begonnen, alle Gebäude aufzukaufen, die sie sich leisten kann, und sie miteinander zu verbinden (Alas stellt keine Fragen). Ihr Herrenhaus ragt über den rissigen und zerbrochenen Straßen auf und ist auf einem Stapel halb verlassener Mietskasernen und Slums errichtet. Die Leute zogen aus, als die Starys einzogen.
+Dies war die Art von Gegend, in der wahnsinnige Mörder von Dach zu Dach sprangen und Banden geisterfressender Besessenheits-Süchtiger durch die Gassen schlichen und johlten, während sie die letzte phantasmische Essenz irgendeines armen Geistes einatmeten. Dann begannen die Starys aktiv, Drow zu holen, die in den Gebäuden unter ihnen hausten, und … nun, niemand weiß, was danach geschieht.
+(Sie starben. Im irren, sich verschiebenden Inneren des Starys-Herrenhauses gibt es eine Vielzahl von Schreinen für welche Quelle der Macht auch immer du als die bestimmt hast, zu der das Haus Zugang hat, oft entweiht aus ihrem ursprünglichen Zweck als kleine Tempel unserer Glorreichen Herrin. Die Verschleppten werden zum Ruhm der Starys geopfert.
+
+<!-- S. 128 (PDF 133) -->
+
+## 128
+> Ivory Row, einst glorreich, ist nun
+> ein baufälliger Bienenstock mit
+> Inseln eifersüchtig bewachten Luxus.
+
+<!-- S. 129 (PDF 134) -->
+
+## 129
+Da Entführung und Terror in diesem Distrikt recht alltäglich sind, eilt niemand zu Hilfe.)
+### MIDWIVES VON HAUS STARYS
+**Namen:** Schwester Ynette, Schwester Griswold, Schwester Ingrid
+**Beschreibung:** Gehen auf sechs Spinnenbeinen, verstärkt mit silbernen Spornen, die beim Gehen auf dem Boden klicken; Verbergen ihre acht Augen nicht ganz hinter einem dünnen roten Schleier; Tragen offen einen seltsam aussehenden zeremoniellen Rasierstab
+**Schwierigkeit:** 1
+**Widerstand:** 8
+**Ausrüstung:** Chitinpanzerplatten oder verstärkte Korsetts (Rüstung 2); schrecklich treffsichere und entsetzlich scharfe Rasiermesser und nadelspitze Stilette (W6, Scharf, Unzuverlässig); verstärkte Injektionsnadel voller böser Gifte (W6, Gift, Einweg)
+**Besonderes:** Die Midwives von Haus Starys sind alle mit Flüstersprech-Splittern implantiert, die es ihnen erlauben, in unmittelbarer Nähe lautlos miteinander zu kommunizieren, über eine Art schwingungsbasierte Telepathie. Spieltechnisch gilt: Wenn du gegen zwei oder mehr Midwives gleichzeitig kämpfst, haben sie Schwierigkeit 2. Werden sie gewaltsam aus dem Netzwerk entfernt (oder die Splitter herausgeschnitten), sinkt ihre Schwierigkeit auf 0.
+Alle Midwives der Starys setzen die Midwife-Fähigkeit MÄRTYRER ein, um Philydia zu verteidigen; wenn sie sich irgendwo in ihrer Nähe befinden, wenn sie Stress erleidet, heben sie ihn auf und erleiden stattdessen W6.
+### KÖNIGIN PHILYDIA STARYS
+**Schwierigkeit:** 1
+**Widerstand:** 12
+**Ausrüstung:** Bloße Hände, verstärkt durch Dutzende von Splittern (W8, Durchschlagend); ohrenbetäubendes Kreischen (W6, Streuung W3)
+**Besonderes:** Es gibt kein bekanntes Toxin oder Gift, das Philydia schaden kann. Ihr Herrschaftssplitter ist so verdrahtet, dass er sich mit jedem Unterwerfungssplitter in Spire koppelt
+### CHANCEN UND BEDROHUNGEN
+Spire zu übernehmen kostet Geld – Geld, das irgendwoher kommen muss. Sorgfältiges Nachverfolgen deckt auf, dass Philydia die verborgenen angestammten Gewölbe der Starys geplündert hat und Gold, Juwelen und Kunstschätze importiert, um sie in Spire zu verkaufen (oder für politische Gefälligkeiten zu spenden). Ihre Versorgung abzuschneiden könnte Chaos auslösen.
+Philydia ist enorm mächtig, sowohl politisch als auch körperlich, und wird von einer Schar elitärer Midwife-Leibwächter flankiert. Jeder Anschlag auf ihr Leben – oder auch nur der Versuch, sich ihr zu nähern – sollte mit äußerster Vorsicht angegangen werden.
+Kislin ist gefährlich ehrgeizig, aber im tiefsten Herzen hat er nicht den Wunsch seiner Frau, die Heimatnationen in einem kostspieligen, langwierigen Krieg zu übernehmen. Er wäre glücklich, Spire zu beherrschen und sich in Komfort zur Ruhe zu setzen. Das Hauptproblem ist sein Unterwerfungssplitter, der nur mit einem einzigen Herrschaftssplitter gekoppelt ist: dem von Philydia.
+Halcyon ist ein nützlicher Sündenbock, den man ausnutzen kann, aber er ist nicht leicht zu lenken: Er lässt sich leicht ablenken.
+Das Haus Starys für „böse“ oder „gefallen“ zu halten, gilt als altmodisch, besonders in den oberen Rängen der Stadt. Fortschrittlichere Adlige glauben, dass die Starys ihr Bestes tun, ein unfaires Klischee zu überwinden.
+Die Reichweite der Starys erstreckt sich bis ins Ministerium. Es ist schwer zu sagen, wem man trauen kann – noch mehr als sonst.
+Die große Zahl von Adligen, die in Spires Hohe Gesellschaft einheiraten, gibt dem Ministerium eine breite Vielfalt möglicher Ziele zur Unterwanderung, gibt aber auch den Starys die Möglichkeit, ihre Pläne mit einem wohlplatzierten Wort hier und da zu durchkreuzen.
+> ## STARYS-MODE
+> Die Starys mögen weder Neuerung noch Individualität (zumindest nicht unter ihren Dienern). Viele der in ihren Gemeinschaftsfabriken hergestellten Kleidungsstücke sind strapazierfähige, nüchterne Unisex-Overalls, die die Leute in Starys-Vierteln tragen. Gemeindehelfer legen diese inoffiziellen Uniformen nahe, wann immer sich Leute in der Öffentlichkeit aufhalten. „Es ist einfach effizienter“, sagen sie; „Es fördert den Gemeinschaftssinn“, und so weiter.
+> Natürlich können die Adligen selbst tragen, was sie wollen. Da die Starys ein Haus sind, das gern in die Vergangenheit blickt und nicht in die Zukunft, kleiden sie sich tendenziell in einem so altertümlichen Stil wie möglich. Bei der lückenhaften Aktenführung der Heimatnationen – vieles davon durch Bürgerkrieg zerstört oder vom Rat der Auslöschung absichtlich getilgt – ist es schwierig, wenn nicht unmöglich, zu erfassen, was in der Vergangenheit modisch war. Das bedeutet, dass ein Großteil der Starys-Haute-Couture auf fundierten Vermutungen, forensischer Kunstgeschichte und Selbstvertrauen beruht.
+
+<!-- S. 130 (PDF 135) -->
+
+## 130
+## KONTROLL-FALLOUT {farbe=#194d71}
+### Leicht
+**DER GROSSE TAG.** Eine Bindung verliebt sich in einen Starys-Adligen und heiratet ihn wahrscheinlich. Es tauchen jeden Monat mehr davon auf, zu Dutzenden, ermutigt durch Philydias Wiedererstarken.
+**FEINDE DES VOLKES.** Die Starys beginnen eine aktive Kampagne gegen das Ministerium in der Fackel, die ihnen nun gehört. Die öffentliche Meinung wendet sich gegen die Organisation. Wenn eine Bindung Stress erleidet, würfle mit zwei Würfeln und wähle das höhere Ergebnis, bis die Schmutzkampagne abgeklungen ist.
+**EINZIGER ÜBERLEBENDER.** Der einzige Überlebende einer verbündeten Ministeriumszelle, zerschlagen durch einen Angriff von Aufsehern und geheimnisvollen Gestalten in grauen Umhängen, humpelt blutig und gebrochen in euren Unterschlupf. Er muss beschützt werden, aber ist er ehrlich?
+### Mittel
+**GEJAGT.** Ihr seid eine bekannte Größe, und die Starys gehen über ihre Verbindungen zur Stadtwache gegen euch vor. Wenn ihr Stress auf Schatten erleidet, würfelt die Spielleitung mit zwei Würfeln und nimmt den höchsten, um zu bestimmen, wie viel Stress markiert wird. Reinigt euren Namen oder tötet die für euch zuständige Person, um diesen Fallout zu entfernen.
+**FALSCHE INFORMATIONEN.** Ihr erhaltet vom Ministerium einen Hinweis zu etwas, das ihr gerade untersucht, aber die Einweisung lässt wichtige Details aus, die ein Handeln darauf unerwartet gefährlich machen. Wenn man nach den Gründen drängt, sagt euer Magister, das Ministerium sei maßlos überlastet und ihr solltet für alles dankbar sein, was ihr bekommt.
+**ATTENTATSVERSUCH.** Die Zelle bekommt Wind von einem Attentatsversuch auf Madame Fey-Aranyen, das einzige Drow-Mitglied des Rates. Es gibt jedoch keine handfesten Beweise, die man ihr zeigen könnte, also lässt es sich nicht belegen. Greift ihr nicht ein und sie wird getötet, übernimmt Kislin ihren Sitz.
+### Schwer
+**VERRATEN.** Euer Magister wurde von den Starys umgedreht, und ihr erfahrt es erst, nachdem ihr mit Informationen im Stich gelassen wurdet, die eine absichtliche Falle sind. Solltet ihr entkommen, werdet ihr feststellen, dass euer Unterschlupf von der Stadtwache oder Aufsehern durchwühlt wurde. Ihr seid auf euch allein gestellt.
+**EINBERUFUNG.** Die Zelle wird zwangsweise zum Heer eingezogen, da die Starys nun die Streitkräfte kontrollieren. Sich dem Einberufungsbefehl zu entziehen wird schwierig.
+**GEOPFERT.** Ein Zellenmitglied erwacht, festgeschnallt an einer Basaltstatue in Philydias Herrenhaus. Es soll zum Ruhm von Haus Starys beim nächsten Neumond geopfert werden – das ist in zwei Tagen –, sofern niemand es rettet. (Dieser Fallout eignet sich auch gut für den Widerstand Blut; eine Figur, die bei einer Schlägerei bewusstlos geschlagen wird, könnte gefangen erwachen.)
+## HANDLUNGSSTRANG: STARYS-GESETZ {farbe=#194d71}
+Die Starys sorgen für die unteren Schichten, erwarten dafür aber anständiges Verhalten – und Gehorsam.
+In ganz Spire, hauptsächlich aber in den ärmeren Gegenden (Derelictus, die Werke, der Gartendistrikt), hat das Haus Gemeinschafts-Hilfszentren errichtet, die Bildung, Wohnraum und Arbeit für Drow anbieten, die das System zurückgelassen hat.
+In Starys-Vierteln – jedes beaufsichtigt von einem Gemeindeverwaltungsbeamten – patrouillieren bewaffnete Aufseher durch die Straßen, um den Frieden zu wahren. Die ungeborenen Kinder der Bewohner werden in von den Starys zugelassenen Kinderstuben aufgezogen, die mit Midwives von außerhalb von Spire besetzt sind, die deutlich bessere vorgeburtliche Betreuung bieten als alle bis auf die hingebungsvollsten einheimischen Midwives.
+Die Kinder werden dann an Starys-Schulen eingeschrieben, erhalten eine Grundbildung und bekommen einen Arbeitsplatz angeboten, sobald ihre Ausbildung abgeschlossen ist. Obwohl sie sich von Einrichtung zu Einrichtung unterscheidet, konzentriert sich der Lehrplan insgesamt darauf, Befehlen zu folgen, das wesentliche Herrschaftsrecht der Starys-Linie zu verstehen und Grundrechnen.
+In den Augen der Aelfir ist dies eine ausgezeichnete Lösung für das Problem der lästigen, aufsässigen unteren Schichten der Drow, und die Starys haben dafür gesorgt, die Beziehung so gut wie möglich auszunutzen. Etwa jedes dreißigste Viertel in Spire wird von den Starys geführt oder unterstützt, aber eines gibt es ganz sicher in der Nähe des Operationsstützpunkts der Figuren.
+Jeder Bürger unter dem Schutz der Starys trägt ein Brandzeichen im Nacken: eine Reihe einfacher Glyphen und Zahlen, in die Haut tätowiert oder genarbt, die zeigen, woher die Person stammt und wer ihr Herr ist. Sie gehen mit dem Verständnis einher, dass Träger in jedem Starys-Viertel Zuflucht beanspruchen können und den Schutz der Aufseher genießen,
+
+<!-- S. 131 (PDF 136) -->
+
+## 131
+falls ein Konflikt mit Außenstehenden entsteht. Sie bilden außerdem Ansatzpunkte für Unterwerfungssplitter, die implantiert werden, sobald ausreichende Indoktrination eine Abstoßung unwahrscheinlich gemacht hat.
+### STARYS-AUFSEHER
+**Namen:** Archibald, Rince, Behash
+**Beschreibung:** Tragen einen Standard-Overall, zwei Nummern zu klein; Zeigen stolz ihr Brandzeichen auf der Stirn; Rauchen verstohlen und drücken es aus, sobald ihr euch nähert
+**Widerstand:** 5
+**Ausrüstung:** Schwerer Knüppel (W6, Ermüdend); Aufseher-Ausweisarmband
+### CHANCEN UND BEDROHUNGEN
+Starys-Viertel sind ihren Beschützern oberflächlich treu. In der Öffentlichkeit unterstützen Bürger die Aufseher oft bei ihren Bemühungen, das Gesetz durchzusetzen. Die Aufmerksamkeit der Behörden in einem Starys-Viertel auf sich zu ziehen kann dazu führen, dass wütende Anwohnermobs sich bei ihren Herren beliebt machen wollen.
+Viele Bürger sind mit Unterwerfungssplittern implantiert, was bedeutet, dass sie direkte Befehle eines gekoppelten Herrschaftssplitters nicht verweigern können, ohne qualvolle Schmerzen zu erleiden. Der Erwerb eines Herrschaftssplitters würde es erlauben, sie auf gewisse Weise zu kontrollieren.
+Im Privaten sind die Leute oft unglücklich über ihre Behandlung, aber sie haben zu viel Angst, in der Öffentlichkeit etwas zu sagen. Jede Revolte muss sehr sorgfältig inszeniert werden.
+Die Aufseher sind schlecht bewaffnet und mangelhaft ausgebildet, aber sie glauben entweder wirklich an das, was sie tun, oder sie genießen es einfach, grausam zu sein. Normale Stadtwachen geben die Verfolgung lange auf, bevor es Aufseher tun.
+Sehr wenige Aelfir wissen vom Plan der Starys, Spire durch die Kontrolle der Bevölkerung zu übernehmen. Beweise zu sammeln und einem Publikum vorzulegen wird schwierig sein, könnte euch aber an seltsamen Orten einige Verbündete einbringen.
+## KONTROLL-FALLOUT {farbe=#194d71}
+### Leicht
+**GESUCHT.** Ihr erregt die Aufmerksamkeit einer Gruppe bewaffneter Aufseher, die mehr darüber erfahren wollen, was ihr vorhabt. Wenn ihr nichts Illegales tut, finden sie etwas Unmoralisches, wofür sie euch bestrafen können.
+**ERMITTELN.** Das Ministerium trägt euch auf, eine der Starys-Schulen in Derelictus, den Werken oder dem Gartendistrikt zu infiltrieren, um herauszufinden, was dort wirklich vor sich geht.
+### Mittel
+**BRANDZEICHEN.** Euch wird die Wahl gelassen: Nehmt ein Brandzeichen im Nacken an und tretet der Gemeinschaft bei, während euer Viertel von den Starys übernommen wird, oder droht Ächtung und schließlich Verbannung.
+**KEINE VERSAMMLUNG.** Öffentliche Zusammenkünfte von mehr als fünf Personen sind verboten.
+**ZEUGE.** Jemand, der den Starys treu ist, sieht euch etwas Falsches tun. (Nutze einen benannten NSC, wenn du kannst.) Er wird euch bei den Aufsehern melden, wenn ihr ihn nicht aufhaltet.
+**AUSGANGSSPERRE.** Ihr braucht einen Grund, um in diesem Distrikt draußen zu sein. Die meisten Leute gehen nur zu und von ihrer Arbeit, kaufen gelegentlich Essen oder bringen ihre Kinder zur Schule. Ihr könnt nicht einmal an einer Straßenecke stehen, ohne dass ein Aufseher euer Brandzeichen sehen will.
+### Schwer
+**AUSBREITUNG.** Jedes fünfte Viertel in Spire gehört nun den Starys. Sich durch sie zu bewegen ist für Menschen ohne Brandzeichen schwierig.
+**AUFGERÜSTET.** Da die Starys Zugang zu besseren Produktionsstätten erhalten, sind ihre Aufseher besser bewaffnet. Sie tragen nun Ravensbeak-Schrotflinten (W6, Kernschuss, Doppelläufig) und Patrouillenrüstung (Rüstung 3, Schwer).
+**GEFILZT.** Euer Unterschlupf wird von Aufsehern und einem Bürgermob gestürmt und bis auf die Grundmauern niedergebrannt. Mit etwas Glück seid ihr nicht darin, wenn es passiert.
+## SPLITTER {farbe=#981a3f}
+Splitter sind der Gipfel der Drow-Technologie: Scherben aus Kristall, Stein oder Metall, die in Fleisch und Knochen eingesetzt werden. Mit der Zeit schreiben sie den Körper auf unzählige verschiedene Weisen um. Einige Gegenden der Heimatnationen haben ihre Herstellung und ihren Verkauf wegen ihrer Unberechenbarkeit verboten, doch die Starys haben keine solchen Bedenken.
+Sie nutzen Splitter ausgiebig, um ihre Soldaten zu verbessern, ihre Arbeitskräfte zu steigern und ihre Lebensspanne zu verlängern. Vor allem pflanzen sie ihren Arbeitern Unterwerfungssplitter ein, die sie zwingen, direkten Befehlen zu gehorchen,
+
+<!-- S. 132 (PDF 137) -->
+
+## 132
+die von jedem gegeben werden, der einen auf die richtige Frequenz abgestimmten Herrschaftssplitter besitzt. Die Befolgung zu verweigern bringt Ohnmachtsanfälle, stechende Kopfschmerzen und lähmende Übelkeit. *Weitere Informationen zu Splittern siehe S. 33, S. 39.*
+Die Starys achten sehr darauf, nicht zu zeigen, was die Unterwerfungssplitter tatsächlich bewirken, und pflanzen ihrer Arbeiterschaft eine Vielzahl nützlicher Splitter ein. Vielen ergebenen Starys-Leibeigenen wird der Ohne-Hunger-Zauber gegeben, der bedeutet, dass sie nur einmal pro Woche essen müssen, was Geld und Zeit spart. Andere erhalten die Fähigkeit, schwerere Lasten zu heben, unglaubliche Sehkraft, Schwarmgeist-Kommunikation und so weiter. Adelige Starys nutzen Splitter, um besser auszusehen, sich besser zu fühlen und in der Hohen Gesellschaft effektiver zu sein.
+Splitter werden in Gemeinschaftskliniken in den Starys-Vierteln (für die Armen) und in privaten Praxen in Ivory Row und im Silberviertel (für die Reichen) implantiert. Der aktuelle Propagandavorstoß soll das Bewusstsein für die unglaublichen Vorteile schärfen, die Splitter den Menschen von Spire bringen können. Die allzu häufigen Implantatabstoßungen werden als Fehler des Patienten abgetan, der nicht offen genug für Verbesserung gewesen sei.
+## DIE VERMISSIAN SAGES {farbe=#194d71}
+Die beste Informationsquelle über Splitter liegt in den gewundenen Tunneln des Vermissian, bewacht von der Sekte aus Magier-Historikern, die als Vermissian Sages bekannt sind. Sie zu kontaktieren ist schwierig: Sie beobachten Ereignisse lieber aus der Ferne, statt sich einzumischen, und sie leben in einem sich verschiebenden, interdimensionalen, heimgesuchten unterirdischen Nahverkehrsnetz. Dennoch können die Sages, wenn die Zelle Kontakt herstellt und sie zur Hilfe überreden kann, Licht auf diese seltsame Technologie und darauf werfen, was die Starys damit vorhaben könnten.
+## KONTROLL-FALLOUT {farbe=#194d71}
+### Mittel
+**VERSCHWUNDEN.** Eine eurer Bindungen verschwindet plötzlich. Ihr wurde ein Unterwerfungssplitter eingepflanzt und es wurden ihr Befehle erteilt.
+**ERWERBUNG.** Das Ministerium beauftragt euch, einen intakten Herrschaftssplitter zu seinen Forschern zurückzubringen. Die einzigen verfügbaren Herrschaftssplitter stecken in den Hälsen von Starys-Adligen, also viel Glück damit.
+**AUFGERÜSTET.** Die meisten Aufseher wurden implantiert, und ihre Offiziere haben Varianten des Herrschaftssplitters in der Kehle. Alle Aufseher haben nun Schwierigkeit 1, solange sie ihren Truppführer hören können.
+### Schwer
+**IMPLANTIERT.** Ihr erwacht mit einem stechenden Schmerz im Nacken. Ihr könnt es nicht selbst feststellen, aber eine Untersuchung durch einen anderen wird zeigen, dass euch ein Unterwerfungssplitter implantiert wurde. Die Entfernung ist bestenfalls schwierig und schlimmstenfalls tödlich.
+## RIVALISIERENDE ADLIGE {farbe=#981a3f}
+Wenn die Zelle Zugang zu den Starys erhalten will, muss sie in der Hohen Gesellschaft operieren. Es gibt eine Reihe von Oberschichtlern, die von der Wiederkehr des verfluchten Hauses wenig begeistert sind, und drei, die sich am besten eignen, um sie zu unterwandern, zu kontrollieren oder sich mit ihnen zu verbünden.
+*Weitere Informationen zu den Adelshäusern der Drow finden sich auf S. XX.*
+## MONTAGU VALWA {farbe=#194d71}
+Montagu ist der letzte Spross eines ungeheuer wohlhabenden Zweiges seiner Familie. Er ist außerdem unfruchtbar, sodass seine Linie mit ihm endet. Er lebt in vollen Zügen, so gut er kann, schleppt seinen zerschundenen Körper in Abendgarderobe umher und kostet das Aufflackern von Ekel auf den Gesichtern seiner „Freunde“ aus, die so tun, als genössen sie seine Gesellschaft.
+Wie alle Valwa hat Montagu mindestens ein Merkmal, das die dunkle Magie verrät, die seine Vorfahren praktizierten – doch seine sind äußerst ausgeprägt. Er hat eine gespaltene Zunge, ungleiche Augen und einen widerlichen Schwefelgeruch, der ihm aus den Poren tritt, wenn er schwitzt (was oft der Fall ist).
+Montagu benimmt sich im Privaten ziemlich normal, aber in der Öffentlichkeit spielt er das Monster: Er sabbert Wein auf sein Wams, kaut Fleisch und schleudert die Knochen auf andere (niedere) Adlige, gackert und singt derbe Lieder. Er ist viel klüger, als er vorgibt. Wie auch immer er erscheint, er hat stets nur sich selbst im Sinn.
+### MÖGLICHE SZENEN
+• Wenn die Spielerfiguren eine Party besuchen, ist Montagu auf einem Balkon in vollem Schwung und lacht und trinkt mit einer Reihe von Speichelleckern. Er sieht furchterregend aus, doch niemand scheint es zu erwähnen. Er findet Gefallen an einem der SC und versucht, ihn in sein Gefolge zu holen.
+• Sobald jemand Schatten- oder Ruf-Fallout anhäuft, „kauft“ Montagu die Figur aus der Klemme frei. (Beachte: Das ist der eigentliche Fallout.) Ihr schuldet ihm nun eine
+
+<!-- S. 133 (PDF 138) -->
+
+## 133
+Gefälligkeit, aber er ist mehr daran interessiert, euch hinzuhalten und sie nie ganz einzufordern; stattdessen behält er euch als Mitläufer und Vertrauten um sich.
+• Montagu bittet geradeheraus darum, dem Ministerium beizutreten; mehr noch, er will die Zelle der Spielerfiguren finanzieren. Das sind ausgezeichnete Neuigkeiten – aber er ist miserabel in der Feldarbeit, kann kein Geheimnis für sein Leben bewahren und besteht darauf, jedes Detail zu überwachen.
+• Eine eurer Bindungen endet tot oder zumindest handlungsunfähig. Es stellt sich heraus, dass sie für jemanden in Haus Valwa – wahrscheinlich Montagu – nicht mehr nützlich war und gegen einen Feind ausgespielt wurde, wobei sie ruiniert wurde.
+• Montague verspottet lautstark die Wiederkehr von Haus Starys und nennt sie einen Haufen inzüchtiger Ketzer. Obwohl alle höflich lachen, beginnen sie auch, besorgt dreinzublicken. Ohne verstärkten Schutz wird er innerhalb von vierzehn Tagen tot enden – oder mit einem Unterwerfungssplitter implantiert und in den Dienst der Starys gezwungen sein.
+## LYNETTE GRYNDEL {farbe=#194d71}
+Lynette – eine kräftige, nahezu quadratische Frau, die ihre Ärmel immer bis zu den Ellbogen aufgekrempelt hat – ist die derzeitige Anführerin der Ritter der Blinden Schlange.
+Der Orden hat ein ordentliches Stück Gebiet in den Norddocks, doch in letzter Zeit herrschen sie und die anderen Anführer aus der Ferne, während sie sich in Ivory Row unter die Leute mischen und auf den gesetzlosen Straßen von Quinnstown in Schlägereien geraten. In ihren Augen gibt es im Zentrum des Distrikts jede Menge Land zu vergeben – und sie und ihre Jungs sind diejenigen, die es sich nehmen werden.
+Sie hat ihre Stellung gefestigt, indem sie so viele Kinder wie möglich mit so vielen einflussreichen Männern wie möglich bekommen hat. Die meisten Ritterorden verbünden sich gern mit ihr, und ihre Kinder dienen nützlichen Leuten innerhalb und außerhalb der Blinden Schlangen als Knappen.
+### MÖGLICHE SZENEN
+• In Quinnstown sehen die Figuren, wie Lynette jemanden durch ein Fenster auf die Straße tritt, nachdem er versucht hat, seine Zeche zu prellen. Es stellt sich heraus, dass es einer ihrer vielen Söhne ist, der von ihr gründlich und öffentlich zusammengestaucht wird.
+• Lynettes Jungs – einige davon tatsächlich ihre Söhne, andere nur junge Leute, die dem Orden der Blinden Schlange dienen – überfallen ein Anwesen in Ivory Row, das die SC häufig besuchen (oder das von einer ihrer Bindungen besucht wird). Beim nächsten Besuch gehört es neuen Besitzern: Leuten, die ihr Schutzgeld tatsächlich zahlen.
+• Besitzt ein SC Gebiet in Ivory Row, stürmt Lynette herein und übernimmt es bei einem ihrer Kreuzzüge. Sie sieht die Spielerfiguren jedoch wohlwollend an und lässt sie ohne Schutzgeld davonkommen, wenn sie ihr helfen, mehr Gebiet zu gewinnen.
+• Lynette gerät in direkten Konflikt mit Haus Quinn (d. h. mit dem verwandten NSC, mit dem die Spieler am meisten zu tun hatten) und lässt sich auf einen Revierkrieg um das Zentrum von Ivory Row ein. Die Spieler sind ideal positioniert, um ihn beizulegen oder von den Folgen zu profitieren.
+## HALBHERZOGIN SALIERO {farbe=#194d71}
+## „ROT“ QUINN {farbe=#194d71}
+Saliero („Sally“ für ihre Freunde, „Rot“ für ihre vielen Feinde) ist eine aufstrebende Revolutionsführerin im Brutherd von Verbrechen und Aufstand im Zentrum von Ivory Row. Sie trat Haus Quinn bei, indem sie den Großteil der Beute eines Raubüberfalls ausgab, den sie vor anderthalb Jahren durchzog. Seitdem hat sie ihre Verbindungen genutzt, um immer größere Teile des Distrikts zu übernehmen.
+Leider hat sie sich zu dünn verteilt und findet ihr Bündnis mit der Karmesinroten Wacht – einem Kult gewalttätiger Aelfir-feindlicher Pyromanen – mehr Ärger wert als Nutzen. Sie tut ihr Bestes, sie in Schach zu halten.
+### MÖGLICHE SZENEN
+• Saliero führt persönlich eine Bande bei einer Schlägerei gegen Haus Gryndel an, tritt die Türen ihres Anwesens ein und setzt es in Brand, um eine Botschaft zu senden. Wenn dies geschehen kann, während die Spielerfiguren in der Nähe oder darin sind, umso besser.
+• Saliero wird von Montagu oder Lynette als Gelegenheitsarbeiterin angeheuert, um Drecksarbeit zu erledigen, die zufällig mit dem zusammenfällt, was die Spielerzelle gerade vorhat. (Zum Beispiel: Sie wird angeheuert, dieselbe Person zu töten, die sie gerade ermorden, und die Spieler treffen sie mit zwei Revolvern in den Händen, wie sie aus der entgegengesetzten Richtung hereinschleicht.)
+• Saliero gerät in eine Kneipenschlägerei, in der die Spielerfiguren gerade trinken. Das ist kein Geschäft – sie will nur Dampf ablassen. Sie fasst Zuneigung zu einer der Spielerfiguren und bittet sie um Hilfe, als der Kampf gegen sie läuft.
+• Eine Gruppe elitärer Aelfir-Wachen – entweder Schwarze Garde oder Paladine – kommt nach Ivory Row herunter, um ein paar Türen einzutreten und zu sehen, worum der ganze Aufruhr geht. Saliero tötet sie alle und lenkt damit weitere Aelfir-Aufmerksamkeit auf den Distrikt, die Starys und die Spielerzelle.
+
+<!-- S. 134 (PDF 139) -->
+
+## 134
+> Lord Welkt-die-frischen-Blütenblätter [[Wilt-The-Petals-Fresh]]
+> bereitet sich auf einen Tag des Unterjochens
+> in seinem Maskengarten vor.
+
+<!-- S. 135 (PDF 140) -->
+
+## 135
+• Saliero nimmt Kontakt mit der Spielerzelle auf – vielleicht als Folge von Schatten-Fallout – und bringt ein Problem vor ihre Haustür. Ihre Vigiliten-Verbündeten sind außer Kontrolle, nehmen die Dinge selbst in die Hand und töten wahllos. Sie bittet die Spieler um Hilfe, sie aufzuhalten. Wenn sie sich weigern, kann sie sie den Behörden melden (sie ist nicht mutig genug, das offen zu sagen, aber es würde definitiv unterschwellig mitschwingen).
+## KONTROLL-FALLOUT {farbe=#194d71}
+### Mittel
+**VERTRIEBEN.** Die Starys erwerben irgendwie den Großteil des Besitzes eines der NSC: kaufen ihn für ein Butterbrot in einem hinterhältigen Geschäft, ziehen ein und drängen ihn durch die Starys-Isierung der Viertel in der Umgebung hinaus usw. Er ist nicht glücklich und kann der Zelle nicht viel helfen, bis er eine neue Operationsbasis hat.
+**NACHRUF.** Für einen der NSC, mit denen die Spieler in der Vergangenheit gesprochen haben, wird vom Haus der Rechtzeitigen Enden vor seiner Ermordung ein Nachruf veröffentlicht, und er muss beschützt werden. Er glaubt (zu Recht oder zu Unrecht), dass die Spieler die einzigen Menschen sind, denen er trauen kann.
+## NICHTSPIELERFIGUREN {farbe=#981a3f}
+## UND ORGANISATIONEN {farbe=#981a3f}
+## DAS HAUS DER RECHTZEITIGEN ENDEN {farbe=#194d71}
+Ein Zweig von Haus Starys, der im Großen und Ganzen ähnlich wie das Ministerium funktioniert. Sie beeinflussen Ereignisse hinter den Kulissen, ermorden wichtige politische Figuren, wenn die Zeit gekommen ist, entdecken (oder schaffen) Druckmittel gegen Ziele und beugen sie dann ihrem Willen.
+Wie beim Ministerium sind die Agenten innerhalb des Hauses ihrer Arbeit auf spiritueller oder magischer Ebene verschrieben. Sie werden gern für ihren Glauben sterben, dass die Starys über die Drow herrschen sollten, wie es recht und billig ist. Ihre Markenzeichen sind Gift, Stilettdolche, graue Umhänge, verborgene Tätowierungen in roter Tinte als Zeichen ihrer Zugehörigkeit und das Veröffentlichen von Vornachrufen auf ihre Ziele, bevor sie sie töten, als Zeichen der Höflichkeit.
+## DOKTORIN SNICKETT {farbe=#194d71}
+Eine uralte Vermissian Sage, die noch immer ihren Yssen-Akzent hat, obwohl sie vor mehr als 40 Jahren nach Spire gezogen ist. Über Verbindungen zu den Heimatnationen (einige davon körperlicher Art) hat sie im letzten Jahrzehnt ein Dutzend oder mehr illegale Splitter importiert und sich selbst in den Nacken implantiert; sie nutzt sie als zusätzlichen Gedächtnisspeicher bei ihren Bemühungen, eine funktionierende Karte des Vermissian zu erstellen. Sie weiß einiges über Splitter, aber sie ist nicht bereit, die Informationen preiszugeben, ohne dass die Zelle etwas für sie tut – Vermissian-Artefakte aus Privatsammlungen stehlen, in die Tiefen des Netzwerks hinabsteigen, um uralte Dokumente über den Fall der Starys auszugraben, oder Wirbelsäulensplitter aus Starys-Agenten herauszuholen, um sie wieder in ihr Gehirn einzusetzen.
+## VIZEBARONETTE HELLACIA QUINN {farbe=#194d71}
+Hellacia ist eine Starys von Geburt, aber sie will unbedingt so weit wie möglich von ihrer Familienlinie wegbleiben. In dem Bemühen, (im wahrsten Sinne des Wortes) ihren Namen reinzuwaschen, hat sie sich mit einem erheblichen Teil ihres ererbten Vermögens in Haus Quinn eingekauft.
+Sie hat sich als Modedesignerin und Tuchhändlerin in einem der schöneren Teile von Quinnstown etabliert, aber Philydia hat Dreck an ihr. Sie ist bereit, Hellacias Namen durch den Schmutz zu ziehen und ihren Lebensunterhalt zu ruinieren, ist aber vorerst zufrieden, sie als Mittel zu benutzen, um Informationen über Haus Quinn zu sammeln.
+Derzeit liefert Hellacia wöchentlich eine Liste von Haus Quinns Bewegungen und Schwachstellen, und sie ist damit nicht glücklich. Sie ist verzweifelt und braucht Hilfe, woher auch immer sie sie bekommen kann.
+## KRIEGERDICHTER {farbe=#194d71}
+## FROHLOCKEND-DER-REGEN {farbe=#194d71}
+Frohlockend [[Jubilant-the-Rain]] ist ein unglaublich fähiger Krieger, ein überragender Heerführer und von seinen Truppen geliebt. Er wird verschwendet, indem er Scharmützel mit Gnollen in Nujabs Hinterland führt und Paraden in Spire beobachtet. Er ist der derzeitigen Führung der Armee treu, aber es würde nicht viel brauchen, ihn dazu zu bringen, sie zu verraten, damit er die Kunst der Kriegsführung schöner ausüben kann.
+Die Starys sind derzeit dabei, ihn zu kontrollieren: Sie haben ihm die Chance angeboten, die Armee anzuführen, die die verfeindeten Staaten der Heimatnationen erobert, und er ist von der Aussicht sehr begeistert.
+## VALOROUS GRYNDEL {farbe=#194d71}
+Valorous ist ein Königsmörder: Haus Gryndel hat die Gewohnheit, Monarchen, die versuchen, sich in den Heimatnationen aufzuschwingen, gewaltsam zu entthronen, und sie haben eine Sekte von Leuten, die genau diesem Zweck gewidmet ist. Valorous trägt einen Armreif, der wie eine flachgehämmerte Krone aussieht, als Ehrenzeichen und als Einschüchterungstaktik.
+
+<!-- S. 136 (PDF 141) -->
+
+## 136
+Sie sind eine mächtige Gestalt: gut ausgebildet in Infiltration, Attentat und Scharmützelkrieg, und haben außerdem eine Hintertasche voll alter Gryndel-Kriegsmagie. Sie führen einen Ein-Personen-Krieg gegen Haus Starys, aber nicht auf die Art, die das Ministerium sich wünschen würde.
+Anstatt zu versuchen, die eindringenden Adligen zu vertreiben, wollen sie sich den Kopf von Königin Philydia holen, wenn und falls sie die Herrschaft über Spire erlangt. Bis zu diesem Zeitpunkt „zählt“ der Mord nicht. Um es aufregender zu machen oder den Prozess zu beschleunigen, könnte Valorous den Starys tatsächlich an die Macht helfen, um mehr Ruhm für das Töten von Philydia zu ernten.
+Vorerst begnügen sie sich damit, als Übung kleinere Starys-Adlige zu ermorden, und werden anbieten, der Spielerzelle zu helfen – in Wirklichkeit benutzen sie sie aber für Informationen (und gelegentlich als Köder).
+## LORD WELKT-DIE-FRISCHEN-BLÜTENBLÄTTER {farbe=#194d71}
+Ein wirklich abscheulicher Aelfir (neben ihm wirken die anderen gemäßigt), der Haus Starys im Besonderen hasst. Er ist ein monumentaler, entsetzlicher Rassist, der nicht will, dass die Drow irgendeine Macht besitzen. Er hat sich gegen die Ernennung von Fey-Aranyen in den Rat ausgesprochen und verfügt über beträchtliche Mittel, um Haus Starys zu destabilisieren.
+## MUTTER TANZT-AUF- {farbe=#194d71}
+## SOMMERGLUT {farbe=#194d71}
+Eine Aelfir-Priesterin [[Mother Dancing-on-Summer's-Embers]] von Schwester Frühling, die auf keiner Seite mehr Blutvergießen will. Sie ist nicht ganz Drow-freundlich, aber wohlmeinend und hat viele Drow in ihrem Tempel. Sie will unbedingt den Status quo bewahren, ist aber für andere Ideen offen. Sie ist eine der wenigen Aelfir, denen ihr begegnen werdet, die sich überreden lassen könnten, der Zelle aus Herzensgüte zu helfen.
+## UNHAUPTMANN SONNENAUFGANG-BRINGT- {farbe=#194d71}
+## NEUE-WUNDER {farbe=#194d71}
+Ein unsterblicher Aelfir-Veteran [[Uncaptain Sunrise-Brings-New-Wonders]] des Krieges um Spire, der Gräueltaten (oder vielmehr „glorreiche Siege“) gegen die Drow beging und sich nun dafür hasst. Von Schuld zerfressen, hat er begonnen, sich aus der Gesellschaft zurückzuziehen – könnt ihr diese Schuld in Taten verwandeln? Die Zelle bekommt Wind von seinen Gefühlen durch eine in einer Zeitung abgedruckte Schmährede, die die Ereignisse des Krieges anprangert – eine ungewöhnliche Haltung für einen hochdekorierten Veteranen.
+## GENERATOR FÜR SOFORT AUSNUTZBARE {farbe=#981a3f}
+## HANDLANGER {farbe=#981a3f}
+Wenn du eine schnelle Lösung brauchst, während ein Spieler eine Situation untersucht, brauchst du zwei Dinge, um einen untergeordneten NSC zu erzeugen, der das Spiel voranbringt: einen Namen und ein Druckmittel. Gehe davon aus, dass jeder NSC, der an einen der Handlungsstränge gebunden ist, den Spielern *etwas* zu geben hat, sei es Information, Zugang, Hilfe oder Ressourcen. Indem sie das Druckmittel ausnutzen, können die Spieler dem Herzen eines Handlungsstrangs näherkommen.
+## DAS ENDE DER GESCHICHTE {farbe=#981a3f}
+## STARYS GEWINNEN {farbe=#194d71}
+Königin Philydia, sofern sie noch lebt, übernimmt die Kontrolle über Spire. Sie schafft den Rat ab und beginnt mit den Vorbereitungen für einen Krieg mit allem, was sie hat, gegen die Heimatnationen, um sie wieder unter die Kontrolle der Starys zu bringen. Alle volljährigen Drow werden in eine riesige Armee eingezogen und durch die unterirdischen Tunnel marschiert.
+## KISLIN GEWINNT {farbe=#194d71}
+König Kislin, gelangweilt von den wahnsinnigen Ambitionen seiner Frau, nimmt einen Sitz im Rat ein und lässt sie dann töten, verbannen oder anderweitig beseitigen. Er ist zufrieden damit, als Teil einer Gruppe zu herrschen, enorme Mengen an Geld und Macht zu verdienen, und hat kein Interesse an den Heimatnationen. Er ist einfach froh, dass die Starys als Familienlinie zurück sind und mit Respekt behandelt werden. Auch wenn es in Spire noch mehrere Orte gibt, die nach strenger Starys-Herrschaft geführt werden, ist es keine vollständige Übernahme.
+## STARYS VERLIEREN DURCH DIE {farbe=#194d71}
+## HÄNDE DER DROW {farbe=#194d71}
+Die Bemühungen der Spielerfiguren und der anderen Adelshäuser stoppen das Wiedererstarken von Haus Starys. Philydias Plan wird zunichtegemacht, die Häuser sind durch interne Streitigkeiten geschwächt, und die Aelfir haben kaum bemerkt, dass überhaupt etwas vor sich ging. Jeder mit Starys-Blut ist ein gesuchter Verbrecher, nicht mehr nur ein Ausgestoßener. Die Aelfir sind fester verwurzelt als je zuvor. Das Haus, dem es gelingt, die Starys zu Fall zu bringen – oder zumindest das, das als solches wahrgenommen wird –, bekommt einen Schub im Krieg der Heimatnationen sowie innerhalb der Adelsstruktur von Spire.
+
+<!-- S. 137 (PDF 142) -->
+
+## 137
+**NAME:**
+1:	 Culvern
+2:	 Sebastien
+3: 	 Lilith
+4: 	 Querent
+5: 	 Rexavier
+6: 	 Ucretia
+7: 	 Ester
+8: 	 Farah
+9: 	 Devoted
+10: 	Rose-Merline
+11:	 Princely
+12: 	Bourke
+13: 	Wolfe
+14: 	Laine
+15: 	Scurmilous
+16: 	Jacqueline
+17: 	Henryk
+18: 	Absolon
+19: 	Escthkenaz
+20: 	Lewis-Filipe
+**DRUCKMITTEL:**
+1: 	 Hoch verschuldet bei Gangstern aus Red Row
+2: 	 Ihre Kinder sind schwer krank und Medizin ist teuer
+3: 	 Drogengewohnheit (Elfenbein, wenn sie reich sind, Dolch, wenn nicht)
+4: 	 Übermäßig der Arbeit verschrieben
+5: 	 In die falsche Person verliebt
+6: 	 Dickköpfig und berechenbar
+7: 	 Empfindsam und routineanfällig
+8: 	 Ein unverbesserlicher Feigling
+9: 	 Verehrt eine verbotene Göttin
+10: 	Hat eine Affäre
+11: 	Erpresst einen anderen NSC
+12: 	Heimlicher Aelfir-Sympathisant
+13: 	Machthungrig, mit einem Groll auf die Welt
+14: 	Hat keine Ahnung, was los ist, nur durch Zufall hier
+15: 	Lähmendes Hochstapler-Syndrom
+16: 	Verzweifelt bemüht, jemanden zu beeindrucken
+17: 	Will in Spire seine Spuren hinterlassen
+18: 	Nicht wirklich der, der er vorgibt zu sein
+19: 	Alle seine Gleichgestellten hassen ihn
+20: 	Entzieht sich seiner Dienstzeit, um hier zu sein
+## STARYS VERLIEREN DURCH DIE {farbe=#194d71}
+## HÄNDE DER AELFIR {farbe=#194d71}
+Die Aelfir bekommen Wind von den Vorgängen und zerschlagen das Wiedererstarken der Starys in Stücke, aber nicht ohne Zwischenfälle. Sie verbrauchen dafür auch wertvolle Ressourcen (hauptsächlich Drow-Vertragsarbeiter, Geld und Nahrung). Der Aelfir-Griff auf Spire ist geschwächt, aber sie halten Ausschau nach Revolution.
+## JEMAND UNTERWANDERT {farbe=#194d71}
+## DIE STARYS-HERRSCHAFT {farbe=#194d71}
+Vielleicht sind es die Spielerfiguren; vielleicht eine andere Fraktion, etwa die Quinn oder eine besonders gerissene Zelle von Vigiliten. Obwohl sie Königin von Spire ist, ist Philydia eine Marionettenherrscherin (ob sie es weiß oder nicht), kontrolliert von schattenhaften Kräften hinter ihr. Das ist identisch mit dem Ende „Starys gewinnen“, nur dass es wahrscheinlich die Schuld der Spielerfiguren ist.
+## BÜRGERKRIEG KOMMT NACH SPIRE {farbe=#194d71}
+Die Adelshäuser, die im Alltag in angespanntem Frieden mit Gewaltausbrüchen im Silberviertel überleben, ergreifen im Starys-Konflikt Partei und werden in direkte Aktion gegeneinander geworfen. Nicht-adlige Drow werden von ihren Herren zum Handeln gezwungen (oder dafür bezahlt), und die Straßen lösen sich in einen Bürgerkrieg auf, der den in den Heimatnationen widerspiegelt. Die Aelfir tun, was sie können, um ihn einzudämmen, haben aber nicht die Ressourcen und können hinter ihren vergoldeten Mauern gut genug überleben und warten, bis er sich selbst ausgebrannt hat. Sie sperren die obersten Ebenen von Spire ab, versorgen sich mit Himmelswalen neu und lassen alle in Neuer Himmel und Perch verhungern.
+## VORGESCHLAGENE FIGUREN {farbe=#981a3f}
+## DER MASKED – CARYS DESTERA {farbe=#194d71}
+Du wurdest Welkt-die-frischen-Blütenblättern [[Wilt-the-Petals-Fresh]], einem Aelfir-Geldverleiher, als Kindermädchen zugeteilt, um seine Kinder großzuziehen – doch dir fehlte die formale Ausbildung dafür. Es schien, als behielte Welkt dich wegen deiner bemerkenswerten Knochenstruktur: ein Relikt der Desteran-Drow, die sein Volk vor Jahrhunderten erobert hatte. Er ließ dich auf Partys die Maske abnehmen, um deine erblichen Merkmale zur Schau zu stellen.
+Nachdem deine Dienstzeit zu Ende war, hast du eine Weile zwischen Jobs gewechselt, bevor du in eine Verschwörung des Ministeriums verwickelt wurdest, Welkt-die-frischen-Blütenblätter zu töten. Er überlebte, aber du hast Macht gekostet und suchtest
+
+<!-- S. 138 (PDF 143) -->
+
+## 138
+> Während die Lage in der Stadt
+> außer Kontrolle gerät, werden
+> Adlige, die sich auf den Straßen duellieren,
+> alltäglich.
+
+<!-- S. 139 (PDF 144) -->
+
+einen Magister auf, um der verborgenen Göttin deine Treue zu schwören.
+## DER BOUND – KALOT GRYNDEL {farbe=#194d71}
+Die Gryndel sind Jäger: Deine Vorfahren jagten albtraumhafte unterirdische Kreaturen mit angespitzten Knochenharpunen durch die Tiefen der Heimatnationen. Du dagegen musstest dich damit begnügen, für deine Dienstzeit als junger Leutnant der Stadtwache beizutreten. Der ganze Papierkram langweilte dich ziemlich schnell.
+Deine Besessenheit führte dich dazu, außerhalb des Dienstes Verbrecher zu jagen und dich mit dem Bound einzulassen, einer Sekte von Kleingott-verehrenden Selbstjustizlern, die durch die Straßen von Spire streifen und nach Blut suchen. Du passtest sofort zu ihnen. Mit deinen Verbindungen zur Polizei dauerte es nicht lange, bis du für das Ministerium rekrutiert wurdest.
+## DER SAGE – POLOMA STARYS {farbe=#194d71}
+Du bist von Starys-Blut. Das zu sein heißt, für die Taten deiner perversen und ketzerischen Vorfahren verflucht zu sein. Du lebtest am Rand der Gesellschaft und schmuggeltest Leichenfrucht – süßlich-kranke, karmesinrote Früchte aus den Heimatnationen – für deinen Lebensunterhalt, bis du erwischt und in eine Vermissian-Bergungsarbeitskolonne gezwungen wurdest.
+Dort unten in den Tunneln fand dich etwas und ließ dich stehen, während es den Rest der Arbeiter fraß oder in den Wahnsinn trieb. Von dem Wunsch verzehrt, mehr zu erfahren, gingst du tiefer ins Vermissian und decktest seltsame Geheimnisse und Macht auf – darunter die Existenz des Ministeriums, dem du gern beitratst, um deinen Namen reinzuwaschen.
+## DIE MIDWIFE – MONROE DUVAL {farbe=#194d71}
+Du bist falsch herausgekommen. Die meisten Familien freuen sich über ein Kind, das sich für den Beitritt zu den Midwives eignet, aber du warst nur Chitin und dürre Beine, zu viele Augen und zu wenige Haare. Deine Eltern glaubten, du könntest unmöglich in der zivilisierten Gesellschaft zurechtkommen, also sperrten sie dich auf dem Dachboden ein und hielten dich geheim.
+Dort last du Bücher und erhieltest Unterricht in den heiligen Künsten Ishkrahs, bis du es – mit Hilfe von Beinschienen und einem Gehstock – schaffen konntest, deinen seltsamen Spinnenkörper in etwas Drow-ähnlicheres zu zaubern. Es dauerte achtzehn Jahre; vielleicht zwanzig. Du bist dir nicht sicher.
+Du tratest in eine Welt hinaus, die du dir nie hättest vorstellen können: eine, in der die Aelfir über die Drow herrschten und Leute wie deine Eltern spurten und ihr eigenes Volk im Tausch gegen Vorzugsbehandlung verrieten. Eine Bekannte bei den Midwives stellte dich dem Ministerium vor, und du schlossest dich begeistert an.
+*(Weitere Informationen zum Spielen einer Figur mit Behinderung siehe „Die Vergessenen“ auf S. 142.)*
+## DER FIREBRAND – VIZE-VIZEKÖNIGIN {farbe=#194d71}
+## SERAPHINE QUINN {farbe=#194d71}
+Du warst beim Militär, und deine Einheit fand in den Bergen von Nujab einen riesigen Vorrat an Gnollschätzen. Statt sie den Behörden zu melden, einigtet ihr euch alle darauf, sie auf dem Schwarzmarkt zu verkaufen. Der Großteil des Trupps starb dabei, sie nach Hause zu bringen.
+Du nahmst deinen Anteil und tratest Haus Quinn bei, einem egalitären Adelshaus, das jeden aufnimmt, solange er zahlen kann. Nachdem du deinen alten Namen abgelegt hattest, begannst du, dein eigenes halblegales Imperium aufzubauen. Du zogst die Aufmerksamkeit des Ministeriums auf dich, das dir etwas Beeindruckenderes bot als ein paar Straßen in Ivory Row: die Stadt selbst zurückzuerobern.
+## DIE LAJHAN – ANNABELLE ROSE {farbe=#194d71}
+Du hast nie eine Dienstzeit geleistet; manche Tage wünschst du, du hättest es. Stattdessen erhieltest du eine Sondergenehmigung, mitten im Tempel unserer Silbernen Königin auszuhelfen, einer Kirche mitten in Red Row, die als neutraler Treffpunkt für die Banden dient, die um den Distrikt kämpfen. Etwas ging schief – du sagst nicht, was – und du kamst gerade noch rechtzeitig heraus.
+Das Ministerium holte dich ein, und was lässt es dich tun? Die halbe Stadt hinaufreisen und alles noch einmal machen, diesmal in Ivory Row. Du bietest rivalisierenden Banden (und mehr als nur ein paar Ministern) einen sicheren Ort im Austausch für ein bisschen Finanzierung und ein Dach über dem Kopf in Form des Tempels unserer Silbernen Königin, der Wiedererstarkten.
+
+<!-- S. 140 (PDF 145) -->
+
+## 140
+> Patallions Zuflucht brennt bis auf
+> die Grundmauern nieder.

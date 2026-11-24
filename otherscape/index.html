@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="theme-color" content="#070b12">
+<title>Otherscape – Spielleiter-Tafel</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Erzähler-Tafel">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../shared/prep.css">
+<link rel="stylesheet" href="../shared/cards.css">
+<link rel="stylesheet" href="../shared/notes.css">
+<link rel="stylesheet" href="../shared/layout.css">
+<link rel="stylesheet" href="../shared/panels.css">
+<link rel="stylesheet" href="../shared/galerie.css">
+<link rel="stylesheet" href="../shared/stickynav.css">
+</head>
+<body>
+<div class="topbar">
+  <button class="brand" onclick="goHome()" aria-label="Otherscape"><img src="img/logo.webp" alt="Otherscape"></button>
+  <div class="topbar-spacer"></div>
+  <button class="tb-btn" onclick="goHome()"><span class="tb-lbl">Start</span></button>
+  <button class="tb-btn" onclick="goLastAdv()"><span class="tb-lbl">Abenteuer</span></button>
+  <button class="tb-btn" onclick="location.hash='#/tokyo'"><span class="tb-lbl">Tokyo</span></button>
+  <button class="tb-btn" onclick="location.hash='#/fraktionen'"><span class="tb-lbl">Fraktionen</span></button>
+  <button class="tb-btn" onclick="location.hash='#/gegner'"><span class="tb-lbl">Gegner</span></button>
+  <button class="tb-btn" onclick="location.hash='#/katalog'"><span class="tb-lbl">Katalog</span></button>
+  <button class="tb-btn" onclick="location.hash='#/kits'"><span class="tb-lbl">Kits</span></button>
+  <button class="tb-btn" onclick="location.hash='#/regeln'"><span class="tb-lbl">Regelwerk</span></button>
+  <button class="tb-btn" onclick="location.hash='#/metro'"><span class="tb-lbl">Metro</span></button>
+  <button class="tb-btn" onclick="location.hash='#/archetypen'"><span class="tb-lbl">Archetypen</span></button>
+  <button class="tb-btn" onclick="location.hash='#/charaktererstellung'"><span class="tb-lbl">Charakter</span></button>
+  <button class="tb-btn" onclick="location.hash='#/run'"><span class="tb-lbl">//RUN</span></button>
+  <button class="tb-btn" onclick="openBook('Metro',1)"><span class="tb-lbl">Metro (PDF)</span></button>
+  <button class="tb-btn" onclick="openBook('Tokyo',1)"><span class="tb-lbl">Tokyo (PDF)</span></button>
+  <button class="tb-btn" onclick="toggleRules()"><span class="tb-lbl">Regeln</span></button>
+  <button class="tb-btn tb-gear" onclick="openSettings()" aria-label="Einstellungen" title="Einstellungen">Einstellungen</button>
+  <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+<div id="app" class="shell"></div>
+
+<aside id="rulesDrawer" class="drawer" hidden>
+  <div class="drawer-head"><b>Regelblatt &amp; Würfler</b><button class="modal-close" onclick="toggleRules()">✕</button></div>
+  <div class="drawer-body" id="rulesBody"></div>
+</aside>
+
+<div class="modal-overlay" id="searchModal" onclick="if(event.target===this)closeModal('searchModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Volltextsuche</h2><button class="modal-close" onclick="closeModal('searchModal')">✕</button></div>
+    <div class="modal-body">
+      <input class="search-input" id="searchInput" placeholder="Suche in allen Abenteuern … (mind. 2 Zeichen)" oninput="runSearch(this.value)" autocomplete="off">
+      <div id="searchCount" class="hint"></div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)closeModal('settingsModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>Einstellungen</h2><button class="modal-close" onclick="closeModal('settingsModal')">✕</button></div>
+    <div class="modal-body">
+      <h3>Tool wechseln</h3>
+      <div class="set-tool">
+        <button onclick="switchTool('wake')"><b>Legend in the Mist</b><small>Wake of the Oldways – Erzähler-Tafel</small></button>
+        <button onclick="switchTool('locallegends')"><b>Local Legends</b><small>City of Mist – Fall-Akte</small></button>
+        <button onclick="switchTool('paynetown')"><b>Nights of Paynetown</b><small>City of Mist – Kampagne</small></button>
+        <button class="active" disabled><b>Otherscape</b><small>Cyberpunk-Fantasy – Regeln, Abenteuer (aktuell)</small></button>
+      </div>
+      <h3>Bücher (nur lokal)</h3>
+      <div class="set-tool">
+        <div class="bk-row"><div><b>Corebook Metro</b><small id="bk_metro">…</small></div><label class="btn">PDF wählen<input type="file" accept="application/pdf" hidden onchange="loadBook('Metro',this)"></label></div>
+        <div class="bk-row"><div><b>Settingbook Tokyo</b><small id="bk_tokyo">…</small></div><label class="btn">PDF wählen<input type="file" accept="application/pdf" hidden onchange="loadBook('Tokyo',this)"></label></div>
+      </div>
+      <h3>Spielstand</h3>
+      <div class="set-row">
+        <button class="btn" onclick="exportState()">Sichern (Datei)</button>
+        <label class="btn">Laden<input type="file" accept="application/json" hidden onchange="importState(this)"></label>
+        <button class="btn danger" onclick="resetState()">Zurücksetzen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bv" id="bookViewer" hidden>
+  <div class="bv-bar">
+    <button class="btn" onclick="bvStep(-1)" aria-label="Vorherige Seite">‹</button>
+    <input id="bvNum" type="number" min="1" onchange="bvGo(this.value)" aria-label="Seitennummer"><span id="bvOf" class="hint"></span>
+    <button class="btn" onclick="bvStep(1)" aria-label="Nächste Seite">›</button>
+    <button class="btn" onclick="bvZoom()">Zoom</button>
+    <button class="btn" onclick="BVFind.open()">Suche</button>
+    <span class="bv-title" id="bvTitle"></span>
+    <button class="btn" onclick="closeBook()">✕</button>
+  </div>
+  <div class="bv-stage" id="bvStage"><div class="bv-pages" id="bvPages"></div></div>
+</div>
+
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie-metro.js"></script>
+<script src="js/data/galerie-tokyo.js"></script>
+<script src="js/tool-switch.js"></script>
+<script src="../shared/notes.js"></script>
+<script src="../shared/tabpick.js"></script>
+<script src="js/core.js"></script>
+<script src="js/data/abenteuer-liste.js"></script>
+<script src="js/data/pages.js"></script>
+<script src="js/data/bilder.js"></script>
+<script src="js/data/bilder-buch.js"></script>
+<script src="js/data/metro-themebooks.js"></script>
+<script src="js/data/metro-themebooks-details.js"></script>
+<script src="js/data/katalog.js"></script>
+<script src="js/data/kits.js"></script>
+<script src="js/data/metro-kits-self-zugehoerigkeit.js"></script>
+<script src="js/data/metro-kits-self-besitz.js"></script>
+<script src="js/data/metro-kits-self-expertise.js"></script>
+<script src="js/data/metro-kits-self-horizont.js"></script>
+<script src="js/data/metro-kits-self-persoenlichkeit.js"></script>
+<script src="js/data/metro-kits-self-belastete-vergangenheit.js"></script>
+<script src="js/data/metro-kits-mythos-artefakt.js"></script>
+<script src="js/data/metro-kits-mythos-begleiter.js"></script>
+<script src="js/data/metro-kits-mythos-esoterik.js"></script>
+<script src="js/data/metro-kits-mythos-exposition.js"></script>
+<script src="js/data/metro-kits-noise-augmentierung.js"></script>
+<script src="js/data/metro-kits-noise-augmentierung-2.js"></script>
+<script src="js/data/metro-kits-noise-spitzentechnik.js"></script>
+<script src="js/data/metro-kits-noise-cyberspace-2.js"></script>
+<script src="js/data/metro-archetypen.js"></script>
+<script src="js/data/metro-charaktererstellung.js"></script>
+<script src="js/data/metro-run.js"></script>
+<script src="js/data/regelwerk.js"></script>
+<script src="js/data/metro-regeln-1.js"></script>
+<script src="js/data/metro-regeln-2.js"></script>
+<script src="js/data/metro-regeln-3.js"></script>
+<script src="js/data/metro-regeln-serien.js"></script>
+<script src="js/data/metro-powersets.js"></script>
+<script src="js/data/metro.js"></script>
+<script src="js/data/metro-setting-1.js"></script>
+<script src="js/data/metro-setting-2.js"></script>
+<script src="js/data/metro-setting-3.js"></script>
+<script src="js/data/overviews.js"></script>
+<script src="js/data/abenteuer/manifest.js"></script>
+<script src="../bookviewer/find.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/rail.js"></script>
+<script src="js/katalog.js"></script>
+<script src="js/kits.js"></script>
+<script src="js/regelwerk.js"></script>
+<script src="js/metro-seiten.js"></script>
+<script src="../shared/prep.js"></script>
+<script src="js/app.js"></script>
+<script src="js/ostree.js"></script>
+<script src="../shared/gsuche.js"></script>
+<script src="js/suche.js"></script>
+<script src="../shared/masonry.js" defer></script>
+<script src="../toolmenu.js"></script>
+<script>window.gmBook=function(){var p=parseHash(),k="Metro";if(p[0]==="adv"){var a=(typeof OS_ADV_LIST!=="undefined"?OS_ADV_LIST:[]).find(function(x){return x.id===p[1];});if(a&&a.buch&&BOOKS[a.buch])k=a.buch;}else if(p[0]==="tokyo"||p[0]==="fraktionen")k="Tokyo";return {name:BOOKS[k].name,open:function(){openBook(k,1);},books:[{name:"Metro",sub:"Corebook",open:function(){openBook("Metro",1);}},{name:"Tokyo",sub:"Settingbook",open:function(){openBook("Tokyo",1);}}]};};</script>
+<script>window.UX_CFG={cols:[{box:".chsec",side:".ch,.blk-note"}]};</script>
+<script src="../shared/ux.js"></script>
+<script src="../shared/zeigen.js"></script>
+<script src="../shared/panels.js"></script>
+<script>PanelUI.init({nav:'.osnav',rail:'.osrail'});</script>
+<script>
+// PWA: Service Worker über http(s); bei neuer Version einmal automatisch neu laden.
+if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
+  var __had = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener("controllerchange",function(){ if(__had) location.reload(); });
+  window.addEventListener("load",function(){ navigator.serviceWorker.register("../sw.js").then(function(r){ r.update(); }).catch(function(){}); });
+}
+</script>
+<script src="../shared/zurueck.js"></script>
+</body>
+</html>

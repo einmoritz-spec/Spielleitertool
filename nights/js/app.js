@@ -1,0 +1,466 @@
+/* Nights of Paynetown – Oberfläche. Zustand: localStorage nights_state_v1 */
+const STATE_KEY = "nights_state_v1";
+const PAGES_TOTAL = 296;
+const COVER = [1,2,3,4,5,6,7,8,9,10]; // Fälle mit Titelbild
+const READY = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]; // erfasste Fälle
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad = (n, l=3) => String(n).padStart(l, "0");
+let ST = loadState();
+function loadState(){ try{ return Object.assign({ cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{}, dagger:null }, JSON.parse(localStorage.getItem(STATE_KEY)||"{}")); }catch(e){ return { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{}, dagger:null }; } }
+function saveState(){ try{ localStorage.setItem(STATE_KEY, JSON.stringify(ST)); }catch(e){} }
+
+/* ---------- Daten laden ---------- */
+const loading = {};
+function loadCase(n){
+  if(window.NIGHTS.cases[n]) return Promise.resolve(window.NIGHTS.cases[n]);
+  if(loading[n]) return loading[n];
+  return loading[n] = new Promise(res => {
+    const s = document.createElement("script");
+    s.src = `js/data/case${pad(n,2)}.js`;
+    s.onload = () => res(window.NIGHTS.cases[n] || null);
+    s.onerror = () => res(null);
+    document.head.appendChild(s);
+  });
+}
+const camp = () => window.NIGHTS.campaign;
+
+/* ---------- Routing ---------- */
+function parseHash(){ const p = (location.hash||"#/").slice(2).split("/"); return p; }
+window.addEventListener("hashchange", route);
+function goHome(){ location.hash = "#/"; }
+function goCampaign(){ location.hash = "#/kampagne"; }
+function goRegister(){ location.hash = "#/register"; }
+function goMap(){ location.hash = "#/map"; }
+function goLastCase(){ location.hash = ST.last ? ST.last : "#/case/1"; }
+async function route(){
+  const p = parseHash();
+  window.scrollTo(0,0);
+  if(p[0]==="case" && p[1]){
+    const n = +p[1];
+    ST.last = "#/case/" + n + (p[2]==="sec" && p[3] ? "/sec/" + p[3] : ""); saveState();
+    $("app").innerHTML = '<div class="missing">Lade Fall …</div>';
+    const c = await loadCase(n);
+    if(!c){ const info = camp().cases[n] && Object.assign({nr:n,from:camp().cases[n].pages[0],to:camp().cases[n].pages[1]}, camp().cases[n]); $("app").innerHTML = `<div class="missing"><h2>Fall ${n}${info?": "+esc(info.title):""}</h2><p>Dieser Fall ist noch nicht erfasst. Die Originalseiten ${info?info.from+"–"+info.to:""} kannst du im Seitenviewer ansehen.</p>${info?`<button class="btn" onclick="openPageViewer(${info.from})">S. ${info.from} öffnen</button>`:""}</div>`; return; }
+    renderCase(c, p[2]==="sec" ? p[3] : (p[2]==="eisberg" ? "__eisberg" : c.sections[0].id));
+  } else if(p[0]==="pages"){ renderHome(); openPageViewer(+p[1]||1, true); }
+  else if(p[0]==="map") renderMap(p[1]==="dolch");
+  else if(p[0]==="register") renderRegister(p[1]||"leute");
+  else if(p[0]==="kampagne") renderCampaign();
+  else renderCampaign();
+}
+
+/* ---------- Start ---------- */
+function caseStatus(n){ return ST.cases[n] || ""; }
+function setStatus(n, s){ ST.cases[n] = ST.cases[n]===s ? "" : s; saveState(); renderCampaign(); }
+function renderHome(){
+  const C = camp(), ex = (C.book||[]).map(n=>C.extras&&C.extras[n]?[C.extras[n].title,null,"location.hash='#/case/"+n+"'"]:null).filter(Boolean), n = Object.keys(C.cases).length;
+  $("app").innerHTML = PREP.html({cards:[
+    {t:"Regeln", go:"openRules()", rows:[["Regelblatt & Würfler",null,"openRules()"],["Seitenviewer",null,"openPageViewer()"]]},
+    {t:"Stadt", go:"goMap()", rows:[["Stadtkarte",null,"goMap()"],["Register",null,"goRegister()"]]}
+  ].concat(ex.length?[{t:"Buchteile", go:ex[0][2], rows:ex}]:[]), adv:{t:"Kampagne", sub:n+" Fälle", go:"goCampaign()"}});
+}
+function renderCampaign(){
+  const C = camp();
+  let h = "";
+  for(const L of C.levels){
+    h += `<details class="level ${L.tone}" open><summary class="level-head"><h2>${esc(L.name)}</h2><span class="lv-sub">${esc(L.sub||"")}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
+    for(const n of L.cases){
+      const ci = C.cases[n]; if(!ci) continue;
+      const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
+      const st = caseStatus(n);
+      const cv = COVER.includes(n) ? `<img class="cc-img" src="img/cover/case${String(n).padStart(2,"0")}.webp" alt="" loading="lazy">` : "";
+      h += `<div class="case-card ${cv?"has-img":""} ${info.ready?"":"off"}" data-case="${n}"><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px;z-index:2" aria-label="Fall ${n} öffnen"></a>${cv}<div class="cc-txt"><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>S. ${info.from}–${info.to}</small></div>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}</div>`;
+    }
+    h += `</div></details>`;
+  }
+  $("app").innerHTML = `<div class="lvgrid">${h}</div>`;
+}
+
+/* ---------- Stadtkarte ---------- */
+let MZ = 1, MSHOW = false, MDAG = false;
+const DAGSVG = `<svg viewBox="0 0 420 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset=".5" stop-color="#b9c2cf"/><stop offset="1" stop-color="#7d8794"/></linearGradient><linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2d27a"/><stop offset="1" stop-color="#9c7424"/></linearGradient></defs><path d="M132 24 L400 33 Q414 35 414 35 Q414 35 400 37 L132 46 Z" fill="url(#bl)" stroke="#2a3140" stroke-width="1.5"/><path d="M140 35 L398 35" stroke="#e9eef5" stroke-width="1"/><rect x="118" y="6" width="16" height="58" rx="5" fill="url(#gd)" stroke="#4d3a10" stroke-width="2"/><rect x="42" y="27" width="76" height="16" rx="4" fill="#4a2f2f" stroke="#1f1212" stroke-width="2"/><path d="M52 27 L52 43 M66 27 L66 43 M80 27 L80 43 M94 27 L94 43 M108 27 L108 43" stroke="#2b1919" stroke-width="2"/><circle cx="24" cy="35" r="19" fill="url(#gd)" stroke="#4d3a10" stroke-width="2"/><circle cx="24" cy="35" r="8" fill="#0b0d14" stroke="#4d3a10" stroke-width="2"/><circle cx="24" cy="35" r="3" fill="#ff3d9a"/></svg>`;
+function renderMap(dolch){
+  if(dolch) MDAG = true;
+  const M = window.NIGHTS.map;
+  const spots = M.spots.map((s,i)=>`<button class="mspot" style="left:${s.x}%;top:${s.y}%;width:${s.w}%;height:${s.h}%" title="${esc(s.label)}" aria-label="${esc(s.label)}" onclick="mapSpot(${i},event)"></button>`).join("");
+  const byCase = {};
+  M.spots.forEach((s,i)=>s.links.forEach(l=>{ (byCase[l.c] = byCase[l.c]||[]).push({l, i, s}); }));
+  const list = Object.keys(byCase).sort((a,b)=>a-b).map(c=>`<div class="mlist-case"><h4>Fall ${c}</h4>${byCase[c].map(o=>`<a href="#/case/${o.l.c}/sec/${o.l.s}">${esc(o.s.label)}</a>`).join("")}</div>`).join("");
+  $("app").innerHTML = `<div class="case-head"><h1>Stadtkarte</h1><span class="meta">Crime Board City Map · tippe auf einen Ort, um zum Abschnitt zu springen</span></div>
+  <div class="mtools"><button class="btn" onclick="mapZoom(-1)">−</button><span id="mzl" class="hint">${Math.round(MZ*100)} %</span><button class="btn" onclick="mapZoom(1)">+</button><button class="btn" onclick="mapZoom(0)">Einpassen</button><button class="btn" onclick="toggleDagger()">Galahads Dolch ${MDAG?"ausblenden":"einblenden"}</button><label class="hint"><input type="checkbox" ${MSHOW?"checked":""} onchange="MSHOW=this.checked;$('mapbox').classList.toggle('show',MSHOW)"> Orte markieren</label></div>
+  ${MDAG?daggerHtml():""}<div class="mapscroll" id="mapscroll"><div class="mapbox ${MSHOW?"show":""}" id="mapbox" style="width:${MZ*100}%"><img src="${M.image}" alt="Stadtkarte">${spots}${MDAG?daggerEl():""}</div></div>
+  <div id="mpop" class="mpop" hidden></div>
+  <h3 class="blk-sh" style="margin-top:24px">Orte nach Fall</h3><div class="mlist">${list}</div>`;
+  dagDrag();
+}
+function dagState(){ return ST.dagger || (ST.dagger = { x:50, y:50, rot:-30, size:34 }); }
+function daggerEl(){ const d = dagState(); return `<div class="dagger" id="dagger" style="left:${d.x}%;top:${d.y}%;width:${d.size}%;transform:translate(-5%,-50%) rotate(${d.rot}deg);transform-origin:5.7% 50%">${DAGSVG}</div>`; }
+function daggerHtml(){ const d = dagState(); return `<div class="dagbar"><b>Galahads Dolch</b><span class="hint">Ziehen = verschieben. Das Loch im Knauf (rosa Punkt) markiert den Standort von Corbin Tower, wenn der Dolch auf die Orte der beiden bekannten Gralsritter:innen ausgerichtet ist.</span><label>Drehung <input type="range" min="-180" max="180" value="${d.rot}" oninput="dagSet('rot',+this.value)"></label><label>Größe <input type="range" min="12" max="80" value="${d.size}" oninput="dagSet('size',+this.value)"></label></div>`; }
+function dagSet(k,v){ dagState()[k] = v; saveState(); const e = $("dagger"); if(e){ const d = dagState(); e.style.width = d.size+"%"; e.style.transform = `translate(-5%,-50%) rotate(${d.rot}deg)`; } }
+function toggleDagger(){ MDAG = !MDAG; renderMap(); }
+function dagDrag(){
+  const e = $("dagger"); if(!e) return; const box = $("mapbox");
+  e.onpointerdown = ev => { ev.preventDefault(); e.setPointerCapture(ev.pointerId); const d = dagState(); const r = box.getBoundingClientRect(); const sx = ev.clientX, sy = ev.clientY, ox = d.x, oy = d.y;
+    e.onpointermove = m => { d.x = Math.min(100, Math.max(0, ox + (m.clientX-sx)/r.width*100)); d.y = Math.min(100, Math.max(0, oy + (m.clientY-sy)/r.height*100)); e.style.left = d.x+"%"; e.style.top = d.y+"%"; };
+    e.onpointerup = () => { e.onpointermove = null; saveState(); }; };
+}
+function mapZoom(d){ MZ = d===0 ? 1 : Math.min(4, Math.max(1, MZ + d*0.5)); $("mapbox").style.width = (MZ*100)+"%"; $("mzl").textContent = Math.round(MZ*100)+" %"; }
+function mapSpot(i, ev){
+  const s = window.NIGHTS.map.spots[i];
+  if(s.links.length===1){ location.hash = `#/case/${s.links[0].c}/sec/${s.links[0].s}`; return; }
+  const pop = $("mpop"); pop.hidden = false;
+  pop.innerHTML = `<b>${esc(s.label)}</b>` + s.links.map(l=>`<a href="#/case/${l.c}/sec/${l.s}">${esc(l.t)}</a>`).join("") + `<button class="btn" onclick="$('mpop').hidden=true">Schließen</button>`;
+}
+
+/* ---------- Fallansicht ---------- */
+let CUR = null;
+function cardBlocks(c, f){
+  if(f.kind!=="handout" || !f.box || !c.pages[f.page]) return null;
+  const [x0,y0,x1,y1] = f.box;
+  const bl = c.pages[f.page].blocks.filter(b=>b.box && !b.skip && (b.p||f.page)===f.page && b.box[0]>=x0-3 && b.box[2]<=x1+3 && b.box[1]>=y0-3 && b.box[3]<=y1+3).sort((a,b)=>a.box[1]-b.box[1]||a.box[0]-b.box[0]);
+  return (bl.length>=5 && bl[0].t!=="h" && bl.some(b=>b.t==="h") && /THEMENVERBESSERUNG/.test(bl.map(b=>b.x).join(" "))) ? bl : null;
+}
+function cardKeys(c){ const s = new Set(); for(const f of (c.figures||[])){ const bl = cardBlocks(c,f); if(bl) bl.forEach(b=>s.add((b.p||f.page)+":"+b.i)); } return s; }
+function secBlocks(c, sid){
+  const out = [], cl = cardKeys(c);
+  for(const pn of Object.keys(c.pages).map(Number).sort((a,b)=>a-b))
+    for(const b of c.pages[pn].blocks) if(b.sec===sid && !b.skip && !cl.has((b.p||pn)+":"+b.i)) out.push(Object.assign({}, b, {page:b.p||pn}));
+  return out.sort((a,b)=> a.page-b.page || a.i-b.i);
+}
+function groupNav(c){
+  const groups = []; let cur = null;
+  if(c.nr>=11) return c.sections.map(s=>({ name:s.title, items:[s], flat:true }));
+  for(const s of c.sections){
+    if(s.kind==="intro"){ cur = { name:"Überblick", items:[s] }; groups.push(cur); continue; }
+    if(s.kind==="abspann"){ groups.push({ name:"Abspann", items:[s] }); cur = null; continue; }
+    if(s.kind==="layer"){ cur = { name:s.title, items:[s], layer:true }; groups.push(cur); continue; }
+    if(!cur){ cur = { name:"Hintergrund", items:[] }; groups.push(cur); }
+    cur.items.push(s);
+  }
+  return groups;
+}
+function chapterOf(c, sid){
+  const gs = groupNav(c);
+  return gs.find(g=>g.items.some(s=>s.id===sid)) || gs[0];
+}
+function chapterTitle(g){ const t = g.layer ? g.items[0].title : g.name; return t.replace(/\b([A-ZÄÖÜ]) (?=[A-ZÄÖÜ]\b)/g,"$1"); }
+function navLbl(t){ const m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t); return m ? `<small class="lbl">${esc(m[1])}</small>${esc(m[2])}` : esc(t); }
+function renderCase(c, sid){
+  CUR = c;
+  const gs = groupNav(c);
+  const toEis = sid==="__eisberg";
+  let ch = toEis ? gs[0] : chapterOf(c, sid);
+  CURCH = ch;
+  const tabs = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
+    return `<button class="case-tab ${on?"active":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${m?esc(m[1])+"<br><small>"+esc(m[2])+"</small>":esc(t)}</button>`; }).join("");
+  const _g=ch.items[0], _gn=c.sections[c.sections.indexOf(_g)+1];
+  const tabbar = `<div class="case-tabbar">${tabs}<a class="case-pg" onclick="openPageViewer(${_g.page})" title="Im Buch öffnen">S. ${pageRange(c,_g,_gn)}</a>${NotePop.tile("nights", c.nr+":"+ch.items[0].id)}</div>`;
+  const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
+  OPENSID = (!toEis && sid) ? sid : null;
+  let body = chapterView(c, ch);
+  const pgA=(cls,href,lbl,t,arr)=>`<a class="${cls}" href="${href}"><span class="pg-arrow">${arr}</span><span class="pg-txt"><small>${lbl}</small><b>${esc(t).replace(/^([^:]{2,24}):\s*(.+)$/,'$1<span class="pg-more">: $2</span>')}</b></span></a>`;
+  body += `<nav class="pager">${prev?pgA("pg-prev",`#/case/${c.nr}/sec/${prev.items[0].id}`,"Zurück",chapterTitle(prev),"←"):""}${next?pgA("pg-next",`#/case/${c.nr}/sec/${next.items[0].id}`,"Weiter",chapterTitle(next),"→"):""}</nav>`;
+  const _f = ch.items[0], _n = c.sections[c.sections.indexOf(_f)+1];
+  $("app").innerHTML = `
+  
+  ${tabbar}
+  <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
+  niRail($("app").querySelector("main.content"));
+  cardGrids($("app"));
+  if(window.glossarize) glossarize($("app"));
+  const target = (!toEis && sid && ch.items[0].id!==sid && !(ch.items[1] && ch.items[1].id===sid)) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
+  if(!toEis) window.scrollTo(0,0);
+  { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
+  requestAnimationFrame(fixScn);
+  if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
+}
+let CURCH = null;
+
+/* Seitenleiste im Stil von Wake: eingeklappt = schmale Punktleiste, ausgeklappt = volle Liste */
+function prMobile(){ return innerWidth<=1000; }
+function prCollapsed(){ return prMobile() ? ST.prMc!==false : !!ST.navHidden; }
+function toggleNav(){ const v = !prCollapsed(); if(prMobile()) ST.prMc = v; else { ST.navHidden = v; } saveState();
+  const el = document.querySelector(".prail"); if(el){ el.classList.toggle("collapsed", v); const t = el.querySelector(".pr-toggle"); if(t) t.title = v ? "Seitenleiste ausklappen" : "Seitenleiste einklappen"; }
+  const g = document.querySelector(".case-grid"); if(g) g.classList.toggle("nav-off", v); }
+function prGo(h){ if(prMobile()){ ST.prMc = true; saveState(); } location.hash = h; }
+function prToggleBtn(col){ return `<button class="pr-toggle" onclick="toggleNav()" title="${col?"Seitenleiste ausklappen":"Seitenleiste einklappen"}" aria-label="Seitenleiste umschalten"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>`; }
+function selNav(v){ if(v) location.hash = `#/case/${CUR.nr}/sec/${v}`; }
+function pageRange(c, sec, nextSec){ const a = sec.page, b = nextSec ? nextSec.page : c.to; return b>a ? `${a}–${b}` : `${a}`; }
+let OPENSID = null;
+function toggleSec(el){ el.closest('.chsec').classList.toggle('open'); requestAnimationFrame(fixScn); }
+/* Zweispaltig nur, wenn sich das lohnt: ist die rechte Spalte deutlich länger als der Text, stapeln (keine Lücken links) */
+function fixScn(){
+  document.querySelectorAll('.scn').forEach(s=>{
+    s.classList.remove('stack'); const l=s.querySelector('.scn-l'), r=s.querySelector('.scn-r');
+    if(!l||!r||!s.offsetParent) return;
+    if(s.offsetWidth<860){ s.classList.add('stack'); return; }
+    if(getComputedStyle(r).position==='static' && getComputedStyle(s).display!=='grid') return;
+    if(r.offsetHeight > l.offsetHeight*0.75) s.classList.add('stack');
+  });
+}
+let _fx; const fixSoon = ()=>{ clearTimeout(_fx); _fx = setTimeout(fixScn, 80); };
+window.addEventListener('resize', fixSoon);
+document.addEventListener('load', fixSoon, true);
+function chapterView(c, ch){
+  const first = ch.items[0];
+  const k0 = !ch.flat && (ch.layer || first.kind==="intro");
+  const ns0 = c.sections[c.sections.indexOf(first)+1];
+  let h = "";
+  const eisSplit = !!(c.eisberg && first.kind==="intro");
+  let pre = "";
+  const coverFig = (first.kind==="intro") ? (c.figures||[]).filter(f=>f.kind==="art" && figSec(c,f)===first.id).sort((a,b)=>a.page-b.page)[0] : null;
+  if(coverFig) pre += `<div class="cover-top">${figHtml(coverFig)}</div>`;
+  if(eisSplit) h += `<div class="eis-split"><div id="eisberg" class="eis-side">${eisbergView(c)}</div><div class="eis-text">` + pre;
+  else h += pre;
+  ch.items.forEach((sec,k)=>{
+    const sub = !ch.flat && !(ch.layer && k===0) && !(first.kind==="intro" && k===0);
+    const subCount = ch.items.filter((x,kk)=>!ch.flat && !(ch.layer && kk===0) && !(first.kind==="intro" && kk===0)).length, single = sub && subCount===1;
+    const nextSec = c.sections[c.sections.indexOf(sec)+1];
+    h += `<section class="chsec${sub&&!single?" coll":""}${sub&&sec.id===OPENSID?" open":""}" id="s-${sec.id}">`;
+    if(sub) h += `<h3 class="sec-sub"${single?"":` onclick="toggleSec(this)"`}>${single?"":`<span class="chev">▸</span>`}${esc(sec.title)}<button class="pagetag" onclick="event.stopPropagation();openPageViewer(${sec.page})">S. ${pageRange(c,sec,nextSec)}</button></h3>${single?"":`<div class="chbody">`}`;
+    const blocks = secBlocks(c, sec.id);
+    let L = "", R = "";
+    buildThumbs(c);
+    /* Szenen-Bühne: Bilder schweben rechts neben dem Text, Hinweise/Bedrohungen bleiben bei ihrer Überschrift (Raster) */
+    const figs = [], tcards = [];
+    for(const f of (c.figures||[])) if(f.kind!=="eisberg" && f!==coverFig && !f._card && figSec(c,f)===sec.id){ const bl = cardBlocks(c,f); if(bl) tcards.push({f, t:bl[0].x.replace(/<[^>]+>/g,"").trim().toUpperCase()}); else figs.push(f); }
+    const fl = figs.slice(0,3).map(f=>figHtml(f, c)).join("");
+    const rest = figs.slice(3).map(f=>figHtml(f, c)).join("");
+    if(fl) L += `<div class="sfig n${Math.min(figs.length,3)}">${fl}</div>`;
+    const tcAt = {}; tcards.forEach(tc=>{ const i = blocks.findIndex(b=>b.t==="h" && b.x.replace(/<[^>]+>/g,"").trim().toUpperCase()===tc.t); (tcAt[i] = tcAt[i]||[]).push(figHtml(tc.f, c)); });
+    blocks.forEach((b,i)=>{ L += blockHtml(c, b); if(tcAt[i]) L += tcAt[i].map(x=>x.replace('class="fig tcard-fig"','class="fig tcard-fig tc-float"')).join(""); });
+    if(tcAt[-1]) L += tcAt[-1].join("");
+    h += L + rest + `<div class="sclear"></div>`;
+    if(c.nr===10 && (sec.id==='die-zweite-gralsritter-in' || sec.id==='parkside-cafe')) h += `<a class="btn" href="#/map/dolch">🗺 Galahads Dolch auf der Stadtkarte legen</a>`;
+    if(sub&&!single) h += `</div>`;
+    h += `</section>`;
+  });
+  if(eisSplit) h += `</div></div>`;
+  return h;
+}
+function figSec(c, f){ if(f.sec) return f.sec; let best=null; for(const s of c.sections) if(s.page<=f.page) best=s; return best&&best.id; }
+function mark(x){ return x.replace(/<t>/g,"<t>"); }
+function blockHtml(c, b, idx){
+  const k = `${c.nr}:${b.p||b.page}:${b.i}`;
+  switch(b.t){
+    case "h": return `<h3 class="blk blk-h">${b.x}</h3>`;
+    case "sh": return `<div class="blk blk-sh">${b.x}</div>`;
+    case "ro": return `<div class="blk blk-ro">${b.x}</div>`;
+    case "card": { const d = ST.done[k]; return `<div class="blk blk-card ${b.k==="pink"?"pink":""} ${d?"done":""}" onclick="if(!event.target.closest('a,button,u,.gl'))toggleDone('${k}',this.firstChild)" title="Klicken: als erledigt markieren"><span class="ck"></span>${b.x}</div>`; }
+    case "threat": return threatHtml(c, b);
+    default: return `<p class="blk blk-p">${b.x}</p>`;
+  }
+}
+function parseLimits(sp){
+  return (sp||"").split(" / ").map(x=>{ x=x.trim(); const fix = l => l.replace(/(\S)- (\S)/g,'$1$2').trim(); const m = x.match(/^\(?(.*?)\s+(\d+)\)?$/); if(m) return { label:fix(m[1]), max:+m[2] }; const d = x.match(/^\(?(.*?)\s+[–—-]\)?$/); return d ? { label:fix(d[1]), max:0 } : null; }).filter(Boolean);
+}
+function cap(t){ return t.charAt(0)+t.slice(1).toLowerCase(); }
+/* Illustration zu einer Bedrohung klein in deren Karte einbauen */
+const STOPW = new Set(["der","die","das","den","dem","des","und","mit","von","vor","bei","als","themenkarte","illustration","unter","aus","auf","ins","im"]);
+function toks(x){ return (x||"").toLowerCase().replace(/[^a-zäöüßø]+/g," ").split(" ").filter(t=>t.length>=4 && !STOPW.has(t)).map(t=>t.slice(0,6)); }
+function buildThumbs(c){
+  if(c._th) return c._th; c._th = {};
+  const threats = [];
+  for(const pn of Object.keys(c.pages)) for(const b of c.pages[pn].blocks) if(b.t==="threat" && b.sec) threats.push(b);
+  for(const f of (c.figures||[])){
+    if(f.kind!=="art" || /titelbild|^titel/i.test(f.title+" "+f.file)) continue;
+    if(f.box){ const r=(f.box[3]-f.box[1])/(f.box[2]-f.box[0]); if(r<0.7) continue; }
+    const sec = figSec(c,f), ft = toks(f.title); let best=null, bn=0;
+    for(const b of threats){ if(b.sec!==sec || c._th[b.name]) continue; const n = toks(b.name).filter(t=>ft.includes(t)).length; if(n>bn){ bn=n; best=b; } }
+    if(best){ c._th[best.name] = f; f._card = true; }
+  }
+  return c._th;
+}
+function thumbHtml(c,b){ const f = c && c.figures && buildThumbs(c)[b.name]; return f ? `<img class="th-thumb" loading="lazy" src="${f.file}" alt="${esc(f.title)}" onclick="event.stopPropagation();openPageViewer(${f.page})">` : ""; }
+function threatHtml(c, b, open){
+  const key = `${c.nr}:${b.name}`;
+  const lims = parseLimits(b.spectra);
+  const nstars = (b.stars||"").length;
+  const rows = lims.map((l,i)=>{
+    if(!l.max) return `<div class="limit-row nolimit"><span class="limit-label">${esc(cap(l.label))}</span><span class="limit-controls"><span class="limit-count" title="Dieser Zustand trifft die Bedrohung nicht">– (kein Limit)</span></span></div>`;
+    const k = key+":"+i, arr = limArr(k), cur = arr.length ? Math.max(...arr) : 0; let pips = "";
+    for(let n=1;n<=l.max;n++) pips += `<button class="pip ${arr.includes(n)?"filled":""}" onclick="setLimit('${k.replace(/'/g,"\\'")}',${n},${l.max},this)" aria-label="${n} von ${l.max}"></button>`;
+    return `<div class="limit-row"><span class="limit-label">${esc(cap(l.label))}</span><span class="limit-controls"><span class="pips">${pips}</span><span class="limit-count">${cur} / ${l.max}</span><button class="limit-reset" onclick="resetLimit('${k.replace(/'/g,"\\'")}',this)" title="Zurücksetzen">↺</button></span></div>`;
+  }).join("");
+  const sub = i => { const a = i.split(/\s*»\s*/); return a.length>1 ? a[0].replace(/[:\s]+$/,'')+(a[0].trim()?':':'')+`<ul class="th-nest">${a.slice(1).map(x=>`<li>${x}</li>`).join('')}</ul>` : i; };
+  const items = (b.items||[]).map(sub);
+  const specials = items.filter(i=>/^<b>/.test(i)), moves = items.filter(i=>!/^<b>/.test(i));
+  return `<div class="blk threat ${nstars>=4?"boss":""} ${open?"":"thr-coll"}"><span class="pin"></span><div class="threat-head"${open?"":` onclick="this.parentNode.classList.toggle('open')"`}>${thumbHtml(c,b)}<b>${esc(b.name)}</b><span class="stars">${esc(b.stars||"")}</span></div>${b.desc?`<p class="th-desc">${b.desc}</p>`:""}${rows?`<div class="limit-block">${rows}${lims.filter(l=>l.max).length>1?`<button class="limit-all" onclick="resetAllLimits('${esc(key).replace(/'/g,"\\'")}',${lims.length},this)">Alle zurücksetzen (Szenenende)</button>`:""}</div>`:(b.spectra?`<div class="spectra">${esc(b.spectra)}</div>`:"")}${specials.length?`<ul class="th-spec">${specials.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}${moves.length?`<div class="th-sub">Aktionen der Spielleitung</div><ul class="th-moves">${moves.map(i=>`<li>${i}</li>`).join("")}</ul>`:""}</div>`;
+}
+function limArr(k){ const v = ST.limits[k]; if(Array.isArray(v)) return v; if(typeof v==="number" && v>0){ const a=[]; for(let i=1;i<=v;i++) a.push(i); ST.limits[k]=a; return a; } return []; }
+function limSync(row, arr, max){ row.querySelectorAll(".pip").forEach((p,i)=>p.classList.toggle("filled", arr.includes(i+1))); row.querySelector(".limit-count").textContent = (arr.length?Math.max(...arr):0)+" / "+max; }
+function setLimit(k, n, max, btn){ const arr = limArr(k).slice(), pos = arr.indexOf(n); if(pos>=0) arr.splice(pos,1); else arr.push(n); ST.limits[k] = arr; saveState(); limSync(btn.closest(".limit-row"), arr, max); }
+function resetLimit(k, btn){ ST.limits[k] = []; saveState(); const row = btn.closest(".limit-row"); limSync(row, [], row.querySelectorAll(".pip").length); }
+function resetAllLimits(key, n, btn){ const blk = btn.closest(".limit-block"); for(let i=0;i<n;i++) ST.limits[key+":"+i] = []; saveState(); blk.querySelectorAll(".limit-row:not(.nolimit)").forEach(r=>limSync(r, [], r.querySelectorAll(".pip").length)); }
+function toggleDone(k, btn){ ST.done[k] = !ST.done[k]; saveState(); btn.parentElement.classList.toggle("done", !!ST.done[k]); }
+function setNote(k, v){ ST.notes[k] = v; saveState(); }
+NotePop.reg("nights", k=>ST.notes[k]||"", setNote);
+function tagList(x){ return x.split(/(?<=<\/i>|<\/b>|<\/i><\/b>),\s*(?=<)/).map(t=>{ const hl=/^<b>/.test(t); return `<span class="tg${hl?" hl":""}">${t.replace(/<\/?b>/g,"")}</span>`; }).join(""); }
+function cardHtml(c, f, bl){
+  let h = "", sect = "", title = bl[0].x.replace(/<\/?b>/g,""), type = "";
+  bl.slice(1).forEach(b=>{
+    if(b.t==="h"){ sect = b.x.trim(); h += `<div class="tc-bar">${esc(sect)}</div>`; return; }
+    if(!sect){ type = b.x.replace(/<\/?i>/g,""); return; }
+    if(/^(STÄRKEN|SCHWÄCHEN|POWER TAGS)/.test(sect)) h += `<div class="tc-tags ${/SCHW/.test(sect)?"weak":""}">${tagList(b.x)}</div>`;
+    else if(/^(IDENTITÄT|MYSTERIUM)/.test(sect)) h += `<div class="tc-q">${b.x.replace(/<\/?i>/g,"")}</div>`;
+    else h += `<p class="tc-p">${b.x}</p>`;
+  });
+  return `<figure class="fig tcard-fig"><div class="tcard tc-coll"><div class="tc-head" onclick="this.parentNode.classList.toggle('open')"><div class="tc-t"><b>${title}</b><a class="tc-pg" onclick="event.stopPropagation();openPageViewer(${f.page})" title="Im Buch öffnen">S. ${f.page}</a></div><span>${esc(type)}</span></div>${h}</div></figure>`;
+}
+function figTall(i){ if(i.naturalHeight/i.naturalWidth>1.3 && i.closest('.fig.art') && !i.closest('.cover-top,.tcard-fig,.eis-wrap')) i.closest('.fig').classList.add('tall'); }
+function figHtml(f, c){ const bl = c && cardBlocks(c,f); if(bl) return cardHtml(c,f,bl); return `<figure class="fig ${f.kind}"><img loading="lazy" src="${f.file}" alt="${esc(f.title)}" onload="figTall(this)" onclick="openPageViewer(${f.page})"><figcaption>${esc(f.title)} · S. ${f.page}</figcaption></figure>`; }
+
+/* Eisberg: Seitenprozent -> Ausschnittsprozent */
+function eisbergView(c){
+  const E = c.eisberg, fig = c.figures.find(f=>f.id===E.fig);
+  const size = c.pages[E.page].size || [595, 842];
+  const [x0,y0,x1,y1] = fig.box, W = x1-x0, H = y1-y0;
+  let hot = "";
+  E.nodes.forEach((n,i)=>{
+    const cx = n.x/100*size[0], cy = n.y/100*size[1], w = n.w/100*size[0], h = n.h/100*size[1];
+    const l = (cx-w/2-x0)/W*100, t = (cy-h/2-y0)/H*100;
+    hot += `<button class="hot ${ST.seen[c.nr+":"+n.label]?"seen":""}" style="left:${l}%;top:${t}%;width:${w/W*100}%;height:${h/H*100}%" title="${esc(n.label)}" aria-label="${esc(n.label)}" onclick="gotoNode(${i})"></button>`;
+  });
+  const list = E.nodes.map((n,i)=>`<button onclick="gotoNode(${i})"><small>Schicht ${n.layer}</small>${esc(n.label)}</button>`).join("");
+  return `<div class="eis-wrap"><img src="${fig.file}" alt="Eisberg">${hot}</div>`;
+}
+function gotoNode(i){ const n = CUR.eisberg.nodes[i]; ST.seen[CUR.nr+":"+n.label] = 1; saveState(); location.hash = `#/case/${CUR.nr}/sec/${n.target}`; }
+
+/* ---------- Modale ---------- */
+function openModal(id){ $(id).classList.add("show"); }
+function closeModal(id){ $(id).classList.remove("show"); }
+function openSettings(){ openModal("settingsModal"); }
+function exportState(){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(ST,null,1)],{type:"application/json"})); a.download = "nights-spielstand.json"; a.click(); }
+function importState(inp){ const f = inp.files[0]; if(!f) return; f.text().then(t=>{ try{ ST = Object.assign(loadState(), JSON.parse(t)); saveState(); route(); closeModal("settingsModal"); }catch(e){ alert("Datei konnte nicht gelesen werden."); } }); }
+function resetState(){ if(confirm("Spielstand wirklich zurücksetzen?")){ ST = { cases:{}, done:{}, notes:{}, last:null, seen:{}, limits:{}, dagger:null }; saveState(); closeModal("settingsModal"); route(); } }
+
+/* ---------- Suche ---------- */
+function stripTags(s){ return s.replace(/<[^>]+>/g,""); }
+function openSearch(){ openModal("searchModal"); setTimeout(()=>$("searchInput").focus(),50); }
+function runSearch(q){
+  q = q.trim().toLowerCase(); const out = $("searchResults");
+  if(q.length<2){ out.innerHTML=""; $("searchCount").textContent=""; return; }
+  const res = [];
+  for(const n in window.NIGHTS.cases){ const c = window.NIGHTS.cases[n];
+    for(const pn in c.pages) for(const b of c.pages[pn].blocks){
+      const txt = stripTags(b.t==="threat" ? [b.name,b.spectra,...(b.items||[])].join(" ") : (b.x||""));
+      const i = txt.toLowerCase().indexOf(q);
+      if(i>=0) res.push({c, b, sec:b.sec, page:b.p||+pn, snip: txt.slice(Math.max(0,i-50), i+q.length+70), i, q});
+    } }
+  $("searchCount").textContent = res.length + " Treffer" + (res.length>60?" (die ersten 60)":"") + (Object.keys(window.NIGHTS.cases).length<10?" · nur geladene Fälle":"");
+  out.innerHTML = res.slice(0,60).map(r=>{
+    const s = esc(r.snip), re = new RegExp(esc(r.q).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"ig");
+    return `<button class="sr" onclick="closeModal('searchModal');location.hash='#/case/${r.c.nr}/sec/${r.sec}'"><small>Fall ${r.c.nr} · S. ${r.page}</small><br>…${s.replace(re,m=>`<mark>${m}</mark>`)}…</button>`; }).join("");
+}
+// Suche braucht alle Fälle: im Hintergrund nachladen
+function preloadAll(){ READY.forEach(loadCase); }
+
+/* ---------- Seitenviewer ---------- */
+let PV = 1;
+function openPageViewer(n, silent){ PV = Math.min(PAGES_TOTAL, Math.max(1, +n||PV)); BV.open("nights", PV); }
+function closePageViewer(){ $("pageViewer").hidden = true; document.body.classList.remove("menu-open"); if(parseHash()[0]==="pages") history.back(); }
+function pvShow(){ $("pvImg").src = `pages/p${pad(PV)}.webp`; $("pvNum").value = PV; $("pvStage").scrollTop = 0; }
+function pvStep(d){ PV = Math.min(PAGES_TOTAL, Math.max(1, PV+d)); pvShow(); }
+function pvGo(n){ PV = Math.min(PAGES_TOTAL, Math.max(1, n||1)); pvShow(); }
+function pvZoom(){ $("pvStage").classList.toggle("zoom"); }
+document.addEventListener("keydown", e=>{
+  if(!$("pageViewer").hidden){ if(e.key==="ArrowRight") pvStep(1); else if(e.key==="ArrowLeft") pvStep(-1); else if(e.key==="Escape") closePageViewer(); }
+  else if(e.key==="Escape"){ closeModal("searchModal"); closeModal("settingsModal"); }
+});
+
+/* ---------- Start ---------- */
+if("serviceWorker" in navigator) navigator.serviceWorker.register("../sw.js").catch(()=>{});
+try{ localStorage.setItem("gm_tool_mode_v1","paynetown"); }catch(e){}
+(function(){ const C = camp(); const g = document.querySelector(".tb-gear"); if(!g||!C.book) return;
+  C.book.forEach(n=>{ const e = C.extras&&C.extras[n]; if(!e) return; const b=document.createElement("button"); b.className="tb-btn"; b.innerHTML='<span class="tb-lbl">'+esc(e.title)+'</span>'; b.onclick=()=>{location.hash="#/case/"+n}; g.parentNode.insertBefore(b,g); }); })();
+route();
+setTimeout(preloadAll, 800);
+
+
+/* ---------- Register: Bedrohungen/Personen/Orte + Notizenübersicht ---------- */
+var REG = null;
+async function buildRegister(){
+  if(REG) return REG;
+  const items = [], loaded = {};
+  for(const n of READY){ const c = await loadCase(n); if(!c) continue; loaded[n] = c;
+    const secOf = pg => { let b = null; for(const sc of c.sections) if(sc.page<=pg) b = sc; return b && b.id; };
+    const seen = {};
+    for(const pg in c.pages){ for(const b of (c.pages[pg].blocks||[])){ if(b.t==="threat" && b.name){ const k = b.name+"|"+pg; if(seen[k]) continue; seen[k]=1; items.push({kind:"leute", c, b, name:b.name.replace(/\s+/g," ").replace(/[\s+\/&]+$/,"").trim(), stars:b.stars||"", nr:n, page:+pg, sec:secOf(+pg)}); } } }
+    if(c.eisberg) for(const nd of c.eisberg.nodes) items.push({kind:"orte", name:nd.label, stars:"", nr:n, page:c.eisberg.page, sec:nd.target, layer:nd.layer});
+  }
+  REG = {items, loaded}; return REG;
+}
+function regLink(it){ return `#/case/${it.nr}/sec/${it.sec}`; }
+async function renderRegister(tab){
+  $("app").innerHTML = '<div class="missing">Lade Register …</div>';
+  const R = await buildRegister();
+  const tabs = [["leute","Bedrohungen & Personen"],["orte","Eisberg-Einträge"],["notizen","Notizen"]];
+  let h = `<div class="case-head"><h1>Register</h1></div><div class="reg-tabs">${tabs.map(t=>`<button class="${t[0]===tab?"on":""}" onclick="location.hash='#/register/${t[0]}'">${t[1]}</button>`).join("")}</div>`;
+  if(tab==="notizen"){
+    const rows = Object.keys(ST.notes).filter(k=>(ST.notes[k]||"").trim()).map(k=>{ const [nr,sid] = k.split(":"); const c = R.loaded[+nr]; const sec = c && c.sections.find(x=>x.id===sid); return {nr:+nr, sid, title: sec?sec.title:sid, text:ST.notes[k], page: sec?sec.page:0}; }).sort((a,b)=>a.nr-b.nr||a.page-b.page);
+    h += rows.length ? `<div class="reg-list">${rows.map(r=>`<a class="reg-note" href="#/case/${r.nr}/sec/${r.sid}"><small>${r.nr<11?"Fall "+r.nr:"Buch"} · ${esc(r.title)}</small><span>${esc(r.text)}</span></a>`).join("")}</div>` : `<div class="missing">Noch keine Notizen. Notizen schreibst du unten in jedem Kapitel.</div>`;
+  } else {
+    h += `<input class="search-input reg-filter" id="regFilter" placeholder="Filtern …" oninput="regFilter(this.value)" autocomplete="off"><div class="reg-list" id="regList">${R.items.filter(i=>i.kind===tab).sort((a,b)=>a.name.localeCompare(b.name,"de")).map(it=>`<a class="reg-row" href="${regLink(it)}"${it.b?` onclick="return regOpen(${R.items.indexOf(it)})"`:""} data-q="${esc(it.name.toLowerCase())}"><b>${esc(it.name)}</b><span class="stars">${esc(it.stars)}</span><small>${it.nr<11?"Fall "+it.nr:"Buch"} · S. ${it.page}${it.layer!=null?" · Schicht "+it.layer:""}</small></a>`).join("")}</div>`;
+  }
+  $("app").innerHTML = h;
+}
+function regOpen(i){
+  const it = REG.items[i]; if(!it||!it.b) return true;
+  let m = document.getElementById("regModal"); if(m) m.remove();
+  m = document.createElement("div"); m.id = "regModal"; m.className = "reg-modal";
+  m.innerHTML = `<div class="reg-md"><button class="reg-x" aria-label="Schließen">✕</button>${threatHtml(it.c, it.b, true)}<a class="reg-go" href="${regLink(it)}" onclick="document.getElementById('regModal').remove()">${it.nr<11?"Fall "+it.nr:"Buch"} · S. ${it.page}</a></div>`;
+  m.addEventListener("click", e=>{ if(e.target===m || e.target.closest(".reg-x")) m.remove(); });
+  document.body.appendChild(m); return false;
+}
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ const m = document.getElementById("regModal"); if(m) m.remove(); } });
+function regFilter(q){ q = q.trim().toLowerCase(); document.querySelectorAll("#regList .reg-row").forEach(r=>{ r.style.display = !q || r.dataset.q.includes(q) ? "" : "none"; }); }
+
+/* Rechtsklick (bzw. Langdruck am Handy) auf einen Fall: Status „läuft“ / „abgeschlossen“ wählen */
+(function(){
+  function closeCm(){ const e = document.getElementById("caseCm"); if(e) e.remove(); }
+  function openCm(n, x, y){
+    closeCm(); const st = caseStatus(n), m = document.createElement("div"); m.id = "caseCm"; m.className = "case-cm";
+    m.innerHTML = `<button class="${st==="run"?"on":""}" data-s="run">Läuft</button><button class="${st==="ok"?"on":""}" data-s="ok">Abgeschlossen</button>${st?'<button data-s="">Status entfernen</button>':""}`;
+    m.addEventListener("click", e=>{ const b = e.target.closest("button"); if(!b) return; ST.cases[n] = b.dataset.s; saveState(); closeCm(); renderCampaign(); });
+    document.body.appendChild(m);
+    m.style.left = Math.max(8, Math.min(x, innerWidth - m.offsetWidth - 8)) + "px"; m.style.top = Math.max(8, Math.min(y, innerHeight - m.offsetHeight - 8)) + "px";
+  }
+  document.addEventListener("contextmenu", e=>{ const c = e.target.closest && e.target.closest(".case-card[data-case]"); if(!c) return; e.preventDefault(); openCm(+c.dataset.case, e.clientX, e.clientY); });
+  let t = null, sx = 0, sy = 0, fired = false;
+  document.addEventListener("touchstart", e=>{ const c = e.target.closest && e.target.closest(".case-card[data-case]"); if(!c) return; fired = false; const p = e.touches[0]; sx = p.clientX; sy = p.clientY; t = setTimeout(()=>{ fired = true; openCm(+c.dataset.case, sx, sy); }, 550); }, {passive:true});
+  ["touchend","touchcancel"].forEach(n=>document.addEventListener(n, ()=>clearTimeout(t), {passive:true}));
+  document.addEventListener("touchmove", e=>{ const p = e.touches[0]; if(Math.abs(p.clientX-sx)>8||Math.abs(p.clientY-sy)>8) clearTimeout(t); }, {passive:true});
+  document.addEventListener("click", e=>{ if(fired){ fired = false; e.preventDefault(); e.stopPropagation(); return; } if(!(e.target.closest&&e.target.closest(".case-cm"))) closeCm(); }, true);
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeCm(); });
+})();
+
+/* Standard-Layout: Unterkapitel als Baum links, rechts flach und offen */
+function niRail(main){
+  if(!main) return;
+  const secs=[...main.children].filter(e=>e.classList&&e.classList.contains("chsec")&&e.querySelector(":scope > .sec-sub"));
+  if(secs.length<2) return;
+  const nav=document.createElement("nav"); nav.className="ni-nav";
+  const body=document.createElement("div"); body.className="ni-body";
+  secs.forEach(function(e){
+    e.classList.add("open"); e.classList.remove("coll"); e.classList.add("ni-flat");
+    const h=e.querySelector(":scope > .sec-sub"); h.removeAttribute("onclick");
+    const nm=[...h.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent).join("").trim().split(":")[0];
+    const a=document.createElement("a"); a.href="#"+e.id; a.textContent=nm;
+    a.onclick=function(ev){ev.preventDefault(); e.scrollIntoView({behavior:"smooth",block:"start"});};
+    nav.appendChild(a);
+    body.appendChild(e);
+  });
+  const wrap=document.createElement("div"); wrap.className="ni-rail"; wrap.appendChild(nav); wrap.appendChild(body);
+  main.insertBefore(wrap, main.querySelector(".pager"));
+  [...main.children].forEach(function(e){ if(e===wrap) return; if(e.compareDocumentPosition(wrap)&Node.DOCUMENT_POSITION_FOLLOWING && e.classList.contains("chsec") && !e.querySelector(":scope > .sec-sub")) e.classList.add("ni-intro"); });
+}
+
+/* Aufeinanderfolgende Hinweis-/Challenge-Karten als Raster über die volle Breite */
+function cardGrids(root){
+  root.querySelectorAll(".chsec,.scn-l,.chbody").forEach(par=>{
+    let run=[]; const flush=()=>{ if(!run.length) return; const g=document.createElement("div"); g.className="cardgrid"; run[0].before(g); run.forEach(e=>g.appendChild(e)); run=[]; };
+    [...par.children].forEach(e=>{ if(e.classList&&(e.classList.contains("blk-card")||e.classList.contains("threat"))&&!e.classList.contains("tcard-fig")) run.push(e); else flush(); });
+    flush();
+  });
+}

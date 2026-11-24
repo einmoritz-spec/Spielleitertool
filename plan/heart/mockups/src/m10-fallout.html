@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="ht.css">
+<style>body{width:1440px;height:900px;overflow:hidden;position:relative;}
+
+.seite10{margin:12px 16px 0;height:800px;overflow:hidden}
+.kopfz{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px;align-items:start}
+.kopfz .h1{font-size:40px}
+.schwarz p{font-size:14.5px;margin:0 0 4px}
+.chips{display:flex;gap:6px;margin:12px 0 8px;align-items:center}
+.chip{font:400 14px/1 var(--plate);letter-spacing:.07em;text-transform:uppercase;padding:7px 11px 6px;border:1px solid var(--platte);color:var(--platte);cursor:pointer}
+.chip.on{background:var(--platte);color:#fff}
+.chips .gap{flex:1}
+.mat{display:grid;grid-template-columns:repeat(5,1fr);gap:0 12px}
+.mat .kol h4{margin:0 0 4px}
+.band10{grid-column:1/-1;font:400 22px/1 var(--head);color:var(--blut);text-transform:uppercase;border-bottom:2px solid var(--platte);padding:8px 0 3px;margin:6px 0 6px;display:flex;justify-content:space-between;align-items:baseline}
+.band10 i{font:italic 400 14px var(--body);color:#7a6a5c;text-transform:none}
+.fk{border:1px solid var(--linie);background:rgba(255,253,248,.7);margin-bottom:4px;cursor:pointer}
+.fk .z{display:flex;justify-content:space-between;align-items:baseline;padding:5px 8px 4px;font:400 14px/1.1 var(--plate);letter-spacing:.05em;text-transform:uppercase;color:var(--blut)}
+.fk .z em{font:700 11px var(--sc);font-style:normal;color:#8a7f72;letter-spacing:.02em;text-transform:none}
+.fk .z q{quotes:none;font:700 11px var(--sc);color:#8a7f72;margin-left:4px}
+.fk.auf{border-color:var(--platte);background:#fff}
+.fk.auf .z{background:var(--platte);color:#fff}.fk.auf .z em{color:#e6c6bf}
+.fk .t{padding:6px 9px 8px;font-size:14px;line-height:1.35}
+.fk .zu{display:flex;gap:6px;margin-top:6px;align-items:center}
+.fk .zu span{font:400 12.5px/1 var(--plate);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--platte);color:var(--platte);padding:4px 7px 3px}
+.fk .zu span.on{background:var(--platte);color:#fff}
+.mat .dp{width:7px;height:7px;border-radius:50%;background:var(--blut);display:inline-block;margin-right:5px}
+</style></head><body>
+<div class="kopf"><button class="logo"><img src="img/logo.webp" alt="Heart"><span class="dd"></span></button><div class="sp"></div><button class="ik i">i</button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button>
+<button class="ik"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="tabs"><a class="">Expedition</a><a class="">Karte</a><a class="">Landmarken</a><a class="">Gegner</a><a class="on">Fallout</a><a class="">Gruppe</a><span class="sp"></span><button class="ik stift"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></button></div>
+<div class="seite seite10"><div class="kopfz">
+<div><h1 class="h1">Fallout <span class="s">S. 80</span></h1>
+<p class="kurs" style="margin-top:6px">Sobald du Stress erleidest, würfelt die SL W12 gegen deinen aktuellen Gesamt-Stress. Ist das Ergebnis gleich oder niedriger, erleidest du Fallout.</p></div>
+<div class="schwarz"><div class="lbl">Stufe nach W12</div><p><b>1–6</b> leicht · <b>7–12</b> schwer</p><p>Zwei leichte Fallouts lassen sich zu einem schweren, zwei schwere zu einem kritischen verbinden.</p></div>
+<div class="schwarz"><div class="lbl">Beseitigen</div><p>Leicht: Ressource W6 an einem Haunt. Schwer: W8, wird zu leicht. Kritisch: W8, wird zu schwer – wenn rechtzeitig im Haven.</p></div></div>
+<div class="chips"><span class="chip on">Alle</span><span class="chip">Sofort</span><span class="chip">Anhaltend</span><span class="gap"></span><span class="chip">Zugewiesen · 1</span></div>
+<div class="mat">
+<div class="band10" style="margin-top:0">Leicht <i>kurzfristige Wirkung, geringe Auswirkung</i></div><div class="kol"><div class="platte" style="display:block;text-align:center;margin-bottom:5px">Blood</div><div class="fk"><div class="z"><span>Angeschlagen</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Blutend</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Entwaffnet</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Wütend</span><em>anhaltend</em></div></div><div class="fk auf"><div class="z"><span>Hinkend</span><em>anhaltend</em></div><div class="t">Du bist verlangsamt. Wenn jemand oder etwas deine Gruppe angreift, greift er dich zuerst an. Gibt es Zweifel, wer zuletzt ankommt, bist du es. Alle Proben mit schneller oder heimlicher Bewegung werden Riskant.
+<div class="zu"><span class="on">Quin</span><span>Aldric</span><span>Mara</span></div></div></div><div class="fk"><div class="z"><span>Klingelnder Kopf</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Zersplittert</span><em>auch Supplies · anhaltend</em></div></div><div class="fk"><div class="z"><span>Zahnspucken</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Müde</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Außer Atem</span><em>anhaltend</em></div></div></div><div class="kol"><div class="platte" style="display:block;text-align:center;margin-bottom:5px">Mind</div><div class="fk"><div class="z"><span>Benebelt</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Gruselig</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Kollaterale Magie</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Faszination</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Trugbild</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Erschüttert</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Den Rand abschleifen</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Verwundbar</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Seltsam</span><em>anhaltend</em></div></div></div><div class="kol"><div class="platte" style="display:block;text-align:center;margin-bottom:5px">Echo</div><div class="fk"><div class="z"><span>Beulen</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Kanal</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Déjà-vu</span><em>sofort · anhaltend</em></div></div><div class="fk"><div class="z"><span>Exodus</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Anhänger</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Glitch</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Hexenauge</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Der Ruf der Raserei</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Seltsamer Appetit</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Sirenengesang</span><em>anhaltend</em></div></div></div><div class="kol"><div class="platte" style="display:block;text-align:center;margin-bottom:5px">Fortune</div><div class="fk"><div class="z"><span>Zerbrochen</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Kollateral</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Vorahnung</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Der harte Weg</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>In Schwierigkeiten</span><em>sofort · anhaltend</em></div></div><div class="fk"><div class="z"><span>Umweg</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Getrennt</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Glücklos</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Mundpropaganda</span><em>sofort</em></div></div></div><div class="kol"><div class="platte" style="display:block;text-align:center;margin-bottom:5px">Supplies</div><div class="fk"><div class="z"><span>Zerbrochen</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Beschädigt</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Dunkelheit</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Schuldner</span><em>sofort</em></div></div><div class="fk"><div class="z"><span>Leer</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Halbe Rationen</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Munition alle</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Aufgebraucht</span><em>anhaltend</em></div></div></div>
+<div class="band10" style="margin-top:14px">Schwer <i>ernste Probleme, die deine Geschichte beenden können</i></div>
+<div class="kol"><div class="fk"><div class="z"><span>Arterielle Wunde</span><em>anhaltend</em></div></div><div class="fk"><div class="z"><span>Erblindet</span><em>anhaltend</em></div></div></div>
+</div></div>
+<div class="ann" style="left:60px;top:560px"><b>1</b>Raster Resistenz × Stufe wie im Buch (S. 80–89); alle Karten zugeklappt: Name + sofort/anhaltend</div>
+<div class="ann" style="left:520px;top:462px"><b>2</b>Klick klappt auf; „Zuweisen“ hängt den Fallout an einen Delver (erscheint als Etikett in der Expedition)</div>
+<div class="ann" style="left:720px;top:232px"><b>3</b>Filter und „Zugewiesen“ (nur die schon vergebenen)</div>
+
+</body></html>

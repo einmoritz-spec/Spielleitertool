@@ -1,0 +1,121 @@
+/* ============================================================
+   LOCAL LEGENDS — helles Fallakten-Design (wie Nights of Paynetown)
+   Überschreibt die Farbvariablen und alles, was dunkel fest verdrahtet war.
+   Wird nach akte.css geladen.
+   ============================================================ */
+:root{
+  --void:#e6d9bb;--bg:#e6d9bb;--panel:#f6efdc;--panel-raised:#efe5cc;
+  --panel-line:#c9b98f;--panel-line-soft:#dccfa9;
+  --text-hi:#2a251d;--text-lo:#4f4633;--text-faint:#7a6e55;
+  --paper:#2a251d;--paper-edge:#c9b98f;--ink:#2a251d;--ink-soft:#5a4f3a;
+  --brass:#9b3526;--brass-bright:#9b3526;--red:#9b3526;--red-bright:#9b3526;
+  --logos:#2b6f9e;--logos-bright:#2b6f9e;--mythos:#6f46b8;--mythos-bright:#6f46b8;
+  --ak:#e9a93f;--ak-hi:#f0b955;--ak-dk:#b8691a;--ak-ink:#6a2a12;--rust:#8a3a1c;--gold:#9b3526;
+  --shadow-lift:0 10px 28px -12px rgba(80,60,20,.45);
+  --serif-body:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+}
+body{background:radial-gradient(1100px 600px at 50% -5%,#f3ead3 0%,transparent 70%),#e6d9bb!important;color:#2a251d;font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif}
+a{color:#9b3526}
+
+/* Kopfleiste */
+.topbar{background:linear-gradient(#f4ead0,#eadcb8)!important;border-bottom:3px solid var(--ak)!important;box-shadow:0 2px 8px rgba(90,70,20,.18);backdrop-filter:none}
+.topbar .brand,.topbar .brand *{color:#6d2f15!important;text-shadow:none!important;font-family:var(--cond);letter-spacing:.05em}
+.tb-btn,.tb-burger{background:#e3d2a6!important;border-color:#c4ae7a!important;color:#6d2f15!important}
+.tb-burger svg,.tb-burger svg *{stroke:#6d2f15!important}
+.topbar .tm-caret{color:#6d2f15!important;opacity:.7}
+.tm-dd button b{color:#2a251d!important}.tm-dd button small{color:#6f6450!important;opacity:1!important}.tm-dd button.on b{color:#9b3526!important}
+.tm-dd button.on{background:rgba(155,53,38,.08)!important}
+
+/* Breadcrumb */
+.crumb,.crumb button,.crumb .pg-link{color:#7a6e55!important}
+.crumb button:hover,.crumb .pg-link:hover{color:#9b3526!important}
+
+/* Reiter */
+.case-tabbar{border-bottom-color:var(--ak)!important}
+.case-tab{background:#dccda6!important;color:#6b5a3a!important;border-color:#bda97a!important}
+.case-tab:hover{background:#e6d6ae!important;color:#6b5a3a!important}
+.case-tab.active{background:linear-gradient(#f0b955,#e9a93f)!important;color:var(--rust)!important;border-color:#d48f25!important}
+@media (max-width:720px){.case-tab{border:1px solid #bda97a!important}}
+
+/* Überschriften & Text */
+.section-head{border-bottom-color:#c9b98f}
+.section-head h2,.tab-h,.card:not(.theme-card):not(.ps-card) h3,.loc-card .loc-h{color:var(--rust)!important}
+.section-head .chev,.loc-card .loc-h .chev,.theme-card .th-chev,.ps-card .th-chev{color:var(--rust)}
+.loc-card .loc-h{border-bottom-color:#c9b98f}
+.card p,.loc-body>p,.section-body>p,.flow p,.hero p{color:#2a251d;font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif}
+.card p,.loc-body>p{font-size:1.08rem;line-height:1.7}
+.card strong,.loc-body strong,.card b,.loc-body b{color:#211e18}
+.hero h1{color:#2a251d}
+.loc-body>p[style*="italic"]{color:#7a6e55!important}
+
+/* Vorlesetext: weißes Papier mit rotem Rand (wie Nights) */
+.readaloud,.readaloud.article{background:#fffaf0;color:#2a2418;border-left:5px solid #9b3526;box-shadow:0 3px 10px rgba(80,60,20,.25)}
+.readaloud>div,.readaloud p{color:#2a2418}
+
+/* Hinweis-Zettel */
+.clue-box{background:#f7e48a;color:#2a2412;box-shadow:2px 3px 8px rgba(80,60,20,.3)}
+.clue-box b{color:#1c1608}
+
+/* Spielleitungs-Hinweis */
+.gm-note{color:#2a251d;border-left-color:#2b6f9e}
+.gm-note .gm-label{color:#2b6f9e}
+
+/* Challenge-, Themen-, Power-Set-Karten: Papier statt dunkel */
+.danger-card,.theme-card,.ps-card,.tile,.tile.locked{background:#fbf6e6;border-color:#c9b98f;box-shadow:0 2px 6px rgba(80,60,20,.15)}
+.danger-card{border-left:4px solid #9b3526}
+.theme-card,.ps-card{border-left:3px solid var(--ak)}
+.danger-head h4,.ps-card .th-head h3,.theme-card .th-head h3,.tile h3{color:#2a251d!important}
+.danger-head .rating{color:#9b3526}
+.danger-head .epithet,.theme-card .th-kind{color:#7a6e55}
+.tile .num{color:#9b3526}
+.tile .sub,.tile .teaser{color:#5a4f3a}
+.stat-line{color:#5a4f3a}
+.movegroup .mg-label,.taglabel{color:#7a6e55}
+.movegroup li{color:#2a251d}
+.tag.power{color:#7a4b00;border-color:rgba(154,106,0,.5);background:rgba(233,169,63,.18)}
+.tag.weak{color:#8e1f33;border-color:rgba(155,53,38,.5);background:rgba(155,53,38,.08)}
+.spectrum .pip{border-color:#9b3526}
+.spectrum .pip.filled{background:#9b3526}
+.spectrum .sname{color:#2a251d}
+
+/* Tabellen */
+.ll-tbl th{background:#e9dcb8;color:#2a251d}.ll-tbl td{border-color:#d9c9a0;color:#2a251d}
+
+/* Status/Tags im hellen Design */
+.hl-st{background:rgba(233,169,63,.28);color:#7a3e0c;box-shadow:inset 0 0 0 1px rgba(184,105,26,.45)}
+.hl-tag{background:rgba(20,100,70,.12);color:#17624a;box-shadow:inset 0 0 0 1px rgba(20,100,70,.35)}
+.hl-weak{background:rgba(155,53,38,.12);color:#8e1f33;box-shadow:inset 0 0 0 1px rgba(155,53,38,.35)}
+
+/* Fußleiste (Vor/Zurück) */
+.pager{background:linear-gradient(#eadcb8,#e2d1a6)!important;border-top:3px solid var(--ak)!important}
+.pager *{color:#6d2f15!important}
+.footer-note{color:#7a6e55;border-top-color:#c9b98f}
+
+/* Bilder / Karten */
+.ov-art .ice-wrap img,.map-panel .map-img,.ll-fig img,.handout img{box-shadow:0 3px 10px rgba(80,60,20,.3);border:1px solid #c9b98f}
+.map-toggle{background:rgba(246,239,220,.85);border-color:#c4ae7a}
+.map-toggle button{color:#6b5a3a!important}
+.map-toggle button.on{color:#9b3526!important;background:rgba(155,53,38,.12)!important}
+.ll-fig figcaption,.map-hint,.map-hint2{color:#7a6e55}
+.handout{background:#fbf6e6;border-color:#c9b98f;color:#2a251d}
+.ice-hot:hover,.ice-hot:focus-visible{border-color:#9b3526;background:rgba(155,53,38,.15)}
+
+/* Modale, Suche, Burger-Menü */
+.modal-overlay{background:rgba(60,45,20,.55)}
+.modal{background:#f6efdc;border-color:#c9b98f;color:#2a251d}
+.modal-head{background:#f6efdc;border-bottom-color:#c9b98f}
+.modal-head h2{color:#8a3a1c}.modal-close{color:#6d2f15}
+.gloss-search,input[type=text],input[type=search],textarea{background:#fffaf0;color:#2a251d;border-color:#d9c9a0}
+.gloss-item,.gloss-item *{color:#2a251d}
+.gloss-item h4,.gloss-item .gi-term{color:#8a3a1c}
+.mm-backdrop{background:rgba(60,45,20,.45)}
+.mm-panel{background:#f6efdc!important;border-left:3px solid var(--ak)}
+.mm-head{color:#6d2f15;border-bottom-color:#c9b98f}.mm-close{color:#6d2f15}
+.mm-item{color:#2a251d}.mm-item:hover,.mm-item:active{background:rgba(155,53,38,.1)}
+.mm-sub{color:#7a6e55}
+.mm-foot{border-top-color:#c9b98f}
+
+/* Notizen-Popup */
+.notes-pop{background:#fbf6e6!important;border:1px solid #c9b98f!important;box-shadow:0 10px 30px rgba(80,60,20,.35)!important}
+.notes-pop textarea{background:#fffaf0!important;color:#2a251d!important;border:1px solid #d9c9a0!important}
+.notes-tile{color:#7a6e55}.notes-tile:hover,.notes-tile.open{background:rgba(155,53,38,.1);color:#9b3526}

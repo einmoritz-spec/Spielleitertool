@@ -1,0 +1,878 @@
+/* Dragonbane – Design-System der Entwürfe (Ausgangspunkt für dragonbane/style.css)
+   Alle Farben aus dem Regelbuch-PDF gemessen (Text-/Füllfarben der Vektoren, Mediane der Rasterflächen).
+   Ornamente = Original-Rasterteile des Buchs (img/orn/*.png, verlustfrei, mit Transparenz). */
+
+@font-face{font-family:"DB Titel";src:url(../assets/fonts/db-hideout-black.woff2) format("woff2")}
+@font-face{font-family:"DB Kopf";src:url(../assets/fonts/db-hideout-bold.woff2) format("woff2")}
+@font-face{font-family:"DB Halb";src:url(../assets/fonts/db-hideout-semibold.woff2) format("woff2")}
+@font-face{font-family:"DB Sans";src:url(../assets/fonts/db-hideout-regular.woff2) format("woff2")}
+@font-face{font-family:"DB Text";src:url(../assets/fonts/db-minion-regular.woff2) format("woff2")}
+@font-face{font-family:"DB Kursiv";src:url(../assets/fonts/crimson-pro-latin-400-italic.woff2) format("woff2");font-style:italic}
+@font-face{font-family:"DB Vorlesen";src:url(../assets/fonts/crimson-pro-latin-600-italic.woff2) format("woff2");font-style:italic}
+@font-face{font-family:"DB Text Ersatz";src:url(../assets/fonts/eb-garamond-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DB Sans Ersatz";src:url(../assets/fonts/figtree-latin-600-normal.woff2) format("woff2")}
+
+:root{
+  /* Pergament & Tinte */
+  --perg:#f3eee6;        /* Seitenmitte (gemessen S. 49) */
+  --perg-rand:#c9b79f;   /* Seitenrand/Vignette */
+  --perg-ton:#ebe2d4;    /* leichte Fläche (Vorlesetext, Hover) */
+  --tinte:#231f20;       /* Fließtext */
+  --grau:#8a7b68;        /* S.-Angaben, Nebeninfo */
+  /* Jade (geschnitzter grüner Stein) */
+  --jade:#237263;        /* Seitentitel (Hideout Black) */
+  --jade-d:#00604d;      /* ✦, Einstiege, Fußzeile, UI-Linien */
+  --stein:#286d56;       /* Steinkasten-Fläche (Median) */
+  --stein-text:#dae6e2;  /* helle Schrift auf Stein */
+  /* Pergament-Karte (Werteblöcke, NSC, Tabellen) */
+  --karte:#e0d1a8;
+  --braun:#4b2d1b;       /* Kartentext */
+  --braun-kopf:#603617;  /* Namensband NSC */
+  --zebra1:#e6d9cc; --zebra2:#f8f2e7;
+  --linie:#d8cab6;
+  /* Rot – sparsam: Logo, Gefahr/Geheimnis (rotes ✦), TP */
+  --rot:#c52535; --logo:#ef3f3d; --tp:#b82d29;
+
+  --f-titel:"DB Titel","DB Kopf",serif;
+  --f-kopf:"DB Kopf","DB Sans Ersatz",sans-serif;
+  --f-halb:"DB Halb","DB Kopf","DB Sans Ersatz",sans-serif;
+  --f-sans:"DB Sans","DB Sans Ersatz",sans-serif;
+  --f-text:"DB Text","DB Text Ersatz",Georgia,serif;
+  --f-kursiv:"DB Kursiv",Georgia,serif;
+  --f-vorlesen:"DB Vorlesen","DB Kursiv",Georgia,serif;
+  /* Raster: 12 Spalten, Rand 48, Spaltenabstand 24; Abstände 4·8·12·16·24·32·48 */
+  --rand:48px; --gap:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{position:relative;min-height:100vh}
+body{font:17px/1.5 var(--f-text);color:var(--tinte);
+  background:var(--perg);overflow-x:hidden}
+body::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to right,rgba(120,88,45,.20),rgba(120,88,45,0) 5%,rgba(120,88,45,0) 95%,rgba(120,88,45,.20)),var(--perg) url(img/orn/pergament-kachel.webp) 0 0/900px 900px repeat;pointer-events:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* ── Kopfzeile ───────────────────────────────────────────── */
+.topbar{height:58px;display:flex;align-items:center;gap:6px;padding:0 var(--rand);position:relative;z-index:5}
+.topbar .brand{display:block;height:58px;padding:0}
+.topbar .brand img{height:30px;display:block}
+.topbar .topbar-spacer{flex:1}
+.ib{width:40px;height:40px;display:grid;place-items:center;border-radius:4px;color:var(--jade-d)}
+.ib:hover{background:rgba(0,96,77,.08)}
+.ib svg{width:22px;height:22px}
+.ib .i{font:700 21px/1 var(--f-text);font-style:italic}
+/* Jade-Leiste mit Dämonenmaske – wie der Kopf jeder Buchseite */
+.rail{height:30px;display:flex;align-items:center;padding:0 calc(var(--rand) - 12px);margin-top:-6px;position:relative;z-index:4}
+.rail .rl,.rail .rr{flex:1;height:20px;border-style:solid;border-color:transparent}
+.rail .rl{border-width:0 0 0 26px;border-image:url(img/orn/rail-l.png) 0 0 0 70 fill / 0 0 0 26px stretch}
+.rail .rr{border-width:0 26px 0 0;border-image:url(img/orn/rail-r.png) 0 70 0 0 fill / 0 26px 0 0 stretch}
+.rail .md{width:120px;height:32px;background:url(img/orn/medaillon.png) center/contain no-repeat;margin:0 -10px}
+
+/* ── Tab-Leiste: aktiver Tab sitzt auf dem Stein-Band (wie „MONSTER ATTACKS“) ── */
+.tabs{display:flex;align-items:center;gap:4px;padding:8px var(--rand) 0;height:50px}
+.tab{white-space:nowrap;font:13px/1 var(--f-kopf);letter-spacing:.13em;text-transform:uppercase;color:var(--jade-d);padding:0 18px;height:32px;display:flex;align-items:center;position:relative}
+.tab:hover{color:var(--jade)}
+.tab.on{color:var(--stein-text);border-style:solid;border-width:0 18px;border-image:url(img/orn/steinband.png) 0 40 fill / 0 18px stretch;padding:0 14px;margin:0 4px}
+.tab.on::before,.tab.on::after{content:"";position:absolute;top:2px;width:30px;height:28px;background:center/contain no-repeat}
+.tab.on::before{left:-30px;background-image:url(img/orn/knoten-l.png)}
+.tab.on::after{right:-30px;background-image:url(img/orn/knoten-r.png)}
+.tabs .sp{flex:1}
+.stift{width:36px;height:36px;display:grid;place-items:center;color:var(--jade-d);opacity:.7}
+.stift svg{width:19px;height:19px}
+
+/* ── Typografie ──────────────────────────────────────────── */
+.titel{font:44px/1 var(--f-titel);color:var(--jade);text-transform:uppercase;letter-spacing:.01em}
+.titel.m{font-size:34px}
+.kap{font:11px/1 var(--f-kopf);letter-spacing:.18em;text-transform:uppercase;color:var(--jade-d)}
+.h3{font:15px/1.2 var(--f-kopf);text-transform:uppercase;letter-spacing:.03em;color:var(--tinte);margin:0 0 6px}
+.s{font:12px/1 var(--f-sans);color:var(--grau);margin-left:6px;white-space:nowrap;letter-spacing:0;text-transform:none;font-weight:normal}
+p{margin:0 0 10px}
+.fs{font-family:var(--f-halb);font-size:.86em;letter-spacing:.04em;text-transform:uppercase}  /* Fertigkeit/Attribut in Kapitälchen */
+em,i{font-family:var(--f-kursiv);font-style:italic}
+.ein{font:15px/1 var(--f-kopf);color:var(--tinte)}              /* fetter Einstieg „Kritischer Treffer:“ */
+.vorlesen{font:18px/1.42 var(--f-vorlesen);font-style:italic;color:var(--tinte);background:var(--perg-ton);padding:12px 16px;border-radius:2px;margin:0 0 14px}
+
+/* ✦-Listen: Teal = normal, Rot = Ereignis / Falle / Geheimnis (Klick = erledigt → grau) */
+ul.st{list-style:none;margin:0 0 12px}
+ul.st li{position:relative;padding-left:22px;margin:0 0 8px}
+ul.st li::before{content:"✦";position:absolute;left:0;top:0;color:var(--jade-d);font:15px/1.5 var(--f-sans)}
+ul.st li b{font:15px var(--f-kopf);color:var(--jade-d);font-weight:normal}
+ul.st li.rot::before,ul.st li.rot b{color:var(--rot)}
+ul.st li.rot{font-family:var(--f-kursiv);font-style:italic}
+ul.st li.weg{opacity:.38}
+
+/* ── Grüner Steinkasten (Regel-Kästen) ───────────────────── */
+.stein{position:relative;color:var(--stein-text);font:15.5px/1.45 var(--f-halb);padding:30px 26px 22px;
+  border:14px solid transparent;border-image:url(img/orn/stein.png) 30 fill / 14px stretch;margin-top:16px}
+.stein .bh{position:absolute;left:50%;top:-30px;transform:translateX(-50%);white-space:nowrap;
+  font:12.5px/1 var(--f-kopf);letter-spacing:.16em;text-transform:uppercase;color:var(--stein-text);
+  height:30px;display:flex;align-items:center;padding:0 22px;border-style:solid;border-width:0 14px;border-image:url(img/orn/steinband.png) 0 40 fill / 0 14px stretch}
+.stein .bh::before,.stein .bh::after{content:"";position:absolute;top:1px;width:30px;height:28px;background:center/contain no-repeat}
+.stein .bh::before{left:-38px;background-image:url(img/orn/knoten-l.png)}
+.stein .bh::after{right:-38px;background-image:url(img/orn/knoten-r.png)}
+.stein p{margin:0 0 8px}
+
+/* ── Pergament-Karte (Werteblock, Gegenstand, Zauber, Tabelle) ── */
+.karte{position:relative;color:var(--braun);font:15px/1.42 var(--f-sans);padding:18px 20px 16px;
+  border:12px solid transparent;border-image:url(img/orn/pergament-karte.png) 26 fill / 12px stretch}
+.karte .kr{position:absolute;left:-6px;right:-6px;height:12px;display:flex;align-items:center}
+.karte .kr.o{top:-16px}.karte .kr.u{bottom:-16px}
+.karte .kr i{flex:1;height:10px;background:url(img/orn/leiste-l.png) right/100% 100% no-repeat}
+.karte .kr i+i{background-image:url(img/orn/leiste-r.png);background-position:left}
+.karte .kr u{width:26px;height:14px;background:url(img/orn/leiste-knoten.png) center/contain no-repeat}
+.karte .zt{font:15px var(--f-sans)}
+.karte .zt b{font-family:var(--f-kopf);font-weight:normal}
+.karte .zl{padding:6px 0;border-bottom:1px solid rgba(75,45,27,.22)}
+.karte .zl:last-of-type{border-bottom:0}
+.karte .zl.drei{display:flex;justify-content:space-between}
+.karte .name{font:13px/1 var(--f-kopf);letter-spacing:.16em;text-transform:uppercase;text-align:center;color:var(--braun);margin:0 0 8px}
+
+/* NSC-Karte mit Totenkopf-Band (wie „JALDO“ / „GRUNTA“) */
+.nsc{position:relative;padding-top:44px!important;margin-top:34px}
+.nsc .band{position:absolute;left:50%;top:-50px;transform:translateX(-50%);width:186px;height:92px;background:url(img/orn/schaedel.png) center/contain no-repeat;
+  display:flex;align-items:flex-end;justify-content:center;padding-bottom:30px;font:13px/1 var(--f-kopf);letter-spacing:.16em;text-transform:uppercase;color:var(--braun-kopf)}
+
+/* ── W6-Tabellen ─────────────────────────────────────────── */
+table.w6{width:100%;border-collapse:collapse;font:14.5px/1.35 var(--f-sans);color:var(--braun)}
+table.w6 th{font:11px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:6px 8px;border-bottom:1.5px solid rgba(75,45,27,.5)}
+table.w6 td{padding:6px 8px;vertical-align:top}
+table.w6 tr:nth-child(odd) td{background:var(--zebra1)}
+table.w6 tr:nth-child(even) td{background:var(--zebra2)}
+table.w6 td:first-child{font-family:var(--f-kopf);width:34px;text-align:center}
+table.w6 td b{font-family:var(--f-kopf);font-weight:normal}
+table.w6 tr.weg td{opacity:.4}
+table.w6 tr.an td{box-shadow:inset 0 0 0 999px rgba(0,96,77,.10)}
+
+/* ── Bild im Knotenrahmen (Kapitel-Eröffnung) ────────────── */
+.rahmen{position:relative;padding:24px}
+.rahmen img.bild{display:block;width:100%;height:auto}
+.rahmen i{position:absolute;background:no-repeat;pointer-events:none}
+.rahmen .ro,.rahmen .ru{left:44px;right:44px;height:24px;background-size:100% 100%}
+.rahmen .ro{top:0;background-image:url(img/orn/rahmen-o.png)}
+.rahmen .ru{bottom:0;background-image:url(img/orn/rahmen-u.png)}
+.rahmen .rl,.rahmen .rr{top:44px;bottom:44px;width:24px;background-size:100% 100%}
+.rahmen .rl{left:0;background-image:url(img/orn/rahmen-l.png)}
+.rahmen .rr{right:0;background-image:url(img/orn/rahmen-r.png)}
+.rahmen .e1,.rahmen .e2,.rahmen .e3,.rahmen .e4{width:70px;height:70px;background-size:contain}
+.rahmen .e1{left:-8px;top:-8px;background-image:url(img/orn/rahmen-ol.png)}
+.rahmen .e2{right:-8px;top:-8px;background-image:url(img/orn/rahmen-or.png)}
+.rahmen .e3{left:-8px;bottom:-8px;background-image:url(img/orn/rahmen-ul.png)}
+.rahmen .e4{right:-8px;bottom:-8px;background-image:url(img/orn/rahmen-ur.png)}
+
+/* Drachenflügel-Banner (Kapiteltitel der Eröffnungsseiten): Steinplatte gestreckt, Flügel links/rechts in Originalform */
+.fluegel{position:relative;height:110px}
+.fluegel .fm{position:absolute;left:5%;right:5%;top:0;bottom:0;background:url(img/orn/banner-platte.png) center/100% 100% no-repeat;display:flex;align-items:center;justify-content:center;padding-top:22px;
+  font:28px/1 var(--f-titel);color:var(--stein-text);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+.fluegel .fl,.fluegel .fr{position:absolute;top:0;bottom:0;aspect-ratio:524/273;background:center/100% 100% no-repeat;z-index:1}
+.fluegel .fl{left:0;background-image:url(img/orn/banner-l.png)}
+.fluegel .fr{right:0;background-image:url(img/orn/banner-r.png)}
+.fluegel .fl,.fluegel .fr{z-index:3}
+.fluegel .fm span{position:relative;z-index:4}
+
+/* Fuß-Emblem (Kapitelname) – Seitenende mit Vor/Zurück */
+.fuss{display:flex;align-items:center;justify-content:center;gap:24px;margin:28px 0 8px}
+.fuss .em{width:180px;height:62px;background:url(img/orn/fuss.png) center/contain no-repeat;display:flex;align-items:flex-start;justify-content:center;padding-top:20px;
+  font:9.5px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--stein-text)}
+.fuss a{font:12px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);text-decoration:none}
+
+/* Bilder aus dem Buch: Figuren auf Weiß werden aufs Pergament multipliziert, nie beschnitten */
+img.fig,img.mul{mix-blend-mode:multiply;display:block;object-fit:contain}
+
+
+/* Vignette: gemalte Hintergründe der Buchbilder laufen weich ins Pergament aus (Motiv bleibt ganz) */
+.vig{-webkit-mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent),linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent);
+  -webkit-mask-composite:source-in;mask-composite:intersect}
+
+@media (max-width:1360px){:root{--rand:32px}.tab{letter-spacing:.09em;padding:0 12px;font-size:12.5px}.tab.on{padding:0 10px}}
+
+/* ── Schale ── */
+body.notop .topbar,body.notop .rail{display:none}
+.mm-backdrop{position:fixed;inset:0;background:rgba(35,31,32,.35);opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+.mm-backdrop.on{opacity:1;pointer-events:auto}
+.mm-panel{position:fixed;top:0;right:0;bottom:0;width:300px;z-index:51;transform:translateX(100%);transition:transform .22s;overflow:auto;padding:22px 0 30px;
+  background:var(--perg) url(img/orn/pergament-kachel.webp) 0 0/900px 900px repeat;box-shadow:-10px 0 30px rgba(35,31,32,.25);border-left:1px solid var(--linie)}
+.mm-panel.on{transform:none}
+.mm-panel h3{font:11px/1 var(--f-kopf);letter-spacing:.18em;text-transform:uppercase;color:var(--jade-d);padding:18px 26px 8px}
+.mm-panel button{display:block;width:100%;text-align:left;padding:9px 26px;font:16px/1.2 var(--f-text);color:var(--tinte)}
+.mm-panel button:hover{background:var(--perg-ton);color:var(--jade-d)}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(35,31,32,.5);display:grid;place-items:center;padding:24px}
+.modal>div{background:var(--perg);max-width:min(900px,94vw);max-height:90vh;overflow:auto;padding:22px 26px;border-radius:3px;box-shadow:0 18px 60px rgba(0,0,0,.4)}
+.gzoom{position:fixed;inset:0;z-index:70;background:rgba(35,31,32,.8);display:grid;place-items:center;cursor:zoom-out}
+.gzoom img{max-width:94vw;max-height:94vh;box-shadow:0 12px 50px rgba(0,0,0,.5)}
+.pg{font:12px/1 var(--f-sans);color:var(--grau);margin-left:6px;white-space:nowrap;letter-spacing:0;text-transform:none;font-weight:normal;cursor:pointer}
+.pg:hover{color:var(--jade-d);text-decoration:underline}
+/* Auswahl im Dialog */
+.fm2{display:grid;gap:16px;min-width:340px}
+.fm2 label{display:grid;gap:5px;font:11px/1 var(--f-kopf);letter-spacing:.16em;text-transform:uppercase;color:var(--jade-d)}
+.fm2 input,.fm2 select{font:17px var(--f-text);color:var(--tinte);padding:8px 10px;background:var(--zebra2);border:1px solid var(--linie);border-radius:2px;text-transform:none;letter-spacing:0}
+.fm2 .act{display:flex;gap:12px;justify-content:space-between}
+.knopf{font:12px/1 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--stein-text);padding:12px 22px;border:12px solid transparent;border-image:url(img/orn/steinband.png) 0 40 fill/0 18px stretch;border-width:0 18px;height:34px;display:inline-flex;align-items:center}
+.knopf.leise{color:var(--jade-d);border:0;background:none;padding:12px 0}
+
+/* ── Startseite ── */
+.wrap{display:grid;grid-template-columns:clamp(420px,36vw,520px) 1fr;gap:0 clamp(40px,4.4vw,64px);padding:6px var(--rand) 0;min-height:calc(100vh - 82px)}
+.front{position:relative;padding-top:64px;text-align:center;cursor:pointer}
+.front .fluegel{position:absolute;left:-34px;right:-34px;top:4px;z-index:3;height:112px}
+.front .rahmen{display:inline-block;max-width:100%}
+.front .stack{display:grid}
+.front .stack img{grid-area:1/1;width:auto;max-width:100%;max-height:calc(100vh - 240px);margin:0 auto;opacity:0;transition:opacity .22s ease}
+.front .stack img.on{opacity:1}
+.fluegel .fm span{transition:opacity .16s}
+.inh{display:flex;flex-direction:column;padding-top:clamp(10px,2.4vh,22px);min-width:0}
+.kg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 40px}
+.ke{padding:clamp(8px,1.7vh,15px) 0 clamp(8px,1.7vh,15px) 26px;border-top:1px solid var(--linie);position:relative}
+.ke:nth-child(-n+2){border-top:0;padding-top:4px}
+.ke .kt{font:clamp(20px,1.6vw,23px)/1.05 var(--f-titel);color:var(--jade);text-transform:uppercase;margin:6px 0 5px;cursor:pointer}
+.ke .ku{font:clamp(14px,1.1vw,15.5px)/1.4 var(--f-text);color:#4a4038}
+.ke .ku a{color:inherit;text-decoration:none;cursor:pointer}
+.ke .ku a:hover{color:var(--jade-d);text-decoration:underline}
+.ke .ku i.sep{font-style:normal;color:var(--grau);margin:0 3px}
+.ke .kap{cursor:pointer}
+.ke.on::before{content:"";position:absolute;left:-4px;top:22px;width:20px;height:20px;background:url(img/orn/knoten.png) center/contain no-repeat}
+.ke:nth-child(-n+2).on::before{top:10px}
+.ke.on .kt{color:var(--jade-d)}
+.grp{flex-wrap:wrap;margin-top:clamp(8px,2vh,18px);padding-top:16px;border-top:1px solid var(--linie);display:flex;align-items:center;gap:12px}
+.grp .kap{margin-right:8px;white-space:nowrap}
+.chip{white-space:nowrap;display:flex;align-items:center;gap:10px;height:clamp(46px,6.2vh,56px);padding:0 14px 0 6px;background:rgba(224,209,168,.5);border:1px solid rgba(75,45,27,.22);border-radius:2px;cursor:pointer}
+.chip img{height:50px;width:40px}
+.chip b{display:block;font:15px/1.1 var(--f-kopf);font-weight:normal;color:var(--tinte)}
+.chip span{display:block;font:13px/1.2 var(--f-sans);color:var(--braun)}
+.chip.neu{background:none;border-style:dashed;color:var(--jade-d);font:18px var(--f-kopf);padding:0 18px}
+.cta{margin-top:auto;margin-bottom:clamp(8px,2.4vh,22px);padding-top:10px}
+.cta .fluegel{height:clamp(92px,12.8vh,116px);cursor:pointer;margin:0 30px}
+.cta .fluegel .fm{font-size:30px}
+.cta .zul{text-align:center;font:13px var(--f-sans);color:var(--grau);margin-top:clamp(6px,1.6vh,16px)}
+.cta .zul b{font-family:var(--f-kopf);font-weight:normal;color:var(--jade-d)}
+.topbar .tm-book,.topbar .tm-info,.topbar .tm-sg,.topbar .tb-burger{color:var(--jade-d);border:1px solid rgba(0,96,77,.32);background:none;border-radius:4px}
+.topbar .tm-book:hover,.topbar .tm-info:hover,.topbar .tm-sg:hover,.topbar .tb-burger:hover{background:rgba(0,96,77,.08);filter:none}
+.topbar .tb-burger{margin-left:6px}
+.topbar .tm-caret{color:var(--jade-d)}
+
+/* ── Abenteuer: Übersicht ── */
+.kt{display:flex;align-items:center;gap:16px;margin:10px var(--rand) 4px}
+.kt i{flex:1;height:20px;border-style:solid;border-color:transparent}
+.kt i.a{border-width:0 0 0 26px;border-image:url(img/orn/rail-l.png) 0 0 0 70 fill / 0 0 0 26px stretch}
+.kt i.b{border-width:0 26px 0 0;border-image:url(img/orn/rail-r.png) 0 70 0 0 fill / 0 26px 0 0 stretch}
+.halle{display:grid;grid-template-columns:clamp(440px,39vw,560px) 1fr;gap:0 clamp(36px,4vw,60px);padding:8px var(--rand) 24px}
+.haupt{position:relative;padding-top:58px}
+.haupt .fluegel{position:absolute;left:-30px;right:-30px;top:0;z-index:3;height:108px}
+.haupt .fluegel .fm{font-size:25px}
+.bildr{cursor:pointer;text-align:center}
+.bildr .rahmen{display:inline-block;max-width:100%}
+.haupt .bild{height:clamp(380px,56vh,520px);width:auto;max-width:100%;object-fit:contain}
+.meta{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.meta .q{font:14px var(--f-sans);color:var(--braun)}
+.weiter{cursor:pointer;font:12.5px/1 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--stein-text);padding:11px 18px;border:9px solid transparent;border-image:url(img/orn/stein.png) 30 fill / 9px stretch;white-space:nowrap}
+.rest{display:grid;gap:26px;padding-top:44px;align-content:start}
+.og{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px;margin-top:10px}
+.ol{display:flex;align-items:center;gap:14px;padding:10px 8px;cursor:pointer;border-bottom:1px solid var(--linie);font:20px/1.2 var(--f-text)}
+.ol b{width:34px;height:34px;border-radius:50%;background:var(--jade-d);color:var(--stein-text);display:grid;place-items:center;font:16px/1 var(--f-kopf);font-weight:normal;flex:none}
+.ol:hover span{color:var(--jade-d)}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
+.fp{display:block;text-align:center;cursor:pointer}
+.fp img{height:clamp(150px,22vh,210px);width:100%;object-fit:contain}
+.fp span{display:block;font:13px/1.2 var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d);margin-top:6px}
+.zus{padding-top:16px;border-top:1px solid var(--linie);display:flex;gap:28px;align-items:center}
+.zus .kap{margin-right:6px}
+.zus a{font:16px var(--f-text);color:var(--tinte);cursor:pointer}
+.zus a:hover{color:var(--jade-d)}
+.vig{-webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%)}
+
+/* ── Tafel: Zeit ── */
+.zeit{display:flex;align-items:center;gap:14px;margin-right:12px;font:11.5px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:#9b8c76}
+.zeit .ta{display:flex;gap:12px}
+.zeit .ta span{padding:4px 0;border-bottom:2px solid transparent;cursor:pointer}
+.zeit .ta span.on{color:var(--jade-d);border-color:var(--jade-d)}
+.zeit .vt{display:flex;align-items:center;gap:8px;padding-left:16px;border-left:1px solid var(--linie);color:var(--jade-d)}
+.zeit .vt button{width:22px;height:22px;border:1px solid rgba(0,96,77,.35);border-radius:50%;font:14px/1 var(--f-kopf);color:var(--jade-d)}
+.zeit .vt b{font:20px/1 var(--f-titel);color:var(--jade);min-width:18px;text-align:center;font-weight:normal}
+.stift{cursor:pointer}.stift.has{opacity:1}
+.tabs a.tab{text-decoration:none}
+
+/* ── Tafel: Burg ── */
+.tafel{display:grid;grid-template-columns:clamp(340px,32.6vw,470px) minmax(0,1fr) clamp(280px,22vw,330px);gap:0 clamp(28px,3vw,44px);padding:14px var(--rand) 28px;align-items:start}
+.tl{}
+.plan{position:relative;width:100%}
+.plan img{width:100%;height:auto;display:block;filter:saturate(.92)}
+.pin{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--jade-d);color:var(--stein-text);display:grid;place-items:center;font:14px/1 var(--f-kopf);box-shadow:0 0 0 2px rgba(243,238,230,.9),0 2px 6px rgba(0,0,0,.35);cursor:pointer}
+.pin.on{width:36px;height:36px;margin:-18px 0 0 -18px;background:var(--perg);color:var(--jade);font-size:18px;box-shadow:0 0 0 3px var(--jade-d),0 2px 8px rgba(0,0,0,.4)}
+.orte{display:grid;grid-template-columns:1fr 1fr;gap:2px 16px;margin-top:12px}
+.orte div{display:flex;align-items:baseline;gap:10px;padding:6px 8px;font:15.5px/1.2 var(--f-text);cursor:pointer;border-radius:2px}
+.orte div b{font:14px var(--f-kopf);color:var(--jade-d);width:14px;font-weight:normal}
+.orte div.on{background:var(--perg-ton)}
+.orte div.on span{color:var(--jade);font-family:var(--f-kopf)}
+.ort{min-width:0;padding-top:4px}
+.ort .titel{margin:0 0 16px}
+ul.st li{cursor:default;line-height:1.5}
+ul.st li.rot{cursor:pointer}
+.nach{margin-top:6px}
+.rechts{display:flex;flex-direction:column;gap:10px;padding-top:24px}
+.zu{min-height:44px;padding:0 14px;font:13px/1 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--braun);display:flex;align-items:center;border:10px solid transparent;border-image:url(img/orn/pergament-karte.png) 26 fill / 8px stretch;cursor:pointer}
+.zu .s{margin-left:auto;font:12px var(--f-sans);letter-spacing:0;color:var(--grau);text-transform:none}
+.zu.st{color:var(--stein-text);border-image:url(img/orn/stein.png) 30 fill / 10px stretch}
+.zu.st .s{color:#9cc3b6}
+
+/* ── NSC-Karte ── */
+.nsc .band{cursor:pointer}
+.nk{display:flex;gap:12px;align-items:flex-start}
+.nkl{flex:1;min-width:0}
+.nkb{width:84px;flex:none}
+.nkb img{width:100%;height:auto;display:block;cursor:zoom-in}
+.karte .zl.drei{flex-wrap:wrap;gap:4px 14px;justify-content:flex-start}
+.tpz{color:var(--tp)}
+.tpz i{font:normal 18px var(--f-kopf);font-style:normal}
+.tpz i.null{opacity:.45}
+.tpz button{width:22px;height:22px;border:1px solid rgba(184,45,41,.45);border-radius:50%;font:14px/1 var(--f-kopf);color:var(--tp);margin-left:3px}
+.nsc .nt{margin-top:10px;font:14px/1.42 var(--f-text);color:var(--braun)}
+.nsc .nt p{margin:0 0 7px}
+.w6box .h3{margin:6px 0}
+.w6box .einl{font:14px/1.4 var(--f-text);color:var(--braun);margin:0 0 8px}
+table.w6 tr{cursor:pointer}
+.nsc table.w6 td{font-size:13.5px}
+.sl{margin:0 0 8px 18px}.sl li{margin:0 0 6px}
+
+/* ── Figuren / Tabellen / Lage ── */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:56px 32px;padding:56px var(--rand) 32px;align-items:start}
+.fgrid .lang{grid-column:span 2}
+
+.tgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;padding:14px var(--rand) 32px;align-items:start}
+.w6grid{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.modal.wide>div{max-width:min(1200px,96vw)}
+.lage{display:grid;grid-template-columns:clamp(380px,36vw,520px) minmax(0,1fr);gap:0 clamp(32px,4vw,56px);padding:14px var(--rand) 32px;align-items:start}
+.lg1 .bild{height:auto;width:auto;max-width:100%;max-height:calc(100vh - 380px)}
+.lg1 .bildr{cursor:default}
+.lg1 .vorlesen{margin-top:16px}
+.lg3 .hint{font:15px/1.45 var(--f-text);color:#4a4038;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--linie)}
+.lg3 .h3.t{font:22px/1.1 var(--f-titel);color:var(--jade);text-transform:uppercase;margin:0 0 10px}
+.lg3 p{font-size:17.5px}
+.tpz{white-space:nowrap}
+.zu.an{outline:2px solid var(--jade-d);outline-offset:-5px}
+.fgrid .fw{grid-column:auto}
+.karte .zl.drei span{white-space:nowrap}
+.vig{-webkit-mask-image:radial-gradient(ellipse 68% 70% at 50% 50%,#000 52%,transparent 97%);mask-image:radial-gradient(ellipse 68% 70% at 50% 50%,#000 52%,transparent 97%)}
+.rechts .nkb{width:64px}
+
+/* ---------- Nachschlagen ---------- */
+.lay{display:grid;grid-template-columns:236px minmax(0,1fr);gap:0 30px;padding:10px var(--rand) 40px;position:relative}
+.lay.fold-on{grid-template-columns:0 minmax(0,1fr);gap:0}
+.lay.fold-on .side{display:none}
+.side{position:sticky;top:10px;align-self:start;max-height:calc(100vh - 20px);overflow:auto;padding-right:6px}
+.side a{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:9px 12px 9px 26px;font:14px/1.2 var(--f-kopf);letter-spacing:.06em;color:var(--jade-d);position:relative;border-bottom:1px solid rgba(75,45,27,.15)}
+.side a i{font:italic 12px var(--f-kursiv);color:var(--braun);opacity:.7;white-space:nowrap}
+.side a:hover{color:var(--jade)}
+.side a.on{color:var(--jade);font-weight:normal}
+.side a.on::before{content:"";position:absolute;left:0;top:50%;width:22px;height:20px;transform:translateY(-50%);background:url(img/orn/knoten-l.png) center/contain no-repeat}
+.lay .fold{position:absolute;left:calc(var(--rand) + 214px);top:2px;z-index:3;width:22px;height:22px;border:0;background:none;color:var(--jade-d);font:20px/1 var(--f-sans);cursor:pointer}
+.lay.fold-on .fold{left:calc(var(--rand) - 24px)}
+.ct{min-width:0}
+.kopf{text-align:center;margin:4px 0 22px}
+.kopf h1{font:normal 40px/1.1 var(--f-kopf);color:var(--jade-d);margin:0;display:inline}
+.kopf .pg{margin-left:10px}
+.leer{text-align:center;padding:60px;font:italic 18px var(--f-kursiv);color:var(--braun)}
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:28px 30px;align-items:start}
+.gr .voll{grid-column:1/-1}
+.gr .ab,.gr .zelle{font:17px/1.5 var(--f-text);color:var(--braun)}
+.gr .zelle{padding-top:30px}
+.gr .ab p{margin:0 0 9px}
+.gr .ab h3.uh,.karte .name{font:15px/1.2 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--jade-d);margin:0 0 8px}
+.karte.nkk .name{text-align:center;color:var(--braun)}
+.gr .ab ol{margin:0 0 9px 22px}
+.gr .karte{font:16px/1.45 var(--f-text);margin-top:12px}
+table.w6.kv td:first-child{width:auto;text-align:left;font-family:var(--f-kopf)}
+.vorlesen.zit{font:italic 17px/1.55 var(--f-kursiv)}
+.vorlesen.zit p{margin:0 0 10px}
+.vorlesen .qu{text-align:right;font:13px var(--f-kopf);letter-spacing:.06em;color:var(--braun)}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px 22px;align-items:start}
+.zu.nk{display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer}
+.zu.nk .mt{font:11px var(--f-kopf);letter-spacing:.08em;opacity:.8}
+.nkc{grid-column:span 2;margin-top:6px}
+.nkc .zl{font:14px var(--f-sans)}
+.nkc .nt p{margin:6px 0}
+.fuss{margin:44px 0 0;text-align:center}
+.fuss .fz{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(75,45,27,.3);padding-top:14px}
+.fuss .em{font:15px/1 var(--f-kopf);letter-spacing:0;color:var(--jade-d);flex:none;align-items:center;padding-top:9px;text-shadow:0 0 3px var(--perg),0 0 3px var(--perg)}
+.fuss a{font:14px var(--f-kopf);letter-spacing:.08em;color:var(--jade-d)}
+@media (max-width:1000px){.lay{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;max-height:none}.side a{white-space:nowrap}.lay .fold{display:none}.nkc{grid-column:auto}}
+.kgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px 24px}
+.nkc{grid-column:auto;margin-top:22px;padding:30px 18px 24px;font-size:15px}
+.nkc .band{transform:translateX(-50%) scale(.8);transform-origin:center bottom}
+.nkc .nt{font:15px/1.42 var(--f-text)}
+.gr .ab.voll{max-width:none}
+.kgrid{align-items:stretch}.nkc{display:flex;flex-direction:column}
+.lay.fold-on{display:block}
+.karte table.w6{width:100%;margin:8px 0 2px;font-size:14px}
+.karte table.w6 td,.karte table.w6 th{padding:5px 6px}
+.karte table.w6 td:first-child{width:auto;text-align:left;font-family:var(--f-kopf)}
+.karte.nkk{min-width:0;overflow:visible}
+
+/* ---------- Startseite: Kapitel-Raster ---------- */
+.sg{padding:16px var(--rand) 34px;max-width:1160px;margin:0 auto}
+.sg .gk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 34px}
+.sk{cursor:pointer;text-align:center;transition:transform .25s}
+.sk:hover{transform:translateY(-5px)}
+.sk .bi{aspect-ratio:1146/1391;overflow:hidden;box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 8px 22px rgba(60,40,20,.28)}
+.sk .bi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.sk:hover .bi img{transform:scale(1.04)}
+.sk .kn{font:12px var(--f-kopf);letter-spacing:.2em;text-transform:uppercase;color:var(--jade-d);margin:15px 0 3px}
+.sk .kn .pg{margin-left:8px;letter-spacing:0;text-transform:none}
+.sk .kti{font:normal 21px/1.15 var(--f-kopf);color:var(--braun)}
+.sg .unten{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:30px;gap:8px 36px}
+.sg .unten .zul{flex-basis:100%;text-align:center}
+.sg .unten .fluegel{width:min(480px,90%);cursor:pointer}
+.sg .zul{cursor:pointer;font:14px var(--f-kopf);letter-spacing:.06em;color:var(--braun)}
+.modal .grp{display:flex;flex-wrap:wrap;gap:10px;max-width:640px}
+@media (max-width:900px){.sg .gk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- Kapitel 2: Völker & Berufe (Figurenleiste) ---------- */
+.fbar{display:flex;align-items:flex-end;justify-content:space-between;gap:4px;margin:2px 0 6px}
+.fi{flex:1;min-width:0;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px}
+.fi img{height:clamp(52px,8vh,72px);width:auto;max-width:90%;object-fit:contain;opacity:.92;transition:transform .2s}
+.fi:hover img{transform:translateY(-3px)}
+.fi span{font:12px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);height:22px;display:flex;align-items:center;padding:0 4px;white-space:nowrap}
+.fi.on span{color:var(--stein-text);border-style:solid;border-width:0 10px;border-image:url(img/orn/steinband.png) 0 40 fill / 0 10px stretch;padding:0 6px}
+.ft{display:flex;align-items:center;gap:16px;margin:14px 0 18px}
+.ft i{flex:1;height:20px;border-style:solid;border-color:transparent}
+.ft i.a{border-width:0 0 0 26px;border-image:url(img/orn/rail-l.png) 0 0 0 70 fill / 0 0 0 26px stretch}
+.ft i.b{border-width:0 26px 0 0;border-image:url(img/orn/rail-r.png) 0 70 0 0 fill / 0 26px 0 0 stretch}
+.ft h1{font:normal 40px/1 var(--f-titel);color:var(--jade);text-transform:uppercase;white-space:nowrap;margin:0}
+.ft .pg{margin-left:8px}
+.fg3{display:grid;grid-template-columns:minmax(0,1.15fr) clamp(150px,22%,250px) minmax(0,1.05fr);gap:0 28px;align-items:start}
+.fg3 .f1{font:17px/1.5 var(--f-text);color:var(--tinte)}
+.fg3 .f2 img{width:100%;height:auto;max-height:calc(100vh - 340px);object-fit:contain;margin-top:8px;cursor:zoom-in}
+.fq{font:italic 17px/1.55 var(--f-kursiv);margin:0 0 14px}
+.fq .qu{font:12px/1.2 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;font-style:normal;margin-top:6px;color:var(--braun)}
+.fg3 .f3 table.w6{margin:0 0 22px}
+.fg3 .karte.fk{margin:20px 0 6px}
+.fg3 .karte .zl{font:14px var(--f-sans)}
+.fg3 .karte p{margin:6px 0 0;font:15px/1.42 var(--f-text)}
+.fg3 .stein.fst{margin:34px 0 14px;font-size:15px}
+table.w6.q4 td:nth-child(3){font-family:var(--f-kopf);width:34px;text-align:center}
+table.w6.q4 td:nth-child(2){width:auto}
+@media (max-width:1000px){.fg3{grid-template-columns:1fr}.fbar{overflow:auto;justify-content:flex-start}.fi{flex:0 0 90px}}
+.side a{text-decoration:none}
+.ft{margin-top:26px}
+.fg3{grid-template-columns:minmax(0,1.1fr) clamp(190px,26%,310px) minmax(0,1.05fr)}
+.fg3 .f1{font-size:16.5px;line-height:1.46}
+.fg3 .f3 table.w6 td:first-child,.fg3 .f3 table.w6.q4 td:nth-child(3){white-space:nowrap;width:46px}
+.gr .zelle.z2{grid-column:span 2}
+table.w6 td:first-child{white-space:nowrap}
+@media (max-width:1000px){.gr .zelle.z2{grid-column:auto}}
+.gr .ab.l2{grid-column:span 2;column-count:2;column-gap:32px}
+.gr .ab.l2 p,.gr .ab.l2 ul.st li{break-inside:avoid}
+@media (max-width:1000px){.gr .ab.l2{grid-column:auto;column-count:1}}
+
+/* Anklickbare W6-Tabellen */
+table.w6.kl tr{cursor:pointer}
+table.w6.kl tr.an td{font-weight:600}
+table.w6.kl tr.weg td{opacity:.4;text-decoration:line-through}
+
+.gr{grid-auto-flow:dense}
+.gr .karte.kl2 ul{column-count:2;column-gap:28px}
+.gr .karte.kl2 li{break-inside:avoid}
+.gr .zelle table.w6{margin-top:14px}
+@media(max-width:1000px){.gr .karte.kl2 ul{column-count:1}}
+
+.gr .karte.z2{grid-column:span 2}
+.gr .karte.z2 p{column-gap:28px}
+@media(max-width:1000px){.gr .karte.z2{grid-column:auto}}
+
+.gr.mas .mrow{grid-column:1/-1;display:flex;gap:30px;align-items:flex-start}
+.gr.mas .mcol{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:22px}
+.gr.mas .ab.l2{column-count:2;column-gap:32px}
+.gr.mas .zelle{padding-top:26px}
+.gr.mas>.voll{margin-bottom:0}
+.gr.mas>*{margin-bottom:0}
+.gr.mas .karte{margin-top:0}
+.karte.nkk .nt,.gr .karte.nkk p{color:var(--braun)}
+.gr.mas{width:100%;box-sizing:border-box}
+.gr .ab.voll.l2{grid-column:1/-1;column-count:1}
+
+.gr .ab.c3{grid-column:1/-1;column-count:3;column-gap:32px}
+.gr .ab.c3 p{break-inside:avoid}
+.gr .ab.c3 h3{column-span:none}
+.zu .mt{white-space:nowrap;margin-left:auto;padding-left:8px}
+@media(max-width:1000px){.gr .ab.c3{column-count:1}}
+
+.kgrid.zg{align-items:start}
+
+table.w6.gt td:first-child{font-family:var(--f-text);font-weight:600;width:auto;text-align:left;white-space:normal;font-size:15.5px}
+table.w6.gt td:not(:first-child):not(:last-child){white-space:nowrap}
+table.w6.gt td:last-child{white-space:normal}
+
+/* Bestiarium */
+.be-seite{max-width:1500px;margin:0 auto;padding:0 28px 30px}
+.bk{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.bk .bl,.mp .bl{margin-left:auto;display:flex;gap:18px}
+.bl a{font:13px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);padding:6px 0;border-bottom:2px solid transparent}
+.bl a:hover,.bl a.on{color:var(--jade);border-bottom-color:var(--jade)}
+.mk{display:grid;grid-template-columns:repeat(5,1fr);gap:30px 26px;margin-top:18px}
+.mt{display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--braun);text-decoration:none}
+.mi{height:250px;width:100%;display:flex;align-items:flex-end;justify-content:center}
+.mi img,.mb img{mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect}
+.mi img{max-height:250px;max-width:100%;object-fit:contain;transition:transform .35s ease}
+.mt:hover .mi img{transform:scale(1.05)}
+.mn{font:22px/1.15 var(--f-kopf);color:var(--jade);margin-top:10px;padding-bottom:7px;position:relative}
+.mn::after{content:"";position:absolute;left:50%;bottom:0;width:46px;margin-left:-23px;height:1px;background:var(--jade-d);opacity:.45}
+.mt:hover .mn{color:var(--jade-d)}
+.ms{display:flex;flex-direction:column;gap:2px;margin-top:7px;font:12px/1.3 var(--f-kopf);letter-spacing:.08em;text-transform:uppercase;color:var(--jade-d);opacity:.85}
+.bl a{text-decoration:none}
+.mp{display:grid;grid-template-columns:minmax(320px,520px) 1fr;gap:34px;align-items:start;margin-top:8px}
+.mp.npc{grid-template-columns:minmax(260px,420px) 1fr}
+.mb img{width:100%;display:block;max-height:560px;object-fit:contain}
+.mw{margin-top:10px}
+.wt{width:100%;border-collapse:collapse}
+.wt th{text-align:left;font:13px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);padding:7px 0;border-bottom:1px solid var(--perg-rand);width:46%}
+.wt td{font:17px/1 var(--f-text);padding:7px 0;border-bottom:1px solid var(--perg-rand)}
+.tpz{display:flex;align-items:center;justify-content:center;gap:16px;margin:12px 0 4px}
+.tpz button{width:38px;height:38px;border-radius:50%;border:1px solid var(--jade-d);background:transparent;color:var(--jade-d);font:22px/1 var(--f-text);cursor:pointer}
+.tpz button:hover{background:var(--perg-ton)}
+.tpn{font:34px/1 var(--f-kopf);color:var(--tp);min-width:64px;text-align:center}
+.so{font:15px/1.4 var(--f-text);margin-top:8px}
+.mr .mtx p{font:17px/1.5 var(--f-text);margin:0 0 10px}
+.band{background:var(--jade-d);color:#f3eee6;font:14px/1 var(--f-kopf);letter-spacing:.16em;text-transform:uppercase;padding:9px 14px;margin:14px 0 6px}
+.tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.tg .karte h3{margin:0 0 8px}
+.tg dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font:16px/1.4 var(--f-text)}
+.tg dt{font-weight:700}.tg dd{margin:0}
+.so3{margin-top:12px;display:grid;gap:4px}
+@media(max-width:1100px){.mk{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.mk{grid-template-columns:repeat(2,1fr)}.mp,.mp.npc{grid-template-columns:1fr}}
+.tpl{font:13px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);text-align:center;margin-top:12px}.tpl+.tpz{margin-top:6px}
+.tg .karte.ty{margin:0;padding:20px 24px 18px}.tg .karte h3{font:20px/1.1 var(--f-kopf);color:var(--jade);margin:0 0 10px}
+.tw{display:flex;flex-wrap:wrap;gap:6px 18px;padding-bottom:10px;margin-bottom:8px;border-bottom:1px solid var(--perg-rand)}
+.tw span{display:flex;flex-direction:column;font:20px/1.1 var(--f-text);color:var(--braun)}
+.tw i,.tl i{font:11px/1.3 var(--f-kopf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d)}
+.tl{font:16px/1.4 var(--f-text);margin-top:7px}.tl i{display:block}
+table.w6.wd td:first-child{width:auto;text-align:left;font-family:var(--f-text);font-weight:700}table.w6.wd th,table.w6.wd td{padding:6px 10px}table.w6.wd{font-size:15px}
+
+/* ── Abenteuer: Bildstreifen (Übersicht, Band-Seite), Kacheln, Band-Einführung ── */
+.tabs{overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs .tab,.tabs .zeit,.tabs .stift{flex:none}
+.wz{padding:2px var(--rand) 12px;display:flex}
+.wz .weiter{padding:8px 16px;font-size:12px}
+.bs{display:flex;gap:12px;padding:0 var(--rand);height:clamp(360px,calc(100vh - 340px),660px)}
+.bsw{padding-top:12px}
+.bsw .bs{height:clamp(380px,calc(100vh - 210px),720px)}
+.bi{position:relative;flex:1 1 0;min-width:0;cursor:pointer;overflow:hidden;transition:flex-grow .55s cubic-bezier(.3,.7,.2,1);box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 8px 22px rgba(60,40,20,.28);margin:7px}
+.bi.akt{flex-grow:2}
+.bs:hover .bi.akt{flex-grow:1}
+.bs .bi:hover,.bs:hover .bi.akt:hover{flex-grow:4}
+.bb{position:absolute;inset:0;background:var(--perg-ton)}
+img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover !important;object-position:50% 35%;display:block;transition:transform .8s}
+.bi:hover .bimg{transform:scale(1.04)}
+.bimg.leer{background:linear-gradient(160deg,var(--perg-ton),rgba(120,100,70,.18))}
+.bi.stub{opacity:.62}
+.bv{position:absolute;left:10px;bottom:12px;max-height:calc(100% - 24px);writing-mode:vertical-rl;transform:rotate(180deg);padding:14px 7px;background:rgba(14,44,38,.8);color:#f3eee6;font:14px/1.1 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .3s;pointer-events:none}
+.bl{position:absolute;left:50%;bottom:14px;width:min(560px,calc(100% - 22px));transform:translateX(-50%);opacity:0;transition:opacity .35s;pointer-events:none}
+.bl .fluegel{height:84px}
+.bl .fluegel .fm{font-size:21px;padding-top:19px}
+.bq{margin:6px auto 0;width:max-content;max-width:100%;padding:3px 12px;background:rgba(243,238,230,.92);font:11.5px/1.3 var(--f-kopf);letter-spacing:.16em;text-transform:uppercase;color:var(--jade-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bi:hover .bl,.bs:not(:hover) .bi.akt .bl{opacity:1;transition-delay:.15s}
+.bi:hover .bv,.bs:not(:hover) .bi.akt .bv{opacity:0}
+.bs:not(:hover) .bi.akt{flex-grow:2}
+.bs:not(:hover) .bi:not(.akt) .bl{opacity:0}
+/* ohne markiertes: erstes Element nicht hervorheben, nur beim Überfahren */
+.zus{margin:0}
+.bs + .zus{margin:22px var(--rand) 0;padding-bottom:18px}
+.kach{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:30px 26px;padding:22px calc(var(--rand) + 6px) 36px;align-items:start}
+.kk{cursor:pointer;display:block;transition:transform .25s}
+.kk:hover{transform:translateY(-4px)}
+.kk .kb{aspect-ratio:4/3;overflow:hidden;background:var(--perg-ton);box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 6px 16px rgba(60,40,20,.22)}
+.kk .kb img{width:100%;height:100%;object-fit:cover;display:block}
+.kk .kn{font:normal 19px/1.2 var(--f-kopf);color:var(--braun);margin:16px 0 3px}
+.kk .kq{font:12.5px var(--f-sans);color:var(--grau);letter-spacing:.04em}
+.kk.stub{opacity:.6}
+.kk.akt .kn{color:var(--jade)}
+.einf{display:grid;grid-template-columns:clamp(300px,28vw,420px) minmax(0,1fr);gap:0 clamp(28px,3vw,48px);padding:14px var(--rand) 32px;align-items:start}
+.lay .einf{padding:0}
+.einf .eb{position:sticky;top:10px}
+.einf .bildr{cursor:default}
+.einf .rahmen img.bild{width:auto;height:auto;max-width:100%;max-height:calc(100vh - 220px)}
+.einf.leer1{display:block;text-align:center;padding-top:20px}
+.einf.leer1 .bild{max-height:calc(100vh - 300px)}
+.einf .kopf{margin-top:0}
+.stubseite{text-align:center;padding:110px var(--rand)}
+.stubseite .kap{margin-top:16px;color:var(--grau)}
+/* Tafel: allgemein */
+.lage.ohne{display:block}
+.lg3 .gr .ab h3.uh,.lg3 h3.uh{font:22px/1.1 var(--f-titel);color:var(--jade);text-transform:uppercase;letter-spacing:.03em;margin:0 0 10px}
+.lg3 .gr .ab{font-size:17.5px}
+.lg3.einsp .gr{display:block}
+.lg3.einsp .gr .ab,.lg3.einsp .gr .ab.l2{max-width:none;margin:0 0 14px;column-count:1}
+.lg3 .gr .ab.voll{max-width:none}
+.tafel.ohnekarte .orte{margin-top:0}
+.orte.eins{grid-template-columns:1fr}
+.bein{font:13px/1.35 var(--f-text);color:var(--grau);margin:0 0 8px}
+.ob{margin-top:10px}
+.ob p{font:17px/1.5 var(--f-text);margin:0 0 9px}
+.ob h3.uh{font:15px/1.2 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--jade-d);margin:12px 0 6px}
+.stein.bk{margin:38px 0 14px}
+.zl.be a{cursor:pointer;font:12px var(--f-sans);color:var(--grau);text-decoration:underline dotted}
+.zl.be a:hover{color:var(--jade-d)}
+.fgrid.zu1{padding-top:26px;gap:14px 32px}
+.reisen .rb{padding:14px var(--rand) 0}
+.reisen .tgrid,.reisen .fgrid{padding-top:30px}
+.tgrid{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+.hgrid{display:flex;flex-wrap:wrap;gap:28px;padding:12px var(--rand) 40px;align-items:flex-start}
+.hd{margin:0;max-width:min(520px,44vw)}
+.hd img{width:100%;height:auto;display:block;cursor:zoom-in}
+.hd figcaption{font:12px var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--jade-d);margin-top:8px}
+.kk .kb.nb{aspect-ratio:auto;height:44px}
+.kk .kb.nb ~ .kn{margin-top:12px}
+.tafel.ohnekarte{grid-template-columns:clamp(220px,18vw,290px) minmax(0,1fr) clamp(280px,22vw,330px)}
+.einf.leer1{padding-bottom:6px}
+
+.nbild{margin:8px 0;text-align:center}.nbild img{max-width:100%;height:auto;cursor:zoom-in}.nbild.kl img{max-width:120px}.nbild.km img{max-width:min(100%,300px);max-height:420px;width:auto}.nbild figcaption{font-size:.8em;color:var(--braun)}
+
+.lage .lg1{position:sticky;top:70px}
+.gr.mas .mcol:empty{display:none}
+.tabs .tab{padding:0 clamp(8px,1.05vw,18px);font-size:clamp(11px,.92vw,13px);letter-spacing:.1em}
+.tabs .tab.on{padding:0 clamp(8px,.9vw,14px)}
+.tabs .zeit{gap:10px;margin-right:6px}.tabs .zeit .ta{gap:8px}
+.tabs .zeit,.tabs .stift{position:sticky;right:0;background:linear-gradient(to right,rgba(236,226,204,0),#ece2cc 18px);padding-left:22px;z-index:3;height:32px;display:flex;align-items:center}
+.tabs .stift{right:0}
+@media (max-width:1500px){.tabs .tab{padding:0 7px;letter-spacing:.05em;font-size:11.5px}.tabs .zeit{font-size:10.5px;letter-spacing:.08em}.tabs .zeit .vt{padding-left:10px;gap:5px}}
+.tabs.viel{height:auto;flex-wrap:wrap;overflow:visible;row-gap:4px;padding-bottom:6px}
+.tabs.viel .zeit,.tabs.viel .stift{position:static;background:none;padding-left:0}
+/* Suche & Galerie */
+.suche{max-width:1100px;margin:0 auto;padding:22px var(--rand) 60px}
+.suche input,.g-kopf input{width:100%;font:22px/1.2 var(--f-text);padding:12px 16px;background:var(--zebra2);border:1px solid var(--linie);border-radius:4px;color:var(--text,#2a2118)}
+.s-zahl,.g-zahl{font:12px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:#9b8c76;margin:14px 0 4px}
+.s-gr{font:15px/1 var(--f-kopf);letter-spacing:.14em;text-transform:uppercase;color:var(--jade-d);margin:22px 0 10px}
+.s-raster{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.s-karte{display:block;padding:10px 14px;border:1px solid var(--linie);background:rgba(255,255,255,.35);border-radius:4px;text-decoration:none;color:inherit}
+.s-karte:hover{border-color:var(--jade);background:rgba(0,96,77,.06)}
+.s-karte b{display:block;font:16px/1.25 var(--f-kopf);color:var(--jade-d);margin-bottom:4px}
+.s-karte span{display:block;font:15px/1.4 var(--f-text);color:#4a3f30}
+.suche mark{background:rgba(214,170,40,.45);color:inherit;padding:0 1px}
+.s-leer{padding:30px 0;color:#9b8c76;font:17px var(--f-text)}
+.galerie{padding:18px var(--rand) 60px}
+.g-kopf{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:16px}
+.g-kopf input{width:260px;font-size:16px;padding:8px 12px}
+.g-chips{display:flex;flex-wrap:wrap;gap:8px}
+.g-chips span{font:12.5px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(0,96,77,.35);border-radius:3px;color:var(--jade-d);cursor:pointer}
+.g-chips span.on{background:var(--jade-d);color:#f4ecd8}
+.g-kopf .g-zahl{margin:0 0 0 auto}
+.g-raster{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;align-items:end}
+.g-bild{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.g-bild img{width:100%;height:auto;max-height:340px;object-fit:contain;cursor:zoom-in;background:rgba(255,255,255,.3);border:1px solid var(--linie)}
+.g-bild figcaption{font:12px/1.3 var(--f-kopf);letter-spacing:.08em;text-transform:uppercase}
+.g-bild figcaption a{color:var(--jade-d);text-decoration:none}
+.g-bild figcaption a:hover{text-decoration:underline}
+.modal.sov{place-items:start center;padding-top:7vh;backdrop-filter:blur(2px)}
+.modal.sov>div{max-width:none;width:min(1100px,94vw);max-height:84vh;overflow:auto;background:var(--papier,#efe6d2);background-image:url(img/orn/pergament-kachel.webp);background-size:900px 900px;border:1px solid var(--linie);border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.45);padding:0}
+.modal.sov .suche{padding:18px 22px 26px}
+
+/* ---------- Arkand (Untersetting): Stadtkarte mit Orten ---------- */
+.arkgr{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding:10px var(--rand) 22px;align-items:start}
+@media (min-width:1100px){.arkgr{grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr)}}
+.arkmap{padding:0}
+.arkmap .am{position:relative;box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 8px 22px rgba(60,40,20,.35)}
+.arkmap .am>img{display:block;width:100%;height:auto;cursor:zoom-in}
+.ap,.ag{position:absolute;transform:translate(-50%,-50%);cursor:pointer;text-decoration:none}
+.ap i{display:block;width:clamp(14px,1.5vw,22px);height:clamp(14px,1.5vw,22px);border-radius:50%;background:var(--jade);border:2px solid #f3ead2;box-shadow:0 0 0 1px rgba(16,90,74,.8),0 2px 6px rgba(0,0,0,.45);transition:transform .15s}
+.ap.off i{background:#8a8470}
+.ap span{position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%) scale(.9);white-space:nowrap;padding:4px 10px;background:rgba(246,238,216,.97);color:var(--jade-d);font:600 clamp(11px,.95vw,14px)/1.2 var(--f-halb);border:1px solid rgba(16,90,74,.6);opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:3}
+.ap:hover i{transform:scale(1.25)}
+.ap:hover span,.ap:focus span{opacity:1;transform:translateX(-50%) scale(1)}
+.ap:hover{z-index:4}
+.ag span{display:block;padding:5px 14px;background:rgba(16,70,58,.82);color:#f3ead2;font:clamp(12px,1.25vw,19px)/1.1 var(--f-titel);text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(243,234,210,.55);transition:background .15s}
+.ag:hover span{background:rgba(16,110,90,.95)}
+.arkbd{display:grid;gap:16px;position:sticky;top:70px}
+.ab2{display:flex;gap:0;cursor:pointer;background:var(--perg-ton);box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 8px 22px rgba(60,40,20,.3);overflow:hidden;min-height:clamp(150px,22vh,230px);transition:transform .2s}
+.ab2:hover{transform:translateY(-2px)}
+.ab2 .ai{flex:0 0 46%;position:relative;overflow:hidden}
+.ab2 .ai img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ab2 .at{flex:1;display:flex;flex-direction:column;justify-content:center;padding:14px 16px;gap:6px}
+.ab2 .at b{font:clamp(18px,1.7vw,26px)/1.05 var(--f-titel);color:var(--jade);text-transform:uppercase}
+.ab2 .at span{font:600 13px var(--f-halb);color:var(--jade-d);opacity:.75}
+.nsc .band.sm{font-size:10px;letter-spacing:.05em;padding-left:30px;padding-right:30px;text-align:center}
+.nsc .vollname{font:600 12px/1.25 var(--f-halb);letter-spacing:.06em;text-transform:uppercase;text-align:center;color:var(--braun);opacity:.8;margin:12px 0 8px}
+.bl .fluegel .fm.lg{font-size:15px;letter-spacing:.02em;padding-left:34px;padding-right:34px}.bl .fluegel .fm.lg span{text-align:center;line-height:1.05}
+.stein b,.stein strong{color:inherit}
+
+/* Lage: keine Leerfläche unter dem Bild – Bild und Zellen bilden ein lückenloses Raster (shared/masonry.js) */
+.lage:not(.es) .lg1{position:static}
+.lage:not(.es) .gr .ab.l2{grid-column:auto;column-count:1}
+@media(max-width:760px){.lage:not(.es) .gr .ab.l2,.lage .gr .zelle.z2,.lage .gr .karte.z2{grid-column:auto;column-count:1}}
+/* Wenig Inhalt: Bild links schwebt, Text fließt darunter über die volle Breite */
+.lage.es{display:block}
+.lage.es .lg1{float:left;width:clamp(380px,36vw,520px);margin:0 clamp(28px,3vw,44px) 18px 0;position:static}
+.lage.es .lg2,.lage.es .lg3{display:block}
+.lage.es::after{content:"";display:block;clear:both}
+@media(max-width:760px){.lage.es .lg1{float:none;width:auto;margin-right:0}}
+.lage:not(.es) .gr .zelle.z2,.lage:not(.es) .gr .karte.z2{grid-column:auto}
+.lage .abg .ab{max-width:none}.lage .abg .ab.voll{margin-top:0}
+/* Lage: Bild schwebt links, Text fließt drumherum und darunter über volle Breite, Kästen als Raster darunter */
+.lage.zw{display:block;padding-bottom:32px}
+.lage.zw .lg1{float:left;width:clamp(340px,32vw,460px);margin:0 clamp(28px,3vw,44px) 18px 0;position:static}
+.lage.zw .lg2,.lage.zw .lg3{display:block}
+.lage.zw .lgt .ab{max-width:none;margin:0 0 14px;column-count:1;font-size:17.5px}
+.lage.zw .lgb{clear:both;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:0 32px;align-items:start;padding-top:34px}
+.lage.zw .lgb>*{margin:0;max-width:none;grid-column:auto}
+@media(max-width:760px){.lage.zw .lg1{float:none;width:auto;margin-right:0}}
+/* Kästen/Wesen-Karten eines Ortes: ganze Breite unter den drei Spalten als lückenloses Raster */
+.tafel>.extra{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:0 36px;align-items:start;padding-top:46px}
+@media(max-width:1000px){.tafel>.extra{grid-template-columns:minmax(0,1fr)}}
+.tafel>.extra>.stein.bk{margin:0}
+.tafel>.tl,.tafel>.rechts{position:sticky;top:10px}
+.gr.mas>.voll{grid-column:1/-1}
+
+/* Karte(n) auf der Lage-Seite */
+.lk{margin-top:0}
+.lk .lkb{cursor:pointer;text-align:center}
+.lk .lkb.aus{display:none}
+.lk .rahmen{display:inline-block;max-width:100%}
+.lk .bild{height:auto;width:auto;max-width:100%;max-height:calc(100vh - 220px)}
+.lkt{display:flex;flex-wrap:wrap;gap:6px;max-width:100%;margin:0 0 14px;font:13px/1 var(--f-kopf);text-transform:uppercase;letter-spacing:.06em}
+.lkt span{cursor:pointer;color:var(--jade);padding:8px 12px;white-space:nowrap;border:1.5px solid var(--jade);border-radius:3px;background:rgba(255,250,235,.45);transition:background .15s,color .15s}
+.lkt span:hover{background:rgba(16,110,90,.14)}
+.lkt span.on{background:var(--jade);color:#f6efdc}
+
+/* Nebeltal-Karte (Startseite des Abenteuerbands) */
+.ntk{text-align:center;padding:10px var(--rand) 24px}
+.ntw{position:relative;display:inline-block;max-width:100%;box-shadow:0 6px 26px rgba(60,40,20,.35)}
+.ntw>img{display:block;height:auto;width:auto;max-width:100%;max-height:calc(100vh - 150px)}
+.npin{position:absolute;height:3.8%;transform:translate(-50%,-50%);cursor:pointer;border-radius:3px;transition:box-shadow .15s,background .15s}
+.npin:hover{background:rgba(255,246,214,.18);box-shadow:0 0 0 2px #f4e6b0,0 0 18px 6px rgba(255,236,170,.75);z-index:3}
+.npin span{position:absolute;left:50%;bottom:118%;transform:translateX(-50%);white-space:nowrap;background:var(--jade-d,#1d5a4e);color:#f6efdc;font:13px/1 var(--f-kopf);text-transform:uppercase;letter-spacing:.04em;padding:6px 10px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .15s}
+.npin:hover span{opacity:1}
+
+/* Arkand-Startseite: Karte auf Bildschirmhöhe, daneben die drei Bezirke als Bildstreifen */
+.ark2{display:flex;gap:clamp(16px,2vw,32px);justify-content:center;align-items:flex-start;padding:10px var(--rand) 22px}
+.ark2 .am2{flex:0 0 auto}
+.ark2 .am{position:relative;line-height:0;box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 8px 22px rgba(60,40,20,.35)}
+.ark2 .am>img{display:block;height:calc(100vh - 150px);min-height:520px;width:auto;max-width:100%;cursor:zoom-in}
+.ark2 .arkbd2{flex:1 1 0;min-width:0;max-width:760px;display:flex;flex-direction:column;gap:12px;height:calc(100vh - 150px);min-height:520px}
+.ab3{position:relative;flex:1 1 0;min-height:0;overflow:hidden;cursor:pointer;box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 4px rgba(234,224,200,.9),0 0 0 5.5px rgba(16,90,74,.55),0 6px 18px rgba(60,40,20,.3);transition:flex-grow .35s ease}
+.ab3 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.ab3:hover{flex-grow:1.6}.ab3:hover img{transform:scale(1.04)}
+.ab3 .at{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 12px;background:linear-gradient(transparent,rgba(12,48,40,.88));display:flex;align-items:baseline;gap:12px}
+.ab3 .at b{font:clamp(20px,2vw,30px)/1.05 var(--f-titel);color:#f6efdc;text-transform:uppercase}
+.ab3 .at span{font:600 13px var(--f-halb);color:#e2d9bc}
+
+/* Orte-Tafel: Karte links, Text oben rechts, Figuren darunter als Raster (statt langer Spalte ganz rechts) */
+.tafel,.tafel.ohnekarte{grid-template-columns:clamp(340px,32.6vw,470px) minmax(0,1fr)}
+.tafel.ohnekarte{grid-template-columns:clamp(220px,18vw,290px) minmax(0,1fr)}
+.tafel>.tl{grid-column:1;grid-row:1/4}
+.tafel>.ort{grid-column:2;grid-row:1}
+.tafel>.extra{grid-row:2;grid-column:2;padding-top:30px}
+.tafel>.rechts{grid-column:2;grid-row:3;position:static;padding-top:22px;gap:14px}
+.rechts .rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;align-items:start}
+.rechts .rs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 12px;align-items:start}
+@media(max-width:1000px){.tafel,.tafel.ohnekarte{grid-template-columns:minmax(0,1fr)}.tafel>.tl,.tafel>.ort,.tafel>.rechts,.tafel>.extra{grid-column:1;grid-row:auto}}
+
+/* Karten freigestellt (ohne weißen Kasten): weicher Schatten folgt dem Umriss */
+.plan img,.lk .bild{filter:none}
+/* Karten ins Pergament einblenden: Multiplizieren auf der ganzen Gruppe (sticky bildet sonst einen eigenen Stapelkontext) */
+.tafel>.tl,.lk{mix-blend-mode:multiply}
+.plan img,.lk .bild{mix-blend-mode:normal}
+.lk .lkb{line-height:0}
+
+/* ===== Aufgeräumte Figurenkarten, Streifen und Ortsliste ===== */
+/* Figurenkarte: schlichter Kasten mit grüner Namensleiste (statt Totenkopf-Hack, lange Namen passen) */
+.karte.nsc{border:1.5px solid rgba(16,90,74,.6);border-image:none;border-radius:4px;padding:0 0 14px!important;margin-top:0;background:rgba(252,248,235,.55);box-shadow:0 2px 8px rgba(60,40,20,.14);overflow:hidden}
+.karte.nsc .kr{display:none}
+.karte.nsc .band,.nkc.karte.nsc .band{position:static;transform:none;width:auto;height:auto;background:var(--jade-d);color:#f6efdc;display:block;text-align:left;padding:11px 16px 10px;margin:0 0 12px;font:15px/1.15 var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.karte.nsc .band.sm{font-size:15px;letter-spacing:.1em;padding:11px 16px 10px;text-align:left}
+.karte.nsc .vollname{margin:-4px 16px 10px;text-align:left;font:600 12px/1.25 var(--f-halb);letter-spacing:.06em;color:var(--jade-d);opacity:1}
+.karte.nsc>.nk,.karte.nsc>.nt,.karte.nsc>table,.karte.nsc>.w6box{margin-left:16px;margin-right:16px}
+.karte.nsc>.nk{display:flex;gap:14px}
+.karte.nsc .nkb{width:72px}
+.karte.nsc .zl{font:14.5px/1.4 var(--f-sans);padding:6px 0}
+.karte.nsc .zl b{font-family:var(--f-kopf);font-weight:normal;letter-spacing:.04em;color:var(--jade-d)}
+.karte.nsc .zl.drei{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding:2px 0 9px}
+.karte.nsc .tpz{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;margin:0;color:var(--tp)}
+.karte.nsc .tpz button{width:24px;height:24px;margin:0;border:1.5px solid rgba(184,45,41,.55);background:rgba(255,250,235,.6);border-radius:50%;font:15px/1 var(--f-kopf);display:inline-grid;place-items:center;padding:0}
+.karte.nsc .nt{margin-top:8px;padding-top:10px;border-top:1px solid rgba(16,90,74,.22)}
+/* Zugeklappte Figuren/Kästen: ruhige Streifen mit grünem Griff */
+.zu{border:1.5px solid rgba(16,90,74,.5);border-left:5px solid var(--jade-d);border-image:none;border-radius:3px;background:rgba(252,248,235,.55);min-height:40px;padding:0 14px 0 14px;color:var(--jade-d);font:13px/1.15 var(--f-kopf);letter-spacing:.1em;transition:background .15s}
+.zu:hover{background:rgba(16,110,90,.13)}
+.zu .s{color:var(--grau)}
+.zu.st{background:var(--jade-d);border-color:var(--jade-d);color:#f3eee6}
+.zu.st:hover{background:#136a58}
+.zu.st .s{color:#bcd9cf}
+.zu.an{outline:none;background:var(--jade-d);border-color:var(--jade-d);color:#f3eee6}
+.zu.an .s{color:#bcd9cf}
+/* Ortsliste unter der Karte: nummerierte Marken wie die Pins */
+.orte{gap:0 20px;margin-top:16px}
+.orte div{align-items:center;gap:11px;padding:6px 8px 6px 4px;border-radius:3px;border-bottom:1px solid rgba(16,90,74,.16);transition:background .15s}
+.orte div:hover{background:rgba(16,110,90,.1)}
+.orte div b{flex:none;width:auto;min-width:27px;height:27px;padding:0 4px;box-sizing:border-box;display:inline-grid;place-items:center;border:1.5px solid var(--jade);border-radius:14px;background:rgba(255,250,235,.7);font:600 12px/1 var(--f-halb);color:var(--jade-d)}
+.orte div span{line-height:1.2}
+.orte div.on{background:rgba(16,110,90,.14);box-shadow:inset 3px 0 0 var(--jade)}
+.orte div.on b{background:var(--jade);border-color:var(--jade);color:#f6efdc}
+.orte div.on span{color:var(--jade-d)}
+.zu.st,.zu.an{border-image:none;border-width:1.5px 1.5px 1.5px 5px;border-style:solid}
+
+/* ===== Einheitlicher ruhiger Stil für alle Kästen (Steinkästen, Pergament-Karten) ===== */
+.stein{border:1.5px solid rgba(16,90,74,.55);border-left:5px solid var(--jade-d);border-image:none;border-radius:4px;background:rgba(16,110,90,.09);color:var(--braun);font:15.5px/1.5 var(--f-text);padding:12px 18px 10px;margin-top:0;box-shadow:0 2px 8px rgba(60,40,20,.1)}
+.stein .bh{position:static;transform:none;white-space:normal;display:block;background:none;border:0;padding:0;margin:0 0 6px;font:14px/1.2 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);text-align:left}
+.stein .bh::before,.stein .bh::after{display:none}
+.stein.bk,.fg3 .stein.fst{margin:0 0 14px}
+.stein p{margin:0 0 7px}.stein p:last-child{margin-bottom:0}
+.stein b,.stein strong{color:var(--jade-d)}
+.stein a,.stein .pg{color:inherit}
+.karte:not(.nsc){border:1.5px solid rgba(16,90,74,.55);border-image:none;border-radius:4px;background:rgba(252,248,235,.55);padding:14px 18px 12px;box-shadow:0 2px 8px rgba(60,40,20,.12)}
+.karte:not(.nsc) .kr{display:none}
+.karte:not(.nsc) .name,.karte.nkk .name{text-align:left;color:var(--jade-d);font:15px/1.2 var(--f-kopf);letter-spacing:.12em;margin:0 0 8px;padding-bottom:7px;border-bottom:1px solid rgba(16,90,74,.25)}
+.karte:not(.nsc) .zl b{font-family:var(--f-kopf);font-weight:normal;color:var(--jade-d)}
+/* Bilder in Einführung/Texten: ohne Zierrahmen, einfach ins Pergament */
+.einf .rahmen,.bildr .rahmen{padding:0}
+.einf .rahmen i,.bildr .rahmen i{display:none}
+.einf .rahmen img.bild,.bildr .rahmen img.bild{border-radius:3px;box-shadow:0 3px 12px rgba(60,40,20,.3)}
+
+/* Ausgewähltes minimalistisch hervorheben – keine dicken grünen Balken links */
+.orte div.on{background:rgba(16,110,90,.09);box-shadow:none}
+.orte div.on span{color:var(--jade-d);font-weight:600}
+.zu,.zu.st,.zu.an{border-left-width:1.5px;border-left-style:solid}
+.zu.st,.zu.an{border-width:1.5px;border-style:solid}
+.stein{border-left:1.5px solid rgba(16,90,74,.55)}
+
+/* Nebeltal-Karte: volle Breite, ohne Kasten/Schatten, in den Hintergrund überblendet */
+.ntk{padding:6px var(--rand) 24px}
+.ntw{display:block;width:100%;max-width:1700px;margin:0 auto;box-shadow:none}
+.ntw>img{width:100%;max-width:100%;max-height:none;height:auto}
+
+/* Einführung mit Seitenleiste: Titelbild schmal links neben dem Text statt riesig darüber */
+.lay .einf{display:grid;grid-template-columns:clamp(200px,19vw,260px) minmax(0,1fr);gap:0 clamp(24px,2.6vw,40px);align-items:start}
+.lay .einf .eb{position:static}
+.lay .einf .eb .rahmen img.bild{width:100%;max-height:none}
+.lay .einf .kopf{text-align:left}
+@media (max-width:1000px){.lay .einf{grid-template-columns:1fr}.lay .einf .eb{max-width:260px}}
+.side .sbild{padding:16px 6px 0 0}
+.side .sbild .rahmen img.bild{width:100%;max-height:none}
+
+/* Bestiarium: Gruppen und Zufallsbegegnung / Abenteueraufhänger */
+.mkat{font:15px var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:var(--jade-d);margin:30px 0 -6px;padding-bottom:6px;border-bottom:1px solid rgba(75,45,27,.2)}
+.zbx{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:6px 0 16px}
+.zbk{padding:12px 16px}
+.zbk h3{font:13px var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d);margin:0 0 6px}
+.zbk p{font:15.5px/1.5 var(--f-text);margin:0 0 8px}
+
+.zbk{margin-top:14px}
+.mr .zbk{margin:6px 0 14px}
+.tw{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px}
+.tw i{letter-spacing:.06em}
+
+/* Bestiarium-Kacheln: Grimmigkeit als Flammen, TP im Herz – klein hinter dem Namen */
+.mn .mwr{display:inline-flex;align-items:center;gap:6px;margin-left:9px;vertical-align:2px;opacity:.8}
+.mt:hover .mn .mwr{opacity:1}
+.mgr{display:inline-flex;gap:1px;align-items:flex-end}
+.mgr .fl{width:9px!important;height:11px!important;flex:none;fill:var(--jade-d)}
+.mhz{position:relative;width:24px;height:22px;display:inline-flex;align-items:center;justify-content:center}
+.mhz svg{position:absolute;inset:0;width:100%;height:100%;fill:var(--tp)}
+.mhz b{position:relative;font:10px/1 var(--f-kopf);color:#fff;margin-top:-2px}
+.mhz.lang{width:36px;height:30px}.mhz.lang b{font-size:9px}
+.mje{font:9px var(--f-kopf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d)}
+.mtyp{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin-top:8px;opacity:.8}
+.mtyp span{font:9.5px/1 var(--f-kopf);letter-spacing:.1em;text-transform:uppercase;color:var(--jade-d);border:1px solid rgba(0,0,0,.12);border-radius:20px;padding:3px 8px 2px}
+/* Bestiarium-Kacheln: ruhiger */
+.mt .mn::after{display:none}
+.mt .mn{padding-bottom:0}
+.mn .mwr{opacity:.65}
+.mgr .fl{fill:#6f6a60}
+.mhz svg{fill:#8c5a52}
+.mje{color:#7a756b}
+.mtyp{gap:3px 8px;margin-top:4px;opacity:1}
+.mtyp span{font-size:8.5px;letter-spacing:.12em;color:#8a857b;border:0;padding:0}

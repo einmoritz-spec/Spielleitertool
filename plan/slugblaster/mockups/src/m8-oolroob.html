@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sb.css">
+<style>
+:root{--oo:#d37e2a;--oo2:#c15228;--oog:#f2af2c;--ooc:#fdedb3;--oot:#3a1511;--ooteal:#0d5358;--oored:#da3229}
+body{width:1440px;height:900px;overflow:hidden;position:relative;background:var(--oo);color:var(--oot)}
+.topbar{background:var(--oo2)}
+.tabs{background:var(--oo);border-bottom:3px solid var(--oo2);--tc:var(--oog)}
+.tabs a{color:var(--ooc)}.tabs a.on{color:var(--oot)}
+.tabs .pen{color:var(--ooc)}
+.g{display:grid;grid-template-columns:660px minmax(0,1fr);gap:26px;padding:18px 24px 0}
+.map{position:relative;width:660px;height:660px;border:6px solid var(--oot);box-shadow:8px 8px 0 var(--oo2)}
+.map img{width:100%;height:100%;display:block}
+.pin{position:absolute;width:46px;height:56px;border-radius:50%;cursor:pointer}
+.pin.on{box-shadow:0 0 0 4px var(--ooc),0 0 0 8px var(--oored)}
+.hd{display:flex;align-items:baseline;gap:12px}
+.hd .h1{color:var(--ooc);font-size:46px}
+.hd .note{color:var(--ooc);font-size:20px;max-width:none}
+.reg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.reg .h3{color:var(--oog);font-size:22px;margin:0 0 6px}
+.loc{display:grid;grid-template-columns:26px 1fr;gap:3px 8px;padding:5px 6px;cursor:pointer;font-size:13.2px;line-height:1.35;border-radius:4px}
+.loc b{font:400 15.5px var(--marker);text-transform:uppercase;color:var(--oot)}
+.loc .n{width:24px;height:24px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--oog);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.loc .n span{transform:rotate(45deg);font:900 11px var(--body);color:var(--oot)}
+.loc p{grid-column:2;margin:0}
+.loc.on{background:var(--ooc)}
+.loc.on .n{background:var(--oored)}.loc.on .n span{color:#fff}
+.loc.sm p{display:none}
+.box.oo{--bc:var(--ooteal);color:var(--ooc);margin-top:12px}
+</style></head><body>
+<div class="topbar"><button class="brand" style="font:400 34px var(--marker);color:var(--oog);text-transform:uppercase;transform:rotate(-3deg)">Oolroob</button><div class="sp"></div>
+<button class="ib i">i</button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5C6.5 4 9.5 4 12 6c2.5-2 5.5-2 8-.5V19c-2.5-1.5-5.5-1.5-8 .5-2.5-2-5.5-2-8-.5z"/><path d="M12 6v13.5"/></svg></button><button class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<nav class="tabs"><a>Überblick</a><a class="on">Roob</a><a>Probleme &amp; Wegpunkte</a><a>Fraktionen</a><a>Signaturen &amp; Ausrüstung</a><a>Kreaturen</a><a>Verschiedenes</a><span class="sp"></span><button class="pen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>
+<div class="g">
+ <div class="map"><img src="img/oolroob-karte.webp" alt=""><div class="pin on" style="left:193px;top:76px"></div></div>
+ <div>
+  <div class="hd"><h1 class="h1">Roob</h1><span class="pg" style="color:var(--ooc)">S. 2–5</span><span class="note">jeder kennt hier jeden – lasst euch nicht „roobed“ erwischen</span></div>
+  <div class="reg">
+   <div><h3 class="h3">Nördliches Roob</h3>
+    <div class="loc on"><span class="n"><span>1</span></span><b>Der Kaktus</b><p>Eine seltsame kaktusartige „Statue“, die eines Tages auftauchte und seitdem endlos wächst – inzwischen das höchste Ding in Roob. Wer in ihre Nähe kommt, wird von außerirdischer Ruhe überflutet; deshalb wurde hier der Waffenstillstand geschlossen, der den Beef von ’23 beendete.</p></div>
+    <div class="loc"><span class="n"><span>2</span></span><b>Auntie A’s Burgers</b><p>Ein Burgerladen an der Straße, Tag und Nacht geöffnet, geführt von der mütterlichen Auntie A.</p></div>
+    <div class="loc"><span class="n"><span>3</span></span><b>Atlantis</b><p>Ein uralter, überwucherter Wasserpark rund um die Statue eines vergessenen Meeresgottes.</p></div>
+    <div class="loc"><span class="n"><span>4</span></span><b>Der Schlüssel</b><p>Ein riesiger Portalrahmen für interdimensionalen Handel und (wenn man reich genug ist) Reisen.</p></div>
+    <div class="loc sm"><span class="n"><span>5</span></span><b>Altstadt</b></div>
+    <div class="loc sm"><span class="n"><span>6</span></span><b>Knutsch-Park</b></div>
+    <div class="loc sm"><span class="n"><span>7</span></span><b>Das Rollerdrome</b></div>
+    <div class="loc sm"><span class="n"><span>8</span></span><b>Hoverpark Nord-Roob</b></div>
+   </div>
+   <div><h3 class="h3">Südliches Roob</h3>
+    <div class="loc"><span class="n"><span>12</span></span><b>Das alte Kraftwerk</b><p>Seit Jahrzehnten verlassen, angeblich verflucht – heute Partyort. Stellt sich heraus: eine Dünnzone. Fragt bloß nicht Ian, woher er das weiß.</p></div>
+    <div class="loc"><span class="n"><span>13</span></span><b>Free-Roob-Docks</b><p>Einst das Zentrum des Seehandels, heute verfallen und voller Besetzerhäuser des FreeRoob-Kollektivs.</p></div>
+    <div class="loc sm"><span class="n"><span>14</span></span><b>Der Schuppen</b></div>
+    <div class="loc sm"><span class="n"><span>15</span></span><b>FreeRoob-Gefängnis</b></div>
+    <div class="loc sm"><span class="n"><span>16</span></span><b>Hoverpark Süd-Roob</b></div>
+    <div class="loc sm"><span class="n"><span>17</span></span><b>Das Präparatemuseum</b></div>
+    <div class="box oo"><div class="cap">Die Östlichen Hügel · Hundefelsen</div>Das Hinterland von Roob – wer schnell genug die Straßen runterbombt, reißt Portale in andere Dimensionen auf.</div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="ann" style="left:120px;top:780px;max-width:520px"><b>1</b>Kopfzeile nur mit dem Oolroob-Schriftzug (im Tool: freigestellter Schriftzug vom Heft-Cover). Eigenes Untersetting (Dropdown: Slugblaster › Oolroob) im Orange/Creme des Zusatzhefts. Die Karte (Heft S. 7) mit unsichtbaren Klickflächen auf den nummerierten Pins → Ort wird rechts hervorgehoben und aufgeklappt (Pin rot umrandet).</div>
+<div class="ann" style="left:960px;top:820px;max-width:450px"><b>2</b>Orte nach Nord/Süd wie im Heft; Klick auf einen Ort markiert umgekehrt seinen Pin auf der Karte.</div>
+</body></html>

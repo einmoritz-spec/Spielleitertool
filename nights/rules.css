@@ -1,0 +1,30 @@
+/* Regelblatt, Würfler, Tooltips */
+#rulesDrawer{position:fixed;z-index:60;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--panel);border-left:1px solid var(--line);box-shadow:-10px 0 40px rgba(0,0,0,.55);display:flex;flex-direction:column}
+#rulesDrawer[hidden]{display:none}
+.rd-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);font-size:1.05rem}
+.rd-close{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;width:34px;height:34px;cursor:pointer}
+.rd-tabs{display:flex;gap:6px;overflow-x:auto;padding:8px 10px;border-bottom:1px solid var(--line);flex:0 0 auto}
+.rd-tabs button{flex:0 0 auto;background:var(--panel2,#171b2c);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:6px 12px;font:inherit;font-size:.85rem;cursor:pointer;white-space:nowrap}
+.rd-tabs button.on{border-color:var(--mag);background:linear-gradient(90deg,rgba(255,61,154,.22),rgba(51,214,255,.1))}
+.rd-body{overflow:auto;padding:12px 14px 30px;flex:1}
+.rd-card{border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-bottom:8px;background:rgba(255,255,255,.02)}
+.rd-card p{margin:.4em 0 0;font-size:.9rem;line-height:1.45}.rd-card small,.rd-h small{color:var(--mute)}
+.rd-when{color:var(--cyan);font-size:.82rem}
+.rd-h{margin:2px 0 10px;font-size:1rem}.rd-list{padding-left:18px;margin:0}.rd-list li{margin:0 0 8px;font-size:.9rem;line-height:1.45}
+.rd-tab{border-collapse:collapse;width:100%;margin-top:12px;font-size:.88rem}.rd-tab td,.rd-tab th{border:1px solid var(--line);padding:5px 8px;text-align:left}
+.rd-note{color:var(--mute);font-size:.78rem;margin-top:16px}
+.dice-row{display:flex;align-items:center;gap:12px;font-size:1.1rem}.dice-row b{min-width:44px;text-align:center;font-size:1.6rem}
+.dice-row button{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:var(--panel2,#171b2c);color:var(--text);font-size:1.4rem;cursor:pointer}
+.dice-hm{display:block;margin:12px 0;font-size:.92rem}
+.dice-go{width:100%;padding:14px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--mag),#7a4bff);color:#fff;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer}
+.dice-res{display:flex;gap:14px;align-items:center;margin-top:14px;padding:12px;border-radius:12px;border:1px solid var(--line)}
+.dice-res b{font-size:2rem}.dice-res .dd{display:flex;gap:6px}.dice-res .dd i{font-style:normal;width:40px;height:40px;border-radius:8px;background:#f4ecdb;color:#222;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem}
+.dice-res.miss{border-color:#b02a2a}.dice-res.mid{border-color:#d9a43a}.dice-res.hit{border-color:#3fbf7f}.dice-res.mega{border-color:var(--cyan);box-shadow:0 0 14px rgba(51,214,255,.35)}
+.dice-hist{margin-top:10px;color:var(--mute);font-size:.85rem}.dice-hist span{display:inline-block;min-width:26px;text-align:center;border-radius:6px;padding:1px 4px;border:1px solid var(--line)}
+#glTip{position:fixed;z-index:90;background:#1c2136;border:1px solid var(--cyan);border-radius:10px;padding:10px 12px;font-size:.88rem;line-height:1.4;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+#glTip[hidden]{display:none}#glTip p{margin:.3em 0}#glTip small{color:var(--mute)}
+.gl{border-bottom:1px dotted var(--cyan);cursor:help}
+.blk t,.th-spec t,.th-moves t{cursor:help}
+@media (min-width:1000px){body.rules-open .shell{margin-right:450px}}
+.limit-row.nolimit .limit-count{font-style:italic;color:#7a7060}.limit-all{margin-top:8px;background:none;border:1px solid rgba(0,0,0,.3);border-radius:8px;padding:4px 10px;font:inherit;font-size:.78rem;color:#4a4338;cursor:pointer}.limit-all:hover{background:rgba(0,0,0,.06)}
+@media (min-width:1000px){#rulesDrawer{top:55px}}

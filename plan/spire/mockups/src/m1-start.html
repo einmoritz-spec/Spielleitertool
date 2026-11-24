@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="spire.css">
+<style>
+.hero{position:relative;height:250px;background:url(img/hero.webp) center 38%/cover}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:120px;background:url(img/riss-kopf.webp) center bottom/100% 100% no-repeat;transform:scaleY(-1);opacity:.0}
+.hero .verlauf{position:absolute;inset:0;background:linear-gradient(90deg,#0d1a27e6 0%,#0d1a2788 38%,transparent 65%)}
+.hero h1{position:absolute;left:34px;bottom:54px;margin:0;font:700 64px/0.9 var(--f-titel);color:#dbe3ef;text-transform:uppercase}
+.hero p{position:absolute;left:36px;bottom:22px;margin:0;color:#c8d4e4;font-style:italic;font-size:17px;max-width:620px}
+.start{display:grid;grid-template-columns:1fr 410px;gap:26px;padding:20px 30px 30px;position:relative}
+.kach{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.k{background:var(--papier2);border:1px solid #b5c3d6;display:flex;flex-direction:column;cursor:pointer;transition:transform .15s}
+.k:hover{transform:translateY(-2px)}
+.k .im{height:128px;background:#0d1a27;overflow:hidden}
+.k .im img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.k h3{font:700 21px/1 var(--f-titel);text-transform:uppercase;color:var(--blau);margin:9px 11px 3px}
+.k small{display:block;margin:0 11px 10px;color:#3d4a5c;font-size:13.5px;line-height:1.3}
+.k small i{color:var(--grau);font-style:normal}
+.chips{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.chips span{font:700 15px var(--f-titel);text-transform:uppercase;letter-spacing:.04em;border:1.5px solid var(--blau);color:var(--blau);padding:5px 12px;background:#fff;cursor:pointer}
+.los{background:var(--nacht);color:#dbe3ef;padding:14px 16px 16px;position:relative}
+.los h2{font:700 30px var(--f-titel);text-transform:uppercase;margin:0 0 10px;color:#fff}
+.los .gross{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.los .z{background:#172a3d;border:1px solid #2a425b;padding:10px 12px;cursor:pointer}
+.los .z h4{font:700 20px var(--f-titel);text-transform:uppercase;margin:0;color:#fff}
+.los .z small{color:#9fb2c8;font-size:13px}
+.los .z.on{outline:2px solid var(--gold)}
+.abk{margin-top:12px;display:grid;grid-template-columns:118px 1fr;gap:12px;background:#000;border:1px solid #333;cursor:pointer}
+.abk img{width:118px;height:150px;object-fit:cover}
+.abk h4{font:700 26px/1 var(--f-titel);text-transform:uppercase;margin:12px 0 6px;color:#fff}
+.abk p{font-size:14px;color:#c5d0de;margin:0 10px 6px 0}
+.bald{margin-top:10px;font-size:13.5px;color:#8ea2b9}
+.bald span{display:inline-block;border:1px dashed #3d556f;padding:3px 8px;margin:4px 4px 0 0;font:700 13px var(--f-titel);text-transform:uppercase;color:#6f849c}
+.rev{margin-top:12px;border-top:1px solid #2a425b;padding-top:10px}
+.rev h5{font:700 15px var(--f-titel);text-transform:uppercase;margin:0 0 6px;color:#9fb2c8;letter-spacing:.05em}
+.stufen{display:flex;gap:4px}
+.stufen div{flex:1;text-align:center;font:700 14px var(--f-titel);text-transform:uppercase;padding:6px 2px;background:#172a3d;color:#7e93ab;border:1px solid #2a425b}
+.stufen div.on{background:var(--wein);color:#fff;border-color:var(--wein)}
+</style></head><body><script src="top.js"></script>
+<div class="hero"><div class="verlauf"></div><h1>Spire</h1><p>Spire ist eine meilenhohe, unmögliche Stadt, älter als irgendwer zurückdenken kann.</p></div>
+<div class="start">
+ <div>
+  <h2 class="ab" style="margin-top:4px">Vorbereitung</h2>
+  <div class="kach">
+   <div class="k"><div class="im"><img src="img/cmf_S004.webp"></div><h3>Die Welt</h3><small>Willkommen in Spire · Die Welt von Spire · Drow, Aelfir, Menschen <i>· S. 1</i></small></div>
+   <div class="k"><div class="im"><img src="img/cmf_S006.webp"></div><h3>Regeln</h3><small>Kernmechanik · Stress · Fallout · Bindungen · Kampf <i>· S. 9</i></small></div>
+   <div class="k"><div class="im"><img src="img/cmf_S028.webp" style="object-position:center 20%"></div><h3>Klassen</h3><small>10 Klassen + 5 aus dem Magister's Guide · Extra-Fortschritte <i>· S. 25</i></small></div>
+   <div class="k"><div class="im"><img src="img/cmf_S020.webp"></div><h3>Fertigkeiten und Ausrüstung</h3><small>Fertigkeiten · Domänen · Tags · Kaufen und Verkaufen <i>· S. 17</i></small></div>
+   <div class="k"><div class="im"><img src="img/cmf_S094.webp"></div><h3>Spire in Kürze</h3><small>Die Regeln aus dem Quickstart · Tipps und Hinweise <i>· QS S. 1</i></small></div>
+   <div class="k"><div class="im"><img src="img/cmf_S172.webp"></div><h3>Spielleitung</h3><small>Die Revolution · Schwierigkeit · Ein guter Schurke · Magie <i>· S. 173</i></small></div>
+   <div class="k"><div class="im"><img src="img/gm_S016.webp"></div><h3>Magister's Guide</h3><small>Freiheit · Fortschritts-Beats · Erwerbungen · Unterschlupf · Essays <i>· MG S. 4</i></small></div>
+   <div class="k"><div class="im"><img src="img/cmf_S186.webp"></div><h3>Anhänge</h3><small>Neue Götter · Zufallstabellen · Drow-Glossar · Ziegen · Arkologien <i>· S. 183</i></small></div>
+  </div>
+  <div class="chips"><span>Charakterbogen</span><span>Spielleiterschirm</span><span>Würfel</span><span>Fallout-Liste</span><span>Galerie</span></div>
+ </div>
+ <div class="los">
+  <h2>Losschlagen</h2>
+  <div class="gross">
+   <div class="z on"><h4>Die Zelle</h4><small>Stress, Fallout, Bindungen der Spielerfiguren</small></div>
+   <div class="z"><h4>Die Stadt</h4><small>Karte · 8 Domänen, alle Distrikte</small></div>
+   <div class="z"><h4>Gegner</h4><small>Alle Werteblöcke mit Widerstand</small></div>
+   <div class="z"><h4>Zufall</h4><small>W10-Tabellen für die Straße</small></div>
+  </div>
+  <div class="abk"><img src="img/qs_S018.webp"><div><h4>Snuff Out the Sun</h4><p>Die Sonnenkirche, geliebt von den erobernden Aelfir, bereitet die rituelle Hinrichtung ihres derzeitigen Erzbischofs vor …</p><p style="color:#8ea2b9;font-size:12.5px">Quickstart · S. 18–24 · 6 vorgefertigte Figuren</p></div></div>
+  <div class="bald">Weitere Abenteuer, sobald die Bücher da sind:<br><span>The Kings of Silver</span><span>Eidolon Sky</span><span>Blood and Dust</span></div>
+  <div class="rev"><h5>Die Revolution <span class="pg" style="color:#7e93ab">S. 175</span></h5><div class="stufen"><div class="on">Aufziehender Sturm</div><div>Der Schlag</div><div>Die Folgen</div></div></div>
+ </div>
+</div>
+<div class="note" style="left:640px;top:78px"><b>1</b>Kopfband = vorhandenes Titelbild; Unterzeile = erster Satz aus „Die Welt von Spire“ (S. 3)</div>
+<div class="note" style="left:40px;top:640px"><b>2</b>Vorbereitung = Nachschlage-Bereiche, Kachel mit Buchbild (Ausschnitt nur im Kachelkopf, Großbild ungeschnitten)</div>
+<div class="note" style="left:1010px;top:770px"><b>3</b>Revolutions-Stufe (S. 175 ff.) – Klick wählt und speichert; Klick auf den Titel öffnet „Die Revolution“ im Nachschlagen</div>
+</body></html>

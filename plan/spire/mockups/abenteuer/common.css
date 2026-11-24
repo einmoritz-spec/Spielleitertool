@@ -1,0 +1,12 @@
+@font-face{font-family:"SpGeared";src:url(../../../../assets/fonts/spire-geared-700.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"SpPlantin";src:url(../../../../assets/fonts/spire-plantin-400.woff2) format("woff2")}
+:root{--f-titel:"SpGeared",Impact,sans-serif;--f-text:"SpPlantin",Georgia,serif}
+*{box-sizing:border-box}html,body{background:#dbe3ef;color:#12120c;font:16px/1.45 var(--f-text)}
+body{margin:0}
+.tb{height:56px;background:#0d1a27;display:flex;align-items:center;padding:0 16px;gap:10px;border-bottom:1px solid #2a425b}
+.tb img{height:34px}.tb .sp{flex:1}.tb i{width:34px;height:34px;border:1px solid #3a526b;border-radius:8px;display:grid;place-items:center;color:#cdd8e6;font-style:normal;font-size:15px}
+.hd{font-family:var(--f-titel);color:#981a3f;font-size:26px;letter-spacing:.02em;margin:22px 0 12px;display:flex;align-items:center;gap:14px;text-transform:uppercase}
+.hd:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#981a3f,transparent)}
+.wrap{padding:0 36px}
+.tag{font-family:var(--f-titel);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#d9a521}
+.ph{background:repeating-linear-gradient(45deg,#1a2a3b,#1a2a3b 8px,#16243a 8px,#16243a 16px)}

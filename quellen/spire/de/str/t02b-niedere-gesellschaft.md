@@ -1,0 +1,686 @@
+
+
+<!-- S. 41 (PDF 46) -->
+
+## 41
+# NIEDERE GESELLSCHAFT {farbe=#194d71}
+*Wer kein Geld übrig hat, findet im Spire eine der schlimmsten Städte der Welt.*
+*Smogverhangen und über alle Maßen eng, von Krankheit und Verbrechen durchsetzt*
+*und stets bereit, in Flammen aufzugehen, wenn sie nicht gerade überflutet ist.*
+*Dennoch leben hier unzählige Drow unter dem Joch ihrer aelfirischen Herren –*
+*sie schuften in Fabriken, um die Ambitionen der Hochelfen zu befeuern, bauen*
+*Nahrung an, die sie sich im Gartendistrikt nicht leisten können, oder klammern*
+*sich in den gesetzlosen Labyrinthen von Perch und Derelictus ans Leben. Unter*
+*der unzufriedenen Jugend und den verbitterten Drow-Ältesten wächst die Rebellion,*
+*und das Ministerium ist nur eine von hundert Gruppen, die Unruhe schüren, um*
+*das Sagen zu haben, wenn sich der Staub gelegt hat.*
+## DIE WERKE {farbe=#981a3f}
+Das sind die Werke – ein rauchender, dampfender, erstickender Knoten aus Industrie im Zentrum des Spire. Tausende Werkstätten und Fabriken spucken Waren aus, die die aelfirische Expansion nach Nujab und weiter nach Al’Marah befeuern: Gewehre kunstvoller menschlicher Machart, Rüstungen und Stiefel, die eingezogene Drow tragen, wenn sie durch die Wüstensonne marschieren, Kugeln und Granaten und Sprengstoffe, die Felsen von Nujabi-Klippen herabstürzen lassen.
+Die aelfirische Kriegsmaschine ist hungrig. Monat für Monat werden ihr Hunderte Drow geopfert, wenn schlecht gewartete Mechanismen Arbeiter zermalmen, die Schwarze Lunge Kinder im Schlaf erstickt und Brände sich ungehindert durch die Slums ausbreiten, die den Distrikt säumen.
+Aber: Die Werke leben. Der Lärm der Industrie – das Dröhnen der Maschinen, das Zischen der Dampfrohre, das Stottern der Ventile – verschmilzt mit den Geräuschen der Zivilisation, wenn Drow inmitten von Stahl und Rauch leben und spielen. Bei aller Armut ist das Werke-Viertel einer der letzten Orte im Spire, an denen ein Drow ehrlich seinen Lebensunterhalt verdienen und die Sprossen der sozialen Leiter erklimmen kann – und die Zahl der Fabriken in Drow-Besitz wächst von Jahr zu Jahr.
+## SPIREWEISS {farbe=#194d71}
+Spireblack sammelt sich überall dort, wo die Industrie ihre schmierige Spur hinterlässt, besonders in den Werken – dicke, teerartige Fettklumpen, die wie schmutziges Öl brennen. Es verklebt die Zahnräder und stellt eine Brandgefahr dar, weshalb die meisten Fabrikbesitzer froh sind, wenn es entfernt wird. Es gibt einen blühenden Schwarzmarkt für das Einsammeln und Raffinieren des Zeugs (was in der Tat eine heikle Arbeit ist), aus dem der billige Brennstoff gewonnen wird, der den Unterspire erleuchtet, und das Schießpulver, das ihn erobert.
+In den letzten zwanzig Jahren ist auch Spireweiß aufgetaucht. Spireweiß ist nicht wirklich weiß – meist ist es eine blasse, graurosa, tumorartige Masse –, und es gedeiht in Fabriken genau wie Spireblack. Spireweiß ist Grund genug, eine Fabrik zumindest vorübergehend zu schließen, denn es breitet sich auf jene aus, die es berühren. Anfangs geschieht das langsam und zeigt sich als schwindende Sehkraft und knochentiefe Schmerzen, dann geht es über zu Organversagen und dem Auftreten krebsartiger Wucherungen, bis der Körper vollständig von Läsionen überzogen ist (oft bis zur Unkenntlichkeit) und der Betroffene stirbt.
+Der Volksmund behauptet, die Erkrankten erhöben sich von ihrem Sterbebett und marschierten schwankend zu der Wucherung, an der sie sich angesteckt haben, um sich von ihr einverleiben zu lassen. Die offizielle Haltung der Stadt lautet, das sei Unsinn, doch sie hat auch die zwangsweise Einäscherung aller Infizierten angeordnet.
+Das Einzige, was man tun kann, wenn Spireweiß auftaucht – abgesehen davon, die Fabrik zu schließen –, ist, ein Räumkommando anzuheuern, das es entfernt. Anders als die ungelernten Glücksritter, die
+
+<!-- S. 42 (PDF 47) -->
+
+## 42
+> Die Tiefen Werke sind voller Gefahr,
+> Tod und Finsternis – und gelegentlich
+> gewaltiger Schätze.
+
+<!-- S. 43 (PDF 48) -->
+
+## 43
+Spireblack von den Dachtraufen kratzen, sind diese Leute Profis. Die meisten sind verzweifelte Ex-Militärs, die zu viel gesehen haben und auf eine riskante, aber lukrative Bezahlung aus sind; andere sind neugierige Forscher der Universitäten weiter oben, die dieses seltsame Phänomen untersuchen wollen. Sie extrahieren das Spireweiß (oder sterben dabei) und verschiffen es anderswohin. Der Rat behauptet, es werde vernichtet, doch eine so wundersame und flüchtige Substanz hat enormen Wert für Waffenhersteller, Okkultisten und Stadtdruiden.
+Bislang blieb Spireweiß unter Kontrolle, dank einer Kampagne bösartiger Vertuschungen durch eine schattenhafte Kabale aus Menschen und Drow in den oberen Rängen der Werke – doch es gibt Geschichten von riesigen Wucherungen in den Tiefen vergessener Fabriken, die Vagabunden anstecken. Diese tragen die Krankheit zu anderen weiter, die allesamt herbeigeschlurft kommen, um ihre sich auflösenden Körper auf den stinkenden Hügel zu werfen, während sie ihre letzten Atemzüge röcheln.
+### SPIREWEISS-HÖRIGER
+**Namen:**
+Keine, aber man erkennt vielleicht einige
+von ihnen von früher
+**Beschreibung:** Arm weggefault, aber ersetzt durch ab-
+scheuliche, geschwollene Wucherungen;
+zwei Personen aneinandergeklebt, keine
+von beiden freiwillig; normal, nur dass
+ihre Augen durch kränkliche, krebsartige
+Kugeln ersetzt sind
+**Widerstand:**  6
+**Schwierigkeit:**
+0
+**Ausrüstung:** Keine, außer dem, was sie bei ihrem Tod
+bei sich trugen (W3 Schaden)
+**Besonderes:**
+Wenn du im Kampf gegen einen Hörigen
+Blut-Fallout erleidest, kann die Spielleitung
+folgendes Ergebnis verwenden:
+**INFIZIERT.** [Blut] Monströse Spireweiß-Geschwüre bilden sich auf deiner Haut. Innerhalb einer Woche wirst du vollständig überwuchert sein, und die Wache wird dich auf der Stelle hinrichten, falls dich die Infektion nicht zuvor tötet. Du kannst diesen Fallout dauerhaft durch Gebrochener Arm oder Gebrochenes Bein ersetzen, indem du die betroffene Stelle absägst. Lässt du das von einem Arzt machen, erleidest du W3 Verstand-Stress; bei einer ungeübten Person ohne ordentliche Betäubung sind es W6, und wenn du es selbst tun musst, W8.
+## MALAK {farbe=#194d71}
+Die Aelfir verboten vor einigen Jahren Malak, eine berauschende Tinktur, die bei den Drow beliebt ist. Als ein gefährlich liberaler Gesetzgeber den Drow das Recht gab, sich im unteren Drittel des Spire frei und ohne Furcht vor grundloser Festnahme zu bewegen, brauchte das Establishment einen neuen Grund, sie einzusperren. Es war selten, einen Drow zu finden, der kein Malak nahm, besonders wenn er volljährig war – es war so verbreitet wie Alkohol, vielleicht sogar beliebter –, und so hatte die Stadtwache wieder einen Anlass, jeden Drow ungestraft festzunehmen.
+Die Hochelfen feierten das Malak-Verbot als Beginn eines neuen Zeitalters von Gesundheit und Wohlstand für die Drow, deren Gemeinschaften – so behaupteten sie – viel zu lange im bösartigen Klammergriff der Malak-Sucht gefangen gewesen seien. Plakatkampagnen säumten die Straßen der Werke und des Gartendistrikts und warnten ehrbare Bürger vor der „MALAK-GEFAHR“: einer grotesken Karikatur eines starken Malak-Konsumenten mit schwarz verfärbten Zähnen und riesigen, blutunterlaufenen Augen.
+> ## WARUM STEHT DER SPIRE NICHT
+> ## DAUERND IN FLAMMEN?
+> Eine berechtigte Frage, denn eigentlich müsste er brennen.
+> Angesichts der völligen Abwesenheit von Bauvorschriften und
+> der albtraumhaften Knappheit an Sicherheitsinfrastruktur,
+> besonders in gesetzlosen Distrikten wie Red Row oder dem
+> industriellen Chaos der Werke, ist das Risiko eines
+> katastrophalen Brandes riesig. Um dem entgegenzuwirken,
+> haben die Bewohner des Spire einige Wege gelernt, Feuer zu
+> bekämpfen:
+> • Abwasser fließt in Rohren durch die Stadt, bis es seitlich
+> herausspritzt oder irgendwo weiter unten im Spire verloren
+> geht. Es ist durchaus möglich, diese stinkende Brühe auf
+> einen Brand umzuleiten und das Feuer in einer Wolke
+> übelriechenden Dampfes zu ersticken.
+> • Die Drow haben eine kulturelle Neigung, das Feuer zu
+> ehren: Sie brauchten es, um in ihren unterirdischen
+> Urheimaten zu sehen, und nutzten es jeden Tag. Wo
+> Menschen und Aelfir das Feuer mit Respekt behandeln,
+> grenzen die Drow-Rituale um Streichhölzer, Feuerstein und
+> Stahl und Kerzen an religiöse Ehrfurcht. Viele ältere Drow
+> geben ihren Streichhölzern noch heute Namen und danken
+> ihnen für ihr Opfer, wenn sie entzündet werden. Dieses
+> zwanghafte Verhalten entspringt Jahrhunderten der
+> Brandvermeidung.
+> • Eine Splittersekte der Vermissian Sages, die Ignis
+> Praeliae, hat ihr Leben dem Schutz der Stadt vor Feuer
+> gewidmet. Sie trauern noch immer um den Verlust einer
+> großen Bibliothek in den Heimatnationen, die zu Beginn
+> des Bürgerkriegs vor mehreren hundert Jahren niederbrannte.
+> Diese Sages können die Orte potenzieller Brände vorhersagen,
+> indem sie Zeitungsberichte aus möglichen Zukünften lesen,
+> und diese Katastrophen abwenden, indem sie die
+> Verantwortlichen töten, bevor sie die Tat begehen. Es
+> funktioniert womöglich sogar.
+> • Ursprünglicher Spirestein, die Knochen der Stadt, brennt
+> nicht. In äußerster Not soll er sogar schon mit einer weißen,
+> süß riechenden Substanz explodiert sein, die nahe Feuer
+> löscht, als schütze sich die Stadt selbst vor Schaden. Auf
+> diese Weise ist Feuerbekämpfung jedoch nicht verlässlich.
+
+<!-- S. 44 (PDF 49) -->
+
+## 44
+Grelle Groschenschocker, die die Behauptungen der Aelfir stützten, wurden eilig gedruckt und zu Schleuderpreisen verkauft, etwa DIE SÜNDE EINER DROW: DIE MALAK-TEUFEL oder, unter Verwendung eines der vielen Straßennamen für Malak, DIE HEXENGEBORENE HENKERIN. Drow wurden ermutigt, mögliche Dealer oder Konsumenten in ihrer Nachbarschaft zu melden – nicht für eine Geldbelohnung, sondern um die fortdauernde Sicherheit ihrer Gemeinschaft zu gewährleisten. Die Initiative ist bis heute in Kraft.
+Die Malak-Herstellung wurde in den Untergrund gedrängt. Einst angesehene Hersteller wandten sich der Chemie und dem Brauen zu und stellten nebenbei Malak her. Die Werke waren der perfekte Ort für die illegale Massenproduktion der Droge. Da der Distrikt ohnehin zu jeder Stunde voller Industrie und Menschen war, bestand kaum Gefahr, dass jemand bemerkte, wie gelegentlich ein Fass Tinktur den Spire hinunter verschifft wurde; außerdem waren Rohstoffe leicht zu beschaffen.
+In Red Row und Derelictus nimmt man Malak ganz offen – dort unten gibt es so wenige Wachen, dass das Risiko der Entdeckung nahezu null ist. Doch in den Werken sind Bars und Clubs, die das Zeug ausgeben, gut versteckt hinter Scheinunternehmen, Passwörtern, Sicherheitsvorkehrungen und verborgenen Eingängen. In der schwülen Hitze zwischen den Öfen, während die Motoren der Industrie oben dröhnen, versammeln sich Drow in niedrigen, schwach beleuchteten Räumen, um zu feiern, Malak gemischt in allerlei Tonika zu trinken und laute, misstönende Musik zu hören.
+Die meisten Malak-Spelunken bezahlen die Wachen dafür, sich herauszuhalten – doch angesichts der zunehmenden Zahl aufrührerischer Organisationen, die in diesen privaten Treffpunkten zusammenkommen, werden immer mehr dieser Flüsterkneipen ausgehoben.
+## DRUIDISCHER ÖKOTERRORISMUS {farbe=#194d71}
+Die Druiden des Lebendigen Spire glauben, dass der Spire selbst – oder Sie selbst, wie sie ihn nennen – ein gewaltiger lebender Organismus (oder eine Ökologie von Organismen) ist, mit dem man ebenso verhandeln kann wie mit jedem Waldvolk, Berggeist oder Flussgott. Sie glauben, dass der Spire krank ist, und verweisen auf Spireblack – und in jüngerer Zeit Spireweiß – als Zeichen der Krankheit. Sie glauben auch, dass sie selbst die Heilung sind.
+Luddistische Sabotage ist im Spire alltäglich, wobei der zunehmende Schwerpunkt auf Automatisierung jede Woche Hunderte Drow arbeitslos macht. Die Karmesinrote Wacht hat einen besonderen Schwerpunkt darauf, Fabriken niederzubrennen, und in *Liberate!* erscheint ein mehrteiliger Leitfaden zum „unauffindbaren Aufruhr“. Er ermutigt Arbeiter, Werkzeug zu verlegen, Aufträge an andere Arbeitsgruppen weiterzureichen, statt sie selbst zu erledigen, und mehr Zeit damit zu verbringen, Probleme zu besprechen, als sie zu lösen.
+Die Pläne der Druiden sind etwas anders. Derzeit infiltrieren sie so viele Fabriken wie möglich und arbeiten darin, um sich in Positionen der Macht und Verantwortung in der Organisation hochzuarbeiten. Verdeckte Arbeit ist für Druiden besonders schwierig: Nicht nur müssen sie täglich mit den verhassten Werkzeugen von Industrie und Fortschritt in Berührung kommen, viele sind zudem mit Pflanzen- oder Pilzwuchs gesegnet, der aus ihrer Haut sprießt. Paradoxerweise muss ein Druide umso härter arbeiten, sein eigenes abartiges Wachstum zurückzustutzen, um nicht entdeckt zu werden, je besser er im Infiltrieren ist.
+Sobald sie den Sättigungspunkt erreicht haben, werden die Druiden gleichzeitig massive, zerstörerische Fehlfunktionen in den über die Werke verteilten Industrieanlagen auslösen. Geschmolzenes Metall wird durch die Straßen fließen, und die Korridore und Tunnel werden sich mit dichtem, giftigem Rauch füllen. Maschinen, die unter Druck stehen und bis an die Belastungsgrenze getrieben werden, werden explodieren und in Schrapnell zerbersten, das Bauten und Menschen gleichermaßen zerfetzt.
+Unfähig, rechtzeitig auf das Chaos zu reagieren, werden die Werke brennen, und die Hauptursache für die Krankheit des Spire wird zerstört sein. Vielleicht kann Sie sich sogar heilen, bevor Sie zusammenbricht.
+### DRUIDISCHER ÖKOTERRORIST
+**Name:**
+Hecate, Weal, Versival
+**Beschreibung:**  Kaum sichtbare Pflanzenstummel, die aus ihrer
+Haut wachsen; Wenn sie atmen, klingt es wie
+raschelndes Laub; Nervös, zappelnd vom Absturz
+der einen Droge oder dem Rausch der nächsten
+**Widerstand:**  5, aber 10, wenn sie Zeit hatten, die
+passenden Riten vorzubereiten und zu vollziehen
+**Schwierigkeit:**
+1, aber 0, wenn man sie am Ende eines Rauschs erwischt
+**Ausrüstung:** Abgetragene Arbeitskleidung und schwere Overalls
+(Rüstung 1); „herbeigerufene“ Sichel (W6,
+Brutal – verrostet zu Unbrauchbarkeit oder setzt ansteckende
+Parasiten frei, wenn jemand außer einem Druiden sie benutzt)
+## DIE TIEFEN WERKE {farbe=#194d71}
+Fabriken schließen ständig – meist weil jemand schlecht investiert hat, die falsche Schutzgelderpresserbande bezahlt hat oder die Produkte sich schlicht nicht verkauften. Aus welchem Grund auch immer, gemietete Betriebe wechseln in den Werken täglich den Besitzer, und die wahren Eigentümer von Land und Maschinen bleiben hinter Bürokratie und meilenlangen Papierspuren verborgen.
+
+<!-- S. 45 (PDF 50) -->
+
+## 45
+Manchmal geht es wirklich schief.
+Manchmal geraten die Spireblack-Rüsselkäfer außer Kontrolle, und ein verirrter Funke könnte alles entzünden, aber das Geld für die Reinigung ist vor Monaten ausgegangen. Manchmal stürmen die aelfirischen Grundbesitzer herein und verlangen aus einer Laune heraus (wer kann schon die Beweggründe der Aelfir verstehen?) die Schließung der ganzen Fabrik, bevor sie sich darin einschließen, bis sie wahnsinnig und verhungert sterben, und zwischen den Laufstegen verborgen die Lüftungsschächte heimsuchen. Manchmal verwandelt die kaum verstandene menschliche Technik – Ätherwebstühle, galvanische Resonatoren, Elementarschmieden, Heulende Jennys – die Hälfte der Belegschaft in spukenden Staub, und der Rat ordnet an, das Ganze abzuriegeln, bis die Universität Gwyn-Enforr herausgefunden hat, wie man es wieder sicher machen kann. Manchmal schlägt jemand die falsche Wand durch und trifft auf das Vermissian; dann dringt das Herz ein, und alles ändert sich.
+Im Spire geht alles schnell. Diese unglückseligen Orte werden rasch vernagelt und überbaut, während die umliegende Architektur nach Material ausgeschlachtet wird. Zugangstunnel verfallen; da niemand sie benutzt – und deshalb niemand sie instand hält –, sind Einstürze häufig. Die verlorenen Fabriken sind als die Tiefen Werke bekannt: elende, dunkle Gegenden, die das Versprechen vergessener Schätze bergen.
+In jeder Malak-Spelunke von Wright’s Press bis hinunter zur Coxford Bridge werden dieselben Geschichten erzählt: dass der wahnsinnige Industrielle Letzter-Strahl-der-Morgenröte [[Final-Ray-Of-Dawn]] in dieser-und-jener Fabrik unter dem Tempel der Herdmutter starb und seine Totenmaske mit Rubinen und Saphiren besetzt ist; dass die Ghule in den Ruinen des alten Hauptquartiers der Erebus Corporation Schatten atmen und deinen wahren Namen riechen können; dass Generationen von Spireblack-Wachstum in irgendeiner gottverlassenen Ecke des Distrikts eine Perle hervorgebracht haben, die zu etwas Vielfacettigem, Scharfem und Schönem gewachsen und erhärtet ist.
+Ob die Geschichten wahr sind oder nicht, es mangelt nicht an Pirschern und Plünderern, die bereit sind, Leib, Leben und Verstand zu riskieren, indem sie sich in die verlorenen Tiefen der Werke stürzen, auf der Suche nach Schätzen. Gelegentlich bekommt das Ministerium Wind von einer verlässlichen Spur zum Aufenthaltsort von etwas – oder jemandem – Wertvollem und schickt eine meist unwillige Zelle los, um es für die Verborgene Herrin zu beschaffen.
+## DIE KLINGEN VON SONNE-AUF-WASSER [[Sun-on-Water]] {farbe=#194d71}
+Sonne-auf-Wasser ist die letzte wahre aelfirische Waffenschmiedin im Spire. Wo viele hochelfische Kunsthandwerker die deutlich effizienteren Metallverarbeitungsmethoden von Menschen und Drow übernommen haben, hat sich Sonne-auf-Wasser beharrlich der ältesten Kunst der Waffenherstellung der Welt verschrieben.
+> ## MUSIK IM SPIRE
+> Traditionelle Drow-Musik – zumindest innerhalb der Grenzen
+> von Destera und in Richtung der Heimatnationen – stützt sich
+> stark auf Trommeln und Pfeifen aus Metall oder Stein. Angesichts
+> ihres Ursprungs in Höhlen fällt den Drow Akustikbau von Natur
+> aus leicht. Der Raum, in dem Musik gespielt wird (samt all den
+> Echos, die dazugehören), ist oft ebenso wichtig wie der Musiker
+> selbst.
+> Musikinstrumente sind oft unbeweglich oder zumindest
+> unbequem schwer. Wohlhabende Drow bauen noch immer lange,
+> resonante Pfeifen in ihre Aufführungsbauten ein, in die
+> Musiker auf Festen singen oder anderweitig Lärm machen
+> können. Tragbarere Instrumente existieren, etwa die
+> Spinnseiden-Psalterien, die Midwives als meditativen Fokus
+> schätzen, doch sie sind zerbrechlich, und ihr Unterhalt ist teuer.
+> Die Musik ist auch leise: Macht man zu viel Lärm, riskiert man
+> Steinschlag oder die Aufmerksamkeit der Albtraumbestien, die
+> (so glauben die Drow) in den chthonischen Tiefen unter den
+> Städten schlummern. Der Schwerpunkt liegt auf Harmonien und
+> Klanglandschaften, weil einzelne Töne und Schläge an
+> Höhlenwänden leicht zerfasert werden.
+> Moderne Drow-Musik kennt keine dieser Beschränkungen, und
+> beinahe alles ist erlaubt. Der Spire ist ein Knotenpunkt der
+> Kulturen: Aelfirische Harfenisten spielen mit Aliquami-
+> Schalmeienspielern und legen undurchschaubare, schwer
+> nachzuvollziehende halbimprovisierte Melodien hin;
+> desteranische Zitherspieler begleiten traditionelle yssische
+> Kriegstrommeln und -hörner bei Desang-Aufführungen; Menschen
+> funktionieren Industriemaschinen zu brutaler, repetitiver Musik
+> um, die Hunderte junger Drow zum Zuhören anlockt; und
+> eingezogene Drow kehren aus Nujab mit seltsamen gnollischen
+> Apparaten heim, die alchemistische Schmelztiegel nutzen, um
+> farbige Flammen und scharfe, schrille Töne zu erzeugen.
+> Musik ist auch ein wichtiger Teil der Revolution. Vieles an
+> der Drow-Geschichte, von den aelfirischen Besatzungstruppen
+> zensiert oder zerstört, überlebt nur als Volkslieder oder
+> Gedichte. Diese Lieder vorzutragen gilt als aufrührerischer
+> Akt, doch es mangelt nicht an Ex-Militär-Truppen, die in den
+> Norddocks die alten Kriegslieder von Destera oder die
+> Rachekantaten des alten Yssen spielen. Sie können ihr
+> Publikum rasch in einen bösartigen Rausch peitschen.
+
+<!-- S. 46 (PDF 51) -->
+
+## 46
+Sie fertigt magische Waffen an, und das unglaublich langsam: Die Essenz des Erntemonds oder den letzten Atemzug einer Witwe in einem gläsernen Dolch einzufangen, braucht Zeit, wenn es richtig gemacht werden soll. Sie steht unter dem Schutz von Mutter Winter, der aelfirischen Schmiedegöttin. Deshalb entgeht sie Ärger – und sogar der Entdeckung –, obwohl sie eine der meistgesuchten Personen im Spire ist.
+Es folgt eine Auswahl der Waffen, die sie im letzten Jahrzehnt gefertigt hat. Sie alle sind von unschätzbarem Wert.
+**Mutters Klage** – Dieses blaugraue Stilett durchbohrt Metall mühelos, prallt aber an jeder anderen Substanz ab. Es ist mit dem letzten Licht der Wintersonnenwende durchdrungen und ruft die Macht von Mutter Winter an, der obersten Kunsthandwerkerin des Sonnenpantheons. Im Kampf kann es nur Rüstung beschädigen, nicht Blut – obwohl es gut funktionieren sollte, wenn es gegen etwas mit Metall statt Fleisch eingesetzt wird. Es schneidet auch Schlösser aus Türen, durchtrennt Fesseln und zerschneidet Gewehre. (W8, Nur Metall)
+**Das Folgende Messer** – Das Folgende Messer kann man nicht normal kaufen. Man unterschreibt einen Vertrag mit Sonne-auf-Wasser, sie nimmt etwas Haar und Blut von einem (vielleicht einen Zahn), und dann geht man weg und wartet. Das Folgende Messer weiß, sobald es geschmiedet ist, jederzeit, wo man sich befindet, und ist bestrebt, in der Nähe zu sein. Es taucht in Schubladen auf, unter Betten, unter Kopfkissen und natürlich in jeder Tasche oder jedem Beutel am Körper, der groß genug ist, es aufzunehmen. Das Folgende Messer liebt einen und möchte, dass man sicher und glücklich ist. Es ist *unmöglich*, einem das Folgende Messer wegzunehmen, es sei denn, es steht ständig unter direkter Beobachtung; doch sobald es einmal niemand ansieht, taucht es wieder in der Nähe auf. (W6, Verbergbar. Du kannst das Messer als W6-Waffe mit Fernkampf und Unzuverlässig werfen – wird der Tag Unzuverlässig ausgelöst, braucht es Zeit, sich zu dir zurückzuarbeiten, und taucht zu Beginn der nächsten Situation wieder auf.)
+**Königsbann** – Königsbann ist ein wunderschönes einschneidiges Schwert, das nur dann richtig funktioniert, wenn es gegen Könige, Königinnen oder andere regierende Monarchen eingesetzt wird. Gegen jeden anderen ist es ein stumpfes Stück Metall. Was genau bestimmt, wer ein „König“ ist und wer nicht, lässt sich schwer festlegen, aber man merkt, dass man richtig lag, wenn man ihm den Kopf in einer einzigen glatten Bewegung abtrennt. (Gegen Monarchen ist dies eine W8-Waffe mit Verheerend. Gegen jeden anderen W3.)
+**Das Messer der Zehn Sorgen** – Es sieht schlicht aus wie ein rot lackierter Griff. Die Klinge kann man sehen, wenn man ihn ins Mondlicht hält – aber selbst dann manifestiert sie sich nicht körperlich. Das Messer der Zehn Sorgen durchtrennt Beziehungen statt Arterien: Ein „Schnitt“ in den Raum zwischen zwei Personen vergiftet ihre Freundschaft und führt zu Misstrauen und Wut. Das Messer kann dies zehnmal tun, bevor es zerbricht. Am Griff sind vier quadratische Kerben, die darauf hindeuten, dass nur noch sechs Anwendungen übrig sind. (Gegen NSC wird das Zerbrechen von Beziehungen erzählerisch gehandhabt. Gegen SC verursacht das Messer pro Anwendung W8, Brutal Stress an einer Bindung nach Wahl des Angreifers.)
+**Die Klinge der Vollkommenheit** – Dieses Messer ist nicht für den Kampf gedacht, sondern für die Chirurgie. Man kann damit unerwünschte Fallout-Ergebnisse herausschneiden, doch für jeden entfernten Fallout muss man auch etwas Positives entfernen – meist eine Fertigkeit oder Domäne, aber auch Fähigkeiten und Widerstandsplätze sind nicht ausgeschlossen. Die Anwendung des Messers tut überhaupt nicht weh; im Gegenteil, sie ist seltsam angenehm (und ein wenig süchtig machend).
+**Sonnenglutpfeil** – Dieser Pfeil, der die Kraft von Vater Sommer in einem spiralförmigen, dornigen Metallstachel sammelt, birst in reines Sonnenlicht, wenn er einen Drow trifft. Sonne-auf-Wasser machte sich nicht aus Hass daran, eine Waffe zu bauen, die nur Drow trifft, sondern um zu sehen, ob es möglich wäre – sie arbeitet auch an einer, die dasselbe für Aelfir leistet. (Aus einem Bogen abgeschossen, ist diese Waffe gegen Drow W8, Brutal, Streuung W6, Einweg und gegen jeden anderen W3. Trifft sie ihr Ziel nicht oder ist das Ziel kein Drow, explodiert sie nicht und kann geborgen werden.)
+> ## IN DIE TIEFEN WERKE
+> ## HINABSTEIGEN
+> Spielleitung: Wenn ihr mit einer Nebenmission experimentieren
+> wollt, bei der eure Spieler in irgendeine Albtraumfabrik
+> hinabsteigen, erwägt, sie der Gruppe als mittleren oder
+> schweren Silber-Fallout aufzuerlegen: Die Gruppe hat zu
+> viele Ministeriumsressourcen verbraucht und muss ihre
+> Schulden begleichen.
+> Ihr könntet es auch als Schatten-Fallout begründen: Nach
+> einem besonders katastrophalen Auftrag kehrt die Zelle
+> in ihren Unterschlupf zurück und stellt fest, dass das
+> Ministerium beträchtliche Mittel für das Aufräumen hinter
+> ihr aufwenden musste. Nun ist es Zeit, es wiedergutzumachen.
+
+<!-- S. 47 (PDF 52) -->
+
+## 47
+**Ruf des Herbstes** – Dieses Langmesser, gefertigt im Licht des ersten Blutmonds der Erntezeit, ist das ultimative Modestatement unter wirklich stilbewussten Aelfir. Es gehört zum guten Ton, dass sich der Besitzer öffentlich mit dem Messer umbringt, meist durch Ausweiden oder Kehlendurchschneiden, und mit dem Messer in den Händen begraben wird. Es gibt wenig Angesagteres, als sein Leben mit einem Ruf des Herbstes zu beenden; bislang hat Sonne-auf-Wasser vier davon gefertigt, und sie hat eine Warteliste, so lang wie ihr Arm, für weitere. (W3)
+## MÖGLICHE VERBÜNDETE IN {farbe=#194d71}
+## DEN WERKEN {farbe=#194d71}
+**Professor Spike,** ein betagter menschlicher Akademiker, der entweder aus der Akademie von Gywnn-Enforr geworfen wurde oder aus eigenem Antrieb ging – je nachdem, wen man fragt. Er ist Experte für die Intelligenz (Spire S. 83), ein Netzwerk von Verstandeskräften, verbunden durch implantierte Prokatakos-Kristalle, steht aber nicht gut mit ihnen. Tatsächlich jagen sie ihn, da sie glauben, er habe ein Gerät gebaut, das mit den Kristallen ohne chirurgischen Eingriff wechselwirkt. Er versteckt sich tief in den Werken und handelt mit Geheimnissen, die er vom Netzwerk abgeschöpft hat, gegen Ersatzteile und frische Kristalle.
+**Drez,** der für mehrere verschiedene Hersteller illegales Malak durch den Distrikt schmuggelt. Er hat die Angewohnheit, Kanäle durch die Tiefen Werke zu nutzen, um der Entdeckung zu entgehen, was töricht ist – aber es hat ihn bislang nicht eingeholt.
+**Christa,** die für die Fackel schreibt und sie *hasst*. Sie ist sehr links, doch die einzige Schreibstelle, die sie bekommen konnte, war bei der berüchtigt aelfirfreundlichen, drowfeindlichen Fackel. Bei ihren Vorgesetzten ist sie ungemein sprühend und lustig; aber sobald sie außer Sichtweite ist, heckt sie irgendeine Art aus, die Zeitung zu sabotieren, die es ihr dennoch erlaubt, ihre Stelle zu behalten.
+**Lans Jacq** *(nom de guerre)***,** ein einst muskulöser, nun fetter Veteran der Nujabi-Kriege, der als Privatdetektiv arbeitet und derzeit dem Verschwinden einer aelfirischen Erbin in den Werken nachgeht. Er pflegt, protzige Kriegsgeschichten zu erzählen, gespickt mit abstrusen und oft widersprüchlichen Details, ist aber viel klüger, als er vorgibt, und weiß, wie man so gut wie jeden auf die Palme bringt. Man findet ihn meist vorsichtig am Rand einer Schlägerei stehen, die er selbst angezettelt hat.
+**Vira Glas-auf-Glas [[Vira Glass-on-Glass]],** Herausgeberin der Silhouette, die weiß, was nötig ist, um eine gute Geschichte aufzuspüren, und alles dafür tut – einschließlich sich mit bekannten verräterischen Revolutionsgruppen zu verbünden. Obwohl sie eine Aelfir ist, hat sie viele Artikel verfasst, die die hochelfische Besatzung und Beherrschung des Spire anprangern (natürlich unter falschen Namen in den Zeitungen anderer Leute).
+**Sol,** ein ehemaliger Soldat, betreibt eine schäbige, heruntergekommene Dreherei im unteren Ende der Werke, die überraschend gute Arbeit liefert. Das liegt daran, dass er einen Gnoll im Keller hat – einen Ingenieur namens Mal’ja. Die beiden verliebten sich, als sie sich eigentlich in den Nujabi-Ödländern gegenseitig töten sollten. Mal’ja repariert und verbessert seine Werkzeuge, aber wenn er noch mehr Aufmerksamkeit erregt, wird er entdeckt – was die beiden so gut wie tot wäre.
+## EXTRA-FORTSCHRITT: GAZETTEER {farbe=#981a3f}
+**VORAUSSETZUNG:** Du kannst ein regelmäßiges Nachrichtenblatt veröffentlichen (benenne es).
+**AUFFRISCHEN:** Enthülle deinen Lesern ein Geheimnis.
+## NIEDRIG {farbe=#194d71}
+**SCHÜTZE DEINE QUELLEN.** *Du weigerst dich, preiszugeben, woher deine Informationen stammen.*  Erhalte die Fertigkeit Flicken. Wenn eine Bindung Stress erleidet, weil sie in deinem Auftrag einen Gefallen getan hat, würfle eine Würfelgröße kleiner als üblich.
+**MUNDPROPAGANDA.** *Du kennst jemanden, der jemanden kennt.*  +1 Ruf. Einmal pro Sitzung kannst du die Spielleitung fragen, was auf der Straße zu einem bestimmten Thema gemunkelt wird. Das umfasst, welche Gerüchte du zu aktuellen Ereignissen gehört hast, wer wer ist, was die Betreffenden vorhaben und so weiter. Du erhältst nur vage Hinweise, aber sie reichen immer, um etwas Interessantem nachzugehen.
+**FOLGE DEM GELD.**  Einmal pro Situation kannst du herausfinden, woher das Geld für etwas in dieser Situation kommt; aber es führt dich nur ein Glied die Kette hinauf. Entdeckst du zum Beispiel ein Straßenkind, das ein Gebäude beobachtet, und findest heraus, dass ein Privatdetektiv es dafür bezahlt hat, erfährst du nur die Identität des Privatdetektivs – nicht den Namen der Person, die ihn angeheuert hat, die schattenhafte Gesellschaft dahinter oder den Aelfir an deren Spitze. Mit Zeit und Beinarbeit kannst du jedoch bis ganz nach oben gelangen.
+## MITTEL {farbe=#194d71}
+**ERPRESSUNGSEXPERTE.** *Du bist Experte darin, Druckmittel zu sammeln und einzusetzen.* Erhalte die Fertigkeit Überzeugen. Wenn du
+
+<!-- S. 48 (PDF 53) -->
+
+## 48
+> Der Gazetteer scheut sich nicht,
+> sich für eine gute Geschichte die
+> Hände schmutzig zu machen.
+
+<!-- S. 49 (PDF 54) -->
+
+## 49
+belastendes Beweismaterial über jemanden sammelst und es ihm vorlegst, wird er zu einer Bindung. Jeglicher Stress, der der Bindung infolge von Gefallen zugefügt wird, wird verdoppelt.
+**ROTER FADEN.** *Du hast eine Tafel, an der Bilder von Strippenziehern befestigt und mit rotem Faden verbunden sind.* Einmal pro Sitzung kannst du der Tafel ein Bild einer Person oder eines Ortes hinzufügen. (Es bleibt bis zum Ende der Kampagne oder bis deine Tafel zerstört wird.) Wenn du diese Person oder diesen Ort untersuchst, tust du das mit Meisterschaft. Du kannst in derselben Sitzung Personen oder Orte, die mit dem ursprünglichen Bild verbunden sind, für W3 Verstand-Stress pro Hinzufügung ergänzen.
+**ABLENKUNG.** *Alle sind zu beschäftigt damit, sich in den neuen Skandal zu verbeißen, um sich Gedanken darüber zu machen, was letzte Woche geschah.*  Wenn du eine Geschichte veröffentlichst, die Aufmerksamkeit von dir ablenken soll, indem sie jemand anderen verleumdet, entferne W6 Stress von Schatten und markiere die Hälfte der gewürfelten Menge auf Ruf. Du kannst diese Fähigkeit auch nutzen, um Aufmerksamkeit von anderen Spielerfiguren abzulenken oder um Stress direkt aus dem Widerstandsgesamt einer Bindung zu entfernen.
+**SCHMUTZKAMPAGNE.** *Wirf genug Dreck, und irgendetwas bleibt garantiert hängen.* Wenn du eine Schmutzkampagne gegen eine Person des öffentlichen Lebens startest, markiere W6 Stress auf Ruf; sie erleidet die Hälfte der gewürfelten Menge als Stress. Würfle jedes Mal, wenn du eine neue Entdeckung enthüllst (ob wahr oder falsch) – höchstens einmal pro Sitzung.
+## HOCH {farbe=#194d71}
+**DRAHTZIEHER.** Wie ROTER FADEN, aber du würfelst mit Meisterschaft, wann immer du mit etwas oder jemandem interagierst, das bzw. der an der Tafel hängt. Außerdem kannst du Verbindungen zwischen zwei Elementen auf der Tafel herstellen, die nicht unbedingt miteinander verbunden sind. Indem du sie einfach mit rotem Faden verknüpfst und W6 Stress auf Verstand markierst, deckst du eine solche Verbindung auf (oder erschaffst sie).
+## DER GARTENDISTRIKT {farbe=#981a3f}
+Der Garten ernährt den Spire. Tief in den Labyrinthen des Distrikts schöpfen Dunkelbauern Algen aus riesigen Kupferbottichen und verarbeiten sie zu billigem Essen für die Arbeiter der Werke; Krebstierhirten hüten huschende Herden aquatischer Bestien, die zu Hunderten gekocht werden, bis ihre Panzer leuchtend rot, gelb und blau werden; und die Hängenden Gärten beherbergen die Körper der Toten, aus deren Haut nahrhafte Pilze sprießen, in Hallen, die still sind bis auf das kaum hörbare Rascheln und Knarren, das die wundersamen Pilze von sich geben, während sie in erstaunlichem Tempo wachsen. Würde der Garten schließen, würde der Spire binnen weniger Tage in Hunger und Aufruhr versinken.
+Aber der Garten ist auch hungrig, und er frisst. Er ist eine unzähmbare Tasche der Wildnis, gefangen im Stein und Stahl des Spire. Er verschluckt ganze Straßen, treibt Menschen in den Wahnsinn und fordert beständiges Opfer. Bliebe er unkontrolliert, würde er den Spire überziehen und jeden darin in feuchte, pulsierende Biomasse verwandeln.
+## DER HUNGER {farbe=#194d71}
+Unter den Bauern des Distrikts herrscht das allgemeine Verständnis, dass der Garten gefüttert werden muss; schließlich brauchen Pflanzen Wasser und Dünger, um üppig zu gedeihen. Viele der Rituale sind mit Volkserzählungen und regionaler Verehrung Unserer Glorreichen Herrin verwoben und nutzen Opfergaben, die direkt in die Erde gegeben werden.
+Das Bedürfnis nach Nahrung beschränkt sich nicht auf die Erde. Es gibt etwas Urtümliches und Seltsames am Garten, das sich in die Köpfe seiner Bewohner einnistet. Anfangs ist es nichts Großes – vielleicht eine sanfte Mahnung im Hinterkopf, aufzustehen und das Moos zu gießen, oder eine ungewöhnliche Zuneigung zur eigenen Herde aus Tellerwürmern und Krabben. Doch mit der Zeit kann sich die Hingabe daran, dafür zu sorgen, dass der Garten etwas zu verzehren hat, zu einer Obsession entwickeln.
+Bauern gehen aufeinander los und stehlen Vorräte, zapfen Wasser ab, um ihre Ernte zu bewässern, oder gründen kleine Milizen, um Geld für stärkere, esoterischere Dünger einzutreiben. Das wird größtenteils als gesunder Wettbewerb betrachtet: Es gibt häufig Wettbewerbe, um zu ermitteln, welcher Bauer die hübscheste Ziege besitzt oder wer die größten Knollen gezogen hat.
+Man bemitleide den Bauern, der seine Pflanzen nicht zufriedenstellen kann. In Zeiten von Krankheit und Fäule brauchen die verschiedenen Gewächse besondere Pflege und Aufmerksamkeit – doch nicht jeder kann sie sich leisten. Während ihre Höfe verdorren und sterben, wird der Hunger des Distrikts stärker und eindringlicher in
+
+<!-- S. 50 (PDF 55) -->
+
+## 50
+> Räuberisches Moos wird auf Statuen
+> seiner Beute gelockt, wo es
+> gezüchtet wird.
+
+<!-- S. 51 (PDF 56) -->
+
+## 51
+den Köpfen der Besitzer. Sie greifen zu dunkleren und verzweifelteren Mitteln, um die stumpfe, gefräßige Intelligenz im Kern ihres Wesens zu füttern.
+Verarmte Bauern, die sich zwielichtigen Kulten anschließen, sind alltäglich (wobei die Mehrheit dieser Kulte Betrugsmaschen sind, die Dummköpfe ausnehmen wollen). Seltener, aber furchterregender sind die armen Einzelnen, die sich dem Hunger vollständig hingeben. Sie jagen andere Drow und schleppen sie zurück auf ihre Kleinhöfe, mit weit aufgerissenen Augen und in erratischen, unberechenbaren Bewegungen, während sie ihre Opfer aufhängen und in die Erde ausbluten lassen.
+Es funktioniert tatsächlich (solange sie nicht erwischt werden). Ihre Gärten gedeihen, ihre Herden wachsen an; der Wahnsinn lässt nach, und bald sind die Leichen auf Albträume und eine Handvoll unmarkierter Gedenksteine reduziert. Der Hunger des Gartens ist für eine weitere Saison gestillt.
+### HUNGERGEPLAGTER BAUER
+**Name:**
+Snetton, Ashe, Zeth
+**Beschreibung:**  Schleift eine Kette hinter sich her, klebrig von Blut
+und Haar; In der Erde vergraben, tagelang
+zum Zuschlagen bereit; Mit nacktem Oberkörper und
+ausgezehrt, Bauch vor Hunger gebläht
+**Schwierigkeit:**
+1
+**Widerstand:**  12
+**Ausrüstung:** Zweckentfremdetes Ackergerät (W6,
+Ermüdend)
+**Besonderes:**
+Wenn du den Bauern aus dem Gartendistrikt
+herausbringen kannst, hat er Schwierigkeit 0
+und Widerstand 3 – aber er wird sein Bestes
+tun, um zurückzukehren.
+## DIE VERLORENEN ÄCKER {farbe=#194d71}
+Die Wurzeln des Gartendistrikts reichen tief, wühlen sich in Fels und Ziegel des Ortes. Sie sind unerbittlich und eisenstark, imstande, mit genug Zeit Stein zu sprengen. Decken bröckeln und stürzen ein; Tunnel werden von Brombeere und Dorn überwuchert; riesige Bottiche voller Algen oder Flusskrebse platzen aus den Nähten und überfluten die Ebenen darunter. Manchmal bringen Menschen absichtlich Gebäude zum Einsturz, um Zugangswege zu versperren, in der Hoffnung, Schutzgelderpresser, Geldverleiher oder wütende Vermieter abzuwehren.
+Das bedeutet, dass große Teile des Gartendistrikts „verloren“ sind, ohne verlässliche Möglichkeit, die Außenwelt zu erreichen. Sie sind jedoch weitgehend autark (sofern sie Zugang zu Wasser haben) und passen sich gut an das Leben in Abgeschlossenheit an, wobei sie ihre eigenen inzestuösen Subkulturen bilden.
+Jedes Jahr legen Teams verpflichteter Drow diese vergessenen Länder frei und versuchen nach Kräften, Kontakt zu den Bewohnern aufzunehmen. Sie hacken Dornen ab und räumen Schutt mit gefährlicher, oft menschengemachter Ausrüstung (Rotationsklingen, die Dornen durchtrennen, Presslufthämmer, die Felsen zerschmettern, sperrige Thermallanzen, die eine stahlschmelzende Flamme projizieren können).
+Manche freuen sich, Leute aus der Außenwelt zu sehen, besonders wenn der Großteil ihrer Gemeinschaft durch Krankheit, Mord, Hunger oder Wahnsinn gestorben ist. Die Länder, in denen sie gelebt haben, sind in der Tat seltsam. Verglichen mit dem Pulsieren und dem Lärm des restlichen Spire sind sie unheimlich still, und die Menschen dort sprechen in nicht identifizierbaren Dialekten: seltsame, in sich verwachsene Sprachen, die sich um sich selbst gerollt haben.
+Angesichts der Schwierigkeit, künstliches Licht zu erzeugen, entwickeln Gemeinschaften womöglich Methoden, ohne es zu arbeiten, etwa indem sie ihre Länder mit groben Seilen und Schnüren ausstatten, die sie durch die pechschwarze Finsternis leiten. Nach ein paar Generationen hat es nie etwas anderes gegeben. In den seltenen Fällen, in denen Licht gesehen wird, gilt es als wundersames Geschenk der Götter – oder, wahrscheinlicher, als augenstechender Fluch, der Drow in den Wahnsinn treibt.
+Eine Handvoll der in den Verlorenen Äckern Gefangenen versucht, Eindringlinge mit improvisierten Fallen und Hinterhalten zu vertreiben, da sie in ihnen eine Bedrohung ihrer Lebensweise sehen. Es gibt auch Widerstandsnester tief im Gartendistrikt, die seit Jahrzehnten, wenn nicht Jahrhunderten isoliert sind und es gern so belassen würden. Sucht man lange genug, findet man Drow, die sich noch immer im offenen Krieg mit den Aelfir befinden oder die nie gehört haben, dass der Spire vor zweihundert Jahren fiel.
+## SELTSAMKEITEN IM {farbe=#194d71}
+## GARTENDISTRIKT {farbe=#194d71}
+• Ein Hain aus Steinstatuen, bedeckt von räuberischem Moos: Es wuchs früher über schlafende oder verletzte Tiere und entzog ihnen die Kraft, bis sie starben, lässt sich aber mit Statuen täuschen. Es ist zäh, wasserabweisend und hält Wärme gut, weshalb es bei Kleidungsherstellern sehr gefragt ist. Die Gärtner hier machen es sich zur Ehrensache, das Moos zu ertragen, das über ihre Körper kriecht; wenn sie die Haine ein, zwei Jahre gepflegt haben, kann man sie kaum noch von den Statuen unterscheiden.
+• Das Herrenhaus von Zähne-durch-Seide [[Teeth-Through-Silk]], eines uralten und längst toten aelfirischen Grundbesitzers, der sich in seinen späteren Jahren in den Gartendistrikt zurückzog. Er wurde völlig wahnsinnig, wie es Aelfir außerhalb von Amaranth gern tun, und begrub sich lebendig auf seiner eigenen Plantage. Die Ernte im Jahr darauf war ungewöhnlich üppig.
+
+<!-- S. 52 (PDF 57) -->
+
+## 52
+Heute wird etwa einmal pro Jahrzehnt ein Mitglied der Familie Zähne-durch-Seide rituell in eine große Grube neben dem gewaltigen Baum in der Mitte des hinteren Gartens des Hauses gestürzt. Sie veranstalten dabei immer eine große Show, doch man vermutet, dass es sich bei den letzten Malen um einen maskierten Drow-Diener handelte, der eingewilligt hat, es gegen eine Spende an seine Familie zu tun.
+• Ein breiter Kreis, markiert mit unregelmäßig geformten Steinen, in dem nichts wächst. Obwohl er an einer belebten Kreuzung liegt, betritt ihn niemand (auch wenn Kinder aus der Gegend sich gelegentlich herausfordern, hinüberzurennen). Jeder hat einen Freund eines Freundes, der jemanden kennt, der hineinging und nie wieder herauskam.
+• Ein Hintertürschrein für das „Schöne Volk“, von dem die Leute glauben, es lebe an den ruhigen, unerforschten Orten des Distrikts: bleiche Wesen mit großen Augen, die nach Tribut gieren. Im Austausch gegen handgemachte Kleinigkeiten (Zeichnungen, Hobbygedichte, Haarlocken und zu Puppen gewobenes Stroh) halten sie dein Haus von Unglück frei. Ätherbiologen meinen, dass das Schöne Volk, falls es existiert, ein stabiler Stamm von Gutterkin ist. Zeugenberichte aus vertrauenswürdigen Quellen sind jedoch dünn gesät.
+• Eine Gnoll-Kräuterkundlerin mit diplomatischen Papieren eines aelfirischen Geldgebers weiter oben im Spire bereist den Distrikt, umgeben von nervös wirkenden Drow-Wachen und schockierten Passanten. Sie sucht die grausamsten und schnellsten Gifte des Gartens, die extrahiert und für das private Arboretum ihres Herrn in Amaranth gezüchtet werden sollen.
+• Zwei Sonnenkleriker – ein großer, hemdloser Anhänger von Vater Sommer und ein mürrischer Priester von Bruder Ernte mit der Miene eines Buchhalters – führen den Distrikt in einem Fest an, das den diesjährigen Erntekönig bestimmen soll. Nach der Krönung hat der König großen politischen Einfluss und bekommt unzählige Gaben zu Füßen gelegt; dann wird er in den Tiefen des Winters rituell hingerichtet, um ein gutes Wachstumsjahr zu sichern.
+• Ein pensionierter Kriegerdichter pflegt einen kunstvoll gestalteten Garten. Er stutzt Hecken mit einem schweren einschneidigen Schwert, harkt glitzernden Kies zu schönen Mustern und verfasst „Poesie“ durch die Zuckungen und Zappeleien vivisezierter Vögel, die aufgeschnitten auf Papier ausgebreitet liegen.
+## OUMA-KROYASHA {farbe=#194d71}
+Es war einmal, tief im Garten, ein wunderschöner junger Drow mit Haut von der Farbe fallenden Schnees und Haar von Mitternachtsschwarz. Er war verliebt in ein Mädchen aus seinem Dorf, doch sie war sehr krank und konnte ihr Haus nicht verlassen aus Angst zu sterben.
+Beflügelt von seiner Liebe machte sich der Drow auf in die dunklen Teile des Gartens, um ein besonderes Kraut zu finden, das die Krankheit des Mädchens heilen würde. Tagelang reiste er durch überflutete Höhlen, in denen Blutegel lauerten und bissen, überwucherte Dornenfelder, die nach Blut hungerten, und eingestürzte Gänge, kaum breiter als sein Körper. Zerschlagen und blutig, ausgehungert und verzweifelt, gelangte er in einen Hain, wo seine Laterne flackerte und erlosch. Blind durch die Dunkelheit stolpernd, rief er um Hilfe – und Ouma-Kroyasha hörte seinen Ruf.
+Ouma-Kroyasha – die Alte Hexe des Waldes, Großmutter Dorn, Knochenfinger – wartete im Dunkeln auf ihn. Sie entzündete eine Kerze, damit der Drow sie sehen konnte. Sie war groß, größer als jeder, den der Drow je gesehen hatte, und beugte sich doppelt, um ihm in die Augen zu sehen. Ihre Gelenke und Finger waren scharf wie Messer. Mindestens ein Dutzend Eulen schwärmte über sie, pickte die Flöhe aus ihrem zotteligen grauen Haar, kreischte in die Finsternis und steckte halbtote Mäuse in ihre Taschen, damit sie sie später fressen konnte.
+Der Drow hatte Angst – seine Mutter hatte ihn vor Ouma-Kroyasha gewarnt –, wusste aber, dass er Hilfe brauchte. „Meine Laterne ist erloschen, Ouma-Kroyasha“, sagte er, „und ich finde meinen Weg nicht. Ich suche ein besonderes Kraut, das meine Liebste von ihrer Krankheit heilen wird.“
+Ouma-Kroyasha hatte Mitleid mit dem jungen Drow und gab ihm eine magische Kerze. Ihre Flamme würde niemals erlöschen, ganz gleich, ob man sie unter Wasser tauchte, mit einer Decke erstickte oder in Erde vergrub. Der Drow dankte ihr, umklammerte die Kerze mit beiden Händen und ging.
+> ## MENSCHENGEMACHTE ARBEITSWERKZEUGE
+> • Thermallanze (W6, Durchschlagend, Gefährlich)
+> • Presslufthammer oder -schere (W6, Brutal,
+> Ermüdend)
+> • Sprengladungen (W6, Streuung W6, Fernkampf,
+> Einweg)
+> • „Kettensäge“ (W8, Gefährlich)
+> • Alle oben genannten Werkzeuge (außer den
+> Sprengladungen) benötigen den Anschluss an eine
+> Energiequelle – meist ein unter Druck stehendes
+> Dampfrohr, wobei manche galvanische Energiequellen
+> nutzen, die dem Benutzer umgeschnallt werden. Wie
+> auch immer sie angetrieben werden, im Kampf sind sie
+> unhandlich, und die Schwierigkeit aller Angriffswürfe
+> mit ihnen steigt um 1.
+
+<!-- S. 53 (PDF 58) -->
+
+## 53
+Noch tagelang reiste er, bis er zu dem heiligen Hain kam, in dem das Kraut wuchs. Obwohl er hungrig und müde war, raffte er handvoll Blätter zusammen und stopfte sie in seine Tasche. Dann begann er den langen Marsch zurück zu seinem Dorf.
+Als er ankam, war das Mädchen fast tot – doch die Dorfältesten brauten das Kraut zu einem besonderen Tee und gaben ihn ihr. Wie durch Zauberhand kehrte sie zu Gesundheit zurück. Die Leute sangen und tanzten vor Freude, und der Drow und das Mädchen sollten in der Nacht des ersten roten Mondes der Ernte getraut werden.
+Die Hochzeitshalle war ein prächtiger Anblick – riesige Körbe voller Früchte säumten die Tische, und große Töpfe voller Ziegencurry verbreiteten den Duft süßer Gewürze durch den Distrikt. Unter einem Bogen aus geflochtenem Weizen und Karmesingras gelobten sich die beiden einander. Wie es Brauch ist, schworen sie ihre Liebe auf etwas, das ihnen wichtig war. Der Drow, so dankbar, dass seine Liebe lebte, schwor auf die noch immer brennende Kerze, die Ouma-Kroyasha ihm gegeben hatte und die seinen Pfad durch die Dunkelheit erleuchtet hatte, als alles andere versagt hatte.
+Doch die Kerzenflamme sprang auf, und der Weizen und das Karmesingras fingen Feuer. Die Leute des Dorfes kamen und warfen feuchte Erde darauf, vergeblich; dann Wasser, das nur zischte und die Halle mit Dampf füllte. Wie sie sich auch mühten, nichts konnte das Feuer löschen. Das Dorf brannte, und das Mädchen – die letzte Chance sehend, alle zu retten – riss die Kerze aus dem Inferno in der Mitte. Mit brennenden Händen und platzender Haut rannte sie hinunter in den Distrikt, in die vergessenen Orte, in die Höhlen der Blutegel und erdrückenden Gänge. Als das Feuer niedergebrannt war, war sie nirgends zu sehen.
+Der Drow suchte monatelang nach ihr und rieb sich dabei auf, bis er eines Tages aus der Dunkelheit hervortrat und sie in Ouma-Kroyashas Hain sah, noch immer brennend und sich vor Schmerz windend. Milchäugige Eulen tanzten und tollten um sie herum, und die Hexe selbst saß da und wärmte ihre krallenbewehrten Hände am Feuer.
+Von Hunger und Gram in den Wahnsinn getrieben, stürzte er sich in die Flammen, um seine Geliebte zu halten. Als seine Haut in der Hitze knisterte und zischte, lachte Ouma-Kroyasha und rieb sich in Vorfreude auf ihre Mahlzeit den Bauch.
+## MÖGLICHE VERBÜNDETE IM {farbe=#194d71}
+## GARTENDISTRIKT {farbe=#194d71}
+**Heather,** eine ländliche Blood-Witch. Sie erfuhr als Kind von der Legende um Ouma-Kroyasha und beschloss, dass die Albtraumfrau es wert sei, ihr nachzueifern – und vielleicht sie zu *werden*. Sie ist Spires führende Expertin für Ouma-Kroyasha, verrät aber nie jemandem den Ort ihres Verstecks. Stattdessen wird sie mit Blut und Eulenbezoaren herbeigerufen. Wer sie anruft, stellt fest, dass ihre Hilfe manchmal ebenso nützlich – und ebenso verflucht – ist wie die der alten Hexe selbst.
+**Mimette,** eine ehemalige Klerikerin der Verborgenen Herrin, die vor einigen Jahren aus einem der isoliertesten Verlorenen Äcker im Garten auftauchte. Ihre Gemeinschaft wusste nicht, dass die Aelfir den Spire eingenommen hatten, und verehrte Lombre offen und ohne Furcht. Die Anpassung an die moderne Welt war gelinde gesagt erschütternd; sie bleibt seltsam und altmodisch, doch ihr Eifer in der Verehrung der Herrin ist unübertroffen.
+**Lukas,** ein lokaler Heldenfarmersjunge, der als eingezogener Soldat kämpfte und dann seine Gemeinschaft vor Gangstern beschützte, die sie zu Tributzahlungen zwingen wollten. Über ihn wurden mehrere Spireblack-Novellen geschrieben, und er kann keine Straße entlanggehen, ohne dass jemand ihm die Hand schütteln will. Er ist außerdem hoffnungslos abhängig von Elfenbein, einer seltenen und wertvollen Droge aus dem Norden, die ihr, Minister, ihm zufällig liefert.
+**Gray Darling,** ein besessener Pilzkundler und Experte für Giftpflanzen, züchtet und verkauft den gleichnamigen Gray-Darling-Pilz von seinem Beet tief im Garten. Es ist unklar, ob der Gray-Darling-Pilz oder der Dunkelelf Gray Darling zuerst da war, aber inzwischen spielt das keine Rolle mehr. Überraschend wohlhabende Kunden machen den langen Marsch über gewundene, dornenüberwucherte Pfade, um ihn aufzuspüren und an seinen köstlichen, einzigartigen Pilz zu gelangen.
+**Pesh,** ein Krebstierbauer, der einen höchst einträglichen Nebenverdienst im Waffenhandel betreibt. Gewehre in Militärqualität, die aus den Werken gestohlen (oder dort illegal hergestellt) wurden, liegen in wasserdichten Säcken unter der trüben Oberfläche seiner Zuchtbecken versteckt und werden verkauft, sobald die Spur erkaltet ist. Er hat nichts dagegen, ein oder zwei an Interessenten zu verkaufen, wenn der Preis stimmt.
+## EXTRA-FORTSCHRITT: {farbe=#981a3f}
+## DRUIDE DES LEBENDIGEN SPIRE {farbe=#981a3f}
+**VORAUSSETZUNG:** Überstehe die zermürbenden Rituale der Selbstaufopferung und narkotischen Überlastung, die es dir erlauben, mit Spire Selbst zu kommunizieren und ihre Träume zu schauen.
+**AUFFRISCHEN:** Opfere dem Knochenfels des Spire etwas Wichtiges. Tritt mit Ihr in Verbindung, lerne Ihre Träume kennen und führe deinen kleinen Teil darin aus.
+
+<!-- S. 54 (PDF 59) -->
+
+## 54
+> Druiden des Lebendigen Spire
+> verwandeln ihre Körper in
+> fruchtbare Kinderstuben für die
+> Flora der Stadt.
+
+<!-- S. 55 (PDF 60) -->
+
+## 55
+## NIEDRIG {farbe=#194d71}
+**KÖRPER AUS ERDE.** [Göttlich] *Dein Fleisch ist von spinnwebartigem Wurzelwerk durchzogen, das Risse in alarmierendem Tempo nachwachsen lässt.* Einmal pro Sitzung, wenn du dir ein paar Minuten nimmst, um mit Spire zu kommunizieren, entferne W8 Blut-Stress.
+**KÖRPER AUS DORNEN.** [Göttlich] *Auf dein Geheiß brechen glänzend schwarze Dornen aus deinen Unterarmen und Händen hervor.* Markiere 1 Stress auf Blut, um diesen Zauber zu wirken. Bis zum Ende der Situation haben deine unbewaffneten Angriffe folgendes Profil: (W3, Gift).
+**KÖRPER AUS FLIEGENPILZ.** [Göttlich] *Spire hat dich mit elfenbein- und karmesinfarbenem Pilzwuchs gesegnet.*  Aus deinem Körper wachsen magische Pilze. Eingenommen rufen sie beim Betroffenen leichte Euphorie und Halluzinationen hervor, sodass jeder, der versucht, ihn von etwas zu überzeugen, mit Meisterschaft würfeln kann. Sie wirken auch bei dir, aber du musst sie erst essen.
+## MITTEL {farbe=#194d71}
+**KÖRPER AUS ROSEN.** [Göttlich] *Elegante Rosen sprießen aus deiner Haut, und die Menschen des Spire lieben dich.* Einmal pro Situation, wenn du Stress erleidest, kannst du einen NSC der Bindungen bestimmen, der statt deiner den Schlag abfängt. Das muss innerhalb der Fiktion möglich sein: Ein NSC, der neben dir steht, kann sich in die Bahn einer Kugel werfen, aber bei Blut-Stress kann er dir nicht helfen, wenn er auf der anderen Seite der Stadt ist. Der Stress wird auf die Bindung statt auf deine Widerstände angewendet, und die Spielleitung würfelt sofort auf Fallout.
+**KÖRPER AUS WURZELN.** [Göttlich] *Du senkst deine Wurzeln in den Knochenfels unter dir und sprengst ihn auf der Suche nach Labsal. Du ziehst Aufmerksamkeit auf dich, aber verzweifelte Zeiten erfordern verzweifelte Maßnahmen.* Einmal pro Sitzung entfernst du ein Blut-Fallout-Ergebnis, erleidest aber W6 Stress auf Schatten.
+## HOCH {farbe=#194d71}
+**KÖRPER AUS HERZBLÜTE.**  [Göttlich] *Aus deiner Haut sprießen die leuchtenden, tulpenartigen Blüten der Herzblüte – das größte Geschenk, das Spire Selbst gewähren kann.* Erhalte Meisterschaft in der Domäne Okkultes, +2 Verstand und +2 Ruf. Kreaturen des Herzens greifen dich nicht mehr an. Nach fortgesetzter Aussetzung werden sie dich als vertrauten Freund betrachten.
+## PERCH {farbe=#981a3f}
+Perch hätte schon vor Jahrzehnten einstürzen müssen. Als Elendssiedlung, an die Seite der Stadt genagelt und gebunden, ist Perch seit langem ein Zufluchtsort für die Armen, Mittellosen und Gesetzlosen des mittleren Spire. Hier sind die Straßen wandelbare Gebilde aus Seil und Wellblech, und die Gebäude sind Anbauten an Anbauten. Jeder mit einem Funken Verstand täte gut daran, keinen Fuß hineinzusetzen.
+Die Leute von Perch sind gewiss *seltsam*; ein Leben, in dem das eigene Haus fast ohne Vorwarnung von der Seite des Spire stürzen kann, hat sie, gelinde gesagt, ungewöhnlich gemacht. Sie beten zu den winzigen, parasitären Göttchen, die in ihren Seilen und Messern, ihrer Kleidung und ihren Flaschen leben, im Fusel, den sie trinken, und in den stummeligen schwarzen Zigaretten, die sie rauchen.
+So wie Perch auf der Stadt gebaut wurde, jedes Teil auf dem anderen ruhend, so wurden auch die Götter geboren. Heute, fünfzig Jahre nachdem der erste Bewohner an einer freiliegenden Regenrinne sein Geschäft eröffnete, wird Perch von den vereinten Anstrengungen Tausender kleiner Götter und verzweifelter Bewohner aufrecht gehalten, die alle aufeinander klettern, um der untersten Sprosse des wandelbaren Labyrinths zu entgehen.
+> ## WELCHE ARTEN VON STRESS
+> ## KÖNNEN BINDUNGEN ERLEIDEN?
+> Es braucht vielleicht etwas kreative Auslegung, um herauszufinden,
+> wie eine Bindung bestimmte Arten von Stress erleiden kann. Bei
+> Ruf und Schatten können sie für dich bürgen, wenn sie Zeit und
+> Gelegenheit haben. Bei Blut können sie den Schlag körperlich
+> an deiner Stelle abfangen (aber wenn sie dir nicht auf Schritt
+> und Tritt folgen, haben sie dazu wahrscheinlich keine Zeit). Bei
+> Silber geht es schlicht darum, dir Geld zu leihen, aber Verstand
+> ist schwieriger zu verschieben. Wenn dir kein Grund dafür
+> einfällt – vielleicht gehst du nach Hause und lässt es an ihnen
+> aus –, musst du Verstand-Stress für dich behalten.
+
+<!-- S. 56 (PDF 61) -->
+
+## 56
+> Die Aelfir glauben, dass die geheime
+> Hand der Götter in den Eingeweiden
+> fliegender Kreaturen zu sehen ist.
+
+<!-- S. 57 (PDF 62) -->
+
+## 57
+## DIE KLEINEN GÖTTER {farbe=#194d71}
+Götter strömen nach Perch wie Tauben. Obwohl die Kirchen des Sonnenpantheons und Unserer Glorreichen Herrin in vielen anderen Distrikten das Sagen haben, hat die baufällige Natur von Perch seinen Bewohnern die Fähigkeit genommen, dauerhafte religiöse Bauwerke zu errichten. Stattdessen nehmen sie, welche Götter sie finden können, so wie diese Götter nehmen, wer sie anbetet.
+Götter in Perch sind körperliche Dinge: Es gibt keine ephemeren und allgegenwärtigen Wesen, keine Allgegenwart oder Allmacht. Das Seil eines Drow hat sowohl einen Gott in sich als auch ist es dieser Gott. Als Zeichen von Glaube und Ehrfurcht ehren die Leute ihre Götter, indem sie ihre Gestalten schmücken. Der Distrikt ist voller Metallarbeiter, Glasbläser, Scrimshaw-Schnitzer, Schreiber, Schnitzer, Lackierer, Juweliere und anderer Experten, die wunderschöne Kunstwerke in die Götter selbst gravieren.
+Götter werden offenbar nicht von natürlichen Objekten angezogen (zumindest nicht in Perch). Je bearbeiteter und verzierter ein Gegenstand ist, desto mächtiger ist der Gott, den er enthalten kann – das Merkmal eines echten Perch-Handwerkers ist es, ein Gleichgewicht zwischen Verzierung und Nützlichkeit zu finden. Schließlich nützt das schönste Seil im ganzen Spire nichts, wenn es dein Gewicht nicht tragen kann.
+Es gibt aelfirische Kunsthandwerker, viele von ihnen verbannt und unmaskiert, die in Perch arbeiten und absurd detailreiche Gegenstände herstellen, die *nicht funktionieren dürften*: Glasflaschen mit spiralförmigen Löchern in der Außenwand, die dennoch Flüssigkeit halten, Rüstungen aus gesponnener Seide, die so gut schützen wie Leder, und so weiter. Sie behaupten, ihre Arbeit ziehe eine bessere Klasse von Göttern an, weshalb alle anderen in Perch sie hassen.
+## GOTTESBINDUNG {farbe=#194d71}
+Die Bound sind ein Orden von Bürgerwehrlern, die die Menschen des Distrikts so gut sie können vor Schaden schützen. Das Folgende sind Dinge, die jedes Mitglied der Bound tun muss, bevor es in die Gruppe aufgenommen wird.
+Erstens: lernen, die Gegenwart kleiner Götter zu spüren. Jeder kann die bleiche Erhabenheit Unserer Glorreichen Herrin in ihrem Tempel fühlen oder die beißenden, schweren Schatten um Schreine Unserer Verborgenen Herrin schmecken; ein Bound muss sich auf die winzigen Schwankungen einstimmen, die von den geringsten Göttern erzeugt werden. Das sind eher Geister als Gottheiten; kleine Knoten aus Verlangen und Furcht und Stolz, die überall dort erblühen, wo Drow, Menschen oder Aelfir leben. Manche radikalen Bound-Theologen betrachten kleine Götter als eine Art Ungeziefer wie Ratten, das in der Zivilisation gedeiht. Ein Bound verbringt typischerweise Stunden in meditativem Zustand an heiligen Seilen hängend, stimmt sich auf den Energiefluss um sich ein und riecht die Echos von Göttern im Wind.
+Zweitens: einen Gott finden, den man einkerkert. Ist der Gott zu schwach, hat die Einkerkerung keine Wirkung auf die Klinge; ist er zu stark, riskiert man, seinen Willen zu verlieren und ihn die eigenen Handlungen bestimmen zu lassen (oder er sprengt sein Gefängnis und flieht bei der ersten Gelegenheit und lässt einen mit weißglühenden Metallsplittern zurück, die sich durch den Rest des eigenen Arms brennen). Es gibt Erzählungen von Bound, die alle möglichen Dinge nutzten, um ihre Klingen zu betreiben – nicht nur kleine Götter, sondern Geister, Engel, dämonische Mächte oder in Ewigfrost gefangene memetische Aelfir-Lieder. Macht, nicht Göttlichkeit, scheint das Entscheidende zu sein.
+Drittens: ein Gefängnis für den Gott bauen. Das Gefängnis ist eine Klinge von der besten Machart, die sich der Bound leisten kann; sie unterscheiden sich in der Größe, je nach den Vorlieben des Benutzers. Bound, die innerhalb von Perch operieren, nutzen große Macheten oder Äxte mit gezackten Abschnitten, um Seile zu kappen und zu zersägen, und fürchten keine Entdeckung durch die Behörden; jene, die in der Stadt arbeiten, nutzen oft Hackbeile mit kurzer Klinge, die leichter zu verbergen sind. Manche verlassen sich ganz auf die Magie des Gottes selbst und nicht auf das körperliche Erscheinungsbild der Klinge: Es gibt Bound mit Kolibri-Göttern, die in Rasiermessern gefangen sind und vor kaum gebändigter Macht vibrieren und summen.
+Das Leben eines Bound ist nicht lang, deshalb gibt es nur sehr wenige Älteste, die die Geheimnisse der Gottesbindung an junge Akolythen weitergeben können. Stattdessen lernt jeder Rekrut, was er kann, indem er die Klingen seiner Vorgesetzten beobachtet, liest die wenige Dokumentation, die es zu dem Thema gibt (sofern er lesen kann), und versucht dann sein Glück. Diese Methode bringt planlose Objekte hervor, die okkulte, religiöse und weltliche Ikonografie vermengen, in dem Versuch, das metaphysische Ziel mit der Wucht des Feuers zu treffen, wenn schon nicht mit Genauigkeit. Das Anbringen weiterer religiöser Artefakte ist üblich (damit der Gott sich „zu Hause fühlt“), ebenso das Kritzeln oder Einritzen aller Pentagramme und Siegel, die man behalten oder sich ausdenken kann, in die Waffe. Bilder von Schlössern, Gittern, Türen, Mauern und Gefängnissen sind beliebt.
+Viertens und letztens: den Gott in die Klinge bringen. Das gilt allgemein als der schwierigste Teil des Vorgangs, und er zeigt deutlich, ob die früheren Abschnitte gut gehandhabt wurden. Manche Bound locken ihren Gott mit einer Reihe von Versprechen hinein (Götter, besonders kleine, lassen sich überraschend leicht täuschen). Andere drohen ihnen mit Vernichtung oder der Vernichtung dessen, was sie lieben, um sie zum Hineingehen zu zwingen. Einige wenige nehmen riesige Mengen halluzinogener Drogen und begeben sich auf eine spirituelle Reise, die in einem halballegorischen, halbmetaphysischen Boxkampf mit bloßen Fäusten gegen einen Avatar ihres erwählten Gottes endet. Das geschieht natürlich ganz in ihrem Kopf, während sie in ihrem wackligen Quartier schwitzen und sich winden.
+
+<!-- S. 58 (PDF 63) -->
+
+## 58
+> Perch ist ein elender und instabiler
+> Ort, aber es ist die Heimat
+> Tausender Drow.
+
+<!-- S. 59 (PDF 64) -->
+
+## 59
+Am Ende des Vorgangs (falls er gelingt – sehr wenige Bound machen es gleich beim ersten Mal richtig) ist der Gott in der Klinge eingekerkert und im Allgemeinen ziemlich wütend darüber. Ist er erst einmal darin, liegt es am Bound, ihn weiter zu bedrohen und mit ihm zu feilschen, um immer mehr seiner Macht freizuschalten – ohne dass er zu mächtig wird und die Kontrolle übernimmt.
+## DIE FEUER {farbe=#194d71}
+Die Grenzen von Perch – sofern man bei Perch von Grenzen sprechen kann – sind lose durch fünf große Feuer markiert. Jedes ist in Schalen aus Bronze und Eisen gefasst, die mühelos einen Drow hoch im Durchmesser sind. Jeden Tag werden Stapel kostbaren Holzes auf die Feuer geschichtet und verbrannt, um Rauch über den Distrikt freizusetzen. Oft sind sie mit heiligem Weihrauch vermischt, sodass der Ort nach Harz und Moschus riecht. Diese Rauchwolken sind ein Versuch, die Drow vor den Strahlen der Sonne zu verbergen: Da das Licht ihre Haut verbrennt und ihre Augen blendet, hätten sie sonst Probleme, an einem so exponierten Ort zu überleben.
+Die Entscheidung, ein neues Feuer zu bauen, wird nicht leichtfertig getroffen. Wie die meisten Dinge in Perch werden die Feuer von Göttern bewohnt – oder zumindest glauben die Bürger von Perch das, was im Spire funktional dasselbe ist –, und jedes hat seine eigene Geschichte und seinen eigenen Namen. Es sind: Fenwa, eine Drow-Gottheit der Finsternisse, die behauptet, aus dem Damnou verbannt worden zu sein; Der Seraph, der vom Himmel fiel und ewig oben auf dem Spire brennt; Knock, ein kleiner Gott der Industrie und des Feuers, gestohlen aus den Werken; Schwelbrand, dessen Hunger nicht gestillt werden kann und der zunehmend kuriosere Opfer verlangt; und Sondou, eine zerbrochene Muttergottheit, die nur die Drow in ihrer rauchigen Umarmung halten will (auch wenn sie daran ersticken).
+> ## EINE AUSWAHL VON GÖTTERN UND DEN
+> ## KLINGEN, DIE SIE BEHERBERGEN
+> **Hysten-Phy,** ein Kerzenwachs-Gott, einst in einem Buch aus dem alten Yssen gefangen, ein geschmolzenes und wildes
+> Ding, das wie eine gefangene Ratte kämpft und mit blubberndem Flüstern spricht. Der Besitzer seiner Gefängnisklinge
+> achtet darauf, den Stahl mit Wachs zu salben, um ihn zu besänftigen. Wenn sie kämpft, erhitzt sich die Klinge, und das
+> Wachs läuft über die Haut ihrer Hand.
+> **Ein Splitter von Frohlockend,** einem Engel der alten aelfirischen Götter, der zur Stärkung einer Klinge ebenso gut
+> funktioniert wie eine kleine Gottheit. Frohlockend lässt die Axt, in der sein Splitter gebunden ist, wie eine große Glocke
+> erklingen, wenn sie ein Leben nimmt. Das kann Probleme verursachen, wenn der Besitzer versucht, keine Aufmerksamkeit
+> zu erregen.
+> **Die Acht Unendlichen** sind der letzte Überrest einer Spinnenkolonie, die vor mehreren Jahrhunderten die Fähigkeit
+> zur Verehrung entwickelte. Es ist ein gütiger und liebevoller Gott, der Spinnen nur im Austausch für ihre Frömmigkeit
+> segnen möchte – doch da keine lebenden Spinnen intelligent genug dafür sind, fristet er ein wehmütiges Dasein, gefangen
+> im sägezahnigen Messer eines Bound.
+> **Ein Fragment des Maschinenherzens,** eines Gottes, den Menschen in den Tiefen der Werke bauen, ist zum Heft der Axt
+> eines Bound geformt. Aus seinem Tempel gestohlen, sehnt es sich danach, zu seiner ursprünglichen Form zurückzukehren,
+> und ritzt Hilferufe in seine Klinge.
+> **Ein Gott der Nägel,** dessen Avatar (ebenfalls ein Nagel) unter den Stützstreben von Perch gestohlen wurde. Der Bound,
+> der ihn nahm, war nie ein großer Theologe und erkennt deshalb nicht, wie wichtig das Ding für die Gruppe von Leuten ist,
+> die Perch „stehen“ lassen. Viele von ihnen suchen noch immer danach.
+> **Ein summender, daumengroßer, warmer Messingzylinder,** der einen Dschinn enthält, unter gewaltigem Druck durch
+> gnollische Techno-Zauberei gebändigt. Ein Soldat erwarb ihn in Nujab, bevor die Bound ihn stahlen. Der jetzige Besitzer
+> weiß nicht, was sein ursprünglicher Zweck war, doch er befestigte ihn an einer gezackten Klinge, und nun kann sie mit
+> genug Zeit so ziemlich alles durchschneiden.
+> **Ventrix,** ein kleiner Gott des Glases, der nach der Vollendung des Meisterwerks eines Glasbläsers aus dem
+> Silberviertel entstand. Der Glasbläser starb kurz nach der Fertigstellung, also besaß der Gott eine Weile seinen
+> Körper, um weitere Buntglasfenster zu fertigen. Leider begann er zu stinken, und die Bound spürten ihn auf und
+> saugten die Essenz des Gottes in diese schillernde Axt.
+> **Eine Klinge, die den Kern der Herrenlosen Maske enthält.** Von ihren Unterdrückern niedergeworfen, erholen sie
+> sich und warten ab, bis sie aus der Klinge ausbrechen und in die Maske irgendeines armen Teufels fahren können, um
+> sich zu erheben und zu versuchen, die Aelfir zu stürzen.
+
+<!-- S. 60 (PDF 65) -->
+
+## 60
+> Frohlockend, ein Engel der alten
+> aelfirischen Götter, wird in die Axt
+> gelockt, die sein Gefängnis sein wird
+
+<!-- S. 61 (PDF 66) -->
+
+## 61
+Gelegentlich werden Gegenstände in den Feuern geopfert, um für gutes Brennen zu sorgen – besonders an sonnigen Tagen. Die Feuer werden auch genutzt, um Gegenstände zu vernichten, deren Besitzer gestorben sind und die auf einen neuen schlecht reagieren würden. Eine Sekte von Feuerhütern schützt die Brände und hält sie am Brennen; tatsächlich sind die Feuer seit ihrer Errichtung nie vollständig erloschen. Die Feuerhüter (und eine große Zahl von Perch-Bewohnern) glauben, dass der Distrikt, wenn alle Feuer erlöschen würden, von der Seite des Spire stürzen und alle darin töten würde.
+Laut ihren religiösen Texten (die zahlreich und vielfältig sind) wird Perch auch fallen, wenn: die Raben die Himmelsdocks verlassen; ein vollständiger neunstimmiger Chor von Himmelswalen bei der Sommersonnenwende den Anbruch des Roten Mondes besingt; ein Aelfir-Kind von einer Drow-Mutter geboren wird; die Ritter der Norddocks sich wieder vereinen; oder der Gartendistrikt über die Straße der Sieben Glocken hinauswächst. Den meisten in Perch unbekannt gibt es eine Kabale hochqualifizierter und findiger Bound, die ihr Leben dem Sicherstellen gewidmet haben, dass diese Prophezeiungen nie eintreten, mittels rechtzeitiger Attentate, Erpressung, Industriesabotage und Einschüchterung. So absurd es erscheint, würden sie argumentieren, dass Perch noch nicht gefallen ist und sie also etwas richtig machen müssen.
+## SELTSAMKEITEN IN PERCH {farbe=#194d71}
+• Eine Gruppe angehender Bound mit Knüppeln und Messern springt und schwingt durch die Elendssiedlung: Sie haben gemeinsam einen Tauben-Gott der Beute und des Überlebens aufgespürt. Nun rennen sie um die Wette, wer ihn als Erster fängt und – vielleicht – in seine Klinge bindet.
+• Ein unmaskierter Aelfir betreibt einen Aufzug (eine Seltenheit in Perch), der Waren und Menschen den Distrikt hinauf und hinunter befördert. Er lebt auf dem Aufzug mit seinem Ehemann, einem Menschen; gemeinsam warten und verbessern sie die Maschinerie und die Gegengewichte. Eine solche Beziehung wäre in Amaranth nicht erlaubt: Aelfir nehmen oft Menschen und Drow zu Liebhabern, dürfen sie aber nicht heiraten.
+• Wenn sich ein tief fliegender Himmelswal nähert, lassen die Menschen von Perch alles stehen und liegen. Sie schnappen sich spitze Stöcke aus ihren Unterkünften und Arbeitsstätten und gehen in Stellung, um das Tier zu stechen, wenn es sich nähert, in der Hoffnung, es davon abzubringen, den halben Distrikt von der Wand zu schaben. Die Piloten der Himmelswale wollen nicht riskieren, dass die Gasblasen ihres Reittiers durchstochen werden, und montieren deshalb oft Gewehre, um auf Verteidiger zu schießen, oder bauen verstärkte Streben um die Tiere, um ihr Fleisch in sicherem Abstand von den Strukturen zu halten, die sie zerstören.
+• Eine alternde Midwife aus Perch, die keine stabile Brutstätte unterhalten kann, trägt die Eier, die sie hütet, auf dem Rücken in einem hohen, überladenen Tornister. Sie geht doppelt gebeugt unter seinem Gewicht, selbst mit ihren zusätzlichen Spinnenbeinen, die die Last tragen. Die Praxis der Bound, Götter in ihren Klingen einzukerkern, mag sie nicht besonders, aber sie ist froh über den Schutz, den sie bieten.
+• Ein Lehrer, an einer überhängenden Strebe aufgehängt, kratzt mit Kreide Worte an die Wand des Spire, während ein Haufen Kleiner in der Nase bohrt und laut wiederholt, was sie geschrieben hat.
+• Zwei Banden kämpfen um ein Stück Wand und malen ihre Gedanken als Graffiti darauf. Eine Gruppe scheint überzeugt, dass die Herrenlose Maske zurückkehren und sie retten wird, während die andere strikt gegen die Idee ist und sie für aelfirische Propaganda hält, die die Drow bei der Stange halten soll. Statt die Botschaften der anderen zu löschen, haben sie sie stehen gelassen und Widerlegungen herausgegeben und malen immer größere Worte, um die Debatte zu gewinnen. Da sich die Sätze bereits über nahe Behausungen auszubreiten beginnen, sieht es nicht danach aus, als werde das bald aufhören, es sei denn, die anderen Bewohner unternehmen etwas.
+• Ein Perch-Ältester schilt eine Gruppe Jugendlicher, nachdem er entdeckt hat, dass sie in den Himmelsdocks ein Himmelswalkalb seiner Mutter gestohlen haben und es heimlich als Haustier aufziehen. Es wird nicht nur zu teuer zu füttern sein und bald größer als das Gebäude werden, in dem es untergebracht ist, sondern das klagende Heulen, das aus seinen Gasblasen zischt, wird bald die zornige Mutter anlocken.
+## MÖGLICHE VERBÜNDETE IN PERCH {farbe=#194d71}
+**Hatch,** ein menschlicher experimenteller Theologe, der versucht, kleine Götter zu etwas Größerem zu verschmelzen (mit begrenztem Erfolg). Er ist sehr gut darin, die Ursprünge jedes beliebigen Kults oder jeder Splittergruppe zu analysieren, zu der man ihm Informationen bringen kann. Er verlangt für sein Wissen jedoch Gegenstände, in denen Götter hausen und die er Perch-Bewohnern stiehlt, weshalb er seine Forschung vorerst geheim hält.
+**Sebastienne Louvierre,** die im Ministerium in Perch die internen Angelegenheiten bearbeitet. Ihre Dienstzeit als Agentin eines grausamen aelfirischen Herrn hat sie gegen die Realitäten der Revolution abgehärtet, und sie ist nun dafür zuständig, abtrünnige Minister aufzuspüren und hinzurichten. Das macht sie so beliebt, wie man es erwarten würde. Sie umwirbt eine halb wahnsinnige Blood-Witch, Alzophine, doch andere Freunde sind dünn gesät. Ein freundliches
+
+<!-- S. 62 (PDF 67) -->
+
+## 62
+Wort oder zwei würden viel bewirken – aber sorgt dafür, dass ihr nichts zu verbergen habt.
+**Quill,** ein Drow der Bound, der seltsam pro-aelfirische Ansichten hegt. Er betrachtet ihre Besatzung als Segen von Vater Sommer (er trägt einen Schrein für diesen Gott auf dem Rücken) und setzt durch, was er für ihren Willen hält, mit brutaler Effizienz. Er würde keinesfalls wissentlich für das Ministerium arbeiten, ist aber ein nützliches Werkzeug, das man auf jemanden loslassen kann, den man nicht mag.
+**Flüstern-dem-Sturm [[Whisper-the-Storm]],** eine unmaskierte (verbannte) Aelfir, die unter den Drow von Perch als Gleiche lebt – oder es versucht. In der Praxis wird sie von den meisten, die hier leben, gemieden und gehasst, obwohl ihre Fähigkeit, ungeschützt in der Sonne zu gehen, schon mehr als einmal nützlich war. Sie verdient ihren Lebensunterhalt mit dem Anfertigen hölzerner Übungswaffen, die von den Bound ausgiebig verwendet werden. So sichert sie sich ein kleines Maß an Schutz gegen anti-aelfirische Mobs, die an ihre Tür klopfen könnten.
+**Der Ungehinderte,** ein maskierter Elf, der keinen anderen Namen trägt und so männlich oder weiblich erscheint, wie er es wünscht. Er spricht, als wiederhole er Textzeilen aus dem Off, und das aus gutem Grund: Der Ungehinderte ist in Wahrheit ein besonders hartnäckiger kleiner Gott, der in einer Maske Wohnsitz genommen hat und seinen derzeitigen Wirt kontrolliert. Seine Fähigkeit, überall unterzutauchen und an Orten aufzutauchen, an denen er nicht sein sollte, ist legendär. Er scheint eher aus Neugier als aus Eifer mit dem Ministerium zusammenzuarbeiten.
+## DERELICTUS {farbe=#981a3f}
+Derelictus ist ein schrecklicher Ort zum Sterben.
+Es ist ein dunkler, nasser, vergessener Distrikt, in den jene kommen, die von der Stadt aufgegeben wurden, um aus den Resten, die sie finden können, ein kümmerliches Dasein zu fristen. Das Leben ist hier unten hart, und der Tod kommt leicht, sei es durch etwas so Alltägliches wie Verhungern oder so Fantastisches wie die Entführung und das Opfer durch einen der Dutzenden verbotenen Kulte, die in den Ruinen ihre Heimat haben. Aber Menschen leben hier trotzdem – Drow und gelegentlich Menschen, alle nicht bereit, sich vom Tod holen zu lassen. Werkstätten und Märkte sprenkeln die Dunkelheit und verkaufen billiges Essen und stotternde, qualmende Kerzen. Es heißt, dass selbst das Ministerium, bei all seinem Gehabe, hier in einer verzweifelten, schwülen Nacht gegründet wurde.
+Die Menschen klammern sich an die Stille der tiefen Straßen und feilschen mit den Kannibalenrudeln, die auf der Suche nach Beute über die Dächer traben, sie ritzen Schutzzeichen in ihre Türrahmen, um die Wesen des Herzens fernzuhalten, und zahlen Schutzgeld an Gangster der untersten Stufe, um sich über Wasser zu halten.
+Über Derelictus liegt Red Row. Für viele besteht der einzige Weg aus ihrer Lage darin, sich einer der kriminellen Banden anzuschließen, die den Distrikt beherrschen, und einen Platz in der Nähe des Threadneedle Square oder in Hörweite von L’Enfer Noir zu bekommen. Die meisten jungen Drow, die als Muskeln aufsteigen, sind binnen einer Handvoll Monde tot – aber es ist besser als das Herz, das unter dem Distrikt eitert und anschwillt und die Wirklichkeit zu wahnsinnigen, unbegreiflichen Formen verknotet und entknotet.
+Je tiefer man in Derelictus vordringt, desto weniger haben Raum und Zeit mitzureden; schließlich fallen die Straßen in rote, pulsierende Unwirklichkeit hinab.
+## TAG UND NACHT {farbe=#194d71}
+In Derelictus gibt es weder Sonnenaufgang noch Sonnenuntergang, so tief unter der Oberfläche des Spire. Auch Red Row liegt im Dunkeln, gewiss – aber der Distrikt hält sich ungefähr an dieselbe Zeit wie der Rest der Stadt, wegen des Verkehrs und Handels mit den Norddocks und dem Blauen Markt. Niemand kommt nach Derelictus, wenn er nicht wirklich muss.
+Hier unten haben manche Menschen nie Tag oder Nacht gesehen: nur ein ewiges Zwielicht, durchsetzt von flackernden Magielichtern und seltenen Laternen, oder die erstickende, völlige Dunkelheit, die Schrecken birgt, die allzu real sind. Es gibt Kinder in Derelictus, die glauben, der Himmel sei ein Mythos; für sie könnte er genauso gut einer sein.
+Die Drow machen ihre eigene Zeit. Sie schlafen, wenn nichts zu tun ist – oft zwanzig Stunden oder mehr – und bewegen sich langsam, und leben das Leben als fortlaufenden Strang des Seins statt als etwas, das durch Morgendämmerung und Abenddämmerung oder den Wechsel der Jahreszeiten abgegrenzt wird. Menschen, die
+aus dem oberen Spire herunterkommen, gelten als zappelig und seltsam, leben in beschleunigtem Tempo, reden viel zu laut und werfen mit Licht um sich, als ziehe es keine Raubtiere an.
+Außerhalb der seltenen Tavernen also, die zum Wohl der Reisenden eine Uhr und einen Kalender führen, gibt es in Derelictus kein „Morgen“. Stattdessen gibt es „bald“ (ein ziemlich dehnbarer Begriff) und „später“ (ein noch dehnbarerer). „Wenn Limyé es will“ ist ein Code für „niemals“, was viele Außenstehende nicht verstehen.
+Die einzige verlässliche Zeitmarke ist der jährliche Vorstoß der Stadtwache und der Volkszähler in den Distrikt, die nach jungen Drow suchen, um sie zu Dienstzeiten einzuziehen
+
+<!-- S. 63 (PDF 68) -->
+
+## 63
+. Während dieser Zeit verschwinden die meisten Bewohner noch tiefer in die Dunkelheit, verstecken ihre Kinder und versuchen, nicht aufzufallen.
+## STRASSEN UND PFADE {farbe=#194d71}
+Reisen ist in Derelictus schwer. Weiter oben im Spire gibt es funktionierende Aufzüge und Megakorviden für jene, die sie sich leisten können. Wer das nicht kann, hat Treppen, gelegentlich ausgebesserte Straßen und sogar eine Leitermänner-Gilde, die den ordnungsgemäßen Betrieb und die Vermietung von Leitern überwacht.
+Weiter unten im Spire wird es schwieriger. Niemandem gehören die Straßen, also hält sie niemand instand; Felsstürze, die ganze Städte abriegeln, sind alltäglich. Für einen Außenstehenden besteht kaum Hoffnung, ohne Führer erfolgreich zu navigieren, und die Mehrheit von ihnen ist bereit, ungeschützte wohlhabende Reisende in die wartenden Arme (und Messer) ihrer Komplizen zu lenken.
+Manche dieser Führer schaffen es nach ein paar erfolgreichen Raubzügen aus Derelictus heraus und gründen Unternehmen, die den Zugang zu alternativen Routen den Spire hinauf und hinunter verkaufen, hämmern Felshaken ein oder bauen Flaschenzüge auf, um Waren und Menschen hin und her zu befördern. Von keiner offiziellen Stelle sanktioniert, spezialisieren sich diese Pfadfinder auf billige, schnelle, schlampige Arbeit; sie werden häufig aus Siedlungen vertrieben, weil sie die Lebensgrundlage guter, hart arbeitender Treppenmagistrate bedrohen.
+Bei so häufigen Einstürzen und ohne Aussicht auf Rettung nach einem Einsturz haben die Pfade durch Derelictus ihre ganz eigene Folklore entwickelt. Es bringt Unglück, eine Treppe hinaufzusteigen, kurz nachdem man sie hinabgestiegen ist (versucht, oben nichts zu vergessen); die Brücke zwischen Hawkins Place und der St Ambra’s Street sollte nie benutzt werden, weshalb die Leute umständliche Wege über wacklige Seilbahnen nehmen, um sie nicht zu betreten; und nehmt die niedrige Straße nach Fetch nie ohne einen Drink in der Hand, sonst kommen bösartige Gespenster und entführen euch, um für immer mit ihnen zu trinken.
+Die meisten dieser Aberglauben sind völlig unbegründet, aber nicht alle.
+## STADTLEGENDEN {farbe=#194d71}
+Die Wirklichkeit löst sich so nah am Herzen auf – und der Spire steht ohnehin nicht auf bestem Fuß mit der „Wirklichkeit“, wenn man bedenkt, dass Kabalen von Okkultisten Raum und Zeit verbiegen, Priester durch Glaube und Wahnsinn Wunder herbeirufen und gelegentlich kleine dämonische Einfälle stattfinden. Geschichten haben die Eigenschaft, durch Erzählen und Wiedererzählen Gewicht und Festigkeit anzusammeln. Was als harmlose Lagerfeuergeschichte beginnt, um die anderen Kinder zu erschrecken, kann außer Kontrolle geraten und zu etwas Wirklichem gerinnen.
+Man erzählt von einem ungewöhnlich schönen Drow-Mädchen in Grist, das lebende Junge gebären kann – sie legt keine Eier, sondern läuft mit geschwollenem Bauch herum wie ein Mensch. Eine andere Version der Geschichte beharrt darauf, dass sie sich versteckt, weil sie natürlich nicht entdeckt werden will – es hat etwas Widerliches, seine Jungen im eigenen Körper herumzutragen, wo sie sich verformen und anschwellen, bis sie *bereit* sind.
+Andere Gerüchte besagen, dass Menschen sich mit Drow fortpflanzen können, was zu Halbblutkindern führt, die wie Dunkelelfen aussehen (wobei ihre Ohren vielleicht etwas stummeliger oder ihr Haar etwas glatter sind), aber im Sonnenlicht gehen können, genau wie Menschen aus dem Osten. Ein weiteres besagt, dass Aelfir nur das Larvenstadium von etwas anderem sind – einer riesigen, spinnenartigen Rasse langgliedriger Monster, zu der sie an ihrem neunundneunzigsten Geburtstag werden, nachdem sie tief unter der Erde einen Kokon aus Drow-Fleisch gesponnen haben.
+Jeder kennt die untote Hexe im Keller eines der großen Häuser in der Fathom St. Sie nimmt Drow und näht deren Teile in sich ein, um ihr eigenes versagendes Fleisch zu ersetzen; ein Bein ist länger als das andere, und ihre Augen haben unterschiedliche Farben. Wenn du jemals jemanden siehst, der sie sein könnte, verschwindest du so schnell wie möglich von dort. Weniger berühmt, aber immer noch furchterregend ist die große Echse, die durch die uralten Kanäle kriecht und Menschen durch Gullydeckel und Zugangsschächte schnappt, was zu unzähligen Schutzzeichen führt, die in die Ziegel um die Eingänge der stinkenden Tunnel geritzt sind.
+Warum gibt es in Derelictus Kanäle? Selbst manche zivilisierten Teile der Stadt haben keine – aber Derelictus ist älter, als irgendjemand wirklich sagen kann. Die Ruinen der Städte, die über Jahrhunderte (möglicherweise Jahrtausende) innerhalb des Spire gebaut wurden, werden zum Herzen hinabgezogen, um vergessen zu werden, übereinandergestapelt in einer verknoteten labyrinthischen Struktur. Die Kanäle wurden vor sehr, sehr langer Zeit gebaut; vielleicht bevor die Nation Destera den Spire einnahm, vielleicht noch bevor es die Drow überhaupt gab. Unter der Stadt liegen große und verborgene Geschichten, die niemand je begreifen wird, selbst ohne dass das Herz Raum und Zeit wie ein Kartenspiel mischt.
+## DIE GOLDENEN {farbe=#194d71}
+Aelfir kommen nicht oft so tief in die Stadt hinab; für manche Bewohner von Derelictus sind sie ein Mythos. Bekannt als die Goldenen (oder Goldvolk), sind sie Gegenstand vieler Warnmärchen von wunderschönen Reisenden, die in der Stadt auftauchen, das einfache Volk bezaubern und Chaos und Verzweiflung in ihrem Kielwasser zurücklassen.
+
+<!-- S. 64 (PDF 69) -->
+
+## 64
+> Die Goldenen besuchen Derelictus,
+> um Kinder zu entführen und sie zu
+> einem Leben in grausamem Luxus
+> mitzunehmen.
+
+<!-- S. 65 (PDF 70) -->
+
+## 65
+Die Goldenen können nach Belieben die Gestalt wandeln und ihre Körper in verschiedene Farben wallender Seide und Silber verwandeln oder in Schwärme von Vögeln, Hyänen oder Füchsen. Ihre Kleidung besteht aus flach gehämmerten Sten zu einem glitzernden Kettenhemd, alles, was sie berühren, wird zu einem Magielicht, und ihre Haut ist hell und noch warm von den sonnendurchtränkten Gärten, in denen sie ihre Tage verbringen. Ihre Züge sind starr und unveränderlich, aber sie können nach Belieben zwischen verschiedenen Gesichtern wechseln – eines zum Lächeln, eines zum Traurigsein, eines zum Lügen und so weiter.
+Die Goldenen nehmen Kinder mit und bringen sie nicht zurück. Manche kommen mit Gewehren und Schwertern, jagen Menschen, nachdem sie die örtlichen Ältesten bestochen haben, und treiben sie durch die blutglatten Straßen unter dem Kreischen von Beutefalken und dem klagenden Heulen von Jagdhörnern. Manche sind gütig: Wenn sie Kinder nehmen, bieten sie ihnen ein Leben in Luxus, in dem die Betten weich sind, die Tische sich vor Essen biegen und die Lichter nie ausgehen. Manche kommen und steigen noch tiefer in die verdrehten Länder des Herzens hinab, auf der Suche nach Wissen, das für ihre Art verboten und kostbar ist.
+Jeder hat eine Goldmünze unter der Zunge. Wenn man sie nehmen kann, wird es einem nie wieder an Geld mangeln – aber man wird sie nicht nehmen, denn nichts geschieht mit
+> ## RÄUBERPISTOLEN
+> Derelictus ist voller Aberglauben – meist Warnungen,
+> verkleidet mit einer angehängten Geschichte, erzählt
+> an stotternden Lagerfeuern oder in beengten Schlafzimmern.
+> Ob sie wahr sind oder nicht, ist weitgehend unerheblich.
+> Die meisten haben im Kern ein Körnchen Wahrheit, haben sich
+> aber im Lauf der Zeit und des Wiedererzählens verändert;
+> jene, die reine Erfindungen sind, werden dennoch mit solcher
+> Kraft geglaubt, dass sie ebenso gut wissenschaftliche Tatsachen
+> sein könnten. Hier eine Auswahl beliebter Halbwahrheiten, die
+> ihr in den meisten Straßen des Distrikts hören werdet:
+> • Dieses Haus wird von dem Geist von Mrs Trotzt-der-Sonne [[Daring-the-Sun]]
+> heimgesucht, einer Aelfir, die einen Drow heiratete und
+> dadurch in Ungnade fiel. Sie wurde daraufhin wahnsinnig und
+> ermordete ihren Mann und ihre Kinder in einem blutigen
+> Massaker. An Neumondnächten kann man ihre Schreie um
+> Vergebung hören, mit denen sie darum fleht, wieder in die
+> aelfirische Gesellschaft eintreten zu dürfen.
+> • Skin-Peter, ein junger Drow, der von einem zornigen Herrn
+> bei lebendigem Leib gehäutet wurde, nachdem er mit dessen
+> Frau geschlafen hatte. Er wandelt noch immer hier umher und
+> hinterlässt eine blutige rote Spur hinter sich, wenn er seine
+> abgelegte Haut über den Boden schleift.
+> • Little Sally Vickers, ein missgebildetes und entstelltes
+> Mädchen, das von ihrer Familie misshandelt wurde und zum
+> Herzen floh, um Blood-Witch zu werden. Sie kehrte zurück, um
+> ihre Gemeinschaft als Blutkrankheit heimzusuchen. Wer sich
+> ansteckt, benimmt sich zunehmend kindlicher, sein Körper
+> verändert sich in Nachahmung von Sallys, und schließlich
+> geht er selbst zum Herzen davon – um nie wieder gesehen zu
+> werden.
+> • Der Eiskiller war einst ein Aelfir, der sich mit uralter Magie
+> und zweckentfremdeten Industriemaschinen massiv gefrieren
+> ließ. Manchmal fällt die Maschinerie aus und taut ihn ein
+> wenig auf, und sein schrecklicher Hunger erwacht. Er streift
+> durch die Straßen von Derelictus, Eiskristalle bilden sich am
+> Boden, wo er geht, und er spießt unschuldige Opfer auf Messern
+> aus Ewigfrost auf.
+> • Die seit langem überflutete Fathom Station beherbergt
+> rabenhaarige Wesen mit Schwimmhäuten und wunderschönen,
+> bleichen Gesichtern und Singstimmen wie vibrierenden
+> Eisenbahnschienen. Hört man sie, locken ihre Lieder einen unter
+> Wasser, und man wird einer von ihnen.
+> • In der schlimmen Hungersnot vor einigen Jahrzehnten
+> beschlossen die Mütter der Thorn Street, ihre Kinder lieber
+> im Brunnen zu ertränken, als sie verhungern zu lassen. Man
+> kann sie noch immer weinen hören, wenn man in der Nähe
+> sitzt und seine Laterne löscht. Die Leute sagen, einige der
+> Babys hätten überlebt und Kiemen und böse scharfe Zähne
+> bekommen.
+> • Manchmal streift hier eine schwarze Katze umher; sie hat
+> Menschenaugen oder zu viele Zehen, oder ihr Schwanz teilt
+> sich am Ende in zwei. Die Berichte weichen in der genauen
+> Beschreibung ab, aber sie ist ein Vorbote des Unheils, der vor
+> großen Katastrophen wie Bränden, Straßeneinstürzen oder
+> Geisterseuchen aufgetaucht ist.
+> • Lizbet, eine Drow, die ihrem reichen Herrn half, sein Vermögen
+> in den Irrlichthainen zu vergraben, falls einmarschierende
+> aelfirische Streitkräfte es sich holen wollten. Er tötete sie
+> auf der Stelle, damit niemand sonst den Ort des Schatzes
+> erführe. Sie erscheint noch immer, ihren Kopf in den Händen
+> haltend, und kann mutige Reisende zu den Reichtümern weisen.
+> • Das Vermissian nimmt manchmal ganze Gebäude und Straßen.
+> Es ist hungrig, also zupft es sie in die Eingeweide der Stadt
+> hinab und verwandelt sie in Gleise, in denen es die armen
+> Unglücklichen darin gefangen hält.
+> • Die 33., eine Kompanie eingezogener Drow, die von einem
+> wahnsinnigen aelfirischen General ins Herz geschickt wurde,
+> um es zu „befrieden“. Kein einziger kehrte lebend zurück. Man
+> sagt, man solle einem fremden Drow in Militäruniform nie die
+> Gastfreundschaft verweigern, sonst verrottet das Herz euer
+> Haus binnen Tagen zu Staub und Motten.
+> • Die Grauen Wächter überwachen die Pfade zwischen
+> Siedlungen in Derelictus: kleinwüchsige Gestalten in
+> altmodischen Hüten, die immer im Schatten stehen. Sie zu
+> beachten, soll einen Fluch über einen bringen.
+
+<!-- S. 66 (PDF 71) -->
+
+## 66
+einem Goldenen, ohne dass er es geschehen lassen will. Sie verzerren und verdrehen die Welt um sich, um sie genau so zu machen, wie sie sie wünschen. Wenn sie dich bitten, etwas zu tun, so feige oder verdorben es auch sein mag, wirst du gezwungen sein, es zu tun.
+Wenn du einen Goldenen kommen siehst, lauf, bevor er dich anspricht. Stopf dir die Ohren zu und bete, dass du kein Wort hörst, sonst ist es zu spät.
+## KINDERBANDEN {farbe=#194d71}
+*„Rote Mary kommt“, singen die Kinder von Derelictus.*
+*Rote Mary kommt, um böse Kinder zu fressen oder Drow-Eier*
+*dutzendweise zu verschlingen. Rote Mary hat Haar wie Feuer und Zähne*
+*wie Messer. Rote Mary frisst dich auch, außer du sagst den*
+*Namen der Göttin – ihren vollen Namen, den geheimen, den die*
+*Erwachsenen nicht kennen. Nur unsere Bande kennt ihn.*
+Kinder – oft ohne Eltern oder mit Eltern, die zu mittellos sind, um sie zu versorgen – bilden Banden zum Schutz, zur Kameradschaft und für soziale Struktur. Die größeren und klügeren Kinder führen die jüngeren, kleineren und stecken Herrschaftsbereiche im Unterspire ab. Wenn sie ihre späten Teenagerjahre erreichen, ziehen sie oft nach oben nach Red Row, um für einige der kriminellen Imperien zu arbeiten, die den Ort am Laufen halten. Wirkt jemand zu „erwachsen“, erheben sich die anderen Kinder häufig gegen ihn und töten ihn oder vertreiben ihn. Kluge Drow gehen, bevor es dazu kommt.
+Banden versammeln sich oft um die Brutstätte, in der sie geboren und aufgezogen wurden, und verteidigen sie. Überforderte Midwives (oder Beinahe-Midwives – spinnenblütige Drow, die aus dem Orden geworfen wurden und im oberen Spire keine Geburtshilfe leisten können) sind für Unterstützung, Zugang zu Ressourcen und Muskelkraft auf diese Beschützer angewiesen.
+Die Banden sind teils Schutzgelderpressung, teils Mysterienkult. Steigt ein Kind in den Rängen auf, wird ihm wertvollere Arbeit anvertraut und entsprechend vergütet, aber es lernt auch das verborgene Wissen der wahren Göttin.
+Der Kult der wahren Göttin ist eine verzerrte Version der Verehrung Unserer Glorreichen Herrin. Er zeichnet Lekolé – die Karmesinrote Wacht – als albtraumhaften, bösartigen Dämon, der hungrig darauf ist, unvorsichtige oder törichte Kinder zu fressen.
+Jede der Banden hat ihre eigene Form der Verehrung: Die Vents huldigen ihr, indem sie so viele Vogelkadaver wie möglich zur Schau stellen oder tragen; die Red-Boys ritzen sich Narben, um die Aufmerksamkeit von Lekolé (oder Roter Mary) zu erregen, damit sie sie von Furcht oder Hunger befreit und ihre Bäuche mit Macht füllt; die Kinder der Flint St führen alle
+ ihre Riten in heiliger Dunkelheit durch, nachdem sie vor sieben Jahren von einem längst toten Minister gegründet wurden, der sich als Lombre ausgab. Alle drehen sich um die langsame Enthüllung von Informationen: die wahren Namen von Göttinnen, die Zeichen, die man in Wände ritzen muss, um den Schutz eines Hallow zu beschwören, die geheimen Heiligtumsriten, die die heiligen Stätten der Bande behüten, Katechismen, die einen vor Ghulen schützen, die Orte der Höllentüren, durch die die Goldenen treten, und so weiter.
+Bei all ihren Cargo-Kult-Glaubenssystemen, gefiltert durch Fehlinterpretation und fortgeführt in einer Kultur ohne Zugang zum geschriebenen Wort, bringen manche dieser Kulte Ergebnisse hervor. Kinder können ihre Wunden zuflüstern, ihre Rivalen verfluchen oder in einer sonst trostlosen Gegend ein Rohr finden, das Trinkwasser führt. Und jedes Kind kennt jemanden – nicht jemanden, den es kannte, sondern einen Freund eines Freundes oder die ältere Halbschwester seiner Cousine, in dieser Art –, der zum Mondgarten davongelaufen ist.
+Verborgen in den Tiefen des Herzens liegt der Drow-Himmel (oder ein Portal dorthin). Man sagt, wenn man brav und klug ist und anderen Kindern hilft, wird die Göttin kommen und einen zum Mond mitnehmen – dem wahren Mond, nicht dem am Himmel, den ohnehin nur wenige je gesehen haben. Dort ist alles Licht und Schönheit, und man muss nie wieder essen.
+## EXTRA-FORTSCHRITT: {farbe=#981a3f}
+## EHEMALIGES BANDENKIND {farbe=#981a3f}
+**VORAUSSETZUNG:** Diene in deiner Jugend als Teil einer Kinderbande in Derelictus.
+**AUFFRISCHEN:** Hilf einem Kind in Not.
+## NIEDRIG {farbe=#194d71}
+**GEBETE DER SELBSTERHALTUNG.** [Göttlich] **Dir wurden die geheimen Worte beigebracht, die Wunden zuflüstern.** Einmal pro Sitzung, wenn du etwa eine Minute hast und dich niemand beobachtet, entferne W6 Stress von Blut.
+**ROTE MARYS AUSERWÄHLTE.** [Göttlich] *Du umgehst das Bedürfnis nach Nahrung und ersetzt sie durch im Namen der Göttin vergossenes Blut.* +1 Ruf, +1 Blut. Wenn du Blut-Fallout erleidest oder das Blut eines anderen vergießt, musst du nicht essen, bis du das nächste Mal aufwachst.
+**GOLDENES AUGE.** [Göttlich] *Manche Kinder blenden sich auf einem Auge, um zu sehen, was andere nicht sehen können, und geben der Herrin ihre Sicht im Tausch gegen etwas Besseres.* Wenn du dich innerhalb eines Häuserblocks von einem Aelfir oder dessen Agenten befindest, wirst du durch ein allgemeines Unbehagen auf ihre Gegenwart und grobe Richtung aufmerksam. Deine Augenhöhle juckt, und du kannst ihr Flüstern hören, bevor sie die Gelegenheit haben, deinen Geist zu kontrollieren.
+
+<!-- S. 67 (PDF 72) -->
+
+## 67
+Wenn du versuchst, vor ihnen zu fliehen oder sie zu überfallen, würfle mit Meisterschaft. Mit dieser Fähigkeit im Silberviertel oder in Amaranth (oder einem anderen Distrikt, in dem Aelfir häufig sind) zu arbeiten, ist sehr unangenehm und erhöht die Schwierigkeit aller Aufgaben, die du versuchst, um 1.
+**HALLOW-RUF.**  [Göttlich] *Du ritzt sorgfältig erlernte Glyphen in die Wände, ohne ihre wahre Bedeutung zu verstehen, und beschwörst den Schutz eines Drow-Heiligen.* Markiere W3 Stress, um diesen Zauber zu wirken, während du ein zehnminütiges Lobpreis-Ritual für einen bestimmten Hallow vollführst. Das nächste Mal, wenn du Stress irgendeiner Art erleiden würdest, würfle einen W6; bei 5 oder mehr wird der Stress ignoriert und dieser Zauber endet. Andernfalls bleibt dieser Zauber bis zum nächsten Mal in Kraft, wenn du schläfst.
+**WIE OBEN, SO UNTEN.** [Göttlich] *Du kannst nach Dingen wie frischem Wasser, Nahrung, Wertsachen, einem sicheren Ausweg wünschelrutengehen – du brauchst nur etwas, das die Magie erkennen kann.*  Markiere 1 Stress, um diesen Zauber zu wirken. Wenn du zehn Minuten damit verbringst, ein Abbild von etwas anzufertigen, das du suchst, oder du bereits ein Stück davon besitzt, würfle mit Meisterschaft auf Verfolgen- oder Ermitteln-Würfe, um es aufzuspüren.
+## MÖGLICHE VERBÜNDETE IN {farbe=#194d71}
+## DERELICTUS {farbe=#194d71}
+**Eine Kinderbande, die Grindles,** die das Haus Gryndel nachäffen. Sie klettern und jagen und töten; jedes ist mit den Trophäen von Menschen und Kreaturen bedeckt, die es zur Strecke gebracht hat. Fünf von ihnen können einen gepanzerten Soldaten in Sekunden ausweiden, wenn sie ihn überrumpeln.
+**Hester,** eine Vigiliten-Predigerin, die eine Suppenküche betreibt. Alles scheint mit rechten Dingen zuzugehen, aber das tut es nicht, oder? Die Feuer unter dem Herd gehen nie aus, und ihre Gäste hungern nie.
+**Isabel Fiona,** eine Gelehrte des Okkulten und Expertin als Führerin. Sie erkundete die inverse Spiegelwelt des Un-Spire durch den Fluchtpunkt (Spire S. 137) und rettete sich selbst aus der parasitären Realität. Zur gleichen Zeit zog ihre Kopie (Fiona Isabel) sie aus dieser Welt, und alle trafen sich in der Mitte. Was auch immer geschah und wie viele Fiona Isabels oder Isabel Fionas es gab, wahrscheinlich gibt es jetzt nur eine – auch wenn sie die Angewohnheit hat, mit sich selbst zusammenzustoßen, wenn sie abgelenkt Räume betritt.
+**Trieste,** ein menschlicher Okkultist im Dienst der Göttlichen Universität, der damit beauftragt wurde, die Wirkung des Herzens auf Tiere zu untersuchen. Derzeit haben sie ihr Forschungsstipendium für ihr Körpergewicht in billigem Malak
+> ## KINDERSPIELE IN
+> ## DERELICTUS
+> • Purzelturm. Ein Kind dreht sich sehr schnell im Kreis, und die anderen müssen es hin- und herschieben, damit es aufrecht bleibt, in Anlehnung an die Idee, dass der Spire eines Tages einstürzen wird.
+> • Leichenwürmer! Beim Leichenwürmer-Spiel leckt man seinen Finger an und steckt ihn jemandem ins Ohr. Gelingt es, muss der andere ein Geheimnis erzählen. Erzählt er ein falsches Geheimnis, bringt das richtig Pech für ihn.
+> • Krähensturz. Man klettert abwechselnd eine Wand hinauf und springt hinunter und fordert einander heraus, von immer höheren Griffen zu springen. Man „gewinnt“, wenn der andere aufgibt. Viele Kinder verletzen sich beim Krähensturz.
+> • Rote Mary. Geh zu einem der alten Schächte, die einst das Vermissian belüfteten, zünde drei rote Kerzen darum herum an und sprich dreimal den wahren Namen der Roten Mary. Steigt Rauch auf, hört sie zu; sprich die Namen der Menschen aus, die du verfluchen willst, und sie kommt über sie, wenn sie es verdienen. (Einige Schächte in Derelictus führen in Heiligtümer der Karmesinroten Wacht, sodass ein Kult gelegentlich nützliche Informationen aus dem „Zauber“ eines ahnungslosen Kindes erhalten und entsprechend handeln kann.)
+> • König Zähne. Eine verschachtelte teambasierte Fangspiel-Variante, bei der ein Kind den titelgebenden Ghul-Monarchen spielt und von seinen Mitspielern herumgetragen werden muss (weil König Zähne zu fett ist, um sich normal zu bewegen). Größtenteils ein Vorwand, damit kleinere Kinder größere herumtragen.
+> • Aalkämpfe. Fange eine der vielen Arten bösartiger, fleischfressender Aale, die durch die schmutzigen Kanäle von Derelictus flitzen, nimm dann eine Kiste und setze ihn dort zusammen mit dem Aal eines Feindes hinein. Der Aal, der den anderen zuerst frisst, gewinnt. Einen Finger an den eigenen Aal zu verlieren, gilt als Maß der Tapferkeit und als Zeichen des Kampfgeistes des Aals, weshalb manche unternehmungslustigen Kinder sich einen Finger abtrennen, um den Einschüchterungsfaktor zu erhöhen. Eine Herausforderung bei einem Aalkampf-Turnier abzulehnen, kostet eine kleine Gebühr an den Herausforderer.
+> • Aussperren. Viele Kinder auf der ganzen Welt spielen ein Spiel, bei dem sie an jemandes Tür klopfen und lachend davonrennen; in Derelictus gibt es eine zweite Stufe, bei der der Bewohner aus seinem eigenen Haus ausgesperrt werden muss, während die Kinder hineingelangen und die wenigen Wertsachen stehlen, die er besitzt, bevor sie ihre Flucht vollenden.
+
+<!-- S. 68 (PDF 73) -->
+
+## 68
+> Rote Mary erhört die Gebete eines
+> verzweifelten Straßenkindes.
+
+<!-- S. 69 (PDF 74) -->
+
+## 69
+und ein Hinterzimmer voll räudiger Katzen und grindiger Tauben ausgegeben. Sie brauchen schnell Ergebnisse und versuchen, ein Team von Leuten zu sammeln, die verzweifelt genug sind, eine ausgedehnte Reise ins Herz zu unternehmen.
+**Brynn Destera.** Im oberen Spire ist er ein berühmter Autor, doch er lebt hier unten im Verborgenen, wo die meisten Einwohner nicht lesen können, geschweige denn Bücher bezahlen. Man findet ihn im Suchscheinwerfer, schwer betrunken, bemüht, keine Aufmerksamkeit zu erregen. Seine Verbindungen in die Hohe Gesellschaft wären sehr nützlich, wenn man ihn nüchtern bekäme und überzeugen könnte, nach Hause zurückzureisen.
+**Wretch,** ein gefiederter Gutterkin (seine Mutter war vielleicht eine flugunfähige Eule), der geheime Pfade hinauf nach Red Row, zu den Blauen Märkten und darüber hinaus kennt. Er nutzt sie vor allem, um sich in die Praxen von Ärzten zu schleichen und deren Vorräte zu stehlen, und verdient sich ein ruhiges Auskommen damit, Schmerzmittel, Medizin, Verbände und so weiter an Quacksalber in Hinterhöfen zu verkaufen. Da er keine feste Bleibe hat, vermutest du, dass er das Zeug in Verstecken hortet.
+## WAFFEN UND RÜSTUNGEN DER NIEDEREN GESELLSCHAFT {farbe=#981a3f}
+**Donnerbüchse** – Eine Einzelschusswaffe, die einen gewaltigen Schwall langsamen Schrapnells, Kies, Glas und Splitter verschießt – alles, was der Benutzer in den Lauf zwängen kann. Das Nachladen ist ein mühsamer Vorgang, weshalb die meisten Benutzer versuchen, mit der ersten Salve so viel Schaden wie möglich anzurichten, und dann zu Handwaffen wechseln – oder hoffen, dass Lärm, Rauch und umherfliegende Trümmer den Beschossenen abschrecken. Billig in Herstellung und Wartung, ist die Donnerbüchse eine der wenigen Schusswaffen, die man in Derelictus findet. (W3, Streuung W3, Kernschuss, Einweg)
+**Derelictus-Harpune**  – Schlecht gebaut und unter Spannung knarrend, werden diese Armbrust-Harpunen von den Kopfgeldjägern und Schuldknechten benutzt, die Schuldner und Verbrecher in die Tiefen des Unterspire verfolgen. Die langen Metallbolzen, die sie abfeuern, sind gewöhnlich an Seilstücke gebunden, sodass der Benutzer sein Ziel nach einem nicht tödlichen Schuss kontrollieren kann. (W6, Fernkampf, Einweg. Trifft die Harpune, wird das Ziel an Ort und Stelle festgenagelt oder mit einem Seil am Werfer befestigt; es kann sich nicht weit bewegen, ohne sie herauszureißen.)
+**Gutterkin-Kurzbogen**  – Aus Bruchstücken alten Metalls und Schnur gefertigt, verschießen diese Kurzbögen schmutzige, schlecht gefiederte Pfeile über eine beschämend kurze Distanz. Kein Krieger von Rang würde je damit gesehen werden wollen, aber es ist besser als nichts. (W3, Fernkampf, Unzuverlässig)
+**Werke-Plattenpanzer** – Kantig, rußgeschwärzt und schwer wird dieser Ganzkörper-Plattenpanzer von ranghohen Schlägern getragen, die die Waffenwerkstätten und Fabriken des Industriedistrikts bewachen. Entworfen, um Schüsse abzuschütteln, schmücken die Träger die Rüstung oft mit Schädelhelmen oder gezackten Hörnern, um jene einzuschüchtern, die sie bewachen. Die Gangsterfürsten von Red Row – besonders Mr Winter – besitzen jeweils einige solcher Rüstungen und sind sehr stolz darauf, damit ihre Feinde zur Unterwerfung einzuschüchtern. (Rüstung 3, Unerbittlich, Schwer. Das schiere Gewicht und die scharfen Kanten der Rüstung bedeuten, dass sie als W3-Waffe mit Brutal eingesetzt werden kann.)
+**Pilgergebet** – Beliebt bei den kirchlich geführten Presskommandos der Pilgerreihe, werden diese billig gemachten Pistolen zu Hunderten in den Werkstätten des Distrikts ausgestoßen. Aus den minderwertigsten Materialien gebaut (meist ein Stück Metallrohr und eine einzelne Ladung Spireblack-Pulver und Schrot), ist das Pilgergebet die letzte Hoffnung eines verzweifelten Anwerbers. Mancher glücklose Eiferer wurde unter vorgehaltener Waffe in eine Ausbeuterwerkstatt getrieben, um gefälschte Heiligenknochen herzustellen. Mit einem Gebet zu gehen, bringt keine Ehre: Es ist ein grausames Gerät, das dazu gedacht ist, zu verletzen und zu töten. (W3, Kernschuss, Fernkampf, Einweg, Gefährlich)
+**Derelictus-Schwert** – Eine Keule von etwa der Länge eines Drow-Unterarms, mit Nägeln, Schrauben, Glas und anderem scharfem Abfall, der mit Stoff oder Schnur an den faustgroßen Klumpen am Arbeitsende gebunden ist. Die Leute in Derelictus sind zu arm für ernsthafte Ausrüstung, daher benutzen selbst die Gangster und Schläger unter ihnen selbstgebaute Waffen wie diese. Im oberen Spire nennt man sie spöttisch „Derelictus-Schwerter“, aber sie schlagen Köpfe gut genug auf. Andere Versionen sind abgewandelte Arbeitswerkzeuge, verstärkt und mit Stacheln oder Schneiden versehen. (W3, Brutal. Die zweihändige Version, ein „Derelictus-Zweihänder“, ist W6, Ermüdend)
+
+<!-- S. 70 (PDF 75) -->
+
+**Perch-Tempelklingen** – Während die Bound kleine Götter fangen und in ihren Klingen einkerkern, kennen nicht alle Bewohner von Perch den Kniff dazu (oder stimmen auch nur zu, dass es nicht moralisch verwerflich ist, Götter überhaupt einzukerkern). Die Verteidiger des Tempels der Kleinen Götter führen diese Stangenwaffen, deren Schäfte mit Dutzenden, wenn nicht Hunderten winziger Gegenstände und Gebetszettel geschmückt sind, die Fragmente kleiner Götter enthalten. Den Chor der Götter kann man anflüstern und um Hilfe anflehen, und er führt die Hand des Trägers im Kampf. (W6, Ermüdend, Leiter. Einige Elite-Scharfschützen tragen auf dieselbe Weise geschmückte Langwaffen mit folgendem Profil: W6, Nachladen, Fernkampf, Leiter)

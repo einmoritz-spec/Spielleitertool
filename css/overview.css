@@ -1,0 +1,51 @@
+/* ---------- "Willkommen in den Dales"-Einleitung (neu, Juli 2026) ---------- */
+.welcome-dales{
+  max-width:820px; margin:0 auto 42px; padding-bottom:36px;
+  border-bottom:1px solid var(--panel-line-soft);
+}
+.welcome-dales h1{
+  font-family:var(--serif-display); font-weight:600; font-style:italic;
+  font-size:clamp(30px,4.4vw,46px); margin:0 0 22px; color:var(--text-hi);
+  text-align:center; letter-spacing:.005em;
+}
+.welcome-dales .wd-body{
+  font-family:var(--serif-body); font-size:16px; line-height:1.75; color:var(--text-lo);
+}
+.welcome-dales .wd-body p{margin:0 0 16px;}
+.welcome-dales .wd-body p:last-child{margin-bottom:0;}
+.welcome-dales .wd-dropcap{
+  float:left; font-family:var(--serif-display); font-weight:700; font-style:italic;
+  font-size:64px; line-height:.78; color:var(--rust-bright); margin:2px 8px 0 0;
+  padding:2px 4px; border:1px solid var(--panel-line); border-radius:4px;
+  background:var(--panel-raised);
+}
+
+/* ---------- overview page ---------- */
+.overview{
+  max-width:1180px; margin:0 auto; padding:32px 24px 100px;
+}
+.overview-hero{
+  text-align:center; margin-bottom:34px; position:relative;
+}
+.overview-hero .eyebrow{
+  font-size:12px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--moss-bright); margin-bottom:14px; display:flex; align-items:center;
+  justify-content:center; gap:10px;
+}
+.overview-hero .eyebrow::before, .overview-hero .eyebrow::after{
+  content:""; width:36px; height:1px; background:var(--panel-line);
+}
+.overview-hero h1{
+  font-family:var(--serif-display); font-weight:600; font-style:italic;
+  font-size:clamp(34px,5vw,56px); margin:0; color:var(--text-hi);
+  letter-spacing:.005em;
+}
+.overview-hero p{
+  max-width:620px; margin:0 auto; color:var(--text-lo);
+  font-family:var(--serif-body); font-size:16.5px; line-height:1.6;
+}
+
+.adv-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+  gap:18px;
+}

@@ -1,0 +1,12 @@
+# Namen B3 (EN → DE, Abenteuerband)
+- Tower of Sighs → Turm der Seufzer (S. 55); Isle of Sighs → Insel der Seufzer
+- Oracle Cave → Orakelhöhle (S. 60); Troll's Spire → Trollspitze (S. 67)
+- Ursic One-Ear → Ursic Einohr; Rilke, Feder, Glam-Glam, Saak'shal, Roric, Agra, Harga, Ambrosius, Acha, Clan Takrûk bleiben
+- Acha Bonebreaker → Acha Knochenbrecherin
+- Thistle, Prickle, Thorn → Distel, Stachel, Dorn
+- Eel Beast → Das Aalungeheuer; sea serpent → Seeschlange; Spiderlings → Spinnlinge; wraiths → Schemen
+- Undead Guardians → Untote Wächter; The First/Second/Third Floor → Das erste/zweite/dritte Stockwerk (Buch zählt Erdgeschoss als „first floor“)
+- The Red Gate → Das Rote Tor; Woven Bridge → Spinnwebbrücke; The Keep → Die Feste; Relic Cave → Reliquienhöhle
+- Zauber: Fetch Herbeiholen, Light Licht, Open/Close Öffnen/Schließen, Sense Magic Magie spüren, Dispel Bannen, Ensnaring Roots Fesselnde Wurzeln, Lock/Unlock Abschließen/Aufschließen, Power Fist Kraftfaust, Stone Skin Steinhaut, Mental Strike Geistesschlag, Scrying Hellsehen, Telepathy Telepathie, Dominate Beherrschen, Elevate Erheben, Fireball Feuerball
+- Talente: Berserker, Robust, Veteran, Defensive → Defensiv, Double Slash → Doppelhieb
+- Waffen: Broadsword Breitschwert, Light crossbow Leichte Armbrust, Scimitar Krummsäbel, Longsword Langschwert, Ladle Schöpflöffel

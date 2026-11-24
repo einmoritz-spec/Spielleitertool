@@ -1,0 +1,41 @@
+/* Kapitel 7 – Bestiarium (S. 82–99): Allgemeines (S. 83–84). Monster: bestiarium-b…d.js (DB_MON), Tiere: bestiarium-e.js */
+window.DB_MON = window.DB_MON || [];
+window.DB_BEKOPF = {id:"be", n:"7", t:"Bestiarium", p:82, abs:[
+ {id:"imspiel", t:"Monster im Spiel", p:83, b:[
+  "In diesem Spiel gibt es nicht nur Drachen und Dämonen, sondern allerlei tödliche Bestien. Ein Monster ist ein Wesen unnatürlichen Ursprungs, eine schreckliche Bestie, die alle in Schrecken versetzt und der natürlichen Ordnung trotzt. Dieses Kapitel stellt eine Reihe von Monstern und mehrere humanoide Wesen vor, denen die Spielercharaktere auf ihren Reisen begegnen können. Am Ende des Kapitels sind außerdem einige gewöhnliche Tiere aufgeführt.",
+  "Monster werden von der SL gesteuert und handeln im Kampf weitgehend wie Spielercharaktere und NSC. Es gibt aber einige wesentliche Unterschiede, die unten beschrieben werden.",
+  {h:"Grimmigkeit"},
+  "Manche Monster sind so mächtig, dass sie in derselben Runde mehrmals handeln können. Das wird durch ihren Wert für Grimmigkeit angegeben. Zu Beginn jeder Runde zieht die SL für jeden Punkt Grimmigkeit eine Initiativkarte. Das Monster erhält einen Zug pro Karte, mit je einer Aktion und einer Bewegung pro Zug.",
+  "**Abwarten:** Tauscht ein Spielercharakter Initiativkarten mit einem Monster (optionale Regel, S. 41), kann der Spielercharakter eine beliebige der Karten des Monsters wählen. Monster selbst warten nie ab.",
+  {h:"Größe"},
+  "Monster gibt es in allen Größen. Das Spiel teilt sie in die folgenden Kategorien ein, die beeinflussen, welches Gebiet das Monster blockieren kann (S. 43) und durch welchen schmalen Durchgang es sich bewegen kann.",
+  "**Klein:** Ein kleines Monster ist weniger als einen Meter groß und blockiert kein Gebiet. Es kommt mühelos durch winzige Durchgänge.",
+  "**Normal:** Ein Monster normaler Größe ist ungefähr so groß wie ein Mensch. Es kann ein Gebiet von 2×2 Metern blockieren (ein Feld auf einer Kampfkarte) und durch einen halben Meter breiten Durchgang passen.",
+  "**Groß:** Ein großes Monster kann ein Gebiet von 4×4 Metern blockieren und durch einen 1 Meter breiten Durchgang passen.",
+  "**Riesig:** Ein riesiges Monster kann ein Gebiet von 8×8 Metern blockieren und durch einen 2 Meter breiten Durchgang passen.",
+  "**Schwarm:** Ein Schwarm kann von Normal bis Riesig reichen, blockiert aber nie das Gebiet, in dem er sich befindet, und kann durch winzige Durchgänge.",
+  {h:"Bewegung"},
+  "Wie Spielercharaktere haben Monster einen Wert für Bewegung und können sich vor oder nach ihrem Angriff bewegen oder ihre Bewegung vor und nach dem Angriff aufteilen. Beachte, dass sich dieser Wert bei Monstern auf die Bewegung *pro Zug* bezieht, nicht pro Runde.",
+  "Manche Monster haben unterschiedliche Bewegungsraten an Land, im Wasser und in der Luft. Abheben oder Landen sind freie Aktionen.",
+  {h:"Monsterangriffe"},
+  "Ein Monster benutzt beim Angreifen immer einen *Monsterangriff*. Jedes Monster hat einen eigenen Satz von Monsterangriffen, die in einer Tabelle zusammengefasst sind. Die SL würfelt oder wählt einen Angriff aus dieser Tabelle, wenn das Monster zum Angreifen an der Reihe ist. Monster würfeln nie, um ihr Ziel zu treffen – *Monsterangriffe gelingen automatisch.* Einen Monsterangriff auszuführen zählt als Aktion.",
+  "Sofern nicht anders angegeben, haben Monsterangriffe dieselbe Reichweite wie Nahkampfangriffe, also 2 Meter (ein angrenzendes Feld, falls du Rasterkarten benutzt).",
+  "**Ausweichen & Parieren:** In der Regel kann einem Monsterangriff ausgewichen werden, er kann aber nicht pariert werden. Das gilt auch für Angriffe mit Wirkungsbereich, nicht aber für Furchtangriffe. Ausnahmen von dieser Regel stehen in der Beschreibung des Monsterangriffs.",
+  "**Zustände:** Monsterangriffe können Spielercharakteren Zustände (S. 51) zufügen. Erleidet ein Charakter einen Zustand, den er schon hat, muss der Spieler stattdessen einen anderen Zustand wählen.",
+  "**Wiederholte Angriffe:** Ein Monster führt nie zweimal hintereinander denselben Angriff aus. Würfelt die SL zweimal in Folge denselben Monsterangriff, wird der zweite Wurf zum nächsten Angriff der Tabelle. Aus dem Ergebnis 6 wird eine 1.",
+  {karte:{h:"Gefährlichere Monster?", p:83, b:["Die Monster in diesem Kapitel sind typische Exemplare. Es gibt Legenden über schreckliche Bestien, die noch gefährlicher sind. Die SL kann Monster gefährlicher – oder weniger gefährlich – machen, um sie der Kompetenz der Spielercharaktere anzupassen. Am einfachsten geht das, indem man ihre Grimmigkeit erhöht oder senkt, doch auch die TP lassen sich anpassen."]}},
+  {h:"Fertigkeiten", p:84},
+  "Monster können Fertigkeiten haben, die aber vor allem außerhalb von Kämpfen oder für vergleichende Proben benutzt werden – nicht für Angriffe. Sie greifen nur mit ihren Monsterangriffen an.",
+  {h:"Monster bekämpfen"},
+  "**Ausweichen & Parieren:** Alle Monster können ausweichen, und Monster mit Waffen können auch parieren. Jedes Ausweichen oder Parieren verbraucht eine der Aktionen des Monsters in der Runde (drehe eine Initiativkarte deiner Wahl um). Würfle bei allen Ausweichmanövern und Paraden von Monstern gegen den Standard-Fertigkeitswert 15.",
+  "**Natürliche Panzerung:** Viele Monster haben eine Form natürlicher Panzerung. Sie wirkt genau wie gewöhnliche Rüstung (S. 50).",
+  "**Schwachstellen:** Ein stechender Angriff kann wie bei humanoiden Gegnern eine Lücke oder Schwachstelle in der natürlichen Panzerung des Monsters finden (optionale Regel, S. 48).",
+  "**Umwerfen:** Ein Spielercharakter kann versuchen, ein Monster umzuwerfen (optionale Regel, S. 48), und würfelt dabei gegen den Standard-Fertigkeitswert 15 für §Ausweichen§ bei allen Monstern. Hat das Monster vier oder mehr Beine, erhält der Angreifer einen Nachteil auf den Wurf.",
+  "**Entwaffnen & Ringen:** Monster können von Spielercharakteren nicht entwaffnet oder gepackt werden (optionale Regeln, S. 48).",
+  "**Dunkelheit:** Sofern nicht anders angegeben, können Monster im Dunkeln sehen und leiden nicht unter den Wirkungen auf S. 52.",
+  {h:"Resistenz & Immunität"},
+  "Manche Monster sind gegen bestimmte Schadensarten *resistent*. Das bedeutet, dass aller Schaden dieser Art nach Abzug der Rüstung halbiert wird (aufgerundet). Manche Monster können sogar gegen bestimmte Schadensarten *immun* sein und erleiden durch solche Angriffe überhaupt keinen Schaden.",
+  {h:"Furcht & Überzeugen"},
+  "Monster sind zu furchterregend, um selbst Angst zu bekommen (S. 52), aber viele von ihnen können Spielercharakteren durchaus Schrecken einjagen. Monster sind außerdem immun gegen die Fertigkeit §Überzeugen§, sofern nichts anderes angegeben ist."
+ ]}
+]};

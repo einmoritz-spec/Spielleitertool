@@ -1,0 +1,147 @@
+/* ============================================================
+   WAKE OF THE OLDWAYS — Erzähler-Tafel
+   Design: Dämmerlicht über dem Ravensdale — dunkles Moos/Schiefer,
+   Barleygold als Leitfarbe, Pergament für Vorlesetexte, ein
+   wiederkehrendes Rabenmotiv (Ravenhome, Omen Ravens) als Signatur.
+   ============================================================ */
+
+:root{
+  --fs:0.92; /* fester Lesetext-Skalierungsfaktor (entspricht der ehemaligen "klein"-Stufe der A-/A/A+-Steuerung, die auf Nutzerwunsch wieder entfernt wurde, Juli 2026) */
+  --void:#0f1512;
+  --bg:#141b17;
+  --panel:#1b241e;
+  --panel-raised:#212c24;
+  --panel-line: rgba(201,162,75,.16);
+  --panel-line-soft: rgba(201,162,75,.08);
+
+  --parchment:#f1e6c8;
+  --parchment-edge:#dfc98f;
+  --ink:#2c2013;
+  --ink-soft:#5b4a30;
+
+  --gold:#c9a24b;
+  --gold-bright:#e7c579;
+  --rust:#b1502f;
+  --rust-bright:#d3714b;
+  --moss:#6f9163;
+  --moss-bright:#96c087;
+  --mist:#93a89e;
+  --dusk:#7c6a9a;
+
+  --text-hi:#efe8d8;
+  --text-lo:#a9b6ac;
+  --text-faint:#6d7b71;
+
+  --serif-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --serif-body: "Spectral", Charter, "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
+  --radius: 10px;
+  --shadow-lift: 0 18px 40px -20px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  padding-top:60px;
+  transition:padding-top .18s ease;
+  background:
+    radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(111,145,99,.10), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 100% 100%, rgba(122,90,154,.08), transparent 60%),
+    var(--bg);
+  color:var(--text-hi);
+  font-family:var(--sans);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+body.topbar-hidden{padding-top:0;}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+}
+
+/* ---------- scaffolding ---------- */
+a{color:inherit;}
+button{font-family:inherit; cursor:pointer;}
+::selection{background:var(--gold); color:var(--ink);}
+
+.raven-icon{display:inline-block; width:1em; height:1em; vertical-align:-.15em;}
+.raven-icon svg{width:100%; height:100%; fill:currentColor;}
+
+/* ---------- top bar ---------- */
+/* Standardmäßig sichtbar (Stand Juli 2026, vorher Auto-Hide per Hover) —
+   Header bleibt fest eingeblendet, bis er per Taste "h" ausgeblendet wird
+   (siehe toggleTopbar()/Tastatur-Listener). `.topbar-hidden` auf `<body>`
+   schiebt ihn per transform aus dem Bild; bewusst weiterhin
+   `position:fixed`-Overlay statt `sticky`, damit der Inhalt beim
+   Aus-/Einblenden nicht springt. */
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:40;
+  display:flex; align-items:center; gap:10px;
+  padding:12px 16px;
+  background:rgba(15,21,18,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--panel-line);
+  transform:translateY(0);
+  transition:transform .18s ease;
+}
+body.topbar-hidden .topbar{
+  transform:translateY(-100%);
+}
+.topbar .brand{
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--serif-display); font-weight:600;
+  font-size:16px; letter-spacing:.02em; color:var(--gold-bright);
+  white-space:nowrap; cursor:pointer; background:none; border:none; padding:0;
+  flex:none;
+}
+.topbar .brand .raven-icon{width:18px; height:18px; color:var(--gold);}
+.crumbs{
+  display:flex; align-items:center; gap:7px; flex-wrap:wrap;
+  font-size:13px; color:var(--text-faint); min-width:0;
+}
+.crumbs .seg{
+  color:var(--text-lo); background:none; border:none; padding:2px 4px;
+  font-family:inherit; font-size:13px; border-radius:5px;
+}
+.crumbs .seg.current{color:var(--gold-bright); font-weight:600;}
+.crumbs button.seg:hover{background:var(--panel-raised); color:var(--text-hi);}
+.crumbs .sep{opacity:.5;}
+/* Spacer bewusst sehr klein statt flex:1 — die Buttons sollen nicht mehr
+   bis an den rechten Rand gedrückt werden ("mehr nach links rutschen",
+   Nutzerwunsch Juli 2026), sondern direkt nach der Krume/Marke folgen. */
+.topbar-spacer{flex:0 1 16px; min-width:8px;}
+.topbar-actions{
+  display:flex; align-items:center; justify-content:flex-start;
+  gap:6px; flex-wrap:nowrap;
+  min-width:0;
+  overflow-x:auto; scrollbar-width:thin; -webkit-overflow-scrolling:touch;
+}
+.topbar-actions::-webkit-scrollbar{height:5px;}
+.topbar-actions::-webkit-scrollbar-thumb{background:var(--panel-line); border-radius:4px;}
+.rest-btn{
+  display:flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600;
+  color:var(--moss-bright); background:rgba(111,145,99,.10); border:1px solid rgba(111,145,99,.4);
+  padding:6px 10px; border-radius:999px; white-space:nowrap;
+}
+.rest-btn:hover{background:rgba(111,145,99,.2); border-color:var(--moss-bright);}
+/* Zähler-Badge am "Favoriten"-Button (neu) — nur sichtbar, wenn mindestens
+   ein Favorit existiert (updateFavBadge() lässt textContent sonst leer,
+   :empty blendet den Kreis dann komplett aus). */
+.fav-badge{
+  display:inline-block; min-width:15px; padding:0 4px; margin-left:6px; border-radius:999px;
+  background:var(--gold); color:#1b1409; font-size:10px; font-weight:700; line-height:16px;
+  text-align:center; vertical-align:middle;
+}
+.fav-badge:empty{display:none;}
+
+/* Sicherheitsnetz für sehr schmale Fenster (z. B. halbierter Laptop-
+   Bildschirm): Statt die Buttons auf eine zweite Zeile umbrechen zu
+   lassen, wird die Aktionsleiste horizontal scrollbar — bleibt immer
+   eine Zeile, auch wenn nicht mehr alle Buttons gleichzeitig sichtbar sind. */
+@media (max-width: 1100px){
+  .topbar-actions{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; -webkit-overflow-scrolling:touch;}
+  .topbar-actions::-webkit-scrollbar{height:5px;}
+  .topbar-actions::-webkit-scrollbar-thumb{background:var(--panel-line); border-radius:4px;}
+  .rest-btn{flex:none;}
+}

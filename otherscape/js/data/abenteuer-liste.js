@@ -1,0 +1,26 @@
+/* Übersicht der Abenteuer (Karten auf der Startseite). Die Inhalte liegen je Abenteuer in eigenen Dateien. */
+var OS_ADV_LIST = [
+  {id:"strings-attached", titel:"Strings Attached", sub:"Starter-Job: Fäden, Schicksal und ein Labyrinth", buch:"Metro", seiten:"S. 334–354", tag:"Starter"},
+  {id:"anthill", titel:"Enter the Anthill", sub:"Rein, raus, und nicht vom Traum verschlucken lassen", buch:"Tokyo", seiten:"S. 240–248", tag:"Job"},
+  {id:"biting-bullet", titel:"Biting the Bullet", sub:"Ein Zugüberfall im Cyberspace, aus den Schienen geraten", buch:"Tokyo", seiten:"S. 249–262", tag:"Job"},
+  {id:"lost-flooded", titel:"Lost & Flooded", sub:"Eine überflutete Müllinsel und ein vergessener Thron", buch:"Tokyo", seiten:"S. 263–271", tag:"Job"},
+  {id:"kenko-ruins", titel:"The Kenko Ruins", sub:"Durch die Ruinen bis in die Chefetage", buch:"Tokyo", seiten:"S. 272–285", tag:"Job"},
+  {id:"steam-punks", titel:"Steam Punks", sub:"Im Badehaus wird es heiß", buch:"Tokyo", seiten:"S. 286–295", tag:"Job"},
+  {id:"bridge-too-far", titel:"A Bridge Too Far", sub:"Fünf Akte um das Junjō und den Himmel", buch:"Tokyo", seiten:"S. 296–316", tag:"Großer Job"},
+  {id:"tokyo-ueberblick", kat:"setting", titel:"Tokyo Überblick", sub:"Setting, Kami und Yōkai, Konzerne, Archetypen, Glossar", buch:"Tokyo", seiten:"S. 6–39", tag:"Setting"},
+  {id:"tokyo-bezirke", kat:"setting", titel:"Die 12 Bezirke", sub:"Tokyos Bezirke im Überblick", buch:"Tokyo", seiten:"S. 6–39", tag:"Setting"},
+  {id:"tokyo-orte", kat:"setting", titel:"Szenenorte", sub:"13 Orte für Szenen in Tokyo", buch:"Tokyo", seiten:"S. 6–39", tag:"Setting"},
+  {id:"fraktion-bureau", kat:"fraktion", titel:"Bureau of Onmyō", sub:"Staatliche Geisterjäger", buch:"Tokyo", seiten:"S. 151–158", tag:"Fraktion"},
+  {id:"fraktion-ghost-market", kat:"fraktion", titel:"Ghost Market", sub:"Der Schwarzmarkt der Geister", buch:"Tokyo", seiten:"S. 159–167", tag:"Fraktion"},
+  {id:"fraktion-king-enma", kat:"fraktion", titel:"King Enma", sub:"Herrscher der Unterwelt", buch:"Tokyo", seiten:"S. 168–176", tag:"Fraktion"},
+  {id:"fraktion-neo-samurai", kat:"fraktion", titel:"Neo-Samurai", sub:"Kriegerkaste der Megacity", buch:"Tokyo", seiten:"S. 177–184", tag:"Fraktion"},
+  {id:"fraktion-oni-gangs", kat:"fraktion", titel:"Oni-Gangs", sub:"Dämonenbanden der Straße", buch:"Tokyo", seiten:"S. 185–191", tag:"Fraktion"},
+  {id:"fraktion-soma", kat:"fraktion", titel:"Sōma-Clan", sub:"Ein mächtiger Clan", buch:"Tokyo", seiten:"S. 192–200", tag:"Fraktion"},
+  {id:"fraktion-taiyo", kat:"fraktion", titel:"Taiyō SolarTech", sub:"Konzern der Sonne", buch:"Tokyo", seiten:"S. 201–209", tag:"Fraktion"},
+  {id:"fraktion-tokoyo", kat:"fraktion", titel:"Tokoyo", sub:"Konzern und Traumwelt", buch:"Tokyo", seiten:"S. 210–219", tag:"Fraktion"},
+  {id:"fraktion-yakuza", kat:"fraktion", titel:"Yakuza", sub:"Iribe-gumi und Maikubi-kai", buch:"Tokyo", seiten:"S. 220–228", tag:"Fraktion"},
+  {id:"fraktion-viral", kat:"fraktion", titel:"Viral Movements", sub:"Viren-Bewegungen im Netz", buch:"Tokyo", seiten:"S. 229–237", tag:"Fraktion"},
+  {id:"gegner-a", kat:"gegner", titel:"Yōkai Database I", sub:"Challenges, Power Sets und Händler", buch:"Tokyo", seiten:"S. 94–112", tag:"Gegner"},
+  {id:"gegner-b", kat:"gegner", titel:"Yōkai Database II", sub:"Challenges, Power Sets und Händler", buch:"Tokyo", seiten:"S. 113–130", tag:"Gegner"},
+  {id:"gegner-c", kat:"gegner", titel:"Yōkai Database III", sub:"Challenges, Power Sets und Händler", buch:"Tokyo", seiten:"S. 131–147", tag:"Gegner"}
+];

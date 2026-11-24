@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="tftl.css"><link rel="stylesheet" href="flood.css"><style>
+.hero{height:170px;background:url(img/flood/hero.webp) center 58%/cover;position:relative}
+.hero .loop{position:absolute;right:22px;bottom:16px;display:flex;background:rgba(255,255,255,.94);border-radius:999px;padding:4px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.hero .loop span{font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.05em;padding:7px 14px;border-radius:999px;color:var(--soft)}
+.hero .loop span.on{background:var(--acc);color:#fff}
+.hero .loop i{font:500 12px var(--sans);color:var(--soft);padding:7px 6px 7px 12px;font-style:normal}
+.wrap{display:grid;grid-template-columns:1fr 420px;gap:24px;padding:22px 22px 26px}
+.sec{display:flex;align-items:center;gap:14px;font-size:26px;color:var(--acc);margin-bottom:14px}
+.sec:after{content:"";flex:1;border-top:2px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{background:#fff;border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12);display:flex;flex-direction:column;border-left:6px solid var(--band)}
+.tile .im{height:92px;background:center/cover}
+.tile .tx{padding:10px 12px 11px}
+.tile h3{font-size:17px;color:var(--acc)}
+.tile p{font:13.5px/1.35 var(--serif);color:var(--soft);margin-top:3px}
+.tile .k{font:500 11.5px var(--sans);color:var(--soft);margin-top:6px;letter-spacing:.03em}
+.tile.c{border-left-color:var(--band2)}
+.grpl{font:700 12px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin:2px 0 8px}
+.chips{margin-top:16px}
+.go{background:var(--night);border-radius:4px;color:#fff;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.go .band{position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(var(--band2) 0 34%,var(--band) 34%)}
+.go .in{padding:16px 18px 16px 26px;display:flex;flex-direction:column;gap:9px;flex:1}
+.go h2{font-size:30px;color:var(--pink)}
+.go .last{display:flex;gap:12px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden;border:1.5px solid rgba(233,163,182,.55)}
+.go .last .im{width:150px;background:url(img/flood/m-flesh.webp) center/cover}
+.go .last .tx{padding:9px 10px 9px 0}
+.go .last small{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--pink)}
+.go .last b{display:block;font:700 18px/1.15 var(--sans);text-transform:uppercase;margin:3px 0}
+.go .last span{font:14px var(--serif);opacity:.8}
+.kamp{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-top:4px}
+.mm{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;position:relative}
+.mm .im{width:118px;height:58px;background:center/cover;flex:none}
+.mm b{display:block;font:700 15.5px/1.15 var(--sans);text-transform:uppercase}
+.mm span{font:13.5px var(--serif);opacity:.72}
+.mm .n{position:absolute;left:0;top:0;background:var(--band2);color:#fff;font:700 12px var(--sans);padding:2px 7px}
+.mm.dn{opacity:.5}
+.go .btn{margin-top:auto;background:var(--acc);color:#fff;text-align:center;font:700 16px var(--sans);text-transform:uppercase;letter-spacing:.06em;padding:12px;border-radius:3px}
+</style></head><body>
+<!--TOP-->
+<div class="tabs"><a class="on">Vorbereitung</a><a>Mysterien</a><a>Teens</a><a>Karte</a></div>
+<div class="hero"><div class="loop"><i>Unser Loop</i><span class="on">Mälarinseln</span><span>Boulder City</span></div></div>
+<div class="wrap">
+ <div>
+  <div class="sec h">Vorbereitung</div>
+  <div class="grpl">Die Welt</div>
+  <div class="grid">
+   <div class="tile"><div class="im" style="background-image:url(img/flood/w-flood.webp)"></div><div class="tx"><h3>Leben nach der Flut</h3><p>Geschichten aus der Flut · Würfeln · Die Prinzipien des Spiels</p><div class="k">Kap. 1 · S. 6</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/flood/w-loop.webp)"></div><div class="tx"><h3>Der Loop in einer neuen Zeit</h3><p>Alternative 90er · Mälarinseln · Krafta · Der Loop</p><div class="k">Kap. 2 · S. 14</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/flood/w-hoover.webp)"></div><div class="tx"><h3>Die Hoover-Damm-Katastrophe</h3><p>Teens in Amerika · Boulder City · Area 51 · US-Loop</p><div class="k">Kap. 3 · S. 36</div></div></div>
+   <div class="tile c"><div class="im" style="background-image:url(img/flood/k-pandora.webp)"></div><div class="tx"><h3>Die Propheten von Pandora</h3><p>Hintergrund der Kampagne</p><div class="k">Kap. 8 · S. 130</div></div></div>
+  </div>
+  <div class="grpl" style="margin-top:16px">Das Spiel</div>
+  <div class="grid">
+   <div class="tile"><div class="im" style="background-image:url(img/flood/w-teens.webp)"></div><div class="tx"><h3>Die Teens</h3><p>Zehn Typen · Scham · Narben · Reibung · Aufhänger</p><div class="k">Kap. 4 · S. 48</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/flood/w-trouble.webp)"></div><div class="tx"><h3>Ärger</h3><p>Würfelprobe · Zustände · Scham und Narben · Fertigkeiten</p><div class="k">Kap. 5 · S. 68</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/flood/w-mystery.webp)"></div><div class="tx"><h3>Das Mysterium</h3><p>Die sechs Phasen · SL-Techniken · Horror</p><div class="k">Kap. 6 · S. 82</div></div></div>
+   <div class="tile"><div class="im" style="background-image:url(img/flood/w-landscape.webp)"></div><div class="tx"><h3>Mystery-Landschaft</h3><p>Radiopiraten · Sunshine Farm · Little Doe · Schachclub …</p><div class="k">Kap. 7 · S. 108</div></div></div>
+  </div>
+  <div class="chips"><span class="chip f">Charakterbogen</span><span class="chip">Würfel</span><span class="chip">Loop-Karte</span><span class="chip">Galerie</span></div>
+ </div>
+ <div class="go"><div class="band"></div><div class="in">
+  <h2 class="h">Mysterien</h2>
+  <div class="last"><div class="im"></div><div class="tx"><small>Weiterspielen</small><b>Aus Fleisch und Stahl</b><span>Ermittlung · Ort 1: Marks Haus</span></div></div>
+  <div class="kamp">Kampagne · Die Propheten von Pandora</div>
+  <div class="mm"><div class="im" style="background-image:url(img/flood/m-flesh.webp)"></div><i class="n">1</i><div><b>Aus Fleisch und Stahl</b><span>Kap. 9 · S. 134</span></div></div>
+  <div class="mm"><div class="im" style="background-image:url(img/flood/m-ugliness.webp)"></div><i class="n">2</i><div><b>Die Hässlichkeit</b><span>Kap. 10 · S. 152</span></div></div>
+  <div class="mm"><div class="im" style="background-image:url(img/flood/m-traveler.webp)"></div><i class="n">3</i><div><b>Reisender</b><span>Kap. 11 · S. 168</span></div></div>
+  <div class="mm"><div class="im" style="background-image:url(img/flood/m-ash.webp)"></div><i class="n">4</i><div><b>Asche zur Ewigkeit</b><span>Kap. 12 · S. 186</span></div></div>
+  <a class="btn">Mysterium starten</a>
+ </div></div>
+</div>
+</body></html>

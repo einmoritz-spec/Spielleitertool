@@ -61,7 +61,7 @@
     document.getElementById("app").onclick = null;
     var tc = document.querySelector('meta[name=theme-color]'); if(tc) tc.setAttribute("content", r.area==="es" ? "#33464a" : "#f08a1c");
     if(r.area==="es" && window.ES && ES.route){ ES.route(r.page, r.rest, document.getElementById("app"), tabsEl); return; }
-    if(ok && r.page==="m" && window.renderLeitstand && (r.area==="tftl" || window.renderLeitstand.ctx)){ window.renderLeitstand(document.getElementById("app"), tabsEl, r.rest); return; }
+    if(ok && r.page==="m" && window.renderLeitstand && (r.area==="tftl" || window.renderLeitstand.ctx)){ document.body.classList.add("lt"); window.renderLeitstand(document.getElementById("app"), tabsEl, r.rest); return; }
     if(ok && r.page==="nach" && window.renderNach){ document.getElementById("app").className = "page"; window.renderNach(document.getElementById("app"), tabsEl, r.rest); window.scrollTo(0, 0); return; }
     tabsEl.innerHTML = (window.TX_TABS && window.TX_TABS(window.TCTX, r.page)) || d.tabs.map(function(t){ return '<a href="#' + pre + t[0] + '"' + (t[0]===r.page ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("");
     var sh = window.TX_SUBHTML && window.TX_SUBHTML(window.TCTX, r.page);

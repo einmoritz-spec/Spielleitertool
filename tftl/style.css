@@ -762,3 +762,10 @@ body.es .vbl a{border-top-color:rgba(0,0,0,.08)}
 .nhb .nbody{grid-template-columns:290px 1fr}
 .nhb .nbody{grid-template-columns:250px 1fr}
 .nside .ni{font-size:14px;line-height:1.25;padding-top:6px;padding-bottom:6px}
+/* Mysterien (Leitstand): eigene Leiste unter der Kopfzeile, nicht in der Kopfzeile */
+body.lt{--hd:106px}body.lt.nohead{--hd:50px}
+body.lt #tabs{position:sticky;top:56px;margin-top:0;height:50px;display:flex;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:0 22px;pointer-events:auto;overflow-x:auto;overflow-y:hidden;z-index:40}
+body.lt.nohead #tabs{top:0}
+body.lt #tabs a{height:auto;margin:0;border-radius:0;background:none;box-shadow:none;color:var(--soft);border-bottom:3px solid transparent;padding:0 13px;font-size:14px}
+body.lt #tabs a:hover{color:var(--ink);background:none}
+body.lt #tabs a.on{color:var(--acc);border-bottom-color:var(--acc);background:none;box-shadow:none}

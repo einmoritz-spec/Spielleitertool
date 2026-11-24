@@ -17,7 +17,8 @@ function meta(l, bb){
   return '<span class="d">' + esc(m) + "</span>";
 }
 function item(l, pfad, bb){
-  var bl = pfad ? null : ((window.HT_BILD || {}).lm || {})[l.id];
+  var B = window.HT_BILD || {}, bl = pfad ? null : (B.lm || {})[l.id];
+  if(bl && bl === (B.tiefe || {})[String(l.tiefe)]) bl = null;
   return '<a class="lmi' + (bl ? " mitbild" : "") + '" onclick="go(\'' + (pfad || "lm/" + l.id) + '\')">' + (bl ? '<img class="lmmini" src="' + IMG(bl) + '" alt="">' : "") + '<span class="tx"><b>' + esc(l.t) + "</b>" + meta(l, bb === undefined ? l.q === "bb" : bb) + "</span></a>";
 }
 function viewLm(a){
@@ -27,7 +28,8 @@ function viewLm(a){
     var tb = ((window.HT_BILD || {}).tiefe || {})[s[0]];
     return '<section class="lmb t' + s[0] + '"><div class="lmk">' + (tb ? '<img class="lmtb" src="' + IMG(tb) + '" alt="">' : "") + "<h2>" + s[1] + "</h2><p>" + esc(kopf(s[0])) + '</p></div><div class="lmg">' + L.map(function(l){ return item(l); }).join("") + "</div></section>";
   }).join("");
-  var herz = '<section class="lmb t4"><div class="lmk"><h2>Tiefe 4</h2><p>Das Heart Itself: ein gleißendes, unbestimmbares Feuer, ein roter, nasser Himmel, der im Zentrum der Stadt unter der Stadt pocht und schlägt.</p></div></section>';
+  var t4 = ((window.HT_BILD || {}).tiefe || {})["4"];
+  var herz = '<section class="lmb t4"><div class="lmk">' + (t4 ? '<img class="lmtb" src="' + IMG(t4) + '" alt="">' : "") + '<h2>Tiefe 4</h2><p>Das Heart Itself: ein gleißendes, unbestimmbares Feuer, ein roter, nasser Himmel, der im Zentrum der Stadt unter der Stadt pocht und schlägt.</p></div></section>';
   var seite = SEITE.map(function(s){
     var L = lms(s[0]);
     return '<div class="lms"><h2>' + s[1] + "</h2>" + L.map(function(l){ return item(l, null, false); }).join("") + "</div>";

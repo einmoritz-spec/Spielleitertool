@@ -171,8 +171,8 @@
     var h = "", tl = B.tabs || [];
     tl.forEach(function(t){ if(t[0] === "start") h += a(p + "start", t[1], "start"); });
     tl.forEach(function(t){ if(t[0] !== "start") h += a(p + t[0], t[0] === "kids" && C.L && C.L.unsere ? C.L.unsere : t[1], t[0]); });
-    h += '<span class="tsep"></span>';
-    (C.NACH || []).forEach(function(n){ h += a(p + "nach/" + n[0], KURZ[n[1]] || n[1], "nach/" + n[0]); });
+    var N0 = (C.NACH || [])[0];
+    if(N0) h += '<span class="tsep"></span><a class="bu' + (on && on.indexOf("nach/") === 0 ? ' on' : '') + '" href="#' + p + 'nach/' + N0[0] + '">Buch</a>';
     return h;
   };
   window.renderNach = function(app, tabs, rest){
@@ -190,9 +190,11 @@
     var L = lese(app, tab, rest, tab === K.tab);
     app.className = "page nach" + (collapsed ? " nsc" : "");
     var bn = "", solo = L.n < 2 && !L.typen;
-    function wrap(inner){ return (L.sub || "") + '<div class="nbody">' + inner + '</div>'; }
+    var kap = '<div class="unter">' + (C.NACH || []).map(function(n){ return '<a' + (n[0] === tab ? ' class="on"' : '') + ' href="#' + C.p + 'nach/' + n[0] + '">' + esc(KURZ[n[1]] || n[1]) + '</a>'; }).join("") + '</div>';
+    var u2 = (L.sub || "").replace('class="unter"', 'class="unter u2"');
+    function wrap(inner){ return kap + u2 + '<div class="nbody">' + inner + '</div>'; }
     function side(){ return solo ? "" : '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav>'; }
-    var cls = "page nach nl nhb" + (L.sub ? " mu" : "") + (solo ? " ns1" : "") + (collapsed && !solo ? " nsc" : "");
+    var cls = "page nach nl nhb" + (L.sub ? " mu2" : "") + (solo ? " ns1" : "") + (collapsed && !solo ? " nsc" : "");
     if(L.typen){ var tmp = document.createElement("div"); typen(tmp); app.className = cls; app.innerHTML = wrap(side() + '<div class="nmain">' + tmp.innerHTML + '</div>'); return; }
     if(!L.tree){ app.innerHTML = L.main; return; }
     app.className = cls;

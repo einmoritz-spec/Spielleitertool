@@ -656,3 +656,9 @@ body.nohead .hb{--hh:100vh}
 .nhb{--B:0px}.nhb.mu{--B:38px}
 .nhb .nside{top:calc(var(--hd) + var(--B) + 10px)}
 .nhb.ns1 .nbody{grid-template-columns:1fr;padding-left:22px}
+/* Buch-Reiter oben + Kapitel-Unterleiste mit Verbindung */
+.tabs a.bu.on{background:#f0ebe0;border-color:#f0ebe0;margin-bottom:-2px;height:52px;box-shadow:inset 0 3px 0 var(--acc);color:var(--ink)}
+.unter{border-top:0;box-shadow:inset 3px 0 0 var(--acc)}
+.unter.u2{top:calc(var(--hd) + 38px);background:#f7f3ea;height:34px}
+.unter.u2 a{font-size:12px}
+.nhb{--B:38px}.nhb.mu2{--B:72px}

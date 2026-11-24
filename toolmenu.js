@@ -244,3 +244,20 @@
   window.addEventListener("hashchange", later);
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
+
+/* Seitenleisten einzeilig: zu lange Einträge zuerst am Gedankenstrich kürzen, sonst mit … abschneiden (voller Titel als Tooltip) */
+(function(){
+  var SEL = ".nside .ni,.nside .nj,.side a";
+  function fit(){
+    document.querySelectorAll(SEL).forEach(function(a){
+      if(a.dataset.fit || a.scrollWidth <= a.clientWidth + 1) return;
+      a.dataset.fit = 1; var t = a.textContent; if(!a.title) a.title = t;
+      var m = t.split(/\s[–—-]\s/);
+      if(m.length > 1 && !/^(Phase|Teil|Akt|Schritt|Stufe|Kapitel|Runde|Tag)\s*\d+$/i.test(m[0].trim())) a.textContent = m[0];
+    });
+  }
+  var pend = 0;
+  function later(){ if(pend) return; pend = setTimeout(function(){ pend = 0; fit(); }, 60); }
+  function start(){ fit(); new MutationObserver(later).observe(document.body, {childList:true, subtree:true}); }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();

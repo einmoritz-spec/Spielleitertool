@@ -480,3 +480,7 @@ body.dark .sec.nsub{border-top-color:rgba(255,255,255,.12)}
 body.dark .side .sj{border-left-color:rgba(255,255,255,.15)}
 .side .sj a{padding:3px 14px 3px 12px;font-size:13px;color:var(--sub);opacity:.85;border-left:0}
 .side .sj a:hover{opacity:1;color:var(--fg)}
+/* Seitenleiste immer einzeilig */
+.side{width:270px}
+.side a,.side .sj a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side{width:285px}

@@ -144,7 +144,7 @@
         var f = g.items[0], on = cur !== "typen" && sec && d === D && g.items.some(function(x){ return x.id === sec.id; });
         if(on) grp = g;
         var pre = base + (multi ? k + "/" : "");
-        tree += '<a class="ni' + (on ? ' on' : '') + '" href="' + pre + f.id + '">' + esc(f.titel.split(":")[0]) + '</a>';
+        tree += '<a class="ni' + (on ? ' on' : '') + '" href="' + pre + f.id + '" title="' + esc(f.titel) + '">' + esc(f.titel.split(":")[0]) + '</a>';
         if(on && g.items.length > 1) tree += '<div class="njs">' + g.items.slice(1).map(function(x){ return '<a class="nj" href="' + pre + x.id + '" data-j="' + x.id + '">' + esc(x.titel.split(":")[0]) + '</a>'; }).join("") + '</div>';
       });
     });

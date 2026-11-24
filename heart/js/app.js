@@ -49,8 +49,8 @@ function startRechts(inh, kl){
   var kopf = '<div class="vckopf' + (auf ? " auf" : "") + '" onclick="ST.gedichtAuf=!ST.gedichtAuf;save();render()"><p class="vczeile">Über uns die Stadt, Spire. Unter uns die Stadt, Heart.</p>' + (auf ? '<div class="vcged">' + G.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" : "") + "</div>";
   var band = L.map(function(k, i){
     var t = i / (L.length - 1);
-    var z = k.z.map(function(x){ return '<a onclick="event.stopPropagation();go(\'' + (x[2] || k.r) + '\')">' + esc(x[0]) + "<i>" + x[1] + "</i></a>"; }).join("");
-    return '<div class="vcr' + (t > 0.4 ? " hell" : "") + '" style="--t:' + t.toFixed(2) + '" onclick="go(\'' + k.r + '\')"><span class="vcn">' + (i < 9 ? "0" : "") + (i + 1) + '</span><span class="vct"><b>' + esc(k.t) + '</b><span class="vcp">S. ' + k.p + '</span></span><div class="vcz">' + z + '</div><span class="vcpf">→</span></div>';
+    var z = k.z.map(function(x){ return '<a onclick="event.stopPropagation();go(\'' + (x[2] || k.r) + '\')">' + esc(x[0]) + "</a>"; }).join("");
+    return '<div class="vcr' + (t > 0.4 ? " hell" : "") + '" style="--t:' + t.toFixed(2) + '" onclick="go(\'' + k.r + '\')"><span class="vct"><b>' + esc(k.t) + '</b></span><div class="vcz">' + z + '</div><span class="vcpf">→</span></div>';
   }).join("");
   return '<div class="rechts vc">' + kopf + '<div class="vcband">' + band + '</div><div class="vcreihe"><div class="reihe">' + kl + "</div></div></div>";
 }

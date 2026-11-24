@@ -221,3 +221,26 @@
     var b = document.querySelector(".tm-map"); if(b){ e.preventDefault(); b.click(); }
   });
 })();
+
+/* Startseiten zeigen nie Seitenzahlen (nur Detailansichten): Seitenlinks und „S. 12“-Angaben auf der Startseite entfernen */
+(function(){
+  function isStart(){ return /^#?(?:[a-z]+\/)?(?:start|home)?$/i.test(location.hash || ""); }
+  var RE = /\s*(?:·\s*)?\bS\.\s?\d+(?:\s?[–-]\s?\d+)?/g;
+  function clean(){
+    if(!isStart()) return;
+    var root = document.getElementById("app") || document.querySelector("main") || document.body;
+    root.querySelectorAll("a.pg-link,.pgl").forEach(function(a){
+      var prev = a.previousSibling; if(prev && prev.nodeType === 3) prev.nodeValue = prev.nodeValue.replace(/\s*·\s*$/, "");
+      var par = a.parentElement; a.remove();
+      if(par && !par.textContent.trim() && !par.querySelector("img,svg")) par.style.display = "none";
+    });
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), n, L = [];
+    while((n = w.nextNode())){ if(/\bS\.\s?\d/.test(n.nodeValue) && !n.parentElement.closest("input,textarea,[contenteditable]")) L.push(n); }
+    L.forEach(function(t){ t.nodeValue = t.nodeValue.replace(RE, "").replace(/^\s*·\s*/, ""); var e = t.parentElement; if(e && !e.textContent.trim() && !e.querySelector("img,svg")) e.style.display = "none"; });
+  }
+  var pend = 0;
+  function later(){ if(pend) return; pend = setTimeout(function(){ pend = 0; clean(); }, 30); }
+  function start(){ clean(); new MutationObserver(function(){ if(isStart()) later(); }).observe(document.body, {childList:true, subtree:true}); }
+  window.addEventListener("hashchange", later);
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();

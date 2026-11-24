@@ -790,3 +790,4 @@ body.weg #app>.unter{transform:translateY(-100%)}
 /* Seitenleiste beginnt oben; der Einklapp-Pfeil sitzt rechts neben dem ersten Eintrag */
 .ruecken ul{padding-top:12px;padding-right:34px}
 .ruecken .zubtn{top:14px;z-index:2}
+.vcr{grid-template-columns:290px 1fr 20px;padding-left:28px}

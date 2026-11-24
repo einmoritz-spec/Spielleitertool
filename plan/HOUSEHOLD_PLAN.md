@@ -14,11 +14,11 @@ Ziel: ein **System „Household“** mit **Untersetting „Der Garten“** (Vol.
 - Noch **keine Mockups**, bis er es sagt.
 - Der **Garten-Quickstart** (*Introduction to the Garden*, 33 S.) ist nur die kostenlose Vorschau auf Vol. II → **nur als Buch** in der Bücherliste behalten, keine eigenen Inhalte.
 
-### Offene Rückfragen (vor dem Bau klären, mit Vorschlag)
-1. **Spielbegriffe:** Vorschlag wie bei Slugblaster/Heart: Eigennamen und Spielbegriffe, die im Buch Eigennamen sind (Household, Little Folk/Littlings, Faeries, Boggarts, Hearth, Realm, Sprites, Sluagh, Horde, Free Dominions, Terrible Terrible Things, Decorum, Aces Up Your Sleeve, Paragraph, Chapter, Saga …) – **zu klären, ob englisch bleibt oder offiziell/eigen übersetzt wird.** Moritz sagt sonst „alles auf Deutsch“; bei Household gibt es meines Wissens **keine** offizielle deutsche Ausgabe → Vorschlag: Fließtext deutsch, Eigennamen/Spielbegriffe wie im Buch englisch lassen (Liste vorab zeigen).
-2. **Namen der Abenteuer:** Eigennamen (Argo’s Diary, Blue Rat …) englisch lassen oder übersetzen? Vorschlag: übersetzen (Argos Tagebuch, Die Blaue Ratte …), Personen- und Ortsnamen bleiben.
-3. **Karte:** Atlas im Practical Guide (8 Orte) + Gartenkarte (Vol. II) + Hausplan (Grundbuch Kap. IX) – Vorschlag: „Karte“-Taste öffnet die jeweils passende Karte.
-4. **Zahl der Charakterbogen:** nur der normale Household-Bogen (A4 quer). Vorschlag: deutscher Nachbau auf dem Original-Hintergrund + ausfüllbares PDF, **ganz zum Schluss**.
+### Weitere Entscheidungen (24. Nov. 2026, alle drei Vorschläge von Moritz bestätigt)
+1. **Spielbegriffe:** Fließtext deutsch; Eigennamen und Spielbegriffe, die im Buch Eigennamen sind (Household, Little Folk/Littlings, Faeries, Boggarts, Hearth, Realm, Sprites, Sluagh, Horde, Free Dominions, Terrible Terrible Things, Decorum, Aces Up Your Sleeve, Paragraph, Chapter, Saga …), bleiben englisch. Vor dem Bau eine Begriffsliste zeigen.
+2. **Abenteuer-Titel** werden übersetzt (z. B. „Die Blaue Ratte“); Personen- und Ortsnamen bleiben.
+3. **Karte:** die Taste „m“ öffnet die jeweils passende Karte (Haus, Atlas oder Garten).
+4. **Charakterbogen:** nur der normale Household-Bogen, deutscher Nachbau + ausfüllbares PDF, ganz zum Schluss.
 
 ## 1. Quellen (liegen bei Moritz im Drive „Pen and Paper/Household“, Upload in den Chat)
 
@@ -91,7 +91,7 @@ Alles, was im Buch Kasten/Karte ist (Gegner, Gegenstände, Verträge, Mysterien,
 
 ## 6. Bilder (Priorität 1)
 
-**Bestand (grob, nach Filter):** Grundbuch ~190 Illustrationen auf ~157 Seiten (von ~2.000 eingebetteten Bildern), Guide ~120 auf ~98, Fragile Peace ~75 auf ~56, Long Winter ~110 auf ~81. **Vol. 2 (Garten) noch nicht ausgewertet.** Der Rest sind Papiertexturen, Banner, Textfeld-Rahmen, Zierbuchstaben und Maskenreste.
+**Bestand (grob, nach Filter):** Grundbuch ~190 Illustrationen auf ~157 Seiten (von ~2.000 eingebetteten Bildern), Guide ~120 auf ~98, Fragile Peace ~75 auf ~56, Long Winter ~110 auf ~81. Garten (Vol. II) ~175 auf ~150 Seiten. Der Rest sind Papiertexturen, Banner, Textfeld-Rahmen, Zierbuchstaben und Maskenreste.
 
 **Technik:** `pdfimages -all -p` extrahiert alle Rohbilder in ~2 Minuten pro Buch (PNG-Ausgabe ist 10× langsamer, nicht nutzen). Figuren, Tiere und Gegenstände liegen **schon freigestellt** als Bild + Maske (smask) vor → zu RGBA zusammensetzen, nicht neu ausschneiden. Doppelseiten sind meist ein eigenes großes Bild. Wo eine Illustration aus mehreren Stücken besteht oder Text darüberliegt, die Stelle aus dem Seitenbild rendern. Dekoration erkennt man an wiederkehrenden Größen (Banner 2564×1287, Papier 862×…/980×…, Rahmen 644×…), einfarbiger Mitte und fehlender Seitenzuordnung.
 
@@ -104,7 +104,7 @@ Alles, was im Buch Kasten/Karte ist (Gegner, Gegenstände, Verträge, Mysterien,
 6. Vor jedem Push per Screenshot prüfen (Lücken, schiefe/abgeschnittene Bilder, weiße Ränder).
 
 ## 7. Bauschritte (Vorschlag, auf Moritz’ „Ja“ je Schritt)
-0. Offene Rückfragen (oben) klären · Vol. 2 Bildbestand auswerten · Bildlisten (Abschnitt 6, Schritt 1) fertig
+0. Bildlisten (Abschnitt 6, Schritt 1) fertig; Entscheidungen stehen oben
 1. **Design + Mockups (Opus):** Startseite, Welt/Haus/Atlas, Regeln, Spielleitung, Garten, Saga-Übersicht, Abenteuer-Leitstand, Charakter – erst nach Moritz’ Startschuss
 2. Gerüst, Logo, Dropdown, Kopfzeile, Tastenkürzel, Buch-Auswahl (PDF-Upload), Galerie-Gerüst
 3. Grundbuch: Völker, Berufe, Regeln, Verträge, Ausrüstung, Geschichte

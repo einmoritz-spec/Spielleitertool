@@ -716,3 +716,8 @@ textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cq
 .bspq{color:#6b5a4a}
 .bspa{margin-top:8px;border-top:1px solid #0002;padding-top:8px}
 .bspa ul{margin:6px 0 0;padding-left:18px;font-size:15px;line-height:1.45}.bspa li{margin-bottom:6px}
+
+.tabs a.kreset{display:inline-flex;align-self:flex-end;box-sizing:content-box;padding:0 0 11px 12px;color:#7d6c5b;cursor:pointer}
+.tabs a.kreset svg{width:14px;height:14px;flex:none}
+.tabs a.kreset:hover{color:#f2e9da;background:none}
+.modal>div:has(.kreq){width:auto;max-width:400px}.kreq p{margin:0 0 4px;font:17px/1.4 var(--body)}

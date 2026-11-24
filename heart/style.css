@@ -685,3 +685,34 @@ textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cq
 .bgbild img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 1px 4px #0004}
 .bgbild s{position:absolute;right:-1cqw;top:-1cqw;width:3cqw;height:3cqw;border-radius:50%;background:#1a1410;color:#fff;text-decoration:none;font:400 2.4cqw/3cqw sans-serif;text-align:center;cursor:pointer;opacity:0;transition:opacity .15s}
 .bgbild:hover s{opacity:.85}
+/* Beispielkampagne */
+.kbsp{position:absolute;right:28px;top:26px;z-index:5;font:400 14px/1 var(--head);letter-spacing:.07em;text-transform:uppercase;background:#f4ecdf;color:#2b1d14;border:0;padding:9px 14px;cursor:pointer;box-shadow:0 3px 10px #0008}
+.kbsp:hover{background:#fff}
+.bspw{max-width:1500px;margin:0 auto;padding:20px 20px 50px}
+.bspkopf{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.bspkopf h1{margin:0;font:400 34px var(--head);text-transform:uppercase;letter-spacing:.03em;color:#f2e9da}
+.bspkopf .sp{flex:1}
+.bspkopf button{font:400 14px/1 var(--head);letter-spacing:.07em;text-transform:uppercase;background:#f2e9da;color:#2b1d14;border:0;padding:10px 16px;cursor:pointer}
+.bspkopf button:hover{background:#fff}
+.bspl{font:italic 15px Alegreya,serif;color:#cbbba6;padding-left:14px;position:relative}
+.bspl:before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:4px}
+.bspl.linie:before{background:#3f8c86}.bspl.auftrag:before{background:#b5463a}
+.bsps{margin-top:22px}
+.bsph{font:400 20px var(--head);letter-spacing:.1em;text-transform:uppercase;color:#f2e9da;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid #3a2e22}
+.bsph small{font:italic 15px Alegreya,serif;letter-spacing:0;text-transform:none;color:#9c8a76;margin-left:8px}
+.bspg{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
+.bspk{background:#f4eee3;color:#1a1410;padding:14px 16px 12px;border-left:5px solid #9c8a76;box-shadow:0 4px 14px #0008}
+.bspk.linie{border-left-color:#3f8c86}.bspk.auftrag{border-left-color:#b5463a}.bspk.linie.auftrag{border-image:linear-gradient(#3f8c86 50%,#b5463a 50%) 1}
+.bspkk .platte{cursor:pointer}
+.bspkw{font:italic 14.5px Alegreya,serif;color:#6b5a4a;margin:6px 0 8px}
+.bspv{list-style:none;margin:0;padding:0}
+.bspv li{padding:6px 0;border-top:1px dotted #0003;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.bspz{cursor:pointer;font:500 16px Alegreya,serif;color:#3a120e;flex:1}
+.bspz:hover{color:#8a1d1d;text-decoration:underline}
+.bspr{font:400 15px var(--head);background:#2b1d14;color:#f2e9da;border-radius:50%;min-width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center}
+.bspd{flex-basis:100%;font-size:15px}
+.bspd summary,.bspa summary{cursor:pointer;font:400 13px var(--head);letter-spacing:.08em;text-transform:uppercase;color:#8a1d1d}
+.bspd p{margin:6px 0 2px;line-height:1.45}
+.bspq{color:#6b5a4a}
+.bspa{margin-top:8px;border-top:1px solid #0002;padding-top:8px}
+.bspa ul{margin:6px 0 0;padding-left:18px;font-size:15px;line-height:1.45}.bspa li{margin-bottom:6px}

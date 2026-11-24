@@ -43,7 +43,7 @@ function view(){
     var v = k.f[wahl], l = v && v.id && lmById(v.id);
     leiste = '<div class="kbar"><b>' + esc(name(v)) + "</b>" + (l ? '<button onclick="go(\'lm/' + l.id + '\')">Landmarke öffnen</button>' : v && v.dk ? '<button onclick="go(\'dagger/' + v.dk.split("/")[0] + "/landmarken/" + v.dk.split("/")[1] + '\')">Landmarke öffnen</button>' : "") + '<button onclick="kVerb()">' + (verb ? "Abbrechen" : "Delve ziehen") + '</button><button onclick="kWahl()">Landmarke ändern</button><button onclick="kWeg()">Entfernen</button><button onclick="kZu()">✕</button></div>';
   }
-  return window.spielNav("karte") + '<div class="kwrap"><div class="kmap" style="background-image:url(' + IMG("karte-s208") + ')">' + svg + marks + plates + "</div>" + leiste + "</div>";
+  return window.spielNav("karte") + '<div class="kwrap"><button class="kbsp" onclick="go(\'kampagne\')">Beispielkampagne</button><div class="kmap" style="background-image:url(' + IMG("karte-s208") + ')">' + svg + marks + plates + "</div>" + leiste + "</div>";
 }
 window.kFeld = function(key){
   var k = K();

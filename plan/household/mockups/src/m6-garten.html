@@ -3,9 +3,9 @@
 :root{--vio:#3f6a34;--vio2:#6d8f4e;--rule:#b7a46a}
 body{background-image:url(deko/papier-garten-kachel.jpg)}
 .unter{background:#e7ecd6}.unter .sw a.on{background:#3f6a34}
-.lay{display:grid;grid-template-columns:600px 1fr;gap:0;align-items:start}
-.karte{position:sticky;top:98px;padding:14px 16px 14px 18px;border-right:1px solid rgba(183,164,106,.6);height:calc(100vh - 98px);display:flex;flex-direction:column;gap:10px}
-.karte .mp{position:relative;flex:1;min-height:0;display:flex;justify-content:center}.karte .mp .in{position:relative;height:100%;aspect-ratio:1360/1584;border:1px solid #b7a46a;box-shadow:0 4px 14px rgba(40,50,20,.25)}.karte .mp img{width:100%;height:100%;display:block}
+.lay{display:grid;grid-template-columns:640px 1fr;gap:0;align-items:start}
+.karte{padding:16px 18px 20px 20px;border-right:1px solid rgba(183,164,106,.6);display:flex;flex-direction:column;gap:12px}
+.karte .mp{position:relative}.karte .mp .in{position:relative;width:100%;aspect-ratio:1508/2120;filter:drop-shadow(0 6px 10px rgba(40,50,20,.3))}.karte .mp img{width:100%;height:100%;display:block}.karte .spot{-webkit-mask:var(--mk) center/100% 100% no-repeat;mask:var(--mk) center/100% 100% no-repeat}
 .karte .hot{position:absolute;border:2px solid #fff6c9;background:rgba(63,106,52,.25);box-shadow:0 0 0 2px #3f6a34,0 0 16px rgba(255,245,190,.9);border-radius:50%}
 .geb{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
 .geb a{font:14.5px Fell,serif;padding:3px 9px;border:1px solid #c5b585;border-radius:2px;color:#4c5a3a;background:#f6f3e6}
@@ -24,7 +24,7 @@ body{background-image:url(deko/papier-garten-kachel.jpg)}
 </style></head><body>
 <script>kopf({bg:'#26391f',on:'Welt',unterBg:'#e7ecd6',unter:['Völker','Geschichte','Der Garten','Atlas der Präfekturen'],uon:'Der Garten',sw:['Karte','Reisekarte'],swon:'Karte',logo:img('grundbuch-s-01-umschlag-vorspann-c')})</script>
 <div class="lay">
- <div class="karte"><div class="mp"><div class="in" id="mp"><img src="deko/outhold-innen.jpg"></div></div>
+ <div class="karte"><div class="mp"><div class="in" id="mp"><img id="ki"></div></div>
   <div class="geb"><a>The Front Yard</a><a>The Underground</a><a>The Brambles</a><a class="on">The Woodlands</a><a>The Barrens</a><a>The Grasslands</a><a>The Backyard</a><a>The Rushes</a><a>Four Oaks</a></div></div>
  <div class="inh">
   <div class="pano" id="pa"></div>
@@ -37,8 +37,8 @@ body{background-image:url(deko/papier-garten-kachel.jpg)}
   </div>
  </div>
 </div>
-<script>spot(mp,[[2,30],[20,27],[31,34],[32,52],[26,68],[10,72],[2,64]],'The Woodlands',17,26);pa.style.backgroundImage='url('+img('garten-s178-179-vii-the-woodlands-ganz')+')';i1.style.backgroundImage='url('+img('garten-s173-vii-the-woodlands')+')';</script>
+<script>var K=img('garten-s153-karte-des-gartens-the-outhold-frei');ki.src=K;mp.style.setProperty('--mk','url('+K+')');spot(mp,[[6.7,39],[22.9,36.8],[32.8,42],[33.7,55.5],[28.3,67.4],[13.9,70.4],[6.7,64.4]],'The Woodlands',20,36);pa.style.backgroundImage='url('+img('garten-s178-179-vii-the-woodlands-ganz')+')';i1.style.backgroundImage='url('+img('garten-s173-vii-the-woodlands')+')';</script>
 <div class="note" style="left:20px;top:60px;max-width:300px">Untersetting Garten: eigenes Grün, gleiche Bedienung</div>
-<div class="note" style="left:330px;top:560px;max-width:260px">Karte ohne Rahmen und größer; Rest abgedunkelt, Gebiet mit feiner Goldlinie</div>
+<div class="note" style="left:330px;top:560px;max-width:260px">Karte samt Dornenrahmen vom Holz freigestellt, groß; Gebiet mit feiner Goldlinie</div>
 <div class="note" style="left:960px;top:110px;max-width:260px">Umschalter Karte / Reisekarte (Taste m)</div>
 </body></html>

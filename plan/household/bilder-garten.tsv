@@ -6,28 +6,20 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 19	17	1200	1694	I. Barghests
 20	18	1135	1589	I. The Brambles (Volk)
 21	19	757	1329	I. The Brambles (Volk)
-21	19	840	1404	I. The Brambles (Volk)
 22	20	406	409	I. Gnomes
 22	20	454	456	I. Gnomes
 23	21	1180	1635	I. Gnomes
 24	22	940	1799	I. The Citadel
 25	23	662	955	I. The Citadel
 25	23	783	1268	I. The Citadel
-25	23	868	1384	I. The Citadel
 27	25	1063	1572	I. Fae
 28	26	1139	1921	I. The Seelie Court
 29	27	667	1549	I. The Seelie Court
-29	27	752	1816	I. The Seelie Court
 30	28	1707	701	I. Shinigami
 31	29	1169	1736	I. Shinigami
 32	30	1043	1530	I. The Shogunate
 33	31	662	1348	I. The Shogunate
 33	31	731	1431	I. The Shogunate
-33	31	816	1492	I. The Shogunate
-36	34	1360	1700	I. Inside Folk
-37	35	352	247	II. Berufe: Einleitung
-37	35	352	247	II. Berufe: Einleitung
-37	35	1144	233	II. Berufe: Einleitung
 38	36	654	1538	II. Berufe: Einleitung
 39	37	654	1040	II. Berufe: Einleitung
 39	37	1706	1099	II. Berufe: Einleitung
@@ -40,15 +32,11 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 69	67	1004	984	II. Ladybug
 70	68	1138	1098	II. Moth
 71	69	1098	1135	II. Mole
-75	73	408	269	III. Contracts: Einleitung
-75	73	408	269	III. Contracts: Einleitung
 79	77	1177	2206	III. Hereditary Contracts
 81	79	1240	2207	III. Hereditary Contracts
 83	81	1275	2206	III. Hereditary Contracts
 85	83	1252	2206	III. Hereditary Contracts
 93	91	1703	2206	III. Favors
-97	95	300	294	IIII. Ausrüstung: Einleitung
-97	95	300	294	IIII. Ausrüstung: Einleitung
 98	96	654	1378	IIII. Coins & Barter
 100	98	1072	1572	IIII. Weapons
 102	100	797	990	IIII. Weapons
@@ -64,24 +52,17 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 113	111	654	1597	IIII. Natural Concoctions
 115	113	1706	1257	IIII. Mounts
 116	114	1448	1373	IIII. Mounts
-119	117	394	375	V. Geschichte: Einleitung
-119	117	394	375	V. Geschichte: Einleitung
 121	119	1707	2011	V. Geschichte: Einleitung
 124	122	686	1225	V. The Long Winter
 131	129	941	2206	V. The Rebirth of Dèndronaos
 132	130	1046	1031	V. The Brambles Rebellion
 134	132	698	1419	V. The Silver Blade
-137	135	408	341	VI. Saga: Einleitung
-137	135	408	341	VI. Saga: Einleitung
 138	136	313	699	VI. Saga: Einleitung
-140	138	748	360	VI. Advancement
 144	142	1669	2207	VI. Historical Events
 145	143	897	881	VI. Historical Events
 147	145	1222	1550	VI. Historical Events
 149	147	1544	906	VI. Historical Events
 151	149	1706	1869	VI. Historical Events
-153	151	427	336	VII. Garten: Einleitung
-153	151	427	336	VII. Garten: Einleitung
 154	152	654	912	VII. Garten: Einleitung
 159	157	654	1035	VII. The Underground
 162	160	406	407	VII. The Front Yard
@@ -117,7 +98,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 215	213	727	1080	VII. The Rushes
 217	215	1188	2140	VII. The Rushes
 218	216	1013	1293	VII. The Rushes
-219	217	1360	1620	VII. The Rushes
 221	219	1576	1788	VII. The Rushes
 222	220	1010	2155	VII. The Rushes
 223	221	654	1457	VII. The Rushes
@@ -129,13 +109,11 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 234	232	654	1066	VII. The Rushes
 235	233	1541	1942	VII. The Rushes
 236	234	564	795	VII. Four Oaks
-239	237	419	311	VIII. Reise & Jahreszeiten: Einleitung
 241	239	1608	1142	VIII. Travel
 243	241	1704	2207	VIII. Travel
 245	243	1222	1307	VIII. Travel
 250	248	1550	1921	VIII. Travel
 253	251	1707	1006	VIII. Travel
-257	255	1360	1724	VIII. Darkness
 259	257	654	1372	VIII. Severe Stress
 263	261	1707	1275	VIII. Winter
 265	263	654	1304	VIII. Winter
@@ -146,9 +124,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 273	271	654	1210	VIII. Summer
 275	273	1501	1211	VIII. Autumn
 278	276	1704	2207	VIII. Autumn
-279	277	369	258	Anhang: Opponents of the Garden
-279	277	369	258	Anhang: Opponents of the Garden
-279	277	769	175	Anhang: Opponents of the Garden
 281	279	654	838	Anhang: Opponent Traits
 282	280	1706	1169	Anhang: Opponents
 285	283	1388	889	Anhang: Opponents
@@ -166,9 +141,5 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 307	305	479	1483	Anhang: Colossi
 308	306	1706	1567	Anhang: Colossi
 309	307	820	1567	Anhang: Colossi
-312	310	1706	1728	Anhang: Colossi
-312	310	1706	1728	Anhang: Colossi
-313	311	907	1728	Anhang: Colossi
-314	312	1368	1660	Anhang: Colossi
 316	314	478	1069	Anhang: Colossi
 318	316	502	1116	Anhang: Colossi

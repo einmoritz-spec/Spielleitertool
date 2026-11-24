@@ -4,66 +4,45 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 1	-1	680	680	Umschlag/Vorspann
 4	2	341	340	Umschlag/Vorspann
 4	2	1160	799	Umschlag/Vorspann
-7	5	980	1835	Vorwort
 11	9	2555	1097	Vorwort
 12	10	1446	1607	Vorwort
 14	12	1331	1882	Vorwort
-14	12	1360	820	Vorwort
-15	13	436	302	I. Völker: Einleitung
-15	13	436	302	I. Völker: Einleitung
 19	17	3282	2124	I. Faeries
 20	18	1240	2152	I. Faeries
-21	19	796	1640	I. Realm
 21	19	992	1623	I. Realm
 21	19	1324	2931	I. Realm
 23	21	1275	2261	I. Realm
 25	23	1485	1844	I. Boggarts
 26	24	1466	2314	I. Boggarts
-27	25	840	1276	I. Hearth
 27	25	992	1344	I. Hearth
 27	25	1407	2271	I. Hearth
 29	27	1288	2229	I. Hearth
 32	30	1439	2492	I. Sprites
-33	31	892	1232	I. Free Dominions
 33	31	992	1728	I. Free Dominions
 33	31	1496	2176	I. Free Dominions
 34	32	1695	2069	I. Free Dominions
 36	34	3143	2654	I. Sluagh
 37	35	3454	2654	I. Sluagh
 38	36	1528	2200	I. Sluagh
-39	37	820	1340	I. Horde
 39	37	992	1344	I. Horde
 39	37	1509	2637	I. Horde
 41	39	1154	2174	I. Horde
 42	40	1937	2564	I. Horde
-43	41	408	266	II. Charakter
-43	41	408	266	II. Charakter
-43	41	488	316	II. Charakter
-43	41	488	316	II. Charakter
 44	42	1742	3200	II. Charakter
 45	43	1267	2602	II. Charakter
 48	46	1968	1244	II. Charakter
-49	47	980	1774	II. Charakter
-50	48	1360	1648	II. Charakter
 57	55	2552	3035	III. Scholars
 76	74	1305	1090	III. Beetle
 77	75	1141	1266	III. Bumblebee
 78	76	1157	1139	III. Gecko
 79	77	1573	1878	III. Mouse
 80	78	1296	1594	III. Traits
-83	81	980	1631	III. Traits
-84	82	1360	820	III. Traits
 84	82	2480	2377	III. Traits
-85	83	388	258	IIII. Regeln: Einleitung
-85	83	388	258	IIII. Regeln: Einleitung
-86	84	980	1909	IIII. Regeln: Einleitung
 86	84	1472	1070	IIII. Regeln: Einleitung
 87	85	2365	3508	IIII. Regeln: Einleitung
 89	87	3128	2137	IIII. Action Rolls
-90	88	980	1655	IIII. Action Rolls
 92	90	3346	2124	IIII. Action Rolls
 94	92	1219	1728	IIII. Action Rolls
-95	93	980	1619	IIII. Reaction Rolls
 100	98	3536	2848	IIII. Stress
 102	100	959	1426	IIII. Fields & Skills
 103	101	874	1236	IIII. Fields & Skills
@@ -72,27 +51,16 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 107	105	1016	1350	IIII. Moves
 108	106	811	1328	IIII. Help & Hindrance
 109	107	804	1856	IIII. Help & Hindrance
-114	112	980	1532	IIII. Combat
 115	113	2530	1505	IIII. Combat
 116	114	2555	1341	IIII. Combat
-117	115	980	2023	IIII. Combat
 118	116	1323	1003	IIII. Combat
-119	117	980	2508	IIII. Combat
 119	117	1310	1263	IIII. Combat
 121	119	2321	1843	IIII. Shooting
-123	121	980	1652	IIII. Shooting
 125	123	3128	1201	IIII. Conditions & Decorum
 128	126	3086	1442	IIII. Conditions & Decorum
-130	128	1360	1888	IIII. Conditions & Decorum
-131	129	258	397	V. Contracts: Einleitung
 137	135	1734	3582	V. Hereditary Contracts
 139	137	2106	3549	V. Hereditary Contracts
 141	139	2235	3164	V. Hereditary Contracts
-142	140	1360	1708	V. Hereditary Contracts
-143	141	1360	1748	V. Hereditary Contracts
-150	148	980	2480	V. Welcoming Contracts
-152	150	1360	1812	V. Welcoming Contracts
-153	151	291	361	VI. Ausrüstung: Einleitung
 154	152	1368	772	VI. Wealth
 155	153	1232	947	VI. Wealth
 158	156	1375	2059	VI. Gadgets
@@ -108,58 +76,36 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 177	175	2019	1525	VII. Battle of Quillwaters
 178	176	2453	3172	VII. Battle of Quillwaters
 179	177	2454	3172	VII. Battle of Quillwaters
-180	178	1360	1680	VII. Battle of Quillwaters
-181	179	1360	1584	VII. Battle of Quillwaters
 182	180	1135	2144	VII. High Council
 183	181	2884	1861	VII. High Council
 184	182	821	1147	VII. High Council
-184	182	1300	1056	VII. High Council
-185	183	269	350	VIII. Saga: Einleitung
-185	183	269	350	VIII. Saga: Einleitung
-189	187	980	2285	VIII. Saga: Einleitung
-190	188	2173	1985	VIII. Saga: Einleitung
-190	188	2173	1985	VIII. Saga: Einleitung
 194	192	1050	1338	VIII. Historical Events
 196	194	2555	1489	VIII. Historical Events
 197	195	1105	1955	VIII. Historical Events
-199	197	980	1468	VIII. Advancement
-203	201	269	347	IX. Das Haus: Einleitung
-203	201	269	347	IX. Das Haus: Einleitung
 208	206	2554	1418	IX. Entry Hall
 210	208	2555	1411	IX. Entry Hall
-211	209	980	1411	IX. Inbetweens
 213	211	1181	1181	IX. Wheel of the Year
 217	215	2559	1308	IX. Dining Hall
-219	217	962	1744	IX. Dining Hall
 220	218	2555	1443	IX. Dining Hall
 222	220	2559	1446	IX. Dining Hall
 223	221	1039	1468	IX. Dining Hall
-224	222	980	1496	IX. Dining Hall
 224	222	1030	1459	IX. Dining Hall
-225	223	962	2119	IX. Dining Hall
 228	226	1425	2016	IX. Dining Hall
 231	229	2458	3185	IX. Dining Hall
 236	234	975	1666	IX. Living Room
 238	236	1563	2277	IX. Living Room
 241	239	2559	1448	IX. Living Room
 242	240	2334	2367	IX. Living Room
-243	241	962	3309	IX. Living Room
 244	242	951	1262	IX. Living Room
 249	247	958	1714	IX. Upper Floor
-251	249	962	1827	IX. Upper Floor
-252	250	962	1700	IX. Upper Floor
 253	251	1116	1622	IX. Upper Floor
 254	252	1354	2223	IX. Upper Floor
 258	256	2555	1756	IX. Upper Floor
 264	262	2555	1408	IX. Basement
 265	263	1223	1478	IX. Basement
-267	265	962	1738	IX. Basement
 267	265	2559	1430	IX. Basement
 268	266	1641	2414	IX. Basement
-271	269	962	2634	IX. Basement
 274	272	2330	1298	IX. Basement
-277	275	313	322	Anhang I: Einleitung
-277	275	313	322	Anhang I: Einleitung
 279	277	2559	1919	Anhang I: Einleitung
 282	280	2166	1263	Anhang I: Weak Spots
 283	281	2171	1263	Anhang I: Weak Spots
@@ -169,21 +115,13 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 290	288	2565	1709	Anhang I: Opponents
 294	292	2407	1156	Anhang I: Opponents
 296	294	2112	1634	Anhang I: Opponents
-297	295	1480	1244	Anhang I: Opponents
 297	295	1520	2011	Anhang I: Opponents
 298	296	1838	1561	Anhang I: Opponents
 301	299	3380	2237	Anhang I: Opponents
 302	300	2406	1654	Anhang I: Opponents
-303	301	1480	1408	Anhang I: Opponents
 303	301	2407	1653	Anhang I: Opponents
 304	302	2628	2014	Anhang I: Opponents
-306	304	1360	1812	Anhang I: Opponents
-307	305	305	294	Anhang II: Pride & Prejudice & Centipedes
-307	305	305	294	Anhang II: Pride & Prejudice & Centipedes
 309	307	1441	1932	Anhang II: Pride & Prejudice & Centipedes
 310	308	1251	1652	Anhang II: Pride & Prejudice & Centipedes
 314	312	1641	2190	Anhang II: Pride & Prejudice & Centipedes
-317	315	280	341	Anhang II: Pride & Prejudice & Centipedes
-317	315	280	341	Anhang II: Pride & Prejudice & Centipedes
-318	316	524	210	Anhang II: Pride & Prejudice & Centipedes
 322	320	867	900	Anhang II: Pride & Prejudice & Centipedes

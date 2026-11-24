@@ -91,7 +91,7 @@ Alles, was im Buch Kasten/Karte ist (Gegner, Gegenstände, Verträge, Mysterien,
 
 ## 6. Bilder (Priorität 1)
 
-**Bestand (grob, nach Filter):** Grundbuch ~190 Illustrationen auf ~157 Seiten (von ~2.000 eingebetteten Bildern), Guide ~120 auf ~98, Fragile Peace ~75 auf ~56, Long Winter ~110 auf ~81. Garten (Vol. II) ~175 auf ~150 Seiten. Der Rest sind Papiertexturen, Banner, Textfeld-Rahmen, Zierbuchstaben und Maskenreste.
+**Bestand (Stand 24. Nov., Filter am Bild geprüft):** Grundbuch ~125 Illustrationen, Guide ~85, Garten (Vol. II) ~145, Fragile Peace ~65, Long Winter ~90 – zusammen rund 510 (von über 8.000 eingebetteten Bildern). Aussortiert sind Papiertexturen, Muster-Banner, Textfeld-Rahmen, Medaillen-Masken (schwarz-weiße Silhouetten), geprägte Symbole und Text-Platzhalter. Sepia-Skizzen auf Weiß sind **echte Illustrationen** und bleiben. Einzelne Bilder sind aus Teilstücken zusammengesetzt (z. B. Teetasse Grundbuch S. 98) – beim Einbau aus dem Seitenbild rendern.
 
 **Technik:** `pdfimages -all -p` extrahiert alle Rohbilder in ~2 Minuten pro Buch (PNG-Ausgabe ist 10× langsamer, nicht nutzen). Figuren, Tiere und Gegenstände liegen **schon freigestellt** als Bild + Maske (smask) vor → zu RGBA zusammensetzen, nicht neu ausschneiden. Doppelseiten sind meist ein eigenes großes Bild. Wo eine Illustration aus mehreren Stücken besteht oder Text darüberliegt, die Stelle aus dem Seitenbild rendern. Dekoration erkennt man an wiederkehrenden Größen (Banner 2564×1287, Papier 862×…/980×…, Rahmen 644×…), einfarbiger Mitte und fehlender Seitenzuordnung.
 

@@ -46,14 +46,9 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 68	66	835	981	Figur: Fiona McInnis
 70	68	1081	1077	Figur: Kurai
 72	70	1032	1120	Figur: Sakari Redland
-75	73	394	375	Adventures in the Saga
-75	73	394	375	Adventures in the Saga
 77	75	654	1338	Adventures in the Saga
 78	76	936	1282	Adventures in the Saga
 80	78	1707	2206	Adventures in the Saga
-81	79	416	347	VI Winter
-81	79	416	347	VI Winter
-81	79	463	150	VI Winter
 82	80	565	681	VI Winter
 82	80	812	812	VI Winter
 83	81	1707	1353	VI Winter
@@ -76,8 +71,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 102	100	565	514	VI Winter
 102	100	795	612	VI Winter
 103	101	949	1529	VI Winter
-104	102	1376	1012	VI Winter
-104	102	1376	1012	VI Winter
 105	103	654	1510	VI Winter
 109	107	1706	1878	VI Winter
 112	110	610	1489	VI Winter
@@ -87,16 +80,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 116	114	654	1064	VI Winter
 118	116	654	1130	VI Winter
 119	117	1598	1151	VI Winter
-121	119	322	300	VI Spring
-121	119	322	300	VI Spring
-123	121	1396	772	VI Spring
-129	127	427	336	VI Summer
-129	127	427	336	VI Summer
-137	135	327	325	VI Autumn
-137	135	327	325	VI Autumn
-145	143	469	150	VII Winter
-162	160	700	904	VII Summer
-177	175	433	150	Epilog Winter
 181	179	1706	1132	Epilog Winter
 183	181	654	1062	Epilog Winter
 183	181	1500	1375	Epilog Winter
@@ -107,7 +90,4 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 187	185	654	1517	Epilog Winter
 187	185	1707	818	Epilog Winter
 189	187	1640	1635	Epilog Winter
-192	190	1332	1750	Epilog Winter
-193	191	369	258	Anhang Time-line
-193	191	369	258	Anhang Time-line
 198	196	783	896	Anhang Time-line

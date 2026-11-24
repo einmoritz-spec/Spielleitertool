@@ -1,8 +1,5 @@
 pdf_seite	buch_seite	breite	hoehe	zuordnung
 1	-1	438	458	Umschlag/Vorspann
-1	-1	476	168	Umschlag/Vorspann
-1	-1	517	472	Umschlag/Vorspann
-1	-1	750	690	Umschlag/Vorspann
 1	-1	2324	3042	Umschlag/Vorspann
 5	3	2473	2778	Umschlag/Vorspann
 6	4	341	340	Umschlag/Vorspann
@@ -11,8 +8,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 10	8	2559	1228	The Historian’s Club
 12	10	2835	2130	Historical Time-line
 13	11	2834	2130	Historical Time-line
-15	13	408	266	Historical Time-line
-15	13	408	266	Historical Time-line
 16	14	2384	2017	Figur: Dimitri Sokov
 17	15	816	2017	Figur: Dimitri Sokov
 18	16	1754	1877	Figur: Ira Poole
@@ -52,7 +47,6 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 74	72	1200	1278	I: Argo’s Diary
 76	74	2024	2660	I: Argo’s Diary
 76	74	2024	2660	I: Argo’s Diary
-77	75	962	2161	I: Argo’s Diary
 81	79	3112	2613	I: The Epidemic
 82	80	2167	1810	I: The Epidemic
 88	86	846	938	I: The Case of the Missing Bumblebee
@@ -69,6 +63,4 @@ pdf_seite	buch_seite	breite	hoehe	zuordnung
 116	114	1573	1925	I: The Blue Rat
 117	115	2403	3094	I: The Blue Rat
 197	195	2550	1021	Kapitel V.III
-203	201	322	394	Epilog
-203	201	322	394	Epilog
 206	204	2550	1021	Epilog: The Fall of Faeriyev

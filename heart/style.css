@@ -785,3 +785,5 @@ body.weg #app>.unter{transform:translateY(-100%)}
 .gleg{margin-top:16px}
 .gleg .gg{grid-template-columns:repeat(5,minmax(0,1fr));gap:2px 22px}.gleg .gg>.gz:not(.auf){border-bottom:0}
 @media(max-width:1100px){.gleg .gg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Klassen: großer Kasten hinter dem Text mit der Gemini-Papierkachel (wie Landmarken-Detail) */
+.inh.kl .seite{border-image:none;border-color:transparent;background:#f6f1e8 url(img/tex/papier-kachel.webp) 0 0/1100px repeat border-box}

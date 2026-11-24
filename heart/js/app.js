@@ -45,7 +45,8 @@ function startUnter(k){
   var id = k.r.replace("nach/", ""), C = (window.HT_NACH || {})[id];
   if(k.r === "lm") return [["Landmarken","lm"],["Karte","karte"],["Expedition","exp"]];
   if(k.r === "gegner") return [];
-  if(!C || C.subs.length < 2) return [];
+  if(!C) return [];
+  if(C.subs.length < 2) return C.subs[0].secs.filter(function(x){ return x.t !== k.t; }).map(function(x){ return [kurz(x.t), k.r + "/" + C.subs[0].id + "/" + x.id]; });
   return C.subs.filter(function(s){ return id !== "regeln" || ["leicht","schwer","kritisch"].indexOf(s.id) < 0; }).map(function(s){ return [s.t, id === "regeln" && s.id === "fallout" ? "fallout" : k.r + "/" + s.id]; });
 }
 function startRechts(inh, kl){

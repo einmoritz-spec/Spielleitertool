@@ -164,6 +164,12 @@
   }
   /* Eine Tab-Leiste für alles: Vorbereitung, Spielwerkzeuge, Trenner, Buchkapitel (TftL und Flood) */
   var KURZ = {"Das Mysterium":"Mysterium","Mystery-Landschaft":"Landschaft","Spielleiterschirm":"Schirm"};
+  var GR = [["Die Welt",["welt","loops","pacifica"]],["Regeln",["kids","aerger","reisende","kampf","reise"]],["Spielleitung",["mysterium","landschaft","schirm","bedrohungen"]]];
+  window.TX_G = function(C){
+    var have = (C.NACH || []).map(function(n){ return n[0]; }), out = [];
+    GR.forEach(function(g){ var k = g[1].filter(function(x){ return have.indexOf(x) >= 0; }); if(k.length) out.push({name: k.length > 1 ? g[0] : (function(){ var n = (C.NACH || []).filter(function(y){ return y[0] === k[0]; })[0]; return KURZ[n[1]] || n[1]; })(), keys: k}); });
+    return out;
+  };
   window.TX_TABS = function(C, on){
     var B = (window.BEREICHE || {})[C.area], p = C.p || "";
     if(!B) return null;
@@ -171,8 +177,7 @@
     var h = "", tl = B.tabs || [];
     tl.forEach(function(t){ if(t[0] === "start") h += a(p + "start", t[1], "start"); });
     tl.forEach(function(t){ if(t[0] !== "start") h += a(p + t[0], t[0] === "kids" && C.L && C.L.unsere ? C.L.unsere : t[1], t[0]); });
-    var N0 = (C.NACH || [])[0];
-    if(N0) h += '<span class="tsep"></span><a class="bu' + (on && on.indexOf("nach/") === 0 ? ' on' : '') + '" href="#' + p + 'nach/' + N0[0] + '">Buch</a>';
+    window.TX_G(C).forEach(function(g){ h += (g === window.TX_G(C)[0] ? '<span class="tsep"></span>' : '') + '<a' + (on && g.keys.indexOf((on.split("/")[1] || "")) >= 0 && on.indexOf("nach/") === 0 ? ' class="on"' : '') + ' href="#' + p + 'nach/' + g.keys[0] + '">' + esc(g.name) + '</a>'; });
     return h;
   };
   window.renderNach = function(app, tabs, rest){
@@ -190,11 +195,13 @@
     var L = lese(app, tab, rest, tab === K.tab);
     app.className = "page nach" + (collapsed ? " nsc" : "");
     var bn = "", solo = L.n < 2 && !L.typen;
-    var kap = '<div class="unter">' + (C.NACH || []).map(function(n){ return '<a' + (n[0] === tab ? ' class="on"' : '') + ' href="#' + C.p + 'nach/' + n[0] + '">' + esc(KURZ[n[1]] || n[1]) + '</a>'; }).join("") + '</div>';
+    var grp = window.TX_G(C).filter(function(g){ return g.keys.indexOf(tab) >= 0; })[0], nm2 = {};
+    (C.NACH || []).forEach(function(n){ nm2[n[0]] = KURZ[n[1]] || n[1]; });
+    var kap = grp && grp.keys.length > 1 ? '<div class="unter">' + grp.keys.map(function(k){ return '<a' + (k === tab ? ' class="on"' : '') + ' href="#' + C.p + 'nach/' + k + '">' + esc(nm2[k]) + '</a>'; }).join("") + '</div>' : "";
     var u2 = (L.sub || "").replace('class="unter"', 'class="unter u2"');
     function wrap(inner){ return kap + u2 + '<div class="nbody">' + inner + '</div>'; }
     function side(){ return solo ? "" : '<nav class="nside"><button id="nsT" title="Menü einklappen">‹</button>' + L.tree + '</nav>'; }
-    var cls = "page nach nl nhb" + (L.sub ? " mu2" : "") + (solo ? " ns1" : "") + (collapsed && !solo ? " nsc" : "");
+    var cls = "page nach nl nhb" + (kap ? "" : " nk0") + (L.sub ? " mu2" : "") + (solo ? " ns1" : "") + (collapsed && !solo ? " nsc" : "");
     if(L.typen){ var tmp = document.createElement("div"); typen(tmp); app.className = cls; app.innerHTML = wrap(side() + '<div class="nmain">' + tmp.innerHTML + '</div>'); return; }
     if(!L.tree){ app.innerHTML = L.main; return; }
     app.className = cls;

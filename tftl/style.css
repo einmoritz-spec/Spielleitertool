@@ -676,3 +676,6 @@ body.flood #tabs{padding-left:340px}body.es #tabs{padding-left:200px}
 .unter{top:var(--hd)}.unter.u2{top:calc(var(--hd) + 38px)}
 body.nohead #tabs{margin-top:0;padding-left:22px}
 #tabs2{position:sticky;top:56px;z-index:40;margin:0}body.nohead #tabs2{top:0}
+.nhb.nk0{--B:0px}
+body.flood #tabs{padding-left:315px;padding-right:170px}
+body.flood #tabs a{padding:0 7px;font-size:13px}body.flood #tabs .tsep{margin:0 4px}

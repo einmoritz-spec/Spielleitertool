@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script>
+<style>
+.plan{position:relative;height:330px;margin:-26px -34px 22px;background:#d9c59a center 46%/100% auto no-repeat;border-bottom:1px solid var(--rule)}
+.plan .hot{position:absolute;border:2px solid #fff3c4;background:rgba(110,75,140,.28);box-shadow:0 0 0 2px var(--vio),0 0 18px rgba(255,240,190,.9);border-radius:4px}
+.plan .hot span{position:absolute;left:50%;top:-30px;transform:translateX(-50%);white-space:nowrap;font:17px Fell,serif;color:#fff;background:var(--vio);padding:3px 10px;border-radius:2px}
+.plan .ex{position:absolute;right:12px;bottom:10px;font:14px Gar,serif;color:#5a4a55;background:rgba(250,245,235,.92);padding:3px 10px;border:1px solid var(--rule);border-radius:2px}
+.kopfz{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.kopfz .med{width:46px;align-self:center}
+.text{columns:2;column-gap:34px;font-size:17px;margin-bottom:18px}
+.text p{margin-bottom:8px}
+.fl{float:right;width:46%;margin:2px 0 12px 26px}
+.fl img{width:100%;display:block;border-radius:2px;box-shadow:0 3px 10px rgba(60,40,30,.25)}
+.fl i{display:block;font-size:14px;color:#8c7a66;margin-top:4px}
+.orte{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;clear:both}
+.ort{background:rgba(250,246,236,.95);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.ort .bi{height:200px;background:center/cover}.ort.per .bi{background-position:center 20%}
+.ort .in{padding:10px 14px 12px}
+.ort b{display:block;font:400 20px/1.1 Fell,serif;color:var(--vio)}
+.ort em{display:block;font:13.5px Fell,serif;letter-spacing:.05em;color:#a8893f;margin:2px 0 6px}
+.ort p{font-size:15px;line-height:1.45;color:#4a3e48}
+</style></head><body>
+<script>kopf({on:'Welt',unter:['Völker & Nationen','Das Haus','Geschichte','Atlas','Alltag der Nationen'],uon:'Das Haus',sw:['Erdgeschoss','Obergeschoss','Keller'],swon:'Erdgeschoss'})</script>
+<div class="wrap">
+ <div class="side">
+  <a>Überblick <span class="k">‹</span></a><a>Entry Hall</a><a>Inbetweens</a><a>Wheel of the Year</a>
+  <a class="on">Dining Hall</a><div class="subs"><span>La Ruelle</span><span>The Waxy Swale</span><span>Bismilla</span><span>The Ivory Perron</span><span>Tournoire</span><span>The Ebony Castle</span><span>Astraviya</span></div>
+  <a>Living Room</a><a>Upper Floor</a><a>Basement</a>
+ </div>
+ <div class="main">
+  <div class="plan" id="pl"><div class="hot" style="left:270px;top:100px;width:270px;height:226px"><span>Dining Hall</span></div><div class="ex">Hausplan Erdgeschoss · m</div></div>
+  <div class="kopfz"><img class="med" id="md"><h1>Dining Hall</h1><span class="s">S. 214</span></div>
+  <div class="lead" style="margin-bottom:14px">Stammdomäne des Realm und Heimat der Faeries</div>
+  <div class="fl"><img id="b1"><i>The Waxy Swale – Hauptjagdgrund des Realm</i></div>
+  <p style="margin-bottom:10px">Weit und hell sind die Dining Hall und ihre grünen Wände ein Symbol der zeitlosen Schönheit, die das House durchdringt.</p>
+  <p style="margin-bottom:10px">Als Stammdomäne des Realm und Heimat der Faeries ist die Dining Hall ein reiches, üppiges Paradies, das selbst die strengsten Littlings mit seinem Luxus und Prunk lockt und ihnen von Kostümbällen, Hofintrigen und funkelnden Lichtern zuflüstert, die sich in den Kristallen von Astraviya spiegeln.</p>
+  <h3 style="margin:16px 0 8px">La Ruelle <span style="font:14px Fell,serif;color:#a8893f;flex:none">Grenze des Realm</span></h3>
+  <p style="margin-bottom:10px">Der einzige Weg in die Länder des Realm führt über die Grenze in La Ruelle, unterhalb der Tür zur Dining Hall. Nach dem Schritt durch den Spalt der Pale Threshold begrüßt ein glänzendes Schild mit dem Nationalmotto „Beschützen und Erobern“ die Besucher; darunter steht eine neuere Botschaft, ein schlichtes, aber freundliches „Willkommen“ in allen Sprachen des Household.</p>
+  <p style="margin-bottom:18px">Nicht weit dahinter steht eine geordnete Reihe von Kontrollposten, durch die der Verkehr ein- und ausströmt, während Dutzende fleißiger Littlings Waren, Lieferscheine und Reisedokumente prüfen.</p>
+  <div class="orte" id="or"></div>
+ </div>
+</div>
+<script>
+pl.style.backgroundImage='url('+img('guide-s012-013-hausplan-erdgeschoss')+')';md.src=img('guide-s010-i-realm-einleitung',1);b1.src=img('grundbuch-s215-ix-dining-hall');
+var O=[['Astraviya','The Crystal City','grundbuch-s220-ix-dining-hall',0],['Tristan des Larmes','The Dark Fairy','grundbuch-s218-ix-dining-hall',1],['Oleg Protopopolov','Viscount und Zoologe','grundbuch-s222-ix-dining-hall',1],['Arcadia Oberonovna','Tsarina des Realm','grundbuch-s224-ix-dining-hall',1]];
+or.innerHTML='<h3 style="grid-column:1/-1;margin:6px 0 0">Orte und Persönlichkeiten</h3>';
+O.forEach(function(o,i){
+ or.innerHTML+='<div class="ort'+(o[3]?' per':'')+'"><div class="bi" style="background-image:url('+img(o[2],1)+')"></div><div class="in"><b>'+o[0]+'</b><em>'+(o[1]||'&nbsp;')+'</em></div></div>';});
+</script>
+<div class="note" style="left:760px;top:120px">Hausplan aus dem Guide als Kopf – der aktive Raum leuchtet, Klick auf andere Räume wechselt</div>
+<div class="note" style="left:980px;top:58px;max-width:280px">Stockwerk-Umschalter in der Unterleiste</div>
+<div class="note" style="left:20px;top:560px;max-width:200px">Orte des Raums als Unterpunkte, rechts alles offen untereinander</div>
+<div class="note" style="left:640px;top:930px">Orte und Figuren als Karten, nur mit dem Bild, das im Buch dazugehört (Klick öffnet die Karte)</div>
+</body></html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script>
+<style>
+:root{--vio:#3f6a34;--vio2:#6d8f4e;--rule:#b7a46a}
+body{background-image:url(deko/papier-garten-kachel.jpg)}
+.unter{background:#e7ecd6}.unter .sw a.on{background:#3f6a34}
+.lay{display:grid;grid-template-columns:470px 1fr;gap:0;align-items:start}
+.karte{position:sticky;top:98px;padding:18px 20px 18px 24px;border-right:1px solid rgba(183,164,106,.6);height:calc(100vh - 98px);display:flex;flex-direction:column;gap:10px}
+.karte .mp{position:relative;flex:1;background:center/contain no-repeat}
+.karte .hot{position:absolute;border:2px solid #fff6c9;background:rgba(63,106,52,.25);box-shadow:0 0 0 2px #3f6a34,0 0 16px rgba(255,245,190,.9);border-radius:50%}
+.geb{display:flex;flex-wrap:wrap;gap:5px}
+.geb a{font:14.5px Fell,serif;padding:3px 9px;border:1px solid #c5b585;border-radius:2px;color:#4c5a3a;background:#f6f3e6}
+.geb a.on{background:#3f6a34;color:#f4efd8;border-color:#3f6a34}
+.inh{padding:0 34px 40px 30px}
+.pano{height:250px;margin:0 -34px 0 -30px;background:center/cover}
+.k2{display:flex;align-items:baseline;gap:12px;margin:16px 0 2px}
+.teil{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:10px}
+.ab{background:rgba(250,248,238,.92);border:1px solid #cdbf8f;border-radius:3px;overflow:hidden}
+.ab .bi{height:170px;background:center/cover}
+.ab .in{padding:10px 16px 14px;font-size:15.5px;line-height:1.5}
+.ab b{display:block;font:400 21px Fell,serif;color:#3f6a34;margin-bottom:4px}
+.zit{grid-column:1/-1;display:flex;gap:18px;align-items:center;padding:12px 18px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.zit .w{font:italic 18px/1.4 Gar,serif;color:#4b5b3c;flex:1}
+.zit .w b{display:block;font:400 17px Fell,serif;font-style:normal;color:#3f6a34;margin-top:4px}
+</style></head><body>
+<script>kopf({bg:'#26391f',on:'Welt',unterBg:'#e7ecd6',unter:['Völker','Geschichte','Der Garten','Atlas der Präfekturen'],uon:'Der Garten',sw:['Karte','Reisekarte'],swon:'Karte',logo:img('grundbuch-s-01-umschlag-vorspann-c')})</script>
+<div class="lay">
+ <div class="karte"><div class="mp" id="mp"><div class="hot" style="left:6%;top:43%;width:32%;height:17%"></div></div>
+  <div class="geb"><a>The Front Yard</a><a>The Underground</a><a>The Brambles</a><a class="on">The Woodlands</a><a>The Barrens</a><a>The Grasslands</a><a>The Backyard</a><a>The Rushes</a><a>Four Oaks</a></div></div>
+ <div class="inh">
+  <div class="pano" id="pa"></div>
+  <div class="k2"><h1>The Woodlands</h1><span class="s">S. 173</span></div>
+  <div class="teil">
+   <div class="ab"><div class="bi" id="i1"></div><div class="in"><b>Underroot</b>Der malerischste und ländlichste Ort des Outhold ist ohne Zweifel Underroot: eine Handvoll bunter, niedriger Häuser, die die gemütlichste Gegend von Rootfald schmücken und eine friedliche Grafschaft bilden, Heimat von Bauern und Tierführern.</div></div>
+   <div class="ab"><div class="in"><b>Rootfald</b>In den wärmeren Monaten liegt Rootfald nur teilweise im Schatten der Woodlands. Eingezwängt zwischen House und Bäumen ist es meist warm und wenig windig – das liebste Ziel für Reisende, die Ferien im Garten machen wollen, ohne sich in den Underwood zu wagen.</div>
+    <div class="in" style="border-top:1px solid #e1d6b2"><b>The Underwood</b>Die Äste der Woodlands sind nicht so dicht wie das Dach des House, halten aber fast immer Regen, Sonne und Schnee ab. Unter Laub, Pilzen und Gras verbergen sich dafür tausend Insekten – Ameisen, Spinnen und Hundertfüßer.</div></div>
+   <div class="zit"><div class="w">„Und diese verdammten Ameisen. Ich sag dir, der Garten hat noch nie so große Ameisen gesehen, oder so gerissene! Aber nicht so gerissen wie der alte Tav, nein, Sir!“<b>Tavish „Tav“ McTavish · alter Jäger</b></div></div>
+  </div>
+ </div>
+</div>
+<script>mp.style.backgroundImage='url('+img('garten-s153-karte-des-gartens-the-outhold')+')';pa.style.backgroundImage='url('+img('garten-s178-179-vii-the-woodlands-ganz')+')';i1.style.backgroundImage='url('+img('garten-s173-vii-the-woodlands')+')';</script>
+<div class="note" style="left:20px;top:60px;max-width:300px">Untersetting Garten: eigenes Grün, gleiche Bedienung</div>
+<div class="note" style="left:90px;top:520px;max-width:280px">Karte bleibt stehen, Gebiet anklicken (auf der Karte oder in der Liste)</div>
+<div class="note" style="left:960px;top:110px;max-width:260px">Umschalter Karte / Reisekarte (Taste m)</div>
+</body></html>

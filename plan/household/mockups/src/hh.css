@@ -1,0 +1,54 @@
+@font-face{font-family:Fell;src:url(../../../../spire/fonts/im-fell-english-sc-latin-400-normal.woff2)}
+@font-face{font-family:FellDP;src:url(../../../../assets/fonts/im-fell-double-pica-sc-latin-400-normal.woff2)}
+@font-face{font-family:Gar;src:url(../../../../assets/fonts/eb-garamond-latin-400-normal.woff2)}
+@font-face{font-family:Gar;font-style:italic;src:url(../../../../assets/fonts/eb-garamond-latin-400-italic.woff2)}
+@font-face{font-family:Gar;font-weight:600;src:url(../../../../assets/fonts/eb-garamond-latin-600-normal.woff2)}
+:root{
+ --plum:#35203b;--plum2:#4a2d52;--gold:#c9a24a;--gold2:#e3c57a;--ink:#2d2530;--soft:#7a6c78;
+ --vio:#6e4b8c;--vio2:#8c6aa8;--lav:#ece3f0;--lav2:#ddd0e6;--rule:#bfa468;--paper:#f4eee2;
+ --green:#3f6a34;--red:#a8343a;--blue:#3d5f8f;
+ --kopf:58px;--unter:40px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px}
+body{font:17px/1.55 Gar,Georgia,serif;color:var(--ink);background:var(--paper) url(deko/papier-kachel.jpg) 0 0/520px repeat}
+a{color:inherit;text-decoration:none}
+/* Kopfzeile */
+.kopf{position:sticky;top:0;z-index:20;height:var(--kopf);display:flex;align-items:stretch;background:var(--plum);border-bottom:1px solid #1e1022;box-shadow:inset 0 -2px 0 rgba(201,162,74,.35)}
+.kopf .logo{display:flex;align-items:center;padding:0 22px 0 18px}
+.kopf .logo img{height:44px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
+.kopf .tabs{display:flex;align-items:flex-end;gap:2px}
+.kopf .tabs a{font:19px/1 Fell,serif;letter-spacing:.04em;color:#e8dcc4;padding:0 20px;height:44px;display:flex;align-items:center;border-radius:4px 4px 0 0}
+.kopf .tabs a.on{background:#efe5d6;color:var(--plum)}
+.kopf .ic{margin-left:auto;display:flex;align-items:center;gap:20px;padding-right:22px}
+.kopf .ic svg{width:21px;height:21px;stroke:#e8dcc4;fill:none;stroke-width:1.6}
+.unter{position:sticky;top:var(--kopf);z-index:19;height:var(--unter);display:flex;align-items:center;gap:4px;padding:0 18px;background:#efe5d6;border-bottom:1px solid var(--rule)}
+.unter a{font:16px/1 Fell,serif;letter-spacing:.03em;color:#6e5f6c;padding:6px 14px;border-radius:3px}
+.unter a.on{color:var(--plum);box-shadow:inset 0 -2px 0 var(--vio)}
+.unter .sw{margin-left:auto;display:flex;gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.unter .sw a{border-radius:0;padding:5px 12px;font-size:15px}
+.unter .sw a.on{background:var(--plum);color:#f1e6cf;box-shadow:none}
+/* Seitenleiste */
+.wrap{display:flex;align-items:flex-start}
+.wrap{background:linear-gradient(90deg,transparent 229px,rgba(191,164,104,.5) 229px,rgba(191,164,104,.5) 230px,transparent 230px)}
+.side{position:sticky;top:calc(var(--kopf) + var(--unter));width:230px;flex:none;padding:0 0 20px}
+.side a{display:block;padding:8px 18px 8px 20px;font:15.5px/1.25 Gar,serif;color:#4a3e48;border-bottom:1px solid rgba(191,164,104,.28)}
+.side a.on{color:var(--vio);font-weight:600;box-shadow:inset 3px 0 0 var(--vio)}
+.side a .k{float:right;color:var(--soft)}
+.side .subs{padding:2px 18px 8px 32px;border-bottom:1px solid rgba(191,164,104,.28)}
+.side .subs span{display:block;font-size:13.5px;color:#958792;line-height:1.5}
+.main{flex:1;min-width:0;padding:26px 34px 40px}
+/* Typo */
+h1,h2,h3{font-family:Fell,serif;font-weight:400;color:var(--vio);letter-spacing:.02em}
+h1{font-size:40px;line-height:1.05}
+h2{font-size:28px;line-height:1.1}
+h3{font-size:19px;color:var(--vio);display:flex;align-items:center;gap:10px}
+h3:before,h3:after{content:"";flex:1;height:1px;background:var(--rule)}
+.s{white-space:nowrap;font:14px Gar,serif;color:var(--gold);color:#a8893f;margin-left:6px;font-style:italic}
+.lead{font-style:italic;color:#5e5160}
+.box{background:rgba(236,227,240,.82);border:1px solid var(--lav2);border-radius:3px}
+.hr{height:1px;background:var(--rule);margin:14px 0}
+/* Wertepunkte (Kartenfarben) */
+.suit{font-family:Georgia,serif}
+.h{color:#b22a35}.d{color:#2d58a0}.c{color:#2f6b2f}.sp{color:#222}
+.note{position:absolute;font:600 15px/1.3 Gar,serif;color:#fff;background:#c0392b;padding:6px 10px;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.35);max-width:240px}

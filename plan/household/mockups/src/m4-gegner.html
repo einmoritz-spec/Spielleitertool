@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script>
+<style>
+.side a small{display:block;font-size:12.5px;color:#a3949d;letter-spacing:.03em}
+.bild{margin:-26px -34px 0;height:345px;background:linear-gradient(180deg,rgba(244,238,226,0) 70%,rgba(244,238,226,1)),center 40%/contain no-repeat;position:relative}
+.titel{display:flex;align-items:baseline;gap:12px;margin:10px 0 4px}
+.zwei{display:grid;grid-template-columns:1fr 54px 1fr;align-items:start;margin-top:14px}
+.pfeil{align-self:center;text-align:center;font:14px Fell,serif;color:var(--vio)}
+.pfeil div{font-size:34px;line-height:1}
+.opp{background:rgba(236,227,240,.85);border:1px solid #d6c6df;border-radius:3px;padding:14px 18px 16px}
+.opp .k{display:flex;align-items:flex-end;gap:10px;border-bottom:1px solid var(--vio2);padding-bottom:4px;margin-bottom:8px}
+.opp .k b{font:400 25px/1 Fell,serif;color:var(--vio)}
+.opp .k em{font:14px Fell,serif;color:var(--vio2);letter-spacing:.05em}
+.opp .k .sp{margin-left:auto;color:var(--vio);font-size:16px;letter-spacing:2px}
+.opp .k .s{margin-left:6px}
+.zeile{font-size:15.5px;line-height:1.45;margin:3px 0}
+.zeile i{font:14px Fell,serif;font-style:normal;color:var(--vio);letter-spacing:.04em;margin-right:4px}
+.stress{display:inline-flex;gap:3px;vertical-align:-3px}
+.stress span{width:16px;height:16px;border:1.6px solid #3b2d3a;border-radius:3px;background:#fff8}
+.stress span.x{background:var(--vio2)}
+.akt{margin:6px 0 8px;display:grid;grid-template-columns:34px 1fr;row-gap:2px;font-size:15px;line-height:1.35}
+.akt b{font:15px Fell,serif;color:var(--vio);text-align:right;padding-right:8px}
+.akt u,.mv u{text-decoration:none;font-weight:600}.mv u{color:#8a3a4a}
+.mv{font-size:15px;line-height:1.42;margin:5px 0}
+.mv b{font:15px Fell,serif;color:var(--vio);letter-spacing:.03em}
+.txt{font-size:15px;line-height:1.5;color:#4a3e48;margin:8px 0}
+</style></head><body>
+<script>kopf({on:'Spielleitung',unter:['Saga','Gegner','Mysterien','Pride & Prejudice & Centipedes','Neue Figuren'],uon:'Gegner'})</script>
+<div class="wrap">
+ <div class="side" id="sd"></div>
+ <div class="main">
+  <div class="bild" id="bi"></div>
+  <div class="titel"><h1>Riesenhundertfüßer</h1></div>
+  <div class="lead">Zwei Gegner, nacheinander: erst der Schwanz, dann der Hundertfüßer selbst</div>
+  <div class="zwei">
+   <div class="opp">
+    <div class="k"><b>Schwanz des Riesenhundertfüßers</b><em>Critical</em><span class="s">S. 300</span></div>
+    <div class="zeile"><i>Stress</i> <span class="stress" id="st1"></span></div>
+    <div class="zeile"><i>Moves</i> Encircle, dann Slam, dann Slap, dann Slam, dann Slap, dann Things Get Serious</div>
+    <div class="zeile"><i>Traits</i> Beast, Giant, Double Trouble, Crawling, Counter-attack, Venomous</div>
+    <div class="zeile" style="margin-top:6px"><i>Aktionen</i></div>
+    <div class="akt">
+     <b>I</b><span>Der Hundertfüßer löst mit dem Schwanz einen Einsturz aus, du musst Deckung suchen. Reagiere mit <u>Investigation</u>.</span>
+     <b>II</b><span>Der Hundertfüßer schlägt mit dem Schwanz nach links und rechts. Reagiere mit <u>Caution</u>.</span>
+     <b>III</b><span>Er peitscht mit dem Schwanz und löst ein Beben aus. Reagiere mit <u>Grace</u>.</span>
+     <b>IIII</b><span>Er fegt mit dem Schwanz nach dir. Reagiere mit <u>Athletics -1</u>.</span>
+     <b>V</b><span>Er schüttelt seinen mit giftigen Beinen bedeckten Schwanz. Reagiere mit <u>Will</u>.</span>
+     <b>VI</b><span>Er windet sich um dich und will dich mit dem Schwanz umschlingen. Reagiere mit <u>Elusion</u>.</span>
+    </div>
+    <div class="mv"><b>Encircle:</b> Der Riesenhundertfüßer kriecht im Wirbel um die Gruppe. Alle Charaktere erhalten -1 auf ihren nächsten Reaction Roll.</div>
+    <div class="mv"><b>Slam:</b> Er rammt den Schwanz mit voller Wucht gegen die Charaktere. Wer keinen Critical Reaction Roll in Athletics + War schafft, wird <u>Verletzt</u>; wer schon Verletzt ist, wird Erschöpft; wer schon Erschöpft ist, wird Gebrochen.</div>
+    <div class="mv"><b>Things Get Serious:</b> Die Charaktere haben den Riesenhundertfüßer so verwundet, dass er wütend wird … Danach weiter mit <u>Riesenhundertfüßer</u>.</div>
+   </div>
+   <div class="pfeil"><div>➜</div>dann</div>
+   <div class="opp">
+    <div class="k"><b>Riesenhundertfüßer</b><em>Extreme</em><span class="s">S. 301</span></div>
+    <div class="zeile"><i>Stress</i> <span class="stress" id="st2"></span></div>
+    <div class="zeile"><i>Moves</i> Grand Slam</div>
+    <div class="zeile"><i>Traits</i> Beast, Giant, Crawling, Venomous</div>
+    <div class="zeile" style="margin-top:6px"><i>Aktionen</i></div>
+    <div class="akt">
+     <b>I</b><span>Der Hundertfüßer schnürt dich in seinen Windungen ein. Reagiere mit <u>Strength</u>.</span>
+     <b>II</b><span>Er greift dich mit seinen vielen Hakenbeinen an. Reagiere mit <u>Fight</u>.</span>
+     <b>III</b><span>Er packt mit seinen vielen Beinen deine Arme und Beine. Reagiere mit <u>Dexterity -1</u>.</span>
+     <b>IIII</b><span>Er tobt umher, Schutt und Staub fallen herab. Reagiere mit <u>Caution</u>.</span>
+     <b>V</b><span>Er starrt dich leer an und stürzt sich dann auf dich. Reagiere mit <u>Insight</u>.</span>
+     <b>VI</b><span>Er versucht, dich mit seinen Windungen einzukreisen. Reagiere mit <u>Elusion</u>.</span>
+    </div>
+    <div class="mv"><b>Grand Slam:</b> Der Riesenhundertfüßer wirft seinen gewaltigen Körper gegen die Charaktere. Wer keinen Extreme Reaction Roll in Athletics + War schafft, wird <u>Verletzt</u>; wer schon Verletzt ist, wird Gebrochen.</div>
+    <div class="txt">Der Riesenhundertfüßer trägt seinen Namen zu Recht: Er gehört zu den größten Geschöpfen im ganzen House. Meist lebt er in den feuchten Tiefen der Inbetweens, doch es gab auch Sichtungen im Dreadwood und in der Kashab-Wüste …</div>
+   </div>
+  </div>
+ </div>
+</div>
+<script>
+bi.style.backgroundImage=bi.style.backgroundImage||'';bi.style.background='linear-gradient(180deg,rgba(244,238,226,0) 75%,rgba(244,238,226,.9)),url('+img('grundbuch-s300-301-anhang-i-opponents-ganz')+') center top/100% auto no-repeat';
+for(var i=0;i<12;i++)st1.innerHTML+='<span'+(i<3?' class="x"':'')+'></span>';for(var i=0;i<4;i++)st2.innerHTML+='<span></span>';
+var L=[['Kakerlaken','Basic'],['Hooligans','Basic'],['Gendarmen','Basic'],['Wespen','Basic'],['Ohrwürmer','Basic'],['Hundertfüßer','Critical'],['Duellanten','Critical'],['Späher','Critical'],['Soldaten','Critical'],['Gemeine Spinne','Critical'],['Hornissen','Critical'],['Käfer','Critical'],['Eidechse','Critical'],['Kürassiere','Critical'],['Ratte','Critical'],['Große Spinne','Critical'],['Ehrengarde','Critical'],['Meisterduellanten','Critical'],['Gespornter Hundertfüßer','Critical'],['Golden Backs','Critical'],['Janitscharen','Critical'],['Cinder Knights','Critical'],['Porzellan-Infanterie','Critical'],['Radnetzspinne','Critical'],['Kescherspinne','Critical'],['Riesenhundertfüßer','Critical · Extreme'],['Riesenkrabbenspinne','Critical · Extreme']];
+L.forEach(function(o,i){sd.innerHTML+='<a class="'+(o[0]=='Riesenhundertfüßer'?'on':'')+'" style="padding:5px 18px 5px 20px">'+o[0]+(i==0?' <span class="k">‹</span>':'')+'</a>';});
+</script>
+<div class="note" style="left:960px;top:110px;max-width:290px">Doppelseiten-Bild ungeschnitten oben, Karten darunter</div>
+<div class="note" style="left:560px;top:520px;max-width:200px">Zwei Gegner zusammen auf einer Seite, Pfeil zeigt die Reihenfolge</div>
+<div class="note" style="left:250px;top:470px;max-width:220px">Stress-Kästchen anklickbar</div>
+</body></html>

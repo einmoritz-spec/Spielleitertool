@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="hh.css"><script src="hh.js"></script>
+<style>
+body{background-image:url(deko/papier-lw-kachel.jpg)}
+.sl{position:sticky;top:var(--kopf);z-index:19;height:44px;display:flex;align-items:center;gap:6px;padding:0 18px;background:#24364a;color:#e8eef2;border-bottom:2px solid #b9a36a}
+.sl .nm{font:19px Fell,serif;letter-spacing:.03em;margin-right:18px;color:#f3e7c8}
+.sl a{font:16px Fell,serif;padding:6px 12px;color:#c9d6df;border-radius:2px}
+.sl a.on{background:#e9eef0;color:#24364a}
+.sl .sw{margin-left:auto;display:flex;border:1px solid #6f8396;border-radius:3px;overflow:hidden}
+.sl .sw a{border-radius:0;font-size:15px;padding:5px 13px}
+.sl .sw a.on{background:#b9a36a;color:#1d2a38}
+.side{top:calc(var(--kopf) + 44px)}
+.side a{line-height:1.3}
+.side a small{display:block;font-size:12.5px;color:#9a8f98}
+.steck{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:15.5px;margin:0 0 14px;padding:8px 14px;background:rgba(233,238,240,.7);border-left:3px solid #6b8aa6}
+.steck i{font:14px Fell,serif;font-style:normal;color:#3d5f8f;letter-spacing:.04em;margin-right:4px}
+.fl{float:right;width:50%;margin:0 0 12px 26px}
+.fl img{width:100%;display:block}
+.fl em{font-size:14px;color:#8b7d70}
+h2.sz{font-size:26px;color:#2f4e74;margin:20px 0 8px;display:flex;align-items:center;gap:10px}
+h2.sz:after{content:"";flex:1;height:1px;background:var(--rule)}
+p{margin-bottom:9px}
+.vor{font-style:italic;text-align:center;color:#3d4e63;font-size:19px;line-height:1.4;margin:12px auto;max-width:560px}
+.kast{float:right;width:300px;margin:4px 0 12px 22px;padding:12px 16px;background:#f7f3e8;border:1px solid #c9b27a;outline:3px double #d8c48e;outline-offset:-7px;font-size:15px;line-height:1.45}
+.kast b{display:block;font:400 18px Fell,serif;color:#2f4e74;margin-bottom:4px}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 4px;clear:both}
+.fig{position:relative;height:210px;border:1px solid #c9b27a;border-radius:2px;overflow:hidden;background:center/260px repeat}
+.fig img{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);height:178px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}
+.fig .n{position:absolute;inset:auto 0 0 0;height:30px;background:#f7f3e8;border-top:1px solid #c9b27a;text-align:center;font:17px/30px Fell,serif;color:#2f4e74}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:1px 10px 1px 3px;border:1px solid #c9b0d8;background:#efe6f3;border-radius:14px;font-size:15px;color:var(--vio);vertical-align:1px}
+.chip img{width:22px;height:22px;border-radius:50%;object-fit:cover}
+.stift{position:fixed;right:26px;top:118px;width:34px;height:34px;border-radius:50%;background:#efe9dc;border:1px solid #cbbd99;display:flex;align-items:center;justify-content:center}
+.stift svg{width:17px;height:17px;stroke:#7a6a58;fill:none;stroke-width:1.6}
+</style></head><body>
+<script>kopf({on:''})</script>
+<div class="sl"><span class="nm">Saga vom Langen Winter</span><a>Figuren</a><a class="on">Kapitel VI</a><a>Kapitel VII</a><a>Epilog</a><a>Zeitleiste</a>
+ <div class="sw"><a class="on">Winter</a><a>Frühling</a><a>Sommer</a><a>Herbst</a></div></div>
+<div class="wrap">
+ <div class="side">
+  <a class="on">Schreckliche, schreckliche Dinge <span class="k">‹</span></a><div class="subs"><span>Die Tentomushi-Villa</span><span>Der Stadtplatz</span><span>…</span></div>
+  <a>Die Yule-Geschenke</a><a>Verloren im Schnee</a><a>Die Rückkehr des Ninja</a><a>Angriff auf die Karawane</a><a>Schmutziger Krieg</a>
+ </div>
+ <div class="main" style="padding-right:76px">
+  <div class="steck"><span><i>Wo</i>Komorebi, Gras-Präfektur</span><span><i>Wann</i>Dezember XII H.C.</span><span><i>Ziel</i>Tomo helfen</span><span class="s" style="margin-left:auto">S. 80</span></div>
+  <div class="fl"><img id="b1"><em>Gwen Summers kommt in der Tentomushi-Villa in Komorebi an.</em></div>
+  <h2 class="sz" style="margin-top:0">Vorgeschichte</h2>
+  <p>Entschlossen, die legendäre Schlange Eyes-of-Stone zu finden, hatte Gwen die lange Reise auf sich genommen, die sie von Komorebi im Backyard trennte.</p>
+  <p>Bevor sie zu einer so gefährlichen Mission aufbrach, hatte sie Rat und Hilfe bei einem alten Freund gesucht, Professor Noam Flanagan, der sie wiederum an Himawari Tomo verwies – einen Händler aus der Gras-Präfektur, einen der größten Kenner der Mondschlange und leidenschaftlichen Sammler alter Relikte. Wenn jemand wusste, wo Eyes-of-Stone zu finden war, dann ohne Zweifel Tomo.</p>
+  <div class="figs" id="fg"></div>
+  <h2 class="sz">Die Tentomushi-Villa</h2>
+  <div class="kast"><b>Tee mit Freunden</b>Dieses Abenteuer beginnt damit, dass Gwen in Soyas Haus eintrifft und Shiro nach vielen Jahren wiedersieht. Genieße diesen Moment, lass den Spieler:innen etwas Zeit, sich kennenzulernen, und hetze nicht voran, nur um in die Action zu springen.</div>
+  <p>Die alte, liebenswerte Baba, die der Familie Tentomushi dient, seit Soya ein kleines Kind war, bereitet einen schönen Tee zu, um Gwen gebührend willkommen zu heißen, und bittet alle im Haus, ihr in den Hauptraum zu folgen.</p>
+  <p>Der erste Charakter, der die Tür öffnet, muss einen Critical Reaction Roll in Society + Grace ablegen. Misslingt er, hält er die Papierwand in der Hand, ganz aus der Wand gelöst. Soyas Anwesen muss offensichtlich dringend instand gesetzt werden.</p>
+  <h2 class="sz" style="clear:both">Der Stadtplatz</h2>
+  <p>Folgen die Charaktere der Menge, gelangen sie zu einem großen Platz im Zentrum von Komorebi, an dessen vier Seiten eine grüne Veranda entlangläuft. Dort sehen sie Stadtwachen mit Naginata nach links und rechts fliegen und gegen die Holzstände krachen. Ursache des Tumults ist ein großer, gelangweilt dreinblickender, träger Frosch, der einen Shinigami im Maul hält und nach jedem schlägt, der ihm zu nahe kommt.</p>
+  <div class="vor">„Hilfe! Irgendwer! Ich sagte Hilfe!<br>Ich bin zu reich, um von einem dummen Frosch gefressen zu werden!“</div>
+  <p>Da die Wachen außer Gefecht sind, liegt es nun an den Charakteren, Tomo zu retten <span class="chip"><img id="kr">Kröte</span>.</p>
+ </div>
+</div>
+<div class="stift"><svg viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z M14 6l4 4"/></svg></div>
+<script>
+b1.src=img('lw-s080-081-vi-winter-ganz');kr.src=img('garten-s304-305-anhang-colossi-ganz',1);
+[['Gwen','lw-s022-023-figur-gwen-summers-ganz','banner-s25-391'],['Soya','lw-s018-figur-soya','banner-s31-493'],['Gunther','lw-s038-figur-gunther-lichtmann','banner-s19-273'],['Shiro','lw-s050-figur-shiro-c','banner-s37-621']].forEach(function(f){
+ fg.innerHTML+='<div class="fig" style="background-image:url(deko/'+f[2]+'.webp)"><img src="'+img(f[1],1)+'"><div class="n">'+f[0]+'</div></div>';});
+</script>
+<div class="note" style="left:250px;top:44px;max-width:300px">Eigene Saga-Leiste unter der Kopfzeile, Jahreszeiten als Umschalter</div>
+<div class="note" style="left:20px;top:420px;max-width:200px">Die sechs Abenteuer der Jahreszeit</div>
+<div class="note" style="left:280px;top:560px;max-width:300px">Protagonisten vor ihrer Tapete wie im Buch – Klick öffnet den Mini-Bogen</div>
+<div class="note" style="left:880px;top:1300px;max-width:280px">Gegner als Chip – öffnet die Gegnerkarte als Pop-up</div>
+<div class="note" style="left:1000px;top:170px;max-width:230px">Notizen nur als Stift</div>
+</body></html>

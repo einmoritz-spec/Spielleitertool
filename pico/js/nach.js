@@ -42,7 +42,7 @@ function viewNach(b, sel){
   side += '</nav>';
   if(!cur){
     var part = L.filter(function(x){ return x.g === gi; });
-    return nTabs(b) + lay(side, '<div class="sec"><h2>' + esc(G[gi][0]) + '</h2></div><div class="ggr" style="margin:10px 0 22px">' + part.map(function(x){ return nTile(b, N, x); }).join("") + '</div>');
+    return nTabs(b) + lay(side, '<div class="sec"><h2>' + esc(G[gi][0]) + '</h2></div>' + (part.every(function(x){ return N_ASP.indexOf(x.id) >= 0; }) ? '<div class="kfg">' + part.map(function(x){ return '<a class="kfk" onclick="go(\'nach/' + b + '/' + x.id + '\')"><img src="img/aspekt/' + x.id + '.webp" alt="" loading="lazy"><b>' + esc(kurz(x.t)) + '</b></a>'; }).join("") + '</div>' : '<div class="ggr" style="margin:10px 0 22px">' + part.map(function(x){ return nTile(b, N, x); }).join("") + '</div>'));
   }
   var cb = cur.b; if(cb && cb[0] && cb[0].t === "h" && kurz(cb[0].x) === kurz(cur.t)) cb = cb.slice(1);
   var tg = G && G[cur.g][2], grp = tg ? L.filter(function(x){ return x.g === cur.g; }) : L, gx = grp.indexOf(cur);

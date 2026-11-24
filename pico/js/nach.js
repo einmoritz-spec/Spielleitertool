@@ -24,10 +24,11 @@ var NGRP = {
 };
 var NIMG = {welt:"kapitel/k01-welt", regeln:"kapitel/k02-grundregeln", kaefer:"kapitel/k06-kaefer-1", titanen:"kapitel/k08-picotitanen", weber:"kapitel/k09-weber", anhang:"kapitel/k12-anhang"};
 var N_ASP = "beisser sauger gucker panzer schleim fuehler krabbelbeine greifer fluegel druesen schwaenze statur hirn gefaehrten reittiere werkzeuge waffen faeden".split(" ");
+function nLen(L){ try{ return JSON.stringify(L || []).replace(/<[^>]+>/g, "").length; }catch(e){ return 0; } }
 function nPrep(N, b){
   if(N._ok) return; var seen = {}, G = NGRP[b];
   N.kapitel.forEach(function(k){
-    k.n = parseInt(String(k.p || "").replace(/\D/g, ""), 10) || 0;
+    k.n = parseInt((String(k.p || "").match(/\d+/) || [0])[0], 10) || 0;
     if(seen[k.id]){ k.id = k.id + "-" + (++seen[k.id]); } else seen[k.id] = 1;
     k.g = 0; if(G) G.forEach(function(g, gi){ if(k.n >= g[1]) k.g = gi; });
   });
@@ -43,25 +44,26 @@ function viewNach(b, sel){
   nPrep(N, b); var L = N.kapitel, G = NGRP[b], ix = -1, gi = -1;
   if(/^g\d+$/.test(sel || "")) gi = parseInt(sel.slice(1), 10);
   if(gi >= 0 && G && G[gi] && !G[gi][2]){ var f0 = L.filter(function(x){ return x.g === gi; })[0]; if(f0){ sel = f0.id; gi = -1; } }
-  else L.forEach(function(x, i){ if(x.id === sel) ix = i; });
+  if(gi < 0) L.forEach(function(x, i){ if(x.id === sel) ix = i; });
   if(ix < 0 && gi < 0){ ix = 0; }
   var cur = ix >= 0 ? L[ix] : null, ag = cur ? cur.g : gi;
   window.__nk = G ? 'nach/' + b + '/g' + (ag < 0 ? 0 : ag) : 'nach/' + b; window.__pen = 'n:' + b;
   var side = '<nav class="side">';
   var mine = G ? L.filter(function(x){ return x.g === ag; }) : L;
-  side += mine.map(function(x){ return '<a class="' + (x === cur ? 'on' : '') + '" onclick="go(\'nach/' + b + '/' + x.id + '\')">' + esc(kurz(x.t)) + '</a>'; }).join("");
-  if(mine.length < 2 || !cur) side = "";
+  /* Kurze Abschnitte zu einem Eintrag zusammenfassen (nicht bei Kachelgruppen wie den Aspekten) */
+  var tgr = cur && G && G[cur.g] && G[cur.g][2], packs = [], pk = null, tot = 0;
+  mine.forEach(function(x){ var n = nLen(x.b); if(!tgr && pk && tot < 7000 && tot + n <= 15000){ pk.push(x); tot += n; } else { pk = [x]; tot = n; packs.push(pk); } });
+  var myPack = packs.filter(function(q){ return q.indexOf(cur) >= 0; })[0] || [cur];
+  side += packs.map(function(q){ return '<a class="' + (q === myPack ? 'on' : '') + '" onclick="go(\'nach/' + b + '/' + q[0].id + '\')">' + esc(kurz(q[0].t)) + '</a>'; }).join("");
+  if(packs.length < 2 || !cur) side = "";
   if(side) side += '</nav>';
   if(!cur){
     var part = L.filter(function(x){ return x.g === gi; });
     return lay(side, '<div class="sec"><h2>' + esc(G[gi][0]) + '</h2></div>' + (part.every(function(x){ return N_ASP.indexOf(x.id) >= 0; }) ? '<div class="kfg">' + part.map(function(x){ return '<a class="kfk" onclick="go(\'nach/' + b + '/' + x.id + '\')"><img src="img/aspekt/' + x.id + '.webp" alt="" loading="lazy"><b>' + esc(kurz(x.t)) + '</b></a>'; }).join("") + '</div>' : '<div class="ggr" style="margin:10px 0 22px">' + part.map(function(x){ return nTile(b, N, x); }).join("") + '</div>'));
   }
-  var cb = cur.b; if(cb && cb[0] && cb[0].t === "h" && kurz(cb[0].x) === kurz(cur.t)) cb = cb.slice(1);
-  var tg = G && G[cur.g][2], grp = tg ? L.filter(function(x){ return x.g === cur.g; }) : L, gx = grp.indexOf(cur);
-  var pv = grp[gx - 1], nx = grp[gx + 1];
-  var nav = '<div class="nnav">' + (tg ? '<a onclick="go(\'nach/' + b + '/g' + cur.g + '\')">‹ ' + esc(G[cur.g][0]) + '</a>' : '<span></span>') +
-    '<span>' + (pv ? '<a onclick="go(\'nach/' + b + '/' + pv.id + '\')">‹ ' + esc(kurz(pv.t)) + '</a>' : '') + (nx ? '<a onclick="go(\'nach/' + b + '/' + nx.id + '\')">' + esc(kurz(nx.t)) + ' ›</a>' : '') + '</span></div>';
-  var body = (tg ? nav : '') + '<div class="sec"><h2>' + esc(cur.t) + '</h2>' + (cur.p ? pgl(cur.p) : "") + '</div><div class="txt nbody">' + blk(cb) + '</div>' +
-    '<div class="nnav end">' + (pv ? '<a onclick="go(\'nach/' + b + '/' + pv.id + '\')">‹ ' + esc(kurz(pv.t)) + '</a>' : '<span></span>') + (nx ? '<a onclick="go(\'nach/' + b + '/' + nx.id + '\')">' + esc(kurz(nx.t)) + ' ›</a>' : '') + '</div>';
+  function teil(x, first){ var cb = x.b; if(cb && cb[0] && cb[0].t === "h" && kurz(cb[0].x) === kurz(x.t)) cb = cb.slice(1);
+    return (first ? '<div class="sec"><h2>' : '<div class="sec nsub" id="nj-' + x.id + '"><h2>') + esc(x.t) + '</h2>' + (x.p ? pgl(x.p) : "") + '</div><div class="txt nbody">' + blk(cb) + '</div>'; }
+  var body = (tgr ? '<div class="nnav"><a onclick="go(\'nach/' + b + '/g' + cur.g + '\')">‹ ' + esc(G[cur.g][0]) + '</a></div>' : '') + myPack.map(function(x, k){ return teil(x, k === 0); }).join("");
+  if(cur !== myPack[0]) setTimeout(function(){ var e = document.getElementById("nj-" + cur.id); if(e) e.scrollIntoView({block:"start"}); }, 40);
   return lay(side, body);
 }

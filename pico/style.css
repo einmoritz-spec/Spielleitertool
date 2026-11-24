@@ -472,3 +472,6 @@ body.mitunter .fold.fx{top:108px}
 .pbr{align-items:start}
 body .side .fold{top:11px}
 .hero{aspect-ratio:1800/430;background-position:center 66%}
+.sec.nsub{margin-top:26px;padding-top:18px;border-top:1.5px solid rgba(0,0,0,.1);scroll-margin-top:100px}
+body.dark .sec.nsub{border-top-color:rgba(255,255,255,.12)}
+.nnav.end{display:none}

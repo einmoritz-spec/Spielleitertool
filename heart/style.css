@@ -36,7 +36,7 @@
   --glut:#67b3b8;       /* Cover-Leuchten – nur im Querschnitt-Bild, nicht als UI-Farbe */
   --grau:#8a7f72;
   --linie:#d8cbb8;
-  --kopf-h:52px;--bh:min(100vh,65vw);--panel-raised:#1d140b;
+  --kopf-h:52px;--unter-h:38px;--bh:min(100vh,65vw);--panel-raised:#1d140b;
   /* Abstandsreihe */
   --a1:4px;--a2:8px;--a3:12px;--a4:16px;--a5:24px;--a6:32px;--a7:48px;
   --plate:"HT Sans","HT Serif",sans-serif;
@@ -51,7 +51,7 @@ body{font:400 16px/1.42 var(--body);color:var(--tinte);background:var(--grund) u
 button{font:inherit;color:inherit}
 
 /* ── Kopfzeile: schwarzer Streifen wie der Buchrücken ───────────────────────── */
-.topbar{height:var(--kopf-h);display:flex;align-items:center;gap:6px;padding:0 14px 0 20px;background:#0d0804;border-bottom:1px solid #000;z-index:20}
+.topbar{height:52px;display:flex;align-items:center;gap:6px;padding:0 14px 0 20px;background:#0d0804;border-bottom:1px solid #000;z-index:20}
 .topbar .logo{display:flex;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer}
 .topbar .logo img{height:30px;display:block}
 .topbar .logo .dd{width:9px;height:9px;border-right:2px solid #8f7f70;border-bottom:2px solid #8f7f70;transform:rotate(45deg) translate(-3px,-3px);margin-left:6px}
@@ -205,14 +205,14 @@ body.notop .topbar{display:none}body.notop .tabs{top:0}
 body{background-attachment:fixed}
 
 /* ── Nachschlagen: Unterleiste, Buchrücken-Seitenleiste, Inhalt ────────────── */
-.unter{position:sticky;top:calc(var(--kopf-h) + 46px);z-index:18;height:38px;display:flex;align-items:center;gap:22px;padding:0 20px;background:#1a110a;border-bottom:1px solid #000}
+.unter{position:sticky;top:var(--kopf-h);z-index:18;height:38px;display:flex;align-items:center;gap:22px;padding:0 20px;background:#1a110a;border-bottom:1px solid #000}
 .unter a{font:400 15px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#a8957f;cursor:pointer}
 .unter a:hover{color:#fff}
 .unter a.on{color:#fff;box-shadow:inset 0 -2px 0 var(--hell);padding-bottom:6px;margin-top:6px}
-.bereich{display:grid;grid-template-columns:236px minmax(0,1fr);align-items:start;min-height:calc(100vh - var(--kopf-h) - 46px)}
+.bereich{display:grid;grid-template-columns:236px minmax(0,1fr);align-items:start;min-height:calc(100vh - var(--kopf-h) - var(--unter-h))}
 .bereich.ohne{grid-template-columns:minmax(0,1fr)}
 .bereich.zu{grid-template-columns:46px minmax(0,1fr)}
-.ruecken{position:sticky;top:calc(var(--kopf-h) + 46px + 38px);height:calc(100vh - var(--kopf-h) - 84px);background:#0d0804 url(img/tex/dunkel-kachel.webp) 30% 0/900px auto repeat;display:grid;grid-template-columns:40px 1fr;border-right:1px solid #000;overflow:hidden}
+.ruecken{position:sticky;top:calc(var(--kopf-h) + var(--unter-h));height:calc(100vh - var(--kopf-h) - var(--unter-h));background:#0d0804 url(img/tex/dunkel-kachel.webp) 30% 0/900px auto repeat;display:grid;grid-template-columns:40px 1fr;border-right:1px solid #000;overflow:hidden}
 .ruecken .vert{writing-mode:vertical-rl;font:400 21px/1 var(--plate);letter-spacing:.14em;color:#fff;text-transform:uppercase;padding:16px 0 0;margin:0 auto;background:#000;width:40px;white-space:nowrap}
 .ruecken ul{list-style:none;margin:0;padding:44px 10px 0 4px;overflow:auto}
 .ruecken li{font:400 16px/1.1 var(--plate);letter-spacing:.07em;text-transform:uppercase;color:#b9a690;padding:8px 8px 7px;cursor:pointer}
@@ -264,7 +264,7 @@ body{background-attachment:fixed}
 .inh.kl{padding:16px 18px 30px}
 .inh.kl .seite{padding:0;border-width:22px}
 .klz{display:grid;grid-template-columns:380px minmax(0,1fr);gap:0 26px;align-items:start}
-.diag{position:sticky;top:calc(var(--kopf-h) + 46px + 38px + 22px);height:max(340px,calc(100vh - var(--kopf-h) - 84px - 44px));overflow:hidden;background:#f5efe4}
+.diag{position:sticky;top:calc(var(--kopf-h) + var(--unter-h) + 22px);height:max(340px,calc(100vh - var(--kopf-h) - var(--unter-h) - 44px));overflow:hidden;background:#f5efe4}
 .diag .marmor{position:absolute;inset:0;background:#0f0c0a url(img/tex/dunkel.webp) center/cover;clip-path:polygon(0 0,100% 0,100% 22%,0 58%)}
 .diag img{position:absolute;z-index:2;left:50%;transform:translateX(-50%);bottom:8px;max-height:calc(100% - 84px);max-width:96%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
 .diag .name{position:absolute;z-index:3;left:22px;top:16px;white-space:nowrap;font:400 44px/1 var(--plate);letter-spacing:.06em;color:#e9dfcf;text-transform:uppercase}
@@ -727,3 +727,22 @@ textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cq
 .gltip{position:fixed;z-index:9999;left:0;top:0;pointer-events:none;font:italic 13px/1.2 Alegreya,serif;letter-spacing:.01em;text-transform:none;color:#f2e9da;background:rgba(20,14,10,.94);padding:3px 8px 4px;border-radius:2px;box-shadow:0 2px 8px #0006;opacity:0;transform:translateY(2px);transition:opacity .12s,transform .12s;white-space:nowrap}
 .gltip.on{opacity:1;transform:none}
 .ruecken .gl,.tabs .gl,.unter .gl,.diag .gl,h1 .gl,h2 .gl,.h1 .gl,.h2 .gl,.platte .gl{text-decoration:none}
+
+/* Kopfzeile mit allen Bereichen; der aktive Bereich ist ein Reiter, der in die Unterleiste übergeht */
+body:not(.mitreiter){--unter-h:0px}
+.topbar{border-bottom:1px solid #4a2a20;align-items:stretch}
+.topbar>.brand,.topbar>.ik,.topbar>button{align-self:center}
+.ktabs{display:flex;align-items:stretch;gap:0;margin-left:26px;min-width:0}
+.ktabs a{display:flex;align-items:center;padding:3px 11px 0;font:400 13.5px/1 var(--plate);letter-spacing:.08em;text-transform:uppercase;color:#a8957f;cursor:pointer;white-space:nowrap;position:relative;border:1px solid transparent;border-bottom:0;margin-bottom:-1px}
+.ktabs a:hover{color:#f2e9da}
+.ktabs a.on{color:#f2e9da;background:#0d0804;border-color:#4a2a20;box-shadow:inset 0 2px 0 #b5463a;margin-top:9px;padding-top:0}
+body.mitreiter .ktabs a.on{background:#1a110a}
+body.mitreiter #app>.unter{border-bottom:1px solid #4a2a20;box-shadow:none}
+.bereich{position:relative}
+.stift.schwebt{position:absolute;right:30px;top:24px;z-index:6;background:none;border:0;cursor:pointer;width:32px;height:32px;opacity:.55}
+.stift.schwebt svg{stroke:#2b1d14}.stift.schwebt:hover,.stift.schwebt.has{opacity:1}
+/* Beim Lesen: Leisten oben ausblenden, bei Hochscrollen oder Maus oben wieder zeigen */
+.topbar,#app>.unter,.ruecken,.diag,.tabs{transition:transform .22s ease,top .22s ease,height .22s ease}
+body.weg{--kopf-h:0px;--unter-h:0px}
+body.weg .topbar{transform:translateY(-100%)}
+body.weg #app>.unter{transform:translateY(-100%)}

@@ -5,8 +5,7 @@ var HT_NACH = window.HT_NACH || {};
 var HT_TABS = [["einfuehrung","Einführung"],["spielweise","Spielweise"],["charaktere","Charaktere"],["regeln","Regeln im Detail"],["spielleitung","Spielleitung"],["welt","Die Welt"],["regeluebersicht","Regelübersicht"]];
 function tabsHtml(cur){
   var pen = !!((ST.notiz || {})[cur] || "").trim();
-  return '<nav class="tabs">' + HT_TABS.map(function(t){ return '<a class="' + (t[0] === cur ? "on" : "") + '" onclick="go(\'nach/' + t[0] + '\')">' + t[1] + "</a>"; }).join("") + '<span class="sp"></span>' +
-    '<button class="stift' + (pen ? " has" : "") + '" onclick="penOpen(\'' + cur + '\')" aria-label="Notizen" title="Notizen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke-width="2" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>';
+  return '<button class="stift schwebt' + (pen ? " has" : "") + '" onclick="penOpen(\'' + cur + '\')" aria-label="Notizen" title="Notizen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke-width="2" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>';
 }
 function penOpen(k){
   var m = modal('<textarea class="pennote" placeholder="Notizen …" oninput="ST.notiz=ST.notiz||{};ST.notiz[\'' + k + '\']=this.value;save()">' + esc((ST.notiz || {})[k] || "") + "</textarea>");
@@ -48,9 +47,9 @@ VIEWS.nach = function(a){
   var side = GR.length > 1, zu = !!ST.zu;
   var rk = side ? '<aside class="ruecken' + (zu ? " zu" : "") + '"><button class="zubtn" onclick="ruecken()" aria-label="Seitenleiste ein-/ausklappen">' + (zu ? "›" : "‹") + "</button><ul>" +
     GR.map(function(g){ return '<li class="' + (g === G ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + S.id + "/" + g.secs[0].id + '\')">' + g.secs.map(function(s, i){ return '<span class="rt' + (i ? " n2" : "") + '">' + esc(kurz(s.t)) + "</span>"; }).join("") + "</li>"; }).join("") + "</ul></aside>" : "";
-  if(X.kl){ var kin = '<div class="inh kl"><div class="blatt seite dicht">' + klasseHtml(X) + "</div></div>"; return head + unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + rk + kin + "</div>"; }
+  if(X.kl){ var kin = '<div class="inh kl"><div class="blatt seite dicht">' + klasseHtml(X) + "</div></div>"; return unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + head + rk + kin + "</div>"; }
   var inh = '<div class="inh"><div class="blatt seite dicht">' + G.secs.map(function(x, i){ return '<h1 class="h1' + (i ? " nxt" : "") + '">' + esc(x.t) + (x.p ? pgl(x.p, x.bl ? x.bl + " S. " + x.p : null, x.bk) : "") + "</h1>" + '<div class="flach">' + x.b.map(blk).join("") + "</div>"; }).join("") + "</div></div>";
-  return head + unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + rk + inh + "</div>";
+  return unter + '<div class="bereich' + (side ? (zu ? " zu" : "") : " ohne") + '">' + head + rk + inh + "</div>";
 };
 /* Kurze Abschnitte teilen sich einen Seitenleisten-Eintrag und stehen rechts untereinander (Klassenseiten bleiben einzeln) */
 function secGroups(S){

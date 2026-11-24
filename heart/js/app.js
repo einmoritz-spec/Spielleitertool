@@ -61,7 +61,21 @@ function render(){
   out = VIEWS[v] ? VIEWS[v](h.slice(1)) : VIEWS.start([]);
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
+  kopfTabs(v, h);
   if(window.afterRender) afterRender();
+}
+/* Kopfzeile: alle Bereiche der Startseite in derselben Reihenfolge; aktiver Bereich als Reiter, der in die Unterleiste übergeht */
+var KOPF_ORD = ["Einführung","Spielweise","Charaktere","Regeln im Detail","Spielleitung","Die Welt von Heart","Landmarken","Gegner","Regelübersicht"];
+var KOPF_KURZ = {"Die Welt von Heart":"Die Welt"};
+function kopfTabs(v, h){
+  var el = document.getElementById("ktabs"); if(!el) return;
+  var alle = []; HT_INHALT.forEach(function(c){ c.forEach(function(k){ alle.push(k); }); });
+  var L = KOPF_ORD.map(function(t){ return alle.filter(function(k){ return k.t === t; })[0]; }).filter(Boolean);
+  var aus = v === "start" || v === "dagger" || v === "blackops" || v === "doors";
+  document.body.classList.toggle("ohnektabs", aus);
+  var cur = v === "nach" ? "nach/" + (h[1] || "einfuehrung") : v;
+  el.innerHTML = aus ? "" : L.map(function(k){ return '<a class="' + (k.r === cur ? "on" : "") + '" onclick="go(\'' + k.r + '\')">' + esc(KOPF_KURZ[k.t] || k.t) + "</a>"; }).join("");
+  document.body.classList.toggle("mitreiter", !aus && !!document.querySelector("#app > .unter"));
 }
 function buildMenu(){
   var kap = []; HT_INHALT.forEach(function(c){ c.forEach(function(k){ kap.push(k); }); });
@@ -78,5 +92,19 @@ document.addEventListener("keydown", function(e){
     openMenu(false); document.querySelectorAll(".modal,.gzoom").forEach(function(m){ m.remove(); });
     if(!offen && (location.hash || "#start") !== "#start") go("start");
   }
-  if(e.key === "h") document.body.classList.toggle("notop");
 });
+
+/* Taste h: Leisten oben aus/ein; bei ausgeblendeten Leisten holt die Maus am oberen Rand sie zurueck */
+(function(){
+  var aus = false, t = 0;
+  function setze(v){ document.body.classList.toggle("weg", v); }
+  document.addEventListener("keydown", function(e){
+    if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
+    if(e.key === "h" || e.key === "H"){ aus = !aus; setze(aus); }
+  });
+  document.addEventListener("mousemove", function(e){
+    if(!aus) return;
+    if(e.clientY < 24){ clearTimeout(t); setze(false); }
+    else if(e.clientY > 110 && document.body.classList.contains("weg") === false){ clearTimeout(t); t = setTimeout(function(){ if(aus) setze(true); }, 250); }
+  });
+})();

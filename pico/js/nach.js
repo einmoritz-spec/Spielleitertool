@@ -24,6 +24,7 @@ var NGRP = {
 };
 var NIMG = {welt:"kapitel/k01-welt", regeln:"kapitel/k02-grundregeln", kaefer:"kapitel/k06-kaefer-1", titanen:"kapitel/k08-picotitanen", weber:"kapitel/k09-weber", anhang:"kapitel/k12-anhang"};
 var N_ASP = "beisser sauger gucker panzer schleim fuehler krabbelbeine greifer fluegel druesen schwaenze statur hirn gefaehrten reittiere werkzeuge waffen faeden".split(" ");
+var SERIE = /^(Phase|Teil|Akt|Schritt|Stufe|Kapitel|Runde|Tag)\s*\d/i;
 function nLen(L){ try{ return JSON.stringify(L || []).replace(/<[^>]+>/g, "").length; }catch(e){ return 0; } }
 function nPrep(N, b){
   if(N._ok) return; var seen = {}, G = NGRP[b];
@@ -52,7 +53,7 @@ function viewNach(b, sel){
   var mine = G ? L.filter(function(x){ return x.g === ag; }) : L;
   /* Kurze Abschnitte zu einem Eintrag zusammenfassen (nicht bei Kachelgruppen wie den Aspekten) */
   var tgr = cur && G && G[cur.g] && G[cur.g][2], packs = [], pk = null, tot = 0;
-  mine.forEach(function(x){ var n = nLen(x.b); if(!tgr && pk && tot < 7000 && tot + n <= 15000){ pk.push(x); tot += n; } else { pk = [x]; tot = n; packs.push(pk); } });
+  mine.forEach(function(x){ var n = nLen(x.b); if(!tgr && pk && !SERIE.test(x.t) && !SERIE.test(pk[0].t) && tot < 7000 && tot + n <= 15000){ pk.push(x); tot += n; } else { pk = [x]; tot = n; packs.push(pk); } });
   var myPack = packs.filter(function(q){ return q.indexOf(cur) >= 0; })[0] || [cur];
   side += packs.map(function(q){ return '<a class="' + (q === myPack ? 'on' : '') + '" onclick="go(\'nach/' + b + '/' + q[0].id + '\')">' + esc(kurz(q[0].t)) + '</a>' +
     (q === myPack && q.length > 1 ? '<div class="sj">' + q.slice(1).map(function(x){ return '<a onclick="jump(\'nj-' + x.id + '\')">' + esc(kurz(x.t)) + '</a>'; }).join("") + '</div>' : ''); }).join("");

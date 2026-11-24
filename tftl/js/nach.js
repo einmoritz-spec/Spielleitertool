@@ -108,11 +108,14 @@
   }
   /* Kurze Abschnitte zu Gruppen zusammenfassen (Seitenleisten-Eintrag + flach untereinander) */
   function tlen(x){ if(x == null) return 0; if(typeof x === "string") return strip(x).length; if(typeof x === "number") return 0; if(Array.isArray(x)){ var n = 0; x.forEach(function(y){ n += tlen(y); }); return n; } if(typeof x === "object"){ var m = 0; Object.keys(x).forEach(function(k){ m += tlen(x[k]); }); return m; } return 0; }
+  var SERIE = /^(Phase|Teil|Akt|Schritt|Stufe|Kapitel|Runde|Tag)\s*\d/i;
   function gruppen(list){
     var out = [], g = null, tot = 0;
     list.forEach(function(a){
       var n = tlen(a.bloecke);
-      if(g && tot < 9000 && tot + n <= 20000){ g.items.push(a); tot += n; return; }
+      /* Nummerierte Reihen (Phase 1–6, Teil 2 …) nie zusammenlegen – jede Stufe bleibt sichtbar */
+      var reihe = SERIE.test(a.titel) || (g && SERIE.test(g.items[0].titel));
+      if(g && !reihe && tot < 9000 && tot + n <= 20000){ g.items.push(a); tot += n; return; }
       g = {items:[a]}; tot = n; out.push(g);
     });
     return out;

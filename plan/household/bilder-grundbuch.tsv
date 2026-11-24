@@ -1,127 +1,186 @@
-pdf_seite	buch_seite	breite	hoehe	zuordnung
-1	-1	179	591	Umschlag/Vorspann
-1	-1	185	751	Umschlag/Vorspann
-1	-1	680	680	Umschlag/Vorspann
-4	2	341	340	Umschlag/Vorspann
-4	2	1160	799	Umschlag/Vorspann
-11	9	2555	1097	Vorwort
-12	10	1446	1607	Vorwort
-14	12	1331	1882	Vorwort
-19	17	3282	2124	I. Faeries
-20	18	1240	2152	I. Faeries
-21	19	992	1623	I. Realm
-21	19	1324	2931	I. Realm
-23	21	1275	2261	I. Realm
-25	23	1485	1844	I. Boggarts
-26	24	1466	2314	I. Boggarts
-27	25	992	1344	I. Hearth
-27	25	1407	2271	I. Hearth
-29	27	1288	2229	I. Hearth
-32	30	1439	2492	I. Sprites
-33	31	992	1728	I. Free Dominions
-33	31	1496	2176	I. Free Dominions
-34	32	1695	2069	I. Free Dominions
-36	34	3143	2654	I. Sluagh
-37	35	3454	2654	I. Sluagh
-38	36	1528	2200	I. Sluagh
-39	37	992	1344	I. Horde
-39	37	1509	2637	I. Horde
-41	39	1154	2174	I. Horde
-42	40	1937	2564	I. Horde
-44	42	1742	3200	II. Charakter
-45	43	1267	2602	II. Charakter
-48	46	1968	1244	II. Charakter
-57	55	2552	3035	III. Scholars
-76	74	1305	1090	III. Beetle
-77	75	1141	1266	III. Bumblebee
-78	76	1157	1139	III. Gecko
-79	77	1573	1878	III. Mouse
-80	78	1296	1594	III. Traits
-84	82	2480	2377	III. Traits
-86	84	1472	1070	IIII. Regeln: Einleitung
-87	85	2365	3508	IIII. Regeln: Einleitung
-89	87	3128	2137	IIII. Action Rolls
-92	90	3346	2124	IIII. Action Rolls
-94	92	1219	1728	IIII. Action Rolls
-100	98	3536	2848	IIII. Stress
-102	100	959	1426	IIII. Fields & Skills
-103	101	874	1236	IIII. Fields & Skills
-104	102	993	1405	IIII. Fields & Skills
-105	103	951	1345	IIII. Fields & Skills
-107	105	1016	1350	IIII. Moves
-108	106	811	1328	IIII. Help & Hindrance
-109	107	804	1856	IIII. Help & Hindrance
-115	113	2530	1505	IIII. Combat
-116	114	2555	1341	IIII. Combat
-118	116	1323	1003	IIII. Combat
-119	117	1310	1263	IIII. Combat
-121	119	2321	1843	IIII. Shooting
-125	123	3128	1201	IIII. Conditions & Decorum
-128	126	3086	1442	IIII. Conditions & Decorum
-137	135	1734	3582	V. Hereditary Contracts
-139	137	2106	3549	V. Hereditary Contracts
-141	139	2235	3164	V. Hereditary Contracts
-154	152	1368	772	VI. Wealth
-155	153	1232	947	VI. Wealth
-158	156	1375	2059	VI. Gadgets
-159	157	938	689	VI. Gadgets
-160	158	1194	1407	VI. Weapons
-163	161	2366	1213	VI. Weapons
-164	162	2669	1463	VI. Weapons
-165	163	3334	1629	VI. Weapons
-166	164	2016	1464	VI. Weapons
-167	165	2232	953	VI. Weapons
-168	166	1854	2404	VI. Weapons
-174	172	1491	1741	VII. First Household War
-177	175	2019	1525	VII. Battle of Quillwaters
-178	176	2453	3172	VII. Battle of Quillwaters
-179	177	2454	3172	VII. Battle of Quillwaters
-182	180	1135	2144	VII. High Council
-183	181	2884	1861	VII. High Council
-184	182	821	1147	VII. High Council
-194	192	1050	1338	VIII. Historical Events
-196	194	2555	1489	VIII. Historical Events
-197	195	1105	1955	VIII. Historical Events
-208	206	2554	1418	IX. Entry Hall
-210	208	2555	1411	IX. Entry Hall
-213	211	1181	1181	IX. Wheel of the Year
-217	215	2559	1308	IX. Dining Hall
-220	218	2555	1443	IX. Dining Hall
-222	220	2559	1446	IX. Dining Hall
-223	221	1039	1468	IX. Dining Hall
-224	222	1030	1459	IX. Dining Hall
-228	226	1425	2016	IX. Dining Hall
-231	229	2458	3185	IX. Dining Hall
-236	234	975	1666	IX. Living Room
-238	236	1563	2277	IX. Living Room
-241	239	2559	1448	IX. Living Room
-242	240	2334	2367	IX. Living Room
-244	242	951	1262	IX. Living Room
-249	247	958	1714	IX. Upper Floor
-253	251	1116	1622	IX. Upper Floor
-254	252	1354	2223	IX. Upper Floor
-258	256	2555	1756	IX. Upper Floor
-264	262	2555	1408	IX. Basement
-265	263	1223	1478	IX. Basement
-267	265	2559	1430	IX. Basement
-268	266	1641	2414	IX. Basement
-274	272	2330	1298	IX. Basement
-279	277	2559	1919	Anhang I: Einleitung
-282	280	2166	1263	Anhang I: Weak Spots
-283	281	2171	1263	Anhang I: Weak Spots
-284	282	2025	1633	Anhang I: Opponents
-286	284	2453	1751	Anhang I: Opponents
-289	287	2072	1633	Anhang I: Opponents
-290	288	2565	1709	Anhang I: Opponents
-294	292	2407	1156	Anhang I: Opponents
-296	294	2112	1634	Anhang I: Opponents
-297	295	1520	2011	Anhang I: Opponents
-298	296	1838	1561	Anhang I: Opponents
-301	299	3380	2237	Anhang I: Opponents
-302	300	2406	1654	Anhang I: Opponents
-303	301	2407	1653	Anhang I: Opponents
-304	302	2628	2014	Anhang I: Opponents
-309	307	1441	1932	Anhang II: Pride & Prejudice & Centipedes
-310	308	1251	1652	Anhang II: Pride & Prejudice & Centipedes
-314	312	1641	2190	Anhang II: Pride & Prejudice & Centipedes
-322	320	867	900	Anhang II: Pride & Prejudice & Centipedes
+pdf_seite	buch_seite	breite	hoehe	zuordnung	art
+1	-1	179	591	Umschlag/Vorspann	
+1	-1	185	751	Umschlag/Vorspann	
+1	-1	680	680	Umschlag/Vorspann	
+1	-1	2580	3387	Umschlag/Vorspann	ganzseitig
+4	2	341	340	Umschlag/Vorspann	
+4	2	1160	799	Umschlag/Vorspann	
+8	6	3646	4715	Umschlag/Vorspann	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+9	7	3646	4715	Umschlag/Vorspann	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+11	9	2555	1097	Vorwort	
+12	10	1446	1607	Vorwort	
+14	12	1331	1882	Vorwort	
+17	15	2753	3560	Vorwort	ganzseitig
+19	17	3282	2124	I. Faeries	
+19	17	3282	2124	I. Faeries	ganzseitig
+20	18	1240	2152	I. Faeries	
+21	19	992	1623	I. Realm	
+21	19	1324	2931	I. Realm	
+23	21	1275	2261	I. Realm	
+25	23	1485	1844	I. Boggarts	
+26	24	1466	2314	I. Boggarts	
+27	25	992	1344	I. Hearth	
+27	25	1407	2271	I. Hearth	
+29	27	1288	2229	I. Hearth	
+31	29	3039	4475	I. Hearth	ganzseitig
+32	30	1439	2492	I. Sprites	
+33	31	992	1728	I. Free Dominions	
+33	31	1496	2176	I. Free Dominions	
+34	32	1695	2069	I. Free Dominions	
+36	34	3143	2654	I. Sluagh	
+36	34	3143	2654	I. Sluagh	ganzseitig
+37	35	3454	2654	I. Sluagh	
+37	35	3454	2654	I. Sluagh	ganzseitig
+38	36	1528	2200	I. Sluagh	
+39	37	992	1344	I. Horde	
+39	37	1509	2637	I. Horde	
+41	39	1154	2174	I. Horde	
+42	40	1937	2564	I. Horde	
+42	40	1937	2564	I. Horde	ganzseitig
+44	42	1742	3200	II. Charakter	
+45	43	1267	2602	II. Charakter	
+48	46	1968	1244	II. Charakter	
+53	51	3211	3863	II. Charakter	ganzseitig
+57	55	2552	3035	III. Scholars	
+57	55	2552	3035	III. Scholars	ganzseitig
+61	59	2767	3640	III. Scholars	ganzseitig
+65	63	3338	4188	III. Scholars	ganzseitig
+69	67	2740	3693	III. Scholars	ganzseitig
+73	71	3060	3783	III. Scholars	ganzseitig
+76	74	1305	1090	III. Beetle	
+77	75	1141	1266	III. Bumblebee	
+78	76	1157	1139	III. Gecko	
+79	77	1573	1878	III. Mouse	
+80	78	1296	1594	III. Traits	
+81	79	3141	4069	III. Traits	ganzseitig
+84	82	2480	2377	III. Traits	
+84	82	2480	2377	III. Traits	ganzseitig
+86	84	1472	1070	IIII. Regeln: Einleitung	
+87	85	2365	3508	IIII. Regeln: Einleitung	
+87	85	2365	3508	IIII. Regeln: Einleitung	ganzseitig
+89	87	3128	2137	IIII. Action Rolls	
+89	87	3128	2137	IIII. Action Rolls	ganzseitig
+92	90	3346	2124	IIII. Action Rolls	
+92	90	3346	2124	IIII. Action Rolls	ganzseitig
+94	92	1219	1728	IIII. Action Rolls	
+98	96	3759	4861	IIII. Action Rolls	ganzseitig
+100	98	3536	2848	IIII. Stress	
+100	98	3536	2848	IIII. Stress	ganzseitig
+102	100	959	1426	IIII. Fields & Skills	
+103	101	874	1236	IIII. Fields & Skills	
+104	102	993	1405	IIII. Fields & Skills	
+105	103	951	1345	IIII. Fields & Skills	
+107	105	1016	1350	IIII. Moves	
+108	106	811	1328	IIII. Help & Hindrance	
+109	107	804	1856	IIII. Help & Hindrance	
+115	113	2530	1505	IIII. Combat	
+116	114	2555	1341	IIII. Combat	
+118	116	1323	1003	IIII. Combat	
+119	117	1310	1263	IIII. Combat	
+121	119	2321	1843	IIII. Shooting	
+125	123	3128	1201	IIII. Conditions & Decorum	
+128	126	3086	1442	IIII. Conditions & Decorum	
+135	133	2463	3405	IIII. Conditions & Decorum	ganzseitig
+137	135	1734	3582	V. Hereditary Contracts	
+139	137	2106	3549	V. Hereditary Contracts	
+139	137	2106	3549	V. Hereditary Contracts	ganzseitig
+141	139	2235	3164	V. Hereditary Contracts	
+141	139	2235	3164	V. Hereditary Contracts	ganzseitig
+144	142	3137	4056	V. Hereditary Contracts	ganzseitig
+154	152	1368	772	VI. Wealth	
+155	153	1232	947	VI. Wealth	
+158	156	1375	2059	VI. Gadgets	
+159	157	938	689	VI. Gadgets	
+160	158	1194	1407	VI. Weapons	
+162	160	1930	2509	VI. Weapons	ganzseitig
+163	161	2366	1213	VI. Weapons	
+164	162	2669	1463	VI. Weapons	
+165	163	3334	1629	VI. Weapons	
+166	164	2016	1464	VI. Weapons	
+167	165	2232	953	VI. Weapons	
+168	166	1854	2404	VI. Weapons	
+168	166	1854	2404	VI. Weapons	ganzseitig
+172	170	2679	3467	VI. Weapons	ganzseitig
+174	172	1491	1741	VII. First Household War	
+175	173	2559	3309	VII. First Household War	ganzseitig
+177	175	2019	1525	VII. Battle of Quillwaters	
+178	176	2453	3172	VII. Battle of Quillwaters	
+178	176	2453	3172	VII. Battle of Quillwaters	ganzseitig
+179	177	2454	3172	VII. Battle of Quillwaters	
+179	177	2454	3172	VII. Battle of Quillwaters	ganzseitig
+182	180	1135	2144	VII. High Council	
+183	181	2884	1861	VII. High Council	
+183	181	2884	1861	VII. High Council	ganzseitig
+184	182	821	1147	VII. High Council	
+187	185	2662	3442	VII. High Council	ganzseitig
+192	190	3256	4210	VII. High Council	ganzseitig
+194	192	1050	1338	VIII. Historical Events	
+196	194	2555	1489	VIII. Historical Events	
+197	195	1105	1955	VIII. Historical Events	
+200	198	2555	3309	VIII. Historical Events	ganzseitig
+202	200	2480	3508	VIII. Historical Events	ganzseitig
+204	202	2504	3238	VIII. Historical Events	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+205	203	2504	3238	VIII. Historical Events	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+207	205	2559	3309	Hausplan Übersicht (Kapitel IX)	Karte
+208	206	2554	1418	IX. Entry Hall	
+210	208	2555	1411	IX. Entry Hall	
+213	211	1181	1181	IX. Wheel of the Year	
+214	212	2503	3236	IX. Wheel of the Year	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+215	213	2503	3236	IX. Wheel of the Year	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+217	215	2559	1308	IX. Dining Hall	
+220	218	2555	1443	IX. Dining Hall	
+222	220	2559	1446	IX. Dining Hall	
+223	221	1039	1468	IX. Dining Hall	
+224	222	1030	1459	IX. Dining Hall	
+226	224	3254	4208	IX. Dining Hall	ganzseitig
+228	226	1425	2016	IX. Dining Hall	
+231	229	2458	3185	IX. Dining Hall	
+231	229	2458	3185	IX. Dining Hall	ganzseitig
+232	230	2503	3236	IX. Dining Hall	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+233	231	2503	3236	IX. Dining Hall	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+236	234	975	1666	IX. Living Room	
+238	236	1563	2277	IX. Living Room	
+241	239	2559	1448	IX. Living Room	
+242	240	2334	2367	IX. Living Room	
+244	242	951	1262	IX. Living Room	
+246	244	2503	3236	IX. Living Room	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+247	245	2503	3236	IX. Living Room	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+249	247	958	1714	IX. Upper Floor	
+250	248	2662	3443	IX. Upper Floor	ganzseitig
+253	251	1116	1622	IX. Upper Floor	
+254	252	1354	2223	IX. Upper Floor	
+256	254	2503	3238	IX. Upper Floor	ganzseitig
+258	256	2555	1756	IX. Upper Floor	
+260	258	2503	3236	IX. Upper Floor	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+261	259	2503	3236	IX. Upper Floor	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+264	262	2555	1408	IX. Basement	
+265	263	1223	1478	IX. Basement	
+267	265	2559	1430	IX. Basement	
+268	266	1641	2414	IX. Basement	
+270	268	2662	3442	IX. Basement	ganzseitig
+273	271	2661	3442	IX. Basement	ganzseitig
+274	272	2330	1298	IX. Basement	
+276	274	2777	3591	IX. Basement	ganzseitig
+279	277	2559	1919	Anhang I: Einleitung	
+279	277	2559	1919	Anhang I: Einleitung	ganzseitig
+282	280	2166	1263	Anhang I: Weak Spots	
+283	281	2171	1263	Anhang I: Weak Spots	
+284	282	2025	1633	Anhang I: Opponents	
+286	284	2453	1751	Anhang I: Opponents	
+289	287	2072	1633	Anhang I: Opponents	
+290	288	2565	1709	Anhang I: Opponents	
+294	292	2407	1156	Anhang I: Opponents	
+296	294	2112	1634	Anhang I: Opponents	
+297	295	1520	2011	Anhang I: Opponents	
+298	296	1838	1561	Anhang I: Opponents	
+300	298	2032	3048	Anhang I: Opponents	ganzseitig
+301	299	3380	2237	Anhang I: Opponents	
+301	299	3380	2237	Anhang I: Opponents	ganzseitig
+302	300	2406	1654	Anhang I: Opponents	
+303	301	2407	1653	Anhang I: Opponents	
+304	302	2628	2014	Anhang I: Opponents	
+304	302	2628	2014	Anhang I: Opponents	ganzseitig
+309	307	1441	1932	Anhang II: Pride & Prejudice & Centipedes	
+310	308	1251	1652	Anhang II: Pride & Prejudice & Centipedes	
+314	312	1641	2190	Anhang II: Pride & Prejudice & Centipedes	
+322	320	867	900	Anhang II: Pride & Prejudice & Centipedes	

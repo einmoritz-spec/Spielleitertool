@@ -1,66 +1,97 @@
-pdf_seite	buch_seite	breite	hoehe	zuordnung
-1	-1	438	458	Umschlag/Vorspann
-1	-1	2324	3042	Umschlag/Vorspann
-5	3	2473	2778	Umschlag/Vorspann
-6	4	341	340	Umschlag/Vorspann
-6	4	1160	799	Umschlag/Vorspann
-7	5	1774	1327	Umschlag/Vorspann
-10	8	2559	1228	The Historian’s Club
-12	10	2835	2130	Historical Time-line
-13	11	2834	2130	Historical Time-line
-16	14	2384	2017	Figur: Dimitri Sokov
-17	15	816	2017	Figur: Dimitri Sokov
-18	16	1754	1877	Figur: Ira Poole
-20	18	1336	862	Figur: Jemma Reed
-20	18	2600	2183	Figur: Jemma Reed
-22	20	1467	862	Figur: Tubo
-22	20	1961	1802	Figur: Tubo
-24	22	1517	1704	Figur: Aidan Mackenna
-26	24	1171	1560	Figur: Gwen Summers
-28	26	1466	1834	Figur: Malaika Kumari
-28	26	1558	862	Figur: Malaika Kumari
-30	28	1135	1607	Figur: Pierre Delacroyance
-32	30	1645	1309	Figur: Humphrey Lockwood
-34	32	1661	1643	Figur: Icarus König
-36	34	1785	1521	Figur: Litha Flammel
-38	36	1575	862	Figur: Qamar Halabi
-38	36	1769	2015	Figur: Qamar Halabi
-40	38	1122	1350	Figur: Gunther Lichtmann
-42	40	1871	2030	Figur: Jocelyne Bonheur
-44	42	381	358	Figur: Micah Doyle
-44	42	1558	862	Figur: Micah Doyle
-44	42	2377	1978	Figur: Micah Doyle
-46	44	1546	862	Figur: Sienna Blackwell
-46	44	1601	1743	Figur: Sienna Blackwell
-48	46	1693	1467	Figur: Earnest Gilmore
-50	48	2063	2121	Figur: Santiago Vilar
-52	50	1635	862	Figur: Siobhan Adhair
-52	50	1793	1907	Figur: Siobhan Adhair
-54	52	1801	1685	Figur: Yuliya Dragomirov
-56	54	1780	1849	Figur: Floyd Hansen
-58	56	1654	1653	Figur: Hannah Blaum
-60	58	1344	1997	Figur: Priscilla Urbina
-62	60	2300	2024	Figur: Zehra Ören
-66	64	1074	1664	Adventures in the Saga
-66	64	2559	1284	Adventures in the Saga
-73	71	2555	1864	I: Argo’s Diary
-74	72	1200	1278	I: Argo’s Diary
-76	74	2024	2660	I: Argo’s Diary
-76	74	2024	2660	I: Argo’s Diary
-81	79	3112	2613	I: The Epidemic
-82	80	2167	1810	I: The Epidemic
-88	86	846	938	I: The Case of the Missing Bumblebee
-89	87	2559	1704	I: The Case of the Missing Bumblebee
-92	90	2053	2396	I: The Case of the Missing Bumblebee
-97	95	1584	2316	I: The Stolen Shipment
-98	96	3508	2914	I: The Stolen Shipment
-99	97	3508	2914	I: The Stolen Shipment
-106	104	1809	2067	I: The Wax Trap
-107	105	1472	2011	I: The Wax Trap
-109	107	1030	1014	I: The Wax Trap
-113	111	3556	2743	I: The Blue Rat
-114	112	1393	1634	I: The Blue Rat
-116	114	1573	1925	I: The Blue Rat
-117	115	2403	3094	I: The Blue Rat
-197	195	2550	1021	Kapitel V.III
-206	204	2550	1021	Epilog: The Fall of Faeriyev
+pdf_seite	buch_seite	breite	hoehe	zuordnung	art
+1	-1	438	458	Umschlag/Vorspann	
+1	-1	2324	3042	Umschlag/Vorspann	
+1	-1	2324	3042	Umschlag/Vorspann	ganzseitig
+5	3	2473	2778	Umschlag/Vorspann	
+5	3	2473	2778	Umschlag/Vorspann	ganzseitig
+6	4	341	340	Umschlag/Vorspann	
+6	4	1160	799	Umschlag/Vorspann	
+7	5	1774	1327	Umschlag/Vorspann	
+10	8	2559	1228	The Historian’s Club	
+12	10	2835	2130	Historical Time-line	
+12	10	2835	2130	Historical Time-line	ganzseitig
+13	11	2834	2130	Historical Time-line	
+13	11	2834	2130	Historical Time-line	ganzseitig
+14	12	2019	2645	Historical Time-line	ganzseitig
+16	14	2384	2017	Figur: Dimitri Sokov	
+17	15	816	2017	Figur: Dimitri Sokov	
+18	16	1754	1877	Figur: Ira Poole	
+20	18	1336	862	Figur: Jemma Reed	
+20	18	2600	2183	Figur: Jemma Reed	
+20	18	2600	2183	Figur: Jemma Reed	ganzseitig
+22	20	1467	862	Figur: Tubo	
+22	20	1961	1802	Figur: Tubo	
+24	22	1517	1704	Figur: Aidan Mackenna	
+26	24	1171	1560	Figur: Gwen Summers	
+28	26	1466	1834	Figur: Malaika Kumari	
+28	26	1558	862	Figur: Malaika Kumari	
+30	28	1135	1607	Figur: Pierre Delacroyance	
+32	30	1645	1309	Figur: Humphrey Lockwood	
+34	32	1661	1643	Figur: Icarus König	
+36	34	1785	1521	Figur: Litha Flammel	
+38	36	1575	862	Figur: Qamar Halabi	
+38	36	1769	2015	Figur: Qamar Halabi	
+40	38	1122	1350	Figur: Gunther Lichtmann	
+42	40	1871	2030	Figur: Jocelyne Bonheur	
+44	42	381	358	Figur: Micah Doyle	
+44	42	1558	862	Figur: Micah Doyle	
+44	42	2377	1978	Figur: Micah Doyle	
+46	44	1546	862	Figur: Sienna Blackwell	
+46	44	1601	1743	Figur: Sienna Blackwell	
+48	46	1693	1467	Figur: Earnest Gilmore	
+50	48	2063	2121	Figur: Santiago Vilar	
+52	50	1635	862	Figur: Siobhan Adhair	
+52	50	1793	1907	Figur: Siobhan Adhair	
+54	52	1801	1685	Figur: Yuliya Dragomirov	
+56	54	1780	1849	Figur: Floyd Hansen	
+58	56	1654	1653	Figur: Hannah Blaum	
+60	58	1344	1997	Figur: Priscilla Urbina	
+62	60	2300	2024	Figur: Zehra Ören	
+66	64	1074	1664	Adventures in the Saga	
+66	64	2559	1284	Adventures in the Saga	
+70	68	2019	2645	Adventures in the Saga	ganzseitig
+73	71	2555	1864	I: Argo’s Diary	
+73	71	2555	1864	I: Argo’s Diary	ganzseitig
+74	72	1200	1278	I: Argo’s Diary	
+76	74	2024	2660	I: Argo’s Diary	
+76	74	2024	2660	I: Argo’s Diary	
+76	74	2024	2660	I: Argo’s Diary	ganzseitig
+81	79	3112	2613	I: The Epidemic	
+81	79	3112	2613	I: The Epidemic	ganzseitig
+82	80	2167	1810	I: The Epidemic	
+87	85	2496	3330	I: The Epidemic	ganzseitig
+88	86	846	938	I: The Case of the Missing Bumblebee	
+89	87	2559	1704	I: The Case of the Missing Bumblebee	
+92	90	2053	2396	I: The Case of the Missing Bumblebee	
+97	95	1584	2316	I: The Stolen Shipment	
+98	96	3508	2914	I: The Stolen Shipment	
+98	96	3508	2914	I: The Stolen Shipment	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+99	97	3508	2914	I: The Stolen Shipment	
+99	97	3508	2914	I: The Stolen Shipment	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+106	104	1809	2067	I: The Wax Trap	
+107	105	1472	2011	I: The Wax Trap	
+109	107	1030	1014	I: The Wax Trap	
+111	109	2645	3358	I: The Wax Trap	ganzseitig
+113	111	3556	2743	I: The Blue Rat	
+113	111	3556	2743	I: The Blue Rat	ganzseitig
+114	112	1393	1634	I: The Blue Rat	
+116	114	1573	1925	I: The Blue Rat	
+117	115	2403	3094	I: The Blue Rat	
+117	115	2403	3094	I: The Blue Rat	ganzseitig
+120	118	2503	3236	I: The Blue Rat	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+121	119	2503	3236	I: The Blue Rat	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+122	120	2019	2645	I: The Blue Rat	ganzseitig
+130	128	2019	2645	I: The Blue Rat	ganzseitig
+138	136	2019	2645	I: The Blue Rat	ganzseitig
+146	144	2019	2645	I: The Blue Rat	ganzseitig
+154	152	2019	2645	I: The Blue Rat	ganzseitig
+162	160	2019	2645	I: The Blue Rat	ganzseitig
+170	168	2019	2645	I: The Blue Rat	ganzseitig
+178	176	2019	2645	I: The Blue Rat	ganzseitig
+186	184	2019	2645	I: The Blue Rat	ganzseitig
+194	192	2019	2645	I: The Blue Rat	ganzseitig
+197	195	2550	1021	Kapitel V.III	
+202	200	2019	2645	Kapitel V.III	ganzseitig
+204	202	2556	3305	Kapitel V.III	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+205	203	2556	3305	Kapitel V.III	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+206	204	2550	1021	Epilog: The Fall of Faeriyev	

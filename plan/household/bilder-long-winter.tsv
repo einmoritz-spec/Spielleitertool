@@ -1,93 +1,97 @@
-pdf_seite	buch_seite	breite	hoehe	zuordnung
-1	-1	1564	2207	Umschlag/Vorspann
-4	2	1703	2207	Umschlag/Vorspann
-5	3	499	414	Umschlag/Vorspann
-9	7	1246	2206	Umschlag/Vorspann
-10	8	406	407	Einleitung
-10	8	454	456	Einleitung
-14	12	1167	981	Figur: Jemma Reed
-16	14	931	982	Figur: Kaelan Oakstone
-16	14	965	575	Figur: Kaelan Oakstone
-18	16	1110	1063	Figur: Nadja Vokos
-20	18	882	981	Figur: Soya
-22	20	881	981	Figur: Chaska Agatanai
-24	22	1268	982	Figur: Gwen Summers
-26	24	721	982	Figur: Sasaki Naoko
-26	24	899	575	Figur: Sasaki Naoko
-28	26	948	982	Figur: Pierre Delacroyance
-28	26	1039	575	Figur: Pierre Delacroyance
-30	28	931	1250	Figur: Fandango
-32	30	1149	981	Figur: Humphrey Lockwood
-34	32	1031	1181	Figur: Icarus König
-36	34	956	1119	Figur: John Sawyer
-38	36	882	981	Figur: Koko Sandoval
-40	38	882	982	Figur: Gunther Lichtmann
-42	40	882	1057	Figur: Jiroku Sensei
-42	40	1123	575	Figur: Jiroku Sensei
-44	42	911	1381	Figur: Pascal
-46	44	939	575	Figur: Sienna Blackwell
-46	44	944	982	Figur: Sienna Blackwell
-48	46	913	981	Figur: Rubio Adhair
-48	46	999	575	Figur: Rubio Adhair
-50	48	1056	1181	Figur: Santiago Vilar
-52	50	539	251	Figur: Shiro
-52	50	973	575	Figur: Shiro
-52	50	1023	981	Figur: Shiro
-54	52	358	982	Figur: Yuliya Dragomirov
-54	52	892	982	Figur: Yuliya Dragomirov
-56	54	982	1251	Figur: Ajax
-58	56	838	982	Figur: Lachlan V. Galloway
-60	58	850	981	Figur: Monika Zee
-62	60	873	575	Figur: Ronja Rami
-62	60	1147	981	Figur: Ronja Rami
-64	62	1190	981	Figur: Cora Idalia
-66	64	942	981	Figur: Elsie
-66	64	1050	575	Figur: Elsie
-68	66	835	981	Figur: Fiona McInnis
-70	68	1081	1077	Figur: Kurai
-72	70	1032	1120	Figur: Sakari Redland
-77	75	654	1338	Adventures in the Saga
-78	76	936	1282	Adventures in the Saga
-80	78	1707	2206	Adventures in the Saga
-82	80	565	681	VI Winter
-82	80	812	812	VI Winter
-83	81	1707	1353	VI Winter
-84	82	654	1052	VI Winter
-85	83	654	1216	VI Winter
-85	83	882	1048	VI Winter
-89	87	1056	1367	VI Winter
-90	88	450	456	VI Winter
-90	88	689	819	VI Winter
-91	89	1606	1882	VI Winter
-93	91	639	835	VI Winter
-93	91	654	1252	VI Winter
-94	92	654	1294	VI Winter
-96	94	868	422	VI Winter
-96	94	1157	572	VI Winter
-97	95	1706	1206	VI Winter
-99	97	654	981	VI Winter
-99	97	1706	1035	VI Winter
-101	99	654	1232	VI Winter
-102	100	565	514	VI Winter
-102	100	795	612	VI Winter
-103	101	949	1529	VI Winter
-105	103	654	1510	VI Winter
-109	107	1706	1878	VI Winter
-112	110	610	1489	VI Winter
-113	111	1508	1489	VI Winter
-114	112	696	979	VI Winter
-115	113	1706	979	VI Winter
-116	114	654	1064	VI Winter
-118	116	654	1130	VI Winter
-119	117	1598	1151	VI Winter
-181	179	1706	1132	Epilog Winter
-183	181	654	1062	Epilog Winter
-183	181	1500	1375	Epilog Winter
-185	183	1707	2157	Epilog Winter
-186	184	393	818	Epilog Winter
-186	184	1707	481	Epilog Winter
-186	184	1707	646	Epilog Winter
-187	185	654	1517	Epilog Winter
-187	185	1707	818	Epilog Winter
-189	187	1640	1635	Epilog Winter
-198	196	783	896	Anhang Time-line
+pdf_seite	buch_seite	breite	hoehe	zuordnung	art
+1	-1	1564	2207	Umschlag/Vorspann	
+4	2	1703	2207	Umschlag/Vorspann	
+4	2	1703	2207	Umschlag/Vorspann	ganzseitig
+5	3	499	414	Umschlag/Vorspann	
+9	7	1246	2206	Umschlag/Vorspann	
+10	8	406	407	Einleitung	
+10	8	454	456	Einleitung	
+14	12	1167	981	Figur: Jemma Reed	
+16	14	931	982	Figur: Kaelan Oakstone	
+16	14	965	575	Figur: Kaelan Oakstone	
+18	16	1110	1063	Figur: Nadja Vokos	
+20	18	882	981	Figur: Soya	
+22	20	881	981	Figur: Chaska Agatanai	
+24	22	1268	982	Figur: Gwen Summers	
+26	24	721	982	Figur: Sasaki Naoko	
+26	24	899	575	Figur: Sasaki Naoko	
+28	26	948	982	Figur: Pierre Delacroyance	
+28	26	1039	575	Figur: Pierre Delacroyance	
+30	28	931	1250	Figur: Fandango	
+32	30	1149	981	Figur: Humphrey Lockwood	
+34	32	1031	1181	Figur: Icarus König	
+36	34	956	1119	Figur: John Sawyer	
+38	36	882	981	Figur: Koko Sandoval	
+40	38	882	982	Figur: Gunther Lichtmann	
+42	40	882	1057	Figur: Jiroku Sensei	
+42	40	1123	575	Figur: Jiroku Sensei	
+44	42	911	1381	Figur: Pascal	
+46	44	939	575	Figur: Sienna Blackwell	
+46	44	944	982	Figur: Sienna Blackwell	
+48	46	913	981	Figur: Rubio Adhair	
+48	46	999	575	Figur: Rubio Adhair	
+50	48	1056	1181	Figur: Santiago Vilar	
+52	50	539	251	Figur: Shiro	
+52	50	973	575	Figur: Shiro	
+52	50	1023	981	Figur: Shiro	
+54	52	358	982	Figur: Yuliya Dragomirov	
+54	52	892	982	Figur: Yuliya Dragomirov	
+56	54	982	1251	Figur: Ajax	
+58	56	838	982	Figur: Lachlan V. Galloway	
+60	58	850	981	Figur: Monika Zee	
+62	60	873	575	Figur: Ronja Rami	
+62	60	1147	981	Figur: Ronja Rami	
+64	62	1190	981	Figur: Cora Idalia	
+66	64	942	981	Figur: Elsie	
+66	64	1050	575	Figur: Elsie	
+68	66	835	981	Figur: Fiona McInnis	
+70	68	1081	1077	Figur: Kurai	
+72	70	1032	1120	Figur: Sakari Redland	
+77	75	654	1338	Adventures in the Saga	
+78	76	936	1282	Adventures in the Saga	
+80	78	1707	2206	Adventures in the Saga	
+82	80	565	681	VI Winter	
+82	80	812	812	VI Winter	
+83	81	1707	1353	VI Winter	
+84	82	654	1052	VI Winter	
+85	83	654	1216	VI Winter	
+85	83	882	1048	VI Winter	
+89	87	1056	1367	VI Winter	
+90	88	450	456	VI Winter	
+90	88	689	819	VI Winter	
+91	89	1606	1882	VI Winter	
+93	91	639	835	VI Winter	
+93	91	654	1252	VI Winter	
+94	92	654	1294	VI Winter	
+96	94	868	422	VI Winter	
+96	94	1157	572	VI Winter	
+97	95	1706	1206	VI Winter	
+99	97	654	981	VI Winter	
+99	97	1706	1035	VI Winter	
+101	99	654	1232	VI Winter	
+102	100	565	514	VI Winter	
+102	100	795	612	VI Winter	
+103	101	949	1529	VI Winter	
+105	103	654	1510	VI Winter	
+109	107	1706	1878	VI Winter	
+112	110	610	1489	VI Winter	
+113	111	1508	1489	VI Winter	
+114	112	696	979	VI Winter	
+115	113	1706	979	VI Winter	
+116	114	654	1064	VI Winter	
+118	116	654	1130	VI Winter	
+119	117	1598	1151	VI Winter	
+178	176	1707	2207	VI Winter	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+179	177	1707	2207	VI Winter	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+181	179	1706	1132	Epilog Winter	
+183	181	654	1062	Epilog Winter	
+183	181	1500	1375	Epilog Winter	
+185	183	1707	2157	Epilog Winter	
+185	183	1707	2157	Epilog Winter	ganzseitig
+186	184	393	818	Epilog Winter	
+186	184	1707	481	Epilog Winter	
+186	184	1707	646	Epilog Winter	
+187	185	654	1517	Epilog Winter	
+187	185	1707	818	Epilog Winter	
+189	187	1640	1635	Epilog Winter	
+198	196	783	896	Anhang Time-line	

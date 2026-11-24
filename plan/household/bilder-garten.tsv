@@ -1,145 +1,176 @@
-pdf_seite	buch_seite	breite	hoehe	zuordnung
-1	-1	1755	2258	Umschlag/Vorspann
-4	2	499	414	Umschlag/Vorspann
-11	9	870	1207	F.A.Q.
-12	10	1237	1325	F.A.Q.
-19	17	1200	1694	I. Barghests
-20	18	1135	1589	I. The Brambles (Volk)
-21	19	757	1329	I. The Brambles (Volk)
-22	20	406	409	I. Gnomes
-22	20	454	456	I. Gnomes
-23	21	1180	1635	I. Gnomes
-24	22	940	1799	I. The Citadel
-25	23	662	955	I. The Citadel
-25	23	783	1268	I. The Citadel
-27	25	1063	1572	I. Fae
-28	26	1139	1921	I. The Seelie Court
-29	27	667	1549	I. The Seelie Court
-30	28	1707	701	I. Shinigami
-31	29	1169	1736	I. Shinigami
-32	30	1043	1530	I. The Shogunate
-33	31	662	1348	I. The Shogunate
-33	31	731	1431	I. The Shogunate
-38	36	654	1538	II. Berufe: Einleitung
-39	37	654	1040	II. Berufe: Einleitung
-39	37	1706	1099	II. Berufe: Einleitung
-39	37	1706	1668	II. Berufe: Einleitung
-41	39	1700	2206	II. Soldiers
-49	47	1706	2190	II. Hunters
-57	55	1706	2202	II. Duelists
-65	63	1690	2147	II. Animal Handlers
-68	66	933	908	II. Frog
-69	67	1004	984	II. Ladybug
-70	68	1138	1098	II. Moth
-71	69	1098	1135	II. Mole
-79	77	1177	2206	III. Hereditary Contracts
-81	79	1240	2207	III. Hereditary Contracts
-83	81	1275	2206	III. Hereditary Contracts
-85	83	1252	2206	III. Hereditary Contracts
-93	91	1703	2206	III. Favors
-98	96	654	1378	IIII. Coins & Barter
-100	98	1072	1572	IIII. Weapons
-102	100	797	990	IIII. Weapons
-103	101	620	1525	IIII. Weapons
-103	101	654	1260	IIII. Weapons
-104	102	1464	876	IIII. Weapons
-105	103	1538	757	IIII. Weapons
-106	104	1344	898	IIII. Weapons
-107	105	796	700	IIII. Weapons
-108	106	929	787	IIII. Weapons
-109	107	967	1076	IIII. Weapons
-111	109	1704	2092	IIII. Natural Concoctions
-113	111	654	1597	IIII. Natural Concoctions
-115	113	1706	1257	IIII. Mounts
-116	114	1448	1373	IIII. Mounts
-121	119	1707	2011	V. Geschichte: Einleitung
-124	122	686	1225	V. The Long Winter
-131	129	941	2206	V. The Rebirth of Dèndronaos
-132	130	1046	1031	V. The Brambles Rebellion
-134	132	698	1419	V. The Silver Blade
-138	136	313	699	VI. Saga: Einleitung
-144	142	1669	2207	VI. Historical Events
-145	143	897	881	VI. Historical Events
-147	145	1222	1550	VI. Historical Events
-149	147	1544	906	VI. Historical Events
-151	149	1706	1869	VI. Historical Events
-154	152	654	912	VII. Garten: Einleitung
-159	157	654	1035	VII. The Underground
-162	160	406	407	VII. The Front Yard
-162	160	450	456	VII. The Front Yard
-162	160	689	819	VII. The Front Yard
-164	162	931	1196	VII. The Brambles (Gebiet)
-165	163	1458	808	VII. The Brambles (Gebiet)
-167	165	1577	2206	VII. The Brambles (Gebiet)
-171	169	1703	1033	VII. The Brambles (Gebiet)
-172	170	1703	1054	VII. The Brambles (Gebiet)
-175	173	1704	898	VII. The Woodlands
-176	174	1082	1057	VII. The Woodlands
-178	176	1703	976	VII. The Woodlands
-180	178	1707	1032	VII. The Woodlands
-181	179	1707	1032	VII. The Woodlands
-185	183	1123	1464	VII. The Woodlands
-187	185	1244	1760	VII. The Woodlands
-189	187	1703	1024	VII. The Woodlands
-190	188	611	407	VII. The Barrens
-190	188	653	432	VII. The Barrens
-191	189	654	1240	VII. The Barrens
-192	190	654	1291	VII. The Barrens
-193	191	1703	1030	VII. The Barrens
-194	192	915	1294	VII. The Barrens
-195	193	654	1216	VII. The Barrens
-198	196	1707	707	VII. The Grasslands
-199	197	915	1601	VII. The Grasslands
-200	198	1703	948	VII. The Grasslands
-203	201	1703	1004	VII. The Grasslands
-207	205	654	1134	VII. The Grasslands
-209	207	1601	1205	VII. The Grasslands
-213	211	1707	844	VII. The Backyard
-215	213	727	1080	VII. The Rushes
-217	215	1188	2140	VII. The Rushes
-218	216	1013	1293	VII. The Rushes
-221	219	1576	1788	VII. The Rushes
-222	220	1010	2155	VII. The Rushes
-223	221	654	1457	VII. The Rushes
-225	223	1703	2207	VII. The Rushes
-226	224	654	1528	VII. The Rushes
-227	225	1088	1672	VII. The Rushes
-228	226	1561	1553	VII. The Rushes
-229	227	654	1348	VII. The Rushes
-234	232	654	1066	VII. The Rushes
-235	233	1541	1942	VII. The Rushes
-236	234	564	795	VII. Four Oaks
-241	239	1608	1142	VIII. Travel
-243	241	1704	2207	VIII. Travel
-245	243	1222	1307	VIII. Travel
-250	248	1550	1921	VIII. Travel
-253	251	1707	1006	VIII. Travel
-259	257	654	1372	VIII. Severe Stress
-263	261	1707	1275	VIII. Winter
-265	263	654	1304	VIII. Winter
-266	264	1706	782	VIII. Spring
-267	265	1680	1184	VIII. Spring
-271	269	1582	1227	VIII. Summer
-272	270	1706	1003	VIII. Summer
-273	271	654	1210	VIII. Summer
-275	273	1501	1211	VIII. Autumn
-278	276	1704	2207	VIII. Autumn
-281	279	654	838	Anhang: Opponent Traits
-282	280	1706	1169	Anhang: Opponents
-285	283	1388	889	Anhang: Opponents
-286	284	1706	1353	Anhang: Opponents
-289	287	1701	1066	Anhang: Opponents
-290	288	1627	1304	Anhang: Opponents
-293	291	1522	1125	Anhang: Opponents
-295	293	1706	1487	Anhang: Opponents
-296	294	1706	1506	Anhang: Opponents
-298	296	1706	1503	Anhang: Opponents
-299	297	363	1503	Anhang: Opponents
-304	302	481	140	Anhang: Colossi
-304	302	1706	1715	Anhang: Colossi
-306	304	1706	1483	Anhang: Colossi
-307	305	479	1483	Anhang: Colossi
-308	306	1706	1567	Anhang: Colossi
-309	307	820	1567	Anhang: Colossi
-316	314	478	1069	Anhang: Colossi
-318	316	502	1116	Anhang: Colossi
+pdf_seite	buch_seite	breite	hoehe	zuordnung	art
+1	-1	1755	2258	Umschlag/Vorspann	
+1	-1	1755	2258	Umschlag/Vorspann	ganzseitig
+4	2	499	414	Umschlag/Vorspann	
+8	6	1706	2207	Umschlag/Vorspann	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+9	7	1706	2207	Umschlag/Vorspann	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+11	9	870	1207	F.A.Q.	
+12	10	1237	1325	F.A.Q.	
+19	17	1200	1694	I. Barghests	
+20	18	1135	1589	I. The Brambles (Volk)	
+21	19	757	1329	I. The Brambles (Volk)	
+22	20	406	409	I. Gnomes	
+22	20	454	456	I. Gnomes	
+23	21	1180	1635	I. Gnomes	
+24	22	940	1799	I. The Citadel	
+25	23	662	955	I. The Citadel	
+25	23	783	1268	I. The Citadel	
+27	25	1063	1572	I. Fae	
+28	26	1139	1921	I. The Seelie Court	
+29	27	667	1549	I. The Seelie Court	
+30	28	1707	701	I. Shinigami	
+31	29	1169	1736	I. Shinigami	
+32	30	1043	1530	I. The Shogunate	
+33	31	662	1348	I. The Shogunate	
+33	31	731	1431	I. The Shogunate	
+38	36	654	1538	II. Berufe: Einleitung	
+39	37	654	1040	II. Berufe: Einleitung	
+39	37	1706	1099	II. Berufe: Einleitung	
+39	37	1706	1668	II. Berufe: Einleitung	
+41	39	1700	2206	II. Soldiers	
+41	39	1700	2206	II. Soldiers	ganzseitig
+45	43	1707	2207	II. Soldiers	ganzseitig
+49	47	1706	2190	II. Hunters	
+49	47	1706	2190	II. Hunters	ganzseitig
+53	51	1707	2207	II. Hunters	ganzseitig
+57	55	1706	2202	II. Duelists	
+57	55	1706	2202	II. Duelists	ganzseitig
+61	59	1706	2207	II. Duelists	ganzseitig
+65	63	1690	2147	II. Animal Handlers	
+65	63	1690	2147	II. Animal Handlers	ganzseitig
+68	66	933	908	II. Frog	
+69	67	1004	984	II. Ladybug	
+70	68	1138	1098	II. Moth	
+71	69	1098	1135	II. Mole	
+79	77	1177	2206	III. Hereditary Contracts	
+81	79	1240	2207	III. Hereditary Contracts	
+83	81	1275	2206	III. Hereditary Contracts	
+85	83	1252	2206	III. Hereditary Contracts	
+93	91	1703	2206	III. Favors	
+93	91	1703	2206	III. Favors	ganzseitig
+98	96	654	1378	IIII. Coins & Barter	
+100	98	1072	1572	IIII. Weapons	
+102	100	797	990	IIII. Weapons	
+103	101	620	1525	IIII. Weapons	
+103	101	654	1260	IIII. Weapons	
+104	102	1464	876	IIII. Weapons	
+105	103	1538	757	IIII. Weapons	
+106	104	1344	898	IIII. Weapons	
+107	105	796	700	IIII. Weapons	
+108	106	929	787	IIII. Weapons	
+109	107	967	1076	IIII. Weapons	
+111	109	1704	2092	IIII. Natural Concoctions	
+113	111	654	1597	IIII. Natural Concoctions	
+115	113	1706	1257	IIII. Mounts	
+116	114	1448	1373	IIII. Mounts	
+121	119	1707	2011	V. Geschichte: Einleitung	
+122	120	1706	2206	V. Geschichte: Einleitung	ganzseitig
+124	122	686	1225	V. The Long Winter	
+127	125	1707	2207	V. The Long Winter	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+128	126	1707	2207	V. The Long Winter	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+130	128	1706	2206	V. The Long Winter	ganzseitig
+131	129	941	2206	V. The Rebirth of Dèndronaos	
+132	130	1046	1031	V. The Brambles Rebellion	
+134	132	698	1419	V. The Silver Blade	
+138	136	313	699	VI. Saga: Einleitung	
+141	139	1707	2207	VI. Saga: Einleitung	ganzseitig
+144	142	1669	2207	VI. Historical Events	
+145	143	897	881	VI. Historical Events	
+147	145	1222	1550	VI. Historical Events	
+149	147	1544	906	VI. Historical Events	
+151	149	1706	1869	VI. Historical Events	
+154	152	654	912	VII. Garten: Einleitung	
+155	153	1706	2207	Karte des Gartens (The Outhold)	Karte
+158	156	1706	2206	VII. Garten: Einleitung	ganzseitig
+159	157	654	1035	VII. The Underground	
+160	158	1707	2207	VII. The Underground	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+161	159	1707	2207	VII. The Underground	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+162	160	406	407	VII. The Front Yard	
+162	160	450	456	VII. The Front Yard	
+162	160	689	819	VII. The Front Yard	
+164	162	931	1196	VII. The Brambles (Gebiet)	
+165	163	1458	808	VII. The Brambles (Gebiet)	
+167	165	1577	2206	VII. The Brambles (Gebiet)	
+168	166	1707	2207	VII. The Brambles (Gebiet)	ganzseitig
+171	169	1703	1033	VII. The Brambles (Gebiet)	
+172	170	1703	1054	VII. The Brambles (Gebiet)	
+175	173	1704	898	VII. The Woodlands	
+176	174	1082	1057	VII. The Woodlands	
+178	176	1703	976	VII. The Woodlands	
+180	178	1707	1032	VII. The Woodlands	
+181	179	1707	1032	VII. The Woodlands	
+183	181	1707	2207	VII. The Woodlands	ganzseitig
+185	183	1123	1464	VII. The Woodlands	
+187	185	1244	1760	VII. The Woodlands	
+189	187	1703	1024	VII. The Woodlands	
+190	188	611	407	VII. The Barrens	
+190	188	653	432	VII. The Barrens	
+191	189	654	1240	VII. The Barrens	
+192	190	654	1291	VII. The Barrens	
+193	191	1703	1030	VII. The Barrens	
+194	192	915	1294	VII. The Barrens	
+195	193	654	1216	VII. The Barrens	
+197	195	1707	2207	VII. The Barrens	ganzseitig
+198	196	1707	707	VII. The Grasslands	
+199	197	915	1601	VII. The Grasslands	
+200	198	1703	948	VII. The Grasslands	
+203	201	1703	1004	VII. The Grasslands	
+204	202	1707	2206	VII. The Grasslands	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+205	203	1707	2206	VII. The Grasslands	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+207	205	654	1134	VII. The Grasslands	
+209	207	1601	1205	VII. The Grasslands	
+210	208	1707	2207	VII. The Grasslands	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+211	209	1707	2207	VII. The Grasslands	ganzseitig, Doppelseite? (zusammensetzen prüfen)
+213	211	1707	844	VII. The Backyard	
+215	213	727	1080	VII. The Rushes	
+217	215	1188	2140	VII. The Rushes	
+218	216	1013	1293	VII. The Rushes	
+221	219	1576	1788	VII. The Rushes	
+222	220	1010	2155	VII. The Rushes	
+223	221	654	1457	VII. The Rushes	
+225	223	1703	2207	VII. The Rushes	
+225	223	1703	2207	VII. The Rushes	ganzseitig
+226	224	654	1528	VII. The Rushes	
+227	225	1088	1672	VII. The Rushes	
+228	226	1561	1553	VII. The Rushes	
+229	227	654	1348	VII. The Rushes	
+232	230	1707	2206	VII. The Rushes	ganzseitig
+234	232	654	1066	VII. The Rushes	
+235	233	1541	1942	VII. The Rushes	
+236	234	564	795	VII. Four Oaks	
+241	239	1608	1142	VIII. Travel	
+243	241	1704	2207	VIII. Travel	
+243	241	1704	2207	Reisekarte des Gartens (The Outhold)	Karte
+245	243	1222	1307	VIII. Travel	
+250	248	1550	1921	VIII. Travel	
+253	251	1707	1006	VIII. Travel	
+259	257	654	1372	VIII. Severe Stress	
+263	261	1707	1275	VIII. Winter	
+265	263	654	1304	VIII. Winter	
+266	264	1706	782	VIII. Spring	
+267	265	1680	1184	VIII. Spring	
+271	269	1582	1227	VIII. Summer	
+272	270	1706	1003	VIII. Summer	
+273	271	654	1210	VIII. Summer	
+275	273	1501	1211	VIII. Autumn	
+278	276	1704	2207	VIII. Autumn	
+278	276	1704	2207	VIII. Autumn	ganzseitig
+281	279	654	838	Anhang: Opponent Traits	
+282	280	1706	1169	Anhang: Opponents	
+285	283	1388	889	Anhang: Opponents	
+286	284	1706	1353	Anhang: Opponents	
+289	287	1701	1066	Anhang: Opponents	
+290	288	1627	1304	Anhang: Opponents	
+293	291	1522	1125	Anhang: Opponents	
+295	293	1706	1487	Anhang: Opponents	
+296	294	1706	1506	Anhang: Opponents	
+298	296	1706	1503	Anhang: Opponents	
+299	297	363	1503	Anhang: Opponents	
+304	302	481	140	Anhang: Colossi	
+304	302	1706	1715	Anhang: Colossi	
+306	304	1706	1483	Anhang: Colossi	
+307	305	479	1483	Anhang: Colossi	
+308	306	1706	1567	Anhang: Colossi	
+309	307	820	1567	Anhang: Colossi	
+316	314	478	1069	Anhang: Colossi	
+318	316	502	1116	Anhang: Colossi	

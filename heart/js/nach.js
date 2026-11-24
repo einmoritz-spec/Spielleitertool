@@ -39,16 +39,18 @@ function blk(b){
   return "";
 }
 /* Unterleiste eines Kapitels; bei Regeln im Detail steht hinter „Fallout“ die Fallout-Übersicht (Tabelle Resistenz × Stufe) */
+var FO_SUBS = ["fallout","leicht","schwer","kritisch"];
 window.regelnUnter = function(akt, cid, S){
   cid = cid || "regeln"; var C = HT_NACH[cid];
   return '<div class="unter">' + C.subs.map(function(s){
-    var h = '<a class="' + ((S ? s === S : s.id === akt && akt !== "fallout") ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + s.id + '\')">' + esc(s.t) + "</a>";
-    if(cid === "regeln" && s.id === "fallout") h += '<a class="' + (akt === "fallout" && !S ? "on" : "") + '" onclick="go(\'fallout\')">Fallout-Übersicht</a>';
-    return h;
+    if(cid === "regeln" && FO_SUBS.indexOf(s.id) > 0) return "";
+    if(cid === "regeln" && s.id === "fallout") return '<a class="' + (akt === "fallout" ? "on" : "") + '" onclick="go(\'fallout\')">Fallout</a>';
+    return '<a class="' + ((S ? s === S : s.id === akt) ? "on" : "") + '" onclick="go(\'nach/' + cid + "/" + s.id + '\')">' + esc(s.t) + "</a>";
   }).join("") + "</div>";
 };
 /* ---------- Ansicht ---------- */
 VIEWS.nach = function(a){
+  if(a[0] === "regeln" && FO_SUBS.indexOf(a[1]) >= 0) return VIEWS.fallout(FO_SUBS.indexOf(a[1]) > 0 ? [a[1]] : []);
   var cid = a[0] || "einfuehrung", C = HT_NACH[cid], tab = HT_TABS.filter(function(t){ return t[0] === cid; })[0];
   if(!tab){ return viewStart(); }
   var head = tabsHtml(cid);

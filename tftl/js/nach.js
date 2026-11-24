@@ -187,6 +187,7 @@
   function extras(C, gi){
     var tl = ((window.BEREICHE[C.area] || {}).tabs || []).map(function(t){ return t[0]; }), out = [];
     if(gi === 0 && tl.indexOf("karte") >= 0) out.push(["Karte", "karte", "karte"]);
+    if(C.area === "es" && gi === 1) out.push(["Reisende", "reisende", "reisende"]);
     if(C.area !== "es" && gi === 1 && tl.indexOf("kids") >= 0) out.push([(C.L && C.L.kids) || "Kids", "kids", "kids"]);
     return out;
   }
@@ -195,6 +196,8 @@
     var nm2 = {}; (C.NACH || []).forEach(function(n){ nm2[n[0]] = KURZ[n[1]] || n[1]; });
     var ND = C.NACHDATA || window.NACHDATA, SETS = C.SETS || SETS0, it = [];
     if(C.area !== "es" && nm2.kids) nm2.kids = "Typen";
+    if(C.area === "es" && nm2.reisende) nm2.reisende = "Archetypen";
+    (C.NACH || []).forEach(function(n){ if(n[0] === "welt" && C.area !== "es" && n[3]) nm2.welt = n[3]; });
     g.keys.forEach(function(k){
       var ss = (SETS[k] || []).filter(function(x){ return ND && ND[x]; });
       if(C.area === "tftl" && k === "loops" && ss.length > 1) ss.forEach(function(x){ it.push([SETLBL[x] || x, "nach/loops/" + x + "/" + ND[x].abschnitte[0].id, !page && tab === "loops" && setKey === x]); });
@@ -204,16 +207,16 @@
     if(it.length < 2) return "";
     return it.map(function(x){ return '<a' + (x[2] ? ' class="on"' : '') + ' href="#' + C.p + x[1] + '">' + esc(x[0]) + '</a>'; }).join("");
   };
-  var PG = {karte: 0, kids: 1, mysterien: 2};
+  var PG = {karte: 0, kids: 1, mysterien: 2, reisende: 1};
   window.TX_SUBHTML = function(C, page){
-    if(!(page in PG)) return ""; var gi = PG[page]; if(C.area === "es" && gi !== 0) return "";
+    if(!(page in PG)) return ""; var gi = PG[page];
     return window.TX_ITEMS(C, gi, "", "", page);
   };
   window.TX_TABS = function(C, on){
     var B = (window.BEREICHE || {})[C.area], p = C.p || "";
     if(!B) return null;
+    if(on === "start") return " ";
     var gs = window.TX_G(C), gi = on in PG ? PG[on] : -1, tk = on && on.indexOf("nach/") === 0 ? on.split("/")[1] : "", h = "";
-    if(C.area === "es") (B.tabs || []).forEach(function(t){ if(t[0] !== "start" && t[0] !== "karte") h += '<a' + (t[0] === on ? ' class="on"' : '') + ' href="#' + p + t[0] + '">' + esc(t[1]) + '</a>'; });
     gs.forEach(function(g, i){ h += '<a' + (i === gi || g.keys.indexOf(tk) >= 0 ? ' class="on"' : '') + ' href="#' + p + 'nach/' + g.keys[0] + '">' + esc(g.name) + '</a>'; });
     return h;
   };

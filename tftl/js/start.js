@@ -8,6 +8,17 @@ window.VS = {
   /* Spalten nach Kachelzahl: 4/8 -> 4, 3/6/9 -> 3, 2 -> 2, sonst 3 mit breiter erster Kachel (keine Lücken) */
   grid: function(list, href){ var n = list.length, c = n % 4 === 0 ? "c4" : n % 3 === 0 ? "c3" : n % 2 === 0 ? "c2" : n === 1 ? "c1" : "c3 w1";
     return '<div class="vg ' + c + '">' + list.map(function(t){ return VS.tile(t, href(t)); }).join("") + '</div>'; },
+  /* Drei Bereichs-Einstiege (Die Welt / Regeln / Spielleitung): großes Bild + Liste der Unterpunkte */
+  bereiche: function(C, tiles){
+    if(!window.TX_G) return "";
+    var gs = window.TX_G(C), p = C.p || "";
+    return '<div class="vbr">' + gs.map(function(g, gi){
+      var t = tiles.filter(function(x){ return g.keys.some(function(k){ return (x[4] || "").indexOf("nach/" + k) === 0; }); })[0] || tiles[0];
+      var sub = window.TX_ITEMS(C, gi, "", "", "-");
+      if(!sub) sub = '<a href="#' + p + 'nach/' + g.keys[0] + '">' + VS.esc(g.name) + '</a>';
+      return '<section class="vbx"><a class="vbi" href="#' + p + 'nach/' + g.keys[0] + '" style="background-image:url(img/' + t[3] + '.webp)"><h2>' + VS.esc(g.name) + '</h2></a><nav class="vbl">' + sub + '</nav></section>';
+    }).join("") + '</div>';
+  },
   sec: function(title, body, extra){ return '<section class="vs"><div class="vh2"><h2>' + title + '</h2>' + (extra || '') + '</div>' + body + '</section>'; },
   /* Weiterspielen: große Bildkarte */
   last: function(href, img, pos, name, ort, label){
@@ -25,7 +36,7 @@ window.renderStart = function(el){
   var lastCard = st.last ? VS.last('#' + C.p + 'm/' + st.last.id, st.last.bild, "", st.last.name, st.last.ort, "Weiterspielen") : '';
   el.innerHTML =
     '<div class="vhero"><div class="vloop">' + D.loops.map(function(l){ return '<button data-l="' + l[0] + '"' + (l[0]===loop ? ' class="on"' : '') + '>' + l[1] + '</button>'; }).join("") + '</div></div>' +
-    '<div class="vb">' + VS.sec("Die Welt", VS.grid(D.welt, href)) + VS.sec("Das Spiel", VS.grid(D.spiel, href)) + '</div>' +
+    '<div class="vb">' + VS.bereiche(C, D.welt.concat(D.spiel)) + '</div>' +
     '<div class="vm"><div class="vb">' + VS.sec("Mysterien", lastCard + '<div class="mys">' + window.mysHtml(C.MYSTERIEN || window.MYSTERIEN, st, {compact:true}) + '</div>', more) + '</div></div>';
   setHero(loop);
   window.mysWire(el);

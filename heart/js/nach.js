@@ -93,7 +93,7 @@ function klasseHtml(X){
     return "<div><span>" + (r[0] === "l" ? '<span class="lbl">' + esc(r[1]) + "</span> " : "") + md(r[0] === "l" ? (r[2] || "") : r[1]) + "</span>" + (r[0] === "x" ? "<b>" + esc(r[2]) + "</b>" : (r[0] === "l" && r[3] ? "<b>" + esc(r[3]) + "</b>" : "")) + "</div>";
   }).join("") + "</div>";
   var sec = function(t, L){ return L.length ? '<div class="abschnitt"><h2 class="h2">' + esc(t) + '</h2><div class="raster">' + L.map(fk).join("") + "</div></div>" : ""; };
-  return '<div class="klz"><div class="diag"><div class="marmor"></div><img src="' + IMG("klasse/" + X.id) + '" alt=""><div class="name">' + esc(X.t) + '</div></div>' +
+  return '<div class="klz" data-mas="0"><div class="diag"><div class="marmor"></div><img src="' + IMG("klasse/" + X.id) + '" alt=""><div class="name">' + esc(X.t) + '</div></div>' +
     '<div class="ktext"><div class="zeile"><div class="intro">' + K.intro.map(function(p){ return "<p>" + md(p) + "</p>"; }).join("") + "</div>" +
     '<div><h2 class="h2">Kerneigenschaften' + pgl(X.p + 1) + "</h2>" + kt + "</div></div>" +
     sec("Kernfähigkeiten", K.core) + sec("Kleine Fähigkeiten", K.klein) + sec("Große Fähigkeiten", K.gross) + sec("Zenith-Fähigkeiten", K.zenith) + (K.extra ? K.extra.map(function(e){ return '<div class="schwarz" style="margin-top:14px"><div class="lbl">' + esc(e[0]) + "</div><p>" + md(e[1]) + "</p></div>"; }).join("") : "") + "</div></div>";

@@ -263,11 +263,11 @@ body{background-attachment:fixed}
 /* ── Klassenseite ──────────────────────────────────────────────────────────── */
 .inh.kl{padding:16px 18px 30px}
 .inh.kl .seite{padding:0;border-width:22px}
-.klz{display:grid;grid-template-columns:340px minmax(0,1fr);gap:0 26px;align-items:start}
-.diag{position:sticky;top:calc(var(--kopf-h) + 46px + 38px + 22px);height:calc(100vh - var(--kopf-h) - 84px - 44px);min-height:520px;overflow:hidden;background:#f5efe4}
-.diag .marmor{position:absolute;inset:0;background:#0f0c0a url(img/tex/dunkel.webp) center/cover;clip-path:polygon(0 0,100% 0,100% 6%,0 72%)}
-.diag img{position:absolute;z-index:2;left:50%;transform:translateX(-50%);bottom:0;max-height:88%;max-width:92%;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
-.diag .name{position:absolute;z-index:3;left:8px;bottom:6px;transform:rotate(-50deg);transform-origin:left bottom;white-space:nowrap;font:400 62px/1 var(--plate);letter-spacing:.04em;color:var(--teal);text-transform:uppercase;writing-mode:horizontal-tb}
+.klz{display:grid;grid-template-columns:380px minmax(0,1fr);gap:0 26px;align-items:start}
+.diag{position:sticky;top:calc(var(--kopf-h) + 46px + 38px + 22px);height:max(340px,calc(100vh - var(--kopf-h) - 84px - 44px));overflow:hidden;background:#f5efe4}
+.diag .marmor{position:absolute;inset:0;background:#0f0c0a url(img/tex/dunkel.webp) center/cover;clip-path:polygon(0 0,100% 0,100% 22%,0 58%)}
+.diag img{position:absolute;z-index:2;left:50%;transform:translateX(-50%);bottom:8px;max-height:calc(100% - 84px);max-width:96%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
+.diag .name{position:absolute;z-index:3;left:22px;top:16px;white-space:nowrap;font:400 44px/1 var(--plate);letter-spacing:.06em;color:#e9dfcf;text-transform:uppercase}
 .ktext{padding:6px 0 0;min-width:0}
 .ktext .zeile{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:0 26px;align-items:start}
 .ktext .intro p{font:italic 400 15.5px/1.44 var(--body);margin:0 0 6px;text-indent:1.2em}.ktext .intro p:first-child{text-indent:0}
@@ -277,11 +277,12 @@ body{background-attachment:fixed}
 .kt b{white-space:normal;text-align:right;max-width:150px}.kt .eins{padding-left:22px}
 .abschnitt{margin-top:16px}
 .raster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 22px;align-items:start}
+.raster .fk{display:block;padding:0;cursor:auto}
 .fk h4{font:400 17px/1.1 var(--plate);letter-spacing:.06em;text-transform:uppercase;color:var(--blut);margin:0 0 3px}
 .fk p{font-size:14.5px;line-height:1.36;margin:0 0 4px}
 .fk ul.sub{list-style:none;margin:4px 0 0;padding:0;border-left:3px solid var(--platte)}
 .fk ul.sub li{font-size:14px;line-height:1.34;padding:3px 6px 3px 9px}.fk ul.sub li:nth-child(odd){background:var(--rose)}
-@media (max-width:1380px){.klz{grid-template-columns:260px minmax(0,1fr)}.diag .name{font-size:50px}.raster{grid-template-columns:repeat(2,minmax(0,1fr))}.ktext .zeile{grid-template-columns:minmax(0,1fr) 270px}}
+@media (max-width:1380px){.klz{grid-template-columns:300px minmax(0,1fr)}.diag .name{font-size:36px}.raster{grid-template-columns:repeat(2,minmax(0,1fr))}.ktext .zeile{grid-template-columns:minmax(0,1fr) 270px}}
 .schwarz .h3{color:#c8a15a;margin:.6em 0 .15em}
 .blattmodal>div{max-width:1280px;width:94vw;max-height:92vh;overflow:auto;padding:0;background:none}
 .blattmodal .regelblatt{margin:0}

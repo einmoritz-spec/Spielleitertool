@@ -28,6 +28,7 @@ h1{font-size:40px;line-height:1.05}h2{font-size:28px;line-height:1.1}h3{font-siz
 .ktabs a.on{background:var(--tab);color:var(--top);position:relative}
 .ktabs a.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--tab)}
 .topbar-spacer{flex:1}
+.topbar>.brand,.topbar>.tm-caret,.topbar>.ib,.topbar>.tm-sg,.topbar>.tm-info,.topbar>.tm-book,.topbar>button{align-self:center}
 .ib{width:40px;height:40px;align-self:center;display:grid;place-items:center;color:var(--topink);border-radius:8px}
 .ib:hover{background:rgba(255,255,255,.1)}
 .ib svg{width:22px;height:22px}

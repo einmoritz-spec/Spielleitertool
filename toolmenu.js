@@ -245,19 +245,82 @@
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
 
-/* Seitenleisten einzeilig: zu lange Einträge zuerst am Gedankenstrich kürzen, sonst mit … abschneiden (voller Titel als Tooltip) */
+/* Seitenleisten: Titel mit Gedankenstrich zweiteilig – vorne normal, der Rest klein und grau darunter (ohne Strich) */
 (function(){
   var SEL = ".nside .ni,.nside .nj,.side a";
   function fit(){
     document.querySelectorAll(SEL).forEach(function(a){
-      if(a.dataset.fit || a.scrollWidth <= a.clientWidth + 1) return;
-      a.dataset.fit = 1; var t = a.textContent; if(!a.title) a.title = t;
-      var m = t.split(/\s[–—-]\s/);
-      if(m.length > 1 && !/^(Phase|Teil|Akt|Schritt|Stufe|Kapitel|Runde|Tag)\s*\d+$/i.test(m[0].trim())) a.textContent = m[0];
+      if(a.dataset.fit) return; a.dataset.fit = 1;
+      if(a.children.length) return;
+      var t = a.textContent, m = t.split(/\s[–—]\s/);
+      if(m.length < 2) return;
+      if(!a.title) a.title = t;
+      a.textContent = m[0];
+      var u = document.createElement("small"); u.className = "slz"; u.textContent = m.slice(1).join(" – "); a.appendChild(u);
     });
   }
+  var st = document.createElement("style");
+  st.textContent = ".slz{display:block;font-size:.8em;line-height:1.2;opacity:.62;font-weight:400;margin-top:1px;white-space:normal}";
+  document.head.appendChild(st);
   var pend = 0;
-  function later(){ if(pend) return; pend = setTimeout(function(){ pend = 0; fit(); }, 60); }
+  function later(){ if(pend) return; pend = setTimeout(function(){ pend = 0; fit(); }, 30); }
   function start(){ fit(); new MutationObserver(later).observe(document.body, {childList:true, subtree:true}); }
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();
+
+/* Pfeiltasten in allen Systemen: ←/→ wechseln in der Unterleiste (nie in der Kopfzeile), ↑/↓ springen in der Seitenleiste */
+(function(){
+  var CL = 'a,button,[onclick],[role="tab"]';
+  function vis(e){ var r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== "hidden"; }
+  function isOn(e){ return /(^|\s)(on|active|aktiv|sel|selected|cur|current|is-active)(\s|$)/.test(e.className || "") || e.getAttribute("aria-current") || e.getAttribute("aria-selected") === "true"; }
+  function items(box, dir){
+    var L = Array.prototype.filter.call(box.querySelectorAll(CL), function(e){ return vis(e) && !e.closest(".topbar,header") && e.textContent.trim() && !/^[‹›<>✎×]$/.test(e.textContent.trim()) && !(e.parentElement && e.parentElement.closest(CL)); });
+    return L.sort(function(a, b){ var x = a.getBoundingClientRect(), y = b.getBoundingClientRect(); return dir === "h" ? x.left - y.left : x.top - y.top; });
+  }
+  /* Unterleiste: waagerechte Reihe außerhalb der Kopfzeile, oben, mit mindestens zwei Einträgen */
+  function subBar(){
+    var top = document.querySelector(".topbar,header"), tb = top ? top.getBoundingClientRect().bottom : 0, best = null, bt = -1;
+    var kopfTabs = top ? Array.prototype.filter.call(document.querySelectorAll("a,[onclick]"), function(e){ if(!vis(e) || e.closest(".brand") || e.textContent.trim().length < 3) return false; var q = e.getBoundingClientRect(); return q.top >= 0 && q.bottom <= tb + 2; }).length >= 2 : false;
+    document.querySelectorAll("nav,div,section,ul").forEach(function(b){
+      if(b.closest(".topbar,header,.modal,.mm-panel")) return;
+      var r = b.getBoundingClientRect(); if(r.height < 18 || r.height > 70 || r.top < tb - 2 || r.top > tb + 90 || r.width < innerWidth * .3) return;
+      var L = items(b, "h"); if(L.length < 2) return;
+      var y0 = L[0].getBoundingClientRect().top; if(!L.every(function(e){ return Math.abs(e.getBoundingClientRect().top - y0) < 14; })) return;
+      if(!L.some(isOn)) return;
+      /* Ohne Reiter in der Kopfzeile ist die erste Leiste direkt darunter das Hauptmenü – die zählt nicht als Unterleiste */
+      if(!kopfTabs && r.top < tb + 10) return;
+      if(!best || r.top > bt){ best = L; bt = r.top; }
+    });
+    return best;
+  }
+  /* Seitenleiste: links, hoch, mit untereinander stehenden Einträgen */
+  function sideBar(){
+    var best = null, bn = 0;
+    document.querySelectorAll("nav,aside,div,ul").forEach(function(b){
+      if(b.closest(".topbar,header,.modal,.mm-panel")) return;
+      var r = b.getBoundingClientRect(); if(r.left > 40 || r.width > 380 || r.width < 120 || r.height < 200) return;
+      var L = items(b, "v"); if(L.length < 2 || !L.some(isOn)) return;
+      if(L.length > bn){ best = L; bn = L.length; }
+    });
+    return best;
+  }
+  var last = null, lastH = "";
+  function step(L, d, mem){
+    var i = -1; L.forEach(function(e, k){ if(isOn(e) && i < 0) i = k; });
+    if(mem && last && lastH === location.hash){ var li = L.indexOf(last); if(li >= 0) i = li; }
+    var j = i + d; if(j < 0 || j >= L.length) return false;
+    var el = L[j]; el.click(); if(mem){ last = el; lastH = location.hash; setTimeout(function(){ lastH = location.hash; var M = sideBar(); if(M){ var t = el.textContent; last = M.filter(function(x){ return x.textContent === t; })[0] || null; } }, 120); }
+    return true;
+  }
+  window.addEventListener("keydown", function(e){
+    if(e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+    if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || (e.target && e.target.isContentEditable)) return;
+    if(document.querySelector(".modal,.gzoom,.mm-panel.on,.bv-open")) return;
+    /* Vollbild-Ebenen (Galerie, Buchansicht …) behalten ihre eigenen Pfeiltasten */
+    var mid = document.elementFromPoint(innerWidth / 2, innerHeight / 2), fx = mid;
+    while(fx && fx !== document.body){ if(getComputedStyle(fx).position === "fixed") return; fx = fx.parentElement; }
+    var k = e.key, ok = false;
+    if(k === "ArrowLeft" || k === "ArrowRight"){ var S = subBar(); if(S) step(S, k === "ArrowRight" ? 1 : -1); e.preventDefault(); e.stopImmediatePropagation(); }
+    else if(k === "ArrowUp" || k === "ArrowDown"){ var B = sideBar(); if(B){ ok = step(B, k === "ArrowDown" ? 1 : -1, true); if(ok){ e.preventDefault(); e.stopImmediatePropagation(); } } }
+  }, true);
 })();

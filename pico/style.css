@@ -482,5 +482,6 @@ body.dark .side .sj{border-left-color:rgba(255,255,255,.15)}
 .side .sj a:hover{opacity:1;color:var(--fg)}
 /* Seitenleiste immer einzeilig */
 .side{width:270px}
-.side a,.side .sj a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .side{width:285px}
+.side{width:255px}
+.side a{font-size:14px;line-height:1.25;padding-top:6px;padding-bottom:6px}

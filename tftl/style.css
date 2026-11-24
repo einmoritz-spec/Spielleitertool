@@ -758,6 +758,7 @@ body.es .vbl a{border-top-color:rgba(0,0,0,.08)}
 .nsc .nside .njs{display:none}
 /* Seitenleiste immer einzeilig */
 .nhb .nbody{grid-template-columns:280px 1fr}
-.nside .ni,.nside .njs .nj{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nside .ni{font-size:14.5px}
 .nhb .nbody{grid-template-columns:290px 1fr}
+.nhb .nbody{grid-template-columns:250px 1fr}
+.nside .ni{font-size:14px;line-height:1.25;padding-top:6px;padding-bottom:6px}

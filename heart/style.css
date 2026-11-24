@@ -722,3 +722,8 @@ textarea.bgf{resize:none;overflow:hidden;padding:calc(.1634cqw + .481em) .1634cq
 .tabs a.kreset svg{width:14px;height:14px;flex:none}
 .tabs a.kreset:hover{color:#f2e9da;background:none}
 .modal>div:has(.kreq){width:auto;max-width:400px}.kreq p{margin:0 0 4px;font:17px/1.4 var(--body)}
+/* Übersetzung englischer Begriffe per Hover */
+.gl{text-decoration:underline dotted;text-decoration-color:color-mix(in srgb,currentColor 32%,transparent);text-decoration-thickness:1px;text-underline-offset:.18em;cursor:help}
+.gltip{position:fixed;z-index:9999;left:0;top:0;pointer-events:none;font:italic 13px/1.2 Alegreya,serif;letter-spacing:.01em;text-transform:none;color:#f2e9da;background:rgba(20,14,10,.94);padding:3px 8px 4px;border-radius:2px;box-shadow:0 2px 8px #0006;opacity:0;transform:translateY(2px);transition:opacity .12s,transform .12s;white-space:nowrap}
+.gltip.on{opacity:1;transform:none}
+.ruecken .gl,.tabs .gl,.unter .gl,.diag .gl,h1 .gl,h2 .gl,.h1 .gl,.h2 .gl,.platte .gl{text-decoration:none}

@@ -106,7 +106,7 @@
     var out = [], g = null, tot = 0;
     list.forEach(function(a){
       var n = tlen(a.bloecke);
-      if(g && tot < 4200 && tot + n <= 10000){ g.items.push(a); tot += n; return; }
+      if(g && tot < 9000 && tot + n <= 20000){ g.items.push(a); tot += n; return; }
       g = {items:[a]}; tot = n; out.push(g);
     });
     return out;
@@ -128,7 +128,9 @@
     if(extraFirst) tree += '<a class="ni' + (cur === "typen" ? ' on' : '') + '" href="' + base + K.seg + '">' + K.label + '</a>';
     sets.forEach(function(k){
       var d = ND[k];
-      if(multi) tree += '<div class="ng">' + esc(d.titel.split(":")[0]) + '</div>';
+      var aktiv = !multi || d === D;
+      if(multi) tree += aktiv ? '<div class="ng">' + esc(d.titel.split(":")[0]) + '</div>' : '<a class="ng zu" href="' + base + k + '/' + d.abschnitte[0].id + '">' + esc(d.titel.split(":")[0]) + ' ▸</a>';
+      if(!aktiv && sets.length > 3) return;
       gruppen(d.abschnitte).forEach(function(g){
         var f = g.items[0], on = cur !== "typen" && sec && d === D && g.items.some(function(x){ return x.id === sec.id; });
         if(on) grp = g;

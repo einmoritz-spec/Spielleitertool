@@ -205,7 +205,7 @@ window.ES = window.ES || {};
     if(!a){
       app.className = "page nach esa";
       app.innerHTML = '<div class="nh"><h1>Die Archetypen</h1><small>Kap. 3 · ' + pg(66) + '</small></div><div class="eag">' + L.map(function(x){
-        return '<a class="ear" href="#es/nach/reisende/archetypen/' + x.id + '"><span class="eaf"><img src="img/' + x.bild + '.webp" alt="" onerror="this.style.visibility=\'hidden\'"></span><span class="eax"><h3>' + esc(x.name) + '</h3><small>S. ' + x.s + '</small>' +
+        return '<a class="ear" href="#es/nach/reisende/archetypen/' + x.id + '"><span class="eaf"><img src="img/' + x.bild + '.webp" alt="" onerror="this.style.visibility=\'hidden\'"></span><span class="eax"><h3>' + esc(x.name) + '</h3>' +
           '<p><i>Schlüsselattribut</i>' + esc(x.schluessel) + '</p><p><i>Bargeld</i>' + esc(x.geld || "Keines") + '</p></span></a>';
       }).join("") + '</div>';
       return;

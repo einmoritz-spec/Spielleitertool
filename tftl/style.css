@@ -666,7 +666,7 @@ body.nohead .hb{--hh:100vh}
 /* Tabs wandern in die Kopfzeile (neben Logo und Symbole) */
 :root{--hd:56px}body.nohead{--hd:0px}body.rz{--hd:106px}body.rz.nohead{--hd:50px}
 #tabs{position:sticky;top:0;margin-top:-56px;height:56px;background:transparent;border:0;padding:0 190px 0 250px;z-index:60;pointer-events:none;overflow:hidden}
-body.flood #tabs{padding-left:340px}body.es #tabs{padding-left:200px}
+body.flood #tabs{padding-left:340px}body.es #tabs{padding-left:120px}
 #tabs a,#tabs .tsep{pointer-events:auto}
 #tabs a{color:rgba(255,255,255,.82);border-bottom-width:3px;height:56px;padding:0 10px;font-size:13.5px}
 #tabs a:hover{color:#fff}

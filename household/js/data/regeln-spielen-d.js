@@ -108,7 +108,8 @@ L.push(
  {t: "h", x: "Einen Zustand entfernen"},
  "Einen Zustand zu entfernen braucht Zeit und Aufmerksamkeit. Du kannst Zustände nur entfernen, wenn du vor Gefahren sicher bist und kein unmittelbares Risiko läufst, zum Beispiel wenn du die Gelegenheit hast, dich auszuruhen und Stress abzubauen, oder wenn du nach Hause, in dein Hotelzimmer oder ins Lager zurückkehrst.",
  "Du kannst Zustände entfernen, indem du bestimmte Würfe ablegst, Coins zahlst oder mit deinen Freunden interagierst. Auf den folgenden Seiten findest du kurze Beschreibungen der Zustände und nützliche Hinweise, wie du sie entfernst. Du kannst höchstens 2 Zustände pro Tag entfernen. Misslingt ein Versuch, kannst du denselben Zustand erst am nächsten Tag wieder versuchen. Versuchst du, einen Zustand allein zu entfernen, hast du immer −1.",
- {t: "box", h: "Beschämt", b: [
+{t: "karten", x: [
+  {t: "box", h: "Beschämt", b: [
   "−1 auf alle Würfe im Field Society.",
   "Du kannst Beschämt werden, weil du dich zum Narren gemacht hast, weil dich jemand schlecht dastehen ließ oder weil du eine brennende Demütigung oder Niederlage erleidest.",
   "Um diesen Zustand zu entfernen, musst du dir jemandes Respekt oder Achtung verdienen, etwa indem du jemandem in Not hilfst oder deinen Mut beweist. Alternativ kann ein Freund den Zustand entfernen, indem er dich mit einem Critical Wurf auf Care + Society aufmuntert.",
@@ -147,10 +148,11 @@ L.push(
   "Zusätzlich −1 auf alle Würfe. Du hast immer mindestens 8 Stress, auch nach einer Rast oder einer Verschnaufpause.",
   "Hast du bereits 3 Zustände und solltest einen vierten erleiden, wirst du stattdessen Gebrochen. Du kannst keinen anderen Zustand erleiden, bis du einen entfernt hast.",
   "Um diesen Zustand zu entfernen, kannst du einen Extreme Wurf auf Care + Academia ablegen oder für 4 Coins ins Krankenhaus gehen.",
-  "*„Dieser Schlag ist der Tropfen, der das Fass zum Überlaufen bringt. Du hast schon zu viele Zustände, du bist Gebrochen!“*"]},
+  "*„Dieser Schlag ist der Tropfen, der das Fass zum Überlaufen bringt. Du hast schon zu viele Zustände, du bist Gebrochen!“*"]}]},
  {t: "h", x: "Allgemeine Zustände"},
  "Hier findest du einige seltenere Zustände, die nicht auf dem Bogen stehen. Du kannst gern neue Zustände erfinden, wenn sie dein Abenteuer unterhaltsamer und packender machen.",
- {t: "box", h: "Betrunken", b: [
+{t: "karten", x: [
+  {t: "box", h: "Betrunken", b: [
   "−1 auf Würfe, um das Gleichgewicht zu halten, zu bezaubern oder zu lügen oder um dich nicht verführen oder betrügen zu lassen.",
   "Du kannst Betrunken werden, wenn du zu viel Alkohol trinkst. Die Spielleitung kann dich einen Wurf auf Strength + War ablegen lassen, um zu sehen, wie gut du deinen Alkohol verträgst.",
   "Um diesen Zustand zu entfernen, kannst du eine gute Nacht schlafen, wachst aber Erschöpft auf.",
@@ -169,7 +171,7 @@ L.push(
   "−1 auf Würfe, um zu lügen oder auf böse oder unangemessene Weise zu handeln.",
   "Du kannst Schuldig werden, wenn dir klar wird, dass du jemandem Unrecht getan hast, der es nicht verdient hat, wenn dir jemand die Leviten liest oder wenn du Hilfe oder Mitgefühl von einem früheren Opfer erhältst.",
   "Um diesen Zustand zu entfernen, kannst du dich bessern und deine früheren Untaten wiedergutmachen. Alternativ kann ein Freund den Zustand entfernen, indem er mit einem Critical Wurf auf Authority + Society eine Aussprache herbeiführt.",
-  "*„Der Littling, den du bestehlen wolltest, bemerkt dich und ruft zu deiner großen Überraschung nicht nach den Gendarmen. Er lächelt und bietet dir ein paar Münzen an: ‚Ich habe selbst schwere Zeiten durchgemacht.‘ Dir schnürt es die Kehle zu, als du das Geld nimmst, und du fühlst dich Schuldig.“*"]}
+  "*„Der Littling, den du bestehlen wolltest, bemerkt dich und ruft zu deiner großen Überraschung nicht nach den Gendarmen. Er lächelt und bietet dir ein paar Münzen an: ‚Ich habe selbst schwere Zeiten durchgemacht.‘ Dir schnürt es die Kehle zu, als du das Geld nimmst, und du fühlst dich Schuldig.“*"]}]},
 ]},
 
 {id: "decorum", t: "Decorum", p: 126, b: [
@@ -203,7 +205,8 @@ L.push(
  {t: "bsp", b: [["Sarada", "Ich konnte es kaum erwarten, dieses dumme Kleid loszuwerden. Ich nehme das Make-up ab und ziehe wieder meine Reisekleidung an. Ich wäre viel lieber wieder Ordentlich, als auch nur eine Sekunde länger Elegant zu bleiben!"]]},
  {t: "h", x: "Decorum erhöhen"},
  "Du kannst dein Decorum erhöhen, indem du bestimmte Handlungen ausführst oder die Dienste eines Barbiers, Friseurs oder Wäschers bezahlst. Außerdem brauchst du neue Kleidung, die du immer kaufen oder … ausleihen kannst.",
- {t: "box", h: "Von Ungehobelt zu Schäbig", b: [
+{t: "karten", x: [
+  {t: "box", h: "Von Ungehobelt zu Schäbig", b: [
   "Wasche dich und deine Kleidung in einer Pfütze oder unter einem Leck der Piping. Oder nimm ein schönes warmes Bad in einer einfachen Wanne für 1 Coin.",
   "*„Während deine Kleider auf der Pilzkappe trocknen, genießt du ein gutes Bad in einer Tau-Pfütze. Nachdem du dich angezogen hast, bist du Schäbig.“*"]},
  {t: "box", h: "Von Schäbig zu Ordentlich", b: [
@@ -214,7 +217,7 @@ L.push(
   "*„Deine rostfarbene Tunika fließt weich um dich. Du nimmst dir einen Moment, um die zarte, schimmelartige Stickerei zu bewundern, bevor du aufbrichst. Du bist wahrhaft Elegant.“*"]},
  {t: "box", h: "Von Elegant zu Pompös", b: [
   "Erfordert Galakleidung. Lass dich in einem Schönheitssalon herausputzen. Make-up und Frisur, Bart und Schnurrbart inklusive, zum bescheidenen Preis von 3 Coins. Oder lege einen Extreme Wurf auf Grace + Academia ab, um dich oder einen Freund herauszuputzen. Misslingt er, erhöht der arme Littling sein Decorum trotzdem, erleidet aber auch den Zustand Lächerlich.",
-  "*„Du bist wirklich stolz auf die weiche, voluminöse Frisur, die man dir gemacht hat. Und erst das glänzende Make-up! Du siehst einfach Pompös aus. Nicht umsonst nennt man das den besten Salon der Dining Hall.“*"]}
+  "*„Du bist wirklich stolz auf die weiche, voluminöse Frisur, die man dir gemacht hat. Und erst das glänzende Make-up! Du siehst einfach Pompös aus. Nicht umsonst nennt man das den besten Salon der Dining Hall.“*"]}]},
 ]}
 );
 })();

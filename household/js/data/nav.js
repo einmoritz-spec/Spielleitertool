@@ -13,7 +13,7 @@ window.HH_NAV = {
   ]},
   {id: "regeln", t: "Regeln", unter: [
    {id: "charakter", t: "Charakter", seiten: [["bogen", "Der Charakterbogen"]]},
-   {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["handlers", "Animal Handlers"], ["traits", "Traits"]]},
+   {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["handlers", "Animal Handlers"], ["beetle", "Beetle"], ["bumblebee", "Bumblebee"], ["gecko", "Gecko"], ["mouse", "Mouse"], ["traits", "Traits"]]},
    {id: "spielen", t: "Wie man spielt", seiten: [["wuerfel", "Würfel & Begriffe"], ["action", "Action Rolls"], ["reaction", "Reaction Rolls"], ["stress", "Stress"], ["skills", "Fields & Skills"], ["moves", "Moves"], ["hilfe", "Hilfe & Hindernisse"], ["konflikte", "Konflikte"], ["kampf", "Kampf"], ["schiessen", "Schießen, Rangelei & Duell"], ["zustaende", "Zustände"], ["decorum", "Decorum"]]},
    {id: "vertraege", t: "Contracts", seiten: [["hereditary", "Hereditary"], ["personal", "Personal"], ["ttt", "Terrible Terrible Things"], ["welcoming", "Welcoming"]]},
    {id: "ausruestung", t: "Ausrüstung", seiten: [["wealth", "Wealth"], ["equipment", "Equipment"], ["gadgets", "Gadgets"], ["weapons", "Weapons"]]}

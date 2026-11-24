@@ -165,11 +165,11 @@ L.push(
 ]},
 
 {id: "moves", t: "Moves", p: 104, b: [
- "Moves sind besondere Fähigkeiten, die typisch für jede Profession sind. Jede:r Spieler:in beginnt in Kapitel I mit einem Move und erhält weitere Moves in Kapitel II und IIII. Manche Moves erlauben dir bestimmte Aktionen, ohne dass du würfeln musst. Ein Beispiel:",
+ "Moves sind besondere Fähigkeiten, die typisch für jeden Beruf sind. Jede:r Spieler:in beginnt in Kapitel I mit einem Move und erhält weitere Moves in Kapitel II und IIII. Manche Moves erlauben dir bestimmte Aktionen, ohne dass du würfeln musst. Ein Beispiel:",
  {t: "box", h: "I Heard a Rumor!", b: ["Entweder du kennst eine heikle Information aus dem Klatsch – du darfst sie dir ausdenken oder die Spielleitung fragen –, oder du setzt selbst ein Gerücht in die Welt."]},
  "Andere Moves erlauben dir, einen Wurf zu wiederholen, oder verschaffen dir einen strategischen Vorteil. Eventuell musst du dafür eine Voraussetzung erfüllen. Ein Beispiel:",
  {t: "box", h: "Defensive Stance", b: ["Erfordert eine Zweihandwaffe. Alle deine Freunde erhalten +1 auf ihren nächsten Reaction Roll gegen einen Gegner."]},
- "Die Moves jeder Profession findest du in Abschnitt III „Berufe“.",
+ "Die Moves jedes Berufs findest du in Abschnitt III „Berufe“.",
  {t: "h", x: "Einen Move einsetzen"},
  "Du kannst jeden Move, den du hast, einmal pro Sitzung einsetzen. Mach dazu auf deinem Bogen eine Markierung in den Kreis neben dem Move. Am Ende einer Sitzung darfst du die Markierungen in allen ausgefüllten Kreisen wieder löschen.",
  "Willst du einen Move wiederholen, den du in derselben Sitzung schon eingesetzt hast, kannst du das tun, indem du einen Ace ausspielst. Das Farbsymbol neben dem Namen des Moves zeigt, welchen Ace du für eine zusätzliche Anwendung spielen kannst. Stehen zwei Farbsymbole neben dem Namen, kannst du einen der beiden Aces spielen, um den Move zu wiederholen.",
@@ -186,7 +186,7 @@ L.push(
  "Schließlich kannst du, wenn dir ein Action Roll misslungen ist, einen Ace spielen, um den Misserfolg abzuwenden und es mit einem neuen Vorgehen noch einmal zu versuchen. Dazu musst du einen Ace einer anderen Farbe spielen als der des Fields, in dem dir der Misserfolg passiert ist, und dann im Field des gespielten Aces neu würfeln.",
  "Hast du zum Beispiel versucht, einen Gendarmen anzulügen, indem du Eloquence + Society gewürfelt hast, und es ist misslungen, kannst du einen Ace spielen, statt dich mit dem Misserfolg abzufinden. Da du im Field Society bereits gehandelt hast, kannst du den Ace of Hearts nicht verwenden. Spielst du einen Ace of Spades, kannst du im Field Street neu würfeln und es mit einem verstohlenen Vorgehen versuchen. Spielst du dagegen einen Ace of Clubs, kannst du im Field War neu würfeln und den Gendarmen schlagen, wenn er es am wenigsten erwartet.",
  {t: "h", x: "Einen Ace erhalten"},
- "Zu Beginn jedes Kapitels erhält jede:r Spieler:in 2 Aces in den Farben, die zu Profession und Vocation gehören (und zu den Fields, in denen er oder sie 2 Punkte hat).",
+ "Zu Beginn jedes Kapitels erhält jede:r Spieler:in 2 Aces in den Farben, die zu Beruf und Berufung gehören (und zu den Fields, in denen er oder sie 2 Punkte hat).",
  "Während des Spiels belohnt die Spielleitung außerdem denkwürdige Handlungen und mutige oder fruchtbare Entscheidungen der Spieler:innen mit einem Ace einer passenden Farbe. Wenn jemand eine brillante Idee hat, seine Figur meisterhaft darstellt, den Erfolg erzielt, den er unter allen Umständen brauchte, oder wenn alle begeistert sind und sich für eine epische Tat auf die Schulter klopfen, sind das alles Anlässe für einen Ace der Anerkennung!",
  "Belohne eine:n Spieler:in mit einem Ace, wenn:",
  {t: "ul", x: [

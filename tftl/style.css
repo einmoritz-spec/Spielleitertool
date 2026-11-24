@@ -741,3 +741,13 @@ body.es .vbl a{border-top-color:rgba(0,0,0,.08)}
 .mbk.on{box-shadow:0 0 0 3px var(--acc),0 10px 26px rgba(0,0,0,.45)}
 .mbk.on:after{content:"";position:absolute;left:50%;bottom:-1px;z-index:3;border:9px solid transparent;border-bottom-color:var(--acc);transform:translateX(-50%)}
 .mbp{padding-top:14px}.mbp .gh{display:none}.mbp .grp{margin:0}
+/* D66-Raster (z. B. Marotten der NSC) */
+.n66{border-collapse:separate;border-spacing:4px;width:100%;table-layout:fixed;margin:4px -4px 10px}
+.n66 thead th{font:700 12px var(--sans);color:var(--soft);text-align:center;padding:0 0 2px}
+.n66 tbody th{width:28px;font:700 13px var(--sans);color:#fff;background:var(--ink);text-align:center;border-radius:2px}
+.n66 thead th:first-child{width:28px}
+.n66 td{background:rgba(0,0,0,.035);border-radius:3px;padding:8px 10px 9px;font:15px/1.3 var(--serif);vertical-align:top}
+.n66 td i{display:block;font:700 10.5px var(--sans);font-style:normal;letter-spacing:.06em;color:var(--soft);margin-bottom:2px}
+.n66 td.hit{background:var(--acc);color:#fff}.n66 td.hit i{color:rgba(255,255,255,.8)}
+.nw .n66 td{width:auto;border-bottom:0}
+.n66 td i{font-size:12px;color:var(--acc)}

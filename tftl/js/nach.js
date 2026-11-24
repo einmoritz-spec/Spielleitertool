@@ -87,6 +87,12 @@
       (o.z || []).map(function(z){ return '<p><b>' + nm(z[0]) + ':</b> ' + nm(z[1]) + '</p>'; }).join("") + (o.html || "") + '</section>';
   }
   function wuerfelTab(b){
+    /* D66 mit 36 kurzen Einträgen: als 6×6-Raster (Zeile = erster Würfel, Spalte = zweiter) */
+    var kurz = b[2] === "D66" && b[3].length === 36 && b[3].every(function(r){ return /^[1-6][1-6]$/.test(r[0]) && strip(r[1]).length <= 40; });
+    if(kurz){ var M = {}; b[3].forEach(function(r){ M[r[0]] = r[1]; });
+      return '<section class="nw nw66" data-d="D66"><h4>' + nm(b[1]) + (b[4] ? ' <small>' + pg(b[4]) + '</small>' : '') + ' <button class="nwb" type="button">D66 würfeln</button></h4>' +
+        '<table class="n66"><tbody>' +
+        [1,2,3,4,5,6].map(function(i){ return '<tr>' + [1,2,3,4,5,6].map(function(j){ var k = "" + i + j; return '<td data-k="' + k + '"><i>' + k + '</i>' + nm(M[k]) + '</td>'; }).join("") + '</tr>'; }).join("") + '</tbody></table></section>'; }
     return '<section class="nw" data-d="' + esc(b[2]) + '"><h4>' + nm(b[1]) + (b[4] ? ' <small>' + pg(b[4]) + '</small>' : '') + ' <button class="nwb" type="button">' + esc(b[2]) + ' würfeln</button></h4>' +
       '<table class="ntab"><tbody>' + b[3].map(function(r){ return '<tr data-k="' + esc(r[0]) + '"><th>' + nm(r[0]) + '</th><td>' + nm(r[1]) + '</td></tr>'; }).join("") + '</tbody></table></section>';
   }
@@ -225,7 +231,7 @@
     tabs.innerHTML = window.TX_TABS(C, "nach/" + tab) || (C.NACH || []).map(function(n){ return '<a href="#' + C.p + 'nach/' + n[0] + '"' + (n[0] === tab ? ' class="on"' : '') + '>' + esc(n[1]) + '</a>'; }).join("");
     app.onclick = function(e){
       var ty = e.target.closest(".ty"); if(ty && !e.target.closest(".pgl")){ location.hash = KA().href(ty.dataset.t); return; }
-      var wb = e.target.closest(".nwb"); if(wb){ var sc = wb.closest(".nw"), v = roll(sc.dataset.d); sc.querySelectorAll("tr").forEach(function(tr){ tr.classList.toggle("hit", hit(tr.dataset.k, v)); }); wb.textContent = sc.dataset.d + ': ' + v; return; }
+      var wb = e.target.closest(".nwb"); if(wb){ var sc = wb.closest(".nw"), v = roll(sc.dataset.d); sc.querySelectorAll("[data-k]").forEach(function(tr){ tr.classList.toggle("hit", hit(tr.dataset.k, v)); }); wb.textContent = sc.dataset.d + ': ' + v; return; }
       var el = e.target.closest(".pgl"); if(el){ e.preventDefault(); e.stopPropagation(); if(window.BV) BV.open(el.dataset.b, +el.dataset.s); return; }
       var nj = e.target.closest(".nj"); if(nj){ var tg = document.getElementById("nj-" + nj.dataset.j); if(tg){ e.preventDefault(); tg.scrollIntoView({behavior:"smooth", block:"start"}); return; } }
       if(e.target.closest("#nsT")){ collapsed = !collapsed; app.classList.toggle("nsc", collapsed); }

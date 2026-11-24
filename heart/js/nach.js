@@ -75,7 +75,6 @@ document.addEventListener("keydown", function(e){
     var GK = secGroups(S); GK.forEach(function(g, i){ if(g.secs.some(function(s){ return s.id === h[3]; })) i2 = i; });
     var m = GK[i2 + (e.key === "ArrowDown" ? 1 : -1)]; if(m){ go("nach/" + cid + "/" + S.id + "/" + m.secs[0].id); e.preventDefault(); }
   }
-  if(e.key === "[" ) ruecken();
 });
 
 /* ---------- Klassenseite: Diagonale (Figur + Name) · Intro · Kerneigenschaften · Fähigkeiten im Raster ---------- */

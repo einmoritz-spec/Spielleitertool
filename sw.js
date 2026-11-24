@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v841sp";
+const VERSION = "v842sp";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -2839,6 +2839,7 @@ const FILES = [
   "shared/layout.css",
   "shared/notes.js", "shared/tabpick.js",
   "shared/ux.js",
+  "shared/seitenleiste.js",
   "shared/panels.js",
   "shared/panels.css",
   "shared/zeigen.js",

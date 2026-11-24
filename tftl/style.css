@@ -696,3 +696,4 @@ body.hu{--hd:94px}body.hu.nohead{--hd:38px}
 body.flood #tabs a{padding:0 9px}
 /* Header-Knöpfe rechts ohne Umrandung */
 .topbar button,.topbar .tm-book,.topbar .tm-sg,.topbar .tm-gal,.topbar .tb-burger,.topbar [class*="tm-"],.topbar .ib{border:0!important;box-shadow:none!important;outline:0}
+#tabs .tsep{display:none}

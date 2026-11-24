@@ -471,3 +471,13 @@ body.mitunter .fold.fx{top:108px}
 .pbl a:hover{background:none;color:var(--c)}.pbl a:hover:after{opacity:1;transform:translateX(3px)}
 .pbr{align-items:start}
 body .side .fold{top:11px}
+/* Kopfzeile schmaler */
+.topbar{height:46px}
+.topbar .brand img{height:28px}
+.ktabs a{height:36px;font-size:20px;padding:0 14px}
+#app>.unter{top:46px;height:36px}
+#app>.unter a{height:36px;font-size:17px}
+.tabs{top:46px}
+.side{top:46px;height:calc(100vh - 46px)}
+body.mitunter .side{top:82px;height:calc(100vh - 82px)}
+.fold.fx{top:56px}body.mitunter .fold.fx{top:92px}

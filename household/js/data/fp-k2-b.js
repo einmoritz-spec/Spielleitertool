@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2
 
 K.push({id: "spur", t: "Auf Argos Spur", p: 123, b: [
  {t: "bild", s: "fp-s123-ii-on-argos-trail", w: "voll"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Chesterfield by-the-fire",
   "**Zeit:** Februar VII H.C.",
   "**Hauptfiguren:** [[Gwen|fp/figuren/gwen]], [[Humphrey|fp/figuren/humphrey]], [[Pryscilla|fp/figuren/priscilla]] und [[Santiago|fp/figuren/santiago]]",

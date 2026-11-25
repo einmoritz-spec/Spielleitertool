@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2
 
 K.push({id: "protopopolov", t: "Reise mit Protopopolov, Teil I", p: 127, b: [
  {t: "bild", s: "fp-s127-ii-traveling-with-protopopolov", w: "voll"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Astraviya",
   "**Zeit:** März VII H.C.",
   "**Hauptfiguren:** [[Earnest|fp/figuren/earnest]], [[Hannah|fp/figuren/hannah]], [[Jocelyne|fp/figuren/jocelyne]] und [[Yuliya|fp/figuren/yuliya]]",

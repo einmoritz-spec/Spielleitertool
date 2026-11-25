@@ -10,6 +10,8 @@ function blk(L, book){
     switch(b.t){
       case "p": return "<p>" + md(b.x) + "</p>";
       case "h": return "<h3>" + esc(b.x) + (b.p ? pgl(book, b.p) : "") + "</h3>";
+      case "daten": return '<div class="daten">' + b.x.map(function(x){ var m = /^\*\*(.*?):?\*\*:?\s*([\s\S]*)$/.exec(x); return '<div><span>' + esc(m[1]) + '</span>' + md(m[2]) + '</div>'; }).join("") + '</div>';
+      case "spalten": return '<div class="spalten">' + b.x.map(function(c){ return "<div>" + blk(c, book) + "</div>"; }).join("") + "</div>";
       case "ul": return '<ul class="bul">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
       case "bsp": return '<div class="bsp">' + b.b.map(function(z){ return z[0] ? '<p><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>' : '<p>' + md(z[1]) + '</p>'; }).join("") + "</div>";
       case "box": return '<div class="kasten"><h4>' + esc(b.h) + '</h4>' + blk(b.b, book) + "</div>";

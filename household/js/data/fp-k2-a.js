@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2
 
 K.push({id: "banister", t: "Die Tragödie auf dem Banister", p: 122, b: [
  {t: "bild", s: "fp-s122-ii-tragedy-on-the-banister", w: "voll"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Great Stairs",
   "**Zeit:** Januar VII H.C.",
   "**Hauptfiguren:** [[Aidan|fp/figuren/aidan]], [[Dimitri|fp/figuren/dimitri]], [[Ira|fp/figuren/ira]] und [[Siobhan|fp/figuren/siobhan]]",

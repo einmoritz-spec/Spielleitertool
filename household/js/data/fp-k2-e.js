@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2
 
 K.push({id: "grenze", t: "Die Umbral-Grenze", p: 126, b: [
  {t: "bild", s: "fp-s126-ii-the-umbral-frontier", w: "voll"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** El Paso de Umbral",
   "**Zeit:** März VII H.C.",
   "**Hauptfiguren:** [[Jemma|fp/figuren/jemma]], [[Malaika|fp/figuren/malaika]], [[Qamar|fp/figuren/qamar]] und [[Zehra|fp/figuren/zehra]]",

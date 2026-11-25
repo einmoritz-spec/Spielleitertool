@@ -177,3 +177,5 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .kliste{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 22px}.kliste a{cursor:pointer;font:400 17px Fell,serif;color:var(--akz)}.kliste a:hover{text-decoration:underline}.kliste small{color:var(--soft);font-size:14px;margin-left:-14px}
 .txt .gk-z{margin:2px 0;line-height:1.35}.txt .gk-ak{margin:8px 0 10px}.txt .gk-ak li{margin:2px 0}
 .karten.oben{align-items:start}
+
+.txt a.vl{color:var(--lila,#5b3a8c);text-decoration:underline;text-decoration-color:rgba(91,58,140,.4);cursor:pointer}

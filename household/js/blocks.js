@@ -3,7 +3,7 @@
    Auszeichnung im Text: *kursiv*, **fett**. Seitenlinks: p = Buchseite (Grundbuch), "book" am Eintrag wählt ein anderes Buch. */
 "use strict";
 window.HH_TEXT = window.HH_TEXT || {};
-function md(s){ return esc(s).replace(/\{(kreuz|karo|herz|pik|hh|haus)\}/g, '<img class="wf" src="img/wuerfel/$1.png" alt="$1">').replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>"); }
+function md(s){ return esc(s).replace(/\{(kreuz|karo|herz|pik|hh|haus)\}/g, '<img class="wf" src="img/wuerfel/$1.png" alt="$1">').replace(/\[\[(.+?)\|(.+?)\]\]/g, "<a class=\"vl\" onclick=\"go('$2')\">$1</a>").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>"); }
 function blk(L, book){
   return (L || []).map(function(b){
     if(typeof b === "string") return "<p>" + md(b) + "</p>";

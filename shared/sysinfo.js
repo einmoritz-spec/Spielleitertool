@@ -5,7 +5,7 @@
 (function(){
   var BASE = window.gmToolBase || "";
   /* Systemkennung (toolmenu) -> Info-Datei. Nur ausgebaute Systeme. */
-  var MAP = {household:"household", hh_garten:"household", moerkborg:"moerkborg", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", etr:"etr", wildsea:"wildsea", pico:"pico", slugblaster:"slugblaster", dragonbane:"dragonbane", heart:"heart", ht_dagger:"heart", spire:"spire", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es"};
+  var MAP = {discworld:"discworld", household:"household", hh_garten:"household", moerkborg:"moerkborg", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", etr:"etr", wildsea:"wildsea", pico:"pico", slugblaster:"slugblaster", dragonbane:"dragonbane", heart:"heart", ht_dagger:"heart", spire:"spire", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es"};
   window.GM_INFO = window.GM_INFO || {};
   function key(){ try{ return MAP[window.gmToolCur ? window.gmToolCur() : ""] || null; }catch(e){ return null; } }
 

@@ -4754,6 +4754,26 @@ var SW_TALENTE = [
 "o": 2
 },
 {
+"n": "Superkräfte",
+"k": "Hintergrund",
+"r": 0,
+"v": "",
+"w": 0,
+"b": [
+"Dieses Talent gewährt Charakteren eine Anzahl „Superkraftpunkte“, mit denen sie die in Kapitel Vier aufgeführten Superkräfte kaufen können. Wie viele Superkraftpunkte Spielercharaktere zu Beginn haben, hängt von der Kampagnen-Machtstufe ab (siehe Tabelle) und wird von der Spielleitung gewählt. Will sie eine Kampagne mit gritty Pulp-Helden oder heranwachsenden Teen-Supers spielen, wählt sie vielleicht Machtstufe I. Will sie eine kosmische Kampagne, geht sie vielleicht bis Machtstufe V. Details stehen in der Seitenleiste Machtstufen.",
+"Das Talent Superkräfte sollte in den meisten Superhelden-Kampagnen kostenlos sein.",
+"Hinweis: Superkraftpunkte sind nicht dieselben wie die für Arkane Hintergründe, und Talente, die Machtpunkte betreffen, wirken nicht auf Superkraftpunkte, sofern das Talent es nicht ausdrücklich sagt.",
+"Machtlimits: Spielercharaktere dürfen höchstens das Machtlimit der Kampagne für eine einzelne Kraft ausgeben. Das bewahrt den besonderen Charakter eines Settings, damit Nachbarschaftshelden nicht mit Lichtgeschwindigkeit herumrennen. Es zählen die Gesamtkosten der Kraft nach allen Modifikatoren. Ein Held der Stufe II mit 30 Superkraftpunkten und Machtlimit 10 könnte zum Beispiel Schallgeschwindigkeit für 13 Punkte kaufen, wenn er ihre Kosten durch negative Modifikatoren wie Unhandlich (–2) und ein handgehaltenes Gerät (–2) um 3 senkt. Machtlimits ändern sich nie, auch wenn die Charaktere anderweitig zusätzliche Punkte erhalten.",
+"Aufstrebende Sterne: Manche Helden wachsen mit der Reife (Aufstieg), lernen ihre besonderen Fähigkeiten zu meistern oder erhalten mehr Macht durch einen Mentor oder seltsame kosmische Geräte. Will die SL diese Art Kampagne spielen, starten Spielercharaktere mit einem oder zwei Dritteln der Superkraftpunkte der Machtstufe (Wahl der SL) und erhalten zusätzliche Punkte, wenn sie Hindernisse überwinden und Erfahrung sammeln. Wann genau das geschieht, entscheidet die SL, doch irgendwann sollten sie alle Superkraftpunkte der Machtstufe bekommen. Machtlimits gelten wie üblich weiter."
+],
+"p": 10,
+"s": [
+"SUP"
+],
+"bk": "sw_sup",
+"o": 2
+},
+{
 "n": "Der Beste",
 "k": "Hintergrund",
 "r": 0,
@@ -5422,7 +5442,7 @@ var SW_TALENTE = [
 "o": 2
 },
 {
-"n": "Stitchin'",
+"n": "Stitchin’",
 "k": "Harrowed",
 "r": 0,
 "v": "Harrowed",
@@ -5438,10 +5458,10 @@ var SW_TALENTE = [
 "o": 2
 },
 {
-"n": "Verbessertes Stitchin'",
+"n": "Verbessertes Stitchin’",
 "k": "Harrowed",
 "r": 2,
-"v": "Harrowed, Stitchin'",
+"v": "Harrowed, Stitchin’",
 "w": 0,
 "b": [
 "Wie oben, doch der Deader würfelt jede Stunde."

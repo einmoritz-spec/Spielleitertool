@@ -121,3 +121,4 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 
 .sq{font:600 10px/1 Oswald,sans-serif;font-style:normal;letter-spacing:.06em;padding:2px 5px;margin-left:6px;vertical-align:middle;color:#fff;background:#7a7067;border-radius:2px}
 .sq-fan{background:#2f7a4a}.sq-hor{background:#7a2230}.sq-sf{background:#1f6f9a}.sq-sup{background:#c2571c}.sq-dl{background:#5a3a1a}
+.dl .tg.dlt{left:auto;right:150px;top:50%;transform:translateY(-50%);width:auto}

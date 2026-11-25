@@ -108,7 +108,7 @@ function start(){
       (CHAPT[t.id] || []).map(function(s){ return '<li><a onclick="go(\'' + t.id + "/" + s[1] + '\')">' + esc(s[0]) + "</a></li>"; }).join("") + "</ul></div>";
   }).join("");
   APP.innerHTML = '<div class="st"><div class="pan">' + pan + '</div><div class="chs">' + chs + '</div>' +
-    '<div class="dl" onclick="go(\'dl\')"><img src="' + IMG("start/dl-cover") + '" alt=""><div><h3>Deadlands</h3><p>Der Wilde Westen, in dem die Toten nicht ruhen.</p></div><span class="go">Betreten</span></div></div>';
+    '<div class="dl" onclick="go(\'dl\')"><img src="' + IMG("start/dl-cover") + '" alt=""><div><h3>Deadlands</h3><p>Der Wilde Westen, in dem die Toten nicht ruhen.</p></div><button class="tg dlt' + (gen("dl") ? " on" : "") + '" onclick="event.stopPropagation();toggleGen(\'dl\')" aria-label="Deadlands-Talente"><span class="kn"></span><em>' + (gen("dl") ? "An" : "Aus") + '</em></button><span class="go">Betreten</span></div></div>';
 }
 function toggleGen(id){ if(id === "grw") return; ST.gen[id] = ST.gen[id] ? 0 : 1; save(); render(); }
 

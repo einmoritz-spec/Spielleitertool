@@ -107,7 +107,14 @@ function viewSaga(P){
   var bar = '<div class="sl" style="background:' + S.farbe + '"><a class="nm' + (sub ? '' : ' on') + '" onclick="go(\'' + P.s + '\')">' + esc(S.t) + '</a>' +
     S.unter.map(function(u){ return '<a class="' + (u[0] === sub ? 'on' : '') + '" onclick="go(\'' + P.s + '/' + u[0] + '\')">' + esc(u[1]) + '</a>'; }).join("") + '</div>';
   var name = sub ? S.unter.filter(function(u){ return u[0] === sub; })[0][1] : S.t;
-  return {bar: bar, body: lay("", '<div class="sec"><h1>' + esc(name) + '</h1></div>' + platzhalter(sub ? name : "Startseite"))};
+  var tx = HH_TEXT[P.s + "/" + sub], book = P.s === "fp" ? "hh_a2" : "hh_a1";
+  if(!sub){
+    var cover = P.s === "fp" ? "fp-s-01-umschlag-vorspann-b" : "lw-s-01-umschlag-vorspann";
+    var kach = S.unter.map(function(u){ return '<a onclick="go(\'' + P.s + '/' + u[0] + '\')">' + esc(u[1]) + '</a>'; }).join("");
+    return {bar: bar, body: '<div class="sgstart" style="--sgf:' + S.farbe + '"><div class="sgc" style="background-image:url(' + IMGP(cover) + ')"></div><div class="sgt"><h1>' + esc(S.t) + '</h1><div class="sgk">' + kach + '</div></div></div>'};
+  }
+  if(tx) return {bar: bar, body: lay("", (tx.length > 1 ? '<div class="sec"><h1>' + esc(name) + '</h1></div>' : '') + tx.map(function(e){ return '<div class="sec txt" id="ab-' + e.id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join(""))};
+  return {bar: bar, body: lay("", '<div class="sec"><h1>' + esc(name) + '</h1></div>' + platzhalter(name))};
 }
 
 /* ---------- Rendern ---------- */

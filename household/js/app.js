@@ -71,7 +71,7 @@ function viewSeite(P){
   }
   return lay(side, body);
 }
-function zuAbschnitt(id, sofort){ var el = document.getElementById("ab-" + id); if(el) el.scrollIntoView({behavior: sofort ? "auto" : "smooth", block: "start"}); }
+function zuAbschnitt(id, sofort){ var el = document.getElementById("ab-" + id); if(el){ var c = el.querySelector(".gegner.zu"); if(c) c.classList.remove("zu"); } if(el) el.scrollIntoView({behavior: sofort ? "auto" : "smooth", block: "start"}); }
 function IMGP(n, t){ return "img/" + n.split("-")[0] + "/" + (t ? "thumb" : "full") + "/" + n + ".webp"; }
 var STOCK = [
  {id:"s1", bild:"grundbuch-s258-259-ix-upper-floor", etage:"Obergeschoss", t:"Free Dominions", k:"Sprites · Bedroom, Bathlantis", em:"guide-s096-iii-free-dominions-einleitung", go:"welt/alltag/dominions"},

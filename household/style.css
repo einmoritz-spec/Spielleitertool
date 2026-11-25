@@ -386,3 +386,12 @@ body.garten .koloss .gk-zug{margin:6px 2px}
 body.garten .fig.weich img{-webkit-mask:radial-gradient(closest-side,#000 62%,transparent);mask:radial-gradient(closest-side,#000 62%,transparent)}
 /* Garten: Text nutzt die volle Breite, kein leerer Streifen rechts */
 body.garten .txt,body.garten.fold-on .txt,body.garten .fold-on .txt{max-width:1500px;margin-left:auto;margin-right:auto}
+/* Gegnerkarten: eingeklappt als schlanke Zeile, Klick öffnet in voller Breite */
+body.garten .gegner:not(.koloss)>.gk-kopf{cursor:pointer;margin-bottom:10px}
+body.garten .gegner:not(.koloss)>.gk-kopf:hover{color:#8a4a10}
+body.garten .gk-pf{display:inline-block;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:0 12px 3px 2px;transition:transform .15s}
+body.garten .gegner.zu .gk-pf{transform:rotate(-45deg);margin-bottom:0}
+body.garten .gegner.zu>.gk-rest{display:none}
+body.garten .gegner.zu>.gk-kopf{margin-bottom:0}
+body.garten .gegner.zu{padding-top:8px;padding-bottom:8px}
+body.garten .gegner.zu>.gk-kopf{border-bottom:0;padding-bottom:0}

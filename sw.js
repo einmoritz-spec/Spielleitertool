@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1029sq";
+const VERSION = "v1030sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -292,9 +292,6 @@ const FILES = [
   "tftl/img/wagner-supermarkt.webp",
   "tftl/img/hero-boulder.webp",
   "tftl/img/hero-taunus.webp",
-  "forbidden/index.html",
-  "forbidden/sys.js",
-  "forbidden/img/hero.webp",
   "wildsea/index.html",
   "wildsea/style.css",
   "wildsea/js/app.js",
@@ -2633,7 +2630,6 @@ const FILES = [
   "assets/logos/eat-the-reich.webp",
   "assets/logos/the-wildsea.webp",
   "assets/logos/tales-from-the-loop.webp",
-  "assets/logos/forbidden-lands.webp",
   "assets/logos/triangle-agency.webp",
   "assets/fonts/jost-latin-700-normal.woff2",
   "assets/fonts/im-fell-double-pica-sc-latin-400-normal.woff2",
@@ -3709,7 +3705,6 @@ const FILES = [
   "shared/galerie.js",
   "shared/gsuche.js",
   "compass/js/suche.js",
-  "forbidden/js/suche.js",
   "household/js/suche.js",
   "savageworlds/js/suche.js",
   "triangle/js/suche.js",

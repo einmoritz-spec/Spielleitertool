@@ -56,7 +56,7 @@ function textSeite(P, list, book){
 /* Figurenkarte (Neue Figuren): {t:"figur", n, sub, bild:[Name,Breite], d:[[Feld,Wert]], s:[[Feld,Wert]] Startwerte, k:[[Kapitel,Text]], tx:[Absätze]} */
 function figurKarte(b){
   return '<div class="kasten figur" id="ab-' + b.id + '"><div class="fg-kopf"><div class="fg-sub">' + esc(b.sub) + '</div></div>' +
-    '<div class="fg-obe">' + (b.bild ? '<figure class="fig"><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></figure>' : '') +
+    '<div class="fg-obe">' + (b.bild ? '<figure class="fig"' + (b.bw ? ' style="flex-basis:' + b.bw + 'px"' : '') + '><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></figure>' : '') +
     '<div class="fg-d"><dl>' + b.d.map(function(x){ return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join("") + '</dl>' +
     '<dl class="fg-s">' + b.s.map(function(x){ return '<dt>' + esc(x[0]) + '</dt><dd>' + md(x[1]) + '</dd>'; }).join("") + '</dl></div></div>' +
     '<div class="fg-k">' + b.k.map(function(x){ return '<div><b>Kapitel ' + x[0] + '</b><span>' + md(x[1]) + '</span></div>'; }).join("") + '</div>' +

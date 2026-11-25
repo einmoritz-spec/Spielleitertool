@@ -143,7 +143,7 @@ A.push({id: "weapons", t: "Waffen", p: 158, b: [
   ]},
   {t: "karten", cls: "drei", x: [
   K("Zweihändig", ["Braucht beide Hände, um richtig geführt zu werden. Hinderlich auf engem Raum."]),
-  K("Doppellauf", ["Kann zweimal schießen, bevor nachgeladen werden muss. Ab Kapitel IIII erhältlich. Siehe historische Ereignisse in Abschnitt VIII „Saga“."]),
+  K("Doppellauf", ["Kann zweimal schießen, bevor nachgeladen werden muss. Ab Kapitel IV erhältlich. Siehe historische Ereignisse in Abschnitt VIII „Saga“."]),
   K("Breit", ["Verschafft dir die Vorteile von Teildeckung."]),
   K("Duell", ["Erlaubt dir, einige Duellanten-Manöver zu nutzen."]),
   K("Feuerwaffe", ["Erlaubt dir zu schießen. Äußerst laut. Muss nach jedem Schuss nachgeladen werden."]),
@@ -208,7 +208,7 @@ A.push({id: "ranged", t: "Fernkampfwaffen", p: 162, b: [
   K("Präzisionspistole", ["Eine Pistole der neuesten Generation, äußerst treffsicher. Zu den bemerkenswertesten Modellen gehört die Feuerlang Precision Pistol, entworfen von Colonel Feuerlang von der Porcelain Army und mit einem extrem langen und oft verzierten Lauf. Ein weiteres glänzendes Beispiel militärischer Handwerkskunst ist die Deringer V, die neueste Schöpfung von Veronica Deringer, einer jungen Boggart, die kürzlich die berühmte Familienfirma von ihrem Vater übernommen hat."]),
   K("Wusstest du?", ["Wer mit zwei Pistolen gleichzeitig schießt, erhält +1 auf den Wurf, entleert aber beide Waffen."]),
   K("Jagdgewehr", ["Ein hochpräzises Gewehr. Das Geheimnis seiner großen Reichweite liegt in den Zügen im Inneren des Laufs, was der Beginn einer echten Revolution in den Feuerwaffen sein könnte. Le Fusil ist ein berühmtes Jagdgewehr, erfunden vom Fairy-Ingenieur Armand Le Fusil. Das bekannteste dieser äußerst präzisen Geräte ist aber sicher das Alshara-Gewehr, ein Juwel der Militärtechnik, das unten in der Horde entwickelt wurde. So schön es ist, so tödlich ist es auch!"]),
-  K("Wusstest du?", ["Ab Kapitel IIII kannst du Feuerwaffen mit dem Merkmal Double Barreled kaufen, die zweimal schießen können, bevor sie nachgeladen werden müssen. Sie kosten nur doppelt so viel wie gewöhnliche Waffen!"]),
+  K("Wusstest du?", ["Ab Kapitel IV kannst du Feuerwaffen mit dem Merkmal Double Barreled kaufen, die zweimal schießen können, bevor sie nachgeladen werden müssen. Sie kosten nur doppelt so viel wie gewöhnliche Waffen!"]),
   K("Armbrust", ["Nicht gerade hochmodern, aber immer verlässlich. Armbrüste sind lautlose und effiziente Waffen, perfekt für Littlings, die lieber unauffällig bleiben. Sie können auch mit ungefährlichen Holzkugeln geladen werden."]),
   K("Klappbare Armbrust", ["Eine handliche Armbrust, etwa so groß wie eine Pistole, mit einem klappbaren Bogen, der sie leicht verstecken lässt. Diese vielen Vorteile gehen allerdings auf Kosten von Reichweite und Wucht. Auch sie kann mit ungefährlichen Holzkugeln geladen werden."]),
   K("Muskete", ["Ein verlässliches Gewehr des Household. Unter den vielen Modellen möchte ich das historische Chesterfield-Muskete nennen, entwickelt und hergestellt in der Hearth-Stadt gleichen Namens und zuverlässig in vielen Armeen eingesetzt."])

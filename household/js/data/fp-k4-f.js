@@ -1,4 +1,4 @@
-/* Saga vom Brüchigen Frieden › Kapitel IIII, Paragraph III, Teil D–F (Saga-Band S.173–175) */
+/* Saga vom Brüchigen Frieden › Kapitel IV, Paragraph III, Teil D–F (Saga-Band S.173–175) */
 (function(){
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k4"] = window.HH_TEXT["fp/k4"] || [];
 
@@ -35,7 +35,7 @@ K.push({id: "richtiges", t: "Das Richtige tun", p: 174, b: [
   "**Weitere Figuren:** [[Floyd|fp/figuren/floyd]]",
   "**Ziel:** Ferguson Fole vor Gericht bringen"
  ]},
- "Ein anonymer Bürger war an Jemma herangetreten und hatte ihr eine stattliche Belohnung dafür versprochen, die „gefährliche Verbrecherin“ Sienna Blackwell aufzuspüren und den Behörden der Free Dominions zu übergeben, mit der Behauptung, die Boggart sei das wahre kriminelle Genie, das den Raub bei der Household Central Bank organisiert habe (siehe „Kapitel IIII: Der Coup des Jahrhunderts, Teil II“).",
+ "Ein anonymer Bürger war an Jemma herangetreten und hatte ihr eine stattliche Belohnung dafür versprochen, die „gefährliche Verbrecherin“ Sienna Blackwell aufzuspüren und den Behörden der Free Dominions zu übergeben, mit der Behauptung, die Boggart sei das wahre kriminelle Genie, das den Raub bei der Household Central Bank organisiert habe (siehe „Kapitel IV: Der Coup des Jahrhunderts, Teil II“).",
  "Und Jemma hätte diese Mission sogar erfüllt, wenn Earnest nicht rasch eingegriffen hätte, um sie aufzuhalten, die Gemüter auf allen Seiten zu beruhigen und die Lage zu erklären. Nachdem er erfahren hatte, dass seine Freundin ihn belogen hatte, hatte der Duellant aus Wallford es geschafft, Sienna und Micah zu überreden – oder vielleicht zu zwingen –, die Beute zurückzugeben und ihm zu helfen, Ferguson Fole vor Gericht zu bringen.",
  "Wie sich zeigte, war Jemma von Fole selbst angeheuert worden, um seine früheren Komplizen loszuwerden, und da die Söldnerin es nicht schätzte, für dumm verkauft zu werden, beschloss sie, sich dem ungleichen Trio anzuschließen, um es ihm heimzuzahlen.",
  "So taten Sienna und Micah zur Abwechslung das Richtige, stellten ihre eigenen Interessen zugunsten des Allgemeinwohls zurück … wer weiß, vielleicht rächten sie sich sogar am teuflischen Ferguson Fole.",

@@ -49,7 +49,7 @@ window.HH_NAV = {
 
 /* Die beiden Sagas: Name = Reiter der Startseite, danach die Bereiche */
 window.HH_SAGAS = {
- fp: {t: "Saga vom Brüchigen Frieden", farbe: "#2c2038", unter: [["einleitung", "Einleitung"], ["figuren", "Figuren"], ["k1", "Kapitel I"], ["k2", "Kapitel II"], ["k3", "Kapitel III"], ["k4", "Kapitel IIII"], ["k5", "Kapitel V"], ["epilog", "Epilog"], ["zeit", "Zeitleiste"]]},
+ fp: {t: "Saga vom Brüchigen Frieden", farbe: "#2c2038", unter: [["einleitung", "Einleitung"], ["figuren", "Figuren"], ["k1", "Kapitel I"], ["k2", "Kapitel II"], ["k3", "Kapitel III"], ["k4", "Kapitel IV"], ["k5", "Kapitel V"], ["epilog", "Epilog"], ["zeit", "Zeitleiste"]]},
  lw: {t: "Saga vom Langen Winter", farbe: "#24364a", unter: [["figuren", "Figuren"], ["k6", "Kapitel VI"], ["k7", "Kapitel VII"], ["epilog", "Epilog"], ["zeit", "Zeitleiste"]]}
 };
 

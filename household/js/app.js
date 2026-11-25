@@ -104,7 +104,7 @@ function sagaAuf(el){ document.querySelectorAll(".sg").forEach(function(x){ x.cl
 /* Saga-Startseite: Hero, Einleitung, Fakten, Wege, Empfehlung, Saga-Plan */
 var NC = {common: "#7b4f9c", realm: "#3f7a3a", hearth: "#2b4f8e", dominions: "#b8262f", horde: "#a8601f"};
 var SZ = {"Winter": "#6f93b5", "Frühling": "#6f9a4a", "Sommer": "#c9a13a", "Herbst": "#a85a2a"};
-var KAP = {"Kapitel I": "k1", "Kapitel II": "k2", "Kapitel III": "k3", "Kapitel IIII": "k4", "Kapitel V": "k5", "Kapitel VI": "k6", "Kapitel VII": "k7", "Epilog": "epilog"};
+var KAP = {"Kapitel I": "k1", "Kapitel II": "k2", "Kapitel III": "k3", "Kapitel IV": "k4", "Kapitel V": "k5", "Kapitel VI": "k6", "Kapitel VII": "k7", "Epilog": "epilog"};
 function sagaStart(k){
   var S = HH_SAGASTART[k], D = HH_SAGADATEN[k];
   var h = '<div class="ss" style="--sc:' + S.sc + '"><div class="hero" style="background-image:url(' + IMGP(S.bild) + ');background-position:' + S.pos + '"><div class="t"><h1>' + esc(S.ti) + '</h1><div>' + esc(S.ut) + '</div></div></div><div class="wrapS"><div class="oben"><div>';

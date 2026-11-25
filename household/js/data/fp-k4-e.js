@@ -1,4 +1,4 @@
-/* Saga vom Brüchigen Frieden › Kapitel IIII, Paragraph III, Teil A–C (Saga-Band S.170–172) */
+/* Saga vom Brüchigen Frieden › Kapitel IV, Paragraph III, Teil A–C (Saga-Band S.170–172) */
 (function(){
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k4"] = window.HH_TEXT["fp/k4"] || [];
 
@@ -34,7 +34,7 @@ K.push({id: "monster2", t: "Das Monster von Tuberdam, Teil II", p: 171, b: [
   "**Weitere Figuren:** –",
   "**Ziel:** Den Mörder fassen"
  ]},
- "Nach wochenlangen Ermittlungen im Fall (siehe „Kapitel IIII: Das Monster von Tuberdam, Teil I“) war Cesàr de la Cuve überzeugt, einen Hinweis gefunden zu haben, der den wahren Mörder entlarven könnte, und beschloss, sich selbst als Köder zu benutzen, um ihn aus der Deckung zu locken. Leider schlug sein genialer Plan bald auf ihn zurück, denn das Monster war einen Schritt voraus und brachte Cesàr in eine kompromittierende Lage, in der er an einem meisterhaft inszenierten Tatort gefunden wurde, an dem jedes Indiz auf ihn als Täter deutete.",
+ "Nach wochenlangen Ermittlungen im Fall (siehe „Kapitel IV: Das Monster von Tuberdam, Teil I“) war Cesàr de la Cuve überzeugt, einen Hinweis gefunden zu haben, der den wahren Mörder entlarven könnte, und beschloss, sich selbst als Köder zu benutzen, um ihn aus der Deckung zu locken. Leider schlug sein genialer Plan bald auf ihn zurück, denn das Monster war einen Schritt voraus und brachte Cesàr in eine kompromittierende Lage, in der er an einem meisterhaft inszenierten Tatort gefunden wurde, an dem jedes Indiz auf ihn als Täter deutete.",
  "Angesichts scheinbar unwiderlegbarer Beweise für de la Cuves Schuld wurden Aidan und die anderen in die Enge getrieben, ohne jemanden, dem sie trauen konnten. Sie mussten eine äußerst schwere Entscheidung treffen: ihren Freund, den Marshal, nun als flüchtiger Verdächtiger gebrandmarkt, der Justiz zu übergeben oder ihm zu helfen, im Schatten zu bleiben und die Ermittlung heimlich mit ihm weiterzuführen?",
  "Währenddessen veröffentlichten die Zeitungen Artikel um Artikel über das Monster von Tuberdam, und die Spur schrecklicher Morde schien kein Ende zu nehmen. Die Ermittlung, die schließlich den Täter brachte, sollte eine Vielzahl von Kriminalromanen inspirieren!",
  {t: "spalten", x: [

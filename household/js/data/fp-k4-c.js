@@ -1,4 +1,4 @@
-/* Saga vom Brüchigen Frieden › Kapitel IIII, Paragraph II, Teil A–C (Saga-Band S.162–164) */
+/* Saga vom Brüchigen Frieden › Kapitel IV, Paragraph II, Teil A–C (Saga-Band S.162–164) */
 (function(){
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k4"] = window.HH_TEXT["fp/k4"] || [];
 
@@ -11,7 +11,7 @@ K.push({id: "spinnenkult2", t: "Der Spinnenkult, Teil II", p: 162, b: [
   "**Weitere Figuren:** [[Aidan|fp/figuren/aidan]]",
   "**Ziel:** Den Kult besiegen"
  ]},
- "Nachdem die Oberen des Spinnenkults entlarvt worden waren (siehe „Kapitel IIII, Paragraph I: Der Spinnenkult, Teil I“), traten ihre Anhänger offen hervor und begannen, die Straßen von Al Sehir zu überschwemmen und ausländische Würdenträger sowie alle Sluagh anzugreifen, die sie beherbergten oder in irgendeiner Weise zu ihrem Gefolge gehörten.",
+ "Nachdem die Oberen des Spinnenkults entlarvt worden waren (siehe „Kapitel IV, Paragraph I: Der Spinnenkult, Teil I“), traten ihre Anhänger offen hervor und begannen, die Straßen von Al Sehir zu überschwemmen und ausländische Würdenträger sowie alle Sluagh anzugreifen, die sie beherbergten oder in irgendeiner Weise zu ihrem Gefolge gehörten.",
  "Tagelang wurde die verrostete Stadt zu einem riesigen offenen Schlachtfeld, und die Horde-Armee konnte die Lage nur eindämmen, was zu einem regelrechten Massaker wurde, weil Verstärkung der Great Imperial Army eingriff.",
  "Im Rahmen dieser Anstrengungen wurden Yuliya und Dimitri mit dem Auftrag entsandt, Sheika Zehra zu beschützen und aus dem Kriegsgebiet zu eskortieren, arbeiteten aber stattdessen mit Tubo und der Sheika zusammen und setzten den Übeln des Spinnenkults ein für alle Mal ein Ende.",
  "Gemeinsam trotzten die tapferen Littlings heldenhaft den Gefahren einer Stadt im Aufruhr, und letztlich machte ihr Beitrag den Unterschied und stellte sicher, dass die Mitglieder des Kults vor Gericht kamen.",

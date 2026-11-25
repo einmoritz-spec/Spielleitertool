@@ -1,0 +1,116 @@
+HexMap for tiny adventurers                                                                                                               1.1 Nov 2022
+                                                                                                                               https://cmartins.itch.io/
+
+
+
+Adventure Starter                                                                                     There are 3 factions in play. Each one has its own
+You wake up in the Swampfarm [hex.1]. You          You are a street mouse - It’s the first time you
+can’t tell how you got there. After talking with   are outside the town [hex. 16].                    agenda. But for you, there is no clear goal -
+the residents, they will let you know that you       Why do you want to explore the Outlands?         make the path as you go and explore the
+were found unconscious in the pound [hex.14].        Do you need to get back home? Why?               Outlands.
+  How/why were you flushed away?                     Will they welcome you after what you did?
+                                                                                                      Shape the world and make it a better place.
+
+
+
+
+Factions                                           Coven of Crows                                     Cat Lady Azura
+Rat Bandits
+
+Ruthless gang                                      Cunning corvid crones                              Terrifying presence
+Secret hideout                                     Cawing song magic                                  Hired mercenaries and bandits
+                                                   Soaring scrying tower                              Exorbitant wealth
+ Dominate a trade route - OO
+                                                    Kidnap a mouse farmer - OO                         Raise bribes from settlement - OOO
+                                                    Create a weather machine - OOOOO                   Subjugate a settlement - OOOOO
+Rumours                                              5- Drainpipe outlet                                 12- Busy road
+Roll 1d6                                             Rumour: a toll is required to enter the human       Rumour: A dangerous human piper makes all
+                                                     town [hex.16]                                       the mice obey him
+ 1} Bandits are planning to kill the Cat Lady        Encounter: Trashknights (Rats)                      Encounter: Curious Fox
+ 2} A lightning hit both the beech tree and the      Trigger: Strangely quick-growing plant nearby       Trigger: Traveling theatre troupe arrives
+ Cat Lady! She got more demanding after that
+ 3} Urban waste (made by humans) is becoming
+ life-threatening
+                                                     DM notes: The entrance is guarded by
+                                                     Cockroaches soldiers. The spider artefact
+                                                                                                         13- Face in ancient oak
+ 4} Roll 1d20 - use the hex’s specific rumour (if    (relates do seed#17) or other treasure grants       Rumour: The spirit is trapped inside the tree
+ you roll 20, let the player choose the hex)         you passage (scavenge #14)                          Encounter: Cryptic Faerie
+ 5} Crows are gathering materials to build a                                                             Trigger: The place was damaged by humans...
+ death ray
+                                                     6- Overgrown ruins
+ 6} The water from the city can give you special
+ powers                                              Rumour: A massive tractor tyre lies here. It used   14- Stagnant pound
+                                                     to be an ancient rodent hamlet, but it was          Rumour: The water is poisoning the land
+                                                     overtaken by the spiders                            Encounter: Mad Frog
+Encounters                                           Encounter: Poisonous Spider                         Trigger: You find snake eggs
+Roll 1d6                                             Trigger: Forager wants to retrieve lost treasure
+                                                     (relates to trigger#17 and rumour#5)                Scavenge (must resist Poison):
+ 1} Merchant from Stoneshine [hex.8]                                                                     Roll 2d6} if >9 = Treasure can be found
+ 2} Aggressive faction member(s) - based on
+ Lair’s proximity                                    7- Beech, lightning split
+ 3} Diplomatic faction member(s) - based on          Rumour: The Cat was killed when the lightning       15- Huge pine tree
+ Lair’s proximity                                    hit the tree. Crows brought her to life             Rumour: Crows can get you any item you want
+ 4} Hex’s specific encounter                         Encounter: Cat Lady Azura                           (relates to trigger#5)
+ 5} Hex’s specific trigger (event/advent. seed)      Trigger: a bandit (rat) gets caught in a trap       Encounter: Ambiguous Crow (faction)
+ 6} Hurt Sparrow in distress                                                                             Trigger: Herbalist (crow) is searching for a cure
+                                                     DM notes: Cat Lady’s lair
+                                                                                                         DM note: Crow’s HQ. Tall and difficult to access.
+1- “Swampfarm”                                       8- Huge boulder
+Rumour: they know how to talk with ghosts            Rumour: The bees left ages ago, and they will       16- Stone wall
+Encounter: traveller Mouse (con artist)              never come back                                     Rumour: The owl doesn’t let any rodent pass
+Trigger: an illness has struck                       Encounter: Hunting Eagle                            Encounter: Vigilant Owl (relates to trigger#11)
+                                                     Trigger: Cat Lady demands a heavy tithe             Trigger: You witness a shady Crow transaction
+It’s a small settlement (about 3 families) with
+unnervingly tall twisting towers
+It’s pseudo-ruled by a committee of scavengers.
+                                                     There’s a homestead on top called “Stoneshine”,
+                                                     known for their meditative mushroom garden.         17- Field of Wheat
+Members are known for carefully picking trash        It’s a free settlement, governed by a council.      Rumour: The scarecrow is alive (Crows hate it)
+piles [hex.14] and lazing by the stream              Mice around here wear finely embroidered            Encounter: Humble Mouse (farmer)
+Tavern: Black bee - spiced backed carrot [hex.17]    clothes. Most of them are merchants (often in       Trigger: Grandmother spider has lost an ancient
+                                                     need of guards).                                    treasure (relates to trigger#6 and rumour#5)
+DM notes: The village is built over a rusty          Tavern: Silver knight - Mushroom stew
+bicycle. Treat the mice as cool hippies. The water
+                                                     Dm notes: Treat the inhabitants as posh mice.
+                                                                                                         18- Sparrow nest
+from hex.14 is poisoning the mice.                                                                       Rumour: Cat Lady will give you anything for a
+                                                     They sell mushrooms to Swampfarm [hex.1] and        few birds
+ Crows have claimed the resource site [hex.14]       other places [not on map].
+                                                                                                         Encounter: Possessive Squirrels
+ and demand a % of the findings
+                                                      Cat avoids the water, but she managed to           Trigger (seasonal):
+ Cat stays at bay - she’s afraid of the weird
+ noises that come from here (and doesn’t know         impoverish the place by affecting the trade
+                                                      routes. There’s an agreement - mice are             Spring - Mother bird, protective of her eggs
+ that are made by mice)
+                                                      protected from bandits in exchange for goods        Summer - Baby bird, fallen from nest
+ Bandits can be often found in the tavern - they
+ are as welcome as any other traveller                Bandits attack the merchants as much as they        Autumn - Young birds want to leave home
+                                                      can (especially on the road [hex.2])                Winter - Bird with a broken wing, old and grey
+
+2- Quiet dirt road                                    Crows have nothing to do with them (for now)
+                                                                                                         19- Human walking track
+Rumour: Cat Lady & Bandits claim this piece of
+land (trade route). War is coming                    9- Stepping stones                                  Rumour: The village dogs will kill you if you
+Encounter: Greedy Bandits (faction)                  Rumour: The land isn’t safe beyond this point       cross the bridge
+Trigger: Wizard tower arrives on tortoise-back       Encounter: Malicious water Snake                    Encounter: Frog knight
+                                                     Trigger: a runner with vital information has lost   Trigger: Cat Lady wants to be entertained. The
+                                                                                                         sparrows can be fun...(relates to trigger#12)
+3- Cascading waterfalls                              their way (needs to enter town [hex.16])
+
+Rumour: The water has secret properties
+Encounter: Nervous Dragonflies                       10- Tangles of roots
+Trigger: A recently crowned bee wants to find a a    Rumour: Haunted ground... Mice that entered
+place to start a colony (relates to rumour#8)        the graveyard never came back
+                                                     Encounter: Troubled Ghost
+DM notes: Bandits’ Lair is hidden behind the         Trigger: Strange Magical anomaly
+waterfall
+                                                     DM notes: Burial site of ancient Mice.
+                                                                                                         Mausritter is copyright Losing Games.
+4- Hollow tree stump                                                                                     ‘HexMap for Tiny Adventurers’ is an
+Rumour: the residents are strangely twisted          11- Hedge row                                       independent production by Carlos Martins and
+Encounter: Protective Centipede                      Rumour: The road leads to nowhere                   is not affiliated with Losing Games. It is
+Trigger: test subject cannot get home                Encounter: Famine Snake                             published under the Mausritter Third Party
+                                                     Trigger: Owl sorcerer wants to retrieve a spell     Licence.
+

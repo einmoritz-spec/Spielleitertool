@@ -1,0 +1,54 @@
+<html><head><link rel="stylesheet" href="base.css"><script src="kopf.js"></script>
+<style>
+.ab{height:42px;background:#0f4f68;display:flex;align-items:center;padding:0 22px;gap:24px;font-family:Cinzel;font-size:13px;letter-spacing:.06em;color:#bcd9e4}
+.ab .ti{font-size:14px;color:#fff;margin-right:14px;letter-spacing:.03em}
+.ab b{color:#fff;background:var(--papier);color:var(--teal);padding:13px 14px 12px}
+.ab .rr{margin-left:auto;display:flex;gap:14px;align-items:center}
+.uhr{display:flex;gap:8px;align-items:center;font-family:Barlow;font-size:12px;letter-spacing:.12em;color:#bcd9e4;text-transform:uppercase}
+.uhr .g{display:flex;gap:2px}
+.uhr .g i{width:15px;height:15px;border:1.5px solid #bcd9e4;font-style:normal;font-family:Barlow;font-weight:700;font-size:13px;line-height:13px;text-align:center;color:#fff}
+.uhr .g i.x{background:#e8a33b;border-color:#e8a33b}
+.uhr .g i:last-child{border-color:#e8a33b}
+.main{display:grid;grid-template-columns:780px 1fr;height:666px}
+.karte{position:relative;background:url(a/garten-clean.jpg) 0 10px/780px auto no-repeat;border-right:1px solid #e3e1da}
+.karte .pin{position:absolute;width:30px;height:30px;border-radius:50%;}
+.karte .pin.an{box-shadow:0 0 0 4px #e8a33b,0 0 18px 6px #e8a33baa}
+.orte{position:absolute;left:22px;right:22px;top:470px;display:flex;flex-wrap:wrap;gap:6px 8px;font-family:Cinzel;font-size:12.5px}.orte span,.orte b{border:1px solid #c9d6dc;padding:5px 10px;color:#345}.orte b{background:var(--teal);color:#fff;border-color:var(--teal)}
+.karte .wet{position:absolute;left:22px;bottom:22px;width:auto;right:22px;background:#fffffff0;border-left:3px solid var(--teal);padding:10px 14px;font-size:14px;line-height:1.38}
+.karte .wet b{font-family:Cinzel;color:var(--teal);font-size:13px;letter-spacing:.08em}
+.ort{padding:26px 34px;overflow:hidden}
+.ort h1{font-family:Cinzel;color:var(--teal);font-size:27px;margin:0 0 6px;line-height:1.15}
+.ort h1 span:not(.s){display:inline-block;width:38px;height:38px;border-radius:50%;background:var(--teal);color:#fff;text-align:center;line-height:40px;font-size:21px;margin-right:10px;vertical-align:2px}
+.ort .s{font-size:13px;color:#9aa;vertical-align:4px;font-family:Barlow;letter-spacing:.1em}
+.ort .lead{font-style:italic;font-size:17px;line-height:1.45;color:#333;margin:10px 0 14px}
+.ort ul{padding-left:18px;margin:0;font-size:17px;line-height:1.5}
+.ort li{margin-bottom:9px}
+.ort li b{color:#123}
+.chip{display:inline-block;font-family:Barlow;font-weight:700;font-size:13px;letter-spacing:.06em;padding:1px 7px;border:1.5px solid var(--teal);color:var(--teal);border-radius:3px}
+.zst{background:#c8452d;border-color:#c8452d;color:#fff}
+.sym{display:flex;gap:10px;margin-top:6px}
+.sym div{width:54px;height:54px;border:2px solid #222;font-family:Cinzel;font-size:26px;text-align:center;line-height:54px;background:#fff}
+.weiter{margin-top:16px;padding-top:12px;border-top:1px solid #e3e1da;font-size:15px;color:#555}
+.weiter a{color:var(--teal);text-decoration:none;border-bottom:1px solid #9cc}
+</style></head><body>
+<script>kopf(["Regeln","Spielleitung","Mäuse"])</script>
+<div class="ab"><span class="ti">Der verbotene Garten</span><span>Einstieg</span><b>Garten</b><span>Fallentunnel</span><span>Begegnungen</span><span>Schätze</span><span>Ausklang</span>
+<span class="rr"><span class="uhr">Zeit <span class="g"><i class="x">×</i><i class="x">×</i><i class="x">×</i></span><span class="g"><i class="x">×</i><i></i><i></i></span></span>
+<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#bcd9e4;fill:none;stroke-width:1.8"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg></span></div>
+<div class="main">
+ <div class="karte">
+  <div class="pin an" style="left:424px;top:288px"></div>
+  <div class="orte"><span>1 Tor und Mauern</span><span>2 Abwasserfall</span><span>3 Eisenmenschen</span><span>4 Käfigbaum</span><span>5 Rumpels Werkstatt</span><span>6 Klappe</span><b>7 Magierinnenturm</b><span>Fallentunnel</span></div><div class="wet"><b>WETTER</b><br>Der Regen hämmert ununterbrochen auf den Schrott. Nach dem dritten Ort: <span class="chip">STÄ</span> oder <span class="chip zst">Erschöpft</span></div>
+ </div>
+ <div class="ort">
+  <h1><span>7</span>Akilahs Magierinnenturm <span class="s">S. 25</span></h1>
+  <div class="lead">Ein bizarres Konglomerat aus Schrott und alten Geräten. Miteinander verbundene Kühltruhen und Container bilden das Fundament, darüber thront ein turmhohes Gebilde aus Plattformen und Kästen.</div>
+  <ul>
+   <li><b>Zugang zur Schatzkammer:</b> Unten befindet sich der Eingang zum <a style="color:var(--teal)">Fallentunnel</a>, an dessen Ende Akilahs Schätze warten.</li>
+   <li><b>Der Turm:</b> Ein Katzenbaum aus Schrott. Der Wind pfeift und peitscht den Regen um die Schnauzen. <span class="chip">GES</span> mit Nachteil zum Erklimmen oder <span class="chip">W10</span> Schaden durch den Sturz in die Tiefe. Wer oben ankommt, erhält den Zustand <span class="chip zst">Erschöpft</span> und wird mit zwei <a style="color:var(--teal)">Schätzen</a> belohnt.</li>
+   <li>An der Turmspitze sind drei Symbole in das Metall geätzt:</li>
+  </ul>
+  <div class="sym" style="margin-left:18px"><div>6</div><div>L</div><div>M</div></div>
+ </div>
+</div>
+</body></html>

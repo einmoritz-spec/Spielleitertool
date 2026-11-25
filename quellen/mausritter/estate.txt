@@ -1,0 +1,250 @@
+The Estate
+
+
+
+
+  Campaign Guidebook
+Encounters                                                Rumours
+d6   Encounter                                            d6   Rumour
+1    Pair of timesick mice, lost and confused             1    The cat-witch Sabrina has a secret mouse ally
+2    d6 pilgrim mice, traveling to the Chapel of Peace    2    The Bone Gang rats are regrouping in Goadholm
+3    d6 beetles, rolling a ball of sludge (item inside)   3    Blue Magpies have stashed treasure in the fountain
+4    d8 caterpillars, fleeing the Ember Tree              4    Hungry eels patrol the stream, looking for prey
+5    d8 Bone Gang rats, hauling plunder                   5    Spider-Queen Zipporah can travel through time
+6    Cat-witch Sabrina, hunting                           6    The Frogacle will grant any wish you desire
+1: Underground                         8: Craggled Treestump                    14: Drain
+Nestled under the manor, Brickport.
+A bustling settlement of almost four
+hundred mice.
+
+2: Library                             An ancient tree stump. Underneath,       Unpleasant smells of sewage and
+                                       workers toil to dig tin for the Moth     sulfur. At night, an enormous snake
+       The                             Queen. They’ve found something           can sometimes be seen here.
+       TICKING                         much more sinister.
+       TOWER                                                                    15: Pond
+Little-used room on the western side   9: Family Graveyard
+of the manor. Spider-Queen Zipporah    Strange sounds can be heard at
+works her time-bending magic.          night. The Necrohamster’s lair is
+                                       here, constructed of stone slabs         Home of the dangerous Goldfish and
+3: Bedroom                             carved with odd symbols.                 their offspring. The annual race in
+                                       10: Old Chapel                           honor of the Frogacle is here.
+
+                                                                                16: Topiary hunt
+                                               Chapel of
+During the Night Watch, 2-in-6                 Eternal Peace                    A bush carved into the shape of
+chance Sabrina is dozing here.                                                  a mouse. A bush cat stalks it. The
+                                       In clearing, a lichen-covered building   mouse village of Goadholm is built
+4: Private Museum                      of stone. The followers of Reverend      within the roots of the mouse.
+                                       Goldenfur have built a small settle-
+       The Wizard of                   ment around this holy site.              17: Stream Crossing
+       Arms and Armour                                                          Guarded by Bone Gang rats.
+                                       11: Forest Edge                          They demand d6 x 100p fee for safe
+Still smells of horse and hay under    Faerie ring of stone allows travel to    crossing.
+the floorboards. The wizard Murrelet   the Fae lands if you know the secret
+works in his tower of steel.           dance that opens the gate. Faeries       18: Apple Orchard
+5: Driveway                            travel in disguise as mouse pilgrims.
+
+During Morning and Afternoon           12: Burning Tree
+Watches, huge growling steel beasts
+prowl. Deserted at night.                                                       Brambletown, ruled by Queen Mad-
+                                                                                riga of Thorns. Atop an apple tree,
+6: Fountain                                                                     Rupert’s nest, one of the Blue Mag-
+Blue Magpies are spotted often com-    Huge, blackened tree, recently struck    pies. During the day, 1-in-6 chance of
+ing and going in secretive fashion.    by lightning and still smoking inside.   Human watering the trees.
+                                       Termites wage war on a Caterpillar
+7: Garden Shed                         kingdom in the wreckage.                 19: Mushroom Ring
+                                       13: Old Well
+                                       Overgrown with ivy. At the bottom,
+                                       ancient water-worn spells glitter.       The most delicious fungi are only
+Once used as a laboratory for chem-    Sabrina will pay well if they can be
+ical experiments by a human child,                                              found here. Sludge beetles control
+                                       retrieved.                               the territory.
+now home to strangely altered rats.
+Brickport
+Nestled underneath the Manor, is the bustling mouse
+settlement of Brickport.
+Home to almost four hundred mice, it’s the largest town
+by far within the Estate.
+
+ d8   Events
+      2d6 pilgrims arrive, stopping on their way to the
+ 1
+      Chapel (see Chapel of Eternal Peace)
+      Colossal storm, flooding Brickport and setting a
+ 2
+      tree on fire (see the Ember Tree)
+      Everyone is preparing for the annual race in
+ 3
+      honor of the Frogacle (see the Frogacle)
+      An important mouse has gone missing!
+ 4
+      (see Workers Work or Tower of Soot)
+      Emissary arrives from Brambletown with grave
+ 5
+      news (see Fruit of the Orchard or Mush Rush)
+      Scavenger returns, confused, disorientated or
+ 6    altered (see Ticking Tower, Wizard of Arms and
+      Armour, or Science & Sorrow)
+      The Bone Gang are raiding Brickport, kidnapping
+ 7
+      mice (see Giant Snake is in the Sewer)
+      The cat-witch Sabrina is sniffing around. Can she
+ 8
+      be appeased?
+1. Brickside huts                                                                      Jobs around brickside
+Tangle of houses. Built into gaps between bricks, or with walls of garish cardboard.   Sure they might not be strictly legal,
+• Day: Housemice cook in a communal kitchen. Children noisily play.                    but someone wants them done.
+• Night: Louie Two Knives, sneaking out of a house, carrying stolen goods.             Pay d6 x 100p.
+
+2. Drain docks                                                                          d4    Job
+Row of wooden barges, tugging at their docking twine.                                   1     Steal dried mushrooms
+• Francis Bond, elderly guardmouse. Napping by a stack of dried mush-                   2     Find out what’s in the Old Well
+  rooms, a crotchety old cockroach named Jim by his feet.                               3     Find the gate padlock key
+                                                                                        4     Hijack Lyra McDoom’s steamboat
+3. Tinbox Inn
+Brightly painted walls. Circular door depicting the face of a boy.
+• In the dining hall, mouse voices echo from the circular metal walls.                 Menu at the Tinbox
+• Bunkroom with newspaper hammocks. Electric furnace supplies hot                       d6    Meal
+  water for a bath.
+                                                                                        1     Fungi soup from beetle lands
+4. Temple of Peace                                                                      2     Apple pie from the orchard
+Freshly repainted. Passing mice move on quickly, tutting, and shaking their heads.      3     Goldfish liver from the pond
+• Inside, stone statue of the Mother, defaced and pushed into a corner.                 4     Seed-stuffed acorns
+• Basil Augustine, missionary from the Chapel of Eternal Peace, serenely                5     Blue-cheese from abroad
+  preaching of Reverend Goldenfur’s magnificence and grace.
+                                                                                        6     Scavenged human leftovers
+5. The Glow
+Globe of glass, bright and warm.
+• Central platform of red brick holds the globe. Town’s central meeting point.
+• Chaotic mess of market stalls surround the orb.
+
+6. Town hall
+Tower of red clay, high windows watching over Brickport.
+• In the grand meeting room, a round table. Large enough to seat twenty mice.
+• Upstairs, Audrey Pipp, meeting with mice and mediating their augments.
+
+7. Expedition staging-point
+Ladders of twine, electrical cables, and nails leading upwards into the darkness.      Audrey Pipp, Mayor
+• Series of winch-and-pulley elevators make getting up easy if you’ve got help.        Well-spoken and carefully groomed.
+• Peanut Jammy, scavenger, hauling a load of supplies from the manor.                  An exile from the Earldom of Ek.
+
+8. Green gate                                                                          Needs help with
+                                                                                       1. Restoring the temple
+Moss-covered gap between the bricks, just wide enough for a merchant’s handcart.       2. Negotiating peace with Magpies
+• The gate, a time-worn slab of stone on steel rollers. Takes two mice to              3. Delivering letter to Goadholm
+  move, and kept closed at night.                                                      4. Catching the brickside thief
+• Bindle and Bunting Fisk, cheerly simple-minded gate guards. Have lost                5. Deliver present to Queen Madriga
+  the gate padlock key, but are too afraid to tell the mayor.                          6. Defending from Bone Gang
+Other settlements
+Brambletown                                                  Chapel Priory
+Village of 160 mice. Sturdy houses amongst the brambles.     Hamlet of 50 mice. A shanty-town of tents.
+• Ruled by Queen Madriga of Thorns                           • Several families of mice, all devoted followers of
+• Currently overgrown and under attack by                      Reverend Goldenfur.
+  Crabapples and Pumpkin Monsters.                           • Calvin Splat, a leering monk, sells moldy crackers
+• Brackenbough, a burly mouse maiden, operates                 and broken tents to new arrivals.
+  the Golden Apple Inn, though it is currently closed.
+
+
+Goadholm                                                     Beldam
+Hamlet of 80 mice. Tunnels amongst the roots of a topiary.   A single family of mice. Many abandoned holes in the wall.
+
+• An unruly haven for unsavoury characters.                  • Once a healthy settlement around Murrelet’s tower.
+• The Bone Gang operate their hideout here.                  • Now mostly abandoned as the Wizard’s magic has
+• Fillias Grille is known to buy anything of value,            turned towards darker pursuits.
+  regardless of it’s provenance.                             • Marigold Redberry runs a bunkhouse. The sole
+                                                               surviving enterprise.
+
+
+
+
+Factions
+Sabrina, Cat-Witch                                           Zipporah, Spider-Queen
+Resources                                                    Resources
+• Control of the Manor                                       • Time-bending magic
+• Reverend Goldenfur’s cult                                  • Spies and informers everywhere
+• Powerful magic                                             • School of spider minions
+Goals                                                        Goals
+        Raise bribes from the Blue Magpies                           Control the automata of the Ticking Tower
+        Secure the spell of Undeath                                  Take control of Murrelet’s Wizard’s Tower
+             Subjugate the entire Estate                                 Control all within the Manor
+
+Blue Magpies, Wealthy Collectors                             Bone Gang, Rat Bandits
+Resources                                                    Resources
+• Horde of treasure                                          • Secret hideout
+• Protected nests                                            • Infiltrator in Brickport (Louie Two Knives)
+Goals                                                        Goals
+        Build a nest of shiny silver in the Orchard                  Find spell of Undeath, sell to Sabrina
+        Seize Goldenfur’s Amulet                                     Form an alliance with Two-Skulls and his cultists
+              Take control of all land north of the stream                Seize control of all underground domains
+Connections between Adventure Sites
+Each Adventure Site has at least two connection to other Sites. Use these as hints to guide the mice as they explore.
+
+ Adventure         Location                                             Hook #6
+ Chapel of         Location 8: Letter explaining magical ingredients    Murrelet (The Wizard of Arms and Armour) has
+ Eternal Peace     from Murrelet (The Wizard of Arms and Armour).       not been paid and wants to collect the debt.
+ The Ember         Location 8: Contain Emberleaves, prized by the       The Moth Queen (Workers Work, Rulers Rule)
+ Tree              followers of Goldenfur (Chapel of Eternal Peace).    wants to get termite workers under control.
+ Fruit of the      Location 8: Mentions a Royal Crown desired by        Queen Zipporah (The Ticking Tower) is look-
+ Orchard           Rupert the magpie. Can be found in Mush Rush.        ing for Bristlewhisker’s pocket watch.
+ Giant Snake is    Unusual Treasures, entry 6: A map detailing          Murrelet (The Wizard of Arms and Armour)
+ in the Sewer      the sewer tunnels of Science & Sorrow.               wants to get his paws on the spell of Undeath.
+ Mush              Locations 3 and 5: Spiders were sent by Queen        The missing crown could be that of Queen
+ Rush              Zipporah (The Ticking Tower).                        Madriga (Fruit of the Orchard).
+ Science &         Location 11: Features the chrisalid sister of the    Goldenfur (Chapel of Eternal Peace) could be
+ Sorrow            Moth Queen (Workers Work, Rulers Rule).              getting his mellow serum from Two Skulls.
+ Song of the       Location 8: The Bone Gang (Giant Snake is in the     Murrelet (The Wizard of Arms and Armour)
+ Frogacle          Sewer) makes a cameo here.                           was never paid for his runeboat.
+ The Ticking       Queen Zipporah has displeased the Frogacle           The Tumblefolk of Mush Rush are being
+ Tower             (Song of the Frogacle), and is under her curse.      harassed by Queen Zipporah.
+                                                                        Captive could be Ansel of the Bramble (Fruit
+ Tower of          Swift Bug Lair: Swift Bugs are refugees from the
+                                                                        of the Orchard) or the Necrohamster (Giant
+ Soot              Moth Queen’s mine (Workers Work, Rulers Rule).
+                                                                        Snake is in the Sewer).
+ Wizard of Arms Location 3: Murrelet has produced an oversized          The Blue Magpies, including Rupert (Fruit of
+ and Armour     spell for Oslo Creekwater (Song of the Frogacle).       the Orchard) want a gold ring from the tower.
+ Workers Work,     Location 6: One of the Numb Miners is Ansel,         The witch Ursula (Giant Snake is in the Sewer)
+ Rulers Rule       prince of the Bramble (Fruit of the Orchard).        wants narcotic dust from the mines.
+
+
+Starting the campaign                                       Ending the campaign
+Introduce Brickport to the mice and let them explore        If one of the factions completes its third goal, the
+the town. Roll an Event and see where it leads them.        campaign ends or fundamentally changes. Collectively de-
+As the mice explore the Estate, introduce the Adventure     scribe what that means for Brickport and the player mice.
+Sites. Mice can cross the hexes marked with an Adventure    If all factions are eliminated, the campaign ends. The
+Site without having to explore it — just describe the       mice of Brickport need only to worry about the giant
+surrounds and they can dive in if they want.                humans that wander above.
+Let the players find their own adventure and aid them       If all Adventure Sites are played, the campaign ends.
+with the Guidebook’s rumours, the Adventure Site hooks,     Look back at what was achieved and remember any
+and Connections Between Adventure Sites.                    fallen mouse heroes.
+                                                            But remember, this is your game now! Use this book as
+                                                            a guide, but play it as you see fit.
+Huge and ancient, a mountain of stone. It stood even
+when the most wizened of mouse elders were young. The
+   Estate dominates the landscape for miles around.
+
+Nestled under the floorboards, the mouse settlement of
+      Brickport, is beset by trouble on every side.
+
+Above, huge creatures pace. The vicious cat-witch Sabrina
+jealously guards her domain. Outside, in the fields and
+pond and orchard, even stranger events are afoot. Can
+you help save the settlement before it’s too late, or will
+     it be swallowed by the chaos that surrounds it?
+
+
+
+
+Guidebook
+by Isaac Williams and Andre Novoa
+Proofreading: Matthew Pook
+
+
+Adventure Collection
+Proofreading: Matthew Pook
+Playtesters: Adelaide Orange, Andre Tavares, Andrea Phan, Craig
+Hogan David Neves, Diogo Novoa, Jota, Kyle Bomar, Luke Van Ryn,
+ManaRampMatt, Manel Pinheiro, Margarida Neves, Maria Abranches,
+Matt West, Nathaniel Scott, Nathan Cocks, Patrick Hayes, Pipo
+Kimkiduk, Ross Burton, Sacruna
+

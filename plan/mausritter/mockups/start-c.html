@@ -1,0 +1,43 @@
+<html><head><link rel="stylesheet" href="base.css"><script src="kopf.js"></script>
+<style>
+body{background:#eeeae0 url(a/tapete.jpg) center/420px;}
+.hero{height:250px;background:url(a/lagerfeuer.jpg) center 55%/cover;border-bottom:4px solid var(--nacht)}
+.bogen{position:absolute;left:44px;right:44px;top:278px;bottom:26px;background:var(--papier);box-shadow:0 6px 30px #0004;padding:22px 26px;display:grid;grid-template-columns:1fr 1fr 2.05fr;gap:18px}
+.spalte{display:flex;flex-direction:column;gap:6px}
+.kopfz{font-family:Pirata;font-size:20px;color:#222;letter-spacing:.02em}
+.k{flex:1;border:2px solid #222;background:#fff;position:relative;padding:12px 14px;display:flex;flex-direction:column}
+.k .pips{position:absolute;right:10px;top:10px;display:flex;gap:4px}
+.k .pips i{width:11px;height:11px;border:1.6px solid #222;border-radius:50%}
+.k h3{font-family:Cinzel;font-size:19px;margin:0;color:var(--teal)}
+.k p{margin:6px 0 0;font-size:14.5px;line-height:1.35;color:#444}
+.k .fuss{margin-top:auto;font-family:Barlow;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#777;border-top:1px dashed #bbb;padding-top:5px}
+.k .bild{position:absolute;right:10px;bottom:28px;width:74px;height:74px;background:center/contain no-repeat;opacity:.95}
+.rs{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:10px;flex:1}
+.rs .k{padding:10px 12px}
+.rs .nr{position:absolute;left:10px;top:4px;font-family:Cinzel;font-size:34px;color:#e3e1da;z-index:0}
+.rs .karte{flex:1;margin:-10px -12px 6px;background:center/cover;border-bottom:2px solid #222}
+.rs h3{font-size:15px}
+.leer{border:2px dashed #bbb;background:transparent;align-items:center;justify-content:center;color:#aaa;font-family:Caveat;font-size:20px}
+</style></head><body>
+<script>kopf()</script>
+<div class="hero"></div>
+<div class="bogen">
+ <div class="spalte"><div class="kopfz">Hauptpfote</div>
+  <div class="k"><span class="pips"><i></i><i></i><i></i></span><h3>Regeln</h3><p>Proben · Kampf<br>Rast und Heilung<br>Inventar · Zustände<br>Magie und Zauber</p><div style="flex:1;margin:12px -14px 8px;background:url(a/ill-lager.jpg) center/cover;border-top:2px solid #222;border-bottom:2px solid #222"></div><div class="fuss">W20 · STÄ GES WIL</div></div>
+ </div>
+ <div class="spalte"><div class="kopfz">Nebenpfote</div>
+  <div class="k"><span class="pips"><i></i><i></i><i></i></span><h3>Spielleitung</h3><p>Mausritter leiten<br>Proben verlangen<br>Misslungene Proben<br>Vorbereitung</p><div style="flex:1;margin:12px -14px 8px;background:url(a/ill-tor.jpg) center 40%/cover;border-top:2px solid #222;border-bottom:2px solid #222"></div><div class="fuss">Nur für die SL</div></div>
+ </div>
+ <div class="spalte"><div class="kopfz">Rucksack</div>
+  <div class="rs">
+   <div class="k"><div class="karte" style="background-image:url(a/garten-clean.jpg);background-position:40% 60%"></div><h3>Der verbotene Garten</h3><div class="fuss">Abenteuer</div></div>
+   <div class="k"><div class="karte" style="background-image:url(a/estate-karte.jpg);background-position:center 38%"></div><h3>Das Anwesen</h3><div class="fuss">Kampagne</div></div>
+   <div class="k"><div class="karte" style="background-image:url(a/hexkarte.jpg);background-position:center 45%"></div><h3>Die Außenlande</h3><div class="fuss">Hexkarte</div></div>
+   <div class="k" style="flex-direction:row;gap:6px;align-items:flex-end;padding-top:8px"><div style="position:absolute;left:12px;top:8px"><h3>Mäuse</h3></div>
+     <img src="a/maus-aloe.jpg" style="height:92px;mix-blend-mode:multiply"><img src="a/maus-elmer.jpg" style="height:92px;mix-blend-mode:multiply"><img src="a/maus-rowan.jpg" style="height:92px;mix-blend-mode:multiply"></div>
+   <div class="k"><h3>Gegenstände</h3><p>Waffen, Rüstung, Zauber, Fackeln, Rationen</p><div class="fuss">Karten</div></div>
+   <div class="k"><h3>Zustände</h3><p>Erschöpft · Ängstlich · Entkräftet · Verletzt · Hungrig · Verätzt</p><div class="fuss">Karten</div></div>
+  </div>
+ </div>
+</div>
+</body></html>

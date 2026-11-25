@@ -1,0 +1,34 @@
+<html><head><link rel="stylesheet" href="base.css"><script src="kopf.js"></script>
+<style>
+.hero{height:360px;background:url(a/cover-breit.jpg) center 78%/cover;position:relative}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:90px;background:linear-gradient(transparent,var(--papier))}
+.hero .zeile{position:absolute;left:54px;bottom:40px;z-index:2;font-family:Cinzel;color:#fff;font-size:15px;letter-spacing:.2em;text-shadow:0 1px 8px #000a}
+.wrap{padding:0 54px;margin-top:-34px;position:relative;z-index:3}
+.ber{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.b{background:#fff;border:1px solid #d9dcd6;display:grid;grid-template-columns:112px 1fr;min-height:150px}
+.b .bild{background:#f4f2ec center/contain no-repeat;border-right:1px solid #e6e4dd}
+.b .t{padding:14px 18px}
+.b h2{font-family:Cinzel;color:var(--teal);font-size:21px;margin:0 0 6px}
+.b ul{margin:0;padding:0;list-style:none;font-size:15px;line-height:1.45;color:#444}
+.ab{margin-top:26px;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:22px}
+.a{position:relative;height:200px;background:center/cover;overflow:hidden}
+.a .n{position:absolute;left:0;bottom:0;right:0;padding:44px 18px 12px;background:linear-gradient(transparent,#0f1a22e6);color:#fff}
+.a .n b{font-family:Cinzel;font-size:19px;display:block}
+.a .n i{font-size:14px;opacity:.85}
+.fleck{position:absolute;right:-60px;top:250px;width:420px;height:260px;background:radial-gradient(closest-side,#2f86a655,transparent);z-index:1}
+</style></head><body>
+<script>kopf()</script>
+<div class="hero"><div class="zeile">Ein Rollenspiel mit Schwert und Schnurrhaaren</div></div>
+<div class="wrap">
+<div class="ber">
+ <div class="b"><div class="bild" style="background-image:url(a/ill-lager.jpg);background-size:cover"></div><div class="t"><h2>Regeln</h2><ul><li>Das Spiel spielen · Proben</li><li>Kampf · Rast und Heilung</li><li>Inventar · Zustände</li><li>Magie und Zauber</li></ul></div></div>
+ <div class="b"><div class="bild" style="background-image:url(a/ill-tor.jpg);background-size:cover"></div><div class="t"><h2>Spielleitung</h2><ul><li>Mausritter leiten</li><li>Proben verlangen</li><li>Folgen misslungener Proben</li><li>Vorbereitung · Startausrüstung</li></ul></div></div>
+ <div class="b"><div class="bild" style="background-image:url(a/maus-franz.jpg)"></div><div class="t"><h2>Mäuse</h2><ul><li>Fünf vorgefertigte Mäuse</li><li>Gegenstandskarten</li><li>Zustandskarten</li><li>Mausbogen</li></ul></div></div>
+</div>
+<div class="lbl" style="margin-top:24px">Abenteuer</div>
+<div class="ab" style="margin-top:8px">
+ <div class="a" style="background-image:url(a/garten-clean.jpg);background-position:40% 60%"><div class="n"><b>Der verbotene Garten der Katzenmagierin</b><i>Einstiegsabenteuer</i></div></div>
+ <div class="a" style="background-image:url(a/estate-karte.jpg);background-position:center 35%"><div class="n"><b>Das Anwesen</b><i>Kampagnenführer · Brickport</i></div></div>
+ <div class="a" style="background-image:url(a/hexkarte.jpg)"><div class="n"><b>Die Außenlande</b><i>Hexkarte für kleine Abenteurer</i></div></div>
+</div></div>
+</body></html>

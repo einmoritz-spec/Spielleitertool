@@ -1,0 +1,20 @@
+@font-face{font-family:Amiri;src:url(a/f/amiri-latin-400-normal.woff2)}
+@font-face{font-family:Amiri;font-style:italic;src:url(a/f/amiri-latin-400-italic.woff2)}
+@font-face{font-family:Amiri;font-weight:700;src:url(a/f/amiri-latin-700-normal.woff2)}
+@font-face{font-family:Cinzel;font-weight:700;src:url(a/f/cinzel-latin-700-normal.woff2)}
+@font-face{font-family:Pirata;src:url(a/f/pirata-one-latin-400-normal.woff2)}
+@font-face{font-family:Barlow;src:url(a/f/barlow-condensed-latin-400-normal.woff2)}
+@font-face{font-family:Barlow;font-weight:700;src:url(a/f/barlow-condensed-latin-700-normal.woff2)}
+@font-face{font-family:Caveat;src:url(a/f/caveat-latin-400-normal.woff2)}
+:root{--teal:#1b6786;--teal2:#2f86a6;--nacht:#141d24;--gruen:#4c7f3a;--papier:#fbf9f3;--tinte:#1d2226;--grau:#6f767a}
+*{box-sizing:border-box}
+body{margin:0;width:1280px;height:800px;overflow:hidden;font-family:Amiri,serif;color:var(--tinte);background:var(--papier)}
+.kopf{height:54px;background:var(--nacht);display:flex;align-items:center;padding:0 22px;gap:30px;position:relative;z-index:5}
+.kopf .logo{height:26px}
+.kopf .tab{font-family:Cinzel;font-size:14px;letter-spacing:.08em;color:#c9d6dc;padding:17px 4px;height:54px}
+.kopf .tab.an{color:#fff;background:var(--teal);padding:17px 18px}
+.kopf .ico{margin-left:auto;display:flex;gap:20px}
+.kopf .ico svg{width:20px;height:20px;stroke:#dfe8ec;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.unter{height:38px;background:var(--teal);display:flex;align-items:center;padding:0 22px 0 150px;gap:26px;font-family:Cinzel;font-size:12.5px;letter-spacing:.06em;color:#d7eaf1}
+.unter b{color:#fff;border-bottom:2px solid #fff;padding:9px 0 7px}
+.lbl{font-family:Cinzel;font-size:11.5px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}

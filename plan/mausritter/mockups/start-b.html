@@ -1,0 +1,37 @@
+<html><head><link rel="stylesheet" href="base.css"><script src="kopf.js"></script>
+<style>
+body{background:#0e161c;color:#e9eef0}
+.bg{position:absolute;inset:0;background:url(a/cover-breit.jpg) 100% 45%/cover}
+.bg:after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,#0e161c00 38%,#0e161cd9 64%,#0e161c 82%),linear-gradient(0deg,#0e161cee 0,#0e161c00 34%)}
+.logo-gross{position:absolute;left:54px;top:86px;width:430px;filter:drop-shadow(0 3px 14px #000b)}
+.motto{position:absolute;left:58px;top:182px;font-family:Cinzel;font-size:14px;letter-spacing:.22em;color:#cfe0e6;text-shadow:0 1px 6px #000}
+.rechts{position:absolute;left:54px;top:96px;width:400px}
+.ber{border-top:1px solid #ffffff2a}
+.ber a{display:grid;grid-template-columns:1fr auto;align-items:baseline;padding:15px 0 14px;border-bottom:1px solid #ffffff2a;text-decoration:none;color:#fff}
+.ber b{font-family:Cinzel;font-size:25px;letter-spacing:.04em}
+.ber span{grid-column:1/3;font-size:15.5px;color:#a9bcc4;font-style:italic;margin-top:2px}
+.ber em{font-family:Cinzel;font-style:normal;color:#e8a33b;font-size:18px}
+.ab{position:absolute;left:54px;right:54px;bottom:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.a{display:grid;grid-template-columns:108px 1fr;gap:16px;align-items:center;background:#16232bcc;border:1px solid #ffffff22;padding:10px;backdrop-filter:blur(3px)}
+.a .m{height:86px;background:center/cover;border:2px solid #e8a33b}
+.a b{font-family:Cinzel;font-size:16.5px;display:block;line-height:1.25}
+.a i{font-size:14px;color:#a9bcc4}
+.lbl{color:#e8a33b}
+</style></head><body>
+<div class="bg"></div>
+<script>kopf(null,null,1)</script>
+<img class="logo-gross" src="a/logo-weiss.png" style="display:none">
+<div class="rechts">
+ <div class="lbl" style="margin-bottom:10px">Schnellstarter</div>
+ <div class="ber">
+  <a><b>Regeln</b><em>›</em><span>Proben, Kampf, Rast, Inventar, Zustände, Magie</span></a>
+  <a><b>Spielleitung</b><em>›</em><span>Leiten, Proben verlangen, Folgen, Vorbereitung</span></a>
+  <a><b>Mäuse</b><em>›</em><span>Fünf Spielmäuse, Gegenstände, Zustände, Mausbogen</span></a>
+ </div>
+</div>
+<div class="ab">
+ <div class="a"><div class="m" style="background-image:url(a/garten-clean.jpg);background-position:40% 60%"></div><div><b>Der verbotene Garten der Katzenmagierin</b><i>Einstiegsabenteuer</i></div></div>
+ <div class="a"><div class="m" style="background-image:url(a/estate-karte.jpg);background-position:center 40%"></div><div><b>Das Anwesen</b><i>Kampagne um Brickport</i></div></div>
+ <div class="a"><div class="m" style="background-image:url(a/hexkarte.jpg)"></div><div><b>Die Außenlande</b><i>Hexkarte · 19 Felder</i></div></div>
+</div>
+</body></html>

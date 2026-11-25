@@ -424,3 +424,12 @@ body.garten .gkt-r .txt{max-width:none;margin:0}
 body.garten .gkt-dim{fill:rgba(28,34,14,.42);pointer-events:none}
 body.garten .gkt-f.on{fill:rgba(255,236,150,.12);stroke-width:5}
 body.garten .gkt-map svg{-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+
+/* Saga vom Langen Winter: Figurenkarten mit Steckbrief, Zitat und zwei Entwicklungsspalten */
+.fg2 .fg-k.zwei{grid-template-columns:repeat(2,1fr)}
+.fg2 .fg-k.zwei span{display:block;line-height:1.55}
+.fg2 .fg-w{margin-top:12px}
+.fg2 .fg-tx .spruch{margin:4px 0 14px}
+.fg2 .fg-s.fg-w{display:block;margin-top:14px}
+.fg2 .fg-w>div{display:grid;grid-template-columns:120px 1fr;gap:0 14px;padding:5px 0;border-top:1px solid rgba(120,80,150,.15)}
+.fg2 .fg-w dt{padding-top:2px}

@@ -3,7 +3,7 @@
    Auszeichnung im Text: *kursiv*, **fett**. Seitenlinks: p = Buchseite (Grundbuch), "book" am Eintrag wählt ein anderes Buch. */
 "use strict";
 window.HH_TEXT = window.HH_TEXT || {};
-function md(s){ return esc(s).replace(/\{(kreuz|karo|herz|pik|hh|haus)\}/g, '<img class="wf" src="img/wuerfel/$1.png" alt="$1">').replace(/\[\[(.+?)\|ort:(.+?)\]\]/g, "<a class=\"vl\" onclick=\"ortPopup('$2')\">$1</a>").replace(/\[\[(.+?)\|fp\/figuren\/([a-z]+)\]\]/g, "<a class=\"vl\" onclick=\"figurPopup('$2')\">$1</a>").replace(/\[\[(.+?)\|(.+?)\]\]/g, "<a class=\"vl\" onclick=\"go('$2')\">$1</a>").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>"); }
+function md(s){ return esc(s).replace(/\{(kreuz|karo|herz|pik|hh|haus)\}/g, '<img class="wf" src="img/wuerfel/$1.png" alt="$1">').replace(/\[\[(.+?)\|ort:(.+?)\]\]/g, "<a class=\"vl\" onclick=\"ortPopup('$2')\">$1</a>").replace(/\[\[(.+?)\|(fp|lw)\/figuren\/([a-z]+)\]\]/g, "<a class=\"vl\" onclick=\"figurPopup('$3','$2')\">$1</a>").replace(/\[\[(.+?)\|(.+?)\]\]/g, "<a class=\"vl\" onclick=\"go('$2')\">$1</a>").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>"); }
 /* Ortsangaben in den Kopfdaten: jedes Teilstück, zu dem es einen Abschnitt unter Welt › Das Haus gibt, wird zum Popup-Link */
 var ORTALIAS = {"Lowlight Astraviya": "Lowlight", "Highlight Astraviya": "Highlight", "Astraviya": "Astraviya ·", "Great Stairs": "Die Great Stairs", "Long Hallway": "Der Long Hallway", "Al Sehir": "Al Sehir ·", "Pinewood": "Pinewood ·", "Downridge": "Downridge", "Beddingham": "Beddingham ·", "Tuberdam": "Tuberdam ·", "El Paso de Umbral": "El Paso de Umbral ·", "La Ruelle": "La Ruelle ·"};
 function ortFinden(name){
@@ -24,7 +24,7 @@ function blk(L, book){
       case "h": return "<h3>" + esc(b.x) + (b.p ? pgl(book, b.p) : "") + "</h3>";
       case "daten": return '<div class="daten">' + b.x.map(function(x){ x = ortMd(x); var m = /^\*\*(.*?):?\*\*:?\s*([\s\S]*)$/.exec(x); return '<div><span>' + esc(m[1]) + '</span>' + md(m[2]) + '</div>'; }).join("") + '</div>';
       case "spalten": return '<div class="spalten">' + b.x.map(function(c){ return "<div>" + blk(c, book) + "</div>"; }).join("") + "</div>";
-      case "gruppe": return '<figure class="fig voll gruppe"><img loading="lazy" src="' + IMGP(b.s) + '" alt="">' + b.p.map(function(z){ var e = (HH_TEXT["fp/figuren"] || []).filter(function(x){ return x.id === z[0]; })[0]; var n = e ? e.t : z[0]; var w = z[2] - z[1], bp = w >= 100 ? 0 : z[1] / (100 - w) * 100; return '<a class="gz" style="left:' + z[1] + '%;width:' + w + '%;--gi:url(' + IMGP(b.s) + ');--gs:' + (10000 / w) + '% 100%;--gp:' + bp + '% 0" onclick="figurPopup(\'' + z[0] + '\')"><span><b>' + esc(n) + '</b>' + (e ? '<i>' + esc(e.b[0].sub) + '</i>' : '') + '</span></a>'; }).join("") + '</figure>';
+      case "gruppe": return '<figure class="fig voll gruppe"><img loading="lazy" src="' + IMGP(b.s) + '" alt="">' + b.p.map(function(z){ var e = (HH_TEXT[(b.sg || "fp") + "/figuren"] || []).filter(function(x){ return x.id === z[0]; })[0]; var n = e ? e.t : z[0]; var w = z[2] - z[1], bp = w >= 100 ? 0 : z[1] / (100 - w) * 100; return '<a class="gz" style="left:' + z[1] + '%;width:' + w + '%;--gi:url(' + IMGP(b.s) + ');--gs:' + (10000 / w) + '% 100%;--gp:' + bp + '% 0" onclick="figurPopup(\'' + z[0] + '\',\'' + (b.sg || "fp") + '\')"><span><b>' + esc(n) + '</b>' + (e ? '<i>' + esc(e.b[0].sub) + '</i>' : '') + '</span></a>'; }).join("") + '</figure>';
       case "ul": return '<ul class="bul">' + b.x.map(function(x){ return "<li>" + md(ortMd(x)) + "</li>"; }).join("") + "</ul>";
       case "bsp": return '<div class="bsp">' + b.b.map(function(z){ return z[0] ? '<p><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>' : '<p>' + md(z[1]) + '</p>'; }).join("") + "</div>";
       case "box": return '<div class="kasten"><h4>' + esc(b.h) + '</h4>' + blk(b.b, book) + "</div>";
@@ -91,17 +91,19 @@ function figurKarte(b, kopf){
   return '<div class="kasten figur fg2" data-mas="0" id="ab-' + b.id + '">' +
     '<div class="fg-haupt">' + (kopf || "") + (b.bild ? '<div class="fg-bild"><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></div>' : '') + '<div class="fg-sub">' + (name ? esc(name[1]) + ' · ' : '') + esc(b.sub) + '</div>' +
     '<div class="fg-steck">' + stk.map(function(x){ return '<div><span>' + esc(x[0]) + '</span>' + esc(x[1]) + '</div>'; }).join("") + '</div>' +
+    (b.w ? '<dl class="fg-s fg-w">' + b.w.map(function(x){ return '<div><dt>' + esc(x[0]) + '</dt><dd>' + md(x[1]) + '</dd></div>'; }).join("") + '</dl>' : '') +
     '<h4>Startwerte</h4><dl class="fg-s">' + b.s.map(function(x){ return '<div><dt>' + esc(x[0]) + '</dt><dd>' + md(x[1]) + '</dd></div>'; }).join("") + '</dl>' +
-    '<h4>Entwicklung</h4><div class="fg-k">' + b.k.map(function(x){ return '<div><b>Kapitel ' + x[0] + '</b><span>' + md(x[1]) + '</span></div>'; }).join("") + '</div>' +
-    '<div class="fg-tx"><h4>Prolog</h4>' + b.tx.map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") + '</div></div></div>';
+    '<h4>Entwicklung</h4><div class="fg-k' + (b.k.length < 3 ? ' zwei' : '') + '">' + b.k.map(function(x){ return '<div><b>Kapitel ' + x[0] + '</b><span>' + (b.k.length < 3 ? x[1].split(" · ").map(md).join("<br>") : md(x[1])) + '</span></div>'; }).join("") + '</div>' +
+    '<div class="fg-tx">' + (b.z ? '<blockquote class="spruch">' + md(b.z) + '</blockquote>' : '') + '<h4>Prolog</h4>' + b.tx.map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") + '</div></div></div>';
 }
 
 /* Figuren-Popup: öffnet das Profil einer Figur aus der Saga */
-function figurPopup(id){
-  var e = (HH_TEXT["fp/figuren"] || []).filter(function(x){ return x.id === id; })[0]; if(!e) return;
+function figurPopup(id, sg){
+  sg = sg || "fp";
+  var e = (HH_TEXT[sg + "/figuren"] || []).filter(function(x){ return x.id === id; })[0]; if(!e) return;
   document.querySelectorAll(".modal").forEach(function(m){ m.remove(); });
   var m = document.createElement("div"); m.className = "modal figpop";
-  m.innerHTML = '<div><button class="fp-x" aria-label="Schließen">×</button>' + figurKarte(e.b[0], '<h2>' + esc(e.t) + (e.p ? pgl("hh_a2", e.p) : "") + '</h2>') + '<a class="fp-all" onclick="document.querySelector(\'.modal\').remove();go(\'fp/figuren/' + id + '\')">Zur Figurenseite</a></div>';
+  m.innerHTML = '<div><button class="fp-x" aria-label="Schließen">×</button>' + figurKarte(e.b[0], '<h2>' + esc(e.t) + (e.p ? pgl(sg === "fp" ? "hh_a2" : "hh_a1", e.p) : "") + '</h2>') + '<a class="fp-all" onclick="document.querySelector(\'.modal\').remove();go(\'' + sg + '/figuren/' + id + '\')">Zur Figurenseite</a></div>';
   m.addEventListener("click", function(ev){ if(ev.target === m || ev.target.className === "fp-x") m.remove(); });
   document.body.appendChild(m);
 }

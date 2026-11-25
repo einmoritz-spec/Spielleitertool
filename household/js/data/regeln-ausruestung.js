@@ -239,7 +239,7 @@ A.push({id: "dueling", t: "Duellwaffen", p: 164, b: [
 ]});
 
 A.push({id: "armor", t: "Rüstung & Accessoires", p: 165, b: [
-  bild("s165-vi-weapons", 340),
+  bild("s165-ruestung-1 grundbuch-s165-ruestung-2 grundbuch-s165-ruestung-3 grundbuch-s165-ruestung-4", "raster"),
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Leichte Rüstung", "Einmal pro Kampf kannst du mit Stärke statt mit einem anderen Fertigkeit reagieren.", "3"],
    ["Schwere Rüstung", "Einmal pro Kampf kannst du mit Stärke statt mit einem anderen Fertigkeit reagieren. Bietet zusätzlichen Schutz, siehe Beschreibung.", "6"],

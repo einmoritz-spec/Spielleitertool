@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v923sq";
+const VERSION = "v924sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1349,6 +1349,10 @@ const FILES = [
   "household/img/grundbuch/full/grundbuch-s163-vi-weapons.webp",
   "household/img/grundbuch/full/grundbuch-s164-vi-weapons.webp",
   "household/img/grundbuch/full/grundbuch-s165-vi-weapons.webp",
+  "household/img/grundbuch/full/grundbuch-s165-ruestung-1.webp",
+  "household/img/grundbuch/full/grundbuch-s165-ruestung-2.webp",
+  "household/img/grundbuch/full/grundbuch-s165-ruestung-3.webp",
+  "household/img/grundbuch/full/grundbuch-s165-ruestung-4.webp",
   "household/img/grundbuch/full/grundbuch-s133-iiii-conditions-decorum.webp",
   "household/img/grundbuch/full/grundbuch-s135-v-hereditary-contracts.webp",
   "household/img/grundbuch/full/grundbuch-s137-v-hereditary-contracts.webp",

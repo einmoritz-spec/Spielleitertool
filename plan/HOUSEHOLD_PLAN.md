@@ -157,3 +157,6 @@ Aufräumen beim Bau: Tapetenstücke hinter den Saga-Figuren (z. B. fp-s018-…, 
 7. Saga Fragile Peace: Figuren + Abenteuer + Leitstand
 8. Saga Long Winter: Figuren + Abenteuer + Leitstand
 9. Suche, i-Knopf, Karte („m“), Charakterbogen (ausfüllbares PDF)
+
+## Übersetzungsregel (von Moritz freigegeben, gilt rückwirkend)
+Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Personen, Verträgen, Moves und Traits sowie Wortschöpfungen (Cogpesh, Keysket …). Alles andere ist deutsch: Spielbegriffe, Gegenstände, Waffen, Überschriften, Seitentitel. Gedichte und Liedtexte werden nie wiedergegeben, auch nicht übersetzt; sie bleiben komplett weg, ohne Platzhalter.

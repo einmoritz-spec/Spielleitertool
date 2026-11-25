@@ -1,4 +1,4 @@
-CN.add("vald", {id:"sl-religionen", t:"Religionen & Glaubensrichtungen", p:178, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-religionen", t:"Religionen & Glaubensrichtungen", p:180, buch:"cn_w", b:[
 "Unter den Kleinleuten sind mehrere große Religionen und spirituelle Glaubensrichtungen verbreitet.",
 {t:"h",x:"Die Gezeitengeborenen"},
 "Eine hierarchische religiöse Sekte, die Rivulus verehrt, einen winzigen Gott der Flüsse und Seen. Selbst Außenstehende kennen die Initiationszeremonie der Gruppe, ein rituelles Ertränken, das gelegentlich Teilnehmende tötet. Wer überlebt, wird als Gezeitengeborener bezeichnet und nimmt einen neuen, wasserbezogenen Beinamen an (Karpfen, Schilf, Altarm und so weiter). Nur die Geistlichen müssen an dem Ritual teilnehmen; in den letzten Jahren hat die Gemeinschaft jedoch unter der Landbevölkerung Zulauf bekommen, besonders in Dörfern in der Nähe von Gewässern. Innerhalb der Geistlichkeit gibt es kaum Hierarchie, außer dem Aqua Primaris, dem alle ohne Widerspruch gehorchen.",
@@ -9,7 +9,7 @@ CN.add("vald", {id:"sl-religionen", t:"Religionen & Glaubensrichtungen", p:178, 
 "Eine ältere Religion, die auf die ersten Völker des Reiches zurückgeht, welche Steinbauten errichteten, um die Sterne und Sternbilder zu kartieren. Ihre Gläubigen halten sich streng an religiöse Grundsätze, die die Berechtigung aller anderen Glaubensrichtungen verneinen, und die lokale Geschichte ist von ihren Kriegen und Zwangsbekehrungen gezeichnet. Heute unterhält der Fünfzackige Stern Tempel in jeder größeren Siedlung, die oft dringend benötigte Dienste leisten, besonders für die Armen. In den letzten Jahren hat seine Bedeutung abgenommen, da andere Glaubensrichtungen erstarkten, was einige Mitglieder dazu bewog, sich einem reaktionären Orden namens Blutender Stern anzuschließen."
 ]});
 
-CN.add("vald", {id:"sl-der-wald", t:"Der Wald", p:179, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-der-wald", t:"Der Wald", p:181, buch:"cn_w", b:[
 "Der Wald umgibt und teilt das Reich und steht nicht für einen einzelnen Forst, sondern für alle Wälder. Seine Bewohner sind erbittert unabhängig und glauben, allein seinen Regeln zu unterliegen. Seine verschiedenen Völker, Geschöpfe und unerbittlichen Naturgewalten halten die Außenwelt seit Urzeiten fern. Der Wald ist der Geist aller Wälder, und diese sind wiederum sein Fleisch; das Leben, das sie tragen, ist ein Zeichen seiner Gesundheit.",
 "Im Kern jedes Forstes steht ein Herzbaum, der Ort, an dem der Wald am mächtigsten und zugleich am gefährlichsten ist. Jeder Herzbaum entsteht aus einem einzelnen Herzsamen, den man ausschließlich von einem sterbenden oder toten Herzbaum erhält. Der Herzbaum wirkt wie ein Angelpunkt für die Pflanzen, Bäume und Tiere rings um ihn und beobachtet und beantwortet jedes problematische Eindringen in sein Reich. Besonders Menschen fürchten die Herzbäume.",
 "Wälder leben nie für sich allein und verständigen sich untereinander, um zu warnen oder um Hilfe zu bitten. Diese Hilfe kann viele Formen annehmen, denn der Herzsamen reicht weit. Verteidiger des Rabenvolks legen vielleicht Harzfallen, um verirrte Jäger zu fangen, während Dryaden dem Holzfäller das Beil aus dem Werkzeugkasten stehlen. Doch niemand ist mächtiger (oder gefürchteter) als der Waldschrat, der wahre Beschützer des Waldes. Das aus Pflanze und Knochen geformte Wesen lebt nur für einen Zweck: den Wald und alle, die innerhalb seiner Grenzen leben, zu beschützen.",
@@ -17,14 +17,14 @@ CN.add("vald", {id:"sl-der-wald", t:"Der Wald", p:179, buch:"cn_w", b:[
 "Natürlich ist der Wald nicht menschenleer. In den Ästen und auf leeren Lichtungen verborgen liegen bewohnte Dörfer, schlichte Hütten und gelegentlich ein Turm. Wer an solchen Orten überleben (oder gar gedeihen) kann, lernt, nach den Regeln des Waldes zu leben, denn wer sie missachtet oder töricht bekämpft, findet oft ein grausiges Ende. Der Wald wird von seltsamen und wundersamen Geschöpfen bevölkert, etwa Goblins, Geistern, Baumriesen, Trollen, Werwölfen, Hexen und sogar sprechenden Pflanzen und Tieren. Die meisten sind Außenstehenden gegenüber (besonders Menschen) offen feindselig, doch manche verhandeln (gelegentlich) mit jenen, die dem Wald Respekt gezeigt haben. Alle aber erweisen den Fae (manchmal Bleiches Volk oder die Nachbarn genannt) unbedingten Respekt."
 ]});
 
-CN.add("vald", {id:"sl-die-nachbarn", t:"Die Nachbarn", p:180, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-die-nachbarn", t:"Die Nachbarn", p:182, buch:"cn_w", b:[
 "Durch das Dornengestrüpp und über den Busch hinweg gibt es einen Zwischenraum, in dem die Reiche der Sterblichen und des Feenvolks sich berühren. Wenn du danach suchst, wirst du ihn nicht finden. Aber wenn du hinüber musst, findest du ihn. Die Geschöpfe, die diesen Ort bewohnen, mögen vertraut aussehen und klingen, doch täusche dich nicht: Sie sind nicht wie wir. Groß, schlank, bleich wie Eis und unheimlich schön, gehorchen die Fae keinem sterblichen Gesetz und unterwerfen sich auch nicht dessen Moral. Und doch sind sie von Unfruchtbarkeit gelähmt und unfähig, ihresgleichen selbst zu erschaffen. Dafür müssen sie die Schwelle in die Welt der Sterblichen überschreiten, um mit Sterblichen zu handeln. Es gibt viele Namen für ihr Volk, aber nur einer ist je über ihre Lippen gekommen: Nachbarn.",
 "Die Nachbarn sind beständig von Geheimnissen umhüllt, und oft ist es schwer, Tatsachen von Gerüchten zu trennen. Manche sagen, die Nachbarn stehlen Säuglinge aus der Wiege und ersetzen sie durch ein Wechselbalg. Andere behaupten, sie zahlten große Reichtümer oder verliehen gewaltige Macht an jene, die bereit sind, ihr eigenes Fleisch und Blut herzugeben. In einem Punkt sind sich alle einig: Wer mit ihresgleichen Handel treibt, lädt Unglück nicht nur in sein eigenes Leben, sondern auch in das seiner Nachkommen ein.",
 "Jäger schwören, dass gelegentlich Tiere aus der Welt des Feenvolks in die unsere gelangen, mit einem weißen Fleck ins Fell gebrannt. Sie sagen, ihr Fleisch sei das süßeste, das man je kosten wird, und danach werde man verhungern, weil man es entbehrt. Schlimmer noch: Wer beim Wildern dieser Geschöpfe erwischt wird, zieht ein Schicksal auf sich, das schlimmer ist als der Tod. Gelehrte haben geschrieben, die Nachbarn könnten Magie verschütten wie Wasser, ohne Zauberbücher oder gar Relikte zu brauchen. Sie behaupten auch, jede Magie habe ihren Ursprung im Land des Bleichen Volks, und in jedem Zauberbuch seien die gefangenen Geister ihrer feigsten Gesetzesbrecher.",
 "Wer sein Leben im Wald verbringt, weiß, dass er Talismane, Gaben und ähnliche Dinge für eine zufällige Begegnung bei sich tragen sollte. Und obwohl die Nachbarn die Grenzen ihres Königreichs selten behelligen, sind sie dafür bekannt, jene hart zu bestrafen, die ihre Grenze ungebeten überschreiten. Allgemein bekannt ist jedoch, dass die Nachbarn sich vor den Wurzeln fürchten und Tore nach Möglichkeit meiden."
 ]});
 
-CN.add("vald", {id:"sl-die-wurzeln", t:"Die Wurzeln", p:181, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-die-wurzeln", t:"Die Wurzeln", p:183, buch:"cn_w", b:[
 "Die Wurzeln sind ein Reich aus Geheimnis und Grauen unter der Erde, gleichgültig gegenüber den willkürlichen Grenzen der Zivilisationen darüber. Unten erstrecken sich labyrinthische Höhlen über unermessliche Entfernungen und verbinden bescheidene Stadtkanäle mit weit entfernten Ruinen jenseits der Grenzen. Nur die Mutigen oder Törichten wagen sich auf der Suche nach vergessenen Relikten oder tiefgründigem Reichtum in die Wurzeln, und die wenigen, die zurückkehren, flüstern von unbeschreiblichen Schrecken und einer bösartigen Intelligenz, die diese verlorenen Schätze bewacht. Geschichten erzählen von Abenteurern, die jahrhundertelang in den Tiefen verschollen waren und dann behaupteten, nur wenige Stunden seien vergangen. Andere wollen eine tagelange Reise über der Erde an einem einzigen Tag zurückgelegt haben, durch die Tunnel darunter.",
 "Die Eingänge zu den Wurzeln, bekannt als Tore, sind über die Lande verstreut und meist verborgen oder von mächtigen Kräften geschützt. Außerdem lassen sich Tore nicht ohne den richtigen Schlüssel oder ein alchemistisches Muster öffnen und können, einmal geöffnet, nie wieder geschlossen werden. Volksüberlieferungen berichten von ihrer Öffnung als Omen großen Unglücks, bei dem Geschöpfe, abscheulicher als der finsterste Albtraum, hindurchschleichen und nahe Häuser und Dörfer verschlingen. Andere erzählen von großen Helden, die ihre Schwerter gegen diese Schrecken erhoben und die Tore unter Geröll, Bergen, Seen oder anderen undurchdringlichen Barrieren versiegelten.",
 "Bekannt ist, dass die Wurzeln aus weiten unterirdischen Höhlen bestehen, so groß wie ein geleerter Ozean, ohne den leisesten Hauch von Sonnenlicht. Verschiedene Pilzgewächse spenden an manchen Stellen schwaches Licht, ebenso diverse Mineralien und seltsame, flache Gruben mit blauer Flamme. Über diese Gruben weiß man kaum etwas, außer dass sie von schrecklichen dreiäugigen Ogern gehütet werden, die nach Blut dürsten wie nach dem süßesten Wein. Die verschiedenen Geschöpfe und wilden Tiere, die unter solch harten Bedingungen überleben, haben natürliche Mittel entwickelt, in vollkommener Dunkelheit zu leben: Ihre Augen sind selbst an das schwächste Licht angepasst, oder sie verzichten ganz auf das Sehen.",
@@ -32,7 +32,7 @@ CN.add("vald", {id:"sl-die-wurzeln", t:"Die Wurzeln", p:181, buch:"cn_w", b:[
 "Heute meiden es die meisten, Tore, Schlüssel oder verwandte Alchemie auch nur zu erwähnen. Aber natürlich gibt es immer jene, die ihrem Sog nicht widerstehen können …"
 ]});
 
-CN.add("vald", {id:"sl-fraktionen", t:"Fraktionen", p:182, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-fraktionen", t:"Fraktionen", p:184, buch:"cn_w", b:[
 {t:"h",x:"Das Haus der Bürgermeister"},
 "Eine Versammlung wohlhabender, grundbesitzender Lords und Ladys. Gerissen, durchsetzungsstark und von ihrer eigenen Überlegenheit überzeugt, können sie Großes vollbringen, wenn sie als ein einziger Körper handeln. Leider werden ihre Bemühungen oft durch einzelne Zänkereien, winzige Streitigkeiten und ihre nie endende Gier nach Macht und Ansehen untergraben. Obwohl im Haus ein gesundes Misstrauen gegenüber dem Orden der Neun herrscht, spricht ein Bürgermeister selten öffentlich schlecht über ihn. Das Haus ist seinerseits offen freundlich zu den Gezeitengeborenen, auch wenn intern große Bestürzung über die jüngste Beliebtheit der Emporkömmlings-Religion herrscht.",
 {t:"h",x:"Der Orden der Neun"},
@@ -52,7 +52,7 @@ CN.add("vald", {id:"sl-fraktionen", t:"Fraktionen", p:182, buch:"cn_w", b:[
 "Die Wache sieht wenig Grund, sich in Politik oder ähnlich kurzsichtige Streitereien mit den anderen Fraktionen einzulassen. Jahrzehnte des Lebens nahe der Grenzen haben sie jedoch dazu gebracht, eine unsichere Freundschaft mit jenen zu schließen, die den Wald ihr Zuhause nennen, und gelegentlich verhandelt sie sogar mit ihnen. Und obwohl nie darüber gesprochen wird, eilt die Wache in seltenen Fällen auch den Bewohnern des Waldes zu Hilfe."
 ]});
 
-CN.add("vald", {id:"sl-nsc-tabellen", t:"NSC-Tabellen", p:184, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-nsc-tabellen", t:"NSC-Tabellen", p:186, buch:"cn_w", b:[
 {t:"h",x:"Namen"},
 "Würfle auf einer der drei Namenstabellen.",
 {t:"tbl",head:["W20","Name (I)","Name (II)","Name (III)"],rows:[
@@ -83,7 +83,7 @@ CN.add("vald", {id:"sl-nsc-tabellen", t:"NSC-Tabellen", p:184, buch:"cn_w", b:[
 ["20","Schläger","Reichtum","Witzig","Fremdenfeindlich"]]}
 ]});
 
-CN.add("vald", {id:"sl-kalender", t:"Der Kalender von Vald", p:185, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-kalender", t:"Der Kalender von Vald", p:187, buch:"cn_w", b:[
 {t:"h",x:"Überblick"},
 "Ein Tag hat 24 Stunden, eine Woche 6 Tage. Jeder Monat hat 24 Tage (4 Wochen), ein Jahr hat 12 Monate. Das Jahr ist in 4 Jahreszeiten (Tot, Trocken, Nass und Ernte) von je 72 Tagen unterteilt. Alle 10 Jahre wird eine 6-tägige „Sprungwoche“ (Rückeroberung) eingefügt, die zu keinem Monat gehört. Dadurch beträgt die durchschnittliche Länge eines Jahres über ein Jahrzehnt 288,6 Tage. Jedes Jahr beginnt kurz vor dem Beginn der Trockenzeit. Das aktuelle Jahr ist 7728.",
 {t:"h",x:"Wochentage und Monate"},
@@ -102,7 +102,7 @@ CN.add("vald", {id:"sl-kalender", t:"Der Kalender von Vald", p:185, buch:"cn_w",
 ["6","Eisregen","Trocken und windig","Schauer","Starkregen"]]}
 ]});
 
-CN.add("vald", {id:"sl-feiertage", t:"Feiertage, Feste & Ereignisse", p:186, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-feiertage", t:"Feiertage, Feste & Ereignisse", p:188, buch:"cn_w", b:[
 {t:"h",x:"Tot- und Trockenzeit"},
 {t:"dl",x:[
 ["1. Trauer: 4. um Mitternacht (Markttag)","Die Totzeit beginnt."],
@@ -139,7 +139,7 @@ CN.add("vald", {id:"sl-feiertage", t:"Feiertage, Feste & Ereignisse", p:186, buc
 ]}
 ]});
 
-CN.add("vald", {id:"sl-bibliografie", t:"Bibliografie", p:188, buch:"cn_w", b:[
+CN.add("vald", {id:"sl-bibliografie", t:"Bibliografie", p:190, buch:"cn_w", b:[
 "Titel von Werken, Blogs und Autoren stehen im Original.",
 {t:"h",x:"Spiele & Ergänzungen"},
 {t:"ul",x:["Apocalypse World von Vincent und Meguey Baker","Beyond the Wall von Peter S. Williams","Dungeon World von Sage LaTorra und Adam Koebel","Electric Bastionland von Chris McDowall","Errant von Ava Islam","FLEE von Emmy Verte","Into The Dungeon: Revived von Vladimir Arabadzhi","Knave & Maze Rats von Ben Milton","Mausritter von Isaac Williams","Old School Essentials von Gavin Norman","Perilous Wilds von Jason Lutes","The Monster Overhaul von Skerples","Tunnel Goons von Nate Treme","Vaults of Vaarn von Leo Hunt","World of Dungeons von John Harper"]},

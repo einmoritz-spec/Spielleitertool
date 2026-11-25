@@ -375,3 +375,12 @@ body.garten .gegner .sk.cr{width:21px;height:21px;margin:-2px -1px;border:2px do
 body.garten .gegner>p{margin:8px 2px}
 body.garten .gegner .gk-zug b{color:var(--kup)}
 @media(max-width:760px){body.garten .gegner>.fig{float:none;margin:8px auto;max-width:100%}}
+body.garten .koloss{padding-bottom:8px}
+body.garten .koloss .gk-kopf{font-size:21px}
+body.garten .koloss .ko-st{font:400 15px Fell,serif;color:var(--kup);letter-spacing:.08em}
+body.garten .koloss .ko-st b{font:400 30px/1 Fell,serif;margin-left:6px;vertical-align:-3px}
+body.garten .koloss .gk-z{padding:2px 12px 6px}
+body.garten .koloss .ko-vh{background:rgba(190,160,95,.16);padding:8px 12px 10px;margin:4px 0 10px;border-radius:2px;line-height:1.5}
+body.garten .koloss .ko-vh>b:first-child{display:block;font:400 18px Fell,serif;color:var(--kup);margin-bottom:2px}
+body.garten .koloss .gk-zug{margin:6px 2px}
+body.garten .fig.weich img{-webkit-mask:radial-gradient(closest-side,#000 62%,transparent);mask:radial-gradient(closest-side,#000 62%,transparent)}

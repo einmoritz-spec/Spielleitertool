@@ -15,7 +15,7 @@ L.push({id: "uebersicht", t: "Gegner des Gartens", p: 277, b: [
   {t: "h", x: "Gefahrenstufe"},
   "Wie im ersten Household-Band sind auch die Gegner dieses Buchs nach Gefahrenstufe von 1 bis 5 geordnet. Kolossale Bestien haben dagegen eine eigene, höhere Gefahrenstufe: Sie sind völlig überdimensioniert, und es ist keineswegs sicher, dass eine Gruppe Littlings sie bezwingt, wenn sie nicht gut vorbereitet ist.",
   {t: "h", x: "Littlings", p: 278},
-  {t: "kacheln", x: [
+  {t: "kacheln", r: "g/sl/gegner/", x: [
     {n: "Banditen", id: "gg-banditen", typ: "basic", lv: 1},
     {n: "Gesetzlose", id: "gg-gesetzlose", typ: "critical", lv: 2},
     {n: "Samurai", id: "gg-samurai", typ: "critical", lv: 3},
@@ -26,7 +26,7 @@ L.push({id: "uebersicht", t: "Gegner des Gartens", p: 277, b: [
     {n: "Furien", id: "gg-furien", typ: "critical", lv: 5},
     {n: "Thornguards", id: "gg-thornguards", typ: "critical", lv: 5, s: "garten-s291-anhang-opponents"}]},
   {t: "h", x: "Tiere", p: 278},
-  {t: "kacheln", x: [
+  {t: "kacheln", r: "g/sl/gegner/", x: [
     {n: "Ameisen", id: "gg-ameisen", typ: "basic", lv: 1, s: "garten-s280-281-anhang-opponents-ganz"},
     {n: "Grillen", id: "gg-grillen", typ: "basic", lv: 1},
     {n: "Ameisenlöwe", id: "gg-ameisenloewe", typ: "critical", lv: 2, s: "garten-s284-anhang-opponents"},

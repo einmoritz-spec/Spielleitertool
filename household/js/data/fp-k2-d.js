@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2"] || [];
 
 K.push({id: "aufstieg", t: "Der Große Aufstieg", p: 125, b: [
- {t: "bild", s: "fp-s125-ii-the-great-climb", w: "voll"},
+ {t: "gruppe", s: "fp-s125-ii-the-great-climb", p: [["tubo", 0, 30], ["litha", 30, 55], ["pierre", 55, 73], ["gunther", 73, 100]]},
  {t: "daten", x: [
   "**Ort:** Great Stairs",
   "**Zeit:** Februar VII H.C.",

@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2"] || [];
 
 K.push({id: "frischertat", t: "Auf frischer Tat", p: 124, b: [
- {t: "bild", s: "fp-s124-ii-red-handed", w: "voll"},
+ {t: "gruppe", s: "fp-s124-ii-red-handed", p: [["sienna", 0, 27], ["floyd", 27, 49], ["icarus", 49, 68], ["micah", 68, 100]]},
  {t: "daten", x: [
   "**Ort:** Stairside",
   "**Zeit:** Februar VII H.C.",

@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2"] || [];
 
 K.push({id: "protopopolov", t: "Reise mit Protopopolov, Teil I", p: 127, b: [
- {t: "bild", s: "fp-s127-ii-traveling-with-protopopolov", w: "voll"},
+ {t: "gruppe", s: "fp-s127-ii-traveling-with-protopopolov", p: [["earnest", 0, 32], ["hannah", 32, 50], ["jocelyne", 50, 72], ["yuliya", 72, 100]]},
  {t: "daten", x: [
   "**Ort:** Astraviya",
   "**Zeit:** März VII H.C.",

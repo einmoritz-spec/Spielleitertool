@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2"] || [];
 
 K.push({id: "banister", t: "Die Tragödie auf dem Banister", p: 122, b: [
- {t: "bild", s: "fp-s122-ii-tragedy-on-the-banister", w: "voll"},
+ {t: "gruppe", s: "fp-s122-ii-tragedy-on-the-banister", p: [["siobhan", 0, 28], ["aidan", 28, 46], ["dimitri", 46, 62], ["ira", 62, 100]]},
  {t: "daten", x: [
   "**Ort:** Great Stairs",
   "**Zeit:** Januar VII H.C.",

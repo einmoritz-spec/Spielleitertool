@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2"] || [];
 
 K.push({id: "spur", t: "Auf Argos Spur", p: 123, b: [
- {t: "bild", s: "fp-s123-ii-on-argos-trail", w: "voll"},
+ {t: "gruppe", s: "fp-s123-ii-on-argos-trail", p: [["santiago", 0, 31], ["gwen", 31, 49], ["priscilla", 49, 66], ["humphrey", 66, 100]]},
  {t: "daten", x: [
   "**Ort:** Chesterfield by-the-fire",
   "**Zeit:** Februar VII H.C.",

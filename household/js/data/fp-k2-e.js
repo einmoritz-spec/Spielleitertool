@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k2"] = window.HH_TEXT["fp/k2"] || [];
 
 K.push({id: "grenze", t: "Die Umbral-Grenze", p: 126, b: [
- {t: "bild", s: "fp-s126-ii-the-umbral-frontier", w: "voll"},
+ {t: "gruppe", s: "fp-s126-ii-the-umbral-frontier", p: [["jemma", 0, 25], ["zehra", 25, 55], ["malaika", 55, 70], ["qamar", 70, 100]]},
  {t: "daten", x: [
   "**Ort:** El Paso de Umbral",
   "**Zeit:** März VII H.C.",

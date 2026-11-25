@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v963sq";
+const VERSION = "v964sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1389,9 +1389,28 @@ const FILES = [
   "household/img/fp/thumb/fp-s071-i-argos-diary-kachel.webp",
   "household/img/fp/full/fp-s096-i-the-stolen-shipment-links-kachel.webp",
   "household/img/fp/thumb/fp-s096-i-the-stolen-shipment-links-kachel.webp",
+  "household/img/fp/full/fp-s122-ii-tragedy-on-the-banister.webp",
+  "household/img/fp/thumb/fp-s122-ii-tragedy-on-the-banister.webp",
+  "household/img/fp/full/fp-s123-ii-on-argos-trail.webp",
+  "household/img/fp/thumb/fp-s123-ii-on-argos-trail.webp",
+  "household/img/fp/full/fp-s124-ii-red-handed.webp",
+  "household/img/fp/thumb/fp-s124-ii-red-handed.webp",
+  "household/img/fp/full/fp-s125-ii-the-great-climb.webp",
+  "household/img/fp/thumb/fp-s125-ii-the-great-climb.webp",
+  "household/img/fp/full/fp-s126-ii-the-umbral-frontier.webp",
+  "household/img/fp/thumb/fp-s126-ii-the-umbral-frontier.webp",
+  "household/img/fp/full/fp-s127-ii-traveling-with-protopopolov.webp",
+  "household/img/fp/thumb/fp-s127-ii-traveling-with-protopopolov.webp",
   "household/img/fp/full/fp-s104-i-the-wax-trap-kachel.webp",
   "household/img/fp/thumb/fp-s104-i-the-wax-trap-kachel.webp",
   "household/js/data/fp-k1.js",
+  "household/js/data/fp-k2-a.js",
+  "household/js/data/fp-k2-b.js",
+  "household/js/data/fp-k2-c.js",
+  "household/js/data/fp-k2-d.js",
+  "household/js/data/fp-k2-e.js",
+  "household/js/data/fp-k2-f.js",
+  "household/js/data/fp-k2.js",
   "household/img/guide/full/guide-s200-atlas-highlight-astraviya.webp",
   "household/img/guide/thumb/guide-s200-atlas-highlight-astraviya.webp",
   "household/img/guide/full/guide-s201-atlas-lowlight-astraviya.webp",

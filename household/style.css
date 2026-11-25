@@ -261,3 +261,8 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .lay.fold-on .txt:has(.kacheln.gross),.lay.solo .txt:has(.kacheln.gross){max-width:1500px;margin-left:auto;margin-right:auto}
 .held{position:relative;margin:4px 0 22px;clear:both}.held>img{width:100%;height:auto;display:block}.held-tx{position:absolute}.held-tx .bul{margin:0}@media(max-width:1150px){.held-tx{position:static;width:auto!important;margin-top:10px}}
 .held-tx.mitte{text-align:center}.held-tx.mitte .bul li{padding-left:0;margin:0 0 9px;line-height:1.35}.held-tx.mitte .bul li:before{content:none}.held-tx.mitte .bul b{display:block;font-family:Fell,serif;font-variant:small-caps;font-weight:normal;letter-spacing:.06em;color:var(--akz);font-size:.92em;margin:0 auto 1px}
+/* breite Kopfbilder (Kapitel II): 2 Spalten, Höhe nach Bild */
+.kacheln.gross.breit{grid-template-columns:repeat(2,1fr);gap:26px 40px}
+.kacheln.gross.breit .kb{height:auto;aspect-ratio:2.7/1;display:flex;align-items:flex-end}.kacheln.gross.breit .kb img{max-height:100%;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+@media(min-width:701px){.lay.fold-on .kacheln.gross.breit,.lay.solo .kacheln.gross.breit{grid-template-columns:repeat(3,1fr);gap:26px 28px}.lay.fold-on .kacheln.gross.breit .kb,.lay.solo .kacheln.gross.breit .kb{height:auto}.lay.fold-on .kacheln.gross.breit .kb img,.lay.solo .kacheln.gross.breit .kb img{max-height:none}}
+@media(max-width:700px){.kacheln.gross.breit{grid-template-columns:1fr}.kacheln.gross.breit .kb{height:auto}.kacheln.gross.breit .kb img{max-height:none}}

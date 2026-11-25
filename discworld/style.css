@@ -41,10 +41,11 @@ body.notop .topbar{display:none}
 body.notop .unter{top:0}body.notop .side{top:52px}
 
 /* Unterleiste */
-.unter{position:sticky;top:var(--kopf-h);z-index:25;display:flex;flex-wrap:wrap;align-items:center;gap:2px 26px;padding:9px 28px 8px;background:var(--perg2);border-bottom:1px solid var(--linie);box-shadow:0 3px 8px rgba(60,30,10,.08)}
+.unter{position:sticky;top:var(--kopf-h);z-index:25;display:flex;flex-wrap:wrap;align-items:center;gap:2px 26px;padding:7px 28px 16px;background:var(--perg2);border-bottom:1px solid var(--linie);box-shadow:0 3px 8px rgba(60,30,10,.08)}
 .unter a{font:400 17px/1.25 FellSC,Georgia,serif;color:#7a6650;cursor:pointer;padding:2px 0;border-bottom:2px solid transparent}
 .unter a:hover{color:var(--blut)}
-.unter a.on{color:var(--blut);border-bottom-color:var(--blut)}
+.unter a.on{position:relative;color:var(--blut);border-bottom-color:transparent}
+.unter a.on::after{content:"";position:absolute;left:50%;bottom:-13px;width:66px;height:11px;transform:translateX(-50%);background:url(img/deko/zier.webp) center/contain no-repeat;pointer-events:none}
 .unter a.leer{opacity:.55}
 
 /* Seitenleiste + Inhalt */
@@ -72,10 +73,10 @@ body:not(.mitunter) .fold.auf{top:calc(var(--kopf-h) + 10px)}
 .ab{margin:0 0 46px}
 .ab+.ab{padding-top:10px}
 .kh{margin:0 0 20px}
-.kh h2::after{content:"";display:block;width:190px;height:33px;margin:6px 0 0 -2px;background:url(img/deko/zier.webp) left center/contain no-repeat}
+
 .kh h2,.kt{margin:6px 0 0;font:400 40px/1.1 FellSC,Georgia,serif;color:var(--blut);letter-spacing:.01em}
 .kh h2::first-letter{font-size:1.22em}
-.motto{margin:4px 0 0;font:italic 17px/1.45 Gara,serif;color:#6d5b48;max-width:900px}
+.motto{margin:8px 0 0;font:italic 17px/1.45 Gara,serif;color:#6d5b48;max-width:900px}
 .pg{font:15px/1 Gara,serif;color:#9d8a72;text-decoration:none;cursor:pointer;white-space:nowrap;letter-spacing:0;vertical-align:middle;margin-left:6px}
 h2 .pg,h3 .pg{font-size:15px}
 .txt .pg,.fn .pg,.kasten .pg{margin:0;font:inherit;color:#8b3a26;border-bottom:1px dotted rgba(139,58,38,.5);vertical-align:baseline}

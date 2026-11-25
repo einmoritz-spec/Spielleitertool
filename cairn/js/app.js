@@ -133,7 +133,7 @@ function viewBereich(aid, kid){
   window.__pen = aid + ":" + cur.id; window.__sub = L.length > 1 ? L.map(function(k){ return [aid + "/" + k.id, k.t, k.id === cur.id]; }) : null;
   var hs = (cur.b || []).filter(function(x){ return x && x.t === "h"; });
   var side = "";
-  if(hs.length >= 4){ side = '<nav class="side">' + hs.map(function(h){ return '<a onclick="jump(\'h-' + hid(h.x) + '\')">' + esc(h.x.split(":")[0]) + '</a>'; }).join("") + '</nav>'; }
+  if(hs.length >= 4){ side = '<nav class="side">' + hs.map(function(h){ var m = h.x.match(/^(\d+)\s*[–-]\s*(.+)$/); return '<a onclick="jump(\'h-' + hid(h.x) + '\')">' + (m ? '<b class="nr">' + m[1] + '</b>' + esc(m[2]) : esc(h.x.split(":")[0])) + '</a>'; }).join("") + '</nav>'; }
   var body = '<div class="sec"><h2>' + esc(cur.t) + '</h2>' + (cur.p ? pgl(cur.p, cur.buch || A.b) : "") + '</div><div class="txt">' + blk(cur.b) + '</div>';
   window.__buch = cur.buch || A.b;
   return lay(side, body);

@@ -14,7 +14,7 @@ function blk(L, book){
       case "bsp": return '<div class="bsp">' + b.b.map(function(z){ return z[0] ? '<p><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>' : '<p>' + md(z[1]) + '</p>'; }).join("") + "</div>";
       case "box": return '<div class="kasten"><h4>' + esc(b.h) + '</h4>' + blk(b.b, book) + "</div>";
       case "bild": return '<figure class="fig' + (b.w === "voll" ? " voll" : b.w === "mitte" ? " mitte" : b.w === "raster" ? " raster" : "") + '"' + (b.w === "voll" || b.w === "mitte" || b.w === "raster" ? "" : ' style="width:' + b.w + 'px"') + '>' + b.s.split(" ").map(function(n){ return '<img loading="lazy" src="' + IMGP(n) + '" alt="">'; }).join("") + '</figure>';
-      case "held": return '<figure class="held"><img loading="lazy" src="' + IMGP(b.s) + '" alt=""><div class="held-tx" style="left:' + b.l + '%;top:' + b.o + '%;width:' + b.w + '%">' + blk(b.b, book) + '</div></figure>';
+      case "held": return '<figure class="held"><img loading="lazy" src="' + IMGP(b.s) + '" alt=""><div class="held-tx' + (b.cls ? ' ' + b.cls : '') + '" style="left:' + b.l + '%;top:' + b.o + '%;width:' + b.w + '%">' + blk(b.b, book) + '</div></figure>';
       case "karten": return '<div class="karten nomas' + (b.cls ? ' ' + b.cls : '') + '">' + blk(b.x, book) + "</div>";
       case "gegner": return gegnerKarte(b);
       case "figur": return figurKarte(b);

@@ -3,14 +3,13 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["fp/k1"] = window.HH_TEXT["fp/k1"] || [];
 
 K.push({id: "lieferung", t: "Die gestohlene Lieferung", p: 94, b: [
- {t: "ul", x: [
-  "**Ort:** Tuberdam, Free Dominions",
-  "**Zeit:** November VI H.C. (Kapitel I)",
-  "**Hauptfiguren:** Aidan, Siobhan, Ira und Micah",
-  "**Weitere Figuren:** Pierre und Gunther waren zu dieser Zeit ebenfalls in den Free Dominions und könnten die Ereignisse miterlebt haben.",
-  "**Ziel:** Den Stempel mit dem Siegel von Marquis Tristan des Larmes wiederbeschaffen."
- ]},
- {t: "bild", s: "fp-s096-097-i-the-stolen-shipment", w: 520},
+ {t: "held", s: "fp-s096-097-i-the-stolen-shipment", cls: "mitte", l: 29, o: 2, w: 40, b: [{t: "ul", x: [
+  "**Ort** Tuberdam, Free Dominions",
+  "**Zeit** November VI H.C. (Kapitel I)",
+  "**Hauptfiguren** Aidan, Siobhan, Ira und Micah",
+  "**Weitere Figuren** Pierre und Gunther waren ebenfalls in den Free Dominions und könnten Zeugen gewesen sein.",
+  "**Ziel** Den Stempel mit dem Siegel von Marquis Tristan des Larmes wiederbeschaffen."
+ ]}]},
  {t: "h", x: "Hintergrund"},
  "Ein kleines Frachtschiff vom Faucet hatte nach schwerer Verspätung mitten in der Nacht im Hafen von Tuberdam festgemacht. Da die strengen Gesetze gegen Ruhestörung in den Free Dominions das nächtliche Entladen völlig verbieten, entschied der Kapitän, dass es am sichersten sei, wenn die Mannschaft an Bord schläft. Trotz seiner Vorsicht stellte er beim Aufwachen am nächsten Morgen fest, dass einige Kisten seiner Ladung geleert worden waren, und rief sofort die Hafenbehörde zur Untersuchung.",
  "Während Ira Poole und seine Kollegen von der Gendarmerie den Kai absperrten und ihre vorläufigen Ermittlungen begannen, in der Hoffnung, Überstunden zu vermeiden, mischte sich Micah unter die kleine Menge Schaulustiger und versuchte zu verstehen, was geschehen war. Beide Littlings haben Kontakte zu örtlichen Banden und waren ziemlich überrascht, vom Diebstahl erst im Nachhinein erfahren zu haben.",

@@ -3,17 +3,29 @@
    Auszeichnung im Text: *kursiv*, **fett**. Seitenlinks: p = Buchseite (Grundbuch), "book" am Eintrag wählt ein anderes Buch. */
 "use strict";
 window.HH_TEXT = window.HH_TEXT || {};
-function md(s){ return esc(s).replace(/\{(kreuz|karo|herz|pik|hh|haus)\}/g, '<img class="wf" src="img/wuerfel/$1.png" alt="$1">').replace(/\[\[(.+?)\|fp\/figuren\/([a-z]+)\]\]/g, "<a class=\"vl\" onclick=\"figurPopup('$2')\">$1</a>").replace(/\[\[(.+?)\|(.+?)\]\]/g, "<a class=\"vl\" onclick=\"go('$2')\">$1</a>").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>"); }
+function md(s){ return esc(s).replace(/\{(kreuz|karo|herz|pik|hh|haus)\}/g, '<img class="wf" src="img/wuerfel/$1.png" alt="$1">').replace(/\[\[(.+?)\|ort:(.+?)\]\]/g, "<a class=\"vl\" onclick=\"ortPopup('$2')\">$1</a>").replace(/\[\[(.+?)\|fp\/figuren\/([a-z]+)\]\]/g, "<a class=\"vl\" onclick=\"figurPopup('$2')\">$1</a>").replace(/\[\[(.+?)\|(.+?)\]\]/g, "<a class=\"vl\" onclick=\"go('$2')\">$1</a>").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>"); }
+/* Ortsangaben in den Kopfdaten: jedes Teilstück, zu dem es einen Abschnitt unter Welt › Das Haus gibt, wird zum Popup-Link */
+var ORTALIAS = {"Lowlight Astraviya": "Lowlight", "Highlight Astraviya": "Highlight", "Astraviya": "Astraviya ·", "Great Stairs": "Die Great Stairs", "Long Hallway": "Der Long Hallway", "Al Sehir": "Al Sehir ·", "Pinewood": "Pinewood ·", "Downridge": "Downridge", "Beddingham": "Beddingham ·", "Tuberdam": "Tuberdam ·", "El Paso de Umbral": "El Paso de Umbral ·", "La Ruelle": "La Ruelle ·"};
+function ortFinden(name){
+  var L = (window.HH_TEXT || {})["haus/welt/haus"] || [], q = ORTALIAS[name] || name, i, j, b;
+  for(i = 0; i < L.length; i++) for(j = 0; j < L[i].b.length; j++){ b = L[i].b[j];
+    if(b && b.t === "h" && (b.x === q || b.x.indexOf(q) === 0 || b.x.indexOf("Der " + q) === 0 || b.x.indexOf("Die " + q) === 0)) return {e: L[i], j: j, h: b}; }
+  return null;
+}
+function ortMd(x){
+  var m = /^(\*\*Ort:?\*\*:?\s*)([\s\S]*)$/.exec(x); if(!m) return x;
+  return m[1] + m[2].split(", ").map(function(p){ return ortFinden(p) ? "[[" + p + "|ort:" + p + "]]" : p; }).join(", ");
+}
 function blk(L, book){
   return (L || []).map(function(b){
     if(typeof b === "string") return "<p>" + md(b) + "</p>";
     switch(b.t){
       case "p": return "<p>" + md(b.x) + "</p>";
       case "h": return "<h3>" + esc(b.x) + (b.p ? pgl(book, b.p) : "") + "</h3>";
-      case "daten": return '<div class="daten">' + b.x.map(function(x){ var m = /^\*\*(.*?):?\*\*:?\s*([\s\S]*)$/.exec(x); return '<div><span>' + esc(m[1]) + '</span>' + md(m[2]) + '</div>'; }).join("") + '</div>';
+      case "daten": return '<div class="daten">' + b.x.map(function(x){ x = ortMd(x); var m = /^\*\*(.*?):?\*\*:?\s*([\s\S]*)$/.exec(x); return '<div><span>' + esc(m[1]) + '</span>' + md(m[2]) + '</div>'; }).join("") + '</div>';
       case "spalten": return '<div class="spalten">' + b.x.map(function(c){ return "<div>" + blk(c, book) + "</div>"; }).join("") + "</div>";
       case "gruppe": return '<figure class="fig voll gruppe"><img loading="lazy" src="' + IMGP(b.s) + '" alt="">' + b.p.map(function(z){ var e = (HH_TEXT["fp/figuren"] || []).filter(function(x){ return x.id === z[0]; })[0]; var n = e ? e.t : z[0]; var w = z[2] - z[1], bp = w >= 100 ? 0 : z[1] / (100 - w) * 100; return '<a class="gz" style="left:' + z[1] + '%;width:' + w + '%;--gi:url(' + IMGP(b.s) + ');--gs:' + (10000 / w) + '% 100%;--gp:' + bp + '% 0" onclick="figurPopup(\'' + z[0] + '\')"><span><b>' + esc(n) + '</b>' + (e ? '<i>' + esc(e.b[0].sub) + '</i>' : '') + '</span></a>'; }).join("") + '</figure>';
-      case "ul": return '<ul class="bul">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
+      case "ul": return '<ul class="bul">' + b.x.map(function(x){ return "<li>" + md(ortMd(x)) + "</li>"; }).join("") + "</ul>";
       case "bsp": return '<div class="bsp">' + b.b.map(function(z){ return z[0] ? '<p><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>' : '<p>' + md(z[1]) + '</p>'; }).join("") + "</div>";
       case "box": return '<div class="kasten"><h4>' + esc(b.h) + '</h4>' + blk(b.b, book) + "</div>";
       case "bild": return '<figure class="fig' + (b.w === "voll" ? " voll" : b.w === "mitte" ? " mitte" : b.w === "raster" ? " raster" : "") + '"' + (b.w === "voll" || b.w === "mitte" || b.w === "raster" ? "" : ' style="width:' + b.w + 'px"') + '>' + b.s.split(" ").map(function(n){ return '<img loading="lazy" src="' + IMGP(n) + '" alt="">'; }).join("") + '</figure>';
@@ -74,6 +86,21 @@ function figurPopup(id){
   document.querySelectorAll(".modal").forEach(function(m){ m.remove(); });
   var m = document.createElement("div"); m.className = "modal figpop";
   m.innerHTML = '<div><button class="fp-x" aria-label="Schließen">×</button>' + figurKarte(e.b[0], '<h2>' + esc(e.t) + (e.p ? pgl("hh_a2", e.p) : "") + '</h2>') + '<a class="fp-all" onclick="document.querySelector(\'.modal\').remove();go(\'fp/figuren/' + id + '\')">Zur Figurenseite</a></div>';
+  m.addEventListener("click", function(ev){ if(ev.target === m || ev.target.className === "fp-x") m.remove(); });
+  document.body.appendChild(m);
+}
+
+/* Orts-Popup: der Abschnitt zum Ort aus Welt › Das Haus (bis zur nächsten Zwischenüberschrift), samt Stadtplan, falls vorhanden */
+function ortPopup(name){
+  var f = ortFinden(name); if(!f) return;
+  var bl = [], k;
+  for(k = f.j + 1; k < f.e.b.length; k++){ if(f.e.b[k] && f.e.b[k].t === "h") break; bl.push(f.e.b[k]); }
+  var kern = f.h.x.split(" · ")[0], karte = "";
+  var atl = (window.HH_TEXT || {})["haus/welt/atlas"] || [];
+  atl.forEach(function(a){ a.b.forEach(function(x, i){ if(x.t === "h" && (kern.indexOf(x.x) === 0 || x.x.indexOf(kern) === 0 || (name.indexOf(x.x) === 0))) karte = '<div class="op-karte"><h4>Stadtplan' + (x.p ? pgl("hh_r2", x.p) : "") + '</h4>' + blk([a.b[i + 1]], "hh_r2") + '</div>'; }); });
+  document.querySelectorAll(".modal").forEach(function(m){ m.remove(); });
+  var m = document.createElement("div"); m.className = "modal figpop ortpop";
+  m.innerHTML = '<div><button class="fp-x" aria-label="Schließen">×</button><section class="op"><h2>' + esc(f.h.x.split(" · ")[0]) + (f.h.p ? pgl("hh_r1", f.h.p) : (f.e.p ? pgl("hh_r1", f.e.p) : "")) + '</h2>' + (f.h.x.indexOf(" · ") > -1 ? '<div class="op-sub">' + esc(f.h.x.split(" · ").slice(1).join(" · ")) + '</div>' : '') + '<div class="op-tx">' + blk(bl, "hh_r1") + '</div>' + karte + '</section><a class="fp-all" onclick="document.querySelector(\'.modal\').remove();go(\'welt/haus/' + f.e.id + '\')">Zum Abschnitt „' + esc(f.e.t) + '“</a></div>';
   m.addEventListener("click", function(ev){ if(ev.target === m || ev.target.className === "fp-x") m.remove(); });
   document.body.appendChild(m);
 }

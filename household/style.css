@@ -203,6 +203,7 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .kacheln.gross .kb{height:340px}.kacheln.gross .kb img{max-height:340px}
 .kacheln.gross b{font-size:22px;margin-top:10px}.kacheln.gross small{font-size:15px}
 @media(max-width:700px){.kacheln.gross{grid-template-columns:1fr 1fr}.kacheln.gross .kb{height:240px}.kacheln.gross .kb img{max-height:240px}}
+@media(min-width:701px){.lay.fold-on .kacheln.gross,.lay.solo .kacheln.gross{grid-template-columns:repeat(4,1fr);gap:26px 20px}.lay.fold-on .kacheln.gross .kb,.lay.solo .kacheln.gross .kb{height:300px}.lay.fold-on .kacheln.gross .kb img,.lay.solo .kacheln.gross .kb img{max-height:300px}.lay.fold-on .kacheln.gross b,.lay.solo .kacheln.gross b{font-size:20px}.lay.fold-on .kacheln.gross small,.lay.solo .kacheln.gross small{font-size:14px}}
 
 /* Saga-Startseite */
 .sgstart{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:0;min-height:calc(100vh - 120px);background:var(--sgf)}

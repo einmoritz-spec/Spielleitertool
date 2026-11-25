@@ -35,3 +35,7 @@ Blöcke: Text, `h`, `h4`, `ul`, `ol`, `q` (Zitat), `fn` (Fußnote), `box`, `bsp`
 - Etappe 2: Ankh-Morpork komplett (NSC-Erschaffung mit Namenstabellen, alle Orte, ~40 Steckbriefe, Gilden).
 - Etappe 3: drei Abenteuer.
 - Etappe 4: Gruppen- und Charakterbogen als ausfüllbares PDF (Buch S. 218), Notizen (Stift) in Abenteuern.
+
+## Stand 25.11.
+- Abenteuer: Nicht ganz so großer Diebstahl, Kleine Frauen, Grundlagen der Unsichtbaren Akademie – alle drei vollständig übersetzt (js/data/ab-*.js, Ansicht js/abenteuer.js).
+- Offen: Gruppen-/Charakterbogen als ausfüllbares PDF (S. 218).

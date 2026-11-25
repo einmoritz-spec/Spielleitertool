@@ -64,6 +64,7 @@ function viewSeite(P){
       return a + '<div class="subs">' + x[2].map(function(id){ var e = tx.filter(function(t){ return t.id === id; })[0]; return e ? '<a onclick="zuAbschnitt(\'' + id + '\')">' + esc(e.t) + '</a>' : ''; }).join("") + '</div>';
     }).join("");
   }
+  if(fn && fn.solo) side = "";
   if(fn) body = fn(P);
   else {
     var cur = (u.seiten || []).filter(function(x){ return x[0] === P.sel; })[0];

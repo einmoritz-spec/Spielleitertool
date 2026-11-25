@@ -195,3 +195,4 @@ Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Perso
 - Etappe 9 (Garten › Spielleitung › Gegner, S.277–297): erledigt (garten-gegner-a/b.js; Gefahrenstufen von Gottesanbeterin, Windungen, Schlange, Eichhörnchen, Zerzaustes Eichhörnchen, Teufelsblumen- und Majestätische Gottesanbeterin im Buch nicht sichtbar, geschätzt); weiter mit Colossi ab S.298
 - Etappe 10 (Garten › Spielleitung › Colossi, S.298–311): erledigt (garten-colossi.js, Blocktyp koloss)
 - Etappe 11 (S.312–313 Prätendenten der Zarin): erledigt als Eintrag `praetendenten` in garten-saga.js (Saga-Seitenleiste); Gegner-/Colossi-Karten jetzt einklappbar, Name in der Karte
+- Interaktive Gartenkarte (Welt › Der Garten › Karte): garten-karte.js, Gebiete als SVG-Flächen, Outhold-Karte neu freigestellt

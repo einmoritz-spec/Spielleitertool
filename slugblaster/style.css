@@ -891,3 +891,5 @@ body.ooth .ktabs a.on{color:#3a1511}
 .k-mon>img{mix-blend-mode:multiply}
 .k-multi>img{object-position:50% 12%}
 @media(max-width:1400px){.ktabs{margin-left:14px}.ktabs a{padding:0 11px;letter-spacing:.07em;font-size:12px}}
+/* Setting-Dropdown: Schriftzüge/Logos weiß auf Lila */
+.tm-dd{color:#fff!important}

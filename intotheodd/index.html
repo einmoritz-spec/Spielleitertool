@@ -10,6 +10,7 @@
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
+<link rel="stylesheet" href="../shared/galerie.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -44,9 +45,15 @@
 <script src="js/data/odd-b.js"></script>
 <script src="js/data/odd-c.js"></script>
 <script src="js/oddpendium.js"></script>
-<script src="js/data/mat-a.js"></script><script src="js/data/mat-b.js"></script><script src="js/data/mat-c.js"></script><script src="js/zusatz.js"></script>
+<script src="js/data/mat-a.js"></script><script src="js/data/mat-b.js"></script><script src="js/data/mat-c.js"></script><script src="js/zusatz.js"></script><script src="js/bogen.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ito_core", books:ITO_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie-core.js"></script>
+<script src="../shared/gsuche.js"></script>
+<script src="../shared/fillpdf.js"></script>
+<script src="js/suche.js"></script>
+<script src="../shared/seitenleiste.js"></script>
 <script src="../toolmenu.js"></script>
 <script>try{localStorage.setItem("gm_tool_mode_v1","intotheodd");}catch(e){}</script>
 </body>

@@ -194,3 +194,28 @@ body.start{background:#05060f}
 .wl b{display:inline-block;width:30px;font:400 12px/1 Anton,sans-serif;color:var(--c);letter-spacing:.04em}
 .ort span{display:block;margin-top:6px;font:400 15px/1.3 Crimson,serif;color:#555}
 @media(max-width:1000px){.wl{columns:3}}
+
+/* Suche (gemeinsames Overlay) im Papier-Stil */
+.gs-in{background:#fbfaf6!important;color:#1a1a1a!important}
+.gs input{font-family:Crimson,serif!important;background:#fff!important}
+.gs-g{font:400 15px/1 Anton,sans-serif!important;letter-spacing:.06em!important;opacity:1!important;color:var(--orange)}
+.gs-k{background:#fff!important;border:0!important;border-top:3px solid var(--pink)!important;border-radius:0!important}
+.gs-k:hover{background:#f4efe4!important}
+.gs-k b{font:400 18px Anton,sans-serif!important;letter-spacing:.02em}
+.gs-k span{font-family:Crimson,serif;font-size:15.5px!important}
+
+/* Charakterbogen */
+.sheet{background:#fff;border:2px solid #1a1a1a;padding:28px 34px 32px;max-width:1000px;margin:0 auto;color:#1a1a1a}
+.sheet header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:4px solid var(--pink);padding-bottom:8px;margin-bottom:18px}
+.sheet header h2{font:400 44px/1 Anton,sans-serif;margin:0;text-transform:uppercase}.sheet header span{font:italic 22px Crimson,serif;color:#666}
+.sheet input,.sheet textarea{font:20px Crimson,serif;color:#1a1a1a;background:transparent;border:0;border-bottom:1.5px solid #1a1a1a;padding:4px 2px;width:100%;box-sizing:border-box;outline:none;border-radius:0}
+.sheet textarea{border:1.5px solid #1a1a1a;padding:8px;resize:vertical;line-height:1.4}.sheet textarea.tall{height:300px}.sheet textarea.note{height:150px}
+.sheet label{display:block;font:400 15px Anton,sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.brow{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+.bws{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:22px}
+.bw{border:2px solid #1a1a1a;padding:8px 10px;text-align:center}.bw b{display:block;font:400 15px Anton,sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+.bw input.big{font:400 40px Anton,sans-serif;text-align:center}.bw input.mid{font:400 22px Anton,sans-serif;text-align:center;color:#555}.bw i{display:block;font:italic 14px Crimson,serif;color:#777;margin-bottom:4px}
+.bcols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-bottom:18px}
+.sheet h3{font:400 18px Anton,sans-serif;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--orange);margin:14px 0 8px;padding-bottom:3px}.bcols h3:first-child{margin-top:0}
+.bz{display:flex;gap:8px;margin-bottom:6px}.bz input.sm{width:34%}
+.bbtn{display:flex;gap:12px;justify-content:center;margin:20px 0}.bbtn button{font:400 18px Anton,sans-serif;letter-spacing:.04em;text-transform:uppercase;background:#1a1a1a;color:#fff;border:0;padding:12px 22px;cursor:pointer}.bbtn button+button{background:#fff;color:#1a1a1a;border:2px solid #1a1a1a}

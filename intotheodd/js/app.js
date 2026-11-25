@@ -32,7 +32,7 @@ function render(){
   var r = route();
   document.body.classList.toggle("start", r === "start");
   ktabs(r);
-  APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : r === "arcana" ? viewArcana(sub()) : r === "sl" ? viewSl(sub()) : r === "abenteuer" ? viewAb(sub()) : r === "oddpendium" ? viewOdd(sub()) : r === "zusatz" ? viewZusatz(sub()) : viewArea(r);
+  APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : r === "arcana" ? viewArcana(sub()) : r === "sl" ? viewSl(sub()) : r === "abenteuer" ? viewAb(sub()) : r === "oddpendium" ? viewOdd(sub()) : r === "zusatz" ? viewZusatz(sub()) : r === "bogen" ? viewBogen() : viewArea(r);
   if(r === "regeln") startHover();
   window.scrollTo(0, 0);
   if(r !== "start") sideBar();
@@ -42,7 +42,7 @@ function openMenu(on){
   var P = document.getElementById("mmP");
   P.innerHTML = '<h3>Into the Odd</h3><button onclick="openMenu(false);go(\'start\')">Startseite</button>' +
     AREAS.map(function(a){ return '<button onclick="openMenu(false);go(\'' + a.id + '\')">' + esc(a.t) + '</button>'; }).join("") +
-    '<button onclick="openMenu(false);openBook(\'ito_core\',1)">Corebook öffnen</button><button onclick="openMenu(false);openBook(\'ito_mat\',1)">Oddditional Materials öffnen</button>';
+    '<button onclick="openMenu(false);go(\'bogen\')">Charakterbogen</button><button onclick="openMenu(false);openBook(\'ito_core\',1)">Corebook öffnen</button><button onclick="openMenu(false);openBook(\'ito_mat\',1)">Oddditional Materials öffnen</button>';
   P.classList.toggle("on", !!on); document.getElementById("mmB").classList.toggle("on", !!on);
 }
 /* i-Knopf: Kurzüberblick */
@@ -79,13 +79,13 @@ function sideBar(){
   if(secs.length < 3) return;
   var html = secs.map(function(x, i){
     return '<div class="sbs" data-t="' + x.id + '"><a class="sbh" onclick="sbGo(\'' + x.id + '\')">' + sbName(x.t) + '</a>' +
-      (i === 0 ? '<button class="sbt" title="Einklappen" onclick="event.stopPropagation();sbTog()">‹</button>' : "") +
+      (i === 0 ? '<button class="sbt sbx" title="Einklappen" onclick="event.stopPropagation();sbTog()">‹</button>' : "") +
       (x.subs.length ? '<div class="sbu">' + x.subs.map(function(u){ return '<a data-u="' + u.id + '" onclick="sbGo(\'' + u.id + '\')">' + esc(u.t) + '</a>'; }).join("") + '</div>' : "") +
       (x.rooms.length ? '<div class="sbr">' + x.rooms.map(function(u){ return '<a data-u="' + u.id + '" onclick="sbGo(\'' + u.id + '\')">' + esc(u.t) + '</a>'; }).join("") + '</div>' : "") + '</div>';
   }).join("");
   var wrap = document.createElement("div"); wrap.className = "sbw" + (localStorage.getItem("ito_sb") === "0" ? " off" : "");
   var as = document.createElement("aside"); as.className = "sb";
-  as.innerHTML = '<button class="sbo" title="Ausklappen" onclick="sbTog()">›</button><nav class="sbl">' + html + '</nav>';
+  as.innerHTML = '<button class="sbo sbx" title="Ausklappen" onclick="sbTog()">›</button><nav class="sbl">' + html + '</nav>';
   rp.parentNode.insertBefore(wrap, rp); wrap.appendChild(as); wrap.appendChild(rp);
   window.onscroll = sbSpy; sbSpy();
 }

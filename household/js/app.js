@@ -101,6 +101,25 @@ function viewStart(mode){
     '<div class="sek"><div class="ber nomas">' + bk + '</div></div><div class="sek" style="padding-bottom:50px"><h2 class="zt">Sagas</h2><div class="sagas">' + sg + '</div></div>';
 }
 function sagaAuf(el){ document.querySelectorAll(".sg").forEach(function(x){ x.classList.toggle("auf", x === el); }); }
+/* Saga-Startseite: Hero, Einleitung, Fakten, Wege, Empfehlung, Saga-Plan */
+var NC = {common: "#7b4f9c", realm: "#3f7a3a", hearth: "#2b4f8e", dominions: "#b8262f", horde: "#a8601f"};
+var SZ = {"Winter": "#6f93b5", "Frühling": "#6f9a4a", "Sommer": "#c9a13a", "Herbst": "#a85a2a"};
+var KAP = {"Kapitel I": "k1", "Kapitel II": "k2", "Kapitel III": "k3", "Kapitel IIII": "k4", "Kapitel V": "k5", "Kapitel VI": "k6", "Kapitel VII": "k7", "Epilog": "epilog"};
+function sagaStart(k){
+  var S = HH_SAGASTART[k], D = HH_SAGADATEN[k];
+  var h = '<div class="ss" style="--sc:' + S.sc + '"><div class="hero" style="background-image:url(' + IMGP(S.bild) + ');background-position:' + S.pos + '"><div class="t"><h1>' + esc(S.ti) + '</h1><div>' + esc(S.ut) + '</div></div></div><div class="wrapS"><div class="oben"><div>';
+  h += '<div class="intro">' + S.intro.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</div><h2 class="ab" style="margin-top:18px">Wege in die Saga</h2><div class="wege">' + S.wege.map(function(w){ return '<div class="weg"><b>' + esc(w[0]) + '</b>' + esc(w[1]) + '</div>'; }).join("") + '</div>';
+  h += '<div class="zus">' + S.zus.map(function(z){ return '<div><b>' + esc(z[0]) + '</b>' + (z[1].indexOf("<u>") >= 0 ? z[1] : esc(z[1])) + '</div>'; }).join("") + '</div></div><div>';
+  h += '<div class="fakten">' + S.fakten.map(function(f){ return '<div><b>' + esc(f[0]) + '</b><span>' + esc(f[1]) + '</span></div>'; }).join("") + '</div>';
+  h += '<div class="tipp" style="margin-top:16px"><b>' + esc(S.tipp[0]) + '</b>' + esc(S.tipp[1]) + '<div class="pp">' + S.tipp[2].map(function(n){ return '<span><img src="' + IMGP(D.P[n], 1) + '" alt="">' + esc(n) + '</span>'; }).join("") + '</div></div></div></div>';
+  h += '<h2 class="ab">Saga-Plan</h2><div class="plan">' + D.plan.map(function(p, pi){
+    var szn = Object.keys(SZ).filter(function(z){ return p[0].indexOf(z) >= 0; })[0], kap = KAP[p[0].split(" · ")[0]];
+    return '<div class="par"><div class="lb" style="' + (szn ? 'box-shadow:inset 4px 0 0 ' + SZ[szn] + ';padding-left:12px' : '') + '"><b>' + esc(p[0]).replace(" · ", "<br>") + '</b><i>' + esc(p[1]) + '</i>' + (pi === 0 ? '<br><em>ausgearbeitet</em>' : '') + '</div><div class="reihe6">' +
+      p[2].map(function(a){ return '<a class="abt" onclick="go(\'' + k + '/' + kap + '\')" style="' + (a[2] ? 'border-bottom-color:' + NC[a[2]] : '') + '">' + (a[1].length ? '<div class="q">' + a[1].map(function(f){ return '<img src="' + IMGP(f, 1) + '" alt="">'; }).join("") + '</div>' : '') + '<span>' + esc(a[0]) + '</span></a>'; }).join("") + '</div></div>'; }).join("") + '</div>';
+  h += '<div class="leg">' + S.leg.map(function(l){ return '<span><i style="background:' + (NC[l[0]] || l[1]) + '"></i>' + esc(l[1] && l[1][0] !== "#" ? l[1] : l[0]) + '</span>'; }).join("") + '</div></div></div>';
+  return h;
+}
+
 function viewSaga(P){
   var S = HH_SAGAS[P.s], sub = "";
   S.unter.forEach(function(u){ if(u[0] === P.sub) sub = u[0]; });
@@ -108,11 +127,7 @@ function viewSaga(P){
     S.unter.map(function(u){ return '<a class="' + (u[0] === sub ? 'on' : '') + '" onclick="go(\'' + P.s + '/' + u[0] + '\')">' + esc(u[1]) + '</a>'; }).join("") + '</div>';
   var name = sub ? S.unter.filter(function(u){ return u[0] === sub; })[0][1] : S.t;
   var tx = HH_TEXT[P.s + "/" + sub], book = P.s === "fp" ? "hh_a2" : "hh_a1";
-  if(!sub){
-    var cover = P.s === "fp" ? "fp-s-01-umschlag-vorspann-b" : "lw-s-01-umschlag-vorspann";
-    var kach = S.unter.map(function(u){ return '<a onclick="go(\'' + P.s + '/' + u[0] + '\')">' + esc(u[1]) + '</a>'; }).join("");
-    return {bar: bar, body: '<div class="sgstart" style="--sgf:' + S.farbe + '"><div class="sgc" style="background-image:url(' + IMGP(cover) + ')"></div><div class="sgt"><h1>' + esc(S.t) + '</h1><div class="sgk">' + kach + '</div></div></div>'};
-  }
+  if(!sub) return {bar: bar, body: sagaStart(P.s)};
   if(tx) return {bar: bar, body: lay("", (tx.length > 1 ? '<div class="sec"><h1>' + esc(name) + '</h1></div>' : '') + tx.map(function(e){ return '<div class="sec txt" id="ab-' + e.id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join(""))};
   return {bar: bar, body: lay("", '<div class="sec"><h1>' + esc(name) + '</h1></div>' + platzhalter(name))};
 }

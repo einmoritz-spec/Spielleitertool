@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v917sq";
+const VERSION = "v919sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1338,6 +1338,17 @@ const FILES = [
   "household/js/data/regeln-berufe.js",
   "household/js/data/regeln-bilder.js",
   "household/js/data/regeln-vertraege.js",
+  "household/js/data/regeln-ausruestung.js",
+  "household/img/grundbuch/full/grundbuch-s152-vi-wealth.webp",
+  "household/img/grundbuch/full/grundbuch-s153-vi-wealth.webp",
+  "household/img/grundbuch/full/grundbuch-s156-vi-gadgets.webp",
+  "household/img/grundbuch/full/grundbuch-s157-vi-gadgets.webp",
+  "household/img/grundbuch/full/grundbuch-s158-vi-weapons.webp",
+  "household/img/grundbuch/full/grundbuch-s160-vi-weapons.webp",
+  "household/img/grundbuch/full/grundbuch-s162-vi-weapons.webp",
+  "household/img/grundbuch/full/grundbuch-s163-vi-weapons.webp",
+  "household/img/grundbuch/full/grundbuch-s164-vi-weapons.webp",
+  "household/img/grundbuch/full/grundbuch-s165-vi-weapons.webp",
   "household/img/grundbuch/full/grundbuch-s133-iiii-conditions-decorum.webp",
   "household/img/grundbuch/full/grundbuch-s135-v-hereditary-contracts.webp",
   "household/img/grundbuch/full/grundbuch-s137-v-hereditary-contracts.webp",

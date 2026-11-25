@@ -148,3 +148,18 @@ body.start{background:#05060f}
 .msplit{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;align-items:start;margin:18px 0 8px}
 .msplit .sp-img{width:auto;border:0;float:none}.msplit .sp-img img{width:100%;height:auto;display:block}
 @media(max-width:900px){.msplit{grid-template-columns:1fr}}
+
+/* Oddpendium */
+.tbs{display:grid;gap:20px;margin:6px 0 28px}
+.tb{background:#fff;border:1px solid var(--line);border-top:6px solid var(--c);padding:14px 20px 16px}
+.tb h4{font:400 28px Anton,sans-serif;margin-bottom:10px}
+.th{display:grid;gap:12px;font:400 14px Anton,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#000;padding:5px 10px;margin-bottom:4px}
+.tr{column-gap:28px}.tr.c2{columns:2}.tr.c3{columns:3}
+.tr .r{display:grid;gap:12px;padding:5px 10px;font-size:16.5px;line-height:1.32;break-inside:avoid;border-bottom:1px solid #ece8dc}
+.tr .r:nth-child(odd){background:#faf8f1}.tr .r b{font:400 18px Anton,sans-serif;color:var(--c);letter-spacing:.02em}
+.tn{margin-top:10px;font-style:italic;color:var(--sub);font-size:16px}
+@media(max-width:900px){.tr.c2,.tr.c3{columns:1}}
+
+.tr{display:grid;column-gap:28px}.tr.c2,.tr.c3{columns:auto}.th{margin-bottom:0}
+@media(max-width:900px){.tr{grid-template-columns:1fr!important}}
+.rp .split.l{overflow:hidden}

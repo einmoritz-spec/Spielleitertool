@@ -193,4 +193,5 @@ Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Perso
 - Etappe 7g: Backyard, Rushes, Kuzado, Mizuken, Tsukito, Hanado, Fukami, Four Oaks (S.210–236); weiter mit Reise & Jahreszeiten ab S.237
 - Etappe 8 (Garten › Regeln › Reise & Jahreszeiten, S.237–275): erledigt (garten-reise-a/b.js); weiter mit Gegner ab S.277
 - Etappe 9 (Garten › Spielleitung › Gegner, S.277–297): erledigt (garten-gegner-a/b.js; Gefahrenstufen von Gottesanbeterin, Windungen, Schlange, Eichhörnchen, Zerzaustes Eichhörnchen, Teufelsblumen- und Majestätische Gottesanbeterin im Buch nicht sichtbar, geschätzt); weiter mit Colossi ab S.298
-- Etappe 10 (Garten › Spielleitung › Colossi, S.298–311): erledigt (garten-colossi.js, Blocktyp koloss); S.312–313 (Pretenders of the Tsarina) gehört zur Saga/Epilog und ist noch offen
+- Etappe 10 (Garten › Spielleitung › Colossi, S.298–311): erledigt (garten-colossi.js, Blocktyp koloss)
+- Etappe 11 (S.312–313 Prätendenten der Zarin): erledigt als Eintrag `praetendenten` in garten-saga.js (Saga-Seitenleiste); Gegner-/Colossi-Karten jetzt einklappbar, Name in der Karte

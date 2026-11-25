@@ -40,7 +40,7 @@ window.HH_NAV = {
    {id: "reise", t: "Reise & Jahreszeiten", seiten: [["reise", "Reise", ["reise", "reisetage", "kreuzwege", "chancen", "fliegen", "camp"]], ["dunkelheit", "Dunkelheit"], ["stress", "Schwerer Stress"], ["jahreszeiten", "Jahreszeiten", ["jahreszeiten", "winter", "fruehling", "sommer", "herbst"]]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [
-   {id: "saga", t: "Saga", seiten: [["einfuehrung", "Die Saga des Langen Winters"], ["kapitel", "Kapitel & Jahreszeiten"], ["k6", "Kapitel VI"], ["k7", "Kapitel VII"], ["epilog", "Epilog"], ["thron", "Ein leerer Thron"]]},
+   {id: "saga", t: "Saga", seiten: [["einfuehrung", "Die Saga des Langen Winters"], ["kapitel", "Kapitel & Jahreszeiten"], ["k6", "Kapitel VI"], ["k7", "Kapitel VII"], ["epilog", "Epilog"], ["thron", "Ein leerer Thron"], ["praetendenten", "Prätendenten der Zarin"]]},
    {id: "gegner", t: "Gegner", seiten: [["uebersicht", "Übersicht"], ["traits", "Eigenschaften"], ["littlings", "Littlings", ["gg-banditen", "gg-gesetzlose", "gg-samurai", "gg-ninja", "gg-samuraimeister", "gg-tarnished", "gg-redcaps", "gg-furien", "gg-thornguards"]], ["tiere", "Tiere", ["gg-ameisen", "gg-grillen", "gg-ameisenloewe", "gg-maulwurf", "gg-einsiedlerspinne", "gg-kroete", "gg-mantis", "gg-vogel", "gg-coils", "gg-schlange", "gg-eichhoernchen", "gg-zerzaust", "gg-teufelsmantis", "gg-majestaetisch"]]]},
    {id: "colossi", t: "Colossi", seiten: [["uebersicht", "Übersicht"], ["kampf", "Kampf gegen Colossi"], ["raubvogel", "Raubvogel"], ["kroete", "Kröte"], ["schlange", "Schlange"], ["fisch", "Fisch"], ["maulwurf", "Maulwurf"]]}
   ]}

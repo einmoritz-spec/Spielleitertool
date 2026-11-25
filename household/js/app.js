@@ -55,7 +55,7 @@ function platzhalter(titel){ return '<div class="sec"><h2>' + esc(titel) + '</h2
 /* ---------- Seiten ---------- */
 function viewSeite(P){
   var u = P.unter, key = P.mode + "/" + P.area.id + "/" + u.id + (P.sw ? "/" + P.sw : ""), side = "", body;
-  var fn = HH_INH[key], tx = HH_TEXT[key];
+  var kb = key.replace(/\/[^\/]+$/, ""), fn = HH_INH[key], tx = HH_TEXT[key] || (P.sw && u.sw && HH_TEXT[kb]);
   if(!fn && tx) fn = function(P){ return textSeite(P, tx, "hh_r1"); };
   if(u.seiten && u.seiten.length > 1){
     side = u.seiten.map(function(x){

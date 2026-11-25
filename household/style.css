@@ -343,3 +343,29 @@ body.garten .bk li{color:#3f4a33;border-bottom-color:#cfd6b4}
 .gkarte b{display:block;font:400 34px/1 Fell,serif}
 .gkarte i{display:block;font:italic 17px Gar,serif;margin-top:8px;opacity:.9}
 .gkarte:hover{filter:brightness(1.1)}
+
+/* Garten: Kästen näher am Original (Pergamentkarte auf goldenem Damast, Gegner als getönte Bänder) */
+body.garten{--kup:#b5651d}
+body.garten .kasten:not(.gegner){margin:34px 16px 36px;padding:20px 26px 10px;border:16px solid transparent;border-radius:3px;background:linear-gradient(#fefbf2,#fbf5e4) padding-box,url(img/deko/kasten-gold.jpg) 0 0/420px border-box;outline:1px solid #cfa65a;outline-offset:-25px;box-shadow:inset 0 0 0 6px #fefbf2,inset 0 0 0 7px #d9b878,0 3px 9px rgba(90,60,15,.28);color:#3d3320}
+body.garten .karten .kasten:not(.gegner){margin:34px 16px}
+body.garten .kasten:not(.gegner) h4{text-align:center;font:400 25px/1.15 Fell,serif;color:var(--kup);letter-spacing:.05em;margin:0 0 12px}
+body.garten .kasten:not(.gegner) h4::before{content:"";display:block;height:14px;margin:0 auto 6px;width:90px;background:radial-gradient(circle,#d9a441 0 3px,transparent 3.5px) center/14px 14px no-repeat,linear-gradient(90deg,transparent,#d9a441 30%,#d9a441 38%,transparent 38%,transparent 62%,#d9a441 62%,#d9a441 70%,transparent) center 6px/100% 1.5px no-repeat}
+body.garten .kasten:not(.gegner) b{color:var(--kup)}
+body.garten .kasten:not(.gegner) q,body.garten .kasten:not(.gegner) blockquote{color:#8f5a22}
+
+body.garten .kasten.gegner{margin:16px 0 26px;padding:0;border:0;outline:0;box-shadow:none;background:none;border-radius:0}
+body.garten .gegner .gk-kopf{font:400 17px Fell,serif;color:var(--kup);letter-spacing:.06em;margin:0 0 8px}
+body.garten .gegner .lv{border-color:#d3b48a}body.garten .gegner .lv.on{background:var(--kup);border-color:var(--kup)}
+body.garten .gegner>p:first-of-type{background:rgba(198,178,120,.2);padding:8px 14px;margin:0 0 10px}
+body.garten .gegner .gk-z{background:rgba(198,178,120,.14);margin:0;padding:3px 14px;font-size:17px}
+body.garten .gegner .gk-z b{color:var(--kup);font-size:18px}
+body.garten .gegner>p:first-of-type b{color:var(--kup);font-size:18px}
+body.garten .gegner .gk-ak{background:rgba(198,178,120,.14);margin:0 0 12px;padding:4px 14px 10px}
+body.garten .gegner .gk-ak::before{content:"Aktionen:";display:block;font:400 18px Fell,serif;color:var(--kup);margin:2px 0 3px}
+body.garten .gegner .gk-ak li>b:first-child{color:var(--kup);font-size:19px;flex:0 0 62px;white-space:nowrap}
+body.garten .gegner .gk-ak li>b:first-child::after{content:" –";font-family:Gar,serif}
+body.garten .gegner .gk-ak li>span b{font-family:Gar,serif;font-weight:700;color:inherit;text-transform:none}
+body.garten .gegner .gk-st{gap:7px}
+body.garten .gegner .sk{box-sizing:border-box;flex:none;width:17px;height:17px;border:1.5px solid #2a2418;background:#fffdf6;border-radius:2px}
+body.garten .gegner .sk.cr{width:21px;height:21px;margin:-2px -1px;border:2px dotted #2a2418;box-shadow:none;background:#fffdf6;border-radius:50%}
+body.garten .gegner .gk-zug b{color:var(--kup)}

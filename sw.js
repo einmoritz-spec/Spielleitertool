@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v999sq";
+const VERSION = "v1000sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1722,6 +1722,7 @@ const FILES = [
   "household/img/guide/thumb/guide-s140-iiii-horde-einleitung.webp",
   "household/img/deko/papier-kachel.jpg",
   "household/img/deko/papier-garten-kachel.jpg",
+  "household/img/deko/kasten-gold.jpg",
   "moerkborg/index.html",
   "moerkborg/style.css",
   "moerkborg/js/app.js",

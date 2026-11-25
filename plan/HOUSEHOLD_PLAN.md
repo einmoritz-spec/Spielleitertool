@@ -189,3 +189,4 @@ Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Perso
 - Etappe 7b (Garten › Der Garten › Die Brambles, S.162–171): erledigt (garten-gebiete-b.js); weiter mit Woodlands ab S.172
 - Etappe 7c/d (Garten › Der Garten › Die Woodlands, S.172–187): erledigt (garten-gebiete-c.js, -d.js); weiter mit Barrens ab S.188
 - Etappe 7e (Garten › Der Garten › Die Barrens/Citadel, S.188–195): erledigt (garten-gebiete-e.js); weiter mit Grasslands ab S.196
+- Etappe 7f (Garten › Der Garten › Die Grasslands/Fountain/Frogstone/Fence, S.196–207): erledigt (garten-gebiete-f.js); weiter mit Backyard ab S.210 (Bild s208-209 für Backyard)

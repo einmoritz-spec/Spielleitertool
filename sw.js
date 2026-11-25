@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v992sq";
+const VERSION = "v993sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1468,6 +1468,7 @@ const FILES = [
   "household/js/data/garten-gebiete-c.js",
   "household/js/data/garten-gebiete-d.js",
   "household/js/data/garten-gebiete-e.js",
+  "household/js/data/garten-gebiete-f.js",
   "household/img/fp/full/fp-epilog-gruppe1.webp",
   "household/img/fp/thumb/fp-epilog-gruppe1.webp",
   "household/img/fp/full/fp-epilog-gruppe2.webp",

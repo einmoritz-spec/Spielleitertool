@@ -1,0 +1,1737 @@
+Odditional materials                                                    Editing, layout & publishing by P. Greco
+
+
+                                                                        Many thanks to Ben Milton, Kamil
+                                                                        Węgrzynowicz, Eric Nieudan, Brian
+Into the Odd is such a good little game. I remember some early          Wille, Sean Smith for their contribution.
+
+playtest session, way, way before I thought about publishing it,
+                                                                        Many thanks also to Chris McDowall,
+when Chris scared the living sh*t out of me without even trying         the author of the game.
+too hard. It was so fun.
+                                                                        Text and maps in the following articles
+                                                                        are kindly released by their authors
+And then, after we put it out, the hacks came. A whole lot of           under CC-BY-SA.
+                                                                        Feel free, nay, encouraged to hack away!
+them. With a game so small and its formulaic character genera-
+tion, it proved as easy as swapping sections of content to create       Lost Pages, Glasgow, December 2015.
+completely different worlds, but retaining what makes Into the
+Odd what it is.
+
+
+In the next pages you’ll find adventures, hacks and other fanmade
+oddities. They will be all different kinds of odd, yet all of them as
+odd as you expect.
+
+
+And of course, this is not to show “how it’s done”, but to show
+“this are things that have been done”. Have fun hacking away
+until the game fits your fun.
+
+
+                                        Paolo, the Lost Pages Dude
+by Kamil Węgrzynowicz                        In search of Samson Aubrey
+Editor’s note: to avoid tampering too
+much with the author’s voice I opted to
+leave the text as close to the original as   An Earthquake in the mountains near Bastion revealed entrance
+possible.
+                                             to strange underground complex. Samson Aubrey and his expe-
+                                             dition went to explore it. It’s been more than a year now and you
+                                             are set to find them.
+
+
+                                             Good luck, you’ll need it.
+                                                                               od d i t i o n a l m a t e r i a l s   3
+
+
+
+
+1. ENTRANCE
+Hidden in the mountain near Bastion. Latest earthquake revealed
+it. Long stairs down smoothly cut in stone. In the end there’s a
+metal door sliding up with screeching sound and then get stuck
+there.
+Exit leads to 2.
+
+
+2. SMALL METAL ROOM
+Torn out metal doors to the south and rubble on the floor there
+(visible trap: – pit; DEX save or lose 1d6 HP).
+To the east doors with no visible way to open them (may be
+forced – noise).
+On the walls primitive paintings (roll on Inscriptions table) done     d12 Random Inscriptions
+                                                                       1. Humanoid silhouettes with halos
+in what looks like fluorescent paint or mud. Also inscriptions
+                                                                       2. Four fingered hands
+done by Samson Aubrey’s expedition (date, signs of expedition’s        3. Illegible scribblings
+members; roll table).                                                  4. Stars and simple geometric shapes
+                                                                       5. Beautiful rendering of a toad
+Exits lead to 8 (trap – pit) and 3 (must be forced first).             6. Simple toad or a centipede picture
+                                                                       7. Scene of hunting on automatons
+                                                                       8. Alien face (see 7), harmless
+3. BIG UNDERGROUND LAKE                                                9. Mechanical diagrams copied on a wall
+Filled with fluorescent, colourful, transparent toads of the size of   10. Human word (written by someone,
+                                                                       who doesn’t know what it means)
+two fists. They swarm inside the lake and on small ledges around       11. Hauntingly real looking human face
+the lake. Inside the lake there are 3 metal statues (can be repaired   12. Well known occult symbol
+
+and act like a robot if taken outside). Lake is poisonous (STR
+save or lose 1d6 DEX – stupefying). DEX save to walk on the
+ledges to avoid to anger toads or not to fall into the lake.
+Exits lead to 2, 4 and 9.
+
+
+Toads, transparent, many colored and fluorescent. Very                 STR 5 DEX 10 WIL 7 HP 5 for a
+                                                                       swarm
+territorial. Driven by need to defend. Attack in a swarm (roll
+                                                                       weakening poison spit (DEX save or lose
+1d6+2 for number of of them) when angered.                             1d6 STR
+4
+
+
+
+
+                           4. ROOM SMOOTHLY CARVED IN
+                           STONE
+                           On the floor there are 3 pits in which Little People live. Little
+                           People jump from the pits dressed in whatever is left from ex-
+                           pedition’s member clothes, three of them have sword or a pistol.
+                           Otherwise they attack with stones or barehanded.
+                           Exits to 3, 10 and 5 (down to the pits, mix of stench of rotten
+                           meat and iron).
+                           Exit to the south is loosely barricaded and there’s mix of dried
+                           human and Little People blood (greenish).
+
+
+STR 8 DEX 12 WIL 10 HP 3   2d6 Little People, pale humanoid creatures with big, black
+                           eyes and no nose. Cold to touch. Smell of iron. 1 meter height.
+                           Wear random clothing from the earlier expedition otherwise
+                           naked. Pretty intelligent but without understandable language.
+                           They communicate with hisses. They try to capture opponents
+                           alive if this doesn’t seem possible or they few of them is wounded
+                           they escape and plot revenge.
+
+
+                           5. PITS OF LITTLE PEOPLE
+                           Crudely carved and filled with dirt, random body parts (human,
+                           toads’ skins, bats, bones, lots of signs made on the walls (roll on
+                           Inscription table), occasional broken parts of strange machinery.
+                           From East one can hear human like chanting sound and from
+                           north sweet stench of rotten meat and food.
+                           All three pits are connected and lead to 6 and 7. Or climb up to 4.
+
+
+                           6. UNDERGROUND FOOD STORAGE
+                           Full of rotten fungus, meat (also human), bones, random junk
+                           (roll table). Small, crudely carved room, strangely cold.
+                                                                               od d i t i o n a l m a t e r i a l s   5
+
+
+
+
+7. ALIEN FACE
+On east wall there’s primitively drawn fluorescent alien humanoid       Members of Lost Expedition
+                                                                        1. Samson Aubrey
+face with five eyes, hypnotic eyes, no nose. Looking at the draw-
+                                                                        2. Adrian Sprysak
+ing needs WILL save or lose 1d6 WILL. When all WILL is lost,            3. Felisa Ortega
+character is mindless and stares at face till death from hunger.        4. Martin Koehler
+                                                                        5. Dawid Dorynek
+                                                                        6. Phoebe Jenkins
+Before the face there are three members of earlier expeditions –        7. Amelie St Germain
+                                                                        8. Patricia Benett
+all skin and bones now, chanting in strange language and bowing
+                                                                        9. Istvan Teleki
+before the face. They don’t recognise characters and won’t go if        10. Sammy Cambronne
+forced – they will fight to death if needed.                            11. Kale Brackenberry
+                                                                        12. Sofia Erdman
+
+
+3 Members of Abrey’s expedition Haunting, empty                         STR 7 DEX 12 WIL 6 HP 4
+
+eyes, naked and gaunty bodies, long dirty nails, lost almost all hair
+(regardless of gender). May wander around aimlessly. If forced
+to do anything they became aggresive and after few attacks they
+escape.
+6
+
+
+
+
+                                           8. WEIRD MACHINERY ROOM WITH
+                                           CAVE-IN
+                                           High metal cabinets full of broken mechanisms and occasionaly
+                                           sparking with electricity. Loud humming noise from below the
+                                           cave in (broken automaton – if characters try to dabble with
+                                           him conductive ooze will flow out and electricity may harm the
+Electric Ear: one domed earpiece, if       characters – Dex save or 1d6 damage. There’s an Arcanum inside
+attached to an ear, will drill inside it
+                                           Automaton).
+(1d3 damage to Str and this ear will be
+deaf forever). Allows wearer to listen     Exits lead 9 (through rubble, unstable but harmless), 14 (crudely
+and think-speak to electric machines.      carved, strangely smooth surface, there are cries for help and
+Machines and their spirit don’t have
+to listen and obey. Machines speak
+                                           random talks in known language from there, strong smell of
+in wispy, frail voice and often cause      cinnamon) and up to 15 (easy entrance because of cave in and
+synaesthesia effect in human listener.
+                                           assorted rubble).
+
+
+                                           9. CAVE-IN
+Things to find in rubble                   Square shaped room with lots of rubble and dried blood (human
+1. Whistle
+                                           and Little People). Few toads croak on the rocks. Puddles of
+2. Broken musket
+3. Dirty, bloodied handkerchief with       strangely coloured water flow from northern passage. Digging
+initials                                   through the rubble will reveal giant centipedes (harmless) and
+4. Small part of machinery (blinks with
+different colors)
+                                           body of the member of the expedition (eaten by centipedes, there
+5. Bones (of Little People – make it       are working rifle and broken lantern, a knife, gold pocket watch).
+weird)
+                                           Rubble to the east is made into barricade (partly removed).
+6. Shard of ruby
+7. Broken part of machinery                Exits lead to 3, 8, 10 and 11 (crude stairs up).
+8. Dead parrot
+9. Necklace with a picture
+10. Broken flask with acid                 10. IMPROVISED CEMETERY
+11. Scribbled map
+                                           Robbed now. In this room most of the of the expedition died.
+12. Dead toad
+                                           Someone used dynamite to create hole to bury the dead and later
+                                           cover them with the rubble. There are names written on the wall.
+                                           Little People uncover mass grave and remove all the bodies and
+                                           belongings. Only a few bones remained.
+                                           Exits lead to 4 (partly barricaded) and 13 (constant sound of
+                                           machinery rumbling can be heard from there).
+                                                                               od d i t i o n a l m a t e r i a l s   7
+
+
+
+
+11. THREE STONE ALTARS
+Inscriptions made with many coloured mud and Little People
+blood on the wall. Small offerings (broken machinery, dead
+toads, human tools, fingers, ears, human hair) before the altars.
+Primitive leather tubes stand on every altar (only the left one is
+full). Taking tubes causes attack of Dead Priest (see 12).           Ashes of the Ancients: ?when snorted
+                                                                     WILL save or lose 2d6 WILL (halluci-
+Exits lead to 9 (stairs down), 15 (opening to narrow tunnel in
+                                                                     nations and memory loss). With success
+west wall) and 12 (stairs up, trapped with knives visible from       spirits answer truthfully to one question.
+ceiling, DEX save or lose 1d6 HP).                                   1 dose.
+
+
+
+
+12. CHAMBER COATED WITH RUBY.
+Mummified body of Little People man lies here. Power of ar-          Ruby Chamber: whole chamber is an
+                                                                     arcanum. Cannot be removed. After
+canum can be felt here (goosebumps, voices of spirits can be
+                                                                     an hour of meditation WILL save or
+almost heard here, sense of tension). Mummified body can be          lose 1d6 WILL (terrible headaches).
+destroyed, every attempt to attack causes STR save or lose 1d6       Successful save gives controlled out of
+                                                                     body experience to every place character
+STR (temporary paralysis). Succesful save causes mummified           has been up to this point. After death it
+body to turn to dust (it’s the only way to kill Dead Priest). Dust   keeps spirit alive.
+
+can be used and stored just like Ashes of the Ancients.
+
+
+Dead Priest Ghost of Little People shaman. Can be killed             STR n/a DEX n/a WIL n/a HP n/a
+                                                                     His spiritual attacks cause WILL save or
+only in Ruby Chamber by destroying the body. Stops attacks
+                                                                     lose 1d6 STR (paralysis)
+when opponent tries to escape or cause visible losses to opponent.
+8
+
+
+
+
+                                          13. GLISTENING, GIANT DOME
+                                          Its outside is flowing with oil and it’s like hard leather when
+                                          touch. Around it are gathered working and active parts of all sorts
+                                          of automatons. Some hands will crawl and try to catch, legs and
+                                          lower body parts will try to walk or get up after the fall. Heads
+                                          will speak in some kind of code. Person with Electric Ear will
+                                          have to make Will save or will be unable to walk and feel for 3d6
+                                          minutes.
+                                          Dome can be broken and it’s filled conductive ooze and small
+                                          antennas and wires. (see automaton in 8). At the centre there’s a
+                                          hatch to 16.
+
+
+                                          14. LAIR OF CRAWLING OOZE
+                                          Big, smooth natural cave polished by Ooze. In the centre of the
+                                          cave there’s a nest bubbling with Ooze’s offspring (harmless)
+                                          bubbling and screaming in human voices. In the nest there are
+                                          maps, dynamite, compass and monocle to be found. Searching the
+                                          nest causes attack of the Crawling Ooze.
+                                          Exits lead up to 15 (opening in the ceiling), 13 (steel door to me-
+                                          chanical labyrinth) and 8 (smooth carved corridor to machinery
+                                          room).
+
+
+STR 13 DEX 12 WIL 9 HP 12                 Crawling OozeLarge, semi-inteligent creature. It absorbs
+Armour 1. Double damage from fire.
+                                          and uses them to lure others. It retains their random memories
+Can absorb victim – DEX save or victim
+is inside the the ooze and lose 1d6 STR   and behaviour and recreates it.
+each round until completely absorbed or
+pulled out.
+                                                                    od d i t i o n a l m a t e r i a l s   9
+
+
+
+
+15. NARROW TUNNELS
+Fit for one smallish person. Crudely carved. Full of large cen-
+tipedes (harmless, get into equipment and under clothing).
+Exits lead to 14 (opening is above nest of Crawling Ooze, jump
+may be needed), 8 (easy entrance because of cave in) and 11.
+
+
+16. ENGINE ROOM
+Gives power to Glistening dome and other mechanical things
+in the dungeon. Room small, hot while constantly humming,
+vibrating, incomprehensible mechanisms gives off dim red light.
+Attempt to control mechanisms in any way cause WILL save or
+lose 1d6 STR. Successful save gives telepathic ability to turn on
+and off things (statues in a lake, dome, random automaton parts,
+broken machinery in 8) in the dungeon. Only one person can
+have this ability.
+Exit lead to 13 (up the ladder).
+by Brian Wille                              Four Arcana Ideas
+
+                                            First, let us contemplate the Key Principles of Arcana:
+
+
+                                            1. They do new things.
+
+
+                                            2. They encourage creative and risky use.
+
+
+                                            3. They aren’t something you’d want to use all the time.
+
+
+                                            And a reminder from The Rules Themselves: Characters that are
+                                            open about the Arcana they carry will find themselves the target
+You have been warned.                       of collectors, thieves and con artists.
+
+
++1 Armor vs bullets, pellets, arrows,       The Chapeau of Magnetic Inversion combines
+darts, fragmentation, blades.
+                                            a top hat and an electrical coil to create a strong magnetic field.
+                                            Bullets, fragments, arrows and blades that are made of iron or
+                                            steel are rerouted away from the wearer when it is activated. Care
+                                            must be taken around magnetic items of the wearer and his party;
+                                            horrific consequences may also occur if used near someone who
+                                            has been tattooed with iron-based ink.
+
+
+Heavy Gun (two hands), d12 damage.          The Aether Bombast combines technology and arcane
+Cannot move and fire. Flashbang effect
+                                            forces to create a formidable weapon. An intensely hot ”bolt” of
+on those not wearing eye protection
+when fired. Sets target alight, d6 damage   pressurized plasma is fired from a compression cylinder; it can
+for 1d3 rounds. Burns through most          be fired out to great distance, and very accurately. The effect on
+materials.
+                                            organic matter is horrific, and the damage it can do to synthetic
+                                            materials is impressive. Rate of fire is very slow, maintenance
+                                            on the device is virtually impossible, and it should be used with
+                                            care on airships and water craft. It should never be fired in a
+                                            submarine unless self-destruction is the goal.
+                                                                           od d i t i o n a l m a t er i a l s   11
+
+
+
+
+The Mechanized Arachnid is roughly the size of a                     STR 12 DEX 14 WIL 14 HP 10
+                                                                     Fast, d6 damage. Can Scurry up steep
+dog when extended and active, but folds into a small compact
+                                                                     inclines and through small holes. What
+shape for ease of transport. It has ”large extendible claws to aid   the Arachnid sees, the owner can see IN
+in subduing any opponents” but it can also be used to carry small    THEIR MIND.
+
+items (such as healing salves or timed explosives), recover small
+items that are out of reach, and map areas that are currently
+unreachable or too dangerous for one to map oneself. The claws
+are extremely sharp and the Arachnid can get red-hot from the
+pressure of its miniature steam engine if left activated for too
+long, so care must be taken around animals and children. It vents
+steam, and while it is not a loud device, neither it is quiet.
+
+
+The Necromizer taps into dark powers beyond the edge of              Turns corpses into undeads fighting
+                                                                     for the user. The undeads will become
+our understanding and combines that with galvanic technology to
+                                                                     malevolent and aggressive after time.
+raise the very recently dead and compel them to fight mindlessly
+by your side. This is especially useful when you are the last one
+standing, but can be helpful if even one or two of your party has
+fallen in combat.
+
+
+The Fighting Dead will mill around aimlessly for a few minutes       STR 10 DEX 8 WIL 6 HP 6
+                                                                     damage as per weapon or d4 stran-
+after the fight is over, and that is when they must be dispatched
+                                                                     gling/clawing.
+with bullets to the head or machetes to the neck. Otherwise an       Frightening to behold and vomit-
+odd light will appear in their eyes, they will assume disturbing     inducing to EVERYONE (except
+                                                                     the owner of the Necromizer) as they
+facial dispositions that imply evil cunning, and they will try to    have invariably soiled themselves upon
+maim you and kill you, in that order.                                violent death and are likely to be trailing
+                                                                     intestines or brain matter.
+
+Dogs tend to bark at people carrying a Necromizer on them, milk
+tends to spoil around the Necromizer, and babies are sometimes
+born with very sharp teeth if the mother has been in contact with
+the device.
+by Eric Nieudan                              Odd Dungeons
+
+Elves are Simply Better at many things       Character Generation Cross your best stat with your
+Dwarves know the underground and
+                                             hit points on the page in the next spread to generate your starting
+have infravision
+Halflings are tough and silent               equipment, abilities and race.
+Half-orcs and half-elves are pariahs
+Thief training: normally no save
+Turn Undead: Undead save WIL or flee.
+                                             Alignments can be used, or don’t – I’m not going to tell you
+Cleric and MUs: the character knows          how to D&D. On my end, since I’m running B/X modules, I use
+extra spells and can cast each of those
+                                             the classic Law/Neutral/Chaos system.
+spells once a day.
+
+
+A word of warning: attempting to learn a     Spellcasters can cast each of their starting spells once a day,
+spell above one’s capacity (see experience
+                                             provided you spend some time in study or prayer. Each spell has
+below) or to mix Cleric and Magic-user
+spells can cause cranial implosion or        an effect, a range, etc. This may be ad-libbed by the GM, or they
+unwanted severance of the astral cord.       can use a specific ruleset. Magic isn’t a science though, and you
+                                             may try to shape a spell with a WIL save. Fail this and expect
+                                             side effects, friendly fire or deadly-but-colourful explosions.
+
+
+                                             Spells are stored in scrolls, reliquaries, wands, staves and just
+                                             every kind of jewellery. We call these items foci. Anyone can cast
+                                             a spell directly from the focus by speaking a command word or
+Scrolls crumble to dust, wands burn to       exerting their will. Most items will be destroyed doing so. With
+ashes, a gold crown turns to molten lead.
+                                             a focus, learning a spell takes a day. Studying a focus you can
+More durable and expensive materials
+might hold the spell for several uses, but   make its magic part of you. You still need the item to study the
+the magic will take its time gathering       spell between uses, but the magic draws its power from you and
+again - typically from a day to several
+years.
+                                             doesn’t consume the focus. Most enemy casters keep their foci on
+                                             them. If you can’t find anything on their corpses, make sure you
+                                             comb their quarters for grimoires, charm-adorned headdresses
+                                             and weird coin collections.
+                                                                                 od d i t i o n a l m a t er i a l s   13
+
+
+
+
+Healing Spells heal hit points first, Strength second. It’s
+better if you can wait until the wounded have had a short rest.
+
+
+Experience works pretty much like in Into the Odd, except
+an expedition (or adventure) can end while you are still under-
+ground or in the wilderness. If you secure a base camp after
+exploring a dungeon level (or a portion of terrain big enough
+to ensure your safety), or if you reach some kind of friendly
+settlement, the GM may declare the adventure over.
+
+
+    Novice      ready or not, you are on your way to your first adventure. You can learn one 1st level spell.
+ Professional   you have survived at least one adventure. You can learn 2nd level spells, and memorise a total of
+                3 spell levels.
+    Expert      you have survived at least three adventures since reaching Professional level. You can learn 3rd
+                level spells, and memorise a total of 6 spell levels.
+   Veteran      you have survived at least five adventures since reaching Expert level. You can learn 4th level
+                spells, and memorise a total of 10 spell levels.
+    Master      you own a stronghold, academy or guild and have led followers on at least one dangerous ad-
+                venture since reaching Veteran level. You can learn 5th level spells, and memorise up to 15 spell
+                levels.
+
+
+Apprentices and followers will naturally solicit you as your
+reputation grows. They will follow you in exchange for gear, gold,
+glory or knowledge. A new hireling is available:
+Acolyte (1g) : DEX 2d6, Chainmail, Mace, 1st level Cleric spell.
+
+
+Strongholds take time, manpower and coin to build. Seizing one
+by force is cheaper, provided you can defend it down the line.
+
+
+Titles are bestowed by local rulers or simply self-appointed
+(except to be challenged if you do so).
+14
+
+
+
+ Stat     1HP                               2HP                                  3HP
+ 3-9      Cleric (+3 spell levels),         Elf, MU (+2 spell levels),           MU (+2 spell levels), Staff
+          Turn Undead, Mace (d6),           Rapier (d8), Elfin mail (2),         (d6), Dagger (d4), Ring of
+          Breastplate (1), shield (1),      Backpack (4 days rations, rope,      Protection (1), Healing Salve
+          Backpack (4 days rations,         mirror)                              (d8), Satchel (wineskin, 3 days
+          lantern, 2 vials holy water)                                           ration)
+     10   Elf, MU (+2 spell levels),        Dwarf, Battered blunderbuss          Elf, MU (+1 spell levels),
+          Longsword (d8), Elfin bread       (d8), 3 smoke bombs, Sack            Shortsword (d6), Leather ar-
+          (3 days), Small sack (jewellery   (smoking leaf, candle, bear          mour (1), Small sack (1 days
+          30gp),                            trap)                                rations, rope)
+
+
+     11   MU (+1 spell levels), Dagger      Cleric (+2 spell levels), Turn       MU (+2 spell levels), Staff (d6),
+          (d4), Portable laboratory, Vial   undead, Warhammer (d8),              Backpack (3 days rations),
+          of acid, 3 pouches                Boiled leather (1), Satchel          Speaks with birds, Feared by
+                                            (wolfsbane)                          dogs and cats
+
+
+     12   Morningstar (d8), Encrypted       Thief training (hide in shadows,     Halfling, Sling (d4), shortsword
+          spellbook, Noble clothes, Back-   move silently), Blackjack (d4),      (d6), 3 flasks of oil, Outcast
+          pack                              Sack (caltrops, 2 candles)           tattoos
+     13   Crossbow (d8), knife (d4),        Axe (d6), Hide armour (1),           Thief training (pick pockets,
+          Tower shield (1), Battered        Large sack (7 days rations),         open locks), Fancy sword (d6),
+          uniform, 26gp from murder         Lame dog                             Burghers clothes
+     14   Halberd (d8), Old uniform,        Cleric (+2 spell levels), Sacrifi-   Scimitar (d6), Burnt leather
+          Backpack (1 week rations,         cial bludgeon (d6), Cursed by        shirt (1), 23gp
+          rope)                             demons
+     15   Half-elf Whip (d4), 5 darts       Short sword (d6), Mail shirt         Staff (d6), sling (d4), Satchel
+          (d4), Proof of noble descent,     (1), Backpack (iron spikes),         (2 chickens), Bedroll, blanket,
+          Backpack (2 weeks rations)        11gp                                 tent, Fur hat
+     16   Half-orc, Mace (d6), Forged       Knife (d4), sling (d4), Large        Scramasax (d6), Leather shield
+          mercenary papers                  sack (tent, traps), Lame horse       (1), Horned helmet
+     17   Longsword (d6),                   Staff (d6),                          3 darts (d4),
+          Ragged clothes,                   Wizard hat and robes,                Split shield (1),
+          Old scars                         Small sack (sick bird),              Unwieldy plate armour (1)
+     18   Broken stool (d4),                Doppelganger, Amnesia,               Knife (d4), Stolen merchant
+          10sp,                             Woodsman clothes,                    clothes (too small),
+          Permanent hangover                Blood on your hands                  Bare feet
+                                                                               od d i t i o n a l m a t er i a l s   15
+
+
+
+Stat   4HP                                 5HP                                 6HP
+3-9    Halfling, Bow (d6), mace (d6),      Dwarf, Two-handed axe (d8),         Halfling, Shortsword (d6),
+       Studded leather (1), Stolen         2 throwing axes (d6), Platemail     Lantern, Pack mule (6 days
+       pouch (15gp), Backpack (3           (2), Backpack (1 week rations,      rations, rope, tent, pots & pans)
+       days rations, spices)               iron spikes)
+
+
+10     Cleric (+2 spell levels),Turn un-   Thief training (stun at 0hp),       Two-handed sword (d8),
+       dead, Warhammer (d8), Shield        Two daggers (d4), Short bow         Chainmail (1), Horse, Sad-
+       (1), Large sack (2 days rations)    (d6), Scroll (cleric, 2nd level),   dlebags (1 day ration, wineskin,
+                                           Backpack (2 days rations,           iron spikes)
+                                           mirror, 3 candles, scroll)
+11     Dwarf, Pickaxe (d6), Shield         Longbow (d8), Axe (d6),             Thief training (climb, hear
+       (1), Backpack (1 days rations,      Leather shirt (1), Hat with rare    noise), Shortsword (d6), 2 dag-
+       beer cask, rope, lantern)           feathers, Small sack (1 days        gers (d4), Scroll (magic-user,
+                                           rations)                            1st level), Rope & grapple, 2
+                                                                               doses poison (paralysis at 0hp)
+12     Maul (d8), Javelin (d6),            2 javelins (d6), Large sack (3      Dirk (d4), Poison (d4 extra
+       Breastplate (1), Satchel, Large     wolf skins), Foreign hairstyle,     damage), Unholy symbol (20
+       sack                                8cp                                 gp), Puzzling birthmark
+13     Axe (d6), sling (d4), Warm          Glaive guisarme (d8), Bone          Dagger (d4), rusty mace (d6),
+       cloak and heavy boots, Wanted       armour (1), Straw hat, Satchel      Leather vest (1), Stolen letters,
+       poster, Backpack                    (2 waterskins)                      Small sack (wineskin)
+14     Stolen rapier (d8), Large tent,     Hand crossbow (d4), Black           Mutant, Spiked club (d6), 2
+       Medallion with strange map          leather clothes (1), Small sack     wolf traps
+                                           (wig, scarf)
+15     Half-elf, Antique sword (d6),       Recognisable scimitar (d6), Silk    Half-elf, Bent bronze sword
+       Stylish cloak, Toolbox              clothes, Scarred hands, 25sp        (d4), Bow (no arrows), Pouch
+                                                                               (worthless stones)
+16     Staff (d6), Backpack (2 can-        Half-elf, Bow (d6), Poorly          Broken spear (d4), Improvised
+       dles, waterskin, scroll, quill)     trained pet wolf                    buckler (1) Torch
+17     Two-handed club (d6),               Half-orc, Broken crossbow           Cestus (d4),
+       Conspicuous clothes,                (used as a club, d4),               Smoked rat on a stick,
+       Bag of broken glass                 Whips scars on back                 Disgusting skin condition
+18     Half-orc,                           Mutant,                             Half-orc,
+       Broken sword (d4),                  Fork (d4),                          Chains (d4),
+       Escapee tattoo on forehead          Bounty dead or alive (120gp)        Naked, Mute
+16
+
+
+
+
+ d20      So you were late and have to join an ongoing adventure...
+     1    Monsters, then a trap, then more monsters. And then a cave-in. Lost 1d6 STR and all your
+          gear except for one thing of your choice.
+     2    Scarcely escaped monsters (referee rolls a random encounter) and lost 1d6 HP (do not roll
+          for critical damage). The monsters are right behind you.
+     3    Killed a monster and lost 1d6 hp (do not roll for critical damage).
+     4    Tracked by monsters (referee rolls a random encounter). They are nearby.
+     5    Fell down a hole. Lost a random weapon, or 1d6 DEX if you had none.
+     6    Peaceful contact with a new Faction. Ask the referee who they are.
+     7    Went through an elemental event: skin and hair colour radically changed.
+     8    Drank tainted water. Now sick until you can rest: lost d4 STR and d4 WIL.
+     9    Lost all food and water, or 1d4 WIL if you had none.
+ 10       Hostile contact with a faction. They will keep an eye out for you.
+ 11       Friendly NPC taken alive by monsters (ask the Referee). You saw where they went.
+ 12       Your armour, shield, or an item (in this order) got caught in a trap. Unusable, needs repair.
+ 13       Wounded a magic-user, took a focus from them and botched its use. Lose permanently 1
+          WIS, gained an enemy.
+ 14       Stole d4 rations and water from a Faction (ask the Referee). They lost you, but they saw
+          your face.
+ 15       Took a crossbow (d8) from a Faction (ask the Referee). They didn’t see you but they are
+          looking.
+ 16       Found a small sack containing 1d4 rations and a quart of water.
+ 17       Found a dead body. Took 1d20gp and a short sword.
+ 18       Found a clue to a danger nearby. Ask the referee.
+ 19       Fought someone and took a focus for a 1st-level magic-user (1-4) or cleric (5-6) spell.
+ 20       Encountered a nearby (or random) monster and turned it into an ally.
+
+
+ d6      I’m back from my latest expedition. Is my stash still ok?
+ 1       Yes, all of it. Lucky bastard.
+ 2       Yes, with something extra (and valuable, and misplaced by someone angry and powerful).
+ 3       Some of it is missing, but there’s a clue to who took it.
+ 4       No, there’s an envelope with your name on it.
+ 5       No, and it’s booby trapped.
+ 6       No. Something slimy and blue and shivering digged inside your hiding place and ate your
+         stuff. It’s sleeping now.
+                                                                                  od d i t i o n a l m a t er i a l s   17
+
+
+
+
+Odd Factions
+
+
+Create factions’ Motivations, Status, Means and Goal by rolling
+5d6 on the first table, and look up the result for each die. After
+that, roll 1d20 and look up the factions’ peculiarities on the second
+table, and strike out results as they are rolled. In case a stroked-
+out result is rolled, roll a second peculiarity.
+
+
+ 5d6     Origin               Status               Means            Goal 1           Goal 2
+   1     Lost City            Official             Military         Rule             …the City (south, east,
+                                                                                     north, west, center, all of it)
+   2     Caves                In hiding            Divine           Destroy          …another faction
+   3     Underworld           On the rise          Sorcerous        Manipulate       …outsiders (surface, caves,
+                                                                                     underworld, desert, planes)
+   4     Desert               Disintegrating       Legal            Control the      …a powerful individual
+                                                                    wealth of        (judge, noble, dreamer,
+                                                                                     mystic, soldier)
+   5     Sunside realms       Reforming            Commercial       Ally with        …an important place (tem-
+                                                                                     ple, barracks, radiation,
+                                                                                     grove, volcano)
+   6     Planar               Inactive             Criminal         Learn the        …a supernatural power (god,
+                                                                    secrets of       demon, ghost, elemental)
+
+
+ d20     Faction Peculiality
+   1     Impossibly superstitious                             11   Tattoos, branding or scarifications
+   2     Fighting a curse or disease                          12   Much richer than they look
+   3     Bloody, cruel or plain weird rites                   13   Leader is not who they seem
+   4     Has no leader                                        14   Welcome undead members
+   5     Front for another faction                            15   Vast library of knowlegde
+   6     Unjustly hated                                       16   Most members are werebeasts
+   7     Very popular for the wrong reasons                   17   All members are children
+   8     Addicted to a rare drug                              18   Sole purveyor of a potent wine
+   9     Unconventional sexual practices                      19   Worships a new god each month
+  10     Cannibalistic tastes                                 20   Access to unknown powers
+By Eric Nieudan                                The Nightlight Circus
+Rumours (roll 1d6)
+1. As the Nightlights Circus expand,
+other gangs see their members disappear        This adventure departs from the traditional exploration locale.
+(true). A turf war is brewing.
+                                               Depending on the characters’ goals and approach, some social
+2. A city official runs the Nightlights
+Circus to reduce the crime rate (false).       interaction may be needed to navigate some of the rooms. The
+3. Nightlights artists have been seen          whole dungeon was randomly generated to test the Dungeon with
+coming in and out an abandoned
+orphanage near the gambling hall (F).          a Deck of Cards procedure.
+4. Giving generously to Nightlights street
+acrobats will get you the password to the
+Joy Vault (T).
+5. The tower overlooking the canal glows
+faintly at night (T). It’s where the Circus
+sacrifices their victims (F).
+6. The City Council heard the gang
+was a front for a star cult (F) and sent a
+troubleshooter to investigate (T).
+
+
+Random wanderers (roll 1d8)
+1. Shimmering phantasm, a by-product
+of Joy Machine. Creepy vision of one’s
+past, disappears after a few seconds.
+2. Escaped member of the Silent Straw
+Sisters (STR 13, DEX 7, hp 5, stolen
+blade d6, broken wrist). Wants revenge.
+3. 2 local militia, following a lead to John
+Brightlow’s disappearance (see 11b)
+(STR 12, WIL 8, hp 7, blunderbusses
+d8). Want a promotion.
+4. d6 man-eater dogs (DEX 13, hp 3, rip
+throat d6). Want an easy meal.
+5. Sewer scavenger: pig-faced mutant
+(hp 7, crossbow d8) who knows the area
+quite well. Wants valuables.
+6. Strongman and d6 prisoners in chains
+(see room 6). Wants to deliver them to         A new gang is carving out a turf in one of the poorest districts
+Kaleidos Copper.                               of town. Children and adults from the Nightlights Circus are
+7. d6 urchin runners, on their way to
+work (seen room 1). Want to have fun.
+                                               recognisable by the hideous scars they hide under heavy make-up
+8. d6 street artists, back from a day’s        and tattoos. They work as couriers and street entertainers, and
+work with 5s in change. Want to rest.
+                                               also operate a gambling den called the Joy Vault.
+                                                                              od d i t i o n a l m a t er i a l s   19
+
+
+
+
+1: GAMBLING HALL ENTRANCE
+Well-lit cellar, painted signs, light security (alarm bell to room 6).
+West: trapped door to 2 (gas explosion, d6 WIL if breathed).
+East: heavy door to a seedy alley (password: ”joy is forever”).
+3 urchin runners, burnt skin under layers of filth and soot,             STR 7 DEX 10 WIL 10 HP 2
+                                                                         knives 1d6
+want to smile and look normal.
+
+
+2: THE JOY VAULT
+Vaulted room with gayly painted arches and grimacing stone
+figures (buzzing power cables connecting 3b and 11 via 6).
+Strong drinks, game tables from safe to dangerous. Gamblers,
+male and female dancers, musicians.
+North: dirty windows overlooking eel-infested canal.
+East: door to 1, guarded, gas canisters (see above).
+South: dark damp sewer to 6 behind grilled door (locked).
+West: heavy door, soundproof (opens when someone says ”joy”).
+4 street artists with permanent grins and clown make-up                  STR 10 DEX 15 WIL 9 HP 5
+                                                                         iron fingernails d8, smoke pistols d6
+covering burns, want to protect Joy Machine’s secrets. They have
+the key for the locked door.
+
+
+3: NIGHTLIGHTS TOWER
+Empty floors with aggressive pigeons and dangerous stairs. Top
+floor: has crystal roof (35 square metres panels worth 50s each).
+On every floor, several mirrors reflect and filter starlight down
+to basement, where abducted gang members and urchins are
+brainwashed.
+Basement: illuminated by starlight from mirror complex. Seats
+with straps. Roast pork smell.
+West: archway to 5.
+South: rusty ladder up to 4.
+Kaleidos Copper, an humanoid with shiny prismatic                        STR 10 DEX 10 WIL 17 HP 9
+                                                                         armour 1, dense limbs d6, dazzling &
+machine for a head. Wants everyone to obey Joy Machine’s law.
+                                                                         burning colours d8 + charm on critical
+Will stop working if away from starlight for too long.                   damage
+20
+
+
+
+
+                            4. ARMOURY
+                            Small, badly ventilated with iron-reinforced ceiling.
+                            Chests with 7 old muskets, 4 rusty pistols, 2 bombs (powder used
+                            produces thick, red smoke). Assortment of cutlasses, canes and
+                            cleavers. Each chest has a floating globefish that tries to escape
+                            (blue-grey scales, inoffensive, feeds on moisture, keeps air dry).
+                            North: rusty ladder down to 3b (noisy).
+                            South-east: slippery stairs up to 6.
+
+
+                            5. COPPER’S LARDER
+                            Dark stone alcove. The only light comes from outside.
+                            Metal objects kept as food for the Copper: cutlery, pots, broken
+                            weapons, pieces of machinery.
+                            South: piles of rusty dejections (sorting through it will reveal 3g
+                            worth of unconsumed gold and silver).
+
+
+                            6. MAIN STORE
+                            Unpainted arches with saltpeter. Fire pit, cushion and chairs,
+                            tinned food on shelves, dry meat hanging from ceilings (buzzing
+                            power cables connecting 3 to 11).
+                            West: grilled doors to 7 (fresh air) and 8 (stale smell), creaky
+                            stairs up to 9 (daylight, stew smell).
+                            North-West: damp corridor to 4.
+                            North: sewer passageway to 2
+                            East: illusory wall to 9 (noticeable from an angle, electric shock
+                            d12 if touched for more than two seconds).
+                            South: hole down to 12 (bells sound).
+STR 7 DEX 10 WIL 10 HP 3    5 prisoners: gang members, homeless labourers and lost
+                            sailors, chained to pillars and waiting to be brought to the Copper.
+                            Want to escape.
+STR 18 DEX 10 WIL 10 HP 6   Strongman: towering brute with theatre face, sailor tattoos
+spiked fist 1d8
+                            covering melted flesh. Wants to keep the hideout safe.
+                                                                       od d i t i o n a l m a t er i a l s   21
+
+
+
+
+7. STREET ARTISTS SLEEPING PIT
+High room with ladders to a dozen alcoves with dry straw beds
+(no personal effects or spare clothes).
+Ceiling: rusty, noisy grate to abandoned orphanage courtyard.
+
+
+8. URCHINS SLEEPING PIT
+High room with hammocks and damp mattresses (toys, family
+photographs and shiny objects).
+
+
+9. DAY ROOM
+Kitchen of the abandoned orphanage. High, iron-reinforced,
+faded educational murals (“work for your wage, kill for your
+keep”). Large chimney with pot of cold soup. No metal utensils.
+West: walled door to ruins (breakable with appropriate tools,
+noisy though).
+South: barred windows (3 metres above the floor, bars eaten by
+rust) to an overgrown garden home to a pack of wild dogs.
+7 street artists having a quiet meal, want to protect Joy         STR 10 DEX 15 WIL 9 HP 5
+                                                                  iron fingernails d8, smoke pistols d6
+Machine’s secrets.
+22
+
+
+
+
+                                            10. LOOT STORE
+                                            Wine cellar with 6 valuable bottles (20s each), Golden Lands
+                                            jewellery (10g, very conspicuous), one minor Arcanum.
+                                            Joy Machine knows immediately if anything is disturbed.
+                                            West: illusory wall, powered by cable going to 11.
+                                            South: hatch to 11 (smooth metal, warm to touch).
+
+
+                                            11. JOY MACHINE’S JUMPSHIP
+                                            Smooth, immaculate walls like made of solid light, no shadows.
+                                            Rooms are body temperature.
+STR 10 DEX 10 WIL 19 HP 12                  Joy Machine: a pulsating pillar of colours and emotion,
+armour 2, electric shock in whole room
+                                            communicates through empathy. Wants to end sadness.
+d8
+
+
+                                            11B. GUEST QUARTERS
+                                            As above, but decorated with 12 engraved silver bells ringing on
+                                            their own (10s each).
+                                            North-West: hole in the hull, steep tunnel to 6.
+                                            North-East: twisted wall to 11.
+STR 4 DEX 10 WIL 14 HP 7                    John Brightlow. Abducted Council troubleshooter, in
+                                            pain from recent burns and due another session of Kaleidos
+                                            Copper’s medicine. When he’s converted, he will be sent back as
+The Burner: a small shiny stone that        an agent for the gang. Hidden inside his person is The Burner, an
+accelerates metabolism: act like time has
+                                            Arcanum.
+stopped for d20 seconds, but you age
+twice as many years
+CYBER:LONDON:ODD:HACK                                                  by Sean Smith
+
+
+
+
+The choking smog over London blocks light and digital signal           Sean has written a number of flash fiction
+                                                                       stories in the Slick Thames world. Read
+alike; the corporations have pulled back into the green belt,
+                                                                       some of it here:
+leaving the urban sprawl beside the Slick to be fought over by         http://archaism.wordpress.
+the different gangs. Between the day-to-day violence, each group       com/tag/slick-thames/
+fights to control the old wired network. There is still intermittent
+CORP incursion into the factories and data nodes of the city, and
+what’s left of the LAW remain brutal and controlling. There are
+constant turf wars between the anarchic PUNKS and the brutal
+HOODS, while the GOTHS of the lock region mostly care about
+having the best stories to tell.
+
+
+Choose your side and watch your back:
+
+
+GOTHS are mostly clad in leathers, and are generally disre-            Look: leather goth wear and bondage
+                                                                       costume.
+garding of much else. Their entire purpose is to lead debauched,
+hedonistic lives.
+
+
+PUNKS are anarchistic, and have a particular flare for flame.          Look: denim and spikes.
+
+
+
+HOODS are territorial and put a lot of weight in the intimi-           Look: hoodies (duh) and general
+                                                                       sportswear.
+dation of weapons.
+
+
+CORPS are the bad boys of the corporate world - having a               Look: stylish business wear (think
+                                                                       American Psycho).
+fun time in the inner London offices (most head offices for major
+corporations exist in the green belt beyond the city).
+
+
+The LAW is a futurised version of London Met police. They
+are very happy to apply riot gear to situations. If you want to play
+as the LAW, use the MET-GRINDER rules below.
+24
+
+
+
+
+                                       SLICK THAMES: URBAN SPRAWL CRIMS
+
+
+                                       You are one of the countless crims in London.
+
+
+                                       Roll and total the d4, d6 & d8 for each of the following stats;
+                                        BRAWN         acts of strength & stamina (equivalent of STR)
+                                         SINEW        acts of agility & precision (equivalent of DEX)
+                                           WIT         language aloud & online (equivalent of WIL)
+
+
+                                       You may swap any two scores. Then, roll a d6: this is your
+                                       NERVE – your ability to shrug off wounds (equivalent of HP).
+
+
+                                       Cross-reference your highest stat with your nerve on the follow-
+                                       ing table and note down your starting package. If another player
+                                       has the same package, instead choose the rightmost nearest slot. If
+                                       you have an AUGMENT, roll d12 on the table overleaf.
+
+
+     Stat   NERVE 1 or 2                   NERVE 3 or 4                         NERVE 5 or 6
+     3-9    Rail-gun (d10)                 Hunting rifle (d8),                  Sawn-off shotgun (d8),
+            Razorblade                     Silver knuckleduster (d6),           Six-foot bullwhip (d6),
+            businesscards (d6)             TACTICAL AUGMENT,                    TACTICAL AUGMENT,
+            TACTICAL AUGMENT,              Firearm attacks enhanced             Shit-hot with tech
+            Contact in LAW
+ 10-12      Flamethrower (d8),             Submachinegun (d8),                  Tactical baton (d6),
+            EMP grenade                    Stimshot (reroll any save),          Two flashbangs
+            (shorts all local tech),       TACTICAL AUGMENT                     (SINEW save or blinded),
+            TACTICAL AUGMENT                                                    COSMETIC AUGMENT
+ 13-15      Twin pistols (d8),             Chromed pistol (d8),                 Machete (d6),
+            TACTICAL AUGMENT               COSMETIC AUGMENT                     COSMETIC AUGMENT,
+                                                                                Stim addiction
+ 16-18      Army-surplus rifle (d8),       Aluminium bottle of spirit (d6),     SCART lead (d6),
+            Bounty on head                 Last job went sour                   Shit with tech
+                                                                                      od d i t i o n a l m a t er i a l s   25
+
+
+
+
+ d12    TACTICAL AUGMENTS
+  1     Asphyxiator                 filters airborne particles; WIT to allow double action for a minute
+  2     Recor-neas                  record and playback visual; enhances perception
+  3     Subdermal kevlar            provides Armour 1
+  4     Phase unit                  if active attacks against you are impaired but you take d4 damage when you move
+  5     Metal arms                  as d6 weapon; melee weapon attacks enhanced
+  6     Fingernail razors           as d8 weapon
+  7     Blue Tooth                  can connect locally to tech, comes with small drone
+  8     Broadband scanner           know direction and distance of local tech
+  9     Gridcompass                 works like GPS on internal software
+  10    Threat radius               grants awareness of organic danger and intent to harm
+  11    Spidexterity                finger filiae for rapid typing
+  12    Refibrilator                capacator shock from the palm, BRAWN or knock out for a minute
+
+
+Take the next entry if another player already has that AUGMENT.
+
+
+ d12    COSMETIC AUGMENTS
+  1     Thumb drive
+  2     Flamegout mohican
+  3     Innerearphones
+  4     Neon tattoo
+  5     Polyfiber proboscis
+  6     Pleasure multiplier
+  7     Stainless steel skingraft
+  8     Exposed wetwork
+  9     Gain implant
+  10    Forearm app store
+  11    Bargain bin exoskeleton
+  12    Colour-phasing irises
+
+
+ d12    MISSION THUMBNAILS
+  1     A campervan full of punks are on a trash-trawl in your borough; send their heads back to Sid.
+  2     A data-thief called the Silver Lady has been spotted in the area. Find out what she’s up to.
+  3     An insane AI called Brunel has taken over a segment of your network. Isolate & eliminate them.
+  4     There must be a node in that abandoned office. Locate & secure it.
+  5     A courier-drone is tracking across town. We’ve given it your data.
+  6     The old Embankment tube station has been taken over by a data-cult. Infiltrate & eliminate high priestess.
+26
+
+
+
+
+     MET-GRINDER: FUTUREBRUTALPOLICE
+
+
+     You are a rookie street cop in the ghost-town of old London,
+     freshly graduated from the Academy. Due to your training your
+     stats are typically higher than most INTO THE ODD characters.
+     The Academy is a brutal tutor.
+
+
+     Roll and total the d6, d8 & 4 for each of the following stats;
+      BRAWN         acts of strength & stamina (equivalent of STR)
+       SINEW        acts of agility & precision (equivalent of DEX)
+        LAW          recall & uphold the Law (equivalent of WIL)
+
+
+     You may swap any two scores. Then, roll a d8: this is your
+     NERVE – your ability to shrug off wounds (equivalent of HP).
+
+
+
+
+     Special Training
+
+
+     If your highest ability score is less than 12, you can also begin
+     with one of these abilities:
+     Marksman Firearm attacks you make are Enhanced.
+     Authoritative Whenever you make a LAW save related to
+     the Law, roll two dice and take the best result.
+     Resilient You continue to fight on even when you suffer
+     Critical Damage.
+
+
+     If your NRV is less than 4, you may choose from these psychic
+     abilities. The Law doesn’t like visible augmentation, but you could
+     trade either of these for a subtle tactical augment (see SLICK
+     THAMES rules):
+     Telekinetic You may move objects with your mind; passing a
+     SNW save gives precision.
+     Telepathic You can read other’s thoughts; passing a LAW
+     save means they don’t realise you’re reading their mind.
+                                                                            od d i t i o n a l m a t er i a l s   27
+
+
+
+
+What do you have?
+
+All cops are given a SPUD gun, plus other equipment:
+
+
+Special Police Uniform Detention gun, keyed to                      SPUD AMMUNITION
+
+your DNA. If any other person uses this gun, it explodes causing
+                                                                    STANDARD EXECUTION: your basic
+d12 damage. The SPUD-gun has six types of ammunition from           bullet deals d8 damage; you are assumed
+a single cartridge - at the end of each combat or whenever you      to have always used this bullet in any
+                                                                    combat.
+roll maximum damage, roll Xd8 where X is the number of ammo         HEATSEEKER: locks onto a specified
+types you’ve used this combat: on a roll of one, the ammunition     target’s heat signature; deals d6 damage.
+                                                                    RICOCHET: coated in rubber, this
+stocks descend to d6s, then d4s, then a single bullet remaining.
+                                                                    will bounce off hard surfaces; deals d8
+                                                                    damage minus the amount of surfaces it
+Street armour and helmet (provides Armour 1)                        struck.
+                                                                    INCENDIARY: bursts into flame upon
+A motorcycle with bike cannons (d10 standard rounds or              impact; deals d10 damage at impact and
+d8 armour piercing) and basic AI allowing it to follow commands.    d4 damage to immediate area, people
+                                                                    pass SNW saves to avoid catching fire.
+The bike has BRW 13, NRV 0, ARM 2 if it is directly attacked.
+                                                                    ARMOUR PIERCING: coated in
+Use your character’s SNW to control it under stress.                titanium, d8, this bullet ignores 2 points
+A baton that deals d6 damage in melee range.                        of Armour and deals d8 damage.
+                                                                    HI-EX: explodes on impact, dealing d12
+Two flash-bangs that blinds anyone who fails a SNW save             damage to everything in the immediate
+for one minute.                                                     area.
+
+
+
+
+Promotion
+
+As each player has completed the requirements, they move to the
+next experience level. Each time they advance a level, they gain
+d6 NRV and can increase ability scores. Alternatively, a cop can
+learn a non-psychic ability.
+
+
+ROOKIE You have yet to hit the streets.
+BEAT COP You have survived your first mission. One in five rookies fail to survive their first day.
+SEASONED BOBBIE You have survived three mission since reaching Street Judge level.
+MET-VET You have survived five missions since reaching Seasoned level and have begun to mentor
+a rookie.
+DISTRICT CHIEF Your mentee has reached at least Seasoned level and you have survived a
+mission with them.
+28
+
+
+
+
+                                        Refereeing
+
+                                        There are more crimes being committed beside the Slick than
+                                        the Met can ever hope to respond to. Each mission should have
+                                        a primary objective and some minor objectives that support the
+                                        main goal; you should also have lots of other transgressions being
+                                        visible as they players progress - whether they become distracted
+                                        by these or not is their choice.
+
+
+                                        Players make LAW saves when arresting crims. Encourage
+                                        the player to make the judgement call - state the crime and the
+                                        punishment. Then the player rolls: a success means they have
+                                        remembered the Law correctly, a fail means they have missed
+                                        some detail - this will have repercussions if a more senior cop is
+                                        present or aware.
+
+
+                                        Players also make LAW saves to try to influence the behaviour
+                                        of crims they encounter. If they are successful, move the reaction
+                                        result of the perp one step in their favour.
+
+
+                                        Sample Crims
+
+                                        If an ability score is not stated, assume it is 10.
+
+
+BRW 6 SNW 14 BRN 10 NRV 6               Jimmy Fingers, kleptomaniac
+small dagger (d4)
+                                        Reaction: 1 Fight, 2-4 Flight, 5-6 Surrender
+
+
+BRW 13 SNW 10 BRN 10 NRV 3              Susan Stabvest, hired muscle
+machete (d8), las-rifle (d10)
+                                        Reaction: 1-4 Fight, 5 Flight, 6 Surrender
+stabvest (armour 1)
+
+
+BRW 19 SNW 10 BRN 10 NRV 6              Chipper, graffiti artiste
+aerosol canister (d6)
+                                        Reaction:1-6 Flight
+
+
+BRW 15 SNW 19 BRN 18 NRV 20             The Shrivelled Man
+withering touch (d12, ignores armour)
+                                        Reaction: 1-5 Fight, 6 Flight
+Oddbits                                                                 by Kamil Węgrzynowicz
+
+
+
+
+Owlpeople are nocturnal creatures, half owl, half human.                STR 10 DEX 13 WIL 8 HP 8
+                                                                        Beak (d6)
+Males are more or less humanoid and females are more like
+                                                                        Driven by feeding their young and
+giant owls. They can’t fly but are able to glide in the air for short   control territory
+distances when thrown or jumping from above. They don’t have            Hypnotising Stare: WIL save or victim
+                                                                        acts along Owlperson unspoken wishes.
+wings, Instead they just spread their arms and slowly glide.            It can be broken by another WIL save
+                                                                        but the longer victim stays under effect
+                                                                        the effects are lasting and incurable.
+They usually travel from place to place in a group of 10 or more,
+                                                                        Victim will act like an owlperson and will
+staying in one place until they’re frightened off or during the         go a long way to be eaten by owls.
+reproductive season. They hypnotise small, young, weak humans           Saliva: their saliva can close wounds.
+                                                                        The wounds won’t be healed but wound
+to follow to them to the nest (usually an abandoned house or a          will grow into scar tissue quickly. The
+cave) and keep there them while eating them alive over time.            person treated with saliva will get
+                                                                        addicted to it (STR save to avoid).
+They start off with the limbs and there will be usually full of
+mutilated humans acting like owlpeople and caring for them.
+
+
+They mark their territory with cryptic signs. It’s not known
+whether they understand it but scholars studying Owlpeople’s
+signs say it’s a language in itself and can be translated. Owlpeople
+like to steal and gather things. So they keep things from previous
+nests and are seen wearing human clothes.
+
+
+Screaming Pyramids are floating step pyramids made                      STR 13 DEX 8 WIL 6 HP 8
+                                                                        Armour 1, Suckers (d6)
+of glistening, pulsing raw meat. Two meters high and of basic,
+                                                                        Driven by hunger.
+animal intelligence, have giant mouths on each side screaming
+constantly random words. They travel in groups of 1d4+1 crea-
+tures and shock victims with their random screams (STR Save or
+shock for 1d6 turns). Then they suck blood with suckers on their
+bottom side. They stay in the area until they empty it of living
+creatures and then move on.
+30
+
+
+
+
+     Devil’s Balls were one of the worst meteorite rains in
+     Bastion. And one of the most strange. Rough looking balls
+     the size of buildings destroyed a poor part of town, far from the
+     centre.
+
+
+     Explorers’ companies, army and all kinds of gangs rushed to claim
+     the findings and clashed in a bloody skirmish. Soon Arcana were
+     used and phased whole area out of our reality.
+
+
+     Years later, Devil’s Balls still appeared in Bastion from time to
+     time. Strange people from there claim they’re ambassadors of
+     Free State of Devil’s Balls: a rogue state inside Bastion.
+
+
+     Now and then Devil’s Balls appear again. Gates are open but
+     nobody come out. Not to trade, not to plunder, not anything.
+     Tunnels dug inside the meteorites wait for the brave.
+
+
+     Fete of Dreams was not the first building moved from The
+     Golden Lands completely, brick by brick, but it was the first one
+     to gather such notoriety. This one became to be known as Fete of
+     Dreams.
+
+
+     People first noticed the colourful aura above the building.
+     Then they noticed small animals of all kinds gathering there in
+     peace.Then they started having strange dreams, sweet and awful
+     at the same time. Even malicious at times. Then people started to
+     gather around the Fete thirsty for their dose. Then the Council of
+     Bastion closed Fete and created the committee to study it. They
+     put 8 dimwitted eunuchs to protect the place.
+
+
+     The committee is still working on the case, eunuchs still protect
+     the place, people and animals still gather around in the fete. There
+     are rumours that committee is more interested in worshiping the
+     Fete of Dreams then putting its influence to stop.
+                                                                           od d i t i o n a l m a t er i a l s   31
+
+
+
+
+Chazan Creepers resemble an oily, greyish sludge, first               STR 10 DEX 13 WIL 12 HP 5
+                                                                      stats for sludge form.
+discovered during industrial digs in Chazan. This intelligent
+                                                                      Afraid of acid. Immune to slash-
+sludge resided undisturbed between geological layers until the        ing/bashing weapons.
+drilling. Now sleepers awake from their sleep and ooze onto           If infected lose 1d6 STR every hour until
+                                                                      STR becomes 0, then the victim becomes
+the surface. The sludge slowly flow into a host’s body (usually       a Creeper host. Before then stomach
+human) and overtake it while feeding on the internal organs.          pumping and purges can save the victim.
+
+
+
+The host slowly deforms and a big, black, reflective globe forms      STR 13 DEX 12 WIL 12 HP 10
+                                                                      stats for hosted form.
+encasing the head and neck. This globe is warm and leathery to
+                                                                      Suckers suck body tissue of the victim
+touch. The host also develops a number of pulsating black suckers     and inject mild euphoric intoxicant (STR
+all over their body through which they feed.                          save or lose 1d3 HP and be very happy
+                                                                      because of this).
+                                                                      When killed it explodes spraying sludge.
+Creepers communicate using a sign language and, while aggres-         Roll under DEX to avoid.
+
+sive (their need to spread to new hosts is endless), they can be
+persuaded and are willing to trade with outsiders.
+
+
+Stones of Oath are granite stones carved with an an-
+cient sigil. Everybody who holds this stone while agreeing to a
+particular treaty forms spiritual parasite feeding off the treaty
+participants. This spiritual parasite ensures that everybody acts
+according to the pact or attacks with spiritual force (WILL save
+or lose 1d6 HP).
+
+
+To dissolve the pact, all the still living participants must gather
+again and unanimously break the pact. This will cause everybody
+involved lose 1d3 WILL to satisfy spiritual parasite.
+                                                                       Forenames                                      P
+
+   Maze                                                     1
+                                                            2
+                                                                1-2
+                                                                Adelaide
+                                                                Balthazar
+                                                                               Roll once.
+                                                                              3-4
+                                                                              Faustus
+                                                                              Fern
+                                                                                            5-6
+                                                                                            Oswald
+                                                                                            Pepper
+                                                                                                          1
+                                                                                                          2
+                                                                                                               1-2
+                                                                                                               Arrogant
+                                                                                                               Avant-G
+
+
+
+
+   Rats
+                                                            3   Barsaba       Finn          Percival      3    Boastful
+                                                            4   Basil         Forthwind     Peregrine     4    Bored
+                                                            5   Beatrix       Fox           Phoebe        5    Bossy
+                                                            6   Bertram       Godwin        Piety         6    Can-do
+                                                            7   Bianca        Hannibal      Poppy         7    Chatterb
+                                                            8   Blaxton       Hester        Quentin       8    Chirpy
+                                                            9   Chadwick      Hippolyta     Redmaine      9    Cryptic
+                                                           10   Cleopha       Jasper        Silas         10   Ditz
+           By Ben Milton                                   11   Clover        Jiles         Silence       11   Egomani
+                                                           12   Constance     Jilly         Stilton       12   Extravag
+           Introduction                                    13
+                                                           14
+                                                                Cromwell
+                                                                Damaris
+                                                                              Jules
+                                                                              Marga
+                                                                                            Stratford
+                                                                                            Sybil
+                                                                                                          13
+                                                                                                          14
+                                                                                                               Fast-talk
+                                                                                                               Flake
+Maze Rats is a role-playing adventure game of              15   Daphne        Merrick       Tenpiece      15   Flirtatiou
+problem-solving and survival, in which several             16   Demona        Minerva       Trilby        16   Gossip
+players take on the roles of penniless explorers           17   Destrian      Mortimer      Tuesday       17   Hard-bo
+delving into dangerous, abandoned ruins in search          18   Elsbeth       Odette        Ursula        18   Hears voi
+of treasure and glory.                                     19   Erasmus       Ogden         Webster       19   Hillbilly
+                                                           20   Esme          Olga          Zora          20   Hothead
+These rules are derived from Into the Odd, by Chris
+McDowall. Other inspirations include Freebooters on
+the Frontier and The Perilous Wilds by Jason Lutes,
+Dungeon Crawl Classics by Joseph Goodman, and
+                                                                        Surnames                                     A
+World of Dungeons by John Harper.                                              Roll once.
+                                                                1-2           3-4           5-6                1-2
+    Character Creation                                    1
+                                                          2
+                                                                Barrow
+                                                                Beetleman
+                                                                              Girdwood
+                                                                              Gorgos
+                                                                                            Romatet
+                                                                                            Rothery
+                                                                                                          1
+                                                                                                          2
+                                                                                                               Acid Scar
+                                                                                                               Battle Sca
+Choose one advancement from the list of options           3     Belvedere     Graveworm     Rumbold       3    Boney ha
+on the next page. Advancements grant you one              4     Birdwhistle   Greelish      Rummage       4    Braided H
+special ability and a hit die. Roll the hit die to find   5     Bithesea      Grimeson      Sallow        5    Brawny
+your character’s starting maximum hit points (HP).        6     Bobich        Gruger        Saltmarsh     6    Broken N
+                                                          7     Calaver       Hardwick      Silverless    7    Bulbous N
+Roll 3d6 for each of your stats: Strength, Dexterity,     8     Carvolo       Hitheryon     Skitter       8    Burn Scar
+and Will. You may choose to swap two of the               9     Chips         Hovel         Skorbeck      9    Bushy Br
+scores.                                                   10    Coffin        Knibbs        Slee          10   Chiseled
+ ! Strength is used to avoid danger though toughness,     11    Crumpling     La Marque     Slitherly     11   Curly Ha
+   stamina, or raw strength.                              12    De Rippe      Loverly       Stavish       12   Dark Skin
+ ! Dexterity is used to avoid danger through stealth,     13    Digworthy     Midnighter    Stoker        13   Disfigure
+   quickness, or finesse.                                 14    Dregs         Mitre         Tarwater      14   Dishevele
+ ! Will is used to avoid danger through willpower, per-   15    Droll         Nethercoat    Vandermeer    15   Filthy
+   ception or charisma.                                   16    Dunlow        Oblington     Villin        16   Gaunt
+                                                          17    Erelong       Onymous       Wellbelove    17   Gap-toot
+Flesh out your character’s name, personality, ap-         18    Fernsby       Pestle        Westergren    18   Grey Hai
+pearance, weapons and gear using the tables to the        19    Fisk          Phillifent    Wexley        19   Groomed
+right. Fill out your character sheet, and introduce       20    Gimble        Relish        Wilberforce   20   Hairless
+your character to the other players. They start with
+d20 silver (s).
+                          Personality                                              Weapons
+                               Roll once or twice.                                    Roll twice.
+                   1-2            3-4              5-6               1-3                      4-6
+ wald         1    Arrogant       Iconoclast       Self-pitying   1  Ancient Spear (d6)       Longbow (d8)
+pper          2    Avant-Garde Idealistic          Serene         2 Arming Sword (d6)         Maul (d8)
+rcival        3    Boastful       Illiterate       Slacker        3  Battered Halberd (d8) Messer (d8)
+regrine       4    Bored          Jerk             Slimy          4 Battleaxe (d8)            Morningstar (d8)
+ oebe         5    Bossy          Klutz            Slovenly       5  Bronze Dagger (d6)       Obsidian Dagger (d6)
+ety           6    Can-do         Love-struck Snarky              6 Bronze-tip Spear (d6) Painted Spear (d6)
+ ppy          7    Chatterbox     Misanthrope Snitch              7 Carved Spear (d6)         Pull Crossbow (d10)
+uentin        8    Chirpy         Mopey            Snob           8  Claymore (d8)            Quarterstaff (d6)
+ dmaine       9    Cryptic        Naïve            Sophist        9 Crank Crossbow (d10) Rapier (d6)
+as            10   Ditz           Nerd             Spacey         10 Etched Glaive (d8)       Recurve Bow (d6)
+ence          11   Egomaniac      No-nonsense Thick               11 Falchion (d8)            Rusty Mace (d6)
+ lton         12   Extravagant Obsessive           Toady          12 Flail (d8)               Sling with bullets (d6)
+ atford       13   Fast-talker    Orator           Twitchy        13 Gleaming Halberd (d8) Sling with stones (d6)
+bil           14   Flake          Overeducated Vain               14 Hand Crossbow (d6)       Spiked Club (d6)
+ npiece       15   Flirtatious    Paranoid         Vegan          15 Hatchet (d6)             Steel Dagger (d6)
+ ilby         16   Gossip         Pouty            Vengeful       16 Heirloom Glaive (d8) Stone-tip Spear (d6)
+  esday       17   Hard-boiled Prickly             Whiner         17 Hunting Bow (d6)         Throwing Knives (d6)
+ sula         18   Hears voices Proselytizer Wild Child           18 Hunting Knife (d6)       War Bow (d8)
+ebster        19   Hillbilly      Refined          Wisecracking   19 Iron Club (d6)           Warhammer (d8)
+  ra          20   Hothead        Ruthless         World-weary    20 Ivory Spear (d6)         Woodman’s axe (d8)
+
+
+
+                         Appearance                                     Adventuring Gear
+                               Roll once or twice.                   Roll three times. In addition, you have a tinderbox, a
+                   1-2            3-4              5-6                   torch, a waterskin, 3 rations, and 50’ of rope.
+omatet        1    Acid Scars     Hawk Nose Rotten Teeth                1-2                3-4               5-6
+othery        2    Battle Scars Immense            Scrubbed       1     Acid               Fire Oil          Marbles
+umbold        3    Boney hands Lantern Jaw Shaved Head            2     Animal Scent Fishing Hook Mule
+ummage        4    Braided Hair Limp               Shifty Eyes    3     Antitoxin          Flashbomb         Net
+  low         5    Brawny         Long Hair        Short          4     Armor              Glue              Pen & Ink
+  tmarsh      6    Broken Nose Loud Voice Slender                 5     Bear Trap          Grap. Hook Pickaxe
+ verless      7    Bulbous Nose Meat Hooks Slouched               6     Bell               Grease            Poison
+ itter        8    Burn Scars     Missing Ear Smelly              7     Blank Book Hacksaw                   Pole (10 ft.)
+ orbeck       9    Bushy Brows Missing Eye Smiling                8     Bolt-Cutters Hammer                  Potion
+  e           10   Chiseled       Nine Fingers Soft Voice         9     Caltrops           Hand Drill        Rat
+ therly       11   Curly Hair     Oily Skin        Squinty Eyes   10    Pliers             Hog Holder Rum Bottle
+avish         12   Dark Skin      Pale Skin        Steely Gaze    11    Candle             Hound             Shovel
+oker          13   Disfigured     Perfect Skin Sunken Eyes        12    Chain (10 ft.) Hourglass             Smokebomb
+ rwater       14   Disheveled     Perfect Teeth Sweaty            13    Chalk (10)         Incense           Spikes (5)
+ ndermeer     15   Filthy         Perfumed         Tattooed       14    Copper Wire Lantern                  Spyglass
+  lin         16   Gaunt          Pierced          Towering       15    Crowbar            Large Sack        Stake
+ellbelove     17   Gap-toothed Plump               Unsmiling      16    Dice               Lens              Steel Mirror
+estergren     18   Grey Hair      Pockmarked Weathered            17    Door Ram           Lock & Key Tent
+exley         19   Groomed        Pointed Chin White Hair         18    Ether              Lockpicks (5) Thick Gloves
+  lberforce   20   Hairless       Rosy Cheeks Wild Hair           19    Falcon             Lodestone         Trumpet
+                                                                  20 Fiddle                Manacles          Whistle
+            Player Rules                                     Gaining Experience                                                         E
+Saves: When you find yourself in danger, the Ref-         Characters gain XP by suriving dangerous                        Weapons: (5s)
+                                                          encounters. A simple encounter with minor damage
+eree may call for a save. Roll a d20 equal to or un-                                                                      Crossbows cos
+                                                          provides 1 XP. A difficult encounter with moderate
+der your character’s relevant stat to avoid the dan-                                                                      have to make D
+ger. E.g.: make a DEX save to avoid dragon’s              damage but no fatalities provides 2 XP. A                       reloading.
+                                                          dangerous encounter with a fatality or permanent
+breath. A 1 always succeeds and a 20 always fails.                                                                        Armor (10g): Ar
+                                                          consequences provides 3 XP. A deadly encounter
+Danger Die: Every 10 minutes in a dungeon (1                                                                              horse grants yo
+turn), roll a d6. On 1, a monster or other danger         with multiple fatalities and massive damage, and a
+from a list prepared by the Referee manifests itself.     retreat provides 4 XP.                                          Adventuring G
+                                                          When PCs gain enough XP to advance, they roll a                 Manacles, Anim
+Rounds: Every combat round, all groups engaged
+                                                          d20 for each stat, raising the stat by 1 it is less than        Fishing Pole, S
+in combat compare d20 rolls to determine initiative.
+Attacks: You may make one attack action each              18 and the roll exceeds it. They also gain one                  Spikes, Tinderb
+                                                          advancement.
+round. Attack actions always succeed. Roll your                                                                           Luxuries (20s
+                                                          Level 1: 0 XP. Level 2: 40 XP. Level 3: 100 XP.
+weapon’ damage die and subtract the target’s ar-                                                                          Clothes, Spygl
+mor. Impaired attacks roll d4 damage and En-              Level 4: 180 XP. Level 5: 280 XP.
+                                                                                                                          Water, Incense
+hanced attacks roll d12 Damage.
+Damage: Damage is subtracted from hit points,                        Advancements                                         Flashbang (10s
+                                                                                                                          fails a DEX sav
+then from the Strength score. If the target takes         Characters gain an advancement at each level,
+Strength damage, it must pass a STR save or be-           including the first. Each advancement includes a hit            Fire Oil (10s): S
+come wounded.                                             die, which is rolled and added to the character’s               Damage for 3 r
+Wounded: A wounded character is unconscious and           maximum HP.                                                     Smoke-bomb (
+unable to take actions until they are tended to by                                                                        lit. Attacks thro
+an ally and have a short rest. If not, they will die      Magician: d4. May be chosen multiple times. You can cast
+within 1 hour. Monsters and NPCs simply die when          spells. Your maximum known spells is 2, plus 1 for each time    Poison (20s): Lo
+wounded.                                                  you choose this advancement after the first time.
+                                                                                                                          Ether (10s): STR
+Stat Damage: At 0 Strength, a character is dead. At       Assassin: d6. When you attack an enemy who is unaware
+                                                                                                                          Acid (10s): d6 D
+0 Dexterity or Will a character is paralyzed or co-       of your presence, your damage hits their Strength score
+matose respectively and cannot act until they have a      directly, bypassing their hit points, if any.                   Potion (100s): H
+full rest. If your PC dies, create a new character and    Cave Runner: d6. You never lose your balance or your            of the Referee’
+the Referee will have you rejoin the party as quick-      grip on natural surfaces.                                       Board (per wee
+ly as possible.                                                                                                           an inn (10s), To
+                                                          Fingersmith: d6. You can unlock any door or bypass any
+Spellcasting: You may make a WIL save and use
+                                                          device, given enough time and the right tools.                  Food and Dri
+your attack action to cast any spell you know.
+Spells always work, but if the save is failed you take    Infiltrator: d6. You always move completely silently.           Rum (1s), Pie an
+WIL damage equal to the spell’s circle. If this caus-     Lurker: d6. When you hide in deep shadow, you are               Beasts: Mule (5
+es you to drop to 0 Will, you suffer a random af-         invisible until someone is right on top of you.                 (50s), Crow (d5)
+fliction. See the spell generation rules below for
+                                                          Berserker: d8. You may choose to ignore the effects of a        Transport: Car
+more details about spellcasting.                          wound by taking d6 WIL damage.
+Morale: Enemies must pass a WIL save or be rout-
+ed when they lose half of their group. Groups of          Ironclad: d8. Mundane armor that you wear grants you 2
+enemies use their leader’s WIL in place of their          armor instead of only 1.
+                                                                                                                          Torchbearer (1s
+own. Lone enemies make this morale save at 0 hit          Swashbuckler: d8. Whenever you slay a target with a
+                                                                                                                          WIL, Lantern,
+points.                                                   melee attack, you may immediately make an additional
+Reaction Roll: Roll 2d6 to determine how NPCs             melee attack against another target within range.               Sellsword (10s/d
+react to PCs, if this is in doubt. 2: Hostile, 3-5:       Veteran: d8. Whenever you attack you may add an addi-           WIL, Bow, Sw
+Unfriendly, 6-8: Indifferent, 9-11: Talkative, 12:        tional effect, such as push back, blind, trip, throw, immobi-   Expert (10s/day
+Friendly.                                                 lize, disarm, etc. The target may save if appropriate.          Bow, Specific E
+Short Rest: 10 minutes (1 turn) of rest and a swig of
+                                                          Weapon Master: d8. May be chosen multiple times.                Champion (50s/
+water recovers all of a character’s lost hit points.
+                                                          Choose any one weapon type. Attacks with that weapon roll       WIL, Bow, Sw
+Full Rest: After a full night of restful sleep, restore
+d6 points to each stat, up to that stat’s maximum.        two damage dice and use the greater result.
+ence                            Equipment                                        Running the Game
+   dangerous       Weapons: (5s) for d6 damage, (20s) for d8 damage.         Roll in the open. Do not fudge rolls, do not roll in
+ inor damage
+                   Crossbows cost (20s), but between each shot you           secret. This keeps the game honest and dangerous,
+ith moderate
+                   have to make DEX save or skip your action while           and prevents any accusations of favoritism or rail-
+   2 XP. A         reloading.                                                roading. It also encourages the players to manipu-
+r permanent
+                   Armor (10g): Armor 1. Hide, mail, or plate. Riding a      late and engage with the fictional world, rather
+ y encounter
+                   horse grants you +1 armor.                                than with the Referee.
+ mage, and a                                                                 Seed adventure in every direction. Bait plot hooks,
+                   Adventuring Gear (1s each): Crowbar, Saw, Glue,           rumors, and threats everywhere, then let the play-
+e, they roll a     Manacles, Animal Trap, Lockpicks, Writing Set,            ers decide what to do. If they ever get bored, there
+ t is less than    Fishing Pole, Shovel, Grappling Hook, 50ft Rope,          should be plenty of other options nearby. Any
+so gain one        Spikes, Tinderbox, Torch, Tent, Caltrops, etc.            choice they make should have a meaningful impact
+                   Luxuries (20s): Clockwork Items, Elaborate                on the world, which should respond appropriately.
+ l 3: 100 XP.
+                   Clothes, Spyglass, Mirror, Magnifying Glass, Holy         Use your prep to help you improvise. Collect tables
+                   Water, Incense, Lantern, etc.                             and lists of ideas to help you out when players do
+
+ts                 Flashbang (10s): Momentarily blinds anyone that
+                   fails a DEX save.
+                                                                             the unexpected. These might include NPCs,
+                                                                             names, items, plot hooks, complications, relation-
+ each level,                                                                 ships, locations, etc.
+ncludes a hit      Fire Oil (10s): Sets an area alight. All inside take d6   Give the players tools to manipulate the world.
+e character’s      Damage for 3 rounds. Fills a lantern 10 times.            The focus of the game should be on creative prob-
+                   Smoke-bomb (10s): Fills a room with smoke when            lem solving, not brute force, so give players the
+                   lit. Attacks through the smoke are Impaired.              tools to make that appealing. For example: rival
+s. You can cast                                                              factions to manipulate, potions with weirdly specif-
+1 for each time    Poison (20s): Lose d20 STR if consumed.                   ic effects, items that can be combined or repur-
+me.                                                                          posed, dungeons with short cuts and back passages.
+                   Ether (10s): STR save or pass out for an hour.
+ ho is unaware                                                               Add elements that allow the players to bend the
+                   Acid (10s): d6 Damage, burns through materials.
+ Strength score                                                              world to their will.
+                   Potion (100s): Heals d6 of one stat, or other effect      The more dangerous something is, the more obvi-
+alance or your     of the Referee’s choice.                                  ous it should be. Give players the chance to think
+                   Board (per week): Bed in a Dormitory (3s), Room in        their way around threats and obstacles by tele-
+                   an inn (10s), Town House (20s).                           graphing them ahead of time. No one likes their
+  or bypass any
+                                                                             death to be random chance. When a PC dies, it
+                   Food and Drink: Bread and Broth (1s), Bottle of           should be their fault.
+  silently.        Rum (1s), Pie and Wine (2s), Fine Meal (5s).              No soft monsters. Monsters should be mechanical-
+adow, you are      Beasts: Mule (5s) to Horse (50s). Mutt (5s) to Hound      ly dangerous, and should do something bad each
+                   (50s), Crow (d5) to Falcon (d50).                         attack. Never allow saves to avoid damage. Players
+                                                                             should be motivated to avoid direct combat.
+ he effects of a   Transport: Cart (30s), Wagon (100s), Coach (300s)
+                                                                             When in doubt, look for the interesting decision.
+                                                                             Make the players choose between several options,
+ar grants you 2                    Hirelings                                 all of which complicate the situation.
+                                                                             Keep up the pressure. Whether it’s through the
+                   Torchbearer (1s/day): d6 HP, 2d6 STR, 10 DEX, 10
+ target with a                                                               danger die, or because the dungeon is filling with
+                   WIL, Lantern, Club.
+ an additional                                                               sand, or because a PC will die in 10 turns from poi-
+ange.              Sellsword (10s/day): 2d6 HP, 10 STR, 10 DEX, 10           son, keep the players desperate and on a clock.
+  add an addi-     WIL, Bow, Sword.                                          Maintain a tension between the desire to explore
+hrow, immobi-      Expert (10s/day): d6 HP, 10 STR, 10 DEX, 10 WIL,          and loot, and the terror of remaining too long.
+ opriate.          Bow, Specific Expertise.                                  Reward questions with good information. When
+                                                                             players ask a question, tell them the answer if they
+multiple times.    Champion (50s/day): 2d6 HP, 15 STR, 10 DEX, 10            could reasonably know it or perceive it. They need
+ at weapon roll    WIL, Bow, Sword, Armor 1                                  information to survive and progress, so don’t be
+                                                                             stingy. Do not ask for WIL saves to know things.
+     Magic Generation                                              Magic Effects                         Ma
+After each night of rest a Magician can keep the         1.    Absorbing       51. Mesmerizing    1.    Acid
+spells they already know or replace some or all of       2.    Accelerating    52. Nullifying     2.    Aether
+them with new, randomly generated spells. A magi-        3.    Attracting      53. Obscuring      3.    Air
+cian may know a number of spells up to their spell       4.    Awakening       54. Oozing         4.    Alabaster
+limit.                                                   5.    Bewildering     55. Opening        5.    Amber
+Spells are generated by rolling on the spell format      6.    Binding         56. Perceptive     6.    Ash
+table below, and then rolling for each spell aspect.     7.    Blazing         57. Pestilential   7.    Bat
+Next, the magician player and Referee work to-           8.    Blinding        58. Petrifying     8.    Battle
+gether to set the spell’s precise effects, parameters,   9.    Blossoming      59. Phasing        9.    Beetle
+manifestation, and Circle (0-5). Use the chart of        10.   Cacophonous     60. Piercing       10.   Bile
+spell aspects below as a guideline to judge the ap-      11.   Concealing      61. Planar         11.   Blight
+propriate circle for a spell.                            12.   Condemning      62. Poisonous      12.   Blood
+Circle 0: Simple amusing or convenient tricks.           13.   Consuming       63. Polymorphing   13.   Bone
+Circle 1: Minor effects, touch range, only targets       14.   Creeping        64. Pursuing       14.   Brimstone
+self, 1 minute duration or1d6 damage.                    15.   Crushing        65. Rearranging    15.   Brine
+Circle 2: Moderate effects, stone’s throw range,         16.   Deflecting      66. Rebounding     16.   Bronze
+single target, 1 hour duration or 2d6 damage.            17.   Devastating     67. Reflecting     17.   Chaos
+Circle 3: Major effects, sight range, several tar-       18.   Dicing          68. Rejuvenating   18.   Clay
+gets, 1 day duration or 3d6 damage.                      19.   Diminishing     69. Repeating      19.   Copper
+Circle 4: Mighty effects, 10 mile range, targets a       20.   Disguising      70. Repelling      20.   Crow
+small area, 1 month duration or 4d6 damage.              21.   Dispelling      71. Restorative    21.   Crystal
+Circle 5: Mythic effects, unlimited range, targets       22.   Duplicating     72. Restraining    22.   Night
+a large area, permanent duration or 5d6 damage.          23.   Empowering      73. Revealing      23.   Death
+Spell formats:                                           24.   Enchanting      74. Reversing      24.   Doom
+       1.   [Element][Form]                              25.   Enlightening    75. Revolting      25.   Dream
+       2.   [Effect][Form]                               26.   Enraging        76. Revolving      26.   Dust
+       3.   [Effect][Element]                            27.   Ensorcelling    77. Screaming      27.   Earth
+       4.   [Effect][Element][Form]                      28.   Entangling      78. Scrying        28.   Echo
+       5.   [Form] of [Element]                          29.   Enveloping      79. Sealing        29.   Energy
+       6.   [Form] of [Effect] [Element]                 30.   Excruciating    80. Shielding      30.   Fire
+                                                         31.   Expanding       81. Silent         31.   Flame
+Magic item formats:
+                                                         32.   Fearsome        82. Slashing       32.   Flesh
+    1.    [Element][Item]
+                                                         33.   Flaming         83. Sleeping       33.   Fog
+    2.    [Effect][Item]
+                                                         34.   Floating        84. Smoking        34.   Fungus
+    3.    [Effect][Element][Item]
+                                                         35.   Freezing        85. Soothing       35.   Ghost
+    4.    [Item] of [Element]
+                                                         36.   Grasping        86. Subtle         36.   Glass
+    5.    [Item] of [Effect][Element]
+                                                         37.   Gyrating        87. Summoning      37.   Gold
+    6.    [Form][Item]
+                                                         38.   Haunting        88. Sweeping       38.   Heat
+Monster formats:                                         39.   Helpful         89. Terrifying     39.   Honey
+    1.    [Element][Creature]                            40.   Hindering       90. Thirsty        40.   Ice
+    2.    [Effect][Element][Creature]                    41.   Hovering        91. Thundering     41.   Ichor
+    3.    [Effect][Creature]                             42.   Illusory        92. Transmuting    42.   Insect
+    4.    [Form][Creature]                               43.   Imprisoning     93. Transporting   43.   Iron
+    5.    [Creature][Creature]                           44.   Instantaneous   94. Transposing    44.   Ivory
+    6.    [Effect][Creature][Creature]                   45.   Inverting       95. Untiring       45.   Jade
+                                                         46.   Invigorating    96. Vaporizing     46.   Lava
+Roll on the Afflictions table when a Magician is         47.   Invisible       97. Vengeful       47.   Light
+reduced to 0 WIL due to a failed spellcasting save.      48.   Liquefying      98. Voracious      48.   Lightning
+Roll on the Potion Effects table to find what po-        49.   Luminous        99. Warding        49.   Loam
+tions do. The PC may have to drink it to find out.       50.   Maddening       100. Withering     50.   Marmalad
+ts               Magic Elements                         Magic Forms
+izing     1.    Acid        51. Miasma        1.    Arc         51. Nexus
+ng        2.    Aether      52. Milk          2.    Assassin    52. Oracle
+ng        3.    Air         53. Mist          3.    Aura        53. Path
+          4.    Alabaster   54. Moss          4.    Bastion     54. Pattern
+g         5.    Amber       55. Mud           5.    Beacon      55. Plane
+ ve       6.    Ash         56. Mutation      6.    Beam        56. Portal
+tial      7.    Bat         57. Nectar        7.    Beast       57. Prism
+ng        8.    Battle      58. Nightmare     8.    Blade       58. Pulse
+          9.    Beetle      59. Obsidian      9.    Blast       59. Pyramid
+          10.   Bile        60. Oil           10.   Blob        60. Ray
+          11.   Blight      61. Plague        11.   Bolt        61. Rift
+ us       12.   Blood       62. Poison        12.   Bubble      62. Road
+rphing    13.   Bone        63. Power         13.   Burst       63. Scream
+g         14.   Brimstone   64. Psyche        14.   Call        64. Seal
+ ging     15.   Brine       65. Quicksilver   15.   Cascade     65. Sentinel
+ ding     16.   Bronze      66. Rain          16.   Circle      66. Servant
+ ng       17.   Chaos       67. Rat           17.   Cloud       67. Shard
+ ating    18.   Clay        68. Rose          18.   Coil        68. Shield
+ng        19.   Copper      69. Rot           19.   Colossus    69. Shroud
+ng        20.   Crow        70. Rust          20.   Column      70. Sigil
+tive      21.   Crystal     71. Salt          21.   Cone        71. Song
+ ing      22.   Night       72. Sand          22.   Crystal     72. Sphere
+ng        23.   Death       73. Sap           23.   Cube        73. Spiral
+ng        24.   Doom        74. Serpent       24.   Disk        74. Splinter
+ng        25.   Dream       75. Shadow        25.   Elemental   75. Spray
+ng        26.   Dust        76. Silver        26.   Emanation   76. Steed
+ng        27.   Earth       77. Skin          27.   Enclosure   77. Storm
+          28.   Echo        78. Slime         28.   Explosion   78. Stream
+          29.   Energy      79. Smoke         29.   Eye         79. Strike
+ g        30.   Fire        80. Snow          30.   Face        80. Swarm
+          31.   Flame       81. Souls         31.   Field       81. Tendril
+          32.   Flesh       82. Spirit        32.   Fist        82. Tentacle
+g         33.   Fog         83. Star          33.   Fountain    83. Throne
+g         34.   Fungus      84. Steam         34.   Gate        84. Tongue
+g         35.   Ghost       85. Stench        35.   Gaze        85. Torrent
+          36.   Glass       86. Stone         36.   Golem       86. Touch
+ning      37.   Gold        87. Sun           37.   Grip        87. Tower
+ g        38.   Heat        88. Tar           38.   Gush        88. Trap
+ng        39.   Honey       89. Thorn         39.   Halo        89. Tree
+          40.   Ice         90. Thunder       40.   Hand        90. Tunnel
+ ring     41.   Ichor       91. Treasure      41.   Heart       91. Veil
+uting     42.   Insect      92. Venom         42.   Helix       92. Voice
+  rting   43.   Iron        93. Vine          43.   Image       93. Vortex
+  sing    44.   Ivory       94. Void          44.   Laugh       94. Wall
+g         45.   Jade        95. Water         45.   Lock        95. Ward
+ing       46.   Lava        96. Wind          46.   Loop        96. Wave
+ul        47.   Light       97. Wine          47.   Maze        97. Web
+us        48.   Lightning   98. Winter        48.   Moment      98. Whisper
+g         49.   Loam        99. Wood          49.   Monolith    99. Word
+ng        50.   Marmalade   100. Worm         50.   Mouth       100. Zone
+             Creatures                                 Items                               A
+1.    Ant           51. Jellyfish     1.    Amulet         51. Lute          1. Ages backw
+2.    Ape           52. Leech         2.    Arrow          52. Lyre          2. Always hon
+3.    Badger        53. Lion          3.    Arrowhead      53. Mace          3. Always whis
+4.    Bat           54. Locust        4.    Axe            54. Machine       4. Babbling
+5.    Bear          55. Lynx          5.    Bell           55. Mask          5. Bleeds seaw
+6.    Beaver        56. Mantis        6.    Belt           56. Mirror        6. Blurry visio
+7.    Bee           57. Mastodon      7.    Boots          57. Necklace      7. Can only ca
+8.    Beetle        58. Mockingbird   8.    Bottle         58. Needle        8. Can’t stop s
+9.    Boar          59. Mole          9.    Bow            59. Net           9. Caveman sp
+10.   Bulldog       60. Monkey        10.   Bowl           60. Orb           10. Chameleon
+11.   Butterfly     61. Moose         11.   Box            61. Painting      11. Colorblind
+12.   Camel         62. Moth          12.   Bracelet       62. Pearl         12. Coma
+13.   Cat           63. Mouse         13.   Breastplate    63. Pen           13. Drooling
+14.   Centipede     64. Mule          14.   Brooch         64. Phial         14. Drunkenne
+15.   Chameleon     65. Octopus       15.   Candle         65. Pillow        15. Dyscalculia
+16.   Cobra         66. Otter         16.   Card           66. Pipe          16. Dyslexia
+17.   Cockroach     67. Owl           17.   Censer         67. Pipes         17. Inner meltd
+18.   Constrictor   68. Ox            18.   Circlet        68. Purse         18. Eyes on sta
+19.   Cougar        69. Panther       19.   Claw           69. Puzzle Box    19. Faceblind
+20.   Cow           70. Pig           20.   Cloak          70. Pyramid       20. Falls in love
+21.   Coyote        71. Pony          21.   Coin           71. Razor         21. Fast hair gr
+22.   Crab          72. Porcupine     22.   Comb           72. Ring          22. Feverish
+23.   Crane         73. Possum        23.   Compass        73. Rod           23. Fish Eyes
+24.   Cricket       74. Rabbit        24.   Conch          74. Rook          24. Floats 1” of
+25.   Crocodile     75. Raccoon       25.   Crown          75. Rope          25. Followed b
+26.   Crow          76. Rat           26.   Cup            76. Salve         26. Forked ton
+27.   Cuckoo        77. Reindeer      27.   Doll           77. Scarf         27. Full body n
+28.   Donkey        78. Rooster       28.   Egg            78. Scepter       28. Gains 2d100
+29.   Dragonfly     79. Salamander    29.   Eye            79. Scissors      29. Gains d20”
+30.   Duck          80. Scorpion      30.   Eyepatch       80. Scroll        30. Gender swa
+31.   Eagle         81. Seal          31.   Fang           81. Shield        31. Gill Slits
+32.   Eel           82. Shark         32.   Feather        82. Shoe          32. Goat eyes
+33.   Elephant      83. Sheep         33.   Figurine       83. Signet Ring   33. Goat legs
+34.   Elk           84. Slug          34.   Finger         84. Skull         34. Gorgon hai
+35.   Falcon        85. Snail         35.   Flute          85. Slippers      35. Grows a bea
+36.   Ferret        86. Sparrow       36.   Gauntlet       86. Snuffbox      36. Grows antle
+37.   Firefly       87. Spider        37.   Gem            87. Spear         37. Grows cat t
+38.   Fox           88. Squid         38.   Glove          88. Staff         38. Grows feath
+39.   Frog          89. Squirrel      39.   Hammer         89. Strand        39. Grows horn
+40.   Goat          90. Tiger         40.   Handkerchief   90. Sword         40. Grows old
+41.   Goose         91. Toad          41.   Hat            91. Thread        41. Grows scale
+42.   Hare          92. Turtle        42.   Helm           92. Tome          42. Grows seco
+43.   Hart          93. Viper         43.   Horn           93. Tooth         43. Grows shag
+44.   Hawk          94. Vulture       44.   Hourglass      94. Torch         44. Grows back
+45.   Hedgehog      95. Walrus        45.   Jar            95. Tuning Fork   45. Grows tusk
+46.   Hornet        96. Weasel        46.   Key            96. Turnip        46. Hair falls o
+47.   Horse         97. Whale         47.   Knife          97. Wand          47. Hallucinati
+48.   Hound         98. Wolf          48.   Lamp           98. Whetstone     48. Hands swel
+49.   Hummingbird   99. Wolverine     49.   Lens           99. Whistle       49. Hands to cr
+50.   Jackal        100. Worm         50.   Locket         100. Wine         50. Hands to ta
+                     Afflictions                                      Potion Effects
+        1. Ages backwards        51. Insomnia                1.    1-hour vampirism 51. Hear thoughts
+        2. Always honest         52. Invisible Eyes          2.    Alter face          52. Heat vision
+        3. Always whispers       53. Invisible Head          3.    Alter voice         53. Identify magic
+e       4. Babbling              54. Kleptomania             4.    Animal-form         54. Immune to cold
+        5. Bleeds seawater       55. Language replaced       5.    Anti-gravity        55. Immune to heat
+        6. Blurry vision         56. Limbs to tentacles      6.    Anti-magic          56. Immune to metal
+ce      7. Can only caw          57. Literal third eye       7.    Astral travel       57. Immune to poison
+        8. Can’t stop singing 58. Lizard eyes                8.    Blink               58. Invisibility
+        9. Caveman speech        59. Loses d20” height       9.    Blurry outlines     59. Invulnerability
+        10. Chameleon Eyes       60. Mead snob               10.   Body-swap           60. Iron belly
+g       11. Colorblind           61. Monkey tail             11.   Chamaeleon skin 61. Item-form
+        12. Coma                 62. Mouth smokes            12.   Charm               62. Jumping
+        13. Drooling             63. Must shed skin          13.   Clairaudience       63. Levitation
+        14. Drunkenness          64. Mute                    14.   Clairvoyance        64. Mirror image
+        15. Dyscalculia          65. Narcolepsy              15.   Command insects 65. Never hungry
+        16. Dyslexia             66. No new memories         16.   Control animals     66. Never lost
+        17. Inner meltdown       67. No sense of direction   17.   Control element 67. Night vision
+        18. Eyes on stalks       68. No sense of time        18.   Contr. humanoids 68. Nullify gravity
+Box     19. Faceblind            69. No taste buds           19.   Control plants      69. Panglottism
+d       20. Falls in love        70. Nocturnal               20.   Control spirits     70. Pass as undead
+        21. Fast hair growth     71. One leg grows d6”       21.   Control undead      71. Radiance
+        22. Feverish             72. Owl eyes                22.   Cure Disease        72. Random affliction
+        23. Fish Eyes            73. Pacifist                23.   Cure Poison         73. Random spell
+        24. Floats 1” off ground 74. Purple skin             24.   Deafening voice     74. Regeneration
+        25. Followed by birds    75. Random animal head      25.   Detect evil         75. Removes curse
+        26. Forked tongue        76. Says thoughts aloud     26.   Detect gold         76. Scorching gaze
+        27. Full body numbness 77. Scorpion tail             27.   Detect magic        77. Scry
+        28. Gains 2d100 pounds 78. Second personality        28.   Detect secret doors 78. Second sight
+        29. Gains d20” height    79. See-through skin        29.   Detect undead       79. Sharp claws
+        30. Gender swap          80. Shouts everything       30.   Direction Sense     80. Shrink
+        31. Gill Slits           81. Silly walk              31.   Dream-walk          81. Slow
+        32. Goat eyes            82. Skin boils              32.   Element-form        82. Speak with animals
+Ring    33. Goat legs            83. Skin sags               33.   Enhance all attacks 83. Speak with dead
+        34. Gorgon hair          84. Skips everywhere        34.   Expert artisan      84. Speak w/elements
+        35. Grows a beak         85. Skull grows             35.   Expert blacksmith 85. Speak with plants
+ox      36. Grows antlers        86. Slightly translucent    36.   Expert cook         86. Spider-climbing
+        37. Grows cat tail       87. Slimy skin              37.   Expert engineer     87. Stretchy
+        38. Grows feathers       88. Smells like fish        38.   Expert musician     88. Super strength
+        39. Grows horns          89. Snake tail              39.   Expert orator       89. Telekinesis
+        40. Grows old            90. Stuttering              40.   Expert surgeon      90. Telepathy
+        41. Grows scales         91. Suckers on hands        41.   Extra arm           91. Terror-presence
+        42. Grows second face 92. Terrible taste in art      42.   Fire breathing      92. Throw Voice
+        43. Grows shaggy fur     93. The shakes              43.   Flying              93. Tongues
+        44. Grows back-spines 94. Tinnitus                   44.   Frog tongue         94. Too boring to see
+ Fork   45. Grows tusks          95. Tone-deaf               45.   Gain a tail         95. True Sight
+        46. Hair falls out       96. Transparent skin        46.   Gender swap         96. Truthsay
+        47. Hallucinations       97. Vegetarianism           47.   Growth              97. Water breathing
+one     48. Hands swell up       98. Voice swaps gender      48.   Haste               98. Water walking
+        49. Hands to crab claws 99. Voice echoes             49.   Heal stats          99. Web-slinging
+        50. Hands to talons      100. Webb’d hands/feet      50.   Heal Wounds         100. X-Ray vision
+

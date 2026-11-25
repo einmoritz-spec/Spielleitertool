@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1030sq";
+const VERSION = "v1031sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -2198,6 +2198,15 @@ const FILES = [
   "assets/fonts/spire-plantin-400i.woff2",
   "assets/fonts/spire-plantin-700.woff2",
   "pico/index.html",
+  "intotheodd/index.html",
+  "intotheodd/style.css",
+  "intotheodd/js/app.js",
+  "intotheodd/js/data/buecher.js",
+  "intotheodd/img/hero.webp",
+  "intotheodd/fonts/CrimsonText-Regular.ttf",
+  "intotheodd/fonts/CrimsonText-Italic.ttf",
+  "intotheodd/fonts/CrimsonText-SemiBold.ttf",
+  "assets/logos/into-the-odd.webp",
   "discworld/img/bogen/seite1.jpg",
   "discworld/img/bogen/seite2.jpg",
   "discworld/img/karte.webp",

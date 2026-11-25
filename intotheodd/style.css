@@ -1,0 +1,53 @@
+/* INTO THE ODD – Farben und Schriften aus dem Corebook (Marmor-Türkis, Neonrosa, Orange, Königsblau auf Schwarz) */
+@font-face{font-family:Anton;src:url(../assets/fonts/mb-anton-latin-400-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Crimson;font-weight:400;src:url(fonts/CrimsonText-Regular.ttf);font-display:swap}
+@font-face{font-family:Crimson;font-weight:400;font-style:italic;src:url(fonts/CrimsonText-Italic.ttf);font-display:swap}
+@font-face{font-family:Crimson;font-weight:600;src:url(fonts/CrimsonText-SemiBold.ttf);font-display:swap}
+:root{--ink:#111;--paper:#fbfaf6;--pink:#f06a9a;--orange:#e2561e;--teal:#0b9a96;--blue:#6a6ee8;--cream:#f5d9c8;--bg:#fbfaf6;--fg:#111;--sub:#5c5a55;--line:#ddd8cc}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.5 Crimson,Georgia,serif;min-height:100vh}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;cursor:pointer;text-decoration:none}
+h1,h2,h3,h4{font-family:Anton,Impact,sans-serif;font-weight:400;line-height:1.05;letter-spacing:.01em}
+/* Kopfzeile: schwarz, Logo links, Symbole rechts ohne Umrandung */
+.topbar{position:sticky;top:0;z-index:30;height:64px;display:flex;align-items:center;gap:4px;padding:0 20px;background:#000;color:#fff}
+.topbar .brand{display:flex;align-items:center;height:100%;padding-right:18px}
+.topbar .brand img{height:48px;display:block}
+.topbar .sp{flex:1}
+.ktabs{display:flex;height:100%;gap:2px}
+.ktabs a{display:flex;align-items:center;padding:0 16px;font:400 20px/1 Anton,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#ffffff99;border-bottom:4px solid transparent}
+.ktabs a:hover{color:#fff}.ktabs a.on{color:#fff;border-bottom-color:var(--pink)}
+.ik{width:42px;height:42px;display:inline-grid;place-items:center;border-radius:50%;color:#fff;opacity:.8;transition:opacity .15s,background .15s}
+.ik:hover{opacity:1;background:#ffffff1f}
+.ik svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.topbar .tm-sg{border:0!important;background:none!important;width:42px!important;height:42px!important;border-radius:50%!important;margin:0!important;opacity:.8}
+.topbar .tm-sg:hover{opacity:1;background:#ffffff1f!important}
+/* Startseite C: Meteorhimmel */
+body.start{background:#05060f}
+.hero{position:relative;height:calc(100vh - 64px);min-height:640px;overflow:hidden;background:#05060f}
+.hero .bg{position:absolute;inset:0;background:url(img/hero.webp) center 28%/cover}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(#0000 34%,#000e 100%)}
+.hero .mid{position:absolute;top:6%;left:0;right:0;text-align:center;color:#fff}
+.hero .tit{display:block;margin:0 auto;height:min(46vh,380px);filter:drop-shadow(0 4px 28px #000c)}
+.hero .sub{font:italic 400 26px/1.2 Crimson,serif;margin-top:16px;text-shadow:0 2px 14px #000}
+.areas{position:absolute;left:44px;right:44px;bottom:40px;display:grid;grid-template-columns:repeat(5,1fr)}
+.area{display:block;text-align:left;background:#000c;border-top:6px solid var(--c);padding:16px 20px 18px;min-height:112px;color:#fff;transition:background .15s,transform .15s}
+.area:hover{background:#000;transform:translateY(-4px)}
+.area b{display:block;font:400 29px/1 Anton,sans-serif;letter-spacing:.02em;margin-bottom:6px}
+.area span{display:block;font-size:16px;line-height:1.3;color:#cfd0dc}
+/* Platzhalter-Seiten */
+.page{max-width:1100px;margin:0 auto;padding:44px 40px}
+.page h2{font-size:56px;color:var(--teal);margin-bottom:12px}
+/* Menü und Überblick */
+.mm-backdrop{position:fixed;inset:0;background:#0007;opacity:0;pointer-events:none;transition:opacity .2s;z-index:60}
+.mm-backdrop.on{opacity:1;pointer-events:auto}
+.mm-panel{position:fixed;top:0;right:0;bottom:0;width:330px;background:#000;color:#fff;transform:translateX(100%);transition:transform .22s;z-index:61;padding:24px 26px;overflow:auto}
+.mm-panel.on{transform:none}
+.mm-panel h3{font-size:26px;margin:4px 0 14px;color:var(--pink)}
+.mm-panel button{display:block;width:100%;text-align:left;padding:11px 0;font:400 20px Anton,sans-serif;letter-spacing:.03em;border-bottom:1px solid #ffffff22;opacity:.85}
+.mm-panel button:hover{opacity:1;color:var(--pink)}
+.modal{position:fixed;inset:0;background:#000a;z-index:90;display:grid;place-items:center}
+.modal>div{width:min(760px,92vw);max-height:88vh;overflow:auto;background:var(--paper);color:var(--ink);border-top:10px solid var(--pink);padding:28px 34px 32px}
+.modal h2{font-size:42px;color:var(--teal);margin-bottom:14px}
+.inf{display:grid;grid-template-columns:150px 1fr;gap:10px 22px;font-size:18px;line-height:1.4}
+.inf b{font:400 21px/1.15 Anton,sans-serif;letter-spacing:.02em;color:var(--orange)}

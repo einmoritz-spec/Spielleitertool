@@ -38,16 +38,40 @@ function lLim(id, i, k, max){
   var bx = document.querySelectorAll("#" + id + " .lim")[i].querySelectorAll(".bx");
   bx.forEach(function(b, n){ b.classList.toggle("on", n < LSTATE[id + "-" + i]); });
 }
-function lScene(D, s, i){
-  var h = '<div class="sec txt lm"><h2>' + esc(s.t) + '</h2><div class="lm-en">' + esc(s.en) + '</div>';
-  if(s.vor && s.vor.length) h += '<div class="lm-vor">' + s.vor.map(function(p){ return '<p>' + lmd(p) + '</p>'; }).join("") + '</div>';
-  h += '<h3>Ablauf der Szene</h3>' + s.ablauf.map(function(p){
+function lVor(v){
+  return (v || []).map(function(p){
+    var o = typeof p === "string" ? {x: p} : p;
+    return (o.l ? '<div class="lm-vl">' + esc(o.l) + '</div>' : '') + '<div class="lm-vor">' + o.x.split("\n\n").map(function(t){ return '<p>' + lmd(t) + '</p>'; }).join("") + '</div>';
+  }).join("");
+}
+function lPara(arr){
+  return (arr || []).map(function(p){
     if(typeof p === "string") return '<p>' + lmd(p) + '</p>';
+    if(p.box) return '<div class="lm-box"><h4>' + esc(p.box) + '</h4>' + p.l.map(function(x){ return '<p>' + lmd(x) + '</p>'; }).join("") + '</div>';
     return '<div class="lm-st"><h4>' + esc(p.h) + '</h4>' + (p.i ? '<i>' + lmd(p.i) + '</i>' : '') + '<ul>' + p.l.map(function(x){ return '<li>' + lmd(x) + '</li>'; }).join("") + '</ul></div>';
   }).join("");
-  if(s.figuren && s.figuren.length) h += '<h3>Figuren</h3><div class="lm-fig">' + s.figuren.map(function(f){ return '<div><b>' + esc(f.n) + '</b>' + lmd(f.x) + '</div>'; }).join("") + '</div>';
+}
+function lNpc(f){
+  var bild = f.id ? lFigur(f.id) : null;
+  return '<div class="lnpc">' + (bild ? '<img src="' + IMGP(bild, 1) + '" alt="">' : '') + '<div><b>' + esc(f.n) + '</b>' + (f.rolle ? '<i>' + esc(f.rolle) + '</i>' : '') +
+    (f.zitat ? '<q>' + esc(f.zitat) + '</q>' : '') + (f.x ? '<p>' + lmd(f.x) + '</p>' : '') +
+    (f.will ? '<p><span class="lk">Will</span>' + lmd(f.will) + '</p>' : '') + (f.spiel ? '<p><span class="lk">Im Spiel</span>' + lmd(f.spiel) + '</p>' : '') + '</div></div>';
+}
+function lTags(s){
+  if(!(s.tags && s.tags.length) && !(s.status && s.status.length)) return "";
+  return '<div class="lm-tags">' + (s.tags && s.tags.length ? '<div><span class="lk">Story-Tags</span>' + s.tags.map(function(t){ return '<span class="tg">' + esc(t) + '</span>'; }).join(" ") + '</div>' : '') +
+    (s.status && s.status.length ? '<div><span class="lk">Gilt in der Szene</span>' + s.status.map(function(t){ return lmd(t); }).join(" · ") + '</div>' : '') + '</div>';
+}
+function lScene(D, s, i, base){
+  var h = '<div class="sec txt lm"><h2>' + esc(s.t) + '</h2><div class="lm-en">' + esc(s.en) + '</div>';
+  if(s.kurz && s.kurz.length) h += '<div class="lm-kb">' + s.kurz.map(function(x){ return '<div>' + lmd(x) + '</div>'; }).join("") + '</div>';
+  h += lVor(s.vor) + lTags(s);
+  h += '<h3>Ablauf der Szene</h3>' + lPara(s.ablauf);
+  if(s.figuren && s.figuren.length) h += '<h3>Figuren</h3><div class="lnpcs">' + s.figuren.map(lNpc).join("") + '</div>';
   if(s.vign && s.vign.length) h += '<h3>Vignetten</h3><div class="vgs">' + s.vign.map(lVign).join("") + '</div>';
+  if(s.hinweise && s.hinweise.length) h += '<h3>Enthüllungen</h3><div class="lm-hw">' + s.hinweise.map(function(x){ return '<div><span>' + esc(x.n) + '</span><p>' + lmd(x.x) + '</p></div>'; }).join("") + '</div>';
   if(s.ch && s.ch.length) h += '<h3>Challenges</h3><div class="chls">' + s.ch.map(function(k){ return lChall(k, D.challenges[k]); }).join("") + '</div>';
+  if(s.tipps && s.tipps.length) h += '<h3>Tipps für die Spielleitung</h3><div class="lm-tp">' + s.tipps.map(function(x){ return '<p>' + lmd(x) + '</p>'; }).join("") + '</div>';
   if(s.lohn && s.lohn.length) h += '<h3>Belohnung</h3><ul class="bul">' + s.lohn.map(function(x){ return '<li>' + lmd(x) + '</li>'; }).join("") + '</ul>';
   return h + '</div>';
 }
@@ -62,11 +86,20 @@ function litmView(P, bar){
   var body;
   if(cur === "ueberblick"){
     body = '<div class="sec txt lm"><h2>' + esc(D.titel) + ' <span class="lm-bd">Legend in the Mist</span></h2><div class="lm-en">' + esc(D.en) + ' · ' + esc(D.quelle) + ' · ' + esc(D.seiten) + '</div>' +
-      '<div class="lm-hero" style="background-image:url(' + IMGP(D.bild) + ')"></div><p class="lm-kurz">' + lmd(D.kurz) + '</p><h3>Ablauf</h3><ol class="lm-ab">' + D.szenen.map(function(s){ return '<li><a onclick="go(\'' + base + '/' + s.key + '\')">' + esc(s.t) + '</a></li>'; }).join("") + '</ol>' +
-      '<h3>Helden</h3><div class="lhs">' + D.helden.map(lHeld).join("") + '</div></div>';
+      '<div class="lm-hero" style="background-image:url(' + IMGP(D.bild) + ')"></div><p class="lm-kurz">' + lmd(D.kurz) + '</p>' +
+      (D.eckdaten ? '<div class="lm-kb">' + D.eckdaten.map(function(x){ return '<div>' + lmd(x) + '</div>'; }).join("") + '</div>' : '') +
+      lVor(D.vor) +
+      (D.hintergrund ? '<h3>Hintergrund</h3>' + lPara(D.hintergrund) : '') +
+      (D.wahrheit ? '<h3>Was wirklich vor sich geht</h3>' + lPara(D.wahrheit) : '') +
+      '<h3>Szenen</h3><ol class="lm-ab">' + D.szenen.map(function(s){ return '<li><a onclick="go(\'' + base + '/' + s.key + '\')">' + esc(s.t) + '</a>' + (s.sub ? ' <span class="lm-sub">' + lmd(s.sub) + '</span>' : '') + '</li>'; }).join("") + '</ol>' +
+      '<h3>Helden</h3><div class="lhs">' + D.helden.map(lHeld).join("") + '</div>' +
+      (D.gef ? '<div class="lh lm-gef"><div class="lh-k"><div><h3>Gefährtenschaft · ' + esc(D.gef.name) + '</h3><i>' + esc(D.gef.x) + '</i></div></div><div class="th"><div class="th-tags">' + D.gef.tags.map(function(x){ return '<span class="tg">' + esc(x) + '</span>'; }).join("") + '<span class="tg sw">' + esc(D.gef.schw) + '</span></div><div class="th-q">Quest: ' + esc(D.gef.quest) + '</div></div></div>' : '') +
+      (D.einstieg ? '<h3>Einstiege für die Helden</h3>' + lPara(D.einstieg) : '') +
+      (D.regeln ? '<h3>Household-Würfe in Legend in the Mist</h3>' + lPara(D.regeln) : '') +
+      (D.tipps ? '<h3>Tipps für die Spielleitung</h3><div class="lm-tp">' + D.tipps.map(function(x){ return '<p>' + lmd(x) + '</p>'; }).join("") + '</div>' : '') + '</div>';
   } else {
     var n = D.szenen.map(function(s){ return s.key; }).indexOf(cur);
-    body = n < 0 ? "" : lScene(D, D.szenen[n], n);
+    body = n < 0 ? "" : lScene(D, D.szenen[n], n, base);
   }
   return {bar: bar, body: lay(side, body)};
 }

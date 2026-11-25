@@ -50,8 +50,8 @@ function page(t, sid){
 }
 
 /* ---------- Talente ---------- */
-var TK = ["Hintergrund","Kampf","Anführer","Macht","Experten","Sozial","Übersinnlich","Legendär","Arkane Hintergründe","Harrowed"];
-var TKT = {"Arkane Hintergründe":"Arkane Hintergründe","Harrowed":"Harrowed-Talente","Hintergrund":"Hintergrundtalente","Kampf":"Kampftalente","Anführer":"Anführertalente","Macht":"Machttalente","Experten":"Expertentalente","Sozial":"Soziale Talente","Übersinnlich":"Übersinnliche Talente","Legendär":"Legendäre Talente"};
+var TK = ["Hintergrund","Kampf","Anführer","Macht","Experten","Sozial","Übersinnlich","Legendär","Arkane Hintergründe","Monsterhelden","Harrowed"];
+var TKT = {"Monsterhelden":"Monsterhelden-Talente","Arkane Hintergründe":"Arkane Hintergründe","Harrowed":"Harrowed-Talente","Hintergrund":"Hintergrundtalente","Kampf":"Kampftalente","Anführer":"Anführertalente","Macht":"Machttalente","Experten":"Expertentalente","Sozial":"Soziale Talente","Übersinnlich":"Übersinnliche Talente","Legendär":"Legendäre Talente"};
 var RN = ["Anfänger","Fortgeschritten","Veteran","Heroisch","Legendär"], RC = ["#7a7067","#c27a1c","#a51f1a","#6a3a8a","#b8902a"];
 function talSicht(t){ return t.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
 function talBadges(t){ return t.s.map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join(""); }

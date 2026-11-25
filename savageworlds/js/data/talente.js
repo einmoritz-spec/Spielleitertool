@@ -4015,6 +4015,1125 @@ var SW_TALENTE = [
 "o": 2
 },
 {
+"n": "Erschwerter Schaden",
+"k": "Monsterhelden",
+"r": 1,
+"v": "",
+"w": 0,
+"b": [
+"Angriffe mit den eigenen Klauen, dem eigenen Biss oder angeborenen Kräften wie heiligem Licht oder Höllenfeuer können jedes andere übernatürliche Wesen verletzen, unabhängig von dessen Unverwundbarkeiten oder Schwächen. Gegner mit Regeneration (Langsam oder Schnell) regenerieren diese Wunden mit –4."
+],
+"p": 11,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Gesteigerte Furcht",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Willenskraft W8+",
+"w": 0,
+"b": [
+"Alle in diesem Kapitel aufgeführten Monster lösen bei Sterblichen beim ersten Anblick Furcht aus – es sei denn, solche Kreaturen sind im Setting alltäglich. Mit diesem Talent werden diese Furchtproben mit –2 abgelegt."
+],
+"p": 11,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Alt",
+"k": "Monsterhelden",
+"r": 0,
+"v": "",
+"w": 0,
+"b": [
+"Manche monströsen Wesen haben vielleicht Rom brennen sehen, Mark Twain sprechen hören oder waren sogar dabei, als Luzifer fiel. Sie hatten wohl zahlreiche Leben, mehrere Liebhaber oder Familien und lebten in vielen Teilen der Welt. Ihre angesammelte Erfahrung gibt ihnen +2 auf alle Verstand- und Allgemeinwissen-Würfe.",
+"Offensichtlich sind die übrigen Fertigkeiten, Talente und Fähigkeiten, die solch langlebige Wesen haben müssten, mit den üblichen Regeln der Charaktererschaffung nicht möglich. Der Spieler sollte daher mit der Spielleitung klären, warum diese Fähigkeiten fehlen. Vielleicht wurden sie gelöscht oder aus irgendeinem Grund verdrängt, kehren aber zurück, wenn die Kreatur neue Aufstiege erhält und ihr jetziges Leben neu beginnt."
+],
+"p": 11,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Wildheit",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Stärke W10+",
+"w": 0,
+"b": [
+"Das Monster kann in verzweifelten Zeiten seine bestialische Wildheit, scharfe Klauen oder rohe Wut heraufbeschwören. Die Wilden Angriffe der Kreatur verursachen +4 Schaden statt +2."
+],
+"p": 11,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Mystische Kräfte (Engel)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Engel",
+"w": 0,
+"b": [
+"Manche Engel haben einen vollständigen Arkanen Hintergrund, andere sind von ihrem Schöpfer mit einem begrenzten, aber verlässlicheren Satz an Fähigkeiten gesegnet. Wähle eines der folgenden Pakete; weitere Einzelheiten stehen in der Seitenleiste Mystische Kräfte auf S. 11.",
+"TOD: Eigenschaft stärken (nur selbst), Ablenkung, Schutz (nur selbst), Niederstrecken.",
+"HEROLD: Eigenschaft stärken/senken, Wahrsagen, Heilung, Weitblick."
+],
+"p": 13,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Übernatürliches spüren (Engel)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Engel",
+"w": 0,
+"b": [
+"Der Engel kann übernatürliche Wesen und magische Effekte im Umkreis von 10\" (20 Yards) spüren. Die Fähigkeit lokalisiert oder verfolgt solche Wesen nicht, sondern zeigt nur, dass sie anwesend sind, und grob ihre Zahl (wenige oder viele)."
+],
+"p": 13,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Geschwindigkeit (Engel)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Engel",
+"w": 0,
+"b": [
+"Der Flugschritt des Engels steigt auf 24. Das Talent kann ein zweites Mal gewählt werden, um den Schritt auf 48 zu erhöhen."
+],
+"p": 13,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Sprachen (Engel)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Engel",
+"w": 0,
+"b": [
+"Der Engel kann alle der Menschheit bekannten Sprachen lesen, schreiben und sprechen. Fremde Sprachen oder verschlüsselte Nachrichten versteht sie jedoch nicht."
+],
+"p": 13,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Widerstand (Engel)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Engel",
+"w": 0,
+"b": [
+"Der Engel ist von einer unsichtbaren Aura göttlicher Gunst geschützt, die ihm +2 Widerstand gewährt."
+],
+"p": 13,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Göttlicher Widerstand (Engel)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Widerstand (Engel)",
+"w": 0,
+"b": [
+"Der Engel ist von einer unsichtbaren Aura göttlicher Gunst geschützt, die ihm weitere 2 Punkte Widerstand gewährt (insgesamt +4)."
+],
+"p": 13,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Flügelschlag (Engel)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Engel",
+"w": 0,
+"b": [
+"Die Flügel des Engels werden zu Waffen. Er kann damit mit Str+W8 und Reichweite 2 zuschlagen und sie mit dem Talent Rundumschlag einsetzen.",
+"Fliegt der Engel mindestens 5\" (10 Yards) in einigermaßen gerader Linie, verursacht der erste Flügelschlag in einem Zug +4 Schaden.",
+"Die Flügel werden außerdem widerstandsfähiger, sodass der Engel sich in sie hüllen kann. Solange die Flügel ausgebreitet sind, erhält er +2 Widerstand – das lässt sich mit einem Gezielten Schuss mit –2 umgehen."
+],
+"p": 13,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Göttliche Klinge (Engel)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Engel",
+"w": 0,
+"b": [
+"Der Engel besitzt eine magische Waffe, die andere Unsterbliche töten kann. Sie ignoriert das Talent Unsterblichkeit und addiert +W6 Schaden zu ihrem Grundtyp. Ein göttliches Langschwert verursacht zum Beispiel Str+W8+W6 Schaden."
+],
+"p": 12,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Heiliges Licht (Engel)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Engel",
+"w": 0,
+"b": [
+"Der Engel kann schwaches oder helles Licht in einer einzelnen Großen Explosionsschablone an beliebiger Stelle innerhalb von 12\" (24 Yards) erzeugen und sie jede Runde als begrenzte freie Aktion bewegen.",
+"Als begrenzte Aktion kann der Engel das heilige Licht auch zu einer sengenden Kegelschablone (oder Strahl) bündeln. Der Angriff nutzt Glaube und verursacht 2W4 Schaden, dem ausgewichen werden kann (mit –2 bei einer Steigerung auf dem Angriffswurf). Ein Kritischer Fehlschlag erschöpft den Engel."
+],
+"p": 12,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Sengender Strahl (Engel)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Heiliges Licht (Engel)",
+"w": 0,
+"b": [
+"Der Schaden des Heiligen Lichts des Engels steigt auf 2W6."
+],
+"p": 12,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Unsterblichkeit (Engel)",
+"k": "Monsterhelden",
+"r": 3,
+"v": "Engel",
+"w": 0,
+"b": [
+"Der Engel hat eine ewige Seele, die auch dann nicht zerstört wird, wenn sein Körper „getötet“ wird. Wird er erschlagen, kehrt er für W4 Tage in den „Himmel“ zurück, aus dem er stammt, und kommt dann in einem neuen Körper mit denselben Werten zurück. Dauerhaft erschlagen werden kann er nur mit einer in der Hölle geschmiedeten Waffe oder anderen von der SL ersonnenen Methoden."
+],
+"p": 12,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Gepanzerte Haut (Dämon)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Die Haut des Dämons ist dick und schuppig und gibt ihm +4 Panzerung am ganzen Körper."
+],
+"p": 14,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Biss (Dämon)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon hat Reißzähne, die Str+W6 Schaden verursachen und gegen gepackte Gegner eingesetzt werden können (siehe Ringen im Grundregelwerk). Das Talent kann ein zweites Mal gewählt werden, um den Schaden auf Str+W6, DB 2 zu erhöhen."
+],
+"p": 14,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Klauen (Dämon)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon hat einziehbare Klauen, die Str+W4 Schaden verursachen und +2 auf Athletik-Würfe (Klettern) geben. Das Talent kann ein zweites Mal gewählt werden, um den Schaden auf Str+W6, DB 2 zu erhöhen."
+],
+"p": 14,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Dämonische Unsterblichkeit (Dämon)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon hat eine ewige Seele, die auch zurückkehrt, wenn sein Körper zerstört wird. Wird er erschlagen, geht er für W4 Tage in die „Hölle“, aus der er stammt, und kehrt dann in einem neuen Körper mit denselben Werten zurück. Dauerhaft erschlagen werden kann er nur mit einer im Himmel oder in der Hölle geschmiedeten Waffe oder anderen von der SL ersonnenen Methoden."
+],
+"p": 14,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Höllenfeuer (Dämon)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon kann ein kleines Feuer (1W6 Schaden) in einer einzelnen Kleinen Explosionsschablone an beliebiger Stelle innerhalb von 12\" (24 Yards) erzeugen und es jede Runde als begrenzte freie Aktion bewegen.",
+"Als begrenzte Aktion kann der Dämon seine Höllenflamme auch zu einer lodernden Kegelschablone bündeln. Der Angriff nutzt Athletik und verursacht 2W4 Schaden, dem ausgewichen werden kann (mit –2 bei einer Steigerung auf dem Angriffswurf). Ein Kritischer Fehlschlag erschöpft den Dämon."
+],
+"p": 14,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Versengen (Dämon)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Höllenfeuer (Dämon)",
+"w": 0,
+"b": [
+"Der Höllenfeuer-Schaden des Dämons steigt auf 2W6. Außerdem darf der Feuerspeier die Kegelschablone (oder den Strahl) nach Belieben einsetzen."
+],
+"p": 15,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Unkörperlich (Dämon)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon ist ein Geist aus dunkler Energie und Bosheit ohne materielle Form. Er kann Hindernisse durchdringen und wird von physischen Waffen und nichtmagischen Energien wie Feuer, Kälte oder Elektrizität nicht beeinflusst. Magische oder gesegnete Waffen oder Energie wirken normal auf ihn.",
+"Der Dämon kann für eine Runde körperlich werden, indem er als begrenzte freie Aktion eine Willenskraftprobe schafft. Solange er körperlich ist, kann er die physische Welt beeinflussen, aber auch von normalen Waffen und Energien verletzt werden."
+],
+"p": 15,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Mystische Kräfte (Dämon)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Dämonen sind magische Wesen und verstärken ihre natürlichen Fähigkeiten manchmal mit verschiedenen Kräften. Wähle eines der folgenden Pakete; weitere Einzelheiten stehen in der Seitenleiste Mystische Kräfte auf S. 11.",
+"BESITZERGREIFER: Eigenschaft stärken/senken, Fluch, Albträume, Marionette.",
+"BESCHWÖRER: Schutz, Verbündeten beschwören, Dämon beschwören, Zombie.",
+"VERSUCHER: Eigenschaft stärken/senken, Verkleidung, Empathie, Gedanken lesen.",
+"TRICKSER: Ablenkung (nur selbst), Verkleidung, Furcht, Schreckensbilder."
+],
+"p": 15,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Übernatürliches spüren (Dämon)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon kann übernatürliche Wesen und magische Effekte im Umkreis von 10\" (20 Yards) spüren. Die Fähigkeit lokalisiert oder verfolgt solche Wesen nicht, sondern zeigt nur, dass sie anwesend sind, und grob ihre Zahl (wenige oder viele)."
+],
+"p": 15,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Wahrer Dämon (Dämon)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon erlangt den Segen der Hölle zurück. Er erleidet nur halben Schaden (aufgerundet) durch nichtmagische Angriffe, außer durch kaltes Eisen."
+],
+"p": 15,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Flügel (Dämon)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Dämon",
+"w": 0,
+"b": [
+"Der Dämon hat einziehbare Flügel und kann mit Schritt 12 fliegen. Das Talent kann ein zweites Mal gewählt werden, um den Schritt auf 24 zu erhöhen, und ein drittes Mal für Schritt 48."
+],
+"p": 15,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Graben (Mumie)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Mumie",
+"w": 0,
+"b": [
+"Die Mumie kann sich mit halbem Schritt durch alles außer massivem Stein graben."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Mumienfäule (Mumie)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Mumie",
+"w": 0,
+"b": [
+"Jeder, den die Mumie berührt – ob verletzt oder nicht –, muss eine Konstitutionsprobe ablegen. Bei einem Misslingen hat der Charakter „Mumienfäule“ und erleidet sofort eine Wunde. Opfer, die an der „Mumienfäule“ sterben, können durch die Macht Zombie als Mumien zurückgebracht werden."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Mystische Kräfte (Mumie)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Mumie",
+"w": 0,
+"b": [
+"Manche Mumien können auf mystische oder göttliche Quellen für magische Kräfte zurückgreifen. Wähle eines der folgenden Pakete; weitere Einzelheiten stehen in der Seitenleiste Mystische Kräfte auf S. 11.",
+"BAUMEISTER: Barriere, Arkanes entdecken/verbergen, Schließen/Öffnen, Telekinese.",
+"KÖNIGLICH: Explosion, Salve, Spott."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Regeneration (Langsam) (Mumie)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Mumie",
+"w": 0,
+"b": [
+"Mumien mit diesem Talent können jeden Tag einen Konstitutionswurf ablegen, um Wunden zu regenerieren, die nicht durch Feuer verursacht wurden (diese müssen normal heilen)."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Regeneration (Schnell) (Mumie)",
+"k": "Monsterhelden",
+"r": 4,
+"v": "Regeneration (Langsam) (Mumie)",
+"w": 0,
+"b": [
+"Mumien mit diesem Talent können jede Runde einen Konstitutionswurf ablegen, um Wunden zu regenerieren, die nicht durch Feuer oder Weihwasser verursacht wurden (diese müssen normal heilen)."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Sturm beschwören (Mumie)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Mumie",
+"w": 0,
+"b": [
+"Diese Fähigkeit wird typischerweise mit ägyptischen Mumien verbunden, aber solche aus anderen Regionen nutzen ähnliche Fähigkeiten mit anderen Trappings. Einmal pro Spielwoche kann die Mumie einen gewaltigen Sandsturm von mehreren Meilen Durchmesser beschwören. Der Sturm fegt alles vor sich her, verursacht Dunkelheit und verlangt jede Minute ohne Schutz Konstitutionswürfe. Wer scheitert, ist Erschöpft, was zum Tod durch Ersticken führen kann."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Schwarm beschwören (Mumie)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Mumie",
+"w": 0,
+"b": [
+"Einmal pro Tag kann eine Mumie mit diesem Talent einen Schwarm aus Insekten, Ungeziefer oder anderen Plagegeistern beschwören. Das ist ein Mittlerer Schwarm, der sich nicht aufteilt und allgemeine mentale Anweisungen wie „bewache die Tür“ oder „töte diese Eindringlinge“ erhalten kann."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Großen Schwarm beschwören (Mumie)",
+"k": "Monsterhelden",
+"r": 3,
+"v": "Schwarm beschwören (Mumie)",
+"w": 0,
+"b": [
+"Der Schwarm der Mumie ist Groß und verwandelt sich, wenn er erschlagen wird, in zwei Mittlere Schwärme."
+],
+"p": 16,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Abnehmbare Teile (Flickenmonster)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Flickenmonster",
+"w": 0,
+"b": [
+"Das Grauen kann verschiedene Teile seines Körpers ablösen und aus der Ferne steuern! Die maximale Entfernung, in der ein Teil wirken kann, beträgt eine Meile. Wird das Teil zerstört, kann das Flickenmonster es nachwachsen lassen, indem es ein identisches Körperteil verspeist. Das Nachwachsen dauert etwa eine Stunde. Es kann beliebig viele der folgenden Teile ablösen und per Aktion zwischen ihnen wechseln:",
+"OHR: Das Ohr kann sich nicht bewegen, hört aber wie ein normales Ohr. Monster können es hinterlassen, wo sie wollen, um Gespräche zu belauschen!",
+"AUGE: Das Auge kann mit Schritt 3 herumrollen und sieht wie ein normales Auge.",
+"HAND: Die Hand bewegt sich mit Schritt 5 und hat eine Stärke, die zwei Würfeltypen unter der ihres Besitzers liegt. Die Hand ist Winzig, ob sie menschengroße Ziele angreifen kann, liegt daher im Ermessen der SL und den Umständen."
+],
+"p": 17,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Entladung (Flickenmonster)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Flickenmonster",
+"w": 0,
+"b": [
+"Blitz und Elektrizität gaben dieser Schöpfung LEBEN – und damit lässt sich Leben nehmen! Die Kreatur speichert Energie in ihrem Körper. Als begrenzte Aktion kann sie eine Stufe Erschöpfung hinnehmen, um einen sengenden Stromstoß in einer Großen Explosionsschablone auszusenden, die auf sie zentriert ist. Jedes Wesen darin erleidet 4W6 Elektroschaden. Ein Kampfunfähiges Monster wird ohnmächtig, stirbt aber nicht."
+],
+"p": 17,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Rückblenden (Flickenmonster)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Flickenmonster",
+"w": 0,
+"b": [
+"Das Monster erhält gelegentlich Erinnerungs- und Wissensfetzen aus den vielen Körperteilen, aus denen es zusammengesetzt wurde. Einmal pro Begegnung kann es eine beliebige Fertigkeit um einen Würfeltyp erhöhen, solange sie die verknüpfte Eigenschaft nicht übersteigt. Hat es die Fertigkeit nicht, erhält es sie mit W4 und ignoriert den üblichen Abzug von –2."
+],
+"p": 17,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Zäh (Flickenmonster)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Flickenmonster",
+"w": 0,
+"b": [
+"Flickenmonster mit diesem Talent erleiden keine Wunden, wenn sie zweimal Angeschlagen werden."
+],
+"p": 17,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Gebrüll (Flickenmonster)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Flickenmonster",
+"w": 0,
+"b": [
+"Das Monster stößt ein unirdisches Stöhnen aus, das alle Hörer in Angst versetzt. Als begrenzte Aktion kann der Charakter in einer Kegelschablone ein Einschüchtern-Kräftemessen durchführen. Alle Ziele darin sind betroffen und müssen einzeln widerstehen."
+],
+"p": 17,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Eisige Berührung (Phantom)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Phantom, Willenskraft W8+",
+"w": 0,
+"b": [
+"Die Berührung eines Phantoms lässt einem lebenden Ziel die Knochen bis ins Mark gefrieren. Ein erfolgreicher Berührungsangriff (in körperlicher Gestalt) gegen ein lebendes Wesen verursacht Str+W4 Schaden, der alles außer magischer Panzerung ignoriert."
+],
+"p": 18,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Übergang (Phantom)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Phantom",
+"w": 0,
+"b": [
+"Phantome sind eine besondere Art Geist, die in der physischen Welt weilen. Mit Konzentration können sie jedoch für kurze Zeit aus unserer Wirklichkeit verblassen und in die Geisterwelt zurückkehren, um mit anderen geistigen Wesen zu sprechen. Das funktioniert wie Vernetzung (siehe Grundregelwerk) mit allen Geistern, verlorenen Seelen, Gespenstern und anderen Wesen der Leere. Der Geist kann Überreden oder Einschüchtern nutzen, aber keine Gefallen gewähren („Geld regiert“ oder „Köpfe einschlagen“), sofern das Setting dies nicht erlaubt."
+],
+"p": 19,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Unsichtbarkeit (Phantom)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Phantom, Willenskraft W8+",
+"w": 0,
+"b": [
+"Das Gespenst kann im ätherischen Zustand unsichtbar werden. Es kann nicht gesehen werden, doch wer den ungefähren Aufenthaltsort des Geistes kennt, kann ihn mit –4 angreifen. Zauber können nicht auf ihn gewirkt werden, es sei denn, der Zauberwirker kann ihn über Arkanes entdecken oder auf andere Weise sehen."
+],
+"p": 19,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Mystische Kräfte (Phantom)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Phantom",
+"w": 0,
+"b": [
+"Das Phantom kann geistige Energie manipulieren, um Zauber zu wirken. Wähle eines der folgenden Pakete; weitere Einzelheiten stehen in der Seitenleiste Mystische Kräfte auf S. 11.",
+"POLTERGEIST: Chaos, Schreckensbilder, Geräusch/Stille, Telekinese.",
+"SCHATTEN: Verwirrung, Elementare Manipulation, Furcht, Marionette.",
+"WRAITH: Blenden, Licht/Dunkelheit, Trägheit, Betäubung."
+],
+"p": 19,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Gebrüll (Phantom)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Phantom",
+"w": 0,
+"b": [
+"Der Geist stößt ein gespenstisches Heulen oder einen Banshee-Schrei aus, der allen Hörern das Mark gefrieren lässt. Als begrenzte Aktion kann der Charakter in einer Kegelschablone ein Einschüchtern-Kräftemessen durchführen. Alle Ziele darin sind betroffen und müssen einzeln widerstehen."
+],
+"p": 19,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Todesberührung (Wiedergänger)",
+"k": "Monsterhelden",
+"r": 3,
+"v": "Wiedergänger",
+"w": 0,
+"b": [
+"Die gefürchtetste Kraft des Wiedergängers ist seine tödliche Berührung, die gegen Lebende Str+W4 Schaden verursacht (Panzerung schützt normal). Gegen die, an denen er Rache geschworen hat (das Ziel seines Schwurs), verursacht sie stattdessen Str+2W6 Schaden."
+],
+"p": 19,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Abnehmbare Teile (Wiedergänger)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Wiedergänger",
+"w": 0,
+"b": [
+"Das Grauen kann verschiedene Teile seines Körpers ablösen und aus der Ferne steuern! Die maximale Entfernung, in der ein Teil wirken kann, beträgt eine Meile. Wird das Teil zerstört, kann der Zombie es nachwachsen lassen, indem er ein identisches Körperteil verspeist. Das Nachwachsen dauert etwa eine Stunde. Er kann beliebig viele der folgenden Teile ablösen und per Aktion zwischen ihnen wechseln:",
+"OHR: Das Ohr kann sich nicht bewegen, hört aber wie ein normales Ohr.",
+"AUGE: Das Auge kann mit Schritt 3 herumrollen und sieht wie ein normales Auge.",
+"HAND: Die Hand bewegt sich mit Schritt 5 und hat eine Stärke, die zwei Würfeltypen unter der ihres Besitzers liegt. Die Hand ist Winzig, ob sie menschengroße Ziele angreifen kann, liegt daher im Ermessen der SL und den Umständen."
+],
+"p": 19,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Unerbittlicher Fährtensucher (Wiedergänger)",
+"k": "Monsterhelden",
+"r": 2,
+"v": "Wiedergänger",
+"w": 0,
+"b": [
+"Wiedergänger sind rachsüchtige Kreaturen, die ihrer Beute unerbittlich nachstellen. Ein Wiedergänger mit diesem Talent addiert +2 auf Überleben-Würfe (Spurenlesen), (kumulativ mit allen anderen Spurenlese-Boni), solange er jemanden verfolgt, der ihm in irgendeiner Weise Unrecht getan hat (Entscheidung der SL). Das ist ein magischer Sinn, der durch physische Beweise für das Vorbeikommen der Beute nur verstärkt wird; selbst wenn die Spur verloren geht, findet der Wiedergänger sie innerhalb von 2W6 Stunden wieder (oder wann immer die SL es für möglich hält).",
+"Der Wiedergänger kann seine Sinne immer nur auf ein einzelnes Individuum einstellen, und einmal aufgegeben, kann er sie nicht erneut auf dasselbe Ziel richten (er kann es aber normal verfolgen)."
+],
+"p": 20,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Gestank (Wiedergänger)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Wiedergänger",
+"w": 0,
+"b": [
+"Das Fleisch des Wiedergängers verrottet und stinkt und stößt lebende Wesen ab, die ihm zu nahe kommen. Jeder mit Geruchssinn, der sich neben den Charakter bewegt, ist Abgelenkt. Das hält an, bis er sich entfernt und sein Zug endet."
+],
+"p": 20,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Gedankenfresser (Wiedergänger)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Wiedergänger",
+"w": 0,
+"b": [
+"Verspeist der Wiedergänger mit diesem Talent das relativ frische oder konservierte Gehirn eines denkenden Wesens, erhält sie verstreute Erinnerungsfetzen davon. Was genau der Zombie erfährt, entscheidet die Spielleitung, doch meist handelt es sich um traumatische Ereignisse, vor allem rund um den Tod des Wesens."
+],
+"p": 20,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Zombiemeister (Wiedergänger)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Wiedergänger",
+"w": 0,
+"b": [
+"Der Wiedergänger kann versuchen, jeden hirnlosen Zombie oder jedes Skelett mit einem erfolgreichen Einschüchtern-Wurf zu kontrollieren, vergleichend gegen die Willenskraft der Kreatur. Das ist eine Aktion, und die Kontrolle hält bis zum Ende der Begegnung an. Auf andere Untote hat das Talent typischerweise keine Wirkung (Entscheidung der SL)."
+],
+"p": 20,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Tiergestalt (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Als begrenzte Aktion kann sich der Vampir mit einer Verstandsprobe mit –2 in einen Wolf oder eine Fledermaus verwandeln oder zurück in seine Vampirgestalt. In Wolfs- oder Fledermausgestalt kann der Vampir nicht sprechen."
+],
+"p": 21,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Bann (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Ein Vampir kann die Macht Marionette wirken, indem er einen Benny ausgibt und einen Überreden-Wurf als arkane Fertigkeit ablegt. Das Ziel darf nicht Feindselig, Unfreundlich oder Unkooperativ sein, also lohnt es sich, zuerst das Vertrauen möglicher Opfer zu gewinnen.",
+"Der Unhold darf mit dieser natürlichen Version der Macht keine Machtmodifikatoren nutzen, doch bei Erfolg beträgt die Dauer 24 Stunden statt fünf Runden, kann nicht aufrechterhalten werden, und Opfer, die erliegen, wehren sich nicht dagegen, dass ihnen das Blut ausgesaugt wird."
+],
+"p": 21,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Kinder der Nacht (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Der Vampir kann Fledermäuse, Ratten oder Wölfe herbeirufen und kontrollieren. Einmal pro Nacht kann er in einer geeigneten Umgebung, in der solche Tiere leben (Entscheidung der SL), automatisch einen einzelnen Schreckenswolf, 1W4+1 Wölfe oder einen Mittleren Schwarm aus Fledermäusen oder Ratten herbeirufen. Letztere teilen sich beim Zerstreuen in zwei Kleine Schwärme."
+],
+"p": 21,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Klauen (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Der Vampir hat einziehbare Klauen, die Str+W6 Schaden verursachen und +2 auf Athletik-Würfe (Klettern) geben."
+],
+"p": 22,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Tagwandler (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Der Vampir ist ein „Dhampir“ und wird von Sonnenlicht nicht geschädigt."
+],
+"p": 22,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Verschlingen (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Höchstens einmal pro Tag erhöht ein Vampir, der einen normal großen Menschen bis zum Tod aussaugt, Stärke und Konstitution für die nächste Stunde um einen Würfeltyp."
+],
+"p": 22,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Nebelgestalt (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Einmal pro Nacht kann sich der Vampir in Nebelgestalt verwandeln. Das erfordert eine Aktion und eine Verstandsprobe mit –2. Misslingt sie, erleidet der Vampir Erschöpfung, kann es aber erneut versuchen. Bei einem Kritischen Fehlschlag erleidet er Erschöpfung und kann es diese Nacht nicht mehr versuchen.",
+"Vampire in Nebelgestalt sind sichtbar, fliegen mit Schritt 6 und können jede Barriere durchdringen, die nicht luftdicht ist. Sie können die physische Welt nicht beeinflussen und keine anderen Kräfte nutzen. Als begrenzte Aktion (ohne Wurf) können sie in die normale Gestalt zurückkehren."
+],
+"p": 22,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Regeneration (Schnell) (Vampir)",
+"k": "Monsterhelden",
+"r": 4,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Der Vampir regeneriert, indem er als begrenzte freie Aktion einen Konstitutionswurf ablegt. Ein Erfolg heilt eine Wunde oder beendet die Kampfunfähigkeit, eine Steigerung heilt zwei Wunden. Der Vampir kann keine Wunden regenerieren, die durch Enthauptung, Weihwasser oder geweihte Waffen, Sonnenlicht oder einen Pfahl durchs Herz verursacht wurden."
+],
+"p": 22,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Zeugen (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Der Vampir kann einen weiteren Vampir „zeugen“, indem er einen Sterblichen von seinem Blut trinken lässt. Die Verwandlung dauert W4 Stunden, in denen die Person durch den Modifikator Krankheit neutralisieren der Macht Heilung vom Fluch gereinigt werden kann.",
+"Ein neues „Kind“ ist nicht unbedingt dankbar für die Veränderung. Es hat einen eigenen freien Willen und sinnt vielleicht auf Rache, wenn es den Fluch verabscheut!"
+],
+"p": 23,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Diener (Vampir)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Bestimmte Sterbliche sonnen sich im Miasma der Untoten, entweder angezogen von deren mächtigem Magnetismus oder in der Hoffnung, eines Tages selbst ewige Unholde zu werden.",
+"Ein Vampir mit diesem Talent erhält einen sterblichen Diener, der seinem „Meister“ völlig ergeben ist. Der Diener ist ein Statist einen Rang unter seinem Erzeuger und steigt danach jedes Mal auf, wenn dieser aufsteigt.",
+"Der Diener behält seinen freien Willen, will dem Vampir aber aus welchen Gründen auch immer dienen und stirbt lieber, als ihn zu verraten.",
+"Ein Vampir kann dieses Talent bis zu fünfmal wählen. Wird ein Diener erschlagen, kann der Meister Ersatz heranziehen, wenn es die Lage erlaubt."
+],
+"p": 23,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Wandläufer (Vampir)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Vampir",
+"w": 0,
+"b": [
+"Der Vampir kann mit halbem Schritt an senkrechten und umgekehrten Flächen entlangkriechen und rennen."
+],
+"p": 23,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Alpha (Werwolf)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Werwolf",
+"w": 0,
+"b": [
+"Der Werwolf kann versuchen, jeden Hundeartigen mit einem erfolgreichen Einschüchtern-Wurf zu kontrollieren, vergleichend gegen die Willenskraft der Kreatur. Das ist eine Aktion, und bei Erfolg hält die Kontrolle bis zum Ende der Begegnung an. Ist das Ziel der Alpha, folgt das übrige Rudel seiner Führung.",
+"Die Bestien befolgen einfache Befehle, die ihrer Intelligenz entsprechen. Alpha wirkt nur bei natürlichen Kreaturen, nicht bei Höllenhunden, dämonischen Hunden oder anderen übernatürlichen Bestien."
+],
+"p": 23,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Biss & Klauen (Werwolf)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Werwolf",
+"w": 0,
+"b": [
+"Die Biss- und Klauenangriffe des Werwolfs steigen auf Str+W8, DB 4."
+],
+"p": 24,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Regeneration (Schnell) (Werwolf)",
+"k": "Monsterhelden",
+"r": 4,
+"v": "Werwolf",
+"w": 0,
+"b": [
+"Der Lykanthrop regeneriert, indem er als begrenzte freie Aktion einen Konstitutionswurf ablegt. Ein Erfolg heilt eine Wunde oder beendet die Kampfunfähigkeit, eine Steigerung heilt zwei Wunden. Der Werwolf kann keine durch Silber verursachten Wunden regenerieren."
+],
+"p": 24,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Gebrüll (Werwolf)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Werwolf",
+"w": 0,
+"b": [
+"Der Werwolf heult aus voller bestialischer Lunge und versetzt alle Hörer in Schrecken. Als begrenzte Aktion kann der Charakter in einer Kegelschablone ein Einschüchtern-Kräftemessen durchführen. Alle Ziele darin sind betroffen und müssen einzeln widerstehen."
+],
+"p": 24,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Sprache (Werwolf)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Werwolf",
+"w": 0,
+"b": [
+"Das Monster lernt, in Werwolfgestalt in abgehackten Sätzen zu sprechen. Es zieht 2 von jedem Eigenschaftswurf ab, der klare Sprache erfordert, etwa Würfe auf arkane Fertigkeiten und die meisten Überreden- und Spotten-Würfe."
+],
+"p": 24,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Zäh (Werwolf)",
+"k": "Monsterhelden",
+"r": 1,
+"v": "Werwolf",
+"w": 0,
+"b": [
+"Das dicke Fell, die zähe Haut oder die rohen Muskeln des Werwolfs gewähren ihm +2 Widerstand."
+],
+"p": 24,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
+"n": "Wandläufer (Werwolf)",
+"k": "Monsterhelden",
+"r": 0,
+"v": "Werwolf",
+"w": 0,
+"b": [
+"Der Werwolf kann mit halbem Schritt an senkrechten und umgekehrten Flächen entlangkriechen und rennen."
+],
+"p": 24,
+"s": [
+"HOR"
+],
+"bk": "sw_hor",
+"o": 2
+},
+{
 "n": "Kapitän",
 "k": "Hintergrund",
 "r": 0,

@@ -173,3 +173,4 @@ Aufräumen beim Bau: Tapetenstücke hinter den Saga-Figuren (z. B. fp-s018-…, 
 Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Personen, Verträgen, Moves und Traits sowie Wortschöpfungen (Cogpesh, Keysket …). Alles andere ist deutsch: Spielbegriffe, Gegenstände, Waffen, Überschriften, Seitentitel. Gedichte und Liedtexte werden nie wiedergegeben, auch nicht übersetzt; sie bleiben komplett weg, ohne Platzhalter.
 - ✅ Saga Brüchiger Frieden › Kapitel I: Übersicht + Argos Tagebuch (S.70–77); Epidemie, Hummel, Lieferung, Wachsfalle, Blaue Ratte folgen
 - ✅ Kapitel I › Die Epidemie (S.78–85)
+- ✅ Kapitel I › Der Fall der verschwundenen Hummel (S.86–93)

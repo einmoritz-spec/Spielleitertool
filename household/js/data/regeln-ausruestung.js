@@ -156,6 +156,7 @@ A.push({id: "weapons", t: "Waffen", p: 158, b: [
 ]});
 
 A.push({id: "melee", t: "Nahkampfwaffen", p: 159, b: [
+  bild("s160-vi-weapons", 320),
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Schlüssel", "Schwere Waffe.", "2"],
    ["Halbschere", "Scharfe Waffe.", "2"],
@@ -172,7 +173,6 @@ A.push({id: "melee", t: "Nahkampfwaffen", p: 159, b: [
    ["Doppelbartschlüssel", "Zweihändig, schwer, scharf.", "4"],
    ["Cocktailspieß", "Zweihändig, spitz, mit Reichweite.", "4"],
    ["Hellebardenschlüssel", "Zweihändig, schwer, mit Reichweite.", "3"]]},
-  bild("s160-vi-weapons", 320),
   {t: "h", x: "Nahkampfwaffen im Detail"},
   K("Schlüssel", ["Ein einhändiger Schlüssel mit einem Bart aus hartem Metall. Gilt meist als schmucklose Waffe, gut für Söldner und Pilzschneider, wurde aber schon oft in den Händen von unbestreitbar edlen Kämpfern gesehen."]),
   K("Halbschere", ["Ohne Zweifel die häufigste Waffe des Household. Der Halbschere ist ein gebogenes Schwert mit einer typischen ringförmigen Parierstange. Die gekreuzten Halbscheren sind das Symbol für Kampf aus Können und stehen auch im Wappen des Hearth. Wusstest du, dass Soldaten zwei einhändige Waffen benutzen können, um Moves auszuführen, die eine zweihändige Waffe verlangen? Manche von ihnen trägt man mit gekreuzten Scheren auf dem Rücken."]),
@@ -193,6 +193,7 @@ A.push({id: "melee", t: "Nahkampfwaffen", p: 159, b: [
 ]});
 
 A.push({id: "ranged", t: "Fernkampfwaffen", p: 162, b: [
+  bild("s162-vi-weapons", 340),
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Taschenpistole", "Kleine Feuerwaffe. Kann nur auf kurze Distanz schießen.", "2"],
    ["Pistole", "Feuerwaffe.", "3"],
@@ -201,7 +202,6 @@ A.push({id: "ranged", t: "Fernkampfwaffen", p: 162, b: [
    ["Jagdgewehr", "Zweihändige, präzise Feuerwaffe. +1 zum Schießen.", "5"],
    ["Klappbare Armbrust", "Kleine Fernkampfwaffe. Kann nur auf kurze Distanz schießen.", "3"],
    ["Armbrust", "Zweihändige Fernkampfwaffe.", "4"]]},
-  bild("s162-vi-weapons", 340),
   {t: "h", x: "Feuerwaffen und Armbrüste"},
   K("Pistole", ["Eine klassische Einzelschussknarre, weit verbreitet im ganzen House. Wie moderne Pistolen wurde ihre Form von der Waffe des Masters inspiriert, die über dem Kamin hängt."]),
   K("Taschenpistole", ["Diese kleine „Taschen“-Pistole hat keine große Feuerkraft, lässt sich aber bequem in der Jacke oder Handtasche tragen. Vorausgesetzt, du bist die Art von Littling, die sich wohlfühlt, mit einer Waffe bei sich zu reisen!"]),
@@ -225,12 +225,12 @@ A.push({id: "keysket", t: "Keyskets", p: 163, b: [
 ]});
 
 A.push({id: "dueling", t: "Duellwaffen", p: 164, b: [
+  bild("s164-vi-weapons", 340),
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Nadel", "Wurfwaffe, Duellwaffe.", "5"],
    ["Pin", "Spitze Duellwaffe.", "5"],
    ["Duell-Halbschere", "Scharfe Duellwaffe.", "5"],
    ["Lancetta", "Schwere Duellwaffe.", "5"]]},
-  bild("s164-vi-weapons", 340),
   K("Nadel", ["Extrem leichtes Duellschwert, am besten zum Stoßen geeignet. Es wird vor allem in den Free Dominions verwendet. Die Needle der Mistress, die Inspiration für dieses eigenartige Schwert, wird noch heute an der Rosevault Fencing Academy aufbewahrt und wurde kürzlich zum Nationalschatz erklärt. Littlings, die die Duell-Needle bevorzugen, pflegen einen sauberen und schnellen Stil aus plötzlichen, tödlichen Stößen."]),
   K("Lancetta", ["Flaches, breites Duellschwert, geeignet zum Schneiden und Stoßen. Die Duell-Lancetta wurde zuerst als Waffe in der Horde benutzt, wo die Fencing Academy des Mirandola Gulf bis heute besteht. Die Lancetta (wörtlich: Uhrzeiger) ist das schwerste aller Duellschwerter, wirkt aber in den Händen eines Duellanten so leicht wie eine Rattenschnurrhaar. Littlings, die diese Waffe bevorzugen, haben einen explosiven und vielseitigen Stil, der sich sowohl zum Angriff als auch zur Verteidigung eignet.",
    "Wusstest du? Dank des Swordfighter-Traits beginnen Duellanten das Spiel mit einer Duellwaffe, die sie geerbt haben. Sie können sie sofort auf ihrem Bogen notieren, ohne einen einzigen Coin auszugeben!"]),
@@ -239,6 +239,7 @@ A.push({id: "dueling", t: "Duellwaffen", p: 164, b: [
 ]});
 
 A.push({id: "armor", t: "Rüstung & Accessoires", p: 165, b: [
+  bild("s165-vi-weapons", 340),
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Leichte Rüstung", "Einmal pro Kampf kannst du mit Strength statt mit einem anderen Skill reagieren.", "3"],
    ["Schwere Rüstung", "Einmal pro Kampf kannst du mit Strength statt mit einem anderen Skill reagieren. Bietet zusätzlichen Schutz, siehe Beschreibung.", "6"],
@@ -249,7 +250,6 @@ A.push({id: "armor", t: "Rüstung & Accessoires", p: 165, b: [
    ["Cape", "Einmal pro Kampf kannst du mit Dexterity statt mit einem anderen Skill reagieren.", "4"],
    ["Ratador-Umhang", "Erlaubt dir, Duellanten-Moves zu nutzen, wenn du gegen Bestien kämpfst.", "6"],
    ["Tarnumhang", "Hilft dir, dich in der wilden Umgebung eines Raums zu tarnen.", "3"]]},
-  bild("s165-vi-weapons", 340),
   {t: "h", x: "Rüstungen und Accessoires"},
   K("Leichte Rüstung", ["Eine Lederjacke, die entweder mit Chitinplatten gefüttert oder verstärkt ist. Alternativ ein glänzender oder emaillierter Brustpanzer, wie ihn die Armeen des Realm und der Upper Floor tragen."]),
   K("Schwere Rüstung", ["Eine schwere und sperrige Rüstung mit Armschutz und einem Helm mit Visier oder Federbusch. Sie wird meist in Schlachten oder bei militärischen Paraden getragen. Man bleibt damit garantiert nicht unbemerkt! Eine schwere Rüstung ist hinderlich beim Laufen, Klettern, Schwimmen, Schleichen oder wenn du unbemerkt bleiben willst. Wenn du in einem Kampf oder wegen einer körperlichen Gefahr die Crucial Box füllst, erleidest du keinen Zustand. Wirst du Überlastet, zerbricht deine Rüstung, und du entfernst allen Stress nach der Crucial Box. Eine schwere Rüstung zu reparieren kostet 4 Coins. Wusstest du? Manche Duellanten tragen keinen Umhang, sondern bevorzugen einen Dolch oder eine kurze Lancetta. Sie funktionieren genauso gut!"]),

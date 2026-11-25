@@ -135,3 +135,9 @@ Technische Hinweise daraus:
 - „The Dead Saloon“ (Deadlands) ist im PDF nur als Teilmenge eingebettet: keine Umlaute, kein kleines f → nur in Großbuchstaben setzen; Umlaute mit fonttools aus A/O/U + Punkten nachbauen (Ausweichschrift Smokum sieht im Entwurf fremd aus).
 - Wildcard-Symbol und Sheriffstern aus den PDFs freigestellt (Stern: Maske = invertierte Silhouette).
 - Seitenversatz GRW: Buchseite = PDF-Seite − 1.
+
+## 11. Freigegebene Gestaltung (26. Nov. 2026)
+Mockups: `plan/savageworlds/mockups/` (HTML-Vorlagen in `mockup-html/`, Bilder dort aus den PDFs neu extrahieren).
+**Startseite (m1b):** kein Spruch, kein einzelnes Titelbild. Oben fünf schräge Bildfelder über die volle Breite (Grundregeln · Fantasy · Horror · Science-Fiction · Superkräfte), Cover-Kunst ohne Titelleiste/Logo; Hover verbreitert das Feld (wie Otherscape); Companion-Felder tragen den Genre-Schalter (aktiv = farbig + roter Schalter, aus = entsättigt); Klick öffnet die Genre-Seite. Darunter die sieben Kapitel als Hochformat-Kacheln in einer Reihe, nur ganzseitige GRW-Illustrationen (S. 5 Charaktere, 65 Ausrüstung, 77 Regeln, 111 Werkzeugkasten, 147 Mächte, 87 Bestiarium, 9 Spielleitung – PDF-Seiten), roter Strich unten, darunter Name (Spies) und Unterpunkte grau. Ganz unten Deadlands als Lederbalken mit Stern, Schriftzug und Bereichen.
+**Talente-/Nachschlagelisten (m2c):** Look des ersten Entwurfs (Spies-Titel, farbiger Rangstreifen links), aber nach Rang in Abschnitte gegliedert (Abschnittsüberschrift in Rangfarbe: Anfänger grau, Fortgeschritten orange, Veteran rot, Heroisch violett, Legendär gold); 3 Spalten; keine Rang-Reiter und keine Quellen-Chips (Genre-Schalter regelt das); Abzeichen nur für Companion-Inhalte; geöffnetes Talent als volle Zeile direkt nach seiner Karte (Text links, Voraussetzungen/„Führt zu“ rechts). Gleiches Muster für Handicaps, Mächte, Ausrüstung.
+Bestiarium, Science-Fiction, Deadlands-Start und Gazetteer wie Mockups m3–m6.

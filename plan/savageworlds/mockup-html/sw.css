@@ -1,0 +1,37 @@
+@font-face{font-family:Spies;src:url(fonts/Google-spies-deutsch.ttf);unicode-range:U+0-23,U+25-2A,U+2C-2E,U+30-DE,U+E0-FFFF}
+@font-face{font-family:Spies;src:url(fonts/oswald-latin-600-normal.woff2);unicode-range:U+24,U+2B,U+2F,U+DF}
+@font-face{font-family:Pal;src:url(fonts/PalatinoLinotype-Roman.ttf)}
+@font-face{font-family:Pal;src:url(fonts/PalatinoLinotype-Bold.ttf);font-weight:700}
+@font-face{font-family:Pal;src:url(fonts/PalatinoLinotype-Italic.ttf);font-style:italic}
+@font-face{font-family:Salt;src:url(fonts/RockSalt.ttf)}
+@font-face{font-family:Saloon;src:url(fonts/TheDeadSaloon-Regular.ttf);unicode-range:U+0-C3,U+C5-D5,U+D7-DB,U+DD-DE,U+E0-E3,U+E5-F5,U+F7-FB,U+FD-FFFF}
+@font-face{font-family:Saloon;src:url(fonts/smokum-latin-400-normal.woff2);unicode-range:U+C4,U+D6,U+DC,U+DF,U+E4,U+F6,U+FC}
+@font-face{font-family:Antiqua;src:url(fonts/BookAntiqua.ttf)}
+@font-face{font-family:Antiqua;src:url(fonts/BookAntiqua-Bold.ttf);font-weight:700}
+@font-face{font-family:Antiqua;src:url(fonts/BookAntiqua-Italic.ttf);font-style:italic}
+:root{--rot:#a51f1a;--rotd:#7d1612;--ink:#221d18;--soft:#7a6f63;--line:#d8ccb8;--top:#1b1c1e;--cream:#f3ead9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1280px;font:16px/1.5 Pal,Georgia,serif;color:var(--ink);background:#eadfc8 url(img/papier-t.jpg) 0 0/1100px repeat;background-blend-mode:multiply}
+.top{height:58px;background:var(--top);display:flex;align-items:center;padding:0 18px 0 16px;position:relative;z-index:3;box-shadow:0 1px 0 #000}
+.top .logo{height:44px;margin-right:18px}
+.tabs{display:flex;height:58px;align-items:stretch}
+.tabs a{font:19px Spies;letter-spacing:.02em;color:#cfc8bc;padding:19px 11px 0;text-decoration:none}
+.tabs a.on{background:var(--rot);color:#fff}
+.icons{margin-left:auto;display:flex;gap:20px;align-items:center}
+.icons svg{width:22px;height:22px;stroke:#d9d1c4;fill:none;stroke-width:1.8}
+.sub{height:40px;background:var(--rot);display:flex;align-items:center;padding:0 0 0 118px;gap:4px;position:relative;z-index:2;box-shadow:0 3px 6px rgba(0,0,0,.25)}
+.sub a{font:17px Spies;color:#f2d9d3;padding:9px 12px 7px;text-decoration:none;letter-spacing:.02em}
+.sub a.on{color:#fff;box-shadow:inset 0 -3px 0 #f3ead9}
+.torn{position:relative;background:#f5eddc url(img/papier-l.jpg) center/500px;padding:10px 18px 14px;clip-path:polygon(0 0,100% 0,100% 82%,97% 90%,93% 84%,88% 95%,83% 87%,77% 97%,71% 86%,64% 93%,58% 85%,51% 96%,45% 86%,38% 94%,31% 85%,25% 95%,18% 86%,11% 93%,5% 85%,0 92%)}
+.spies{font-family:Spies;letter-spacing:.02em;line-height:1}
+.salt{font-family:Salt;color:#9a2a1f;line-height:1.7}
+.badge{display:inline-block;font:11px/1 Spies;letter-spacing:.06em;padding:3px 5px 2px;border-radius:2px;color:#fff;vertical-align:2px}
+.b-grw{background:#3c3a37}.b-fan{background:#3f6b2f}.b-hor{background:#5b1616}.b-sf{background:#0f6f86}.b-sup{background:#b3301c}
+.side{width:206px;padding:22px 0 0 0;position:relative}
+.side a{display:block;font:15px/1.25 Pal;color:#4a4038;padding:7px 14px 7px 18px;border-left:3px solid transparent;text-decoration:none}
+.side a.on{color:var(--rot);font-weight:700;border-left-color:var(--rot)}
+.side .kids{padding:0 0 6px 30px;font-size:12.5px;color:#968a7c;line-height:1.7}
+.side .fold{position:absolute;right:12px;top:27px;color:#9a8e80;font:22px/1 Georgia,serif;z-index:2}
+.side hr{border:0;border-top:1px solid var(--line);margin:3px 14px 3px 18px}
+
+.wc{width:22px;height:22px;background:currentColor;-webkit-mask:url(img/wc-a.png) center/contain no-repeat;display:inline-block}

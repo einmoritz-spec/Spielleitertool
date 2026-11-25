@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sw.css"><style>
+:root{--sf:#0f6f86;--sfd:#0a4f61}
+.main{display:flex}
+.side a.on{color:var(--sf);border-left-color:var(--sf)}
+.cont{flex:1;padding:0 40px 40px 26px}
+.band{height:150px;margin:0 -40px 0 -26px;background:url(img/sf.jpg) center 30%/cover;position:relative}
+.band:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,30,40,.9),rgba(6,30,40,.35) 55%,transparent)}
+.band h1{position:absolute;left:30px;bottom:22px;z-index:2;font:50px Spies;color:#fff}
+.band h1 small{display:block;font:16px Spies;color:#8fd4e4;letter-spacing:.12em;margin-bottom:6px}
+.lay{display:grid;grid-template-columns:1fr 330px;gap:24px;margin-top:22px;align-items:start}
+h2{font:26px Spies;color:var(--sf);margin:2px 0 10px}
+.fr{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.f{background:#fbf7ef;border-top:4px solid var(--sf);box-shadow:0 1px 0 #d9ccb6,0 4px 10px rgba(30,50,60,.08);padding:10px 14px 11px}
+.f h4{font:19px Spies;display:flex;align-items:baseline;gap:8px}.f h4 span{font:13px Pal;color:var(--soft)}
+.f .n{font:12.5px Pal;color:#7a6f63;margin:2px 0 8px}
+.f .w{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;text-align:center}
+.f .w div{background:#e4efef;padding:3px 0 2px}
+.f .w small{display:block;font:10px Spies;letter-spacing:.07em;color:#4f7480}
+.f .w b{font:16px Spies;color:#12323c}
+.bau{background:#10262e;color:#d7eef3;padding:16px 18px 18px;box-shadow:0 8px 20px rgba(0,0,0,.25);position:sticky;top:0}
+.bau h3{font:22px Spies;color:#fff;margin-bottom:10px}
+.row{display:flex;justify-content:space-between;font:14px Pal;padding:5px 0;border-bottom:1px solid #26434d}
+.row b{font:16px Spies;color:#7fd3e6}
+.sl{height:6px;background:#26434d;margin:12px 0 4px;position:relative}.sl i{position:absolute;left:0;top:0;height:6px;width:28%;background:#38b2cc}.sl i:after{content:"";position:absolute;right:-7px;top:-5px;width:14px;height:14px;border-radius:50%;background:#fff}
+.mods{margin-top:14px}
+.m{display:flex;gap:8px;font:13.5px Pal;padding:4px 0;align-items:center}
+.m span{margin-left:auto;font:13px Spies;color:#7fd3e6}
+.m.neg span{color:#f08a7a}
+.bar{display:flex;gap:3px;margin:12px 0 2px}.bar i{flex:1;height:10px;background:#26434d}.bar i.u{background:#38b2cc}
+.lbl{font:11px Spies;letter-spacing:.08em;color:#7aa6b1}
+</style></head><body>
+<div class="top"><img class="logo" src="img/savage-worlds.webp"><div class="tabs"><a>Charaktere</a><a>Ausrüstung</a><a>Regeln</a><a>Werkzeugkasten</a><a>Mächte</a><a>Bestiarium</a><a class="on">Genres</a><a>Spielleitung</a></div><div class="icons"></div></div>
+<div class="sub" style="padding-left:610px"><a>Fantasy</a><a>Horror</a><a class="on">Science-Fiction</a><a>Superkräfte</a></div>
+<div class="main">
+ <div class="side"><span class="fold">‹</span>
+  <a>Abstammungen &amp; Kulturen</a><hr><a>Außenposten</a><hr><a>Settingregeln</a><hr><a>Cyberware</a><hr><a>Powerrüstungen</a><hr><a>Roboter</a><hr>
+  <a class="on">Raumschiffe</a><div class="kids">Rahmen<br>Modifikationen<br>Sensorscans<br>Überlichtreisen<br>Standardschiffe</div><hr>
+  <a>Fahrzeuge</a><hr><a>Läufer</a><hr><a>Weltengenerator</a><hr><a>Arkane Hintergründe</a><hr><a>Artefakte</a><hr><a>Imperien</a>
+ </div>
+ <div class="cont">
+  <div class="band"><h1><small>Science-Fiction</small>Raumschiffe</h1></div>
+  <div class="lay">
+   <div>
+    <h2>Raumschiffrahmen</h2>
+    <div class="fr">
+     <div class="f"><h4>Normal<span>Größe 1–3</span></h4><div class="n">Rettungskapseln, Drohnen, Ultraleichtjäger</div><div class="w"><div><small>Manöv.</small><b>+1</b></div><div><small>Robust.</small><b>10 (10)</b></div><div><small>Wunden</small><b>3</b></div><div><small>Energie</small><b>3</b></div></div></div>
+     <div class="f"><h4>Groß<span>Größe 4–7</span></h4><div class="n">Shuttles, leichte Jäger, Bomber, Trupp-Landungsschiffe</div><div class="w"><div><small>Manöv.</small><b>0</b></div><div><small>Robust.</small><b>15 (20)</b></div><div><small>Wunden</small><b>4</b></div><div><small>Energie</small><b>5</b></div></div></div>
+     <div class="f"><h4>Riesig<span>Größe 8–11</span></h4><div class="n">Schwere Jäger, Systemfrachter, Späher, Zug-Landungsschiffe</div><div class="w"><div><small>Manöv.</small><b>−1</b></div><div><small>Robust.</small><b>20 (30)</b></div><div><small>Wunden</small><b>5</b></div><div><small>Energie</small><b>15</b></div></div></div>
+     <div class="f"><h4>Gigantisch<span>Größe 12–20</span></h4><div class="n">Zerstörer, Bataillons-Landungsschiffe, Kutter</div><div class="w"><div><small>Manöv.</small><b>−2</b></div><div><small>Robust.</small><b>25 (40)</b></div><div><small>Wunden</small><b>6</b></div><div><small>Energie</small><b>30</b></div></div></div>
+     <div class="f"><h4>Gigantisch +1<span>Größe 21–28</span></h4><div class="n">Schlachtschiffe, Passagierliner, kleine Kolonieschiffe</div><div class="w"><div><small>Manöv.</small><b>−4</b></div><div><small>Robust.</small><b>25 (40)</b></div><div><small>Wunden</small><b>8</b></div><div><small>Energie</small><b>60</b></div></div></div>
+     <div class="f"><h4>Gigantisch +2<span>Größe 29–36</span></h4><div class="n">Superschlachtschiffe, Superträger, Flaggschiffe</div><div class="w"><div><small>Manöv.</small><b>−4</b></div><div><small>Robust.</small><b>25 (40)</b></div><div><small>Wunden</small><b>10</b></div><div><small>Energie</small><b>90</b></div></div></div>
+    </div>
+   </div>
+   <div class="bau"><h3>Eigenes Schiff</h3>
+    <div class="lbl">Größe 10 · Riesig</div><div class="sl"><i></i></div>
+    <div class="row">Manövrierfähigkeit<b>−1</b></div><div class="row">Höchstgeschw.<b>17</b></div><div class="row">Robustheit<b>24 (4)</b></div><div class="row">Besatzung<b>5</b></div><div class="row">Kosten<b>5 Mio. $</b></div>
+    <div class="bar"><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="lbl">Mods 20 / 30</div>
+    <div class="mods">
+     <div class="m">Künstliche Schwerkraft<span>1</span></div>
+     <div class="m">Panzerung ×2<span>2</span></div>
+     <div class="m">EMP-Abschirmung<span>2</span></div>
+     <div class="m">Reparaturdrohnen<span>5</span></div>
+     <div class="m">Überlichtantrieb<span>2</span></div>
+     <div class="m">Atmosphärenflug<span>10</span></div>
+     <div class="m neg">Ramponiert<span>−2</span></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<script src="icons.js"></script></body></html>

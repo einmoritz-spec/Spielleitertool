@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sw.css"><style>
+body{background:#e9dfcb}
+.top{height:64px}
+.top .logo{height:52px}
+/* Genre-Panels */
+.hero{height:560px;position:relative;background:#111;overflow:hidden;display:flex}
+.pn{position:relative;flex:1;margin-right:-46px;clip-path:polygon(46px 0,100% 0,calc(100% - 46px) 100%,0 100%);transition:flex .4s}
+.pn:first-child{clip-path:polygon(0 0,100% 0,calc(100% - 46px) 100%,0 100%)}
+.pn:last-child{margin-right:0;clip-path:polygon(46px 0,100% 0,100% 100%,0 100%)}
+.pn.hov{flex:1.55}
+.pn .b{position:absolute;inset:0;background-size:cover;background-position:center 22%}
+.pn:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,6,5,.92) 0,rgba(8,6,5,.25) 34%,transparent 55%)}
+.pn.off .b{filter:grayscale(.9) brightness(.62)}
+.pn .lb{position:absolute;left:58px;right:40px;bottom:30px;z-index:2;color:#fff}
+.pn:first-child .lb{left:34px}
+.pn h2{font:31px/1.02 Spies;letter-spacing:.02em;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.pn.off h2{color:#bdb3a6}
+.pn .tg{margin-top:12px;width:40px;height:21px;border-radius:11px;background:rgba(255,255,255,.25);position:relative}
+.pn .tg:after{content:"";position:absolute;top:3px;left:3px;width:15px;height:15px;border-radius:50%;background:#fff}
+.pn.on .tg{background:var(--rot)}.pn.on .tg:after{left:22px}
+.seam{position:absolute;inset:0;pointer-events:none;z-index:3;background:
+ linear-gradient(to bottom right,transparent calc(50% - 2px),#111 calc(50% - 2px),#111 calc(50% + 2px),transparent calc(50% + 2px))}
+.hero .rot{position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--rot);z-index:4}
+/* Kapitel */
+.wrap{padding:46px 40px 54px}
+.kap{display:grid;grid-template-columns:repeat(7,1fr);gap:18px}
+.k{cursor:pointer}
+.k .p{aspect-ratio:.7;background-size:cover;background-position:center;box-shadow:0 1px 0 #cdbfa6,0 10px 22px rgba(50,30,15,.28);position:relative}
+.k .p:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--rot)}
+.k h3{font:25px/1 Spies;color:#231d18;margin:16px 0 7px;letter-spacing:.01em}
+.k ul{list-style:none;font:13.5px/1.62 Pal;color:#7a6e62}
+.k.hv .p{transform:translateY(-6px);box-shadow:0 1px 0 #cdbfa6,0 18px 30px rgba(50,30,15,.38)}
+.k.hv h3{color:var(--rot)}
+/* Deadlands */
+.dl{margin:52px 0 0;height:250px;position:relative;background:#2a170c url(img/leder.jpg) center/cover;box-shadow:0 14px 30px rgba(40,20,5,.4);overflow:hidden;display:flex;align-items:center}
+.dl .art{position:absolute;right:0;top:0;width:720px;height:100%;background:url(img/dl-cover.jpg) center 40%/cover;-webkit-mask:linear-gradient(90deg,transparent,#000 40%)}
+.dl .t{position:relative;padding-left:56px}
+.dl h2{font:84px/.9 Saloon;color:#ecd9b0;text-shadow:0 3px 0 #160a03;display:flex;align-items:center;gap:22px}
+.dl h2 img{width:72px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.6))}
+.dl ul{list-style:none;display:flex;gap:26px;margin:18px 0 0 96px;font:17px Antiqua;color:#dcc59b}
+</style></head><body>
+<div class="top"><img class="logo" src="img/savage-worlds.webp"><div class="icons"></div></div>
+<div class="hero">
+ <div class="pn"><div class="b" style="background-image:url(img/k-002.jpg);background-position:center 30%"></div><div class="lb"><h2>Grundregeln</h2><div class="tg" style="visibility:hidden"></div></div></div>
+ <div class="pn on hov"><div class="b" style="background-image:url(img/h-fan.jpg);background-position:center 30%"></div><div class="lb"><h2>Fantasy</h2><div class="tg"></div></div></div>
+ <div class="pn off"><div class="b" style="background-image:url(img/h-hor.jpg);background-position:center 25%"></div><div class="lb"><h2>Horror</h2><div class="tg"></div></div></div>
+ <div class="pn off"><div class="b" style="background-image:url(img/h-sf.jpg);background-position:40% 30%"></div><div class="lb"><h2>Science-Fiction</h2><div class="tg"></div></div></div>
+ <div class="pn off"><div class="b" style="background-image:url(img/h-sup.jpg);background-position:center 30%"></div><div class="lb"><h2>Superkräfte</h2><div class="tg"></div></div></div>
+ <div class="rot"></div>
+</div>
+<div class="wrap">
+ <div class="kap">
+  <div class="k"><div class="p" style="background-image:url(img/k-005.jpg)"></div><h3>Charaktere</h3><ul><li>Erschaffung</li><li>Völker</li><li>Handicaps</li><li>Eigenschaften</li><li>Talente</li><li>Aufstiege</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/k-065.jpg)"></div><h3>Ausrüstung</h3><ul><li>Rüstung</li><li>Nahkampf</li><li>Fernkampf</li><li>Fahrzeuge</li><li>Sonstiges</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/k-077.jpg)"></div><h3>Regeln</h3><ul><li>Grundlagen</li><li>Kampf</li><li>Heilung</li><li>Situationsregeln</li></ul></div>
+  <div class="k hv"><div class="p" style="background-image:url(img/k-111.jpg)"></div><h3>Werkzeug&shy;kasten</h3><ul><li>Dramatische Aufgaben</li><li>Furcht</li><li>Massenschlachten</li><li>Verfolgungsjagden</li><li>Soziale Konflikte</li><li>Reisen</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/k-147.jpg)"></div><h3>Mächte</h3><ul><li>Arkane Hintergründe</li><li>Ausprägungen</li><li>Mächte</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/k-087.jpg)"></div><h3>Bestiarium</h3><ul><li>Tiere</li><li>Drachen</li><li>Untote</li><li>Übernatürliches</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/k-009.jpg)"></div><h3>Spielleitung</h3><ul><li>Spiel leiten</li><li>Weltenbau</li><li>Risiken &amp; Wendungen</li><li>Lange Kampagnen</li></ul></div>
+ </div>
+ <div class="dl"><div class="art"></div><div class="t"><h2><img src="img/stern.png">DEADLANDS</h2><ul><li>Die Welt</li><li>Helden</li><li>Marshal</li><li>Bestiarium</li></ul></div></div>
+</div>
+<script src="icons.js"></script></body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sw.css"><style>
+body{background:#2b1a0f url(img/leder.jpg) center/1280px;color:#2b1d12}
+.top{background:#170d07 url(img/leder.jpg) center 20%/1280px;box-shadow:0 2px 0 #0b0603,0 4px 10px rgba(0,0,0,.5)}
+.top .dlogo{font:34px/1 Saloon;color:#e6d1a4;letter-spacing:.04em;display:flex;align-items:center;gap:10px;margin-right:24px;text-shadow:0 2px 0 #000}
+.top .dlogo img{width:34px}
+.icons svg{stroke:#e0cba0}
+.hero{height:500px;position:relative;overflow:hidden}
+.hero .a{position:absolute;right:0;top:0;width:900px;height:500px;background:url(img/dl-cover.jpg) center 42%/cover;-webkit-mask:linear-gradient(90deg,transparent 0,#000 30%)}
+.hero .t{position:absolute;left:64px;top:110px}
+.hero h1{font:118px/0.85 Saloon;color:#ecd8ad;text-shadow:0 4px 0 #120904,0 0 30px rgba(0,0,0,.6)}
+.hero h1 small{display:block;font:44px Saloon;color:#d3a35c;letter-spacing:.06em;margin-top:14px}
+.hero .blut{position:absolute;left:330px;top:70px;width:300px;mix-blend-mode:multiply;opacity:.0}
+.wrap{padding:0 50px 60px;margin-top:-90px;position:relative}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.n{background:url(img/perg-mitte.jpg) center/cover;padding:12px 12px 16px;box-shadow:0 10px 22px rgba(0,0,0,.55);position:relative}
+.n:nth-child(1){transform:rotate(-1.4deg)}.n:nth-child(2){transform:rotate(1deg)}.n:nth-child(3){transform:rotate(-.6deg)}.n:nth-child(4){transform:rotate(1.3deg)}.n:nth-child(5){transform:rotate(-1deg)}
+.n:before{content:"";position:absolute;left:50%;top:7px;width:11px;height:11px;margin-left:-5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#d9d2c4,#5c5148 60%,#2a231d);box-shadow:0 2px 2px rgba(0,0,0,.5);z-index:2}
+.n .p{height:190px;background-size:cover;border:1px solid #6b4a2e;filter:sepia(.15)}
+.n h3{font:31px/1 Saloon;color:#5a1d10;text-align:center;margin:12px 0 6px;letter-spacing:.02em}
+.n ul{list-style:none;text-align:center;font:14.5px/1.65 Antiqua;color:#3a2a1c}
+.n .orn{height:1px;background:linear-gradient(90deg,transparent,#7a5634,transparent);margin:0 18px 6px}
+.n h3,.dlogo,h1{text-transform:uppercase}
+</style></head><body>
+<div class="top"><div class="dlogo"><img src="img/stern.png">Deadlands</div><div class="icons"></div></div>
+<div class="hero"><div class="a"></div><div class="t"><h1>Deadlands<small>The Weird West</small></h1></div></div>
+<div class="wrap"><div class="grid">
+ <div class="n"><div class="p" style="background-image:url(img/dlart-146.jpg);background-position:center 45%;background-size:115%"></div><h3>Die Welt</h3><div class="orn"></div><ul><li>Einführung</li><li>Leben im Weird West</li><li>Gazetteer</li><li>Karte</li></ul></div>
+ <div class="n"><div class="p" style="background-image:url(img/dlart-012.jpg);background-position:center 55%;background-size:115%"></div><h3>Helden</h3><div class="orn"></div><ul><li>Konzepte</li><li>Handicaps &amp; Talente</li><li>Arkane Hintergründe</li><li>Neue Mächte</li></ul></div>
+ <div class="n"><div class="p" style="background-image:url(img/dlart-026.jpg);background-position:center 50%;background-size:115%"></div><h3>Ausrüstung</h3><div class="orn"></div><ul><li>Gewöhnliches</li><li>Infernal Devices</li><li>Kaufen &amp; Verkaufen</li></ul></div>
+ <div class="n"><div class="p" style="background-image:url(img/dlart-080.jpg);background-position:center 45%;background-size:115%"></div><h3>Marshal</h3><div class="orn"></div><ul><li>Settingregeln</li><li>The Reckoning</li><li>Abenteuer-Generator</li><li>Begegnungen</li></ul></div>
+ <div class="n"><div class="p" style="background-image:url(img/dlart-094.jpg);background-position:center 40%;background-size:115%"></div><h3>Bestiarium</h3><div class="orn"></div><ul><li>Rascals</li><li>Varmints</li><li>Creatures</li></ul></div>
+</div></div>
+<script src="icons.js"></script></body></html>

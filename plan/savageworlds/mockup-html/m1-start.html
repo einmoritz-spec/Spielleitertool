@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sw.css"><style>
+.hero{height:430px;position:relative;overflow:hidden;background:#111}
+.hero img{position:absolute;left:0;top:-230px;width:1280px;filter:saturate(1.05)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,16,.82) 0,rgba(10,12,16,.45) 38%,rgba(10,12,16,0) 62%),linear-gradient(0deg,rgba(20,14,10,.55),transparent 35%)}
+.hero .t{position:absolute;left:60px;top:120px;z-index:2;width:520px}
+.hero .t img{position:static;width:380px}
+.hero .salt{color:#f0e3c8;font-size:19px;margin-top:22px;transform:rotate(-2deg)}
+.wrap{padding:34px 56px 50px}
+.genre{display:flex;align-items:flex-end;margin:-120px 0 34px;position:relative;z-index:4;justify-content:space-between}
+.g{width:208px;text-align:center}
+.g .c{height:250px;background-size:cover;background-position:center top;box-shadow:0 6px 16px rgba(0,0,0,.45);border:3px solid #f3ead9;position:relative}
+.g.off .c{filter:grayscale(1) brightness(.55)}
+.g .sw{display:inline-flex;align-items:center;gap:7px;margin-top:8px;font:14px Spies;color:#3b322b;letter-spacing:.03em}
+.g .sw i{width:30px;height:16px;border-radius:9px;background:#b9ad9c;position:relative}
+.g .sw i:after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#fff;top:2px;left:2px}
+.g.fix .sw{color:#8b7d6d}.g.on .sw i{background:var(--rot)}.g.on .sw i:after{left:16px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.k{background:#fbf5e9;box-shadow:0 2px 0 #d9ccb6,0 8px 18px rgba(60,40,20,.13);position:relative}
+.k .p{height:150px;background-size:cover;background-position:center 30%}
+.k .torn{margin-top:-26px;margin-left:12px;margin-right:30px;padding:9px 14px 16px}
+.k h3{font:30px Spies;color:var(--rot);letter-spacing:.02em}
+.k ul{list-style:none;padding:2px 18px 16px;font-size:14px;color:#5d5248;columns:2;column-gap:14px}
+.k ul li{padding:2px 0;break-inside:avoid}
+.k.w{grid-column:span 2}.k.w .p{height:150px;background-color:#fff;background-size:auto 112%;background-position:center 30%;background-color:#fbf5e9;background-repeat:no-repeat}
+.k.w ul{columns:3}
+.dl{margin-top:34px;height:220px;position:relative;background:#3b2414 url(img/leder.jpg) center/cover;box-shadow:0 10px 24px rgba(0,0,0,.35);overflow:hidden;display:flex;align-items:center}
+.dl .art{position:absolute;right:0;top:0;width:640px;height:100%;background:url(img/dl-cover.jpg) center 38%/cover;-webkit-mask:linear-gradient(90deg,transparent,#000 35%)}
+.dl .star{width:118px;margin:0 26px 0 46px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.6));position:relative}
+.dl h2{font:78px/0.9 Saloon;color:#e9d7b0;text-shadow:0 3px 0 #1d0f06;position:relative}
+.dl h2 small{display:block;font:30px Saloon;color:#d0a96a;margin-top:8px;letter-spacing:.06em}
+.dl ul{position:relative;list-style:none;margin-left:54px;font:15px/1.8 Antiqua;color:#e8d8bb}
+.lab{font:15px Spies;letter-spacing:.06em;color:#8b7d6d;margin:0 0 10px 2px}
+</style></head><body>
+<div class="top"><img class="logo" src="img/savage-worlds.webp"><div class="icons"></div></div>
+<div class="hero"><img src="img/core-hero.jpg"><div class="t"><div class="salt">„Schnappt euch eure Würfel.<br>It’s time to get savage!“</div></div></div>
+<div class="wrap">
+ <div class="genre">
+  <div class="g on fix"><div class="c" style="background-image:url(img/corecover-001.jpg)"></div><div class="sw">Grundregeln</div></div>
+  <div class="g on"><div class="c" style="background-image:url(img/fan.jpg)"></div><div class="sw"><i></i>Fantasy</div></div>
+  <div class="g off"><div class="c" style="background-image:url(img/hor.jpg)"></div><div class="sw"><i></i>Horror</div></div>
+  <div class="g off"><div class="c" style="background-image:url(img/sf.jpg)"></div><div class="sw"><i></i>Science-Fiction</div></div>
+  <div class="g off"><div class="c" style="background-image:url(img/sup.jpg)"></div><div class="sw"><i></i>Superkräfte</div></div>
+ </div>
+ <div class="grid">
+  <div class="k"><div class="p" style="background-image:url(img/art-005.jpg);background-position:center 20%"></div><div class="torn"><h3>Charaktere</h3></div><ul><li>Erschaffung</li><li>Völker</li><li>Handicaps</li><li>Eigenschaften</li><li>Talente</li><li>Aufstiege</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/art-065.jpg);background-position:center 55%"></div><div class="torn"><h3>Ausrüstung</h3></div><ul><li>Rüstung</li><li>Nahkampf</li><li>Fernkampf</li><li>Spezielle Waffen</li><li>Fahrzeuge</li><li>Sonstiges</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/art-077.jpg);background-size:150%;background-position:50% 88%"></div><div class="torn"><h3>Regeln</h3></div><ul><li>Grundlagen</li><li>Kampf</li><li>Heilung</li><li>Situationsregeln</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/art-160.jpg);background-size:220%;background-position:96% 8%"></div><div class="torn"><h3>Werkzeugkasten</h3></div><ul><li>Dramatische Aufgaben</li><li>Furcht</li><li>Gefahren</li><li>Massenschlachten</li><li>Verfolgungsjagden</li><li>Soziale Konflikte</li><li>Reisen</li><li>Wohlstand</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/art-009.jpg);background-position:center 32%"></div><div class="torn"><h3>Mächte</h3></div><ul><li>Arkane Hintergründe</li><li>Ausprägungen</li><li>Mächte</li></ul></div>
+  <div class="k w"><div class="p" style="background-image:url(img/drache.png)"></div><div class="torn"><h3>Bestiarium</h3></div><ul><li>Tiere</li><li>Drachen</li><li>Elementare</li><li>Untote</li><li>Riesen</li><li>Menschen</li><li>Dämonen</li><li>Konstrukte</li><li>…</li></ul></div>
+  <div class="k"><div class="p" style="background-image:url(img/core-hero.jpg);background-position:center 75%"></div><div class="torn"><h3>Spielleitung</h3></div><ul><li>Spiel leiten</li><li>Weltenbau</li><li>Alle Altersstufen</li><li>Risiken &amp; Wendungen</li><li>Lange Kampagnen</li><li>Unter der Haube</li></ul></div>
+ </div>
+ <div class="dl"><div class="art"></div><img class="star" src="img/stern.png"><h2>Deadlands<small>The Weird West</small></h2><ul><li>Die Welt</li><li>Helden</li><li>Marshal</li><li>Bestiarium</li></ul></div>
+</div>
+<script src="icons.js"></script></body></html>

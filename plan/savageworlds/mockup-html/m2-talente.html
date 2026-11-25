@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sw.css"><style>
+.main{display:flex}
+.cont{flex:1;padding:22px 40px 40px 26px}
+.head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.head h1{font:40px Spies;color:var(--rot)}
+.head .src{margin-left:auto;display:flex;gap:6px;align-items:center}
+.chip{font:13px Spies;letter-spacing:.05em;padding:5px 9px 4px;border:1.5px solid #c9bba4;color:#8b7d6d;border-radius:2px}
+.chip.on{border-color:transparent;color:#fff}
+.rang{display:flex;gap:6px;margin-left:16px}
+.r{font:13px Pal;color:#6d6156;padding:4px 9px;border-bottom:2px solid transparent}
+.r.on{border-color:var(--rot);color:var(--ink);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start;grid-auto-flow:dense}
+.t{background:#fbf6ec;box-shadow:0 1px 0 #d9ccb6,0 4px 10px rgba(60,40,20,.09);padding:11px 14px 11px 16px;position:relative;border-left:4px solid #8f8273}
+.t.a{border-left-color:#7a7067}.t.f{border-left-color:#c27a1c}.t.v{border-left-color:#a51f1a}.t.h{border-left-color:#5b2a6e}
+.t h4{font:20px Spies;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.t h4 .badge{margin-left:auto}
+.t .v{font:12.5px/1.4 Pal;color:var(--soft);margin-top:3px}
+.t .v b{font-weight:700;color:#5d5248}
+.t.open{grid-column:span 2;grid-row:span 3;padding:16px 22px 18px 22px;background:#fffaf0}
+.t.open h4{font-size:30px;color:var(--rot)}
+.t.open p{font-size:15.5px;line-height:1.6;margin-top:10px}
+.t.open .s{font:12px Pal;color:#a29585;margin-left:8px}
+.note{position:absolute;right:-14px;bottom:-34px;width:250px;transform:rotate(-3deg);font-size:13px}
+</style></head><body>
+<div class="top"><img class="logo" src="img/savage-worlds.webp"><div class="tabs"><a class="on">Charaktere</a><a>Ausrüstung</a><a>Regeln</a><a>Werkzeugkasten</a><a>Mächte</a><a>Bestiarium</a><a>Genres</a><a>Spielleitung</a></div><div class="icons"></div></div>
+<div class="sub"><a>Erschaffung</a><a>Völker</a><a>Handicaps</a><a>Eigenschaften</a><a class="on">Talente</a><a>Aufstiege</a></div>
+<div class="main">
+ <div class="side"><span class="fold">‹</span>
+  <a>Hintergrund</a><hr><a class="on">Kampf</a><hr><a>Anführer</a><hr><a>Macht</a><hr><a>Experten</a><hr><a>Sozial</a><hr><a>Übersinnlich</a><hr><a>Legendär</a><hr><a style="color:#3f6b2f">Fantasy</a><div class="kids">Ahnen- und Klassentalente</div>
+ </div>
+ <div class="cont">
+  <div class="head"><h1>Kampftalente</h1>
+   <div class="rang"><span class="r on">Alle</span><span class="r">Anfänger</span><span class="r">Fortgeschritten</span><span class="r">Veteran</span><span class="r">Heroisch</span><span class="r">Legendär</span></div>
+   <div class="src"><span class="chip on b-grw">GRW</span><span class="chip on b-fan">FAN</span><span class="chip">HOR</span><span class="chip">SF</span><span class="chip">SUP</span></div></div>
+  <div class="grid">
+   <div class="t open f"><h4>Kühler Kopf<span class="s">S. 42</span><span class="badge b-grw">GRW</span></h4>
+    <div class="v"><b>Fortgeschritten</b> · Verstand W8+</div>
+    <p>Charaktere, die ruhig bleiben, wenn alle anderen in Deckung springen, können tödliche Kämpfer sein. Ein Held mit diesem Talent zieht eine zusätzliche Aktionskarte im Kampf und wählt aus, welche er verwenden möchte.</p>
+    <p style="font-size:13.5px;color:#6d6156;margin-top:14px">Führt zu: <u>Sehr kühler Kopf</u></p>
+   </div>
+   <div class="t a"><h4>Erstschlag<span class="badge b-grw">GRW</span></h4><div class="v"><b>Anfänger</b> · Geschicklichkeit W8+</div></div>
+   <div class="t a"><h4>Eisenkiefer<span class="badge b-grw">GRW</span></h4><div class="v"><b>Anfänger</b> · Konstitution W8+</div></div>
+   <div class="t a"><h4>Bevorzugter Feind<span class="badge b-fan">FAN</span></h4><div class="v"><b>Anfänger</b> · Athletik, Kämpfen oder Schießen W6+</div></div>
+   <div class="t a"><h4>Rundumschlag<span class="badge b-grw">GRW</span></h4><div class="v"><b>Anfänger</b> · Stärke W8+, Kämpfen W8+</div></div>
+   <div class="t f"><h4>Kampfreflexe<span class="badge b-grw">GRW</span></h4><div class="v"><b>Fortgeschritten</b></div></div>
+   <div class="t f"><h4>Schneller Angriff<span class="badge b-grw">GRW</span></h4><div class="v"><b>Fortgeschritten</b> · Kämpfen W8+</div></div>
+   <div class="t f"><h4>Ausweichen<span class="badge b-grw">GRW</span></h4><div class="v"><b>Fortgeschritten</b> · Geschicklichkeit W8+</div></div>
+   <div class="t f"><h4>Kampfkunstmeister<span class="badge b-grw">GRW</span></h4><div class="v"><b>Fortgeschritten</b> · Kampfkünstler</div></div>
+   <div class="t v"><h4>Blitzschneller Angriff<span class="badge b-grw">GRW</span></h4><div class="v"><b>Veteran</b> · Schneller Angriff</div></div>
+   <div class="t v"><h4>Chi<span class="badge b-grw">GRW</span></h4><div class="v"><b>Veteran</b> · Kampfkunstmeister</div></div>
+   <div class="t v"><h4>Schnelles Ausweichen<span class="badge b-grw">GRW</span></h4><div class="v"><b>Veteran</b> · Ausweichen</div></div>
+  </div>
+ </div>
+</div>
+<script src="icons.js"></script></body></html>

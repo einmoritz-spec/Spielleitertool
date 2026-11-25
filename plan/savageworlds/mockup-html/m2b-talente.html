@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sw.css"><style>
+.main{display:flex}
+.cont{flex:1;padding:26px 44px 40px 30px}
+.rk{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+.rk h2{font:15px Spies;letter-spacing:.1em;color:var(--rot)}
+.rk:after{content:"";flex:1;height:1px;background:#d2c3a8}
+.rk+.grid{margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 12px}
+.t{background:#fbf6ec;padding:10px 14px 11px;box-shadow:0 1px 0 #ddd0b9;cursor:pointer}
+.t b{display:block;font:700 15.5px/1.3 Pal;color:#221d18}
+.t span{display:block;font:12.5px/1.4 Pal;color:#8a7d6f;margin-top:2px}
+.t .q{display:inline-block;font:10px/1 Spies;letter-spacing:.07em;color:#fff;background:#3f6b2f;padding:3px 4px 2px;margin-left:6px;vertical-align:2px}
+.t.on{background:#fff;box-shadow:0 0 0 2px var(--rot)}
+.open{grid-column:1/-1;background:#fff;padding:16px 22px 18px;box-shadow:0 0 0 2px var(--rot),0 8px 18px rgba(60,40,20,.12);display:grid;grid-template-columns:1fr 240px;gap:4px 30px;margin:-2px 0 4px}
+.open h3{font:700 22px Pal;color:var(--rot)}
+.open h3 small{font:400 12px Pal;color:#a29585;margin-left:8px}
+.open p{font-size:15.5px;line-height:1.62;color:#2b241e}
+.open .meta{grid-row:1/3;grid-column:2;border-left:1px solid #e3d8c4;padding-left:20px;font:13.5px/1.7 Pal;color:#6d6156}
+.open .meta b{display:block;font:11px Spies;letter-spacing:.1em;color:#a29585;margin-top:4px}
+</style></head><body>
+<div class="top"><img class="logo" src="img/savage-worlds.webp"><div class="tabs"><a class="on">Charaktere</a><a>Ausrüstung</a><a>Regeln</a><a>Werkzeugkasten</a><a>Mächte</a><a>Bestiarium</a><a>Genres</a><a>Spielleitung</a></div><div class="icons"></div></div>
+<div class="sub"><a>Erschaffung</a><a>Völker</a><a>Handicaps</a><a>Eigenschaften</a><a class="on">Talente</a><a>Aufstiege</a></div>
+<div class="main">
+ <div class="side"><span class="fold">‹</span>
+  <a>Hintergrund</a><hr><a class="on">Kampf</a><hr><a>Anführer</a><hr><a>Macht</a><hr><a>Experten</a><hr><a>Sozial</a><hr><a>Übersinnlich</a><hr><a>Legendär</a>
+ </div>
+ <div class="cont">
+  <div class="rk"><h2>Anfänger</h2></div>
+  <div class="grid">
+   <div class="t"><b>Beidhändiger Kampf</b><span>Geschicklichkeit W8+</span></div>
+   <div class="t"><b>Bevorzugter Feind<i class="q">Fantasy</i></b><span>Athletik, Kämpfen oder Schießen W6+</span></div>
+   <div class="t"><b>Eisenkiefer</b><span>Konstitution W8+</span></div>
+   <div class="t"><b>Erstschlag</b><span>Geschicklichkeit W8+</span></div>
+   <div class="t"><b>Rundumschlag</b><span>Stärke W8+, Kämpfen W8+</span></div>
+  </div>
+  <div class="rk"><h2>Fortgeschritten</h2></div>
+  <div class="grid">
+   <div class="t"><b>Ausweichen</b><span>Geschicklichkeit W8+</span></div>
+   <div class="t"><b>Kampfkunstmeister</b><span>Kampfkünstler</span></div>
+   <div class="t"><b>Kampfreflexe</b><span>—</span></div>
+   <div class="t on"><b>Kühler Kopf</b><span>Verstand W8+</span></div>
+   <div class="open"><h3>Kühler Kopf<small>S. 42</small></h3>
+    <p>Charaktere, die ruhig bleiben, wenn alle anderen in Deckung springen, können tödliche Kämpfer sein. Ein Held mit diesem Talent zieht eine zusätzliche Aktionskarte im Kampf und wählt aus, welche er verwenden möchte.</p>
+    <div class="meta"><b>Voraussetzungen</b>Fortgeschritten, Verstand W8+<b>Führt zu</b><u>Sehr Kühler Kopf</u></div></div>
+   <div class="t"><b>Schneller Angriff</b><span>Kämpfen W8+</span></div>
+   <div class="t"><b>Schnelles Ausweichen</b><span>Ausweichen</span></div>
+   <div class="t"><b>Sehr Kühler Kopf</b><span>Kühler Kopf</span></div>
+  </div>
+  <div class="rk"><h2>Veteran</h2></div>
+  <div class="grid">
+   <div class="t"><b>Blitzschneller Angriff</b><span>Schneller Angriff</span></div>
+   <div class="t"><b>Chi</b><span>Kampfkunstmeister</span></div>
+     </div>
+ </div>
+</div>
+<script src="icons.js"></script></body></html>

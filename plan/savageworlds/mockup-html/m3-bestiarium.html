@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="sw.css"><style>
+.cont{padding:22px 40px 40px 40px}
+.head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.head h1{font:40px Spies;color:var(--rot)}
+.head .src{margin-left:auto;display:flex;gap:6px}
+.chip{font:13px Spies;letter-spacing:.05em;padding:5px 9px 4px;border:1.5px solid #c9bba4;color:#8b7d6d;border-radius:2px}
+.chip.on{border-color:transparent;color:#fff}
+.typ{display:flex;gap:4px;margin-left:16px}.typ span{font:13.5px Pal;color:#6d6156;padding:4px 9px;border-bottom:2px solid transparent}.typ span.on{border-color:var(--rot);color:var(--ink);font-weight:700}
+.lay{display:grid;grid-template-columns:1fr 330px;gap:22px;align-items:start}
+.sb{background:#fffaf0;box-shadow:0 1px 0 #d9ccb6,0 8px 20px rgba(60,40,20,.12);position:relative;padding:20px 26px 22px;display:grid;grid-template-columns:1fr 300px;gap:6px 24px}
+.sb h2{font:40px Spies;color:var(--rot);display:flex;align-items:center;gap:10px;grid-column:1/-1}
+.sb h2 img{width:34px}
+.sb h2 .s{font:12px Pal;color:#a29585;margin-left:4px;align-self:flex-end;margin-bottom:8px}
+.sb h2 .badge{margin-left:auto}
+.intro{font-size:15px;line-height:1.55;color:#3d342c}
+.stats{display:flex;gap:10px;margin:14px 0 12px}
+.st{flex:1;text-align:center;background:#2a2624;color:#f6ead6;padding:7px 0 6px}
+.st b{display:block;font:30px/1 Spies}.st small{font:11px Spies;letter-spacing:.08em;color:#cdb9a0}
+.st.r{background:var(--rot)}
+.attr{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}
+.at{border:1.5px solid #d8c9b0;text-align:center;padding:4px 0 5px;background:#fbf4e6}
+.at small{display:block;font:11px Spies;letter-spacing:.06em;color:#8b7d6d}
+.at b{font:20px Spies;color:#2a2624}
+.fs{font-size:14px;line-height:1.5;color:#4a4038}.fs b{color:#221d18}
+.sp{list-style:none;columns:2;column-gap:22px;font-size:13.8px;line-height:1.45;margin-top:10px;grid-column:1/-1;border-top:1px solid var(--line);padding-top:10px}
+.sp li{break-inside:avoid;margin-bottom:6px;padding-left:12px;position:relative}
+.sp li:before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;background:var(--rot)}
+.sp b{color:var(--rot)}
+.pic{grid-row:2/4;grid-column:2;align-self:start;position:relative}
+.pic img{width:300px;display:block}
+.track{display:flex;gap:16px;align-items:center;font:13px Spies;letter-spacing:.05em;color:#6d6156;margin-top:4px}
+.track i{display:inline-block;width:16px;height:16px;border:1.5px solid #8b7d6d;transform:rotate(45deg);margin-left:6px;vertical-align:-3px}
+.track i.x{background:var(--rot);border-color:var(--rot)}
+.list{display:flex;flex-direction:column;gap:7px}
+.c{background:#fbf6ec;box-shadow:0 1px 0 #d9ccb6;padding:8px 12px 7px 14px;display:flex;align-items:center;gap:10px}
+.c.on{background:#a51f1a;color:#fff}
+.c h4{font:18px Spies;letter-spacing:.02em}
+.c .n{margin-left:auto;font:12px Pal;color:#8b7d6d;white-space:nowrap}
+.c.on .n{color:#f3cfc8}
+.c img{width:20px}
+.c .badge{font-size:10px}
+</style></head><body>
+<div class="top"><img class="logo" src="img/savage-worlds.webp"><div class="tabs"><a>Charaktere</a><a>Ausrüstung</a><a>Regeln</a><a>Werkzeugkasten</a><a>Mächte</a><a class="on">Bestiarium</a><a>Genres</a><a>Spielleitung</a></div><div class="icons"></div></div>
+<div class="sub" style="padding-left:430px"><a class="on">Alle</a><a>Tiere</a><a>Drachen</a><a>Elementare</a><a>Untote</a><a>Riesen</a><a>Menschen</a><a>Übernatürliches</a></div>
+<div class="cont">
+ <div class="head"><h1>Bestiarium</h1>
+  
+  <div class="src"><span class="chip on b-grw">GRW</span><span class="chip on b-fan">FAN</span><span class="chip">HOR</span><span class="chip">SF</span><span class="chip">SUP</span></div></div>
+ <div class="lay">
+  <div class="sb">
+   <h2><span class="wc" style="width:36px;height:36px;color:#221d18"></span>Drache<span class="s">S. 180</span><span class="badge b-grw">GRW</span></h2>
+   <div>
+    <div class="intro">Drachen sind feuerspeiende Monster, die Unheil und Verzweiflung in die Dörfer bringen, über die sie herfallen. Man sollte sich nicht leichtfertig mit solchen Kreaturen anlegen, da sie selbst einer erfahrenen Abenteurergruppe mehr als gewachsen sind.</div>
+    <div class="stats"><div class="st"><b>8</b><small>Bewegung</small></div><div class="st"><b>7</b><small>Parade</small></div><div class="st r"><b>20 (4)</b><small>Robustheit</small></div></div>
+    <div class="attr"><div class="at"><small>GES</small><b>W8</b></div><div class="at"><small>KON</small><b>W12</b></div><div class="at"><small>STÄ</small><b>W12+8</b></div><div class="at"><small>VER</small><b>W8</b></div><div class="at"><small>WIL</small><b>W10</b></div></div>
+    <div class="fs"><b>Fertigkeiten:</b> Allgemeinwissen W6, Athletik W10, Einschüchtern W12, Heimlichkeit W8, Kämpfen W10, Überreden W10, Wahrnehmung W12<br><b>Talente:</b> Blitzschneller Angriff, Kühler Kopf</div>
+    <div class="track" style="margin-top:12px">Angeschlagen<i class="x"></i>&nbsp;&nbsp;Wunden<i class="x"></i><i></i><i></i></div>
+   </div>
+   <div class="pic"><img src="img/drache.png"></div>
+   <ul class="sp">
+    <li><b>Biss/Klauen:</b> Stä+W8</li>
+    <li><b>Feueratem:</b> Drachen speien Feuer für 3W6 Schaden (siehe Odemwaffen, S. 177).</li>
+    <li><b>Fliegen:</b> Drachen haben eine Flugbewegungsrate von 24“.</li>
+    <li><b>Furchterregend (–2):</b> Jeder, der einen mächtigen Drachen sieht, muss eine Furchtprobe mit –2 ablegen.</li>
+    <li><b>Größe 8 (Riesig):</b> Über 12 m lang von der Schnauze bis zur Schwanzspitze, über 15 Tonnen schwer.</li>
+    <li><b>Panzerung +4:</b> Schuppenhaut.</li>
+    <li><b>Schwanzhieb:</b> Stä+W4. Freier Angriff gegen bis zu zwei Feinde hinter oder neben ihr, ohne Abzüge.</li>
+    <li><b>Wegklatschen:</b> Ignorieren bis zu 4 Punkte Größenkategorieabzüge mit Klauen.</li>
+    <li><b>Zäh:</b> Die Kreatur erleidet keine Wunde, wenn sie zweimal Angeschlagen wird.</li>
+   </ul>
+  </div>
+  <div class="list">
+   <div class="c"><h4>Alligator/Krokodil</h4><span class="n">P 6 · R 11 (2)</span></div>
+   <div class="c"><h4>Bär</h4><span class="n">P 6 · R 10</span></div>
+   <div class="c on"><span class="wc"></span><h4>Drache</h4><span class="n">P 7 · R 20 (4)</span></div>
+   <div class="c"><h4>Drachling</h4><span class="n">P 7 · R 18 (4)</span></div>
+   <div class="c"><h4>Chimäre</h4><span class="badge b-fan">FAN</span><span class="n">P 6 · R 12 (2)</span></div>
+   <div class="c"><h4>Erdelementar</h4><span class="n">P 6 · R 11 (4)</span></div>
+   <div class="c"><h4>Feuerelementar</h4><span class="n">P 7 · R 7</span></div>
+   <div class="c"><h4>Gargyl</h4><span class="badge b-fan">FAN</span><span class="n">P 6 · R 10 (2)</span></div>
+   <div class="c"><span class="wc"></span><h4>Lich</h4><span class="n">P 6 · R 11 (2)</span></div>
+   <div class="c"><h4>Oger</h4><span class="n">P 6 · R 12 (1)</span></div>
+   <div class="c"><h4>Riesenspinne</h4><span class="n">P 6 · R 5</span></div>
+  </div>
+ </div>
+</div>
+<script src="icons.js"></script></body></html>

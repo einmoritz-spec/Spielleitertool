@@ -30,7 +30,7 @@ function tabOf(id){ return TABS.filter(function(t){ return t.id === id; })[0]; }
 function render(){
   var r = route(), dl = r.a === "dl";
   document.body.classList.toggle("dl-mode", dl);
-  var tabs = dl ? [] : TABS, cur = tabOf(r.a);
+  var tabs = (dl || r.a === "start") ? [] : TABS, cur = tabOf(r.a);
   KT.innerHTML = tabs.map(function(t){ return '<a class="' + (cur && cur.id === t.id ? "on" : "") + '" onclick="go(\'' + t.id + '\')">' + esc(t.t) + "</a>"; }).join("");
   if(cur){
     var b = r.b || cur.subs[0][0];

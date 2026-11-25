@@ -29,7 +29,7 @@ window.HH_NAV = {
  ],
  garten: [
   {id: "welt", t: "Welt", unter: [
-   {id: "voelker", t: "Völker", seiten: [["barghests", "Barghests"], ["gnomes", "Gnomes"], ["fae", "Fae"], ["shinigami", "Shinigami"], ["inside", "Inside Folk"]]},
+   {id: "voelker", t: "Völker", seiten: [["einfuehrung", "Völker des Gartens"], ["barghests", "Barghests", ["barghests", "brambles"]], ["gnomes", "Gnomes", ["gnomes", "citadel"]], ["fae", "Fae", ["fae", "seelie"]], ["shinigami", "Shinigami", ["shinigami", "shogunat"]], ["inside", "Inside Folk"]]},
    {id: "geschichte", t: "Geschichte", seiten: [["thron", "A Crack in the Throne"], ["winter", "The Long Winter"], ["krieg", "Ein Kalter Krieg"], ["nacht", "The Starless Night"]]},
    {id: "garten", t: "Der Garten", sw: [["karte", "Karte"], ["reisekarte", "Reisekarte"]], seiten: [["frontier", "The Frontier"], ["underground", "The Underground"], ["frontyard", "The Front Yard"], ["brambles", "The Brambles"], ["woodlands", "The Woodlands"], ["barrens", "The Barrens"], ["grasslands", "The Grasslands"], ["backyard", "The Backyard"], ["rushes", "The Rushes"], ["fouroaks", "Four Oaks"]]}
   ]},

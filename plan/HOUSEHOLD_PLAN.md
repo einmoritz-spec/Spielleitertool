@@ -176,3 +176,4 @@ Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Perso
 - ✅ Kapitel I › Der Fall der verschwundenen Hummel (S.86–93)
 - ✅ Kapitel I › Die gestohlene Lieferung (S.94–101)
 - ✅ Kapitel I › Die Wachsfalle (S.102–109)
+- ✅ Kapitel I › Die Blaue Ratte (S.110–120) – Kapitel I komplett

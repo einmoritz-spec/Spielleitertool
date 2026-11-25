@@ -154,6 +154,7 @@ Aufräumen beim Bau: Tapetenstücke hinter den Saga-Figuren (z. B. fp-s018-…, 
 4. Grundbuch: Das Haus (Räume), Gegner, Anhang
 5. Practical Guide: Nationen, Mysterien, Atlas, neue Charaktere
    - ✅ **Alltag der Nationen › Realm (25. Nov. 2026)**, Guide S.10–53 (`welt-alltag-realm-a/-b/-c.js`, Router `welt-alltag.js`): Politik, Mysterium *Zlad of Wall-lachia*, Streitkräfte (inkl. Tristarred, Golden Circle), Mysterium *The House of Cards*, Leben, Institutionen, The Kitchen. Ballade „Roach-Stink Morten“ (S.42–43) nicht übernommen. Mysterien stehen vorerst im Realm-Text, später unter Spielleitung › Mysterien verlinken. Ränge bleiben englisch (Captain, Colonel …), Royal Gendarmerie/Golden Backs/Sentries englisch. Nächste Etappen: Hearth (S.54–95), Free Dominions (S.96–139), Horde (S.140–180), je als `welt-alltag-<nation>-<teil>.js`.
+   - ✅ **Alltag der Nationen › Hearth (25. Nov. 2026)**, Guide S.54–95 (`welt-alltag-hearth-a/-b/-c/-d.js`): Politik, Streitkräfte, Mysterium *The Flame of Love*, Church of Safekeeping, Cinder Order, Mysterium *A Cold Heart*, Leben, Institutionen (Fechten, Dens, Union, Rox-Bande), Mysterium *The City Inbetween*. Sprechchor S.58, Vers im Lesser-Ashen-Kasten S.77 und Inschrift „Big Ben’s Tomb“ S.82 nicht übernommen. Nächste Etappen: Free Dominions (S.96–139), Horde (S.140–180).
 6. Garten (Vol. II): Welt, Regeln, Reise & Jahreszeiten, Karte, Gegner/Colossi
 7. Saga Fragile Peace: Figuren + Abenteuer + Leitstand
 8. Saga Long Winter: Figuren + Abenteuer + Leitstand

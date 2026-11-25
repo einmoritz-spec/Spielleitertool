@@ -64,7 +64,7 @@ function textSeite(P, list, book){
   }
   var e = list.filter(function(x){ return x.id === P.sel; })[0] || list[0];
   if(!e) return platzhalter(P.unter.t);
-  var bl = (window.HH_BILD || {})[P.unter.id + "/" + e.id] || [];
+  var bl = P.mode === "garten" ? [] : (window.HH_BILD || {})[P.unter.id + "/" + e.id] || [];
   var fig = bl.map(function(g){ return '<figure class="fig" style="width:' + g.w + 'px">' + g.s.map(function(n){ return '<img loading="lazy" src="' + IMGP(n) + '" alt="">'; }).join("") + '</figure>'; }).join("");
   return '<div class="sec txt"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + fig + blk(e.b, book) + '<div style="clear:both"></div></div>';
 }

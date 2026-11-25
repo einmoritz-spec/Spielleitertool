@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1049sq";
+const VERSION = "v1050sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -4173,6 +4173,28 @@ const FILES = [
   "compass/js/suche.js",
   "household/js/suche.js",
   "savageworlds/js/suche.js",
+  "savageworlds/style.css",
+  "savageworlds/js/books.js",
+  "savageworlds/js/app.js",
+  "savageworlds/img/start/dl-cover.webp",
+  "savageworlds/img/start/k-ausruestung.webp",
+  "savageworlds/img/start/k-bestiarium.webp",
+  "savageworlds/img/start/k-charaktere.webp",
+  "savageworlds/img/start/k-maechte.webp",
+  "savageworlds/img/start/k-regeln.webp",
+  "savageworlds/img/start/k-spielleitung.webp",
+  "savageworlds/img/start/k-werkzeugkasten.webp",
+  "savageworlds/img/start/leder.webp",
+  "savageworlds/img/start/p-fantasy.webp",
+  "savageworlds/img/start/p-grundregeln.webp",
+  "savageworlds/img/start/p-horror.webp",
+  "savageworlds/img/start/p-scifi.webp",
+  "savageworlds/img/start/p-super.webp",
+  "savageworlds/fonts/spies.ttf",
+  "savageworlds/fonts/PalatinoLinotype-Roman.ttf",
+  "savageworlds/fonts/PalatinoLinotype-Bold.ttf",
+  "savageworlds/fonts/PalatinoLinotype-Italic.ttf",
+  "savageworlds/fonts/oswald-latin-600-normal.woff2",
   "triangle/js/suche.js",
   "otherscape/js/suche.js",
   "etr/js/suche.js",

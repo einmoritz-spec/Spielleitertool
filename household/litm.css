@@ -38,3 +38,5 @@
 .bx{display:inline-block;width:20px;height:20px;border:2px solid var(--akz2);border-radius:3px;margin-left:5px;cursor:pointer;vertical-align:middle}.bx.on{background:var(--akz2)}
 .thr{display:grid;gap:10px;margin-top:10px}.thr h5{font:17px Fell,serif;font-weight:400;color:var(--akz);margin:0;text-transform:uppercase}.thr i{display:block;font-size:14.5px;color:var(--soft)}.thr ul{margin:3px 0 0;padding-left:18px}.thr li{margin:2px 0}
 .chl-q{margin-top:10px;font-size:13.5px;color:#958792;font-style:italic}
+
+.lm-st{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--rule)}.lm-st h4{font:20px Fell,serif;color:var(--akz);margin:0}.lm-st>i{display:block;font-size:15px;color:var(--soft);margin:2px 0 4px}.lm-st ul{margin:4px 0;padding-left:18px}.lm-st li{margin:4px 0;line-height:1.5}

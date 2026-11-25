@@ -1,4 +1,4 @@
-/* Legend in the Mist – Ansicht für Household-Abenteuer (Aufbau wie bei Wake: Überblick, Szenen, Vignetten, Challenges) */
+/* Legend in the Mist – Ansicht für Household-Abenteuer (Aufbau wie bei Wake: Überblick, Szenen, Challenges) */
 var LSTATE = {};
 try{ LSTATE = JSON.parse(localStorage.getItem("hh_litm_v1") || "{}") || {}; }catch(e){ LSTATE = {}; }
 function lsave(){ try{ localStorage.setItem("hh_litm_v1", JSON.stringify(LSTATE)); }catch(e){} }
@@ -41,7 +41,10 @@ function lLim(id, i, k, max){
 function lScene(D, s, i){
   var h = '<div class="sec txt lm"><h2>' + esc(s.t) + '</h2><div class="lm-en">' + esc(s.en) + '</div>';
   if(s.vor && s.vor.length) h += '<div class="lm-vor">' + s.vor.map(function(p){ return '<p>' + lmd(p) + '</p>'; }).join("") + '</div>';
-  h += '<h3>Ablauf der Szene</h3>' + s.ablauf.map(function(p){ return '<p>' + lmd(p) + '</p>'; }).join("");
+  h += '<h3>Ablauf der Szene</h3>' + s.ablauf.map(function(p){
+    if(typeof p === "string") return '<p>' + lmd(p) + '</p>';
+    return '<div class="lm-st"><h4>' + esc(p.h) + '</h4>' + (p.i ? '<i>' + lmd(p.i) + '</i>' : '') + '<ul>' + p.l.map(function(x){ return '<li>' + lmd(x) + '</li>'; }).join("") + '</ul></div>';
+  }).join("");
   if(s.figuren && s.figuren.length) h += '<h3>Figuren</h3><div class="lm-fig">' + s.figuren.map(function(f){ return '<div><b>' + esc(f.n) + '</b>' + lmd(f.x) + '</div>'; }).join("") + '</div>';
   if(s.vign && s.vign.length) h += '<h3>Vignetten</h3><div class="vgs">' + s.vign.map(lVign).join("") + '</div>';
   if(s.ch && s.ch.length) h += '<h3>Challenges</h3><div class="chls">' + s.ch.map(function(k){ return lChall(k, D.challenges[k]); }).join("") + '</div>';

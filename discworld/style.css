@@ -301,3 +301,8 @@ p.motto.zw2{margin:-4px 0 12px;font:italic 17px/1.4 Gara,serif;color:#6d5b48}
 .notizm .mb{max-width:640px}
 .nt-h{margin:0 0 10px;font:400 24px/1 FellSC,serif;color:var(--lila)}
 textarea.nt{width:100%;min-height:260px;padding:12px 14px;border:1px solid #c9ae80;background:rgba(255,252,244,.8);font:22px/1.4 Hand,cursive;color:#2b211a;resize:vertical}
+
+.speise{clear:both;max-width:420px;margin:18px auto 22px;padding:22px 30px;background:url(img/deko/papier.webp) center/cover;border:1px solid #cdb995;box-shadow:3px 4px 10px rgba(60,30,10,.25);transform:rotate(-1.5deg);text-align:center;font-family:Hand,cursive;font-size:21px;color:#2b1d14}
+.speise div{padding:6px 0;border-bottom:1px solid rgba(93,59,116,.45)}
+.speise div:last-of-type{border:0}
+.speise .zier{display:block;width:140px;margin:4px auto;opacity:.85}

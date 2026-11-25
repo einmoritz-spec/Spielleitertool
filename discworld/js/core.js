@@ -47,6 +47,7 @@ function blk(L){
       case "brief": return '<div class="brief">' + md(klein(b.x)).replace(/<br><br>/g, "</p><p>").replace(/^/, "<p>") + "</p></div>";
       case "img": return bildTag(b.src, b.c);
       case "tbl": return tabelle(b);
+      case "speisekarte": return '<div class="speise"><img class="zier" src="img/deko/zier-lila.webp" alt="">' + b.x.map(function(z){ return "<div>" + md(z) + "</div>"; }).join("") + '<img class="zier" src="img/deko/zier-lila.webp" alt=""></div>';
       case "wt": return wtab(b);
       case "erg": return '<div class="erg">' + b.rows.map(function(r, i){ return '<div class="e' + i + '"><small>' + esc(r[0]) + '</small><b>' + esc(r[1]) + "</b></div>"; }).join("") + "</div>";
       case "kosten": return '<div class="kosten">' + b.rows.map(function(r){ return '<div><b>' + esc(r[0]) + '</b><span>' + md(r[1]) + "</span></div>"; }).join("") + "</div>";

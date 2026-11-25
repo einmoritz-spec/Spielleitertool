@@ -101,3 +101,20 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .tg.base{padding:5px 12px;cursor:default;color:rgba(255,255,255,.85)}
 .pan a.off .tg{filter:none}
 .pan h3{font-size:22px}
+
+/* Talente */
+.rk{display:flex;align-items:center;gap:14px;margin:22px 0 10px;font-size:22px;color:var(--rc)}
+.rk:after{content:"";flex:1;height:2px;background:var(--rc);opacity:.35}
+.tg3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tc{background:var(--paper2);border-left:5px solid var(--rc);padding:10px 14px 10px 16px;cursor:pointer;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.tc:hover{background:#fff}.tc.open{outline:2px solid var(--rc);outline-offset:-2px;background:#fff}
+.tc b{display:block;font:400 21px/1.1 Spies,Oswald,sans-serif;letter-spacing:.01em}
+.tc small{display:block;margin-top:3px;font-size:13px;color:var(--soft)}
+.td{grid-column:1/-1;display:grid;grid-template-columns:1fr 240px;gap:26px;background:#fff;border-left:5px solid var(--rc);padding:18px 22px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.td h3{font-size:30px;margin:0 0 8px;color:var(--c)}
+.td p{margin:6px 0;max-width:none}
+.tds{border-left:1px solid var(--line);padding-left:18px;font-size:14px}
+.tds small{display:block;margin-top:10px;font:600 11px Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.tds small:first-child{margin-top:0}.tds a{display:block;text-decoration:underline;color:var(--c)}
+.side .fold{position:absolute;right:8px;top:10px}
+.side a:first-of-type{padding-right:40px}

@@ -39,6 +39,7 @@ function render(){
   } else { SUB.className = "sub"; SUB.innerHTML = ""; }
   if(r.a === "start") return start();
   if(dl) return dlPage();
+  if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "talente") return talentePage();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }
@@ -47,6 +48,39 @@ function page(t, sid){
   var sub = t.subs.filter(function(s){ return s[0] === sid; })[0] || t.subs[0];
   APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>' + esc(sub[1]) + (sub[2] ? '<span class="pg" onclick="openBook(\'sw_de\',' + sub[2] + ')">S. ' + sub[2] + "</span>" : "") + '</h2><div class="soon">Inhalt folgt.</div></main></div>';
 }
+
+/* ---------- Talente ---------- */
+var TK = ["Hintergrund","Kampf","Anführer","Macht","Experten","Sozial","Übersinnlich","Legendär"];
+var TKT = {"Hintergrund":"Hintergrundtalente","Kampf":"Kampftalente","Anführer":"Anführertalente","Macht":"Machttalente","Experten":"Expertentalente","Sozial":"Soziale Talente","Übersinnlich":"Übersinnliche Talente","Legendär":"Legendäre Talente"};
+var RN = ["Anfänger","Fortgeschritten","Veteran","Heroisch","Legendär"], RC = ["#7a7067","#c27a1c","#a51f1a","#6a3a8a","#b8902a"];
+function talentePage(){
+  if(!ST.tk) ST.tk = "Hintergrund";
+  var kat = ST.tk, list = SW_TALENTE.filter(function(t){ return t.k === kat; });
+  var side = TK.map(function(k){ return '<a class="' + (k === kat ? "on" : "") + '" onclick="talKat(\'' + k + '\')">' + esc(k) + "</a>"; }).join("");
+  var h = "";
+  RN.forEach(function(rn, ri){
+    var L = list.filter(function(t){ return t.r === ri; }); if(!L.length) return;
+    h += '<h4 class="rk" style="--rc:' + RC[ri] + '"><span>' + rn + '</span></h4><div class="tg3">';
+    L.forEach(function(t, i){
+      var id = SW_TALENTE.indexOf(t), open = ST.to === id;
+      h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:' + RC[ri] + '" onclick="talOpen(' + id + ')"><b>' + esc(t.n) + '</b><small>' + esc(t.v || "–") + (t.w ? " · nur Wildcards" : "") + "</small></div>";
+      if(open || (i % 3 === 2 || i === L.length - 1) && L.slice(i - i % 3, i + 1).some(function(x){ return SW_TALENTE.indexOf(x) === ST.to; })){
+        if(L.slice(i - i % 3, i + 1).some(function(x){ return SW_TALENTE.indexOf(x) === ST.to; }) && (i % 3 === 2 || i === L.length - 1)) h += talDetail(SW_TALENTE[ST.to]);
+      }
+    });
+    h += "</div>";
+  });
+  APP.innerHTML = '<div class="lay' + (ST.fold ? " fold-on" : "") + '" id="lay"><aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + side + '</aside><main class="ct"><h2>' + esc(TKT[kat]) + '</h2>' + h + '</main></div>';
+}
+function talDetail(t){
+  var up = SW_TALENTE.filter(function(x){ return x.v && x.v.split(/,\s*/).indexOf(t.n) > -1; });
+  return '<div class="td" style="--rc:' + RC[t.r] + '"><div class="tdm"><h3>' + esc(t.n) + '<span class="pg" onclick="openBook(\'sw_de\',' + (t.p + 1) + ')">S. ' + t.p + '</span></h3>' + t.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</div><div class="tds"><small>Voraussetzungen</small><div>' + RN[t.r] + (t.v ? ", " + esc(t.v) : "") + (t.w ? "<br>nur Wildcards" : "") + "</div>" +
+    (up.length ? "<small>Führt zu</small>" + up.map(function(x){ return '<a onclick="event.stopPropagation();talGo(' + SW_TALENTE.indexOf(x) + ')">' + esc(x.n) + "</a>"; }).join("") : "") + "</div></div>";
+}
+function talKat(k){ ST.tk = k; ST.to = -1; save(); talentePage(); }
+function talOpen(id){ ST.to = ST.to === id ? -1 : id; save(); talentePage(); var d = document.querySelector(".td"); if(d && ST.to > -1) d.scrollIntoView({block:"nearest", behavior:"smooth"}); }
+function talGo(id){ ST.tk = SW_TALENTE[id].k; ST.to = id; save(); talentePage(); var d = document.querySelector(".td"); if(d) d.scrollIntoView({block:"center"}); }
+function foldSide(){ ST.fold = ST.fold ? 0 : 1; save(); var l = document.getElementById("lay"); if(l) l.classList.toggle("fold-on", !!ST.fold); }
 function dlPage(){ APP.innerHTML = '<div class="st"><div class="soon">Deadlands folgt.</div></div>'; }
 
 /* ---------- Startseite ---------- */

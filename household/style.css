@@ -354,9 +354,9 @@ body.garten .kasten:not(.gegner) b{color:var(--kup)}
 body.garten .kasten:not(.gegner) q,body.garten .kasten:not(.gegner) blockquote{color:#8f5a22}
 
 body.garten .kasten.gegner{margin:16px 0 30px;padding:18px 22px 12px;border:1px solid #c9a66b;outline:1px solid #dcc28c;outline-offset:-6px;border-radius:3px;background:linear-gradient(#fdf9ee,#f8f0dc);box-shadow:0 2px 8px rgba(90,60,15,.18);color:#2f281b}
-body.garten .gegner .gk-grid{display:flex;flex-direction:row-reverse;gap:22px;align-items:flex-start;margin-bottom:12px}
-body.garten .gegner .gk-l{flex:1 1 auto;min-width:0}
-body.garten .gegner .gk-grid>.fig{float:none;flex:0 0 auto;margin:6px 0 0;max-width:34%;display:block}
+body.garten .gegner .gk-grid{margin-bottom:12px}
+body.garten .gegner>.fig{float:right;clear:none;margin:4px -6px 6px 22px;max-width:38%}
+body.garten .gegner>.fig.weich img{-webkit-mask:radial-gradient(closest-side,#000 62%,transparent);mask:radial-gradient(closest-side,#000 62%,transparent)}
 body.garten .gegner .gk-kopf{display:flex;justify-content:space-between;align-items:flex-end;font:400 17px Fell,serif;color:var(--kup);letter-spacing:.08em;margin:0 0 10px;padding-bottom:4px;border-bottom:1.5px solid var(--kup)}
 body.garten .gegner .gk-lv{gap:5px}
 body.garten .gegner .lv{width:22px;height:22px;border:0;border-radius:0;background:var(--kup);opacity:.22;-webkit-mask:url(img/deko/spinne.png) center/contain no-repeat;mask:url(img/deko/spinne.png) center/contain no-repeat}
@@ -374,4 +374,4 @@ body.garten .gegner .sk{box-sizing:border-box;flex:none;width:17px;height:17px;b
 body.garten .gegner .sk.cr{width:21px;height:21px;margin:-2px -1px;border:2px dotted #2a2418;box-shadow:none;background:#fffdf6;border-radius:50%}
 body.garten .gegner>p{margin:8px 2px}
 body.garten .gegner .gk-zug b{color:var(--kup)}
-@media(max-width:760px){body.garten .gegner .gk-grid{flex-direction:column}body.garten .gegner .gk-grid>.fig{max-width:100%;align-self:center}}
+@media(max-width:760px){body.garten .gegner>.fig{float:none;margin:8px auto;max-width:100%}}

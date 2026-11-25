@@ -1,7 +1,7 @@
 /* Garten › Spielleitung › Gegner, Teil B: Tiere (Anhang I, S.280–297) */
 (function(){
 var K0 = "garten/sl/gegner", L = (window.HH_TEXT[K0] = window.HH_TEXT[K0] || []);
-function G(id, t, p, g, extra){ g.t = "gegner"; if(g.bild) g.bild[0] = "garten-" + g.bild[0]; L.push({id: id, t: t, p: p, b: [g].concat(extra || [])}); }
+function G(id, t, p, g, extra){ g.t = "gegner"; if(g.bild){ g.bild[0] = "garten-" + g.bild[0]; g.bildUnten = true; } L.push({id: id, t: t, p: p, b: [g].concat(extra || [])}); }
 
 G("gg-ameisen", "Ameisen", 280, {typ: "basic", lv: 1, st: 8, cr: [4, 8],
   bild: ["s280-281-anhang-opponents-ganz", 230],
@@ -77,7 +77,7 @@ G("gg-kroete", "Kröte", 286, {typ: "critical", lv: 4, st: 15, cr: [4, 8, 12],
     ["Great Leap", "Die Kröte macht einen gewaltigen Sprung und landet heftig mitten unter den Figuren. Figuren, denen kein kritischer Reaktionswurf auf Athletik + Krieg gelingt, werden Verletzt. Sind sie bereits Verletzt, erleiden sie 1 Schweren Stress."]]});
 
 G("gg-mantis", "Gottesanbeterin", 287, {typ: "critical", lv: 4, st: 9, cr: [2, 4, 6],
-  bild: ["s287-anhang-opponents", 230],
+  bild: ["s287-anhang-opponents", 260, "weich"],
   mv: "Guillotine, dann Shear, dann Mantis Defense", tr: "Beast, Counter-attack, Double Trouble, Huge", ot: "Freezing Venom, Hardened Shell, Triple Threat",
   ak: ["Die Gottesanbeterin taucht plötzlich auf und schlitzt nach dir. Reagiere mit Ausweichen.",
     "Die Gottesanbeterin verschmilzt mit der Vegetation und greift dann aus dem Grün an. Reagiere mit Erkundung.",
@@ -158,7 +158,7 @@ G("gg-zerzaust", "Zerzaustes Eichhörnchen", 295, {typ: "critical", lv: 5, st: 9
     ["Not Worth It", "Das zerzauste Eichhörnchen ist so verärgert, dass es beschließt, den Kampf aufzugeben und sich woanders die Wunden zu lecken. Die Figuren können ihren Sieg feiern.", "Greifen die Figuren das zerzauste Eichhörnchen an und versuchen, seinen Rückzug zu verhindern, geht der Kampf sofort mit einem Reaktionszug weiter. Das zerzauste Eichhörnchen erholt 3 Stress, setzt diesen Move aber nicht noch einmal ein."]]});
 
 G("gg-teufelsmantis", "Teufelsblumen-Gottesanbeterin", 296, {typ: "critical", lv: 5, st: 14, cr: [3, 7, 10, 14],
-  bild: ["s296-297-anhang-opponents-ganz", 260],
+  bild: ["s296-anhang-opponents-mantis", 280, "weich"],
   mv: "Devil's Guillotine, dann Devil's Shear, dann Mantis Defense, dann Things Get Serious", tr: "Beast, Counter-attack, Double Trouble, Giant",
   ak: ["Die Gottesanbeterin richtet sich auf ihren langen Beinen auf und öffnet die Flügel. Reagiere mit Wille −1.",
     "Die Gottesanbeterin verschmilzt mit der Vegetation und greift dann aus dem Grün an. Reagiere mit Erkundung.",

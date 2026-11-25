@@ -3,7 +3,7 @@
 var K0 = "garten/sl/gegner", L = (window.HH_TEXT[K0] = window.HH_TEXT[K0] || []);
 function bild(n, w){ return {t: "bild", s: "garten-" + n, w: w}; }
 function K(h, b){ return {t: "box", h: h, b: b}; }
-function G(id, t, p, g){ g.t = "gegner"; if(g.bild) g.bild[0] = "garten-" + g.bild[0]; L.push({id: id, t: t, p: p, b: [g]}); }
+function G(id, t, p, g){ g.t = "gegner"; if(g.bild){ g.bild[0] = "garten-" + g.bild[0]; g.bildUnten = true; } L.push({id: id, t: t, p: p, b: [g]}); }
 
 L.push({id: "uebersicht", t: "Gegner des Gartens", p: 277, b: [
   "Im House hast du es mit Rattenrudeln zu tun, die Vorratskammern plündern und alles auf ihrem Weg zerstören, und mit dickbäuchigen Spinnen, die ihre Fallen in den dunkelsten Ecken weben. Doch der Garten beherbergt weit, weit schlimmere Kreaturen.",
@@ -39,7 +39,7 @@ L.push({id: "uebersicht", t: "Gegner des Gartens", p: 277, b: [
     {n: "Schlange", id: "gg-schlange", typ: "critical", lv: 5, s: "garten-s293-anhang-opponents"},
     {n: "Eichhörnchen", id: "gg-eichhoernchen", typ: "critical", lv: 5, s: "garten-s294-anhang-opponents"},
     {n: "Zerzaustes Eichhörnchen", id: "gg-zerzaust", typ: "critical", lv: 5},
-    {n: "Teufelsblumen-Gottesanbeterin", id: "gg-teufelsmantis", typ: "critical", lv: 5, s: "garten-s296-297-anhang-opponents-ganz"},
+    {n: "Teufelsblumen-Gottesanbeterin", id: "gg-teufelsmantis", typ: "critical", lv: 5, s: "garten-s296-anhang-opponents-mantis"},
     {n: "Majestätische Gottesanbeterin", id: "gg-majestaetisch", typ: "extreme", lv: 5}]}
 ]});
 

@@ -184,7 +184,7 @@ function render(){
   var sub = window.__sub ? '<div class="unter">' + window.__sub.map(function(x){ return '<a class="' + (x[2] ? 'on' : '') + '" onclick="go(\'' + x[0] + '\')">' + esc(x[1]) + '</a>'; }).join("") + '<span class="sp"></span>' + (window.__pen ? penTab(window.__pen) : '') + '</div>' : (window.__pen ? '<div class="unter min"><span class="sp"></span>' + penTab(window.__pen) + '</div>' : '');
   document.body.classList.toggle("mitunter", !!sub);
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
-  APP.innerHTML = sub + out; scrollTo(0, same ? y : 0);
+  APP.innerHTML = sub + out; scrollTo(0, same ? y : 0); spy();
 }
 function buildMenu(){
   document.getElementById("mmP").innerHTML = '<h3>Bereiche</h3>' + BEREICHE.map(function(a){ return '<button onclick="openMenu(false);go(\'' + a.id + '\')">' + esc(a.t) + '</button>'; }).join("") +
@@ -213,3 +213,14 @@ document.addEventListener("keydown", function(e){
     var i = a.findIndex(function(x){ return x.classList.contains("on"); }), n = a[i + (e.key === "ArrowRight" ? 1 : -1)]; if(n) n.click();
   }
 });
+
+/* Seitenleiste: aktuellen Abschnitt beim Scrollen markieren */
+function spy(){
+  var A = [].slice.call(document.querySelectorAll(".side a")); if(!A.length) return;
+  var T = A.map(function(a){ var m = /jump\('([^']+)'\)/.exec(a.getAttribute("onclick") || ""); return m ? document.getElementById(m[1]) : null; });
+  var cur = -1;
+  T.forEach(function(e, i){ if(e && e.getBoundingClientRect().top <= 150) cur = i; });
+  if(cur < 0) cur = 0;
+  A.forEach(function(a, i){ a.classList.toggle("on", i === cur); });
+}
+window.addEventListener("scroll", function(){ spy(); }, {passive:true});

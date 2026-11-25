@@ -1,6 +1,7 @@
 /* Saga vom Langen Winter › Einleitung (Saga-Band S.8–9, 74–75) und Zeitleiste (Anhang S.192–193, Ronjas Briefe S.196–199) */
 (function(){
 var H = window.HH_TEXT = window.HH_TEXT || {};
+window.LWG = function(s, ids){ var n = ids.length; return {t: "gruppe", s: s, sg: "lw", p: ids.map(function(id, i){ return [id, Math.round(i * 100 / n), Math.round((i + 1) * 100 / n)]; })}; };
 H["lw/einleitung"] = [
  {id: "willkommen", t: "Willkommen", p: 8, b: [
   {t: "bild", s: "lw-s008-einleitung", w: 200},

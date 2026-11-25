@@ -353,19 +353,25 @@ body.garten .kasten:not(.gegner) h4::before{content:"";display:block;height:14px
 body.garten .kasten:not(.gegner) b{color:var(--kup)}
 body.garten .kasten:not(.gegner) q,body.garten .kasten:not(.gegner) blockquote{color:#8f5a22}
 
-body.garten .kasten.gegner{margin:16px 0 26px;padding:0;border:0;outline:0;box-shadow:none;background:none;border-radius:0}
-body.garten .gegner .gk-kopf{font:400 17px Fell,serif;color:var(--kup);letter-spacing:.06em;margin:0 0 8px}
-body.garten .gegner .lv{border-color:#d3b48a}body.garten .gegner .lv.on{background:var(--kup);border-color:var(--kup)}
-body.garten .gegner>p:first-of-type{background:rgba(198,178,120,.2);padding:8px 14px;margin:0 0 10px}
-body.garten .gegner .gk-z{background:rgba(198,178,120,.14);margin:0;padding:3px 14px;font-size:17px}
-body.garten .gegner .gk-z b{color:var(--kup);font-size:18px}
-body.garten .gegner>p:first-of-type b{color:var(--kup);font-size:18px}
-body.garten .gegner .gk-ak{background:rgba(198,178,120,.14);margin:0 0 12px;padding:4px 14px 10px}
+body.garten .kasten.gegner{margin:16px 0 30px;padding:18px 22px 12px;border:1px solid #c9a66b;outline:1px solid #dcc28c;outline-offset:-6px;border-radius:3px;background:linear-gradient(#fdf9ee,#f8f0dc);box-shadow:0 2px 8px rgba(90,60,15,.18);color:#2f281b}
+body.garten .gegner .gk-grid{display:flex;flex-direction:row-reverse;gap:22px;align-items:flex-start;margin-bottom:12px}
+body.garten .gegner .gk-l{flex:1 1 auto;min-width:0}
+body.garten .gegner .gk-grid>.fig{float:none;flex:0 0 auto;margin:6px 0 0;max-width:34%;display:block}
+body.garten .gegner .gk-kopf{display:flex;justify-content:space-between;align-items:flex-end;font:400 17px Fell,serif;color:var(--kup);letter-spacing:.08em;margin:0 0 10px;padding-bottom:4px;border-bottom:1.5px solid var(--kup)}
+body.garten .gegner .gk-lv{gap:5px}
+body.garten .gegner .lv{width:22px;height:22px;border:0;border-radius:0;background:var(--kup);opacity:.22;-webkit-mask:url(img/deko/spinne.png) center/contain no-repeat;mask:url(img/deko/spinne.png) center/contain no-repeat}
+body.garten .gegner .lv.on{opacity:1;background:var(--kup)}
+body.garten .gegner .gk-l>p:first-of-type{background:rgba(190,160,95,.16);padding:7px 12px;margin:0 0 6px;border-radius:2px}
+body.garten .gegner .gk-z{margin:0;padding:2px 12px;font-size:17px;background:none}
+body.garten .gegner .gk-z b,body.garten .gegner .gk-l>p:first-of-type b{color:var(--kup);font-size:18px}
+body.garten .gegner .gk-ak{background:rgba(190,160,95,.16);margin:6px 0 0;padding:4px 12px 10px;border-radius:2px}
 body.garten .gegner .gk-ak::before{content:"Aktionen:";display:block;font:400 18px Fell,serif;color:var(--kup);margin:2px 0 3px}
 body.garten .gegner .gk-ak li>b:first-child{color:var(--kup);font-size:19px;flex:0 0 62px;white-space:nowrap}
 body.garten .gegner .gk-ak li>b:first-child::after{content:" –";font-family:Gar,serif}
-body.garten .gegner .gk-ak li>span b{font-family:Gar,serif;font-weight:700;color:inherit;text-transform:none}
+body.garten .gegner .gk-ak li>span b{font-family:Gar,serif;font-weight:700;color:inherit}
 body.garten .gegner .gk-st{gap:7px}
 body.garten .gegner .sk{box-sizing:border-box;flex:none;width:17px;height:17px;border:1.5px solid #2a2418;background:#fffdf6;border-radius:2px}
 body.garten .gegner .sk.cr{width:21px;height:21px;margin:-2px -1px;border:2px dotted #2a2418;box-shadow:none;background:#fffdf6;border-radius:50%}
+body.garten .gegner>p{margin:8px 2px}
 body.garten .gegner .gk-zug b{color:var(--kup)}
+@media(max-width:760px){body.garten .gegner .gk-grid{flex-direction:column}body.garten .gegner .gk-grid>.fig{max-width:100%;align-self:center}}

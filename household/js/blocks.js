@@ -46,11 +46,11 @@ function gegnerKarte(b){
   var rom = ["I", "II", "III", "IIII", "V", "VI"], boxes = "", i, dots = "";
   for(i = 1; i <= b.st; i++) boxes += '<i class="sk' + (b.cr.indexOf(i) > -1 ? ' cr' : '') + '"></i>';
   for(i = 1; i <= 5 && b.lv; i++) dots += '<i class="lv' + (i <= b.lv ? ' on' : '') + '"></i>';
-  return '<div class="kasten gegner">' + (b.bild ? '<figure class="fig" style="width:' + b.bild[1] + 'px"><img loading="lazy" src="' + IMGP(b.bild[0]) + '" alt=""></figure>' : '') +
+  return '<div class="kasten gegner' + (b.bild ? ' mitbild' : '') + '"><div class="gk-grid">' + (b.bild ? '<figure class="fig" style="width:' + b.bild[1] + 'px"><img loading="lazy" src="' + IMGP(b.bild[0]) + '" alt=""></figure>' : '') + '<div class="gk-l">' +
     '<div class="gk-kopf"><span>' + GTYP[b.typ] + '</span>' + (b.lv ? '<span class="gk-lv" title="Gefahrenstufe ' + b.lv + '">' + dots + '</span>' : '') + '</div>' +
     '<p class="gk-z"><b>Stress:</b> <span class="gk-st">' + boxes + '</span></p>' +
     '<p class="gk-z"><b>Moves:</b> ' + md(b.mv) + '</p><p class="gk-z"><b>Traits:</b> ' + md(b.tr) + '</p>' + (b.ot ? '<p class="gk-z"><b>Optionale Traits:</b> ' + md(b.ot) + '</p>' : '') +
-    '<ol class="gk-ak">' + b.ak.map(function(a, n){ return '<li><b>' + rom[n] + '</b><span>' + md(a) + '</span></li>'; }).join("") + '</ol>' +
+    '<ol class="gk-ak">' + b.ak.map(function(a, n){ return '<li><b>' + rom[n] + '</b><span>' + md(a) + '</span></li>'; }).join("") + '</ol></div></div>' +
     (b.tx || []).map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") +
     (b.zg || []).map(function(z){ return '<p class="gk-zug"><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>'; }).join("") + '</div>';
 }

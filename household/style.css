@@ -261,4 +261,3 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .lay.fold-on .txt:has(.kacheln.gross),.lay.solo .txt:has(.kacheln.gross){max-width:1500px;margin-left:auto;margin-right:auto}
 .held{position:relative;margin:4px 0 22px;clear:both}.held>img{width:100%;height:auto;display:block}.held-tx{position:absolute}.held-tx .bul{margin:0}@media(max-width:1150px){.held-tx{position:static;width:auto!important;margin-top:10px}}
 .held-tx.mitte{text-align:center}.held-tx.mitte .bul li{padding-left:0;margin:0 0 9px;line-height:1.35}.held-tx.mitte .bul li:before{content:none}.held-tx.mitte .bul b{display:block;font-family:Fell,serif;font-variant:small-caps;font-weight:normal;letter-spacing:.06em;color:var(--akz);font-size:.92em;margin:0 auto 1px}
-.kachel .kb img.fl{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 32%);mask-image:linear-gradient(to right,transparent 0,#000 32%)}

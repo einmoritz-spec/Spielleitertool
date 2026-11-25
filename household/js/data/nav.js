@@ -5,7 +5,7 @@
 window.HH_NAV = {
  haus: [
   {id: "welt", t: "Welt", unter: [
-   {id: "voelker", t: "Völker & Nationen", seiten: [["faeries", "Faeries"], ["sprites", "Sprites"], ["dominions", "Free Dominions"], ["sluagh", "Sluagh"], ["horde", "Horde"]]},
+   {id: "voelker", t: "Völker & Nationen", seiten: [["ursprung", "Ursprünge"], ["faeries", "Faeries"], ["realm", "Realm"], ["boggarts", "Boggarts"], ["hearth", "Hearth"], ["sprites", "Sprites"], ["dominions", "Free Dominions"], ["sluagh", "Sluagh"], ["horde", "Horde"]]},
    {id: "haus", t: "Das Haus", sw: [["erdgeschoss", "Erdgeschoss"], ["obergeschoss", "Obergeschoss"], ["keller", "Keller"]], seiten: [["eingang", "Entry Hall"], ["inbetweens", "Inbetweens"], ["dining", "Dining Hall"], ["living", "Living Room"], ["upper", "Upper Floor"], ["basement", "Basement"]]},
    {id: "geschichte", t: "Geschichte", seiten: [["meister", "Das Verschwinden des Meisters"], ["jagd", "Die Wilde Jagd"], ["krieg", "Der Erste Household-Krieg"], ["quillwaters", "Die Schlacht von Quillwaters"], ["rat", "Der Hohe Rat"]]},
    {id: "atlas", t: "Atlas", sw: [["astraviya", "Astraviya"], ["staedte", "Städte"]]},
@@ -29,7 +29,7 @@ window.HH_NAV = {
  garten: [
   {id: "welt", t: "Welt", unter: [
    {id: "voelker", t: "Völker", seiten: [["barghests", "Barghests"], ["gnomes", "Gnomes"], ["fae", "Fae"], ["shinigami", "Shinigami"], ["inside", "Inside Folk"]]},
-   {id: "geschichte", t: "Geschichte", seiten: [["thron", "A Crack in the Throne"], ["winter", "The Long Winter"], ["krieg", "A Cold Krieg"], ["nacht", "The Starless Night"]]},
+   {id: "geschichte", t: "Geschichte", seiten: [["thron", "A Crack in the Throne"], ["winter", "The Long Winter"], ["krieg", "Ein Kalter Krieg"], ["nacht", "The Starless Night"]]},
    {id: "garten", t: "Der Garten", sw: [["karte", "Karte"], ["reisekarte", "Reisekarte"]], seiten: [["frontier", "The Frontier"], ["underground", "The Underground"], ["frontyard", "The Front Yard"], ["brambles", "The Brambles"], ["woodlands", "The Woodlands"], ["barrens", "The Barrens"], ["grasslands", "The Grasslands"], ["backyard", "The Backyard"], ["rushes", "The Rushes"], ["fouroaks", "Four Oaks"]]}
   ]},
   {id: "regeln", t: "Regeln", unter: [

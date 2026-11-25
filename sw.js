@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v924sq";
+const VERSION = "v925sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1339,6 +1339,28 @@ const FILES = [
   "household/js/data/regeln-bilder.js",
   "household/js/data/regeln-vertraege.js",
   "household/js/data/regeln-ausruestung.js",
+  "household/js/data/welt-voelker-a.js",
+  "household/js/data/welt-voelker-b.js",
+  "household/js/data/welt-voelker-c.js",
+  "household/js/data/welt-voelker-d.js",
+  "household/img/grundbuch/full/grundbuch-s030-i-sprites.webp",
+  "household/img/grundbuch/full/grundbuch-s031-i-free-dominions-b.webp",
+  "household/img/grundbuch/full/grundbuch-s025-i-hearth-b.webp",
+  "household/img/grundbuch/full/grundbuch-s019-i-realm-b.webp",
+  "household/img/grundbuch/full/grundbuch-s018-i-faeries.webp",
+  "household/img/grundbuch/full/grundbuch-s023-i-boggarts.webp",
+  "household/img/grundbuch/full/grundbuch-s036-i-sluagh.webp",
+  "household/img/grundbuch/full/grundbuch-s029-i-hearth.webp",
+  "household/img/grundbuch/full/grundbuch-s024-i-boggarts.webp",
+  "household/img/grundbuch/full/grundbuch-s037-i-horde-b.webp",
+  "household/img/grundbuch/full/grundbuch-s034-035-i-sluagh-ganz.webp",
+  "household/img/grundbuch/full/grundbuch-s039-i-horde.webp",
+  "household/img/grundbuch/full/grundbuch-s021-i-realm.webp",
+  "household/img/grundbuch/full/grundbuch-s017-i-faeries.webp",
+  "household/img/grundbuch/full/grundbuch-s040-i-horde.webp",
+  "household/img/grundbuch/full/grundbuch-s027-i-hearth.webp",
+  "household/img/grundbuch/full/grundbuch-s015-vorwort.webp",
+  "household/img/grundbuch/full/grundbuch-s032-i-free-dominions.webp",
   "household/img/grundbuch/full/grundbuch-s152-vi-wealth.webp",
   "household/img/grundbuch/full/grundbuch-s153-vi-wealth.webp",
   "household/img/grundbuch/full/grundbuch-s156-vi-gadgets.webp",

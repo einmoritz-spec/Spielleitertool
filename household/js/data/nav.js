@@ -21,7 +21,7 @@ window.HH_NAV = {
   {id: "sl", t: "Spielleitung", unter: [
    {id: "saga", t: "Saga", seiten: [["viele", "Wenige oder viele Spieler:innen"], ["ereignisse", "Historische Ereignisse"], ["fortschritt", "Fortschritt"]]},
    {id: "gegner", t: "Gegner", seiten: [["uebersicht", "Übersicht"]]},
-   {id: "mysterien", t: "Mysterien"},
+   {id: "mysterien", t: "Mysterien", seiten: [["zlad", "Zlad of Wall-lachia", ["realm-zlad"]], ["cards", "The House of Cards", ["realm-cards"]], ["flame", "The Flame of Love", ["hearth-flame"]], ["herz", "A Cold Heart", ["hearth-herz"]], ["stadt", "The City Inbetween", ["hearth-stadt"]], ["bathlantis", "Bathlantis", ["free-bathlantis"]], ["wunder", "The Mechanical Wonder", ["free-wunder"]], ["spiegel", "Through the Looking Glass", ["free-spiegel"]], ["vergessene", "The Forgotten One", ["horde-vergessene"]], ["konvent", "The Spider Convent", ["horde-konvent"]]]},
    {id: "pride", t: "Pride & Prejudice & Centipedes"},
    {id: "figuren", t: "Neue Figuren"}
   ]}

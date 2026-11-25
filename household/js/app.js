@@ -130,6 +130,7 @@ window.gmBook = function(){
   var P = parse(), id = "hh_r1", name = "Household Grundbuch";
   if(P.mode === "garten" || P.m === "gstart"){ id = "hh_g2"; name = "Household Vol. II – Der Garten"; }
   else if(P.m === "saga"){ id = P.s === "fp" ? "hh_a2" : "hh_a1"; name = HH_SAGAS[P.s].t; }
+  else if(P.area && P.area.id === "sl" && P.unter && P.unter.id === "mysterien") { id = "hh_r2"; name = "A Practical Guide"; }
   else if(P.area && P.area.id === "welt" && P.unter && /^(voelker|alltag|atlas)$/.test(P.unter.id)) { id = "hh_r2"; name = "A Practical Guide"; }
   return {name: name, open: function(){ BV.open(id, 1); }};
 };

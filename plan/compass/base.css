@@ -1,0 +1,20 @@
+@font-face{font-family:Fut;font-weight:500;src:url(fonts/jost-latin-500-normal.woff2)}
+@font-face{font-family:Fut;font-weight:700;src:url(fonts/jost-latin-700-normal.woff2)}
+@font-face{font-family:Fut;font-weight:800;src:url(fonts/jost-latin-800-normal.woff2)}
+@font-face{font-family:Fut;font-weight:900;src:url(fonts/jost-latin-900-normal.woff2)}
+@font-face{font-family:Cas;font-weight:400;src:url(fonts/libre-caslon-text-latin-400-normal.woff2)}
+@font-face{font-family:Cas;font-weight:400;font-style:italic;src:url(fonts/libre-caslon-text-latin-400-italic.woff2)}
+@font-face{font-family:Cas;font-weight:700;src:url(fonts/libre-caslon-text-latin-700-normal.woff2)}
+@font-face{font-family:CasD;src:url(fonts/libre-caslon-display-latin-400-normal.woff2)}
+@font-face{font-family:Cou;font-weight:400;src:url(fonts/courier-prime-latin-400-normal.woff2)}
+@font-face{font-family:Cou;font-weight:700;src:url(fonts/courier-prime-latin-700-normal.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px}
+body{font-family:Cas,Georgia,serif;color:#2a2118;-webkit-font-smoothing:antialiased}
+:root{--s1:#1d2c4d;--s2:#a8701f;--s3:#1f3d2b;--s4:#a3211b;--s5:#6b3416;--s6:#2a3d66;--red:#c23a1e;--paper:#ebe6dc;--ink:#231c15}
+.top{height:58px;display:flex;align-items:center;padding:0 22px;gap:20px;position:sticky;top:0;z-index:5}
+.top .lg{height:38px;display:block}
+.top .sp{flex:1}
+.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.icons{display:flex;gap:20px;align-items:center}
+.fut{font-family:Fut,sans-serif;text-transform:uppercase;letter-spacing:.02em}

@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k7"] = window.HH_TEXT["lw/k7
 
 K.push({id: "redcap", t: "Einmal ein Redcap …", p: 160, b: [
  LWG("lw-s160-vii-once-a-redcap", ["naoko", "chaska", "kaelan", "sakari"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Die Citadel",
   "**Zeit:** Sommer XIV H.C.",
   "**Hauptfiguren:** [[Chaska|lw/figuren/chaska]], [[Kaelan|lw/figuren/kaelan]], [[Naoko|lw/figuren/naoko]], [[Sakari|lw/figuren/sakari]]",
@@ -31,7 +31,7 @@ K.push({id: "redcap", t: "Einmal ein Redcap …", p: 160, b: [
 
 K.push({id: "salz", t: "Salz und Pfeffer", p: 161, b: [
  LWG("lw-s161-vii-salt-and-pepper", ["icarus", "john", "jemma", "yuliya"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Lone Rock",
   "**Zeit:** Sommer XIV H.C.",
   "**Hauptfiguren:** [[Icarus|lw/figuren/icarus]], [[Jemma|lw/figuren/jemma]], [[John|lw/figuren/john]], [[Yuliya|lw/figuren/yuliya]]",
@@ -49,7 +49,7 @@ K.push({id: "salz", t: "Salz und Pfeffer", p: 161, b: [
 
 K.push({id: "erbe", t: "Evanders Vermächtnis", p: 162, b: [
  LWG("lw-s162-vii-evanders-legacy", ["ronja", "koko", "ajax", "nadja"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Caer Siddi",
   "**Zeit:** Sommer XIV H.C.",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Koko|lw/figuren/koko]], [[Nadja|lw/figuren/nadja]], [[Ronja|lw/figuren/ronja]]",
@@ -74,7 +74,7 @@ K.push({id: "erbe", t: "Evanders Vermächtnis", p: 162, b: [
 
 K.push({id: "grab", t: "Das Grab von Barleduc", p: 163, b: [
  LWG("lw-s163-vii-the-tomb-of-barleduc", ["cora", "santiago", "gwen", "humphrey"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Green End",
   "**Zeit:** Sommer XIV H.C.",
   "**Hauptfiguren:** [[Cora|lw/figuren/cora]], [[Gwen|lw/figuren/gwen]], [[Humphrey|lw/figuren/humphrey]], [[Santiago|lw/figuren/santiago]]",
@@ -91,7 +91,7 @@ K.push({id: "grab", t: "Das Grab von Barleduc", p: 163, b: [
 
 K.push({id: "karasu", t: "Mount Karasu", p: 164, b: [
  LWG("lw-s164-vii-mount-karasu", ["kurai", "shiro", "soya", "jiroku"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Hanado",
   "**Zeit:** Sommer XIV H.C.",
   "**Hauptfiguren:** [[Jiroku|lw/figuren/jiroku]], [[Kurai|lw/figuren/kurai]], [[Shiro|lw/figuren/shiro]], [[Soya|lw/figuren/soya]]",
@@ -108,7 +108,7 @@ K.push({id: "karasu", t: "Mount Karasu", p: 164, b: [
 
 K.push({id: "ueberbord", t: "Über Bord", p: 165, b: [
  LWG("lw-s165-vii-overboard", ["pierre", "rubio", "sienna", "gunther"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Der Fountain",
   "**Zeit:** Sommer XIV H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Pierre|lw/figuren/pierre]], [[Rubio|lw/figuren/rubio]], [[Sienna|lw/figuren/sienna]]",

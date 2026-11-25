@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k6"] = window.HH_TEXT["lw/k6"] || [];
 
 K.push({id: "karawane", t: "Angriff auf die Karawane", p: 106, b: [
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Rand der Barrens",
   "**Zeit:** Februar XIII H.C. (Kapitel VI)",
   "**Hauptfiguren:** [[Jemma|lw/figuren/jemma]], [[John|lw/figuren/john]], [[Nadja|lw/figuren/nadja]], [[Santiago|lw/figuren/santiago]]",
@@ -73,7 +73,7 @@ K.push({id: "karawane", t: "Angriff auf die Karawane", p: 106, b: [
 ]});
 
 K.push({id: "krieg", t: "Schmutziger Krieg", p: 112, b: [
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Red Canyon, die Barrens",
   "**Zeit:** Februar XIII H.C. (Kapitel VI)",
   "**Hauptfiguren:** [[Chaska|lw/figuren/chaska]], [[Humphrey|lw/figuren/humphrey]], [[Sakari|lw/figuren/sakari]], [[Yuliya|lw/figuren/yuliya]]",

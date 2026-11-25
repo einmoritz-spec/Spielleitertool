@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k6"] = window.HH_TEXT["lw/k6
 
 K.push({id: "furie", t: "Die rächende Furie", p: 136, b: [
  LWG("lw-s136-vi-the-avenging-fury", ["cora", "nadja", "yuliya", "jemma"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Whitestep",
   "**Zeit:** Herbst XIII H.C.",
   "**Hauptfiguren:** [[Cora|lw/figuren/cora]], [[Jemma|lw/figuren/jemma]], [[Nadja|lw/figuren/nadja]], [[Yuliya|lw/figuren/yuliya]]",
@@ -31,7 +31,7 @@ K.push({id: "furie", t: "Die rächende Furie", p: 136, b: [
 
 K.push({id: "hass", t: "Voller Hass", p: 137, b: [
  LWG("lw-s137-vi-full-of-hate", ["pierre", "humphrey", "santiago", "john"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Nahe Lone Rock",
   "**Zeit:** Herbst XIII H.C.",
   "**Hauptfiguren:** [[Humphrey|lw/figuren/humphrey]], [[John|lw/figuren/john]], [[Pierre|lw/figuren/pierre]], [[Santiago|lw/figuren/santiago]]",
@@ -56,7 +56,7 @@ K.push({id: "hass", t: "Voller Hass", p: 137, b: [
 
 K.push({id: "schrein", t: "Der Schrein der Bleichen Windungen", p: 138, b: [
  LWG("lw-s138-vi-the-shrine-of-the-pale-coils", ["kurai", "naoko", "gwen", "gunther"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Tsukito",
   "**Zeit:** Herbst XIII H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Gwen|lw/figuren/gwen]], [[Kurai|lw/figuren/kurai]], [[Naoko|lw/figuren/naoko]]",
@@ -81,7 +81,7 @@ K.push({id: "schrein", t: "Der Schrein der Bleichen Windungen", p: 138, b: [
 
 K.push({id: "abrechnung", t: "Tag der Abrechnung", p: 139, b: [
  LWG("lw-s139-vi-day-of-reckoning", ["sienna", "shiro", "soya", "jiroku"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Fukami",
   "**Zeit:** Herbst XIII H.C.",
   "**Hauptfiguren:** [[Jiroku|lw/figuren/jiroku]], [[Shiro|lw/figuren/shiro]], [[Sienna|lw/figuren/sienna]], [[Soya|lw/figuren/soya]]",
@@ -106,7 +106,7 @@ K.push({id: "abrechnung", t: "Tag der Abrechnung", p: 139, b: [
 
 K.push({id: "linse", t: "Linse um Linse", p: 140, b: [
  LWG("lw-s140-vi-a-lens-for-a-lens", ["icarus", "ronja", "rubio", "sakari"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Roof",
   "**Zeit:** Herbst XIII H.C.",
   "**Hauptfiguren:** [[Icarus|lw/figuren/icarus]], [[Ronja|lw/figuren/ronja]], [[Rubio|lw/figuren/rubio]], [[Sakari|lw/figuren/sakari]]",
@@ -132,7 +132,7 @@ K.push({id: "linse", t: "Linse um Linse", p: 140, b: [
 
 K.push({id: "dieb", t: "Der maskierte Dieb", p: 141, b: [
  LWG("lw-s141-vi-the-masked-thief", ["kaelan", "koko", "ajax", "chaska"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Underroot",
   "**Zeit:** Herbst XIII H.C.",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Chaska|lw/figuren/chaska]], [[Kaelan|lw/figuren/kaelan]], [[Koko|lw/figuren/koko]]",

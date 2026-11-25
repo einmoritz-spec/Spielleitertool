@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k6"] = window.HH_TEXT["lw/k6"] || [];
 
 K.push({id: "schrecklich", t: "Schreckliche, schreckliche Dinge", p: 80, b: [
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Komorebi, die Grass Prefecture",
   "**Zeit:** Dezember XII H.C. (Kapitel VI)",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Gwen|lw/figuren/gwen]], [[Shiro|lw/figuren/shiro]], [[Soya|lw/figuren/soya]]",
@@ -103,7 +103,7 @@ K.push({id: "schrecklich", t: "Schreckliche, schreckliche Dinge", p: 80, b: [
 ]});
 
 K.push({id: "yule", t: "Die Yule-Geschenke", p: 88, b: [
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Twigbridge, die Woodlands",
   "**Zeit:** Dezember XII H.C. (Kapitel VI)",
   "**Hauptfiguren:** [[Icarus|lw/figuren/icarus]], [[Pierre|lw/figuren/pierre]], [[Ronja|lw/figuren/ronja]], [[Sienna|lw/figuren/sienna]]",

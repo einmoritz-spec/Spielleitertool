@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k7"] = window.HH_TEXT["lw/k7
 
 K.push({id: "feuer", t: "Das Brambles-Feuer", p: 168, b: [
  LWG("lw-s168-vii-the-brambles-fire", ["sakari", "john", "jemma", "yuliya"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Bramble Town",
   "**Zeit:** Herbst XIV H.C.",
   "**Hauptfiguren:** [[Jemma|lw/figuren/jemma]], [[John|lw/figuren/john]], [[Sakari|lw/figuren/sakari]], [[Yuliya|lw/figuren/yuliya]]",
@@ -21,7 +21,7 @@ K.push({id: "feuer", t: "Das Brambles-Feuer", p: 168, b: [
 
 K.push({id: "faeriyev", t: "Rückkehr nach Faeriyev", p: 169, b: [
  LWG("lw-s169-vii-return-to-faeriyev", ["kaelan", "nadja", "icarus", "ronja"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Faeriyev",
   "**Zeit:** Herbst XIV H.C.",
   "**Hauptfiguren:** [[Icarus|lw/figuren/icarus]], [[Kaelan|lw/figuren/kaelan]], [[Nadja|lw/figuren/nadja]], [[Ronja|lw/figuren/ronja]]",
@@ -45,7 +45,7 @@ K.push({id: "faeriyev", t: "Rückkehr nach Faeriyev", p: 169, b: [
 
 K.push({id: "stab", t: "Der Stab des Bundes", p: 170, b: [
  LWG("lw-s170-vii-the-staff-of-the-covenant", ["cora", "santiago", "gwen", "humphrey"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Arcadia",
   "**Zeit:** Herbst XIV H.C.",
   "**Hauptfiguren:** [[Cora|lw/figuren/cora]], [[Gwen|lw/figuren/gwen]], [[Humphrey|lw/figuren/humphrey]], [[Santiago|lw/figuren/santiago]]",
@@ -63,7 +63,7 @@ K.push({id: "stab", t: "Der Stab des Bundes", p: 170, b: [
 
 K.push({id: "rache", t: "Oberons Rache", p: 171, b: [
  LWG("lw-s171-vii-oberons-revenge", ["pierre", "rubio", "sienna", "gunther"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Port Loyal",
   "**Zeit:** Herbst XIV H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Pierre|lw/figuren/pierre]], [[Rubio|lw/figuren/rubio]], [[Sienna|lw/figuren/sienna]]",
@@ -80,7 +80,7 @@ K.push({id: "rache", t: "Oberons Rache", p: 171, b: [
 
 K.push({id: "konzert", t: "Das Konzert", p: 172, b: [
  LWG("lw-s172-vii-the-concert", ["naoko", "chaska", "koko", "ajax"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Twigbridge",
   "**Zeit:** Herbst XIV H.C.",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Chaska|lw/figuren/chaska]], [[Koko|lw/figuren/koko]], [[Naoko|lw/figuren/naoko]]",
@@ -106,7 +106,7 @@ K.push({id: "konzert", t: "Das Konzert", p: 172, b: [
 
 K.push({id: "geist", t: "Der Geist der Blühenden Wiese", p: 173, b: [
  LWG("lw-s173-vii-the-ghost-of-the-blooming-meadow", ["kurai", "shiro", "soya", "jiroku"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Flower Meadow",
   "**Zeit:** Herbst XIV H.C.",
   "**Hauptfiguren:** [[Jiroku|lw/figuren/jiroku]], [[Kurai|lw/figuren/kurai]], [[Shiro|lw/figuren/shiro]], [[Soya|lw/figuren/soya]]",

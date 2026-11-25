@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k7"] = window.HH_TEXT["lw/k7
 
 K.push({id: "whiteout", t: "Der Whiteout", p: 144, b: [
  LWG("lw-s144-vii-the-white-out", ["kaelan", "nadja", "icarus", "sakari"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Underground",
   "**Zeit:** Winter XIV H.C.",
   "**Hauptfiguren:** [[Icarus|lw/figuren/icarus]], [[Kaelan|lw/figuren/kaelan]], [[Nadja|lw/figuren/nadja]], [[Sakari|lw/figuren/sakari]]",
@@ -31,7 +31,7 @@ K.push({id: "whiteout", t: "Der Whiteout", p: 144, b: [
 
 K.push({id: "eule", t: "Die letzte Eule", p: 145, b: [
  LWG("lw-s145-vii-the-last-owl", ["cora", "santiago", "koko", "ajax"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Woodlands",
   "**Zeit:** Winter XIV H.C.",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Cora|lw/figuren/cora]], [[Koko|lw/figuren/koko]], [[Santiago|lw/figuren/santiago]]",
@@ -50,7 +50,7 @@ K.push({id: "eule", t: "Die letzte Eule", p: 145, b: [
 
 K.push({id: "abendessen", t: "Das ehrenwerte Abendessen", p: 146, b: [
  LWG("lw-s146-vii-the-honorable-dinner", ["shiro", "pierre", "soya", "jiroku"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Tsukito",
   "**Zeit:** Winter XIV H.C.",
   "**Hauptfiguren:** [[Jiroku|lw/figuren/jiroku]], [[Pierre|lw/figuren/pierre]], [[Shiro|lw/figuren/shiro]], [[Soya|lw/figuren/soya]]",
@@ -69,7 +69,7 @@ K.push({id: "abendessen", t: "Das ehrenwerte Abendessen", p: 146, b: [
 
 K.push({id: "mondtuer", t: "Die Mondtür", p: 147, b: [
  LWG("lw-s147-vii-the-moon-door", ["kurai", "naoko", "gwen", "gunther"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Hanado",
   "**Zeit:** Winter XIV H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Gwen|lw/figuren/gwen]], [[Kurai|lw/figuren/kurai]], [[Naoko|lw/figuren/naoko]]",
@@ -88,7 +88,7 @@ K.push({id: "mondtuer", t: "Die Mondtür", p: 147, b: [
 
 K.push({id: "rox", t: "Bist du es, Duncan Rox?", p: 148, b: [
  LWG("lw-s148-vii-is-it-you-duncan-rox", ["chaska", "humphrey", "john", "jemma"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Sandstone",
   "**Zeit:** Winter XIV H.C.",
   "**Hauptfiguren:** [[Chaska|lw/figuren/chaska]], [[Humphrey|lw/figuren/humphrey]], [[Jemma|lw/figuren/jemma]], [[John|lw/figuren/john]]",
@@ -112,7 +112,7 @@ K.push({id: "rox", t: "Bist du es, Duncan Rox?", p: 148, b: [
 
 K.push({id: "frosch", t: "Der Viscount und der Frosch", p: 149, b: [
  LWG("lw-s149-vii-the-viscount-and-the-frog", ["ronja", "rubio", "sienna", "yuliya"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Frogstone",
   "**Zeit:** Winter XIV H.C.",
   "**Hauptfiguren:** [[Ronja|lw/figuren/ronja]], [[Rubio|lw/figuren/rubio]], [[Sienna|lw/figuren/sienna]], [[Yuliya|lw/figuren/yuliya]]",

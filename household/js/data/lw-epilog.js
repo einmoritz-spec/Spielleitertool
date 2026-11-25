@@ -7,7 +7,7 @@ function kach(ids){ return {t: "kacheln", gross: 1, r: "lw/epilog/", x: ids.map(
 
 K.push({id: "schiff", t: "Das letzte Schiff", p: 178, b: [
  {t: "bild", s: "lw-s178-179-epilog-winter-ganz", w: "voll"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Pirate Bay",
   "**Zeit:** Winter XIV H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Pierre|lw/figuren/pierre]], [[Rubio|lw/figuren/rubio]], [[Sienna|lw/figuren/sienna]]",
@@ -37,7 +37,7 @@ K.push({id: "schiff", t: "Das letzte Schiff", p: 178, b: [
 ]});
 
 K.push({id: "duell", t: "Das Duell der hundert Krähen", p: 180, b: [
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Sakura",
   "**Zeit:** Winter XV H.C.",
   "**Hauptfiguren:** [[Jiroku|lw/figuren/jiroku]], [[Kurai|lw/figuren/kurai]], [[Shiro|lw/figuren/shiro]], [[Soya|lw/figuren/soya]]",
@@ -61,7 +61,7 @@ K.push({id: "duell", t: "Das Duell der hundert Krähen", p: 180, b: [
 
 K.push({id: "spirale", t: "Die gebrochene Spirale", p: 182, b: [
  {t: "bild", s: "lw-s182-183-epilog-winter-ganz", w: "voll"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Die Citadel",
   "**Zeit:** Winter XV H.C.",
   "**Hauptfiguren:** [[Chaska|lw/figuren/chaska]], [[Kaelan|lw/figuren/kaelan]], [[Naoko|lw/figuren/naoko]], [[Ronja|lw/figuren/ronja]]",
@@ -82,12 +82,12 @@ K.push({id: "spirale", t: "Die gebrochene Spirale", p: 182, b: [
 ]});
 
 K.push({id: "frostwing", t: "Die Schlacht von Frostwing", p: 184, b: [
- {t: "bild", s: "lw-s176-177-vi-winter", w: 620},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Stumpf von Dèndronaos",
   "**Zeit:** Winter XV H.C.",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Cora|lw/figuren/cora]], [[Gwen|lw/figuren/gwen]], [[Humphrey|lw/figuren/humphrey]], [[Icarus|lw/figuren/icarus]], [[Jemma|lw/figuren/jemma]], [[John|lw/figuren/john]], [[Koko|lw/figuren/koko]], [[Nadja|lw/figuren/nadja]], [[Sakari|lw/figuren/sakari]], [[Santiago|lw/figuren/santiago]], [[Yuliya|lw/figuren/yuliya]]"
  ]},
+ {t: "bild", s: "lw-s176-177-vi-winter", w: "mitte"},
  {t: "q", x: "„Heute kämpfen wir als ein Volk. Vereint werden wir wie Sterne sein und in der Nacht leuchten.“", wer: "Arcadia Oberonovna"},
  "Im Winter XV H.C. fiel ein beispielloser Blizzard mit solcher Heftigkeit über den Garden, dass es schien, als würde der Schnee nie aufhören zu fallen. In der Furcht, das eisige Wetter könnte den Spross von Dèndronaos zerstören, schloss die Druidin Nemeth einen dunklen Pakt mit der Nacht und bot das Leben der Heiligen Kaiserin Titania Lightheart sowie die Treue des Volkes der Fae an (siehe „Epilog“ in Abschnitt VI „Saga“ von Household Band II).",
  "Am 2. Februar, an Imbolc, wenn alle Littlings des Verschwindens des Meisters gedenken, war die Nacht vollkommen dunkel, und kein einziger Stern schien am Himmel. Titania wurde in Ketten zum Stumpf von Dèndronaos geschleppt, umgeben von einem Bataillon Kinder der Dämmerung und Furien, die dem Eternal Circle treu waren, und Nemeth begann ihr grimmiges Ritual, das darin gipfeln sollte, dass sie der Heiligen Kaiserin einen schwarzen Steindolch als Opfer in die Brust stieß.",
@@ -108,7 +108,7 @@ K.push({id: "frostwing", t: "Die Schlacht von Frostwing", p: 184, b: [
   "Außerdem kann eine Kreatur, wenn eine Figur einen Gefallen von einer kolossalen Bestie gesammelt hat, jeden Gegner mit einem einzigen Schlag besiegen oder sogar Typhon einen so mächtigen Schlag versetzen, dass er direkt in die nächste Phase übergeht."
  ]},
  {t: "h", x: "Gruppe 1 · Typhons Zorn"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Hauptfiguren:** [[Icarus|lw/figuren/icarus]], [[Jemma|lw/figuren/jemma]], [[Nadja|lw/figuren/nadja]], [[Yuliya|lw/figuren/yuliya]]",
   "**Ziel:** Typhon entgegentreten"
  ]},
@@ -116,14 +116,14 @@ K.push({id: "frostwing", t: "Die Schlacht von Frostwing", p: 184, b: [
  "Am Ende setzten die Flammen der Schlacht die Wurzeln von Dèndronaos und nahe Bäume in Brand, und Feuer und Eis vereinten sich zu einem tödlichen Wirbel, der den Hintergrund des letzten Kampfes bildete.",
  {t: "box", h: "Hinweis", b: ["Typhon ist ein kolossaler Raubvogel. Nach dem Übergang in die Verärgert-Phase fliegt Typhon davon, um Nemeth zu helfen, und überlässt die Figuren allein dem Kampf gegen die Soldaten und Furien. Erreicht Typhon dann die Wütend-Phase, kehrt er zurück, um Gruppe 1 anzugreifen und sie in einen letzten, epischen Kampf zu verwickeln."]},
  {t: "h", x: "Gruppe 2 · Nemeths Ritual"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[John|lw/figuren/john]], [[Koko|lw/figuren/koko]], [[Sakari|lw/figuren/sakari]]",
   "**Ziel:** Titania retten"
  ]},
  "Während Yuliya und die anderen Arcadia verteidigten und den kolossalen Typhon ablenkten, hatten Ajax, John, Koko und Sakari die schwierige Aufgabe, sich durch zwei kämpfende Armeen zu schlagen und den Stumpf von Dèndronaos zu erreichen. Ihre Mission war alles andere als leicht, denn der Blizzard tobte weiter, und das Schlachtfeld war zu reinem Chaos geworden. Vielleicht fanden sie einen Pfad über die Äste oder unten im Underground, vielleicht gelang es ihnen, die feindliche Verteidigung zu durchbrechen, doch schließlich erreichten sie den Ritualplatz, wo Typhon (Verärgert-Phase) plötzlich auf sie herabstürzte.",
  "Nachdem sie die Eule vertrieben hatten, war die Gruppe von peitschendem Schnee und tobenden Flammen umgeben und musste einen Weg finden, Nemeths dunkles Ritual zu stoppen und Titania zu befreien, bevor die Druidin ihr Opfer an die Nacht vollenden konnte.",
  {t: "h", x: "Gruppe 3 · Das Herz des Blizzards"},
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Hauptfiguren:** [[Cora|lw/figuren/cora]], [[Gwen|lw/figuren/gwen]], [[Humphrey|lw/figuren/humphrey]], [[Santiago|lw/figuren/santiago]]",
   "**Ziel:** Den Dreadlord besiegen"
  ]},

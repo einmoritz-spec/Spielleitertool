@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k6"] = window.HH_TEXT["lw/k6
 
 K.push({id: "stein", t: "Von Stein zu Stein", p: 120, b: [
  LWG("lw-s120-vi-stone-to-stone", ["kaelan", "koko", "ajax", "chaska"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Die Citadel",
   "**Zeit:** Frühling XIII H.C.",
   "**Hauptfiguren:** [[Chaska|lw/figuren/chaska]], [[Kaelan|lw/figuren/kaelan]], [[Koko|lw/figuren/koko]], [[Ajax|lw/figuren/ajax]]",
@@ -23,7 +23,7 @@ K.push({id: "stein", t: "Von Stein zu Stein", p: 120, b: [
 
 K.push({id: "tot", t: "Gesucht: tot", p: 121, b: [
  LWG("lw-s121-vi-wanted-dead", ["ronja", "rubio", "santiago", "john"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Lone Rock",
   "**Zeit:** Frühling XIII H.C.",
   "**Hauptfiguren:** [[John|lw/figuren/john]], [[Ronja|lw/figuren/ronja]], [[Rubio|lw/figuren/rubio]], [[Santiago|lw/figuren/santiago]]",
@@ -49,7 +49,7 @@ K.push({id: "tot", t: "Gesucht: tot", p: 121, b: [
 
 K.push({id: "origami", t: "Lady Origami", p: 122, b: [
  LWG("lw-s122-vi-lady-origami", ["kurai", "naoko", "sienna", "jiroku"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Fukusa",
   "**Zeit:** Frühling XIII H.C.",
   "**Hauptfiguren:** [[Jiroku|lw/figuren/jiroku]], [[Kurai|lw/figuren/kurai]], [[Naoko|lw/figuren/naoko]], [[Sienna|lw/figuren/sienna]]",
@@ -78,7 +78,7 @@ K.push({id: "origami", t: "Lady Origami", p: 122, b: [
 
 K.push({id: "ast", t: "Der gebrochene Ast", p: 123, b: [
  LWG("lw-s123-vi-the-broken-branch", ["cora", "nadja", "pierre", "jemma"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Woodlands",
   "**Zeit:** Frühling XIII H.C.",
   "**Hauptfiguren:** [[Cora|lw/figuren/cora]], [[Jemma|lw/figuren/jemma]], [[Nadja|lw/figuren/nadja]], [[Pierre|lw/figuren/pierre]]",
@@ -104,7 +104,7 @@ K.push({id: "ast", t: "Der gebrochene Ast", p: 123, b: [
 
 K.push({id: "funke", t: "Funke des Krieges", p: 124, b: [
  LWG("lw-s124-vi-spark-of-war", ["icarus", "humphrey", "yuliya", "sakari"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Underwood",
   "**Zeit:** Frühling XIII H.C.",
   "**Hauptfiguren:** [[Humphrey|lw/figuren/humphrey]], [[Icarus|lw/figuren/icarus]], [[Sakari|lw/figuren/sakari]], [[Yuliya|lw/figuren/yuliya]]",
@@ -124,7 +124,7 @@ K.push({id: "funke", t: "Funke des Krieges", p: 124, b: [
 
 K.push({id: "ronin", t: "33 Ronin", p: 125, b: [
  LWG("lw-s125-vi-33-ronin", ["shiro", "soya", "gwen", "gunther"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Mizuken",
   "**Zeit:** Frühling XIII H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Gwen|lw/figuren/gwen]], [[Shiro|lw/figuren/shiro]], [[Soya|lw/figuren/soya]]",

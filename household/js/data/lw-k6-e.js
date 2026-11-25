@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k6"] = window.HH_TEXT["lw/k6
 
 K.push({id: "feind", t: "Der Feind meines Feindes", p: 128, b: [
  LWG("lw-s128-vi-the-enemy-of-my-enemy", ["jemma", "nadja", "yuliya", "humphrey"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Caer Bryn",
   "**Zeit:** Sommer XIII H.C.",
   "**Hauptfiguren:** [[Humphrey|lw/figuren/humphrey]], [[Jemma|lw/figuren/jemma]], [[Nadja|lw/figuren/nadja]], [[Yuliya|lw/figuren/yuliya]]",
@@ -21,7 +21,7 @@ K.push({id: "feind", t: "Der Feind meines Feindes", p: 128, b: [
 
 K.push({id: "fest", t: "Fest in Twigbridge", p: 129, b: [
  LWG("lw-s129-vi-twigbridge-shindig", ["chaska", "koko", "ajax", "rubio"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Twigbridge",
   "**Zeit:** Sommer XIII H.C.",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Chaska|lw/figuren/chaska]], [[Koko|lw/figuren/koko]], [[Rubio|lw/figuren/rubio]]",
@@ -39,7 +39,7 @@ K.push({id: "fest", t: "Fest in Twigbridge", p: 129, b: [
 
 K.push({id: "schmetterling", t: "Arcadia, der Schmetterling", p: 130, b: [
  LWG("lw-s130-vi-arcadia-the-butterfly", ["cora", "icarus", "pierre", "sakari"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Underwood",
   "**Zeit:** Sommer XIII H.C.",
   "**Hauptfiguren:** [[Cora|lw/figuren/cora]], [[Icarus|lw/figuren/icarus]], [[Pierre|lw/figuren/pierre]], [[Sakari|lw/figuren/sakari]]",
@@ -62,7 +62,7 @@ K.push({id: "schmetterling", t: "Arcadia, der Schmetterling", p: 130, b: [
 
 K.push({id: "rose", t: "Die Rose und der Dorn", p: 131, b: [
  LWG("lw-s131-vi-the-rose-and-the-thorn", ["kaelan", "ronja", "john", "santiago"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Grassgow",
   "**Zeit:** Sommer XIII H.C.",
   "**Hauptfiguren:** [[John|lw/figuren/john]], [[Kaelan|lw/figuren/kaelan]], [[Ronja|lw/figuren/ronja]], [[Santiago|lw/figuren/santiago]]",
@@ -80,7 +80,7 @@ K.push({id: "rose", t: "Die Rose und der Dorn", p: 131, b: [
 
 K.push({id: "freund", t: "Alter Freund", p: 132, b: [
  LWG("lw-s132-vi-old-friend", ["kurai", "gwen", "sienna", "shiro"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Fukusa",
   "**Zeit:** Sommer XIII H.C.",
   "**Hauptfiguren:** [[Gwen|lw/figuren/gwen]], [[Kurai|lw/figuren/kurai]], [[Shiro|lw/figuren/shiro]], [[Sienna|lw/figuren/sienna]]",
@@ -97,7 +97,7 @@ K.push({id: "freund", t: "Alter Freund", p: 132, b: [
 
 K.push({id: "tee", t: "Die Teezeremonie", p: 133, b: [
  LWG("lw-s133-vi-the-tea-ceremony", ["gunther", "soya", "naoko", "jiroku"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Fukami",
   "**Zeit:** Sommer XIII H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Jiroku|lw/figuren/jiroku]], [[Naoko|lw/figuren/naoko]], [[Soya|lw/figuren/soya]]",

@@ -4,7 +4,7 @@ var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k7"] = window.HH_TEXT["lw/k7
 
 K.push({id: "ferne", t: "Aus der Ferne", p: 152, b: [
  LWG("lw-s152-vii-from-faraway", ["kaelan", "nadja", "icarus", "ronja"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Der Fence",
   "**Zeit:** Frühling XIV H.C.",
   "**Hauptfiguren:** [[Icarus|lw/figuren/icarus]], [[Kaelan|lw/figuren/kaelan]], [[Nadja|lw/figuren/nadja]], [[Ronja|lw/figuren/ronja]]",
@@ -25,7 +25,7 @@ K.push({id: "ferne", t: "Aus der Ferne", p: 152, b: [
 
 K.push({id: "flossen", t: "Flossen", p: 153, b: [
  LWG("lw-s153-vii-fins", ["sakari", "rubio", "sienna", "john"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Fountain Sea",
   "**Zeit:** Frühling XIV H.C.",
   "**Hauptfiguren:** [[John|lw/figuren/john]], [[Rubio|lw/figuren/rubio]], [[Sakari|lw/figuren/sakari]], [[Sienna|lw/figuren/sienna]]",
@@ -44,7 +44,7 @@ K.push({id: "flossen", t: "Flossen", p: 153, b: [
 
 K.push({id: "turnier", t: "Das Mondturnier", p: 154, b: [
  LWG("lw-s154-vii-the-moon-tournament", ["gunther", "pierre", "soya", "yuliya"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Tsukito",
   "**Zeit:** Frühling XIV H.C.",
   "**Hauptfiguren:** [[Gunther|lw/figuren/gunther]], [[Pierre|lw/figuren/pierre]], [[Soya|lw/figuren/soya]], [[Yuliya|lw/figuren/yuliya]]",
@@ -66,7 +66,7 @@ K.push({id: "turnier", t: "Das Mondturnier", p: 154, b: [
 
 K.push({id: "yojimbo", t: "Yojimbos Prüfungen", p: 155, b: [
  LWG("lw-s155-vii-yojimbos-trials", ["kurai", "shiro", "jemma", "jiroku"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Four Oaks",
   "**Zeit:** Frühling XIV H.C.",
   "**Hauptfiguren:** [[Jemma|lw/figuren/jemma]], [[Jiroku|lw/figuren/jiroku]], [[Kurai|lw/figuren/kurai]], [[Shiro|lw/figuren/shiro]]",
@@ -85,7 +85,7 @@ K.push({id: "yojimbo", t: "Yojimbos Prüfungen", p: 155, b: [
 
 K.push({id: "brauchst", t: "Was du brauchst", p: 156, b: [
  LWG("lw-s156-vii-what-you-need", ["chaska", "humphrey", "gwen", "naoko"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Twigbridge",
   "**Zeit:** Frühling XIV H.C.",
   "**Hauptfiguren:** [[Chaska|lw/figuren/chaska]], [[Gwen|lw/figuren/gwen]], [[Humphrey|lw/figuren/humphrey]], [[Naoko|lw/figuren/naoko]]",
@@ -111,7 +111,7 @@ K.push({id: "brauchst", t: "Was du brauchst", p: 156, b: [
 
 K.push({id: "vertrag", t: "Der blutige Contract", p: 157, b: [
  LWG("lw-s157-vii-the-bloodied-contract", ["cora", "santiago", "koko", "ajax"]),
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Underwood",
   "**Zeit:** Frühling XIV H.C.",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Cora|lw/figuren/cora]], [[Koko|lw/figuren/koko]], [[Santiago|lw/figuren/santiago]]",

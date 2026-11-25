@@ -3,7 +3,7 @@
 var K = (window.HH_TEXT = window.HH_TEXT || {})["lw/k6"] = window.HH_TEXT["lw/k6"] || [];
 
 K.push({id: "schnee", t: "Verloren im Schnee", p: 94, b: [
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Underroot, die Woodlands",
   "**Zeit:** Januar XIII H.C. (Kapitel VI)",
   "**Hauptfiguren:** [[Ajax|lw/figuren/ajax]], [[Cora|lw/figuren/cora]], [[Kaelan|lw/figuren/kaelan]], [[Koko|lw/figuren/koko]]",
@@ -81,7 +81,7 @@ K.push({id: "schnee", t: "Verloren im Schnee", p: 94, b: [
 ]});
 
 K.push({id: "ninja", t: "Die Rückkehr des Ninja", p: 100, b: [
- {t: "ul", x: [
+ {t: "daten", x: [
   "**Ort:** Fukusa, die Paper Prefecture",
   "**Zeit:** Januar XIII H.C. (Kapitel VI)",
   "**Hauptfiguren:** [[Jiroku|lw/figuren/jiroku]], [[Kurai|lw/figuren/kurai]], [[Naoko|lw/figuren/naoko]], [[Rubio|lw/figuren/rubio]]",

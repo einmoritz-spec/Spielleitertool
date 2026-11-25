@@ -259,4 +259,4 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .ss .abt{cursor:pointer}
 @media(max-width:900px){.ss .oben{grid-template-columns:1fr}.ss .wege{grid-template-columns:1fr}.ss .reihe6{grid-template-columns:repeat(2,minmax(0,1fr))}.ss .par{grid-template-columns:1fr}.ss .zus{grid-template-columns:1fr}.ss .wrapS{padding:20px 16px}}
 .lay.fold-on .txt:has(.kacheln.gross),.lay.solo .txt:has(.kacheln.gross){max-width:1500px;margin-left:auto;margin-right:auto}
-.held{position:relative;margin:4px 0 22px;clear:both;width:min(calc(100vw - 48px),1500px)}.held>img{width:100%;height:auto;display:block}.held-tx{position:absolute}.held-tx .bul{margin:0}@media(max-width:1150px){.held-tx{position:static;width:auto!important;margin-top:10px}}
+.held{position:relative;margin:4px 0 22px;clear:both}.held>img{width:100%;height:auto;display:block}.held-tx{position:absolute}.held-tx .bul{margin:0}@media(max-width:1050px){.held-tx{position:static;width:auto!important;margin-top:10px}}

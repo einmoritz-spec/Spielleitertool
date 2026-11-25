@@ -5,7 +5,7 @@ var K = H["fp/k1"] = H["fp/k1"] || [];
 var G = "[[Gwen Summers|fp/figuren/gwen]]", HU = "[[Humphrey Lockwood|fp/figuren/humphrey]]", E = "[[Earnest Gilmore|fp/figuren/earnest]]", S = "[[Sienna Blackwell|fp/figuren/sienna]]";
 
 K.push({id: "argo", t: "Argos Tagebuch", p: 70, b: [
- {t: "held", s: "fp-s071-i-argos-diary", l: 37, o: 3, w: 61, b: [{t: "ul", x: [
+ {t: "held", s: "fp-s071-i-argos-diary", l: 40, o: 31, w: 31, b: [{t: "ul", x: [
   "**Ort:** Wallford, Hearth",
   "**Zeit:** September VI H.C. (Kapitel I)",
   "**Hauptfiguren:** Gwen, Humphrey, Earnest und Sienna",

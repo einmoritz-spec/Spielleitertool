@@ -13,17 +13,17 @@ img{max-width:100%;display:block}
 h1,h2,h3,h4{font-family:Spies,Oswald,sans-serif;font-weight:400;line-height:1.1;letter-spacing:.01em}
 .pg{font:12px Pal,serif;color:var(--soft);margin-left:6px;cursor:pointer;white-space:nowrap}.pg:hover{text-decoration:underline}
 /* Kopfzeile */
-.top{position:sticky;top:0;z-index:30;height:56px;display:flex;align-items:center;padding:0 22px;background:var(--night);color:#fff}
+.topbar{position:sticky;top:0;z-index:30;height:56px;display:flex;align-items:center;padding:0 22px;background:var(--night);color:#fff}
 .brand img{height:34px}
 .ktabs{display:flex;align-items:flex-end;align-self:stretch;gap:2px;margin-left:28px;min-width:0}
 .ktabs a{display:flex;align-items:center;height:44px;padding:0 15px;font:21px/1 Spies,Oswald,sans-serif;color:rgba(255,255,255,.72);white-space:nowrap;border-radius:10px 10px 0 0}
 .ktabs a:hover{color:#fff;background:rgba(255,255,255,.08)}
 .ktabs a.on{color:#fff;background:var(--c)}
-.spacer{flex:1}
+.spacer,.topbar-spacer{flex:1}
 .ib{width:40px;height:40px;display:grid;place-items:center;color:#fff;border-radius:8px}
 .ib:hover{background:rgba(255,255,255,.1)}
 .ib svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-body.notop .top{display:none}
+body.notop .topbar{display:none}
 /* Unterleiste: aktiver Reiter geht darin über */
 .sub{position:sticky;top:56px;z-index:25;display:none;gap:2px;padding:0 22px;height:44px;align-items:center;background:var(--c);color:#fff;overflow-x:auto}
 .sub.on{display:flex}
@@ -57,7 +57,7 @@ body.notop .sub{top:0}
 .pan a:hover{flex:1.7}
 .pan img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pan a:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78))}
-.pan a.off{filter:grayscale(1) brightness(.55);flex:.55}
+.pan a.off{filter:grayscale(1) brightness(.6);flex:.55}
 .pan h3{white-space:nowrap;position:absolute;z-index:2;left:46px;right:46px;bottom:16px;color:#fff;font-size:25px;text-shadow:0 2px 8px #000}
 .pan a:first-child h3{left:18px}
 .pan i{position:absolute;z-index:2;left:46px;top:12px;width:34px;height:5px;background:var(--gc)}
@@ -88,3 +88,16 @@ body.notop .sub{top:0}
 .modal .box{background:var(--paper2);border-radius:8px;padding:22px 26px;max-width:520px;width:90vw;max-height:80vh;overflow:auto}
 .modal h3{font-size:24px;margin-bottom:8px}
 body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--line:#bfa573}
+
+.pan i{display:none}
+.pan a{border-top:5px solid var(--gc)}
+.tg{position:absolute;z-index:3;left:46px;top:16px;display:flex;align-items:center;gap:8px;padding:5px 12px 5px 6px;border-radius:99px;background:rgba(0,0,0,.55);color:#fff;font:600 13px Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(3px)}
+.pan a:first-child .tg{left:18px}
+.tg .kn{width:34px;height:18px;border-radius:99px;background:rgba(255,255,255,.3);position:relative;transition:background .2s}
+.tg .kn:after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .2s}
+.tg.on .kn{background:var(--gc)}.tg.on .kn:after{left:18px}
+.tg em{font-style:normal}
+.tg:hover{background:rgba(0,0,0,.75)}
+.tg.base{padding:5px 12px;cursor:default;color:rgba(255,255,255,.85)}
+.pan a.off .tg{filter:none}
+.pan h3{font-size:22px}

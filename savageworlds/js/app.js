@@ -61,15 +61,15 @@ var CHAPT = {
 };
 function start(){
   var G = SW_GENRES, pan = G.map(function(g, i){
-    var im = ["p-grundregeln","p-fantasy","p-horror","p-scifi","p-super"][i];
-    return '<a class="' + (gen(g.id) ? "" : "off") + '" style="--gc:' + g.c + '" onclick="' + (g.id === "grw" ? "go('charaktere')" : "go('genres/" + g.id + "')") + '"><img src="' + IMG("start/" + im) + '" alt=""><i></i><h3>' + esc(g.t) + "</h3></a>";
+    var im = ["p-grundregeln","p-fantasy","p-horror","p-scifi","p-super"][i], on = gen(g.id);
+    var tg = g.id === "grw" ? '<span class="tg base">Basis</span>' : '<button class="tg' + (on ? " on" : "") + '" onclick="event.stopPropagation();toggleGen(\'' + g.id + '\')" aria-label="' + esc(g.t) + (on ? " ausschalten" : " einschalten") + '"><span class="kn"></span><em>' + (on ? "An" : "Aus") + '</em></button>';
+    return '<a class="' + (on ? "" : "off") + '" style="--gc:' + g.c + '" onclick="' + (g.id === "grw" ? "go('charaktere')" : "go('genres/" + g.id + "')") + '"><img src="' + IMG("start/" + im) + '" alt=""><i></i>' + tg + '<h3>' + esc(g.t) + "</h3></a>";
   }).join("");
-  var sw = '<div class="gsw"><b>Genres</b>' + G.map(function(g){ return '<button class="' + (gen(g.id) ? "on" : "") + (g.id === "grw" ? " fixed" : "") + '" style="--gc:' + g.c + '" onclick="toggleGen(\'' + g.id + '\')">' + esc(g.t) + "</button>"; }).join("") + "</div>";
   var chs = TABS.filter(function(t){ return t.img; }).map(function(t){
     return '<div class="ch"><div class="im" onclick="go(\'' + t.id + '\')"><img loading="lazy" src="' + IMG("start/" + t.img) + '" alt=""><h3>' + esc(t.t) + "</h3></div><ul>" +
       (CHAPT[t.id] || []).map(function(s){ return '<li><a onclick="go(\'' + t.id + "/" + s[1] + '\')">' + esc(s[0]) + "</a></li>"; }).join("") + "</ul></div>";
   }).join("");
-  APP.innerHTML = '<div class="st">' + sw + '<div class="pan">' + pan + '</div><div class="chs">' + chs + '</div>' +
+  APP.innerHTML = '<div class="st"><div class="pan">' + pan + '</div><div class="chs">' + chs + '</div>' +
     '<div class="dl" onclick="go(\'dl\')"><img src="' + IMG("start/dl-cover") + '" alt=""><div><h3>Deadlands</h3><p>Der Wilde Westen, in dem die Toten nicht ruhen.</p></div><span class="go">Betreten</span></div></div>';
 }
 function toggleGen(id){ if(id === "grw") return; ST.gen[id] = ST.gen[id] ? 0 : 1; save(); render(); }

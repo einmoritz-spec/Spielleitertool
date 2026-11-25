@@ -68,10 +68,10 @@ L.push(
 {id: "handlers", t: "Tierführer", p: 62, b: [
  {t: "q", x: "Die besten Freunde, die ich je hatte, waren mit Fell, Schuppen oder Panzer bedeckt, und die meisten haben nie versucht, mich zu fressen!", wer: "Viscount Oleg Protopopolov"},
  bild("s063-ii-animal-handlers", 200),
- "Der Garten ist ein unglaublich weiter Ort, an dem man sich als Littling leicht allein und verlassen fühlen kann. Zum Glück wissen die Little Folk des Outhold auch, dass sie sich stets auf die Hilfe, Gesellschaft und vielleicht sogar Freundschaft vieler liebenswerter Geschöpfe verlassen können. Denkt an die anmutigen Moths, die Reisende durch die dunkelsten Nächte führen, an die Moles und ihren lebenswichtigen Beitrag beim Graben der Tunnel der Citadel oder an die robusten Frogs, die in der Schlacht von Quillwaters eine entscheidende Rolle spielten. Dazu kommen viele alte Freunde wie Beetles aller Arten und Größen, die Landmäuse, die Bumblebees, die Geckos und schließlich die knallroten Ladybugs, die angeblich großes Glück bringen.",
+ "Der Garten ist ein unglaublich weiter Ort, an dem man sich als Littling leicht allein und verlassen fühlen kann. Zum Glück wissen die Little Folk des Outhold auch, dass sie sich stets auf die Hilfe, Gesellschaft und vielleicht sogar Freundschaft vieler liebenswerter Geschöpfe verlassen können. Denkt an die anmutigen Nachtfalter, die Reisende durch die dunkelsten Nächte führen, an die Maulwürfe und ihren lebenswichtigen Beitrag beim Graben der Tunnel der Citadel oder an die robusten Frösche, die in der Schlacht von Quillwaters eine entscheidende Rolle spielten. Dazu kommen viele alte Freunde wie Käfer aller Arten und Größen, die Landmäuse, die Hummeln, die Geckos und schließlich die knallroten Marienkäfer, die angeblich großes Glück bringen.",
  "Alle Littlings, die ihr Leben der Aufzucht, Ausbildung und dem Schutz eines oder mehrerer Tiere gewidmet haben, nennen wir Animal Handlers: von Trailblazers und Rescuers, die Seite an Seite mit ihren Tiergefährten Littlings in Not helfen, über Wildhüter und Beschützer des Gartens, die sich für Tiere und Natur einsetzen, bis zu den Streunern und Free Spirits, die lieber mit ihren vielbeinigen Freunden umherziehen, statt zu arbeiten. Wer kann es ihnen verdenken?",
  {t: "box", h: "Animal Companion", b: [
-  "Jeder Tierführer beginnt sein Abenteuer mit einem Animal Companion seiner Wahl unter diesen: **Beetle, Bumblebee, Gecko, Mouse, Moth, Mole, Ladybug, Frog**.",
+  "Jeder Tierführer beginnt sein Abenteuer mit einem Animal Companion seiner Wahl unter diesen: **Käfer, Hummel, Gecko, Maus, Nachtfalter, Maulwurf, Marienkäfer, Frosch**.",
   "Diese Tiere werden von demselben Spieler gespielt, der den Tierführer spielt, und können nur für kleine oder einfache Aktionen eigenständig handeln. Wann immer ein Wurf nötig ist, müssen Tierführer und Animal Companion gemeinsam handeln, indem sie die Fertigkeit des Tierführers einsetzen, während das Tier ihn nach Möglichkeit unterstützt. Jeder Animal Companion gewährt viele Vorteile und bietet in bestimmten Umständen Hilfe oder Freie Neuwürfe, wie im Merkmal Animal Companion beschrieben."]},
  {t: "box", h: "Merkmale und Manöver", b: [
   "Jeder Animal Companion hat eigene Merkmale und Manöver, die ihr auf den späteren Seiten findet. Die Merkmale und Manöver eines Animal Companions können selbstverständlich nur genutzt werden, wenn das Tier anwesend ist.",
@@ -88,19 +88,19 @@ L.push(
   V("Rescuer", "Hm, was sagst du? Jemand braucht uns? Worauf warten wir dann noch?!", "Wissenschaft", "Redegewandtheit, Fürsorge, Handwerk, Ermittlung, Athletik, Kampf, Stärke, Vorsicht, Geschick, Erkundung", "Physician, Survival Instinct, Selfless oder Alert", "Der Garten ist voller Gefahren, und etwas zu forsche Reisende tappen bekanntlich in die Fallen von Ameisenlöwen oder verirren sich zwischen den Ästen oder im Underground. Zum Glück sind Rescuers und ihre gut ausgebildeten Tiergefährten stets bereit, einzuspringen und Littlings in Not zu retten. Manche treibt Bürgerpflicht oder Berufung an, die weniger Vernünftigen das Geld.")]}
 ]},
 
-{id: "frog", t: "Frog", p: 66, b: [
+{id: "frog", t: "Frosch", p: 66, b: [
  bild("s066-ii-frog", 180),
- "Diese quakenden Amphibien mit dem breiten Maul sind die besten Freunde, die sich ein Littling wünschen kann, der in der Nähe der großen Gewässer des Gartens lebt. Die Shinigami, die in den Rushes wohnen, haben großen Respekt vor Frogs und behandeln sie wie Ebenbürtige. Der am meisten verehrte Frog des Gartens ist aber zweifellos King Frog Jack, ein Exemplar ganz eigener Klasse, das in Frogstone Keep am Rand des Fountain Hof hält.",
- {t: "h", x: "Animal Companion: Frog"},
- "Wählst du einen Frog als Animal Companion, kannst du ihn so in deiner Ausrüstung notieren:",
- {t: "box", h: "Frog", b: ["Hilfreich beim Zerbrechen von Gegenständen oder beim Springen.", "Du hast einen Freien Neuwurf, wann immer du und dein Frog gemeinsam schwimmt. Befindest du dich in einem Fleck Sonnenlicht, wirf einen Würfel. Zeigt er {kreuz}, ignoriert der Frog alle Befehle und legt sich zum Ausruhen hin."]},
- {t: "h", x: "Frog-Merkmale"},
+ "Diese quakenden Amphibien mit dem breiten Maul sind die besten Freunde, die sich ein Littling wünschen kann, der in der Nähe der großen Gewässer des Gartens lebt. Die Shinigami, die in den Rushes wohnen, haben großen Respekt vor Frösche und behandeln sie wie Ebenbürtige. Der am meisten verehrte Frosch des Gartens ist aber zweifellos King Frog Jack, ein Exemplar ganz eigener Klasse, das in Frogstone Keep am Rand des Fountain Hof hält.",
+ {t: "h", x: "Animal Companion: Frosch"},
+ "Wählst du einen Frosch als Animal Companion, kannst du ihn so in deiner Ausrüstung notieren:",
+ {t: "box", h: "Frosch", b: ["Hilfreich beim Zerbrechen von Gegenständen oder beim Springen.", "Du hast einen Freien Neuwurf, wann immer du und dein Frosch gemeinsam schwimmt. Befindest du dich in einem Fleck Sonnenlicht, wirf einen Würfel. Zeigt er {kreuz}, ignoriert der Frosch alle Befehle und legt sich zum Ausruhen hin."]},
+ {t: "h", x: "Frosch-Merkmale"},
  {t: "karten", x: [
-  T("Large Frog", "Der Frog ist groß genug, um geritten zu werden. Er ist hilfreich beim Schieben, Ziehen oder Heben schwerer Gegenstände, aber hinderlich, wenn du dich verstohlen oder auf engem Raum bewegst."),
+  T("Large Frog", "Der Frosch ist groß genug, um geritten zu werden. Er ist hilfreich beim Schieben, Ziehen oder Heben schwerer Gegenstände, aber hinderlich, wenn du dich verstohlen oder auf engem Raum bewegst."),
   T("Extendable Tongue", "Erlaubt dir, Ziele auf kurze Entfernung zu treffen, wie mit einer Reichweitenwaffe."),
-  T("Shiny Skin", "Dank deines Frogs hast du immer einen Freien Neuwurf, um aufzutreten oder einen guten Eindruck zu machen."),
-  T("Wide Mouth", "Du kannst kleine Gegenstände im Maul deines Frogs verstecken. Hat der Frog auch das Merkmal Large Frog, kannst du einen erwachsenen Littling in seinem Maul verstecken.")]},
- {t: "h", x: "Frog-Manöver"},
+  T("Shiny Skin", "Dank deines Frosches hast du immer einen Freien Neuwurf, um aufzutreten oder einen guten Eindruck zu machen."),
+  T("Wide Mouth", "Du kannst kleine Gegenstände im Maul deines Frosches verstecken. Hat der Frosch auch das Merkmal Large Frog, kannst du einen erwachsenen Littling in seinem Maul verstecken.")]},
+ {t: "h", x: "Frosch-Manöver"},
  {t: "karten", x: [
   M("Leap Away", "c", "Du kannst gegen einen Gegner mit Athletik +1 reagieren, statt mit der verlangten Fertigkeit."),
   M("Protect", "c", "Entweder bewahrst du einen Freund davor, den Zustand Gebrochen oder Verletzt zu erleiden, oder du rettest einen Freund davor, ohne Einsatz eines Jokers ausscheiden zu müssen."),
@@ -110,19 +110,19 @@ L.push(
   M("Jump In", "s", "Wiederhole einen Reaktionswurf beliebiger Art und ignoriere dabei alle −1 durch Zustände oder Umstände. Du musst das neue Ergebnis behalten.")]}
 ]},
 
-{id: "ladybug", t: "Ladybug", p: 67, b: [
+{id: "ladybug", t: "Marienkäfer", p: 67, b: [
  bild("s067-ii-ladybug", 180),
- "Ladybugs sind weder besonders stark noch schnell, und sie sind auch nicht für ihre Schläue oder Heimlichkeit bekannt. Offen gesagt sind diese knallroten Haustierinsekten an sich nicht wirklich nützlich, und man kann ihnen keine nützlichen Aufgaben beibringen. Manche behaupten jedoch, Ladybugs seien äußerst glücklich. Ihr Glück sei so reichlich, dass es auf Littlings abfärben könne, die eine besonders starke Bindung zu diesen Insekten aufbauen. Könnte das stimmen? Im Vertrauen: Es wäre nicht das Seltsamste, was ich je gesehen habe.",
- {t: "h", x: "Animal Companion: Ladybug"},
- "Wählst du eine Ladybug als Animal Companion, kannst du sie so in deiner Ausrüstung notieren:",
- {t: "box", h: "Ladybug", b: ["Hilfreich beim Ablenken anderer oder beim Auftreten.", "Du hast einen Freien Neuwurf, wann immer du und deine Ladybug gemeinsam einen Handel abschließen. Gehst du gegen einen Vertrag vor, wirf einen Würfel. Zeigt er {pik} oder {herz}, ignoriert die Ladybug deine Befehle und weigert sich zu kooperieren."]},
- {t: "h", x: "Ladybug-Merkmale"},
+ "Marienkäfer sind weder besonders stark noch schnell, und sie sind auch nicht für ihre Schläue oder Heimlichkeit bekannt. Offen gesagt sind diese knallroten Haustierinsekten an sich nicht wirklich nützlich, und man kann ihnen keine nützlichen Aufgaben beibringen. Manche behaupten jedoch, Marienkäfer seien äußerst glücklich. Ihr Glück sei so reichlich, dass es auf Littlings abfärben könne, die eine besonders starke Bindung zu diesen Insekten aufbauen. Könnte das stimmen? Im Vertrauen: Es wäre nicht das Seltsamste, was ich je gesehen habe.",
+ {t: "h", x: "Animal Companion: Marienkäfer"},
+ "Wählst du einen Marienkäfer als Animal Companion, kannst du ihn so in deiner Ausrüstung notieren:",
+ {t: "box", h: "Marienkäfer", b: ["Hilfreich beim Ablenken anderer oder beim Auftreten.", "Du hast einen Freien Neuwurf, wann immer du und dein Marienkäfer gemeinsam einen Handel abschließen. Gehst du gegen einen Vertrag vor, wirf einen Würfel. Zeigt er {pik} oder {herz}, ignoriert der Marienkäfer deine Befehle und weigert sich zu kooperieren."]},
+ {t: "h", x: "Marienkäfer-Merkmale"},
  {t: "karten", x: [
-  T("Karma", "Dank deiner Ladybug hast du, nachdem du dein Kritisches Kästchen ausgefüllt hast, +1 auf deinen nächsten Aktions- oder Reaktionswurf. Von da an hast du bei allen Reaktionswürfen einen Freien Neuwurf, bis du den Stress abgebaut hast."),
-  T("Lucky Dodge", "Dank deiner Ladybug hast du einen Freien Neuwurf, um Kugeln auszuweichen."),
-  T("Lucky Hound", "Deine Ladybug gewährt dir Hilfe beim Finden von Hinweisen und nützlichen Gegenständen."),
-  T("Lucky Charm", "Dank deiner Ladybug hast du immer einen Freien Neuwurf, wenn du mit 2 oder 3 Würfeln würfelst.")]},
- {t: "h", x: "Ladybug-Manöver"},
+  T("Karma", "Dank deines Marienkäfers hast du, nachdem du dein Kritisches Kästchen ausgefüllt hast, +1 auf deinen nächsten Aktions- oder Reaktionswurf. Von da an hast du bei allen Reaktionswürfen einen Freien Neuwurf, bis du den Stress abgebaut hast."),
+  T("Lucky Dodge", "Dank deines Marienkäfers hast du einen Freien Neuwurf, um Kugeln auszuweichen."),
+  T("Lucky Hound", "Dein Marienkäfer gewährt dir Hilfe beim Finden von Hinweisen und nützlichen Gegenständen."),
+  T("Lucky Charm", "Dank deines Marienkäfers hast du immer einen Freien Neuwurf, wenn du mit 2 oder 3 Würfeln würfelst.")]},
+ {t: "h", x: "Marienkäfer-Manöver"},
  {t: "karten", x: [
   M("Leave to Chance", "ds", "Statt einen Aktions- oder Reaktionswurf abzulegen, kannst du eine Münze werfen. Kopf: Du bestehst den Wurf. Zahl: Du erleidest ein katastrophales Scheitern."),
   M("Good and Bad Luck", "ds", "Ein Freund erleidet statt dir die Folgen deines Scheiterns."),
@@ -132,40 +132,40 @@ L.push(
   M("Lucky Fail", "h", "Nachdem du einen Reaktionswurf verpatzt hast, der nicht von einem Gegner verursacht wurde, kannst du sofort einen glücklichen Zufall oder eine unerwartete Gelegenheit herbeiführen.")]}
 ]},
 
-{id: "moth", t: "Moth", p: 68, b: [
+{id: "moth", t: "Nachtfalter", p: 68, b: [
  bild("s068-069-ii-moth-ganz", 220),
- "Moths gelten als zahme und geheimnisvolle Geschöpfe, die Littlings mit den bezaubernden Farben und Mustern ihrer Flügel verzaubern. Auch Fae und Shinigami hegen eine tiefe Liebe zu diesen nachtaktiven Tieren und ziehen sie Bumblebees vor. Dem Aberglauben nach bringen Moths Unglück. Aber es fällt schwer zu glauben, dass so erlesene Geschöpfe Unglück bringen könnten!",
- {t: "h", x: "Animal Companion: Moth"},
- "Wählst du einen Moth als Animal Companion, kannst du ihn so in deiner Ausrüstung notieren:",
- {t: "box", h: "Moth", b: ["Hilfreich beim Halten des Gleichgewichts oder beim Bergen kleiner Gegenstände. Erlaubt dir, Ziele auf kurze Entfernung zu treffen, wie mit einer Reichweitenwaffe.", "Du hast einen Freien Neuwurf, wann immer du und dein Moth gemeinsam einen Zustand entfernt. Ist eine Flamme oder helles Licht in der Nähe, wirf einen Würfel. Zeigt er {karo} oder {pik}, ignoriert der Moth deine Befehle und fliegt los, um die Flamme zu umtanzen."]},
- {t: "h", x: "Moth-Merkmale"},
+ "Nachtfalter gelten als zahme und geheimnisvolle Geschöpfe, die Littlings mit den bezaubernden Farben und Mustern ihrer Flügel verzaubern. Auch Fae und Shinigami hegen eine tiefe Liebe zu diesen nachtaktiven Tieren und ziehen sie Hummeln vor. Dem Aberglauben nach bringen Nachtfalter Unglück. Aber es fällt schwer zu glauben, dass so erlesene Geschöpfe Unglück bringen könnten!",
+ {t: "h", x: "Animal Companion: Nachtfalter"},
+ "Wählst du einen Nachtfalter als Animal Companion, kannst du ihn so in deiner Ausrüstung notieren:",
+ {t: "box", h: "Nachtfalter", b: ["Hilfreich beim Halten des Gleichgewichts oder beim Bergen kleiner Gegenstände. Erlaubt dir, Ziele auf kurze Entfernung zu treffen, wie mit einer Reichweitenwaffe.", "Du hast einen Freien Neuwurf, wann immer du und dein Nachtfalter gemeinsam einen Zustand entfernt. Ist eine Flamme oder helles Licht in der Nähe, wirf einen Würfel. Zeigt er {karo} oder {pik}, ignoriert der Nachtfalter deine Befehle und fliegt los, um die Flamme zu umtanzen."]},
+ {t: "h", x: "Nachtfalter-Merkmale"},
  {t: "karten", x: [
-  T("Big Wings", "Dank deines Moths hast du einen Freien Neuwurf beim Springen. Außerdem kannst du dich an deinem Moth festhalten, um zu gleiten."),
-  T("Dark Wings", "Dank deines Moths hast du nachts einen Freien Neuwurf bei Würfen auf Ausweichen. Außerdem bist du nachts unsichtbar, solange du hinter den Flügeln deines Moths still bleibst."),
-  T("Night Creature", "Solange du bei deinem Moth bist, kannst du Nachteile durch Dämmerlicht ignorieren und leidest nur bei völliger Dunkelheit unter den Nachteilen des Dämmerlichts."),
-  T("Iridescent Wings", "Dank deines Moths erhältst du tagsüber einen Freien Neuwurf bei Würfen auf Charme und nachts bei Würfen auf Autorität.")]},
- {t: "h", x: "Moth-Manöver"},
+  T("Big Wings", "Dank deines Nachtfalters hast du einen Freien Neuwurf beim Springen. Außerdem kannst du dich an deinem Nachtfalter festhalten, um zu gleiten."),
+  T("Dark Wings", "Dank deines Nachtfalters hast du nachts einen Freien Neuwurf bei Würfen auf Ausweichen. Außerdem bist du nachts unsichtbar, solange du hinter den Flügeln deines Nachtfalters still bleibst."),
+  T("Night Creature", "Solange du bei deinem Nachtfalter bist, kannst du Nachteile durch Dämmerlicht ignorieren und leidest nur bei völliger Dunkelheit unter den Nachteilen des Dämmerlichts."),
+  T("Iridescent Wings", "Dank deines Nachtfalters erhältst du tagsüber einen Freien Neuwurf bei Würfen auf Charme und nachts bei Würfen auf Autorität.")]},
+ {t: "h", x: "Nachtfalter-Manöver"},
  {t: "karten", x: [
-  M("Ill Omen", "d", "Nachdem du einen Aktionswurf verpatzt hast, eilt dir der Moth zu Hilfe. Du vermeidest die Folgen deines Scheiterns, darfst dieselbe Aktion aber nicht ein zweites Mal versuchen."),
+  M("Ill Omen", "d", "Nachdem du einen Aktionswurf verpatzt hast, eilt dir der Nachtfalter zu Hilfe. Du vermeidest die Folgen deines Scheiterns, darfst dieselbe Aktion aber nicht ein zweites Mal versuchen."),
   M("Flutter", "s", "Lenke Kugeln automatisch ab, ohne zu würfeln. Wirf eine Münze. Kopf: Du schickst eine Kugel zum Absender zurück und verursachst beim Gegner 1 Stress."),
   M("Barrel Roll", "s", "Du kannst gegen einen Gegner mit Ausweichen +1 reagieren, statt mit der verlangten Fertigkeit."),
   M("Air Support", "s", "Du und ein Freund erhaltet +1 auf euren nächsten Aktionswurf."),
-  M("In a Wing Beat", "h", "Der Moth holt einen Gegenstand für dich oder fliegt mit einem kleinen Objekt zu dir, das du dringend brauchst."),
+  M("In a Wing Beat", "h", "Der Nachtfalter holt einen Gegenstand für dich oder fliegt mit einem kleinen Objekt zu dir, das du dringend brauchst."),
   M("Retreat", "hs", "Entweder entkommt ihr, du und ein Freund, einer gefährlichen oder schwierigen Situation, oder ihr verlasst beide einen Kampf.")]}
 ]},
 
-{id: "mole", t: "Mole", p: 69, b: [
- "Seit es den Garten gibt, leben die Gnomes in Harmonie mit ihren Freunden, den Moles. Ohne die Hilfe dieser kleinen, krallenbewehrten Tiere wären die zahllosen Tunnel der Citadel nie gegraben worden. Heute sind Moles im Outhold sehr verbreitet, besonders im Front Yard, und sie erlauben den kühnsten Reisenden, praktisch sorglos durch den Underground und auch nach Einbruch der Dunkelheit zu reisen.",
- {t: "h", x: "Animal Companion: Mole"},
- "Wählst du einen Mole als Animal Companion, kannst du ihn so in deiner Ausrüstung notieren:",
- {t: "box", h: "Mole", b: ["Hilfreich beim Graben und beim Durchbrechen von Türen und Barrieren.", "Du hast einen Freien Neuwurf, um mit deinem Mole den Weg durch die Dunkelheit oder den Underground zu finden. Schneit oder regnet es, wirf einen Würfel. Zeigt er {herz}, ignoriert der Mole deine Befehle und gräbt sich ein, um nicht nass zu werden."]},
- {t: "h", x: "Mole-Merkmale"},
+{id: "mole", t: "Maulwurf", p: 69, b: [
+ "Seit es den Garten gibt, leben die Gnomes in Harmonie mit ihren Freunden, den Maulwürfe. Ohne die Hilfe dieser kleinen, krallenbewehrten Tiere wären die zahllosen Tunnel der Citadel nie gegraben worden. Heute sind Maulwürfe im Outhold sehr verbreitet, besonders im Front Yard, und sie erlauben den kühnsten Reisenden, praktisch sorglos durch den Underground und auch nach Einbruch der Dunkelheit zu reisen.",
+ {t: "h", x: "Animal Companion: Maulwurf"},
+ "Wählst du einen Maulwurf als Animal Companion, kannst du ihn so in deiner Ausrüstung notieren:",
+ {t: "box", h: "Maulwurf", b: ["Hilfreich beim Graben und beim Durchbrechen von Türen und Barrieren.", "Du hast einen Freien Neuwurf, um mit deinem Maulwurf den Weg durch die Dunkelheit oder den Underground zu finden. Schneit oder regnet es, wirf einen Würfel. Zeigt er {herz}, ignoriert der Maulwurf deine Befehle und gräbt sich ein, um nicht nass zu werden."]},
+ {t: "h", x: "Maulwurf-Merkmale"},
  {t: "karten", x: [
-  T("Saddle Mole", "Der Mole ist groß genug, um geritten zu werden. Er ist hilfreich beim Schieben, Ziehen oder Heben schwerer Gegenstände, aber hinderlich, wenn du dich außerhalb des Underground auf engem Raum bewegst."),
-  T("Sharp Claws", "Erhalte einen Freien Neuwurf, wenn du und dein Mole gemeinsam einen Gegner angreift oder euch gegen ihn verteidigt."),
-  T("Blind Guide", "Solange du bei deinem Mole bist, ignorierst du Nachteile durch Dämmerlicht und leidest nur bei völliger Dunkelheit unter den Nachteilen des Dämmerlichts."),
+  T("Saddle Mole", "Der Maulwurf ist groß genug, um geritten zu werden. Er ist hilfreich beim Schieben, Ziehen oder Heben schwerer Gegenstände, aber hinderlich, wenn du dich außerhalb des Underground auf engem Raum bewegst."),
+  T("Sharp Claws", "Erhalte einen Freien Neuwurf, wenn du und dein Maulwurf gemeinsam einen Gegner angreift oder euch gegen ihn verteidigt."),
+  T("Blind Guide", "Solange du bei deinem Maulwurf bist, ignorierst du Nachteile durch Dämmerlicht und leidest nur bei völliger Dunkelheit unter den Nachteilen des Dämmerlichts."),
   T("Undergr-Hound", "Erhalte einen Freien Neuwurf, um dich zu orientieren, Spuren zu folgen, dich leise zu bewegen oder dich zu verstecken, solange du im Underground bist.")]},
- {t: "h", x: "Mole-Manöver"},
+ {t: "h", x: "Maulwurf-Manöver"},
  {t: "karten", x: [
   M("Double Slash", "c", "Nachdem du eine Bestie getroffen hast, kannst du einen zweiten Aktionswurf mit −1 ablegen."),
   M("Entrench", "dc", "Entweder schaffst du eine Sichtschutzwand, die Teildeckung für 4 Littlings oder Volldeckung für 2 Littlings bietet, oder einen sicheren Unterschlupf, in dem du ein Lager aufschlagen kannst."),
@@ -185,7 +185,7 @@ L.push(
   T("Shadow", "*Berufsspezifisches Merkmal der Verbrecher.* Erhalte einen Freien Neuwurf, um dich zu verstecken, zu schleichen oder jemanden durch eine Stadt zu verfolgen."),
   T("Swordfighter", "*Berufsspezifisches Merkmal der Duellanten.* Wähle eine Duellwaffe, zum Beispiel einen Scimithorn, einen Splinter, eine Orikatana oder eine Knochen-Shashka. Erhalte einen Freien Neuwurf für alle Würfe, die deine gewählte Waffe betreffen, sowie für alle Aktions- oder Reaktionswürfe im Kampf. Außerdem beginnst du dein erstes Kapitel mit einer kostenlosen Waffe deiner gewählten Art. Sie ist ein Erbstück, mit dem du dich eng verbunden fühlst."),
   T("Specialty", "*Berufsspezifisches Merkmal der Wayfarers.* Wähle und erhalte ein beliebiges Merkmal aus der Liste der Merkmale. Wenn die Spielleitung und die anderen Spieler einverstanden sind, darfst du auch ein berufsspezifisches Merkmal wählen."),
-  T("Animal Companion", "*Berufsspezifisches Merkmal der Tierführer.* Erhalte einen Animal Companion deiner Wahl unter: Bumblebee, Beetle, Gecko, Mouse, Moth, Mole, Ladybug, Frog. Bist du mit deinem Animal Companion zusammen, giltst du immer als bewaffnet. Du kannst den Animal Companion deiner Figur frei bewegen und ihn kleine Aufgaben erledigen oder einfache Aktionen ausführen lassen, etwa jemanden ablenken oder Wache stehen. Außerdem kann sich jeder Animal Companion in bestimmten Umständen als hilfreich erweisen und dir Freie Neuwürfe gewähren. Weitere Informationen findest du in den jeweiligen Abschnitten dieses Kapitels oder in Household Band I.")]},
+  T("Animal Companion", "*Berufsspezifisches Merkmal der Tierführer.* Erhalte einen Animal Companion deiner Wahl unter: Hummel, Käfer, Gecko, Maus, Nachtfalter, Maulwurf, Marienkäfer, Frosch. Bist du mit deinem Animal Companion zusammen, giltst du immer als bewaffnet. Du kannst den Animal Companion deiner Figur frei bewegen und ihn kleine Aufgaben erledigen oder einfache Aktionen ausführen lassen, etwa jemanden ablenken oder Wache stehen. Außerdem kann sich jeder Animal Companion in bestimmten Umständen als hilfreich erweisen und dir Freie Neuwürfe gewähren. Weitere Informationen findest du in den jeweiligen Abschnitten dieses Kapitels oder in Household Band I.")]},
  {t: "h", x: "Merkmale"},
  {t: "karten", x: [
   T("Small", "Erhalte eine Hilfe beim Verstecken, Schleichen und Balancieren. Du bist so leicht, dass dein Gewicht nicht einmal den Gang deines Reittiers beeinflusst."),

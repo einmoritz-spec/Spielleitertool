@@ -34,8 +34,8 @@ window.HH_NAV = {
    {id: "garten", t: "Der Garten", sw: [["karte", "Karte"], ["reisekarte", "Reisekarte"]], seiten: [["frontier", "The Frontier"], ["underground", "The Underground"], ["frontyard", "The Front Yard"], ["brambles", "The Brambles"], ["woodlands", "The Woodlands"], ["barrens", "The Barrens"], ["grasslands", "The Grasslands"], ["backyard", "The Backyard"], ["rushes", "The Rushes"], ["fouroaks", "Four Oaks"]]}
   ]},
   {id: "regeln", t: "Regeln", unter: [
-   {id: "berufe", t: "Berufe", seiten: [["einfuehrung", "Berufe des Gartens"], ["soldiers", "Soldaten"], ["scholars", "Gelehrte"], ["hunters", "Jäger"], ["criminals", "Verbrecher"], ["duelists", "Duellanten"], ["wayfarers", "Wayfarers"], ["handlers", "Tierführer"], ["frog", "Frog"], ["ladybug", "Ladybug"], ["moth", "Moth"], ["mole", "Mole"], ["traits", "Merkmale"]]},
-   {id: "vertraege", t: "Verträge", seiten: [["ttt", "Schreckliche Schreckliche Dinge"], ["hereditary", "Erbvertrag"], ["personal", "Persönlicher Vertrag"], ["welcoming", "Willkommensvertrag"], ["favors", "Favors"]]},
+   {id: "berufe", t: "Berufe", seiten: [["einfuehrung", "Berufe des Gartens"], ["soldiers", "Soldaten"], ["scholars", "Gelehrte"], ["hunters", "Jäger"], ["criminals", "Verbrecher"], ["duelists", "Duellanten"], ["wayfarers", "Wayfarers"], ["handlers", "Tierführer"], ["frog", "Frosch"], ["ladybug", "Marienkäfer"], ["moth", "Nachtfalter"], ["mole", "Maulwurf"], ["traits", "Merkmale"]]},
+   {id: "vertraege", t: "Verträge", seiten: [["ttt", "Schreckliche Schreckliche Dinge"], ["hereditary", "Erbverträge"], ["personal", "Persönliche Verträge"], ["welcoming", "Willkommensverträge"], ["favors", "Favors"]]},
    {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Münzen & Barter"], ["goods", "Goods & Services"], ["weapons", "Waffen"], ["concoctions", "Natural Concoctions"], ["mounts", "Mounts"]]},
    {id: "reise", t: "Reise & Jahreszeiten", seiten: [["travel", "Travel"], ["darkness", "Darkness"], ["stress", "Severe Stress"], ["seasons", "Seasons"]]}
   ]},

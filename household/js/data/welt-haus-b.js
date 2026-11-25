@@ -5,7 +5,7 @@ function bild(n, w){ return {t: "bild", s: "grundbuch-" + n, w: w}; }
 function box(h, b){ return {t: "box", h: h, b: b}; }
 var A = [];
 
-A.push({id: "dining", t: "Dining Hall", p: 214, b: [
+A.push({id: "dining", t: "La Ruelle & Waxy Swale", p: 214, b: [
   bild("s212-213-ix-wheel-of-the-year", "voll"),
   "Weit und hell sind die Dining Hall und ihre grünen Walls ein Symbol der zeitlosen Schönheit, die das House durchdringt. Als Stammland des Realm und Heimat der Faeries ist die Dining Hall ein reiches, üppiges Paradies, das selbst die strengsten Littlings mit Luxus und Prunk lockt und ihnen von Kostümbällen, Hofintrigen und glänzenden Lichtern in den Kristallen von Astraviya ins Ohr flüstert.",
   {t: "h", x: "La Ruelle · Grenze des Realm"},

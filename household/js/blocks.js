@@ -23,6 +23,12 @@ function blk(L, book){
 }
 /* Standard-Seite für HH_TEXT: gewählter Eintrag der Seitenleiste, Überschrift mit Seitenlink */
 function textSeite(P, list, book){
+  var grp = (P.unter.seiten || []).filter(function(x){ return x[0] === P.sel && x[2]; })[0];
+  if(grp){
+    if(P.anker) [60, 400, 1000].forEach(function(t){ setTimeout(function(){ zuAbschnitt(P.anker, 1); }, t); });
+    return grp[2].map(function(id){ var e = list.filter(function(x){ return x.id === id; })[0]; if(!e) return "";
+      return '<div class="sec txt" id="ab-' + id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join("");
+  }
   var e = list.filter(function(x){ return x.id === P.sel; })[0] || list[0];
   if(!e) return platzhalter(P.unter.t);
   var bl = (window.HH_BILD || {})[P.unter.id + "/" + e.id] || [];

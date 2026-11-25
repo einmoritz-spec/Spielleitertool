@@ -5,7 +5,7 @@ function bild(n, w){ return {t: "bild", s: "grundbuch-" + n, w: w}; }
 function box(h, b){ return {t: "box", h: h, b: b}; }
 var A = [];
 
-A.push({id: "living", t: "Living Room", p: 232, b: [
+A.push({id: "living", t: "Stairside & Carpet Plains", p: 232, b: [
   bild("s230-231-ix-dining-hall", "voll"),
   "Der Living Room ist dank der ständigen Arbeit und des Eifers der guten Boggarts fast in seinem ursprünglichen Zustand erhalten. In einen Hauch von Nostalgie gehüllt, erweckt er eine Ruhe wie kein anderer Room. Als Heimat des Hearth und hart erkämpftes gelobtes Land der Boggarts erinnert der Living Room jeden Littling an einfachere Zeiten, vor Krieg und Frieden, mit ländlichen Siedlungen und weiten Ebenen für einsame Helden.",
   {t: "h", x: "Stairside"},

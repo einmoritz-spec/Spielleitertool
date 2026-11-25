@@ -27,8 +27,9 @@ function parse(){
   var rest = h[1] === unter.id ? h.slice(2) : [], sw = null, sel = null;
   if(unter.sw){ sw = unter.sw[0][0]; unter.sw.forEach(function(x){ if(x[0] === rest[0]) sw = x[0]; }); rest = rest[0] === sw ? rest.slice(1) : rest; }
   var seiten = unter.seiten || [];
-  if(seiten.length){ sel = seiten[0][0]; seiten.forEach(function(x){ if(x[0] === rest[0]) sel = x[0]; }); }
-  return {m: "seite", mode: mode, pre: g ? "g/" : "", area: area, unter: unter, sw: sw, sel: sel};
+  var anker = null;
+  if(seiten.length){ sel = seiten[0][0]; seiten.forEach(function(x){ if(x[0] === rest[0]) sel = x[0]; else if(x[2] && x[2].indexOf(rest[0]) > -1){ sel = x[0]; anker = rest[0]; } }); }
+  return {m: "seite", mode: mode, pre: g ? "g/" : "", area: area, unter: unter, sw: sw, sel: sel, anker: anker};
 }
 function href(P, a, u, sw, sel){ return P.pre + a + (u ? "/" + u + (sw ? "/" + sw : "") + (sel ? "/" + sel : "") : ""); }
 
@@ -57,7 +58,11 @@ function viewSeite(P){
   var fn = HH_INH[key], tx = HH_TEXT[key];
   if(!fn && tx) fn = function(P){ return textSeite(P, tx, "hh_r1"); };
   if(u.seiten && u.seiten.length > 1){
-    side = u.seiten.map(function(x){ return '<a class="' + (x[0] === P.sel ? 'on' : '') + '" onclick="go(\'' + href(P, P.area.id, u.id, P.sw, x[0]) + '\')">' + esc(x[1]) + '</a>'; }).join("");
+    side = u.seiten.map(function(x){
+      var a = '<a class="' + (x[0] === P.sel ? 'on' : '') + '" onclick="go(\'' + href(P, P.area.id, u.id, P.sw, x[0]) + '\')">' + esc(x[1]) + '</a>';
+      if(x[0] !== P.sel || !x[2] || !tx) return a;
+      return a + '<div class="subs">' + x[2].map(function(id){ var e = tx.filter(function(t){ return t.id === id; })[0]; return e ? '<a onclick="zuAbschnitt(\'' + id + '\')">' + esc(e.t) + '</a>' : ''; }).join("") + '</div>';
+    }).join("");
   }
   if(fn) body = fn(P);
   else {
@@ -66,6 +71,7 @@ function viewSeite(P){
   }
   return lay(side, body);
 }
+function zuAbschnitt(id, sofort){ var el = document.getElementById("ab-" + id); if(el) el.scrollIntoView({behavior: sofort ? "auto" : "smooth", block: "start"}); }
 function IMGP(n, t){ return "img/" + n.split("-")[0] + "/" + (t ? "thumb" : "full") + "/" + n + ".webp"; }
 var STOCK = [
  {id:"s1", bild:"grundbuch-s258-259-ix-upper-floor", etage:"Obergeschoss", t:"Free Dominions", k:"Sprites · Bedroom, Bathlantis", em:"guide-s096-iii-free-dominions-einleitung", go:"welt/alltag/dominions"},

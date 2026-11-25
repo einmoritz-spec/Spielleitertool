@@ -24,7 +24,7 @@ A.push({id: "willkommen", t: "Willkommen im House", p: 204, b: [
   ])
 ]});
 
-A.push({id: "eingang", t: "Entry Hall", p: 206, b: [
+A.push({id: "eingang", t: "Downridge & Topridge", p: 206, b: [
   bild("s206-ix-entry-hall", 230),
   "Jenseits der First Threshold liegt die Entry Hall, ein Ort, der selbst den eingebildetsten Littling klein fühlen lässt. Vor dir stehen die majestätischen Great Stairs, die vom Ground Floor hinauf zum Upper Floor und den Free Dominions führen.",
   "Zu deiner Linken ist ein Lichtstreifen, die Pale Threshold zur Dining Hall, der einzige Weg ins Realm der Faeries. Rechts kannst du, an Stairside entlang, die Länder des Hearth betreten, indem du durch die weite Open Threshold zum Living Room trittst. Am Horizont erahnst du sogar die Ecke des Long Hallway, eine gefährliche, zermürbende Überquerung, die zu den Quivering Stairs und dann hinunter ins Basement führt, Land der Horde.",

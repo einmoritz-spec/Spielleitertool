@@ -5,7 +5,7 @@ function bild(n, w){ return {t: "bild", s: "grundbuch-" + n, w: w}; }
 function box(h, b){ return {t: "box", h: h, b: b}; }
 var A = [];
 
-A.push({id: "upper", t: "Upper Floor", p: 246, b: [
+A.push({id: "upper", t: "Top Hallway & Master Bedroom", p: 246, b: [
   bild("s244-245-ix-living-room", "voll"),
   "Der Ground Floor des House ist riesig, doch du musst nur das steile Gebirge namens Great Stairs erklimmen, um den Upper Floor zu erreichen und festzustellen, dass er, wenig überraschend, ebenso weit ist. Es ist das Land der Free Dominions, einer stolzen, von Sprites gegründeten Nation.",
   {t: "h", x: "Der Top Hallway"},

@@ -5,7 +5,7 @@ function bild(n, w){ return {t: "bild", s: "grundbuch-" + n, w: w}; }
 function box(h, b){ return {t: "box", h: h, b: b}; }
 var A = [];
 
-A.push({id: "basement", t: "Basement", p: 260, b: [
+A.push({id: "basement", t: "Quivering Stairs & Umbral", p: 260, b: [
   bild("s258-259-ix-upper-floor", "voll"),
   "Unten, hinter den Quivering Stairs, wo das House auf sein Fundament trifft, scheint der rote Schein eines brennenden Furnace auf die rauen Wände des Basement. Im Licht dieses ewigen Sonnenuntergangs säumen die Sawdust-Dünen die Grenzen der Horde-Gebiete, der geheimnisvollen unterirdischen Domäne der Sluagh aus Farbeyond. Ein Land der Geheimnisse und mystischen Wahrheiten, der Gefahren und großen Schönheit.",
   {t: "h", x: "Die Quivering Stairs"},

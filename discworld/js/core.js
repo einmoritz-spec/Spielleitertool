@@ -22,7 +22,7 @@ function klein(s){ return String(s).toLowerCase().replace(/(^|[.!?…]\s+|\n\s*)
 function img(n){ return "img/full/" + n + ".webp"; }
 function bildTag(n, cls){
   var b = BILD[n]; if(!b) return "";
-  var quer = b[1] / b[2] > 1.25;
+  var r = b[1] / b[2], quer = r > 1.25;
   return '<figure class="bild ' + (cls || (quer ? "quer" : "hoch")) + '"><img src="' + img(n) + '" alt="" loading="lazy" onclick="zoom(\'' + n + '\')"></figure>';
 }
 function zoom(n){

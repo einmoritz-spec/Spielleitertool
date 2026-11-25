@@ -71,10 +71,11 @@ body:not(.mitunter) .fold.auf{top:calc(var(--kopf-h) + 10px)}
 /* Abschnitte */
 .ab{margin:0 0 46px}
 .ab+.ab{padding-top:10px}
-.kh{margin:0 0 16px;padding-bottom:8px;background:url(img/deko/zier.webp) left bottom/170px auto no-repeat;padding-bottom:24px}
+.kh{margin:0 0 20px}
+.kh h2::after{content:"";display:block;width:190px;height:33px;margin:6px 0 0 -2px;background:url(img/deko/zier.webp) left center/contain no-repeat}
 .kh h2,.kt{margin:6px 0 0;font:400 40px/1.1 FellSC,Georgia,serif;color:var(--blut);letter-spacing:.01em}
 .kh h2::first-letter{font-size:1.22em}
-.motto{margin:10px 0 0;font:italic 17px/1.45 Gara,serif;color:#6d5b48;max-width:900px}
+.motto{margin:4px 0 0;font:italic 17px/1.45 Gara,serif;color:#6d5b48;max-width:900px}
 .pg{font:15px/1 Gara,serif;color:#9d8a72;text-decoration:none;cursor:pointer;white-space:nowrap;letter-spacing:0;vertical-align:middle;margin-left:6px}
 h2 .pg,h3 .pg{font-size:15px}
 .txt .pg,.fn .pg,.kasten .pg{margin:0;font:inherit;color:#8b3a26;border-bottom:1px dotted rgba(139,58,38,.5);vertical-align:baseline}
@@ -112,7 +113,7 @@ figure.bild.breit{width:100%;max-width:1000px}
 .fn .mk{font-style:normal;font-weight:400;color:inherit;text-decoration:underline}
 
 /* Kästen */
-.kasten{position:relative;clear:none;max-width:880px;margin:16px 0 20px;padding:20px 30px 12px;background:rgba(232,215,183,.72);border:1px solid #c6ab7c;box-shadow:inset 0 0 0 4px rgba(243,234,214,.6),inset 0 0 0 5px #d5bd92}
+.kasten{position:relative;clear:none;display:flow-root;max-width:880px;margin:16px 0 20px;padding:20px 30px 12px;background:rgba(232,215,183,.72);border:1px solid #c6ab7c;box-shadow:inset 0 0 0 4px rgba(243,234,214,.6),inset 0 0 0 5px #d5bd92}
 .kasten h4{margin:0 0 8px!important;text-align:center;font:400 22px/1.2 FellSC,serif!important;color:var(--blut)!important}
 .kasten::before{content:"";position:absolute;inset:-1px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left -4px top 0/48px auto no-repeat,url(img/deko/ecke-or.webp) right -4px top 0/48px auto no-repeat,url(img/deko/ecke-ul.webp) left -4px bottom 0/48px auto no-repeat,url(img/deko/ecke-ur.webp) right -4px bottom 0/48px auto no-repeat}
 .bsp{margin:16px 0 20px;padding:16px 26px 8px;border-top:2px solid var(--blut);border-bottom:2px solid var(--blut);background:rgba(255,250,240,.45)}

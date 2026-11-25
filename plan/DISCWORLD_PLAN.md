@@ -39,3 +39,4 @@ Blöcke: Text, `h`, `h4`, `ul`, `ol`, `q` (Zitat), `fn` (Fußnote), `box`, `bsp`
 ## Stand 25.11.
 - Abenteuer: Nicht ganz so großer Diebstahl, Kleine Frauen, Grundlagen der Unsichtbaren Akademie – alle drei vollständig übersetzt (js/data/ab-*.js, Ansicht js/abenteuer.js).
 - Offen: Gruppen-/Charakterbogen als ausfüllbares PDF (S. 218).
+- Bögen (js/bogen.js, img/bogen/) und Stadtkarte (img/karte.webp, Taste m) fertig.

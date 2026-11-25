@@ -11,7 +11,7 @@ window.addEventListener("hashchange", function(){ render(); });
 window.BEREICHE = [
   {id:"spielen", t:"Spielen", g:["Einführung", "Das Spiel"], bild:"spiel-tod-schach"},
   {id:"leitung", t:"Spielleitung", g:["Spielleiten", "Proben und Folgen", "Magie und Mechanik", "Unterwegs und der Tod"], bild:"leit-tod-katze"},
-  {id:"charaktere", t:"Charaktere", g:["Die Gruppe", "Charaktere erschaffen", "Organisationen", "Eröffnung und Rückkehr", "Vorgefertigte Charaktere"], bild:"char-schachbrett"},
+  {id:"charaktere", t:"Charaktere", g:["Die Gruppe", "Charaktere erschaffen", "Organisationen", "Eröffnung und Rückkehr", "Vorgefertigte Charaktere", "Bögen"], bild:"char-schachbrett"},
   {id:"stadt", t:"Ankh-Morpork", g:["Fremde Gesichter", "Unsichtbare Universität", "Pseudopolis-Platz", "Palast des Patriziers", "Die Schatten", "Sator-Platz", "Geflickte Trommel", "Die Gilden"], bild:"stadt-luftbild"}
 ];
 function bereich(id){ return BEREICHE.filter(function(b){ return b.id === id; })[0]; }
@@ -99,15 +99,16 @@ function render(){
 function menu(on){
   if(on){
     document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3>' +
-      '<button onclick="menu(false);sucheOpen()">Suche</button><button onclick="menu(false);Galerie.open(\'discworld\')">Galerie</button>' +
+      '<button onclick="menu(false);gmMap()">Stadtkarte</button><button onclick="menu(false);sucheOpen()">Suche</button><button onclick="menu(false);Galerie.open(\'discworld\')">Galerie</button>' +
       '<h3>Abenteuer</h3>' + ABENTEUER.map(function(A){ return '<button onclick="menu(false);go(\'a/' + A.id + '\')"' + (DW.AB[A.id] ? "" : " disabled") + ">" + esc(A.t) + "</button>"; }).join("") +
+      '<button onclick="menu(false);go(\'k/charaktere/5\')">Gruppenakte und Charakterbögen</button>' +
       '<h3>Buch</h3><button onclick="menu(false);buch(1)">Grundregelwerk öffnen</button><button onclick="menu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';
   }
   document.getElementById("mmB").classList.toggle("on", on); document.getElementById("mmP").classList.toggle("on", on);
 }
 document.addEventListener("keydown", function(e){
   if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
-  if(e.key === "Escape"){ var m = document.querySelector(".modal"); if(m){ m.remove(); e.preventDefault(); return; } menu(false); }
+  if(e.key === "Escape"){ var kp = document.getElementById("kartePop"); if(kp){ kp.remove(); e.preventDefault(); return; } var m = document.querySelector(".modal"); if(m){ m.remove(); e.preventDefault(); return; } menu(false); }
   if(e.key === "h") document.body.classList.toggle("notop");
   if(e.key === "<"){ if(document.querySelector(".side,.fold.auf")) falten(); }
 });

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1022sq";
+const VERSION = "v1023sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -2198,6 +2198,10 @@ const FILES = [
   "assets/fonts/spire-plantin-400i.woff2",
   "assets/fonts/spire-plantin-700.woff2",
   "pico/index.html",
+  "discworld/img/bogen/seite1.jpg",
+  "discworld/img/bogen/seite2.jpg",
+  "discworld/img/karte.webp",
+  "discworld/js/bogen.js",
   "discworld/js/data/ab-akademie.js",
   "discworld/js/data/ab-frauen.js",
   "discworld/js/abenteuer.js",

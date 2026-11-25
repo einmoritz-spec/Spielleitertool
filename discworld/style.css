@@ -231,6 +231,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .akte nav a:hover{color:var(--blut);background:rgba(122,36,23,.05)}
 .abt{display:flex;align-items:center;gap:22px;max-width:1240px;margin:46px auto 22px;font:400 34px/1 FellSC,serif;color:var(--lila)}
 .abt::before,.abt::after{content:"";flex:1;height:22px;background:url(img/deko/zier-lila.webp) center/auto 22px no-repeat}
+.abt::after{transform:scaleX(-1)}
 .plakate{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:1240px;margin:0 auto}
 .plakat{position:relative;display:block;height:330px;overflow:hidden;border:1px solid #b79a6a;box-shadow:0 8px 22px rgba(60,30,10,.22);cursor:pointer;text-decoration:none;background:#2a1a12}
 .plakat .pb{position:absolute;inset:0;background-size:cover;transition:transform .5s}
@@ -306,3 +307,27 @@ textarea.nt{width:100%;min-height:260px;padding:12px 14px;border:1px solid #c9ae
 .speise div{padding:6px 0;border-bottom:1px solid rgba(93,59,116,.45)}
 .speise div:last-of-type{border:0}
 .speise .zier{display:block;width:140px;margin:4px auto;opacity:.85}
+
+/* Gruppenakte und Charakterbögen */
+.bogenwrap{max-width:1400px;margin:0 auto;padding:18px 24px 60px}
+.bogenleiste{display:flex;justify-content:flex-end;gap:10px;margin-bottom:14px}
+.bogenleiste button{font:400 17px FellSC,serif;color:var(--blut);background:rgba(255,251,242,.8);border:1px solid #c9ae80;border-radius:4px;padding:7px 16px;cursor:pointer}
+.bogenleiste button.haupt{background:var(--blut);color:#f6ead3;border-color:var(--blut)}
+.boegen{display:grid;grid-template-columns:repeat(auto-fit,minmax(560px,1fr));gap:26px}
+.dwb{position:relative;container-type:inline-size;aspect-ratio:612/792;box-shadow:2px 4px 14px rgba(40,20,5,.35)}
+.dwb .bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.dwb .bf{position:absolute;box-sizing:border-box;border:0;background:transparent;padding:0 .3cqw;font:400 1.9cqw/1 Hand,cursive;color:#21170f;outline:none}
+.dwb .bf:hover{background:rgba(122,36,23,.05)}.dwb .bf:focus{background:rgba(122,36,23,.08)}
+.dwb .bf.mitte{text-align:center}.dwb .bf.glueck{text-align:center;font-size:3.8cqw}
+.dwb .bf-bild{position:absolute;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dwb .bf-bild:hover{background:rgba(122,36,23,.05)}
+.dwb .bf-bild input{display:none}
+.dwb .bf-bild img{max-width:94%;max-height:96%;object-fit:contain}
+.dwb .bf-bild .weg{position:absolute;top:2px;right:4px;border:0;background:rgba(255,255,255,.8);border-radius:50%;width:22px;height:22px;cursor:pointer;color:var(--blut);font-size:16px;line-height:1;opacity:0}
+.dwb .bf-bild:hover .weg{opacity:1}
+
+.kartepop{position:fixed;inset:0;z-index:300;background:rgba(20,10,5,.88);display:flex;align-items:center;justify-content:center}
+.kartepop .ks{max-width:96vw;max-height:94vh;overflow:auto;line-height:0;box-shadow:0 6px 30px #000}
+.kartepop img{display:block;max-width:96vw;max-height:94vh;width:auto;height:auto;cursor:zoom-in}
+.kartepop.gross img{max-width:none;max-height:none;width:200%;cursor:grab}
+.kartepop .kx{position:absolute;top:12px;right:16px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,251,242,.92);color:#7a2417;font-size:26px;cursor:pointer}

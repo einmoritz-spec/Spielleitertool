@@ -36,39 +36,87 @@ function abHtml(){
     return '<a class="sx-abc" onclick="go(\'' + a.go + '\')"><span class="n">' + esc(a.t) + '</span><span class="z">' + esc(a.z) + '</span><span class="d">' + esc(a.d) + '</span><i>→</i></a>';
   }).join("") + '</div></section>';
 }
+/* Startseite: Zine-Cover oben, darunter die Bereiche der Kopfzeile als Bild-Kacheln – nur Titel, keine Listen */
 function viewStart(){
-  var f = ST.folge || {}, t = ST.tour || {}, w = t.welt && window.sbWelt ? sbWelt(t.welt) : null, sc = ST.sc || [], c = ST.crew || {};
-  var kap = SB_KAP.map(function(k){
-    return '<div class="sx-k ' + k.id + '"><div class="sx-kh" onclick="go(\'' + k.go + '\')"><small>' + esc(k.k) + '</small><h2>' + k.t.replace(/<br>/g, " ") + '</h2><em>' + esc(k.s) + '</em></div><ul>' +
-      k.z.map(function(z){ return '<li onclick="go(\'' + z[2] + '\')"><span>' + esc(z[0]) + '</span><i onclick="event.stopPropagation();openBook(\'sb_core\',' + z[1] + ')">S. ' + z[1] + '</i></li>'; }).join("") + '</ul></div>';
-  }).join("");
-  var crew = sc.length ? sc.map(function(p, i){ var P = sbPers(p.pers); return '<a style="--pc:' + P.farbe + '" onclick="go(\'crew/' + i + '\')"><b>' + esc(p.name || "Slugger") + '</b><small>' + esc(P.t.replace(/^The /, "")) + '</small></a>'; }).join("") + '<a class="cr" onclick="go(\'crew/crew\')"><b>' + esc(c.name || "Crew") + '</b><small>Crewbogen</small></a>'
-    : '<a class="neu" onclick="go(\'crew\')"><b>+ Crew anlegen</b></a>';
-  var pers = SB_PERS.map(function(p){ return '<a class="sx-pf" style="--pc:' + p.farbe + '" onclick="go(\'nach/teenager/pers/' + p.id + '\')"><img src="' + IMG("pers/" + p.id) + '" alt="" loading="lazy"><b>' + esc(p.t.replace(/^The /, "")) + '</b></a>'; }).join("");
-  var welten = [["thennis-spar","Thennis Spar","welt-thennis-spar"],["goldener-dschungel","Der Goldene Dschungel","welt-goldener-dschungel"],["calorium","Calorium","welt-calorium"],["erwachende-gruben","Die Erwachenden Gruben","welt-erwachende-gruben"]].map(function(x){
-    var id = (window.SB_WELTEN || []).filter(function(v){ return v.t === x[1]; })[0];
-    return '<a class="sx-w" onclick="go(\'welten' + (id ? "/" + id.id : "") + '\')"><img src="img/galerie/thumb/' + x[2] + '.webp" alt="" loading="lazy"><b>' + esc(x[1]) + '</b></a>';
-  }).join("") + (VIEWS.oolroob ? '<a class="sx-w oo2" onclick="go(\'oolroob\')"><img src="' + IMG("oolroob/cover") + '" alt="" loading="lazy"><b>Oolroob</b></a>' : "");
-  return '<div class="sx"><section class="sx-hero"><div class="sx-l">' +
-    '<h1>Das ist <span>Slug</span>blaster</h1><p>… ein Rollenspiel über Teenager, Riesenkäfer, Hoverboards mit Schaltkreisen und den Versuch, cool zu sein.</p>' +
-    '<div class="sx-act"><button class="sx-go" onclick="go(\'folge\')"><span>Los&shy;blasten!</span><small>' + (f.n ? "Folge " + f.n + (w ? " · " + esc(w.t) : "") : "Erste Folge starten") + '</small><i>→</i></button>' +
-    '<div class="sx-crew"><div class="cap">Crew</div><div class="sx-cl">' + crew + '</div></div></div></div>' +
-    '<img class="sx-cover" src="' + IMG("start/cover") + '" alt=""></section>' +
-    abHtml() +
-    '<section class="sx-kaps">' + kap + '</section>' +
-    '<section class="sx-strips"><div><div class="sx-cap">Persönlichkeiten</div><div class="sx-ps">' + pers + '</div></div>' +
-    '<div><div class="sx-cap">Multiversum</div><div class="sx-ws">' + welten + '</div></div></section></div>';
+  var f = ST.folge || {}, t = ST.tour || {}, w = t.welt && window.sbWelt ? sbWelt(t.welt) : null;
+  function kachel(cls, go_, kick, titel, inner){
+    return '<a class="sbs-k ' + cls + '" onclick="go(\'' + go_ + '\')">' + inner + '<span class="sbs-lab"><small>' + kick + '</small><b>' + titel + '</b></span></a>';
+  }
+  function bild(src, c){ return '<img class="' + (c || "") + '" src="' + src + '" alt="" loading="lazy">'; }
+  var pers = '<div class="sbs-pers">' + SB_PERS.map(function(p){ return '<span style="--pc:' + p.farbe + '" onclick="event.stopPropagation();go(\'nach/teenager/pers/' + p.id + '\')"><img src="' + IMG("pers/" + p.id) + '" alt="" loading="lazy"><b>' + esc(p.t.replace(/^The /, "")) + '</b></span>'; }).join("") + '</div>';
+  return '<div class="sbs">' +
+    '<section class="sbs-hero"><div class="sbs-l"><h1>Das ist <span>Slug</span>blaster</h1>' +
+      '<p>Teenager, Riesenkäfer, Hoverboards mit Schaltkreisen – und der Versuch, cool zu sein.</p>' +
+      '<button class="sbs-go" onclick="go(\'folge\')"><b>Losblasten!</b><small>' + (f.n ? "Folge " + f.n + (w ? " · " + esc(w.t) : "") : "Erste Folge") + '</small></button></div>' +
+      '<img class="sbs-cover" src="' + IMG("start/cover") + '" alt=""></section>' +
+    '<section class="sbs-g">' +
+      kachel("k-regeln", "nach/regeln", "Kapitel 1", "Regeln", bild(IMG("start/kap1"))) +
+      kachel("k-teen", "nach/teenager", "Kapitel 2", "Teenager", pers) +
+      kachel("k-multi", "welten", "Kapitel 3", "Multiversum", bild(IMG("start/kap3"))) +
+      kachel("k-hill", "heimat", "Eure Welt", "Hillview", bild("img/heimat/hillview-karte.jpg")) +
+      kachel("k-mon", "monster", "Kapitel 3", "Monster", bild("img/galerie/full/buch-s121-1261.webp", "frei")) +
+      kachel("k-frak", "fraktionen", "Kapitel 3", "Fraktionen", bild("img/galerie/full/buch-s138-1554.webp", "frei")) +
+      kachel("k-sl", "folge", "Kapitel 4", "Spielleitung", bild(IMG("start/kap4"))) +
+      (window.SB_AB && VIEWS.abenteuer ? kachel("k-ab", "abenteuer", "Abenteuer", esc(SB_AB.t), bild("img/galerie/full/buch-s128-1351.webp", "frei")) : "") +
+      (VIEWS.oolroob ? kachel("k-oo", "oolroob", "Erweiterung", "Oolroob", bild(IMG("oolroob/cover"))) : "") +
+    '</section></div>';
 }
 
-/* ---------- Render ---------- */
-/* Ansichten werden in späteren Schritten ergänzt (window.viewXyz); bis dahin fällt alles Unbekannte auf die Startseite zurück */
-var SB_TABS = [["folge","Folge"],["abenteuer","Abenteuer"],["crew","Crew"],["welten","Multiversum"],["heimat","Heimat"],["monster","Monster"],["fraktionen","Fraktionen"]];
-function tabList(){ return SB_TABS.filter(function(t){ return VIEWS[t[0]]; }); }
-function tabsHtml(cur){
-  return '<nav class="tabs">' + tabList().map(function(t){ return '<a class="' + (t[0] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + '</a>'; }).join("") + '<span class="sp"></span>' +
-    '<button class="pen' + (penHat(cur) ? " has" : "") + '" onclick="penOpen(\'' + cur + '\')" aria-label="Notizen" title="Notizen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>';
+/* ---------- Navigation: Kopfzeile (Bereiche) · Unterleiste (Unterpunkte) ---------- */
+/* Jeder Bereich hat seine Kapitelfarbe; der aktive Reiter geht nahtlos in die Unterleiste über */
+var SB_BER = [
+  {id:"regeln", t:"Regeln", c:"var(--lila2)", go:"nach/regeln"},
+  {id:"teenager", t:"Teenager", c:"var(--pink)", go:"nach/teenager"},
+  {id:"welten", t:"Multiversum", c:"var(--gelb)", ink:1, go:"welten"},
+  {id:"heimat", t:"Hillview", c:"var(--gelb)", ink:1, go:"heimat"},
+  {id:"monster", t:"Monster", c:"var(--gelb)", ink:1, go:"monster"},
+  {id:"fraktionen", t:"Fraktionen", c:"var(--gelb)", ink:1, go:"fraktionen"},
+  {id:"spielleitung", t:"Spielleitung", c:"var(--mint)", go:"folge"},
+  {id:"abenteuer", t:"Abenteuer", c:"var(--mag)", go:"abenteuer"}
+];
+var SB_UNTER = {
+  regeln: [["nach/regeln", "Spielablauf"], ["nach/demo", "Demo"]],
+  teenager: [["nach/teenager/mach", "Mach dich selbst"], ["nach/teenager/pers", "Persönlichkeiten"], ["nach/teenager/sig", "Signaturen"], ["nach/teenager/ausr", "Ausrüstung"], ["nach/teenager/stk", "Sticker & Co."], ["nach/teenager/crew", "Crew"], ["nach/teenager/ruhm", "Ruhm"], ["crew", "Charakterbögen"]],
+  spielleitung: [["folge", "Folge-Tafel"], ["schirm", "Spielleiterschirm"], ["nach/spielleitung", "Spielleitung"], ["nach/veraendern", "Spiel verändern"]]
+};
+function berVon(h){
+  var v = h[0];
+  if(v === "nach") return {regeln:"regeln", demo:"regeln", teenager:"teenager", spielleitung:"spielleitung", veraendern:"spielleitung"}[h[1] || "regeln"] || "regeln";
+  if(v === "crew") return "teenager";
+  if(v === "folge" || v === "schirm") return "spielleitung";
+  return v;
 }
-/* Notizen: Stift rechts in der Tab-Zeile; je Folge (Folge-Tafel) bzw. je Ansicht eine Notiz */
+/* Unterleiste: items = [[route, Text, aktiv]]; extra = dritte Ebene (z. B. die fünf Persönlichkeiten) hinter einem Trenner */
+function SBU(items, extra){
+  var v = (location.hash || "#start").slice(1).split("/")[0];
+  return '<nav class="sbu">' + items.map(function(x){ return '<a class="' + (x[2] ? "on" : "") + '" onclick="go(\'' + x[0] + '\')">' + esc(x[1]) + '</a>'; }).join("") +
+    (extra ? '<i class="vr"></i>' + extra : "") + '<span class="sp"></span>' +
+    '<button class="pen' + (penHat(v) ? " has" : "") + '" onclick="penOpen(\'' + v + '\')" aria-label="Notizen" title="Notizen"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></nav>';
+}
+/* Unterleiste eines Bereichs aus SB_UNTER; cur = Route des aktiven Punkts */
+function SBUber(ber, cur, extra){
+  return SBU((SB_UNTER[ber] || []).map(function(x){ return [x[0], x[1], cur === x[0] || cur.indexOf(x[0] + "/") === 0]; }), extra);
+}
+/* Lange Unterleisten (Welten, Heimatorte): dritte Ebene stufenweise enger setzen, bis alles in eine Zeile passt */
+function sbuFit(){
+  document.querySelectorAll(".sbu").forEach(function(n){
+    n.classList.remove("eng", "eng2", "eng3");
+    ["eng", "eng2", "eng3"].some(function(c){ if(n.scrollWidth <= n.clientWidth + 1) return true; n.classList.add(c); return false; });
+  });
+}
+window.addEventListener("resize", sbuFit);
+function kopfTabs(h){
+  var el = document.getElementById("ktabs"); if(!el) return;
+  var v = h[0] || "start", ber = berVon(h), B = null;
+  SB_BER.forEach(function(b){ if(b.id === ber) B = b; });
+  if(v === "oolroob" && window.SBO){
+    el.innerHTML = SBO.TABS.map(function(t){ return '<a class="' + (t[0] === (h[1] || "ueber") ? "on" : "") + '" onclick="go(\'oolroob/' + t[0] + '\')">' + t[1] + '</a>'; }).join("");
+  } else el.innerHTML = v === "start" ? "" : SB_BER.filter(function(b){ return VIEWS[b.go.split("/")[0]]; }).map(function(b){ return '<a class="' + (b === B ? "on" : "") + '" style="--bc:' + b.c + '" onclick="go(\'' + b.go + '\')">' + b.t + '</a>'; }).join("");
+  var R = document.documentElement.style;
+  R.setProperty("--bc", v === "oolroob" ? "#d37e2a" : B ? B.c : "var(--lila2)");
+  document.body.classList.toggle("bink", v === "oolroob" || !!(B && B.ink));
+}
+/* Notizen: Stift rechts in der Unterleiste; je Folge (Folge-Tafel) bzw. je Ansicht eine Notiz */
 function penKey(v){ return v === "folge" ? "folge-" + ((ST.folge && ST.folge.n) || 1) : v; }
 function penHat(v){ try{ return !!((ST.notiz || {})[penKey(v)] || "").trim(); }catch(e){ return false; } }
 function penOpen(v){
@@ -78,10 +126,13 @@ function penOpen(v){
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
   document.documentElement.style.setProperty("--c", "var(--lila)");
-  if(v !== "start" && VIEWS[v]) out = (VIEWS[v].own ? "" : tabsHtml(v)) + VIEWS[v](h.slice(1));
-  else out = viewStart();
+  if(v !== "start" && VIEWS[v]) out = (v === "folge" || v === "crew" ? SBUber(berVon(h), v) : "") + VIEWS[v](h.slice(1));
+  else { out = viewStart(); h = ["start"]; }
+  document.body.classList.toggle("istart", h[0] === "start");
+  kopfTabs(h);
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
+  sbuFit();
   if(window.afterRender) afterRender();
 }
 function buildMenu(){
@@ -99,11 +150,8 @@ document.addEventListener("keydown", function(e){
   if(e.key === "Escape"){
     var offen = document.querySelector(".modal,.gzoom") || document.getElementById("mmP").classList.contains("on");
     openMenu(false); document.querySelectorAll(".modal,.gzoom").forEach(function(m){ m.remove(); });
-    if(!offen && (location.hash || "#start") !== "#start") go("start");
+    if(!offen && (location.hash || "#start") !== "#start"){ var hp = location.hash.slice(1).split("/"); hp.pop(); go(hp.length && !(hp.length === 1 && hp[0] === "nach") ? hp.join("/") : "start"); }
   }
   if(e.key === "h") document.body.classList.toggle("notop");
-  if((e.key === "ArrowLeft" || e.key === "ArrowRight") && !document.querySelector(".modal,.gzoom")){
-    var L = tabList(), cur = (location.hash || "#start").slice(1).split("/")[0], ix = -1; L.forEach(function(t, i){ if(t[0] === cur) ix = i; });
-    if(ix >= 0){ var n = L[ix + (e.key === "ArrowRight" ? 1 : -1)]; if(n){ go(n[0]); e.preventDefault(); } }
-  }
+
 });

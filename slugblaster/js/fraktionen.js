@@ -2,7 +2,7 @@
 var SBFR = (function(){
   var GR = [["", "Beziehungen"], ["crews", "Crews"], ["obrig", "Obrigkeiten"], ["spons", "Sponsoren"], ["cliquen", "Crowds"], ["person", "Mach eine Person"]];
   var SYM = ["−3", "−2", "−1", "0", "+1", "+2", "+3", "!!!"];
-  function unter(cur){ return '<div class="frsub">' + GR.map(function(x){ return '<a class="' + (x[0] === cur ? "on" : "") + '" onclick="go(\'fraktionen' + (x[0] ? "/" + x[0] : "") + '\')">' + x[1] + '</a>'; }).join("") + '</div>'; }
+  function unter(cur){ return SBU(GR.map(function(x){ return ["fraktionen" + (x[0] ? "/" + x[0] : ""), x[1], x[0] === cur]; })); }
   function rel(id){ return (ST.frak && ST.frak[id]) || "0"; }
   function setze(id, s){ ST.frak = ST.frak || {}; if(s === "0") delete ST.frak[id]; else ST.frak[id] = s; save(); render(); }
   function skala(id){ var c = rel(id); return '<div class="frs">' + SYM.map(function(s){ return '<span class="' + (s === c ? "on " : "") + (s[0] === "−" ? "neg" : s === "!!!" ? "uns" : s[0] === "+" ? "pos" : "") + '" onclick="SBFR.setze(\'' + id + '\',\'' + s + '\')">' + s + '</span>'; }).join("") + '</div>'; }

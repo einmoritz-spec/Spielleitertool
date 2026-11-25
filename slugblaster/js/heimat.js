@@ -3,10 +3,11 @@ var SBH = (function(){
   function H(){ var s = (ST.heim = ST.heim || {}); return s; }
   function absatz(a){ return a.map(function(x){ return '<p>' + md(x) + '</p>'; }).join(""); }
   function unter(cur){
-    var l = [["", "Hillview"], ["orte", "Bonus-Heimatorte"]].concat(SB_HEIMATORTE.map(function(o){ return [o.id, o.t]; }));
-    if(VIEWS.oolroob) l.push(["oolroob", "Oolroob"]);
-    return '<div class="hmsub">' + l.map(function(x){ return '<a class="' + (x[0] === cur ? "on" : "") + '" onclick="' + (x[0] === "oolroob" ? "go(\'oolroob\')" : "go(\'heimat" + (x[0] ? "/" + x[0] : "") + "\')") + '">' + esc(x[1]) + '</a>'; }).join("") + '</div>';
+    var imOrt = cur && cur !== "";
+    return SBU([["heimat", "Hillview", cur === ""], ["heimat/orte", "Bonus-Heimatorte", imOrt]],
+      imOrt ? SB_HEIMATORTE.map(function(o){ return '<a class="pn ' + (o.id === cur ? "on" : "") + '" onclick="go(\'heimat/' + o.id + '\')">' + esc(o.t) + '</a>'; }).join("") : "");
   }
+
   function sel(n){ var s = H(); s.sel = (s.sel === n ? null : n); save(); render(); if(s.sel){ var e = document.getElementById("hmo" + n); if(e && e.scrollIntoView) e.scrollIntoView({ block:"nearest", behavior:"smooth" }); } }
   function hillview(){
     var V = SB_HILLVIEW, s = H(), N = V.null;

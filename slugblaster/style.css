@@ -714,7 +714,7 @@ body.ooth .tabs.oob a.on{background:none}body.ooth .tabs.oob a.on::before{backgr
 .sx-hero{background:var(--lila) radial-gradient(ellipse 420px 150px at 170px 430px,var(--mag) 0 99%,transparent 100%)}
 .sx-hero{height:360px;background:var(--lila) radial-gradient(ellipse 420px 140px at 170px 390px,var(--mag) 0 99%,transparent 100%)}.sx-cover{height:360px;width:360px}.sx-l{padding-top:30px}
 .fgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.fgn{font:400 3.4cqw/1.15 "SB Hand",cursive;text-align:left;hyphens:manual;overflow-wrap:break-word}.fgn.c{text-align:center}
+.fgn{font:400 3.4cqw/1.15 "SB Hand",cursive;text-align:left;hyphens:manual;overflow-wrap:break-word;width:max-content}.fgn.ar{text-align:right}
 .pcm .fgs{cursor:zoom-in}
 .fgm>div{max-width:none;width:auto;background:#fff;padding:14px;max-height:96vh;overflow:auto}
 .fgb{height:min(84vh,calc(100vh - 150px))}.fgb .fgs{height:100%;width:auto;cursor:default}
@@ -820,3 +820,74 @@ body.ooth .tabs.oob a.on{background:none}body.ooth .tabs.oob a.on::before{backgr
 /* Seitenleiste beginnt ganz oben; Einklapp-Pfeil schwebt rechts neben dem ersten Eintrag */
 .rgs{padding-top:10px}.rgs .rgz{position:absolute;right:16px;top:12px;margin:0;z-index:2}
 .rgs a:first-of-type{margin-right:44px}
+
+/* ===== Navigation (Nov. 2026): Bereiche als Reiter in der Kopfzeile, Unterleiste in der Bereichsfarbe ===== */
+.topbar{gap:0}
+.ktabs{display:flex;align-items:flex-end;align-self:stretch;margin-left:20px;gap:2px;min-width:0}
+.ktabs a{display:flex;align-items:center;height:40px;padding:0 15px;border-radius:12px 12px 0 0;font:900 12.5px/1 var(--body);letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.72);cursor:pointer;white-space:nowrap;text-decoration:none;transition:color .15s}
+.ktabs a:hover{color:#fff}
+.ktabs a.on{background:var(--bc);color:#fff}
+body.bink .ktabs a.on{color:#1d1522}
+.sbu{position:sticky;top:56px;z-index:15;display:flex;align-items:center;gap:4px;min-height:48px;padding:0 18px;background:var(--bc);overflow-x:auto;scrollbar-width:none}
+.sbu::-webkit-scrollbar{display:none}
+.sbu>*{flex:none}
+.sbu a{display:inline-flex;align-items:center;height:30px;padding:0 13px;border-radius:15px;font:800 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.86);cursor:pointer;white-space:nowrap;text-decoration:none}
+.sbu a:hover{color:#fff;background:rgba(255,255,255,.14)}
+.sbu a.on{background:#fff;color:#1d1522;box-shadow:2px 2px 0 rgba(29,21,34,.85);transform:rotate(-1.5deg)}
+body.bink .sbu a{color:rgba(29,21,34,.72)}body.bink .sbu a:hover{color:#1d1522;background:rgba(255,255,255,.35)}body.bink .sbu a.on{color:#1d1522}
+.sbu .vr{width:2px;height:22px;background:rgba(255,255,255,.45);margin:0 10px;border-radius:1px}body.bink .sbu .vr{background:rgba(29,21,34,.25)}
+.sbu a.pn{font:400 16px/1 var(--marker);letter-spacing:.03em;padding:0 10px;height:30px}
+.sbu a.pn.on{background:none;box-shadow:none;transform:none;color:#fff;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+body.bink .sbu a.pn.on{color:#1d1522}
+.sbu .sp{flex:1}
+.sbu .pen{width:34px;height:34px;border:0;background:none;color:rgba(255,255,255,.7);cursor:pointer;border-radius:50%}
+.sbu .pen:hover,.sbu .pen.has{color:#fff}body.bink .sbu .pen{color:rgba(29,21,34,.55)}body.bink .sbu .pen.has{color:#1d1522}
+body.notop .sbu{top:0}
+/* alte Leisten, die jetzt in der Kopfzeile/Unterleiste stehen */
+.nachw>.tabs.nbar,.abwrap>.tabs.nbar{display:none}
+.sbu a.pn{font-size:15px;padding:0 8px}
+body.ooth .ktabs a.on{color:#3a1511}
+.sbu.eng a.pn{font-size:13.5px;padding:0 6px}.sbu.eng .vr{margin:0 6px}
+.sbu.eng2 a{padding:0 9px;letter-spacing:.06em}.sbu.eng2 a.pn{font-size:12.5px;padding:0 5px;letter-spacing:.02em}
+.sbu.eng3 a{font-size:11px;padding:0 7px}.sbu.eng3 a.pn{font-size:11.5px;padding:0 4px}
+
+/* ===== Startseite (Nov. 2026): Zine-Cover + Bereichs-Kacheln ===== */
+.sbs{padding:0 0 34px}
+.sbs-hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 330px;height:300px;background:var(--lila);overflow:hidden;color:#fff}
+.sbs-hero:before{content:"";position:absolute;left:-120px;bottom:-150px;width:640px;height:260px;background:var(--mag);border-radius:50%;transform:rotate(-6deg)}
+.sbs-l{position:relative;padding:34px 40px 0}
+.sbs-l h1{margin:0;font:400 76px/.95 var(--marker);text-transform:uppercase;letter-spacing:.01em;transform:rotate(-1.5deg);transform-origin:left}
+.sbs-l h1 span{color:var(--pink)}
+.sbs-l p{margin:16px 0 0;font:400 23px/1.25 var(--hand);color:#efe8fa;max-width:640px}
+.sbs-go{position:absolute;left:40px;bottom:30px;display:flex;align-items:baseline;gap:14px;padding:12px 22px 13px;border:0;background:#fff;color:#1d1522;cursor:pointer;transform:rotate(-2deg);box-shadow:5px 5px 0 #1d1522;transition:transform .15s}
+.sbs-go:hover{transform:rotate(-2deg) translate(-2px,-2px);box-shadow:7px 7px 0 #1d1522}
+.sbs-go b{font:400 30px/1 var(--marker);text-transform:uppercase;color:var(--mag)}
+.sbs-go small{font:900 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#6f6a78}
+.sbs-cover{width:330px;height:300px;object-fit:cover;position:relative}
+.sbs-g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:300px 220px;gap:14px;padding:18px 18px 0}
+.sbs-k{position:relative;display:block;overflow:hidden;cursor:pointer;background:var(--kc);text-decoration:none;color:#fff;--kc:var(--lila)}
+.sbs-k>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.sbs-k>img.frei{object-fit:contain;padding:18px 18px 54px}
+.sbs-k:hover>img{transform:scale(1.04)}
+.sbs-lab{position:absolute;left:12px;bottom:12px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;pointer-events:none}
+.sbs-lab small{font:900 10px var(--body);letter-spacing:.16em;text-transform:uppercase;background:#1d1522;color:#fff;padding:3px 7px 2px}
+.sbs-lab b{font:400 30px/1 var(--marker);text-transform:uppercase;background:var(--kc);color:var(--kt,#fff);padding:6px 12px 5px;transform:rotate(-2deg);box-shadow:3px 3px 0 #1d1522}
+.k-regeln{grid-column:span 3;--kc:var(--lila)}
+.k-teen{grid-column:span 6;--kc:var(--pink)}
+.k-multi{grid-column:span 3;--kc:var(--gelb);--kt:#1d1522}
+.k-hill,.k-mon,.k-frak,.k-sl,.k-ab,.k-oo{grid-column:span 2}
+.k-hill{--kc:var(--gelb);--kt:#1d1522}.k-mon{--kc:var(--lav)}.k-mon .sbs-lab b{background:var(--lila);color:#fff}
+.k-frak{--kc:var(--gelb2);--kt:#1d1522}.k-sl{--kc:var(--mint)}.k-ab{--kc:var(--mag)}.k-oo{--kc:#d37e2a}
+.k-teen .sbs-lab{left:auto;right:12px;align-items:flex-end}
+.sbs-pers{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr)}
+.sbs-pers span{position:relative;overflow:hidden;background:var(--pc)}
+.sbs-pers img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .35s}
+.sbs-pers span:hover img{transform:scale(1.06)}
+.sbs-pers b{position:absolute;left:10px;top:10px;font:400 19px/1 var(--marker);text-transform:uppercase;color:#fff;text-shadow:2px 2px 0 #1d1522}
+@media(max-width:1100px){.sbs-g{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:220px}.k-regeln,.k-multi{grid-column:span 3}.k-teen{grid-column:span 6}.sbs-hero{grid-template-columns:1fr}.sbs-cover{display:none}}
+.sbs-hero{grid-template-columns:minmax(0,1fr) 470px;height:290px}.sbs-cover{width:470px;height:290px;object-position:50% 40%}
+.sbs-l h1{font-size:84px}.sbs-l p{font-size:27px;max-width:620px}
+.sbs-g{grid-template-rows:286px 206px}
+.k-mon>img{mix-blend-mode:multiply}
+.k-multi>img{object-position:50% 12%}
+@media(max-width:1400px){.ktabs{margin-left:14px}.ktabs a{padding:0 11px;letter-spacing:.07em;font-size:12px}}

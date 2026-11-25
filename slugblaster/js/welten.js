@@ -83,9 +83,11 @@ var SBW = (function(){
     return d.plak.map(function(z){ return '<span class="plak" style="background:' + (/^HAZ/.test(z) ? "#ec008c" : "#008496") + '">' + esc(z) + '</span>'; }).join("");
   }
   function unter(cur){
-    var l = [["", "Karte"]].concat(SB_WELTEN.filter(function(w){ return !w.heim; }).map(function(w){ return [w.id, w.t.replace(/^Der |^Die /, "")]; })).concat([["bonus", "Bonus-Welten"], ["bauen", "Welt bauen"], ["portale", "Portale & Dünnzonen"]]);
-    return '<div class="mvsub">' + l.map(function(x){ return '<a class="' + (x[0] === cur ? "on" : "") + '" onclick="go(\'welten' + (x[0] ? "/" + x[0] : "") + '\')">' + esc(x[1]) + '</a>'; }).join("") + '</div>';
+    var W = SB_WELTEN.filter(function(w){ return !w.heim; });
+    return SBU([["", "Karte"], ["bonus", "Bonus-Welten"], ["bauen", "Welt bauen"], ["portale", "Portale & Dünnzonen"]].map(function(x){ return ["welten" + (x[0] ? "/" + x[0] : ""), x[1], x[0] === cur]; }),
+      W.map(function(w){ return '<a class="pn ' + (w.id === cur ? "on" : "") + '" onclick="go(\'welten/' + w.id + '\')">' + esc(w.t.replace(/^Der |^Die /, "")) + '</a>'; }).join(""));
   }
+
   function absatz(a){ return a.map(function(x){ return '<p>' + md(x) + '</p>'; }).join(""); }
   function sonder(b){ return '<div class="mvbox"><div class="cap">' + esc(b.t) + '</div>' + absatz(String(b.x).split("\n\n")) + '</div>'; }
 
@@ -148,7 +150,8 @@ var SBW = (function(){
   function view(a){
     var k = a[0] || "", out;
     if(!k) out = uebersicht(); else if(k === "bonus") out = bonus(); else if(k === "bauen") out = bauen(); else if(k === "portale") out = portale(); else out = welt(k);
-    return '<div class="mv">' + out + '</div>';
+    var m = out.match(/^<nav class="sbu[\s\S]*?<\/nav>/), nav = m ? m[0] : "";
+    return nav + '<div class="mv">' + out.slice(nav.length) + '</div>';
   }
   VIEWS.welten = view;
   return { klick:klick, neuesPortal:neuesPortal, portalMenu:portalMenu, portalNr:portalNr, portalRichtung:portalRichtung, portalDel:portalDel, zeichnen:zeichnen, tour:tour };

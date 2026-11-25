@@ -42,9 +42,7 @@ var SBA = (function(){
   function blk(b){ try{ return B[b.t](b); }catch(e){ return ""; } }
 
   /* ---------- Kopf & Tabs ---------- */
-  function bar(cur){
-    return '<nav class="tabs nbar abbar">' + tabs().map(function(t){ return '<a class="' + (t[0] === cur ? "on" : "") + '" onclick="go(\'abenteuer/' + t[0] + '\')">' + esc(t[1]) + '</a>'; }).join("") + '<span class="sp"></span><a class="abex" onclick="go(\'folge\')">Folge-Tafel ›</a><a class="abex" onclick="go(\'crew\')">Crew ›</a></nav>';
-  }
+  function bar(cur){ return SBU(tabs().map(function(t){ return ["abenteuer/" + t[0], t[1], t[0] === cur]; })); }
 
   /* ---------- Überblick ---------- */
   function ueber(){

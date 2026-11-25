@@ -116,7 +116,7 @@ var SBO = (function(){
   function view(a){
     var t = a[0] || "ueber", f = { ueber: ueber, roob: roob, probleme: probleme, fraktionen: fraktionen, signaturen: signaturen, kreaturen: kreaturen, misc: misc }[t] || ueber;
     if(!{ ueber: 1, roob: 1, probleme: 1, fraktionen: 1, signaturen: 1, kreaturen: 1, misc: 1 }[t]) t = "ueber";
-    return bar(t) + f();
+    return f();
   }
   VIEWS.oolroob = view; VIEWS.oolroob.own = true;
 
@@ -131,5 +131,5 @@ var SBO = (function(){
       var n = TABS[ix + (e.key === "ArrowRight" ? 1 : -1)]; if(n){ go("oolroob/" + n[0]); e.preventDefault(); }
     }
   });
-  return {sel: sel, tog: tog, used: toggleUsed};
+  return {sel: sel, tog: tog, used: toggleUsed, TABS: TABS};
 })();

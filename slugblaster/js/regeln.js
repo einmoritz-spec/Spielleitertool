@@ -109,7 +109,7 @@ var SBR = (function(){
 
   /* ---------- Navigation ---------- */
   function nav(ber){
-    return '<nav class="tabs nbar">' + BER.map(function(b){ return '<a class="' + (b[0] === ber ? "on" : "") + '" onclick="go(\'nach/' + b[0] + '\')">' + b[1] + '</a>'; }).join("") + '<span class="sp"></span></nav>';
+    return SBUber(berVon(["nach", ber]), "nach/" + ber);
   }
   function zu(){ try{ return localStorage.getItem("sb_side") === "0"; }catch(e){ return false; } }
   function toggle(){

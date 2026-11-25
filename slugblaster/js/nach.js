@@ -5,10 +5,8 @@ var SBN = (function(){
   var PCOL = "#008496";
   function pers(id){ var r = null; SB_PERS.forEach(function(p){ if(p.id === id) r = p; }); return r; }
   function nav(ber, sub, pid){
-    var top = SBR.nav(ber);
-    var s = '<div class="frsub nsub">' + SUB.map(function(x){ return '<a class="' + (x[0] === sub ? "on" : "") + '" onclick="go(\'nach/teenager/' + x[0] + '\')">' + x[1] + '</a>'; }).join("");
-    if(sub === "pers") s += '<i class="vr"></i>' + SB_PERS.map(function(p){ return '<a class="pn ' + (p.id === pid ? "on" : "") + '" onclick="go(\'nach/teenager/pers/' + p.id + '\')">' + esc(p.t) + '</a>'; }).join("");
-    return top + s + '</div>';
+    var ex = sub === "pers" ? SB_PERS.map(function(p){ return '<a class="pn ' + (p.id === pid ? "on" : "") + '" onclick="go(\'nach/teenager/pers/' + p.id + '\')">' + esc(p.t.replace(/^The /, "")) + '</a>'; }).join("") : "";
+    return SBUber("teenager", "nach/teenager/" + sub, ex);
   }
   function plak(k){ return '<span class="plk ' + (k[1] === "trouble" ? "tr" : "st") + '">' + k[0] + ' ' + (k[1] === "trouble" ? "Trouble" : "Style") + '</span>'; }
   function dice(n){ var h = ""; for(var i = 0; i < n; i++) h += '<svg class="hs" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="#fff"/><circle cx="8" cy="8" r="2" fill="' + PCOL + '"/><circle cx="16" cy="8" r="2" fill="' + PCOL + '"/><circle cx="12" cy="12" r="2" fill="' + PCOL + '"/><circle cx="8" cy="16" r="2" fill="' + PCOL + '"/><circle cx="16" cy="16" r="2" fill="' + PCOL + '"/></svg>'; return h; }
@@ -18,13 +16,15 @@ var SBN = (function(){
     var F = SB_PTEXT[id].fig, w = F.w, h = F.h;
     function pc(v, t){ return (v / t * 100).toFixed(3) + "%"; }
     var s = '<div class="fgs" onclick="SBN.fig(\'' + id + '\')" style="aspect-ratio:' + w + '/' + h + '"><img src="' + IMG(F.img) + '" alt="">';
+    /* Jede Notiz bleibt an der Kante fest, an der ihre Zeigelinie andockt (ax/ay aus den Original-Linien):
+       r = rechte Kante fest (wächst nach links), b = Unterkante fest (wächst nach oben). So läuft längerer deutscher Text nie über eine Linie. */
     F.notes.forEach(function(n){
-      /* Deutsch ist länger: Box wächst, Textanker (links/Mitte) bleibt wie im Buch */
-      var r = n.t.replace(/\u00ad/g, "").length / Math.max(8, n.en.replace(/ \/ /g, " ").length);
-      var bw = Math.min(Math.max(n.w * 1.25, n.w * r * 1.15), n.w + 42);
-      var x = n.al === "c" ? n.x + n.w / 2 - bw / 2 : n.x;
-      bw = Math.min(bw, w - x - 2);
-      s += '<div lang="de" class="fgn' + (n.al === "c" ? " c" : "") + '" style="left:' + pc(x, w) + ';top:' + pc(n.y, h) + ';width:' + pc(bw, w) + '">' + esc(n.t) + '</div>';
+      var mw = n.mw || Math.min(Math.max(n.w * 1.3, 58), 96), st = "max-width:" + pc(mw, w) + ";";
+      var x = n.x + (n.dx || 0), y = n.y + (n.dy || 0);
+      st += n.ax === "r" ? "right:" + pc(w - x - n.w, w) + ";" : "left:" + pc(x, w) + ";";
+      st += n.ay === "b" ? "bottom:" + pc(h - y - n.h, h) + ";" : "top:" + pc(y, h) + ";";
+      if(n.fs) st += "font-size:" + (3.4 * n.fs).toFixed(2) + "cqw;";
+      s += '<div lang="de" class="fgn ' + (n.ax === "r" ? "ar" : "al") + '" style="' + st + '">' + esc(n.t) + '</div>';
     });
     return s + '</div>';
   }

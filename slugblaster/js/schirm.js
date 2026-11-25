@@ -23,7 +23,7 @@
   VIEWS.schirm = function(a){
     var t = a[0] || "regeln", cols;
     if(t === "beats") cols = beatsSp(); else cols = SB_SCHIRM[t].map(function(c){ return c.map(kasten).join(""); });
-    var nav = '<nav class="tabs nbar">' + TABS.map(function(x){ return '<a class="' + (x[0] === t ? "on" : "") + '" onclick="go(\'schirm/' + x[0] + '\')">' + x[1] + '</a>'; }).join("") + '<span class="sp"></span></nav>';
+    var nav = SBUber("spielleitung", "schirm", TABS.map(function(x){ return '<a class="pn ' + (x[0] === t ? "on" : "") + '" onclick="go(\'schirm/' + x[0] + '\')">' + x[1] + '</a>'; }).join(""));
     return '<div class="nachw schw" style="--tc:var(--lila)">' + nav + '<div class="schg">' + cols.map(function(c){ return '<div class="schc">' + c + '</div>'; }).join("") + '</div></div>';
   };
   VIEWS.schirm.own = true;

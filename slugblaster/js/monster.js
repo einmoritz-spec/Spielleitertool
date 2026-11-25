@@ -1,7 +1,7 @@
 /* SLUGBLASTER – Monster (S. 118–125): Kartenraster, Sturz-Chips, „Auf die Tafel“ (Gefahrenleiste), Mach ein Monster. */
 var SBM = (function(){
   function absatz(a){ return a.map(function(x){ return '<p>' + md(x) + '</p>'; }).join(""); }
-  function unter(cur){ return '<div class="mosub">' + [["", "Monster"], ["bau", "Mach ein Monster"]].map(function(x){ return '<a class="' + (x[0] === cur ? "on" : "") + '" onclick="go(\'monster' + (x[0] ? "/" + x[0] : "") + '\')">' + x[1] + '</a>'; }).join("") + '</div>'; }
+  function unter(cur){ return SBU([["", "Monster"], ["bau", "Mach ein Monster"]].map(function(x){ return ["monster" + (x[0] ? "/" + x[0] : ""), x[1], x[0] === cur]; })); }
   function karte(m){
     var h = '<div class="moc"><div class="moh"><h3>' + esc(m.t) + '</h3>' + pgl(m.p) + '</div>' + (m.von ? '<div class="von">' + esc(m.von) + '</div>' : "") + '<p class="mx">' + md(m.x) + '</p><ul class="mol">';
     m.l.forEach(function(z, i){

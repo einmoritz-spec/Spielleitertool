@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v928sq";
+const VERSION = "v929sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1349,6 +1349,23 @@ const FILES = [
   "household/js/data/welt-haus-c.js",
   "household/js/data/welt-haus-d.js",
   "household/js/data/welt-haus-e.js",
+  "household/js/data/welt-atlas.js",
+  "household/img/guide/full/guide-s200-atlas-highlight-astraviya.webp",
+  "household/img/guide/thumb/guide-s200-atlas-highlight-astraviya.webp",
+  "household/img/guide/full/guide-s201-atlas-lowlight-astraviya.webp",
+  "household/img/guide/thumb/guide-s201-atlas-lowlight-astraviya.webp",
+  "household/img/guide/full/guide-s202-atlas-wallford.webp",
+  "household/img/guide/thumb/guide-s202-atlas-wallford.webp",
+  "household/img/guide/full/guide-s203-atlas-chesterfield-by-the-fire.webp",
+  "household/img/guide/thumb/guide-s203-atlas-chesterfield-by-the-fire.webp",
+  "household/img/guide/full/guide-s204-atlas-beddingham.webp",
+  "household/img/guide/thumb/guide-s204-atlas-beddingham.webp",
+  "household/img/guide/full/guide-s205-atlas-tuberdam.webp",
+  "household/img/guide/thumb/guide-s205-atlas-tuberdam.webp",
+  "household/img/guide/full/guide-s206-atlas-al-sehir.webp",
+  "household/img/guide/thumb/guide-s206-atlas-al-sehir.webp",
+  "household/img/guide/full/guide-s207-atlas-viletia.webp",
+  "household/img/guide/thumb/guide-s207-atlas-viletia.webp",
   "household/img/grundbuch/full/grundbuch-s205-hausplan-uebersicht-kapitel-ix.webp",
   "household/img/grundbuch/thumb/grundbuch-s205-hausplan-uebersicht-kapitel-ix.webp",
   "household/img/grundbuch/full/grundbuch-s206-ix-entry-hall.webp",

@@ -18,24 +18,24 @@ GM_INFO.household = {
     function fld(img, name, sk, sym){ return '<div class="hi-field"><div class="im"><img src="' + F + img + '.webp" alt=""></div><b>' + name + '</b><small>' + sk + '</small></div>'; }
     return '<div class="hi-top"><div><h3>Das Setting</h3>'
      + '<p>In <b>Household</b> spielt ihr <b>Littlings</b>, winzige Wesen, die im Inneren eines großen Hauses leben: Faeries, Sprites, Sluagh und andere Völker, verteilt auf die Nationen <b>Realm, Hearth, Free Dominions</b> und <b>Horde</b>. Es ist eine romantische, aufregende Vergangenheit, und ihr erzählt gemeinsam die Geschichte von Littlings, deren Namen es nie in die Geschichtsbücher geschafft haben.</p>'
-     + '<dl class="hi-fakten"><dt>Ihr spielt</dt><dd>Littlings mit Beruf, Traits, Aces und Contracts</dd><dt>Spielleitung</dt><dd>führt die Geschichte, spielt Nebenfiguren und Gegner</dd><dt>Aufbau</dt><dd>Sitzung, Szene, Paragraph (ein Abenteuer), Chapter (ein Jahr)</dd></dl></div>'
-     + '<div><h3>Die vier Fields</h3><div class="hi-fields">'
-     + fld("grundbuch-s100-iiii-fields-skills", "Society", "Art · Charm · Eloquence · Etiquette · Grace")
-     + fld("grundbuch-s101-iiii-fields-skills", "Academia", "Care · Craft · Culture · Insight · Investigation")
-     + fld("grundbuch-s102-iiii-fields-skills", "War", "Athletics · Authority · Fight · Strength · Will")
-     + fld("grundbuch-s103-iiii-fields-skills", "Street", "Caution · Dexterity · Elusion · Exploration · Shoot")
+     + '<dl class="hi-fakten"><dt>Ihr spielt</dt><dd>Littlings mit Beruf, Merkmale, Asse und Verträge</dd><dt>Spielleitung</dt><dd>führt die Geschichte, spielt Nebenfiguren und Gegner</dd><dt>Aufbau</dt><dd>Sitzung, Szene, Paragraph (ein Abenteuer), Kapitel (ein Jahr)</dd></dl></div>'
+     + '<div><h3>Die vier Felder</h3><div class="hi-fields">'
+     + fld("grundbuch-s100-iiii-fields-skills", "Gesellschaft", "Art · Charme · Redegewandtheit · Etikette · Anmut")
+     + fld("grundbuch-s101-iiii-fields-skills", "Wissenschaft", "Fürsorge · Handwerk · Kultur · Einsicht · Ermittlung")
+     + fld("grundbuch-s102-iiii-fields-skills", "Krieg", "Athletik · Autorität · Kampf · Stärke · Wille")
+     + fld("grundbuch-s103-iiii-fields-skills", "Straße", "Vorsicht · Geschick · Ausweichen · Erkundung · Schießen")
      + '</div></div></div>'
-     + '<div class="hi-wurf"><h3>Der Wurf</h3><p class="hi-pool"><b>Dice Pool aus Field + Skill</b>, 2 bis 9 Würfel. Ein Erfolg sind zwei oder mehr gleiche Seiten, die Farbe ist egal. 1 Erfolg einer höheren Stufe zählt wie 3 der niedrigeren.</p><div class="hi-res">'
-     + res(d("kreuz", "kreuz"), "Basic Success", "zwei Gleiche")
-     + res(d("karo", "karo", "karo"), "Critical Success", "drei Gleiche")
-     + res(d("herz", "herz", "herz", "herz"), "Extreme Success", "vier Gleiche")
-     + res(d("pik", "pik", "pik", "pik", "pik"), "Impossible Success", "fünf Gleiche")
+     + '<div class="hi-wurf"><h3>Der Wurf</h3><p class="hi-pool"><b>Würfelpool aus Feld + Fertigkeit</b>, 2 bis 9 Würfel. Ein Erfolg sind zwei oder mehr gleiche Seiten, die Farbe ist egal. 1 Erfolg einer höheren Stufe zählt wie 3 der niedrigeren.</p><div class="hi-res">'
+     + res(d("kreuz", "kreuz"), "einfacher Erfolg", "zwei Gleiche")
+     + res(d("karo", "karo", "karo"), "kritischer Erfolg", "drei Gleiche")
+     + res(d("herz", "herz", "herz", "herz"), "extremer Erfolg", "vier Gleiche")
+     + res(d("pik", "pik", "pik", "pik", "pik"), "unmöglicher Erfolg", "fünf Gleiche")
      + res(d("haus", "haus", "haus", "haus", "haus", "haus"), "Jackpot!", "sechs und mehr: du beschreibst die Szene frei")
      + res(d("kreuz", "karo", "herz", "pik", "hh"), "Misserfolg", "kein Paar: die Spielleitung wählt eine Konsequenz")
      + '</div></div>'
      + '<div class="hi-kern">'
-     + '<div><b>Schwierigkeit</b><span>Basic, Critical, Extreme oder Impossible. Die Spielleitung muss sie nicht offenlegen.</span></div>'
-     + '<div><b>Re-roll</b><span>Ab einem Basic Success wirfst du alle Würfel ohne Erfolg neu. Gelingt nichts Besseres, verlierst du einen Erfolg.</span></div>'
+     + '<div><b>Schwierigkeit</b><span>Einfach, Kritisch, Extrem oder Unmöglich. Die Spielleitung muss sie nicht offenlegen.</span></div>'
+     + '<div><b>Neuwurf</b><span>Ab einem einfachen Erfolg wirfst du alle Würfel ohne Erfolg neu. Gelingt nichts Besseres, verlierst du einen Erfolg.</span></div>'
      + '<div><b>All In</b><span>Nach einem besseren Ergebnis darfst du noch einmal neu werfen. Ohne Verbesserung verlierst du alle Erfolge.</span></div>'
      + '<div><b>Modifikatoren</b><span>Jedes +1 ist ein Würfel mehr, jedes −1 einer weniger. Nie unter 2 und nie über 9 Würfel.</span></div>'
      + '</div>';

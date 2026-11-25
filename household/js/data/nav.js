@@ -13,10 +13,10 @@ window.HH_NAV = {
   ]},
   {id: "regeln", t: "Regeln", unter: [
    {id: "charakter", t: "Charakter", seiten: [["bogen", "Der Charakterbogen"]]},
-   {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["handlers", "Animal Handlers"], ["beetle", "Beetle"], ["bumblebee", "Bumblebee"], ["gecko", "Gecko"], ["mouse", "Mouse"], ["traits", "Traits"]]},
-   {id: "spielen", t: "Wie man spielt", seiten: [["wuerfel", "Würfel & Begriffe"], ["action", "Action Rolls"], ["reaction", "Reaction Rolls"], ["stress", "Stress"], ["skills", "Fields & Skills"], ["moves", "Moves"], ["hilfe", "Hilfe & Hindernisse"], ["konflikte", "Konflikte"], ["kampf", "Kampf"], ["schiessen", "Schießen, Rangelei & Duell"], ["zustaende", "Zustände"], ["decorum", "Decorum"]]},
-   {id: "vertraege", t: "Contracts", seiten: [["hereditary", "Hereditary"], ["starchild", "Starchild"], ["dear-to-the-hearth", "Dear to the Hearth"], ["spark-drain-draft", "Out of the Spark, Drain & Draft"], ["revenant-from-farbeyond", "Revenant from Farbeyond"], ["forces", "Die Mächte des Household"], ["personal", "Personal"], ["wallstrider", "Wallstrider"], ["goldthirst", "Goldthirst"], ["neverheard", "Neverheard"], ["vainglory", "Vainglory"], ["ttt", "Terrible Terrible Things"], ["ttt-regeln", "Regeln für TTT"], ["ttt-tabelle", "TTT-Tabelle"], ["welcoming", "Welcoming"], ["kindled-welcome", "Kindled Welcome & Upside-Down"], ["domain", "The Domain Contract"]]},
-   {id: "ausruestung", t: "Ausrüstung", seiten: [["wealth", "Wealth"], ["start-wealth", "Startwealth & Veränderung"], ["coins", "Coins & Crystals"], ["equipment", "Ausrüstung & Dienste"], ["gadgets", "Gadgets"], ["gadget-liste", "Gadgets: Liste"], ["weapons", "Waffen"], ["melee", "Nahkampfwaffen"], ["ranged", "Fernkampfwaffen"], ["keysket", "Keyskets"], ["dueling", "Duellwaffen"], ["armor", "Rüstung & Accessoires"]]}
+   {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldaten"], ["scholars", "Gelehrte"], ["hunters", "Jäger"], ["criminals", "Verbrecher"], ["duelists", "Duellanten"], ["handlers", "Tierführer"], ["beetle", "Beetle"], ["bumblebee", "Bumblebee"], ["gecko", "Gecko"], ["mouse", "Mouse"], ["traits", "Merkmale"]]},
+   {id: "spielen", t: "Wie man spielt", seiten: [["wuerfel", "Würfel & Begriffe"], ["action", "Aktionswürfe"], ["reaction", "Reaktionswürfe"], ["stress", "Stress"], ["skills", "Felder & Fertigkeiten"], ["moves", "Manöver"], ["hilfe", "Hilfe & Hindernisse"], ["konflikte", "Konflikte"], ["kampf", "Kampf"], ["schiessen", "Schießen, Rangelei & Duell"], ["zustaende", "Zustände"], ["decorum", "Anstand"]]},
+   {id: "vertraege", t: "Verträge", seiten: [["hereditary", "Erbvertrag"], ["starchild", "Starchild"], ["dear-to-the-hearth", "Dear to the Hearth"], ["spark-drain-draft", "Out of the Spark, Drain & Draft"], ["revenant-from-farbeyond", "Revenant from Farbeyond"], ["forces", "Die Mächte des Household"], ["personal", "Persönlicher Vertrag"], ["wallstrider", "Wallstrider"], ["goldthirst", "Goldthirst"], ["neverheard", "Neverheard"], ["vainglory", "Vainglory"], ["ttt", "Schreckliche Schreckliche Dinge"], ["ttt-regeln", "Regeln für TTT"], ["ttt-tabelle", "TTT-Tabelle"], ["welcoming", "Willkommensvertrag"], ["kindled-welcome", "Kindled Welcome & Upside-Down"], ["domain", "The Domain-Vertrag"]]},
+   {id: "ausruestung", t: "Ausrüstung", seiten: [["wealth", "Wohlstand"], ["start-wealth", "Startwealth & Veränderung"], ["coins", "Münzen & Kristalle"], ["equipment", "Ausrüstung & Dienste"], ["gadgets", "Gadgets"], ["gadget-liste", "Gadgets: Liste"], ["weapons", "Waffen"], ["melee", "Nahkampfwaffen"], ["ranged", "Fernkampfwaffen"], ["keysket", "Keyskets"], ["dueling", "Duellwaffen"], ["armor", "Rüstung & Accessoires"]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [
    {id: "saga", t: "Saga", seiten: [["viele", "Wenige oder viele Spieler:innen"], ["ereignisse", "Historische Ereignisse"], ["fortschritt", "Fortschritt"]]},
@@ -29,13 +29,13 @@ window.HH_NAV = {
  garten: [
   {id: "welt", t: "Welt", unter: [
    {id: "voelker", t: "Völker", seiten: [["barghests", "Barghests"], ["gnomes", "Gnomes"], ["fae", "Fae"], ["shinigami", "Shinigami"], ["inside", "Inside Folk"]]},
-   {id: "geschichte", t: "Geschichte", seiten: [["thron", "A Crack in the Throne"], ["winter", "The Long Winter"], ["krieg", "A Cold War"], ["nacht", "The Starless Night"]]},
+   {id: "geschichte", t: "Geschichte", seiten: [["thron", "A Crack in the Throne"], ["winter", "The Long Winter"], ["krieg", "A Cold Krieg"], ["nacht", "The Starless Night"]]},
    {id: "garten", t: "Der Garten", sw: [["karte", "Karte"], ["reisekarte", "Reisekarte"]], seiten: [["frontier", "The Frontier"], ["underground", "The Underground"], ["frontyard", "The Front Yard"], ["brambles", "The Brambles"], ["woodlands", "The Woodlands"], ["barrens", "The Barrens"], ["grasslands", "The Grasslands"], ["backyard", "The Backyard"], ["rushes", "The Rushes"], ["fouroaks", "Four Oaks"]]}
   ]},
   {id: "regeln", t: "Regeln", unter: [
-   {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["wayfarers", "Wayfarers"], ["handlers", "Animal Handlers"]]},
-   {id: "vertraege", t: "Contracts", seiten: [["ttt", "Terrible Terrible Things"], ["hereditary", "Hereditary"], ["personal", "Personal"], ["welcoming", "Welcoming"], ["favors", "Favors"]]},
-   {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Coins & Barter"], ["goods", "Goods & Services"], ["weapons", "Waffen"], ["concoctions", "Natural Concoctions"], ["mounts", "Mounts"]]},
+   {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldaten"], ["scholars", "Gelehrte"], ["hunters", "Jäger"], ["criminals", "Verbrecher"], ["duelists", "Duellanten"], ["wayfarers", "Wayfarers"], ["handlers", "Tierführer"]]},
+   {id: "vertraege", t: "Verträge", seiten: [["ttt", "Schreckliche Schreckliche Dinge"], ["hereditary", "Erbvertrag"], ["personal", "Persönlicher Vertrag"], ["welcoming", "Willkommensvertrag"], ["favors", "Favors"]]},
+   {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Münzen & Barter"], ["goods", "Goods & Services"], ["weapons", "Waffen"], ["concoctions", "Natural Concoctions"], ["mounts", "Mounts"]]},
    {id: "reise", t: "Reise & Jahreszeiten", seiten: [["travel", "Travel"], ["darkness", "Darkness"], ["stress", "Severe Stress"], ["seasons", "Seasons"]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [
@@ -54,5 +54,5 @@ window.HH_SAGAS = {
 
 /* Bereiche der Startseite (Einstiege), Reihenfolge wie die Reiter */
 window.HH_START = {
- haus: [["welt", "Welt", "Völker, das Haus, Geschichte, Atlas"], ["regeln", "Regeln", "Charakter, Berufe, Proben, Contracts"], ["sl", "Spielleitung", "Saga, Gegner, Mysterien"]]
+ haus: [["welt", "Welt", "Völker, das Haus, Geschichte, Atlas"], ["regeln", "Regeln", "Charakter, Berufe, Proben, Verträge"], ["sl", "Spielleitung", "Saga, Gegner, Mysterien"]]
 };

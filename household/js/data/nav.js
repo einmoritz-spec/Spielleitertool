@@ -40,7 +40,7 @@ window.HH_NAV = {
    {id: "reise", t: "Reise & Jahreszeiten", seiten: [["travel", "Travel"], ["darkness", "Darkness"], ["stress", "Severe Stress"], ["seasons", "Seasons"]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [
-   {id: "saga", t: "Saga"},
+   {id: "saga", t: "Saga", seiten: [["einfuehrung", "Die Saga des Langen Winters"], ["kapitel", "Kapitel & Jahreszeiten"], ["k6", "Kapitel VI"], ["k7", "Kapitel VII"], ["epilog", "Epilog"], ["thron", "Ein leerer Thron"]]},
    {id: "gegner", t: "Gegner", seiten: [["uebersicht", "Übersicht"]]},
    {id: "colossi", t: "Colossi"}
   ]}

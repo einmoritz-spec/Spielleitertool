@@ -23,7 +23,7 @@ Weitere Bücher im bestehenden Regal (`sys.js`: Deluxe Explorers, The Last of Us
 Savage Worlds ist ein Universalsystem; die Companions erweitern immer dieselben Listen (Handicaps, Talente, Ausrüstung, Mächte, Gegner, Settingregeln). Deshalb:
 
 - **Grundregelwerk = Rückgrat.** Seine Kapitel sind die Reiter der Kopfzeile.
-- **Genre-Schalter** (Vorschlag, Entscheidung offen): Die Spielleitung stellt ein, welche Companions in der laufenden Kampagne gelten (z. B. nur Fantasy). Alle Nachschlagelisten zeigen dann Grundregeln + aktive Companions gemischt, jede Karte mit kleinem Quellen-Abzeichen (GRW · FAN · HOR · SF · SUP). Filter-Chips nur in der Listen-Kopfzeile, keine Extra-Leiste.
+- **Genre-Schalter** (entschieden): Die Spielleitung stellt ein, welche Companions in der laufenden Kampagne gelten (z. B. nur Fantasy). Alle Nachschlagelisten zeigen dann Grundregeln + aktive Companions gemischt, jede Karte mit kleinem Quellen-Abzeichen (GRW · FAN · HOR · SF · SUP). Filter-Chips nur in der Listen-Kopfzeile, keine Extra-Leiste.
 - **Genre-eigene Inhalte**, die nirgends sonst hinpassen, bekommen eigene Seiten unter ihrem Companion (Völker/Ahnen, Festungen, Fallen, Schätze, Ebenen, Raumschiff-/Roboter-/Fahrzeugbau, Cyberware, Weltenbauer, Superkräfte-System, Schurkengalerie, Logen, Horror-Stile …).
 - **Deadlands** ist ein echtes Setting mit eigener Welt → **Untersetting** im Dropdown mit eigenem Western-Design.
 - **World Builder & GM Guide** hat keine Regeldaten, sondern Essays → wird Teil des Reiters *Spielleitung*.
@@ -92,7 +92,7 @@ Gemeinsame Listen (Handicaps, Talente, Mächte, Gegner, Ausrüstung) wandern zus
 
 - Spielbegriffe **immer nach dem deutschen Grundregelwerk** (Ulisses): Talente, Handicaps, Bennies, Wildcard, Statisten, Mächte, Machtpunkte, Arkaner Hintergrund, Ausprägungen, Parade, Robustheit, Angeschlagen, Wunden, Erschöpfung, Aktionskarten, Joker, Rang (Novize/Fortgeschritten/Veteran/Held/Legende), Settingregeln …
 - Etappe 0 erzeugt `quellen/savageworlds/glossar.md` (EN → DE) aus dem GRW; jede Übersetzungs-Etappe nutzt es verbindlich.
-- Eigennamen bleiben englisch (Orte, Figuren, Organisationen, Deadlands-Begriffe wie Harrowed, Huckster, Ghost Rock, Reckoners – Entscheidung offen).
+- Eigennamen bleiben englisch (Orte, Figuren, Organisationen, Deadlands-Begriffe wie Harrowed, Huckster, Ghost Rock, Reckoners, Mad Scientist – entschieden).
 - Nichts erfinden, nur Buchtext.
 
 ## 7. Technik
@@ -111,8 +111,8 @@ Gemeinsame Listen (Handicaps, Talente, Mächte, Gegner, Ausrüstung) wandern zus
 | 1 | Mockups (Opus) → Freigabe | klein |
 | 2 | Gerüst: Kopfzeile, Reiter, Unterleisten, Dropdown-Untersetting Deadlands, Buch-Auswahl, Suche, i-Knopf | mittel |
 | 3 | Grundregelwerk komplett (deutsch, keine Übersetzung) | groß |
-| 4 | Deadlands komplett | groß |
-| 5 | Fantasy Companion | groß |
+| 4 | Fantasy Companion | groß |
+| 5 | Deadlands komplett | groß |
 | 6 | Horror Companion | groß |
 | 7 | Science Fiction Companion (inkl. Baukästen) | sehr groß |
 | 8 | Super Powers Companion | groß |
@@ -122,8 +122,8 @@ Gemeinsame Listen (Handicaps, Talente, Mächte, Gegner, Ausrüstung) wandern zus
 
 Jede Etappe: Screenshots aller neuen Seiten (auch mit eingeklappter Seitenleiste), `sw.js`-Version +1, Rebase, Push.
 
-## 9. Offene Entscheidungen
-1. Companions: Genre-Schalter mit gemischten Listen (empfohlen) oder jedes Companion als getrenntes Untersetting?
-2. Reihenfolge nach dem GRW: Deadlands zuerst oder ein Companion?
-3. Deadlands-Begriffe: englisch lassen (Harrowed, Huckster …) oder eindeutschen?
-4. Karten-Ziehen (Aktionskarten, Abenteuer-Generator) im Tool oder mit echten Karten?
+## 9. Entscheidungen (25. Nov. 2026)
+1. Companions über den **Genre-Schalter** mit gemischten Listen und Quellen-Abzeichen; Genre-Eigenes auf eigenen Seiten.
+2. Reihenfolge: Grundregelwerk → **Fantasy Companion** → Deadlands → Horror → Science-Fiction → Superkräfte.
+3. Deadlands-Begriffe (Harrowed, Huckster, Ghost Rock, Reckoners …) **bleiben englisch**, Fließtext deutsch.
+4. **Kein Kartenziehen** im Tool – echte Karten; Aktionskarten- und Generator-Tabellen nur zum Nachschlagen.

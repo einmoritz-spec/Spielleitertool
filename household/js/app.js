@@ -130,7 +130,12 @@ function viewSaga(P){
   if(!sub) return {bar: bar, body: sagaStart(P.s)};
   if(tx && P.rest && P.rest[0]){ var one = tx.filter(function(e){ return e.id === P.rest[0]; }); if(one.length) tx = one; }
   else if(tx && tx[0].id === "uebersicht") tx = [tx[0]];
-  if(tx) return {bar: bar, body: lay("", (tx.length > 1 ? '<div class="sec"><h1>' + esc(name) + '</h1></div>' : '') + tx.map(function(e){ return '<div class="sec txt" id="ab-' + e.id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join(""))};
+  var side = "";
+  if(tx && P.rest && P.rest[0] && /^(k\d|epilog)/.test(sub)){
+    var all = HH_TEXT[P.s + "/" + sub], cur = P.rest[0];
+    side = all.map(function(e){ return '<a class="' + (e.id === cur ? 'on' : '') + '" onclick="go(\'' + P.s + '/' + sub + (e.id === "uebersicht" ? '' : '/' + e.id) + '\')">' + esc(e.id === "uebersicht" ? "Übersicht" : e.t) + '</a>'; }).join("");
+  }
+  if(tx) return {bar: bar, body: lay(side, (tx.length > 1 ? '<div class="sec"><h1>' + esc(name) + '</h1></div>' : '') + tx.map(function(e){ return '<div class="sec txt" id="ab-' + e.id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join(""))};
   return {bar: bar, body: lay("", '<div class="sec"><h1>' + esc(name) + '</h1></div>' + platzhalter(name))};
 }
 

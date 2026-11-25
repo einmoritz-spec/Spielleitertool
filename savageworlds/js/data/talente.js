@@ -5762,7 +5762,8 @@ var SW_TALENTE = [
 "v": "Arkaner Hintergrund (Sternenritter), darf nicht das Talent Sternenmagier haben",
 "w": 0,
 "b": [
-"Nicht alle Ritter widmen sich Gerechtigkeit und Gnade. Manche sind wahrhaft verderbte Individuen, die dennoch Sorgfalt und Ausdauer besitzen, diese arkanen Künste zu meistern. Andere mögen edle, aber fehlgeleitete Seelen sein, die"
+"Nicht alle Ritter widmen sich Gerechtigkeit und Gnade. Manche sind wahrhaft verderbte Individuen, die dennoch Sorgfalt und Ausdauer besitzen, diese arkanen Künste zu meistern. Andere mögen edle, aber fehlgeleitete Seelen sein, die glauben, ihre Taten dienten dem höheren Wohl – trotz gelegentlich schrecklicher Kosten.",
+"Sternenschurken fügen ihren Verfügbaren Mächten die folgenden hinzu und erhalten eine davon sofort: Salve (Blitz), Verkleidung, Machtpunkte entziehen, Ungreifbarkeit, Gedächtnis löschen, Wiederbelebung und Telekinetisches Würgen."
 ],
 "p": 206,
 "s": [

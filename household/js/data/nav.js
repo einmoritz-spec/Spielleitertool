@@ -36,7 +36,7 @@ window.HH_NAV = {
   {id: "regeln", t: "Regeln", unter: [
    {id: "berufe", t: "Berufe", seiten: [["einfuehrung", "Berufe des Gartens"], ["soldiers", "Soldaten"], ["scholars", "Gelehrte"], ["hunters", "Jäger"], ["criminals", "Verbrecher"], ["duelists", "Duellanten"], ["wayfarers", "Wayfarers"], ["handlers", "Tierführer"], ["frog", "Frosch"], ["ladybug", "Marienkäfer"], ["moth", "Nachtfalter"], ["mole", "Maulwurf"], ["traits", "Merkmale"]]},
    {id: "vertraege", t: "Verträge", seiten: [["ttt", "Schreckliche Schreckliche Dinge"], ["hereditary", "Erbverträge"], ["personal", "Persönliche Verträge"], ["welcoming", "Willkommensverträge"], ["favors", "Favors"]]},
-   {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Münzen & Barter"], ["goods", "Goods & Services"], ["weapons", "Waffen"], ["concoctions", "Natural Concoctions"], ["mounts", "Mounts"]]},
+   {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Münzen & Barter"], ["goods", "Waren & Dienstleistungen"], ["weapons", "Waffen"], ["concoctions", "Natürliche Mixturen"], ["mounts", "Reittiere"]]},
    {id: "reise", t: "Reise & Jahreszeiten", seiten: [["travel", "Travel"], ["darkness", "Darkness"], ["stress", "Severe Stress"], ["seasons", "Seasons"]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [

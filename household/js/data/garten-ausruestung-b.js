@@ -1,0 +1,105 @@
+/* Garten › Regeln › Ausrüstung, Teil B: Natürliche Mixturen, Reittiere (Vol. II S.108–115) */
+(function(){
+var K = "garten/regeln/ausruestung", L = (HH_TEXT[K] = HH_TEXT[K] || []);
+function bild(n, w){ return {t: "bild", s: "garten-" + n, w: w}; }
+function Z(h, text){ return {t: "box", h: h, b: Array.isArray(text) ? text : [text]}; }
+
+L.push(
+{id: "concoctions", t: "Natürliche Mixturen", p: 108, b: [
+ bild("s109-iiii-natural-concoctions", 200),
+ "Littlings, die die Pflanzen, Pilze und bunten Blumen kennen, die wild und reichlich im Garten wachsen, wissen auch, wie man sie sammelt, kocht, trocknet, zerstößt und zu wundersamen Mixturen verarbeitet. Diese Natürlichen Mixturen sind das Ergebnis jahrhundertealter Tradition und erlauben es Kundigen, Leiden abzuschütteln und große Vorteile zu erlangen. Natürlich sind sie auch äußerst teuer und selten. Mit Glück findest du welche bei Händlern in der Citadel, Gelehrten im Shogunate oder Druiden am Seelie Court.",
+ "Die Manöver Alchemy, Natural Resources, Brew und Natural Knowledge erlauben dir, im Handumdrehen eine Natürliche Mixtur herzustellen, nur mit Dingen, die du leicht tragen oder in deiner Umgebung finden kannst. Alternativ, und nur mit den richtigen Werkzeugen, kannst du eine Natürliche Mixtur zubereiten, indem du einen Extremen Aktionswurf auf Erkundung + Wissenschaft ablegst. Misslingt der Wurf, endet der Vorgang in einer explosiven Reaktion, und du wirst Durchnässt.",
+ "Manche Natürliche Mixturen sind zum Einnehmen gedacht, andere müssen als Augentropfen verwendet oder auf den Boden geworfen werden, wieder andere werden ins Gesicht geschmiert und über die Haut aufgenommen. In jedem Fall sind alle Natürlichen Mixturen nur einmal verwendbar.",
+ {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
+  ["Gegengift", "Entfernt den Zustand Vergiftet.", "4"],
+  ["Frostschutzbalsam", "Schützt den Anwender vor Winterschnee.", "3"],
+  ["Blaublase", "Erlaubt, unter Wasser zu atmen und einen Sturz abzufedern.", "5"],
+  ["Konzentrierte Säure", "Löst Metall auf.", "5"],
+  ["Allheilmittel", "Heilt die Zustände Krank, Schniefend, Gefroren und Verschwitzt.", "4"],
+  ["Elixier des Ewigen Vertrags", "Erlaubt die wiederholte Nutzung des eigenen Erbvertrags in derselben Sitzung.", "7"],
+  ["Glitzerklumpen", "Leuchtet mehrere Stunden lang.", "3"],
+  ["Goldene Augentropfen", "Erlauben dem Anwender, im Dunkeln zu sehen.", "4"],
+  ["Sofortwand", "Erschafft eine Wand oder Plattform aus Pilzen.", "4"],
+  ["Pilzkreis", "Erschafft einen Pilzkreis, der ein kleines Lager schützt.", "7"],
+  ["Naturfarbe", "Färbt Leder oder Kleidung.", "3"],
+  ["Lähmgift", "Lähmt den Trinkenden für mehrere Stunden.", "6"],
+  ["Pseudonetz", "Synthetisches Spinnennetz aus Pflanzen.", "4"],
+  ["Erfrischungstonikum", "Schützt den Trinkenden vor Sommerhitze.", "3"],
+  ["Abwehrmittel", "Hält Insekten fern.", "6"],
+  ["Rauchbombe", "Setzt einen Rauchvorhang frei.", "5"],
+  ["Stressabbau-Trank", "Baut bis zu 6 Stress ab. Nur einmal pro Tag nutzbar.", "7"],
+  ["Universalköder", "Keine Bestie kann ihm widerstehen.", "7"]]},
+ {t: "karten", x: [
+  Z("Gegengift", "Bernsteinfarbener Aufguss mit stechendem Geschmack, destilliert aus Zutaten mit bekannter reinigender und stärkender Wirkung. In kleinen Dosen verabreicht, wirkt er sowohl gegen Lähmgift als auch gegen den Zustand Vergiftet und führt den Körper langsam zu seinem natürlichen gesunden Gleichgewicht zurück."),
+  Z("Frostschutzbalsam", "Diese duftende, fettige Salbe kann beim Reisen im Winter auf Gesicht, Gliedmaßen und jede freiliegende Körperstelle gerieben werden. Sie spendet angenehme Wärme, versiegelt die Haut und schützt sie vor dem Schnee. Eine einzelne Dosis reicht, um bis zu zwei Littlings einen ganzen Tag lang vor dem Zustand Gefroren durch Kälteeinwirkung zu schützen."),
+  Z("Blaublase", "Weiche, klebrige, tiefblaue Masse, die auf extrem starken Druck reagiert. Zerdrückt bläht sie sich rasch zu einer Blase auf, die groß genug ist, um zwei Littlings bequem aufzunehmen. Die Blase erlaubt Littlings, unter Wasser zu atmen, und dämpft Aufpralle und Stürze. Seltsamerweise berichten Littlings, die die Blase sanft in den Händen halten, von einem sofortigen, unerklärlichen Gefühl der Ruhe."),
+  Z("Konzentrierte Säure", "Schon wenige Tropfen dieser fettigen Substanz, meist in winzigen Röhrchen transportiert, genügen, um Metall, Stein und sogar Knochen zu durchschmelzen. Kann genutzt werden, um aus Handschellen zu entkommen, Schlösser aufzubrechen oder Feinde zu entwaffnen. Muss vorsichtig gehandhabt werden: Ein einziger Tropfen kann einem Littling bei leichtfertigem Gebrauch schweren Schaden zufügen."),
+  Z("Allheilmittel", "Jedes Volk hat sein Rezept, doch alle folgen demselben Grundprinzip: Je schlechter das Allheilmittel schmeckt, desto wirksamer ist es. Dieser bittere, übelriechende Trank kann die Zustände Krank, Schniefend, Gefroren und Verschwitzt in einem Zug entfernen. Wer ihn trinkt, vergisst den Geschmack nie … und auch nicht die Erleichterung danach."),
+  Z("Elixier des Ewigen Vertrags", "Das Elixier des Ewigen Vertrags ist eine dicke, duftende Flüssigkeit, die golden oder scharlachrot schimmert, mit Flecken in Purpur und leuchtendem Violett. Wer dieses Elixier trinkt, fühlt sich verantwortlich und von einem inneren Feuer gestärkt, das sein Herz schlagen lässt, und kann einen Erbvertrag, den er in dieser Sitzung einmal genutzt hat, erneut aktivieren. Außerdem erlaubt dieses geheimnisvolle Elixier Faeries des House, für eine ganze Szene Wahren Flug und jedes Zugeständnis des Starchosen-Vertrags ohne Gegenstück zu erhalten."),
+  Z("Glitzerklumpen", "Eine schwammige Kugel aus leuchtenden Schimmelpilzen, die durch Aufbrechen aktiviert wird. Aufgebrochen gibt ein Glitzerklumpen ein gelblich-grünliches Licht ab, vergleichbar mit einer Laterne, das eine ganze Stunde leuchtet und das Licht in Reichweite verbreitet. Ein unverzichtbarer Gegenstand beim Erkunden hohler Bäume und Tunnel oder wenn man im Dunkeln auffallen muss."),
+  Z("Goldene Augentropfen", "Diese seltene, kostbare Flüssigkeit muss mit Sorgfalt direkt in die Augen gegeben werden. Sie verleiht für mehrere Stunden die Fähigkeit, im Dunkeln zu sehen, und gibt den Augen einen unnatürlich goldenen Glanz. Eine einzige Dosis genügt für einen Littling, und ihre einzigartigen Eigenschaften sind besonders bei Jägern und Nachtwächtern begehrt."),
+  Z("Sofortwand", "Eine Handvoll Pilzsamen, die beim Werfen sofort austreiben und eine Barriere aus Pilzen und Schimmel von etwa zwei winzigen Metern Höhe und Breite bilden. Kann Teildeckung bieten, als Unterschlupf oder Plattform dienen oder ein improvisiertes Hindernis schaffen. Äußerst clevere Littlings haben noch überraschendere Verwendungen für diese bescheidene taktische Mischung gefunden."),
+  Z("Pilzkreis", "Eine Mischung aus Samen und Pilzsporen, in einem Beutel oder Fläschchen aufbewahrt. Du streust sie rund um dein Lager, und binnen einer Stunde sprießt ein Pilzwäldchen, das Schutz vor Wetter und neugierigen Blicken bietet. Eine Dosis genügt für ein kleines Lager, nur ein paar Zelte und Littlings, doch kombinierst du mehrere Dosen, kannst du ein größeres Gebiet umschließen. Der größte je geschaffene Pilzkreis ist der des Druiden Nemeth, der eine ganze Stadt umgibt, die Fae-Hauptstadt Caer Siddi. Ein Wunder weit jenseits der Fähigkeiten normaler Littlings."),
+  Z("Naturfarbe", "Dieser Farbstoff aus verschiedenen Moosen und vergorenen Beeren kann auf Hände, Gesicht oder den ganzen Körper aufgetragen werden. Die Farbe hängt von den Zutaten ab und bleibt, einmal aufgetragen, bis sie mit viel Wasser entfernt wird. Senkt die aktuelle Stufe der Schicklichkeit, gewährt aber eine Hilfe, wenn du dich in Umgebungen der gewählten Farbe verstecken willst. Das Pigment kann auch zum Färben von Kleidung und anderen Gegenständen im gewünschten Ton dienen."),
+  Z("Lähmgift", "Diese Substanz ist geruch- und geschmacklos, meist eine durchsichtige Flüssigkeit, kann aber leicht zu Pillen oder Paste verarbeitet werden, ohne die Wirkung zu beeinträchtigen. Eine einzelne Dosis kann einen Littling mehrere Stunden lähmen, doch zu hohe Dosen können auch tödlich sein. Wie Paracelsus zu sagen pflegte: „Die Dosis macht das Gift.“"),
+  Z("Pseudonetz", "Dieser weißliche, klebrige Strang aus Pilzfasern lässt sich zu einem elastischen und erstaunlich widerstandsfähigen Seil abwickeln. Neben seiner Eignung als perfekter Ersatz für einen Enterhaken kann man damit eine Beute oder einen Littling festhalten … und das alles, ohne eine Spinne auch nur anzurühren! Einmal abgewickelt, ist das Pseudonetz fast unmöglich zu durchtrennen, verliert seine erstaunlichen Eigenschaften aber nach etwa einem halben Tag."),
+  Z("Erfrischungstonikum", "Getrunken kann dieses angenehm herbe Tonikum dich vor der Schwüle schützen und für einen ganzen Tag immun gegen den Zustand Verschwitzt machen. Eine Dosis genügt, um zwei Littlings sofort abzukühlen, wie ein Bad in einem frischen, klaren Bach."),
+  Z("Abwehrmittel", "Diese Substanz mit stechendem, hartnäckigem Geruch hält Insekten mehrere Stunden fern. Meist aus Zitronenpilz und bitteren Blättern gefertigt, kann sie zu Räucherwerk verdichtet und an Rucksack oder Gürtel befestigt oder zu einer Salbe verarbeitet werden. Manche Littlings fertigen daraus große Spiralen, die auf ein Lagerfeuer gelegt eine ganze Nacht ungestörten, schädlingsfreien Schlaf sichern. Eine Dosis schützt die ganze Gruppe für eine Szene oder einen Reisetag."),
+  Z("Rauchbombe", "Ob Shinigami-Schneckenhaus oder einfaches Glasfläschchen: Dieser Behälter kapselt eine Mischung aus getrockneten Schimmelpilzen und flüchtigen Substanzen ein. Du musst ihn nur mit Wucht gegen eine Fläche werfen, um einen dichten Rauchvorhang freizusetzen, eine perfekte Ablenkung für die Flucht oder zur Verwirrung des Feindes in hektischen Lagen."),
+  Z("Stressabbau-Trank", ["Ein Fläschchen oder kleine Flasche mit einer rubinroten Flüssigkeit. Wer den Trank trinkt, fühlt sich sofort beruhigt und gestärkt und kann bis zu 6 Stress abbauen.", "Hat der trinkende Littling sein Kritisches Kästchen der Stressleiste schon gefüllt, erleidet er beim nächsten Füllen in dieser Szene keinen Zustand.", "Leider gewöhnen sich Littlings an die Wirkung des Stressabbau-Tranks, weshalb sie nur einmal pro Tag davon profitieren können."]),
+  Z("Universalköder", "Ein Klumpen stinkender Substanzen so groß wie der Kopf eines Boggarts. Aus irgendeinem Grund fühlen sich Bestien stark davon angezogen und versuchen, ihn um jeden Preis zu erreichen, wobei sie oft Littlings und andere Beute ignorieren. Riesige und kolossale Geschöpfe sind für die Wirkung des Universalköders weniger anfällig, aber nicht immun.")]},
+ {t: "box", h: "Ressourcen im House", b: ["Damit das klar ist: Diese Natürlichen Mixturen sind nicht den Druiden und Naturkundigen des Gartens vorbehalten. Auch Gelehrte und Alchemisten des House können die nötigen Zutaten finden, wenn sie die nötige Fertigkeit und eine Prise zusätzliche Geduld haben. Dank der Forschung des Weisen Paracelsus wimmeln die Räume des House heute von Pilzen und Schimmeln aller Formen und Größen mit einer breiten Palette von Eigenschaften.", "Seine großartige Arbeit erlaubte Littlings, die Zutaten aus der Speisekammer des Meisters zu synthetisieren, und die Züchtung neuer Pflanzenarten wie dem Weidenschimmel mit seinen charakteristischen hängenden Fäden, den gelben Breithut-Ginsenien und nicht zu vergessen dem Zitronenpilz, dessen Sporen sich inzwischen über das ganze House verbreitet haben. Diese erstaunliche Vielfalt ermöglicht die Herstellung alchemistischer Verbindungen, Heilmittel und Gifte."]}
+]},
+
+{id: "mounts", t: "Reittiere", p: 112, b: [
+ bild("s113-iiii-mounts", 220),
+ "Im Garten noch mehr als im House begegnest du Reittieren aller Art. Manche eignen sich besser für lange Reisen, andere sind für Geschwindigkeit geboren, wieder andere zum Kampf ausgebildet. Die häufigsten Reittiere, denen du begegnen wirst:",
+ {t: "ul", x: [
+  "**Mäuse:** Das Reittier schlechthin, treu und verlässlich. Wenn du nicht weißt, welchem Tier du den Sattel auflegen sollst, ist die Maus immer eine gute Wahl, und nicht zufällig werden diese erstaunlichen Geschöpfe überall von den Grasslands bis zu den Rushes gezüchtet und aufgezogen.",
+  "**Käfer:** Stark, zäh und unerschütterlich, sind Käfer das perfekte Reittier für Littlings, die nie in Eile sind, aber auch nie anhalten wollen, egal welches Hindernis im Weg steht. Am häufigsten in den Woodlands, auf den Barrens und in den Rushes, und dank ihres harten Panzers glänzen sie auch im Kampf.",
+  "**Schnecken:** Wie das Sprichwort sagt: Langsam und stetig gewinnt das Rennen. Und Schnecken nehmen diesen Spruch wörtlich. Eine Schnecke wird nie das schnellste oder mutigste Reittier sein, doch du kannst dich auf ihre Fügsamkeit und Gemütlichkeit verlassen.",
+  "**Frösche:** Sowohl im Fountain als auch am Südrand der Rushes gibt es Frösche und Kröten aller Art in Fülle. Die meisten Frösche sind entweder zu faul oder zu aggressiv zum Abrichten, doch manche sind fügsam genug, um hervorragende Reittiere zu werden. Und einer von ihnen war so großartig, dass man ihn sogar zum König machte!",
+  "**Eidechsen:** Flink, schnell und viel zu gerissen für ihr eigenes Wohl, sind Eidechsen ausgesprochen unzuverlässige Reittiere und neigen dazu, auszubrechen. Dennoch haben manche Littlings eine Schwäche für sie und bestehen darauf, sie zu reiten.",
+  "**Maulwürfe:** Die Tunnel und Galerien der Citadel wären nie ohne die Hilfe der fleißigen Maulwürfe der Barrens gegraben worden. Unzertrennliche Gefährten der Gnomes, sind sie verlässliche Reittiere, die sich selbst in tiefstem Schatten mühelos bewegen können.",
+  "**Vögel:** Damit das klar ist: Normalerweise sind Vögel KEINE Reittiere. Nur Littlings, die einen Skyrider-Vertrag eingegangen sind, können hoffen, sie zu lenken, alle anderen müssen sich damit begnügen, auf einem Trägervogel mitzufliegen. Sofern sie es sich leisten können."]},
+ {t: "tbl", head: ["Name", "Merkmale", "Preis"], rows: [
+  ["Maus", "Pelzig.", "6"],
+  ["Rennmaus", "Schnell, pelzig.", "12"],
+  ["Lastmaus", "Mächtig, pelzig.", "9"],
+  ["Kriegsmaus", "Kampferprobt, pelzig.", "15"],
+  ["Käfer", "Kletternd, mächtig.", "6"],
+  ["Kriegskäfer", "Kletternd, kampferprobt, mächtig.", "15"],
+  ["Schnecke", "Kletternd, langsam.", "4"],
+  ["Lastschnecke", "Kletternd, mächtig, langsam.", "6"],
+  ["Frosch", "Amphibisch, nachtaktiv.", "7"],
+  ["Kriegsfrosch", "Amphibisch, kampferprobt, nachtaktiv.", "15"],
+  ["Eidechse", "Kletternd.", "8"],
+  ["Rennechse", "Kletternd, schnell.", "12"],
+  ["Maulwurf", "Pelzig, nachtaktiv.", "7"],
+  ["Lastmaulwurf", "Pelzig, mächtig, nachtaktiv.", "9"],
+  ["Vogel", "Fliegend.", "–"],
+  ["Trägervogel", "Kampferprobt, fliegend, mächtig, nachtaktiv.", "–"]]},
+ "Diese Tabelle listet jedes mögliche Reittier samt einer Preisschätzung, die je nach Nation und Jahreszeit stark schwanken kann.",
+ bild("s114-iiii-mounts", 220),
+ {t: "h", x: "Merkmale der Reittiere"},
+ "Per Definition kann jedes Reittier einen einzelnen Littling und eine mäßige Menge Gepäck tragen. Reist du im Sattel deines Reittiers, verkürzt du die für dein Ziel nötigen Reisetage um 1/3. Mehr dazu in Abschnitt VIII „Reise & Jahreszeiten“. Zusätzlich hat jedes Reittier weitere Merkmale mit bestimmten Vorteilen.",
+ {t: "karten", x: [
+  Z("Amphibisch", "Das Reittier kann schwimmen und tauchen und von einem einzelnen Littling als Boot genutzt werden."),
+  Z("Kampferprobt", "Das Reittier ist für den Kampf ausgebildet und hat 6 Stresskästchen. Im Kampf kannst du wählen, dass das Reittier den gesamten Schaden eines einzelnen Angriffs oder Manövers an deiner Stelle erleidet. Die Wunden eines Reittiers heilen nach einer kräftigen Mahlzeit und einer guten Nachtruhe vollständig. Füllt es das letzte Stresskästchen, scheidet es aus dem Kampf aus und braucht drei volle Tage medizinische Behandlung, bevor es wieder auf die Straße kann."),
+  Z("Kletternd", "Das Reittier kann auf steilen und zerklüfteten Flächen klettern. Sich festzuhalten, während das Reittier senkrechte Flächen bewegt, bleibt eine Herausforderung."),
+  Z("Langsam", "Das Reittier kann Lasten und Littlings wie jedes andere tragen, verkürzt die Reisezeit aber nicht. Überladene oder übermüdete Reittiere erhalten dieses Merkmal automatisch."),
+  Z("Pelzig", "Das Reittier ist von dichtem Fell bedeckt, das dir hilft, selbst in den kältesten Nächten warm zu bleiben oder dich vor neugierigen Blicken zu verbergen."),
+  Z("Mächtig", "Das Reittier ist groß und kräftig und kann mühelos jedes Gewicht und jede Fracht tragen. Ein mächtiges Reittier kann bis zu drei erwachsene Littlings tragen und einen Karren oder eine Kutsche mäßiger Größe ziehen, ohne langsamer zu werden."),
+  Z("Nachtaktiv", "Das Reittier kann nachts sehen oder sich auch in tiefster Dunkelheit mit völliger Sicherheit bewegen."),
+  Z("Schnell", "Das Reittier halbiert die für ein Ziel nötigen Reisetage. Außerdem ist das Reittier hilfreich bei allen Würfen zum Rennen, Fliehen oder Verfolgen."),
+  Z("Fliegend", "Das Reittier erreicht jeden Ort im Garten in einer einzigen Reise, die einen Tag dauert. Mehr dazu in Abschnitt VIII „Reise & Jahreszeiten“.")]},
+ {t: "box", h: "Tierführer und Reittiere", b: ["Manche Merkmale von Animal Companions, etwa Large Frog für Frösche, können deinen treuen Freund in ein echtes Reittier verwandeln. Kannst du auf deinem Animal Companion reiten, darfst du frei das Reittierprofil wählen, das ihn am besten darstellt, aus denen der Reittier-Tabelle."]},
+ {t: "h", x: "Vögel reiten"},
+ "In der kollektiven Vorstellung sind Vögel legendäre Flugwesen, die die Landschaft mit ihren bunten Flügeln erhellen, das wahre Symbol der höchsten, unerreichbarsten Form der Freiheit. Im Vertrauen: Die meisten Vögel sind fliegende Raubtiere mit großen Krallen und kleinen Gehirnen. Diese Geschöpfe sind alles andere als vertrauenswürdig und haben keine Skrupel, den Ersten, der vorbeikommt, zu picken. Glaub mir.",
+ "Die meisten Littlings können Vögel nicht reiten, weder große noch kleine, und wären wohl besser dran, wenn sie es nie versuchten, sonst riskieren sie, zum Vogelsnack zu werden. Außerdem kann man im Garten keine Sattelvögel kaufen oder aufziehen.",
+ "Der einzige Weg für einen Littling, Vogelreiter zu werden, ist ein Skyrider-Vertrag. Das ist ein Persönlicher Vertrag, den die Mächte des Gartens Littlings gewähren, die einem Vogel in Not das Leben retten oder sich mit Leib und Seele darum kümmern, dass ein Ei zu einem kleinen Küken ausschlüpft, bis hin zum Füttern des Kükens und dem Beibringen des Fliegens, ohne je etwas dafür zu verlangen. Mehr dazu in Abschnitt III „Verträge des Gartens“.",
+ "Zu den berühmtesten Skyridern des Outhold zählen der verstorbene General Orion Astralta vom Seelie Court, der die Fae-Vorhut auf seinem Kriegsrotkehlchen nach Faeriyev führte, aber auch die schwarzen Samurai der Tengu-Kavallerie, die auf ihren Geisterraben über die Länder des Shogunate fliegen. Wer nicht das Glück oder den Mut hat, einen Skyrider-Vertrag zu ergattern, kann dennoch zu einem der Aviports im Outhold gehen, etwa dem auf dem Gipfel des Roof. Dort können erfahrene Flieger dich im Sattel eines Trägervogels sichern und an jedes Ziel deiner Wahl schicken. Eine Erfahrung, die man mindestens einmal im Leben ausprobieren sollte.",
+ {t: "q", x: "Ein kleiner Gnome sagte zu seinem Vater: „Eines Tages werde ich auch mit den Vögeln fliegen.“ Der Vater lächelte: „Setz deinen Pilzhut auf, sonst passiert es noch heute.“", wer: "Gnome-Erzählung"}
+]}
+);
+})();

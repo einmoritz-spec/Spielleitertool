@@ -20,7 +20,7 @@ function ktabs(r){
 }
 function viewStart(){
   return '<section class="hero"><div class="bg"></div><div class="shade"></div>' +
-    '<div class="mid"><img class="tit" src="../assets/logos/into-the-odd.webp" alt="Into the Odd"><div class="sub">Erforscher, Arcana und der Untergrund von Bastion</div></div>' +
+    '<div class="mid"><img class="tit" src="../assets/logos/into-the-odd.webp" alt="Into the Odd"><div class="tag">Erforscher, Arcana und der Untergrund von Bastion</div></div>' +
     '<div class="areas">' + AREAS.map(function(a){ return '<a class="area" style="--c:' + a.c + '" onclick="go(\'' + a.id + '\')"><b>' + esc(a.t) + '</b><span>' + esc(a.k) + '</span></a>'; }).join("") + '</div></section>';
 }
 function viewArea(r){

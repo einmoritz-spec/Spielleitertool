@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v961sq";
+const VERSION = "v962sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1385,6 +1385,8 @@ const FILES = [
   "household/js/data/fp-k1-d.js",
   "household/js/data/fp-k1-e.js",
   "household/js/data/fp-k1-f.js",
+  "household/img/fp/full/fp-s111-i-the-blue-rat-kachel.webp",
+  "household/img/fp/thumb/fp-s111-i-the-blue-rat-kachel.webp",
   "household/img/fp/full/fp-s071-i-argos-diary-kachel.webp",
   "household/img/fp/thumb/fp-s071-i-argos-diary-kachel.webp",
   "household/img/fp/full/fp-s096-i-the-stolen-shipment-links-kachel.webp",

@@ -37,7 +37,7 @@ window.HH_NAV = {
    {id: "berufe", t: "Berufe", seiten: [["einfuehrung", "Berufe des Gartens"], ["soldiers", "Soldaten"], ["scholars", "Gelehrte"], ["hunters", "Jäger"], ["criminals", "Verbrecher"], ["duelists", "Duellanten"], ["wayfarers", "Wayfarers"], ["handlers", "Tierführer"], ["frog", "Frosch"], ["ladybug", "Marienkäfer"], ["moth", "Nachtfalter"], ["mole", "Maulwurf"], ["traits", "Merkmale"]]},
    {id: "vertraege", t: "Verträge", seiten: [["ttt", "Schreckliche Schreckliche Dinge"], ["hereditary", "Erbverträge"], ["personal", "Persönliche Verträge"], ["welcoming", "Willkommensverträge"], ["favors", "Favors"]]},
    {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Münzen & Barter"], ["goods", "Waren & Dienstleistungen"], ["weapons", "Waffen"], ["concoctions", "Natürliche Mixturen"], ["mounts", "Reittiere"]]},
-   {id: "reise", t: "Reise & Jahreszeiten", seiten: [["travel", "Travel"], ["darkness", "Darkness"], ["stress", "Severe Stress"], ["seasons", "Seasons"]]}
+   {id: "reise", t: "Reise & Jahreszeiten", seiten: [["reise", "Reise", ["reise", "reisetage", "kreuzwege", "chancen", "fliegen", "camp"]], ["dunkelheit", "Dunkelheit"], ["stress", "Schwerer Stress"], ["jahreszeiten", "Jahreszeiten", ["jahreszeiten", "winter", "fruehling", "sommer", "herbst"]]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [
    {id: "saga", t: "Saga", seiten: [["einfuehrung", "Die Saga des Langen Winters"], ["kapitel", "Kapitel & Jahreszeiten"], ["k6", "Kapitel VI"], ["k7", "Kapitel VII"], ["epilog", "Epilog"], ["thron", "Ein leerer Thron"]]},

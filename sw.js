@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v925sq";
+const VERSION = "v926sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1343,6 +1343,14 @@ const FILES = [
   "household/js/data/welt-voelker-b.js",
   "household/js/data/welt-voelker-c.js",
   "household/js/data/welt-voelker-d.js",
+  "household/js/data/welt-geschichte.js",
+  "household/img/grundbuch/full/grundbuch-s175-vii-battle-of-quillwaters.webp",
+  "household/img/grundbuch/full/grundbuch-s176-177-vii-battle-of-quillwaters-ganz.webp",
+  "household/img/grundbuch/full/grundbuch-s180-vii-high-council.webp",
+  "household/img/grundbuch/full/grundbuch-s172-vii-first-household-war.webp",
+  "household/img/grundbuch/full/grundbuch-s170-vi-weapons.webp",
+  "household/img/grundbuch/full/grundbuch-s173-vii-first-household-war.webp",
+  "household/img/grundbuch/full/grundbuch-s181-vii-high-council.webp",
   "household/img/grundbuch/full/grundbuch-s030-i-sprites.webp",
   "household/img/grundbuch/full/grundbuch-s031-i-free-dominions-b.webp",
   "household/img/grundbuch/full/grundbuch-s025-i-hearth-b.webp",

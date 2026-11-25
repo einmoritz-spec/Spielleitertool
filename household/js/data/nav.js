@@ -7,7 +7,7 @@ window.HH_NAV = {
   {id: "welt", t: "Welt", unter: [
    {id: "voelker", t: "Völker & Nationen", seiten: [["ursprung", "Ursprünge"], ["faeries", "Faeries"], ["realm", "Realm"], ["boggarts", "Boggarts"], ["hearth", "Hearth"], ["sprites", "Sprites"], ["dominions", "Free Dominions"], ["sluagh", "Sluagh"], ["horde", "Horde"]]},
    {id: "haus", t: "Das Haus", sw: [["erdgeschoss", "Erdgeschoss"], ["obergeschoss", "Obergeschoss"], ["keller", "Keller"]], seiten: [["eingang", "Entry Hall"], ["inbetweens", "Inbetweens"], ["dining", "Dining Hall"], ["living", "Living Room"], ["upper", "Upper Floor"], ["basement", "Basement"]]},
-   {id: "geschichte", t: "Geschichte", seiten: [["meister", "Das Verschwinden des Meisters"], ["jagd", "Die Wilde Jagd"], ["krieg", "Der Erste Household-Krieg"], ["quillwaters", "Die Schlacht von Quillwaters"], ["rat", "Der Hohe Rat"]]},
+   {id: "geschichte", t: "Geschichte", seiten: [["meister", "Das Verschwinden des Master"], ["jagd", "Die Wilde Jagd"], ["krieg", "Der Erste Household-Krieg"], ["quillwaters", "Die Schlacht von Quillwaters"], ["rat", "Der Hohe Rat"]]},
    {id: "atlas", t: "Atlas", sw: [["astraviya", "Astraviya"], ["staedte", "Städte"]]},
    {id: "alltag", t: "Alltag der Nationen", seiten: [["realm", "Realm"], ["hearth", "Hearth"], ["dominions", "Free Dominions"], ["horde", "Horde"]]}
   ]},

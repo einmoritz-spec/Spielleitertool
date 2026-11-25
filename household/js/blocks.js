@@ -58,17 +58,18 @@ function gegnerKarte(b){
     (b.tx || []).map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") +
     (b.zg || []).map(function(z){ return '<p class="gk-zug"><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>'; }).join("") + '</div></div>';
 }
-document.addEventListener("click", function(ev){ var k = ev.target.closest && ev.target.closest(".gegner:not(.koloss) > .gk-kopf"); if(k) k.parentNode.classList.toggle("zu"); });
-document.addEventListener("keydown", function(ev){ if((ev.key === "Enter" || ev.key === " ") && ev.target.matches && ev.target.matches(".gegner:not(.koloss) > .gk-kopf")){ ev.preventDefault(); ev.target.parentNode.classList.toggle("zu"); } });
+document.addEventListener("click", function(ev){ var k = ev.target.closest && ev.target.closest(".gegner > .gk-kopf"); if(k) k.parentNode.classList.toggle("zu"); });
+document.addEventListener("keydown", function(ev){ if((ev.key === "Enter" || ev.key === " ") && ev.target.matches && ev.target.matches(".gegner > .gk-kopf")){ ev.preventDefault(); ev.target.parentNode.classList.toggle("zu"); } });
 /* Phase eines Colossus: {t:"koloss", n:Name der Phase, st:Stress, tr, vh:Verhalten, zg:[[Move, Text]]} */
+var KC = 0;
 function kolossKarte(b){
-  return '<div class="kasten gegner koloss"><div class="gk-kopf"><span>' + esc(b.n) + '</span><span class="ko-st">Stress <b>' + b.st + '</b></span></div>' +
+  return '<div class="kasten gegner koloss' + (KC++ ? ' zu' : '') + '"><div class="gk-kopf" role="button" tabindex="0"><span><i class="gk-pf"></i>' + esc(b.n) + '</span><span class="ko-st">Stress <b>' + b.st + '</b></span></div><div class="gk-rest">' +
     '<p class="gk-z"><b>Traits:</b> ' + md(b.tr) + '</p><div class="ko-vh"><b>Verhalten:</b> ' + md(b.vh) + '</div>' +
-    (b.zg || []).map(function(z){ return '<p class="gk-zug"><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>'; }).join("") + '</div>';
+    (b.zg || []).map(function(z){ return '<p class="gk-zug"><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>'; }).join("") + '</div></div>';
 }
 function hatGegner(e){ return (e.b || []).some(function(x){ return x && x.t === "gegner"; }); }
 function eintragKopf(e, book){ return hatGegner(e) ? "" : '<h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>'; }
-function eintragBlk(e, book){ GKN = hatGegner(e) ? {t: e.t, p: e.p, b: book} : null; var r = blk(e.b, book); GKN = null; return r; }
+function eintragBlk(e, book){ GKN = hatGegner(e) ? {t: e.t, p: e.p, b: book} : null; KC = 0; var r = blk(e.b, book); GKN = null; return r; }
 /* Standard-Seite für HH_TEXT: gewählter Eintrag der Seitenleiste, Überschrift mit Seitenlink */
 function textSeite(P, list, book){
   var grp = (P.unter.seiten || []).filter(function(x){ return x[0] === P.sel && x[2]; })[0];

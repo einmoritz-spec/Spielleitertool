@@ -400,3 +400,5 @@ body.garten .gegner .gk-kopf .pg,body.garten .gegner .gk-kopf a{font-size:13px;m
 body.garten .gk-sep{font-style:normal;margin:0 12px;color:#c9a66b}
 body.garten .gegner:not(.koloss)>.gk-kopf{align-items:center}
 body.garten .sec.txt:has(>.gegner.zu){margin:0}body.garten .gegner.zu{margin:7px 0}
+body.garten .koloss>.gk-kopf{cursor:pointer;align-items:center;margin-bottom:8px}
+body.garten .koloss.zu .ko-st b{font-size:24px}

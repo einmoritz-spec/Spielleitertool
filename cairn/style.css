@@ -159,3 +159,7 @@ body.start .topbar{position:fixed;left:0;right:0;background:linear-gradient(180d
 .side a:hover .nr{color:var(--mag2)}
 .side a:has(.nr){display:flex;align-items:baseline}
 .side a .nr{flex:none;margin-right:10px}
+.deko{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:22px;margin:18px 0 22px}
+.deko img{max-height:170px;max-width:46%;width:auto;cursor:zoom-in;filter:none}
+.sec2{margin-top:46px}
+.side a:first-of-type{padding-right:46px}

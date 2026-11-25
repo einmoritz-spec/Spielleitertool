@@ -61,6 +61,7 @@ function blk(L){
       case "grid": return '<div class="grid' + (b.n || 2) + '">' + b.x.map(function(c){ return '<div class="gc">' + blk(c) + "</div>"; }).join("") + "</div>";
       case "stats": return '<div class="stats">' + b.x.map(function(s){ return '<div><b>' + esc(s[0]) + '</b><span>' + esc(s[1]) + '</span><small>' + esc(s[2] || "") + '</small></div>'; }).join("") + '</div>';
       case "cards": return '<div class="cards">' + b.x.map(function(c){ return card(c); }).join("") + "</div>";
+      case "deko": return '<div class="deko">' + b.x.map(function(n){ return '<img src="img/deko/' + n + '.webp" alt="" onclick="zoom(this.src)">'; }).join("") + "</div>";
       case "img": return '<img class="bimg" src="img/' + b.src + '" alt="" onclick="zoom(this.src)">';
     }
     return "";
@@ -129,6 +130,7 @@ function viewBereich(aid, kid){
   if(aid === "hintergruende") return viewHG(kid);
   var L = chapters(aid);
   if(!L.length) return '<div class="pad"><p class="lead">Dieser Bereich ist noch in Arbeit.</p></div>';
+  if(GRUPPEN[aid]) return viewGruppe(aid, kid, L, A);
   var cur = L[0]; L.forEach(function(k){ if(k.id === kid) cur = k; });
   window.__pen = aid + ":" + cur.id; window.__sub = L.length > 1 ? L.map(function(k){ return [aid + "/" + k.id, k.t, k.id === cur.id]; }) : null;
   var hs = (cur.b || []).filter(function(x){ return x && x.t === "h"; });
@@ -136,6 +138,21 @@ function viewBereich(aid, kid){
   if(hs.length >= 4){ side = '<nav class="side">' + hs.map(function(h){ var m = h.x.match(/^(\d+)\s*[–-]\s*(.+)$/); return '<a onclick="jump(\'h-' + hid(h.x) + '\')">' + (m ? '<b class="nr">' + m[1] + '</b>' + esc(m[2]) : esc(h.x.split(":")[0])) + '</a>'; }).join("") + '</nav>'; }
   var body = '<div class="sec"><h2>' + esc(cur.t) + '</h2>' + (cur.p ? pgl(cur.p, cur.buch || A.b) : "") + '</div><div class="txt">' + blk(cur.b) + '</div>';
   window.__buch = cur.buch || A.b;
+  return lay(side, body);
+}
+
+/* Bereiche mit Gruppen: Unterleiste = Gruppen, Seitenleiste = Kapitel der Gruppe, Inhalt flach untereinander */
+function kurz(t){ var i = t.indexOf(": "); return i > 0 ? t.slice(i + 2) : t; }
+function viewGruppe(aid, kid, L, A){
+  var G = GRUPPEN[aid], cur = G[0];
+  G.forEach(function(g){ if(g[0] === kid || g[2].indexOf(kid) >= 0) cur = g; });
+  var ch = cur[2].map(function(id){ for(var i = 0; i < L.length; i++) if(L[i].id === id) return L[i]; return null; }).filter(Boolean);
+  window.__pen = aid + ":" + cur[0];
+  window.__sub = G.length > 1 ? G.map(function(g){ return [aid + "/" + g[0], g[1], g === cur]; }) : null;
+  var side = ch.length > 1 ? '<nav class="side">' + ch.map(function(k){ return '<a onclick="jump(\'k-' + k.id + '\')">' + esc(kurz(k.t, cur[1])) + '</a>'; }).join("") + '</nav>' : "";
+  var body = ch.map(function(k, i){ return '<div class="sec' + (i ? ' sec2' : '') + '" id="k-' + k.id + '"><h2>' + esc(kurz(k.t, cur[1])) + '</h2>' + (k.p ? pgl(k.p, k.buch || A.b) : "") + '</div><div class="txt">' + blk(k.b) + '</div>'; }).join("");
+  window.__buch = (ch[0] && ch[0].buch) || A.b;
+  if(kid !== cur[0] && ch.some(function(k){ return k.id === kid; })) setTimeout(function(){ jump("k-" + kid); }, 60);
   return lay(side, body);
 }
 /* Hintergründe: Kachelübersicht → Detail */

@@ -1,6 +1,5 @@
 /* Cairn – Werkzeuge der Spielleitung, Teil 1: Bestiarium (Wardenhandbuch S. 82–107) */
 CN.add("werkzeuge", {id:"bestiarium", t:"Bestiarium", p:82, buch:"cn_w", b:[
- "*Eine Sammlung von Werkzeugen für die Spielleitung: ein Bestiarium, Verfahren zum Erschaffen und Umwandeln von Monstern, Zauberbücher, Namen, Charakterentwicklung und Ratschläge.*",
  {t:"h", x:"Akolyth bis Blutelch"},
  {t:"cards", x:[
   {t:"Akolyth", w:"TS 4, Rüstung 1, STÄ 8, GES 11, WIL 14, Zeremoniendolch (W6)", b:[{t:"ul", x:["Heilige Diener, die an eine bestimmte Gottheit gebunden sind. Reisen meist in Gruppen von vier oder mehr.","Tragen ein heiliges Symbol (Schutzzeichen einmal pro Tag)."]}]},

@@ -128,6 +128,7 @@ function viewSaga(P){
   var name = sub ? S.unter.filter(function(u){ return u[0] === sub; })[0][1] : S.t;
   var tx = HH_TEXT[P.s + "/" + sub], book = P.s === "fp" ? "hh_a2" : "hh_a1";
   if(!sub) return {bar: bar, body: sagaStart(P.s)};
+  if(P.rest && P.rest[1] === "litm" && typeof litmView === "function"){ var Pl = {s: P.s, sub: P.sub, rest: [P.rest[0], "litm", P.rest[2]]}; return litmView(Pl, bar); }
   if(tx && P.rest && P.rest[0]){ var one = tx.filter(function(e){ return e.id === P.rest[0]; }); if(one.length) tx = one; }
   else if(tx && tx[0].id === "uebersicht") tx = [tx[0]];
   var side = "";
@@ -135,7 +136,7 @@ function viewSaga(P){
     var all = HH_TEXT[P.s + "/" + sub], cur = P.rest[0];
     side = all.map(function(e){ return '<a class="' + (e.id === cur ? 'on' : '') + '" onclick="go(\'' + P.s + '/' + sub + (e.id === "uebersicht" ? '' : '/' + e.id) + '\')">' + esc(e.id === "uebersicht" ? "Übersicht" : e.t) + '</a>'; }).join("");
   }
-  if(tx) return {bar: bar, body: lay(side, (tx.length > 1 ? '<div class="sec"><h1>' + esc(name) + '</h1></div>' : '') + tx.map(function(e){ return '<div class="sec txt" id="ab-' + e.id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join(""))};
+  if(tx) return {bar: bar, body: lay(side, (tx.length > 1 ? '<div class="sec"><h1>' + esc(name) + '</h1></div>' : '') + tx.map(function(e){ return '<div class="sec txt" id="ab-' + e.id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + (tx.length === 1 && window.HH_LITM && HH_LITM[P.s + "/" + sub + "/" + e.id] ? '<button class="btn-litm" onclick="go(\'' + P.s + '/' + sub + '/' + e.id + '/litm\')">Legend in the Mist</button>' : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join(""))};
   return {bar: bar, body: lay("", '<div class="sec"><h1>' + esc(name) + '</h1></div>' + platzhalter(name))};
 }
 

@@ -15,11 +15,27 @@ function blk(L, book){
       case "box": return '<div class="kasten"><h4>' + esc(b.h) + '</h4>' + blk(b.b, book) + "</div>";
       case "bild": return '<figure class="fig' + (b.w === "voll" ? " voll" : b.w === "mitte" ? " mitte" : b.w === "raster" ? " raster" : "") + '"' + (b.w === "voll" || b.w === "mitte" || b.w === "raster" ? "" : ' style="width:' + b.w + 'px"') + '>' + b.s.split(" ").map(function(n){ return '<img loading="lazy" src="' + IMGP(n) + '" alt="">'; }).join("") + '</figure>';
       case "karten": return '<div class="karten nomas' + (b.cls ? ' ' + b.cls : '') + '">' + blk(b.x, book) + "</div>";
+      case "gegner": return gegnerKarte(b);
+      case "kacheln": return '<div class="kacheln">' + b.x.filter(function(k){ return k.s; }).map(function(k){ return '<a class="kachel" onclick="go(\'sl/gegner/' + k.id + '\')"><span class="kb"><img loading="lazy" src="' + IMGP(k.s, 1) + '" alt=""></span><b>' + esc(k.n) + '</b><small>' + GTYP[k.typ] + (k.lv ? ' · Stufe ' + k.lv : '') + '</small></a>'; }).join("") + '</div><p class="kliste">' + b.x.filter(function(k){ return !k.s; }).map(function(k){ return '<a onclick="go(\'sl/gegner/' + k.id + '\')">' + esc(k.n) + '</a><small> ' + (k.lv ? 'Stufe ' + k.lv : GTYP[k.typ]) + '</small>'; }).join("") + '</p>';
       case "q": return '<blockquote class="spruch">' + md(b.x) + (b.wer ? "<small>" + esc(b.wer) + "</small>" : "") + "</blockquote>";
       case "tbl": return '<table class="tbl">' + (b.head ? "<tr>" + b.head.map(function(h){ return "<th>" + esc(h) + "</th>"; }).join("") + "</tr>" : "") + b.rows.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + md(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>";
     }
     return "";
   }).join("");
+}
+/* Gegnerkarte: {t:"gegner", typ:"basic|critical|extreme", lv:0-5, st:Anzahl Kästchen, cr:[Nr. der Crucial Boxes], mv, tr, ot, ak:[6 Aktionen], tx:[Absätze], zg:[[Move, Text]], bild:[Name, Breite]} */
+var GTYP = {basic: "Einfacher Gegner", critical: "Kritischer Gegner", extreme: "Extremer Gegner"};
+function gegnerKarte(b){
+  var rom = ["I", "II", "III", "IIII", "V", "VI"], boxes = "", i, dots = "";
+  for(i = 1; i <= b.st; i++) boxes += '<i class="sk' + (b.cr.indexOf(i) > -1 ? ' cr' : '') + '"></i>';
+  for(i = 1; i <= 5 && b.lv; i++) dots += '<i class="lv' + (i <= b.lv ? ' on' : '') + '"></i>';
+  return '<div class="kasten gegner">' + (b.bild ? '<figure class="fig" style="width:' + b.bild[1] + 'px"><img loading="lazy" src="' + IMGP(b.bild[0]) + '" alt=""></figure>' : '') +
+    '<div class="gk-kopf"><span>' + GTYP[b.typ] + '</span>' + (b.lv ? '<span class="gk-lv" title="Gefahrenstufe ' + b.lv + '">' + dots + '</span>' : '') + '</div>' +
+    '<p class="gk-z"><b>Stress:</b> <span class="gk-st">' + boxes + '</span></p>' +
+    '<p class="gk-z"><b>Moves:</b> ' + md(b.mv) + '</p><p class="gk-z"><b>Traits:</b> ' + md(b.tr) + '</p>' + (b.ot ? '<p class="gk-z"><b>Optionale Traits:</b> ' + md(b.ot) + '</p>' : '') +
+    '<ol class="gk-ak">' + b.ak.map(function(a, n){ return '<li><b>' + rom[n] + '</b><span>' + md(a) + '</span></li>'; }).join("") + '</ol>' +
+    (b.tx || []).map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") +
+    (b.zg || []).map(function(z){ return '<p class="gk-zug"><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>'; }).join("") + '</div>';
 }
 /* Standard-Seite für HH_TEXT: gewählter Eintrag der Seitenleiste, Überschrift mit Seitenlink */
 function textSeite(P, list, book){

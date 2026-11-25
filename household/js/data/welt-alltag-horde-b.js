@@ -66,7 +66,7 @@ A.push({id: "horde-vergessene", t: "Mysterium: The Forgotten One", p: 160, b: [
       "V – Der Skorpion versucht, dich mit seinen Zangen einzufangen. Reagiere mit Caution.",
       "VI – Der Skorpion hebt den Schwanz und klackt mit den Zangen. Reagiere mit Will."]},
     "**Pile On:** wie oben.",
-    "**Double Slam:** Der Skorpion schmettert seine riesigen Zangen auf den Boden und versucht, die Figuren zu zermalmen. Figuren, die keinen Kritischen Reaktionswurf 2 auf Athletics + War bestehen, werden Müde und Verletzt. Figuren, die einen einzigen Kritischen Erfolg erzielen, können einen der beiden Zustände vermeiden."])
+    "**Double Slam:** Der Skorpion schmettert seine riesigen Zangen auf den Boden und versucht, die Figuren zu zermalmen. Figuren, die keinen Kritischen Reaktionswurf 2 auf Athletics + War bestehen, werden Erschöpft und Verletzt. Figuren, die einen einzigen Kritischen Erfolg erzielen, können einen der beiden Zustände vermeiden."])
 ]});
 
 H["haus/welt/alltag"] = (H["haus/welt/alltag"] || []).concat(A);

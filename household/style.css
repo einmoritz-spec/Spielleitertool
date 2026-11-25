@@ -198,3 +198,8 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .fg-tx h4{margin:14px 0 4px;font-variant:small-caps;letter-spacing:.05em}
 .fg-tx p{margin:0 0 8px}
 @media(max-width:900px){.fg-obe{flex-direction:column}.fg-d{grid-template-columns:1fr}.fg-k{grid-template-columns:1fr 1fr}}
+
+.kacheln.gross{grid-template-columns:repeat(3,1fr);gap:30px 28px;margin:20px 0}
+.kacheln.gross .kb{height:340px}.kacheln.gross .kb img{max-height:340px}
+.kacheln.gross b{font-size:22px;margin-top:10px}.kacheln.gross small{font-size:15px}
+@media(max-width:700px){.kacheln.gross{grid-template-columns:1fr 1fr}.kacheln.gross .kb{height:240px}.kacheln.gross .kb img{max-height:240px}}

@@ -131,6 +131,6 @@ Fig("fig-petrolio", "Petrolio", "Sluagh · Tierführer · Traveling Merchant", "
    "Petrolio hatte viele Geschichten zu erzählen, jede so exotisch und aufregend wie die Waren, die er verkaufte, zumindest auf den ersten Blick. Mit der Wahrhaftigkeit nahm er es nicht so genau. Aus irgendeinem Grund gab es keinen Littling im House, der sich nicht auf die eine oder andere Weise von den Reizen dieses unverbesserlichen Schlingels gewinnen ließ. Ebenso gab es keine Stadt im House, die Petrolio betreten konnte, ohne von Reihen von Gläubigern und Eintreibern, Geschäfts- und Liebesrivalen und verärgerten ehemaligen Kunden begrüßt zu werden, die eine Rückerstattung wollten. Auf Biegen oder Brechen."]);
 
 F.unshift({id: "uebersicht", t: "Neue Figuren", p: 185, b: [
-  {t: "kacheln", r: "sl/figuren/", x: F.map(function(f){ var k = f.b[0]; return {n: f.t, id: f.id, s: k.bild, u: k.sub}; })}]});
+  {t: "kacheln", gross: 1, r: "sl/figuren/", x: F.map(function(f){ var k = f.b[0]; return {n: f.t, id: f.id, s: k.bild, u: k.sub}; })}]});
 H["haus/sl/figuren"] = F;
 })();

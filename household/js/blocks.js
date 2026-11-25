@@ -58,13 +58,15 @@ function textSeite(P, list, book){
 }
 
 /* Figurenkarte (Neue Figuren): {t:"figur", n, sub, bild:[Name,Breite], d:[[Feld,Wert]], s:[[Feld,Wert]] Startwerte, k:[[Kapitel,Text]], tx:[Absätze]} */
-function figurKarte(b){
-  return '<div class="kasten figur" id="ab-' + b.id + '"><div class="fg-kopf"><div class="fg-sub">' + esc(b.sub) + '</div></div>' +
-    '<div class="fg-obe">' + (b.bild ? '<figure class="fig"' + (b.bw ? ' style="flex-basis:' + b.bw + 'px"' : '') + '><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></figure>' : '') +
-    '<div class="fg-d"><dl>' + b.d.map(function(x){ return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join("") + '</dl>' +
-    '<dl class="fg-s">' + b.s.map(function(x){ return '<dt>' + esc(x[0]) + '</dt><dd>' + md(x[1]) + '</dd>'; }).join("") + '</dl></div></div>' +
-    '<div class="fg-k">' + b.k.map(function(x){ return '<div><b>Kapitel ' + x[0] + '</b><span>' + md(x[1]) + '</span></div>'; }).join("") + '</div>' +
-    '<div class="fg-tx"><h4>Prolog</h4>' + b.tx.map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") + '</div></div>';
+function figurKarte(b, kopf){
+  var stk = b.d.filter(function(x){ return x[0] !== "Name"; }), name = b.d.filter(function(x){ return x[0] === "Name"; })[0];
+  return '<div class="kasten figur fg2" data-mas="0" id="ab-' + b.id + '">' +
+    (b.bild ? '<div class="fg-bild"><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></div>' : '') +
+    '<div class="fg-haupt">' + (kopf || "") + '<div class="fg-sub">' + (name ? esc(name[1]) + ' · ' : '') + esc(b.sub) + '</div>' +
+    '<div class="fg-steck">' + stk.map(function(x){ return '<div><span>' + esc(x[0]) + '</span>' + esc(x[1]) + '</div>'; }).join("") + '</div>' +
+    '<h4>Startwerte</h4><dl class="fg-s">' + b.s.map(function(x){ return '<div><dt>' + esc(x[0]) + '</dt><dd>' + md(x[1]) + '</dd></div>'; }).join("") + '</dl>' +
+    '<h4>Entwicklung</h4><div class="fg-k">' + b.k.map(function(x){ return '<div><b>Kapitel ' + x[0] + '</b><span>' + md(x[1]) + '</span></div>'; }).join("") + '</div>' +
+    '<div class="fg-tx"><h4>Prolog</h4>' + b.tx.map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") + '</div></div></div>';
 }
 
 /* Figuren-Popup: öffnet das Profil einer Figur aus der Saga */
@@ -72,7 +74,7 @@ function figurPopup(id){
   var e = (HH_TEXT["fp/figuren"] || []).filter(function(x){ return x.id === id; })[0]; if(!e) return;
   document.querySelectorAll(".modal").forEach(function(m){ m.remove(); });
   var m = document.createElement("div"); m.className = "modal figpop";
-  m.innerHTML = '<div><button class="fp-x" aria-label="Schließen">×</button><h2>' + esc(e.t) + (e.p ? pgl("hh_a2", e.p) : "") + '</h2>' + blk(e.b, "hh_a2") + '<a class="fp-all" onclick="document.querySelector(\'.modal\').remove();go(\'fp/figuren/' + id + '\')">Zur Figurenseite</a></div>';
+  m.innerHTML = '<div><button class="fp-x" aria-label="Schließen">×</button>' + figurKarte(e.b[0], '<h2>' + esc(e.t) + (e.p ? pgl("hh_a2", e.p) : "") + '</h2>') + '<a class="fp-all" onclick="document.querySelector(\'.modal\').remove();go(\'fp/figuren/' + id + '\')">Zur Figurenseite</a></div>';
   m.addEventListener("click", function(ev){ if(ev.target === m || ev.target.className === "fp-x") m.remove(); });
   document.body.appendChild(m);
 }

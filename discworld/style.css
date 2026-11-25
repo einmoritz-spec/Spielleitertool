@@ -221,11 +221,11 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .stadt{position:relative;padding:44px 40px 0;background:linear-gradient(rgba(243,234,214,.86),rgba(243,234,214,.94) 50%,rgba(243,234,214,1) 82%),url(img/full/stadt-luftbild.webp) center 30%/100% auto no-repeat}
 .akten{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;gap:26px;max-width:1240px;margin:0 auto}
 .akte{position:relative;background:rgba(255,251,242,.85);border:1px solid #c9ae80;box-shadow:0 6px 16px rgba(70,40,15,.12);padding:16px 16px 30px}
-.akte::after{content:"";position:absolute;inset:-5px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left top/46px auto no-repeat,url(img/deko/ecke-or.webp) right top/46px auto no-repeat,url(img/deko/ecke-ul.webp) left bottom/46px auto no-repeat,url(img/deko/ecke-ur.webp) right bottom/40px auto no-repeat}
+.akte::after{content:"";position:absolute;top:9px;left:9px;right:9px;height:230px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left top/38px auto no-repeat,url(img/deko/ecke-or.webp) right top/38px auto no-repeat,url(img/deko/ecke-ul.webp) left bottom/38px auto no-repeat,url(img/deko/ecke-ur.webp) right bottom/38px auto no-repeat}
 .akte .ab-bild{display:block;height:214px;border:1px solid #d6bf95;overflow:hidden;cursor:pointer;border-bottom:1px solid #d6bf95;background:#efe4cc}
 .akte .ab-bild img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;mix-blend-mode:multiply;transition:transform .4s}
 .akte:hover .ab-bild img{transform:scale(1.04)}
-.akte h2{margin:14px 6px 6px;font:400 30px/1.1 FellSC,serif;color:var(--blut)}
+.akte h2{margin:20px 6px 6px;font:400 30px/1.1 FellSC,serif;color:var(--blut)}
 .akte h2 a{cursor:pointer;text-decoration:none}
 .akte nav a{display:block;padding:4px 6px;font:17px/1.3 Gara,serif;color:#4f3f31;cursor:pointer;border-top:1px solid rgba(201,174,128,.35)}
 .akte nav a:hover{color:var(--blut);background:rgba(122,36,23,.05)}

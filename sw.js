@@ -2198,6 +2198,7 @@ const FILES = [
   "assets/fonts/spire-plantin-400i.woff2",
   "assets/fonts/spire-plantin-700.woff2",
   "pico/index.html",
+  "discworld/js/data/ab-frauen.js",
   "discworld/js/abenteuer.js",
   "discworld/img/deko/ecke-ol.webp",
   "discworld/img/deko/ecke-or.webp",

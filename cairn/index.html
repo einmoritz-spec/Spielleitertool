@@ -11,6 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="stylesheet" href="../bookviewer/bookviewer.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../shared/galerie.css">
 </head>
 <body>
 <div class="topbar">
@@ -40,6 +41,8 @@
 <script src="js/data/rat.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"cn_p", books:CN_BUECHER.map(function(b){ return {key:b.id, name:b.name}; }), openSettings:function(){ openMenu(true); } });
 render();</script>
+<script src="../shared/galerie.js"></script>
+<script src="js/data/galerie.js"></script>
 <script src="../shared/gsuche.js"></script>
 <script src="js/suche.js"></script>
 <script src="../toolmenu.js"></script>

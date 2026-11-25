@@ -41,7 +41,7 @@ window.HH_NAV = {
   ]},
   {id: "sl", t: "Spielleitung", unter: [
    {id: "saga", t: "Saga", seiten: [["einfuehrung", "Die Saga des Langen Winters"], ["kapitel", "Kapitel & Jahreszeiten"], ["k6", "Kapitel VI"], ["k7", "Kapitel VII"], ["epilog", "Epilog"], ["thron", "Ein leerer Thron"]]},
-   {id: "gegner", t: "Gegner", seiten: [["uebersicht", "Übersicht"]]},
+   {id: "gegner", t: "Gegner", seiten: [["uebersicht", "Übersicht"], ["traits", "Eigenschaften"], ["littlings", "Littlings", ["gg-banditen", "gg-gesetzlose", "gg-samurai", "gg-ninja", "gg-samuraimeister", "gg-tarnished", "gg-redcaps", "gg-furien", "gg-thornguards"]], ["tiere", "Tiere", ["gg-ameisen", "gg-grillen", "gg-ameisenloewe", "gg-maulwurf", "gg-einsiedlerspinne", "gg-kroete", "gg-mantis", "gg-vogel", "gg-coils", "gg-schlange", "gg-eichhoernchen", "gg-zerzaust", "gg-teufelsmantis", "gg-majestaetisch"]]]},
    {id: "colossi", t: "Colossi"}
   ]}
  ]

@@ -192,3 +192,4 @@ Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Perso
 - Etappe 7f (Garten › Der Garten › Die Grasslands/Fountain/Frogstone/Fence, S.196–207): erledigt (garten-gebiete-f.js); weiter mit Backyard ab S.210 (Bild s208-209 für Backyard)
 - Etappe 7g: Backyard, Rushes, Kuzado, Mizuken, Tsukito, Hanado, Fukami, Four Oaks (S.210–236); weiter mit Reise & Jahreszeiten ab S.237
 - Etappe 8 (Garten › Regeln › Reise & Jahreszeiten, S.237–275): erledigt (garten-reise-a/b.js); weiter mit Gegner ab S.277
+- Etappe 9 (Garten › Spielleitung › Gegner, S.277–297): erledigt (garten-gegner-a/b.js; Gefahrenstufen von Gottesanbeterin, Windungen, Schlange, Eichhörnchen, Zerzaustes Eichhörnchen, Teufelsblumen- und Majestätische Gottesanbeterin im Buch nicht sichtbar, geschätzt); weiter mit Colossi ab S.298

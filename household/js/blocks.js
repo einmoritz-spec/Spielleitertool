@@ -12,7 +12,7 @@ function blk(L, book){
       case "h": return "<h3>" + esc(b.x) + (b.p ? pgl(book, b.p) : "") + "</h3>";
       case "daten": return '<div class="daten">' + b.x.map(function(x){ var m = /^\*\*(.*?):?\*\*:?\s*([\s\S]*)$/.exec(x); return '<div><span>' + esc(m[1]) + '</span>' + md(m[2]) + '</div>'; }).join("") + '</div>';
       case "spalten": return '<div class="spalten">' + b.x.map(function(c){ return "<div>" + blk(c, book) + "</div>"; }).join("") + "</div>";
-      case "gruppe": return '<figure class="fig voll gruppe"><img loading="lazy" src="' + IMGP(b.s) + '" alt="">' + b.p.map(function(z){ var e = (HH_TEXT["fp/figuren"] || []).filter(function(x){ return x.id === z[0]; })[0]; var n = e ? e.t : z[0]; return '<a class="gz" style="left:' + z[1] + '%;width:' + (z[2] - z[1]) + '%" title="' + esc(n) + '" onclick="figurPopup(\'' + z[0] + '\')"><span>' + esc(n) + '</span></a>'; }).join("") + '</figure>';
+      case "gruppe": return '<figure class="fig voll gruppe"><img loading="lazy" src="' + IMGP(b.s) + '" alt="">' + b.p.map(function(z){ var e = (HH_TEXT["fp/figuren"] || []).filter(function(x){ return x.id === z[0]; })[0]; var n = e ? e.t : z[0]; var w = z[2] - z[1], bp = w >= 100 ? 0 : z[1] / (100 - w) * 100; return '<a class="gz" style="left:' + z[1] + '%;width:' + w + '%;--gi:url(' + IMGP(b.s) + ');--gs:' + (10000 / w) + '% 100%;--gp:' + bp + '% 0" onclick="figurPopup(\'' + z[0] + '\')"><span><b>' + esc(n) + '</b>' + (e ? '<i>' + esc(e.b[0].sub) + '</i>' : '') + '</span></a>'; }).join("") + '</figure>';
       case "ul": return '<ul class="bul">' + b.x.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + "</ul>";
       case "bsp": return '<div class="bsp">' + b.b.map(function(z){ return z[0] ? '<p><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>' : '<p>' + md(z[1]) + '</p>'; }).join("") + "</div>";
       case "box": return '<div class="kasten"><h4>' + esc(b.h) + '</h4>' + blk(b.b, book) + "</div>";
@@ -61,8 +61,7 @@ function textSeite(P, list, book){
 function figurKarte(b, kopf){
   var stk = b.d.filter(function(x){ return x[0] !== "Name"; }), name = b.d.filter(function(x){ return x[0] === "Name"; })[0];
   return '<div class="kasten figur fg2" data-mas="0" id="ab-' + b.id + '">' +
-    (b.bild ? '<div class="fg-bild"><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></div>' : '') +
-    '<div class="fg-haupt">' + (kopf || "") + '<div class="fg-sub">' + (name ? esc(name[1]) + ' · ' : '') + esc(b.sub) + '</div>' +
+    '<div class="fg-haupt">' + (kopf || "") + (b.bild ? '<div class="fg-bild"><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></div>' : '') + '<div class="fg-sub">' + (name ? esc(name[1]) + ' · ' : '') + esc(b.sub) + '</div>' +
     '<div class="fg-steck">' + stk.map(function(x){ return '<div><span>' + esc(x[0]) + '</span>' + esc(x[1]) + '</div>'; }).join("") + '</div>' +
     '<h4>Startwerte</h4><dl class="fg-s">' + b.s.map(function(x){ return '<div><dt>' + esc(x[0]) + '</dt><dd>' + md(x[1]) + '</dd></div>'; }).join("") + '</dl>' +
     '<h4>Entwicklung</h4><div class="fg-k">' + b.k.map(function(x){ return '<div><b>Kapitel ' + x[0] + '</b><span>' + md(x[1]) + '</span></div>'; }).join("") + '</div>' +

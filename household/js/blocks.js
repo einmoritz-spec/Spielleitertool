@@ -43,13 +43,14 @@ function blk(L, book){
 }
 /* Gegnerkarte: {t:"gegner", typ:"basic|critical|extreme", lv:0-5, st:Anzahl Kästchen, cr:[Nr. der Crucial Boxes], mv, tr, ot, ak:[6 Aktionen], tx:[Absätze], zg:[[Move, Text]], bild:[Name, Breite]} */
 var GTYP = {basic: "Einfacher Gegner", critical: "Kritischer Gegner", extreme: "Extremer Gegner"};
+var GKN = null;
 function gegnerKarte(b){
   var rom = ["I", "II", "III", "IIII", "V", "VI"], boxes = "", i, dots = "";
   for(i = 1; i <= b.st; i++) boxes += '<i class="sk' + (b.cr.indexOf(i) > -1 ? ' cr' : '') + '"></i>';
   for(i = 1; i <= 5 && b.lv; i++) dots += '<i class="lv' + (i <= b.lv ? ' on' : '') + '"></i>';
   var fig = b.bild ? '<figure class="fig' + (b.bild[2] ? ' ' + b.bild[2] : '') + '" style="width:' + b.bild[1] + 'px"><img loading="lazy" src="' + IMGP(b.bild[0]) + '" alt=""></figure>' : '';
   return '<div class="kasten gegner zu">' +
-    '<div class="gk-kopf" role="button" tabindex="0"><span><i class="gk-pf"></i>' + GTYP[b.typ] + '</span>' + (b.lv ? '<span class="gk-lv" title="Gefahrenstufe ' + b.lv + '">' + dots + '</span>' : '') + '</div>' +
+    '<div class="gk-kopf" role="button" tabindex="0"><span><i class="gk-pf"></i>' + (GKN ? '<em class="gk-n">' + esc(GKN.t) + '</em>' + (GKN.p ? pgl(GKN.b, GKN.p) : '') + '<em class="gk-sep">·</em>' : '') + GTYP[b.typ] + '</span>' + (b.lv ? '<span class="gk-lv" title="Gefahrenstufe ' + b.lv + '">' + dots + '</span>' : '') + '</div>' +
     '<div class="gk-rest"><div class="gk-grid">' + (b.bildUnten ? '' : fig) + '<div class="gk-l">' +
     '<p class="gk-z"><b>Stress:</b> <span class="gk-st">' + boxes + '</span></p>' +
     '<p class="gk-z"><b>Moves:</b> ' + md(b.mv) + '</p><p class="gk-z"><b>Traits:</b> ' + md(b.tr) + '</p>' + (b.ot ? '<p class="gk-z"><b>Optionale Traits:</b> ' + md(b.ot) + '</p>' : '') +
@@ -65,19 +66,22 @@ function kolossKarte(b){
     '<p class="gk-z"><b>Traits:</b> ' + md(b.tr) + '</p><div class="ko-vh"><b>Verhalten:</b> ' + md(b.vh) + '</div>' +
     (b.zg || []).map(function(z){ return '<p class="gk-zug"><b>' + esc(z[0]) + ':</b> ' + md(z[1]) + '</p>'; }).join("") + '</div>';
 }
+function hatGegner(e){ return (e.b || []).some(function(x){ return x && x.t === "gegner"; }); }
+function eintragKopf(e, book){ return hatGegner(e) ? "" : '<h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>'; }
+function eintragBlk(e, book){ GKN = hatGegner(e) ? {t: e.t, p: e.p, b: book} : null; var r = blk(e.b, book); GKN = null; return r; }
 /* Standard-Seite für HH_TEXT: gewählter Eintrag der Seitenleiste, Überschrift mit Seitenlink */
 function textSeite(P, list, book){
   var grp = (P.unter.seiten || []).filter(function(x){ return x[0] === P.sel && x[2]; })[0];
   if(grp){
     if(P.anker) [60, 400, 1000].forEach(function(t){ setTimeout(function(){ zuAbschnitt(P.anker, 1); }, t); });
     return grp[2].map(function(id){ var e = list.filter(function(x){ return x.id === id; })[0]; if(!e) return "";
-      return '<div class="sec txt" id="ab-' + id + '"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + blk(e.b, book) + '<div style="clear:both"></div></div>'; }).join("");
+      return '<div class="sec txt" id="ab-' + id + '">' + eintragKopf(e, book) + eintragBlk(e, book) + '<div style="clear:both"></div></div>'; }).join("");
   }
   var e = list.filter(function(x){ return x.id === P.sel; })[0] || list[0];
   if(!e) return platzhalter(P.unter.t);
   var bl = P.mode === "garten" ? [] : (window.HH_BILD || {})[P.unter.id + "/" + e.id] || [];
   var fig = bl.map(function(g){ return '<figure class="fig" style="width:' + g.w + 'px">' + g.s.map(function(n){ return '<img loading="lazy" src="' + IMGP(n) + '" alt="">'; }).join("") + '</figure>'; }).join("");
-  return '<div class="sec txt"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + fig + blk(e.b, book).replace(/kasten gegner zu/g, "kasten gegner") + '<div style="clear:both"></div></div>';
+  return '<div class="sec txt">' + eintragKopf(e, book) + fig + eintragBlk(e, book).replace(/kasten gegner zu/g, "kasten gegner") + '<div style="clear:both"></div></div>';
 }
 
 /* Figurenkarte (Neue Figuren): {t:"figur", n, sub, bild:[Name,Breite], d:[[Feld,Wert]], s:[[Feld,Wert]] Startwerte, k:[[Kapitel,Text]], tx:[Absätze]} */

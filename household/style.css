@@ -395,3 +395,8 @@ body.garten .gegner.zu>.gk-rest{display:none}
 body.garten .gegner.zu>.gk-kopf{margin-bottom:0}
 body.garten .gegner.zu{padding-top:8px;padding-bottom:8px}
 body.garten .gegner.zu>.gk-kopf{border-bottom:0;padding-bottom:0}
+body.garten .gk-n{font-style:normal;font:400 24px Fell,serif;color:#3f6a34;letter-spacing:.04em;margin-right:2px}
+body.garten .gegner .gk-kopf .pg,body.garten .gegner .gk-kopf a{font-size:13px;margin:0 2px 0 8px;letter-spacing:0}
+body.garten .gk-sep{font-style:normal;margin:0 12px;color:#c9a66b}
+body.garten .gegner:not(.koloss)>.gk-kopf{align-items:center}
+body.garten .sec.txt:has(>.gegner.zu){margin:0}body.garten .gegner.zu{margin:7px 0}

@@ -20,8 +20,8 @@ K.push({id: "uebersicht", t: "Der Fall von Faeriyev", p: 204, b: [
  "So beschlossen die acht tapferen Littlings, die schon so viele Abenteuer miteinander bestanden hatten, die Sache selbst in die Hand zu nehmen. Humphrey, Icarus, Santiago und Earnest sollten die Aufmerksamkeit des Feindes auf sich ziehen und seinen Reihen mit leisen, gezielten Angriffen Schaden zufügen, während Yuliya, Jemma, Dimitri und Tubo das Chaos nutzen sollten, um sich in den Palast zu schleichen und den Herzog zu retten.",
  {t: "box", h: "Hinweis", b: ["Dieses Ereignis ist in **zwei parallele Abenteuer** unterteilt, die entweder getrennt oder gleichzeitig von zwei Gruppen gespielt werden können."]},
  {t: "kacheln", gross: 1, breit: 1, r: "fp/epilog/", x: [
-  {n: "Gruppe I", id: "gruppe1", s: TITEL, u: "Yuliya, Dimitri, Tubo, Jemma"},
-  {n: "Gruppe II", id: "gruppe2", s: TITEL, u: "Humphrey, Earnest, Santiago, Icarus"}]},
+  {n: "Gruppe I", id: "gruppe1", s: "fp-epilog-gruppe1", u: "Yuliya, Dimitri, Tubo, Jemma"},
+  {n: "Gruppe II", id: "gruppe2", s: "fp-epilog-gruppe2", u: "Humphrey, Earnest, Santiago, Icarus"}]},
  {t: "h", x: "Schluss"},
  "Niemand weiß, was in Faeriyev wirklich geschah, doch am Ende wurde der Herzog gerettet, und auf die eine oder andere Weise gelang es ihm, das Great Window zu verlassen und nach Astraviya zu reisen. Leider hatte diese heldenhafte Rettung nicht die Folgen, die viele sich erhofft hatten: Die Great Imperial Army griff nie ein, und die Stadt Faeriyev fiel schließlich in die Hände des Feindes. Den Befehl, nicht einzugreifen, gab niemand anderes als Zarin Arcadia Oberonovna selbst, und ihre Gründe sind bis heute das größte Rätsel meiner Laufbahn.",
  "Wer weiß, was aus den tapferen Littlings wurde, die versuchten, den Tag zu retten. Vielleicht blieben sie in Faeriyev und wurden gefangen genommen, vielleicht fanden sie einen unmöglichen Ausweg … vielleicht wurden sie am Ende besiegt. Sicher weiß ich nur, dass sie zu den Ersten im Household gehörten, die das Gesicht des Littlings sahen, der die Wilden Faeries anführte: ein berühmter Fae von kaiserlichem Blut, der von den Toten zurückgekehrt zu sein schien.",

@@ -58,7 +58,7 @@ A.push({id: "coins", t: "Coins & Crystals", p: 154, b: [
   "Bedenke, dass dir dein Wealth bei einigen Dienstleistungen freien Zugang verschafft. Du musst nicht für jede Mahlzeit und jede Hotelübernachtung zahlen. Coins spielen nur eine Rolle, wenn du Ausrüstung kaufen willst, wenn du Zugang zu Dienstleistungen jenseits deiner Mittel willst, wenn sie für die Geschichte wichtig oder nützlich sind oder wenn es einfach Spaß macht, sie einzubeziehen."
 ]});
 
-A.push({id: "equipment", t: "Equipment & Services", p: 155, b: [
+A.push({id: "equipment", t: "Ausrüstung & Dienste", p: 155, b: [
   "Das klingt vielleicht seltsam, aber während ich dieses Kapitel schreibe, überkommt mich eine Welle der Nostalgie. Die Gegenstände, die ich beschreiben werde, sind vielleicht das einzige greifbare Andenken an eine vergangene Zeit. In meiner Studierstube neben dem Schreibtisch liegt ein alter Schlüssel, der seit Jahren nichts tut, als Staub zu sammeln und Erinnerungen wachzurufen. Ich muss lächeln, wenn ich daran denke, dass er zur Zeit der Ereignisse in diesem Buch als neuestes Wunderwerk der Technik galt.",
   "Ausrüstung besteht aus unbestreitbar nützlichen Gegenständen, wichtig und einprägsam genug, um einen Platz auf deinem Bogen zu verdienen. Jeder Gegenstand gibt dir Help in bestimmten Situationen und rüstet dich mit dem aus, was du für deine Abenteuer brauchst.",
   "In dieser Tabelle findest du die gebräuchlichste Ausrüstung. Auf den folgenden Seiten findest du außerdem interessante Gadgets und die furchterregendsten Waffen des Household.",
@@ -130,48 +130,48 @@ A.push({id: "gadget-liste", t: "Gadgets: Liste", p: 157, b: [
   K("Surprise-in-the-Box", ["Diese scheinbar gewöhnliche Schachtel kann wie eine Hutschachtel oder ein Geschenk aussehen. Darin verbirgt sich ein schwerer Boxhandschuh auf einer gespannten Feder, der sofort losschnellt, sobald der Deckel geöffnet wird. Überraschung!"])
 ]});
 
-A.push({id: "weapons", t: "Weapons", p: 158, b: [
-  bild("s158-vi-weapons", 330),
+A.push({id: "weapons", t: "Waffen", p: 158, b: [
+  {t: "bild", s: "grundbuch-s158-vi-weapons", w: "mitte"},
   "Die Waffen des Household sind exakte, maßstabsgetreue Nachbildungen einiger Gegenstände des Masters. Sie wurden in all den vielen Schlachten eingesetzt, die die Geschichte des Household geprägt haben.",
   "Wenn du eine Nahkampfwaffe, eine Fernkampfwaffe oder eine geladene Feuerwaffe besitzt, giltst du immer als bewaffnet. Außerdem können Waffen bestimmte Traits haben, die sie unter festgelegten Umständen hilfreich (Help) machen.",
-  {t: "h", x: "Weapon Traits"},
-  {t: "karten", x: [
-  K("Sharpened", ["Hilfreich, um Seile, Schimmel, Pilze oder andere Hindernisse zu durchtrennen."]),
-  K("Small", ["Leicht zu verstecken."]),
-  K("Accurate", ["Erlaubt dir, auf große Distanz zu schießen, ohne Nachteil."]),
-  K("Throwing", ["Kann auf kurze Distanz geworfen werden."]),
-  K("Two Handed", ["Braucht beide Hände, um richtig geführt zu werden. Hinderlich auf engem Raum."]),
-  K("Double Barreled", ["Kann zweimal schießen, bevor nachgeladen werden muss. Ab Kapitel IIII erhältlich. Siehe Historical Events in Abschnitt VIII „Saga“."]),
-  K("Wide", ["Verschafft dir die Vorteile von Partial Cover."]),
-  K("Dueling", ["Erlaubt dir, einige Duellanten-Moves zu nutzen."]),
-  K("Firearm", ["Erlaubt dir zu schießen. Äußerst laut. Muss nach jedem Schuss nachgeladen werden."]),
-  K("Heavy", ["Hilfreich, um Gegenstände und Türen zu durchbrechen."]),
+  {t: "h", x: "Waffen-Traits"},
+  {t: "karten", cls: "drei", x: [
+  K("Scharf", ["Hilfreich, um Seile, Schimmel, Pilze oder andere Hindernisse zu durchtrennen."]),
+  K("Klein", ["Leicht zu verstecken."]),
+  K("Präzise", ["Erlaubt dir, auf große Distanz zu schießen, ohne Nachteil."]),
+  K("Wurf", ["Kann auf kurze Distanz geworfen werden."]),
+  K("Zweihändig", ["Braucht beide Hände, um richtig geführt zu werden. Hinderlich auf engem Raum."]),
+  K("Doppellauf", ["Kann zweimal schießen, bevor nachgeladen werden muss. Ab Kapitel IIII erhältlich. Siehe historische Ereignisse in Abschnitt VIII „Saga“."]),
+  K("Breit", ["Verschafft dir die Vorteile von Partial Cover."]),
+  K("Duell", ["Erlaubt dir, einige Duellanten-Moves zu nutzen."]),
+  K("Feuerwaffe", ["Erlaubt dir zu schießen. Äußerst laut. Muss nach jedem Schuss nachgeladen werden."]),
+  K("Schwer", ["Hilfreich, um Gegenstände und Türen zu durchbrechen."]),
   K("Illegal", ["Kann dir Ärger mit dem Gesetz einbringen."]),
-  K("Pointed", ["Hilfreich, um harte Oberflächen zu durchdringen oder als Hebel."]),
-  K("Ranged", ["Erlaubt dir zu schießen. Muss nach jedem Schuss nachgeladen werden."]),
-  K("Reach", ["Erlaubt dir, auf kurze Distanz zu treffen."])
+  K("Spitz", ["Hilfreich, um harte Oberflächen zu durchdringen oder als Hebel."]),
+  K("Fernkampf", ["Erlaubt dir zu schießen. Muss nach jedem Schuss nachgeladen werden."]),
+  K("Reichweite", ["Erlaubt dir, auf kurze Distanz zu treffen."])
   ]}
 ]});
 
-A.push({id: "melee", t: "Melee Weapons", p: 159, b: [
+A.push({id: "melee", t: "Nahkampfwaffen", p: 159, b: [
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
-   ["Key", "Heavy Weapon.", "2"],
-   ["Halfscissor", "Sharpened Weapon.", "2"],
-   ["Cogpesh", "Sharpened, Throwing Weapon.", "3"],
-   ["Traveling Nail", "Reach Weapon.", "2"],
-   ["Walking Toothpick", "Weapon.", "2"],
-   ["Nailtip", "Small, Illegal, Throwing Weapon.", "1"],
-   ["Pintip", "Small, Illegal, Throwing, Pointed Weapon.", "2"],
-   ["Brass Knuckles", "Small, Illegal Weapon.", "1"],
-   ["Cutlery Piece", "Weapon. Varies, see description.", "1-3"],
-   ["Greatscissor", "Two Handed, Sharp, Pointed Weapon.", "3"],
-   ["Razor", "Two Handed, Sharp, Wide Weapon.", "3"],
-   ["Bolt", "Two Handed, Heavy, Wide Weapon.", "2"],
-   ["Double-Bitted Key", "Two Handed, Heavy, Sharp Weapon.", "4"],
-   ["Cocktail Spear", "Two Handed, Pointed, Reach Weapon.", "4"],
-   ["Halberd Key", "Two Handed, Heavy, Reach Weapon.", "3"]]},
+   ["Key", "Schwere Waffe.", "2"],
+   ["Halfscissor", "Scharfe Waffe.", "2"],
+   ["Cogpesh", "Scharfe Wurfwaffe.", "3"],
+   ["Traveling Nail", "Waffe mit Reichweite.", "2"],
+   ["Walking Toothpick", "Waffe.", "2"],
+   ["Nailtip", "Klein, illegal, Wurfwaffe.", "1"],
+   ["Pintip", "Klein, illegal, Wurfwaffe, spitz.", "2"],
+   ["Brass Knuckles", "Klein, illegal.", "1"],
+   ["Cutlery Piece", "Waffe. Variiert, siehe Beschreibung.", "1-3"],
+   ["Greatscissor", "Zweihändig, scharf, spitz.", "3"],
+   ["Razor", "Zweihändig, scharf, breit.", "3"],
+   ["Bolt", "Zweihändig, schwer, breit.", "2"],
+   ["Double-Bitted Key", "Zweihändig, schwer, scharf.", "4"],
+   ["Cocktail Spear", "Zweihändig, spitz, mit Reichweite.", "4"],
+   ["Halberd Key", "Zweihändig, schwer, mit Reichweite.", "3"]]},
   bild("s160-vi-weapons", 320),
-  {t: "h", x: "Melee Weapons im Detail"},
+  {t: "h", x: "Nahkampfwaffen im Detail"},
   K("Key", ["Ein einhändiger Schlüssel mit einem Bart aus hartem Metall. Gilt meist als schmucklose Waffe, gut für Söldner und Pilzschneider, wurde aber schon oft in den Händen von unbestreitbar edlen Kämpfern gesehen."]),
   K("Halfscissor", ["Ohne Zweifel die häufigste Waffe des Household. Der Halbschere ist ein gebogenes Schwert mit einer typischen ringförmigen Parierstange. Die gekreuzten Halbscheren sind das Symbol für Kampf aus Können und stehen auch im Wappen des Hearth. Wusstest du, dass Soldaten zwei einhändige Waffen benutzen können, um Moves auszuführen, die eine zweihändige Waffe verlangen? Manche von ihnen trägt man mit gekreuzten Scheren auf dem Rücken."]),
   K("Cogpesh", ["Dieses Schwert, typisch für die Horde, hat eine breite, gezackte Klinge in Form eines Halbkreises. Es gibt auch eine Duellvariante des Cogpesh, die von den Medjays aus der Kashab-Wüste benutzt wird und als wertvolle Reliquie gilt."]),
@@ -190,7 +190,7 @@ A.push({id: "melee", t: "Melee Weapons", p: 159, b: [
   K("Razor", ["Dieser Hackmesser mit breiter, flacher Klinge ist ideal für Littlings, die allen zeigen wollen, wie hart sie sind. Die Waffe wurde zuerst von Schmieden in Tuberdam nachgebildet, die dem Razor des Masters ähnlich sein sollte, und sollte gegnerische Reittiere in Kavallerieangriffen niederstrecken. Glücklicherweise wurde sie nie großflächig eingesetzt, wegen der unverschämten Produktionskosten und der Unhandlichkeit."])
 ]});
 
-A.push({id: "ranged", t: "Ranged Weapons", p: 162, b: [
+A.push({id: "ranged", t: "Fernkampfwaffen", p: 162, b: [
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Portable Pistol", "Kleine Feuerwaffe. Kann nur auf kurze Distanz schießen.", "2"],
    ["Pistol", "Feuerwaffe.", "3"],
@@ -222,7 +222,7 @@ A.push({id: "keysket", t: "Keyskets", p: 163, b: [
   "Nach dem Fang entzünden Jäger meist ein Feuer und erhitzen den Bart ihres Keysket in den knisternden Flammen. Wenn der Schlüssel rotglühend ist, drücken sie ihn auf die Haut oder Schale der Beute und markieren sie damit als ihr Jagdgut. So verhindern sie, dass Banditen und Wilderer ihre Arbeit stehlen und auf dem Markt weiterverkaufen."
 ]});
 
-A.push({id: "dueling", t: "Dueling Weapons", p: 164, b: [
+A.push({id: "dueling", t: "Duellwaffen", p: 164, b: [
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Needle", "Wurfwaffe, Duellwaffe.", "5"],
    ["Pin", "Spitze Duellwaffe.", "5"],
@@ -236,7 +236,7 @@ A.push({id: "dueling", t: "Dueling Weapons", p: 164, b: [
   K("Dueling Halfscissor", ["Duellsäbel, am besten zum Schneiden und für den Kampf zu Pferd geeignet. Er wird vor allem in den Ländern des Hearth verwendet, wo die Duell-Halbscheren oft länger sind, um an die größere Statur der Einheimischen angepasst zu sein und zugleich eine größere Reichweite zu bieten. Littlings, die diese Waffe bevorzugen, pflegen einen modernen Stil und opfern einen Teil der Form zugunsten eines praktischen Ansatzes."])
 ]});
 
-A.push({id: "armor", t: "Armor & Accessories", p: 165, b: [
+A.push({id: "armor", t: "Rüstung & Accessoires", p: 165, b: [
   {t: "tbl", head: ["Name", "Beschreibung", "Preis"], rows: [
    ["Light Armor", "Einmal pro Kampf kannst du mit Strength statt mit einem anderen Skill reagieren.", "3"],
    ["Heavy Armor", "Einmal pro Kampf kannst du mit Strength statt mit einem anderen Skill reagieren. Bietet zusätzlichen Schutz, siehe Beschreibung.", "6"],

@@ -16,7 +16,7 @@ window.HH_NAV = {
    {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["handlers", "Animal Handlers"], ["beetle", "Beetle"], ["bumblebee", "Bumblebee"], ["gecko", "Gecko"], ["mouse", "Mouse"], ["traits", "Traits"]]},
    {id: "spielen", t: "Wie man spielt", seiten: [["wuerfel", "Würfel & Begriffe"], ["action", "Action Rolls"], ["reaction", "Reaction Rolls"], ["stress", "Stress"], ["skills", "Fields & Skills"], ["moves", "Moves"], ["hilfe", "Hilfe & Hindernisse"], ["konflikte", "Konflikte"], ["kampf", "Kampf"], ["schiessen", "Schießen, Rangelei & Duell"], ["zustaende", "Zustände"], ["decorum", "Decorum"]]},
    {id: "vertraege", t: "Contracts", seiten: [["hereditary", "Hereditary"], ["starchild", "Starchild"], ["dear-to-the-hearth", "Dear to the Hearth"], ["spark-drain-draft", "Out of the Spark, Drain & Draft"], ["revenant-from-farbeyond", "Revenant from Farbeyond"], ["forces", "Die Mächte des Household"], ["personal", "Personal"], ["wallstrider", "Wallstrider"], ["goldthirst", "Goldthirst"], ["neverheard", "Neverheard"], ["vainglory", "Vainglory"], ["ttt", "Terrible Terrible Things"], ["ttt-regeln", "Regeln für TTT"], ["ttt-tabelle", "TTT-Tabelle"], ["welcoming", "Welcoming"], ["kindled-welcome", "Kindled Welcome & Upside-Down"], ["domain", "The Domain Contract"]]},
-   {id: "ausruestung", t: "Ausrüstung", seiten: [["wealth", "Wealth"], ["start-wealth", "Startwealth & Veränderung"], ["coins", "Coins & Crystals"], ["equipment", "Equipment & Services"], ["gadgets", "Gadgets"], ["gadget-liste", "Gadgets: Liste"], ["weapons", "Weapons"], ["melee", "Melee Weapons"], ["ranged", "Ranged Weapons"], ["keysket", "Keyskets"], ["dueling", "Dueling Weapons"], ["armor", "Armor & Accessories"]]}
+   {id: "ausruestung", t: "Ausrüstung", seiten: [["wealth", "Wealth"], ["start-wealth", "Startwealth & Veränderung"], ["coins", "Coins & Crystals"], ["equipment", "Ausrüstung & Dienste"], ["gadgets", "Gadgets"], ["gadget-liste", "Gadgets: Liste"], ["weapons", "Waffen"], ["melee", "Nahkampfwaffen"], ["ranged", "Fernkampfwaffen"], ["keysket", "Keyskets"], ["dueling", "Duellwaffen"], ["armor", "Rüstung & Accessoires"]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [
    {id: "saga", t: "Saga", seiten: [["viele", "Wenige oder viele Spieler:innen"], ["ereignisse", "Historische Ereignisse"], ["fortschritt", "Fortschritt"]]},
@@ -35,7 +35,7 @@ window.HH_NAV = {
   {id: "regeln", t: "Regeln", unter: [
    {id: "berufe", t: "Berufe", seiten: [["soldiers", "Soldiers"], ["scholars", "Scholars"], ["hunters", "Hunters"], ["criminals", "Criminals"], ["duelists", "Duelists"], ["wayfarers", "Wayfarers"], ["handlers", "Animal Handlers"]]},
    {id: "vertraege", t: "Contracts", seiten: [["ttt", "Terrible Terrible Things"], ["hereditary", "Hereditary"], ["personal", "Personal"], ["welcoming", "Welcoming"], ["favors", "Favors"]]},
-   {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Coins & Barter"], ["goods", "Goods & Services"], ["weapons", "Weapons"], ["concoctions", "Natural Concoctions"], ["mounts", "Mounts"]]},
+   {id: "ausruestung", t: "Ausrüstung", seiten: [["coins", "Coins & Barter"], ["goods", "Goods & Services"], ["weapons", "Waffen"], ["concoctions", "Natural Concoctions"], ["mounts", "Mounts"]]},
    {id: "reise", t: "Reise & Jahreszeiten", seiten: [["travel", "Travel"], ["darkness", "Darkness"], ["stress", "Severe Stress"], ["seasons", "Seasons"]]}
   ]},
   {id: "sl", t: "Spielleitung", unter: [

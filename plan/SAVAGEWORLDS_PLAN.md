@@ -65,7 +65,7 @@ Rechts: Galerie · Suche · i · Buch (Auswahlmenü mit allen 7 PDFs) · Burger.
 **Savage Worlds (GRW-Stil, Abenteuer-Edition):** cremefarbenes Papier, dunkler Schiefer-Header, rote Kapitelbanner, Überschriften Quatro Slab (Ersatz: Roboto Slab/Zilla Slab), Fließtext Palatino (Ersatz: Libre Baskerville/EB Garamond). Die handschriftlichen Randnotizen von „Red“ und „Gabe“ (Rock Salt) als Gestaltungsmotiv am Rand – nur wo sie im Buch stehen.
 **Startseite:** großes Titelbild (Abenteuer-Edition-Cover), darunter keine Bücherwand, sondern ein „Spieltisch“: Bereichs-Einstiege als Bildkarten + ein Genre-Band mit den vier Companion-Covern + Deadlands als großer Steckbrief-Einstieg.
 **Karten:**
-- Talent/Handicap: Name, Rang (Novize … Legende) als farbiger Streifen, Voraussetzungen klein grau, Text eingeklappt; Raster nach Kategorie (Hintergrund, Kampf, Anführer, Macht, Profi, Sozial, Übernatürlich, Legendär).
+- Talent/Handicap: Name, Rang (Anfänger · Fortgeschritten · Veteran · Heroisch · Legendär) als farbiger Streifen links, Voraussetzungen klein grau, Text eingeklappt; Seitenleiste nach Kategorie (Hintergrund, Kampf, Anführer, Macht, Experten, Sozial, Übersinnlich, Legendär), Genre-eigene Kategorien darunter.
 - Macht: Name, Rang, MP, Reichweite, Dauer als Kopfzeile, Ausprägungen/Modifikatoren aufklappbar.
 - Wertekasten: Attribute als Würfel-Symbole (W4–W12), Parade/Robustheit/Tempo groß, Wildcard-Stern, Bild klein in der Karte, Wunden/Erschöpfung abhakbar.
 - Waffentabellen als echte Tabellen, aber breit und sortierbar.
@@ -90,7 +90,7 @@ Gemeinsame Listen (Handicaps, Talente, Mächte, Gegner, Ausrüstung) wandern zus
 
 ## 6. Übersetzung
 
-- Spielbegriffe **immer nach dem deutschen Grundregelwerk** (Ulisses): Talente, Handicaps, Bennies, Wildcard, Statisten, Mächte, Machtpunkte, Arkaner Hintergrund, Ausprägungen, Parade, Robustheit, Angeschlagen, Wunden, Erschöpfung, Aktionskarten, Joker, Rang (Novize/Fortgeschritten/Veteran/Held/Legende), Settingregeln …
+- Spielbegriffe **immer nach dem deutschen Grundregelwerk** (Ulisses): Talente, Handicaps, Bennys, Wildcard, Statisten, Mächte, Machtpunkte, Arkaner Hintergrund, Ausprägungen, Parade, Robustheit, Angeschlagen, Wunden, Erschöpfung, Aktionskarten, Joker, Rang (Anfänger/Fortgeschritten/Veteran/Heroisch/Legendär), Settingregeln …
 - Etappe 0 erzeugt `quellen/savageworlds/glossar.md` (EN → DE) aus dem GRW; jede Übersetzungs-Etappe nutzt es verbindlich.
 - Eigennamen bleiben englisch (Orte, Figuren, Organisationen, Deadlands-Begriffe wie Harrowed, Huckster, Ghost Rock, Reckoners, Mad Scientist – entschieden).
 - Nichts erfinden, nur Buchtext.
@@ -127,3 +127,11 @@ Jede Etappe: Screenshots aller neuen Seiten (auch mit eingeklappter Seitenleiste
 2. Reihenfolge: Grundregelwerk → **Fantasy Companion** → Deadlands → Horror → Science-Fiction → Superkräfte.
 3. Deadlands-Begriffe (Harrowed, Huckster, Ghost Rock, Reckoners …) **bleiben englisch**, Fließtext deutsch.
 4. **Kein Kartenziehen** im Tool – echte Karten; Aktionskarten- und Generator-Tabellen nur zum Nachschlagen.
+
+## 10. Mockups (26. Nov. 2026)
+Liegen als Bilder vor: Startseite, Talente, Bestiarium, Science-Fiction/Raumschiffe, Deadlands-Startseite, Deadlands-Gazetteer.
+Technische Hinweise daraus:
+- Überschriftenschrift „Spies“ (Google-spies-deutsch aus dem GRW) hat kein +, /, $ und ß → per `unicode-range` auf Oswald ausweichen.
+- „The Dead Saloon“ (Deadlands) ist im PDF nur als Teilmenge eingebettet: keine Umlaute, kein kleines f → nur in Großbuchstaben setzen; Umlaute mit fonttools aus A/O/U + Punkten nachbauen (Ausweichschrift Smokum sieht im Entwurf fremd aus).
+- Wildcard-Symbol und Sheriffstern aus den PDFs freigestellt (Stern: Maske = invertierte Silhouette).
+- Seitenversatz GRW: Buchseite = PDF-Seite − 1.

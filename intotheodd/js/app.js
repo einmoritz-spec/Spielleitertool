@@ -63,19 +63,19 @@ function sbTxt(el){ var c = el.cloneNode(true); [].forEach.call(c.querySelectorA
 function sbName(t){ var m = t.split(/\s[–-]\s/); return m.length > 1 ? esc(m[0]) + '<small>' + esc(m.slice(1).join(" ")) + '</small>' : esc(t); }
 function sideBar(){
   var rp = APP.querySelector(".rp"); if(!rp) return;
-  var els = [].slice.call(rp.querySelectorAll("h3.gh, .tb > h4, .ort-s .ph h2, .rm"));
+  var els = [].slice.call(rp.querySelectorAll("h3.gh, .tb > h4, .ort-s .ph h2"));
   var hasTop = els.some(function(e){ return e.matches("h3.gh, .ort-s .ph h2"); });
   var secs = [], cur = null, n = 0;
   var title = rp.querySelector(".ph h2");
   if(title && !title.closest(".ort-s")){ title.id = "sb0"; cur = {id:"sb0", t:sbTxt(title), subs:[], rooms:[]}; secs.push(cur); }
   els.forEach(function(e){
     var id = "sb" + (++n); e.id = id;
-    if(e.classList.contains("rm")){ if(cur) cur.rooms.push({id:id, t:sbTxt(e.querySelector(".rn")).replace(/^Echo\s*/, "")}); return; }
+    if(e.classList.contains("rm")) return;
     var top = e.matches("h3.gh, .ort-s .ph h2") || !hasTop;
     if(top){ cur = {id:id, t:sbTxt(e), subs:[], rooms:[]}; secs.push(cur); }
     else if(cur) cur.subs.push({id:id, t:sbTxt(e)});
   });
-  if(secs.length < 3 && !secs.some(function(x){ return x.rooms.length; })) return;
+  if(secs.length < 3) return;
   var html = secs.map(function(x, i){
     return '<div class="sbs" data-t="' + x.id + '"><a class="sbh" onclick="sbGo(\'' + x.id + '\')">' + sbName(x.t) + '</a>' +
       (i === 0 ? '<button class="sbt" title="Einklappen" onclick="event.stopPropagation();sbTog()">‹</button>' : "") +

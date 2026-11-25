@@ -433,3 +433,14 @@ body.garten .gkt-map svg{-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit
 .fg2 .fg-s.fg-w{display:block;margin-top:14px}
 .fg2 .fg-w>div{display:grid;grid-template-columns:120px 1fr;gap:0 14px;padding:5px 0;border-top:1px solid rgba(120,80,150,.15)}
 .fg2 .fg-w dt{padding-top:2px}
+
+/* Saga vom Langen Winter: Gruppen aus einzeln freigestellten Figuren, Hover wirkt nur auf die einzelne Figur */
+.gruppe.gr-lw{display:flex;justify-content:center;align-items:flex-end;gap:0;height:clamp(240px,34vw,400px);margin:14px auto 34px;max-width:1000px}
+.gr-lw .gf{position:relative;display:block;height:100%;cursor:pointer;margin:0 -2.2%;flex:0 1 auto;min-width:0;transition:transform .25s}
+.gr-lw .gf img{height:100%;width:auto;max-width:100%;display:block;transition:opacity .25s,filter .25s}
+.gr-lw:has(.gf:hover) .gf:not(:hover) img{opacity:.42;filter:grayscale(.85)}
+.gr-lw .gf:hover{z-index:3;transform:translateY(-6px)}
+.gr-lw .gf span{position:absolute;left:50%;bottom:-14px;transform:translate(-50%,8px);min-width:170px;text-align:center;background:rgba(255,252,242,.97);border:1px solid var(--rule);outline:2px double #d6c08a;outline-offset:-5px;padding:7px 16px 8px;border-radius:2px;box-shadow:0 6px 18px rgba(53,32,59,.22);white-space:nowrap;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}
+.gr-lw .gf:hover span{opacity:1;transform:translate(-50%,0)}
+.gr-lw .gf span b{display:block;font:400 21px Fell,serif;color:var(--akz);letter-spacing:.02em;line-height:1.15}
+.gr-lw .gf span i{display:block;font-style:normal;font-variant:small-caps;letter-spacing:.05em;font-size:13.5px;color:var(--soft);margin-top:1px}

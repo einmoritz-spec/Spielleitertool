@@ -1,0 +1,101 @@
+/* Into the Odd – Kapitel 3 (Spielablauf, S. 15–19) und Kapitel 5 (Spielbeispiel, S. 30–35) */
+var ITO = window.ITO = window.ITO || {};
+ITO.ablauf = [
+ {g:"Würfe und Züge", c:"#f06a9a", x:[
+  ["Rettungswürfe","Ein Rettungswurf ist ein Wurf, um einer Gefahr durch eine riskante Handlung oder Situation zu entgehen. Würfelt W20. Bei gleich oder unter dem passenden Wert gelingt er. Die 1 ist immer ein Erfolg, die 20 immer ein Fehlschlag.","S. 15"],
+  ["Züge","In der Regel sind zuerst die Spieler an der Reihe, dann die Gegner. Droht eine Überraschung, muss jeder Charakter einen GES-Rettungswurf bestehen, sonst kann er im ersten Zug nicht handeln. Die Spieler können in beliebiger Reihenfolge handeln.","S. 15"],
+  ["Aktionen","In seinem Zug kann ein Charakter sich bewegen und eine Aktion ausführen. Angriffe stehen auf der nächsten Seite; für andere riskante Aktionen verlangt die Spielleitung vom gefährdeten Charakter einen Rettungswurf. Versucht jemand etwa, einen Gegner zu Fall zu bringen, muss dieser einen STÄ-Rettungswurf bestehen, um stehen zu bleiben.","S. 15"]
+ ]},
+ {g:"Kampf", c:"#e2561e", x:[
+  ["Angriffe","Der Angreifer wirft den Würfel seiner Waffe und zieht die Rüstung des Gegners ab. So viel Schaden richtet der Angriff an. Fernwaffen können im Nahkampf nicht eingesetzt werden. Beeinträchtigte Angriffe, etwa durch Deckung oder im Ringkampf, würfeln unabhängig von der Waffe W4 Schaden. Gesteigerte Angriffe durch ein riskantes Kunststück oder gegen ein wehrloses oder verwundbares Ziel würfeln W12 Schaden.","S. 16"],
+  ["Explosion","Explosionswaffen richten bei allen Zielen in einem passenden Bereich Schaden an, einzeln gewürfelt. Ist unklar, wie viele Ziele betroffen sind, würfelt den Schadenswürfel der Waffe.","S. 16"],
+  ["Schaden","Wer Schaden erleidet, verliert so viele hp. Hat er keine hp mehr, ist er verwundet, und der restliche Schaden wird von seiner STÄ abgezogen. Er muss dann einen STÄ-Rettungswurf bestehen, um kritischen Schaden zu vermeiden.","S. 16"],
+  ["Kritischer Schaden","Ein Charakter mit kritischem Schaden kann nicht mehr handeln, bis ein Verbündeter ihn versorgt hat und er eine kurze Rast hatte. Bleibt er eine Stunde ohne Versorgung liegen, stirbt er.","S. 16"],
+  ["Ein Arcanum benutzen","Ein Charakter kann die Kraft eines Arcanum als normale Aktion einsetzen, auch wenn manche Arcana eine Gegenleistung verlangen.","S. 16"]
+ ]},
+ {g:"Folgen", c:"#0b9a96", x:[
+  ["Verlust von Werten","Sinkt die STÄ eines Charakters auf null, ist er tot. Sinken GES oder WIL auf null, ist er gelähmt bzw. geistig gebrochen und kann nicht handeln, bis er eine volle Rast hatte.","S. 18"],
+  ["Tod","Stirbt ein Charakter, erschafft der Spieler einen neuen, und die Spielleitung sorgt dafür, dass er so schnell wie möglich zur Gruppe stößt. Schnelligkeit ist hier wichtiger als Realismus. Alternativ kann der Spieler einen Gefolgsmann oder Lehrling führen.","S. 18"],
+  ["Entbehrung","Wem etwas Lebenswichtiges fehlt (etwa Nahrung, Wasser oder Wärme), kann nicht von Rasten profitieren.","S. 18"],
+  ["Sperrig","Als sperrig gekennzeichnete Gegenstände brauchen meist zwei Hände oder viel Stauraum. Sperrige Waffen erfordern zwei Hände. Wer drei oder mehr sperrige Gegenstände trägt, sinkt auf 0 hp.","S. 19"]
+ ]},
+ {g:"Verhalten und Erholung", c:"#6a6ee8", x:[
+  ["Reaktion","Trifft die Gruppe auf ein anderes Wesen, muss der Charakter, der Kontakt aufnimmt, einen WIL-Rettungswurf bestehen, um eine ungünstige erste Reaktion zu vermeiden. Manche Begegnungen sind immer feindlich oder immer freundlich, doch alle können sich nach dem ersten Kontakt wandeln.","S. 19"],
+  ["Moral","Gruppen müssen einen WIL-Rettungswurf bestehen, um nicht zu fliehen, wenn sie die Hälfte ihrer Gesamtzahl verlieren. Gruppen mit Anführer dürfen dessen WIL statt ihres eigenen nutzen. Einzelkämpfer müssen den Wurf bei 0 hp ablegen. Das gilt für Gegner und Verbündete, nicht für Spielercharaktere. Wer unter Verfolgung zu einem sicheren Ort flieht, braucht einen GES-Rettungswurf und einen Ort, an den er sich zurückziehen kann.","S. 19"],
+  ["Kurze Rast","Ein paar Minuten Ruhe und ein Schluck Wasser stellen alle verlorenen hp eines Charakters wieder her. Rasten kann Zeit kosten oder Gefahr anlocken.","S. 19"],
+  ["Volle Rast","Eine volle Rast erfordert eine Woche Auszeit an einem behaglichen Ort. Sie stellt alle Werte wieder her.","S. 19"]
+ ]}
+];
+/* Spielbeispiel: Drei Spielercharaktere und ihr Laternenjunge tief im Untergrund. [Sprecher, Text] – Sprecher "" = Regieanweisung */
+ITO.beispiel = {
+ p: "S. 30",
+ intro: "Drei Spielercharaktere und ihr Gefolgsmann, der Laternenjunge, befinden sich tief im Untergrund.",
+ z: [
+  ["Spielleitung","Vor euch steht ein Paar hoher Holztüren, zehn Fuß hoch und ziemlich massiv. Es gibt keine Anzeichen von Fallen, aber ihr seht, dass die Tür von der anderen Seite verriegelt ist."],
+  ["Toku","Prima, also lebt da drin etwas?"],
+  ["Ezekiel","Das kann auch vor Jahrhunderten passiert sein. In welchem Zustand ist die Tür?"],
+  ["Spielleitung","An manchen Stellen wirkt sie morsch. Sie ist ziemlich alt."],
+  ["Uthred","Wir sind nicht so weit gekommen, um uns von einer Tür aufhalten zu lassen. Wie wäre es, wenn ich sie einhacke?"],
+  ["Spielleitung","Das macht eine Menge Lärm, aber deine Axt sollte durchkommen."],
+  ["Uthred","Gut. Ich hacke drauflos."],
+  ["","Die Spielleitung würfelt einen Glückswurf und erzielt eine 4. Das reicht, damit der Lärm nichts alarmiert."],
+  ["Spielleitung","Ihr brecht die Türen auf und seht einen prächtigen Raum, 30 Fuß hoch und ebenso breit. Die Wände sind ein kunstvolles Mosaik, doch die Fliesen wechseln ständig die Farbe. Wellenmuster laufen über die Wände, und in der Mitte des Bodens liegt ein sechs Fuß breiter Schacht."],
+  ["Ezekiel","(zeichnet den Raum auf seine grobe Karte) Also eine Sackgasse, aber die Wände könnten untersuchenswert sein. Ich fasse sie auf keinen Fall an und sage meinem Laternenjungen, er soll es auch lassen."],
+  ["Toku","Ach komm, wir haben ihn doch angeheuert, weil er entbehrlich ist! Vielleicht sollte Uthred sie anfassen."],
+  ["Uthred","Vor einer Wand habe ich keine Angst, aber dumm bin ich nicht. Ich klopfe mit dem Axtstiel gegen die Wand."],
+  ["Spielleitung","Das Muster der Fliesen reagiert nicht, aber als ihr sie genauer untersucht, spürt ihr, dass sie eine leichte Wärme abgeben."],
+  ["Uthred","Genug, um mich zu verbrennen?"],
+  ["Spielleitung","Nein, nur eine leichte Wärme."],
+  ["Uthred","Ich lege meine Hand kühn an die Fliesen."],
+  ["","Die anderen Spieler stöhnen im Chor."],
+  ["Spielleitung","Sobald Uthreds Hand die Wand berührt, hören die wechselnden Farben auf. Von seiner Hand strahlt ein pulsierendes blaues Muster aus."],
+  ["Ezekiel","Gleich explodiert sein Kopf …"],
+  ["Spielleitung","Die Fliesen sind warm, aber ihr spürt keine weitere Wirkung. Zum Glück explodiert kein Kopf."],
+  ["Uthred","Hm, seltsam. Dann sehe ich mir den Schacht an."],
+  ["Spielleitung","Sobald du die Hand von der Wand nimmst, wechseln die Farben wieder, und du siehst die Gestalt eines Menschen aus Fliesen: dein Spiegelbild. Kaum eine Sekunde später knistert es im Raum, und das Fliesenabbild von Uthred steigt irgendwie aus der Wand, zieht die Axt von seinem Rücken und nimmt Kampfhaltung ein."],
+  ["Toku","Keiner fasst mehr die Wände an! Ich springe die Kopie von Uthred mit meinen Dolchen an."],
+  ["Spielleitung","Würfle Schaden."],
+  ["Toku","(würfelt W8) Eine 4!"],
+  ["Spielleitung","Okay, du huschst an dem Fliesenwesen vorbei und stichst ihm in die Seite. Statt zu schreien, brüllt die Kopie von Uthred ein knisterndes Rauschen. Sie steht noch."],
+  ["Uthred","Ich gehe mit meiner Axt auf sie los und versuche, sie von Ezekiel und dem Laternenträger wegzutreiben."],
+  ["Spielleitung","Okay, würfle Schaden."],
+  ["Uthred","(würfelt W6, erzielt 5) Ich habe fünf."],
+  ["","Die Spielleitung sieht, dass das Ziel nun bei 0 hp ist, und zieht die restlichen 2 Schaden von seiner STÄ ab."],
+  ["Spielleitung","Du trittst das Ding zurück, bringst es aus dem Gleichgewicht und rammst ihm die Axt in die Seite. Es schreit in statischem Rauschen auf (würfelt einen STÄ-Rettungswurf, besteht ihn), kämpft aber weiter."],
+  ["Uthred","Hier ist nur Platz für einen Uthred!"],
+  ["Spielleitung","Die Kopie von Uthred lässt die Axt fallen und greift nach Toku. Gib mir einen STÄ-Rettungswurf."],
+  ["Toku","(würfelt einen STÄ-Rettungswurf) Ähm … ich habe eine 20."],
+  ["","Das Stöhnen am Tisch ist groß."],
+  ["Spielleitung","Das Wesen packt Toku und schmettert ihn gegen die Wand. Du siehst ein blaues, pulsierendes Muster auf ihrer Oberfläche entstehen. Einen Moment später formen die Farben seine Gestalt, und eine Kopie von Toku tritt aus der Wand."],
+  ["Ezekiel","Ich hätte nie gedacht, dass ich zwischen dem Tod von Toku und Uthred wählen muss. Ich nehme die Vernichtungsrute, die wir vorhin gefunden haben, und versuche, die Kopie von Toku zu zerstören."],
+  ["Spielleitung","Die Kopie darf einen STÄ-Rettungswurf gegen den Angriff würfeln (würfelt), aber er misslingt!"],
+  ["Ezekiel","(würfelt W12 für den STÄ-Verlust, wie das Arcanum es vorgibt) Elf!"],
+  ["Spielleitung","(prüft seine Notizen und sieht, dass dies die STÄ des Wesens auf null senkt) Das reicht, um dem Ding die Energie zu entziehen. Wenn ihr die Rute ausstreckt, verblasst die Farbe aus dem Wesen, es fällt reglos zu Boden und löst sich vollständig auf."],
+  ["Uthred","Ja!"],
+  ["Spielleitung","Euch sollte klar sein, dass ihr in diesem Raum ziemlich viel Lärm gemacht habt."],
+  ["","Die Spielleitung würfelt heimlich einen Glückswurf, ob nahe Monster den Lärm bemerkt haben. Eine 1 bedeutet, dass etwas Schlimmes geschehen soll, also würfelt sie auf die Tabelle feindlicher Begegnungen, die sie für diesen Bereich vorbereitet hat."],
+  ["Ezekiel","Das gefällt mir nicht."],
+  ["Spielleitung","Ihr hört, wie sich hinter euch etwas nähert. Erinnert ihr euch an das seltsame pferdeähnliche Wesen mit der Haut wie steinharte Baumrinde, das euch in der letzten Sitzung überfallen hat?"],
+  ["Uthred","Klar, wir haben es in eine Grube geworfen und sind wie Helden geflohen."],
+  ["Spielleitung","Dieses Ding sieht fast genauso aus, ist aber nicht pferdegroß, sondern so groß, dass es sich gerade noch durch die Türöffnung zwängt. Sein Maul ist groß genug, euch im Ganzen zu verschlingen, und die Vorderbeine enden in Greifklauen von sechs Fuß Spannweite. Es hat euch im Visier und wirkt nicht freundlich. (Er verpatzt einen WIL-Rettungswurf für die Kopie von Uthred, denn der Anblick reicht, um sie zu erschrecken.) Die Kopie von Uthred sieht das Ding und kriecht sofort zurück in die Wand, wo sie in den Fliesen verblasst."],
+  ["Ezekiel","Ich finde die Vorstellung, im Ganzen verschlungen zu werden, nicht so toll. Wie stehen unsere Chancen, ihm zwischen den Beinen hindurchzulaufen?"],
+  ["Spielleitung","Es steckt ziemlich eng in der Türöffnung. Wenn ihr es versuchen wollt, wäre ein GES-Rettungswurf nötig."],
+  ["Uthred","Das kleinere Monster hatte Angst vor Feuer, oder? Vielleicht sollten wir den Laternenträger hinschicken, damit er es auf Abstand hält."],
+  ["Spielleitung","Er wirkt ziemlich zögerlich … für so eine waghalsige Mission wäre ein WIL-Rettungswurf nötig. Wer weiß, vielleicht tut er es ja!"],
+  ["Toku","An ihm vorbeizurennen oder es zu erschrecken ist unnötig riskant, wenn wir hier einen prima Ausgang haben!"],
+  ["Uthred","Den Schacht? Sieht es aus, als würde das Wesen da hineinpassen?"],
+  ["Spielleitung","Unwahrscheinlich, er ist ziemlich eng."],
+  ["Ezekiel","So gefährlich es klingt, vielleicht ist es unsere beste Hoffnung. Kann ich eine Münze oder so etwas in den Schacht werfen?"],
+  ["Spielleitung","Als du einen halben Schilling in den Schacht schnippst, hörst du nach ein paar Sekunden ein fernes Platschen."],
+  ["Toku","Wasser!"],
+  ["Ezekiel","Das ist optimistisch … woher wissen wir, dass es nicht Säure oder so etwas ist? Ich denke, wir finden einen Weg, es lange genug abzulenken, um die Treppe wieder hinaufzuflüchten."],
+  ["Spielleitung","Während ihr diesen Plan schmiedet, hat sich das Wesen in den Raum gezwängt und streift dabei die Fliesenwand, die blaue Wellen aussendet."],
+  ["Uthred","Mist, das geht nicht gut aus."],
+  ["Ezekiel","Na gut! Rein in das Loch!"],
+  ["Toku","Vertraut mir! Ich springe als Erster."],
+  ["Spielleitung","Ihr springt jetzt alle hinunter?"],
+  ["","Die Gruppe nickt widerwillig."],
+  ["Spielleitung","Ihr stürzt in die Dunkelheit des Schachts, fallt ein paar Sekunden lang und klatscht in eiskaltes Wasser, tief genug, dass ihr sicher hineinfallt. Die Laterne des Trägers erlischt, und ihr könnt euch in der pechschwarzen Grube kaum orientieren, bevor ihr ein Kribbeln am ganzen Körper spürt. WIL-Rettungswürfe für alle!"],
+  ["","Am Tisch ertönt Stöhnen."]
+ ]
+};

@@ -26,8 +26,12 @@
 <div class="mm-panel" id="mmP"></div>
 <script src="js/data/buecher.js"></script>
 <script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
+<script src="js/data/regeln-a.js"></script>
+<script src="js/data/regeln-b.js"></script>
+<script src="js/data/regeln-c.js"></script>
 <script src="js/app.js"></script>
-<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ito_core", books:ITO_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")"}; })); },[]), openSettings:function(){ openMenu(true); } });
+<script src="js/regeln.js"></script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ito_core", books:ITO_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
 <script src="../toolmenu.js"></script>
 <script>try{localStorage.setItem("gm_tool_mode_v1","intotheodd");}catch(e){}</script>

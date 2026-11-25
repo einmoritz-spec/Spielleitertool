@@ -14,6 +14,7 @@ var AREAS = [
  {id:"oddpendium", t:"Oddpendium", k:"Würfeltabellen für unterwegs", c:"#f5d9c8"}
 ];
 function route(){ var h = (location.hash || "#start").slice(1).split("/"); return h[0] || "start"; }
+function sub(){ return (location.hash || "").slice(1).split("/")[1] || ""; }
 function ktabs(r){
   document.getElementById("ktabs").innerHTML = r === "start" ? "" : AREAS.map(function(a){ return '<a class="' + (a.id === r ? "on" : "") + '" onclick="go(\'' + a.id + '\')">' + esc(a.t) + '</a>'; }).join("");
 }
@@ -30,7 +31,8 @@ function render(){
   var r = route();
   document.body.classList.toggle("start", r === "start");
   ktabs(r);
-  APP.innerHTML = r === "start" ? viewStart() : viewArea(r);
+  APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : viewArea(r);
+  if(r === "regeln") startHover();
   window.scrollTo(0, 0);
 }
 /* Menü (Burger) */

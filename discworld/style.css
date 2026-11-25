@@ -265,3 +265,16 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .scx{margin:12px 0 0;font-size:16.5px;line-height:1.5}
 .gbogen,.scraster,.raster,.tblw,.fragen,.kraster,.nscraster,.steck,.wleiste,.kosten,.erg{clear:both}
 .txt>.wt{clear:both}
+
+/* Namenslisten, Ortskacheln */
+.namen{clear:both;max-width:1040px;margin:12px 0 18px;padding:12px 18px;background:rgba(255,250,238,.5);border:1px solid #d6bf95}
+.namen h4{display:flex;align-items:center;gap:14px;margin:0 0 6px!important}
+.namen .pick{font:26px/1 Hand,cursive;color:var(--lila);font-weight:400}
+.namen p{margin:0;font-size:16px;line-height:1.7;color:#4a3b2e}
+.namen span.hit{background:rgba(201,154,62,.45);padding:1px 4px;border-radius:3px;color:#2b211a}
+.orte{clear:both;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0 20px}
+.orte a{position:relative;display:block;height:150px;overflow:hidden;border:1px solid #c9ae80;cursor:pointer;background:#2a1a12}
+.orte img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.orte a:hover img{transform:scale(1.05)}
+.orte b{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 8px;background:linear-gradient(transparent,rgba(20,8,5,.85));font:400 19px/1.15 FellSC,serif;color:#f6e7c6}
+.nscraster+.steck{margin-top:30px}

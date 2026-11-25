@@ -8,7 +8,7 @@ function buch(p){ try{ BV.open("dw_core", p || 1); }catch(e){} }
 window.addEventListener("hashchange", function(){ render(); });
 
 /* Bereiche: Reiter in der Kopfzeile, Gruppen in der Unterleiste */
-var BEREICHE = [
+window.BEREICHE = [
   {id:"spielen", t:"Spielen", g:["Einführung", "Das Spiel"], bild:"spiel-tod-schach"},
   {id:"leitung", t:"Spielleitung", g:["Spielleiten", "Proben und Folgen", "Magie und Mechanik", "Unterwegs und der Tod"], bild:"leit-tod-katze"},
   {id:"charaktere", t:"Charaktere", g:["Die Gruppe", "Charaktere erschaffen", "Organisationen", "Eröffnung und Rückkehr", "Vorgefertigte Charaktere"], bild:"char-schachbrett"},

@@ -53,9 +53,12 @@ function blk(L){
       case "wuerfel": return wuerfelLeiste();
       case "fragen": return fragen(b);
       case "grid": return '<div class="raster r' + (b.n || 2) + '">' + b.x.map(function(c){ return "<div>" + blk(c) + "</div>"; }).join("") + "</div>";
-      case "karten": return '<div class="kraster">' + b.x.map(function(c){ return '<div class="kk"><h4>' + md(c.h) + "</h4>" + blk(c.b) + "</div>"; }).join("") + "</div>";
+      case "karten": if(JSON.stringify(b.x).length / b.x.length > 900) return b.x.map(function(c){ return '<h3 class="zw">' + md(c.h) + "</h3>" + blk(c.b); }).join("");
+        return '<div class="kraster">' + b.x.map(function(c){ return '<div class="kk"><h4>' + md(c.h) + "</h4>" + blk(c.b) + "</div>"; }).join("") + "</div>";
       case "nsc": return nscKarte(DW.NSC[b.id] || b, b.klein);
-      case "nscs": return '<div class="nscraster">' + b.x.map(function(id){ return nscKachel(DW.NSC[id]); }).join("") + "</div>";
+      case "nscs": return '<div class="nscraster">' + b.x.map(function(id){ return nscKachel(DW.NSC[id], 1); }).join("") + "</div>" + (b.nurKacheln ? "" : b.x.map(function(id){ return nscKarte(DW.NSC[id]); }).join(""));
+      case "namen": return '<div class="namen" id="nm-' + b.id + '"><h4>' + esc(b.h) + '<button class="wurf" onclick="namePick(\'' + b.id + '\')">Zufällig</button><b class="pick"></b></h4><p>' + b.x.split(/,\s*/).map(function(n){ return "<span>" + esc(n) + "</span>"; }).join(" · ") + "</p></div>";
+      case "ortskarten": return ortsKarten();
       case "gruppe": return gruppenBogen(b);
       case "scs": return '<div class="scraster">' + b.x.map(scBogen).join("") + "</div>";
       case "html": return b.x;
@@ -108,9 +111,16 @@ function scBogen(c){
     f("Name", c.name) + '<div class="pron">(' + esc(c.pron) + ")</div>" + f("Organisation", c.org) + f("Hintergrund", c.hg) + f("Nische", c.nische) + f("Marotten", c.marotten.join("<br>")) + f("Kern", c.kern || "") +
     '<p class="scx">' + md(c.b) + "</p></article>";
 }
+function namePick(id){ var el = document.getElementById("nm-" + id); if(!el) return; var L = el.querySelectorAll("p span"), k = Math.floor(Math.random() * L.length);
+  L.forEach(function(x){ x.classList.remove("hit"); }); L[k].classList.add("hit"); el.querySelector(".pick").textContent = L[k].textContent; }
+function ortsKarten(){
+  var O = [[1,"uu-ansicht"],[2,"py-ansicht"],[3,"pal-ansicht"],[4,"sch-ansicht"],[5,"sat-ansicht"],[6,"drum-ansicht"],[7,"gil-narren"]];
+  return '<div class="orte">' + O.map(function(o){ var B = (window.BEREICHE || []).filter(function(x){ return x.id === "stadt"; })[0];
+    return '<a onclick="go(\'k/stadt/' + o[0] + '\')"><img src="img/thumb/' + o[1] + '.webp" alt="" loading="lazy"><b>' + esc(B ? B.g[o[0]] : "") + "</b></a>"; }).join("") + "</div>";
+}
 /* NSC-Steckbrief wie im Buch (Pergamentblatt, Handschrift) */
-function nscKachel(n){ if(!n) return "";
-  return '<a class="nk" onclick="nscOpen(\'' + n.id + '\')">' + (n.img ? '<img src="img/thumb/' + n.img + '.webp" alt="" loading="lazy">' : '<span class="ini">' + esc(n.name.split(" ").map(function(w){ return w[0]; }).join("").slice(0, 2)) + "</span>") + "<b>" + esc(n.name) + "</b><small>" + esc(n.nische || "") + "</small></a>";
+function nscKachel(n, anker){ if(!n) return "";
+  return '<a class="nk" onclick="' + (anker ? "springe('n-" + n.id + "')" : "nscOpen('" + n.id + "')") + '">' + (n.img ? '<img src="img/thumb/' + n.img + '.webp" alt="" loading="lazy">' : '<span class="ini">' + esc(n.name.split(" ").map(function(w){ return w[0]; }).join("").slice(0, 2)) + "</span>") + "<b>" + esc(n.name) + "</b><small>" + esc(n.nische || "") + "</small></a>";
 }
 function nscKarte(n, klein){
   if(!n) return "";

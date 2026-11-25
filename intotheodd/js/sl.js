@@ -30,7 +30,7 @@ function sBegeg(){
   }).join("") + '</div></div>';
 }
 function sWelt(){
-  return '<div class="rp"><div class="banner" style="background-image:url(' + IMG("hindernis-schau") + ');background-position:center 40%"><div>' + head("Kapitel 12", "Die Odd-Welt", "S. 58") + '</div></div>' +
+  return '<div class="rp"><div class="banner" style="background-image:url(' + IMG("meer-muscheln") + ');background-position:center 60%"><div>' + head("Kapitel 12", "Die Odd-Welt", "S. 58") + '</div></div>' +
     ITO.welt.map(function(g, gi){ return '<h3 class="gh" style="--c:' + SCOL[gi] + '">' + esc(g.g) + pgl(g.p) + '</h3><div class="g2">' + g.x.map(function(x){ return def(x[0], x[1], "", SCOL[gi]); }).join("") + '</div>'; }).join("") + '</div>';
 }
 function viewSl(sub){

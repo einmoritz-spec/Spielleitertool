@@ -31,7 +31,7 @@ function render(){
   var r = route();
   document.body.classList.toggle("start", r === "start");
   ktabs(r);
-  APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : r === "arcana" ? viewArcana(sub()) : r === "sl" ? viewSl(sub()) : viewArea(r);
+  APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : r === "arcana" ? viewArcana(sub()) : r === "sl" ? viewSl(sub()) : r === "abenteuer" ? viewAb(sub()) : viewArea(r);
   if(r === "regeln") startHover();
   window.scrollTo(0, 0);
 }

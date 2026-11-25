@@ -36,6 +36,10 @@
 <script src="js/data/sl-a.js"></script>
 <script src="js/data/sl-b.js"></script>
 <script src="js/sl.js"></script>
+<script src="js/data/ab-a.js"></script>
+<script src="js/data/ab-b.js"></script>
+<script src="js/data/ab-c.js"></script>
+<script src="js/abenteuer.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ito_core", books:ITO_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
 <script src="../toolmenu.js"></script>

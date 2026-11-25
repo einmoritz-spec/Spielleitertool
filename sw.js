@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1037sq";
+const VERSION = "v1038sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -2201,6 +2201,18 @@ const FILES = [
   "intotheodd/index.html",
   "intotheodd/style.css",
   "intotheodd/js/app.js",
+  "intotheodd/js/data/ab-a.js",
+  "intotheodd/js/data/ab-b.js",
+  "intotheodd/js/data/ab-c.js",
+  "intotheodd/js/abenteuer.js",
+  "intotheodd/img/karte-e1.webp",
+  "intotheodd/img/karte-e2.webp",
+  "intotheodd/img/karte-e3.webp",
+  "intotheodd/img/karte-marsch.webp",
+  "intotheodd/img/karte-grab.webp",
+  "intotheodd/img/karte-turm.webp",
+  "intotheodd/img/karte-hoehle.webp",
+  "intotheodd/img/karte-schrein.webp",
   "intotheodd/js/data/sl-a.js",
   "intotheodd/js/data/sl-b.js",
   "intotheodd/js/sl.js",

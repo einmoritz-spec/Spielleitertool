@@ -50,20 +50,24 @@ function page(t, sid){
 }
 
 /* ---------- Talente ---------- */
-var TK = ["Hintergrund","Kampf","Anführer","Macht","Experten","Sozial","Übersinnlich","Legendär"];
-var TKT = {"Hintergrund":"Hintergrundtalente","Kampf":"Kampftalente","Anführer":"Anführertalente","Macht":"Machttalente","Experten":"Expertentalente","Sozial":"Soziale Talente","Übersinnlich":"Übersinnliche Talente","Legendär":"Legendäre Talente"};
+var TK = ["Hintergrund","Kampf","Anführer","Macht","Experten","Sozial","Übersinnlich","Legendär","Arkane Hintergründe","Harrowed"];
+var TKT = {"Arkane Hintergründe":"Arkane Hintergründe","Harrowed":"Harrowed-Talente","Hintergrund":"Hintergrundtalente","Kampf":"Kampftalente","Anführer":"Anführertalente","Macht":"Machttalente","Experten":"Expertentalente","Sozial":"Soziale Talente","Übersinnlich":"Übersinnliche Talente","Legendär":"Legendäre Talente"};
 var RN = ["Anfänger","Fortgeschritten","Veteran","Heroisch","Legendär"], RC = ["#7a7067","#c27a1c","#a51f1a","#6a3a8a","#b8902a"];
+function talSicht(t){ return t.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
+function talBadges(t){ return t.s.map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join(""); }
 function talentePage(){
   if(!ST.tk) ST.tk = "Hintergrund";
-  var kat = ST.tk, list = SW_TALENTE.filter(function(t){ return t.k === kat; });
-  var side = TK.map(function(k){ return '<a class="' + (k === kat ? "on" : "") + '" onclick="talKat(\'' + k + '\')">' + esc(k) + "</a>"; }).join("");
+  var TKV = TK.filter(function(k){ return SW_TALENTE.some(function(t){ return t.k === k && talSicht(t); }); });
+  if(TKV.indexOf(ST.tk) < 0) ST.tk = TKV[0];
+  var kat = ST.tk, list = SW_TALENTE.filter(function(t){ return t.k === kat && talSicht(t); });
+  var side = TKV.map(function(k){ return '<a class="' + (k === kat ? "on" : "") + '" onclick="talKat(\'' + k + '\')">' + esc(k) + "</a>"; }).join("");
   var h = "";
   RN.forEach(function(rn, ri){
     var L = list.filter(function(t){ return t.r === ri; }); if(!L.length) return;
     h += '<h4 class="rk" style="--rc:' + RC[ri] + '"><span>' + rn + '</span></h4><div class="tg3">';
     L.forEach(function(t, i){
       var id = SW_TALENTE.indexOf(t), open = ST.to === id;
-      h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:' + RC[ri] + '" onclick="talOpen(' + id + ')"><b>' + esc(t.n) + '</b><small>' + esc(t.v || "–") + (t.w ? " · nur Wildcards" : "") + "</small></div>";
+      h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:' + RC[ri] + '" onclick="talOpen(' + id + ')"><b>' + esc(t.n) + talBadges(t) + '</b><small>' + esc(t.v || "–") + (t.w ? " · nur Wildcards" : "") + "</small></div>";
       if(open || (i % 3 === 2 || i === L.length - 1) && L.slice(i - i % 3, i + 1).some(function(x){ return SW_TALENTE.indexOf(x) === ST.to; })){
         if(L.slice(i - i % 3, i + 1).some(function(x){ return SW_TALENTE.indexOf(x) === ST.to; }) && (i % 3 === 2 || i === L.length - 1)) h += talDetail(SW_TALENTE[ST.to]);
       }
@@ -73,8 +77,8 @@ function talentePage(){
   APP.innerHTML = '<div class="lay' + (ST.fold ? " fold-on" : "") + '" id="lay"><aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + side + '</aside><main class="ct"><h2>' + esc(TKT[kat]) + '</h2>' + h + '</main></div>';
 }
 function talDetail(t){
-  var up = SW_TALENTE.filter(function(x){ return x.v && x.v.split(/,\s*/).indexOf(t.n) > -1; });
-  return '<div class="td" style="--rc:' + RC[t.r] + '"><div class="tdm"><h3>' + esc(t.n) + '<span class="pg" onclick="openBook(\'sw_de\',' + (t.p + 1) + ')">S. ' + t.p + '</span></h3>' + t.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</div><div class="tds"><small>Voraussetzungen</small><div>' + RN[t.r] + (t.v ? ", " + esc(t.v) : "") + (t.w ? "<br>nur Wildcards" : "") + "</div>" +
+  var up = SW_TALENTE.filter(function(x){ return talSicht(x) && x.v && x.v.split(/,\s*/).indexOf(t.n) > -1; });
+  return '<div class="td" style="--rc:' + RC[t.r] + '"><div class="tdm"><h3>' + esc(t.n) + talBadges(t) + '<span class="pg" onclick="openBook(\'' + t.bk + '\',' + (t.p + t.o) + ')">S. ' + t.p + '</span></h3>' + t.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</div><div class="tds"><small>Voraussetzungen</small><div>' + RN[t.r] + (t.v ? ", " + esc(t.v) : "") + (t.w ? "<br>nur Wildcards" : "") + "</div>" +
     (up.length ? "<small>Führt zu</small>" + up.map(function(x){ return '<a onclick="event.stopPropagation();talGo(' + SW_TALENTE.indexOf(x) + ')">' + esc(x.n) + "</a>"; }).join("") : "") + "</div></div>";
 }
 function talKat(k){ ST.tk = k; ST.to = -1; save(); talentePage(); }

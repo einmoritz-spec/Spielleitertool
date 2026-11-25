@@ -7,7 +7,7 @@ K.push({id: "grenze", t: "Die Umbral-Grenze", p: 126, b: [
  {t: "daten", x: [
   "**Ort:** El Paso de Umbral",
   "**Zeit:** März VII H.C.",
-  "**Hauptfiguren:** [[Jemma|fp/figuren/jemma]], [[Malaika|fp/figuren/malaika]], [[Qamar|fp/figuren/qamar]] und [[Zehra|fp/figuren/zehra]]",
+  "**Hauptfiguren:** [[Jemma|fp/figuren/jemma]], [[Zehra|fp/figuren/zehra]], [[Malaika|fp/figuren/malaika]] und [[Qamar|fp/figuren/qamar]]",
   "**Weitere Figuren:** [[Micah|fp/figuren/micah]] und [[Sienna|fp/figuren/sienna]]",
   "**Ziel:** Den Long Hallway erreichen"
  ]},

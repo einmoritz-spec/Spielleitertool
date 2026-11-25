@@ -7,7 +7,7 @@ K.push({id: "banister", t: "Die Tragödie auf dem Banister", p: 122, b: [
  {t: "daten", x: [
   "**Ort:** Great Stairs",
   "**Zeit:** Januar VII H.C.",
-  "**Hauptfiguren:** [[Aidan|fp/figuren/aidan]], [[Dimitri|fp/figuren/dimitri]], [[Ira|fp/figuren/ira]] und [[Siobhan|fp/figuren/siobhan]]",
+  "**Hauptfiguren:** [[Siobhan|fp/figuren/siobhan]], [[Aidan|fp/figuren/aidan]], [[Dimitri|fp/figuren/dimitri]] und [[Ira|fp/figuren/ira]]",
   "**Weitere Figuren:** [[Micah|fp/figuren/micah]] und [[Icarus|fp/figuren/icarus]]",
   "**Ziel:** Downridge erreichen"
  ]},

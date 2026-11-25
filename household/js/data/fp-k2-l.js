@@ -7,7 +7,7 @@ K.push({id: "rache", t: "Qamars Rache, Teil I", p: 135, b: [
  {t: "daten", x: [
   "**Ort:** Chesterfield by-the-fire",
   "**Zeit:** März VIII H.C.",
-  "**Hauptfiguren:** [[Qamar|fp/figuren/qamar]], [[Earnest|fp/figuren/earnest]], [[Sienna|fp/figuren/sienna]] und [[Micah|fp/figuren/micah]]",
+  "**Hauptfiguren:** [[Sienna|fp/figuren/sienna]], [[Earnest|fp/figuren/earnest]], [[Qamar|fp/figuren/qamar]] und [[Micah|fp/figuren/micah]]",
   "**Weitere Figuren:** [[Humphrey|fp/figuren/humphrey]] und [[Santiago|fp/figuren/santiago]]",
   "**Ziel:** Northcott aufhalten"
  ]},

@@ -7,7 +7,7 @@ K.push({id: "frischertat", t: "Auf frischer Tat", p: 124, b: [
  {t: "daten", x: [
   "**Ort:** Stairside",
   "**Zeit:** Februar VII H.C.",
-  "**Hauptfiguren:** [[Icarus|fp/figuren/icarus]], [[Sienna|fp/figuren/sienna]], [[Micah|fp/figuren/micah]] und [[Floyd|fp/figuren/floyd]]",
+  "**Hauptfiguren:** [[Sienna|fp/figuren/sienna]], [[Floyd|fp/figuren/floyd]], [[Icarus|fp/figuren/icarus]] und [[Micah|fp/figuren/micah]]",
   "**Weitere Figuren:** [[Litha|fp/figuren/litha]] und [[Tubo|fp/figuren/tubo]]",
   "**Ziel:** Die Schuldigen finden"
  ]},

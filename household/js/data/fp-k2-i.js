@@ -7,7 +7,7 @@ K.push({id: "grab", t: "Argos Grab", p: 132, b: [
  {t: "daten", x: [
   "**Ort:** Pinewood",
   "**Zeit:** Mai VII H.C.",
-  "**Hauptfiguren:** [[Gwen|fp/figuren/gwen]], [[Humphrey|fp/figuren/humphrey]], [[Pryscilla|fp/figuren/priscilla]] und [[Santiago|fp/figuren/santiago]]",
+  "**Hauptfiguren:** [[Santiago|fp/figuren/santiago]], [[Gwen|fp/figuren/gwen]], [[Pryscilla|fp/figuren/priscilla]] und [[Humphrey|fp/figuren/humphrey]]",
   "**Weitere Figuren:** [[Earnest|fp/figuren/earnest]] und [[Sienna|fp/figuren/sienna]]",
   "**Ziel:** Das Grab erkunden"
  ]},

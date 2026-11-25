@@ -7,7 +7,7 @@ K.push({id: "aufstieg", t: "Der Große Aufstieg", p: 125, b: [
  {t: "daten", x: [
   "**Ort:** Great Stairs",
   "**Zeit:** Februar VII H.C.",
-  "**Hauptfiguren:** [[Gunther|fp/figuren/gunther]], [[Litha|fp/figuren/litha]], [[Pierre|fp/figuren/pierre]] und [[Tubo|fp/figuren/tubo]]",
+  "**Hauptfiguren:** [[Tubo|fp/figuren/tubo]], [[Litha|fp/figuren/litha]], [[Pierre|fp/figuren/pierre]] und [[Gunther|fp/figuren/gunther]]",
   "**Weitere Figuren:** [[Floyd|fp/figuren/floyd]] und [[Ira|fp/figuren/ira]]",
   "**Ziel:** Topridge erreichen"
  ]},

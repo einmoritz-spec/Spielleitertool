@@ -7,7 +7,7 @@ K.push({id: "spur", t: "Auf Argos Spur", p: 123, b: [
  {t: "daten", x: [
   "**Ort:** Chesterfield by-the-fire",
   "**Zeit:** Februar VII H.C.",
-  "**Hauptfiguren:** [[Gwen|fp/figuren/gwen]], [[Humphrey|fp/figuren/humphrey]], [[Pryscilla|fp/figuren/priscilla]] und [[Santiago|fp/figuren/santiago]]",
+  "**Hauptfiguren:** [[Santiago|fp/figuren/santiago]], [[Gwen|fp/figuren/gwen]], [[Pryscilla|fp/figuren/priscilla]] und [[Humphrey|fp/figuren/humphrey]]",
   "**Weitere Figuren:** [[Sienna|fp/figuren/sienna]] und [[Earnest|fp/figuren/earnest]]",
   "**Ziel:** Die Karte zusammensetzen"
  ]},

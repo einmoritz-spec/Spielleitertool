@@ -7,7 +7,7 @@ K.push({id: "protopopolov2", t: "Reise mit Protopopolov, Teil II", p: 131, b: [
  {t: "daten", x: [
   "**Ort:** Downridge",
   "**Zeit:** April VII H.C.",
-  "**Hauptfiguren:** [[Yuliya|fp/figuren/yuliya]], [[Hannah|fp/figuren/hannah]], [[Litha|fp/figuren/litha]] und [[Tubo|fp/figuren/tubo]]",
+  "**Hauptfiguren:** [[Tubo|fp/figuren/tubo]], [[Litha|fp/figuren/litha]], [[Hannah|fp/figuren/hannah]] und [[Yuliya|fp/figuren/yuliya]]",
   "**Weitere Figuren:** [[Jocelyne|fp/figuren/jocelyne]] und [[Floyd|fp/figuren/floyd]]",
   "**Ziel:** Protopopolov zu den Quivering Stairs eskortieren"
  ]},

@@ -7,7 +7,7 @@ K.push({id: "hallway", t: "Der Long Hallway", p: 130, b: [
  {t: "daten", x: [
   "**Ort:** Long Hallway",
   "**Zeit:** April VII H.C.",
-  "**Hauptfiguren:** [[Icarus|fp/figuren/icarus]], [[Jemma|fp/figuren/jemma]], [[Malaika|fp/figuren/malaika]] und [[Zehra|fp/figuren/zehra]]",
+  "**Hauptfiguren:** [[Jemma|fp/figuren/jemma]], [[Zehra|fp/figuren/zehra]], [[Malaika|fp/figuren/malaika]] und [[Icarus|fp/figuren/icarus]]",
   "**Weitere Figuren:** [[Qamar|fp/figuren/qamar]]",
   "**Ziel:** Den Long Hallway durchqueren"
  ]},

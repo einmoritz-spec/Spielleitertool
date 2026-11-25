@@ -7,7 +7,7 @@ K.push({id: "koenigin", t: "Die Königin und der Boggart", p: 134, b: [
  {t: "daten", x: [
   "**Ort:** Beddingham",
   "**Zeit:** Juni VII H.C.",
-  "**Hauptfiguren:** [[Pierre|fp/figuren/pierre]], [[Gunther|fp/figuren/gunther]], [[Ira|fp/figuren/ira]] und [[Floyd|fp/figuren/floyd]]",
+  "**Hauptfiguren:** [[Floyd|fp/figuren/floyd]], [[Pierre|fp/figuren/pierre]], [[Gunther|fp/figuren/gunther]] und [[Ira|fp/figuren/ira]]",
   "**Weitere Figuren:** [[Pryscilla|fp/figuren/priscilla]] und [[Gwen|fp/figuren/gwen]]",
   "**Ziel:** Der Vorstellung beiwohnen"
  ]},

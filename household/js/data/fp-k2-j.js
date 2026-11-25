@@ -7,7 +7,7 @@ K.push({id: "pille", t: "Eine bittere Pille", p: 133, b: [
  {t: "daten", x: [
   "**Ort:** Astraviya",
   "**Zeit:** Juni VII H.C.",
-  "**Hauptfiguren:** [[Aidan|fp/figuren/aidan]], [[Dimitri|fp/figuren/dimitri]], [[Jocelyne|fp/figuren/jocelyne]] und [[Siobhan|fp/figuren/siobhan]]",
+  "**Hauptfiguren:** [[Siobhan|fp/figuren/siobhan]], [[Aidan|fp/figuren/aidan]], [[Dimitri|fp/figuren/dimitri]] und [[Jocelyne|fp/figuren/jocelyne]]",
   "**Weitere Figuren:** [[Pierre|fp/figuren/pierre]] und [[Gunther|fp/figuren/gunther]]",
   "**Ziel:** Den Fall lösen"
  ]},

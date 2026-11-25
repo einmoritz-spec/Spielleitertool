@@ -384,3 +384,5 @@ body.garten .koloss .ko-vh{background:rgba(190,160,95,.16);padding:8px 12px 10px
 body.garten .koloss .ko-vh>b:first-child{display:block;font:400 18px Fell,serif;color:var(--kup);margin-bottom:2px}
 body.garten .koloss .gk-zug{margin:6px 2px}
 body.garten .fig.weich img{-webkit-mask:radial-gradient(closest-side,#000 62%,transparent);mask:radial-gradient(closest-side,#000 62%,transparent)}
+/* Garten: Text nutzt die volle Breite, kein leerer Streifen rechts */
+body.garten .txt,body.garten.fold-on .txt,body.garten .fold-on .txt{max-width:1500px;margin-left:auto;margin-right:auto}

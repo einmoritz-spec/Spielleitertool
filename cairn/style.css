@@ -112,7 +112,8 @@ body.mitunter .side{top:100px;height:calc(100vh - 100px)}
 .mc .mh{padding:7px 12px;border-bottom:2px solid var(--ink);font-size:19px}
 .mc .mw{padding:5px 12px;font-size:13.5px;border-bottom:1px solid #cfc6b4;color:var(--soft)}
 .mc .mb{padding:8px 12px;font-size:14.5px;line-height:1.5}
-.mc .mi{float:right;width:96px;margin:2px 0 6px 10px;cursor:zoom-in}
+.mc .mi.wi{float:none;display:block;width:100%;max-height:150px;margin:2px 0 8px}
+.mc .mi{float:right;width:120px;max-height:170px;object-fit:contain;margin:2px 0 6px 10px;cursor:zoom-in}
 .mc .mb p{margin:0 0 .5em}.mc .bul{margin:4px 0}
 /* Modal, Zoom */
 .modal{position:fixed;inset:0;z-index:99990;background:rgba(10,4,16,.6);display:grid;place-items:center;overflow:auto;padding:30px}

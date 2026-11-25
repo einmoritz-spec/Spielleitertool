@@ -87,7 +87,7 @@ function dtab(b){
 function dsel(id, i){ DH[id] = DH[id] === i ? null : i; render(); }
 /* Monster-/Karten-Kasten */
 function card(c){
-  return '<div class="mc"><div class="mh"><b>' + esc(c.t) + '</b>' + (c.p ? pgl(c.p) : "") + '</div>' + (c.w ? '<div class="mw">' + md(c.w) + '</div>' : '') + '<div class="mb">' + (c.img ? '<img class="mi" src="img/' + c.img + '" alt="" onclick="zoom(this.src)">' : '') + blk(c.b) + '</div></div>';
+  return '<div class="mc"><div class="mh"><b>' + esc(c.t) + '</b>' + (c.p ? pgl(c.p) : "") + '</div>' + (c.w ? '<div class="mw">' + md(c.w) + '</div>' : '') + '<div class="mb">' + (c.img ? '<img class="mi" src="img/' + c.img + '" alt="" onload="if(this.naturalWidth/this.naturalHeight>1.4)this.classList.add(\'wi\')" onclick="zoom(this.src)">' : '') + blk(c.b) + '</div></div>';
 }
 
 /* ---------- Notizen (Stift) ---------- */

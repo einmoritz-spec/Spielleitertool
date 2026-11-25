@@ -11,7 +11,8 @@ var AREAS = [
  {id:"arcana", t:"Arcana", k:"Mächte, die niemand versteht", c:"#e2561e"},
  {id:"sl", t:"Spielleitung", k:"Schätze, Hindernisse, Begegnungen, die Odd-Welt", c:"#0b9a96"},
  {id:"abenteuer", t:"Abenteuer", k:"Die Eiserne Koralle und Fan-Material", c:"#6a6ee8"},
- {id:"oddpendium", t:"Oddpendium", k:"Würfeltabellen für unterwegs", c:"#f5d9c8"}
+ {id:"oddpendium", t:"Oddpendium", k:"Würfeltabellen für unterwegs", c:"#f5d9c8"},
+ {id:"zusatz", t:"Zusatzheft", k:"Fan-Abenteuer, Hacks und Maze Rats", c:"#c9a24a"}
 ];
 function route(){ var h = (location.hash || "#start").slice(1).split("/"); return h[0] || "start"; }
 function sub(){ return (location.hash || "").slice(1).split("/")[1] || ""; }
@@ -31,7 +32,7 @@ function render(){
   var r = route();
   document.body.classList.toggle("start", r === "start");
   ktabs(r);
-  APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : r === "arcana" ? viewArcana(sub()) : r === "sl" ? viewSl(sub()) : r === "abenteuer" ? viewAb(sub()) : r === "oddpendium" ? viewOdd(sub()) : viewArea(r);
+  APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : r === "arcana" ? viewArcana(sub()) : r === "sl" ? viewSl(sub()) : r === "abenteuer" ? viewAb(sub()) : r === "oddpendium" ? viewOdd(sub()) : r === "zusatz" ? viewZusatz(sub()) : viewArea(r);
   if(r === "regeln") startHover();
   window.scrollTo(0, 0);
   if(r !== "start") sideBar();

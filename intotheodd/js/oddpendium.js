@@ -6,7 +6,7 @@ function tbl(t, i, die){
   rows.forEach(function(r){ var l = r.slice(1).join(" ").length; if (l > mx) mx = l; });
   var cols = nc >= 5 ? 1 : mx > 95 ? 1 : (mx > 40 || nc >= 2) && rows.length > 6 ? 2 : rows.length > 12 ? 3 : 1;
   if (nc >= 3 && nc < 5) cols = 1;
-  var g = "grid-template-columns:62px repeat(" + nc + ",1fr)";
+  var g = "grid-template-columns:" + (t.k || 62) + "px repeat(" + nc + ",1fr)";
   var d = t.w || die || "";
   var n = Math.ceil(rows.length / cols), parts = [];
   for (var k = 0; k < cols; k++) {

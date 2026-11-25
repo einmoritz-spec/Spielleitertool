@@ -5,14 +5,13 @@ var K = H["fp/k1"] = H["fp/k1"] || [];
 var G = "[[Gwen Summers|fp/figuren/gwen]]", HU = "[[Humphrey Lockwood|fp/figuren/humphrey]]", E = "[[Earnest Gilmore|fp/figuren/earnest]]", S = "[[Sienna Blackwell|fp/figuren/sienna]]";
 
 K.push({id: "argo", t: "Argos Tagebuch", p: 70, b: [
- {t: "bild", s: "fp-s071-i-argos-diary", w: 460},
- {t: "ul", x: [
+ {t: "held", s: "fp-s071-i-argos-diary", l: 37, o: 3, w: 61, b: [{t: "ul", x: [
   "**Ort:** Wallford, Hearth",
   "**Zeit:** September VI H.C. (Kapitel I)",
   "**Hauptfiguren:** Gwen, Humphrey, Earnest und Sienna",
   "**Weitere Figuren:** Jemma und Floyd waren zu dieser Zeit ebenfalls im Hearth und könnten die Ereignisse miterlebt haben.",
   "**Ziel:** Mit der Seite aus Argos Tagebuch Chesterfield by-the-fire erreichen."
- ]},
+ ]}]},
  {t: "h", x: "Hintergrund"},
  "Argo der Bürokrat war ein herausragender Littling, der sein Leben dem Studium der Contracts widmete und versuchte, ihre Macht zu verstehen und für sich zu nutzen. Nach seinem verfrühten Verschwinden gingen Gerüchte um, die Ergebnisse seiner kostbaren Forschung seien auf den Seiten eines legendären Tagebuchs versammelt.",
  "Professor Teampall war einer der vielen Littlings, die von den Geheimnissen des Bürokraten besessen waren – ebenso wie Gwen, die Bibliothekarin. Die beiden schrieben einander oft, um ihre Theorien zu besprechen und Hinweise auszutauschen.",

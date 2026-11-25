@@ -61,6 +61,10 @@ function blk(L){
       case "ortskarten": return ortsKarten();
       case "gruppe": return gruppenBogen(b);
       case "scs": return '<div class="scraster">' + b.x.map(scBogen).join("") + "</div>";
+      case "motto": return '<p class="motto zw2">' + md(b.x) + "</p>";
+      case "tafel": return '<div class="tafel">' + md(b.x) + "</div>";
+      case "folgen": return '<aside class="folgen"><h4>Folgen</h4>' + b.rows.map(function(r){ return "<div><b>" + md(r[0]) + ":</b> " + md(r[1]) + "</div>"; }).join("") + "</aside>";
+      case "befehl": return befehl();
       case "html": return b.x;
     }
     return "";
@@ -99,6 +103,15 @@ function wuerfelLeiste(){
     ["W12","Wenn ihr genau wisst, was ihr tut, und ein perfektes Merkmal dafür habt.","M50 6 89 34 76 84H24L11 34Z"],
     ["W20 · W100","Nur für Tabellen.","M50 5 90 28V72L50 95 10 72V28Z"]];
   return '<div class="wleiste">' + W.map(function(w, i){ return '<div class="' + (i === 2 ? "sl" : i === 5 ? "tab" : "") + '"><svg viewBox="0 0 100 100"><path d="' + w[2] + '"/></svg><b>' + w[0] + "</b><span>" + w[1] + "</span></div>"; }).join("") + "</div>";
+}
+/* Einziehungsbefehl der Diebesgilde (Handout) */
+function befehl(){
+  var h = function(x){ return '<em>' + x + "</em>"; };
+  return '<div class="befehl"><div class="bk">Einziehungsbefehl</div><div class="bg">Die Ankh-Morporker Gilde der Diebe<br><small>Abteilung für Eintreibung und Einziehung · Ihre fürsorglichen professionellen Vermögensumverteiler</small></div>' +
+    "<p>Dieses Schreiben ordnet an und genehmigt zugleich den Einbruch / Raub / die gerechte Umverteilung von Gütern / die gewaltsame Einziehung von Gütern</p>" +
+    "<p>bei " + h("Vortin") + " von " + h("Vortins Diamantenlager") + "</p><p>Der/die/das Betreffende ist zu erleichtern um mindestens " + h("eine Bronzetafel des Gildenschutzes, eine Handvoll Diamanten und das Spülbecken.") + "</p>" +
+    "<p>gemäß den Gildenvorschriften, aufgrund von " + h("einem Haufen ausstehender Zahlungen") + "</p><p>Dieses Schreiben ist so bald wie möglich zu vollstrecken; alle Güter sind zur Katalogisierung, Bearbeitung und Verwendung an die Abteilung für Eintreibung und Einziehung zu übergeben.</p>" +
+    '<p class="unt">Unterzeichnet von „Flanellfuß“ Boggis (unterschrieben, nicht gelesen)</p><div class="notiz">Er ist im Perlendock, gegenüber vom Fischmarkt</div></div>';
 }
 /* Gruppen- und Charakterbogen (vorgefertigte Charaktere) */
 function gruppenBogen(b){

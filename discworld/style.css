@@ -219,16 +219,15 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .held .logo{width:min(560px,100%);height:auto;filter:drop-shadow(0 3px 10px rgba(0,0,0,.6))}
 .held .unterz{margin:10px 0 0;white-space:nowrap;font:400 25px/1.2 FellSC,serif;letter-spacing:.16em;color:#d9c18f;text-transform:uppercase}
 .stadt{position:relative;padding:44px 40px 0;background:linear-gradient(rgba(243,234,214,.86),rgba(243,234,214,.94) 50%,rgba(243,234,214,1) 82%),url(img/full/stadt-luftbild.webp) center 30%/100% auto no-repeat}
-.akten{display:grid;grid-template-columns:repeat(4,1fr);align-items:start;gap:26px;max-width:1240px;margin:0 auto}
-.akte{position:relative;background:rgba(255,251,242,.78);border:1px solid #c9ae80;box-shadow:0 6px 16px rgba(70,40,15,.12);padding:0 0 14px}
-.akte .ab-bild{position:relative}
-.akte .ab-bild::after{content:"";position:absolute;inset:6px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left top/46px auto no-repeat,url(img/deko/ecke-or.webp) right top/46px auto no-repeat,url(img/deko/ecke-ul.webp) left bottom/46px auto no-repeat,url(img/deko/ecke-ur.webp) right bottom/40px auto no-repeat}
-.akte .ab-bild{display:block;height:230px;overflow:hidden;cursor:pointer;border-bottom:1px solid #d6bf95;background:#efe4cc}
+.akten{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;gap:26px;max-width:1240px;margin:0 auto}
+.akte{position:relative;background:rgba(255,251,242,.85);border:1px solid #c9ae80;box-shadow:0 6px 16px rgba(70,40,15,.12);padding:16px 16px 30px}
+.akte::after{content:"";position:absolute;inset:-5px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left top/46px auto no-repeat,url(img/deko/ecke-or.webp) right top/46px auto no-repeat,url(img/deko/ecke-ul.webp) left bottom/46px auto no-repeat,url(img/deko/ecke-ur.webp) right bottom/40px auto no-repeat}
+.akte .ab-bild{display:block;height:214px;border:1px solid #d6bf95;overflow:hidden;cursor:pointer;border-bottom:1px solid #d6bf95;background:#efe4cc}
 .akte .ab-bild img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;mix-blend-mode:multiply;transition:transform .4s}
 .akte:hover .ab-bild img{transform:scale(1.04)}
-.akte h2{margin:14px 18px 6px;font:400 30px/1.1 FellSC,serif;color:var(--blut)}
+.akte h2{margin:14px 6px 6px;font:400 30px/1.1 FellSC,serif;color:var(--blut)}
 .akte h2 a{cursor:pointer;text-decoration:none}
-.akte nav a{display:block;padding:4px 18px;font:17px/1.3 Gara,serif;color:#4f3f31;cursor:pointer;border-top:1px solid rgba(201,174,128,.35)}
+.akte nav a{display:block;padding:4px 6px;font:17px/1.3 Gara,serif;color:#4f3f31;cursor:pointer;border-top:1px solid rgba(201,174,128,.35)}
 .akte nav a:hover{color:var(--blut);background:rgba(122,36,23,.05)}
 .abt{display:flex;align-items:center;gap:22px;max-width:1240px;margin:46px auto 22px;font:400 34px/1 FellSC,serif;color:var(--lila)}
 .abt::before,.abt::after{content:"";flex:1;height:22px;background:url(img/deko/zier-lila.webp) center/auto 22px no-repeat}
@@ -276,3 +275,29 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .orte a:hover img{transform:scale(1.05)}
 .orte b{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 8px;background:linear-gradient(transparent,rgba(20,8,5,.85));font:400 19px/1.15 FellSC,serif;color:#f6e7c6}
 .nscraster+.steck{margin-top:30px}
+
+/* Abenteuer */
+.unter.abu a.leer{cursor:default}
+.unter .sp{flex:1}
+.unter a.pen{border:0;color:#a08a6c;display:inline-flex}
+.unter a.pen svg{width:20px;height:20px}
+.unter a.pen.has{color:var(--lila)}
+.v-a .kh h2{color:var(--lila)}
+.side small{font-family:Gara,serif}
+p.motto.zw2{margin:-4px 0 12px;font:italic 17px/1.4 Gara,serif;color:#6d5b48}
+.tafel{clear:both;max-width:520px;margin:12px auto 18px;padding:18px 26px;text-align:center;font:400 19px/1.45 FellSC,serif;color:#3a2410;background:linear-gradient(135deg,#c9a062,#8a6230 45%,#b88a4c 70%,#7a5428);border:3px double #5a3d1a;border-radius:6px;box-shadow:inset 0 0 12px rgba(0,0,0,.35),0 4px 10px rgba(60,30,10,.3);text-shadow:0 1px 0 rgba(255,230,180,.45)}
+.folgen{clear:both;max-width:900px;margin:16px 0 20px;padding:14px 22px 8px;background:rgba(93,59,116,.07);border-left:4px solid var(--lila)}
+.folgen h4{margin:0 0 8px!important;font:400 18px/1 FellSC,serif!important;letter-spacing:.14em;text-transform:uppercase;color:var(--lila)!important}
+.folgen>div{margin:0 0 8px;font-size:17.5px}
+.folgen b{color:var(--lila);font-weight:600}
+.vorlesen{font-size:19px}
+.befehl{position:relative;clear:both;max-width:640px;margin:14px 0 24px;padding:40px 48px 36px;background:url(img/deko/karte2.webp) center/100% 100% no-repeat;filter:drop-shadow(0 4px 8px rgba(60,40,20,.2));font-size:17px}
+.befehl .bk{text-align:center;font:400 30px/1 FellSC,serif;color:#2b211a;letter-spacing:.08em}
+.befehl .bg{text-align:center;font:400 18px/1.3 FellSC,serif;margin:6px 0 16px;color:#3a2a22}
+.befehl .bg small{display:block;font:italic 14px/1.4 Gara,serif;color:#6b5a48}
+.befehl em{font:22px/1.2 Hand,cursive;font-style:normal;color:#1f2b55;border-bottom:1px dotted #8a7a6a;padding:0 4px}
+.befehl .unt{text-align:right;font-style:italic}
+.befehl .notiz{position:absolute;left:30px;bottom:-14px;transform:rotate(-4deg);font:20px/1.25 Hand,cursive;color:#9a3a2c}
+.notizm .mb{max-width:640px}
+.nt-h{margin:0 0 10px;font:400 24px/1 FellSC,serif;color:var(--lila)}
+textarea.nt{width:100%;min-height:260px;padding:12px 14px;border:1px solid #c9ae80;background:rgba(255,252,244,.8);font:22px/1.4 Hand,cursive;color:#2b211a;resize:vertical}

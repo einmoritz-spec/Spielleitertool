@@ -121,6 +121,7 @@ L.push(
   "Ratten sehen riesig gewordenen Mäusen mit langen, muskulösen Schwänzen sehr ähnlich. Mit diesen edlen Geschöpfen haben sie jedoch kaum etwas gemein. Anders als Mäuse jagen Ratten Littlings und lassen sich nicht zähmen, mit Ausnahme einiger weniger, zahmerer Rassen. Diese Bestien sind eine echte Plage für Jäger, denn sie gefährden das natürliche Gleichgewicht jedes Jagdreviers, das sie erreichen, und wagen sich manchmal sogar in Städte, um Nahrung zu finden.",
   "**Tail Whip:** Ein schneller Schwanzhieb droht die Figuren umzuwerfen. Figuren, die keinen Critical Reaction Roll in Grace + War bestehen, fallen zu Boden. Figuren am Boden müssen ihre Aktion nutzen, um wieder aufzustehen. Bis dahin erleiden sie −1 auf alle Würfe.",
   "**Rage:** Das Fell auf dem Rücken der Ratte sträubt sich, während sie faucht. Ab jetzt haben die Figuren −1 auf alle Action Rolls, mit denen sie angreifen."]},
+ {t: "bild", s: "grundbuch-s114-iiii-combat", w: "voll"},
  {t: "h", x: "Ablauf eines Kampfes"},
  "Eine Kampfszene beginnt, sobald du zum ersten Mal angreifst oder einen Schlag eines Gegners erleidest. Von da an wechseln sich zwei Arten von Zügen ab:",
  {t: "ul", x: [
@@ -169,6 +170,7 @@ L.push(
  "Es ist sogar möglich, dass eine Figur, die Bow Out muss, ihr vorzeitiges Ende gefunden hat. In diesem Fall sollte die Spielleitung mit der Spielerin oder dem Spieler besprechen, ob dies das Ende der Geschichte der Figur ist, und ihre Zustimmung einholen.",
  "Müssen alle Figuren Bow Out, endet die Sitzung mit einer verheerenden Niederlage. Die Spielleitung kann entscheiden, ob sie die Figuren in der nächsten Sitzung sofort zurückbringt, mit der gefangen genommenen oder dem Feind ausgelieferten Gruppe. Sie kann auch entscheiden, dass der Paragraph so endete, und zum nächsten übergehen.",
  {t: "h", x: "Weak Spot"},
+ {t: "bild", s: "grundbuch-s116-iiii-combat grundbuch-s117-iiii-combat", w: 380},
  "Ein Gegner kann einen Weak Spot haben, den du ausnutzen kannst, um die Oberhand zu gewinnen. In deinem Zug kannst du einen Wurf auf Investigation + War ablegen, um deinen Gegner auf der Suche nach seinem Weak Spot zu studieren. Die Schwierigkeit dieses Wurfs entspricht der Schwierigkeit des Gegners. Manche Moves, etwa der Duellanten-Move Cunning Tactics, erlauben dir, den Weak Spot eines Gegners zu finden, ohne zu würfeln oder deine Aktion zu verbrauchen.",
  "Findest du den Weak Spot des Gegners, bestimmt die Spielleitung ihn anhand der Tabelle im Anhang „Gegner“ und nennt dir das Ergebnis. Jeder Weak Spot ist anders und gewährt bestimmte Vorteile. Ein Beispiel:",
  {t: "box", h: "Weak Spot", b: ["In der Nähe steht ein instabiles Gebilde, das du mit einem Wurf auf Craft + War umstoßen kannst. Gelingt er dir, erleidet der Gegner 2 Stress."]},

@@ -120,6 +120,7 @@ L.push(
 
 {id: "skills", t: "Fields & Skills", p: 100, b: [
  {t: "h", x: "Society"},
+ {t: "bild", s: "grundbuch-s100-iiii-fields-skills", w: 120},
  "Du bist im Field Society, wenn du mit anderen Littlings umgehst, um sie zu beeinflussen oder dich nicht beeinflussen zu lassen. Wenn du dich in der feinen Gesellschaft oder auf weltlichen Veranstaltungen bewegst. Und wenn du mit der höflichen Gesellschaft zu tun hast und dich auf deine Liebenswürdigkeit oder deine guten Manieren verlässt.",
  "Alle Würfe, um andere zu überzeugen, in die Irre zu führen, mit ihnen zu feilschen oder sie zu inspirieren, werden im Field Society abgelegt, ebenso die Würfe, um solchen Versuchen zu widerstehen. Wenn du dich zum Beispiel jemandem nähern willst, um Informationen zu bekommen, auf einem Ball tanzt, den gesellschaftlichen Stand eines Littlings errätst, vorgibst, jemand anderes zu sein, oder ein schönes Kleid oder eine künstlerische Darbietung beurteilst, bist du immer im Field Society.",
  {t: "ul", x: [
@@ -131,6 +132,7 @@ L.push(
  {t: "box", h: "Weitere Skills im Field Society", b: ["Nutze Care, um deine Freunde aufzumuntern oder den Zustand Beschämt zu entfernen. Craft zum Kochen. Culture, um Wissen über Littlings der High Society abzurufen. Insight, um eine Lüge zu durchschauen. Investigation, um die Kleidung eines Littlings zu beurteilen. Authority, um andere zu inspirieren oder dir Gehör zu verschaffen. Strength oder Athletics, um andere mit deiner körperlichen Leistung zu beeindrucken. Will, um fremdem Charme zu widerstehen und Provokationen nicht nachzugeben. Caution, um zu bemerken, dass jemand hinter deinem Rücken intrigiert. Elusion, um das Thema zu wechseln."]},
 
  {t: "h", x: "Academia"},
+ {t: "bild", s: "grundbuch-s101-iiii-fields-skills", w: 120},
  "Du bist im Field Academia, wenn du dich auf technisches, theoretisches oder praktisches Wissen verlässt, das du in Jahren des Studiums oder der Erfahrung erworben hast. Wenn du eine Wissenschaft betreibst oder die Welt um dich herum analysierst. Und wenn du ermittelst, um eine Lösung zu finden oder die Wahrheit zu entdecken.",
  "Alle Würfe, um etwas zu wissen, abzurufen, zu reparieren, zu behandeln oder zu analysieren, werden im Field Academia abgelegt. Wenn du dir zum Beispiel Daten und Orte aus Geschichtsbüchern ins Gedächtnis rufst, eine Krankheit diagnostizierst oder behandelst, ein Gadget reparierst oder baust, eine Lage oder einen Tatort untersuchst oder nach versteckten Beweisen und entscheidenden Hinweisen suchst, bist du immer im Field Academia.",
  {t: "ul", x: [
@@ -142,6 +144,7 @@ L.push(
  {t: "box", h: "Weitere Skills im Field Academia", b: ["Nutze Art, um ein Kunstwerk oder ein Ereignis zu besprechen. Eloquence, um einen Vortrag zu halten. Etiquette, um anderen das Protokoll beizubringen oder zu erklären. Grace, um dich herauszuputzen und dein Decorum zu erhöhen. Fight, um die Dynamik eines Kampfes zu rekonstruieren. Will, um dich zu konzentrieren. Dexterity für Reparaturen oder Eingriffe, die große Fingerfertigkeit verlangen. Exploration, um dein Wissen über Botanik und Zoologie zu beweisen oder anzuwenden oder um den Zustand Vergiftet zu entfernen. Shoot, um eine Flugbahn zu berechnen oder ein ballistisches Gutachten zu erstellen."]},
 
  {t: "h", x: "War"},
+ {t: "bild", s: "grundbuch-s102-iiii-fields-skills", w: 120},
  "Du bist im Field War, wenn du kämpfst, wenn du dich anderen gegenüber durchsetzen oder deine Umgebung beherrschen willst. Wenn du dich im militärischen Umfeld oder in einem Kriegshandwerk bewegst. Und wenn du dich einer Lage direkt stellst oder dich auf Willenskraft oder Muskeln verlässt, um ein Hindernis zu überwinden.",
  "Alle Würfe, um zu kämpfen, zu verteidigen, zu überwältigen, durchzubrechen, Schmerz oder Anspannung auszuhalten, einzuschüchtern oder Bedrohungen zu widerstehen, werden im Field War abgelegt. Wenn du dich zum Beispiel einem Gegner stellst, auf Möbel kletterst, eine Tür oder Barrikade eintrittst, jemandem drohst oder deinen Mut beweist, bist du immer im Field War.",
  {t: "ul", x: [
@@ -153,6 +156,7 @@ L.push(
  {t: "box", h: "Weitere Skills im Field War", b: ["Nutze Eloquence, um andere zu beleidigen oder zu entmutigen. Etiquette im Umgang mit ranghöheren Offizieren im Militär. Grace, um mit Finesse zu kämpfen oder dich zu bewegen. Craft, um einen Einsturz herbeizuführen oder dem Feind ein Hindernis zu bauen. Culture, um Wissen über die Armeen des House abzurufen. Insight, um Finten oder Taktiken vorherzusehen. Investigation, um den Weak Spot eines Gegners zu finden. Caution, um nicht eingekreist oder überrumpelt zu werden. Dexterity, um schnell anzugreifen. Elusion, um Geschossen auszuweichen. Shoot, um aus nächster Nähe oder im Nahkampf zu schießen."]},
 
  {t: "h", x: "Street"},
+ {t: "bild", s: "grundbuch-s103-iiii-fields-skills", w: 120},
  "Du bist im Field Street, wenn du heimlich, verstohlen, vorsichtig oder für Verbrechen handelst. Wenn du es mit der wilden, feindlichen Landschaft im House oder mit kriminellen Kreisen zu tun hast. Wenn du versuchst, einer Gefahr oder einem Hinterhalt zuvorzukommen oder sie abzuwehren, oder wenn du ihr aus sicherer Entfernung begegnest.",
  "Alle Würfe, um sich zu verstecken, zu schleichen, zu stehlen, zu fliehen, Schlösser zu knacken, zu schießen und mit wilder Umgebung und kriminellen Kreisen umzugehen, werden im Field Street abgelegt. Wenn du dich zum Beispiel in den Schatten herumdrückst, ein Schloss knackst, einen Griff-und-Lauf durchziehst, dich in der Wildnis zurechtfindest, einem Hinterhalt ausweichst oder Fernkampfwaffen benutzt, bist du immer im Field Street.",
  {t: "ul", x: [

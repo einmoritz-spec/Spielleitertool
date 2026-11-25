@@ -114,7 +114,7 @@ figure.bild.breit{width:100%;max-width:1000px}
 /* Kästen */
 .kasten{position:relative;clear:none;max-width:880px;margin:16px 0 20px;padding:20px 30px 12px;background:rgba(232,215,183,.72);border:1px solid #c6ab7c;box-shadow:inset 0 0 0 4px rgba(243,234,214,.6),inset 0 0 0 5px #d5bd92}
 .kasten h4{margin:0 0 8px!important;text-align:center;font:400 22px/1.2 FellSC,serif!important;color:var(--blut)!important}
-.kasten::before{content:"";position:absolute;inset:-5px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left top/34px auto no-repeat,url(img/deko/ecke-or.webp) right top/34px auto no-repeat,url(img/deko/ecke-ul.webp) left bottom/34px auto no-repeat,url(img/deko/ecke-ur.webp) right bottom/34px auto no-repeat}
+.kasten::before{content:"";position:absolute;inset:-1px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left -4px top 0/48px auto no-repeat,url(img/deko/ecke-or.webp) right -4px top 0/48px auto no-repeat,url(img/deko/ecke-ul.webp) left -4px bottom 0/48px auto no-repeat,url(img/deko/ecke-ur.webp) right -4px bottom 0/48px auto no-repeat}
 .bsp{margin:16px 0 20px;padding:16px 26px 8px;border-top:2px solid var(--blut);border-bottom:2px solid var(--blut);background:rgba(255,250,240,.45)}
 .bsp>h4{margin:0 0 8px!important;font:400 18px/1 FellSC,serif!important;letter-spacing:.18em;text-transform:uppercase;color:var(--blut)!important;text-align:center}
 .vorlesen{max-width:880px;margin:14px 0 18px;padding:16px 26px 8px;background:rgba(93,59,116,.07);border-left:4px solid var(--lila);font-style:italic}
@@ -223,7 +223,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .stadt{position:relative;padding:44px 40px 0;background:linear-gradient(rgba(243,234,214,.86),rgba(243,234,214,.94) 50%,rgba(243,234,214,1) 82%),url(img/full/stadt-luftbild.webp) center 30%/100% auto no-repeat}
 .akten{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;gap:26px;max-width:1240px;margin:0 auto}
 .akte{position:relative;background:rgba(255,251,242,.85);border:1px solid #c9ae80;box-shadow:0 6px 16px rgba(70,40,15,.12);padding:16px 16px 30px}
-.akte::after{content:"";position:absolute;top:9px;left:9px;right:9px;height:230px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left top/38px auto no-repeat,url(img/deko/ecke-or.webp) right top/38px auto no-repeat,url(img/deko/ecke-ul.webp) left bottom/38px auto no-repeat,url(img/deko/ecke-ur.webp) right bottom/38px auto no-repeat}
+.akte::after{content:"";position:absolute;top:16px;left:16px;right:16px;height:216px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left -4px top 0/48px auto no-repeat,url(img/deko/ecke-or.webp) right -4px top 0/48px auto no-repeat,url(img/deko/ecke-ul.webp) left -4px bottom 0/48px auto no-repeat,url(img/deko/ecke-ur.webp) right -4px bottom 0/48px auto no-repeat}
 .akte .ab-bild{display:block;height:214px;border:1px solid #d6bf95;overflow:hidden;cursor:pointer;border-bottom:1px solid #d6bf95;background:#efe4cc}
 .akte .ab-bild img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;mix-blend-mode:multiply;transition:transform .4s}
 .akte:hover .ab-bild img{transform:scale(1.04)}

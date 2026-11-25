@@ -327,3 +327,19 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .ortpop .op-karte h4{margin:18px 0 8px;font-variant:small-caps;letter-spacing:.06em;color:var(--akz);display:flex;align-items:center;gap:12px}
 .ortpop .op-karte h4:after{content:"";flex:1;border-bottom:1px solid var(--rule)}
 .ortpop .op-karte img{width:100%}
+
+/* Garten-Startseite */
+.hero2.gh{height:400px;background-position:center 60%}
+.hero2.gh:after{background:linear-gradient(180deg,rgba(20,32,16,.05) 35%,rgba(20,32,16,.78) 100%)}
+.gtitel{position:absolute;left:0;right:0;bottom:44px;text-align:center;z-index:2;color:#f4efd6;text-shadow:0 3px 14px rgba(0,0,0,.75)}
+.gtitel b{display:block;font:400 64px/1 Fell,serif;letter-spacing:.04em}
+.gtitel i{display:block;font:italic 20px Gar,serif;margin-top:10px;opacity:.92}
+.bk.gb .band{height:150px;background-position:center}
+body.garten .bk h2{color:#3f6a34}
+body.garten .bk li{color:#3f4a33;border-bottom-color:#cfd6b4}
+.gkarte{position:relative;height:200px;border:2px solid #5b6b41;border-radius:3px;background:#2b3a22 center 42%/cover;cursor:pointer;overflow:hidden;box-shadow:0 6px 18px rgba(30,45,20,.3)}
+.gkarte:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,32,16,.85) 0,rgba(20,32,16,.45) 50%,rgba(20,32,16,.1) 100%)}
+.gkarte .t{position:absolute;left:34px;top:50%;transform:translateY(-50%);color:#f4efd6;z-index:1}
+.gkarte b{display:block;font:400 34px/1 Fell,serif}
+.gkarte i{display:block;font:italic 17px Gar,serif;margin-top:8px;opacity:.9}
+.gkarte:hover{filter:brightness(1.1)}

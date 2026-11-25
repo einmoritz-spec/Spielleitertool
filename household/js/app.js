@@ -84,8 +84,14 @@ function stk(s){ return '<div class="st" style="background-image:url(' + IMGP(s.
 var BAND = {welt: "tapete-s19-273", regeln: "tapete-s84-1391", sl: "tapete-s31-493"};
 function viewStart(mode){
   if(mode === "garten"){
-    var gc = HH_NAV.garten.map(function(a){ return '<a class="bereich" onclick="go(\'g/' + a.id + '\')"><h2>' + esc(a.t) + '</h2><p>' + a.unter.map(function(u){ return esc(u.t); }).join(" · ") + '</p></a>'; }).join("");
-    return '<div class="hero"></div><div class="sw-start"><div class="bereiche nomas">' + gc + '</div></div>';
+    var GB = {welt: "garten-s178-179-vii-the-woodlands-ganz", regeln: "garten-s156-vii-garten-einleitung", sl: "garten-s308-309-anhang-colossi-ganz"};
+    var gk = HH_NAV.garten.map(function(a){
+      return '<div class="bk gb"><div class="band" style="background-image:url(' + IMGP(GB[a.id]) + ');' + (a.id === "sl" ? 'background-size:175%;background-position:0 35%' : '') + '"></div><div class="schild"><h2>' + esc(a.t) + '</h2></div><ul>' +
+        a.unter.map(function(u){ return '<li onclick="go(\'g/' + a.id + '/' + u.id + '\')">' + esc(u.t) + '</li>'; }).join("") + '</ul></div>';
+    }).join("");
+    return '<div class="hero2 gh" style="background-image:url(' + IMGP("garten-s158-159-vii-the-underground") + ')"><div class="gtitel"><b>Der Garten</b><i>The Outhold · Household Vol. II</i></div></div>' +
+      '<div class="sek"><div class="ber nomas">' + gk + '</div></div>' +
+      '<div class="sek" style="padding-bottom:50px"><div class="gkarte" onclick="go(\'g/welt/garten/karte\')" style="background-image:url(' + IMGP("garten-s153-karte-des-gartens-the-outhold-frei") + ')"><div class="t"><b>Karte des Outhold</b><i>Front Yard, Backyard und alle Gebiete auf einen Blick</i></div></div></div>';
   }
   var bk = HH_NAV.haus.map(function(a){
     return '<div class="bk"><div class="band" style="background-image:url(img/deko/' + BAND[a.id] + '.jpg)"></div><div class="schild"><h2>' + esc(a.t) + '</h2></div><ul>' +

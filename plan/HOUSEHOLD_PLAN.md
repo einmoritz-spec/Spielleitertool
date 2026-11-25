@@ -178,3 +178,4 @@ Nur echte Eigenbegriffe bleiben englisch: Namen von Folk, Nationen, Orten, Perso
 - ✅ Kapitel I › Die Wachsfalle (S.102–109)
 - ✅ Kapitel I › Die Blaue Ratte (S.110–120) – Kapitel I komplett
 - Kapitel II, Paragraph I (S.121–127): 6 Skizzen-Abenteuer (Banister, Auf Argos Spur, Auf frischer Tat, Großer Aufstieg, Umbral-Grenze, Protopopolov I) als fp/k2 – fertig
+- Kapitel II, Paragraph II (S.129–135): 6 Skizzen-Abenteuer (Long Hallway, Protopopolov II, Argos Grab, Eine bittere Pille, Die Königin und der Boggart, Qamars Rache I) – Kapitel II komplett

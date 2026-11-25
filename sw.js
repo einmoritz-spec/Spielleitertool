@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v968sq";
+const VERSION = "v969sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -1401,6 +1401,18 @@ const FILES = [
   "household/img/fp/thumb/fp-s126-ii-the-umbral-frontier.webp",
   "household/img/fp/full/fp-s127-ii-traveling-with-protopopolov.webp",
   "household/img/fp/thumb/fp-s127-ii-traveling-with-protopopolov.webp",
+  "household/img/fp/full/fp-s130-ii-the-long-hallway.webp",
+  "household/img/fp/thumb/fp-s130-ii-the-long-hallway.webp",
+  "household/img/fp/full/fp-s131-ii-traveling-with-protopopolov-ii.webp",
+  "household/img/fp/thumb/fp-s131-ii-traveling-with-protopopolov-ii.webp",
+  "household/img/fp/full/fp-s132-ii-argos-tomb.webp",
+  "household/img/fp/thumb/fp-s132-ii-argos-tomb.webp",
+  "household/img/fp/full/fp-s133-ii-a-bitter-pill.webp",
+  "household/img/fp/thumb/fp-s133-ii-a-bitter-pill.webp",
+  "household/img/fp/full/fp-s134-ii-the-queen-and-the-boggart.webp",
+  "household/img/fp/thumb/fp-s134-ii-the-queen-and-the-boggart.webp",
+  "household/img/fp/full/fp-s135-ii-qamars-revenge.webp",
+  "household/img/fp/thumb/fp-s135-ii-qamars-revenge.webp",
   "household/img/fp/full/fp-s104-i-the-wax-trap-kachel.webp",
   "household/img/fp/thumb/fp-s104-i-the-wax-trap-kachel.webp",
   "household/js/data/fp-k1.js",
@@ -1410,6 +1422,12 @@ const FILES = [
   "household/js/data/fp-k2-d.js",
   "household/js/data/fp-k2-e.js",
   "household/js/data/fp-k2-f.js",
+  "household/js/data/fp-k2-g.js",
+  "household/js/data/fp-k2-h.js",
+  "household/js/data/fp-k2-i.js",
+  "household/js/data/fp-k2-j.js",
+  "household/js/data/fp-k2-k.js",
+  "household/js/data/fp-k2-l.js",
   "household/js/data/fp-k2.js",
   "household/img/guide/full/guide-s200-atlas-highlight-astraviya.webp",
   "household/img/guide/thumb/guide-s200-atlas-highlight-astraviya.webp",

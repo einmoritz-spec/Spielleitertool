@@ -16,7 +16,8 @@ function blk(L, book){
       case "bild": return '<figure class="fig' + (b.w === "voll" ? " voll" : b.w === "mitte" ? " mitte" : b.w === "raster" ? " raster" : "") + '"' + (b.w === "voll" || b.w === "mitte" || b.w === "raster" ? "" : ' style="width:' + b.w + 'px"') + '>' + b.s.split(" ").map(function(n){ return '<img loading="lazy" src="' + IMGP(n) + '" alt="">'; }).join("") + '</figure>';
       case "karten": return '<div class="karten nomas' + (b.cls ? ' ' + b.cls : '') + '">' + blk(b.x, book) + "</div>";
       case "gegner": return gegnerKarte(b);
-      case "kacheln": return '<div class="kacheln">' + b.x.filter(function(k){ return k.s; }).map(function(k){ return '<a class="kachel" onclick="go(\'sl/gegner/' + k.id + '\')"><span class="kb"><img loading="lazy" src="' + IMGP(k.s, 1) + '" alt=""></span><b>' + esc(k.n) + '</b><small>' + GTYP[k.typ] + (k.lv ? ' · Stufe ' + k.lv : '') + '</small></a>'; }).join("") + '</div><p class="kliste">' + b.x.filter(function(k){ return !k.s; }).map(function(k){ return '<a onclick="go(\'sl/gegner/' + k.id + '\')">' + esc(k.n) + '</a><small> ' + (k.lv ? 'Stufe ' + k.lv : GTYP[k.typ]) + '</small>'; }).join("") + '</p>';
+      case "figur": return figurKarte(b);
+      case "kacheln": return '<div class="kacheln">' + b.x.filter(function(k){ return k.s; }).map(function(k){ return '<a class="kachel" onclick="go(\'' + (b.r || "sl/gegner/") + k.id + '\')"><span class="kb"><img loading="lazy" src="' + IMGP(k.s, 1) + '" alt=""></span><b>' + esc(k.n) + '</b><small>' + (k.u !== undefined ? esc(k.u) : GTYP[k.typ] + (k.lv ? ' · Stufe ' + k.lv : '')) + '</small></a>'; }).join("") + '</div><p class="kliste">' + b.x.filter(function(k){ return !k.s; }).map(function(k){ return '<a onclick="go(\'sl/gegner/' + k.id + '\')">' + esc(k.n) + '</a><small> ' + (k.lv ? 'Stufe ' + k.lv : GTYP[k.typ]) + '</small>'; }).join("") + '</p>';
       case "q": return '<blockquote class="spruch">' + md(b.x) + (b.wer ? "<small>" + esc(b.wer) + "</small>" : "") + "</blockquote>";
       case "tbl": return '<table class="tbl">' + (b.head ? "<tr>" + b.head.map(function(h){ return "<th>" + esc(h) + "</th>"; }).join("") + "</tr>" : "") + b.rows.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + md(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>";
     }
@@ -50,4 +51,14 @@ function textSeite(P, list, book){
   var bl = (window.HH_BILD || {})[P.unter.id + "/" + e.id] || [];
   var fig = bl.map(function(g){ return '<figure class="fig" style="width:' + g.w + 'px">' + g.s.map(function(n){ return '<img loading="lazy" src="' + IMGP(n) + '" alt="">'; }).join("") + '</figure>'; }).join("");
   return '<div class="sec txt"><h2>' + esc(e.t) + (e.p ? pgl(book, e.p) : "") + '</h2>' + fig + blk(e.b, book) + '<div style="clear:both"></div></div>';
+}
+
+/* Figurenkarte (Neue Figuren): {t:"figur", n, sub, bild:[Name,Breite], d:[[Feld,Wert]], s:[[Feld,Wert]] Startwerte, k:[[Kapitel,Text]], tx:[Absätze]} */
+function figurKarte(b){
+  return '<div class="kasten figur" id="ab-' + b.id + '"><div class="fg-kopf"><div class="fg-sub">' + esc(b.sub) + '</div></div>' +
+    '<div class="fg-obe">' + (b.bild ? '<figure class="fig"><img loading="lazy" src="' + IMGP(b.bild) + '" alt=""></figure>' : '') +
+    '<div class="fg-d"><dl>' + b.d.map(function(x){ return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join("") + '</dl>' +
+    '<dl class="fg-s">' + b.s.map(function(x){ return '<dt>' + esc(x[0]) + '</dt><dd>' + md(x[1]) + '</dd>'; }).join("") + '</dl></div></div>' +
+    '<div class="fg-k">' + b.k.map(function(x){ return '<div><b>Kapitel ' + x[0] + '</b><span>' + md(x[1]) + '</span></div>'; }).join("") + '</div>' +
+    '<div class="fg-tx"><h4>Prolog</h4>' + b.tx.map(function(t){ return "<p>" + md(t) + "</p>"; }).join("") + '</div></div>';
 }

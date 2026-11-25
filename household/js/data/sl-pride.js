@@ -30,15 +30,15 @@ A.push({id: "p-blaurat", t: "Der Blue Rat", p: 307, b: [
   "Die beiden geraten in Streit, während die verlegene Wachtruppe versucht, ihre Arbeit fortzusetzen. Der Wortwechsel wird so hitzig, dass man kaum noch versteht, worum es geht. Wer eingreifen oder die Lage verstehen will, muss zuerst einen **einfachen Aktionswurf** bestehen.",
   "Da vermutlich zum ersten Mal jemand am Tisch die Würfel nimmt, ist das die ideale Gelegenheit, die Regeln mit allen zu wiederholen. Erkläre, dass jede:r selbst wählen kann, wie sie oder er handelt, welche Fertigkeit sie einsetzt und in welchem Feld. Hier ein paar Beispiele:",
   {t: "ul", x: [
-    "Die Figur versucht sich zu konzentrieren, um dem Streit zu folgen (**Insight + Academia**).",
-    "Die Figur versucht, den Streit zu beenden (**Authority + War**).",
-    "Die Figur versucht zu vermitteln (**Eloquence + Society**).",
-    "Die Figur nutzt die Verwirrung, um den Durchsuchungsbefehl zu „borgen“ (**Dexterity + Street**)."]},
+    "Die Figur versucht sich zu konzentrieren, um dem Streit zu folgen (**Einsicht + Wissenschaft**).",
+    "Die Figur versucht, den Streit zu beenden (**Autorität + Krieg**).",
+    "Die Figur versucht zu vermitteln (**Redegewandtheit + Gesellschaft**).",
+    "Die Figur nutzt die Verwirrung, um den Durchsuchungsbefehl zu „borgen“ (**Geschick + Straße**)."]},
   "Findet jemand eine originelle oder besonders kluge Lösung und erzielt einen guten Erfolg, kannst du sie oder ihn mit einem Ass in dem eingesetzten Feld belohnen.",
   "Durch das Lesen des Durchsuchungsbefehls oder indem sie D’Arcy zu einer Erklärung bewegen, begreifen die Figuren schließlich, was los ist: Aus den umliegenden Höfen sind mehrere Stück Vieh, vor allem Jagdmäuse, verschwunden, und D’Arcy soll den Dieb finden. Mit ein paar Nachfragen ist klar, dass der Lieutenant und Elizabeth die Lage sehr verschieden sehen.",
   "D’Arcy glaubt, der Dieb sei ein Littling, vielleicht sogar ein Boggart aus dem Dorf, und die Leute von Stairside behinderten die Ermittlung. Elizabeth dagegen ist überzeugt, dass irgendein wildes Tier für das fehlende Vieh verantwortlich ist und der Lieutenant nichts als ein voreingenommener Narr ist. Harte Worte, die ihren Großvater Old Abbott sofort beunruhigen.",
-  "Auf dem Höhepunkt der Spannung nutzt D’Arcy die erste Gelegenheit, sich von Elizabeth zu entfernen und mit den Figuren zu sprechen. Ohne Umschweife fragt er sie, ob sie am Diebstahl beteiligt sind. Das verlangt einen **einfachen Reaktionswurf**: Bitte die Spieler:innen, mit **Will + Society** dem Druck der Anschuldigungen des Lieutenants zu widerstehen.",
-  "Wer Erfolg hat, bleibt gelassen wie eine Münze, wer scheitert, erleidet die Kondition **Verängstigt**: Die Lage ist einfach zu angespannt!",
+  "Auf dem Höhepunkt der Spannung nutzt D’Arcy die erste Gelegenheit, sich von Elizabeth zu entfernen und mit den Figuren zu sprechen. Ohne Umschweife fragt er sie, ob sie am Diebstahl beteiligt sind. Das verlangt einen **einfachen Reaktionswurf**: Bitte die Spieler:innen, mit **Wille + Gesellschaft** dem Druck der Anschuldigungen des Lieutenants zu widerstehen.",
+  "Wer Erfolg hat, bleibt gelassen wie eine Münze, wer scheitert, erleidet den Zustand **Verängstigt**: Die Lage ist einfach zu angespannt!",
   "Zum Glück fallen die Folgen nicht allzu hart aus, denn keine der Figuren hat etwas mit dem Diebstahl zu tun, und D’Arcy erkennt das sofort. Alles in allem wirkt er wie ein vernünftiger, wenn auch etwas unhöflicher Littling. Als sich die Lage beruhigt, verlässt der Lieutenant die Taverne.",
   {t: "q", x: "Wenn ihr die Ermittlung unterstützen wollt, kommt bitte in der Garnison vorbei. Je eher wir den Dieb fassen, desto eher können wir diese leidige Geschichte vergessen. Guten Tag."},
   "Elizabeth dagegen kocht noch immer. Sie flüstert wütend von diesem „sturen Dickschädel von einem Soldaten, der nicht auf die Vernunft hören will“ und geht grummelnd zurück in die Küche.",
@@ -61,19 +61,19 @@ A.push({id: "p-garnison", t: "Die Garnison", p: 309, b: [
 
 A.push({id: "p-tatort", t: "Der Tatort", p: 310, b: [
   "Der jüngste Diebstahl geschah in den Ställen der Horde-Botschaft, einem Holzgebäude unweit des Blue Rat, das ständig von einer Truppe der Soldaten der Great Blade bewacht wird. Diese Littlings tragen Helme oder Turbane und senfgelbe Uniformen. Sie wirken nicht besonders erpicht darauf, jemanden durchzulassen.",
-  "Begleiten die Figuren D’Arcy, können sie sich auf seinen Einfluss verlassen und ungestört an den Tatort. Kommen sie mit Elizabeth, müssen sie einen **einfachen Aktionswurf** machen. Littlings mit Decorum **Elegant** oder höher erhalten jedoch eine Hilfe, wenn sie selbst mit den Wachen sprechen.",
-  "Der Tatort ist chaotisch. In den staubigen Ställen standen offenbar mehrere kleinere Mäuse, nun herrscht Durcheinander: Die Haupttür hängt aus den Angeln, das Futter liegt verstreut, der Wassereimer ist umgekippt. Sobald sie eintreten, müssen die Figuren einen **kritischen Reaktionswurf** mit **Grace + Street** machen. Scheitern sie, rutscht die Figur in eine Schlammpfütze, besudelt Schuhe und Hose und verliert **eine Stufe Decorum**.",
+  "Begleiten die Figuren D’Arcy, können sie sich auf seinen Einfluss verlassen und ungestört an den Tatort. Kommen sie mit Elizabeth, müssen sie einen **einfachen Aktionswurf** machen. Littlings mit Anstand **Elegant** oder höher erhalten jedoch eine Hilfe, wenn sie selbst mit den Wachen sprechen.",
+  "Der Tatort ist chaotisch. In den staubigen Ställen standen offenbar mehrere kleinere Mäuse, nun herrscht Durcheinander: Die Haupttür hängt aus den Angeln, das Futter liegt verstreut, der Wassereimer ist umgekippt. Sobald sie eintreten, müssen die Figuren einen **kritischen Reaktionswurf** mit **Anmut + Straße** machen. Scheitern sie, rutscht die Figur in eine Schlammpfütze, besudelt Schuhe und Hose und verliert **eine Stufe Anstand**.",
   "Nach dem Betreten können die Figuren mit einem **einfachen Aktionswurf** nach Hinweisen oder Spuren suchen. Bei einem einfachen Erfolg finden sie eine Reihe von Schleifspuren, die ebenso gut von einem Littling wie von einem Tier stammen könnten. Bei einem kritischen Erfolg lösen sie das Rätsel: Das sind die Spuren eines Littlings **und** die eines Tieres! Nun gilt es, ihnen zu folgen."]});
 
 A.push({id: "p-wand", t: "Die Wand hinauf", p: 310, b: [
   "Die Spuren führen aus den Ställen Richtung Stadtrand. Reisen die Figuren mit Elizabeth, können sie ihnen leicht folgen, sind sie aber mit D’Arcy unterwegs, gibt es einen Haken.",
-  "Die Figur an der Spitze riskiert eine unangenehme Begegnung mit einem Eimer voll Schimmel und Tau. Eine alte Frau hat die Uniform des Lieutenants erkannt und will ihren Unmut über die Große Kaiserliche Armee an der Gruppe auslassen. Die Figuren müssen einen **kritischen Reaktionswurf** mit **Caution + Street** machen.",
-  "Wer besteht, bekommt nur die Beschimpfungen der verärgerten Dame ins Gesicht. Wer scheitert, erleidet **3 Stress** und verliert **eine Stufe Decorum**. Bei einem einfachen Erfolg kann man wählen: Schadensbegrenzung oder den Verlust von Decorum vermeiden.",
+  "Die Figur an der Spitze riskiert eine unangenehme Begegnung mit einem Eimer voll Schimmel und Tau. Eine alte Frau hat die Uniform des Lieutenants erkannt und will ihren Unmut über die Große Kaiserliche Armee an der Gruppe auslassen. Die Figuren müssen einen **kritischen Reaktionswurf** mit **Vorsicht + Straße** machen.",
+  "Wer besteht, bekommt nur die Beschimpfungen der verärgerten Dame ins Gesicht. Wer scheitert, erleidet **3 Stress** und verliert **eine Stufe Anstand**. Bei einem einfachen Erfolg kann man wählen: Schadensbegrenzung oder den Verlust von Anstand vermeiden.",
   "Nach diesem Hinterhalt können die Figuren endlich zurück auf die Fährte, die sie zur mächtigen **Wall** führt. Dort scheinen die Spuren zu enden. Mit einem **kritischen Aktionswurf** müssen die Figuren den Rückschlag überwinden. Eine Figur kann:",
   {t: "ul", x: [
-    "an der Wall nach weiteren Spuren suchen (**Exploration + Street**),",
-    "hinaufklettern und nach einer Öffnung oder einem Versteck suchen (**Athletics + Street**),",
-    "genau auf verdächtige Geräusche lauschen (**Caution + Street**)."]},
+    "an der Wall nach weiteren Spuren suchen (**Erkundung + Straße**),",
+    "hinaufklettern und nach einer Öffnung oder einem Versteck suchen (**Athletik + Straße**),",
+    "genau auf verdächtige Geräusche lauschen (**Vorsicht + Straße**)."]},
   "Zum Glück kennt Elizabeth die Pflanzen und Tiere von Stairside sehr gut und kann jedem, der sie um Hilfe bittet, eine **Hilfe** sein.",
   "Die Wahrheit ist, dass Dieb und Bestie beide die Wall hinaufgeklettert sind, bis zu einer kleinen Öffnung hoch über dem Boden: ein Spalt, der in die dunklen **Inbetweens** führt. Die Figuren erreichen ihn nur, indem sie ebenfalls die Wall erklimmen und dabei über eingerollte Tapetenstücke gehen, die aus der Fläche ragen.",
   "Auf diesen schmalen Stegen die Wall hinaufzubalancieren ist nicht leicht, die Figuren müssen einen **kritischen Aktionswurf** bestehen. Zum Glück sind Training und Reflexe von Lieutenant D’Arcy allen eine **Hilfe**, die mit ihm reisen. Figuren, die scheitern, erleiden Stress.",
@@ -101,9 +101,9 @@ A.push({id: "p-finale", t: "Die Schlussszene", p: 312, b: [
   "Mit Austin zu diskutieren ist keine leichte Aufgabe: Der Undine ist fest von seinen Taten und guten Absichten überzeugt.",
   "In dieser Szene können die Spieler:innen Aktionswürfe machen, um Austin zur Zusammenarbeit zu bewegen. Haben alle ihren Zug gehabt, kannst du je nach Austins Stimmung Reaktionswürfe verlangen. Passende Beispiele:",
   {t: "ul", x: [
-    "Austin appelliert an dein gutes Herz (**Care + Society**).",
-    "Austin belügt dich (**Insight + Society**).",
-    "Der Hundertfüßer schlägt um sich, um dir Angst zu machen (**Will + War**)."]},
+    "Austin appelliert an dein gutes Herz (**Care + Gesellschaft**).",
+    "Austin belügt dich (**Einsicht + Gesellschaft**).",
+    "Der Hundertfüßer schlägt um sich, um dir Angst zu machen (**Wille + Krieg**)."]},
   "Alle Aktions- und Reaktionswürfe gegen Austin haben **kritische Schwierigkeit**.",
   "Außerdem verbirgt Austin eine Wunde am Arm, der Beweis, dass nicht einmal er den Hundertfüßer völlig kontrollieren kann. Spricht eine Figur das an, erhält sie **+1** auf ihren nächsten Aktionswurf.",
   "Wenn du den Eindruck hast, dass Austin durch die Erfolge der Gruppe vollständig überzeugt ist, kann der Konflikt friedlich enden.",
@@ -119,7 +119,7 @@ A.push({id: "p-kampf", t: "Kampf gegen den Hundertfüßer", p: 313, b: [
     "die Hälfte der Figuren plus eine in derselben Runde bei ihren Aktions- oder Reaktionswürfen scheitert,",
     "Austin nicht überzeugt wird."]},
   "Das Datenblatt des Hundertfüßers findest du im Anhang „Gegner“: [[Riesenhundertfüßer: Der Schwanz|sl/gegner/g-riesenhf-schwanz]] und [[Riesenhundertfüßer|sl/gegner/g-riesenhf]].",
-  "Besiegen sie den Hundertfüßer, löst er in seinem Schmerz ein Beben aus, das sie in den Inbetweens begraben könnte. Die Flucht verlangt einen **kritischen Reaktionswurf** mit **Athletics + Street**. Nach der Katastrophe hört niemand je wieder etwas von Austin oder dem Hundertfüßer.",
+  "Besiegen sie den Hundertfüßer, löst er in seinem Schmerz ein Beben aus, das sie in den Inbetweens begraben könnte. Die Flucht verlangt einen **kritischen Reaktionswurf** mit **Athletik + Straße**. Nach der Katastrophe hört niemand je wieder etwas von Austin oder dem Hundertfüßer.",
   "Wird die Hälfte der Figuren besiegt, opfert sich D’Arcy, damit die anderen entkommen können, und bittet sie nur, Elizabeth in Sicherheit zu bringen. Im allgemeinen Chaos können sie nur tun, was er verlangt, während um sie herum alles einstürzt."]});
 
 A.push({id: "p-epilog", t: "Epilog", p: 313, b: [

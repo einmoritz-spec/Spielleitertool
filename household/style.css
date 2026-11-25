@@ -179,3 +179,22 @@ body.saga .fold.fx{position:sticky;top:calc(var(--kopf) + var(--unter) + 10px);m
 .karten.oben{align-items:start}
 
 .txt a.vl{color:var(--lila,#5b3a8c);text-decoration:underline;text-decoration-color:rgba(91,58,140,.4);cursor:pointer}
+
+/* Figurenkarten */
+.figur{margin:18px 0 26px;padding:16px 20px 8px}
+.fg-kopf{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--gold,#c9a85a);margin-bottom:12px;padding-bottom:6px}
+.fg-kopf h3{margin:0}
+.fg-sub{font-size:.9em;opacity:.75}
+.fg-obe{display:flex;gap:24px;align-items:flex-start}
+.fg-obe .fig{flex:0 0 190px;margin:0}
+.fg-obe .fig img{width:100%;display:block}
+.fg-d{flex:1;display:grid;grid-template-columns:1fr 1.7fr;gap:6px 28px}
+.fg-d dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;align-content:start}
+.fg-d dt{font-variant:small-caps;letter-spacing:.04em;opacity:.7;font-size:.92em}
+.fg-d dd{margin:0}
+.fg-k{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+.fg-k div{background:rgba(120,90,160,.07);border:1px solid rgba(120,90,160,.18);border-radius:4px;padding:6px 10px;font-size:.93em;line-height:1.4}
+.fg-k b{display:block;font-variant:small-caps;letter-spacing:.04em;color:var(--lila,#5b3a8c)}
+.fg-tx h4{margin:14px 0 4px;font-variant:small-caps;letter-spacing:.05em}
+.fg-tx p{margin:0 0 8px}
+@media(max-width:900px){.fg-obe{flex-direction:column}.fg-d{grid-template-columns:1fr}.fg-k{grid-template-columns:1fr 1fr}}

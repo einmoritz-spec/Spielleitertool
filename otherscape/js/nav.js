@@ -16,6 +16,7 @@ function osAdvNav(head, sub){
   sb.className = "ossub" + (head && sub ? " on" : ""); sb.innerHTML = head && sub ? mk(sub) : "";
 }
 function osNav(){
+  document.body.classList.toggle("os-start", !(location.hash||"").replace(/^#\/?/,""));
   var p = (location.hash || "#/").slice(2).split("/")[0], top = document.querySelector(".topbar"); if(!top) return;
   if(p === "adv" && /^adv\/[^/]+/.test((location.hash||"").slice(2)) && !/^adv\/(fraktion|tokyo)-/.test((location.hash||"").slice(2))) { if(document.getElementById("ktabs") && document.getElementById("ktabs").classList.contains("adv")) return; }
   var g = OS_GRP.filter(function(x){ return x.k.indexOf(p) >= 0; })[0];
@@ -32,3 +33,5 @@ function osNav(){
 window.addEventListener("hashchange", osNav);
 document.addEventListener("DOMContentLoaded", osNav);
 osNav();
+
+document.body && document.body.classList.toggle("os-start", !(location.hash||"").replace(/^#\/?/,""));

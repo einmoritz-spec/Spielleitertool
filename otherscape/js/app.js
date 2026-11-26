@@ -67,9 +67,10 @@ function renderHome(){
   };
   const tile = (c,t,meta,pg,icon,tone) => `<button class="os-t" style="--c:${tone}" onclick="${go(c)}"><span class="os-t-top"><span class="os-t-ic">${icon}</span>${pg?`<i>${pg}</i>`:""}</span><b>${t}</b><small>${meta}</small></button>`;
   const pan = (t,img,c,L) => `<section class="os-pan" style="--c:${c}"><div class="os-pan-img" style="background-image:url(img/${img}.webp)"></div><h3>${t}</h3><ul>${L.map(x=>`<li><button onclick="${go(x[0])}"><b>${x[1]}</b><small>${x[2]}</small><i>›</i></button></li>`).join("")}</ul></section>`;
+  const OS_H = OS_HEROES[Math.floor(Math.random()*OS_HEROES.length)];
   const strip = adv.map((a,k)=>osAdvItem(a,k,"ax")).join("");
   $("app").innerHTML = `<div class="os-home">
-<header class="os-hero2"><img src="img/hero/${OS_HEROES[Math.floor(Math.random()*OS_HEROES.length)]}.webp" alt="Otherscape"></header>
+<header class="os-hero2" style="--im:url(img/hero/${OS_H}.webp)"><img src="img/hero/${OS_H}.webp" alt="Otherscape"></header>
   <div class="os-ax"><button class="os-ax-lab" onclick="${go("abenteuer")}"><b>Abenteuer</b><small>${adv.length} Jobs</small><span>Alle Jobs<svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg></span></button><div class="os-ax-row">${strip}</div></div>
   <div class="os-pans">
    ${pan("Regeln","biting-bullet-titel","#ff2bd6",[["regeln","Regelwerk","Metro-Regeln"],["run","//Run","Einsätze"]])}
@@ -93,7 +94,7 @@ function osLaunch(el,id){
   const rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   setTimeout(()=>{ location.hash = "#/adv/"+id; }, rm ? 0 : 300);
 }
-const OS_HEROES=["neon","samurai","alley","ghost","gang"];
+const OS_HEROES=["alley-k","gang-k"];
 /* Titelbilder der Abenteuer: [Bild, Ausschnitt] */
 const OS_COVER = {
   "strings-attached":["img/strings-attached-cover.webp","50% 12%"], "anthill":["img/anthill-titel.webp","50% 18%"],

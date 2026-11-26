@@ -39,4 +39,5 @@ window.SW_GEN_SF2 = [
     ["17–18","**Boomplanet:** Der Planet boomt. Ressourcen sind reichlich vorhanden und Möglichkeiten gibt es im Überfluss. Die Einheimischen teilen vielleicht den Wohlstand, er wird von einer Elite weniger kontrolliert, oder es ist gefährlich, ihn zu ernten, abzubauen oder anderweitig auszubeuten."],
     ["19–20","**Würfle noch zweimal:** Würfle neu, wenn dieses Ergebnis erneut kommt."]]]]}
  ]}
+ ,{t:"Bauen und Basen", s:[{h:"Bauen und Basen", b:[["lnk","Außenposten, Kraftrüstungen, Roboter, Läufer und Raumschiffbau: Ausrüstung › Bauen und Basen","ausruestung/bauen"]]}]}
 ];

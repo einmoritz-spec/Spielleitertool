@@ -33,4 +33,5 @@ window.SW_GEN_SUP2 = [
    ["box","Das Zinnoberrote Cape","Die Ursprünge dieses großen, tiefroten Capes sind in Geheimnis gehüllt, aber es taucht schon in antiken römischen Schriften auf. Das Cape ist lang, reicht bei einem fünf Fuß großen Träger bis zu den Knöcheln und ist mit einer goldfarbenen Schnur gebunden. Wer das zinnoberrote Cape trägt, erhält Flug (Bewegungsweite 45 (30 MPH))."],
    ["box","Der Z-Kontaminant","In dieser Phiole mit Chemikalien, diesem pulsierenden Schwefelbrocken oder diesem infizierten Stück organischer Materie steckt ein Fluch, der Menschen und Tiere in Zombies verwandelt. Gelangt er nach draußen, ist ein Zombieausbruch das Beste, was die Helden hoffen können, und eine ausgewachsene Zombie-Apokalypse muss verhindert werden, indem alle Betroffenen zusammengetrieben und ein Heilmittel für sie gefunden – oder sie zerstört – werden. Die Zombies sind jedoch nicht einfach gewöhnliche wandelnde Tote. Es sind „Superzombies“ der Omega-Legion (siehe S. 120)."]]}
  ]}
+ ,{t:"Bauen und Basen", s:[{h:"Bauen und Basen", b:[["lnk","Stützpunkte: Ausrüstung › Bauen und Basen","ausruestung/bauen"]]}]}
 ];

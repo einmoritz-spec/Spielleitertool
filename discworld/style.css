@@ -41,11 +41,10 @@ body.notop .topbar{display:none}
 body.notop .unter{top:0}body.notop .side{top:56px}
 
 /* Unterleiste */
-.unter{position:sticky;top:var(--kopf-h);z-index:25;display:flex;flex-wrap:wrap;align-items:center;gap:2px 26px;padding:7px 28px 16px;background:var(--perg2);border-bottom:1px solid var(--linie);box-shadow:0 3px 8px rgba(60,30,10,.08)}
-.unter a{font:400 17px/1.25 FellSC,Georgia,serif;color:#7a6650;cursor:pointer;padding:2px 0;border-bottom:2px solid transparent}
+.unter{position:sticky;top:var(--kopf-h);z-index:25;display:flex;flex-wrap:wrap;align-items:center;gap:0 28px;padding:0 28px;background:var(--perg2);border-bottom:1px solid var(--linie);box-shadow:0 2px 6px rgba(60,30,10,.06)}
+.unter a{font:400 16.5px/1.25 FellSC,Georgia,serif;color:#7a6650;cursor:pointer;padding:9px 0 8px;margin-bottom:-1px;border-bottom:2px solid transparent}
 .unter a:hover{color:var(--blut)}
-.unter a.on{position:relative;color:var(--blut);border-bottom-color:transparent}
-.unter a.on::after{content:"";position:absolute;left:50%;bottom:-13px;width:66px;height:11px;transform:translateX(-50%);background:url(img/deko/zier.webp) center/contain no-repeat;pointer-events:none}
+.unter a.on{color:var(--blut);border-bottom-color:var(--blut)}
 .unter a.leer{opacity:.55}
 
 /* Seitenleiste + Inhalt */

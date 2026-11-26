@@ -54,7 +54,7 @@ function viewStart(){
     return '<a style="--c:' + e.c + ';background-image:url(' + IMG(e.img) + ')" onclick="go(\'e/' + e.id + '\')"><em>' + ("0" + e.n).slice(-2) + '</em><span><b>' + esc(e.t) + '</b>' + (e.de !== e.t ? '<small>' + esc(e.de) + '</small>' : '') + '</span></a>'; }).join("");
   return '<div class="hero"><img class="wort" src="' + Z("logo-triangle-agency") + '" alt="Triangle Agency"></div>' +
     '<div class="akten">' + akten + '</div><div class="arc">' + ark + '</div>' +
-    '<div class="bogenband"><a onclick="go(\'ark/bogen\')"><i class="t1"></i><i class="t2"></i><i class="t3"></i><div class="bb-text"><small>ARK</small><h3>Agentenbogen</h3><b>Bogen anlegen</b></div><div class="bb-blaetter"><img class="b2" src="img/zeichen/bogen-vorschau-stamm.webp" alt=""></div></a></div>' +
+    '<div class="bogenband"><a onclick="go(\'ark/bogen\')"><i class="t1"></i><i class="t2"></i><i class="t3"></i><div class="bb-text"><small>ARK</small><h3>Agentenbogen</h3><div class="bb-chips"><span>Stammblatt</span><span>Work-Life-Balance</span><span>Fähigkeiten</span><span>Beziehungen</span></div><b>Bogen anlegen</b></div><div class="bb-blaetter"><img class="b1" src="img/zeichen/bogen-vorschau-balance.webp" alt=""><img class="b2" src="img/zeichen/bogen-vorschau-stamm.webp" alt=""></div></a></div>' +
     '<div class="vault"><header><img src="' + Z("logo-the-vault") + '" alt="The Vault" onclick="go(\'e/vault\')" style="cursor:pointer"></header><div class="strip">' + strip + '</div>' +
     '<a class="space" onclick="go(\'e/space\')"><span><b>You’re in Space<br>and Everything’s</b><mark>perfectly fine.</mark></span><small>' + esc(TA_SPACE.de) + '</small></a></div>';
 }

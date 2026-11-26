@@ -440,19 +440,3 @@ h2 .an,h1 .an{color:var(--blau)}
 @media (max-width:1100px){.bogenband{padding:0 24px}.bb-text{max-width:60%;padding-left:30px}.bb-text h3{font-size:40px}.bb-blaetter .b1{display:none}.bb-blaetter{width:36%}}
 .bb-text{max-width:46%}.bb-chips{max-width:100%}
 .bogenband .t2{left:auto;right:30%}.bogenband .t3{left:auto;right:26%}
-
-/* Agentenbogen-Band: kompakt */
-.bogenband{max-width:none;padding:0;margin:36px auto 0;display:flex;justify-content:center}
-.bogenband>a{width:min(440px,calc(100% - 48px));height:150px;border-radius:12px}
-.bogenband .t1{left:-30px;bottom:-40px;width:200px;height:180px}
-.bogenband .t2{left:auto;right:38%;top:-50px;width:120px;height:108px}
-.bogenband .t3{left:auto;right:30%;top:-34px;width:76px;height:68px}
-.bb-text{max-width:60%;padding:22px 0 0 26px}
-.bb-text small{font-size:11px}
-.bb-text h3{font-size:30px;margin:3px 0 14px}
-.bb-text b{margin-top:0;font-size:14px;padding:7px 16px 7px 13px}
-.bb-text b:before{border-top-width:5px;border-bottom-width:5px;border-left-width:8px}
-.bb-blaetter{right:22px;width:38%}
-.bb-blaetter img{width:150px}
-.bb-blaetter .b2{right:0;top:22px;transform:rotate(5deg)}
-.bogenband>a:hover .b2{transform:rotate(7deg) translate(4px,-4px)}

@@ -12,7 +12,7 @@ a{color:inherit;text-decoration:none;cursor:pointer}button{font:inherit;color:in
 .ib{width:38px;height:38px;display:grid;place-items:center;border-radius:8px;margin-left:4px}
 .ib:hover{background:var(--paper2)}.ib svg{width:22px;height:22px}
 .tabs{position:sticky;top:54px;z-index:15;display:flex;gap:4px;padding:0 22px;background:var(--paper2);border-bottom:1px solid var(--line);height:46px;align-items:flex-end}
-.tabs a{font:600 22px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.05em;padding:10px 16px 8px;color:var(--soft);border-bottom:3px solid transparent}
+.tabs a{font:600 22px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.05em;padding:13px 16px 5px;color:var(--soft);border-bottom:3px solid transparent}
 .tabs a.on{color:var(--ink);border-color:var(--amber)}
 .pg{font-size:12px;color:var(--soft);font-family:Merri,serif;font-weight:400;letter-spacing:0;text-transform:none}
 /* Startseite */
@@ -406,7 +406,7 @@ button.fold{position:fixed;top:112px;left:238px;z-index:16;width:24px;height:24p
 .hd.mh{margin-top:26px}
 /* Kopfzeile mit Reitern; aktiver Reiter geht nahtlos in die Unterleiste (.tabs) über */
 .ktabs{display:flex;gap:0;margin-left:14px;align-self:stretch}
-.ktabs a{display:flex;align-items:center;padding:0 12px;white-space:nowrap;font:600 20px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);cursor:pointer}
+.ktabs a{display:flex;align-items:center;padding:6px 12px 0;white-space:nowrap;font:600 20px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);cursor:pointer}
 .ktabs a:hover{color:var(--ink)}
 .ktabs a.on{color:var(--ink);background:var(--paper2)}
 body.wsnav .topbar{border-bottom:0}

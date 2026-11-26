@@ -71,6 +71,7 @@ function wsBereich(h){
 function wsKopf(h){
   var kt = document.getElementById("ktabs"); if(!kt) return;
   var b = wsBereich(h);
+  if(!h[0] || h[0] === "start"){ kt.innerHTML = ""; document.body.classList.remove("wsnav"); return; }
   kt.innerHTML = WS_KOPF.map(function(n){ return '<a class="' + (n[0] === b ? 'on' : '') + '" onclick="go(\'' + n[2] + '\')">' + esc(n[1]) + '</a>'; }).join("");
   document.body.classList.toggle("wsnav", !!APP.querySelector(".tabs"));
 }

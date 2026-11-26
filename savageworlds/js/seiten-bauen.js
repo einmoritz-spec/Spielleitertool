@@ -20,7 +20,7 @@ function blk(b, s){
   }
   if(b.t){
     var N = b.t.length;
-    return '<div class="bt">' + eqTable(b.t, b.r.map(function(r){ return {c: r.slice(0, N), n: r.length > N ? r.slice(N).join(" ") : ""}; })) + "</div>";
+    return '<div class="' + (b.m ? "bm" : "bt") + '">' + eqTable(b.t, b.r.map(function(r){ return {c: r.slice(0, N), n: r.length > N ? r.slice(N).join(" ") : ""}; })) + "</div>";
   }
   return "";
 }

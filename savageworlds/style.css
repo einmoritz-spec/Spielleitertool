@@ -293,3 +293,6 @@ body.dl-mode .pg{color:#8a6a3a}
 .sl-tab .et{margin-top:6px}.sl-tab .et td:first-child{font-size:15px}
 .sl-tab .et td{color:var(--fg)}.sl-tab.sl-k .et td:first-child{white-space:nowrap}.sl-tab .et td:first-child{vertical-align:top}.sl-tab.sl-wide{grid-column:1/-1}
 .sl-g .hc p b,.sl-tab .et b{display:inline;font:inherit;font-weight:700;gap:0}
+
+.bt .et td.n,.bt .et th.n{text-align:left}.bt .et tr.hn td:first-child{width:3.2em;white-space:nowrap}.bt .et tr.hn td:nth-child(2){font-weight:600}
+.bt .etw{overflow:visible}.bt .et{width:100%;max-width:100%}.bt .et tr.en td{white-space:normal;font-size:14px;color:var(--ink)}

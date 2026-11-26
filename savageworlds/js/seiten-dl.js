@@ -15,7 +15,7 @@ var DLTABS = [
 var DLS = {open:{}};
 function dlBk(p){ return "openBook('sw_dl'," + (p + 2) + ")"; }
 function dlPg(p){ return p ? '<span class="pg" onclick="event.stopPropagation();' + dlBk(p) + '">S. ' + p + "</span>" : ""; }
-function dlN(x){ return esc(x).replace(/ß/g, "ss").replace(/'/g, "’").replace(/\u2212/g, "\u2013"); }
+function dlN(x){ return esc(x).replace(/ß/g, "ss").replace(/['’\u2013\u2212]/g, function(m){ return '<span class="ap">' + (m === "\u2212" ? "\u2013" : (m === "'" ? "’" : m)) + "</span>"; }); }
 function dlI(t){ /* Text: **fett** */
   return esc(t).replace(/\u2212/g, "\u2013").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
 }

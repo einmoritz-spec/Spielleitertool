@@ -196,7 +196,7 @@ body.dl-mode .pg{color:#8a6a3a}
 .dc.open .dcb{display:block}
 .dc.open .dp{max-width:1000px}
 .dq{font:600 10px Oswald,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:#7b2711;color:#f4e8c8}
-.dc.tg-g .dq{background:#4c6a2c}.dc.tg-b .dq{background:#2b4a6a}.dc.tg-r .dq{background:#a3301a}.dc.tg-k .dq{background:#3a2a1a}.dc.tg-p .dq{background:#5a3a7a}
+.dc.tg-g .dq{background:#4c6a2c}.dc.tg-b .dq{background:#2b4a6a}.dc.tg-r .dq{background:#a3301a}.dc.tg-k .dq{background:#3a2a1a}.dc.tg-p .dq{background:#5a3a7a}.dc.tg-w .dq{background:#b8860b}
 .dk{display:grid;grid-template-columns:max-content 1fr;gap:3px 14px;margin:4px 0 8px;font-size:15px}
 .dk dt{font:600 11px Oswald,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#8a6a3a;padding-top:3px}.dk dd{margin:0}
 .dtw{overflow-x:auto;margin:8px 0 14px;max-width:1160px}
@@ -296,3 +296,4 @@ body.dl-mode .pg{color:#8a6a3a}
 
 .bt .et td.n,.bt .et th.n{text-align:left}.bt .et tr.hn td:first-child{width:3.2em;white-space:nowrap}.bt .et tr.hn td:nth-child(2){font-weight:600}
 .bt .etw{overflow:visible}.bt .et{width:100%;max-width:100%}.bt .et tr.en td{white-space:normal;font-size:14px;color:var(--ink)}
+.ap{font-family:Oswald,sans-serif;font-weight:700;letter-spacing:0;margin:0 -.12em;font-size:.85em}

@@ -440,3 +440,9 @@ h2 .an,h1 .an{color:var(--blau)}
 @media (max-width:1100px){.bogenband{padding:0 24px}.bb-text{max-width:60%;padding-left:30px}.bb-text h3{font-size:40px}.bb-blaetter .b1{display:none}.bb-blaetter{width:36%}}
 .bb-text{max-width:46%}.bb-chips{max-width:100%}
 .bogenband .t2{left:auto;right:30%}.bogenband .t3{left:auto;right:26%}
+
+.bogenband>a{height:190px}
+.bb-text{padding-top:36px}
+.bb-text h3{margin-bottom:0}
+.bb-text b{margin-top:22px}
+.bb-blaetter .b1{top:26px}.bb-blaetter .b2{top:14px}

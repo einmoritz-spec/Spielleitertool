@@ -986,3 +986,9 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 #app:has(.zleiste){padding-right:26px}
 .zleiste .zeit .vt{flex-direction:column-reverse}
 .zleiste .zeit .vt,.zleiste .zeit .vt b{align-items:center;justify-content:center;text-align:center;width:28px}.zleiste .zeit .vt button{display:grid;place-items:center;padding:0;margin:0 auto}
+/* Viertel: Zahl im feinen Ring, + und − gleich hoch wie die Tageszeit-Symbole */
+.zleiste .zeit .vt{gap:2px;padding-top:8px}
+.zleiste .zeit .vt button{width:26px;height:22px;font:300 17px/1 var(--f-sans,system-ui,sans-serif)}
+.zleiste .zeit .vt b{width:24px;height:24px;border:1.5px solid rgba(0,96,77,.45);border-radius:50%;display:grid;place-items:center;font:700 12px/1 var(--f-sans,system-ui,sans-serif);color:var(--jade-d);font-variant-numeric:tabular-nums}
+.zleiste .stift{padding-top:8px;margin-top:4px}
+.zleiste .zeit .vt b{font:600 12px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;width:22px;height:22px}.zleiste .zeit .vt button{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}

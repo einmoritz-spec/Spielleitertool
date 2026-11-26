@@ -394,11 +394,12 @@
   document.head.appendChild(st);
   function bar(){ return document.querySelector(".topbar"); }
   function hasImg(e){
-    var W = innerWidth * .6;
+    var W = innerWidth * .95, t0 = e.getBoundingClientRect().top;
+    function ok(k){ var r = k.getBoundingClientRect(); return r.width >= W && r.height >= 150 && r.top - t0 <= 30; }
     if(/url\(/.test(getComputedStyle(e).backgroundImage)) return true;
-    var L = e.querySelectorAll("img,picture,video,canvas,[style*='url(']");
-    for(var i = 0; i < L.length; i++){ var r = L[i].getBoundingClientRect(); if(r.width >= W && r.height >= 150) return true; if(/url\(/.test(getComputedStyle(L[i]).backgroundImage) && r.width >= W) return true; }
-    var K = e.querySelectorAll("*"); for(var k = 0; k < K.length && k < 60; k++){ var q = K[k].getBoundingClientRect(); if(q.width >= W && q.height >= 150 && /url\(/.test(getComputedStyle(K[k]).backgroundImage)) return true; }
+    var L = e.querySelectorAll("img,picture,video,canvas");
+    for(var i = 0; i < L.length; i++) if(ok(L[i])) return true;
+    var K = e.querySelectorAll("*"); for(var k = 0; k < K.length && k < 80; k++){ if(/url\(/.test(getComputedStyle(K[k]).backgroundImage) && ok(K[k])) return true; }
     return false;
   }
   function find(){

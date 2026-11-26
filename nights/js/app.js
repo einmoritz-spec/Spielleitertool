@@ -36,6 +36,7 @@ function goLastCase(){ location.hash = ST.last ? ST.last : "#/case/1"; }
 async function route(){
   const p = parseHash();
   document.body.classList.toggle("np-start", !p[0] || p[0]==="kampagne");
+  if(p[0]!=="case") niClear();
   window.scrollTo(0,0);
   if(p[0]==="case" && p[1]){
     const n = +p[1];
@@ -158,7 +159,7 @@ function renderCase(c, sid){
   const tabs = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
     return `<button class="case-tab ${on?"active":""}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${m?esc(m[1])+"<br><small>"+esc(m[2])+"</small>":esc(t)}</button>`; }).join("");
   const _g=ch.items[0], _gn=c.sections[c.sections.indexOf(_g)+1];
-  const tabbar = `<div class="case-tabbar">${tabs}<a class="case-pg" onclick="openPageViewer(${_g.page})" title="Im Buch öffnen">S. ${pageRange(c,_g,_gn)}</a>${NotePop.tile("nights", c.nr+":"+ch.items[0].id)}</div>`;
+  const tabbar = `<div class="case-tabbar nihead"><a class="case-pg" onclick="openPageViewer(${_g.page})" title="Im Buch öffnen">S. ${pageRange(c,_g,_gn)}</a>${NotePop.tile("nights", c.nr+":"+ch.items[0].id)}</div>`;
   const idx = gs.findIndex(g=>g.items[0].id===ch.items[0].id), prev = gs[idx-1], next = gs[idx+1];
   OPENSID = (!toEis && sid) ? sid : null;
   let body = chapterView(c, ch);
@@ -170,15 +171,44 @@ function renderCase(c, sid){
   ${tabbar}
   <div class="case-grid tab-layout"><main class="content">${body}</main></div>`;
   niRail($("app").querySelector("main.content"));
+  niHead(c, gs, ch);
   cardGrids($("app"));
   if(window.glossarize) glossarize($("app"));
   const target = (!toEis && sid && ch.items[0].id!==sid && !(ch.items[1] && ch.items[1].id===sid)) ? $("s-"+sid) : (toEis ? $("eisberg") : null);
   if(!toEis) window.scrollTo(0,0);
-  { const at=document.querySelector(".case-tab.active"); if(at&&at.scrollIntoView) at.scrollIntoView({inline:"center",block:"nearest"}); }
   requestAnimationFrame(fixScn);
   if(target) setTimeout(()=>target.scrollIntoView({block:"start"}),30);
 }
 let CURCH = null;
+
+/* Kopfzeile: Schichten als Ordner-Reiter, Szenen der Schicht als Unterleiste */
+function niBars(){
+  const top = document.querySelector(".topbar"); if(!top) return {};
+  let kt = document.getElementById("ktabs"), sb = document.getElementById("nisub");
+  if(!kt){ kt = document.createElement("nav"); kt.id = "ktabs"; kt.className = "ktabs"; const ref = top.querySelector(".tm-caret") || top.querySelector(".brand"); ref.parentNode.insertBefore(kt, ref.nextSibling); }
+  if(!sb){ sb = document.createElement("nav"); sb.id = "nisub"; sb.className = "nisub"; top.parentNode.insertBefore(sb, top.nextSibling); }
+  return {kt, sb};
+}
+function niHead(c, gs, ch){
+  const {kt, sb} = niBars(); if(!kt) return;
+  kt.innerHTML = gs.map(g=>{ const t = chapterTitle(g), m = /^(Schicht\s*\d+)\s*:\s*(.+)$/i.exec(t), on = g.items[0].id===ch.items[0].id;
+    return `<a class="${on?"on":""}" title="${esc(t)}" onclick="location.hash='#/case/${c.nr}/sec/${g.items[0].id}'">${esc(m?m[1]:t)}</a>`; }).join("");
+  const nav = document.querySelector(".ni-nav"), L = nav ? [...nav.querySelectorAll("a")] : [];
+  sb.innerHTML = ""; L.forEach((a,i)=>{ const b = document.createElement("a"); b.textContent = a.textContent; b.dataset.t = a.getAttribute("href").slice(1); if(i===0) b.className = "on";
+    b.onclick = ()=>{ const e = document.getElementById(b.dataset.t); if(e){ const y = e.getBoundingClientRect().top + scrollY - niOff(); scrollTo({top:y, behavior:"smooth"}); } sb.querySelectorAll("a").forEach(x=>x.classList.toggle("on", x===b)); NI_LOCK = Date.now(); };
+    sb.appendChild(b); });
+  document.body.classList.add("ninav"); document.body.classList.toggle("nisub-on", L.length > 1);
+  const at = kt.querySelector("a.on"); if(at && at.scrollIntoView) at.scrollIntoView({inline:"nearest", block:"nearest"});
+}
+function niClear(){ const kt = document.getElementById("ktabs"), sb = document.getElementById("nisub"); if(kt) kt.innerHTML = ""; if(sb) sb.innerHTML = ""; document.body.classList.remove("ninav","nisub-on"); }
+function niOff(){ const t = document.querySelector(".topbar"), s = document.getElementById("nisub"); return (t ? t.offsetHeight : 0) + (s && document.body.classList.contains("nisub-on") ? s.offsetHeight : 0) + 10; }
+let NI_LOCK = 0;
+window.addEventListener("scroll", ()=>{
+  if(!document.body.classList.contains("nisub-on") || Date.now() - NI_LOCK < 900) return;
+  const L = [...document.querySelectorAll("#nisub a")]; if(!L.length) return;
+  let cur = L[0]; L.forEach(a=>{ const e = document.getElementById(a.dataset.t); if(e && e.getBoundingClientRect().top <= niOff() + 30) cur = a; });
+  L.forEach(a=>a.classList.toggle("on", a===cur));
+}, {passive:true});
 
 /* Seitenleiste im Stil von Wake: eingeklappt = schmale Punktleiste, ausgeklappt = volle Liste */
 function prMobile(){ return innerWidth<=1000; }

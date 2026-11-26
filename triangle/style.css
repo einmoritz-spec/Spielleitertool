@@ -456,3 +456,5 @@ h2 .an,h1 .an{color:var(--blau)}
 }
 .lay.zu .lesen.werk .desk{max-width:none}
 .lay.zu .lesen.werk:has(.wkf-s190){max-width:1100px}
+.lay.zu .lesen.werk{max-width:none;padding-left:14px;padding-right:28px}
+.lay.zu .lesen.werk:has(.wkf-s190){max-width:1100px}

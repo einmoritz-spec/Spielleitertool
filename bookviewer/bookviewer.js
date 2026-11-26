@@ -23,30 +23,32 @@ var BV = (function(){
     if(window.BVFind) BVFind.init({ doc:()=>doc(S.key), cur:()=>S.page, go:p=>go(p), redraw:()=>{ if(!d.hidden) show(); } });
     (function(el, cb, ok){ var sx=null, sy=0, t0=0; el.addEventListener("touchstart", function(e){ if(e.touches.length!==1){ sx=null; return; } sx=e.touches[0].clientX; sy=e.touches[0].clientY; t0=Date.now(); }, {passive:true}); el.addEventListener("touchend", function(e){ if(sx==null) return; var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; sx=null; if(Date.now()-t0>800) return; if(Math.abs(dx)>50 && Math.abs(dx)>1.6*Math.abs(dy) && (!ok || ok(dx))) cb(dx<0?1:-1); }, {passive:true}); })(d.querySelector('.bvx-stage'), function(dir){ step(dir); }, function(dx){ var s=d.querySelector('.bvx-stage'); if(!S.zoom) return true; return dx>0 ? s.scrollLeft<=2 : s.scrollLeft+s.clientWidth>=s.scrollWidth-2; });
   }
-  async function open(key, printed){
+  async function open(key, printed, opt){
     key = key || cfg.defaultBook; const b = book(key); if(!b) return;
     if(!histOn){ try{ history.pushState({bvx:1}, "", location.href); histOn = true; }catch(e){} }
     const dc = await doc(key);
-    if(!dc){ if(histOn){ histOn = false; try{ history.back(); }catch(e){} } askUpload(key, b, printed); return; }
+    if(!dc){ if(histOn){ histOn = false; try{ history.back(); }catch(e){} } askUpload(key, b, printed, opt); return; }
     build();
     /* Doppelseiten-PDF (z. B. „Spreads“-Fassung): Seite 2 im Querformat → jede PDF-Seite ist schon eine Doppelseite */
     let spr = false; try{ if(dc.numPages > 2){ const v = (await dc.getPage(2)).getViewport({scale:1}); spr = v.width > v.height * 1.2; } }catch(e){}
-    const raw = (parseInt(printed)||1) + getOff(key);
+    const raw = opt && opt.ab1 ? 1 : (parseInt(printed)||1) + getOff(key);
     const pg = Math.max(1, Math.min(dc.numPages, spr ? Math.floor((raw - 1) / 2) + 1 : raw));
     S = { key, page:pg, n:dc.numPages, zoom:false, spr };
     document.getElementById("bvOverlay").hidden = false; document.body.style.overflow = "hidden";
     document.getElementById("bvxTitle").textContent = b.name; show(); bar(true);
+    /* Lesemodus: echtes Vollbild des Browsers (Esc beendet es) */
+    if(opt && opt.fs){ const o = document.getElementById("bvOverlay"); try{ if(o.requestFullscreen && !document.fullscreenElement) o.requestFullscreen().catch(()=>{}); }catch(e){} }
   }
-  function askUpload(key, b, printed){
+  function askUpload(key, b, printed, opt){
     var o=document.getElementById("bvAsk"); if(o) o.remove();
     o=document.createElement("div"); o.id="bvAsk"; o.className="bva";
     o.innerHTML='<div class="bva-box"><b>'+b.name+'</b><p>Dieses Buch ist noch nicht hinterlegt. Wähle das PDF einmal aus – es bleibt nur in diesem Browser gespeichert, danach öffnet es sich per Knopfdruck.</p><label class="bvs-btn">PDF wählen<input class="bvs-file" type="file" accept="application/pdf,.pdf"></label><button type="button" class="bva-x">Abbrechen</button></div>';
     document.body.appendChild(o);
     o.querySelector(".bva-x").onclick=function(){ o.remove(); };
     o.addEventListener("click",function(e){ if(e.target===o) o.remove(); });
-    o.querySelector("input").onchange=async function(){ var inp=this; await load(key, inp); o.remove(); open(key, printed); };
+    o.querySelector("input").onchange=async function(){ var inp=this; await load(key, inp); o.remove(); open(key, printed, opt); };
   }
-  function close(fromPop){ const o = document.getElementById("bvOverlay"); if(o) o.hidden = true; document.body.style.overflow = ""; if(histOn){ histOn = false; if(fromPop!==true){ try{ history.back(); }catch(e){} } } }
+  function close(fromPop){ const o = document.getElementById("bvOverlay"); if(document.fullscreenElement){ try{ document.exitFullscreen(); }catch(e){} } if(o) o.hidden = true; document.body.style.overflow = ""; if(histOn){ histOn = false; if(fromPop!==true){ try{ history.back(); }catch(e){} } } }
   var histOn = false;
   window.addEventListener("popstate", function(){ var o = document.getElementById("bvOverlay"); if(o && !o.hidden) close(true); else histOn = false; });
   /* Doppelseiten: Seite 1 einzeln, danach immer (2,3), (4,5) … ; die letzte Seite steht allein, wenn die Seitenzahl gerade ist */

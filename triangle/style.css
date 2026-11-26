@@ -463,3 +463,9 @@ h2 .an,h1 .an{color:var(--blau)}
 .lay.zu .lesen.werk>h1{font-size:0;line-height:0;margin:0;height:0}
 .lay.zu .lesen.werk>h1 .pg{position:absolute;right:28px;bottom:14px;margin:0;font:400 12px Fig,sans-serif;color:var(--grau)}
 .lay.zu .lesen.werk>h1 .pg:hover{color:var(--akz)}
+
+/* Startseite: rotes Buch öffnet den Lesemodus (kein Hover-Effekt, nur kleiner Hinweis) */
+.lesebuch{cursor:pointer}
+.lesebuch[data-t]{z-index:3}
+.bild:has(.lesebuch){position:relative}
+#leseTip{position:fixed;z-index:200;background:#000c;color:#fff;font:12px/1 Fig,sans-serif;padding:5px 8px;border-radius:4px;pointer-events:none;white-space:nowrap}

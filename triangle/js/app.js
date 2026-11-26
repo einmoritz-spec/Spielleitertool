@@ -5,6 +5,8 @@
 var APP = document.getElementById("app");
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 function go(h){ if(location.hash === "#" + h) render(); else location.hash = h; }
+/* Lesemodus: Regelbuch ab der ersten PDF-Seite im Vollbild */
+function openReader(ev){ if(ev) ev.stopPropagation(); try{ BV.open('ta_core', 1, {ab1:true, fs:true}); }catch(e){} }
 function openBook(id, p){ try{ BV.open(id || "ta_core", p || 1); }catch(e){} }
 function pgl(p, buch){ return p ? '<a class="pg" onclick="event.stopPropagation();openBook(\'' + (buch || "ta_core") + '\',' + p + ')">S. ' + p + '</a>' : ""; }
 function IMG(p){ return "img/" + p + ".webp"; }
@@ -42,7 +44,7 @@ function viewStart(){
   var akten = TA_NAV.filter(function(a){ return a.lang; }).map(function(a){
     var liste = a.id === "pw" ? [["pw","Code eingeben"],["pw/A1","Einsatzbericht A1"]] :
       a.sub.map(function(s){ return [a.id + "/" + s.id, s.t]; });
-    var deko = a.id === "h" ? '<img src="' + Z("symbol-handbuch") + '" alt="">' : a.id === "w" ? '<em>Sehr gut, Idiot.</em><u></u>' : '<i class="g"></i><i class="b"></i><i class="r"></i>';
+    var deko = a.id === "h" ? '<img class="lesebuch" src="' + Z("symbol-handbuch") + '" alt="" data-t="Handbuch lesen" onclick="openReader(event)">' : a.id === "w" ? '<em>Sehr gut, Idiot.</em><u></u>' : '<i class="g"></i><i class="b"></i><i class="r"></i>';
     return '<section class="akte a-' + a.id + '" style="--c:' + FARBE[a.c] + '"><a class="bild" onclick="go(\'' + a.id + '\')">' + deko + '<h2>' + esc(a.lang).replace("\n", "<br>") + '</h2></a>' +
       '<nav>' + liste.map(function(x){ return '<a onclick="go(\'' + x[0] + '\')">' + esc(x[1]) + '</a>'; }).join("") + '</nav></section>';
   }).join("");
@@ -167,3 +169,17 @@ document.addEventListener("keydown", function(e){
     else if(/^\d$/.test(e.key)){ var n = c.slice(1) + e.key; if(!TA_PW[c.charAt(0) + n]) n = e.key; if(TA_PW[c.charAt(0) + n]) pwSel(c.charAt(0) + n); }
   }
 });
+
+/* kleiner Hinweis (data-t) beim Überfahren, z. B. am roten Buch auf der Startseite */
+(function(){
+  var tip = null;
+  function weg(){ if(tip){ tip.remove(); tip = null; } }
+  document.addEventListener("mouseover", function(e){
+    var el = e.target.closest && e.target.closest("[data-t]"); if(!el){ weg(); return; }
+    if(tip && tip.__el === el) return; weg();
+    tip = document.createElement("div"); tip.id = "leseTip"; tip.textContent = el.getAttribute("data-t"); tip.__el = el; document.body.appendChild(tip);
+    var r = el.getBoundingClientRect();
+    tip.style.left = Math.max(6, Math.min(innerWidth - tip.offsetWidth - 6, r.left + r.width / 2 - tip.offsetWidth / 2)) + "px"; tip.style.top = (r.bottom + 8) + "px";
+  });
+  document.addEventListener("click", weg); document.addEventListener("scroll", weg, true);
+})();

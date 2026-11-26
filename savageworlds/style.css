@@ -152,3 +152,5 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .et td:first-child{font-weight:400;font-size:16px;color:var(--c)}
 .et tr.hn td{border-bottom:0}.et tr.en td{padding:0 10px 6px;font-size:13px;color:var(--soft);white-space:normal}
 .rk .pg{margin-left:10px}
+.ei.vi{color:var(--soft);font-size:14px}.ei .tl{text-decoration:underline;cursor:pointer;color:var(--c)}
+ul.vl{margin:4px 0 8px 20px}ul.vl li{margin:4px 0}

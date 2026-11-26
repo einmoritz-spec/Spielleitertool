@@ -234,7 +234,7 @@ function openMenu(on){
 }
 function bookMenu(){ openBook("sw_de"); }
 function modal(h){ var m = document.createElement("div"); m.className = "modal"; m.innerHTML = '<div class="box">' + h + "</div>"; m.onclick = function(e){ if(e.target === m) m.remove(); }; document.body.appendChild(m); }
-function infoOpen(){ modal('<h3>Savage Worlds</h3><p>Spielleiter-Tafel zu Savage Worlds, Abenteuer-Edition (5. Auflage). Quellen: Grundregelwerk, Deadlands, Genre-Begleiter.</p>'); }
+function infoOpen(){ if(window.gmInfoOpen) window.gmInfoOpen(); }
 document.addEventListener("keydown", function(e){
   var t = e.target || {}; if(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
   if(e.key === "Escape"){ var m = document.querySelector(".modal"); if(m) m.remove(); else openMenu(false); }

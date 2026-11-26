@@ -5,7 +5,7 @@
 (function(){
   var BASE = window.gmToolBase || "";
   /* Systemkennung (toolmenu) -> Info-Datei. Nur ausgebaute Systeme. */
-  var MAP = {discworld:"discworld", household:"household", hh_garten:"household", moerkborg:"moerkborg", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", etr:"etr", wildsea:"wildsea", pico:"pico", mausritter:"mausritter", cairn:"cairn", slugblaster:"slugblaster", dragonbane:"dragonbane", heart:"heart", ht_dagger:"heart", spire:"spire", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es", compass:"compass"};
+  var MAP = {savageworlds:"savageworlds", discworld:"discworld", household:"household", hh_garten:"household", moerkborg:"moerkborg", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", etr:"etr", wildsea:"wildsea", pico:"pico", mausritter:"mausritter", cairn:"cairn", slugblaster:"slugblaster", dragonbane:"dragonbane", heart:"heart", ht_dagger:"heart", spire:"spire", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es", compass:"compass"};
   window.GM_INFO = window.GM_INFO || {};
   function key(){ try{ return MAP[window.gmToolCur ? window.gmToolCur() : ""] || null; }catch(e){ return null; } }
 
@@ -105,7 +105,7 @@
     var flow = D.ablauf ? '<div class="gi-flow"><h3 class="gi-h"'+hst+'>'+esc(D.ablauf.t)+'</h3>'+D.ablauf.s.map(function(x){ return '<span>'+md(x)+'</span>'; }).join('<i>›</i>')+'</div>' : '';
     if(D.html){ if(D.css){ var cst = document.createElement("style"); cst.className = "gi-own"; cst.textContent = D.css; box.appendChild(cst); }
       box.innerHTML = head + (D.css ? '<style>'+D.css+'</style>' : '') + '<div class="gi-own-body">'+(typeof D.html === "function" ? D.html(window.gmToolBase || "") : D.html)+'</div><div class="gi-foot"></div>'; }
-    else box.innerHTML = head + '<div class="gi-body">'+left+right+flow+'</div><div class="gi-foot"></div>';
+    else box.innerHTML = head + (D.css ? '<style>'+D.css+'</style>' : '') + '<div class="gi-body">'+left+right+flow+'</div><div class="gi-foot"></div>';
     if(brand){ var lg = brand.cloneNode(true); lg.removeAttribute("href"); lg.removeAttribute("onclick"); lg.removeAttribute("id"); copyLook(brand, lg); lg.style.margin = "0"; lg.style.pointerEvents = "none"; lg.style.border = "0"; lg.style.boxShadow = "none"; box.querySelector(".gi-logo").appendChild(lg); }
     ov.appendChild(box);
     ov.addEventListener("click", function(e){ if(e.target===ov || e.target.closest(".gi-x")) close(); });

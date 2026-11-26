@@ -26,19 +26,19 @@
 
 /* ---- S. 144–145: Kreislauf ---- */
 .wka-kreisrahmen{margin:22px 0 10px;overflow-x:auto;padding-bottom:6px}
-.wka-kreis{position:relative;aspect-ratio:1360/800;container-type:inline-size;min-width:900px}
+.wka-kreis{position:relative;aspect-ratio:2570/960;container-type:inline-size;min-width:900px}
 .wka-kreis>*{position:absolute}
-.wka-pfeile{inset:0;width:100%;height:100%}
+.wka-pfeile{inset:0;width:100%;height:100%;z-index:2}
 .wka-kn{height:auto}
 .wka-ikb{aspect-ratio:1}.wka-ikb svg{display:block;width:100%;height:100%;overflow:visible}
 .wka-name{font:900 2.45cqw/1 Spartan,sans-serif;letter-spacing:-.035em;color:var(--tinte);background:#fff;border:.18cqw solid #cfcbe0;border-radius:.9cqw;padding:.55cqw 1.1cqw .35cqw;box-shadow:0 .12cqw 0 #cfcbe0;z-index:3}
 .wka-name.an{color:var(--blau)}.wka-name.mi{transform:translateX(-50%)}
-.wka-pille{transform:translate(-50%,-50%);background:#fff;border:.2cqw solid var(--rot);border-radius:.9cqw;padding:.45cqw .5cqw;text-align:center;font:400 1.22cqw/1.22 Fig,sans-serif;color:var(--tinte);z-index:4}
+.wka-pille{transform:translate(-50%,-50%);background:#fff;border:.2cqw solid var(--rot);border-radius:.9cqw;padding:.4cqw .5cqw;text-align:center;font:400 1.05cqw/1.2 Fig,sans-serif;color:var(--tinte);z-index:4}
 .wka-pille.bl{border-color:var(--blau);font:800 1.3cqw/1.1 Spartan,sans-serif;color:var(--blau)}
 .wka-pille.ro{border-color:var(--rot);font:800 1.5cqw/1.1 Spartan,sans-serif;color:var(--rot)}
-.wka-pille.hand{font:800 1.45cqw/1 Caveat,Fig,sans-serif;font-family:Hand,Caveat,Fig,sans-serif}
+.wka-pille.hand{white-space:nowrap;font:800 1.45cqw/1 Caveat,Fig,sans-serif;font-family:Hand,Caveat,Fig,sans-serif}
 .wka-pille.ag2{border-color:#cfcbe0;border-width:.2cqw;box-shadow:0 .12cqw 0 #cfcbe0}
-.wka-pille.ag2 b{display:block;font:900 2.45cqw/1 Spartan,sans-serif;letter-spacing:-.035em;margin-bottom:.4cqw}
+.wka-pille.ag2 b{display:block;font:900 2.2cqw/1 Spartan,sans-serif;letter-spacing:-.035em;margin-bottom:.4cqw}
 .wka-pille.ag2 small{display:block;font:800 1.2cqw/1.15 Spartan,sans-serif}
 .wka-notiz{font:italic 800 1.3cqw/1.15 Fig,sans-serif;color:var(--blau);width:11cqw;z-index:4}
 .wka-pfeile path[stroke]{stroke-linecap:butt}
@@ -132,4 +132,4 @@
  .wka-halt{padding-top:16px}.wka-halt-k b{font-size:40px}.wka-halt-k img{height:36px}.wka-halt h2{font-size:20px}
 }
 
-.wka-kreisrahmen{max-width:1360px}
+.wka-kreisrahmen{max-width:1800px}

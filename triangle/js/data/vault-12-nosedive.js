@@ -14,10 +14,10 @@ TA_VAULT["nosedive"] = {
   "Hosts außer Leyden nutzen als instabile Resonants ein eigenes System für ihre Kräfte. Jedes Mal, wenn sie ihre Fähigkeiten einsetzen, um Menschen glücklich zu machen und das Nosedive zu erschaffen, geht das kostenlos und kostet kein Chaos. Setzen sie ihre Fähigkeiten aus einem anderen Grund ein – vor allem in einem Kampf –, geben sie Chaos auf ihrer eigenen Leiste aus und verwenden dafür die aufgeführten Kosten.",
   "**Für jedes Chaos, das sie ausgeben,** markiere ein weiteres Feld auf der Leiste des Hosts. Ist eine Leiste voll, überwältigt die Anomalie des Hosts ihn oder sie – er bzw. sie durchläuft sofort eine Verwandlung, fügt dem Pool 21 Chaos hinzu und handelt fortan als äußerst mächtige Anomalie mit dem Fokus Sicherheit des Nosedive.",
   "Es gibt eine Ausnahme: **Wenn Feast anwesend ist,** kann sie sich opfern (und wird es wahrscheinlich tun), indem sie einem sich verwandelnden Host die überschüssige anomale Energie abzieht. Ihre Münder dehnen sich aus und verschlingen sie, ohne dass irgendetwas von ihr zurückbleibt. Die Leiste des betroffenen Hosts wird vollständig geleert.",
-  {t:"leiste", h:"Feast", x:["1","2","3","4","5","6","7","8","9"]},
-  {t:"leiste", h:"Venice", x:["1","2","3","4","5","6","7","8","9"]},
-  {t:"leiste", h:"Wodge", x:["1","2","3","4","5","6","7","8","9"]},
-  {t:"leiste", h:"Mimi", x:["1","2","3","4","5","6","7","8","9"]},
+  {t:"leiste", h:"Feast", c:"#e85a9c", x:["1","2","3","4","5","6","7","8","9"]},
+  {t:"leiste", h:"Venice", c:"#8e74b4", x:["1","2","3","4","5","6","7","8","9"]},
+  {t:"leiste", h:"Wodge", c:"#3fa6e0", x:["1","2","3","4","5","6","7","8","9"]},
+  {t:"leiste", h:"Mimi", c:"#e8a400", x:["1","2","3","4","5","6","7","8","9"]},
   {t:"tab", kopf:["Chaos","Wirkung"], x:[
    ["1","Kleiner Effekt, der fast automatisch geschieht. Kann 1 Schaden verursachen und wird ausgegeben, um bis zu 3 Schaden für sich selbst oder andere zu überstehen/abzuwenden."],
    ["2","Großer Effekt, der Konzentration erfordert. Kann 3 Schaden verursachen."],
@@ -27,7 +27,6 @@ TA_VAULT["nosedive"] = {
  reiter: {
   profil: [
    {t:"Fundstück", p:199, b:[
-    {t:"bild", seite:198, x:"Eröffnungsseite: Gruppenchat der Hosts, Titelschriftzug „Nosedive“ – von Caleb Zane Huett"},
     {t:"handout", art:"chat", h:"Nosedive – von Caleb Zane Huett", x:[
      {von:"Venice", x:"Ich Habe Eine Ankündigung"},
      {von:"Mimi", x:"ENDLICH ist jemand wach!!!"},

@@ -11,12 +11,13 @@ function tx(s){
     .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>")
     .replace(/\{(\d+)\}/g, '<b class="drei">$1</b>')
     .replace(/~(.)~/g, '<b class="hl">$1</b>')
+    .replace(/\[!(.+?)!\]/g, function(m, t, i){ return '<mark class="zw' + (i % 3 === 1 ? " s1" : i % 3 === 2 ? " s2" : "") + '">' + t + '</mark>'; })
     .replace(/\{S\.\s?(\d+)\}/g, function(m, p){ return pgl(+p); })
     .replace(/\[\[([A-Z]\d{1,2})\]\]/g, '<a class="gehzu" onclick="pwPop(\'$1\')">$1</a>')
     .replace(/\n/g, "<br>");
   /* Firmenfarben: nur außerhalb von Tags */
   return s.replace(/(^|>)([^<]+)/g, function(m, a, t){
-    return a + t.replace(/\b(Triangle Agency|Agency(?:OS)?)\b/g, '<span class="ag">$1</span>').replace(/\b(Anomalien?|Anomalie-|anomale[rnms]?|anomal)\b/g, '<span class="an">$1</span>');
+    return a + t.replace(/\b(Triangle Agency|[Aa]gency(?:OS)?)\b/g, '<span class="ag">$1</span>').replace(/\b(Anomalien?|Anomalie-|anomale[rnms]?|anomal)\b/g, '<span class="an">$1</span>');
   });
 }
 function pwPop(code){ go("pw/" + code); }
@@ -69,6 +70,12 @@ function taB(L){
       case "gebilligt": return '<div class="ak geb"><img src="' + Z("symbol-belobigung") + '" alt=""><h3>Gebilligtes Verhalten</h3><p>Erhalte <b>1 Belobigung</b>, jedes Mal wenn du:</p><ul class="dl">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul><p>' + tx(b.bonus) + '</p></div>';
       case "erst": return '<div class="ak ers"><small>Erst-Anforderung</small><h3>' + tx(b.h) + '</h3>' + (b.b ? taB(b.b) : '<p>' + tx(b.x) + '</p>') + '</div>';
       case "selbst": return '<div class="selbst"><div><h2>Selbsteinschätzung</h2>' + taB(b.b) + '</div><ol>' + b.x.map(function(x, i){ return '<li><em>' + (i + 1) + '</em><div><b>' + tx(x.f).replace(/ …/g, "\u00a0…") + '</b><ul class="dl">' + x.a.map(function(a){ return '<li>' + tx(a[0]) + ' <span class="qs">+{3} ' + esc(a[1]) + '</span></li>'; }).join("").replace(/\{3\}/g, '<b class="drei">3</b>') + '</ul></div></li>'; }).join("") + '</ol></div>';
+      /* ---- Werkzeug-Bausteine (AgencyOS) ---- */
+      case "desktop": return '<div class="desk' + (b.cls ? " " + b.cls : "") + '"><div class="dsym">' + TA_DSYM.map(function(q){ return '<span>' + (q[1].charAt(0) === "#" ? '<em>' + q[1].slice(1) + '</em>' : '<img src="' + Z(q[1]) + '" alt="">') + (q[2] ? '<sup>' + q[2] + '</sup>' : '') + '<u>' + q[0] + '</u></span>'; }).join("") + '</div>' +
+        '<div class="dflaeche">' + (b.titel ? '<div class="dfen"><div class="ft"><img src="' + Z("symbol-handbuch") + '" alt=""><span>' + tx(b.titel) + '</span><i>×</i></div><div class="fb">' + taB(b.b) + '</div></div>' : taB(b.b)) + '</div>' +
+        '<div class="dmodus">AgencyOS läuft im abgesicherten Modus</div><div class="dtask"><b>Arbeit</b>' + (b.task || ["MyManual 1998: Professional Edition", "Media Player", "Normal AntiVirus"]).map(function(x){ return '<span>' + esc(x) + '</span>'; }).join("") + '</div></div>';
+      case "buddy": return '<div class="bud ' + (b.pos || "l") + (b.gross ? " gross" : "") + '">' + (b.img ? '<img src="' + IMG("regeln/full/" + b.img) + '" alt="">' : '') + '<div class="blase">' + taB(b.b) + '</div></div>';
+      case "haken": return '<label class="haken"><input type="checkbox"><span>' + tx(b.x) + '</span></label>';
       case "formen": return '<ul class="formen">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul>';
       case "zitat": return '<div class="zitat">' + tx(b.x) + '</div>';
       case "html": return b.x;
@@ -142,3 +149,6 @@ function taSchaubild(art){
       o += '<path d="M' + q[0] + ' ' + q[1] + 'V' + q[2] + 'M' + (q[0] - 12) + ' ' + q[1] + 'h24M' + (q[0] - 12) + ' ' + q[2] + 'h24" stroke="' + L + '" stroke-width="2"/><rect x="' + (q[0] - 20) + '" y="' + q[3] + '" width="40" height="' + (q[4] - q[3]) + '" fill="' + G + '"/>'; }); }
   return '<svg class="schaub" viewBox="0 0 300 138" preserveAspectRatio="xMidYMid meet">' + o + '</svg>';
 }
+
+/* Schreibtisch-Symbole des AgencyOS (S. 162–171): [Name, Zeichen oder #Glyphe, Zähler] */
+var TA_DSYM = [["MyManual 1998: Prof…", "symbol-handbuch"], ["Normal AntiVirus", "symbol-auge-blau"], ["Triage", "#✉", "33"], ["Commend Station", "symbol-haken-kasten"], ["Chaos Controller", "symbol-chaos-wirbel"], ["Persönlicher Zeitplan", "#🗑"]];

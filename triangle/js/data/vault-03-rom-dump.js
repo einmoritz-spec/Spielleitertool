@@ -41,7 +41,6 @@ TA_VAULT["rom-dump"] = {
      {von:"SENTINEL", x:"Die ganze Schöpfung wird bald dahin sein! Das wissen wir mit Gewissheit. Ich wollte, sie nähme lieber eine andere Gestalt an, als völlig zerstört zu werden. Stimmt Ihr nicht zu?"},
      {von:"KÖNIG ORMODIA", x:"Natürlich stimme ich zu … Macht es so."}
     ]},
-    {t:"bild", seite:40, x:"Eröffnungsseite: Dialogfenster im 16-Bit-Stil mit König Ormodia und Sentinel, Pixelstrand mit Wellen"}
    ]},
    {t:"Überblick", p:42, b:[
     {t:"profil",
@@ -132,12 +131,13 @@ TA_VAULT["rom-dump"] = {
    {t:"Das Hile-Anwesen", p:48, b:[
     "Hinter dem Polizeikontrollpunkt führt eine lange Schotterauffahrt, gesäumt von alternden Zierapfelbäumen, von der vorbeiführenden Straße bis zur Haustür des Farmhauses. Der Wind weht hier ruhig durch die Bäume, und faulige Zieräpfel liegen auf dem Boden. Maisfelder erstrecken sich zu beiden Seiten der Einfahrt, wogen im Wind und reichen bis an die Ränder des Grundstücks.",
     "Wer sich hineinschleichen will, muss die Zäune am Feldrand überklettern oder durchschneiden. Hat man die Felder durchquert, liegen Farmhaus, Scheune und Getreidesilo um einen Schotterhof in der Mitte.",
-    {t:"bild", seite:47, x:"Kartenansicht im Pixelstil: Hof mit Scheune, Farmhaus und Getreidesilo, Zaun, Einfahrt und Kompassrose"},
+    {t:"bild", src:"03-rom-dump-karte-hof", pos:"pixel karte", seite:47, x:"Kartenansicht im Pixelstil: Hof mit Scheune, Farmhaus und Getreidesilo, Zaun, Einfahrt und Kompassrose"},
     {t:"h", x:"Die Maisfelder"},
     "Mais, in alle Richtungen hunderte Meter weit. Der Boden zwischen den Reihen ist klumpig und trocken, und man stolpert leicht, wenn man nicht auf seine Schritte achtet. Die Sicht ist selbst tagsüber begrenzt. Es ist schwer, irgendetwas zu sehen, das nicht in derselben Reihe ist. Einer der Voyagers der Anomalie ist hier und pirscht sich an alle heran, die die Maisfelder betreten.",
     "Hinter dem Farmhaus liegen auf der einen Seite ein breites Stahlsilo und auf der anderen eine rote Scheune.",
     "**Wenn die Agenten verweilen,** bemerken sie leuchtende Augen und Kratzgeräusche im Schatten zwischen den Maisreihen, mal da, mal weg. Ein glänzender silberner Speer ragt über den Mais. Wenn Agenten laut etwas über den Speer sagen, hört Lorelei es und zieht ihn hastig außer Sicht.",
     {t:"h", x:"Lorelei"},
+    {t:"bild", src:"03-rom-dump-lorelei", pos:"pixel portrait"},
     "**Lorelei (sie/ihr)** ist eine schlanke, hochgewachsene Frau mit hellgrüner Haut, weißblondem, zu einem langen Pferdeschwanz zurückgebundenem Haar, rosa Lederrüstung und einem zusammenklappbaren, glänzenden silbernen Speer an der Seite. In Heroia ist sie als Elvorc bekannt, eine Mischung aus klassischer Fantasy-Elfe und -Orkin mit spitzen Ohren und ebenso spitzen Zähnen. Sie ist eine Expertin-Waldläuferin, die mühelos jedes Tier in Heroia aufspüren und jagen kann. Sie trägt das Waldwappen (Forest Crest). Lorelei funktioniert wie eine starke Kleine Anomalie mit Bedrohung: 4, Stabilität: 2.",
     "Lorelei pirscht sich an jeden heran, der das Gelände um das Farmhaus betritt. Sie versucht, unbemerkt zu folgen und zu erfahren, was sie kann von den Agenten: sowohl, was diese über den Großen Helden wissen, als auch, was immer sie über die echte Welt in Erfahrung bringen kann.",
     "**Wenn Lorelei die Agenten über Markus, die Voyagers oder Respektlosigkeit gegenüber der Natur reden hört,** gibt sie sich zu erkennen.",
@@ -155,11 +155,12 @@ TA_VAULT["rom-dump"] = {
       "Sie kann ihre Zeilen zu neuen Wendungen zusammensetzen („Wahr … Volk … geben … Lorelei … mehr … führen.“), aber das ist für sie ein mühsamer und schwieriger Vorgang."
      ]}
     ]},
-    {t:"bild", seite:48, x:"Pixelbild des grünen Waldwappens (Forest Crest)"}
+    {t:"bild", src:"03-rom-dump-kristall-gruen", pos:"pixel wappen", seite:48, x:"Pixelbild des grünen Waldwappens (Forest Crest)"}
    ]},
    {t:"Die Scheune", p:50, b:[
     "Eine große rote Scheune voller alter Heuhaufen, morschen Holzes und Dutzender streunender Katzen. Eine schiefe Treppe führt hinauf zu einem Heuboden. Die Katzen sitzen mit leuchtenden Augen im Halbdunkel auf Stapeln von Heuballen und Kisten mit altem Gerät. Ein muskelbepackter Voyager liegt hier schlafend im Heu, schmiegt sich an seinen riesigen Streitkolben und ist von schlafenden Katzen bedeckt.",
     {t:"h", x:"Raymond"},
+    {t:"bild", src:"03-rom-dump-raymond", pos:"pixel portrait"},
     "**Raymond (er/ihm)** ist ein bulliger, gehörnter Schlachtkleriker in voller Plattenrüstung mit einem gewaltigen Streitkolben (Maul) – in Heroia ist er als Höllenmuskel (Hellmuscle) bekannt, ein hünenhafter Dämon aus wogenden Muskeln und wenig Verstand, der jedes Mal zur Belustigung dient, wenn man ihm im Spiel begegnet. Wenn er geweckt wird, ist er begeistert kampflustig. Für ihn ist Kämpfen Spaß. An seinem Gürtel steckt ein rotes, rautenförmiges Wappen mit Bergen darauf.",
     "Raymond funktioniert wie eine starke Kleine Anomalie mit Bedrohung: 2, Stabilität: 4.",
     "**Wenn die Agenten ihn wecken,** springt er auf, schnappt sich seinen Streitkolben und baut sich stolz vor ihnen auf. Wie die anderen Voyagers kann Raymond nur in vorgefertigten Dialogzeilen sprechen: „Ihr weckt mich für einen guten Kampf, hoffe ich!“",
@@ -179,11 +180,12 @@ TA_VAULT["rom-dump"] = {
       "Er kann seine Zeilen zu neuen Wendungen zusammensetzen („Nimm … Partner … nein … Untergang … ha-HA!“), aber das ist für ihn ein mühsamer und schwieriger Vorgang."
      ]}
     ]},
-    {t:"bild", seite:49, x:"Pixelbild des roten Bergwappens (Mountain Crest)"}
+    {t:"bild", src:"03-rom-dump-kristall-rot", pos:"pixel wappen", seite:49, x:"Pixelbild des roten Bergwappens (Mountain Crest)"}
    ]},
    {t:"Das Getreidesilo", p:51, b:[
     "Ein alterndes Stahlsilo, fast leer. Auf Bodenhöhe steht eine Tür einen Spalt offen und führt ins Innere. Eine dünne Schicht getrockneten Maises bedeckt den Boden, doch das Silo wurde für die neue Ernte geleert. Innen ist es dunkel, Licht fällt nur durch die Türöffnung.",
     {t:"h", x:"Kirbash"},
+    {t:"bild", src:"03-rom-dump-kirbash", pos:"pixel portrait"},
     "**Kirbash (sie/ihr)** ist eine treue und stolze Kriegerin in grünem Bänderpanzer, kunstvoll verziert mit allerlei weidenden Tieren, und führt eine feine Krummklinge. Sie trägt an ihrer Halskette ein gelbes, rautenförmiges Wappen mit Bildern wogender Felder. Kirbash funktioniert wie eine starke Kleine Anomalie mit Bedrohung: 3, Stabilität: 3.",
     "Anders als die anderen Voyagers hat Kirbash ihre Aufgabe und sich selbst fast völlig vergessen.",
     "**Wenn die Agenten ihr nicht feindselig begegnen** und ihr irgendeine Information über ihre Aufgabe, den Großen Helden oder auch nur sie selbst geben, besonders etwas Konkretes (etwa ein Bild des Großen Helden oder ein Stück einer Videospielanleitung mit ihrem Bild und Namen), steckt sie ihre Klinge ein und verneigt sich vor ihnen, überreicht ihnen das Ebenenwappen (Plains Crest) und sagt: „*Findet die anderen. Ich erinnere mich, dass es andere wie mich gab.*“",
@@ -196,7 +198,7 @@ TA_VAULT["rom-dump"] = {
       "„Wir mussten gehen. Mussten hierherkommen. Die Zukunft der Welt hängt von SPIELERNAME ab.“"
      ]}
     ]},
-    {t:"bild", seite:50, x:"Pixelbild des gelben Ebenenwappens (Plains Crest)"}
+    {t:"bild", src:"03-rom-dump-kristall-gelb", pos:"pixel wappen", seite:50, x:"Pixelbild des gelben Ebenenwappens (Plains Crest)"}
    ]},
    {t:"Das Farmhaus", p:52, b:[
     "Ein zweistöckiges weiß getünchtes Farmhaus mit einer großen Veranda, die zur Straße hinausschaut. Auf der Rückseite knarrt im Wind eine rostige Windmühle über einem alten Betonbrunnen.",
@@ -223,6 +225,7 @@ TA_VAULT["rom-dump"] = {
     "Die Agenten können die Wendeltreppe hinaufsteigen und den Dachboden des Hile-Farmhauses betreten, das das Kinderzimmer von Markus Hile war. Der Raum ist staubig, sieht aber sonst genau so aus wie vor 20 Jahren.",
     "Die Anomalie steht am Fuß einer hölzernen Unterhaltungselektronik-Ecke unter einem alternden Röhrenfernseher und einer vergilbenden Spielkonsole, gegenüber vom Bett. Ein großes, vierflügeliges Fenster blickt hinaus auf eine pixelige Fantasy-Landschaft. In der Mitte des Raums schwebt Sentinel.",
     {t:"h", x:"Sentinel"},
+    {t:"bild", src:"03-rom-dump-sentinel-voy", pos:"pixel portrait"},
     "**Sentinel (es/sein)** ist ein ätherischer Schatten in Gestalt eines hoch aufragenden Sensenmanns. Es schwebt bedrohlich mit bereitgehaltener langer Sense zwischen der Treppe und der Kassette, die hinter ihm vom untersten Regalbrett der Unterhaltungselektronik-Ecke leuchtet. Eine Schriftrollenhülle hängt an seinem Gürtel, durch die halbdurchsichtigen Gewänder teilweise sichtbar.",
     "Diese Schriftrolle ist das Dekret des Königs (King’s Decree), eine Schriftrolle, die jeden, der sie trägt, ermächtigt, zu tun, was immer er für das Überleben Heroias für das Beste hält. Alle Bürger des Landes (einschließlich der Voyagers) müssen diesen Befehlen des Trägers gehorchen.",
     "Sentinel verhält sich ganz wie sein Name nahelegt, als Wächter, der die Anomalie selbst bewacht. Es ist nur daran interessiert, Außenstehende fernzuhalten, die Anomalie zu schützen und den Großen Helden zurück in die digitale Welt zu bringen. Selbst mit allen Heroia-Wappen müssen die Agenten Markus hierherbringen oder sich direkt mit allen anderen Voyagers verbündet haben, um Sentinel zu überzeugen, sie passieren und zur Anomalie vordringen zu lassen.",
@@ -256,11 +259,8 @@ TA_VAULT["rom-dump"] = {
     "**Wenn die Agenten besiegt werden,** entkommt die Anomalie, indem sie ihre gesamte Energie darauf verwendet, die Voyagers vollständig real zu machen und in die Welt hinauszuschicken."
    ]},
    {t:"Die Voyagers", p:55, b:[
-    {t:"werte", h:"Sentinel", x:[["Bedrohung",3],["Stabilität",10]], b:[]},
-    {t:"werte", h:"Lorelei", x:[["Bedrohung",4],["Stabilität",2]], b:[]},
-    {t:"werte", h:"Raymond", x:[["Bedrohung",2],["Stabilität",4]], b:[]},
-    {t:"werte", h:"Kirbash", x:[["Bedrohung",3],["Stabilität",3]], b:[]},
-    {t:"kasten", h:"Rundenbasierter Kampf", b:[
+    {t:"voyagers", x:[["Sentinel","03-rom-dump-sentinel-voy",3,10],["Lorelei","03-rom-dump-lorelei",4,2],["Raymond","03-rom-dump-raymond",2,4],["Kirbash","03-rom-dump-kirbash",3,3]]},
+        {t:"kasten", h:"Rundenbasierter Kampf", b:[
      "Während der Begegnung „Boss Rush“ kann die Anomalie den Voyagers und Agenten gleichermaßen die Beschränkungen des rundenbasierten Teamkampfs auferlegen, wie er in Voyagers of Heroia verwendet wird.",
      "Die Agenten und die Voyagers handeln abwechselnd gegeneinander, jeweils als Einheiten. Die Voyagers handeln zuerst und greifen als eine Einheit an; die Agenten müssen dann eine gemeinsame Strategie abstimmen, um Fähigkeiten oder Anträge auf Realitätsanpassung zur Verteidigung einzusetzen. Danach dürfen die Agenten als eine Einheit handeln und sich auf einen Plan einigen, der eine einzige Realitätsanpassung oder Anomalie-Fähigkeit verwendet.",
      "Während dieser Konfrontation haben die Voyagers Zugriff auf ihre Spezialtechniken. Dazu gehören **Beschwörungen (Summons)**, die als einmalige Elementarangriffe wirken, etwa ein Regen aus Feuerbällen oder riesige Stacheln, die aus dem Boden darunter hervorbrechen; **Taktiken (Tactics)**, bei denen Paare von Voyagers ihre Fähigkeiten oder Waffen gemeinsam einsetzen; und **Gegenstände (Items)**, die sie von andauernden Effekten heilen können, die durch die Fähigkeiten der Agenten verursacht wurden. Die Voyagers haben außerdem 3 Alleheil-Tränke (Heal-All), die bei Verwendung allen Voyagers 1 Stabilität zurückgeben."

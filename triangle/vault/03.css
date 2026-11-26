@@ -1,1 +1,59 @@
-/* The Vault 03 – rom-dump: Stil (body.ve-rom-dump) */
+/* The Vault 03 – ROM Dump: 16-Bit-Rollenspiel – Königsblau, Gold, Pixelschrift, Sandstrand (Buch S. 40–57) */
+@font-face{font-family:Pixelify;src:url(../fonts/pixelify-sans-latin-400-normal.woff2);font-weight:400;font-display:swap}
+@font-face{font-family:Pixelify;src:url(../fonts/pixelify-sans-latin-700-normal.woff2);font-weight:700;font-display:swap}
+body.ve-rom-dump{--akz:#1d3f8c;--v2:#e2441c;--vf:#eef2fb;--vrand:#f2c42c;--vgrau:#6f7590;--rdb:#1d3f8c;--rdg:#f2c42c;--rdr:#e2441c}
+.ve-rom-dump .vunter a.on{color:#1d3f8c}.ve-rom-dump .vunter a.on:after{background:#e2441c;height:4px}
+.ve-rom-dump .vtext h1{font:700 50px/1 Pixelify,monospace;color:#f2c42c;-webkit-text-stroke:2px #e2441c;paint-order:stroke fill;text-shadow:3px 3px 0 #e2441c;letter-spacing:.01em}
+.ve-rom-dump .vtext h2{font:700 30px/1.1 Pixelify,monospace;color:#f2c42c;-webkit-text-stroke:1.5px #e2441c;paint-order:stroke fill;text-shadow:2px 2px 0 #e2441c;letter-spacing:.01em}
+.ve-rom-dump .vtext h3{color:#1d3f8c}
+.ve-rom-dump .vh{border-radius:0;border-left:6px solid #1d3f8c;background:#eef2fb}
+.ve-rom-dump .vhin.anom .vh{border-left-color:#e2441c}
+/* Pixelrahmen: harte Kanten, goldener Doppelrand */
+.ve-rom-dump .vchaos,.ve-rom-dump .vsonder,.ve-rom-dump .vziele,.ve-rom-dump .kasten,.ve-rom-dump .vanf,.ve-rom-dump .vfae{border-radius:0;border:4px solid #f2c42c;box-shadow:0 0 0 3px #1d3f8c,6px 6px 0 3px #1d3f8c55}
+.ve-rom-dump .vchaos{margin:3px}.ve-rom-dump .vchaos h4,.ve-rom-dump .vziele h4{font-family:Pixelify,monospace;font-weight:700}
+.ve-rom-dump .vchaos h4{background:linear-gradient(#2d5bc0,#13306e);color:#fff;font-size:21px}
+.ve-rom-dump .vchaos em{font-family:Pixelify,monospace;font-weight:700;font-size:16px;color:#1d3f8c}
+.ve-rom-dump .vchaos>a:has(.neu) em{color:#e2441c}
+.ve-rom-dump .vsonder,.ve-rom-dump .vziele{margin:3px}
+.ve-rom-dump .kasten>h3,.ve-rom-dump .vsonder h4,.ve-rom-dump .vsonder .kasten>h3,.ve-rom-dump .vziele h4{color:#1d3f8c;font-family:Pixelify,monospace;font-weight:700}
+.ve-rom-dump .vsonder .kasten{box-shadow:none;border:0}
+.ve-rom-dump .vkopf img{border-radius:0;image-rendering:pixelated}
+
+/* Eröffnungsseite */
+.rd-strand{display:grid;grid-template-columns:1fr 150px;margin:0 0 24px;background:#d9c49a;background-image:repeating-conic-gradient(#e4d1a6 0 25%,#d4bd8f 0 50%);background-size:22px 22px;image-rendering:pixelated;box-shadow:0 10px 30px #13306e40}
+.rd-dialog{padding:22px 18px;display:flex;flex-direction:column;gap:10px}
+.rd-zeile{display:flex;gap:12px;align-items:flex-start}.rd-zeile.r{flex-direction:row-reverse}
+.rd-zeile img{width:74px;height:72px;flex:none;border:3px solid #f2c42c;box-shadow:0 0 0 2px #1b1b3a;image-rendering:pixelated;background:#1b1b3a}
+.rd-box{flex:1;max-width:620px;background:linear-gradient(#2a5cc4,#163a86 70%,#122f6c);border:3px solid #fff;box-shadow:0 0 0 2px #1b1b3a,3px 3px 0 2px #1b1b3a66;padding:7px 14px 9px;color:#fff;font:400 16.5px/1.4 Pixelify,monospace}
+.rd-box>b{display:block;font:700 14px Pixelify,monospace;letter-spacing:.08em;margin-bottom:2px}
+.rd-box p{margin:0}.rd-box p b,.rd-box strong{color:#ffe27a;font-weight:700}
+.rd-zeile.l .rd-box{margin-right:86px}.rd-zeile.r .rd-box{margin-left:86px}
+.rd-meer{position:relative;background:#164a86;background-image:repeating-linear-gradient(0deg,#1a5596 0 14px,#13406f 14px 28px);border-left:14px solid #bfe4f2;box-shadow:inset 8px 0 0 #fff;display:flex;justify-content:center}
+.rd-meer span{writing-mode:vertical-rl;font:900 54px/1 Spartan,sans-serif;color:#bfe4f2;text-transform:uppercase;letter-spacing:-.02em;padding-top:30px}
+/* Fundstück: Dialog breit, Chaos-Effekte darunter */
+body.ve-rom-dump .vfund{display:flex;flex-direction:column}
+body.ve-rom-dump .vfund .vre.vschwebt{order:2;float:none;width:auto;margin:10px 0 30px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:22px;align-items:start}
+body.ve-rom-dump .vfund .vre.vschwebt>*{margin:3px}
+
+/* Menüfenster */
+.rd-menue{position:relative;max-width:640px;margin:10px 0 20px;background:linear-gradient(#2a5cc4,#122f6c);border:4px solid #fff;box-shadow:0 0 0 3px #1b1b3a;padding:14px 20px 18px;font:700 17px/1.45 Pixelify,monospace;color:#ff8a3d;letter-spacing:.03em}
+.rd-menue p{margin:0}.rd-menue i{position:absolute;right:10px;bottom:4px;color:#fff;font-style:normal;font-size:13px;animation:rdBlink 1s steps(1) infinite}
+@keyframes rdBlink{50%{opacity:0}}
+
+/* Pixelbilder */
+.vbild.pixel img{image-rendering:pixelated;border-radius:0}
+.vbild.portrait{float:right;width:170px;margin:2px 0 14px 22px}.vbild.portrait img{border:4px solid #f2c42c;box-shadow:0 0 0 3px #1d3f8c}
+.vbild.wappen{width:120px;margin:4px 0 16px}
+.vbild.karte{max-width:520px}.vbild.karte img{border:4px solid #f2c42c;box-shadow:0 0 0 3px #1d3f8c}
+
+/* Voyagers */
+.rd-voy{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:8px 0 26px}
+.rd-voy section{text-align:center}
+.rd-voy h3{font:700 22px Pixelify,monospace;color:#1d3f8c;letter-spacing:.04em;margin:0 0 6px}
+.rd-voy img{width:100%;max-width:190px;image-rendering:pixelated;border:4px solid #f2c42c;box-shadow:0 0 0 3px #1d3f8c;cursor:zoom-in}
+.rd-hp{display:flex;gap:3px;justify-content:center;flex-wrap:wrap;margin:10px auto 6px;max-width:190px}
+.rd-hp u{width:15px;height:15px;background:#e2441c;box-shadow:inset 0 -4px 0 #a52a0e,0 0 0 2px #1d3f8c;cursor:pointer}
+.rd-hp u.weg{background:#d9dce8;box-shadow:inset 0 -4px 0 #bcc0cf,0 0 0 2px #1d3f8c}
+.rd-voy p{margin:0;font:400 17px/1.3 Pixelify,monospace;color:#1d3f8c}
+@media (max-width:1000px){.rd-voy{grid-template-columns:1fr 1fr}.rd-zeile.l .rd-box,.rd-zeile.r .rd-box{margin:0}}
+.ve-rom-dump .vtext h1>a,.ve-rom-dump .vtext h1>span{font:400 13px Fig,sans-serif!important;-webkit-text-stroke:0;text-shadow:none;color:var(--vgrau)!important}

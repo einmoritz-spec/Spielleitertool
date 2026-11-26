@@ -1,0 +1,115 @@
+/* The Vault 04 – zbarro-641: Stil (body.ve-zbarro-641)
+   Pizzeria im Firmenkeller: Rot/Grün wie die italienische Fahne, fette Groteskschrift, rote Zeitleisten-Hinweise, Ticket-Checkliste */
+@font-face{font-family:ZbFig;src:url(../../assets/fonts/figtree-latin-900-normal.woff2);font-weight:900;font-display:swap}
+body.ve-zbarro-641{--akz:#c40c18;--v2:#2b7a34;--vf:#fff;--vrand:#2a1b45;--vbg:#fff;--vtxt:#2a1b45;--vh:Spartan,sans-serif;--zbg:#2b7a34;--zbr:#d3141e;--zbp:#f3f1f6}
+/* Fahnenstreifen rechts am Rand */
+body.ve-zbarro-641:after{content:"";position:fixed;right:0;top:0;bottom:0;width:7px;z-index:35;background:linear-gradient(#d3141e 0 50%,#2b7a34 50%);pointer-events:none}
+
+/* Unterleiste: Trikolore als Unterkante */
+.ve-zbarro-641 .vunter{border-bottom:0;box-shadow:inset 0 -3px 0 #fff;background:linear-gradient(90deg,var(--zbg) 0 33.3%,#e9e6ee 33.3% 66.6%,var(--zbr) 66.6%) bottom/100% 3px no-repeat #fff}
+.ve-zbarro-641 .vunter>a{font-weight:800;letter-spacing:-.015em}
+.ve-zbarro-641 .vunter>a.on:after{height:3px;bottom:0;background:var(--akz)}
+.ve-zbarro-641 .vz{border-color:#2a1b4533}
+.ve-zbarro-641 .vside a.on{color:var(--akz);border-color:var(--akz)}
+
+/* Überschriften wie im Buch: Rot, Grün */
+.ve-zbarro-641 .vtext h1{font-weight:900;font-size:46px;letter-spacing:-.035em;color:var(--zbr)}
+.ve-zbarro-641 .vtext h2{font-weight:800;color:var(--zbg);font-size:28px;letter-spacing:-.025em}
+.ve-zbarro-641 .vtext h3{font-weight:800;color:var(--zbg);font-size:22px;letter-spacing:-.02em}
+.ve-zbarro-641 .vtext .sp>div>h3:first-child+p>i:only-child,.ve-zbarro-641 .vtext h2+p>i:only-child{font-style:italic;font-weight:600;color:#8a829c;font-size:15px}
+.ve-zbarro-641 .vkopf h1{font-size:64px}
+.ve-zbarro-641 .vkopf img{border-radius:0;box-shadow:8px 8px 0 var(--zbg)}
+.ve-zbarro-641 .dl li:before{border-left-color:var(--zbr)}
+
+/* Profil: Fokus / Domäne / Impuls als Speisekarten-Karten */
+.ve-zbarro-641 .vfdi section{background:#fff;border:2px solid var(--vrand);border-top:2px solid var(--vrand);border-radius:16px;padding:0 18px 14px;overflow:hidden}
+.ve-zbarro-641 .vfdi small{display:block;margin:0 -18px 10px;padding:9px 18px 7px;background:var(--zbr);color:#fff;font:900 15px Spartan,sans-serif;letter-spacing:.05em}
+.ve-zbarro-641 .vfdi section:nth-child(2) small{background:var(--zbg)}
+.ve-zbarro-641 .vfdi section:nth-child(3) small{background:var(--vrand)}
+
+/* Hinweise: rote Zeitleiste mit Ringen (wie im Buch) */
+.ve-zbarro-641 .vhin{position:relative}
+.ve-zbarro-641 .vhin h4{font:800 15.5px/1.3 Spartan,sans-serif;letter-spacing:-.01em;margin-bottom:6px}
+.ve-zbarro-641 .vh{position:relative;background:none;border:0;border-radius:0;padding:4px 6px 12px 40px;margin:0}
+.ve-zbarro-641 .vh:before{content:"";position:absolute;left:8px;top:6px;width:11px;height:11px;border:4px solid var(--zbr);border-radius:50%;background:#fff;z-index:1;transition:border-color .2s}
+.ve-zbarro-641 .vh:after{content:"";position:absolute;left:15px;top:0;bottom:0;width:3px;background:var(--zbr);transition:background .2s}
+.ve-zbarro-641 .vhin h4+.vh:after{top:-10px}
+.ve-zbarro-641 .vhin .vh:last-child:after{bottom:-6px}
+.ve-zbarro-641 .vhin.anom .vh:before{border-color:#e8791c}.ve-zbarro-641 .vhin.anom .vh:after{background:#e8791c}
+.ve-zbarro-641 .vh:hover{filter:none;background:linear-gradient(90deg,transparent 32px,#fbecec 32px)}
+.ve-zbarro-641 .vh.ok{background:none;opacity:.45;color:#8a829c}
+.ve-zbarro-641 .vh.ok:before{border-color:#c8c3d4;background:#c8c3d4}.ve-zbarro-641 .vh.ok:after{background:#d9d6e6}
+/* Morgenbesprechung: rote Kreuze */
+.ve-zbarro-641 .vmorgen .vh{padding:10px 18px 10px 46px;border-bottom:1.5px dashed #2a1b4526}
+.ve-zbarro-641 .vmorgen .vh:after{display:none}
+.ve-zbarro-641 .vmorgen .vh:before{content:"✕";border:0;width:auto;height:auto;background:none;left:12px;top:8px;font:900 20px/1 Spartan,sans-serif;color:var(--zbr)}
+.ve-zbarro-641 .vmorgen .vh.ok:before{color:#c8c3d4;background:none}
+
+/* Einsatzbesprechung */
+.ve-zbarro-641 .vvor{background:var(--zbp);border:0;border-left:8px solid var(--zbr);border-radius:0 16px 16px 0}
+.ve-zbarro-641 .vvor h3{color:var(--zbg)}
+
+/* Kästen: abgerundet, dunkler Rand; Firmenkasten mit WB-Logo */
+.ve-zbarro-641 .kasten{border:2px solid var(--vrand);border-radius:16px}
+.ve-zbarro-641 .kasten>h3{color:var(--zbg);font:900 22px Spartan,sans-serif;letter-spacing:-.02em}
+.ve-zbarro-641 .kasten.wb>h3:before{content:"WB";flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--vrand);border:3.5px solid var(--vrand);box-shadow:0 0 0 2.5px #fff,0 0 0 4.5px var(--vrand);font:900 15px/1 Spartan,sans-serif;letter-spacing:-.04em;margin:4px 4px 0 2px}
+
+/* Rechte Spalte */
+.ve-zbarro-641 .vchaos{border:2px solid var(--vrand);border-radius:16px;overflow:visible;background:#fff;margin-top:18px}
+.ve-zbarro-641 .vchaos h4{position:relative;top:-20px;margin:0 0 -20px 14px;display:inline-block;align-self:flex-start;background:var(--zbr);color:#fff;padding:9px 14px 6px;font:900 20px Spartan,sans-serif;text-transform:uppercase;letter-spacing:-.01em;border-radius:0}
+.ve-zbarro-641 .vchaos{display:flex;flex-direction:column}
+.ve-zbarro-641 .vchaos>a{border-top:0;background:#fff}
+.ve-zbarro-641 .vchaos>a:nth-child(odd){background:var(--zbp)}
+.ve-zbarro-641 .vchaos>a:last-child{border-radius:0 0 14px 14px}
+.ve-zbarro-641 .vchaos>a:hover{background:#fbe3e4}
+.ve-zbarro-641 .vchaos>a>b{font-weight:900;color:var(--vrand)}
+.ve-zbarro-641 .vchaos em{color:var(--vrand);font-weight:900}
+.ve-zbarro-641 .vsonder{border:2px solid var(--vrand);border-radius:16px;padding:0;overflow:hidden;display:grid;grid-template-columns:78px 1fr}
+.ve-zbarro-641 .vsonder:before{content:"";background:var(--zbp) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 18 Q34 2 58 22 L40 58 Q37 63 34 56 L33 52 Q31 47 28 52 Q25 56 22 50Z' fill='%23d3141e'/%3E%3Cpath d='M12 22 Q34 9 53 25' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Ccircle cx='30' cy='31' r='4.5' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Ccircle cx='42' cy='33' r='4' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Ccircle cx='35' cy='43' r='3.5' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E") center/50px no-repeat}
+.ve-zbarro-641 .vsonder .kasten{border:0;border-radius:0;margin:0;padding:14px 16px 4px 16px}
+.ve-zbarro-641 .vsonder .kasten>h3{color:var(--zbg);font-size:20px}
+.ve-zbarro-641 .vziele{border:2px solid var(--vrand);border-radius:16px;padding:0 18px 8px;overflow:hidden}
+.ve-zbarro-641 .vziele h4{margin:0 -18px 12px;padding:10px 18px 7px;background:var(--zbr);color:#fff;font-weight:900}
+
+/* Karten / Ausgänge / Vault */
+.ve-zbarro-641 .vaus.n4{grid-template-columns:1fr 1fr}
+.ve-zbarro-641 .vaus section{border:2px solid var(--vrand);border-radius:16px;position:relative;overflow:hidden;padding-top:20px}
+.ve-zbarro-641 .vaus section:before{content:"";position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(90deg,var(--zbg) 0 33.3%,#fff 33.3% 66.6%,var(--zbr) 66.6%)}
+.ve-zbarro-641 .vaus h3{color:var(--zbr);font-weight:900}
+.ve-zbarro-641 .vanf,.ve-zbarro-641 .vfae{border:2px solid var(--vrand);border-radius:16px;padding-top:0;overflow:hidden}
+.ve-zbarro-641 .vanf>small,.ve-zbarro-641 .vfae>small{display:block;margin:0 -22px 4px;padding:10px 22px 7px;background:var(--zbr);color:#fff;font:900 14px Spartan,sans-serif;letter-spacing:.05em}
+.ve-zbarro-641 .vfae>small{background:var(--zbg)}
+.ve-zbarro-641 .vanf h3{color:var(--vrand);font-weight:900;margin-top:10px}
+
+/* Fundstück: weitergeleitete Mail mit Zeitungsartikel */
+.ve-zbarro-641 .vho.ho-brief{max-width:780px;border:1.5px solid #b9b4c8;border-radius:22px 22px 0 0;border-bottom:0;margin-bottom:0;background:#f4f3f8;box-shadow:none;padding:16px 20px 14px;font:400 15.5px/1.5 Fig,sans-serif;color:#3c3357}
+.ve-zbarro-641 .ho-brief>h3{font:400 16px Fig,sans-serif;color:#5a5275;background:#fff;border-radius:12px;padding:9px 16px;box-shadow:0 2px 0 #c9c5d6,0 3px 8px #2a1b4524;margin:0 0 8px}
+.ve-zbarro-641 .ho-brief>p:nth-of-type(1),.ve-zbarro-641 .ho-brief>p:nth-of-type(2){background:#fff;margin:0;padding:3px 16px;font-size:15px}
+.ve-zbarro-641 .ho-brief>p:nth-of-type(1){border-radius:12px 12px 0 0;padding-top:10px}
+.ve-zbarro-641 .ho-brief>p:nth-of-type(1):before{content:"";display:inline-block;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:12px solid var(--zbr);margin-right:6px}
+.ve-zbarro-641 .ho-brief>p:nth-of-type(2){border-radius:0 0 12px 12px;padding-bottom:10px;box-shadow:0 2px 0 #c9c5d6,0 3px 8px #2a1b4524;margin-bottom:14px}
+.ve-zbarro-641 .ho-brief>p b{font-weight:400;color:#8a829c}
+.ve-zbarro-641 .ho-brief>p:last-child{margin:14px -20px -14px;padding:10px 20px;border-top:1.5px solid #b9b4c8;background:#fff;font-size:16px}
+.ve-zbarro-641 .vho.ho-zeitung{max-width:780px;border:1.5px solid #b9b4c8;border-top:0;border-radius:0 0 22px 22px;margin-top:0;box-shadow:none;padding:0 22px 14px;display:grid;grid-template-columns:190px 1fr;gap:0 22px;align-items:start;font:400 16px/1.5 Fig,sans-serif}
+.ve-zbarro-641 .ho-zeitung>*{grid-column:1/-1}
+.ve-zbarro-641 .ho-zeitung>p:first-of-type{order:-2;margin:0 -8px;padding:12px 28px 0;background:#eeedf7;font:800 15px Fig,sans-serif}
+.ve-zbarro-641 .ho-zeitung>h3{order:-1;margin:0 -8px;padding:2px 28px 0;background:#eeedf7;font:900 32px/1.02 ZbFig,Fig,sans-serif;font-style:italic;letter-spacing:-.035em;color:var(--zbr);text-transform:uppercase}
+.ve-zbarro-641 .ho-zeitung>p:nth-of-type(2){order:-1;margin:0 -8px 16px;padding:4px 28px 12px;background:#eeedf7;font:800 14.5px Fig,sans-serif;color:var(--zbg)}
+.ve-zbarro-641 .ho-zeitung>.vbild{grid-column:1;grid-row:span 2;margin:4px 0 12px}
+.ve-zbarro-641 .ho-zeitung>.vbild+p,.ve-zbarro-641 .ho-zeitung>.vbild+p+p{grid-column:2}
+.ve-zbarro-641 .ho-zeitung .vbild img{border-radius:0;filter:grayscale(1) contrast(1.1);width:100%}
+.ve-zbarro-641 .ho-zeitung p{margin:0 0 12px}
+.ve-zbarro-641 .ho-zeitung>p:last-child{font:900 13px Spartan,sans-serif;letter-spacing:.08em;color:var(--zbr);margin:6px 0 0}
+
+/* Checkliste „Das Zbarro wiedereröffnen“ als Bestellzettel */
+.zb-check{position:relative;border:2px solid var(--vrand);border-radius:16px;margin:14px 0 20px;padding:8px 22px 10px;background:#fff;max-width:860px}
+.zb-check:before{content:"";position:absolute;left:-2px;right:-2px;top:-2px;height:9px;border-radius:16px 16px 0 0;background:linear-gradient(90deg,var(--zbg) 0 33.3%,#fff 33.3% 66.6%,var(--zbr) 66.6%);border:2px solid var(--vrand);border-bottom:0}
+.zb-check .zbk{display:flex;justify-content:flex-end;padding:8px 0 0}
+.zb-check .zbk i{font:900 15px Spartan,sans-serif;font-style:normal;color:var(--zbr)}
+.zb-check ol{list-style:none;margin:0;padding:0}
+.zb-check li{display:flex;gap:14px;align-items:baseline;padding:9px 6px;border-bottom:1.5px dashed #2a1b4530;cursor:pointer;font-size:16px;line-height:1.45;transition:opacity .2s}
+.zb-check li:last-child{border-bottom:0}
+.zb-check li:hover{background:#fbecec}
+.zb-check li em{font:900 20px/1 Spartan,sans-serif;font-style:normal;color:var(--zbr);min-width:26px;text-align:right}
+.zb-check li.ok{opacity:.42}.zb-check li.ok em{color:#8a829c}.zb-check li.ok span{text-decoration:line-through;text-decoration-color:#8a829c88}
+@media (max-width:900px){.ve-zbarro-641 .vaus.n4{grid-template-columns:1fr}.ve-zbarro-641 .vho.ho-zeitung{grid-template-columns:120px 1fr}}

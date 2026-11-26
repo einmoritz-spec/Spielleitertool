@@ -1,0 +1,50 @@
+/* The Vault 01 – Springs Eternal: Flieder und Blaugrün, weiche runde Formen, Aquarellwasser (Buch S. 8–23) */
+body.ve-springs-eternal{--akz:#9c609c;--v2:#3d6f9a;--vf:#f6f0f6;--vrand:#c49ac4;--vgrau:#8f7f97}
+.ve-springs-eternal .vunter a.on{color:#9c609c}.ve-springs-eternal .vunter a.on:after{background:#9c609c}
+.ve-springs-eternal .vtext h1{letter-spacing:-.045em}
+.ve-springs-eternal .vtext h2{color:#3d6f9a}
+.ve-springs-eternal .vh{border-radius:14px;border-left:0;box-shadow:inset 4px 0 0 #c49ac4}
+.ve-springs-eternal .vhin.anom .vh{box-shadow:inset 4px 0 0 #e8791c}
+.ve-springs-eternal .vh.ok{box-shadow:inset 4px 0 0 #ddd8e2}
+.ve-springs-eternal .vchaos{border-color:#9c609c}.ve-springs-eternal .vchaos h4{background:#9c609c}
+.ve-springs-eternal .vchaos em{color:#2a1b45}.ve-springs-eternal .vchaos>a:has(.neu) em{color:#3d6f9a}
+.ve-springs-eternal .vchaos>a>b img,.ve-springs-eternal .vz img{filter:hue-rotate(-25deg) saturate(.8)}
+.ve-springs-eternal .kasten{border-color:#9c609c;border-radius:18px}
+.ve-springs-eternal .kasten>h3{color:#9c609c}
+.ve-springs-eternal .kasten.leute .dl{columns:2;column-gap:20px;max-width:520px}
+.ve-springs-eternal .dl li:before{border-left-color:#9c609c}
+.ve-springs-eternal .vkopf img{border-radius:22px}
+.ve-springs-eternal .vfdi section{border-top:0;border-radius:22px;background:linear-gradient(160deg,#f3e8f3,#e6eff6)}
+.ve-springs-eternal .vfdi small{color:#3d6f9a}
+/* Werbeheft schief angeschnitten wie im Buch */
+.ve-springs-eternal .vbild.heft{float:right;width:300px;margin:-10px -6px 14px 26px;transform:rotate(4deg)}
+.ve-springs-eternal .vbild.heft img{border-radius:3px;box-shadow:0 14px 30px #2a1b4540}
+
+/* Eröffnungsseite: TV-Spot */
+.se-spot{position:relative;padding:28px 34px 40px;border-radius:22px;overflow:hidden;background:
+  radial-gradient(ellipse 60% 40% at 12% 82%,#f4c4dd99,#0000 70%),radial-gradient(ellipse 50% 45% at 88% 70%,#b9d3ee,#0000 70%),
+  radial-gradient(ellipse 70% 40% at 50% 100%,#c9b6e8,#0000 75%),radial-gradient(ellipse 40% 30% at 70% 92%,#d9ecdc,#0000 70%),#fdfcfe}
+.se-spot>h3{font:300 34px/1.1 Fig,sans-serif;font-style:italic;letter-spacing:-.02em;color:#2a1b45;margin:0 0 20px}
+.se-pan{display:grid;grid-template-columns:1fr 1fr;gap:22px 34px}
+.se-pan section{position:relative;padding-left:24px}
+.se-pan em{position:absolute;left:0;top:-2px;font:800 21px Spartan,sans-serif;font-style:normal;color:#1d1a24}
+.se-bild{border:2px solid #22282a;min-height:150px;padding:14px 18px;color:#3b3f2a;font-size:15.5px;line-height:1.45;background:var(--g)}
+.se-bild p{margin:0}
+.se-pan .p1{--g:radial-gradient(circle at 30% 30%,#fff9,#0000 50%),linear-gradient(135deg,#a9bfe6,#dde6f6 50%,#8fa7d9)}
+.se-pan .p2{--g:radial-gradient(circle at 75% 20%,#f3b98a99,#0000 30%),linear-gradient(120deg,#e9ecef,#f7f3ec 60%,#d9dde6)}
+.se-pan .p3{--g:radial-gradient(ellipse at 50% 90%,#fff,#0000 55%),linear-gradient(160deg,#c6c9d2,#eef0f3 55%,#b5b9c6)}
+.se-pan .p4{--g:radial-gradient(ellipse at 40% 80%,#a7d3e8aa,#0000 45%),linear-gradient(140deg,#8ea47c,#d6dccb 50%,#97a989)}
+.se-pan .p5{--g:radial-gradient(circle at 25% 70%,#f2a96b88,#0000 45%),linear-gradient(130deg,#f3d4b8,#fbeee2 55%,#e6b892)}
+.se-pan .p6{--g:radial-gradient(ellipse at 70% 80%,#9aa07a88,#0000 50%),linear-gradient(150deg,#d9d6c4,#f0eee5 50%,#b8b292)}
+.se-pan .p5 .vo{opacity:.62}.se-pan .p6 .vo{opacity:.48}
+.se-pan .vo{margin:9px 0 0;font-size:15.5px;line-height:1.45;color:#1d1a24}
+.se-flut{display:grid;grid-template-columns:1.25fr 1fr;gap:10px 44px;margin-top:34px}
+.se-flut section{position:relative;padding-left:24px}
+.se-flut em{position:absolute;left:0;top:0;font:800 21px Spartan,sans-serif;font-style:normal;color:#1d1a2433}
+.se-flut p{margin:0 0 12px;font-size:16px;line-height:1.5;color:#2a2540;opacity:calc(1 - var(--i,0) * .12);padding-left:calc(var(--i,0) * 14px)}
+.se-flut .p8 p:nth-last-child(-n+3){font-size:18px}
+.se-flut .vo{opacity:.3!important;color:#3b3550}
+.se-ende{text-align:right;font:800 30px Spartan,sans-serif;letter-spacing:.01em;color:#2a4a44;margin:8px 10px 0;opacity:.85}
+
+/* Aufbau von FOUNT */
+.se-plan{border:2px solid #9c609c;border-radius:18px;max-width:760px;margin:8px 0 22px;padding:14px 10px 6px}.se-plan svg{display:block;width:100%;height:auto}

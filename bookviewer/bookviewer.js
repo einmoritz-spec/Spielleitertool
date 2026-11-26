@@ -29,8 +29,11 @@ var BV = (function(){
     const dc = await doc(key);
     if(!dc){ if(histOn){ histOn = false; try{ history.back(); }catch(e){} } askUpload(key, b, printed); return; }
     build();
-    const pg = Math.max(1, Math.min(dc.numPages, (parseInt(printed)||1) + getOff(key)));
-    S = { key, page:pg, n:dc.numPages, zoom:false };
+    /* Doppelseiten-PDF (z. B. „Spreads“-Fassung): Seite 2 im Querformat → jede PDF-Seite ist schon eine Doppelseite */
+    let spr = false; try{ if(dc.numPages > 2){ const v = (await dc.getPage(2)).getViewport({scale:1}); spr = v.width > v.height * 1.2; } }catch(e){}
+    const raw = (parseInt(printed)||1) + getOff(key);
+    const pg = Math.max(1, Math.min(dc.numPages, spr ? Math.floor((raw - 1) / 2) + 1 : raw));
+    S = { key, page:pg, n:dc.numPages, zoom:false, spr };
     document.getElementById("bvOverlay").hidden = false; document.body.style.overflow = "hidden";
     document.getElementById("bvxTitle").textContent = b.name; show(); bar(true);
   }
@@ -62,12 +65,12 @@ var BV = (function(){
     o.querySelector(".bvx-bar").addEventListener("focusout", ()=>bar(true));
     let rz = 0; window.addEventListener("resize", ()=>{ clearTimeout(rz); rz = setTimeout(()=>{ if(!o.hidden) show(); }, 150); });
   }
-  function step(d){ const l = lead(S.page); S.page = d>0 ? (l===1 ? 2 : Math.min(S.n, l+2)) : (l<=2 ? 1 : l-2); S.page = Math.max(1,Math.min(S.n,S.page)); show(); }
+  function step(d){ if(S.spr){ S.page = Math.max(1, Math.min(S.n, S.page + d)); show(); return; } const l = lead(S.page); S.page = d>0 ? (l===1 ? 2 : Math.min(S.n, l+2)) : (l<=2 ? 1 : l-2); S.page = Math.max(1,Math.min(S.n,S.page)); show(); }
   function go(n){ S.page = Math.max(1,Math.min(S.n,(parseInt(n)||1))); show(); }
   function zoom(){ S.zoom = !S.zoom; show(); }
   async function show(){
     const t = ++tok, dc = await doc(S.key); if(!dc) return;
-    const l = lead(S.page), nums = (l===1) ? [1] : (l+1<=S.n ? [l,l+1] : [l]);
+    const l = S.spr ? S.page : lead(S.page), nums = (S.spr || l===1) ? [l] : (l+1<=S.n ? [l,l+1] : [l]);
     document.getElementById("bvxNum").value = nums.length>1 ? nums[0] : nums[0]; document.getElementById("bvxOf").textContent = (nums.length>1 ? "–"+nums[1]+" " : "")+"/ "+S.n;
     const stage = document.getElementById("bvxStage"), box = document.getElementById("bvxPages"), pages = await Promise.all(nums.map(n=>dc.getPage(n)));
     const dpr = Math.min(2, window.devicePixelRatio||1), pad = 10, W = Math.max(160, stage.clientWidth-pad), H = Math.max(160, stage.clientHeight-pad);

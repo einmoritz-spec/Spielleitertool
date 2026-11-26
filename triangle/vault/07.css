@@ -1,0 +1,113 @@
+/* The Vault 07 – hollow-suit: Stil (body.ve-hollow-suit) – Filmstudio: Dunkelgrün, Drehbuchpapier, Bebas-Titel, Courier-Etiketten */
+@font-face{font-family:HSBebas;src:url(../../assets/fonts/bebas-neue-latin-400-normal.woff2);font-display:swap}
+@font-face{font-family:HSCourier;src:url(../../assets/fonts/courier-prime-latin-400-normal.woff2);font-weight:400;font-display:swap}
+@font-face{font-family:HSCourier;src:url(../../assets/fonts/courier-prime-latin-700-normal.woff2);font-weight:700;font-display:swap}
+@font-face{font-family:HSCourier;src:url(../../assets/fonts/courier-prime-latin-400-italic.woff2);font-style:italic;font-display:swap}
+
+body.ve-hollow-suit{--akz:#18483c;--v2:#18483c;--vf:#edf2ee;--vrand:#18483c;--vbg:#fbfaf6;--vtxt:#1f2a26;--vh:HSBebas,"Bebas Neue",sans-serif;--hs-hell:#5e9c86;--hs-papier:#f5f3ee}
+/* Unterleiste: Etiketten wie auf einer Klappe */
+body.ve-hollow-suit .unter{background:#fbfaf6}
+body.ve-hollow-suit .vunter>a{font:700 13.5px/42px HSCourier,monospace;text-transform:uppercase;letter-spacing:.06em}
+body.ve-hollow-suit .vz{border-radius:4px;border-color:#c9d6cf;background:#fff}
+body.ve-hollow-suit .vz b{font:400 24px/1 var(--vh);color:var(--akz)}
+body.ve-hollow-suit .side a.on{border-color:var(--akz)}
+/* Überschriften: Bebas, Zwischentitel als grüne Klappe wie im Buch */
+body.ve-hollow-suit .vtext h1{font:400 58px/1 var(--vh);letter-spacing:.01em;margin-bottom:20px;display:flex;align-items:baseline;flex-wrap:wrap}
+body.ve-hollow-suit .vtext h2{display:table;font:400 27px/1 var(--vh);letter-spacing:.04em;color:#fff;background:var(--akz);padding:8px 14px 5px;margin:34px 0 14px;border-radius:2px}
+body.ve-hollow-suit .vtext h3{font-family:var(--vh);font-weight:400;letter-spacing:.03em}
+body.ve-hollow-suit .vkopf h1{font-size:76px}
+body.ve-hollow-suit .vkopf img{border-radius:2px}
+body.ve-hollow-suit .vfdi section{border-radius:3px;border-top:0;border-left:5px solid var(--akz);background:#fff;box-shadow:0 1px 0 #d8e1dc,0 6px 18px #18483c12}
+body.ve-hollow-suit .vfdi small{font:700 13px HSCourier,monospace;letter-spacing:.08em}
+/* Listen: Zeitleiste mit Punkten wie im Buch */
+body.ve-hollow-suit .vtext ul.dl{position:relative;padding-left:4px}
+body.ve-hollow-suit .vtext ul.dl:before{content:"";position:absolute;left:7px;top:12px;bottom:12px;border-left:2px solid var(--akz)}
+body.ve-hollow-suit .vtext ul.dl li{padding-left:28px}
+body.ve-hollow-suit .vtext ul.dl li:before{left:0;top:7px;width:12px;height:12px;border:2px solid var(--akz);border-radius:50%;background:#fff;box-sizing:border-box;margin-left:2px}
+/* Hinweise: schlichte Streifen mit grünem Rand */
+body.ve-hollow-suit .vh{border-radius:3px;background:#fff;border:1px solid #d6e0da;border-left:5px solid var(--akz)}
+body.ve-hollow-suit .vhin.anom .vh{border-left-color:#e8791c}
+body.ve-hollow-suit .vh.ok{background:#f0f0ee;border-color:#dcdcd8;border-left-color:#c4c9c6}
+body.ve-hollow-suit .vhin h4{font-family:Fig,sans-serif}
+body.ve-hollow-suit .vvor{border-radius:3px;background:var(--hs-papier);border:0;border-left:5px solid var(--akz);font-family:HSCourier,monospace;font-size:16px;line-height:1.6}
+/* Chaos-Tabelle, Sonderregeln, Ziele */
+body.ve-hollow-suit .vchaos{border-radius:4px;border-color:var(--akz)}
+body.ve-hollow-suit .vchaos h4{background:var(--akz);font:400 25px/1 var(--vh);letter-spacing:.04em;padding:12px 16px 8px}
+body.ve-hollow-suit .vchaos>a:nth-child(odd){background:#f3f6f4}
+body.ve-hollow-suit .vchaos>a>b{font:400 30px/1 var(--vh);color:var(--akz)}
+body.ve-hollow-suit .vchaos em{font:400 19px/1.1 var(--vh);letter-spacing:.04em;color:var(--akz)}
+body.ve-hollow-suit .vsonder,body.ve-hollow-suit .vziele{border-radius:4px;border:2px solid var(--akz)}
+body.ve-hollow-suit .vsonder .kasten>h3,body.ve-hollow-suit .vziele h4{font:400 22px/1 var(--vh);letter-spacing:.04em}
+body.ve-hollow-suit .vsonder .kasten>h3:before{content:"";width:26px;height:20px;flex:none;background:var(--akz);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 20'%3E%3Cpath d='M1 2c4 1 7 1 10 0v7c0 4-2 6-5 6S1 13 1 9zm14 3c3 1 6 1 10 0v7c0 4-2 6-5 6s-5-2-5-6z'/%3E%3C/svg%3E") center/contain no-repeat}
+/* Kasten „Marcos’ Plan“ als Filmklappe */
+body.ve-hollow-suit .kasten{border-radius:3px;border-width:2px}
+body.ve-hollow-suit .kasten.hs-klappe{border:2px solid #1f2a26;background:#fff}
+body.ve-hollow-suit .kasten.hs-klappe>h3{margin:0;padding:30px 18px 10px;font:400 26px/1 var(--vh);letter-spacing:.04em;color:#1f2a26;background:repeating-linear-gradient(-60deg,#1f2a26 0 18px,#fff 18px 36px) top/100% 20px no-repeat;border-bottom:2px solid #1f2a26}
+/* Ausgänge, Anforderung, Fähigkeit */
+body.ve-hollow-suit .vaus section,body.ve-hollow-suit .vanf,body.ve-hollow-suit .vfae{border-radius:4px}
+body.ve-hollow-suit .vanf h3{font:400 34px/1 var(--vh);letter-spacing:.02em}
+body.ve-hollow-suit .vanf>small,body.ve-hollow-suit .vfae>small{font-family:HSCourier,monospace}
+
+/* ---------- Fundstück: Drehbuchseite ---------- */
+body.ve-hollow-suit .hs-seite{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:20px;max-width:1020px;margin:4px 0 30px;padding:42px 26px 40px 50px;color:#262626;transform:rotate(-.4deg);
+  background:
+    linear-gradient(97deg,transparent 30%,#00000008 30.2%,transparent 31.5%),
+    linear-gradient(84deg,transparent 62%,#ffffffaa 62.2%,#00000006 62.6%,transparent 64%),
+    linear-gradient(176deg,transparent 41%,#00000007 41.1%,transparent 42.5%),
+    linear-gradient(3deg,transparent 70%,#00000007 70.1%,transparent 71.5%),
+    radial-gradient(ellipse at 20% 15%,#ffffff 0,transparent 45%),
+    radial-gradient(ellipse at 80% 70%,#e9e7e1 0,transparent 55%),
+    radial-gradient(ellipse at 45% 95%,#e4e2dc 0,transparent 40%),
+    #f3f2ee;
+  box-shadow:0 1px 2px #0000002a,0 14px 34px #00000026}
+body.ve-hollow-suit .hs-text{font:400 15.5px/1.55 HSCourier,"Courier Prime",Courier,monospace}
+body.ve-hollow-suit .hs-text p{margin:0 0 14px}
+body.ve-hollow-suit .hs-slug{font-weight:700;text-transform:uppercase}
+body.ve-hollow-suit .hs-rede{margin:0 0 14px;padding:0 13% 0 15%}
+body.ve-hollow-suit .hs-rede b{display:block;text-align:center;text-transform:uppercase;font-weight:400;padding-right:4%}
+body.ve-hollow-suit .hs-rede p{margin:0}
+body.ve-hollow-suit .hs-titel{display:flex;gap:4px;align-self:start;justify-content:flex-end}
+body.ve-hollow-suit .hs-titel>*{writing-mode:vertical-rl;white-space:nowrap}
+body.ve-hollow-suit .hs-titel b{order:2;font:400 96px/.84 var(--vh);color:#1b1b1b;letter-spacing:.01em}
+body.ve-hollow-suit .hs-titel span{order:1;font:400 66px/.84 var(--vh);color:var(--akz);text-transform:uppercase}
+
+/* ---------- Wegskizze der Tour ---------- */
+body.ve-hollow-suit .hs-tour{float:right;width:min(400px,46%);margin:4px 0 14px 24px;border:2px solid var(--akz);border-radius:4px;background:#fff;padding:6px 12px 0}
+body.ve-hollow-suit .hs-tour svg{display:block;width:100%;height:auto}
+body.ve-hollow-suit .hs-tour .weg{fill:none;stroke:var(--akz);stroke-width:3}
+body.ve-hollow-suit .hs-tour .zaun{fill:none;stroke:var(--akz);stroke-width:2.5;stroke-dasharray:9 7}
+body.ve-hollow-suit .hs-tour .ts{cursor:pointer}
+body.ve-hollow-suit .hs-tour .st{fill:var(--akz);stroke:var(--akz);stroke-width:2;stroke-linejoin:round;transition:fill .15s}
+body.ve-hollow-suit .hs-tour .sound .st{fill:#fff}
+body.ve-hollow-suit .hs-tour text{font:400 27px HSBebas,sans-serif;letter-spacing:.04em;fill:var(--akz)}
+body.ve-hollow-suit .hs-tour .ts:hover .st{fill:var(--hs-hell)}
+body.ve-hollow-suit .hs-tour .on .st{fill:#e8a21c;stroke:#1f2a26}
+body.ve-hollow-suit .hs-tour .on text{fill:#1f2a26;font-size:30px}
+
+/* ---------- Besetzungsliste der Tourgruppe ---------- */
+body.ve-hollow-suit .hs-cast{border-top:3px solid #1f2a26;margin:6px 0 22px}
+body.ve-hollow-suit .hs-cast section{display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px;padding:14px 0 4px;border-bottom:1px dashed #9fb3a9}
+body.ve-hollow-suit .hs-cast h3{font:400 28px/1 var(--vh);letter-spacing:.03em;color:var(--akz);margin:2px 0 0}
+body.ve-hollow-suit .hs-cast p{font-size:16.5px;line-height:1.58;margin:0 0 10px}
+
+/* ---------- Bake-Off: Rundenleiste und Datenkarten ---------- */
+body.ve-hollow-suit .hs-runden{display:flex;align-items:center;gap:0;margin:16px 0 8px;max-width:900px}
+body.ve-hollow-suit .hs-runden>i{flex:1;height:3px;background:#c7d3cd;min-width:14px}
+body.ve-hollow-suit .hs-runden button{display:flex;align-items:center;gap:9px;padding:6px 14px 6px 6px;border:2px solid var(--akz);border-radius:30px;background:#fff;color:var(--akz);font:700 13.5px HSCourier,monospace;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;white-space:nowrap}
+body.ve-hollow-suit .hs-runden em{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:2px solid var(--akz);font:400 20px/1 var(--vh);font-style:normal;padding-top:2px}
+body.ve-hollow-suit .hs-runden button.ok{background:var(--akz);color:#fff}
+body.ve-hollow-suit .hs-runden button.ok em{border-color:#fff}
+body.ve-hollow-suit .hs-runden button.jetzt{box-shadow:0 0 0 4px #e8a21c55}
+body.ve-hollow-suit .hs-runden button:last-child em{color:#2fa35c}
+body.ve-hollow-suit .hs-runden button:last-child.ok{background:#2fa35c;border-color:#2fa35c}
+body.ve-hollow-suit .hs-runden button:last-child.ok em{color:#fff}
+body.ve-hollow-suit .hs-daten{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:8px 0 20px}
+body.ve-hollow-suit .hs-daten .vh{margin:0;font-size:15px}
+
+@media (max-width:760px){
+  body.ve-hollow-suit .hs-seite{grid-template-columns:1fr;padding:26px 18px}
+  body.ve-hollow-suit .hs-titel{writing-mode:horizontal-tb;flex-direction:column;position:static;order:-1}
+  body.ve-hollow-suit .hs-titel b{font-size:64px}body.ve-hollow-suit .hs-titel span{font-size:40px}
+  body.ve-hollow-suit .hs-cast section{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:760px){body.ve-hollow-suit .hs-tour{float:none;width:auto;margin:0 0 16px}}

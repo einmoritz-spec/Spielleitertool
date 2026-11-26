@@ -1,0 +1,96 @@
+/* The Vault 10 – gruntley-manor: Stil (body.ve-gruntley-manor)
+   Krimi-Dinner: Blutrot, rosa Einladungskarten in Kapitälchen-Serife, Verdächtigen-Karten, Beweis-Zettel */
+@font-face{font-family:GmSerif;src:url(../../assets/fonts/eb-garamond-latin-400-normal.woff2);font-weight:400;font-display:swap}
+@font-face{font-family:GmSerif;src:url(../../assets/fonts/eb-garamond-latin-600-normal.woff2);font-weight:600;font-display:swap}
+@font-face{font-family:GmSerif;src:url(../../assets/fonts/eb-garamond-latin-400-italic.woff2);font-weight:400;font-style:italic;font-display:swap}
+
+body.ve-gruntley-manor{--akz:#b00c18;--v2:#d4472a;--vf:#f6e1ea;--vrand:#b00c18;--vbg:#fff;--vtxt:#2a1b45;--vh:Spartan,sans-serif;--gmrosa:#f2d9e5;--gmtinte:#3a1424}
+body.ve-gruntley-manor .vlay{border-left:9px solid var(--akz)}
+body.ve-gruntley-manor .unter.vunter{background:#fff}
+body.ve-gruntley-manor .vunter>a{font-weight:800}
+body.ve-gruntley-manor .vtext h1{font-weight:900;letter-spacing:-.04em;color:var(--akz)}
+body.ve-gruntley-manor .vtext h2{color:var(--v2);font-weight:800}
+body.ve-gruntley-manor .vtext h3{color:var(--gmtinte)}
+body.ve-gruntley-manor .vside a.on{border-color:var(--akz)}
+body.ve-gruntley-manor .dl li:before{border-left-color:var(--akz)}
+body.ve-gruntley-manor .vkopf img{box-shadow:0 10px 30px #3a142455}
+
+/* Chaos-Tabelle wie im Buch: dunkle Rahmenlinie, rote Kopfleiste */
+body.ve-gruntley-manor .vchaos{border-color:var(--gmtinte)}
+body.ve-gruntley-manor .vchaos h4{background:var(--akz)}
+body.ve-gruntley-manor .vchaos>a:nth-child(odd){background:#fbf2f5}
+body.ve-gruntley-manor .vchaos>a:hover{background:var(--gmrosa)}
+body.ve-gruntley-manor .vziele{border-color:var(--akz);border-radius:4px 18px 4px 18px}
+
+/* Sonderregeln (rechts und im Abschnitt „Der Dolch im Rücken“) */
+body.ve-gruntley-manor .vsonder{padding:0;border:0;background:none}
+.gm-sonder{border:2px solid var(--gmtinte);border-radius:14px;overflow:hidden;background:#fff;margin:10px 0 18px}
+.gm-sonder h4{background:var(--gmtinte);color:#fff;padding:12px 18px 10px;margin:0!important}
+.gm-sonder .gm-dom{font-size:13.5px;line-height:1.45;color:#7b6a74;margin:0;padding:10px 16px;background:#fbf2f5;border-bottom:1px solid #ecd9e1}
+.gm-sr{display:grid;grid-template-columns:62px 1fr;gap:8px;padding:10px 14px 10px 12px;border-top:1px solid #ecd9e1;font-size:14.5px;line-height:1.4;cursor:pointer;color:inherit}
+.gm-sr:first-of-type{border-top:0}
+.gm-sr:hover{background:var(--gmrosa)}
+.gm-sr>b{font:800 22px/1 Spartan,sans-serif;display:flex;align-items:center;gap:4px;color:var(--gmtinte)}.gm-sr>b img{height:19px}
+.gm-sr.plus>b{color:var(--akz);font-size:19px}
+.gm-sr em{display:block;font:800 15px Spartan,sans-serif;font-style:normal;color:var(--akz)}
+.gm-sr small{display:block;font-size:12px;color:#9a8792;margin:1px 0 3px}
+.gm-sonder .gm-nach{font-size:13.5px;line-height:1.45;margin:0;padding:10px 16px 12px;border-top:1px solid #ecd9e1;color:var(--gmtinte)}
+.vtext .gm-sonder{max-width:860px}
+.vtext .gm-sr{font-size:15.5px}
+
+/* Hinweise als Beweis-Zettel */
+body.ve-gruntley-manor .vh{background:#fbf0f4;border-left:0;border-radius:3px;box-shadow:0 1px 0 #ead3dd,0 3px 10px #3a142412;position:relative;padding:10px 18px 10px 22px;margin-bottom:7px}
+body.ve-gruntley-manor .vh:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--akz);border-radius:3px 0 0 3px}
+body.ve-gruntley-manor .vhin.anom .vh:before{background:#e8791c}
+body.ve-gruntley-manor .vh:nth-child(even){transform:rotate(-.25deg)}
+body.ve-gruntley-manor .vh:nth-child(odd){transform:rotate(.2deg)}
+body.ve-gruntley-manor .vh.ok{background:#f3f1f3;box-shadow:none;transform:none}body.ve-gruntley-manor .vh.ok:before{background:#cfc8cd}
+body.ve-gruntley-manor .vmorgen .vh{font-size:15.5px}
+body.ve-gruntley-manor .vvor{background:var(--gmrosa);border:0;border-radius:2px;box-shadow:0 8px 24px #3a142420;font-family:GmSerif,serif;font-size:19px;line-height:1.5;color:var(--gmtinte);padding:22px 30px 12px}
+
+/* rosa Karten mit Kapitälchen (Verdächtige S. 173) */
+body.ve-gruntley-manor .vkarten{gap:18px;padding:8px 4px}body.ve-gruntley-manor .vkarten.n3{grid-template-columns:repeat(3,1fr)}
+body.ve-gruntley-manor .vkarten section{background:var(--gmrosa);border:1px solid #c9aab9;border-radius:0;box-shadow:0 6px 16px #3a14241c;text-align:center;padding:26px 14px 18px;font-family:GmSerif,serif;font-size:16px;color:var(--gmtinte)}
+body.ve-gruntley-manor .vkarten section:nth-child(3n+1){transform:rotate(-2deg)}
+body.ve-gruntley-manor .vkarten section:nth-child(3n+2){transform:rotate(1.5deg)}
+body.ve-gruntley-manor .vkarten section:nth-child(3n){transform:rotate(-1deg)}
+body.ve-gruntley-manor .vkarten h3{font:400 20px/1.25 GmSerif,serif;font-variant:small-caps;letter-spacing:.06em;color:var(--gmtinte);margin-bottom:12px}
+body.ve-gruntley-manor .vkarten p{margin:0 0 4px}
+
+/* Fundstück: Einladung */
+.gm-tisch{position:relative;background:#141112;border-radius:4px;padding:54px 34px 170px;margin:4px 0 24px;overflow:hidden;max-width:980px;display:flex;justify-content:center}
+.gm-blut{position:absolute;left:48%;top:50%;width:max(110%,700px);transform:translate(-50%,-50%) rotate(-8deg);fill:#a3141c}
+.gm-umschlag{position:absolute;left:3%;bottom:34px;width:min(56%,460px);aspect-ratio:1.55;transform:rotate(-12deg);background:linear-gradient(160deg,#fbeee0,#e9b69a 70%,#e8a588);box-shadow:0 18px 40px #0008;overflow:hidden}
+.gm-umschlag i{position:absolute;inset:0;background:linear-gradient(to top right,transparent 49.6%,#d79b80 50%,transparent 50.6%),linear-gradient(to top left,transparent 49.6%,#d79b80 50%,transparent 50.6%);opacity:.8}
+.gm-karte{position:relative;z-index:2;width:min(94%,640px);margin-left:6%;background:linear-gradient(110deg,#e9a4cc,#f2c9de 45%,#f8e2ec);color:#2b1630;padding:30px 44px 22px;transform:rotate(-4deg);box-shadow:0 14px 34px #000a;font-family:GmSerif,serif;text-align:center}
+.gm-karte h3{font:600 30px GmSerif,serif;font-variant:small-caps;letter-spacing:.06em;margin:0 0 14px;color:#2b1630}
+.gm-karte p{font-size:16px;line-height:1.45;font-variant:small-caps;letter-spacing:.03em;margin:0 0 10px}
+.gm-karte .gm-sig{font:italic 400 26px GmSerif,serif;font-variant:normal;margin:12px 0 0}
+.gm-siegel{position:absolute;left:50%;top:-24px;transform:translateX(-50%) rotate(8deg);width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f1d35a,#c99a1c 70%);color:#8a6510;font:italic 600 17px/54px GmSerif,serif;box-shadow:0 3px 8px #0006}
+
+/* kalter Einstieg: Rollen-Paare */
+.gm-paare{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:16px 0 26px;max-width:980px}
+.gm-paare section{background:var(--gmrosa);border:1px solid #c9aab9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:30px 12px;min-height:190px;text-align:center}
+.gm-paare a{font:400 22px/1.2 GmSerif,serif;font-variant:small-caps;letter-spacing:.06em;color:var(--gmtinte);cursor:pointer}
+.gm-paare a:hover{color:var(--akz)}
+.gm-paare i{font-style:normal;color:#8a6a7a;font-size:15px}
+
+/* Verdächtigen-Karten */
+.gm-verd{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:22px;margin:10px 0 24px}
+.gm-verd section{background:#fff;border:1px solid #e3c8d4;border-top:6px solid var(--akz);box-shadow:0 6px 18px #3a142414;padding:0 0 8px;scroll-margin-top:120px}
+.gm-verd section.blink{animation:gmblink 1.2s}@keyframes gmblink{30%{box-shadow:0 0 0 5px #b00c1855}}
+.gm-verd header{background:var(--gmrosa);padding:16px 22px 12px;text-align:center}
+.gm-verd header h3{font:600 27px/1.1 GmSerif,serif!important;font-variant:small-caps;letter-spacing:.05em;color:var(--akz)!important;margin:0}
+.gm-verd header small{font:italic 400 15px GmSerif,serif;color:#7b5a6a}
+.gm-verd .gm-bes{font-size:15.5px;line-height:1.5;padding:14px 22px 4px;margin:0}
+.gm-zwei{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px;border-top:1px solid #ecd9e1}
+.gm-zwei>div{padding:12px 18px 6px}.gm-zwei>div+div{border-left:1px solid #ecd9e1}
+.gm-zwei h4{font:800 15px Spartan,sans-serif;color:var(--v2);margin:0 0 8px}
+.gm-zwei q{display:block;quotes:"„" "“";font:italic 400 16.5px/1.35 GmSerif,serif;color:var(--gmtinte);margin:0 0 9px}
+.gm-zwei ul{list-style:none;margin:0;padding:0}
+.gm-zwei li{font-size:14.5px;line-height:1.42;margin:0 0 8px;padding-left:16px;position:relative}
+.gm-zwei li:before{content:"";position:absolute;left:0;top:7px;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;border-left:8px solid var(--v2)}
+.gm-zwei li.mord{color:var(--akz);font-weight:600}
+.gm-zwei li.mord:before{content:"🗡";border:0;top:0;left:-3px;font-size:13px;filter:grayscale(1) brightness(.5) sepia(1) hue-rotate(-50deg) saturate(6)}
+
+@media (max-width:1180px){.gm-verd{grid-template-columns:1fr}}

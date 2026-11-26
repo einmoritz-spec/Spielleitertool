@@ -1,0 +1,124 @@
+/* TRIANGLE AGENCY – Leitstand der Vault-Einsätze (Grundgerüst; Stil je Einsatz in vault/NN.css)
+   Variablen je Einsatz: --akz (Kopfzeile, Überschriften), --v2 (Zwischentitel), --vf (Kartenfläche), --vrand (Kartenrand), --vbg (Seite), --vtxt (Text), --vh (Überschriftenschrift) */
+body.vault-e{--v2:var(--akz);--vf:color-mix(in srgb,var(--akz) 8%,#fff);--vrand:var(--akz);--vbg:#fff;--vtxt:var(--tinte);--vh:Spartan,sans-serif;--vgrau:#8a829c;background:var(--vbg);color:var(--vtxt)}
+.vunter{padding-left:30px;align-items:center;gap:0 34px}
+.vunter>a{font-family:var(--vh)}
+.vzs{margin-left:auto;display:flex;align-items:center;gap:10px}
+.vz{display:flex;align-items:center;gap:6px;border:1.5px solid var(--linie);border-radius:20px;padding:3px 12px 3px 8px;font:400 13.5px Fig,sans-serif;color:var(--vgrau);background:#fff}
+.vz img{height:22px}
+.vz button{width:20px;height:22px;color:var(--vgrau);font-size:16px;border-radius:50%}.vz button:hover{color:var(--akz);background:var(--flieder)}
+.vz b{font:800 19px/1 Spartan,sans-serif;color:var(--tinte);min-width:18px;text-align:center}
+.vz i{font-style:normal;margin-left:3px}
+.vz.nein{animation:vnein .4s}@keyframes vnein{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.vstift{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--vgrau);margin-left:4px}.vstift:hover{background:var(--flieder)}
+.vstift svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}.vstift.voll{color:var(--akz)}
+.vnotiz{position:fixed;right:22px;top:108px;z-index:40;width:340px;background:#fff;border:1.5px solid var(--linie);border-radius:12px;box-shadow:0 14px 40px #2a1b4533;padding:10px}
+.vnotiz textarea{width:100%;height:220px;border:0;resize:vertical;font:400 15px/1.5 Fig,sans-serif;color:var(--tinte);outline:0}
+
+/* Seitenleiste */
+.vside a small{display:block;font:400 12px/1.3 Fig,sans-serif;color:var(--vgrau);margin-top:3px}
+.vside a.on small{font-weight:400}
+
+/* Inhalt + rechte Spalte */
+.vct{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:0 34px;padding-right:30px;align-items:start}
+.vtext{max-width:none;padding:28px 0 70px 40px}
+.vtext h1{font-family:var(--vh);font-size:44px;color:var(--akz);margin-bottom:16px}
+.vtext h2{font-family:var(--vh);color:var(--v2);font-size:27px;margin:30px 0 12px}
+.vtext h3{font-family:var(--vh)}
+.vtext>p,.vtext .sp p{font-size:17px;line-height:1.6}
+.vre{position:sticky;top:116px;padding:30px 0 40px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh - 100px);overflow:auto;scrollbar-width:none}
+.vre>*{flex-shrink:0}
+.vre h4{font:800 18px Spartan,sans-serif;font-family:var(--vh);letter-spacing:-.02em}
+/* lange Texte: Absätze mit Leerzeile */
+.vchaos{border:2px solid var(--tinte);border-radius:14px;overflow:hidden;background:#fff}
+.vchaos h4{background:var(--tinte);color:#fff;padding:12px 18px 10px}.vchaos h4 .pg{color:#ffffff99}
+.vchaos>a{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:9px 14px 9px 12px;border-top:1px solid var(--linie);font-size:14.5px;line-height:1.38;background:#fff}
+.vchaos>a:nth-child(odd){background:#f6f5fa}.vchaos>a:hover{background:var(--vf)}
+.vchaos>a>b{font:800 22px/1 Spartan,sans-serif;display:flex;align-items:center;gap:4px;color:var(--tinte)}.vchaos>a>b img{height:19px}
+.vchaos em{display:block;font:800 15px Spartan,sans-serif;font-style:normal;color:var(--akz);letter-spacing:-.01em}
+.vchaos .neu{font-style:normal;color:var(--rot);font-size:11px;margin-right:5px;vertical-align:1px}
+.vsonder,.vziele{border:1.5px solid var(--vrand);border-radius:14px;padding:14px 18px 8px;background:#fff;font-size:15px}
+.vsonder h4,.vziele h4{color:var(--akz);margin-bottom:8px}
+.vziele p{display:flex;gap:10px;margin:0 0 9px;line-height:1.45}.vziele p img{height:22px;flex:none;margin-top:1px}
+.vsonder p{margin:0 0 9px}
+
+/* Kopf des Profils */
+.vkopf{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:end;margin-bottom:26px}
+.vkopf img{width:100%;border-radius:6px;cursor:zoom-in;box-shadow:0 8px 28px #2a1b4530}
+.vkopf h1{font-size:58px;margin:0}.vkopf .de{color:var(--vgrau);margin:4px 0 14px;font-size:17px}
+.vkopf .von{margin:0 0 6px;font-size:15px}.vkopf .cw{font-size:14px;color:var(--vgrau);margin:0}
+.vkopf+h1{display:none}
+.vlead{font-size:19px!important;line-height:1.55;margin:0 0 18px}
+.vfdi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 26px}
+.vfdi section{background:var(--vf);border-radius:14px;padding:14px 18px;border-top:4px solid var(--akz)}
+.vfdi small{font:800 13px Spartan,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:var(--akz)}
+.vfdi p{margin:6px 0 0;font-size:15.5px;line-height:1.5}
+
+/* Hinweise, Morgenbesprechung */
+.vhin{margin:12px 0 18px}
+.vhin h4{display:flex;gap:10px;align-items:flex-start;font:800 15.5px/1.3 Fig,sans-serif;margin:0 0 10px}
+.vhin h4 img{height:34px;flex:none;margin-top:-3px}
+.vh{background:var(--vf);border-left:4px solid var(--vrand);border-radius:8px;padding:12px 18px;margin:0 0 8px;cursor:pointer;transition:opacity .2s,background .2s;font-size:15.5px;line-height:1.5}
+.vh:hover{filter:brightness(.98)}
+.vhin.anom .vh{border-left-color:#e8791c}
+.vh.ok{opacity:.42;background:#f1f0f4;border-left-color:#c8c3d4;color:#8a829c}
+.vh>p:last-child{margin:0}
+.vmorgen .vh{border-left-width:6px}
+.vvor{background:var(--vf);border-radius:14px;padding:18px 22px 8px;font-size:17px;border:1.5px solid var(--vrand)}
+
+/* Karten, Werte, Ausgänge */
+.vkarten{display:grid;gap:14px;margin:12px 0 18px}.vkarten.n2{grid-template-columns:1fr 1fr}.vkarten.n3,.vkarten.n4{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.vkarten section{background:var(--vf);border-radius:14px;padding:14px 18px 6px;border-top:5px solid var(--vrand);font-size:15px}
+.vkarten section>img{width:100%;max-height:200px;object-fit:contain;margin-bottom:8px;cursor:zoom-in}
+.vkarten h3{font-size:20px;color:var(--akz)}.vkarten small{display:block;font-style:italic;color:var(--vgrau);margin:3px 0 8px}
+.vkarten p{margin:0 0 9px}
+.vwerte{display:flex;gap:16px;background:var(--vf);border-radius:14px;padding:14px 18px 6px;margin:12px 0 18px;border:1.5px solid var(--vrand)}
+.vwerte>img{width:110px;object-fit:contain;align-self:flex-start}.vwerte>div{flex:1;min-width:0}
+.vwerte h3{font-size:21px;color:var(--akz)}.vwerte small{display:block;color:var(--vgrau);font-style:italic;margin:2px 0 8px}
+.vw{display:flex;gap:10px;margin-bottom:8px}.vw span{display:flex;align-items:baseline;gap:6px;background:#fff;border-radius:8px;padding:3px 10px;font-size:13.5px}.vw b{font:800 20px Spartan,sans-serif;color:var(--akz)}
+.vl u{cursor:pointer}.vl u.an{background:var(--c);color:#fff}
+.vaus{display:grid;gap:16px;margin:12px 0 22px}.vaus.n2{grid-template-columns:1fr 1fr}.vaus.n3{grid-template-columns:repeat(3,1fr)}
+.vaus section{border:1.5px solid var(--vrand);border-radius:14px;padding:16px 18px 6px;background:#fff}
+.vaus section>img{height:40px;display:block;margin-bottom:8px}.vaus h3{font-size:19px;color:var(--akz);margin-bottom:8px}
+.vaus p{font-size:15.5px}
+.vanf,.vfae{border:2px solid var(--vrand);border-radius:16px;padding:16px 22px 8px;margin:10px 0 20px;background:#fff;position:relative}
+.vanf>small,.vfae>small{font:800 12.5px Spartan,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--vgrau)}
+.vanf h3{display:flex;justify-content:space-between;gap:14px;font-size:26px;color:var(--akz);margin:4px 0 10px}
+.vanf .pp{display:flex;align-items:center;gap:6px;font-size:28px;color:var(--tinte)}.vanf .pp img{height:28px}
+.vanf .vai{float:right;max-width:200px;margin:0 0 10px 16px}
+.vfae .fk{grid-template-columns:1fr;border:0;padding-top:4px}
+.vbild{margin:8px 0 16px}.vbild img{max-width:100%;border-radius:6px;cursor:zoom-in;display:block}
+.vbild.rechts{float:right;max-width:44%;margin:4px 0 12px 22px}.vbild.links{float:left;max-width:44%;margin:4px 22px 12px 0}
+.vbild figcaption{font-size:13px;color:var(--vgrau);margin-top:4px}
+.vbericht{margin-top:26px}
+
+/* Handouts (Grundform; Einsätze gestalten sie in vault/NN.css) */
+.vho{background:#fff;border:1.5px solid var(--linie);border-radius:10px;padding:18px 22px 10px;margin:6px 0 20px;box-shadow:0 6px 22px #2a1b4518;max-width:820px}
+.vho>h3{font-size:22px;margin-bottom:10px}
+.vmsg{margin:0 0 10px}.vmsg b{font-size:14px;color:var(--akz)}.vmsg i{font-size:12px;color:var(--vgrau);margin-left:8px;font-style:normal}.vmsg p{margin:2px 0 0}
+.ho-abschrift,.ho-brief{font-family:"Courier Prime",Courier,monospace}
+
+/* schmalere Fenster: rechte Spalte unter den Text */
+@media (max-width:1180px){.vct{grid-template-columns:1fr}.vre{position:static;max-height:none;padding:0 0 40px 40px}}
+.vziele p.ve{display:block;color:var(--vgrau);font-size:14px}
+.vsonder .kasten{border:0;margin:0}.vsonder .kasten>h3{padding:0;font-size:18px}.vsonder .kasten .kb{padding:8px 0 0}
+.vsonder>h2:first-child{font-size:19px;margin:0 0 8px;color:var(--akz)}.vsonder h2,.vsonder h3{font-family:var(--vh)}.vsonder h2{font-size:17px;margin:12px 0 6px}
+
+/* Vorspann des Vault (#e/vault) */
+body.ve-vault{background:#17111f}
+.vintro:before{content:"";position:absolute;left:0;right:0;top:var(--kopf);height:420px;background:url(img/vault/full/sternenhimmel-riss.webp) left top/cover;-webkit-mask:linear-gradient(#000 40%,#0000);mask:linear-gradient(#000 40%,#0000);z-index:-1}
+.vintro{max-width:1300px;margin:0 auto;padding:30px 40px 60px;color:#fff}
+.vlogo{height:70px;filter:brightness(0) invert(1);display:block;margin:0 0 26px}
+.vxg{display:block}
+.vx{background:#fff;color:var(--tinte);border-radius:6px;padding:30px 44px 18px;font-size:17px;margin-bottom:26px;box-shadow:0 14px 40px #0008}
+.vx h1{font-size:34px;color:#17111f;margin-bottom:14px}
+.vx .vho{box-shadow:none;border:0;padding:0;margin:0;max-width:none}.vx .vho>h3{display:none}
+.vx-kafka{background:#111;color:#ddd}.vx-kafka h1{color:#fff}
+.vxe{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.vxe a{background:#ffffff12;border-top:5px solid var(--c);border-radius:4px;padding:10px 14px}.vxe a:hover{background:#ffffff24}
+.vxe em{font:800 14px Spartan,sans-serif;font-style:normal;opacity:.7;margin-right:8px}.vxe b{font:800 18px Spartan,sans-serif;letter-spacing:-.02em}.vxe small{display:block;color:#bfb8cf;font-size:13px}
+.vicon{height:26px;vertical-align:-7px;margin:0 3px}
+.vx-kafka{max-height:300px;overflow:hidden;position:relative;cursor:pointer}.vx-kafka:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(#1110,#111)}
+.vx-kafka.auf{max-height:none;cursor:default}.vx-kafka.auf:after{display:none}.vx-kafka h3{display:none}
+.vx-kafka .kasten{background:#222;border-color:#555}.vx-kafka .kasten *{color:#ddd}
+.vfpg{text-align:right;margin:-10px 0 4px}

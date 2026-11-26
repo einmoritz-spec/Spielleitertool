@@ -54,7 +54,7 @@ function viewStart(){
     return '<a style="--c:' + e.c + ';background-image:url(' + IMG(e.img) + ')" onclick="go(\'e/' + e.id + '\')"><em>' + ("0" + e.n).slice(-2) + '</em><span><b>' + esc(e.t) + '</b>' + (e.de !== e.t ? '<small>' + esc(e.de) + '</small>' : '') + '</span></a>'; }).join("");
   return '<div class="hero"><img class="wort" src="' + Z("logo-triangle-agency") + '" alt="Triangle Agency"></div>' +
     '<div class="akten">' + akten + '</div><div class="arc">' + ark + '</div>' +
-    '<div class="vault"><header><img src="' + Z("logo-the-vault") + '" alt="The Vault"></header><div class="strip">' + strip + '</div>' +
+    '<div class="vault"><header><img src="' + Z("logo-the-vault") + '" alt="The Vault" onclick="go(\'e/vault\')" style="cursor:pointer"></header><div class="strip">' + strip + '</div>' +
     '<a class="space" onclick="go(\'e/space\')"><span><b>You’re in Space<br>and Everything’s</b><mark>perfectly fine.</mark></span><small>' + esc(TA_SPACE.de) + '</small></a></div>';
 }
 
@@ -121,12 +121,12 @@ function akz(c){ document.documentElement.style.setProperty("--akz", c); var m =
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), r = h[0] || "start", out;
   var a = area(r);
-  document.body.className = document.body.className.replace(/\b(start|b-\w+)\b/g, "").trim();
+  document.body.className = document.body.className.replace(/\b(start|b-\w+|vault-e|ve-[\w-]+)\b/g, "").trim(); window.VCTX = null;
   document.body.classList.add(r === "start" ? "start" : "b-" + r);
   if(r === "h" || r === "w"){ akz(FARBE[a.c]); out = viewLesen(a, h[1], h[2]); }
   else if(r === "ark"){ var k = TA_ARK[h[1]] ? h[1] : (h[1] === "fragebogen" ? "fragebogen" : "anomalie"); akz(FARBE[k === "fragebogen" ? "rot" : TA_ARK[k].c]); out = viewArk(k, h[2]); }
   else if(r === "pw"){ akz(FARBE.tinte); out = viewPw(h[1]); }
-  else if(r === "e"){ var E = einsatz(h[1]); akz(E ? E.c : FARBE.rot); out = viewEinsatz(h[1]); }
+  else if(r === "e"){ var E = einsatz(h[1]); akz(E ? E.c : h[1] === "vault" ? "#17111f" : FARBE.rot); out = h[1] === "vault" ? viewVaultIntro() : (h[1] !== "space" && window.viewVault) ? viewVault(h[1], h[2], h[3]) : viewEinsatz(h[1]); }
   else { r = "start"; document.body.classList.add("start"); akz(FARBE.rot); out = viewStart(); }
   ktabs(r);
   var same = window.__lh === location.hash, y = window.scrollY; window.__lh = location.hash;

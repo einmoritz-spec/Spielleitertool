@@ -30,7 +30,7 @@ function lab(t){ /* "Label: Text" -> fett */
   var m = /^([^.:]{2,42}): ([\s\S]*)$/.exec(t);
   if(!m) return esc(t);
   var l = m[1]; if(l.length > 3 && l === l.toUpperCase()) l = l.toLowerCase().replace(/(^|\s)(\S)(\S{3,})/g, function(a, b, c, d){ return b + c.toUpperCase() + d; }).replace(/^./, function(c){ return c.toUpperCase(); });
-  return "<b>" + nm(l) + ":</b> " + esc(m[2]);
+  return "<b>" + esc(l) + ":</b> " + esc(m[2]);
 }
 function wP(t){ return '<p class="ed">' + lab(t) + "</p>"; }
 function wUl(items){
@@ -42,27 +42,48 @@ function wUl(items){
 function wTbl(b){
   var cols = b[2], n = cols.length;
   return '<div class="wt"><h5 class="eg">' + nm(b[1]) + '</h5><div class="etw"><table class="et wtb c' + n + '"><thead><tr>' + cols.map(function(c){ return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
-    b[3].map(function(r){ return "<tr>" + r.map(function(c, i){ return "<td" + (i === 0 || (n === 4 && i === 2 && cols[0] === cols[2]) ? ' class="k"' : "") + ">" + (i === n - 1 && n < 4 ? lab(c) : esc(c)) + "</td>"; }).join("") + "</tr>"; }).join("") +
+    b[3].map(function(r){ return "<tr>" + r.map(function(c, i){ return "<td" + (i === 0 || (n === 4 && i === 2 && cols[0] === cols[2]) ? ' class="k' + (i === 0 && c.length > 30 ? " kw" : "") + '"' : "") + ">" + (i === n - 1 && n < 4 ? lab(c) : esc(c)) + "</td>"; }).join("") + "</tr>"; }).join("") +
     "</tbody></table></div>" + (b[4] ? '<p class="wn">' + esc(b[4]) + "</p>" : "") + "</div>";
+}
+function wKar(){
+  var K=[["A","♣",0],["3","♥",1],["A","♥",1],["Q","♠",0],["2","♠",0]], T={0:"G",2:"R",4:"N"}, NM={G:"Gabe",R:"Red",N:"Ninja"};
+  var h='<div class="kar"><svg viewBox="0 0 560 250" role="img" aria-label="Verfolgungsjagdkarten: Gabe auf Karte 1, Red auf Karte 3, der Ninja auf Karte 5">';
+  K.forEach(function(k,i){
+    var x=14+i*110, col=k[2]?"#b3141a":"#1d1a17", rot=[-4,2,-2,3,-1][i];
+    h+='<g transform="rotate('+rot+' '+(x+45)+' 75)"><rect x="'+x+'" y="14" width="92" height="124" rx="8" class="kc"/>'
+     +'<text x="'+(x+10)+'" y="38" class="kr" fill="'+col+'">'+k[0]+'</text><text x="'+(x+10)+'" y="58" class="ks" fill="'+col+'">'+k[1]+'</text>'
+     +'<text x="'+(x+46)+'" y="86" text-anchor="middle" class="kb" fill="'+col+'">'+k[1]+'</text></g>';
+    if(T[i]){
+      h+='<circle cx="'+(x+66)+'" cy="118" r="21" class="kt kt-'+T[i]+'"/><text x="'+(x+66)+'" y="125" text-anchor="middle" class="kl">'+T[i]+'</text>';
+    }
+    h+='<text x="'+(x+46)+'" y="160" text-anchor="middle" class="kn">Karte '+(i+1)+'</text>';
+  });
+  function br(a,b,y,t){ var x1=14+a*110+46, x2=14+b*110+46;
+    return '<path d="M'+x1+' '+(y-8)+'V'+y+'H'+x2+'V'+(y-8)+'" class="kb2"/><text x="'+((x1+x2)/2)+'" y="'+(y+19)+'" text-anchor="middle" class="kd">'+t+'</text>'; }
+  h+=br(2,4,186,"Red: 2 Karten = 10“ (20 Meter)")+br(0,4,222,"Gabe: 4 Karten = 20“ (40 Meter)");
+  h+='</svg><div class="kleg"><span><i class="kt kt-G"></i>Gabe</span><span><i class="kt kt-R"></i>Red</span><span><i class="kt kt-N"></i>Ninja</span></div></div>';
+  return h;
 }
 function wBlock(b, bk){
   switch(b[0]){
     case "p": return wP(b[1]);
     case "ul": return wUl(b[1]);
     case "tbl": return wTbl(b);
+    case "kar": return wKar();
     case "note": return '<p class="wn">' + lab(b[1]) + "</p>";
-    case "q": return '<blockquote class="wq">„' + esc(b[1]) + "“<cite>" + nm("— " + b[2]) + "</cite></blockquote>";
+    case "q": return '<blockquote class="wq">„' + esc(b[1]) + "“<cite>" + esc("— " + b[2]) + "</cite></blockquote>";
     case "h": return '<h5 class="wbh">' + nm(b[1]) + "</h5>";
-    case "box": return '<div class="wb"><h5 class="eg">' + nm(b[1]) + "</h5>" + b[2].map(function(x){ return wBlock(x, bk); }).join("") + "</div>";
+    case "box": return '<div class="wb' + (b[1] === "Settingregeln" ? " chips" : "") + '"><h5 class="eg">' + nm(b[1]) + "</h5>" + b[2].map(function(x){ return wBlock(x, bk); }).join("") + "</div>";
   }
   return "";
 }
+function tblLong(b){ return b[3].some(function(r){ return r[0].length > 30; }); }
 var WID = 0;
 function wSeg(blocks, bk){
   var txt = [], side = [], wide = [];
   blocks.forEach(function(b){
     if(b[0] === "p" || b[0] === "ul") txt.push(b);
-    else if(b[0] === "tbl" && b[2].length >= 4) wide.push(b);
+    else if(b[0] === "tbl" && (b[2].length >= 4 || tblLong(b))) wide.push(b);
     else side.push(b);
   });
   var h = "";
@@ -95,8 +116,8 @@ function wkPage(tab){
     side = '<aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + ents.map(function(e){
       var on = e === cur;
       var bd = e.ext ? e.s.map(badge).join("") : (e.x ? e.x.filter(function(v, i, a){ return a.indexOf(v) === i; }).map(badge).join("") : "");
-      return '<a class="' + (on ? "on" : "") + '" onclick="wkSel(\'' + tab + "','" + e.id + '\')">' + nm(e.t) + bd + "</a>" +
-        (on ? body.heads.filter(function(h){ return h[1] !== e.t; }).map(function(h){ return '<a class="sb" onclick="wkJump(\'' + h[0] + '\')">' + nm(h[1]) + "</a>"; }).join("") : "");
+      return '<a class="' + (on ? "on" : "") + '" onclick="wkSel(\'' + tab + "','" + e.id + '\')">' + esc(e.t) + bd + "</a>" +
+        (on ? body.heads.filter(function(h){ return h[1] !== e.t; }).map(function(h){ return '<a class="sb" onclick="wkJump(\'' + h[0] + '\')">' + esc(h[1]) + "</a>"; }).join("") : "");
     }).join("") + "</aside>";
   }
   var ttl = ents.length > 1 ? cur.t : sub[1];

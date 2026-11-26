@@ -31,3 +31,22 @@
 .side .sq{margin-left:5px;font-size:9px;padding:2px 4px}
 .lay.fold-on .side a.sb{display:none}
 .sq-wb{background:#6b6258}
+
+.kar{background:var(--bg2,#f4efe6);border:1px solid var(--line,#d8cfc0);border-radius:8px;padding:8px 10px;margin:4px 0}
+.kar svg{width:100%;height:auto;display:block;max-width:620px;margin:0 auto}
+.kar .kc{fill:#fbf8f1;stroke:#1d1a17;stroke-width:3}
+.kar .kr{font:700 24px/1 Pal,serif}.kar .ks{font:22px/1 serif}.kar .kb{font:46px/1 serif}
+.kar .kn{font:400 14px Pal,serif;fill:#6b6258}
+.kar .kt-G,.kar .kt-R,.kar .kt-N{stroke:#fff;stroke-width:3}
+.kt-G{fill:#2a5f8f;background:#2a5f8f}.kt-R{fill:#b3141a;background:#b3141a}.kt-N{fill:#1d1a17;background:#1d1a17}
+.kar .kl{font:700 20px Pal,serif;fill:#fff}
+.kar .kb2{fill:none;stroke:#8a1c1c;stroke-width:2}
+.kar .kd{font:400 15px Pal,serif;fill:#1d1a17}
+.kleg{display:flex;gap:16px;justify-content:center;font-size:13px;color:var(--soft)}
+.kleg i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+.wb.chips ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:6px 0 0;padding:0}
+.wb.chips li{background:#fff8;border:1px solid var(--line,#d8cfc0);border-radius:14px;padding:2px 11px;font-size:14px;margin:0}
+.wb.chips li::before{content:none}
+.wg.ws2>.wsd{align-self:start;position:sticky;top:112px}
+.wtb td.k.kw{white-space:normal;width:auto}

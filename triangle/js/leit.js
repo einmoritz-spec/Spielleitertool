@@ -81,17 +81,29 @@ function vAbschnitte(V, r){
 function vUnter(id, V, r){
   var s = vst(id), namen = V.reiterNamen || {};
   return '<nav class="unter vunter" data-unterleiste>' + vRL(V).filter(function(q){ return vAbschnitte(V, q[0]).length; }).map(function(q){ return '<a class="' + (q[0] === r ? "on" : "") + '" onclick="go(\'e/' + id + '/' + q[0] + '\')">' + esc(namen[q[0]] || q[1]) + '</a>'; }).join("") +
-    '<span class="vzs"><span class="vz vz-c" title="Chaos"><em><img src="' + Z("symbol-chaos-wirbel") + '" alt=""></em><button onclick="vZahl(\'c\',-1)">–</button><b>' + (s.c || 0) + '</b><button onclick="vZahl(\'c\',1)">+</button></span>' +
+    '<span class="vzs">' + (((V.chaos || []).length) ? '<button class="vcb" onclick="vChaosAuf()" title="Chaos-Effekte"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>' : '') + '<span class="vz vz-c" title="Chaos"><em><img src="' + Z("symbol-chaos-wirbel") + '" alt=""></em><button onclick="vZahl(\'c\',-1)">–</button><b>' + (s.c || 0) + '</b><button onclick="vZahl(\'c\',1)">+</button></span>' +
     '<span class="vz vz-l" title="Lose Enden"><em><img src="' + Z("symbol-gefahr-lose-enden") + '" alt=""></em><button onclick="vZahl(\'l\',-1)">–</button><b>' + (s.l || 0) + '</b><button onclick="vZahl(\'l\',1)">+</button></span>' +
     '<button class="vstift' + (s.n[r] ? " voll" : "") + '" onclick="vNotiz()" title="Notizen"><svg viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z M14 6l4 4"/></svg></button></span></nav>';
 }
+/* Chaos-Effekte: gelten für das ganze Abenteuer, öffnen als Pop-up über den Knopf neben dem Chaos-Zähler */
+function vChaosListe(V){
+  return '<div class="vchaos"><h4><span>Chaos-Effekte' + pgl(V.chaosP, VBUCH) + '</span><button class="vcx" onclick="vChaosZu()" title="Schließen">×</button></h4>' + V.chaos.map(function(c){
+    return '<a onclick="vChaos(' + c.k + ')" title="' + c.k + ' Chaos ausgeben"><b>' + c.k + '<img src="' + Z("symbol-chaos-wirbel") + '" alt=""></b><span><em>' + (c.neu ? '<i class="neu">▲</i>' : '') + esc(c.n) + '</em>' + tx(c.x) + '</span></a>'; }).join("") + '</div>';
+}
+function vChaosZu(){ var m = document.querySelector(".vcm"); if(m) m.remove(); }
+function vChaosAuf(){
+  var V = TA_VAULT[VCTX.id]; if(!V || !(V.chaos || []).length) return;
+  if(document.querySelector(".vcm")){ vChaosZu(); return; }
+  var m = document.createElement("div"); m.className = "modal vcm";
+  m.innerHTML = '<div class="vcp">' + vChaosListe(V) + '</div>';
+  m.onclick = function(e){ if(e.target === m) m.remove(); };
+  document.body.appendChild(m);
+}
 function vRechts(id, V){
-  var chaos = (V.chaos || []).length ? '<div class="vchaos"><h4>Chaos-Effekte' + pgl(V.chaosP, VBUCH) + '</h4>' + V.chaos.map(function(c){
-    return '<a onclick="vChaos(' + c.k + ')" title="' + c.k + ' Chaos ausgeben"><b>' + c.k + '<img src="' + Z("symbol-chaos-wirbel") + '" alt=""></b><span><em>' + (c.neu ? '<i class="neu">▲</i>' : '') + esc(c.n) + '</em>' + tx(c.x) + '</span></a>'; }).join("") + '</div>' : '';
   var sonder = (V.sonder || []).length ? '<div class="vsonder">' + (V.sonder[0] && (V.sonder[0].h || V.sonder[0].t === "h") ? '' : '<h4>Sonderregel</h4>') + taB(V.sonder) + '</div>' : '';
   var ziele = (V.ziele || []).length ? '<div class="vziele"><h4>Optionale Ziele</h4>' + (V.zieleEinleitung ? '<p class="ve">' + tx(V.zieleEinleitung) + '</p>' : '') + V.ziele.map(function(z){
     return '<p><img src="' + Z(z.art === "ver" ? "symbol-verweis" : "symbol-belobigung") + '" alt=""><span><b>+' + z.n + ' ' + (z.art === "ver" ? (z.n === 1 ? "Verweis" : "Verweise") : (z.n === 1 ? "Belobigung" : "Belobigungen")) + '</b> ' + tx(z.x) + '</span></p>'; }).join("") + '</div>' : '';
-  return '<aside class="vre">' + chaos + sonder + ziele + '</aside>';
+  return (sonder || ziele) ? '<aside class="vre">' + sonder + ziele + '</aside>' : '';
 }
 function vKopf(E, V){
   return '<div class="vkopf"><img src="' + IMG(E.img) + '" alt="" onclick="zoom(this.src)"><div><h1>' + esc(E.t) + '</h1>' + (E.de !== E.t ? '<p class="de">' + esc(E.de) + '</p>' : '') +
@@ -129,9 +141,20 @@ function vPlanen(){
 }
 function vSpalten(){
   var ct = document.querySelector(".vct"), a = ct && ct.querySelector(":scope>article"), re = ct && ct.querySelector(":scope>.vre");
+  /* keine rechte Spalte (Chaos-Effekte sind im Pop-up): langer Text läuft über die volle Breite zwei-/dreispaltig */
+  if(a && !re && !a.classList.contains("vfund") && !ct.dataset.vs && innerWidth > 1180){
+    ct.dataset.vs = 1; ct.classList.add("vkein");
+    if(a.offsetHeight > 1300) a.classList.add("vzwei"), ct.offsetWidth > 1500 && a.classList.add("vdrei");
+    return;
+  }
   if(!a || !re || a.classList.contains("vfund") || ct.dataset.vs || innerWidth <= 1180) return;
   ct.dataset.vs = 1;
   var ha = a.offsetHeight, hr = re.offsetHeight;
+  /* kurze rechte Spalte (Sonderregel/Ziele): schwebt rechts im Text, der Text läuft darunter in voller Breite weiter */
+  if(hr < 620){
+    ct.classList.add("vflt"); re.classList.add("vschwebt2"); a.insertBefore(re, a.firstChild);
+    return;
+  }
   if(hr - ha > 340){
     ct.classList.add("vunten");
     if(a.offsetHeight > 700) a.classList.add("vzwei");

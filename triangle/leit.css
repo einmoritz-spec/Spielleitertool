@@ -178,3 +178,31 @@ body.ve-vault{background:#17111f}
 .vz button:hover{background:var(--akz);color:#fff}
 .vz b{min-width:26px;font-size:20px}
 .vz i{display:none}
+
+/* Chaos-Effekte als Pop-up */
+.vzs{gap:8px}
+.vcb{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--akz);border:1.5px solid var(--linie);background:#fff}
+.vcb:hover{background:var(--flieder);border-color:var(--akz)}
+.vcb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.modal.vcm{align-items:start;padding:calc(var(--kopf,60px) + 40px) 24px 24px}
+.modal.vcm>.vcp{width:min(1400px,96vw);max-height:calc(100vh - var(--kopf,60px) - 70px);padding:26px 0 0;background:transparent;border-radius:0;overflow:auto}
+.modal .vcp .vchaos{display:block;column-count:3;column-gap:0;margin:0 0 4px;box-shadow:0 24px 70px #1d1a2e66}
+.vcp .vchaos>h4{column-span:all;display:flex;align-items:center;justify-content:space-between;font-size:22px;padding:14px 18px 12px}
+.vcp .vchaos>a{break-inside:avoid;grid-template-columns:54px 1fr;padding:12px 18px 12px 14px;font-size:15px}
+.vcx{font:400 28px/1 Fig,sans-serif;color:inherit;width:34px;height:34px;border-radius:50%;opacity:.8}.vcx:hover{opacity:1;background:#ffffff22}
+@media (max-width:1100px){.modal .vcp .vchaos{column-count:2}}
+@media (max-width:700px){.modal .vcp .vchaos{column-count:1}.modal.vcm{padding-top:calc(var(--kopf,60px) + 14px)}}
+
+/* ohne rechte Spalte: Text über die volle Breite */
+.vct:not(:has(>.vre)){grid-template-columns:minmax(0,1fr)}
+.vct.vkein>article.vzwei{column-count:2;column-gap:46px}
+.vct.vkein>article.vzwei.vdrei{column-count:3}
+.vct.vkein>article.vzwei>*{break-inside:avoid}
+.vct.vkein>article.vzwei>h1,.vct.vkein>article.vzwei>.vkopf,.vct.vkein>article.vzwei>.sp,.vct.vkein>article.vzwei>.vkarten,.vct.vkein>article.vzwei>.vaus,.vct.vkein>article.vzwei>table,.vct.vkein>article.vzwei>figure,.vct.vkein>article.vzwei>.vho,.vct.vkein>article.vzwei>.vanf,.vct.vkein>article.vzwei>.vfae,.vct.vkein>article.vzwei>[class*="-plan"]{column-span:all}
+.vct.vkein>article.vzwei>h2,.vct.vkein>article.vzwei>h3{break-after:avoid}
+.vct.vkein>article.vzwei>p{break-inside:auto;orphans:4;widows:4}
+.vct.vflt{grid-template-columns:minmax(0,1fr)}
+.vflt>article>.vre.vschwebt2{float:right;width:380px;margin:0 0 26px 40px;padding:0;position:static}
+@media (max-width:1400px){.vflt>article>.vre.vschwebt2{width:340px}}
+.vflt>article>h1,.vflt>article>h2{clear:none}
+.vflt>article>.sp,.vflt>article>.vkarten,.vflt>article>.vaus,.vflt>article>table,.vflt>article>figure,.vflt>article>.vho,.vflt>article>.vanf,.vflt>article>.vfae{clear:right}

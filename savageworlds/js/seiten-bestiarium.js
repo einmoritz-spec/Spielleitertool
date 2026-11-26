@@ -7,7 +7,7 @@ var KAB = {"Geschicklichkeit":"Ges","Konstitution":"Kon","Stärke":"Stä","Verst
 function krSicht(k){ return k.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
 function krBadges(k){ return k.s.filter(function(x){ return x !== "GRW"; }).map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join(""); }
 function krOff(b){ return (!b || b === "sw_de" || b === "sw_wb") ? 1 : 2; }
-function knm(x){ return nm(x).replace(/ \/ /g, ' <i class="sl">/</i> '); }
+function knm(x){ return nm(x).replace(/’/g, '<span class="ap">’</span>').replace(/ \/ /g, ' <i class="sl">/</i> '); }
 function kb(t){ return krTxt(t).replace(/(\d+)/g, '<span class="dg">$1</span>'); }
 function krTxt(t){ return esc(t).replace(/\[WC\]/g, '<img class="wcs" src="img/wc.webp" alt="Wildcard">').replace(/ß/g, "ß"); }
 function krP(t){
@@ -29,16 +29,16 @@ function krMatch(k, q){
 }
 function krTile(k, i, open){
   var c = KCOL[k.k] || "#7a7067";
-  return '<div class="tc kt' + (open ? " open" : "") + '" style="--rc:' + c + '" onclick="krOpen(' + i + ')"><b>' + knm(k.n) + (k.w ? '<img class="wcs" src="img/wc.webp" alt="Wildcard">' : "") + krBadges(k) + "</b><small>Parade " + esc(k.pa) + " · Robustheit " + esc(k.ro) + (k.bk === "sw_de" || !k.o ? "" : "") + "</small></div>";
+  return '<div class="tc kt' + (open ? " open" : "") + '" style="--rc:' + c + '" onclick="krOpen(' + i + ')"><b>' + knm(k.n) + (k.w ? '<img class="wcs" src="img/wc.webp" alt="Wildcard">' : "") + krBadges(k) + "</b>" + (k.ro ? "<small>Parade " + esc(k.pa) + " · Robustheit " + esc(k.ro) + "</small>" : "") + "</div>";
 }
 function krDetail(k){
   var c = KCOL[k.k] || "#7a7067";
-  var at = '<div class="ka">' + k.a.map(function(a){ return '<div title="' + esc(a[0]) + '"><small>' + esc(a[0]) + "</small><b>" + esc(a[1]) + "</b></div>"; }).join("") + "</div>";
-  var st = '<div class="kv"><div><small>Bewegungsweite</small><b>' + esc(k.b) + '</b></div><div><small>Parade</small><b>' + esc(k.pa) + '</b></div><div><small>Robustheit</small><b>' + esc(k.ro) + "</b></div></div>";
+  var at = !k.a ? "" : '<div class="ka">' + k.a.map(function(a){ return '<div title="' + esc(a[0]) + '"><small>' + esc(a[0]) + "</small><b>" + esc(a[1]) + "</b></div>"; }).join("") + "</div>";
+  var st = !k.a ? "" : '<div class="kv"><div><small>Bewegungsweite</small><b>' + esc(k.b) + '</b></div><div><small>Parade</small><b>' + esc(k.pa) + '</b></div><div><small>Robustheit</small><b>' + esc(k.ro) + "</b></div></div>";
   var rows = (k.f ? [["Fertigkeiten", k.f]] : []).concat(k.x || []).map(function(e){ return '<p class="kr"><b>' + esc(e[0]) + ":</b> " + krTxt(e[1]) + "</p>"; }).join("");
-  var sf = k.sf.length ? '<small class="kh">Spezialfähigkeiten</small>' + k.sf.map(function(e){ if(e[0] === "#") return '<small class="kh ksub">' + esc(e[1]) + "</small>"; return '<p class="ks">' + (e[2] ? '<i class="kpw">\u2605</i>' : "") + (e[0] ? "<b>" + kb(e[0]) + ":</b> " : "") + krTxt(e[1]) + "</p>"; }).join("") : "";
+  var sf = (k.sf || []).length ? '<small class="kh">Spezialfähigkeiten</small>' + k.sf.map(function(e){ if(e[0] === "#") return '<small class="kh ksub">' + esc(e[1]) + "</small>"; return '<p class="ks">' + (e[2] ? '<i class="kpw">\u2605</i>' : "") + (e[0] ? "<b>" + kb(e[0]) + ":</b> " : "") + krTxt(e[1]) + "</p>"; }).join("") : "";
   if(k.ai && k.ai.length) sf += '<small class="kh">Abenteuerideen</small>' + k.ai.map(function(a){ return '<p class="ks"><b>' + kb(a[0]) + ":</b> " + krTxt(a[1]) + "</p>"; }).join("");
-  return '<div class="td kd" style="--rc:' + c + '"><div class="tdm"><h3>' + knm(k.n) + (k.w ? '<img class="wcs lg" src="img/wc.webp" alt="Wildcard" title="Wildcard">' : "") + krBadges(k) + '<span class="pg" onclick="openBook(\'' + (k.bk || "sw_de") + "'," + (k.p + (k.o == null ? krOff(k.bk) : k.o)) + ')">S. ' + k.p + "</span></h3>" + (k.d || []).map(function(p){ return '<p class="kdesc">' + krTxt(p) + "</p>"; }).join("") + at + st + rows + '</div><div class="tds kss">' + sf + "</div></div>";
+  return '<div class="td kd" style="--rc:' + c + '"><div class="tdm"><h3>' + knm(k.n) + (k.w ? '<img class="wcs lg" src="img/wc.webp" alt="Wildcard" title="Wildcard">' : "") + krBadges(k) + '<span class="pg" onclick="openBook(\'' + (k.bk || "sw_de") + "'," + (k.p + (k.o == null ? krOff(k.bk) : k.o)) + ')">S. ' + k.p + "</span></h3>" + (k.d || []).map(function(p){ return '<p class="kdesc">' + krTxt(p).replace(/’/g, '<span class="sl">’</span>') + "</p>"; }).join("") + at + st + rows + '</div><div class="tds kss">' + sf + "</div></div>";
 }
 function krGrid(L){
   var h = "", per = 3, G = null;
@@ -131,7 +131,7 @@ function krGroups(L){
   L.forEach(function(k){
     if(k.g !== g){
       flush(); g = k.g;
-      if(g){ out += '<h4 class="rk kgh" style="--rc:#7a7067"><span>' + nm(g) + "</span></h4>" + ((SW_BEST.gr.g[g] || []).map(function(t){ return '<p class="ed">' + krTxt(t) + "</p>"; }).join("")); }
+      if(g){ out += '<h4 class="rk kgh" style="--rc:#7a7067"><span>' + knm(g) + "</span></h4>" + ((SW_BEST.gr.g[g] || []).map(function(t){ return '<p class="ed">' + krTxt(t) + "</p>"; }).join("")); }
     }
     cur.push(k);
   });

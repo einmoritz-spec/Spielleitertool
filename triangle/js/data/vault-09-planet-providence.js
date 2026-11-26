@@ -22,7 +22,6 @@ TA_VAULT["planet-providence"] = {
  reiter: {
   profil: [
    {t:"Fundstück", p:145, b:[
-    {t:"bild", seite:144, x:"Eröffnungsseite: Titelschriftzug Planet Providence (Achterbahn-Skizze), Briefkarte von Sailor Knots, Logo „PP“, Schiff mit Raketenantrieb"},
     {t:"handout", art:"brief", h:"Ahoi da!", x:[
      "Glückwunsch zur Planung deines Ausflugs nach Planet Providence! Ich bin dein Erster Maat Sailor Knots und führe dich Schritt für Schritt in dein Weltraumpiraten-Abenteuer! Denk immer daran: Ich beobachte dich immer!",
      "Ich habe eine Karte beigelegt, damit du deine Tour durch die Attraktionen planen kannst. Und wie du siehst, gibt es so viel zu tun! Vom Terrestrial Torpedo über die Schießbude oder die Lokale bis zur täglichen Piratenparade: Komm früh, damit du nichts verpasst! Außerdem hast du während deines Besuchs die Chance, den geheimen Ort zu finden und an einer epischen Weltraumschlacht gegen andere Piraten teilzunehmen!",
@@ -186,7 +185,7 @@ TA_VAULT["planet-providence"] = {
    ]},
    {t:"Die Crew-Bereiche", p:153, b:[
     "Jede Flotte hat ein Flaggschiff, das normalerweise am Boden bleibt und den Gästen als Attraktion dient – die Fahrgeschäfte in jedem Bereich sind so gebaut, dass sie dem Flaggschiff ihres Bereichs zugewandt enden. Unter Angestellten und Gästen ist es allgemein bekannt, dass die Kapitäne immer in den Flaggschiffen zu finden sind. Besucher können das Deck, die Schlafquartiere, die Kombüse und den Speiseraum erkunden und gelangen schließlich in eine luxuriös eingerichtete Kapitänskajüte.",
-    {t:"bild", seite:152, x:"Parkkarte: Pulsar Port in der Mitte mit Eingang und Truce Tavern; Skipper Station (Komet) im Westen, Titan’s Cove (Dinosaurierkopf, Palmen, See) im Norden, Sol System (Sonne) im Osten, Secret Location (Kuppel mit rotem X) im Nordwesten, Community Housing (Häuschen) im Nordosten; gestrichelte Tunnel verbinden die Bereiche"},
+    {t:"parkplan", seite:152, x:"Parkkarte: Pulsar Port in der Mitte mit Eingang und Truce Tavern; Skipper Station (Komet) im Westen, Titan’s Cove (Dinosaurierkopf, Palmen, See) im Norden, Sol System (Sonne) im Osten, Secret Location (Kuppel mit rotem X) im Nordwesten, Community Housing (Häuschen) im Nordosten; gestrichelte Tunnel verbinden die Bereiche"},
     {t:"kasten", h:"Den Müll rausbringen", b:[
      "Wenn Agenten ein beliebiges Fahrgeschäft verlassen, können sie an einer Tür zum Backstage-Bereich vorbeikommen, die offen gelassen wurde. Ein Arbeiter schleppt Müllsäcke hinein und stapelt sie in einem Flur, der bereits fast voller Müllsäcke ist. Der Geruch ist unmöglich zu ignorieren.",
      "Der Müll wird normalerweise in den Weltraum geschossen, doch da die Galactic Space Force nach jedem Vorwand sucht, gegen Planet Providence vorzugehen, hat die Anomalie das Müllstarten ausgesetzt. Er füllt rasch die Crew-Tunnel unter dem Park."

@@ -9,7 +9,7 @@ function puOpen(){
   document.body.classList.add("pult-an"); puDraw();
 }
 function puClose(){ var o = puEl(); if(o) o.remove(); document.body.classList.remove("pult-an"); }
-function puOffen(id){ PU.offen[id] = !PU.offen[id]; if(/^g:/.test(id)) puErgebnis(); else puDraw(); }
+function puOffen(id){ PU.offen[id] = !PU.offen[id]; PU.zeig = !!PU.offen[id]; if(/^g:/.test(id)) puErgebnis(); else puDraw(); }
 function puSuche(v){ PU.q = v; puErgebnis(); }
 function puAdd(id){ bgAdd(id); }
 function puFigNeu(){ var f = zNeu(); zFigs().push(f); save(); render(); }
@@ -99,6 +99,10 @@ function puErgebnis(){
   var P = [["Gegner", puGegnerBox(ws), SP_GEGNER.length], ["Orte", puOrteBox(ws), SP_STADT_INDEX.reduce(function(n, d){ return n + d.distrikte.length; }, 0)], ["Regeln", puRegelBox(ws), ""]];
   box.innerHTML = P.map(function(p){ return '<section class="pu-p3"><h2>' + p[0] + (p[2] !== "" ? '<em>' + p[2] + '</em>' : '') + '</h2><div class="pu-pb">' + p[1] + '</div></section>'; }).join("");
   box.querySelectorAll(".pu-pb").forEach(function(e, i){ e.scrollTop = sc[i] || 0; });
+  var gof = Object.keys(PU.offen).some(function(k){ return PU.offen[k] && /^g:/.test(k); });
+  box.classList.toggle("gw", gof);
+  if(gof && PU.zeig){ var d = box.querySelector(".pu-det"); if(d){ var pb = d.closest(".pu-pb"); pb.scrollTop = Math.max(0, d.previousElementSibling.offsetTop - 6); } }
+  PU.zeig = false;
 }
 function puSuchspalte(){
   return '<div class="pu-su"><div class="pu-q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.500" cy="10.500" r="6.500"/><path d="M15.500 15.500L21 21"/></svg><input id="pu-q" type="text" placeholder="Gegner, Orte, Regeln suchen …" autocomplete="off" value="' + esc(PU.q) + '" oninput="puSuche(this.value)"></div><div id="pu-bw" class="pu-bw"></div></div>';

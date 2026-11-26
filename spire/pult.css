@@ -92,3 +92,5 @@ body.notop .pu-ov{top:0}
 .pu-kb .pu-gr:hover,.pu-kb .pu-l:hover{background:#12263c}
 .pu-kb .pu-gr{padding-left:22px}
 .pu-kb .pu-l{padding-left:22px}
+.pu-bw{transition:grid-template-rows .25s}
+.pu-bw.gw{grid-template-rows:minmax(0,3fr) minmax(0,1fr) minmax(0,.8fr)}

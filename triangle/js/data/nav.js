@@ -11,7 +11,8 @@ var TA_NAV = [
  ]},
  {id:"ark", t:"ARK", c:"blau", sub:[
   {id:"anomalie", t:"Anomalie", c:"blau"}, {id:"realitaet", t:"Realität", c:"gelb"}, {id:"kompetenz", t:"Kompetenz", c:"rot"},
-  {id:"fragebogen", t:"Fragebogen", c:"rot", s:[["fragebogen","Fragebogen zum Arbeitsantritt",118]]}
+  {id:"fragebogen", t:"Fragebogen", c:"rot", s:[["fragebogen","Fragebogen zum Arbeitsantritt",118]]},
+  {id:"bogen", t:"Agentenbogen", c:"rot"}
  ]},
  {id:"w", t:"Werkzeug", lang:"Werkzeug der\nGeschäftsleitung", c:"blau", sub:[
   {id:"grundlagen", t:"Grundlagen", s:[["gratulation","Vertragulationen!",136],["vorbereitung","Verantwortung und Vorbereitung",142],["lebenszyklus","Lebenszyklus einer Anomalie",144],["platz","Wo du hineinpasst",146],["zusatz","Zusatzdaten",147],["wichtig","Wichtige Informationen",148],["sorge","Die Agency sorgt sich um dich",150]]},

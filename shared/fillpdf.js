@@ -37,14 +37,8 @@ var FillPDF = (function(){
   function sichtbar(el){ return !!(el.offsetWidth || el.offsetHeight) && !el.closest(".noprint") && getComputedStyle(el).visibility !== "hidden"; }
   function hatKlasse(el, kl){ return kl.split(/\s+/).filter(Boolean).some(function(k){ return el.classList.contains(k); }); }
 
-  function make(el, o){
-    o = o || {};
-    if(!el) return Promise.resolve();
-    var knopf = o.knopf, alt = knopf && knopf.textContent;
-    if(knopf){ knopf.textContent = "PDF wird erstellt …"; knopf.disabled = true; }
-    var fertig = function(){ if(knopf){ knopf.textContent = alt; knopf.disabled = false; } };
-    return lib().then(function(){ return document.fonts ? document.fonts.ready : 0; }).then(function(){
-      if(o.before) o.before();
+  /* Ein Element aufnehmen: Bild + Feldliste */
+  function aufnahme(el, o){
       var base = el.getBoundingClientRect(), W = el.offsetWidth, H = el.offsetHeight, k = W / base.width;
       var rel = function(e){ var r = e.getBoundingClientRect(); return {x:(r.left - base.left) * k, y:(r.top - base.top) * k, w:r.width * k, h:r.height * k}; };
       var F = [], weg = [];
@@ -78,46 +72,61 @@ var FillPDF = (function(){
       var zurueck = function(){
         el.classList.remove("pdfmode");
         weg.forEach(function(w){ w[1].forEach(function(x){ w[0].classList.add(x); }); if(w[2]) w[0].classList.remove(w[2]); });
-        if(o.after) o.after();
       };
       return modernScreenshot.domToJpeg(el, {scale:o.scale || 2.5, quality:.9, width:W, height:H, backgroundColor:o.bg || "#ffffff"}).then(function(url){
-        zurueck(); return bauen(url, W, H, F, o);
+        zurueck(); return {url:url, W:W, H:H, F:F};
       }, function(e){ zurueck(); throw e; });
-    }).then(function(bytes){ fertig(); return ausgeben(bytes, (o.name || "Charakterbogen") + ".pdf"); }, function(e){ fertig(); alert("Das PDF konnte nicht erstellt werden: " + (e && e.message || e)); });
+  }
+  function make(el, o){ return makeSeiten(el ? [el] : [], o); }
+  /* Mehrere Elemente → ein PDF mit je einer Seite (z. B. mehrseitige Bögen) */
+  function makeSeiten(els, o){
+    o = o || {}; els = Array.prototype.slice.call(els || []);
+    if(!els.length) return Promise.resolve();
+    var knopf = o.knopf, alt = knopf && knopf.textContent;
+    if(knopf){ knopf.textContent = "PDF wird erstellt …"; knopf.disabled = true; }
+    var fertig = function(){ if(knopf){ knopf.textContent = alt; knopf.disabled = false; } };
+    var S = [];
+    return lib().then(function(){ return document.fonts ? document.fonts.ready : 0; }).then(function(){
+      if(o.before) o.before();
+      return els.reduce(function(p, el){ return p.then(function(){ return aufnahme(el, o).then(function(x){ S.push(x); }); }); }, Promise.resolve());
+    }).then(function(){ if(o.after) o.after(); return bauen(S, o); })
+      .then(function(bytes){ fertig(); return ausgeben(bytes, (o.name || "Charakterbogen") + ".pdf"); }, function(e){ fertig(); if(o.after) o.after(); alert("Das PDF konnte nicht erstellt werden: " + (e && e.message || e)); });
   }
 
-  function bauen(url, W, H, F, o){
+  function bauen(S, o){
     var L = PDFLib, pt = .75;
     return L.PDFDocument.create().then(function(doc){
       doc.setTitle(o.name || "Charakterbogen"); doc.setCreator("Spielleitertool");
-      return Promise.all([fetch(url).then(function(r){ return r.arrayBuffer(); }), doc.embedFont(L.StandardFonts.Helvetica)]).then(function(x){
-        return doc.embedJpg(x[0]).then(function(img){
-          var font = x[1], pw = W * pt, ph = H * pt, page = doc.addPage([pw, ph]), form = doc.getForm(), n = 0;
-          page.drawImage(img, {x:0, y:0, width:pw, height:ph});
-          F.forEach(function(f){
-            var r = {x:f.r.x * pt, y:ph - (f.r.y + f.r.h) * pt, width:Math.max(4, f.r.w * pt), height:Math.max(4, f.r.h * pt), borderWidth:0, backgroundColor:undefined, borderColor:undefined};
-            n++;
-            if(f.t === "cb"){
-              var c = form.createCheckBox("k" + n); c.addToPage(page, r);
-              var w = r.width, h = r.height;
-              c.updateAppearances(function(){
-                var m = Math.min(w, h), d = m * .22, col = L.rgb(.07, .07, .07), x0 = (w - m) / 2 + d, y0 = (h - m) / 2 + d, x1 = (w + m) / 2 - d, y1 = (h + m) / 2 - d;
-                var an = f.stil === "punkt" ? L.drawEllipse({x:w / 2, y:h / 2, xScale:m * .3, yScale:m * .3, color:col, borderWidth:0})
-                  : L.drawLine({start:{x:x0, y:y0}, end:{x:x1, y:y1}, thickness:Math.max(1, m * .12), color:col}).concat(L.drawLine({start:{x:x0, y:y1}, end:{x:x1, y:y0}, thickness:Math.max(1, m * .12), color:col}));
-                return {normal:{on:an, off:[]}, down:{on:an, off:[]}};
-              });
-              if(f.an) c.check(); return;
-            }
-            var t = form.createTextField("t" + n);
-            if(f.multi) t.enableMultiline();
-            if(f.al === "center") t.setAlignment(L.TextAlignment.Center); else if(f.al === "right" || f.al === "end") t.setAlignment(L.TextAlignment.Right);
-            t.setText(sauber(font, f.v));
-            t.addToPage(page, Object.assign(r, {font:font, textColor:L.rgb(.07, .07, .07)}));
-            t.setFontSize(Math.max(6, Math.min(f.multi ? 14 : 18, (f.fs || 12) * pt)));
+      if(o.json) doc.setSubject(o.json);
+      return doc.embedFont(L.StandardFonts.Helvetica).then(function(font){
+        var form = doc.getForm(), n = 0;
+        return S.reduce(function(p, sv){ return p.then(function(){
+          return fetch(sv.url).then(function(r){ return r.arrayBuffer(); }).then(function(buf){ return doc.embedJpg(buf); }).then(function(img){
+            var W = sv.W, H = sv.H, F = sv.F, pw = W * pt, ph = H * pt, page = doc.addPage([pw, ph]);
+            page.drawImage(img, {x:0, y:0, width:pw, height:ph});
+            F.forEach(function(f){
+              var r = {x:f.r.x * pt, y:ph - (f.r.y + f.r.h) * pt, width:Math.max(4, f.r.w * pt), height:Math.max(4, f.r.h * pt), borderWidth:0, backgroundColor:undefined, borderColor:undefined};
+              n++;
+              if(f.t === "cb"){
+                var c = form.createCheckBox("k" + n); c.addToPage(page, r);
+                var w = r.width, h = r.height;
+                c.updateAppearances(function(){
+                  var m = Math.min(w, h), d = m * .22, col = L.rgb(.07, .07, .07), x0 = (w - m) / 2 + d, y0 = (h - m) / 2 + d, x1 = (w + m) / 2 - d, y1 = (h + m) / 2 - d;
+                  var an = f.stil === "punkt" ? L.drawEllipse({x:w / 2, y:h / 2, xScale:m * .3, yScale:m * .3, color:col, borderWidth:0})
+                    : L.drawLine({start:{x:x0, y:y0}, end:{x:x1, y:y1}, thickness:Math.max(1, m * .12), color:col}).concat(L.drawLine({start:{x:x0, y:y1}, end:{x:x1, y:y0}, thickness:Math.max(1, m * .12), color:col}));
+                  return {normal:{on:an, off:[]}, down:{on:an, off:[]}};
+                });
+                if(f.an) c.check(); return;
+              }
+              var t = form.createTextField("t" + n);
+              if(f.multi) t.enableMultiline();
+              if(f.al === "center") t.setAlignment(L.TextAlignment.Center); else if(f.al === "right" || f.al === "end") t.setAlignment(L.TextAlignment.Right);
+              t.setText(sauber(font, f.v));
+              t.addToPage(page, Object.assign(r, {font:font, textColor:L.rgb(.07, .07, .07)}));
+              t.setFontSize(Math.max(6, Math.min(f.multi ? 14 : 18, (f.fs || 12) * pt)));
+            });
           });
-          form.updateFieldAppearances(font);
-          return doc.save();
-        });
+        }); }, Promise.resolve()).then(function(){ form.updateFieldAppearances(font); return doc.save(); });
       });
     });
   }
@@ -135,5 +144,5 @@ var FillPDF = (function(){
     var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = datei;
     document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 4000);
   }
-  return {make:make, lib:lib, ausgeben:ausgeben, sauber:sauber};
+  return {make:make, makeSeiten:makeSeiten, lib:lib, ausgeben:ausgeben, sauber:sauber};
 })();

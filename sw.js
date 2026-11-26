@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1241sq";
+const VERSION = "v1242sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -633,6 +633,8 @@ const FILES = [
   "triangle/vault/12.css",
   "triangle/vault/12.js",
   "triangle/vault/space.css",
+  "triangle/js/bogen.js",
+  "triangle/bogen.css",
   "triangle/vault/space.js",
   "triangle/js/data/space.js",
   "triangle/js/data/vault-00-extra.js",

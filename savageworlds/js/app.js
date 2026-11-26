@@ -9,6 +9,7 @@ if(!ST.gen) ST.gen = {fan:1, hor:0, sf:0, sup:0};
 function go(h){ if(location.hash === "#" + h) render(); else location.hash = h; }
 function openBook(id, p){ try{ BV.open(id || "sw_de", p || 1); }catch(e){} }
 window.addEventListener("hashchange", render);
+window.addEventListener("load", function(){ render(); }); /* Seiten-Module (seiten-*.js) laden nach app.js */
 
 /* Bereiche: Reiter der Kopfzeile + Unterpunkte (Seite im Buch: GRW) */
 var TABS = [

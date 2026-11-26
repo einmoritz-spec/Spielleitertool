@@ -40,7 +40,7 @@ function puKatTog(id){ PU.kat[id] = !PU.kat[id]; puErgebnis(); }
 function puGZeile(g){
   var ru = puRu(g), s = Math.min(2, gBase(g)), w = gWidTxt(g), on = PU.offen["g:" + g.id];
   return '<div class="pu-gr gx-s' + s + '"><span class="n" onclick="puOffen(\'g:' + g.id + '\')">' + esc(g.kurz || g.t) + '</span>' +
-    '<span class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<i class="pu-leer"></i>') + '</span>' +
+    '<span class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<span class="pu-nr">' + gSym("ru", "Rüstung", SY_SCHILD, "0") + '</span>') + '</span>' +
     '<span class="pu-w' + (/[^\d\s]/.test(w) ? ' lang' : '') + '" data-tn="Widerstand">' + esc(w) + '</span>' +
     '<i class="pu-p" onclick="puAdd(\'' + g.id + '\')" data-tn="Zur Begegnung hinzufügen">+</i></div>' + (on ? '<div class="pu-det">' + gBlock(g, {ohneZiel:true}) + '</div>' : '');
 }

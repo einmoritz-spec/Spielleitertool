@@ -41,6 +41,7 @@ function render(){
   if(dl) return dlPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "talente") return talentePage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "voelker") return voelkerPage();
+  if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "handicaps") return handicapsPage();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }
@@ -97,6 +98,17 @@ function voDetail(v){
   return '<div class="td vo" style="--rc:#a51f1a"><div class="tdm"><h3>' + esc(v.n) + '<span class="pg" onclick="openBook(\'sw_de\',' + (v.p + 1) + ')">S. ' + v.p + "</span></h3>" + v.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + v.e.map(function(e){ return '<p class="ei"><b>' + esc(e[0]) + ":</b> " + esc(e[1]) + "</p>"; }).join("") + '</div></div>';
 }
 function voOpen(i){ ST.vo = ST.vo === i ? -1 : i; save(); voelkerPage(); var d = document.querySelector(".td"); if(d && ST.vo > -1) d.scrollIntoView({block:"nearest", behavior:"smooth"}); }
+function handicapsPage(){
+  var f = ST.hf || "";
+  var chips = [["", "Alle"], ["leicht", "Leicht"], ["schwer", "Schwer"]].map(function(c){ return '<a class="' + (f === c[0] ? "on" : "") + '" onclick="hFilter(\'' + c[0] + '\')">' + c[1] + "</a>"; }).join("");
+  var L = SW_HANDICAPS.filter(function(h){ return !f || h.w.indexOf(f) > -1; });
+  var h = L.map(function(x){
+    var sw = x.w === "schwer", lw = x.w === "leicht";
+    return '<div class="hc" style="--rc:' + (sw ? "#a51f1a" : lw ? "#c27a1c" : "#7a7067") + '"><b>' + esc(x.n) + '<i class="sg">' + (lw ? "Leicht" : sw ? "Schwer" : "Leicht · Schwer") + '</i><span class="pg" onclick="openBook(\'sw_de\',' + (x.p + 1) + ')">S. ' + x.p + "</span></b><p>" + esc(x.t) + "</p></div>";
+  }).join("");
+  APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Handicaps</h2><div class="hf">' + chips + '</div><div class="hg">' + h + "</div></main></div>";
+}
+function hFilter(f){ ST.hf = f; save(); handicapsPage(); }
 function talKat(k){ ST.tk = k; ST.to = -1; save(); talentePage(); }
 function talOpen(id){ ST.to = ST.to === id ? -1 : id; save(); talentePage(); var d = document.querySelector(".td"); if(d && ST.to > -1) d.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 function talGo(id){ ST.tk = SW_TALENTE[id].k; ST.to = id; save(); talentePage(); var d = document.querySelector(".td"); if(d) d.scrollIntoView({block:"center"}); }

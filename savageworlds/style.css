@@ -123,3 +123,10 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .sq-fan{background:#2f7a4a}.sq-hor{background:#7a2230}.sq-sf{background:#1f6f9a}.sq-sup{background:#c2571c}.sq-dl{background:#5a3a1a}
 .dl .tg.dlt{left:auto;right:150px;top:50%;transform:translateY(-50%);width:auto}
 .td.vo{grid-template-columns:1fr}.td .ei b{color:var(--c)}
+.hf{display:flex;gap:6px;margin:0 0 14px}.hf a{cursor:pointer;padding:4px 14px;border-radius:99px;font:600 13px Oswald,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);background:var(--paper2)}.hf a.on{background:var(--c);color:#fff}
+.hg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:1160px}
+.hc{background:var(--paper2);border-left:5px solid var(--rc);padding:10px 14px 12px 16px}
+.hc b{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;font:400 21px/1.1 Spies,Oswald,sans-serif}
+.hc .sg{font:600 10px Oswald,sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--rc)}
+.hc .pg{margin-left:auto}.hc p{margin:6px 0 0;font-size:15px;line-height:1.4}
+@media(max-width:900px){.hg{grid-template-columns:1fr 1fr}}

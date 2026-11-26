@@ -1336,3 +1336,12 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .gx-p:hover{opacity:.9;color:var(--wein)}
 .gx-m .gx-sy.sc b{padding-top:3.9px}
 .gx-m .gx-sy.sc b{padding-top:3px;transform:translateY(.45px)}
+
+/* Chips: Schrift optisch mittig (die Titelschrift sitzt im Zeilenkasten zu hoch → oben mehr, unten weniger Innenabstand) */
+.chip{--cy:2px}
+.gegner dd .chip,.zb .bfo .chip,.dk .chip,.schb .chip{--cy:1px}
+.zfo .chip,.gfuss .chip{--cy:2px}
+.wch span{--cy:3px}
+.wf .tg span{--cy:4px}
+.chip,.wch span,.wf .tg span{padding-top:calc(var(--cy) + .21em)!important;padding-bottom:max(0px,calc(var(--cy) - .21em))!important;line-height:1.05}
+.gx-m span.gx-d{padding:4.5px 8px 0!important}

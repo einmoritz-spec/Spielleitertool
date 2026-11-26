@@ -323,10 +323,12 @@ function bgInfo(kat, id){
     if(er) teile += karte("breit", "Erste Anforderung<em>" + esc(er.h) + "</em>", '<p>' + tx(er.x) + '</p>');
     if(zi) teile += '<blockquote class="bi-z">' + tx(zi.x) + '</blockquote>';
   }
+  var ab = (D.l || []).filter(function(y){ return typeof y === "string"; }), ein = ab.slice(0, 1);
+  if(ab[1] && ab[0].length + ab[1].length <= 460) ein.push(ab[1]);
   var g = m.querySelector(".bg-wg"); if(!g) return;
   g.outerHTML = '<div class="bg-info c-' + T.c + '"><header><a class="bi-zur" onclick="bgWahl(\'' + kat + '\')">‹ Alle ' + (kat === "anomalie" ? "Anomalien" : kat === "realitaet" ? "Realitäten" : "Kompetenzen") + '</a>' +
     '<img src="' + IMG("regeln/full/" + T.bild + "-" + id) + '" alt=""><div><small>' + T.t + pgl(x[2]) + '</small><h3>' + esc(x[1]) + '</h3><p>' + tx(D.motto || "") + '</p>' +
-    '<button class="' + (gew ? "an" : "") + '" onclick="bgWaehle(\'' + kat + '\',\'' + id + '\')">' + (gew ? "Gewählt" : esc(x[1]) + " wählen") + '</button></div></header><div class="bi-g' + (kat === "anomalie" ? "" : " zwei") + '">' + teile + '</div></div>';
+    '<button class="' + (gew ? "an" : "") + '" onclick="bgWaehle(\'' + kat + '\',\'' + id + '\')">' + (gew ? "Gewählt" : esc(x[1]) + " wählen") + '</button></div>' + (ein.length ? '<div class="bi-ein">' + ein.map(function(y){ return '<p>' + tx(y) + '</p>'; }).join("") + '</div>' : '') + '</header><div class="bi-g' + (kat === "anomalie" ? "" : " zwei") + '">' + teile + '</div></div>';
 }
 function bgWaehle(kat, id){
   var A = BG.akt, K = {anomalie:"a", realitaet:"r", kompetenz:"k"}[kat];

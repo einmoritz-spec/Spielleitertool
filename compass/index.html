@@ -17,7 +17,7 @@
 <body class="film">
 <div class="topbar">
   <div class="hdbg"><div class="l"></div><div class="l"></div><div class="sh"></div><div class="dk"></div></div>
-  <button class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Broken Compass"><img src="../assets/logos/broken-compass.webp" alt="Broken Compass"></button>
+  <button class="brand" onclick="if(location.hash&&location.hash!=='#start'&&location.hash!=='#'){location.hash='#start'}else{window.scrollTo({top:0,behavior:'smooth'})}" aria-label="Broken Compass"><img src="../assets/logos/broken-compass.webp" alt="Broken Compass"></button>
   <div class="tabs" id="tabs"></div>
   <div class="sp"></div>
   <div class="ansicht" role="group" aria-label="Ansicht">

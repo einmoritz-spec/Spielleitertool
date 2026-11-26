@@ -64,7 +64,7 @@
 .pwb .sp .band{transform:rotate(-.8deg)}
 
 /* ---- Randnotizen von U (Handschrift) ---- */
-.notiz{font:400 23px/1.15 Hand,cursive;color:var(--blau);max-width:520px;transform:rotate(-2deg);margin:22px 0 10px 20px}
+.notiz{font:400 21px/1.15 Hand,cursive;color:var(--blau);max-width:520px;transform:rotate(-2deg);margin:22px 0 22px 20px}
 .notiz.rechts{margin-left:auto;transform:rotate(1.6deg)}.notiz .ag,.notiz .an{color:inherit}
 .dok .notiz.fuss{position:absolute;left:60px;bottom:26px;color:#fff;z-index:2;max-width:320px}
 

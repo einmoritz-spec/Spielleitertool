@@ -54,11 +54,4 @@ Ansehen: `python3 -I plan/triangle/skripte/shot.py /tmp/x 'pw/A5!'` (ein Code je
 
 ## Stand nach dem Einbau (26. Nov. 2026, gepusht)
 Alle 207 Dokumente eingebaut, alle rendern ohne Skriptfehler. Zusatz-CSS der Agenten ist in `playwall.css` zusammengeführt, Hilfsfunktionen (`pwoLeiste`, `pwoKn`, `pwSpur`) liegen in `js/playwall.js`. Neue Bausteine: `kette`, Ergebnis-Art `txt` (Zwischentext ohne Symbol), `spur` anklickbar (Stand in `ST.pwSpur`).
-Offen zum Durchsehen:
-- Z2: Kontrast der Bänder auf Gelb, Listenzeichen als gelbe Quadrate; Z3-Thron steht auf Weiß statt Schwarz.
-- W6: Abstand zwischen Notiz und „Das Angebot der Urgency“.
-- L10: Handschrift bei langen Notizen etwas groß.
-- R15: gestrichener Fragekasten (gehört laut Agent zu S1, S. 263) gegen das Buch prüfen.
-- Nur gerendert, nie angesehen: C2, C3, C10, D5, D7, E1, O3, P14, Q1, R1.
-- Rückbezüge auf andere Dokumenttitel nicht systematisch gegen die Titelliste geprüft.
-- H4: Feldbeschriftung „SEITE“ im Muster-Bogen.
+Durchgesehen am 26. Nov. 2026: Z2, Z3 (Thron steht im Buch ebenfalls auf Weiß), R15 (Fragekasten gehört zu S1), C2, C3, C10, D5, D7, E1, O3, P14, Q1, R1, H4 („SEITE“ ist korrekt), Dokumentverweise stimmen mit der Titelliste überein. W6-Abstand und Handschrift-Größe (21 px) angepasst. Offen: nur M2 (Perlenkette), eingeklappte Kopfzeile in der Playwall, Schalter „Wie im Buch / Alles offen“, Suche.

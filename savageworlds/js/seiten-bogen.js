@@ -5,7 +5,7 @@ var KEY = "sw_bogen_v1";
 var DIE = ["", "W4", "W6", "W8", "W10", "W12", "W12+1", "W12+2", "W12+3", "W12+4"];
 var ATTR = [["Geschicklichkeit", "ges", 5], ["Konstitution", "kon", 2], ["Stärke", "sta", 2], ["Verstand", "ver", 6], ["Willenskraft", "wil", 4]];
 var KERN = {"Allgemeinwissen": 1, "Athletik": 1, "Heimlichkeit": 1, "Überreden": 1, "Wahrnehmung": 1};
-var BASE = {hi: 3, ta: 7, wa: 4, ru: 3, au: 10, ma: 4};
+var BASE = {hi: 3, ta: 7, wa: 4, ru: 3, au: 10, ma: 4, sp: 4};
 var RAENGE = ["Anfänger", "Fortgeschritten", "Veteran", "Heroisch", "Legendär"];
 var LAST = {"W4": "10", "W6": "20", "W8": "30", "W10": "40", "W12": "50", "W12+1": "62,5", "W12+2": "125"};
 var DB = null, cur = null, zoomT = 0, pickAll = false;
@@ -67,7 +67,10 @@ function sprint(F){ if(F.sps) return F.sps; return DIE[Math.max(1, Math.min(5, 2
 /* ---------- Voraussetzungen ---------- */
 function rangIdx(c){ return Math.min(4, Math.floor(Math.floor((parseInt(c.ep, 10) || 0) / 5) / 4)); }
 function ahName(c, F){ return c.ah || F.ah || (c.ta.filter(function(t){ return t && /^Arkaner Hintergrund \(/.test(t.n); })[0] || {n: ""}).n.replace(/^Arkaner Hintergrund \((.*)\)$/, "$1"); }
-function ahRec(n){ return (window.SW_AH || []).filter(function(a){ return a.n === n; })[0]; }
+function AHL(){ return (window.SW_AH || []).concat(window.SW_AH_DL || []); }
+function MA(){ return (window.SW_MACHTE || []).concat(window.SW_MACHTE_DL || []); }
+function HAL(){ return SW_HANDICAPS.concat(window.SW_HANDICAPS_ZUS || [], window.SW_HANDICAPS_DL || []); }
+function ahRec(n){ return AHL().filter(function(a){ return a.n === n; })[0]; }
 function ahSkill(c, F){ var a = ahRec(ahName(c, F)); return a && a.f ? a.f.replace(/\s*\((Verstand|Willenskraft|Geschicklichkeit|Stärke|Konstitution)\)$/, "") : ""; }
 /* Sonderregeln der Arkanen Hintergründe (aus den Buchtexten abgeleitet) */
 function elemente(c){ return Array.isArray(c.ahw) ? c.ahw.slice() : c.ahw ? [c.ahw] : []; }
@@ -97,7 +100,7 @@ function ahFx(n){
     var core = sm.replace(/\s*\([^)]*\)/g, "");
     var w = /(\d+|[Ee]ine|[Zz]wei|[Dd]rei|[Vv]ier) (?:weitere|beliebige|aus der Liste)/.exec(core) || /^(\d+|[Zz]wei|[Dd]rei) /.exec(core);
     var extra = w ? (+w[1] || NUMW[w[1].toLowerCase()] || 0) : 0;
-    core.replace(/ und (?:eine|zwei|drei|vier|\d+) (?:beliebige )?weitere.*$/i, "").split(/,\s*| und /).forEach(function(p){ p = p.trim(); if((window.SW_MACHTE || []).some(function(mm){ return mm.n === p; })) o.start.push(p); });
+    core.replace(/ und (?:eine|zwei|drei|vier|\d+) (?:beliebige )?weitere.*$/i, "").split(/,\s*| und /).forEach(function(p){ p = p.trim(); var hit = MA().filter(function(mm){ return mm.n === p; })[0] || MA().filter(function(mm){ return mm.n.split("/").indexOf(p) > -1 || mm.n.indexOf(p + "/") === 0; })[0]; if(hit && o.start.indexOf(hit.n) < 0) o.start.push(hit.n); });
     o.startN = o.start.length + extra;
   }
   AHC[n] = o; return o;
@@ -118,7 +121,7 @@ function traitIdx(c, F, n){
 function isTrait(n){ n = n.trim(); return !!(ATK[n] || /^arkane[rn]? Fertigkeit$/i.test(n) || SW_SKILLS.some(function(s){ return s.n === n; }) || (window.SW_SKILLS_ZUS || []).some(function(s){ return s.n === n; })); }
 var TNAMES = null, HNAMES = null;
 function tnames(){ if(!TNAMES){ TNAMES = {}; SW_TALENTE.forEach(function(t){ TNAMES[t.n] = t; }); } return TNAMES; }
-function hnames(){ if(!HNAMES){ HNAMES = {}; SW_HANDICAPS.concat(window.SW_HANDICAPS_ZUS || []).forEach(function(h){ HNAMES[h.n] = h; }); } return HNAMES; }
+function hnames(){ if(!HNAMES){ HNAMES = {}; HAL().forEach(function(h){ HNAMES[h.n] = h; }); } return HNAMES; }
 function splitTop(s){ var out = [], d = 0, b = ""; for(var i = 0; i < s.length; i++){ var ch = s[i]; if(ch === "(") d++; if(ch === ")") d--; if(ch === "," && !d){ out.push(b.trim()); b = ""; } else b += ch; } if(b.trim()) out.push(b.trim()); return out; }
 var REQC = {};
 function parseReq(v){
@@ -149,7 +152,7 @@ function condOf(a, die){
     return {k: "ah", l: x.split(/,\s*/)};
   }
   if((m = /^darf nicht das Talent (.+) haben$/.exec(a))) return {k: "nt", n: m[1]};
-  if((m = /^(.+) und mindestens zwei weitere (\w+)talente$/.exec(a))) return {k: "cnt", n: m[1], cat: m[2], c: 3};
+  if((m = /^(.+) und mindestens zwei weitere ([A-Za-zÄÖÜäöüß]+)talente$/.exec(a))) return {k: "cnt", n: m[1], cat: m[2], c: 3};
   if(a === "Anfänger (beliebig)") return {k: "ok"};
   if(/^Profi in/.test(a)) return {k: "t", n: "Profi"};
   if(/^Experte in/.test(a)) return {k: "t", n: "Experte"};
@@ -157,7 +160,11 @@ function condOf(a, die){
   if(MONSTER.indexOf(a) > -1) return {k: "v", n: a};
   if(a === "Lykanthropie") return {k: "v", n: "Werwolf"};
   if(/Mensch$/.test(a)) return {k: "v", n: "Menschen"};
+  if(a === "Odemwaffe") return {k: "vf", f: "sch"};
+  if(a === "Flügel") return {k: "vf", f: "fl"};
+  if((m = /^Beschwöre (.+)$/.exec(a))) return {k: "m", n: m[1] + " beschwören"};
   if(tnames()[a] || a === "Harrowed") return {k: "t", n: a};
+  if(MA().some(function(x){ return x.n === a; })) return {k: "m", n: a};
   var hb = a.replace(/\s*\(.*$/, ""); if(hnames()[hb]) return {k: "h", n: hb};
   return {k: "ok"};
 }
@@ -172,6 +179,8 @@ function condOk(c, F, q){
     case "t": return talenteVon(c, F).indexOf(q.n) > -1;
     case "h": return handicapsVon(c, F).some(function(n){ return n.replace(/\s*\(.*$/, "") === q.n; });
     case "v": return c.volk === q.n;
+    case "vf": return !!F[q.f];
+    case "m": return c.ma.some(function(x){ return x && x.n === q.n; });
     case "max": return ATTR.some(function(a){ return di(c.a[a[1]]) >= aMax(F, a[1]); }) || c.sk.some(function(s){ return di(s.d) >= skMax(F, s.n); });
     default: return true;
   }
@@ -265,11 +274,39 @@ function aufText(A){
   if(A.art === "h"){ var h = cur.hi.filter(function(x){ return x && x.n === A.z; })[0]; return A.z + (h && h.w === "S" ? " abgeschwächt" : " abgelegt"); }
   return "";
 }
+/* Bleibt der Charakter nach der Änderung im Rahmen der Aufbaupunkte? */
+function leistbar(fn){ var k = JSON.parse(JSON.stringify(cur)); fn(k); var p = punkte(k); return p.used <= p.budget; }
+/* ---------- Superkräfte (Super Powers Companion S. 10, 41ff.) ---------- */
+var SPGEN = [["Alternatives Attribut", "+1"], ["Bedingt/Verbunden", "0/+2"], ["Gerät", "–1/–2"], ["Wuchtig", "+1"], ["Schwere Waffe", "+1"], ["Einschränkung", "–1/–2"], ["Reichweite", "+2/+4"], ["Selektiv", "+1"], ["Umschaltbar", "+1"]];
+var ROEM = ["", "I", "II", "III", "IV", "V"];
+function hatSuper(c){ return c.ta.some(function(t){ return t && t.n === "Superkräfte"; }); }
+function spRec(n){ return MA().filter(function(m){ return m.n === n && (m.s || [])[0] === "SUP"; })[0]; }
+function zahlen(t){ return (String(t || "").replace(/[–−]/g, "-").match(/[+-]?\d+/g) || []).map(Number); }
+function spMods(n){ var m = spRec(n); return ((m && m.m) || []).map(function(x){ return [x[0].toUpperCase(), x[1]]; }).concat(SPGEN.map(function(x){ return [x[0].toUpperCase(), x[1]]; })); }
+function spArt(mp){ mp = String(mp || ""); if(/Stufe/.test(mp)) return "st"; if(/^\d+(\/\d+)+$/.test(mp)) return "opt"; if(/^\d+$/.test(mp)) return "fest"; return "frei"; }
+function spKost(r){
+  if(!r || !r.n) return 0; if(r.k !== "" && r.k != null && !isNaN(+r.k)) return +r.k;
+  var m = spRec(r.n) || {}, mp = String(m.mp || ""), st = Math.max(1, +r.st || 1), z = zahlen(mp), a = spArt(mp), k = 0;
+  if(a === "st") k = (z[0] || 0) * st; else if(a === "opt") k = z[Math.min(z.length, st) - 1]; else k = z[0] || 0;
+  spMods(r.n).forEach(function(x){ var i = (r.mo || {})[x[0]]; if(i == null) return; var v = zahlen(x[1]); var w = v[Math.min(i, v.length - 1)] || 0; k += /Stufe/.test(x[1]) ? w * st : w; });
+  return Math.max(1, k);
+}
+function spInfo(c){
+  var st = +c.sst || 3, tot = st * 15, lim = Math.floor(tot / (c.ta.some(function(t){ return t && t.n === "Der Beste"; }) ? 2 : 3)), used = 0;
+  (c.sp || []).forEach(function(r){ used += spKost(r); });
+  return {st: st, tot: tot, lim: lim, used: used};
+}
+function spOpen(el){
+  var i = +el.dataset.spm, r = cur.sp[i] || {}, mo = r.mo || {};
+  popAt(el, {cls: "spop", html: spMods(r.n).map(function(x){ var v = String(x[1]).split("/"), on = mo[x[0]];
+    return '<div class="spm"><span>' + esc2(x[0]) + "</span>" + v.map(function(w, j){ return '<a data-mo="' + esc2(x[0]) + '" data-j="' + j + '"' + (on === j ? ' class="on"' : "") + ">" + esc2(w.trim()) + "</a>"; }).join("") + "</div>"; }).join("")});
+  pop._spi = i; pop._el = el;
+}
 /* Aufbaupunkte: 5 Attribut-, 12 Fertigkeitspunkte, freie Talente; Rest aus Handicaps (max. 4) und Aufstiegen (je 2) */
 function punkte(c){
   var cB = basis(c), F = fx(cB), p = cost(cB), hp = 0; c = cB;
   c.hi.forEach(function(x){ if(x && x.n) hp += x.w === "S" ? 2 : 1; });
-  var auf = aufN(c), tal = c.ta.filter(function(t){ return t && t.n; }).length + (c.ah && !F.ah && c.ahAdv == null ? 1 : 0), aufU = (c.auf || []).filter(function(A){ return A && A.art; }).length;
+  var auf = aufN(c), tal = c.ta.filter(function(t){ return t && t.n && t.n !== "Superkräfte"; }).length + (c.ah && !F.ah && c.ahAdv == null ? 1 : 0), aufU = (c.auf || []).filter(function(A){ return A && A.art; }).length;
   var A = 5 + (F.apts || 0), S2 = 12 + (F.spts || 0);
   var used = Math.max(0, p.at - A) * 2 + Math.max(0, p.fp - S2) + Math.max(0, tal - (F.frei || 0)) * 2;
   return {at: p.at, fp: p.fp, A: A, S: S2, hp: hp, auf: auf, aufU: aufU, tal: tal, frei: F.frei || 0, used: used, budget: Math.min(4, hp)};
@@ -339,27 +376,31 @@ function lAusr(){
 function liste(kind, ctx, own){
   var c = cur, F = fx(c), R = rangIdx(c), T = talenteVon(c, F), H = handicapsVon(c, F).map(function(n){ return n.replace(/\s*\(.*$/, ""); });
   if(kind === "volk") return allVoelker().filter(function(v){ return vis(v.s); }).map(function(v){ return {n: v.n, s: v.s, v: v}; });
-  if(kind === "ha") return SW_HANDICAPS.filter(function(h){ return vis(h.s); }).concat((window.SW_HANDICAPS_ZUS || []).filter(function(h){ return vis(h.s); }))
-    .filter(function(h){ return H.indexOf(h.n) < 0; })
+  if(kind === "ha") return HAL().filter(function(h){ return vis(h.s); })
+    .filter(function(h){ return H.indexOf(h.n) < 0 || h.n === own; })
     .map(function(h){ return {n: h.n, sub: h.w, s: h.s, h: h}; });
-  if(kind === "ta") return SW_TALENTE.filter(function(t){ return vis(t.s) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0 || t.n === own); })
+  if(kind === "ta") return SW_TALENTE.filter(function(t){ return vis(t.s) && !/^Arkaner Hintergrund \(/.test(t.n) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0 || t.n === own); })
     .map(function(t){ var A = ahFx(ahName(c, F)), why = warum(c, F, t.v, t.r);
+      if(!why && t.n !== own && !leistbar(function(k){ k.ta = k.ta.filter(function(x){ return !x || x.n !== own; }); k.ta.push({n: t.n}); })) why = "keine Punkte";
       if(!why && A.erlaubt && t.k === "Macht" && A.erlaubt.indexOf(t.n) < 0 && !/Arkaner Hintergrund \((?:[^)]*, )?Alchemist/.test(t.v || "")) why = "nicht für " + ahName(c, F);
       return {n: t.n, sub: t.k + (t.r != null ? ", " + RAENGE[t.r] : ""), s: t.s, why: why}; });
   if(kind === "sk"){ var ak = ahSkill(c, F);
     return SW_SKILLS.map(function(s){ return {n: s.n, a: s.a, s: ["GRW"], sub: s.g ? "Grund" : ""}; }).concat((window.SW_SKILLS_ZUS || []).filter(function(s){ return vis(s.s); }).map(function(s){ return {n: s.n, a: s.a, s: s.s}; }))
-      .filter(function(s){ return s.a === ctx; }).map(function(s){ s.why = ARK[s.n] && s.n !== ak ? "Arkaner Hintergrund" : null; return s; }); }
-  if(kind === "apr"){ var row = c.ma[+ctx] || {}, pm = (window.SW_MACHTE || []).filter(function(x){ return x.n === row.n; })[0], A2 = ahFx(ahName(c, F));
+      .filter(function(s){ return s.a === ctx; }).map(function(s){ s.why = ARK[s.n] && s.n !== ak ? "Arkaner Hintergrund" : !c.sk.some(function(x){ return x.n === s.n; }) && !own && !leistbar(function(k){ k.sk.push({n: s.n, a: s.a, d: "W4"}); }) ? "keine Punkte" : null; return s; }); }
+  if(kind === "apr"){ var row = c.ma[+ctx] || {}, pm = MA().filter(function(x){ return x.n === row.n; })[0], A2 = ahFx(ahName(c, F));
     var L2 = (A2.elem ? elemente(c) : []).map(function(e){ return {n: e, sub: "Element"}; });
     String(pm && pm.au || "").split(/,\s*|\s+oder\s+/).forEach(function(t){ t = t.trim(); if(t && !L2.some(function(x){ return x.n.toLowerCase() === t.toLowerCase(); })) L2.push({n: t.charAt(0).toUpperCase() + t.slice(1), sub: "Ausprägung"}); });
     return L2; }
+  if(kind === "sup"){ var hs = (c.sp || []).filter(function(r){ return r && r.n; }).map(function(r){ return r.n; }), SI2 = spInfo(c);
+    return MA().filter(function(m){ return (m.s || [])[0] === "SUP" && hs.indexOf(m.n) < 0; }).map(function(m){ var z = zahlen(m.mp)[0] || 0; return {n: m.n, sub: "Kosten " + m.mp, m: m, why: z > SI2.lim ? "über dem Limit" : null}; }); }
   if(kind === "wa") return lWaffen().map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; return w; });
   if(kind === "ru") return lRuestung().map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; return w; });
   if(kind === "au") return lAusr();
-  if(kind === "ah") return (c.ah ? [{n: "Kein Arkaner Hintergrund", rm: 1}] : []).concat((window.SW_AH || []).filter(function(a){ return vis(a.s) && a.n !== c.ah; }).map(function(a){ return {n: a.n, sub: a.f, s: a.s, ah: a, why: a.req ? warum(c, F, a.req) : null}; }));
+  if(kind === "ah") return (c.ah ? [{n: "Kein Arkaner Hintergrund", rm: 1}] : []).concat(AHL().filter(function(a){ return vis(a.s) && a.n !== c.ah; }).map(function(a){ return {n: a.n, sub: a.f, s: a.s, ah: a, why: a.req ? warum(c, F, splitTop(a.req).filter(function(x){ return x.indexOf(String(a.f || "-").replace(/\s*\(.*$/, "") + " ") !== 0; }).join(", ")) : null}; }));
   if(kind === "ma"){ var ah = ahRec(ahName(c, F)), have = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return m.n; });
     if(!ahName(c, F)) return [];
-    return (window.SW_MACHTE || []).filter(function(m){ return vis(m.s || ["GRW"]) && have.indexOf(m.n) < 0; })
+    var seen = {};
+    return MA().filter(function(m){ if((m.s || [])[0] === "SUP") return false; if(!(vis(m.s || ["GRW"]) || (ah && ah.av && ah.av.indexOf(m.n) > -1)) || have.indexOf(m.n) > -1 || seen[m.n]) return false; if(ah && ah.dl && ah.av && ah.av.indexOf(m.n) > -1 && !m.dl && MA().some(function(x){ return x.dl && x.n === m.n; })) return false; seen[m.n] = 1; return true; })
       .map(function(m){ var A = ahFx(ahName(c, F)), r = A.rang[m.n] != null ? A.rang[m.n] : m.r;
         var why = r != null && r > R ? RAENGE[r] : ah && ah.av && ah.av.indexOf(m.n) < 0 ? "nicht für " + ah.n : A.nur[m.n] && elemente(c).length && elemente(c).indexOf(A.nur[m.n]) < 0 ? "nur " + A.nur[m.n] : null;
         return {n: m.n, sub: "Rang " + (r != null ? RAENGE[r] : "") + (A.nur[m.n] ? ", nur " + A.nur[m.n] : ""), s: m.s || ["GRW"], m: m, why: why}; }); }
@@ -453,6 +494,16 @@ function sheet(){
     for(i = 0, n = Math.max(rows("ma"), Math.min(10, maxMa)); i < n; i++) h += '<div class="r"><span class="g">' + inp("ma", i, "n", {pick: "ma"}) + '</span><span class="c" style="width:34px">' + inp("ma", i, "mp", {cls: "num"}) + '</span><span class="c" style="width:110px">' + inp("ma", i, "rw", {cls: "sm"}) + '</span><span class="c" style="width:90px">' + inp("ma", i, "wd", {cls: "sm"}) + '</span><span class="c" style="width:230px">' + inp("ma", i, "nt", {cls: "sm", pick: "apr", ctx: String(i)}) + "</span></div>";
     h += "</div></div>";
   }
+  if(hatSuper(c)){
+    c.sp = c.sp || []; var SI = spInfo(c), nsp = Math.max(4, (function(){ var l = -1; c.sp.forEach(function(x, k){ if(x && x.n) l = k; }); return l + 2; })());
+    h += '<div class="box bsup"><h3>Superkräfte<span class="cnt' + (SI.used > SI.tot ? " ov" : "") + '">' + SI.used + " / " + SI.tot + "</span></h3>" +
+      '<div class="bah"><div class="el"><span class="cap">Machtstufe</span><span class="els">' + [1, 2, 3, 4, 5].map(function(k){ return '<a data-sst="' + k + '" class="' + (SI.st === k ? "on" : "") + '">' + ROEM[k] + "</a>"; }).join("") + '</span></div><div><span class="cap">Limit pro Kraft</span><b>' + SI.lim + "</b></div></div>" +
+      '<div class="lst"><div class="r hd"><span class="g">Kraft</span><span class="c" style="width:44px">Stufe</span><span class="c" style="width:300px">Modifikatoren</span><span class="c" style="width:44px">Kosten</span></div>';
+    for(i = 0; i < nsp; i++){ var sr = c.sp[i] || {}, kk = spKost(sr), sm = spRec(sr.n), art = sm ? spArt(sm.mp) : "", mo = sr.mo || {};
+      var mt = Object.keys(mo).map(function(k){ var x = spMods(sr.n).filter(function(y){ return y[0] === k; })[0]; return k + " " + (x ? String(x[1]).split("/")[mo[k]] || "" : ""); }).join(", ");
+      h += '<div class="r"><span class="g">' + inp("sp", i, "n", {pick: "sup", tip: sm ? "Kosten " + sm.mp : ""}) + '</span><span class="c" style="width:44px">' + (sr.n && (art === "st" || art === "opt" || /Stufe/.test(JSON.stringify(sm && sm.m || ""))) ? '<input class="num" type="number" min="1" data-a="sp" data-i="' + i + '" data-f="st" value="' + esc2(sr.st || 1) + '">' : "") + '</span><span class="c" style="width:300px">' + (sr.n ? '<button class="twb spmb' + (mt ? "" : " leer") + '" data-spm="' + i + '">' + esc2(mt || "Modifikatoren") + "</button>" : "") + '</span><span class="c" style="width:44px"><input class="num' + (kk > SI.lim ? " warn" : "") + '" data-a="sp" data-i="' + i + '" data-f="k" placeholder="' + (sr.n ? kk : "") + '" value="' + esc2(sr.k == null ? "" : sr.k) + '"' + (kk > SI.lim ? ' title="über dem Limit"' : "") + "></span></div>"; }
+    h += "</div></div>";
+  }
   var nA = aufN(c), AL = c.auf || [], nS = Math.max(nA, AL.reduce(function(m, A, k){ return A && A.art ? k + 1 : m; }, 0));
   if(nS){
     h += '<div class="box baufb"><h3>Aufstiege<span class="cnt">' + AL.filter(function(A){ return A && A.art; }).length + " / " + nA + '</span></h3><div class="lst baufl">';
@@ -532,7 +583,7 @@ function ahSetzen(x){
   var an = (a.f || "").replace(/\s*\((Verstand|Willenskraft|Geschicklichkeit|Stärke|Konstitution)\)$/, ""), aa = (/\((Verstand|Willenskraft|Geschicklichkeit|Stärke|Konstitution)\)$/.exec(a.f || "") || [0, "Verstand"])[1];
   if(an && !cur.sk.some(function(s){ return s.n === an; })) cur.sk.push({n: an, a: aa, d: "W4"});
   var have = cur.ma.filter(function(m){ return m && m.n; }).map(function(m){ return m.n; });
-  ahFx(x.n).start.forEach(function(pn){ if(have.indexOf(pn) > -1) return; var pm = SW_MACHTE.filter(function(mm){ return mm.n === pn; })[0]; if(!pm) return; var slot = cur.ma.findIndex(function(m){ return !m || !m.n; }); var row = {n: pm.n, mp: pm.mp || "", rw: pm.rw || "", wd: pm.wd || "", nt: "", auto: 1}; if(slot < 0) cur.ma.push(row); else cur.ma[slot] = row; });
+  ahFx(x.n).start.forEach(function(pn){ if(have.indexOf(pn) > -1) return; var pm = MA().filter(function(mm){ return mm.n === pn; })[0]; if(!pm) return; var slot = cur.ma.findIndex(function(m){ return !m || !m.n; }); var row = {n: pm.n, mp: pm.mp || "", rw: pm.rw || "", wd: pm.wd || "", nt: "", auto: 1}; if(slot < 0) cur.ma.push(row); else cur.ma[slot] = row; });
 }
 function pickTake(x){
   var el = pickEl; if(!el) return; var kind = el._kind || el.dataset.pick;
@@ -552,10 +603,11 @@ function pickTake(x){
       if(an && !cur.sk.some(function(s){ return s.n === an; })) cur.sk.push({n: an, a: aa, d: "W4"});
       cur.ahw = ""; cur.ma = cur.ma.map(function(m){ return m && m.auto ? {} : m; });
       var have = cur.ma.filter(function(m){ return m && m.n; }).map(function(m){ return m.n; });
-      ahFx(x.n).start.forEach(function(pn){ if(have.indexOf(pn) > -1) return; var pm = SW_MACHTE.filter(function(mm){ return mm.n === pn; })[0]; if(!pm) return; var slot = cur.ma.findIndex(function(m){ return !m || !m.n; }); var row = {n: pm.n, mp: pm.mp || "", rw: pm.rw || "", wd: pm.wd || "", nt: "", auto: 1}; if(slot < 0) cur.ma.push(row); else cur.ma[slot] = row; }); }
+      ahFx(x.n).start.forEach(function(pn){ if(have.indexOf(pn) > -1) return; var pm = MA().filter(function(mm){ return mm.n === pn; })[0]; if(!pm) return; var slot = cur.ma.findIndex(function(m){ return !m || !m.n; }); var row = {n: pm.n, mp: pm.mp || "", rw: pm.rw || "", wd: pm.wd || "", nt: "", auto: 1}; if(slot < 0) cur.ma.push(row); else cur.ma[slot] = row; }); }
   } else {
     var arr = cur[el.dataset.a], i = +el.dataset.i; while(arr.length <= i) arr.push({});
     if(kind === "ha") arr[i] = {n: x.n, w: /^schwer$/.test((x.h && x.h.w) || "") ? "S" : "L"};
+    else if(kind === "sup") arr[i] = {n: x.n, st: 1, mo: {}};
     else if(kind === "ma") arr[i] = x.m ? {n: x.n, mp: x.m.mp || "", rw: x.m.rw || "", wd: x.m.wd || "", nt: ""} : {n: x.n};
     else if(x.f) arr[i] = Object.assign({}, x.f); else arr[i] = {n: x.n};
   }
@@ -582,7 +634,7 @@ function aufKlick(el){
 function ziel(el, i, art){
   var c = cur, F = fx(c), R = slotRang(i), T = talenteVon(c, F);
   if(art === "ta"){
-    var L = SW_TALENTE.filter(function(t){ return vis(t.s) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0) && !(t.n === "Arkaner Hintergrund" && ahName(c, F)); })
+    var L = SW_TALENTE.filter(function(t){ return vis(t.s) && !/^Arkaner Hintergrund \(/.test(t.n) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0) && !(t.n === "Arkaner Hintergrund" && ahName(c, F)); })
       .map(function(t){ return {v: t.n, l: t.n, s: t.s, sub: t.k + ", " + RAENGE[t.r || 0], why: warum(c, F, t.v, t.r, R)}; }).sort(function(a, b){ return (a.why ? 1 : 0) - (b.why ? 1 : 0); });
     menu(el, L, function(x){ if(x.v === "Arkaner Hintergrund"){ setTimeout(function(){ menu(el, liste("ah").filter(function(a){ return !a.rm; }).map(function(a){ return {v: a.n, l: a.n, s: a.s, sub: a.sub, why: a.why, ah: a.ah}; }), function(y){ ahSetzen({n: y.v, ah: y.ah}); cur.ahAdv = i; aufSetzen(i, {art: "ta", z: "Arkaner Hintergrund"}); }); }, 0); return; } aufSetzen(i, {art: "ta", z: x.v}); });
   } else if(art === "a"){
@@ -632,7 +684,8 @@ function dieOpen(el){
   (cur.auf || []).forEach(function(A){ if(!A) return; if(f === "a" && A.art === "a" && A.z === zk) nA++; else if(f === "s" && ((A.art === "f1" && A.z === zk) || (A.art === "f2" && (A.z || []).indexOf(zk) > -1))) nA++; });
   if(f === "a"){ lo = aStart(F, el.dataset.f) + nA; hi = aMax(F, el.dataset.f); }
   else if(f === "s"){ var sn = cur.sk[el.dataset.i].n; lo = Math.max(1, skStart(F, sn) + nA); hi = skMax(F, sn); }
-  var h = DIE.slice(lo, hi + 1).map(function(d){ return '<span class="' + (d === cu ? "on" : "") + '" data-d="' + d + '">' + d + "</span>"; }).join("") + (f === "s" && !nA && !skStart(F, cur.sk[el.dataset.i].n) ? '<span data-d="">✕</span>' : "");
+  var h = DIE.slice(lo, hi + 1).map(function(d){ var ok = d === cu || di(d) < di(cu) || leistbar(function(k){ if(f === "a") k.a[el.dataset.f] = d; else k.sk[el.dataset.i].d = d; });
+    return '<span class="' + (d === cu ? "on" : ok ? "" : "nein") + '"' + (ok ? ' data-d="' + d + '"' : ' title="Keine Punkte mehr"') + ">" + d + "</span>"; }).join("") + (f === "s" && !nA && !skStart(F, cur.sk[el.dataset.i].n) ? '<span data-d="">✕</span>' : "");
   popAt(el, {html: h, cls: "dpop"}); pop._el = el;
 }
 function dieTake(d){
@@ -657,7 +710,7 @@ function wire(){
     var el = e.target; if(!el.dataset || el.dataset.sd == null && el.dataset.f == null) return;
     if(el.dataset.a && el.dataset.a !== "$" && el.dataset.a !== "sk" && el.dataset.f === "n" && !el.value.trim()){ cur[el.dataset.a][el.dataset.i] = {}; persist(); neuAufbau(); return; }
     if(el.dataset.a === "sk" && el.dataset.f === "n" && !el.value.trim() && !KERN[cur.sk[el.dataset.i].n]){ cur.sk.splice(el.dataset.i, 1); persist(); neuAufbau(); return; }
-    if(el.dataset.sd != null || el.dataset.f === "n" || el.dataset.f === "ms" || el.dataset.f === "ep") neuAufbau();
+    if(el.dataset.sd != null || el.dataset.f === "n" || el.dataset.f === "ms" || el.dataset.f === "ep" || el.dataset.a === "sp") neuAufbau();
   });
   A.addEventListener("focusin", function(e){ var el = e.target; if(el.dataset && el.dataset.pick){ if(pickEl !== el) pickAll = false; pickOpen(el, true); } });
   A.addEventListener("keydown", function(e){
@@ -678,6 +731,9 @@ function wire(){
     if(al){ e.preventDefault(); pickAll = !pickAll; pickOpen(pickEl); return; }
     var d = e.target.closest ? e.target.closest(".bpop div[data-i]") : null;
     if(d){ e.preventDefault(); pickTake(pickList[+d.dataset.i]); return; }
+    var mo = e.target.closest ? e.target.closest(".bpop a[data-mo]") : null;
+    if(mo){ e.preventDefault(); var sr = cur.sp[pop._spi]; sr.mo = sr.mo || {}; var j = +mo.dataset.j; if(sr.mo[mo.dataset.mo] === j) delete sr.mo[mo.dataset.mo]; else sr.mo[mo.dataset.mo] = j; persist(); var bi = pop._spi; neuAufbau(); var nb = document.querySelector('[data-spm="' + bi + '"]'); if(nb) spOpen(nb); return; }
+    if(e.target.closest && e.target.closest(".bpop.spop")) return;
     var s = e.target.closest ? e.target.closest(".bpop span[data-d]") : null;
     if(s){ e.preventDefault(); dieTake(s.dataset.d); return; }
     if(!e.target.closest(".bpop") && !(e.target.dataset && (e.target.dataset.pick || e.target.dataset.die))) popClose();
@@ -688,6 +744,8 @@ function wire(){
     var au = el.closest && el.closest("[data-auf]"); if(au){ aufKlick(au); return; }
     if(el.dataset && el.dataset.ahrow){ el._kind = "ah"; pickAll = false; pickOpen(el, true); return; }
     if(el.dataset && el.dataset.tw != null){ twOpen(el); return; }
+    if(el.dataset && el.dataset.sst){ cur.sst = +el.dataset.sst; persist(); neuAufbau(); return; }
+    if(el.dataset && el.dataset.spm != null){ spOpen(el); return; }
     if(el.dataset && el.dataset.elem){ var L = elemente(cur), E1 = el.dataset.elem, nmax = elemMax(cur); if(L.indexOf(E1) > -1) L.splice(L.indexOf(E1), 1); else { if(L.length >= nmax) L.pop(); L.push(E1); } cur.ahw = L; persist(); neuAufbau(); return; }
     if(el.dataset && el.dataset.vw != null){ var alt = fx(cur); cur.vw = cur.vw || {}; cur.vw[el.dataset.vw] = +el.dataset.o; wechsle(cur, alt, fx(cur)); persist(); neuAufbau(); return; }
     if(el.dataset && el.dataset.w != null){ var i = +el.dataset.w; if(cur.hi[i] && cur.hi[i].n){ cur.hi[i].w = cur.hi[i].w === "S" ? "L" : "S"; persist(); neuAufbau(); } return; }
@@ -740,7 +798,7 @@ function tplAus(t){
   return o;
 }
 function machtTpl(n){
-  var m = (window.SW_MACHTE || []).filter(function(x){ return x.n === n; })[0], o = (MTPL[n] || []).map(function(k){ return TPLK[k]; });
+  var m = MA().filter(function(x){ return x.n === n; })[0], o = (MTPL[n] || []).map(function(k){ return TPLK[k]; });
   if(m) (m.m || []).forEach(function(md){ if(/^FLÄCHENEFFEKT/.test(md[0])){ var t = tplAus(md[2]); if(!t.length) t = ["mfs", "gfs"]; t.forEach(function(k){ if(o.indexOf(k) < 0) o.push(k); }); } });
   return o;
 }

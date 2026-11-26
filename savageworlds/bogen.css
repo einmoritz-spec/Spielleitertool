@@ -163,3 +163,21 @@
 .lst .r.abg input:not(.bw1){text-decoration:line-through;color:#999}
 .bpop .mf{display:block;width:100%;border:0;border-bottom:1px solid #eee;padding:7px 10px;font:13px Pal,serif;outline:0;position:sticky;top:0;background:#fff}
 @media print{.aufs.leer{color:transparent}}
+.bpop.dpop span.nein{opacity:.28;cursor:default;border-style:dashed}
+.bpop.dpop span.nein:hover{background:none;color:inherit;border-color:#1a1a1a}
+.bsup .bah{grid-template-columns:auto 1fr}
+.bsup .bah .el{grid-column:auto;border-bottom:1px solid #999;height:20px;padding-top:0}
+.bsup .bah>div:last-child{justify-content:flex-end}
+.bsup .bah>div:last-child b{width:30px;text-align:center}
+.lst .spmb{width:100%;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bpop.spop{padding:4px 0;max-height:340px;overflow:auto}
+.bpop .spm{display:flex;align-items:center;gap:4px;padding:3px 10px}
+.bpop .spm span{flex:1;font:13px Pal,serif}
+.bpop .spm a{font:600 11px Oswald,sans-serif;padding:1px 7px;border:1px solid #c9bfae;border-radius:3px;cursor:pointer;color:#555;min-width:22px;text-align:center}
+.bpop .spm a:hover{border-color:#a51f1a}
+.bpop .spm a.on{background:#a51f1a;border-color:#a51f1a;color:#fff}
+.lst input[type=number]{-moz-appearance:textfield}
+.lst input[type=number]::-webkit-inner-spin-button{display:none}
+.lst .spmb{font:600 9.5px Oswald,sans-serif;letter-spacing:.03em}
+.bpop .spm span{font:600 11px Oswald,sans-serif;letter-spacing:.03em;color:#333}
+.bsup input[data-f=k]::placeholder{color:#1a1a1a;opacity:1}

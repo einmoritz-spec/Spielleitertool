@@ -3166,7 +3166,7 @@ var SW_TALENTE = [
 "n": "Unaufhaltsam",
 "k": "Legendär",
 "r": 4,
-"v": "Konstitution W10+, Eisenkiefer, Nerven aus Stahl",
+"v": "Konstitution W10+, Eisenkiefer, Schmerzresistenz",
 "w": 1,
 "b": [
 "Der Held ist eine unwiderstehliche Naturgewalt, unerschrocken angesichts von Entbehrungen und standhaft vor den scheinbar unüberwindlichsten Hindernissen. Er besitzt die Monströse Fähigkeit Unaufhaltsam."
@@ -3182,7 +3182,7 @@ var SW_TALENTE = [
 "n": "Kriegsschar",
 "k": "Legendär",
 "r": 4,
-"v": "Befehlsgewalt und mindestens zwei weitere Anführertalente, Gefolgsleute",
+"v": "Anführer und mindestens zwei weitere Anführertalente, Gefolgsleute",
 "w": 1,
 "b": [
 "Legendäre Anführer ziehen hingebungsvolle Kämpfer an ihre Seite. Jedes Mal, wenn dieses Talent gewählt wird, erhalten fünf Gefolgsleute des Champions die Monströse Fähigkeit Widerstandsfähig."
@@ -3764,7 +3764,7 @@ var SW_TALENTE = [
 "n": "Mut",
 "k": "Anführer",
 "r": 1,
-"v": "Befehlsgewalt, Überreden W8+",
+"v": "Anführer, Überreden W8+",
 "w": 0,
 "b": [
 "Ein ruhiger, standhafter Held inspiriert die Menschen um sich, selbst angesichts überwältigenden Grauens. Jeder Verbündete im Befehlsradius erhält eine kostenlose Wiederholung einer misslungenen Furchtprobe."
@@ -5137,7 +5137,7 @@ var SW_TALENTE = [
 "n": "Kapitän",
 "k": "Hintergrund",
 "r": 0,
-"v": "Befehlsgewalt, Pilot W8+",
+"v": "Anführer, Pilot W8+",
 "w": 0,
 "b": [
 "Dein Raumfahrer besitzt ein eigenes leichtes Frachtschiff oder einen Aufklärer. Vielleicht hat sie es geerbt, gestohlen oder sogar legal gekauft. Sie ist für Wartung und Treibstoffkosten verantwortlich, heuert Besatzung an, sichert Charteraufträge und trägt alle anderen Pflichten, die der Besitz eines eigenen Raumschiffs mit sich bringt.",
@@ -5220,7 +5220,7 @@ var SW_TALENTE = [
 "n": "Teamleiter",
 "k": "Anführer",
 "r": 1,
-"v": "Befehlsgewalt, Gemeinsames Band, Geborener Anführer",
+"v": "Anführer, Selbstlos, Geborener Anführer",
 "w": 0,
 "b": [
 "Teamleiter sind hervorragend darin, Menschen dazu zu bringen, wie ein sprichwörtlich gut geöltes Räderwerk zusammenzuarbeiten. Mit diesem Talent dürfen alle Verbündeten im Befehlsradius des Helden (siehe Anführertalente im Grundregelwerk) Bennys tauschen, als hätten alle das Talent Gemeinsames Band."
@@ -5269,7 +5269,7 @@ var SW_TALENTE = [
 "n": "Ausweichmanöver",
 "k": "Experten",
 "r": 2,
-"v": "Ass",
+"v": "Ass am Steuer",
 "w": 0,
 "b": [
 "Dieser Fahrzeug-Champion fliegt seinen Gegnern Kreise um die Ohren. Das Talent kann nur eingesetzt werden, solange der Charakter ein Fahrzeug steuert. Zu Rundenbeginn, nachdem alle Aktionskarten erhalten haben und alle Talente, Bennys und anderen Fähigkeiten (außer Mächten) berücksichtigt wurden, kann der Charakter einen Benny ausgeben, um seine Aktionskarte mit der eines beliebigen gegnerischen Fahrzeugs der Begegnung zu tauschen (oder der Gruppe, falls mehrere Fahrzeuge auf einer Karte handeln)."
@@ -5333,7 +5333,7 @@ var SW_TALENTE = [
 "n": "Raketenjockey",
 "k": "Experten",
 "r": 1,
-"v": "Ass",
+"v": "Ass am Steuer",
 "w": 0,
 "b": [
 "Der Raumfahrer ignoriert den Mehrfachaktionsabzug, wenn er einen Seefahrt-, Fahren- oder Pilot-Wurf ablegt und in derselben Runde eine weitere Aktion ausführt. Das ist entscheidend für Einsitzer-Kampfpiloten, die manövrieren und im selben Zug angreifen müssen."
@@ -5365,7 +5365,7 @@ var SW_TALENTE = [
 "n": "Wundertäter",
 "k": "Legendär",
 "r": 4,
-"v": "Mr. Fix It",
+"v": "Reparaturgenie",
 "w": 0,
 "b": [
 "Dieser hochqualifizierte Ingenieur kann gelegentlich Wunder mit Maschinen und Geräten vollbringen. Einmal pro Sitzung kann er eine Reparieren-Probe (oder Elektronik, je nach Fall) mit –2 ablegen, die normalerweise Stunden oder Tage dauern würde, als einzelne begrenzte Aktion.",
@@ -6164,7 +6164,7 @@ var SW_TALENTE = [
 "n": "Kundschafter (Weird West)",
 "k": "Experten",
 "r": 1,
-"v": "Waldläufer",
+"v": "Naturbursche",
 "w": 0,
 "b": [
 "Kundschafter sind Meister darin, sich in der weiten Wildnis des Westens zurechtzufinden. Zieht der Marshal eine Bildkarte, während die Posse unterwegs ist – das Zeichen für eine Begegnung –, kann der Kundschafter eine Wahrnehmungsprobe mit –2 ablegen, um die Gefahr, das Vieh oder das Ereignis als Erster zu bemerken. Kundschafter gelten bei Wahrnehmungsproben gegen Heimlichkeit stets als wachsam, ignorieren bis zu 2 Punkte Abzüge auf Überleben-Proben zum Spurenlesen und erhalten mit einer Steigerung genauere Informationen darüber, was sie verfolgen. Außerdem addieren sie +2 auf Allgemeinwissen-Proben, um Informationen über Städte, Außenposten, Landmarken, Wasserstellen, Leute oder Stämme entlang einer Route abzurufen, die sie schon bereist haben."
@@ -6365,7 +6365,7 @@ var SW_TALENTE = [
 "n": "Rechte Hand des Teufels",
 "k": "Legendär",
 "r": 4,
-"v": "Markenwaffe, Schießen, Kämpfen oder Athletik W10+",
+"v": "Lieblingswaffe, Schießen, Kämpfen oder Athletik W10+",
 "w": 0,
 "b": [
 "Dein Held ist schnell am Abzug und weit und breit als übler Bursche bekannt. Die Leute nennen ihn die Rechte Hand des Teufels (oder die Linke, wenn dein Cowboy eher zur sinistren als zur dexteren Sorte gehört).",

@@ -256,3 +256,20 @@ document.addEventListener("keydown", function(e){
   else if(e.key === "/" && window.sOpen){ e.preventDefault(); sOpen(); }
   else if(e.key === "s" && window.schirmOpen) schirmOpen();
 });
+
+/* Seitenverweise nur dort, wo sie etwas bringen: Der erste Verweis einer Seite bleibt (meist in der Überschrift).
+   Weitere Verweise auf dasselbe Buch entfallen, solange sie höchstens 3 Seiten vom zuletzt gezeigten entfernt sind. */
+function pgAufraeumen(){
+  var last = {}, ausn = ".side,.tabs,.topbar,.subtabs,.begl,.bfl,.modal,.bvx,.gal";
+  Array.prototype.forEach.call(document.querySelectorAll(".pg"), function(a){
+    if(a.closest(ausn)) return;
+    var m = /openBook\('([^']+)',\s*(\d+)\)/.exec(a.getAttribute("onclick") || ""); if(!m) return;
+    var b = m[1], n = +m[2];
+    if(last[b] != null && Math.abs(n - last[b]) <= 3) a.remove(); else last[b] = n;
+  });
+}
+window.addEventListener("load", function(){
+  var o = window.render; if(!o || o.__pg) return;
+  window.render = render = function(){ var r = o.apply(this, arguments); try{ pgAufraeumen(); }catch(e){} return r; };
+  window.render.__pg = 1; try{ pgAufraeumen(); }catch(e){}
+});

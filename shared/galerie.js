@@ -113,11 +113,11 @@ var Galerie = (function(){
   }
   function showImg(i){
     var n = cur.items.length; idx = (i + n) % n;
-    var it = cur.items[idx], img = lb.querySelector(".gal-img"), my = idx, full = cur.dir + "full/" + it[0] + ".webp";
+    var it = cur.items[idx], img = lb.querySelector(".gal-img"), my = idx, full = it[4] || cur.dir + "full/" + it[0] + ".webp";
     img.src = cur.dir + "thumb/" + it[0] + ".webp"; img.classList.add("loading");
     var f = new Image(); f.onload = function(){ if(my === idx && lb){ img.src = full; img.classList.remove("loading"); } }; f.src = full;
     lb.querySelector(".gal-cap").textContent = (it[3] ? it[3] + "  ·  " : "") + (idx + 1) + " / " + n;
-    [1, -1].forEach(function(d){ var j = cur.items[(idx + d + n) % n]; (new Image()).src = cur.dir + "full/" + j[0] + ".webp"; });
+    [1, -1].forEach(function(d){ var j = cur.items[(idx + d + n) % n]; (new Image()).src = j[4] || cur.dir + "full/" + j[0] + ".webp"; });
   }
   function go(d){ if(lb && !lb.hidden) showImg(idx + d); }
   function onKey(e){

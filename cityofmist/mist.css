@@ -445,3 +445,22 @@ html,body{overflow-x:hidden}
 .omain>.avhero .ice-wrap.org{width:auto!important;max-width:none!important}
 .omain>.avhero .ice-wrap.org img{max-width:none!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain}
 @media (max-width:1250px){.omain>.avhero .ice-wrap.org img{height:340px!important}}
+
+/* Kopfzeile mit Reitern und Unterleiste (Welt · Charaktere · Regeln · Spielleitung) */
+.ktabs{display:flex;gap:2px;margin-left:18px;align-self:stretch;align-items:stretch}
+.ktabs a{display:flex;align-items:center;padding:0 16px;font:500 15px/1 var(--cond);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-12px;padding-bottom:12px;margin-top:-10px;padding-top:10px}
+.ktabs a:hover{color:#fff}
+.ktabs a.on{color:#fff;border-bottom-color:var(--mag,#ff3fa4);background:rgba(255,255,255,.07)}
+.cmsub{display:none;position:sticky;top:57px;z-index:49;gap:2px;padding:0 18px;height:42px;align-items:center;background:#2a1346;border-bottom:1px solid rgba(255,63,164,.45);overflow-x:auto;scrollbar-width:none}
+.cmsub.on{display:flex}
+.cmsub a{padding:7px 14px;border-radius:99px;font:500 14px/1 var(--cond);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);cursor:pointer;white-space:nowrap}
+.cmsub a:hover{color:#fff}.cmsub a.on{background:rgba(255,63,164,.22);color:#fff}
+body.cmnav #app .tabs{display:none}
+body.cmnav .rwtoc{top:112px;max-height:calc(100vh - 124px)}
+body.cmnav .onav{top:118px;max-height:calc(100vh - 140px)}
+body.cmss-sl #app .pills{display:none}
+/* Aktiver Reiter geht nahtlos in die Unterleiste über: gleiche Farbe, keine Trennlinie */
+body.cmhassub .topbar{border-bottom:0;box-shadow:none}
+body.cmhassub .ktabs a.on{background:#2a1346;border-bottom-color:transparent;color:#fff}
+body.cmhassub .cmsub{top:54px}
+.cmsub{box-shadow:0 6px 22px rgba(26,10,46,.35)}

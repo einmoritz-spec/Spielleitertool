@@ -9,12 +9,13 @@ function ovCard(img,t,main,links,big){
     '<div class="ovc-b"><h3 onclick="'+main+'">'+t+'</h3>'+hubLinks(links)+'</div></div>';
 }
 function pageHub(){
+  var card=function(img,g,extra){ return ovCard(img,g.t,"go(\'"+g.items[0][1]+"\')",g.items.map(function(it){return [it[0],"go(\'"+it[1]+"\')"];}).concat(extra||[])); };
+  var G=function(id){ return CM_GRP.filter(function(g){return g.id===id;})[0]; };
   return '<div class="ovc"><div class="ovc-hero"><img src="../assets/hero/com-header.webp" alt="City of Mist"></div><div class="ovc-grid">'+
-   ovCard("../assets/hero/com-art.webp","Grundregelwerk","go(\'rw\')",[["Welt","gr(\'welt\')"],["Charakter","gr(\'charakter\')"],["Regeln","gr(\'regeln\')"],["Entwicklung","gr(\'entwicklung\')"],["Buch (PDF)","BV.open(\'rw\',1)"]])+
-   ovCard("../assets/hero/ss-art.webp","Shadows &amp; Showdowns","go(\'ss\')",[["Spieler","gs(\'spieler\')"],["Orte & NSCs","gs(\'sl/orte\')"],["Avatare","gs(\'sl/avatare\')"],["Gatekeeper","gs(\'sl/gatekeeper\')"],["Buch (PDF)","BV.open(\'cm\',1)"]])+
-   ovCard("img/galerie/mc-toolkit/full/mc_p01.webp","MC Toolkit","go(\'mc\')",[["Die Stadt","gm(\'stadt\')"],["Spielleitung","gm(\'spielleitung\')"],["Dangers","gm(\'dangers\')"],["Avatare","gm(\'avatare\')"]])+
-   ovCard("../assets/hero/com-regeln.webp","Kurz nachschlagen","gr(\'regeln/kurzreferenz\')",[["Kurzreferenz","gr(\'regeln/kurzreferenz\')"],["Aktionen","gr(\'regeln/aktionen\')"],["Zustände","gr(\'regeln/zustaende\')"],["Hinweise & Momentum","gr(\'regeln/hinweise\')"],["Nebencharaktere","gr(\'regeln/nebencharaktere\')"]])+
-   ovCard("img/tbh_enclave.webp","Themenbücher","go(\'tb\')",[["Mythos","go(\'tb\')"],["Logos","go(\'tb\')"],["Alle Bücher, ein Ort","go(\'tb\')"]])+
+   card("../assets/hero/com-art.webp",G("welt"))+
+   card("img/tbh_enclave.webp",G("charakter"))+
+   card("../assets/hero/com-regeln.webp",G("regeln"))+
+   card("img/galerie/mc-toolkit/full/mc_p01.webp",G("sl"))+
    ovCard("../assets/hero/ll-header.webp","Local Legends","switchTool(\'locallegends\')",[])+
    ovCard("../assets/hero/com-nights.webp","Nights of Paynetown","switchTool(\'paynetown\')",[])+
    '</div></div>';

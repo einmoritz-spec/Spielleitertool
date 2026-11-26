@@ -5,7 +5,7 @@ anomN = ['Whisper','Catalogue','Drain','Timepiece','Growth','Gun','Dream','Manif
 real = ['caretaker','overbooked','pursued','star','struggling','newborn','romantic','backbone','creature']
 realN = ['Caretaker','Overbooked','Pursued','Star','Struggling','Newborn','Romantic','Backbone','Creature']
 komp = ['pr','forschung-entwicklung','barista','ceo','praktikant','totengraeber','empfang','hotline','clown']
-kompN = ['PR','F&E','Barista','CEO','Praktikum','Totengräber','Empfang','Hotline','Clown']
+kompN = ['PR','R&D','Barista','CEO','Intern','Gravedigger','Reception','Hotline','Clown']
 def grid(pre, ids, ns):
     return '<div class="g9">' + ''.join(f'<a><i style="background-image:url({T}{pre}-{i}.webp)"></i><span>{n}</span></a>' for i, n in zip(ids, ns)) + '</div>'
 mis = [('01-springs-eternal','Springs Eternal','#9c609c'),('02-dead-quiet','Dead Quiet','#111'),('03-rom-dump','ROM Dump','#183c78'),('04-zbarro-641','ZBARRO #641','#c40c18'),('05-bower-street','Bower Street','#243078'),('06-gridhog','GRIDHOG','#e8791c'),('07-hollow-suit','Hollow Suit','#18483c'),('08-weird-dog','Weird Dog','#782424'),('09-planet-providence','Planet Providence','#3c246c'),('10-murder-at-gruntley-manor','Murder at Gruntley Manor','#b00c18'),('11-blame-it-on-the-trains','Blame it on the Trains','#0c5448'),('12-nosedive','Nosedive','#e43084')]
@@ -31,9 +31,9 @@ html = f'''<!doctype html><meta charset=utf-8><link rel=stylesheet href=base.css
 .akte li{{padding:5px 0 5px 16px;position:relative;break-inside:avoid}}
 .akte li:before{{content:"";position:absolute;left:0;top:10px;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;border-left:7px solid var(--c)}}
 .arc{{margin:54px 54px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}}
-.arc section{{border-top:6px solid var(--c);padding-top:16px}}
-.arc h3{{font-size:34px;color:var(--c);display:flex;align-items:flex-end;gap:2px}}
-.arc h3 u{{text-decoration:none;display:inline-block;width:38px;height:33px;background:var(--c);clip-path:polygon(50% 0,100% 100%,0 100%);color:#fff;font-size:21px;text-align:center;line-height:42px;margin-right:-3px}}
+.arc section{{border-top:6px solid var(--c);padding-top:30px}}
+.arc h3{{font-size:34px;color:var(--c);display:flex;align-items:baseline;line-height:1}}
+.arc h3 u{{text-decoration:none;display:inline-block;width:50px;height:43px;background:var(--c);clip-path:polygon(50% 0,100% 100%,0 100%);color:#fff;font-size:24px;text-align:center;line-height:64px;margin-right:-3px;align-self:flex-end;position:relative;top:-18px}}
 .g9{{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}}
 .g9 a{{background:var(--flieder);border-radius:10px;padding:8px 6px 7px;text-align:center}}
 .g9 i{{display:block;height:92px;background:center/contain no-repeat}}

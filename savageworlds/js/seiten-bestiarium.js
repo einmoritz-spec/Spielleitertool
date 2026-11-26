@@ -57,15 +57,16 @@ function krGrid(L){
 }
 function krSide(cats, cur){
   var vis = SW_KR.filter(krSicht);
-  var items = [["einl","Einleitung"],["faehig","Spezialfähigkeiten"],["groesse","Größentabelle"]];
+  var items = [["einl","Einleitung"],["faehig","Spezialfähigkeiten"],["groesse","Größentabelle"],["vari","Varianten & Schablonen"]];
   var s = '<aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>';
   var a = function(id, t){ return '<a class="' + (id === cur ? "on" : "") + '" onclick="krKat(\'' + id + '\')">' + esc(t) + "</a>"; };
   s += a("alle", "Alle Kreaturen");
   cats.forEach(function(c){ s += a("c:" + c, c); });
   s += '<div class="sdiv"></div>';
-  items.forEach(function(e){ if(e[0] === "faehig" && !SW_BEST.fah.some(function(f){ return !f.s || f.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); })) return; s += a(e[0], e[1]); });
+  items.forEach(function(e){ if(e[0] === "vari" && !krVari().length) return; if(e[0] === "faehig" && !SW_BEST.fah.some(function(f){ return !f.s || f.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); })) return; s += a(e[0], e[1]); });
   return s + "</aside>";
 }
+function krVari(){ return (SW_BEST.vari || []).filter(function(v){ return v.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }); }
 function krBar(){
   var q = ST.kq || "";
   return '<div class="kbar"><input id="kq" type="search" placeholder="Suchen" value="' + esc(q) + '" oninput="krSuche(this.value)" autocomplete="off"><a class="' + (ST.kw ? "on" : "") + '" onclick="krWild()"><img class="wcs" src="img/wc.webp" alt="">Wildcards</a></div>';
@@ -75,12 +76,21 @@ function krPage(){
   var cur = ST.kk || "alle";
   if(cur.indexOf("c:") === 0 && cats.indexOf(cur.slice(2)) < 0) cur = "alle";
   if(cur === "faehig" && !SW_BEST.fah.length) cur = "alle";
+  if(cur === "vari" && !krVari().length) cur = "alle";
   var q = ST.kq || "", main = "";
-  if(!q && (cur === "einl" || cur === "faehig" || cur === "groesse")){
+  if(!q && (cur === "einl" || cur === "faehig" || cur === "groesse" || cur === "vari")){
     if(cur === "einl"){
       main = '<h2>Bestiarium<span class="pg" onclick="openBook(\'sw_de\',176)">S. 175</span></h2>' + SW_BEST.einl.map(krP).join("") + '<h4 class="rk" style="--rc:#a51f1a"><span>Bedrohungen erschaffen</span></h4>' + SW_BEST.bed.map(krP).join("") +
         '<h4 class="rk" style="--rc:#a51f1a"><span>Wildcard-Monster</span><img class="wcs lg" src="img/wc.webp" alt=""></h4>' + SW_BEST.wc.map(krP).join("") +
         '<h4 class="rk" style="--rc:#a51f1a"><span>Kreaturen</span></h4>' + SW_BEST.kint.map(krP).join("");
+    } else if(cur === "vari"){
+      main = "<h2>Varianten &amp; Schablonen</h2>" + krVari().map(function(v){
+        return '<div class="hc" style="--rc:#a51f1a;margin-bottom:14px"><b>' + nm(v.n) + v.s.map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join("") + '<span class="pg" onclick="openBook(\'' + v.bk + "'," + (v.p + krOff(v.bk)) + ')">S. ' + v.p + "</span></b>" + v.b.map(function(t){
+          if(typeof t === "string"){ var m = t.match(/^([^.:]{2,40}): (.*)$/); return "<p>" + (m ? "<b>" + esc(m[1]) + ":</b> " + esc(m[2]) : esc(t)) + "</p>"; }
+          if(t[0] === "h") return '<h4 class="rk" style="--rc:#7a7067"><span>' + nm(t[1]) + "</span></h4>";
+          return t[1].map(function(r){ return "<p><b>" + esc(r[0]) + ":</b> " + esc(r[1]) + "</p>"; }).join("");
+        }).join("") + "</div>";
+      }).join("");
     } else if(cur === "faehig"){
       var F = SW_BEST.fah.filter(function(f){ return !f.s || f.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); });
       main = '<h2>Spezialfähigkeiten</h2><div class="hg kfg">' + F.map(function(f){

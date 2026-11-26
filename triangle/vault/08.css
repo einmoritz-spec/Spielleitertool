@@ -1,1 +1,36 @@
-/* The Vault 08 – weird-dog: Stil (body.ve-weird-dog) */
+/* The Vault 08 – Weird Dog: Schwarz-Weiß-Kritzelei, Pfotenspuren, dunkles Rot (Buch S. 130–143) */
+body.ve-weird-dog{--akz:#8c2b2b;--v2:#1b1a22;--vf:#f6f4f2;--vrand:#1b1a22;--vgrau:#77727a}
+.ve-weird-dog .vunter a.on{color:#8c2b2b}.ve-weird-dog .vunter a.on:after{background:#8c2b2b}
+.ve-weird-dog .vtext h1{letter-spacing:-.04em;color:#1b1a22}
+.ve-weird-dog .vtext h2{color:#8c2b2b}
+.ve-weird-dog .vh{border-radius:10px 4px 12px 4px;border-left:5px solid #1b1a22;background:#f6f4f2}
+.ve-weird-dog .vhin.anom .vh{border-left-color:#8c2b2b}
+.ve-weird-dog .vchaos{border:3px solid #1b1a22;border-radius:14px 4px 16px 4px}.ve-weird-dog .vchaos h4{background:#1b1a22;color:#fff}
+.ve-weird-dog .vchaos em{color:#8c2b2b}
+.ve-weird-dog .kasten,.ve-weird-dog .vsonder,.ve-weird-dog .vziele{border:2.5px solid #1b1a22;border-radius:14px 4px 16px 4px}
+.ve-weird-dog .kasten>h3{color:#8c2b2b}
+.ve-weird-dog .vkopf img{border-radius:3px;filter:grayscale(.2) contrast(1.05)}
+.ve-weird-dog .vanf,.ve-weird-dog .vfae{border-radius:14px 4px 16px 4px;border-color:#1b1a22}
+
+/* Eröffnungsseite */
+.ve-weird-dog .ho-notiz.wd-seite{position:relative;max-width:none;width:100%;padding:34px 40px 150px;border:0;border-radius:0;background:#fff;box-shadow:none;display:block;transform:none;margin:0 0 20px;overflow:hidden;font-family:Fig,sans-serif;color:#1b1a22}
+.wd-spur{position:absolute;inset:0;pointer-events:none;z-index:0}
+.wd-spur i{position:absolute;display:block;opacity:.88}.wd-spur svg{display:block;width:100%;height:auto;fill:#14131a}.wd-spur svg .l{fill:none;stroke:#fff;stroke-width:2.2}
+.wd-inhalt{position:relative;z-index:1;max-width:640px}
+.wd-kopf{font:700 62px/1.05 Caveat,cursive;margin:0 0 12px;color:#14131a;letter-spacing:-.01em}
+.wd-kopf b{display:inline-block;background:#14131a;color:#fff;padding:2px 26px 6px 18px;transform:rotate(-2deg);border-radius:46% 12% 38% 18%/30% 40% 20% 50%;margin:0 4px}
+.wd-text{margin:0 0 20px;font-size:17px;line-height:1.5;max-width:470px;transform:rotate(calc((var(--k) - 1.5) * .9deg));margin-left:calc(var(--k) * 34px);background:#fffc;padding:2px 4px}
+.wd-rede{margin:6px 0 20px;font:600 32px/1.12 Fig,sans-serif;color:#8c2b2b;letter-spacing:-.025em;transform:rotate(calc((var(--k) - 1) * -1.1deg));margin-left:calc(var(--k) * 18px);background:#fffc;display:inline-block}
+.wd-fuss{position:absolute;z-index:1;left:0;bottom:0;width:640px;height:140px;background:#14131a;border-radius:0 62% 0 0/0 100% 0 0;color:#fff;padding:26px 0 0 40px}
+.wd-fuss b{display:block;font:700 54px/1 Caveat,cursive}.wd-fuss span{display:block;font:500 28px/1.1 Caveat,cursive;margin:10px 0 0 40px}
+@media (max-width:900px){.wd-fuss{width:100%}.wd-kopf{font-size:44px}}
+/* Fundstück in voller Breite, Chaos-Effekte darunter nebeneinander */
+body.ve-weird-dog .vfund{display:flex;flex-direction:column}
+body.ve-weird-dog .vfund .vre.vschwebt{order:2;float:none;width:auto;margin:10px 0 30px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px;align-items:start}
+body.ve-weird-dog .vfund .vre.vschwebt>*{margin:0}
+@media (max-width:1100px){body.ve-weird-dog .vfund .vre.vschwebt{grid-template-columns:1fr}}
+.ve-weird-dog .wd-seite .wd-kopf{font:700 76px/1.05 Caveat,cursive;color:#14131a;margin:0 0 18px;letter-spacing:-.01em;max-width:760px}
+.ve-weird-dog .wd-seite .wd-kopf b{font:inherit}
+.ve-weird-dog .vsonder .kasten{border:0;border-radius:0}
+.ve-weird-dog .wd-seite .wd-text{max-width:500px}
+.ve-weird-dog .wd-seite .wd-rede{font-size:34px}

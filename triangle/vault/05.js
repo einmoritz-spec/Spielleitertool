@@ -1,7 +1,8 @@
 /* The Vault 05 – Bower Street: eigene Bausteine (TA_VB) */
 /* 911-Abschrift (S. 76): nummerierte Zeilen, ab der Stille läuft Filmstreifen über das Papier und das Gedächtnis reißt ab */
-TA_VB.handout = function(b){
-  if(b.art !== "abschrift") return VB.handout(b);
+var bsAlt = TA_VB.handout;
+TA_VB.handout = function(b, ctx){
+  if(b.art !== "abschrift" || ctx.id !== "bower-street") return bsAlt ? bsAlt(b, ctx) : VB.handout(b);
   var x = b.x || [], stille = -1, i;
   for(i = 0; i < x.length; i++){ if(/zwanzig Sekunden Stille/.test(x[i])){ stille = i; break; } }
   var n = 0;

@@ -8,7 +8,7 @@
   if(window.LS_SKIP) return;
   var D = document, H = D.documentElement;
   var me = D.currentScript, BASE = me ? me.src.replace(/shared\/ladeschirm\.js.*$/, "") : "../";
-  var MIN = 400, MAX = 6000, FADE = 320, t0 = Date.now();
+  var MAX = 6000, FADE = 250, t0 = Date.now();
 
   /* ---- System erkennen ---- */
   var p = location.pathname, h = location.hash || "";
@@ -54,6 +54,11 @@
     discworld: {bg:"radial-gradient(#3a1912,#2a110c)", logo:L("discworld.webp"), lh:70, a:'<div class="orbit"><div class="disc"><i></i></div><b></b></div>'}
   };
   var C = T[S]; if(!C) return;
+
+  /* Beim ersten Öffnen eines Systems mindestens 1 s zeigen, danach nur kurz. */
+  var KEY = "ls_besucht_v1", besucht = {};
+  try{ besucht = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }catch(e){}
+  var MIN = besucht[S] ? 400 : 1000;
 
   /* ---- Stile ---- */
   function seq(sel, k, step){ var s = ""; for(var i = 0; i < k; i++) s += "#ls " + sel + ":nth-child(" + (i + 1) + "){animation-delay:" + (i * step).toFixed(2) + "s}"; return s; }
@@ -164,6 +169,7 @@
   var fertig = false;
   function weg(){
     if(fertig) return; fertig = true;
+    try{ besucht[S] = 1; localStorage.setItem(KEY, JSON.stringify(besucht)); }catch(e){}
     H.classList.remove("ls-an");
     el.classList.add("weg");
     setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); if(st.parentNode) st.parentNode.removeChild(st); }, FADE + 50);

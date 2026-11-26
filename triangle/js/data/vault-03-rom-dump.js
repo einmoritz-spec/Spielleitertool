@@ -138,6 +138,7 @@ TA_VAULT["rom-dump"] = {
     "**Wenn die Agenten verweilen,** bemerken sie leuchtende Augen und Kratzgeräusche im Schatten zwischen den Maisreihen, mal da, mal weg. Ein glänzender silberner Speer ragt über den Mais. Wenn Agenten laut etwas über den Speer sagen, hört Lorelei es und zieht ihn hastig außer Sicht.",
     {t:"h", x:"Lorelei"},
     {t:"bild", src:"03-rom-dump-lorelei", pos:"pixel portrait"},
+    {t:"bild", src:"03-rom-dump-kristall-gruen", pos:"pixel wappen", seite:48, x:"Pixelbild des grünen Waldwappens (Forest Crest)"},
     "**Lorelei (sie/ihr)** ist eine schlanke, hochgewachsene Frau mit hellgrüner Haut, weißblondem, zu einem langen Pferdeschwanz zurückgebundenem Haar, rosa Lederrüstung und einem zusammenklappbaren, glänzenden silbernen Speer an der Seite. In Heroia ist sie als Elvorc bekannt, eine Mischung aus klassischer Fantasy-Elfe und -Orkin mit spitzen Ohren und ebenso spitzen Zähnen. Sie ist eine Expertin-Waldläuferin, die mühelos jedes Tier in Heroia aufspüren und jagen kann. Sie trägt das Waldwappen (Forest Crest). Lorelei funktioniert wie eine starke Kleine Anomalie mit Bedrohung: 4, Stabilität: 2.",
     "Lorelei pirscht sich an jeden heran, der das Gelände um das Farmhaus betritt. Sie versucht, unbemerkt zu folgen und zu erfahren, was sie kann von den Agenten: sowohl, was diese über den Großen Helden wissen, als auch, was immer sie über die echte Welt in Erfahrung bringen kann.",
     "**Wenn Lorelei die Agenten über Markus, die Voyagers oder Respektlosigkeit gegenüber der Natur reden hört,** gibt sie sich zu erkennen.",
@@ -155,12 +156,12 @@ TA_VAULT["rom-dump"] = {
       "Sie kann ihre Zeilen zu neuen Wendungen zusammensetzen („Wahr … Volk … geben … Lorelei … mehr … führen.“), aber das ist für sie ein mühsamer und schwieriger Vorgang."
      ]}
     ]},
-    {t:"bild", src:"03-rom-dump-kristall-gruen", pos:"pixel wappen", seite:48, x:"Pixelbild des grünen Waldwappens (Forest Crest)"}
    ]},
    {t:"Die Scheune", p:50, b:[
     "Eine große rote Scheune voller alter Heuhaufen, morschen Holzes und Dutzender streunender Katzen. Eine schiefe Treppe führt hinauf zu einem Heuboden. Die Katzen sitzen mit leuchtenden Augen im Halbdunkel auf Stapeln von Heuballen und Kisten mit altem Gerät. Ein muskelbepackter Voyager liegt hier schlafend im Heu, schmiegt sich an seinen riesigen Streitkolben und ist von schlafenden Katzen bedeckt.",
     {t:"h", x:"Raymond"},
     {t:"bild", src:"03-rom-dump-raymond", pos:"pixel portrait"},
+    {t:"bild", src:"03-rom-dump-kristall-rot", pos:"pixel wappen", seite:49, x:"Pixelbild des roten Bergwappens (Mountain Crest)"},
     "**Raymond (er/ihm)** ist ein bulliger, gehörnter Schlachtkleriker in voller Plattenrüstung mit einem gewaltigen Streitkolben (Maul) – in Heroia ist er als Höllenmuskel (Hellmuscle) bekannt, ein hünenhafter Dämon aus wogenden Muskeln und wenig Verstand, der jedes Mal zur Belustigung dient, wenn man ihm im Spiel begegnet. Wenn er geweckt wird, ist er begeistert kampflustig. Für ihn ist Kämpfen Spaß. An seinem Gürtel steckt ein rotes, rautenförmiges Wappen mit Bergen darauf.",
     "Raymond funktioniert wie eine starke Kleine Anomalie mit Bedrohung: 2, Stabilität: 4.",
     "**Wenn die Agenten ihn wecken,** springt er auf, schnappt sich seinen Streitkolben und baut sich stolz vor ihnen auf. Wie die anderen Voyagers kann Raymond nur in vorgefertigten Dialogzeilen sprechen: „Ihr weckt mich für einen guten Kampf, hoffe ich!“",
@@ -180,12 +181,12 @@ TA_VAULT["rom-dump"] = {
       "Er kann seine Zeilen zu neuen Wendungen zusammensetzen („Nimm … Partner … nein … Untergang … ha-HA!“), aber das ist für ihn ein mühsamer und schwieriger Vorgang."
      ]}
     ]},
-    {t:"bild", src:"03-rom-dump-kristall-rot", pos:"pixel wappen", seite:49, x:"Pixelbild des roten Bergwappens (Mountain Crest)"}
    ]},
    {t:"Das Getreidesilo", p:51, b:[
     "Ein alterndes Stahlsilo, fast leer. Auf Bodenhöhe steht eine Tür einen Spalt offen und führt ins Innere. Eine dünne Schicht getrockneten Maises bedeckt den Boden, doch das Silo wurde für die neue Ernte geleert. Innen ist es dunkel, Licht fällt nur durch die Türöffnung.",
     {t:"h", x:"Kirbash"},
     {t:"bild", src:"03-rom-dump-kirbash", pos:"pixel portrait"},
+    {t:"bild", src:"03-rom-dump-kristall-gelb", pos:"pixel wappen", seite:50, x:"Pixelbild des gelben Ebenenwappens (Plains Crest)"},
     "**Kirbash (sie/ihr)** ist eine treue und stolze Kriegerin in grünem Bänderpanzer, kunstvoll verziert mit allerlei weidenden Tieren, und führt eine feine Krummklinge. Sie trägt an ihrer Halskette ein gelbes, rautenförmiges Wappen mit Bildern wogender Felder. Kirbash funktioniert wie eine starke Kleine Anomalie mit Bedrohung: 3, Stabilität: 3.",
     "Anders als die anderen Voyagers hat Kirbash ihre Aufgabe und sich selbst fast völlig vergessen.",
     "**Wenn die Agenten ihr nicht feindselig begegnen** und ihr irgendeine Information über ihre Aufgabe, den Großen Helden oder auch nur sie selbst geben, besonders etwas Konkretes (etwa ein Bild des Großen Helden oder ein Stück einer Videospielanleitung mit ihrem Bild und Namen), steckt sie ihre Klinge ein und verneigt sich vor ihnen, überreicht ihnen das Ebenenwappen (Plains Crest) und sagt: „*Findet die anderen. Ich erinnere mich, dass es andere wie mich gab.*“",
@@ -198,7 +199,6 @@ TA_VAULT["rom-dump"] = {
       "„Wir mussten gehen. Mussten hierherkommen. Die Zukunft der Welt hängt von SPIELERNAME ab.“"
      ]}
     ]},
-    {t:"bild", src:"03-rom-dump-kristall-gelb", pos:"pixel wappen", seite:50, x:"Pixelbild des gelben Ebenenwappens (Plains Crest)"}
    ]},
    {t:"Das Farmhaus", p:52, b:[
     "Ein zweistöckiges weiß getünchtes Farmhaus mit einer großen Veranda, die zur Straße hinausschaut. Auf der Rückseite knarrt im Wind eine rostige Windmühle über einem alten Betonbrunnen.",

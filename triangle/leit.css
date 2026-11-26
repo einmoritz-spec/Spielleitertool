@@ -125,3 +125,47 @@ body.ve-vault{background:#17111f}
 .vct:has(>.vfund){grid-template-columns:1fr;padding-right:30px}
 .vfund .vre.vschwebt{position:static;float:right;width:380px;margin:0 0 30px 36px;padding:0}
 @media (max-width:1400px){.vfund .vre.vschwebt{width:340px}}
+/* Leere Spalten vermeiden (vSpalten in leit.js) */
+.vweiter{grid-column:1/-1;column-count:2;column-gap:46px;max-width:none!important;padding-top:6px;padding-bottom:40px}
+.vweiter.vdrei{column-count:3}
+.vweiter>*{break-inside:avoid}.vweiter>h2,.vweiter>h3{break-after:avoid}
+.vweiter>h2:first-child,.vweiter>h3:first-child{margin-top:0}
+.vweiter .sp,.vweiter .vkarten,.vweiter .vaus,.vweiter table,.vweiter .vho,.vweiter .vanf,.vweiter .vfae,.vweiter figure,.vweiter [class*="-plan"],.vweiter .rd-voy{column-span:all;break-inside:avoid}
+.vct.vunten{grid-template-columns:1fr}
+.vct.vunten>article{max-width:none}
+.vct.vunten>article.vzwei{column-count:2;column-gap:46px}
+.vct.vunten>article.vzwei>*{break-inside:avoid}.vct.vunten>article.vzwei>h1,.vct.vunten>article.vzwei>.vkopf,.vct.vunten>article.vzwei>.sp,.vct.vunten>article.vzwei>.vkarten,.vct.vunten>article.vzwei>.vaus,.vct.vunten>article.vzwei>table,.vct.vunten>article.vzwei>figure,.vct.vunten>article.vzwei>.vho{column-span:all}
+.vct.vunten>article.vzwei>h2,.vct.vunten>article.vzwei>h3{break-after:avoid}
+.vct.vunten>.vre{display:grid;grid-template-columns:2fr 1fr;gap:22px;align-items:start;padding-top:0}
+.vct.vunten>.vre>.vchaos{grid-row:span 3;display:grid;grid-template-columns:1fr 1fr}
+.vct.vunten>.vre>.vchaos>h4{grid-column:1/-1}
+.vct.vunten>.vre>*{margin:0}
+.vct>article{position:relative}
+.vct.vunten>.vre{padding:0 0 40px 40px}
+.vct.voben{grid-template-columns:1fr}
+.vct.voben>.vre{order:-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;align-items:start;padding:30px 0 0 40px}
+.vct.voben>.vre>*{margin:0}
+.vct.voben>article.vzwei{column-count:2;column-gap:46px}
+.vct.voben>article.vzwei>*{break-inside:avoid}
+.vct.voben>article.vzwei>h1,.vct.voben>article.vzwei>.vkopf,.vct.voben>article.vzwei>.sp,.vct.voben>article.vzwei>.vkarten,.vct.voben>article.vzwei>.vaus,.vct.voben>article.vzwei>table,.vct.voben>article.vzwei>figure,.vct.voben>article.vzwei>.vho{column-span:all}
+.vct.voben>article.vzwei>h2,.vct.voben>article.vzwei>h3{break-after:avoid}
+.vweiter.eins{column-count:1}
+.vzweisp{column-count:2;column-gap:40px}.vzweisp>*{break-inside:avoid}.vzweisp>p:first-child{margin-top:0}
+.vweiter>p,.vzweisp>p,.vzwei>p{break-inside:auto;orphans:3;widows:3}
+/* unten: Chaos-Tabelle über die volle Breite dreispaltig, Sonderregel und Ziele darunter nebeneinander */
+.vct.vunten>.vre{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.vct.vunten>.vre>.vchaos{grid-column:1/-1;grid-row:auto;grid-template-columns:repeat(3,1fr)}
+@media (max-width:1500px){.vct.vunten>.vre>.vchaos{grid-template-columns:1fr 1fr}}
+.vct.vunten>.vre{display:flex;flex-wrap:wrap;gap:22px}
+.vct.vunten>.vre>*{flex:1 1 300px}
+.vct.vunten>.vre>.vchaos{flex-basis:100%;display:block;column-count:3;column-gap:0}
+.vct.vunten>.vre>.vchaos>h4{column-span:all}
+.vct.vunten>.vre>.vchaos>a{break-inside:avoid}
+@media (max-width:1500px){.vct.vunten>.vre>.vchaos{column-count:2}}
+.vct.vunten>.vre{align-items:flex-start;align-content:flex-start}
+.vct.vunten>.vre>.vziele,.vct.vunten>.vre>.vsonder{max-width:none}
+.vct.vunten>.vre>.vziele:only-child,.vct.vunten>.vre>.vchaos+.vziele:last-child{column-count:2;column-gap:40px}
+.vct.vunten>.vre>.vchaos+.vziele:last-child>h4,.vct.vunten>.vre>.vchaos+.vziele:last-child>.ve{column-span:all}
+.vct.vunten>.vre{flex-direction:row}
+@media (max-width:1600px){.vct:not(.vunten):not(.voben)>article .vfdi{grid-template-columns:1fr}}
+.vweiter .vfdi{column-span:all;grid-template-columns:repeat(3,1fr)!important}

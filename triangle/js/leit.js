@@ -112,7 +112,67 @@ function viewVault(id, r, nr){
     (r === "nach" && i === A.length - 1 ? '<p class="vbericht"><a class="gehzu" onclick="pwPop(\'A1\')">Einsatzbericht A1</a></p>' : '') + '</article>';
   /* Fundstück: Chaos-Spalte schwebt rechts, das Fundstück nutzt darunter die volle Breite */
   if(sec.t === "Fundstück") return vUnter(id, V, r) + vLay(items, body.replace('<article class="lesen vtext">', '<article class="lesen vtext vfund">' + vRechts(id, V).replace('class="vre"', 'class="vre vschwebt"')));
+  vPlanen();
   return vUnter(id, V, r) + vLay(items, body + vRechts(id, V));
+}
+/* Leere Spalten vermeiden: Nach dem Zeichnen werden Text- und rechte Spalte verglichen.
+   Text viel länger → was unter der Chaos-Spalte liegt, läuft in voller Breite zwei-/dreispaltig weiter.
+   Rechte Spalte viel länger → Text oben in voller Breite (zweispaltig), Chaos & Co. darunter nebeneinander. */
+var VPLAN = 0;
+function vPlanen(){
+  var n = ++VPLAN;
+  function los(){ if(n === VPLAN) vSpalten(); }
+  setTimeout(los, 30);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(los, 30); });
+}
+function vSpalten(){
+  var ct = document.querySelector(".vct"), a = ct && ct.querySelector(":scope>article"), re = ct && ct.querySelector(":scope>.vre");
+  if(!a || !re || a.classList.contains("vfund") || ct.dataset.vs || innerWidth <= 1180) return;
+  ct.dataset.vs = 1;
+  var ha = a.offsetHeight, hr = re.offsetHeight;
+  if(hr - ha > 420){
+    ct.classList.add("vunten");
+    if(a.offsetHeight > 700) a.classList.add("vzwei");
+    return;
+  }
+  if(ha - hr < 400) return;
+  /* kurze rechte Spalte (z. B. nur Ziele): oben als Leiste, Text darunter zweispaltig */
+  if(hr < 700 && ha > 1400){ ct.classList.add("voben"); a.classList.add("vzwei"); return; }
+  /* Schnitt dort, wo die rechte Spalte endet: Element mit kleinster Lücke, Abschnittsanfänge bevorzugt.
+     Große Blöcke aus mehreren Karten (z. B. Figurenkarten) dürfen zwischen den Karten geteilt werden. */
+  var top0 = a.getBoundingClientRect().top, ende = a.offsetHeight, C = [], best = 1e9, wahl = null;
+  function y(el){ return el.getBoundingClientRect().top - top0; }
+  Array.prototype.slice.call(a.children).forEach(function(k, i){
+    if(i > 0) C.push({el:k, t:y(k), h2:k.tagName === "H2"});
+    if(k.offsetHeight > 800 && k.children.length > 2) Array.prototype.slice.call(k.children).forEach(function(c, j){ if(j > 0) C.push({el:c, t:y(c), innen:k}); });
+  });
+  C.forEach(function(c){
+    if(c.t < 160 || ende - c.t < 400 || /^H[3-4]$/.test(c.el.tagName)) return;
+    var d = Math.abs(c.t - hr) - (c.h2 ? 140 : 0);
+    if(d < best){ best = d; wahl = c; }
+  });
+  if(!wahl) return;
+  var K = Array.prototype.slice.call(a.children), start;
+  if(wahl.innen){
+    var kopie = wahl.innen.cloneNode(false), kinder = Array.prototype.slice.call(wahl.innen.children), j = kinder.indexOf(wahl.el);
+    kinder.slice(j).forEach(function(c){ kopie.appendChild(c); });
+    start = K.indexOf(wahl.innen) + 1;
+    K.splice(start, 0, kopie);
+  } else {
+    start = K.indexOf(wahl.el);
+    while(start > 1 && /^H[2-4]$/.test(K[start - 1].tagName)) start--;
+  }
+  var w = document.createElement("div");
+  w.className = "lesen vtext vweiter" + (ct.offsetWidth > 1500 ? " vdrei" : "");
+  K.slice(start).forEach(function(k){ w.appendChild(k); });
+  ct.appendChild(w);
+  /* nur ein Block übrig: dessen Absätze zweispaltig setzen statt halbe Breite leer zu lassen */
+  if(w.children.length === 1){
+    w.classList.add("eins");
+    var bestEl = null, n = 0;
+    w.querySelectorAll("*").forEach(function(el){ var m = Array.prototype.filter.call(el.children, function(c){ return c.tagName === "P"; }).length; if(m > n){ n = m; bestEl = el; } });
+    if(bestEl && n > 1) bestEl.classList.add("vzweisp");
+  }
 }
 /* Unterüberschriften (auch in Spalten) für die Seitenleiste */
 function vHs(L){ var o = []; (L || []).forEach(function(b){ if(!b || typeof b !== "object") return; if(b.t === "h") o.push(String(b.x).replace(/\*|\{|\}/g, "")); else if(b.t === "sp") b.x.forEach(function(c){ o = o.concat(vHs(c)); }); }); return o; }

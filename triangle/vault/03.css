@@ -43,7 +43,7 @@ body.ve-rom-dump .vfund .vre.vschwebt>*{margin:3px}
 /* Pixelbilder */
 .vbild.pixel img{image-rendering:pixelated;border-radius:0}
 .vbild.portrait{float:right;width:170px;margin:2px 0 14px 22px}.vbild.portrait img{border:4px solid #f2c42c;box-shadow:0 0 0 3px #1d3f8c}
-.vbild.wappen{width:120px;margin:4px 0 16px}
+.vbild.wappen{float:right;clear:right;width:90px;margin:0 40px 14px 22px}
 .vbild.karte{max-width:520px}.vbild.karte img{border:4px solid #f2c42c;box-shadow:0 0 0 3px #1d3f8c}
 
 /* Voyagers */

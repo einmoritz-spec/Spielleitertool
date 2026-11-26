@@ -256,7 +256,7 @@ window.SP_ERW_BOOKS = [
     "pe": 151,
     "f": "sin-brother-harvest.js",
     "img": "erw/sin/sin_134_01",
-    "n": 7,
+    "n": 8,
     "h": 37,
     "abenteuer": true
    },
@@ -269,7 +269,7 @@ window.SP_ERW_BOOKS = [
     "pe": 221,
     "f": "sin-hands-of-the-gods.js",
     "img": "erw/sin/sin_204_01",
-    "n": 0,
+    "n": 10,
     "h": 78,
     "abenteuer": true
    }

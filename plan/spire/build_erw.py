@@ -11,7 +11,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SRC = os.path.join(ROOT, "quellen/spire/de")
 OUT = os.path.join(ROOT, "spire/js/data/erw")
 TERM = tuple('.!?:“”"»«)]*…;')
-KLEIN = {"and", "der", "die", "das", "den", "dem", "des", "von", "im", "und", "zu", "um", "mit", "auf", "in", "am", "ein", "eine", "de", "ist",
+KLEIN = {"and", "of", "the", "der", "die", "das", "den", "dem", "des", "von", "im", "und", "zu", "um", "mit", "auf", "in", "am", "ein", "eine", "de", "ist",
          "nie", "nicht", "zum", "zur", "vom", "für", "gegen", "bei", "nach", "über", "oder", "als", "wie", "dein", "mein", "wird", "aus",
          "vor", "passiert", "an", "unter", "ohne", "bis", "durch", "was", "wer", "wo", "es", "sie", "er", "man", "so", "da", "dort"}
 BEHALTEN = {"ADF", "NSC", "SL", "SC", "ADFS", "KI", "II", "III", "IV", "VII", "XIII"}
@@ -135,11 +135,43 @@ def pretty(s):
 WEIN = {"#981a3f", "#9c1837", "#c31637", "#a9090b"}
 
 
+def _entkasten(lines):
+    """Werteblöcke, die im Buch in einem Kasten stehen („> #### TITEL“, „> **Namen:**“ + Wert in der Folgezeile), werden zu normalen
+    Werteblock-Zeilen („**TITEL**“, „**Label:** Wert“), damit sie als Gegner erkannt werden."""
+    lab = re.compile(r"^> \*\*(Namen|Beschreibung|Schwierigkeit|Widerstand|Ausrüstung|Besonderes|Rüstung):\*\*\s*(.*)$")
+    out, i, n = [], 0, len(lines)
+    while i < n:
+        ln = lines[i]
+        qh = re.match(r"^> #{1,6} (.*?)(?: \{farbe=#\w+\})?$", ln)
+        # Blockanfang: Titelzeile oder Labelzeile, sofern innerhalb der nächsten Zeilen ein „Widerstand“-Label folgt
+        if (qh or lab.match(ln)) and any("**Widerstand:**" in x for x in lines[i:i + 10] if x.startswith("> ")):
+            j = i
+            blk = []
+            while j < n and lines[j].startswith("> ") and not (j > i and re.match(r"^> #{1,6} ", lines[j]) and blk and any(lab.match(b) for b in blk) and any(re.match(r"^> \*\*Widerstand", b) for b in blk)):
+                blk.append(lines[j]); j += 1
+            res, k = [], 0
+            while k < len(blk):
+                b = blk[k]; m = lab.match(b); h = re.match(r"^> #{1,6} (.*?)(?: \{farbe=#\w+\})?$", b)
+                if h:
+                    res.append("**" + h.group(1).strip() + "**")
+                elif m:
+                    val = m.group(2).strip(); k2 = k + 1
+                    while k2 < len(blk) and not lab.match(blk[k2]) and not re.match(r"^> #{1,6} ", blk[k2]):
+                        val = (val + " " + blk[k2][2:].strip()).strip(); k2 += 1
+                    res.append("**" + m.group(1) + ":** " + val); k = k2; continue
+                else:
+                    res.append(b[2:])
+                k += 1
+            out.extend(res); i = j; continue
+        out.append(ln); i += 1
+    return out
+
+
 def parse(path, skip_h=(), stop_at=(), ohne_bogen=False, von_seite=None):
     """Markdown -> Items [{k:h|qh|q|p|li|tr, ...}] mit Seitenfortsetzungen."""
     items, page, pb, last = [], None, False, None
     skipping = False; bogen = False
-    for raw in open(path, encoding="utf-8"):
+    for raw in _entkasten(open(path, encoding="utf-8").read().split("\n")):
         ln = raw.rstrip("\n").strip()
         m = re.match(r"<!-- S\. (-?\d+) \(PDF (\d+)\) -->", ln)
         if m:

@@ -113,3 +113,6 @@ body.ve-zbarro-641:after{content:"";position:fixed;right:0;top:0;bottom:0;width:
 .zb-check li em{font:900 20px/1 Spartan,sans-serif;font-style:normal;color:var(--zbr);min-width:26px;text-align:right}
 .zb-check li.ok{opacity:.42}.zb-check li.ok em{color:#8a829c}.zb-check li.ok span{text-decoration:line-through;text-decoration-color:#8a829c88}
 @media (max-width:900px){.ve-zbarro-641 .vaus.n4{grid-template-columns:1fr}.ve-zbarro-641 .vho.ho-zeitung{grid-template-columns:120px 1fr}}
+/* Fundstück: Mail passt neben die schwebende Chaos-Tabelle */
+.ve-zbarro-641 .vfund .vho.ho-brief,.ve-zbarro-641 .vfund .vho.ho-zeitung{max-width:calc(100% - 420px);min-width:560px}
+@media (max-width:1100px){.ve-zbarro-641 .vfund .vho.ho-brief,.ve-zbarro-641 .vfund .vho.ho-zeitung{max-width:none;min-width:0}}

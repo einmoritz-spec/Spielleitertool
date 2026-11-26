@@ -62,3 +62,8 @@ body[data-erw="bd"]{--blau:#5a2a1b;--wein:#b4531f;--acc:#b4531f}
 .wrap.gb .side a:not([onclick*="gDom"]){font-size:14.5px;color:#41536b;margin-top:2px}
 .wrap.gb .side a:not([onclick*="gDom"]):first-of-type{margin-top:0}
 .wrap.gb .side a .pg{order:3}.wrap.gb .side a em{order:2}
+
+/* Lange Reiterleisten (viele Kapitel) scrollen in sich, statt die Seite zu verbreitern */
+.tabs.erwtabs{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;max-width:100%}
+.tabs.erwtabs::-webkit-scrollbar{display:none}
+.tabs.erwtabs>*{flex-shrink:0}

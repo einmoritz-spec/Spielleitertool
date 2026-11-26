@@ -9,6 +9,6 @@ BC_PART["grundlagen/kompass"] = {id: "kompass", t: "Der zerbrochene Kompass", s:
     "Jeder Abenteurer reagiert anders, wenn er übernatürlichen Ereignissen begegnet, und jeder wählt selbst, was er glaubt und worauf er vertraut. Es gibt nicht die eine Wahrheit, sondern viele Wahrheiten, die zu ebenso vielen Blickwinkeln und ebenso vielen Arten gehören, die Welt zu sehen."
   ]},
   {t: "quote", img: {src: "aj/grundlagen-kompass", pos: "50% 30%"}, p: [
-    "In Abschnitt 6 – 1999 findest du alles, was du brauchst, um das Übernatürliche glaubwürdig und doch spannend zu gestalten und den schmalen Grat zwischen Wissenschaft und Magie zu beschreiten."
+    "In [[Abschnitt 6 – 1999|bc_aj|190]] findest du alles, was du brauchst, um das Übernatürliche glaubwürdig und doch spannend zu gestalten und den schmalen Grat zwischen Wissenschaft und Magie zu beschreiten."
   ]}
 ]};

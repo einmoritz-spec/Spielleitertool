@@ -14,7 +14,7 @@ BC_PART["grundlagen/kino"] = {id: "kino", t: "Wie im Kino", sub: "Folgen · Staf
   {t: "prose", p: [
     "Ich sehe, du brennst darauf, dich in ein neues Abenteuer zu stürzen, so muss das sein! Rucksack auf, du hast keine Zeit zu verlieren, dir Notizen zu machen. Keine Sorge: Die On-Demand-Folgen von **Broken Compass** sind so gestaltet, dass sie sich leicht ändern und an all deine Bedürfnisse anpassen lassen. Stell sie dir wie ein Schweizer Taschenmesser vor. Hast du sie erst einmal in der Tasche, hast du immer die richtige Klinge für die Aufgabe. Du willst wissen, wie? Wirf einen Blick auf die letzten Seiten.",
     "Alle Erweiterungen von **Broken Compass** enthalten eine neue Staffel und mehrere On-Demand-Folgen, um dein Abenteuer in neuen Zusammenhängen und Epochen zu erweitern. Der Himmel ist die Grenze! Die Erweiterung **Broken Compass: Golden Age** zum Beispiel enthält eine komplett neue, spielfertige Staffel, die in den Dreißigern spielt.",
-    "Wie du Folgen oder ganze Staffeln erstellen und organisieren kannst, erzählen wir dir in Abschnitt 5 – Schatzsuche. Aber für den Moment musst du dich auf die Grundlagen konzentrieren."
+    "Wie du Folgen oder ganze Staffeln erstellen und organisieren kannst, erzählen wir dir in [[Abschnitt 5 – Schatzsuche|bc_aj|138]]. Aber für den Moment musst du dich auf die Grundlagen konzentrieren."
   ]},
   {t: "box", h: "Pilot", dark: true, p: [
     "Du bist unsicher, wie du die Staffel angehen sollst? Spiel einen Pilot!",

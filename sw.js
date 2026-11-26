@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1212sq";
+const VERSION = "v1213sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -607,6 +607,28 @@ const FILES = [
   "wildsea/img/kapitel/wildsee.webp",
   "triangle/index.html",
   "triangle/style.css",
+  "triangle/js/lesen.js",
+  "triangle/js/data/handbuch-agency.js",
+  "triangle/js/data/handbuch-einsaetze.js",
+  "triangle/js/data/handbuch-leben.js",
+  "triangle/js/data/handbuch-schaden.js",
+  "triangle/js/data/handbuch-tisch.js",
+  "triangle/js/data/handbuch-wuerfeln.js",
+  "triangle/img/zeichen/pikto-agenten-1-5.png",
+  "triangle/img/zeichen/pikto-entkommen.png",
+  "triangle/img/zeichen/pikto-formbarer-geist.png",
+  "triangle/img/zeichen/pikto-gefangen.png",
+  "triangle/img/zeichen/pikto-neutralisiert.png",
+  "triangle/img/zeichen/pikto-wuerfel-mal-6.png",
+  "triangle/img/zeichen/symbol-haken-kasten.png",
+  "triangle/img/zeichen/symbol-schloss-achteck.png",
+  "triangle/img/zeichen/symbol-warnung.png",
+  "triangle/img/regeln/full/dreieckskopf-zeigestock.webp",
+  "triangle/img/regeln/full/wuerfel-wurf-erfolg.webp",
+  "triangle/img/regeln/full/wuerfel-wurf-fehlschlag.webp",
+  "triangle/img/regeln/full/wuerfel-nur-dreien.webp",
+  "triangle/img/regeln/full/wuerfel-chaos-blau.webp",
+  "triangle/img/regeln/full/wuerfel-streuung.webp",
   "triangle/js/app.js",
   "shared/info/triangle.js",
   "triangle/js/data/ark.js",

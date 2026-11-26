@@ -29,3 +29,15 @@ ZEICHEN = [
  ('logo-the-vault-komplett',     'va',   5, (125, 200, 490, 372)),
 ]
 ZEICHEN += [('logo-triangle-agency', 'co', 5, (60, 180, 560, 312))]
+# Handbuch-Piktogramme (Etappe 2)
+ZEICHEN += [
+ ('pikto-agenten-1-5',     'co', 14, (80, 138, 160, 213)),
+ ('pikto-wuerfel-mal-6',   'co', 14, (90, 238, 150, 312)),
+ ('pikto-formbarer-geist', 'co', 14, (90, 342, 150, 406)),
+ ('symbol-warnung',        'co', 14, (86, 612, 146, 664)),
+ ('pikto-gefangen',        'co', 25, (124, 167, 190, 225)),
+ ('pikto-neutralisiert',   'co', 25, (122, 278, 194, 338)),
+ ('pikto-entkommen',       'co', 25, (128, 386, 184, 450)),
+ ('symbol-haken-kasten',   'co', 25, (122, 499, 158, 528)),
+ ('symbol-schloss-achteck','co', 17, (252, 225, 392, 364)),
+]

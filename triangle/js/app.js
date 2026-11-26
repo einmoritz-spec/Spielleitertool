@@ -65,7 +65,7 @@ function viewLesen(a, subId, secId){
   var sec = s.s.filter(function(x){ return x[0] === secId; })[0] || s.s[0];
   var items = s.s.map(function(x){ return {t:x[1].split(":")[0], go:a.id + "/" + s.id + "/" + x[0], on:x === sec}; });
   var T = TA_TEXT[a.id + "/" + s.id + "/" + sec[0]];
-  var body = '<article class="lesen' + (a.id === "w" ? " werk" : "") + '"><h1>' + esc(sec[1]) + pgl(sec[2]) + '</h1>' + (T ? T : '<div class="leer" onclick="openBook(\'ta_core\',' + sec[2] + ')"><img src="' + Z(a.id === "w" ? "symbol-zahnrad-toolkit" : "symbol-handbuch") + '" alt=""></div>') + '</article>';
+  var body = '<article class="lesen' + (a.id === "w" ? " werk" : "") + '"><h1>' + esc(sec[1]) + pgl(sec[2]) + '</h1>' + (T ? (typeof T === "string" ? T : taB(T)) : '<div class="leer" onclick="openBook(\'ta_core\',' + sec[2] + ')"><img src="' + Z(a.id === "w" ? "symbol-zahnrad-toolkit" : "symbol-handbuch") + '" alt=""></div>') + '</article>';
   return unter(a, s.id) + lay(items, body);
 }
 

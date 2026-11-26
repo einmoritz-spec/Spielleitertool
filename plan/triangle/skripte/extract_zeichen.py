@@ -7,7 +7,8 @@ PDF = {'co': Q + '/Triangle_Agency___Regeln___HTG_Core_Rules__EN_.pdf',
        'va': Q + '/4784ab6a-Triangle_Agency___Abenteuer___The_Vault_Missions_EN_Singles.pdf',
        'bo': Q + '/ce890e58-Triangle_Agency___Material___Character_Organization_Sheets_EN.pdf',
        'sp': Q + '/41b1db4d-Triangle_Agency___Abenteuer___Youre_in_Space_and_Everythings_Perfectly_Fine_EN.pdf'}
-exec(open(os.path.join(os.path.dirname(__file__), 'zeichen_liste.py')).read())
+# optional 3. Argument: eigene Listendatei (ZEICHEN = [...]); sonst zeichen_liste.py
+exec(open(sys.argv[3] if len(sys.argv) > 3 else os.path.join(os.path.dirname(__file__), 'zeichen_liste.py')).read())
 os.makedirs(OUT, exist_ok=True)
 for name, k, p, (x0, y0, x1, y1) in ZEICHEN:
     s = DPI / 72; tmp = '/tmp/_z'

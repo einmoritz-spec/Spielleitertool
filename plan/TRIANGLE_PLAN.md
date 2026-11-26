@@ -1,6 +1,6 @@
 # Triangle Agency – Bauplan
 
-Stand 26. Nov. 2026 · **Etappe 0 und 1 gebaut** (Gerüst, Startseite). Als Nächstes: Etappe 2 (Handbuch).
+Stand 26. Nov. 2026 · **Etappe 0 und 1 gebaut** (Gerüst, Startseite). **Etappe 2 (Handbuch) läuft:** Bausteine der Leseseiten (`js/lesen.js`) und sechs Beispielabschnitte stehen; Auftrag für die übrigen Abschnitte: `plan/triangle/HANDBUCH_BRIEF.md`.
 
 **Was steht:** `index.html`, `style.css`, `js/app.js` (Router, Kopfzeile mit Bereichsfarbe, Unterleiste, schmale Seitenleiste mit ‹, Menü, Esc/h, Playwall-Tasten), `js/data/` (buecher, nav, ark, einsaetze, playwall-index, galerie-*), `js/suche.js`, `shared/info/triangle.js`. Startseite fertig. ARK-Auswahl (3×3 mit Bildern) und Detailseite mit Bild, Playwall-Codefeld (öffnet bis zum Einbau der Dokumente die Buchseite), Einsatz-Kopf mit Titelbild. Leseseiten zeigen bis zum Einbau der Texte ein Feld, das die Buchseite öffnet.
 **Wo Inhalte hinkommen:** `TA_TEXT["h/<unterpunkt>/<abschnitt>"]`, `TA_TEXT["w/…"]`, `TA_TEXT["ark/<art>/<id>"]`, `TA_TEXT["pw/<code>"]` – HTML-Zeichenketten, je Bereich eine Datei unter `js/data/`, in `index.html` vor `app.js` einbinden und in `sw.js` eintragen.

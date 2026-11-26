@@ -11,7 +11,7 @@ Object.keys(G).forEach(function(k){
   SWP["genres/" + k] = function(){
     var g = G[k], data = window[g.d];
     if(!data){ APP.innerHTML = '<div class="lay"><main class="ct"><div class="soon">Inhalt folgt.</div></main></div>'; return; }
-    slRender({sets:[data], book:g.book, off:2, color:g.c});
+    slRender({sets:[data, window[g.d + "2"] || [], window[g.d + "3"] || []], book:g.book, off:2, color:g.c});
   };
 });
 })();

@@ -404,3 +404,18 @@ body.hasdock{padding-bottom:210px}
 .etmenu{position:absolute;right:14px;bottom:100%;background:#1b1740;border:1px solid var(--pink);border-radius:6px;padding:6px;display:grid;grid-template-columns:repeat(2,1fr);gap:4px;max-width:420px;box-shadow:0 -8px 24px rgba(0,0,0,.6)}
 .etmenu button{background:#241d55;border:1px solid #3d3580;color:#fff;border-radius:4px;padding:6px 10px;font:400 16px var(--disp);letter-spacing:.06em;cursor:pointer;text-align:left}
 .etmenu button:hover{background:var(--pink)}
+/* Kopfzeile mit Reitern; aktiver Reiter geht nahtlos in die Unterleiste über */
+.topbar:has(.ktabs){justify-content:flex-start!important}
+.topbar:has(.ktabs) .tm-caret{margin-right:0!important}.topbar:has(.ktabs) .tm-info{margin-left:auto!important}.topbar:has(.ktabs) .topbar-spacer{display:none!important}
+.ktabs{display:flex;align-self:stretch;gap:2px;margin:-10px 0 -13px 14px}
+.ktabs a{display:flex;align-items:center;padding:0 16px;font:400 20px/1 var(--disp);letter-spacing:.06em;text-transform:uppercase;color:#c9bfa0;cursor:pointer;white-space:nowrap}
+.ktabs a:hover{color:#fff}.ktabs a.on{color:#fff;background:var(--pink2)}
+.etsub{display:none;position:sticky;top:60px;z-index:49;height:40px;padding:0 16px;gap:2px;align-items:stretch;background:var(--pink2);overflow-x:auto;scrollbar-width:none}
+.etsub.on{display:flex}
+.etsub a{display:flex;align-items:center;padding:0 16px;font:400 17px/1 var(--disp);letter-spacing:.06em;text-transform:uppercase;color:#ffd2e6;cursor:pointer;white-space:nowrap}
+.etsub a:hover{color:#fff}.etsub a.on{color:#fff;box-shadow:inset 0 -3px 0 #fff}
+body.etsub-on .topbar{border-bottom:0;box-shadow:none}
+body.etnav .osrail{margin-top:0}
+body.etnav .osnav{top:62px;max-height:calc(100vh - 76px)}
+body.etsub-on .osnav{top:104px;max-height:calc(100vh - 118px)}
+@media(max-width:860px){.ktabs a{padding:0 9px;font-size:16px}}

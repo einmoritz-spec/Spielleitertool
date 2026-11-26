@@ -71,12 +71,28 @@ function overview(){
    ovCard("check","Evil-Check",window.ETR_CHECK)+ovCard("anhang","Anhang",window.ETR_ANHANG)+'</div>'+
    '<button class="go-adv" onclick="go(\'karte\')"><b>Abenteuer starten</b><small>Paris, 1943</small></button>';
 }
+/* Kopfzeile: Einführung · Regeln · Figuren · Spielleitung (mit Mission, Evil-Check) · Anhang */
+var ETR_GRP=[
+ {t:"Einführung",ids:["intro"],items:[]},{t:"Regeln",ids:["regeln"],items:[]},{t:"Figuren",ids:["figuren"],items:[]},
+ {t:"Spielleitung",ids:["leitung","mission","check"],items:[["leitung","Spielleitung"],["mission","Mission"],["check","Evil-Check"]]},
+ {t:"Anhang",ids:["anhang"],items:[]}];
+function etNav(id){
+  var top=document.querySelector(".topbar"); if(!top) return;
+  var g=ETR_GRP.filter(function(x){return x.ids.indexOf(id)>-1;})[0];
+  var kt=document.getElementById("ktabs"), sb=document.getElementById("etsub");
+  if(!kt){ kt=document.createElement("nav"); kt.id="ktabs"; kt.className="ktabs"; var br=top.querySelector(".brand"); br.parentNode.insertBefore(kt,br.nextSibling); }
+  if(!sb){ sb=document.createElement("div"); sb.id="etsub"; sb.className="etsub"; top.parentNode.insertBefore(sb,top.nextSibling); }
+  document.body.classList.toggle("etnav",!!g); document.body.classList.toggle("etsub-on",!!(g&&g.items.length));
+  kt.innerHTML=g?ETR_GRP.map(function(x){return '<a class="'+(x===g?'on':'')+'" onclick="go(\''+x.ids[0]+'\')">'+x.t+'</a>';}).join(""):"";
+  sb.className="etsub"+(g&&g.items.length?" on":"");
+  sb.innerHTML=g&&g.items.length?g.items.map(function(it){return '<a class="'+(it[0]===id?'on':'')+'" onclick="go(\''+it[0]+'\')">'+it[1]+'</a>';}).join(""):"";
+}
 function isAdv(id){ return ETR_TABS.some(function(t){return t.id===id;}); }
 function render(){
   var hp=parseHash(); cur=hp.id; if(!ETR_ALL.some(function(t){return t.id===cur;})&&cur!=="einstieg") cur="einstieg";
   var tabs=isAdv(cur)?'<nav class="tabs">'+ETR_TABS.map(function(x){return '<button class="tab'+(x.id===cur?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>';}).join("")+'</nav>':'';
   var m={einstieg:startView,intro:function(){return secs(window.ETR_EINSTIEG);},figuren:figuren,regeln:function(){return secs(window.ETR_REGELN);},mission:function(){return secs(window.ETR_MISSION);},leitung:function(){return secs(window.ETR_LEITUNG);},karte:einsatz,trupp:trupp,s3:function(){return sector("s3");},s2:function(){return sector("s2");},s1:function(){return sector("s1");},check:function(){return secs(window.ETR_CHECK);},gegner:gegnerView,anhang:function(){return secs(window.ETR_ANHANG);}};
-  var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0];
+  var mi=ETR_MENU.filter(function(x){return x.id===cur;})[0]; etNav(cur);
   document.getElementById("app").innerHTML=tabs+(m[cur]||startView)();
   if(mi) etRail(mi); else if(/^s[123]$/.test(cur)) etSecRail();
   etDock();
@@ -91,8 +107,8 @@ function etRail(mi){
   var subs=kids.map(function(e){ if(e.tagName==="DETAILS") e.open=true; var h=e.querySelector("h2"); return {id:e.id,t:h?h.textContent:""}; });
   var link=function(x){ return '<a href="#" onclick="etGo(\''+x.id+'\');return false">'+esc(etShort(x.t))+'</a>'; };
   var btn=function(x){ return '<button class="ocat'+(x.id===mi.id?' on':'')+'" onclick="go(\''+x.id+'\')">'+x.t+'</button>'; };
-  var tree=ETR_MENU.map(function(x){ return btn(x)+(x.id===mi.id&&subs.length?'<div class="osub">'+subs.map(link).join("")+'</div>':''); }).join("");
-  var flat='<div class="orow">'+ETR_MENU.map(btn).join("")+'</div>'+(subs.length>1?'<div class="orow osr">'+subs.map(link).join("")+'</div>':'');
+  var tree=subs.length?'<div class="osub">'+subs.map(link).join("")+'</div>':'';
+  var flat=(subs.length>1?'<div class="orow osr">'+subs.map(link).join("")+'</div>':'');
   var main=document.createElement("div"); main.className="osmain"; kids.forEach(function(e){ main.appendChild(e); });
   [].slice.call(app.children).forEach(function(e){ if(e!==main && !e.matches(".tabs")) main.appendChild(e); });
   var wrap=document.createElement("div"); wrap.className="osrail"; wrap.innerHTML='<nav class="osnav"><div class="otree">'+tree+'</div><div class="oflat">'+flat+'</div></nav>'; wrap.appendChild(main);

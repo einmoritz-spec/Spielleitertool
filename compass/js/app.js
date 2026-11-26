@@ -6,7 +6,7 @@ var IMG = "img/start/";
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 function openBook(id, s){ try{ BV.open(id || "bc_aj", s || 1); }catch(e){} }
 function ansicht(){ try{ return localStorage.getItem("bc_startansicht") === "buch" ? "buch" : "film"; }catch(e){ return "film"; } }
-function setAnsicht(v){ try{ localStorage.setItem("bc_startansicht", v); }catch(e){} window.scrollTo(0, 0); render(); }
+function setAnsicht(v){ try{ localStorage.setItem("bc_startansicht", v); }catch(e){} window.scrollTo(0, 0); route(); }
 
 /* ---------- Film ---------- */
 function folge(st, e, i){
@@ -16,7 +16,7 @@ function folge(st, e, i){
 }
 function viewFilm(){
   var fan = BC_AREAS.map(function(a, i){
-    return '<a class="sl" style="--c:' + a.c + ';background-image:url(' + IMG + a.img + '.webp);background-position:' + a.pos + '" onclick="openBook(\'bc_aj\',' + a.s + ')">' +
+    return '<a class="sl" style="--c:' + a.c + ';background-image:url(' + IMG + a.img + '.webp);background-position:' + a.pos + '" href="#a/' + a.id + '">' +
       '<div class="tx"><small>Abschnitt ' + (i + 1) + '</small><b>' + esc(a.t) + '</b><ul>' + a.sub.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div><div class="bar"></div></a>';
   }).join("");
   var rows = '<a class="pil" onclick="openBook(\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><div class="im" style="background-image:url(' + IMG + BC_PILOT.img + '.webp)"></div><div><b>' + esc(BC_PILOT.lab) + '</b><i>' + esc(BC_PILOT.t) + '</i></div></a>';
@@ -30,7 +30,7 @@ function viewFilm(){
 /* ---------- Buch ---------- */
 function viewBuch(){
   var sp = BC_AREAS.map(function(a, i){
-    return '<a class="dp" style="--c:' + a.c + '" onclick="openBook(\'bc_aj\',' + a.s + ')"><div class="art" style="background-image:url(' + IMG + a.img + '.webp);background-position:' + a.pos + '"></div>' +
+    return '<a class="dp" style="--c:' + a.c + '" href="#a/' + a.id + '"><div class="art" style="background-image:url(' + IMG + a.img + '.webp);background-position:' + a.pos + '"></div>' +
       '<div class="op"><small>Abschnitt ' + (i + 1) + '</small><b>' + esc(a.t) + '</b><span>' + a.sub.map(esc).join(" · ") + '</span></div></a>';
   }).join("");
   function zettel(k, lab, t, bild, c, items){
@@ -66,8 +66,10 @@ function hdScroll(){
 }
 window.addEventListener("scroll", function(){ requestAnimationFrame(hdScroll); }, {passive: true});
 
-function render(){
+function renderStart(){
+  document.getElementById("tabs").innerHTML = ""; document.body.style.removeProperty("--c");
   var v = ansicht();
+  document.body.classList.remove("inh");
   document.body.classList.toggle("film", v === "film");
   document.body.classList.toggle("buch", v === "buch");
   [].forEach.call(document.querySelectorAll(".ansicht button"), function(b){ b.classList.toggle("on", b.dataset.v === v); });
@@ -92,3 +94,12 @@ window.gmBook = function(){
   var all = []; SYS.groups.forEach(function(g){ g.items.forEach(function(b){ all.push({name: b.name, sub: g.grp, open: function(){ openBook(b.id, 1); }}); }); });
   return {name: "Adventure Journal", open: function(){ openBook("bc_aj", 1); }, books: all};
 };
+
+/* Router: #start (Standard) · #a/<bereich>[/<unterpunkt>] */
+function route(){
+  var h = location.hash.replace(/^#/, "").split("/");
+  if(h[0] === "a" && h[1] && INH.render(h[1], h[2])) return;
+  renderStart();
+}
+function render(){ route(); }
+window.addEventListener("hashchange", route);

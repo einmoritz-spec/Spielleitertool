@@ -1,0 +1,1 @@
+BC_PART["grundlagen/kompass"] = {id: "kompass", t: "Der zerbrochene Kompass", blocks: [{t: "quote", img: {src: "start/ab5-schatzsuche"}, h: "Der zerbrochene Kompass", q: "Ein zerbrochener Kompass zeigt nicht nach Norden.", p: ["Text."]}]};

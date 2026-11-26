@@ -4393,6 +4393,7 @@ const FILES = [
   "savageworlds/style.css",
   "savageworlds/js/books.js",
   "savageworlds/js/app.js",
+  "savageworlds/js/data/bau-sf5.js",
   "savageworlds/js/data/bau-sf4.js",
   "savageworlds/js/data/bau-sf3.js",
   "savageworlds/js/data/bau-sf2.js",

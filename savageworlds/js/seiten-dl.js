@@ -5,7 +5,7 @@
 "use strict";
 var DLD = window.DLD = window.DLD || {};
 var DLTABS = [
- {id:"welt", t:"Die Welt", img:"welt", subs:[["ueberblick","Überblick"],["leben","Leben im Weird West"],["orte","Orte"],["organisationen","Organisationen"],["reckoners","Die Reckoners"]]},
+ {id:"welt", t:"Die Welt", img:"welt", subs:[["ueberblick","Überblick"],["geschichte","Geschichte"],["leben","Leben im Weird West"],["orte","Orte"],["organisationen","Organisationen"],["reckoners","Die Reckoners"]]},
  {id:"charaktere", t:"Charaktere", img:"charaktere", subs:[["konzepte","Konzepte & Erschaffung"],["handicaps","Handicaps"],["talente","Talente"]]},
  {id:"maechte", t:"Mächte", img:"maechte", subs:[["blessed","Blessed"],["chi","Chi Master"],["harrowed","Harrowed"],["huckster","Hucksters"],["scientist","Mad Scientists"],["shaman","Shamanen"],["neu","Neue Mächte"]]},
  {id:"ausruestung", t:"Ausrüstung", img:"ausruestung", subs:[["allgemein","Ausrüstung"],["waffen","Waffen"],["geraete","Infernale Gerätschaften"]]},

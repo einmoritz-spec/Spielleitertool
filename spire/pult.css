@@ -40,8 +40,8 @@ body.notop .pu-ov{top:0}
 .pu-k:last-child{border-bottom:0}
 .pu-kh{display:flex;align-items:center;gap:10px;padding:7px 14px;cursor:pointer;user-select:none}
 .pu-kh:hover{background:#13263d}
-.pu-kh i{width:7px;height:7px;border-right:2px solid #6f849c;border-bottom:2px solid #6f849c;transform:rotate(-45deg);transition:transform .15s;flex:none;margin:0 2px 0 1px}
-.pu-k.on .pu-kh i{transform:rotate(45deg)}
+.pu-kh .pu-ch{width:15px;height:15px;flex:none;color:#6f849c;transition:transform .18s,color .18s;display:block}
+.pu-k.on .pu-kh .pu-ch{transform:rotate(90deg);color:var(--gold)}
 .pu-kh b{flex:1;font:700 15px/1.2 var(--f-titel);text-transform:uppercase;letter-spacing:.03em;color:#dbe3ef}
 .pu-kh span{font:700 12px var(--f-titel);color:#6f849c}
 .pu-k.on .pu-kh b{color:#fff}
@@ -76,3 +76,19 @@ body.notop .pu-ov{top:0}
 .pu-ov .gblk{color:#000}
 .pu-ov .pc{color:#16202e}
 .pu-gr .gx-m span.pu-nr{padding:0;height:auto;display:inline-flex;opacity:.3}
+
+/* Feinschliff: Zugehörigkeit klar – Kategorie mit Leitlinie, Panels mit Akzent und Zähler */
+.pu-p3{border-top:2px solid #2c4160}
+.pu-ov .pu-p3 h2{padding:10px 14px 9px;font-size:14px;letter-spacing:.1em;color:#c3d0e0;background:#122338}
+.pu-ov .pu-p3 h2 em{margin-left:auto;font:700 11.5px var(--f-titel);font-style:normal;letter-spacing:.04em;color:#8ea2b9;background:#1b3350;padding:2px 9px;border-radius:99px}
+.pu-k{border-bottom:1px solid #162840;position:relative}
+.pu-k::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .18s}
+.pu-k.on::before{transform:scaleY(1)}
+.pu-kh{padding:9px 14px 9px 13px}
+.pu-kh span{background:#162b44;color:#8ea2b9;padding:1px 8px;border-radius:99px;font-size:11.5px}
+.pu-k.on .pu-kh{background:#14283f}
+.pu-k.on .pu-kh span{background:var(--gold);color:#000}
+.pu-kb{background:#0b1a2b;border-top:1px solid #1b3350;padding:3px 0 6px}
+.pu-kb .pu-gr:hover,.pu-kb .pu-l:hover{background:#12263c}
+.pu-kb .pu-gr{padding-left:22px}
+.pu-kb .pu-l{padding-left:22px}

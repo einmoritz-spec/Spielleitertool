@@ -34,7 +34,7 @@ function puBegegnung(){
 function puRu(g){ var r = null; (g.ausr || []).forEach(function(a){ if(typeof a === "string" || r) return; (a.tags || []).forEach(function(t){ if(!r && /^Rüstung/.test(t)) r = String(t).replace(/^Rüstung\s*/, ""); }); }); return r; }
 function puKat(id, titel, n, inhalt, offen){
   var on = offen || PU.kat[id];
-  return '<div class="pu-k' + (on ? ' on' : '') + '"><div class="pu-kh" onclick="puKatTog(\'' + id + '\')"><i></i><b>' + esc(titel) + '</b><span>' + n + '</span></div>' + (on ? '<div class="pu-kb">' + inhalt + '</div>' : '') + '</div>';
+  return '<div class="pu-k' + (on ? ' on' : '') + '"><div class="pu-kh" onclick="puKatTog(\'' + id + '\')"><svg class="pu-ch" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.500 3.500L10.500 8l-5 4.500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>' + esc(titel) + '</b><span>' + n + '</span></div>' + (on ? '<div class="pu-kb">' + inhalt + '</div>' : '') + '</div>';
 }
 function puKatTog(id){ PU.kat[id] = !PU.kat[id]; puErgebnis(); }
 function puGZeile(g){
@@ -96,8 +96,8 @@ function puErgebnis(){
   var box = document.getElementById("pu-bw"); if(!box) return;
   var sc = []; box.querySelectorAll(".pu-pb").forEach(function(e){ sc.push(e.scrollTop); });
   var q = sFold(PU.q.trim()), ws = q.length >= 2 ? q.split(/\s+/) : [];
-  var P = [["Gegner", puGegnerBox(ws)], ["Orte", puOrteBox(ws)], ["Regeln", puRegelBox(ws)]];
-  box.innerHTML = P.map(function(p){ return '<section class="pu-p3"><h2>' + p[0] + '</h2><div class="pu-pb">' + p[1] + '</div></section>'; }).join("");
+  var P = [["Gegner", puGegnerBox(ws), SP_GEGNER.length], ["Orte", puOrteBox(ws), SP_STADT_INDEX.reduce(function(n, d){ return n + d.distrikte.length; }, 0)], ["Regeln", puRegelBox(ws), ""]];
+  box.innerHTML = P.map(function(p){ return '<section class="pu-p3"><h2>' + p[0] + (p[2] !== "" ? '<em>' + p[2] + '</em>' : '') + '</h2><div class="pu-pb">' + p[1] + '</div></section>'; }).join("");
   box.querySelectorAll(".pu-pb").forEach(function(e, i){ e.scrollTop = sc[i] || 0; });
 }
 function puSuchspalte(){

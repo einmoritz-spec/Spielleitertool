@@ -111,3 +111,11 @@ body.ve-hollow-suit .hs-daten .vh{margin:0;font-size:15px}
   body.ve-hollow-suit .hs-cast section{grid-template-columns:1fr;gap:4px}
 }
 @media (max-width:760px){body.ve-hollow-suit .hs-tour{float:none;width:auto;margin:0 0 16px}}
+/* Fundstück: Drehbuchseite in voller Breite, zweispaltig; Chaos-Effekte darunter nebeneinander */
+body.ve-hollow-suit .vfund{display:flex;flex-direction:column}
+body.ve-hollow-suit .vfund .vre.vschwebt{order:2;float:none;width:auto;margin:10px 0 30px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px;align-items:start}
+body.ve-hollow-suit .vfund .vre.vschwebt>*{margin:0}
+body.ve-hollow-suit .vfund .hs-text{column-count:2;column-gap:38px}
+body.ve-hollow-suit .vfund .hs-text .hs-rede{break-inside:avoid}
+body.ve-hollow-suit .vfund .hs-seite{max-width:1060px}
+@media (max-width:1100px){body.ve-hollow-suit .vfund .hs-text{column-count:1}body.ve-hollow-suit .vfund .vre.vschwebt{grid-template-columns:1fr}}

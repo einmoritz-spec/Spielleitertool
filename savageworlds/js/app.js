@@ -35,7 +35,7 @@ function render(){
   if(cur){
     var b = r.b || cur.subs[0][0];
     SUB.className = "sub on";
-    SUB.innerHTML = cur.subs.map(function(s){ return '<a class="' + (s[0] === b ? "on" : "") + '" onclick="go(\'' + cur.id + "/" + s[0] + '\')">' + esc(s[1]) + "</a>"; }).join("");
+    SUB.innerHTML = cur.subs.map(function(s){ return '<a class="' + (s[0] === b ? "on" : "") + '" onclick="go(\'' + cur.id + "/" + s[0] + '\')">' + esc(s[1]) + "</a>"; }).join("") + genSwitch();
   } else { SUB.className = "sub"; SUB.innerHTML = ""; }
   if(r.a === "start") return start();
   if(dl) return dlPage();
@@ -69,25 +69,25 @@ function talentePage(){
     h += '<h4 class="rk" style="--rc:' + RC[ri] + '"><span>' + rn + '</span></h4><div class="tg3">';
     L.forEach(function(t, i){
       var id = SW_TALENTE.indexOf(t), open = ST.to === id;
-      h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:' + RC[ri] + '" onclick="talOpen(' + id + ')"><b>' + esc(t.n) + talBadges(t) + '</b><small>' + esc(t.v || "–") + (t.w ? " · nur Wildcards" : "") + "</small></div>";
+      h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:' + RC[ri] + '" onclick="talOpen(' + id + ')"><b>' + nm(t.n) + talBadges(t) + '</b><small>' + esc(t.v || "–") + (t.w ? " · nur Wildcards" : "") + "</small></div>";
       if(open || (i % 3 === 2 || i === L.length - 1) && L.slice(i - i % 3, i + 1).some(function(x){ return SW_TALENTE.indexOf(x) === ST.to; })){
         if(L.slice(i - i % 3, i + 1).some(function(x){ return SW_TALENTE.indexOf(x) === ST.to; }) && (i % 3 === 2 || i === L.length - 1)) h += talDetail(SW_TALENTE[ST.to]);
       }
     });
     h += "</div>";
   });
-  APP.innerHTML = '<div class="lay' + (ST.fold ? " fold-on" : "") + '" id="lay"><aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + side + '</aside><main class="ct"><h2>' + esc(TKT[kat]) + '</h2>' + h + '</main></div>';
+  APP.innerHTML = '<div class="lay' + (ST.fold ? " fold-on" : "") + '" id="lay"><aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + side + '</aside><main class="ct"><h2>' + nm(TKT[kat]) + '</h2>' + h + '</main></div>';
 }
 function talDetail(t){
   var up = SW_TALENTE.filter(function(x){ return talSicht(x) && x.v && x.v.split(/,\s*/).indexOf(t.n) > -1; });
-  return '<div class="td" style="--rc:' + RC[t.r] + '"><div class="tdm"><h3>' + esc(t.n) + talBadges(t) + '<span class="pg" onclick="openBook(\'' + t.bk + '\',' + (t.p + t.o) + ')">S. ' + t.p + '</span></h3>' + t.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</div><div class="tds"><small>Voraussetzungen</small><div>' + RN[t.r] + (t.v ? ", " + esc(t.v) : "") + (t.w ? "<br>nur Wildcards" : "") + "</div>" +
-    (up.length ? "<small>Führt zu</small>" + up.map(function(x){ return '<a onclick="event.stopPropagation();talGo(' + SW_TALENTE.indexOf(x) + ')">' + esc(x.n) + "</a>"; }).join("") : "") + "</div></div>";
+  return '<div class="td" style="--rc:' + RC[t.r] + '"><div class="tdm"><h3>' + nm(t.n) + talBadges(t) + '<span class="pg" onclick="openBook(\'' + t.bk + '\',' + (t.p + t.o) + ')">S. ' + t.p + '</span></h3>' + t.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</div><div class="tds"><small>Voraussetzungen</small><div>' + RN[t.r] + (t.v ? ", " + esc(t.v) : "") + (t.w ? "<br>nur Wildcards" : "") + "</div>" +
+    (up.length ? "<small>Führt zu</small>" + up.map(function(x){ return '<a onclick="event.stopPropagation();talGo(' + SW_TALENTE.indexOf(x) + ')">' + nm(x.n) + "</a>"; }).join("") : "") + "</div></div>";
 }
 function voelkerPage(){
   var h = '<div class="tg3">';
   SW_VOELKER.forEach(function(v, i){
     var open = ST.vo === i;
-    h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:#a51f1a" onclick="voOpen(' + i + ')"><b>' + esc(v.n) + "</b><small>" + v.e.map(function(e){ return esc(e[0]); }).join(" · ") + "</small></div>";
+    h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:#a51f1a" onclick="voOpen(' + i + ')"><b>' + nm(v.n) + "</b><small>" + v.e.map(function(e){ return esc(e[0]); }).join(" · ") + "</small></div>";
     if(i % 3 === 2 || i === SW_VOELKER.length - 1){
       var j = ST.vo; if(j > -1 && j !== undefined && Math.floor(j / 3) === Math.floor(i / 3)) h += voDetail(SW_VOELKER[j]);
     }
@@ -95,7 +95,7 @@ function voelkerPage(){
   APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Völker</h2>' + h + "</div></main></div>";
 }
 function voDetail(v){
-  return '<div class="td vo" style="--rc:#a51f1a"><div class="tdm"><h3>' + esc(v.n) + '<span class="pg" onclick="openBook(\'sw_de\',' + (v.p + 1) + ')">S. ' + v.p + "</span></h3>" + v.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + v.e.map(function(e){ return '<p class="ei"><b>' + esc(e[0]) + ":</b> " + esc(e[1]) + "</p>"; }).join("") + '</div></div>';
+  return '<div class="td vo" style="--rc:#a51f1a"><div class="tdm"><h3>' + nm(v.n) + '<span class="pg" onclick="openBook(\'sw_de\',' + (v.p + 1) + ')">S. ' + v.p + "</span></h3>" + v.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + v.e.map(function(e){ return '<p class="ei"><b>' + esc(e[0]) + ":</b> " + esc(e[1]) + "</p>"; }).join("") + '</div></div>';
 }
 function voOpen(i){ ST.vo = ST.vo === i ? -1 : i; save(); voelkerPage(); var d = document.querySelector(".td"); if(d && ST.vo > -1) d.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 function handicapsPage(){
@@ -104,7 +104,7 @@ function handicapsPage(){
   var L = SW_HANDICAPS.filter(function(h){ return !f || h.w.indexOf(f) > -1; });
   var h = L.map(function(x){
     var sw = x.w === "schwer", lw = x.w === "leicht";
-    return '<div class="hc" style="--rc:' + (sw ? "#a51f1a" : lw ? "#c27a1c" : "#7a7067") + '"><b>' + esc(x.n) + '<i class="sg">' + (lw ? "Leicht" : sw ? "Schwer" : "Leicht · Schwer") + '</i><span class="pg" onclick="openBook(\'sw_de\',' + (x.p + 1) + ')">S. ' + x.p + "</span></b><p>" + esc(x.t) + "</p></div>";
+    return '<div class="hc" style="--rc:' + (sw ? "#a51f1a" : lw ? "#c27a1c" : "#7a7067") + '"><b>' + nm(x.n) + '<i class="sg">' + (lw ? "Leicht" : sw ? "Schwer" : "Leicht · Schwer") + '</i><span class="pg" onclick="openBook(\'sw_de\',' + (x.p + 1) + ')">S. ' + x.p + "</span></b><p>" + esc(x.t) + "</p></div>";
   }).join("");
   APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Handicaps</h2><div class="hf">' + chips + '</div><div class="hg">' + h + "</div></main></div>";
 }
@@ -137,6 +137,14 @@ function start(){
   }).join("");
   APP.innerHTML = '<div class="st"><div class="pan">' + pan + '</div><div class="chs">' + chs + '</div>' +
     '<div class="dl" onclick="go(\'dl\')"><img src="' + IMG("start/dl-cover") + '" alt=""><div><h3>Deadlands</h3><p>Der Wilde Westen, in dem die Toten nicht ruhen.</p></div><button class="tg dlt' + (gen("dl") ? " on" : "") + '" onclick="event.stopPropagation();toggleGen(\'dl\')" aria-label="Deadlands-Talente"><span class="kn"></span><em>' + (gen("dl") ? "An" : "Aus") + '</em></button><span class="go">Betreten</span></div></div>';
+}
+function nm(x){ return esc(x).replace(/ß/g, "ss"); }
+function genSwitch(){
+  var G = SW_GENRES.filter(function(g){ return g.id !== "grw"; }).concat([{id:"dl", t:"Deadlands", c:"#8a5a2a"}]);
+  return '<div class="gsw">' + G.map(function(g){
+    var on = gen(g.id);
+    return '<button class="' + (on ? "on" : "") + '" style="--gc:' + g.c + '" onclick="toggleGen(\'' + g.id + '\')" title="' + esc(g.t) + (on ? " ausblenden" : " einblenden") + '"><i></i>' + esc(g.t) + "</button>";
+  }).join("") + "</div>";
 }
 function toggleGen(id){ if(id === "grw") return; ST.gen[id] = ST.gen[id] ? 0 : 1; save(); render(); }
 

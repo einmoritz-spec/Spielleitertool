@@ -144,12 +144,29 @@ function puErgebnis(){
 function puSuchspalte(){
   return '<div class="pu-su"><div class="pu-q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.500" cy="10.500" r="6.500"/><path d="M15.500 15.500L21 21"/></svg><input id="pu-q" type="text" placeholder="Gegner, Orte, Regeln suchen …" autocomplete="off" value="' + esc(PU.q) + '" oninput="puSuche(this.value)"></div><div id="pu-bw" class="pu-bw"></div></div>';
 }
+/* Spaltenbreiten: Trennlinien mit der Maus ziehen (Anteile in %, gespeichert) */
+function puW(){ var w = ST.puw || [38, 30]; return [Math.max(18, Math.min(60, w[0])), Math.max(20, Math.min(50, w[1]))]; }
+function puBreiten(){ var w = puW(); return "--c1:" + w[0] + "%;--c3:" + w[1] + "%"; }
+function puZieh(e, i){
+  e.preventDefault();
+  var r = document.querySelector(".pu-rost"), box = r.getBoundingClientRect(), sp = e.currentTarget;
+  sp.classList.add("an"); document.body.classList.add("pu-zieh");
+  function mv(ev){
+    var w = puW(), x = (ev.clientX - box.left) / box.width * 100;
+    if(i === 0) w[0] = x; else w[1] = 100 - x;
+    w = [Math.max(18, Math.min(60, w[0])), Math.max(20, Math.min(50, w[1]))];
+    if(w[0] + w[1] > 80) { if(i === 0) w[0] = 80 - w[1]; else w[1] = 80 - w[0]; }
+    ST.puw = w; r.setAttribute("style", puBreiten());
+  }
+  function up(){ removeEventListener("pointermove", mv); removeEventListener("pointerup", up); sp.classList.remove("an"); document.body.classList.remove("pu-zieh"); save(); }
+  addEventListener("pointermove", mv); addEventListener("pointerup", up);
+}
 function puDraw(){
   var ov = puEl(); if(!ov) return;
   var sc = {}; ov.querySelectorAll(".pu-fig,.pu-mitte").forEach(function(s){ sc[s.className] = s.scrollTop; });
   var foc = document.activeElement && document.activeElement.id === "pu-q", ss = foc ? document.activeElement.selectionStart : 0;
   var fo = (typeof zPanel === "function") ? zPanel() : "";
-  ov.innerHTML = '<div class="pu-rost">' + puFiguren() + '<div class="pu-mitte">' + fo + puBegegnung() + '</div>' + puSuchspalte() + '</div>';
+  ov.innerHTML = '<div class="pu-rost" style="' + puBreiten() + '">' + puFiguren() + '<div class="pu-sp" onpointerdown="puZieh(event,0)" title="Ziehen zum Verbreitern"></div><div class="pu-mitte">' + fo + puBegegnung() + '</div><div class="pu-sp" onpointerdown="puZieh(event,1)" title="Ziehen zum Verbreitern"></div>' + puSuchspalte() + '</div>';
   puErgebnis();
   ov.querySelectorAll(".pu-fig,.pu-mitte").forEach(function(s){ if(sc[s.className]) s.scrollTop = sc[s.className]; });
   if(foc){ var i = document.getElementById("pu-q"); if(i){ i.focus(); try{ i.setSelectionRange(ss, ss); }catch(e){} } }

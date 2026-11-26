@@ -209,3 +209,42 @@ body.embed .tabs{padding-right:46px}
 .pu-p3.on{flex:0 1 auto;min-height:0}
 .pu-p3.on .pu-pb{flex:0 1 auto}
 .pu-p3.on{min-height:min(152px,var(--ph,152px))}
+
+/* Verschiebbare Spalten */
+.pu-rost{grid-template-columns:minmax(0,var(--c1,38%)) 9px minmax(0,1fr) 9px minmax(0,var(--c3,30%))}
+.pu-mitte{border:0}
+.pu-sp{position:relative;cursor:col-resize;z-index:3;touch-action:none}
+.pu-sp::before{content:"";position:absolute;left:4px;top:0;bottom:0;width:1px;background:#1f3248;transition:background .15s,width .15s,left .15s}
+.pu-sp::after{content:"";position:absolute;left:2px;top:50%;width:5px;height:34px;margin-top:-17px;border-radius:3px;background:#2c4160;opacity:0;transition:opacity .15s}
+.pu-sp:hover::before,.pu-sp.an::before{background:var(--gold);width:3px;left:3px}
+.pu-sp:hover::after,.pu-sp.an::after{opacity:1;background:var(--gold)}
+body.pu-zieh,body.pu-zieh *{cursor:col-resize!important;user-select:none!important}
+body.pu-zieh iframe{pointer-events:none}
+
+/* Kompakte Charakterkarten im Pult */
+.pu-figs{grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px}
+.pu-ov .pk{height:auto;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:5px 8px}
+.pu-ov .pk img,.pu-ov .pk .ini{width:34px;height:44px;font-size:16px}
+.pu-ov .pk h3{font-size:15px;margin:0;line-height:1.05}
+.pu-ov .pk small{font-size:11px;line-height:1.2;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#9fb2c8}
+.pu-ov .zres{padding:5px 8px 2px}
+.pu-ov .zr{grid-template-columns:50px repeat(5,minmax(0,1fr)) 5px repeat(10,minmax(0,1fr));padding:1px 0}
+.pu-ov .zr b{font-size:11px}
+.pu-ov .zr small{font-size:11px}
+.pu-ov .zr .bx i{max-width:12px}
+.pu-ov .zmk{padding:2px 8px 5px;gap:4px}
+.pu-ov .zmw span{font-size:10.5px;padding:1px 5px}
+.pu-ov .zmb button{font-size:11.5px;height:22px;min-width:26px;padding:0 6px}
+.pu-ov .zmb button.tg{font-size:10px}
+.pu-ov .zsum{padding:4px 8px;gap:6px}
+.pu-ov .zsum b{font-size:20px}
+.pu-ov .zsum span{font-size:11px}
+.pu-ov .zsum .knopf{font-size:12px;padding:3px 8px}
+.pu-ov .zfo,.pu-ov .zbd{padding:3px 8px}
+.pu-ov .zfo h5,.pu-ov .zbd h5{font-size:11px;margin:2px 0}
+.pu-ov .zfo .chip{font-size:10.5px}
+.pu-ov .zbd{font-size:12px;padding-bottom:5px}
+.pu-ov .zb{padding:1px 0;gap:1px 6px}
+.pu-ov .zb .bx i{width:9px;height:9px}
+.pu-ov .zref{display:none}
+.pu-ov .zfo .leise,.pu-ov .zbd>.leise{font-size:11px}

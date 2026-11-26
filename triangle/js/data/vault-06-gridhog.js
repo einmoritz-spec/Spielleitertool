@@ -5,6 +5,7 @@ TA_VAULT["gridhog"] = {
  chaosP: 99,
  chaos: [],   // Der Einsatz hat keine Tabelle „Chaos-Effekte“; stattdessen den Abschnitt „Loops und Chaos“ (S. 98, siehe reiter.vor)
  zieleEinleitung: "Die Anomalie einzufangen hat zwar oberste Priorität, doch die Agency möchte die Gelegenheit außerdem nutzen, Miros’ Ruf in Ternion City zu beschädigen.",
+ sonder: [{t:"loops", h:"Loops und Chaos", p:99}],
  ziele: [
   {art:"bel", n:3, x:"jedes Mal, wenn du Miros Industries etwas wegnimmst"},
   {art:"bel", n:1, x:"jedes Mal, wenn du die Infrastruktur der Stadt stärkst"},
@@ -37,7 +38,6 @@ TA_VAULT["gridhog"] = {
      "AUSFAHRT",
      "HILFE"
     ]},
-    {t:"bild", seite:94, x:"Titelbild: orangefarbene LED-Anzeige einer Verkehrsleittafel mit dem Titel GRIDHOG"}
    ]},
    {t:"Überblick", p:96, b:[
     {t:"profil",

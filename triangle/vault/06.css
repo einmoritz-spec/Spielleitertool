@@ -1,1 +1,50 @@
-/* The Vault 06 – gridhog: Stil (body.ve-gridhog) */
+/* The Vault 06 – GRIDHOG: Verkehrsleittafel – Asphalt, Signalorange, LED-Punktschrift (Buch S. 94–111) */
+@font-face{font-family:Doto;src:url(../fonts/doto-latin-800-normal.woff2);font-weight:800;font-display:swap}
+@font-face{font-family:Doto;src:url(../fonts/doto-latin-900-normal.woff2);font-weight:900;font-display:swap}
+body.ve-gridhog{--akz:#e8641c;--v2:#2b2a2e;--vf:#f4f1ec;--vrand:#2b2a2e;--vgrau:#77737c}
+.ve-gridhog .vunter a.on{color:#e8641c}.ve-gridhog .vunter a.on:after{background:#e8641c}
+.ve-gridhog .vtext h1{font:900 52px/1 Doto,monospace;letter-spacing:.01em;color:#2b2a2e;text-transform:uppercase}
+.ve-gridhog .vtext h1>a{font:400 13px Fig,sans-serif;text-transform:none}
+.ve-gridhog .vtext h2{font:900 30px/1.05 Doto,monospace;color:#e8641c;text-transform:uppercase}
+.ve-gridhog .vtext h3{color:#2b2a2e;font-weight:800}
+.ve-gridhog .vh{border-radius:0;border-left:6px solid #2b2a2e;background:#f4f1ec}
+.ve-gridhog .vhin.anom .vh{border-left-color:#e8641c}
+.ve-gridhog .kasten,.ve-gridhog .vziele,.ve-gridhog .vanf,.ve-gridhog .vfae{border:2px solid #2b2a2e;border-radius:4px}
+.ve-gridhog .kasten>h3{color:#e8641c}
+.ve-gridhog .vziele h4{font:900 20px Doto,monospace;color:#e8641c;text-transform:uppercase}
+.ve-gridhog .vkopf img{border-radius:3px}
+/* Anomalie / Realität / Kompetenz wie im Buch: Blau, Gelb, Rot */
+.ve-gridhog .vkarten section{border-radius:4px;border-top-width:7px;background:#fff;box-shadow:0 0 0 1.5px #2b2a2e22}
+.ve-gridhog .vkarten section:nth-child(1){border-top-color:#2f6fd6}.ve-gridhog .vkarten section:nth-child(1) h3{color:#2f6fd6}
+.ve-gridhog .vkarten section:nth-child(2){border-top-color:#f0b81c}.ve-gridhog .vkarten section:nth-child(2) h3{color:#b88400}
+.ve-gridhog .vkarten section:nth-child(3){border-top-color:#d8322a}.ve-gridhog .vkarten section:nth-child(3) h3{color:#d8322a}
+
+/* LED-Tafel */
+.gh-tafel{display:flow-root;background:radial-gradient(ellipse at 50% 40%,#2a1a10,#0d0b0a 70%);padding:40px 30px 36px;margin:0 0 24px;text-align:center;border-radius:2px}
+.gh-led{position:relative;display:inline-block;padding:26px 60px;min-width:min(560px,100%);background:#333 radial-gradient(circle,#555 .9px,transparent 1.2px) 0 0/5px 5px;box-shadow:0 0 50px #e8641c33}
+.gh-led p{margin:0;font:900 34px/1.12 Doto,monospace;color:#ff8a2a;text-shadow:0 0 8px #ff7a1a,0 0 22px #ff6a0088;letter-spacing:.03em;animation:ghAn 9s calc(var(--i) * .35s) both infinite}
+@keyframes ghAn{0%{opacity:.4}6%{opacity:1}85%{opacity:1}100%{opacity:.4}}
+.gh-led i{position:absolute;background:#ff7a1a;box-shadow:0 0 14px #ff6a00;opacity:.92}
+.gh-led .b1{left:0;top:0;width:110px;height:22px}.gh-led .b2{right:0;top:0;width:16px;height:22px}
+.gh-led .b3{left:0;top:30%;width:36px;height:40px}.gh-led .b4{right:-10px;top:26%;width:70px;height:28px}
+.gh-led .b5{left:-6px;top:58%;width:90px;height:24px}.gh-led .b6{right:-4px;bottom:16%;width:110px;height:24px}
+.gh-name{margin:28px auto 0;display:inline-block}
+.gh-name b{display:block;padding:6px 34px 2px;background:#e8641c;color:#2a1208;font:900 74px/1 Doto,monospace;letter-spacing:.06em;box-shadow:0 0 30px #e8641c88}
+.gh-name span{display:block;margin-top:10px;font:900 24px Doto,monospace;color:#ff8a2a;text-shadow:0 0 8px #ff7a1a;text-transform:uppercase}
+@media (prefers-reduced-motion:reduce){.gh-led p{animation:none}}
+
+/* Loop-Zähler in der rechten Spalte */
+.ve-gridhog .vsonder{border:0;padding:0;background:none}
+.gh-loops{background:#2b2a2e;color:#f4f1ec;border-radius:4px;padding:14px 16px 16px}
+.gh-loops h4{font:900 21px Doto,monospace;color:#ff8a2a;text-transform:uppercase;margin:0 0 6px;text-shadow:0 0 6px #ff7a1a88}
+.gh-loops h4 a{font:400 12px Fig,sans-serif;color:#aaa;text-shadow:none}
+.gh-loops p{font-size:14px;margin:0 0 10px;color:#cfcbd3}
+.gh-loop{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid #ffffff22}
+.gh-loop span{flex:1;font:900 18px Doto,monospace;color:#ff8a2a}
+.gh-loop b{font:900 26px Doto,monospace;min-width:38px;text-align:center;color:#fff}
+.gh-loop button{width:28px;height:28px;border-radius:50%;border:1.5px solid #ff8a2a;background:none;color:#ff8a2a;font-size:17px;cursor:pointer}
+.gh-loop a{color:#888;cursor:pointer;padding:0 4px}
+.gh-loop em{font-style:normal;font-size:12px;color:#ff5a4a;font-weight:700}
+.gh-loop.ab span,.gh-loop.ab b{opacity:.45}
+.gh-neu{margin-top:10px;width:100%;padding:9px;border:1.5px dashed #ff8a2a;background:none;color:#ff8a2a;border-radius:4px;font:700 14px Fig,sans-serif;cursor:pointer}
+.gh-neu:hover,.gh-loop button:hover{background:#ff8a2a22}

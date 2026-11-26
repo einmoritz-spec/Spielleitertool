@@ -19,7 +19,7 @@ var TABS = [
  {id:"maechte", t:"Mächte", img:"k-maechte", subs:[["hintergruende","Arkane Hintergründe",149],["liste","Machtliste",155]]},
  {id:"bestiarium", t:"Bestiarium", img:"k-bestiarium", subs:[["tiere","Kreaturen",175],["schablonen","Schablonen",205]]},
  {id:"genres", t:"Genres", subs:[["fan","Fantasy"],["hor","Horror"],["sf","Science-Fiction"],["sup","Superkräfte"]]},
- {id:"spielleitung", t:"Spielleitung", img:"k-spielleitung", subs:[["grundlagen","Grundlagen",193],["weltenbau","Weltenbau"]]}
+ {id:"spielleitung", t:"Spielleitung", img:"k-spielleitung", subs:[["grundlagen","Grundlagen",193],["weltenbau","Weltenbau"],["spielstil","Spielstil"],["gruppe","Gruppe"],["veroeffentlichen","Veröffentlichen"],["anekdoten","Anekdoten"],["motorhaube","Unter der Haube"]]}
 ];
 window.SWP = window.SWP || {}; /* Seiten-Module: SWP["bereich/unterpunkt"] = function(){ ... APP.innerHTML = ... } */
 var BOOKC = {grw:"GRW", fan:"FAN", hor:"HOR", sf:"SF", sup:"SUP"};
@@ -199,7 +199,7 @@ var CHAPT = {
  werkzeugkasten:[["Aufgaben","aufgaben"],["Furcht","furcht"],["Gefahren","gefahren"],["Soziales","soziales"],["Schlachten & Reisen","schlacht"],["Verfolgungsjagden","verfolgung"],["Settingregeln","settingregeln"],["Zwischenspiele","zwischenspiele"]],
  maechte:[["Arkane Hintergründe","hintergruende"],["Machtliste","liste"]],
  bestiarium:[["Kreaturen","tiere"],["Schablonen","schablonen"]],
- spielleitung:[["Grundlagen","grundlagen"],["Weltenbau","weltenbau"]]
+ spielleitung:[["Grundlagen","grundlagen"],["Weltenbau","weltenbau"],["Spielstil","spielstil"],["Gruppe","gruppe"],["Veröffentlichen","veroeffentlichen"],["Anekdoten","anekdoten"],["Unter der Haube","motorhaube"]]
 };
 function start(){
   var G = SW_GENRES, pan = G.map(function(g, i){

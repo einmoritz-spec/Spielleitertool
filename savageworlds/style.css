@@ -276,3 +276,17 @@ body.dl-mode .pg{color:#8a6a3a}
 @media(max-width:900px){.kfg{column-count:2}}
 .etw.st{max-width:720px}.shw{gap:26px 36px}
 .ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:0 28px;align-items:start}.ag .etw{margin:0 0 10px}
+/* Spielleitung / Genres */
+.ct.sl{flex:1;min-width:0;padding:16px 28px 60px}
+.sl-t{font-size:38px;margin:0 0 8px;color:var(--c)}
+.sl-sec{padding-top:6px;margin-bottom:34px;border-top:2px solid var(--line)}
+.sl-sec:first-child{border-top:0}
+.sl-s{font-size:26px;margin:22px 0 6px}
+.sl-h{font:400 20px/1.2 Spies,Oswald,sans-serif;margin:16px 0 4px;color:var(--c)}
+.sl .ed{max-width:980px}
+.sl-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:12px;margin:12px 0 16px;max-width:1300px}
+.sl-g .hc{--rc:var(--c)}
+.sl-g .hc b{margin-bottom:2px}
+.sl-ex{--rc:var(--soft)!important;background:#efe6d3}
+.sl-g .hc p{margin:7px 0 0;font-size:15px;line-height:1.5}
+@media(max-width:700px){.sl-g{grid-template-columns:1fr}.ct.sl{padding:12px 14px 50px}}

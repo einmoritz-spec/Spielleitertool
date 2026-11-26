@@ -929,3 +929,11 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .tabs::before{left:calc(var(--rand) + 18px + 58px);right:calc(var(--rand) + 18px + 58px)}
 .tabs::after{left:calc(var(--rand) + 18px);right:calc(var(--rand) + 18px)}
 .tabs{padding-left:calc(var(--rand) + 78px);padding-right:calc(var(--rand) + 78px)}
+/* Band direkt an der Zierleiste: gleiche Breite, die Leiste läuft über die Oberkante des Bandes, ihre Spitzen entfallen (die Knoten des Bandes bilden die Enden) */
+body:has(.tabs) .rail .rl{border-left-width:0}
+body:has(.tabs) .rail .rr{border-right-width:0}
+body:has(.tabs) .rail{z-index:4}
+.tabs{margin-top:var(--bandoff,-19px)}
+.tabs::before{left:calc(var(--rand) - 16px + 58px);right:calc(var(--rand) - 16px + 58px)}
+.tabs::after{left:calc(var(--rand) - 16px);right:calc(var(--rand) - 16px)}
+.tabs{padding-left:calc(var(--rand) + 46px);padding-right:calc(var(--rand) + 46px)}

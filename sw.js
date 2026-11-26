@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1229sq";
+const VERSION = "v1230sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -884,6 +884,9 @@ const FILES = [
   "triangle/js/data/galerie-vault.js",
   "triangle/js/data/nav.js",
   "triangle/js/data/playwall-index.js",
+  "triangle/fonts/caveat-latin-500-normal.woff2",
+  "triangle/fonts/caveat-latin-700-normal.woff2",
+  "triangle/fonts/silkscreen-latin-400-normal.woff2",
   "triangle/fonts/league-spartan-latin-700-normal.woff2",
   "triangle/fonts/league-spartan-latin-800-normal.woff2",
   "triangle/fonts/league-spartan-latin-900-normal.woff2",

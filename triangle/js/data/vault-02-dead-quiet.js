@@ -167,7 +167,7 @@ TA_VAULT["dead-quiet"] = {
     {t:"h", x:"Pindrop"},
     "Zum Arcade-Bereich des Laundrocade gehören zwei Flipperautomaten und ein Greifautomat, aber die übrigen sechs Geräte sind allesamt obskure Arcade-Spiele, darunter Pindrop, ein Spiel, in dem man in einer Verfolgungsjagd durch ein Labyrinth im Pac-Man-Stil Kraft sammelt und sie dann einsetzt, um in vom Breakdance inspirierten Kampfszenen gegen Computergegner zu kämpfen.",
     "Das Spiel funktioniert nicht mehr, seit Manny gestorben ist – es wechselt zwischen einem Bildschirm mit den Worten „Congratulations, Manny, on the new high score!“ und einer Liste von Highscores:",
-    {t:"tab", kopf:["Initialen","Punkte"], x:[
+    {t:"pindrop", x:[
      ["SOM","191513"],["EOF","5156"],["USA","21191"],["RET","18520"],["RYI","18259"],["NGT","14720"],["OSL","151912"],["EEP","5516"]
     ]},
     "Das Spiel ist spielbar, aber der am Ende angezeigte Punktestand stimmt nicht mit dem im Spiel erzielten überein. Die Buchstaben ergeben aneinandergereiht den Satz „some of us are trying to sleep“ („Manche von uns versuchen zu schlafen“).",
@@ -232,7 +232,7 @@ TA_VAULT["dead-quiet"] = {
     "Kaye Renfield, falls noch am Leben und halbwegs unversehrt, verkriecht sich in ihrem Keller und beginnt, einen Blogbeitrag über ihre Erfahrungen in Caddy Corner zu schreiben. Er ist als vernichtende Anklage gedacht, zieht aber mehr Menschen in die Nachbarschaft und erhöht damit den Lärm um sie herum."
    ]},
    {t:"Vault-Anforderung", p:39, b:[
-    {t:"anforderung", h:"Wire Pals", en:"Wire Pals", preis:6, preisNote:"pro 3er-Set", b:[
+    {t:"anforderung", img:"02-dead-quiet-zettel-1", h:"Wire Pals", en:"Wire Pals", preis:6, preisNote:"pro 3er-Set", b:[
      "Diese praktischen Automaten, entwickelt per Reverse Engineering aus den Wirelings der Anomalie, lassen sich darauf trainieren, Fälle jeder von dir beschriebenen Tätigkeit aufzuspüren. Um einen Wire Pal zu aktivieren, beschreibe eine Tätigkeit (*Fahrrad fahren, eine Dose Mega Kool öffnen, bei einem Rechtschreibwettbewerb der dritten Klasse Zweiter werden usw.*). Einmal aktiviert, rollt sich der Wire Pal auf und huscht in einem sich ausdehnenden Radius umher, bis er jemanden findet, der die genannte Tätigkeit ausgeübt hat.",
      "Hat er eine solche Person gefunden, kehrt er zu dir zurück und führt dich zu ihr.",
      "Hauchdünn und federleicht werden Wire Pals in Dreierpackungen geliefert und sehen standardmäßig aus wie Kreditkarten einer örtlichen Bank, ausgestellt auf den Namen des Käufers. Gegen eine zusätzliche Belobigung kannst du dein Set individuell bestellen: Sie können dann eine andere Auswahl gewöhnlicher oder unauffälliger Haushaltsgegenstände nachahmen. Wenn sie aktiv sind, stehen sie auf vier bis acht Beinen und bewegen sich insektenartig über Böden, Decken und Wände. Sie können auch starke Winde nutzen, um größere Entfernungen zurückzulegen.",

@@ -1,1 +1,56 @@
-/* The Vault 02 – dead-quiet: Stil (body.ve-dead-quiet) */
+/* The Vault 02 – Dead Quiet: Violett und Schwarz, Foren-Look, Zettel, Arcade (Buch S. 24–38) */
+@font-face{font-family:Caveat;src:url(../fonts/caveat-latin-500-normal.woff2);font-weight:500;font-display:swap}
+@font-face{font-family:Caveat;src:url(../fonts/caveat-latin-700-normal.woff2);font-weight:700;font-display:swap}
+body.ve-dead-quiet{--akz:#6f55b4;--v2:#1d1a24;--vf:#f4f1fa;--vrand:#b9a3e3;--vgrau:#7d7690}
+.ve-dead-quiet .vunter a.on{color:#6f55b4}.ve-dead-quiet .vunter a.on:after{background:#6f55b4}
+.ve-dead-quiet .vtext h1{letter-spacing:-.04em;color:#1d1a24}
+.ve-dead-quiet .vtext h2{color:#6f55b4}
+.ve-dead-quiet .vh{border-radius:4px;border-left:5px solid #b9a3e3}
+.ve-dead-quiet .vchaos{border-color:#1d1a24;border-radius:6px}.ve-dead-quiet .vchaos h4{background:#1d1a24;color:#d9ccf4}
+.ve-dead-quiet .vchaos>a:has(.neu) em{color:#6f55b4}
+.ve-dead-quiet .kasten{border-color:#1d1a24;border-radius:6px}.ve-dead-quiet .kasten>h3{color:#6f55b4}
+.ve-dead-quiet .vkopf img{border-radius:3px}
+.ve-dead-quiet .vsonder{background:#1d1a24;color:#e9e2f8;border-color:#1d1a24;border-radius:6px}
+.ve-dead-quiet .vsonder h4,.ve-dead-quiet .vsonder .kasten>h3{color:#b9a3e3}
+
+/* Foren-Eröffnungsseite */
+.ve-dead-quiet .ho-forum{max-width:760px;padding:0;border:0;border-radius:6px;overflow:hidden;background:#eceef3;box-shadow:0 10px 30px #1d1a2438}
+.dq-leiste{display:flex;align-items:center;gap:12px;background:#33a95b;color:#fff;font:600 24px/1 Fig,Arial,sans-serif;padding:16px 22px;letter-spacing:-.01em}
+.dq-logo{width:22px;height:22px;border:3px solid #fff;border-radius:3px;box-shadow:5px 5px 0 -1px #33a95b,5px 5px 0 1px #fff}
+.dq-burger{margin-left:auto;width:28px;height:18px;border-top:3px solid #fff;border-bottom:3px solid #fff;position:relative}
+.dq-burger:after{content:"";position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1.5px;background:#fff}
+.dq-liste{padding:14px 18px 20px;display:flex;flex-direction:column;gap:9px}
+.dq-post{background:#fff;border-radius:7px;padding:9px 14px 8px;box-shadow:0 2px 5px #1d1a2430;font-family:Arial,Helvetica,sans-serif}
+.dq-post p{margin:2px 0 0;font-size:15px;line-height:1.38;color:#2c2c34}
+.dq-von{display:flex;align-items:baseline;gap:8px}.dq-von b{font-size:15.5px;font-weight:600}.dq-von time{font-size:12.5px;color:#9a9aa5}
+.dq-haupt{padding:12px 16px 10px}.dq-haupt h4{margin:0 0 4px;font:700 24px/1.1 Arial,Helvetica,sans-serif;color:#222;letter-spacing:-.02em}
+.dq-haupt .dq-von{margin-bottom:3px}.dq-haupt p{font-size:16px}
+.dq-lk{display:block;margin-top:8px;font-size:15px;color:#33a95b;font-weight:600}.dq-lk i{font-style:normal;margin-left:6px}
+.dq-trenn{border:0;height:2px;width:68%;margin:4px auto;background:#fff;border-radius:2px;box-shadow:0 1px 3px #1d1a2420}
+
+/* Brief und Notizen: Handschrift */
+.ve-dead-quiet .ho-brief{font-family:Caveat,cursive;font-size:22px;line-height:1.3;color:#4a3a86;background:#fbf9ff;border:0;border-radius:10px;border-left:6px solid #b9a3e3;padding:20px 28px 10px;transform:rotate(-.6deg)}
+.ve-dead-quiet .ho-brief>h3{font-family:Spartan,sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#6f55b4;margin-bottom:8px}
+.ve-dead-quiet .ho-notiz{font-family:Caveat,cursive;font-size:21px;line-height:1.28;color:#2c2552;background:#fffdf3;border:1.5px solid #1d1a24;border-radius:4px;padding:14px 18px 6px;max-width:300px;display:inline-block;vertical-align:top;margin:8px 22px 18px 0;transform:rotate(-1.6deg);box-shadow:3px 4px 0 #b9a3e3}
+.ve-dead-quiet .ho-notiz:nth-of-type(2n){transform:rotate(1.4deg)}
+.ve-dead-quiet .ho-notiz:nth-of-type(3n){transform:rotate(-.5deg)}
+.ve-dead-quiet .ho-notiz>h3{font:800 13px Spartan,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#6f55b4;margin-bottom:6px}
+
+/* Schwarzes Brett: Zettel mit Stecknadel */
+.ve-dead-quiet .vkarten.n3{grid-template-columns:repeat(3,1fr);gap:24px;padding-top:8px}
+.ve-dead-quiet .vkarten section{background:#fff;border:2.5px solid #1d1a24;border-radius:20px;padding:34px 20px 16px;text-align:center;position:relative;border-top-width:2.5px;min-height:230px;display:flex;flex-direction:column;justify-content:center}
+.ve-dead-quiet .vkarten section:before{content:"";position:absolute;left:50%;top:12px;width:15px;height:15px;margin-left:-8px;border-radius:50%;background:#1d1a24}
+.ve-dead-quiet .vkarten section:nth-child(3){transform:rotate(-5deg)}
+.ve-dead-quiet .vkarten h3{display:none}
+.ve-dead-quiet .vkarten p{margin:0}.ve-dead-quiet .vkarten strong,.ve-dead-quiet .vkarten b{color:#6f55b4}
+
+/* Pindrop-Bildschirm */
+.dq-arcade{max-width:560px;margin:14px auto 22px;border:3px solid #1d1a24;border-radius:22px;padding:12px;background:#fff}
+.dq-screen{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;padding:30px 52px;border-radius:16px;background:#000;font:400 28px/1.15 "Silkscreen","Press Start 2P",monospace;color:#fff;text-shadow:0 0 6px #fff,0 0 14px #fff8;font-style:italic;letter-spacing:.06em}
+.dq-screen span:nth-child(2n){text-align:left}
+@font-face{font-family:Silkscreen;src:url(../fonts/silkscreen-latin-400-normal.woff2);font-weight:400;font-display:swap}
+.ve-dead-quiet .vsonder .dq-plus{display:flex;gap:16px;align-items:flex-start;padding:2px 0 6px}
+.ve-dead-quiet .vsonder .dq-plus h3{font:800 17px Spartan,sans-serif;color:#b9a3e3;margin:0 0 6px}
+.dq-plus button{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;border:2px solid #b9a3e3;background:#0000;color:#fff;border-radius:12px;padding:8px 10px;font:800 26px Spartan,sans-serif;cursor:pointer}
+.dq-plus button:hover{background:#b9a3e333}.dq-plus button img{width:30px;height:30px;filter:brightness(0) invert(1) opacity(.85)}
+.ve-dead-quiet .vsonder .an{color:#d9ccf4!important}

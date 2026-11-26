@@ -906,3 +906,9 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .tabs{padding-left:calc(var(--rand) + 9px)}
 .tabs .tab:not(.on){color:rgba(0,96,77,.75)}
 .tabs .tab:not(.on):hover{color:var(--jade-d)}
+.ktabs a{color:rgba(60,60,55,.42)}
+.ktabs a:hover{color:rgba(0,96,77,.75)}
+.ktabs a.on{color:var(--jade-d)}
+.tabs{padding-top:4px;height:46px}
+.lay{padding-top:8px}
+.lay .fold{top:13px}

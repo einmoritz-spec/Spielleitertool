@@ -2,7 +2,7 @@
    a=Startwürfel der Attribute in Schritten über W4 (erhöht auch das Maximum), mx=festes Maximum (Index: 1=W4, 2=W6 …), sk=Startwürfel von Fertigkeiten in Schritten,
    gr=Größe, rob=Robustheit (ohne Größe), pz=Panzerung, pa=Parade, t=Tempo ±, ts=Tempo fest, sp=Sprintwürfel ± Schritte, sps=Sprintwürfel fest,
    ben=Bennys, frei=freie Anfänger-Talente, fl=Fliegen, wa=natürliche Waffen [Name, Schaden, PB], ohne=Grundfertigkeiten entfallen,
-   ta=verliehene Talente, ha=verliehene Handicaps, wahl=Wahlmöglichkeiten [{n, o:[{l, e}]}] */
+   sch=Schablonen-Angriffe [Name, Schablone, Schaden], ta=verliehene Talente, ha=verliehene Handicaps, wahl=Wahlmöglichkeiten [{n, o:[{l, e}]}] */
 window.SW_VOLK_FX = {
 "Androiden": {ha:["Außenseiter (Schwer)", "Pazifist (Schwer)", "Schwur (Schwer)"]},
 "Aquarianer": {rob:1},
@@ -16,7 +16,7 @@ window.SW_VOLK_FX = {
 "Zwerge": {a:{kon:1}, t:-1, sp:-1},
 "Himmlische": {fl:12, ta:["Attraktiv"], ha:["Ehrenkodex", "Schwur (Schwer)"]},
 "Zentauren": {gr:1, ts:10, sps:"W10", wa:[["Hufe", "Stä+W4", ""]]},
-"Drachenvolk": {pz:2, ha:["Arrogant"], wa:[["Biss/Klauen", "Stä+W4", "2"]]},
+"Drachenvolk": {pz:2, ha:["Arrogant"], wa:[["Biss/Klauen", "Stä+W4", "2"]], sch:[["Odemwaffe", "kegel", "2W6"]]},
 "Elementarsprösslinge": {ha:["Außenseiter (Leicht)"], wahl:[{n:"Ahnenelement", o:[{l:"Feuer", e:{ta:["Schnell"]}}, {l:"Erde", e:{a:{kon:1}}}, {l:"Wasser", e:{}}, {l:"Luft", e:{}}]}]},
 "Feen": {fl:6, gr:-4, mx:{sta:1}, ha:["Zwei linke Hände", "Große Klappe", "Neugierig", "Impulsiv"]},
 "Gnome": {a:{ver:1}, sk:{"Wahrnehmung":1}, gr:-1, t:-1, sp:-1},

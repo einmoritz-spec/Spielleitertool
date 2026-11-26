@@ -67,7 +67,7 @@ function dbPut(m){ return dbReq("readwrite", function(s){ return s.put(m); }); }
 function dbDel(id){ return dbReq("readwrite", function(s){ return s.delete(id); }); }
 
 /* ---------- Zustand ---------- */
-var S = {open:false, maps:[], m:null, tool:"sel", sub:{obj:"kiste", area:"schwierig", tpl:"mfs"}, sel:null, snap:true, grid:true, undo:[], redo:[], drag:null, ptr:{}, meas:null, wip:null, hover:null, space:false, cal:null};
+var S = {open:false, maps:[], m:null, tool:"sel", sub:{obj:"kiste", area:"schwierig", tpl:"mfs", fig:""}, aim:null, rings:null, sel:null, snap:true, grid:true, undo:[], redo:[], drag:null, ptr:{}, meas:null, wip:null, hover:null, space:false, cal:null};
 try { var P = JSON.parse(localStorage.getItem("sw_spielfeld_ui") || "{}"); if(P.snap === false) S.snap = false; if(P.grid === false) S.grid = false; if(P.sub) S.sub = Object.assign(S.sub, P.sub); } catch(e){}
 function saveUI(){ try { localStorage.setItem("sw_spielfeld_ui", JSON.stringify({snap:S.snap, grid:S.grid, sub:S.sub, cur:S.m && S.m.id})); } catch(e){} }
 function newMap(name){ return {id:uid(), name:name || "Neue Karte", items:[], bg:null, view:null, t:Date.now()}; }
@@ -107,6 +107,25 @@ function tplHits(t, f){
   if(t.k === "strahl"){ var dx = Math.max(-lx, 0, lx - 12), dy = Math.max(Math.abs(ly) - 0.5, 0); return Math.hypot(dx, dy) < r - 0.01; }
   var dc = Math.hypot(lx - 7.5, ly) - 1.5, dt = triD(lx, ly, [[0, 0], [7.2, 1.4697], [7.2, -1.4697]]);
   return Math.min(dc, dt) < r - 0.01;
+}
+
+/* ---------- Charakterbogen-Anbindung ---------- */
+var STB = {a:"Angeschlagen", ab:"Abgelenkt", vw:"Verwundbar"};
+function bogen(f){ return f && f.cid && window.SWBogen ? SWBogen.werte(f.cid) : null; }
+function syncFig(f){
+  var w = bogen(f); if(!w) return null;
+  f.n = w.name; f.bw = w.tempo; f.pa = String(w.parade); f.ro = w.rob; f.d = w.d; f.wc = 1;
+  f.st = f.st || {}; f.st.w = w.wu; f.st.e = w.er; Object.keys(STB).forEach(function(k){ f.st[k] = w.st[STB[k]] ? 1 : 0; });
+  return w;
+}
+function setBogen(f, k, v){
+  if(!f.cid || !window.SWBogen) return;
+  if(k === "w") SWBogen.setze(f.cid, {wu:v}); else if(k === "e") SWBogen.setze(f.cid, {er:v}); else if(STB[k]){ var o = {}; o[STB[k]] = v; SWBogen.setze(f.cid, {st:o}); }
+}
+function reichLabel(d, a){
+  if(a.rw){ var r = a.rw.split("/").map(Number); if(d <= r[0]) return "kurz"; if(d <= r[1]) return "mittel –2"; if(d <= r[2]) return "weit –4"; if(d <= r[2] * 4) return "extrem –8"; return "außer Reichweite"; }
+  if(a.reich != null) return d <= a.reich ? "in Reichweite" : "außer Reichweite (" + a.reich + "“)";
+  return "";
 }
 
 /* ---------- Bestiarium-Anbindung ---------- */
@@ -191,7 +210,7 @@ function close(){ if(!O) return; S.open = false; O.classList.remove("on"); docum
 function load(m){
   S.m = m; S.sel = null; S.undo = []; S.redo = []; S.meas = null; S.wip = null; S.cal = null;
   if(!m.view){ var r = SVG.getBoundingClientRect(); m.view = {x:Math.round(r.width / 2), y:Math.round(r.height / 2), z:48}; }
-  NAME.value = m.name; saveUI(); setTool(S.tool === "sel" ? "sel" : S.tool); rail(); draw(); ins();
+  NAME.value = m.name; saveUI(); setTool(S.tool === "sel" ? "sel" : S.tool); rail(); draw(); ins(); fly();
 }
 function ddToggle(on){
   var v = on === undefined ? !DD.classList.contains("on") : on; DD.classList.toggle("on", v); if(!v) return;
@@ -217,7 +236,9 @@ function option(o){
 function fly(){
   if(!FLY) return;
   var t = S.tool, h = "";
-  if(t === "obj") h = Object.keys(OBJ).map(function(k){ return '<button data-v="' + k + '" class="' + (S.sub.obj === k ? "on" : "") + '" title="' + OBJ[k][0] + '"><svg viewBox="-.6 -.6 1.2 1.2">' + objSym(k, 1, 1) + "</svg></button>"; }).join("");
+  if(t === "fig"){ var CL = window.SWBogen ? SWBogen.liste() : [];
+    if(CL.length) h = '<button data-v="" class="' + (!S.sub.fig ? "on" : "") + '" title="Figur">' + ic("fig") + "</button>" + CL.map(function(c){ return '<button data-v="' + c.id + '" class="ch' + (S.sub.fig === c.id ? " on" : "") + '"><b>' + E(N(kuerzel(c.name))) + "</b><span>" + E(c.name) + "</span></button>"; }).join(""); }
+  else if(t === "obj") h = Object.keys(OBJ).map(function(k){ return '<button data-v="' + k + '" class="' + (S.sub.obj === k ? "on" : "") + '" title="' + OBJ[k][0] + '"><svg viewBox="-.6 -.6 1.2 1.2">' + objSym(k, 1, 1) + "</svg></button>"; }).join("");
   else if(t === "area") h = Object.keys(AREAS).map(function(k){ return '<button data-v="' + k + '" class="' + (S.sub.area === k ? "on" : "") + '" title="' + AREAS[k] + '"><svg viewBox="0 0 1.6 1.2"><rect x=".05" y=".05" width="1.5" height="1.1" rx=".08" ' + areaFill(k) + ' stroke="' + areaStroke(k) + '" stroke-width=".05"/></svg></button>'; }).join("");
   else if(t === "tpl") h = Object.keys(TPL).map(function(k){ return '<button data-v="' + k + '" class="tp ' + (S.sub.tpl === k ? "on" : "") + '" title="' + TPL[k].n + '"><svg viewBox="' + (TPL[k].r ? "-3.2 -3.2 6.4 6.4" : k === "kegel" ? "-.3 -3.2 9.6 6.4" : "-.3 -3.2 12.6 6.4") + '">' + tplShape(k, "#a51f1a", 0.3) + "</svg><span>" + TPL[k].k + "</span></button>"; }).join("");
   FLY.innerHTML = h; FLY.className = "sffly" + (h ? " on " + t : "");
@@ -282,7 +303,7 @@ function drawNow(){
     L.gr.innerHTML = '<path d="' + d + '" stroke="#8c7a5c" stroke-opacity="' + (0.32 * gop * Math.min(1, (z - 8) / 20)) + '" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"/><path d="' + dm + '" stroke="#6f5d40" stroke-opacity="' + (0.5 * gop) + '" stroke-width="1.2" vector-effect="non-scaling-stroke" fill="none"/>';
   } else L.gr.innerHTML = "";
   var ar = "", wa = "", ob = "", fi = "", tx = "", tp = "", figs = [], tpls = [];
-  m.items.forEach(function(it){ if(it.t === "fig") figs.push(it); else if(it.t === "tpl") tpls.push(it); });
+  m.items.forEach(function(it){ if(it.t === "fig"){ if(it.cid) syncFig(it); figs.push(it); } else if(it.t === "tpl") tpls.push(it); });
   var hit = {}; tpls.forEach(function(t){ t._n = 0; figs.forEach(function(f){ if(tplHits(t, f)){ hit[f.id] = 1; t._n++; } }); });
   m.items.forEach(function(it){
     var tr = 'transform="translate(' + it.x + " " + it.y + (it.r ? ") rotate(" + it.r : "") + ')"';
@@ -371,6 +392,13 @@ function overlay(z){
     if(it.bw) s += '<circle cx="' + D.ox + '" cy="' + D.oy + '" r="' + it.bw + '" class="sfbw"/>';
     s += '<circle cx="' + D.ox + '" cy="' + D.oy + '" r="' + it.d / 2 + '" class="sfghost"/>' + measSvg(D.ox, D.oy, it.x, it.y, z, dist);
   }
+  if(S.rings){ var rf = byId(S.rings.fid); if(rf){ S.rings.rw.split("/").map(Number).forEach(function(rr, i){ s += '<circle cx="' + rf.x + '" cy="' + rf.y + '" r="' + rr + '" class="sfring r' + i + '"/>' + measLabel(rf.x, rf.y - rr, z, ["kurz", "mittel", "weit"][i] + " " + rr + "“"); }); } }
+  if(S.aim && S.aim.p){ var af = byId(S.aim.fid), g = aimGeo(S.aim, af); if(g){
+    s += '<g transform="translate(' + g.x + " " + g.y + (g.r ? ") rotate(" + g.r : "") + ')" class="sfaim">' + tplShape(S.aim.k, "#a51f1a") + "</g>";
+    var dd = TPL[S.aim.k].r ? Math.hypot(g.x - af.x, g.y - af.y) : null;
+    if(dd != null) s += measSvg(af.x, af.y, g.x, g.y, z, null, false, reichLabel(dd, S.aim));
+    else s += measLabel(S.aim.p[0], S.aim.p[1] - 0.6, z, S.aim.src);
+  } }
   if(S.meas) s += measSvg(S.meas.a[0], S.meas.a[1], S.meas.b[0], S.meas.b[1], z);
   if(S.cal) s += measSvg(S.cal.a[0], S.cal.a[1], S.cal.b[0], S.cal.b[1], z, null, true);
   if(S.wip){ var pp = S.wip.pts.concat(S.hover ? [S.hover] : []); s += '<path d="' + pp.map(function(p, i){ return (i ? "L" : "M") + p[0] + " " + p[1]; }).join("") + '" class="sfwip"/>'; S.wip.pts.forEach(function(p){ s += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="' + h * 0.6 + '" class="sfhd"/>'; }); }
@@ -382,10 +410,16 @@ function overlay(z){
   if(S.tool === "wall" && S.hover && !S.wip) s += '<circle cx="' + S.hover[0] + '" cy="' + S.hover[1] + '" r="' + h * 0.6 + '" class="sfhd"/>';
   return s;
 }
-function measSvg(ax, ay, bx, by, z, dd, cal){
+function aimGeo(A, f){
+  if(!f || !A.p) return null;
+  if(TPL[A.k].r){ var q = S.snap ? [snapV(A.p[0], 0.5, 0), snapV(A.p[1], 0.5, 0)] : A.p; return {x:q[0], y:q[1], r:0}; }
+  var ang = Math.atan2(A.p[1] - f.y, A.p[0] - f.x), rr = f.d / 2;
+  return {x:f.x + Math.cos(ang) * rr, y:f.y + Math.sin(ang) * rr, r:Math.round(ang * 180 / Math.PI)};
+}
+function measSvg(ax, ay, bx, by, z, dd, cal, extra){
   var d = dd == null ? Math.hypot(bx - ax, by - ay) : dd;
   return '<path d="M' + ax + " " + ay + "L" + bx + " " + by + '" class="sfms"/><circle cx="' + ax + '" cy="' + ay + '" r="' + 4 / z + '" class="sfmsd"/><circle cx="' + bx + '" cy="' + by + '" r="' + 4 / z + '" class="sfmsd"/>' +
-    measLabel((ax + bx) / 2, (ay + by) / 2, z, cal ? f1(d) + "“" : f1(d) + "“ · " + f1(d * 2) + " m");
+    measLabel((ax + bx) / 2, (ay + by) / 2, z, cal ? f1(d) + "“" : f1(d) + "“ · " + f1(d * 2) + " m" + (extra ? " · " + extra : ""));
 }
 function measLabel(x, y, z, t){ var s = 1 / z; return '<g transform="translate(' + x + " " + y + ") scale(" + s + ')"><rect x="' + (-t.length * 3.9 - 9) + '" y="-12" width="' + (t.length * 7.8 + 18) + '" height="24" rx="12" class="sfml"/><text class="sfmt" y="1">' + E(t) + "</text></g>"; }
 
@@ -404,7 +438,8 @@ function pDown(e){
   var p = wpt(e), t = e.target, hd = t.closest && t.closest("[data-h]"), el = t.closest && t.closest("[data-id]"), isBg = t.getAttribute && t.getAttribute("data-bg");
   var start = {sx:e.clientX, sy:e.clientY, px:p.x, py:p.y};
   if(e.button === 1 || (e.button === 2 && !S.wip) || S.space){ S.drag = Object.assign({mode:"pan", vx:S.m.view.x, vy:S.m.view.y}, start); return; }
-  if(e.button === 2) return;
+  if(e.button === 2){ if(S.aim){ S.aim = null; draw(); } return; }
+  if(S.aim){ var A = S.aim, af = byId(A.fid), g = aimGeo(A, af); if(g){ pushUndo(); var nt = {t:"tpl", id:uid(), k:A.k, x:g.x, y:g.y, r:g.r, c:"#a51f1a", src:A.src}; S.m.items.push(nt); S.sel = nt.id; } S.aim = null; ins(); save(); draw(); return; }
   if(hd){
     pushUndo(); var it = selItem(), k = hd.getAttribute("data-h");
     if(k === "bgres") S.drag = Object.assign({mode:"bgres"}, start);
@@ -420,6 +455,12 @@ function pDown(e){
     if(isBg && S.m.bg && !S.m.bg.lock){ if(S.sel !== "bg"){ S.sel = "bg"; ins(); } S.drag = Object.assign({mode:"bgmove", ox:S.m.bg.x, oy:S.m.bg.y}, start); draw(); return; }
     if(S.sel){ S.sel = null; ins(); }
     S.meas = null; S.drag = Object.assign({mode:"pan", vx:S.m.view.x, vy:S.m.view.y, click:1}, start); draw(); return;
+  }
+  if(tool === "fig" && S.sub.fig && window.SWBogen && SWBogen.get(S.sub.fig)){
+    pushUndo(); var cw = SWBogen.werte(S.sub.fig), ex = S.m.items.filter(function(i){ return i.cid === S.sub.fig; })[0], qc = snapFig(p.x, p.y, cw.d);
+    if(ex){ ex.x = qc[0]; ex.y = qc[1]; S.sel = ex.id; }
+    else { var cf = {t:"fig", id:uid(), cid:S.sub.fig, x:qc[0], y:qc[1], d:cw.d, n:cw.name, team:"h", wc:1, bw:cw.tempo, st:{}}; S.m.items.push(cf); S.sel = cf.id; }
+    ins(); save(); draw(); return;
   }
   if(tool === "fig"){
     pushUndo(); var n = S.m.items.filter(function(i){ return i.t === "fig"; }).length + 1, q2 = snapFig(p.x, p.y, 1);
@@ -458,6 +499,7 @@ function pMove(e){
   if(S.ptr[e.pointerId]) S.ptr[e.pointerId] = {x:e.clientX, y:e.clientY};
   var D = S.drag, p = wpt(e), v = S.m.view;
   if(S.tool === "wall" && !D){ S.hover = snapPt(p.x, p.y); draw(); }
+  if(S.aim && !D){ S.aim.p = [p.x, p.y]; draw(); return; }
   if(!D) return;
   var it = selItem(), dx = p.x - D.px, dy = p.y - D.py, free = e.shiftKey;
   switch(D.mode){
@@ -549,6 +591,8 @@ window.addEventListener("keydown", function(e){
   if(c) return;
   if(k === " "){ S.space = true; SVG.classList.add("pan"); e.preventDefault(); return; }
   if(k === "Escape"){
+    if(S.aim){ S.aim = null; draw(); return; }
+    if(S.rings){ S.rings = null; draw(); ins(); return; }
     if(S.wip){ finishWall(); return; }
     if(DD.classList.contains("on")){ ddToggle(false); return; }
     if(S.meas || S.cal){ S.meas = null; S.cal = null; draw(); ins(); return; }
@@ -626,6 +670,26 @@ function ins(){
         '<div class="sfnum"><input type="number" min="1" step="1" id="sfCalN" value="' + Math.max(1, Math.round(Math.hypot(S.cal.b[0] - S.cal.a[0], S.cal.b[1] - S.cal.a[1]))) + '"><span>Felder</span><button data-act="calok" class="sfok">OK</button></div>' :
         '<button data-act="cal" class="sfbtn' + (S.tool === "cal" ? " on" : "") + '">' + ic("cal") + "Felder abmessen</button>")) +
       '<div class="sfift"><button data-act="bglock" class="' + (b.lock ? "on" : "") + '" title="' + (b.lock ? "Fixiert" : "Fixieren") + '">' + ic(b.lock ? "lock" : "unlock") + '</button><button data-act="bgnew" title="Anderes Bild">' + ic("bild") + '</button><button data-act="del" class="del" title="Entfernen">' + ic("trash") + "</button></div>";
+  } else if(it && it.t === "fig" && it.cid && bogen(it)){
+    var w = syncFig(it), st = it.st;
+    var tc = function(arr, a){ return arr.map(function(k){ return '<button class="sfaimb" data-aim="' + k + '" data-src="' + E(a.n) + '" data-rw="' + E(a.rw || "") + '" data-reich="' + (a.reich == null ? "" : a.reich) + '">' + TPL[k].k + "</button>"; }).join(""); };
+    h = '<h3>' + E(w.name) + '<button class="sflink" data-act="bogen" title="Charakterbogen">' + ic("dup") + "</button></h3>" +
+      (w.volk ? '<div class="sfsub">' + E(w.volk) + "</div>" : "") +
+      '<div class="sfwerte"><div><b>' + w.tempo + "</b><span>Tempo</span></div><div><b>" + w.parade + "</b><span>Parade</span></div><div><b>" + E(w.rob) + '</b><span>Robustheit</span></div></div>' +
+      '<div class="sfrow half"><div><label>Bennys</label><div class="sfstep"><button data-step="ben" data-v="-1">–</button><b>' + w.ben + '</b><button data-step="ben" data-v="1">+</button></div></div>' +
+      (w.mp ? '<div><label>Machtpunkte</label><div class="sfstep"><button data-step="mpa" data-v="-1">–</button><b>' + w.mpa + "<small>/" + w.mp + '</small></b><button data-step="mpa" data-v="1">+</button></div></div>' : "<div></div>") + "</div>" +
+      row("Partei", seg("team", TEAMS.map(function(t){ return [t[0], t[1]]; }), it.team)) +
+      row("Farbe", sw("c", COLS, it.c || teamCol(it.team))) +
+      '<h4>Zustand</h4>' +
+      '<div class="sfrow"><label>Wunden</label>' + pips("w", st.w || 0, 3, "#a51f1a") + "</div>" +
+      '<div class="sfrow"><label>Erschöpfung</label>' + pips("e", st.e || 0, 2, "#3c5a78") + "</div>" +
+      '<div class="sfchips">' + STATES.map(function(x){ return '<button data-st="' + x[0] + '" class="' + (st[x[0]] ? "on" : "") + '" style="--c:' + x[3] + '"><b>' + x[2] + "</b>" + x[1] + "</button>"; }).join("") +
+        '<button data-st="aus" class="aus' + (st.aus ? " on" : "") + '" style="--c:#a51f1a"><b>×</b>Außer Gefecht</button></div>' +
+      (w.waffen.length ? "<h4>Waffen</h4>" + w.waffen.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E([a.sd, a.pb ? "PB " + a.pb : ""].filter(Boolean).join(", ")) + '</small></div><div class="b">' +
+        (a.rw ? '<button class="sfrng' + (S.rings && S.rings.fid === it.id && S.rings.rw === a.rw ? " on" : "") + '" data-rng="' + E(a.rw) + '" title="Reichweite">' + E(a.rw) + "</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
+      (w.maechte.length ? "<h4>Mächte</h4>" + w.maechte.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E([a.rw, a.reich ? a.reich + "“" : ""].filter(Boolean).join(" · ")) + '</small></div><div class="b">' +
+        (a.mp && /^\d+$/.test(a.mp) ? '<button class="sfmp" data-mp="' + a.mp + '" title="Machtpunkte ausgeben">' + a.mp + " MP</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
+      foot('<button data-act="img" title="Bild">' + ic("bild") + "</button>" + (it.img ? '<button data-act="noimg" title="Bild entfernen" class="sfx">' + ic("close") + "</button>" : ""));
   } else if(it && it.t === "fig"){
     var st = it.st || {};
     h = '<h3>Figur</h3>' +
@@ -655,7 +719,7 @@ function ins(){
       (it.k === "tuer" ? row("Zustand", seg("offen", [[0, "Geschlossen"], [1, "Offen"]], it.offen ? 1 : 0)) : "") + foot();
   } else if(it && it.t === "tpl"){
     var hits = S.m.items.filter(function(f){ return f.t === "fig" && tplHits(it, f); });
-    h = "<h3>" + TPL[it.k].n + "</h3>" + '<div class="sftpl">' + Object.keys(TPL).map(function(k){ return '<button data-set="k" data-v="' + k + '" class="' + (it.k === k ? "on" : "") + '">' + TPL[k].k + "</button>"; }).join("") + "</div>" +
+    h = "<h3>" + TPL[it.k].n + "</h3>" + (it.src ? '<div class="sfsub">' + E(it.src) + "</div>" : "") + '<div class="sftpl">' + Object.keys(TPL).map(function(k){ return '<button data-set="k" data-v="' + k + '" class="' + (it.k === k ? "on" : "") + '">' + TPL[k].k + "</button>"; }).join("") + "</div>" +
       row("Farbe", sw("c", TCOLS, it.c || "#a51f1a")) +
       (TPL[it.k].r ? "" : row("Richtung", '<div class="sfnum"><input type="number" step="5" data-f="r" value="' + Math.round(it.r || 0) + '"><span>°</span></div>')) +
       '<h4>Getroffen<span class="sfcnt">' + hits.length + "</span></h4>" +
@@ -684,6 +748,7 @@ function insClick(e){
   if(d.pick){ S.sel = d.pick; ins(); draw(); return; }
   if(d.act){
     var a = d.act;
+    if(a === "bogen"){ var cid = it && it.cid; close(); if(cid) SWBogen.oeffne(cid); return; }
     if(a === "del") del(); else if(a === "dup") dup(); else if(a === "back") order(-1);
     else if(a === "img") imgPick(it);
     else if(a === "noimg"){ pushUndo(); delete it.img; save(); draw(); ins(); }
@@ -708,8 +773,12 @@ function insClick(e){
     if(f2 === "k" && it.t === "wall"){ /* Art wechseln */ }
     save(); draw(); ins(); return;
   }
-  if(d.pip){ pushUndo(); it.st = it.st || {}; var n2 = +d.v; it.st[d.pip] = it.st[d.pip] === n2 ? n2 - 1 : n2; save(); draw(); ins(); return; }
-  if(d.st){ pushUndo(); it.st = it.st || {}; it.st[d.st] = it.st[d.st] ? 0 : 1; save(); draw(); ins(); }
+  if(d.pip){ pushUndo(); it.st = it.st || {}; var n2 = +d.v; it.st[d.pip] = it.st[d.pip] === n2 ? n2 - 1 : n2; setBogen(it, d.pip, it.st[d.pip]); save(); draw(); ins(); return; }
+  if(d.st){ pushUndo(); it.st = it.st || {}; it.st[d.st] = it.st[d.st] ? 0 : 1; setBogen(it, d.st, it.st[d.st]); save(); draw(); ins(); return; }
+  if(d.aim){ S.aim = {fid:it.id, k:d.aim, src:d.src, rw:d.rw || "", reich:d.reich === "" ? null : +d.reich, p:null}; S.rings = null; draw(); return; }
+  if(d.rng){ S.rings = S.rings && S.rings.fid === it.id && S.rings.rw === d.rng ? null : {fid:it.id, rw:d.rng}; draw(); ins(); return; }
+  if(d.step && it.cid){ var w0 = bogen(it), o = {}; if(d.step === "ben") o.ben = Math.max(0, w0.ben + +d.v); else o.mpa = Math.max(0, Math.min(w0.mp, w0.mpa + +d.v)); SWBogen.setze(it.cid, o); ins(); return; }
+  if(d.mp && it.cid){ var w1 = bogen(it); SWBogen.setze(it.cid, {mpa:Math.max(0, w1.mpa - +d.mp)}); ins(); return; }
 }
 
 /* ---------- Bilder ---------- */

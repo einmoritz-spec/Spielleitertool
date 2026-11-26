@@ -141,3 +141,38 @@ body.sf-open{overflow:hidden}
 .sfwiprect{stroke:#241f1c;stroke-width:1.5;stroke-dasharray:6 4;vector-effect:non-scaling-stroke;pointer-events:none}
 .sftp{opacity:.95}
 .sfseg.sz{display:grid;grid-template-columns:repeat(6,1fr)}.sfseg.sz button:nth-child(-n+3){grid-column:span 2}.sfseg.sz button:nth-child(n+4){grid-column:span 3}
+/* Charaktere auf dem Spielfeld */
+.sffly button.ch{width:auto;flex-direction:row;gap:8px;padding:6px 12px 6px 6px;font-size:13px}
+.sffly button.ch b{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#2f6f9f;color:#fff;font:15px/1 Spies,Oswald,sans-serif;flex:none}
+.sffly button.ch.on b{background:#fff;color:var(--red)}
+.sfi h3 .sflink{margin-left:auto;width:30px;height:30px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--soft);align-self:center}
+.sfi h3 .sflink:hover{color:var(--red);border-color:var(--red)}
+.sfi h3 .sflink svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+.sfsub{margin:-10px 0 12px;color:var(--soft);font-size:13px}
+.sfwerte{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;background:#fff;margin:0 0 14px;overflow:hidden}
+.sfwerte div{text-align:center;padding:7px 2px 6px;border-right:1px solid var(--line)}
+.sfwerte div:last-child{border-right:0}
+.sfwerte b{display:block;font:600 21px/1.1 Oswald,sans-serif;color:var(--ink)}
+.sfwerte span{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--soft)}
+.sfstep{display:flex;align-items:center;height:36px;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
+.sfstep button{width:34px;height:100%;font:600 18px Oswald,sans-serif!important;color:var(--soft)!important}
+.sfstep button:hover{background:#f3ece0;color:var(--red)!important}
+.sfstep b{flex:1;text-align:center;font:600 17px Oswald,sans-serif}
+.sfstep b small{font-size:12px;color:var(--soft);margin-left:1px}
+.sfact{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #ece4d4}
+.sfact:last-of-type{border-bottom:0}
+.sfact .n{flex:1;min-width:0;font-size:14px;line-height:1.2}
+.sfact .n small{display:block;color:var(--soft);font-size:12px;margin-top:1px}
+.sfact .b{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.sfact .b button{height:26px;padding:0 8px;border-radius:7px;border:1px solid var(--line);background:#fff;font:600 12px Oswald,sans-serif!important;letter-spacing:.03em;color:var(--ink)}
+.sfact .b button.sfaimb{background:rgba(165,31,26,.08);border-color:rgba(165,31,26,.35);color:var(--red)}
+.sfact .b button.sfaimb:hover{background:var(--red);color:#fff}
+.sfact .b button.sfrng.on{background:#2f6f9f;border-color:#2f6f9f;color:#fff}
+.sfact .b button.sfmp{color:#5b4a8c;border-color:rgba(91,74,140,.35)}
+.sfact .b button.sfmp:hover{background:#5b4a8c;color:#fff}
+.sfring{fill:none;stroke:#2f6f9f;stroke-width:1.6;stroke-dasharray:6 5;vector-effect:non-scaling-stroke;pointer-events:none}
+.sfring.r0{fill:#2f6f9f;fill-opacity:.06}
+.sfring.r2{stroke-opacity:.6}
+.sfaim{opacity:.8;pointer-events:none}
+.sfrow.half{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sfrow.half label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:0 0 5px}

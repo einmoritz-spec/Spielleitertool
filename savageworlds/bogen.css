@@ -90,6 +90,7 @@
 .bwahl{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:-4px 0 10px;font:600 11px Oswald,sans-serif;letter-spacing:.04em;text-transform:uppercase}
 .bwahl .bwl{color:#a51f1a;margin-right:2px;font:600 11px Oswald,sans-serif}
 .bwahl i{width:14px}
+.bwahl.in{margin:0;padding:5px 8px 1px}
 .bwahl a{padding:2px 8px;border:1px solid #c9bfae;border-radius:3px;cursor:pointer;color:#555}
 .bwahl a:hover{border-color:#a51f1a}
 .bwahl a.on{background:#a51f1a;border-color:#a51f1a;color:#fff}
@@ -126,5 +127,6 @@
   .sheetwrap{display:block;overflow:visible}
   .bsheet{box-shadow:none;width:210mm;min-height:297mm;transform-origin:0 0;zoom:1.0}
   .bsheet,.bsheet *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bwahl.in a:not(.on){display:none}
 }
 @media (max-width:820px){.bsheet{zoom:var(--bz,1)}}

@@ -58,12 +58,43 @@ function rangIdx(c){ return Math.min(4, Math.floor(Math.floor((parseInt(c.ep, 10
 function ahName(c, F){ return c.ah || F.ah || (c.ta.filter(function(t){ return t && /^Arkaner Hintergrund \(/.test(t.n); })[0] || {n: ""}).n.replace(/^Arkaner Hintergrund \((.*)\)$/, "$1"); }
 function ahRec(n){ return (window.SW_AH || []).filter(function(a){ return a.n === n; })[0]; }
 function ahSkill(c, F){ var a = ahRec(ahName(c, F)); return a && a.f ? a.f.replace(/\s*\((Verstand|Willenskraft|Geschicklichkeit|Stärke|Konstitution)\)$/, "") : ""; }
+/* Sonderregeln der Arkanen Hintergründe (aus den Buchtexten abgeleitet) */
+var ELEM = ["Feuer", "Wasser", "Erde", "Luft"], NUMW = {eine: 1, einen: 1, zwei: 2, drei: 3, vier: 4, fünf: 5};
+var AHC = {};
+function ahFx(n){
+  if(!n) return {alias: [], ha: [], ta: [], start: [], startN: 0, rang: {}, nur: {}, elem: false, erlaubt: null};
+  if(AHC[n]) return AHC[n];
+  var a = ahRec(n) || {}, o = {alias: [], ha: [], ta: [], start: [], startN: 0, rang: {}, nur: {}, elem: false, erlaubt: null};
+  (a.sp || []).forEach(function(x){
+    var t = x[0] + ": " + x[1], m;
+    if((m = /dürfen Talente nehmen, die (?:den|einen) (beliebigen )?Arkanen Hintergrund(?: \(([^)]+)\))? voraussetzen/.exec(t))) o.alias.push(m[1] ? "*" : m[2]);
+    var re = /Handicap ([A-ZÄÖÜ][a-zäöüß-]+(?:\s\((?:leicht|schwer)\))?)/g; while((m = re.exec(t))){ var hn = m[1].replace("(leicht)", "(Leicht)").replace("(schwer)", "(Schwer)"); if(o.ha.indexOf(hn) < 0) o.ha.push(hn); }
+    if(/Rüstungsbehinderung \((leicht|schwer)\)/.test(x[0]) && !o.ha.some(function(h){ return /^Rüstungsbehinderung/.test(h); })) o.ha.push("Rüstungsbehinderung (" + (/schwer/.test(x[0]) ? "Schwer" : "Leicht") + ")");
+    if(/einen Schwur \(schwer\)/.test(t) && o.ha.indexOf("Schwur (Schwer)") < 0) o.ha.push("Schwur (Schwer)");
+    if((m = /beginnen[^.]*?mit dem Talent ([A-ZÄÖÜ][\wäöüß-]+(?:-[A-ZÄÖÜ][\wäöüß]+)?)/.exec(t)) && tnames()[m[1]]) o.ta.push(m[1]);
+    if((m = /dürfen nur die Machttalente (.+?) und Talente nehmen/.exec(t))) o.erlaubt = m[1].split(/,\s*/);
+    if(/primäres Element wählen/.test(t)) o.elem = true;
+    if((m = /^(?:Beschränkungen|Einschränkungen): (.*)$/.exec(t))) m[1].split(/;\s*/).forEach(function(r){ var q = /^(.+?) nur (?:mit )?(Feuer|Wasser|Erde|Luft)\b/.exec(r.trim()); if(q) o.nur[q[1]] = q[2]; });
+    if((m = /([A-ZÄÖÜ][\wäöüß/ -]+?) ist für \S+ eine Macht des Ranges Anfänger/.exec(t))) o.rang[m[1].trim()] = 0;
+  });
+  var sm = String(a.sm || ""), m2;
+  if((m2 = /\(([^)]*?) darf schon im Rang Anfänger/.exec(sm))) o.rang[m2[1].trim()] = 0;
+  if(/^\d+$/.test(sm.trim())) o.startN = +sm;
+  else {
+    var core = sm.replace(/\s*\([^)]*\)/g, "");
+    var w = /(\d+|[Ee]ine|[Zz]wei|[Dd]rei|[Vv]ier) (?:weitere|beliebige|aus der Liste)/.exec(core) || /^(\d+|[Zz]wei|[Dd]rei) /.exec(core);
+    var extra = w ? (+w[1] || NUMW[w[1].toLowerCase()] || 0) : 0;
+    core.replace(/ und (?:eine|zwei|drei|vier|\d+) (?:beliebige )?weitere.*$/i, "").split(/,\s*| und /).forEach(function(p){ p = p.trim(); if((window.SW_MACHTE || []).some(function(mm){ return mm.n === p; })) o.start.push(p); });
+    o.startN = o.start.length + extra;
+  }
+  AHC[n] = o; return o;
+}
 function talenteVon(c, F){
   var L = c.ta.filter(function(t){ return t && t.n; }).map(function(t){ return t.n; }).concat(F.ta || []);
-  var ah = ahName(c, F); if(ah){ L.push("Arkaner Hintergrund"); L.push("Arkaner Hintergrund (" + ah + ")"); }
+  var ah = ahName(c, F); if(ah){ L.push("Arkaner Hintergrund"); L.push("Arkaner Hintergrund (" + ah + ")"); L = L.concat(ahFx(ah).ta); }
   return L;
 }
-function handicapsVon(c, F){ return c.hi.filter(function(h){ return h && h.n; }).map(function(h){ return h.n; }).concat(F.ha || []); }
+function handicapsVon(c, F){ return c.hi.filter(function(h){ return h && h.n; }).map(function(h){ return h.n; }).concat(F.ha || [], ahFx(ahName(c, F)).ha); }
 function traitIdx(c, F, n){
   n = n.trim();
   if(ATK[n]) return di(c.a[ATK[n]]);
@@ -121,7 +152,8 @@ function condOk(c, F, q){
   switch(q.k){
     case "w": return traitIdx(c, F, q.n) >= q.d;
     case "wx": return q.n.some(function(n){ return traitIdx(c, F, n) >= q.d; });
-    case "ah": var ah = ahName(c, F).replace(/\s*\((Horror|Fantasy|Science-Fiction)\)$/, ""); if(!ah) return false; if(q.l) return q.l.indexOf(ah) > -1; if(q.no) return q.no.indexOf(ah) < 0; return true;
+    case "ah": var ah = ahName(c, F).replace(/\s*\((Horror|Fantasy|Science-Fiction)\)$/, ""); if(!ah) return false; var al = [ah].concat(ahFx(ahName(c, F)).alias);
+      if(al.indexOf("*") > -1) return true; if(q.l) return q.l.some(function(x){ return al.indexOf(x) > -1; }); if(q.no) return q.no.indexOf(ah) < 0; return true;
     case "nt": return talenteVon(c, F).indexOf(q.n) < 0;
     case "cnt": var T = talenteVon(c, F); return T.indexOf(q.n) > -1 && T.filter(function(n){ var t = tnames()[n]; return t && t.k === q.cat; }).length >= q.c;
     case "t": return talenteVon(c, F).indexOf(q.n) > -1;
@@ -180,7 +212,7 @@ function punkte(c){
   return {at: p.at, fp: p.fp, hp: hp, auf: auf, tal: tal, frei: F.frei || 0, used: used, budget: Math.min(4, hp) + auf * 2};
 }
 function berechne(c){
-  var k = sk("Kämpfen"), pa = 2 + halb(k && k.d), pb = 0, rp = 0, kopf = 0, last = 0, ks = c.a.kon;
+  var k = c.sk.filter(function(s){ return s.n === "Kämpfen"; })[0], pa = 2 + halb(k && k.d), pb = 0, rp = 0, kopf = 0, last = 0, ks = c.a.kon;
   c.ru.forEach(function(r){
     if(!r.n) return; last += kg(r.gw);
     if(r.on === 0) return;
@@ -213,7 +245,7 @@ function lWaffen(){
   return flatS(sets, 0, function(r, cols, S, g, s){
     if(cols.indexOf("Schaden") < 0 && cols.indexOf("PB-Geschosse") < 0) return null;
     return {n: r.c[0], sub: g.h || S.h, s: s, f: {n: r.c[0], rw: col(cols, r, "Reichweite").replace(/^—$/, ""), sd: col(cols, r, "Schaden").replace(/^—$/, "") || col(cols, r, "PB-Geschosse"), pb: col(cols, r, "PB").replace(/^—$/, ""), fr: col(cols, r, "FR").replace(/^—$/, ""),
-      ms: col(cols, r, "Mindeststärke").replace(/^—$/, ""), gw: col(cols, r, "Gewicht (kg)") || col(cols, r, "Gewicht"), nt: r.n || ""}};
+      ms: col(cols, r, "Mindeststärke").replace(/^—$/, ""), gw: col(cols, r, "Gewicht (kg)") || col(cols, r, "Gewicht"), nt: r.n || "", fs: col(cols, r, "Flächenschablone").replace(/^—$/, "")}};
   });
 }
 function lRuestung(){
@@ -248,7 +280,9 @@ function liste(kind, ctx, own){
     .filter(function(h){ return H.indexOf(h.n) < 0; })
     .map(function(h){ return {n: h.n, sub: h.w, s: h.s, h: h}; });
   if(kind === "ta") return SW_TALENTE.filter(function(t){ return vis(t.s) && !/^Arkaner Hintergrund$/.test(t.n) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0 || t.n === own); })
-    .map(function(t){ return {n: t.n, sub: t.k + (t.r != null ? ", " + RAENGE[t.r] : ""), s: t.s, why: warum(c, F, t.v, t.r)}; });
+    .map(function(t){ var A = ahFx(ahName(c, F)), why = warum(c, F, t.v, t.r);
+      if(!why && A.erlaubt && t.k === "Macht" && A.erlaubt.indexOf(t.n) < 0 && !/Arkaner Hintergrund \((?:[^)]*, )?Alchemist/.test(t.v || "")) why = "nicht für " + ahName(c, F);
+      return {n: t.n, sub: t.k + (t.r != null ? ", " + RAENGE[t.r] : ""), s: t.s, why: why}; });
   if(kind === "sk"){ var ak = ahSkill(c, F);
     return SW_SKILLS.map(function(s){ return {n: s.n, a: s.a, s: ["GRW"], sub: s.g ? "Grund" : ""}; }).concat((window.SW_SKILLS_ZUS || []).filter(function(s){ return vis(s.s); }).map(function(s){ return {n: s.n, a: s.a, s: s.s}; }))
       .filter(function(s){ return s.a === ctx; }).map(function(s){ s.why = ARK[s.n] && s.n !== ak ? "Arkaner Hintergrund" : null; return s; }); }
@@ -259,7 +293,9 @@ function liste(kind, ctx, own){
   if(kind === "ma"){ var ah = ahRec(ahName(c, F)), have = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return m.n; });
     if(!ahName(c, F)) return [];
     return (window.SW_MACHTE || []).filter(function(m){ return vis(m.s || ["GRW"]) && have.indexOf(m.n) < 0; })
-      .map(function(m){ var why = m.r != null && m.r > R ? RAENGE[m.r] : ah && ah.av && ah.av.indexOf(m.n) < 0 ? "nicht für " + ah.n : null; return {n: m.n, sub: "Rang " + (m.r != null ? RAENGE[m.r] : ""), s: m.s || ["GRW"], m: m, why: why}; }); }
+      .map(function(m){ var A = ahFx(ahName(c, F)), r = A.rang[m.n] != null ? A.rang[m.n] : m.r;
+        var why = r != null && r > R ? RAENGE[r] : ah && ah.av && ah.av.indexOf(m.n) < 0 ? "nicht für " + ah.n : A.nur[m.n] && c.ahw && A.nur[m.n] !== c.ahw ? "nur " + A.nur[m.n] : null;
+        return {n: m.n, sub: "Rang " + (r != null ? RAENGE[r] : "") + (A.nur[m.n] ? ", nur " + A.nur[m.n] : ""), s: m.s || ["GRW"], m: m, why: why}; }); }
   return [];
 }
 function allVoelker(){ return window.allVoelker && window.allVoelker !== allVoelker ? window.allVoelker() : SW_VOELKER.concat(window.SW_VOELKER_FAN || [], window.SW_VOELKER_HOR || [], window.SW_VOELKER_SF || []); }
@@ -308,11 +344,13 @@ function sheet(){
     ["Angeschlagen", "Abgelenkt", "Verwundbar"].map(function(s){ return '<span style="display:inline-flex;gap:4px;align-items:center"><i class="pip' + (c.st[s] ? " on" : "") + '" data-pip="st" data-n="' + s + '"></i><span class="pl">' + s + "</span></span>"; }).join("") + "</div></div></div></div>";
   var hp = 0; c.hi.forEach(function(x){ if(x && x.n) hp += x.w === "S" ? 2 : 1; });
   h += '<div class="box"><h3>Handicaps<span class="cnt" id="b-hp">' + hp + " / 4 Punkte</span></h3><div class=\"lst\">";
+  var AF = ahFx(ahName(c, F));
+  AF.ha.forEach(function(x){ h += fest(x, "AH", /\(Schwer/.test(x) || (hnames()[x.replace(/\s*\(.*$/, "")] || {}).w === "schwer" ? "S" : "L"); });
   (F.ha || []).forEach(function(x){ h += fest(x, "Volk", /\(Schwer/.test(x) || (hnames()[x.replace(/\s*\(.*$/, "")] || {}).w === "schwer" ? "S" : "L"); });
-  for(var i = 0, n = rows("hi", (F.ha || []).length); i < n; i++) h += '<div class="r"><span class="g">' + inp("hi", i, "n", {pick: "ha"}) + '</span><input class="bw1 c" readonly data-w="' + i + '" title="leicht / schwer" value="' + esc2((c.hi[i] || {}).n ? ((c.hi[i] || {}).w || "L") : "") + '"></div>';
+  for(var i = 0, n = rows("hi", (F.ha || []).length + AF.ha.length); i < n; i++) h += '<div class="r"><span class="g">' + inp("hi", i, "n", {pick: "ha"}) + '</span><input class="bw1 c" readonly data-w="' + i + '" title="leicht / schwer" value="' + esc2((c.hi[i] || {}).n ? ((c.hi[i] || {}).w || "L") : "") + '"></div>';
   h += "</div></div>";
   var fT = (F.ta || []).map(function(x){ return [x, "Volk"]; }), ahn = ahName(c, F);
-  if(ahn) fT.push(["Arkaner Hintergrund (" + ahn + ")", F.ah ? "Volk" : "AH"]);
+  if(ahn){ fT.push(["Arkaner Hintergrund (" + ahn + ")", F.ah ? "Volk" : "AH"]); ahFx(ahn).ta.forEach(function(x){ fT.push([x, "AH"]); }); }
   h += '<div class="box"><h3>Talente<span class="cnt" id="b-tal"></span></h3><div class="lst">';
   fT.forEach(function(x){ h += fest(x[0], x[1]); });
   for(i = 0, n = rows("ta", fT.length); i < n; i++){ var tt = c.ta[i] || {}, wy = tt.n && tnames()[tt.n] ? warum(c, F, tnames()[tt.n].v, tnames()[tt.n].r) : null;
@@ -333,7 +371,9 @@ function sheet(){
   h += "</div></div>";
   h += "</div></div>";
   /* unten */
-  h += '<div class="bbot"><div class="box bmach"><h3>Arkane Hintergründe &amp; Mächte</h3><div class="top">' + top("ah", "Arkaner Hintergrund", {pick: "ah"}) + top("af", "Arkane Fertigkeit") + top("mp", "Machtpunkte") + top("sm", "Startmächte") + '</div><div class="lst"><div class="r hd"><span class="g">Macht</span><span class="c" style="width:34px">MP</span><span class="c" style="width:110px">Reichweite</span><span class="c" style="width:90px">Wirkungsdauer</span><span class="c" style="width:230px">Anmerkung</span></div>';
+  var AE = ahFx(ahName(c, F)), nMa = c.ma.filter(function(m){ return m && m.n; }).length;
+  h += '<div class="bbot"><div class="box bmach"><h3>Arkane Hintergründe &amp; Mächte' + (ahName(c, F) && AE.startN ? '<span class="cnt' + (nMa > AE.startN && !(parseInt(c.ep, 10) >= 5) ? " ov" : "") + '">' + nMa + " / " + AE.startN + " Startmächte</span>" : "") + "</h3>" +
+    (AE.elem ? '<div class="bwahl in"><span class="bwl">Element</span>' + ELEM.map(function(e){ return '<a data-elem="' + e + '" class="' + (c.ahw === e ? "on" : "") + '">' + e + "</a>"; }).join("") + "</div>" : "") + '<div class="top">' + top("ah", "Arkaner Hintergrund", {pick: "ah"}) + top("af", "Arkane Fertigkeit") + top("mp", "Machtpunkte") + top("sm", "Startmächte") + '</div><div class="lst"><div class="r hd"><span class="g">Macht</span><span class="c" style="width:34px">MP</span><span class="c" style="width:110px">Reichweite</span><span class="c" style="width:90px">Wirkungsdauer</span><span class="c" style="width:230px">Anmerkung</span></div>';
   for(i = 0, n = rows("ma"); i < n; i++) h += '<div class="r"><span class="g">' + inp("ma", i, "n", {pick: "ma"}) + '</span><span class="c" style="width:34px">' + inp("ma", i, "mp", {cls: "num"}) + '</span><span class="c" style="width:110px">' + inp("ma", i, "rw", {cls: "sm"}) + '</span><span class="c" style="width:90px">' + inp("ma", i, "wd", {cls: "sm"}) + '</span><span class="c" style="width:230px">' + inp("ma", i, "nt", {cls: "sm"}) + "</span></div>";
   h += "</div></div>";
   h += '<div class="bnot"><div class="box"><h3>Volkseigenarten &amp; Hintergrund</h3><textarea data-a="$" data-f="hg" rows="4">' + esc2(c.hg) + '</textarea></div><div class="box"><h3>Notizen</h3><textarea data-a="$" data-f="no" rows="4">' + esc2(c.no) + "</textarea></div></div></div>";
@@ -410,11 +450,14 @@ function pickTake(x){
     else cur[el.dataset.f] = x.n;
     if(kind === "ah" && x.ah){ cur.af = x.ah.f || ""; cur.mp = x.ah.mp || ""; cur.sm = x.ah.sm || "";
       var an = (x.ah.f || "").replace(/\s*\((Verstand|Willenskraft|Geschicklichkeit|Stärke|Konstitution)\)$/, ""), aa = (/\((Verstand|Willenskraft|Geschicklichkeit|Stärke|Konstitution)\)$/.exec(x.ah.f || "") || [0, "Verstand"])[1];
-      if(an && !cur.sk.some(function(s){ return s.n === an; })) cur.sk.push({n: an, a: aa, d: "W4"}); }
+      if(an && !cur.sk.some(function(s){ return s.n === an; })) cur.sk.push({n: an, a: aa, d: "W4"});
+      cur.ahw = ""; cur.ma = cur.ma.map(function(m){ return m && m.auto ? {} : m; });
+      var have = cur.ma.filter(function(m){ return m && m.n; }).map(function(m){ return m.n; });
+      ahFx(x.n).start.forEach(function(pn){ if(have.indexOf(pn) > -1) return; var pm = SW_MACHTE.filter(function(mm){ return mm.n === pn; })[0]; if(!pm) return; var slot = cur.ma.findIndex(function(m){ return !m || !m.n; }); var row = {n: pm.n, mp: pm.mp || "", rw: pm.rw || "", wd: pm.wd || "", nt: "", auto: 1}; if(slot < 0) cur.ma.push(row); else cur.ma[slot] = row; }); }
   } else {
     var arr = cur[el.dataset.a], i = +el.dataset.i; while(arr.length <= i) arr.push({});
     if(kind === "ha") arr[i] = {n: x.n, w: /^schwer$/.test((x.h && x.h.w) || "") ? "S" : "L"};
-    else if(kind === "ma") arr[i] = {n: x.n, mp: x.m.mp || "", rw: x.m.rw || "", wd: x.m.wd || "", nt: ""};
+    else if(kind === "ma") arr[i] = x.m ? {n: x.n, mp: x.m.mp || "", rw: x.m.rw || "", wd: x.m.wd || "", nt: ""} : {n: x.n};
     else if(x.f) arr[i] = Object.assign({}, x.f); else arr[i] = {n: x.n};
   }
   persist(); popClose(); neuAufbau();
@@ -439,7 +482,7 @@ function wire(){
   A.addEventListener("input", function(e){
     var el = e.target; if(!cur || !el.dataset) return;
     if(el.dataset.a === "$"){ if(el.dataset.f !== "volk") cur[el.dataset.f] = el.value; if(el.dataset.f === "name"){ var a = document.querySelector('.bgbar a[data-sel="' + DB.id + '"]'); var on = document.querySelector(".bgbar a.on"); if(on) on.textContent = el.value || "Neuer Charakter"; } }
-    else if(el.dataset.a && el.dataset.i != null){ var arr = cur[el.dataset.a]; while(arr.length <= +el.dataset.i) arr.push({}); arr[el.dataset.i][el.dataset.f] = el.value; }
+    else if(el.dataset.a && el.dataset.i != null){ var arr = cur[el.dataset.a]; while(arr.length <= +el.dataset.i) arr.push({}); arr[el.dataset.i][el.dataset.f] = el.value; delete arr[el.dataset.i].auto; }
     if(el.dataset.pick) pickOpen(el);
     persist(); calc();
   });
@@ -470,6 +513,7 @@ function wire(){
   A.addEventListener("click", function(e){
     var el = e.target; if(!cur) return;
     if(el.dataset && el.dataset.die) { dieOpen(el); return; }
+    if(el.dataset && el.dataset.elem){ cur.ahw = cur.ahw === el.dataset.elem ? "" : el.dataset.elem; persist(); neuAufbau(); return; }
     if(el.dataset && el.dataset.vw != null){ var alt = fx(cur); cur.vw = cur.vw || {}; cur.vw[el.dataset.vw] = +el.dataset.o; wechsle(cur, alt, fx(cur)); persist(); neuAufbau(); return; }
     if(el.dataset && el.dataset.w != null){ var i = +el.dataset.w; if(cur.hi[i] && cur.hi[i].n){ cur.hi[i].w = cur.hi[i].w === "S" ? "L" : "S"; persist(); neuAufbau(); } return; }
     if(el.dataset && el.dataset.pip){
@@ -506,5 +550,51 @@ function pdf(btn){
   var s = document.getElementById("bsheet"), z = s.style.getPropertyValue("--bz");
   FillPDF.make(s, {name: "Savage Worlds – " + (cur.name || "Charakterbogen"), knopf: btn, scale: 2.5, marks: [[".pip", "on", "x"]], before: function(){ s.style.setProperty("--bz", 1); s.style.zoom = 1; }, after: function(){ s.style.zoom = ""; }});
 }
+
+/* ---------- Schnittstelle für das Spielfeld ---------- */
+var TPLK = {"KFS": "kfs", "MFS": "mfs", "GFS": "gfs", "Kegel": "kegel", "Strahl": "strahl"};
+var MTPL = {"Flächenschlag": ["MFS"], "Chaos": ["MFS", "Kegel"], "Strahl": ["Kegel", "Strahl"], "Illusion": ["MFS"], "Licht/Dunkelheit": ["GFS"], "Geräusch/Stille": ["GFS"], "Boden weihen": ["GFS"],
+  "Schwarzes Loch": ["GFS"], "Schwerkraft verändern": ["GFS"], "Fehlfunktion": ["MFS"], "Erdbeben": ["GFS"], "Energiekontrolle": ["MFS"], "Explodieren": ["GFS"], "Materiekontrolle": ["MFS"], "Verschleiern": ["GFS"], "Stoßen": ["Kegel"], "Wetterkontrolle": ["GFS"], "Wirbelwind": ["MFS"]};
+function tplAus(t){
+  var o = [], s = String(t || "");
+  if(/Kegel/.test(s)) o.push("kegel");
+  if(/\bKFS\b|kleine[nr]? Flächenschablone/i.test(s)) o.push("kfs");
+  if(/\bMFS\b|mittlere[nr]? Flächenschablone/i.test(s)) o.push("mfs");
+  if(/\bGFS\b|große[nr]? Flächenschablone/i.test(s)) o.push("gfs");
+  if(/Strahlschablone/.test(s)) o.push("strahl");
+  return o;
+}
+function machtTpl(n){
+  var m = (window.SW_MACHTE || []).filter(function(x){ return x.n === n; })[0], o = (MTPL[n] || []).map(function(k){ return TPLK[k]; });
+  if(m) (m.m || []).forEach(function(md){ if(/^FLÄCHENEFFEKT/.test(md[0])){ var t = tplAus(md[2]); if(!t.length) t = ["mfs", "gfs"]; t.forEach(function(k){ if(o.indexOf(k) < 0) o.push(k); }); } });
+  return o;
+}
+function reichweite(c, rw){
+  var m = /^(Verstand|Willenskraft|Geschicklichkeit|Stärke|Konstitution)(?:\s*×\s*(\d+))?/.exec(String(rw || "").trim());
+  if(m){ var d = c.a[ATK[m[1]]] || "W4", sides = /W(\d+)/.exec(d); return (sides ? +sides[1] : 4) * (m[2] ? +m[2] : 1); }
+  if(/^Berührung|^Selbst/.test(String(rw || ""))) return 0;
+  var z = /^(\d+)(?:“|")?$/.exec(String(rw || "").trim()); return z ? +z[1] : null;
+}
+function groesseZoll(g){ return g <= -4 ? 0.5 : g >= 12 ? 4 : g >= 8 ? 3 : g >= 4 ? 2 : 1; }
+function werte(c){
+  var b = berechne(c), F = fx(c), kat = null;
+  function katalog(n){ if(!kat){ kat = {}; lWaffen().forEach(function(w){ kat[w.n] = w.f; }); } return kat[n]; }
+  var waffen = [];
+  (F.wa || []).forEach(function(x){ waffen.push({n: x[0], rw: "", sd: x[1].replace(/^Stä/, c.a.sta), pb: x[2], tpl: []}); });
+  (F.sch || []).forEach(function(x){ waffen.push({n: x[0], rw: "", sd: x[2] || "", pb: "", tpl: [x[1]]}); });
+  c.wa.forEach(function(w){ if(!w || !w.n) return; var k = katalog(w.n) || {};
+    var t = tplAus((k.fs || "") + " " + (w.rw || "") + " " + (k.nt || w.nt || ""));
+    waffen.push({n: w.n, rw: /\d+\/\d+\/\d+/.test(w.rw || "") ? w.rw : "", sd: /^Stä/.test(w.sd || "") ? w.sd.replace(/^Stä/, c.a.sta) : (w.sd || ""), pb: w.pb || "", tpl: t}); });
+  var maechte = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return {n: m.n, mp: m.mp || "", rw: m.rw || "", reich: reichweite(c, m.rw), tpl: machtTpl(m.n)}; });
+  return {id: c.id, name: c.name || "Charakter", volk: c.volk || "", tempo: b.tempo, sprint: b.sprint, parade: b.parade, rob: b.rob + (b.pz ? " (" + b.pz + ")" : ""), gr: b.gr, d: groesseZoll(b.gr),
+    ben: parseInt(c.ben, 10) || 0, wu: c.wu | 0, er: c.er | 0, st: c.st || {}, mp: parseInt(c.mp, 10) || 0, mpa: c.mpa === "" || c.mpa == null ? parseInt(c.mp, 10) || 0 : parseInt(c.mpa, 10) || 0, waffen: waffen, maechte: maechte};
+}
+window.SWBogen = {
+  liste: function(){ if(!DB) load(); return DB.list.filter(function(c){ return c && (c.name || c.volk); }); },
+  get: function(id){ if(!DB) load(); return DB.list.filter(function(c){ return c.id === id; })[0] || null; },
+  werte: function(id){ var c = this.get(id); return c ? werte(c) : null; },
+  setze: function(id, o){ if(!DB) load(); var c = DB.list.filter(function(x){ return x.id === id; })[0]; if(!c) return; Object.keys(o).forEach(function(k){ if(k === "st"){ c.st = Object.assign({}, c.st || {}, o.st); } else c[k] = o[k]; }); persist(); if(cur && cur.id === id) cur = c; },
+  oeffne: function(id){ if(!DB) load(); if(id){ DB.cur = id; persist(); } location.hash = "#bogen"; }
+};
 SWP["bogen/"] = bogenPage; window.bogenPage = bogenPage;
 })();

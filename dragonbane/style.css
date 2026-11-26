@@ -876,3 +876,10 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .mje{color:#7a756b}
 .mtyp{gap:3px 8px;margin-top:4px;opacity:1}
 .mtyp span{font-size:8.5px;letter-spacing:.12em;color:#8a857b;border:0;padding:0}
+/* Kopfzeile mit Gruppen-Reitern */
+.ktabs{display:flex;gap:2px;margin-left:14px;align-self:stretch;position:relative;z-index:6}
+.ktabs a{display:flex;align-items:center;padding:0 14px;font:600 13px/1 var(--f-kopf,inherit);letter-spacing:.12em;text-transform:uppercase;color:rgba(0,96,77,.62);white-space:nowrap}
+.ktabs a:hover{color:var(--jade-d)}
+.ktabs a.on{color:var(--jade-d);box-shadow:inset 0 -3px 0 var(--jade-d)}
+.topbar:has(.ktabs) .tm-caret{margin-right:0!important}
+.topbar:has(.ktabs){justify-content:flex-start}

@@ -87,6 +87,7 @@ function figur(id){
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
   window.__fk = "einf"; window.__bk = "db_rb";
+  var kt0 = document.getElementById("ktabs"); if(kt0) kt0.innerHTML = "";
   var f = DB_VIEWS[v];
   out = f ? f(h) : viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;

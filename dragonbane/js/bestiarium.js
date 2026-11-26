@@ -61,7 +61,7 @@ function beSeite(m){
   DB_VIEWS.n = function(h){
     if(h[1] !== "be") return alt(h);
     window.__fk = "be";
-    var tb = tabs(NACH_TABS, "be", function(id){ return "n/" + id; }), s = h[2], m = DB_MON.filter(function(x){ return x.id === s; })[0], b;
+    var tb = nachTabs("be"), s = h[2], m = DB_MON.filter(function(x){ return x.id === s; })[0], b;
     window.__bk = m && m.bk ? m.bk : "db_rb";
     if(m) b = beSeite(m);
     else if(s === "imspiel") b = beKopf("Monster im Spiel", 83, "be/imspiel") + nabs(DB_BEKOPF.abs[0]);

@@ -66,11 +66,23 @@ function nabs(a){
   flush();
   return '<div class="gr' + ((window.__fk === "ka" || window.__fk === "be" || window.__fk === "ab") && !a.plain ? ' mas' : '') + '">' + cells.join("") + '</div>';
 }
+/* Kopfzeile: Gruppen Charaktere · Regeln · Bestiarium · Spielleitung; Unterleiste = Kapitel der Gruppe */
+var NACH_GRP = [["Charaktere",["sc","fe","au"]],["Regeln",["einf","ka","ma","ta"]],["Bestiarium",["be"]],["Spielleitung",["ab"]]];
+var NACH_LBL = {einf:"Einführung", ta:"Tabellen"};
+function nachTabs(kid){
+  var g = NACH_GRP.filter(function(x){ return x[1].indexOf(kid) >= 0; })[0] || NACH_GRP[1];
+  var kt = document.getElementById("ktabs");
+  if(kt){ kt.innerHTML = NACH_GRP.map(function(x){ return '<a class="' + (x === g ? 'on' : '') + '" href="#n/' + x[1][0] + '">' + x[0] + '</a>'; }).join(""); }
+  document.body.classList.toggle("dbsub", g[1].length > 1);
+  if(g[1].length < 2) return "";
+  var list = g[1].map(function(id){ var t = NACH_TABS.filter(function(y){ return y[0] === id; })[0]; return [id, NACH_LBL[id] || (t ? t[1] : id)]; });
+  return tabs(list, kid, function(id){ return "n/" + id; });
+}
 function nachFlat(){ var r = []; NACH_TABS.forEach(function(t){ var d = nachKap(t[0]); if(d) d.abs.forEach(function(a){ r.push([t[0], a.id, d, a]); }); }); return r; }
 DB_VIEWS.n = function(h){
   var kid = h[1] || "einf", K = DB_KAP.filter(function(k){ return k.id === kid; })[0] || DB_KAP[0], d = nachKap(K.id);
   window.__fk = K.id;
-  var tb = tabs(NACH_TABS, K.id, function(id){ return "n/" + id; });
+  var tb = nachTabs(K.id);
   if(!d) return tb + '<div class="kopf"><h1>' + esc(K.t) + '</h1></div><div class="leer">Dieses Kapitel folgt.</div>';
   var cur = d.abs.filter(function(a){ return a.id === h[2]; })[0] || d.abs[0];
   var side = '<nav class="side">' + d.abs.map(function(a){ return '<a class="' + (a === cur ? 'on' : '') + '" href="#n/' + K.id + '/' + a.id + '"><span>' + esc(a.t) + '</span><i>S. ' + a.p + '</i></a>'; }).join("") + '</nav>';

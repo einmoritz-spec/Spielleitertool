@@ -6,6 +6,8 @@
        hash    – Ziel als "#…"-Hash ODER Funktion, die beim Klick aufgerufen wird
        daten   – beliebige Struktur (Strings/Arrays/Objekte); wird zu Text abgeflacht
      GSuche.skip = {img:1, bild:1, …}   // zusätzliche Schlüssel, die nicht durchsucht werden
+   Optional: add(…, daten, meta) – meta wird an GSuche.filter(meta) (false = Treffer ausblenden) und GSuche.badge(meta) (HTML hinter dem Titel) gereicht;
+             hash-Funktionen erhalten den Suchtext als Argument.
    Treffer müssen alle Suchwörter am Wortanfang enthalten; Umlaute/Groß-/Kleinschreibung egal. Esc schließt, Enter öffnet den ersten Treffer. */
 var GSuche = (function(){
   var SRC = [], IDX = null, SKIP = {img:1, bild:1, src:1, id:1, p:1, pin:1, buch:1, go:1, farbe:1, c:1, pos:1, x0:1, y0:1, fig:1, icon:1, thumb:1};
@@ -21,10 +23,10 @@ var GSuche = (function(){
     Object.keys(o).forEach(function(k){ if(SKIP[k] || GSuche.skip[k]) return; if(k === "t" && typeof o[k] === "string" && /^(p|h|ul|ol|kasten|zettel|werte|grid|karten|tab|html|img|notiz|zitat|w)$/.test(o[k])) return; flat(o[k], out, (d || 0) + 1); });
     return out;
   }
-  function add(titel, bereich, hash, daten){
+  function add(titel, bereich, hash, daten, meta){
     var t = flat(daten, []).join(" ").replace(/\s+/g, " ").trim();
     titel = clean(titel || "");
-    IDX.push({t: titel, b: bereich || "Inhalt", h: hash, x: t, n: norm(titel + " " + t), nt: norm(titel)});
+    IDX.push({t: titel, b: bereich || "Inhalt", h: hash, m: meta, x: t, n: norm(titel + " " + t), nt: norm(titel)});
   }
   function build(){ if(IDX) return; IDX = []; SRC.forEach(function(f){ try{ f(add); }catch(e){ if(window.console) console.warn("GSuche", e); } }); }
   function find(q){
@@ -33,6 +35,7 @@ var GSuche = (function(){
     var res = [];
     IDX.forEach(function(e){
       var s = 0;
+      if(GSuche.filter && e.m && !GSuche.filter(e.m)) return;
       for(var i = 0; i < w.length; i++){
         var re = RE[w[i]] || (RE[w[i]] = new RegExp("(^|[^a-z0-9])" + w[i].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
         if(!re.test(e.n)) return;
@@ -84,7 +87,7 @@ var GSuche = (function(){
     out.innerHTML = '<div class="gs-z">' + R.r.length + ' Treffer</div>' + order.map(function(b){
       return '<div class="gs-g">' + esc(b) + '</div><div class="gs-r">' + gr[b].map(function(e){
         var i = IDX.indexOf(e);
-        return '<a class="gs-k" data-i="' + i + '"' + (typeof e.h === "string" ? ' href="' + esc(e.h.charAt(0) === "#" ? e.h : "#" + e.h) + '"' : '') + '><b>' + mark(esc(e.t), R.w) + '</b><span>' + mark(snip(e, R.w), R.w) + '</span></a>';
+        return '<a class="gs-k" data-i="' + i + '"' + (typeof e.h === "string" ? ' href="' + esc(e.h.charAt(0) === "#" ? e.h : "#" + e.h) + '"' : '') + '><b>' + mark(esc(e.t), R.w) + (GSuche.badge && e.m ? GSuche.badge(e.m) : "") + '</b><span>' + mark(snip(e, R.w), R.w) + '</span></a>';
       }).join("") + '</div>';
     }).join("");
   }
@@ -98,7 +101,7 @@ var GSuche = (function(){
     document.body.appendChild(ov);
     ov.onclick = function(e){
       var a = e.target.closest && e.target.closest(".gs-k");
-      if(a){ var x = IDX[+a.getAttribute("data-i")]; close(); if(typeof x.h === "function"){ e.preventDefault(); x.h(); } return; }
+      if(a){ var x = IDX[+a.getAttribute("data-i")], qq = ov.querySelector("input").value; close(); if(typeof x.h === "function"){ e.preventDefault(); x.h(qq); } return; }
       if(e.target === ov) close();
     };
     var inp = ov.querySelector("input"); inp.value = typeof q === "string" ? q : ""; inp.focus();
@@ -107,5 +110,5 @@ var GSuche = (function(){
     document.addEventListener("keydown", onKey, true);
     if(inp.value) run(inp.value);
   }
-  return {add: function(f){ SRC.push(f); IDX = null; }, open: open, close: close, skip: {}};
+  return {add: function(f){ SRC.push(f); IDX = null; }, open: open, close: close, skip: {}, filter: null, badge: null};
 })();

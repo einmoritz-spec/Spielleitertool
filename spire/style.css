@@ -1344,4 +1344,8 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .wch span{--cy:3px}
 .wf .tg span{--cy:4px}
 .chip,.wch span,.wf .tg span{padding-top:calc(var(--cy) + .21em)!important;padding-bottom:max(0px,calc(var(--cy) - .21em))!important;line-height:1.05}
-.gx-m span.gx-d{padding:4.5px 8px 0!important}
+.gx-m span.gx-d{padding:3.6px 8px 0!important}
+
+/* Dekobild darf nie seitlich überstehen (verschob auf dem Handy Kopfzeile und Reiter) */
+.main{overflow-x:clip}
+html,body{overflow-x:clip;max-width:100%}

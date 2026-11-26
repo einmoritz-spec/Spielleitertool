@@ -1,1 +1,2 @@
-/* wird vom jeweiligen Auftrag befüllt: BC_BUCH.ve.areas.push({...}) */
+BC_BUCH.ve.areas.push({id: "ve-reisen", t: "Reisen", c: "#1f4a2c", s: 3, img: "ve/reisen-treppe", pos: "50% 30%", sub: ["Willkommen", "Voyages Extraordinaires", "Vater der Science-Fiction", "Abenteurer", "Moderne Zeiten", "Neue Tags"]});
+BC_BUCH.ve.areas.push({id: "ve-welt", t: "Welt", c: "#2f6a3c", s: 28, img: "ve/welt-mond", pos: "50% 45%", sub: ["Die Welt", "Industrielle Revolution", "Orte", "Geheimnisse", "Technologie", "Reichtum", "Abenteurerclubs", "Extras"]});

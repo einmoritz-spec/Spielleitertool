@@ -39,7 +39,7 @@ function viewBuch(){
   function zettel(k, lab, t, bild, c, items){
     return '<div class="zt ' + k + '" style="--f:' + c + '"><div class="cv" style="background-image:url(' + IMG + bild + '.webp)"></div><div class="k">' + esc(lab) + '</div><div class="t">' + esc(t) + '</div><ol>' + items + '</ol></div>';
   }
-  var z = zettel("pilot", "Pilot", "Ins Auge des Sturms", BC_PILOT.img, "#1d2c4d", '<li onclick="epGo(\'pilot\',\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><span>P</span>' + esc(BC_PILOT.t) + '</li>');
+  var z = zettel("pilot", "Pilot", "Ins Auge des Sturms", BC_PILOT.img, "#1d2c4d", '<li onclick="epGo(\'pilot\',\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><span>P</span>Ins Auge des Sturms</li><li onclick="epGo(\'quetzalcoatl\',\'' + BC_PILOT.b + '\',228)"><span>Z</span>' + esc(BC_PILOT.t) + '</li><li onclick="epGo(\'bogen-fertig\',\'' + BC_PILOT.b + '\',230)"><span>A</span>Fertige Abenteurer</li>');
   z += BC_STAFFELN.map(function(st){
     return zettel(st.id, st.lab, st.t, st.bild, st.c, st.eps.map(function(e, i){ return '<li onclick="epGo(\'' + st.id + (i + 1) + '\',\'' + st.b + '\',' + e[1] + ')"><span>' + (i + 1) + '</span>' + esc(e[0]) + '</li>'; }).join(""));
   }).join("");

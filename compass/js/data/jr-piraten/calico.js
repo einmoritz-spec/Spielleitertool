@@ -1,0 +1,24 @@
+BC_PART["jr-piraten/calico"] = {id: "calico", t: "Calico & Bonnet", sub: "Calico Jack · Stede Bonnet", s: 78, blocks: [
+  {h: "Calico Jack – Kapitän John Rackham", s: 78},
+  {t: "prose", q: "„Es tut mir leid, euch hier zu sehen, aber hättet ihr gekämpft wie ein Mann, bräuchtet ihr nicht gehängt zu werden wie ein Hund.“ – Anne Bonny", img: {src: "jr/piraten-calico", pos: "50% 50%", side: "r"}, p: [
+    "Es ist das Jahr 1718. Kapitän Charles Vane sieht eine riesige französische Fregatte am Horizont und begreift sofort, dass ein Angriff für sein kleines Schiff und seine magere Mannschaft äußerst gefährlich wäre. Als weiser alter Seebär weiß Vane, dass es keine Schande ist, sich zurückzuziehen, wenn die Herausforderung zu groß ist, aber er macht den Fehler, den Wunsch seiner Mannschaft zu ignorieren. Das abenteuerhungrige Piratenpack besteht darauf, die schwarze Flagge zu hissen und das Schiff zu entern.",
+    "Dieses Übermaß an Vorsicht kostete Kapitän Vane sein Schiff, und nach einer harten Meuterei setzt sich der junge John Rackham unter seinen Kameraden als Anführer durch und wird Kapitän der *Ranger*.",
+    "Bald macht er sich einen Namen und wird als Calico Jack berühmt, weil er gern Jacken aus Kattun trägt, der aus Indien importiert wird."
+  ]},
+  {t: "prose", img: {src: "jr/piraten-calico-flagge", pos: "50% 50%", side: "l"}, p: [
+    "Seine schnelle Schonerbrigg flitzt über Meer und Flüsse gleichermaßen, und keine Beute ist ihm zu gering: Er überfällt selbst die kleineren Schiffe und Fischerboote.",
+    "Interessant an Calico Jacks Mannschaft ist, dass zu ihren Mitgliedern sowohl Anne Bonny als auch Mary Read gehören, zwei skrupellose und abenteuerlustige Frauen, die manche für die einzigen halten, die den Titel Piratendamen verdienen. Noch interessanter ist, dass viele behaupten, beide Frauen seien für das Leben auf See weit besser gerüstet als ihr Kapitän.",
+    "Rackhams Jolly Roger ist ein schlichter Totenkopf über zwei gekreuzten Säbeln, eine Variation des klassischen Themas der gekreuzten Knochen, das später an Beliebtheit gewinnen wird. Diese elegante Flagge macht ordentlich Eindruck, und mit seinem unbestreitbaren Geschmack in Kleidung, seinem munteren Wesen und dem Rückhalt seiner Mannschaft ist Calico Jack ein perfekter Pirat. Dem Mann mögen traditionell männliche Tugenden wie Stärke, Schlauheit und Ehrgeiz fehlen, aber manchmal machen eben Kleider den Piraten."
+  ]},
+  {h: "Stede Bonnet – Der Gentleman-Pirat", s: 80},
+  {t: "prose", q: "„Verzeihung, was würde man wohl für dieses Schiff bezahlen?“ – Stede Bonet, vermutlich", img: {src: "jr/piraten-bonnet", pos: "50% 50%", side: "r"}, p: [
+    "Die meisten Piraten wurden nicht auf einem Schiff geboren, noch haben sie ihr Schiff Planke für Planke von Hand gebaut. Sie ersehen sich einfach eines, das ihnen passt (vielleicht das, auf dem sie gerade arbeiten), und übernehmen es ohne große Skrupel mit Gewalt. Wenn ich „die meisten“ sage, meine ich in Wahrheit jeden verfluchten Piraten, der diesen Namen verdient, mit Ausnahme von Kapitän Stede Bonnet, den die meisten als den Gentleman-Piraten kennen. Tatsächlich hat Stede Bonnet sein Schiff – die *Revenge* – nicht durch Gewalt oder Meuterei beschafft, sondern auf der Werft. Und das mit der Hand auf dem Geldbeutel, nicht auf dem Schwert.",
+    "Und dabei blieb er nicht stehen. Als es darum ging, eine Mannschaft zusammenzustellen, versprach Stede Bonnet nicht einfach einen Prozentsatz der Beute als Bezahlung, sondern bot einen echten, „ehrlichen“ Lohn an. Einen garantierten Mindestlohn!",
+    "Stell dir die Gesichter der Leute vor, die sich für eine Piratenmannschaft anheuern ließen, als sie an Bord kamen und von einem vollkommenen Gentleman, der Sorte, die man sonst auf der anderen Seite einer Enterung findet, mit einem Gehaltsscheck begrüßt wurden. Ein erstes Mal gibt es ja für alles, nehme ich an."
+  ]},
+  {t: "prose", img: {src: "jr/piraten-bonnet-flagge", pos: "50% 50%", side: "l"}, p: [
+    "Soweit ich weiß, kann Kapitän Bonnet als einzigen echten Erfolg verbuchen, dass sein Schiff Seite an Seite mit der *Queen Anne’s Revenge* segelte. Aus irgendeinem Grund nahm Blackbeard ihn eine Weile unter seine Fittiche. Und der alte Teach selbst gab Bonnet den besten Rat, den er nie befolgte: „Ändere den Kurs, Piraterie passt nicht zu dir.“",
+    "Trotz allem hatte der Gentleman-Pirat etwas zur Piratenkultur beizutragen. Manche sagen, er gehörte zu denen, die die Planke als wackligen Laufsteg für zum Aussetzen auf See Verurteilte eingeführt haben. Vielleicht wollte er nicht, dass sie seinen Rumpf verdrecken.",
+    "Stede Bonnets Jolly Roger ist ausgesucht geschmackvoll, wie man es erwartet, und eindeutig von der seines Mentors Blackbeard inspiriert. Auf dem schwarzen Feld finden wir einen Totenkopf über einem einzelnen Knochen, mit einem Dolch auf der einen und einem Herz auf der anderen Seite. Ein hübscher Zug."
+  ]}
+]};

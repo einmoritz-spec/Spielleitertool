@@ -148,3 +148,18 @@
 .bah .els a:hover{border-color:#a51f1a}
 .bah .els a.on{background:#a51f1a;border-color:#a51f1a;color:#fff}
 @media print{.bah .els a:not(.on){display:none}.lst .twb.leer{display:none}}
+
+/* Aufstiege */
+.baufl{display:grid;grid-template-columns:1fr 1fr}
+.baufl .r{border-right:1px solid #ccc}
+.baufl .r:nth-child(even){border-right:0}
+.baufl .anr{width:18px;text-align:right;font:600 10px Oswald,sans-serif;color:#a51f1a}
+.baufl .arg{width:30px;font:600 9px Oswald,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#999}
+.aufs{display:block;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 3px}
+.aufs i{font:600 9px Oswald,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#a51f1a;font-style:normal;margin-right:3px}
+.aufs.leer{color:#bbb}
+.aufs:hover{background:rgba(165,31,26,.07)}
+.aufs.warn{color:#a51f1a;text-decoration:underline wavy rgba(165,31,26,.55);text-underline-offset:3px}
+.lst .r.abg input:not(.bw1){text-decoration:line-through;color:#999}
+.bpop .mf{display:block;width:100%;border:0;border-bottom:1px solid #eee;padding:7px 10px;font:13px Pal,serif;outline:0;position:sticky;top:0;background:#fff}
+@media print{.aufs.leer{color:transparent}}

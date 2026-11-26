@@ -122,6 +122,18 @@ function setBogen(f, k, v){
   if(!f.cid || !window.SWBogen) return;
   if(k === "w") SWBogen.setze(f.cid, {wu:v}); else if(k === "e") SWBogen.setze(f.cid, {er:v}); else if(STB[k]){ var o = {}; o[STB[k]] = v; SWBogen.setze(f.cid, {st:o}); }
 }
+function aFarbe(t){
+  t = String(t || "");
+  if(/Feuer|Flamm|Brand|Hitze|Lava|Höll|Glut/i.test(t)) return "#e0601f";
+  if(/Eis|Kälte|Frost|Wasser|Schnee/i.test(t)) return "#2f7fbf";
+  if(/Blitz|Elektr|Donner/i.test(t)) return "#c9a21a";
+  if(/Säure|Gift|Insekt|Dorn|Pflanz/i.test(t)) return "#4f8a2a";
+  if(/Licht|Heilig|Sonne/i.test(t)) return "#d9b821";
+  if(/Dunkel|Schatten|Nekro|Tod|Knochen/i.test(t)) return "#4b3a6b";
+  if(/Erde|Stein|Fels|Sand/i.test(t)) return "#8a6233";
+  if(/Luft|Wind|Sturm/i.test(t)) return "#7f9aa8";
+  return "#a51f1a";
+}
 function reichLabel(d, a){
   if(a.rw){ var r = a.rw.split("/").map(Number); if(d <= r[0]) return "kurz"; if(d <= r[1]) return "mittel –2"; if(d <= r[2]) return "weit –4"; if(d <= r[2] * 4) return "extrem –8"; return "außer Reichweite"; }
   if(a.reich != null) return d <= a.reich ? "in Reichweite" : "außer Reichweite (" + a.reich + "“)";
@@ -394,7 +406,7 @@ function overlay(z){
   }
   if(S.rings){ var rf = byId(S.rings.fid); if(rf){ S.rings.rw.split("/").map(Number).forEach(function(rr, i){ s += '<circle cx="' + rf.x + '" cy="' + rf.y + '" r="' + rr + '" class="sfring r' + i + '"/>' + measLabel(rf.x, rf.y - rr, z, ["kurz", "mittel", "weit"][i] + " " + rr + "“"); }); } }
   if(S.aim && S.aim.p){ var af = byId(S.aim.fid), g = aimGeo(S.aim, af); if(g){
-    s += '<g transform="translate(' + g.x + " " + g.y + (g.r ? ") rotate(" + g.r : "") + ')" class="sfaim">' + tplShape(S.aim.k, "#a51f1a") + "</g>";
+    s += '<g transform="translate(' + g.x + " " + g.y + (g.r ? ") rotate(" + g.r : "") + ')" class="sfaim">' + tplShape(S.aim.k, S.aim.c || "#a51f1a") + "</g>";
     var dd = TPL[S.aim.k].r ? Math.hypot(g.x - af.x, g.y - af.y) : null;
     if(dd != null) s += measSvg(af.x, af.y, g.x, g.y, z, null, false, reichLabel(dd, S.aim));
     else s += measLabel(S.aim.p[0], S.aim.p[1] - 0.6, z, S.aim.src);
@@ -439,7 +451,7 @@ function pDown(e){
   var start = {sx:e.clientX, sy:e.clientY, px:p.x, py:p.y};
   if(e.button === 1 || (e.button === 2 && !S.wip) || S.space){ S.drag = Object.assign({mode:"pan", vx:S.m.view.x, vy:S.m.view.y}, start); return; }
   if(e.button === 2){ if(S.aim){ S.aim = null; draw(); } return; }
-  if(S.aim){ var A = S.aim, af = byId(A.fid), g = aimGeo(A, af); if(g){ pushUndo(); var nt = {t:"tpl", id:uid(), k:A.k, x:g.x, y:g.y, r:g.r, c:"#a51f1a", src:A.src}; S.m.items.push(nt); S.sel = nt.id; } S.aim = null; ins(); save(); draw(); return; }
+  if(S.aim){ var A = S.aim, af = byId(A.fid), g = aimGeo(A, af); if(g){ pushUndo(); var nt = {t:"tpl", id:uid(), k:A.k, x:g.x, y:g.y, r:g.r, c:A.c || "#a51f1a", src:A.src}; S.m.items.push(nt); S.sel = nt.id; } S.aim = null; ins(); save(); draw(); return; }
   if(hd){
     pushUndo(); var it = selItem(), k = hd.getAttribute("data-h");
     if(k === "bgres") S.drag = Object.assign({mode:"bgres"}, start);
@@ -672,7 +684,9 @@ function ins(){
       '<div class="sfift"><button data-act="bglock" class="' + (b.lock ? "on" : "") + '" title="' + (b.lock ? "Fixiert" : "Fixieren") + '">' + ic(b.lock ? "lock" : "unlock") + '</button><button data-act="bgnew" title="Anderes Bild">' + ic("bild") + '</button><button data-act="del" class="del" title="Entfernen">' + ic("trash") + "</button></div>";
   } else if(it && it.t === "fig" && it.cid && bogen(it)){
     var w = syncFig(it), st = it.st;
-    var tc = function(arr, a){ return arr.map(function(k){ return '<button class="sfaimb" data-aim="' + k + '" data-src="' + E(a.n) + '" data-rw="' + E(a.rw || "") + '" data-reich="' + (a.reich == null ? "" : a.reich) + '">' + TPL[k].k + "</button>"; }).join(""); };
+    S.el = S.el || {};
+    var tc = function(arr, a){ var au = a.au || (a.els && a.els.length ? (S.el[it.id + a.n] || a.els[0]) : ""), col = aFarbe(au || a.n);
+      return arr.map(function(k){ return '<button class="sfaimb" style="--ac:' + col + '" data-aim="' + k + '" data-c="' + col + '" data-src="' + E(a.n + (au ? " (" + au + ")" : "")) + '" data-rw="' + E(a.rw || "") + '" data-reich="' + (a.reich == null ? "" : a.reich) + '">' + TPL[k].k + "</button>"; }).join(""); };
     h = '<h3>' + E(w.name) + '<button class="sflink" data-act="bogen" title="Charakterbogen">' + ic("dup") + "</button></h3>" +
       (w.volk ? '<div class="sfsub">' + E(w.volk) + "</div>" : "") +
       '<div class="sfwerte"><div><b>' + w.tempo + "</b><span>Tempo</span></div><div><b>" + w.parade + "</b><span>Parade</span></div><div><b>" + E(w.rob) + '</b><span>Robustheit</span></div></div>' +
@@ -687,7 +701,9 @@ function ins(){
         '<button data-st="aus" class="aus' + (st.aus ? " on" : "") + '" style="--c:#a51f1a"><b>×</b>Außer Gefecht</button></div>' +
       (w.waffen.length ? "<h4>Waffen</h4>" + w.waffen.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E([a.sd, a.pb ? "PB " + a.pb : ""].filter(Boolean).join(", ")) + '</small></div><div class="b">' +
         (a.rw ? '<button class="sfrng' + (S.rings && S.rings.fid === it.id && S.rings.rw === a.rw ? " on" : "") + '" data-rng="' + E(a.rw) + '" title="Reichweite">' + E(a.rw) + "</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
-      (w.maechte.length ? "<h4>Mächte</h4>" + w.maechte.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E([a.rw, a.reich ? a.reich + "“" : ""].filter(Boolean).join(" · ")) + '</small></div><div class="b">' +
+      (w.maechte.length ? "<h4>Mächte</h4>" + w.maechte.map(function(a){ var au = a.au || (a.els && a.els.length ? (S.el[it.id + a.n] || a.els[0]) : "");
+        return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + (au ? '<b style="color:' + aFarbe(au) + '">' + E(au) + "</b>, " : "") + E([a.rw, a.reich ? a.reich + "“" : ""].filter(Boolean).join(", ")) + "</small>" +
+          (!a.au && a.els && a.els.length > 1 ? '<span class="sfels">' + a.els.map(function(e){ return '<button data-elw="' + E(a.n) + '" data-v="' + e + '" class="' + (au === e ? "on" : "") + '" style="--ac:' + aFarbe(e) + '">' + e + "</button>"; }).join("") + "</span>" : "") + '</div><div class="b">' +
         (a.mp && /^\d+$/.test(a.mp) ? '<button class="sfmp" data-mp="' + a.mp + '" title="Machtpunkte ausgeben">' + a.mp + " MP</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
       foot('<button data-act="img" title="Bild">' + ic("bild") + "</button>" + (it.img ? '<button data-act="noimg" title="Bild entfernen" class="sfx">' + ic("close") + "</button>" : ""));
   } else if(it && it.t === "fig"){
@@ -776,7 +792,8 @@ function insClick(e){
   }
   if(d.pip){ pushUndo(); it.st = it.st || {}; var n2 = +d.v; it.st[d.pip] = it.st[d.pip] === n2 ? n2 - 1 : n2; setBogen(it, d.pip, it.st[d.pip]); save(); draw(); ins(); return; }
   if(d.st){ pushUndo(); it.st = it.st || {}; it.st[d.st] = it.st[d.st] ? 0 : 1; setBogen(it, d.st, it.st[d.st]); save(); draw(); ins(); return; }
-  if(d.aim){ S.aim = {fid:it.id, k:d.aim, src:d.src, rw:d.rw || "", reich:d.reich === "" ? null : +d.reich, p:null}; S.rings = null; draw(); return; }
+  if(d.elw){ S.el = S.el || {}; S.el[it.id + d.elw] = d.v; ins(); return; }
+  if(d.aim){ S.aim = {fid:it.id, k:d.aim, c:d.c || "#a51f1a", src:d.src, rw:d.rw || "", reich:d.reich === "" ? null : +d.reich, p:null}; S.rings = null; draw(); return; }
   if(d.rng){ S.rings = S.rings && S.rings.fid === it.id && S.rings.rw === d.rng ? null : {fid:it.id, rw:d.rng}; draw(); ins(); return; }
   if(d.step && it.cid){ var w0 = bogen(it), o = {}; if(d.step === "ben") o.ben = Math.max(0, w0.ben + +d.v); else o.mpa = Math.max(0, Math.min(w0.mp, w0.mpa + +d.v)); SWBogen.setze(it.cid, o); ins(); return; }
   if(d.mp && it.cid){ var w1 = bogen(it); SWBogen.setze(it.cid, {mpa:Math.max(0, w1.mpa - +d.mp)}); ins(); return; }

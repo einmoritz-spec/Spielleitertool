@@ -178,3 +178,8 @@ body.sf-open{overflow:hidden}
 .sfrow.half label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:0 0 5px}
 .sfpen{margin-left:auto;min-width:34px;height:26px;padding:0 9px;border-radius:99px;background:var(--red);color:#fff;font:600 14px Oswald,sans-serif;display:grid;place-items:center}
 .sffly.fig button:not(.ch) svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;width:26px;height:26px}
+.sfact .b button.sfaimb{--ac:var(--red);background:color-mix(in srgb,var(--ac) 10%,#fff);border-color:color-mix(in srgb,var(--ac) 45%,#fff);color:var(--ac)}
+.sfact .b button.sfaimb:hover{background:var(--ac);color:#fff}
+.sfels{display:flex;gap:4px;margin-top:4px}
+.sfels button{height:22px;padding:0 8px;border-radius:6px;border:1px solid var(--line);background:#fff;font:600 11px Oswald,sans-serif!important;letter-spacing:.03em;color:var(--soft)}
+.sfels button.on{background:var(--ac);border-color:var(--ac);color:#fff}

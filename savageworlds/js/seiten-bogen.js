@@ -38,7 +38,7 @@ function fx(c){
   var ah = c.ah || e.ah || "", tl = c.ta.filter(function(t){ return t && t.n; }).map(function(t){ return t.n; }).concat(e.ta || [], ah ? ahFx(ah).ta : []);
   tl.forEach(function(n){ if(TFX[n]) mergeFx(e, TFX[n]); });
   c.ta.forEach(function(t){ if(t && /^(Profi|Experte|Meister)$/.test(t.n) && t.w) e.prof[t.w] = (e.prof[t.w] || 0) + (t.n === "Profi" ? 1 : 1); });
-  c.hi.forEach(function(h){ if(!h || !h.n) return; var x = HFX[hBase(h.n)]; if(x) mergeFx(e, x[h.w === "S" ? "S" : "L"] || x.S || x.L); });
+  c.hi.forEach(function(h){ if(!h || !h.n || h.ab === 1) return; var x = HFX[hBase(h.n)], w = h.ab === "L" ? "L" : h.w; if(x) mergeFx(e, x[w === "S" ? "S" : "L"] || x.S || x.L); });
   (e.ha || []).concat(ah ? ahFx(ah).ha : []).forEach(function(n){ var x = HFX[hBase(n)]; if(x) mergeFx(e, x[/Schwer/.test(n) ? "S" : "L"] || x.S || x.L); });
   return e;
 }
@@ -107,7 +107,7 @@ function talenteVon(c, F){
   var ah = ahName(c, F); if(ah){ L.push("Arkaner Hintergrund"); L.push("Arkaner Hintergrund (" + ah + ")"); L = L.concat(ahFx(ah).ta); }
   return L;
 }
-function handicapsVon(c, F){ return c.hi.filter(function(h){ return h && h.n; }).map(function(h){ return h.n; }).concat(F.ha || [], ahFx(ahName(c, F)).ha); }
+function handicapsVon(c, F){ return c.hi.filter(function(h){ return h && h.n && h.ab !== 1; }).map(function(h){ return h.n; }).concat(F.ha || [], ahFx(ahName(c, F)).ha); }
 function traitIdx(c, F, n){
   n = n.trim();
   if(ATK[n]) return di(c.a[ATK[n]]);
@@ -177,8 +177,8 @@ function condOk(c, F, q){
   }
 }
 /* gibt null zurück, wenn erfüllt, sonst den Grund */
-function warum(c, F, v, r){
-  if(r != null && r > rangIdx(c)) return RAENGE[r];
+function warum(c, F, v, r, rk){
+  if(r != null && r > (rk == null ? rangIdx(c) : rk)) return RAENGE[r];
   var G = parseReq(v);
   for(var i = 0; i < G.length; i++) if(!G[i].alt.some(function(q){ return condOk(c, F, q); })) return G[i].txt;
   return null;
@@ -216,14 +216,61 @@ function cost(c){
   });
   return {at: at, fp: fp};
 }
+/* ---------- Aufstiege ---------- */
+var AUFART = {ta: "Neues Talent", f1: "Fertigkeit ab Attribut +1", f2: "Zwei Fertigkeiten unter Attribut +1", a: "Attribut +1", h: "Handicap ablegen oder abschwächen"};
+function aufN(c){ return Math.floor((parseInt(c.ep, 10) || 0) / 5); }
+function slotRang(i){ return Math.min(4, Math.floor(i / 4)); }
+function attrVon(c, skn){ var s = c.sk.filter(function(x){ return x.n === skn; })[0], an = s ? s.a : ((SW_SKILLS.concat(window.SW_SKILLS_ZUS || []).filter(function(x){ return x.n === skn; })[0] || {}).a || "Verstand"); return di(c.a[ATK[an]]); }
+function stufe(c, skn, d){
+  var s = c.sk.filter(function(x){ return x.n === skn; })[0];
+  if(!s){ if(d > 0){ var sd = SW_SKILLS.concat(window.SW_SKILLS_ZUS || []).filter(function(x){ return x.n === skn; })[0] || {}; c.sk.push({n: skn, a: sd.a || "Verstand", d: "W4", neu: 1}); } return; }
+  if(d < 0 && s.neu && di(s.d) <= 1){ c.sk.splice(c.sk.indexOf(s), 1); return; }
+  var i = Math.max(1, di(s.d) + d); s.d = DIE[i] || "W12+" + (i - 5);
+}
+function aufAnwenden(c, A, d){
+  if(A.art === "ta"){
+    if(A.z === "Arkaner Hintergrund"){ return; }
+    if(d > 0){ var slot = c.ta.findIndex(function(t){ return !t || !t.n; }), row = {n: A.z, adv: 1}; if(slot < 0) c.ta.push(row); else c.ta[slot] = row; }
+    else { var k = c.ta.findIndex(function(t){ return t && t.n === A.z && t.adv; }); if(k > -1) c.ta[k] = {}; }
+  } else if(A.art === "a"){ var i = di(c.a[A.z]) + d; c.a[A.z] = DIE[Math.max(1, i)] || "W12+" + (i - 5); }
+  else if(A.art === "f1") stufe(c, A.z, d);
+  else if(A.art === "f2") (A.z || []).forEach(function(n){ stufe(c, n, d); });
+  else if(A.art === "h"){ var h = c.hi.filter(function(x){ return x && x.n === A.z; })[0]; if(h){ if(d > 0) h.ab = h.w === "S" ? "L" : 1; else delete h.ab; } }
+}
+/* Stand vor allen Aufstiegen (für die Aufbaupunkte) */
+function basis(c){ var b = JSON.parse(JSON.stringify(c)); (b.auf || []).slice().reverse().forEach(function(A){ if(A && A.art) aufAnwenden(b, A, -1); }); return b; }
+/* Prüft einen Aufstieg gegen die Regeln (S. 54) */
+function aufWarum(c, i){
+  var A = (c.auf || [])[i], F = fx(c); if(!A || !A.art) return null;
+  if(i >= aufN(c)) return "mehr Aufstiege als Erfahrung";
+  var R = slotRang(i);
+  if(A.art === "a"){
+    var gleich = (c.auf || []).filter(function(x, j){ return x && x.art === "a" && j !== i && (R < 4 ? slotRang(j) === R : Math.abs(j - i) === 1); });
+    if(gleich.length) return R < 4 ? "nur ein Attribut pro Rang" : "nur jeden zweiten Aufstieg";
+    if(di(c.a[A.z]) > aMax(F, A.z)) return "über dem Maximum";
+  }
+  if(A.art === "f1"){ var s = c.sk.filter(function(x){ return x.n === A.z; })[0]; if(!s) return "Fertigkeit fehlt"; if(di(s.d) - 1 < attrVon(c, A.z)) return "unter dem Attribut"; }
+  if(A.art === "f2"){ if(!A.z || A.z.length !== 2) return "zwei Fertigkeiten wählen"; for(var k = 0; k < 2; k++){ var s2 = c.sk.filter(function(x){ return x.n === A.z[k]; })[0]; if(s2 && !s2.neu && di(s2.d) - 1 >= attrVon(c, A.z[k])) return A.z[k] + " nicht unter dem Attribut"; } }
+  if(A.art === "ta" && A.z !== "Arkaner Hintergrund"){ var t = tnames()[A.z]; if(t){ var w = warum(c, F, t.v, t.r, R); if(w) return w; } }
+  return null;
+}
+function aufText(A){
+  if(!A || !A.art) return "";
+  if(A.art === "ta") return A.z === "Arkaner Hintergrund" && cur.ah ? "Arkaner Hintergrund (" + cur.ah + ")" : A.z;
+  if(A.art === "a") return (ATTR.filter(function(x){ return x[1] === A.z; })[0] || [A.z])[0] + " +1";
+  if(A.art === "f1") return A.z + " +1";
+  if(A.art === "f2") return (A.z || []).join(", ") + " +1";
+  if(A.art === "h"){ var h = cur.hi.filter(function(x){ return x && x.n === A.z; })[0]; return A.z + (h && h.w === "S" ? " abgeschwächt" : " abgelegt"); }
+  return "";
+}
 /* Aufbaupunkte: 5 Attribut-, 12 Fertigkeitspunkte, freie Talente; Rest aus Handicaps (max. 4) und Aufstiegen (je 2) */
 function punkte(c){
-  var F = fx(c), p = cost(c), hp = 0;
+  var cB = basis(c), F = fx(cB), p = cost(cB), hp = 0; c = cB;
   c.hi.forEach(function(x){ if(x && x.n) hp += x.w === "S" ? 2 : 1; });
-  var auf = Math.floor((parseInt(c.ep, 10) || 0) / 5), tal = c.ta.filter(function(t){ return t && t.n; }).length + (c.ah && !F.ah ? 1 : 0);
+  var auf = aufN(c), tal = c.ta.filter(function(t){ return t && t.n; }).length + (c.ah && !F.ah && c.ahAdv == null ? 1 : 0), aufU = (c.auf || []).filter(function(A){ return A && A.art; }).length;
   var A = 5 + (F.apts || 0), S2 = 12 + (F.spts || 0);
   var used = Math.max(0, p.at - A) * 2 + Math.max(0, p.fp - S2) + Math.max(0, tal - (F.frei || 0)) * 2;
-  return {at: p.at, fp: p.fp, A: A, S: S2, hp: hp, auf: auf, tal: tal, frei: F.frei || 0, used: used, budget: Math.min(4, hp) + auf * 2};
+  return {at: p.at, fp: p.fp, A: A, S: S2, hp: hp, auf: auf, aufU: aufU, tal: tal, frei: F.frei || 0, used: used, budget: Math.min(4, hp)};
 }
 function berechne(c){
   var k = c.sk.filter(function(s){ return s.n === "Kämpfen"; })[0], pa = 2 + halb(k && k.d), pb = 0, rp = 0, kopf = 0, last = 0, ks = c.a.kon;
@@ -300,6 +347,10 @@ function liste(kind, ctx, own){
   if(kind === "sk"){ var ak = ahSkill(c, F);
     return SW_SKILLS.map(function(s){ return {n: s.n, a: s.a, s: ["GRW"], sub: s.g ? "Grund" : ""}; }).concat((window.SW_SKILLS_ZUS || []).filter(function(s){ return vis(s.s); }).map(function(s){ return {n: s.n, a: s.a, s: s.s}; }))
       .filter(function(s){ return s.a === ctx; }).map(function(s){ s.why = ARK[s.n] && s.n !== ak ? "Arkaner Hintergrund" : null; return s; }); }
+  if(kind === "apr"){ var row = c.ma[+ctx] || {}, pm = (window.SW_MACHTE || []).filter(function(x){ return x.n === row.n; })[0], A2 = ahFx(ahName(c, F));
+    var L2 = (A2.elem ? elemente(c) : []).map(function(e){ return {n: e, sub: "Element"}; });
+    String(pm && pm.au || "").split(/,\s*|\s+oder\s+/).forEach(function(t){ t = t.trim(); if(t && !L2.some(function(x){ return x.n.toLowerCase() === t.toLowerCase(); })) L2.push({n: t.charAt(0).toUpperCase() + t.slice(1), sub: "Ausprägung"}); });
+    return L2; }
   if(kind === "wa") return lWaffen().map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; return w; });
   if(kind === "ru") return lRuestung().map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; return w; });
   if(kind === "au") return lAusr();
@@ -361,7 +412,8 @@ function sheet(){
   var AF = ahFx(ahName(c, F));
   AF.ha.forEach(function(x){ h += fest(x, "AH", /\(Schwer/.test(x) || (hnames()[x.replace(/\s*\(.*$/, "")] || {}).w === "schwer" ? "S" : "L"); });
   (F.ha || []).forEach(function(x){ h += fest(x, "Volk", /\(Schwer/.test(x) || (hnames()[x.replace(/\s*\(.*$/, "")] || {}).w === "schwer" ? "S" : "L"); });
-  for(var i = 0, n = rows("hi", (F.ha || []).length + AF.ha.length); i < n; i++) h += '<div class="r"><span class="g">' + inp("hi", i, "n", {pick: "ha"}) + '</span><input class="bw1 c" readonly data-w="' + i + '" title="leicht / schwer" value="' + esc2((c.hi[i] || {}).n ? ((c.hi[i] || {}).w || "L") : "") + '"></div>';
+  for(var i = 0, n = rows("hi", (F.ha || []).length + AF.ha.length); i < n; i++){ var hh = c.hi[i] || {};
+    h += '<div class="r' + (hh.ab === 1 ? " abg" : "") + '"><span class="g">' + inp("hi", i, "n", {pick: "ha", tip: hh.ab === 1 ? "durch Aufstieg abgelegt" : hh.ab ? "durch Aufstieg abgeschwächt" : ""}) + '</span><input class="bw1 c" readonly data-w="' + i + '" title="leicht / schwer" value="' + esc2(hh.n ? (hh.ab === "L" ? "L" : (hh.w || "L")) : "") + '"></div>'; }
   h += "</div></div>";
   var fT = (F.ta || []).map(function(x){ return [x, "Volk"]; }), ahn = ahName(c, F);
   if(ahn && F.ah) fT.push(["Arkaner Hintergrund (" + ahn + ")", "Volk"]);
@@ -396,7 +448,14 @@ function sheet(){
       '<div class="bah"><div><span class="cap">Arkaner Hintergrund</span><b>' + esc2(ahN) + '</b></div><div><span class="cap">Arkane Fertigkeit</span><b>' + esc2(ask ? ask + " " + skd : "") + '</b></div><div><span class="cap">Machtpunkte</span><b>' + ((parseInt(c.mp, 10) || 0) + (F.mpx || 0)) + "</b></div>" +
       (AE.elem ? '<div class="el"><span class="cap">' + (nEl > 1 ? "Elemente " + EL.length + "/" + nEl : "Element") + '</span><span class="els">' + ELEM.map(function(e){ return '<a data-elem="' + e + '" class="' + (EL.indexOf(e) > -1 ? "on" : "") + '">' + e + "</a>"; }).join("") + "</span></div>" : "") +
       '</div><div class="lst"><div class="r hd"><span class="g">Macht</span><span class="c" style="width:34px">MP</span><span class="c" style="width:110px">Reichweite</span><span class="c" style="width:90px">Wirkungsdauer</span><span class="c" style="width:230px">Anmerkung</span></div>';
-    for(i = 0, n = Math.max(rows("ma"), Math.min(10, maxMa)); i < n; i++) h += '<div class="r"><span class="g">' + inp("ma", i, "n", {pick: "ma"}) + '</span><span class="c" style="width:34px">' + inp("ma", i, "mp", {cls: "num"}) + '</span><span class="c" style="width:110px">' + inp("ma", i, "rw", {cls: "sm"}) + '</span><span class="c" style="width:90px">' + inp("ma", i, "wd", {cls: "sm"}) + '</span><span class="c" style="width:230px">' + inp("ma", i, "nt", {cls: "sm"}) + "</span></div>";
+    for(i = 0, n = Math.max(rows("ma"), Math.min(10, maxMa)); i < n; i++) h += '<div class="r"><span class="g">' + inp("ma", i, "n", {pick: "ma"}) + '</span><span class="c" style="width:34px">' + inp("ma", i, "mp", {cls: "num"}) + '</span><span class="c" style="width:110px">' + inp("ma", i, "rw", {cls: "sm"}) + '</span><span class="c" style="width:90px">' + inp("ma", i, "wd", {cls: "sm"}) + '</span><span class="c" style="width:230px">' + inp("ma", i, "nt", {cls: "sm", pick: "apr", ctx: String(i)}) + "</span></div>";
+    h += "</div></div>";
+  }
+  var nA = aufN(c), AL = c.auf || [], nS = Math.max(nA, AL.reduce(function(m, A, k){ return A && A.art ? k + 1 : m; }, 0));
+  if(nS){
+    h += '<div class="box baufb"><h3>Aufstiege<span class="cnt">' + AL.filter(function(A){ return A && A.art; }).length + " / " + nA + '</span></h3><div class="lst baufl">';
+    for(var ai = 0; ai < nS; ai++){ var A = AL[ai], wy = aufWarum(c, ai);
+      h += '<div class="r"><span class="c anr">' + (ai + 1) + '</span><span class="c arg">' + RAENGE[slotRang(ai)].slice(0, 4) + '.</span><span class="g"><a class="aufs' + (A && A.art ? "" : " leer") + (wy ? " warn" : "") + '" data-auf="' + ai + '"' + (wy ? ' title="' + esc2(wy) + '"' : "") + ">" + (A && A.art ? "<i>" + AUFART[A.art].split(" ")[0].replace("Zwei", "Fertigkeiten").replace("Neues", "Talent").replace("Fertigkeit", "Fertigkeit") + "</i> " + esc2(aufText(A)) : "…") + "</a></span></div>"; }
     h += "</div></div>";
   }
   h += '<div class="bnot"><div class="box"><h3>Volkseigenarten &amp; Hintergrund</h3><textarea data-a="$" data-f="hg" rows="4">' + esc2(c.hg) + '</textarea></div><div class="box"><h3>Notizen</h3><textarea data-a="$" data-f="no" rows="4">' + esc2(c.no) + "</textarea></div></div></div>";
@@ -420,15 +479,15 @@ function calc(){
   if($("b-aufst")) $("b-aufst").value = Math.floor(b.ep / 5);
   if($("b-par")) $("b-par").value = b.parade;
   if($("b-rob")) $("b-rob").value = b.rob + (b.pz ? " (" + b.pz + ")" : "");
-  var P = punkte(c), cn = $("b-cnt"); if(cn){ cn.innerHTML = "Attr. " + p.at + "/" + P.A + " · Fert. " + p.fp + "/" + P.S; cn.className = "cnt" + (P.used > P.budget ? " ov" : " ok"); }
+  var P = punkte(c), cn = $("b-cnt"); if(cn){ cn.innerHTML = "Attr. " + P.at + "/" + P.A + " · Fert. " + P.fp + "/" + P.S; cn.className = "cnt" + (P.used > P.budget ? " ov" : " ok"); }
   if($("b-tal")) $("b-tal").textContent = P.frei ? P.frei + " frei" : "";
   var st = $("bStatus"); if(st){ var rest = P.budget - P.used, F2 = fx(c);
     st.innerHTML = '<span>Rang <b>' + RAENGE[rangIdx(c)] + "</b></span>" +
-      '<span class="' + (p.at > P.A ? "x" : "") + '">Attribute <b>' + p.at + "/" + P.A + "</b></span>" +
-      '<span class="' + (p.fp > P.S ? "x" : "") + '">Fertigkeiten <b>' + p.fp + "/" + P.S + "</b></span>" +
+      '<span class="' + (P.at > P.A ? "x" : "") + '">Attribute <b>' + P.at + "/" + P.A + "</b></span>" +
+      '<span class="' + (P.fp > P.S ? "x" : "") + '">Fertigkeiten <b>' + P.fp + "/" + P.S + "</b></span>" +
       '<span class="' + (P.tal > P.frei ? "x" : "") + '">Talente <b>' + P.tal + (P.frei ? " (" + P.frei + " frei)" : "") + "</b></span>" +
-      '<span>Handicaps <b>' + P.hp + "/4</b></span>" + (P.auf ? "<span>Aufstiege <b>" + P.auf + "</b></span>" : "") +
-      '<span class="sum ' + (rest < 0 ? "ov" : rest > 0 ? "frei" : "ok") + '">' + (rest < 0 ? "Fehlen " + (-rest) : rest > 0 ? "Offen " + rest : "Ausgeglichen") + "</span>"; }
+      '<span>Handicaps <b>' + P.hp + "/4</b></span>" + (P.auf ? '<span class="' + ((c.auf || []).some(function(A, k){ return aufWarum(c, k); }) ? "x" : "") + '">Aufstiege <b>' + P.aufU + "/" + P.auf + "</b></span>" : "") +
+      '<span class="sum ' + (rest < 0 ? "ov" : rest > 0 ? "frei" : "ok") + '" title="Charaktererschaffung">' + (rest < 0 ? "Fehlen " + (-rest) : rest > 0 ? "Offen " + rest : "Ausgeglichen") + "</span>"; }
   var hp = 0; c.hi.forEach(function(x){ if(x && x.n) hp += x.w === "S" ? 2 : 1; }); if($("b-hp")){ $("b-hp").textContent = hp + " / 4 Punkte"; $("b-hp").className = "cnt" + (hp > 4 ? " ov" : ""); }
   if($("b-kopf")) $("b-kopf").textContent = b.kopf ? "Kopf " + b.kopf : "";
   if($("b-last")){ var l = $("b-last"); l.textContent = "Last " + (Math.round(b.last * 10) / 10).toString().replace(".", ",") + (b.grenze ? " / " + b.grenze : "") + " kg"; var over = b.grenze && b.last > kg(b.grenze); l.className = "cnt" + (over ? " ov" : ""); }
@@ -476,6 +535,7 @@ function ahSetzen(x){
 function pickTake(x){
   var el = pickEl; if(!el) return; var kind = el._kind || el.dataset.pick;
   if(kind === "ah"){ el._kind = null; ahSetzen(x); persist(); popClose(); neuAufbau(); return; }
+  if(kind === "apr"){ var mi = +el.dataset.i; while(cur.ma.length <= mi) cur.ma.push({}); cur.ma[mi].nt = x.n; persist(); popClose(); neuAufbau(); return; }
   if(kind === "ta" && x.n === "Arkaner Hintergrund"){ var ai = +el.dataset.i; if(cur.ta[ai]) cur.ta[ai] = {}; el.value = ""; el._kind = "ah"; pickAll = false; pickOpen(el, true); return; }
   if(kind === "sk"){
     if(el.dataset.new === "sk") cur.sk.push({n: x.n, a: el.dataset.ctx, d: "W4"}); else cur.sk[el.dataset.i].n = x.n;
@@ -498,6 +558,43 @@ function pickTake(x){
     else if(x.f) arr[i] = Object.assign({}, x.f); else arr[i] = {n: x.n};
   }
   persist(); popClose(); neuAufbau();
+}
+/* Kleines Auswahlmenü */
+function menu(el, items, cb){
+  var lang = items.length > 14;
+  var h = (lang ? '<input class="mf" placeholder="Suchen" autocomplete="off">' : "") + items.map(function(x, k){ return '<div data-mv="' + k + '"' + (x.why ? ' class="nein"' : "") + "><span>" + esc2(x.l) + (x.s ? badge(x.s) : "") + "</span><small" + (x.warn ? ' class="wn"' : "") + ">" + esc2(x.why || x.sub || "") + "</small></div>"; }).join("") || '<p class="leer">Nichts zur Auswahl</p>';
+  popAt(el, {html: h}); pop._cb = function(k){ cb(items[k]); };
+  var mf = pop.querySelector(".mf"); if(mf){ mf.focus(); mf.addEventListener("input", function(){ var q = mf.value.toLowerCase(); pop.querySelectorAll("div[data-mv]").forEach(function(d){ d.style.display = d.textContent.toLowerCase().indexOf(q) > -1 ? "" : "none"; }); }); mf.addEventListener("keydown", function(e){ e.stopPropagation(); if(e.key === "Escape") popClose(); }); }
+}
+function aufSetzen(i, A){ var c = cur; c.auf = c.auf || []; while(c.auf.length <= i) c.auf.push(null); c.auf[i] = A; aufAnwenden(c, A, 1); persist(); neuAufbau(); }
+function aufEntfernen(i){ var c = cur, A = (c.auf || [])[i]; if(!A) return; aufAnwenden(c, A, -1); if(A.art === "ta" && A.z === "Arkaner Hintergrund" && c.ahAdv === i){ ahSetzen({rm: 1}); c.ahAdv = null; } c.auf[i] = null; while(c.auf.length && !c.auf[c.auf.length - 1]) c.auf.pop(); persist(); neuAufbau(); }
+function aufKlick(el){
+  var i = +el.dataset.auf, c = cur, F = fx(c), R = slotRang(i), A = (c.auf || [])[i];
+  if(A && A.art){ menu(el, [{v: "x", l: "Aufstieg entfernen"}], function(){ aufEntfernen(i); }); return; }
+  var arten = Object.keys(AUFART).map(function(k){ var why = null;
+    if(k === "a"){ var block = (c.auf || []).some(function(x, j){ return x && x.art === "a" && (R < 4 ? slotRang(j) === R : Math.abs(j - i) === 1); }); if(block) why = R < 4 ? "schon ein Attribut in diesem Rang" : "nur jeden zweiten Aufstieg"; }
+    if(k === "h" && !c.hi.some(function(x){ return x && x.n && x.ab !== 1; })) why = "kein Handicap";
+    return {v: k, l: AUFART[k], why: why}; });
+  menu(el, arten, function(art){ setTimeout(function(){ ziel(el, i, art.v); }, 0); });
+}
+function ziel(el, i, art){
+  var c = cur, F = fx(c), R = slotRang(i), T = talenteVon(c, F);
+  if(art === "ta"){
+    var L = SW_TALENTE.filter(function(t){ return vis(t.s) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0) && !(t.n === "Arkaner Hintergrund" && ahName(c, F)); })
+      .map(function(t){ return {v: t.n, l: t.n, s: t.s, sub: t.k + ", " + RAENGE[t.r || 0], why: warum(c, F, t.v, t.r, R)}; }).sort(function(a, b){ return (a.why ? 1 : 0) - (b.why ? 1 : 0); });
+    menu(el, L, function(x){ if(x.v === "Arkaner Hintergrund"){ setTimeout(function(){ menu(el, liste("ah").filter(function(a){ return !a.rm; }).map(function(a){ return {v: a.n, l: a.n, s: a.s, sub: a.sub, why: a.why, ah: a.ah}; }), function(y){ ahSetzen({n: y.v, ah: y.ah}); cur.ahAdv = i; aufSetzen(i, {art: "ta", z: "Arkaner Hintergrund"}); }); }, 0); return; } aufSetzen(i, {art: "ta", z: x.v}); });
+  } else if(art === "a"){
+    menu(el, ATTR.map(function(a){ var cu = di(c.a[a[1]]), mx = aMax(F, a[1]); return {v: a[1], l: a[0], sub: c.a[a[1]] + " → " + (DIE[cu + 1] || ""), why: cu >= mx ? "Maximum erreicht" : null}; }), function(x){ aufSetzen(i, {art: "a", z: x.v}); });
+  } else if(art === "f1"){
+    menu(el, c.sk.map(function(s){ var ok = di(s.d) >= attrVon(c, s.n); return {v: s.n, l: s.n, sub: s.d + " → " + (DIE[di(s.d) + 1] || ""), why: di(s.d) >= skMax(F, s.n) ? "Maximum erreicht" : ok ? null : "unter dem Attribut"}; }).sort(function(a, b){ return (a.why ? 1 : 0) - (b.why ? 1 : 0); }), function(x){ aufSetzen(i, {art: "f1", z: x.v}); });
+  } else if(art === "f2"){
+    var opts = function(ex){ var own = c.sk.map(function(s){ return {v: s.n, l: s.n, sub: s.d + " → " + (DIE[di(s.d) + 1] || ""), why: di(s.d) >= attrVon(c, s.n) ? "nicht unter dem Attribut" : null}; });
+      var neuL = SW_SKILLS.concat((window.SW_SKILLS_ZUS || []).filter(function(x){ return vis(x.s); })).filter(function(x){ return !c.sk.some(function(s){ return s.n === x.n; }) && !(ARK[x.n] && x.n !== ahSkill(c, F)); }).map(function(x){ return {v: x.n, l: x.n, sub: "neu → W4"}; });
+      return own.concat(neuL).filter(function(x){ return x.v !== ex; }).sort(function(a, b){ return (a.why ? 1 : 0) - (b.why ? 1 : 0); }); };
+    menu(el, opts(""), function(x){ setTimeout(function(){ menu(el, opts(x.v), function(y){ aufSetzen(i, {art: "f2", z: [x.v, y.v]}); }); }, 0); });
+  } else if(art === "h"){
+    menu(el, c.hi.filter(function(x){ return x && x.n && x.ab !== 1; }).map(function(x){ return {v: x.n, l: x.n, sub: x.ab === "L" || x.w !== "S" ? "ablegen" : "zu leicht abschwächen"}; }), function(x){ aufSetzen(i, {art: "h", z: x.v}); });
+  }
 }
 /* Talente mit Auswahl */
 var TWL = {"Lieblingswaffe": "waffe", "Verbesserte Lieblingswaffe": "waffe", "Markenzeichen-Waffe": "waffe", "Bevorzugte Macht": "macht", "Profi": "trait", "Experte": "trait", "Meister": "trait",
@@ -542,6 +639,7 @@ function dieTake(d){
   persist(); popClose(); neuAufbau();
 }
 /* ---------- Ereignisse ---------- */
+window.addEventListener("keydown", function(e){ if(pop && e.key === "Escape"){ e.preventDefault(); e.stopImmediatePropagation(); popClose(); } }, true);
 function wire(){
   var A = document.getElementById("app"); if(A._bw) return; A._bw = 1;
   A.addEventListener("input", function(e){
@@ -567,6 +665,9 @@ function wire(){
   }, true);
   document.addEventListener("mousedown", function(e){
     if(!pop) return;
+    var mv = e.target.closest ? e.target.closest(".bpop div[data-mv]") : null;
+    if(mv){ e.preventDefault(); var cb = pop._cb; popClose(); if(cb) cb(+mv.dataset.mv); return; }
+    if(e.target.closest && e.target.closest(".bpop .mf")) return;
     var tv = e.target.closest ? e.target.closest(".bpop div[data-twv]") : null;
     if(tv){ e.preventDefault(); cur.ta[pop._twi].w = tv.dataset.twv; persist(); popClose(); neuAufbau(); return; }
     var al = e.target.closest ? e.target.closest(".bpop [data-alle]") : null;
@@ -580,6 +681,7 @@ function wire(){
   A.addEventListener("click", function(e){
     var el = e.target; if(!cur) return;
     if(el.dataset && el.dataset.die) { dieOpen(el); return; }
+    var au = el.closest && el.closest("[data-auf]"); if(au){ aufKlick(au); return; }
     if(el.dataset && el.dataset.ahrow){ el._kind = "ah"; pickAll = false; pickOpen(el, true); return; }
     if(el.dataset && el.dataset.tw != null){ twOpen(el); return; }
     if(el.dataset && el.dataset.elem){ var L = elemente(cur), E1 = el.dataset.elem, nmax = elemMax(cur); if(L.indexOf(E1) > -1) L.splice(L.indexOf(E1), 1); else { if(L.length >= nmax) L.pop(); L.push(E1); } cur.ahw = L; persist(); neuAufbau(); return; }
@@ -654,7 +756,8 @@ function werte(c){
   c.wa.forEach(function(w){ if(!w || !w.n) return; var k = katalog(w.n) || {};
     var t = tplAus((k.fs || "") + " " + (w.rw || "") + " " + (k.nt || w.nt || ""));
     waffen.push({n: w.n, rw: /\d+\/\d+\/\d+/.test(w.rw || "") ? w.rw : "", sd: /^Stä/.test(w.sd || "") ? w.sd.replace(/^Stä/, c.a.sta) : (w.sd || ""), pb: w.pb || "", tpl: t}); });
-  var maechte = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return {n: m.n, mp: m.mp || "", rw: m.rw || "", reich: reichweite(c, m.rw), tpl: machtTpl(m.n)}; });
+  var EL = ahFx(ahName(c, F)).elem ? elemente(c) : [];
+  var maechte = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return {n: m.n, mp: m.mp || "", rw: m.rw || "", reich: reichweite(c, m.rw), tpl: machtTpl(m.n), au: m.nt || (EL.length === 1 ? EL[0] : ""), els: m.nt ? [] : EL}; });
   var r = {id: c.id, name: c.name || "Charakter", volk: c.volk || "", tempo: b.tempo, sprint: b.sprint, parade: b.parade, rob: b.rob + (b.pz ? " (" + b.pz + ")" : ""), gr: b.gr, d: groesseZoll(b.gr),
     ben: parseInt(c.ben, 10) || 0, wu: c.wu | 0, er: c.er | 0, st: c.st || {}, wmax: b.wmax, wig: b.wig, mp: ahName(c, F) ? (parseInt(c.mp, 10) || 0) + b.mpx : 0, waffen: waffen, maechte: maechte};
   r.mpa = c.mpa === "" || c.mpa == null ? r.mp : Math.min(r.mp, parseInt(c.mpa, 10) || 0); return r;

@@ -113,3 +113,38 @@ Farbe Bernstein #a8701f. Seitenleiste: Wer bist du? (Abenteurerbogen) · Abenteu
 
 ### Als Nächstes
 Herausforderungen (Würfelbeispiele als Würfelreihen), Gefahren, Schatzsuche, 1999.
+
+## Vollständigkeit – kein Buchinhalt geht verloren (Regel für alle Bereiche)
+Die Mockups zeigen gekürzte Texte nur als Platzhalter. Beim Bau gilt:
+1. **Volltext:** Jeder Absatz, jede Liste, jeder Kasten, jede Tabelle, jedes Beispiel und jede Randnotiz des Buchs wird vollständig ins Deutsche übertragen und im Tool angezeigt. Das Design verteilt den Inhalt nur anders (Karten, Raster, Spalten), es kürzt nichts.
+2. **Inhaltsverzeichnis je Bereich:** Vor dem Bau jedes Bereichs entsteht `plan/compass/inhalt/<bereich>-inventar.md`: Tabelle Buchseite → Block im Tool (Überschrift, Absätze, Kästen, Tabellen, Beispiele, Bilder). Nichts steht auf zwei Seiten doppelt, nichts fehlt.
+3. **Zählprobe:** Nach dem Bau wird je Bereich verglichen: Absätze, Aufzählungspunkte, Tabellenzeilen und Kästen im Quelltext (`pdftotext`) gegen die Daten im Tool; Abweichungen werden behoben, bevor gepusht wird. Zusätzlich Stichproben Seite für Seite mit dem Original (S.-Links öffnen das PDF).
+4. **Nicht wegkürzen:** Auch Beispiele (z. B. Erzählbeispiel S. 18–19, „Just like Budapest“ S. 43), Randkästen (Pilot, Leave it to chance, Gemeinsam spielen), Tag-Tabellen (alle 18), Expertise-Liste, Gegenstandslisten, Seitenrandnotizen kommen vollständig rein. Aufklappbare Karten dürfen Text verbergen, aber nicht entfernen.
+5. **Zugehörige Verweise** („siehe Abschnitt 5“) werden zu Sprungmarken im Tool.
+
+### Inventar Grundlagen (Buch S. 6–23) → Blöcke
+| Buch-S. | Inhalt | Block im Tool |
+|---|---|---|
+| 8 | Willkommens-Monolog, „Broken Compass ist ein Rollenspiel…“ | Willkommen (Zitat, Fließtext, Bild) |
+| 9 | Die Welt von Broken Compass | Willkommen › Die Welt |
+| 11 | Wo und wann (beide Absätze, Verweis auf Abschnitt 6) | Zweierkarten Wo / Wann + Fließtext |
+| 12–13 | Grundpfeiler: Reisen, Entdecken, Handeln | Dreier-Bildkacheln, voller Text |
+| 14 | Wie man spielt (Schicksalsmeister, Abenteurer, Bogen) | Zwei Spalten |
+| 15–17 | Gemeinsam spielen: Welt teilen, Offen sein, Platz lassen, Dem Zufall überlassen | Karten je Leitsatz |
+| 18–19 | Erzählbeispiel Szene 1 | Drehbuchblock, vollständig |
+| 20–21 | Wie im Kino: Folgen, Staffeln; Randkasten Pilot; Golden Age | Filmband + Randkasten |
+| 22–23 | Der zerbrochene Kompass | Schlussband, voller Text |
+
+### Inventar Abenteurer (Buch S. 25–55) → Blöcke
+| Buch-S. | Inhalt | Block im Tool |
+|---|---|---|
+| 25–26 | Wer bist du? (drei Gründe, Bogen-Hinweis) | Grundkarten + Fließtext |
+| 27–32 | Abenteurerbogen: Persönliches, Glück, Ich fühle, Expertise, Felder und Fertigkeiten (alle 18 Fertigkeiten mit Beschreibung), Waffen & Gerät, Inventar, Magazine | Legende + Felder-Karten + Inventar-Karten |
+| 35–36 | Abenteurer erschaffen, Tag-Liste, Beispiel Dr. Laura Benoit | Schritte + Tag-Chips + Beispielbogen |
+| 37–39 | Alle 18 Tags mit Feld, Expertise, Fertigkeiten | Tag-Karten (aufklappbar) |
+| 40 | Tag-Expertisen mit Erklärung | Expertise-Liste |
+| 41–44 | Schritte 2–6 (Rauten, Expertisen, „Just like Budapest“, Persönliches, Ausrüstung) | Schritte mit Volltext + Randkasten |
+| 45–50 | Gegenstände, Waffen und Gerät; Taschen/Beutel/Rucksack; Werkzeug; Paketangebote; Listen; Waffen- und Gerätekarten; Magazine | Karten + Chip-Listen |
+| 51–52 | Jung, alt, echt | Dreiband mit Volltext |
+| 53–55 | Zufallsabenteurer (Tabellen) | Raster, alle Einträge |
+Hinweis: Das Inventar wird beim Bau gegen den Rohtext geprüft; fehlende Seiten (z. B. 33–34 Doppelungen mit 45–50) werden beim Inventar zusammengeführt, nicht gestrichen.

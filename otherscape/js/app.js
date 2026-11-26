@@ -94,7 +94,7 @@ function osLaunch(el,id){
   const rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   setTimeout(()=>{ location.hash = "#/adv/"+id; }, rm ? 0 : 300);
 }
-const OS_HEROES=["alley-k","gang-k"];
+const OS_HEROES=["alley-k","gang-k","neon","samurai","ghost"];
 /* Titelbilder der Abenteuer: [Bild, Ausschnitt] */
 const OS_COVER = {
   "strings-attached":["img/strings-attached-cover.webp","50% 12%"], "anthill":["img/anthill-titel.webp","50% 18%"],

@@ -705,6 +705,8 @@ function ins(){
         return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + (au ? '<b style="color:' + aFarbe(au) + '">' + E(au) + "</b>, " : "") + E([a.rw, a.reich ? a.reich + "“" : ""].filter(Boolean).join(", ")) + "</small>" +
           (!a.au && a.els && a.els.length > 1 ? '<span class="sfels">' + a.els.map(function(e){ return '<button data-elw="' + E(a.n) + '" data-v="' + e + '" class="' + (au === e ? "on" : "") + '" style="--ac:' + aFarbe(e) + '">' + e + "</button>"; }).join("") + "</span>" : "") + '</div><div class="b">' +
         (a.mp && /^\d+$/.test(a.mp) ? '<button class="sfmp" data-mp="' + a.mp + '" title="Machtpunkte ausgeben">' + a.mp + " MP</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
+      ((w.kraefte || []).length ? "<h4>Superkräfte</h4>" + w.kraefte.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E([a.st, a.k + (a.k === 1 ? " Punkt" : " Punkte")].filter(Boolean).join(", ")) + '</small></div><div class="b">' +
+        (a.rw ? '<button class="sfrng' + (S.rings && S.rings.fid === it.id && S.rings.rw === a.rw ? " on" : "") + '" data-rng="' + E(a.rw) + '" title="Reichweite">' + E(a.rw) + "</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
       foot('<button data-act="img" title="Bild">' + ic("bild") + "</button>" + (it.img ? '<button data-act="noimg" title="Bild entfernen" class="sfx">' + ic("close") + "</button>" : ""));
   } else if(it && it.t === "fig"){
     var st = it.st || {}, w = null;

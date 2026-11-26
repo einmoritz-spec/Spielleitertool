@@ -181,3 +181,25 @@
 .lst .spmb{font:600 9.5px Oswald,sans-serif;letter-spacing:.03em}
 .bpop .spm span{font:600 11px Oswald,sans-serif;letter-spacing:.03em;color:#333}
 .bsup input[data-f=k]::placeholder{color:#1a1a1a;opacity:1}
+/* Auswahlfelder, i-Infos */
+.bsheet input.wahl{cursor:pointer}
+.bsheet input.wahl:hover{background:rgba(165,31,26,.06)}
+.bsup .bah .el{border-bottom:0;height:auto}
+.lst .r .g{position:relative}
+.ii{display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;border:1px solid #b5a994;color:#8a7f70;font:italic 700 9px Georgia,serif;cursor:pointer;flex:none;line-height:1;background:#fff}
+.ii:hover{border-color:#a51f1a;color:#fff;background:#a51f1a}
+.lst .r .g .ii{position:absolute;right:3px;top:50%;transform:translateY(-50%)}
+.binfo .f{position:relative}
+.binfo .f .ii{position:absolute;right:0;bottom:4px}
+.bpop div[data-i],.bpop div[data-mv],.bpop div.nein{position:relative}
+.bpop .ii{position:absolute;right:6px;top:50%;transform:translateY(-50%)}
+.bpop.pk div[data-i],.bpop div[data-mv],.bpop div.nein{padding-right:26px}
+.bpop .ps{position:sticky;top:0;z-index:1}
+.bipop{position:absolute;z-index:100001;width:340px;max-height:420px;overflow:auto;background:#fffdf8;border:1px solid #1a1a1a;box-shadow:0 6px 24px rgba(0,0,0,.25);padding:10px 14px 8px;font:13px/1.45 Pal,serif;color:#1a1a1a}
+.bipop h4{font:600 15px Oswald,sans-serif;letter-spacing:.03em;margin:0 18px 2px 0;color:#a51f1a;text-transform:uppercase}
+.bipop h5{font:600 10.5px Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#a51f1a;margin:8px 0 2px}
+.bipop p{margin:0 0 6px}
+.bipop p.im{font:600 10.5px Oswald,sans-serif;letter-spacing:.03em;color:#8a7f70;margin-bottom:6px}
+.bipop .ix{position:absolute;right:6px;top:4px;border:0;background:none;font-size:18px;cursor:pointer;color:#8a7f70}
+@media print{.ii{display:none}}
+.bsup .bah>div{border-bottom:0}

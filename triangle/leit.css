@@ -206,3 +206,8 @@ body.ve-vault{background:#17111f}
 @media (max-width:1400px){.vflt>article>.vre.vschwebt2{width:340px}}
 .vflt>article>h1,.vflt>article>h2{clear:none}
 .vflt>article>.sp,.vflt>article>.vkarten,.vflt>article>.vaus,.vflt>article>table,.vflt>article>figure,.vflt>article>.vho,.vflt>article>.vanf,.vflt>article>.vfae{clear:right}
+.vct.voben{grid-template-columns:minmax(0,1fr)}
+.vct.voben>.vre{padding:26px 0 0 40px}
+.vflt>article>.vre.vband{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:22px;align-items:start;padding:0;margin:8px 0 30px;clear:both}
+.vflt>article>.vre.vband>*{margin:0}
+@media (max-width:800px){.vflt>article>.vre.vband{grid-template-columns:1fr}}

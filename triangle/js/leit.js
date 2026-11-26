@@ -160,6 +160,13 @@ function vSpalten(){
     if(a.offsetHeight > 700) a.classList.add("vzwei");
     return;
   }
+  /* hohe rechte Spalte: als Leiste unter der Überschrift, Text darunter über die volle Breite (keine Lücken) */
+  if(hr >= 620){
+    ct.classList.add("vflt"); re.classList.add("vband");
+    var h2 = a.querySelector(":scope>h2, :scope>.sp");
+    a.insertBefore(re, h2 || null);
+    return;
+  }
   if(ha - hr < 400) return;
   /* kurze rechte Spalte (z. B. nur Ziele): oben als Leiste, Text darunter zweispaltig */
   if(hr < 700 && ha > 1400 && !a.querySelector(".sp-raeume")){ ct.classList.add("voben"); a.classList.add("vzwei"); return; }

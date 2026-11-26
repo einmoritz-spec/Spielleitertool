@@ -43,6 +43,7 @@ function render(){
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "voelker") return voelkerPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "handicaps") return handicapsPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "eigenschaften") return eigenschaftenPage();
+  if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "aufstiege") return aufstiegePage();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }
@@ -117,6 +118,13 @@ function eigenschaftenPage(){
     }).join("") + "</div>";
   }).join("");
   APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Eigenschaften<span class="pg" onclick="openBook(\'sw_de\',32)">S. 31</span></h2>' + h + "</main></div>";
+}
+function aufstiegePage(){
+  var A = SW_AUFSTIEG, P = function(a){ return a.map(function(t){ return "<p>" + esc(t) + "</p>"; }).join(""); };
+  var rk = '<aside class="rside"><h4 class="rk" style="--rc:#a51f1a"><span>Rang</span></h4>' + P(A.rang) + '<div class="rg">' + A.ranks.map(function(r, i){ return '<div class="rc" style="--rc:' + RC[i] + '"><b>' + r[0] + "</b><small>" + r[1] + " Aufstiege</small></div>"; }).join("") + "</div></aside>";
+  var h = '<div class="aw"><div class="art">' + P(A.intro) + "<p>" + esc(A.optT) + "</p><ul>" + A.opt.map(function(o){ return "<li>" + esc(o) + "</li>"; }).join("") + "</ul>" +
+    A.sec.map(function(x){ return '<h4 class="rk" style="--rc:#a51f1a"><span>' + esc(x[0]) + "</span></h4>" + P(x[1]); }).join("") + "</div>" + rk + "</div>";
+  APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Aufstiege<span class="pg" onclick="openBook(\'sw_de\',' + (A.p + 1) + ')">S. ' + A.p + "</span></h2>" + h + "</main></div>";
 }
 function hFilter(f){ ST.hf = f; save(); handicapsPage(); }
 function talKat(k){ ST.tk = k; ST.to = -1; save(); talentePage(); }

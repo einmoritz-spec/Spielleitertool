@@ -138,3 +138,6 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .topbar .ib:hover,.topbar button.tm-sg:hover{color:#fff}
 .topbar:has(.ktabs a) .ib,.topbar:has(.ktabs a) button.tm-sg{margin-top:12px !important}
 .ad{margin:0 0 10px;max-width:1160px;color:var(--soft)}
+.art{max-width:900px}.art ul{margin:6px 0 6px 20px}.art li{margin:5px 0}
+.aw{display:grid;grid-template-columns:minmax(0,860px) 280px;gap:40px;align-items:start}.rside{position:sticky;top:120px}.rg{display:grid;gap:8px;margin-top:12px}
+.rc{background:var(--paper2);border-left:5px solid var(--rc);padding:10px 14px}.rc b{display:block;font:400 21px/1.1 Spies,Oswald,sans-serif}.rc small{color:var(--soft);font-size:13px}

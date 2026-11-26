@@ -419,3 +419,4 @@ body.etnav .osrail{margin-top:0}
 body.etnav .osnav{top:62px;max-height:calc(100vh - 76px)}
 body.etsub-on .osnav{top:104px;max-height:calc(100vh - 118px)}
 @media(max-width:860px){.ktabs a{padding:0 9px;font-size:16px}}
+body.etsub-on .ktabs{margin-bottom:-10px}

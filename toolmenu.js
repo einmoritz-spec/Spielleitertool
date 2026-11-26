@@ -342,7 +342,7 @@
     }
     if(e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
     if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || (e.target && e.target.isContentEditable)) return;
-    if(document.querySelector(".modal,.gzoom,.mm-panel.on,.bv-open")) return;
+    if(Array.prototype.some.call(document.querySelectorAll(".modal,.gzoom,.mm-panel.on,.bv-open"), function(e){ var r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== "hidden" && getComputedStyle(e).opacity !== "0"; })) return;
     /* Vollbild-Ebenen (Galerie, Buchansicht …) behalten ihre eigenen Pfeiltasten */
     var mid = document.elementFromPoint(innerWidth / 2, innerHeight / 2), fx = mid;
     while(fx && fx !== document.body){ if(getComputedStyle(fx).position === "fixed") return; fx = fx.parentElement; }

@@ -158,3 +158,9 @@ body.buch .ansicht{opacity:1}
 .dp .op small{font-size:9px;letter-spacing:.24em}
 .dp .op b{font-size:13px;margin:3px 0 6px;padding-bottom:6px}
 .dp .op span{font-size:9px;line-height:1.45;letter-spacing:.03em;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===== Flüssige Animation: Bild als eigene Ebene mit fester Breite ===== */
+.sl[style*="--bgi"]{background:none}
+.sl[style*="--bgi"]:before{content:"";position:absolute;top:0;bottom:0;left:50%;background:var(--bgi) var(--bp,center)/cover no-repeat;transform:translate3d(-50%,0,0);will-change:transform;backface-visibility:hidden;pointer-events:none}
+.sl[style*="--bgi"]:before{width:max(100%,38vw);left:var(--bpx,50%);transform:translate3d(calc(-1 * var(--bpx,50%)),0,0)}
+.pil{will-change:filter}

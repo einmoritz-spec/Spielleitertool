@@ -53,3 +53,6 @@
 .city-pop .city-map img{width:100%;height:auto;border-radius:6px}
 .shell:has(.ov-grid){max-width:1500px}
 @media (min-width:1250px){ .ov-grid{grid-template-columns:repeat(5,1fr)} }
+
+/* ===== Flüssige Animation ===== */
+.ov-card{will-change:transform}.ov-photo img{will-change:transform;backface-visibility:hidden}

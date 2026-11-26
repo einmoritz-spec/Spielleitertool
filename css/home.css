@@ -38,3 +38,6 @@
 .hm[data-v="c"] .hm-b{padding:11px 16px 14px}
 .hm[data-v="c"] .hm-chips{margin-top:8px;flex-wrap:nowrap;overflow:hidden}
 .hm[data-v="c"] .hm-chip{white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}.hm[data-v="c"] .hm-chip:last-child{flex:none}
+
+/* ===== Flüssige Animation ===== */
+.hm-card{will-change:transform}.hm-img img{will-change:transform,filter;backface-visibility:hidden}

@@ -929,3 +929,10 @@ body.osnav .shell:has(.case-tabbar.notebar)>.crumbs.pgonly{margin-top:0;padding-
 .os-pan li button i{font-style:normal;color:var(--c);opacity:0;transform:translateX(-4px);transition:.2s}
 .os-pan li button:hover{background:rgba(255,255,255,.06)}.os-pan li button:hover i{opacity:1;transform:none}
 @media(max-width:900px){.os-pans{grid-template-columns:1fr}}
+
+/* Leuchtpuls ohne Neuzeichnen: Schatten liegt fest auf einer Ebene, nur die Deckkraft pulsiert */
+.os-ax-lg i,.ob-go{position:relative;animation:none}
+.os-ax-lg i::after,.ob-go::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 22px var(--c),0 0 4px #fff;opacity:0;animation:osPulseO 1.8s ease-in-out infinite;pointer-events:none;will-change:opacity}
+@keyframes osPulseO{50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.os-ax-lg i::after,.ob-go::after{animation:none}}
+

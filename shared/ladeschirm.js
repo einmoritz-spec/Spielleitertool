@@ -64,7 +64,6 @@
   function seq(sel, k, step){ var s = ""; for(var i = 0; i < k; i++) s += "#ls " + sel + ":nth-child(" + (i + 1) + "){animation-delay:" + (i * step).toFixed(2) + "s}"; return s; }
   var css = [
     "html.ls-an body *,html.ls-an body *::before,html.ls-an body *::after{animation-play-state:paused!important}",
-    "html.ls-an,html.ls-an body{overflow:hidden!important}",
     "#ls{position:fixed;inset:0;z-index:2147483000;overflow:hidden;transition:opacity " + FADE + "ms ease;contain:strict}",
     "#ls.weg{opacity:0;pointer-events:none}",
     "#ls .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:56px;z-index:2}",

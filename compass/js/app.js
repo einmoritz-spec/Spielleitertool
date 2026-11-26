@@ -19,7 +19,7 @@ function folge(st, e, i){
 }
 function viewFilm(){
   var fan = BC_AREAS.map(function(a, i){
-    return '<a class="sl" style="--c:' + a.c + ';background-image:url(' + IMG + a.img + '.webp);background-position:' + a.pos + '" href="#a/' + a.id + '">' +
+    return '<a class="sl" style="--c:' + a.c + ';--bgi:url(' + IMG + a.img + '.webp);--bp:' + a.pos + ';--bpx:' + String(a.pos).split(" ")[0] + '" href="#a/' + a.id + '">' +
       '<div class="tx"><small>Abschnitt ' + (i + 1) + '</small><b>' + esc(a.t) + '</b><ul>' + a.sub.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div><div class="bar"></div></a>';
   }).join("");
   var rows = '<a class="pil" onclick="epGo(\'pilot\',\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><div class="im" style="background-image:url(' + IMG + BC_PILOT.img + '.webp)"></div><div><b>' + esc(BC_PILOT.lab) + '</b><i>' + esc(BC_PILOT.t) + '</i></div></a>';

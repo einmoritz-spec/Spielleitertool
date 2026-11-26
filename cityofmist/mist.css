@@ -468,3 +468,6 @@ body.cmhassub .cmsub{top:54px}
 body.cmnav .shell{padding-top:4px}
 body.cmnav .rwtoc{top:108px;max-height:calc(100vh - 120px)}
 body.cmnav .onav{top:108px}
+
+/* ===== Flüssige Animation ===== */
+.ovc-card{will-change:transform}.ovc-img img{will-change:transform;backface-visibility:hidden}

@@ -289,3 +289,6 @@ function begFloatDraw(){
   window.addEventListener("load", function(){ einhaengen(); begFloatDraw(); });
   window.addEventListener("resize", function(){ begFloatDraw(); });
 })();
+/* kein Kontextmenü / keine Textauswahl durch langen Druck auf Leiste und Kästen */
+document.addEventListener("contextmenu", function(e){ if(e.target.closest && e.target.closest(".begl,.bfl")) e.preventDefault(); });
+document.addEventListener("selectstart", function(e){ if(e.target.closest && e.target.closest(".begl,.bfl")) e.preventDefault(); });

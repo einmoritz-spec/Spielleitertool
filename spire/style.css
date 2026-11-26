@@ -1114,3 +1114,8 @@ body:has(.begl) .side{top:calc(var(--top) + var(--tabh) + var(--begh,50px));heig
 /* kleiner, zurückhaltender Hinweis an den Knöpfen der Gegner-Kästen */
 .tagtip.kl{background:rgba(70,82,98,.78);color:#eef2f7;font:400 11.5px/1 var(--f-text);padding:4px 8px;border:0;box-shadow:none;border-radius:3px;max-width:none;white-space:nowrap}
 body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
+/* Begegnungsleiste und schwebende Kästen: nichts markierbar (auch nicht per langem Druck am Handy), überall ziehbar */
+.begl,.begl *,.bfl,.bfl *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+.begl .bi,.begl .bi *,.bfl,.bfl *{touch-action:none}
+.bfl .bfk b,.bi>b{cursor:grab}
+.zw i{cursor:pointer}

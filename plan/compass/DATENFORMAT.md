@@ -32,3 +32,12 @@ Engine: `compass/js/inhalt.js`, Stil: `compass/inhalt.css`, Mockups: `plan/compa
 4. **Seitenzahlen:** Buchseite = PDF-Seite − 1 (Adventure Journal). `s` an Überschriften/Karten, nie auf Übersichten.
 5. **Farben:** Feldfarben Aktion #b3321e, Mut #d1721a, Wissen #2d5f9a, Gesellschaft #7a3f8f, Wildnis #3f7a3a, Verbrechen #3d3d46; Schwierigkeit einfach #4f8a5a, kritisch #3d7a8f, extrem #8a5a2a, unmöglich #7a1b2a; sonst keine `c` angeben (nimmt die Abschnittsfarbe).
 6. **Bilder:** nur reine Illustrationen aus dem PDF (ohne Text, ohne weißen Rand), nach Seitenverhältnis einsetzen; Mockups zeigen die Verwendung (große Bilder in `prose`, `tiles`, `quote`; kleine Bilder in Karten). Extraktion mit `pdfimages -f N -l M -png`, nur kleine Seitenbereiche am Stück (sonst Zeitüberschreitung), Ausgabe `compass/img/aj/<bereich>-<motiv>.webp` (max. 1600 px Breite, Qualität ~82). Nur Bilder verwenden, die im Buch wirklich dazugehören.
+
+## Untersettings (Jolly Roger, Voyages Extraordinaires, LuckTales)
+Eigene Bereiche (= Reiter in der Kopfzeile, Farbe je Bereich) werden in `compass/js/data/bereiche-<jr|ve|lt>.js` angelegt:
+```js
+window.BC_BUCH = window.BC_BUCH || {};
+BC_BUCH.jr = {t:"Jolly Roger", c:"#6e1414", b:"bc_a1", areas:[
+  {id:"jr-piratenzeit", t:"Piratenzeit", c:"#6e1414", img:"start/…webp", s:6, sub:["Willkommen","Das Goldene Zeitalter",…]}, … ]};
+```
+`id` global eindeutig (Präfix `jr-`/`ve-`/`lt-`); Daten der Bereiche liegen wie beim Adventure Journal in `compass/js/data/<id>.js` (`BC_DATA["<id>"] = {parts:[…]}`) und `compass/js/data/<id>/<teil>.js` (`BC_PART["<id>/<teil>"] = {…}`). Buch-ID für Seitenlinks: `bc_a1` Jolly Roger, `bc_a2` Voyages Extraordinaires, `bc_z1` LuckTales (Seitenversatz PDF = Buchseite + 2 / + 2 / + 1; Buchseite = gedruckte Zahl). Folgen (Episoden) NICHT hier, sondern nach `DATENFORMAT_FOLGEN.md`.

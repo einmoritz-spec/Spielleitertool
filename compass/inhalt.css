@@ -88,3 +88,31 @@ ul.ul{margin:0 0 0 22px;font:18px/1.6 Cas}ul.ul.c2{columns:2;column-gap:40px}ul.
 .dr i.d.o{opacity:.4}
 .dr i.d b{display:block;width:4px;height:4px;border-radius:50%;margin:auto}.dr i.d b.p{background:var(--c)}
 @media(max-width:1300px){main.inhalt{padding-right:30px}}
+
+/* Folgen als Drehbuch */
+.eph{display:grid;grid-template-columns:420px 1fr;gap:34px;max-width:1180px;margin:0 auto;padding:34px 40px 10px;align-items:end}
+.eph .im{height:240px;background-size:cover;background-position:center;box-shadow:0 14px 26px -12px #000;border:6px solid #fff}
+.eph small{font:800 11px Fut;letter-spacing:.3em;text-transform:uppercase;color:var(--c)}
+.eph h1{font:900 44px/1 Fut;text-transform:uppercase;color:var(--c);margin:6px 0 10px}
+main.ep{max-width:960px;margin:0 auto 0 0}
+.ep .ctx{background:#fffaf0;box-shadow:0 8px 18px -10px #000,0 0 0 1px #d8cbb0;border-top:8px solid var(--c);padding:20px 26px 24px;margin-bottom:34px}
+.ctx h3{font:900 20px Fut;text-transform:uppercase;color:var(--c)}.ctx h3 small{display:block;font:italic 15px Cas;text-transform:none;color:#6a5c48;margin-top:2px}
+.ctx .cf{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;margin-top:14px}
+.ctx label span{display:block;font:800 10px Fut;letter-spacing:.2em;text-transform:uppercase;color:#8a5a2a}
+.ctx input{width:100%;font:16px Cas;padding:7px 10px;border:1px solid #c7b891;background:#fff;color:#2a2017}
+.sc{background:#fbf5e4;box-shadow:0 12px 24px -12px #000,0 0 0 1px #d8c9a4;padding:26px 44px 26px 74px;margin-bottom:34px;font:16px/1.55 Cou,monospace;background-image:radial-gradient(circle at 32px 50%,#9d8d6a 0 7px,transparent 8px);background-size:100% 130px;background-repeat:repeat-y;border-left:10px solid var(--c)}
+.sc h2{font:700 17px/1.3 Cou,monospace;text-transform:uppercase;color:#c23a1e;margin-bottom:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+.sc h2 span{color:var(--c)}.sc h2 em{font-style:normal;color:#6a5c48;margin-left:auto}
+.sc p{margin-bottom:12px}
+.dlg{margin:14px 0 14px 90px;max-width:560px}
+.dlg .who{display:block;text-align:center;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.dlg .rg{display:block;text-align:center;font-style:italic;opacity:.8}
+.dlg .say{display:block;margin:0 auto}
+.cutl{text-align:right;font-weight:700;margin:6px 0 12px;letter-spacing:.1em}
+.clue{margin:14px 80px;padding:12px 16px;background:#e6dcc0;border:1.5px dashed #8a6a38;text-align:center}
+.clue small{font:800 11px Fut;letter-spacing:.3em;text-transform:uppercase;color:#8a5a2a;display:block}.clue b{font:700 17px Cou,monospace}
+.mk{display:inline-block;font:700 12px Fut;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--k);padding:1px 7px 2px;border-radius:3px;vertical-align:1px;margin:0 2px}
+.ph{background:#f3e3a3;font-weight:700;padding:0 3px;border-radius:2px}
+.side-box{background:var(--c);color:#fff;padding:16px 20px;margin:14px 0;font:15px/1.5 Cas,serif}.side-box b{display:block;font:900 15px Fut;text-transform:uppercase;margin-bottom:6px}
+.epimg{height:260px;background-size:cover;margin:14px 0;box-shadow:0 8px 18px -10px #000}
+ul.nl{margin:0 0 12px 22px}

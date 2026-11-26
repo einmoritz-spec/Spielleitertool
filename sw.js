@@ -603,6 +603,7 @@ const FILES = [
   "triangle/sys.js",
   "triangle/img/hero.webp",
   "compass/index.html",
+  "compass/js/epi.js",
   "compass/inhalt.css",
   "compass/js/inhalt.js",
   "compass/img/start/jr-f1.webp",

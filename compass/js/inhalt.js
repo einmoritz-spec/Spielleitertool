@@ -16,6 +16,8 @@ var INH = (function(){
   function src(i){ return "img/" + i.src + ".webp"; }
   function pg(b, s){ return s ? '<a class="pg" onclick="openBook(\'' + (b || "bc_aj") + '\',' + s + ')">S. ' + s + '</a>' : ""; }
   var BOOK = "bc_aj";
+  /* alle Bereiche: Adventure Journal (BC_AREAS) und die Untersettings (BC_BUCH.<jr|ve|lt>.areas, je mit grp, b = Buch-ID, file = Datenbasis) */
+  function allAreas(){ var r = BC_AREAS.map(function(a){ return Object.assign({grp: "aj", b: "bc_aj", file: "aj-" + a.id}, a); }); Object.keys(window.BC_BUCH || {}).forEach(function(k){ (BC_BUCH[k].areas || []).forEach(function(a){ r.push(Object.assign({grp: k, b: BC_BUCH[k].b, file: a.id}, a)); }); }); return r; }
   function imgEl(i, cls){ return i ? '<div class="im ' + (cls || "") + '" style="background-image:url(' + src(i) + ');background-position:' + (i.pos || "50% 40%") + (i.h ? ";height:" + i.h + "px" : "") + '"></div>' : ""; }
   var R = {
     h: function(b){ return '<h1 id="' + esc(b.id || "") + '"><span>' + md(b.h) + '</span>' + pg(BOOK, b.s) + '</h1>'; },
@@ -64,23 +66,24 @@ var INH = (function(){
   /* aj-<bereich>.js legt BC_DATA[bereich] = {parts:["id",…]} an; jede Teildatei aj-<bereich>/<id>.js setzt BC_PART["<bereich>/<id>"] = {id,t,sub,s,blocks} */
   window.BC_PART = window.BC_PART || {};
   function script(u, ok, bad){ var s = document.createElement("script"); s.src = u; s.onload = ok; s.onerror = bad || ok; document.head.appendChild(s); }
-  function load(area, cb){
+  function load(area, file, cb){
     if(BC_DATA[area] && BC_DATA[area].subs) return cb();
-    script("js/data/aj-" + area + ".js", function(){
+    script("js/data/" + file + ".js", function(){
       var D = BC_DATA[area]; if(!D){ D = BC_DATA[area] = {parts: []}; }
       var left = (D.parts || []).length, fin = function(){ D.subs = (D.parts || []).map(function(p){ return BC_PART[area + "/" + p]; }).filter(Boolean); if(!D.subs.length) D.subs = [{id: "x", t: "Folgt", blocks: [{t: "prose", p: ["Dieser Bereich wird gerade aufgebaut."]}]}]; cb(); };
       if(!left) return fin();
-      D.parts.forEach(function(p){ script("js/data/aj-" + area + "/" + p + ".js", function(){ if(!--left) fin(); }); });
+      D.parts.forEach(function(p){ script("js/data/" + file + "/" + p + ".js", function(){ if(!--left) fin(); }); });
     });
   }
   function render(areaId, subId){
-    var A = BC_AREAS.filter(function(a){ return a.id === areaId; })[0]; if(!A) return false;
+    var ALL = allAreas(), A = ALL.filter(function(a){ return a.id === areaId; })[0]; if(!A) return false;
+    BOOK = A.b;
     var body = document.body; body.className = "inh"; body.style.setProperty("--c", A.c);
     var bar = document.querySelector(".topbar"); bar.style.height = ""; bar.style.transform = ""; clearInterval(HERO.t);
     APP.innerHTML = '<div class="inh-load">…</div>';
-    load(A.id, function(){
+    load(A.id, A.file, function(){
       var D = BC_DATA[A.id], sub = D.subs.filter(function(s){ return s.id === subId; })[0] || D.subs[0];
-      var tabs = BC_AREAS.map(function(a){ return '<a class="' + (a.id === A.id ? "on" : "") + '" style="--c:' + a.c + '" href="#a/' + a.id + '">' + esc(a.t) + '</a>'; }).join("");
+      var tabs = ALL.filter(function(a){ return a.grp === A.grp; }).map(function(a){ return '<a class="' + (a.id === A.id ? "on" : "") + '" style="--c:' + a.c + '" href="#a/' + a.id + '">' + esc(a.t) + '</a>'; }).join("");
       var subs = D.subs.length > 1 ? D.subs.map(function(s){ return '<a class="' + (s.id === sub.id ? "on" : "") + '" href="#a/' + A.id + '/' + s.id + '">' + esc(s.t) + '</a>'; }).join("") : "";
       var hs = sub.blocks.filter(function(b){ return b.h != null && !b.t; });
       var side = hs.length > 1 ? '<nav class="side">' + hs.map(function(h, i){ return '<a onclick="INH.go(\'' + A.id + '-' + sub.id + '-' + i + '\')">' + md(h.h) + '</a>'; }).join("") + '</nav>' : "";

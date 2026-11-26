@@ -10,6 +10,7 @@ function tx(s){
     .replace(/&lt;([^&\/]{1,40}\/[^&]{1,60})&gt;/g, '<i class="kl">&lt;$1&gt;</i>')
     .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>")
     .replace(/\{(\d+)\}/g, '<b class="drei">$1</b>')
+    .replace(/~(.)~/g, '<b class="hl">$1</b>')
     .replace(/\{S\.\s?(\d+)\}/g, function(m, p){ return pgl(+p); })
     .replace(/\[\[([A-Z]\d{1,2})\]\]/g, '<a class="gehzu" onclick="pwPop(\'$1\')">$1</a>')
     .replace(/\n/g, "<br>");
@@ -56,18 +57,19 @@ function taB(L){
       case "wf": var id = b.id || "wf"; return '<div class="wf"><h3>' + zimg("symbol-qualitaetssicherung") + tx(b.h) + '</h3><small>' + tx(b.s || "Wahr oder falsch?") + '</small>' + b.x.map(function(x, i){ var auf = WF[id] && WF[id][i];
         return '<section class="' + (auf ? "auf" : "") + '" onclick="wfKlick(\'' + id + '\',' + i + ')"><em>' + (i + 1) + '</em><div>' + tx(x.f) + (auf ? '<p class="' + (x.a ? "w" : "f") + '"><b>' + (x.a ? "Wahr." : "Falsch.") + '</b> ' + tx(x.e || "") + '</p>' : '') + '</div></section>'; }).join("") + '</div>';
       /* ---- ARK-Bausteine ---- */
-      case "faehig": return '<section class="fk"><div><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p>' + b.erg.map(function(e){ return '<p class="erg"><img src="' + Z({ok:"ergebnis-erfolg-dreieck", plus:"ergebnis-zusatz-dreieck", nein:"ergebnis-fehlschlag-kreis"}[e[0]]) + '" alt=""><span>' + tx(e[1]) + '</span></p>'; }).join("") + (b.b ? taB(b.b) : '') + '</div>' +
+      case "faehig": return '<section class="fk"><div><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p>' + b.erg.map(function(e){ return '<p class="erg"><img src="' + Z({ok:"ergebnis-erfolg-dreieck", plus:"ergebnis-zusatz-dreieck", nein:"ergebnis-fehlschlag-kreis"}[e[0]]) + '" alt=""><span>' + taWahl(e[1]) + '</span></p>'; }).join("") + (b.b ? taB(b.b) : '') + '</div>' +
         (b.f ? '<div class="fa"><p><b>F:</b> ' + tx(b.f).replace(/ …/g, "\u00a0…") + '</p>' + b.a.map(function(a){ return '<p><b>A:</b> ' + tx(a[0]) + ' <a class="co" onclick="pwPop(\'' + a[1] + '\')">' + "<i></i><i></i><i></i>".slice(0, 7 * (a[2] || 3)) + a[1].replace(/3/g, '<b class="drei">3</b>') + '</a></p>'; }).join("") + '</div>' : '') + '</section>';
       case "w4": return '<div class="w4">' + (b.h ? '<h3>' + tx(b.h) + '</h3>' : '') + (b.b ? taB(b.b) : '') + '<ol>' + b.x.map(function(x, i){ return '<li' + (i === 2 ? ' class="d"' : '') + '><em>' + (i + 1) + '</em>' + tx(x) + '</li>'; }).join("") + '</ol></div>';
       case "ausloeser": return '<div class="ak aus"><h3>' + tx(b.h) + '</h3><div class="sp sp2">' + b.b.map(function(c){ return '<div>' + taB(c) + '</div>'; }).join("") + '</div></div>';
       case "spur": return '<div class="spur"><b>' + tx(b.h) + '</b><div><i class="pfl"></i>' + b.x.map(function(n){ return '<u' + (n === "X" ? ' class="x"' : n === "3" ? ' class="d"' : '') + '>' + esc(n) + '</u>'; }).join("") + '</div></div>';
       case "ventil": return '<div class="ak ven"><img src="' + Z("symbol-burnout") + '" alt=""><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p></div>';
       case "fragebogen": return '<div class="ak fra"><i>?</i><h3>' + tx(b.h || "Fragen zum Arbeitsantritt") + '</h3><ul class="dl">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul></div>';
-      case "matrix": return '<div class="ak mat"><div><h3>' + tx(b.h || "Beziehungsmatrix") + '</h3>' + taB(b.b) + '</div><ol>' + b.x.map(function(x){ return '<li><b>' + tx(x.f) + '</b><span>Beispiele: <i>' + tx(x.bsp) + '</i></span></li>'; }).join("") + '</ol></div>';
+      case "matrix": return '<div class="ak mat' + (b.art ? " bild" : "") + '"><div><h3>' + tx(b.h || "Beziehungsmatrix") + '</h3>' + taB(b.b) + '</div>' + (b.art ? taSchaubild(b.art) : '') + '<ol>' + b.x.map(function(x){ return '<li><b>' + tx(x.f) + '</b><span>Beispiele: <i>' + tx(x.bsp) + '</i></span></li>'; }).join("") + '</ol></div>';
       case "direktive": return '<div class="ak dir"><img src="' + Z("symbol-verweis") + '" alt=""><small>Oberste Direktive</small><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p></div>';
       case "gebilligt": return '<div class="ak geb"><img src="' + Z("symbol-belobigung") + '" alt=""><h3>Gebilligtes Verhalten</h3><p>Erhalte <b>1 Belobigung</b>, jedes Mal wenn du:</p><ul class="dl">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul><p>' + tx(b.bonus) + '</p></div>';
       case "erst": return '<div class="ak ers"><small>Erst-Anforderung</small><h3>' + tx(b.h) + '</h3>' + (b.b ? taB(b.b) : '<p>' + tx(b.x) + '</p>') + '</div>';
       case "selbst": return '<div class="selbst"><div><h2>Selbsteinschätzung</h2>' + taB(b.b) + '</div><ol>' + b.x.map(function(x, i){ return '<li><em>' + (i + 1) + '</em><div><b>' + tx(x.f).replace(/ …/g, "\u00a0…") + '</b><ul class="dl">' + x.a.map(function(a){ return '<li>' + tx(a[0]) + ' <span class="qs">+{3} ' + esc(a[1]) + '</span></li>'; }).join("").replace(/\{3\}/g, '<b class="drei">3</b>') + '</ul></div></li>'; }).join("") + '</ol></div>';
+      case "formen": return '<ul class="formen">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul>';
       case "zitat": return '<div class="zitat">' + tx(b.x) + '</div>';
       case "html": return b.x;
     }
@@ -105,4 +107,38 @@ function taZettel(n){
 /* Kartenstapel der „Szene der Anomalie“ (S. 125): dieselbe Karte mehrfach, verrutscht */
 function taStapel(karte){
   return '<div class="hb-kstapel" onclick="this.classList.toggle(\'auf\')">' + [0, 1, 2, 3, 4, 5].map(function(i){ return '<div style="--i:' + i + '">' + karte + '</div>'; }).join("") + '</div>';
+}
+
+/* „wähle eines“: Auswahlzeilen als Knotenleiste (Kreise am Strich) */
+function taWahl(t){
+  var z = t.split(/\n– /); if(z.length < 2) return tx(t);
+  return tx(z[0]) + '<span class="kn">' + z.slice(1).map(function(x){ return '<span>' + tx(x) + '</span>'; }).join("") + '</span>';
+}
+/* Schaubilder der Beziehungsmatrizen (S. 81–97): jede Realität hat ihr eigenes Diagramm, drei Marken = drei Fragen */
+function taSchaubild(art){
+  var G = "var(--akz)", L = "#8d84b3", r = taZufall(art.length * 7 + art.charCodeAt(0)), o = "", i, j;
+  var achse = '<path d="M14 6V132H290" fill="none" stroke="' + L + '" stroke-width="2"/>';
+  function k(x, y, rad, f){ return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + rad + '" fill="' + (f || G) + '"/>'; }
+  if(art === "linie") o = achse + '<path d="M14 100L80 52L160 108L270 74" fill="none" stroke="' + G + '" stroke-width="2.5"/>' + k(80, 52, 6) + k(160, 108, 6) + k(270, 74, 6);
+  else if(art === "streu"){ o = achse; [[90, 34, 4], [180, 78, 7], [50, 112, 5]].forEach(function(c){ for(i = 0; i < c[2]; i++) o += k(c[0] + r() * 34 - 17, c[1] + r() * 26 - 13, 5); }); }
+  else if(art === "sankey"){ var a = [[8, 52], [66, 36], [108, 28]], b = [[8, 30], [46, 44], [98, 38]];
+    a.forEach(function(p, n){ o += '<rect x="14" y="' + p[0] + '" width="12" height="' + p[1] + '" fill="' + G + '" opacity="' + (1 - n * .3) + '"/>'; });
+    b.forEach(function(p, n){ o += '<rect x="274" y="' + p[0] + '" width="12" height="' + p[1] + '" fill="' + G + '" opacity="' + (1 - n * .3) + '"/>'; });
+    a.forEach(function(p){ b.forEach(function(q){ var y1 = p[0] + r() * p[1] * .6, y2 = q[0] + r() * q[1] * .6, h = 8 + r() * 10;
+      o += '<path d="M26 ' + y1.toFixed(0) + 'C150 ' + y1.toFixed(0) + ' 150 ' + y2.toFixed(0) + ' 274 ' + y2.toFixed(0) + 'v' + h.toFixed(0) + 'C150 ' + (y2 + h).toFixed(0) + ' 150 ' + (y1 + h).toFixed(0) + ' 26 ' + (y1 + h).toFixed(0) + 'z" fill="#dcd8ec" opacity=".55"/>'; }); }); }
+  else if(art === "radar"){ function hex(R){ var p = []; for(j = 0; j < 6; j++) p.push((150 + R * Math.cos(j * Math.PI / 3)).toFixed(1) + " " + (70 + R * Math.sin(j * Math.PI / 3)).toFixed(1)); return p; }
+    [64, 44, 24].forEach(function(R){ o += '<path d="M' + hex(R).join("L") + 'z" fill="none" stroke="' + L + '" stroke-width="2"/>'; });
+    hex(64).forEach(function(p){ o += '<path d="M150 70L' + p + '" stroke="' + L + '" stroke-width="1.5"/>'; });
+    o += '<path d="M86 70L182 15L176 100z" fill="' + G + '"/>'; }
+  else if(art === "schwarm"){ o = '<path d="M14 6V132H290M14 84H290" fill="none" stroke="' + L + '" stroke-width="1.5"/>';
+    for(i = 0; i < 260; i++) o += k(18 + r() * 268, 132 - r() * r() * 46, 3);
+    o += k(70, 30, 5, L) + k(70, 70, 4, L) + k(70, 80, 4) + k(150, 14, 5, L) + k(150, 76, 4, L) + k(215, 62, 5, L); }
+  else if(art === "blasen"){ o = achse; for(i = 0; i < 3; i++) for(j = 0; j < 3; j++) o += k(60 + j * 95, 24 + i * 44, 4, L);
+    o += k(60, 24, 18) + k(155, 68, 10) + k(250, 112, 22) + k(60, 112, 8, L) + k(250, 68, 8, L); }
+  else if(art === "raster"){ for(i = 0; i < 7; i++) for(j = 0; j < 3; j++){ var v = r();
+      o += '<rect x="' + (60 + j * 62) + '" y="' + (4 + i * 19) + '" width="56" height="16" fill="' + (v < .3 ? G : v < .6 ? "#f4d591" : "#ebe9f4") + '"/>'; } }
+  else if(art === "torte") o = '<path d="M150 74L150 12A62 62 0 1 1 96 44z" fill="' + G + '"/><path d="M144 62L88 34A62 62 0 0 1 144 0z" fill="' + G + '"/><path d="M150 74L150 12M150 74L96 44" stroke="#fff" stroke-width="3"/>';
+  else if(art === "kasten"){ o = ""; [[60, 20, 126, 52, 100], [150, 4, 76, 24, 58], [240, 40, 134, 70, 118]].forEach(function(q){
+      o += '<path d="M' + q[0] + ' ' + q[1] + 'V' + q[2] + 'M' + (q[0] - 12) + ' ' + q[1] + 'h24M' + (q[0] - 12) + ' ' + q[2] + 'h24" stroke="' + L + '" stroke-width="2"/><rect x="' + (q[0] - 20) + '" y="' + q[3] + '" width="40" height="' + (q[4] - q[3]) + '" fill="' + G + '"/>'; }); }
+  return '<svg class="schaub" viewBox="0 0 300 138" preserveAspectRatio="xMidYMid meet">' + o + '</svg>';
 }

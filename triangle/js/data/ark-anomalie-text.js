@@ -157,7 +157,7 @@ TA_TEXT["ark/anomalie/gun"] = {
   "In den Händen eines Agenten sorgt die Gun für Pünktlichkeit, Effizienz und Sauberkeit. Die Befolgung des Agency-Protokolls schließt jede Möglichkeit von Missbrauch oder Übergebrauch aus, und Gun-Resonanten sind in jeder Abteilung beliebt. Es wird dringend empfohlen, dafür zu sorgen, dass sie sich dessen bewusst sind.",
   {t:"h3", x:"Die Gun"},
   "Deine Anomalie ist stets in körperlicher Form anwesend, nützt aber niemand anderem etwas. Lege eine Gestalt für deine Gun fest oder wähle eine der folgenden Formen:",
-  {t:"tab", x:[["**Violine**"],["**Kartenspiel**"],["**Schwert**"],["**Lippenstift**"],["**Jo-Jo**"],["**Fernbedienung**"]]}],
+  {t:"formen", x:["Violine","Kartenspiel","Schwert","Lippenstift","Jo-Jo","Fernbedienung"]}],
  r:[
   {t:"faehig", h:"Eliminieren", x:"Du kannst einen alltäglichen Gegenstand oder eine Person dauerhaft aus der Gleichung streichen. Einst existierten sie. Nun nicht mehr. Ziele mit deiner Gun und würfle **Dynamik**.",
    erg:[["ok","**Bei Erfolg** verschwindet das Ziel spurlos."],["plus","**Bei sechs oder mehr {3}en** wähle beliebig viele Ziele, die du von deinem Standort aus sehen kannst. Sie verschwinden spurlos."],["nein","**Bei Fehlschlag** wird das Ziel getötet. Ein Gegenstand wird zerstört, ein Lebewesen stirbt. Diese Tatsache ist sichtbar, offensichtlich und möglicherweise grauenhaft."]],
@@ -210,11 +210,12 @@ TA_TEXT["ark/anomalie/manifold"] = {
 };
 
 TA_TEXT["ark/anomalie/absence"] = {
+ blass:1,
  motto:"Und als sie sich umdrehten …",
- l:["Schaukeln, die sanft ohne Reiter schwingen. Gelungene Ausbrüche aus undurchdringlichen Gefängnissen. Trauer. Wo immer es etwas zum Nichts gibt, ist Absence.",
-  "Schwer zu sehen, schwer zu verstehen und schwer zu fassen, lassen sich Absence-Anomalien oft nur anhand ihrer Umrisse beschreiben. Unberührbar und einsam zeigt sich ihre Kraft am stärksten in verlegter Fracht, unvollständigen Plänen und stiller Verzweiflung.",
-  "Sie sind Feinde von Betriebsamkeit und Produktivität, aber auch ihrer selbst: Sie müssen stets verloren sein, sonst existieren sie gar nicht.",
-  "Inbox Zero ist ein Leichtes für Träger von Absence-Fähigkeiten! Schicke ihnen die fiesesten Probleme und kompliziertesten Scherereien und sieh zu, wie sie im Nichts verschwinden. (Bewahre eine Kopie ihrer Aufgabenliste an einem Ort auf, von dem sie nichts wissen.)"],
+ l:["Schaukeln, die sanft ohne Reiter schwin~g~en. Gelungene Ausbrüche aus undurchdringlichen Gefängnissen. Trauer. Wo immer es etwas zum N~i~chts gibt, ist Absence.",
+  "Schwer zu sehen, schwer zu verstehen und schwer zu fassen, lassen sich Absence-Anomalien oft nur anhand ihrer Umrisse beschrei~b~en. Unberührbar und einsam zeigt sich ihre Kraft am stärksten in verlegter Fr~a~cht, unvollständigen Plänen und stiller Verzweiflung.",
+  "Sie sind Feinde von Betriebsamkeit und Produktivität, aber au~c~h ihrer selbst: Sie müssen stets verloren sein, sonst existieren sie gar nicht.",
+  "Inbox Zero ist ein Leic~h~tes für Träger von Absence-Fähigkeiten! Schicke ihnen die fiesesten Probleme und kompliziertesten Scherereien und sieh zu, wie sie im Nich~t~s verschwinden. (Bewahre eine Kopie ihrer Aufgabenliste an einem Ort auf, von dem sie nichts wissen.)"],
  r:[
   {t:"faehig", h:"Verfehlt!", x:"Sie scheinen nie zu wissen, wo du bist. Wenn dich etwas berühren oder verletzen könnte, kannst du „Verfehlt!“ sagen und **Doppelzüngigkeit** würfeln.",
    erg:[["ok","**Bei Erfolg** warst du die ganze Zeit irgendwo anders in der Nähe – vielleicht hinter oder auf dem, was dich berühren wollte."],["plus","**Für jede weitere {3}** darf ein weiteres williges Ziel in der Nähe mit dir an den neuen Ort versetzt werden."],["nein","**Bei Fehlschlag** wird das Ziel stattdessen versetzt – um einen anderen zu verletzen, was zusätzlichen Schaden verursacht, oder an einen sehr unpraktischen Ort."]],

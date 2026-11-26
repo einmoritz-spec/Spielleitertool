@@ -337,3 +337,17 @@ h2 .an,h1 .an{color:var(--blau)}
 
 .arkvor{padding:44px 0 0;margin-top:40px;border-top:1px solid var(--linie);max-width:none}
 .co:hover .drei{color:#fff}
+
+/* Buchtreue ARK-Details */
+.kn{display:block;margin:5px 0 0 -25px;padding-left:25px;position:relative}
+.kn:before{content:"";position:absolute;left:9px;top:8px;bottom:9px;width:2.5px;background:var(--blau)}
+.kn>span{display:block;position:relative;margin-bottom:3px}
+.kn>span:before{content:"";position:absolute;left:-21px;top:4px;width:8px;height:8px;border-radius:50%;border:2.5px solid var(--blau);background:#fff}
+.ak.mat.bild{grid-template-columns:1fr 1.25fr;grid-template-rows:auto 1fr}
+.ak.mat.bild>div{grid-row:1/3}.ak.mat.bild>.schaub{width:100%;height:auto;max-height:150px;margin:2px 0 4px}
+.formen{list-style:none;margin:8px 0 12px;padding:0;border:1.5px solid var(--blau);border-radius:9px;overflow:hidden;break-inside:avoid}
+.formen li{font:800 15.5px Spartan,sans-serif;padding:9px 12px 6px;background:#e9edf8;border-top:1.5px solid #fff}.formen li:nth-child(even){background:#fff}.formen li:first-child{border:0}
+.ak.ven h3{padding-right:74px}.ak.fra h3{padding-right:56px}.ak.geb h3{padding-right:70px}
+.besch.blass{color:#e4e2ee;cursor:pointer;transition:color .6s}.besch.blass .hl{color:var(--tinte)}.besch.blass .an{color:inherit}
+.besch.blass.da{color:inherit}.besch.blass.da .an{color:var(--blau)}
+.hl{font-weight:inherit}

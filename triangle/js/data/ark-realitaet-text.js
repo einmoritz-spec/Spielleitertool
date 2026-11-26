@@ -15,7 +15,7 @@ TA_TEXT["ark/realitaet/caretaker"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Dein Liebling!", x:"Wenn du etwas tust, das deinen Schützling unterhält, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Was ist deine liebste Erinnerung?", "Welche deiner Eigenschaften möchtest du deinem Schützling hoffentlich nie beibringen?", "Wo liegt dein Traumurlaubsziel?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"linie", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer bekäme das Sorgerecht für deinen Schützling, wenn es dich nicht mehr gäbe?", bsp:"Lebenspartner, Elternteil, Waffenhersteller"},
       {f:"Wer vermisst die Freiheit, die du früher hattest?", bsp:"Freund aus dem Studium, dein Kind, Bowlingmannschaft"},
       {f:"Mit wem verbringt dein Schützling immer begeistert Zeit?", bsp:"Ex-Mann, Teenie-Schwarm, Tierpfleger"}]}
@@ -59,7 +59,7 @@ TA_TEXT["ark/realitaet/overbooked"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Durchs Nadelöhr", x:"Wenn du etwas tust, das als Arbeit oder Übung für deinen Beruf zählt, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Was ist die schwierigste Entscheidung, die du je getroffen hast?", "Was Schreckliches passiert, wenn du deine Verantwortung aufgibst?", "Wie feierst du Siege?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"streu", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer ist dein anderer Chef?", bsp:"Fast-Food-Filialleiter, Doktorvater, Instagram-berühmter Hund"},
       {f:"Wem liegt deine Gesundheit am meisten am Herzen?", bsp:"Kioskbetreiber, Elternteil, Nachbar"},
       {f:"Für wen bist du verantwortlich?", bsp:"Galerieassistent, IT-Praktikant, vorlautes Kind"}]}
@@ -81,7 +81,7 @@ TA_TEXT["ark/realitaet/pursued"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Ich war's nicht", x:"Wenn du etwas tust, das deine Spuren verwischt, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Was vermisst du an deinem alten Leben am meisten?", "Wann fühlst du dich am mächtigsten?", "Wenn du eine wohltätige Organisation leiten würdest, für welche Sache würdest du dich starkmachen?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"sankey", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer weiß von deinem Verfolger?", bsp:"Arbeitgeber, Geschwister, Mitgejagter"},
       {f:"Wen würde die Wahrheit am meisten verletzen?", bsp:"Deckfreund, betagte Vermieterin, Kind"},
       {f:"Wer ist besessen vom neuen Du?", bsp:"Skateboard-Teenie, schwärmender Nachbar, Model-Agent"}]}
@@ -103,7 +103,7 @@ TA_TEXT["ark/realitaet/star"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Genieß es", x:"Wenn du etwas tust, das deine Überlegenheit behauptet oder deinen Wert beweist, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Wer ist dein persönliches Idol?", "Wozu wirst du zurückkehren müssen, wenn du das Rampenlicht verlierst?", "Welches Tier verkörpert dich am besten?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"radar", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer ist dein Manager?", bsp:"Bühnenmutter, Talentagent, Stabschef"},
       {f:"Wer ist dein größter Rivale?", bsp:"Sieht aus wie du, bei allen beliebter, berühmter Ex"},
       {f:"Wer ist aus deinem früheren Leben geblieben?", bsp:"früherer Duettpartner, Schulschatz, Tanzlehrer"}]}
@@ -126,7 +126,7 @@ TA_TEXT["ark/realitaet/struggling"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Keinen Cent mehr", x:"Wenn du etwas tust, das dir ein gutes Geschäft verschafft, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Was ist das Teuerste, das du dir gern kaufen würdest?", "Was bekommst du nie zurück?", "Welches Kunstwerk war das erste, in das du dich verliebt hast?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"schwarm", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Auf wen verlässt du dich für ein Dach über dem Kopf?", bsp:"Elternteil, Jahrmarkt-Kraftprotz, Büroleiter"},
       {f:"Wem schuldest du das meiste Geld?", bsp:"Vermieter, Kredithai, wohlhabender Freund"},
       {f:"Für wen willst du am meisten dein Leben in den Griff bekommen?", bsp:"Ex-Frau, Neffe, Lieferfahrer"}]}
@@ -144,7 +144,7 @@ TA_TEXT["ark/realitaet/newborn"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Wie zu Hause", x:"Wenn du etwas tust, das die Welt mehr wie dich sein lässt, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Wie bist du hier gelandet?", "Was hat dich zuletzt völlig einsam fühlen lassen?", "Wenn die Woche einen Tag mehr hätte, wie würdest du ihn nutzen?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"blasen", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer ist dein Lieblingslehrer?", bsp:"Kioskbesitzer, frühreifes Kind, Radio-DJ"},
       {f:"Wer verlässt sich auf deine ungewöhnliche Sichtweise?", bsp:"Mechaniker, CIA-Führungsoffizier, dein Adoptivbruder"},
       {f:"Wer nutzt deine Naivität liebend gern aus?", bsp:"Casinobesitzer, böses Kind, Moderator einer Streichsendung"}]}
@@ -167,7 +167,7 @@ TA_TEXT["ark/realitaet/romantic"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Stimmt, ich bin heiß", x:"Wann immer du etwas tust, das dich attraktiver oder sympathischer wirken lässt, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Was ist die anziehendste Eigenschaft an einem Menschen?", "Was an dir hoffst du, dass niemand tief genug blickt, um es zu sehen?", "Welche drei Dinge würdest du auf eine einsame Insel mitnehmen?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"raster", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer ist deine längste Situationship?", bsp:"wöchentlicher Grindr-Kontakt, die beste Freundin der Freundin der besten Freundin, diese eine Person auf allen Hochzeiten"},
       {f:"Wer hat dich nie, nie, nie attraktiv gefunden?", bsp:"Personal Trainer, Chef, Busenfreundin aus der Mittelstufe"},
       {f:"Bei wem übersiehst du die romantischen Möglichkeiten völlig?", bsp:"aufmerksamer Barkeeper, Schulter zum Ausweinen, Geist in deinem Haus"}]}
@@ -189,7 +189,7 @@ TA_TEXT["ark/realitaet/backbone"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Hier, meine Karte", x:"Wenn du etwas tust, das den Einfluss deiner Organisation vergrößert, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Was ist das Größte, das jemand anderes für dich getan hat?", "Wie reagierst du auf ungebetene Kritik?", "Was ist dein liebstes Karaoke-Lied?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"torte", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer ist dein Nachfolger?", bsp:"Geschwister, intrigierender Leutnant, geliebtes Waisenkind"},
       {f:"Wer bedroht den Fortbestand deiner Organisation?", bsp:"rivalisierende Organisation, Lokalpolitiker, faules Ei"},
       {f:"Wer kann sich nicht einmal den Namen deiner Organisation merken?", bsp:"Schulleiter, Ehepartner, Kletterlehrer"}]}
@@ -210,7 +210,7 @@ TA_TEXT["ark/realitaet/creature"] = {
   {t:"sp", eng:1, x:[
    [{t:"ventil", h:"Burnout-Ventil: Läuft bei mir", x:"Wenn du etwas tust, das dich weniger interessant wirken lässt, ignoriere jeden Burnout."}],
    [{t:"fragebogen", x:["Was hat dich bewogen, ein Leben in einer anderen Welt zu wählen?", "Was ist das Schlimmste, das deinen Freunden zustoßen könnte, wenn du deine Wachsamkeit senkst?", "Was ist deine liebste Redewendung?"]}]]},
-  {t:"matrix", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
+  {t:"matrix", art:"kasten", b:["Du hast drei Kern-Beziehungen, die deine Anker in der Gesellschaft sind. Bestimme sie, indem du die Fragen deiner Beziehungsmatrix beantwortest.", "Sobald jede Beziehung feststeht, weise jede einem anderen <Agenten/Spieler> am Tisch zu. Ist die Figur in einer Szene anwesend, spielt sie der zugewiesene <Agent/Spieler>.", "Gib der Beziehung, die dir am nächsten steht, **6 Verbindung**. Gib den beiden anderen **{3} Verbindung**."],
    x:[{f:"Wer stammt vom selben Ort wie du?", bsp:"Lokalmeteorologe, Busfahrer, dein Schöpfer"},
       {f:"Wer hat dir beigebracht, dich unter normalen Menschen zu verstecken?", bsp:"Geistlicher, Abitur-Aufsicht, Tankstellenwart"},
       {f:"Wem möchtest du mehr über dein erstes Leben beibringen?", bsp:"Kind von nebenan, skrupelloser Immobilienentwickler, Briefträger"}]}

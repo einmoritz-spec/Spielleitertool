@@ -22,7 +22,7 @@ function cardGrid(L){ return '<div class="hg mg">' + L.map(function(c){ return '
 function mrTable(t){
   return '<div class="etw"><table class="et"><thead><tr>' + t.c.map(function(c, i){ return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" + t.r.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + esc(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>" + (t.fn ? '<p class="ed fn">' + esc(t.fn) + "</p>" : "");
 }
-function kasten(k){ return '<div class="kc"><h5>' + nm(k.h) + "</h5>" + PS(k.b) + "</div>"; }
+function kasten(k){ if(k.s && !vis(k)) return ""; return '<div class="kc"><h5>' + nm(k.h) + badges(k) + "</h5>" + (k.tab ? mrTable(k.tab) : "") + PS(k.b) + (k.dom ? '<div class="avl">' + k.dom.map(function(n){ var ok = SW_MACHTE.some(function(m){ return m.n === n && vis(m); }); return ok ? '<a onclick="event.stopPropagation();mGo(\'' + n.replace(/'/g, "\\'") + '\')">' + nm(n) + "</a>" : "<span>" + nm(n) + "</span>"; }).join("") + "</div>" : "") + "</div>"; }
 var SX = 0;
 function nm(x){ return window.nm(x).replace(/\//g, '<span class="sl">/</span>'); }
 function mpt(v){ return /^\d+\+?$/.test(v) ? v + " MP" : "MP: " + v; }
@@ -56,6 +56,7 @@ function secBlocks(sec){
   var h = "", ks = "";
   function flush(){ if(ks){ h += '<div class="kcs">' + ks + "</div>"; ks = ""; } }
   sec.bl.forEach(function(b){
+    if(b.s && !vis(b)) return;
     if(b.k){ ks += kasten(b); return; }
     flush();
     if(b.ahcards){ h += ahBlock(); return; }
@@ -69,7 +70,7 @@ function secBlocks(sec){
 }
 function ksort(sec){ /* Kästen nebeneinander */ return sec; }
 function secVisible(s){ return !s.s || vis(s); }
-function secSubs(sec){ return sec.bl.filter(function(b){ return b.h && !b.k; }).map(function(b){ return b.h; }); }
+function secSubs(sec){ return sec.bl.filter(function(b){ return b.h && !b.k && (!b.s || vis(b)); }).map(function(b){ return b.h; }); }
 function hintergruendePage(){
   var secs = SW_MREGELN.filter(secVisible);
   if(!ST.mh || !secs.some(function(s){ return s.id === ST.mh; })) ST.mh = secs[0].id;

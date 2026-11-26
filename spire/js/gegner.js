@@ -126,7 +126,7 @@ function begLeiste(immer){
   }).join("");
   var skull = '<svg class="bgs" viewBox="0 0 24 24" width="20" height="20" data-tn="Begegnung"><path d="M12 2.5C7.4 2.5 4.2 5.6 4.2 10c0 2.4 1 4 2.6 5.1V19.5h10.4v-4.4c1.6-1.1 2.6-2.7 2.6-5.1 0-4.4-3.2-7.500-7.800-7.500z" fill="currentColor"/><circle cx="8.700" cy="10.500" r="2.100" fill="var(--nacht)"/><circle cx="15.300" cy="10.500" r="2.100" fill="var(--nacht)"/><path d="M12 12.800l1.100 2.400h-2.200z M9.500 17v2.500M12 17v2.500M14.500 17v2.500" fill="var(--nacht)" stroke="var(--nacht)" stroke-width="1.100"/></svg>';
   var reset = '<span class="bicon" data-tn="Alle entfernen" onclick="bgClear()"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M13 8a5 5 0 1 1-1.600-3.700M13 2.500v3h-3" fill="none" stroke="currentColor" stroke-width="1.600" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-  return '<div class="begl">' + skull + items + '<span class="bicon" data-tn="Gegner hinzufügen" onclick="bgPick()">+</span>' + (L.length ? reset : '') + '<span class="sp"></span>' + stift("spiel:gegner") + '</div>';
+  return '<div class="begl">' + skull + items + '<span class="bicon" data-tn="Gegner hinzufügen" onclick="bgPick()">+</span>' + (L.length ? reset : '') + '</div>';
 }
 
 /* ---------- Gegner-Raster: gleichmäßige Kacheln, Klick klappt den Werteblock darunter über die volle Breite auf ---------- */

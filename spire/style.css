@@ -1125,3 +1125,19 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .begl .bicon{display:inline-grid;place-items:center;min-width:28px;height:28px;border:1px dashed #4d6b8b;color:#8ea2b9;font:700 18px/1 var(--f-text);cursor:pointer}
 .begl .bicon:hover{color:#fff;border-color:#9fb2c8}
 .begl .bicon svg{display:block}
+
+/* Begegnungsleiste ruhiger: keine Rahmen, alles auf einer Linie */
+.begl{gap:6px 18px;align-items:center;padding:8px 18px;min-height:46px}
+.begl .bi{background:none;border:0;outline:0;padding:2px 0 2px 18px;border-left:1px solid var(--nachtlinie);gap:10px;align-items:center}
+.begl .bi:first-of-type{border-left:0;padding-left:0}
+.begl .bgs+.bi{border-left:0;padding-left:0}
+.begl .bi.sel>b{box-shadow:0 2px 0 var(--gold)}
+.begl .bi b{display:inline-flex;align-items:center;line-height:1;padding:3px 0 1px}
+.begl .bz{align-items:center;min-height:20px}
+.begl .bz em{line-height:1;padding-top:1px}
+.begl .bz .zw{align-items:center}
+.begl .bi.grp{align-items:flex-start;gap:5px;padding-top:0;padding-bottom:0}
+.begl .bi.grp>b{border-bottom:0;padding-bottom:1px;align-self:flex-start}
+.begl .bi.grp .bk{gap:4px}
+.begl .bicon{border:0;background:none;min-width:24px;height:24px;border-radius:50%;color:#8ea2b9}
+.begl .bicon:hover{color:#fff;background:#2c4160}

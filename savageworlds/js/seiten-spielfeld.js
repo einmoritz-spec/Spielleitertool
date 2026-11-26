@@ -103,13 +103,82 @@ function triD(px, py, T){
   if(!((d1 < 0 || d2 < 0 || d3 < 0) && (d1 > 0 || d2 > 0 || d3 > 0))) return 0;
   return Math.min(segD(px, py, T[0][0], T[0][1], T[1][0], T[1][1]), segD(px, py, T[1][0], T[1][1], T[2][0], T[2][1]), segD(px, py, T[2][0], T[2][1], T[0][0], T[0][1]));
 }
-function tplHits(t, f){
+function tplHitsRaw(t, f){
   var r = f.d / 2;
   if(TPL[t.k].r) return Math.hypot(f.x - t.x, f.y - t.y) < TPL[t.k].r + r - 0.01;
   var l = rotP(f.x - t.x, f.y - t.y, -(t.r || 0)), lx = l[0], ly = l[1];
   if(t.k === "strahl"){ var dx = Math.max(-lx, 0, lx - 12), dy = Math.max(Math.abs(ly) - 0.5, 0); return Math.hypot(dx, dy) < r - 0.01; }
   var dc = Math.hypot(lx - 7.5, ly) - 1.5, dt = triD(lx, ly, [[0, 0], [7.2, 1.4697], [7.2, -1.4697]]);
   return Math.min(dc, dt) < r - 0.01;
+}
+/* Sichtlinie: Wände, geschlossene Türen und massive Hindernisse halten Schablonen auf (Fenster nicht) */
+var BLOCK = {saeule:1, fels:1, baum:1, wagen:1, kiste:1, fass:1, truhe:1};
+function blockSegs(){
+  var A = [];
+  S.m.items.forEach(function(it){
+    if(it.t === "wall"){
+      if(it.k === "fenster" || (it.k === "tuer" && it.offen)) return;
+      for(var i = 1; i < it.pts.length; i++) A.push([it.pts[i - 1][0], it.pts[i - 1][1], it.pts[i][0], it.pts[i][1], null]);
+    } else if(it.t === "obj" && BLOCK[it.s]){
+      var w = it.w / 2, h = it.h / 2, c = function(x, y){ var q = rotP(x, y, it.r || 0); return [it.x + q[0], it.y + q[1]]; };
+      var p = [c(-w, -h), c(w, -h), c(w, h), c(-w, h)];
+      for(var j = 0; j < 4; j++){ var a = p[j], b = p[(j + 1) % 4]; A.push([a[0], a[1], b[0], b[1], it]); }
+    }
+  });
+  return A;
+}
+/* Ausgangspunkt der Sicht: bei Kegel/Strahl knapp hinter der Spitze, damit eine Wand direkt davor nicht „unter“ dem Ursprung liegt */
+function tplV(t){ if(TPL[t.k].r) return [t.x, t.y]; var q = rotP(0.1, 0, t.r || 0); return [t.x - q[0], t.y - q[1]]; }
+function segsFor(t, all){
+  if(!all || !all.length) return [];
+  var v = tplV(t), reach = (TPL[t.k].r || 13) + 2;
+  return all.filter(function(g){
+    if(segD(v[0], v[1], g[0], g[1], g[2], g[3]) > reach) return false;
+    if(segD(v[0], v[1], g[0], g[1], g[2], g[3]) < 0.02) return false;
+    var o = g[4]; if(o){ var q = rotP(v[0] - o.x, v[1] - o.y, -(o.r || 0)); if(Math.abs(q[0]) <= o.w / 2 + 0.01 && Math.abs(q[1]) <= o.h / 2 + 0.01) return false; }
+    return true;
+  });
+}
+function losBlocked(ox, oy, px, py, segs){
+  var rx = px - ox, ry = py - oy;
+  for(var i = 0; i < segs.length; i++){
+    var g = segs[i], sx = g[2] - g[0], sy = g[3] - g[1], den = rx * sy - ry * sx; if(Math.abs(den) < 1e-12) continue;
+    var tt = ((g[0] - ox) * sy - (g[1] - oy) * sx) / den, u = ((g[0] - ox) * ry - (g[1] - oy) * rx) / den;
+    if(tt > 1e-6 && tt < 1 - 1e-6 && u >= 0 && u <= 1) return true;
+  }
+  return false;
+}
+function tplHits(t, f, segs){
+  if(!tplHitsRaw(t, f)) return false;
+  if(!segs || !segs.length) return true;
+  var v = tplV(t), r = f.d / 2, P = [[f.x, f.y]];
+  for(var i = 0; i < 8; i++) P.push([f.x + Math.cos(i * Math.PI / 4) * r * 0.95, f.y + Math.sin(i * Math.PI / 4) * r * 0.95]);
+  return P.some(function(p){ return tplHitsRaw(t, {x:p[0], y:p[1], d:0}) && !losBlocked(v[0], v[1], p[0], p[1], segs); });
+}
+/* Sichtfeld als Polygon in den lokalen Koordinaten der Schablone (Winkel-Sweep) */
+function visPoly(t, segs){
+  var a0 = -(t.r || 0), v = tplV(t), vl = rotP(v[0] - t.x, v[1] - t.y, a0), L = [], Rm = (TPL[t.k].r || 13) + 1.5;
+  segs.forEach(function(g){ var p = rotP(g[0] - v[0], g[1] - v[1], a0), q = rotP(g[2] - v[0], g[3] - v[1], a0); L.push([p[0], p[1], q[0], q[1]]); });
+  L.push([-Rm, -Rm, Rm, -Rm], [Rm, -Rm, Rm, Rm], [Rm, Rm, -Rm, Rm], [-Rm, Rm, -Rm, -Rm]);
+  var ang = [];
+  L.forEach(function(g){ [[g[0], g[1]], [g[2], g[3]]].forEach(function(p){ var a = Math.atan2(p[1], p[0]); ang.push(a - 1e-4, a, a + 1e-4); }); });
+  ang.sort(function(a, b){ return a - b; });
+  var pts = [];
+  ang.forEach(function(a){
+    var dx = Math.cos(a), dy = Math.sin(a), best = 1e9;
+    L.forEach(function(g){
+      var ex = g[2] - g[0], ey = g[3] - g[1], den = dx * ey - dy * ex; if(Math.abs(den) < 1e-12) return;
+      var tt = (g[0] * ey - g[1] * ex) / den, u = (g[0] * dy - g[1] * dx) / den;
+      if(tt > 1e-6 && u >= -1e-9 && u <= 1 + 1e-9 && tt < best) best = tt;
+    });
+    pts.push((vl[0] + dx * best).toFixed(3) + "," + (vl[1] + dy * best).toFixed(3));
+  });
+  return pts.join(" ");
+}
+/* Form der Schablone, an Wänden/Hindernissen abgeschnitten */
+function tplCut(t, shape, segsAll, id){
+  var sg = segsFor(t, segsAll); if(!sg.length) return shape;
+  return '<clipPath id="sfv' + id + '"><polygon points="' + visPoly(t, sg) + '"/></clipPath><g clip-path="url(#sfv' + id + ')">' + shape + "</g>";
 }
 
 /* ---------- Charakterbogen-Anbindung ---------- */
@@ -415,7 +484,7 @@ function drawNow(){
   } else L.gr.innerHTML = "";
   var ar = "", wa = "", ob = "", fi = "", tx = "", tp = "", figs = [], tpls = [];
   m.items.forEach(function(it){ if(it.t === "fig"){ if(it.cid) syncFig(it); figs.push(it); } else if(it.t === "tpl") tpls.push(it); });
-  var hit = {}; tpls.forEach(function(t){ t._n = 0; figs.forEach(function(f){ if(tplHits(t, f)){ hit[f.id] = 1; t._n++; } }); });
+  var bs = tpls.length ? blockSegs() : [], hit = {}; tpls.forEach(function(t){ t._n = 0; var sg = segsFor(t, bs); figs.forEach(function(f){ if(tplHits(t, f, sg)){ hit[f.id] = 1; t._n++; } }); });
   m.items.forEach(function(it){
     var tr = 'transform="translate(' + it.x + " " + it.y + (it.r ? ") rotate(" + it.r : "") + ')"';
     if(it.t === "area"){
@@ -425,7 +494,7 @@ function drawNow(){
     else if(it.t === "obj") ob += '<g data-id="' + it.id + '" ' + tr + ' filter="url(#sfSh)"><g transform="scale(' + it.w + " " + it.h + ')">' + objSym(it.s) + "</g></g>";
     else if(it.t === "fig") fi += figSvg(it, z, hit[it.id]);
     else if(it.t === "txt") tx += '<text data-id="' + it.id + '" ' + tr + ' class="sftx" font-size="' + (it.fs || 0.6) + '" fill="' + (it.c || "#241f1c") + '" text-anchor="middle" dominant-baseline="central">' + E(N(it.s || "Text")) + "</text>";
-    else if(it.t === "tpl") tp += '<g data-id="' + it.id + '" class="sftp" ' + tr + ">" + tplShape(it.k, it.c || "#a51f1a") + (TPL[it.k].r ? '<path d="M-.25 0H.25M0 -.25V.25" stroke="' + (it.c || "#a51f1a") + '" stroke-width="1.5" vector-effect="non-scaling-stroke"/>' : '<circle r=".12" fill="' + (it.c || "#a51f1a") + '"/>') + "</g>" + tplBadge(it, z);
+    else if(it.t === "tpl") tp += '<g data-id="' + it.id + '" class="sftp" ' + tr + ">" + tplCut(it, tplShape(it.k, it.c || "#a51f1a"), bs, it.id) + (TPL[it.k].r ? '<path d="M-.25 0H.25M0 -.25V.25" stroke="' + (it.c || "#a51f1a") + '" stroke-width="1.5" vector-effect="non-scaling-stroke"/>' : '<circle r=".12" fill="' + (it.c || "#a51f1a") + '"/>') + "</g>" + tplBadge(it, z);
   });
   L.ar.innerHTML = ar; L.wa.innerHTML = wa; L.ob.innerHTML = ob; L.fi.innerHTML = fi; L.tx.innerHTML = tx; L.tp.innerHTML = tp;
   L.ov.innerHTML = overlay(z);
@@ -505,7 +574,7 @@ function overlay(z){
   }
   if(S.rings){ var rf = byId(S.rings.fid); if(rf){ S.rings.rw.split("/").map(Number).forEach(function(rr, i){ s += '<circle cx="' + rf.x + '" cy="' + rf.y + '" r="' + rr + '" class="sfring r' + i + '"/>' + measLabel(rf.x, rf.y - rr, z, ["kurz", "mittel", "weit"][i] + " " + rr + "“"); }); } }
   if(S.aim && S.aim.p){ var af = byId(S.aim.fid), g = aimGeo(S.aim, af); if(g){
-    s += '<g transform="translate(' + g.x + " " + g.y + (g.r ? ") rotate(" + g.r : "") + ')" class="sfaim">' + tplShape(S.aim.k, S.aim.c || "#a51f1a") + "</g>";
+    s += '<g transform="translate(' + g.x + " " + g.y + (g.r ? ") rotate(" + g.r : "") + ')" class="sfaim">' + tplCut({k:S.aim.k, x:g.x, y:g.y, r:g.r}, tplShape(S.aim.k, S.aim.c || "#a51f1a"), blockSegs(), "aim") + "</g>";
     var dd = TPL[S.aim.k].r ? Math.hypot(g.x - af.x, g.y - af.y) : null;
     if(dd != null) s += measSvg(af.x, af.y, g.x, g.y, z, null, false, reichLabel(dd, S.aim));
     else s += measLabel(S.aim.p[0], S.aim.p[1] - 0.6, z, S.aim.src);
@@ -839,7 +908,7 @@ function ins(){
     h = "<h3>" + WALLS[it.k] + '<small>' + f1(len) + "“ · " + f1(len * 2) + " m</small></h3>" + row("Art", seg("k", Object.keys(WALLS).map(function(k){ return [k, WALLS[k]]; }), it.k)) +
       (it.k === "tuer" ? row("Zustand", seg("offen", [[0, "Geschlossen"], [1, "Offen"]], it.offen ? 1 : 0)) : "") + foot();
   } else if(it && it.t === "tpl"){
-    var hits = S.m.items.filter(function(f){ return f.t === "fig" && tplHits(it, f); });
+    var sgd = segsFor(it, blockSegs()), hits = S.m.items.filter(function(f){ return f.t === "fig" && tplHits(it, f, sgd); });
     h = "<h3>" + TPL[it.k].n + "</h3>" + (it.src ? '<div class="sfsub">' + E(it.src) + "</div>" : "") + '<div class="sftpl">' + Object.keys(TPL).map(function(k){ return '<button data-set="k" data-v="' + k + '" class="' + (it.k === k ? "on" : "") + '">' + TPL[k].k + "</button>"; }).join("") + "</div>" +
       row("Farbe", sw("c", TCOLS, it.c || "#a51f1a")) +
       (TPL[it.k].r ? "" : row("Richtung", '<div class="sfnum"><input type="number" step="5" data-f="r" value="' + Math.round(it.r || 0) + '"><span>°</span></div>')) +

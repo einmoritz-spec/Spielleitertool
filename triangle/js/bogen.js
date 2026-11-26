@@ -296,7 +296,37 @@ function bgWahl(kat){
   if(!m){ m = document.createElement("div"); m.className = "modal bg-wahl"; m.onclick = function(e){ if(e.target === m) m.remove(); }; document.body.appendChild(m); }
   var T = TA_ARK[kat];
   m.innerHTML = '<div><nav>' + ["anomalie","realitaet","kompetenz"].map(function(k){ return '<a class="c-' + TA_ARK[k].c + (k === kat ? ' on' : '') + '" onclick="bgWahl(\'' + k + '\')"><img src="' + bgArcImg(k) + '" alt="">' + TA_ARK[k].t + '<small>' + esc(bgArkName(k, A.arc[K[k]]) || "–") + '</small></a>'; }).join("") + '<button onclick="this.closest(\'.modal\').remove()">Fertig</button></nav>' +
-    '<div class="bg-wg">' + T.x.map(function(q){ return '<a class="' + (A.arc[K[kat]] === q[0] ? "on" : "") + '" onclick="bgWaehle(\'' + kat + '\',\'' + q[0] + '\')"><img src="' + IMG("regeln/full/" + T.bild + "-" + q[0]) + '" alt=""><b>' + esc(q[1]) + '</b><i>' + tx((TA_TEXT["ark/" + kat + "/" + q[0]] || {}).motto || "") + '</i></a>'; }).join("") + '</div></div>';
+    '<div class="bg-wg">' + T.x.map(function(q){ return '<a class="' + (A.arc[K[kat]] === q[0] ? "on" : "") + '" onclick="bgWaehle(\'' + kat + '\',\'' + q[0] + '\')"><img src="' + IMG("regeln/full/" + T.bild + "-" + q[0]) + '" alt=""><b>' + esc(q[1]) + '</b><i>' + tx((TA_TEXT["ark/" + kat + "/" + q[0]] || {}).motto || "") + '</i><span class="bg-ii" title="Kurzfassung" onclick="event.stopPropagation();bgInfo(\'' + kat + '\',\'' + q[0] + '\')">i</span></a>'; }).join("") + '</div></div>';
+}
+/* Kurzfassung eines ARK-Teils im Auswahlfenster */
+function bgInfo(kat, id){
+  var m = document.querySelector(".bg-wahl"); if(!m) return;
+  var T = TA_ARK[kat], x = T.x.filter(function(q){ return q[0] === id; })[0], D = TA_TEXT["ark/" + kat + "/" + id] || {}, R = (D.r || []).concat(D.l || []);
+  var A = BG.akt, K = {anomalie:"a", realitaet:"r", kompetenz:"k"}[kat], gew = A && A.arc[K] === id;
+  var karte = function(kl, kopf, inhalt){ return '<section class="bi-k' + (kl ? " " + kl : "") + '"><h4>' + kopf + '</h4>' + inhalt + '</section>'; };
+  var teile = "";
+  if(kat === "anomalie"){
+    teile = bgSuch(R, "faehig", []).map(function(f){
+      var q = ""; BG_QUAL.forEach(function(Q){ var p = f.x.lastIndexOf("**" + Q); if(p >= 0 && (!q || p > f.x.lastIndexOf("**" + q))) q = Q; });
+      var e = function(k){ var z = (f.erg || []).filter(function(y){ return y[0] === k; })[0]; return z ? tx(z[1]) : ""; };
+      return karte("", esc(f.h) + (q ? '<em>' + q + '</em>' : ''), '<p class="bi-ausl">' + tx(f.x) + '</p>' + (e("ok") ? '<p class="bi-e ok">' + e("ok") + '</p>' : '') + (e("plus") ? '<p class="bi-e plus">' + e("plus") + '</p>' : '') + (e("nein") ? '<p class="bi-e nein">' + e("nein") + '</p>' : ''));
+    }).join("");
+  } else if(kat === "realitaet"){
+    var au = bgSuch(R, "ausloeser", [])[0], ve = bgSuch(R, "ventil", [])[0], w = bgSuch(R, "w4", [])[0], sp = bgSuch(R, "spur", []);
+    if(au) teile += karte("breit", "Realitäts-Auslöser<em>" + esc(au.h.replace(/^Realitäts-Auslöser:\s*/, "")) + "</em>", '<p>' + tx(bgStr(au.b)) + '</p>' + (sp.length ? '<div class="bi-sp">' + sp.map(function(l){ return '<span><b>' + esc(l.h) + '</b>' + l.x.map(function(v){ return v === "X" ? '<i class="x"></i>' : '<i></i>'; }).join("") + '</span>'; }).join("") + '</div>' : ''));
+    if(ve) teile += karte(w ? "" : "breit", "Burnout-Ventil<em>" + esc(ve.h.replace(/^Burnout-Ventil:\s*/, "")) + "</em>", '<p>' + tx(ve.x) + '</p>');
+    if(w) teile += karte("", esc(w.h), '<p>' + tx(bgStr(w.b).split(/(?<=[.!?])\s/)[0]) + '</p>');
+  } else {
+    var di = bgSuch(R, "direktive", [])[0], ge = bgSuch(R, "gebilligt", [])[0], er = bgSuch(R, "erst", [])[0], zi = bgSuch(R, "zitat", [])[0];
+    if(di) teile += karte("", "Oberste Direktive<em>" + tx(di.h) + "</em>", '<p>' + tx(di.x) + '</p>');
+    if(ge) teile += karte("", "Gebilligtes Verhalten", '<p class="bi-k0">Du erhältst 1 Belobigung, wenn du:</p><ul>' + ge.x.map(function(g){ return '<li>' + tx(g) + '</li>'; }).join("") + '</ul>');
+    if(er) teile += karte("breit", "Erste Anforderung<em>" + esc(er.h) + "</em>", '<p>' + tx(er.x) + '</p>');
+    if(zi) teile += '<blockquote class="bi-z">' + tx(zi.x) + '</blockquote>';
+  }
+  var g = m.querySelector(".bg-wg"); if(!g) return;
+  g.outerHTML = '<div class="bg-info c-' + T.c + '"><header><a class="bi-zur" onclick="bgWahl(\'' + kat + '\')">‹ Alle ' + (kat === "anomalie" ? "Anomalien" : kat === "realitaet" ? "Realitäten" : "Kompetenzen") + '</a>' +
+    '<img src="' + IMG("regeln/full/" + T.bild + "-" + id) + '" alt=""><div><small>' + T.t + pgl(x[2]) + '</small><h3>' + esc(x[1]) + '</h3><p>' + tx(D.motto || "") + '</p>' +
+    '<button class="' + (gew ? "an" : "") + '" onclick="bgWaehle(\'' + kat + '\',\'' + id + '\')">' + (gew ? "Gewählt" : esc(x[1]) + " wählen") + '</button></div></header><div class="bi-g' + (kat === "anomalie" ? "" : " zwei") + '">' + teile + '</div></div>';
 }
 function bgWaehle(kat, id){
   var A = BG.akt, K = {anomalie:"a", realitaet:"r", kompetenz:"k"}[kat];

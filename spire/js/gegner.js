@@ -133,11 +133,11 @@ function begLeiste(immer){
 function gKachel(g){
   var on = ST.gsel === g.id, e = gEntry(g.id), dm = [], ru = [];
   (g.ausr || []).forEach(function(a){ if(typeof a === "string") return; if(a.dmg && dm.indexOf(a.dmg) < 0) dm.push(a.dmg); (a.tags || []).forEach(function(t){ if(/^Rüstung/.test(t) && ru.indexOf(t) < 0) ru.push(t); }); });
-  return '<div class="gx' + (on ? ' on' : '') + (e ? ' inb' : '') + '" id="gx-' + g.id + '" onclick="gTog(\'' + g.id + '\')">' +
+  return '<div class="gx gx-s' + Math.min(2, gBase(g)) + (on ? ' on' : '') + (e ? ' inb' : '') + '" id="gx-' + g.id + '" onclick="gTog(\'' + g.id + '\')">' +
     (g.img ? '<img class="gx-i" src="' + IMG(g.img) + '" alt="">' : '') +
     '<div class="gx-t"><h4>' + esc(g.kurz || g.t) + '</h4><div class="gx-o">' + esc(g.ort || "") + '</div>' +
     '<div class="gx-m"><span class="gx-s">Schw. ' + esc(g.schw ? g.schw.k : "·") + '</span>' + ru.concat(dm).map(function(t){ return '<span class="gx-d">' + esc(t) + '</span>'; }).join("") + '</div></div>' +
-    '<div class="gx-w"><b>' + esc(gWidTxt(g)) + '</b><small>Wid.</small></div></div>' +
+    '<div class="gx-w"><b>' + esc(gWidTxt(g)) + '</b><small>Wid.</small></div><span class="gx-p" onclick="event.stopPropagation();bgAdd(\'' + g.id + '\')" title="Zur Begegnung hinzufügen">+</span></div>' +
     (on ? '<div class="gx-det" onclick="event.stopPropagation()"><button class="gx-zu" onclick="gTog(\'' + g.id + '\')" title="Schließen">×</button>' + gBlock(g) + '</div>' : '');
 }
 function gRaster(L){ return '<div class="gx-r">' + L.map(gKachel).join("") + '</div>'; }

@@ -998,3 +998,11 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 .zleiste .zeit .vt path{fill:transparent;stroke:rgba(0,96,77,.5);stroke-width:1.3;stroke-linejoin:round;cursor:pointer;transition:fill .15s}
 .zleiste .zeit .vt path:hover{fill:rgba(0,96,77,.18)}
 .zleiste .zeit .vt path.f{fill:var(--jade-d);stroke:var(--jade-d)}
+/* Viertel-Kreis: feiner Ring, darin vier Segmente mit schmalen Fugen */
+.zleiste .zeit .vt svg{width:26px;height:26px}
+.zleiste .zeit .vt .rg{fill:none;stroke:rgba(0,96,77,.55);stroke-width:1.2}
+.zleiste .zeit .vt path{fill:rgba(0,96,77,.13);stroke:var(--perg,#f3ecdf);stroke-width:1.6;stroke-linejoin:miter}
+.zleiste .zeit .vt path:hover{fill:rgba(0,96,77,.3)}
+.zleiste .zeit .vt path.f{fill:var(--jade-d);stroke:var(--perg,#f3ecdf)}
+.zleiste .zeit .vt path,.zleiste .zeit .vt path.f{stroke:none}
+.zleiste .zeit .vt svg{width:22px;height:22px}

@@ -15,12 +15,14 @@
 <link rel="stylesheet" href="werkzeug.css">
 <link rel="stylesheet" href="regeln.css">
 <link rel="stylesheet" href="spielfeld.css">
+<link rel="stylesheet" href="bogen.css">
 </head>
 <body>
 <header class="topbar" id="top">
   <button class="brand" onclick="go('start')" aria-label="Savage Worlds"><img src="../assets/logos/savage-worlds.webp" alt="Savage Worlds"></button>
   <nav class="ktabs" id="ktabs"></nav>
   <div class="spacer"></div>
+  <button class="ib" onclick="go('bogen')" aria-label="Charakterbogen" title="Charakterbogen"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg></button>
   <button class="ib" onclick="Galerie&&Galerie.open?Galerie.open('savageworlds'):0" aria-label="Galerie" title="Galerie"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
   <button class="ib" onclick="infoOpen()" aria-label="Info" title="Info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.2v.1"/></svg></button>
   <button class="ib" onclick="bookMenu()" aria-label="Buch öffnen" title="Buch"><svg viewBox="0 0 24 24"><path d="M3 5.5c3-1.2 6-1.2 9 1 3-2.2 6-2.2 9-1V19c-3-1.2-6-1.2-9 1-3-2.2-6-2.2-9-1z"/><path d="M12 6.5V20"/></svg></button>
@@ -141,6 +143,8 @@
 <script src="js/seiten-spielleitung.js"></script>
 <script src="js/seiten-genres.js"></script>
 <script src="js/seiten-spielfeld.js"></script>
+<script src="../shared/fillpdf.js"></script>
+<script src="js/seiten-bogen.js"></script>
 <script src="../shared/gsuche.js"></script>
 <script src="js/suche.js"></script>
 <script src="../shared/seitenleiste.js"></script>

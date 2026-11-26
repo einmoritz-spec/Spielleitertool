@@ -32,7 +32,7 @@ function tabOf(id){ return TABS.filter(function(t){ return t.id === id; })[0]; }
 function render(){
   var r = route(), dl = r.a === "dl";
   document.body.classList.toggle("dl-mode", dl);
-  var tabs = (dl || r.a === "start") ? [] : TABS, cur = tabOf(r.a);
+  var tabs = (dl || r.a === "start" || r.a === "bogen") ? [] : TABS, cur = tabOf(r.a);
   KT.innerHTML = tabs.map(function(t){ return '<a class="' + (cur && cur.id === t.id ? "on" : "") + '" onclick="go(\'' + t.id + '\')">' + esc(t.t) + "</a>"; }).join("");
   if(cur){
     var b = r.b || cur.subs[0][0];
@@ -40,6 +40,7 @@ function render(){
     SUB.innerHTML = cur.subs.map(function(s){ return '<a class="' + (s[0] === b ? "on" : "") + '" onclick="go(\'' + cur.id + "/" + s[0] + '\')">' + esc(s[1]) + "</a>"; }).join("") + genSwitch();
   } else { SUB.className = "sub"; SUB.innerHTML = ""; }
   if(r.a === "start") return start();
+  if(r.a === "bogen" && window.bogenPage) return bogenPage();
   if(dl) return (window.dlRender || dlPage)();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "talente") return talentePage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "voelker") return voelkerPage();
@@ -52,6 +53,7 @@ function render(){
   var pk = r.a + "/" + (r.b || (cur && cur.subs[0][0]) || "");
   if(cur && window.SWP && SWP[pk]) return SWP[pk]();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
+  if(r.a === "bogen") return; /* Bogen-Modul lädt nach app.js, load-Ereignis rendert erneut */
   go("start");
 }
 function pageHead(){ return ""; }

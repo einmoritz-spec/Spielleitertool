@@ -71,14 +71,13 @@ Darstellung: bis S. 161 normale Leseseiten, aber mit den blauen Zwischenrufen an
 - Rechts das Dokument auf Weiß mit blauem Klecks und rotem Code-Reiter (Code, Titel, Seite).
 - **Querverweise:** Jeder Code im Tool (Frage-Antwort-Kästen der Fähigkeiten, „GEHE ZU: A1“, Verweise in Dokumenten) öffnet das Dokument als Pop-up und trägt es unter „Freigegeben“ ein. Die drei Kästchen vor einem Code sind anklickbar (Fortschritt je Agent im Spielstand).
 - Dokument-Arten: Fähigkeiten (wie ARK-Karten), Beförderungen mit Anforderungen (Karten mit Preis und Bild), Laufbahn-Stufen, Ruhestands-Optionen (gelb markierte Passagen), ganzseitige Bilder, A1 Einsatzbericht (ausfüllbar), A2 Ripple Gun Ultima (dunkle Sonderseite), X1 The Abnormal Briefcase.
-- Titel der Dokumente erscheinen erst nach dem Öffnen. Schalter im Burger-Menü: „Titel im Codefeld zeigen“ (für die Vorbereitung).
-- Suche („f“) findet Playwall-Inhalte nur in freigegebenen Dokumenten; derselbe Schalter hebt das auf.
+- **Umschalter im Codefeld: „Wie im Buch“ / „Alles offen“.** Wie im Buch: nur Codes, Titel erst nach dem Öffnen, Suche („f“) findet nur freigegebene Dokumente. Alles offen: Liste aller Codes mit Titel je Buchstabe, alles durchsuchbar.
 
 ## Startseite (`01_startseite.jpg`)
 - Durchsichtige Kopfzeile über dem Titelbild: die Lobby der Zentrale als zusammengesetzte Doppelseite (S. 16–17), mittig der Schriftzug in Weiß.
 - Drei „Akten“ ragen ins Bild: **Handbuch** (rotes Dreieck), **Werkzeug** (blauer Schrägbalken „Sehr gut, Idiot.“ wie die Kapitelseite S. 138), **Playwall** (die drei Dreiecke). Je Akte die Unterpunkte als ruhige Liste.
 - **ARK** als drei Spalten (blau, gelb, rot) mit allen 27 Illustrationen im 3×3-Raster – Klick führt direkt zum Eintrag.
-- **The Vault** auf dem Sternenhimmel des Vault-Vorsatzes: die 12 Einsätze als lückenloser Bildstreifen, jeder mit Farbstreifen oben; Überfahren verbreitert den Einsatz und zeigt Titel und Autor. Darunter der Space-Einsatz als eigener Balken.
+- **The Vault** auf dem Sternenhimmel des Vault-Vorsatzes: die 12 Einsätze als lückenloser Bildstreifen, jeder mit Farbstreifen oben; Überfahren verbreitert den Einsatz und zeigt Titel und Autor. Darunter der Space-Einsatz als eigener Balken. Unter jedem englischen Einsatztitel klein und grau der deutsche Titel.
 - Keine Seitenzahlen, keine Erklärtexte.
 
 ## Einsätze – gemeinsames Gerüst („Leitstand“)
@@ -116,16 +115,16 @@ Jeder Einsatz bekommt eine eigene Stil-Datei (`vault/<nr>.css`): Farben, Übersc
 Entwürfe dazu: `05_mission_springs_eternal.jpg`, `06_mission_rom_dump.jpg`, `07_mission_nosedive.jpg` – gleiche Schablone, drei Stile. Für die übrigen neun entsteht je ein Entwurf vor dem Bau des jeweiligen Einsatzes.
 
 ### You're in Space and Everything's Perfectly Fine
-Eigener Stil: rosa-graues Papier, rotes Dreieck, schwarze Avant-Garde-Titel, Schreibmaschinen-Kästen. Aufbau nach **Schichten** statt nach Ermittlungsphasen: Leiste Station · Schicht 1 · 2 · 3 · 4 · 5 · 6+ · Letzte Schicht · Anomalie · Abschluss. Je Schicht dieselben Räume (Luftschleuse, Gänge, Garten, Krankenstation, Aussichtsdeck, Wohnquartiere, Die lästige Ecke) als Raster – so sieht man die Veränderung von Schicht zu Schicht. Stationsplan als anklickbares Schema. Bewohner als Karten. Nur die Triangle-Agency-Fassung; die Teile für das zweite Spielsystem („Station's Eyes Only“, Monsterwerte) entfallen – **offene Frage 4**.
+Eigener Stil: rosa-graues Papier, rotes Dreieck, schwarze Avant-Garde-Titel, Schreibmaschinen-Kästen. Aufbau nach **Schichten** statt nach Ermittlungsphasen: Leiste Station · Schicht 1 · 2 · 3 · 4 · 5 · 6+ · Letzte Schicht · Anomalie · Abschluss. Je Schicht dieselben Räume (Luftschleuse, Gänge, Garten, Krankenstation, Aussichtsdeck, Wohnquartiere, Die lästige Ecke) als Raster – so sieht man die Veränderung von Schicht zu Schicht. Stationsplan als anklickbares Schema. Bewohner als Karten. Nur die Triangle-Agency-Fassung; die Teile für das zweite Spielsystem („Station's Eyes Only“, Monsterwerte) entfallen.
 
 ## Werkzeuge
-- **Agentenbogen:** Das ausfüllbare Original-PDF hat 554 Felder → im Tool eine interaktive Ansicht aller Blätter (Stammblatt, Fragebogen, Work-Life-Balance mit den drei Leisten, Anomalie-Fähigkeiten, Beziehungen, Anforderungen, eigene Leisten), Export füllt das Original-PDF (`shared/fillpdf.js`), Wiedereinlesen möglich. Beschriftung im Tool deutsch; das exportierte PDF bleibt das englische Original mit deutschen Einträgen – **offene Frage 5**.
+- **Agentenbogen (zum Schluss):** deutscher Nachbau aller Blätter im Original-Look (Stammblatt, Fragebogen, Work-Life-Balance mit den drei Leisten, Anomalie-Fähigkeiten, Beziehungen, Anforderungen, eigene Leisten), interaktiv ausfüllbar (`shared/charsheet.js`), Export als ausfüllbares deutsches PDF (`shared/fillpdf.js`), Wiedereinlesen möglich. Das englische Original (554 Felder) dient als Maßvorlage.
 - **Einsatzbericht (A1):** ausfüllbar am Ende jedes Einsatzes, übernimmt Chaos-Pool und Lose Enden aus dem Leitstand.
 - **Kurzübersicht Würfeln** (S. 38) als i-Knopf-Inhalt: Mission, drei Phasen, Würfelprobe, Chaos, Burnout, Triszendenz.
 - Kein Würfel-Tool.
 
-## Begriffe (Vorschlag, braucht Freigabe)
-Bleiben englisch (Eigennamen): Triangle Agency, Agency, AgencyOS, Ternion City, The Vault, Playwall, Ripple, Hollow, Ripple Gun, Namen der 27 ARC-Einträge und der Einsätze – **offene Fragen 1 und 2**.
+## Begriffe (freigegeben)
+Bleiben englisch (Eigennamen): Triangle Agency, Agency, AgencyOS, Ternion City, The Vault, Playwall, Ripple, Hollow, Ripple Gun, Namen der 27 ARC-Einträge und der Einsätze (Einsätze mit deutschem Untertitel).
 
 | Englisch | Deutsch |
 |---|---|
@@ -206,16 +205,17 @@ triangle/
 3. **ARK:** 27 Einträge, Fragebogen; Titelschriftzüge schneiden.
 4. **Werkzeug** S. 136–161, dann der Betriebssystem-Teil S. 162–197 mit Fenstern und Helfer.
 5. **Playwall:** 205 Dokumente (in vier Schüben A–F, G–L, M–R, S–Z), Codefeld, Querverweise aus Etappe 3.
-6. **Agentenbogen und Einsatzbericht.**
+6. **Einsatzbericht (A1).** Der Agentenbogen folgt als letzte Etappe nach 10.
 7. **Einsatz-Schablone + Springs Eternal** als Pilot; danach prüft Moritz Übersetzung und Aufbau.
 8. **Vault 2–12**, je Einsatz: Entwurf → Freigabe → Bau → Abgleich mit dem PDF.
 9. **Space.**
 10. **Abschluss:** Galerie, Suche, i-Knopf, Tastenkürzel (←/→, ↑/↓, Strg+←/→, Esc, h, f, m), jede Route per Screenshot, auch mit eingeklappter Seitenleiste.
 
-## Offene Fragen an Moritz
-1. **Namen der 27 ARC-Einträge** (Whisper, Drain, Caretaker, Gravedigger …): englisch lassen wie in den Entwürfen (sie sind im Buch gezeichnete Schriftzüge) oder übersetzen (Flüstern, Abfluss, Kümmerer, Totengräber …)? In den Entwürfen sind Realität/Anomalie englisch, die Kompetenzen schon teils deutsch – das wird vereinheitlicht.
-2. **Titel der 12 Einsätze:** englisch lassen (Wortspiele, gezeichnete Titel) oder übersetzen wie bei Household?
-3. **Randreiter rechts** mit der Seitenangabe: behalten (sehr buchnah) oder weg?
-4. **Space:** nur die Triangle-Agency-Fassung, oder auch die Teile für das zweite Spielsystem?
-5. **Agentenbogen-Export:** englisches Original-PDF füllen (schnell, passt genau) oder einen deutschen Nachbau des Bogens setzen (deutlich mehr Arbeit)?
-6. **Playwall:** Titel erst nach dem Öffnen zeigen (wie geplant) oder für dich als GM immer alles offen?
+## Entscheidungen (Moritz, 26. Nov. 2026)
+1. **Namen der 27 ARC-Einträge bleiben englisch** – auch die Kompetenzen (PR, R&D, Barista, CEO, Intern, Gravedigger, Reception, Hotline, Clown). Der Startseiten-Entwurf zeigt sie noch teils deutsch; beim Bau englisch.
+2. **Titel der 12 Einsätze bleiben englisch**, der deutsche Titel steht klein und grau darunter (Startseiten-Streifen, Einsatz-Kopf, Suche).
+3. **Randreiter rechts bleibt** vorerst (kann später wieder raus → als eine CSS-Klasse abschaltbar bauen).
+4. **Space: nur die Triangle-Agency-Fassung**; die Teile für das zweite Spielsystem entfallen.
+5. **Agentenbogen: deutscher Nachbau**, ganz zum Schluss. Bis dahin kein Bogen im Tool.
+6. **Playwall: umschaltbar** zwischen „Wie im Buch“ (nur Codes, Titel erst nach dem Öffnen) und „Alles offen“ (alle Codes mit Titel, frei durchsuchbar). Schalter sichtbar im Codefeld, Einstellung wird gemerkt.
+7. **Begriffsliste freigegeben.**

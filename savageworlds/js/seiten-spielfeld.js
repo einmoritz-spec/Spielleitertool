@@ -22,6 +22,8 @@ var OBJ = {
   saeule:["Säule", 1, 1], fels:["Fels", 1.6, 1.3], baum:["Baum", 3, 3], busch:["Busch", 1.5, 1.5], feuer:["Feuer", 1, 1], wagen:["Fahrzeug", 1.2, 2.4], marker:["Markierung", 0.7, 0.7]
 };
 var ICON = {
+  search:'<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
+  buch:'<path d="M5 4.5h10.5a2 2 0 012 2V20H7a2 2 0 01-2-2z"/><path d="M5 18a2 2 0 012-2h10.5M9 8.5h5"/>',
   sel:'<path d="M5 3l13 8-6.2 1.6L9 19z"/>',
   fig:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.8 18c1.4-2.3 3.1-3.4 5.2-3.4s3.8 1.1 5.2 3.4"/>',
   obj:'<path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/>',
@@ -146,7 +148,89 @@ function reichLabel(d, a){
 function kreaturen(){
   var L = window.SW_KR || [];
   if(typeof krSicht === "function") L = L.filter(function(k){ try { return krSicht(k); } catch(e){ return true; } });
+  else if(typeof sqVis === "function") L = L.filter(function(k){ return sqVis(k.s); });
   return L;
+}
+/* Angriffe und Sonderfähigkeiten eines Gegners aus den Bestiariumsdaten */
+var SFNICHT = /^(Größe|Panzerung|Furchterregend|Fliegen|Zäh|Untot|Konstrukt|Furchtlos|Nachtsicht|Infravision|Wasserlebewesen|Elementar|Sehr zäh|Schwäche|Immunität|Regeneration)/;
+function krAktionen(k){
+  var A = [], sta = ((k.a || []).filter(function(a){ return a[0] === "Stärke"; })[0] || [])[1] || "";
+  var stS = function(sd){ return sta && /^W/.test(sta) ? sd.replace(/^Stä/, sta.replace(/\s*\(.*$/, "")) : sd; };
+  (k.sf || []).forEach(function(x){ var n = x[0], t = String(x[1] || ""), tx = n + " " + t;
+    if(SFNICHT.test(n)) return;
+    var tpl = tplAusSF(tx), sd = (/(Stä\s*[+]\s*[^.,;()]+|\d+W\d+(?:\s*[+–-]\s*\d+)?)/.exec(t) || [])[1] || "";
+    if(!sd && !tpl.length) return; if(sd && !/^(Stä|\d+W)/.test(t) && !/Schaden/.test(t) && !tpl.length) return;
+    A.push({n: n, sd: stS(sd.trim()), rw: (/(\d+\/\d+\/\d+)/.exec(t) || [])[1] || "", tpl: tpl}); });
+  (k.x || []).forEach(function(x){ if(!/^Ausrüstung/.test(x[0])) return; String(x[1] || "").split(/,\s*(?![^()]*\))/).forEach(function(part){
+    var m = /^([^(]+)\((.*)\)/.exec(part.trim()); if(!m) return; var inn = m[2], sd = (/Schaden\s+([^,]+)/.exec(inn) || /(Stä\s*[+][^,]+)/.exec(inn) || [])[1];
+    if(!sd) return; A.push({n: m[1].trim(), sd: stS(sd.trim()), rw: (/(\d+\/\d+\/\d+)/.exec(inn) || [])[1] || "", tpl: tplAusSF(inn)}); }); });
+  return A;
+}
+function tplAusSF(t){ t = String(t || ""); var o = [];
+  if(/Kegel|Odem|atem\b|speien|spucken/i.test(t)) o.push("kegel");
+  if(/kleine[nr]? (Flächen)?schablone|\bKFS\b/i.test(t)) o.push("kfs");
+  if(/mittlere[nr]? (Flächen)?schablone|\bMFS\b/i.test(t)) o.push("mfs");
+  if(/große[nr]? (Flächen)?schablone|\bGFS\b/i.test(t)) o.push("gfs");
+  return o; }
+function krDetail(k){
+  var h = (k.d && k.d[0] ? '<p class="d">' + E(k.d[0]) + "</p>" : "");
+  h += '<div class="sfkr-at">' + (k.a || []).map(function(a){ return "<span><small>" + E(a[0].slice(0, 3)) + "</small>" + E(a[1]) + "</span>"; }).join("") + "</div>";
+  h += '<div class="sfkr-wt"><span>Tempo <b>' + E(k.b || "–") + '</b></span><span>Parade <b>' + E(k.pa || "–") + '</b></span><span>Robustheit <b>' + E(k.ro || "–") + "</b></span></div>";
+  if(k.f) h += '<p><b>Fertigkeiten:</b> ' + E(k.f) + "</p>";
+  (k.x || []).forEach(function(x){ h += "<p><b>" + E(x[0]) + ":</b> " + E(x[1]) + "</p>"; });
+  if((k.sf || []).length) h += '<p class="sfkr-sh">Sonderfähigkeiten</p>' + k.sf.map(function(x){ return "<p><b>" + E(x[0]) + ":</b> " + E(x[1]) + "</p>"; }).join("");
+  return h;
+}
+function krSektion(it){
+  var k = it.kr ? kreatur(it.kr) : null; if(!k) return "";
+  var A = krAktionen(k), h = "";
+  var tb = function(arr, a){ var col = aFarbe(a.n); return arr.map(function(t){ return '<button class="sfaimb" style="--ac:' + col + '" data-aim="' + t + '" data-c="' + col + '" data-src="' + E(a.n) + '" data-rw="' + E(a.rw || "") + '" data-reich="">' + TPL[t].k + "</button>"; }).join(""); };
+  if(A.length) h += "<h4>Angriffe</h4>" + A.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E(a.sd) + '</small></div><div class="b">' + (a.rw ? '<button class="sfrng' + (S.rings && S.rings.fid === it.id && S.rings.rw === a.rw ? " on" : "") + '" data-rng="' + E(a.rw) + '" title="Reichweite">' + E(a.rw) + "</button>" : "") + tb(a.tpl, a) + "</div></div>"; }).join("");
+  var sf = (k.sf || []).filter(function(x){ return !A.some(function(a){ return a.n === x[0]; }); });
+  if(sf.length) h += "<h4>Sonderfähigkeiten</h4>" + sf.map(function(x){ return '<details class="sfsf"><summary>' + E(x[0]) + "</summary><p>" + E(x[1]) + "</p></details>"; }).join("");
+  h += '<details class="sfsf sfwt"><summary>Eigenschaften</summary>' + krDetail(k) + "</details>";
+  return h;
+}
+/* ---------- Gegner-Browser ---------- */
+var KRB = null;
+function krOpen(target){
+  S.krT = target || null; S.krq = S.krq || ""; S.kro = null;
+  if(!KRB){ KRB = document.createElement("div"); KRB.className = "sfkrw"; O.appendChild(KRB);
+    KRB.innerHTML = '<div class="sfkr-h"><b>Bestiarium</b><div class="sfkr-s">' + ic("search") + '<input placeholder="Gegner suchen" autocomplete="off" spellcheck="false"></div><button class="sfkr-x" title="Schließen">' + ic("close") + '</button></div><div class="sfkr-c"></div><div class="sfkr-l"></div>';
+    var q = KRB.querySelector("input");
+    q.addEventListener("input", function(){ S.krq = q.value; S.kro = null; krListe(); });
+    q.addEventListener("keydown", function(e){ e.stopPropagation(); if(e.key === "Escape") krZu(); if(e.key === "Enter"){ var f = KRB.querySelector(".sfkr-r"); if(f) krNimm(+f.dataset.kr); } });
+    KRB.addEventListener("click", function(e){
+      if(e.target.closest(".sfkr-x")){ krZu(); return; }
+      var c = e.target.closest("[data-krk]"); if(c){ S.krk = c.dataset.krk; S.kro = null; krListe(); return; }
+      var i = e.target.closest("[data-kri]"); if(i){ var n = +i.dataset.kri; S.kro = S.kro === n ? null : n; krListe(); return; }
+      var r = e.target.closest(".sfkr-r"); if(r) krNimm(+r.dataset.kr);
+    });
+  }
+  KRB.querySelector("input").value = S.krq; KRB.classList.add("on"); krListe();
+  if(!touch()) setTimeout(function(){ KRB.querySelector("input").focus(); }, 30);
+}
+function krZu(){ if(KRB) KRB.classList.remove("on"); }
+function krListe(){
+  var L = kreaturen(), q = (S.krq || "").toLowerCase().trim(), kat = {};
+  L.forEach(function(k){ kat[k.k] = (kat[k.k] || 0) + 1; });
+  if(S.krk && !kat[S.krk]) S.krk = "";
+  KRB.querySelector(".sfkr-c").innerHTML = '<button data-krk="" class="' + (!S.krk ? "on" : "") + '">Alle</button>' + Object.keys(kat).sort().map(function(k){ return '<button data-krk="' + E(k) + '" class="' + (S.krk === k ? "on" : "") + '">' + E(k) + "</button>"; }).join("");
+  var M = []; L.forEach(function(k, i){ if((!S.krk || k.k === S.krk) && (!q || k.n.toLowerCase().indexOf(q) > -1)) M.push(i); });
+  M.sort(function(a, b){ return L[a].n.localeCompare(L[b].n, "de"); });
+  KRB.querySelector(".sfkr-l").innerHTML = M.length ? M.slice(0, 200).map(function(i){ var k = L[i], op = S.kro === i;
+    return '<div class="sfkr-e' + (op ? " op" : "") + '"><div class="sfkr-r" data-kr="' + i + '"><span class="n">' + E(k.n) + (k.w ? '<img src="img/wc.webp" alt="Wildcard" title="Wildcard">' : "") + '</span><span class="v">' + (k.pa ? "Pa " + E(String(k.pa).replace(/\s*\(.*$/, "")) : "") + (k.ro ? " · Ro " + E(k.ro) : "") + "</span>" +
+      '<span class="g">' + E((k.s || []).filter(function(x){ return x !== "GRW"; }).join(" ")) + '</span><button class="sfkr-i" data-kri="' + i + '" title="Werte">i</button></div>' + (op ? '<div class="sfkr-d">' + krDetail(k) + '<button class="sfkr-add" data-kr="' + i + '">' + (S.krT ? "Übernehmen" : "Aufs Spielfeld") + "</button></div>" : "") + "</div>"; }).join("") : '<p class="leer">Nichts gefunden</p>';
+  [].forEach.call(KRB.querySelectorAll(".sfkr-add"), function(b){ b.addEventListener("click", function(e){ e.stopPropagation(); krNimm(+b.dataset.kr); }); });
+}
+function krNimm(i){
+  var k = kreaturen()[i]; if(!k) return; pushUndo();
+  var f = S.krT ? byId(S.krT) : null;
+  if(!f){ var r = SVG.getBoundingClientRect(), v = S.m.view, q = snapFig((r.width / 2 - v.x) / v.z, (r.height / 2 - v.y) / v.z, 1);
+    f = {t: "fig", id: uid(), x: q[0], y: q[1], d: 1, team: "g", wc: 0, bw: 6, st: {}}; S.m.items.push(f); }
+  var gleich = S.m.items.filter(function(x){ return x.t === "fig" && x !== f && x.kr === k.n; }).length;
+  f.n = k.n + (gleich ? " " + (gleich + 1) : ""); f.kr = k.n; f.k = ""; applyKreatur(f, k);
+  S.sel = f.id; krZu(); save(); draw(); ins();
 }
 function kreatur(name){ var L = kreaturen(); for(var i = 0; i < L.length; i++) if(L[i].n === name) return L[i]; return null; }
 function groesse(k){
@@ -193,7 +277,7 @@ function build(){
   NAME = O.querySelector("#sfName"); DD = O.querySelector("#sfDD"); FILE = O.querySelector("#sfFile"); FILEJ = O.querySelector("#sfFileJ");
   O.addEventListener("click", onClick);
   RAIL.addEventListener("click", function(e){ var b = e.target.closest(".sft"); if(!b) return; if(b.dataset.t) setTool(b.dataset.t); else option(b.dataset.o); });
-  FLY.addEventListener("click", function(e){ var b = e.target.closest("[data-v]"); if(!b) return; S.sub[S.tool] = b.dataset.v; saveUI(); fly(); });
+  FLY.addEventListener("click", function(e){ if(e.target.closest("[data-kr]")){ krOpen(null); return; } var b = e.target.closest("[data-v]"); if(!b) return; S.sub[S.tool] = b.dataset.v; saveUI(); fly(); });
   NAME.addEventListener("input", function(){ S.m.name = NAME.value; save(); });
   NAME.addEventListener("keydown", function(e){ if(e.key === "Enter") NAME.blur(); });
   O.querySelector("#sfDDB").addEventListener("click", function(e){ e.stopPropagation(); ddToggle(); });
@@ -259,7 +343,8 @@ function fly(){
   if(!FLY) return;
   var t = S.tool, h = "";
   if(t === "fig"){ var CL = window.SWBogen ? SWBogen.liste() : [];
-    if(CL.length) h = '<button data-v="" class="' + (!S.sub.fig ? "on" : "") + '" title="Figur">' + ic("fig") + "</button>" + CL.map(function(c){ var w = SWBogen.werte(c.id) || {}; return '<button data-v="' + c.id + '" class="ch' + (S.sub.fig === c.id ? " on" : "") + '"><b>' + E(N(kuerzel(c.name))) + "</b><span>" + E(c.name) + "<small>" + werteKurz(w) + "</small></span></button>"; }).join(""); }
+    h = '<button class="krf" data-kr="1" title="Gegner aus dem Bestiarium">' + ic("buch") + "<span>Gegner</span></button>";
+    if(CL.length) h += '<button data-v="" class="' + (!S.sub.fig ? "on" : "") + '" title="Figur">' + ic("fig") + "</button>" + CL.map(function(c){ var w = SWBogen.werte(c.id) || {}; return '<button data-v="' + c.id + '" class="ch' + (S.sub.fig === c.id ? " on" : "") + '"><b>' + E(N(kuerzel(c.name))) + "</b><span>" + E(c.name) + "<small>" + werteKurz(w) + "</small></span></button>"; }).join(""); }
   else if(t === "obj") h = Object.keys(OBJ).map(function(k){ return '<button data-v="' + k + '" class="' + (S.sub.obj === k ? "on" : "") + '" title="' + OBJ[k][0] + '"><svg viewBox="-.6 -.6 1.2 1.2">' + objSym(k, 1, 1) + "</svg></button>"; }).join("");
   else if(t === "area") h = Object.keys(AREAS).map(function(k){ return '<button data-v="' + k + '" class="' + (S.sub.area === k ? "on" : "") + '" title="' + AREAS[k] + '"><svg viewBox="0 0 1.6 1.2"><rect x=".05" y=".05" width="1.5" height="1.1" rx=".08" ' + areaFill(k) + ' stroke="' + areaStroke(k) + '" stroke-width=".05"/></svg></button>'; }).join("");
   else if(t === "tpl") h = Object.keys(TPL).map(function(k){ return '<button data-v="' + k + '" class="tp ' + (S.sub.tpl === k ? "on" : "") + '" title="' + TPL[k].n + '"><svg viewBox="' + (TPL[k].r ? "-3.2 -3.2 6.4 6.4" : k === "kegel" ? "-.3 -3.2 9.6 6.4" : "-.3 -3.2 12.6 6.4") + '">' + tplShape(k, "#a51f1a", 0.3) + "</svg><span>" + TPL[k].k + "</span></button>"; }).join("");
@@ -725,12 +810,13 @@ function ins(){
   } else if(it && it.t === "fig"){
     var st = it.st || {}, w = null;
     h = '<h3>Figur</h3>' +
-      '<div class="sfrow"><input data-f="n" list="sfKr" value="' + E(it.n) + '" placeholder="Name" class="sfbig"><datalist id="sfKr">' + kreaturen().map(function(k){ return '<option value="' + E(k.n) + '">'; }).join("") + "</datalist></div>" +
+      '<div class="sfrow sfnm"><input data-f="n" value="' + E(it.n) + '" placeholder="Name" class="sfbig"><button class="sfkrb" data-act="krb" title="Gegner aus dem Bestiarium">' + ic("buch") + "</button></div>" +
       '<div class="sfrow two"><div><label>Kürzel</label><input data-f="k" maxlength="3" value="' + E(it.k || "") + '" placeholder="' + E(kuerzel(it.n)) + '"></div><div><label>Wildcard</label><button data-set="wc" data-v="' + (it.wc ? 0 : 1) + '" class="sfwc' + (it.wc ? " on" : "") + '"><img src="img/wc.webp" alt=""></button></div></div>' +
       row("Partei", seg("team", TEAMS.map(function(t){ return [t[0], t[1]]; }), it.team)) +
       row("Farbe", sw("c", COLS, it.c || teamCol(it.team))) +
       row("Größe", seg("d", SIZES.map(function(s){ return [s[0], s[1]]; }), it.d).replace('class="sfseg"', 'class="sfseg sz"')) +
       '<div class="sfrow three"><div><label>Bewegung</label><input type="number" min="0" data-f="bw" value="' + (it.bw || "") + '"></div><div><label>Parade</label><input data-f="pa" value="' + E(it.pa || "") + '"></div><div><label>Robustheit</label><input data-f="ro" value="' + E(it.ro || "") + '"></div></div>' +
+      krSektion(it) +
       '<h4>Zustand' + abzug(st, w ? w.wig : 0) + '</h4>' +
       '<div class="sfrow"><label>Wunden</label>' + pips("w", st.w || 0, w ? w.wmax : 3, "#a51f1a") + "</div>" +
       '<div class="sfrow"><label>Erschöpfung</label>' + pips("e", st.e || 0, 2, "#3c5a78") + "</div>" +
@@ -783,6 +869,7 @@ function insClick(e){
     var a = d.act;
     if(a === "bogen"){ var cid = it && it.cid; close(); if(cid) SWBogen.oeffne(cid); return; }
     if(a === "del") del(); else if(a === "dup") dup(); else if(a === "back") order(-1);
+    else if(a === "krb"){ krOpen(it.id); return; }
     else if(a === "img") imgPick(it);
     else if(a === "noimg"){ pushUndo(); delete it.img; save(); draw(); ins(); }
     else if(a === "bglock"){ pushUndo(); S.m.bg.lock = !S.m.bg.lock; if(S.m.bg.lock && S.tool === "cal") setTool("sel"); save(); draw(); ins(); }

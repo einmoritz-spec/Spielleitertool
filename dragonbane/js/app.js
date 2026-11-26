@@ -97,7 +97,8 @@ function render(){
   if(kt){ kt.classList.toggle("abt", !!tb); if(tb){
     var reiter = [].slice.call(tb.querySelectorAll(":scope > .tab")).map(function(a){ return a.outerHTML; }).join("");
     var rest = [].slice.call(tb.querySelectorAll(":scope > .zeit, :scope > .stift")).map(function(a){ return a.outerHTML; }).join("");
-    kt.innerHTML = '<div class="akt" data-unterleiste>' + reiter + '</div>' + rest; tb.remove();
+    kt.innerHTML = '<div class="akt" data-unterleiste>' + reiter + '</div>'; tb.remove();
+    if(rest) APP.insertAdjacentHTML("beforeend", '<div class="zleiste">' + rest + '</div>');
     var ak = kt.querySelector(".akt"); if(ak.scrollWidth > ak.clientWidth + 2){ ak.classList.add("ueber"); ak.onwheel = function(e){ if(e.deltaY){ ak.scrollLeft += e.deltaY; e.preventDefault(); } }; ak.onscroll = function(){ ak.classList.toggle("ueber", ak.scrollLeft + ak.clientWidth < ak.scrollWidth - 2); }; }
     var on = kt.querySelector(".akt .tab.on"); if(on) on.scrollIntoView({block: "nearest", inline: "nearest"});
   } }

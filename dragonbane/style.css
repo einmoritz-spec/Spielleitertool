@@ -974,3 +974,14 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 .zeit .vt b{display:flex;align-items:center;gap:4px;font:15px/1 var(--f-kopf);color:var(--jade-d);min-width:0}
 .zeit .vt b svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8}
 .zeit .vt b svg .f{fill:currentColor;stroke:none;opacity:.35}
+/* Zeit und Notizen: schmale, hochkante Leiste am rechten Rand neben dem Text */
+.zleiste{position:fixed;right:6px;top:50%;transform:translateY(-50%);z-index:20;width:28px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 0}
+.zleiste .zeit{flex-direction:column;gap:6px;margin:0}
+.zleiste .zeit .ta{flex-direction:column;gap:2px}
+.zleiste .zeit .vt{flex-direction:column;gap:0;padding:6px 0 0;border-left:0;border-top:1px solid var(--linie)}
+.zleiste .zeit .vt button{width:22px;height:18px}
+.zleiste .zeit .vt b{flex-direction:column;gap:2px;font-size:14px}
+.zleiste .stift{width:26px;height:26px;margin-top:2px;padding-top:6px;border-top:1px solid var(--linie);border-radius:0}
+.zleiste .stift svg{width:16px;height:16px}
+#app:has(.zleiste){padding-right:26px}
+.zleiste .zeit .vt{flex-direction:column-reverse}

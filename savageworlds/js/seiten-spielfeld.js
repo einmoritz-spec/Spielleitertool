@@ -149,6 +149,9 @@ function kreaturen(){
   var L = window.SW_KR || [];
   if(typeof krSicht === "function") L = L.filter(function(k){ try { return krSicht(k); } catch(e){ return true; } });
   else if(typeof sqVis === "function") L = L.filter(function(k){ return sqVis(k.s); });
+  /* gleiche Kreatur im Grundregelwerk und im gespielten Regelwerk: nur die Regelwerks-Fassung */
+  var g = {}; L.forEach(function(k){ if((k.s || ["GRW"])[0] !== "GRW") g[k.n] = 1; });
+  L = L.filter(function(k){ return (k.s || ["GRW"])[0] !== "GRW" || !g[k.n]; });
   return L;
 }
 /* Angriffe und Sonderfähigkeiten eines Gegners aus den Bestiariumsdaten */

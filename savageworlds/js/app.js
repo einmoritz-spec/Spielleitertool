@@ -21,6 +21,7 @@ var TABS = [
  {id:"genres", t:"Genres", subs:[["fan","Fantasy"],["hor","Horror"],["sf","Science-Fiction"],["sup","Superkräfte"]]},
  {id:"spielleitung", t:"Spielleitung", img:"k-spielleitung", subs:[["grundlagen","Grundlagen",193],["weltenbau","Weltenbau"]]}
 ];
+window.SWP = window.SWP || {}; /* Seiten-Module: SWP["bereich/unterpunkt"] = function(){ ... APP.innerHTML = ... } */
 var BOOKC = {grw:"GRW", fan:"FAN", hor:"HOR", sf:"SF", sup:"SUP"};
 function gen(id){ return id === "grw" || !!ST.gen[id]; }
 
@@ -47,6 +48,8 @@ function render(){
   if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "ruestung") return ruestungPage();
   if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "waffen") return waffenPage();
   if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "fahrzeuge") return fahrzeugePage();
+  var pk = r.a + "/" + (r.b || (cur && cur.subs[0][0]) || "");
+  if(cur && window.SWP && SWP[pk]) return SWP[pk]();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }

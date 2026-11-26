@@ -1,0 +1,21 @@
+# Savage Worlds im Spielleitertool – Arbeitsanweisung für Seiten-Agenten
+
+Repo: einmoritz-spec/Spielleitertool (statische PWA, GitHub Pages), Ordner `savageworlds/`. Dein Worktree ist ein Klon; push nach `main` (`git fetch && git rebase origin/main && git push origin HEAD:main`, bei Konflikten in sw.js/index.html/app.js beide Seiten behalten, sw.js VERSION = höhere +1).
+
+## Quellen (PDFs liegen in /mnt/user-data/uploads/)
+- GRW (deutsch, Abenteuer-Edition): `Savage_Worlds___Regeln___Abenteuer-Edition_5__Auflage__DE_.pdf`. PDF-Seite = Buchseite + 1.
+- Englisch (MUSS ALLES INS DEUTSCHE ÜBERSETZT WERDEN, auch Spielbegriffe; GRW-Begriffe wie Wildcard, Statisten, Bennys, Schaden, Robustheit, Parade, Stä+W6, Aufstiege, Wunden, Erschöpfung usw. verwenden): Fantasy-, Horror-, Science-Fiction-, Super-Powers-Companion, World Builder & GM Guide, Deadlands (Seitenversatz PDF = Buch+2; World Builder +1).
+- Extraktion: pdfplumber; es gibt Hilfsskripte in /home/claude/work (rows.py = Tabellenzeilen mit " | ", grwdump.py) – falls vorhanden. Doppelte Buchstaben in Überschriften (GGEEGG) entduplizieren. Zweispaltiges Layout beachten. Ergebnis immer gegen PDF-Seite prüfen (PDF-Seite als Bild lesen, wenn zweifelhaft).
+
+## Harte Regeln (Nutzer: Moritz)
+- Alles komplett Deutsch; nur echte Eigennamen bleiben englisch. Seitenangaben „S.“, nie „Seite“; keine Seitenzahlen auf Übersichts-/Startkarten, nur in Detailansichten; Seitenlink unscheinbar im Kopf: `<span class="pg" onclick="openBook('sw_de',PDF)">S. n</span>` (Companions: Buch-ID siehe js/books.js, Talente nutzen t.bk/t.o).
+- Keine Erklärtexte/Hinweise der App, minimal. Kein Würfel-Tool.
+- Inhalte vollständig und exakt aus dem Buch, nichts erfinden. Jedes Buch-Kästchen (Items, Beispiele, Karten) als echte Karte.
+- Lange Seiten: Seitenleiste (`.side`, einklappbar mit `foldSide()`/`ST.fold`) mit den Kategorien/Abschnitten. WICHTIG: Die Leiste listet nur Abschnitte, die bei der aktuellen Genre-Auswahl (Fantasy/Horror/SF/Super-Powers, `gen('fan')` etc., `ST.gen`, Schalter in der Unterleiste `genSwitch()`) tatsächlich Inhalt haben. Inhalte aus Zusatzbänden tragen Quellen-Kürzel (s:["GRW"|"FAN"|"HOR"|"SF"|"SUP"|"DL"]) und werden nur gezeigt, wenn GRW oder ein aktives Genre. Quellen-Badges `<i class="sq sq-fan">FAN</i>` (siehe talBadges). Nach Genre-Wechsel neu rendern (toggleGen ruft render()).
+- Kurze Abschnitte (~ein Absatz) zu einem Seitenleisten-Eintrag zusammenfassen, rechts Überschriften untereinander (scrollen statt klicken); Layout auch mit eingeklappter Seitenleiste prüfen. Breite nutzen (Raster), keine lange einspaltige Wurst; Lesetext mit guter Breite.
+- Kartendesign: bestehende Klassen in style.css wiederverwenden (.hg/.hc Karten-Raster, .tg3/.tc/.td Kachel+Detail, .et Tabellen, .rk Überschrift, .ed Fließtext, edP(text) teilt Absätze mit fettem „Label:“). Die Überschriftenschrift (Spies) hat kein ß, „–“, „/“, gerade Apostrophe → `nm()` nutzen/Zeichen vermeiden. Fette Tabellenschrift hat keine „7“ und „×“/„%“ fehlen in Kursiv → nicht kursiv/fett für Zahlentexte.
+- Seiten registrieren: `SWP["bereich/unterpunkt"] = function(){ ... APP.innerHTML = ... }` (Hook in render(); Vorbild: waffenPage/fahrzeugePage/talentePage in js/app.js). Neue Daten in `js/data/*.js` (eine Datei pro Thema, window.SW_XXX), neuer Seitencode in eigener Datei `js/seiten-<name>.js` (nicht in app.js ändern, außer winzigen Hilfen). Beide in index.html als <script> eintragen UND in ../sw.js FILES, VERSION bumpen.
+- Tabs/Unterpunkte stehen in `TABS` (app.js); Änderungen daran minimal halten.
+- Test: `cd <worktree> && python3 -m http.server <freier Port>` und Playwright (python, chromium) Screenshots 1280×800; JEDE sichtbare Seite prüfen, auch mit eingeklappter Seitenleiste (`foldSide()`), und mit aktivierten Genres (`ST.gen`, `toggleGen('hor')`); Fehler/Lücken/schiefe Layouts selbst beheben.
+- Git: Commit-Nachricht kurz auf Deutsch, KEINE „Co-Authored-By“/„Claude-Session“-Zeilen, nie. Häufig committen+pushen (nach jeder fertigen Seite). Nicht auf andere Agenten warten, nicht nachfragen – eigenständig entscheiden und im Abschlussbericht (kurz, deutsch) nennen, was fertig ist und was fehlt.
+- Andere Agenten bauen parallel andere Bereiche; fasse deren Dateien nicht an.

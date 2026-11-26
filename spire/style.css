@@ -633,7 +633,7 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 
 /* ---------- Gegner-Raster ---------- */
 .gx-wrap{padding:18px 26px 50px}
-.wrap.gb .gfl{position:sticky;top:calc(var(--top) + var(--tabh) + 50px);z-index:5;background:var(--papier);margin:0 -26px 6px;padding:10px 26px;border-bottom:1px solid var(--linie)}
+.wrap.gb .gfl{position:sticky;top:calc(var(--top) + var(--tabh) + var(--begh,50px));z-index:5;background:var(--papier);margin:0 -26px 6px;padding:10px 26px;border-bottom:1px solid var(--linie)}
 .gfl input{max-width:340px}
 .gx-gs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 22px;align-items:start}
 .gx-g{min-width:0;margin:0 0 14px}
@@ -1075,3 +1075,11 @@ body.anschluss .ktabs a.on::after{content:"";position:absolute;left:0;right:0;bo
 .kl-t em.herk{display:block;font:italic 400 13px/1.2 var(--f-text);color:#9fb2c8;margin-top:3px}
 .kf-sub{margin:2px 0 8px}
 .schwarz h4 .pg{color:#9fb2c8;margin-left:8px;font-size:13px}
+
+/* Begegnung: Rüstungskästchen je Figur */
+.bi .zw.ru{padding-left:8px;margin-left:2px;border-left:1px solid var(--nachtlinie)}
+.bi .zw.ru i{background:#2a3d57;border-color:#8ea2b9}
+.bi .zw.ru i.x{background:#9fb2c8;border-color:#9fb2c8}
+.bi .bn{font-size:13px;background:#3a4f6b;color:#fff;border-radius:9px;padding:0 6px;margin-left:3px;cursor:inherit}
+
+body:has(.begl) .side{top:calc(var(--top) + var(--tabh) + var(--begh,50px));height:calc(100vh - var(--top) - var(--tabh) - var(--begh,50px))}

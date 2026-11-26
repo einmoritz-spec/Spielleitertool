@@ -4,8 +4,22 @@
 window.SP_GEGNER = window.SP_GEGNER || [];
 var GOPEN = {};
 function gById(id){ return SP_GEGNER.filter(function(g){ return g.id === id; })[0]; }
-function gBeg(){ if(!Array.isArray(ST.begegnung)) ST.begegnung = []; return ST.begegnung; }
+var GUID = 0;
+function gNeu(id){ return {u:Date.now().toString(36) + (++GUID), id:id, s:0, r:0, v:0}; }
+/* Begegnung: eine Instanz je Figur (eigener Stress, eigene Rüstung). Alte Einträge {id, n} werden in n Instanzen aufgeteilt. */
+function gBeg(){
+  if(!Array.isArray(ST.begegnung)) ST.begegnung = [];
+  if(ST.begegnung.some(function(e){ return !e.u || e.n > 1; })){
+    var neu = [];
+    ST.begegnung.forEach(function(e){ for(var k = 0; k < (e.n || 1); k++){ var c = gNeu(e.id); c.s = k ? 0 : (e.s || 0); c.v = e.v || 0; if(e.b) c.b = e.b; neu.push(c); } });
+    ST.begegnung = neu; save();
+  }
+  return ST.begegnung;
+}
 function gEntry(id){ return gBeg().filter(function(e){ return e.id === id; })[0]; }
+function gInst(u){ return gBeg().filter(function(e){ return e.u === u; })[0]; }
+/* Rüstung: Zahl aus dem Tag „Rüstung N“ (höchster Wert) */
+function gRuest(g){ var m = 0; (g.ausr || []).forEach(function(a){ if(typeof a === "string") return; (a.tags || []).forEach(function(t){ var x = /^Rüstung\s+(\d+)$/.exec(t); if(x) m = Math.max(m, +x[1]); }); }); return m; }
 function gWerte(g){ return (g.wid && g.wid.werte) || []; }
 function gMax(g, e){ var W = gWerte(g); return (W[(e && e.v) || 0] || W[0] || 0) + (g.wid && g.wid.plus && e ? (e.b || 0) : 0); }
 function gWidTxt(g){ return gWerte(g).join(" / "); }
@@ -42,11 +56,11 @@ function gBoxen(g){
 }
 function gStress(id, i){
   var g = gById(id); if(!g) return;
-  var e = gEntry(id); if(!e){ e = {id:id, n:1, s:0, v:0}; gBeg().push(e); }
+  var e = gEntry(id); if(!e){ e = gNeu(id); gBeg().push(e); }
   e.s = e.s === i + 1 ? i : i + 1; save(); render();
 }
-function gPlus(id){ var g = gById(id), e = gEntry(id); if(!e){ e = {id:id, n:1, s:0, v:0}; gBeg().push(e); } e.b = ((e.b || 0) + 1) % 7; save(); render(); }
-function gVar(id, v){ var e = gEntry(id); if(!e){ e = {id:id, n:1, s:0, v:0}; gBeg().push(e); } e.v = v; e.s = Math.min(e.s || 0, gMax(gById(id), e)); save(); render(); }
+function gPlus(id){ var g = gById(id), e = gEntry(id); if(!e){ e = gNeu(id); gBeg().push(e); } e.b = ((e.b || 0) + 1) % 7; save(); render(); }
+function gVar(id, v){ var e = gEntry(id); if(!e){ e = gNeu(id); gBeg().push(e); } e.v = v; e.s = Math.min(e.s || 0, gMax(gById(id), e)); save(); render(); }
 function gZiel(g){ if(g.ziel) return ("#" + g.ziel === location.hash.split("?")[0] || location.hash.indexOf("#" + g.ziel + "/") === 0) ? "" : g.ziel; if(!g.ortId) return ""; return "abenteuer/snuff/" + (g.ortId === "karmesin" ? "figuren" : "orte") + "/" + g.ortId; }
 
 /* Werteblock (Buchblock): schwarzer Kopf, Felder, Widerstand mit Stress-Kästchen */
@@ -79,10 +93,10 @@ function gegnerKarte(id, key){
 function gzTog(el, k){ var p = el.parentNode; p.classList.toggle("open"); GOPEN[k] = p.classList.contains("open"); }
 
 /* ---------- Begegnung ---------- */
-function bgAdd(id){ var e = gEntry(id); if(e) e.n = (e.n || 1) + 1; else gBeg().push({id:id, n:1, s:0, v:0}); save(); render(); }
-function bgMinus(id){ var e = gEntry(id); if(!e) return; if((e.n || 1) > 1) e.n--; else ST.begegnung = gBeg().filter(function(x){ return x !== e; }); save(); render(); }
-function bgDel(id){ ST.begegnung = gBeg().filter(function(x){ return x.id !== id; }); save(); render(); }
-function bgSet(id, i){ var e = gEntry(id); if(!e) return; e.s = e.s === i + 1 ? i : i + 1; save(); render(); }
+function bgAdd(id){ gBeg().push(gNeu(id)); save(); render(); }
+function bgDel(u){ ST.begegnung = gBeg().filter(function(x){ return x.u !== u; }); save(); render(); }
+function bgStr(u, i){ var e = gInst(u); if(!e) return; e.s = e.s === i + 1 ? i : i + 1; save(); render(); }
+function bgRue(u, i){ var e = gInst(u); if(!e) return; e.r = e.r === i + 1 ? i : i + 1; save(); render(); }
 function bgClear(){ ST.begegnung = []; save(); render(); }
 function gSel(id){ ST.gsel = id; save(); render(); }
 function bgPick(){
@@ -93,10 +107,15 @@ function bgPick(){
 function begLeiste(immer){
   var L = gBeg().filter(function(e){ return gById(e.id); });
   if(!L.length && !immer) return "";
+  var zaehl = {}, nr = {}; L.forEach(function(e){ zaehl[e.id] = (zaehl[e.id] || 0) + 1; });
   var items = L.map(function(e){
-    var g = gById(e.id), max = gMax(g, e), s = Math.min(e.s || 0, max), h = "";
-    for(var i = 0; i < max; i++) h += '<i class="' + (i < s ? 'x' : '') + '" onclick="bgSet(\'' + e.id + '\',' + i + ')"></i>';
-    return '<div class="bi' + (ST.gsel === e.id ? ' sel' : '') + (max && s >= max ? ' aus' : '') + '"><b onclick="gSel(\'' + e.id + '\')">' + esc(g.kurz || g.t) + '</b>' + ((e.n || 1) > 1 ? '<span class="bn" onclick="bgMinus(\'' + e.id + '\')" title="Einen weniger">×' + e.n + '</span>' : '') + '<span class="zw">' + h + '</span><em>' + s + '/' + max + '</em><u onclick="bgDel(\'' + e.id + '\')" title="Entfernen">×</u></div>';
+    var g = gById(e.id), max = gMax(g, e), s = Math.min(e.s || 0, max), ru = gRuest(g), h = "", hr = "";
+    nr[e.id] = (nr[e.id] || 0) + 1;
+    for(var i = 0; i < max; i++) h += '<i class="' + (i < s ? 'x' : '') + '" onclick="bgStr(\'' + e.u + '\',' + i + ')"></i>';
+    for(var j = 0; j < ru; j++) hr += '<i class="' + (j < (e.r || 0) ? 'x' : '') + '" onclick="bgRue(\'' + e.u + '\',' + j + ')"></i>';
+    return '<div class="bi' + (ST.gsel === e.id ? ' sel' : '') + (max && s >= max ? ' aus' : '') + '"><b onclick="gSel(\'' + e.id + '\')">' + esc(g.kurz || g.t) + (zaehl[e.id] > 1 ? ' <span class="bn">' + nr[e.id] + '</span>' : '') + '</b>' +
+      '<span class="zw" title="Widerstand">' + h + '</span><em>' + s + '/' + max + '</em>' +
+      (ru ? '<span class="zw ru" title="Rüstung ' + ru + '">' + hr + '</span>' : '') + '<u onclick="bgDel(\'' + e.u + '\')" title="Entfernen">×</u></div>';
   }).join("");
   return '<div class="begl"><h5>Begegnung</h5>' + items + '<span class="bplus" onclick="bgPick()">+ Gegner</span>' + (L.length ? '<span class="bplus" onclick="bgClear()">Leeren</span>' : '') + '<span class="sp"></span>' + stift("spiel:gegner") + '</div>';
 }
@@ -184,3 +203,10 @@ SP_VIEW.gegner = function(teile){
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
   SP_GEGNER.forEach(function(g){ add(g.t + (g.en && g.en !== g.t ? " (" + g.en + ")" : ""), "Gegner", "gegner/" + g.id, g.p, [g.namen, g.namenEn, g.namenX, g.beschr, g.wid, g.schw && g.schw.x, g.bes, g.einl, g.druck, g.ausr.map(function(a){ return typeof a === "string" ? a : [a.x, a.dmg, a.tags]; })], gBuch(g)); });
 });
+
+/* Höhe der Begegnungsleiste (ein- oder mehrzeilig) für die klebenden Elemente darunter merken */
+(function(){
+  function messen(){ var b = document.querySelector(".begl"); document.documentElement.style.setProperty("--begh", (b ? b.offsetHeight : 0) + "px"); }
+  if(window.ResizeObserver) new ResizeObserver(messen).observe(document.body); else setInterval(messen, 400);
+  messen();
+})();

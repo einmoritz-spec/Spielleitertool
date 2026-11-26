@@ -20,8 +20,8 @@ window.renderHub = function(el){
   var first = !el.dataset.hubSeen; el.dataset.hubSeen = "1";
   el.innerHTML = '<div class="hb' + (first ? ' intro' : '') + '"><div class="hb-st">' + P.map(function(p, i){
     var lg = p.logo, h = Math.round(p.w * lg[2] / lg[1]);
-    return '<article class="hp hp-' + p.k + (i === 0 ? ' on' : '') + '" style="--i:' + i + ';--lw:' + p.w + 'px;--lh:' + h + 'px;--fp:' + p.fp + ';--fa:' + p.fa + '">' +
-      '<div class="hp-im" style="background-image:url(img/' + p.hero + '.webp)"></div><div class="hp-sh"></div><div class="hp-fx"></div>' +
+    return '<article class="hp hp-' + p.k + (i === 0 ? ' on' : '') + '" style="--i:' + i + ';--lw:' + p.w + 'px;--lh:' + h + 'px;--fpx:' + p.fp.split(" ")[0] + ';--fax:' + p.fa.split(" ")[0] + ';--fy:' + (p.fa.split(" ")[1] || "50%") + '">' +
+      '<div class="hp-im" style="background-image:url(img/' + p.hero + '.webp)"></div><div class="hp-dim"></div><div class="hp-sh"></div><div class="hp-fx"></div>' +
       '<div class="hp-in"><span class="hp-logo" role="img" aria-label="' + esc(p.nm) + '" style="-webkit-mask-image:url(' + lg[0] + ');mask-image:url(' + lg[0] + ')"></span>' +
       '<div class="hp-more"><div class="hp-ort">' + p.ort + '</div>' +
       (p.last ? '<a class="hp-last" href="' + esc(p.last.href) + '"><b>' + esc(p.last.name) + '</b>' + (p.last.ort && p.last.ort !== p.last.name && String(p.last.name).indexOf(p.last.ort) < 0 ? '<span>' + esc(p.last.ort) + '</span>' : '') + '</a>' : '') +

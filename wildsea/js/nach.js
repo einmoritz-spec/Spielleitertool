@@ -96,8 +96,6 @@ function viewNach(bereich, id, sz){
   var TL = sz ? (window.WS_SZENARIEN || []).filter(function(x){ return x.id; }).map(function(x){ return [x.id, x.t]; }) : NACH;
   var meta = TL.filter(function(n){ return n[0] === bereich; })[0];
   if(!meta) return viewPlatzhalter(bereich);
-  var kt = document.getElementById("ktabs");
-  if(!sz && kt){ kt.innerHTML = NACH.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'nach/' + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join(""); document.body.classList.add("wsnav"); }
   var tabs = '<div class="tabs">' + TL.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'' + P + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join("") + '</div>';
   var L = (window.WS_NACH || {})[bereich] || [];
   (function(){ var o = [], m = {}; L.forEach(function(s){ if(!m[s.k]){ m[s.k] = []; o.push(s.k); } m[s.k].push(s); }); L = [].concat.apply([], o.map(function(k){ return m[k]; })); })();
@@ -126,5 +124,5 @@ function viewNach(bereich, id, sz){
   var hd = '<div class="hd"><h1>' + esc(cur.t) + '</h1><span class="pg"><a onclick="openBook(\'' + bk + '\',' + cur.p + ')">S. ' + cur.p + '</a></span>' + qTag(cur) + '</div>';
   var body = pc ? pcRender(cur, pc) + '<div class="nbody pcd">' + nGruppiert(cur.b.filter(function(b){ return !b.pc; })) + '</div>' + nav
     : hd + nBilder(bereich, cur.id) + '<div class="nbody">' + nGruppiert(cur.b) + '</div>' + more + nav;
-  return tabs + lay('<nav class="side">' + side + '</nav>', body);
+  return tabs + lay('<nav class="side sn">' + side + '</nav>', body);
 }

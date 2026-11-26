@@ -55,12 +55,29 @@ function viewReiche(){
   };
   var cards = WS_REICHE.filter(function(r){ return !r.q; }).map(card).join(""), cards2 = WS_REICHE.filter(function(r){ return r.q; }).map(card).join("");
   var sz = WS_SZENARIEN.map(function(s){ return (s.id ? '<a onclick="go(\'szenario/' + s.id + '\')">' : '<div>') + '<b>' + esc(s.t) + '</b><small>' + esc(s.s) + '</small>' + (s.id ? '</a>' : '</div>'); }).join("");
-  return '<div class="tabs"><a class="on">Reiche</a></div><div class="pad"><div class="rg">' + cards + '</div>' + (cards2 ? '<h2 class="sec" style="margin-top:22px">Storm and Root</h2><div class="rg">' + cards2 + '</div>' : '') + '<h2 class="sec" style="margin-top:22px">Szenarien</h2><div class="sz">' + sz + '</div></div>';
+  return '<div class="pad"><div class="rg">' + cards + '</div>' + (cards2 ? '<h2 class="sec" style="margin-top:22px">Storm and Root</h2><div class="rg">' + cards2 + '</div>' : '') + '<h2 class="sec" style="margin-top:22px">Szenarien</h2><div class="sz">' + sz + '</div></div>';
 }
 function viewPlatzhalter(t){ return '<div class="tabs"><a class="on">' + esc(t) + '</a></div><div class="pad"><h2 class="sec">' + esc(t) + '</h2></div>'; }
+/* Kopfzeile: auf jeder Seite dieselben Bereiche als Reiter; der passende ist aktiv und geht in die Unterleiste (.tabs) über */
+var WS_KOPF = [["regeln","Regeln","nach/regeln"],["charaktere","Charaktere","nach/charaktere"],["schiffe","Schiffe","nach/schiffe"],["wildsee","Die Wildsee","nach/wildsee"],["leitfaden","Leitfaden","nach/leitfaden"],["tisch","Am Tisch","nach/tisch"],["reiche","Reiche","reiche"],["abenteuer","Abenteuer","szenario/red-right-hand"],["spielleitung","Spielleitung","schirm"]];
+function wsBereich(h){
+  var v = h[0] || "start";
+  if(v === "nach") return h[1] || "regeln";
+  if(v === "reiche" || v === "reich") return "reiche";
+  if(v === "szenario") return "abenteuer";
+  if(v === "schirm" || v === "gefahren") return "spielleitung";
+  return "";
+}
+function wsKopf(h){
+  var kt = document.getElementById("ktabs"); if(!kt) return;
+  var b = wsBereich(h);
+  kt.innerHTML = WS_KOPF.map(function(n){ return '<a class="' + (n[0] === b ? 'on' : '') + '" onclick="go(\'' + n[2] + '\')">' + esc(n[1]) + '</a>'; }).join("");
+  document.body.classList.toggle("wsnav", !!APP.querySelector(".tabs"));
+}
+/* Unterleiste der Spielleitung: Schirm und Gefahren */
+function wsSL(aktiv){ return '<div class="tabs">' + [["schirm","Spielleiterschirm"],["gefahren","Gefahren"]].map(function(n){ return '<a class="' + (n[0] === aktiv ? 'on' : '') + '" onclick="go(\'' + n[0] + '\')">' + n[1] + '</a>'; }).join("") + '</div>'; }
 function render(){
   var h = (location.hash || "#start").slice(1).split("/"), v = h[0] || "start", out;
-  var kt = document.getElementById("ktabs"); if(kt) kt.innerHTML = ""; document.body.classList.remove("wsnav");
   if(v === "start") out = viewStart();
   else if(v === "reiche") out = viewReiche();
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
@@ -73,7 +90,7 @@ function render(){
   else if(v === "nach") out = viewNach(h[1] || "regeln", h[2]);
   else if(v === "szenario") out = viewNach(h[1] || "red-right-hand", h[2], true);
   else out = viewPlatzhalter(h.slice(1).join(" ") || v);
-  var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; scrollTo(0, same ? y : 0);
+  var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; wsKopf(h); scrollTo(0, same ? y : 0);
 }
 function buildMenu(){
   document.getElementById("mmP").innerHTML = '<h3>Werkzeuge</h3><button onclick="openMenu(false);sOpen(true)">Suche</button><button onclick="openMenu(false);go(\'schirm\')">Spielleiterschirm &amp; Würfel</button><button onclick="openMenu(false);go(\'gefahren\')">Gefahren</button><button onclick="openMenu(false);go(\'garten\')">Gartenbogen</button><button onclick="openMenu(false);go(\'bogen\')">Charakterbogen</button>' + WS_BUECHER.map(function(g){ return '<h3>' + esc(g.grp) + '</h3>' + g.items.map(function(b){ return '<button onclick="openMenu(false);BV.open(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");

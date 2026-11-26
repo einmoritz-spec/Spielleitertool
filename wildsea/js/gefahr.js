@@ -45,7 +45,7 @@ function gKarte(g){
 function viewGefahren(id){
   var L = window.WS_GEFAHR || [], g = id ? gById(id) : null, s = GS();
   var enc = '<div class="enc"><span class="lb">Begegnung</span>' + s.enc.map(function(e){ var x = gById(e.id); return '<span class="ec' + (g && x.id === g.id ? ' on' : '') + '" onclick="go(\'gefahren/' + x.id + '\')" oncontextmenu="gDel(event,\'' + x.id + '\')">' + esc(x.t) + ' <i>×' + e.n + '</i></span>'; }).join("") + (g ? '<span class="ec add" onclick="gEnc(\'' + g.id + '\')">+ Gefahr</span>' : '') + '</div>';
-  var tabs = '<div class="tabs"><a class="on">Gefahren</a></div>';
+  var tabs = wsSL("gefahren");
   if(!g){
     var chips = [["", "Alle"]].concat(GKAT).map(function(k){ return '<span class="chip' + ((s.kat || "") === k[0] ? ' on' : '') + '" onclick="gKat(\'' + k[0] + '\')">' + k[1] + '</span>'; }).join("");
     var qs = (window.WS_GEFAHR || []).reduce(function(a, x){ var k = x.q || "core"; if(a.indexOf(k) < 0) a.push(k); return a; }, []);

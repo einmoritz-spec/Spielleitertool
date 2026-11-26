@@ -405,12 +405,12 @@ button.fold{position:fixed;top:112px;left:238px;z-index:16;width:24px;height:24p
 @media(max-width:560px){.sxm{display:flex}.sxm a{flex:1;text-align:center;padding:8px 4px 6px}.sxr em{display:none}.wt{grid-template-columns:1fr}}
 .hd.mh{margin-top:26px}
 /* Kopfzeile mit Reitern; aktiver Reiter geht nahtlos in die Unterleiste (.tabs) über */
-.ktabs{display:flex;gap:2px;margin-left:22px;align-self:stretch}
-.ktabs a{display:flex;align-items:center;padding:0 16px;font:600 22px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);cursor:pointer}
+.ktabs{display:flex;gap:0;margin-left:14px;align-self:stretch}
+.ktabs a{display:flex;align-items:center;padding:0 12px;white-space:nowrap;font:600 20px/1 Teko,sans-serif;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);cursor:pointer}
 .ktabs a:hover{color:var(--ink)}
 .ktabs a.on{color:var(--ink);background:var(--paper2)}
 body.wsnav .topbar{border-bottom:0}
 body.wsnav .tabs{border-bottom:2px solid var(--sage);height:44px}
 body.wsnav .tabs0{height:2px;border-bottom:2px solid var(--sage)}
-body.wsnav .side h4{display:none}
+body.wsnav .side.sn h4{display:none}
 body.wsnav .side{padding-top:6px;top:98px;height:calc(100vh - 98px)}

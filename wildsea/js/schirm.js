@@ -35,5 +35,5 @@ function viewSchirm(){
     }).join("");
     return '<h2 class="sec shd">' + esc(g.g) + ' <a class="pg" onclick="openBook(\'' + qBuch(g) + '\',' + g.p + ')">S. ' + g.p + '</a>' + qTag(g) + '</h2><div class="sg">' + cards + '</div>';
   }).join("");
-  return '<div class="tabs"><a class="on">Spielleiterschirm</a></div><div class="pad">' + wTisch() + gr + '</div>';
+  return wsSL("schirm") + '<div class="pad">' + wTisch() + gr + '</div>';
 }

@@ -111,8 +111,8 @@ function bgZeile(e, g, nr){
   var max = gMax(g, e), s = Math.min(e.s || 0, max), ru = gRuest(g), h = "", hr = "";
   for(var i = 0; i < max; i++) h += '<i class="' + (i < s ? 'x' : '') + '" onclick="bgStr(\'' + e.u + '\',' + i + ')"></i>';
   for(var j = 0; j < ru; j++) hr += '<i class="' + (j < (e.r || 0) ? 'x' : '') + '" onclick="bgRue(\'' + e.u + '\',' + j + ')"></i>';
-  return '<div class="bz' + (max && s >= max ? ' aus' : '') + '">' + (nr ? '<span class="bn">' + nr + '</span>' : '') + '<span class="zw" title="Widerstand">' + h + '</span><em>' + s + '/' + max + '</em>' +
-    (ru ? '<span class="zw ru" title="Rüstung ' + ru + '">' + hr + '</span>' : '') + '<u onclick="bgDel(\'' + e.u + '\')" title="Entfernen">×</u></div>';
+  return '<div class="bz' + (max && s >= max ? ' aus' : '') + '">' + (nr ? '<span class="bn">' + nr + '</span>' : '') + '<span class="zw" title="Widerstand">' + h + '</span>' +
+    (ru ? '<span class="zw ru" title="Rüstung ' + ru + '">' + hr + '</span>' : '') + '<em>' + s + '/' + max + '</em>' + '<u onclick="bgDel(\'' + e.u + '\')" title="Entfernen">×</u></div>';
 }
 /* Gleiche Gegner hängen in einem Kasten untereinander: Name oben, darunter je Figur eine Zeile */
 function begLeiste(immer){

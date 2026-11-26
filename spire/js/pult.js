@@ -57,7 +57,7 @@ function puDetail(g){
   var var_ = W.length > 1 ? '<span class="gvar">' + W.map(function(w, i){ return '<span class="' + (i === v ? 'on' : '') + '" onclick="event.stopPropagation();gVar(\'' + g.id + '\',' + i + ')">' + w + '</span>'; }).join("") + '</span>' : '';
   var wtxt = W.length > 1 ? W[v] + (g.wid.plus && e && e.b ? " + " + e.b : "") : gWidTxt(g) + (g.wid && g.wid.plus && e && e.b ? " + " + e.b : "");
   var plus = g.wid && g.wid.plus ? '<span class="chip w" onclick="event.stopPropagation();gPlus(\'' + g.id + '\')">' + esc(g.wid.plus) + (e && e.b ? ' · ×' + e.b : '') + '</span>' : '';
-  var wx = g.wid && g.wid.x && !/^[\d\s\/]+$/.test(g.wid.x) ? '<small>' + md(g.wid.x) + '</small>' : '';
+  var wx = g.wid && g.wid.x && !/^[\d\s\/]+$/.test(g.wid.x) ? '<span>' + md(g.wid.x) + '</span>' : '';
   var sx = g.schw && g.schw.x ? String(g.schw.x).replace(/^\s*\d+\s*[,:]?\s*/, "") : "";
   var sec = function(k, x){ return x ? '<div class="pd-s"><h5>' + k + '</h5><div>' + x + '</div></div>' : ""; };
   var namen = g.namen ? g.namen.map(esc).join(", ") + (g.namenEn ? ' <span class="en">(' + g.namenEn.map(esc).join(", ") + ')</span>' : "") : "";
@@ -65,9 +65,9 @@ function puDetail(g){
     '<div class="pd-k"><span>' + namen + '</span>' + pgl(g.p, gBuch(g)) + '</div>' +
     (g.beschr ? '<p class="pd-b">' + g.beschr.map(esc).join(" · ") + '</p>' : '') + (g.einl ? '<p class="pd-b">' + md(g.einl) + '</p>' : '') +
     '<div class="pd-st gx-s' + Math.min(2, gBase(g)) + '">' +
-      '<div class="pd-c"><h5>Schwierigkeit</h5><div class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + '</div>' + (sx ? '<small>' + md(sx) + '</small>' : '') + '</div>' +
-      '<div class="pd-c"><h5>Rüstung</h5><div class="gx-m">' + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<span class="pu-nr">' + gSym("ru", "Rüstung", SY_SCHILD, "0") + '</span>') + '</div></div>' +
-      '<div class="pd-c pd-w"><h5>Widerstand</h5><div class="pd-wz"><b>' + esc(wtxt) + '</b>' + var_ + gBoxen(g) + plus + '</div>' + wx + '</div>' +
+      '<div class="pd-c"><span class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + '</span></div>' +
+      '<div class="pd-c"><span class="gx-m">' + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<span class="pu-nr">' + gSym("ru", "Rüstung", SY_SCHILD, "0") + '</span>') + '</span></div>' +
+      '<div class="pd-c pd-w" data-tn="Widerstand"><b>' + esc(wtxt) + '</b>' + var_ + gBoxen(g) + plus + '</div>' + (sx || wx ? '<div class="pd-sx">' + (sx ? '<span>' + md(sx) + '</span>' : '') + wx + '</div>' : '') +
     '</div>' +
     sec("Besonderes", g.bes ? md(g.bes) : "") + sec("Ausrüstung", gAusr(g)) + sec("Druckmittel", g.druck ? md(g.druck) : "") +
   '</div>';

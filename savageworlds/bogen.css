@@ -125,7 +125,9 @@
   .topbar,.sub,#top,.bgbar,.noprint,.mm-backdrop,.mm-panel,.bpop{display:none!important}
   .bgwrap{padding:0;max-width:none}
   .sheetwrap{display:block;overflow:visible}
-  .bsheet{box-shadow:none;width:210mm;min-height:297mm;transform-origin:0 0;zoom:1.0}
+  .bsheet{box-shadow:none;width:210mm;min-height:0;transform-origin:0 0;zoom:var(--pz,1)!important}
+  .bsheet .box{break-inside:avoid}
+  .bsheet.p2 .bbot{break-before:auto}
   .bsheet,.bsheet *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .bwahl.in a:not(.on){display:none}
 }
@@ -203,3 +205,5 @@
 .bipop .ix{position:absolute;right:6px;top:4px;border:0;background:none;font-size:18px;cursor:pointer;color:#8a7f70}
 @media print{.ii{display:none}}
 .bsup .bah>div{border-bottom:0}
+
+.bsheet.kurz .pl{display:none!important}

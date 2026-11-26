@@ -352,11 +352,31 @@ function flatS(sets, need, mk){
   return out;
 }
 function col(cols, r, n){ var i = cols.indexOf(n); return i < 0 ? "" : (r.c[i] == null ? "" : r.c[i]); }
+/* ---------- Epochen: welche Waffen/Rüstungen/Ausrüstung zu den gewählten Regelwerken passen ---------- */
+var EPG = {fan: ["mit"], hor: ["mit", "pul", "mod"], dl: ["mit", "pul"], sf: ["mod", "fut"], sup: ["mod", "fut"]};
+function epochen(){ var o = []; Object.keys(EPG).forEach(function(g){ if(gen(g)) EPG[g].forEach(function(e){ if(o.indexOf(e) < 0) o.push(e); }); }); return o.length ? o : null; }
+function epOk(ep){ var E = epochen(); return !E || !ep || ep.some(function(e){ return E.indexOf(e) > -1; }); }
+var WEG = /^(Kanonen|Katapulte|Minen|Raketen|Fahrzeugwaffen|Belagerungsmaschinen|Sprengköpfe|Waffeneigenschaften|Waffenmodifikationen)$|Fahrzeugwaffen|Munition/;
+function waEp(S, g, s){
+  var h = S.h || "", gh = (g && g.h) || "", q = s[0];
+  if(q === "FAN") return /Schwarzpulver/.test(h) ? ["pul"] : ["mit"];
+  if(q === "SF") return ["fut"]; if(q === "SUP") return ["mod", "fut"]; if(q === "HOR") return null;
+  if(/Mittelalter/.test(gh)) return ["mit"]; if(/Futur/.test(gh) || /Laser/.test(h)) return ["fut"]; if(/Modern/.test(gh)) return ["mod"];
+  if(/Schwarzpulver/.test(h)) return ["pul"];
+  if(/Revolver|Unterhebel/.test(gh) || /Schrotflinten/.test(h)) return ["pul", "mod"];
+  return ["mod"];
+}
+function ruEp(n, grp, s){ var q = s[0]; if(q === "FAN") return ["mit"]; if(q === "SF") return ["fut"]; if(q === "SUP") return ["mod", "fut"];
+  if(/Mittelalter|Bronze|Antike/.test(grp)) return ["mit"]; if(/Futur/.test(grp)) return ["fut"]; if(/Modern/.test(grp)) return ["mod"]; return null; }
+var MODERN = /Feuerzeug|Kamera|Nylon|Taschenlampe|Schlafsack|Schutzbrille|Sanitätskoffer|Erste-Hilfe|Tarnkleidung|EPA|Fastfood|Restaurant/;
+function auEp(n, sec, s){ var q = s[0]; if(q === "FAN") return ["mit"]; if(q === "SF") return ["fut"];
+  if(/Computer|Feuerwaffen|Selbstverteidigung|Überwachung/.test(sec) || MODERN.test(n)) return ["mod", "fut"]; return null; }
 function lWaffen(){
   var sets = [].concat(SW_WAFFEN, window.SW_WAFFEN_FAN || [], window.SW_WAFFEN_SF || [], window.SW_WAFFEN_HOR || [], window.SW_WAFFEN_SUP || []);
   return flatS(sets, 0, function(r, cols, S, g, s){
     if(cols.indexOf("Schaden") < 0 && cols.indexOf("PB-Geschosse") < 0) return null;
-    return {n: r.c[0], sub: g.h || S.h, s: s, f: {n: r.c[0], rw: col(cols, r, "Reichweite").replace(/^—$/, ""), sd: col(cols, r, "Schaden").replace(/^—$/, "") || col(cols, r, "PB-Geschosse"), pb: col(cols, r, "PB").replace(/^—$/, ""), fr: col(cols, r, "FR").replace(/^—$/, ""),
+    if(WEG.test(S.h || "")) return null;
+    return {n: r.c[0], sub: g.h || S.h, s: s, ep: waEp(S, g, s), f: {n: r.c[0], rw: col(cols, r, "Reichweite").replace(/^—$/, ""), sd: col(cols, r, "Schaden").replace(/^—$/, "") || col(cols, r, "PB-Geschosse"), pb: col(cols, r, "PB").replace(/^—$/, ""), fr: col(cols, r, "FR").replace(/^—$/, ""),
       ms: col(cols, r, "Mindeststärke").replace(/^—$/, ""), gw: col(cols, r, "Gewicht (kg)") || col(cols, r, "Gewicht"), nt: r.n || "", fs: col(cols, r, "Flächenschablone").replace(/^—$/, "")}};
   });
 }
@@ -365,7 +385,7 @@ function lRuestung(){
   function add(r, nmCols, g, s, grpH){
     var n = r.c[0], mc = /\(([^)]*)\)/.exec(n), cov = mc ? mc[1] : "";
     if(!cov){ var m2 = /Bedeckt\s+([^.]*)\./.exec(r.n || ""); if(m2) cov = m2[1]; }
-    out.push({n: n, sub: grpH, s: s, f: Object.assign({n: n, cov: cov.replace(/Torso, Arme, Beine/, "Torso, Arme, Beine"), on: 1, nt: r.n || ""}, nmCols(r))});
+    out.push({n: n, sub: grpH, s: s, ep: ruEp(n, grpH + " " + ((g && g.h) || ""), s), f: Object.assign({n: n, cov: cov.replace(/Torso, Arme, Beine/, "Torso, Arme, Beine"), on: 1, nt: r.n || ""}, nmCols(r))});
   }
   R.s.forEach(function(S){ (S.g || []).forEach(function(g){ (g.r || []).forEach(function(r){ add(r, function(r){ return {pz: r.c[1], pa: "", ms: r.c[2], gw: r.c[3]}; }, g, ["GRW"], S.h); }); }); });
   (R.sh.g || []).forEach(function(g){ (g.r || []).forEach(function(r){ add(r, function(r){ return {pz: "", pa: r.c[1], ms: r.c[3], gw: r.c[4]}; }, g, ["GRW"], "Schilde"); }); });
@@ -380,9 +400,9 @@ function lRuestung(){
 }
 function lAusr(){
   var out = [];
-  (SW_AUSR_ALLG.sec || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["GRW"], f: {n: r[0], gw: r[2] === "—" ? "" : r[2]}}); }); });
-  if(gen("fan") && window.SW_FAN_AUSR) (SW_FAN_AUSR.allg || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["FAN"], f: {n: r[0], gw: r[1]}}); }); });
-  if(gen("sf") && window.SW_SF_GEAR) SW_SF_GEAR.forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["SF"], f: {n: r[0], gw: r[1]}}); }); });
+  (SW_AUSR_ALLG.sec || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["GRW"], ep: auEp(r[0], S.h, ["GRW"]), f: {n: r[0], gw: r[2] === "—" ? "" : r[2]}}); }); });
+  if(gen("fan") && window.SW_FAN_AUSR) (SW_FAN_AUSR.allg || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["FAN"], ep: ["mit"], f: {n: r[0], gw: r[1]}}); }); });
+  if(gen("sf") && window.SW_SF_GEAR) SW_SF_GEAR.forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["SF"], ep: ["fut"], f: {n: r[0], gw: r[1]}}); }); });
   return out;
 }
 function liste(kind, ctx, own){
@@ -405,9 +425,8 @@ function liste(kind, ctx, own){
     return L2; }
   if(kind === "sup"){ var hs = (c.sp || []).filter(function(r){ return r && r.n; }).map(function(r){ return r.n; }), SI2 = spInfo(c);
     return MA().filter(function(m){ return (m.s || [])[0] === "SUP" && hs.indexOf(m.n) < 0; }).map(function(m){ var z = zahlen(m.mp)[0] || 0; return {n: m.n, sub: "Kosten " + m.mp, m: m, why: z > SI2.lim ? "über dem Limit" : null}; }); }
-  if(kind === "wa") return lWaffen().map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; return w; });
-  if(kind === "ru") return lRuestung().map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; return w; });
-  if(kind === "au") return lAusr();
+  if(kind === "wa" || kind === "ru") return (kind === "wa" ? lWaffen() : lRuestung()).map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; w.why = epOk(w.ep) ? null : "andere Epoche"; return w; });
+  if(kind === "au") return lAusr().map(function(w){ w.why = epOk(w.ep) ? null : "andere Epoche"; return w; });
   if(kind === "ah") return (c.ah ? [{n: "Kein Arkaner Hintergrund", rm: 1}] : []).concat(AHL().filter(function(a){ return vis(a.s) && a.n !== c.ah; }).map(function(a){ return {n: a.n, sub: a.f, s: a.s, ah: a, why: a.req ? warum(c, F, splitTop(a.req).filter(function(x){ return x.indexOf(String(a.f || "-").replace(/\s*\(.*$/, "") + " ") !== 0; }).join(", ")) : null}; }));
   if(kind === "ma"){ var ah = ahRec(ahName(c, F)), have = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return m.n; });
     if(!ahName(c, F)) return [];
@@ -745,6 +764,27 @@ function dieTake(d){
   else if(f === "n" && d){ /* Fertigkeit ohne Name: nichts */ }
   persist(); popClose(); neuAufbau();
 }
+/* ---------- Drucken: möglichst eine Seite, sonst zwei ---------- */
+var A4 = 1127;
+function druckPrep(){
+  var s = document.getElementById("bsheet"); if(!s) return;
+  druckEnde(); var z = s.style.zoom; s.style.zoom = 1; s.classList.add("druck");
+  function h(){ return s.scrollHeight; }
+  var hh = h();
+  /* zu lang: erst leere Zeilen weglassen (nur bei ausgefüllten Charakteren), dann verkleinern, sonst zwei Seiten */
+  if(hh > A4 / 0.92 && cur && !istLeer(cur)){
+    [].forEach.call(s.querySelectorAll(".lst .r:not(.hd), .srow"), function(r){ var leer = ![].some.call(r.querySelectorAll("input"), function(i){ return i.value.trim(); }) && !r.querySelector(".tag,.aufs:not(.leer)"); if(leer) r.classList.add("pl"); });
+    [].forEach.call(s.querySelectorAll(".lst"), function(l){ var e = l.querySelector(".r.pl"); if(e) e.classList.remove("pl"); });
+    s.classList.add("kurz"); hh = h();
+  }
+  s.style.zoom = z;
+  if(hh <= A4) s.style.setProperty("--pz", 1);
+  else if(hh <= A4 / 0.8) s.style.setProperty("--pz", (A4 / hh).toFixed(3));
+  else { s.style.setProperty("--pz", 1); s.classList.add("p2"); }
+}
+function druckEnde(){ var s = document.getElementById("bsheet"); if(!s) return; s.classList.remove("kurz", "p2", "druck"); s.style.removeProperty("--pz"); [].forEach.call(s.querySelectorAll(".pl"), function(r){ r.classList.remove("pl"); }); }
+window.addEventListener("beforeprint", druckPrep); window.addEventListener("afterprint", druckEnde);
+window.SWDruck = druckPrep;
 /* ---------- Ereignisse ---------- */
 window.addEventListener("keydown", function(e){ if(ipop && e.key === "Escape"){ e.preventDefault(); e.stopImmediatePropagation(); infoClose(); return; } if(pop && e.key === "Escape"){ e.preventDefault(); e.stopImmediatePropagation(); popClose(); } }, true);
 function wire(){
@@ -815,7 +855,7 @@ function wire(){
     else if(el.id === "bgDel"){ if(confirm("Charakter „" + (cur.name || "Neuer Charakter") + "“ löschen?")){ DB.list = DB.list.filter(function(x){ return x.id !== cur.id; }); DB.cur = ""; persist(); bogenPage(); } }
     else if(el.id === "bgEx") exportJ();
     else if(el.id === "bgIm") document.getElementById("bgFile").click();
-    else if(el.id === "bgPr") window.print();
+    else if(el.id === "bgPr"){ druckPrep(); window.print(); }
     else if(el.id === "bgPdf") pdf(el);
     else if(el.id === "bgLink") teilen("bogen.html", el);
   });
@@ -884,7 +924,9 @@ function werte(c){
     ben: parseInt(c.ben, 10) || 0, wu: c.wu | 0, er: c.er | 0, st: c.st || {}, wmax: b.wmax, wig: b.wig, mp: ahName(c, F) ? (parseInt(c.mp, 10) || 0) + b.mpx : 0, waffen: waffen, maechte: maechte, kraefte: kraefte};
   r.mpa = c.mpa === "" || c.mpa == null ? r.mp : Math.min(r.mp, parseInt(c.mpa, 10) || 0); return r;
 }
+function istLeer(c){ return !c.name && !c.spieler && !c.volk && !(+c.ep) && !c.ah && ATTR.every(function(a){ return c.a[a[1]] === "W4"; }) && ["ta", "hi", "wa", "ru", "au", "ma"].every(function(k){ return !(c[k] || []).some(function(x){ return x && x.n; }); }) && !(c.sp || []).some(function(x){ return x && x.n; }); }
 window.SWBogen = {
+  leer: function(){ load(); var c = DB.list.filter(istLeer)[0]; if(!c){ c = neu(); DB.list.push(c); } DB.cur = c.id; persist(); },
   liste: function(){ if(!DB) load(); return DB.list.filter(function(c){ return c && (c.name || c.volk); }); },
   get: function(id){ if(!DB) load(); return DB.list.filter(function(c){ return c.id === id; })[0] || null; },
   werte: function(id){ var c = this.get(id); return c ? werte(c) : null; },

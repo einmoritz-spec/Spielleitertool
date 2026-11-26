@@ -1,8 +1,14 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
 const VERSION = "v1148sq";
-const CACHE = "erzaehler-tafel-" + VERSION;
+// Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
+// Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
+const CACHE = "erzaehler-tafel-dateien";
 const FILES = [
+  "assets/logos/nights-of-payne-town.webp",
+  "assets/lade/litm-karte.webp",
+  "assets/lade/tftl.webp",
+  "shared/ladeschirm.js",
   "./",
   "index.html",
   "manifest.webmanifest",
@@ -3223,7 +3229,6 @@ const FILES = [
   "discworld/img/full/leit-zauberer.webp",
   "discworld/img/full/leit-zylinder.webp",
   "discworld/img/full/ngd-clown.webp",
-  "discworld/img/full/ngd-flucht.webp",
   "discworld/img/full/ngd-gebaeude.webp",
   "discworld/img/full/ngd-gurty.webp",
   "discworld/img/full/ngd-katze.webp",
@@ -3322,7 +3327,6 @@ const FILES = [
   "discworld/img/thumb/leit-zauberer.webp",
   "discworld/img/thumb/leit-zylinder.webp",
   "discworld/img/thumb/ngd-clown.webp",
-  "discworld/img/thumb/ngd-flucht.webp",
   "discworld/img/thumb/ngd-gebaeude.webp",
   "discworld/img/thumb/ngd-gurty.webp",
   "discworld/img/thumb/ngd-katze.webp",
@@ -5502,26 +5506,87 @@ const FILES = [
   "tftl/js/hub.js",
 ];
 
+// Beim Installieren nur die Startseiten der Systeme holen (klein und schnell).
+// Alles andere kommt beim ersten Aufruf in den Cache und wird später in Ruhe
+// nachgeladen ("warm"), damit die App auch offline vollständig ist.
+const SHELL = FILES.filter(f => /(^\.\/$|index\.html$|\.webmanifest$|^shared\/ladeschirm\.js$|^toolmenu\.js$)/.test(f));
+
+function schluessel(req){
+  const u = new URL(req.url);
+  u.hash = "";
+  if (u.pathname.endsWith("/")) u.pathname += "index.html";
+  return u.href;
+}
 self.addEventListener("install", e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then(c => Promise.all(SHELL.map(f =>
+    fetch(new Request(f, {cache: "no-cache"})).then(r => r.ok ? c.put(schluessel(new Request(f)), r) : null).catch(() => null)
+  ))).then(() => self.skipWaiting()));
 });
 self.addEventListener("activate", e => {
   e.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
-      .then(() => self.clients.claim())
+    caches.keys().then(keys => {
+      const alt = keys.filter(k => k !== CACHE);
+      // Einmaliger Umzug aus den alten Versions-Caches, damit nichts neu geladen werden muss.
+      return caches.open(CACHE).then(c => alt.reduce((p, k) => p.then(() => caches.open(k).then(o => o.keys().then(reqs =>
+        Promise.all(reqs.map(r => c.match(schluessel(r)).then(hit => hit ? null : o.match(r).then(res => res ? c.put(schluessel(r), res) : null))))
+      ))).then(() => caches.delete(k)), Promise.resolve()));
+    }).then(() => self.clients.claim())
   );
 });
-// Cache zuerst (schnell, auch unterwegs), im Hintergrund aktualisieren.
+
+// Abgleich im Hintergrund: höchstens einmal pro Datei und Service-Worker-Laufzeit,
+// zeitversetzt und gedrosselt, damit er das Laden der Seite nicht ausbremst.
+const geprueft = new Set();
+const warteschlange = [];
+let laeuft = 0, gestartet = 0;
+function abgleichen(key){
+  if (geprueft.has(key)) return;
+  geprueft.add(key);
+  warteschlange.push(key);
+  pumpe();
+}
+function pumpe(){
+  if (!gestartet) { gestartet = 1; setTimeout(() => { gestartet = 2; pumpe(); }, 4000); return; }
+  if (gestartet < 2) return;
+  while (laeuft < 2 && warteschlange.length) {
+    const key = warteschlange.shift(); laeuft++;
+    fetch(key, {cache: "no-cache"}).then(r => {
+      if (r && r.ok) return caches.open(CACHE).then(c => c.put(key, r));
+    }).catch(() => {}).then(() => { laeuft--; pumpe(); });
+  }
+}
+
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
+  const url = new URL(e.request.url);
+  if (url.origin !== location.origin) return;
+  const key = schluessel(e.request);
   e.respondWith(
-    caches.match(e.request).then(hit => {
-      const net = fetch(e.request).then(r => {
-        if (r && r.ok) { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }
+    caches.open(CACHE).then(c => c.match(key).then(hit => {
+      if (hit) { abgleichen(key); return hit; }
+      geprueft.add(key);
+      return fetch(e.request).then(r => {
+        if (r && r.ok && r.type === "basic") c.put(key, r.clone());
         return r;
-      });
-      if (hit) { net.catch(()=>{}); return hit; }
-      return net.catch(() => caches.match("index.html"));
-    })
+      }).catch(() => e.request.mode === "navigate" ? c.match(new URL("index.html", self.registration.scope).href) : Response.error());
+    }))
   );
+});
+
+// Nach dem Öffnen einer Seite (Nachricht vom Ladeschirm): fehlende Dateien
+// nacheinander in den Cache holen, damit alles offline verfügbar wird.
+let warmLaeuft = false;
+self.addEventListener("message", e => {
+  if (e.data !== "warm" || warmLaeuft) return;
+  warmLaeuft = true;
+  e.waitUntil(caches.open(CACHE).then(c => {
+    const offen = FILES.map(f => schluessel(new Request(f)));
+    let i = 0;
+    function weiter(){
+      if (i >= offen.length) return Promise.resolve();
+      const key = offen[i++];
+      return c.match(key).then(hit => hit ? null : fetch(key).then(r => r.ok ? c.put(key, r) : null).catch(() => null)).then(weiter);
+    }
+    return Promise.all([weiter(), weiter()]);
+  }).then(() => { warmLaeuft = false; }, () => { warmLaeuft = false; }));
 });

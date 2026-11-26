@@ -28,16 +28,27 @@ function gen(id){ return id === "grw" || !!ST.gen[id]; }
 
 function route(){ var h = (location.hash || "#start").slice(1).split("/"); return {a:h[0] || "start", b:h[1] || "", c:h[2] || ""}; }
 function tabOf(id){ return TABS.filter(function(t){ return t.id === id; })[0]; }
+/* Kopfzeile: 6 Gruppen; Unterleiste = Unterpunkte aller Bereiche der Gruppe (Routen #bereich/unterpunkt bleiben unverändert) */
+var GRUPPEN = [
+ {id:"charaktere", t:"Charaktere", ber:["charaktere","ausruestung"]},
+ {id:"regeln", t:"Regeln", ber:["regeln"]},
+ {id:"werkzeugkasten", t:"Werkzeugkasten", ber:["werkzeugkasten"]},
+ {id:"maechte", t:"Mächte", ber:["maechte"]},
+ {id:"bestiarium", t:"Bestiarium", ber:["bestiarium"]},
+ {id:"genres", t:"Genres", ber:["genres"]},
+ {id:"spielleitung", t:"Spielleitung", ber:["spielleitung"]}
+];
+function gruppeOf(a){ return GRUPPEN.filter(function(g){ return g.ber.indexOf(a) >= 0; })[0]; }
 
 function render(){
   var r = route(), dl = r.a === "dl";
   document.body.classList.toggle("dl-mode", dl);
-  var tabs = (dl || r.a === "start" || r.a === "bogen") ? [] : TABS, cur = tabOf(r.a);
-  KT.innerHTML = tabs.map(function(t){ return '<a class="' + (cur && cur.id === t.id ? "on" : "") + '" onclick="go(\'' + t.id + '\')">' + esc(t.t) + "</a>"; }).join("");
+  var tabs = (dl || r.a === "start" || r.a === "bogen") ? [] : GRUPPEN, cur = tabOf(r.a), grp = gruppeOf(r.a);
+  KT.innerHTML = tabs.map(function(t){ return '<a class="' + (grp && grp.id === t.id ? "on" : "") + '" onclick="go(\'' + t.id + '\')">' + esc(t.t) + "</a>"; }).join("");
   if(cur){
     var b = r.b || cur.subs[0][0];
     SUB.className = "sub on";
-    SUB.innerHTML = cur.subs.map(function(s){ return '<a class="' + (s[0] === b ? "on" : "") + '" onclick="go(\'' + cur.id + "/" + s[0] + '\')">' + esc(s[1]) + "</a>"; }).join("") + genSwitch();
+    SUB.innerHTML = grp.ber.map(function(bid, k){ var ar = tabOf(bid); return ar.subs.map(function(s, j){ return '<a class="' + (bid === cur.id && s[0] === b ? "on" : "") + (k && !j ? " trenn" : "") + '" onclick="go(\'' + bid + "/" + s[0] + '\')">' + esc(s[1]) + "</a>"; }).join(""); }).join("") + genSwitch();
   } else { SUB.className = "sub"; SUB.innerHTML = ""; }
   if(r.a === "start") return start();
   if(r.a === "bogen" && window.bogenPage) return bogenPage();
@@ -210,9 +221,10 @@ function start(){
     var tg = g.id === "grw" ? '<span class="tg base">Basis</span>' : '<button class="tg' + (on ? " on" : "") + '" onclick="event.stopPropagation();toggleGen(\'' + g.id + '\')" aria-label="' + esc(g.t) + (on ? " ausschalten" : " einschalten") + '"><span class="kn"></span><em>' + (on ? "An" : "Aus") + '</em></button>';
     return '<a class="' + (on ? "" : "off") + '" style="--gc:' + g.c + '" onclick="' + (g.id === "grw" ? "go('charaktere')" : "go('genres/" + g.id + "')") + '"><img src="' + IMG("start/" + im) + '" alt=""><i></i>' + tg + '<h3>' + esc(g.t) + "</h3></a>";
   }).join("");
-  var chs = TABS.filter(function(t){ return t.img; }).map(function(t){
-    return '<div class="ch"><div class="im" onclick="go(\'' + t.id + '\')"><img loading="lazy" src="' + IMG("start/" + t.img) + '" alt=""><h3>' + esc(t.t) + "</h3></div><ul>" +
-      (CHAPT[t.id] || []).map(function(s){ return '<li><a onclick="go(\'' + t.id + "/" + s[1] + '\')">' + esc(s[0]) + "</a></li>"; }).join("") + "</ul></div>";
+  var chs = GRUPPEN.map(function(g){
+    var t = tabOf(g.ber[0]);
+    var li = g.ber.filter(function(bid){ return CHAPT[bid]; }).map(function(bid){ return CHAPT[bid].map(function(x){ return '<li><a onclick="go(\'' + bid + "/" + x[1] + '\')">' + esc(x[0]) + "</a></li>"; }).join(""); }).join("");
+    return '<div class="ch"><div class="im" onclick="go(\'' + g.id + '\')"><img loading="lazy" src="' + IMG("start/" + t.img) + '" alt=""><h3>' + esc(g.t) + "</h3></div><ul>" + li + "</ul></div>";
   }).join("");
   APP.innerHTML = '<div class="st"><div class="pan">' + pan + '</div><div class="chs">' + chs + '</div>' +
     '<div class="dl" onclick="go(\'dl\')"><img src="' + IMG("start/dl-cover") + '" alt=""><div><h3>Deadlands</h3><p>Der Wilde Westen, in dem die Toten nicht ruhen.</p></div><button class="tg dlt' + (gen("dl") ? " on" : "") + '" onclick="event.stopPropagation();toggleGen(\'dl\')" aria-label="Deadlands-Talente"><span class="kn"></span><em>' + (gen("dl") ? "An" : "Aus") + '</em></button><span class="go">Betreten</span></div></div>';

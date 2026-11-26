@@ -62,7 +62,7 @@ body.notop .sub{top:0}
 .pan a:first-child h3{left:18px}
 .pan i{position:absolute;z-index:2;left:46px;top:12px;width:34px;height:5px;background:var(--gc)}
 .pan a:first-child i{left:18px}
-.chs{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.chs{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
 .ch{background:var(--paper2);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
 .ch .im{aspect-ratio:3/4;overflow:hidden;position:relative;cursor:pointer}
 .ch .im img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
@@ -302,3 +302,4 @@ body.dl-mode .pg{color:#8a6a3a}
 .kpw{font-style:normal;color:#b3301c;margin-right:.3em;font-size:.8em}
 .sl-lnk{color:var(--c,var(--ac,#7a1b1b));text-decoration:underline;font-size:15px}
 .kdesc .sl{margin:0}
+.sub a.trenn{margin-left:10px;position:relative}.sub a.trenn:before{content:"";position:absolute;left:-7px;top:9px;bottom:9px;width:1px;background:rgba(255,255,255,.35)}

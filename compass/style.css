@@ -146,3 +146,15 @@ body.film .topbar .brand{align-self:flex-end;margin-top:auto!important}
 body.buch .topbar{position:absolute;left:0;right:0;background:transparent;height:64px}
 body.buch .einband{padding-top:64px}
 body.buch .ansicht{opacity:1}
+
+/* Buch: kompaktere Kapitel-Tafeln */
+.einband{height:210px;padding-top:56px!important;gap:50px}
+.emb-logo{width:300px;height:112px}
+.emb-kompass{width:150px;height:146px}
+.tafeln{grid-template-columns:repeat(3,1fr);gap:16px}
+.dp{height:170px}
+.dp .op{padding:14px 14px}
+.dp .op:before{width:150px;height:150px;right:-40px;bottom:-45px}
+.dp .op small{font-size:9px;letter-spacing:.24em}
+.dp .op b{font-size:13px;margin:3px 0 6px;padding-bottom:6px}
+.dp .op span{font-size:9px;line-height:1.45;letter-spacing:.03em;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}

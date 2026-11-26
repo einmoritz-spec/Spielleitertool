@@ -14,7 +14,7 @@ function rkH(h, s, bk, p, o){
   return '<h4 class="rk" style="--rc:#a51f1a"><span>' + nm(h) + "</span>" + sqBadge(arr(s)) + (p ? pgLink(bk, p, o) : "") + "</h4>";
 }
 function zusSec(z, hd){
-  return (hd === false ? "" : rkH(z.h, z.s, z.bk, z.p, z.o)) + edP(z.i) + (z.g ? eqGroups(z.cols, z.g) : "");
+  return (hd === false ? "" : rkH(z.h, z.s, z.bk, z.p, z.o)) + edP(z.i) + (z.cards ? '<div class="hg">' + z.cards.map(function(c){ return '<div class="hc" style="--rc:#1f6f9a"><b>' + nm(c[0]) + "</b><p>" + esc(c[1]) + "</p></div>"; }).join("") + "</div>" : "") + (z.g ? eqGroups(z.cols, z.g) : "");
 }
 function side(keys, cur, fn){
   return '<aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + keys.map(function(k){

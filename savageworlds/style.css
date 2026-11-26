@@ -137,3 +137,4 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .topbar .ib,.topbar button.tm-sg{color:rgba(255,255,255,.72)}
 .topbar .ib:hover,.topbar button.tm-sg:hover{color:#fff}
 .topbar:has(.ktabs a) .ib,.topbar:has(.ktabs a) button.tm-sg{margin-top:12px !important}
+.ad{margin:0 0 10px;max-width:1160px;color:var(--soft)}

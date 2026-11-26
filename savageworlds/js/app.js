@@ -42,6 +42,7 @@ function render(){
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "talente") return talentePage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "voelker") return voelkerPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "handicaps") return handicapsPage();
+  if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "eigenschaften") return eigenschaftenPage();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }
@@ -107,6 +108,15 @@ function handicapsPage(){
     return '<div class="hc" style="--rc:' + (sw ? "#a51f1a" : lw ? "#c27a1c" : "#7a7067") + '"><b>' + nm(x.n) + '<i class="sg">' + (lw ? "Leicht" : sw ? "Schwer" : "Leicht · Schwer") + '</i><span class="pg" onclick="openBook(\'sw_de\',' + (x.p + 1) + ')">S. ' + x.p + "</span></b><p>" + esc(x.t) + "</p></div>";
   }).join("");
   APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Handicaps</h2><div class="hf">' + chips + '</div><div class="hg">' + h + "</div></main></div>";
+}
+function eigenschaftenPage(){
+  var h = SW_ATTR.map(function(a){
+    var L = SW_SKILLS.filter(function(k){ return k.a === a.n; });
+    return '<h4 class="rk" style="--rc:#a51f1a"><span>' + esc(a.n) + '</span></h4><p class="ad">' + esc(a.t) + '</p><div class="hg">' + L.map(function(k){
+      return '<div class="hc" style="--rc:' + (k.g ? "#a51f1a" : "#7a7067") + '"><b>' + nm(k.n) + (k.g ? '<i class="sg">Grundfertigkeit</i>' : "") + "</b><p>" + esc(k.t) + "</p></div>";
+    }).join("") + "</div>";
+  }).join("");
+  APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Eigenschaften<span class="pg" onclick="openBook(\'sw_de\',32)">S. 31</span></h2>' + h + "</main></div>";
 }
 function hFilter(f){ ST.hf = f; save(); handicapsPage(); }
 function talKat(k){ ST.tk = k; ST.to = -1; save(); talentePage(); }

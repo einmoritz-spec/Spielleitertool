@@ -4218,6 +4218,7 @@ const FILES = [
   "household/js/suche.js",
   "savageworlds/js/suche.js",
   "savageworlds/js/data/talente.js",
+  "savageworlds/js/data/voelker.js",
   "savageworlds/style.css",
   "savageworlds/js/books.js",
   "savageworlds/js/app.js",

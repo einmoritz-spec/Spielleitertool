@@ -40,6 +40,7 @@ function render(){
   if(r.a === "start") return start();
   if(dl) return dlPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "talente") return talentePage();
+  if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "voelker") return voelkerPage();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }
@@ -81,6 +82,21 @@ function talDetail(t){
   return '<div class="td" style="--rc:' + RC[t.r] + '"><div class="tdm"><h3>' + esc(t.n) + talBadges(t) + '<span class="pg" onclick="openBook(\'' + t.bk + '\',' + (t.p + t.o) + ')">S. ' + t.p + '</span></h3>' + t.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + '</div><div class="tds"><small>Voraussetzungen</small><div>' + RN[t.r] + (t.v ? ", " + esc(t.v) : "") + (t.w ? "<br>nur Wildcards" : "") + "</div>" +
     (up.length ? "<small>Führt zu</small>" + up.map(function(x){ return '<a onclick="event.stopPropagation();talGo(' + SW_TALENTE.indexOf(x) + ')">' + esc(x.n) + "</a>"; }).join("") : "") + "</div></div>";
 }
+function voelkerPage(){
+  var h = '<div class="tg3">';
+  SW_VOELKER.forEach(function(v, i){
+    var open = ST.vo === i;
+    h += '<div class="tc' + (open ? " open" : "") + '" style="--rc:#a51f1a" onclick="voOpen(' + i + ')"><b>' + esc(v.n) + "</b><small>" + v.e.map(function(e){ return esc(e[0]); }).join(" · ") + "</small></div>";
+    if(i % 3 === 2 || i === SW_VOELKER.length - 1){
+      var j = ST.vo; if(j > -1 && j !== undefined && Math.floor(j / 3) === Math.floor(i / 3)) h += voDetail(SW_VOELKER[j]);
+    }
+  });
+  APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Völker</h2>' + h + "</div></main></div>";
+}
+function voDetail(v){
+  return '<div class="td vo" style="--rc:#a51f1a"><div class="tdm"><h3>' + esc(v.n) + '<span class="pg" onclick="openBook(\'sw_de\',' + (v.p + 1) + ')">S. ' + v.p + "</span></h3>" + v.b.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join("") + v.e.map(function(e){ return '<p class="ei"><b>' + esc(e[0]) + ":</b> " + esc(e[1]) + "</p>"; }).join("") + '</div></div>';
+}
+function voOpen(i){ ST.vo = ST.vo === i ? -1 : i; save(); voelkerPage(); var d = document.querySelector(".td"); if(d && ST.vo > -1) d.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 function talKat(k){ ST.tk = k; ST.to = -1; save(); talentePage(); }
 function talOpen(id){ ST.to = ST.to === id ? -1 : id; save(); talentePage(); var d = document.querySelector(".td"); if(d && ST.to > -1) d.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 function talGo(id){ ST.tk = SW_TALENTE[id].k; ST.to = id; save(); talentePage(); var d = document.querySelector(".td"); if(d) d.scrollIntoView({block:"center"}); }

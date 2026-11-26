@@ -1,0 +1,48 @@
+/* Spielleiter-Pult */
+.pu-ov{position:fixed;left:0;right:0;top:56px;bottom:0;z-index:60;background:#0b1624;color:#dbe3ef;overflow:hidden}
+body.notop .pu-ov{top:0}
+.pu-x{position:absolute;right:14px;top:6px;z-index:2;font:400 28px/1 var(--f-text);color:#7e93ab;background:none;border:0;cursor:pointer;padding:4px 8px}
+.pu-x:hover{color:#fff}
+.pu-rost{height:100%;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,.9fr);gap:0}
+.pu-c,.pu-mitte{overflow:auto;padding:14px 16px 28px;min-height:0}
+.pu-mitte{display:flex;flex-direction:column;gap:12px;border-left:1px solid #1f3248;border-right:1px solid #1f3248}
+.pu-mitte .pu-c{padding:0;overflow:visible}
+.pu-ov h2{font:700 15px var(--f-titel);letter-spacing:.08em;text-transform:uppercase;color:#8ea2b9;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.pu-ov h3{font:700 13px var(--f-titel);letter-spacing:.06em;text-transform:uppercase;color:#6f849c;margin:14px 0 6px}
+.pu-r{margin-left:auto;font:700 12px var(--f-titel);text-transform:uppercase;background:none;border:0;color:#6f849c;cursor:pointer}
+.pu-r:hover{color:#fff}
+/* Figuren */
+.pu-figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:12px;align-items:start}
+.pu-bt{display:flex;gap:8px;margin-top:12px}
+.pu-bt button{font:700 13px var(--f-titel);text-transform:uppercase;padding:7px 12px;background:none;border:1px solid #2c4160;color:#9fb2c8;cursor:pointer}
+.pu-bt button:hover{color:#fff;border-color:#6f849c}
+/* Begegnung */
+.pu-g{border-top:1px solid #1f3248;padding:10px 0}
+.pu-g:first-of-type{border-top:0}
+.pu-gk{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pu-gk b{font:700 17px var(--f-titel);text-transform:uppercase;color:#fff;cursor:pointer}
+.pu-ac{margin-left:auto;display:flex;gap:4px}
+.pu-ac i,.pu-gr>i{font:400 20px/1 var(--f-text);font-style:normal;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;color:#8ea2b9;cursor:pointer}
+.pu-ac i:hover,.pu-gr>i:hover{background:#2c4160;color:#fff}
+.pu-g .bk{display:flex;flex-direction:column;gap:5px}
+.pu-g .bz{color:#9fb2c8}
+.pu-g .gblk{margin-top:10px}
+/* Suche */
+.pu-su{display:block}
+#pu-q{width:100%;box-sizing:border-box;background:#0f1f33;border:1px solid #2c4160;color:#fff;padding:9px 11px;font:16px var(--f-text);outline:0}
+#pu-q:focus{border-color:#8ea2b9}
+.pu-ch{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0 2px}
+.pu-ch span{font:700 11.5px var(--f-titel);text-transform:uppercase;padding:2px 7px;border:1px solid #2c4160;color:#8ea2b9;cursor:pointer;user-select:none}
+.pu-ch span:hover{color:#fff}
+.pu-ch span.on{background:var(--gold);border-color:var(--gold);color:#000}
+.pu-gr{display:flex;align-items:center;gap:6px;border-bottom:1px solid #162840;padding:5px 0}
+.pu-gr .n{flex:1;font:700 15px var(--f-titel);text-transform:uppercase;color:#dbe3ef;cursor:pointer}
+.pu-gr .n small{display:block;font:400 12px var(--f-text);text-transform:none;color:#6f849c}
+.pu-m{font-size:13px;color:#6f849c}
+.pu-sl a{display:block;padding:6px 0;border-bottom:1px solid #162840;color:#dbe3ef;text-decoration:none}
+.pu-sl a b{font:700 15px var(--f-titel);text-transform:uppercase}
+.pu-sl a span{display:block;font-size:12px;color:#6f849c}
+.pu-sl a:hover b{color:var(--gold)}
+.pu-ov .zwurf{border:1px solid #1f3248}
+.pu-ov .gblk{color:#000}
+.pu-ov .pc{color:#16202e}

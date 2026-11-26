@@ -51,3 +51,14 @@ Ansehen: `python3 -I plan/triangle/skripte/shot.py /tmp/x 'pw/A5!'` (ein Code je
 - Muster im Tool: A5, A2 (playwall-a.js), O8 (playwall-o.js). D4 (Bilder an den Preiskarten über `bild:` am Eintrag, Sammelbild `{t:"bild", src:"playwall-d4-anforderungen-haufen", pos:"mitte", w:520}` vor den Karten) und E2 (`band` in zwei Spalten statt `kasten`) baut der Agent für C–E nach den Bildern `plan/triangle/mockups/playwall-2-…` und `playwall-4-…`.
 - `spur`: `{t:"spur", h:"Name", x:["1","2",…]}`. Fehlt dir etwas am Baustein (Schlangenlinie, Merken des Stands), baue es als `html` in deinem CSS und melde es.
 - Bericht: je Code, was gebaut wurde; neue Bilder; offene Punkte; was du an gemeinsamen Dateien gebraucht hättest.
+
+## Stand nach dem Einbau (26. Nov. 2026, gepusht)
+Alle 207 Dokumente eingebaut, alle rendern ohne Skriptfehler. Zusatz-CSS der Agenten ist in `playwall.css` zusammengeführt, Hilfsfunktionen (`pwoLeiste`, `pwoKn`, `pwSpur`) liegen in `js/playwall.js`. Neue Bausteine: `kette`, Ergebnis-Art `txt` (Zwischentext ohne Symbol), `spur` anklickbar (Stand in `ST.pwSpur`).
+Offen zum Durchsehen:
+- Z2: Kontrast der Bänder auf Gelb, Listenzeichen als gelbe Quadrate; Z3-Thron steht auf Weiß statt Schwarz.
+- W6: Abstand zwischen Notiz und „Das Angebot der Urgency“.
+- L10: Handschrift bei langen Notizen etwas groß.
+- R15: gestrichener Fragekasten (gehört laut Agent zu S1, S. 263) gegen das Buch prüfen.
+- Nur gerendert, nie angesehen: C2, C3, C10, D5, D7, E1, O3, P14, Q1, R1.
+- Rückbezüge auf andere Dokumenttitel nicht systematisch gegen die Titelliste geprüft.
+- H4: Feldbeschriftung „SEITE“ im Muster-Bogen.

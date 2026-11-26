@@ -110,7 +110,6 @@ function erwKapitel(bk, K, teile){
   var klassen = K.klassen && !G.tabbed ? '<div class="eb-r kl" style="margin:6px 0 14px">' + K.klassen.map(function(c){ var kl = klById(c); return erwKachel("klasse/" + c, kl ? kl.t : c, "Neue Klasse", "nach/klassen/" + c, " kl"); }).join("") + '</div>' : "";
   var body = '<div class="dbody erw" data-pgbook="' + bk.bid + '">' + titel + klassen + erwBlocks(seg, off, bk, key) + '</div>';
   ST_ANKER = anker || null;
-  setTimeout(function(){ var t = document.querySelector('.tabs.erwtabs a.on'); if(t && t.parentNode){ var P = t.parentNode; P.scrollLeft = Math.max(0, t.offsetLeft - P.clientWidth / 2 + t.offsetWidth / 2); } }, 0);
   return head + (side && links ? lay(side, body) : voll(body));
 }
 
@@ -125,7 +124,12 @@ SP_VIEW.buch = function(teile){
 /* Theme-Attribut außerhalb der Buchansicht entfernen */
 (function(){
   var _ar = window.afterRender;
-  window.afterRender = function(){ if(_ar) _ar(); if(document.body.dataset.view !== "buch") document.body.dataset.erw = ""; };
+  function hoehe(){
+    var t = document.querySelector(".tabs.erwtabs");
+    if(t) document.body.style.setProperty("--tabh", t.offsetHeight + "px"); else document.body.style.removeProperty("--tabh");
+  }
+  window.afterRender = function(){ if(_ar) _ar(); if(document.body.dataset.view !== "buch") document.body.dataset.erw = ""; hoehe(); };
+  window.addEventListener("resize", hoehe);
 })();
 
 /* ---------- Suche: Überschriften + Textanfang aller Kapitel, Buchname als Ort ---------- */

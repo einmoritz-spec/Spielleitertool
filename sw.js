@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1190sq";
+const VERSION = "v1191sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -1588,6 +1588,9 @@ const FILES = [
   "dragonbane/img/orn/stein-unten.png",
   "dragonbane/img/orn/stein.png",
   "dragonbane/img/orn/steinband.png",
+  "dragonbane/img/orn/band-l.png",
+  "dragonbane/img/orn/band-m.png",
+  "dragonbane/img/orn/band-r.png",
   "dragonbane/img/kap/k1-in-den-aeltesten-zeiten.webp",
   "dragonbane/img/kap/k2-spielercharakter.webp",
   "dragonbane/img/kap/k3-fertigkeiten.webp",

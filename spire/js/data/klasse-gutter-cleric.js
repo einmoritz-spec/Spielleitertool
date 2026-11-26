@@ -1,0 +1,349 @@
+/* The Spire – Klasse Gutter Cleric (aus quellen/spire/de/sin, erzeugt mit plan/spire/build_klassen2.py) */
+(window.SP_KLASSE = window.SP_KLASSE || []).push({
+ "id": "gutter-cleric",
+ "t": "Gutter Cleric",
+ "buch": "sp_s1",
+ "herk": "Sin",
+ "p": 7,
+ "zitat": "„Azur! Charnel! Limyé! Incarne! Merhor! Großer Damnou! Äh … Bruder Harvest? Plür? Hört da OBEN IRGENDJEMAND zu?“",
+ "intro": [
+  "Du stehst an der Speerspitze der Angewandten Theologie. Du wirkst Wunder, gewährt von einem Dutzend Göttern, und bist irgendwo zwischen Feldforscher und metaphysischem Hochstapler. Du überlistest verbotene, tote oder einfach unbeliebte Gottheiten, dich mit ihrer Hilfe zu segnen – und versteckst dich vor ihrem Blick, bevor sie merken, was geschehen ist."
+ ],
+ "kern": {
+  "wid": "Verstand +2, Schatten +2",
+  "fert": "Ermitteln, Überzeugen",
+  "dom": "Religion, Akademie",
+  "auff": "Opfere etwas von Wert für einen Gott, zu dem du eine Verbindung hast."
+ },
+ "bind": [
+  "**SC-Bindung:** Du hast einen Funken von Göttlichkeit in einem der anderen Spielercharaktere bemerkt. Wer ist es, und hast du es ihm oder ihr gesagt?",
+  "**NSC-Bindung:** Ein freundlicher Kontakt am Kolleg für Angewandte Eschatologie, an der Universität der Göttlichen Magie oder an einer noch esoterischeren Einrichtung. Er oder sie kann dir Zugang zu verbotenen Folianten, verborgenem Wissen und gelegentlich einem muffigen Unterschlupf verschaffen."
+ ],
+ "ausr": [
+  {
+   "k": "lbl",
+   "x": "Wähle ein Set:"
+  },
+  {
+   "k": "pkt",
+   "x": "Selbstgebaute „Pilgergebet“-Pistole (W3, Kernschuss, Fernkampf, Einweg, Gefährlich)"
+  },
+  {
+   "k": "pkt",
+   "x": "„Kehlenschneiders Erwiderung“-Rasiermesser (W3, Verbergbar, Vernarbend)"
+  },
+  {
+   "k": "lbl",
+   "x": "Oder:"
+  },
+  {
+   "k": "pkt",
+   "x": "Verstärkte, illuminierte, multikonfessionelle Heilige Schrift (W3, Defensiv, Überraschend)"
+  },
+  {
+   "k": "pkt",
+   "x": "Taschen voller heiliger Symbole"
+  }
+ ],
+ "kfae": [
+  {
+   "t": "KLEINE KOMMUNION",
+   "p": 7,
+   "tag": "Göttlich",
+   "fl": "Kleine Götter sind verzweifelt auf jede Aufmerksamkeit aus, die sie kriegen können.",
+   "x": [
+    "Einmal pro Sitzung beschwörst du den kleinen Gott eines Gegenstands und sprichst mit ihm. Je weniger verehrt der Gegenstand, desto unzusammenhängender der Gott. Geringere oder alltägliche Gegenstände begreifen nur niedere Gefühle und haben kaum eine Vorstellung davon, was es heißt, eine Person zu sein. Hoch verehrte Gegenstände dagegen können hochmütig und abweisend sein."
+   ]
+  },
+  {
+   "t": "SCHWARZGEBRANNTES WUNDER",
+   "p": 7,
+   "tag": "Göttlich",
+   "fl": "Du nimmst ein Wunder von jedem Gott, der zuhört.",
+   "x": [
+    "Einmal pro Situation markierst du W3 Stress auf **Verstand** oder **Schatten**. Dein nächster Wurf erfolgt mit Meisterschaft."
+   ]
+  }
+ ],
+ "fort": {
+  "niedrig": [
+   {
+    "t": "DABBLER",
+    "p": 8,
+    "tag": "Göttlich",
+    "fl": "Du hast eine Hosentasche voller Gebete und Eide an eine große Bandbreite von Göttern; einige davon funktionieren sogar.",
+    "x": [
+     "Wähle einen beliebigen niedrigen Fortschritt mit dem Merkmal [Göttlich] aus dem Abschnitt Extra-Fortschritte (*Spire*, S. 69)."
+    ]
+   },
+   {
+    "t": "DER GEIST IN DER MASCHINE",
+    "p": 8,
+    "tag": "Göttlich",
+    "fl": "Eine Gestalt-Gottheit, gebildet aus den rachsüchtigen Gespenstern von tausend Arbeitsunfällen mit Todesfolge.",
+    "x": [
+     "Erhalte die Domäne **Technik**. Du kannst jede Maschine oder jeden Mechanismus, den du sehen kannst, mystisch aktivieren, indem du W3 Stress auf **Verstand** markierst. Für W6 Stress kannst du sie kaputt machen und ihre Funktion unterbrechen, bis sie repariert ist."
+    ]
+   },
+   {
+    "t": "DIE GÖTTIN DER VERBRAUCHTEN HÜLSEN",
+    "p": 8,
+    "tag": "Göttlich",
+    "fl": "Ein blinder, parasitärer Götterspross, der aus dem seltsamen Glauben der Red-Row-Kirche der Waffe herauswächst.",
+    "x": [
+     "Erhalte +1 **Blut** und die Fertigkeit **Kämpfen**. Feuerwaffen und Sprengstoffe erhalten das Merkmal Brutal, wenn du sie benutzt."
+    ]
+   },
+   {
+    "t": "DIE GOLDENE SCHLANGE",
+    "p": 8,
+    "tag": "Göttlich",
+    "fl": "Die wilde Gottheit einer Schar von Hedonisten, Trunkenbolden und Narren: Sie trinken im Übermaß und ermuntern ihren Schutzpatron, in ihre Körper zu fahren.",
+    "x": [
+     "Erhalte die Domäne **Niedere Gesellschaft** oder **Hohe Gesellschaft** (entscheide dich, wenn du diese Kraft wählst). Wenn du so betrunken bist, dass du dich nicht mehr erinnern kannst, was geschehen ist, markierst du W3 Stress auf Ruf. Du erwachst einige Stunden später, entweder an einem für die aktuelle Mission nützlichen Ort oder mit etwas Entscheidendem in den Händen – nach Wahl der Spielleitung."
+    ]
+   },
+   {
+    "t": "IDOL-ABZAPFER",
+    "p": 8,
+    "tag": "Göttlich",
+    "fl": "Die Zauberer-Künstler, die Idols genannt werden, sagen, ihre Macht komme von Talent und schwarzer Magie; du glaubst, sie kommt von ihren Legionen anbetender Fans.",
+    "x": [
+     "Erhalte die Fertigkeit **Täuschen**. Markiere W6 Stress auf **Verstand** oder **Schatten**, um bis zum Ende der aktuellen Situation die Gestalt der berühmtesten Person in unmittelbarer Nähe anzunehmen. Es ist keine perfekte Nachbildung, und die nachgeahmte Person weiß, dass *etwas* nicht stimmt (auch wenn sie nicht sicher ist, was)."
+    ]
+   },
+   {
+    "t": "NEKROFUSIMANTIE",
+    "p": 8,
+    "tag": "Göttlich",
+    "fl": "Dieser Kult glaubt, die Stadt Spire habe einst gelebt, sei aber vor langer Zeit gestorben. Mit gehackten nekromantischen Ritualen holen sie Teile von ihr ins Leben zurück.",
+    "x": [
+     "Erhalte +1 **Verstand**. Du kannst einen Durchgang für ein paar Sekunden dazu verleiten, woandershin zu führen, aber nur für dich. Je genauer der Ort und je weiter er entfernt ist, desto mehr Stress markierst du auf **Schatten** (irgendwo anders hin: W3; ein bestimmter Ortstyp: W6; irgendwohin, wo es definitiv sicher ist: W8). Die Durchgänge müssen ähnlich groß sein, damit der Zauber ohne Katastrophe funktioniert, und du kannst Verbündete mitnehmen, zum Preis von +1 Stress pro Mitreisendem."
+    ]
+   },
+   {
+    "t": "PLURISCHE HÄRESIE",
+    "p": 8,
+    "tag": "Göttlich",
+    "fl": "Der große Krötengott Plur nimmt alles Esoterische und Seltsame in seinen monströsen Schlund auf – obwohl einige seiner Priester glaubten, sie sollten die Schätze verzehren, nicht ihr Meister.",
+    "x": [
+     "Erhalte die Domäne **Handel**. Du kannst Reliquien oder Gegenstände von anderer religiöser Bedeutung verzehren, indem du W3 Stress auf **Blut** oder **Ruf** markierst, vorausgesetzt, der Gegenstand ist klein genug, um in deinen Mund zu passen. Nachdem du den Gegenstand verzehrt hast, kannst du für den Rest der Sitzung die Anhänger dieser Religion in einem kleinen Umkreis (z. B. einem Marktplatz) mystisch wahrnehmen. Wenn du wertvollere und höher verehrte Gegenstände verzehrst, kannst du sie über eine größere Entfernung wahrnehmen."
+    ]
+   }
+  ],
+  "mittel": [
+   {
+    "t": "DAS BIEST JENSEITS DER MAUERN",
+    "p": 9,
+    "tag": "Göttlich",
+    "fl": "In der gefrorenen Dunkelheit jenseits der Stadtmauern lauert ein wilder, bösartiger, ausgehungerter Tod.",
+    "x": [
+     "Erhalte die Fertigkeit **Verfolgen**. Markiere W3 Stress auf Blut, um die Spürfähigkeiten eines Raubtiers zu erhalten. Zusätzlich dazu, dass du bei der Jagd auf jemanden mit Meisterschaft würfelst, kannst du ihn am Geruch erkennen.",
+     "Markiere W6 Stress auf **Blut** und verzehre einen totemischen Gegenstand eines Ziels, um es zu markieren. Du kannst es jederzeit sehen und es dich ebenso: Gleich, wie viel Stadt dazwischenliegt, seht ihr voneinander ein geisterhaftes Abbild. Seine Schwierigkeit zählt für deine Interaktionen mit ihm als 0. Dieser Effekt hält bis zum nächsten Neumond an."
+    ]
+   },
+   {
+    "t": "XXXXXXXXXX XXX XXXX",
+    "p": 9,
+    "tag": "Göttlich",
+    "fl": "Eine Kampagne geheimer Hinrichtungen durch die **XXXXXX XXXXXX** konnte dich nicht davon abbringen, **XXXXXXX XXXXX XXXXX**. Nun **XXXXXXXXX XXXX XXX XXXXXXX**.",
+    "x": [
+     "Einmal pro Sitzung, wenn du **XXXXXXXX XXXX XXXXX XXXX XXX**, markierst du W6 Stress auf **XXXXXXX**; das Gebiet um dich herum wird von **XXXXXXXXX** durch **XXXXXXX**. Markiere W8 Stress auf **XXXXXXX**, um **XXXXXXXXX XXXX XXXXX XXXXXX** und **XXXXXXX**, und zeichne die Stadt für immer nach deinem Bild."
+    ]
+   },
+   {
+    "t": "DAS GESTOHLENE FEUER",
+    "p": 9,
+    "tag": "Göttlich",
+    "fl": "Es steht geschrieben, dass die Aelfir in uralten Zeiten den Göttern das Feuer stahlen, und zwar so gründlich, dass eine ausgelöschte Feuergottheit sie noch immer auf der Suche nach Rache jagt.",
+    "x": [
+     "Markiere W3 Stress auf **Verstand**, um diesen Zauber zu wirken, indem du Worte der Verbergung und des Schutzes über dich sprichst. Du und alle in der Nähe halbiert (aufgerundet) allen **Schatten**-Stress für den Rest der Situation. Markiere W8 Stress auf **Blut**, um den geheimen Namen des Feuers laut auszusprechen. Jedes Ziel deiner Wahl, das ihn hören kann, markiert den doppelten Stress, den du markiert hast."
+    ]
+   },
+   {
+    "t": "LEKOLÉS ZORN",
+    "p": 9,
+    "tag": "Göttlich",
+    "fl": "Der Rote Mondgott erfüllt dich mit dem Zorn eines blutbesudelten Heiligen.",
+    "x": [
+     "Erhalte die Fertigkeit **Kämpfen**. Markiere W3 Stress auf **Schatten**, um für den Rest der Situation Zugriff auf 3 zusätzliche Plätze auf **Blut** zu erhalten. Am Ende der Situation gehen diese Plätze verloren, und jeder auf sie verteilte Stress wird von dir entfernt. Markiere nach dem ersten Zauber zusätzlich W3 Stress auf **Verstand**, um Lekolés Wut in deine Schläge zu lenken. Für den Rest der Situation addierst du deinen aktuellen **Blut**-Stress (einschließlich Stress in freien Plätzen) zum Kampfschaden, den du verursachst."
+    ]
+   },
+   {
+    "t": "DIE STILLE",
+    "p": 10,
+    "tag": "Göttlich",
+    "fl": "Uralte aelfirische Priester der Stille hielten das Eis ihrer Heimat in hohen Ehren; es ist beständig, fest, unveränderlich. Sie strebten danach, selbst so unerbittlich zu sein.",
+    "x": [
+     "Erhalte +2 **Verstand**. Einmal pro Sitzung entfernst du W8 **Verstand**-Stress oder einen anhaltenden **Verstand**-Fallout von dir oder einem Verbündeten in Reichweite deines Arms, indem du deinen Wahnsinn zu einem Block Ewigfrost verdichtest (siehe *Spire*, S. 109)."
+    ]
+   },
+   {
+    "t": "LOMBRES GNADE",
+    "p": 10,
+    "tag": "Göttlich",
+    "fl": "Die Drow-Göttin der verborgenen Dinge segnet dich mit ihrer heiligen Verschleierung.",
+    "x": [
+     "Erhalte die Fertigkeit **Schleichen**. Markiere W3 Stress auf **Verstand**, um diesen Zauber zu wirken: Eine einzelne Person, die du gerade ansiehst, kann dich bis zum Ende der Situation nicht sehen. Du bist nicht unsichtbar; du fällst nur nicht als fehl am Platz auf, solange du nichts Aufregendes tust, etwa einen lauten Lärm zu machen, sie anzugreifen oder ein Fenster einzuschlagen. Du kannst W8 Stress auf **Verstand** markieren, um diesen Effekt auf alle Personen auszudehnen, die dich gerade sehen können, nicht nur auf ein einzelnes Ziel."
+    ]
+   },
+   {
+    "t": "XXXXXXXXXXXX XXXXXXXXX",
+    "p": 10,
+    "tag": "Göttlich",
+    "fl": "Sie haben dich aufgespürt und das Wissen mit **XXXXXXXX** aus dir herausgebrannt und **XXXX XXXXXXXX** bis zur Unkenntlichkeit vernarbt. Aber du **XXXXXXXXXX** noch immer.",
+    "x": [
+     "Einmal pro **XXXXXXXX** kannst du **XXXXX XXXXX**, wenn du **XXXXXX** ausgesetzt bist, **XXXXXX XXXXX** oder **XXXXXXXX**. Markiere danach W3 Stress auf **XXXXXXXX**, um dich an deinen eigenen Verstand zu klammern; markiere stattdessen W8 Stress auf **XXXXXX**, um **XXXXX XXX XXXXXX XXXXXXXXXX XXXX**."
+    ]
+   },
+   {
+    "t": "DIE WEITE DARUNTER",
+    "p": 10,
+    "tag": "Göttlich",
+    "fl": "Die Aelfir glauben nicht an ein Leben nach dem Tod, sondern an ein Leben davor; gefangen im Seetang ertrinken sie unsterblich in den Schlummernden Tiefen, bis sie sich eine glorreiche Existenz in den Ländern darüber verdienen.",
+    "x": [
+     "Markiere W3 Stress auf **Verstand**, um binnen weniger Sekunden mehrere Fässer voll bitterkalten Salzwassers in deiner unmittelbaren Umgebung heraufzubeschwören. Wie unter gewaltigem Druck spritzt es durch Spalten, quillt aus Gittern und Rinnsteinen und ergießt sich als Sturzbach von der Decke. Markiere W8 Stress auf **Verstand**, um stattdessen eine Flut tintenschwarzer Flüssigkeit aus den Wassern unter der Schlummernden Tiefe zu beschwören. Augenlose Dinger mit zu vielen Zähnen winden, beißen und drehen sich darin und verursachen W6 Schaden bei allen, die ihnen in den Weg geraten."
+    ]
+   },
+   {
+    "t": "DIE LEERE DARÜBER",
+    "p": 10,
+    "tag": "Göttlich",
+    "fl": "Die federbekränzten Priester der Leere erklommen große Höhen, um sich der Erhabenheit des Himmels zu nähern.",
+    "x": [
+     "Markiere W3 Stress auf **Schatten**, um die Wirkung der Schwerkraft auf dich abzuschwächen und große Sprünge durch die Luft zu machen. Du erhältst Meisterschaft auf alle Handlungen, die gewagte Sprünge, Stürze aus großer Höhe oder das rasche Erklimmen einer senkrechten Fläche beinhalten. Markiere W8 Stress, um die Schwerkraft bei einem Ziel in Reichweite deines Arms für etwa eine Minute *umzukehren*; es wird direkt nach oben dem Himmel entgegengeschleudert. In einem Raum mit niedriger Decke erleidet es W3 Schaden und bleibt an der Decke kleben, doch im Freien ist es so gut wie erledigt."
+    ]
+   }
+  ],
+  "hoch": [
+   {
+    "t": "DIE ERSTE, DIE SPINNERIN",
+    "p": 11,
+    "tag": "Göttlich",
+    "fl": "Sie, die die Fäden von Leben und Folge spinnt.",
+    "x": [
+     "Einmal pro Sitzung aktivierst du diese Kraft, wenn die Spielleitung für Fallout würfeln würde, weil du Stress erhältst. Für diesen Wurf und den Rest der Situation erleidest du keinen Fallout, wenn du ihn normalerweise erleiden würdest. Stattdessen trifft er über eine unwahrscheinliche (aber dennoch mögliche) Kette von Ereignissen einen Unbeteiligten. Du baust Stress dennoch ab, als hättest du Fallout erlitten.",
+     "Jedes Mal, wenn du diese Fähigkeit aktivierst, machst du eine Markierung daneben. Je mehr Plätze du markiert hast, desto wahrscheinlicher werden die losen Katastrophen jemanden treffen, der dir etwas bedeutet.",
+     {
+      "t": "dl",
+      "x": [
+       [
+        "0 Markierungen",
+        "Völlig Fremde, richtig üble Gestalten"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "t": "1 Markierung",
+    "p": 11,
+    "x": [
+     "Flüchtige Bekannte, im Grunde anständige Leute",
+     {
+      "t": "dl",
+      "x": [
+       [
+        "2 Markierungen",
+        "Jemand, den du kennst und magst, wirklich gute Menschen"
+       ],
+       [
+        "3+ Markierungen",
+        "Gruppenmitglieder, Liebhaber, Haustiere, Verwandte"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "t": "DIE ZWEITE, DIE WEBERIN",
+    "p": 11,
+    "tag": "Göttlich",
+    "fl": "Sie, die die Stränge des Schicksals misst und fertigt.",
+    "x": [
+     "Einmal pro Sitzung kannst du, wenn die Spielleitung einen namenlosen NSC beschreibt, sein Schicksal an dich reißen, indem du ihm einen Namen gibst. Bis zum Ende der Sitzung giltst du in Bezug auf diesen NSC als Spielleiter: Du triffst alle Entscheidungen für ihn, sprichst für ihn und so weiter. Du kontrollierst auch seine gesamte Vorgeschichte und kannst sie nach Belieben gestalten, um alle seltsamen Handlungen zu rationalisieren, die du ihm aufträgst. Am Ende der Sitzung verlierst du die Kontrolle über sein Schicksal, da es durch den Einfluss der Weberin zurück ins Muster gezogen wird. Du kannst ihn nicht erneut an dich reißen, denn er hat nun einen Namen. Er wird in deinem Leben immer wieder auftauchen, denn du hast die Fäden seines Schicksals mit deinen Taten befleckt."
+    ]
+   },
+   {
+    "t": "DIE DRITTE, DIE SCHNEIDERIN",
+    "p": 11,
+    "tag": "Göttlich",
+    "fl": "Sie, die den Faden des Schicksals durchtrennt.",
+    "x": [
+     "Du kannst unangenehme Zukünfte herausschneiden und bleibst dabei makellos, ungehindert und zunehmend wahnsinniger. Wenn du eine Handlung auswürfelst, kannst du **Verstand**-Stress markieren, um das Ergebnis deines höchsten Würfels zu erhöhen. Jeder markierte Punkt **Verstand**-Stress erhöht das Ergebnis um 1."
+    ]
+   },
+   {
+    "t": "DIE VIERTE, DIE BOSHAFTE",
+    "p": 11,
+    "tag": "Göttlich",
+    "fl": "Sie, die seit Äonen ignoriert wurde und seltsam und böse geworden ist.",
+    "x": [
+     "Du brichst die Regeln der drei Schwestern. Am Höhepunkt eines nächtelangen Rituals bei Morgengrauen erklärst du ein Ziel, das du erreichen *musst*. Wenn du stirbst, bevor du dieses Ziel erreicht hast, erwachst du am Höhepunkt jenes nächtelangen Rituals und markierst W6 dauerhaften **Verstand**-Stress. Du kannst diesen auf keine Weise von deinen Stressleisten entfernen, bist aber sonst unversehrt. Der Rest der Welt wird auf den Stand des Morgengrauens nach dem Ritual zurückgesetzt. Erreichst du dein Ziel, schließt du dich dem Faden des Schicksals wieder wie gewohnt an; erleidest du jedoch schweren **Verstand**-Fallout, bist du auf ewig in einer elenden, unentrinnbaren Zeitschleife gefangen."
+    ]
+   }
+  ]
+ },
+ "boxen": [
+  {
+   "h": "GÖTTLICHE VERGELTUNG",
+   "b": [
+    "Spielleitung: Wenn ihr einen Gutter Cleric in eurer Spielgruppe habt, kann es Spaß machen, Fallout als Rache der Götter darzustellen, die dazu gebracht wurden, Wunder zu wirken. Ihr könntet Blitzschläge, furchtbares Pech, vorübergehende Blindheit, eine Art identifizierendes Mal oder Brandzeichen und so weiter einsetzen. Oder ihr haltet die Beziehung zwischen den Göttern und der realen Welt fern und unbestimmt und ignoriert die vorigen Sätze vollständig. Es ist euer Spiel!"
+   ],
+   "nach": "kfae",
+   "p": 7
+  },
+  {
+   "h": "KLEINE GÖTTER",
+   "b": [
+    "Spire liebt Götter. Und nicht nur die großen – Tausende von Göttern, hektisch und wuselnd, neugeboren und verzweifelt auf der Suche nach Anhängern, roh und halbgeformt ins kollektive Unbewusste geboren. Viele dieser Götterchen entstehen und vergehen am selben Tag als Antwort auf einen verpatzten Zauber, ein gemurmeltes Gebet oder eine ungeformte Sehnsucht und sind nicht mehr als metaphysischer Krill in den Ozeanen der Himmel; doch gelegentlich schlägt eine Idee Wurzeln, und eine junge Kirche oder etwas Ähnliches entsteht.",
+    "Diese Kleinen Götter sind ungenau und seltsam und für „seriöse“ Forscher und Theologen kaum von Interesse, doch Gutter Clerics sind weit davon entfernt, von irgendeiner Universität als seriös angesehen zu werden. Durch die Bindung an diese Götter beginnen Gutter Clerics vielleicht, die wahre Macht des Kanalisierens des Göttlichen zu verstehen: dass Götter bei Wundern trotz all ihrer Prahlerei und Großspurigkeit ziemlich leicht hereinzulegen sind."
+   ],
+   "nach": "niedrig",
+   "p": 8
+  },
+  {
+   "h": "DIE VERBOTENEN GLAUBEN",
+   "b": [
+    "Die Aelfir erlauben innerhalb der Stadt Spire die freie Verehrung der meisten Gottheiten, doch eine Handvoll Religionen haben sie vollständig aus der Stadt verbannt. Am wichtigsten für die Drow: Sie haben die Verehrung der Verborgenen Herrin (Lombré) und der Karmesinroten Wacht (Lekolé) verboten, zweier der drei Mondgöttinnen, die das Triumvirat Damnou bilden; das hat zu Jahrhunderten der Radikalisierung geführt, da die Glauben in den Untergrund getrieben und zu unberechenbaren, gefährlichen Kulten gewandelt wurden.",
+    "Viele der übrigen verbotenen Glauben sind mit den Alten Göttern der Aelfir verbunden, und schon ihre Namen laut auszusprechen ist verboten. Diese Urwesen wurden von ihren Anhängern eher gefürchtet als geliebt – Götter des Hungers, der Raubjagd, der Isolation und der Ausgesetztheit, der vielen Arten, auf die das Leben im bitteren Norden zerbrechlich und kurz ist. Warum die Aelfir so entschlossen sind, jede Vorstellung ihrer alten Herren auszumerzen, ist unklar, doch dunkle und schreckliche Dinge lauern in der endlosen Nacht ihrer Heimat, und es könnte klug sein, ihre Aufmerksamkeit nicht auf sich zu ziehen."
+   ],
+   "nach": "mittel",
+   "p": 9
+  },
+  {
+   "h": "WERKZEUGE UND METHODEN",
+   "b": [
+    "Es gibt kein Kolleg der Gutter Clerics, keine einheitliche Kleidung oder Standardausrüstung, keinen zentralen Kanon und keine Pflichtlektüre – jeder Einzelne von ihnen improvisiert sich durch, mit einer Mischung aus robustem Experimentieren und dem, was an Bildung sie zusammengestoppelt haben, bevor die Arbeit für einen illegalen paramilitärischen Kult zum Hauptinhalt ihres Lebens wurde.",
+    "Dennoch gibt es Ähnlichkeiten. Viele behängen sich mit so viel religiöser Ikonografie wie möglich und nehmen große Mühen auf sich, Symbole und Gewänder esoterischer, seltener und widerstreitender Glauben zu tragen; man glaubt, dass Wunder durch schiere Heiligkeit gewährt werden können, statt in Richtung einer bestimmten Religion zu zielen. Bücher – ob die große, ledergebundene, illuminierte Sorte oder das bis an den Rand mit hingekritzelten Erkenntnissen gefüllte Notizbuch – sind immer beliebt; und, wie es scheint, um das Bild verlorenen Wissens und verborgener Weisheit zu stützen, geben sich viele Gutter Clerics große Mühe, so zu wirken, als stammten sie von überall außer aus Spire."
+   ],
+   "nach": "mittel",
+   "p": 9
+  },
+  {
+   "h": "DIE ÄLTEREN GÖTTER",
+   "b": [
+    "Götter kommen und gehen, gewinnen und verlieren an Macht, wenn ihre Gemeinden anschwellen und schrumpfen, wenn Heilige Kriege zu ihren Ehren gewonnen und verloren werden. Sie sind Spiegelbilder der Menschen, die sie verehren, und ihre Macht und ihr Bild werden von jenen geformt, die in ihrem Namen predigen. Einige radikale Gelehrte der Universität der Göttlichen Magie behaupten – meist kurz bevor sie exmatrikuliert werden –, dass es keine Götter gebe, nur Formen, in die magische Macht gelenkt werde, und dass die Wunder von Priestern und Templern metaphysisch mit Okkultismus und Hexerei identisch seien.",
+    "Doch es gibt Dinge, die älter sind als Götter. Grundlegende Kräfte von Ursache und Wirkung, von Schöpfung und Zerstörung, von Verhängnis und Schicksal. Niemand verehrt sie, denn sie hören nicht zu und kommen auch nicht mit einem zugehörigen Glaubensbekenntnis. Nur wenige konnten auf die Macht zugreifen, die sie bieten; zumindest bis jetzt nicht. Tritt behutsam auf."
+   ],
+   "nach": "hoch",
+   "p": 11
+  },
+  {
+   "h": "WAS PASSIERT MIT DEN ANDEREN SPIELERN, WENN ICH IN EINER ENDLOSSCHLEIFE FESTHÄNGE?",
+   "b": [
+    "Gute Frage! Nach den ersten paar Malen macht es nicht mehr viel Spaß. Wenn du DIE BOSHAFTE als Fortschritt nehmen willst, ist es wahrscheinlich eine gute Idee, vorher mit deiner Gruppe und der Spielleitung darüber zu sprechen: Sie haben vielleicht Ideen, wie sich die Fähigkeit am besten in Spielbegriffen umsetzen lässt – vielleicht eine ganze Sitzung dafür widmen und einen sinnvollen Rhythmus für die Schleife ausarbeiten, der es euch allen erlaubt, Spaß zu haben.",
+    "Wenn du schweren **Verstand**-Fallout erleidest und das schlimmstmögliche Schicksal erfährst, das derzeit im Spire verfügbar ist – auf ewig in einer Zeitschleife gefangen zu sein, während dein Verstand in Stücke zerfällt –, empfehlen wir nicht, dass ihr das Ganze ausspielt, denn das könnte eine Weile dauern. Es ist euer Spiel!"
+   ],
+   "nach": "hoch",
+   "p": 11
+  }
+ ],
+ "hinweis": {},
+ "fortIntro": {},
+ "fortSub": {
+  "niedrig": "Kleine Götter",
+  "mittel": "Die verbotenen Glauben",
+  "hoch": "Die älteren Götter"
+ }
+});

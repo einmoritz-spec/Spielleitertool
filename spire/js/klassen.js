@@ -76,7 +76,7 @@ function klUebersicht(){
   var dz = ab("dienstzeit");
   var kasten = dz.b.filter(function(b){ return b && b.t === "schwarz"; }), text = dz.b.filter(function(b){ return !(b && b.t === "schwarz"); });
   var body = '<h1 class="titel">Klassen' + pgl(25) + '</h1>' +
-    '<div class="kl-grid">' + SP_KLASSE.map(klKachel).join("") + KL_MG_ONLY.filter(function(id){ return window.SP_MG && SP_MG[id]; }).map(klMgKachel).join("") + '</div>' +
+    '<div class="kl-grid">' + SP_KLASSE.map(klKachel).join("") + KL_MG_ONLY.filter(function(id){ return window.SP_MG && SP_MG[id] && !klById(id); }).map(klMgKachel).join("") + '</div>' +
     '<h2 class="ab" id="ab-charaktere">Charaktere' + pgl(25) + '</h2>' +
     '<div class="raster r3 kl-kurz">' + kurz.map(function(s){ return '<div class="karte"><h4>' + esc(s.t.charAt(0) + s.t.slice(1).toLowerCase()) + pgl(s.p) + '</h4>' + blk(s.b) + '</div>'; }).join("") + '</div>' +
     '<h2 class="ab" id="ab-dienstzeit">Dienstzeit' + pgl(25) + '</h2>' +
@@ -90,7 +90,7 @@ var KL_MG_ONLY = ["blood-witch", "gutter-cleric", "inksmith", "mortician-executi
 var KL_MG_KURZ = {"mortician-executioner":"Mortician"};
 function klSubtabs(cur){
   return '<div class="subtabs kl-st">' + SP_KLASSE.map(function(k){ return '<a class="' + (k.id === cur ? 'on' : '') + '" onclick="go(\'nach/klassen/' + k.id + '\')">' + esc(k.t) + '</a>'; }).join("") +
-    KL_MG_ONLY.filter(function(id){ return window.SP_MG && SP_MG[id]; }).map(function(id){ return '<a class="mgt' + (id === cur ? ' on' : '') + '" onclick="go(\'nach/klassen/' + id + '\')">' + esc(KL_MG_KURZ[id] || SP_MG[id].t) + '</a>'; }).join("") + '</div>';
+    KL_MG_ONLY.filter(function(id){ return window.SP_MG && SP_MG[id] && !klById(id); }).map(function(id){ return '<a class="mgt' + (id === cur ? ' on' : '') + '" onclick="go(\'nach/klassen/' + id + '\')">' + esc(KL_MG_KURZ[id] || SP_MG[id].t) + '</a>'; }).join("") + '</div>';
 }
 function klModus(id, mg){
   return '<div class="kp-modus"><a class="' + (mg ? '' : 'on') + '" onclick="go(\'nach/klassen/' + id + '\')">Klasse</a><a class="' + (mg ? 'on' : '') + '" onclick="go(\'nach/klassen/' + id + '/mg\')">Magister\'s Guide: Zusatz</a></div>';

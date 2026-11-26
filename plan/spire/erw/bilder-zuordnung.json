@@ -1,0 +1,838 @@
+{
+"sin": [
+{
+"p": 1,
+"src": "erw/sin/sin_001_01",
+"w": 1061,
+"h": 1500,
+"kap": "einleitung"
+},
+{
+"p": 6,
+"src": "erw/sin/sin_006_01",
+"w": 1061,
+"h": 1500,
+"kap": "klassen"
+},
+{
+"p": 12,
+"src": "erw/sin/sin_012_01",
+"w": 1061,
+"h": 1500,
+"kap": "klassen"
+},
+{
+"p": 17,
+"src": "erw/sin/sin_017_01",
+"w": 501,
+"h": 666,
+"kap": "verbrechen"
+},
+{
+"p": 18,
+"src": "erw/sin/sin_018_01",
+"w": 1061,
+"h": 1500,
+"kap": "verbrechen"
+},
+{
+"p": 22,
+"src": "erw/sin/sin_022_01",
+"w": 1061,
+"h": 1500,
+"kap": "red-row"
+},
+{
+"p": 26,
+"src": "erw/sin/sin_026_01",
+"w": 1061,
+"h": 1500,
+"kap": "red-row"
+},
+{
+"p": 27,
+"src": "erw/sin/sin_027_01",
+"w": 1061,
+"h": 1500,
+"kap": "red-row"
+},
+{
+"p": 29,
+"src": "erw/sin/sin_029_01",
+"w": 1061,
+"h": 1500,
+"kap": "red-row"
+},
+{
+"p": 41,
+"src": "erw/sin/sin_041_01",
+"w": 1061,
+"h": 1500,
+"kap": "schreine"
+},
+{
+"p": 44,
+"src": "erw/sin/sin_044_01",
+"w": 1061,
+"h": 1500,
+"kap": "norddocks"
+},
+{
+"p": 49,
+"src": "erw/sin/sin_049_01",
+"w": 1061,
+"h": 1500,
+"kap": "norddocks"
+},
+{
+"p": 50,
+"src": "erw/sin/sin_050_01",
+"w": 1061,
+"h": 1500,
+"kap": "norddocks"
+},
+{
+"p": 51,
+"src": "erw/sin/sin_051_01",
+"w": 1061,
+"h": 1500,
+"kap": "norddocks"
+},
+{
+"p": 56,
+"src": "erw/sin/sin_056_01",
+"w": 1061,
+"h": 1500,
+"kap": "up-spire"
+},
+{
+"p": 60,
+"src": "erw/sin/sin_060_01",
+"w": 1061,
+"h": 1500,
+"kap": "up-spire"
+},
+{
+"p": 64,
+"src": "erw/sin/sin_064_01",
+"w": 1061,
+"h": 1500,
+"kap": "verbrechen-extra"
+},
+{
+"p": 66,
+"src": "erw/sin/sin_066_01",
+"w": 1061,
+"h": 1500,
+"kap": "second-hand-rain"
+},
+{
+"p": 79,
+"src": "erw/sin/sin_079_01",
+"w": 1061,
+"h": 1500,
+"kap": "second-hand-rain"
+},
+{
+"p": 90,
+"src": "erw/sin/sin_090_01",
+"w": 1061,
+"h": 1500,
+"kap": "second-hand-rain"
+},
+{
+"p": 91,
+"src": "erw/sin/sin_091_01",
+"w": 1061,
+"h": 1500,
+"kap": "second-hand-rain"
+},
+{
+"p": 92,
+"src": "erw/sin/sin_092_01",
+"w": 1061,
+"h": 1500,
+"kap": "ordnung"
+},
+{
+"p": 96,
+"src": "erw/sin/sin_096_01",
+"w": 1061,
+"h": 1500,
+"kap": "ordnung"
+},
+{
+"p": 97,
+"src": "erw/sin/sin_097_01",
+"w": 1061,
+"h": 1500,
+"kap": "ordnung"
+},
+{
+"p": 100,
+"src": "erw/sin/sin_100_01",
+"w": 1060,
+"h": 1500,
+"kap": "ordnung"
+},
+{
+"p": 112,
+"src": "erw/sin/sin_112_01",
+"w": 1061,
+"h": 1500,
+"kap": "lokales-recht"
+},
+{
+"p": 118,
+"src": "erw/sin/sin_118_01",
+"w": 540,
+"h": 1500,
+"kap": "lokales-recht"
+},
+{
+"p": 124,
+"src": "erw/sin/sin_124_01",
+"w": 1061,
+"h": 1500,
+"kap": "kolonialherrschaft"
+},
+{
+"p": 131,
+"src": "erw/sin/sin_131_02",
+"w": 412,
+"h": 483,
+"kap": "kolonialherrschaft"
+},
+{
+"p": 134,
+"src": "erw/sin/sin_134_01",
+"w": 1061,
+"h": 1500,
+"kap": "brother-harvest"
+},
+{
+"p": 137,
+"src": "erw/sin/sin_137_01",
+"w": 1100,
+"h": 801,
+"kap": "brother-harvest"
+},
+{
+"p": 140,
+"src": "erw/sin/sin_140_01",
+"w": 269,
+"h": 507,
+"kap": "brother-harvest"
+},
+{
+"p": 149,
+"src": "erw/sin/sin_149_01",
+"w": 1100,
+"h": 1231,
+"kap": "brother-harvest"
+},
+{
+"p": 151,
+"src": "erw/sin/sin_151_01",
+"w": 1081,
+"h": 930,
+"kap": "brother-harvest"
+},
+{
+"p": 152,
+"src": "erw/sin/sin_152_01",
+"w": 1061,
+"h": 1500,
+"kap": "ministerium-kirche"
+},
+{
+"p": 155,
+"src": "erw/sin/sin_155_01",
+"w": 1061,
+"h": 1500,
+"kap": "ministerium-kirche"
+},
+{
+"p": 157,
+"src": "erw/sin/sin_157_01",
+"w": 1061,
+"h": 1500,
+"kap": "ministerium-kirche"
+},
+{
+"p": 163,
+"src": "erw/sin/sin_163_01",
+"w": 1061,
+"h": 1500,
+"kap": "ministerium-kirche"
+},
+{
+"p": 167,
+"src": "erw/sin/sin_167_01",
+"w": 1061,
+"h": 1500,
+"kap": "karmesinrote-wacht"
+},
+{
+"p": 170,
+"src": "erw/sin/sin_170_01",
+"w": 1061,
+"h": 1500,
+"kap": "karmesinrote-wacht"
+},
+{
+"p": 173,
+"src": "erw/sin/sin_173_02",
+"w": 492,
+"h": 714,
+"kap": "karmesinrote-wacht"
+},
+{
+"p": 179,
+"src": "erw/sin/sin_179_01",
+"w": 1032,
+"h": 1500,
+"kap": "karmesinrote-wacht"
+},
+{
+"p": 183,
+"src": "erw/sin/sin_183_01",
+"w": 1061,
+"h": 1500,
+"kap": "sonnenkirche-viele"
+},
+{
+"p": 189,
+"src": "erw/sin/sin_189_01",
+"w": 1061,
+"h": 1500,
+"kap": "sonnenkirche-viele"
+},
+{
+"p": 191,
+"src": "erw/sin/sin_191_01",
+"w": 1061,
+"h": 1500,
+"kap": "sonnenkirche-viele"
+},
+{
+"p": 201,
+"src": "erw/sin/sin_201_01",
+"w": 1061,
+"h": 1500,
+"kap": "pilgerweg"
+},
+{
+"p": 204,
+"src": "erw/sin/sin_204_01",
+"w": 1061,
+"h": 1500,
+"kap": "hands-of-the-gods"
+},
+{
+"p": 215,
+"src": "erw/sin/sin_215_01",
+"w": 1061,
+"h": 1500,
+"kap": "hands-of-the-gods"
+},
+{
+"p": 216,
+"src": "erw/sin/sin_216_01",
+"w": 531,
+"h": 501,
+"kap": "hands-of-the-gods"
+},
+{
+"p": 222,
+"src": "erw/sin/sin_222_01",
+"w": 1061,
+"h": 1500,
+"kap": "kulte"
+},
+{
+"p": 224,
+"src": "erw/sin/sin_224_01",
+"w": 1061,
+"h": 1500,
+"kap": "kulte"
+},
+{
+"p": 226,
+"src": "erw/sin/sin_226_01",
+"w": 1061,
+"h": 1500,
+"kap": "kulte"
+},
+{
+"p": 228,
+"src": "erw/sin/sin_228_01",
+"w": 1061,
+"h": 1500,
+"kap": "kulte"
+},
+{
+"p": 230,
+"src": "erw/sin/sin_230_01",
+"w": 1061,
+"h": 1500,
+"kap": "kulte"
+},
+{
+"p": 232,
+"src": "erw/sin/sin_232_01",
+"w": 1061,
+"h": 1500,
+"kap": "kulte"
+},
+{
+"p": 234,
+"src": "erw/sin/sin_234_01",
+"w": 1061,
+"h": 1500,
+"kap": "kulte"
+}
+],
+"str": [
+{
+"p": 2,
+"src": "erw/str/str_002_01",
+"w": 1100,
+"h": 1424,
+"kap": "klassen"
+},
+{
+"p": 6,
+"src": "erw/str/str_006_01",
+"w": 1100,
+"h": 1424,
+"kap": "klassen"
+},
+{
+"p": 12,
+"src": "erw/str/str_012_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 14,
+"src": "erw/str/str_014_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 16,
+"src": "erw/str/str_016_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 22,
+"src": "erw/str/str_022_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 24,
+"src": "erw/str/str_024_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 28,
+"src": "erw/str/str_028_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 32,
+"src": "erw/str/str_032_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 34,
+"src": "erw/str/str_034_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 36,
+"src": "erw/str/str_036_01",
+"w": 1100,
+"h": 1424,
+"kap": "hohe-gesellschaft"
+},
+{
+"p": 42,
+"src": "erw/str/str_042_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 48,
+"src": "erw/str/str_048_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 50,
+"src": "erw/str/str_050_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 54,
+"src": "erw/str/str_054_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 56,
+"src": "erw/str/str_056_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 58,
+"src": "erw/str/str_058_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 60,
+"src": "erw/str/str_060_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 64,
+"src": "erw/str/str_064_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 68,
+"src": "erw/str/str_068_01",
+"w": 1100,
+"h": 1424,
+"kap": "niedere-gesellschaft"
+},
+{
+"p": 72,
+"src": "erw/str/str_072_01",
+"w": 1100,
+"h": 1424,
+"kap": "szenarien"
+},
+{
+"p": 84,
+"src": "erw/str/str_084_01",
+"w": 1100,
+"h": 1424,
+"kap": "eye-of-the-beholder"
+},
+{
+"p": 92,
+"src": "erw/str/str_092_01",
+"w": 1100,
+"h": 1424,
+"kap": "home-is-where-the-hatred-is"
+},
+{
+"p": 94,
+"src": "erw/str/str_094_01",
+"w": 1100,
+"h": 1424,
+"kap": "home-is-where-the-hatred-is"
+},
+{
+"p": 108,
+"src": "erw/str/str_108_01",
+"w": 1100,
+"h": 1424,
+"kap": "bisquiet"
+},
+{
+"p": 116,
+"src": "erw/str/str_116_01",
+"w": 1100,
+"h": 1424,
+"kap": "fall-of-glasshelm"
+},
+{
+"p": 124,
+"src": "erw/str/str_124_01",
+"w": 1100,
+"h": 1424,
+"kap": "fall-of-glasshelm"
+},
+{
+"p": 128,
+"src": "erw/str/str_128_01",
+"w": 1100,
+"h": 1424,
+"kap": "better-the-devil"
+},
+{
+"p": 134,
+"src": "erw/str/str_134_01",
+"w": 1100,
+"h": 1424,
+"kap": "better-the-devil"
+},
+{
+"p": 138,
+"src": "erw/str/str_138_01",
+"w": 1100,
+"h": 1424,
+"kap": "better-the-devil"
+},
+{
+"p": 140,
+"src": "erw/str/str_140_01",
+"w": 1100,
+"h": 1424,
+"kap": "better-the-devil"
+},
+{
+"p": 152,
+"src": "erw/str/str_152_01",
+"w": 1100,
+"h": 1424,
+"kap": "the-forgotten"
+},
+{
+"p": 164,
+"src": "erw/str/str_164_01",
+"w": 1100,
+"h": 1424,
+"kap": "ironshrike"
+},
+{
+"p": 172,
+"src": "erw/str/str_172_01",
+"w": 1100,
+"h": 1424,
+"kap": "sulphurous-presses"
+},
+{
+"p": 180,
+"src": "erw/str/str_180_01",
+"w": 1100,
+"h": 1424,
+"kap": "sulphurous-presses"
+},
+{
+"p": 190,
+"src": "erw/str/str_190_01",
+"w": 1100,
+"h": 1424,
+"kap": "lines-in-the-dirt"
+},
+{
+"p": 197,
+"src": "erw/str/str_197_01",
+"w": 882,
+"h": 1247,
+"kap": "lines-in-the-dirt"
+},
+{
+"p": 198,
+"src": "erw/str/str_198_01",
+"w": 1100,
+"h": 1424,
+"kap": "lines-in-the-dirt"
+},
+{
+"p": 216,
+"src": "erw/str/str_216_01",
+"w": 1100,
+"h": 1424,
+"kap": "kulte"
+},
+{
+"p": 218,
+"src": "erw/str/str_218_01",
+"w": 1100,
+"h": 1424,
+"kap": "kulte"
+},
+{
+"p": 220,
+"src": "erw/str/str_220_01",
+"w": 1100,
+"h": 1424,
+"kap": "kulte"
+},
+{
+"p": 222,
+"src": "erw/str/str_222_01",
+"w": 1100,
+"h": 1424,
+"kap": "kulte"
+},
+{
+"p": 224,
+"src": "erw/str/str_224_01",
+"w": 1100,
+"h": 1424,
+"kap": "kulte"
+}
+],
+"bm": [
+{
+"p": 2,
+"src": "erw/bm/bm_002_01",
+"w": 1100,
+"h": 1424,
+"kap": "einleitung"
+},
+{
+"p": 7,
+"src": "erw/bm/bm_007_01",
+"w": 1100,
+"h": 1424,
+"kap": "einleitung"
+},
+{
+"p": 10,
+"src": "erw/bm/bm_010_01",
+"w": 1100,
+"h": 1424,
+"kap": "einleitung"
+},
+{
+"p": 13,
+"src": "erw/bm/bm_013_01",
+"w": 1100,
+"h": 1424,
+"kap": "daemonen"
+}
+],
+"cod": [
+{
+"p": 3,
+"src": "erw/cod/cod_003_01",
+"w": 534,
+"h": 443,
+"kap": "codex"
+},
+{
+"p": 11,
+"src": "erw/cod/cod_011_01",
+"w": 526,
+"h": 702,
+"kap": "codex"
+},
+{
+"p": 15,
+"src": "erw/cod/cod_015_01",
+"w": 524,
+"h": 699,
+"kap": "codex"
+}
+],
+"sop": [
+{
+"p": 2,
+"src": "erw/sop/sop_002_01",
+"w": 1100,
+"h": 1421,
+"kap": "einleitung"
+},
+{
+"p": 6,
+"src": "erw/sop/sop_006_01",
+"w": 1100,
+"h": 1421,
+"kap": "life-and-soul"
+},
+{
+"p": 10,
+"src": "erw/sop/sop_010_01",
+"w": 1100,
+"h": 1421,
+"kap": "the-last-train"
+},
+{
+"p": 14,
+"src": "erw/sop/sop_014_01",
+"w": 1100,
+"h": 1421,
+"kap": "shotgun-wedding"
+},
+{
+"p": 18,
+"src": "erw/sop/sop_018_01",
+"w": 1100,
+"h": 1421,
+"kap": "powderkeg"
+},
+{
+"p": 22,
+"src": "erw/sop/sop_022_01",
+"w": 1100,
+"h": 1421,
+"kap": "show-must-go-on"
+},
+{
+"p": 26,
+"src": "erw/sop/sop_026_01",
+"w": 1100,
+"h": 1421,
+"kap": "show-must-go-on"
+},
+{
+"p": 30,
+"src": "erw/sop/sop_030_01",
+"w": 1100,
+"h": 1421,
+"kap": "show-must-go-on"
+},
+{
+"p": 34,
+"src": "erw/sop/sop_034_01",
+"w": 1100,
+"h": 1421,
+"kap": "show-must-go-on"
+},
+{
+"p": 38,
+"src": "erw/sop/sop_038_01",
+"w": 1100,
+"h": 1421,
+"kap": "show-must-go-on"
+},
+{
+"p": 42,
+"src": "erw/sop/sop_042_01",
+"w": 1100,
+"h": 1421,
+"kap": "show-must-go-on"
+},
+{
+"p": 46,
+"src": "erw/sop/sop_046_01",
+"w": 1100,
+"h": 1421,
+"kap": "show-must-go-on"
+}
+]
+}

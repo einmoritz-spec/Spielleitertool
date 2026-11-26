@@ -53,7 +53,9 @@ window.SP_KOPF = [
     ["nach/klassen","Klassen"], ["nach/extra","Extra-Fortschritte"], ["nach/fertigkeiten","Fertigkeiten"], ["nach/ausruestung","Ausrüstung"], ["nach/bindungen","Bindungen"], ["masken","Masken"], ["bogen","Charakterbogen"]]},
   {id:"gegner", t:"Gegner", img:"kapitel/kampf-S078", pos:"center 22%", sub:[["gegner","Gegner"]]},
   {id:"spielleitung", t:"Spielleitung", img:"kapitel/spielleitung-S180", pos:"center 22%", sub:[
-    ["nach/spielleitung","Spielleitung"], ["nach/mg","Magister's Guide"], ["zelle","Die Zelle"], ["nach/anhang","Anhänge"]]}
+    ["nach/spielleitung","Spielleitung"], ["nach/mg","Magister's Guide"], ["zelle","Die Zelle"], ["nach/anhang","Anhänge"]]},
+  {id:"buch", t:"Quellenbücher", img:"erw/sin/sin_049_01", pos:"center 30%", sub:[
+    ["buch/sin","Sin"], ["buch/str","Strata"], ["buch/bm","Black Magic"], ["buch/cod","Codex"], ["buch/skfs","Secrets"], ["buch/sop","Shadow Ops"]]}
 ];
 /* Startseite: Abenteuer (go = eingebaut, sonst öffnet der Klick das PDF) */
 window.SP_START_ABENTEUER = [
@@ -61,8 +63,12 @@ window.SP_START_ABENTEUER = [
   {t:"The Kings of Silver", s:"Kampagne", img:"cover/sp_a1", go:"abenteuer/kings"},
   {t:"Eidolon Sky", s:"Kampagne", img:"cover/sp_a2", go:"abenteuer/eidolon"},
   {t:"Blood and Dust", s:"Kampagne", img:"cover/sp_s3", buch:"sp_s3"},
-  {t:"Shadow Operations", s:"One-Shots", img:"cover/sp_z3", buch:"sp_z3"},
-  {t:"Secrets Kept from the Sun", s:"Szenarien", img:"cover/sp_z5", buch:"sp_z5"}
+  {t:"Second-Hand Rain", s:"Sin", img:"erw/sin/sin_066_01", go:"buch/sin/second-hand-rain"},
+  {t:"Birth of Brother Harvest", s:"Sin", img:"erw/sin/sin_134_01", go:"buch/sin/brother-harvest"},
+  {t:"In the Hands of the Gods", s:"Sin", img:"erw/sin/sin_204_01", go:"buch/sin/hands-of-the-gods"},
+  {t:"Strata-Szenarien", s:"10 Szenarien", img:"cover/sp_s2", go:"buch/str"},
+  {t:"Shadow Operations", s:"One-Shots", img:"cover/sp_z3", go:"buch/sop"},
+  {t:"Secrets Kept from the Sun", s:"Szenarien", img:"cover/sp_z5", go:"buch/skfs"}
 ];
 /* Startseite: Bücher (eingebaute führen in den Bereich, die übrigen öffnen das PDF) */
 window.SP_START_BUECHER = [
@@ -70,9 +76,9 @@ window.SP_START_BUECHER = [
   {t:"Magister's Guide", img:"titel/gm-cover", go:"nach/mg"},
   {t:"Quickstart", img:"cover/sp_qs", go:"nach/kurz"},
   {t:"Book of Masks", img:"cover/sp_z1", go:"masken"},
-  {t:"Black Magic", img:"cover/sp_z4", buch:"sp_z4"},
-  {t:"Sin", buch:"sp_s1"},
-  {t:"Strata", buch:"sp_s2"},
-  {t:"Codex of the Deep Spire", buch:"sp_z2"},
+  {t:"Black Magic", img:"cover/sp_z4", go:"buch/bm"},
+  {t:"Sin", img:"cover/sp_s1", go:"buch/sin"},
+  {t:"Strata", img:"cover/sp_s2", go:"buch/str"},
+  {t:"Codex of the Deep Spire", img:"cover/sp_z2", go:"buch/cod"},
   {t:"Maps", buch:"sp_m1"}
 ];

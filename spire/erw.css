@@ -1,0 +1,49 @@
+/* THE SPIRE – Quellenbücher (erw.js): Buchstartseite, Kapitel, Bilder. Je Buch eigene Akzentfarben über body[data-erw]. */
+body[data-erw="sin"]{--blau:#3c3b57;--wein:#84444e;--acc:#84444e}
+body[data-erw="bm"]{--blau:#1e476e;--wein:#9c1837;--acc:#9c1837}
+body[data-erw="skfs"]{--blau:#3a2a3d;--wein:#9c1837;--acc:#9c1837}
+body[data-erw="cod"]{--blau:#184d71;--wein:#981a3f}
+body[data-erw="sop"]{--blau:#194d71;--wein:#981a3f}
+
+/* ---------- Buchstartseite ---------- */
+.eb-home{padding:0 0 60px}
+.eb-g{max-width:1320px;margin:0 auto 22px;padding:0 28px}
+.eb-kopf{display:flex;gap:34px;align-items:flex-end;margin:0 0 26px;padding:34px calc(50% - 632px) 26px;background:linear-gradient(180deg,var(--nacht) 0%,var(--nacht2) 100%);color:#e8edf5;border-bottom:4px solid var(--wein)}
+body[data-erw="sin"] .eb-kopf{background:linear-gradient(180deg,#160f1e 0%,#2a1d35 100%)}
+.eb-cov{height:230px;width:auto;box-shadow:0 8px 22px rgba(0,0,0,.6);border:1px solid #000;cursor:zoom-in;display:block}
+.eb-tt h1{font:700 58px/1 var(--f-titel);text-transform:uppercase;margin:0 0 8px;letter-spacing:.02em;color:#fff}
+.eb-tt p{margin:0 0 16px;font:700 18px var(--f-titel);text-transform:uppercase;color:var(--gold);letter-spacing:.06em}
+.eb-buch{display:inline-block;font:700 14px var(--f-titel);text-transform:uppercase;letter-spacing:.06em;border:1px solid #5d7794;color:#c8d6e6;padding:7px 14px;border-radius:3px;cursor:pointer}
+.eb-buch:hover{background:var(--wein);border-color:var(--wein);color:#fff}
+.eb-r{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.eb-r.ab{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.eb-r.kl{grid-template-columns:repeat(auto-fill,minmax(200px,230px))}
+.eb-k{display:flex;flex-direction:column;text-align:left;background:var(--papier2);border:1px solid var(--linie);border-bottom:3px solid var(--wein);border-radius:3px;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.eb-k:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(13,26,39,.28)}
+.eb-k .im{display:block;height:128px;overflow:hidden;background:var(--nacht)}
+.eb-r.ab .eb-k .im{height:170px}
+.eb-k.kl .im{height:200px}
+.eb-k .im img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .5s}
+.eb-k:hover .im img{transform:scale(1.05)}
+.eb-k .im.ini{display:grid;width:100%;box-sizing:border-box;place-items:center;background:linear-gradient(135deg,var(--blau),var(--nacht))}
+.eb-k .im.ini i{font:700 40px var(--f-titel);color:#fff;font-style:normal;opacity:.85}
+.eb-k .tx{padding:9px 12px 11px;display:flex;flex-direction:column;gap:2px}
+.eb-k b{font:700 19px/1.1 var(--f-titel);text-transform:uppercase;color:var(--blau);letter-spacing:.01em}
+.eb-k small{font-size:14px;color:var(--grau);line-height:1.25}
+
+/* ---------- Kapitel ---------- */
+.tabs.erwtabs .atl{color:var(--gold)}
+.erw{max-width:1060px}
+.main.voll .erw{margin:0 auto;padding:0 8px}
+.erw h4.lbl{font:700 17px/1.1 var(--f-titel);text-transform:uppercase;color:var(--schiefer);letter-spacing:.04em;margin:18px 0 6px}
+.erw h5.lbl2{font:700 15px/1.1 var(--f-titel);text-transform:uppercase;color:var(--grau);letter-spacing:.04em;margin:12px 0 4px}
+.erw h4.lbl .pg,.erw h5.lbl2 .pg{margin-left:8px}
+.eimg{margin:6px 0 14px;display:block}
+.eimg img{display:block;width:100%;height:auto;cursor:zoom-in;border:1px solid #9fb0c6;box-shadow:0 3px 10px rgba(13,26,39,.25)}
+.eimg.hoch{float:right;width:320px;margin:4px 0 14px 26px}
+.eimg.quad{float:right;width:270px;margin:4px 0 14px 24px}
+.eimg.breit{clear:both;max-width:900px}
+.erw .schwarz,.erw .violett,.erw .tbl,.erw .w10t,.erw .gx-wrap,.erw .gz{clear:none}
+.erw .tbl{width:100%}
+.erw>.hwk{clear:both}
+.side a.sub{font-size:13.5px;color:var(--grau)}

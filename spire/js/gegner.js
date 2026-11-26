@@ -123,13 +123,15 @@ function gTog(id){
 function gegnerBrowser(L){ return L.length ? '<div class="gx-wrap">' + gRaster(L) + '</div>' : ""; }
 /* ---------- Gegner-Seite (#gegner): Baum nach Domäne links, Suche + Filter, Karten, Werteblock rechts ---------- */
 var GQ = "";
+var ERW_G = {s1:"Sin", s2:"Strata", z4:"Black Magic", z2:"Codex of the Deep Spire", z5:"Secrets Kept from the Sun", z3:"Shadow Operations"};
 function gKey(g){
   var m = /^stadt\/([a-z]+)\//.exec(g.ziel || ""); if(m) return m[1];
-  if(g.buch === "gm") return "mg"; if(g.id === "standard") return "regeln"; if(g.buch === "qs") return "snuff"; return "sonst";
+  if(ERW_G[g.buch]) return "erw-" + g.buch; if(g.buch === "gm") return "mg"; if(g.id === "standard") return "regeln"; if(g.buch === "qs") return "snuff"; return "sonst";
 }
 function gGruppen(){
   var G = SP_STADT_INDEX.map(function(d){ return {k:d.id, t:d.t, sek:"Nach Domäne"}; });
   G.push({k:"mg", t:"Gegner der Klassen", sek:"Magister's Guide"}, {k:"snuff", t:"Antagonisten", sek:"Snuff Out the Sun"}, {k:"regeln", t:"Standardwerte für NSC", sek:"Regeln", p:22, buch:"qs"});
+  Object.keys(ERW_G).forEach(function(b){ G.push({k:"erw-" + b, t:ERW_G[b], sek:"Quellenbücher"}); });
   return G;
 }
 function gBase(g){ var n = parseInt(String(g.schw && g.schw.k != null ? g.schw.k : "").replace(/[^\d].*$/, ""), 10); return isNaN(n) ? 0 : n; }

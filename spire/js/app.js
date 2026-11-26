@@ -227,6 +227,7 @@ function buildMenu(){
   }).join(""); }).join("");
   document.getElementById("mmP").innerHTML =
     '<h3>Nachschlagen</h3>' + mb("go('start')", "Startseite") + nach + mb("go('masken')", "Buch der Masken") +
+    '<h3>Quellenbücher</h3>' + (window.SP_ERW_BOOKS || []).map(function(b){ return mb("go('buch/" + b.id + "')", esc(b.t) + '<small>' + esc(b.sub) + '</small>', "", '<img src="' + IMG("cover/" + b.bid) + '" alt="">'); }).join("") +
     '<h3>Werkzeuge</h3>' + mb("schirmOpen()", "Spielleiterschirm", "s") + mb("wOpen()", "Würfel", "w") + mb("sOpen()", "Suche", "/") + mb("go('galerie')", "Galerie") + mb("charakterbogen()", "Charakterbogen") +
     '<h3>Bücher</h3>' + buecher + mb("modal(BV.settingsHTML())", "PDF hochladen …");
 }

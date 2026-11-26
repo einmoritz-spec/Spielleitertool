@@ -79,6 +79,8 @@ function taB(L){
       case "desktop": return '<div class="desk' + (b.cls ? " " + b.cls : "") + '"><div class="dsym">' + TA_DSYM.map(function(q){ return '<span>' + (q[1].charAt(0) === "#" ? '<em>' + q[1].slice(1) + '</em>' : '<img src="' + Z(q[1]) + '" alt="">') + (q[2] ? '<sup>' + q[2] + '</sup>' : '') + '<u>' + q[0] + '</u></span>'; }).join("") + '</div>' +
         '<div class="dflaeche">' + (b.titel ? '<div class="dfen"><div class="ft"><img src="' + Z("symbol-handbuch") + '" alt=""><span>' + tx(b.titel) + '</span><i>×</i></div><div class="fb">' + taB(b.b) + '</div></div>' : taB(b.b)) + '</div>' +
         '<div class="dmodus">AgencyOS läuft im abgesicherten Modus</div><div class="dtask"><b>Arbeit</b>' + (b.task || ["MyManual 1998: Professional Edition", "Media Player", "Normal AntiVirus"]).map(function(x){ return '<span>' + esc(x) + '</span>'; }).join("") + '</div></div>';
+      case "os": return '<div class="osbg ' + (b.art || "wirbel") + (b.cls ? " " + b.cls : "") + '">' + taB(b.b) + '</div>';
+      case "prog": return taProg(b);
       case "buddy": return '<div class="bud ' + (b.pos || "l") + (b.gross ? " gross" : "") + '">' + (b.img ? '<img src="' + IMG("regeln/full/" + b.img) + '" alt="">' : '') + '<div class="blase">' + taB(b.b) + '</div></div>';
       case "haken": return '<label class="haken"><input type="checkbox"><span>' + tx(b.x) + '</span></label>';
       case "formen": return '<ul class="formen">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul>';
@@ -122,6 +124,16 @@ function taStapel(karte){
 }
 
 /* „wähle eines“: Auswahlzeilen als Knotenleiste (Kreise am Strich) */
+/* Programmfenster des AgencyOS-Teils (S. 172–193). art: manual | express | browser | works | mail | terminal | plain */
+function taProg(b){
+  var a = b.art || "plain", ico = {manual:"A", express:"A", browser:"A", works:"✎", mail:"▲", terminal:"▲", plain:"A"}[a] || "A";
+  var leiste = "";
+  if(a === "browser") leiste = '<div class="pg-nav"><i>◀</i><i>▶</i><i>⌂</i><i>★</i><span>' + esc(b.adr || "atp://workster/") + '</span><b>Los</b></div>';
+  if(a === "works") leiste = '<div class="pg-nav pg-fmt"><i>▢</i><i>▣</i><i>▤</i><span>Articulat CF ▾</span><em>– 11 +</em><b>F</b><b><i>K</i></b><b><u>U</u></b></div>';
+  if(a === "mail") leiste = '<div class="pg-felder"><div><span><b>' + (b.von ? "Von:" : "An:") + '</b> ' + tx(b.von || b.an || "") + '</span>' + (b.von ? '' : '<span class="cc">Cc:</span><em>Senden ➤</em>') + '</div><div><span><b>Betreff:</b> ' + tx(b.betreff || "") + '</span>' + (b.von ? '' : '<em>Anhang ⌀</em>') + '</div></div>';
+  var st = (b.w ? "max-width:" + b.w + "px;" : "") + (b.dreh ? "transform:rotate(" + b.dreh + "deg);" : "");
+  return '<div class="prog pg-' + a + (b.cls ? " " + b.cls : "") + '"' + (st ? ' style="' + st + '"' : '') + '><div class="pg-t"><s>' + ico + '</s><span>' + tx(b.titel || "") + '</span><i>_</i><i>□</i><i>×</i></div>' + leiste + '<div class="pg-b">' + taB(b.b) + '</div></div>';
+}
 function taWahl(t){
   var z = t.split(/\n– /); if(z.length < 2) return tx(t);
   return tx(z[0]) + '<span class="kn">' + z.slice(1).map(function(x){ return '<span>' + tx(x) + '</span>'; }).join("") + '</span>';

@@ -19,7 +19,7 @@ TA_PWT.N1 = {t:"Unmissverständlich", s:244, b:[
    "Erhältst du jemals {30} oder mehr Verweise in einem einzigen Einsatz, erhältst du erneut Unmissverständlich.",
    "Wir hoffen, dass nichts weiter gesagt werden muss."]
  ]},
- {t:"notiz", x:"oh nett, ein einfacher. warum interessiert dich das? sie sind nur ein beliebiger NPC. du kannst im nächsten Einsatz oder so einen neuen Freund finden. jetzt ist nicht die Zeit, einen Rückzieher zu machen – nicht, wenn du gerade zum guten Teil kommst. sieh, was du TUN kannst:"},
+ {t:"notiz", x:"oh nett, ein einfacher. warum interessiert dich das? sie sind nur ein beliebiger NSC. du kannst im nächsten Einsatz oder so einen neuen Freund finden. jetzt ist nicht die Zeit, einen Rückzieher zu machen – nicht, wenn du gerade zum guten Teil kommst. sieh, was du TUN kannst:"},
  {t:"h3", x:"Der zehnseitige Würfel"},
  {t:"notiz", pos:"rechts", x:"nein, für den hier gibt es auch keinen schicken Namen. benenn ihn nach deinem toten Freund, wenn du willst."},
  {t:"sp", x:[

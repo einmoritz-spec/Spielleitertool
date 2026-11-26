@@ -1,0 +1,119 @@
+/* Werkzeug – Teil C: Tabellen, Lose Enden, Ternion City (Klassen wkc-) */
+.wkc-ch{height:.82em;vertical-align:-.06em;margin-left:.18em}
+.wkc-kopf{display:none}
+
+/* Chaos-Effekte (S. 158) */
+.wkc-chaos,.wkc-klein{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;align-items:stretch;margin:8px 0 20px}
+.wkc-ef,.wkc-kl{border:2.5px solid var(--tinte);border-radius:12px;background:#fff;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.wkc-ef header{display:flex;align-items:center;gap:14px;padding:12px 16px 10px;border-bottom:2px solid var(--tinte)}
+.wkc-ef h3{font:800 26px/1 Spartan,sans-serif;letter-spacing:-.03em;margin:0}
+.wkc-k{font:900 38px/1 Spartan,sans-serif;color:var(--rot);letter-spacing:-.04em;min-width:104px;white-space:nowrap}
+.wkc-k .drei{color:var(--rot)}
+.wkc-ef.rot h3{color:var(--rot)}
+.wkc-be,.wkc-bs{padding:10px 16px}
+.wkc-be{flex:1}
+.wkc-bs{background:#f3f2f9;border-top:1.5px solid var(--linie)}
+.wkc-be p,.wkc-bs p{margin:0;font-size:15.5px;line-height:1.45}
+.wkc-be small,.wkc-bs small{display:block;font:800 11.5px Spartan,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--grau);margin-bottom:3px}
+.wkc-ef.blau{background:var(--blau);border-color:#1d3677;color:#fff;transform:rotate(-.6deg);box-shadow:5px 6px 0 #1d3677;border-radius:30px 12px 40px 14px}
+.wkc-ef.blau header{border-color:#fff}.wkc-ef.blau .wkc-k{color:#fff}.wkc-ef.blau .wkc-ch{filter:brightness(0) invert(1)}
+.wkc-ef.blau .wkc-be small,.wkc-ef.blau .wkc-bs small{color:#c9d5f5}.wkc-ef.blau .wkc-bs{background:#2543913a;border-color:#8ea4e4}
+.wkc-ef.blau p{font-family:Fig,sans-serif}
+
+/* Kleine Anomalien (S. 159) */
+.wkc-kl header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px 10px;border-bottom:2px solid var(--tinte);background:var(--blau);color:#fff}
+.wkc-kl h3{font:800 25px/1 Spartan,sans-serif;letter-spacing:-.03em;margin:0}
+.wkc-zahl{display:flex;gap:12px}
+.wkc-zahl span{display:grid;justify-items:center;line-height:1}
+.wkc-zahl small{font:700 10.5px Spartan,sans-serif;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+.wkc-zahl b{font:900 34px/1 Spartan,sans-serif}.wkc-zahl .drei{color:#ff8d98}
+.wkc-kl .wkc-be{padding-bottom:12px}
+
+/* Wetterereignisse (S. 164–169) */
+.wkc-fw{padding:2px 4px 0}
+.wkc-gt{font:800 17px Spartan,sans-serif;letter-spacing:-.01em;margin:6px 0 14px}
+.wkc-gt .drei{color:var(--rot)}
+.wkc-wetter{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px 30px;align-items:start;margin-bottom:26px}
+.wkc-wk{display:block}
+.wkc-z{display:grid;grid-template-columns:34px 1fr;align-items:start;margin-top:-1px}
+.wkc-z em{font:800 14.5px Spartan,sans-serif;font-style:normal;padding-top:7px;color:var(--tinte)}
+.wkc-z p{margin:0;padding:8px 12px 9px;font-size:14.5px;line-height:1.35;border:2px solid var(--tinte);margin-top:-2px}
+.wkc-z p.a{background:#fff}.wkc-z p.b{background:#d6d9ea}.wkc-z p.c{background:var(--tinte);color:#fff}.wkc-z p.c .ag{color:#ff8d98}
+.wkc-z p.c .an{color:#9db6f7}.wkc-z p.c .drei{color:#ff8d98}
+.wkc-z p.r{background:var(--rot);border-color:var(--tinte);color:#fff;font-size:14px;line-height:1.3}
+.wkc-wk.los .wkc-z em{color:var(--rot)}
+.wkc-wk:first-child{margin-top:0}
+
+/* Lose Enden: Tabelle und Fensterchen */
+.wkc-lt{border-collapse:collapse;width:100%;background:#fff;border:2.5px solid var(--tinte);margin:18px 0 22px;font-size:15px;line-height:1.35}
+.wkc-lt th{font:800 13.5px/1.2 Spartan,sans-serif;padding:9px 12px;border:2px solid var(--tinte);background:#fff;text-align:center}
+.wkc-lt td{padding:11px 14px;border:1.5px solid var(--tinte);vertical-align:middle}
+.wkc-lt td:nth-child(-n+3){text-align:center;font-weight:800;width:92px}
+.wkc-lt tbody tr:nth-child(even) td{background:#eaecf6}
+.wkc-lt tr.rot td:nth-child(-n+3){color:var(--rot)}
+.wkc-lt td .gehzu{margin-top:6px}
+.wkc-knopf{display:flex;flex-direction:column;gap:6px;border:2.5px solid var(--tinte);background:#fff;box-shadow:5px 5px 0 var(--tinte);padding:18px 20px;cursor:pointer;max-width:380px}
+.wkc-knopf b{font:800 22px/1.1 Spartan,sans-serif;color:var(--rot)}.wkc-knopf span{font:600 15px Fig,sans-serif}
+.wkc-knopf:hover{background:#f4f3fa}
+.wkc-av,.wkc-ruf,.wkc-km{border:3px solid #dfe5f5;box-shadow:7px 8px 0 #0d0518;background:#fff;color:var(--tinte);margin-bottom:26px;max-width:520px}
+.wkc-avt,.wkc-rt,.wkc-kt{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#2d50a7,#3f7ba0);color:#fff;font:800 20px Fig,sans-serif;padding:8px 8px 8px 14px}
+.wkc-avt span,.wkc-rt span,.wkc-kt span{flex:1}.wkc-kt{font-size:19px}.wkc-kt img{height:26px}
+.wkc-avt i,.wkc-rt i,.wkc-kt i{width:30px;height:30px;border:2px solid #fff;background:#dfe5f5;color:#8d97b6;font:800 22px/24px Fig,sans-serif;font-style:normal;text-align:center}
+.wkc-avb{padding:16px 20px 16px;position:relative;background:#e8ecf8}
+.wkc-avb p{margin:0 0 8px;font:800 17px/1.25 Fig,sans-serif;max-width:300px}.wkc-avb p:last-of-type{margin-bottom:0}
+.wkc-avb u{position:absolute;right:16px;bottom:14px;text-decoration:none;border:2.5px solid #fff;box-shadow:inset -2px -2px 0 #cdd5ea;background:#eef1f9;padding:4px 16px;font:500 17px Fig,sans-serif}
+.wkc-ruf{margin-top:-4px}.wkc-rb{background:#0b9a35;color:#fff;font:900 30px/1.35 Spartan,sans-serif;text-align:center;padding:18px 10px;letter-spacing:-.01em}
+.wkc-km{max-width:620px}.wkc-kb{background:#2a1b45;color:#fff;padding:18px 20px 0;display:flex;align-items:flex-end;gap:10px;overflow:hidden;min-height:250px}
+.wkc-kb>div{flex:1;padding-bottom:20px}.wkc-kb img{width:190px;flex:none;margin-bottom:-6px}
+.wkc-kb h4{font:900 38px/1 Spartan,sans-serif;letter-spacing:-.02em;margin:0 0 14px}
+.wkc-kb p{margin:6px 0;font:800 16px Fig,sans-serif}.wkc-kb .l1{margin-left:30px}.wkc-kb .l2{margin-left:60px}.wkc-kb .l3{margin-left:20px}
+.wkc-kb u{display:inline-block;margin-top:18px;text-decoration:none;border:2.5px solid #dfe5f5;background:#eef1f9;color:var(--tinte);padding:5px 12px;font:500 17px Fig,sans-serif}
+.desk .wkc-ruf{margin-bottom:0}
+
+/* Ternion City (S. 194) */
+.wkc-orte-h{font:800 28px/1.05 Spartan,sans-serif;color:var(--tinte);letter-spacing:-.03em;margin:4px 0 8px}
+.wkc-orte-s{margin:0 0 18px;font-size:15.5px}
+.wkc-orte{display:grid;grid-template-columns:36px repeat(4,minmax(0,1fr));gap:10px;max-width:780px;margin-bottom:26px}
+.wkc-orte b{font:800 32px/1 Spartan,sans-serif;color:var(--rot);display:flex;align-items:center;justify-content:center}
+.wkc-orte b.k{padding-bottom:4px}
+.wkc-orte div{border:3px solid #dedce9;border-radius:14px;box-shadow:inset 0 0 0 2px #fff;background:#fff;min-height:96px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px 8px;font:400 16px/1.25 Fig,sans-serif;hyphens:auto;overflow-wrap:anywhere}
+.wkc-ue{font:800 44px/1 Spartan,sans-serif;color:var(--rot);letter-spacing:-.04em;margin:26px 0 14px}
+.wkc-jk{max-width:640px;margin:26px 0 20px;border:3px solid #dfe5f5;box-shadow:7px 8px 0 #0d0518;background:#2d50a7}
+.wkc-jt{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#2d50a7,#3f7ba0);color:#fff;font:800 26px Fig,sans-serif;padding:8px 8px 8px 14px}
+.wkc-jt span{flex:1}.wkc-jt img{height:34px}
+.wkc-jt i{width:38px;height:38px;border:2px solid #fff;background:#dfe5f5;color:#8d97b6;font:800 28px/32px Fig,sans-serif;font-style:normal;text-align:center}
+.wkc-jb{margin:4px 14px 14px;padding:18px 24px;background:#2d50a7;color:#fff;border:2px solid #bfcbec;font:700 15.5px/1.5 Spartan,sans-serif;letter-spacing:.02em;text-align:center}
+
+@media (max-width:900px){
+ .wkc-chaos,.wkc-klein,.wkc-wetter{grid-template-columns:1fr}
+ .wkc-kb{flex-direction:column;align-items:stretch}.wkc-kb img{align-self:flex-end;width:150px}
+ .wkc-rb{font-size:22px}.wkc-kb h4{font-size:28px}
+ .wkc-orte{grid-template-columns:22px repeat(4,minmax(0,1fr));gap:5px}
+ .wkc-orte div{min-height:74px;padding:5px 3px;font-size:12px;border-radius:9px}.wkc-orte b{font-size:22px}
+ .wkc-ue{font-size:34px}
+ .wkc-lt td{padding:8px 8px;font-size:14px}.wkc-lt td:nth-child(-n+3){width:auto}
+}
+.wkc-ef.blau .an,.wkc-ef.blau .ag{color:#fff;text-decoration:underline wavy #9db6f7 1px;text-underline-offset:3px}
+.wkc-k{min-width:104px}
+.wkc-wetter{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:0 36px !important}
+.wkc-wetter>div{display:flex;flex-direction:column;gap:22px;min-width:0}
+.wkc-z p.r .ag,.wkc-z p.r .an{color:#fff}
+@media (max-width:900px){.wkc-wetter{grid-template-columns:1fr !important}.wkc-wetter>div{margin-bottom:22px}}
+.desk .fenster .fb,.desk .fenster .fb h3{color:var(--tinte)}
+.desk .fenster .fb .ag{color:var(--rot)}
+h2.wkc-orte-h{color:var(--tinte);font-size:26px}
+h2.wkc-ue{color:var(--rot)}
+.wkc-jt img,.wkc-kt img{filter:brightness(0) invert(1)}
+.wkc-orte div{hyphens:manual !important;overflow-wrap:normal !important}
+@media (max-width:900px){
+ .desk:has(.wkc-lt){grid-template-columns:1fr;padding:14px 10px 0}
+ .desk:has(.wkc-lt) .dsym{display:none}
+ .desk:has(.wkc-lt) .dflaeche{padding:0 0 16px}
+ .desk:has(.wkc-lt) .dmodus,.desk:has(.wkc-lt) .dtask{grid-column:1}
+ .desk:has(.wkc-lt) .dtask{margin:0 -10px}
+ .desk:has(.wkc-lt) .fenster .fb{padding:14px 12px}
+ .desk:has(.wkc-lt) .sp2{grid-template-columns:1fr}
+ .wkc-lt{display:block;overflow-x:auto}
+ .wkc-orte div{font-size:10.5px;hyphens:auto !important;overflow-wrap:anywhere !important;padding:4px 2px}
+ .wkc-orte div{word-break:normal}
+}

@@ -388,3 +388,31 @@ h2 .an,h1 .an{color:var(--blau)}
 .blase .ag{color:var(--rot)}.blase .jaja{display:flex;justify-content:space-between;margin:4px 10px 14px}.blase .jaja b{border:2px solid var(--tinte);border-radius:4px;padding:2px 12px;font-weight:500;font-size:19px;cursor:pointer}
 .dsym img[src*="haken-kasten"]{filter:invert(1) hue-rotate(180deg) saturate(3)}.dsym img[src*="chaos-wirbel"]{filter:hue-rotate(125deg) saturate(1.6)}
 .abgedeckt p{white-space:nowrap}.desk .fenster.fehler .ft{font-size:19px;padding:9px 8px 9px 16px}
+
+/* ---- AgencyOS-Programme (Werkzeug S. 172–193): Hintergrund „os“, Fenster „prog“ ---- */
+.osbg{border-radius:6px;padding:30px 30px 34px;margin:6px 0 20px;position:relative;overflow:hidden}
+.osbg.wirbel{background:#2b4fa8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'%3E%3Cg fill='none' stroke='%23fff' stroke-width='34' stroke-linecap='round' opacity='.9'%3E%3Cpath d='M-20 90c80-60 150 40 230-10s120-90 200-30'/%3E%3Cpath d='M60 330c40-70 140-60 170 0s110 70 180 10'/%3E%3Cpath d='M300 470c50-40 90-10 120 20'/%3E%3C/g%3E%3C/svg%3E") 0 0/520px}
+.osbg.nacht{background:#1e1033}
+.osbg>.sp{gap:26px;align-items:start}
+.prog{background:#fff;border:2px solid #1e1a4d;box-shadow:8px 8px 0 #1e1a4d;margin:0 auto 26px;color:var(--tinte);position:relative}
+.pg-t{display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#141048,#3a4fb2);color:#fff;padding:5px 6px 5px 8px;font:800 15.5px Fig,sans-serif}
+.pg-t s{text-decoration:none;width:22px;height:22px;border-radius:3px;background:#fff;color:var(--tinte);font:900 15px/22px Fig,sans-serif;text-align:center;flex:none}
+.pg-mail .pg-t s,.pg-terminal .pg-t s{color:var(--rot)}
+.pg-t span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pg-t i{width:22px;height:20px;background:#e9ebf3;color:#141048;font:900 14px/18px Fig,sans-serif;text-align:center;font-style:normal;border:1.5px solid #fff;box-shadow:inset -2px -2px 0 #9aa0c4}
+.pg-nav{display:flex;align-items:center;gap:6px;padding:6px 8px;background:#e9ebf3;border-bottom:2px solid #1e1a4d;font:600 13px Fig,sans-serif}
+.pg-nav i{font-style:normal;color:#2b4fa8;width:24px;text-align:center}
+.pg-nav span{flex:1;background:#fff;border:1.5px solid #9aa0c4;padding:2px 8px;color:#4a4560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pg-nav b{border:1.5px solid #9aa0c4;background:#fff;padding:1px 8px;font-size:12.5px}
+.pg-fmt span{flex:0 1 180px}.pg-fmt em{font-style:normal;border:1.5px solid #9aa0c4;background:#fff;padding:1px 8px}
+.pg-felder{background:#e9ebf3;padding:8px 10px 2px;border-bottom:2px solid #1e1a4d}
+.pg-felder div{display:flex;gap:8px;margin-bottom:6px}.pg-felder span,.pg-felder em{background:#fff;border:1.5px solid #9aa0c4;padding:3px 9px;font:500 14.5px Fig,sans-serif}
+.pg-felder span{flex:1}.pg-felder .cc{flex:0 0 90px;color:#b6bad3}.pg-felder em{font-style:normal;font-weight:700;flex:0 0 auto}
+.pg-b{padding:20px 26px 14px}
+.pg-works .pg-b{background:#8d91a8;padding:18px}.pg-works .pg-b>*{background:#fff}
+.pg-works .pg-b>:first-child{padding:26px 34px 18px}
+.pg-express .pg-b{position:relative;padding-left:76px}.pg-express .pg-b:before{content:"";position:absolute;left:0;top:0;bottom:0;width:46px;background:#eceef6 linear-gradient(#e33,#e33 16.6%,#f90 16.6%,#f90 33.3%,#fd0 33.3%,#fd0 50%,#3b3 50%,#3b3 66.6%,#29f 66.6%,#29f 83.3%,#a3e 83.3%) 12px 14px/20px 132px no-repeat;border-right:1.5px solid #c9cde2}
+.pg-terminal{background:#0f0c1d;border-color:#0f0c1d}.pg-terminal .pg-t{background:var(--rot)}
+.pg-terminal .pg-b{font:600 15px/1.55 "Courier New",monospace;color:#5df07a;text-transform:uppercase}
+.pg-terminal .pg-b p{margin:0 0 4px;max-width:none}
+.pg-manual .pg-t{background:linear-gradient(90deg,#141048,#3a4fb2)}

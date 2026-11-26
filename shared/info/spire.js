@@ -1,6 +1,7 @@
 /* Überblick: The Spire (Grundregelwerk „The City Must Fall“, S. 1–16) */
 GM_INFO.spire = {
   tag: "The City Must Fall",
+  stil: {bg: "#dbe3ef", fg: "#12120c", acc: "#981a3f"},
   setting: "Spire ist eine meilenhohe, unmögliche Stadt, älter als irgendwer zurückdenken kann. Vor zweihundert Jahren nahmen die Hochelfen – die **Aelfir**, seltsame und schöne maskierte Wesen aus dem fernen Norden – sie den Dunkelelfen nach einem brutalen und blutigen Krieg ab. Nun erlauben sie den Dunkelelfen, den **Drow**, gnädig, in der Stadt zu leben, wenn sie nach ihrer Volljährigkeit vier Jahre Dienst bei einem Aelfir-Lord leisten.",
   fakten: [
     ["Ihr spielt", "Mitglieder des **Ministeriums unserer Verborgenen Herrin**, eines paramilitärischen Kults, der eine verbotene Göttin verehrt"],

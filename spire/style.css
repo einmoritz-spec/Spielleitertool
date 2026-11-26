@@ -1009,7 +1009,6 @@ body.anschluss .ktabs a.on::after{content:"";position:absolute;left:0;right:0;bo
 .begl .stift:hover,.begl .stift.has{opacity:1;color:#fff}
 
 /* ---------- Startseite ---------- */
-body[data-view="start"]{background:var(--nacht)}
 .sp-start{background:var(--papier) url(img/deko/wirbel.webp) right -120px top 380px/420px auto no-repeat;padding-bottom:46px}
 .sp-hero{position:relative;height:300px;background:var(--nacht) url(img/hero.webp) center 30%/cover no-repeat}
 .sp-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,26,39,0) 45%,rgba(13,26,39,.75) 100%);pointer-events:none}
@@ -1067,3 +1066,7 @@ body[data-view="start"]{background:var(--nacht)}
 .sp-saeulen,.sp-band{max-width:1500px;margin-left:auto;margin-right:auto}
 @media (min-width:1600px){ .sp-hero{height:340px} .sp-sl{height:470px} }
 .sp-rev{right:max(36px,calc((100% - 1500px) / 2 + 36px))}
+/* Noch nicht eingebaut (öffnet nur das PDF): Bild ausgegraut */
+.sp-ab.pdf img,.sp-bu.pdf>img,.sp-bu.pdf .ph{filter:grayscale(1) brightness(.95);opacity:.5;transition:opacity .2s,filter .2s}
+.sp-ab.pdf:hover img,.sp-bu.pdf:hover>img,.sp-bu.pdf:hover .ph{opacity:.8}
+.sp-ab.pdf b,.sp-ab.pdf small,.sp-bu.pdf b{color:#8793a3}

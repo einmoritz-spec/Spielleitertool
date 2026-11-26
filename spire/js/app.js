@@ -143,7 +143,7 @@ function kurz(t){ return String(t).split(":")[0]; }
 function jump(id){ var e = document.getElementById(id); if(!e) return; var y = e.getBoundingClientRect().top + scrollY - (document.body.classList.contains("notop") ? 0 : 56) - 62 - (document.querySelector(".subtabs") ? 38 : 0); scrollTo({top:y, behavior:"smooth"}); }
 
 /* ---------- Startseite: Titelbild mit Revolution, Bereichs-Säulen (= Kopfzeilen-Reiter), Abenteuer, Bücher ---------- */
-function stKlick(x){ return x.go ? "go('" + x.go + "')" : "openBook('" + x.buch + "',1)"; }
+function spKlick(x){ return x.go ? "go('" + x.go + "')" : "openBook('" + x.buch + "',1)"; }
 function viewStart(){
   var R = SP_REVOLUTION, rv = ST.rev || 0, last = ST.last || "";
   var saeulen = SP_KOPF.map(function(K){
@@ -151,10 +151,10 @@ function viewStart(){
       (K.sub.length > 1 ? '<ul>' + K.sub.map(function(t){ return '<li onclick="go(\'' + t[0] + '\')">' + esc(t[1]) + '</li>'; }).join("") + '</ul>' : '') + '</div></div>';
   }).join("");
   var ab = SP_START_ABENTEUER.map(function(x){
-    return '<button class="sp-ab' + (x.go ? '' : ' pdf') + (x.go && last.indexOf(x.go) === 0 ? ' on' : '') + '" onclick="' + stKlick(x) + '"><span class="cv"><img src="' + IMG(x.img) + '" alt="" loading="lazy"></span><b>' + esc(x.t) + '</b><small>' + esc(x.s) + '</small></button>';
+    return '<button class="sp-ab' + (x.go ? '' : ' pdf') + (x.go && last.indexOf(x.go) === 0 ? ' on' : '') + '" onclick="' + spKlick(x) + '"><span class="cv"><img src="' + IMG(x.img) + '" alt="" loading="lazy"></span><b>' + esc(x.t) + '</b><small>' + esc(x.s) + '</small></button>';
   }).join("");
   var bu = SP_START_BUECHER.map(function(x){
-    return '<button class="sp-bu' + (x.go ? '' : ' pdf') + '" onclick="' + stKlick(x) + '" title="' + esc(x.t) + '">' +
+    return '<button class="sp-bu' + (x.go ? '' : ' pdf') + '" onclick="' + spKlick(x) + '" title="' + esc(x.t) + '">' +
       (x.img ? '<img src="' + IMG(x.img) + '" alt="" loading="lazy">' : '<span class="ph"><img src="../assets/logos/the-spire.webp" alt=""><i>' + esc(x.t) + '</i></span>') + '<b>' + esc(x.t) + '</b></button>';
   }).join("");
   return '<div class="sp-start">' +

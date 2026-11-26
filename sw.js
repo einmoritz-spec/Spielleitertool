@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1104sq";
+const VERSION = "v1105sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -4364,6 +4364,7 @@ const FILES = [
   "savageworlds/js/data/maechte-fan.js",
   "savageworlds/js/data/maechte-hor.js",
   "savageworlds/js/data/maechte-sf.js",
+  "savageworlds/js/data/maechte-sup.js",
   "savageworlds/js/seiten-maechte.js",
   "savageworlds/maechte.css",
   "savageworlds/js/data/best-grw.js",

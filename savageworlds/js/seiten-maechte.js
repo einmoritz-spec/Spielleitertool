@@ -2,7 +2,7 @@
 "use strict";
 window.SWP = window.SWP || {};
 (function(){
-var RNm = ["Anfänger","Fortgeschritten","Veteran","Heroisch","Legendär"], RCm = ["#7a7067","#c27a1c","#a51f1a","#6a3a8a","#b8902a"];
+var RNm = ["Anfänger","Fortgeschritten","Veteran","Heroisch","Legendär","Superkräfte"], RCm = ["#7a7067","#c27a1c","#a51f1a","#6a3a8a","#b8902a","#2a6f97"];
 function vis(x){ return (x.s || ["GRW"]).some(function(g){ return g === "GRW" || gen(g.toLowerCase()); }); }
 function badges(x){ return (x.s || []).filter(function(g){ return g !== "GRW"; }).map(function(g){ return '<i class="sq sq-' + g.toLowerCase() + '">' + g + "</i>"; }).join(""); }
 var BKM = {GRW:["sw_de",1], FAN:["sw_fan",2], HOR:["sw_hor",2], SF:["sw_sf",2], SUP:["sw_sup",2], DL:["sw_dl",2]};
@@ -25,7 +25,7 @@ function mrTable(t){
 function kasten(k){ if(k.s && !vis(k)) return ""; return '<div class="kc"><h5>' + nm(k.h) + badges(k) + "</h5>" + (k.tab ? mrTable(k.tab) : "") + PS(k.b) + (k.dom ? '<div class="avl">' + k.dom.map(function(n){ var ok = SW_MACHTE.some(function(m){ return m.n === n && vis(m); }); return ok ? '<a onclick="event.stopPropagation();mGo(\'' + n.replace(/'/g, "\\'") + '\')">' + nm(n) + "</a>" : "<span>" + nm(n) + "</span>"; }).join("") + "</div>" : "") + "</div>"; }
 var SX = 0;
 function nm(x){ return window.nm(x).replace(/\//g, '<span class="sl">/</span>'); }
-function mpt(v){ return /^\d+\+?$/.test(v) ? v + " MP" : "MP: " + v; }
+function mpt(v, m){ if(m && m.r === 5) return /^\d+$/.test(v) ? v + (v === "1" ? " Punkt" : " Punkte") : "Kosten: " + v; return /^\d+\+?$/.test(v) ? v + " MP" : "MP: " + v; }
 function sid(t){ return "ms-" + String(t).toLowerCase().replace(/[^a-zäöü0-9]+/g, "-"); }
 
 /* ---------- Arkane Hintergründe ---------- */
@@ -100,11 +100,11 @@ function mList(){
   }).sort(function(a, b){ return a.r - b.r || a.n.localeCompare(b.n, "de"); });
 }
 function mTile(m, id, open){
-  return '<div class="tc' + (open ? " open" : "") + '" style="--rc:' + RCm[m.r] + '" onclick="mOpen(' + id + ')"><b>' + nm(m.n) + badges(m) + "</b><small>" + esc([mpt(m.mp), m.rw, m.wd].filter(Boolean).join(" · ")) + "</small></div>";
+  return '<div class="tc' + (open ? " open" : "") + '" style="--rc:' + RCm[m.r] + '" onclick="mOpen(' + id + ')"><b>' + nm(m.n) + badges(m) + "</b><small>" + esc([mpt(m.mp, m), m.rw, m.wd].filter(Boolean).join(" · ")) + "</small></div>";
 }
 function mDetail(m){
   var mods = (m.m || []).filter(function(x){ return !x[3] || vis({s:x[3]}); });
-  var side = '<div class="tds"><small>Rang</small><div>' + RNm[m.r] + "</div><small>Machtpunkte</small><div>" + esc(m.mp) + "</div><small>Reichweite</small><div>" + esc(m.rw) + "</div><small>Wirkungsdauer</small><div>" + esc(m.wd) + "</div>" + (m.au ? "<small>Ausprägungen</small><div>" + esc(m.au) + "</div>" : "") + "</div>";
+  var side = m.r === 5 ? '<div class="tds"><small>Kosten</small><div>' + esc(m.mp) + " Super-Machtpunkte</div>" + (m.au ? "<small>Ausprägungen</small><div>" + esc(m.au) + "</div>" : "") + "</div>" : '<div class="tds"><small>Rang</small><div>' + RNm[m.r] + "</div><small>Machtpunkte</small><div>" + esc(m.mp) + "</div><small>Reichweite</small><div>" + esc(m.rw) + "</div><small>Wirkungsdauer</small><div>" + esc(m.wd) + "</div>" + (m.au ? "<small>Ausprägungen</small><div>" + esc(m.au) + "</div>" : "") + "</div>";
   var body = "", nach = m.tab ? m.tab.nach : -1;
   m.b.forEach(function(t, i){ body += P(t); if(m.tab && i + 1 === nach) body += mrTable(m.tab); });
   if(m.tab && nach >= m.b.length) body += mrTable(m.tab);
@@ -125,7 +125,7 @@ function listePage(){
     intro = '<div class="mi" id="ms-einleitung">' + PS(I.b) + (I.k || []).map(kasten).join("") + "</div>";
   }
   var side = (intro ? '<a onclick="mScroll(\'ms-einleitung\')">Einleitung</a>' : "");
-  for(var r = 0; r < 5; r++){
+  for(var r = 0; r < 6; r++){
     var G = L.filter(function(m){ return m.r === r; }); if(!G.length) continue;
     side += '<a onclick="mScroll(\'ms-rang-' + r + '\')">' + RNm[r] + " <em>" + G.length + "</em></a>";
     h += '<h4 class="rk" id="ms-rang-' + r + '" style="--rc:' + RCm[r] + '"><span>' + RNm[r] + '</span></h4><div class="tg3">';

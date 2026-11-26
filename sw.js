@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1169sq";
+const VERSION = "v1170sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4375,6 +4375,7 @@ const FILES = [
   "locallegends/img/iceberg-8.jpg",
   "locallegends/img/iceberg-9.jpg",
   "locallegends/img/iceberg-forged.jpg",
+  "nights/img/cover/hero.webp",
   "nights/img/cover/case01.webp",
   "nights/img/cover/case02.webp",
   "nights/img/cover/case03.webp",

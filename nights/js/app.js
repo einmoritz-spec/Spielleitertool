@@ -35,6 +35,7 @@ function goMap(){ location.hash = "#/map"; }
 function goLastCase(){ location.hash = ST.last ? ST.last : "#/case/1"; }
 async function route(){
   const p = parseHash();
+  document.body.classList.toggle("np-start", !p[0] || p[0]==="kampagne");
   window.scrollTo(0,0);
   if(p[0]==="case" && p[1]){
     const n = +p[1];
@@ -62,20 +63,22 @@ function renderHome(){
 }
 function renderCampaign(){
   const C = camp();
-  let h = "";
-  for(const L of C.levels){
-    h += `<details class="level ${L.tone}" open><summary class="level-head"><h2>${esc(L.name)}</h2><span class="lv-sub">${esc(L.sub||"")}</span>${L.intro?`<a class="lv-intro" href="#/case/${L.intro}" onclick="event.stopPropagation()" title="${esc(C.extras[L.intro].title)}">Einführung ›</a>`:""}</summary><div class="cases">`;
-    for(const n of L.cases){
-      const ci = C.cases[n]; if(!ci) continue;
-      const info = {nr:n, title:ci.title, from:ci.pages[0], to:ci.pages[1], ready:READY.includes(n)};
-      const st = caseStatus(n);
-      const cv = COVER.includes(n) ? `<img class="cc-img" src="img/cover/case${String(n).padStart(2,"0")}.webp" alt="" loading="lazy">` : "";
-      h += `<div class="case-card ${cv?"has-img":""} ${info.ready?"":"off"}" data-case="${n}"><a href="#/case/${n}" style="position:absolute;inset:0;border-radius:14px;z-index:2" aria-label="Fall ${n} öffnen"></a>${cv}<div class="cc-txt"><span class="nr">Fall ${n}</span><b>${esc(info.title)}</b><small>S. ${info.from}–${info.to}</small></div>${info.ready?"":'<span class="badge">folgt</span>'}${st==="ok"?'<span class="badge ok">abgeschlossen</span>':st==="run"?'<span class="badge run">läuft</span>':""}</div>`;
-    }
-    h += `</div></details>`;
-  }
-  $("app").innerHTML = `<div class="lvgrid">${h}</div>`;
+  const card = (n, wide) => {
+    const ci = C.cases[n]; if(!ci) return "";
+    const ready = READY.includes(n), st = caseStatus(n);
+    const src = COVER.includes(n) ? `img/cover/case${String(n).padStart(2,"0")}.webp` : "";
+    const badge = !ready ? '<span class="np-b">folgt</span>' : st==="ok" ? '<span class="np-b ok">abgeschlossen</span>' : st==="run" ? '<span class="np-b run">läuft</span>' : "";
+    return `<a class="np-case${wide?" wide":""}${ready?"":" off"}" href="#/case/${n}" data-case="${n}" aria-label="Fall ${n} öffnen">${src?`<img src="${src}" alt="" loading="lazy">`:""}${badge}<span class="np-ct"><i>Fall ${n}</i><b>${esc(ci.title)}</b></span></a>`;
+  };
+  const rows = C.levels.map(L => {
+    const one = L.cases.length === 1;
+    const intro = L.intro && C.extras && C.extras[L.intro] ? `<a class="np-intro" href="#/case/${L.intro}">Einführung</a>` : "";
+    const who = String(L.sub||"").replace(/^Antagonist(in)?:\s*/,"");
+    return `<section class="np-lv ${L.tone}"><header class="np-lh"><h2>${esc(L.name)}</h2>${who?`<p>${esc(who)}</p>`:""}${intro}</header><div class="np-cases${one?" one":""}">${L.cases.map(n=>card(n, one)).join("")}</div></section>`;
+  }).join("");
+  $("app").innerHTML = `<div class="np-home"><header class="np-hero"><div class="np-hero-img"></div><img class="np-logo" src="../assets/logos/nights-of-payne-town.webp" alt="Nights of Payne Town"></header><div class="np-rows">${rows}</div></div>`;
 }
+document.addEventListener("click", e => { const a = e.target.closest && e.target.closest(".np-case.off"); if(a) e.preventDefault(); }, true);
 
 /* ---------- Stadtkarte ---------- */
 let MZ = 1, MSHOW = false, MDAG = false;

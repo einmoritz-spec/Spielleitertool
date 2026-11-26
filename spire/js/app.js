@@ -158,8 +158,7 @@ function viewStart(){
       (x.img ? '<img src="' + IMG(x.img) + '" alt="" loading="lazy">' : '<span class="ph"><img src="../assets/logos/the-spire.webp" alt=""><i>' + esc(x.t) + '</i></span>') + '<b>' + esc(x.t) + '</b></button>';
   }).join("");
   return '<div class="sp-start">' +
-    '<header class="sp-hero"><div class="sp-rev"><h5 onclick="go(\'nach/spielleitung/revolution\')">Revolution</h5><div class="sp-stufen">' +
-      R.stufen.map(function(t, i){ return '<button class="' + (rv === i ? 'on' : '') + (i < rv ? ' vor' : '') + '" onclick="setRev(' + i + ')"><i>' + (i + 1) + '</i>' + esc(t) + '</button>'; }).join("") + '</div></div></header>' +
+    '<header class="sp-hero"></header>' +
     '<section class="sp-saeulen">' + saeulen + '</section>' +
     '<section class="sp-band"><div class="sp-abk"><h2>Abenteuer</h2><div class="sp-abl">' + ab + '</div></div>' +
       '<div class="sp-buk"><h2>Bücher</h2><div class="sp-bul">' + bu + '</div></div></section>' +

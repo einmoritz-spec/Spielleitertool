@@ -259,3 +259,42 @@ body{background:radial-gradient(1100px 600px at 50% -5%,#f6edd6,transparent 70%)
 .blk-card.done{filter:none!important;background:#e3dfd7!important;color:#9a958c!important;border-color:#d3cec4!important}
 .blk-card.done b,.blk-card.done u{color:#9a958c!important}
 .blk-card.done::before{background:radial-gradient(circle at 35% 35%,#c9c5bd,#8d8981)!important}
+
+/* ===== Startseite: Nacht über Payne Town ===== */
+body.np-start{background:#07081a!important}
+body.np-start .shell{max-width:none!important;padding:0 0 60px!important}
+.np-home{--ink:#ece6f3;--dim:#9b95b4;color:var(--ink);font-family:var(--cond,system-ui),system-ui,sans-serif}
+.np-hero{position:relative;height:clamp(380px,56vh,540px);overflow:hidden;background:radial-gradient(900px 500px at 20% 60%,rgba(255,40,110,.16),transparent 70%),radial-gradient(700px 500px at 85% 20%,rgba(70,110,255,.18),transparent 70%),#07081a}
+.np-hero-img{position:absolute;top:0;right:0;bottom:0;width:62%;background:url(img/cover/hero.webp) 30% 18%/cover no-repeat;-webkit-mask-image:linear-gradient(to right,transparent,#000 32%);mask-image:linear-gradient(to right,transparent,#000 32%)}
+.np-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,#07081a);pointer-events:none}
+.np-logo{position:absolute;left:6%;top:50%;transform:translateY(-38%);width:min(44%,560px);z-index:2;filter:drop-shadow(0 0 22px rgba(255,40,90,.35))}
+.np-rows{max-width:1400px;margin:-40px auto 0;padding:0 28px;position:relative;z-index:2;display:flex;flex-direction:column;gap:34px}
+.np-lv{--t:#4aa3e0;display:grid;grid-template-columns:230px minmax(0,1fr);gap:26px;align-items:stretch}
+.np-lv.amber{--t:#a07cff}.np-lv.neon{--t:#ff3d8f}.np-lv.gold{--t:#f2b84b}
+.np-lh{border-left:3px solid var(--t);padding:6px 0 6px 18px;display:flex;flex-direction:column;gap:6px}
+.np-lh h2{margin:0;font:700 22px/1.1 var(--cond,system-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--t);text-shadow:0 0 18px color-mix(in srgb,var(--t) 45%,transparent)}
+.np-lh p{margin:0;color:var(--dim);font-size:13px;line-height:1.35}
+.np-intro{margin-top:auto;align-self:flex-start;color:var(--ink);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.75;padding-bottom:2px;border-bottom:1px solid var(--t)}
+.np-intro:hover{opacity:1}
+.np-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.np-case{position:relative;display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#141633;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.45);outline:1px solid rgba(255,255,255,.06);transition:transform .25s ease,box-shadow .25s ease}
+.np-case.wide{grid-column:1/-1;aspect-ratio:auto;height:230px}
+.np-case img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .5s ease}
+.np-case::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(7,8,26,.92));pointer-events:none}
+.np-case:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.55),0 0 0 1px var(--t),0 0 24px color-mix(in srgb,var(--t) 35%,transparent)}
+.np-case:hover img{transform:scale(1.04)}
+.np-ct{position:absolute;left:16px;right:16px;bottom:12px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.np-ct i{font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t)}
+.np-ct b{font:600 19px/1.2 Georgia,"Iowan Old Style",serif;color:#fff}
+.np-b{position:absolute;top:10px;left:10px;z-index:2;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:rgba(7,8,26,.75);color:var(--dim)}
+.np-b.ok{color:#7ee2a8}.np-b.run{color:#ffd36b}
+.np-case.off{cursor:default;filter:grayscale(.6) brightness(.7)}
+@media(max-width:900px){.np-lv{grid-template-columns:1fr;gap:12px}.np-cases{grid-template-columns:repeat(2,minmax(0,1fr))}.np-logo{width:70%;left:5%}.np-hero-img{width:80%}}
+/* Kopfzeile auf der Startseite durchsichtig über dem Titelbild */
+body.np-start .topbar{position:fixed!important;left:0;right:0;top:0;background:linear-gradient(rgba(7,8,26,.7),rgba(7,8,26,0))!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important}
+body.np-start .topbar .brand,body.np-start .topbar .brand *,body.np-start .topbar .tm-caret,body.np-start .topbar button{color:#ece6f3!important}
+body.np-start .topbar .tb-burger svg,body.np-start .topbar .tb-burger svg *{stroke:#ece6f3!important}
+.np-case.wide{background:radial-gradient(600px 260px at 75% 50%,color-mix(in srgb,var(--t) 22%,transparent),transparent 70%),#100f1c}
+.np-case.wide img{left:auto;width:58%;object-position:50% 35%;-webkit-mask-image:linear-gradient(to right,transparent,#000 45%);mask-image:linear-gradient(to right,transparent,#000 45%)}
+.np-case.wide::after{background:linear-gradient(to right,rgba(7,8,26,.6),transparent 60%)}
+.np-case.wide .np-ct{top:0;bottom:0;justify-content:center;left:32px}.np-case.wide .np-ct b{font-size:30px}

@@ -11,6 +11,7 @@ function body(b){
     if(typeof x === "string"){ flush(); h += '<p class="ed">' + fmt(x) + "</p>"; }
     else if(x[0] === "h"){ flush(); h += '<h4 class="sl-h">' + nm(x[1]) + "</h4>"; }
     else if(x[0] === "box") cards.push('<div class="hc"><b>' + nm(x[1]) + "</b>" + x.slice(2).map(function(t){ return "<p>" + fmt(t) + "</p>"; }).join("") + "</div>");
+    else if(x[0] === "tab") cards.push('<div class="hc sl-tab"><b>' + nm(x[1]) + '</b><table class="et"><tr>' + x[2].map(function(c){ return "<th>" + esc(c) + "</th>"; }).join("") + "</tr>" + x[3].map(function(r){ return "<tr>" + r.map(function(c, i){ return (r.length < x[2].length && i === r.length - 1 ? '<td colspan="' + (x[2].length - r.length + 1) + '">' : "<td>") + esc(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</table></div>");
     else if(x[0] === "ex") cards.push('<div class="hc sl-ex">' + "<p>" + fmt(x[1]) + "</p></div>");
   });
   flush(); return h;

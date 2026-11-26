@@ -290,3 +290,4 @@ body.dl-mode .pg{color:#8a6a3a}
 .sl-ex{--rc:var(--soft)!important;background:#efe6d3}
 .sl-g .hc p{margin:7px 0 0;font-size:15px;line-height:1.5}
 @media(max-width:700px){.sl-g{grid-template-columns:1fr}.ct.sl{padding:12px 14px 50px}}
+.sl-tab .et{margin-top:6px}.sl-tab .et td:first-child{font-size:15px}

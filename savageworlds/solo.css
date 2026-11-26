@@ -1,0 +1,11 @@
+/* Einzelseiten ohne Kopfzeile */
+body.solo{padding-top:0;margin:0}
+body.solo .topbar,body.solo .sub{display:none}
+.sologen{display:flex;align-items:center;gap:6px;max-width:794px;margin:14px auto 0;padding:0 2px;font:600 11px Oswald,sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.sologen span{color:#8a7f70;margin-right:4px}
+.sologen a{padding:3px 10px;border:1px solid #c9bfae;border-radius:3px;cursor:pointer;color:#555;background:#fff}
+.sologen a:hover{border-color:#a51f1a}
+.sologen a.on{background:#a51f1a;border-color:#a51f1a;color:#fff}
+.sologen a.fest{cursor:default;opacity:.85}
+body.solo .sfx-close,body.solo .sfh-x{display:none}
+.kopiert{outline:2px solid #3a7d3a!important}

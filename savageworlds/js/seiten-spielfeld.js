@@ -41,6 +41,7 @@ var ICON = {
   imp:'<path d="M12 15V3M7 8l5-5 5 5M4 20h16"/>',
   png:'<path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13" r="3.6"/>',
   close:'<path d="M6 6l12 12M18 6L6 18"/>',
+  link:'<path d="M10 14a4.5 4.5 0 006.4 0l3-3a4.5 4.5 0 00-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 00-6.4 0l-3 3a4.5 4.5 0 006.4 6.4l1-1"/>',
   fit:'<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
   plus:'<path d="M12 5v14M5 12h14"/>', minus:'<path d="M5 12h14"/>',
   trash:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
@@ -169,7 +170,7 @@ function build(){
       '<div class="sfh-sp"></div>' +
       '<button class="sfib" data-a="undo" title="Rückgängig (Strg+Z)">' + ic("undo") + '</button><button class="sfib" data-a="redo" title="Wiederholen (Strg+Y)">' + ic("redo") + "</button>" +
       '<i class="sfh-sep"></i><button class="sfib" data-a="png" title="Als Bild speichern">' + ic("png") + '</button><button class="sfib" data-a="exp" title="Exportieren">' + ic("exp") + '</button><button class="sfib" data-a="imp" title="Importieren">' + ic("imp") + "</button>" +
-      '<i class="sfh-sep"></i><button class="sfib" data-a="close" title="Schließen (Esc)">' + ic("close") + "</button></header>" +
+      '<button class="sfib" data-a="link" title="Link teilen">' + ic("link") + '</button><i class="sfh-sep sfh-x"></i><button class="sfib sfx-close" data-a="close" title="Schließen (Esc)">' + ic("close") + "</button></header>" +
     '<div class="sfb"><nav class="sfr" id="sfRail">' +
       tools.map(function(t){ return '<button class="sft" data-t="' + t[0] + '" title="' + t[1] + " (" + t[2] + ')">' + ic(t[0]) + "</button>" + (t[0] === "sel" || t[0] === "fenster" || t[0] === "tpl" ? "<i></i>" : ""); }).join("") +
       '<span class="sfr-sp"></span><button class="sft" data-o="grid" title="Raster">' + ic("grid") + '</button><button class="sft" data-o="snap" title="Einrasten">' + ic("snap") + '</button><button class="sft" data-o="bg" title="Hintergrundbild">' + ic("bild") + "</button></nav>" +
@@ -218,7 +219,7 @@ function open(){
     load(m);
   });
 }
-function close(){ if(!O) return; S.open = false; O.classList.remove("on"); document.body.classList.remove("sf-open"); ddToggle(false); save(); }
+function close(){ if(!O || window.SW_SOLO) return; S.open = false; O.classList.remove("on"); document.body.classList.remove("sf-open"); ddToggle(false); save(); }
 function load(m){
   S.m = m; S.sel = null; S.undo = []; S.redo = []; S.meas = null; S.wip = null; S.cal = null;
   if(!m.view){ var r = SVG.getBoundingClientRect(); m.view = {x:Math.round(r.width / 2), y:Math.round(r.height / 2), z:48}; }
@@ -647,6 +648,7 @@ function onClick(e){
   if(b.dataset.map){ var m = S.maps.filter(function(x){ return x.id === b.dataset.map; })[0]; ddToggle(false); save(); if(m) load(m); return; }
   var a = b.dataset.a, v = S.m && S.m.view, r = SVG.getBoundingClientRect();
   if(a === "close") close();
+  if(a === "link") teilen("spielfeld.html", e.target.closest("button"));
   else if(a === "undo") undo();
   else if(a === "redo") redo();
   else if(a === "zin") zoomAt(1.25, r.width / 2, r.height / 2);

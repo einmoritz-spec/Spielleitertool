@@ -530,7 +530,7 @@ function sheet(){
 }
 function bar(){
   var chips = DB.list.map(function(c){ return '<a class="' + (c.id === DB.cur ? "on" : "") + '" data-sel="' + c.id + '">' + esc2(c.name || "Neuer Charakter") + "</a>"; }).join("");
-  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu">+ Neu</a></div><div class="act"><button id="bgDup">Kopie</button><button id="bgDel">Löschen</button><button id="bgEx">JSON ↓</button><button id="bgIm">JSON ↑</button><button id="bgPr">Drucken</button><button id="bgPdf">PDF</button></div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
+  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu">+ Neu</a></div><div class="act"><button id="bgDup">Kopie</button><button id="bgDel">Löschen</button><button id="bgEx">JSON ↓</button><button id="bgIm">JSON ↑</button><button id="bgPr">Drucken</button><button id="bgPdf">PDF</button><button id="bgLink" title="Link zum Charakterbogen kopieren">Link teilen</button></div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
 }
 function bogenPage(){
   ens();
@@ -817,6 +817,7 @@ function wire(){
     else if(el.id === "bgIm") document.getElementById("bgFile").click();
     else if(el.id === "bgPr") window.print();
     else if(el.id === "bgPdf") pdf(el);
+    else if(el.id === "bgLink") teilen("bogen.html", el);
   });
   A.addEventListener("change", function(e){
     if(e.target.id !== "bgFile" || !e.target.files[0]) return;

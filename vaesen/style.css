@@ -143,3 +143,11 @@ details.fc>p{margin:0 18px 10px}details.fc>p.st{padding:8px 0 14px;border-top:1p
 .simg.fr{float:right;margin:2px 0 8px 16px;break-inside:avoid}.simg.fr.sq{width:230px}.simg.fr.tall{width:200px}.simg.fr.xl{width:230px}
 .fimgs{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0}.fimgs .simg.fr{float:none;margin:0}
 .tm-dd{box-shadow:0 10px 28px rgba(58,42,31,.28)}.tm-dd button:hover{background:rgba(122,101,82,.13)}.tm-dd button.on{background:rgba(138,31,23,.08)}.tm-dd button.sub2{border-left-color:var(--line)}.tm-dd .tm-grp{opacity:.7}
+/* Kopfzeile mit Bereichs-Reitern; aktiver Reiter geht nahtlos in die Unterleiste über */
+.ktabs{display:flex;gap:2px;margin-left:20px;align-self:stretch}
+.ktabs a{display:flex;align-items:center;padding:0 14px;font-family:Mar;font-size:17px;letter-spacing:.04em;color:var(--soft);cursor:pointer;white-space:nowrap}
+.ktabs a:hover{color:var(--red)}
+.ktabs a.on{color:var(--red);background:rgba(230,222,205,.96)}
+body.vnav .topbar{border-bottom:0}
+body.vnav .tabs{border-bottom:2px solid var(--red)}
+.ktabs{margin-left:8px;gap:0}.ktabs a{padding:0 10px;font-size:16px;letter-spacing:.02em}

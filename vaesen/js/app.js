@@ -299,6 +299,15 @@ function viewSpieler(){
 function importCh(){ var c = unb64(sub), a = loadChars(); c.id = "c" + Date.now(); a.push(c); saveChars(a); CH = c; go("erstellung/" + c.id); }
 
 /* ---------- Render ---------- */
+/* Kopfzeile: Bereiche als Reiter; die Unterleiste (.tabs) liefert jeweils der Bereich selbst */
+var HEAD = [["regeln","Regeln"],["charaktere","Charaktere"],["vaesen","Vaesen"],["norden","Mythischer Norden"],["gesellschaft","Die Gesellschaft"],["mysterium","Das Mysterium"],["karten","Karten"]];
+function vaeHead(){
+  var kt = document.getElementById("ktabs"); if(!kt) return;
+  var k = cur === "kapitel" ? sub.split("/")[0] : cur, m = {konflikt:"regeln", talente:"regeln", erstellung:"charaktere"}, on = m[k] || k;
+  var hide = cur === "start" || !cur;
+  kt.innerHTML = hide ? "" : HEAD.map(function(h){ return '<a class="' + (h[0] === on ? "on" : "") + '" onclick="go(\'' + h[0] + '\')">' + esc(h[1]) + "</a>"; }).join("");
+  document.body.classList.toggle("vnav", !hide);
+}
 function render(){
   document.title = "Vaesen";
   var v;
@@ -316,6 +325,7 @@ function render(){
    case "norden": case "gesellschaft": case "mysterium": v = viewKapitel(cur); break;
    default: v = viewStart();
   }
+  vaeHead();
   APP.innerHTML = v; window.scrollTo(0, 0); if(window.tzAfter) tzAfter(); if(window.mysAfter) mysAfter(); if(window.grpAfter) grpAfter();
 }
 

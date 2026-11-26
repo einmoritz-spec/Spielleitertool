@@ -13,7 +13,7 @@ function tx(s){
     .replace(/~(.)~/g, '<b class="hl">$1</b>')
     .replace(/\[!(.+?)!\]/g, function(m, t, i){ return '<mark class="zw' + (i % 3 === 1 ? " s1" : i % 3 === 2 ? " s2" : "") + '">' + t + '</mark>'; })
     .replace(/\{S\.\s?(\d+)\}/g, function(m, p){ return pgl(+p); })
-    .replace(/\[\[([A-Z]\d{1,2})\]\]/g, '<a class="gehzu" onclick="pwPop(\'$1\')">$1</a>')
+    .replace(/\[\[([A-Z](?:\d{1,2}|\?))\]\]/g, '<a class="gehzu" onclick="pwPop(\'$1\')">$1</a>')
     .replace(/\n/g, "<br>");
   /* Firmenfarben: nur außerhalb von Tags */
   return s.replace(/(^|>)([^<]+)/g, function(m, a, t){
@@ -53,16 +53,21 @@ function taB(L){
       /* Regeln */
       case "wurf": return '<div class="wurf">' + b.x.map(function(x){ return '<section class="' + (x.ok ? "ok" : "nein") + '"><div class="wi"><img src="' + IMG("regeln/full/" + x.img) + '" alt=""><em></em></div><p>' + tx(x.x) + '</p></section>'; }).join("") + "</div>";
       case "dialog": return '<div class="dialog">' + b.x.map(function(z){ return '<p class="' + (/^GM/.test(z[0]) ? "gm" : "") + '"><b>' + esc(z[0]) + ':</b> ' + tx(z[1]) + '</p>'; }).join("") + "</div>";
-      case "preis": return '<div class="preis">' + b.x.map(function(x){ return '<section><h3><span class="pt">' + tx(x.h) + '</span><span class="pp">' + esc(x.p) + zimg("symbol-belobigung") + '</span></h3>' + (x.z ? zimg(x.z, "pz2") : '') + (x.b ? taB(x.b) : '<p>' + tx(x.x) + '</p>') + '</section>'; }).join("") + "</div>";
+      case "preis": return '<div class="preis">' + b.x.map(function(x){ return '<section><h3><span class="pt">' + tx(x.h) + '</span><span class="pp">' + esc(x.p) + zimg("symbol-belobigung") + '</span></h3>' + (x.z ? zimg(x.z, "pz2") : '') + (x.bild ? '<img class="pz2 pzb" src="' + IMG("regeln/full/" + x.bild) + '" alt="" onclick="zoom(this.src)">' : '') + (x.b ? taB(x.b) : '<p>' + tx(x.x) + '</p>') + '</section>'; }).join("") + "</div>";
       case "leiste": return '<div class="leiste" style="--c:' + (b.c || "var(--akz)") + '">' + (b.h ? '<b>' + tx(b.h) + '</b>' : '') + '<div>' + b.x.map(function(n){ return '<u>' + esc(n) + '</u>'; }).join("") + '</div></div>';
       case "wf": var id = b.id || "wf"; return '<div class="wf"><h3>' + zimg("symbol-qualitaetssicherung") + tx(b.h) + '</h3><small>' + tx(b.s || "Wahr oder falsch?") + '</small>' + b.x.map(function(x, i){ var auf = WF[id] && WF[id][i];
         return '<section class="' + (auf ? "auf" : "") + '" onclick="wfKlick(\'' + id + '\',' + i + ')"><em>' + (i + 1) + '</em><div>' + tx(x.f) + (auf ? '<p class="' + (x.a ? "w" : "f") + '"><b>' + (x.a ? "Wahr." : "Falsch.") + '</b> ' + tx(x.e || "") + '</p>' : '') + '</div></section>'; }).join("") + '</div>';
       /* ---- ARK-Bausteine ---- */
-      case "faehig": return '<section class="fk"><div><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p>' + b.erg.map(function(e){ return '<p class="erg"><img src="' + Z({ok:"ergebnis-erfolg-dreieck", plus:"ergebnis-zusatz-dreieck", nein:"ergebnis-fehlschlag-kreis"}[e[0]]) + '" alt=""><span>' + taWahl(e[1]) + '</span></p>'; }).join("") + (b.b ? taB(b.b) : '') + '</div>' +
-        (b.f ? '<div class="fa"><p><b>F:</b> ' + tx(b.f).replace(/ …/g, "\u00a0…") + '</p>' + b.a.map(function(a){ return '<p><b>A:</b> ' + tx(a[0]) + ' <a class="co" onclick="pwPop(\'' + a[1] + '\')">' + "<i></i><i></i><i></i>".slice(0, 7 * (a[2] || 3)) + a[1].replace(/3/g, '<b class="drei">3</b>') + '</a></p>'; }).join("") + '</div>' : '') + '</section>';
+      case "faehig": return '<section class="fk' + (b.f ? '' : ' ohnefa') + '"><div>' + (b.h ? '<h3>' + tx(b.h) + '</h3>' : '') + (b.x ? '<p>' + tx(b.x) + '</p>' : '') + (b.erg || []).map(function(e){ return e[0] === "txt" ? '<p class="erg txt"><span>' + taWahl(e[1]) + '</span></p>' : '<p class="erg"><img src="' + Z({ok:"ergebnis-erfolg-dreieck", plus:"ergebnis-zusatz-dreieck", nein:"ergebnis-fehlschlag-kreis"}[e[0]]) + '" alt=""><span>' + taWahl(e[1]) + '</span></p>'; }).join("") + (b.b ? taB(b.b) : '') + '</div>' +
+        (b.a ? '<div class="fa">' + (b.f ? '<p><b>F:</b> ' + tx(b.f).replace(/ …/g, "\u00a0…") + '</p>' : '') + b.a.map(function(a){ return '<p><b>A:</b> ' + tx(a[0]) + (a[1] ? ' <a class="co" onclick="pwPop(\'' + a[1] + '\')">' + "<i></i><i></i><i></i>".slice(0, 7 * (a[2] || 3)) + a[1].replace(/3/g, '<b class="drei">3</b>') + '</a>' : '') + '</p>'; }).join("") + '</div>' : '') + '</section>';
+      /* ---- Playwall-Bausteine ---- */
+      case "band": return '<div class="band' + (b.rot ? " rot" : "") + '">' + (Array.isArray(b.x) ? b.x : [b.x]).map(function(z){ return '<p><span>' + tx(z) + '</span></p>'; }).join("") + '</div>';
+      case "notiz": return '<p class="notiz' + (b.pos ? " " + b.pos : "") + '">' + tx(b.x) + '</p>';
+      case "vollbild": return '<img class="vollbild" src="' + IMG("regeln/full/" + b.src) + '" alt="" onclick="zoom(this.src)">';
       case "w4": return '<div class="w4">' + (b.h ? '<h3>' + tx(b.h) + '</h3>' : '') + (b.b ? taB(b.b) : '') + '<ol>' + b.x.map(function(x, i){ return '<li' + (i === 2 ? ' class="d"' : '') + '><em>' + (i + 1) + '</em>' + tx(x) + '</li>'; }).join("") + '</ol></div>';
       case "ausloeser": return '<div class="ak aus"><h3>' + tx(b.h) + '</h3><div class="sp sp2">' + b.b.map(function(c){ return '<div>' + taB(c) + '</div>'; }).join("") + '</div></div>';
-      case "spur": return '<div class="spur"><b>' + tx(b.h) + '</b><div><i class="pfl"></i>' + b.x.map(function(n){ return '<u' + (n === "X" ? ' class="x"' : n === "3" ? ' class="d"' : '') + '>' + esc(n) + '</u>'; }).join("") + '</div></div>';
+      case "spur": var SS = (window.ST && ST.pwSpur) || {}; return '<div class="spur"><b>' + tx(b.h) + '</b><div><i class="pfl"></i>' + b.x.map(function(n, i){ var k = b.id ? b.id + "." + i : "", n0 = String(n).replace(/\u200b/g, ""); return '<u' + ' class="' + (n0 === "X" ? "x" : !b.plain && n0 === "3" ? "d" : "") + (k && SS[k] ? " an" : "") + '"' + (k ? ' data-k="' + k + '" onclick="pwSpur(this)"' : '') + '>' + esc(n0) + '</u>'; }).join("") + '</div></div>';
+      case "kette": return '<span class="kn pw-kette">' + b.x.map(function(x){ return '<span>' + tx(x) + '</span>'; }).join("") + '</span>';
       case "ventil": return '<div class="ak ven"><img src="' + Z("symbol-burnout") + '" alt=""><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p></div>';
       case "fragebogen": return '<div class="ak fra"><i>?</i><h3>' + tx(b.h || "Fragen zum Arbeitsantritt") + '</h3><ul class="dl">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul></div>';
       case "matrix": return '<div class="ak mat' + (b.art ? " bild" : "") + '"><div><h3>' + tx(b.h || "Beziehungsmatrix") + '</h3>' + taB(b.b) + '</div>' + (b.art ? taSchaubild(b.art) : '') + '<ol>' + b.x.map(function(x){ return '<li><b>' + tx(x.f) + '</b><span>Beispiele: <i>' + tx(x.bsp) + '</i></span></li>'; }).join("") + '</ol></div>';

@@ -94,7 +94,7 @@ function pwSel(code){ ST.pwBuch = code.charAt(0); ST.pw = ST.pw || {}; ST.pw[cod
 function viewPw(code){
   var B = (code || "").charAt(0) || ST.pwBuch || "A", nr = (code || "").slice(1);
   var ks = Object.keys(TA_PW), buch = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  var nums = ks.filter(function(k){ return k.charAt(0) === B; }).map(function(k){ return +k.slice(1); }).sort(function(a, b){ return a - b; });
+  var nums = ks.filter(function(k){ return k.charAt(0) === B; }).map(function(k){ return k.slice(1); }).sort(function(a, b){ return (a === "?" ? 1.5 : +a) - (b === "?" ? 1.5 : +b); });
   var frei = Object.keys(ST.pw || {}).sort(function(a, b){ return a.charAt(0) === b.charAt(0) ? a.slice(1) - b.slice(1) : a < b ? -1 : 1; });
   var p = TA_PW[code];
   var links = '<div class="term"><div class="halt"><img src="' + Z("symbol-halt-hand") + '" alt="">WARTE!</div>' +
@@ -102,7 +102,7 @@ function viewPw(code){
     '<div class="bu">' + buch.map(function(c){ return '<a class="' + (c === B ? "on" : "") + '" onclick="ST.pwBuch=\'' + c + '\';save();go(\'pw/' + c + '\')">' + c + '</a>'; }).join("") + '</div>' +
     '<div class="nu">' + nums.map(function(n){ return '<a class="' + (String(n) === nr ? "on" : (ST.pw || {})[B + n] ? "frei" : "") + '" onclick="pwSel(\'' + B + n + '\')">' + n + '</a>'; }).join("") + '</div>' +
     (frei.length ? '<div class="fr"><h4>Freigegeben</h4>' + frei.map(function(c){ return '<a onclick="go(\'pw/' + c + '\')">' + c + '</a>'; }).join("") + '</div>' : '') + '</div>';
-  var dok = p ? '<div class="dok"><div class="in"><span class="dpg">' + pgl(p) + '</span>' + (TA_TEXT["pw/" + code] || '<div class="leer" onclick="openBook(\'ta_core\',' + p + ')"><img src="' + Z("symbol-akte-schloss") + '" alt=""></div>') + '</div></div>' : '<div class="dok leerdok"></div>';
+  var dok = pwDok(code, p);
   return '<div class="pwrap">' + links + dok + '</div>';
 }
 

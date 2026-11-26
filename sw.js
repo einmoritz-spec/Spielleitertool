@@ -4384,6 +4384,8 @@ const FILES = [
   "savageworlds/js/data/sl-anekdoten.js",
   "savageworlds/js/data/sl-motorhaube.js",
   "savageworlds/js/data/genre-fan.js",
+  "savageworlds/js/data/genre-hor.js",
+  "savageworlds/js/data/genre-sf.js",
   "savageworlds/js/data/genre-sup.js",
   "savageworlds/js/seiten-spielleitung.js",
   "savageworlds/js/seiten-genres.js",

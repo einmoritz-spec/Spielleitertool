@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1246sq";
+const VERSION = "v1247sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -827,6 +827,8 @@ const FILES = [
   "triangle/img/zeichen/symbol-menschen-schwarz.png",
   "triangle/img/zeichen/symbol-mitarbeiter-des-moments.png",
   "triangle/img/zeichen/symbol-mvp.png",
+  "triangle/img/zeichen/bogen-vorschau-stamm.webp",
+  "triangle/img/zeichen/bogen-vorschau-balance.webp",
   "triangle/img/zeichen/symbol-persoenliche-anomalie.png",
   "triangle/img/zeichen/symbol-probezeit.png",
   "triangle/img/zeichen/symbol-qualitaeten.png",

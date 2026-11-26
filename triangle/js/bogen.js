@@ -75,8 +75,8 @@ function bgArk(kat, id){
     A.arc.a = id;
     bgSuch(R, "faehig", []).slice(0, 3).forEach(function(f, i){
       var q = ""; BG_QUAL.forEach(function(Q){ var p = f.x.lastIndexOf("**" + Q); if(p >= 0 && (!q || p > f.x.lastIndexOf("**" + q))) q = Q; });
-      var e = function(k){ var z = (f.erg || []).filter(function(x){ return x[0] === k; })[0]; return z ? bgPlain(z[1]).replace(/^Bei (Erfolg|Fehlschlag)\s*,?\s*/, "") : ""; };
-      A.faeh[i] = {h:f.h, x:bgPlain(f.x), q:q, ok:e("ok"), plus:e("plus"), nein:e("nein"), f:bgPlain(f.f || ""), a:(f.a || []).slice(0, 2).map(function(a){ return [bgPlain(a[0]), a[1]]; }), st:[[0,0,0],[0,0,0]], geuebt:0, seite:String(TA_ARK.anomalie.x.filter(function(x){ return x[0] === id; })[0][2] + (i ? 1 : 0))};
+      var e = function(k){ var z = (f.erg || []).filter(function(x){ return x[0] === k; })[0]; return z ? bgPlain(z[1]).replace(/^Bei (Erfolg|Fehlschlag)\s*,?\s*/, "") : ""; }; var pb = ((((f.erg || []).filter(function(x){ return x[0] === "plus"; })[0] || [])[1] || "").match(/^\*\*(.+?)\*\*\s*/) || []);
+      A.faeh[i] = {h:f.h, x:bgPlain(f.x), q:q, ok:e("ok"), plusB:pb[1] ? bgPlain(pb[1]) : "", plus:pb[1] ? bgPlain(((f.erg || []).filter(function(x){ return x[0] === "plus"; })[0][1]).slice(pb[0].length)) : e("plus"), nein:e("nein"), f:bgPlain(f.f || ""), a:(f.a || []).slice(0, 2).map(function(a){ return [bgPlain(a[0]), a[1]]; }), st:[[0,0,0],[0,0,0]], geuebt:0, seite:String(TA_ARK.anomalie.x.filter(function(x){ return x[0] === id; })[0][2] + (i ? 1 : 0))};
       while(A.faeh[i].a.length < 2) A.faeh[i].a.push(["",""]);
     });
   }
@@ -179,7 +179,7 @@ function bgDokF(c, k, el){
   if(i < 0){ bgToast("Alle sechs Fähigkeitsfelder sind belegt."); return; }
   var q = ""; BG_QUAL.forEach(function(Q){ if(f.x.indexOf("**" + Q) >= 0) q = Q; });
   var e = function(t){ var z = (f.erg || []).filter(function(x){ return x[0] === t; })[0]; return z ? bgPlain(z[1]).replace(/^Bei (Erfolg|Fehlschlag)\s*,?\s*/, "") : ""; };
-  A.faeh[i] = {h:bgPlain(f.h || D.t), x:bgPlain(f.x), q:q, ok:e("ok"), plus:e("plus"), nein:e("nein"), f:bgPlain(f.f || ""), a:(f.a || []).slice(0, 2).map(function(a){ return [bgPlain(a[0]), a[1]]; }), st:[[0,0,0],[0,0,0]], geuebt:0, seite:c};
+  A.faeh[i] = {h:bgPlain(f.h || D.t), x:bgPlain(f.x), q:q, ok:e("ok"), plusB:pb[1] ? bgPlain(pb[1]) : "", plus:pb[1] ? bgPlain(((f.erg || []).filter(function(x){ return x[0] === "plus"; })[0][1]).slice(pb[0].length)) : e("plus"), nein:e("nein"), f:bgPlain(f.f || ""), a:(f.a || []).slice(0, 2).map(function(a){ return [bgPlain(a[0]), a[1]]; }), st:[[0,0,0],[0,0,0]], geuebt:0, seite:c};
   while(A.faeh[i].a.length < 2) A.faeh[i].a.push(["",""]);
   bgSave(); el.disabled = true; el.textContent = "Eingetragen"; render();
 }
@@ -329,8 +329,8 @@ function bgBlattHTML(A, b){
         var h = '<i class="bg-k' + (an ? " an" : "") + (weg ? " weg" : "") + (nx ? " nx" : "") + (c ? " code" : "") + '" onclick="' + (c && an ? "bgDok('" + c + "')" : nx ? "bgMark('" + t + "')" : j === W[t] && letzt === t ? "bgUndo()" : "") + '"' + (c && an ? ' title="' + c + ' öffnen"' : nx ? ' title="Markieren"' : '') + '>' + c + '</i>';
         if(j <= 15) o += h; else u = h + u; }
       return '<div class="bg-spur c-' + S.c + '"><div class="z o">' + o + '</div><div class="z u">' + u + '</div></div>'; };
-    var rang = '<div class="bg-rang o"><span>Trainee</span><span>Sachbearbeiter</span><span>Sen.-Sachbearbeiter</span><span>Stv. Direktor</span><span>Direktor</span></div>';
-    var rang2 = '<div class="bg-rang u"><span>Vorsitzender</span><span>Exekutiv-VP</span><span>Senior-VP</span><span>Vizepräsident</span><span>Regionaldirektor</span></div>';
+    var rang = '<div class="bg-rang o"><span>Trainee</span><span>Sachbearbeiter</span><span>Senior-Sachbearbeiter</span><span>Stv. Direktor</span><span>Direktor</span></div>';
+    var rang2 = '<div class="bg-rang u"><span>Vorsitzender</span><span>Exekutiv-VP</span><span>Senior-VP</span><span>Vizepräsident</span><span>Regional-<br>direktor</span></div>';
     return '<section class="bg-blatt bs-bal">' + bgKopfN(A, "Work-Life-Balance") +
       '<div class="bg-bal3"><div class="bg-warn"><img src="' + Z("symbol-warnung") + '" alt=""><span>Jedes Mal, wenn du ein Kästchen markierst, musst du <b>eins vom Ende der anderen Leisten streichen.</b></span></div>' +
       '<div class="bg-aw"><img src="' + Z("symbol-mvp") + '" alt=""><div><b>MVP</b><small>Mal erhalten</small></div>' + bgIn("mvp", A.mvp, "", "bg-nr", ' type="number" min="0"') + '</div>' +
@@ -344,11 +344,11 @@ function bgBlattHTML(A, b){
       '<div class="bg-tk noprint"><button onclick="bgMark(\'a\')">Anomalie markieren</button><button onclick="bgMark(\'a\',1)">Bei Probezeit markieren (ohne Streichen)</button>' + (A.log.length ? '<button class="leise" onclick="bgUndo()">Letzte Markierung zurücknehmen</button>' : '') + '</div></div></section>';
   }
   if(b === "faehig"){
-    var karte = function(f, i){ var p = "faeh." + i + ".";
+    var karte = function(f, i){ var p = "faeh." + i + "."; if(f.plusB === undefined){ var mm = (f.plus || "").match(/^((?:Bei|Für|Pro) [^.]*?\b3(?:en)?)\s+([\s\S]+)$/); f.plusB = mm ? mm[1] : ""; if(mm) f.plus = mm[2]; }
       return '<div class="bg-fk"><div class="bg-fkk"><label><small>Fähigkeit</small>' + bgIn(p + "h", f.h) + '</label><label class="w2"><small>Auslöser</small>' + bgTa(p + "x", f.x) + '</label><label><small>Qualität</small>' + bgIn(p + "q", f.q, "", "", ' list="bgdl-q"') + '</label></div>' +
-        '<div class="bg-fkm"><div><h5><img src="' + Z("ergebnis-erfolg-dreieck") + '" alt="">Bei Erfolg</h5>' + bgTa(p + "ok", f.ok) + '<h5><img src="' + Z("ergebnis-zusatz-dreieck") + '" alt="">Zusätzlich</h5>' + bgTa(p + "plus", f.plus) + '</div>' +
-        '<div><h5><img src="' + Z("ergebnis-fehlschlag-kreis") + '" alt="">Bei Fehlschlag</h5>' + bgTa(p + "nein", f.nein) +
-        (i < 3 ? '<div class="bg-fq"><label class="q"><small>F:</small>' + bgIn(p + "f", f.f) + '</label><div class="bg-fqr"><label class="bg-cb"><small>Geübt?</small><input type="checkbox" data-k="' + p + 'geuebt"' + (f.geuebt ? " checked" : "") + '></label><label><small>Seite</small>' + bgIn(p + "seite", f.seite) + '</label></div>' +
+        '<div class="bg-fkm"><div><h5><img src="' + Z("ergebnis-erfolg-dreieck") + '" alt="">Bei Erfolg,</h5>' + bgTa(p + "ok", f.ok) + '<h5><img src="' + Z("ergebnis-zusatz-dreieck") + '" alt=""><span class="bg-pil">' + bgIn(p + "plusB", f.plusB || "") + '</span>,</h5>' + bgTa(p + "plus", f.plus) + '</div>' +
+        '<div><h5><img src="' + Z("ergebnis-fehlschlag-kreis") + '" alt="">Bei Fehlschlag,</h5>' + bgTa(p + "nein", f.nein) +
+        (i < 3 ? '<div class="bg-fq"><label class="q"><small>F:</small>' + bgTa(p + "f", f.f) + '</label><div class="bg-fqr"><label class="bg-cb"><small>Geübt?</small><input type="checkbox" data-k="' + p + 'geuebt"' + (f.geuebt ? " checked" : "") + '></label><label><small>Seite</small>' + bgIn(p + "seite", f.seite) + '</label></div>' +
           f.a.map(function(a, k){ return '<div class="bg-fa"><small>A:</small>' + bgIn(p + "a." + k + ".0", a[0]) + '<span class="pf">➜</span>' + [0,1,2].map(function(v){ return '<label class="bg-cb"><input type="checkbox" data-k="' + p + 'st.' + k + '.' + v + '"' + (f.st[k][v] ? " checked" : "") + '></label>'; }).join("") +
             '<a class="bg-code' + (A.frei[a[1]] ? " frei" : "") + '" data-pdftx' + (a[1] && TA_PW[a[1]] ? ' onclick="bgDok(\'' + a[1] + '\')"' : '') + '>' + esc(a[1]) + '</a></div>'; }).join("") + '</div>' : '') + '</div></div></div>'; };
     return '<section class="bg-blatt bs-fae">' + bgKopfN(A, "Anomalie-Fähigkeiten", ["anomalie","a"]) + A.faeh.slice(0, 3).map(karte).join("") + '<datalist id="bgdl-q">' + BG_QUAL.map(function(q){ return '<option value="' + q + '">'; }).join("") + '</datalist></section>' +
@@ -361,7 +361,7 @@ function bgBlattHTML(A, b){
       return '<div class="bg-bz' + (+x.v >= 9 ? " netz" : "") + (x.n && !+x.v && x.besch ? " verl" : "") + '"><div class="bg-bzk"><label><small>Name</small>' + bgIn(p + "n", x.n, m ? m.bsp : "") + '</label><label><small>Gespielt von</small>' + bgIn(p + "von", x.von) + '</label></div>' +
         '<label class="bg-bzb"><small>Beschreibung</small>' + bgTa(p + "besch", x.besch, m ? m.f : "") + '</label><div class="bg-dots">' + d + '</div><div class="bg-netzt">Vernetzt ▲</div>' +
         '<div class="bg-bzf"><label><small>Verbindungsbonus</small>' + bgIn(p + "bonus", x.bonus, "", "", ' list="bgdl-boni"') + '</label><label class="bg-cb"><input type="checkbox" data-k="' + p + 'aktiv"' + (x.aktiv ? " checked" : "") + '><small>Aktiv</small></label></div></div>'; };
-    var kopf = function(t){ return bgKopfN(A, t, ["realitaet","r"], '<div class="bg-netz"><img src="' + Z("symbol-alle-hand") + '" alt="">Vernetzte Beziehungen <b data-pdftx>' + bgNetz(A) + '</b></div>'); };
+    var kopf = function(t){ return bgKopfN(A, t, ["realitaet","r"], '<div class="bg-netz"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="#fdf3de" stroke="#e9a818" stroke-width="1.6"/><path d="M12 1.5v21M1.5 12h21M4.2 6.2h15.6M4.2 17.8h15.6M12 1.5c-5 3-5 18 0 21M12 1.5c5 3 5 18 0 21" fill="none" stroke="#e9a818" stroke-width="1.3"/></svg>Vernetzte Beziehungen <b data-pdftx>' + bgNetz(A) + '</b></div>'); };
     return '<section class="bg-blatt bs-bez">' + kopf("Beziehungen") + '<div class="bg-g2">' + A.bez.slice(0, 6).map(karte).join("") + '</div><datalist id="bgdl-boni">' + BG_BONI.map(function(q){ return '<option value="' + q + '">'; }).join("") + '</datalist></section>' +
       '<section class="bg-blatt bs-bez">' + kopf("Beziehungen") + '<div class="bg-g2">' + A.bez.slice(6).map(function(x, i){ return karte(x, i + 6); }).join("") + '</div></section>';
   }

@@ -6,6 +6,7 @@ var KCOL = {"Tiere":"#8a6a2e","Monster":"#a51f1a","Humanoide":"#6c625a","Untote"
 var KAB = {"Geschicklichkeit":"Ges","Konstitution":"Kon","Stärke":"Stä","Verstand":"Ver","Willenskraft":"Wil"};
 function krSicht(k){ return k.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
 function krBadges(k){ return k.s.filter(function(x){ return x !== "GRW"; }).map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join(""); }
+function krOff(b){ return (!b || b === "sw_de" || b === "sw_wb") ? 1 : 2; }
 function knm(x){ return nm(x).replace(/ \/ /g, ' <i class="sl">/</i> '); }
 function kb(t){ return krTxt(t).replace(/(\d+)/g, '<span class="dg">$1</span>'); }
 function krTxt(t){ return esc(t).replace(/\[WC\]/g, '<img class="wcs" src="img/wc.webp" alt="Wildcard">').replace(/ß/g, "ß"); }
@@ -35,8 +36,9 @@ function krDetail(k){
   var at = '<div class="ka">' + k.a.map(function(a){ return '<div title="' + esc(a[0]) + '"><small>' + esc(a[0]) + "</small><b>" + esc(a[1]) + "</b></div>"; }).join("") + "</div>";
   var st = '<div class="kv"><div><small>Bewegungsweite</small><b>' + esc(k.b) + '</b></div><div><small>Parade</small><b>' + esc(k.pa) + '</b></div><div><small>Robustheit</small><b>' + esc(k.ro) + "</b></div></div>";
   var rows = (k.f ? [["Fertigkeiten", k.f]] : []).concat(k.x || []).map(function(e){ return '<p class="kr"><b>' + esc(e[0]) + ":</b> " + krTxt(e[1]) + "</p>"; }).join("");
-  var sf = k.sf.length ? '<small class="kh">Spezialfähigkeiten</small>' + k.sf.map(function(e){ return '<p class="ks">' + (e[0] ? "<b>" + kb(e[0]) + ":</b> " : "") + krTxt(e[1]) + "</p>"; }).join("") : "";
-  return '<div class="td kd" style="--rc:' + c + '"><div class="tdm"><h3>' + knm(k.n) + (k.w ? '<img class="wcs lg" src="img/wc.webp" alt="Wildcard" title="Wildcard">' : "") + krBadges(k) + '<span class="pg" onclick="openBook(\'' + (k.bk || "sw_de") + "'," + (k.p + (k.o == null ? 1 : k.o)) + ')">S. ' + k.p + "</span></h3>" + (k.d || []).map(function(p){ return '<p class="kdesc">' + krTxt(p) + "</p>"; }).join("") + at + st + rows + '</div><div class="tds kss">' + sf + "</div></div>";
+  var sf = k.sf.length ? '<small class="kh">Spezialfähigkeiten</small>' + k.sf.map(function(e){ return '<p class="ks">' + (e[2] ? '<i class="kpw">\u2605</i>' : "") + (e[0] ? "<b>" + kb(e[0]) + ":</b> " : "") + krTxt(e[1]) + "</p>"; }).join("") : "";
+  if(k.ai && k.ai.length) sf += '<small class="kh">Abenteuerideen</small>' + k.ai.map(function(a){ return '<p class="ks"><b>' + kb(a[0]) + ":</b> " + krTxt(a[1]) + "</p>"; }).join("");
+  return '<div class="td kd" style="--rc:' + c + '"><div class="tdm"><h3>' + knm(k.n) + (k.w ? '<img class="wcs lg" src="img/wc.webp" alt="Wildcard" title="Wildcard">' : "") + krBadges(k) + '<span class="pg" onclick="openBook(\'' + (k.bk || "sw_de") + "'," + (k.p + (k.o == null ? krOff(k.bk) : k.o)) + ')">S. ' + k.p + "</span></h3>" + (k.d || []).map(function(p){ return '<p class="kdesc">' + krTxt(p) + "</p>"; }).join("") + at + st + rows + '</div><div class="tds kss">' + sf + "</div></div>";
 }
 function krGrid(L){
   var h = "", per = 3, G = null;
@@ -82,7 +84,7 @@ function krPage(){
     } else if(cur === "faehig"){
       var F = SW_BEST.fah.filter(function(f){ return !f.s || f.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); });
       main = '<h2>Spezialfähigkeiten</h2><div class="hg kfg">' + F.map(function(f){
-        return '<div class="hc" style="--rc:#a51f1a"><b>' + nm(f.n) + (f.s ? f.s.filter(function(x){ return x !== "GRW"; }).map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join("") : "") + '<span class="pg" onclick="openBook(\'' + (f.bk || "sw_de") + "'," + (f.p + (f.o == null ? 1 : f.o)) + ')">S. ' + f.p + "</span></b>" + f.t.map(function(t){ var m = t.match(/^([^.:]{2,40}): (.*)$/); return "<p>" + (m ? "<b>" + esc(m[1]) + ":</b> " + esc(m[2]) : esc(t)) + "</p>"; }).join("") + "</div>";
+        return '<div class="hc" style="--rc:#a51f1a"><b>' + nm(f.n) + (f.s ? f.s.filter(function(x){ return x !== "GRW"; }).map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join("") : "") + '<span class="pg" onclick="openBook(\'' + (f.bk || "sw_de") + "'," + (f.p + (f.o == null ? krOff(f.bk) : f.o)) + ')">S. ' + f.p + "</span></b>" + f.t.map(function(t){ var m = t.match(/^([^.:]{2,40}): (.*)$/); return "<p>" + (m ? "<b>" + esc(m[1]) + ":</b> " + esc(m[2]) : esc(t)) + "</p>"; }).join("") + "</div>";
       }).join("") + "</div>";
     } else {
       var T = SW_BEST.gt;

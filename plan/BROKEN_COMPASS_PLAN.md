@@ -106,5 +106,10 @@ Mockups unter `plan/compass/inhalt/`. Grundgerüst für alle Inhaltsseiten des A
 ### Grundlagen (Mockup `inhalt/grundlagen.png`)
 Seitenleiste: Willkommen (Welt, Wo und wann) · Grundpfeiler · Wie man spielt (Gemeinsam spielen, Erzählbeispiel) · Wie im Kino (Staffel, Folge, Pilot) · Der zerbrochene Kompass. Alles auf einer langen Seite, die Leiste springt zu den Blöcken.
 
+Unterleiste: aktiver Punkt mit dezenter heller Linie darunter (keine Pille). „Reisen“-Kachel mit einem einzigen Bild (Seeschlacht), kein zusammengesetztes.
+
+### Abenteurer (Mockup `inhalt/abenteurer.png`)
+Farbe Bernstein #a8701f. Seitenleiste: Wer bist du? (Abenteurerbogen) · Abenteurer erschaffen (Tags, Felder, Expertise) · Ausrüstung (Gegenstände, Waffen, Inventar) · Jung, alt, echt · Zufallsabenteurer. Bausteine: drei Gründe als Karten, Bogen-Legende mit nummerierten Abschnitten, **sechs Felder** als Karten mit eigener Farbe (Aktion rot, Mut orange, Wissen blau, Gesellschaft violett, Wildnis grün, Verbrechen grau) und je drei Fertigkeiten, sechs Schritte als dunkles Band, **18 Tags** als Chips (nach Feld farbcodiert; Klick klappt Karte mit Feld, Expertise und Rauten auf), Inventar als Taschen/Beutel/Rucksack-Karten mit Gegenstand-Chips, Waffen und Gerät als dunkle Karten, Jung/Alt/Echt als Dreiband, Zufallstabelle als 6×6-Raster. Oben rechts in der Unterleiste später der Knopf zum ausfüllbaren Charakterbogen. Die Tabelleneinträge im Mockup sind Platzhalter; die echte Tabelle kommt aus S. 53 des Buchs.
+
 ### Als Nächstes
-Abenteurer (Abenteurerbogen als Bild-Hotspot-Seite, Felder-Raster mit sechs Farbbalken, Expertise-Karten, Gegenstände/Waffen als Karten, Zufallsabenteurer als Raster), danach Herausforderungen (Würfelbeispiele als Würfelreihen), Gefahren, Schatzsuche, 1999.
+Herausforderungen (Würfelbeispiele als Würfelreihen), Gefahren, Schatzsuche, 1999.

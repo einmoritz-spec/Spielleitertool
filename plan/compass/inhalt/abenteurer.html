@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="file:///home/claude/spielleitertool/compass/style.css">
+<style>
+:root{--c:#a8701f;--paper:#efe6d2}
+body{background:linear-gradient(rgba(240,234,222,.7),rgba(240,234,222,.7)),url(file:///home/claude/spielleitertool/compass/img/start/papier.webp) center top/1280px repeat-y;color:#2a2017;padding-top:0!important}
+body .topbar{position:sticky!important;height:64px!important;transform:none!important;--t:0;background:#160f0a;display:flex;align-items:center;padding:0 20px!important}
+.tabs{display:flex;gap:2px;margin-left:26px}
+.tabs a{font:800 12px Fut;letter-spacing:.14em;text-transform:uppercase;padding:0 16px;height:64px;display:grid;place-items:center;color:#c9bda4;position:relative}
+.tabs a.on{color:#fff;background:var(--c)}
+.sub{background:var(--c);display:flex;gap:4px;padding:0 20px 0 20px;height:46px;align-items:center;position:sticky;top:64px;z-index:20}
+.sub a{font:700 13px Fut;letter-spacing:.03em;color:#cfd7ea;padding:7px 14px;border-radius:20px}
+.sub a{border-radius:0;padding:14px 14px 12px;border-bottom:2px solid transparent}.sub a.on{background:none;color:#fff;border-bottom-color:rgba(255,255,255,.7)}
+.wrap{display:grid;grid-template-columns:230px 1fr;max-width:1280px;margin:0 auto}
+.side{position:sticky;top:110px;align-self:start;padding:34px 0 0 26px;height:calc(100vh - 110px)}
+.side a{display:block;font:700 15px/1.2 Fut;color:#6a5c48;padding:9px 0 9px 14px;border-left:2px solid #c9bda4}
+.side a.on{color:var(--c);border-left:4px solid var(--c);padding-left:12px}
+.side a small{display:block;font:400 12px Cas;color:#8a7c66;margin-top:3px}
+.side .ar{position:absolute;right:-4px;top:40px;color:#8a7c66}
+main{padding:34px 50px 80px 40px}
+h1{font:900 15px Fut;letter-spacing:.3em;text-transform:uppercase;color:var(--c);display:flex;gap:14px;align-items:center;margin-bottom:22px}
+h1:after{content:"";flex:1;height:1.5px;background:var(--c);opacity:.35}
+.lead{display:grid;grid-template-columns:420px 1fr;gap:34px;margin-bottom:46px}
+.lead .im{height:360px;background:url(file:///home/claude/spielleitertool/compass/img/start/ab1-grundlagen.webp) 30% 40%/cover;box-shadow:0 14px 26px -12px #000;position:relative}
+.lead .im:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 6px #fff}
+.lead p{font:400 19px/1.6 Cas;margin-bottom:14px}
+.lead p.q{font:italic 400 23px/1.45 Cas;color:var(--red);border-left:4px solid var(--red);padding-left:18px;margin-bottom:18px}
+.lead p.q + p:first-letter{font:900 64px/.8 Fut;float:left;color:var(--c);margin:6px 8px 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:46px}
+.card2{background:#fffaf0;box-shadow:0 8px 18px -10px #000,0 0 0 1px #d8cbb0;padding:22px 24px;position:relative;overflow:hidden}
+.card2 h3{font:900 28px Fut;text-transform:uppercase;color:var(--c)}
+.card2 small{font:800 10px Fut;letter-spacing:.3em;color:var(--red);text-transform:uppercase}
+.card2 p{font:400 17px/1.55 Cas;margin-top:8px}
+.card2:before{content:"";position:absolute;right:-30px;bottom:-40px;width:150px;height:150px;background:url(file:///home/claude/spielleitertool/compass/img/start/kompass.webp) center/contain no-repeat;opacity:.08;filter:invert(1)}
+.pil3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:46px;box-shadow:0 18px 30px -16px #000}
+.pil3 .p{height:330px;position:relative;color:#fff;background-size:cover}
+.pil3 .p:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(10,16,30,.92))}
+.pil3 .p div{position:absolute;left:22px;right:20px;bottom:20px;z-index:1}
+.pil3 b{font:900 30px Fut;text-transform:uppercase;display:block;border-bottom:1.5px solid rgba(255,255,255,.6);padding-bottom:8px;margin-bottom:8px}
+.pil3 span{font:17px/1.45 Cas}
+.pil3 em{position:absolute;top:14px;left:22px;z-index:1;font:900 70px Fut;color:rgba(255,255,255,.28);font-style:normal}
+.role{display:grid;grid-template-columns:1fr 1fr 300px;gap:26px;margin-bottom:46px}
+.role p{font:19px/1.6 Cas;margin-bottom:12px}
+.margin{background:#1d2c4d;color:#e8ecf6;padding:20px;font:16px/1.5 Cas;box-shadow:0 10px 20px -10px #000;align-self:start}
+.margin b{font:900 18px Fut;text-transform:uppercase;display:block;margin-bottom:8px;color:#fff}
+.script{background:#fbf5e4;font:15px/1.5 Cou;padding:26px 40px 26px 70px;box-shadow:0 12px 24px -12px #000,0 0 0 1px #d8c9a4;position:relative;margin-bottom:46px;background-image:radial-gradient(circle at 30px 50%,#9d8d6a 0 7px,transparent 8px);background-size:100% 120px;background-repeat:repeat-y}
+.script:before{content:"SZENE 1 – BEISPIEL FÜR DIE ERZÄHLUNG · AUSSEN/TAG";display:block;font:700 15px Cou;margin-bottom:14px;color:var(--red)}
+.script .l{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:4px 0}
+.script .n{font-weight:700;text-align:right;text-transform:uppercase;color:#6e1414}
+.film{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:46px}
+.film .f{background:#0f0b08;color:#efe6d2;padding:26px 24px;position:relative}
+.film .f:nth-child(2){background:#2a1d14}.film .f:nth-child(3){background:#43271a}
+.film .f small{font:800 10px Fut;letter-spacing:.3em;color:#e7c98a;text-transform:uppercase}
+.film .f b{display:block;font:900 26px Fut;text-transform:uppercase;margin:6px 0 8px}
+.film .f p{font:16px/1.5 Cas;opacity:.9}
+.kom{background:linear-gradient(rgba(16,13,10,.78),rgba(16,13,10,.86)),url(file:///home/claude/spielleitertool/compass/img/start/ab5-schatzsuche.webp) center/cover;color:#f3ead7;padding:46px 60px;position:relative;overflow:hidden;box-shadow:0 18px 30px -14px #000}
+.kom:before{content:"";position:absolute;right:30px;top:-30px;width:300px;height:300px;background:url(file:///home/claude/spielleitertool/compass/img/start/kompass.webp) center/contain no-repeat;opacity:.14}
+.kom h2{font:900 30px Fut;text-transform:uppercase;margin-bottom:14px}
+.kom p{font:19px/1.6 Cas;max-width:820px;position:relative}
+.kom p.q{font:italic 26px/1.4 Cas;color:#f2b69a;margin-bottom:14px}
+
+.sub{background:#a8701f}.sub a{color:#f6e6c8}
+.tabs a.on{background:#a8701f}
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:46px}
+.reasons .r{background:#fffaf0;box-shadow:0 8px 18px -10px #000,0 0 0 1px #d8cbb0;padding:22px 24px;border-top:6px solid var(--c)}
+.reasons .r b{font:900 20px Fut;text-transform:uppercase;color:var(--c);display:block;margin-bottom:6px}
+.reasons .r span{font:17px/1.5 Cas}
+.sheet{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 14px;margin-bottom:46px;padding-top:10px}
+.sheet .s{background:#fbf5e4;border:1.5px solid #8a6a38;padding:16px 18px;position:relative}
+.sheet .s i{position:absolute;top:-12px;left:14px;background:var(--c);color:#fff;font:900 13px Fut;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.sheet .s b{font:900 14px Fut;text-transform:uppercase;letter-spacing:.08em;color:var(--c);display:block;margin-bottom:5px}
+.sheet .s span{font:15.5px/1.45 Cas}
+.sheet .wide{grid-column:span 2}
+.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:46px}
+.field{background:#fffaf0;box-shadow:0 8px 18px -10px #000,0 0 0 1px #d8cbb0;border-top:8px solid var(--f);padding:16px 20px 18px}
+.field h3{font:900 24px Fut;text-transform:uppercase;color:var(--f)}
+.field>p{font:italic 15.5px/1.4 Cas;margin:3px 0 10px;color:#5a4c38}
+.field dt{font:800 12px Fut;letter-spacing:.14em;text-transform:uppercase;color:var(--f)}
+.field dd{font:15px/1.4 Cas;margin:0 0 6px}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);margin-bottom:30px;box-shadow:0 14px 26px -14px #000}
+.steps .st{background:#2a1d10;color:#f3ead7;padding:16px 14px 18px;border-right:1px solid #4a3622}
+.steps .st:nth-child(even){background:#3b2814}
+.steps em{font:900 34px Fut;color:#d79f45;font-style:normal;display:block}
+.steps b{font:800 12px Fut;letter-spacing:.1em;text-transform:uppercase;display:block;margin:2px 0 4px}
+.steps span{font:14px/1.4 Cas;opacity:.9}
+.tags{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:14px}
+.tag{background:#fffaf0;border:1.5px solid #d8cbb0;border-left:6px solid var(--f);padding:9px 10px;font:800 12px Fut;text-transform:uppercase;letter-spacing:.04em}
+.tag.on{background:var(--f);color:#fff;border-color:var(--f)}
+.tagopen{background:#fffaf0;box-shadow:0 12px 24px -12px #000,0 0 0 1px #d8cbb0;border-top:8px solid #3f7a3a;display:grid;grid-template-columns:300px 1fr;margin-bottom:46px}
+.tagopen .l{padding:22px 24px;background:#eaf0df}
+.tagopen .l small{font:800 10px Fut;letter-spacing:.3em;color:#3f7a3a;text-transform:uppercase}
+.tagopen h3{font:900 32px Fut;text-transform:uppercase;color:#3f7a3a;margin:3px 0 8px}
+.tagopen .l p{font:15.5px/1.45 Cas}
+.tagopen .r{padding:20px 26px;display:grid;grid-template-columns:1fr 1fr;gap:0 30px;align-content:start}
+.tagopen .sk{display:flex;justify-content:space-between;font:17px Cas;border-bottom:1px dotted #c7b891;padding:5px 0}
+.dia{font-size:15px;color:#a8701f;letter-spacing:3px}.o{color:#c9bda4}
+.items{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:22px}
+.bagc{background:#fffaf0;box-shadow:0 8px 18px -10px #000,0 0 0 1px #d8cbb0;padding:18px 20px}
+.bagc h3{font:900 22px Fut;text-transform:uppercase;color:var(--c)}
+.bagc small{display:block;font:italic 15px/1.35 Cas;color:#5a4c38;margin:2px 0 10px}
+.bagc ul{list-style:none;display:flex;flex-wrap:wrap;gap:5px}
+.bagc li{background:#f1e6cc;font:14.5px Cas;padding:2px 9px;border-radius:12px}
+.gear{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:46px}
+.gc{background:#2a1d10;color:#f3ead7;padding:14px 16px;border-left:5px solid #d79f45}
+.gc b{font:900 15px Fut;text-transform:uppercase;letter-spacing:.05em;display:block;color:#fff}
+.gc span{font:14.5px/1.4 Cas;opacity:.9}
+.yo{display:grid;grid-template-columns:repeat(3,1fr);margin-bottom:46px}
+.yo .y{padding:24px;color:#fff}
+.yo .y:nth-child(1){background:#2f6b8f}.yo .y:nth-child(2){background:#7a5a30}.yo .y:nth-child(3){background:#2a3d2a}
+.yo b{font:900 30px Fut;text-transform:uppercase;display:block}
+.yo small{font:800 10px Fut;letter-spacing:.28em;text-transform:uppercase;opacity:.8}
+.yo p{font:16px/1.5 Cas;margin-top:8px}
+.rnd{display:grid;grid-template-columns:50px repeat(6,1fr);gap:4px}
+.rnd div{padding:8px;font:14px Cas;background:#fffaf0;border:1px solid #d8cbb0}
+.rnd .h{background:var(--f);color:#fff;font:800 11px Fut;letter-spacing:.08em;text-transform:uppercase}
+.rnd .d{background:#2a1d10;color:#d79f45;font:900 20px Fut;text-align:center}
+</style></head><body>
+<div class="topbar"><div class="brand"><img src="file:///home/claude/spielleitertool/assets/logos/broken-compass.webp"></div>
+<div class="tabs"><a>Grundlagen</a><a class="on">Abenteurer</a><a>Herausforderungen</a><a>Gefahren</a><a>Schatzsuche</a><a>1999</a></div></div>
+<div class="sub"><a class="on">Wer bist du?</a><a>Erschaffen</a><a>Ausrüstung</a><a>Jung, alt, echt</a><a>Zufallsabenteurer</a></div><div class="wrap"><div class="side"><a class="on">Wer bist du?<small>Abenteurerbogen</small></a><a>Abenteurer erschaffen<small>Tags · Felder · Expertise</small></a><a>Ausrüstung<small>Gegenstände · Waffen · Inventar</small></a><a>Jung, alt, echt</a><a>Zufallsabenteurer</a></div><main>
+<h1>Wer bist du?</h1>
+<div class="reasons"><div class="r"><b>Der Schatz im Blick</b><span>Du suchst etwas: ein altes Artefakt, einen Menschen, eine verlorene Wahrheit. Was es auch ist – du nennst es Schatz, und es ist dir das Wichtigste.</span></div><div class="r"><b>Noch im Spiel</b><span>Du hast nicht aufgegeben. Du bist am Leben, und Abenteurer sind Frauen und Männer der Tat.</span></div><div class="r"><b>Bereit zur Tat</b><span>Ob Soldat oder Spanischlehrerin: Heute bist du bereit, und du hast alles, um dich durch Dschungel, Pyramide und Fluchttempel zu schlagen.</span></div></div>
+<h1>Abenteurerbogen</h1>
+<div class="sheet"><div class="s"><i>1</i><b>Persönliches</b><span>Name, zwei Tags, Heimat (Herkunft, Heimatland, Arbeitsort), Lebensmotto.</span></div><div class="s"><i>2</i><b>Glück</b><span>10 Glückspunkte und Glücksmünzen: sie retten dich, wenn das Glück verbraucht ist.</span></div><div class="s"><i>3</i><b>Ich fühle</b><span>Gute Gefühle links, schlechte rechts – sie beeinflussen Herausforderungen und Gefahren.</span></div><div class="s wide"><i>4</i><b>Felder und Fertigkeiten</b><span>Sechs Felder mit je drei Fertigkeiten, bei jedem bis zu drei Rauten.</span></div><div class="s"><i>5</i><b>Expertise</b><span>Drei Bereiche, in denen du einen Wiederholungswurf frei hast.</span></div><div class="s"><i>6</i><b>Waffen und Gerät</b><span>In der Mitte des Bogens, mit dem, was sie dir erlauben.</span></div><div class="s wide"><i>7</i><b>Inventar</b><span>Taschen, Beutel, Rucksack und Magazine.</span></div></div>
+<h1>Die sechs Felder</h1>
+<div class="fields"><div class="field" style="--f:#b3321e"><h3>Aktion</h3><p>Kämpfen, rennen, die Dinge selbst in die Hand nehmen.</p><dl><dt>Kämpfen</dt><dd>Nahkampf mit und ohne Waffe, sich aus dem Griff befreien.</dd><dt>Anführen</dt><dd>Andere mitreißen oder keinen Widerspruch dulden.</dd><dt>Stunt</dt><dd>Akrobatik, vom fahrenden Zug springen, durch Kugelhagel rennen.</dd></dl></div><div class="field" style="--f:#d1721a"><h3>Mut</h3><p>Ruhe bewahren und schnell reagieren, wenn es gefährlich wird.</p><dl><dt>Fahren</dt><dd>Fahrzeuge in gefährlichen Manövern steuern.</dd><dt>Kaltblütigkeit</dt><dd>Gelassen bleiben, wenn es brenzlig wird.</dd><dt>Schießen</dt><dd>Mit Schusswaffen auf Ziele feuern.</dd></dl></div><div class="field" style="--f:#2d5f9a"><h3>Wissen</h3><p>Wissen, Bildung und der Umgang mit Technik.</p><dl><dt>Kultur</dt><dd>Geschichte, Sprachen, Bräuche.</dd><dt>Erste Hilfe</dt><dd>Wunden versorgen, Krankheiten erkennen.</dd><dt>Technik</dt><dd>Maschinen reparieren und bedienen.</dd></dl></div><div class="field" style="--f:#7a3f8f"><h3>Gesellschaft</h3><p>Der Umgang mit Menschen, Tieren und von Menschen gemachten Orten.</p><dl><dt>Redekunst</dt><dd>Überzeugen, täuschen, verhandeln.</dd><dt>Charme</dt><dd>Gute Figur machen, verführen, bezaubern.</dd><dt>Beobachtung</dt><dd>Details bemerken, Lügen und Gefühle durchschauen.</dd></dl></div><div class="field" style="--f:#3f7a3a"><h3>Wildnis</h3><p>Raue Natur, wilde Tiere und der Urinstinkt.</p><dl><dt>Spähen</dt><dd>Durch wilde Orte reisen, klettern, tauchen.</dd><dt>Überleben</dt><dd>Jagen, Spuren lesen, ein Lager als Sicheren Ort bauen.</dd><dt>Zäh</dt><dd>Schmerz und Härte aushalten, schwere Dinge bewegen.</dd></dl></div><div class="field" style="--f:#3d3d46"><h3>Verbrechen</h3><p>Heimlich und im Verborgenen handeln.</p><dl><dt>Wachsam</dt><dd>Gefahren früh erkennen.</dd><dt>Fingerfertigkeit</dt><dd>Taschendiebstahl, Schlösser knacken.</dd><dt>Schleichen</dt><dd>Unbemerkt bleiben.</dd></dl></div></div>
+<h1>Abenteurer erschaffen</h1>
+<div class="steps"><div class="st"><em>1</em><b>Zwei Tags</b><span>Wähle zwei von achtzehn Tags.</span></div><div class="st"><em>2</em><b>Rauten füllen</b><span>Feld und Fertigkeiten der Tags, dazu zwei freie Rauten.</span></div><div class="st"><em>3</em><b>Expertisen</b><span>Je Tag eine, dazu eine dritte nach Wahl.</span></div><div class="st"><em>4</em><b>Gefühle</b><span>Du startest ohne Gefühle.</span></div><div class="st"><em>5</em><b>Persönliches</b><span>Name, Herkunft, Lebensmotto.</span></div><div class="st"><em>6</em><b>Ausrüstung</b><span>Drei Gegenstände, Waffen mit zwei Magazinen.</span></div></div>
+<div class="tags"><div class="tag" style="--f:#b3321e">Actionheld</div><div class="tag" style="--f:#b3321e">Betrüger</div><div class="tag" style="--f:#b3321e">Draufgänger</div><div class="tag" style="--f:#d1721a">Revolverheld</div><div class="tag" style="--f:#d1721a">Pilot</div><div class="tag" style="--f:#d1721a">Rebell</div><div class="tag" style="--f:#2d5f9a">Mediziner</div><div class="tag" style="--f:#2d5f9a">Professor</div><div class="tag" style="--f:#2d5f9a">Techniker</div><div class="tag" style="--f:#7a3f8f">Playboy / Femme Fatale</div><div class="tag" style="--f:#7a3f8f">Reporter</div><div class="tag" style="--f:#7a3f8f">Begleiter</div><div class="tag on" style="--f:#3f7a3a">Entdecker</div><div class="tag" style="--f:#3f7a3a">Jäger</div><div class="tag" style="--f:#3f7a3a">Soldat</div><div class="tag" style="--f:#3d3d46">Spion</div><div class="tag" style="--f:#3d3d46">Dieb</div><div class="tag" style="--f:#3d3d46">Muskelprotz</div></div>
+<div class="tagopen"><div class="l"><small>Tag · Feld Wildnis</small><h3>Entdecker</h3><p>Expertise: <b>Orientierung</b> – sich mithilfe von Umgebung, Kompass oder Karte zurechtfinden.</p></div><div class="r"><div class="sk"><span>Fingerfertigkeit</span><span class="dia">◆<span class="o">◇◇</span></span></div><div class="sk"><span>Stunt</span><span class="dia">◆<span class="o">◇◇</span></span></div><div class="sk"><span>Erste Hilfe</span><span class="dia">◆<span class="o">◇◇</span></span></div><div class="sk"><span>Beobachtung</span><span class="dia">◆<span class="o">◇◇</span></span></div><div class="sk"><span>Spähen</span><span class="dia">◆<span class="o">◇◇</span></span></div><div class="sk"><span>Überleben</span><span class="dia">◆<span class="o">◇◇</span></span></div><div class="sk"><span>Zäh</span><span class="dia">◆<span class="o">◇◇</span></span></div><div class="sk"><span>Schleichen</span><span class="dia">◆<span class="o">◇◇</span></span></div></div></div>
+<h1>Ausrüstung</h1>
+<div class="items"><div class="bagc"><h3>Taschen</h3><small>Was du trägst. Nur durch Diebstahl oder Gewalt zu verlieren.</small><ul><li>Amulett</li><li>Kompass</li><li>Feuerzeug</li><li>Karte</li><li>Dietriche</li><li>Taschenmesser</li><li>Uhr</li></ul></div><div class="bagc"><h3>Beutel</h3><small>Schnell erreichbar, kann aber verloren gehen.</small><ul><li>Fernglas</li><li>Tagebuch</li><li>Seil</li><li>Taschenlampe</li><li>Erste-Hilfe-Set</li><li>Werkzeugkasten</li></ul></div><div class="bagc"><h3>Rucksack</h3><small>Das größte Behältnis – kann behindern, Suchen kostet Zeit.</small><ul><li>Decke</li><li>Zelt</li><li>Proviant</li><li>Spitzhacke</li><li>Schlafsack</li></ul></div></div>
+<div class="gear"><div class="gc"><b>Pistole</b><span>Erlaubt zu schießen.</span></div><div class="gc"><b>Machete</b><span>Schneidet durch Pflanzen.</span></div><div class="gc"><b>Kletterausrüstung</b><span>Vorteil beim Klettern.</span></div><div class="gc"><b>Enterhaken</b><span>Mit Seil. Zum Klettern oder Schwingen.</span></div></div>
+<h1>Jung, alt, echt</h1>
+<div class="yo"><div class="y"><small>12 bis 16 Jahre</small><b>Jung</b><p>Keine dritte Expertise, dafür das dauerhafte gute Gefühl „Jung“.</p></div><div class="y"><small>Schon viele Winter</small><b>Alt</b><p>Eine vierte Expertise und ein Erlebnis oder eine Narbe – aber ein dauerhaftes schlechtes Gefühl.</p></div><div class="y"><small>Der dritte Weg</small><b>Echt</b><p>Weitere Tags für alle, die anders sind als der Durchschnitt.</p></div></div>
+<h1>Der Zufallsabenteurer</h1>
+<div class="rnd"><div></div><div class="h" style="--f:#b3321e">Aktion</div><div class="h" style="--f:#d1721a">Mut</div><div class="h" style="--f:#2d5f9a">Wissen</div><div class="h" style="--f:#7a3f8f">Gesellschaft</div><div class="h" style="--f:#3f7a3a">Wildnis</div><div class="h" style="--f:#3d3d46">Verbrechen</div><div class="d">1</div><div>Draufgänger</div><div>Revolverheld</div><div>Pilot</div><div>Rebell</div><div>Mediziner</div><div>Professor</div><div class="d">2</div><div>Pilot</div><div>Rebell</div><div>Mediziner</div><div>Professor</div><div>Techniker</div><div>Actionheld</div><div class="d">3</div><div>Mediziner</div><div>Professor</div><div>Techniker</div><div>Actionheld</div><div>Betrüger</div><div>Draufgänger</div><div class="d">4</div><div>Techniker</div><div>Actionheld</div><div>Betrüger</div><div>Draufgänger</div><div>Revolverheld</div><div>Pilot</div><div class="d">5</div><div>Betrüger</div><div>Draufgänger</div><div>Revolverheld</div><div>Pilot</div><div>Rebell</div><div>Mediziner</div><div class="d">6</div><div>Revolverheld</div><div>Pilot</div><div>Rebell</div><div>Mediziner</div><div>Professor</div><div>Techniker</div></div>
+</main></div></body></html>

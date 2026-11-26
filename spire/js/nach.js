@@ -121,14 +121,14 @@ function tagAttr(n){ var x = tagTip(n); return x ? ' data-tip="' + esc(x) + '" d
   function show(el){
     if(cur === el) return; hide(); cur = el;
     tip = document.createElement("div"); tip.className = "tagtip";
-    if(el.closest(".bfb,.begl")){ tip.className = "tagtip kl"; tip.textContent = el.getAttribute("data-tn") || ""; }
+    if(el.closest(".bfb,.begl,.gx")){ tip.className = "tagtip kl"; tip.textContent = el.getAttribute("data-tn") || ""; }
     else tip.innerHTML = '<b>' + esc(el.getAttribute("data-tn") || "") + '</b>' + esc(el.getAttribute("data-tip"));
     document.body.appendChild(tip);
     var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
     var x = Math.max(8, Math.min(r.left, innerWidth - w - 8)), y = r.bottom + 6; if(y + h > innerHeight - 8) y = r.top - h - 6;
     tip.style.left = x + "px"; tip.style.top = Math.max(8, y) + "px";
   }
-  document.addEventListener("mouseover", function(e){ var el = e.target.closest && e.target.closest("[data-tip]"); if(el) show(el); else if(tip && !e.target.closest(".tagtip")) hide(); });
+  document.addEventListener("mouseover", function(e){ var el = e.target.closest && e.target.closest("[data-tip],.gx [data-tn]"); if(el) show(el); else if(tip && !e.target.closest(".tagtip")) hide(); });
   document.addEventListener("click", function(e){ var el = e.target.closest && e.target.closest("[data-tip]"); if(el){ if(cur === el && tip && e.pointerType === "touch") hide(); else show(el); } else hide(); });
   window.addEventListener("scroll", hide, {passive:true});
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") hide(); });

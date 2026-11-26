@@ -1334,3 +1334,5 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .gx-m .gx-sy.ru b{margin-top:2px}
 .gx-p{top:1px;right:5px;font-size:17px;opacity:.4;color:#6b7a8e;padding:0 3px}
 .gx-p:hover{opacity:.9;color:var(--wein)}
+.gx-m .gx-sy.sc b{padding-top:3.9px}
+.gx-m .gx-sy.sc b{padding-top:3px;transform:translateY(.45px)}

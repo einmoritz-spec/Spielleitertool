@@ -158,7 +158,7 @@ function viewStart(){
       (x.img ? '<img src="' + IMG(x.img) + '" alt="" loading="lazy">' : '<span class="ph"><img src="../assets/logos/the-spire.webp" alt=""><i>' + esc(x.t) + '</i></span>') + '<b>' + esc(x.t) + '</b></button>';
   }).join("");
   return '<div class="sp-start">' +
-    '<header class="sp-hero"></header>' +
+    '<header class="sp-hero"><button class="sp-pult" onclick="puOpen()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><path d="M9.5 4.5v15M15 4.5v15"/></svg><span>Spielleiter-Pult</span></button></header>' +
     '<section class="sp-saeulen">' + saeulen + '</section>' +
     '<section class="sp-band"><div class="sp-abk"><h2>Abenteuer</h2><div class="sp-abl">' + ab + '</div></div>' +
       '<div class="sp-buk"><h2>Bücher</h2><div class="sp-bul">' + bu + '</div></div></section>' +

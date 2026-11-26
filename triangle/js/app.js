@@ -77,8 +77,10 @@ function viewArk(kat, id){
   if(!x) return unter(a, kat) + '<div class="ct arkwahl" style="--c:' + FARBE[A.c] + '"><div class="g9 gross">' + A.x.map(function(q){
     return '<a onclick="go(\'ark/' + kat + '/' + q[0] + '\')"><i style="background-image:url(' + IMG("regeln/full/" + A.bild + "-" + q[0]) + ')"></i><span>' + esc(q[1]) + '</span></a>'; }).join("") + '</div></div>';
   var items = A.x.map(function(q){ return {t:q[1], go:"ark/" + kat + "/" + q[0], on:q === x}; });
-  var body = '<article class="arkd"><div class="links"><h1>' + esc(x[1]) + '</h1><div class="wm"><u>' + A.t.charAt(0) + '</u>' + esc(A.t.slice(1).toUpperCase()) + pgl(x[2]) + '</div>' +
-    '<img class="art" src="' + IMG("regeln/full/" + A.bild + "-" + x[0]) + '" alt="" onclick="zoom(this.src)"></div><div class="rechts">' + (TA_TEXT["ark/" + kat + "/" + x[0]] || '') + '</div></article>';
+  var T = TA_TEXT["ark/" + kat + "/" + x[0]] || {};
+  var body = '<article class="arkd lesen k-' + kat + '"><div class="links"><h1>' + esc(x[1]) + '</h1><div class="wm"><u>' + A.t.charAt(0) + '</u>' + esc(A.t.slice(1).toUpperCase()) + pgl(x[2]) + '</div>' +
+    '<img class="art" src="' + IMG("regeln/full/" + A.bild + "-" + x[0]) + '" alt="" onclick="zoom(this.src)">' + (T.motto ? '<h2 class="motto">' + tx(T.motto) + '</h2>' : '') + (T.l ? '<div class="besch">' + taB(T.l) + '</div>' : '') + '</div>' +
+    '<div class="rechts">' + (T.r ? taB(T.r) : '') + '</div></article>';
   return unter(a, kat) + lay(items, body);
 }
 

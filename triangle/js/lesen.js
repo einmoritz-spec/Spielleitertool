@@ -55,6 +55,20 @@ function taB(L){
       case "leiste": return '<div class="leiste" style="--c:' + (b.c || "var(--akz)") + '">' + (b.h ? '<b>' + tx(b.h) + '</b>' : '') + '<div>' + b.x.map(function(n){ return '<u>' + esc(n) + '</u>'; }).join("") + '</div></div>';
       case "wf": var id = b.id || "wf"; return '<div class="wf"><h3>' + zimg("symbol-qualitaetssicherung") + tx(b.h) + '</h3><small>' + tx(b.s || "Wahr oder falsch?") + '</small>' + b.x.map(function(x, i){ var auf = WF[id] && WF[id][i];
         return '<section class="' + (auf ? "auf" : "") + '" onclick="wfKlick(\'' + id + '\',' + i + ')"><em>' + (i + 1) + '</em><div>' + tx(x.f) + (auf ? '<p class="' + (x.a ? "w" : "f") + '"><b>' + (x.a ? "Wahr." : "Falsch.") + '</b> ' + tx(x.e || "") + '</p>' : '') + '</div></section>'; }).join("") + '</div>';
+      /* ---- ARK-Bausteine ---- */
+      case "faehig": return '<section class="fk"><div><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p>' + b.erg.map(function(e){ return '<p class="erg"><img src="' + Z({ok:"ergebnis-erfolg-dreieck", plus:"ergebnis-zusatz-dreieck", nein:"ergebnis-fehlschlag-kreis"}[e[0]]) + '" alt=""><span>' + tx(e[1]) + '</span></p>'; }).join("") + (b.b ? taB(b.b) : '') + '</div>' +
+        (b.f ? '<div class="fa"><p><b>F:</b> ' + tx(b.f).replace(/ …/g, "\u00a0…") + '</p>' + b.a.map(function(a){ return '<p><b>A:</b> ' + tx(a[0]) + ' <a class="co" onclick="pwPop(\'' + a[1] + '\')"><i></i><i></i><i></i>' + a[1] + '</a></p>'; }).join("") + '</div>' : '') + '</section>';
+      case "w4": return '<div class="w4">' + (b.h ? '<h3>' + tx(b.h) + '</h3>' : '') + (b.b ? taB(b.b) : '') + '<ol>' + b.x.map(function(x, i){ return '<li' + (i === 2 ? ' class="d"' : '') + '><em>' + (i + 1) + '</em>' + tx(x) + '</li>'; }).join("") + '</ol></div>';
+      case "ausloeser": return '<div class="ak aus"><h3>' + tx(b.h) + '</h3><div class="sp sp2">' + b.b.map(function(c){ return '<div>' + taB(c) + '</div>'; }).join("") + '</div></div>';
+      case "spur": return '<div class="spur"><b>' + tx(b.h) + '</b><div><i class="pfl"></i>' + b.x.map(function(n){ return '<u' + (n === "X" ? ' class="x"' : n === "3" ? ' class="d"' : '') + '>' + esc(n) + '</u>'; }).join("") + '</div></div>';
+      case "ventil": return '<div class="ak ven"><img src="' + Z("symbol-burnout") + '" alt=""><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p></div>';
+      case "fragebogen": return '<div class="ak fra"><i>?</i><h3>' + tx(b.h || "Fragen zum Arbeitsantritt") + '</h3><ul class="dl">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul></div>';
+      case "matrix": return '<div class="ak mat"><div><h3>' + tx(b.h || "Beziehungsmatrix") + '</h3>' + taB(b.b) + '</div><ol>' + b.x.map(function(x){ return '<li><b>' + tx(x.f) + '</b><span>Beispiele: <i>' + tx(x.bsp) + '</i></span></li>'; }).join("") + '</ol></div>';
+      case "direktive": return '<div class="ak dir"><img src="' + Z("symbol-verweis") + '" alt=""><small>Oberste Direktive</small><h3>' + tx(b.h) + '</h3><p>' + tx(b.x) + '</p></div>';
+      case "gebilligt": return '<div class="ak geb"><img src="' + Z("symbol-belobigung") + '" alt=""><h3>Gebilligtes Verhalten</h3><p>Erhalte <b>1 Belobigung</b>, jedes Mal wenn du:</p><ul class="dl">' + b.x.map(function(x){ return '<li>' + tx(x) + '</li>'; }).join("") + '</ul><p>' + tx(b.bonus) + '</p></div>';
+      case "erst": return '<div class="ak ers"><small>Erst-Anforderung</small><h3>' + tx(b.h) + '</h3>' + (b.b ? taB(b.b) : '<p>' + tx(b.x) + '</p>') + '</div>';
+      case "selbst": return '<div class="selbst"><div><h2>Selbsteinschätzung</h2>' + taB(b.b) + '</div><ol>' + b.x.map(function(x, i){ return '<li><em>' + (i + 1) + '</em><div><b>' + tx(x.f).replace(/ …/g, "\u00a0…") + '</b><ul class="dl">' + x.a.map(function(a){ return '<li>' + tx(a[0]) + ' <span class="qs">+{3} ' + esc(a[1]) + '</span></li>'; }).join("").replace(/\{3\}/g, '<b class="drei">3</b>') + '</ul></div></li>'; }).join("") + '</ol></div>';
+      case "zitat": return '<div class="zitat">' + tx(b.x) + '</div>';
       case "html": return b.x;
     }
     return "";

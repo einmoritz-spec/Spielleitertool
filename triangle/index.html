@@ -40,6 +40,9 @@
 <script src="js/data/handbuch-schaden.js"></script>
 <script src="js/data/handbuch-tisch.js"></script>
 <script src="js/data/handbuch-leben.js"></script>
+<script src="js/data/ark-anomalie-text.js"></script>
+<script src="js/data/ark-realitaet-text.js"></script>
+<script src="js/data/ark-kompetenz-text.js"></script>
 <script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"ta_core", books:TA_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+" ("+b.lang+")", off:b.off||0}; })); },[]), openSettings:function(){ openMenu(true); } });
 render();</script>
 <script src="../shared/galerie.js"></script>

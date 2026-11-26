@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1216sq";
+const VERSION = "v1217sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -607,6 +607,9 @@ const FILES = [
   "wildsea/img/kapitel/wildsee.webp",
   "triangle/index.html",
   "triangle/style.css",
+  "triangle/js/data/ark-anomalie-text.js",
+  "triangle/js/data/ark-realitaet-text.js",
+  "triangle/js/data/ark-kompetenz-text.js",
   "triangle/img/regeln/full/anomalie-koralle-rot-doppelseite.webp",
   "triangle/img/regeln/full/triszendenz-dreiecke-doppelseite.webp",
   "triangle/handbuch-a.css",

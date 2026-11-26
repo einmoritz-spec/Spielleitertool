@@ -9,6 +9,20 @@ function puOpen(){
   document.body.classList.add("pult-an"); puDraw();
 }
 function puClose(){ var o = puEl(); if(o) o.remove(); document.body.classList.remove("pult-an"); }
+/* Pop-up über dem Pult: dieselbe App in einem Rahmen (ohne Kopfzeile), Schließen mit × oder Esc */
+function puPop(route){
+  puPopClose();
+  var d = document.createElement("div"); d.id = "pupop"; d.className = "pu-pop";
+  d.innerHTML = '<div class="pu-pc"><button class="pu-px" onclick="puPopClose()" aria-label="Schließen" title="Schließen (Esc)"><svg viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.800" stroke-linecap="round"/></svg></button><iframe name="spembed" src="' + location.pathname.split("/").pop().replace(/[^\w.\-]/g, "") + '#' + route + '"></iframe></div>';
+  d.addEventListener("mousedown", function(e){ if(e.target === d) puPopClose(); });
+  document.body.appendChild(d);
+}
+function puPopClose(){ var d = document.getElementById("pupop"); if(d) d.remove(); }
+window.addEventListener("message", function(e){ if(e.data === "sp-pop-close") puPopClose(); });
+if(window.name === "spembed"){
+  document.addEventListener("DOMContentLoaded", function(){ document.body.classList.add("embed", "notop"); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !document.querySelector(".modal")) parent.postMessage("sp-pop-close", "*"); });
+}
 function puOffen(id){ PU.offen[id] = !PU.offen[id]; PU.zeig = !!PU.offen[id]; if(/^g:/.test(id)) puErgebnis(); else puDraw(); }
 function puSuche(v){ PU.q = v; puErgebnis(); }
 function puAdd(id){ bgAdd(id); }
@@ -44,7 +58,7 @@ function puGZeile(g){
     '<span class="pu-w' + (/[^\d\s]/.test(w) ? ' lang' : '') + '" data-tn="Widerstand">' + esc(w) + '</span>' +
     '<i class="pu-p" onclick="puAdd(\'' + g.id + '\')" data-tn="Zur Begegnung hinzufügen">+</i></div>' + (on ? '<div class="pu-det">' + gBlock(g, {ohneZiel:true}) + '</div>' : '');
 }
-function puLink(r, t, sub){ return '<a class="pu-l" href="#' + r + '" onclick="puClose()"><b>' + esc(t) + '</b>' + (sub ? '<span>' + esc(sub) + '</span>' : '') + '</a>'; }
+function puLink(r, t, sub){ return '<a class="pu-l" href="#' + r + '" onclick="puPop(\'' + r + '\');return false"><b>' + esc(t) + '</b>' + (sub ? '<span>' + esc(sub) + '</span>' : '') + '</a>'; }
 function puTreffer(ws, filt){
   if(!SIDX) sBuild();
   var res = [];
@@ -124,6 +138,7 @@ function puDraw(){
   window.addEventListener("hashchange", function(){ if(puEl()) puClose(); });
   document.addEventListener("click", function(e){ if(puEl() && e.target.closest && e.target.closest(".brand")) puClose(); }, true);
   document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && document.getElementById("pupop")){ puPopClose(); return; }
     if(e.key === "Escape" && puEl() && !document.querySelector(".modal")){ puClose(); return; }
     if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
     if(e.key === "p") puOpen();

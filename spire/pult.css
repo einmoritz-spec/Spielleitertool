@@ -94,3 +94,34 @@ body.notop .pu-ov{top:0}
 .pu-kb .pu-l{padding-left:22px}
 .pu-bw{transition:grid-template-rows .25s}
 .pu-bw.gw{grid-template-rows:minmax(0,3fr) minmax(0,1fr) minmax(0,.8fr)}
+
+/* Pop-up über dem Pult */
+.pu-pop{position:fixed;inset:0;z-index:90;background:rgba(5,10,18,.72);display:grid;place-items:center;animation:puIn .15s ease-out}
+.pu-pc{position:relative;width:min(1180px,calc(100vw - 56px));height:calc(100vh - 56px);background:var(--papier);box-shadow:0 24px 70px rgba(0,0,0,.6);border:1px solid #2c4160;overflow:hidden}
+.pu-pc iframe{width:100%;height:100%;border:0;display:block;background:var(--papier)}
+.pu-px{position:absolute;right:10px;top:8px;z-index:5;width:34px;height:34px;display:grid;place-items:center;background:rgba(13,26,39,.85);color:#c3d0e0;border:0;border-radius:50%;cursor:pointer}
+.pu-px svg{width:14px;height:14px}
+.pu-px:hover{background:var(--wein);color:#fff}
+@keyframes puIn{from{opacity:0}to{opacity:1}}
+body.embed .topbar{display:none}
+
+/* Werteblock im Pult: schlicht, dunkel, ohne Kästen */
+.pu-det{padding:2px 14px 12px 14px}
+.pu-ov .pu-det .gblk{background:none;border:0;box-shadow:none;color:#cfd9e6}
+.pu-ov .pu-det .kopf{background:none;padding:0 0 4px;display:flex;justify-content:flex-end}
+.pu-ov .pu-det .kopf h4,.pu-ov .pu-det .kopf img{display:none}
+.pu-ov .pu-det .kopf .pg{color:#6f849c;font-size:12px}
+.pu-ov .pu-det dl{grid-template-columns:96px 1fr;gap:7px 12px;padding:8px 0 0;border-top:1px solid #1b3350}
+.pu-ov .pu-det dt{font:700 11.5px/1.7 var(--f-titel);letter-spacing:.09em;color:#6f849c;padding-top:2px}
+.pu-ov .pu-det dd{font-size:14.5px;line-height:1.45;color:#cfd9e6}
+.pu-ov .pu-det dd.ein{color:#9fb2c8}
+.pu-ov .pu-det dd .en,.pu-ov .pu-det .wx{color:#6f849c}
+.pu-ov .pu-det dd .wz{color:#fff;font-size:20px}
+.pu-ov .pu-det .zw i{background:none;border:1.5px solid #5d7390;width:16px;height:16px}
+.pu-ov .pu-det .zw i.x{background:#c9627e;border-color:#c9627e}
+.pu-ov .pu-det .gvar span{background:none;border-color:#3b5672;color:#8ea2b9}
+.pu-ov .pu-det .gvar span.on{background:#dbe3ef;color:#0d1a27;border-color:#dbe3ef}
+.pu-ov .pu-det .chip{background:none;border-color:#35557a;color:#9fc0e3}
+.pu-ov .pu-det .chip.w{border-color:#7e3350;color:#f0a3b8}
+.pu-ov .pu-det .gfuss{display:none}
+.pu-ov .gblk{color:#cfd9e6}

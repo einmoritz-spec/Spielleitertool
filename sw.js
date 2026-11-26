@@ -4937,6 +4937,7 @@ const FILES = [
   "savageworlds/js/data/genre-hor2.js",
   "savageworlds/js/data/genre-hor3.js",
   "savageworlds/js/data/genre-sf.js",
+  "savageworlds/js/data/genre-sf2.js",
   "savageworlds/js/data/genre-sup.js",
   "savageworlds/js/data/genre-sup2.js",
   "savageworlds/js/seiten-spielleitung.js",

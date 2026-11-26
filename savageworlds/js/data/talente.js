@@ -2370,7 +2370,7 @@ var SW_TALENTE = [
 "v": "",
 "w": 0,
 "b": [
-"Wer dieses Talent besitzt, tut alles, um einen Kampf zu gewinnen. Der hinterhältige Kerl ist besonders gut in Tricks. Er addiert +2 auf Würfe, wenn er mit Kämpfen herausfordert."
+"Wer dieses Talent besitzt, tut alles, um einen Kampf zu gewinnen. Der hinterhältige Kerl ist besonders gut im Herausfordern. Er addiert +2 auf Würfe, wenn er mit Kämpfen herausfordert."
 ],
 "p": 33,
 "s": [

@@ -42,7 +42,7 @@ function wUl(items){
 function wTbl(b){
   var cols = b[2], n = cols.length;
   return '<div class="wt"><h5 class="eg">' + nm(b[1]) + '</h5><div class="etw"><table class="et wtb c' + n + '"><thead><tr>' + cols.map(function(c){ return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
-    b[3].map(function(r){ return "<tr>" + r.map(function(c, i){ return "<td" + (i === 0 || (n === 4 && i === 2) ? ' class="k"' : "") + ">" + (i === n - 1 && n < 4 ? lab(c) : esc(c)) + "</td>"; }).join("") + "</tr>"; }).join("") +
+    b[3].map(function(r){ return "<tr>" + r.map(function(c, i){ return "<td" + (i === 0 || (n === 4 && i === 2 && cols[0] === cols[2]) ? ' class="k"' : "") + ">" + (i === n - 1 && n < 4 ? lab(c) : esc(c)) + "</td>"; }).join("") + "</tr>"; }).join("") +
     "</tbody></table></div>" + (b[4] ? '<p class="wn">' + esc(b[4]) + "</p>" : "") + "</div>";
 }
 function wBlock(b, bk){

@@ -1308,3 +1308,4 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .gx-p{display:none}
 .gx:hover .gx-p{display:grid}
 .gx.inb::after{top:auto;bottom:9px;right:9px}
+.gx-m span{display:inline-flex;align-items:center;height:22px;box-sizing:border-box;padding:2px 8px 0;line-height:1}

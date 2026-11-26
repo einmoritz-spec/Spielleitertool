@@ -521,27 +521,27 @@ window.SP_GALERIE = (window.SP_GALERIE || []).concat([
     "s": "erw/sop/sop_022_01"
    },
    {
-    "t": "The Show Must Go On, SO S. 26",
+    "t": "Jailbreak, SO S. 26",
     "s": "erw/sop/sop_026_01"
    },
    {
-    "t": "The Show Must Go On, SO S. 30",
+    "t": "How to Steal a Body, SO S. 30",
     "s": "erw/sop/sop_030_01"
    },
    {
-    "t": "The Show Must Go On, SO S. 34",
+    "t": "Rime and Reason, SO S. 34",
     "s": "erw/sop/sop_034_01"
    },
    {
-    "t": "The Show Must Go On, SO S. 38",
+    "t": "House of Leaving, SO S. 38",
     "s": "erw/sop/sop_038_01"
    },
    {
-    "t": "The Show Must Go On, SO S. 42",
+    "t": "The Moon Beneath, SO S. 42",
     "s": "erw/sop/sop_042_01"
    },
    {
-    "t": "The Show Must Go On, SO S. 46",
+    "t": "These Feral Saints, SO S. 46",
     "s": "erw/sop/sop_046_01"
    }
   ]

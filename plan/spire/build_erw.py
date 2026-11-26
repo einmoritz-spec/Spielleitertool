@@ -95,6 +95,13 @@ BOOKS = [
          ("o03-shotgun-wedding", "shotgun-wedding", "A Shotgun Wedding", "abenteuer", "One-Shot", {"abenteuer": True}),
          ("o04-powderkeg", "powderkeg", "Powderkeg", "abenteuer", "One-Shot", {"abenteuer": True}),
          ("o05-show-must-go-on", "show-must-go-on", "The Show Must Go On", "abenteuer", "One-Shot", {"abenteuer": True}),
+         ("o06-jailbreak", "jailbreak", "Jailbreak", "abenteuer", "One-Shot", {"abenteuer": True}),
+         ("o07-how-to-steal-a-body", "how-to-steal-a-body", "How to Steal a Body", "abenteuer", "One-Shot", {"abenteuer": True}),
+         ("o08-rime-and-reason", "rime-and-reason", "Rime and Reason", "abenteuer", "One-Shot", {"abenteuer": True}),
+         ("o09-house-of-leaving", "house-of-leaving", "House of Leaving", "abenteuer", "One-Shot", {"abenteuer": True}),
+         ("o10-moon-beneath", "moon-beneath", "The Moon Beneath", "abenteuer", "One-Shot", {"abenteuer": True}),
+         ("o11-feral-saints", "feral-saints", "These Feral Saints", "abenteuer", "One-Shot", {"abenteuer": True}),
+         ("o12-one-shots-leiten", "one-shots-leiten", "One-Shots leiten", "start", "Tipps für die Spielleitung", {}),
      ]},
 ]
 

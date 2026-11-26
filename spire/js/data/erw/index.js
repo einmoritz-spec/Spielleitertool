@@ -825,6 +825,96 @@ window.SP_ERW_BOOKS = [
     "n": 0,
     "h": 32,
     "abenteuer": true
+   },
+   {
+    "id": "jailbreak",
+    "t": "Jailbreak",
+    "g": "abenteuer",
+    "s": "One-Shot",
+    "p": 27,
+    "pe": 29,
+    "f": "sop-jailbreak.js",
+    "img": "erw/sop/sop_026_01",
+    "n": 0,
+    "h": 24,
+    "abenteuer": true
+   },
+   {
+    "id": "how-to-steal-a-body",
+    "t": "How to Steal a Body",
+    "g": "abenteuer",
+    "s": "One-Shot",
+    "p": 31,
+    "pe": 33,
+    "f": "sop-how-to-steal-a-body.js",
+    "img": "erw/sop/sop_030_01",
+    "n": 0,
+    "h": 24,
+    "abenteuer": true
+   },
+   {
+    "id": "rime-and-reason",
+    "t": "Rime and Reason",
+    "g": "abenteuer",
+    "s": "One-Shot",
+    "p": 35,
+    "pe": 37,
+    "f": "sop-rime-and-reason.js",
+    "img": "erw/sop/sop_034_01",
+    "n": 0,
+    "h": 22,
+    "abenteuer": true
+   },
+   {
+    "id": "house-of-leaving",
+    "t": "House of Leaving",
+    "g": "abenteuer",
+    "s": "One-Shot",
+    "p": 39,
+    "pe": 41,
+    "f": "sop-house-of-leaving.js",
+    "img": "erw/sop/sop_038_01",
+    "n": 0,
+    "h": 29,
+    "abenteuer": true
+   },
+   {
+    "id": "moon-beneath",
+    "t": "The Moon Beneath",
+    "g": "abenteuer",
+    "s": "One-Shot",
+    "p": 43,
+    "pe": 45,
+    "f": "sop-moon-beneath.js",
+    "img": "erw/sop/sop_042_01",
+    "n": 2,
+    "h": 21,
+    "abenteuer": true
+   },
+   {
+    "id": "feral-saints",
+    "t": "These Feral Saints",
+    "g": "abenteuer",
+    "s": "One-Shot",
+    "p": 47,
+    "pe": 50,
+    "f": "sop-feral-saints.js",
+    "img": "erw/sop/sop_046_01",
+    "n": 0,
+    "h": 20,
+    "abenteuer": true
+   },
+   {
+    "id": "one-shots-leiten",
+    "t": "One-Shots leiten",
+    "g": "start",
+    "s": "Tipps für die Spielleitung",
+    "p": 51,
+    "pe": 51,
+    "f": "sop-one-shots-leiten.js",
+    "img": null,
+    "n": 0,
+    "h": 1
    }
   ]
  }

@@ -1,0 +1,74 @@
+<!-- S. 35 (PDF 37) -->
+
+## 35
+# RIME AND REASON {farbe=#194d71}
+## Von Christine Beard {farbe=#981a3f}
+## MISSIONSPARAMETER {farbe=#981a3f}
+Eine Revolution lebt und stirbt mit ihren Anführern; ohne eine starke Stimme, die den Sturm anführt, wird sie sicher verpuffen. Während die Aelfir sich als unbezwingbarer Monolith darstellen mögen, gibt es Einzelne, die mit dem Los der Drow sympathisieren (sehr zum Verdruss und Ärger der Mehrheit).
+Der Aelfir namens Scatter-the-Ashes, eine entschieden gegen das Establishment gerichtete Gestalt, ist nur wenige Tage vor seinem nächsten groß angekündigten Auftritt verschwunden. Die Veranstalter tun ihr Bestes, das Chaos unter Verschluss zu halten, doch über verschiedene Kanäle sickert durch, dass die Mächtigen eine weitere Stimme des Volkes zum Schweigen gebracht haben. Man munkelt, Scatter-the-Ashes sei zuletzt in Gewahrsam der Schwarzen Garde gesehen worden, abgeführt zu einer Neubewertung seiner Prioritäten.
+Ihr und eure Zelle sollt in eine gesicherte Kühllagereinrichtung in Amaranth eindringen, ihn befreien, ihn zurück den Spire hinab schmuggeln und dafür sorgen, dass er für seine Rede vollständig vorbereitet ist.
+## INTRO {farbe=#981a3f}
+Die Gefängnis- und Lagereinrichtung, in der sich Scatter-the-Ashes derzeit befindet, liegt am äußersten Rand von Amaranth, damit sie den gesetzestreuen Bürgern aus Augen und Sinn ist. Die Korridore sind labyrinthartig und nur in unregelmäßigen Abständen beschriftet. Das wäre schon schwierig genug gewesen, doch nun, da ihr euren Schützling habt, erwacht er viel früher als erwartet. Im Delirium und noch immer kampfbereit hat er zu singen begonnen, und das Eis um ihn herum reagiert darauf.
+Wie ist die Zelle in die Einrichtung eingedrungen, und wie wollen sie Scatter-the-Ashes unter Verschluss halten, damit sie der Schwarzen Garde auf dem Weg hinaus entgehen?
+## NSC {farbe=#981a3f}
+### Scatter-the-Ashes
+## (Der Narr) {farbe=#194d71}
+Mal bei Bewusstsein, mal nicht, und nicht ganz im Bilde, was er tut, ist Scatter-the-Ashes zu gleichen Teilen Hilfe und Hindernis. Man kann ihn beruhigen und zum Schweigen überreden, doch jederzeit und ohne Vorwarnung nimmt er seinen Gesang wieder auf. Wenn er nicht singt, murmelt er leise vor sich hin; die Bruchstücke, die Sinn ergeben, könnten Proben seiner Rede sein.
+Wenn Scatter-the-Ashes singt, würfle einen W4, um die zufällige Wirkung zu bestimmen:
+1. Das Eis beginnt zu schmelzen;
+2. Frost und Eis beginnen, jede Fläche in einem Umkreis von 3 m zu bedecken;
+3. Das Eis beginnt, sich zu kleinen, zarten Figuren zu beleben, die einfachen Befehlen folgen können. Nach Erfüllung ihrer Aufgabe „deaktivieren“ sie sich wieder;
+4. Das Eis beginnt, sich nach dem Willen des Sängers neu zu formen.
+### Caspar Firs
+## (Der Häscher) {farbe=#194d71}
+Er ist der Anführer der Schwarzen Garde, die die Einrichtung bewacht. Obwohl man ihm den Posten nach einiger Zeit im gefährlichen Dienst als leichte Aufgabe verkauft hat, ist er verbittert über die kaum verhüllte Strafe für ein unbekanntes Vergehen. Je nachdem, wie die Zelle mit ihm umgeht, ist er entweder begierig, wieder Action zu sehen, oder genug entfremdet, um abzuwarten, wie sich die Lage entwickelt (besonders sobald Magie im Spiel ist).
+
+<!-- S. 36 (PDF 38) -->
+
+## 36
+### Adrienne Bloc
+## (Der Aufsteigende Stern) {farbe=#194d71}
+Adrienne ist die neu ernannte Aufseherin der Einrichtung; es ist eine weitere Beleidigung für die Inhaftierten, eine Drow als Aufsicht zu haben. Zu ihren Pflichten gehört es, Kernschmelzen zu verhindern, indem sie die Magie aufrechterhält, die alles gefroren hält. Sie ist begeistert, dass man ihr endlich etwas anvertraut hat, brennt darauf, neue Methoden einzuführen, und beweist allzu gern, dass sie die Klügste im Raum ist. Sie kennt die Einrichtung in- und auswendig und spricht vor einem ausreichend beeindruckten Publikum lang und breit über sie und ihre Verteidigung (einschließlich der Lücken darin).
+### Ellie Skald
+## (Der Wesir) {farbe=#194d71}
+Die Organisatorin von Scatter-the-Ashes’ Auftritt. Einen Aelfir als Aushängeschild zu haben, kommt ihr gelegen, und sie erledigt den Großteil ihrer Arbeit an seiner Seite. Obwohl sie sich gelegentlich von der Autorität überschattet fühlt, die er ausstrahlt, weiß sie, wie wichtig es ist, Verbündete in der herrschenden Klasse zu haben. Es gibt starke Gerüchte, dass die Qualität von Scatter-the-Ashes’ Reden dramatisch stieg, als die beiden zusammenzuarbeiten begannen, und viele vermuten, dass sie sie für ihn schreibt oder überarbeitet.
+### Eye-Of-The-Storm
+## (Der Hierophant) {farbe=#194d71}
+Ihrem Namen getreu ist Eye-Of-The-Storms Temperament ruhig und ausgeglichen – kalt, ja, und berechnend, aber deshalb nicht weniger beherrscht. Sie plant methodisch ihren Aufstieg aus den Randbezirken und die anschließende Rückkehr zu Ansehen in den Augen der anderen Aelfir. In der Zwischenzeit zieht sie liebend gern ein paar von ihnen auf ihr Niveau herab. Sie greift jeden Klatsch auf, den sie finden kann, verbreitet Gerüchte mit Eifer und erfindet manchmal eigene. Für den Großteil der Gesellschaft unsichtbar, solange sie unter sich bleibt, gibt es kaum etwas, das sie nicht weiß. Leider ist sie furchtbar teuer – Informationen (oder ihr Schweigen) zu kaufen, kann leicht zu Preisen führen, die so kostspielig und esoterisch sind wie ein Kind, das ihr für seine Dienstzeit verschworen ist.
+## VORGESCHLAGENE SZENEN {farbe=#981a3f}
+• Die Zelle begegnet Adrienne, die fasziniert ist von dem, was mit dem Eis geschieht. Ihr Interesse ist klinisch, da sie annimmt, die Gruppe habe den Auftrag, den Gefangenen zu verlegen, doch sie möchte ihn mitnehmen, um seine Fähigkeiten zu besprechen. Er untersteht schließlich ihrer Zuständigkeit; was ist ein bisschen Zeit außerhalb der Lagerung zu Studienzwecken, wenn die Strafe ein halbes Jahrhundert beträgt?
+• Um sich und seine Truppe vor dem Tod durch Langeweile zu bewahren, hat Caspar den Patrouillenplan der Schwarzen Garde geändert. Kann sich die Zelle spontan anpassen und einer Entdeckung (oder zumindest Blutvergießen) entgehen?
+• An der Grenze findet ein gewaltiger Protest statt, als es der Gruppe gelingt, mit ihrem Schützling zu entkommen. Die Menge, eine Mischung aus Drow und radikalen Aelfir, stürmt auf die Gruppe zu, als sie aus ihrem Fluchtweg auftaucht. Obwohl das Chaos zu ihrem Vorteil sein mag: Können sie Scatter-the-Ashes unter Verschluss halten und eine Wiederergreifung verhindern?
+• Eye-Of-The-Storm stolpert auf dem Heimweg über die Gruppe und ist bereit zu verhandeln, statt sie direkt den Behörden zu übergeben. Das tut sie natürlich ebenfalls, wenn es nicht nach ihrem Willen geht; können sie sich einigen?
+## SCHAUPLÄTZE {farbe=#981a3f}
+### DAS GEFÄNGNIS
+Ein labyrinthartiges Gebilde aus Fluren, Vorkammern und Nischen; die Einrichtung wirkt fast absichtlich verwirrend. Überraschungen können hinter jeder Ecke lauern, von Wachen, die ihre Runden schwänzen, bis zu versagender Ausrüstung. Hineinzukommen war der leichte Teil; wieder hinauszukommen ist das Problem, besonders mit den glitschigen Eisüberzügen und dem Schmelzwasser auf fast jeder Fläche.
+### FLUCHTTUNNEL
+Abflusskanäle für Eis, Versorgungstunnel, um den Boden hindernisfrei zu halten, sichere Wege für nicht dem Sicherheitsdienst angehörendes Personal; diese abgeschiedenen Bereiche werden weniger bestreift und sind unwahrscheinlich von jemand Bewaffnetem bevölkert. Manche der stärker genutzten Wege liegen hinter stabilen, verschlossenen Türen, doch Müllschächte und Abflussrohre sind nicht so stark bewacht.
+
+<!-- S. 37 (PDF 39) -->
+
+### DIE RANDBEZIRKE
+Die Ränder von Amaranth sind zwielichtig, selbst für Drow. Der Schatten von Neuhimmel fällt besonders schwer auf die zerfransten Grenzen zwischen Drow- und Aelfir-Gebiet. Bevölkert von verarmten Aelfir (die meisten leugnen ihren Zustand), verwandeln die Randbezirke die Pracht von Amaranths reinem Schnee und klarem Eis in trüben Matsch und milchigen Raureif. Wer durch die Straßen streift, ist zwar selten, aber jeder, der unterwegs ist, ist scharfsinnig und wachsam und sucht einen Weg, seinen „rechtmäßigen“ Platz zurückzuerobern.
+### DER BEREITSCHAFTSRAUM
+Ein privater Raum in dem Lokal weiter unten im Spire, in dem Scatter-The-Ashes seine Rede halten soll. Zu seinen nützlichsten Eigenschaften gehören die verborgenen Türen, die in das Speakeasy und von dort auf die Straße führen. Er ist ein praktisches Versteck, in dem sich eine kleine Gruppe vor den Behörden verbergen kann, bis die Luft rein ist. Er ist überfüllt, aber gemütlich eingerichtet und ein wenig kühl in Erwartung der Ankunft des Aelfir.
+## REQUISITEN {farbe=#981a3f}
+**Sichtbar**
+• Arbeitsuniformen der Verwahreinrichtung
+• Der Patrouillenplan der Schwarzen Garde
+• Ein Blasrohr mit fünf Pfeilen, das jemanden dreißig Minuten bewusstlos machen kann (W3, K.-o.)
+**Verborgen**
+• Eine Karte der Verwahreinrichtung
+• Swiftly-Comes-the-Tide, ein im Verborgenen lebender radikaler Aelfir, der Scatter-The-Ashes im Stillen unterstützt
+## WENDUNG {farbe=#981a3f}
+Scatter-The-Ashes’ magische Stimme hielt ihn in Wahrheit in seinem eisigen Gefängnis eingeschlossen. Wenn er klar genug ist, gesteht er der Gruppe, dass er gezwungen wird, seine berühmten Reden zu halten. Die Festnahme sollte sein Weg in die Freiheit sein, eine Möglichkeit, unterzutauchen.
+Ellie arbeitet in Wirklichkeit gegen Scatter-The-Ashes und nimmt ihm übel, dass er die Lorbeeren für ihre Arbeit einheimst. Hätte man ihn verhaftet, wäre er aus dem Weg gewesen, und sie hätte im Rampenlicht stehen können. Sie wird alles tun, um zu verhindern, dass er die Bühne betritt.
+Die Gruppe trifft mit Scatter-The-Ashes im Speakeasy ein und findet den Ort von Behörden wimmelnd vor, die zur Untersuchung beordert wurden, sobald die Wachen bemerkten, dass ein so prominenter Gefangener fehlt. Anwesende werden zusammengetrieben und abtransportiert, und wer nicht gerade festgehalten wird, stiebt auseinander.
+## BELOHNUNG {farbe=#981a3f}
+Als Dank für ihre Hilfe überreicht Scatter-The-Ashes der Gruppe ein kleines Andenken: ein kleines, flötenähnliches Instrument und eine Melodie aus drei Tönen. Gemeinsam erlauben Flöte und Lied dem Spielenden, kleine Veränderungen an jedem Eis in seiner Umgebung vorzunehmen, ähnlich wie er es mit seinem Gesang tut. Wenn die Flöte aktiviert wird, würfle einen W4, um die Wirkung wie oben zu bestimmen, oder markiere W3 Stress auf Verstand, um sie zu wählen.
+> ## DER TAG K.-O.
+> K.-o.: Gegenstände mit diesem Tag machen Ziele bewusstlos. Sie reagieren nicht, können sich nicht aus eigener Kraft bewegen und keine Sonderfähigkeiten einsetzen. Mit mäßigem Aufwand können sie geweckt werden.
+
+<!-- S. 38 (PDF 40) -->
+
+## 38

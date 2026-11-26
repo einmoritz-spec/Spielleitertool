@@ -1,0 +1,16 @@
+<!-- S. 51 (PDF 53) -->
+
+## 51
+# ONE-SHOTS LEITEN {farbe=#194d71}
+Das Leiten von One-Shots ist eine Kunst, besonders in einem Spiel wie *Spire*; zum Glück können wir dir helfen, sie zu meistern.
+Das Wichtigste, woran du denken musst: **sei offen gegenüber deinen Spielern**. Du hast keine Zeit für Feinheiten und große Irreführungen. Du hast etwa drei Stunden und eine Gruppe von Leuten, die du vielleicht nicht einmal kennst, zu unterhalten. Zier dich nicht, den Spielern Handlungsfäden in den Schoß zu legen, Exposition mit Schwung zu liefern oder auffällig auf Ansätze und Requisiten hinzuweisen, die Spaß machen könnten.
+Am besten gelingt das, wenn du **fast alles auf Karteikarten schreibst**. Du kannst auch Papierschnipsel verwenden, aber das Schöne an Karteikarten ist, dass man sie in der Mitte falten kann und sie wie kleine Zelte stehen, sodass sie für alle am Tisch besser zu sehen sind.
+Als Erstes schreibst du die **Schauplätze** auf, die in jedem Szenario beschrieben sind. Lege sie vor dir mit Blick zu den Spielern aus und umreiße, was sie jeweils sind. Wenn einige nur durch eine Herausforderung erreichbar sind, sag den Spielern das. Wenn ein Spielercharakter am Szenario teilnimmt, sollte er sich an einem dieser Schauplätze befinden. Wenn sie sich etwas Kluges einfallen lassen und du einen neuen Schauplatz improvisieren musst, schreib ihn auf eine Karteikarte und mach weiter.
+Versuche, die Schauplätze mit einem Blick auf den Raum, den sie physisch einnehmen, zu gruppieren. Du kannst dabei abstrakt werden, aber wenn du die Wachstube neben das Hauptbüro und weit weg von den Gärten legst, deutet das an, dass die ersten beiden Orte nah beieinander liegen, der dritte aber fern.
+Lege alle **NSC** oder **Requisiten**, die du verwenden möchtest, neben die Schauplätze, an denen sie zu finden sind, und lege sie flach hin. Im Allgemeinen ist es besser, mehr als weniger zu nehmen; die Spieler können sie immer ignorieren, wenn sie nicht interessiert sind, und du musst sie nicht verwenden, wenn du nicht willst.
+Wie bei den Schauplätzen ist es sinnvoll, neue NSC und Requisiten aufzuschreiben, wenn und sobald du sie erschaffst, besonders wenn du glaubst, dass sie für die Handlung wichtig werden. Wenn ein Spieler eine Requisite an sich nimmt oder einen NSC mitnimmt, gib ihm die Karte und lass ihn darauf aufpassen (oder stell sie vor ihn), damit alle sehen, was geschieht.
+Erkläre sichtbare Requisiten den Spielern, wenn sie danach fragen. Wenn du verborgene Requisiten verwendest, kannst du sie unter die Schauplätze schieben, an denen sie zu finden sind. Enthülle sie, wenn ein Spielercharakter den Schauplatz zu deiner Zufriedenheit erkundet hat.
+Lass schließlich die Spieler ihre **Charakternamen** auf Karteikarten schreiben. Im Verlauf des Spiels sollen sie ihre jeweilige Karte an den richtigen Schauplatz für ihren Charakter legen.
+Das klingt vielleicht nach offensichtlichem Rat, ist aber für One-Shots wirklich nützlich, weil es so viel Arbeit erspart, die Spieler daran zu erinnern, wo sie sich im Verhältnis zu den anderen befinden. Du musst nicht mehr fragen, wer sich an einem bestimmten Ort aufhält, denn alles liegt vor dir auf dem Tisch. Die Spieler haben eine aktuelle Karte des Szenarios, wie es gerade steht, und können angemessen reagieren.
+### DIE
+### GRUPPE

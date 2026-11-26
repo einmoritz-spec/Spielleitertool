@@ -133,4 +133,4 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .sub .gsw{margin:0 0 0 auto;display:flex;align-items:center;gap:4px;flex:none;font:inherit}
 .sub .gsw button{padding:3px 6px;border:0;border-radius:2px;background:rgba(0,0,0,.18);color:rgba(255,255,255,.4);font:600 10px/1 Oswald,sans-serif;letter-spacing:.06em;cursor:pointer}
 .sub .gsw button:hover{color:rgba(255,255,255,.8)}
-.sub .gsw button.on{background:#8fd18a;color:#173a17}
+.sub .gsw button.on{background:rgba(160,215,150,.28);color:#d6f0cf}

@@ -39,7 +39,7 @@ document.addEventListener("keydown", function(e){
  if(e.key === "ArrowRight"){ NACH.step(1); e.preventDefault(); } if(e.key === "ArrowLeft"){ NACH.step(-1); e.preventDefault(); }
 });
 
-NACH.bar = function(teil){ return '<nav class="reiter gelb">' + Object.keys(NACH_TEILE).map(function(k){ return '<button class="' + (k === teil ? "on" : "") + '" onclick="go(\'nach/' + k + (k === "regeln" ? "/faehigkeiten" : k === "verdammte" ? "/erschaffen" : "") + '\')">' + NACH_TEILE[k] + '</button>'; }).join("") + '</nav>'; };
+NACH.bar = function(teil){ var kt = document.getElementById("ktabs"); if(kt) kt.innerHTML = Object.keys(NACH_TEILE).map(function(k){ return '<a class="' + (k === teil ? "on" : "") + '" onclick="go(\'nach/' + k + (k === "regeln" ? "/faehigkeiten" : k === "verdammte" ? "/erschaffen" : "") + '\')">' + NACH_TEILE[k] + '</a>'; }).join(""); return ""; };
 
 /* ---------- Die Regeln (Entwurf 5): gelbe Seitenleiste + weißer Inhalt ---------- */
 (function(){

@@ -563,3 +563,8 @@ body.notop .karte{top:48px;height:calc(100vh - 48px)}
 .rl .sb .sbx+button{padding-right:34px}
 /* Seitenzahlen erscheinen im Seitenmenü nie (Pfeil und Zahlen kamen sich in die Quere) */
 .rl .sb button i{display:none}.rl .sb .sbx+button{padding-right:14px}
+/* Kopfzeile: Teile des Buchs als Reiter (Die sterbende Welt · Die Regeln · Die Verdammten) */
+.ktabs{display:flex;align-self:stretch;gap:2px;margin-left:18px}
+.ktabs a{display:flex;align-items:center;padding:0 18px;font:700 22px/1 var(--fraktur);color:#e8e4d2;cursor:pointer;white-space:nowrap}
+.ktabs a:hover{color:var(--gelb)}
+.ktabs a.on{background:var(--gelb);color:var(--schwarz)}

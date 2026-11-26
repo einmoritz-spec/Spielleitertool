@@ -45,6 +45,7 @@ function viewRegister(){
 VIEWS.register = function(){ return tabsHtml('register') + viewRegister(); };
 function render(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent), v = h[0] || "start", out;
+  var kt0 = document.getElementById("ktabs"); if(kt0) kt0.innerHTML = "";
   if(v !== "start" && VIEWS[v]) out = (v === "nach" ? "" : tabsHtml(v)) + VIEWS[v](h.slice(1)); else out = (window.viewBib || viewRegister)();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);

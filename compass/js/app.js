@@ -87,7 +87,7 @@ function renderStart(){
 /* Menü (Burger) */
 function openMenu(on){
   var P = document.getElementById("mmP");
-  P.innerHTML = '<h3>Broken Compass</h3>' + SYS.groups.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
+  P.innerHTML = '<h3>Broken Compass</h3><button onclick="openMenu(false);location.hash=\'#bogen\'">Abenteurerbogen ausfüllen</button>' + SYS.groups.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
   P.classList.toggle("on", !!on); document.getElementById("mmB").classList.toggle("on", !!on);
 }
 document.addEventListener("keydown", function(e){
@@ -119,6 +119,7 @@ function route(){
   var h = location.hash.replace(/^#/, "").split("/");
   if(h[0] === "a" && h[1] && INH.render(h[1], h[2])) return;
   if(h[0] === "e" && h[1]){ EPI.render(h[1]); return; }
+  if(h[0] === "bogen"){ BOGEN.render(); return; }
   renderStart();
 }
 function render(){ route(); }

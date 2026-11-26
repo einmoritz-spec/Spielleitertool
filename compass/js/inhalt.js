@@ -7,7 +7,11 @@ var INH = (function(){
   function die(n, o){ var c = ""; for(var k = 1; k <= 9; k++) c += '<b' + (DICE[n].indexOf(k) > -1 ? ' class="p"' : '') + '></b>'; return '<i class="d' + (o ? " o" : "") + '">' + c + '</i>'; }
   function esc(s){ return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   /* Auszeichnung: **fett**, *kursiv*, {w:1,1,2} Würfel (nach „|“ die ausgegrauten), [[S. 12|bc_aj|12]] Seitenlink */
+  var POST = null; /* optionaler Nachbearbeiter (Folgen: {K:…}-Marken, {P:…}-Platzhalter) */
   function md(s){
+    var r = mdBase(s); return POST ? POST(r) : r;
+  }
+  function mdBase(s){
     return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*(.+?)\*/g, "<i>$1</i>")
       .replace(/\{w:([1-6,]+)(?:\|([1-6,]*))?\}/g, function(_, a, b){ return '<span class="dr">' + a.split(",").map(function(n){ return die(+n); }).join("") + (b ? b.split(",").filter(Boolean).map(function(n){ return die(+n, 1); }).join("") : "") + '</span>'; })
       .replace(/\[\[(.+?)\|(.+?)\|(\d+)\]\]/g, function(_, t, b, p){ return '<a class="sl" onclick="openBook(\'' + b + '\',' + p + ')">' + t + '</a>'; });
@@ -76,6 +80,7 @@ var INH = (function(){
     });
   }
   function render(areaId, subId){
+    POST = null;
     var ALL = allAreas(), A = ALL.filter(function(a){ return a.id === areaId; })[0]; if(!A) return false;
     BOOK = A.b;
     var body = document.body; body.className = "inh"; body.style.setProperty("--c", A.c);
@@ -96,5 +101,5 @@ var INH = (function(){
     });
     return true;
   }
-  return {render: render, go: function(id){ var e = document.getElementById(id); if(e) window.scrollTo({top: e.getBoundingClientRect().top + scrollY - 130, behavior: "smooth"}); }, md: md, block: block};
+  return {render: render, go: function(id){ var e = document.getElementById(id); if(e) window.scrollTo({top: e.getBoundingClientRect().top + scrollY - 130, behavior: "smooth"}); }, md: md, block: block, post: function(f){ POST = f; }};
 })();

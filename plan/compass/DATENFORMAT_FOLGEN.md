@@ -22,3 +22,11 @@ BC_EP["pilot"] = {
 ## Marken im Text
 `{K:H|Einfache Herausforderung}` (H Herausforderung, G Gefahr, F Feinde, Hw Hinweis, X Sonstiges) – Texte der Marken **deutsch** wie im Buch ([BASIC Challenge] → `{K:H|Einfache Herausforderung}`, [2 CRITICAL Dangers] → `{K:G|2 kritische Gefahren}`, [CRITICAL Cool Challenge] → `{K:H|Kritische Herausforderung: Kaltblütigkeit}`, [+1 BASIC Danger …] → `{K:G|+1 einfache Gefahr: …}`).
 Platzhalter des Buchs in Versalien (ANFÜHRER, SCHLÜSSEL, KARTE, RIVALE, WILDER ORT, RUINEN, SCHATZ, HANDLANGER …) → `{P:schluessel}`, passend zu einem `ctx`-Eintrag (z. B. `{P:schluessel}`); das Tool ersetzt sie live durch den eingetragenen Kontext. Jedes im Skript vorkommende Platzhalter-Wort braucht einen `ctx`-Eintrag.
+
+## Ergänzungen (verbindlich)
+- Pflichtfelder: `id, t, lab` (z. B. „Staffel 2 · Folge 1“), `c` (Farbe der Staffel: jr `#6e1414`, ve `#1f4a2c`, lt `#7a1b2a`, Pilot `#1d2c4d`), `b` (Buch-ID), `s` (erste Buchseite), `img` (Titelbild, Pfad unter `img/` ohne `.webp`, z. B. `jr/jr1-kopf`; nur wenn ein passendes reines Bild im Buch existiert, sonst weglassen), `scenes`.
+- `intro`: alles vor der ersten Szene (Zusammenfassung/Einleitung der Folge, Vorbereitung, Besetzung mit Karten für Extras/Gegner, Orte usw.), beliebige Blocktypen. `outro`: alles nach der letzten Szene (Epilog, Anhänge, Werte, Handouts).
+- Szenen mit Unter-Akten: jede Drehbuchszene des Buchs ist eine `scenes`-Szene mit `t`=Szenentitel, `ort`=INNEN/AUSSEN+Tageszeit (übersetzt: INNEN/AUSSEN, TAG/NACHT/ABEND…), optional `short` (Kurzname für die Seitenleiste).
+- Textmarken `[…]` der Bücher (Challenge/Danger/Enemy/Clue) → `{K:H|…}` (Herausforderung), `{K:G|…}` (Gefahr), `{K:F|…}` (Feinde), `{K:Hw|…}` (Hinweis); Spielleiter-Randkästen → `box`.
+- Bei On-Demand-Folgen: Platzhalter in Versalien → `{P:…}` mit `ctx`-Eintrag je Platzhalter (leer `v:""`). Bei Folgen mit festem Kontext (z. B. „Der Zorn des Quetzalcoatl“) `ctx` mit den Vorgaben des Buchs als `v`.
+- Folgen-IDs: `pilot`, `quetzalcoatl`, `jr1`…`jr6`, `ve1`…`ve6`, `lt1`…`lt11` (LuckTales-Reihenfolge laut Inhaltsverzeichnis des Buchs).

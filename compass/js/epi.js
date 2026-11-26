@@ -10,10 +10,11 @@ var EPI = (function(){
   function load(id){ try{ return JSON.parse(localStorage.getItem(key(id)) || "{}"); }catch(e){ return {}; } }
   function save(id, o){ try{ localStorage.setItem(key(id), JSON.stringify(o)); }catch(e){} }
   /* Auszeichnung wie in inhalt.js, dazu {K:H|Text} Marke (H Herausforderung, G Gefahr, F Feinde, Hw Hinweis), {P:schluessel} Platzhalter aus dem Kontext */
-  function md(s){
-    return INH.md(s).replace(/\{K:(H|G|F|Hw|X)\|(.+?)\}/g, function(_, k, t){ return '<span class="mk" style="--k:' + KC[k] + '">' + t + '</span>'; })
+  function post(r){
+    return r.replace(/\{K:(H|G|F|Hw|X)\|(.+?)\}/g, function(_, k, t){ return '<span class="mk" style="--k:' + KC[k] + '">' + t + '</span>'; })
       .replace(/\{P:([a-z0-9_]+)\}/g, function(_, k){ var f = CTX.fields.filter(function(x){ return x.k === k; })[0]; var v = (CTX.val[k] != null ? CTX.val[k] : (f && f.v)) || ""; return '<span class="ph" data-k="' + k + '">' + (v ? esc(v) : esc(f ? f.l.toUpperCase() : k.toUpperCase())) + '</span>'; });
   }
+  function md(s){ return INH.md(s); }
   function P(p){ return (Array.isArray(p) ? p : [p]).map(function(x){ return x ? '<p>' + md(x) + '</p>' : ""; }).join(""); }
   var B = {
     n: function(b){ return '<div class="nar">' + P(b.p) + '</div>'; },
@@ -26,11 +27,11 @@ var EPI = (function(){
   };
   function scene(s, i){
     return '<section class="sc" id="sz' + (i + 1) + '"><h2><span>Szene ' + (i + 1) + '</span> ' + md(s.t) + (s.ort ? '<em>' + esc(s.ort) + '</em>' : "") + (s.s ? '<a class="pg" onclick="openBook(\'' + CTXBOOK + '\',' + s.s + ')">S. ' + s.s + '</a>' : "") + '</h2>' +
-      s.blocks.map(function(b){ return B[b.t] ? B[b.t](b) : ""; }).join("") + '</section>';
+      s.blocks.map(function(b){ return B[b.t] ? B[b.t](b) : INH.block(b); }).join("") + '</section>';
   }
   var CTXBOOK = "bc_aj";
   function render(id){
-    var A = window.APP;
+    var A = window.APP; INH.post(post);
     var go = function(){
       var E = BC_EP[id]; if(!E){ location.hash = "#start"; return; }
       CTXBOOK = E.b || "bc_aj";

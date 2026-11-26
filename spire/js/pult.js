@@ -1,7 +1,7 @@
 /* THE SPIRE – Spielleiter-Pult (Overlay, Knopf oben rechts neben dem i, Taste „p“).
    Live-Übersicht: Figuren mit Stress/Fallout · Begegnung mit Gegnern · Suche nach Gegnern (je Gebiet) und allen Inhalten.
    Alles arbeitet auf demselben Stand wie Zelle und Gegner-Seite (ST.figuren, ST.begegnung). */
-var PU = {q:"", offen:{}, kat:{}};
+var PU = {q:"", offen:{}, kat:{}, pan:{}};
 function puEl(){ return document.getElementById("pult"); }
 function puOpen(){
   if(puEl()){ puClose(); return; }
@@ -50,6 +50,7 @@ function puKat(id, titel, n, inhalt, offen){
   var on = offen || PU.kat[id];
   return '<div class="pu-k' + (on ? ' on' : '') + '"><div class="pu-kh" onclick="puKatTog(\'' + id + '\')"><svg class="pu-ch" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.500 3.500L10.500 8l-5 4.500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>' + esc(titel) + '</b><span>' + n + '</span></div>' + (on ? '<div class="pu-kb">' + inhalt + '</div>' : '') + '</div>';
 }
+function puPan(i){ PU.pan[i] = !PU.pan[i]; puErgebnis(); }
 function puKatTog(id){ PU.kat[id] = !PU.kat[id]; puErgebnis(); }
 /* Detailansicht eines Gegners im Pult: Kopfzeile, Werteleiste (Schwierigkeit · Rüstung · Widerstand), darunter nur, was der Gegner hat */
 function puDetail(g){
@@ -130,7 +131,10 @@ function puErgebnis(){
   var sc = []; box.querySelectorAll(".pu-pb").forEach(function(e){ sc.push(e.scrollTop); });
   var q = sFold(PU.q.trim()), ws = q.length >= 2 ? q.split(/\s+/) : [];
   var P = [["Gegner", puGegnerBox(ws), SP_GEGNER.length], ["Orte", puOrteBox(ws), SP_STADT_INDEX.reduce(function(n, d){ return n + d.distrikte.length; }, 0)], ["Regeln", puRegelBox(ws), ""]];
-  box.innerHTML = P.map(function(p){ return '<section class="pu-p3"><h2>' + p[0] + (p[2] !== "" ? '<em>' + p[2] + '</em>' : '') + '</h2><div class="pu-pb">' + p[1] + '</div></section>'; }).join("");
+  box.innerHTML = P.map(function(p, i){
+    var on = ws.length || PU.pan[i];
+    return '<section class="pu-p3' + (on ? ' on' : '') + '"><h2 onclick="puPan(' + i + ')"><svg class="pu-ch" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.500 3.500L10.500 8l-5 4.500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' + p[0] + (p[2] !== "" ? '<em>' + p[2] + '</em>' : '') + '</h2>' + (on ? '<div class="pu-pb">' + p[1] + '</div>' : '') + '</section>';
+  }).join("");
   box.querySelectorAll(".pu-pb").forEach(function(e, i){ e.scrollTop = sc[i] || 0; });
   var gof = Object.keys(PU.offen).some(function(k){ return PU.offen[k] && /^g:/.test(k); });
   box.classList.toggle("gw", gof);

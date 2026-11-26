@@ -192,3 +192,20 @@ body.embed .tabs{padding-right:46px}
 .pd-s>div p{margin:0}
 .pd-st{border-bottom:0}
 .pu-pb{padding-top:0}
+
+/* Bereiche Gegner/Orte/Regeln einzeln auf- und zuklappbar */
+.pu-bw,.pu-bw.gw{display:flex;flex-direction:column;gap:8px}
+.pu-p3{flex:none}
+.pu-p3.on{flex:1 1 0;min-height:140px}
+.pu-ov .pu-p3 h2{cursor:pointer;user-select:none;gap:10px;border-bottom:0}
+.pu-p3.on h2{border-bottom:1px solid #1f3248}
+.pu-ov .pu-p3 h2:hover{color:#fff}
+.pu-p3 h2 .pu-ch{width:14px;height:14px;flex:none;color:#6f849c;transition:transform .18s,color .18s}
+.pu-p3.on h2 .pu-ch{transform:rotate(90deg);color:var(--gold)}
+/* Zähl-Pillen exakt mittig */
+.pu-ov .pu-p3 h2 em,.pu-kh span{display:inline-flex;align-items:center;justify-content:center;height:18px;min-width:18px;box-sizing:border-box;padding:0 7px;line-height:1;font-size:11.5px}
+.pu-ov .pu-p3 h2 em::after,.pu-kh span::after{content:"";display:block}
+.pu-ov .pu-p3 h2 em,.pu-kh span{padding-top:4px}
+.pu-p3.on{flex:0 1 auto;min-height:0}
+.pu-p3.on .pu-pb{flex:0 1 auto}
+.pu-p3.on{min-height:min(152px,var(--ph,152px))}

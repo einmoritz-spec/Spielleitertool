@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1153sq";
+const VERSION = "v1154sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4825,6 +4825,7 @@ const FILES = [
   "assets/litm/home-wake.webp",
   "assets/litm/home-dales.webp",
   "assets/litm/home-regeln.webp",
+  "assets/litm/home-narrator.webp",
   "assets/litm/home-themenbuecher.webp",
   "assets/litm/home-helden.webp",
   "assets/litm/home-nachschlagen.webp",

@@ -209,3 +209,27 @@
 .lmc-ch.open .lmc-sp{overflow:visible}
 .lmc-sp dl{display:block}.lmc-sp dl>div{display:block;position:static;width:auto}
 @media(max-width:720px){.lmc-ch.open .lmc-cols{grid-template-columns:1fr}}
+
+/* Kopfzeile mit Reitern + Unterleiste (Regeln · Narrator · The Dales) – aktiver Reiter geht nahtlos in die Unterleiste über */
+.topbar{flex-wrap:wrap;row-gap:0}
+.ktabs{display:flex;gap:2px;margin-left:18px;align-self:stretch;align-items:stretch}
+.ktabs a{display:flex;align-items:center;padding:0 16px;font:600 14px/1 var(--sans,inherit);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);cursor:pointer;white-space:nowrap}
+.ktabs a:hover{color:var(--maroon,#7a1f1f)}
+.ktabs a.on{color:var(--maroon,#7a1f1f);background:#e6d9bb}
+.lmsub{flex-basis:100%;order:10;display:flex;gap:4px;align-items:center;height:40px;margin:0 -16px -12px;padding:0 16px;background:#e6d9bb;overflow-x:auto;scrollbar-width:none}
+.lmsub a{align-self:stretch;display:flex;align-items:center;padding:0 14px;font:600 13px/1 var(--sans,inherit);letter-spacing:.1em;text-transform:uppercase;color:var(--mist);cursor:pointer;white-space:nowrap}
+.lmsub a:hover{color:var(--maroon,#7a1f1f)}
+.lmsub a.on{color:var(--maroon,#7a1f1f);box-shadow:inset 0 -3px 0 var(--maroon,#7a1f1f)}
+body.lmsub-on{padding-top:100px}
+body.lmsub-on.topbar-hidden{padding-top:0}
+body.lmsub-on .topbar{border-bottom:2px solid var(--maroon)!important}
+body.lmsub-on .lm-toc{top:114px;max-height:calc(100vh - 128px)}
+body.lmsub-on .lm-shell>.lm-main>.lm-tabs,body.lmsub-on .lm-pn{display:none}
+.lm-tree .lm-sub0{margin:2px 0 8px 0;border-left:0}
+.topbar{align-content:flex-start}
+.ktabs{margin-top:-12px}
+.ktabs a{padding-top:12px}
+.ktabs~.topbar-spacer{display:none}
+.lmsub{flex:none;width:calc(100% + 32px)}
+.topbar:has(.ktabs){justify-content:flex-start!important}
+.topbar:has(.ktabs) .tm-caret{margin-right:0!important}

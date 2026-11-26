@@ -69,8 +69,28 @@ function resetTopbarPrefs(){
   saveTopbarPrefs(); refreshTopbar(); refreshTopbarSettings();
 }
 
+
+/* Kopfzeile Nachschlagewerk: Reiter Regeln · Narrator · The Dales; Unterleiste = Abschnitte (Seitenleiste zeigt nur die Unterabschnitte) */
+function lmHeadGroups(){
+  const secs = k => LM_NAV.secs[k].map(x => [x.t, "goBook('"+k+"','"+x.id+"')", sid => state.view==="book" && state.bookTab===k && state.bookSec===sid ? sid===x.id : false, x.id]);
+  const rg = secs("regeln").map(a => a[3]==="themenbuecher" ? [a[0], "goThemen()", () => state.view==="themen", a[3]] : a);
+  const nr = secs("narrator").concat([["Skunk Glen", "goBook('skunk','nr-skunk')", sid => state.view==="book" && state.bookTab==="skunk", "nr-skunk"]]);
+  const da = ["orte","dales","dales-b","dales-c","jenseits","jenseits-c"].map(id => { const t = LM_NAV.tabs.filter(x => x.id===id)[0]; return [t.t, "goBook('"+id+"')", () => state.view==="book" && state.bookTab===id, id]; });
+  return [{id:"regeln", t:"Regeln", items:rg}, {id:"narrator", t:"Narrator", items:nr}, {id:"dales", t:"The Dales", items:da}];
+}
+function lmHeadHtml(){
+  if(!(state.view==="book" || state.view==="themen") || typeof LM_NAV==="undefined") return {tabs:"", sub:""};
+  const G = lmHeadGroups(); let cur = null, curI = -1;
+  G.forEach(g => g.items.forEach((it,i) => { if(!cur && it[2](state.bookSec)){ cur = g; curI = i; } }));
+  if(!cur) return {tabs:"", sub:""};
+  const tabs = G.map(g => `<a class="${cur===g?'on':''}" onclick="${g.items[0][1]}">${g.t}</a>`).join("");
+  const sub = cur.items.map((it,i) => `<a class="${i===curI?'on':''}" onclick="${it[1]}">${esc(it[0])}</a>`).join("");
+  return {tabs, sub};
+}
+
 function renderTopbar(){
   const advOpen = state.view==="adventure" && state.advId;
+  const LH = lmHeadHtml(); document.body.classList.toggle("lmsub-on", !!LH.sub);
   const btns = TOPBAR_ITEMS
     .filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))
     .map(it => `<button class="rest-btn" data-tb="${it.id}" onclick="${it.fn}" title="${it.title}${tbShowsLabel(it)?'':' — '+it.label}"><span class="tb-label">${it.label}</span>${it.badge?'<span class="fav-badge" id="favBadgeCount"></span>':''}</button>`)
@@ -78,6 +98,7 @@ function renderTopbar(){
   return `
   <div class="topbar">
     <button class="brand brand-logo" onclick="goHome()" aria-label="${CAMPAIGN_TITLE}"><img src="assets/logos/legend-in-the-mist.webp" alt="Legend in the Mist" style="height:38px;width:auto;display:block"></button>
+    ${LH.tabs?`<nav class="ktabs">${LH.tabs}</nav>`:""}
     <div class="topbar-spacer"></div>
     <div class="topbar-actions">
       ${btns}
@@ -86,6 +107,7 @@ function renderTopbar(){
     <button class="tb-burger" onclick="openMobileMenu()" aria-label="Menü öffnen" title="Menü">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
+    ${LH.sub?`<nav class="lmsub">${LH.sub}</nav>`:""}
   </div>`;
 }
 

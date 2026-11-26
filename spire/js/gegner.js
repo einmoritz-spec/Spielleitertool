@@ -96,6 +96,7 @@ function gzTog(el, k){ var p = el.parentNode; p.classList.toggle("open"); GOPEN[
 function bgAdd(id){ gBeg().push(gNeu(id)); save(); render(); }
 function bgDel(u){ ST.begegnung = gBeg().filter(function(x){ return x.u !== u; }); save(); render(); }
 function bgDelAlle(id){ ST.begegnung = gBeg().filter(function(x){ return x.id !== id; }); if(ST.fl) delete ST.fl[id]; save(); render(); }
+function bgMin(id){ if(ST.fl && ST.fl[id]){ ST.fl[id].m = ST.fl[id].m ? 0 : 1; save(); render(); } }
 function bgAndocken(id){ if(ST.fl) delete ST.fl[id]; save(); render(); }
 function bgStr(u, i){ var e = gInst(u); if(!e) return; e.s = e.s === i + 1 ? i : i + 1; save(); render(); }
 function bgRue(u, i){ var e = gInst(u); if(!e) return; e.r = e.r === i + 1 ? i : i + 1; save(); render(); }
@@ -229,10 +230,14 @@ function begFloatDraw(){
   Object.keys(fl).forEach(function(id){
     var G = L.filter(function(e){ return e.id === id; });
     if(!G.length){ delete fl[id]; return; }
-    var g = gById(id), p = fl[id];
-    h += '<div class="bfl' + (ST.gsel === id ? ' sel' : '') + '" data-id="' + id + '" style="left:' + p.x + 'px;top:' + p.y + 'px"><div class="bfk"><b onclick="gSel(\'' + id + '\')">' + esc(g.kurz || g.t) + '</b>' +
-      '<span class="bfb"><a data-tn="Zurück" data-tip="Der Kasten geht zurück in die Leiste" onclick="bgAndocken(\'' + id + '\')">–</a><a data-tn="Schließen" data-tip="Alle Figuren dieses Gegners werden entfernt" onclick="bgDelAlle(\'' + id + '\')">×</a></span></div>' +
-      '<span class="bk">' + G.map(function(e, k){ return bgZeile(e, g, G.length > 1 ? k + 1 : 0); }).join("") + '</span></div>';
+    var g = gById(id), p = fl[id], leb = G.filter(function(e){ return !gMax(g, e) || Math.min(e.s || 0, gMax(g, e)) < gMax(g, e); }).length;
+    var svgUp = '<svg viewBox="0 0 16 16" width="14" height="14"><path d="M2 2.5h12M8 14V5.5M4.5 8.5L8 5l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    h += '<div class="bfl' + (p.m ? ' mini' : '') + (ST.gsel === id ? ' sel' : '') + '" data-id="' + id + '" style="left:' + p.x + 'px;top:' + p.y + 'px"><div class="bfk"><b onclick="gSel(\'' + id + '\')">' + esc(g.kurz || g.t) + '</b>' +
+      (p.m ? '<span class="bfn" title="Lebende Figuren">' + leb + (G.length > 1 ? '/' + G.length : '') + '</span>' : '') +
+      '<span class="bfb"><a data-tn="' + (p.m ? "Aufklappen" : "Verkleinern") + '" data-tip="' + (p.m ? "Der Kasten zeigt wieder alle Kästchen" : "Der Kasten zeigt nur noch den Namen") + '" onclick="bgMin(\'' + id + '\')">' + (p.m ? '+' : '–') + '</a>' +
+      '<a data-tn="In die Leiste" data-tip="Der Kasten hängt wieder oben in der Leiste" onclick="bgAndocken(\'' + id + '\')">' + svgUp + '</a>' +
+      '<a data-tn="Schließen" data-tip="Alle Figuren dieses Gegners werden entfernt" onclick="bgDelAlle(\'' + id + '\')">×</a></span></div>' +
+      (p.m ? '' : '<span class="bk">' + G.map(function(e, k){ return bgZeile(e, g, G.length > 1 ? k + 1 : 0); }).join("") + '</span>') + '</div>';
   });
   lay.innerHTML = h;
   Array.prototype.forEach.call(lay.children, function(el){

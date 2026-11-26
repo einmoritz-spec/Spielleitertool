@@ -4,13 +4,16 @@
 var APP = document.getElementById("app");
 var IMG = "img/start/";
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+/* Folgen: Drehbuch-Ansicht, sobald Daten vorhanden (BC_EPOK in start.js), sonst das Original-PDF */
+function epGo(id, b, s){ if(window.BC_EPOK && BC_EPOK[id]) location.hash = "#e/" + id; else openBook(b, s); }
+function stGo(k, b){ var Z = window.BC_BUCH && BC_BUCH[k], A = Z && Z.areas && Z.areas[0]; if(A) location.hash = "#a/" + A.id; else openBook(b, 1); }
 function openBook(id, s){ try{ BV.open(id || "bc_aj", s || 1); }catch(e){} }
 function ansicht(){ try{ return localStorage.getItem("bc_startansicht") === "buch" ? "buch" : "film"; }catch(e){ return "film"; } }
 function setAnsicht(v){ try{ localStorage.setItem("bc_startansicht", v); }catch(e){} window.scrollTo(0, 0); route(); }
 
 /* ---------- Film ---------- */
 function folge(st, e, i){
-  var t = esc(e[0]), lab = "Folge " + (i + 1), click = ' onclick="openBook(\'' + st.b + '\',' + e[1] + ')"';
+  var t = esc(e[0]), lab = "Folge " + (i + 1), click = ' onclick="epGo(\'' + st.id + (i + 1) + '\',\'' + st.b + '\',' + e[1] + ')"';
   if(e[2]) return '<a class="fr" style="background-image:url(' + IMG + e[2] + '.webp)"' + click + '><span><b>' + lab + '</b><i>' + t + '</i></span></a>';
   return '<a class="fr tk" style="--c:' + st.c + '"' + click + '><span><b>' + lab + '</b><i>' + t + '</i></span></a>';
 }
@@ -19,9 +22,9 @@ function viewFilm(){
     return '<a class="sl" style="--c:' + a.c + ';background-image:url(' + IMG + a.img + '.webp);background-position:' + a.pos + '" href="#a/' + a.id + '">' +
       '<div class="tx"><small>Abschnitt ' + (i + 1) + '</small><b>' + esc(a.t) + '</b><ul>' + a.sub.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div><div class="bar"></div></a>';
   }).join("");
-  var rows = '<a class="pil" onclick="openBook(\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><div class="im" style="background-image:url(' + IMG + BC_PILOT.img + '.webp)"></div><div><b>' + esc(BC_PILOT.lab) + '</b><i>' + esc(BC_PILOT.t) + '</i></div></a>';
+  var rows = '<a class="pil" onclick="epGo(\'pilot\',\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><div class="im" style="background-image:url(' + IMG + BC_PILOT.img + '.webp)"></div><div><b>' + esc(BC_PILOT.lab) + '</b><i>' + esc(BC_PILOT.t) + '</i></div></a>';
   rows += BC_STAFFELN.map(function(st){
-    return '<div class="row ' + st.id + '"><a class="post" onclick="openBook(\'' + st.b + '\',1)"><img src="' + IMG + st.cover + '.webp" alt=""><div class="k">' + esc(st.lab) + '</div><div class="t">' + esc(st.t) + '</div></a>' +
+    return '<div class="row ' + st.id + '"><a class="post" onclick="stGo(\'' + st.id + '\',\'' + st.b + '\')"><img src="' + IMG + st.cover + '.webp" alt=""><div class="k">' + esc(st.lab) + '</div><div class="t">' + esc(st.t) + '</div></a>' +
       '<div class="strip">' + st.eps.map(function(e, i){ return folge(st, e, i); }).join("") + '</div></div>';
   }).join("");
   return '<section class="fan-wrap"><div class="fan">' + fan + '</div></section><section class="seas"><div class="sh2">Staffeln</div>' + rows + '</section>';
@@ -36,9 +39,9 @@ function viewBuch(){
   function zettel(k, lab, t, bild, c, items){
     return '<div class="zt ' + k + '" style="--f:' + c + '"><div class="cv" style="background-image:url(' + IMG + bild + '.webp)"></div><div class="k">' + esc(lab) + '</div><div class="t">' + esc(t) + '</div><ol>' + items + '</ol></div>';
   }
-  var z = zettel("pilot", "Pilot", "Ins Auge des Sturms", BC_PILOT.img, "#1d2c4d", '<li onclick="openBook(\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><span>P</span>' + esc(BC_PILOT.t) + '</li>');
+  var z = zettel("pilot", "Pilot", "Ins Auge des Sturms", BC_PILOT.img, "#1d2c4d", '<li onclick="epGo(\'pilot\',\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><span>P</span>' + esc(BC_PILOT.t) + '</li>');
   z += BC_STAFFELN.map(function(st){
-    return zettel(st.id, st.lab, st.t, st.bild, st.c, st.eps.map(function(e, i){ return '<li onclick="openBook(\'' + st.b + '\',' + e[1] + ')"><span>' + (i + 1) + '</span>' + esc(e[0]) + '</li>'; }).join(""));
+    return zettel(st.id, st.lab, st.t, st.bild, st.c, st.eps.map(function(e, i){ return '<li onclick="epGo(\'' + st.id + (i + 1) + '\',\'' + st.b + '\',' + e[1] + ')"><span>' + (i + 1) + '</span>' + esc(e[0]) + '</li>'; }).join(""));
   }).join("");
   return '<section class="einband"><div class="emb-logo"><div></div></div><div class="emb-kompass"></div></section>' +
     '<div class="tafeln">' + sp + '</div><section class="stf"><h2>Staffeln</h2><div class="zettel">' + z + '</div></section>';
@@ -87,7 +90,23 @@ function openMenu(on){
   P.innerHTML = '<h3>Broken Compass</h3>' + SYS.groups.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
   P.classList.toggle("on", !!on); document.getElementById("mmB").classList.toggle("on", !!on);
 }
-document.addEventListener("keydown", function(e){ if(e.key === "Escape") openMenu(false); });
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape") openMenu(false);
+  var t = e.target, tg = t && t.tagName; if(tg === "INPUT" || tg === "TEXTAREA" || tg === "SELECT" || (t && t.isContentEditable) || e.altKey || e.metaKey) return;
+  if(document.querySelector(".gs,#mmP.on,.bvx:not([hidden])")) return;
+  var inh = document.body.classList.contains("inh");
+  if(e.key === "Escape" && inh && !document.querySelector(".tm-dd")){ location.hash = "#start"; return; }
+  if(e.key === "h" || e.key === "H"){ document.body.classList.toggle("kopfzu"); return; }
+  if(!inh) return;
+  var k = e.key;
+  if(k === "ArrowLeft" || k === "ArrowRight"){
+    var L = [].slice.call(document.querySelectorAll(e.ctrlKey ? "#tabs a" : ".sub2 a")), i = L.findIndex(function(a){ return a.classList.contains("on"); });
+    if(L.length && i >= 0){ e.preventDefault(); var n = L[i + (k === "ArrowRight" ? 1 : -1)]; if(n) location.hash = n.getAttribute("href"); }
+  } else if(k === "ArrowUp" || k === "ArrowDown"){
+    var S = [].slice.call(document.querySelectorAll(".side a")), j = S.findIndex(function(a){ return a.classList.contains("on"); });
+    if(S.length){ e.preventDefault(); var m = S[Math.max(0, Math.min(S.length - 1, j + (k === "ArrowDown" ? 1 : -1)))]; if(m) m.click(); }
+  }
+});
 
 /* Buch-Knopf: Auswahl aller Bücher */
 window.gmBook = function(){

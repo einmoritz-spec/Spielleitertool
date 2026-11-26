@@ -116,3 +116,11 @@ main.ep{max-width:960px;margin:0 auto 0 0}
 .side-box{background:var(--c);color:#fff;padding:16px 20px;margin:14px 0;font:15px/1.5 Cas,serif}.side-box b{display:block;font:900 15px Fut;text-transform:uppercase;margin-bottom:6px}
 .epimg{height:260px;background-size:cover;margin:14px 0;box-shadow:0 8px 18px -10px #000}
 ul.nl{margin:0 0 12px 22px}
+
+/* Seitenleiste: aktiver Eintrag, Einklapp-Pfeil */
+.side a.on{color:var(--c);border-left-color:var(--c)}
+.side .sz{position:absolute;right:-6px;top:30px;width:24px;height:24px;border:0;background:none;font:700 20px/1 Fut;color:#8a7a60;cursor:pointer;opacity:.7}.side .sz:hover{opacity:1;color:var(--c)}
+.side{position:sticky}.side{width:230px}
+.wrap2.zu{grid-template-columns:34px 1fr}.wrap2.zu .side{padding:34px 0 0 0;width:34px}.wrap2.zu .side a{display:none}.wrap2.zu .side .sz{right:auto;left:4px;transform:rotate(180deg)}
+body.kopfzu .topbar{transform:translateY(-100%)}body.kopfzu .sub2{top:0}
+.side .sz:focus{outline:none}

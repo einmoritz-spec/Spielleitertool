@@ -34,3 +34,4 @@ var BC_STAFFELN = [
         ["Das Ungeheuer in seinem Labyrinth", 146, "lt-f7"], ["Flucht von North Sentinel", 156, "lt-f8"], ["Der größte Schatz", 170, "lt-f9"],
         ["Mission: Unsterbliche Beute", 182, "lt-f10"], ["Grenzenlos", 192, "lt-f11"]]}
 ];
+var BC_EPOK = {}; /* wird beim Einbau der Folgen gefüllt */

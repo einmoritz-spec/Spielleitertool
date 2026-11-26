@@ -2,3 +2,4 @@
 node_modules/
 dist/
 quellen/**/*.pdf
+__pycache__/

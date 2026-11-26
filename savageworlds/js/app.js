@@ -140,10 +140,10 @@ function start(){
 }
 function nm(x){ return esc(x).replace(/ß/g, "ss"); }
 function genSwitch(){
-  var G = SW_GENRES.filter(function(g){ return g.id !== "grw"; }).concat([{id:"dl", t:"Deadlands", c:"#8a5a2a"}]);
+  var G = SW_GENRES.filter(function(g){ return g.id !== "grw"; }).concat([{id:"dl", t:"Deadlands"}]);
   return '<div class="gsw">' + G.map(function(g){
     var on = gen(g.id);
-    return '<button class="' + (on ? "on" : "") + '" style="--gc:' + g.c + '" onclick="toggleGen(\'' + g.id + '\')" title="' + esc(g.t) + (on ? " ausblenden" : " einblenden") + '"><i></i>' + esc(g.t) + "</button>";
+    return '<button class="sq-' + g.id + (on ? " on" : "") + '" onclick="toggleGen(\'' + g.id + '\')" title="' + esc(g.t) + (on ? " ausblenden" : " einblenden") + '">' + g.id.toUpperCase() + "</button>";
   }).join("") + "</div>";
 }
 function toggleGen(id){ if(id === "grw") return; ST.gen[id] = ST.gen[id] ? 0 : 1; save(); render(); }

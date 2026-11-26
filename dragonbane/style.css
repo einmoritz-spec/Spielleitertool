@@ -941,3 +941,23 @@ body:has(.tabs) .rail .rl{border-image-width:0 0 0 0}
 body:has(.tabs) .rail .rr{border-image-width:0 0 0 0}
 body:has(.tabs) .rail{padding:0 calc(var(--rand) - 16px + 46px)}
 body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linear-gradient(to right,transparent calc(var(--rand) + 6px),#000 calc(var(--rand) + 44px),#000 calc(100% - var(--rand) - 44px),transparent calc(100% - var(--rand) - 6px));mask-image:linear-gradient(to right,transparent calc(var(--rand) + 6px),#000 calc(var(--rand) + 44px),#000 calc(100% - var(--rand) - 44px),transparent calc(100% - var(--rand) - 6px))}
+/* Abenteuer: Reiter in der Kopfzeile wie die Hauptreiter, Zierleiste wie auf der Startseite */
+.ktabs.abt{flex:1;align-items:stretch}
+.ktabs.abt .tab{height:auto;border:0;padding:0 16px;margin:0;font:600 13px/1 var(--f-kopf);letter-spacing:.12em;text-transform:uppercase;color:rgba(60,60,55,.42);position:relative;display:flex;align-items:center;text-decoration:none}
+.ktabs.abt .tab:hover{color:rgba(0,96,77,.75)}
+.ktabs.abt .tab.on{color:var(--jade-d);border-image:none}
+.ktabs.abt .tab.on::before{display:none}
+.ktabs.abt .tab.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;top:auto;width:auto;height:4px;background:var(--jade-d);background-image:none;border-radius:3px 3px 0 0}
+.ktabs.abt .sp{flex:1}
+.ktabs.abt .zeit,.ktabs.abt .stift{align-self:center}
+.ktabs.abt .zeit{margin-right:4px}
+.ktabs.abt{min-width:0;gap:0}
+.ktabs.abt .akt{display:flex;min-width:0;flex:0 1 auto;overflow-x:auto;scrollbar-width:none;margin-right:auto}
+.ktabs.abt .akt::-webkit-scrollbar{display:none}
+.ktabs.abt .akt .tab{flex:none;padding:0 13px}
+.ktabs.abt .zeit{flex:none;gap:9px;font-size:10.5px;letter-spacing:.08em;margin:0 2px 0 14px}
+.ktabs.abt .zeit .ta{gap:8px}.ktabs.abt .zeit .vt{padding-left:10px;gap:5px}
+.ktabs.abt .stift{flex:none}
+.topbar:has(.ktabs.abt) .topbar-spacer{display:none}
+.topbar:has(.ktabs.abt) .ktabs{margin-left:22px}
+.ktabs.abt .akt.ueber{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 46px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 46px),transparent)}

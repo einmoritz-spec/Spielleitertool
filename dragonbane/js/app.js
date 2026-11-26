@@ -92,6 +92,15 @@ function render(){
   out = f ? f(h) : viewStart();
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
+  /* Abenteuer: Reiter, Zeit und Stift wandern in die Kopfzeile, keine Unterleiste */
+  var kt = document.getElementById("ktabs"), tb = v === "a" && APP.querySelector(".tabs");
+  if(kt){ kt.classList.toggle("abt", !!tb); if(tb){
+    var reiter = [].slice.call(tb.querySelectorAll(":scope > .tab")).map(function(a){ return a.outerHTML; }).join("");
+    var rest = [].slice.call(tb.querySelectorAll(":scope > .zeit, :scope > .stift")).map(function(a){ return a.outerHTML; }).join("");
+    kt.innerHTML = '<div class="akt" data-unterleiste>' + reiter + '</div>' + rest; tb.remove();
+    var ak = kt.querySelector(".akt"); if(ak.scrollWidth > ak.clientWidth + 2){ ak.classList.add("ueber"); ak.onwheel = function(e){ if(e.deltaY){ ak.scrollLeft += e.deltaY; e.preventDefault(); } }; ak.onscroll = function(){ ak.classList.toggle("ueber", ak.scrollLeft + ak.clientWidth < ak.scrollWidth - 2); }; }
+    var on = kt.querySelector(".akt .tab.on"); if(on) on.scrollIntoView({block: "nearest", inline: "nearest"});
+  } }
   if(window.afterRender) afterRender();
 }
 function buildMenu(){
@@ -115,7 +124,7 @@ document.addEventListener("keydown", function(e){
   if(e.key === "h") document.body.classList.toggle("notop");
   if(e.key === "b" && document.querySelector(".lay")) foldSide();
   if(e.key === "ArrowLeft" || e.key === "ArrowRight"){
-    var t = [].slice.call(document.querySelectorAll(".tabs .tab")), i = t.findIndex(function(x){ return x.classList.contains("on"); });
+    var t = [].slice.call(document.querySelectorAll(".tabs .tab,#ktabs.abt .tab")), i = t.findIndex(function(x){ return x.classList.contains("on"); });
     if(i >= 0){ var n = t[i + (e.key === "ArrowRight" ? 1 : -1)]; if(n){ e.preventDefault(); n.click(); } }
   }
   if(e.key === "ArrowUp" || e.key === "ArrowDown"){

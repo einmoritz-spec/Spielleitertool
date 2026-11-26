@@ -283,6 +283,8 @@
   }
   /* Unterleiste: waagerechte Reihe außerhalb der Kopfzeile, oben, mit mindestens zwei Einträgen */
   function subBar(){
+    /* Systeme können eine Leiste ausdrücklich als Unterleiste markieren (z. B. Abenteuer-Reiter in der Kopfzeile) */
+    var mk = document.querySelector("[data-unterleiste]"); if(mk){ var ML = Array.prototype.slice.call(mk.querySelectorAll("a,[onclick]")); if(ML.length >= 2 && ML.some(isOn)) return ML; }
     var top = document.querySelector(".topbar,header"), tb = top ? top.getBoundingClientRect().bottom : 0, best = null, bt = -1;
     var kopfTabs = top ? Array.prototype.filter.call(document.querySelectorAll("a,[onclick]"), function(e){ if(!vis(e) || e.closest(".brand") || e.textContent.trim().length < 3) return false; var q = e.getBoundingClientRect(); return q.top >= 0 && q.bottom <= tb + 2; }).length >= 2 : false;
     document.querySelectorAll("nav,div,section,ul").forEach(function(b){

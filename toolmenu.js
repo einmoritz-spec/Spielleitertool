@@ -388,7 +388,8 @@
     "html[data-tmh=top] .topbar>*:not(.brand),html[data-tmh=top] .topbar .tm-caret,html[data-tmh=top] .topbar .brand:not(:has(img)),html[data-tmh=top] .topbar .brand:not(:has(img)) *{color:#fff!important}" +
     "html[data-tmh=top] .topbar svg,html[data-tmh=top] .topbar svg *{stroke:currentColor}" +
     "html[data-tmh=top] .topbar>*{filter:drop-shadow(0 1px 4px rgba(0,0,0,.55))}" +
-    "html[data-tmh=top] .topbar .brand.tm-dark img{filter:brightness(0) invert(1)}";
+    "html[data-tmh=top] .topbar .brand.tm-dark img{filter:brightness(0) invert(1)}" +
+    "html[data-tmh] .topbar .brand{transition:opacity .25s ease}html[data-tmh=top] .topbar .brand{opacity:0;pointer-events:none}";
   document.head.appendChild(st);
   function bar(){ return document.querySelector(".topbar"); }
   function hasImg(e){

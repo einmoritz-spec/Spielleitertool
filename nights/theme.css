@@ -298,3 +298,4 @@ body.np-start .topbar .tb-burger svg,body.np-start .topbar .tb-burger svg *{stro
 .np-case.wide img{left:auto;width:58%;object-position:50% 35%;-webkit-mask-image:linear-gradient(to right,transparent,#000 45%);mask-image:linear-gradient(to right,transparent,#000 45%)}
 .np-case.wide::after{background:linear-gradient(to right,rgba(7,8,26,.6),transparent 60%)}
 .np-case.wide .np-ct{top:0;bottom:0;justify-content:center;left:32px}.np-case.wide .np-ct b{font-size:30px}
+body.np-start .topbar .brand{opacity:0;pointer-events:none}

@@ -220,10 +220,10 @@ body.bogenseite{background:#d9d3c2}
 
 /* Startseite: Episodenführer */
 .eguide{padding:46px 40px 80px;color:#efe6d2;max-width:1440px;margin:0 auto}
-.egs{display:grid;grid-template-columns:150px minmax(0,1fr);gap:30px;padding:28px 0 32px;border-top:1px solid rgba(255,255,255,.09)}
-.egs .cv{cursor:pointer;align-self:start}
-.egs .cv img{width:150px;display:block;box-shadow:0 14px 30px -10px #000;transition:transform .2s}
-.egs .cv:hover img{transform:translateY(-3px)}
+.egs{display:grid;grid-template-columns:190px minmax(0,1fr);gap:30px;padding:28px 0 32px;border-top:1px solid rgba(255,255,255,.09)}
+.egs .cv{cursor:pointer;position:relative;overflow:hidden;min-height:220px;box-shadow:0 14px 30px -10px #000}
+.egs .cv img{position:absolute;top:0;left:-25%;width:125%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.egs .cv:hover img{transform:scale(1.03)}
 .egs header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--c)}
 .egs header small{font:800 10.5px Fut;letter-spacing:.26em;text-transform:uppercase;color:#bfa77a}
 .egs header h3{font:900 30px/1 Fut;text-transform:uppercase;color:#fff;margin:3px 0 4px}
@@ -243,3 +243,4 @@ body.bogenseite{background:#d9d3c2}
 .egf b{font:700 17px/1.2 Cas;color:#fff;margin-top:2px}
 .egf em{font:italic 13px/1.3 Cas;color:#b9ad95;margin-top:1px}
 .egf span{font:12px/1.35 Fut;color:#968b76;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.egs .cv.aj img{object-position:50% 0}

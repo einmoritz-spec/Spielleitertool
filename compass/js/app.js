@@ -48,7 +48,7 @@ function guide(){
       return '<a class="egf" onclick="epGo(\'' + e.id + '\',\'' + B.b + '\',' + e.s + ')"><div class="th' + (W[e.id] ? " w" : "") + '" style="background-image:url(img/' + e.img + '.webp)"></div>' +
         '<div class="tx"><small>' + esc(e.nr) + '</small><b>' + esc(t) + '</b>' + alt + (meta.length ? '<span>' + meta.map(esc).join(" · ") + '</span>' : "") + '</div></a>';
     }).join("");
-    return '<div class="egs" style="--c:' + B.c + '"><a class="cv" onclick="' + (B.links[0] ? "location.hash=\'" + B.links[0].h + "\'" : "openBook(\'" + B.b + "\',1)") + '"><img src="' + IMG + B.cover + '.webp" alt=""></a>' +
+    return '<div class="egs" style="--c:' + B.c + '"><a class="cv ' + B.id + '" onclick="' + (B.links[0] ? "location.hash=\'" + B.links[0].h + "\'" : "openBook(\'" + B.b + "\',1)") + '"><img src="' + IMG + B.cover + '.webp" alt=""></a>' +
       '<div class="bd"><header><div><small>' + esc(B.lab) + '</small><h3>' + esc(B.t) + '</h3><i>' + esc(B.story) + '</i></div>' +
       '<div class="mt"><span>' + B.eps.length + ' Folgen' + (sz ? " · " + sz + " Szenen" : "") + '</span>' + (B.links.length ? '<nav>' + B.links.map(function(l){ return '<a href="' + l.h + '">' + esc(l.t) + '</a>'; }).join("") + '</nav>' : "") + '</div></header>' +
       '<div class="egl">' + cards + '</div></div></div>';

@@ -23,11 +23,11 @@ var BC_PILOT = {lab: "Pilot · Ins Auge des Sturms", t: "Der Zorn des Quetzalcoa
 /* Staffeln: Folgen mit eigenem Bild im Buch haben img, die anderen erscheinen als Titelkarte */
 var BC_STAFFELN = [
  {id: "jr", lab: "Staffel 2", t: "Jolly Roger", story: "Der Fluch von El Dorado", cover: "cover-jr", bild: "staffel-jr", c: "#6e1414", b: "bc_a1",
-  eps: [["Alles in Flammen", 154, ""], ["Eine zwielichtige Spelunke", 164, "jr-f2"], ["Sturm auf die Festung", 174, ""],
-        ["Auf hoher See", 186, ""], ["Die Schatzinsel", 196, ""], ["Die Entscheidung", 208, ""]]},
+  eps: [["Alles in Flammen", 154, "jr-f1"], ["Eine zwielichtige Spelunke", 164, "jr-f2"], ["Sturm auf die Festung", 174, "jr-f3"],
+        ["Auf hoher See", 186, "jr-f4"], ["Die Schatzinsel", 196, "jr-f5"], ["Die Entscheidung", 208, "jr-f6"]]},
  {id: "ve", lab: "Staffel 3", t: "Voyages Extraordinaires", story: "Die verschollene Expedition", cover: "cover-ve", bild: "staffel-ve", c: "#1f4a2c", b: "bc_a2",
-  eps: [["Das fehlende Stück", 128, "ve-f1"], ["An einen außergewöhnlichen Ort", 140, ""], ["Der gefährliche Übergang", 152, ""],
-        ["Was übrig bleibt", 164, ""], ["Frei von Ketten", 176, ""], ["Kettenreaktion", 186, ""]]},
+  eps: [["Das fehlende Stück", 128, "ve-f1"], ["An einen außergewöhnlichen Ort", 140, "ve-f2"], ["Der gefährliche Übergang", 152, "ve-f3"],
+        ["Was übrig bleibt", 164, "ve-f4"], ["Frei von Ketten", 176, "ve-f5"], ["Kettenreaktion", 186, "ve-f6"]]},
  {id: "lt", lab: "Spin-off", t: "LuckTales", story: "Episoden auf Abruf", cover: "cover-lt", bild: "staffel-lt", c: "#7a1b2a", b: "bc_z1",
   eps: [["Letzte Reise zum Toplitzsee", 80, "lt-f1"], ["Das Erbe des Herkules", 94, "lt-f2"], ["Auf der Suche nach Atlantis", 104, "lt-f3"],
         ["Yaoqins himmlische Welle", 114, "lt-f4"], ["Das Auge des Ra", 124, "lt-f5"], ["Gjallarhorns Ruf", 134, "lt-f6"],

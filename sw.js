@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1066sq";
+const VERSION = "v1067sq";
 const CACHE = "erzaehler-tafel-" + VERSION;
 const FILES = [
   "./",
@@ -603,6 +603,16 @@ const FILES = [
   "triangle/sys.js",
   "triangle/img/hero.webp",
   "compass/index.html",
+  "compass/img/start/jr-f1.webp",
+  "compass/img/start/jr-f3.webp",
+  "compass/img/start/jr-f4.webp",
+  "compass/img/start/jr-f5.webp",
+  "compass/img/start/jr-f6.webp",
+  "compass/img/start/ve-f2.webp",
+  "compass/img/start/ve-f3.webp",
+  "compass/img/start/ve-f4.webp",
+  "compass/img/start/ve-f5.webp",
+  "compass/img/start/ve-f6.webp",
   "compass/style.css",
   "compass/js/app.js",
   "compass/js/data/start.js",

@@ -219,3 +219,10 @@ body.start{background:#05060f}
 .sheet h3{font:400 18px Anton,sans-serif;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--orange);margin:14px 0 8px;padding-bottom:3px}.bcols h3:first-child{margin-top:0}
 .bz{display:flex;gap:8px;margin-bottom:6px}.bz input.sm{width:34%}
 .bbtn{display:flex;gap:12px;justify-content:center;margin:20px 0}.bbtn button{font:400 18px Anton,sans-serif;letter-spacing:.04em;text-transform:uppercase;background:#1a1a1a;color:#fff;border:0;padding:12px 22px;cursor:pointer}.bbtn button+button{background:#fff;color:#1a1a1a;border:2px solid #1a1a1a}
+
+/* Würfel-Knopf in Tabellenköpfen */
+.tb h4{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tb h4 .pg{margin-left:auto}
+.dbtn{border:0;cursor:pointer;transition:background .15s,transform .1s}.dbtn:hover{background:var(--pink)}.dbtn:active{transform:scale(.94)}
+.dres{font:400 20px Anton,sans-serif;font-style:normal;color:var(--pink)}
+.tb .r.hit{background:#fde7ef;outline:2px solid var(--pink);outline-offset:-2px;animation:hitp .5s}.wl span.hit{background:#fde7ef;outline:2px solid var(--pink);animation:hitp .5s}
+@keyframes hitp{0%{transform:scale(1.03)}100%{transform:none}}

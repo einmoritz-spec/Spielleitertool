@@ -1,6 +1,22 @@
 /* Bereich Oddpendium: Würfeltabellen als Raster */
 var OSUB = [["einl","Einleitung"],["bastion","Bastion"],["leute","Leute"],["wesen","Wesen"],["kulte","Kulte"],["erkund","Erkundung"],["dinge","Dinge"],["gruppen","Gruppen"]];
 var OCOL = ["var(--pink)","var(--orange)","var(--teal)","var(--blue)","#c9a24a"];
+/* Würfel-Knopf: erkennt W100, 2W6 … und markiert eine zufällige Zeile (Tabellen) bzw. einen Eintrag (Listen) */
+function dieOf(d){ var m = /^(\d*)W(\d+)\b/.exec(String(d || "").trim()); return m ? [m[0], +(m[1] || 1), +m[2]] : null; }
+function rollN(d){ var x = dieOf(d), r = 0; for (var k = 0; k < x[1]; k++) r += 1 + Math.floor(Math.random() * x[2]); return r; }
+function keyHit(key, n){
+  var t = String(key).replace(/\s/g, "").replace(/[–—]/g, "-"), m = /^(\d+)(?:-(\d+))?$/.exec(t); if (!m) return false;
+  var a = +m[1], b = m[2] ? +m[2] : a; if (a === 0 && b === 0) a = b = 100; if (b === 0) b = 100; return n >= a && n <= b;
+}
+function rollT(btn){
+  var box = btn.closest(".tb"), d = btn.textContent, n = rollN(d), hit = null;
+  [].forEach.call(box.querySelectorAll(".hit"), function(e){ e.classList.remove("hit"); });
+  [].forEach.call(box.querySelectorAll(".r"), function(r){ if (!hit && keyHit(r.firstChild.textContent, n)) hit = r; });
+  if (!hit) [].forEach.call(box.querySelectorAll(".wl span"), function(sp){ if (!hit && +sp.firstChild.textContent === n) hit = sp; });
+  if (!hit) { var rs = box.querySelectorAll(".r"); if (rs.length) hit = rs[Math.floor(Math.random() * rs.length)]; }
+  var o = box.querySelector(".dres"); if (!o) { o = document.createElement("i"); o.className = "dres"; btn.insertAdjacentElement("afterend", o); } o.textContent = "= " + n;
+  if (hit) { hit.classList.add("hit"); var r = hit.getBoundingClientRect(); if (r.top < 120 || r.bottom > innerHeight - 20) hit.scrollIntoView({block:"center", behavior:"smooth"}); }
+}
 function tbl(t, i, die){
   var rows = t.r.map(function(x){ return x.split("|"); }), nc = t.h.length - 1, mx = 0;
   rows.forEach(function(r){ var l = r.slice(1).join(" ").length; if (l > mx) mx = l; });
@@ -13,7 +29,7 @@ function tbl(t, i, die){
     var ch = rows.slice(k * n, (k + 1) * n); if (!ch.length) continue;
     parts.push('<div><div class="th" style="' + g + '">' + t.h.map(function(h){ return '<span>' + esc(h) + '</span>'; }).join("") + '</div>' + ch.map(function(r){ return '<div class="r" style="' + g + '">' + r.map(function(c, q){ return q ? '<span>' + esc(c) + '</span>' : '<b>' + esc(c) + '</b>'; }).join("") + '</div>'; }).join("") + '</div>');
   }
-  return '<div class="tb" style="--c:' + OCOL[(i || 0) % 5] + '"><h4>' + esc(t.t) + (d ? ' <i class="dd">' + d + '</i>' : "") + (t.p ? pgl(t.p) : "") + '</h4><div class="tr" style="grid-template-columns:repeat(' + cols + ',1fr)">' + parts.join("") + '</div>' + (t.note ? '<p class="tn">' + esc(t.note) + '</p>' : "") + '</div>';
+  return '<div class="tb" style="--c:' + OCOL[(i || 0) % 5] + '"><h4>' + esc(t.t) + (dieOf(d) ? '<button class="dd dbtn" title="Würfeln" onclick="rollT(this)">' + esc(dieOf(d)[0]) + '</button>' : d ? '<i class="dd">' + esc(d) + '</i>' : "") + (t.p ? pgl(t.p) : "") + '</h4><div class="tr" style="grid-template-columns:repeat(' + cols + ',1fr)">' + parts.join("") + '</div>' + (t.note ? '<p class="tn">' + esc(t.note) + '</p>' : "") + '</div>';
 }
 function tbls(L, off){ return L.map(function(t, i){ return tbl(t, i + (off || 0)); }).join(""); }
 function oEinl(){

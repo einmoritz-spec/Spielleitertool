@@ -14,7 +14,7 @@ function zroom(r, i){ return room(r, i, ""); }
 function zrooms(L){ return '<div class="rooms">' + L.map(zroom).join("") + '</div>'; }
 function zlist(t, i){
   var a = t.l.split("|");
-  return '<div class="tb" style="--c:' + ZCOL[i % 5] + '"><h4>' + esc(t.t) + ' <i class="dd">W100</i></h4><div class="wl">' + a.map(function(x, k){ return '<span><b>' + (k + 1) + '</b>' + esc(x) + '</span>'; }).join("") + '</div></div>';
+  return '<div class="tb" style="--c:' + ZCOL[i % 5] + '"><h4>' + esc(t.t) + ' <button class="dd dbtn" title="Würfeln" onclick="rollT(this)">W100</button></h4><div class="wl">' + a.map(function(x, k){ return '<span><b>' + (k + 1) + '</b>' + esc(x) + '</span>'; }).join("") + '</div></div>';
 }
 function zUeber(){
   var u = ITO.mat.ueber;

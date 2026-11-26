@@ -883,3 +883,26 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .ktabs a.on{color:var(--jade-d);box-shadow:inset 0 -3px 0 var(--jade-d)}
 .topbar:has(.ktabs) .tm-caret{margin-right:0!important}
 .topbar:has(.ktabs){justify-content:flex-start}
+
+/* ── Kopf, Zierleiste, Unterleiste, Seitenleiste – abgestimmt (Nov. 2026) ── */
+.topbar{height:60px}
+.topbar .brand{height:60px}
+.ktabs{margin-left:30px;gap:4px}
+.ktabs a{position:relative;text-decoration:none;padding:0 16px;font-size:13px;color:rgba(0,96,77,.58);box-shadow:none!important}
+.ktabs a.on{color:var(--jade-d)}
+.ktabs a.on::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:4px;background:var(--jade-d);border-radius:3px 3px 0 0}
+.rail{margin-top:-13px}
+.tabs{padding:18px var(--rand) 0;height:66px;gap:8px}
+.tabs .tab{height:34px;font-size:13px}
+.tab.on{height:34px}
+.tab.on::before,.tab.on::after{top:3px}
+.lay{padding-top:22px}
+.side{padding-top:0}
+.side a{border-bottom:0;padding:7px 10px 7px 30px;font-size:14.5px;letter-spacing:.05em}
+.side a i{display:none}
+.side a.on::before{left:2px}
+.lay .fold{top:27px;left:calc(var(--rand) + 210px);opacity:.6}
+.lay .fold:hover{opacity:1}
+.tabs{padding-left:calc(var(--rand) + 9px)}
+.tabs .tab:not(.on){color:rgba(0,96,77,.75)}
+.tabs .tab:not(.on):hover{color:var(--jade-d)}

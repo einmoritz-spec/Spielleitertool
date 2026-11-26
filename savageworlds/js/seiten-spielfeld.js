@@ -181,7 +181,7 @@ function build(){
         '<pattern id="sfpGefahr" patternUnits="userSpaceOnUse" width=".7" height=".7" patternTransform="rotate(-45)"><rect width=".7" height=".7" fill="#e07a1f" fill-opacity=".16"/><rect width=".35" height=".7" fill="#c8641e" fill-opacity=".22"/></pattern>' +
         '<filter id="sfSh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy=".06" stdDeviation=".06" flood-color="#000" flood-opacity=".35"/></filter>' +
       '</defs><g id="sfW"><g id="sfLbg"></g><g id="sfLar"></g><g id="sfLgr"></g><g id="sfLwa"></g><g id="sfLob"></g><g id="sfLfi"></g><g id="sfLtx"></g><g id="sfLtp"></g><g id="sfLov"></g></g></svg>' +
-        '<div class="sffly" id="sfFly"></div>' +
+        '<div class="sffly" id="sfFly"></div><button class="sfdone" id="sfDone" data-a="done"></button>' +
         '<div class="sfz"><button data-a="zout" title="Verkleinern">' + ic("minus") + '</button><span id="sfZT"></span><button data-a="zin" title="Vergrößern">' + ic("plus") + '</button><button data-a="fit" title="Alles zeigen">' + ic("fit") + "</button></div>" +
         '<div class="sfsc" id="sfSc"><i></i><span>1“ = 2 m</span></div>' +
       '</div><aside class="sfi" id="sfIns"></aside></div>' +
@@ -210,8 +210,14 @@ function build(){
 }
 
 /* ---------- Öffnen/Schließen ---------- */
+/* Touch-Geräte: Spielfeld in Gerätebreite statt 1280-px-Desktopansicht (sonst winzige Knöpfe) */
+var VP0 = null;
+function touch(){ return window.matchMedia && matchMedia("(pointer: coarse)").matches; }
+function vpSetzen(an){ var m = document.querySelector('meta[name="viewport"]'); if(!m || !touch()) return;
+  if(an){ if(VP0 == null) VP0 = m.getAttribute("content"); m.setAttribute("content", "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"); document.documentElement.classList.add("sf-touch"); }
+  else if(VP0 != null){ m.setAttribute("content", VP0); VP0 = null; document.documentElement.classList.remove("sf-touch"); } }
 function open(){
-  build(); S.open = true; O.classList.add("on"); document.body.classList.add("sf-open");
+  vpSetzen(true); build(); S.open = true; O.classList.add("on"); document.body.classList.add("sf-open");
   dbAll().then(function(all){
     S.maps = (all || []).sort(function(a, b){ return (b.t || 0) - (a.t || 0); });
     var cur = null; try { cur = JSON.parse(localStorage.getItem("sw_spielfeld_ui") || "{}").cur; } catch(e){}
@@ -220,7 +226,7 @@ function open(){
     load(m);
   });
 }
-function close(){ if(!O || window.SW_SOLO) return; S.open = false; O.classList.remove("on"); document.body.classList.remove("sf-open"); ddToggle(false); save(); }
+function close(){ if(!O || window.SW_SOLO) return; vpSetzen(false); S.open = false; O.classList.remove("on"); document.body.classList.remove("sf-open"); ddToggle(false); save(); }
 function load(m){
   S.m = m; S.sel = null; S.undo = []; S.redo = []; S.meas = null; S.wip = null; S.cal = null;
   if(!m.view){ var r = SVG.getBoundingClientRect(); m.view = {x:Math.round(r.width / 2), y:Math.round(r.height / 2), z:48}; }
@@ -229,13 +235,15 @@ function load(m){
 function ddToggle(on){
   var v = on === undefined ? !DD.classList.contains("on") : on; DD.classList.toggle("on", v); if(!v) return;
   DD.innerHTML = S.maps.map(function(m){ return '<button class="sfdd-m' + (m === S.m ? " on" : "") + '" data-map="' + m.id + '">' + E(m.name || "Ohne Namen") + "<small>" + m.items.length + "</small></button>"; }).join("") +
-    '<i></i><button data-a="new">' + ic("plus") + 'Neue Karte</button><button data-a="dupmap">' + ic("dup") + 'Karte duplizieren</button><button data-a="delmap" class="sfdd-del">' + ic("trash") + "Karte löschen</button>";
+    '<i></i><button data-a="new">' + ic("plus") + 'Neue Karte</button><button data-a="dupmap">' + ic("dup") + 'Karte duplizieren</button><button data-a="delmap" class="sfdd-del">' + ic("trash") + "Karte löschen</button>" +
+    '<i class="sfdd-mob"></i><button data-a="png" class="sfdd-mob">' + ic("png") + 'Als Bild speichern</button><button data-a="exp" class="sfdd-mob">' + ic("exp") + 'Exportieren</button><button data-a="imp" class="sfdd-mob">' + ic("imp") + "Importieren</button>";
 }
 
 /* ---------- Werkzeuge ---------- */
 function setTool(t){
   if(S.wip) finishWall();
   S.tool = t; S.meas = t === "meas" ? S.meas : null; S.cal = null;
+  if(t !== "sel" && S.sel && window.innerWidth <= 760 && window.innerHeight > 500){ S.sel = null; setTimeout(ins, 0); }
   RAIL && RAIL.querySelectorAll("[data-t]").forEach(function(b){ b.classList.toggle("on", b.dataset.t === t); });
   if(SVG) SVG.dataset.tool = t;
   fly(); if(O) draw();
@@ -298,6 +306,7 @@ var raf = 0;
 function draw(){ if(raf) return; raf = requestAnimationFrame(function(){ raf = 0; drawNow(); }); }
 function drawNow(){
   if(!S.m) return;
+  var dn = document.getElementById("sfDone"); if(dn){ var lab = S.wip ? "Wand fertig" : S.aim ? "Zielen abbrechen" : S.rings ? "Reichweite aus" : (S.meas || S.cal) ? "Messen beenden" : ""; dn.textContent = lab; dn.classList.toggle("on", !!lab && touch()); }
   var v = S.m.view, r = SVG.getBoundingClientRect(), z = v.z, m = S.m;
   W.setAttribute("transform", "translate(" + v.x + " " + v.y + ") scale(" + z + ")");
   ZT.textContent = Math.round(z / 48 * 100) + " %";
@@ -649,6 +658,8 @@ function onClick(e){
   if(b.dataset.map){ var m = S.maps.filter(function(x){ return x.id === b.dataset.map; })[0]; ddToggle(false); save(); if(m) load(m); return; }
   var a = b.dataset.a, v = S.m && S.m.view, r = SVG.getBoundingClientRect();
   if(a === "close") close();
+  if(a === "desel"){ S.sel = null; S.rings = null; S.meas = null; draw(); ins(); return; }
+  if(a === "done"){ if(S.wip) finishWall(); else if(S.aim){ S.aim = null; draw(); } else if(S.rings){ S.rings = null; draw(); ins(); } else if(S.meas || S.cal){ S.meas = null; S.cal = null; draw(); ins(); } return; }
   if(a === "link") teilen("spielfeld.html", e.target.closest("button"));
   else if(a === "undo") undo();
   else if(a === "redo") redo();
@@ -748,7 +759,7 @@ function ins(){
   } else if(it && it.t === "txt"){
     h = '<h3>Text</h3><div class="sfrow"><input data-f="s" value="' + E(it.s) + '" class="sfbig"></div>' + row("Größe", seg("fs", [[0.4, "Klein"], [0.6, "Mittel"], [1, "Groß"], [1.6, "Riesig"]], it.fs || 0.6)) + row("Farbe", sw("c", ["#241f1c", "#a51f1a", "#2f6f9f", "#4f7d3a", "#fbf6ea"], it.c || "#241f1c")) + foot();
   }
-  INS.innerHTML = h; O.classList.toggle("ins", !!h);
+  INS.innerHTML = h ? '<button class="sfi-x" data-a="desel" title="Schließen">' + ic("close") + "</button>" + h : h; O.classList.toggle("ins", !!h);
   rail();
 }
 function abzug(st, wig){ var p = Math.max(0, Math.min(3, st.w || 0) - (wig || 0)) + (st.e || 0); return p ? '<span class="sfpen" title="Abzug auf Eigenschaftsproben">–' + p + "</span>" : ""; }

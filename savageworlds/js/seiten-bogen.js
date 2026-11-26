@@ -427,13 +427,17 @@ function lAusr(){
   if(gen("dl")) (window.SW_DL_AUSR || []).forEach(function(a){ out.push({n: a.n, sub: a.sub, s: ["DL"], ep: ["pul"], f: {n: a.n, gw: String(a.gw || "").replace(/^—$/, ""), pr: a.pr}}); });
   return out;
 }
+/* Gibt es einen Eintrag doppelt (Grundregelwerk und aktives Regelwerk), gilt die Fassung des Regelwerks */
+function nkey(n){ return String(n || "").toLowerCase().replace(/\s*\([^)]*\)/g, "").replace(/[‘’'´`]/g, "").replace(/\s+/g, " ").trim(); }
+function bevorzuge(L){ var g = {}; L.forEach(function(x){ if((x.s || ["GRW"])[0] !== "GRW" && vis(x.s)) g[nkey(x.n)] = 1; }); return L.filter(function(x){ return (x.s || ["GRW"])[0] !== "GRW" || !g[nkey(x.n)]; }); }
 function liste(kind, ctx, own){
   var c = cur, F = fx(c), R = rangIdx(c), T = talenteVon(c, F), H = handicapsVon(c, F).map(function(n){ return n.replace(/\s*\(.*$/, ""); });
   if(kind === "volk") return allVoelker().filter(function(v){ return vis(v.s); }).map(function(v){ return {n: v.n, s: v.s, v: v}; });
   if(kind === "ha") return HAL().filter(function(h){ return vis(h.s); })
     .filter(function(h){ return H.indexOf(h.n) < 0 || h.n === own; })
     .map(function(h){ return {n: h.n, sub: h.w, s: h.s, h: h}; });
-  if(kind === "ta") return SW_TALENTE.filter(function(t){ return vis(t.s) && !/^Arkaner Hintergrund \(/.test(t.n) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0 || t.n === own); })
+  var ERS = {}; SW_TALENTE.forEach(function(t){ var m = /^(.+) \((Weird West|Superhelden|Horror|Fantasy|Science-Fiction)\)$/.exec(t.n); if(m && vis(t.s)) ERS[m[1]] = 1; });
+  if(kind === "ta") return SW_TALENTE.filter(function(t){ return vis(t.s) && !ERS[t.n] && !/^Arkaner Hintergrund \(/.test(t.n) && (MEHRFACH[t.n] || T.indexOf(t.n) < 0 || t.n === own); })
     .map(function(t){ var A = ahFx(ahName(c, F)), why = warum(c, F, t.v, t.r);
       if(!why && t.n !== own && !leistbar(function(k){ k.ta = k.ta.filter(function(x){ return !x || x.n !== own; }); k.ta.push({n: t.n}); })) why = "keine Punkte";
       if(!why && A.erlaubt && t.k === "Macht" && A.erlaubt.indexOf(t.n) < 0 && !/Arkaner Hintergrund \((?:[^)]*, )?Alchemist/.test(t.v || "")) why = "nicht für " + ahName(c, F);
@@ -447,8 +451,8 @@ function liste(kind, ctx, own){
     return L2; }
   if(kind === "sup"){ var hs = (c.sp || []).filter(function(r){ return r && r.n; }).map(function(r){ return r.n; }), SI2 = spInfo(c);
     return MA().filter(function(m){ return (m.s || [])[0] === "SUP" && hs.indexOf(m.n) < 0; }).map(function(m){ var z = zahlen(m.mp)[0] || 0; return {n: m.n, sub: "Kosten " + m.mp, m: m, why: z > SI2.lim ? "über dem Limit" : null}; }); }
-  if(kind === "wa" || kind === "ru") return (kind === "wa" ? lWaffen() : lRuestung()).map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; w.why = epOk(w.ep) ? null : "andere Epoche"; return w; });
-  if(kind === "au") return lAusr().map(function(w){ w.why = epOk(w.ep) ? null : "andere Epoche"; return w; });
+  if(kind === "wa" || kind === "ru") return bevorzuge(kind === "wa" ? lWaffen() : lRuestung()).map(function(w){ w.warn = w.f.ms && di(w.f.ms) > di(c.a.sta) ? "Mindeststärke " + w.f.ms : null; w.why = epOk(w.ep) ? null : "andere Epoche"; return w; });
+  if(kind === "au") return bevorzuge(lAusr()).map(function(w){ w.why = epOk(w.ep) ? null : "andere Epoche"; return w; });
   if(kind === "ah") return (c.ah ? [{n: "Kein Arkaner Hintergrund", rm: 1}] : []).concat(AHL().filter(function(a){ return vis(a.s) && a.n !== c.ah; }).map(function(a){ return {n: a.n, sub: a.f, s: a.s, ah: a, why: a.req ? warum(c, F, splitTop(a.req).filter(function(x){ return x.indexOf(String(a.f || "-").replace(/\s*\(.*$/, "") + " ") !== 0; }).join(", ")) : null}; }));
   if(kind === "ma"){ var ah = ahRec(ahName(c, F)), have = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return m.n; });
     if(!ahName(c, F)) return [];
@@ -611,6 +615,9 @@ var pop = null, popI = -1;
 function popClose(){ if(pop){ pop.remove(); pop = null; } }
 function popAt(el, h){
   popClose(); pop = document.createElement("div"); pop.className = "bpop" + (h.cls ? " " + h.cls : ""); pop.innerHTML = h.html; document.body.appendChild(pop);
+  pop._anchor = el; popPos(el);
+}
+function popPos(el){
   var r = el.getBoundingClientRect(), x = r.left + window.scrollX, y = r.bottom + window.scrollY + 2;
   if(x + pop.offsetWidth > window.scrollX + window.innerWidth - 8) x = window.scrollX + window.innerWidth - 8 - pop.offsetWidth;
   if(r.bottom + 300 > window.innerHeight && r.top > 300) y = r.top + window.scrollY - Math.min(300, pop.offsetHeight) - 2;
@@ -928,7 +935,8 @@ function wire(){
     }; fr.readAsText(e.target.files[0]);
   });
   window.addEventListener("resize", fit);
-  window.addEventListener("scroll", function(){ if(pop && pop._el === undefined) popClose(); }, {passive: true});
+  /* Beim Scrollen (auch wenn auf dem Handy die Tastatur aufgeht) folgt die Liste ihrem Feld */
+  window.addEventListener("scroll", function(){ if(pop && pop._anchor && document.body.contains(pop._anchor)) popPos(pop._anchor); else if(pop) popClose(); }, {passive: true});
 }
 function exportJ(){
   var b = new Blob([JSON.stringify(cur, null, 1)], {type: "application/json"}), a = document.createElement("a");

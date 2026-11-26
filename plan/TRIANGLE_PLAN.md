@@ -1,6 +1,10 @@
 # Triangle Agency – Bauplan
 
-Stand 26. Nov. 2026 · Phase 1 (Planung, Bilder, Entwürfe). Gebaut ist noch nichts; `triangle/` enthält weiter nur den alten Platzhalter. Bau in Etappen nach Moritz' Freigabe.
+Stand 26. Nov. 2026 · **Etappe 0 und 1 gebaut** (Gerüst, Startseite). Als Nächstes: Etappe 2 (Handbuch).
+
+**Was steht:** `index.html`, `style.css`, `js/app.js` (Router, Kopfzeile mit Bereichsfarbe, Unterleiste, Seitenleiste mit ‹, Randreiter, Menü, Esc/h, Playwall-Tasten), `js/data/` (buecher, nav, ark, einsaetze, playwall-index, galerie-*), `js/suche.js`, `shared/info/triangle.js`. Startseite fertig. ARK-Auswahl (3×3 mit Bildern) und Detailseite mit Bild, Playwall-Codefeld (öffnet bis zum Einbau der Dokumente die Buchseite), Einsatz-Kopf mit Titelbild. Leseseiten zeigen bis zum Einbau der Texte ein Feld, das die Buchseite öffnet.
+**Wo Inhalte hinkommen:** `TA_TEXT["h/<unterpunkt>/<abschnitt>"]`, `TA_TEXT["w/…"]`, `TA_TEXT["ark/<art>/<id>"]`, `TA_TEXT["pw/<code>"]` – HTML-Zeichenketten, je Bereich eine Datei unter `js/data/`, in `index.html` vor `app.js` einbinden und in `sw.js` eintragen.
+**Noch nicht da:** Taste „m“ (kommt mit den Plänen der Einsätze), Abschalter für den Randreiter (Klasse `ohnerand` am `body` ist vorbereitet), Hinweistexte beim Überfahren der eigenen Knöpfe macht `toolmenu.js`.
 
 Entwürfe: `plan/triangle/mockups/01…07_*.jpg` (Quelltext in `mockups/src/`). Bilder: `triangle/img/`. Inventar: `plan/triangle/bilder-inventar.tsv`. Skripte: `plan/triangle/skripte/`.
 

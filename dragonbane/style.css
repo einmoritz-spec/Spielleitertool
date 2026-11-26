@@ -912,3 +912,7 @@ img.bimg,.bimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover
 .tabs{padding-top:4px;height:46px}
 .lay{padding-top:8px}
 .lay .fold{top:13px}
+.tabs{margin-top:-21px;padding-top:0;height:42px;align-items:flex-start;position:relative;z-index:3}
+.lay{padding-top:14px}
+.lay .fold{top:19px}
+.tabs .zeit,.tabs .stift{margin-top:8px}

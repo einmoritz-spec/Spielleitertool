@@ -51,12 +51,27 @@ function foldSide(){ ST.fold = !ST.fold; save(); render(); }
 function kapHash(k, u){ return "n/" + k.id + (u ? "/" + u : ""); }
 function kapKopf(k){ return k.kopf ? k.kopf : "Kapitel " + k.n; }
 function viewStart(){
-  var t = DB_KAP.filter(function(k){ return k.img; }).map(function(k){
-    return '<div class="sk" onclick="go(\'' + kapHash(k) + '\')"><div class="bi"><img src="' + IMG(k.img) + '" alt=""></div>' +
-      '<div class="kn">' + kapKopf(k) + pgl(k.p) + '</div><div class="kti">' + esc(k.t) + '</div></div>';
+  /* Oben die vier Bereiche der Kopfzeile, darunter die Einstiege zu Abenteuern und Arkand */
+  var BER = [
+    {t:"Charaktere", img:"kap/k2-spielercharakter", go:"n/sc", u:[["Spielercharakter","n/sc"],["Fertigkeiten","n/fe"],["Ausrüstung","n/au"]]},
+    {t:"Regeln", img:"kap/k4-kampf-und-schaden", go:"n/einf", u:[["Einführung","n/einf"],["Kampf & Schaden","n/ka"],["Magie","n/ma"],["Tabellen","n/ta"]]},
+    {t:"Bestiarium", img:"kap/k7-bestiarium", go:"n/be", u:[["Monster im Spiel","n/be/imspiel"],["Alle Wesen","n/be"]]},
+    {t:"Spielleitung", img:"kap/k8-abenteuer", go:"n/ab", u:[["Reisen","n/ab/reisen"],["Rolle der SL","n/ab/sl"],["NSC","n/ab/nsc"],["Kampagnen","n/ab/kampagnen"]]}
+  ];
+  var ber = BER.map(function(B){
+    return '<div class="bz" onclick="go(\'' + B.go + '\')"><div class="bi"><img src="' + IMG(B.img) + '" alt=""></div>' +
+      '<div class="bt">' + esc(B.t) + '</div><div class="bu">' + B.u.map(function(u){ return '<a onclick="event.stopPropagation();go(\'' + u[1] + '\')">' + esc(u[0]) + '</a>'; }).join(' ') + '</div></div>';
   }).join("");
+  var baende = DB_BAENDE.filter(function(b){ return !b.setting; }).map(function(b){
+    return '<a class="bd" onclick="event.stopPropagation();go(\'' + bandGo(b) + '\')"><img src="' + IMG(b.img) + '" alt=""><span>' + esc(b.t) + '</span></a>';
+  }).join("");
+  var ark = ["ark", "ark-hafen", "ark-dung"].map(function(id){ var b = DB_BAENDE.filter(function(x){ return x.id === id; })[0]; return b ? '<a onclick="event.stopPropagation();go(\'k/' + id + '\')">' + esc(b.t === "Arkand" ? "Die Stadt" : b.t) + '</a>' : ""; }).join(' ');
   var zul = ST.last ? '<div class="zul" onclick="go(ST.last)">Zuletzt: <b>' + esc(ST.lastName || "") + '</b></div>' : "";
-  return '<div class="sg"><div class="gk">' + t + '</div><div class="unten"><div class="fluegel" onclick="go(\'abenteuer\')"><div class="fl"></div><div class="fm"><span>Zu den Abenteuern</span></div><div class="fr"></div></div><div class="fluegel" onclick="go(\'arkand\')"><div class="fl"></div><div class="fm"><span>Arkand</span></div><div class="fr"></div></div>' + zul + '</div></div>';
+  return '<div class="sg2"><div class="ber">' + ber + '</div>' +
+    '<div class="einst">' +
+      '<div class="ec abt" onclick="go(\'abenteuer\')"><div class="eh"><span>Abenteuer</span></div><div class="bds">' + baende + '</div></div>' +
+      '<div class="ec ark" onclick="go(\'arkand\')"><div class="akarte"><img src="' + IMG("abenteuer/ark-karte") + '" alt=""></div><div class="eh"><span>Arkand</span></div><div class="ak">' + ark + '</div></div>' +
+    '</div>' + zul + '</div>';
 }
 /* Die Gruppe (Menü) */
 function gruppe(){

@@ -1006,3 +1006,51 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 .zleiste .zeit .vt path.f{fill:var(--jade-d);stroke:var(--perg,#f3ecdf)}
 .zleiste .zeit .vt path,.zleiste .zeit .vt path.f{stroke:none}
 .zleiste .zeit .vt svg{width:22px;height:22px}
+
+/* ── Startseite: Bereiche der Kopfzeile + Einstiege Abenteuer/Arkand ── */
+.sg2{max-width:1180px;margin:0 auto;padding:18px var(--rand) 40px}
+.sg2 .ber{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
+.bz{cursor:pointer;text-align:center}
+.bz .bi{aspect-ratio:1146/1100;overflow:hidden;box-shadow:0 0 0 1px rgba(16,90,74,.55),0 0 0 5px rgba(234,224,200,.9),0 0 0 6.5px rgba(16,90,74,.55),0 10px 24px -8px rgba(40,25,10,.45)}
+.bz .bi img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;transition:transform .45s}
+.bz:hover .bi img{transform:scale(1.04)}
+.bz .bt{font:normal 30px/1 var(--f-titel,var(--f-kopf));color:var(--jade-d);margin:20px 0 8px;letter-spacing:.02em}
+.bz .bu{font:13.5px/1.7 var(--f-kopf);letter-spacing:.04em;color:var(--braun)}
+.bz .bu a{cursor:pointer;color:var(--braun);white-space:nowrap}
+.bz .bu a:hover{color:var(--jade)}
+.bz .bu i{font-style:normal;color:var(--jade-d);opacity:.5;margin:0 2px;font-size:10px;vertical-align:1px}
+.sg2 .einst{display:grid;grid-template-columns:1.45fr 1fr;gap:30px;margin-top:40px}
+.ec{position:relative;cursor:pointer;padding:34px 22px 20px;background:rgba(0,96,77,.05);box-shadow:0 0 0 1px rgba(16,90,74,.35),0 0 0 5px rgba(234,224,200,.7),0 0 0 6px rgba(16,90,74,.3)}
+.ec .eh{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);z-index:3;white-space:nowrap}
+.ec .eh span{display:inline-flex;align-items:center;height:40px;padding:0 30px;font:19px/1 var(--f-kopf);letter-spacing:.16em;text-transform:uppercase;color:var(--stein-text);border-style:solid;border-width:0 18px;border-image:url(img/orn/steinband.png) 0 40 fill / 0 18px stretch;position:relative}
+.ec .eh span::before,.ec .eh span::after{content:"";position:absolute;top:5px;width:32px;height:30px;background:center/contain no-repeat}
+.ec .eh span::before{left:-34px;background-image:url(img/orn/knoten-l.png)}
+.ec .eh span::after{right:-34px;background-image:url(img/orn/knoten-r.png)}
+.ec .bds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.ec .bd{text-align:center;cursor:pointer}
+.ec .bd img{width:100%;aspect-ratio:3/3.6;object-fit:cover;object-position:50% 25%;display:block;box-shadow:0 0 0 1px rgba(16,90,74,.45),0 8px 18px -8px rgba(40,25,10,.5);transition:transform .3s}
+.ec .bd:hover img{transform:translateY(-4px)}
+.ec .bd span{display:block;font:14px/1.25 var(--f-kopf);color:var(--braun);margin-top:10px}
+.ec .bd:hover span{color:var(--jade)}
+.ec.ark{display:flex;flex-direction:column}
+.ec.ark .akarte{height:206px;overflow:hidden;box-shadow:0 0 0 1px rgba(16,90,74,.45)}
+.ec.ark .akarte img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block;transition:transform .6s}
+.ec.ark:hover .akarte img{transform:scale(1.05)}
+.ec .ak{text-align:center;font:15px/1 var(--f-kopf);letter-spacing:.04em;margin-top:14px}
+.ec .ak a{color:var(--braun);cursor:pointer}.ec .ak a:hover{color:var(--jade)}
+.ec .ak i{font-style:normal;color:var(--jade-d);opacity:.5;margin:0 4px;font-size:10px;vertical-align:1px}
+.sg2 .zul{text-align:center;margin-top:22px;cursor:pointer;font:14px var(--f-kopf);color:var(--braun)}
+@media (max-width:900px){.sg2 .ber{grid-template-columns:repeat(2,minmax(0,1fr))}.sg2 .einst{grid-template-columns:1fr}}
+
+/* aktiver Unterpunkt: Steinband ohne Schnittkante, die Knoten decken die Enden ab */
+.tab.on,.tabs .tab.on{border:0;border-image:none;background:url(img/orn/steinband.png) center/100% 100% no-repeat;padding:0 24px;margin:0 16px}
+.tab.on::before{left:-16px}.tab.on::after{right:-16px}
+
+/* Nachschlagen: schmalere Seitenleiste, näher am Rand */
+.lay{grid-template-columns:196px minmax(0,1fr);gap:0 28px;padding-left:18px}
+.lay .fold{left:calc(18px + 176px)}
+.lay.fold-on .fold{left:2px}
+.side a{padding-left:28px}
+.bz .bu a + a::before,.ec .ak a + a::before{content:"✦";display:inline-block;color:var(--jade-d);opacity:.45;font-size:9px;margin:0 7px 0 3px;vertical-align:2px}
+.ec .ak a + a::before{margin:0 10px 0 6px}
+.bz .bi{aspect-ratio:1146/1060}

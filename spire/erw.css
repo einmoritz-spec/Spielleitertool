@@ -109,3 +109,18 @@ body[data-erw="bd"]{--blau:#5a2a1b;--wein:#b4531f;--acc:#b4531f}
 .eb-kopf{padding-left:max(28px,calc(50% - 632px));padding-right:max(28px,calc(50% - 632px))}
 .eb-kopf::before{opacity:.85;filter:blur(18px) saturate(1.15)}
 .eb-kopf::after{background:linear-gradient(90deg,rgba(9,16,26,.55) 0%,rgba(9,16,26,.25) 60%,rgba(9,16,26,.5) 100%),linear-gradient(180deg,rgba(9,16,26,.15),rgba(9,16,26,.55))}
+
+/* Buch-Startseiten: Kacheln als zusammenhängender Bildstreifen, Hover hebt hervor */
+.eb-r,.eb-r.ab,.eb-r.kl{display:flex;flex-wrap:wrap;gap:0}
+.eb-r .eb-k{flex:1 1 280px;max-width:440px;min-width:0;height:auto;min-height:200px;box-shadow:none;border-bottom:0;transition:filter .3s}
+.eb-r.ab .eb-k{min-height:240px}
+.eb-r:has(.eb-k.kl) .eb-k{min-height:270px}
+.eb-r.ab .eb-k{flex-basis:360px}
+.eb-r.kl .eb-k,.eb-r .eb-k.kl{flex-basis:210px}
+.eb-k:hover{transform:none;box-shadow:none}
+.eb-k::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--wein);transform:scaleX(0);transform-origin:left;transition:transform .3s;z-index:2}
+.eb-k:hover::after{transform:scaleX(1)}
+.eb-r:hover .eb-k:not(:hover){filter:brightness(.55) saturate(.7)}
+.eb-k .im img{transition:transform .6s}
+.eb-k:hover .im img{transform:scale(1.07)}
+.eb-cov{max-width:460px;object-fit:cover}

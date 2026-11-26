@@ -46,7 +46,7 @@ window.SP_ERW_BOOKS = [
     "p": 2,
     "pe": 4,
     "f": "sin-einleitung.js",
-    "img": "erw/sin/sin_001_01",
+    "img": "cover/sp_s1",
     "n": 0,
     "h": 16
    },

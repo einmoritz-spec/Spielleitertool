@@ -16,9 +16,9 @@ function erwHome(bk){
   erwTheme(bk.id);
   var cov = IMG("cover/" + bk.bid.replace(/^sp_/, "sp_"));
   var kap = function(K){
-    if(K.klassen) return K.klassen.map(function(c){ var kl = klById(c); return erwKachel("klasse/" + c, kl ? kl.t : c, "Neue Klasse", "nach/klassen/" + c, " kl"); }).join("") + (K.f ? erwKachel(K.img, K.t, "Einleitung", "buch/" + bk.id + "/" + K.id) : '');
+    if(K.klassen) return K.klassen.map(function(c){ var kl = klById(c); return erwKachel("klasse/" + c, kl ? kl.t : c, "Neue Klasse", "nach/klassen/" + c, " kl"); }).join("") + (K.f ? erwKachel("cover/" + bk.bid, K.t, "Einleitung", "buch/" + bk.id + "/" + K.id) : '');
     if(K.extra) return erwKachel(null, K.t, K.s, "nach/extra/" + K.extra);
-    return erwKachel(K.img, K.t, K.s, "buch/" + bk.id + "/" + K.id);
+    return erwKachel(K.img || "cover/" + bk.bid, K.t, K.s, "buch/" + bk.id + "/" + K.id);
   };
   var gr = bk.gruppen.map(function(g){
     var L = bk.kap.filter(function(k){ return k.g === g.id; }); if(!L.length) return "";

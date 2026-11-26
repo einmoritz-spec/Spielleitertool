@@ -40,26 +40,20 @@ body.notop .unter{top:0}
 .unter a:hover{color:var(--tinte)}
 .unter a.on{color:var(--akz)}.unter a.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--akz)}
 
-/* Seitenleiste, Inhalt, Randreiter */
+/* Seitenleiste, Inhalt */
 .lay{display:flex;align-items:flex-start;min-height:calc(100vh - 98px)}
-.side{position:sticky;top:98px;width:230px;flex:none;height:calc(100vh - 98px);overflow:auto;padding:0 0 30px 22px;border-right:1px solid var(--linie)}
+.side{position:sticky;top:98px;width:max-content;min-width:132px;max-width:186px;flex:none;height:calc(100vh - 98px);overflow:auto;padding:0 0 30px 14px;border-right:1px solid var(--linie)}
 body.notop .side{top:42px;height:calc(100vh - 42px)}
-.side a{display:block;position:relative;font:400 15px/1.25 Fig,sans-serif;padding:9px 34px 9px 12px;color:var(--grau);border-left:3px solid transparent}
-.side a:first-child{margin-top:8px}
+.side a{display:block;position:relative;font:400 14px/1.25 Fig,sans-serif;padding:8px 14px 8px 10px;color:var(--grau);border-left:3px solid transparent}
+.side a:first-child{margin-top:8px;padding-right:32px}
 .side a:hover{color:var(--tinte)}
 .side a.on{color:var(--akz);border-color:var(--akz);font-weight:800}
-.fold{position:absolute;right:8px;top:6px;width:24px;height:24px;font:700 17px/22px Fig;color:var(--grau);border-radius:50%}.fold:hover{background:var(--flieder)}
+.fold{position:absolute;right:5px;top:4px;width:24px;height:24px;font:700 17px/22px Fig;color:var(--grau);border-radius:50%}.fold:hover{background:var(--flieder)}
 .fold.fx{position:sticky;top:106px;margin:8px 0 0 8px;flex:none}
 .ct{flex:1;min-width:0}
-.rand{position:sticky;top:98px;flex:none;width:40px;height:calc(100vh - 98px);background:var(--akz);color:#fff;display:flex;flex-direction:column;align-items:center;padding:22px 0 16px}
-body.notop .rand{top:42px;height:calc(100vh - 42px)}
-.rand b{writing-mode:vertical-rl;font:700 16px/1 Spartan,sans-serif;letter-spacing:-.01em;white-space:nowrap;flex:1}
-.rand i{border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:17px solid #fff;margin-bottom:10px}
-.rand a{font:800 13px/1 Spartan,sans-serif;white-space:nowrap}.rand a:hover{text-decoration:underline}
-body.ohnerand .rand{display:none}
 
 /* Leseseiten */
-.lesen{padding:30px 40px 60px;max-width:1040px}
+.lesen{padding:30px 40px 60px;max-width:1100px}
 .lesen h1{font-size:40px;color:var(--akz);margin-bottom:18px}
 .leer{height:340px;border-radius:14px;background:var(--flieder);display:grid;place-items:center;cursor:pointer}
 .leer img{height:86px;opacity:.28}.leer:hover img{opacity:.5}
@@ -157,5 +151,6 @@ body.ohnerand .rand{display:none}
 .modal>div{background:#fff;border-radius:14px;padding:20px;width:min(620px,94vw);max-height:90vh;overflow:auto}
 .gzoom{position:fixed;inset:0;background:#17111fe6;z-index:70;display:grid;place-items:center;cursor:zoom-out}.gzoom img{max-width:94vw;max-height:94vh}
 
-@media (max-width:1100px){.akten,.arc{padding:0 24px;gap:16px}.vault{padding:30px 24px}.side{width:200px}}
+@media (max-width:1100px){.akten,.arc{padding:0 24px;gap:16px}.vault{padding:30px 24px}}
 .topbar .tm-book svg,.topbar .tm-info svg,.topbar .tm-sg svg{width:21px;height:21px}
+.lesen h1 .pg,.arkd .wm .pg{font:400 12px Fig,sans-serif;letter-spacing:0;margin-left:10px;align-self:center}

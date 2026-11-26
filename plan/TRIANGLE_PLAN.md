@@ -2,9 +2,9 @@
 
 Stand 26. Nov. 2026 · **Etappe 0 und 1 gebaut** (Gerüst, Startseite). Als Nächstes: Etappe 2 (Handbuch).
 
-**Was steht:** `index.html`, `style.css`, `js/app.js` (Router, Kopfzeile mit Bereichsfarbe, Unterleiste, Seitenleiste mit ‹, Randreiter, Menü, Esc/h, Playwall-Tasten), `js/data/` (buecher, nav, ark, einsaetze, playwall-index, galerie-*), `js/suche.js`, `shared/info/triangle.js`. Startseite fertig. ARK-Auswahl (3×3 mit Bildern) und Detailseite mit Bild, Playwall-Codefeld (öffnet bis zum Einbau der Dokumente die Buchseite), Einsatz-Kopf mit Titelbild. Leseseiten zeigen bis zum Einbau der Texte ein Feld, das die Buchseite öffnet.
+**Was steht:** `index.html`, `style.css`, `js/app.js` (Router, Kopfzeile mit Bereichsfarbe, Unterleiste, schmale Seitenleiste mit ‹, Menü, Esc/h, Playwall-Tasten), `js/data/` (buecher, nav, ark, einsaetze, playwall-index, galerie-*), `js/suche.js`, `shared/info/triangle.js`. Startseite fertig. ARK-Auswahl (3×3 mit Bildern) und Detailseite mit Bild, Playwall-Codefeld (öffnet bis zum Einbau der Dokumente die Buchseite), Einsatz-Kopf mit Titelbild. Leseseiten zeigen bis zum Einbau der Texte ein Feld, das die Buchseite öffnet.
 **Wo Inhalte hinkommen:** `TA_TEXT["h/<unterpunkt>/<abschnitt>"]`, `TA_TEXT["w/…"]`, `TA_TEXT["ark/<art>/<id>"]`, `TA_TEXT["pw/<code>"]` – HTML-Zeichenketten, je Bereich eine Datei unter `js/data/`, in `index.html` vor `app.js` einbinden und in `sw.js` eintragen.
-**Noch nicht da:** Taste „m“ (kommt mit den Plänen der Einsätze), Abschalter für den Randreiter (Klasse `ohnerand` am `body` ist vorbereitet), Hinweistexte beim Überfahren der eigenen Knöpfe macht `toolmenu.js`.
+**Noch nicht da:** Taste „m“ (kommt mit den Plänen der Einsätze), Hinweistexte beim Überfahren der eigenen Knöpfe macht `toolmenu.js`.
 
 Entwürfe: `plan/triangle/mockups/01…07_*.jpg` (Quelltext in `mockups/src/`). Bilder: `triangle/img/`. Inventar: `plan/triangle/bilder-inventar.tsv`. Skripte: `plan/triangle/skripte/`.
 
@@ -23,7 +23,7 @@ Das Regelbuch gibt sich als Firmenunterlage der Agency und hat drei Teile mit je
 
 1. **Field Agent Manual** (S. 8–135) – weiße Seiten, Rot als Hausfarbe, große Dreiecke, zweifarbige Überschriften (Rot + Blau), Piktogramme, Kästen mit dünnem rotem Rand, rechts ein senkrechter roter Reiter mit Abschnittsname, Dreieck und Seitenzahl. Die ARC-Seiten wechseln die Farbe: **Anomaly blau, Reality gelb, Competency rot**; jede der 27 Wahlmöglichkeiten hat eine eigene Illustration und einen eigenen Titelschriftzug.
 2. **General Manager's Toolkit** (S. 136–197) – dasselbe Handbuch, aber „gekapert“: blaue Balken mit Zwischenrufen quer über den Text, blaue Kleckse, schief gesetztes Inhaltsverzeichnis. Ab S. 162 kippt es in ein altes Betriebssystem („AgencyOS läuft im abgesicherten Modus“): Fenster mit Titelleisten, Taskleiste, Fehlermeldungen, der blaue Schreibtisch-Helfer mit Auge, Malprogramm-Seiten, Intranet-Seiten.
-3. **Playwalled Documents** (S. 198–293) – rund 205 Dokumente mit Code (A1 … Z3), die man nur auf Anweisung öffnen darf. Seitenrand mit Code-Reiter (rot, blau, gelb), blaue Kleckse, einzelne ganzseitige Bilder.
+3. **Playwalled Documents** (S. 198–293) – 206 Dokumente mit Code (A1 … Z3), die man nur auf Anweisung öffnen darf. Seitenrand mit Code-Reiter (rot, blau, gelb), blaue Kleckse, einzelne ganzseitige Bilder.
 
 Der Vault hält sich an ein festes Gerüst je Einsatz, gibt aber **jedem Einsatz eine eigene Welt**: eigene Farbe, eigener Titelschriftzug, eine Eröffnungsseite als Fundstück (Forum, Zeitungsartikel, Chat, Abschrift …).
 
@@ -31,7 +31,7 @@ Der Vault hält sich an ein festes Gerüst je Einsatz, gibt aber **jedem Einsatz
 - **Farben:** Rot `#c8202f`, Blau `#2d50a7`, Gelb `#eaa91c`, Tinte `#2a1b45` (Text und dunkle Flächen), Flieder `#ecebf4` (Kastenflächen), Linie `#d9d6e6`. Hintergrund weiß.
 - **Schriften:** Überschriften im Buch ITC Avant Garde Bold (eng gesetzt) → *League Spartan* 700–900, Laufweite −0,035 em. Fließtext Articulat CF → *Figtree*. Schreibmaschine (Space, Abschriften) → *Courier Prime*. Pixel (ROM Dump, GRIDHOG) → *Pixelify Sans*, *Press Start 2P*, *VT323*.
 - **Kopfzeile wechselt die Farbe mit dem Bereich** – wie die Randreiter im Buch: Handbuch rot, ARK je nach Unterpunkt blau/gelb/rot, Werkzeug blau, Playwall Tinte, Einsätze in der Farbe des Einsatzes. Aktiver Reiter weiß, geht in die weiße Unterleiste über; aktiver Unterpunkt mit Linie am unteren Rand.
-- **Randreiter rechts** (40 px, Bereichsfarbe) mit Abschnittsname senkrecht, Dreieck und der einen Seitenangabe („S. 60“, öffnet das PDF). Ersetzt die Seitenangabe im Titel; keine Brotkrumen.
+- **Kein Randreiter.** Seitenangabe einmal klein hinter dem Titel („S. 60“, öffnet das PDF); keine Brotkrumen. Seitenleisten schmal (höchstens 186 px, so breit wie der längste Eintrag).
 - **Dreiecke** sind reine Geometrie → als CSS/SVG gebaut, nicht als Bild (Abschnitts-Dreiecke, Aufzählungszeichen ▸, ARK-Abzeichen, Würfel-Symbol).
 - **Kästen:** dünner Rand in Bereichsfarbe, Radius 12–14 px, weiß; Hinweis-/Frage-Kästen auf Flieder.
 - **Ladeschirm:** weißes Dreieck, das sich aus drei Linien aufbaut, auf Rot. Kein Text.
@@ -71,7 +71,7 @@ Setting-Dropdown (Weitere Systeme): **Triangle Agency**, ohne Untersettings – 
 Darstellung: bis S. 161 normale Leseseiten, aber mit den blauen Zwischenrufen an Ort und Stelle (schief, als blaue Balken – sie gehören zum Text und werden mit übersetzt). Ab S. 162 liegt der Inhalt in einem Fenster auf dunklem Schreibtisch mit Taskleiste; der Helfer mit Auge und seine gelben Sprechblasen stehen daneben. Fenstertitel je Buchprogramm: „MeinHandbuch 1999“, „Express 3.0“, „Intranet Adventurer 3“, „WorkScape“. Kopfzeile, Unterleiste und Seitenleiste bleiben wie überall.
 
 ### Playwall
-- Links (Tinte): „WARTE!“, Code-Anzeige (Buchstabe + Zahl), Buchstabenfeld A–Z, darunter die Nummern des Buchstabens, darunter „Freigegeben“ mit allen bisher geöffneten Codes. Eintippen per Tastatur geht auch (Buchstabe, Zahl, Enter).
+- Links (Tinte): „WARTE!“, Code-Anzeige (Buchstabe + Zahl), Buchstabenfeld A–Z, darunter **nur die Nummern, die es für den Buchstaben gibt** (Z zeigt 1–3), darunter „Freigegeben“ mit allen bisher geöffneten Codes. Eintippen per Tastatur geht auch (Buchstabe, Zahl, Enter).
 - Rechts das Dokument auf Weiß mit blauem Klecks und rotem Code-Reiter (Code, Titel, Seite).
 - **Querverweise:** Jeder Code im Tool (Frage-Antwort-Kästen der Fähigkeiten, „GEHE ZU: A1“, Verweise in Dokumenten) öffnet das Dokument als Pop-up und trägt es unter „Freigegeben“ ein. Die drei Kästchen vor einem Code sind anklickbar (Fortschritt je Agent im Spielstand).
 - Dokument-Arten: Fähigkeiten (wie ARK-Karten), Beförderungen mit Anforderungen (Karten mit Preis und Bild), Laufbahn-Stufen, Ruhestands-Optionen (gelb markierte Passagen), ganzseitige Bilder, A1 Einsatzbericht (ausfüllbar), A2 Ripple Gun Ultima (dunkle Sonderseite), X1 The Abnormal Briefcase.
@@ -203,12 +203,12 @@ triangle/
 ```
 
 ## Etappen (Bau nach Freigabe, je Etappe Screenshots und Push)
-0. **Gerüst:** Ordner neu aufsetzen (Platzhalter `sys.js`/`sysstart` ablösen), Schriften, Kopfzeile mit Bereichsfarben, Randreiter, Ladeschirm, Logo, PDF-Upload für alle vier PDFs (Buch-Knopf mit Auswahl: Regelbuch, The Vault, Space).
+0. **Gerüst:** Ordner neu aufsetzen (Platzhalter `sys.js`/`sysstart` ablösen), Schriften, Kopfzeile mit Bereichsfarben, Ladeschirm, Logo, PDF-Upload für alle vier PDFs (Buch-Knopf mit Auswahl: Regelbuch, The Vault, Space).
 1. **Startseite** nach Entwurf 01.
 2. **Handbuch** S. 8–55 und 122–135 (übersetzen, Kästen als Karten, Piktogramme).
 3. **ARK:** 27 Einträge, Fragebogen; Titelschriftzüge schneiden.
 4. **Werkzeug** S. 136–161, dann der Betriebssystem-Teil S. 162–197 mit Fenstern und Helfer.
-5. **Playwall:** 205 Dokumente (in vier Schüben A–F, G–L, M–R, S–Z), Codefeld, Querverweise aus Etappe 3.
+5. **Playwall:** 206 Dokumente (in vier Schüben A–F, G–L, M–R, S–Z), Codefeld, Querverweise aus Etappe 3.
 6. **Einsatzbericht (A1).** Der Agentenbogen folgt als letzte Etappe nach 10.
 7. **Einsatz-Schablone + Springs Eternal** als Pilot; danach prüft Moritz Übersetzung und Aufbau.
 8. **Vault 2–12**, je Einsatz: Entwurf → Freigabe → Bau → Abgleich mit dem PDF.
@@ -218,7 +218,7 @@ triangle/
 ## Entscheidungen (Moritz, 26. Nov. 2026)
 1. **Namen der 27 ARC-Einträge bleiben englisch** – auch die Kompetenzen (PR, R&D, Barista, CEO, Intern, Gravedigger, Reception, Hotline, Clown). Der Startseiten-Entwurf zeigt sie noch teils deutsch; beim Bau englisch.
 2. **Titel der 12 Einsätze bleiben englisch**, der deutsche Titel steht klein und grau darunter (Startseiten-Streifen, Einsatz-Kopf, Suche).
-3. **Randreiter rechts bleibt** vorerst (kann später wieder raus → als eine CSS-Klasse abschaltbar bauen).
+3. **Kein Randreiter** (nach dem ersten Blick wieder gestrichen). Die Seitenangabe steht einmal klein hinter dem Titel. Der rote Code-Reiter am Playwall-Dokument bleibt.
 4. **Space: nur die Triangle-Agency-Fassung**; die Teile für das zweite Spielsystem entfallen.
 5. **Agentenbogen: deutscher Nachbau**, ganz zum Schluss. Bis dahin kein Bogen im Tool.
 6. **Playwall: umschaltbar** zwischen „Wie im Buch“ (nur Codes, Titel erst nach dem Öffnen) und „Alles offen“ (alle Codes mit Titel, frei durchsuchbar). Schalter sichtbar im Codefeld, Einstellung wird gemerkt.

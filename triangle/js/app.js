@@ -17,7 +17,7 @@ window.addEventListener("hashchange", function(){ render(); });
 function area(id){ return TA_NAV.filter(function(a){ return a.id === id; })[0]; }
 function einsatz(id){ return id === "space" ? TA_SPACE : TA_EINSATZ.filter(function(e){ return e.id === id; })[0]; }
 
-/* ---------- Kopfzeile, Unterleiste, Randreiter ---------- */
+/* ---------- Kopfzeile, Unterleiste ---------- */
 function ktabs(r){
   document.getElementById("ktabs").innerHTML = (r === "start" || r === "e") ? "" : TA_NAV.map(function(a){
     return '<a class="' + (a.id === r ? "on" : "") + '" onclick="go(\'' + a.id + '\')">' + esc(a.t) + '</a>'; }).join("");
@@ -26,17 +26,14 @@ function unter(a, cur){
   if(!a || !a.sub.length) return "";
   return '<nav class="unter" data-unterleiste>' + a.sub.map(function(s){ return '<a class="' + (s.id === cur ? "on" : "") + '" onclick="go(\'' + a.id + '/' + s.id + '\')">' + esc(s.t) + '</a>'; }).join("") + '</nav>';
 }
-function rand(text, p, buch){
-  return '<aside class="rand"><b>' + text + '</b><i></i>' + (p ? '<a onclick="openBook(\'' + (buch || "ta_core") + '\',' + p + ')">S. ' + p + '</a>' : '') + '</aside>';
-}
 /* Seitenleiste: eine Ebene, ‹ am ersten Eintrag */
-function lay(items, body, randHtml){
+function lay(items, body){
   var side = "";
   if(items && items.length > 1){
     side = ST.fold ? '<button class="fold fx" onclick="foldSide()" title="Leiste ausklappen">›</button>' :
       '<nav class="side">' + items.map(function(x, i){ return '<a class="' + (x.on ? "on" : "") + '" onclick="go(\'' + x.go + '\')">' + (i === 0 ? '<button class="fold" onclick="event.stopPropagation();foldSide()" title="Leiste einklappen">‹</button>' : '') + esc(x.t) + '</a>'; }).join("") + '</nav>';
   }
-  return '<div class="lay' + (side ? (ST.fold ? " zu" : "") : " solo") + '">' + side + '<div class="ct">' + body + '</div>' + (randHtml || "") + '</div>';
+  return '<div class="lay' + (side ? (ST.fold ? " zu" : "") : " solo") + '">' + side + '<div class="ct">' + body + '</div>' + '</div>';
 }
 function foldSide(){ ST.fold = !ST.fold; save(); render(); }
 
@@ -68,8 +65,8 @@ function viewLesen(a, subId, secId){
   var sec = s.s.filter(function(x){ return x[0] === secId; })[0] || s.s[0];
   var items = s.s.map(function(x){ return {t:x[1].split(":")[0], go:a.id + "/" + s.id + "/" + x[0], on:x === sec}; });
   var T = TA_TEXT[a.id + "/" + s.id + "/" + sec[0]];
-  var body = '<article class="lesen' + (a.id === "w" ? " werk" : "") + '"><h1>' + esc(sec[1]) + '</h1>' + (T ? T : '<div class="leer" onclick="openBook(\'ta_core\',' + sec[2] + ')"><img src="' + Z(a.id === "w" ? "symbol-zahnrad-toolkit" : "symbol-handbuch") + '" alt=""></div>') + '</article>';
-  return unter(a, s.id) + lay(items, body, rand(esc(a.t) + " ▸ " + esc(s.t), sec[2]));
+  var body = '<article class="lesen' + (a.id === "w" ? " werk" : "") + '"><h1>' + esc(sec[1]) + pgl(sec[2]) + '</h1>' + (T ? T : '<div class="leer" onclick="openBook(\'ta_core\',' + sec[2] + ')"><img src="' + Z(a.id === "w" ? "symbol-zahnrad-toolkit" : "symbol-handbuch") + '" alt=""></div>') + '</article>';
+  return unter(a, s.id) + lay(items, body);
 }
 
 /* ---------- ARK ---------- */
@@ -80,9 +77,9 @@ function viewArk(kat, id){
   if(!x) return unter(a, kat) + '<div class="ct arkwahl" style="--c:' + FARBE[A.c] + '"><div class="g9 gross">' + A.x.map(function(q){
     return '<a onclick="go(\'ark/' + kat + '/' + q[0] + '\')"><i style="background-image:url(' + IMG("regeln/full/" + A.bild + "-" + q[0]) + ')"></i><span>' + esc(q[1]) + '</span></a>'; }).join("") + '</div></div>';
   var items = A.x.map(function(q){ return {t:q[1], go:"ark/" + kat + "/" + q[0], on:q === x}; });
-  var body = '<article class="arkd"><div class="links"><h1>' + esc(x[1]) + '</h1><div class="wm"><u>' + A.t.charAt(0) + '</u>' + esc(A.t.slice(1).toUpperCase()) + '</div>' +
+  var body = '<article class="arkd"><div class="links"><h1>' + esc(x[1]) + '</h1><div class="wm"><u>' + A.t.charAt(0) + '</u>' + esc(A.t.slice(1).toUpperCase()) + pgl(x[2]) + '</div>' +
     '<img class="art" src="' + IMG("regeln/full/" + A.bild + "-" + x[0]) + '" alt="" onclick="zoom(this.src)"></div><div class="rechts">' + (TA_TEXT["ark/" + kat + "/" + x[0]] || '') + '</div></article>';
-  return unter(a, kat) + lay(items, body, rand(esc(A.t) + " ▸ " + esc(x[1]), x[2]));
+  return unter(a, kat) + lay(items, body);
 }
 
 /* ---------- Playwall: Codefeld (Dokumente folgen), öffnet bis dahin die Buchseite ---------- */

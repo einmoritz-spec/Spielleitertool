@@ -458,3 +458,8 @@ h2 .an,h1 .an{color:var(--blau)}
 .lay.zu .lesen.werk:has(.wkf-s190){max-width:1100px}
 .lay.zu .lesen.werk{max-width:none;padding-left:14px;padding-right:28px}
 .lay.zu .lesen.werk:has(.wkf-s190){max-width:1100px}
+/* Werkzeug eingeklappt: ohne Überschrift, Seitenzahl klein unten rechts */
+.lay.zu .lesen.werk{position:relative;padding-top:12px;padding-bottom:40px}
+.lay.zu .lesen.werk>h1{font-size:0;line-height:0;margin:0;height:0}
+.lay.zu .lesen.werk>h1 .pg{position:absolute;right:28px;bottom:14px;margin:0;font:400 12px Fig,sans-serif;color:var(--grau)}
+.lay.zu .lesen.werk>h1 .pg:hover{color:var(--akz)}

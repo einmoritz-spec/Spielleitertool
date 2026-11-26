@@ -1294,3 +1294,17 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .gfl .wch span.on{background:var(--blau);color:#fff;border-color:var(--blau)}
 .gx-w{width:auto;min-width:56px;flex:none}
 .gx-w b{white-space:nowrap}
+
+/* Gegner-Karten: Inhalt senkrecht mittig, Widerstand abgesetzt */
+.gx{align-items:stretch;min-height:92px}
+.gx-t{display:flex;flex-direction:column;justify-content:center;padding:10px 6px 10px 14px}
+.gx-o{margin-top:3px}
+.gx-w{justify-content:center;align-items:center;text-align:center;padding:0 12px;min-width:62px;margin:12px 0;border-left:1px solid #dde5f0}
+.gx-w b{white-space:nowrap;line-height:1}
+.gx-w.lang b{font-size:21px;letter-spacing:0}
+.gx-w small{margin-top:4px}
+.gx-p{bottom:7px;right:auto;left:auto;top:7px;right:7px}
+.gx:hover .gx-w{opacity:1}
+.gx-p{display:none}
+.gx:hover .gx-p{display:grid}
+.gx.inb::after{top:auto;bottom:9px;right:9px}

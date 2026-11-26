@@ -632,6 +632,50 @@ window.SP_ERW_BOOKS = [
   ]
  },
  {
+  "id": "bd",
+  "buch": "s3",
+  "bid": "sp_s3",
+  "t": "Blood and Dust",
+  "sub": "Kampagnenrahmen",
+  "off": 2,
+  "gruppen": [
+   {
+    "id": "start",
+    "t": "Kampagne"
+   },
+   {
+    "id": "figuren",
+    "t": "Spielercharaktere"
+   }
+  ],
+  "kap": [
+   {
+    "id": "kampagne",
+    "t": "Blood and Dust",
+    "g": "start",
+    "s": "Ein Kampagnenrahmen",
+    "p": 1,
+    "pe": 8,
+    "f": "bd-kampagne.js",
+    "img": "erw/bd/bd_004_01",
+    "n": 2,
+    "h": 22
+   },
+   {
+    "id": "charaktere",
+    "t": "Vorgefertigte Charaktere",
+    "g": "figuren",
+    "s": "Fünf Spielercharaktere",
+    "p": 10,
+    "pe": 18,
+    "f": "bd-charaktere.js",
+    "img": "klasse/firebrand",
+    "n": 0,
+    "h": 19
+   }
+  ]
+ },
+ {
   "id": "cod",
   "buch": "z2",
   "bid": "sp_z2",

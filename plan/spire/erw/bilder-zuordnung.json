@@ -4,7 +4,7 @@
 "p": 1,
 "src": "erw/sin/sin_001_01",
 "w": 1061,
-"h": 1500,
+"h": 1254,
 "kap": "einleitung"
 },
 {
@@ -18,7 +18,7 @@
 "p": 12,
 "src": "erw/sin/sin_012_01",
 "w": 1061,
-"h": 1500,
+"h": 1337,
 "kap": "klassen"
 },
 {
@@ -60,14 +60,14 @@
 "p": 29,
 "src": "erw/sin/sin_029_01",
 "w": 1061,
-"h": 1500,
+"h": 1298,
 "kap": "red-row"
 },
 {
 "p": 41,
 "src": "erw/sin/sin_041_01",
 "w": 1061,
-"h": 1500,
+"h": 1361,
 "kap": "schreine"
 },
 {
@@ -109,7 +109,7 @@
 "p": 60,
 "src": "erw/sin/sin_060_01",
 "w": 1061,
-"h": 1500,
+"h": 1254,
 "kap": "up-spire"
 },
 {
@@ -165,7 +165,7 @@
 "p": 97,
 "src": "erw/sin/sin_097_01",
 "w": 1061,
-"h": 1500,
+"h": 1254,
 "kap": "ordnung"
 },
 {
@@ -186,7 +186,7 @@
 "p": 118,
 "src": "erw/sin/sin_118_01",
 "w": 540,
-"h": 1500,
+"h": 1285,
 "kap": "lokales-recht"
 },
 {
@@ -200,14 +200,14 @@
 "p": 131,
 "src": "erw/sin/sin_131_02",
 "w": 412,
-"h": 483,
+"h": 399,
 "kap": "kolonialherrschaft"
 },
 {
 "p": 134,
 "src": "erw/sin/sin_134_01",
 "w": 1061,
-"h": 1500,
+"h": 1272,
 "kap": "brother-harvest"
 },
 {
@@ -228,7 +228,7 @@
 "p": 149,
 "src": "erw/sin/sin_149_01",
 "w": 1100,
-"h": 1231,
+"h": 1117,
 "kap": "brother-harvest"
 },
 {
@@ -256,7 +256,7 @@
 "p": 157,
 "src": "erw/sin/sin_157_01",
 "w": 1061,
-"h": 1500,
+"h": 1254,
 "kap": "ministerium-kirche"
 },
 {
@@ -270,7 +270,7 @@
 "p": 167,
 "src": "erw/sin/sin_167_01",
 "w": 1061,
-"h": 1500,
+"h": 1254,
 "kap": "karmesinrote-wacht"
 },
 {
@@ -305,7 +305,7 @@
 "p": 189,
 "src": "erw/sin/sin_189_01",
 "w": 1061,
-"h": 1500,
+"h": 1255,
 "kap": "sonnenkirche-viele"
 },
 {
@@ -347,7 +347,7 @@
 "p": 222,
 "src": "erw/sin/sin_222_01",
 "w": 1061,
-"h": 1500,
+"h": 1364,
 "kap": "kulte"
 },
 {
@@ -405,196 +405,196 @@
 "p": 6,
 "src": "erw/str/str_006_01",
 "w": 1100,
-"h": 1424,
+"h": 1190,
 "kap": "klassen"
 },
 {
 "p": 12,
 "src": "erw/str/str_012_01",
 "w": 1100,
-"h": 1424,
+"h": 1190,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 14,
 "src": "erw/str/str_014_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 16,
 "src": "erw/str/str_016_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 22,
 "src": "erw/str/str_022_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 24,
 "src": "erw/str/str_024_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 28,
 "src": "erw/str/str_028_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 32,
 "src": "erw/str/str_032_01",
 "w": 1100,
-"h": 1424,
+"h": 1231,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 34,
 "src": "erw/str/str_034_01",
 "w": 1100,
-"h": 1424,
+"h": 1231,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 36,
 "src": "erw/str/str_036_01",
 "w": 1100,
-"h": 1424,
+"h": 1231,
 "kap": "hohe-gesellschaft"
 },
 {
 "p": 42,
 "src": "erw/str/str_042_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 48,
 "src": "erw/str/str_048_01",
 "w": 1100,
-"h": 1424,
+"h": 1215,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 50,
 "src": "erw/str/str_050_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 54,
 "src": "erw/str/str_054_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 56,
 "src": "erw/str/str_056_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 58,
 "src": "erw/str/str_058_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 60,
 "src": "erw/str/str_060_01",
 "w": 1100,
-"h": 1424,
+"h": 1190,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 64,
 "src": "erw/str/str_064_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 68,
 "src": "erw/str/str_068_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "niedere-gesellschaft"
 },
 {
 "p": 72,
 "src": "erw/str/str_072_01",
 "w": 1100,
-"h": 1424,
+"h": 1190,
 "kap": "szenarien"
 },
 {
 "p": 84,
 "src": "erw/str/str_084_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "eye-of-the-beholder"
 },
 {
 "p": 92,
 "src": "erw/str/str_092_01",
 "w": 1100,
-"h": 1424,
+"h": 1229,
 "kap": "home-is-where-the-hatred-is"
 },
 {
 "p": 94,
 "src": "erw/str/str_094_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "home-is-where-the-hatred-is"
 },
 {
 "p": 108,
 "src": "erw/str/str_108_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "bisquiet"
 },
 {
 "p": 116,
 "src": "erw/str/str_116_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "fall-of-glasshelm"
 },
 {
 "p": 124,
 "src": "erw/str/str_124_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "fall-of-glasshelm"
 },
 {
 "p": 128,
 "src": "erw/str/str_128_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "better-the-devil"
 },
 {
 "p": 134,
 "src": "erw/str/str_134_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "better-the-devil"
 },
 {
@@ -608,42 +608,42 @@
 "p": 140,
 "src": "erw/str/str_140_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "better-the-devil"
 },
 {
 "p": 152,
 "src": "erw/str/str_152_01",
 "w": 1100,
-"h": 1424,
+"h": 1229,
 "kap": "the-forgotten"
 },
 {
 "p": 164,
 "src": "erw/str/str_164_01",
 "w": 1100,
-"h": 1424,
+"h": 1190,
 "kap": "ironshrike"
 },
 {
 "p": 172,
 "src": "erw/str/str_172_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "sulphurous-presses"
 },
 {
 "p": 180,
 "src": "erw/str/str_180_01",
 "w": 1100,
-"h": 1424,
+"h": 1229,
 "kap": "sulphurous-presses"
 },
 {
 "p": 190,
 "src": "erw/str/str_190_01",
 "w": 1100,
-"h": 1424,
+"h": 1231,
 "kap": "lines-in-the-dirt"
 },
 {
@@ -657,7 +657,7 @@
 "p": 198,
 "src": "erw/str/str_198_01",
 "w": 1100,
-"h": 1424,
+"h": 1230,
 "kap": "lines-in-the-dirt"
 },
 {
@@ -685,14 +685,14 @@
 "p": 222,
 "src": "erw/str/str_222_01",
 "w": 1100,
-"h": 1424,
+"h": 1207,
 "kap": "kulte"
 },
 {
 "p": 224,
 "src": "erw/str/str_224_01",
 "w": 1100,
-"h": 1424,
+"h": 1196,
 "kap": "kulte"
 }
 ],
@@ -726,6 +726,15 @@
 "kap": "daemonen"
 }
 ],
+"bd": [
+{
+"p": 4,
+"src": "erw/bd/bd_004_01",
+"w": 1100,
+"h": 1190,
+"kap": "kampagne"
+}
+],
 "cod": [
 {
 "p": 3,
@@ -745,7 +754,7 @@
 "p": 15,
 "src": "erw/cod/cod_015_01",
 "w": 524,
-"h": 699,
+"h": 601,
 "kap": "codex"
 }
 ],

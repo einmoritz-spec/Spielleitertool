@@ -7,7 +7,7 @@ from PIL import Image
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 TMP = "/tmp/erwimg"
 OUT = os.path.join(ROOT, "spire/img/erw")
-COVER = {"sin": ("sin_S001_01", "sp_s1"), "str": ("str_S-04_01", "sp_s2"), "cod": ("cod_S-01_01", "sp_z2")}
+COVER = {"sin": ("sin_S001_01", "sp_s1"), "str": ("str_S-04_01", "sp_s2"), "cod": ("cod_S-01_01", "sp_z2"), "bd": ("bd_S-01_01", "sp_s3")}
 
 def stat(im):
     im = im.convert("RGB"); im.thumbnail((120, 120)); px = list(im.getdata()); n = len(px)
@@ -16,9 +16,18 @@ def stat(im):
     white = sum(1 for r, g, b in px if r > 235 and g > 235 and b > 235)
     return slate / n, pale / n, white / n
 
+def kasten_ab(im):
+    """Bildunterschrift-Kasten (schwarzer Papierfetzen unten rechts) abschneiden: reine Illustration."""
+    import numpy as np
+    a = np.array(im.convert("L")); h, w = a.shape; x0 = int(w * .55)
+    for y in range(int(h * .84), int(h * .92)):
+        if (a[y, x0:] < 40).mean() > 0.55:
+            return im.crop((0, 0, w, y - 6))
+    return im
+
 def main():
     keep = {}
-    for b in ["sin", "str", "bm", "cod", "skfs", "sop"]:
+    for b in ["sin", "str", "bm", "cod", "skfs", "sop", "bd"]:
         os.makedirs(os.path.join(OUT, b), exist_ok=True)
         for f in sorted(glob.glob("%s/%s/*.webp" % (TMP, b))):
             name = os.path.basename(f)[:-5]
@@ -34,6 +43,9 @@ def main():
             if p < 1: continue          # Cover/Titel
             if w < 200 or h < 150: continue
             im = im.convert("RGB"); im.thumbnail((1100, 1500))
+            g = im.convert("L"); gw, gh = g.size
+            if gw / gh > 4 and sum(1 for v in g.resize((60, 15)).getdata() if v < 40) > 0.7 * 900: continue   # schwarzes Textband
+            im = kasten_ab(im)
             dn = "%s_%03d_%s" % (b, p, m.group(2))
             im.save(os.path.join(OUT, b, dn + ".webp"), quality=80)
             keep.setdefault(b, []).append({"p": p, "src": "erw/%s/%s" % (b, dn), "w": im.width, "h": im.height})

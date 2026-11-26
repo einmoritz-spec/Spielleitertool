@@ -123,7 +123,7 @@ function gTog(id){
 function gegnerBrowser(L){ return L.length ? '<div class="gx-wrap">' + gRaster(L) + '</div>' : ""; }
 /* ---------- Gegner-Seite (#gegner): Baum nach Domäne links, Suche + Filter, Karten, Werteblock rechts ---------- */
 var GQ = "";
-var ERW_G = {s1:"Sin", s2:"Strata", z4:"Black Magic", z2:"Codex of the Deep Spire", z5:"Secrets Kept from the Sun", z3:"Shadow Operations"};
+var ERW_G = {s1:"Sin", s2:"Strata", z4:"Black Magic", z2:"Codex of the Deep Spire", z5:"Secrets Kept from the Sun", z3:"Shadow Operations", s3:"Blood and Dust"};
 function gKey(g){
   var m = /^stadt\/([a-z]+)\//.exec(g.ziel || ""); if(m) return m[1];
   if(ERW_G[g.buch]) return "erw-" + g.buch; if(g.buch === "gm") return "mg"; if(g.id === "standard") return "regeln"; if(g.buch === "qs") return "snuff"; return "sonst";

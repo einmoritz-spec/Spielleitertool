@@ -47,3 +47,5 @@ body[data-erw="sin"] .eb-kopf{background:linear-gradient(180deg,#160f1e 0%,#2a1d
 .erw .tbl{width:100%}
 .erw>.hwk{clear:both}
 .side a.sub{font-size:13.5px;color:var(--grau)}
+body[data-erw="bd"]{--blau:#5a2a1b;--wein:#b4531f;--acc:#b4531f}
+.wrap.zu .erw{margin:0 auto}

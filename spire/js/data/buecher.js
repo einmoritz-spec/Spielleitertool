@@ -8,7 +8,7 @@ var SP_BUECHER = [
  {grp:"Setting", items:[
   {id:"sp_s1", name:"Sourcebook: Sin", lang:"EN", off:0, pre:"Sin ", cover:true},
   {id:"sp_s2", name:"Sourcebook: Strata", lang:"EN", off:5, pre:"Strata ", cover:true},
-  {id:"sp_s3", name:"Blood and Dust", lang:"EN", cover:true, abenteuer:"Blood and Dust"}]},
+  {id:"sp_s3", name:"Blood and Dust", lang:"EN", cover:true, abenteuer:"Blood and Dust", off:2, pre:"BD "}]},
  {grp:"Abenteuer", items:[
   {id:"sp_a1", name:"Campaign Frame: The Kings of Silver", lang:"EN", off:2, pre:"KoS ", cover:true, abenteuer:"The Kings of Silver"},
   {id:"sp_a2", name:"Eidolon Sky", lang:"EN", off:2, pre:"ES ", cover:true, abenteuer:"Eidolon Sky"}]},

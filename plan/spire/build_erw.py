@@ -11,7 +11,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SRC = os.path.join(ROOT, "quellen/spire/de")
 OUT = os.path.join(ROOT, "spire/js/data/erw")
 TERM = tuple('.!?:“”"»«)]*…;')
-KLEIN = {"der", "die", "das", "den", "dem", "des", "von", "im", "und", "zu", "um", "mit", "auf", "in", "am", "ein", "eine", "de", "ist",
+KLEIN = {"and", "der", "die", "das", "den", "dem", "des", "von", "im", "und", "zu", "um", "mit", "auf", "in", "am", "ein", "eine", "de", "ist",
          "nie", "nicht", "zum", "zur", "vom", "für", "gegen", "bei", "nach", "über", "oder", "als", "wie", "dein", "mein", "wird", "aus",
          "vor", "passiert", "an", "unter", "ohne", "bis", "durch", "was", "wer", "wo", "es", "sie", "er", "man", "so", "da", "dort"}
 BEHALTEN = {"ADF", "NSC", "SL", "SC", "ADFS", "KI", "II", "III", "IV", "VII", "XIII"}
@@ -74,6 +74,12 @@ BOOKS = [
          ("b04-daemonen", "daemonen", "Dämonen", "magie", "Dämonen des Spire", {}),
          ("b06-okkulter-fallout", "okkulter-fallout", "Okkulter Fallout", "magie", "Fallout-Liste", {}),
      ]},
+    {"id": "bd", "dir": "bd", "buch": "s3", "bid": "sp_s3", "t": "Blood and Dust", "sub": "Kampagnenrahmen", "kasten": "schwarz", "off": 2,
+     "gruppen": [("start", "Kampagne"), ("figuren", "Spielercharaktere")],
+     "kap": [
+         ("d01-kampagne", "kampagne", "Blood and Dust", "start", "Ein Kampagnenrahmen", {"von_seite": 1}),
+         ("d02-vorgefertigte-charaktere", "charaktere", "Vorgefertigte Charaktere", "figuren", "Fünf Spielercharaktere", {"ohne_bogen": True, "figuren": True, "von_seite": 9, "bild": "klasse/firebrand"}),
+     ]},
     {"id": "cod", "dir": "cod", "buch": "z2", "bid": "sp_z2", "t": "Codex of the Deep Spire", "sub": "Sourcebook", "kasten": "schwarz", "off": 2,
      "gruppen": [("start", "Codex")],
      "kap": [("c01-codex", "codex", "Codex of the Deep Spire", "start", "Die Spiegelwelt und ihre Unholde", {})]},
@@ -129,15 +135,18 @@ def pretty(s):
 WEIN = {"#981a3f", "#9c1837", "#c31637", "#a9090b"}
 
 
-def parse(path, skip_h=(), stop_at=()):
+def parse(path, skip_h=(), stop_at=(), ohne_bogen=False, von_seite=None):
     """Markdown -> Items [{k:h|qh|q|p|li|tr, ...}] mit Seitenfortsetzungen."""
     items, page, pb, last = [], None, False, None
-    skipping = False
+    skipping = False; bogen = False
     for raw in open(path, encoding="utf-8"):
         ln = raw.rstrip("\n").strip()
         m = re.match(r"<!-- S\. (-?\d+) \(PDF (\d+)\) -->", ln)
         if m:
-            page = int(m.group(1)); pb = True; continue
+            page = int(m.group(1)); pb = True; bogen = False; continue
+        if ohne_bogen and ln.startswith("### Spielername"): bogen = True
+        if bogen: continue
+        if von_seite is not None and (page is None or page < von_seite): continue
         if not ln or ln.startswith("<<") or ln.startswith("(ausgelassen"):
             continue
         if re.fullmatch(r"\d+|IV|[IVX]{1,4}", ln) and pb:
@@ -159,6 +168,8 @@ def parse(path, skip_h=(), stop_at=()):
                     skipping = False
             if skipping:
                 continue
+            if re.match(r"Von [A-ZÄÖÜ]", txt) and len(txt.split()) <= 7 and col in WEIN:
+                items.append({"k": "p", "x": "*" + txt + "*", "p": page}); last = None; pb = False; continue
             items.append({"k": "h", "n": len(h.group(1)), "x": txt, "farbe": col, "p": page})
             last = None; pb = False; continue
         if skipping:
@@ -458,7 +469,7 @@ def ranks(blocks):
 def kapitel(book, row, imgs):
     fid, kid, title, grp, sub, opt = row
     path = os.path.join(SRC, book["dir"], fid + ".md")
-    items = parse(path, tuple(opt.get("skip_h", [])), tuple(opt.get("stop_at", [])))
+    items = parse(path, tuple(opt.get("skip_h", [])), tuple(opt.get("stop_at", [])), opt.get("ohne_bogen", False), opt.get("von_seite"))
     ctx = Ctx(book, kid)
     blocks, pages = build_blocks(ctx, items, book["kasten"])
     blocks, pages = nachbessern(blocks, pages)
@@ -484,6 +495,7 @@ def kapitel(book, row, imgs):
     for b in blocks:
         if isinstance(b, dict) and b.get("t") == "h":
             b["lvl"] = lv[(b["n"], 0 if b["farbe"] in WEIN else 1)]
+            if opt.get("figuren"): b["lvl"] = 1 if " – " in b["x"] else 2
             base = slug(b["x"]); seen[base] += 1
             b["id"] = base if seen[base] == 1 else base + "-" + str(seen[base])
             del b["n"]; del b["farbe"]
@@ -501,6 +513,12 @@ def kapitel(book, row, imgs):
                 pos = ix; break
         if pos is None:
             pos = len(blocks)
+        if book["id"] == "str":   # eingebrannte Bildunterschrift (kurzer schwarzer Kasten auf der Bildseite) entfällt
+            for q in range(len(blocks) - 1, -1, -1):
+                bq = blocks[q]
+                if isinstance(bq, dict) and bq.get("t") == "schwarz" and pages[q] == im["p"] and len(bq.get("b", [])) == 1 and isinstance(bq["b"][0], str) and len(bq["b"][0]) < 90:
+                    del blocks[q]; del pages[q]
+                    if q < pos: pos -= 1
         blocks.insert(pos, {"t": "img", "src": im["src"], "w": im["w"], "h": im["h"], "p": im["p"]})
         pages.insert(pos, im["p"])
     D = {"id": kid, "buch": book["id"], "t": title, "p": min(ps) if ps else None, "pe": max(ps) if ps else None, "b": blocks}
@@ -515,7 +533,7 @@ def jsw(path, s):
 def main():
     os.makedirs(OUT, exist_ok=True)
     for f in os.listdir(OUT):
-        if f.endswith(".js"):
+        if f.endswith(".js") and f != "galerie.js":
             os.remove(os.path.join(OUT, f))
     imgs = {}
     ip = os.path.join(ROOT, "plan/spire/erw/bilder-zuordnung.json")
@@ -543,7 +561,7 @@ def main():
                 nx = D["b"][ix + 1] if ix + 1 < len(D["b"]) else None
                 snip = nx if isinstance(nx, str) else ""
                 SUCHE.append([book["id"], kid, b["id"], b["x"], b.get("p"), re.sub(r"[*\[\]]", "", snip)[:140]])
-            first_img = next((b["src"] for b in D["b"] if isinstance(b, dict) and b.get("t") == "img"), None)
+            first_img = opt.get("bild") or next((b["src"] for b in D["b"] if isinstance(b, dict) and b.get("t") == "img"), None)
             B["kap"].append({"id": kid, "t": title, "g": grp, "s": sub, "p": D["p"], "pe": D["pe"], "f": None if opt.get("nur_link") else fn, "img": first_img, "n": len(G), "h": nh,
                              **({"klassen": opt["klassen"]} if "klassen" in opt else {}), **({"extra": opt["extra"]} if "extra" in opt else {}),
                              **({"nur_link": True} if opt.get("nur_link") else {}), **({"abenteuer": True} if opt.get("abenteuer") else {})})

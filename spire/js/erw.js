@@ -38,7 +38,15 @@ function erwGliedern(D, K){
   var H = D.b.map(function(b, i){ return b && b.t === "h" ? {i:i, b:b} : null; }).filter(Boolean);
   var l1 = H.filter(function(h){ return h.b.lvl === 1; }), deeper = H.length - l1.length;
   var tabbed = l1.length >= 2 && l1.length <= 9 && (K.abenteuer || deeper >= 6);
-  var vor = l1.length ? D.b.slice(0, l1[0].i).some(function(b){ return typeof b === "string" || (b && b.t !== "img"); }) : false;
+  if(tabbed){   /* nur Reiter, wenn sie wirklich Inhalt tragen – sonst eine durchgehende Seite mit Seitenleiste */
+    var voll = 0;
+    l1.forEach(function(h, k){
+      var e = k + 1 < l1.length ? l1[k + 1].i : D.b.length;
+      if(JSON.stringify(D.b.slice(h.i, e).filter(function(b){ return !(b && b.t === "img"); })).length >= 1000) voll++;
+    });
+    if(voll < l1.length) tabbed = false;
+  }
+  var vor = l1.length ? D.b.slice(0, l1[0].i).reduce(function(n, b){ return n + (typeof b === "string" ? b.length : (b && (b.t === "p" || b.t === "ul" || b.t === "schwarz" || b.t === "violett") ? JSON.stringify(b).length : 0)); }, 0) > 1200 : false;
   if(tabbed && vor && !K.abenteuer){ l1.unshift({i:0, b:{t:"h", lvl:1, x:"Überblick", id:"ueberblick", p:D.p, fake:1}}); }
   return {H:H, l1:l1, tabbed:tabbed};
 }

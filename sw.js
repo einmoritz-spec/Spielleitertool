@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1177sq";
+const VERSION = "v1179sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -2951,6 +2951,10 @@ const FILES = [
   "spire/img/cover/sp_s1.webp",
   "spire/img/cover/sp_s2.webp",
   "spire/img/cover/sp_z2.webp",
+  "spire/js/data/erw/bd-charaktere.js",
+  "spire/js/data/erw/bd-kampagne.js",
+  "spire/js/data/erw/galerie.js",
+  "spire/img/erw/bd/bd_004_01.webp",
   "spire/js/data/klasse-azurite.js",
   "spire/js/data/klasse-bound.js",
   "spire/js/data/klasse-carrion-priest.js",

@@ -1309,3 +1309,9 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .gx:hover .gx-p{display:grid}
 .gx.inb::after{top:auto;bottom:9px;right:9px}
 .gx-m span{display:inline-flex;align-items:center;height:22px;box-sizing:border-box;padding:2px 8px 0;line-height:1}
+
+.gx-m span svg{margin:-1px 5px 0 0;flex:none}
+.gx-m .gx-r2{color:#3e4f66}
+
+.gx-p{top:-11px;right:-9px;bottom:auto;left:auto;width:24px;height:24px;font-size:18px;z-index:3;box-shadow:0 3px 8px -3px rgba(13,26,39,.5)}
+.gx.inb::after{top:auto;bottom:9px;right:9px}

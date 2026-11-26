@@ -104,18 +104,22 @@ function bgPick(){
     return '<button onclick="document.querySelector(\'.modal\').remove();bgAdd(\'' + g.id + '\')"><b>' + esc(g.t) + '</b><small>Schw. ' + esc(g.schw ? g.schw.k : "·") + ' · Wid. ' + esc(gWidTxt(g)) + '</small></button>';
   }).join("") + '</div>');
 }
+function bgZeile(e, g, nr){
+  var max = gMax(g, e), s = Math.min(e.s || 0, max), ru = gRuest(g), h = "", hr = "";
+  for(var i = 0; i < max; i++) h += '<i class="' + (i < s ? 'x' : '') + '" onclick="bgStr(\'' + e.u + '\',' + i + ')"></i>';
+  for(var j = 0; j < ru; j++) hr += '<i class="' + (j < (e.r || 0) ? 'x' : '') + '" onclick="bgRue(\'' + e.u + '\',' + j + ')"></i>';
+  return '<div class="bz' + (max && s >= max ? ' aus' : '') + '">' + (nr ? '<span class="bn">' + nr + '</span>' : '') + '<span class="zw" title="Widerstand">' + h + '</span><em>' + s + '/' + max + '</em>' +
+    (ru ? '<span class="zw ru" title="Rüstung ' + ru + '">' + hr + '</span>' : '') + '<u onclick="bgDel(\'' + e.u + '\')" title="Entfernen">×</u></div>';
+}
+/* Gleiche Gegner hängen in einem Kasten untereinander: Name oben, darunter je Figur eine Zeile */
 function begLeiste(immer){
   var L = gBeg().filter(function(e){ return gById(e.id); });
   if(!L.length && !immer) return "";
-  var zaehl = {}, nr = {}; L.forEach(function(e){ zaehl[e.id] = (zaehl[e.id] || 0) + 1; });
-  var items = L.map(function(e){
-    var g = gById(e.id), max = gMax(g, e), s = Math.min(e.s || 0, max), ru = gRuest(g), h = "", hr = "";
-    nr[e.id] = (nr[e.id] || 0) + 1;
-    for(var i = 0; i < max; i++) h += '<i class="' + (i < s ? 'x' : '') + '" onclick="bgStr(\'' + e.u + '\',' + i + ')"></i>';
-    for(var j = 0; j < ru; j++) hr += '<i class="' + (j < (e.r || 0) ? 'x' : '') + '" onclick="bgRue(\'' + e.u + '\',' + j + ')"></i>';
-    return '<div class="bi' + (ST.gsel === e.id ? ' sel' : '') + (max && s >= max ? ' aus' : '') + '"><b onclick="gSel(\'' + e.id + '\')">' + esc(g.kurz || g.t) + (zaehl[e.id] > 1 ? ' <span class="bn">' + nr[e.id] + '</span>' : '') + '</b>' +
-      '<span class="zw" title="Widerstand">' + h + '</span><em>' + s + '/' + max + '</em>' +
-      (ru ? '<span class="zw ru" title="Rüstung ' + ru + '">' + hr + '</span>' : '') + '<u onclick="bgDel(\'' + e.u + '\')" title="Entfernen">×</u></div>';
+  var ids = [], grp = {}; L.forEach(function(e){ if(!grp[e.id]){ grp[e.id] = []; ids.push(e.id); } grp[e.id].push(e); });
+  var items = ids.map(function(id){
+    var g = gById(id), G = grp[id], mehr = G.length > 1;
+    return '<div class="bi' + (mehr ? ' grp' : '') + (ST.gsel === id ? ' sel' : '') + '"><b onclick="gSel(\'' + id + '\')">' + esc(g.kurz || g.t) + '</b>' +
+      (mehr ? '<span class="bk">' + G.map(function(e, k){ return bgZeile(e, g, k + 1); }).join("") + '</span>' : bgZeile(G[0], g, 0)) + '</div>';
   }).join("");
   return '<div class="begl"><h5>Begegnung</h5>' + items + '<span class="bplus" onclick="bgPick()">+ Gegner</span>' + (L.length ? '<span class="bplus" onclick="bgClear()">Leeren</span>' : '') + '<span class="sp"></span>' + stift("spiel:gegner") + '</div>';
 }

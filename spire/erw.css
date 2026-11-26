@@ -74,3 +74,38 @@ body[data-erw="bd"]{--blau:#5a2a1b;--wein:#b4531f;--acc:#b4531f}
 .erw .seitenkopf{text-align:right;margin:-6px 0 4px;height:0;position:relative;top:-2px}
 .erw .seitenkopf .pg{font-size:12px;color:#9aa8ba;margin:0;opacity:.85}
 .erw .seitenkopf .pg:hover{color:var(--wein);opacity:1}
+
+/* Buchstartseite überarbeitet: Kopf mit unscharfem Cover als Hintergrund, Karten als Bildkacheln ohne Seitenangaben */
+.eb-home{padding:0 0 70px}
+.eb-kopf{position:relative;overflow:hidden;gap:40px;align-items:center;margin:0 0 30px;padding:38px calc(50% - 632px) 38px;border-bottom:0;background:var(--nacht)!important}
+.eb-kopf::before{content:"";position:absolute;inset:-30px;background:var(--cv) center 30%/cover no-repeat;filter:blur(26px) saturate(1.1);opacity:.5;transform:scale(1.1)}
+.eb-kopf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,16,26,.82) 0%,rgba(9,16,26,.55) 55%,rgba(9,16,26,.8) 100%),linear-gradient(180deg,transparent 60%,rgba(9,16,26,.85));pointer-events:none}
+.eb-kopf>*{position:relative;z-index:1}
+.eb-cov{height:270px;box-shadow:0 18px 40px -10px rgba(0,0,0,.85);border:0}
+.eb-tt h1{font-size:68px;margin:0 0 10px}
+.eb-tt p{font-size:20px;margin:0 0 22px}
+.eb-buch{display:inline-flex;align-items:center;gap:10px;font-size:15px;padding:10px 20px;border:0;border-radius:0;background:var(--wein);color:#fff}
+.eb-buch svg{width:19px;height:19px}
+.eb-buch:hover{background:#fff;color:var(--nacht)}
+.eb-g{margin-bottom:30px}
+.eb-g h2.ab{display:flex;align-items:center;gap:14px;border:0;margin:0 0 14px;font-size:27px;color:var(--wein)}
+.eb-g h2.ab::after{content:"";flex:1;height:2px;background:var(--wein);opacity:.25;order:1}
+.eb-g h2.ab em{order:2;font:700 13px var(--f-titel);font-style:normal;background:#e6dfe3;color:var(--wein);padding:2px 10px;border-radius:99px}
+.eb-r{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.eb-r.ab{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.eb-r.kl{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.eb-k{position:relative;display:block;height:200px;padding:0;border:0;border-bottom:3px solid var(--wein);border-radius:0;background:var(--nacht);box-shadow:0 4px 14px -8px rgba(13,26,39,.6)}
+.eb-r.ab .eb-k{height:240px}
+.eb-r.kl .eb-k,.eb-k.kl{height:270px}
+.eb-k .im,.eb-r.ab .eb-k .im,.eb-k.kl .im{position:absolute;inset:0;height:auto}
+.eb-k .im img{object-position:center 22%}
+.eb-k .tx{position:absolute;left:0;right:0;bottom:0;padding:48px 16px 13px;background:linear-gradient(180deg,rgba(13,26,39,0),rgba(13,26,39,.88) 55%,rgba(13,26,39,.96));gap:3px}
+.eb-k b{color:#fff;font-size:22px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.eb-k small{color:#c0cddd;font-size:14px}
+.eb-k small:empty{display:none}
+.eb-k.ohne .tx{background:none}
+.eb-k .im.ini{background:linear-gradient(135deg,var(--blau),var(--nacht))}
+.eb-k .im.ini i{font-size:56px;margin-top:-30px}
+.eb-kopf{padding-left:max(28px,calc(50% - 632px));padding-right:max(28px,calc(50% - 632px))}
+.eb-kopf::before{opacity:.85;filter:blur(18px) saturate(1.15)}
+.eb-kopf::after{background:linear-gradient(90deg,rgba(9,16,26,.55) 0%,rgba(9,16,26,.25) 60%,rgba(9,16,26,.5) 100%),linear-gradient(180deg,rgba(9,16,26,.15),rgba(9,16,26,.55))}

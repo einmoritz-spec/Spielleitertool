@@ -209,7 +209,7 @@ function render(){
   else out = viewStart();
   if(out == null) return;
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
-  if(v !== "start" && out.indexOf('class="tabs') < 0 && out.indexOf('class="begl') < 0) out = unterleiste("") + out;
+  if(v !== "start" && out.indexOf('class="tabs') < 0 && out.indexOf('class="begl') < 0 && out.indexOf('class="eb-home') < 0) out = unterleiste("") + out;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
   document.body.dataset.view = v;
   kopfTabs();

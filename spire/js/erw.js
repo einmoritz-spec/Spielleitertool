@@ -18,14 +18,14 @@ function erwHome(bk){
   var kap = function(K){
     if(K.klassen) return K.klassen.map(function(c){ var kl = klById(c); return erwKachel("klasse/" + c, kl ? kl.t : c, "Neue Klasse", "nach/klassen/" + c, " kl"); }).join("") + (K.f ? erwKachel(K.img, K.t, "Einleitung", "buch/" + bk.id + "/" + K.id) : '');
     if(K.extra) return erwKachel(null, K.t, K.s, "nach/extra/" + K.extra);
-    return erwKachel(K.img, K.t, K.s + (K.p > 0 ? " · " + pgTxt(K.p, bk.buch) : ""), "buch/" + bk.id + "/" + K.id);
+    return erwKachel(K.img, K.t, K.s, "buch/" + bk.id + "/" + K.id);
   };
   var gr = bk.gruppen.map(function(g){
     var L = bk.kap.filter(function(k){ return k.g === g.id; }); if(!L.length) return "";
     var abenteuer = L.every(function(k){ return k.abenteuer; });
-    return '<section class="eb-g"><h2 class="ab">' + esc(g.t) + '</h2><div class="eb-r' + (abenteuer ? ' ab' : '') + '">' + L.map(kap).join("") + '</div></section>';
+    return '<section class="eb-g"><h2 class="ab">' + esc(g.t) + '<em>' + L.length + '</em></h2><div class="eb-r' + (abenteuer ? ' ab' : '') + '">' + L.map(kap).join("") + '</div></section>';
   }).join("");
-  return '<div class="eb-home"><header class="eb-kopf"><img class="eb-cov" src="' + cov + '" alt="" onclick="zoom(this.src)"><div class="eb-tt"><h1>' + esc(bk.t) + '</h1><p>' + esc(bk.sub) + '</p><a class="eb-buch" onclick="openBook(\'' + bk.bid + '\',1)">Buch öffnen</a></div></header>' + gr + '</div>';
+  return '<div class="eb-home"><header class="eb-kopf" style="--cv:url(' + cov + ')"><img class="eb-cov" src="' + cov + '" alt="" onclick="zoom(this.src)"><div class="eb-tt"><h1>' + esc(bk.t) + '</h1><p>' + esc(bk.sub) + '</p><a class="eb-buch" onclick="openBook(\'' + bk.bid + '\',1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.500C6.500 4 9.500 4 12 6c2.500-2 5.500-2 8-.500V19c-2.500-1.500-5.500-1.500-8 .5-2.500-2-5.500-2-8-.5z"/><path d="M12 6v13.500"/></svg>Buch öffnen</a></div></header>' + gr + '</div>';
 }
 
 /* ---------- Kapitel laden und gliedern ---------- */

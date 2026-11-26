@@ -122,3 +122,6 @@ body.ve-vault{background:#17111f}
 .vx-kafka.auf{max-height:none;cursor:default}.vx-kafka.auf:after{display:none}.vx-kafka h3{display:none}
 .vx-kafka .kasten{background:#222;border-color:#555}.vx-kafka .kasten *{color:#ddd}
 .vfpg{text-align:right;margin:-10px 0 4px}
+.vct:has(>.vfund){grid-template-columns:1fr;padding-right:30px}
+.vfund .vre.vschwebt{position:static;float:right;width:380px;max-height:calc(100vh - 150px);overflow:auto;margin:0 0 30px 36px;padding:0}
+@media (max-width:1400px){.vfund .vre.vschwebt{width:340px}}

@@ -110,6 +110,8 @@ function viewVault(id, r, nr){
   var body = '<article class="lesen vtext">' + (r === "profil" && i === A.findIndex(function(a){ return a.t !== "Fundstück"; }) ? vKopf(E, V) : '') +
     (sec.t === "Fundstück" ? '<p class="vfpg">' + pgl(sec.p, "ta_vault") + '</p>' : '<h1>' + esc(sec.t) + pgl(sec.p, "ta_vault") + '</h1>') + taB(sec.b) +
     (r === "nach" && i === A.length - 1 ? '<p class="vbericht"><a class="gehzu" onclick="pwPop(\'A1\')">Einsatzbericht A1</a></p>' : '') + '</article>';
+  /* Fundstück: Chaos-Spalte schwebt rechts, das Fundstück nutzt darunter die volle Breite */
+  if(sec.t === "Fundstück") return vUnter(id, V, r) + vLay(items, body.replace('<article class="lesen vtext">', '<article class="lesen vtext vfund">' + vRechts(id, V).replace('class="vre"', 'class="vre vschwebt"')));
   return vUnter(id, V, r) + vLay(items, body + vRechts(id, V));
 }
 /* Unterüberschriften (auch in Spalten) für die Seitenleiste */

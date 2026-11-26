@@ -1,0 +1,8 @@
+/* ARK › realitaet – Sonderfälle einzelner Einträge */
+.rl-dp{column-span:all;margin-top:10px}
+.rl-dp h3{font-size:19px}
+.rl-dp table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:14.5px}
+.rl-dp td{padding:8px 8px 7px 0;vertical-align:middle;border-top:1.5px solid var(--akz)}
+.rl-dp tr:first-child td{border-top:0}
+.rl-dp td:first-child{width:27%;font-size:13.5px;font:800 15px/1.15 Spartan,sans-serif;color:var(--akz);border-right:1.5px solid var(--akz);padding-right:10px}
+.rl-dp td+td{padding-left:10px;font-size:14px;line-height:1.4}

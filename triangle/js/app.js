@@ -70,15 +70,20 @@ function viewLesen(a, subId, secId){
 }
 
 /* ---------- ARK ---------- */
+/* Vorspann der ARK-Teile (S. 56–59, 78–79, 98–99): unter den Kacheln */
+function taVor(kat){
+  var v = TA_TEXT["ark/vor/" + kat], arc = kat === "anomalie" ? TA_TEXT["ark/vor/arc"] : null;
+  return (v || arc) ? '<article class="lesen arkvor">' + (v ? taB(v) : '') + (arc ? taB(arc) : '') + '</article>' : '';
+}
 function viewArk(kat, id){
   var a = area("ark"); kat = kat || "anomalie";
   if(kat === "fragebogen") return viewLesen(a, "fragebogen");
   var A = TA_ARK[kat] || TA_ARK.anomalie, x = A.x.filter(function(q){ return q[0] === id; })[0];
   if(!x) return unter(a, kat) + '<div class="ct arkwahl" style="--c:' + FARBE[A.c] + '"><div class="g9 gross">' + A.x.map(function(q){
-    return '<a onclick="go(\'ark/' + kat + '/' + q[0] + '\')"><i style="background-image:url(' + IMG("regeln/full/" + A.bild + "-" + q[0]) + ')"></i><span>' + esc(q[1]) + '</span></a>'; }).join("") + '</div></div>';
+    return '<a onclick="go(\'ark/' + kat + '/' + q[0] + '\')"><i style="background-image:url(' + IMG("regeln/full/" + A.bild + "-" + q[0]) + ')"></i><span>' + esc(q[1]) + '</span></a>'; }).join("") + '</div>' + taVor(kat) + '</div>';
   var items = A.x.map(function(q){ return {t:q[1], go:"ark/" + kat + "/" + q[0], on:q === x}; });
   var T = TA_TEXT["ark/" + kat + "/" + x[0]] || {};
-  var body = '<article class="arkd lesen k-' + kat + '"><div class="links"><h1>' + esc(x[1]) + '</h1><div class="wm"><u>' + A.t.charAt(0) + '</u>' + esc(A.t.slice(1).toUpperCase()) + pgl(x[2]) + '</div>' +
+  var body = '<article class="arkd lesen k-' + kat + '"><div class="links"><h1 style="font-size:min(112px,7.6vw,' + (60 / x[1].length).toFixed(1) + 'vw)">' + esc(x[1]) + '</h1><div class="wm"><u>' + A.t.charAt(0) + '</u>' + esc(A.t.slice(1).toUpperCase()) + pgl(x[2]) + '</div>' +
     '<img class="art" src="' + IMG("regeln/full/" + A.bild + "-" + x[0]) + '" alt="" onclick="zoom(this.src)">' + (T.motto ? '<h2 class="motto">' + tx(T.motto) + '</h2>' : '') + (T.l ? '<div class="besch">' + taB(T.l) + '</div>' : '') + '</div>' +
     '<div class="rechts">' + (T.r ? taB(T.r) : '') + '</div></article>';
   return unter(a, kat) + lay(items, body);

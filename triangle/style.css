@@ -299,7 +299,7 @@ h2 .an,h1 .an{color:var(--blau)}
 .arkd.lesen{font-size:15.5px}
 .arkd h1{margin-bottom:0}.arkd .art{max-height:440px;margin-bottom:6px}
 .arkd .motto{font-size:27px;color:var(--akz);margin:6px 0 12px}
-.arkd .besch{columns:2;column-gap:26px}.arkd .besch p{break-inside:avoid}.arkd .besch>.w4{break-inside:avoid;margin-top:4px}
+.arkd .besch{columns:2;column-gap:26px}.arkd .besch p{orphans:3;widows:3}.arkd .besch>.w4{break-inside:avoid;margin-top:4px}
 .arkd .rechts{padding-top:6px;min-width:0}
 .k-anomalie .besch .an{color:inherit}
 .fk{display:grid;grid-template-columns:1fr 240px;gap:18px;padding:16px 0 14px;border-bottom:1px solid var(--linie)}.fk:first-child{padding-top:0}.fk:last-child{border:0}
@@ -334,3 +334,6 @@ h2 .an,h1 .an{color:var(--blau)}
 .selbst b{font:800 15px/1.2 Spartan,sans-serif}.selbst .dl{margin:4px 0 0;font-size:14.5px}.selbst .qs{font-weight:800;white-space:nowrap}
 .zitat{border:1.5px solid var(--rot);border-radius:14px;text-align:center;font:800 17px Spartan,sans-serif;padding:14px 16px 10px;letter-spacing:-.01em}
 .k-realitaet .sp2{gap:8px 24px}
+
+.arkvor{padding:44px 0 0;margin-top:40px;border-top:1px solid var(--linie);max-width:none}
+.co:hover .drei{color:#fff}

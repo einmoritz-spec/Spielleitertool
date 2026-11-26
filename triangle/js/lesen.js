@@ -43,7 +43,7 @@ function taB(L){
       case "skala": return '<div class="skala' + (b.breit ? " breit" : "") + '">' + b.x.map(function(x){ return '<div><b>' + tx(x[0]) + '</b><span>' + tx(x[1]) + '</span></div>'; }).join("") + "</div>";
       case "tab": return '<table class="tab">' + (b.kopf ? "<tr>" + b.kopf.map(function(h){ return "<th>" + tx(h) + "</th>"; }).join("") + "</tr>" : "") + b.x.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + tx(c) + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>";
       /* Kästen */
-      case "kasten": return '<div class="kasten' + (b.dunkel ? " dunkel" : "") + '">' + (b.h ? '<h3>' + (b.z ? zimg(b.z) : '') + tx(b.h) + '</h3>' : '') + '<div class="kb">' + taB(b.b) + '</div></div>';
+      case "kasten": return '<div class="kasten' + (b.dunkel ? " dunkel" : "") + (b.cls ? " " + b.cls : "") + '">' + (b.h ? '<h3>' + (b.z ? zimg(b.z) : '') + tx(b.h) + '</h3>' : '') + '<div class="kb">' + taB(b.b) + '</div></div>';
       case "warn": return '<div class="warn">' + zimg(b.z || "symbol-warnung") + '<div><h3>' + tx(b.h) + '</h3>' + taB(b.b) + '</div></div>';
       case "fenster": return '<div class="fenster ' + (b.art || "") + '"' + (b.w ? ' style="max-width:' + b.w + 'px"' : '') + '><div class="ft">' + (b.z ? zimg(b.z) : '') + '<span>' + tx(b.titel || "") + '</span><i>×</i></div><div class="fb">' + (b.gross ? zimg(b.gross, "gross") : '') + (b.h ? '<h3>' + tx(b.h) + '</h3>' : '') + taB(b.b) + '</div></div>';
       case "schwarz": return '<p class="schwarz' + (b.blau ? " blau" : "") + '" onclick="this.classList.toggle(\'auf\')"><span>' + tx(b.x) + '</span></p>';
@@ -67,3 +67,28 @@ var TA_CHAOSGRAF = '<svg class="graf" viewBox="0 0 300 220"><g stroke="#e3e0ee" 
   '<path d="M42 176l12-16 22-8 22 4 26-44 22 16 20-18 60-10 44-96" fill="none" stroke="#2d50a7" stroke-width="4" stroke-linejoin="round"/><path d="M276 2l-12 20 18 2z" fill="#2d50a7"/>' +
   '<text x="160" y="205" text-anchor="middle" font-family="Spartan" font-weight="800" font-size="15" fill="#2a1b45">Chaos</text>' +
   '<text x="22" y="100" text-anchor="middle" font-family="Spartan" font-weight="800" font-size="15" fill="#2a1b45" transform="rotate(90 22 100)">Probleme</text></svg>';
+
+/* ---- Zierwerk einzelner Buchseiten ---- */
+function taZufall(seed){ var x = seed * 9301 + 49297; return function(){ x = (x * 9301 + 49297) % 233280; return x / 233280; }; }
+/* Knotennetz (S. 40–43): rot neben den Regeln, blau wo die Anomalie mitliest */
+function taNetz(farbe, seed, w, h){
+  var r = taZufall(seed), c = farbe === "blau" ? "#2d50a7" : "#c8202f", n = Math.round(w * h / 5200), P = [], out = "", i, j;
+  for(i = 0; i < n; i++) P.push([20 + r() * (w - 40), 20 + r() * (h - 40), r() < .22 ? 15 : r() < .5 ? 8 : 5]);
+  for(i = 0; i < n; i++){ var best = [];
+    for(j = 0; j < n; j++) if(j !== i) best.push([Math.hypot(P[i][0] - P[j][0], P[i][1] - P[j][1]), j]);
+    best.sort(function(a, b){ return a[0] - b[0]; }).slice(0, 3).forEach(function(q){ out += '<path d="M' + P[i][0].toFixed(0) + ' ' + P[i][1].toFixed(0) + 'L' + P[q[1]][0].toFixed(0) + ' ' + P[q[1]][1].toFixed(0) + '"/>'; }); }
+  var k = P.map(function(p){ var x = p[0].toFixed(0), y = p[1].toFixed(0);
+    return '<circle cx="' + x + '" cy="' + y + '" r="' + p[2] + '" fill="' + c + '"/>' + (p[2] > 12 ? '<circle cx="' + x + '" cy="' + (y - 4) + '" r="4" fill="#fff"/><path d="M' + (x - 7) + ' ' + (+y + 9) + 'a7 6 0 0 1 14 0z" fill="#fff"/>' : p[2] > 6 ? '<circle cx="' + x + '" cy="' + y + '" r="3" fill="#fff"/>' : ''); }).join("");
+  return '<svg class="hb-netz ' + farbe + '" viewBox="0 0 ' + w + ' ' + h + '" width="' + w + '" height="' + h + '"><g stroke="' + c + '" stroke-width="2" fill="none">' + out + '</g>' + k + '</svg>';
+}
+/* Zettelhaufen „GEHE ZU: K2“ mit Schloss-Akten (S. 45); liegt über dem Kasten davor, Klick räumt ihn weg */
+function taZettel(n){
+  var r = taZufall(11), out = "";
+  for(var i = 0; i < n; i++){ var x = (r() * 86).toFixed(1), y = (r() * 78).toFixed(1), d = (r() * 70 - 35).toFixed(0);
+    out += r() < .3 ? '<img src="' + Z("symbol-akte-schloss") + '" alt="" style="left:' + x + '%;top:' + y + '%;transform:rotate(' + d + 'deg)">' : '<b style="left:' + x + '%;top:' + y + '%;transform:rotate(' + d + 'deg)">[GEHE ZU: <u>K2</u>]</b>'; }
+  return '<div class="haufen">' + out + '</div>';
+}
+/* Kartenstapel der „Szene der Anomalie“ (S. 125): dieselbe Karte mehrfach, verrutscht */
+function taStapel(karte){
+  return '<div class="hb-kstapel" onclick="this.classList.toggle(\'auf\')">' + [0, 1, 2, 3, 4, 5].map(function(i){ return '<div style="--i:' + i + '">' + karte + '</div>'; }).join("") + '</div>';
+}

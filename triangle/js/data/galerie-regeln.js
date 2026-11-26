@@ -9,6 +9,7 @@ Galerie.reg("triangle", {key:"rg", name:"Regelbuch", dir:"img/regeln/", items:[
  ["agentin-ripple-gun-schuss", 2034, 1406, 18],
  ["aktenkoffer-normal", 682, 642, 21],
  ["ripple-gun", 1058, 706, 21],
+ ["anomalie-koralle-rot-doppelseite", 1948, 1779, 24],
  ["anomalie-koralle-rot", 1424, 1779, 24],
  ["agent-zerfaellt-rot", 2291, 1683, 27],
  ["agencyos-wesen-rechner", 1522, 1443, 30],

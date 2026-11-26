@@ -61,11 +61,11 @@ TA_TEXT["h/leben/erleben"] = [
    ["AGENT 1", "„Das mit dem Motorboot tut mir so leid.“"],
    ["AGENT 2", "„Ach, Boot ist Boot. Bradley sucht schon nach einem Ersatz. Mehr Sorgen macht mir, dass du dich nicht gemeldet hast! Ich war völlig außer mir, als ich den Unfall in den Nachrichten gesehen habe. Es hieß, es gebe keine Überlebenden!“"],
    ["AGENT 1", "Oh Gott, das hat unsere Presseerklärung gesagt, oder?"]]}]}],
-  [{t:"kasten", h:"Szene der Anomalie", b:[{t:"dialog", x:[
+  [{t:"html", x:taStapel(taB([{t:"kasten", h:"Szene der Anomalie", b:[{t:"dialog", x:[
    ["AGENT 1", "ich will stärker werden. ich habe so viel potenzial, die welt kann es kaum fassen"],
    ["GM", "Großartig! Denk dran, der Aufzug hält vor dem obersten Stock, weil sie es verlangen. du kannst höher hinaus. du kannst mehr sein"],
    ["AGENT 1", "Auf keinen Fall. natürlich kann ich. es gibt keine Grenze für das, was ich erreichen kann, wenn ich nur zugreife"],
-   ["AGENT 2", "Zeig deine Macht. es gibt keine Grenze für das, was du kannst, mit meiner Hilfe"]]}]}]
+   ["AGENT 2", "Zeig deine Macht. es gibt keine Grenze für das, was du kannst, mit meiner Hilfe"]]}]}]))}]
  ]}
 ];
 TA_TEXT["h/leben/laufbahn"] = [

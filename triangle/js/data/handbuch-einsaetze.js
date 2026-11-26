@@ -88,7 +88,7 @@ TA_TEXT["h/einsaetze/perfekt"] = [
 ];
 /* S. 24–25 */
 TA_TEXT["h/einsaetze/anomalien"] = [
- {t:"bild", src:"anomalie-koralle-rot", pos:"rechts", w:420},
+ {t:"bild", src:"anomalie-koralle-rot-doppelseite", pos:"rechts", w:520},
  "Wie erwähnt ist eine Anomalie eine große Ansammlung ähnlicher Gedanken oder ein besonders mächtiger einzelner Gedanke, der die Fähigkeit erlangt hat, die Realität direkt zu beeinflussen. Der vollständige Lebenszyklus einer Anomalie ist geschützte Information, die dir später in deiner Laufbahn zugänglich wird, doch dieser Abschnitt beschreibt die wichtigsten Einzelheiten.",
  "Anomalien entstehen nicht in der Realität und sind deshalb nicht an ihre Regeln gebunden. Der Gedanke oder das Gefühl, das sie hervorgebracht hat, bestimmt das Ausmaß ihrer Macht und lenkt ihre Handlungen, was selbst einfache Anomalien äußerst gefährlich macht. Stell dir ein Monster vor, das nur von Hass angetrieben wird und grenzenlose Kraft hat, zu zerstören, was es will; eine körperlose Besessenheit, die ihr Ziel wie eine Marionette in eine falsche Romanze führt; oder die Befriedigung sportlichen Schwimmens, die eine Stadt überflutet, um ihre Vorzüge mit allen zu teilen.",
  "Sie können menschenähnliches Verhalten zeigen oder menschliche Absichten zu haben scheinen, doch das ist eine Illusion. Anomalien sind teilnahmslos, gleichgültig gegenüber menschlichem Leben und bestenfalls ahnungslos gegenüber dem Leid, das sie verursachen.",

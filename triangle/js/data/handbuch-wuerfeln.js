@@ -73,12 +73,14 @@ TA_TEXT["h/wuerfeln/burnout"] = [
  ]}
 ];
 TA_TEXT["h/wuerfeln/triszendenz"] = [
+ {t:"html", x:'<div class="hb-tris"><div class="titel"><b>Triszendenz</b></div>'},
  {t:"lead", x:"Werden vor jeder Anpassung genau drei {3}en gewürfelt, setzt du die Macht der Agency perfekt ein und erlebst Triszendenz!"},
  "Der Wurf ist ein Erfolg, es entsteht **kein Chaos**, und du darfst dir einen zusätzlichen Effekt aus der folgenden Triszendenz-Tabelle aussuchen. **Glückwunsch!**",
  {t:"html", x:'<div class="hb-tri"><section><img src="img/zeichen/symbol-alle-hand.png" alt=""><h3>Alle Hände</h3><p>Füge diesem Wurf beliebig viele <b class="drei">3</b>en hinzu.</p></section>' +
   '<section><img src="img/zeichen/symbol-kreis-zurueck.png" alt=""><h3>Nachfassen</h3><p>Stelle beliebig viele ausgegebene <b class="drei">3</b> Qualitätssicherungen wieder her.</p></section>' +
   '<section><img src="img/zeichen/symbol-mitarbeiter-des-moments.png" alt=""><h3>Mitarbeiter des Moments</h3><p>Erhalte <b class="drei">3</b> Belobigungen.</p></section></div>'},
  "**Wir arbeiten alle zusammen, damit Triszendenz entsteht.** Im Moment deines Erfolgs bist du psychisch mit jedem Mitarbeiter der Agency verbunden, denn du leihst dir unsere gemeinsame Kraft. Alle sehen, was du tust, und feiern deinen Sieg mit. Gib eine Show! Du wirst bestimmt morgen am Wasserspender von deinem triszendenten Moment hören.",
+ {t:"html", x:'</div>'},
  {t:"kasten", h:"Stabilität", z:"symbol-stabilitaet", b:[{t:"html", x:'<div class="hb-stab"><div>' +
   '<p>Das Hinzufügen oder Entfernen von <b class="drei">3</b>en durch Qualitätssicherungen und Burnout kann keine Triszendenz erzeugen, aber dieses Ergebnis bleibt besonders <b>stabil</b>.</p>' +
   '<p>Drei <b class="drei">3</b>en erzeugen immer null ' + HB_CH + ' Chaos, auch wenn es keine Triszendenz ist und auch wenn Burnout vorlag.</p>' +
@@ -115,6 +117,7 @@ TA_TEXT["h/wuerfeln/fragen"] = [
  "Das größte Werkzeug der Agency zur Bewahrung der Realität – neben der harten Arbeit und Ausdauer von Mitarbeitern wie dir – ist unsere Fähigkeit, die jüngste Vergangenheit unauffällig zu verändern. Agenten können **Anträge auf Realitätsanpassung** stellen, um gefährliche Situationen mit der Zuversicht zu betreten, dass die Macht von <Fügung/Erzählung> auf ihrer Seite ist.",
  "Ganz einfach: Du darfst jederzeit **die Agency fragen**, damit etwas geschieht. Wenn etwas geschehen könnte, egal wie unwahrscheinlich, kannst du die Agency darum bitten!",
  "Anträge auf Realitätsanpassung erfordern vier Dinge von dir, in dieser Reihenfolge:",
+ {t:"html", x:'<div class="hb-netzwrap">' + taNetz("rot", 7, 190, 560)},
  {t:"sp", x:[
   [{t:"pikto", x:[
     {n:"1", h:"Ein genannter Effekt, der eintreten soll.", b:[{t:"html", x:'<p class="kl2"><i>Ein Stau verlangsamt die Flucht eines Fahrzeugs.</i></p><p><i>Ein Prominenter trifft ein, um eine Reality-Show zu drehen.</i></p><p><i>Jemand, der von einem Gebäude stürzt, wird sicher von einem Lastwagen voller weichem Müll aufgefangen.</i></p>'}]},
@@ -123,6 +126,7 @@ TA_TEXT["h/wuerfeln/fragen"] = [
     {n:"3", h:"Eine passende berufliche Qualität, die du mit dieser Änderung verkörperst oder stärkst.", b:[{t:"html", x:'<p><i>Empathie, wenn die Änderung auf die Gefühle eines Menschen zielt.</i></p><p><i>Subtilität, um eine Ablenkung zu schaffen oder ein Versteck zu bieten.</i></p><p><i>Aufmerksamkeit, wenn die Änderung etwas offenbaren könnte, das du sonst übersehen würdest.</i></p>'}]},
     {n:"4", h:"Ein erfolgreicher Wurf mit mindestens einer {3}.", b:[{t:"html", x:'<p><i>Du wirfst sechs vierseitige Würfel und beziehst dich dabei auf Burnout und Qualitätssicherungen der gewählten Qualität.</i></p>'}]}]}]
  ]},
+ {t:"html", x:'</div>'},
  {t:"lead", x:"Agenten wird geraten, diese außerordentliche Macht verantwortungsvoll und im Einklang mit den folgenden Regeln und Einschränkungen zu nutzen:"},
  {t:"sp", x:[
   [{t:"liste", x:[
@@ -132,7 +136,7 @@ TA_TEXT["h/wuerfeln/fragen"] = [
     "Eine einfache oder vage **Kausalkette** ist brauchbar, doch dein GM kann vor dem Wurf weitere Einzelheiten verlangen, damit sie sich möglich anfühlt. Wir empfehlen, dass alle Agenten am Aufbau der Kausalkette mitwirken. Wirkt etwas ungewöhnlich, interessant oder schwer zu glauben, arbeitet gemeinsam daran, dass es sich wahr anfühlt. Das ist ein unterhaltsamer Vorgang, der die Stabilität deiner Welt stärkt!",
     "Dein GM hat das letzte Wort darüber, welche Qualität relevant ist."]}],
   [{t:"bild", src:"dreieckskopf-winkt", pos:"mitte", w:260},
-   {t:"kasten", h:"Die TTRPG-Initiative", b:["Realitätsanpassung ist sehr mächtig, wird aber durch den Glauben des Anwenders an die Plausibilität seiner Änderung begrenzt. Vor der TTRPG-Initiative taten sich Agenten mit dieser Macht schwer, weil sie so vieles an ihrer Welt passiv für festgelegt hielten. Jetzt, da ihr „fiktive Figuren seid, die von einem alternativen Tisch-Ich gesteuert werden“, wirst du feststellen, dass der Vorgang recht reibungslos verläuft."]}]
+   {t:"kasten", cls:"hb-doppelt", h:"Die TTRPG-Initiative", b:["Realitätsanpassung ist sehr mächtig, wird aber durch den Glauben des Anwenders an die Plausibilität seiner Änderung begrenzt. Vor der TTRPG-Initiative taten sich Agenten mit dieser Macht schwer, weil sie so vieles an ihrer Welt passiv für festgelegt hielten. Jetzt, da ihr „fiktive Figuren seid, die von einem alternativen Tisch-Ich gesteuert werden“, wirst du feststellen, dass der Vorgang recht reibungslos verläuft."]}]
  ]},
  {t:"lead", x:"Als Beispiel hier eine Mitschrift von einem repräsentativen Außenteam:"},
  {t:"dialog", x:[
@@ -184,7 +188,8 @@ TA_TEXT["h/wuerfeln/fragen"] = [
   ["AGENT 1","Zum Beispiel?"],
   ["AGENT 2","Was, wenn seine Lauf-Tracking-App einen Fehler hat, der sie jeden Morgen automatisch einschaltet, und wenn wir sein Handy stehlen, können wir genau sehen, wo er gewesen ist?"],
   ["GM","Das funktioniert als Kausalkette, und das ist definitiv Aufmerksamkeit. Aber ihr braucht eine Möglichkeit, das Handy zu stehlen."],
-  ["AGENT 4","Oh, ich habe eine Anomalie-Fähigkeit für …"]]}
+  ["AGENT 4","Oh, ich habe eine Anomalie-Fähigkeit für …"]]},
+ {t:"html", x:taNetz("blau", 3, 900, 260)}
 ];
 TA_TEXT["h/wuerfeln/faehigkeiten"] = [
  "Alle Agenten sind Resonante, das heißt, sie sind alle mit einer einzigartigen Anomalie verbunden. Obwohl jede Anomalie theoretisch zu einer Vielzahl von Fähigkeiten imstande ist, sind nur **drei** für den Einsatz im Außendienst zugelassen. Alle haben einige Eigenschaften gemeinsam, die wir hier umreißen.",
@@ -216,8 +221,9 @@ TA_TEXT["h/wuerfeln/scheitern"] = [
    "Wir empfehlen, deine Normalität anzunehmen und die Agency um alles zu bitten, was du versuchen willst und dir nicht sicher zutraust. Wenn du Risiken eingehst, wirst du wahrscheinlich verletzt werden, körperlich oder seelisch.",
    "Zum Glück gehört zu deinen Leistungen eine **Lebensversicherung** für genau diesen Fall!"]
  ]},
+ {t:"html", x:'<div class="hb-verdeckt" onclick="this.classList.toggle(\'weg\')">'},
  {t:"warn", h:"VORSICHT WALTEN LASSEN", b:["Wir haben diese Fähigkeiten herausgegriffen, weil sie sich am besten für Ermittlungen eignen und am leichtesten zu kontrollieren sind. Zu deiner Sicherheit ist es Agenten **untersagt, weitere Fähigkeiten für ihre persönliche Anomalie zu entwickeln.** Wir danken dir für deine Kooperation!", "Falls du dich versucht fühlst, deine Fähigkeiten auf andere Weise einzusetzen, sei gewarnt: Du bereitest damit wahrscheinlich eine rasch beendete Laufbahn und eine katastrophale persönliche Tragödie vor."]},
- {t:"html", x:'<div class="hb-stapel"><a onclick="pwPop(\'K2\')">K2</a><a onclick="pwPop(\'K2\')">K2</a><a onclick="pwPop(\'K2\')">K2</a><a onclick="pwPop(\'K2\')">K2</a><a onclick="pwPop(\'K2\')">K2</a></div>'},
+ {t:"html", x:taZettel(26) + '</div>'},
  {t:"dialog", x:[
   ["GM","Dieser Typ versteckt eindeutig etwas, aber er sieht nicht aus, als wolle er reden, und er geht schon zu [[K2]]."],
   ["AGENT 1","Kann ich Aufmerksamkeit würfeln, um zu sehen, was sich im Dokument hinter der Playwall [[K2]] befindet?"],

@@ -42,4 +42,16 @@ AHD.forEach(function(a){
   window.SW_AH_DL.push({id: "dl_" + a.n.toLowerCase().replace(/\W/g, ""), n: a.n, s: ["DL"], req: t.v || "", f: a.f, sm: a.sm, mp: a.mp, p: a.p, bk: "sw_dl", dl: 1,
     av: a.av.split(/,\s*/).map(name), sp: sp, b: []});
 });
+
+/* Waffen und Ausrüstung (Buch S. 26–35) für den Bogen-Katalog */
+function tabellen(k){ var out = []; seite(k).secs.forEach(function(s){ (s.b || []).forEach(function(b){ if(b.table) out.push({h: s.t, t: b.table}); }); }); return out; }
+function sp(cols, r, re){ for(var i = 0; i < cols.length; i++) if(re.test(cols[i])) return (r[i] == null ? "" : String(r[i])).replace(/^—$/, ""); return ""; }
+window.SW_DL_WAFFEN = []; window.SW_DL_AUSR = [];
+tabellen("ausruestung/waffen").forEach(function(T){ var c = T.t.cols;
+  if(!c.some(function(x){ return /^Schaden$/.test(x); })){ T.t.rows.forEach(function(r){ window.SW_DL_AUSR.push({n: r[0], sub: T.h, gw: sp(c, r, /^Gew/), pr: sp(c, r, /^Kosten/)}); }); return; }
+  T.t.rows.forEach(function(r){ window.SW_DL_WAFFEN.push({n: r[0], sub: T.h, rw: sp(c, r, /^Reichw/), sd: sp(c, r, /^Schaden$/), pb: sp(c, r, /^DB$/), fr: sp(c, r, /^Feuerrate$/), ms: sp(c, r, /^Min/), gw: sp(c, r, /^Gew/), pr: sp(c, r, /^Kosten/), nt: sp(c, r, /^Anmerkung/)}); });
+});
+tabellen("ausruestung/allgemein").forEach(function(T){ var c = T.t.cols; if(!c.some(function(x){ return /^Kosten/.test(x); }) || /^(Leistung|Fahrzeug)$/.test(c[0])) return;
+  T.t.rows.forEach(function(r){ window.SW_DL_AUSR.push({n: r[0], sub: T.h, gw: sp(c, r, /^Gew/).replace(/\s*kg$/, ""), pr: sp(c, r, /^Kosten/), nt: sp(c, r, /^Anmerkung/)}); });
+});
 })();

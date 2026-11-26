@@ -183,3 +183,5 @@ body.sf-open{overflow:hidden}
 .sfels{display:flex;gap:4px;margin-top:4px}
 .sfels button{height:22px;padding:0 8px;border-radius:6px;border:1px solid var(--line);background:#fff;font:600 11px Oswald,sans-serif!important;letter-spacing:.03em;color:var(--soft)}
 .sfels button.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.sffly button.ch span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;text-align:left}
+.sffly button.ch small{font:600 10px Oswald,sans-serif;letter-spacing:.03em;opacity:.7;white-space:nowrap}

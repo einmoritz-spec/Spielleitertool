@@ -337,8 +337,29 @@ function berechne(c){
   var F = fx(c), gr = F.gr || 0, pz = rp + (F.pz || 0);
   return {parade: pa + pb + wp + (F.pa || 0), rob: 2 + halb(ks) + pz + gr + (F.rob || 0), pz: pz, kopf: kopf, last: last, grenze: LAST[DIE[Math.max(1, di(c.a.sta) + (F.str || 0))]] || "", wmax: 3 + (F.wm || 0), wig: F.wig || 0, mpx: F.mpx || 0, mz: F.mz || 0, ep: parseInt(c.ep, 10) || 0, tempo: tempo(F), sprint: sprint(F), gr: gr, fl: F.fl || 0};
 }
+/* Mindeststärke (GRW S. 63): –1 je fehlender Stufe auf Angriffe; Nahkampfschaden höchstens bis zum Stärkewürfel */
+function staEff(c, F){ return di(c.a.sta) + ((F || fx(c)).str || 0); }
+function msPen(c, F, ms){ var m = di(ms); return m ? Math.max(0, m - staEff(c, F)) : 0; }
+function staSd(c, F, sd){ sd = String(sd || ""); if(!/^Stä/.test(sd)) return sd; var st = c.a.sta;
+  return sd.replace(/^Stä\+W(\d+)/, function(m, d){ return di("W" + d) > di(st) ? "Stä+" + st : m; }).replace(/^Stä/, st); }
 function rang(ep){ var a = Math.floor(ep / 5); return RAENGE[Math.min(4, Math.floor(a / 4))]; }
 
+/* ---------- Geld (GRW S. 46: 500 $; Sci-Fi 1.000 $; Deadlands 250 $) ---------- */
+function preis(t){ t = String(t || "").replace(/\s/g, ""); var m = /(\d[\d.]*(?:,\d+)?)/.exec(t); if(!m) return 0; var v = parseFloat(m[1].replace(/\./g, "").replace(",", ".")) || 0; return /¢/.test(t) ? v / 100 : v; }
+function waehrung(){ return gen("fan") && !gen("dl") && !gen("sf") && !gen("sup") ? "GM" : "$"; }
+function startgeld(c){ var F = fx(c), T = talenteVon(c, F), b = gen("dl") ? 250 : gen("sf") ? 1000 : 500;
+  if(T.indexOf("Stinkreich") > -1) b *= 5; else if(T.indexOf("Reich") > -1) b *= 3;
+  if(handicapsVon(c, F).some(function(n){ return hBase(n) === "Arm"; })) b /= 2; return b; }
+function geld(c){ var st = c.gs !== "" && c.gs != null && !isNaN(parseFloat(c.gs)) ? parseFloat(c.gs) : startgeld(c), aus = 0;
+  ["wa", "ru", "au"].forEach(function(k){ (c[k] || []).forEach(function(x){ if(x && x.n) aus += preis(x.pr); }); });
+  return {st: st, aus: aus, rest: st - aus, auto: startgeld(c)}; }
+function betrag(v){ var r = Math.round(v * 100) / 100, s = Math.abs(r).toFixed(r % 1 ? 2 : 0).replace(".", ","); s = s.replace(/\B(?=(\d{3})+(?!\d))/g, "."); return (r < 0 ? "–" : "") + s + " " + waehrung(); }
+function geldOpen(el){
+  var G = geld(cur);
+  popAt(el, {cls: "gpop", html: '<label>Startgeld<input type="number" min="0" step="1" data-gs="1" placeholder="' + G.auto + '" value="' + esc2(cur.gs == null ? "" : cur.gs) + '"></label><p>Ausgegeben <b id="gAus">' + betrag(G.aus) + '</b></p><p>Übrig <b id="gRest" class="' + (G.rest < 0 ? "x" : "") + '">' + betrag(G.rest) + "</b></p>"});
+  var i = pop.querySelector("[data-gs]"); i.addEventListener("input", function(){ cur.gs = i.value; persist(); calc(); var G2 = geld(cur); document.getElementById("gRest").textContent = betrag(G2.rest); document.getElementById("gRest").className = G2.rest < 0 ? "x" : ""; });
+  i.addEventListener("keydown", function(e){ e.stopPropagation(); if(e.key === "Enter" || e.key === "Escape") popClose(); });
+}
 /* ---------- Datenlisten (nur aktive Genre-Quellen) ---------- */
 function vis(s){ return window.sqVis ? sqVis(s) : true; }
 function badge(s){ return window.sqBadge ? sqBadge(s) : ""; }
@@ -377,8 +398,8 @@ function lWaffen(){
     if(cols.indexOf("Schaden") < 0 && cols.indexOf("PB-Geschosse") < 0) return null;
     if(WEG.test(S.h || "")) return null;
     return {n: r.c[0], sub: g.h || S.h, s: s, ep: waEp(S, g, s), f: {n: r.c[0], rw: col(cols, r, "Reichweite").replace(/^—$/, ""), sd: col(cols, r, "Schaden").replace(/^—$/, "") || col(cols, r, "PB-Geschosse"), pb: col(cols, r, "PB").replace(/^—$/, ""), fr: col(cols, r, "FR").replace(/^—$/, ""),
-      ms: col(cols, r, "Mindeststärke").replace(/^—$/, ""), gw: col(cols, r, "Gewicht (kg)") || col(cols, r, "Gewicht"), nt: r.n || "", fs: col(cols, r, "Flächenschablone").replace(/^—$/, "")}};
-  });
+      ms: col(cols, r, "Mindeststärke").replace(/^—$/, ""), gw: col(cols, r, "Gewicht (kg)") || col(cols, r, "Gewicht"), pr: col(cols, r, "Kosten") || col(cols, r, "Kosten (GM)"), nt: r.n || "", fs: col(cols, r, "Flächenschablone").replace(/^—$/, "")}};
+  }).concat(gen("dl") ? (window.SW_DL_WAFFEN || []).map(function(w){ return {n: w.n, sub: w.sub, s: ["DL"], ep: ["pul"], f: {n: w.n, rw: w.rw, sd: w.sd, pb: w.pb, fr: w.fr, ms: w.ms, gw: w.gw, pr: w.pr, nt: w.nt, fs: ""}}; }) : []);
 }
 function lRuestung(){
   var out = [], R = SW_RUESTUNG;
@@ -387,22 +408,23 @@ function lRuestung(){
     if(!cov){ var m2 = /Bedeckt\s+([^.]*)\./.exec(r.n || ""); if(m2) cov = m2[1]; }
     out.push({n: n, sub: grpH, s: s, ep: ruEp(n, grpH + " " + ((g && g.h) || ""), s), f: Object.assign({n: n, cov: cov.replace(/Torso, Arme, Beine/, "Torso, Arme, Beine"), on: 1, nt: r.n || ""}, nmCols(r))});
   }
-  R.s.forEach(function(S){ (S.g || []).forEach(function(g){ (g.r || []).forEach(function(r){ add(r, function(r){ return {pz: r.c[1], pa: "", ms: r.c[2], gw: r.c[3]}; }, g, ["GRW"], S.h); }); }); });
-  (R.sh.g || []).forEach(function(g){ (g.r || []).forEach(function(r){ add(r, function(r){ return {pz: "", pa: r.c[1], ms: r.c[3], gw: r.c[4]}; }, g, ["GRW"], "Schilde"); }); });
+  R.s.forEach(function(S){ (S.g || []).forEach(function(g){ (g.r || []).forEach(function(r){ add(r, function(r){ return {pz: r.c[1], pa: "", ms: r.c[2], gw: r.c[3], pr: r.c[4]}; }, g, ["GRW"], S.h); }); }); });
+  (R.sh.g || []).forEach(function(g){ (g.r || []).forEach(function(r){ add(r, function(r){ return {pz: "", pa: r.c[1], ms: r.c[3], gw: r.c[4], pr: r.c[5]}; }, g, ["GRW"], "Schilde"); }); });
   [].concat(window.SW_RUESTUNG_FAN || [], window.SW_RUESTUNG_SF || [], window.SW_RUESTUNG_SUP || []).forEach(function(S){
     if(!S.cols || !vis([S.s])) return; var cols = S.cols;
     var isP = cols.indexOf("Panzerung") > -1, isS = cols.indexOf("Parade") > -1; if(!isP && !isS) return;
     (S.g || []).forEach(function(g){ (g.r || []).forEach(function(r){
-      add(r, function(r){ return {pz: isP ? col(cols, r, "Panzerung").replace("*", "").replace(/^—$/, "") : "", pa: isS ? col(cols, r, "Parade") : "", ms: col(cols, r, "Mindeststärke").replace(/^—$/, ""), gw: col(cols, r, "Gewicht (kg)")}; }, g, [S.s], S.h);
+      add(r, function(r){ return {pz: isP ? col(cols, r, "Panzerung").replace("*", "").replace(/^—$/, "") : "", pa: isS ? col(cols, r, "Parade") : "", ms: col(cols, r, "Mindeststärke").replace(/^—$/, ""), gw: col(cols, r, "Gewicht (kg)"), pr: col(cols, r, "Kosten") || col(cols, r, "Kosten (GM)")}; }, g, [S.s], S.h);
     }); });
   });
   return out;
 }
 function lAusr(){
   var out = [];
-  (SW_AUSR_ALLG.sec || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["GRW"], ep: auEp(r[0], S.h, ["GRW"]), f: {n: r[0], gw: r[2] === "—" ? "" : r[2]}}); }); });
-  if(gen("fan") && window.SW_FAN_AUSR) (SW_FAN_AUSR.allg || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["FAN"], ep: ["mit"], f: {n: r[0], gw: r[1]}}); }); });
-  if(gen("sf") && window.SW_SF_GEAR) SW_SF_GEAR.forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["SF"], ep: ["fut"], f: {n: r[0], gw: r[1]}}); }); });
+  (SW_AUSR_ALLG.sec || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["GRW"], ep: auEp(r[0], S.h, ["GRW"]), f: {n: r[0], gw: r[2] === "—" ? "" : r[2], pr: r[1]}}); }); });
+  if(gen("fan") && window.SW_FAN_AUSR) (SW_FAN_AUSR.allg || []).forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["FAN"], ep: ["mit"], f: {n: r[0], gw: r[1], pr: r[2]}}); }); });
+  if(gen("sf") && window.SW_SF_GEAR) SW_SF_GEAR.forEach(function(S){ S.r.forEach(function(r){ out.push({n: r[0], sub: S.h, s: ["SF"], ep: ["fut"], f: {n: r[0], gw: r[1], pr: r[2]}}); }); });
+  if(gen("dl")) (window.SW_DL_AUSR || []).forEach(function(a){ out.push({n: a.n, sub: a.sub, s: ["DL"], ep: ["pul"], f: {n: a.n, gw: String(a.gw || "").replace(/^—$/, ""), pr: a.pr}}); });
   return out;
 }
 function liste(kind, ctx, own){
@@ -453,7 +475,7 @@ function sheet(){
   var c = cur, b = berechne(c), p = cost(c), h = "", AUS = "", F = fx(c), V = (window.SW_VOLK_FX || {})[c.volk] || {};
   h += '<div class="bkop"><img src="../assets/logos/savage-worlds.webp" alt=""><div class="tt">Charakter<i>bogen</i></div></div>';
   h += '<div class="binfo r1">' + top("name", "Name", {c: "n"}) + top("spieler", "Spieler") + "</div>";
-  h += '<div class="binfo">' + top("volk", "Volk", {pick: "volk"}) + top("rang", "Rang", {calc: 1, id: "b-rang", wahl: "rangw"}) + top("ep", "Erfahrung") + top("aufst", "Aufstiege", {calc: 1, id: "b-aufst", wahl: "aufw"}) + top("geld", "Geld") + "</div>" +
+  h += '<div class="binfo">' + top("volk", "Volk", {pick: "volk"}) + top("rang", "Rang", {calc: 1, id: "b-rang", wahl: "rangw"}) + top("ep", "Erfahrung") + top("aufst", "Aufstiege", {calc: 1, id: "b-aufst", wahl: "aufw"}) + '<div class="f"><label>Geld</label><input class="calc wahl" readonly data-geldw="1" id="b-geld" value=""></div>' + "</div>" +
     ((V.wahl || []).length ? '<div class="bwahl noprint">' + V.wahl.map(function(w, i){ var on = ((c.vw || {})[i]) | 0; return '<span class="bwl">' + esc2(w.n) + "</span>" + w.o.map(function(o, j){ return '<a data-vw="' + i + '" data-o="' + j + '" class="' + (j === on ? "on" : "") + '">' + esc2(o.l) + "</a>"; }).join(""); }).join('<i></i>') + "</div>" : "");
   AUS += '<div class="box"><h3>Ausrüstung<span class="cnt" id="b-last"></span></h3><div class="lst two">';
   var i, na = rows("au"); if(na % 2) na++;
@@ -503,8 +525,8 @@ function sheet(){
   h += '<div class="box"><h3>Waffen</h3><div class="lst"><div class="r hd"><span class="g">Waffe</span><span class="c" style="width:48px">Reichw.</span><span class="c" style="width:58px">Schaden</span><span class="c" style="width:22px">PB</span><span class="c" style="width:22px">FR</span><span class="c" style="width:34px">MSt</span></div>';
   (F.wa || []).forEach(function(x){ h += '<div class="r vk"><span class="g"><input readonly value="' + esc2(x[0]) + '"></span><span class="c" style="width:48px"><input class="num sm" readonly value="Nah"></span><span class="c" style="width:58px"><input class="num" readonly value="' + esc2(x[1].replace(/^Stä/, c.a.sta)) + '"></span><span class="c" style="width:22px"><input class="num sm" readonly value="' + esc2(x[2]) + '"></span><span class="c" style="width:22px"></span><span class="c" style="width:34px"></span></div>'; });
   for(i = 0, n = rows("wa", (F.wa || []).length); i < n; i++){
-    var w = c.wa[i] || {}, sd = w.sd || "", ds = /^Stä/.test(sd) ? sd.replace(/^Stä/, c.a.sta) : sd;
-    h += '<div class="r"><span class="g">' + inp("wa", i, "n", {pick: "wa"}) + '</span><span class="c" style="width:48px">' + inp("wa", i, "rw", {cls: "num sm"}) + '</span><span class="c" style="width:58px"><input class="num" data-a="wa" data-i="' + i + '" data-f="sd" data-sd="1" value="' + esc2(ds) + '"></span><span class="c" style="width:22px">' + inp("wa", i, "pb", {cls: "num sm"}) + '</span><span class="c" style="width:22px">' + inp("wa", i, "fr", {cls: "num sm"}) + '</span><span class="c" style="width:34px">' + inp("wa", i, "ms", {cls: "num sm" + (di(w.ms) > di(c.a.sta) && w.ms ? " warn" : "")}) + "</span></div>";
+    var w = c.wa[i] || {}, sd = w.sd || "", pen = msPen(c, F, w.ms), ds = staSd(c, F, sd);
+    h += '<div class="r"><span class="g">' + inp("wa", i, "n", {pick: "wa"}) + (pen ? '<span class="tag pen" title="Mindeststärke nicht erreicht: –' + pen + ' auf Angriffe' + (/^Stä/.test(sd) ? ", Schaden höchstens bis zum Stärkewürfel" : "") + '">–' + pen + "</span>" : "") + '</span><span class="c" style="width:48px">' + inp("wa", i, "rw", {cls: "num sm"}) + '</span><span class="c" style="width:58px"><input class="num" data-a="wa" data-i="' + i + '" data-f="sd" data-sd="1" value="' + esc2(ds) + '"></span><span class="c" style="width:22px">' + inp("wa", i, "pb", {cls: "num sm"}) + '</span><span class="c" style="width:22px">' + inp("wa", i, "fr", {cls: "num sm"}) + '</span><span class="c" style="width:34px">' + inp("wa", i, "ms", {cls: "num sm" + (di(w.ms) > di(c.a.sta) && w.ms ? " warn" : "")}) + "</span></div>";
   }
   h += "</div></div>";
   h += '<div class="box"><h3>Rüstung &amp; Schilde<span class="cnt" id="b-kopf"></span></h3><div class="lst"><div class="r hd"><span class="c" style="width:17px"></span><span class="g">Gegenstand</span><span class="c" style="width:64px">Bereich</span><span class="c" style="width:26px">Pz</span><span class="c" style="width:26px">Par</span><span class="c" style="width:34px">MSt</span></div>';
@@ -549,15 +571,15 @@ function sheet(){
 }
 function bar(){
   var chips = DB.list.map(function(c){ return '<a class="' + (c.id === DB.cur ? "on" : "") + '" data-sel="' + c.id + '">' + esc2(c.name || "Neuer Charakter") + "</a>"; }).join("");
-  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu">+ Neu</a></div><div class="act"><button id="bgDup">Kopie</button><button id="bgDel">Löschen</button><button id="bgEx">JSON ↓</button><button id="bgIm">JSON ↑</button><button id="bgPr">Drucken</button><button id="bgPdf">PDF</button><button id="bgLink" title="Link zum Charakterbogen kopieren">Link teilen</button></div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
+  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu">+ Neu</a></div><div class="act"><button id="bgDup">Kopie</button><button id="bgDel">Löschen</button><button id="bgEx">JSON ↓</button><button id="bgIm">JSON ↑</button><button id="bgPr">Drucken</button><button id="bgPdf">PDF</button><button id="bgAss">Assistent</button><button id="bgShare" title="Diesen Charakter als Link verschicken">Teilen</button><button id="bgLink" title="Link zum leeren Charakterbogen kopieren">Bogen-Link</button></div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
 }
 function bogenPage(){
   ens();
   APP.innerHTML = '<div class="bgwrap">' + bar() + '<div class="bstatus noprint" id="bStatus"></div><div class="sheetwrap"><div class="bsheet" id="bsheet">' + sheet() + "</div></div></div>";
-  calc(); fit(); wire();
+  calc(); fit(); wire(); assZeigen(false);
 }
 function benAuto(c){ var d = 3 + (fx(c).ben || 0); if(c.bd == null) c.bd = 3; if((+c.ben || 0) === c.bd) c.ben = d; c.bd = d; }
-function neuAufbau(){ benAuto(cur); var y = window.scrollY; var s = document.getElementById("bsheet"); s.innerHTML = sheet(); calc(); window.scrollTo(0, y); }
+function neuAufbau(){ benAuto(cur); var y = window.scrollY; var s = document.getElementById("bsheet"); s.innerHTML = sheet(); calc(); window.scrollTo(0, y); assZeigen(false); }
 function calc(){
   var c = cur, b = berechne(c), p = cost(c), $ = function(i){ return document.getElementById(i); };
   if($("b-rang")) $("b-rang").value = rang(b.ep);
@@ -572,9 +594,12 @@ function calc(){
       '<span class="' + (P.fp > P.S ? "x" : "") + '">Fertigkeiten <b>' + P.fp + "/" + P.S + "</b></span>" +
       '<span class="' + (P.tal > P.frei ? "x" : "") + '">Talente <b>' + P.tal + (P.frei ? " (" + P.frei + " frei)" : "") + "</b></span>" +
       '<span>Handicaps <b>' + P.hp + "/4</b></span>" + (P.auf ? '<span class="' + ((c.auf || []).some(function(A, k){ return aufWarum(c, k); }) ? "x" : "") + '">Aufstiege <b>' + P.aufU + "/" + P.auf + "</b></span>" : "") +
+      (geld(c).rest < 0 ? '<span class="x">Geld <b>' + betrag(geld(c).rest) + "</b></span>" : "") + (b.grenze && b.last > kg(b.grenze) ? '<span class="x"><b>Überladen</b></span>' : "") +
       '<span class="sum ' + (rest < 0 ? "ov" : rest > 0 ? "frei" : "ok") + '" title="Charaktererschaffung">' + (rest < 0 ? "Fehlen " + (-rest) : rest > 0 ? "Offen " + rest : "Ausgeglichen") + "</span>"; }
   var hp = 0; c.hi.forEach(function(x){ if(x && x.n) hp += x.w === "S" ? 2 : 1; }); if($("b-hp")){ $("b-hp").textContent = hp + " / 4 Punkte"; $("b-hp").className = "cnt" + (hp > 4 ? " ov" : ""); }
   if($("b-kopf")) $("b-kopf").textContent = b.kopf ? "Kopf " + b.kopf : "";
+  if($("b-geld")){ var G = geld(c); $("b-geld").value = betrag(G.rest); $("b-geld").classList.toggle("warn", G.rest < 0); $("b-geld").title = "Start " + betrag(G.st) + " · ausgegeben " + betrag(G.aus); }
+  if(ASS != null && !calc._in){ calc._in = 1; setTimeout(function(){ calc._in = 0; assZeigen(false); }, 0); }
   if($("b-last")){ var l = $("b-last"); l.textContent = "Last " + (Math.round(b.last * 10) / 10).toString().replace(".", ",") + (b.grenze ? " / " + b.grenze : "") + " kg"; var over = b.grenze && b.last > kg(b.grenze); l.className = "cnt" + (over ? " ov" : ""); }
 }
 function fit(){
@@ -764,6 +789,38 @@ function dieTake(d){
   else if(f === "n" && d){ /* Fertigkeit ohne Name: nichts */ }
   persist(); popClose(); neuAufbau();
 }
+/* ---------- Erschaffungs-Assistent: führt durch den Bogen, hebt den jeweiligen Kasten hervor ---------- */
+var ASS = null;
+function kastenVon(sel){ var e = document.querySelector(sel); return e ? (e.closest(".box") || e.closest(".f") || e) : null; }
+function schritte(){
+  var c = cur, F = fx(c), P = punkte(c), L = [];
+  var rest = P.budget - P.used, hpTxt = "Handicap-Punkte übrig: " + Math.max(0, rest);
+  L.push({t: "Volk", z: ['.binfo [data-f="volk"]', ".bwahl"], i: [c.volk ? "Gewählt: " + c.volk : "Noch kein Volk gewählt"], ok: !!c.volk});
+  L.push({t: "Handicaps", z: ["#b-hp"], i: ["Punkte: " + P.hp + " von 4", "Leicht 1 · Schwer 2", "Je 2 Punkte: Attribut oder Talent, je 1 Punkt: Fertigkeit"], ok: true});
+  L.push({t: "Attribute", z: ["#b-cnt"], i: ["Attributpunkte: " + P.at + " von " + P.A, hpTxt], ok: P.at >= P.A});
+  L.push({t: "Fertigkeiten", z: ["#b-cnt"], i: ["Fertigkeitspunkte: " + P.fp + " von " + P.S, "Über dem Attribut kostet jede Stufe 2", hpTxt], ok: P.fp >= P.S});
+  L.push({t: "Talente", z: ["#b-tal"], i: [P.frei ? "Freie Talente: " + Math.min(P.tal, P.frei) + " von " + P.frei : "Kein freies Talent", "Weitere Talente kosten 2 Punkte", hpTxt], ok: P.tal >= P.frei});
+  if(ahName(c, F)){ var AE = ahFx(ahName(c, F)), nMa = c.ma.filter(function(m){ return m && m.n; }).length, mx = AE.startN + (F.mz || 0); L.push({t: "Mächte", z: [".bmach"], i: ["Mächte: " + nMa + " von " + mx, ahName(c, F)], ok: nMa >= mx}); }
+  if(hatSuper(c)){ var SI = spInfo(c); L.push({t: "Superkräfte", z: [".bsup"], i: ["Punkte: " + SI.used + " von " + SI.tot, "Limit pro Kraft: " + SI.lim], ok: SI.used >= SI.tot}); }
+  var G = geld(c), b = berechne(c);
+  L.push({t: "Ausrüstung", z: ["#b-geld", "#b-last", ".bsheet .box:has(.lst [data-pick=wa])", ".bsheet .box:has(#b-kopf)"], i: ["Geld übrig: " + betrag(G.rest), "Last: " + String(Math.round(b.last * 10) / 10).replace(".", ",") + (b.grenze ? " von " + b.grenze : "") + " kg"], ok: G.rest >= 0});
+  L.push({t: "Name", z: [".binfo.r1"], i: [P.used > P.budget ? "Zu viele Punkte ausgegeben" : P.used < P.budget ? "Noch " + (P.budget - P.used) + (P.budget - P.used === 1 ? " Handicap-Punkt offen" : " Handicap-Punkte offen") : "Punkte ausgeglichen"], ok: !!c.name});
+  return L;
+}
+function assistent(i){ ASS = i; try{ localStorage.removeItem("sw_ass_aus"); }catch(e){} assZeigen(true); }
+function assZu(){ ASS = null; var p = document.getElementById("bAss"); if(p) p.remove(); [].forEach.call(document.querySelectorAll(".assf"), function(e){ e.classList.remove("assf"); }); }
+function assZeigen(scroll){
+  if(ASS == null) return; var L = schritte(); if(ASS >= L.length) ASS = L.length - 1; var S = L[ASS];
+  var p = document.getElementById("bAss"); if(!p){ p = document.createElement("div"); p.id = "bAss"; p.className = "bass noprint"; document.body.appendChild(p);
+    p.addEventListener("click", function(e){ var a = e.target.closest("[data-as]"); if(!a) return; var v = a.dataset.as; if(v === "x"){ assZu(); try{ localStorage.setItem("sw_ass_aus", "1"); }catch(er){} return; } ASS = v === "+" ? ASS + 1 : v === "-" ? ASS - 1 : +v; if(ASS >= schritte().length){ assZu(); return; } assZeigen(true); }); }
+  p.innerHTML = '<button class="x" data-as="x" title="Schließen">×</button><ol>' + L.map(function(x, k){ return '<li data-as="' + k + '" class="' + (k === ASS ? "on" : "") + (x.ok ? " ok" : "") + '">' + x.t + "</li>"; }).join("") + "</ol>" +
+    "<h4>" + S.t + "</h4>" + S.i.map(function(t){ return "<p>" + esc2(t) + "</p>"; }).join("") +
+    '<div class="nav">' + (ASS ? '<button data-as="-">Zurück</button>' : "<span></span>") + '<button data-as="+" class="go">' + (ASS === L.length - 1 ? "Fertig" : "Weiter") + "</button></div>";
+  [].forEach.call(document.querySelectorAll(".assf"), function(e){ e.classList.remove("assf"); });
+  var first = null; S.z.forEach(function(sel){ var k; try{ k = kastenVon(sel); }catch(er){ k = null; } if(k){ k.classList.add("assf"); if(!first) first = k; } });
+  if(scroll && first) first.scrollIntoView({block: "center", behavior: "smooth"});
+}
+window.SWAssistent = function(i){ var aus = false; try{ aus = localStorage.getItem("sw_ass_aus") === "1"; }catch(e){} if(!aus){ ASS = i; assZeigen(true); } };
 /* ---------- Drucken: möglichst eine Seite, sonst zwei ---------- */
 var A4 = 1127;
 function druckPrep(){
@@ -842,6 +899,7 @@ function wire(){
     if(el.dataset && el.dataset.vw != null){ var alt = fx(cur); cur.vw = cur.vw || {}; cur.vw[el.dataset.vw] = +el.dataset.o; wechsle(cur, alt, fx(cur)); persist(); neuAufbau(); return; }
     if(el.dataset && el.dataset.w != null){ var i = +el.dataset.w, hx = cur.hi[i]; if(hx && hx.n){ var hw = ((hnames()[hBase(hx.n)] || {}).w || "leicht/schwer").toLowerCase();
       menu(el, [{v: "L", l: "Leicht", sub: "1 Punkt", why: /leicht/.test(hw) ? null : "nur schwer"}, {v: "S", l: "Schwer", sub: "2 Punkte", why: /schwer/.test(hw) ? null : "nur leicht"}], function(x){ hx.w = x.v; persist(); neuAufbau(); }); } return; }
+    if(el.dataset && el.dataset.geldw){ geldOpen(el); return; }
     if(el.dataset && el.dataset.rangw){ var ri = rangIdx(cur); menu(el, RAENGE.map(function(r, k){ return {v: k, l: r, sub: k ? "ab " + k * 20 + " Erfahrung" : "0 Erfahrung"}; }), function(x){ if(x.v !== ri) cur.ep = x.v * 20; persist(); neuAufbau(); }); return; }
     if(el.dataset && el.dataset.aufw){ var na = aufN(cur), L2 = []; for(var q = 0; q <= Math.max(20, na + 4); q++) L2.push({v: q, l: String(q), sub: RAENGE[Math.min(4, Math.floor(q / 4))]}); menu(el, L2, function(x){ cur.ep = x.v * 5; persist(); neuAufbau(); }); return; }
     if(el.dataset && el.dataset.pip){
@@ -858,6 +916,8 @@ function wire(){
     else if(el.id === "bgPr"){ druckPrep(); window.print(); }
     else if(el.id === "bgPdf") pdf(el);
     else if(el.id === "bgLink") teilen("bogen.html", el);
+    else if(el.id === "bgShare") packen(cur).then(function(d){ teilen("bogen.html#c=" + d, el); });
+    else if(el.id === "bgAss") assistent(0);
   });
   A.addEventListener("change", function(e){
     if(e.target.id !== "bgFile" || !e.target.files[0]) return;
@@ -913,7 +973,7 @@ function werte(c){
   (F.sch || []).forEach(function(x){ waffen.push({n: x[0], rw: "", sd: x[2] || "", pb: "", tpl: [x[1]]}); });
   c.wa.forEach(function(w){ if(!w || !w.n) return; var k = katalog(w.n) || {};
     var t = tplAus((k.fs || "") + " " + (w.rw || "") + " " + (k.nt || w.nt || ""));
-    waffen.push({n: w.n, rw: /\d+\/\d+\/\d+/.test(w.rw || "") ? w.rw : "", sd: /^Stä/.test(w.sd || "") ? w.sd.replace(/^Stä/, c.a.sta) : (w.sd || ""), pb: w.pb || "", tpl: t}); });
+    waffen.push({n: w.n, rw: /\d+\/\d+\/\d+/.test(w.rw || "") ? w.rw : "", sd: staSd(c, F, w.sd), pen: msPen(c, F, w.ms), pb: w.pb || "", tpl: t}); });
   var EL = ahFx(ahName(c, F)).elem ? elemente(c) : [];
   var maechte = c.ma.filter(function(m){ return m && m.n; }).map(function(m){ return {n: m.n, mp: m.mp || "", rw: m.rw || "", reich: reichweite(c, m.rw), tpl: machtTpl(m.n), au: m.nt || (EL.length === 1 ? EL[0] : ""), els: m.nt ? [] : EL}; });
   var kraefte = hatSuper(c) ? (c.sp || []).filter(function(x){ return x && x.n; }).map(function(x){ var m = spRec(x.n) || {}, mo = Object.keys(x.mo || {}), tx = mo.map(function(k){ var d = (m.m || []).filter(function(y){ return y[0].toUpperCase() === k; })[0]; return k + " " + (d ? d[2] : ""); }).join(" ");
@@ -924,8 +984,20 @@ function werte(c){
     ben: parseInt(c.ben, 10) || 0, wu: c.wu | 0, er: c.er | 0, st: c.st || {}, wmax: b.wmax, wig: b.wig, mp: ahName(c, F) ? (parseInt(c.mp, 10) || 0) + b.mpx : 0, waffen: waffen, maechte: maechte, kraefte: kraefte};
   r.mpa = c.mpa === "" || c.mpa == null ? r.mp : Math.min(r.mp, parseInt(c.mpa, 10) || 0); return r;
 }
+/* Charakter als Link: JSON → deflate → base64url */
+function b64(u8){ var s = ""; for(var i = 0; i < u8.length; i++) s += String.fromCharCode(u8[i]); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function unb64(t){ t = t.replace(/-/g, "+").replace(/_/g, "/"); var s = atob(t), u = new Uint8Array(s.length); for(var i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; }
+function strom(data, T){ return new Response(new Blob([data]).stream().pipeThrough(T)).arrayBuffer().then(function(b){ return new Uint8Array(b); }); }
+function packen(c){ var o = JSON.parse(JSON.stringify(c)); delete o.id; var j = new TextEncoder().encode(JSON.stringify(o));
+  return window.CompressionStream ? strom(j, new CompressionStream("deflate-raw")).then(function(u){ return "z" + b64(u); }) : Promise.resolve("j" + b64(j)); }
+function auspacken(t){ var u = unb64(t.slice(1)); return (t[0] === "z" ? strom(u, new DecompressionStream("deflate-raw")) : Promise.resolve(u)).then(function(x){ return JSON.parse(new TextDecoder().decode(x)); }); }
+function linkImport(){
+  var m = /[#&]c=([\w-]+)/.exec(location.hash); if(!m) return Promise.resolve(false);
+  return auspacken(m[1]).then(function(o){ load(); var c = Object.assign(neu(), o); c.id = uid(); DB.list.push(c); DB.cur = c.id; persist(); history.replaceState(null, "", location.pathname); return true; }).catch(function(){ return false; });
+}
 function istLeer(c){ return !c.name && !c.spieler && !c.volk && !(+c.ep) && !c.ah && ATTR.every(function(a){ return c.a[a[1]] === "W4"; }) && ["ta", "hi", "wa", "ru", "au", "ma"].every(function(k){ return !(c[k] || []).some(function(x){ return x && x.n; }); }) && !(c.sp || []).some(function(x){ return x && x.n; }); }
 window.SWBogen = {
+  link: linkImport,
   leer: function(){ load(); var c = DB.list.filter(istLeer)[0]; if(!c){ c = neu(); DB.list.push(c); } DB.cur = c.id; persist(); },
   liste: function(){ if(!DB) load(); return DB.list.filter(function(c){ return c && (c.name || c.volk); }); },
   get: function(id){ if(!DB) load(); return DB.list.filter(function(c){ return c.id === id; })[0] || null; },

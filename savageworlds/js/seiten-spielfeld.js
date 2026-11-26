@@ -113,8 +113,9 @@ function tplHits(t, f){
 /* ---------- Charakterbogen-Anbindung ---------- */
 var STB = {a:"Angeschlagen", ab:"Abgelenkt", vw:"Verwundbar"};
 function bogen(f){ return f && f.cid && window.SWBogen ? SWBogen.werte(f.cid) : null; }
+function werteKurz(w){ return ["Bennys " + (w.ben | 0), w.wu ? "Wunden " + w.wu : "", w.mp ? "MP " + w.mpa + "/" + w.mp : ""].filter(Boolean).join(" · "); }
 function syncFig(f){
-  var w = bogen(f); if(!w) return null;
+  var w = bogen(f); if(!w) return null; f.wk = werteKurz(w);
   f.n = w.name; f.bw = w.tempo; f.pa = String(w.parade); f.ro = w.rob; f.d = w.d; f.wc = 1;
   f.st = f.st || {}; f.st.w = w.wu; f.st.e = w.er; Object.keys(STB).forEach(function(k){ f.st[k] = w.st[STB[k]] ? 1 : 0; });
   return w;
@@ -250,7 +251,7 @@ function fly(){
   if(!FLY) return;
   var t = S.tool, h = "";
   if(t === "fig"){ var CL = window.SWBogen ? SWBogen.liste() : [];
-    if(CL.length) h = '<button data-v="" class="' + (!S.sub.fig ? "on" : "") + '" title="Figur">' + ic("fig") + "</button>" + CL.map(function(c){ return '<button data-v="' + c.id + '" class="ch' + (S.sub.fig === c.id ? " on" : "") + '"><b>' + E(N(kuerzel(c.name))) + "</b><span>" + E(c.name) + "</span></button>"; }).join(""); }
+    if(CL.length) h = '<button data-v="" class="' + (!S.sub.fig ? "on" : "") + '" title="Figur">' + ic("fig") + "</button>" + CL.map(function(c){ var w = SWBogen.werte(c.id) || {}; return '<button data-v="' + c.id + '" class="ch' + (S.sub.fig === c.id ? " on" : "") + '"><b>' + E(N(kuerzel(c.name))) + "</b><span>" + E(c.name) + "<small>" + werteKurz(w) + "</small></span></button>"; }).join(""); }
   else if(t === "obj") h = Object.keys(OBJ).map(function(k){ return '<button data-v="' + k + '" class="' + (S.sub.obj === k ? "on" : "") + '" title="' + OBJ[k][0] + '"><svg viewBox="-.6 -.6 1.2 1.2">' + objSym(k, 1, 1) + "</svg></button>"; }).join("");
   else if(t === "area") h = Object.keys(AREAS).map(function(k){ return '<button data-v="' + k + '" class="' + (S.sub.area === k ? "on" : "") + '" title="' + AREAS[k] + '"><svg viewBox="0 0 1.6 1.2"><rect x=".05" y=".05" width="1.5" height="1.1" rx=".08" ' + areaFill(k) + ' stroke="' + areaStroke(k) + '" stroke-width=".05"/></svg></button>'; }).join("");
   else if(t === "tpl") h = Object.keys(TPL).map(function(k){ return '<button data-v="' + k + '" class="tp ' + (S.sub.tpl === k ? "on" : "") + '" title="' + TPL[k].n + '"><svg viewBox="' + (TPL[k].r ? "-3.2 -3.2 6.4 6.4" : k === "kegel" ? "-.3 -3.2 9.6 6.4" : "-.3 -3.2 12.6 6.4") + '">' + tplShape(k, "#a51f1a", 0.3) + "</svg><span>" + TPL[k].k + "</span></button>"; }).join("");
@@ -370,7 +371,7 @@ function figSvg(f, z, hit){
     var a = rad(-40 + i * (pr * 2.3 / (r + pr)) * 57.3), px = Math.cos(a) * (r + pr * 0.25), py = Math.sin(a) * (r + pr * 0.25);
     s += '<g transform="translate(' + px.toFixed(3) + " " + py.toFixed(3) + ')"><circle r="' + pr + '" fill="' + p[1] + '" stroke="#fff" stroke-width="1.5" vector-effect="non-scaling-stroke"/><text class="sfp" font-size="' + (pr * (p[0].length > 1 ? 0.95 : 1.15)) + '" y="' + (pr * 0.05) + '">' + p[0] + "</text></g>";
   });
-  if(f.n && z >= 20) s += '<g transform="translate(0 ' + (r + 0.08) + ") scale(" + (1 / z) + ')"><text class="sfn" y="0">' + E(f.n) + "</text></g>";
+  if(f.n && z >= 20) s += '<g transform="translate(0 ' + (r + 0.08) + ") scale(" + (1 / z) + ')"><text class="sfn" y="0">' + E(f.n) + "</text>" + (f.cid && f.wk && z >= 30 ? '<text class="sfn sfw" y="17">' + E(f.wk) + "</text>" : "") + "</g>";
   return s + "</g>";
 }
 function teamCol(t){ for(var i = 0; i < TEAMS.length; i++) if(TEAMS[i][0] === t) return TEAMS[i][2]; return TEAMS[1][2]; }
@@ -701,7 +702,7 @@ function ins(){
       '<div class="sfrow"><label>Erschöpfung</label>' + pips("e", st.e || 0, 2, "#3c5a78") + "</div>" +
       '<div class="sfchips">' + STATES.map(function(x){ return '<button data-st="' + x[0] + '" class="' + (st[x[0]] ? "on" : "") + '" style="--c:' + x[3] + '"><b>' + x[2] + "</b>" + x[1] + "</button>"; }).join("") +
         '<button data-st="aus" class="aus' + (st.aus ? " on" : "") + '" style="--c:#a51f1a"><b>×</b>Außer Gefecht</button></div>' +
-      (w.waffen.length ? "<h4>Waffen</h4>" + w.waffen.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E([a.sd, a.pb ? "PB " + a.pb : ""].filter(Boolean).join(", ")) + '</small></div><div class="b">' +
+      (w.waffen.length ? "<h4>Waffen</h4>" + w.waffen.map(function(a){ return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + E([a.sd, a.pb ? "PB " + a.pb : "", a.pen ? "Angriff –" + a.pen : ""].filter(Boolean).join(", ")) + '</small></div><div class="b">' +
         (a.rw ? '<button class="sfrng' + (S.rings && S.rings.fid === it.id && S.rings.rw === a.rw ? " on" : "") + '" data-rng="' + E(a.rw) + '" title="Reichweite">' + E(a.rw) + "</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
       (w.maechte.length ? "<h4>Mächte</h4>" + w.maechte.map(function(a){ var au = a.au || (a.els && a.els.length ? (S.el[it.id + a.n] || a.els[0]) : "");
         return '<div class="sfact"><div class="n">' + E(a.n) + "<small>" + (au ? '<b style="color:' + aFarbe(au) + '">' + E(au) + "</b>, " : "") + E([a.rw, a.reich ? a.reich + "“" : ""].filter(Boolean).join(", ")) + "</small>" +
@@ -856,7 +857,7 @@ function exportPNG(){
     img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(data);
   });
 }
-var SVGCSS = ".sfk{font-family:Spies,serif;text-anchor:middle;dominant-baseline:central}.sfp{font-family:Oswald,sans-serif;font-weight:600;fill:#fff;text-anchor:middle;dominant-baseline:central}.sfn{font:12.5px Pal,serif;fill:#241f1c;text-anchor:middle;dominant-baseline:hanging;paint-order:stroke;stroke:#fbf6ea;stroke-width:4px;stroke-linejoin:round}.sftx{font-family:Spies,serif}.sfal{font:.3px Pal,serif;font-weight:700;opacity:.75}.sfbt{font:600 .6px Oswald,sans-serif;text-anchor:middle;dominant-baseline:central}";
+var SVGCSS = ".sfk{font-family:Spies,serif;text-anchor:middle;dominant-baseline:central}.sfp{font-family:Oswald,sans-serif;font-weight:600;fill:#fff;text-anchor:middle;dominant-baseline:central}.sfw{font:600 10px Oswald,sans-serif!important;letter-spacing:.03em;fill:#6b5f52!important}.sfn{font:12.5px Pal,serif;fill:#241f1c;text-anchor:middle;dominant-baseline:hanging;paint-order:stroke;stroke:#fbf6ea;stroke-width:4px;stroke-linejoin:round}.sftx{font-family:Spies,serif}.sfal{font:.3px Pal,serif;font-weight:700;opacity:.75}.sfbt{font:600 .6px Oswald,sans-serif;text-anchor:middle;dominant-baseline:central}";
 
 /* ---------- Kopfzeilen-Knopf ---------- */
 function headerBtn(){

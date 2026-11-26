@@ -207,3 +207,26 @@
 .bsup .bah>div{border-bottom:0}
 
 .bsheet.kurz .pl{display:none!important}
+/* Geld */
+.bpop.gpop{padding:10px 12px;min-width:220px}
+.bpop.gpop label{display:flex;justify-content:space-between;align-items:center;gap:10px;font:600 10.5px Oswald,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#a51f1a}
+.bpop.gpop input{width:90px;font:14px Pal,serif;border:0;border-bottom:1px solid #999;text-align:right;outline:0}
+.bpop.gpop p{display:flex;justify-content:space-between;margin:7px 0 0;font-size:13px}
+.bpop.gpop b.x,.bsheet input.warn{color:#a51f1a}
+.lst .tag.pen{background:#a51f1a;margin-left:3px}
+/* Assistent */
+.bass{position:fixed;right:14px;top:84px;width:214px;background:#fffdf8;border:1px solid #1a1a1a;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px 12px;z-index:900;font:13px/1.4 Pal,serif}
+.bass .x{position:absolute;right:6px;top:3px;border:0;background:none;font-size:19px;color:#8a7f70;cursor:pointer}
+.bass ol{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-wrap:wrap;gap:3px}
+.bass li{font:600 9.5px Oswald,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border:1px solid #d6ccbb;border-radius:3px;color:#8a7f70;cursor:pointer}
+.bass li.ok{color:#3a6b3a;border-color:#a9c7a9}
+.bass li.on{background:#a51f1a;border-color:#a51f1a;color:#fff}
+.bass h4{font:600 16px Oswald,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#a51f1a;margin:0 0 4px}
+.bass p{margin:0 0 3px}
+.bass .nav{display:flex;justify-content:space-between;margin-top:10px}
+.bass .nav button{font:600 11px Oswald,sans-serif;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border:1px solid #c9bfae;background:#fff;cursor:pointer;border-radius:3px}
+.bass .nav button.go{background:#a51f1a;border-color:#a51f1a;color:#fff}
+.assf{outline:3px solid #f2b632;outline-offset:3px;border-radius:2px;transition:outline-color .3s}
+@media (max-width:1240px){.bass{top:auto;bottom:12px;right:12px}}
+.lst .r .g .tag.pen{position:absolute;right:3px;top:50%;transform:translateY(-50%);margin:0}
+.lst .tag.pen{font:600 9px Oswald,sans-serif;color:#fff;padding:1px 4px;border-radius:2px;line-height:1.2}

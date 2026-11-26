@@ -286,6 +286,8 @@ function bgPdf(knopf){
       marks:[[".bg-k:not(.weg)", "an", "punkt"], [".bg-k.weg", "weg", "x"], [".bg-tri:not(.zu)", "aus", "x"], [".bg-dot", "an", "punkt"]]}).then(function(){ h.remove(); BG.druck = 0; });
   });
 }
+function bgKarteTeilen(id){ var A = bgFinde(id); if(!A) return; BG.akt = A; bgTeilen(); }
+function bgKarteLoeschen(id){ var A = bgFinde(id); if(!A || !confirm("„" + (A.name || "Neuer Agent") + "“ wirklich löschen?")) return; BG.db.x = BG.db.x.filter(function(a){ return a !== A; }); if(BG.akt === A) BG.akt = null; bgSave(); render(); }
 function bgLoeschen(){ if(!confirm("Diesen Agenten wirklich löschen?")) return; BG.db.x = BG.db.x.filter(function(a){ return a !== BG.akt; }); bgSave(); go("ark/bogen"); }
 function bgKopie(){ var A = JSON.parse(JSON.stringify(BG.akt)); A.id = bgNeu().id; A.name = (A.name || "Agent") + " (Kopie)"; BG.db.x.push(A); bgSave(); go("ark/bogen/" + A.id); }
 function bgAnlegen(){ var A = bgNeu(); BG.db.x.push(A); bgSave(); go("ark/bogen/" + A.id); setTimeout(function(){ bgWahl("anomalie"); }, 80); }
@@ -448,13 +450,14 @@ function viewBogen(P){
   if(A){ BG.akt = A; return kopf + bgAgent(A, P[1], false); }
   BG.akt = null;
   return kopf + '<div class="ct bg bg-start"><header class="bg-sk"><h1>Agentenbogen</h1><p>Deine Agenten mit allen elf Blättern des Charakterbogens – zum Ausfüllen, Teilen und als ausfüllbares PDF.</p></header><div class="bg-agl">' +
-    BG.db.x.map(function(A){ return '<a class="bg-ag" onclick="go(\'ark/bogen/' + A.id + '\')">' + bgFotoHTML(A) + '<div><b>' + esc(A.name || "Neuer Agent") + '</b><small>' + esc(A.titel || bgRang(A)) + '</small>' + bgArcZeile(A) + '</div></a>'; }).join("") +
+    BG.db.x.map(function(A){ return '<a class="bg-ag" onclick="go(\'ark/bogen/' + A.id + '\')"><span class="bg-agk"><i title="Teilen" onclick="event.stopPropagation();bgKarteTeilen(\'' + A.id + '\')"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.4M8.3 13.2l7.4 4.4"/></svg></i><i class="weg" title="Löschen" onclick="event.stopPropagation();bgKarteLoeschen(\'' + A.id + '\')"><svg viewBox="0 0 24 24"><path d="M4 6.5h16M9.5 6.5V4.3h5v2.2M6.3 6.5l.9 13.2h9.6l.9-13.2M10 10v6.5M14 10v6.5"/></svg></i></span>' + bgFotoHTML(A) + '<div><b>' + esc(A.name || "Neuer Agent") + '</b><small>' + esc(A.titel || bgRang(A)) + '</small>' + bgArcZeile(A) + '</div></a>'; }).join("") +
     '<a class="bg-ag neu" onclick="bgAnlegen()"><span>+</span><b>Neuer Agent</b><small>ARK wählen, Bogen füllt sich</small></a>' +
     '<label class="bg-ag neu laden"><span>↥</span><b>Agent laden</b><small>Datei (.json) oder PDF aus dem Tool</small><input type="file" accept=".json,.pdf,application/json,application/pdf" onchange="bgLaden(this)" hidden></label></div></div>';
 }
 function vInitTaB(){ if(window.vInit) vInit(); }
 function bgFotoHTML(A){ return '<div class="bg-mini">' + (A.ausweis.bild ? '<img src="' + A.ausweis.bild + '" alt="">' : '<span>' + esc((A.name || "?").charAt(0)) + '</span>') + '</div>'; }
-function bgArcZeile(A){ var K = {a:"anomalie", r:"realitaet", k:"kompetenz"}; return '<div class="bg-arcz">' + ["a","r","k"].map(function(k){ return '<span class="c-' + TA_ARK[K[k]].c + '"><img src="' + bgArcImg(K[k]) + '" alt="">' + esc(bgArkName(K[k], A.arc[k]) || "–") + '</span>'; }).join("") + '</div>'; }
+function bgDreieck(k){ var f = {a:"#1f4fb8", r:"#e9a818", k:"#c8202f"}[k], b = {a:"A", r:"R", k:"C"}[k]; return '<svg class="bg-dr" viewBox="0 0 24 21"><path d="M12 1.2L23 20H1z" fill="' + f + '" stroke="' + f + '" stroke-width="1.6" stroke-linejoin="round"/><text x="12" y="18" text-anchor="middle" font-family="Spartan,sans-serif" font-weight="900" font-size="11.5" fill="#fff">' + b + '</text></svg>'; }
+function bgArcZeile(A){ var K = {a:"anomalie", r:"realitaet", k:"kompetenz"}; return '<div class="bg-arcz">' + ["a","r","k"].map(function(k){ return '<span class="c-' + TA_ARK[K[k]].c + '">' + bgDreieck(k) + esc(bgArkName(K[k], A.arc[k]) || "–") + '</span>'; }).join("") + '</div>'; }
 function bgAgent(A, blatt, gast){
   var basis = gast ? "ark/bogen/gast" : "ark/bogen/" + A.id;
   var banner = gast ? '<div class="bg-gast noprint">Geteilter Agentenbogen – Änderungen werden erst gespeichert, wenn du ihn übernimmst. <button onclick="bgUebernehmen()">In meine Agenten übernehmen</button></div>' : '';

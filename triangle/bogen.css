@@ -678,3 +678,16 @@
 .bi-ein p{margin:0 0 8px;font-size:14px;line-height:1.5;color:#3d3552}.bi-ein p:last-child{margin:0}
 @media (max-width:900px){.bg-info header{grid-template-columns:110px 1fr}.bi-ein{grid-column:1/-1}}
 .bg-info header .bi-ein p{font-style:normal}
+
+/* Agentenkarten: volle Dreiecke, Teilen und Löschen */
+.bg-dr{width:19px;height:17px;flex:none;display:block}
+.bg-arcz span{gap:5px}
+.bg-ag{position:relative}
+.bg-agk{position:absolute;right:10px;top:10px;display:flex;gap:2px;opacity:.55;transition:opacity .15s}
+.bg-ag:hover .bg-agk{opacity:1}
+.bg-agk i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--grau)}
+.bg-agk i:hover{background:var(--flieder);color:var(--tinte)}.bg-agk i.weg:hover{background:#fbe6e8;color:var(--rot)}
+.bg-agk svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bg-agk circle{fill:currentColor;stroke:none}
+@media (hover:none){.bg-agk{opacity:1}}
+.bg-dr{width:27px;height:24px}.bg-arcz{gap:6px 14px;margin-top:2px}.bg-arcz span{font-size:14px;gap:6px}

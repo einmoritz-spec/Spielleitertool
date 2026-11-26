@@ -59,6 +59,10 @@ function renderHome(){
     katalog:ic('<path d="M4 8l8-4 8 4-8 4zM4 8v8l8 4 8-4V8M12 12v8"/>'),
     tokyo:ic('<path d="M3 20h18M6 20V10l3-2v12M12 20V5l4 2v13M18 20v-8l2 1"/><path d="M8 13h0M14 11h0M14 15h0"/>'),
     metro:ic('<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M9 21l2-4M15 21l-2-4M9 14h.01M15 14h.01"/>'),
+    run:ic('<path d="M4 17l5-5-5-5M12 19h8"/>'),
+    char:ic('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>'),
+    arch:ic('<rect x="3" y="4" width="7" height="9" rx="1.5"/><rect x="14" y="4" width="7" height="9" rx="1.5"/><path d="M6 17h12M6 20h12"/>'),
+    geg:ic('<path d="M12 3c4 0 7 3 7 7 0 2-1 3-1 5v3H6v-3c0-2-1-3-1-5 0-4 3-7 7-7zM9 11h.01M15 11h.01M10 21v-3M14 21v-3"/>'),
     frak:ic('<path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>')
   };
   const tile = (c,t,meta,pg,icon,tone) => `<button class="os-t" style="--c:${tone}" onclick="${go(c)}"><span class="os-t-top"><span class="os-t-ic">${icon}</span>${pg?`<i>${pg}</i>`:""}</span><b>${t}</b><small>${meta}</small></button>`;
@@ -67,9 +71,11 @@ function renderHome(){
 <header class="os-hero2"><img src="img/hero/${OS_HEROES[Math.floor(Math.random()*OS_HEROES.length)]}.webp" alt="Otherscape"></header>
   <div class="os-ax"><button class="os-ax-lab" onclick="${go("abenteuer")}"><b>Abenteuer</b><small>${adv.length} Jobs</small><span>Alle Jobs<svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg></span></button><div class="os-ax-row">${strip}</div></div>
   <div class="os-grps"><div class="os-grp"><div class="os-sec">Regeln</div>
-  <div class="os-grid">${tile("regeln","Regelwerk","Metro-Regeln","",I.regel,"#ff2bd6")}${tile("kits","Theme Books","Themes &amp; Kits","",I.kits,"#a97bff")}${tile("katalog","Straßenkatalog","Ausrüstung","",I.katalog,"#19e3c1")}</div></div>
-  <div class="os-grp"><div class="os-sec">Setting</div>
-  <div class="os-grid">${tile("tokyo","Tokyo","Bezirke &amp; Orte","S. 6–39",I.tokyo,"#ff5d9e")}${tile("metro","Metro","Die Stadt","",I.metro,"#5ab8ff")}${tile("fraktionen","Fraktionen",nF+" Mächte","S. 151–237",I.frak,"#ffc15a")}</div></div></div>
+  <div class="os-grid">${tile("regeln","Regelwerk","Metro-Regeln","",I.regel,"#ff2bd6")}${tile("run","//Run","Einsätze","",I.run,"#ff5d9e")}</div></div>
+  <div class="os-grp"><div class="os-sec">Charaktere</div>
+  <div class="os-grid">${tile("charaktererstellung","Charaktererstellung","Schritt für Schritt","",I.char,"#19e3c1")}${tile("archetypen","Archetypen","Vorlagen","",I.arch,"#5ab8ff")}${tile("kits","Theme Books","Themes &amp; Kits","",I.kits,"#a97bff")}${tile("katalog","Straßenkatalog","Ausrüstung","",I.katalog,"#ffc15a")}</div></div>
+  <div class="os-grp"><div class="os-sec">Welt</div>
+  <div class="os-grid">${tile("tokyo","Tokyo","Bezirke &amp; Orte","",I.tokyo,"#ff5d9e")}${tile("metro","Metro","Die Stadt","",I.metro,"#5ab8ff")}${tile("fraktionen","Fraktionen",nF+" Mächte","",I.frak,"#ffc15a")}${tile("gegner","Gegner","Bedrohungen &amp; Challenges","",I.geg,"#ff5d6c")}</div></div></div>
   </div>`;
 }
 /* Abenteuer-Eintrag für die Startseiten-Leiste ("ax") und die Übersicht ("big"); Klick startet mit kurzer Blitz-Animation */

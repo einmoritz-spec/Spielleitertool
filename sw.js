@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1158sq";
+const VERSION = "v1159sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4516,6 +4516,7 @@ const FILES = [
   "bookviewer/lib/pdf.worker.min.mjs",
   "otherscape/js/rules.js",
   "otherscape/js/app.js",
+  "otherscape/js/nav.js",
   "otherscape/js/data/abenteuer-liste.js",
   "otherscape/js/data/pages.js",
   "otherscape/js/data/bilder.js",

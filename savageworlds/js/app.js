@@ -14,7 +14,7 @@ window.addEventListener("hashchange", render);
 var TABS = [
  {id:"charaktere", t:"Charaktere", img:"k-charaktere", subs:[["voelker","Völker",9],["handicaps","Handicaps",24],["eigenschaften","Eigenschaften",31],["talente","Talente",34],["aufstiege","Aufstiege",52]]},
  {id:"ausruestung", t:"Ausrüstung", img:"k-ausruestung", subs:[["ruestung","Rüstung",69],["waffen","Waffen",72],["fahrzeuge","Fahrzeuge",81]]},
- {id:"regeln", t:"Regeln", img:"k-regeln", subs:[["kampf","Kampf",87],["heilung","Heilung",94],["situationen","Situationen",97]]},
+ {id:"regeln", t:"Regeln", img:"k-regeln", subs:[["proben","Proben & Bennys",87],["kampf","Kampf",91],["heilung","Schaden & Heilung",94],["manoever","Manöver",97],["situationen","Situationen",98]]},
  {id:"werkzeugkasten", t:"Werkzeugkasten", img:"k-werkzeugkasten", subs:[["aufgaben","Aufgaben",112],["furcht","Furcht",114],["gefahren","Gefahren",115],["soziales","Soziales",120],["schlacht","Schlachten & Reisen",121],["verfolgung","Verfolgungsjagden",135],["settingregeln","Settingregeln",126],["zwischenspiele","Zwischenspiele",145]]},
  {id:"maechte", t:"Mächte", img:"k-maechte", subs:[["hintergruende","Arkane Hintergründe",149],["liste","Machtliste",155]]},
  {id:"bestiarium", t:"Bestiarium", img:"k-bestiarium", subs:[["tiere","Kreaturen",175],["schablonen","Schablonen",205]]},
@@ -195,7 +195,7 @@ function dlPage(){ APP.innerHTML = '<div class="st"><div class="soon">Deadlands 
 var CHAPT = {
  charaktere:[["Völker","voelker"],["Handicaps","handicaps"],["Eigenschaften","eigenschaften"],["Talente","talente"],["Aufstiege","aufstiege"]],
  ausruestung:[["Rüstung","ruestung"],["Waffen","waffen"],["Fahrzeuge","fahrzeuge"]],
- regeln:[["Kampf","kampf"],["Heilung","heilung"],["Situationen","situationen"]],
+ regeln:[["Proben & Bennys","proben"],["Kampf","kampf"],["Schaden & Heilung","heilung"],["Manöver","manoever"],["Situationen","situationen"]],
  werkzeugkasten:[["Aufgaben","aufgaben"],["Furcht","furcht"],["Gefahren","gefahren"],["Soziales","soziales"],["Schlachten & Reisen","schlacht"],["Verfolgungsjagden","verfolgung"],["Settingregeln","settingregeln"],["Zwischenspiele","zwischenspiele"]],
  maechte:[["Arkane Hintergründe","hintergruende"],["Machtliste","liste"]],
  bestiarium:[["Kreaturen","tiere"],["Schablonen","schablonen"]],

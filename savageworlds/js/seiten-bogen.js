@@ -240,18 +240,20 @@ function aufAnwenden(c, A, d){
 /* Stand vor allen Aufstiegen (für die Aufbaupunkte) */
 function basis(c){ var b = JSON.parse(JSON.stringify(c)); (b.auf || []).slice().reverse().forEach(function(A){ if(A && A.art) aufAnwenden(b, A, -1); }); return b; }
 /* Prüft einen Aufstieg gegen die Regeln (S. 54) */
+/* Stand direkt vor Aufstieg i: Erschaffungsstand, dann alle früheren Aufstiege der Reihe nach */
+function vorher(c, i){ var b = basis(c); for(var k = 0; k < i; k++){ var X = (c.auf || [])[k]; if(X && X.art) aufAnwenden(b, X, 1); } return b; }
 function aufWarum(c, i){
-  var A = (c.auf || [])[i], F = fx(c); if(!A || !A.art) return null;
+  var A = (c.auf || [])[i]; if(!A || !A.art) return null;
   if(i >= aufN(c)) return "mehr Aufstiege als Erfahrung";
-  var R = slotRang(i);
+  var b = vorher(c, i), F = fx(b), R = slotRang(i);
   if(A.art === "a"){
-    var gleich = (c.auf || []).filter(function(x, j){ return x && x.art === "a" && j !== i && (R < 4 ? slotRang(j) === R : Math.abs(j - i) === 1); });
+    var gleich = (c.auf || []).filter(function(x, j){ return x && x.art === "a" && j < i && (R < 4 ? slotRang(j) === R : i - j === 1); });
     if(gleich.length) return R < 4 ? "nur ein Attribut pro Rang" : "nur jeden zweiten Aufstieg";
-    if(di(c.a[A.z]) > aMax(F, A.z)) return "über dem Maximum";
+    if(di(b.a[A.z]) + 1 > aMax(F, A.z)) return "über dem Maximum";
   }
-  if(A.art === "f1"){ var s = c.sk.filter(function(x){ return x.n === A.z; })[0]; if(!s) return "Fertigkeit fehlt"; if(di(s.d) - 1 < attrVon(c, A.z)) return "unter dem Attribut"; }
-  if(A.art === "f2"){ if(!A.z || A.z.length !== 2) return "zwei Fertigkeiten wählen"; for(var k = 0; k < 2; k++){ var s2 = c.sk.filter(function(x){ return x.n === A.z[k]; })[0]; if(s2 && !s2.neu && di(s2.d) - 1 >= attrVon(c, A.z[k])) return A.z[k] + " nicht unter dem Attribut"; } }
-  if(A.art === "ta" && A.z !== "Arkaner Hintergrund"){ var t = tnames()[A.z]; if(t){ var w = warum(c, F, t.v, t.r, R); if(w) return w; } }
+  if(A.art === "f1"){ var s = b.sk.filter(function(x){ return x.n === A.z; })[0]; if(!s) return "Fertigkeit fehlt"; if(di(s.d) < attrVon(b, A.z)) return "unter dem Attribut"; }
+  if(A.art === "f2"){ if(!A.z || A.z.length !== 2) return "zwei Fertigkeiten wählen"; for(var k = 0; k < 2; k++){ var s2 = b.sk.filter(function(x){ return x.n === A.z[k]; })[0]; if(s2 && di(s2.d) >= attrVon(b, A.z[k])) return A.z[k] + " nicht unter dem Attribut"; } }
+  if(A.art === "ta" && A.z !== "Arkaner Hintergrund"){ var t = tnames()[A.z]; if(t){ var w = warum(b, F, t.v, t.r, R); if(w) return w; } }
   return null;
 }
 function aufText(A){
@@ -421,8 +423,8 @@ function sheet(){
   h += '<div class="box"><h3>Talente<span class="cnt" id="b-tal"></span></h3><div class="lst">';
   if(c.ah) h += '<div class="r vk ahr"><span class="g"><input readonly data-ahrow="1" value="Arkaner Hintergrund (' + esc2(c.ah) + ')" title="Ändern"></span><span class="tag">AH</span></div>';
   fT.forEach(function(x){ h += fest(x[0], x[1]); });
-  for(i = 0, n = rows("ta", fT.length + (c.ah ? 1 : 0)); i < n; i++){ var tt = c.ta[i] || {}, wy = tt.n && tnames()[tt.n] ? warum(c, F, tnames()[tt.n].v, tnames()[tt.n].r) : null, tw = tt.n ? twArt(tt.n) : null;
-    h += '<div class="r"><span class="g">' + inp("ta", i, "n", {pick: "ta", cls: wy ? "warn" : "", tip: wy ? "Voraussetzung: " + wy : ""}) + "</span>" +
+  for(i = 0, n = rows("ta", fT.length + (c.ah ? 1 : 0)); i < n; i++){ var tt = c.ta[i] || {}, wy = tt.n && tnames()[tt.n] && !tt.adv ? warum(c, F, tnames()[tt.n].v, tnames()[tt.n].r) : null, tw = tt.n ? twArt(tt.n) : null;
+    h += '<div class="r' + (tt.adv ? " vk" : "") + '"><span class="g">' + inp("ta", i, "n", tt.adv ? {ro: 1, tip: "Über den Aufstieg entfernen"} : {pick: "ta", cls: wy ? "warn" : "", tip: wy ? "Voraussetzung: " + wy : ""}) + "</span>" + (tt.adv ? '<span class="tag">Aufstieg</span>' : "") +
       (tw ? '<span class="tw">' + (tw === "frei" ? '<input class="twi" data-a="ta" data-i="' + i + '" data-f="w" placeholder="…" value="' + esc2(tt.w || "") + '" autocomplete="off">' : '<button class="twb' + (tt.w ? "" : " leer") + '" data-tw="' + i + '">' + esc2(tt.w || "wählen") + "</button>") + "</span>" : "") + "</div>"; }
   h += "</div></div>";
   h += '<div class="box"><h3>Waffen</h3><div class="lst"><div class="r hd"><span class="g">Waffe</span><span class="c" style="width:48px">Reichw.</span><span class="c" style="width:58px">Schaden</span><span class="c" style="width:22px">PB</span><span class="c" style="width:22px">FR</span><span class="c" style="width:34px">MSt</span></div>';
@@ -626,9 +628,11 @@ function twOpen(el){
 }
 function dieOpen(el){
   var f = el.dataset.die, cu = f === "a" ? cur.a[el.dataset.f] : f === "s" ? cur.sk[el.dataset.i].d : "", F = fx(cur), lo = 1, hi = 5;
-  if(f === "a"){ lo = aStart(F, el.dataset.f); hi = aMax(F, el.dataset.f); }
-  else if(f === "s"){ var sn = cur.sk[el.dataset.i].n; lo = Math.max(1, skStart(F, sn)); hi = skMax(F, sn); }
-  var h = DIE.slice(lo, hi + 1).map(function(d){ return '<span class="' + (d === cu ? "on" : "") + '" data-d="' + d + '">' + d + "</span>"; }).join("") + (f === "s" && !skStart(F, cur.sk[el.dataset.i].n) ? '<span data-d="">✕</span>' : "");
+  var nA = 0, zk = f === "a" ? el.dataset.f : f === "s" ? cur.sk[el.dataset.i].n : null;
+  (cur.auf || []).forEach(function(A){ if(!A) return; if(f === "a" && A.art === "a" && A.z === zk) nA++; else if(f === "s" && ((A.art === "f1" && A.z === zk) || (A.art === "f2" && (A.z || []).indexOf(zk) > -1))) nA++; });
+  if(f === "a"){ lo = aStart(F, el.dataset.f) + nA; hi = aMax(F, el.dataset.f); }
+  else if(f === "s"){ var sn = cur.sk[el.dataset.i].n; lo = Math.max(1, skStart(F, sn) + nA); hi = skMax(F, sn); }
+  var h = DIE.slice(lo, hi + 1).map(function(d){ return '<span class="' + (d === cu ? "on" : "") + '" data-d="' + d + '">' + d + "</span>"; }).join("") + (f === "s" && !nA && !skStart(F, cur.sk[el.dataset.i].n) ? '<span data-d="">✕</span>' : "");
   popAt(el, {html: h, cls: "dpop"}); pop._el = el;
 }
 function dieTake(d){

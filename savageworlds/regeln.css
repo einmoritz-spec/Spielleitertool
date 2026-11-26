@@ -31,3 +31,4 @@
 .rgct a.pg{margin-left:2px}
 @media(max-width:900px){.rgct .rt{float:none;width:auto;margin:10px 0}}
 .rgct .rt h5 .pg{color:#fff;opacity:.75;margin-left:10px}
+.rgct .rt.wrapk{max-width:900px}.rgct .rt.wrapk .rtb td:first-child{white-space:normal;font-size:14px;line-height:1.4}

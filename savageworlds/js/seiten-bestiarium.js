@@ -1,8 +1,8 @@
 /* Bestiarium: Kreaturen (Werteblock-Karten, Kategorien, Suche) und Schablonen */
 "use strict";
 window.SWP = window.SWP || {};
-var KCAT = ["Tiere","Monster","Humanoide","Untote","Dämonen","Elementare","Konstrukte","Außerirdische","Roboter","Fahrzeuge","Superschurken","Abscheulichkeiten","Geister","Sonstige"];
-var KCOL = {"Tiere":"#8a6a2e","Monster":"#a51f1a","Humanoide":"#6c625a","Untote":"#5b3a6e","Dämonen":"#8a1c2c","Elementare":"#2f6f8a","Konstrukte":"#4a5560","Außerirdische":"#0f6f86","Roboter":"#4a5560","Superschurken":"#b3301c","Abscheulichkeiten":"#5a3a1a","Geister":"#5b3a6e","Sonstige":"#7a7067"};
+var KCAT = ["Tiere","Monster","Humanoide","Untote","Dämonen","Feenwesen","Elementare","Konstrukte","Außerirdische","Roboter","Fahrzeuge","Superschurken","Abscheulichkeiten","Geister","Sonstige"];
+var KCOL = {"Tiere":"#8a6a2e","Monster":"#a51f1a","Humanoide":"#6c625a","Untote":"#5b3a6e","Dämonen":"#8a1c2c","Feenwesen":"#3f7a4a","Elementare":"#2f6f8a","Konstrukte":"#4a5560","Außerirdische":"#0f6f86","Roboter":"#4a5560","Superschurken":"#b3301c","Abscheulichkeiten":"#5a3a1a","Geister":"#5b3a6e","Sonstige":"#7a7067"};
 var KAB = {"Geschicklichkeit":"Ges","Konstitution":"Kon","Stärke":"Stä","Verstand":"Ver","Willenskraft":"Wil"};
 function krSicht(k){ return k.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
 function krBadges(k){ return k.s.filter(function(x){ return x !== "GRW"; }).map(function(x){ return '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>"; }).join(""); }
@@ -20,7 +20,7 @@ function krCats(){
   Object.keys(have).forEach(function(c){ if(L.indexOf(c) < 0) L.push(c); });
   return L;
 }
-function krKey(k){ return (k.g || k.n).toLowerCase(); }
+function krKey(k){ return (k.g ? "1" + k.g : "0" + k.n).toLowerCase(); }
 function krMatch(k, q){
   if(!q) return true;
   var h = (k._h = k._h || (k.n + " " + k.k + " " + (k.g || "") + " " + (k.d || []).join(" ") + " " + k.f + " " + k.x.map(function(e){ return e[1]; }).join(" ") + " " + k.sf.map(function(e){ return e[0] + " " + e[1]; }).join(" ")).toLowerCase());

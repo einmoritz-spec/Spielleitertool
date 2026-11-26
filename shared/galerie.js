@@ -37,12 +37,16 @@ var Galerie = (function(){
     ov.appendChild(bar); ov.appendChild(grid); ov.appendChild(lb);
     document.body.appendChild(ov); document.documentElement.classList.add("gal-open");
     window.addEventListener("keydown", onKey, true); window.addEventListener("resize", queue);
+    if(!pushed){ try{ history.pushState({ gal: 1 }, ""); pushed = true; }catch(e){} }
+    window.addEventListener("popstate", onPop);
     var start = books.filter(function(b){ return b.key === (bookKey || lastKey[setting]); })[0] || books[0];
     show(start);
   }
-  function close(){
+  function close(keep){
     if(!ov) return; direct = false;
     window.removeEventListener("keydown", onKey, true); window.removeEventListener("resize", queue);
+    window.removeEventListener("popstate", onPop);
+    if(pushed && keep !== true){ pushed = false; try{ history.back(); }catch(e){} }
     ov.remove(); ov = grid = lb = cur = null; tiles = []; document.documentElement.classList.remove("gal-open");
   }
   function show(book){
@@ -102,7 +106,7 @@ var Galerie = (function(){
     var books = BOOKS[setting] || [], bk = null, i = -1;
     books.forEach(function(b){ if(bk) return; b.items.forEach(function(it, k){ if(!bk && it[0] === file){ bk = b; i = k; } }); });
     if(!bk) return open(setting);
-    if(ov) close();
+    if(ov) close(true);
     open(setting, bk.key); direct = true; openLb(i);
   }
   function closeLb(){
@@ -120,6 +124,12 @@ var Galerie = (function(){
     [1, -1].forEach(function(d){ var j = cur.items[(idx + d + n) % n]; (new Image()).src = j[4] || cur.dir + "full/" + j[0] + ".webp"; });
   }
   function go(d){ if(lb && !lb.hidden) showImg(idx + d); }
+  var pushed = false;
+  function onPop(){
+    pushed = false;
+    if(lb && !lb.hidden && !direct){ closeLb(); try{ history.pushState({ gal: 1 }, ""); pushed = true; }catch(e){} }
+    else close();
+  }
   function onKey(e){
     if(e.ctrlKey || e.metaKey || e.altKey) return;
     var inLb = lb && !lb.hidden, k = e.key, used = true;

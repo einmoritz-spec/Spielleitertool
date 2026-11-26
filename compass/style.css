@@ -26,8 +26,8 @@ a{color:inherit;cursor:pointer;text-decoration:none}
 .topbar .tm-sg:hover,.topbar .tm-book:hover,.topbar .tm-info:hover{opacity:1;background:#ffffff1f!important}
 .topbar .tm-caret{position:relative;z-index:1}
 /* Umschalter Film / Buch */
-.ansicht{display:flex;margin-right:10px;padding:3px;border-radius:20px;background:rgba(0,0,0,.35);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);position:relative;z-index:1}
-.ansicht button{width:38px;height:30px;border-radius:16px;display:grid;place-items:center;opacity:.55;transition:background .2s,opacity .2s}
+.ansicht{display:flex;flex-direction:column;position:absolute;top:60px;right:19px;width:40px;align-items:center;margin:0!important;padding:3px;border-radius:20px;background:rgba(0,0,0,.35);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);z-index:1}
+.ansicht button{width:34px;height:34px;border-radius:16px;display:grid;place-items:center;opacity:.55;transition:background .2s,opacity .2s}
 .ansicht button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .ansicht button:hover{opacity:.9}
 .ansicht button.on{opacity:1;background:rgba(255,255,255,.16)}
@@ -41,10 +41,9 @@ body.film .hdbg{display:block;position:absolute;inset:0;pointer-events:none}
 .hdbg .l.on{opacity:1}
 .hdbg .sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,13,10,.6),transparent 20%,transparent 60%,rgba(16,13,10,.8))}
 .hdbg .dk{position:absolute;inset:0;background:#100d0a;opacity:calc(.97 - .97 * var(--t))}
-body.film .topbar > *:not(.hdbg){margin-top:11px}
 body.film .topbar .brand{align-self:flex-end;margin-top:0;height:auto;padding-bottom:calc(12px + 26px * var(--t));padding-left:calc(18px * var(--t))}
 body.film .topbar .brand img{height:calc(40px + 80px * var(--t));filter:drop-shadow(0 4px 18px rgba(0,0,0,.55))}
-body.film .topbar .tm-caret{align-self:flex-end;margin-top:0;margin-bottom:calc(20px + 50px * var(--t))}
+body.film .topbar .tm-caret{align-self:flex-end;margin-bottom:calc(20px + 50px * var(--t))}
 
 /* Abschnitte als Bild-Fächer */
 .fan-wrap{background:linear-gradient(rgba(240,234,222,.62),rgba(240,234,222,.62)),url(img/start/papier.webp) center/cover;padding:40px 40px 46px}
@@ -134,3 +133,16 @@ body.buch{background:#2a1a10 url(img/start/leder.webp) center/840px}
 .mm-panel h3{font:800 13px Fut;letter-spacing:.24em;text-transform:uppercase;color:#bfa77a;margin:4px 0 12px}
 .mm-panel button{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:8px;font:15px Cas}
 .mm-panel button:hover{background:#ffffff14}
+
+/* Kopfzeile: alle Symbole auf einer Höhe, Umschalter hochkant unter dem Burger */
+.topbar{align-items:flex-start}
+.topbar{padding-top:11px}
+.topbar > *{margin-top:0!important}
+.topbar .brand{margin-top:auto!important}
+.topbar .brand{align-self:flex-start}
+.ansicht{z-index:2}
+body.film .ansicht{opacity:calc(var(--t) * 3)}
+body.film .topbar .brand{align-self:flex-end;margin-top:auto!important}
+body.buch .topbar{position:absolute;left:0;right:0;background:transparent;height:64px}
+body.buch .einband{padding-top:64px}
+body.buch .ansicht{opacity:1}

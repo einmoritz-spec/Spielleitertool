@@ -62,6 +62,7 @@ function hdScroll(){
   var bar = document.querySelector(".topbar"), y = window.scrollY, h = Math.max(HD.M, HD.H - y), t = (h - HD.M) / (HD.H - HD.M);
   bar.style.height = h + "px";
   bar.style.setProperty("--t", t.toFixed(3));
+  bar.style.transform = "translateY(-" + Math.max(0, y - (HD.H - HD.M)) + "px)";
 }
 window.addEventListener("scroll", function(){ requestAnimationFrame(hdScroll); }, {passive: true});
 
@@ -74,7 +75,7 @@ function render(){
   APP.innerHTML = v === "film" ? viewFilm() : viewBuch();
   clearInterval(HERO.t);
   if(v === "film"){ heroNext(true); HERO.t = setInterval(function(){ heroNext(false); }, 9000); }
-  else { bar.style.height = ""; bar.style.removeProperty("--t"); }
+  else { bar.style.height = ""; bar.style.transform = ""; bar.style.removeProperty("--t"); }
   hdScroll();
 }
 

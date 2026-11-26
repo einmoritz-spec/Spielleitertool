@@ -39,7 +39,7 @@ function render(){
     SUB.innerHTML = cur.subs.map(function(s){ return '<a class="' + (s[0] === b ? "on" : "") + '" onclick="go(\'' + cur.id + "/" + s[0] + '\')">' + esc(s[1]) + "</a>"; }).join("") + genSwitch();
   } else { SUB.className = "sub"; SUB.innerHTML = ""; }
   if(r.a === "start") return start();
-  if(dl) return dlPage();
+  if(dl) return (window.dlRender || dlPage)();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "talente") return talentePage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "voelker") return voelkerPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "handicaps") return handicapsPage();

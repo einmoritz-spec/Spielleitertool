@@ -1119,3 +1119,9 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .begl .bi,.begl .bi *,.bfl,.bfl *{touch-action:none}
 .bfl .bfk b,.bi>b{cursor:grab}
 .zw i{cursor:pointer}
+
+/* Begegnungsleiste schlicht: Totenkopf, Gegner, + und Reset */
+.begl .bgs{color:#8ea2b9;flex:none;margin:0 2px 0 -2px}
+.begl .bicon{display:inline-grid;place-items:center;min-width:28px;height:28px;border:1px dashed #4d6b8b;color:#8ea2b9;font:700 18px/1 var(--f-text);cursor:pointer}
+.begl .bicon:hover{color:#fff;border-color:#9fb2c8}
+.begl .bicon svg{display:block}

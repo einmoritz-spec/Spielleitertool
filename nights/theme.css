@@ -302,11 +302,11 @@ body.np-start .topbar .brand,body.np-start .topbar .tm-caret{transition:opacity 
 @media (hover:hover) and (pointer:fine){body.np-start .topbar:not(:hover) .brand,body.np-start .topbar:not(:hover) .tm-caret{opacity:0}}
 
 /* ===== Fälle: Schichten als Ordner-Reiter in der Kopfzeile, Szenen in der Unterleiste ===== */
-.topbar .ktabs{display:flex;align-self:flex-end;gap:4px;margin:0 0 -13px 18px;height:44px;position:relative;z-index:2;overflow-x:auto;scrollbar-width:none;min-width:0}
+.topbar .ktabs{display:flex;align-self:flex-end;align-items:stretch;gap:4px;margin:0 0 -8px 18px;height:42px;position:relative;z-index:2;overflow:visible;min-width:0}
 .topbar .ktabs:empty{display:none}
 .topbar .ktabs a{flex:none;display:flex;align-items:center;padding:0 16px;background:#dccda6;color:#6b5a3a;border:1px solid #bda97a;border-bottom:0;border-radius:12px 12px 0 0;font:800 13px/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
 .topbar .ktabs a:hover{background:#e6d6ae;color:#4a3c25}
-.topbar .ktabs a.on{background:var(--fold);border-color:var(--fold);color:var(--rust,#7a2e10)}
+.topbar .ktabs a.on{background:var(--fold);border-color:var(--fold);color:var(--rust,#7a2e10);margin-bottom:-3px;position:relative;z-index:1}
 body.ninav .topbar:has(.ktabs a){justify-content:flex-start!important}
 body.ninav .topbar:has(.ktabs a) .tm-caret{margin-right:0!important}
 body.ninav .topbar:has(.ktabs a) .tm-info{margin-left:auto!important}

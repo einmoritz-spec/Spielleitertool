@@ -680,8 +680,8 @@ function ins(){
       (w.mp ? '<div><label>Machtpunkte</label><div class="sfstep"><button data-step="mpa" data-v="-1">–</button><b>' + w.mpa + "<small>/" + w.mp + '</small></b><button data-step="mpa" data-v="1">+</button></div></div>' : "<div></div>") + "</div>" +
       row("Partei", seg("team", TEAMS.map(function(t){ return [t[0], t[1]]; }), it.team)) +
       row("Farbe", sw("c", COLS, it.c || teamCol(it.team))) +
-      '<h4>Zustand</h4>' +
-      '<div class="sfrow"><label>Wunden</label>' + pips("w", st.w || 0, 3, "#a51f1a") + "</div>" +
+      '<h4>Zustand' + abzug(st, w ? w.wig : 0) + '</h4>' +
+      '<div class="sfrow"><label>Wunden</label>' + pips("w", st.w || 0, w ? w.wmax : 3, "#a51f1a") + "</div>" +
       '<div class="sfrow"><label>Erschöpfung</label>' + pips("e", st.e || 0, 2, "#3c5a78") + "</div>" +
       '<div class="sfchips">' + STATES.map(function(x){ return '<button data-st="' + x[0] + '" class="' + (st[x[0]] ? "on" : "") + '" style="--c:' + x[3] + '"><b>' + x[2] + "</b>" + x[1] + "</button>"; }).join("") +
         '<button data-st="aus" class="aus' + (st.aus ? " on" : "") + '" style="--c:#a51f1a"><b>×</b>Außer Gefecht</button></div>' +
@@ -691,7 +691,7 @@ function ins(){
         (a.mp && /^\d+$/.test(a.mp) ? '<button class="sfmp" data-mp="' + a.mp + '" title="Machtpunkte ausgeben">' + a.mp + " MP</button>" : "") + tc(a.tpl, a) + "</div></div>"; }).join("") : "") +
       foot('<button data-act="img" title="Bild">' + ic("bild") + "</button>" + (it.img ? '<button data-act="noimg" title="Bild entfernen" class="sfx">' + ic("close") + "</button>" : ""));
   } else if(it && it.t === "fig"){
-    var st = it.st || {};
+    var st = it.st || {}, w = null;
     h = '<h3>Figur</h3>' +
       '<div class="sfrow"><input data-f="n" list="sfKr" value="' + E(it.n) + '" placeholder="Name" class="sfbig"><datalist id="sfKr">' + kreaturen().map(function(k){ return '<option value="' + E(k.n) + '">'; }).join("") + "</datalist></div>" +
       '<div class="sfrow two"><div><label>Kürzel</label><input data-f="k" maxlength="3" value="' + E(it.k || "") + '" placeholder="' + E(kuerzel(it.n)) + '"></div><div><label>Wildcard</label><button data-set="wc" data-v="' + (it.wc ? 0 : 1) + '" class="sfwc' + (it.wc ? " on" : "") + '"><img src="img/wc.webp" alt=""></button></div></div>' +
@@ -699,8 +699,8 @@ function ins(){
       row("Farbe", sw("c", COLS, it.c || teamCol(it.team))) +
       row("Größe", seg("d", SIZES.map(function(s){ return [s[0], s[1]]; }), it.d).replace('class="sfseg"', 'class="sfseg sz"')) +
       '<div class="sfrow three"><div><label>Bewegung</label><input type="number" min="0" data-f="bw" value="' + (it.bw || "") + '"></div><div><label>Parade</label><input data-f="pa" value="' + E(it.pa || "") + '"></div><div><label>Robustheit</label><input data-f="ro" value="' + E(it.ro || "") + '"></div></div>' +
-      '<h4>Zustand</h4>' +
-      '<div class="sfrow"><label>Wunden</label>' + pips("w", st.w || 0, 3, "#a51f1a") + "</div>" +
+      '<h4>Zustand' + abzug(st, w ? w.wig : 0) + '</h4>' +
+      '<div class="sfrow"><label>Wunden</label>' + pips("w", st.w || 0, w ? w.wmax : 3, "#a51f1a") + "</div>" +
       '<div class="sfrow"><label>Erschöpfung</label>' + pips("e", st.e || 0, 2, "#3c5a78") + "</div>" +
       '<div class="sfchips">' + STATES.map(function(x){ return '<button data-st="' + x[0] + '" class="' + (st[x[0]] ? "on" : "") + '" style="--c:' + x[3] + '"><b>' + x[2] + "</b>" + x[1] + "</button>"; }).join("") +
         '<button data-st="aus" class="aus' + (st.aus ? " on" : "") + '" style="--c:#a51f1a"><b>×</b>Außer Gefecht</button></div>' +
@@ -730,6 +730,7 @@ function ins(){
   INS.innerHTML = h; O.classList.toggle("ins", !!h);
   rail();
 }
+function abzug(st, wig){ var p = Math.max(0, Math.min(3, st.w || 0) - (wig || 0)) + (st.e || 0); return p ? '<span class="sfpen" title="Abzug auf Eigenschaftsproben">–' + p + "</span>" : ""; }
 function pips(k, v, n, c){ var s = '<div class="sfpips" style="--c:' + c + '">'; for(var i = 1; i <= n; i++) s += '<button data-pip="' + k + '" data-v="' + i + '" class="' + (i <= v ? "on" : "") + '">' + i + "</button>"; return s + "</div>"; }
 var insT = 0, insU = 0;
 function insInput(e){

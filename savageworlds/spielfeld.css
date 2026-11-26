@@ -176,3 +176,5 @@ body.sf-open{overflow:hidden}
 .sfaim{opacity:.8;pointer-events:none}
 .sfrow.half{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .sfrow.half label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin:0 0 5px}
+.sfpen{margin-left:auto;min-width:34px;height:26px;padding:0 9px;border-radius:99px;background:var(--red);color:#fff;font:600 14px Oswald,sans-serif;display:grid;place-items:center}
+.sffly.fig button:not(.ch) svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;width:26px;height:26px}

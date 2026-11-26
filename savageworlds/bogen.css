@@ -90,7 +90,7 @@
 .bwahl{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:-4px 0 10px;font:600 11px Oswald,sans-serif;letter-spacing:.04em;text-transform:uppercase}
 .bwahl .bwl{color:#a51f1a;margin-right:2px;font:600 11px Oswald,sans-serif}
 .bwahl i{width:14px}
-.bwahl.in{margin:0;padding:5px 8px 1px}
+
 .bwahl a{padding:2px 8px;border:1px solid #c9bfae;border-radius:3px;cursor:pointer;color:#555}
 .bwahl a:hover{border-color:#a51f1a}
 .bwahl a.on{background:#a51f1a;border-color:#a51f1a;color:#fff}
@@ -130,3 +130,21 @@
   .bwahl.in a:not(.on){display:none}
 }
 @media (max-width:820px){.bsheet{zoom:var(--bz,1)}}
+
+/* Talente mit Auswahl, Arkaner Hintergrund */
+.lst .tw{flex:none;max-width:46%;display:flex}
+.lst .twb{font:600 10.5px Oswald,sans-serif;letter-spacing:.03em;color:#a51f1a;background:#fff;border:1px solid #d9b7b3;border-radius:3px;padding:1px 6px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.lst .twb.leer{color:#999;border-style:dashed;border-color:#ccc}
+.lst .twb:hover{border-color:#a51f1a}
+.lst .twi{width:120px!important;font-size:10.5px;border-bottom:1px dotted #bbb!important}
+.lst .r.ahr input{cursor:pointer;font-style:normal;color:#1a1a1a}
+.lst .r.ahr:hover input{color:#a51f1a}
+.bah{display:grid;grid-template-columns:1.2fr 1.2fr .6fr;gap:4px 14px;padding:5px 8px 6px;border-bottom:1px solid #1a1a1a}
+.bah>div{display:flex;align-items:baseline;gap:6px;min-width:0;border-bottom:1px solid #999;height:20px}
+.bah b{font:13px Pal,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bah .el{grid-column:1/-1;border-bottom:0;height:auto;padding-top:2px}
+.bah .els{display:flex;gap:5px}
+.bah .els a{font:600 10.5px Oswald,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border:1px solid #c9bfae;border-radius:3px;cursor:pointer;color:#555}
+.bah .els a:hover{border-color:#a51f1a}
+.bah .els a.on{background:#a51f1a;border-color:#a51f1a;color:#fff}
+@media print{.bah .els a:not(.on){display:none}.lst .twb.leer{display:none}}

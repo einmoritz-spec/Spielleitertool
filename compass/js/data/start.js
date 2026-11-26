@@ -35,3 +35,5 @@ var BC_STAFFELN = [
         ["Mission: Unsterbliche Beute", 182, "lt-f10"], ["Grenzenlos", 192, "lt-f11"]]}
 ];
 var BC_EPOK = {"bogen-fertig": 1, "jr1": 1, "jr2": 1, "jr3": 1, "jr4": 1, "jr5": 1, "jr6": 1, "lt1": 1, "lt10": 1, "lt11": 1, "lt2": 1, "lt3": 1, "lt4": 1, "lt5": 1, "lt6": 1, "lt7": 1, "lt8": 1, "lt9": 1, "pilot": 1, "quetzalcoatl": 1, "ve1": 1, "ve2": 1, "ve3": 1, "ve4": 1, "ve5": 1, "ve6": 1};
+/* Folgenbilder auf weißem Grund (freigestellte Illustrationen): ungeschnitten zeigen */
+var BC_WEISS = {"jr1": 1, "jr4": 1, "jr5": 1, "ve2": 1, "ve5": 1};

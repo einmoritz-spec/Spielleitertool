@@ -22,12 +22,37 @@ function viewFilm(){
     return '<a class="sl" style="--c:' + a.c + ';--bgi:url(' + IMG + a.img + '.webp);--bp:' + a.pos + ';--bpx:' + String(a.pos).split(" ")[0] + '" href="#a/' + a.id + '">' +
       '<div class="tx"><small>Abschnitt ' + (i + 1) + '</small><b>' + esc(a.t) + '</b><ul>' + a.sub.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div><div class="bar"></div></a>';
   }).join("");
-  var rows = '<a class="pil" onclick="epGo(\'pilot\',\'' + BC_PILOT.b + '\',' + BC_PILOT.s + ')"><div class="im" style="background-image:url(' + IMG + BC_PILOT.img + '.webp)"></div><div><b>' + esc(BC_PILOT.lab) + '</b><i>' + esc(BC_PILOT.t) + '</i></div></a>';
-  rows += BC_STAFFELN.map(function(st){
-    return '<div class="row ' + st.id + '"><a class="post" onclick="stGo(\'' + st.id + '\',\'' + st.b + '\')"><img src="' + IMG + st.cover + '.webp" alt=""><div class="k">' + esc(st.lab) + '</div><div class="t">' + esc(st.t) + '</div></a>' +
-      '<div class="strip">' + st.eps.map(function(e, i){ return folge(st, e, i); }).join("") + '</div></div>';
-  }).join("");
-  return '<section class="fan-wrap"><div class="fan">' + fan + '</div></section><section class="seas"><div class="sh2">Staffeln</div>' + rows + '</section>';
+  return '<section class="fan-wrap"><div class="fan">' + fan + '</div></section>' + guide();
+}
+/* Episodenführer: je Staffel Cover, Kapitel-Links und alle Folgen mit Szenenzahl, Ort und Rivale */
+function guide(){
+  var F = window.BC_FOLGEN || {}, W = window.BC_WEISS || {};
+  var kurz = function(v){ return window.EPI ? EPI.kurz(v) : v; };
+  var blocks = [{id: "aj", lab: "Adventure Journal", t: "Pilot", story: "Der Einstieg ins Abenteuer", cover: "cover-aj", c: "#1d2c4d", b: "bc_aj",
+    links: [{t: "Schatzsuche", h: "#a/schatzsuche"}],
+    eps: [{id: "pilot", nr: "Pilot", s: 214, img: "aj/pilot-titel"}, {id: "quetzalcoatl", nr: "Fertiger Kontext", s: 228, img: "start/pilot-quetzalcoatl"}, {id: "bogen-fertig", nr: "Zum Losspielen", s: 230, img: "aj/pilot-titel"}]}];
+  BC_STAFFELN.forEach(function(st){
+    var Z = window.BC_BUCH && BC_BUCH[st.id];
+    blocks.push({id: st.id, lab: st.lab, t: st.t, story: st.story, cover: st.cover, c: st.c, b: st.b,
+      links: ((Z && Z.areas) || []).map(function(a){ return {t: a.t, h: "#a/" + a.id}; }),
+      eps: st.eps.map(function(e, i){ return {id: st.id + (i + 1), nr: "Folge " + (i + 1), s: e[1], img: "start/" + e[2], alt: e[0]}; })});
+  });
+  return '<section class="eguide"><div class="sh2">Staffeln und Folgen</div>' + blocks.map(function(B){
+    var sz = 0; B.eps.forEach(function(e){ sz += (F[e.id] && F[e.id].n) || 0; });
+    var cards = B.eps.map(function(e){
+      var f = F[e.id] || {}, t = f.t || e.alt || e.id, meta = [];
+      if(f.n) meta.push(f.n + " Szenen");
+      var o = kurz(f.ort); if(o) meta.push(o);
+      var r = kurz(f.riv); if(r) meta.push("Rivale: " + r);
+      var alt = e.alt && e.alt !== t && /^lt/.test(e.id) ? '<em>Kontext: ' + esc(e.alt) + '</em>' : "";
+      return '<a class="egf" onclick="epGo(\'' + e.id + '\',\'' + B.b + '\',' + e.s + ')"><div class="th' + (W[e.id] ? " w" : "") + '" style="background-image:url(img/' + e.img + '.webp)"></div>' +
+        '<div class="tx"><small>' + esc(e.nr) + '</small><b>' + esc(t) + '</b>' + alt + (meta.length ? '<span>' + meta.map(esc).join(" · ") + '</span>' : "") + '</div></a>';
+    }).join("");
+    return '<div class="egs" style="--c:' + B.c + '"><a class="cv" onclick="' + (B.links[0] ? "location.hash=\'" + B.links[0].h + "\'" : "openBook(\'" + B.b + "\',1)") + '"><img src="' + IMG + B.cover + '.webp" alt=""></a>' +
+      '<div class="bd"><header><div><small>' + esc(B.lab) + '</small><h3>' + esc(B.t) + '</h3><i>' + esc(B.story) + '</i></div>' +
+      '<div class="mt"><span>' + B.eps.length + ' Folgen' + (sz ? " · " + sz + " Szenen" : "") + '</span>' + (B.links.length ? '<nav>' + B.links.map(function(l){ return '<a href="' + l.h + '">' + esc(l.t) + '</a>'; }).join("") + '</nav>' : "") + '</div></header>' +
+      '<div class="egl">' + cards + '</div></div></div>';
+  }).join("") + '</section>';
 }
 
 /* ---------- Buch ---------- */
@@ -123,7 +148,7 @@ document.addEventListener("keydown", function(e){
     var L = [].slice.call(document.querySelectorAll(e.ctrlKey ? "#tabs a" : ".sub2 a")), i = L.findIndex(function(a){ return a.classList.contains("on"); });
     if(L.length && i >= 0){ e.preventDefault(); var n = L[i + (k === "ArrowRight" ? 1 : -1)]; if(n) location.hash = n.getAttribute("href"); }
   } else if(k === "ArrowUp" || k === "ArrowDown"){
-    var S = [].slice.call(document.querySelectorAll(".side a")), j = S.findIndex(function(a){ return a.classList.contains("on"); });
+    var S = [].slice.call(document.querySelectorAll(".side a:not(.u)")), j = S.findIndex(function(a){ return a.classList.contains("on"); });
     if(S.length){ e.preventDefault(); var m = S[Math.max(0, Math.min(S.length - 1, j + (k === "ArrowDown" ? 1 : -1)))]; if(m) m.click(); }
   }
 });

@@ -97,13 +97,14 @@ function viewPw(code){
   var nums = ks.filter(function(k){ return k.charAt(0) === B; }).map(function(k){ return k.slice(1); }).sort(function(a, b){ return (a === "?" ? 1.5 : +a) - (b === "?" ? 1.5 : +b); });
   var frei = Object.keys(ST.pw || {}).sort(function(a, b){ return a.charAt(0) === b.charAt(0) ? a.slice(1) - b.slice(1) : a < b ? -1 : 1; });
   var p = TA_PW[code];
-  var links = '<div class="term"><div class="halt"><img src="' + Z("symbol-halt-hand") + '" alt="">WARTE!</div>' +
+  var links = '<div class="term"><button class="fold" onclick="foldSide()" title="' + (ST.fold ? "Leiste ausklappen" : "Leiste einklappen") + '">' + (ST.fold ? "›" : "‹") + '</button><div class="halt"><img src="' + Z("symbol-halt-hand") + '" alt="">WARTE!</div>' +
     '<div class="code"><b>' + B + '</b><b>' + (nr || "") + '</b></div>' +
     '<div class="bu">' + buch.map(function(c){ return '<a class="' + (c === B ? "on" : "") + '" onclick="ST.pwBuch=\'' + c + '\';save();go(\'pw/' + c + '\')">' + c + '</a>'; }).join("") + '</div>' +
-    '<div class="nu">' + nums.map(function(n){ return '<a class="' + (String(n) === nr ? "on" : (ST.pw || {})[B + n] ? "frei" : "") + '" onclick="pwSel(\'' + B + n + '\')">' + n + '</a>'; }).join("") + '</div>' +
-    (frei.length ? '<div class="fr"><h4>Freigegeben</h4>' + frei.map(function(c){ return '<a onclick="go(\'pw/' + c + '\')">' + c + '</a>'; }).join("") + '</div>' : '') + '</div>';
+    '<div class="pwmod"><a class="' + (ST.pwOffen ? "" : "on") + '" onclick="ST.pwOffen=0;save();render()">Wie im Buch</a><a class="' + (ST.pwOffen ? "on" : "") + '" onclick="ST.pwOffen=1;save();render()">Alles offen</a></div>' +
+    '<div class="nu' + (ST.pwOffen ? " liste" : "") + '">' + nums.map(function(n){ var d = (window.TA_PWT || {})[B + n]; return '<a class="' + (String(n) === nr ? "on" : (ST.pw || {})[B + n] ? "frei" : "") + '" onclick="pwSel(\'' + B + n + '\')"><b>' + n + '</b>' + (ST.pwOffen ? '<span>' + esc(d && d.t || "") + '</span>' : '') + '</a>'; }).join("") + '</div>' +
+    (frei.length && !ST.pwOffen ? '<div class="fr"><h4>Freigegeben</h4>' + frei.map(function(c){ return '<a onclick="go(\'pw/' + c + '\')">' + c + '</a>'; }).join("") + '</div>' : '') + '</div>';
   var dok = pwDok(code, p);
-  return '<div class="pwrap">' + links + dok + '</div>';
+  return '<div class="pwrap' + (ST.fold ? " zu" : "") + '">' + links + dok + '</div>';
 }
 
 /* ---------- Einsätze: Kopf (Leitstand folgt je Einsatz) ---------- */

@@ -12,7 +12,7 @@ TA_PWT.M1 = {t:"Magische Rüstung", s:240, b:[
 TA_PWT.M2 = {t:"Lass mein Monster wachsen", s:240, b:[
  {t:"faehig", h:"Lass mein Monster wachsen", x:"Du kannst groß werden. Richtig groß. Brülle und würfle **Beharrlichkeit**.",
   erg:[
-   ["ok", "**Bei Erfolg** wächst du auf eine Größe, die mit der Zahl der geworfenen {3}en erreichbar ist. Du behältst dieselben Proportionen und dasselbe allgemeine Aussehen, das du in normaler Größe hattest:\n**1:** pferdegroß\n**2:** raumgroß\n**{3}:** gebäudegroß\n**4:** häuserblockgroß\n**5:** berggroß"],
+   ["ok", "**Bei Erfolg** wächst du auf eine Größe, die mit der Zahl der geworfenen {3}en erreichbar ist. Du behältst dieselben Proportionen und dasselbe allgemeine Aussehen, das du in normaler Größe hattest:\n– 1: pferdegroß\n– 2: raumgroß\n– {3}: gebäudegroß\n– 4: häuserblockgroß\n– 5: berggroß"],
    ["plus", "**Bei sechs oder mehr {3}en** kannst du außerdem dein Aussehen beliebig verändern."],
    ["nein", "**Bei Fehlschlag** wird dein Zugriff auf zusätzliche Materie jemand anderem zuteil. Etwas in der Nähe wird groß. Richtig groß."]
   ]}

@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><link rel="stylesheet" href="file:///home/claude/spielleitertool/compass/style.css">
+<style>
+:root{--c:#1d2c4d;--paper:#efe6d2}
+body{background:linear-gradient(rgba(240,234,222,.7),rgba(240,234,222,.7)),url(file:///home/claude/spielleitertool/compass/img/start/papier.webp) center top/1280px repeat-y;color:#2a2017;padding-top:0!important}
+body .topbar{position:sticky!important;height:64px!important;transform:none!important;--t:0;background:#160f0a;display:flex;align-items:center;padding:0 20px!important}
+.tabs{display:flex;gap:2px;margin-left:26px}
+.tabs a{font:800 12px Fut;letter-spacing:.14em;text-transform:uppercase;padding:0 16px;height:64px;display:grid;place-items:center;color:#c9bda4;position:relative}
+.tabs a.on{color:#fff;background:var(--c)}
+.sub{background:var(--c);display:flex;gap:4px;padding:0 20px 0 20px;height:46px;align-items:center;position:sticky;top:64px;z-index:20}
+.sub a{font:700 13px Fut;letter-spacing:.03em;color:#cfd7ea;padding:7px 14px;border-radius:20px}
+.sub a.on{background:rgba(255,255,255,.16);color:#fff}
+.wrap{display:grid;grid-template-columns:230px 1fr;max-width:1280px;margin:0 auto}
+.side{position:sticky;top:110px;align-self:start;padding:34px 0 0 26px;height:calc(100vh - 110px)}
+.side a{display:block;font:700 15px/1.2 Fut;color:#6a5c48;padding:9px 0 9px 14px;border-left:2px solid #c9bda4}
+.side a.on{color:var(--c);border-left:4px solid var(--c);padding-left:12px}
+.side a small{display:block;font:400 12px Cas;color:#8a7c66;margin-top:3px}
+.side .ar{position:absolute;right:-4px;top:40px;color:#8a7c66}
+main{padding:34px 50px 80px 40px}
+h1{font:900 15px Fut;letter-spacing:.3em;text-transform:uppercase;color:var(--c);display:flex;gap:14px;align-items:center;margin-bottom:22px}
+h1:after{content:"";flex:1;height:1.5px;background:var(--c);opacity:.35}
+.lead{display:grid;grid-template-columns:420px 1fr;gap:34px;margin-bottom:46px}
+.lead .im{height:360px;background:url(file:///home/claude/spielleitertool/compass/img/start/ab1-grundlagen.webp) 30% 40%/cover;box-shadow:0 14px 26px -12px #000;position:relative}
+.lead .im:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 6px #fff}
+.lead p{font:400 19px/1.6 Cas;margin-bottom:14px}
+.lead p.q{font:italic 400 23px/1.45 Cas;color:var(--red);border-left:4px solid var(--red);padding-left:18px;margin-bottom:18px}
+.lead p.q + p:first-letter{font:900 64px/.8 Fut;float:left;color:var(--c);margin:6px 8px 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:46px}
+.card2{background:#fffaf0;box-shadow:0 8px 18px -10px #000,0 0 0 1px #d8cbb0;padding:22px 24px;position:relative;overflow:hidden}
+.card2 h3{font:900 28px Fut;text-transform:uppercase;color:var(--c)}
+.card2 small{font:800 10px Fut;letter-spacing:.3em;color:var(--red);text-transform:uppercase}
+.card2 p{font:400 17px/1.55 Cas;margin-top:8px}
+.card2:before{content:"";position:absolute;right:-30px;bottom:-40px;width:150px;height:150px;background:url(file:///home/claude/spielleitertool/compass/img/start/kompass.webp) center/contain no-repeat;opacity:.08;filter:invert(1)}
+.pil3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:46px;box-shadow:0 18px 30px -16px #000}
+.pil3 .p{height:330px;position:relative;color:#fff;background-size:cover}
+.pil3 .p:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(10,16,30,.92))}
+.pil3 .p div{position:absolute;left:22px;right:20px;bottom:20px;z-index:1}
+.pil3 b{font:900 30px Fut;text-transform:uppercase;display:block;border-bottom:1.5px solid rgba(255,255,255,.6);padding-bottom:8px;margin-bottom:8px}
+.pil3 span{font:17px/1.45 Cas}
+.pil3 em{position:absolute;top:14px;left:22px;z-index:1;font:900 70px Fut;color:rgba(255,255,255,.28);font-style:normal}
+.role{display:grid;grid-template-columns:1fr 1fr 300px;gap:26px;margin-bottom:46px}
+.role p{font:19px/1.6 Cas;margin-bottom:12px}
+.margin{background:#1d2c4d;color:#e8ecf6;padding:20px;font:16px/1.5 Cas;box-shadow:0 10px 20px -10px #000;align-self:start}
+.margin b{font:900 18px Fut;text-transform:uppercase;display:block;margin-bottom:8px;color:#fff}
+.script{background:#fbf5e4;font:15px/1.5 Cou;padding:26px 40px 26px 70px;box-shadow:0 12px 24px -12px #000,0 0 0 1px #d8c9a4;position:relative;margin-bottom:46px;background-image:radial-gradient(circle at 30px 50%,#9d8d6a 0 7px,transparent 8px);background-size:100% 120px;background-repeat:repeat-y}
+.script:before{content:"SZENE 1 – BEISPIEL FÜR DIE ERZÄHLUNG · AUSSEN/TAG";display:block;font:700 15px Cou;margin-bottom:14px;color:var(--red)}
+.script .l{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:4px 0}
+.script .n{font-weight:700;text-align:right;text-transform:uppercase;color:#6e1414}
+.film{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:46px}
+.film .f{background:#0f0b08;color:#efe6d2;padding:26px 24px;position:relative}
+.film .f:nth-child(2){background:#2a1d14}.film .f:nth-child(3){background:#43271a}
+.film .f small{font:800 10px Fut;letter-spacing:.3em;color:#e7c98a;text-transform:uppercase}
+.film .f b{display:block;font:900 26px Fut;text-transform:uppercase;margin:6px 0 8px}
+.film .f p{font:16px/1.5 Cas;opacity:.9}
+.kom{background:linear-gradient(rgba(16,13,10,.78),rgba(16,13,10,.86)),url(file:///home/claude/spielleitertool/compass/img/start/ab5-schatzsuche.webp) center/cover;color:#f3ead7;padding:46px 60px;position:relative;overflow:hidden;box-shadow:0 18px 30px -14px #000}
+.kom:before{content:"";position:absolute;right:30px;top:-30px;width:300px;height:300px;background:url(file:///home/claude/spielleitertool/compass/img/start/kompass.webp) center/contain no-repeat;opacity:.14}
+.kom h2{font:900 30px Fut;text-transform:uppercase;margin-bottom:14px}
+.kom p{font:19px/1.6 Cas;max-width:820px;position:relative}
+.kom p.q{font:italic 26px/1.4 Cas;color:#f2b69a;margin-bottom:14px}
+</style></head><body>
+<div class="topbar"><div class="brand"><img src="file:///home/claude/spielleitertool/assets/logos/broken-compass.webp"></div>
+<div class="tabs"><a class="on">Grundlagen</a><a>Abenteurer</a><a>Herausforderungen</a><a>Gefahren</a><a>Schatzsuche</a><a>1999</a></div></div>
+<div class="sub"><a class="on">Willkommen</a><a>Grundpfeiler</a><a>Wie man spielt</a><a>Wie im Kino</a><a>Der zerbrochene Kompass</a></div>
+<div class="wrap"><div class="side"><a class="on">Willkommen<small>Die Welt · Wo und wann</small></a><a>Grundpfeiler</a><a>Wie man spielt<small>Gemeinsam spielen</small></a><a>Wie im Kino<small>Staffel · Folge · Pilot</small></a><a>Der zerbrochene Kompass</a></div>
+<main>
+<h1>Willkommen</h1>
+<div class="lead"><div class="im"></div><div>
+<p class="q">Ich kenne diesen Blick, wenn ich ihn sehe. Du bist ein Abenteurer.</p>
+<p>BROKEN COMPASS ist ein Rollenspiel, in dem die Spielenden Abenteurer verkörpern, die einen Schatz suchen. Kein Fluch ist zu alt, kein Seil zu morsch und keine Giftpfeilwand zu tückisch, um sie davon abzuhalten – und genau deshalb mag ich euch.</p>
+<p>Ein exotisches Stadtviertel, ein Wald, den noch kein Mensch betreten hat, ein verlassenes Kloster hoch im Schnee: Alle diese Orte gibt es irgendwo in der Welt. Was du nicht weißt, entdeckst du nach und nach – wie ein echter Forscher.</p></div></div>
+<div class="two"><div class="card2"><small>Der Ort</small><h3>Wo</h3><p>Paris im Nebel oder Kairo in der Mittagshitze: Such dir eine Stadt oder einen wilden Ort, an dem dein Abenteuer anklopft – oder dreh den Globus und lass das Glück entscheiden.</p></div>
+<div class="card2"><small>Die Zeit</small><h3>Wann</h3><p>Khakihemd und Hut? Dann steckst du zwischen den Weltkriegen. Reichen die Jeans bis unter die Fersen, bist du weit später dran – Abschnitt 6 hilft bei den Neunzigern.</p></div></div>
+<h1>Grundpfeiler</h1>
+<div class="pil3"><div class="p" style="background-image:url(file:///home/claude/spielleitertool/compass/img/start/ab2-abenteurer.webp);background-position:30% 20%"><em>1</em><div><b>Reisen</b><span>Setz einen Fuß vor die Tür – da draußen ist viel geschehen, und manches davon ist aus purem Gold.</span></div></div>
+<div class="p" style="background-image:url(file:///home/claude/spielleitertool/compass/img/start/ab5-schatzsuche.webp);background-position:60% 30%"><em>2</em><div><b>Entdecken</b><span>Triff Menschen, finde Wunder. Ganze Kontinente entdeckt keiner mehr – eine verlorene Stadt reicht auch.</span></div></div>
+<div class="p" style="background-image:url(file:///home/claude/spielleitertool/compass/img/start/ab4-gefahren.webp);background-position:20% 20%"><em>3</em><div><b>Handeln</b><span>Alle suchen den Schatz. Wer ihn zuerst will, krempelt die Ärmel hoch – Narben erinnern dich daran.</span></div></div></div>
+<h1>Wie man spielt</h1>
+<div class="role"><div><p>Ihr braucht Freunde, ein Blatt Papier, einen Stift und eine Handvoll W6. Einer von euch ist der <b>Schicksalsmeister</b>, alle anderen spielen Abenteurer.</p><p>Der Schicksalsmeister kennt die Geschichte und die Orte, beschreibt die Herausforderungen und spielt alle Extras und Rivalen – und er soll vor allem Spaß haben.</p></div>
+<div><p>Alle anderen verkörpern je einen Abenteurer: eine Frau oder einen Mann der Tat, unterwegs auf der Suche. Wird es riskant, würfelt ihr mit euren Fertigkeiten eine Handvoll W6 und seht, ob das Glück auf eurer Seite ist.</p><p>Jeder hat einen Abenteurerbogen für Fähigkeiten, Expertisen und Gefühle.</p></div>
+<div class="margin"><b>Gemeinsam spielen</b>Sprecht vor dem Start: Wo seid ihr, was ist der Schatz, warum sucht ihr ihn, was verbindet euch – und wer ist euer Rivale?</div></div>
+<div class="script"><div class="l"><span class="n">Schicksalsmeister</span><span>Ein sonniger Tag. Laura und Stone steigen aus einer kleinen Maschine auf eine staubige Betonfläche. Vor einem Leihjeep warten Didi und Jake.</span></div><div class="l"><span class="n">Stone</span><span>Ich nehme meine und Lauras Tasche und lade sie in den Jeep. Als ich Jake sehe, glaube ich es nicht.</span></div><div class="l"><span class="n">Laura</span><span>„Es heißt DOKTOR Benoit.“ Ich gehe an ihm vorbei zum Jeep. „Beeilen wir uns, ich will die Stätte vor Einbruch der Dunkelheit sehen.“</span></div></div>
+<h1>Wie im Kino</h1>
+<div class="film"><div class="f"><small>Eine Spielrunde</small><b>Folge</b><p>Jede Sitzung ist wie eine Folge deiner Lieblingsserie – mit dir als Hauptfigur.</p></div><div class="f"><small>Eine Kampagne</small><b>Staffel</b><p>Folge um Folge führt vom Anfang des Abenteuers bis zum Finale.</p></div><div class="f"><small>Der Einstieg</small><b>Pilot</b><p>Eine besondere Auftaktfolge: Warum wurdest du Abenteurer, was hat die Crew zusammengeführt?</p></div></div>
+<div class="kom"><h2>Der zerbrochene Kompass</h2><p class="q">Ein zerbrochener Kompass zeigt nicht nach Norden – aber Norden ist nicht, wohin du willst.</p><p>Viele Schätze sind von einem Fluch umgeben, haben seltsame Kräfte oder werden von einem Ungeheuer bewacht. Kommst du etwas Übernatürlichem nahe, dreht der Kompass durch. Nur ein Narr folgt ihm dorthin – aber du siehst verrückt genug aus.</p></div>
+</main></div></body></html>

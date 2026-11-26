@@ -95,3 +95,16 @@ Je Buch Bild-Inventar unter `plan/compass/bilder-<buch>.md` vor dem Bau; Extrakt
 2. Begriffsliste (v. a. Felder/Fertigkeiten, Fortune Master)
 3. Jolly Roger, Voyages und LuckTales als Untersettings (Vorschlag) oder alles in einem Setting
 4. Episoden-Ansicht als Drehbuch (Vorschlag) – Mockup kommt vor Etappe 5
+
+## Inhaltsseiten – Gestaltung (wird Bereich für Bereich ergänzt)
+Mockups unter `plan/compass/inhalt/`. Grundgerüst für alle Inhaltsseiten des Adventure Journal:
+- Kopfzeile dunkel (Leder-Braun), Reiter = die sechs Abschnitte; der aktive Reiter bekommt die **Abschnittsfarbe** und geht nahtlos in die Unterleiste über (gleiche Farbe, Unterpunkte als Pillen). Seitenleiste links minimal (aktiver Eintrag mit Strich in Abschnittsfarbe, Unterabschnitte klein grau). Hintergrund Kartenpapier, leicht aufgehellt.
+- Blocküberschrift: Jost Versal, weit gesperrt, mit feiner Linie bis zum Rand (wie im Buch).
+- Fließtext Libre Caslon 19 px, rote Zitat-Zeile mit Balken, Initiale in Abschnittsfarbe; Bilder mit weißem Rand (Fotoabzug) und Schatten.
+- Bausteine: **Zweierkarten** (Wo/Wann), **Dreier-Bildkacheln** mit Ziffer (Grundpfeiler), **Randkasten** in Abschnittsfarbe (Gemeinsam spielen), **Drehbuchblock** in Courier mit Lochrand für Beispiel-Erzählungen, **Filmband** für Folge/Staffel/Pilot, **Schlussband** mit Bild und Kompass-Wasserzeichen für das Kapitelende.
+
+### Grundlagen (Mockup `inhalt/grundlagen.png`)
+Seitenleiste: Willkommen (Welt, Wo und wann) · Grundpfeiler · Wie man spielt (Gemeinsam spielen, Erzählbeispiel) · Wie im Kino (Staffel, Folge, Pilot) · Der zerbrochene Kompass. Alles auf einer langen Seite, die Leiste springt zu den Blöcken.
+
+### Als Nächstes
+Abenteurer (Abenteurerbogen als Bild-Hotspot-Seite, Felder-Raster mit sechs Farbbalken, Expertise-Karten, Gegenstände/Waffen als Karten, Zufallsabenteurer als Raster), danach Herausforderungen (Würfelbeispiele als Würfelreihen), Gefahren, Schatzsuche, 1999.

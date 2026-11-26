@@ -231,3 +231,47 @@ body.dl-mode .pg{color:#8a6a3a}
 #dso a{display:block;padding:7px 8px;border-bottom:1px solid rgba(120,80,30,.25)}#dso a:hover{background:rgba(123,39,17,.1)}
 #dso b{display:block;font:17px Spies,Oswald,sans-serif;color:#7b2711}#dso small{color:#6a5334}
 @media(max-width:900px){.dcg.c3,.dcg.c4,.dgrid{grid-template-columns:1fr 1fr}}
+/* Bestiarium */
+.wcs{display:inline-block;height:.95em;width:auto;vertical-align:-.1em;margin-left:6px}.wcs.lg{height:26px;margin-left:10px}.tc b .wcs{height:17px;vertical-align:-2px}
+.kbar{display:flex;gap:10px;align-items:center;margin:0 0 6px}
+.kbar input{flex:0 1 320px;font:15px Pal,serif;padding:7px 14px;border:1px solid var(--line);border-radius:99px;background:var(--paper2);color:var(--fg);outline:0}
+.kbar input:focus{border-color:var(--c)}
+.kbar a{cursor:pointer;padding:5px 14px;border-radius:99px;font:600 13px Oswald,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);background:var(--paper2)}.kbar a.on{background:var(--c);color:#fff}.kbar a .wcs{height:13px;margin:0 6px 0 0;vertical-align:-1px}.kbar a.on .wcs{filter:invert(1)}
+.side .sdiv{height:1px;background:var(--line);margin:8px 16px}
+.kt small{white-space:nowrap}
+.td.kd{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.kd h3 .sq{font-size:11px}
+.kdesc{font-style:italic;color:var(--soft)}
+.ka{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:12px 0 8px}
+.ka div,.kv div{background:var(--paper2);border-bottom:3px solid var(--rc);padding:5px 8px;text-align:center}
+.ka small,.kv small{display:block;font:600 9.5px Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ka b,.kv b{font:400 21px/1.2 Spies,Oswald,sans-serif;white-space:nowrap}
+.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 0 10px}
+.kv b{font-size:24px}
+.kr{margin:5px 0;font-size:15px;line-height:1.45;max-width:none}.kr b{color:var(--c)}
+.kss{border-left:1px solid var(--line);padding-left:20px;font-size:14.5px}
+.kss .kh{display:block;margin:0 0 6px;font:600 11px Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.ks{margin:6px 0;max-width:none;line-height:1.45}.ks b{color:var(--c)}
+.kgh{margin-top:18px}.kfg{grid-template-columns:repeat(3,1fr)}.kfg .hc p{font-size:14.5px}
+.kfg .hc{align-self:start}
+.gt td{white-space:nowrap}.gt td:last-child{white-space:normal}.gt tr.gh td{background:var(--c);color:#fff;font:600 12px Oswald,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px}.gt td:first-child{font-size:15px}.gt th{white-space:normal}
+.shw{display:flex;flex-wrap:wrap;align-items:flex-end;gap:22px;margin:18px 0 8px}
+.sh{position:relative;display:grid;place-items:center;color:#7a1c0c;font:15px/1 Spies,Oswald,sans-serif;text-align:center;text-shadow:0 0 6px rgba(255,220,120,.9)}
+.sh span{position:relative;z-index:1;padding:0 8px}
+.sh.kreis{border-radius:50%;background:radial-gradient(circle at 50% 45%,#ffd24a,#f6a21c 55%,#d4540c);box-shadow:inset 0 0 18px rgba(120,30,0,.35)}
+.sh.strahl{border-radius:14px;background:linear-gradient(180deg,#ffd24a,#f08a1c)}
+.sh.kegel svg{position:absolute;inset:0;width:100%;height:100%}.sh.kegel span{top:-30%}
+@media(max-width:900px){.td.kd{grid-template-columns:1fr}.kss{border-left:0;padding-left:0}.kfg{grid-template-columns:1fr 1fr}}
+.sl{font:400 .8em Pal,serif;font-style:normal;margin:0 .1em}
+.kss a{display:inline;color:var(--c)}
+.ka b,.kv b{font:700 18px/1.3 Pal,Palatino,serif}.kv b{font-size:21px}
+.dg{font-weight:400}
+.ka b,.kv b{font-weight:400}
+.tc b .dg,.hc b .dg{font-weight:inherit}
+
+.kfg{display:block;column-count:3;column-gap:10px}.kfg .hc{break-inside:avoid;margin-bottom:10px}
+.shw{align-items:flex-start;gap:34px 40px}
+.shf{display:flex;flex-direction:column;gap:8px}.shf figcaption{font:600 12px Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);max-width:220px}.shf figcaption small{display:block;font:14px Pal,serif;letter-spacing:0;text-transform:none;margin-top:2px}
+.sh{font-size:20px}.sh.kegel span{top:-34%}
+@media(max-width:900px){.kfg{column-count:2}}
+.etw.st{max-width:720px}.shw{gap:26px 36px}

@@ -7,7 +7,9 @@ var WTAB = {aufgaben:1, furcht:1, gefahren:1, soziales:1, schlacht:1, verfolgung
 function offOf(bk){ var o = 1; (window.SW_BUECHER || []).forEach(function(g){ g.items.forEach(function(b){ if(b.id === bk) o = b.off; }); }); return o; }
 function wkOpen(bk, bp){ openBook(bk, bp + offOf(bk)); }
 function pgLink(bk, bp){ return bp ? '<span class="pg" onclick="event.stopPropagation();wkOpen(\'' + bk + '\',' + bp + ')">S. ' + bp + "</span>" : ""; }
-function badge(x){ return x && x !== "GRW" ? '<i class="sq sq-' + x.toLowerCase() + '">' + x + "</i>" : ""; }
+function badge(x){ return x ? String(x).split(",").filter(function(q){ return q !== "GRW"; }).map(function(q){ return '<i class="sq sq-' + q.toLowerCase() + '">' + q + "</i>"; }).join("") : ""; }
+function actSrc(a){ return a.filter(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
+function fixH(bl){ return bl.map(function(b){ return b[0] === "h" && b[3] ? ["h", b[1], b[2], actSrc(String(b[3]).split(",")).join(","), b[4]] : b; }); }
 function visible(s){ return s.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
 function wkEntries(tab){
   var L = (window.SW_WK || []).filter(function(s){ return s.tab === tab && visible(s); });
@@ -16,9 +18,9 @@ function wkEntries(tab){
   L.filter(function(s){ return s.s.indexOf("GRW") < 0; }).forEach(function(s){
     var src = s.s.filter(function(x){ return x === "GRW" || gen(x.toLowerCase()); });
     var ex = ents.filter(function(e){ return e.id === s.id; })[0];
-    var hd = [["h", s.t, s.p, s.s[0], s.bk]];
-    if(ex){ ex.b = ex.b.concat(hd, s.b); ex.x = (ex.x || []).concat(src); return; }
-    var ne = {id:s.id, t:s.t, s:src, bk:s.bk, p:s.p, b:s.b.slice(), ext:1};
+    var hd = [["h", s.t, s.p, src.join(","), s.bk]], sb = fixH(s.b);
+    if(ex){ ex.b = ex.b.concat(hd, sb); ex.x = (ex.x || []).concat(src); return; }
+    var ne = {id:s.id, t:s.t, s:src, bk:s.bk, p:s.p, b:sb, ext:1};
     var at = -1; if(s.after) ents.forEach(function(e, i){ if(e.id === s.after) at = i; });
     if(at > -1) ents.splice(at + 1, 0, ne); else ents.push(ne);
   });

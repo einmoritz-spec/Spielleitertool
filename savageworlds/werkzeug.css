@@ -14,7 +14,7 @@
 .wt .eg{margin:2px 0 4px;font-size:19px}
 .wt .etw{margin:0 0 6px}
 .wtb td{font-size:15px;line-height:1.42}
-.wtb td.k{font:700 15px/1.4 Pal,serif;color:var(--c);white-space:nowrap;width:1%}
+.wtb td.k{font:400 15px/1.4 Pal,serif;color:var(--c);-webkit-text-stroke:.4px;white-space:nowrap;width:1%}
 .wtb tbody tr:nth-child(odd){background:rgba(255,255,255,.45)}
 .wtb.c4 td.k{width:1%}
 .wtb td b{color:var(--ink)}

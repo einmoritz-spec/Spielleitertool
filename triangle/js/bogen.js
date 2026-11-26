@@ -225,26 +225,45 @@ function bgFoto(inp){
 /* ---------- Teilen, Datei, PDF ---------- */
 function b64u(buf){ var s = "", a = new Uint8Array(buf); for(var i = 0; i < a.length; i++) s += String.fromCharCode(a[i]); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
 function b64uRev(s){ s = s.replace(/-/g, "+").replace(/_/g, "/"); var b = atob(s), a = new Uint8Array(b.length); for(var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
+/* Teilen: nur die Abweichungen vom frischen Bogen (mit den Handbuchtexten der gewählten ARK-Teile) werden gepackt */
+function bgRef(arc){
+  var alt = BG.akt, R = bgNeu(); BG.akt = R;
+  try{ [["anomalie","a"],["realitaet","r"],["kompetenz","k"]].forEach(function(x){ if(arc && arc[x[1]]) bgArk(x[0], arc[x[1]]); }); }catch(e){}
+  BG.akt = alt; return R;
+}
+function bgDiff(a, b){
+  if(a === b) return undefined;
+  if(Array.isArray(a) && Array.isArray(b) && a.length === b.length){ var o = {}, n = 0; a.forEach(function(x, i){ var d = bgDiff(x, b[i]); if(d !== undefined){ o[i] = d; n++; } }); return n ? o : undefined; }
+  if(a && b && typeof a === "object" && typeof b === "object" && !Array.isArray(a) && !Array.isArray(b)){ var r = {}, m = 0; Object.keys(a).forEach(function(k){ var d = bgDiff(a[k], b[k]); if(d !== undefined){ r[k] = d; m++; } }); return m ? r : undefined; }
+  return JSON.stringify(a) === JSON.stringify(b) ? undefined : a;
+}
+function bgMerge(t, d){
+  if(d && typeof d === "object" && !Array.isArray(d) && t && typeof t === "object"){ Object.keys(d).forEach(function(k){ t[k] = bgMerge(t[k], d[k]); }); return t; }
+  return d;
+}
 function bgPack(A, foto){
-  var o = JSON.parse(JSON.stringify(A)); if(!foto) o.ausweis.bild = ""; delete o.log;
-  var txt = JSON.stringify(o);
-  if(!window.CompressionStream) return Promise.resolve("j" + b64u(new TextEncoder().encode(txt)));
-  return new Response(new Blob([txt]).stream().pipeThrough(new CompressionStream("deflate-raw"))).arrayBuffer().then(function(b){ return "z" + b64u(b); });
+  var o = JSON.parse(JSON.stringify(A)); if(!foto) o.ausweis.bild = ""; delete o.log; delete o.offen; delete o.id;
+  var d = bgDiff(o, bgRef(o.arc)) || {}; d.arc = o.arc;
+  var txt = JSON.stringify(d);
+  if(!window.CompressionStream) return Promise.resolve("k" + b64u(new TextEncoder().encode(txt)));
+  return new Response(new Blob([txt]).stream().pipeThrough(new CompressionStream("deflate-raw"))).arrayBuffer().then(function(b){ return "d" + b64u(b); });
 }
 function bgUnpack(s){
   var art = s.charAt(0), a = b64uRev(s.slice(1));
-  if(art === "j") return Promise.resolve(JSON.parse(new TextDecoder().decode(a)));
-  return new Response(new Blob([a]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).text().then(JSON.parse);
+  var text = art === "j" || art === "k" ? Promise.resolve(new TextDecoder().decode(a)) : new Response(new Blob([a]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).text();
+  return text.then(JSON.parse).then(function(o){ return art === "d" || art === "k" ? bgMerge(bgRef(o.arc), o) : o; });
 }
 function bgTeilen(){
-  var A = BG.akt, m = document.createElement("div"); m.className = "modal"; m.onclick = function(e){ if(e.target === m) m.remove(); };
-  m.innerHTML = '<div class="bg-teil"><h3>Agentenbogen teilen</h3><p>Wer den Link öffnet, sieht den Bogen und kann ihn in seine eigenen Agenten übernehmen. Der Link enthält den ganzen Bogen – es wird nichts hochgeladen.</p>' +
-    '<label><input type="checkbox" id="bgtf"' + (A.ausweis.bild ? '' : ' disabled') + '> Ausweisfoto mitschicken</label><textarea id="bgtl" readonly></textarea><div class="bg-chips"><button class="voll" id="bgtk">Link kopieren</button>' + (navigator.share ? '<button id="bgts">Teilen …</button>' : '') + '</div></div>';
+  var A = BG.akt, m = document.createElement("div"), basis = location.href.split("#")[0]; m.className = "modal"; m.onclick = function(e){ if(e.target === m) m.remove(); };
+  var kopie = function(t){ (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function(){ bgToast("Link kopiert."); }, function(){ var x = document.createElement("textarea"); x.value = t; document.body.appendChild(x); x.select(); document.execCommand("copy"); x.remove(); bgToast("Link kopiert."); }); };
+  m.innerHTML = '<div class="bg-teil"><h3>Teilen</h3><div class="bg-tw">' +
+    '<div class="bg-tk2"><b>Agentenbogen-Tool</b><small>Leerer Einstieg für alle</small><div><button class="voll" data-w="tool">Link kopieren</button>' + (navigator.share ? '<button data-w="tool" data-s="1">Teilen …</button>' : '') + '</div></div>' +
+    '<div class="bg-tk2"><b>' + esc(A.name || "Dieser Agent") + '</b><small>Mit allen Eingaben</small><label><input type="checkbox" id="bgtf"' + (A.ausweis.bild ? '' : ' disabled') + '> Ausweisfoto</label><div><button class="voll" data-w="agent">Link kopieren</button>' + (navigator.share ? '<button data-w="agent" data-s="1">Teilen …</button>' : '') + '</div></div></div></div>';
   document.body.appendChild(m);
-  function neu(){ bgPack(A, m.querySelector("#bgtf").checked).then(function(d){ m.querySelector("#bgtl").value = location.href.split("#")[0] + "#ark/bogen/teilen/" + d; }); }
-  m.querySelector("#bgtf").onchange = neu; neu();
-  m.querySelector("#bgtk").onclick = function(){ var t = m.querySelector("#bgtl"); (navigator.clipboard ? navigator.clipboard.writeText(t.value) : Promise.reject()).then(function(){ bgToast("Link kopiert."); }, function(){ t.select(); document.execCommand("copy"); bgToast("Link kopiert."); }); };
-  var sh = m.querySelector("#bgts"); if(sh) sh.onclick = function(){ navigator.share({title:"Agentenbogen: " + (A.name || "Agent"), url:m.querySelector("#bgtl").value}).catch(function(){}); };
+  m.querySelectorAll("button[data-w]").forEach(function(bt){ bt.onclick = function(){
+    var teil = function(url){ if(bt.dataset.s) navigator.share({title:"Agentenbogen" + (bt.dataset.w === "agent" && A.name ? ": " + A.name : ""), url:url}).catch(function(){}); else kopie(url); };
+    if(bt.dataset.w === "tool") teil(basis + "#ark/bogen"); else bgPack(A, m.querySelector("#bgtf").checked).then(function(d){ teil(basis + "#ark/bogen/teilen/" + d); });
+  }; });
 }
 function bgUebernehmen(){
   var A = JSON.parse(JSON.stringify(BG.gast)); A.id = bgNeu().id; A.log = A.log || [];

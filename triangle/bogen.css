@@ -627,3 +627,11 @@
 .bg-zahl{}
 .vz-c em{background:var(--flieder)}.vz-c b{color:var(--tinte)}
 .bg-schn{left:-68px}
+
+.bg-teil{width:min(560px,92vw)}
+.bg-tw{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.bg-tk2{border:1.5px solid #e6e1ee;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.bg-tk2 b{font:800 18px Spartan,sans-serif;letter-spacing:-.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bg-tk2 small{font-size:13px;color:#8f879f;margin-bottom:8px}
+.bg-tk2 label{font-size:13px;margin-bottom:8px;display:flex;gap:6px;align-items:center}
+.bg-tk2>div{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}

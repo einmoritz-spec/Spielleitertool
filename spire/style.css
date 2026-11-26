@@ -1204,3 +1204,39 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .sp-ab small{align-self:start;font-size:13.5px;margin-top:3px}
 .sp-bul{gap:12px}
 .sp-band{padding-top:30px}
+
+/* Karten: Text und Bildausschnitt */
+.sp-sl::before{background:linear-gradient(180deg,rgba(13,26,39,0) 30%,rgba(13,26,39,.35) 100%)}
+.sp-txt{padding:90px 16px 14px;background:linear-gradient(180deg,rgba(13,26,39,0),rgba(13,26,39,.86) 62px,rgba(13,26,39,.96))}
+.sp-sl .sp-kopf{padding:0 0 8px;font-size:29px;letter-spacing:.03em}
+.sp-sl .sp-kopf::before{content:"";display:block;width:30px;height:3px;background:var(--wein);margin-bottom:9px;transition:width .3s}
+.sp-sl:hover .sp-kopf::before{width:56px}
+.sp-sl ul{display:flex;flex-wrap:wrap;gap:5px;columns:auto;padding:0}
+.sp-sl li{padding:3px 9px;font:700 12.5px/1.2 var(--f-titel);text-transform:uppercase;letter-spacing:.05em;color:#c9d5e4;border:1px solid rgba(201,213,228,.28);background:rgba(13,26,39,.35);transition:background .15s,border-color .15s,color .15s}
+.sp-sl li::before{display:none}
+.sp-sl li:hover{background:var(--wein);border-color:var(--wein);color:#fff}
+.sp-sl{height:240px}
+/* Abenteuer: durchgehender Bildstreifen, Hover vergrößert */
+.sp-abl{display:flex;gap:0;height:310px;grid-template-columns:none}
+.sp-ab{position:relative;display:block;flex:1 1 0;min-width:0;overflow:hidden;background:#000;transition:flex-grow .45s cubic-bezier(.3,.7,.2,1);cursor:pointer;border-right:1px solid rgba(13,26,39,.55)}
+.sp-ab:last-child{border-right:0}
+.sp-ab:hover{flex-grow:3.6}
+.sp-ab .cv{position:absolute;inset:0;width:auto;aspect-ratio:auto;margin:0;box-shadow:none;transform:none!important}
+.sp-ab img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .6s ease,filter .3s}
+.sp-ab:hover img{transform:scale(1.04)}
+.sp-ab::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(13,26,39,.05) 40%,rgba(13,26,39,.88));opacity:.85;transition:opacity .3s}
+.sp-ab:not(:hover) img{filter:saturate(.85) brightness(.92)}
+.sp-ab b,.sp-ab small{position:absolute;left:16px;right:12px;z-index:2;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;pointer-events:none;color:#fff;margin:0}
+.sp-ab b{bottom:30px;font:700 22px/1.05 var(--f-titel);letter-spacing:.03em;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.sp-ab small{bottom:11px;font:italic 14px/1.2 var(--f-text);color:#c9d5e4}
+.sp-ab:hover b,.sp-ab:hover small{opacity:1;transform:none;transition-delay:.12s}
+.sp-ab .v{position:absolute;z-index:2;left:50%;bottom:14px;transform:translateX(-50%);writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);font:700 14px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.08em;font-style:normal;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.8);white-space:nowrap;max-height:calc(100% - 24px);overflow:hidden;transition:opacity .2s;pointer-events:none}
+.sp-ab:hover .v{opacity:0}
+.sp-ab.on{box-shadow:inset 0 -4px 0 var(--wein)}
+.sp-ab.pdf .cv img{opacity:.55}
+.sp-ab.pdf{background:#2a323c}
+.sp-ab.pdf b,.sp-ab.pdf small{color:#fff}
+.sp-ab:hover b{color:#fff}
+.sp-ab:not(:hover) img{filter:none}
+.sp-abl:hover .sp-ab:not(:hover) img{filter:saturate(.7) brightness(.62)}
+.sp-ab img{transition:transform .6s ease,filter .35s}

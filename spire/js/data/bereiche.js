@@ -45,16 +45,16 @@ window.SP_REVOLUTION = {p:175, stufen:["Aufziehender Sturm", "Der Schlag", "Die 
 /* Kopfzeile: inhaltliche Bereiche als Reiter, Unterpunkte = Unterleiste (gleiche Reihenfolge wie die Bereichskarten der Startseite).
    Neue Bücher (Sin, Strata, Codex, Black Magic …) hängen sich später als weitere Unterpunkte an den passenden Bereich. */
 window.SP_KOPF = [
-  {id:"stadt", t:"Die Stadt", img:"kapitel/welt-S004", pos:"center 28%", sub:[
+  {id:"stadt", t:"Die Stadt", img:"kapitel/welt-S004", pos:"center 8%", sub:[
     ["stadt","Distrikte"], ["nach/welt","Die Welt"], ["nach/goetter","Götter"], ["zufall","Zufall"]]},
-  {id:"regeln", t:"Regeln", img:"kapitel/regeln-S012", pos:"center 30%", sub:[
+  {id:"regeln", t:"Regeln", img:"kapitel/regeln-S012", pos:"center 12%", sub:[
     ["nach/kurz","In Kürze"], ["nach/regeln","Regeln"], ["nach/kampf","Kampf"]]},
-  {id:"charaktere", t:"Charaktere", img:"kapitel/zwischen-klassen-extra-S068", pos:"center 30%", sub:[
+  {id:"charaktere", t:"Charaktere", img:"kapitel/zwischen-klassen-extra-S068", pos:"center 16%", sub:[
     ["nach/klassen","Klassen"], ["nach/extra","Extra-Fortschritte"], ["nach/fertigkeiten","Fertigkeiten"], ["nach/ausruestung","Ausrüstung"], ["nach/bindungen","Bindungen"], ["masken","Masken"], ["bogen","Charakterbogen"]]},
-  {id:"gegner", t:"Gegner", img:"kapitel/kampf-S078", pos:"center 22%", sub:[["gegner","Gegner"]]},
-  {id:"spielleitung", t:"Spielleitung", img:"kapitel/spielleitung-S180", pos:"center 22%", sub:[
+  {id:"gegner", t:"Gegner", img:"kapitel/kampf-S078", pos:"center 20%", sub:[["gegner","Gegner"]]},
+  {id:"spielleitung", t:"Spielleitung", img:"kapitel/spielleitung-S180", pos:"center 10%", sub:[
     ["nach/spielleitung","Spielleitung"], ["nach/mg","Magister's Guide"], ["zelle","Die Zelle"], ["nach/anhang","Anhänge"]]},
-  {id:"buch", t:"Quellenbücher", img:"erw/sin/sin_049_01", pos:"center 30%", sub:[
+  {id:"buch", t:"Quellenbücher", img:"erw/sin/sin_049_01", pos:"center 5%", sub:[
     ["buch/sin","Sin"], ["buch/str","Strata"], ["buch/bm","Black Magic"], ["buch/cod","Codex"], ["buch/skfs","Secrets"], ["buch/sop","Shadow Ops"], ["buch/bd","Blood and Dust"]]}
 ];
 /* Startseite: Abenteuer (go = eingebaut, sonst öffnet der Klick das PDF) */

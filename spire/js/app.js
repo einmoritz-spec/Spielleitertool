@@ -151,7 +151,7 @@ function viewStart(){
       (K.sub.length > 1 ? '<ul>' + K.sub.map(function(t){ return '<li onclick="go(\'' + t[0] + '\')">' + esc(t[1]) + '</li>'; }).join("") + '</ul>' : '') + '</div></div>';
   }).join("");
   var ab = SP_START_ABENTEUER.map(function(x){
-    return '<button class="sp-ab' + (x.go ? '' : ' pdf') + (x.go && last.indexOf(x.go) === 0 ? ' on' : '') + '" onclick="' + spKlick(x) + '"><span class="cv"><img src="' + IMG(x.img) + '" alt="" loading="lazy"></span><b>' + esc(x.t) + '</b><small>' + esc(x.s) + '</small></button>';
+    return '<button class="sp-ab' + (x.go ? '' : ' pdf') + (x.go && last.indexOf(x.go) === 0 ? ' on' : '') + '" onclick="' + spKlick(x) + '"><span class="cv"><img src="' + IMG(x.img) + '" alt="" loading="lazy"></span><i class="v">' + esc(x.t) + '</i><b>' + esc(x.t) + '</b><small>' + esc(x.s) + '</small></button>';
   }).join("");
   var bu = SP_START_BUECHER.map(function(x){
     return '<button class="sp-bu' + (x.go ? '' : ' pdf') + '" onclick="' + spKlick(x) + '" title="' + esc(x.t) + '">' +

@@ -121,7 +121,8 @@ function tagAttr(n){ var x = tagTip(n); return x ? ' data-tip="' + esc(x) + '" d
   function show(el){
     if(cur === el) return; hide(); cur = el;
     tip = document.createElement("div"); tip.className = "tagtip";
-    tip.innerHTML = '<b>' + esc(el.getAttribute("data-tn") || "") + '</b>' + esc(el.getAttribute("data-tip"));
+    if(el.closest(".bfb")){ tip.className = "tagtip kl"; tip.textContent = el.getAttribute("data-tn") || ""; }
+    else tip.innerHTML = '<b>' + esc(el.getAttribute("data-tn") || "") + '</b>' + esc(el.getAttribute("data-tip"));
     document.body.appendChild(tip);
     var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
     var x = Math.max(8, Math.min(r.left, innerWidth - w - 8)), y = r.bottom + 6; if(y + h > innerHeight - 8) y = r.top - h - 6;

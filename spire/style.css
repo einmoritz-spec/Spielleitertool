@@ -1110,3 +1110,7 @@ body:has(.begl) .side{top:calc(var(--top) + var(--tabh) + var(--begh,50px));heig
 .bfl.mini .bfk{border:0;padding:0;margin:0}
 .bfl .bfn{font:700 12px var(--f-text);background:#3a4f6b;color:#fff;border-radius:9px;padding:1px 7px}
 .bfl .bfb a svg{display:block}
+
+/* kleiner, zurückhaltender Hinweis an den Knöpfen der Gegner-Kästen */
+.tagtip.kl{background:rgba(70,82,98,.78);color:#eef2f7;font:400 11.5px/1 var(--f-text);padding:4px 8px;border:0;box-shadow:none;border-radius:3px;max-width:none;white-space:nowrap}
+body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}

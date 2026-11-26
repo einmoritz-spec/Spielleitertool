@@ -222,7 +222,20 @@ SP_VIEW.gegner = function(teile){
    Ziehen aus der Leiste → der Kasten schwebt über allem (ST.fl[id] = {x, y}, Fensterkoordinaten).
    „–“ legt ihn zurück in die Leiste, „×“ löscht alle Figuren dieses Gegners. */
 var BZ = 80;
+/* Begegnungsleiste auf jeder Seite: Ist die Begegnung nicht leer, die Seite aber ohne Leiste, wird sie unter den Reitern eingefügt */
+function begLeisteSichern(){
+  var L = gBeg().filter(function(e){ return gById(e.id); });
+  var alt = document.querySelector(".begl");
+  if(alt && !alt.dataset.auto) return;          /* die Seite bringt ihre Leiste selbst mit */
+  if(!L.length){ if(alt) alt.remove(); return; }
+  var t = document.createElement("div"); t.innerHTML = begLeiste(false); var neu = t.firstChild; if(!neu) return;
+  neu.dataset.auto = 1;
+  if(alt){ alt.replaceWith(neu); return; }
+  var anker = document.querySelector(".tabs") || document.querySelector(".topbar"); if(!anker) return;
+  anker.parentNode.insertBefore(neu, anker.nextSibling);
+}
 function begFloatDraw(){
+  try{ begLeisteSichern(); }catch(e){}
   var L = gBeg().filter(function(e){ return gById(e.id); }), fl = ST.fl || {};
   var lay = document.getElementById("begfl");
   if(!lay){ lay = document.createElement("div"); lay.id = "begfl"; document.body.appendChild(lay); }

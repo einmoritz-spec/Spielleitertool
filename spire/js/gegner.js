@@ -130,15 +130,19 @@ function begLeiste(immer){
 }
 
 /* ---------- Gegner-Raster: gleichmäßige Kacheln, Klick klappt den Werteblock darunter über die volle Breite auf ---------- */
-var IC_SCHW = '<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 .8l2.600 8.400H5.400z" fill="currentColor"/><rect x="3.800" y="9.600" width="8.400" height="1.700" fill="currentColor"/><rect x="7" y="11.300" width="2" height="2.700" fill="currentColor"/><circle cx="8" cy="14.700" r="1" fill="currentColor"/></svg>';
-var IC_RUEST = '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M8 1.200l5.200 1.900v4.500c0 3.100-2.200 5.400-5.200 7.200-3-1.800-5.200-4.100-5.200-7.200V3.100z" fill="currentColor"/></svg>';
+var SY_RAUTE = '<svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 1.500l12.500 12.500L14 26.500 1.500 14z" fill="currentColor"/></svg>';
+var SY_SCHILD = '<svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 1.500l10.500 3.600v8.400c0 6-4.300 10.300-10.500 13-6.200-2.700-10.500-7-10.500-13V5.100z" fill="currentColor"/></svg>';
+function gSym(cls, tip, svg, wert){
+  var m = /^(\S+)\s*(\[.*\])?/.exec(String(wert)) || [0, String(wert)];
+  return '<span class="gx-sy ' + cls + '" data-tn="' + tip + '">' + svg + '<b>' + esc(m[1]) + '</b></span>' + (m[2] ? '<em class="gx-x">' + esc(m[2]) + '</em>' : '');
+}
 function gKachel(g){
   var on = ST.gsel === g.id, e = gEntry(g.id), dm = [], ru = [];
   (g.ausr || []).forEach(function(a){ if(typeof a === "string") return; if(a.dmg && dm.indexOf(a.dmg) < 0) dm.push(a.dmg); (a.tags || []).forEach(function(t){ if(/^Rüstung/.test(t) && ru.indexOf(t) < 0) ru.push(t); }); });
   return '<div class="gx gx-s' + Math.min(2, gBase(g)) + (on ? ' on' : '') + (e ? ' inb' : '') + '" id="gx-' + g.id + '" onclick="gTog(\'' + g.id + '\')">' +
     (g.img ? '<img class="gx-i" src="' + IMG(g.img) + '" alt="">' : '') +
     '<div class="gx-t"><h4>' + esc(g.kurz || g.t) + '</h4><div class="gx-o">' + esc(g.ort || "") + '</div>' +
-    '<div class="gx-m"><span class="gx-s" data-tn="Schwierigkeit">' + IC_SCHW + esc(g.schw ? g.schw.k : "·") + '</span>' + ru.map(function(t){ return '<span class="gx-d gx-r2" data-tn="Rüstung">' + IC_RUEST + esc(String(t).replace(/^Rüstung\s*/, "")) + '</span>'; }).join("") + dm.map(function(t){ return '<span class="gx-d" data-tn="Waffe">' + esc(t) + '</span>'; }).join("") + '</div></div>' +
+    '<div class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + ru.map(function(t){ return gSym("ru", "Rüstung", SY_SCHILD, String(t).replace(/^Rüstung\s*/, "")); }).join("") + dm.map(function(t){ return '<span class="gx-d" data-tn="Waffe">' + esc(t) + '</span>'; }).join("") + '</div></div>' +
     '<div class="gx-w' + (/[^\d\s]/.test(gWidTxt(g)) ? ' lang' : '') + '"><b>' + esc(gWidTxt(g)) + '</b><small>Wid.</small></div><span class="gx-p" onclick="event.stopPropagation();bgAdd(\'' + g.id + '\')" title="Zur Begegnung hinzufügen">+</span></div>' +
     (on ? '<div class="gx-det" onclick="event.stopPropagation()"><button class="gx-zu" onclick="gTog(\'' + g.id + '\')" title="Schließen">×</button>' + gBlock(g) + '</div>' : '');
 }

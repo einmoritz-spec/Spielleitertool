@@ -1315,3 +1315,14 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 
 .gx-p{top:-11px;right:-9px;bottom:auto;left:auto;width:24px;height:24px;font-size:18px;z-index:3;box-shadow:0 3px 8px -3px rgba(13,26,39,.5)}
 .gx.inb::after{top:auto;bottom:9px;right:9px}
+
+/* Symbole mit Zahl: Raute = Schwierigkeit, Schild = Rüstung */
+.gx-m{align-items:center;gap:7px}
+.gx-m .gx-sy{position:relative;display:inline-grid;place-items:center;width:30px;height:30px;padding:0;height:30px;background:none;border:0;color:var(--ac,var(--blau))}
+.gx-m .gx-sy svg{position:absolute;inset:0;width:100%;height:100%;margin:0}
+.gx-m .gx-sy b{position:relative;font:700 14.5px/1 var(--f-titel);color:#fff;padding-top:1px}
+.gx-m .gx-sy.ru{color:#4a5b73}
+.gx-m .gx-sy.ru b{margin-top:-1px}
+.gx-m .gx-x{font:700 12px var(--f-titel);font-style:normal;color:#6b7a8e;margin:0 4px 0 -3px}
+.gx-m .gx-s1.gx-sy{color:#c9962a}
+.gx-s1 .gx-sy.sc{color:#c9962a}.gx-s2 .gx-sy.sc{color:var(--wein)}

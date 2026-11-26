@@ -275,3 +275,4 @@ body.dl-mode .pg{color:#8a6a3a}
 .sh{font-size:20px}.sh.kegel span{top:-34%}
 @media(max-width:900px){.kfg{column-count:2}}
 .etw.st{max-width:720px}.shw{gap:26px 36px}
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:0 28px;align-items:start}.ag .etw{margin:0 0 10px}

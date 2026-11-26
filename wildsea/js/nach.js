@@ -96,9 +96,14 @@ function viewNach(bereich, id, sz){
   var TL = sz ? (window.WS_SZENARIEN || []).filter(function(x){ return x.id; }).map(function(x){ return [x.id, x.t]; }) : NACH;
   var meta = TL.filter(function(n){ return n[0] === bereich; })[0];
   if(!meta) return viewPlatzhalter(bereich);
+  var kt = document.getElementById("ktabs");
+  if(!sz && kt){ kt.innerHTML = NACH.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'nach/' + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join(""); document.body.classList.add("wsnav"); }
   var tabs = '<div class="tabs">' + TL.map(function(n){ return '<a class="' + (n[0] === bereich ? 'on' : '') + '" onclick="go(\'' + P + n[0] + '\')">' + esc(n[1]) + '</a>'; }).join("") + '</div>';
   var L = (window.WS_NACH || {})[bereich] || [];
   (function(){ var o = [], m = {}; L.forEach(function(s){ if(!m[s.k]){ m[s.k] = []; o.push(s.k); } m[s.k].push(s); }); L = [].concat.apply([], o.map(function(k){ return m[k]; })); })();
+  if(!sz){ var GK = [], GM = {}; L.forEach(function(s){ if(!GM[s.k]){ GM[s.k] = s; GK.push(s); } });
+    var cs = L.filter(function(s){ return s.id === id; })[0]; var ck = cs ? cs.k : (bereich === "charaktere" && !id ? null : L[0].k);
+    tabs = (bereich === "charaktere" && !id) ? '<div class="tabs tabs0"></div>' : '<div class="tabs">' + GK.map(function(s){ return '<a class="' + (s.k === ck ? 'on' : '') + '" onclick="go(\'nach/' + bereich + '/' + s.id + '\')">' + esc(s.k) + '</a>'; }).join("") + '</div>'; }
   if(!L.length) return tabs + '<div class="pad"><p class="na">Dieser Bereich folgt.</p></div>';
   if(bereich === "charaktere" && !id) return tabs + viewCharUebersicht(L);
   var cur = L.filter(function(s){ return s.id === id; })[0] || L[0], ki = cur.k, side = "", last = null;

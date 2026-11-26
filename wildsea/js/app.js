@@ -60,6 +60,7 @@ function viewReiche(){
 function viewPlatzhalter(t){ return '<div class="tabs"><a class="on">' + esc(t) + '</a></div><div class="pad"><h2 class="sec">' + esc(t) + '</h2></div>'; }
 function render(){
   var h = (location.hash || "#start").slice(1).split("/"), v = h[0] || "start", out;
+  var kt = document.getElementById("ktabs"); if(kt) kt.innerHTML = ""; document.body.classList.remove("wsnav");
   if(v === "start") out = viewStart();
   else if(v === "reiche") out = viewReiche();
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }

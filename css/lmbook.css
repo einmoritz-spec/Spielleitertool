@@ -233,3 +233,6 @@ body.lmsub-on .lm-shell>.lm-main>.lm-tabs,body.lmsub-on .lm-pn{display:none}
 .lmsub{flex:none;width:calc(100% + 32px)}
 .topbar:has(.ktabs){justify-content:flex-start!important}
 .topbar:has(.ktabs) .tm-caret{margin-right:0!important}
+body.lmsub-on{padding-top:92px}
+body.lmsub-on .lm-wrap{padding-top:6px}
+body.lmsub-on .lm-toc{top:98px;margin-top:0;max-height:calc(100vh - 110px)}

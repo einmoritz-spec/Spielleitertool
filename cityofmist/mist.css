@@ -465,3 +465,6 @@ body.cmhassub .ktabs a.on{background:#2a1346;border-bottom-color:transparent;col
 body.cmhassub .cmsub{top:54px}
 .cmsub{box-shadow:0 6px 22px rgba(26,10,46,.35)}
 .cmsub a.on{background:none;border-radius:0;color:#fff;box-shadow:inset 0 -3px 0 var(--mag,#ff3fa4)}
+body.cmnav .shell{padding-top:4px}
+body.cmnav .rwtoc{top:108px;max-height:calc(100vh - 120px)}
+body.cmnav .onav{top:108px}

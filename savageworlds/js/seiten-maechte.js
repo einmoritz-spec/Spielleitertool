@@ -63,6 +63,8 @@ function secBlocks(sec){
     if(b.mods){ h += modCards(SW_MMODS.concat((window.SW_MMODS_X || []).filter(vis))); return; }
     if(b.h) h += '<h4 class="rk" id="' + sid(b.h) + '" style="--rc:#a51f1a"><span>' + nm(b.h) + "</span></h4>";
     h += PS(b.b);
+    if(b.tab) h += mrTable(b.tab);
+    if(b.z) h += '<p class="ed">' + esc(b.z) + "</p>";
     if(b.cards) h += cardGrid(b.cards);
   });
   flush();

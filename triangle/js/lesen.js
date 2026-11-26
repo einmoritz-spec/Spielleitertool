@@ -46,12 +46,12 @@ function taB(L){
       case "kasten": return '<div class="kasten' + (b.dunkel ? " dunkel" : "") + '">' + (b.h ? '<h3>' + (b.z ? zimg(b.z) : '') + tx(b.h) + '</h3>' : '') + '<div class="kb">' + taB(b.b) + '</div></div>';
       case "warn": return '<div class="warn">' + zimg(b.z || "symbol-warnung") + '<div><h3>' + tx(b.h) + '</h3>' + taB(b.b) + '</div></div>';
       case "fenster": return '<div class="fenster ' + (b.art || "") + '"' + (b.w ? ' style="max-width:' + b.w + 'px"' : '') + '><div class="ft">' + (b.z ? zimg(b.z) : '') + '<span>' + tx(b.titel || "") + '</span><i>×</i></div><div class="fb">' + (b.gross ? zimg(b.gross, "gross") : '') + (b.h ? '<h3>' + tx(b.h) + '</h3>' : '') + taB(b.b) + '</div></div>';
-      case "schwarz": return '<p class="schwarz" onclick="this.classList.toggle(\'auf\')"><span>' + tx(b.x) + '</span></p>';
+      case "schwarz": return '<p class="schwarz' + (b.blau ? " blau" : "") + '" onclick="this.classList.toggle(\'auf\')"><span>' + tx(b.x) + '</span></p>';
       case "stempel": return '<div class="stempel">' + tx(b.x) + '</div>';
       /* Regeln */
       case "wurf": return '<div class="wurf">' + b.x.map(function(x){ return '<section class="' + (x.ok ? "ok" : "nein") + '"><div class="wi"><img src="' + IMG("regeln/full/" + x.img) + '" alt=""><em></em></div><p>' + tx(x.x) + '</p></section>'; }).join("") + "</div>";
       case "dialog": return '<div class="dialog">' + b.x.map(function(z){ return '<p class="' + (/^GM/.test(z[0]) ? "gm" : "") + '"><b>' + esc(z[0]) + ':</b> ' + tx(z[1]) + '</p>'; }).join("") + "</div>";
-      case "preis": return '<div class="preis">' + b.x.map(function(x){ return '<section><h3>' + tx(x.h) + '<span>' + esc(x.p) + zimg("symbol-belobigung") + '</span></h3>' + (x.b ? taB(x.b) : '<p>' + tx(x.x) + '</p>') + '</section>'; }).join("") + "</div>";
+      case "preis": return '<div class="preis">' + b.x.map(function(x){ return '<section><h3><span class="pt">' + tx(x.h) + '</span><span class="pp">' + esc(x.p) + zimg("symbol-belobigung") + '</span></h3>' + (x.z ? zimg(x.z, "pz2") : '') + (x.b ? taB(x.b) : '<p>' + tx(x.x) + '</p>') + '</section>'; }).join("") + "</div>";
       case "leiste": return '<div class="leiste" style="--c:' + (b.c || "var(--akz)") + '">' + (b.h ? '<b>' + tx(b.h) + '</b>' : '') + '<div>' + b.x.map(function(n){ return '<u>' + esc(n) + '</u>'; }).join("") + '</div></div>';
       case "wf": var id = b.id || "wf"; return '<div class="wf"><h3>' + zimg("symbol-qualitaetssicherung") + tx(b.h) + '</h3><small>' + tx(b.s || "Wahr oder falsch?") + '</small>' + b.x.map(function(x, i){ var auf = WF[id] && WF[id][i];
         return '<section class="' + (auf ? "auf" : "") + '" onclick="wfKlick(\'' + id + '\',' + i + ')"><em>' + (i + 1) + '</em><div>' + tx(x.f) + (auf ? '<p class="' + (x.a ? "w" : "f") + '"><b>' + (x.a ? "Wahr." : "Falsch.") + '</b> ' + tx(x.e || "") + '</p>' : '') + '</div></section>'; }).join("") + '</div>';

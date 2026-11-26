@@ -42,3 +42,44 @@ TA_TEXT["h/agency/werte"] = [
   [{t:"schwarz", x:"Waren und Dienstleistungen sind das Rad, auf dem sich die Welt dreht. Und bei der Agency glauben wir: Die besten Räder sind Dreiecke. Morgen ist ein neuer Tag, und gestern ist ein weiteres mögliches Morgen. An jedem dritten Tag kehren wir zum Anfang zurück, und der Anfang ist das, wonach wir streben."}]
  ]}
 ];
+/* S. 12–13: Doppelseite „Unsere Mission“ (Titelbild: Wellenmuster ohne Text; Schriftzug STABILISIERE REALITÄT nachgebaut) */
+TA_TEXT["h/agency/mission"] = [
+ {t:"html", x:'<div class="hb-hero" style="background-image:url(img/regeln/full/mission-realitaet-stabilisieren-doppelseite.webp)"><b>STABILISIERE</b><b>REALITÄT</b></div>'},
+ {t:"kasten", b:[{t:"sp", x:[
+  [{t:"lead", x:"Das Universum war nicht dazu gedacht, beobachtet zu werden. Beobachtung erzeugt Gedanken; Gedanken formen die Realität."},
+   "Eine besonders große Ansammlung ähnlicher Gedanken oder ein besonders mächtiger einzelner Gedanke kann eine unnatürliche Verzerrung dessen erzeugen, was richtig und wahr ist. Diese Verzerrungen nennen wir **Anomalien**.",
+   "Anomalien sind äußerst gefährlich. Sie müssen gefangen und eingedämmt werden, damit sie kein Loch in die Realität reißen und uns Kräften ausliefern, die weit größer sind, als es sich irgendein gewöhnlicher Verstand vorstellen kann. Triangle Agency, ein privates Unternehmen im Dienst der Allgemeinheit, stellt sich dieser Herausforderung."],
+  ["Ohne die Agency herrscht Chaos – und wo Chaos herrscht, gibt es Zerstörung, Leid und gebrochene Herzen.",
+   "Als Außendienst-Agent trittst du in eine lange Reihe von Angestellten ein, die über Jahrhunderte und rund um den Globus das Fortbestehen unseres Universums auf ihren Schultern getragen haben. Zum Glück ist es ein dankbarer Job, in einer chaotischen Welt Ordnung zu halten.",
+   "Hier ist dein erster von vielen:",
+   {t:"stempel", x:"Danke!*"}]
+ ]}]},
+ {t:"h", x:"Warum ein Unternehmen?"},
+ {t:"kasten", b:[{t:"sp", x:[
+  ["Eine Organisation, die der großen Bedrohung durch Anomalien gewachsen sein soll, muss Geld und Ressourcen effizient und unkompliziert bündeln können – bei hoher Autonomie und geringer Aufsicht.",
+   "Staatsnahe Organisationen sind zwangsläufig politischen Interessen untergeordnet. Als privates Unternehmen kann die Agency allein der Mission dienen, ohne Hintergedanken.",
+   "Um unsere Mission zu finanzieren, entwickeln und verkaufen wir ein breites Sortiment an Produkten in jedem Gang des Ladens. Unsere Tochterfirmen wie Ripple Clean, Realistic Clothing und Stable Stables for the Modern Horse nutzen anomale Kraft, um einzigartige, verlässliche und preislich konkurrenzfähige Waren herzustellen. Sie geben der Agency außerdem ein öffentliches Gesicht und sorgen dafür, dass deine tägliche Arbeit nicht von lästigen Fragestellern und Aufsichtsbehörden unterbrochen wird."],
+  [{t:"html", x:'<div class="hb-fluss"><img src="img/zeichen/pikto-mission-anomalie.png" alt=""><i></i><img src="img/zeichen/pikto-mission-geld.png" alt=""><i></i><img src="img/zeichen/pikto-mission-ziele.png" alt=""></div>'}]
+ ]}]},
+ {t:"klein", x:"* Wenn du für deine Arbeit im Außendienst Dank erhältst, hast du vermutlich ein Loses Ende erzeugt. Beseitige umgehend den Dank oder die dankende Person."}
+];
+/* S. 15–17: Arbeitsantritt, dazu die Doppelseite mit der Lobby der Zentrale */
+TA_TEXT["h/agency/antritt"] = [
+ "Jeder Agent ist einer **Zweigstelle** zugeteilt: einer halbautonomen Geschäftseinheit, die alle Angelegenheiten der Agency in einer bestimmten geografischen Region abwickelt. Zweigstellen sind in der Regel, aber nicht immer, an eine einzelne Stadt oder Gemeinde gebunden. Jede Zweigstelle hat einen eigenen Aufbau und eine Mittelausstattung, die widerspiegelt, wie wichtig sie für unsere Mission ist.",
+ "In jeder Zweigstelle findest du eine **Zentrale**, eine Reihe von **Angestellten**, die das Tagesgeschäft erledigen, und mindestens ein Außenteam voller Agenten wie dich! Jahrzehntelange gründliche Analysen legen nahe, dass Agenten an Orten am wirksamsten sind, die sie gut kennen; du wurdest also vermutlich der Zweigstelle zugeteilt, die derzeit deine Wohngegend betreut.",
+ "Jede Zweigstelle ist einzigartig, doch alle gehören zu zwei großen Kategorien.",
+ {t:"sp", x:[
+  [{t:"h3", x:"Große Ballungsräume"},
+   "Die meisten Zweigstellen liegen im Herzen eines bürgerlichen, kulturellen oder wirtschaftlichen Zentrums.",
+   "Die angesehensten von ihnen haben ihre Zentrale in stattlichen, glänzenden Wolkenkratzern, die in Teppichboden von Wand zu Wand gehüllt und in effizientes, verlässliches Neonlicht getaucht sind. Ihre Dutzenden oder Hunderten Angestellten arbeiten unermüdlich daran, die Realität zu stabilisieren, unsere Kunden zu bedienen und unsere Partner zu unterstützen. In den Fluren dieser Zweigstellen herrscht reges Treiben: Kuriere liefern Nachrichten persönlich aus, Telefone klingeln im Summen des Welthandels, und Kaffee in allen bekannten Stärken brüht morgens, mittags und nachts.",
+   "Andere führen einen schlanken Betrieb, weil die anomale Aktivität gering oder der Bedarf an Diskretion hoch ist. Diese Zweigstellen sind von einem bewundernswerten Einsatz für Effizienz getrieben und richten sich oft in so vielfältigen Umgebungen ein wie der Wohnung eines Angestellten, einem Netz aus Lagerboxen oder einem ungenutzten, von der Stadtverwaltung nicht überwachten Abschnitt der Kanalisation.",
+   "Die glücklichsten aller Agenten werden in Ternion City eingestellt, wo unsere globale Zentrale ihren Sitz hat. Die folgende Seite gewährt einen Blick in ihre Lobby, die bald dein täglicher Anblick sein könnte!"],
+  [{t:"h3", x:"Sonstige"},
+   "Agenten, die in ländlichen Regionen leben, dürfen eine nicht minder schwere Last erwarten – nur weniger konzentriert.",
+   "Diese Zweigstellen decken meist ein weites, dünn besiedeltes Gebiet ab und eignen sich am besten für Agenten, die ein langsameres Tempo und einen mobilen Lebensstil mögen. Hier wirst du häufig Wohnviertel abfahren, Aussagen örtlicher Geschäftsinhaber aufnehmen und dich aus der Reichweite verlässlichen Mobilfunkempfangs hinauswagen.",
+   "Die Zentralen dieser Zweigstellen bieten ihren Angestellten gewöhnlich sowohl Platz als auch Privatsphäre. Viele sind mit üppiger Holzvertäfelung, Überbestandsmöbeln aus der Kollektion Triangle at Home und bis zu einem Kühlschrank ausgestattet. Jüngste Erhebungen haben ergeben, dass diese abgelegenen Büros im Schnitt ein Verhältnis von Pinnwänden zu Angestellten nahe 2:1 aufweisen. Bringen wir diese Zahlen nach oben!",
+   "Ob in einem Gewerbepark, einer Jagdhütte oder einer umgebauten Pizzafiliale: Ländliche Zweigstellen tauschen die Macht und das Prestige ihrer städtischen Gegenstücke gegen ein Arbeitsleben, das perfekt auf die örtlichen Bedürfnisse zugeschnitten ist."]
+ ]},
+ {t:"bild", src:"zentrale-lobby-doppelseite", pos:"breit", w:1100},
+ {t:"html", x:'<p class="klein" style="margin-top:8px">Willkommen, Agent!</p>'}
+];

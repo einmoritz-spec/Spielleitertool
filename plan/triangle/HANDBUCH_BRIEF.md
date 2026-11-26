@@ -49,11 +49,11 @@ Das Buch gibt sich als Firmenunterlage eines unheimlichen Konzerns. Sein Witz li
 | `kasten` | `h?`, `z?`, `b:[Blöcke]`, optional `dunkel:1` | Kasten mit rotem Rand; `dunkel` = dunkler Rahmen mit grauem Kopf (S. 22 „Optionale Ziele“) |
 | `warn` | `h`, `b` | roter Warnkasten mit Dreieck (S. 11) |
 | `fenster` | `art`: `fehler`/`gesperrt`/leer, `titel?`, `z?`, `gross?`, `h?`, `b`, `w?` | Fenster des AgencyOS: Fehlermeldungen, „Zugriff verweigert“ |
-| `schwarz` | `x` | geschwärzter Text, Klick deckt auf – nur wo das Buch schwärzt |
+| `schwarz` | `x`, optional `blau:1` | geschwärzter Text, Klick deckt auf – nur wo das Buch schwärzt; `blau` für die blauen Übermalungen der Anomalie (S. 122) |
 | `stempel` | `x` | schräger roter Stempel („Danke!“) |
 | `wurf` | `x:[{img,ok,x}]` | Würfelbild mit Haken oder Kreuz |
 | `dialog` | `x:[["GM","…"],["AGENT 1","…"]]` | Mitschrift eines Spielbeispiels |
-| `preis` | `x:[{h,p,x oder b}]` | Karten mit Preis in Belobigungen (Anforderungen S. 128–131) |
+| `preis` | `x:[{h,p,z?,x oder b}]` (`z` = Piktogramm; Preisstufen als `tab` am Ende von `b`) | Karten mit Preis in Belobigungen (Anforderungen S. 128–131) |
 | `leiste` | `h?`, `x:[…Felder]`, `c?` | Leiste aus Kästchen (Laufbahn, Ansehen) |
 | `wf` | `id` (eindeutig), `h`, `s?`, `x:[{f,a:1/0,e?}]` | „Teste dein Wissen“: Klick zeigt Wahr/Falsch und die Auflösung |
 | `html` | `x` | Ausweg für Einmaliges (Schaubild). Sparsam; Klassen dafür in deine eigene CSS-Datei (siehe unten) |

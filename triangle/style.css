@@ -225,7 +225,9 @@ h2 .an,h1 .an{color:var(--blau)}
 .dialog p{margin:0 0 8px;padding-left:20px;text-indent:-20px}.dialog b{color:var(--blau)}.dialog .gm b{color:var(--rot)}
 .preis{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:8px 0 18px}
 .preis section{border:1.5px solid var(--rot);border-radius:12px;padding:14px 16px 6px;font-size:15px}
-.preis h3{font-size:18px;color:var(--rot);display:flex;justify-content:space-between;gap:10px}.preis h3 span{display:flex;gap:5px;align-items:center;color:var(--tinte);white-space:nowrap}.preis h3 img{height:17px}
+.preis h3{font-size:18px;color:var(--rot);display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.preis h3 .pp{display:flex;gap:5px;align-items:center;color:var(--tinte);white-space:nowrap}.preis h3 img{height:17px}.preis h3 .ag{color:inherit}
+.preis{align-items:start}.preis .pz2{float:right;width:58px;max-height:58px;object-fit:contain;margin:4px 0 6px 12px}
+.preis section>.tab{width:100%;margin:4px 0 10px;font-size:14px;clear:both}.preis .tab td{padding:5px 8px}.preis .tab td:last-child{text-align:right;font-weight:800;white-space:nowrap}
 .leiste{margin:6px 0 14px}.leiste>b{font:800 15px Spartan,sans-serif;color:var(--c);display:block;margin-bottom:5px}
 .leiste div{display:flex;flex-wrap:wrap;gap:3px 0}.leiste u{text-decoration:none;min-width:30px;height:28px;padding:0 6px;border:2px solid var(--c);border-radius:7px;font:800 12px/25px Fig,sans-serif;text-align:center;color:var(--c);margin-right:9px;position:relative}
 .leiste u:not(:last-child):after{content:"";position:absolute;right:-11px;top:11px;width:9px;height:2px;background:var(--c)}
@@ -242,3 +244,28 @@ h2 .an,h1 .an{color:var(--blau)}
 .absturz>img{position:absolute;right:30px;top:-70px;height:390px;pointer-events:none}
 .absturz .fenster{position:relative;margin:70px 0 0 10px}
 .streu{width:430px;height:240px;object-fit:cover;object-position:100% 100%;display:block;margin:-30px 40px 0 auto;mix-blend-mode:multiply}
+.schwarz.blau span{background:var(--blau);filter:none}.schwarz.blau.auf span{background:#e6ebf8}
+
+/* S. 122–123: Übermalungen der Anomalie */
+.hb-anom{display:grid;grid-template-columns:1fr 1fr;gap:0 44px;position:relative;max-width:900px;padding-bottom:10px}
+.hb-anom .gb{position:absolute;font:900 250px/.78 Spartan,sans-serif;letter-spacing:-.04em;color:var(--blau);pointer-events:none;user-select:none;z-index:0}
+.hb-anom .g1{right:-40px;top:-150px;clip-path:inset(60px 0 0 0)}
+.hb-anom .gs{position:absolute;left:50%;top:150px;width:46px;height:86px;background:var(--blau);clip-path:polygon(40% 0,100% 0,60% 55%,0 100%,0 62%);margin-left:-8px}
+.hb-anom .g2{left:-14px;bottom:150px}.hb-anom .g3{left:-22px;bottom:-34px}
+.hb-anom .l{position:relative;z-index:1;padding-bottom:330px}
+.hb-anom .r{position:relative;z-index:1;padding-top:255px}
+.ueb{cursor:pointer}.ueb u{text-decoration:none;background:var(--blau);color:transparent;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 0;transition:.25s}
+.ueb em{font-style:normal;background:#fff;box-shadow:0 0 0 3px var(--blau);font-size:.86em;padding:0 3px;position:relative;transition:.25s}
+.ueb.auf u{background:#e6ebf8;color:var(--tinte)}.ueb.auf em{box-shadow:none;background:#e6ebf8;font-size:1em;padding:2px 0}
+.hb-anom .block{height:330px;background:var(--blau);position:relative;margin-top:2px}
+.hb-anom .block em{position:absolute;font:800 13px Fig,sans-serif;font-style:normal;background:#fff;padding:0 4px}
+.hb-marke{font-style:normal;font-weight:800;background:var(--blau);color:#fff;padding:1px 6px 0}
+.hb-zeit{max-width:900px;position:relative}.hb-zeit .pikto{margin-bottom:0}
+.hb-zeit .pikto h3{font-size:22px}.hb-zeit .pikto section:nth-child(1) h3{color:var(--rot)}.hb-zeit .pikto section:nth-child(2) h3{color:var(--gelb)}
+.hb-zeit .unten{position:relative;height:470px}
+.hb-zeit .unten h3{position:absolute;left:132px;top:6px;font-size:28px}
+.hb-zeit .unten i{position:absolute;font-style:normal;font-size:14px;color:#5b77c4;white-space:nowrap}
+.hb-zeit .schnur{position:absolute;left:0;top:-14px;width:300px}
+.hb-zeit .auge{position:absolute;left:478px;top:150px;width:92px}
+.hb-zeit .art{position:absolute;left:60px;top:22px;width:800px;cursor:zoom-in}
+.hb-flow .k.dk .drei{color:#ff8a94}

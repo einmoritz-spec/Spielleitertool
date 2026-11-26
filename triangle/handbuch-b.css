@@ -1,0 +1,65 @@
+/* Handbuch-Teil b: Würfeln (Qualitäten bis Scheitern), Schaden (Lebensversicherung, Konflikt), Am Tisch */
+.hb-ic{height:1.05em;vertical-align:-.17em;margin:0 .1em}
+.hb-dia{display:block;max-width:100%;height:auto;margin:6px 0 12px}
+.hb-dia.k{max-width:340px}.hb-dia.m{max-width:300px}
+.hb-qual{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 34px;margin:6px 0 26px;max-width:980px}
+.hb-qual h4{font:800 22px Spartan,sans-serif;color:var(--rot);margin:0 0 6px}.hb-qual p{margin:0;font-size:15.5px;line-height:1.5}
+.hb-lab{font:800 17px Spartan,sans-serif;color:var(--tinte);margin:10px 0 4px}
+.hb-gross{font:800 24px/1.25 Spartan,sans-serif;color:var(--tinte);margin:0 0 12px}.hb-gross u{text-decoration-color:var(--rot);text-decoration-thickness:3px;text-underline-offset:4px}
+/* Triszendenz-Kacheln */
+.hb-tri{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:14px 0 18px;max-width:900px}
+.hb-tri section{background:var(--rot);color:#fff;border-radius:18px;padding:20px 18px 16px;text-align:center}
+.hb-tri img{height:64px;display:block;margin:0 auto 10px}.hb-tri h3{color:#fff;font-size:19px;margin:0 0 6px}.hb-tri p{margin:0;font-size:14.5px;color:#fff}.hb-tri .drei{color:#fff}
+.hb-tri.zeile{margin-top:8px}
+.hb-stab{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:center}
+.hb-stab img.sy{height:34px;margin-right:10px;vertical-align:middle}
+/* Ablaufplan Kurzübersicht */
+.hb-nb{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:flex-end;margin:6px 0 20px}
+.hb-nb figure{margin:0;text-align:center;font-size:13px;color:#6b6685}.hb-nb figure img{height:44px;max-width:240px;display:block;margin:0 auto 4px}
+.hb-nb .opt{color:#8a86a0}.hb-nb h5{font:800 16px Spartan,sans-serif;margin:0 0 6px}
+.hb-flow{display:grid;grid-template-columns:200px 34px 300px 34px 190px;gap:0;align-items:center;margin:8px 0 6px;max-width:900px}
+.hb-flow .k{border-radius:14px;padding:16px;text-align:center;color:#fff;font:800 18px Spartan,sans-serif}
+.hb-flow .rot{background:var(--rot)}.hb-flow .dk{background:var(--tinte)}.hb-flow .k img{display:block;margin:0 auto 8px;max-width:100%}
+.hb-flow .rot img{height:60px;width:auto}
+.hb-flow .pf{height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:20px solid var(--tinte);justify-self:center}
+.hb-flow .ja-nein{display:grid;gap:10px}.hb-flow .ja-nein .k{padding:14px;font-size:20px}
+.hb-weiter{font:800 15px Spartan,sans-serif;color:var(--tinte);margin:4px 0 20px}.hb-weiter:before{content:"▶ "; color:var(--rot)}
+.hb-tzh{display:flex;align-items:center;gap:14px;margin:26px 0 8px;font:800 30px Spartan,sans-serif;color:var(--rot)}.hb-tzh:before,.hb-tzh:after{content:"";flex:1;height:2px;background:var(--rot)}
+.hb-tzs{text-align:center;margin:0 0 6px}
+.hb-erf{max-width:640px;border-radius:12px;overflow:hidden;margin:10px 0 20px;background:#fbf9fd}
+.hb-erf header,.hb-erf div{display:grid;grid-template-columns:1fr 80px 120px;align-items:center;padding:7px 18px}
+.hb-erf header{background:var(--rot);color:#fff;font:800 15px Spartan,sans-serif;padding-top:11px;padding-bottom:9px}
+.hb-erf header span+span,.hb-erf div span+span{text-align:center}
+.hb-erf div:nth-child(odd){background:#f3f1f9}
+.hb-erf .tr{display:flex;gap:4px}.hb-erf .tr img{height:28px}
+.hb-erf .ch{font:800 26px Spartan,sans-serif;color:var(--blau);display:flex;align-items:center;gap:8px;justify-content:center}.hb-erf .ch.n{color:#b9b4c9}.hb-erf .ch img{height:26px}
+.hb-erf .hk{font-size:22px;color:var(--tinte)}.hb-erf .xx{color:var(--rot)}
+/* Fähigkeiten */
+.hb-zl{list-style:none;padding:0;margin:0 0 12px}.hb-zl li{display:grid;grid-template-columns:34px 1fr;gap:12px;margin:0 0 12px;font-size:15.5px}.hb-zl li>img{width:30px;height:30px;object-fit:contain}
+.hb-kette{border-left:3px solid var(--blau);margin:0 0 12px 14px;padding-left:18px}.hb-kette p{margin:0 0 10px;position:relative;font-size:15.5px}.hb-kette p:before{content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--blau)}
+.hb-kette.bsp p{font-style:italic}
+.hb-streich{text-decoration:line-through;text-decoration-color:var(--rot);text-decoration-thickness:2px}
+/* Scheitern */
+.hb-stapel{display:flex;flex-wrap:wrap;gap:6px 18px;margin:-6px 0 14px}
+.hb-stapel a{display:inline-block;background:#e9e6ef;border-radius:6px;padding:6px 12px 3px;font:800 20px Spartan,sans-serif;color:var(--rot);cursor:pointer}
+.hb-stapel a:nth-child(odd){transform:rotate(-5deg)}.hb-stapel a:nth-child(even){transform:rotate(4deg)}.hb-stapel a:nth-child(3n){transform:rotate(-12deg)}
+.hb-stapel a:before{content:"[GEHE ZU: ";color:var(--tinte)}.hb-stapel a:after{content:"]";color:var(--tinte)}
+/* Konflikt */
+.hb-schritte{display:grid;grid-template-columns:1fr 1fr;gap:6px 36px;align-items:start}
+.hb-schritte .rb{border:1.5px solid var(--rot);border-radius:14px;padding:14px 18px 6px;font-size:14.5px;margin:6px 0 12px}
+.hb-schritte .rb p{margin:0 0 10px}
+.hb-kopf2{display:flex;gap:16px;justify-content:center;align-items:flex-end;margin:12px 0 0}.hb-kopf2 img{height:340px;width:auto}
+.hb-konf{display:grid;grid-template-columns:minmax(220px,360px) 1fr;gap:28px;align-items:center;margin:8px 0 16px}
+.hb-konf img{width:100%}.hb-konf div p{margin:0 0 22px}
+.hb-szene{display:grid;grid-template-columns:260px 1fr;gap:18px 30px;align-items:end;margin:8px 0 6px}
+.hb-szene img{max-width:100%}.hb-szene .dialog{margin:0}
+.hb-bildzeile{display:flex;gap:18px;align-items:flex-end;margin:6px 0 16px}.hb-bildzeile img{height:210px;width:auto;mix-blend-mode:multiply}
+.hb-empf{position:relative;height:430px;max-width:560px;margin:6px 0 10px}
+.hb-empf img{position:absolute;mix-blend-mode:multiply}.hb-empf .a{left:0;bottom:0;height:420px}.hb-empf .t{right:0;bottom:0;height:300px}.hb-empf .w{right:40px;top:0;height:120px}
+.hb-leist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 34px;max-width:900px}
+/* Am Tisch */
+.hb-liste2{display:grid;grid-template-columns:1fr 1fr;gap:0 34px;max-width:760px}
+@media(max-width:800px){.hb-qual,.hb-tri,.hb-stab,.hb-schritte,.hb-konf,.hb-szene,.hb-liste2,.hb-leist{grid-template-columns:1fr}.hb-flow{grid-template-columns:1fr}.hb-flow .pf{transform:rotate(90deg);margin:10px 0}}
+.hb-nb .hb-sechs{display:flex;align-items:center;gap:8px;background:#f3f1f9;border-radius:10px;padding:8px 14px;margin-bottom:6px}.hb-nb .hb-sechs b{font:800 30px Spartan,sans-serif;color:var(--tinte);margin-right:4px}.hb-nb .hb-sechs img{height:30px;margin:0}
+.dialog .gehzu{text-indent:0;display:inline-block;margin:0 2px}
+.pikto section{align-items:start}.pikto section>div:first-child{margin-top:2px}.pikto p+p{margin-top:10px}

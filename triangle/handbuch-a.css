@@ -1,0 +1,29 @@
+/* Handbuch-Teil „a“ (S. 12–31): Zusatzgestaltung für html-Blöcke. Klassen mit Vorsatz hb- */
+.hb-hero{position:relative;height:250px;border-radius:14px;margin:4px 0 18px;background-size:cover;background-position:center 30%;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.hb-hero b{font:800 clamp(40px,8vw,92px)/.95 Spartan,sans-serif;letter-spacing:-.04em;color:var(--tinte);text-shadow:0 0 18px #fff,0 0 4px #fff}
+.hb-fluss{display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 0 14px}
+.hb-fluss img{height:84px;width:auto;max-width:130px;object-fit:contain}
+.hb-fluss i{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:12px solid var(--rot);margin:10px 0}
+.hb-ik{display:flex;align-items:center;gap:10px}
+.hb-ik img{height:30px;width:auto}
+.hb-zeilen{display:grid;gap:12px;margin:6px 0 14px}
+.hb-zeilen div{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center}
+.hb-zeilen img{width:34px;height:34px;object-fit:contain;justify-self:center}
+.hb-zeilen p{margin:0}
+.hb-weiche{display:block;width:100%;max-width:760px;margin:12px auto 20px;border:1.5px solid var(--rot);border-radius:14px;padding:10px}
+.hb-weiche text{font-family:Fig,sans-serif;fill:var(--tinte)}
+.hb-weiche text.b{font-family:Spartan,sans-serif;font-weight:800;fill:var(--rot)}
+.hb-ans{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;max-width:900px;margin:8px 0 20px}
+.hb-ans>div{border:2px solid var(--tinte)}
+.hb-ans section{display:grid;grid-template-columns:62px 40px 1fr;gap:6px;align-items:center;min-height:64px;padding:6px 12px;border-top:2px solid var(--tinte)}
+.hb-ans section:first-child{border-top:0}
+.hb-ans section:nth-child(odd){background:var(--flieder)}
+.hb-ans img{max-width:50px;max-height:44px;justify-self:center}
+.hb-ans em{font:800 34px Spartan,sans-serif;font-style:normal;color:var(--tinte)}
+.hb-ans em.drei{color:var(--rot)}
+.hb-ans span{font:800 15px/1.15 Spartan,sans-serif;color:var(--tinte)}
+.hb-ans .sperr{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;padding:10px 14px;border-top:2px solid var(--tinte)}
+.hb-ans .sperr img{max-width:96px;max-height:90px}
+.hb-ans .sperr span{font:800 22px/1.05 Spartan,sans-serif;color:var(--rot);text-transform:uppercase}
+@media(max-width:700px){.hb-ans{grid-template-columns:1fr;gap:14px}}
+.pikto p+p{margin-top:10px}

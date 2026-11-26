@@ -908,3 +908,24 @@ body.ossub-on .osnav{top:110px}
 .topbar:has(.ktabs) .tm-info{margin-left:auto!important}
 .topbar:has(.ktabs) .topbar-spacer{display:none!important}
 @media (min-width:1200px){.os-grps{grid-template-columns:repeat(6,1fr)}.os-grp:nth-child(1){grid-column:span 2;order:2}.os-grp:nth-child(2){grid-column:span 6;order:1}.os-grp:nth-child(3){grid-column:span 4;order:3}.os-grp .os-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}}
+.case-tabbar.notebar{border:0;margin:0;height:0;overflow:visible;justify-content:flex-end;position:relative;z-index:3}
+.case-tabbar.notebar>*{margin-top:8px}
+.ktabs.adv a{padding:0 14px}
+/* Karten füllen jede Zeile ganz aus (keine halbleeren Zeilen) */
+.os-cgrid{display:flex;flex-wrap:wrap;align-items:stretch}
+.os-cgrid>.os-card{flex:1 1 330px;box-sizing:border-box}
+.os-cgrid>.os-card.wide{flex-basis:100%}
+body.osnav .shell:has(.case-tabbar.notebar){padding-top:0!important}
+body.osnav .shell:has(.case-tabbar.notebar)>.crumbs.pgonly{margin-top:0;padding-top:6px}
+/* Startseite: drei Bildtafeln statt vieler Kacheln */
+.os-pans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.os-pan{position:relative;border:1px solid rgba(255,255,255,.1);border-top:3px solid var(--c);border-radius:6px 16px 6px 16px;overflow:hidden;background:#0c1522;display:flex;flex-direction:column}
+.os-pan-img{height:130px;background-size:cover;background-position:50% 35%;opacity:.8;-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
+.os-pan h3{margin:-52px 0 8px;padding:0 20px;position:relative;font:700 24px/1 "OS Plex","IBM Plex Sans Condensed",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 2px 14px #000}
+.os-pan ul{list-style:none;margin:0;padding:4px 8px 12px}
+.os-pan li button{background:transparent!important;border:0!important;box-shadow:none!important;min-height:0;display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;padding:10px 12px;border-radius:8px;color:#e6edf7;cursor:pointer;transition:background .2s}
+.os-pan li button b{font-size:15px;font-weight:600}
+.os-pan li button small{color:var(--mute);font-size:12px;flex:1}
+.os-pan li button i{font-style:normal;color:var(--c);opacity:0;transform:translateX(-4px);transition:.2s}
+.os-pan li button:hover{background:rgba(255,255,255,.06)}.os-pan li button:hover i{opacity:1;transform:none}
+@media(max-width:900px){.os-pans{grid-template-columns:1fr}}

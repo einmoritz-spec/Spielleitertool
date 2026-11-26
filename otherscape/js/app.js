@@ -66,16 +66,16 @@ function renderHome(){
     frak:ic('<path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>')
   };
   const tile = (c,t,meta,pg,icon,tone) => `<button class="os-t" style="--c:${tone}" onclick="${go(c)}"><span class="os-t-top"><span class="os-t-ic">${icon}</span>${pg?`<i>${pg}</i>`:""}</span><b>${t}</b><small>${meta}</small></button>`;
+  const pan = (t,img,c,L) => `<section class="os-pan" style="--c:${c}"><div class="os-pan-img" style="background-image:url(img/${img}.webp)"></div><h3>${t}</h3><ul>${L.map(x=>`<li><button onclick="${go(x[0])}"><b>${x[1]}</b><small>${x[2]}</small><i>›</i></button></li>`).join("")}</ul></section>`;
   const strip = adv.map((a,k)=>osAdvItem(a,k,"ax")).join("");
   $("app").innerHTML = `<div class="os-home">
 <header class="os-hero2"><img src="img/hero/${OS_HEROES[Math.floor(Math.random()*OS_HEROES.length)]}.webp" alt="Otherscape"></header>
   <div class="os-ax"><button class="os-ax-lab" onclick="${go("abenteuer")}"><b>Abenteuer</b><small>${adv.length} Jobs</small><span>Alle Jobs<svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg></span></button><div class="os-ax-row">${strip}</div></div>
-  <div class="os-grps"><div class="os-grp"><div class="os-sec">Regeln</div>
-  <div class="os-grid">${tile("regeln","Regelwerk","Metro-Regeln","",I.regel,"#ff2bd6")}${tile("run","//Run","Einsätze","",I.run,"#ff5d9e")}</div></div>
-  <div class="os-grp"><div class="os-sec">Charaktere</div>
-  <div class="os-grid">${tile("charaktererstellung","Charaktererstellung","Schritt für Schritt","",I.char,"#19e3c1")}${tile("archetypen","Archetypen","Vorlagen","",I.arch,"#5ab8ff")}${tile("kits","Theme Books","Themes &amp; Kits","",I.kits,"#a97bff")}${tile("katalog","Straßenkatalog","Ausrüstung","",I.katalog,"#ffc15a")}</div></div>
-  <div class="os-grp"><div class="os-sec">Welt</div>
-  <div class="os-grid">${tile("tokyo","Tokyo","Bezirke &amp; Orte","",I.tokyo,"#ff5d9e")}${tile("metro","Metro","Die Stadt","",I.metro,"#5ab8ff")}${tile("fraktionen","Fraktionen",nF+" Mächte","",I.frak,"#ffc15a")}${tile("gegner","Gegner","Bedrohungen &amp; Challenges","",I.geg,"#ff5d6c")}</div></div></div>
+  <div class="os-pans">
+   ${pan("Regeln","biting-bullet-titel","#ff2bd6",[["regeln","Regelwerk","Metro-Regeln"],["run","//Run","Einsätze"]])}
+   ${pan("Charaktere","strings-attached-cover","#19e3c1",[["charaktererstellung","Charaktererstellung","Schritt für Schritt"],["archetypen","Archetypen","Vorlagen"],["kits","Theme Books","Themes &amp; Kits"],["katalog","Straßenkatalog","Ausrüstung"]])}
+   ${pan("Welt","steam-punks-titel","#5ab8ff",[["tokyo","Tokyo","Bezirke &amp; Orte"],["metro","Metro","Die Stadt"],["fraktionen","Fraktionen",nF+" Mächte"],["gegner","Gegner","Bedrohungen &amp; Challenges"]])}
+  </div>
   </div>`;
 }
 /* Abenteuer-Eintrag für die Startseiten-Leiste ("ax") und die Übersicht ("big"); Klick startet mit kurzer Blitz-Animation */
@@ -126,13 +126,23 @@ function renderAdv(a, secId){
   const groups = []; a.sektionen.forEach(x=>{ const n = grpOf(a,x)||"Start"; const l = groups[groups.length-1]; if(l && l.n===n) l.items.push(x); else groups.push({n, items:[x]}); });
   let tabbar; window.ADV_SUB = "";
   const isAdv = !osSetPage(a), tile = NotePop.tile("os", a.id+":"+s.id);
+  let hd = null, sb = null;
+  const short = x => (x.titel||"").replace(/\s*\([^)]*\)\s*$/,"");
   if(isAdv && a.sektionen.length>7){
     const ag = groups.find(g=>g.items.includes(s)), pr = cpre(ag.items);
-    if(groups.length>=2){
+    if(groups.length>=2 && groups.length<=8){
+      hd = groups.map(g=>({t:g.n, href:`#/adv/${a.id}/${g.items[0].id}`, on:g===ag}));
+      sb = ag.items.length>1 ? ag.items.map(x=>({t:(pr&&x.titel.startsWith(pr)?x.titel.slice(pr.length):x.titel), href:`#/adv/${a.id}/${x.id}`, on:x.id===s.id})) : null;
+      tabbar = `<div class="case-tabbar notebar">${tile}</div>`;
+    } else if(groups.length>=2){
       tabbar = `<div class="case-tabbar grpbar">${groups.map(g=>`<button class="case-tab grp ${g===ag?"active":""}" onclick="location.hash='#/adv/${a.id}/${g.items[0].id}'">${esc(g.n)}</button>`).join("")}${tile}</div>`;
       window.ADV_SUB = ag.items.map(x=>({on:x.id===s.id, href:`#/adv/${a.id}/${x.id}`, t:(pr&&x.titel.startsWith(pr)?x.titel.slice(pr.length):x.titel)}));
     } else tabbar = `<div class="case-tabbar grprows"><div class="gr-row"><div class="gr-t">${a.sektionen.map(x=>tabBtn(x)).join("")}</div></div>${tile}</div>`;
+  } else if(isAdv){
+    hd = a.sektionen.map(x=>({t:short(x), href:`#/adv/${a.id}/${x.id}`, on:x.id===s.id}));
+    tabbar = `<div class="case-tabbar notebar">${tile}</div>`;
   } else tabbar = `<div class="case-tabbar">${a.sektionen.map(x=>tabBtn(x)).join("")}${tile}</div>`;
+  if(typeof osAdvNav==="function") osAdvNav(hd, sb);
   const prev = a.sektionen[idx-1], next = a.sektionen[idx+1];
   const _pg = typeof OS_PAGES!=="undefined" && OS_PAGES[a.id] && OS_PAGES[a.id].sec[s.id];
   let h = `${_pg?`<div class="crumbs pgonly"><a onclick="openBook('${a.buch}',${_pg})" title="Original-Seite öffnen">S. ${_pg}</a></div>`:""}

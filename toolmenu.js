@@ -351,3 +351,30 @@
     else if(k === "ArrowUp" || k === "ArrowDown"){ var B = sideBar(); if(B){ ok = step(B, k === "ArrowDown" ? 1 : -1, true); if(ok){ e.preventDefault(); e.stopImmediatePropagation(); } } }
   }, true);
 })();
+
+/* Symbolknöpfe oben rechts: ohne Rand und Hintergrund, nur das Symbol; beim Überfahren ein kleiner, grauer Hinweistext */
+(function(){
+  var SEL = ".topbar .tm-info,.topbar .tm-info-own,.topbar .tm-book,.topbar .tm-sg,.topbar .tb-burger,.topbar .ib,.topbar .ik";
+  var st = document.createElement("style");
+  st.textContent =
+    SEL + "{border:0!important;background:transparent!important;box-shadow:none!important;position:relative;opacity:.86;transition:opacity .18s ease}" +
+    SEL.split(",").map(function(s){ return s + ":hover"; }).join(",") + "{opacity:1;background:transparent!important}" +
+    ".topbar [data-tip]::after{content:attr(data-tip);position:absolute;top:calc(100% + 4px);left:50%;transform:translate(-50%,-3px);padding:3px 8px;border-radius:5px;background:rgba(18,20,26,.9);color:#aeb4c0;font:500 11px/1.3 system-ui,-apple-system,'Segoe UI',sans-serif;letter-spacing:.02em;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .18s ease,transform .18s ease;z-index:200;text-transform:none}" +
+    ".topbar [data-tip]:hover::after{opacity:1;transform:translate(-50%,0);transition-delay:.45s}" +
+    ".topbar [data-tip]:last-child::after{left:auto;right:4px;transform:translate(0,-3px)}.topbar [data-tip]:last-child:hover::after{transform:none}" +
+    "@media (hover:none){.topbar [data-tip]::after{display:none}}";
+  document.head.appendChild(st);
+  var tips = {"Suche":"Suche (f)","Karte":"Karte (m)"};
+  function mark(){
+    document.querySelectorAll(SEL).forEach(function(b){
+      var t = b.getAttribute("title") || b.getAttribute("aria-label");
+      if(b.hasAttribute("data-tip")){ if(b.hasAttribute("title")) b.removeAttribute("title"); return; }
+      if(!t) return;
+      b.setAttribute("data-tip", tips[t] || t); b.removeAttribute("title");
+    });
+  }
+  var pend = 0;
+  function later(){ if(pend) return; pend = setTimeout(function(){ pend = 0; mark(); }, 60); }
+  function start(){ mark(); new MutationObserver(later).observe(document.body, {childList:true, subtree:true}); }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();

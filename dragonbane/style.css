@@ -1054,3 +1054,8 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 .bz .bu a + a::before,.ec .ak a + a::before{content:"✦";display:inline-block;color:var(--jade-d);opacity:.45;font-size:9px;margin:0 7px 0 3px;vertical-align:2px}
 .ec .ak a + a::before{margin:0 10px 0 6px}
 .bz .bi{aspect-ratio:1146/1060}
+/* Steinband endet unter den Schnecken der Knoten: Band seitlich eingerückt, Knoten so hoch wie das Band */
+.tab.on,.tabs .tab.on{background-size:calc(100% - 24px) 100%;background-position:center;padding:0 30px;margin:0 14px}
+.tab.on::before,.tab.on::after{top:0;width:40px;height:34px}
+.tab.on::before{left:-14px}.tab.on::after{right:-14px}
+.ktabs.abt .tab.on{background:none;padding:0 13px;margin:0}

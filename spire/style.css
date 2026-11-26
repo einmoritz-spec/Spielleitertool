@@ -1092,3 +1092,17 @@ body.anschluss .ktabs a.on::after{content:"";position:absolute;left:0;right:0;bo
 .bi.grp .bz{justify-content:flex-start}.bi.grp .bz u{margin-left:auto}
 
 body:has(.begl) .side{top:calc(var(--top) + var(--tabh) + var(--begh,50px));height:calc(100vh - var(--top) - var(--tabh) - var(--begh,50px))}
+
+/* Schwebende Gegner-Kästen */
+.bi[data-id]{cursor:grab;touch-action:none}
+#begfl{position:fixed;inset:0;pointer-events:none;z-index:70}
+.bfl{position:fixed;pointer-events:auto;background:var(--nacht);color:#dbe3ef;border:1px solid var(--nachtlinie);box-shadow:0 12px 34px #0009;padding:6px 10px 8px;min-width:190px;cursor:grab;touch-action:none;user-select:none;z-index:80}
+.bfl.sel{outline:2px solid var(--gold);outline-offset:-1px}
+.bfl.zieht{cursor:grabbing;box-shadow:0 18px 44px #000b}
+.bfl .bfk{display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--nachtlinie);padding-bottom:4px;margin-bottom:5px}
+.bfl .bfk b{font:700 16px var(--f-titel);text-transform:uppercase;color:#fff;cursor:pointer;white-space:nowrap}
+.bfl .bfb{margin-left:auto;display:flex;gap:2px}
+.bfl .bfb a{cursor:pointer;width:20px;height:20px;display:grid;place-items:center;color:#8ea2b9;font:700 17px/1 var(--f-text);cursor:pointer}
+.bfl .bfb a:hover{color:#fff;background:#2c4160}
+.bfl .bk{display:flex;flex-direction:column;gap:5px}
+.bfl .bz u{margin-left:auto}

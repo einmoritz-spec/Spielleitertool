@@ -95,9 +95,11 @@ function gzTog(el, k){ var p = el.parentNode; p.classList.toggle("open"); GOPEN[
 /* ---------- Begegnung ---------- */
 function bgAdd(id){ gBeg().push(gNeu(id)); save(); render(); }
 function bgDel(u){ ST.begegnung = gBeg().filter(function(x){ return x.u !== u; }); save(); render(); }
+function bgDelAlle(id){ ST.begegnung = gBeg().filter(function(x){ return x.id !== id; }); if(ST.fl) delete ST.fl[id]; save(); render(); }
+function bgAndocken(id){ if(ST.fl) delete ST.fl[id]; save(); render(); }
 function bgStr(u, i){ var e = gInst(u); if(!e) return; e.s = e.s === i + 1 ? i : i + 1; save(); render(); }
 function bgRue(u, i){ var e = gInst(u); if(!e) return; e.r = e.r === i + 1 ? i : i + 1; save(); render(); }
-function bgClear(){ ST.begegnung = []; save(); render(); }
+function bgClear(){ ST.begegnung = []; ST.fl = {}; save(); render(); }
 function gSel(id){ ST.gsel = id; save(); render(); }
 function bgPick(){
   var m = modal('<h3 class="un" style="margin-top:0">Gegner hinzufügen</h3><div class="bgp">' + SP_GEGNER.map(function(g){
@@ -116,9 +118,9 @@ function begLeiste(immer){
   var L = gBeg().filter(function(e){ return gById(e.id); });
   if(!L.length && !immer) return "";
   var ids = [], grp = {}; L.forEach(function(e){ if(!grp[e.id]){ grp[e.id] = []; ids.push(e.id); } grp[e.id].push(e); });
-  var items = ids.map(function(id){
+  var items = ids.filter(function(id){ return !(ST.fl && ST.fl[id]); }).map(function(id){
     var g = gById(id), G = grp[id], mehr = G.length > 1;
-    return '<div class="bi' + (mehr ? ' grp' : '') + (ST.gsel === id ? ' sel' : '') + '"><b onclick="gSel(\'' + id + '\')">' + esc(g.kurz || g.t) + '</b>' +
+    return '<div class="bi' + (mehr ? ' grp' : '') + (ST.gsel === id ? ' sel' : '') + '" data-id="' + id + '"><b onclick="gSel(\'' + id + '\')">' + esc(g.kurz || g.t) + '</b>' +
       (mehr ? '<span class="bk">' + G.map(function(e, k){ return bgZeile(e, g, k + 1); }).join("") + '</span>' : bgZeile(G[0], g, 0)) + '</div>';
   }).join("");
   return '<div class="begl"><h5>Begegnung</h5>' + items + '<span class="bplus" onclick="bgPick()">+ Gegner</span>' + (L.length ? '<span class="bplus" onclick="bgClear()">Leeren</span>' : '') + '<span class="sp"></span>' + stift("spiel:gegner") + '</div>';
@@ -213,4 +215,59 @@ SP_VIEW.gegner = function(teile){
   function messen(){ var b = document.querySelector(".begl"); document.documentElement.style.setProperty("--begh", (b ? b.offsetHeight : 0) + "px"); }
   if(window.ResizeObserver) new ResizeObserver(messen).observe(document.body); else setInterval(messen, 400);
   messen();
+})();
+
+/* ---------- Gegner-Kästen frei verschiebbar ----------
+   Ziehen aus der Leiste → der Kasten schwebt über allem (ST.fl[id] = {x, y}, Fensterkoordinaten).
+   „–“ legt ihn zurück in die Leiste, „×“ löscht alle Figuren dieses Gegners. */
+var BZ = 80;
+function begFloatDraw(){
+  var L = gBeg().filter(function(e){ return gById(e.id); }), fl = ST.fl || {};
+  var lay = document.getElementById("begfl");
+  if(!lay){ lay = document.createElement("div"); lay.id = "begfl"; document.body.appendChild(lay); }
+  var h = "";
+  Object.keys(fl).forEach(function(id){
+    var G = L.filter(function(e){ return e.id === id; });
+    if(!G.length){ delete fl[id]; return; }
+    var g = gById(id), p = fl[id];
+    h += '<div class="bfl' + (ST.gsel === id ? ' sel' : '') + '" data-id="' + id + '" style="left:' + p.x + 'px;top:' + p.y + 'px"><div class="bfk"><b onclick="gSel(\'' + id + '\')">' + esc(g.kurz || g.t) + '</b>' +
+      '<span class="bfb"><a data-tn="Zurück" data-tip="Der Kasten geht zurück in die Leiste" onclick="bgAndocken(\'' + id + '\')">–</a><a data-tn="Schließen" data-tip="Alle Figuren dieses Gegners werden entfernt" onclick="bgDelAlle(\'' + id + '\')">×</a></span></div>' +
+      '<span class="bk">' + G.map(function(e, k){ return bgZeile(e, g, G.length > 1 ? k + 1 : 0); }).join("") + '</span></div>';
+  });
+  lay.innerHTML = h;
+  Array.prototype.forEach.call(lay.children, function(el){
+    var r = el.getBoundingClientRect(), p = fl[el.dataset.id];
+    p.x = Math.max(0, Math.min(innerWidth - 60, p.x)); p.y = Math.max(0, Math.min(innerHeight - 40, p.y));
+    el.style.left = p.x + "px"; el.style.top = p.y + "px";
+  });
+}
+(function(){
+  var dr = null;
+  function ziehe(el, id, ox, oy){ dr = {el:el, id:id, ox:ox, oy:oy}; el.classList.add("zieht"); el.style.zIndex = ++BZ; }
+  document.addEventListener("pointerdown", function(e){
+    if(e.button > 0 || e.target.closest("i,u,a,button,input")) return;
+    var f = e.target.closest(".bfl"), b = e.target.closest(".bi[data-id]");
+    if(f){ var r = f.getBoundingClientRect(); ziehe(f, f.dataset.id, e.clientX - r.left, e.clientY - r.top); f.style.zIndex = ++BZ; dr.start = null; e.preventDefault(); }
+    else if(b){ dr = {bar:b, id:b.dataset.id, x:e.clientX, y:e.clientY, r:b.getBoundingClientRect()}; }
+  });
+  document.addEventListener("pointermove", function(e){
+    if(!dr) return;
+    if(dr.bar){
+      if(Math.abs(e.clientX - dr.x) + Math.abs(e.clientY - dr.y) < 8) return;
+      var id = dr.id, ox = dr.x - dr.r.left, oy = dr.y - dr.r.top;
+      ST.fl = ST.fl || {}; ST.fl[id] = {x:e.clientX - ox, y:e.clientY - oy}; save();
+      render();
+      var el = document.querySelector('.bfl[data-id="' + id + '"]'); if(!el){ dr = null; return; }
+      ziehe(el, id, ox, oy); return;
+    }
+    var p = ST.fl[dr.id]; if(!p) return;
+    p.x = Math.max(0, Math.min(innerWidth - 60, e.clientX - dr.ox)); p.y = Math.max(0, Math.min(innerHeight - 40, e.clientY - dr.oy));
+    dr.el.style.left = p.x + "px"; dr.el.style.top = p.y + "px";
+  });
+  function ende(){ if(dr && dr.el){ dr.el.classList.remove("zieht"); save(); } dr = null; }
+  document.addEventListener("pointerup", ende); document.addEventListener("pointercancel", ende);
+  /* nach jedem Zeichnen die schwebenden Kästen neu setzen */
+  function einhaengen(){ var o = window.render; if(o && !o.__bf){ window.render = render = function(){ var r = o.apply(this, arguments); try{ begFloatDraw(); }catch(e){} return r; }; window.render.__bf = 1; } }
+  window.addEventListener("load", function(){ einhaengen(); begFloatDraw(); });
+  window.addEventListener("resize", function(){ begFloatDraw(); });
 })();

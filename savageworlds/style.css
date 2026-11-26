@@ -131,7 +131,6 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .hc .pg{margin-left:auto}.hc p{margin:6px 0 0;font-size:15px;line-height:1.4}
 @media(max-width:900px){.hg{grid-template-columns:1fr 1fr}}
 .sub .gsw{margin:0 0 0 auto;display:flex;align-items:center;gap:4px;flex:none;font:inherit}
-.sub .gsw button{padding:3px 6px;border:1px solid rgba(255,255,255,.35);border-radius:2px;background:none;color:rgba(255,255,255,.45);font:600 10px/1 Oswald,sans-serif;letter-spacing:.06em;cursor:pointer}
-.sub .gsw button:hover{color:#fff;border-color:rgba(255,255,255,.7)}
-.sub .gsw button.on{color:#fff;border-color:transparent}
-.sub .gsw .sq-fan.on{background:#2f7a4a}.sub .gsw .sq-hor.on{background:#7a2230}.sub .gsw .sq-sf.on{background:#1f6f9a}.sub .gsw .sq-sup.on{background:#c2571c}.sub .gsw .sq-dl.on{background:#5a3a1a}
+.sub .gsw button{padding:3px 6px;border:0;border-radius:2px;background:rgba(0,0,0,.18);color:rgba(255,255,255,.4);font:600 10px/1 Oswald,sans-serif;letter-spacing:.06em;cursor:pointer}
+.sub .gsw button:hover{color:rgba(255,255,255,.8)}
+.sub .gsw button.on{background:#8fd18a;color:#173a17}

@@ -155,7 +155,7 @@ function viewStart(){
   }).join("");
   var bu = SP_START_BUECHER.map(function(x){
     return '<button class="sp-bu' + (x.go ? '' : ' pdf') + '" onclick="' + spKlick(x) + '" title="' + esc(x.t) + '">' +
-      (x.img ? '<img src="' + IMG(x.img) + '" alt="" loading="lazy">' : '<span class="ph"><img src="../assets/logos/the-spire.webp" alt=""><i>' + esc(x.t) + '</i></span>') + '<b>' + esc(x.t) + '</b></button>';
+      (x.img ? '<img src="' + IMG(x.img) + '" alt="" loading="lazy">' : '<span class="ph"><img src="../assets/logos/the-spire.webp" alt=""><i>' + esc(x.t) + '</i></span>') + '<i class="v">' + esc(x.t) + '</i><b>' + esc(x.t) + '</b></button>';
   }).join("");
   return '<div class="sp-start">' +
     '<header class="sp-hero"><button class="sp-pult" onclick="puOpen()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><path d="M9.5 4.5v15M15 4.5v15"/></svg><span>Spielleiter-Pult</span></button></header>' +

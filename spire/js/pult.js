@@ -40,7 +40,7 @@ function puBegegnung(){
     var g = gById(id), G = grp[id], mehr = G.length > 1, on = PU.offen[id];
     return '<div class="pu-g"><div class="pu-gk"><b onclick="puOffen(\'' + id + '\')" title="Werte ' + (on ? 'zuklappen' : 'zeigen') + '">' + esc(g.kurz || g.t) + '</b>' +
       '<span class="pu-ac"><i onclick="bgAdd(\'' + id + '\')" title="Noch einen hinzufügen">+</i><i onclick="bgDelAlle(\'' + id + '\')" title="Alle entfernen">×</i></span></div>' +
-      '<div class="bk">' + G.map(function(e, k){ return bgZeile(e, g, mehr ? k + 1 : 0); }).join("") + '</div>' + (on ? gBlock(g, {ohneZiel:true}) : '') + '</div>';
+      '<div class="bk">' + G.map(function(e, k){ return bgZeile(e, g, mehr ? k + 1 : 0); }).join("") + '</div>' + (on ? '<div class="pu-det">' + puDetail(g) + '</div>' : '') + '</div>';
   }).join("");
   return '<section class="pu-c pu-beg"><h2>Begegnung' + (L.length ? '<button class="pu-r" onclick="bgClear()" title="Alle entfernen">Leeren</button>' : '') + '</h2>' + (h || '') + '</section>';
 }
@@ -51,12 +51,33 @@ function puKat(id, titel, n, inhalt, offen){
   return '<div class="pu-k' + (on ? ' on' : '') + '"><div class="pu-kh" onclick="puKatTog(\'' + id + '\')"><svg class="pu-ch" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.500 3.500L10.500 8l-5 4.500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b>' + esc(titel) + '</b><span>' + n + '</span></div>' + (on ? '<div class="pu-kb">' + inhalt + '</div>' : '') + '</div>';
 }
 function puKatTog(id){ PU.kat[id] = !PU.kat[id]; puErgebnis(); }
+/* Detailansicht eines Gegners im Pult: Kopfzeile, Werteleiste (Schwierigkeit · Rüstung · Widerstand), darunter nur, was der Gegner hat */
+function puDetail(g){
+  var e = gEntry(g.id), W = gWerte(g), v = (e && e.v) || 0, ru = puRu(g);
+  var var_ = W.length > 1 ? '<span class="gvar">' + W.map(function(w, i){ return '<span class="' + (i === v ? 'on' : '') + '" onclick="event.stopPropagation();gVar(\'' + g.id + '\',' + i + ')">' + w + '</span>'; }).join("") + '</span>' : '';
+  var wtxt = W.length > 1 ? W[v] + (g.wid.plus && e && e.b ? " + " + e.b : "") : gWidTxt(g) + (g.wid && g.wid.plus && e && e.b ? " + " + e.b : "");
+  var plus = g.wid && g.wid.plus ? '<span class="chip w" onclick="event.stopPropagation();gPlus(\'' + g.id + '\')">' + esc(g.wid.plus) + (e && e.b ? ' · ×' + e.b : '') + '</span>' : '';
+  var wx = g.wid && g.wid.x && !/^[\d\s\/]+$/.test(g.wid.x) ? '<small>' + md(g.wid.x) + '</small>' : '';
+  var sx = g.schw && g.schw.x ? String(g.schw.x).replace(/^\s*\d+\s*[,:]?\s*/, "") : "";
+  var sec = function(k, x){ return x ? '<div class="pd-s"><h5>' + k + '</h5><div>' + x + '</div></div>' : ""; };
+  var namen = g.namen ? g.namen.map(esc).join(", ") + (g.namenEn ? ' <span class="en">(' + g.namenEn.map(esc).join(", ") + ')</span>' : "") : "";
+  return '<div class="pd" data-pgbook="' + buchId(gBuch(g)) + '">' +
+    '<div class="pd-k"><span>' + namen + '</span>' + pgl(g.p, gBuch(g)) + '</div>' +
+    (g.beschr ? '<p class="pd-b">' + g.beschr.map(esc).join(" · ") + '</p>' : '') + (g.einl ? '<p class="pd-b">' + md(g.einl) + '</p>' : '') +
+    '<div class="pd-st gx-s' + Math.min(2, gBase(g)) + '">' +
+      '<div class="pd-c"><h5>Schwierigkeit</h5><div class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + '</div>' + (sx ? '<small>' + md(sx) + '</small>' : '') + '</div>' +
+      '<div class="pd-c"><h5>Rüstung</h5><div class="gx-m">' + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<span class="pu-nr">' + gSym("ru", "Rüstung", SY_SCHILD, "0") + '</span>') + '</div></div>' +
+      '<div class="pd-c pd-w"><h5>Widerstand</h5><div class="pd-wz"><b>' + esc(wtxt) + '</b>' + var_ + gBoxen(g) + plus + '</div>' + wx + '</div>' +
+    '</div>' +
+    sec("Besonderes", g.bes ? md(g.bes) : "") + sec("Ausrüstung", gAusr(g)) + sec("Druckmittel", g.druck ? md(g.druck) : "") +
+  '</div>';
+}
 function puGZeile(g){
   var ru = puRu(g), s = Math.min(2, gBase(g)), w = gWidTxt(g), on = PU.offen["g:" + g.id];
   return '<div class="pu-gr gx-s' + s + '"><span class="n" onclick="puOffen(\'g:' + g.id + '\')">' + esc(g.kurz || g.t) + '</span>' +
     '<span class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<span class="pu-nr">' + gSym("ru", "Rüstung", SY_SCHILD, "0") + '</span>') + '</span>' +
     '<span class="pu-w' + (/[^\d\s]/.test(w) ? ' lang' : '') + '" data-tn="Widerstand">' + esc(w) + '</span>' +
-    '<i class="pu-p" onclick="puAdd(\'' + g.id + '\')" data-tn="Zur Begegnung hinzufügen">+</i></div>' + (on ? '<div class="pu-det">' + gBlock(g, {ohneZiel:true}) + '</div>' : '');
+    '<i class="pu-p" onclick="puAdd(\'' + g.id + '\')" data-tn="Zur Begegnung hinzufügen">+</i></div>' + (on ? '<div class="pu-det">' + puDetail(g) + '</div>' : '');
 }
 function puLink(r, t, sub){ return '<a class="pu-l" href="#' + r + '" onclick="puPop(\'' + r + '\');return false"><b>' + esc(t) + '</b>' + (sub ? '<span>' + esc(sub) + '</span>' : '') + '</a>'; }
 function puTreffer(ws, filt){

@@ -90,12 +90,32 @@ function openMenu(on){
   P.innerHTML = '<h3>Broken Compass</h3><button onclick="openMenu(false);location.hash=\'#bogen\'">Abenteurerbogen ausfüllen</button>' + SYS.groups.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }).join(""); }).join("");
   P.classList.toggle("on", !!on); document.getElementById("mmB").classList.toggle("on", !!on);
 }
+/* Zurück (Android-Taste, Wischgeste, Esc): erst offene Fenster schließen, dann eine Seite zurück */
+var NAV = 0, LAYER = false, IGN = 0;
+try{ history.replaceState({i: 0}, ""); }catch(e){}
+function ovOffen(){ return !!document.querySelector(".gs,.gi-ov,.gal,#mmP.on,.tm-dd"); }
+function ovZu(){ document.dispatchEvent(new KeyboardEvent("keydown", {key: "Escape", bubbles: true})); openMenu(false); document.body.click(); }
+function ovCheck(){
+  var o = ovOffen();
+  if(o && !LAYER){ try{ history.pushState({cl: 1, i: NAV}, ""); LAYER = true; }catch(e){} }
+  else if(!o && LAYER){ LAYER = false; if(history.state && history.state.cl){ IGN++; history.back(); } }
+}
+new MutationObserver(function(){ requestAnimationFrame(ovCheck); }).observe(document.documentElement, {subtree: true, childList: true, attributes: true, attributeFilter: ["class"]});
+window.addEventListener("popstate", function(){
+  if(IGN > 0){ IGN--; return; }
+  if(LAYER){ LAYER = false; ovZu(); }
+});
+window.addEventListener("hashchange", function(){
+  var s = history.state;
+  if(s && s.i != null) NAV = s.i;
+  else { NAV++; try{ history.replaceState({i: NAV}, ""); }catch(e){} }
+});
 document.addEventListener("keydown", function(e){
   if(e.key === "Escape") openMenu(false);
   var t = e.target, tg = t && t.tagName; if(tg === "INPUT" || tg === "TEXTAREA" || tg === "SELECT" || (t && t.isContentEditable) || e.altKey || e.metaKey) return;
   if(document.querySelector(".gs,#mmP.on,.bvx:not([hidden])")) return;
   var inh = document.body.classList.contains("inh");
-  if(e.key === "Escape" && inh && !document.querySelector(".tm-dd")){ location.hash = "#start"; return; }
+  if(e.key === "Escape" && inh && !document.querySelector(".tm-dd,.gi-ov,.gal")){ if(NAV > 0) history.back(); else location.hash = "#start"; return; }
   if(e.key === "h" || e.key === "H"){ document.body.classList.toggle("kopfzu"); return; }
   if(!inh) return;
   var k = e.key;

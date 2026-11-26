@@ -51,6 +51,40 @@ function zBind(f, bi, b){
 }
 function zBindBox(fid, bi, i){ var f = zFig(fid); if(!f || !f.bind[bi]) return; var b = f.bind[bi]; b.s = b.s === i + 1 ? i : i + 1; save(); render(); }
 
+/* ---------- Stress markieren (S. 10): Rüstung (nur Blut) → Freiplätze → zählender Stress ---------- */
+var ZSEL = {}, ZIGN = {}, ZLAST = {};
+function zSel(fid){ return ZSEL[fid] || "blut"; }
+function zSelSet(fid, r){ ZSEL[fid] = r; render(); }
+function zIgnTog(fid){ ZIGN[fid] = !ZIGN[fid]; render(); }
+function zStressMark(f, r, n, ohneRuest){
+  f.frei = f.frei || {}; f.freiX = f.freiX || {}; f.stress = f.stress || {};
+  var t;
+  if(r === "blut" && !ohneRuest){ t = Math.min(n, (f.frei.ruest || 0) - (f.freiX.ruest || 0)); if(t > 0){ f.freiX.ruest = (f.freiX.ruest || 0) + t; n -= t; } }
+  t = Math.min(n, (f.frei[r] || 0) - (f.freiX[r] || 0)); if(t > 0){ f.freiX[r] = (f.freiX[r] || 0) + t; n -= t; }
+  f.stress[r] = Math.min(10, (f.stress[r] || 0) + n);
+}
+function zStressWeg(f, r, n){
+  f.freiX = f.freiX || {}; f.stress = f.stress || {};
+  var t = Math.min(n, f.stress[r] || 0); f.stress[r] = (f.stress[r] || 0) - t; n -= t;
+  t = Math.min(n, f.freiX[r] || 0); f.freiX[r] = (f.freiX[r] || 0) - t; n -= t;
+  if(r === "blut"){ t = Math.min(n, f.freiX.ruest || 0); f.freiX.ruest = (f.freiX.ruest || 0) - t; }
+}
+function zM(fid, n){ var f = zFig(fid); if(!f) return; if(n < 0) zStressWeg(f, zSel(fid), -n); else zStressMark(f, zSel(fid), n, ZIGN[fid]); ZLAST[fid] = ""; save(); render(); }
+function zW(fid, s){ var f = zFig(fid); if(!f) return; var n = 1 + Math.floor(Math.random() * s); zStressMark(f, zSel(fid), n, ZIGN[fid]); ZLAST[fid] = "W" + s + ": " + n; save(); render(); }
+function zUntertauchen(fid){
+  var f = zFig(fid); if(!f || !confirm("Allen Stress von „" + f.n + "“ entfernen?")) return;
+  f.stress = {}; f.freiX = {}; ZLAST[fid] = ""; save(); render();
+}
+function zSituationEnde(){ zFigs().forEach(function(f){ if(f.freiX) f.freiX.ruest = 0; }); save(); render(); }
+function zStreifen(f){
+  var sel = zSel(f.id), L = ZLAST[f.id];
+  return '<div class="zmk"><div class="zmw">' + ZR.map(function(r){ return '<span class="' + (sel === r ? 'on' : '') + '" onclick="zSelSet(\'' + f.id + '\',\'' + r + '\')">' + zWidT(r) + '</span>'; }).join("") + '<span class="zut" onclick="zUntertauchen(\'' + f.id + '\')" title="Allen Stress entfernen">Untertauchen</span></div>' +
+    '<div class="zmb"><button onclick="zM(\'' + f.id + '\',-1)" title="1 Stress entfernen">−</button><button onclick="zM(\'' + f.id + '\',1)" title="1 Stress markieren">+1</button>' +
+    [3, 6, 8].map(function(s){ return '<button onclick="zW(\'' + f.id + '\',' + s + ')" title="W' + s + ' würfeln und als Stress markieren">W' + s + '</button>'; }).join("") +
+    '<button class="tg' + (ZIGN[f.id] ? ' on' : '') + '" onclick="zIgnTog(\'' + f.id + '\')" title="Durchschlag / Verheerend: Rüstungskästchen überspringen">Ohne Rüstung</button>' +
+    (L ? '<em>' + esc(L) + '</em>' : '') + '</div></div>';
+}
+
 /* ---------- Figurenkarte ---------- */
 function zKarte(f){
   var tot = zTotal(f), bild = zBild(f);
@@ -66,7 +100,7 @@ function zKarte(f){
   return '<div class="pc' + (ZP && ZP.fid === f.id ? ' sel' : '') + '"><div class="pk">' +
     (bild ? '<img src="' + IMG(bild) + '" alt="" onclick="zoom(this.src)">' : '<span class="ini">' + esc(zInit(f.n)) + '</span>') +
     '<div class="pn" onclick="zEdit(\'' + f.id + '\')" title="Figur bearbeiten"><h3>' + esc(f.n) + '</h3><small>' + esc([f.klasse, f.dienst ? "Dienstzeit: " + f.dienst : ""].filter(Boolean).join(" · ")) + '</small></div></div>' +
-    '<div class="zres">' + rows + '</div>' +
+    '<div class="zres">' + rows + '</div>' + zStreifen(f) +
     '<div class="zsum' + (tot >= 8 ? ' hoch' : '') + '"><b>' + tot + '</b><span>Stress gesamt</span><button class="knopf" onclick="zFallout(\'' + f.id + '\')">Fallout?</button></div>' +
     '<div class="zfo"><h5>Fallout</h5>' + fo + '</div>' +
     '<div class="zbd"><h5>Bindungen<span class="plus" onclick="zBNeu(\'' + f.id + '\')" title="Bindung hinzufügen">+</span></h5>' + (bd || '<span class="leise">–</span>') + '</div>' +
@@ -101,6 +135,12 @@ function zPWahl(id){
   render();
 }
 function zPErzwingen(){ ZP.erzwingen = true; zPickStd(); render(); }
+function zEigen(){
+  var i = document.getElementById("zeig"), n = i && i.value.trim(); if(!n || !ZP) return;
+  if(ZP.zwei){ ZP.pick.push(n); if(ZP.pick.length > 2) ZP.pick.shift(); } else ZP.pick = [n];
+  render();
+}
+function zEigenWeg(k){ if(ZP){ ZP.pick.splice(k, 1); render(); } }
 function zPZu(){ ZP = null; render(); }
 function zToedlich(){ ST.weniger = !ST.weniger; save(); if(ZP) zPickStd(); render(); }
 function zPUebernehmen(){
@@ -139,7 +179,10 @@ function zPanel(){
   var low = S.id === "schwer" ? "mittleren" : S.id === "mittel" ? "leichten" : null;
   var zw = low ? '<div class="wahl' + (ZP.zwei ? ' on' : '') + '" onclick="zPZwei()"><b>2 × ' + (low === "leichten" ? "Leichter" : "Mittlerer") + ' Fallout</b> <small>statt eines ' + (S.id === "schwer" ? "schweren" : "mittleren") + ' · ' + pgTxt(12) + '</small></div>' : '';
   var need = ZP.zwei ? 2 : 1;
-  return '<div class="zwurf">' + kopf + chips + L.map(item).join("") + zw +
+  var ids = L.concat(o.L2).map(function(e){ return e.id; });
+  var eig = ZP.pick.map(function(id, k){ return ids.indexOf(id) < 0 ? '<div class="wahl on" onclick="zEigenWeg(' + k + ')"><b>' + esc(id) + '</b> <small>Eigener · entfernen</small></div>' : ''; }).join("");
+  var ein = '<div class="zeig"><input id="zeig" type="text" placeholder="Eigener Fallout …" onkeydown="if(event.key===\'Enter\')zEigen()"><button onclick="zEigen()">+</button></div>';
+  return '<div class="zwurf">' + kopf + chips + L.map(item).join("") + zw + eig + ein +
     '<div class="zbt"><button class="knopf' + (ZP.pick.length < need ? ' aus' : '') + '" onclick="zPUebernehmen()">Übernehmen · −' + S.abzug + ' Stress</button>' + tog + '</div></div>';
 }
 
@@ -280,6 +323,7 @@ SP_VIEW.zelle = function(teile){
     '<div class="zneu"><button onclick="zVfAuswahl()">Vorgefertigte Figur</button><button onclick="zNeueFigur()">Neue Figur</button></div>';
   var rp = zPanel() +
     '<div class="zinfo"><h4>Schwellen' + pgl(11) + '</h4><p>2–4 Stress: leicht (−3) · 5–8: mittel (−5) · 9+: schwer (−7)</p><button class="tog' + (ST.weniger ? ' on' : '') + '" onclick="zToedlich()" title="Optionalregel S. 13">Weniger tödlich</button> <a class="pg" onclick="go(\'nach/regeln/fallout\')">Fallout-Liste</a></div>' +
+    '<div class="zinfo"><h4>Situation</h4><button class="knopf b" onclick="zSituationEnde()" title="Rüstungskästchen aller Figuren leeren">Situation beenden</button></div>' +
     '<div class="zinfo"><h4>Sitzungsende</h4><p>Bindungen mit Stress in dieser Sitzung: Bindungs-Fallout würfeln' + pgl(24) + '</p><button class="knopf b" onclick="zSitzungsende()">Bindungen prüfen</button></div>';
   return spielTabs("zelle") + '<div class="zelle"><div class="zfig">' + karten + '</div><div class="zrp">' + rp + '</div></div>';
 };

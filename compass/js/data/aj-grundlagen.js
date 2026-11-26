@@ -1,1 +1,1 @@
-BC_DATA.grundlagen = {parts: ["willkommen", "kompass"]};
+BC_DATA.grundlagen = {parts: ["willkommen", "grundpfeiler", "wiespielt", "kino", "kompass"]};

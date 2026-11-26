@@ -64,20 +64,18 @@ function puDetail(g){
   return '<div class="pd" data-pgbook="' + buchId(gBuch(g)) + '">' +
     '<div class="pd-k"><span>' + namen + '</span>' + pgl(g.p, gBuch(g)) + '</div>' +
     (g.beschr ? '<p class="pd-b">' + g.beschr.map(esc).join(" · ") + '</p>' : '') + (g.einl ? '<p class="pd-b">' + md(g.einl) + '</p>' : '') +
-    '<div class="pd-st gx-s' + Math.min(2, gBase(g)) + '">' +
-      '<div class="pd-c"><span class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + '</span></div>' +
-      '<div class="pd-c"><span class="gx-m">' + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<span class="pu-nr">' + gSym("ru", "Rüstung", SY_SCHILD, "0") + '</span>') + '</span></div>' +
-      '<div class="pd-c pd-w" data-tn="Widerstand"><b>' + esc(wtxt) + '</b>' + var_ + gBoxen(g) + plus + '</div>' + (sx || wx ? '<div class="pd-sx">' + (sx ? '<span>' + md(sx) + '</span>' : '') + wx + '</div>' : '') +
-    '</div>' +
+    '<div class="pd-st"><span class="pd-l">Stress</span>' + var_ + gBoxen(g) + plus + '</div>' +
+    sec("Schwierigk.", sx ? md(sx) : "") + sec("Widerstand", wx) +
     sec("Besonderes", g.bes ? md(g.bes) : "") + sec("Ausrüstung", gAusr(g)) + sec("Druckmittel", g.druck ? md(g.druck) : "") +
   '</div>';
 }
 function puGZeile(g){
   var ru = puRu(g), s = Math.min(2, gBase(g)), w = gWidTxt(g), on = PU.offen["g:" + g.id];
-  return '<div class="pu-gr gx-s' + s + '"><span class="n" onclick="puOffen(\'g:' + g.id + '\')">' + esc(g.kurz || g.t) + '</span>' +
+  var z = '<div class="pu-gr gx-s' + s + (on ? ' on' : '') + '"><span class="n" onclick="puOffen(\'g:' + g.id + '\')">' + esc(g.kurz || g.t) + '</span>' +
     '<span class="gx-m">' + gSym("sc", "Schwierigkeit", SY_RAUTE, g.schw ? g.schw.k : "·") + (ru ? gSym("ru", "Rüstung", SY_SCHILD, ru) : '<span class="pu-nr">' + gSym("ru", "Rüstung", SY_SCHILD, "0") + '</span>') + '</span>' +
     '<span class="pu-w' + (/[^\d\s]/.test(w) ? ' lang' : '') + '" data-tn="Widerstand">' + esc(w) + '</span>' +
-    '<i class="pu-p" onclick="puAdd(\'' + g.id + '\')" data-tn="Zur Begegnung hinzufügen">+</i></div>' + (on ? '<div class="pu-det">' + puDetail(g) + '</div>' : '');
+    '<i class="pu-p" onclick="puAdd(\'' + g.id + '\')" data-tn="Zur Begegnung hinzufügen">+</i></div>';
+  return on ? '<div class="pu-go">' + z + '<div class="pu-det">' + puDetail(g) + '</div></div>' : z;
 }
 function puLink(r, t, sub){ return '<a class="pu-l" href="#' + r + '" onclick="puPop(\'' + r + '\');return false"><b>' + esc(t) + '</b>' + (sub ? '<span>' + esc(sub) + '</span>' : '') + '</a>'; }
 function puTreffer(ws, filt){

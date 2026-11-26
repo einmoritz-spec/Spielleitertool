@@ -248,3 +248,11 @@ body.pu-zieh iframe{pointer-events:none}
 .pu-ov .zb .bx i{width:9px;height:9px}
 .pu-ov .zref{display:none}
 .pu-ov .zfo .leise,.pu-ov .zbd>.leise{font-size:11px}
+
+/* schmale rechte Spalte: Beschriftungen über den Text */
+.pu-su{container-type:inline-size}
+@container (max-width:340px){
+  .pd-s{grid-template-columns:1fr;gap:1px;margin-top:6px}
+  .pd-l{width:auto}
+  .pu-gr .n{font-size:13.5px}
+}

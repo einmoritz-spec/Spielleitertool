@@ -59,7 +59,7 @@ function puDetail(g){
   var wtxt = W.length > 1 ? W[v] + (g.wid.plus && e && e.b ? " + " + e.b : "") : gWidTxt(g) + (g.wid && g.wid.plus && e && e.b ? " + " + e.b : "");
   var plus = g.wid && g.wid.plus ? '<span class="chip w" onclick="event.stopPropagation();gPlus(\'' + g.id + '\')">' + esc(g.wid.plus) + (e && e.b ? ' · ×' + e.b : '') + '</span>' : '';
   var wx = g.wid && g.wid.x && !/^[\d\s\/]+$/.test(g.wid.x) ? '<span>' + md(g.wid.x) + '</span>' : '';
-  var sx = g.schw && g.schw.x ? String(g.schw.x).replace(/^\s*\d+\s*[,:]?\s*/, "") : "";
+  var sx = g.schw && g.schw.x ? String(g.schw.x).replace(/^\s*\d+\s*[,:]?\s*/, "").replace(/\s+\d+\s*$/, "") : "";
   var sec = function(k, x){ return x ? '<div class="pd-s"><h5>' + k + '</h5><div>' + x + '</div></div>' : ""; };
   var namen = g.namen ? g.namen.map(esc).join(", ") + (g.namenEn ? ' <span class="en">(' + g.namenEn.map(esc).join(", ") + ')</span>' : "") : "";
   return '<div class="pd" data-pgbook="' + buchId(gBuch(g)) + '">' +

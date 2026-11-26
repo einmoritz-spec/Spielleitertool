@@ -937,3 +937,7 @@ body:has(.tabs) .rail{z-index:4}
 .tabs::before{left:calc(var(--rand) - 16px + 58px);right:calc(var(--rand) - 16px + 58px)}
 .tabs::after{left:calc(var(--rand) - 16px);right:calc(var(--rand) - 16px)}
 .tabs{padding-left:calc(var(--rand) + 46px);padding-right:calc(var(--rand) + 46px)}
+body:has(.tabs) .rail .rl{border-image-width:0 0 0 0}
+body:has(.tabs) .rail .rr{border-image-width:0 0 0 0}
+body:has(.tabs) .rail{padding:0 calc(var(--rand) - 16px + 46px)}
+body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linear-gradient(to right,transparent calc(var(--rand) + 6px),#000 calc(var(--rand) + 44px),#000 calc(100% - var(--rand) - 44px),transparent calc(100% - var(--rand) - 6px));mask-image:linear-gradient(to right,transparent calc(var(--rand) + 6px),#000 calc(var(--rand) + 44px),#000 calc(100% - var(--rand) - 44px),transparent calc(100% - var(--rand) - 6px))}

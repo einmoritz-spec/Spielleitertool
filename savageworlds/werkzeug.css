@@ -30,3 +30,4 @@
 .side a.sb:hover{color:var(--fg)}
 .side .sq{margin-left:5px;font-size:9px;padding:2px 4px}
 .lay.fold-on .side a.sb{display:none}
+.sq-wb{background:#6b6258}

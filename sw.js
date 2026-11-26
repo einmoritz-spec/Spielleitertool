@@ -4355,7 +4355,7 @@ const FILES = [
   "savageworlds/js/data/ruestung.js",
   "savageworlds/js/data/waffen.js",
   "savageworlds/js/data/fahrzeuge.js",
-  "savageworlds/js/data/werkzeug_grw.js","savageworlds/js/data/werkzeug_fan.js","savageworlds/js/data/werkzeug_hor.js","savageworlds/js/data/werkzeug_sf.js","savageworlds/js/data/werkzeug_sup.js",
+  "savageworlds/js/data/werkzeug_grw.js","savageworlds/js/data/werkzeug_fan.js","savageworlds/js/data/werkzeug_hor.js","savageworlds/js/data/werkzeug_sf.js","savageworlds/js/data/werkzeug_sup.js","savageworlds/js/data/werkzeug_wb.js",
   "savageworlds/js/seiten-werkzeug.js",
   "savageworlds/werkzeug.css",
   "savageworlds/js/data/aufstiege.js",

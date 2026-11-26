@@ -8,15 +8,15 @@ function offOf(bk){ var o = 1; (window.SW_BUECHER || []).forEach(function(g){ g.
 function wkOpen(bk, bp){ openBook(bk, bp + offOf(bk)); }
 function pgLink(bk, bp){ return bp ? '<span class="pg" onclick="event.stopPropagation();wkOpen(\'' + bk + '\',' + bp + ')">S. ' + bp + "</span>" : ""; }
 function badge(x){ return x ? String(x).split(",").filter(function(q){ return q !== "GRW"; }).map(function(q){ return '<i class="sq sq-' + q.toLowerCase() + '">' + q + "</i>"; }).join("") : ""; }
-function actSrc(a){ return a.filter(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
+function actSrc(a){ return a.filter(function(x){ return x === "GRW" || x === "WB" || gen(x.toLowerCase()); }); }
 function fixH(bl){ return bl.map(function(b){ return b[0] === "h" && b[3] ? ["h", b[1], b[2], actSrc(String(b[3]).split(",")).join(","), b[4]] : b; }); }
-function visible(s){ return s.s.some(function(x){ return x === "GRW" || gen(x.toLowerCase()); }); }
+function visible(s){ return s.s.some(function(x){ return x === "GRW" || x === "WB" || gen(x.toLowerCase()); }); }
 function wkEntries(tab){
   var L = (window.SW_WK || []).filter(function(s){ return s.tab === tab && visible(s); });
   var base = L.filter(function(s){ return s.s.indexOf("GRW") > -1; }).sort(function(a, b){ return a.o - b.o; });
   var ents = base.map(function(s){ return {id:s.id, t:s.t, s:["GRW"], bk:s.bk, p:s.p, b:s.b.slice()}; });
   L.filter(function(s){ return s.s.indexOf("GRW") < 0; }).forEach(function(s){
-    var src = s.s.filter(function(x){ return x === "GRW" || gen(x.toLowerCase()); });
+    var src = actSrc(s.s);
     var ex = ents.filter(function(e){ return e.id === s.id; })[0];
     var hd = [["h", s.t, s.p, src.join(","), s.bk]], sb = fixH(s.b);
     if(ex){ ex.b = ex.b.concat(hd, sb); ex.x = (ex.x || []).concat(src); return; }

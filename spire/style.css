@@ -1326,3 +1326,9 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .gx-m .gx-x{font:700 12px var(--f-titel);font-style:normal;color:#6b7a8e;margin:0 4px 0 -3px}
 .gx-m .gx-s1.gx-sy{color:#c9962a}
 .gx-s1 .gx-sy.sc{color:#c9962a}.gx-s2 .gx-sy.sc{color:var(--wein)}
+.gx-m .gx-sy b{padding-top:3px}
+.gx-p{display:block;position:absolute;top:5px;right:8px;left:auto;bottom:auto;width:auto;height:auto;border:0;border-radius:0;background:none;box-shadow:none;opacity:.55;font:400 22px/1 var(--f-text);color:var(--blau);padding:0 3px;transition:opacity .15s,color .15s}
+.gx:hover .gx-p{display:block}
+.gx-p:hover{background:none;color:var(--wein);opacity:1}
+.gx.inb::after{top:auto;bottom:9px;right:9px}
+.gx-m .gx-sy.ru b{margin-top:2px}

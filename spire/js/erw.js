@@ -54,15 +54,15 @@ function erwBild(b){
   var r = b.h / b.w, c = r > 1.12 ? "hoch" : r > 0.8 ? "quad" : "breit";
   return '<figure class="eimg ' + c + '"><img src="' + IMG(b.src) + '" alt="" loading="lazy" onclick="zoom(this.src)"></figure>';
 }
-function erwBlocks(L, off, bk, key){
+function erwBlocks(L, off, bk, key, ersteSeite){
   EID_CTX = "erw:" + key;
-  var out = "";
+  var out = "", ersteH = true;
   L.forEach(function(b){
     if(b && b.t === "h"){
-      var d = Math.max(1, b.lvl - off), id = ' id="ab-' + esc(b.id) + '"', pg = b.p > 0 ? pgl(b.p, bk.buch) : "";
+      var d = Math.max(1, b.lvl - off), id = ' id="ab-' + esc(b.id) + '"', pg = ersteSeite && ersteH && b.p > 0 ? pgl(b.p, bk.buch) : ""; ersteH = false;
       out += d === 1 ? '<h2 class="ab"' + id + '>' + esc(b.x) + pg + '</h2>' : d === 2 ? '<h3 class="un"' + id + '>' + esc(b.x) + pg + '</h3>' : d === 3 ? '<h4 class="lbl"' + id + '>' + esc(b.x) + pg + '</h4>' : '<h5 class="lbl2"' + id + '>' + esc(b.x) + pg + '</h5>';
     } else if(b && b.t === "img") out += erwBild(b);
-    else if(b && b.t === "hw") out += '<div class="hwk">' + b.x.map(function(k){ return '<div class="hw ort"><h4>' + esc(k.k) + (k.p > 0 ? pgl(k.p, bk.buch) : "") + '</h4>' + k.x.split("\n\n").map(function(a){ return '<p>' + md(a) + '</p>'; }).join("") + '</div>'; }).join("") + '</div>';
+    else if(b && b.t === "hw") out += '<div class="hwk">' + b.x.map(function(k){ return '<div class="hw ort"><h4>' + esc(k.k) + '</h4>' + k.x.split("\n\n").map(function(a){ return '<p>' + md(a) + '</p>'; }).join("") + '</div>'; }).join("") + '</div>';
     else out += blk([b]);
   });
   return out;
@@ -108,7 +108,11 @@ function erwKapitel(bk, K, teile){
   var side = erwSide(links, G.tabbed ? kurz(G.l1.filter(function(h){ return h.b.id === tab; })[0].b.x) : K.t, "scrollTo({top:0,behavior:'smooth'})");
   var titel = G.tabbed ? "" : '<h1 class="titel">' + esc(K.t) + (D.p > 0 ? pgl(D.p, bk.buch, pgTxt(D.p, bk.buch) + (D.pe && D.pe > D.p ? "–" + D.pe : "")) : "") + '</h1>';
   var klassen = K.klassen && !G.tabbed ? '<div class="eb-r kl" style="margin:6px 0 14px">' + K.klassen.map(function(c){ var kl = klById(c); return erwKachel("klasse/" + c, kl ? kl.t : c, "Neue Klasse", "nach/klassen/" + c, " kl"); }).join("") + '</div>' : "";
-  var body = '<div class="dbody erw" data-pgbook="' + bk.bid + '">' + titel + klassen + erwBlocks(seg, off, bk, key) + '</div>';
+  if(G.tabbed){
+    var h0 = seg.filter(function(b){ return b && b.t === "h" && b.p > 0; })[0], p0 = h0 ? h0.p : D.p;
+    if(p0 > 0) titel = '<div class="seitenkopf">' + pgl(p0, bk.buch) + '</div>';
+  }
+  var body = '<div class="dbody erw" data-pgbook="' + bk.bid + '">' + titel + klassen + erwBlocks(seg, off, bk, key, false) + '</div>';
   ST_ANKER = anker || null;
   return head + (side && links ? lay(side, body) : voll(body));
 }

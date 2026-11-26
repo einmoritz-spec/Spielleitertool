@@ -1141,3 +1141,20 @@ body:has(.begl) .subtabs{top:calc(var(--top) + var(--tabh) + var(--begh,50px))}
 .begl .bi.grp .bk{gap:4px}
 .begl .bicon{border:0;background:none;min-width:24px;height:24px;border-radius:50%;color:#8ea2b9}
 .begl .bicon:hover{color:#fff;background:#2c4160}
+
+/* Nummern der Figuren: schlicht, feste Breite (alle Zeilen beginnen auf derselben Linie) */
+.bz .bn,.bi .bn,.bfl .bn{background:none;color:#6f849c;border-radius:0;padding:0;margin:0;width:12px;min-width:12px;flex:none;text-align:center;font:700 13px/1 var(--f-titel);font-variant-numeric:tabular-nums}
+.bz .zw{flex:none}
+.bi.grp .bk{align-items:flex-start}
+/* schwebender Kasten im selben ruhigen Stil */
+.bfl{background:rgba(13,27,42,.93);border:1px solid rgba(110,134,162,.28);border-radius:8px;box-shadow:0 8px 26px rgba(0,0,0,.4);padding:9px 12px 10px;min-width:0;backdrop-filter:blur(6px)}
+.bfl.sel{outline:0;border-color:rgba(214,170,70,.55)}
+.bfl.zieht{box-shadow:0 14px 36px rgba(0,0,0,.55)}
+.bfl .bfk{border:0;padding:0;margin:0 0 7px;gap:14px}
+.bfl.mini .bfk{margin:0}
+.bfl .bfk b{font-size:15px;letter-spacing:.03em}
+.bfl .bfb a{color:#7f93aa;width:22px;height:22px;border-radius:50%}
+.bfl .bfb a:hover{background:rgba(255,255,255,.1);color:#fff}
+.bfl .bfn{background:none;color:#8ea2b9;padding:0;font-size:12px}
+.bfl .bk{gap:5px}
+.bfl .bz u{margin-left:12px}

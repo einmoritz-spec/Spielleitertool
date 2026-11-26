@@ -151,7 +151,7 @@
   var scss = document.createElement("style");
   scss.textContent = ".topbar .tm-sg{flex:none;width:40px;height:40px;padding:0;margin:0 6px 0 0;display:inline-flex;align-items:center;justify-content:center;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.38);border-radius:10px;color:inherit;cursor:pointer;transition:filter .15s}.topbar .tm-sg:hover{filter:brightness(.96)}.topbar .tm-sg svg{width:22px;height:22px}.topbar .tm-sg + .tb-burger{margin-left:0!important}.topbar .tm-book + .tm-sg{margin-left:0}";
   document.head.appendChild(scss);
-  var GALKEY = {discworld:"discworld", household:"household", hh_garten:"household", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", slugblaster:"slugblaster", cairn:"cairn", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es", intotheodd:"intotheodd", mausritter:"mausritter"};
+  var GALKEY = {discworld:"discworld", household:"household", hh_garten:"household", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", slugblaster:"slugblaster", cairn:"cairn", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es", intotheodd:"intotheodd", mausritter:"mausritter", compass:"compass"};
   function searchFn(){
     var w = window;
     return typeof w.sucheOpen === "function" ? function(){ w.sucheOpen(); } :

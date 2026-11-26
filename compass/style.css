@@ -1,0 +1,136 @@
+/* BROKEN COMPASS – Farben und Schriften aus dem Adventure Journal: Futura (→ Jost), Caslon (→ Libre Caslon), Courier (Drehbuch-Seiten) */
+@font-face{font-family:Fut;font-weight:700;src:url(../assets/fonts/jost-latin-700-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Fut;font-weight:800;src:url(fonts/jost-latin-800-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Fut;font-weight:900;src:url(fonts/jost-latin-900-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Cas;font-weight:400;src:url(fonts/libre-caslon-text-latin-400-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Cas;font-weight:400;font-style:italic;src:url(fonts/libre-caslon-text-latin-400-italic.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Cas;font-weight:700;src:url(fonts/libre-caslon-text-latin-700-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Cou;font-weight:400;src:url(../assets/fonts/courier-prime-latin-400-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Cou;font-weight:700;src:url(../assets/fonts/courier-prime-latin-700-normal.woff2) format('woff2');font-display:swap}
+:root{--red:#c23a1e;--ink:#231c15;--panel-raised:#1d140e;--acc:#c23a1e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:400 16px/1.5 Cas,Georgia,serif;color:#f3ead7;background:#100d0a;min-height:100vh}
+.fan-wrap,.stf{color:var(--ink)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;cursor:pointer;text-decoration:none}
+
+/* ---------- Kopfzeile ---------- */
+.topbar{position:sticky;top:0;z-index:30;height:64px;display:flex;align-items:center;gap:4px;padding:0 20px;background:#160f0a;color:#f3ead7}
+.topbar .brand{display:flex;align-items:center;height:64px;padding-right:12px;position:relative;z-index:1}
+.topbar .brand img{height:40px;display:block}
+.topbar .sp{flex:1}
+.ik{width:42px;height:42px;display:inline-grid;place-items:center;border-radius:50%;color:#f3ead7;opacity:.85;transition:opacity .15s,background .15s;position:relative;z-index:1}
+.ik:hover{opacity:1;background:#ffffff1f}
+.ik svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.topbar .tm-sg,.topbar .tm-book,.topbar .tm-info{border:0!important;background:none!important;width:42px!important;height:42px!important;border-radius:50%!important;margin:0!important;opacity:.85;position:relative;z-index:1}
+.topbar .tm-sg:hover,.topbar .tm-book:hover,.topbar .tm-info:hover{opacity:1;background:#ffffff1f!important}
+.topbar .tm-caret{position:relative;z-index:1}
+/* Umschalter Film / Buch */
+.ansicht{display:flex;margin-right:10px;padding:3px;border-radius:20px;background:rgba(0,0,0,.35);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);position:relative;z-index:1}
+.ansicht button{width:38px;height:30px;border-radius:16px;display:grid;place-items:center;opacity:.55;transition:background .2s,opacity .2s}
+.ansicht button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ansicht button:hover{opacity:.9}
+.ansicht button.on{opacity:1;background:rgba(255,255,255,.16)}
+
+/* Film: Bild-Header, schiebt sich beim Scrollen zur Kopfzeile zusammen */
+.hdbg{display:none}
+body.film{padding-top:560px}
+body.film .topbar{position:fixed;left:0;right:0;top:0;height:560px;align-items:flex-start;background:#100d0a;overflow:hidden;--t:1}
+body.film .hdbg{display:block;position:absolute;inset:0;pointer-events:none}
+.hdbg .l{position:absolute;inset:0;background:center 42%/cover;opacity:0;transition:opacity 1.6s ease;transform:scale(calc(1.06 - .06 * var(--t)))}
+.hdbg .l.on{opacity:1}
+.hdbg .sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,13,10,.6),transparent 20%,transparent 60%,rgba(16,13,10,.8))}
+.hdbg .dk{position:absolute;inset:0;background:#100d0a;opacity:calc(.97 - .97 * var(--t))}
+body.film .topbar > *:not(.hdbg){margin-top:11px}
+body.film .topbar .brand{align-self:flex-end;margin-top:0;height:auto;padding-bottom:calc(12px + 26px * var(--t));padding-left:calc(18px * var(--t))}
+body.film .topbar .brand img{height:calc(40px + 80px * var(--t));filter:drop-shadow(0 4px 18px rgba(0,0,0,.55))}
+body.film .topbar .tm-caret{align-self:flex-end;margin-top:0;margin-bottom:calc(20px + 50px * var(--t))}
+
+/* Abschnitte als Bild-Fächer */
+.fan-wrap{background:linear-gradient(rgba(240,234,222,.62),rgba(240,234,222,.62)),url(img/start/papier.webp) center/cover;padding:40px 40px 46px}
+.fan{display:flex;height:410px;gap:4px;box-shadow:0 18px 30px -16px rgba(30,18,8,.8)}
+.sl{flex:1;position:relative;background-size:cover;overflow:hidden;transition:flex .45s cubic-bezier(.2,.7,.2,1)}
+.sl:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.72));transition:background .45s}
+.sl .bar{position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--c);z-index:2}
+.sl .tx{position:absolute;left:0;right:0;bottom:22px;z-index:1;color:#fff;display:flex;justify-content:center}
+.sl .tx small,.sl ul{display:none}
+.sl .tx b{font:900 20px/1 Fut;text-transform:uppercase;letter-spacing:.06em;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+.fan:not(:hover) .sl:nth-child(3),.sl:hover{flex:3.2}
+.fan:not(:hover) .sl:nth-child(3):after,.sl:hover:after{background:linear-gradient(90deg,transparent 28%,rgba(0,0,0,.2) 44%,var(--c) 72%)}
+.fan:not(:hover) .sl:nth-child(3) .tx,.sl:hover .tx{display:block;left:auto;right:26px;width:300px;bottom:auto;top:50%;transform:translateY(-50%)}
+.fan:not(:hover) .sl:nth-child(3) .tx small,.sl:hover .tx small{display:block;font:700 10px Fut;letter-spacing:.28em;text-transform:uppercase;opacity:.75}
+.fan:not(:hover) .sl:nth-child(3) .tx b,.sl:hover .tx b{writing-mode:horizontal-tb;transform:none;letter-spacing:.01em;font-size:25px;margin:6px 0 12px;padding-bottom:12px;border-bottom:1.5px solid rgba(255,255,255,.55);display:block}
+.fan:not(:hover) .sl:nth-child(3) ul,.sl:hover ul{display:block;list-style:none;columns:2;column-gap:16px;font:14px/1.6 Cas}
+
+/* Staffeln als Filmstreifen */
+.seas{padding:44px 40px 70px;color:#efe6d2}
+.sh2{font:800 15px Fut;letter-spacing:.32em;text-transform:uppercase;margin:0 0 22px 4px;display:flex;align-items:center;gap:16px;color:#bfb39b}
+.sh2:after{content:"";flex:1;height:1px;background:currentColor;opacity:.35}
+.pil{display:grid;grid-template-columns:260px 1fr;height:96px;margin:0 0 30px;background:#0b0f17;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);transition:filter .2s}
+.pil:hover{filter:brightness(1.15)}
+.pil .im{background:50% 30%/cover}
+.pil > div:last-child{display:flex;flex-direction:column;justify-content:center;padding:0 26px}
+.pil b{font:800 11px Fut;letter-spacing:.3em;text-transform:uppercase;color:#9fb6d8}
+.pil i{font:italic 22px Cas;color:#fff;margin-top:3px}
+.row{display:grid;grid-template-columns:104px 1fr;gap:22px;margin-bottom:26px;align-items:center}
+.post img{width:104px;height:158px;object-fit:cover;display:block;box-shadow:0 12px 30px -10px #000;transition:transform .2s}
+.post:hover img{transform:translateY(-3px)}
+.post .k{font:700 10.5px Fut;letter-spacing:.22em;text-transform:uppercase;color:#bfa77a;margin-top:9px}
+.post .t{font:italic 15px/1.15 Cas;color:#f3ead7;margin-top:2px}
+.strip{background:#050403;padding:16px 0;position:relative;display:flex}
+.strip:before,.strip:after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 9px 5px,#2d2620 3.2px,transparent 3.6px) 0 0/22px 10px repeat-x}
+.strip:before{top:3px}.strip:after{bottom:3px}
+.fr{flex:1;min-width:0;margin:0 4px;position:relative;height:140px;background:center 30%/cover;border-radius:2px;overflow:hidden;transition:flex .4s cubic-bezier(.2,.7,.2,1)}
+.fr:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.85))}
+.fr:hover{flex:2}
+.fr span{position:absolute;left:10px;right:8px;bottom:8px;z-index:1}
+.fr b{display:block;font:700 10px Fut;letter-spacing:.2em;text-transform:uppercase;color:#e7c98a}
+.fr i{display:block;font:italic 14px/1.2 Cas;color:#fff;margin-top:2px}
+/* Folgen ohne eigenes Bild im Buch: Titelkarte in Staffelfarbe */
+.fr.tk{background:radial-gradient(ellipse at 70% 20%,rgba(255,255,255,.12),transparent 60%),var(--c)}
+.fr.tk:before{content:"";position:absolute;right:-26px;top:-20px;width:120px;height:120px;background:url(img/start/kompass.webp) center/contain no-repeat;opacity:.14}
+.fr.tk:after{background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.45))}
+.fr.tk span{top:auto}
+.fr.tk i{font-size:16px}
+.row.lt .strip{flex-wrap:wrap;row-gap:12px}
+.row.lt .fr{flex:0 0 calc(16.66% - 8px);height:104px;background-position:center 25%}
+.row.lt .fr:hover{flex:0 0 calc(16.66% - 8px);filter:brightness(1.15)}
+.row.lt .fr i{font-size:12.5px}
+
+/* ---------- Buch: Leder-Einband, Kapitel-Tafeln, Notizzettel ---------- */
+body.buch{background:#2a1a10 url(img/start/leder.webp) center/840px}
+.einband{height:300px;display:flex;align-items:center;justify-content:center;gap:70px}
+.emb-logo{width:420px;height:156px;filter:drop-shadow(0 1.5px 0 rgba(255,214,170,.22)) drop-shadow(0 -1.5px 1px rgba(0,0,0,.7))}
+.emb-logo div{width:100%;height:100%;background:#3b2316 url(img/start/leder.webp) center/840px;filter:brightness(.62) saturate(1.1);
+ -webkit-mask:url(../assets/logos/broken-compass.webp) center/contain no-repeat;mask:url(../assets/logos/broken-compass.webp) center/contain no-repeat}
+.emb-kompass{width:236px;height:230px;background:url(img/start/praegung-kompass.webp) center/cover;-webkit-mask-image:radial-gradient(circle,#000 58%,transparent 70%);mask-image:radial-gradient(circle,#000 58%,transparent 70%)}
+.tafeln{width:1220px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.dp{display:grid;grid-template-columns:1fr 1fr;height:250px;box-shadow:0 18px 30px -14px #000;transition:transform .2s,box-shadow .2s}
+.dp:hover{transform:translateY(-3px);box-shadow:0 24px 36px -14px #000}
+.dp .art{background-size:cover;position:relative}
+.dp .art:after{content:"";position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.35))}
+.dp .op{background:var(--c);color:#fff;padding:26px 24px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.dp .op:before{content:"";position:absolute;right:-60px;bottom:-70px;width:240px;height:240px;background:url(img/start/kompass.webp) center/contain no-repeat;opacity:.12}
+.dp .op small{font:800 11px Fut;letter-spacing:.3em;text-transform:uppercase;opacity:.75}
+.dp .op b{font:900 22px/1.02 Fut;text-transform:uppercase;margin:6px 0 10px;padding-bottom:10px;border-bottom:1.5px solid rgba(255,255,255,.6)}
+.dp .op span{font:700 11.5px/1.55 Fut;text-transform:uppercase;letter-spacing:.05em;opacity:.9;position:relative}
+.stf{width:1220px;margin:44px auto 60px;padding:34px 36px 40px;background:linear-gradient(rgba(242,236,224,.55),rgba(242,236,224,.55)),url(img/start/papier.webp) center/cover}
+.stf h2{font:900 30px Fut;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.zettel{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+.zt{background:url(img/start/notiz.webp) center/100% 100%;padding:26px 18px 24px 48px;min-height:340px;filter:drop-shadow(0 6px 10px rgba(40,25,10,.35))}
+.zt .cv{width:100%;height:110px;background-size:cover;background-position:center;margin-bottom:12px;box-shadow:0 0 0 3px #fff}
+.zt .k{font:700 10.5px Cou;letter-spacing:.14em;text-transform:uppercase;color:#7b6648}
+.zt .t{font:700 16px/1.15 Cou;text-transform:uppercase;color:var(--f);margin:4px 0 8px}
+.zt ol{list-style:none;font:12px/1.5 Cou;color:#2f261c}
+.zt li{cursor:pointer;padding:1px 0}
+.zt li:hover{color:var(--red)}
+.zt li span{display:inline-block;width:22px;color:var(--red);font-weight:700}
+.zt.lt ol{font-size:11px;line-height:1.42}
+
+/* Menü */
+.mm-backdrop{position:fixed;inset:0;background:#0008;z-index:90;display:none}.mm-backdrop.on{display:block}
+.mm-panel{position:fixed;top:0;right:0;bottom:0;width:320px;background:#1d140e;color:#f3ead7;z-index:91;padding:22px;transform:translateX(100%);transition:transform .2s;overflow:auto}
+.mm-panel.on{transform:none}
+.mm-panel h3{font:800 13px Fut;letter-spacing:.24em;text-transform:uppercase;color:#bfa77a;margin:4px 0 12px}
+.mm-panel button{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:8px;font:15px Cas}
+.mm-panel button:hover{background:#ffffff14}

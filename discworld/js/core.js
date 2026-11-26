@@ -57,7 +57,7 @@ function blk(L){
       case "karten": if(JSON.stringify(b.x).length / b.x.length > 900) return b.x.map(function(c){ return '<h3 class="zw">' + md(c.h) + "</h3>" + blk(c.b); }).join("");
         return '<div class="kraster">' + b.x.map(function(c){ return '<div class="kk"><h4>' + md(c.h) + "</h4>" + blk(c.b) + "</div>"; }).join("") + "</div>";
       case "nsc": return nscKarte(DW.NSC[b.id] || b, b.klein);
-      case "nscs": return '<div class="nscraster">' + b.x.map(function(id){ return nscKachel(DW.NSC[id], 1); }).join("") + "</div>" + (b.nurKacheln ? "" : b.x.map(function(id){ return nscKarte(DW.NSC[id]); }).join(""));
+      case "nscs": return b.nurKacheln ? '<div class="nscraster">' + b.x.map(function(id){ return nscKachel(DW.NSC[id], 1); }).join("") + "</div>" : b.x.map(function(id){ return nscKarte(DW.NSC[id]); }).join("");
       case "namen": return '<div class="namen" id="nm-' + b.id + '"><h4>' + esc(b.h) + '<button class="wurf" onclick="namePick(\'' + b.id + '\')">Zufällig</button><b class="pick"></b></h4><p>' + b.x.split(/,\s*/).map(function(n){ return "<span>" + esc(n) + "</span>"; }).join(" · ") + "</p></div>";
       case "ortskarten": return ortsKarten();
       case "gruppe": return gruppenBogen(b);

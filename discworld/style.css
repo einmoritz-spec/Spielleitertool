@@ -108,7 +108,7 @@ figure.bild.quer{float:right;width:min(470px,44%);margin:6px 0 16px 34px}
 figure.bild.breit{width:100%;max-width:1000px}
 
 /* Fußnoten: handschriftlich auf Papierstreifen */
-.fn{clear:both;position:relative;max-width:900px;margin:18px 0 10px;padding:16px 30px 14px 34px;font:21px/1.35 Hand,cursive;color:#3a2a22;background:url(img/deko/streifen.webp) center/100% 100% no-repeat;filter:drop-shadow(0 2px 2px rgba(60,40,20,.12))}
+.fn{clear:both;position:relative;max-width:900px;margin:16px 0 10px;padding:12px 22px 12px 24px;font:21px/1.35 Hand,cursive;color:#3a2a22;background:linear-gradient(180deg,rgba(255,247,222,.75),rgba(250,238,205,.55));border-left:3px solid #c9a96a;border-radius:0 3px 3px 0;box-shadow:0 1px 3px rgba(60,40,20,.1)}
 .fn+.fn{margin-top:4px}
 .fn i{font-style:normal}
 .fn .mk{font-style:normal;font-weight:400;color:inherit;text-decoration:underline}
@@ -338,3 +338,10 @@ textarea.nt{width:100%;min-height:260px;padding:12px 14px;border:1px solid #c9ae
 
 body.mitunter .topbar{border-bottom:0;box-shadow:none}
 body.mitunter .unter{border-top:0}
+
+/* Notiz-Stift im Szenenkopf */
+.kh{position:relative}
+.kh>a.pen{position:absolute;right:0;top:10px;display:inline-flex;color:#a08a6c;cursor:pointer;opacity:.7}
+.kh>a.pen:hover{opacity:1;color:var(--blut)}
+.kh>a.pen.has{color:var(--lila);opacity:1}
+.kh>a.pen svg{width:19px;height:19px}

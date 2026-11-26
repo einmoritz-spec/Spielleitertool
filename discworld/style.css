@@ -49,10 +49,10 @@ body.notop .unter{top:0}body.notop .side{top:56px}
 .unter a.leer{opacity:.55}
 
 /* Seitenleiste + Inhalt */
-.lay{display:grid;grid-template-columns:250px minmax(0,1fr);gap:0 46px;max-width:1360px;margin:0 auto;padding:0 34px 0 0}
-.lay.solo,.lay.zu{display:block;padding:0 44px}
-.lay.zu .ct,.lay.solo .ct{max-width:1150px;margin:0 auto}
-.side{position:sticky;top:calc(var(--kopf-h) + 56px);align-self:start;max-height:calc(100vh - var(--kopf-h) - 50px);overflow:auto;padding:0 0 30px 26px;scrollbar-width:none}
+.lay{display:grid;grid-template-columns:196px minmax(0,1fr);gap:0 34px;max-width:1800px;margin:0;padding:0 30px 0 0}
+.lay.solo,.lay.zu{display:block;padding:0 30px 0 40px}
+.lay.zu .ct,.lay.solo .ct{max-width:1700px;margin:0}
+.side{position:sticky;top:calc(var(--kopf-h) + 56px);align-self:start;max-height:calc(100vh - var(--kopf-h) - 50px);overflow:auto;padding:0 0 30px 12px;scrollbar-width:none}
 body:not(.mitunter) .side{top:var(--kopf-h)}
 .side::-webkit-scrollbar{display:none}
 .side>a{position:relative;display:block;padding:9px 30px 9px 12px;font:400 16.5px/1.25 FellSC,Georgia,serif;color:#5c4a39;cursor:pointer;border-left:2px solid transparent;border-bottom:1px solid rgba(160,130,90,.25)}
@@ -76,7 +76,7 @@ body:not(.mitunter) .fold.auf{top:calc(var(--kopf-h) + 10px)}
 
 .kh h2,.kt{margin:6px 0 0;font:400 40px/1.1 FellSC,Georgia,serif;color:var(--blut);letter-spacing:.01em}
 .kh h2::first-letter{font-size:1.22em}
-.motto{margin:8px 0 0;font:italic 17px/1.45 Gara,serif;color:#6d5b48;max-width:900px}
+.motto{margin:8px 0 0;font:italic 17px/1.45 Gara,serif;color:#6d5b48;max-width:1040px}
 .pg{font:15px/1 Gara,serif;color:#9d8a72;text-decoration:none;cursor:pointer;white-space:nowrap;letter-spacing:0;vertical-align:middle;margin-left:6px}
 h2 .pg,h3 .pg{font-size:15px}
 .txt .pg,.fn .pg,.kasten .pg{margin:0;font:inherit;color:#8b3a26;border-bottom:1px dotted rgba(139,58,38,.5);vertical-align:baseline}
@@ -85,7 +85,7 @@ h2 .pg,h3 .pg{font-size:15px}
 .txt{max-width:none}
 .txt::after{content:"";display:block;clear:both}
 .txt p{margin:0 0 .75em;hyphens:auto}
-.txt>p,.txt>ul,.txt>ol,.txt>h3,.txt>h4,.txt>.bsp,.txt>blockquote{max-width:880px}
+.txt>p,.txt>ul,.txt>ol,.txt>h3,.txt>h4,.txt>.bsp,.txt>blockquote{max-width:1040px}
 .mk{font-weight:600;font-style:italic;color:#4a1a10}
 h3.zw{clear:none;margin:1.25em 0 .4em;font:400 26px/1.2 FellSC,Georgia,serif;color:var(--blut)}
 h3.zw::first-letter{font-size:1.15em}
@@ -105,21 +105,21 @@ figure.bild{margin:4px 0 18px}
 figure.bild img{display:block;width:100%;height:auto;cursor:zoom-in;mix-blend-mode:multiply;border-radius:2px}
 figure.bild.hoch{float:right;width:min(290px,30%);margin:6px 0 16px 34px;shape-outside:margin-box}
 figure.bild.quer{float:right;width:min(470px,44%);margin:6px 0 16px 34px}
-figure.bild.breit{width:100%;max-width:1000px}
+figure.bild.breit{width:100%;max-width:1200px}
 
 /* Fußnoten: handschriftlich auf Papierstreifen */
-.fn{clear:both;position:relative;max-width:900px;margin:16px 0 10px;padding:12px 22px 12px 24px;font:21px/1.35 Hand,cursive;color:#3a2a22;background:linear-gradient(180deg,rgba(255,247,222,.75),rgba(250,238,205,.55));border-left:3px solid #c9a96a;border-radius:0 3px 3px 0;box-shadow:0 1px 3px rgba(60,40,20,.1)}
+.fn{clear:both;position:relative;max-width:1040px;margin:16px 0 10px;padding:12px 22px 12px 24px;font:21px/1.35 Hand,cursive;color:#3a2a22;background:linear-gradient(180deg,rgba(255,247,222,.75),rgba(250,238,205,.55));border-left:3px solid #c9a96a;border-radius:0 3px 3px 0;box-shadow:0 1px 3px rgba(60,40,20,.1)}
 .fn+.fn{margin-top:4px}
 .fn i{font-style:normal}
 .fn .mk{font-style:normal;font-weight:400;color:inherit;text-decoration:underline}
 
 /* Kästen */
-.kasten{position:relative;clear:none;display:flow-root;max-width:880px;margin:16px 0 20px;padding:20px 30px 12px;background:rgba(232,215,183,.72);border:1px solid #c6ab7c;box-shadow:inset 0 0 0 4px rgba(243,234,214,.6),inset 0 0 0 5px #d5bd92}
+.kasten{position:relative;clear:none;display:flow-root;max-width:1040px;margin:16px 0 20px;padding:20px 30px 12px;background:rgba(232,215,183,.72);border:1px solid #c6ab7c;box-shadow:inset 0 0 0 4px rgba(243,234,214,.6),inset 0 0 0 5px #d5bd92}
 .kasten h4{margin:0 0 8px!important;text-align:center;font:400 22px/1.2 FellSC,serif!important;color:var(--blut)!important}
 .kasten::before{content:"";position:absolute;inset:-1px;z-index:2;pointer-events:none;background:url(img/deko/ecke-ol.webp) left -4px top 0/48px auto no-repeat,url(img/deko/ecke-or.webp) right -4px top 0/48px auto no-repeat,url(img/deko/ecke-ul.webp) left -4px bottom 0/48px auto no-repeat,url(img/deko/ecke-ur.webp) right -4px bottom 0/48px auto no-repeat}
 .bsp{margin:16px 0 20px;padding:16px 26px 8px;border-top:2px solid var(--blut);border-bottom:2px solid var(--blut);background:rgba(255,250,240,.45)}
 .bsp>h4{margin:0 0 8px!important;font:400 18px/1 FellSC,serif!important;letter-spacing:.18em;text-transform:uppercase;color:var(--blut)!important;text-align:center}
-.vorlesen{max-width:880px;margin:14px 0 18px;padding:16px 26px 8px;background:rgba(93,59,116,.07);border-left:4px solid var(--lila);font-style:italic}
+.vorlesen{max-width:1040px;margin:14px 0 18px;padding:16px 26px 8px;background:rgba(93,59,116,.07);border-left:4px solid var(--lila);font-style:italic}
 .dlg{margin:6px 0 14px}
 .dlg>div{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:5px 0;border-bottom:1px dotted #d0b98e}
 .dlg b{font:400 16px/1.7 FellSC,serif;color:var(--blut)}
@@ -128,25 +128,25 @@ figure.bild.breit{width:100%;max-width:1000px}
 .brief p{margin:0 0 1em}
 
 /* Würfel, Ergebnis, Kosten */
-.wleiste{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;max-width:1000px;margin:12px 0 22px}
+.wleiste{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;max-width:1200px;margin:12px 0 22px}
 .wleiste>div{text-align:center;padding:12px 10px 10px;border:1px solid #d1b98d;background:rgba(255,250,238,.55)}
 .wleiste svg{width:46px;height:46px;fill:rgba(122,36,23,.1);stroke:var(--blut);stroke-width:4;stroke-linejoin:round}
 .wleiste b{display:block;font:400 22px/1 FellSC,serif;color:var(--blut);margin:4px 0 6px}
 .wleiste span{display:block;font-size:15px;line-height:1.35;color:#5e4c3c}
 .wleiste .sl{background:rgba(122,36,23,.08);border-color:var(--blut)}
 .wleiste .tab{opacity:.75}
-.erg{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:880px;margin:12px 0 20px;border:1px solid #c7ab7c}
+.erg{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:1040px;margin:12px 0 20px;border:1px solid #c7ab7c}
 .erg>div{padding:12px 16px;text-align:center}
 .erg>div+div{border-left:1px solid #c7ab7c}
 .erg small{display:block;font:15px/1.2 FellSC,serif;color:#7b6550}
 .erg b{display:block;font:600 19px/1.3 Gara,serif;margin-top:3px}
 .erg .e0{background:rgba(110,140,80,.13)}.erg .e1{background:rgba(201,154,62,.15)}.erg .e2{background:rgba(122,36,23,.1)}
-.kosten{max-width:900px;margin:10px 0 20px;border-top:1px solid #c7ab7c}
+.kosten{max-width:1040px;margin:10px 0 20px;border-top:1px solid #c7ab7c}
 .kosten>div{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:9px 0;border-bottom:1px solid #d9c49c}
 .kosten b{font:400 19px/1.35 FellSC,serif;color:var(--blut)}
 
 /* Tabellen */
-.tblw{max-width:1000px;margin:12px 0 20px}
+.tblw{max-width:1200px;margin:12px 0 20px}
 .tblw h4,.wt h4{margin:0 0 6px;font:400 20px/1.2 FellSC,serif;color:var(--blut);display:flex;align-items:center;gap:12px}
 table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .tbl th{text-align:left;font:400 16px/1.2 FellSC,serif;color:#f5e8cc;background:var(--blut2);padding:7px 10px}
@@ -154,7 +154,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .tbl tr:nth-child(even) td{background:rgba(226,209,173,.35)}
 .tbl td.n{width:1%;font:400 17px/1.4 FellSC,serif;color:var(--blut);white-space:nowrap}
 .tbl tr.hit td{background:rgba(201,154,62,.35)!important}
-.wt{max-width:1000px;margin:12px 0 22px}
+.wt{max-width:1200px;margin:12px 0 22px}
 .wurf{margin-left:auto;padding:3px 12px;border:1px solid var(--blut);background:none;color:var(--blut);font:400 15px/1.3 FellSC,serif;border-radius:20px;cursor:pointer}
 .wurf:hover{background:var(--blut);color:#f5e7c8}
 .raster{display:grid;gap:10px 34px;margin:8px 0 14px}
@@ -172,7 +172,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .fragen .fz span{color:#4a3b2e}
 
 /* NSC-Steckbriefe */
-.steck{position:relative;max-width:980px;margin:18px 0 26px;padding:34px 48px 30px;background:url(img/deko/karte.webp) center/100% 100% no-repeat;filter:drop-shadow(0 4px 8px rgba(60,40,20,.18))}
+.steck{position:relative;max-width:1320px;margin:18px 0 26px;padding:34px 48px 30px;background:url(img/deko/karte.webp) center/100% 100% no-repeat;filter:drop-shadow(0 4px 8px rgba(60,40,20,.18))}
 .steck::after{content:"";display:block;clear:both}
 .steck h3{margin:0 0 10px;font:400 32px/1.1 FellSC,serif;color:var(--lila)}
 .steck h3 .pg{font:15px/1 Gara,serif;margin-left:8px;vertical-align:middle;border:0}
@@ -246,7 +246,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .plakat.spaeter b::after{content:"folgt";display:block;font:italic 15px/1.3 Gara,serif;color:#c9b48d;margin-top:4px}
 
 /* Gruppenbogen und Charakterbögen */
-.gbogen{position:relative;max-width:980px;margin:16px 0 26px;padding:40px 54px 34px;background:url(img/deko/karte2.webp) center/100% 100% no-repeat;filter:drop-shadow(0 4px 8px rgba(60,40,20,.18))}
+.gbogen{position:relative;max-width:1320px;margin:16px 0 26px;padding:40px 54px 34px;background:url(img/deko/karte2.webp) center/100% 100% no-repeat;filter:drop-shadow(0 4px 8px rgba(60,40,20,.18))}
 .gbogen .akt{position:absolute;right:56px;top:34px;font:19px/1.3 Hand,cursive;color:#9a3a2c;transform:rotate(-3deg);text-align:right}
 .gz{margin:0 0 14px;max-width:520px}
 .gz em{display:block;font:24px/1.3 Hand,cursive;font-style:normal;border-bottom:1px solid rgba(120,90,60,.45);padding:0 4px 2px;min-height:34px}
@@ -269,7 +269,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .txt>.wt{clear:both}
 
 /* Namenslisten, Ortskacheln */
-.namen{clear:both;max-width:1040px;margin:12px 0 18px;padding:12px 18px;background:rgba(255,250,238,.5);border:1px solid #d6bf95}
+.namen{clear:both;max-width:1200px;margin:12px 0 18px;padding:12px 18px;background:rgba(255,250,238,.5);border:1px solid #d6bf95}
 .namen h4{display:flex;align-items:center;gap:14px;margin:0 0 6px!important}
 .namen .pick{font:26px/1 Hand,cursive;color:var(--lila);font-weight:400}
 .namen p{margin:0;font-size:16px;line-height:1.7;color:#4a3b2e}
@@ -291,7 +291,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}
 .side small{font-family:Gara,serif}
 p.motto.zw2{margin:-4px 0 12px;font:italic 17px/1.4 Gara,serif;color:#6d5b48}
 .tafel{clear:both;max-width:520px;margin:12px auto 18px;padding:18px 26px;text-align:center;font:400 19px/1.45 FellSC,serif;color:#3a2410;background:linear-gradient(135deg,#c9a062,#8a6230 45%,#b88a4c 70%,#7a5428);border:3px double #5a3d1a;border-radius:6px;box-shadow:inset 0 0 12px rgba(0,0,0,.35),0 4px 10px rgba(60,30,10,.3);text-shadow:0 1px 0 rgba(255,230,180,.45)}
-.folgen{clear:both;max-width:900px;margin:16px 0 20px;padding:14px 22px 8px;background:rgba(93,59,116,.07);border-left:4px solid var(--lila)}
+.folgen{clear:both;max-width:1040px;margin:16px 0 20px;padding:14px 22px 8px;background:rgba(93,59,116,.07);border-left:4px solid var(--lila)}
 .folgen h4{margin:0 0 8px!important;font:400 18px/1 FellSC,serif!important;letter-spacing:.14em;text-transform:uppercase;color:var(--lila)!important}
 .folgen>div{margin:0 0 8px;font-size:17.5px}
 .folgen b{color:var(--lila);font-weight:600}

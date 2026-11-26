@@ -13,10 +13,13 @@ var ZSVG = {
   abend: '<path d="M3 17h18M7 17a5 5 0 0 1 10 0"/><path d="M12 4v4M9.5 5.5 12 8l2.5-2.5"/>',
   nacht: '<path d="M20 13.2A8 8 0 1 1 10.8 4a6.2 6.2 0 0 0 9.2 9.2z"/>'
 };
+var VQ = ["M12 12V2.5A9.5 9.5 0 0 1 21.5 12z", "M12 12h9.5A9.5 9.5 0 0 1 12 21.5z", "M12 12v9.5A9.5 9.5 0 0 1 2.5 12z", "M12 12H2.5A9.5 9.5 0 0 1 12 2.5z"];
+/* Viertel im Kreis: Klick auf ein Viertel füllt bis dorthin, erneuter Klick auf das letzte gefüllte nimmt es weg */
+function setViertel(id, n){ var z = zeitST(id), v = z.v % 5; z.v = v === n ? n - 1 : n; save(); render(); }
 function zeitHTML(id){
   var z = zeitST(id);
   return '<div class="zeit"><div class="ta">' + TAGE.map(function(t){ return '<span class="zi' + (z.t === t[0] ? ' on' : '') + '" title="' + t[1] + '" onclick="setZeit(\'' + id + '\',\'t\',\'' + t[0] + '\')"><svg viewBox="0 0 24 24">' + ZSVG[t[0]] + '</svg></span>'; }).join("") + '</div>' +
-    '<div class="vt" title="Viertel"><button onclick="setZeit(\'' + id + '\',\'v\',-1)">−</button><b>' + z.v + '</b><button onclick="setZeit(\'' + id + '\',\'v\',1)">+</button></div></div>';
+    '<div class="vt" title="Viertel (je 15 Minuten)"><svg viewBox="0 0 24 24">' + VQ.map(function(d, i){ return '<path class="' + (i < z.v % 5 ? 'f' : '') + '" d="' + d + '" onclick="setViertel(\'' + id + '\',' + (i + 1) + ')"/>'; }).join("") + '</svg></div></div>';
 }
 function pgn(p){ return pgl(p); }
 /* erledigt / markiert / TP / offen */

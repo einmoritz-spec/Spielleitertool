@@ -81,8 +81,8 @@ function vAbschnitte(V, r){
 function vUnter(id, V, r){
   var s = vst(id), namen = V.reiterNamen || {};
   return '<nav class="unter vunter" data-unterleiste>' + vRL(V).filter(function(q){ return vAbschnitte(V, q[0]).length; }).map(function(q){ return '<a class="' + (q[0] === r ? "on" : "") + '" onclick="go(\'e/' + id + '/' + q[0] + '\')">' + esc(namen[q[0]] || q[1]) + '</a>'; }).join("") +
-    '<span class="vzs"><span class="vz vz-c"><img src="' + Z("symbol-chaos-wirbel") + '" alt=""><button onclick="vZahl(\'c\',-1)">–</button><b>' + (s.c || 0) + '</b><button onclick="vZahl(\'c\',1)">+</button><i>Chaos</i></span>' +
-    '<span class="vz vz-l"><button onclick="vZahl(\'l\',-1)">–</button><b>' + (s.l || 0) + '</b><button onclick="vZahl(\'l\',1)">+</button><i>Lose Enden</i></span>' +
+    '<span class="vzs"><span class="vz vz-c" title="Chaos"><em><img src="' + Z("symbol-chaos-wirbel") + '" alt=""></em><button onclick="vZahl(\'c\',-1)">–</button><b>' + (s.c || 0) + '</b><button onclick="vZahl(\'c\',1)">+</button></span>' +
+    '<span class="vz vz-l" title="Lose Enden"><em><img src="' + Z("symbol-gefahr-lose-enden") + '" alt=""></em><button onclick="vZahl(\'l\',-1)">–</button><b>' + (s.l || 0) + '</b><button onclick="vZahl(\'l\',1)">+</button></span>' +
     '<button class="vstift' + (s.n[r] ? " voll" : "") + '" onclick="vNotiz()" title="Notizen"><svg viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z M14 6l4 4"/></svg></button></span></nav>';
 }
 function vRechts(id, V){

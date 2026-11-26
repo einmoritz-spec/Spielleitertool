@@ -620,7 +620,10 @@
 .bg-el .bg-spur:after{border-width:1.5px;right:8px;width:14px;top:12.75px;bottom:12.75px}
 .bg-spur .z.u:before{left:2px;bottom:8px;width:19px;height:19px}
 .bg-spur .z.u:after{left:18px;width:20px;bottom:16px;border:0;height:3px;background:var(--c)}
-.bg-tr.blau .bg-spur:after{border:0;top:4px;bottom:4px;right:-8px;width:28px}
 .bg-blatt .bg-k,.bg-blatt .bg-k.code{margin:0;padding:0}
 .bg-schn{top:70px;left:-58px}
 .bg-tk{margin-bottom:16px}
+.bg-tr.blau .bg-spur:after{border:0;top:17.5px;bottom:17.5px;right:-8px;width:28px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 43' preserveAspectRatio='none'><path d='M0 1.5H4C19 1.5 25 8 19 14.5C13 21 8 23 14 29C20 35 17 41.5 4 41.5H0' fill='none' stroke='%232d50a7' stroke-width='3.2' stroke-linecap='butt' stroke-linejoin='round' vector-effect='non-scaling-stroke'/></svg>") 0 0/100% 100% no-repeat}
+.bg-zahl{}
+.vz-c em{background:var(--flieder)}.vz-c b{color:var(--tinte)}
+.bg-schn{left:-68px}

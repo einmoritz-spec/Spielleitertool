@@ -170,3 +170,11 @@ body.ve-vault{background:#17111f}
 @media (max-width:1600px){.vct:not(.vunten):not(.voben)>article .vfdi{grid-template-columns:1fr}}
 .vweiter .vfdi{column-span:all;grid-template-columns:repeat(3,1fr)!important}
 .vweiter>p,.vzweisp>p,.vzwei>p{orphans:4;widows:4}
+/* Zähler: nur Symbol, Minus, Zahl, Plus */
+.vz{gap:2px;padding:3px 5px 3px 3px;border-radius:999px;border:1.5px solid var(--linie);background:#fff;box-shadow:0 1px 0 #0000000a}
+.vz em{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--flieder);margin-right:3px}
+.vz em img{height:20px;width:20px;object-fit:contain}
+.vz button{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 17px/1 Fig,sans-serif;color:var(--vgrau);padding:0}
+.vz button:hover{background:var(--akz);color:#fff}
+.vz b{min-width:26px;font-size:20px}
+.vz i{display:none}

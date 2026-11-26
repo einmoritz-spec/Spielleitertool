@@ -26,13 +26,13 @@ body.vault-e{--v2:var(--akz);--vf:color-mix(in srgb,var(--akz) 8%,#fff);--vrand:
 .vtext h2{font-family:var(--vh);color:var(--v2);font-size:27px;margin:30px 0 12px}
 .vtext h3{font-family:var(--vh)}
 .vtext>p,.vtext .sp p{font-size:17px;line-height:1.6}
-.vre{position:sticky;top:116px;padding:30px 0 40px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh - 100px);overflow:auto;scrollbar-width:none}
+.vre{padding:30px 0 40px;display:flex;flex-direction:column;gap:18px}
 .vre>*{flex-shrink:0}
 .vre h4{font:800 18px Spartan,sans-serif;font-family:var(--vh);letter-spacing:-.02em}
 /* lange Texte: Absätze mit Leerzeile */
 .vchaos{border:2px solid var(--tinte);border-radius:14px;overflow:hidden;background:#fff}
 .vchaos h4{background:var(--tinte);color:#fff;padding:12px 18px 10px}.vchaos h4 .pg{color:#ffffff99}
-.vchaos>a{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:9px 14px 9px 12px;border-top:1px solid var(--linie);font-size:14.5px;line-height:1.38;background:#fff}
+.vchaos>a{display:grid;grid-template-columns:48px 1fr;gap:8px;padding:8px 14px 8px 12px;border-top:1px solid var(--linie);font-size:14px;line-height:1.36;background:#fff}
 .vchaos>a:nth-child(odd){background:#f6f5fa}.vchaos>a:hover{background:var(--vf)}
 .vchaos>a>b{font:800 22px/1 Spartan,sans-serif;display:flex;align-items:center;gap:4px;color:var(--tinte)}.vchaos>a>b img{height:19px}
 .vchaos em{display:block;font:800 15px Spartan,sans-serif;font-style:normal;color:var(--akz);letter-spacing:-.01em}
@@ -123,5 +123,5 @@ body.ve-vault{background:#17111f}
 .vx-kafka .kasten{background:#222;border-color:#555}.vx-kafka .kasten *{color:#ddd}
 .vfpg{text-align:right;margin:-10px 0 4px}
 .vct:has(>.vfund){grid-template-columns:1fr;padding-right:30px}
-.vfund .vre.vschwebt{position:static;float:right;width:380px;max-height:calc(100vh - 150px);overflow:auto;margin:0 0 30px 36px;padding:0}
+.vfund .vre.vschwebt{position:static;float:right;width:380px;margin:0 0 30px 36px;padding:0}
 @media (max-width:1400px){.vfund .vre.vschwebt{width:340px}}

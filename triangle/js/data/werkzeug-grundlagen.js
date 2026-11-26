@@ -59,7 +59,7 @@ TA_TEXT["w/grundlagen/gratulation"] = [
 
 /* ---------- S. 144–145: Lebenszyklus einer Anomalie ---------- */
 TA_TEXT["w/grundlagen/lebenszyklus"] = (function(){
-  var W = 1360, H = 780;
+  var W = 1360, H = 800;
   function px(x){ return (x / W * 100).toFixed(2) + "%"; }
   function py(y){ return (y / H * 100).toFixed(2) + "%"; }
   /* Beschriftungsfeld auf einem Pfeil: Mitte (x,y), Breite w */
@@ -69,49 +69,49 @@ TA_TEXT["w/grundlagen/lebenszyklus"] = (function(){
   function name(x, y, t, cls){ return '<span class="wka-name ' + (cls || "") + '" style="left:' + px(x) + ';top:' + py(y) + '">' + t + '</span>'; }
   var R = "#c8202f", B = "#2d50a7";
   function pf(d, c){ return '<path d="' + d + '" stroke="' + (c || R) + '" marker-end="url(#wka-k' + (c ? "b" : "r") + ')"/>'; }
+  function li(d, c){ return '<path d="' + d + '" stroke="' + (c || R) + '"/>'; }
   var svg = '<svg class="wka-pfeile" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none"><defs>' +
     '<marker id="wka-kr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0 0L10 5 0 10z" fill="' + R + '" stroke="none"/></marker>' +
     '<marker id="wka-kb" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0 0L10 5 0 10z" fill="' + B + '" stroke="none"/></marker></defs>' +
     '<g fill="none" stroke-width="6" stroke-linejoin="round">' +
-    pf("M150 500V300") +                                   /* Mensch -> Ripple */
-    pf("M255 185H452") +                                   /* Ripple -> Anomalie */
-    pf("M520 275L440 345") + pf("M436 450L520 310") +      /* Anomalie lernt */
-    pf("M610 330V500") +                                   /* Anomalie -> Resonant */
-    pf("M214 585H500") +                                   /* Mensch -> Resonant */
-    pf("M214 735H1246") +                                  /* Mensch -> Tod */
-    pf("M960 125H752") + pf("M752 250H960") +              /* Hollow <-> Anomalie */
-    pf("M1010 470C920 540 800 600 690 610") +              /* Hollow -> Resonant */
-    pf("M1160 450C1150 560 1200 620 1268 656") +           /* Hollow -> Tod */
-    pf("M958 640H1004") +                                  /* Beitritt -> Agent */
-    pf("M1160 668H1240") +                                 /* Agent -> Tod */
-    pf("M675 545C760 545 800 500 815 440", B) +            /* Resonant -> stark */
-    pf("M838 446C850 520 880 580 905 622", B) +            /* stark -> Beitritt */
+    pf("M150 520V305") +                                   /* Mensch -> Ripple */
+    pf("M258 190H452") +                                   /* Ripple -> Anomalie */
+    pf("M515 285L445 350") + pf("M440 455L515 322") +      /* Anomalie lernt */
+    pf("M600 330V492") +                                   /* Anomalie -> Resonant */
+    pf("M212 585H505") +                                   /* Mensch -> Resonant */
+    pf("M224 745H1250") +                                  /* Mensch -> Tod */
+    pf("M985 125H758") + pf("M752 255H985") +              /* Hollow <-> Anomalie */
+    pf("M1000 330L672 505") +                              /* Hollow -> Resonant */
+    pf("M1250 335L1284 640") +                             /* Hollow -> Tod */
+    pf("M680 596L855 560", B) +                            /* Resonant -> stark */
+    li("M900 590V665", B) + pf("M898 665H1000", B) +       /* stark -> Beitritt -> Agent */
+    pf("M1200 665H1250") +                                 /* Agent -> Tod */
     '</g></svg>';
   var o = '<div class="wka-kreisrahmen"><div class="wka-kreis">' + svg +
-    knoten(140, 190, 205, 203, "img/regeln/full/lebenszyklus-ripple.webp") + name(40, 40, "Ripple") +
+    knoten(150, 190, 205, 203, "img/regeln/full/lebenszyklus-ripple.webp") + name(40, 40, "Ripple") +
     knoten(600, 190, 270, 254, "img/regeln/full/lebenszyklus-anomalie-frosch.webp") + name(470, 40, "Anomalie", "an") +
-    knoten(1160, 265, 380, 318, "img/regeln/full/lebenszyklus-hollow.webp") + name(1235, 45, "Hollow") +
-    ik(150, 545, 80, WKA.IK.mensch) + name(150, 690, "Mensch", "mi") +
-    ik(600, 560, 150, WKA.IK.resonant) + name(600, 675, "Resonant", "mi") +
-    ik(815, 395, 84, WKA.IK.stark) +
-    ik(1060, 610, 84, WKA.IK.agent) +
-    ik(1295, 685, 62, WKA.IK.tod) + name(1295, 730, "Tod", "mi") +
-    '<span class="wka-notiz" style="left:' + px(700) + ';top:' + py(300) + '">äußerst mächtig, alles läuft bestens</span>' +
-    pille(150, 400, 130, "denkt einen Gedanken") +
-    pille(352, 185, 175, "verbindet sich mit anderen Ripples und wird mächtig genug, die Lobby zu verlassen") +
+    knoten(1155, 205, 300, 251, "img/regeln/full/lebenszyklus-hollow.webp") + name(1175, 30, "Hollow") +
+    ik(150, 570, 80, WKA.IK.mensch) + name(150, 700, "Mensch", "mi") +
+    ik(600, 570, 150, WKA.IK.resonant) + name(600, 680, "Resonant", "mi") +
+    ik(900, 545, 84, WKA.IK.stark) +
+    ik(1100, 585, 84, WKA.IK.agent) +
+    ik(1295, 690, 62, WKA.IK.tod) + name(1295, 735, "Tod", "mi") +
+    '<span class="wka-notiz" style="left:' + px(950) + ';top:' + py(478) + '">äußerst mächtig, alles läuft bestens</span>' +
+    pille(150, 412, 130, "denkt einen Gedanken") +
+    pille(355, 190, 175, "verbindet sich mit anderen Ripples und wird mächtig genug, die Lobby zu verlassen") +
     pille(382, 405, 150, "wandelt die Beobachtung ihres Fokus in Energie um, lernt und wird mächtiger") +
-    pille(612, 410, 112, "verbindet sich mit einem Menschen") +
-    pille(357, 585, 150, "verbindet sich mit Anomalie oder Hollow") +
-    pille(420, 735, 190, "wandelt Materie in Energie um, altert") +
-    pille(856, 125, 120, "findet einen neuen Fokus") +
-    pille(856, 250, 150, "verliert ihren Fokus und beginnt, Energie zu verlieren") +
-    pille(935, 575, 135, "verbindet sich mit einem Menschen") +
-    pille(1168, 560, 88, "geht die Energie aus") +
-    pille(772, 505, 134, "der Gebrauch von Kräften verringert nach und nach den Bedarf an Materie") +
-    pille(915, 455, 98, "schließt sich mir an", "bl") +
-    pille(890, 700, 115, "Tritt der Agency bei", "ro") +
-    pille(1060, 690, 200, "<b>Agent</b><small>Funktional unsterblich und größtenteils menschlich!</small>", "ag2") +
-    pille(1262, 600, 84, "kündigt :)", "bl hand") +
+    pille(600, 412, 112, "verbindet sich mit einem Menschen") +
+    pille(358, 585, 150, "verbindet sich mit Anomalie oder Hollow") +
+    pille(440, 745, 190, "wandelt Materie in Energie um, altert") +
+    pille(870, 125, 120, "findet einen neuen Fokus") +
+    pille(870, 255, 150, "verliert ihren Fokus und beginnt, Energie zu verlieren") +
+    pille(840, 408, 135, "verbindet sich mit einem Menschen") +
+    pille(1267, 488, 88, "geht die Energie aus") +
+    pille(770, 582, 150, "der Gebrauch von Kräften verringert nach und nach den Bedarf an Materie") +
+    pille(990, 565, 80, "schließt sich mir an", "bl") +
+    pille(900, 665, 120, "Tritt der Agency bei", "ro") +
+    pille(1100, 667, 200, "<b>Agent</b><small>Funktional unsterblich und größtenteils menschlich!</small>", "ag2") +
+    pille(1225, 602, 84, "kündigt :)", "bl hand") +
     '</div></div>';
   return [
    {t:"sp", x:[

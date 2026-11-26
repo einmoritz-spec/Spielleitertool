@@ -26,7 +26,7 @@
 
 /* ---- S. 144–145: Kreislauf ---- */
 .wka-kreisrahmen{margin:22px 0 10px;overflow-x:auto;padding-bottom:6px}
-.wka-kreis{position:relative;aspect-ratio:1360/780;container-type:inline-size;min-width:900px}
+.wka-kreis{position:relative;aspect-ratio:1360/800;container-type:inline-size;min-width:900px}
 .wka-kreis>*{position:absolute}
 .wka-pfeile{inset:0;width:100%;height:100%}
 .wka-kn{height:auto}
@@ -131,3 +131,5 @@
  .wka-brief>h3{flex-direction:row;font-size:20px;padding:12px;gap:8px}.wka-brief>h3 img{height:22px}
  .wka-halt{padding-top:16px}.wka-halt-k b{font-size:40px}.wka-halt-k img{height:36px}.wka-halt h2{font-size:20px}
 }
+
+.wka-kreisrahmen{max-width:1360px}

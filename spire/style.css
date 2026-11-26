@@ -11,7 +11,7 @@
   --tinte:#12120c;--grau:#5d6878;--schiefer:#3c3b57;--violett:#3c0052;--gold:#d9a521;--gift:#7fbf8a;--linie:#b5c3d6;
   --f-titel:"SpGeared","SpOswald",Impact,sans-serif;
   --f-text:"SpPlantin","SpSerif",Georgia,serif;
-  --top:56px;--tabh:48px;
+  --top:56px;--tabh:42px;
   --acc:#981a3f;--panel-raised:#172a3d
 }
 *{box-sizing:border-box}
@@ -36,12 +36,13 @@ body.notop .topbar{display:none}
 body.notop{--top:0px}
 
 /* ---------- Tab-Leiste (volle Breite) ---------- */
-.tabs{position:sticky;top:var(--top);z-index:20;display:flex;align-items:flex-end;gap:2px;padding:0 18px;height:var(--tabh);background:var(--papier);border-bottom:2px solid var(--wein)}
-.tabs a{font:700 19px var(--f-titel);text-transform:uppercase;letter-spacing:.02em;color:var(--blau);padding:12px 16px 8px;border-bottom:4px solid transparent;margin-bottom:-2px;white-space:nowrap}
-.tabs a:hover{color:var(--wein)}
-.tabs a.on{color:var(--wein);border-color:var(--wein)}
+.tabs{position:sticky;top:var(--top);z-index:20;display:flex;align-items:stretch;gap:4px;padding:0 18px;height:var(--tabh);background:var(--nacht2);border-bottom:1px solid #000;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.tabs a{display:flex;align-items:center;font:700 16px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.04em;color:#8ea3bb;padding:3px 12px 0;white-space:nowrap;box-shadow:inset 0 -3px 0 transparent}
+.tabs a:hover{color:#fff}
+.tabs a.on{color:#fff;box-shadow:inset 0 -3px 0 var(--wein)}
+.tabs .atl{display:flex;align-items:center;font:700 16px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.04em;color:var(--gold);padding:3px 18px 0 0;margin-right:8px;border-right:1px solid var(--nachtlinie);cursor:pointer;white-space:nowrap}
 .tabs .sp{flex:1}
-.tabs .stift{align-self:center;color:var(--grau);width:32px;height:32px;display:grid;place-items:center;cursor:pointer;opacity:.7}
+.tabs .stift{align-self:center;color:#8ea3bb;width:32px;height:32px;display:grid;place-items:center;cursor:pointer;opacity:.7}
 .tabs .stift:hover,.tabs .stift.has{opacity:1;color:var(--wein)}
 .stift svg{width:19px;height:19px;display:block}
 
@@ -619,84 +620,15 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 @media (max-width:1000px){ .dbody .zfr.r3{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
 /* ---------- Startseite ---------- */
-.st-seite{max-width:1480px;margin:0 auto;padding:0 0 40px}
-.st-hero{position:relative;min-height:210px;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding:26px 36px 24px;
-  background:linear-gradient(90deg,#0d1a27f2 0%,#0d1a27b0 42%,#0d1a2740 75%,#0d1a2799 100%),var(--nacht) url(img/hero.webp) center 38%/cover;color:#dbe3ef}
-.st-hl h1{margin:0;font:700 72px/.9 var(--f-titel);text-transform:uppercase;letter-spacing:.01em;color:#eef2f8}
-.st-hl p{margin:10px 0 0;font-style:italic;font-size:17px;color:#c8d4e4;max-width:560px}
-.st-rev{flex:none;width:430px;background:#0d1a27cc;border:1px solid var(--nachtlinie);padding:10px 12px 12px;backdrop-filter:blur(2px)}
-.st-rev h5{margin:0 0 8px;font:700 14px var(--f-titel);text-transform:uppercase;letter-spacing:.08em;color:#9fb2c8;cursor:pointer;display:inline-block}
-.st-rev h5:hover{color:#fff}
-.st-rev .pg{color:#7e93ab}
-.st-stufen{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.st-stufen button{display:flex;align-items:center;gap:7px;padding:7px 8px;background:var(--nacht2);border:1px solid var(--nachtlinie);color:#7e93ab;font:700 13.5px/1.05 var(--f-titel);text-transform:uppercase;text-align:left}
-.st-stufen button i{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;border:1.5px solid currentColor;font:700 12px var(--f-titel);font-style:normal}
-.st-stufen button:hover{color:#dbe3ef}
-.st-stufen button.vor{color:#b98a9a;border-color:#5a2a3c}
-.st-stufen button.on{background:var(--wein);border-color:var(--wein);color:#fff}
-.st-sek{padding:0 36px;margin-top:30px}
-.st-h{display:flex;align-items:center;gap:14px;margin:0 0 14px;font:700 26px var(--f-titel);text-transform:uppercase;color:var(--wein);letter-spacing:.02em}
-.st-h::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--wein),transparent)}
 /* Am Spieltisch: vier Bildkarten + Abenteuer */
-.st-tisch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.78fr);gap:16px;align-items:stretch}
-.st-spiel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.st-z{position:relative;height:330px;overflow:hidden;background:var(--nacht);text-align:left;box-shadow:0 2px 0 #0d1a2733;transition:transform .18s,box-shadow .18s}
-.st-z img,.st-ab>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-.st-z::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#0d1a27e8 82%)}
-.st-z:hover{transform:translateY(-3px);box-shadow:0 10px 22px #0d1a2744}
-.st-z:hover img,.st-ab:hover>img{transform:scale(1.04)}
-.st-z.on{outline:3px solid var(--gold);outline-offset:-3px}
-.st-zt{position:absolute;left:14px;right:12px;bottom:13px;z-index:1;color:#fff}
-.st-zt b{display:block;font:700 27px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.01em}
-.st-zt small{display:block;margin-top:5px;font-size:13.5px;line-height:1.3;color:#c3cfdf}
-.st-ab{position:relative;min-height:330px;overflow:hidden;background:#000;cursor:pointer;display:flex;align-items:center;transition:box-shadow .18s}
-.st-ab>img{left:auto;width:62%;object-position:center 22%}
-.st-ab::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#000 38%,#000000c0 52%,transparent 78%)}
-.st-ab:hover{box-shadow:0 10px 22px #0d1a2755}
-.st-ab.on{outline:3px solid var(--gold);outline-offset:-3px}
-.st-abt{position:relative;z-index:2;width:56%;padding:22px 24px 20px;color:#e3e9f2;align-self:center}
-.st-kl{display:inline-block;font:700 12.5px var(--f-titel);text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:4px}
-.st-abt h3{margin:0 0 8px;font:700 36px/.95 var(--f-titel);text-transform:uppercase;color:#fff}
-.st-abt p{margin:0 0 8px;font-size:15px;line-height:1.4;color:#d3dbe6}
-.st-abt p.q{margin:0;font-size:13px;color:#93a6bc}
-.st-abt p.q .pg{color:#93a6bc;margin:0}
-.st-bald{margin:10px 0 0;font-size:14px;color:var(--grau)}
-.st-bald a{color:var(--blau);font-weight:700}
-.st-bald a:hover{color:var(--wein)}
 /* Nachschlagen: ruhiges Raster */
-.st-nach{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.st-k{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);min-height:88px;background:var(--papier2);border:1px solid var(--linie);text-align:left;overflow:hidden;transition:border-color .15s,box-shadow .15s,transform .15s}
-.st-k:hover{border-color:var(--blau);box-shadow:0 6px 14px #0d1a2722;transform:translateY(-2px)}
-.st-k .im{position:relative;background:var(--nacht);overflow:hidden}
-.st-k .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.st-k .tx{padding:11px 13px 10px;align-self:center}
-.st-k b{display:block;font:700 19px/1.05 var(--f-titel);text-transform:uppercase;color:var(--blau)}
-.st-k small{display:block;margin-top:4px;font-size:13px;line-height:1.3;color:#4a576a}
-.st-k em{position:absolute;top:6px;right:8px;font:italic 12px var(--f-text);color:var(--grau)}
-.st-k.fo{background:transparent;border-style:dashed}
-.st-k.fo .im img{filter:grayscale(.85);opacity:.55}
-.st-k.fo b{color:#5d6f86}
 @media (max-width:900px){
-  .st-tisch{grid-template-columns:1fr}
-  .st-abl{max-width:520px}
 }
 @media (max-width:1100px){
-  .st-nach{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:900px){
-  .st-hero{flex-direction:column;align-items:flex-start;padding:22px 20px}
-  .st-rev{width:100%}
-  .st-sek{padding:0 16px}
-  .st-spiel{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .st-z{height:230px}
-  .st-nach{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:560px){
-  .st-ab>img{width:100%;opacity:.45}
-  .st-abt{width:100%}
-  .st-hl h1{font-size:54px}
-  .st-nach{grid-template-columns:1fr}
-  .st-zt b{font-size:23px}
 }
 
 /* ---------- Gegner-Raster ---------- */
@@ -1032,13 +964,6 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .kr-tab.on:hover{background:#5d1a8a}
 
 /* Startseite: Abenteuer – eine Kachel mit allen Abenteuern */
-.st-abk{background:var(--nacht);color:#e3e9f2;padding:16px 18px 18px;display:flex;flex-direction:column;min-width:0}
-.st-abk h3{margin:0 0 12px;font:700 20px/1 var(--f-titel);letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
-.st-abl{flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
-.st-abc{display:flex;flex-direction:column;gap:8px;text-align:left;color:inherit;transition:transform .18s}
-.st-abc img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;background:#000;outline:2px solid transparent;outline-offset:-2px;transition:outline-color .18s}
-.st-abc b{font:700 15px/1.1 var(--f-titel);letter-spacing:.03em;text-transform:uppercase;color:#fff}
-.st-abc:hover{transform:translateY(-3px)}.st-abc:hover img,.st-abc.on img{outline-color:var(--gold)}
 
 /* Eidolon Sky (Kampagnenrahmen) */
 .eid>p,.eid>.hwk,.eid>.szk,.eid>.qak{max-width:1280px}
@@ -1069,3 +994,76 @@ h1.titel .en{font:400 15px var(--f-text);text-transform:none}
 .ks-dos figcaption{text-align:right;margin-top:4px}
 @media (max-width:900px){.ks-dos{grid-template-columns:1fr}}
 .dbody h2.ab{line-height:1.3}
+
+/* ---------- Kopfzeile: Bereiche als Reiter, aktiver Reiter geht in die Unterleiste über ---------- */
+body:not(.mitunter){--tabh:0px}
+.ktabs{display:flex;align-items:stretch;align-self:stretch;margin-left:22px;min-width:0}
+.ktabs a{display:flex;align-items:center;padding:4px 15px 0;font:700 17px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.05em;color:#8ea3bb;white-space:nowrap;position:relative}
+.ktabs a:hover{color:#fff}
+.ktabs a.on{color:#fff;background:#13253a;box-shadow:inset 0 3px 0 var(--wein)}
+body.anschluss .ktabs a.on{background:var(--nacht2)}
+body.anschluss .ktabs a.on::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:4px;background:var(--nacht2)}
+.begl .sp{flex:1}
+.begl .stift{color:#8ea3bb;width:30px;height:30px;display:grid;place-items:center;cursor:pointer;opacity:.75}
+.begl .stift svg{width:18px;height:18px}
+.begl .stift:hover,.begl .stift.has{opacity:1;color:#fff}
+
+/* ---------- Startseite ---------- */
+body[data-view="start"]{background:var(--nacht)}
+.sp-start{background:var(--papier) url(img/deko/wirbel.webp) right -120px top 380px/420px auto no-repeat;padding-bottom:46px}
+.sp-hero{position:relative;height:300px;background:var(--nacht) url(img/hero.webp) center 30%/cover no-repeat}
+.sp-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,26,39,0) 45%,rgba(13,26,39,.75) 100%);pointer-events:none}
+.sp-rev{position:absolute;right:36px;top:22px;z-index:2;display:flex;align-items:center;gap:12px;background:rgba(13,26,39,.82);border:1px solid var(--nachtlinie);padding:8px 10px 8px 14px}
+.sp-rev h5{margin:0;font:700 14px/1 var(--f-titel);letter-spacing:.08em;text-transform:uppercase;color:#8ea3bb;cursor:pointer}
+.sp-rev h5:hover{color:#fff}
+.sp-stufen{display:flex;gap:4px}
+.sp-stufen button{display:flex;align-items:center;gap:7px;font:700 13px/1 var(--f-titel);letter-spacing:.03em;text-transform:uppercase;color:#8ea3bb;padding:6px 10px 5px 6px;border:1px solid transparent}
+.sp-stufen button i{font-style:normal;width:19px;height:19px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-size:11px}
+.sp-stufen button:hover{color:#fff}
+.sp-stufen button.vor{color:#c58c9c}
+.sp-stufen button.on{color:#fff;background:var(--wein);border-color:#c0335d}
+/* Bereichs-Säulen: hohes Bild, Titel und Unterpunkte liegen unten auf dem Bild */
+.sp-saeulen{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;padding:0 36px;margin-top:-170px;position:relative;z-index:3}
+.sp-sl{position:relative;height:430px;overflow:hidden;background:var(--nacht);box-shadow:0 12px 26px -14px rgba(13,26,39,.6);border-bottom:4px solid var(--wein);display:flex;flex-direction:column;justify-content:flex-end}
+.sp-sb{position:absolute;inset:0;display:block;width:100%;cursor:pointer}
+.sp-sb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.sp-sl::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(13,26,39,0) 40%,rgba(13,26,39,.5) 100%)}
+.sp-txt{position:relative;z-index:2;padding-top:70px;background:linear-gradient(180deg,rgba(13,26,39,0),rgba(13,26,39,.82) 70px,rgba(13,26,39,.95));pointer-events:none}
+.sp-txt li{pointer-events:auto}
+.sp-sl:hover .sp-sb img{transform:scale(1.04)}
+.sp-sb b{position:absolute;left:16px;right:12px;z-index:2;font:700 31px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.02em;color:#fff;text-align:left;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.sp-sl .sp-kopf{position:relative;z-index:2;pointer-events:none;padding:0 16px 8px;font:700 31px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.02em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.sp-sl ul{position:relative;z-index:2;list-style:none;margin:0;padding:4px 0 12px}
+.sp-sl li{font:15.5px/1.2 var(--f-text);color:#c9d5e4;padding:5px 16px;cursor:pointer}
+.sp-sl li::before{content:"";display:inline-block;width:10px;height:1px;background:var(--wein);vertical-align:middle;margin-right:9px;transition:width .2s}
+.sp-sl li:hover{color:#fff}
+.sp-sl li:hover::before{width:16px;background:#e0476f}
+/* Abenteuer und Bücher: je eine Reihe über die volle Breite */
+.sp-band{padding:34px 36px 0}
+.sp-band h2{margin:0 0 14px;font:700 28px/1 var(--f-titel);text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:16px}
+.sp-band h2::after{content:"";flex:1;height:2px;background:var(--wein);opacity:.55}
+.sp-abk h2{color:var(--wein)}
+.sp-abl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.sp-ab{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-width:0}
+.sp-ab .cv{display:block;width:100%;aspect-ratio:520/673;overflow:hidden;background:#000;box-shadow:0 8px 18px -10px rgba(13,26,39,.7);margin-bottom:9px;transition:transform .25s ease}
+.sp-ab img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.sp-ab b{font:700 17px/1.1 var(--f-titel);text-transform:uppercase;letter-spacing:.02em;color:var(--blau)}
+.sp-ab small{font:italic 14px/1.3 var(--f-text);color:var(--grau);margin-top:2px}
+.sp-ab:hover .cv{transform:translateY(-4px)}
+.sp-ab:hover b{color:var(--wein)}
+.sp-ab.on .cv{box-shadow:0 0 0 3px var(--wein),0 8px 18px -10px rgba(13,26,39,.7)}
+.sp-buk{margin-top:30px}
+.sp-buk h2{color:var(--blau)}
+.sp-bul{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:16px}
+.sp-bu{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-width:0}
+.sp-bu>img,.sp-bu .ph{display:block;width:100%;aspect-ratio:520/673;object-fit:cover;object-position:top;box-shadow:0 6px 14px -8px rgba(13,26,39,.7);transition:transform .25s ease}
+.sp-bu .ph{background:linear-gradient(165deg,#24405a,var(--nacht) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:10px}
+.sp-bu .ph img{width:48%;opacity:.9}
+.sp-bu .ph i{font:700 13px/1.1 var(--f-titel);text-transform:uppercase;color:#dbe3ef;font-style:normal;text-align:center;letter-spacing:.04em}
+.sp-bu b{font:14px/1.2 var(--f-text);color:var(--blau);margin-top:7px}
+.sp-bu:hover>img,.sp-bu:hover .ph{transform:translateY(-4px)}
+.sp-bu:hover b{color:var(--wein)}
+.sp-bu.pdf b{color:var(--grau)}
+.sp-saeulen,.sp-band{max-width:1500px;margin-left:auto;margin-right:auto}
+@media (min-width:1600px){ .sp-hero{height:340px} .sp-sl{height:470px} }
+.sp-rev{right:max(36px,calc((100% - 1500px) / 2 + 36px))}

@@ -97,14 +97,15 @@ function mkSide(){
   });
   return h;
 }
-function mkTabs(cur){ return tabs([["masken", "Katalog"], ["masken/fortschritte", "Fortschritte"], ["masken/ausruestung", "Ausrüstung"]], cur, "masken"); }
+function mkTabs(cur){ return unterleiste("masken") + mkSub(cur); }
+function mkSub(cur){ return '<div class="subtabs">' + [["masken", "Katalog"], ["masken/fortschritte", "Fortschritte"], ["masken/ausruestung", "Ausrüstung"]].map(function(t){ return '<a class="' + (t[0] === cur ? "on" : "") + '" onclick="go(\'' + t[0] + '\')">' + t[1] + "</a>"; }).join("") + "</div>"; }
 
 function mkKatalog(anker){
   ST_ANKER = anker || null;
   var n = 0, M = SP_MASKEN;
   var body = '<div class="mk" data-pgbook="sp_z1">' + mkKopf() + mkUebersicht() + mkVorwort() +
     M.abschnitte.map(function(a){ return mkBanner(a) + a.masken.map(function(m){ return mkBlatt(m, n++); }).join(""); }).join("") + '</div>';
-  return mkTabs("masken") + lay(mkSide(), body, false);
+  return mkTabs("masken") + lay(mkSide(), body, false).replace('<div class="wrap', '<div class="wrap sb');
 }
 /* Karten-Raster: Fortschritte bzw. Ausrüstung (mit Szene), mit kleinem Bild und Verweis auf die Maske */
 function mkKarteMaske(m, a){

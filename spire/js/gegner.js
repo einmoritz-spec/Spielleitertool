@@ -98,7 +98,7 @@ function begLeiste(immer){
     for(var i = 0; i < max; i++) h += '<i class="' + (i < s ? 'x' : '') + '" onclick="bgSet(\'' + e.id + '\',' + i + ')"></i>';
     return '<div class="bi' + (ST.gsel === e.id ? ' sel' : '') + (max && s >= max ? ' aus' : '') + '"><b onclick="gSel(\'' + e.id + '\')">' + esc(g.kurz || g.t) + '</b>' + ((e.n || 1) > 1 ? '<span class="bn" onclick="bgMinus(\'' + e.id + '\')" title="Einen weniger">×' + e.n + '</span>' : '') + '<span class="zw">' + h + '</span><em>' + s + '/' + max + '</em><u onclick="bgDel(\'' + e.id + '\')" title="Entfernen">×</u></div>';
   }).join("");
-  return '<div class="begl"><h5>Begegnung</h5>' + items + '<span class="bplus" onclick="bgPick()">+ Gegner</span>' + (L.length ? '<span class="bplus" onclick="bgClear()">Leeren</span>' : '') + '</div>';
+  return '<div class="begl"><h5>Begegnung</h5>' + items + '<span class="bplus" onclick="bgPick()">+ Gegner</span>' + (L.length ? '<span class="bplus" onclick="bgClear()">Leeren</span>' : '') + '<span class="sp"></span>' + stift("spiel:gegner") + '</div>';
 }
 
 /* ---------- Gegner-Raster: gleichmäßige Kacheln, Klick klappt den Werteblock darunter über die volle Breite auf ---------- */

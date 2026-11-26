@@ -41,3 +41,38 @@ SP_ABENTEUER.snuff = {t:"Snuff Out the Sun", buch:"qs", p:18, bis:24, img:"abent
   q:["Quickstart", "S. 18–24", "6 vorgefertigte Figuren"]};
 /* Revolution (S. 175 ff.) */
 window.SP_REVOLUTION = {p:175, stufen:["Aufziehender Sturm", "Der Schlag", "Die Folgen"]};
+
+/* Kopfzeile: inhaltliche Bereiche als Reiter, Unterpunkte = Unterleiste (gleiche Reihenfolge wie die Bereichskarten der Startseite).
+   Neue Bücher (Sin, Strata, Codex, Black Magic …) hängen sich später als weitere Unterpunkte an den passenden Bereich. */
+window.SP_KOPF = [
+  {id:"stadt", t:"Die Stadt", img:"kapitel/welt-S004", pos:"center 28%", sub:[
+    ["stadt","Distrikte"], ["nach/welt","Die Welt"], ["nach/goetter","Götter"], ["zufall","Zufall"]]},
+  {id:"regeln", t:"Regeln", img:"kapitel/regeln-S012", pos:"center 30%", sub:[
+    ["nach/kurz","In Kürze"], ["nach/regeln","Regeln"], ["nach/kampf","Kampf"]]},
+  {id:"charaktere", t:"Charaktere", img:"kapitel/zwischen-klassen-extra-S068", pos:"center 30%", sub:[
+    ["nach/klassen","Klassen"], ["nach/extra","Extra-Fortschritte"], ["nach/fertigkeiten","Fertigkeiten"], ["nach/ausruestung","Ausrüstung"], ["nach/bindungen","Bindungen"], ["masken","Masken"], ["bogen","Charakterbogen"]]},
+  {id:"gegner", t:"Gegner", img:"kapitel/kampf-S078", pos:"center 22%", sub:[["gegner","Gegner"]]},
+  {id:"spielleitung", t:"Spielleitung", img:"kapitel/spielleitung-S180", pos:"center 22%", sub:[
+    ["nach/spielleitung","Spielleitung"], ["nach/mg","Magister's Guide"], ["zelle","Die Zelle"], ["nach/anhang","Anhänge"]]}
+];
+/* Startseite: Abenteuer (go = eingebaut, sonst öffnet der Klick das PDF) */
+window.SP_START_ABENTEUER = [
+  {t:"Snuff Out the Sun", s:"Quickstart", img:"abenteuer/snuff-titel", go:"abenteuer/snuff"},
+  {t:"The Kings of Silver", s:"Kampagne", img:"cover/sp_a1", go:"abenteuer/kings"},
+  {t:"Eidolon Sky", s:"Kampagne", img:"cover/sp_a2", go:"abenteuer/eidolon"},
+  {t:"Blood and Dust", s:"Kampagne", img:"cover/sp_s3", buch:"sp_s3"},
+  {t:"Shadow Operations", s:"One-Shots", img:"cover/sp_z3", buch:"sp_z3"},
+  {t:"Secrets Kept from the Sun", s:"Szenarien", img:"cover/sp_z5", buch:"sp_z5"}
+];
+/* Startseite: Bücher (eingebaute führen in den Bereich, die übrigen öffnen das PDF) */
+window.SP_START_BUECHER = [
+  {t:"The City Must Fall", img:"titel/cmf-cover", go:"nach/regeln"},
+  {t:"Magister's Guide", img:"titel/gm-cover", go:"nach/mg"},
+  {t:"Quickstart", img:"cover/sp_qs", go:"nach/kurz"},
+  {t:"Book of Masks", img:"cover/sp_z1", go:"masken"},
+  {t:"Black Magic", img:"cover/sp_z4", buch:"sp_z4"},
+  {t:"Sin", buch:"sp_s1"},
+  {t:"Strata", buch:"sp_s2"},
+  {t:"Codex of the Deep Spire", buch:"sp_z2"},
+  {t:"Maps", buch:"sp_m1"}
+];

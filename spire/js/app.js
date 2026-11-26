@@ -97,18 +97,39 @@ function note(k){
 }
 function stift(k){ return '<span class="stift' + (ST.notes && ST.notes[k] ? ' has' : '') + '" onclick="note(\'' + k + '\')" title="Notizen">' + PEN + '</span>'; }
 
-/* ---------- Tab-Leisten ---------- */
-/* L = [[route, Name], …]; nur Namen, keine Zahlen */
+/* ---------- Kopfzeile und Unterleiste ---------- */
+/* Welcher Kopfzeilen-Reiter und welcher Unterpunkt gehört zur aktuellen Route? (längster passender Präfix) */
+function kopfOrt(){
+  var h = (location.hash || "#start").slice(1), best = null, bl = -1;
+  SP_KOPF.forEach(function(K){ K.sub.forEach(function(s){
+    if((h === s[0] || h.indexOf(s[0] + "/") === 0) && s[0].length > bl){ best = {K:K, sub:s[0]}; bl = s[0].length; }
+  }); });
+  return best;
+}
+/* Unterleiste des aktiven Bereichs; ein Bereich mit nur einem Unterpunkt bekommt nur die Notiz-Feder */
+function unterleiste(noteKey){
+  var O = kopfOrt(); if(!O) return noteKey ? '<div class="tabs unter"><span class="sp"></span>' + stift(noteKey) + '</div>' : "";
+  var L = O.K.sub.length > 1 ? O.K.sub : [];
+  if(!L.length && !noteKey) return "";
+  return '<div class="tabs unter">' + L.map(function(t){ return '<a class="' + (t[0] === O.sub ? 'on' : '') + '" onclick="go(\'' + t[0] + '\')">' + esc(t[1]) + '</a>'; }).join("") + '<span class="sp"></span>' + (noteKey ? stift(noteKey) : '') + '</div>';
+}
+function kopfTabs(){
+  var el = document.getElementById("ktabs"); if(!el) return;
+  var v = document.body.dataset.view, aus = v === "start" || v === "schirm", O = kopfOrt();
+  el.innerHTML = aus ? "" : SP_KOPF.map(function(K){ return '<a class="' + (O && O.K === K ? 'on' : '') + '" onclick="go(\'' + K.sub[0][0] + '\')">' + esc(K.t) + '</a>'; }).join("");
+  var u = document.querySelector("#app > .tabs");
+  document.body.classList.toggle("mitunter", !!u);
+  document.body.classList.toggle("anschluss", !!(u && O && u.classList.contains("unter")));
+}
+/* Eigene Leisten (Abenteuer, Galerie): L = [[route, Name], …]; nur Namen, keine Zahlen; Abenteuer mit Titel vorn */
+var SP_AB_NAME = {snuff:"Snuff Out the Sun", kings:"The Kings of Silver", eidolon:"Eidolon Sky"};
 function tabs(L, cur, noteKey){
-  return '<div class="tabs">' + L.map(function(t){ return '<a class="' + (t[0] === cur ? 'on' : '') + '" onclick="go(\'' + t[0] + '\')">' + esc(t[1]) + '</a>'; }).join("") + '<span class="sp"></span>' + (noteKey ? stift(noteKey) : '') + '</div>';
+  if(L.length < 2 && !noteKey) return "";
+  var m = /^abenteuer\/([^/]+)/.exec(cur || ""), titel = m && SP_AB_NAME[m[1]] ? '<b class="atl" onclick="go(\'abenteuer/' + m[1] + '\')">' + esc(SP_AB_NAME[m[1]]) + '</b>' : '';
+  return '<div class="tabs' + (titel ? ' ab' : '') + '">' + titel + L.map(function(t){ return '<a class="' + (t[0] === cur ? 'on' : '') + '" onclick="go(\'' + t[0] + '\')">' + esc(t[1]) + '</a>'; }).join("") + '<span class="sp"></span>' + (noteKey ? stift(noteKey) : '') + '</div>';
 }
-/* Haupt-Tabs fürs laufende Spiel: Stadt · Zelle · Gegner · Zufall */
-function spielTabs(cur){ return tabs([["stadt","Stadt"],["zelle","Zelle"],["gegner","Gegner"],["zufall","Zufall"]], cur, "spiel:" + cur); }
-function nachTabs(id){
-  var B = SP_NACH_BEREICHE[id], g = B && B.grp, L = [];
-  Object.keys(SP_NACH_BEREICHE).forEach(function(k){ var x = SP_NACH_BEREICHE[k]; if(k === id || (g && x.grp === g)) L.push(["nach/" + k, x.t]); });
-  return tabs(L, "nach/" + id, "nach:" + id);
-}
+function spielTabs(cur){ return unterleiste(cur === "gegner" ? "" : "spiel:" + cur); }
+function nachTabs(id){ return unterleiste("nach:" + id); }
 
 /* ---------- Seitenleiste (einklappbar: ‹ und Taste b; bleibt beim Scrollen stehen) ---------- */
 function lay(side, body, wirbel){
@@ -121,28 +142,27 @@ function foldSide(){ ST.fold = !ST.fold; save(); var w = document.querySelector(
 function kurz(t){ return String(t).split(":")[0]; }
 function jump(id){ var e = document.getElementById(id); if(!e) return; var y = e.getBoundingClientRect().top + scrollY - (document.body.classList.contains("notop") ? 0 : 56) - 62 - (document.querySelector(".subtabs") ? 38 : 0); scrollTo({top:y, behavior:"smooth"}); }
 
-/* ---------- Startseite (Entwurf 1) ---------- */
+/* ---------- Startseite: Titelbild mit Revolution, Bereichs-Säulen (= Kopfzeilen-Reiter), Abenteuer, Bücher ---------- */
+function stKlick(x){ return x.go ? "go('" + x.go + "')" : "openBook('" + x.buch + "',1)"; }
 function viewStart(){
-  var last = ST.last || "", R = SP_REVOLUTION, rv = ST.rev || 0;
-  var bild = function(img, pos){ return '<img src="' + IMG(img) + '" alt="" loading="lazy" style="object-position:' + (pos || "center 30%") + '">'; };
-  var spiel = SP_SPIEL.map(function(z){
-    return '<button class="st-z' + (last === z.id ? ' on' : '') + '" onclick="go(\'' + z.id + '\')">' + bild(z.img, z.pos) + '<span class="st-zt"><b>' + esc(z.t) + '</b><small>' + esc(z.s) + '</small></span></button>';
+  var R = SP_REVOLUTION, rv = ST.rev || 0, last = ST.last || "";
+  var saeulen = SP_KOPF.map(function(K){
+    return '<div class="sp-sl"><button class="sp-sb" onclick="go(\'' + K.sub[0][0] + '\')" aria-label="' + esc(K.t) + '"><img src="' + IMG(K.img) + '" alt="" style="object-position:' + (K.pos || "center 30%") + '"></button><div class="sp-txt"><div class="sp-kopf">' + esc(K.t) + '</div>' +
+      (K.sub.length > 1 ? '<ul>' + K.sub.map(function(t){ return '<li onclick="go(\'' + t[0] + '\')">' + esc(t[1]) + '</li>'; }).join("") + '</ul>' : '') + '</div></div>';
   }).join("");
-  var abL = [{t:"Snuff Out the Sun", img:"abenteuer/snuff-titel", go:"go('abenteuer/snuff')", on:last === "abenteuer/snuff"},
-    {t:"The Kings of Silver", img:"cover/sp_a1", go:"go('abenteuer/kings')", on:last === "abenteuer/kings"}, {t:"Eidolon Sky", img:"cover/sp_a2", go:"go('abenteuer/eidolon')", on:last === "abenteuer/eidolon"}];
-  var ab = '<div class="st-abk"><h3>Abenteuer</h3><div class="st-abl">' + abL.map(function(x){
-    return '<button class="st-abc' + (x.on ? ' on' : '') + '" onclick="' + x.go + '"><img src="' + IMG(x.img) + '" alt="" loading="lazy"><b>' + esc(x.t) + '</b></button>'; }).join("") + '</div></div>';
-  var kach = function(k){
-    return '<button class="st-k' + (k.folgt ? ' fo' : '') + '" onclick="go(\'' + k.go + '\')"><span class="im">' + bild(k.img, k.pos) + '</span><span class="tx"><b>' + esc(k.t) + '</b><small>' + esc(k.s) + '</small></span>' + (k.folgt ? '<em>in Arbeit</em>' : '') + '</button>';
-  };
-  var fertig = SP_KACHELN.filter(function(k){ return !k.folgt; }), offen = SP_KACHELN.filter(function(k){ return k.folgt; });
-  return '<div class="st-seite">' +
-    '<header class="st-hero"><div class="st-hl"><h1>Spire</h1><p>Eine meilenhohe, unmögliche Stadt, älter als irgendwer zurückdenken kann.</p></div>' +
-      '<div class="st-rev"><h5 onclick="go(\'nach/spielleitung/revolution\')">Revolution' + pgl(R.p) + '</h5><div class="st-stufen">' +
-      R.stufen.map(function(s, i){ return '<button class="' + (rv === i ? 'on' : '') + (i < rv ? ' vor' : '') + '" onclick="setRev(' + i + ')"><i>' + (i + 1) + '</i>' + esc(s) + '</button>'; }).join("") + '</div></div></header>' +
-    '<section class="st-sek"><h2 class="st-h">Am Spieltisch</h2><div class="st-tisch"><div class="st-spiel">' + spiel + '</div>' + ab + '</div>' +
-      '</section>' +
-    '<section class="st-sek"><h2 class="st-h">Nachschlagen</h2><div class="st-nach">' + fertig.map(kach).join("") + offen.map(kach).join("") + '</div></section>' +
+  var ab = SP_START_ABENTEUER.map(function(x){
+    return '<button class="sp-ab' + (x.go ? '' : ' pdf') + (x.go && last.indexOf(x.go) === 0 ? ' on' : '') + '" onclick="' + stKlick(x) + '"><span class="cv"><img src="' + IMG(x.img) + '" alt="" loading="lazy"></span><b>' + esc(x.t) + '</b><small>' + esc(x.s) + '</small></button>';
+  }).join("");
+  var bu = SP_START_BUECHER.map(function(x){
+    return '<button class="sp-bu' + (x.go ? '' : ' pdf') + '" onclick="' + stKlick(x) + '" title="' + esc(x.t) + '">' +
+      (x.img ? '<img src="' + IMG(x.img) + '" alt="" loading="lazy">' : '<span class="ph"><img src="../assets/logos/the-spire.webp" alt=""><i>' + esc(x.t) + '</i></span>') + '<b>' + esc(x.t) + '</b></button>';
+  }).join("");
+  return '<div class="sp-start">' +
+    '<header class="sp-hero"><div class="sp-rev"><h5 onclick="go(\'nach/spielleitung/revolution\')">Revolution</h5><div class="sp-stufen">' +
+      R.stufen.map(function(t, i){ return '<button class="' + (rv === i ? 'on' : '') + (i < rv ? ' vor' : '') + '" onclick="setRev(' + i + ')"><i>' + (i + 1) + '</i>' + esc(t) + '</button>'; }).join("") + '</div></div></header>' +
+    '<section class="sp-saeulen">' + saeulen + '</section>' +
+    '<section class="sp-band"><div class="sp-abk"><h2>Abenteuer</h2><div class="sp-abl">' + ab + '</div></div>' +
+      '<div class="sp-buk"><h2>Bücher</h2><div class="sp-bul">' + bu + '</div></div></section>' +
   '</div>';
 }
 (window.SP_SUCHE = window.SP_SUCHE || []).push(function(add){
@@ -190,8 +210,10 @@ function render(){
   else out = viewStart();
   if(out == null) return;
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
+  if(v !== "start" && out.indexOf('class="tabs') < 0 && out.indexOf('class="begl') < 0) out = unterleiste("") + out;
   APP.innerHTML = out; scrollTo(0, same ? y : 0);
   document.body.dataset.view = v;
+  kopfTabs();
   if(window.afterRender) afterRender();
 }
 
@@ -205,7 +227,7 @@ function buildMenu(){
     return mb("openBook('" + b.id + "',1)", esc(b.name) + (b.sub ? '<small>' + esc(b.sub) + '</small>' : ''), "", c ? '<img src="' + c + '" alt="">' : '<i class="ph"></i>');
   }).join(""); }).join("");
   document.getElementById("mmP").innerHTML =
-    '<h3>Nachschlagen</h3>' + mb("go('start')", "Vorbereitung") + nach + mb("go('masken')", "Buch der Masken") +
+    '<h3>Nachschlagen</h3>' + mb("go('start')", "Startseite") + nach + mb("go('masken')", "Buch der Masken") +
     '<h3>Werkzeuge</h3>' + mb("schirmOpen()", "Spielleiterschirm", "s") + mb("wOpen()", "Würfel", "w") + mb("sOpen()", "Suche", "/") + mb("go('galerie')", "Galerie") + mb("charakterbogen()", "Charakterbogen") +
     '<h3>Bücher</h3>' + buecher + mb("modal(BV.settingsHTML())", "PDF hochladen …");
 }

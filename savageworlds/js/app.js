@@ -46,6 +46,7 @@ function render(){
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "aufstiege") return aufstiegePage();
   if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "ruestung") return ruestungPage();
   if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "waffen") return waffenPage();
+  if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "fahrzeuge") return fahrzeugePage();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }
@@ -168,6 +169,22 @@ function waffenPage(){
   APP.innerHTML = '<div class="lay' + (ST.fold ? " fold-on" : "") + '" id="lay"><aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + side + '</aside><main class="ct"><h2>' + esc(WSET[k][0]) + (WSET[k][1].length === 1 ? '<span class="pg" onclick="openBook(\'sw_de\',' + (WPG[WSET[k][1][0]] + 1) + ')">S. ' + WPG[WSET[k][1][0]] + "</span>" : "") + "</h2>" + h + "</main></div>";
 }
 function wKat(i){ ST.wk = i; save(); waffenPage(); window.scrollTo(0, 0); }
+
+var FSET = ["Bodenfahrzeuge", "Fluggeräte", "Wasserfahrzeuge", "Anmerkungen"], FPG = {"Bodenfahrzeuge":83,"Fluggeräte":84,"Wasserfahrzeuge":85,"Anmerkungen":82};
+function fahrzeugePage(){
+  var F = SW_FAHRZEUGE, k = ST.fk || 0; if(!FSET[k]) k = 0;
+  var side = FSET.map(function(w, i){ return '<a class="' + (i === k ? "on" : "") + '" onclick="fKat(' + i + ')">' + esc(w) + "</a>"; }).join("");
+  var h;
+  if(k === 3){
+    var card = function(a){ return '<div class="hc" style="--rc:#7a7067"><b>' + nm(a[0]) + "</b><p>" + esc(a[1]) + "</p></div>"; };
+    h = edP(F.i) + '<h4 class="rk" style="--rc:#a51f1a"><span>Angaben</span></h4><div class="hg">' + F.a.map(card).join("") + '</div><h4 class="rk" style="--rc:#a51f1a"><span>Merkmale</span></h4><div class="hg">' + F.gl.map(card).join("") + "</div>";
+  } else {
+    var s = F.s.filter(function(x){ return x.h === FSET[k]; })[0];
+    h = eqGroups(F.cols, s.g);
+  }
+  APP.innerHTML = '<div class="lay' + (ST.fold ? " fold-on" : "") + '" id="lay"><aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + side + '</aside><main class="ct"><h2>' + esc(FSET[k]) + '<span class="pg" onclick="openBook(\'sw_de\',' + (FPG[FSET[k]] + 1) + ')">S. ' + FPG[FSET[k]] + "</span></h2>" + h + "</main></div>";
+}
+function fKat(i){ ST.fk = i; save(); fahrzeugePage(); window.scrollTo(0, 0); }
 function foldSide(){ ST.fold = ST.fold ? 0 : 1; save(); var l = document.getElementById("lay"); if(l) l.classList.toggle("fold-on", !!ST.fold); }
 function dlPage(){ APP.innerHTML = '<div class="st"><div class="soon">Deadlands folgt.</div></div>'; }
 

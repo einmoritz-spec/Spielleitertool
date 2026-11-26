@@ -149,6 +149,6 @@ body.dl-mode{--paper:#e6d3a8;--paper2:#efe0bb;--red:#6b2a14;--night:#1c0f08;--li
 .et th{font:600 11px Oswald,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);text-align:left;padding:4px 10px;border-bottom:2px solid var(--c);white-space:nowrap}
 .et td{padding:5px 10px;border-bottom:1px solid rgba(0,0,0,.09);vertical-align:top}
 .et .n{text-align:right;white-space:nowrap}.et th.n{text-align:right}
-.et td:first-child{font-weight:600}
-.et tr.hn td{border-bottom:0}.et tr.en td{padding:0 10px 6px;font-size:13px;color:var(--soft);font-style:italic;white-space:normal}
+.et td:first-child{font-weight:400;font-size:16px;color:var(--c)}
+.et tr.hn td{border-bottom:0}.et tr.en td{padding:0 10px 6px;font-size:13px;color:var(--soft);white-space:normal}
 .rk .pg{margin-left:10px}

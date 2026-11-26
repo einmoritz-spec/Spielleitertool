@@ -1070,3 +1070,8 @@ body.anschluss .ktabs a.on::after{content:"";position:absolute;left:0;right:0;bo
 .sp-ab.pdf img,.sp-bu.pdf>img,.sp-bu.pdf .ph{filter:grayscale(1) brightness(.95);opacity:.5;transition:opacity .2s,filter .2s}
 .sp-ab.pdf:hover img,.sp-bu.pdf:hover>img,.sp-bu.pdf:hover .ph{opacity:.8}
 .sp-ab.pdf b,.sp-ab.pdf small,.sp-bu.pdf b{color:#8793a3}
+
+/* Klassen aus Quellenbüchern (Sin, Strata, Black Magic) */
+.kl-t em.herk{display:block;font:italic 400 13px/1.2 var(--f-text);color:#9fb2c8;margin-top:3px}
+.kf-sub{margin:2px 0 8px}
+.schwarz h4 .pg{color:#9fb2c8;margin-left:8px;font-size:13px}

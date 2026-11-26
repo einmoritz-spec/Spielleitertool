@@ -26,11 +26,13 @@ function klAusr(L){
   });
   return h + (ul ? "</ul>" : "");
 }
+function klB(b){ return b ? String(b).replace(/^sp_/, "") : undefined; }
+function klBox(b, buch){ return '<div class="schwarz"><h4>' + esc(b.h) + (b.p ? pgl(b.p, buch) : "") + "</h4>" + blk(b.b) + "</div>"; }
 function klLen(a){ return JSON.stringify(a.x).length + (a.fl ? a.fl.length : 0); }
 /* Fähigkeitskarte: Name · Tag · Seite, Flavour kursiv, Buchtext */
 function klKarte(a, buch, basis){
   var br = klLen(a) > 1100 || JSON.stringify(a.x).indexOf('"tbl"') >= 0;
-  return '<div class="kf' + (br ? ' br' : '') + '"' + (basis ? ' style="flex-basis:' + basis + '"' : '') + '><h4>' + esc(a.t) + (a.tag ? '<span class="tag g">' + esc(a.tag) + '</span>' : '') + (a.p ? pgl(a.p, buch) : '') + '</h4>' +
+  return '<div class="kf' + (br ? ' br' : '') + '"' + (basis ? ' style="flex-basis:' + basis + '"' : '') + '><h4>' + (a.t.indexOf("[[") >= 0 ? md(a.t) : esc(a.t)) + (a.tag ? '<span class="tag g">' + esc(a.tag) + '</span>' : '') + (a.p ? pgl(a.p, buch) : '') + '</h4>' +
     (a.fl ? '<p class="fl">' + md(a.fl) + '</p>' : '') + blk(a.x) + '</div>';
 }
 function klKern(L, buch){
@@ -39,23 +41,28 @@ function klKern(L, buch){
 }
 var KL_STUFE = {niedrig:"Niedrig", mittel:"Mittel", hoch:"Hoch"};
 /* Fortschritte je Stufe als Zeile: Etikett links (bleibt beim Scrollen stehen), Karten rechts; Kästen der Stufe darunter */
-function klFort(F, intro, hinweis, boxen, buch){
+function klFort(F, intro, hinweis, boxen, buch, sub){
   return ["niedrig", "mittel", "hoch"].filter(function(g){ return F[g] && F[g].length; }).map(function(g){
     var kasten = (boxen || []).filter(function(b){ return b.nach === g || b.grp === g; });
     return '<div class="kf-zeile"><div class="kf-lab"><span>' + KL_STUFE[g] + '</span></div><div class="kf-rechts">' +
+      (sub && sub[g] ? '<h3 class="un kf-sub">' + esc(sub[g]) + '</h3>' : '') +
       (intro && intro[g] ? '<p class="kf-intro">' + md(intro[g]) + '</p>' : '') +
       '<div class="kfs">' + F[g].map(function(a){ return klKarte(a, buch); }).join("") + '</div>' +
       (hinweis && hinweis[g] ? '<p class="kf-intro">' + md(hinweis[g]) + '</p>' : '') +
-      kasten.map(function(b){ return blk([{t:"schwarz", h:b.h, b:b.b}]); }).join("") + '</div></div>';
+      kasten.map(function(b){ return klBox(b, buch); }).join("") + '</div></div>';
   }).join("");
 }
 function klById(id){ var r = null; (window.SP_KLASSE || []).forEach(function(k){ if(k.id === id) r = k; }); return r; }
 function klKurz(k){ var s = String(k.intro[0] || "").replace(/\*/g, ""), m = s.match(/^.{20,70}?(?:[ ,](?=\S))/); var t = s.length > 70 ? s.slice(0, 70).replace(/\s+\S*$/, "") + " …" : s; return t; }
 
+function klAbschn(A, buch){
+  return '<h2 class="ab">' + esc(A.t) + (A.p ? pgl(A.p, buch) : "") + '</h2>' + (A.intro || []).map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") +
+    (A.gruppen || []).map(function(g){ return (g.h ? '<h3 class="un kf-sub">' + esc(g.h) + '</h3>' : '') + '<div class="kfs">' + g.karten.map(function(a){ return klKarte(a, buch); }).join("") + '</div>'; }).join("");
+}
 var MG_BILD = ["gutter-cleric", "blood-witch", "inksmith", "mortician-executioner", "shadow-agent"];
 /* ---------- Übersicht (Entwurf 7) ---------- */
 function klKachel(k){
-  return '<div class="kl-t" onclick="go(\'nach/klassen/' + k.id + '\')"><span class="im"><img src="' + IMG("klasse/" + k.id) + '" alt="" loading="lazy"></span><span class="tx"><b>' + esc(k.t) + '</b><small>' + esc(klKurz(k)) + '</small>' + pgl(k.p) + '</span></div>';
+  return '<div class="kl-t" onclick="go(\'nach/klassen/' + k.id + '\')"><span class="im"><img src="' + IMG("klasse/" + k.id) + '" alt="" loading="lazy"></span><span class="tx"><b>' + esc(k.t) + '</b>' + (k.herk ? '<em class="herk">' + esc(k.herk) + '</em>' : '') + '<small>' + esc(klKurz(k)) + '</small>' + pgl(k.p, klB(k.buch)) + '</span></div>';
 }
 function klMgKachel(id){
   var M = SP_MG[id], bild = MG_BILD.indexOf(id) >= 0, ini = M.t.split(/[\s-]+/).map(function(w){ return w.charAt(0); }).join("").slice(0, 2).toUpperCase();
@@ -115,14 +122,15 @@ function klMgSeite(id){
 function klSeite(K){
   var kern = K.kern, kk = function(l, v){ return v ? '<div class="kk"><h5>' + l + '</h5><p>' + md(v) + '</p></div>' : ''; };
   var kopf = '<div class="kp-kopf"><img class="kp-bild" src="' + IMG("klasse/" + K.id) + '" alt="" onclick="zoom(this.src)"><div class="kp-tx">' + (window.SP_MG && SP_MG[K.id] ? klModus(K.id, false) : '') +
-    '<h1 class="titel">' + esc(K.t) + pgl(K.p) + '</h1><p class="kp-zitat">' + md(K.zitat) + '</p>' + K.intro.map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") +
+    '<h1 class="titel">' + esc(K.t) + pgl(K.p, klB(K.buch)) + '</h1><p class="kp-zitat">' + md(K.zitat) + '</p>' + K.intro.map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") +
     '<div class="kp-kern">' + kk("Widerstände", kern.wid) + kk("Auffrischen", kern.auff) + kk("Fertigkeiten", kern.fert) + kk("Domänen", kern.dom) + '</div></div></div>' +
     '<div class="kp-bk"><div class="kk"><h5>Bindungen</h5><ul class="pkt">' + K.bind.map(function(x){ return "<li>" + md(x) + "</li>"; }).join("") + '</ul></div>' +
     '<div class="kk"><h5>Ausrüstung</h5>' + klAusr(K.ausr) + '</div></div>';
-  var kb = (K.boxen || []).filter(function(b){ return b.nach === "kfae" || b.nach === "kern"; });
-  return nachTabs("klassen") + klSubtabs(K.id) + voll('<div class="kp" data-pgbook="sp_cmf">' + kopf +
-    '<h2 class="ab">Kernfähigkeiten</h2>' + klKern(K.kfae) + kb.map(function(b){ return blk([{t:"schwarz", h:b.h, b:b.b}]); }).join("") +
-    '<h2 class="ab">Fortschritte</h2>' + klFort(K.fort, K.fortIntro, K.hinweis, K.boxen) + '</div>');
+  var kb = (K.boxen || []).filter(function(b){ return b.nach === "kfae" || b.nach === "kern"; }), bu = klB(K.buch);
+  var as = function(n){ return (K.abschn || []).filter(function(a){ return a.nach === n; }).map(function(a){ return klAbschn(a, bu); }).join(""); };
+  return nachTabs("klassen") + klSubtabs(K.id) + voll('<div class="kp" data-pgbook="' + (K.buch || "sp_cmf") + '">' + kopf +
+    '<h2 class="ab">Kernfähigkeiten</h2>' + klKern(K.kfae, bu) + kb.map(function(b){ return klBox(b, bu); }).join("") + as("kfae") +
+    '<h2 class="ab">Fortschritte</h2>' + klFort(K.fort, K.fortIntro, K.hinweis, K.boxen, bu, K.fortSub) + as("fort") + '</div>');
 }
 SP_NACH_VIEW.klassen = function(teile){
   var K = teile[0] && klById(teile[0]);
@@ -138,18 +146,21 @@ function klTitel(t){ return String(t).toLowerCase().split(" ").map(function(w, i
 function klExtraWeg(w){
   var X = window.SP_EXTRA, ck = function(l, v){ return v ? '<div class="kk"><h5>' + l + '</h5><p>' + md(v) + '</p></div>' : ''; };
   var kasten = (X.boxen || []).filter(function(b){ return b.nach === w.id && !b.grp; });
-  return '<section id="ab-' + w.id + '"><h2 class="ab">' + esc(w.t) + pgl(w.p) + '</h2>' +
+  var bu = klB(w.buch);
+  return '<section id="ab-' + w.id + '"><h2 class="ab">' + esc(w.t) + pgl(w.p, bu) + '</h2>' +
     (w.ein || []).map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") +
     '<div class="kp-kern kp-ex">' + ck("Voraussetzung", w.vor) + ck("Auffrischen", w.auff) + '</div>' +
     (w.info || []).map(function(x){ return '<p class="kp-intro">' + md(x) + '</p>'; }).join("") +
     (w.tab ? blk([{t:"w10", h:"Vys-Fortschritte", id:"vyskant", rows:w.tab}]) : '') +
-    klFort(w.fort, null, null, (X.boxen || []).filter(function(b){ return b.nach === w.id && b.grp; })) +
+    (w.kern ? '<h3 class="un kf-sub">Kernfähigkeit</h3>' + klKern(w.kern, bu) : '') +
+    klFort(w.fort, null, null, (X.boxen || []).filter(function(b){ return b.nach === w.id && b.grp; }), bu) +
+    (w.abschn || []).map(function(a){ return klAbschn(a, bu); }).join("") +
     kasten.map(function(b){ return blk([{t:"schwarz", h:b.h, b:b.b}]); }).join("") + '</section>';
 }
 SP_NACH_VIEW.extra = function(teile){
   var X = window.SP_EXTRA; nAnker("extra", teile);
-  var side = '<h5 onclick="scrollTo({top:0,behavior:\'smooth\'})">Extra-Fortschritte</h5>' + X.wege.map(function(w, i){ return nLink({id:w.id, t:w.t, k:klTitel(w.t)}, i); }).join("");
-  var body = '<div class="kp kl-ex"><h1 class="titel">Extra-Fortschritte' + pgl(69) + '</h1>' + X.intro.map(function(x){ return '<p class="einl">' + md(x) + '</p>'; }).join("") + X.wege.map(klExtraWeg).join("") + '</div>';
+  var side = '<h5 onclick="scrollTo({top:0,behavior:\'smooth\'})">Extra-Fortschritte</h5>' + X.wege.map(function(w, i){ return nLink({id:w.id, t:w.t, k:klTitel(w.t)}, i); }).join("") + (X.fallout ? nLink({id:X.fallout.id, t:X.fallout.t, k:X.fallout.t}, 1) : "");
+  var body = '<div class="kp kl-ex"><h1 class="titel">Extra-Fortschritte' + pgl(69) + '</h1>' + X.intro.map(function(x){ return '<p class="einl">' + md(x) + '</p>'; }).join("") + X.wege.map(klExtraWeg).join("") + (X.fallout ? '<section id="ab-' + X.fallout.id + '">' + klAbschn(X.fallout, klB(X.fallout.buch)) + '</section>' : '') + '</div>';
   return nSeite("extra", side, body);
 };
 
@@ -161,9 +172,10 @@ SP_NACH_VIEW.extra = function(teile){
     C.dienst.x.concat(C.dienst.oder).forEach(function(d){ add(d.t, "Dienstzeit", "nach/klassen/dienstzeit", d.p, [d.w, d.x]); });
   }
   (window.SP_KLASSE || []).forEach(function(K){
-    add(K.t, "Klasse", "nach/klassen/" + K.id, K.p, [K.zitat, K.intro, K.kern, K.bind, K.ausr, K.fortIntro, K.hinweis, K.boxen]);
-    K.kfae.forEach(function(a){ add(a.t, "Kernfähigkeit · " + K.t, "nach/klassen/" + K.id, a.p, [a.fl, a.x]); });
-    ["niedrig", "mittel", "hoch"].forEach(function(g){ K.fort[g].forEach(function(a){ add(a.t, "Fortschritt " + KL_STUFE[g] + " · " + K.t, "nach/klassen/" + K.id, a.p, [a.fl, a.x]); }); });
+    add(K.t, "Klasse", "nach/klassen/" + K.id, K.p, [K.zitat, K.intro, K.kern, K.bind, K.ausr, K.fortIntro, K.hinweis, K.boxen, K.fortSub], klB(K.buch));
+    (K.abschn || []).forEach(function(A){ add(A.t, "Klasse · " + K.t, "nach/klassen/" + K.id, A.p, [A.intro, A.gruppen], klB(K.buch)); });
+    K.kfae.forEach(function(a){ add(a.t, "Kernfähigkeit · " + K.t, "nach/klassen/" + K.id, a.p, [a.tag, a.fl, a.x], klB(K.buch)); });
+    ["niedrig", "mittel", "hoch"].forEach(function(g){ K.fort[g].forEach(function(a){ add(a.t, "Fortschritt " + KL_STUFE[g] + " · " + K.t, "nach/klassen/" + K.id, a.p, [a.tag, a.fl, a.x], klB(K.buch)); }); });
   });
   Object.keys(window.SP_MG || {}).forEach(function(id){
     var M = SP_MG[id], r = "nach/klassen/" + id + (klById(id) ? "/mg" : "");
@@ -173,9 +185,15 @@ SP_NACH_VIEW.extra = function(teile){
   var X = window.SP_EXTRA; if(!X) return;
   add("Extra-Fortschritte", "Extra-Fortschritte", "nach/extra", 69, [X.intro, (X.boxen || []).filter(function(b){ return !X.wege.some(function(w){ return w.id === b.nach; }); })]);
   X.wege.forEach(function(w){
-    add(w.t, "Extra-Fortschritte", "nach/extra/" + w.id, w.p, [w.vor, w.auff, w.ein, w.info, w.tab, (X.boxen || []).filter(function(b){ return b.nach === w.id; })]);
-    ["niedrig", "mittel", "hoch"].forEach(function(g){ w.fort[g].forEach(function(a){ add(a.t, "Extra-Fortschritt " + KL_STUFE[g] + " · " + w.t, "nach/extra/" + w.id, a.p, [a.fl, a.x]); }); });
+    add(w.t, "Extra-Fortschritte", "nach/extra/" + w.id, w.p, [w.vor, w.auff, w.ein, w.info, w.tab, (X.boxen || []).filter(function(b){ return b.nach === w.id; })], klB(w.buch));
+    (w.kern || []).forEach(function(a){ add(a.t, "Extra-Kernfähigkeit · " + w.t, "nach/extra/" + w.id, a.p, [a.tag, a.fl, a.x], klB(w.buch)); });
+    (w.abschn || []).forEach(function(A){ add(A.t, "Extra-Fortschritte · " + w.t, "nach/extra/" + w.id, A.p, [A.intro, A.gruppen], klB(w.buch)); });
+    ["niedrig", "mittel", "hoch"].forEach(function(g){ w.fort[g].forEach(function(a){ add(a.t, "Extra-Fortschritt " + KL_STUFE[g] + " · " + w.t, "nach/extra/" + w.id, a.p, [a.tag, a.fl, a.x], klB(w.buch)); }); });
   });
+  var FO = X.fallout; if(FO){
+    add(FO.t, "Extra-Fortschritte", "nach/extra/" + FO.id, FO.p, [FO.intro], klB(FO.buch));
+    FO.gruppen.forEach(function(g){ g.karten.forEach(function(a){ add(a.t, "Okkulter Fallout " + g.h, "nach/extra/" + FO.id, a.p, [a.tag, a.fl, a.x], klB(FO.buch)); }); });
+  }
 });
 
 /* ---------- Magister's Guide: Neue Systeme und Essays (MG S. 4–55) ---------- */

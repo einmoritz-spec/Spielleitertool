@@ -70,8 +70,11 @@ var INH = (function(){
   /* aj-<bereich>.js legt BC_DATA[bereich] = {parts:["id",…]} an; jede Teildatei aj-<bereich>/<id>.js setzt BC_PART["<bereich>/<id>"] = {id,t,sub,s,blocks} */
   window.BC_PART = window.BC_PART || {};
   function script(u, ok, bad){ var s = document.createElement("script"); s.src = u; s.onload = ok; s.onerror = bad || ok; document.head.appendChild(s); }
+  var WAIT = {};
   function load(area, file, cb){
     if(BC_DATA[area] && BC_DATA[area].subs) return cb();
+    if(WAIT[area]){ WAIT[area].push(cb); return; }
+    WAIT[area] = [cb]; var cb0 = cb; cb = function(){ var q = WAIT[area]; delete WAIT[area]; q.forEach(function(f){ f(); }); };
     script("js/data/" + file + ".js", function(){
       var D = BC_DATA[area]; if(!D){ D = BC_DATA[area] = {parts: []}; }
       var left = (D.parts || []).length, fin = function(){ D.subs = (D.parts || []).map(function(p){ return BC_PART[area + "/" + p]; }).filter(Boolean); if(!D.subs.length) D.subs = [{id: "x", t: "Folgt", blocks: [{t: "prose", p: ["Dieser Bereich wird gerade aufgebaut."]}]}]; cb(); };
@@ -107,6 +110,14 @@ var INH = (function(){
     function on(){ var cur = 0; hs.forEach(function(h, i){ if(h.getBoundingClientRect().top < 200) cur = i; }); links.forEach(function(l, i){ l.classList.toggle("on", i === cur); }); }
     window.onscroll = on; on();
   }
+  /* alles laden (für die Suche): Bereiche mit Teilen und Folgen */
+  function loadAll(done){
+    var ALL = allAreas(), eps = Object.keys(window.BC_EPOK || {}), n = ALL.length + eps.length;
+    if(!n) return done();
+    function ok(){ if(--n === 0) done(); }
+    ALL.forEach(function(a){ load(a.id, a.file, ok); });
+    eps.forEach(function(id){ if(BC_EP[id]) return ok(); script("js/data/ep-" + id + ".js", ok); });
+  }
   function fold(){ var w = document.querySelector(".wrap2"); if(!w) return; var z = w.classList.toggle("zu"); try{ localStorage.setItem("bc_sidezu", z ? "1" : "0"); }catch(e){} }
-  return {fold: fold, render: render, go: function(id){ var e = document.getElementById(id); if(e) window.scrollTo({top: e.getBoundingClientRect().top + scrollY - 130, behavior: "smooth"}); }, md: md, block: block, post: function(f){ POST = f; }};
+  return {loadAll: loadAll, areas: allAreas, fold: fold, render: render, go: function(id){ var e = document.getElementById(id); if(e) window.scrollTo({top: e.getBoundingClientRect().top + scrollY - 130, behavior: "smooth"}); }, md: md, block: block, post: function(f){ POST = f; }};
 })();

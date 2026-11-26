@@ -73,6 +73,30 @@
     }, function(){ bar(null); ready = null; });
     return ready;
   }
-  window.sucheOpen = function(){ bereit().then(function(){ GSuche.open(); }); };
-  if(window.requestIdleCallback) requestIdleCallback(function(){ bereit(); }, {timeout: 4000}); else setTimeout(bereit, 2000);
+  /* Inhalte des Tools selbst (Adventure Journal, Staffeln, Folgen) */
+  var inh = null, TYP = {prose: 1, cards: 1, tiles: 1, box: 1, script: 1, steps: 1, table: 1, chips: 1, list: 1, quote: 1, n: 1, d: 1, cut: 1, clue: 1, img: 1};
+  function rein(o){
+    if(Array.isArray(o)) return o.map(rein);
+    if(o && typeof o === "object"){ var r = {}; Object.keys(o).forEach(function(k){ if(k === "t" && TYP[o[k]]) return; if(k === "style" || k === "cols" || k === "fold" || k === "dark") return; r[k] = rein(o[k]); }); return r; }
+    return typeof o === "string" ? o.replace(/\{[a-zA-Z]+:[^}|]*\|?([^}]*)\}/g, "$1") : o;
+  }
+  function inhalt(){
+    if(!inh) inh = new Promise(function(res){
+      INH.loadAll(function(){
+        GSuche.add(function(add){
+          INH.areas().forEach(function(a){
+            var D = BC_DATA[a.id]; if(!D || !D.subs) return;
+            D.subs.forEach(function(s){ add(a.t + " › " + s.t, a.grp === "aj" ? "Adventure Journal" : BC_BUCH[a.grp].t, "#a/" + a.id + "/" + s.id, rein(s.blocks)); });
+          });
+          Object.keys(BC_EP).forEach(function(id){ var E = BC_EP[id]; add((E.lab ? E.lab + " › " : "") + E.t, "Folgen", "#e/" + id, rein([E.intro, E.scenes, E.outro])); });
+        });
+        res();
+      });
+    });
+    return inh;
+  }
+  window.sucheOpen = function(){ Promise.all([bereit(), inhalt()]).then(function(){ GSuche.open(); }); };
+  function _alt(){ bereit().then(function(){ GSuche.open(); }); };
+  window.sucheOpen = window.sucheOpen;
+  if(window.requestIdleCallback) requestIdleCallback(function(){ inhalt(); bereit(); }, {timeout: 4000}); else setTimeout(function(){ inhalt(); bereit(); }, 2000);
 })();

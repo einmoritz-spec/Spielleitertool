@@ -1059,3 +1059,8 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 .tab.on::before,.tab.on::after{top:0;width:40px;height:34px}
 .tab.on::before{left:-14px}.tab.on::after{right:-14px}
 .ktabs.abt .tab.on{background:none;padding:0 13px;margin:0}
+/* hochskalierte Zierleiste (Gemini): schlanker Schaft, Spitzen links/rechts */
+.rail .rl,.rail .rr{height:14px}
+.rail .rl{border-width:0 0 0 19px;border-image:url(img/orn/rail-l.png) 0 0 0 80 fill / 0 0 0 19px stretch}
+.rail .rr{border-width:0 17px 0 0;border-image:url(img/orn/rail-r.png) 0 70 0 0 fill / 0 17px 0 0 stretch}
+.rail .md{width:146px;height:34px}

@@ -169,3 +169,4 @@ body.ve-vault{background:#17111f}
 .vct.vunten>.vre{flex-direction:row}
 @media (max-width:1600px){.vct:not(.vunten):not(.voben)>article .vfdi{grid-template-columns:1fr}}
 .vweiter .vfdi{column-span:all;grid-template-columns:repeat(3,1fr)!important}
+.vweiter>p,.vzweisp>p,.vzwei>p{orphans:4;widows:4}

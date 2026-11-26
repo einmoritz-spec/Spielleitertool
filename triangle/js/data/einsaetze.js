@@ -13,4 +13,4 @@ var TA_EINSATZ = [
  {id:"trains", n:11, t:"Blame it on the Trains", de:"Schuld sind die Züge", von:"Viditya Voleti", c:"#0c5448", p:180, img:"vault/full/11-blame-it-on-the-trains-titel"},
  {id:"nosedive", n:12, t:"Nosedive", de:"Sturzflug", von:"Caleb Zane Huett", c:"#e43084", p:198, img:"vault/full/12-nosedive-titel"}
 ];
-var TA_SPACE = {id:"space", t:"You’re in Space and Everything’s Perfectly Fine", de:"Du bist im Weltraum und alles ist völlig in Ordnung", von:"Caleb Zane Huett und Nevyn Holmes", c:"#d95560", p:1};
+var TA_SPACE = {id:"space", t:"You’re in Space and Everything’s Perfectly Fine", de:"Du bist im Weltraum und alles ist völlig in Ordnung", von:"Caleb Zane Huett und Nevyn Holmes", c:"#d95560", p:1, img:"space/full/titel-raumstation-raster"};

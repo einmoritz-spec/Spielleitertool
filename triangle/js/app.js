@@ -126,7 +126,7 @@ function render(){
   if(r === "h" || r === "w"){ akz(FARBE[a.c]); out = viewLesen(a, h[1], h[2]); }
   else if(r === "ark"){ var k = TA_ARK[h[1]] ? h[1] : (h[1] === "fragebogen" ? "fragebogen" : "anomalie"); akz(FARBE[k === "fragebogen" ? "rot" : TA_ARK[k].c]); out = viewArk(k, h[2]); }
   else if(r === "pw"){ akz(FARBE.tinte); out = viewPw(h[1]); }
-  else if(r === "e"){ var E = einsatz(h[1]); akz(E ? E.c : h[1] === "vault" ? "#17111f" : FARBE.rot); out = h[1] === "vault" ? viewVaultIntro() : (h[1] !== "space" && window.viewVault) ? viewVault(h[1], h[2], h[3]) : viewEinsatz(h[1]); }
+  else if(r === "e"){ var E = einsatz(h[1]); akz(E ? E.c : h[1] === "vault" ? "#17111f" : FARBE.rot); out = h[1] === "vault" ? viewVaultIntro() : ((h[1] !== "space" || (window.TA_VAULT && TA_VAULT.space)) && window.viewVault) ? viewVault(h[1], h[2], h[3]) : viewEinsatz(h[1]); }
   else { r = "start"; document.body.classList.add("start"); akz(FARBE.rot); out = viewStart(); }
   ktabs(r);
   var same = window.__lh === location.hash, y = window.scrollY; window.__lh = location.hash;

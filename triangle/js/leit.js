@@ -7,6 +7,8 @@
 window.TA_VAULT = window.TA_VAULT || {};
 window.TA_VB = window.TA_VB || {};
 var VR = [["profil","Profil"],["vor","Vor der Ermittlung"],["erm","Ermittlung"],["beg","Begegnung"],["nach","Nachspiel"]];
+var VBUCH = "ta_vault";
+function vRL(V){ return (V && V.reiterListe) || VR; }
 var VCTX = null;   /* aktueller Einsatz beim Rendern: {id, r, i, n} */
 
 function vst(id){ ST.v = ST.v || {}; return ST.v[id] = ST.v[id] || {c:0, l:0, h:{}, n:{}, x:{}}; }
@@ -78,13 +80,13 @@ function vAbschnitte(V, r){
 }
 function vUnter(id, V, r){
   var s = vst(id), namen = V.reiterNamen || {};
-  return '<nav class="unter vunter" data-unterleiste>' + VR.filter(function(q){ return vAbschnitte(V, q[0]).length; }).map(function(q){ return '<a class="' + (q[0] === r ? "on" : "") + '" onclick="go(\'e/' + id + '/' + q[0] + '\')">' + esc(namen[q[0]] || q[1]) + '</a>'; }).join("") +
+  return '<nav class="unter vunter" data-unterleiste>' + vRL(V).filter(function(q){ return vAbschnitte(V, q[0]).length; }).map(function(q){ return '<a class="' + (q[0] === r ? "on" : "") + '" onclick="go(\'e/' + id + '/' + q[0] + '\')">' + esc(namen[q[0]] || q[1]) + '</a>'; }).join("") +
     '<span class="vzs"><span class="vz vz-c"><img src="' + Z("symbol-chaos-wirbel") + '" alt=""><button onclick="vZahl(\'c\',-1)">–</button><b>' + (s.c || 0) + '</b><button onclick="vZahl(\'c\',1)">+</button><i>Chaos</i></span>' +
     '<span class="vz vz-l"><button onclick="vZahl(\'l\',-1)">–</button><b>' + (s.l || 0) + '</b><button onclick="vZahl(\'l\',1)">+</button><i>Lose Enden</i></span>' +
     '<button class="vstift' + (s.n[r] ? " voll" : "") + '" onclick="vNotiz()" title="Notizen"><svg viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z M14 6l4 4"/></svg></button></span></nav>';
 }
 function vRechts(id, V){
-  var chaos = (V.chaos || []).length ? '<div class="vchaos"><h4>Chaos-Effekte' + pgl(V.chaosP, "ta_vault") + '</h4>' + V.chaos.map(function(c){
+  var chaos = (V.chaos || []).length ? '<div class="vchaos"><h4>Chaos-Effekte' + pgl(V.chaosP, VBUCH) + '</h4>' + V.chaos.map(function(c){
     return '<a onclick="vChaos(' + c.k + ')" title="' + c.k + ' Chaos ausgeben"><b>' + c.k + '<img src="' + Z("symbol-chaos-wirbel") + '" alt=""></b><span><em>' + (c.neu ? '<i class="neu">▲</i>' : '') + esc(c.n) + '</em>' + tx(c.x) + '</span></a>'; }).join("") + '</div>' : '';
   var sonder = (V.sonder || []).length ? '<div class="vsonder">' + (V.sonder[0] && (V.sonder[0].h || V.sonder[0].t === "h") ? '' : '<h4>Sonderregel</h4>') + taB(V.sonder) + '</div>' : '';
   var ziele = (V.ziele || []).length ? '<div class="vziele"><h4>Optionale Ziele</h4>' + (V.zieleEinleitung ? '<p class="ve">' + tx(V.zieleEinleitung) + '</p>' : '') + V.ziele.map(function(z){
@@ -93,22 +95,22 @@ function vRechts(id, V){
 }
 function vKopf(E, V){
   return '<div class="vkopf"><img src="' + IMG(E.img) + '" alt="" onclick="zoom(this.src)"><div><h1>' + esc(E.t) + '</h1>' + (E.de !== E.t ? '<p class="de">' + esc(E.de) + '</p>' : '') +
-    '<p class="von">' + esc(E.von) + pgl(E.p, "ta_vault") + '</p>' + (V.cw ? '<p class="cw"><b>Inhaltswarnungen:</b> ' + esc(V.cw) + '</p>' : '') + '</div></div>';
+    '<p class="von">' + esc(E.von) + pgl(E.p, VBUCH) + '</p>' + (V.cw ? '<p class="cw"><b>Inhaltswarnungen:</b> ' + esc(V.cw) + '</p>' : '') + '</div></div>';
 }
 function viewVault(id, r, nr){
   vInit();
   var E = einsatz(id), V = TA_VAULT[id];
   if(!V) return viewEinsatzLeer(E);
-  if(!VR.some(function(q){ return q[0] === r; }) || !vAbschnitte(V, r).length) r = "profil";
+  if(!vRL(V).some(function(q){ return q[0] === r; }) || !vAbschnitte(V, r).length) r = "profil";
   var A = vAbschnitte(V, r), i = Math.max(0, Math.min(A.length - 1, +nr || 0)), sec = A[i];
-  VCTX = {id:id, r:r, i:i}; VK = 0;
+  VCTX = {id:id, r:r, i:i}; VK = 0; VBUCH = id === "space" ? "ta_space" : "ta_vault";
   document.body.classList.add("vault-e", "ve-" + id);
   var items = A.map(function(a, j){
     var subs = vHs(a.b || []);
     return {t:a.t, go:"e/" + id + "/" + r + "/" + j, on:j === i, sub:subs};
   });
   var body = '<article class="lesen vtext">' + (r === "profil" && i === A.findIndex(function(a){ return a.t !== "Fundstück"; }) ? vKopf(E, V) : '') +
-    (sec.t === "Fundstück" ? '<p class="vfpg">' + pgl(sec.p, "ta_vault") + '</p>' : '<h1>' + esc(sec.t) + pgl(sec.p, "ta_vault") + '</h1>') + taB(sec.b) +
+    (sec.t === "Fundstück" ? '<p class="vfpg">' + pgl(sec.p, VBUCH) + '</p>' : '<h1>' + esc(sec.t) + pgl(sec.p, VBUCH) + '</h1>') + taB(sec.b) +
     (r === "nach" && i === A.length - 1 ? '<p class="vbericht"><a class="gehzu" onclick="pwPop(\'A1\')">Einsatzbericht A1</a></p>' : '') + '</article>';
   /* Fundstück: Chaos-Spalte schwebt rechts, das Fundstück nutzt darunter die volle Breite */
   if(sec.t === "Fundstück") return vUnter(id, V, r) + vLay(items, body.replace('<article class="lesen vtext">', '<article class="lesen vtext vfund">' + vRechts(id, V).replace('class="vre"', 'class="vre vschwebt"')));
@@ -130,21 +132,21 @@ function vSpalten(){
   if(!a || !re || a.classList.contains("vfund") || ct.dataset.vs || innerWidth <= 1180) return;
   ct.dataset.vs = 1;
   var ha = a.offsetHeight, hr = re.offsetHeight;
-  if(hr - ha > 420){
+  if(hr - ha > 340){
     ct.classList.add("vunten");
     if(a.offsetHeight > 700) a.classList.add("vzwei");
     return;
   }
   if(ha - hr < 400) return;
   /* kurze rechte Spalte (z. B. nur Ziele): oben als Leiste, Text darunter zweispaltig */
-  if(hr < 700 && ha > 1400){ ct.classList.add("voben"); a.classList.add("vzwei"); return; }
+  if(hr < 700 && ha > 1400 && !a.querySelector(".sp-raeume")){ ct.classList.add("voben"); a.classList.add("vzwei"); return; }
   /* Schnitt dort, wo die rechte Spalte endet: Element mit kleinster Lücke, Abschnittsanfänge bevorzugt.
      Große Blöcke aus mehreren Karten (z. B. Figurenkarten) dürfen zwischen den Karten geteilt werden. */
   var top0 = a.getBoundingClientRect().top, ende = a.offsetHeight, C = [], best = 1e9, wahl = null;
   function y(el){ return el.getBoundingClientRect().top - top0; }
   Array.prototype.slice.call(a.children).forEach(function(k, i){
     if(i > 0) C.push({el:k, t:y(k), h2:k.tagName === "H2"});
-    if(k.offsetHeight > 800 && k.children.length > 2) Array.prototype.slice.call(k.children).forEach(function(c, j){ if(j > 0) C.push({el:c, t:y(c), innen:k}); });
+    if(k.offsetHeight > 800 && k.children.length > 2 && !k.classList.contains("sp-raeume")) Array.prototype.slice.call(k.children).forEach(function(c, j){ if(j > 0) C.push({el:c, t:y(c), innen:k}); });
   });
   C.forEach(function(c){
     if(c.t < 160 || ende - c.t < 400 || /^H[3-4]$/.test(c.el.tagName)) return;
@@ -171,7 +173,8 @@ function vSpalten(){
     w.classList.add("eins");
     var bestEl = null, n = 0;
     w.querySelectorAll("*").forEach(function(el){ var m = Array.prototype.filter.call(el.children, function(c){ return c.tagName === "P"; }).length; if(m > n){ n = m; bestEl = el; } });
-    if(bestEl && n > 1) bestEl.classList.add("vzweisp");
+    var mehr = false; for(var e = bestEl; e && e !== w; e = e.parentElement){ var cc = getComputedStyle(e).columnCount; if(cc !== "auto" && cc !== "1") mehr = true; }
+    if(bestEl && n > 1 && !mehr && !w.firstElementChild.classList.contains("sp-raeume")) bestEl.classList.add("vzweisp");
   }
 }
 /* Unterüberschriften (auch in Spalten) für die Seitenleiste */
@@ -194,7 +197,7 @@ document.addEventListener("keydown", function(e){
   if(!/^#e\//.test(location.hash) || !VCTX || e.ctrlKey || e.metaKey || e.altKey) return;
   var t = e.target || {}; if(/INPUT|TEXTAREA|SELECT/.test(t.tagName || "") || document.querySelector(".gs-ov,.gal,.bv-open,.modal,.gzoom")) return;
   var V = TA_VAULT[VCTX.id]; if(!V) return;
-  var rs = VR.map(function(q){ return q[0]; }).filter(function(k){ return vAbschnitte(V, k).length; }), ri = rs.indexOf(VCTX.r), n = vAbschnitte(V, VCTX.r).length;
+  var rs = vRL(V).map(function(q){ return q[0]; }).filter(function(k){ return vAbschnitte(V, k).length; }), ri = rs.indexOf(VCTX.r), n = vAbschnitte(V, VCTX.r).length;
   if(e.key === "ArrowRight" && ri < rs.length - 1){ go("e/" + VCTX.id + "/" + rs[ri + 1]); e.preventDefault(); }
   else if(e.key === "ArrowLeft" && ri > 0){ go("e/" + VCTX.id + "/" + rs[ri - 1]); e.preventDefault(); }
   else if(e.key === "ArrowDown" && VCTX.i < n - 1){ go("e/" + VCTX.id + "/" + VCTX.r + "/" + (VCTX.i + 1)); e.preventDefault(); }

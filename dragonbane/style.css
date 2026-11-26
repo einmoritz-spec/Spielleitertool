@@ -1064,3 +1064,8 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 .rail .rl{border-width:0 0 0 19px;border-image:url(img/orn/rail-l.png) 0 0 0 80 fill / 0 0 0 19px stretch}
 .rail .rr{border-width:0 17px 0 0;border-image:url(img/orn/rail-r.png) 0 70 0 0 fill / 0 17px 0 0 stretch}
 .rail .md{width:146px;height:34px}
+/* Banner: Füllung für den offenen Innenraum der Flügel – unter der Platte, über dem Hintergrund */
+.fluegel{isolation:isolate}
+.fluegel::before,.fluegel::after{content:"";position:absolute;top:0;bottom:0;aspect-ratio:524/273;background:center/100% 100% no-repeat;z-index:0;pointer-events:none}
+.fluegel::before{left:0;background-image:url(img/orn/banner-l-fuell.png)}
+.fluegel::after{right:0;background-image:url(img/orn/banner-r-fuell.png)}

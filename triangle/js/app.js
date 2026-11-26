@@ -95,8 +95,7 @@ function viewPw(code){
     '<div class="bu">' + buch.map(function(c){ return '<a class="' + (c === B ? "on" : "") + '" onclick="ST.pwBuch=\'' + c + '\';save();go(\'pw/' + c + '\')">' + c + '</a>'; }).join("") + '</div>' +
     '<div class="nu">' + nums.map(function(n){ return '<a class="' + (String(n) === nr ? "on" : (ST.pw || {})[B + n] ? "frei" : "") + '" onclick="pwSel(\'' + B + n + '\')">' + n + '</a>'; }).join("") + '</div>' +
     (frei.length ? '<div class="fr"><h4>Freigegeben</h4>' + frei.map(function(c){ return '<a onclick="go(\'pw/' + c + '\')">' + c + '</a>'; }).join("") + '</div>' : '') + '</div>';
-  var dok = p ? '<div class="dok"><div class="in">' + (TA_TEXT["pw/" + code] || '<div class="leer" onclick="openBook(\'ta_core\',' + p + ')"><img src="' + Z("symbol-akte-schloss") + '" alt=""></div>') + '</div>' +
-    '<aside class="tab"><em>' + code + '</em><a onclick="openBook(\'ta_core\',' + p + ')">S. ' + p + '</a></aside></div>' : '<div class="dok leerdok"></div>';
+  var dok = p ? '<div class="dok"><div class="in"><span class="dpg">' + pgl(p) + '</span>' + (TA_TEXT["pw/" + code] || '<div class="leer" onclick="openBook(\'ta_core\',' + p + ')"><img src="' + Z("symbol-akte-schloss") + '" alt=""></div>') + '</div></div>' : '<div class="dok leerdok"></div>';
   return '<div class="pwrap">' + links + dok + '</div>';
 }
 

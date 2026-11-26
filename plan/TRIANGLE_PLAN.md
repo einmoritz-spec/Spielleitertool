@@ -72,7 +72,7 @@ Darstellung: bis S. 161 normale Leseseiten, aber mit den blauen Zwischenrufen an
 
 ### Playwall
 - Links (Tinte): „WARTE!“, Code-Anzeige (Buchstabe + Zahl), Buchstabenfeld A–Z, darunter **nur die Nummern, die es für den Buchstaben gibt** (Z zeigt 1–3), darunter „Freigegeben“ mit allen bisher geöffneten Codes. Eintippen per Tastatur geht auch (Buchstabe, Zahl, Enter).
-- Rechts das Dokument auf Weiß mit blauem Klecks und rotem Code-Reiter (Code, Titel, Seite).
+- Rechts das Dokument auf Weiß mit blauem Klecks; Titel als Überschrift, Seitenangabe klein oben rechts. Kein Code-Reiter.
 - **Querverweise:** Jeder Code im Tool (Frage-Antwort-Kästen der Fähigkeiten, „GEHE ZU: A1“, Verweise in Dokumenten) öffnet das Dokument als Pop-up und trägt es unter „Freigegeben“ ein. Die drei Kästchen vor einem Code sind anklickbar (Fortschritt je Agent im Spielstand).
 - Dokument-Arten: Fähigkeiten (wie ARK-Karten), Beförderungen mit Anforderungen (Karten mit Preis und Bild), Laufbahn-Stufen, Ruhestands-Optionen (gelb markierte Passagen), ganzseitige Bilder, A1 Einsatzbericht (ausfüllbar), A2 Ripple Gun Ultima (dunkle Sonderseite), X1 The Abnormal Briefcase.
 - **Umschalter im Codefeld: „Wie im Buch“ / „Alles offen“.** Wie im Buch: nur Codes, Titel erst nach dem Öffnen, Suche („f“) findet nur freigegebene Dokumente. Alles offen: Liste aller Codes mit Titel je Buchstabe, alles durchsuchbar.
@@ -218,7 +218,7 @@ triangle/
 ## Entscheidungen (Moritz, 26. Nov. 2026)
 1. **Namen der 27 ARC-Einträge bleiben englisch** – auch die Kompetenzen (PR, R&D, Barista, CEO, Intern, Gravedigger, Reception, Hotline, Clown). Der Startseiten-Entwurf zeigt sie noch teils deutsch; beim Bau englisch.
 2. **Titel der 12 Einsätze bleiben englisch**, der deutsche Titel steht klein und grau darunter (Startseiten-Streifen, Einsatz-Kopf, Suche).
-3. **Kein Randreiter** (nach dem ersten Blick wieder gestrichen). Die Seitenangabe steht einmal klein hinter dem Titel. Der rote Code-Reiter am Playwall-Dokument bleibt.
+3. **Kein Randreiter** (nach dem ersten Blick wieder gestrichen). Die Seitenangabe steht einmal klein hinter dem Titel. Auch der rote Code-Reiter am Playwall-Dokument entfällt; der Code steht links im Codefeld, die Seitenangabe klein oben rechts im Dokument.
 4. **Space: nur die Triangle-Agency-Fassung**; die Teile für das zweite Spielsystem entfallen.
 5. **Agentenbogen: deutscher Nachbau**, ganz zum Schluss. Bis dahin kein Bogen im Tool.
 6. **Playwall: umschaltbar** zwischen „Wie im Buch“ (nur Codes, Titel erst nach dem Öffnen) und „Alles offen“ (alle Codes mit Titel, frei durchsuchbar). Schalter sichtbar im Codefeld, Einstellung wird gemerkt.

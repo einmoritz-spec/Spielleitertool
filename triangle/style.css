@@ -127,12 +127,10 @@ body.notop .side{top:42px;height:calc(100vh - 42px)}
 .bu a:hover,.nu a:hover{background:#ffffff3a}.bu a.on{background:#fff;color:var(--tinte)}
 .nu{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin-top:12px}.nu a.on{background:var(--rot)}.nu a.frei{box-shadow:inset 0 0 0 1.5px #fff8}
 .fr{margin-top:22px;position:relative;z-index:2}.fr h4{font-size:15px;margin-bottom:8px;opacity:.9}.fr a{display:inline-block;font:800 13px Fig,sans-serif;border:1.5px solid #fff7;border-radius:20px;padding:3px 11px;margin:0 5px 6px 0}.fr a:hover{background:#fff;color:var(--tinte)}
-.dok{display:grid;grid-template-columns:1fr 66px;background:#fff;position:relative;overflow:hidden}
+.dok{background:#fff;position:relative;overflow:hidden}
 .dok:before{content:"";position:absolute;left:-80px;bottom:-110px;width:420px;height:230px;background:var(--blau);border-radius:50% 60% 0 0/70% 90% 0 0}
 .dok .in{padding:30px 34px 140px;position:relative}
-.dok .tab{background:var(--rot);color:#fff;display:flex;flex-direction:column;align-items:center}
-.dok .tab em{display:block;width:100%;font:800 28px/66px Spartan,sans-serif;text-align:center;font-style:normal;background:#a3162a;letter-spacing:-.04em}
-.dok .tab a{margin-top:auto;padding-bottom:20px;font:800 13px Spartan,sans-serif}.dok .tab a:hover{text-decoration:underline}
+.dok .dpg{position:absolute;right:34px;top:8px}
 
 /* Einsatz-Kopf (Leitstand folgt) */
 .ekopf{display:flex;gap:34px;align-items:flex-end;padding:40px 54px}

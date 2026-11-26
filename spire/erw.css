@@ -49,3 +49,16 @@ body[data-erw="sin"] .eb-kopf{background:linear-gradient(180deg,#160f1e 0%,#2a1d
 .side a.sub{font-size:13.5px;color:var(--grau)}
 body[data-erw="bd"]{--blau:#5a2a1b;--wein:#b4531f;--acc:#b4531f}
 .wrap.zu .erw{margin:0 auto}
+
+/* ---------- Gegner-Browser: Seitenleiste ---------- */
+.wrap.gb .side{padding-top:6px}
+.wrap.gb .side h5,.wrap.gb .side h5:first-of-type{margin:20px 0 5px;padding:0 10px 5px;border-bottom:1px solid #b8c5d8;font:700 13px var(--f-titel);letter-spacing:.1em;color:var(--grau);cursor:default}
+.wrap.gb .side a{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0 8px;padding:5px 10px 5px 12px;margin:0;font-size:15.5px;line-height:1.25;border-left:3px solid transparent}
+.wrap.gb .side a:first-of-type{font:700 19px/1.1 var(--f-titel);text-transform:uppercase;letter-spacing:.03em;padding:8px 10px 8px 12px;color:var(--blau)}
+.wrap.gb .side a em{position:static;font:600 12.5px/1 var(--f-titel);letter-spacing:.02em;background:#cdd8e8;color:var(--blau);border-radius:10px;padding:3px 8px;min-width:22px;text-align:center}
+.wrap.gb .side a.on em{background:var(--wein);color:#fff}
+.wrap.gb .side a.on{font-weight:700;background:var(--papier2);border-left-color:var(--wein)}
+.wrap.gb .side a .pg{flex:0 0 100%;font-size:12.5px;color:var(--grau);margin-top:1px}
+.wrap.gb .side a:not([onclick*="gDom"]){font-size:14.5px;color:#41536b;margin-top:2px}
+.wrap.gb .side a:not([onclick*="gDom"]):first-of-type{margin-top:0}
+.wrap.gb .side a .pg{order:3}.wrap.gb .side a em{order:2}

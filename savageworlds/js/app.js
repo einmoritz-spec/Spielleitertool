@@ -13,7 +13,7 @@ window.addEventListener("hashchange", render);
 /* Bereiche: Reiter der Kopfzeile + Unterpunkte (Seite im Buch: GRW) */
 var TABS = [
  {id:"charaktere", t:"Charaktere", img:"k-charaktere", subs:[["voelker","Völker",9],["handicaps","Handicaps",24],["eigenschaften","Eigenschaften",31],["talente","Talente",34],["aufstiege","Aufstiege",52]]},
- {id:"ausruestung", t:"Ausrüstung", img:"k-ausruestung", subs:[["ruestung","Rüstung",67],["waffen","Waffen",69],["fahrzeuge","Fahrzeuge",83]]},
+ {id:"ausruestung", t:"Ausrüstung", img:"k-ausruestung", subs:[["ruestung","Rüstung",69],["waffen","Waffen",72],["fahrzeuge","Fahrzeuge",81]]},
  {id:"regeln", t:"Regeln", img:"k-regeln", subs:[["kampf","Kampf",87],["heilung","Heilung",94],["situationen","Situationen",97]]},
  {id:"werkzeugkasten", t:"Werkzeugkasten", img:"k-werkzeugkasten", subs:[["aufgaben","Dramatische Aufgaben",111],["furcht","Furcht",120],["gefahren","Gefahren",123],["soziales","Soziale Konflikte",132],["zwischenspiele","Zwischenspiele",145]]},
  {id:"maechte", t:"Mächte", img:"k-maechte", subs:[["hintergruende","Arkane Hintergründe",149],["liste","Machtliste",155]]},
@@ -44,6 +44,8 @@ function render(){
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "handicaps") return handicapsPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "eigenschaften") return eigenschaftenPage();
   if(cur && cur.id === "charaktere" && (r.b || cur.subs[0][0]) === "aufstiege") return aufstiegePage();
+  if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "ruestung") return ruestungPage();
+  if(cur && cur.id === "ausruestung" && (r.b || cur.subs[0][0]) === "waffen") return waffenPage();
   if(cur) return page(cur, r.b || cur.subs[0][0]);
   go("start");
 }
@@ -130,6 +132,42 @@ function hFilter(f){ ST.hf = f; save(); handicapsPage(); }
 function talKat(k){ ST.tk = k; ST.to = -1; save(); talentePage(); }
 function talOpen(id){ ST.to = ST.to === id ? -1 : id; save(); talentePage(); var d = document.querySelector(".td"); if(d && ST.to > -1) d.scrollIntoView({block:"nearest", behavior:"smooth"}); }
 function talGo(id){ ST.tk = SW_TALENTE[id].k; ST.to = id; save(); talentePage(); var d = document.querySelector(".td"); if(d) d.scrollIntoView({block:"center"}); }
+
+/* ---------- Ausrüstung ---------- */
+function eqTable(cols, rows){
+  return '<div class="etw"><table class="et"><thead><tr>' + cols.map(function(c, i){ return "<th" + (i ? ' class="n"' : "") + ">" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" + rows.map(function(r){
+    var n = r.n ? '<tr class="en"><td colspan="' + cols.length + '">' + esc(r.n) + "</td></tr>" : "";
+    return "<tr" + (r.n ? ' class="hn"' : "") + ">" + r.c.map(function(c, i){ return "<td" + (i ? ' class="n"' : "") + ">" + esc(c) + "</td>"; }).join("") + "</tr>" + n;
+  }).join("") + "</tbody></table></div>";
+}
+function edP(t){
+  if(!t) return "";
+  return t.split(/(?<=[.)“”]) (?=[A-ZÄÖÜ][^.:]{2,32}: )/).map(function(p){ var m = p.match(/^([^.:]{2,32}): (.*)$/); return '<p class="ed">' + (m ? "<b>" + esc(m[1]) + ":</b> " + esc(m[2]) : esc(p)) + "</p>"; }).join("");
+}
+function eqGroups(cols, gs){
+  return gs.map(function(g){ return (g.h ? '<h5 class="eg">' + esc(g.h) + "</h5>" : "") + edP(g.d) + eqTable(cols, g.r); }).join("");
+}
+function ruestungPage(){
+  var R = SW_RUESTUNG, cols = ["Gegenstand", "Panzerung", "Mindeststärke", "Gewicht (kg)", "Kosten"], scols = ["Typ", "Parade", "Deckung", "Mindeststärke", "Gewicht (kg)", "Kosten"];
+  var h = edP(R.i) + R.s.map(function(s){
+    return '<h4 class="rk" style="--rc:#a51f1a"><span>' + esc(s.h) + "</span></h4>" + edP(s.i) + eqGroups(cols, s.g);
+  }).join("") + '<h4 class="rk" style="--rc:#a51f1a"><span>' + esc(R.sh.h) + '</span></h4><p class="ed">' + esc(R.sh.i) + "</p>" + eqGroups(scols, R.sh.g);
+  APP.innerHTML = '<div class="lay" id="lay"><main class="ct"><h2>Rüstung<span class="pg" onclick="openBook(\'sw_de\',70)">S. 69</span></h2>' + h + "</main></div>";
+}
+var WSET = [["Nahkampf", ["Nahkampfwaffen"]], ["Fernkampf", ["Fernkampfwaffen"]], ["Schwarzpulver", ["Schwarzpulverwaffen"]], ["Moderne Feuerwaffen", ["Pistolen", "Maschinenpistolen", "Schrotflinten", "Gewehre", "Maschinengewehre", "Laser (futuristisch)"]], ["Spezielle Waffen", ["Kanonen", "Katapulte", "Flammenwerfer", "Granaten", "Minen", "Raketen", "Raketenwerfer und Torpedos", "Fahrzeugwaffen"]]];
+var WPG = {"Nahkampfwaffen":72,"Fernkampfwaffen":73,"Schwarzpulverwaffen":73,"Pistolen":74,"Maschinenpistolen":74,"Schrotflinten":74,"Gewehre":75,"Maschinengewehre":75,"Laser (futuristisch)":76,"Kanonen":77,"Katapulte":77,"Flammenwerfer":78,"Granaten":78,"Minen":79,"Raketen":79,"Raketenwerfer und Torpedos":80,"Fahrzeugwaffen":80};
+function waffenPage(){
+  var k = ST.wk || 0; if(!WSET[k]) k = 0;
+  var side = WSET.map(function(w, i){ return '<a class="' + (i === k ? "on" : "") + '" onclick="wKat(' + i + ')">' + esc(w[0]) + "</a>"; }).join("");
+  var h = WSET[k][1].map(function(n){
+    var s = SW_WAFFEN.filter(function(x){ return x.h.toLowerCase() === n.toLowerCase(); })[0]; if(!s) return "";
+    var multi = WSET[k][1].length > 1;
+    return (multi ? '<h4 class="rk" style="--rc:#a51f1a"><span>' + esc(s.h) + '</span><b class="pg" onclick="openBook(\'sw_de\',' + (WPG[s.h] + 1) + ')">S. ' + WPG[s.h] + "</b></h4>" : "") + edP(s.i) + eqGroups(s.cols, s.g);
+  }).join("");
+  var t = WSET[k][1].length > 1 ? WSET[k][0] : WSET[k][0] + "waffen".replace(/^.*$/, "");
+  APP.innerHTML = '<div class="lay' + (ST.fold ? " fold-on" : "") + '" id="lay"><aside class="side"><button class="fold" onclick="foldSide()" aria-label="Seitenleiste">‹</button>' + side + '</aside><main class="ct"><h2>' + esc(WSET[k][0]) + (WSET[k][1].length === 1 ? '<span class="pg" onclick="openBook(\'sw_de\',' + (WPG[WSET[k][1][0]] + 1) + ')">S. ' + WPG[WSET[k][1][0]] + "</span>" : "") + "</h2>" + h + "</main></div>";
+}
+function wKat(i){ ST.wk = i; save(); waffenPage(); window.scrollTo(0, 0); }
 function foldSide(){ ST.fold = ST.fold ? 0 : 1; save(); var l = document.getElementById("lay"); if(l) l.classList.toggle("fold-on", !!ST.fold); }
 function dlPage(){ APP.innerHTML = '<div class="st"><div class="soon">Deadlands folgt.</div></div>'; }
 

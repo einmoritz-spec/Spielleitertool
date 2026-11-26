@@ -5,10 +5,11 @@ var PU = {q:"", offen:{}, kat:{}, pan:{}};
 function puEl(){ return document.getElementById("pult"); }
 function puOpen(){
   if(puEl()){ puClose(); return; }
+  var bg = document.createElement("div"); bg.id = "pult-bg"; bg.className = "pu-bg"; bg.onclick = puClose; document.body.appendChild(bg);
   var ov = document.createElement("div"); ov.id = "pult"; ov.className = "pu-ov"; document.body.appendChild(ov);
   document.body.classList.add("pult-an"); puDraw();
 }
-function puClose(){ var o = puEl(); if(o) o.remove(); document.body.classList.remove("pult-an"); }
+function puClose(){ var o = puEl(); if(o) o.remove(); var bg = document.getElementById("pult-bg"); if(bg) bg.remove(); puPopClose(); document.body.classList.remove("pult-an"); }
 /* Pop-up über dem Pult: dieselbe App in einem Rahmen (ohne Kopfzeile), Schließen mit × oder Esc */
 function puPop(route){
   puPopClose();
@@ -181,6 +182,6 @@ function puDraw(){
     if(e.key === "Escape" && document.getElementById("pupop")){ puPopClose(); return; }
     if(e.key === "Escape" && puEl() && !document.querySelector(".modal")){ puClose(); return; }
     if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "") || e.ctrlKey || e.metaKey || e.altKey) return;
-    if(e.key === "p") puOpen();
+    if(e.key === "p" || e.key === "#"){ e.preventDefault(); puOpen(); }
   });
 })();

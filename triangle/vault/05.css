@@ -1,1 +1,42 @@
-/* The Vault 05 – bower-street: Stil (body.ve-bower-street) */
+/* The Vault 05 – Bower Street: Mitternachtsblau, Karmesin, Schreibmaschine, Filmstreifen (Buch S. 76–93) */
+@font-face{font-family:"Courier Prime";src:url(../fonts/courier-prime-latin-400-normal.woff2);font-weight:400;font-display:swap}
+@font-face{font-family:"Courier Prime";src:url(../fonts/courier-prime-latin-700-normal.woff2);font-weight:700;font-display:swap}
+body.ve-bower-street{--akz:#b3123c;--v2:#1c1b2e;--vf:#f3f1ec;--vrand:#bdb8c9;--vgrau:#78748a}
+.ve-bower-street .vunter a.on{color:#b3123c}.ve-bower-street .vunter a.on:after{background:#b3123c}
+.ve-bower-street .vtext h1{letter-spacing:-.04em;color:#1c1b2e}
+.ve-bower-street .vtext h2{color:#1c1b2e;border-bottom:2px solid #b3123c;display:inline-block;padding-bottom:2px}
+.ve-bower-street .vtext h3{color:#b3123c}
+.ve-bower-street .vh{border-radius:2px;border-left:5px solid #1c1b2e;background:#f3f1ec}
+.ve-bower-street .vhin.anom .vh{border-left-color:#b3123c}
+.ve-bower-street .vchaos{border-color:#1c1b2e;border-radius:3px}.ve-bower-street .vchaos h4{background:#1c1b2e;color:#f3f1ec}
+.ve-bower-street .vchaos em{color:#b3123c}
+.ve-bower-street .kasten{border-color:#1c1b2e;border-radius:3px}.ve-bower-street .kasten>h3{color:#b3123c}
+.ve-bower-street .vkopf img{border-radius:0;filter:contrast(1.05)}
+.ve-bower-street .vziele{border-radius:3px;border-color:#1c1b2e}
+
+/* Abschrift des 911-Anrufs als Eröffnungsseite */
+.ve-bower-street .ho-abschrift{position:relative;max-width:700px;padding:26px 24px 150px 70px;border:0;border-radius:0;background:#f1efe8 radial-gradient(circle at 20% 10%,#0000 60%,#d8d4c855),#f1efe8;box-shadow:0 10px 30px #1c1b2e33;overflow:hidden;font:400 14.5px/1.55 "Courier Prime",Courier,monospace;color:#22212c}
+.bs-kopf{margin:0 0 14px -20px;font-size:15px}
+.bs-zeilen{list-style:none;margin:0;padding:12px 8px 12px 0;border:2px solid #22212c;position:relative}
+.bs-zeilen li{position:relative;margin:0 0 7px;padding-left:12px;text-indent:-12px}
+.bs-zeilen li:before{content:counter(z);counter-increment:z;position:absolute;left:-52px;text-indent:0;color:#4a4858;font-size:13px}
+.bs-zeilen{counter-reset:z}
+.bs-zeilen li b{font-weight:700}
+.bs-reg{text-align:center;text-indent:0!important;padding-left:0!important;font-style:normal;color:#5a586a}
+.bs-schwarz{background:#111;color:#111;border-radius:8px;padding:0 4px}
+.bs-film{background:#1c1b2e;color:#d8d6e6;margin-left:-2px;margin-right:-8px;padding-right:12px;margin-bottom:0!important;padding-top:3px;padding-bottom:3px}
+.bs-film.bs-reg{color:#a09db4}
+.bs-film:before{color:#a09db4}
+.bs-strip{position:absolute;width:560px;max-width:none;pointer-events:none;opacity:.55;z-index:0}
+.bs-zeilen{z-index:1}.bs-zeilen li{z-index:1}
+.bs-strip.s1{left:-90px;top:auto;bottom:-14px;transform:rotate(-3deg)}
+.bs-strip.s2{right:-150px;top:auto;bottom:34px;transform:rotate(5deg) scaleX(-1)}
+.bs-titel{position:absolute;left:46px;bottom:8px;width:340px;filter:invert(1);transform:rotate(-6deg);z-index:2}
+.bs-von{position:absolute;z-index:2;left:170px;bottom:14px;margin:0;font:900 22px Spartan,sans-serif;color:#b3123c;transform:rotate(-8deg);letter-spacing:.02em}
+
+/* Entwurfs-E-Mail */
+.ve-bower-street .ho-brief{font-family:Fig,sans-serif;background:#fff;border:2px solid #1c1b2e;border-radius:6px;position:relative;padding:20px 24px 8px}
+.ve-bower-street .ho-brief>h3{font:700 14px "Courier Prime",monospace;color:#b3123c;letter-spacing:.04em;margin-bottom:10px}
+.ve-bower-street .ho-brief:after{content:"➤";position:absolute;right:16px;top:12px;color:#bdb8c9;font-size:20px}
+.ve-bower-street .ho-schild{border:3px solid #1c1b2e;background:#fff7d6;font:700 18px "Courier Prime",monospace;text-align:center;padding:14px;max-width:420px;transform:rotate(-1.5deg)}
+.ve-bower-street .vanf,.ve-bower-street .vfae{border-radius:3px;border-color:#1c1b2e}

@@ -250,6 +250,7 @@ body.dl-mode .pg{color:#8a6a3a}
 .kv b{font-size:24px}
 .kr{margin:5px 0;font-size:15px;line-height:1.45;max-width:none}.kr b{color:var(--c)}
 .kss{border-left:1px solid var(--line);padding-left:20px;font-size:14.5px}
+.kss .ksub{margin-top:10px}
 .kss .kh{display:block;margin:0 0 6px;font:600 11px Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .ks{margin:6px 0;max-width:none;line-height:1.45}.ks b{color:var(--c)}
 .kgh{margin-top:18px}.kfg{grid-template-columns:repeat(3,1fr)}.kfg .hc p{font-size:14.5px}

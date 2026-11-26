@@ -6,10 +6,17 @@
 var TAGE = [["morgen","Morgen"],["tag","Tag"],["abend","Abend"],["nacht","Nacht"]];
 function zeitST(id){ ST.zeit = ST.zeit || {}; return (ST.zeit[id] = ST.zeit[id] || {t:"tag", v:1}); }
 function setZeit(id, k, d){ var z = zeitST(id); if(k === "v"){ z.v = Math.max(0, z.v + d); } else z.t = d; save(); render(); }
+/* Tageszeit als kleine Symbole, Viertel als schlanker Zähler */
+var ZSVG = {
+  morgen: '<path d="M3 17h18M7 17a5 5 0 0 1 10 0"/><path d="M12 4v4M9.5 6.5 12 4l2.5 2.5"/>',
+  tag: '<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/>',
+  abend: '<path d="M3 17h18M7 17a5 5 0 0 1 10 0"/><path d="M12 4v4M9.5 5.5 12 8l2.5-2.5"/>',
+  nacht: '<path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/>'
+};
 function zeitHTML(id){
   var z = zeitST(id);
-  return '<div class="zeit"><div class="ta">' + TAGE.map(function(t){ return '<span class="' + (z.t === t[0] ? 'on' : '') + '" onclick="setZeit(\'' + id + '\',\'t\',\'' + t[0] + '\')">' + t[1] + '</span>'; }).join("") + '</div>' +
-    '<div class="vt">Viertel <button onclick="setZeit(\'' + id + '\',\'v\',-1)">−</button><b>' + z.v + '</b><button onclick="setZeit(\'' + id + '\',\'v\',1)">+</button></div></div>';
+  return '<div class="zeit"><div class="ta">' + TAGE.map(function(t){ return '<span class="zi' + (z.t === t[0] ? ' on' : '') + '" title="' + t[1] + '" onclick="setZeit(\'' + id + '\',\'t\',\'' + t[0] + '\')"><svg viewBox="0 0 24 24">' + ZSVG[t[0]] + '</svg></span>'; }).join("") + '</div>' +
+    '<div class="vt" title="Viertel"><button onclick="setZeit(\'' + id + '\',\'v\',-1)">−</button><b><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v8h8" /><path d="M12 12V4a8 8 0 0 1 8 8z" class="f"/></svg>' + z.v + '</b><button onclick="setZeit(\'' + id + '\',\'v\',1)">+</button></div></div>';
 }
 function pgn(p){ return pgl(p); }
 /* erledigt / markiert / TP / offen */

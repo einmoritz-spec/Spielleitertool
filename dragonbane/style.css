@@ -961,3 +961,16 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 .topbar:has(.ktabs.abt) .topbar-spacer{display:none}
 .topbar:has(.ktabs.abt) .ktabs{margin-left:22px}
 .ktabs.abt .akt.ueber{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 46px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 46px),transparent)}
+/* Zeitleiste minimalistisch: Symbole statt Wörter */
+.ktabs.abt .zeit{gap:10px;margin:0 4px 0 16px}
+.zeit .ta{gap:2px}
+.zeit .ta .zi{width:26px;height:26px;display:grid;place-items:center;border:0;padding:0;border-radius:50%;color:rgba(60,60,55,.38);cursor:pointer;transition:color .15s,background .15s}
+.zeit .ta .zi:hover{color:var(--jade-d)}
+.zeit .ta .zi.on{color:var(--jade-d);background:rgba(0,96,77,.1)}
+.zeit .ta .zi svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.zeit .vt{gap:2px;padding-left:10px}
+.zeit .vt button{width:18px;height:18px;border:0;font:15px/1 var(--f-sans,sans-serif);color:rgba(60,60,55,.45)}
+.zeit .vt button:hover{color:var(--jade-d)}
+.zeit .vt b{display:flex;align-items:center;gap:4px;font:15px/1 var(--f-kopf);color:var(--jade-d);min-width:0}
+.zeit .vt b svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8}
+.zeit .vt b svg .f{fill:currentColor;stroke:none;opacity:.35}

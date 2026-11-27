@@ -35,7 +35,7 @@
 .ty{cursor:pointer;overflow:visible;--g:255,214,110}
 .ty[data-v=origin]{--g:110,205,90}.ty[data-v=adventure]{--g:250,200,60}.ty[data-v=greatness]{--g:240,80,60}
 .ty:before{content:'';position:absolute;inset:calc(var(--pt)*-6) calc(var(--pt)*-3);background:rgb(var(--g));mix-blend-mode:screen;opacity:0;transition:opacity .2s;pointer-events:none;-webkit-mask:var(--mu2) no-repeat;mask:var(--mu2) no-repeat;-webkit-mask-size:var(--hs);mask-size:var(--hs);-webkit-mask-position:var(--hp);mask-position:var(--hp)}
-.ty:hover:before{opacity:.35}.ty.on:before{opacity:1;filter:brightness(1.15) saturate(1.2)}
+.ty:hover:before{opacity:.35}.ty.on:before{opacity:.8}
 .buch{display:flex;align-items:flex-end;padding:0 calc(var(--pt)*2) 0;font:700 calc(var(--pt)*7.6)/1 "LB Cinzel",serif;color:#4f301a;text-decoration:none;white-space:nowrap;overflow:hidden;cursor:pointer;text-transform:uppercase;letter-spacing:.02em}
 .buch.leer{color:#9a8666;font-style:italic;text-transform:none;font-family:"LB Labrada",serif;font-weight:400;font-size:calc(var(--pt)*8)}
 .buch:hover{background:rgba(255,255,255,.28)}

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1323sq";
+const VERSION = "v1324sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4428,6 +4428,7 @@ const FILES = [
   "vaesen/js/data/som-silber.js",
   "vaesen/js/data/som-geheimnis.js",
   "vaesen/js/data/som-nachtsau.js",
+  "vaesen/js/data/som-stern.js",
   "vaesen/js/data/galerie-wicked.js",
   "vaesen/js/data/galerie-som.js",
   "vaesen/img/som/feuer_alfred_haerenstam.webp",
@@ -4475,6 +4476,16 @@ const FILES = [
   "vaesen/img/wicked/nacht_lisa.webp",
   "vaesen/img/wicked/nacht_magnus.webp",
   "vaesen/img/wicked/nacht_schwestern.webp",
+  "vaesen/img/wicked/stern_agnes.webp",
+  "vaesen/img/wicked/stern_cornelius.webp",
+  "vaesen/img/wicked/stern_eroeffnung.webp",
+  "vaesen/img/wicked/stern_ho_4a.webp",
+  "vaesen/img/wicked/stern_hugo.webp",
+  "vaesen/img/wicked/stern_indrek.webp",
+  "vaesen/img/wicked/stern_kaali_see.webp",
+  "vaesen/img/wicked/stern_karte_arensburg.webp",
+  "vaesen/img/wicked/stern_karte_oesel.webp",
+  "vaesen/img/wicked/stern_leelo.webp",
   "vaesen/img/wicked/silber_abela.webp",
   "vaesen/img/wicked/silber_brueder.webp",
   "vaesen/img/wicked/silber_eroeffnung.webp",

@@ -98,3 +98,14 @@ function sbWesen(S, id){
   var more = W.extra.filter(function(x){ return x.id !== "einfuehrung"; }).map(function(x){ return '<a class="sb-wx" onclick="go(\'' + S.id + '/wesen/' + x.id + '\')">' + esc(x.t) + '</a>'; }).join("");
   return '<div class="page sb-wes"><div class="sb-more">' + more + '</div><div class="cards v">' + cards + '</div></div>';
 }
+
+/* Esc: Settingbuch-Seiten eine Ebene zurück (Unterseite → Bereich → Bereichsübersicht → Start) */
+document.addEventListener("keydown", function(e){
+  if(e.key !== "Escape" || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+  if(/INPUT|TEXTAREA|SELECT/.test((e.target || {}).tagName || "")) return;
+  if(document.querySelector(".vu-vwo,.gal,.ms-zoom,#schirm,.gloss-modal-backdrop.open,[id$='Modal'].show,[id$='Modal'].open,[id$='Lightbox'].show,[id$='Lightbox'].on,.gs-ov,[class*='suche'][class*='open']")) return;
+  var h = location.hash.replace(/^#/, "").split("/");
+  if(!window.SBS || !SBS[h[0]]) return;
+  e.preventDefault();
+  go(h.length > 2 ? h.slice(0, 2).join("/") : h.length > 1 ? h[0] : "start");
+});

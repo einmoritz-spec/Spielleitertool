@@ -270,6 +270,22 @@ function bgUebernehmen(){
   BG.db.x.push(A); BG.gast = null; BG.akt = A; bgSave(); bgToast("In deine Agenten übernommen."); go("ark/bogen/" + A.id);
 }
 function bgDatei(){ var A = BG.akt, b = new Blob([JSON.stringify(A, null, 1)], {type:"application/json"}), a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "Agent – " + (A.name || "ohne Namen") + ".json"; a.click(); }
+
+function bgLeeren(){
+  if(!confirm("Alle Einträge dieses Agenten löschen?")) return;
+  var id = BG.akt.id, N = bgNeu(); N.id = id; Object.keys(BG.akt).forEach(function(k){ delete BG.akt[k]; }); Object.assign(BG.akt, N); bgSave(); render();
+}
+/* Zufälliger Agent: je eine zufällige ARK-Wahl, Antworten aus den Vorschlägen des Bogens, Selbsteinschätzung */
+function bgZufall(){
+  var A = BG.akt; if(!A) return;
+  if((A.name || A.arc.a || A.arc.r || A.arc.k) && !confirm("Die Einträge dieses Agenten durch einen zufälligen Agenten ersetzen?")) return;
+  var id = A.id; Object.keys(A).forEach(function(k){ delete A[k]; }); Object.assign(A, bgNeu()); A.id = id;
+  ["anomalie", "realitaet", "kompetenz"].forEach(function(kat){ var L = TA_ARK[kat].x; bgArk(kat, L[Math.floor(Math.random() * L.length)][0]); });
+  BG_FB.forEach(function(q, i){ if(q[1].length) A.fb[i] = q[1][Math.floor(Math.random() * q[1].length)]; });
+  var Kt = TA_TEXT["ark/kompetenz/" + A.arc.k], Sx = Kt ? bgSuch(Kt.r, "selbst", [])[0] : null;
+  if(Sx) Sx.x.forEach(function(fr, i){ A.selbst[i] = Math.floor(Math.random() * fr.a.length); });
+  bgSave(); render(); bgToast("Zufälliger Agent erstellt – Name und freie Antworten sind noch leer.");
+}
 function bgLaden(inp){
   var f = inp.files && inp.files[0]; if(!f) return;
   var fertig = function(A){ A = Object.assign(bgNeu(), A); A.id = bgNeu().id; BG.db.x.push(A); BG.akt = A; bgSave(); go("ark/bogen/" + A.id); };
@@ -462,7 +478,7 @@ function bgAgent(A, blatt, gast){
   var basis = gast ? "ark/bogen/gast" : "ark/bogen/" + A.id;
   var banner = gast ? '<div class="bg-gast noprint">Geteilter Agentenbogen – Änderungen werden erst gespeichert, wenn du ihn übernimmst. <button onclick="bgUebernehmen()">In meine Agenten übernehmen</button></div>' : '';
   var werk = '<div class="bg-werk noprint">' + (blatt ? '<a onclick="go(\'' + basis + '\')">‹ Übersicht</a>' : '<a onclick="go(\'ark/bogen\')">‹ Alle Agenten</a>') +
-    '<span></span><button onclick="bgTeilen()">Link teilen</button><button onclick="bgPdf(this)">PDF</button>' + (gast ? '' : '<button onclick="bgDatei()">Datei</button>') + '</div>';
+    '<span></span>' + (gast ? '' : '<button class="ib" data-tip="Zufälligen Agenten erstellen" aria-label="Zufälligen Agenten erstellen" onclick="bgZufall()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/></svg></button><button class="ib" data-tip="Agentenbogen leeren" aria-label="Agentenbogen leeren" onclick="bgLeeren()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4v5h5"/></svg></button>') + '<button class="ib" data-tip="Link teilen" aria-label="Link teilen" onclick="bgTeilen()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button>' + (gast ? '' : '<button class="ib" data-tip="Als Datei sichern" aria-label="Als Datei sichern" onclick="bgDatei()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg></button><label class="ib" data-tip="Datei laden" aria-label="Datei laden"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg><input type="file" accept=".json,.pdf,application/json,application/pdf" onchange="bgLaden(this)" hidden></label>') + '<button class="ib haupt" data-tip="Als PDF speichern" aria-label="Als PDF speichern" onclick="bgPdf(this)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M7.5 3v5h8V3"/><rect x="7" y="13" width="10" height="8"/></svg></button>' + '</div>';
   if(blatt && BG_BLATT.some(function(b){ return b[0] === blatt; })){
     BG.blatt = blatt;
     var items = BG_BLATT.map(function(b){ return {t:b[1], go:basis + "/" + b[0], on:b[0] === blatt}; });

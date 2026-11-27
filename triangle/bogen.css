@@ -691,3 +691,10 @@
 .bg-agk circle{fill:currentColor;stroke:none}
 @media (hover:none){.bg-agk{opacity:1}}
 .bg-dr{width:27px;height:24px}.bg-arcz{gap:6px 14px;margin-top:2px}.bg-arcz span{font-size:14px;gap:6px}
+
+.bg-werk .ib{display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;padding:0;position:relative;cursor:pointer;background:var(--papier,#fff);border:1px solid var(--linie,#c9c9c9);border-radius:4px;color:var(--tinte,#222)}
+.bg-werk .ib.haupt{background:var(--tinte,#222);color:#fff}
+.bg-werk .ib:hover{border-color:var(--tinte,#222)}
+.bg-werk [data-tip]::after{content:attr(data-tip);position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;padding:3px 8px;border-radius:3px;background:rgba(20,20,20,.72);color:#fff;font:500 12px/1.2 Spartan,sans-serif;pointer-events:none;opacity:0;transition:opacity .15s .25s;z-index:60}
+.bg-werk [data-tip]:hover::after{opacity:1}
+.bg-werk>[data-tip]:last-child::after,.bg-werk>[data-tip]:nth-last-child(2)::after{left:auto;right:0;transform:none}

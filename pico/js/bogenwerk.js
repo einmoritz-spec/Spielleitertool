@@ -114,7 +114,7 @@
   }
   function aspektWahl(btn, ev, k){
     wrap(ev); var v = curV(), cur = BG(v).f[k];
-    menu(btn, {hint: "Aspekte aus dem Regelbuch (S. 104–131)", breit: 270, items: katalog().asp.map(function(a){ return {t: a.t, s: a.k, g: a.g, sel: cur === a.t, a: a}; }),
+    menu(btn, {breit: 270, items: katalog().asp.map(function(a){ return {t: a.t, s: a.k, g: a.g, sel: cur === a.t, a: a}; }),
       info: function(it){ return "<h4>" + esc(it.a.t) + '</h4><p class="s">' + esc(it.a.g + " · " + it.a.k) + "</p>" + it.a.x.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join(""); },
       pick: function(it){ var f = BG(v).f, t = k.replace(/n$/, "t"); f[k] = it.a.t; if(!f[t]) f[t] = aText(it.a); save(); render(); }});
   }

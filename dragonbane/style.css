@@ -1126,3 +1126,7 @@ body.dbb-clean #app{padding-top:0!important;margin-top:0!important}
 .dbb-voll{display:none}
 body.dbb-clean .dbb-voll{display:flex;position:fixed;top:10px;right:10px;width:34px;height:34px;align-items:center;justify-content:center;border:0;border-radius:50%;background:rgba(255,255,255,.85);color:#6b6b6b;cursor:pointer;opacity:.55;box-shadow:0 1px 4px rgba(0,0,0,.18)}
 body.dbb-clean .dbb-voll:hover{opacity:1}
+.dbb-sbar{display:none}
+body.dbb-clean .dbb-sbar{display:flex;justify-content:center;padding:14px 0 0}
+body.dbb-clean .dbb-sbar .dbb-leiste{margin:0}
+body.dbb-clean .dbb-wrap{padding-top:10px}

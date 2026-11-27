@@ -580,7 +580,7 @@ var DBB = (function(){
     }
     sauberSetzen();
     ableiten();
-    return '<div class="dbb-wrap">' + bogenHtml() + "</div>" + '<button class="dbb-voll noprint" data-act="voll" data-tip="Ganzes Tool öffnen" aria-label="Ganzes Tool öffnen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>';
+    return (document.body.classList.contains("dbb-clean") ? '<div class="dbb-sbar">' + leiste() + "</div>" : "") + '<div class="dbb-wrap">' + bogenHtml() + "</div>" + '<button class="dbb-voll noprint" data-act="voll" data-tip="Ganzes Tool öffnen" aria-label="Ganzes Tool öffnen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>';
   }
   return {view: view, leiste: leiste, zustand: function(){ return S; }};
 })();

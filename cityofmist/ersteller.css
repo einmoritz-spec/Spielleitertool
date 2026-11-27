@@ -1,0 +1,5 @@
+:root{--bg:#0b0e11;--bg2:#10151a;--panel:#151c22;--panel2:#1e262e;--line:#2a343d;--text:#d4d7d2;--mute:#8a949a;--tone:#d6b66f;--acc:#6f9aa0;--amber:#b89a5e;--red:#a5382c;--head:"Oswald","Arial Narrow",system-ui,sans-serif;--font:Georgia,"Iowan Old Style","Palatino Linotype",serif}
+body{background:radial-gradient(1200px 700px at 50% -10%,#1a232b 0,transparent 65%),var(--bg);min-height:100vh}
+.mi-typ.t-Mythos{color:#c9a3e0}.mi-typ.t-Logos{color:var(--tone)}.mi-typ.t-Extra{color:var(--acc)}
+.mi-card.t-Mythos{border-top-color:#c9a3e0}.mi-card.t-Logos{border-top-color:var(--tone)}.mi-card.t-Extra{border-top-color:var(--acc)}
+.mi-btn,.mi-chips a.on,.mi-chipsel a.on{color:#14100a}

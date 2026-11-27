@@ -31,7 +31,7 @@ function load(){
   if(!S || !S.chars) S = {chars: [], cur: "", tab: "fragen", slot: 0};
   S.tab = S.tab || "fragen"; S.slot = S.slot || 0;
 }
-function save(){ try{ localStorage.setItem(CFG.key, JSON.stringify({chars: S.chars, cur: S.cur, tab: S.tab, slot: S.slot})); }catch(e){} }
+function save(){ try{ localStorage.setItem(CFG.key, JSON.stringify({chars: S.chars, cur: S.cur, tab: S.tab, slot: S.slot, kombi: S.kombi})); }catch(e){} }
 function ens(){ if(!S.chars.length){ var c = blankChar(); S.chars.push(c); S.cur = c.id; } if(!cur()) S.cur = S.chars[0].id; }
 /* neuer Eintrag: wiederverwendet nur einen leeren aktuellen Eintrag, überschreibt nie etwas */
 function neuerEintrag(c, nurWennLeer){
@@ -124,12 +124,18 @@ function themeAusKit(k, bookId){
   t.weak = [{l: "1", a: k.weak[0]}]; t.motiv = k.motiv || ""; return t;
 }
 function themeLeerKit(bookId, name){ var t = blankTheme(); t.book = bookId; t.kit = name; t.name = name; return t; }
+function themeAusRef(x){
+  var k = x.kit && kitBy(x.book, x.kit), t;
+  if(k) t = themeAusKit(k); else if(x.kit) t = themeLeerKit(x.book, x.kit); else { t = blankTheme(); t.book = x.book; }
+  if(x.hint) t.konzept = x.hint; return t;
+}
+function charMitThemen(name, refs, ausr){
+  var c = blankChar(); c.name = name; c.themes = refs.map(themeAusRef).slice(0, CFG.regeln.themen); while(c.themes.length < CFG.regeln.themen) c.themes.push(blankTheme());
+  c.ausr = ausr || ""; neuerEintrag(c, true); S.tab = "charaktere"; S.slot = 0; save(); render();
+}
 function vorlageSetzen(v, wahlIdx){
-  var c = blankChar(); c.name = v.name;
-  var L = v.themes.map(function(x){ var k = x.kit && kitBy(x.book, x.kit); return k ? themeAusKit(k) : (x.kit ? themeLeerKit(x.book, x.kit) : (function(){ var t = blankTheme(); t.book = x.book; return t; })()); });
-  var w = v.wahl && v.wahl[wahlIdx || 0]; if(w){ var kw = kitBy(w.book, w.kit); L.push(kw ? themeAusKit(kw) : themeLeerKit(w.book, w.kit)); }
-  c.themes = L.slice(0, CFG.regeln.themen); while(c.themes.length < CFG.regeln.themen) c.themes.push(blankTheme());
-  c.ausr = (v.ausr || []).join("\n"); neuerEintrag(c, true); S.tab = "charaktere"; S.slot = 0; save(); render();
+  var refs = v.themes.slice(), w = v.wahl && v.wahl[wahlIdx || 0]; if(w) refs.push(w);
+  charMitThemen(v.name, refs, (v.ausr || []).join("\n"));
 }
 function vorlageWahl(v, anchor){
   if(v.wahl && v.wahl.length > 1) popOpen(anchor, v.wahl.map(function(w, i){ return {n: w.kit, s: "", g: "Wahl-Kit für " + v.name, i: i}; }), function(it){ vorlageSetzen(v, it.i); }, {offen: 1});
@@ -147,6 +153,11 @@ function zufall(){
 }
 
 /* ---------- Anzeige ---------- */
+function kombiSetzen(){
+  var K = CFG.kombi, k = S.kombi || {}, a = K.liste.filter(function(x){ return x.id === k.a; })[0], b = K.liste.filter(function(x){ return x.id === k.b; })[0], st = K.stufen[k.st == null ? -1 : k.st];
+  if(!a || !b || !st){ toast("Erst Archetypen und Stufe wählen"); return; }
+  charMitThemen(a.name + " / " + b.name, a.themes.slice(0, st.n[0]).concat(b.themes.slice(0, st.n[1])), "");
+}
 var TABS = [["fragen", "Fragen"], ["books", "Themenbücher"], ["vorlagen", "Vorlagen"], ["charaktere", "Charakterkarte"]];
 function render(){
   var lk = document.documentElement.classList.contains("lk");
@@ -160,7 +171,7 @@ function leiste(c, lk){
   return '<div class="mi-bar noprint"><div class="mi-chips">' + S.chars.map(function(x){ return '<a class="' + (x.id === c.id ? "on" : "") + '" data-act="chip" data-v="' + x.id + '">' + esc(x.name || "Neuer Charakter") + '</a>'; }).join("") + '<a class="neu" data-act="neu" data-tip="Neuen Charakter anlegen" aria-label="Neuen Charakter anlegen">+</a></div><div class="mi-act">' +
     ic("zufall", "Zufälligen Charakter erstellen", IC.zufall) + ic("vorlage", "Vorlage: Archetyp als neuen Charakter einsetzen", IC.vorlage) + ic("leeren", "Diesen Charakter leeren", IC.leeren) + ic("teilen", "Diesen Charakter als Link teilen", IC.teilen) + ic("sichern", "Als Datei sichern", IC.sichern) + ic("laden", "Datei laden", IC.laden) + ic("pdf", "Als PDF speichern (Druckdialog)", IC.pdf) + ic("loeschen", "Charakter löschen", IC.loeschen) + '</div></div>';
 }
-function essenz(c){ var n = {}; c.themes.forEach(function(t){ if(t.book){ var b = book(t.book); n[b.typ] = (n[b.typ] || 0) + 1; } }); return Object.keys(CFG.typen).map(function(k){ return '<span>' + esc(CFG.typen[k].l) + ' <b>' + (n[k] || 0) + '</b></span>'; }).join(""); }
+function essenz(c){ var n = {}; c.themes.forEach(function(t){ if(t.book){ var b = book(t.book); n[b.typ] = (n[b.typ] || 0) + 1; } }); return Object.keys(CFG.typen).filter(function(k){ return !CFG.typen[k].nurWennBenutzt || n[k]; }).map(function(k){ return '<span>' + esc(CFG.typen[k].l) + ' <b>' + (n[k] || 0) + '</b></span>'; }).join("") + (CFG.stufe && CFG.stufe(n) ? '<span><b>' + esc(CFG.stufe(n)) + '</b></span>' : ""); }
 
 /* --- Fragen --- */
 function vFragen(c){
@@ -217,7 +228,15 @@ function vBooks(){
   return h + '</div></section>';
 }
 /* --- Vorlagen --- */
+function vKombi(){
+  var K = CFG.kombi, k = S.kombi || {}, nm = function(id){ var x = K.liste.filter(function(y){ return y.id === id; })[0]; return x ? x.name : ""; };
+  var h = '<section class="mi-sec"><div class="mi-box"><h3>' + esc(K.titel) + ' <small>' + esc(K.hinweis || "") + '</small></h3><div class="mi-row"><div><label class="mi-fl">' + esc(K.a) + '</label><button class="mi-btn s" data-act="kA">' + esc(nm(k.a) || "wählen") + '</button></div><div><label class="mi-fl">' + esc(K.b) + '</label><button class="mi-btn s" data-act="kB">' + esc(nm(k.b) || "wählen") + '</button></div></div>' +
+    '<label class="mi-fl">Stufe</label><div class="mi-chipsel">' + K.stufen.map(function(st, i){ return '<a class="' + (k.st === i ? "on" : "") + '" data-act="kS" data-v="' + i + '">' + esc(st.l) + ' <small>(' + st.n[0] + ' ' + esc(K.aKurz) + ' · ' + st.n[1] + ' ' + esc(K.bKurz) + ')</small></a>'; }).join("") + '</div><p><button class="mi-btn" data-act="kGo">Als neuen Charakter einsetzen</button></p></div>';
+  ["a", "b"].forEach(function(t){ h += '<h3 class="mi-h3">' + esc(K[t]) + 'en</h3><div class="mi-bgrid">' + K.liste.filter(function(x){ return x.teil === t; }).map(function(x){ return '<div class="mi-bk' + (k[t] === x.id ? " gew" : "") + '"><h3>' + esc(x.name) + '</h3><p class="mi-m">' + x.themes.map(function(r){ return esc(r.book) + (r.hint ? ' <i>(' + esc(r.hint) + ')</i>' : ""); }).join(" · ") + '</p><button class="mi-btn s" data-act="kPick" data-t="' + t + '" data-v="' + esc(x.id) + '">' + (k[t] === x.id ? "Gewählt" : "Wählen") + '</button></div>'; }).join("") + '</div>'; });
+  return h + '</section>';
+}
 function vVorlagen(){
+  if(CFG.kombi) return vKombi();
   var gr = []; CFG.vorlagen.forEach(function(v){ if(gr.indexOf(v.gruppe) < 0) gr.push(v.gruppe); });
   return '<section class="mi-sec">' + gr.map(function(g){ return '<h3 class="mi-h3">' + esc(g) + '</h3><div class="mi-bgrid">' + CFG.vorlagen.filter(function(v){ return v.gruppe === g; }).map(function(v){
     return '<div class="mi-bk"><h3>' + esc(v.name) + '</h3><p>' + esc(v.text.slice(0, 200)) + (v.text.length > 200 ? " …" : "") + '</p><p class="mi-m">' + v.themes.map(function(t){ return esc(t.kit || book(t.book).name); }).join(" · ") + '</p><button class="mi-btn s" data-act="vorSetzen" data-v="' + esc(v.id) + '">Als neuen Charakter einsetzen</button></div>'; }).join("") + '</div>'; }).join("") + '</section>';
@@ -259,6 +278,7 @@ function click(e){
   else if(act === "chip"){ S.cur = v; }
   else if(act === "neu"){ var n = blankChar(); S.chars.push(n); S.cur = n.id; S.slot = 0; }
   else if(act === "zufall"){ zufall(); return; }
+  else if(act === "vorlage" && CFG.kombi){ S.tab = "vorlagen"; }
   else if(act === "vorlage"){ popOpen(a, CFG.vorlagen.map(function(x){ return {n: x.name, s: "", g: x.gruppe, info: vorInfo(x), id: x.id}; }), function(it){ vorlageWahl(CFG.vorlagen.filter(function(x){ return x.id === it.id; })[0], a); }); return; }
   else if(act === "leeren"){ if(!leer(c) && !confirm("Diesen Charakter leeren?")) return; var id = c.id, nb = blankChar(); nb.id = id; Object.keys(c).forEach(function(k){ delete c[k]; }); Object.assign(c, nb); S.slot = 0; }
   else if(act === "teilen"){ linkKopieren(c); return; }
@@ -266,7 +286,7 @@ function click(e){
   else if(act === "laden"){ document.getElementById("miFile").click(); return; }
   else if(act === "pdf"){ S.tab = "charaktere"; if(!document.documentElement.classList.contains("lk")){ render(); } window.print(); return; }
   else if(act === "loeschen"){ if(!confirm("Charakter „" + (c.name || "Neuer Charakter") + "“ löschen?")) return; S.chars = S.chars.filter(function(x){ return x.id !== c.id; }); S.cur = ""; }
-  else if(act === "wahlBook"){ popOpen(a, CFG.books.map(function(b){ return {n: b.name, s: b.p ? "S. " + b.p : "", g: CFG.typen[b.typ].l, info: bookInfo(b), id: b.id}; }), function(it){ var t = c.themes[S.slot]; var ex = t.extra; Object.keys(t).forEach(function(k){ delete t[k]; }); Object.assign(t, blankTheme()); t.book = it.id; t.extra = ex; save(); render(); }); return; }
+  else if(act === "wahlBook"){ popOpen(a, CFG.books.map(function(b){ return {n: b.name, s: b.p ? "S. " + b.p : "", g: b.grp || CFG.typen[b.typ].l, info: bookInfo(b), id: b.id}; }), function(it){ var t = c.themes[S.slot]; var ex = t.extra; Object.keys(t).forEach(function(k){ delete t[k]; }); Object.assign(t, blankTheme()); t.book = it.id; t.extra = ex; save(); render(); }); return; }
   else if(act === "wahlKit"){ popOpen(a, kitsOf(th.book).map(function(k){ return {n: k.name, s: k.p ? "S. " + k.p : "", g: book(th.book).name, info: kitInfo(k), id: k.name}; }), function(it){ var k = kitBy(th.book, it.id), nt = themeAusKit(k); nt.extra = th.extra; Object.keys(th).forEach(function(x){ delete th[x]; }); Object.assign(th, nt); save(); render(); }, {offen: 1}); return; }
   else if(act === "ohneKit"){ th.kit = ""; th.power = []; th.weak = []; th.motiv = ""; }
   else if(act === "themaLeer"){ var ex2 = th.extra; Object.keys(th).forEach(function(k){ delete th[k]; }); Object.assign(th, blankTheme()); th.extra = ex2; }
@@ -280,6 +300,10 @@ function click(e){
     if(+v === 0) return; if(on) th.power = th.power.filter(function(y){ return y.a !== t0; }); else { if(th.power.length >= need(th).p){ toast("Schon " + need(th).p + " Stärken gewählt"); return; } th.power.push({l: String(+v + 1), a: t0}); } }
   else if(act === "kitW"){ var kw = kitBy(th.book, th.kit), tw = kw.weak[+v], onw = th.weak.some(function(y){ return y.a === tw; }); if(onw) th.weak = []; else { th.weak = th.weak.slice(-(need(th).w - 1)); if(need(th).w === 1) th.weak = []; th.weak.push({l: String(+v + 1), a: tw}); } }
   else if(act === "useBook"){ var tt = c.themes.filter(function(t){ return !t.book; })[0]; if(!tt){ toast("Alle Themenplätze belegt"); return; } tt.book = v; S.slot = c.themes.indexOf(tt); S.tab = "fragen"; }
+  else if(act === "kA" || act === "kB"){ var tt = act === "kA" ? "a" : "b"; popOpen(a, CFG.kombi.liste.filter(function(x){ return x.teil === tt; }).map(function(x){ return {n: x.name, s: "", g: CFG.kombi[tt] + "en", id: x.id, info: '<h4>' + esc(x.name) + '</h4><p>' + x.themes.map(function(r){ return esc(r.book) + (r.hint ? ' (' + esc(r.hint) + ')' : ""); }).join(" · ") + '</p>'}; }), function(it){ S.kombi = S.kombi || {}; S.kombi[tt] = it.id; save(); render(); }, {offen: 1}); return; }
+  else if(act === "kPick"){ S.kombi = S.kombi || {}; S.kombi[a.dataset.t] = v; }
+  else if(act === "kS"){ S.kombi = S.kombi || {}; S.kombi.st = +v; }
+  else if(act === "kGo"){ kombiSetzen(); return; }
   else if(act === "vorSetzen"){ vorlageWahl(CFG.vorlagen.filter(function(x){ return x.id === v; })[0], a); return; }
   else if(act === "reln"){ c.rel.push({w: "", t: ""}); }
   else if(act === "relx"){ c.rel.splice(+v, 1); }

@@ -96,3 +96,4 @@ html.lk .mi-back{display:none}
   .mi-card,.mi-box{background:#fff;border-color:#999;break-inside:avoid}.mi-in,.mi-ta{background:#fff;border-color:#bbb;color:#000}.mi-sw li{color:#900}.mi-m,.mi-ess{color:#444}
 }
 @media(max-width:900px){.mi-qs,.mi-bgrid,.mi-two{grid-template-columns:1fr}.mi-cards{grid-template-columns:1fr 1fr}.mi-slots{grid-template-columns:1fr 1fr}}
+.mi-bk.gew{border-color:var(--tone)}.mi-chipsel a small{opacity:.7}.mi-bk i{font-style:normal;color:var(--mute)}

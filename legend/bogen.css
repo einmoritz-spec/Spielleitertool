@@ -22,33 +22,34 @@
 .t.klein{font:700 calc(var(--pt)*5.8)/1 "LB Cinzel",serif;color:#5f4326;text-transform:uppercase;letter-spacing:.07em}
 
 /* Eingaben (Handschrift-Ebene, durchsichtig) */
-.o-in{background:transparent;border:0;outline:0;padding:calc(var(--pt)*3.5) calc(var(--pt)*2) 0;font:400 calc(var(--pt)*14)/1 var(--hand);color:var(--ink);text-overflow:ellipsis}
+.o-in{background:transparent;border:0;outline:0;padding:calc(var(--pt)*3.5) calc(var(--pt)*2) 0;font:400 calc(var(--pt)*12.8)/1 var(--hand);color:var(--ink);text-overflow:ellipsis}
 .o-in:hover{background:transparent}
 .o-in:focus{background:transparent;box-shadow:inset 0 calc(var(--pt)*-.8) 0 rgba(120,70,30,.55)}
-.o-in.s{font-size:calc(var(--pt)*13)}
+.o-in.s{font-size:calc(var(--pt)*11.4)}
 .o-in.lbl{font:400 calc(var(--pt)*15)/1 var(--hand);padding:calc(var(--pt)*2) 0 0 calc(var(--pt)*5);text-align:center}
 .o-name{background:none;border:0;outline:0;resize:none;overflow:hidden;padding:calc(var(--pt)*4) calc(var(--pt)*3) 0;font:700 calc(var(--pt)*31)/calc(var(--pt)*36) "LB Fraktur",serif;color:#4a3519;text-align:center}
 .o-name::placeholder{color:rgba(120,92,52,.3)}
 .o-name:focus{box-shadow:inset 0 calc(var(--pt)*-.8) 0 rgba(120,70,30,.4)}
 
 /* Kopf der Theme Card */
-.ty{cursor:pointer;overflow:visible}
-.ty:before{content:'';position:absolute;inset:calc(var(--pt)*-3);border-radius:50%;background:radial-gradient(circle,rgba(255,226,140,0) 40%,transparent 70%);transition:.2s;pointer-events:none}
-.ty:hover:before{background:radial-gradient(circle,rgba(255,236,170,.5) 0,transparent 68%)}
-.ty.on:before{background:radial-gradient(circle,rgba(255,214,110,.85) 0,rgba(255,190,70,.4) 45%,transparent 70%)}
-.buch{display:flex;align-items:center;padding:calc(var(--pt)*5) calc(var(--pt)*2) 0;font:700 calc(var(--pt)*7.6)/1 "LB Cinzel",serif;color:#4f301a;text-decoration:none;white-space:nowrap;overflow:hidden;cursor:pointer;text-transform:uppercase;letter-spacing:.02em}
+.ty{cursor:pointer;overflow:visible;--g:255,214,110}
+.ty[data-v=origin]{--g:120,205,100}.ty[data-v=adventure]{--g:250,205,70}.ty[data-v=greatness]{--g:235,90,70}
+.ty:before{content:'';position:absolute;inset:calc(var(--pt)*1) calc(var(--pt)*-1.5) calc(var(--pt)*-1.5);border-radius:50%;background:transparent;transition:.2s;pointer-events:none}
+.ty:hover:before{background:radial-gradient(circle,rgba(var(--g),.4) 0,transparent 65%)}
+.ty.on:before{background:radial-gradient(circle,rgba(var(--g),.95) 0,rgba(var(--g),.45) 42%,transparent 68%)}
+.buch{display:flex;align-items:flex-end;padding:0 calc(var(--pt)*2) 0;font:700 calc(var(--pt)*7.6)/1 "LB Cinzel",serif;color:#4f301a;text-decoration:none;white-space:nowrap;overflow:hidden;cursor:pointer;text-transform:uppercase;letter-spacing:.02em}
 .buch.leer{color:#9a8666;font-style:italic;text-transform:none;font-family:"LB Labrada",serif;font-weight:400;font-size:calc(var(--pt)*8)}
 .buch:hover{background:rgba(255,255,255,.28)}
-.buch span{overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+.buch span{overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;line-height:1.7;margin-bottom:calc(var(--pt)*-2.2)}
 .buch .ii{flex:none;width:calc(var(--pt)*8);height:calc(var(--pt)*8);margin:0 0 calc(var(--pt)*.4) calc(var(--pt)*3)}
 .ii{display:grid;place-items:center;border-radius:50%;border:calc(var(--pt)*.7) solid #6f4a2a;color:#5a3a1e;font:italic 700 calc(var(--pt)*6)/1 Georgia,serif;cursor:pointer;text-decoration:none}
 .ii:hover{background:rgba(255,255,255,.4)}
 
 /* Tags */
-.feld{display:flex;align-items:flex-end;padding:0 calc(var(--pt)*2.5) calc(var(--pt)*1.4);font:400 calc(var(--pt)*12.6)/1 var(--hand);color:var(--ink);text-decoration:none;cursor:pointer;overflow:hidden}
+.feld{display:flex;align-items:flex-end;padding:0 calc(var(--pt)*2.5);font:400 calc(var(--pt)*12.6)/1 var(--hand);color:var(--ink);text-decoration:none;cursor:pointer;overflow:visible}
 .feld:hover{background:rgba(255,255,255,.32)}
-.feld span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
-.feld.titel{font-size:calc(var(--pt)*17);padding-bottom:calc(var(--pt)*2.4)}
+.feld span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;line-height:1.7;margin-bottom:calc(var(--pt)*-3.2);padding-right:calc(var(--pt)*2.5)}
+.feld.titel{font-size:calc(var(--pt)*17)}
 .feld.titel.lang{font-size:calc(var(--pt)*13.5)}.feld.titel.lang2{font-size:calc(var(--pt)*11)}
 .feld.lang{font-size:calc(var(--pt)*10.6)}.feld.lang2{font-size:calc(var(--pt)*8.8)}
 .feld.w{color:#5e1f14}

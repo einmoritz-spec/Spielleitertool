@@ -49,8 +49,8 @@ table.t td{padding:5px 10px;border:1px solid rgba(122,101,82,.55)}table.t tr:nth
 .side a{display:flex;justify-content:space-between;font-family:Mar;letter-spacing:.06em;font-size:17px;padding:6px 14px 6px 0;color:var(--ink);cursor:pointer}
 .side a.on{color:var(--red)}.side a small{color:var(--soft);font-family:EBG;font-size:13px;font-style:italic}
 .side h4{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:12px 0 2px}
-.fold-b{position:fixed;left:250px;top:calc(var(--hd) + 56px);z-index:30;width:20px;height:28px;background:var(--paper2);border:1px solid var(--line);border-right:0;border-radius:6px 0 0 6px;font-size:13px;color:var(--soft);cursor:pointer;padding:0}
-.main.fold .side{display:none}.main.fold~.fold-b,.fold-b.f{left:0;border-radius:0 6px 6px 0;border:1px solid var(--line);border-left:0}
+.fold-b{position:fixed;left:250px;top:calc(var(--hd) + 56px);z-index:30;width:20px;height:28px;background:none;border:0;border-radius:0;font-size:15px;color:var(--soft);cursor:pointer;padding:0}
+.main.fold .side{display:none}.main.fold~.fold-b,.fold-b.f{left:0;border:0;border-radius:0}
 .mob-nav{display:none}
 /* Hero / Startseite */
 .hero{position:relative;overflow:hidden;min-height:340px;display:flex;align-items:flex-end;background:#cfc6ae center 38%/cover;border-bottom:1px solid var(--line)}

@@ -47,7 +47,7 @@ function seite(n, ti, tx, tw, inhalt, fs){ return '<section class="os-seite" sty
 /* Upgrade/Decay-Leiste: drei Felder je Richtung */
 function track(dx, dy, path, o){
   var h = "", Y = [371.05, 386.05, 401.3, 416.3, 431.3, 446.3, 461.8], x = 189 + dx;
-  for(var k = 0; k < 3; k++){ h += lnk(x, Y[k] + dy + 66.7, 15, Y[k + 1] - Y[k], "trk" + (o.upg >= k + 1 ? " on" : ""), "", 'data-act="obTick" data-p="' + path + '.upg" data-v="' + (k + 1) + '" data-tip="Upgrade ' + (k + 1) + '"'); }
+  for(var k = 0; k < 3; k++){ var n = 3 - k; h += lnk(x, Y[k] + dy + 66.7, 15, Y[k + 1] - Y[k], "trk" + (o.upg >= n ? " on" : ""), "", 'data-act="obTick" data-p="' + path + '.upg" data-v="' + n + '" data-tip="Upgrade ' + n + '"'); }
   for(var d = 0; d < 3; d++){ h += lnk(x, Y[d + 3] + dy + 66.7, 15, Y[d + 4] - Y[d + 3], "trk" + (o.dec >= d + 1 ? " on" : ""), "", 'data-act="obTick" data-p="' + path + '.dec" data-v="' + (d + 1) + '" data-tip="Decay ' + (d + 1) + '"'); }
   return h + txt(176.1 + dx, 448 + dy, 10.7, 33, "vert", "Upgrade ›") + txt(175.7 + dx, 485.5 + dy, 10.7, 26, "vert", "‹ Decay");
 }
@@ -189,12 +189,90 @@ function buchListe(c, i, anchor){
   }, {auf: y ? TYP[y].l : null});
 }
 
+/* ---------- Upgrade/Decay voll: Dialog mit Regel und Auswahl ---------- */
+var MOD = null;
+function modalZu(){ var m = document.querySelector(".ob-modal"); if(m) m.remove(); MOD = null; }
+function modal(titel, text, opts, ctx){
+  modalZu(); MOD = ctx;
+  var d = document.createElement("div"); d.className = "ob-modal noprint";
+  d.innerHTML = '<div class="ob-mbox"><h3>' + esc(titel) + '</h3>' + text.map(function(t){ return '<p>' + t + '</p>'; }).join("") + '<div class="ob-mopts">' +
+    opts.map(function(o){ return '<a class="ob-mopt' + (o.off ? " off" : "") + (o.haupt ? " haupt" : "") + '"' + (o.off ? "" : ' data-act="obMod" data-v="' + o.id + '"') + '><b>' + esc(o.l) + '</b>' + (o.s ? '<small>' + esc(o.s) + '</small>' : "") + '</a>'; }).join("") +
+    '</div><div class="ob-mfuss"><a data-act="obModX">Später</a></div></div>';
+  document.body.appendChild(d);
+}
+function themaName(t, i){ var b = t.book && A.book(t.book); return t.name || (b ? b.name : "Thema " + (i + 1)); }
+function voll(c, path){
+  var m = /^themes\.(\d)\.(upg|dec)$/.exec(path), mc = /^crew\.(upg|dec)$/.exec(path), ml = /^load\.(\d)\.upg$/.exec(path);
+  if(m){
+    var i = +m[1], t = c.themes[i], b = t.book && A.book(t.book), nP = t.power.filter(function(x){ return x.a; }).length, nW = t.weak.filter(function(x){ return x.a; }).length, sp = (b && b.specials) || [];
+    if(m[2] === "upg") modal("Upgrade: " + themaName(t, i), ["Drei Upgrade-Kästchen sind markiert. Der Track wird zurückgesetzt und das Thema erhält ein Upgrade (S. 133). Wähle eins:"], [
+      {id: "p", l: "Neuer Power-Tag", s: "Beantworte eine weitere Power-Tag-Frage.", off: !b || nP >= 8},
+      {id: "w", l: "Neuer Schwächen-Tag", s: "Beantworte eine weitere Schwächen-Tag-Frage.", off: !b || nW >= 2},
+      {id: "s", l: "Themen-Special", s: "Wähle ein Special des Themenbuchs.", off: !b || t.spec.length >= sp.length},
+      {id: "d", l: "Decay zurücksetzen", s: "Lösche alle Decay-Markierungen dieses Themas.", off: !t.dec}
+    ], {art: "thema", i: i});
+    else modal("Decay voll: " + themaName(t, i), ["Du hast dreimal gegen die Motivation dieses Themas gehandelt. Das Thema wird <b>ersetzt</b> (S. 138): Ein anderer Aspekt deines Charakters rückt in den Mittelpunkt.", "Das neue Thema beginnt als <b>Neuling</b> mit einem Power-Tag (Frage A) und einem Schwächen-Tag. Tags, Specials und Markierungen des alten Themas gehen verloren."], [
+      {id: "ersetzen", l: "Thema ersetzen", s: "Neues Themenbuch wählen", haupt: 1}
+    ], {art: "decay", i: i});
+  } else if(mc){
+    if(mc[1] === "upg") modal("Upgrade: Crew-Theme", ["Drei Upgrade-Kästchen am Crew-Theme sind markiert. Der Track wird zurückgesetzt, und ihr wählt gemeinsam ein Upgrade (S. 134):"], [
+      {id: "cp", l: "Neuer Power-Tag", s: "Trag ihn in das nächste freie Feld ein."}, {id: "cw", l: "Neuer Schwächen-Tag", s: "Trag ihn in das nächste freie Schwächen-Feld ein."},
+      {id: "cs", l: "Crew-Special", s: "Trag es auf der Rückseite ein."}, {id: "cd", l: "Decay zurücksetzen", s: "Lösche alle Decay-Markierungen der Crew.", off: !c.crew.dec}
+    ], {art: "crew"});
+    else modal("Decay voll: Crew-Theme", ["Die Crew hat dreimal gegen ihre gemeinsame Motivation gehandelt. Das Crew-Theme wird ersetzt: Die Crew <b>zerbricht</b> und braucht einen neuen Grund für die Zusammenarbeit (S. 75)."], [
+      {id: "crewneu", l: "Crew-Theme leeren", s: "Für einen neuen gemeinsamen Grund", haupt: 1}
+    ], {art: "crewdec"});
+  } else if(ml){
+    var n = +ml[1], L = c.load[n], LS = ((window.OS_KAT && OS_KAT.specials) || []);
+    modal("Upgrade: Loadout-Thema", ["Drei Upgrade-Kästchen am Loadout-Thema sind markiert. Der Track wird zurückgesetzt und das Loadout erhält ein Upgrade. Wähle eins:"], [
+      {id: "ls", l: "Loadout-Special", s: "Aus dem Straßenkatalog (S. 252–270)", off: !LS.length || L.spec.every(function(x){ return x; })},
+      {id: "lt", l: "Neuer Loadout-Tag", s: "Trag ihn in das nächste freie Feld ein.", off: L.tags.every(function(x){ return x.a; })}
+    ], {art: "load", n: n});
+  }
+}
+function fokus(path){ var e = document.querySelector('[data-p="' + path + '"]'); if(e){ e.scrollIntoView({block: "center"}); e.focus(); } }
+function modalWahl(c, v){
+  var X = MOD; modalZu(); if(!X) return;
+  if(X.art === "thema"){
+    var i = X.i, t = c.themes[i]; t.upg = 0;
+    if(v === "d") t.dec = 0;
+    A.rerender();
+    setTimeout(function(){
+      var sel = v === "p" ? '[data-k="p' + i + '_' + Math.min(7, t.power.filter(function(x){ return x.a; }).length) + '"]' : v === "w" ? '[data-k="w' + i + '_' + Math.min(1, t.weak.filter(function(x){ return x.a; }).length) + '"]' : v === "s" ? '[data-k="s' + i + '_n"]' : null;
+      var e = sel && document.querySelector(sel); if(e){ e.scrollIntoView({block: "center"}); setTimeout(function(){ e.click(); }, 60); }
+    }, 30);
+  } else if(X.art === "decay"){
+    var t2 = c.themes[X.i], nt = A.blankTheme(); nt.spec = []; nt.neu = 1; nt.upg = 0; nt.dec = 0; Object.keys(t2).forEach(function(k){ delete t2[k]; }); Object.assign(t2, nt); A.rerender();
+    setTimeout(function(){ var e = document.querySelector('[data-k="buch' + X.i + '"]'); if(e){ e.scrollIntoView({block: "center"}); setTimeout(function(){ e.click(); }, 60); } }, 30);
+  } else if(X.art === "crew"){
+    c.crew.upg = 0; if(v === "cd") c.crew.dec = 0; A.rerender();
+    var k = c.crew;
+    if(v === "cp") fokus("crew.power." + Math.max(0, k.power.findIndex(function(x){ return !x; })));
+    if(v === "cw") fokus("crew.weak." + Math.max(0, k.weak.findIndex(function(x){ return !x; })));
+    if(v === "cs") fokus("crew.spec." + Math.max(0, k.spec.findIndex(function(x){ return !x; })));
+  } else if(X.art === "crewdec"){
+    c.crew = null; A.rerender();
+  } else if(X.art === "load"){
+    var L = c.load[X.n]; L.upg = 0; A.rerender();
+    if(v === "lt") fokus("load." + X.n + ".tags." + L.tags.findIndex(function(x){ return !x.a; }) + ".a");
+    if(v === "ls"){
+      var frei = L.spec.findIndex(function(x){ return !x; }), anc0 = document.querySelector('[data-p="load.' + X.n + '.spec.' + frei + '"]'); if(anc0) anc0.scrollIntoView({block: "center"});
+      A.popOpen(anc0 || document.body, OS_KAT.specials.map(function(x){ var nm = x.n.replace(/\s*\([^)]*\)\s*$/, ""); return {n: nm, s: "", g: "Loadout-Specials", info: '<h4>' + esc(nm) + '</h4><p>' + esc(x.d) + '</p>', id: nm}; }), function(it){ L.spec[frei] = it.id; A.rerender(); }, {offen: 1});
+    }
+  }
+}
+document.addEventListener("keydown", function(e){ if(e.key === "Escape") modalZu(); });
+
 /* ---------- Klicks / Eingaben ---------- */
 function click(act, el, c, e){
   if(act.indexOf("ob") !== 0) return false;
   var i = +el.dataset.i, t = c.themes[i];
   if(act === "obToggle"){ setPath(c, el.dataset.p, !getPath(c, el.dataset.p)); A.rerender(); }
-  else if(act === "obTick"){ var v = +el.dataset.v, cur = getPath(c, el.dataset.p) || 0; setPath(c, el.dataset.p, cur === v ? v - 1 : v); A.rerender(); }
+  else if(act === "obTick"){ var v = +el.dataset.v, cur = getPath(c, el.dataset.p) || 0;
+    if(v === cur) setPath(c, el.dataset.p, v - 1); else if(v === cur + 1) setPath(c, el.dataset.p, v); else { A.toast(v > cur ? "Erst Kästchen " + (cur + 1) + " markieren" : "Erst Kästchen " + cur + " lösen"); return true; }
+    A.rerender(); if(v === 3 && cur === 2) voll(c, el.dataset.p); }
+  else if(act === "obMod") modalWahl(c, el.dataset.v);
+  else if(act === "obModX") modalZu();
   else if(act === "obTyp"){
     var b = t.book && A.book(t.book);
     if(b && b.typ !== el.dataset.v){ if((t.power.length || t.weak.length) && !confirm("Typ wechseln? Das Themenbuch und seine Tags werden entfernt.")) return true; var nt = A.blankTheme(); nt.typ = el.dataset.v; nt.spec = []; Object.keys(t).forEach(function(k){ delete t[k]; }); Object.assign(t, nt); }

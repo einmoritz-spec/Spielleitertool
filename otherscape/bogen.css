@@ -138,3 +138,19 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
   .feld .ph,.spec.neu,.spec.neu .ph,.ii,.buch.leer,.o-in::placeholder,.o-name::placeholder{color:transparent!important;border-color:transparent!important}
   .mi-toast{display:none!important}
 }
+
+/* Dialog bei vollem Upgrade-/Decay-Track */
+.ob-modal{position:fixed;inset:0;z-index:600;background:rgba(18,24,32,.45);display:grid;place-items:center}
+.ob-mbox{width:min(460px,92vw);background:#fbfcfd;border-radius:12px;border-top:6px solid #c9f74e;box-shadow:0 20px 60px rgba(0,0,0,.35);padding:18px 20px 14px;font:15px/1.5 "OS Plex",sans-serif;color:#1c2330}
+.ob-mbox h3{margin:0 0 8px;font:400 26px/1.1 "OB Bebas",sans-serif;letter-spacing:.02em}
+.ob-mbox p{margin:0 0 10px}
+.ob-mopts{display:flex;flex-direction:column;gap:6px;margin:6px 0 4px}
+.ob-mopt{display:block;padding:9px 12px;border:1px solid #d3dae3;border-radius:8px;cursor:pointer;text-decoration:none;color:inherit}
+.ob-mopt:hover{border-color:#8cbf2a;background:#f3fbe3}
+.ob-mopt.haupt{background:#d7fb6e;border-color:#a6d33c}
+.ob-mopt.off{opacity:.4;cursor:default;pointer-events:none}
+.ob-mopt b{display:block;font-weight:700}
+.ob-mopt small{display:block;color:#6a7586;font-size:13px}
+.ob-mfuss{display:flex;justify-content:flex-end;margin-top:8px}
+.ob-mfuss a{color:#6a7586;cursor:pointer;font-size:14px}
+.ob-mfuss a:hover{color:#1c2330}

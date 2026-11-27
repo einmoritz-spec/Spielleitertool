@@ -1,7 +1,7 @@
 /* A Wicked Secret and Other Mysteries – „Das Silber des Meeres“ (Buch S. 4–25), deutscher Text. Fertigkeiten in GROSSBUCHSTABEN werden als Probe-Marken dargestellt. */
 window.VAE_MYS = window.VAE_MYS || {};
 VAE_MYS.silber = {
- titel: "Das Silber des Meeres", buch: "vae_wicked", p: 4, zeit: "Spätsommer", kopf: "Ein böses Geheimnis · Spätsommer", ort: "Bohuslän · Fjällbacka · Strandräuberinsel",
+ titel: "Das Silber des Meeres", buch: "vae_wicked", p: 4, zeit: "Spätsommer", kopf: "A Wicked Secret · Spätsommer", ort: "Bohuslän · Fjällbacka · Strandräuberinsel",
  bild: "wicked/silber_eroeffnung",
  tabs: [["Hintergrund","hg"],["Anreise","an"],["Orte","orte"],["Konfrontation","kf"],["|"],["Figuren","fg"],["Hinweise","hw"],["Handouts","ho"],["Nachspiel","ns","end"]],
 

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1321sq";
+const VERSION = "v1322sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4426,6 +4426,7 @@ const FILES = [
   "vaesen/js/data/som-teufel.js",
   "vaesen/js/data/som-winter.js",
   "vaesen/js/data/som-silber.js",
+  "vaesen/js/data/som-geheimnis.js",
   "vaesen/js/data/galerie-wicked.js",
   "vaesen/js/data/galerie-som.js",
   "vaesen/img/som/feuer_alfred_haerenstam.webp",
@@ -4471,6 +4472,24 @@ const FILES = [
   "vaesen/img/wicked/silber_orvar.webp",
   "vaesen/img/wicked/silber_uddgren.webp",
   "vaesen/img/wicked/silber_zacharias.webp",
+  "vaesen/img/wicked/geheimnis_dorotea.webp",
+  "vaesen/img/wicked/geheimnis_eroeffnung.webp",
+  "vaesen/img/wicked/geheimnis_ho_2a.webp",
+  "vaesen/img/wicked/geheimnis_ho_2e.webp",
+  "vaesen/img/wicked/geheimnis_ho_2f.webp",
+  "vaesen/img/wicked/geheimnis_ho_2g.webp",
+  "vaesen/img/wicked/geheimnis_ho_perg.webp",
+  "vaesen/img/wicked/geheimnis_hoehle.webp",
+  "vaesen/img/wicked/geheimnis_karlstroem.webp",
+  "vaesen/img/wicked/geheimnis_karte_dorf.webp",
+  "vaesen/img/wicked/geheimnis_karte_kirche.webp",
+  "vaesen/img/wicked/geheimnis_karte_region.webp",
+  "vaesen/img/wicked/geheimnis_karte_saegewerk.webp",
+  "vaesen/img/wicked/geheimnis_kirche.webp",
+  "vaesen/img/wicked/geheimnis_kirchengrim.webp",
+  "vaesen/img/wicked/geheimnis_meijer.webp",
+  "vaesen/img/wicked/geheimnis_nystroem.webp",
+  "vaesen/img/wicked/geheimnis_vilhelmina.webp",
   "vaesen/img/som/som_emblem.webp",
   "vaesen/img/som/teufel_eroeffnung.webp",
   "vaesen/img/som/teufel_friedhof.webp",

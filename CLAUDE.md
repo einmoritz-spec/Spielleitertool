@@ -4,6 +4,7 @@ Statische PWA (reines HTML/CSS/JS, kein Build), veröffentlicht über GitHub Pag
 
 ## Wenn Moritz ein PDF schickt und „System X anlegen“ oder „System X ausbauen“ sagt
 Lies zuerst **`plan/SYSTEM_EINBAU.md`** und arbeite den Ablauf dort Schritt für Schritt ab. Er enthält die Checkliste, die Vorlagen und die gemeinsamen Bausteine. Gibt es schon einen Einzelplan (`plan/<SYSTEM>_PLAN.md`), lies ihn ebenfalls.
+Für Charakterbögen im Original-Look (Mist Engine: Otherscape/City of Mist als Vorbild, jetzt Legend in the Mist) lies **`plan/MIST_BOGEN_ORIGINALLOOK.md`**.
 
 ## Immer gültig
 - Antworten auf Deutsch; alle Inhalte im Tool komplett auf Deutsch.

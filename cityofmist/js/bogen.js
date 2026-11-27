@@ -66,7 +66,7 @@ function themaVorn(c, t, i, K, L, extra){
     var x = !pl ? (y === "Team" ? t.power[s] : null) : s === 0 ? pl.kern : pl.rest[s - 1], q = x && b && b.power.filter(function(z){ return z.l === x.l; })[0];
     if(x && x.l.length === 1) h += lnkR(K.plet[s], "let", esc(x.l), "");
     var ph = (b && s === 0 && !x) ? '<span class="ph">' + esc(b.power[0].q) + '</span>' : "";
-    h += lnkR([r[0], r[1] - 2, r[2], r[3] + 3], "feld" + (x && x.burn ? " burned" : "") + (x && x.a.length > 20 ? " lang" : ""), x ? '<span>' + esc(x.a) + '</span>' : ph, 'data-act="obTag" data-i="' + i + '" data-art="power" data-s="' + s + '" data-k="p' + i + '_' + s + '"' + (q ? ' data-tip="' + esc(q.l + ": " + q.q) + '"' : ""));
+    h += lnkR([r[0], r[1] - 2, r[2], r[3] + 3], "feld" + (x && x.burn ? " burned" : "") + (x && x.a.length > 16 ? " lang" : "") + (x && x.a.length > 34 ? " lang2" : "") + (x && x.a.length > 44 ? " lang3" : ""), x ? '<span>' + esc(x.a) + '</span>' : ph, 'data-act="obTag" data-i="' + i + '" data-art="power" data-s="' + s + '" data-k="p' + i + '_' + s + '"' + (q ? ' data-tip="' + esc(q.l + ": " + q.q) + '"' : ""));
     if(x && x.a) h += lnkR(K.burn[s], "burn" + (x.burn ? " on" : ""), x.burn ? '<svg viewBox="0 0 24 24"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-4.5 3-6 0 2 1 3 2 3-1-3 0-6 1-9z"/></svg>' : "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder aktivieren" : "Verbrennen") + '"');
   });
   /* Schwächen */
@@ -74,7 +74,7 @@ function themaVorn(c, t, i, K, L, extra){
   K.wtxt.forEach(function(r, w){
     var xw = b || y === "Team" ? t.weak[w] : null, qw = xw && b && b.weak.filter(function(z){ return z.l === xw.l; })[0];
     if(xw && xw.l.length === 1) h += lnkR(K.wlet[w], "let", esc(xw.l), "");
-    h += lnkR([r[0], r[1] - 2, r[2], r[3] + 3], "feld" + (xw && xw.a.length > 20 ? " lang" : ""), xw ? '<span>' + esc(xw.a) + '</span>' : "", 'data-act="obTag" data-i="' + i + '" data-art="weak" data-s="' + w + '" data-k="w' + i + '_' + w + '"' + (qw ? ' data-tip="' + esc(qw.l + ": " + qw.q) + '"' : ""));
+    h += lnkR([r[0], r[1] - 2, r[2], r[3] + 3], "feld" + (xw && xw.a.length > 16 ? " lang" : "") + (xw && xw.a.length > 34 ? " lang2" : "") + (xw && xw.a.length > 44 ? " lang3" : ""), xw ? '<span>' + esc(xw.a) + '</span>' : "", 'data-act="obTag" data-i="' + i + '" data-art="weak" data-s="' + w + '" data-k="w' + i + '_' + w + '"' + (qw ? ' data-tip="' + esc(qw.l + ": " + qw.q) + '"' : ""));
     if(xw && xw.a) h += lnkR(K.inv[w], "inv" + (xw.inv ? " on" : ""), "", 'data-act="obInv" data-i="' + i + '" data-s="' + w + '" data-tip="' + (xw.inv ? "Markierung lösen" : "Schwäche angewandt: Aufmerksamkeit markieren") + '"');
   });
   return h;

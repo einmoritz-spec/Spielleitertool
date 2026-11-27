@@ -63,6 +63,8 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .feld{display:flex;align-items:center;padding:0 calc(var(--pt)*2.5);font:700 calc(var(--pt)*9.6)/1.1 var(--hand);color:#1d1c19;text-decoration:none;cursor:pointer;overflow:hidden}
 .feld:hover{background:rgba(255,255,255,.3)}
 .feld.lang{font-size:calc(var(--pt)*7.6);line-height:1.02}
+.feld.lang2{font-size:calc(var(--pt)*6.3);line-height:1}
+.feld.lang3{font-size:calc(var(--pt)*5.4);line-height:1}
 .feld .ph{font:italic 400 calc(var(--pt)*7.2)/1.2 var(--hand);color:#8b877d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:100%}
 .feld.burned span{text-decoration:line-through;text-decoration-color:#c0581f;color:#6f6b62}
 .let{display:flex;align-items:center;justify-content:center;font:700 calc(var(--pt)*9.5)/1 var(--hand);color:#55524a;text-decoration:none;pointer-events:none}

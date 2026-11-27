@@ -1420,3 +1420,12 @@ html,body{overflow-x:clip;max-width:100%}
 .bgbreit .bgb-wg .bgrow.bgdk{background:none}
 .bgbreit .bgb-wg .bgrow{border-bottom:1px solid #c3cde0}
 .bgbreit .bgwn{width:auto;flex:1;padding-left:4mm}
+
+/* Charakter-Chips: klein und minimal */
+.bgch{gap:4px;align-items:center}
+.bgch a{font-size:11.5px;letter-spacing:.02em;padding:3px 10px;border-width:1px;border-radius:12px;opacity:.75;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+.bgch a.on{opacity:1}
+.bgch a.neu{border-style:solid}
+.bgch a.neu:first-of-type{}
+.bgch a[data-tip="Neuen Bogen anlegen"]{width:20px;height:20px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+.bgch a:hover{opacity:1}

@@ -1130,9 +1130,9 @@ textarea.dbb-t.schw{line-height:1.05;padding:0 2px;white-space:normal}
 /* Charakter-Chips: klein und minimal, links in der Symbolleiste */
 .dbb-chips{display:flex;flex-wrap:nowrap;gap:4px;align-items:center;margin:0;padding:0;max-width:560px;overflow:hidden;color:#2f6e5f}
 .dbb-chips .dbb-chip{display:inline-flex;align-items:center;border:1px solid #2f6e5f;border-radius:12px;background:transparent;opacity:.6;flex:none}
-.dbb-chips .dbb-chip>button{border:0;background:transparent;padding:2px 9px;font:500 11.5px/1.3 inherit;font-family:inherit;color:inherit;cursor:pointer;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dbb-chips .dbb-chip>button{border:0;background:transparent;padding:2px 9px;font-weight:500;font-size:11.5px;line-height:1.3;font-family:inherit;color:inherit;cursor:pointer;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .dbb-chips .dbb-chip.on{opacity:1;background:#2f6e5f}.dbb-chips .dbb-chip.on>button{color:#fff}
 .dbb-chips .dbb-chip .x{padding:2px 7px 2px 0!important;font-size:13px!important;opacity:.8}
-.dbb-chips .dbb-plus{width:20px;height:20px;border-radius:50%;border:1px solid #2f6e5f;background:transparent;color:inherit;opacity:.6;font:500 14px/1 inherit;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;flex:none}
+.dbb-chips .dbb-plus{width:20px;height:20px;border-radius:50%;border:1px solid #2f6e5f;background:transparent;color:inherit;opacity:.6;font-weight:500;font-size:14px;line-height:1;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;flex:none}
 .dbb-chips .dbb-chip:hover,.dbb-chips .dbb-plus:hover{opacity:1}
 .dbb-leiste{display:inline-flex;align-items:center;gap:6px}

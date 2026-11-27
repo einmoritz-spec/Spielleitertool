@@ -825,3 +825,10 @@ body.weg #app>.unter{transform:translateY(-100%)}
 .htinfo p{margin:0;font:15px/1.45 sans-serif}
 .bgtoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#f2e9da;color:#1b130c;padding:9px 18px;border-radius:4px;font:14px "HT BoldSans",sans-serif;z-index:500}
 @media print{.bgdd,.htpop,.htinfo{display:none!important}}
+
+/* Charakter-Chips: klein und minimal */
+.bgch{gap:4px;align-items:center}
+.bgch a{font-size:11.5px;letter-spacing:.04em;padding:3px 10px;border-radius:12px;opacity:.7;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bgch a.on{opacity:1}
+.bgch a.neu{width:20px;height:20px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;letter-spacing:0;border-style:solid}
+.bgch a:hover{opacity:1}

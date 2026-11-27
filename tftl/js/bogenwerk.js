@@ -175,6 +175,14 @@
     function mach(el, ic, tip){ if(!el) return; el.className = "bwi"; el.setAttribute("data-tip", tip); el.setAttribute("aria-label", tip); el.innerHTML = sym(IC[ic]); }
     mach(pdf, "pdf", "Als ausfüllbares PDF speichern"); mach(prn, "druck", "Drucken"); mach(del, "weg", (ctx().L || {}).kid === "Teen" ? "Teen löschen" : "Kid löschen");
     kt.querySelectorAll(".chip:not(.bwi)").forEach(function(c){ c.classList.add("bw-back"); });
+    var back = kt.querySelector("a.chip.bw-back");
+    if(back){
+      var P0 = ctx().p || "", e0 = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); };
+      var ch = document.createElement("span"); ch.className = "tk-chips noprint";
+      ch.innerHTML = d.kids.map(function(x){ return '<a class="tk-chip' + (x.id === id ? " on" : "") + '" href="#' + P0 + 'bogen/' + x.id + '">' + e0((x.name || "").trim() || "Neuer Bogen") + '</a>'; }).join("") + '<button type="button" class="tk-plus" data-tip="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen">+</button>';
+      back.parentNode.replaceChild(ch, back);
+      ch.querySelector(".tk-plus").onclick = function(){ var D = rd(), n = neuKid(); D.kids.push(n); wr(D); location.hash = "#" + P0 + "bogen/" + n.id; };
+    }
     var tools = document.createElement("span"); tools.className = "bw-tools noprint";
     tools.innerHTML = ib("zufall", "Zufälligen Charakter erstellen", "zufall") + ib("vorlage", "Vorgefertigten Charakter einsetzen", "vorlage") + ib("leeren", "Bogen leeren", "leeren") + ib("teilen", "Link teilen", "teilen") + ib("sichern", "Als Datei sichern", "sichern") +
       '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + sym(IC.laden) + '<input type="file" accept=".json,application/json" hidden></label>';

@@ -64,23 +64,23 @@ function themaVorn(c, t, i, K, L){
   }
   /* Title Tag = erste Zeile (Frage A) */
   var ph = b ? '<span class="ph">' + esc(b.power[0].q) + '</span>' : (fs ? '<span class="ph">Title Tag eurer Fellowship</span>' : "");
-  h += lnkR(K.title, "feld titel" + (t.tburn ? " burned" : "") + (String(t.name || "").length > 26 ? " lang" : "") + (String(t.name || "").length > 44 ? " lang2" : ""), t.name ? '<span>' + esc(t.name) + '</span>' : ph, 'data-act="obTag" data-i="' + i + '" data-art="titel" data-s="0" data-k="t' + i + '_0"' + (b ? ' data-tip="A: ' + esc(b.power[0].q) + '"' : ""));
+  h += lnkR(K.title, "feld titel" + (t.tburn ? " burned" : "") + (String(t.name || "").length > 17 ? " lang" : "") + (String(t.name || "").length > 28 ? " lang2" : ""), t.name ? '<span>' + esc(t.name) + '</span>' : ph, 'data-act="obTag" data-i="' + i + '" data-art="titel" data-s="0" data-k="t' + i + '_0"' + (b ? ' data-tip="A: ' + esc(b.power[0].q) + '"' : ""));
   if(t.name) h += lnkR(K.burn[0], "sc" + (t.tburn ? " on" : ""), "", 'data-act="obBurn" data-i="' + i + '" data-s="-1" data-tip="' + (t.tburn ? "Wieder verfügbar" : "Tag durchstreichen (scratched)") + '"');
   /* weitere Power Tags */
   K.power.forEach(function(r, s){
     var x = t.power[s], q = x && b && b.power.filter(function(z){ return z.l === x.l; })[0], a = x ? x.a : "";
-    h += lnkR(r, "feld" + (x && x.burn ? " burned" : "") + (a.length > 22 ? " lang" : "") + (a.length > 40 ? " lang2" : ""), a ? '<span>' + esc(a) + '</span>' : "", 'data-act="obTag" data-i="' + i + '" data-art="power" data-s="' + s + '" data-k="p' + i + '_' + s + '"' + (q ? ' data-tip="' + esc(q.l + ": " + q.q) + '"' : ""));
+    h += lnkR(r, "feld" + (x && x.burn ? " burned" : "") + (a.length > 17 ? " lang" : "") + (a.length > 28 ? " lang2" : ""), a ? '<span>' + esc(a) + '</span>' : "", 'data-act="obTag" data-i="' + i + '" data-art="power" data-s="' + s + '" data-k="p' + i + '_' + s + '"' + (q ? ' data-tip="' + esc(q.l + ": " + q.q) + '"' : ""));
     if(a) h += lnkR(K.burn[s + 1], "sc" + (x.burn ? " on" : ""), "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder verfügbar" : "Tag durchstreichen (scratched)") + '"');
   });
   /* Weakness Tags */
   K.weak.forEach(function(r, w){
     var xw = t.weak[w], qw = xw && b && b.weak.filter(function(z){ return z.l === xw.l; })[0], a = xw ? xw.a : "";
-    h += lnkR(r, "feld w" + (a.length > 22 ? " lang" : "") + (a.length > 40 ? " lang2" : ""), a ? '<span>' + esc(a) + '</span>' : "", 'data-act="obTag" data-i="' + i + '" data-art="weak" data-s="' + w + '" data-k="w' + i + '_' + w + '"' + (qw ? ' data-tip="' + esc(qw.l + ": " + qw.q) + '"' : ""));
+    h += lnkR(r, "feld w" + (a.length > 17 ? " lang" : "") + (a.length > 28 ? " lang2" : ""), a ? '<span>' + esc(a) + '</span>' : "", 'data-act="obTag" data-i="' + i + '" data-art="weak" data-s="' + w + '" data-k="w' + i + '_' + w + '"' + (qw ? ' data-tip="' + esc(qw.l + ": " + qw.q) + '"' : ""));
     if(a) h += lnkR([r[0] - 11, r[1] + 3.5, 10.5, 11], "inv" + (xw.inv ? " on" : ""), "", 'data-act="obInv" data-i="' + i + '" data-s="' + w + '" data-tip="' + (xw.inv ? "Markierung lösen" : "Weakness angewandt: Improve markieren") + '"');
   });
   /* Quest */
   var q0 = K.quest[0], q2 = K.quest[K.quest.length - 1], qt = String(t.motiv || "");
-  h += lnkR([q0[0], q0[1], q0[2], q2[1] + q2[3] - q0[1]], "o-quest" + (qt.length > 56 ? " lang" : "") + (qt.length > 90 ? " lang2" : ""), qt ? '<span>' + esc(qt) + '</span>' : "", 'data-act="obMotiv" data-i="' + i + '" data-k="m' + i + '"');
+  h += lnkR([q0[0], q0[1], q0[2], q2[1] + q2[3] - q0[1] + 9], "o-quest" + (qt.length > 56 ? " lang" : "") + (qt.length > 90 ? " lang2" : ""), qt ? '<span>' + esc(qt) + '</span>' : "", 'data-act="obMotiv" data-i="' + i + '" data-k="m' + i + '"');
   /* Abandon / Improve / Milestone */
   var G = [["aband", "Abandon", "aband"], ["impr", "Improve", "impr"], ["mile", "Milestone", "mile"]];
   G.forEach(function(g, k){ h += punkte(K.pips[k], p + "." + g[0], t[g[0]], g[2], g[1]); });
@@ -307,6 +307,11 @@ function zufall(){
     var pool = (Math.random() < 0.2 ? ad : og).filter(function(b){ return !used[b.id] && A.kitsOf(b.id).length; }); if(!pool.length) pool = og.filter(function(b){ return !used[b.id]; });
     var b = pick(pool); used[b.id] = 1; return themaAusKitZufall(pick(A.kitsOf(b.id)), b.typ === "Variable" ? "origin" : "");
   });
+  ens(c);
+  c.name = pick(["Brannoch Eichenfaust","Isleth von den Mooren","Torwyn Aschenbart","Maelis Nebelschritt","Garrick Steinhüter","Yrsa Dornenlied","Colm der Wanderer","Edda Krähenruf"]);
+  c.pack[0] = pick(["Ein zerlesenes Wegebuch","Eine Laterne mit blauer Flamme","Ein Beutel Dorfsalz","Ein Flickzeug für alles","Der Schlüssel zu einer vergessenen Tür"]);
+  var fk = A.kitsOf("fellowship");
+  if(fk.length){ var ft = themaAusKitZufall(pick(fk), ""); delete ft.might; ft.book = "fellowship"; c.extra = ft; }
   A.neu(c, true); A.rerender();
 }
 var TKEY = {"Skill Or Trade": "skill_or_trade", "Prodigious Ability": "prodigious", "Uncanny Being": "uncanny"};

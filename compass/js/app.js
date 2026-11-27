@@ -164,7 +164,7 @@ function route(){
   var h = location.hash.replace(/^#/, "").split("/");
   if(h[0] === "a" && h[1] && INH.render(h[1], h[2])) return;
   if(h[0] === "e" && h[1]){ EPI.render(h[1]); return; }
-  if(h[0] === "bogen"){ BOGEN.render(); return; }
+  if(h[0] === "bogen"){ BOGEN.render(h.slice(1).join("/")); return; }
   renderStart();
 }
 function render(){ route(); }

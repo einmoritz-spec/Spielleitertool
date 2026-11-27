@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1413sq";
+const VERSION = "v1414sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -976,6 +976,10 @@ const FILES = [
   "compass/index.html",
   "compass/js/epi.js",
   "compass/js/bogen.js",
+  "compass/bogen.css",
+  "compass/js/data/bogen-daten.js",
+  "compass/img/bogen/hintergrund.webp",
+  "compass/img/bogen/streifen.webp",
   "compass/img/gal/aj/thumb/1999-extra-blogger.webp",
   "compass/img/gal/aj/thumb/1999-extra-detektiv.webp",
   "compass/img/gal/aj/thumb/1999-extra-freund.webp",

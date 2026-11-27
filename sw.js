@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1432sq";
+const VERSION = "v1433sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -5678,6 +5678,8 @@ const FILES = [
   "assets/hero/ss-art.webp",
   "assets/logos/hor.webp",
   "assets/logos/local-legends-wortmarke.webp",
+  "assets/bogen-teaser/cityofmist.webp",
+  "assets/bogen-teaser/otherscape.webp",
   "assets/logos/city-of-mist.webp",
   "assets/logos/legend-in-the-mist.webp",
   "css/overview.css",

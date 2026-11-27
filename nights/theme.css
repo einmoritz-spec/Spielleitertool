@@ -324,3 +324,16 @@ body.ninav .ni-body>[id]{scroll-margin-top:110px}
 .case-tabbar.nihead{border:0!important;margin:0!important;height:0;overflow:visible;display:flex;justify-content:flex-end;align-items:flex-start;gap:12px;position:relative;z-index:3}
 .case-tabbar.nihead>*{margin-top:6px}
 .case-tabbar.nihead .case-pg{display:none!important}
+
+/* Charakterbogen-Leiste auf der Startseite */
+.np-bogen{position:relative;display:flex;align-items:stretch;height:clamp(130px,16vh,165px);overflow:hidden;text-decoration:none;color:#fff;border:1px solid #ff2a7a;border-radius:12px;background:linear-gradient(110deg,#1a0720 0%,#0a0a1f 60%);box-shadow:0 0 24px rgba(255,42,122,.3),inset 0 0 40px rgba(255,42,122,.08);transition:box-shadow .3s}
+.np-bogen:hover{box-shadow:0 0 38px rgba(255,42,122,.55),inset 0 0 40px rgba(255,42,122,.14)}
+.npb-t{flex:none;width:clamp(260px,36vw,480px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 28px}
+.npb-t b{font:700 clamp(1.3rem,2.2vw,1.9rem)/1 var(--cond,system-ui);letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 0 6px #ff2a7a,0 0 20px #ff2a7a}
+.npb-t small{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:#ff8fb8}
+.npb-t u{margin-top:8px;text-decoration:none;align-self:flex-start;font:600 .72rem var(--cond,system-ui);letter-spacing:.18em;text-transform:uppercase;color:#4aa3e0;transition:color .2s}
+.np-bogen:hover .npb-t u{color:#9fd4ff}
+.npb-img{position:relative;flex:1;min-width:0;overflow:hidden}
+.npb-img img{position:absolute;left:6%;top:-6%;width:min(100%,640px);transform:rotate(-2.5deg);box-shadow:0 10px 30px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.1);border-radius:3px;transition:transform .35s}
+.np-bogen:hover .npb-img img{transform:rotate(-1deg) translateY(-5px)}
+@media(max-width:700px){.np-bogen{flex-direction:column;height:auto}.npb-t{width:auto;padding:18px 20px}.npb-img{height:150px}}

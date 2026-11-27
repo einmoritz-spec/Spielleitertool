@@ -56,3 +56,16 @@
 
 /* ===== Flüssige Animation ===== */
 .ov-card{will-change:transform}.ov-photo img{will-change:transform;backface-visibility:hidden}
+
+/* Charakterbogen-Banner (breite Polaroid-Karte über dem Raster) */
+.ov-bogen{grid-column:1/-1;position:relative;display:flex;align-items:center;gap:34px;padding:14px 30px 14px 16px;margin:12px 0 4px;text-decoration:none;color:#2a1a3e;background:#fbf6e6;border:1px solid #c9b98f;border-top:5px solid #6a2bb8;border-radius:3px;box-shadow:2px 6px 16px rgba(60,40,15,.35);transform:rotate(-.4deg);transition:transform .18s,box-shadow .18s}
+.ov-bogen:hover{transform:rotate(0) translateY(-3px);box-shadow:3px 10px 22px rgba(60,40,15,.45)}
+.ov-tape{position:absolute;left:50%;top:-16px;width:110px;height:26px;margin-left:-55px;background:rgba(255,63,164,.55);transform:rotate(-2deg);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.ovb-img{flex:none;width:min(30%,300px);display:block;border:1px solid #bda97a;background:#e8dcc0;box-shadow:0 3px 10px rgba(60,40,15,.3);transform:rotate(1deg)}
+.ovb-img img{display:block;width:100%;height:auto}
+.ovb-t{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.ovb-t b{font:900 italic clamp(1.9rem,3.6vw,3rem)/.95 Impact,"Arial Black",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#6a2bb8;text-shadow:2px 2px 0 #ff3fa4}
+.ovb-t em{font-style:normal;font-size:1rem;line-height:1.4;color:#4a3a5e;max-width:28em}
+.ovb-t u{text-decoration:none;font:700 .95rem/1 inherit;letter-spacing:.1em;text-transform:uppercase;background:#6a2bb8;color:#fff;padding:11px 18px;border-radius:3px;box-shadow:3px 3px 0 #ff3fa4;transition:transform .15s}
+.ov-bogen:hover .ovb-t u{transform:translate(-1px,-1px)}
+@media(max-width:700px){.ov-bogen{flex-direction:column;align-items:flex-start;gap:18px}.ovb-img{width:100%}}

@@ -72,6 +72,7 @@ function renderHome(){
   $("app").innerHTML = `<div class="os-home" style="--ov:${OS_HOV[OS_H]||14}px">
 <header class="os-hero2" style="--im:url(img/hero/${OS_H}.webp)"><img src="img/hero/${OS_H}.webp" alt="Otherscape"></header>
   <div class="os-ax"><button class="os-ax-lab" onclick="${go("abenteuer")}"><b>Abenteuer</b><small>${adv.length} Jobs</small><span>Alle Jobs<svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg></span></button><div class="os-ax-row">${strip}</div></div>
+  <a class="os-bx" href="ersteller.html" aria-label="Charakterbogen erstellen"><span class="os-bx-lab"><b>Charakterbogen</b><small>Ausfüllbar im Original-Look</small><span>Bogen öffnen<svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l4 4-4 4"/></svg></span></span><span class="os-bx-img"><img src="../assets/bogen-teaser/otherscape.webp" alt="" loading="lazy"></span></a>
   <div class="os-pans">
    ${pan("Regeln","biting-bullet-titel","#ff2bd6",[["regeln","Regelwerk","Metro-Regeln"],["run","//Run","Einsätze"]])}
    ${pan("Charaktere","strings-attached-cover","#19e3c1",[["charaktererstellung","Charaktererstellung","Schritt für Schritt"],["archetypen","Archetypen","Vorlagen"],["kits","Theme Books","Themes &amp; Kits"],["katalog","Straßenkatalog","Ausrüstung"]])}

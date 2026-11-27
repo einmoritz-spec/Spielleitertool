@@ -38,6 +38,7 @@
         '<input type="file" accept="image/*" onchange="dwBild(\'' + k + '\',this.files[0])"></label>';
     }
     var h = art === "glueck" ? 24 : 14, st2 = "left:" + pc(f[1], 612) + ";top:" + pc(f[2] - h, 792) + ";width:" + pc(f[3], 612) + ";height:" + pc(h, 792);
+    if(/(^|\.)org$/.test(k)) return '<input class="bf wahl" style="' + st2 + '" value="' + esc(v) + '" data-k="' + k + '" readonly onclick="dwOrgPop(this,event)" title="Organisation wählen" autocomplete="off">';
     return '<input class="bf' + (art ? " " + art : "") + '" style="' + st2 + '" value="' + esc(v) + '" data-k="' + k + '" oninput="dwSetze(this)" autocomplete="off" spellcheck="false">';
   }
   window.dwSetze = function(el){ D[el.dataset.k] = el.value; sichern(); };
@@ -58,6 +59,33 @@
   };
 
 
+
+  /* ---------- Auswahlfelder: Organisation (Dropdown mit Info-Popup je Eintrag) ---------- */
+  function orgInfo(pg){
+    var t = (pg.b || []).filter(function(x){ return typeof x === "string"; })[0] || "";
+    t = t.replace(/\*/g, ""); if(t.length > 420){ var cut = t.slice(0, 420), i = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("! ")); t = i > 120 ? cut.slice(0, i + 1) : cut.replace(/\s+\S*$/, "") + " …"; }
+    return t;
+  }
+  function popWeg(){ document.querySelectorAll(".orgpop,.orginfo").forEach(function(e){ e.remove(); }); }
+  window.dwOrgPop = function(el, e){
+    e.stopPropagation(); var offen = document.querySelector(".orgpop"); popWeg(); if(offen && offen.dataset.k === el.dataset.k) return;
+    var L = DW.K.charaktere.filter(function(pg){ return tab("wz-" + pg.id); }), r = el.getBoundingClientRect();
+    var p = document.createElement("div"); p.className = "orgpop"; p.dataset.k = el.dataset.k;
+    p.style.left = Math.max(8, Math.min(r.left, innerWidth - 330)) + "px"; p.style.top = (r.bottom + 4) + "px";
+    p.innerHTML = '<div class="op-z"><button class="op-n" data-n="">– keine –</button></div>' + L.map(function(pg, i){
+      return '<div class="op-z"><button class="op-n" data-n="' + esc(pg.t) + '">' + esc(pg.t) + '</button><button class="op-i" data-i="' + i + '" title="Info" aria-label="Info">i</button></div>'; }).join("");
+    document.body.appendChild(p);
+    var h = p.getBoundingClientRect().height; if(r.bottom + 4 + h > innerHeight) p.style.top = Math.max(8, innerHeight - h - 8) + "px";
+    p.addEventListener("click", function(ev){
+      ev.stopPropagation(); var b = ev.target.closest("button"); if(!b) return;
+      if(b.dataset.n !== undefined){ D[el.dataset.k] = b.dataset.n; popWeg(); sichern(); render(); return; }
+      var old = document.querySelector(".orginfo"); if(old) old.remove(); var pg = L[+b.dataset.i], q = b.getBoundingClientRect(), c = document.createElement("div");
+      c.className = "orginfo"; c.innerHTML = "<b>" + esc(pg.t) + "</b><p>" + esc(orgInfo(pg)) + "</p>";
+      c.style.left = Math.min(q.right + 8, innerWidth - 340) + "px"; c.style.top = Math.max(8, q.top - 10) + "px";
+      c.addEventListener("click", function(x){ x.stopPropagation(); }); document.body.appendChild(c);
+    });
+  };
+  document.addEventListener("click", popWeg);
 
   /* ---------- Vorgefertigte Gruppe und Charaktere (S. 94–96) einsetzen ---------- */
   function vorDaten(){

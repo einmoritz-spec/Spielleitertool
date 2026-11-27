@@ -362,3 +362,14 @@ body.mitunter .unter{border-top:0}
 .akte .bogen-cta:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 2px rgba(246,234,211,.3),0 6px 14px rgba(70,20,10,.4)}
 .akte .bogen-cta svg{flex:none}
 .akte .bogen-cta b{display:block;font:400 19px/1.1 FellSC,serif;letter-spacing:.02em}
+
+.dwb .bf.wahl{cursor:pointer}
+.orgpop{position:fixed;z-index:400;width:320px;max-height:70vh;overflow:auto;background:#fffbf2;border:1px solid #c9ae80;border-radius:6px;box-shadow:0 6px 20px rgba(60,30,10,.3);padding:4px}
+.orgpop .op-z{display:flex;align-items:center;border-bottom:1px solid #eadcc0}.orgpop .op-z:last-child{border:0}
+.orgpop .op-n{flex:1;text-align:left;font:18px Gara,serif;color:#2b1d14;background:none;border:0;padding:7px 10px;cursor:pointer}
+.orgpop .op-n:hover{background:rgba(122,36,23,.08);color:var(--blut)}
+.orgpop .op-i{flex:none;width:22px;height:22px;margin:0 6px;border:1px solid #b9a077;border-radius:50%;background:none;color:#8a7352;font:italic 700 14px Gara,serif;cursor:pointer;padding:0;line-height:1}
+.orgpop .op-i:hover{background:var(--blut);color:#f6ead3;border-color:var(--blut)}
+.orginfo{position:fixed;z-index:410;width:330px;background:#fffbf2;border:1px solid #c9ae80;border-radius:6px;box-shadow:0 8px 24px rgba(60,30,10,.4);padding:12px 14px}
+.orginfo b{display:block;font:400 19px FellSC,serif;color:var(--blut);margin-bottom:6px}
+.orginfo p{margin:0;font:16px/1.4 Gara,serif;color:#2b1d14}

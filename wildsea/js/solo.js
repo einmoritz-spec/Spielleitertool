@@ -12,9 +12,9 @@ function go(h){ if(location.hash === "#" + h) render(); else location.hash = h; 
 window.addEventListener("hashchange", function(){ render(); });
 function render(){
   var h = (location.hash || "#bogen").slice(1).split("/"), ship = h[0] === "schiff";
-  var out = ship ? viewSchiff() : viewBogen();
+  var out = ship ? viewSchiff() : viewBogen(h[1]);
   out = out.replace(/<select[\s\S]*?<\/select>/, "").replace(/<a class="on">(Charakterbogen|Schiffsbogen)<\/a>/,
     '<a' + (ship ? '' : ' class="on"') + ' onclick="go(\'bogen\')">Charakterbogen</a><a' + (ship ? ' class="on"' : '') + ' onclick="go(\'schiff\')">Schiffsbogen</a>');
   var y = scrollY, same = window.__lh === location.hash; window.__lh = location.hash; APP.innerHTML = out; scrollTo(0, same ? y : 0);
 }
-render();
+bgLinkImport().then(render, render);

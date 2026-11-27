@@ -135,3 +135,43 @@
 @media print{.bsheet.ship{zoom:.66!important}.bsheet .stk input::placeholder{color:#9b9a90!important}}
 .bh>span,.bsb>span{display:inline-block;transform-origin:0 50%;white-space:nowrap}
 .rt .rl{width:88px}
+/* ---------- Symbolleiste, Auswahl-Popups (Vorbild Discworld) ---------- */
+.tabs .bbar{gap:6px}
+.bbar .bib{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:34px;padding:0;background:#fff;border:1px solid var(--line);border-radius:17px;color:var(--ink);cursor:pointer}
+.bbar .bib:hover{background:var(--paper);border-color:var(--sage)}
+.bbar .bib.haupt{background:var(--sage3);border-color:var(--sage3);color:#fff}
+.bbar .bib svg{display:block}
+.bbar .vorwrap{display:inline-flex}
+.bbar [data-tip]::after{content:attr(data-tip);position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;padding:3px 8px;border-radius:3px;background:rgba(40,38,30,.78);color:#f3f2ea;font:italic 13px/1.2 BgSerif,Georgia,serif;pointer-events:none;opacity:0;transition:opacity .15s .25s;z-index:60}
+.bbar [data-tip]:hover::after{opacity:1}
+.bbar>[data-tip]:last-child::after,.bbar>[data-tip]:nth-last-child(2)::after{left:auto;right:0;transform:none}
+.bbar>.vorwrap [data-tip]::after{left:0;transform:none}
+.bgtoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#2f2c22;color:#f3f2ea;padding:9px 20px;border-radius:6px;font:600 18px/1 BgTeko,Teko,sans-serif;letter-spacing:.04em;z-index:500}
+/* Auswahlfelder im Bogen */
+.bsheet .fl.wahl input{cursor:pointer}
+.bsheet .fl.wahl input:hover{background-color:#f3f5ec}
+.bsheet .bgdd{z-index:4;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;font:14px/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.bsheet .bgdd:hover{background:rgba(255,255,255,.34)}
+/* Popups */
+.bgpop{position:fixed;z-index:400;max-height:70vh;overflow-y:scroll;background:#fbfaf6;border:1px solid #b9b8a8;border-radius:6px;box-shadow:0 6px 20px rgba(40,38,30,.3);padding:4px;text-align:left}
+.bgpop .pz{display:flex;align-items:center;border-bottom:1px solid #e6e5da}.bgpop .pz:last-child{border:0}
+.bgpop .pn{flex:1;text-align:left;font:17px/1.25 BgSerif,Georgia,serif;color:#2d2b25;background:none;border:0;padding:7px 10px;cursor:pointer}
+.bgpop .pn em{display:block;font-size:13px;color:#8a897d;font-style:normal}
+.bgpop .pn:hover{background:rgba(131,148,106,.18)}
+.bgpop .pn.sel{background:rgba(131,148,106,.28);font-weight:600}
+.bgpop .pn.leer{cursor:default;color:#8a897d}
+.bgpop .pn em{display:inline;margin-left:6px;font-size:13px}
+.bgpop .pi{flex:none;width:22px;height:22px;margin:0 6px;border:1px solid #a9a896;border-radius:50%;background:none;color:#77756e;font:italic 700 14px BgSerif,Georgia,serif;cursor:pointer;padding:0;line-height:1}
+.bgpop .pi:hover,.bgpop .pi.sel{background:var(--sage3);color:#fff;border-color:var(--sage3)}
+.bgpop h4{margin:8px 10px 2px;font:600 17px/1 BgTeko,Teko,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#77756e}
+.bgpop .pk{padding:4px 10px;font:italic 14px BgSerif,Georgia,serif;color:#8a897d;border-bottom:1px solid #e6e5da}
+.bginfo{position:fixed;z-index:410;width:340px;background:#fbfaf6;border:1px solid #b9b8a8;padding:12px 14px;overflow-y:auto}
+.bginfo.re{border-radius:0 6px 6px 0;box-shadow:6px 6px 20px rgba(40,38,30,.3)}
+.bginfo.li{border-radius:6px 0 0 6px;box-shadow:-6px 6px 20px rgba(40,38,30,.3)}
+.bginfo b{display:block;font:600 22px/1 BgTeko,Teko,sans-serif;text-transform:uppercase;letter-spacing:.03em;color:var(--sage3);margin-bottom:6px}
+.bginfo p{margin:0;font:15px/1.4 BgSerif,Georgia,serif;color:#2d2b25}
+.bgpop::-webkit-scrollbar,.bginfo::-webkit-scrollbar{width:10px}
+.bgpop::-webkit-scrollbar-track,.bginfo::-webkit-scrollbar-track{background:#ecebe0}
+.bgpop::-webkit-scrollbar-thumb,.bginfo::-webkit-scrollbar-thumb{background:#a9a896;border-radius:5px;border:2px solid #ecebe0}
+@supports not selector(::-webkit-scrollbar){.bgpop,.bginfo{scrollbar-width:thin;scrollbar-color:#a9a896 #ecebe0}}
+@media print{.bbar,.bgpop,.bginfo,.bgtoast,.bgdd{display:none!important}}

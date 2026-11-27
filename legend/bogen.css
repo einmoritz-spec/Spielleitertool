@@ -1,7 +1,8 @@
 /* A4 quer */
 @page{size:A4 landscape;margin:0}
 /* Legend-in-the-Mist-Charakterbogen: Original-Seiten (ohne Beschriftung) als Hintergrund, deutsche Beschriftung und Felder exakt darüber */
-.mi-head{background:#f3e9d2;border-bottom:1px solid #d3bf95}
+.mi-head{background:transparent;border:0}
+html.lk .mi-head{display:none}
 .mi-head .mi-logo{height:26px}
 .mi-main.mi-wide{max-width:1300px}
 .mi-bar{margin-bottom:10px}

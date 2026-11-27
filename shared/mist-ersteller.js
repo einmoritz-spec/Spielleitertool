@@ -42,16 +42,36 @@ function neuerEintrag(c, nurWennLeer){
 }
 
 /* ---------- Teilen / Datei ---------- */
-function pack(c){ var o = JSON.parse(JSON.stringify(c)); delete o.id; return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
-function unpack(t){ t = t.replace(/-/g, "+").replace(/_/g, "/"); while(t.length % 4) t += "="; return JSON.parse(decodeURIComponent(escape(atob(t)))); }
+/* Link-Format: leere Werte weglassen und (wenn der Browser es kann) komprimieren; "z" davor = komprimiert, sonst altes Base64 */
+function schlank(v){
+  if(Array.isArray(v)){ var a = v.map(schlank); while(a.length && (a[a.length - 1] === undefined)) a.pop(); return a.length ? a : undefined; }
+  if(v && typeof v === "object"){ var o = {}, n = 0; Object.keys(v).forEach(function(k){ var x = schlank(v[k]); if(x !== undefined){ o[k] = x; n++; } }); return n ? o : undefined; }
+  return v === "" || v === 0 || v === false || v == null ? undefined : v;
+}
+function b64u(bytes){ var s = ""; for(var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function unb64u(t){ t = t.replace(/-/g, "+").replace(/_/g, "/"); while(t.length % 4) t += "="; var s = atob(t), b = new Uint8Array(s.length); for(var i = 0; i < s.length; i++) b[i] = s.charCodeAt(i); return b; }
+function strom(data, mode){ var cs = new (mode === "c" ? CompressionStream : DecompressionStream)("deflate-raw"), w = cs.writable.getWriter(); w.write(data); w.close(); return new Response(cs.readable).arrayBuffer().then(function(x){ return new Uint8Array(x); }); }
+function pack(c){
+  var o = JSON.parse(JSON.stringify(c)); delete o.id; var txt = JSON.stringify(schlank(o) || {}), bytes = new TextEncoder().encode(txt);
+  if(typeof CompressionStream === "function") return strom(bytes, "c").then(function(z){ return "z" + b64u(z); }, function(){ return b64u(bytes); });
+  return Promise.resolve(b64u(bytes));
+}
+function unpack(t){ try{ return unpack2(t); }catch(e){ return Promise.reject(e); } }
+function unpack2(t){
+  var fertig = function(txt){ var o = JSON.parse(txt); if(o && Array.isArray(o.themes)) o.themes = o.themes.map(function(x){ return Object.assign(blankTheme(), x); }); return o; };
+  if(t.charAt(0) === "z") return strom(unb64u(t.slice(1)), "d").then(function(b){ return fertig(new TextDecoder().decode(b)); });
+  return Promise.resolve(fertig(decodeURIComponent(escape(atob(t.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((t.length + 3) % 4))))));
+}
 function gueltig(o){ return o && Array.isArray(o.themes) && o.themes.every(function(t){ return t && Array.isArray(t.power) && Array.isArray(t.weak); }); }
 function normal(o){ var c = Object.assign(blankChar(), o); c.id = uid(); while(c.themes.length < CFG.regeln.themen) c.themes.push(blankTheme()); c.rel = c.rel || []; return c; }
 function toast(t){ var d = document.createElement("div"); d.className = "mi-toast"; d.textContent = t; document.body.appendChild(d); setTimeout(function(){ d.remove(); }, 2200); }
 function linkKopieren(c){
-  var url = location.href.split("#")[0] + "#c=" + pack(c);
-  if(navigator.share){ navigator.share({title: CFG.titel + " – " + (c.name || "Charakter"), url: url}).catch(function(){}); return; }
-  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(function(){ toast("Link kopiert"); }, function(){ prompt("Link zum Teilen:", url); });
-  else prompt("Link zum Teilen:", url);
+  pack(c).then(function(p){
+    var url = location.href.split("#")[0] + "#c=" + p;
+    if(navigator.share){ navigator.share({title: CFG.titel + " – " + (c.name || "Charakter"), url: url}).catch(function(){}); return; }
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(function(){ toast("Link kopiert"); }, function(){ prompt("Link zum Teilen:", url); });
+    else prompt("Link zum Teilen:", url);
+  });
 }
 function dateiSichern(c){
   var b = new Blob([JSON.stringify({system: CFG.sys, charakter: c}, null, 1)], {type: "application/json"}), a = document.createElement("a");
@@ -351,12 +371,14 @@ function eingabe(e){
 function start(cfg){
   CFG = cfg; $app = document.getElementById("app"); load();
   var m = /[#&]c=([\w-]+)/.exec(location.hash);
-  if(m){ try{ var o = unpack(m[1]); if(gueltig(o)){ S.chars.push(normal(o)); S.cur = S.chars[S.chars.length - 1].id; S.tab = "charaktere"; document.documentElement.classList.add("lk"); try{ sessionStorage.setItem("mi_lk", "1"); }catch(e){} history.replaceState(null, "", location.pathname); save(); } }catch(e){} }
+  if(m){ unpack(m[1]).then(function(o){ try{ if(gueltig(o)){ S.chars.push(normal(o)); S.cur = S.chars[S.chars.length - 1].id; S.tab = "charaktere"; document.documentElement.classList.add("lk"); try{ sessionStorage.setItem("mi_lk", "1"); }catch(e){} history.replaceState(null, "", location.pathname); save(); } }catch(e){} weiter(); }, function(){ weiter(); }); } else weiter();
+  function weiter(){
   try{ if(sessionStorage.getItem("mi_lk") === "1") document.documentElement.classList.add("lk"); }catch(e){}
   ens(); save(); render();
   document.addEventListener("click", click);
   document.addEventListener("input", eingabe); document.addEventListener("change", function(e){ if(e.target.id === "miFile"){ if(e.target.files[0]) dateiLaden(e.target.files[0]); e.target.value = ""; } else eingabe(e); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") popClose(); });
+  }
 }
 var API = {esc: esc, book: book, kitsOf: kitsOf, kitBy: kitBy, popOpen: popOpen, popClose: popClose, panel: panel, toast: toast, bookInfo: bookInfo, kitInfo: kitInfo, themeAusKit: themeAusKit, blankTheme: blankTheme,
   neu: function(c, n){ return neuerEintrag(c, n); }, blank: function(){ return blankChar(); },

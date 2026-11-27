@@ -2,20 +2,34 @@
 "use strict";
 var MS_ID = "", MS = null, MS_ST = null;
 function msKey(){ return "vae_som_" + MS_ID + "_v1"; }
-function msLoad(){ if(!MS_ST){ try{ MS_ST = JSON.parse(localStorage.getItem(msKey()) || "{}"); }catch(e){ MS_ST = {}; } MS_ST.cd = MS_ST.cd || []; MS_ST.clue = MS_ST.clue || {}; MS_ST.trk = MS_ST.trk || {}; MS_ST.note = MS_ST.note || {}; } return MS_ST; }
+function msLoad(){ if(!MS_ST){ try{ var raw = localStorage.getItem(msKey()); if(!raw && MS_ID === "tanz"){ var o = JSON.parse(localStorage.getItem("vae_tanz_v1") || "{}"), n = {cd: o.cd || [], clue: {}, trk: o.trk || {}, note: o.note || {}, last: ({hx: "orte", fg: "hg", hw: "hg", ho: "hg"})[o.last] || o.last}; Object.keys(o.clue || {}).forEach(function(k){ n.clue["tanz" + k] = 1; }); if(n.note.wurzelkeller){ n.note.kf = n.note.wurzelkeller; } raw = JSON.stringify(n); } MS_ST = JSON.parse(raw || "{}"); }catch(e){ MS_ST = {}; } MS_ST.cd = MS_ST.cd || []; MS_ST.clue = MS_ST.clue || {}; MS_ST.trk = MS_ST.trk || {}; MS_ST.note = MS_ST.note || {}; } return MS_ST; }
 function msSave(){ try{ localStorage.setItem(msKey(), JSON.stringify(MS_ST)); }catch(e){} }
 var MS_SK = "GELEHRSAMKEIT|NACHFORSCHUNG|EMPATHIE|BEOBACHTUNG|MANIPULATION|HEIMLICHKEIT|BEWEGLICHKEIT|KRAFT|FERNKAMPF|NAHKAMPF|MAGIE|WACHSAMKEIT|LOGIK|INSPIRATION|HEILKUNDE";
 var MS_RE = new RegExp("(?<![A-ZÄÖÜ])(" + MS_SK + ")(?![A-ZÄÖÜ])", "g");
-function msDec(s){ return String(s).replace(MS_RE, '<span class="roll">$1</span>').replace(/Furchtprobe gegen Furcht (\d)/g, 'Furchtprobe gegen <span class="fear">FURCHT $1</span>'); }
-function msP(a){ return (a || []).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""); }
-function msPg(p, book){ return '<span class="pg"><a onclick="BV.open(\'vae_seasons\',' + p + ')">S. ' + p + '</a></span>'; }
-var MS_PEN = TZ_PEN;
+function msDec(s){ return String(s).replace(MS_RE, '<span class="roll">$1</span>').replace(/gegen Furcht (\d)/g, 'gegen <span class="fear">FURCHT $1</span>'); }
+function msP(a){ return (a || []).map(function(t){ return t.indexOf("##") === 0 ? '<h5 class="ms-h5">' + esc(t.slice(2)) + '</h5>' : '<p>' + msDec(t) + '</p>'; }).join(""); }
+function msPg(p){ return '<span class="pg"><a onclick="BV.open(\'' + (MS && MS.buch || "vae_seasons") + '\',' + p + ')">S. ' + p + '</a></span>'; }
+var MS_PEN = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20l4-1L19 8l-3-3L5 16z"/><path d="M14 7l3 3"/></svg>';
+var TZ_FLAME = '<svg width="11" height="11" viewBox="0 0 10 10"><path d="M5 1c1 2 3 3 3 5a3 3 0 0 1-6 0c0-1 .6-1.8 1.2-2.3C3.4 5 4 5.2 4.3 4.6 4.6 3.8 4.4 2.6 5 1z" fill="#8a1f17"/></svg>';
+function tzPopOut(e){ if(!e.target.closest || (!e.target.closest("#tzPop") && !e.target.closest(".cd2 .st"))) tzPop(); }
+function tzPop(){ var p = document.getElementById("tzPop"); if(p) p.remove(); document.removeEventListener("click", tzPopOut); }
+/* Vollbild-Zeigemodus für Handouts */
+var TZ_SH = [], TZ_SI = 0;
+function tzShowDraw(){
+  var o = document.getElementById("tzShow"); if(!o){ o = document.createElement("div"); o.id = "tzShow"; o.className = "show"; document.body.appendChild(o); }
+  var el = TZ_SH[TZ_SI], cl = el.cloneNode(true); cl.removeAttribute("onclick"); cl.classList.add("big");
+  o.innerHTML = '<span class="ar" onclick="tzShowMove(-1)">‹</span><div class="stage"></div><span class="ar" onclick="tzShowMove(1)">›</span><span class="x" onclick="tzShowClose()">✕</span><div class="cnt">' + (TZ_SI + 1) + ' / ' + TZ_SH.length + '</div>';
+  o.querySelector(".stage").appendChild(cl);
+}
+function tzShowMove(d){ TZ_SI = (TZ_SI + d + TZ_SH.length) % TZ_SH.length; tzShowDraw(); }
+function tzShowClose(){ var o = document.getElementById("tzShow"); if(o) o.remove(); }
+document.addEventListener("keydown", function(e){ if(!document.getElementById("tzShow")) return; if(e.key === "Escape") tzShowClose(); if(e.key === "ArrowRight") tzShowMove(1); if(e.key === "ArrowLeft") tzShowMove(-1); });
 function msTtl(t, p, key){ return '<div class="ttl"><h2>' + esc(t) + '</h2>' + (p ? msPg(p) : '') + (key ? '<span class="pen' + (msLoad().note[key] ? ' has' : '') + '" onclick="msNote(\'' + key + '\',\'' + esc(t) + '\')" title="Notizen">' + MS_PEN + '</span>' : '') + '</div>'; }
 function msPp(k, d){ return MS.pp && MS.pp[k] != null ? MS.pp[k] : MS.p + d; }
 function msSub(t){ return '<div class="sub">' + t + '</div>'; }
 function msKast(t, x, p){ return '<div class="kast"><b class="kt">' + esc(t) + (p ? ' ' + msPg(p) : '') + '</b>' + x + '</div>'; }
 function msZoom(src){ var o = document.createElement("div"); o.className = "ms-zoom"; o.onclick = function(){ o.remove(); }; o.innerHTML = '<img src="' + src + '" alt="">'; document.body.appendChild(o); }
-function msImg(n){ return "img/som/" + n + ".webp"; }
+function msImg(n){ return n.charAt(0) === "@" ? IMG(n.slice(1), "full") : n.indexOf("/") > -1 ? "img/" + n + ".webp" : "img/som/" + n + ".webp"; }
 
 var MS_DR = null, MS_TABS = [["Vorgeschichte", "hg"], ["Auftakt", "an"], ["Orte", "orte"], ["Konfrontation", "kf"], ["Nachspiel", "ns"]];
 var MS_LK = [["Figuren", "fg"], ["Hinweise", "hw"], ["Handouts", "ho"], ["Karten", "ka"]];
@@ -59,22 +73,24 @@ function msTrkTog(el, k){ var s = msLoad(); if(s.trk[k]) delete s.trk[k]; else s
 function msFigImg(f){ return f.img ? '<img src="' + msImg(f.img.replace("som/", "")) + '" alt="">' : '<span class="ini">' + esc(f.n.charAt(0)) + '</span>'; }
 function msFigCard(id){
   var f = MS.figs[id], A = ["Physis", "Präzision", "Logik", "Empathie"];
-  var body = '<div class="attr">' + f.a.map(function(v, i){ return '<div><b>' + v + '</b><span>' + A[i] + '</span></div>'; }).join("") + '</div><div class="sk">' + f.f.map(function(x){ return x[0] + '<b>' + x[1] + '</b>'; }).join(" ") + '</div>' +
+  if(f.wesen) return msWesenCard(id);
+  var body = !f.a ? '' : '<div class="attr">' + f.a.map(function(v, i){ return '<div><b>' + v + '</b><span>' + A[i] + '</span></div>'; }).join("") + '</div><div class="sk">' + f.f.map(function(x){ return x[0] + '<b>' + x[1] + '</b>'; }).join(" ") + '</div>' +
    '<div class="trk">KÖRPERLICH <span>' + msTrk(id, "k", f.z[1]) + '</span> GEISTIG <span>' + msTrk(id, "g", f.z[0]) + '</span></div>' + (f.ausr ? '<div class="eq"><b>AUSRÜSTUNG</b> ' + esc(f.ausr) + '</div>' : '');
-  return '<div class="nc"><div class="hd2">' + msFigImg(f) + '<div><h3>' + esc(f.n) + (f.p ? msPg(f.p) : '') + '</h3><div class="role">' + esc(f.rolle) + '</div><div class="qu">' + esc(f.zitat) + '</div></div></div><div class="tx">' + msDec(f.x) + '</div>' + body + '</div>';
+  return '<div class="nc"><div class="hd2">' + msFigImg(f) + '<div><h3>' + esc(f.n) + (f.p ? msPg(f.p) : '') + '</h3><div class="role">' + esc(f.rolle) + '</div>' + (f.zitat ? '<div class="qu">' + esc(f.zitat) + '</div>' : '') + '</div></div><div class="tx">' + msDec(f.x) + '</div>' + (f.a ? body : '') + '</div>';
 }
 function msHier(ids){ ids = (ids || []).filter(function(k){ return MS.figs[k]; }); return ids.length ? '<div class="here">' + ids.map(function(k){ var f = MS.figs[k]; return '<a onclick="msDrawer(\'fg\',\'' + k + '\')">' + msFigImg(f) + esc(f.n) + '</a>'; }).join("") + '</div>' : ''; }
-function msWesenCard(){
-  var w = MS.wesen, v = w.w;
-  return '<div class="nc"><div class="hd2">' + (w.img ? '<img src="' + msImg(w.img) + '" alt="" style="object-position:50% 30%">' : '') + '<div><h3>' + esc(w.n) + msPg(w.p) + '</h3><div class="role">Vaesen</div></div></div><div class="tx">' + msDec(w.x) + '</div>' +
+function msWesenCard(fid){
+  var w = MS.wesen, v = w.w, fx = fid ? MS.figs[fid] : null;
+  return '<div class="nc"><div class="hd2">' + (w.img ? '<img src="' + msImg(w.img) + '" alt="" style="object-position:50% 30%">' : '') + '<div><h3>' + esc(w.n) + msPg(w.p) + '</h3><div class="role">Vaesen</div></div></div><div class="tx">' + msDec(fx ? fx.x : w.x) + '</div>' +
    '<div class="vrow"><div><b>' + v[0] + '</b><span>Macht</span></div><div><b>' + v[1] + '</b><span>Körperk.</span></div><div><b>' + v[2] + '</b><span>Magie</span></div><div><b>' + v[3] + '</b><span>Manip.</span></div><div><b>' + v[4] + '</b><span>Furcht</span></div></div>' +
-   '<div class="blk"><h5>KRÄFTE</h5><div class="mg">' + w.kraefte.map(function(x){ return '<span>' + x + '</span>'; }).join("") + '</div></div>' +
+   '<div class="blk"><h5>' + (w.fluch ? 'VERZAUBERUNGEN' : 'KRÄFTE') + '</h5><div class="mg">' + w.kraefte.map(function(x){ return '<span>' + x + '</span>'; }).join("") + '</div></div>' + (w.fluch ? '<div class="blk"><h5>FLÜCHE</h5><div class="mg">' + w.fluch.map(function(x){ return '<span class="f">' + x + '</span>'; }).join("") + '</div></div>' : '') +
    '<div class="blk"><h5>ZUSTÄNDE</h5><div class="zs">' + w.zustaende.map(function(c, i){ var k = "wz" + i; return '<div class="' + (msLoad().trk[k] ? 'x' : '') + '" onclick="msTrkTog(this,\'' + k + '\')"><i></i>' + c + '</div>'; }).join("") + '</div></div>' +
-   '<table class="at"><tr><th>ANGRIFF</th><th>SCHADEN</th><th>REICHW.</th></tr>' + w.att.map(function(a){ return '<tr><td>' + a[0] + '</td><td>' + a[1] + '</td><td>' + a[2] + '</td></tr>'; }).join("") + '</table><div class="eq" style="padding-top:0">' + w.note + '</div><div class="eq"><b>RITUAL</b> ' + w.ritual + '</div></div>';
+   '<table class="at"><tr><th>ANGRIFF</th><th>SCHADEN</th><th>REICHW.</th></tr>' + w.att.map(function(a){ return '<tr><td>' + a[0] + '</td><td>' + a[1] + '</td><td>' + a[2] + '</td></tr>'; }).join("") + '</table><div class="eq" style="padding-top:0">' + w.note + '</div>' + (w.ritual ? '<div class="eq"><b>RITUAL</b> ' + w.ritual + '</div>' : '') + '</div>';
 }
 
 /* ---------- Handouts ---------- */
 function msHoCard(h){
+  if(h.form === "raw") return h.html.replace(/^<div class="/, '<div class="ms-raw ');
   var paper = '<img class="ms-paper" src="' + msImg(h.paper) + '" alt="">';
   if(h.form === "zettel") return '<div class="ms-ho ms-zet" data-sh="1">' + paper + '<div class="ms-tx">' + h.x + '</div></div>';
   if(h.form === "bild") return '<div class="ms-ho ms-bild" data-sh="1">' + paper + '</div>';
@@ -91,18 +107,18 @@ function msDrawHtml(){
   if(!MS_DR) return "";
   var k = MS_DR.k, h = "";
   if(k === "fg"){
-    var ids = MS.figOrder.concat(MS.wesen ? ["wesen"] : []);
+    var ids = MS.figOrder.concat(MS.wesen && !MS.figOrder.some(function(i){ return MS.figs[i].wesen; }) ? ["wesen"] : []);
     h = ids.map(function(id){
       var open = MS_DR.a === id, f = id === "wesen" ? {n: MS.wesen.n, rolle: "Vaesen", img: null} : MS.figs[id];
       var im = id === "wesen" ? (MS.wesen.img ? '<img src="' + msImg(MS.wesen.img) + '" alt="">' : '<span class="ini">V</span>') : msFigImg(f);
-      var at = id === "wesen" ? "" : '<span class="at4">' + f.a.join(" · ") + '</span>';
+      var at = id === "wesen" || !f.a ? "" : '<span class="at4">' + f.a.join(" · ") + '</span>';
       return '<div class="fr' + (open ? ' open' : '') + '" id="dr-' + id + '"><div class="frh" onclick="msFr(\'' + id + '\')">' + im + '<div><b>' + esc(f.n) + '</b><small>' + esc(f.rolle) + '</small></div>' + at + '</div>' + (open ? (id === "wesen" ? msWesenCard() : msFigCard(id)) : '') + '</div>';
     }).join("") + (MS.nock ? msKast(MS.nock.n, msDec(MS.nock.x), MS.nock.p) : '') + (MS.kaesten || []).map(function(x){ return msKast(x.t, msDec(x.x), x.p); }).join("");
   } else if(k === "hw"){
     var s = msLoad();
     h = MS.orte.filter(function(o){ return o.hinw && o.hinw.length; }).map(function(o){ var n = o.hinw.filter(function(c){ return s.clue[MS_ID + c.id]; }).length; return '<div class="hg"><h4>' + esc(o.t) + '<span data-oc="' + o.id + '">' + n + ' / ' + o.hinw.length + '</span></h4>' + o.hinw.map(msClue).join("") + '</div>'; }).join("");
   } else if(k === "ho"){
-    h = '<div class="hogrid">' + MS.ho.map(msHoWrap).join("") + '</div>';
+    h = '<div class="hogrid' + (MS.ho[0].form === "raw" ? ' one' : '') + '">' + MS.ho.map(msHoWrap).join("") + '</div>';
   } else {
     h = '<div class="kagrid">' + msAllKarten().map(function(x){ return '<figure onclick="msZoom(msImg(\'' + x[0] + '\'))"><img src="' + msImg(x[0]) + '" alt=""><figcaption>' + esc(x[1]) + '</figcaption></figure>'; }).join("") + '</div>';
   }
@@ -128,11 +144,11 @@ function msG(items, cls){ return items.length ? '<div class="ms-g ' + (cls || ""
 function msKastX(k){ return msKast(k.t, msDec(k.x) + (k.vor ? '<div class="vl" style="margin-top:8px">' + k.vor + '</div>' : ''), k.p); }
 
 function msViewHg(){
-  var h = MS.hg, hi = h.hinter, kon = h.konflikt.map(function(t, i){ return '<div class="kast"><b class="kt">' + ["Hauptkonflikt", "Nebenkonflikt"][i] + '</b>' + t + '</div>'; });
+  var h = MS.hg, hi = h.hinter, kon = h.konflikt.map(function(t, i){ return '<div class="kast">' + (i < 2 ? '<b class="kt">' + ["Hauptkonflikt", "Nebenkonflikt"][i] + '</b>' : '') + t + '</div>'; });
   return msSec("ue", "Überblick", msFr2('<img src="' + msImg(MS.bild.replace("som/", "")) + '" alt="" onclick="msZoom(this.src)">') + '<div class="ms-wn">' + esc(MS.warnung) + '</div>' + msTtl(MS.titel, MS.p) + '<p class="lead">' + h.intro + '</p><p>' + h.vorspiel + '</p>' + (h.vl ? '<div class="vl">' + h.vl + '</div>' : '')) +
-   msSec("hi", "Hintergrund", msTtl("Hintergrund", msPp("hinter", 1)) + hi.map(function(t){ return '<p>' + t + '</p>'; }).join("")) +
+   msSec("hi", "Hintergrund", msTtl("Hintergrund", msPp("hinter", 1)) + hi.map(function(t){ return typeof t === "object" ? msG(t.kasten.map(function(k){ return '<div class="kast"><b class="kt">' + esc(k.t) + '</b>' + k.x + '</div>'; })) : t.indexOf("##") === 0 ? '<h5 class="ms-h5">' + esc(t.slice(2)) + '</h5>' : '<p>' + t + '</p>'; }).join("")) +
    msSec("ko", "Konflikte", msTtl("Konflikte", msPp("konf", 2)) + msG(kon) + (h.figs ? msSub("Figuren im Mysterium " + msPg(msPp("figs", 1))) + msG(h.figs.map(function(f){ return '<div class="kast"><b class="kt">' + esc(f[0]) + '</b>' + f[1] + '</div>'; })) : '') +
-    msG((h.kaesten || []).map(msKastX)) + '<details class="ms-dt"><summary>Im Mythischen Britannien und Irland ' + msPg(msPp("myth", 1)) + '</summary>' + h.mythic + '</details>');
+    msG((h.kaesten || []).map(msKastX)) + (h.mythic ? '<details class="ms-dt"><summary>Im Mythischen Britannien und Irland ' + msPg(msPp("myth", 1)) + '</summary>' + h.mythic + '</details>' : '')) + (MS.net ? msSec("be", "Beziehungen", msTtl("Beziehungen") + '<div class="ms-net">' + MS.net + '</div>') : '');
 }
 function msViewAn(){
   var a = MS.an, ho = MS.ho[0], kv = [];
@@ -141,13 +157,13 @@ function msViewAn(){
   var einl = msSec("ei", "Einladung", msFr2('<div class="ms-hw w-' + ho.id + '"><div onclick="msShowAt(this.firstChild)">' + msHoCard(ho) + '</div><div class="hol">' + esc(ho.t) + '</div></div>') + msTtl("Einladung", msPp("einl", 2)) +
     '<p>' + a.einladung[0].replace(a.hoName, '<a class="lnk" onclick="msDrawer(\'ho\')">' + a.hoName + '</a>') + '</p>' + a.einladung.slice(1).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""));
   var vorb = msSec("vo", "Vorbereitungen", msTtl("Vorbereitungen", msPp("vorb", 3)) + msP(a.vorb) + msG(kv));
-  var reise = msSec("re", "Die Reise", (a.karten || []).slice(0, 1).map(function(k){ return msFr2('<img src="' + msImg(k) + '" alt="" onclick="msZoom(this.src)"><small class="cap">Karte ' + msPg(msPp("karte", 2)) + '</small>'); }).join("") + msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + (a.hinterhalt ? msG([msKastX(a.hinterhalt)]) : ''));
-  var ank = msSec("ak", "Ankunft", msTtl("Ankunft", msPp("ankunft", 4)) + '<p>' + msDec(a.ankunft[0]) + '</p>' + (a.jenny ? msG(a.jenny.map(function(t){ return '<div class="clue st">' + t + '</div>'; })) : '') + a.ankunft.slice(1).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""));
+  var reise = msSec("re", "Die Reise", (a.karten || []).slice(0, 1).map(function(k){ return msFr2('<img src="' + msImg(k) + '" alt="" onclick="msZoom(this.src)"><small class="cap">Karte ' + msPg(msPp("karte", 2)) + '</small>'); }).join("") + msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + (a.reiseVl ? '<div class="vl">' + a.reiseVl + '</div>' : '') + (a.hinterhalt ? msG([msKastX(a.hinterhalt)]) : ''));
+  var ank = msSec("ak", "Ankunft", msTtl("Ankunft", msPp("ankunft", 4)) + msP([a.ankunft[0]]) + (a.jenny ? msG(a.jenny.map(function(t){ return '<div class="clue st">' + t + '</div>'; })) : '') + msP(a.ankunft.slice(1)));
   var cd = msSec("cd", "Countdown", msTtl("Countdown und Katastrophe", msPp("cd", 5)) + '<p>' + MS.cdIntro + '</p>' + msG(MS.cd.map(function(s, i){ return '<div class="clue st' + (s.kat ? ' kat' : '') + '"><span class="q">' + (s.kat ? "Katastrophe" : "Schritt " + (i + 1) + " · " + esc(s.n)) + '</span>' + msDec(s.x) + '</div>'; })));
   return einl + vorb + reise + ank + cd;
 }
 function msOrt(o){
-  var out = '<div class="ms-fr"><img src="' + msImg(o.karte || MS.orte[0].karte) + '" alt="" onclick="msZoom(this.src)"></div>' + msTtl(o.t, o.p, o.id) + msHier(o.hier) + msP(o.text);
+  var kk = o.karte === false ? null : (o.karte || MS.orte[0].karte), out = (kk ? '<div class="ms-fr"><img src="' + msImg(kk) + '" alt="" onclick="msZoom(this.src)"></div>' : '') + msTtl(o.t, o.p, o.id) + msHier(o.hier) + msP(o.text);
   if(o.herausf && o.herausf.length) out += msSub("Herausforderungen") + '<div class="ms-list">' + o.herausf.map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join("") + '</div>';
   if(o.hinw && o.hinw.length) out += msSub('Hinweise <span class="hc" data-oc="' + o.id + '"></span>') + (o.hinwText ? '<p class="small">' + msDec(o.hinwText) + '</p>' : '') + msG(o.hinw.map(msClue));
   var ks = (o.kasten || []).map(msKastX);
@@ -157,7 +173,7 @@ function msOrt(o){
   if(o.geschichten) out += msSub("Geschichten") + '<div class="ms-g">' + o.geschichten.map(function(g){ return '<details class="ms-gs"><summary><img src="' + msImg(g.img.replace("som/", "")) + '" alt=""><span>' + esc(g.n) + '</span></summary><p>' + g.x + '</p></details>'; }).join("") + '</div>';
   return out;
 }
-function msViewOrte(){ return '<p class="ms-intro">' + MS.orteIntro + '</p>' + MS.orte.map(function(o){ return msSec("o-" + o.id, o.t, msOrt(o)); }).join(""); }
+function msViewOrte(){ return (MS.orteIntro ? '<p class="ms-intro">' + MS.orteIntro + '</p>' : '') + MS.orte.map(function(o){ return msSec("o-" + o.id, o.t, msOrt(o)); }).join(""); }
 function msViewKf(){
   var k = MS.kf, secs = k.wege || [k.show, k.bann, k.nock];
   return msSec("k0", "Überblick", msTtl("Konfrontation", k.p, "kf") + msP(k.einleitung)) + secs.map(function(s, i){ return msSec("w" + i, s.t, '<h3 class="ms-wt">' + esc(s.t) + '</h3>' + s.x.map(function(t){ return t.indexOf("##") === 0 ? '<h5 class="ms-h5">' + esc(t.slice(2)) + '</h5>' : '<p>' + msDec(t) + '</p>'; }).join("")); }).join("");
@@ -165,7 +181,7 @@ function msViewKf(){
 function msViewNs(){ var n = MS.ns; return msSec("ns", n.t, msTtl(n.t, n.p) + msP(n.x)); }
 
 /* ---------- Rahmen ---------- */
-function msHead(id){ var M = VAE_MYS[id]; return '<span class="mt" onclick="go(\'start\')"><b>' + esc(M.titel) + '</b><small>Seasons of Mystery · ' + esc(M.zeit) + '</small></span>'; }
+function msHead(id){ var M = VAE_MYS[id]; return '<span class="mt" onclick="go(\'start\')"><b>' + esc(M.titel) + '</b><small>' + esc(M.kopf || ("Seasons of Mystery · " + M.zeit)) + '</small></span>'; }
 function msSide(){ if(MS_SECS.length < 2) return ''; return '<nav class="side ms2s">' + MS_SECS.map(function(s, i){ return '<a data-s="' + s[0] + '" onclick="msJump(\'' + s[0] + '\')"><span>' + esc(s[1]) + '</span></a>'; }).join("") + '</nav>'; }
 function msFoldPos(){ var sd = document.querySelector(".ms2s"), fb = document.querySelector(".fold-b"); if(sd && fb && !fb.classList.contains("f")) fb.style.left = (sd.getBoundingClientRect().width - 18) + "px"; }
 function msJump(id){ var el = document.getElementById("ms-" + id); if(el) window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 112, behavior: "smooth"}); }
@@ -188,10 +204,10 @@ function viewMys(){
   return msTabsHtml() + '<div class="main' + (folded ? ' fold' : '') + '">' + msSide() + '<div class="content ms2c">' + v + '</div></div>' + (MS_SECS.length < 2 ? '' : '<button class="fold-b' + (folded ? ' f' : '') + '" onclick="toggleFold()" title="Seitenleiste ein-/ausblenden (b)" aria-label="Seitenleiste">' + (folded ? '›' : '‹') + '</button>') + '<aside class="ms-dr' + (MS_DR ? ' on' : '') + '" id="msDr">' + msDrawHtml() + '</aside>';
 }
 function mysAfter(){
-  if(cur === "som") APP.dataset.pgbook = "vae_seasons"; else delete APP.dataset.pgbook;
+  if(cur === "som") APP.dataset.pgbook = (MS && MS.buch) || "vae_seasons"; else delete APP.dataset.pgbook;
   document.body.classList.toggle("msdr", cur === "som" && !!MS_DR);
   if(cur !== "som") return; tzPop(); tzShowClose();
-  var p = sub.split("/"); if(MS_TAB === "orte" && p[1] === "orte" && p[2]) setTimeout(function(){ msJump("o-" + p[2]); }, 30);
+  var p = sub.split("/"); if(MS_TAB === "orte" && p[1] === "orte" && p[2]) { setTimeout(function(){ msJump("o-" + p[2]); }, 30); setTimeout(function(){ msJump("o-" + p[2]); }, 700); }
   msFoldPos(); msCounts(); msSpy();
   var d = document.getElementById("msDr"); if(d && MS_DR && MS_DR.a){ var el = document.getElementById("dr-" + MS_DR.a); if(el) el.scrollIntoView({block: "nearest"}); }
 }

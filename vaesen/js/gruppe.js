@@ -3,7 +3,7 @@ var GRP_KEY = "vae_grp_v1", GRP = null;
 function grpLoad(){ if(!GRP){ try{ GRP = JSON.parse(localStorage.getItem(GRP_KEY) || "{}"); }catch(e){ GRP = {}; } GRP.z = GRP.z || {}; } return GRP; }
 function grpSave(){ try{ localStorage.setItem(GRP_KEY, JSON.stringify(GRP)); }catch(e){} }
 function grpZ(){ var z = VAE_REGELN.filter(function(r){ return r.id === "zustaende"; })[0].b[1].x; return {k:z[0][2], g:z[1][2]}; }
-function grpTabOk(){ if(cur === "som") return ["orte", "kf", "fg", "hw"].indexOf(sub.split("/")[1]) > -1; return cur === "tanz" && ["hx", "kf", "fg", "hw"].indexOf(sub.split("/")[0]) > -1; }
+function grpTabOk(){ return cur === "som" && ["an", "orte", "kf"].indexOf(sub.split("/")[1]) > -1; }
 function grpPlayers(){ return loadChars().filter(function(c){ return c.spielt; }); }
 function grpRow(id, art, lab, names, st){
   return '<div class="vu-zr" title="' + lab + '">' + names.map(function(n, i){ return '<span class="vu-zz' + (st[i] ? ' vu-on' : '') + '" onclick="grpTog(\'' + id + '\',\'' + art + '\',' + i + ')">' + n + '</span>'; }).join("") +

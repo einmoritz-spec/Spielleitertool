@@ -1,21 +1,17 @@
 /* Vaesen – Startseite (Mysterien, Spielhilfen, Bücher), Ortskarten und Spielleiterschirm (Taste S). Texte kommen aus den Buchdaten. */
 
 /* ---------- Startseite ---------- */
-function uiTzProgress(){
-  var s = tzLoad(), c = tzClues(), tot = c.upsala.length + c.speisesaal.list.length + c.dachboden.length + c.nora.probe.length;
-  var got = Object.keys(s.clue).length;
-  return {cd:s.cd.length, cdTot:4, got:got, tot:tot, last:s.last || "", any:!!(s.cd.length || got)};
-}
 function uiStart(){
-  var pr = uiTzProgress();
   /* Mysterien: ein gemeinsamer Bildstreifen, gruppiert nach Buch */
-  var tanz = '<a class="vs-my vs-emb" onclick="go(\'tanz/' + (pr.last || "hg") + '\')" style="--im:url(img/tanz/eroeffnung.webp)"><span class="vs-k">Einführung</span><span class="vs-t"><b>Der Tanz der Träume</b><small>Upsala</small><em>Countdown ' + pr.cd + ' / ' + pr.cdTot + ' · Hinweise ' + pr.got + ' / ' + pr.tot + '</em><i>' + (pr.any ? "Weiterspielen" : "Starten") + '</i></span></a>';
+  function tile(id, emb){
+    var M = window.VAE_MYS && VAE_MYS[id]; if(!M) return "";
+    var st = {}; try{ st = JSON.parse(localStorage.getItem("vae_som_" + id + "_v1") || (id === "tanz" ? localStorage.getItem("vae_tanz_v1") : null) || "{}"); }catch(e){}
+    var scd = (st.cd || []).length, scl = Object.keys(st.clue || {}).length, last = ({hg: 1, an: 1, orte: 1, kf: 1, ns: 1})[st.last] ? st.last : "hg";
+    return '<a class="vs-my' + (emb ? ' vs-emb' : '') + '" onclick="go(\'som/' + id + '/' + last + '\')" style="--im:url(img/' + M.bild + '.webp)"><span class="vs-k">' + esc(emb ? "Einführung" : (M.zeit || "")) + '</span><span class="vs-t"><b>' + esc(M.titel) + '</b><small>' + esc((M.ort || "").split(" · ")[0]) + '</small><em>Countdown ' + scd + ' / ' + (M.cd ? M.cd.length : 4) + ' · Hinweise ' + scl + '</em><i>' + (scd || scl ? "Weiterspielen" : "Starten") + '</i></span></a>';
+  }
+  var tanz = tile("tanz", 1);
   var som = "";
-  ["tod", "feuer", "teufel", "winter"].forEach(function(id){
-    var M = window.VAE_MYS && VAE_MYS[id]; if(!M) return;
-    var st = JSON.parse(localStorage.getItem("vae_som_" + id + "_v1") || "{}"), scd = (st.cd || []).length, scl = Object.keys(st.clue || {}).length;
-    som += '<a class="vs-my" onclick="go(\'som/' + id + '/' + (st.last || "hg") + '\')" style="--im:url(img/' + M.bild + '.webp)"><span class="vs-k">' + esc(M.zeit || "") + '</span><span class="vs-t"><b>' + esc(M.titel) + '</b><small>' + esc((M.ort || "").split(" · ")[0]) + '</small><em>Countdown ' + scd + ' / ' + (M.cd ? M.cd.length : 4) + ' · Hinweise ' + scl + '</em><i>' + (scd || scl ? "Weiterspielen" : "Starten") + '</i></span></a>';
-  });
+  ["tod", "feuer", "teufel", "winter"].forEach(function(id){ som += tile(id); });
   var grp = '<div class="vs-grp" style="flex:1"><div class="vs-gh">Grundregelwerk</div><div class="vs-row">' + tanz + '</div></div>' +
     (som ? '<div class="vs-grp" style="flex:4"><div class="vs-gh">Seasons of Mystery<button onclick="uiVorwort()">Vorwort</button></div><div class="vs-row">' + som + '</div></div>' : '');
   /* Bereiche des Grundregelwerks */

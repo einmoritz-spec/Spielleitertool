@@ -37,7 +37,11 @@ function toc(id){ return TOC.filter(function(a){ return a.id === id; })[0]; }
 
 /* ---------- Routing ---------- */
 function go(id){ if(location.hash === "#" + id) render(); else location.hash = id; }
-function route(){ var h = (location.hash || "#start").slice(1).split("/"); cur = h[0] || "start"; sub = decodeURIComponent(h.slice(1).join("/") || ""); render(); }
+function route(){
+  var h = (location.hash || "#start").slice(1).split("/"); cur = h[0] || "start"; sub = decodeURIComponent(h.slice(1).join("/") || "");
+  if(cur === "tanz"){ var t = sub.split("/"); t[0] = ({hx: "orte", kf: "kf", fg: "fg", hw: "hw", ho: "ho", ns: "ns", an: "an"})[t[0]] || "hg"; cur = "som"; sub = "tanz/" + t.join("/"); }
+  render();
+}
 window.addEventListener("hashchange", route);
 function tabsBar(list, on){ return '<div class="tabs">' + list.map(function(t){ return '<a class="' + (t[0] === on ? 'on' : '') + '" onclick="go(\'' + t[1] + '\')">' + esc(t[0]) + '</a>'; }).join("") + '</div>'; }
 function main(items, sel, content){
@@ -323,13 +327,12 @@ function render(){
    case "erstellung": v = viewErstellung(); break;
    case "spieler": v = viewSpieler(); break;
    case "kapitel": v = viewKapitel(sub.split("/")[0]); break;
-   case "tanz": v = viewTanz(); break;
    case "som": v = viewMys(); break;
    case "norden": case "gesellschaft": case "mysterium": v = viewKapitel(cur); break;
    default: v = viewStart();
   }
   vaeHead();
-  APP.innerHTML = v; window.scrollTo(0, 0); if(window.tzAfter) tzAfter(); if(window.mysAfter) mysAfter(); if(window.grpAfter) grpAfter();
+  APP.innerHTML = v; window.scrollTo(0, 0); if(window.mysAfter) mysAfter(); if(window.grpAfter) grpAfter();
 }
 
 /* ---------- Menü & Suche ---------- */

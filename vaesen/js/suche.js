@@ -40,13 +40,6 @@ GSuche.add(function(add){
   if(window.VAE_ATTR) add("Fertigkeiten und Attribute", "Charaktere", "#regeln/fertigkeiten", window.VAE_ATTR);
   if(window.RES) add("Ressourcen", "Charaktere", "#charaktere/ausruestung", window.RES);
 
-  /* Tanz der Träume – Leitstand */
-  var T = window.TANZ;
-  if(T){
-    Object.keys(T.figs || {}).forEach(function(id){ add(T.figs[id].n, "Tanz der Träume", "#tanz/fg/" + id, T.figs[id]); });
-    Object.keys(T.hier || {}).forEach(function(id){ add("Ort › " + id.charAt(0).toUpperCase() + id.slice(1), "Tanz der Träume", "#tanz/hx/" + id, T.hier[id]); });
-    if(T.oscar) add("Oscar", "Tanz der Träume", "#tanz/fg/oscar", T.oscar);
-  }
 
   /* Seasons of Mystery */
   Object.keys(window.VAE_MYS || {}).forEach(function(id){

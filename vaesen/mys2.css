@@ -56,3 +56,8 @@ body.msdr .ms2c{margin-right:440px}
 .side.ms2s{width:auto;min-width:104px;max-width:190px;padding:14px 22px 14px 18px}
 .ms2s a{font-size:15px;padding:5px 10px 5px 0;line-height:1.25}
 .main.fold:has(.ms2s)~.fold-b{left:0}
+.ms-fr .ms-raw.hoa{width:400px;zoom:.72}
+.hogrid.one{grid-template-columns:1fr}.hogrid .ms-raw.hoa{width:100%}.hogrid .ms-raw.hoa .bd{font-size:17px}
+.ms-net{overflow:auto}.ms-net svg{width:100%;height:auto}
+.ms-g .vl,.ms2c .vl{margin:8px 0 14px}
+.ms2c .vl{display:flow-root}

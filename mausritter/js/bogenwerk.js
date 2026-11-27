@@ -145,9 +145,9 @@
   pBogen = function(){
     var h = pb(), i = h.indexOf('<div class="bbtn">'); if(i < 0) return h;
     var ib = function(ic, tip, on){ return '<button class="bwi" data-tip="' + tip + '" aria-label="' + tip + '" onclick="' + on + '">' + sym(IC[ic]) + '</button>'; };
-    var bar = '<div class="bw-bar noprint"><span class="bw-tools">' + ib("zufall", "Zufällige Spielmaus einsetzen", "MBW.zufall()") + ib("vorlage", "Spielmaus wählen", "MBW.vorlage(this,event)") + ib("leeren", "Bogen leeren", "MBW.leeren()") + ib("teilen", "Link teilen", "MBW.teilen()") + ib("sichern", "Als Datei sichern", "MBW.sichern()") +
+    var bar = '<div class="bw-bar noprint">' + chips() + '<span class="bw-tools">' + ib("zufall", "Zufällige Spielmaus einsetzen", "MBW.zufall()") + ib("vorlage", "Spielmaus wählen", "MBW.vorlage(this,event)") + ib("leeren", "Bogen leeren", "MBW.leeren()") + ib("teilen", "Link teilen", "MBW.teilen()") + ib("sichern", "Als Datei sichern", "MBW.sichern()") +
       '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + sym(IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="MBW.laden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "MBW.pdf()") + '</span></div>';
-    return h.replace('<div class="rp">', '<div class="rp">' + chips() + bar).slice(0, h.indexOf('<div class="bbtn">') + bar.length) + "</div>";
+    return h.replace('<div class="rp">', '<div class="rp">' + bar).slice(0, h.indexOf('<div class="bbtn">') + bar.length) + "</div>";
   };
   if(window.LK) LK.init(function(h){ return h.indexOf("#maeuse/bogen") === 0; });
   var vm = viewMaeuse;

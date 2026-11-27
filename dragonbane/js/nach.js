@@ -80,7 +80,7 @@ function nachTabs(kid, rechts){
 }
 function nachFlat(){ var r = []; NACH_TABS.forEach(function(t){ var d = nachKap(t[0]); if(d) d.abs.forEach(function(a){ r.push([t[0], a.id, d, a]); }); }); return r; }
 DB_VIEWS.n = function(h){
-  if(h[1] === "bogen" && window.DBB){ window.__fk = "bogen"; return nachTabs("bogen", DBB.leiste()) + DBB.view(h); }
+  if(h[1] === "bogen" && window.DBB){ window.__fk = "bogen"; return nachTabs("bogen", "") + DBB.view(h); }
   var kid = h[1] || "einf", K = DB_KAP.filter(function(k){ return k.id === kid; })[0] || DB_KAP[0], d = nachKap(K.id);
   window.__fk = K.id;
   var tb = nachTabs(K.id);

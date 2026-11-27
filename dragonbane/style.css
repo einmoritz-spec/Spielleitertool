@@ -1092,7 +1092,7 @@ body:has(.tabs) .rail{padding:0 calc(var(--rand) + 4px);-webkit-mask-image:linea
 
 
 /* ---- Charakterbogen (#n/bogen): Original als Hintergrund, Felder darüber ---- */
-.dbb-wrap{display:flex;justify-content:center;padding:18px 0 60px}
+.dbb-wrap{display:flex;justify-content:center;padding:10px 0 60px}
 .dbb-blatt{position:relative;background:#fff;box-shadow:0 2px 14px rgba(60,40,20,.22);flex:none}
 .dbb-blatt>img{position:absolute;inset:0;width:100%;height:100%;user-select:none;pointer-events:none}
 .dbb-t{position:absolute;box-sizing:border-box;border:0;background:transparent;padding:0 2px;margin:0;font-family:Helvetica,Arial,sans-serif;color:#1c2a3a;outline:none;border-radius:2px;font-size:var(--fs);line-height:1}
@@ -1122,16 +1122,17 @@ textarea.dbb-t{resize:none;line-height:1.3;padding:3px 4px;overflow:hidden}
 /* geteilter Link: nur der Bogen */
 html.lk{padding-top:0!important}
 html.lk #app{padding-top:0!important;margin-top:0!important}
-.dbb-sbar{display:none}
-html.lk .dbb-sbar{display:flex;justify-content:center;padding:14px 0 0}
-html.lk .dbb-sbar .dbb-leiste{margin:0}
-html.lk .dbb-wrap{padding-top:10px}
+.dbb-sbar{display:flex;justify-content:space-between;align-items:center;width:980px;max-width:calc(100% - 24px);margin:14px auto 0}
+.dbb-sbar .dbb-leiste{margin:0}
 .dbb-t.mitte{text-align:center}
 textarea.dbb-t.schw{line-height:1.05;padding:0 2px;white-space:normal}
-.dbb-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;padding:12px 16px 0}
-.dbb-chip{display:inline-flex;align-items:center;border:1.5px solid var(--jade-d,#2f6e5f);border-radius:16px;overflow:hidden;background:#fff}
-.dbb-chip>button{border:0;background:transparent;padding:4px 12px;font:600 13px/1.2 inherit;font-family:inherit;color:#1c2a3a;cursor:pointer}
-.dbb-chip.on{background:var(--jade-d,#2f6e5f)}.dbb-chip.on>button{color:#fff}
-.dbb-chip .x{padding:4px 9px 4px 0!important;opacity:.75;font-size:15px!important}.dbb-chip .x:hover{opacity:1}
-.dbb-plus{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--jade-d,#2f6e5f);background:#fff;color:var(--jade-d,#2f6e5f);font:600 18px/1 inherit;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
-.dbb-plus:hover{background:var(--jade-d,#2f6e5f);color:#fff}
+
+/* Charakter-Chips: klein und minimal, links in der Symbolleiste */
+.dbb-chips{display:flex;flex-wrap:nowrap;gap:4px;align-items:center;margin:0;padding:0;max-width:560px;overflow:hidden;color:#2f6e5f}
+.dbb-chips .dbb-chip{display:inline-flex;align-items:center;border:1px solid #2f6e5f;border-radius:12px;background:transparent;opacity:.6;flex:none}
+.dbb-chips .dbb-chip>button{border:0;background:transparent;padding:2px 9px;font:500 11.5px/1.3 inherit;font-family:inherit;color:inherit;cursor:pointer;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dbb-chips .dbb-chip.on{opacity:1;background:#2f6e5f}.dbb-chips .dbb-chip.on>button{color:#fff}
+.dbb-chips .dbb-chip .x{padding:2px 7px 2px 0!important;font-size:13px!important;opacity:.8}
+.dbb-chips .dbb-plus{width:20px;height:20px;border-radius:50%;border:1px solid #2f6e5f;background:transparent;color:inherit;opacity:.6;font:500 14px/1 inherit;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;flex:none}
+.dbb-chips .dbb-chip:hover,.dbb-chips .dbb-plus:hover{opacity:1}
+.dbb-leiste{display:inline-flex;align-items:center;gap:6px}

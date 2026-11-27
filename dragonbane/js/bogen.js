@@ -593,10 +593,10 @@ var DBB = (function(){
       var o = null; try{ o = pruefen(JSON.parse(ub64(c.slice(7)))); }catch(e){}
       var msg = "Link ungültig.";
       if(o){ neu(o); sichere(); msg = "Bogen als neuer Eintrag übernommen"; LK.an(); }
-      history.replaceState(null, "", "#n/bogen"); setTimeout(function(){ toast(msg); }, 60);
+      history.replaceState(null, "", "#n/bogen"); setTimeout(function(){ toast(msg); render(); }, 60);
     }
     ableiten();
-    return chipsHtml() + (document.documentElement.classList.contains("lk") ? '<div class="dbb-sbar">' + leiste() + "</div>" : "") + '<div class="dbb-wrap">' + bogenHtml() + "</div>";
+    return '<div class="dbb-sbar noprint">' + chipsHtml() + leiste() + "</div>" + '<div class="dbb-wrap">' + bogenHtml() + "</div>";
   }
   return {view: view, leiste: leiste, zustand: function(){ return S; }};
 })();

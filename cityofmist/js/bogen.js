@@ -5,7 +5,7 @@
 "use strict";
 var A = MistErsteller.api, esc = A.esc, LT = "ABCDEFGHIJ".split(""), LY = window.CM_LAYOUT;
 var TYP = {Mythos: {l: "Mythos", m: "Mysterium", f: "Verblassen"}, Logos: {l: "Logos", m: "Identität", f: "Bruch"}, Extra: {l: "Zusatzthema", m: "Mysterium oder Identität", f: "Verblassen / Bruch"}, Team: {l: "Team-Thema", m: "Identität", f: "Bruch"}};
-var EVO = ["Eine weitere umfassende Stärke erhalten", "Zusätzliches Thema: Verbündete", "Zusätzliches Thema: Operationsbasis", "Zusätzliches Thema: Fahrzeug", "Mit einer Nemesis abschließen", "Eine Veränderung durchmachen", "Die Stadt verlassen", "Eine Grundlegende Aktion dauerhaft Mega! machen", "Eine Grundlegende Aktion dauerhaft Mega! machen", "Eine Grundlegende Aktion dauerhaft Mega! machen", "Durch den Nebel blicken"];
+var EVO = ["Eine weitere umfassende Stärke erhalten", "Zusätzliches Thema: Verbündete", "Zusätzliches Thema: Operationsbasis", "Zusätzliches Thema: Fahrzeug", "Mit einer Nemesis abschließen", "Eine Veränderung durchmachen", "Die Stadt verlassen", "Grundlegende Aktion dauerhaft Mega! machen", "Grundlegende Aktion dauerhaft Mega! machen", "Grundlegende Aktion dauerhaft Mega! machen", "Durch den Nebel blicken"];
 var CTX = null, MOD = null;
 
 /* ---------- Daten ---------- */
@@ -26,7 +26,12 @@ function thema(c, i){ return i === "x" || i === -1 ? c.extra : c.themes[+i]; }
 function themaName(t, i){ var b = t.book && A.book(t.book); return t.name || (b ? b.name : i === "x" ? "Team-/Zusatzthema" : "Thema " + (+i + 1)); }
 
 /* ---------- Positionierung in PDF-Punkten (Seite 792 × 612 pt) ---------- */
-function st(x, y, w, h, extra){ return 'style="left:' + (x / 7.92).toFixed(3) + '%;top:' + (y / 6.12).toFixed(3) + '%;width:' + (w / 7.92).toFixed(3) + '%;height:' + (h / 6.12).toFixed(3) + '%' + (extra ? ";" + extra : "") + '"'; }
+var ROT = null;
+function st(x, y, w, h, extra){
+  if(ROT){ var th = ROT[0] * Math.PI / 180, cs = Math.cos(th), sn = Math.sin(th), dx = x + w / 2 - ROT[1], dy = y + h / 2 - ROT[2]; x = ROT[1] + dx * cs + dy * sn - w / 2; y = ROT[2] - dx * sn + dy * cs - h / 2; }
+  return 'style="left:' + (x / 7.92).toFixed(3) + '%;top:' + (y / 6.12).toFixed(3) + '%;width:' + (w / 7.92).toFixed(3) + '%;height:' + (h / 6.12).toFixed(3) + '%' + (extra ? ";" + extra : "") + '"'; }
+/* Gruppe einer Karte: Inhalt wird in Kartenkoordinaten gesetzt und als Ganzes um den Kartenwinkel gedreht */
+function gruppe(r, fn){ var alt = ROT; ROT = r; var inner = fn(); ROT = alt; return '<div class="kg" style="transform-origin:' + (r[1] / 7.92).toFixed(3) + '% ' + (r[2] / 6.12).toFixed(3) + '%;transform:rotate(' + r[0] + 'deg)">' + inner + '</div>'; }
 function stR(r, extra){ return st(r[0], r[1], r[2], r[3], extra); }
 function box(x, y, w, h, cls, inner, attr, extra){ return '<div class="' + cls + '" ' + st(x, y, w, h, extra) + (attr ? " " + attr : "") + '>' + (inner || "") + '</div>'; }
 function lnkR(r, cls, inner, attr, extra){ return '<a class="' + cls + '" ' + stR(r, extra) + (attr ? " " + attr : "") + '>' + (inner || "") + '</a>'; }
@@ -42,11 +47,10 @@ function themaVorn(c, t, i, K, L, extra){
   h += lab(L.typ[0], L.typ[1], L.typ[2] + 6, L.typ[3], "kw", "Typ");
   /* Typ-Symbole im Kopf: Mythos (Blitz) / Logos (Maske) bzw. Zusatzthema (+) / Team */
   var ic = extra ? [["Extra", "Zusatzthema"], ["Team", "Team-Thema"]] : [["Mythos", "Mythos"], ["Logos", "Logos"]];
-  var IC = extra ? [[111.3, 8.5], [128, 10.5]] : [[108, 8.5], [127.5, 8.5]];
-  ic.forEach(function(k, n){ h += lnkR([K.type[0] + IC[n][0] - 7.5, K.type[1] + IC[n][1] - 7.5, 15, 15], "ty" + (y === k[0] ? " on t-" + k[0] : ""), "", 'data-act="obTyp" data-i="' + i + '" data-v="' + k[0] + '" data-tip="' + k[1] + '"'); });
+  var IC = extra ? LY.icons.p1x : LY.icons.p2[i];
+  ic.forEach(function(k, n){ h += lnkR([IC[n][0] - 7.5, IC[n][1] - 7.5, 15, 15], "ty" + (y === k[0] ? " on t-" + k[0] : ""), "", 'data-act="obTyp" data-i="' + i + '" data-v="' + k[0] + '" data-tip="' + k[1] + '"'); });
   var typTxt = b ? b.name : y === "Team" ? "Team-Thema" : "Themenbuch wählen";
-  h += lnkR([K.type[0], K.type[1] - (extra ? 4.5 : 1), K.type[2] - 12, K.type[3] + 1], "buch" + (b || y === "Team" ? "" : " leer"), esc(typTxt), 'data-act="obBuch" data-i="' + i + '" data-k="buch' + i + '"');
-  if(b) h += lnkR([K.type[0] + K.type[2] - 9, K.type[1] + 1, 8, 8], "ii", "i", 'data-act="obBuchInfo" data-i="' + i + '" data-k="bi' + i + '" data-tip="Infos zum Themenbuch"');
+  h += lnkR([K.type[0], K.type[1] - (extra ? 4.5 : 1), K.type[2] - 4, K.type[3] + 1], "buch" + (b || y === "Team" ? "" : " leer"), '<span>' + esc(typTxt) + '</span>' + (b ? '<b class="ii" data-act="obBuchInfo" data-i="' + i + '" data-k="bi' + i + '" data-tip="Infos zum Themenbuch">i</b>' : ""), 'data-act="obBuch" data-i="' + i + '" data-k="buch' + i + '"');
   /* Titel */
   var tr = K.title, lw = Math.max.apply(null, String(t.name || "").split(/\s+/).map(function(w){ return w.length; }).concat([0])); h += '<textarea class="o-titel' + (lw > 13 ? " lang" : "") + '" ' + st(tr[0][0], tr[0][1], tr[0][2], tr[1][1] + tr[1][3] - tr[0][1]) + ' data-f="obP" data-p="' + (extra ? "extra" : "themes." + i) + '.name" rows="2" placeholder="Themen&#10;Titel">' + esc(t.name) + '</textarea>';
   /* Aufmerksamkeit / Verblassen-Bruch */
@@ -95,32 +99,32 @@ var P1X = {typ: [411, 98.3, 434, 107.2], att: [410.5, 193.8, 449, 201.5], fade: 
 var P3K = [[48.5, 90.5, 100, 99.3, 52.1, 123, 135.5, 135.1, 55.3, 432.6, 99.9, 444], [229.9, 92.5, 281, 101.3, 232.5, 123.9, 316.5, 136.6, 232.1, 434.4, 276.6, 445.8], [415.5, 85.9, 467, 94.1, 417.1, 118.5, 500.5, 130.7, 405.6, 426.8, 450.1, 439.7], [589.9, 90.5, 638.5, 99.3, 590.5, 122.5, 673.5, 135.3, 589.5, 432.6, 634.1, 444]];
 var EVO_Y = [153.7, 167, 180.7, 194, 208.1, 221.8, 235.1, 248.4, 262.1, 275.4, 289.4];
 function seite1(c){
-  var P = LY.p1, h = "";
-  h += lab(46, 92, 140, 104, "kw", "Charakterkarte") + lab(227.8, 90.5, 320, 99.5, "kw", "Charakterkarte");
+  var P = LY.p1, RT = LY.rot.p1, h = "";
+  h += gruppe(RT[0], function(){ var h = lab(46, 92, 140, 104, "kw", "Charakterkarte");
   h += '<textarea class="o-name" ' + st(P.name[0][0], P.name[0][1] - 2, P.name[0][2], P.name[1][1] + P.name[1][3] - P.name[0][1] + 2) + ' data-f="cname" rows="2" placeholder="Charakter&#10;Name">' + esc(c.name) + '</textarea>';
   h += lab(49, 175, 92, 185, "bar", "Spieler:in") + inpR(P.spieler, "spieler", c.spieler, "lbl");
   h += lab(49, 194.8, 110, 205.2, "bar", "Mythos") + P.mythos.map(function(r, k){ return inpR(r, "mythosT." + k, c.mythosT[k]); }).join("");
   h += lab(49, 260.6, 110, 271.1, "bar", "Logos") + P.logos.map(function(r, k){ return inpR(r, "logosT." + k, c.logosT[k]); }).join("");
   h += lab(49, 326, 100, 338, "bar", "Team") + lab(149, 327.2, 176, 337, "duenn", "Freund", "justify-content:center") + lab(177, 327.6, 205, 337.3, "duenn", "Feind", "justify-content:center");
   P.crew.forEach(function(r, k){ h += inpR(r.w, "team." + k + ".w", c.team[k].w, "s") + inpR(r.help, "team." + k + ".help", c.team[k].help, "s z") + inpR(r.hurt, "team." + k + ".hurt", c.team[k].hurt, "s z"); });
-  h += lab(46.4, 451.4, 130, 468, "bar", "Story-Tags") + P.story.map(function(r, k){ return inpR(r, "story." + k, c.story[k], "s"); }).join("");
+  h += lab(46.4, 451.4, 130, 468, "bar", "Story-Tags") + P.story.map(function(r, k){ return inpR(r, "story." + k, c.story[k], "s"); }).join(""); return h; });
+  h += gruppe(RT[1], function(){ var h = lab(227.8, 90.5, 320, 99.5, "kw", "Charakterkarte");
   /* Rückseite der Charakterkarte */
   h += lab(227.8, 116, 278, 127, "bar", "Aufbau") + punkte(P.build, "build", c.build, "kreis", "Aufbaupunkt");
   h += lab(235.8, 138.5, 360, 146, "fett", "Entwicklungssprünge");
   P.evo.forEach(function(r, k){ h += '<a class="evo' + (c.evo[k] ? " on" : "") + '" ' + st(r[0] - 1, EVO_Y[k] - 1.5, 168, 10) + ' data-act="obToggle" data-p="evo.' + k + '"><i></i><span>' + esc(EVO[k]).replace("Mega!", "<em>Mega!</em>") + '</span></a>'; });
-  h += lab(229, 311.5, 300, 323, "bar", "Nemesis") + P.nemesis.map(function(r, k){ return inpR(r, "nemesis." + k, c.nemesis[k], "s"); }).join("");
+  h += lab(229, 311.5, 300, 323, "bar", "Nemesis") + P.nemesis.map(function(r, k){ return inpR(r, "nemesis." + k, c.nemesis[k], "s"); }).join(""); return h; });
   /* Team-/Zusatzthema */
-  h += themaVorn(c, c.extra, "x", P.extra, P1X, true);
-  h += lab(587.8, 101.6, 720, 110.5, "kw", "Team- oder Zusatzthema") + lab(590.5, 121.2, 690, 134, "bar", "Verbesserungen");
-  h += verbesserungen(c, c.extra, "x", P.extraImp, true);
+  h += gruppe(RT[2], function(){ return themaVorn(c, c.extra, "x", P.extra, P1X, true); });
+  h += gruppe(RT[3], function(){ return lab(587.8, 101.6, 720, 110.5, "kw", "Team- oder Zusatzthema") + lab(590.5, 121.2, 690, 134, "bar", "Verbesserungen") + verbesserungen(c, c.extra, "x", P.extraImp, true); });
   return seite(1, "Charakterbogen", 749.4, 31.2, h);
 }
-function seite2(c){ return seite(2, "Themenkarten (Vorderseite)", 748.9, 25.7, c.themes.map(function(t, i){ return themaVorn(c, t, i, LY.p2[i], P2L[i], false); }).join("")); }
+function seite2(c){ return seite(2, "Themenkarten (Vorderseite)", 748.9, 25.7, c.themes.map(function(t, i){ return gruppe(LY.rot.p2[i], function(){ return themaVorn(c, t, i, LY.p2[i], P2L[i], false); }); }).join("")); }
 function seite3(c){
   return seite(3, "Themenkarten (Rückseite)", 757.4, 25.7, c.themes.map(function(t, i){
     var K = P3K[i], b = t.book && A.book(t.book), P = LY.p3[i];
-    return lab(K[0], K[1], K[2] + 40, K[3], "kw", b ? b.name : "Themenkarte") + lab(K[4], K[5], K[6] + 10, K[7], "bar", "Verbesserungen") + lab(K[8], K[9], K[10] + 10, K[11], "bar", "Kehrseite") +
-      verbesserungen(c, t, i, P.imp, false) + P.flip.map(function(r, k){ return inpR(r, "themes." + i + ".flip." + k, t.flip[k], "s"); }).join("");
+    return gruppe(LY.rot.p3[i], function(){ return lab(K[0], K[1], K[2] + 40, K[3], "kw", b ? b.name : "Themenkarte") + lab(K[4], K[5], K[6] + 10, K[7], "bar", "Verbesserungen") + lab(K[8], K[9], K[10] + 10, K[11], "bar", "Kehrseite") +
+      verbesserungen(c, t, i, P.imp, false) + P.flip.map(function(r, k){ return inpR(r, "themes." + i + ".flip." + k, t.flip[k], "s"); }).join(""); });
   }).join(""));
 }
 function render(c){ ens(c); return '<div class="ob" id="miSheet">' + seite1(c) + seite2(c) + seite3(c) + '</div>'; }

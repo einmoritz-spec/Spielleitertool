@@ -15,8 +15,12 @@ body{background:#d9d5cc;min-height:100vh;color:var(--text)}
 
 .ob{--hand:"CB Courier","Courier New",monospace}
 .os-seite{position:relative;aspect-ratio:792/612;background-size:100% 100%;container-type:inline-size;--pt:calc(100cqw / 792);margin:0 0 26px;box-shadow:0 3px 14px rgba(40,35,25,.25);overflow:hidden;color:#2a2925}
-.os-seite>*{position:absolute;box-sizing:border-box;margin:0}
+.os-seite>*,.kg>*{position:absolute;box-sizing:border-box;margin:0}
+.kg{position:absolute;inset:0;pointer-events:none}
+.kg>*{pointer-events:auto}
+.kg>.t{pointer-events:none}
 .os-seite [data-tip]{position:absolute}
+.buch .ii[data-tip]{position:relative}
 .os-seite [data-tip]:hover:after{white-space:normal;width:max-content;max-width:calc(var(--pt)*170);left:0;right:auto;top:calc(100% + 2px);z-index:60}
 .t{white-space:nowrap;pointer-events:none;display:flex;align-items:center;overflow:visible}
 .t.titel{font:400 calc(var(--pt)*25)/1 "CB Bebas",sans-serif;color:#111;-webkit-text-stroke:calc(var(--pt)*.6) #111;text-transform:uppercase;letter-spacing:.01em}
@@ -50,6 +54,8 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .buch{display:flex;align-items:flex-end;padding:0 calc(var(--pt)*2) calc(var(--pt)*1.2);font:600 calc(var(--pt)*8.6)/1 "CB Oswald",sans-serif;color:#f4f2ec;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;text-transform:uppercase;letter-spacing:.05em}
 .buch.leer{color:rgba(244,242,236,.6)}
 .buch:hover{background:rgba(255,255,255,.12)}
+.buch span{overflow:hidden;text-overflow:ellipsis}
+.buch .ii{flex:none;width:calc(var(--pt)*7.5);height:calc(var(--pt)*7.5);margin:0 0 calc(var(--pt)*.6) calc(var(--pt)*3)}
 .ii{display:grid;place-items:center;border-radius:50%;border:calc(var(--pt)*.7) solid #e9e6de;color:#f4f2ec;font:italic 700 calc(var(--pt)*5.6)/1 Georgia,serif;cursor:pointer;text-decoration:none}
 .ii:hover{background:rgba(255,255,255,.2)}
 
@@ -72,7 +78,7 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .trk.kreis.on{background:radial-gradient(circle,#2a2925 0 40%,transparent 45%)}
 
 /* Charakterkarte Rückseite */
-.evo{display:flex;align-items:center;position:absolute;gap:calc(var(--pt)*5.5);font:400 calc(var(--pt)*6.9)/1 Helvetica,Arial,sans-serif;color:#2f2e2a;text-decoration:none;cursor:pointer;white-space:nowrap}
+.evo{display:flex;align-items:center;position:absolute;gap:calc(var(--pt)*5.5);font:400 calc(var(--pt)*7)/1 Helvetica,Arial,sans-serif;color:#2f2e2a;text-decoration:none;cursor:pointer;white-space:nowrap}
 .evo i{flex:none;width:calc(var(--pt)*8.8);height:calc(var(--pt)*9);border-radius:calc(var(--pt)*1)}
 .evo.on i{background:radial-gradient(circle,#2a2925 0 30%,transparent 36%)}
 .evo:hover span{text-decoration:underline;text-decoration-color:rgba(0,0,0,.3)}

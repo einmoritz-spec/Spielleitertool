@@ -13,9 +13,9 @@ var HB = (function(){
   var INK = "#1d1b1b", GRAU = "#878787";
   var FARBE = {h: "#cd1719", d: "#2061ac", c: "#248736", s: "#111", j: "#8a77a8"};
   var FELDER = ["g", "w", "k", "s"], FS = ["h", "d", "c", "s"];
-  var FERT = {g: ["Kunst", "Charme", "Redegewandtheit", "Etikette", "Anmut"], w: ["Fürsorge", "Handwerk", "Kultur", "Einsicht", "Ermittlung"],
+  var FERT = {g: ["Art", "Charme", "Redegewandtheit", "Etikette", "Anmut"], w: ["Fürsorge", "Handwerk", "Kultur", "Einsicht", "Ermittlung"],
     k: ["Athletik", "Autorität", "Kampf", "Stärke", "Wille"], s: ["Vorsicht", "Geschick", "Ausweichen", "Erkundung", "Schießen"]};
-  var ALIAS = {Art: "Kunst"};
+  var ALIAS = {};
   /* Porträtrahmen (ganzer weißer Rahmen) und das HH-Abzeichen, das über dem Bild liegt */
   var PORT = [637.8, 29.7, 814.9, 194.4], ABZ = [705.0, 178.1, 747.7, 212.3];
   var BLOECKE = ["merkmale", "man0", "man1", "man2", "ausr_t", "vertrag1", "vertrag2", "erinnerungen", "erfahrungen"];
@@ -27,7 +27,7 @@ var HB = (function(){
       ["Krieg", k.Krieg.x, 269.01, 20, "t", "start"], ["Strasse", k.Strasse.x, 382.39, 20, "t", "start"],
       ["Trümpfe im ärmel", 297.65, 41.53, 20, "t", "middle"], ["Merkmale", 297.6, 126.53, 20, "t", "middle"], ["Manöver", 297.65, 302.89, 20, "t", "middle"],
       ["Anstand", 528.65, 41.52, 20, "t", "middle"], ["Stress", 528.65, 124.95, 20, "t", "middle"], ["Zustände", 528.65, 183.49, 20, "t", "middle"],
-      ["Verträge", 528.65, 303.28, 20, "t", "middle"], ["Erinnerungen", 726.15, 345.15, 20, "t", "middle"], ["Erfahrungen", 726.3, 501.19, 20, "t", "middle"],
+      ["Verträge", 528.65, 303.28, 20, "t", "middle"], ["Memories", 726.15, 345.15, 20, "t", "middle"], ["Experiences", 726.3, 501.19, 20, "t", "middle"],
       ["Ausrüstung & Wohlstand", 30, 489.75, 19.5, "t", "start", INK, 196]);
     var BL = {g: [56.28, 70.43, 84.58, 98.74, 112.89], w: [169.67, 183.82, 197.98, 212.13, 226.28], k: [282.88, 297.03, 311.19, 325.34, 339.49], s: [396.3, 410.45, 424.6, 438.75, 452.91]};
     FELDER.forEach(function(f){ FERT[f].forEach(function(n, j){ B.push([n.toUpperCase().replace("ß", "SS"), 122.3, BL[f][j], 7.5, "s", "end"]); }); });
@@ -37,7 +37,7 @@ var HB = (function(){
     [["P.", 364.55], ["I.", 378.72], ["II.", 392.89], ["III.", 407.06], ["IV.", 421.23], ["V.", 449.58]].forEach(function(x){ B.push([x[0], 640.9, x[1], 6, "s", "start", GRAU]); });
     B.push(["TTT", 469.5, 441.5, 7, "s", "start", INK, 0, 1]);
     ["I", "II", "III", "IV", "V"].forEach(function(n, j){ var r = L.ttt[j].r; B.push([n, (r[0] + r[2]) / 2, 440.68, 4, "s", "middle", GRAU]); });
-    B.push(["ARM", 243.3, 475.94, 6, "s", "start", GRAU], ["MITTELSCHICHT", 243.3, 487.84, 6, "s", "start", GRAU, 51], ["WOHLHABEND", 309.9, 475.23, 6, "s", "start", GRAU], ["REICH", 310, 487.74, 6, "s", "start", GRAU]);
+    B.push(["POOR", 243.3, 475.94, 6, "s", "start", GRAU], ["MIDDLE CLASS", 243.3, 487.84, 6, "s", "start", GRAU, 51], ["WELL-OFF", 309.9, 475.23, 6, "s", "start", GRAU], ["RICH", 310, 487.74, 6, "s", "start", GRAU]);
     for(i = 0; i < B.length; i++){ B[i][6] = B[i][6] || INK; }
     return B;
   }
@@ -333,7 +333,7 @@ var HB = (function(){
       var vo = D.voelker.filter(function(v){ return v.n === ST.f.volk; })[0];
       if(vo) gruppe("Erbvertrag", [{n: vo.v.n, i: "Zugeständnis: " + vo.v.z.n + ". " + vo.v.z.t + "\nGegenleistung: " + vo.v.g.n + ". " + vo.v.g.t, t: vertragText(vo)}]);
     } else if(id === "ausr_t"){
-      gruppe("Wohlstand", [["Arm", "2 Münzen"], ["Mittelschicht", "5 Münzen"], ["Wohlhabend", "10 Münzen"], ["Reich", "20 Münzen"]].map(function(w, i){ return {n: w[0], z: w[1], wohl: i}; }));
+      gruppe("Wohlstand", [["Poor", "2 Münzen"], ["Middle Class", "5 Münzen"], ["Well-off", "10 Münzen"], ["Rich", "20 Münzen"]].map(function(w, i){ return {n: w[0], z: w[1], wohl: i}; }));
     }
     if(!list.length) h += '<div class="pz"><span class="pn leer">' + (id === "vertrag1" ? "Wähle zuerst ein Volk." : "Wähle zuerst Beruf und Berufung.") + '</span></div>';
     p.innerHTML = h; zeigPop(p);

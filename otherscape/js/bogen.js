@@ -204,7 +204,7 @@ function buchListe(c, i, anchor){
 var MOD = null;
 function modalZu(){ var m = document.querySelector(".ob-modal"); if(m) m.remove(); MOD = null; }
 function modal(titel, text, opts, ctx){
-  modalZu(); MOD = ctx;
+  modalZu(); MOD = ctx; titel = String(titel).replace(/:\s.*$/, ""); text = text.map(function(t){ return t.replace(/\s*\(S\.[^)]*\)/g, ""); });
   var d = document.createElement("div"); d.className = "ob-modal noprint";
   d.innerHTML = '<div class="ob-mbox"><h3>' + esc(titel) + '</h3>' + text.map(function(t){ return '<p>' + t + '</p>'; }).join("") + '<div class="ob-mopts">' +
     opts.map(function(o){ return '<a class="ob-mopt' + (o.off ? " off" : "") + (o.haupt ? " haupt" : "") + '"' + (o.off ? "" : ' data-act="obMod" data-v="' + o.id + '"') + '><b>' + esc(o.l) + '</b></a>'; }).join("") +
@@ -216,7 +216,7 @@ function voll(c, path){
   var m = /^themes\.(\d)\.(upg|dec)$/.exec(path), mc = /^crew\.(upg|dec)$/.exec(path), ml = /^load\.(\d)\.upg$/.exec(path);
   if(m){
     var i = +m[1], t = c.themes[i], b = t.book && A.book(t.book), nP = t.power.filter(function(x){ return x.a; }).length, nW = t.weak.filter(function(x){ return x.a; }).length, sp = (b && b.specials) || [];
-    if(m[2] === "upg") modal("Upgrade: " + themaName(t, i), ["Drei Upgrade-Kästchen sind markiert. Der Track wird zurückgesetzt und das Thema erhält ein Upgrade (S. 133). Wähle eins:"], [
+    if(m[2] === "upg") modal("Upgrade: " + themaName(t, i), [], [
       {id: "p", l: "Neuer Power-Tag", s: "Beantworte eine weitere Power-Tag-Frage.", off: !b || nP >= 8},
       {id: "w", l: "Neuer Schwächen-Tag", s: "Beantworte eine weitere Schwächen-Tag-Frage.", off: !b || nW >= 2},
       {id: "s", l: "Themen-Special", s: "Wähle ein Special des Themenbuchs.", off: !b || t.spec.length >= sp.length},
@@ -226,7 +226,7 @@ function voll(c, path){
       {id: "ersetzen", l: "Thema ersetzen", s: "Neues Themenbuch wählen", haupt: 1}
     ], {art: "decay", i: i});
   } else if(mc){
-    if(mc[1] === "upg") modal("Upgrade: Crew-Theme", ["Drei Upgrade-Kästchen am Crew-Theme sind markiert. Der Track wird zurückgesetzt, und ihr wählt gemeinsam ein Upgrade (S. 134):"], [
+    if(mc[1] === "upg") modal("Upgrade: Crew-Theme", [], [
       {id: "cp", l: "Neuer Power-Tag", s: "Trag ihn in das nächste freie Feld ein."}, {id: "cw", l: "Neuer Schwächen-Tag", s: "Trag ihn in das nächste freie Schwächen-Feld ein."},
       {id: "cs", l: "Crew-Special", s: "Trag es auf der Rückseite ein."}, {id: "cd", l: "Decay zurücksetzen", s: "Lösche alle Decay-Markierungen der Crew.", off: !c.crew.dec}
     ], {art: "crew"});
@@ -235,7 +235,7 @@ function voll(c, path){
     ], {art: "crewdec"});
   } else if(ml){
     var n = +ml[1], L = c.load[n], LS = ((window.OS_KAT && OS_KAT.specials) || []);
-    modal("Upgrade: Loadout-Thema", ["Drei Upgrade-Kästchen am Loadout-Thema sind markiert. Der Track wird zurückgesetzt und das Loadout erhält ein Upgrade. Wähle eins:"], [
+    modal("Upgrade: Loadout-Thema", [], [
       {id: "ls", l: "Loadout-Special", s: "Aus dem Straßenkatalog (S. 252–270)", off: !LS.length || L.spec.every(function(x){ return x; })},
       {id: "lt", l: "Neuer Loadout-Tag", s: "Trag ihn in das nächste freie Feld ein.", off: L.tags.every(function(x){ return x.a; })}
     ], {art: "load", n: n});

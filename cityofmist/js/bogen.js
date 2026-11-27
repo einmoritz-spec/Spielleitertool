@@ -178,7 +178,7 @@ function buchListe(c, i, anchor){
 /* ---------- Dialoge (Aufmerksamkeit / Verblassen-Bruch / Aufbau voll) ---------- */
 function modalZu(){ var m = document.querySelector(".ob-modal"); if(m) m.remove(); MOD = null; }
 function modal(titel, text, opts, ctx, ohneSpaeter){
-  modalZu(); MOD = ctx;
+  modalZu(); MOD = ctx; titel = String(titel).replace(/:\s.*$/, ""); text = text.map(function(t){ return t.replace(/\s*\(S\.[^)]*\)/g, ""); });
   var d = document.createElement("div"); d.className = "ob-modal noprint";
   d.innerHTML = '<div class="ob-mbox"><h3>' + esc(titel) + '</h3>' + text.map(function(t){ return '<p>' + t + '</p>'; }).join("") + '<div class="ob-mopts">' +
     opts.map(function(o){ return '<a class="ob-mopt' + (o.off ? " off" : "") + (o.haupt ? " haupt" : "") + '"' + (o.off ? "" : ' data-act="obMod" data-v="' + esc(o.id) + '"') + '><b>' + esc(o.l) + '</b></a>'; }).join("") +
@@ -187,7 +187,7 @@ function modal(titel, text, opts, ctx, ohneSpaeter){
 }
 function verbesserungDialog(c, i, zweite){
   var t = thema(c, i), b = t.book && A.book(t.book), imp = (b && b.imp) || [], nW = t.weak.length, nP = t.power.length, maxP = (i === "x" ? LY.p1.extra : LY.p2[0]).ptxt.length;
-  modal((zweite ? "Weitere Verbesserung: " : "Verbesserung: ") + themaName(t, i), [zweite ? "Du hast eine Schwäche entfernt oder umgeschrieben. Wähle dazu noch eine weitere Verbesserung (S. 245):" : "Die Aufmerksamkeitsleiste ist voll. Sie wird zurückgesetzt, und du wählst eine Verbesserung für dieses Thema (S. 244):"], [
+  modal((zweite ? "Weitere Verbesserung: " : "Verbesserung: ") + themaName(t, i), [], [
     {id: "p", l: "Eine neue Stärke", s: "Beantworte eine weitere Frage des Themenbuchs.", off: nP >= maxP},
     {id: "wa", l: "Eine Schwäche hinzufügen", s: "Beantworte eine weitere Schwächen-Frage.", off: nW >= 3},
     {id: "we", l: "Eine Schwäche entfernen", s: "Nur bei zwei oder mehr Schwächen. Danach wählst du noch eine Verbesserung.", off: nW < 2 || zweite},
@@ -207,7 +207,7 @@ function schwaecheAktion(c, i, k, wozu){
   else tagOeffnen(c, i, "weak", t.weak.length, function(){ verbesserungDialog(A.cur(), i, true); });
 }
 function entwicklungssprung(c, rest){
-  modal("Entwicklungssprung!", ["Fünf Aufbaupunkte: Die Leiste wird zurückgesetzt, und dein Charakter macht einen Entwicklungssprung (S. 267). Wähle einen, jeder geht nur einmal:"],
+  modal("Entwicklungssprung!", [],
     EVO.map(function(t, k){ return {id: "e" + k, l: t, off: c.evo[k]}; }).filter(function(o, k){ return !(k >= 8 && k <= 9 && !c.evo[7]) && !(k === 9 && !c.evo[8]); }), {art: "evo", rest: rest || 0}, true);
 }
 function aufbauGeben(c, n){

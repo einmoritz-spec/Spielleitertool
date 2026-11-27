@@ -70,9 +70,10 @@ function hexLabels(c){
   var any = P.some(function(q){ return q[2] && (s[q[2]] || 0) > 0; });
   var tri = P.map(function(q){ return q[0].toFixed(2) + "," + q[1].toFixed(2); }).join(" ");
   var clips = Object.keys(SEG).map(function(k){ return '<clipPath id="essc' + k + '"><polygon points="0,0 ' + SEG[k].map(function(q){ return V[q][0] + "," + V[q][1]; }).join(" ") + '"/></clipPath>'; }).join("");
-  var sv = !any ? "" : '<defs>' + clips + '</defs>' + Object.keys(SEG).map(function(k){ return '<polygon points="' + tri + '" fill="' + COL[k] + '" fill-opacity=".7" clip-path="url(#essc' + k + ')"/>'; }).join("")
-    + '<polygon points="' + tri + '" fill="none" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/>'
-    + P.map(function(q){ return '<circle cx="' + q[0].toFixed(2) + '" cy="' + q[1].toFixed(2) + '" r="1.9" fill="' + COL[q[2]] + '" stroke="#fff" stroke-width=".8"/>'; }).join("");
+  var sv = !any ? "" : '<defs>' + clips + '<radialGradient id="essg" cx="0" cy="0" r="44" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></radialGradient></defs>'
+    + Object.keys(SEG).map(function(k){ return '<g clip-path="url(#essc' + k + ')"><polygon points="' + tri + '" fill="' + COL[k] + '" fill-opacity=".78"/><polygon points="' + tri + '" fill="' + COL[k] + '" fill-opacity="0" stroke="' + COL[k] + '" stroke-width="1.5" stroke-linejoin="round"/></g>'; }).join("")
+    + '<polygon points="' + tri + '" fill="url(#essg)" stroke="none"/>'
+    + P.map(function(q){ return '<circle cx="' + q[0].toFixed(2) + '" cy="' + q[1].toFixed(2) + '" r="3.2" fill="' + COL[q[2]] + '" fill-opacity=".28"/><circle cx="' + q[0].toFixed(2) + '" cy="' + q[1].toFixed(2) + '" r="1.15" fill="' + COL[q[2]] + '"/>'; }).join("");
   var h = '<svg class="essv" ' + st(CX - W - 2, CY - R - 2, 2 * W + 4, 2 * R + 4) + ' viewBox="' + (-W - 2) + ' ' + (-R - 2) + ' ' + (2 * W + 4) + ' ' + (2 * R + 4) + '" aria-hidden="true"><g>' + sv + '</g></svg>' + L.map(function(l){ return txt(l[2], l[3], l[4] - l[2], 6.9, "hx" + (e === l[0] ? " on" : ""), l[1]); }).join("");
   h += txt(99, 253.8, 22, 10, "reg self" + (s.Self ? " on" : ""), "Selbst") + txt(117.5, 285.7, 24, 10, "reg myth" + (s.Mythos ? " on" : ""), "Mythos") + txt(81, 285.7, 20, 10, "reg noise" + (s.Noise ? " on" : ""), "Noise");
   return h;

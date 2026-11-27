@@ -159,5 +159,5 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 
 /* Essenz-Sechseck: gefüllte Sektoren je Themenart (1–4 Themen = Ebene 1–4) */
 .essv{pointer-events:none;overflow:visible}
-.essv g{filter:drop-shadow(0 0 calc(var(--pt)*1.4) rgba(255,255,255,.7))}
+.essv{filter:drop-shadow(0 0 calc(var(--pt)*1.6) rgba(255,255,255,.55))}
 .essv polygon{transition:fill-opacity .25s}

@@ -1383,3 +1383,40 @@ html,body{overflow-x:clip;max-width:100%}
 .bginfo p{margin:0;font:15px/1.45 sans-serif}
 .bgtoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--nacht);color:#fff;padding:9px 18px;border-radius:4px;font:14px var(--f-titel);z-index:500}
 @media print{.bgdd,.bgpop,.bginfo,.bgpf{display:none!important}}
+
+/* Breiter Modus */
+.bgbreit{display:none}
+@media (min-width:1150px){
+ .bgwrap:not(.pdfm) .sheet{display:none}
+ .bgwrap:not(.pdfm) .sheetwrap{display:block}
+ .bgwrap:not(.pdfm) .bgbar{max-width:1320px}
+ .bgwrap:not(.pdfm) .bgbreit{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1.15fr) minmax(0,.95fr);gap:14px;max-width:1320px;margin:0 auto;padding:18px;background:#dbe3ef;box-shadow:0 4px 22px #0d1a2740;color:#111;font-family:"SpPlantin","SpSerif",Georgia,serif}
+}
+.bgbreit *{box-sizing:border-box}
+.bgbreit .bgb-kopf{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.bgbreit .bgkz{position:relative;left:auto;top:auto;width:auto;padding:0 0 .6mm 0;height:11mm}
+.bgbreit .bgbx{position:relative;left:auto;top:auto;width:auto;height:auto}
+.bgbreit .bgb-sp{display:flex;flex-direction:column;gap:14px;min-height:0}
+.bgbreit .bgb-s1{flex-direction:row}
+.bgbreit .bgb-s1,.bgbreit .bgb-s1 .bgbx{min-width:0}
+.bgbreit .bgb-s1 .bgbx{flex:1}
+.bgbreit .bgb-s1{grid-column:1}
+.bgbreit .bgb-l .bgz{position:relative;left:auto;top:auto;width:100%;height:7.2mm}
+.bgbreit .bgbx .bgt{min-height:110px;flex:1}
+.bgbreit .bgb-s2 .bgbx{flex:1}
+.bgbreit .bgb-s2 .bgbx:nth-child(2) .bgt{min-height:170px}
+.bgbreit .bgb-s3 .bgbx{flex:1}
+.bgbreit .bgb-s3 .bgt{min-height:400px;font-size:14.5px}
+.bgbreit .bgb-s4 .bgbx:last-child{flex:1}
+.bgbreit .bgb-s4 .bgbx:last-child .bgt{min-height:120px}
+.bgbreit .bgb-w{grid-column:1/-1}
+.bgbreit .bgb-wg{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.bgbreit .bgrow{position:relative;left:auto;top:auto;width:auto;height:7.4mm}
+.bgbreit .bgfr{margin-left:3mm}
+.bgbreit .bgges{position:static;margin-top:3mm}
+.bgbreit .bgb-s1 .bgbx h3{font-size:20px}
+@media print{.bgbreit{display:none!important}.bgwrap .sheet{display:block!important}}
+.bgbreit .bgb-l .bgz{gap:8px}
+.bgbreit .bgb-wg .bgrow.bgdk{background:none}
+.bgbreit .bgb-wg .bgrow{border-bottom:1px solid #c3cde0}
+.bgbreit .bgwn{width:auto;flex:1;padding-left:4mm}

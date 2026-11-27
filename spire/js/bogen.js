@@ -22,10 +22,13 @@ function bgVorlage(fid){
   f.bg.ausr = v.ausr.join("\n"); save(); render();
 }
 function bgPdf(fid, knopf){
-  if(knopf){ knopf.style.opacity = ".4"; setTimeout(function(){ knopf.style.opacity = ""; }, 2500); }
   var f = zFig(fid); if(!f || !window.FillPDF) return;
-  FillPDF.make(document.querySelector(".sheet"), {name:"Spire – " + (f.n || "Charakterbogen"), knopf:knopf, bg:"#dbe3ef", marks:[[".bgz i", "an me"], [".bgfr i", "x"], [".bgbk i", "x"]]});
+  var w = document.querySelector(".bgwrap"), bt = knopf;
+  if(bt){ bt.style.opacity = ".4"; }
+  FillPDF.make(document.querySelector(".sheet"), {name:"Spire – " + (f.n || "Charakterbogen"), bg:"#dbe3ef", marks:[[".bgz i", "an me"], [".bgfr i", "x"], [".bgbk i", "x"]],
+    before:function(){ if(w) w.classList.add("pdfm"); }, after:function(){ if(w) w.classList.remove("pdfm"); if(bt) bt.style.opacity = ""; }});
 }
+
 /* ---- Teilen: Figur als Link ---- */
 function bgKodieren(f){
   var o = {n:f.n, klasse:f.klasse, dienst:f.dienst, auff:f.auff, frei:f.frei, fert:f.fert, dom:f.dom, mei:f.mei || [], kniffe:f.kniffe || [], bind:(f.bind || []).map(function(b){ return {n:b.n, ebene:b.ebene}; }), bg:f.bg || {}, stress:f.stress || {}, freiX:f.freiX || {}, fallout:f.fallout || [], vf:f.vf || null};
@@ -186,6 +189,41 @@ function bgLadeJson(el){
   d.text().then(function(t){ var o = JSON.parse(t); if(!o || !o.figur) throw 0; var f = zNeu(o.figur); f.id = "f" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); zFigs().push(f); save(); go("bogen/" + f.id); }).catch(function(){ alert("Das ist keine Spire-Charakterdatei."); });
   el.value = "";
 }
+
+/* ---- Breiter Modus (Bildschirm ab ca. 1150 px): gleiche Daten, Querformat-Anordnung; PDF und Druck bleiben A4 ---- */
+function bgBoxB(f, k, lab, inner, cls){
+  var dd = {kniffe:1, ausr:1, auff:1, faehig:1}[k] ? '<button class="bgdd noprint" onclick="spPop(this,event,\'' + f.id + '\',\'' + k + '\')" aria-label="Beispiele">▾</button>' : "";
+  return '<div class="bgbx ' + (cls || "") + '"><h3>' + lab + '</h3>' + dd + inner + '</div>';
+}
+function bgBreit(f){
+  var q = "'" + f.id + "'", h = "";
+  var kopf = [["Spielername", "spieler", 0], ["Figurenname", "n", 1], ["Klasse", "klasse", 1], ["Dienstzeit", "dienst", 1]].map(function(z){
+    var v = z[2] ? f[z[1]] : f.bg[z[1]], wahl = z[1] === "klasse" || z[1] === "dienst";
+    return '<div class="bgkz"><b>' + z[0] + '</b><input' + (wahl ? ' class="bgwahl" readonly onclick="spPop(this,event,' + q + ',\'' + z[1] + '\')"' : ' oninput="' + (z[2] ? 'bgSetF' : 'bgSet') + '(' + q + ',\'' + z[1] + '\',this.value)"') + ' value="' + esc(v || "") + '">' + (wahl ? '<u class="bgpf noprint">▾</u>' : '') + '</div>';
+  }).join("");
+  var fe = SP_FERTIGKEITEN.map(function(n){ return bgSk2(f, "fert", n, 0); }).join(""), dm = SP_DOMAENEN.map(function(n){ return bgSk2(f, "dom", n, 0); }).join("");
+  var bind = f.bind.map(function(b, i){
+    var n = ({einzel:3, figur:3, strasse:4, stadt:5})[b.ebene] || 3, k = "";
+    for(var j = 0; j < n; j++) k += '<i class="' + (j < (b.s || 0) ? 'x' : '') + '" onclick="zBindBox(' + q + ',' + i + ',' + j + ')"></i>';
+    return '<div class="bgbd"><input value="' + esc(b.n) + '" oninput="bgBindName(' + q + ',' + i + ',this.value)"><span class="bgbk">' + k + '</span><s class="noprint" onclick="bgBindWeg(' + q + ',' + i + ')">×</s></div>';
+  }).join("") + '<div class="bgplus noprint" onclick="zBNeu(' + q + ')">+ Bindung</div>';
+  var fo = (f.fallout || []).map(function(o, i){ var e = (window.SP_FALLOUT && SP_FALLOUT.finde(o.id)) || {t:o.id}; return '<div class="bgfo" onclick="zChip(' + q + ',' + i + ')">' + esc(e.t) + ' <small>(' + zWidT(o.w) + ')</small></div>'; }).join("");
+  var wid = [["blut", "Blut"], ["verstand", "Verstand"], ["silber", "Silber"], ["schatten", "Schatten"], ["ruf", "Ruf"], ["ruest", "Rüstung"]].map(function(w, i){
+    var fr = f.frei[w[0]] || 0, x = (f.freiX && f.freiX[w[0]]) || 0, k = "";
+    for(var j = 0; j < 5; j++) k += '<i class="' + (j < fr ? (j < x ? 'a x' : 'a') : '') + '" onclick="bgFreiKlick(' + q + ',\'' + w[0] + '\',' + j + ')" oncontextmenu="bgFreiWeg(event,' + q + ',\'' + w[0] + '\',' + j + ')"></i>';
+    var st = w[0] === "ruest" ? '' : '<span class="bgst"><s onclick="bgStress(' + q + ',\'' + w[0] + '\',-1)">−</s><b>' + ((f.stress && f.stress[w[0]]) || '') + '</b><s onclick="bgStress(' + q + ',\'' + w[0] + '\',1)">+</s></span>';
+    return '<div class="bgrow' + (i % 2 ? '' : ' bgdk') + '"><span class="bgfr">' + k + '</span><span class="bgwn">' + w[1] + '</span>' + st + '</div>';
+  }).join("");
+  var fl = (f.bg.faehig || "").length;
+  h += '<div class="bgb-kopf">' + kopf + '</div>';
+  h += '<div class="bgb-sp bgb-s1">' + bgBoxB(f, "fert", "Fertigkeiten", fe, "bgb-l") + bgBoxB(f, "dom", "Domänen", dm, "bgb-l") + '</div>';
+  h += '<div class="bgb-sp bgb-s2">' + bgBoxB(f, "kniffe", "Kniffe", '<textarea class="bgt" oninput="bgKniffe(' + q + ',this.value)">' + esc((f.kniffe || []).join("\n")) + '</textarea>') +
+    bgBoxB(f, "ausr", "Ausrüstung", bgTa(f, "ausr")) + bgBoxB(f, "auff", "Auffrischen", '<textarea class="bgt" oninput="bgSetF(' + q + ',\'auff\',this.value)">' + esc(f.auff || "") + '</textarea>') + '</div>';
+  h += '<div class="bgb-sp bgb-s3">' + bgBoxB(f, "faehig", "Fähigkeiten", bgTa(f, "faehig")) + '</div>';
+  h += '<div class="bgb-sp bgb-s4">' + bgBoxB(f, "bind", "Bindungen", '<div class="bgin">' + bind + '</div>') + bgBoxB(f, "fallout", "Fallout", '<div class="bgin">' + fo + '</div>' + bgTa(f, "fallout")) + '</div>';
+  h += '<div class="bgb-w bgbx"><h3>Freiplätze · Widerstände · Aktueller Stress</h3><div class="bgb-wg">' + wid + '</div><div class="bgges"><b>Gesamtstress:</b><span>' + (zTotal(f) || '') + '</span></div></div>';
+  return '<div class="bgbreit">' + h + '</div>';
+}
 SP_VIEW.bogen = function(rest){
   var f;
   if(rest[0] === "s" && rest[1]){
@@ -195,5 +233,5 @@ SP_VIEW.bogen = function(rest){
   if(!f) f = zFigs()[0];
   if(!f){ f = zNeu(); f.bg = {}; zFigs().push(f); save(); }
   f = bgF(f.id);
-  return '<div class="bgwrap">' + bgLeiste(f) + '<div class="sheetwrap">' + bgBogen(f) + '</div></div>';
+  return '<div class="bgwrap">' + bgLeiste(f) + '<div class="sheetwrap">' + bgBogen(f) + bgBreit(f) + '</div></div>';
 };

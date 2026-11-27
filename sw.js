@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1357sq";
+const VERSION = "v1358sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4460,6 +4460,17 @@ const FILES = [
   "vaesen/img/mbi/mbi_wesen_hund.webp",
   "vaesen/js/data/mbi-gesellschaft.js",
   "vaesen/js/data/mbi-arch.js",
+  "vaesen/js/data/car-welt.js",
+  "vaesen/js/data/car-gesellschaft.js",
+  "vaesen/img/car/cover.webp",
+  "vaesen/img/car/karte.webp",
+  "vaesen/img/car/prag_karte.webp",
+  "vaesen/img/car/prag_hradschin.webp",
+  "vaesen/img/car/prag_rathaus.webp",
+  "vaesen/img/car/prag_turm.webp",
+  "vaesen/img/car/prag_altstaedter_ring.webp",
+  "vaesen/img/car/kap3_baba_yaga.webp",
+  "vaesen/img/car/car_arch_vampirjaeger.webp",
   "vaesen/js/data/mbi-tabellen.js",
   "vaesen/img/mbi/mbi_ho_1a.webp",
   "vaesen/img/mbi/mbi_ho_2a.webp",

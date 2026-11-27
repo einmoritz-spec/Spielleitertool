@@ -4,7 +4,7 @@ var VAE_BUECHER = [
   {id:"vae_core", name:"Vaesen – Grundregelwerk", sub:"Regeln, Charaktere, Vaesen, Mysterium", cover:"cover_grundregelwerk.webp", on:1}]},
  {grp:"Settingbücher", items:[
   {id:"vae_mbi", on:1, cover:"cover_mbi.webp", titel:"titel/titel_mbi.webp", name:"Mythic Britain & Ireland", sub:"Der mythische Norden jenseits der Nordsee"},
-  {id:"vae_carp", cover:"cover_carp.webp", titel:"titel/titel_carp.webp", name:"Mythic Carpathia", sub:"Karpaten, Vampire und alter Aberglaube"}]},
+  {id:"vae_carp", on:1, cover:"cover_carp.webp", titel:"titel/titel_carp.webp", name:"Mythic Carpathia", sub:"Karpaten, Vampire und alter Aberglaube"}]},
  {grp:"Mysterien & Kampagnen", items:[
   {id:"vae_seasons", cover:"cover_seasons.webp", titel:"titel/titel_seasons.webp", name:"Seasons of Mystery", sub:"Vier Mysterien durchs Jahr", on:1},
   {id:"vae_wicked", cover:"cover_wicked.webp", titel:"titel/titel_wicked.webp", name:"A Wicked Secret and Other Mysteries", sub:"Vier Mysterien", on:1},

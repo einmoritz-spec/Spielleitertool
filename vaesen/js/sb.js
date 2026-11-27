@@ -4,7 +4,7 @@ var SBS = {
   bereiche:[["welt","Die Welt","Vier Nationen, London, Anderswelten, Karte","mbi/karte","50% 30%"],["gesellschaft","Die Gesellschaft","Geschichte, Rose House, Archetypen, Tabellen","mbi/rose","50% 20%"],["wesen","Wesen","13 Wesen der britischen Inseln","mbi/banshee","50% 30%"]],
   mys:["meg","llantywyll","hampstead"]},
  car: {id:"car", titel:"Mythic Carpathia", buch:"vae_carp", hero:"car/cover", pos:"center 38%", cls:"sb-car", sh:"Settingbuch",
-  bereiche:[["welt","Die Welt","Böhmen, Volksglaube, Prag, Städte","car/karte","50% 30%"],["gesellschaft","Die Gesellschaft","Pravda, Pulverturm, Ausbauten, Archetyp","car/pravda","50% 20%"],["wesen","Wesen","16 Wesen der Karpaten","car/wesen","50% 30%"]],
+  bereiche:[["welt","Die Welt","Böhmen, Volksglaube, Prag, Städte","car/karte","50% 30%"],["gesellschaft","Die Gesellschaft","Pravda, Pulverturm, Ausbauten, Archetyp","car/prag_turm","50% 30%"],["wesen","Wesen","16 Wesen der Karpaten","car/kap3_baba_yaga","50% 30%"]],
   mys:["pakt","sturm","maharal"]}
 };
 var SBD = window.SBD = window.SBD || {};

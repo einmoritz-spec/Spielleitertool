@@ -207,7 +207,7 @@ function modal(titel, text, opts, ctx){
   modalZu(); MOD = ctx;
   var d = document.createElement("div"); d.className = "ob-modal noprint";
   d.innerHTML = '<div class="ob-mbox"><h3>' + esc(titel) + '</h3>' + text.map(function(t){ return '<p>' + t + '</p>'; }).join("") + '<div class="ob-mopts">' +
-    opts.map(function(o){ return '<a class="ob-mopt' + (o.off ? " off" : "") + (o.haupt ? " haupt" : "") + '"' + (o.off ? "" : ' data-act="obMod" data-v="' + o.id + '"') + '><b>' + esc(o.l) + '</b>' + (o.s ? '<small>' + esc(o.s) + '</small>' : "") + '</a>'; }).join("") +
+    opts.map(function(o){ return '<a class="ob-mopt' + (o.off ? " off" : "") + (o.haupt ? " haupt" : "") + '"' + (o.off ? "" : ' data-act="obMod" data-v="' + o.id + '"') + '><b>' + esc(o.l) + '</b></a>'; }).join("") +
     '</div><div class="ob-mfuss"><a data-act="obModX">Später</a></div></div>';
   document.body.appendChild(d);
 }

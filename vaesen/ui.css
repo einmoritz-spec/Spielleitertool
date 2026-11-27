@@ -216,3 +216,6 @@ body.has-dock{padding-bottom:116px}
 .vs-row>a:hover{flex-grow:1}}
 
 .vu-intro{max-width:900px}.vu-intro h3{font-family:Mar;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--red);font-size:19px;margin:22px 0 8px;clear:both}.vu-intro h3 small{font-size:13px;font-style:italic;text-transform:none;color:var(--soft)}.vu-ii{float:right;margin:0 0 8px 18px;display:flex;gap:8px;max-width:48%}.vu-ii img{height:130px;width:auto;max-width:100%;object-fit:contain}
+
+.vs-mys{flex-wrap:wrap;row-gap:30px}.vs-my .vs-t b{overflow-wrap:anywhere}
+@media(max-width:900px){.vs-mys{flex-wrap:nowrap}}

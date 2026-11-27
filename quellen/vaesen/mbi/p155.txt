@@ -1,0 +1,234 @@
+· Background tables ·
+
+POOR
+
+WORKER
+
+BURGHER
+
+ARISTOCRAT
+
+PROFESSION
+
+SEE TABLE
+
+RESOURCES
+
+—
+
+—
+
+—
+
+26–31
+
+Dilettante
+
+Socialite (M)
+
++3
+
+—
+
+—
+
+44
+
+—
+
+Psychiatrist
+
+Doctor (I)
+
++2
+
+—
+
+—
+
+45–46
+
+32
+
+Academic
+
+Academic (H)
+
++3
+
+—
+
+—
+
+51–54
+
+33–34
+
+Public Servant
+
+Academic (H)
+
++3
+
+—
+
+—
+
+—
+
+35–36
+
+Investor
+
+Socialite (M)
+
++4
+
+—
+
+—
+
+—
+
+41–42
+
+Dean
+
+Priest (J)
+
++3
+
+—
+
+—
+
+55–62
+
+43
+
+Doctor
+
+Doctor (I)
+
++3
+
+—
+
+—
+
+63–64
+
+44–52
+
+Bohemian
+
+Academic (H)
+
++1
+
+—
+
+—
+
+65–66
+
+53–66
+
+Military Officer
+
+Officer (E)
+
++3
+
+4. LIFE EVENT TABLE K
+Boxer, escape artist, strongman (archetype: Athlete, page 47)
+D6
+
+EVENT
+
+SKILLS
+
+EQUIPMENT
+
+1
+
+INJURED. You were badly injured while working and convalescent for a long period of time. Perhaps a stunt gone wrong, or
+an overeager competitor. You still have the scars to prove it.
+
+MEDICINE 1
+VIGILANCE 1
+
+Medical
+equipment
+
+HARD WORK. You took what gigs you could to be able to pay the
+
+AGILITY 1
+
+Liquor
+
+bills. It wasn’t glamorous but then again, you got to do what
+you love to do.
+
+FORCE 1
+
+RIVAL. Perhaps it was a close friendship that soured, or a
+stranger who crossed your path one too many times. You gained
+a rival who hates you just as much as you hate him/her.
+
+OBSERVATION 1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+ACCOMPLISHMENT. You performed a great feat that impressed
+
+INSPIRATION 1
+
+those around you. Perhaps you rescued someone from a fire,
+or took a bullet for your employer. Whatever it was, people
+looked up to you. You certainly proved your mettle.
+
+FORCE 1
+
+SWEETHEART. You met someone that made you happy and the
+love was reciprocated. Love gave your life meaning, and the
+future looked sparkling bright. Perhaps you are still together,
+or maybe you went your separate ways when the passion faded.
+
+MANIPULATION 1
+
+Fine wines
+
+Pet dog
+
+AGILITY 1
+
+NATIONAL HERO. You finally did it. You might have broken a record,
+
+AGILITY 1
+
+or won a prestigious fight. Whatever it was, suddenly you were
+front page news and the kids looked up to you. Eventually the
+spotlight faded, and maybe that was for the best. But you still
+miss those days.
+
+INSPIRATION 1
+
+· 151 ·
+
+Lockpicks
+
+STEALTH 1
+
+Elegant
+disguise
+
+

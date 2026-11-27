@@ -1,0 +1,59 @@
+                                                   · Chapter 3 ·
+
+
+
+
+                                            DREKAVAC
+A couple of children wound up at the monastery’s doorstep—tired, dirty, and hungry.
+They claimed to be the only survivors of the curs e that fell on a quaint little fishing hamlet some
+two days away from here. After they were fed and had a good night’s sleep, I inquired more
+about their misadventures. They told a story of a long chain of horrid accidents that had only
+one thing in common—a soul-­numbing shriek that presaged each death.
+   —Antoine Augustin Calmet, August 1720
+
+A drekavac is a malicious being attracted to instances      are described as gangly figures with long arms, tal-
+of great tragedies and cruel injustice. Once drawn          oned hands, and oversized heads carried on almost
+to a place, a drekavac causes a chain of deaths –           comically spindly necks. Occasionally, they are cov-
+starting with livestock and culminating in people           ered in thick fur and can turn into different types
+or even entire families. Each death is often pre-           of animals.
+ceded by a hair-­raising shriek that gave the crea-            Drekavaci are especially drawn to the pain caused
+ture its name.                                              by the loss of a child. For that reason, and their ter-
+   Drekavaci live in solitude, in the wilderness, and       rible shriek, drekavaci are often mistaken for either
+can only be seen at night, especially the long dark         mylings or banshees.
+nights between Christmas Eve and Epiphany. They
+
+
+                                                                                         CONDITIONS
+                CHARACTERISTICS                                       Spiteful
+    MIGHT 9   BODY CONTROL 7      MAGIC 8                             Aggressive +1
+    MANIPULATION 8     Fear 2/1                                       Shaken and pleading, trying to manipu-
+                                                                      late −2
+                                                                      Hateful +2
+                                                                      Wounded −1
+                                                                      Panic and escape −2
+                MAGICAL POWERS                                        Broken – turns into a pile of ash and
+    · Curse
+      Enchant                                                         reforms at the site of the nearest tragedy
+    · Can turn into animals.                                          in a few hours.
+    · Can fly.
+    · One extra fast action that can be used for
+    · movement.
+    · Chilling
+      Fur: Protection 4                                                                      COMBAT
+
+    · that presages
+               Shriek: emits a bone-­chilling shriek
+                       death. Roll
+                                                                      ATTACK                                 DAMAGE       RANGE
+
+                                    MANIPULATION                      Long, smothering arms                     2/1*      0–1
+       against OBSERVATION for everyone in range
+       0–3. The affected take a −2 penalty on all               * Tries to grab the victim, dealing 2 damage. Then deals 1 damage per
+                                                                   turn until the victim becomes Broken or breaks free.
+       checks to avoid harm for a day.
+
+
+
+
+                                                       · 42 ·
+

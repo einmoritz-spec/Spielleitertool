@@ -1,0 +1,616 @@
+  VAESEN
+
+
+
+
+      T H E SOLO
+T H U R SDAY ’S CH I L D
+        SOL O RU L E S
+                                                    · Solo Rules ·
+
+
+
+
+          THE SOLO
+       THURSDAY’S CHILD
+These rules allow you to play Vaesen on your own.                     You will also use a so-called oracle to receive answers
+They can also be used to play together with one or                 to whatever questions you might have. The oracle is
+more friends, without a GM.                                        a game mechanic used to generate different results
+                                                                   that would otherwise be determined by a Gamemaster.
+                                                                   When consulting the oracle, you draw a card (some-
+
+               BASIC RULES                                         times two) from the deck – a red card indicates a posi-
+                                                                   tive effect while a black card means something negative.
+Normally, Vaesen is played with ready-made Mysteries                  The oracle can also help you create details using the
+that establish the truth which the player characters will          card drawn. To determine the effect, see the denom-
+strive to uncover. In solo play, some of the charm is lost         ination of the card in the table you are using.
+if you already know what you are looking for. Instead, a
+system is used where you gradually discover what kind
+of vaesen is behind the misdeed. To play solo you need:
+·   The Vaesen core rulebook                                                          YES OR NO
+·   A standard deck of playing cards                               The most common way to get an answer to a ques-
+·   Pen and paper                                                   tion in solo play is to draw a standard playing card. A
+                                                                    red card means yes, and a black card means no. For
+                                                                    a more nuanced answer, look up the denomination
+           THE JOURNAL                                              of the card in the Helpful or Not table.
+                                                                        If yes or no is a sufficient answer to your question,
+
+          AND THE ORACLE                                            you can immediately start acting on the result. If the
+                                                                    answer to the question “Do you know anything about what
+In solo play, time is an important factor. Over the                 happened in the village?” is “yes,” it is a good time to ask
+course of your character’s day, you will therefore                  follow-up questions, such as “Do you know who is involved?”
+make time-marked entries in a journal.                             – if the answer is once again “yes,” think about what the
+                                                                    person might know. What kind of insight does the
+                                                                    person have into the incident? Is the person lying to
+                                                                    you? Here you can use the Helpful or Not table and
+            SOLO PLAY IN A NUTSHELL                                 compare the result with the NPC’s attitude towards
+      1. Create the opening of your mystery.                        you to create a context for your answer.
+      2. Start keeping a journal and use the ora-                       However, if the answer is no, you need to fulfill
+         cle and tables to generate events.                         a requirement. Perhaps the question is too vague or
+      3. Explore the area and look for clues.                       does not fit into the current mystery? Maybe the per-
+                                                                    son does not even want to help you. Ask the question
+    When playing solo, you are in charge. It is                     again and draw a new card or make a MANIPULATION
+    therefore important for you to create con-                      test to force the NPC to help you, but consider the
+    text that will make the game more enjoyable.                    consequences of forcing an answer. A forced NPC
+                                                                    may not want to help you in the future.
+
+
+
+                                                             ·2·
+                                         · The Solo Thursday’s Child ·
+
+
+
+
+                 HELPFUL OR NOT                                                CHEAT SHEET FOR
+    Draw a card to determine how helpful an                                   PLAYING A MYSTERY
+    encounter is. A red card (hearts or diamonds)                   1. Roll an invitation (page 188 in the rulebook).
+    means the encounter is helpful; a black card                    2. Roll a quest giver (page 188).
+    (clubs or spades) means it is dangerous. The                    3. Roll a misdeed (page 188).
+    denomination of the card tells you how helpful                  4. Roll once on the Interesting Locations
+    or dangerous the encounter is.                                     table to determine where the misdeed
+                                                                       occurred (page 192).
+      CARD    BLACK            RED
+                                                                    5. Record the above as a first entry in your
+       2–4    Neutral          Neutral                                 journal and fill in your own details about
+       5–7    Somewhat         Somewhat helpful                        the people, place, and time. You are now
+              dangerous                                                ready to begin your mystery.
+                                                                    6. Use the oracle to determine the direc-
+       8–10 Dangerous          Helpful
+                                                                       tion of the mystery whenever you need
+      Jack    Very dangerous Very helpful                              further guidance or something important
+     Queen Very dangerous Very helpful                                 has happened.
+                                                                    7. Roll encounters when relevant (page 190
+       King   Lethal           Extremely helpful
+                                                                       in the rulebook).
+       Ace    Lethal           Extremely helpful                    8. Roll up a handful of interesting locations
+                                                                       (page 192).
+                                                                    9. Use the tables on pages 166–167 in the
+                                                                       rulebook and the Mental States table on
+                                                                       page 5 of this PDF to generate NPCs.
+
+      CREATING A MYSTERY                                           10. Your character’s discoveries will give rise
+                                                                       to conflicts and create details related to
+Any mystery has a beginning, a middle, and a con-                      the vaesen involved. Use the INVESTIGATION
+frontation. To create your mystery, use the tables on                  skill to gather clues, and when you have
+pages 188–192 of the Vaesen core rulebook. Start by                    enough, use LEARNING to connect them to
+rolling up a random invitation, quest giver, and                       the vaesen.
+misdeed on the tables on page 188. Roll once on the
+Interesting Locations table (page 192 in the rulebook) to
+determine where the misdeed was committed. Then
+choose an exciting location on the map on page 99             of the vaesen and the mystery’s NPCs – this will be
+where you want the mystery to take place.                     revealed as you explore the area around the misdeed.
+    The next step is to travel to that location. Then the         Once you have arrived, you can start investigating
+mystery begins in earnest, and you can create NPCs            places in search of new clues. Use the list of interesting
+using the guidelines on pages 166–168 and 214–229             locations on page 192 in the rulebook as inspiration
+in the rulebook, as well as the table on page 5 of            and make up the details of each location yourself. What
+this PDF. During the journey, you can gain an Advan-          does it look like? Who has been there? Is there any
+tage of your choosing (see page 24 in the rulebook            trace of the conflict or the vaesen that plagues the area?
+for more about Advantages).                                       Here you can use the Keywords table (page 7)
+    Over the course of the game, your player charac-          to create a scene. An important thing to consider
+ter’s discoveries will give rise to conflicts and details     once the beginning of the mystery has been created
+related to the vaesen involved. At first you do not           is whether or not the misdeed really was committed
+know the nature of this vaesen, nor the motivations           by a vaesen.
+
+
+
+                                                        ·3·
+                                                     · Solo Rules ·
+
+
+
+
+       KEEPING A JOURNAL                                          this PDF) as this creates events over which you have
+In solo play, there is no Gamemaster to drive the game            no control. Keep in mind that this is only a sugges-
+forward. You must create a narrative yourself. To make            tion of what could happen – you are the one in charge
+things easier, you keep a journal of events and use               of the adventure.
+your entries to create a plot and a deeper narrative.                You may also want to make a simple mind map in
+Exactly how you formulate your journal is up to you.              addition to your journal and keep a list of important
+    Each time you make a new entry, it may be time to             NPCs, noting what they know, what they have told
+roll for the direction of the mystery (page 6 of                  you, and their attitude towards you.
+
+
+
+                                                EXAMPLE JOURNAL 1
+    March 19, 8:30 AM. Tired and cold, I woke to a knock        strange footprints leading away from the area [roll for
+    on the door. I put on my dressing gown and was quickly      clues: 24]. Interesting! I shall pack my bags and make
+    reminded of the March chill as my feet touched the          my way there immediately.
+    floor. Outside the door stood a courier with his hand
+    outstretched [invitation roll: 3]. I had received a tele-   COMMENT: Now I have created a narrative. I must go
+    gram from a priest [quest giver roll: 32] named Elias       to the parish and first meet with the priest, then visit
+    Blomberg who wrote that there had been several bur-         the farm and investigate the place. When I meet the
+    glaries [misdeed roll: 43] in his parish. Strange that      priest, I can roll the priest’s background (page 229)
+    he would turn to me, shouldn’t he contact the police?       and use the oracle to determine his mental state
+    I read the letter carefully and he also wrote that the      (page 5 in this PDF), and then record this in my
+    latest burglaries had taken place on a farm and that        journal. This gives me a greater understanding of why
+    there was nothing the police could do. Few details          he might behave in a certain way and so forth. Now I
+    were mentioned in the telegram, only that there are         can also roll up additional NPCs and their interests.
+
+
+
+
+        CREATING A SCENE                                           NON-PLAYER CHARACTERS
+A mystery plays out in scenes. These can vary in length           During the mystery you will encounter and interact
+from a few minutes to several hours. When making                  with NPCs. On pages 166–167 in the rulebook there
+entries in your journal, remember to write down                   are ready-made NPCs to use, as well as traits you can
+the time. This gives you an idea of how much time                 roll for each NPC encountered. As a supplement
+has passed since your last entry. After a long scene,             to the trait, you can use the oracle to determine the
+you should ask the oracle about the next one. When                current mental state of an NPC (see below). The
+you encounter NPCs, roll for their mental state to                mental state may change depending on what the
+determine how they treat you.                                     NPC experiences during the mystery.
+
+
+
+
+                                                            ·4·
+                                         · The Solo Thursday’s Child ·
+
+
+
+
+              MENTA L STATE                                     meanings listed in the table. All aces and suited cards
+You determine the current mental state of an NPC by             indicate a strong personality. The two mental states
+drawing two cards. The higher card is the NPC’s pri-            form the basic motivation of the NPC. An NPC who
+mary mental state, and the lower card is their second-          gets two black cards is very difficult to handle, while
+ary mental state. Aces and suited cards have special            an NPC who gets two red cards is a breeze to deal with
+
+
+
+                                                 MENTAL STATES
+             CARD           CLUBS                SPADES                     DIAMONDS             HEARTS
+
+             2–4            Forgetful            Dim-witted                 Alert                Calm
+             5–7            Deluded              Bad-tempered               Ready                Confident
+             8–10           Brooding             Annoyed                    Trustworthy          Inspired
+             Jack           Exhausted            Taciturn                   Keen                 Talkative
+            Queen           Confused             Domineering                Brave                Sensitive
+             King           Frightened           Aggressive                 Helpful              Energetic
+             Ace           Terrified             Lacks empathy              Reckless             Perceptive
+
+
+
+
+                                              EXAMPLE JOURNAL 2
+    March 19, 12:30 PM. The road was long, bumpy, and         214 of the rulebook] and was tired of working for others
+    tedious. The air was cold and the carriage uncom-         [outcome 6 in Life Event Table B] and that he worked
+    fortable. Upon arrival I met the priest Elias who was    hard to get to where he is today. He started out with
+    [mental state: queen of spades and 8 of diamonds]        nothing and now owned this farm with livestock. This
+    domineering but trustworthy. He explained that some-     made him very suspicious of strangers on his farm.
+    one had broken into one of the stables on the farm. I    As I walked up to the farmer, I noticed a gentle but
+    asked him to take me there [oracle: black card] but      vacant look in his eyes [mental state: 8 of hearts and
+    he would not, saying he had other matters to attend      2 of clubs]. Something must have happened to him as
+    to. After I persuaded him [MANIPULATION test with one    he seemed to have forgotten something important. His
+    success] he agreed to accompany me there. It was a       hands were clutching a rifle. I introduced myself and
+    silent and awkward 30-minute walk. Once at the farm      asked him to tell me what happened [helpful or not:
+    he pointed to the stables. The farmer was standing in    queen of hearts], and he was very helpful. I started
+    the yard waiting for us. Elias told me the farmer came   asking questions.
+    from a poor family [outcome 13 in the table on page
+
+
+
+
+                                                          ·5·
+                                                 · Solo Rules ·
+
+
+
+
+                       TIME                                  Then the character talked to the priest. The more
+When interacting with NPCs and items in a scene,             time that passes, the more things will happen in the
+you should have an idea of how long things take. In          location. Another misdeed can be rolled after a few
+the journal above, it took the character four hours          days, or you can use the list of keywords on page 7
+from the invitation to the beginning of the journey.         to see if anything new happens.
+
+
+
+                                      THE DIRECTION OF THE MYSTERY
+               After making a journal entry, or when you do not know how to proceed in the mystery,
+                       it is time to use the oracle. Draw a card and check the table below.
+
+        CARD      BLACK                                           RED
+
+        2–3       You become exhausted and suffer a mental        Nothing happens. Time passes as you
+                  Condition.                                      contemplate and evaluate your findings.
+        4–8       Roll three keywords (page 7). Connect           Roll three keywords (page 7). Con-
+                  them to something negative.                     nect them to something positive.
+        9–10      You encounter an unpleasant NPC. Roll on        Roll on the Clues table (page 8).
+                  the Meetings table on page 190. Roll again
+                  if it does not fit the mystery at all.
+        Jack      Someone makes accusations against you.          Roll on the Clues table (page 8).
+                  The person claims that you have come to
+                  destroy the community and wants you gone.
+                  Roll for meetings on page 190. If you have
+                  not already rolled the location’s sub-con-
+                  flict (page 189), do it now.
+       Queen      A discovery frightens you. Make a Fear test    You encounter a friendly NPC who
+                  with Fear 1.                                   wants to help. Roll for meetings on page
+                                                                 190 and create an NPC if you do not
+                                                                 already have a suitable one.
+        King      Some malicious person in the area is target-    A meeting with someone in the vil-
+                  ing you. If you have not yet made an enemy      lage brings you one step closer to your
+                  in the mystery, create an NPC who means         vaesen. Look for a clue that matches
+                  you harm. Roll for meetings on page 190.        your vaesen.
+        Ace       You have a dark vision of a vaesen that         A kind local wants to help you. It could
+                  wants to commit a misdeed. This realiza-        be a person you have already met or
+                  tion frightens you – make a Fear test with      someone completely new. This NPC
+                  Fear 2. The vision can affect your mystery      counts as extremely helpful (page 3)
+                  and change events. Something dangerous          and can be used once or twice when it
+                  should happen in the near future, or you        suits the mystery. Roll for meetings on
+                  discover something that makes your mys-         page 190.
+                  tery take a turn for the worse.
+
+
+
+
+                                                       ·6·
+                                         · The Solo Thursday’s Child ·
+
+
+
+
+                                                    KEYWORDS
+                      Keywords are a great way to come up with ideas when you are struggling.
+                                  Roll D66 three times and check the table below.
+
+                             SECOND                                                      SECOND
+       D66   FIRST ROLL      ROLL         THIRD ROLL               D66   FIRST ROLL      ROLL          THIRD ROLL
+
+       11    Atmosphere      Animal       Along                     41   Living          Make          Light
+       12    Banish          Body         Back                     42    Love            Man           Like
+       13    Creature        House        Become                   43    Mad             Mountain      More
+       14    Black           Child        Before                   44    Magic           People        Move
+       15    Fight           Children     Behind                   45    Magical         Place         Near
+       16    Conflict        Church       Between                  46    Mental          Police        New
+       21    Cross           Town         Buried                    51   Mysteries       Priest        Night
+       22    Curse           Dance        Clues                     52   Stories         River         Over
+       23    Dead            Disease      Could                     53   Power           Sea           Own
+       24    Death           Family       Create                    54   Authority       Someone       Same
+       25    Dreams          Grow         Creature                  55   Revenge         Spirit        Shall
+       26    Delighted       Fire         Dark                      56   Ritual          Tree          Small
+       31    Fear            Forest       Down                      61   Secret          Upsala        Something
+       32    Force           Home         Fast                     62    Spell           Victim        Stop
+       33    Human           Horse        Found                     63   Mystery         Village       Take
+       34    Invitation      Tavern       Get                      64    Strange         Water         Taken
+       35    Kill            Travel       Inside                    65   Transform       Wife          Themselves
+       36    Know            Lake         Left                      66   Want            Woman         Through
+
+
+
+
+    DISCOVERING A VAESEN                                          be done too often, however, as it might lead you to a
+                                                                  vaesen rather quickly. If you find it too easy, increase
+Your investigation will sooner or later lead to a vaesen.         the difficulty of the LEARNING test so that each clue
+Initially you do not have much to go on other than the            requires two or three successes. Keep in mind that
+misdeed. Once you have gathered some clues using                  misdeeds are not only committed by vaesen – there
+INVESTIGATION and try to link the clues to a vaesen, you          may well be humans involved as well.
+make a LEARNING test. Each success lets you roll for a                The tables do not give you the whole truth behind the
+clue on Vaesen tables 1, 2 or 3.                                  mystery but make it easier to connect your clues when
+   This is a way for you to see how much your player              you have limited yourself to one or two vaesen. It is up
+character knows about specific vaesen. It should not              to you to decide how complex your mystery should be.
+
+
+
+
+                                                            ·7·
+                                                  · Solo Rules ·
+
+
+
+
+                                                       CLUES
+This table may be used freely, but usually after rolling for the direction of the mystery. When searching
+for clues, you make an INVESTIGATION test. Each success lets you roll for a clue on the table, or make one
+up yourself. Think about where you find the clue and how it might have gotten there. Make a note in your
+journal and link it to a past or future event. This table can help you find a connection between the locals
+and the vaesen committing the misdeed.
+
+  D66   CLUE                                                   D66   CLUE
+
+  11    An ancient monument of some kind that                  41    A pile of fist-sized rocks stacked on top
+        feels out of place                                           of each other
+  12    A bear trap or some other tool covered                 42    A piece of shell that seems to have come
+        in blood                                                     from a large egg
+  13    A broken lantern that looks fairly new                 43    A worn-out piece of clothing covered in
+                                                                     blood stains
+  14    A small doll that belonged to a child
+                                                               44    A dangling rope that has been cut off
+  15    A cold wind that makes your hair stand
+        on end                                                 45    A rune made of carefully placed stones
+                                                                     on the ground
+  16    A clear path where something has been
+        dragged along                                          46    A rusty knife, axe, or other tool that is
+                                                                     out of place
+  21    A dying animal, injured but still alive
+                                                               51    A sack that appears to have been torn
+  22    A discarded firearm
+                                                                     apart by some kind of animal
+  23    A hole dug with a shovel that is still there
+                                                               52    A page from a diary
+  24    Human or animal footprints leading
+                                                               53    Clothes, worn and torn
+        away from the area
+                                                               54    A smashed clock
+  25    A key engraved with strange runes
+                                                               55    A strange coin
+  26    A distant pistol or rifle shot
+                                                               56    A tuft of hair caught on a branch
+  31    A letter from an aristocrat in Upsala
+                                                               61    A slimy substance that gives off a bizarre
+  32    A poorly drawn map of the area
+                                                                     smell
+  33    A map of a place you have never seen
+                                                               62    Equipment and supplies, worn and broken
+        before
+                                                               63    An empty liquor bottle
+  34    A mysterious wooden figurine carved
+        with a knife                                           64    An empty but beautifully decorated jew-
+                                                                     elry box
+  35    A bunch of twigs, broken and arranged
+        in a pattern                                           65    Blood stains splattered on the wall, or on
+                                                                     a nearby boulder or tree if outdoors
+  36    A note with the name of a nearby village
+                                                               66    The remains of a recent fire
+
+
+
+
+                                                        ·8·
+                                      · The Solo Thursday’s Child ·
+
+
+
+
+                                            EXAMPLE JOURNAL 3
+March 19, 2:30 PM. The farmer seemed to understand          with one success, result 43 in the clues table] and found
+that I did not mean him harm. He introduced himself         a worn-out piece of clothing covered in blood stains.
+as Bengt, and I asked if he could remember what had
+happened [oracle: 2 of spades]. His blank expression        COMMENT: In an attempt to link the events to a vaesen,
+indicated that he had forgotten all about it, but to gain   I make a LEARNING test and get two successes. I choose
+his trust I spoke with him for half an hour, and he told    to interpret this as me getting to pick a clue from one of
+me about his background. He thought someone was             the vaesen tables, and I use one of my successes to look
+out to hurt him, his son, or his farm. After our con-       at Vaesen table 2 (page 11). I realize that vaesen
+versation he showed me the barn and its broken lock.        such as a myling, nisse, or spertus could be behind a
+I spent an hour searching for clues [INVESTIGATION test     burglary – but why were there bloodstained clothes?
+
+
+
+
+                                            EXAMPLE JOURNAL 4
+March 19, 3:00 PM. I asked the farmer to tell me what       and thus get three rolls on the keywords table: spell,
+was missing [oracle: black card] but he did not know.       people, shall. How I weave this into my mystery is up
+As we were sitting in his kitchen, I heard footsteps from   to my imagination. Perhaps a nisse committed the
+upstairs. He had a son named Loke who was neutral           misdeed because the farmer mistreated the ani-
+towards me [helpful or not: 3 of hearts]. Once his father   mals, or maybe a local rival stole the animals and
+assured him that I was here to help them, I learned         gave them to a lindworm in the area? But why has
+that two sheep were missing. Had a vaesen taken the         the farmer forgotten things? This suggests that he
+animals or was it a human who wished them harm?             is not himself – the vaesen responsible could just as
+                                                            well be a wood wife, a spertus, or perhaps a fairy,
+COMMENT: Here I use my second success to look at            according to Vaesen table 1. Or did he himself commit
+Vaesen table 1, and I pick the missing livestock clue.      such a terrible crime that he repressed his memories
+So, it could be a lindworm or a nisse! But how does         of the misdeed? Maybe the misdeed is something
+that explain the blood? Asking the oracle about the         completely different than what was created at the
+direction of the mystery, I draw the 5 of diamonds          beginning of the mystery?.
+
+
+
+
+                                            EXAMPLE JOURNAL 5
+March 20, 10:00 AM. The night was heavy, but I real-        Upstairs there was a door that was difficult to open.
+ized something as I woke [direction of the mystery:         How could I have missed this yesterday? Bengt had
+ace of spades]. In a misty dream I saw a child being        a daughter... but her bed was made. No one had slept
+kidnapped from the village. Exactly where and who           there last night.
+was unclear, but I decided to fetch the priest Elias
+and pay the farmer another visit. Unfortunately,            COMMENT: Based on the direction of the mystery, I
+the farmer passed away during the night. His heart          choose to change the misdeed. I decide that two
+had stopped, and I found his son crying by the bed.         sheep have been taken, along with the farmer’s
+Elias comforted him as I searched the house further.        daughter. My mystery just got even more mysterious!
+
+
+
+
+                                                        ·9·
+                                                VAESEN TABLE 1 – CLUES
+   Many vaesen initially cause the same type of misdeed, but small details may differ. The list below provides three sug-
+   gested clues per vaesen to help you identify which vaesen you are dealing with. The clues are categorized 1, 2, and 3,
+   with the first clue being the most general and the last one being the most unique to the vaesen in question.
+
+CLUE #1                            CLUE #2                               CLUE #3                               VAESEN
+
+People are disappearing.           Forest workers are getting hurt.      A mysterious disease is spreading.    Ash Tree Wife
+
+Children and adults are            Tracks are leading into the forest.   Shimmers of blue in the moonlight.    Brook Horse
+disappearing.
+
+Someone is plagued by terrible     Someone has been brutally             Someone seems to have died of         Revenant
+nightmares.                        murdered.                             fright.
+
+People are having trouble          Strange noises are heard in the       It suddenly gets unusually cold.      Ghost
+sleeping at night.                 village.
+
+Fishermen are telling stories.     Large fish scales have been found.    Children have been fished out         Mermaid
+                                                                         with nets.
+
+Someone has been brutally          Churches have been damaged.           Boulders have somehow been            Giant
+murdered.                                                                moved.
+
+People are found injured in the    Large flocks of birds roam the        The church bell tolls unexpectedly.   Church Grim
+village.                           area.
+
+Livestock have gone missing or     Someone is missing.                   Objects are corroded.                 Lindworm
+died.
+
+Someone is missing.                People are found drowned in a         People talk of a small creature       Will-o’-the-Wisp
+                                   swamp.                                that helped them find their way
+                                                                         home.
+
+People are having trouble          People are inexplicably found         A strange fog rolls in at night.      Mare
+sleeping.                          dead.
+
+People are having trouble          Sobs and cries are heard at night.    People find an unknown child in       Myling
+sleeping.                                                                the village.
+
+A strange fog rolls in at night.   Large flocks of birds roam the        Glowing eyes are seen among the       Night Raven
+                                   area.                                 trees at night.
+
+People are found injured in the    Someone is missing.                   Beautiful music is heard in the       The Neck
+village.                                                                 forest.
+
+Fishermen are telling stories.     Debris washes up on the shore.        A boat has not returned.              Sea Serpent
+
+People are not themselves.         Forest workers are getting hurt.      Children come back to the village     Wood Wife
+                                                                         alone.
+
+People are not themselves.         Someone has been murdered.            A grave has been dug up.              Spertus
+
+Livestock have gone missing or     Someone has left food around the      A horse’s mane is braided but the     Nisse
+died.                              village.                              owner does not know who did it.
+
+People are disappearing.           Someone has left food around the      Boulders have somehow been            Troll
+                                   village.                              moved.
+
+Someone is missing.                Livestock have gone missing or        Strange howls are heard at night.     Werewolf
+                                   died.
+
+Someone has been brutally          A house has burned down.              A mysterious disease is spreading.    Vaettir
+murdered.
+
+People are not themselves.         A child is missing.                   A mysterious disease is spreading.    Fairy
+                                         · The Solo Thursday’s Child ·
+
+
+
+
+                                           VAESEN TABLE 2 – MISDEED
+This list contains suggestions as to which vaesen could have committed a misdeed. Keep in mind that it may
+not be a vaesen that is the direct cause of a misdeed – it could just as well be a human.
+
+  NIGHT­        UNFIT DRINKING   CROP
+  MARES         WATER            FAILURE       BRUTAL MURDER             LARGE FIRE          DISAPPEARANCE
+
+  Ghost         Mermaid          Mermaid       Revenant                  Giant               Ash Tree Wife
+  Mare          The Neck         Nisse         Giant                     Will-o’-the-Wisp    Brook Horse
+  Myling        Sea Serpent      Troll         Will-o’-the-Wisp          Vaettir             Lindworm
+ —             —                 —             Mare                   —                      Will-o’-the-Wisp
+ —             —                 —             Spertus                —                      The Neck
+ —             —                 —             Vaettir                —                      Wood Wife
+ —             —                 —            —                       —                      Troll
+ —             —                 —            —                       —                      Werewolf
+ —             —                 —            —                       —                      Fairy
+
+                                                                                                 INEXPLICABLE
+     BURGLARY      DAMAGED                                   DEAD                                WEATHER
+     OR THEFT      PROPERTY          ACT OF VIOLENCE         LIVESTOCK       DISEASE             PHENOMENON
+
+     Myling        Giant             Ash Tree Wife          Giant            Ash Tree Wife       Brook Horse
+     Nisse         Myling            Church Grim             Lindworm        Revenant            Ghost
+     Spertus       Sea Serpent       Mare                    Nisse           Mare                Giant
+ —                 Spertus           The Neck              —                 Sea Serpent         Mare
+ —                 Vaettir           Wood Wife             —                 Wood Wife           Night Raven
+ —                 —                 —                     —                 Spertus            Troll
+ —                 —                 —                     —                 Vaettir            —
+ —                 —                 —                     —                 Fairy              —
+
+
+
+
+                                             EXAMPLE JOURNAL 6
+March 20, 4:00 PM. After a full day’s search, I went          more than one animal? Answer: black card]. They
+out into the forest. I was looking for clues related to       were left by a single animal [oracle, are the tracks
+the disappearance of Bengt’s daughter Anita. In the           always the same? Answer: black card], but after a
+forest I heard strange sounds and came across some            while they strangely changed shape, which led me one
+tracks [oracle, are there any tracks leading deeper           step closer to the truth about the vaesen behind the
+into the forest? Answer: red card]. I followed the            misdeed – a nisse! (Vaesen table 3 shows that nissar
+tracks deeper into the forest [oracle, are they from          can turn into animals).
+
+
+
+
+                                                         · 11 ·
+                                          VAESEN TABLE 3 – ENVIRONMENT
+This table groups vaesen by environment and characteristics. This could make it very easy to identify the vaesen
+involved, so primarily use Vaesen table 1 and 2 and only consult this one if you really get stuck.
+
+  ENVIRONMENT      FORM           APPEARANCE                 CHARACTERISTICS              SIZE        VAESEN
+
+ Area, Forest      Solid          Human                      Controls the area around     Small       Ash Tree Wife
+                                                             her tree
+
+ Area, Forest      Solid          Horse                      Shimmers in moonlight        Large       Brook Horse
+
+  Village, Area,   Invisible      Invisible                  Can take solid form          Large to    Revenant
+  Forest, Town                                                                            Massive
+
+  Village, Area,   Immaterial     Human ghost                Flies, glows blue            Normal      Ghost
+  Forest, Town
+
+  Stream           Solid          Human upper body, fish-    Lures seafarers              Normal      Mermaid
+                                  like lower body                                         to Large
+
+ Mountain,         Solid          Human                      Abhors Christianity          Huge        Giant
+ Area, Forest
+
+ Area              Solid          Four-legged animal         Violent, raises the dead     Small       Church Grim
+
+ Area, Forest      Solid          Snake with arms and hair   Spits acid                   Large to    Lindworm
+                                                                                          Huge
+
+  Village, Area,   Solid spirit   Human, but is a spirit     Has a lantern and can        Small       Will-o’-the-Wisp
+  Forest, Town                                               float in the air
+
+  Village, Area,   Solid or       Human female               Can turn into an oily mist   Normal      Mare
+  Forest, Town     immaterial
+
+  Village, Area,   Immaterial     Human child, ghost         Screams, sobs, and wails     Small       Myling
+  Forest, Town
+
+  Village, Area,   Solid          Bird                       Can turn into an oily mist   Tiny        Night Raven
+  Forest, Town
+
+  Stream near      Solid          Human male                 Always has some kind of      Normal      The Neck
+  Village                                                    peculiar feature on its body
+
+  Sea, Coast,      Solid          Snake                      Shy, lives in caves          Large to    Sea Serpent
+  Lake                                                                                    Massive
+
+ Area, Forest      Solid          Human with tail and clo-   Glowing green skin           Small to    Wood Wife
+                                  ven hooves                                              Normal
+
+  Village, Area,   Solid          Shimmering worm            Indestructible               Minuscule   Spertus
+  Brook, Forest,
+  Town
+
+  Village, Area    Solid          Human, old man with a      Can turn into an animal      Tiny        Nisse
+                                  beard
+
+  Mountain,        Solid          Human, but something is    Offers food when abduct-     Normal      Troll
+  Hills                           slightly off               ing people                   to Large
+
+  Village, Area,   Solid          Wolf or bear               Shapeshifter, is actually    Normal      Werewolf
+  Forest, Town                                               human                        to Large
+
+  Village, Area,   Solid          Human with features of a   Rewards humans with gold     Tiny        Vaettir
+  Forest, Town                    small animal
+
+  Village, Area,   Solid          Shimmering woman with      Can take any form they like Minuscule    Fairy
+  Forest                          wings
+

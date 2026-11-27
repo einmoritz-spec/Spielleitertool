@@ -1,0 +1,29 @@
+           CHARACTERISTICS                                                 CONDITIONS
+MIGHT 6*   BODY CONTROL 8    MAGIC 6*                  Playful +1
+MANIPULATION 5    Fear 2/1                             Confused −1
+                                                       Angry +2
+                                                       Cautious −1 (tries to keep its distance and
+                                                       attacks from the sky)
+                                                       Wounded −2 (tries to flee)
+            MAGICAL POWERS                             Broken – turns into a whirlwind and
+· Curse
+  Enchant                                              escapes, returning D6 hours later.
+· Can move with great speed and pass
+· through small openings.
+· Can  assume the form of whirlwind or its
+  material form.                                                               COMBAT
+
+· Creates  strong winds and whirlwinds.                ATTACK                    DAMAGE                    RANGE
+
+· Gets moreandpower
+  Collects      carries souls of the dead.             Rend                           2                      0–1
+· gaining +1  MIGHT
+                    with each collected soul,
+                     and +1  MAGIC   for each,
+                                                       Throw*                         3                           0
+
+   up to maximum scores of 12 when six souls      * If successful, it throws the target into the adjacent zone.
+   have been collected. When this happens,
+   the vykhrovyk also gains a second initiative
+   card in combat.
+

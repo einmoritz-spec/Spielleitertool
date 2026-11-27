@@ -1,0 +1,52 @@
+                                            · Vaesen of Carpathia ·
+
+
+
+
+                CHARACTERISTICS                                                            CONDITIONS
+    MIGHT 9   BODY CONTROL 8     MAGIC 7                              Careful
+    MANIPULATION 5    Fear 2/1                                        Bloodied −1 (hides and attacks
+                                                                      characters)
+                                                                      Aggressive +1 (directly attacks
+                                                                      characters)
+                                                                      Raging +2 (makes two slow actions per
+                MAGICAL POWERS                                        round)
+    · Curse
+      Enchant                                                         Exhausted −1 (drains a character)
+    · Trollcraft                                                      Wounded −2 (retreats to drain blood or
+    · Removes Conditions if it drains the blood                       energy from helpless locals)
+    · or energy from living creatures.                                Broken – falls into a catatonic state and
+                                                                      heals one Condition the next night.
+
+
+
+
+· Horrifying news has reached the Society. Dreadful
+  murders occurred in a remote village. The vic-                                              COMBAT
+   tims were found bloodless, with their chests torn                  ATTACK                    DAMAGE                    RANGE
+
+   open. The locals believe that the killer is the spirit             Claws                          1*                       0
+   of a murdered young woman who cannot rest in
+                                                                      Bite                           2                        0
+   peace. They are confused and see no reason for
+   this vengeance, as her killer – a rascal who had for               Drain                          1†                     0–2
+   several years asked for her hand in marriage – was            * On a success, the strigoi may grapple the target and bite it on its next
+                                                                   turn with a +2 bonus.
+   soon found and executed. The trial was hastily
+                                                                 † To drain a person, the strigoi must make an opposed roll of MAGIC against
+   conducted, the man executed soon after, but it                  the victim’s FORCE . Each success removes one Condition, to a maximum
+                                                                   of 3. This attack may only be used once every night.
+   was an injustice, as the man actually loved the girl
+   and would never have harmed her. At his funeral,
+   his mother mourned, seeking vengeance upon the
+   cruel village folk. Consequently, the executed man
+   returned as a strigoi, driven to kill in response
+   to his mother’s curse. However, he’s now losing
+   himself in the taste of blood, becoming more and
+   more of a monster.
+
+
+
+
+                                                        · 57 ·
+

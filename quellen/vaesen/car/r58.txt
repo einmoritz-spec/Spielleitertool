@@ -1,0 +1,107 @@
+CHARACTERISTICS
+MIGHT 7
+
+BODY CONTROL 8
+
+MANIPULATION 12
+
+CONDITIONS
+
+MAGIC 9
+
+Seductive
+Annoyed +1
+Murderous +2
+Wounded −1 (tries to keep her distance)
+Desperate −2
+Broken (escapes into the water and
+returns after a few hours).
+
+Fear 2/1
+
+MAGICAL POWERS
+
+Enchant
+· Curse
+· While in water, she may draw two initiative
+· cards and act twice per the round.
+· Can cause rain and flooding.
+
+COMBAT
+
+in the light of the moon. This is the only time when
+they can leave their habitat. It is extremely dangerous
+to enter a body of water at that time. Many communities have special celebrations during this week, which
+aim to appease the spirits of the dead such as rusalki
+and mavki (another type of forest spirit, known for
+having no back).
+One of the most common stories about rusalki is
+how they go through the villages in a so-­called “Rusalki’s Wedding.” They gather in a chain or wedge, often
+accompanied by a windstorm. The old rusalki walk in
+the front, then the younger ones, and the children at
+the end. It is important that rusalki do not encounter
+a real wedding during their walk because if they do,
+they will cause great harm to the participants.
+
+ATTACK
+
+DAMAGE
+
+RANGE
+
+Claws
+
+2
+
+0
+
+Drowning
+
+1*
+
+0
+
+* If the attack succeeds, the rusalka drags her victim into the water. The
+
+victim must then make a FORCE test to break free. Multiple attempts
+can be made, but each failure costs a physical condition. A victim who
+is Broken in the rusalka’s grip drowns.
+
+EX A MPLES OF CONFLICTS
+
+the village Duża Klonia, a large dam is being
+· Near
+constructed. But the approaching grand opening
+
+·
+
+RITUA L
+Carrying wormwood, lovage, or garlic protects against
+rusalki. It gives the rusalka −2 on all attacks or magic
+against the player character.
+
+·
+
+· 54 ·
+
+is shadowed by a tragedy – several construction
+workers have vanished without a trace. A rusalka
+who lives in one of the lakes is trying to prevent
+people from finishing the construction, as her
+lake will be drained if the dam is finished.
+An isolated fishing village deep in the woods is suffering from misfortunes: boats are destroyed and
+fishing nets are torn. This is caused by rusalki, who
+are greatly displeased. Until recently, the village used
+to honor the ancient tradition of “Rusalki’s Easter,”
+in which the prettiest girl in the village had to be sacrificed to the water. But this year, the celebration
+went wrong: Oleh, the son of the village elder, was
+in love with Maryna, the girl chosen for the sacrifice.
+He decided to free her and is now hiding with her
+within the village, planning their escape together.
+In a small village, a local pastor’s family strives to
+spread Christianity and fight the local superstitions.
+His son decides to further prove the point by marrying during a prohibited time – “Rusalki’s Week.”
+A local witch writes a letter to the Society, pleading
+with them to help her stop the upcoming disaster.
+
+

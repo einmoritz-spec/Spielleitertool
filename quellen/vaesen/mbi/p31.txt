@@ -1,0 +1,251 @@
+· Mythic Britain and Ireland ·
+
+NON-PLAYER CHARACTERS
+ARCHETYPE
+
+ATTRIBUTES:
+PHYSIQUE PRECISION LOGIC
+
+TOUGHNESS:
+EMPATHY PHYSICAL MENTAL SKILLS
+
+Lawyer
+
+2
+
+3
+
+3
+
+4
+
+1
+
+2
+
+Learning 3, Inspiration 3,
+Manipulation 2
+
+Miner
+
+4
+
+2
+
+2
+
+2
+
+3
+
+1
+
+Agility 3, Force 3, Vigilance 2
+
+Mudlark
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+Agility 2, Force 2,
+Investigation 3
+
+Noble
+
+2
+
+2
+
+2
+
+2
+
+1
+
+2
+
+Learning 2, Inspiration 2,
+Manipulation 2
+
+Pauper
+
+1
+
+1
+
+1
+
+2
+
+1
+
+1
+
+Agility 1, Vigilance 2,
+Manipulation 2
+
+Prizefighter
+
+4
+
+3
+
+2
+
+2
+
+3
+
+1
+
+Agility 3, Force 4,
+Close Combat 3
+
+Reformer
+
+2
+
+3
+
+2
+
+4
+
+1
+
+2
+
+Investigation 1, Vigilance 2,
+Inspiration 2, Manipulation 2
+
+Resurrectionist
+
+3
+
+2
+
+2
+
+2
+
+2
+
+2
+
+Agility 2, Force 2, Stealth 4
+
+Revolutionary
+
+3
+
+3
+
+2
+
+3
+
+2
+
+2
+
+Close Combat 1,
+Inspiration 2, Manipulation 2,
+Observation 2
+
+Rogue
+
+2
+
+3
+
+2
+
+2
+
+2
+
+1
+
+Agility 2, Close Combat 2,
+Stealth 3
+
+Sailor
+
+4
+
+3
+
+2
+
+2
+
+2
+
+1
+
+Agility 3, Force 3,
+Close Combat 3
+
+Socialite
+
+2
+
+2
+
+2
+
+4
+
+1
+
+2
+
+Inspiration 2, Manipulation 3,
+Observation 1
+
+Squire
+
+2
+
+2
+
+2
+
+2
+
+1
+
+2
+
+Investigation 1, Vigilance 2,
+Observation 2
+
+Teacher
+
+2
+
+3
+
+4
+
+3
+
+1
+
+3
+
+Investigation 1, Learning 3,
+Inspiration 2
+
+· 27 ·
+
+

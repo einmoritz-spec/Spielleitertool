@@ -1,0 +1,93 @@
+· Vaesen of Carpathia ·
+
+CHARACTERISTICS
+MIGHT 9
+
+BODY CONTROL 8
+
+CONDITIONS
+
+Enchant
+· Curse
+· Trollcraft
+· Removes Conditions if it drains the blood
+· or energy from living creatures.
+
+Careful
+Bloodied −1 (hides and attacks
+characters)
+Aggressive +1 (directly attacks
+characters)
+Raging +2 (makes two slow actions per
+round)
+Exhausted −1 (drains a character)
+Wounded −2 (retreats to drain blood or
+energy from helpless locals)
+Broken – falls into a catatonic state and
+heals one Condition the next night.
+
+news has reached the Society. Dreadful
+· Horrifying
+murders occurred in a remote village. The vic-
+
+COMBAT
+
+MANIPULATION 5
+
+MAGIC 7
+
+Fear 2/1
+
+MAGICAL POWERS
+
+tims were found bloodless, with their chests torn
+open. The locals believe that the killer is the spirit
+of a murdered young woman who cannot rest in
+peace. They are confused and see no reason for
+this vengeance, as her killer – a rascal who had for
+several years asked for her hand in marriage – was
+soon found and executed. The trial was hastily
+conducted, the man executed soon after, but it
+was an injustice, as the man actually loved the girl
+and would never have harmed her. At his funeral,
+his mother mourned, seeking vengeance upon the
+cruel village folk. Consequently, the executed man
+returned as a strigoi, driven to kill in response
+to his mother’s curse. However, he’s now losing
+himself in the taste of blood, becoming more and
+more of a monster.
+
+· 57 ·
+
+ATTACK
+
+DAMAGE
+
+RANGE
+
+Claws
+
+1*
+
+0
+
+Bite
+
+2
+
+0
+
+Drain
+
+1†
+
+0–2
+
+* On a success, the strigoi may grapple the target and bite it on its next
+turn with a +2 bonus.
+
+† To drain a person, the strigoi must make an opposed roll of MAGIC against
+the victim’s FORCE . Each success removes one Condition, to a maximum
+of 3. This attack may only be used once every night.
+
+

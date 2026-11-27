@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1396sq";
+const VERSION = "v1397sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -45,6 +45,7 @@ const FILES = [
   "tftl/img/taunus-taubmann.webp",
   "tftl/js/data/kids.js",
   "shared/fillpdf.js",
+  "shared/linkansicht.js",
   "tftl/js/data/mysterien.js",
   "tftl/js/mysterien.js",
   "tftl/js/leitstand.js",

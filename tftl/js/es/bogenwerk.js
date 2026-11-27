@@ -181,7 +181,7 @@
   ES.renderBogen = function(app, rest){
     var id = rest && rest[0];
     if(id && String(id).indexOf("teilen~") === 0){
-      try{ var o = JSON.parse(ub64(String(id).slice(7))); if(!o || !o.a) throw 0; var nid = neuesKid(o); toast("Reisende(r) übernommen"); location.replace(location.href.split("#")[0] + "#es/bogen/" + nid); }
+      try{ var o = JSON.parse(ub64(String(id).slice(7))); if(!o || !o.a) throw 0; var nid = neuesKid(o); LK.an(); toast("Reisende(r) übernommen"); location.replace(location.href.split("#")[0] + "#es/bogen/" + nid); }
       catch(e){ app.className = "page"; app.innerHTML = "<h1>Link ungültig</h1>"; }
       return;
     }

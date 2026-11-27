@@ -119,11 +119,13 @@
       '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + sym(IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="MBW.laden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "MBW.pdf()") + '</span></div>';
     return h.replace('<div class="rp">', '<div class="rp">' + bar).slice(0, h.indexOf('<div class="bbtn">') + bar.length) + "</div>";
   };
+  if(window.LK) LK.init(function(h){ return h.indexOf("#maeuse/bogen") === 0; });
   var vm = viewMaeuse;
   viewMaeuse = function(sub, id){
     if(sub === "bogen" && id && id.indexOf("teilen~") === 0){
-      var ok = false; try{ var o = sauber(JSON.parse(ub64(id.slice(7)))); if(o){ bgS(o); ok = true; } }catch(e){}
-      history.replaceState(null, "", "#maeuse/bogen"); setTimeout(function(){ toast(ok ? "Bogen übernommen" : "Link ungültig."); }, 50); id = "";
+      var msg = "Link ungültig."; try{ var o = sauber(JSON.parse(ub64(id.slice(7))));
+        if(o){ if(gefuellt(bgL()) && !confirm("Deine eigene Spielmaus wird durch die geteilte ersetzt. Fortfahren?")) msg = "Eigene Spielmaus behalten."; else { bgS(o); msg = "Bogen übernommen"; LK.an(); } } }catch(e){}
+      history.replaceState(null, "", "#maeuse/bogen"); setTimeout(function(){ toast(msg); }, 50); id = "";
     }
     return vm(sub, id);
   };

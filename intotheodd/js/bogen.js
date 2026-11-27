@@ -119,7 +119,13 @@ function bgPaketWahl(btn, ev){
 function viewBogen(){
   var s = (location.hash || "").slice(1).split("/")[1] || "";
   if(s.indexOf("teilen~") === 0){
-    try{ if(bgEinlesen(JSON.parse(bgUnB64(s.slice(7))))) setTimeout(function(){ bgToast("Bogen übernommen"); }, 50); else setTimeout(function(){ bgToast("Link ungültig."); }, 50); }catch(e){ setTimeout(function(){ bgToast("Link ungültig."); }, 50); }
+    var msg = "Link ungültig.";
+    try{
+      var d = JSON.parse(bgUnB64(s.slice(7)));
+      if(bgFilled(bgLoad()) && !confirm("Dein eigener Bogen wird durch den geteilten Bogen ersetzt. Fortfahren?")) msg = "Eigener Bogen behalten.";
+      else if(bgEinlesen(d)){ msg = "Bogen übernommen"; LK.an(); }
+    }catch(e){}
+    setTimeout(function(){ bgToast(msg); }, 50);
     history.replaceState(null, "", "#bogen");
   }
   var v = bgLoad();
@@ -138,3 +144,5 @@ function viewBogen(){
 document.addEventListener("click", function(e){ if(!e.target.closest(".bw-pop,.bw-info")) bgPopWeg(); });
 document.addEventListener("keydown", function(e){ if(e.key === "Escape" && document.querySelector(".bw-pop,.bw-info")){ e.stopImmediatePropagation(); e.preventDefault(); bgPopWeg(); } }, true);
 window.addEventListener("hashchange", bgPopWeg);
+
+if(window.LK) LK.init(function(h){ return h.indexOf("#bogen") === 0; });

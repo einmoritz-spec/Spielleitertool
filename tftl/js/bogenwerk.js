@@ -217,11 +217,12 @@
     };
   }
 
+  if(window.LK) LK.init(function(h){ return /bogen\/./.test(h); });
   window.renderBogen = function(app, id){
     var c = ctx();
     if(c.area === "es") return orig(app, id);
     if(id && String(id).indexOf("teilen~") === 0){
-      try{ var o = JSON.parse(ub64(String(id).slice(7))); if(!o || !o.a) throw 0; var nid = neuesKid(o); toast("Charakter übernommen"); location.replace(location.href.split("#")[0] + "#" + (c.p || "") + "bogen/" + nid); }
+      try{ var o = JSON.parse(ub64(String(id).slice(7))); if(!o || !o.a) throw 0; var nid = neuesKid(o); LK.an(); toast("Charakter übernommen"); location.replace(location.href.split("#")[0] + "#" + (c.p || "") + "bogen/" + nid); }
       catch(e){ app.className = "page"; app.innerHTML = "<h1>Link ungültig</h1>"; }
       return;
     }

@@ -39,10 +39,11 @@ var SBG = (function(){
       (cur !== "" ? werkzeug(cur) : "") + '</div>';
   }
   function cur(){ var a = (location.hash || "").slice(1).split("/"); return a[1] === "crew" ? "c" : a[1]; }
+  if(window.LK) LK.init(function(h){ return /^#crew\/./.test(h); });
   VIEWS.crew = function(a){
     var c = a[0] || "";
     if(c.indexOf("teilen~") === 0){
-      try{ var o = JSON.parse(ub64(c.slice(7))); if(!o || !o.pers || !SB_PTEXT[o.pers]) throw 0; var ni = neuSlugger(o); toast("Slugger übernommen"); setTimeout(function(){ go("crew/" + ni); }, 0); return chips("") + '<div class="fr"></div>'; }
+      try{ var o = JSON.parse(ub64(c.slice(7))); if(!o || !o.pers || !SB_PTEXT[o.pers]) throw 0; var ni = neuSlugger(o); toast("Slugger übernommen"); LK.an(); setTimeout(function(){ go("crew/" + ni); }, 0); return chips("") + '<div class="fr"></div>'; }
       catch(e){ setTimeout(function(){ go("crew"); }, 0); return chips("") + '<div class="fr"><p class="lead">Link ungültig.</p></div>'; }
     }
     if(c === "") return chips("") + '<div class="fr">' + SBC.status() + '</div>';

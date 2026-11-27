@@ -542,7 +542,6 @@ var DBB = (function(){
     B.addEventListener("focusout", function(e){ if(e.target.dataset && e.target.dataset.f){ var n = e.target.dataset.f; if(/^(Volk|STR|KON|GEW|INT|WIL|CHA)$/.test(n) || TAL.indexOf(n) >= 0 || INV.indexOf(n) >= 0) angleichen(); } });
   }
   document.addEventListener("click", function(e){
-    if(e.target.closest(".dbb-voll")){ sauberEnde(); render(); return; }
     var b = e.target.closest(".dbb-leiste [data-act]"); if(!b) { if(!e.target.closest(".bw-pop,.bw-info")) popWeg(); return; }
     e.stopPropagation(); var a = b.dataset.act;
     if(a === "zufall"){ if(gefuellt() && !confirm("Den Bogen durch einen zufälligen Charakter ersetzen?")) return; zufall(); }
@@ -558,13 +557,7 @@ var DBB = (function(){
   var prev = window.afterRender;
   window.afterRender = function(){ if(prev) prev(); verdrahten(); };
 
-  /* ---------- Geteilter Link: nur der Bogen ---------- */
-  function sauberSetzen(){
-    var an = false; try{ an = sessionStorage.getItem("dbb_clean") === "1"; }catch(e){}
-    document.body.classList.toggle("dbb-clean", an);
-  }
-  function sauberEnde(){ try{ sessionStorage.removeItem("dbb_clean"); }catch(e){} document.body.classList.remove("dbb-clean"); }
-  window.addEventListener("hashchange", function(){ if((location.hash || "").indexOf("#n/bogen") !== 0) sauberEnde(); });
+  window.LK.init(function(h){ return h.indexOf("#n/bogen") === 0; });
 
   /* ---------- Ansicht ---------- */
   function view(h){
@@ -574,13 +567,12 @@ var DBB = (function(){
       var msg = "Link ungültig.";
       if(o){
         if(gefuellt() && !confirm("Dein eigener Bogen wird durch den geteilten Bogen ersetzt. Fortfahren?")){ msg = "Eigener Bogen behalten."; }
-        else { S = o; sichere(); msg = "Bogen übernommen"; try{ sessionStorage.setItem("dbb_clean", "1"); }catch(e){} }
+        else { S = o; sichere(); msg = "Bogen übernommen"; LK.an(); }
       }
       history.replaceState(null, "", "#n/bogen"); setTimeout(function(){ toast(msg); }, 60);
     }
-    sauberSetzen();
     ableiten();
-    return (document.body.classList.contains("dbb-clean") ? '<div class="dbb-sbar">' + leiste() + "</div>" : "") + '<div class="dbb-wrap">' + bogenHtml() + "</div>" + '<button class="dbb-voll noprint" data-act="voll" data-tip="Ganzes Tool öffnen" aria-label="Ganzes Tool öffnen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>';
+    return (document.documentElement.classList.contains("lk") ? '<div class="dbb-sbar">' + leiste() + "</div>" : "") + '<div class="dbb-wrap">' + bogenHtml() + "</div>";
   }
   return {view: view, leiste: leiste, zustand: function(){ return S; }};
 })();

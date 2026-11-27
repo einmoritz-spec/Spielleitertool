@@ -118,14 +118,14 @@
       info: function(it){ return "<h4>" + esc(it.a.t) + '</h4><p class="s">' + esc(it.a.g + " · " + it.a.k) + "</p>" + it.a.x.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join(""); },
       pick: function(it){ var f = BG(v).f, t = k.replace(/n$/, "t"); f[k] = it.a.t; if(!f[t]) f[t] = aText(it.a); save(); render(); }});
   }
-  function listeWahl(btn, ev, k, liste, hint, anhaengen){
+  function listeWahl(btn, ev, k, liste, anhaengen){
     wrap(ev); var v = curV();
-    menu(btn, {hint: hint, items: liste.map(function(x){ return {t: x}; }), pick: function(it){ var f = BG(v).f; f[k] = anhaengen && f[k] ? f[k].replace(/[,\s]+$/, "") + ", " + it.t : it.t; save(); render(); }});
+    menu(btn, {items: liste.map(function(x){ return {t: x}; }), pick: function(it){ var f = BG(v).f; f[k] = anhaengen && f[k] ? f[k].replace(/[,\s]+$/, "") + ", " + it.t : it.t; save(); render(); }});
   }
   var VARIA = {
     asp: function(b, ev, k){ aspektWahl(b, ev, k); },
-    bro: function(b, ev, k, an){ var K = katalog(); listeWahl(b, ev, k, K.bro.map(function(x){ return x; }).concat(K.kri), "Start-Bröckchen (organisch) und Start-Krimskrams (künstlich), S. 163", an); },
-    rae: function(b, ev, k){ listeWahl(b, ev, k, katalog().rae, "Ideen für dein Starträtsel, S. 167"); }
+    bro: function(b, ev, k, an){ var K = katalog(); listeWahl(b, ev, k, K.bro.map(function(x){ return x; }).concat(K.kri), an); },
+    rae: function(b, ev, k){ listeWahl(b, ev, k, katalog().rae); }
   };
   window.PBWDD = function(btn, ev, art, k, an){ VARIA[art](btn, ev, k, an); };
 
@@ -174,13 +174,13 @@
     vorlage: function(btn, ev){
       wrap(ev); var v = curV();
       if(v === "streifzug"){
-        var cur = BG(v).f.tier; menu(btn, {hint: "Picotitan für den Streifzug", items: bTitanen().map(function(t){ return {t: t.t, sel: cur === t.t, c: t}; }),
+        var cur = BG(v).f.tier; menu(btn, {items: bTitanen().map(function(t){ return {t: t.t, sel: cur === t.t, c: t}; }),
           info: function(it){ var o = "<h4>" + esc(it.c.t) + "</h4>", sec = ""; (it.c.b || []).forEach(function(b){ if(b && b.t === "h4") sec = b.x; else if(typeof b === "string" && !sec) o += "<p>" + esc(strip(b)) + "</p>"; });
             return o + '<p class="s">Gunst, Aura und Gigafertigkeiten werden eingetragen.</p>'; },
           pick: function(it){ if(hatInhalt(v) && BG(v).f.tier && BG(v).f.tier !== it.t && !confirm("Titan wechseln? Gunst, Aura und Gigafertigkeiten werden ersetzt.")) return; bTitan(it.t); }});
         return;
       }
-      menu(btn, {hint: "Schnellstart-Käfer (S. 106–107): Aspekte und Augmente", items: katalog().sq.map(function(s){ return {t: s.t, s: s.k, q: s}; }),
+      menu(btn, {items: katalog().sq.map(function(s){ return {t: s.t, s: s.k, q: s}; }),
         info: function(it){ return "<h4>" + esc(it.q.t) + "</h4><p>" + esc(it.q.x) + '</p><p class="s">' + esc(it.q.k) + "</p><ul>" + it.q.l.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; },
         pick: function(it){ var b = BG(v); if((b.f.a0n || b.f.a0t) && !confirm("Die Aspekte durch den Schnellstart " + it.q.t + " ersetzen?")) return; schnellstart(b, it.q); save(); render(); toast(it.q.t + " eingesetzt"); }});
     },

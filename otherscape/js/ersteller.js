@@ -5,7 +5,7 @@ var books = Object.keys(TB).map(function(n){
   var t = TB[n], d = DT[n] || {}, id = n;
   return {id: id, name: n, typ: t.typ, p: t.p, intro: t.intro, concept: t.concept, why: d.why,
     power: (d.power || []).map(function(q, i){ return {l: L[i], q: q}; }), weak: (d.weak || []).map(function(q, i){ return {l: L[i], q: q}; }),
-    motivEx: (d.ident && d.ident.ex) || [], motivNote: (d.ident && d.ident.note) || ""};
+    motivEx: (d.ident && d.ident.ex) || [], motivNote: (d.ident && d.ident.note) || "", specials: d.specials || [], crew: d.crew || []};
 });
 var kits = [], lbl = {Self: "Identität", Mythos: "Ritual", Noise: "Trieb"};
 function addKit(k){ var b = TB[k.grp]; if(!b) return; kits.push({book: k.grp, name: k.name, p: k.p, power: k.power, weak: k.weak, motiv: k.ident || k.itch || "", motivL: lbl[b.typ]}); }
@@ -21,6 +21,6 @@ MistErsteller.start({
   sys: "otherscape", titel: "Otherscape", logo: "img/logo.webp", zurueck: "index.html#/charaktererstellung", key: "os_ersteller_v1",
   typen: {Self: {l: "Selbst", motiv: "Identität"}, Mythos: {l: "Mythos", motiv: "Ritual", pre: "Ich muss …"}, Noise: {l: "Noise", motiv: "Trieb"}},
   regeln: {themen: 4, power: 3, weak: 1, extra: true, pflicht: "Frage A ist Pflicht, dazu zwei weitere"},
-  konzept: C.schritte[0].leitfragen, books: books, kits: kits, vorlagen: vorlagen
+  konzept: C.schritte[0].leitfragen, books: books, kits: kits, vorlagen: vorlagen, bogen: window.OS_BOGEN
 });
 })();

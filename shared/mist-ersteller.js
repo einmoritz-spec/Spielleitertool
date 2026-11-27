@@ -10,6 +10,7 @@
 var CFG, S, $app, POP = null, INFO = null;
 var esc = function(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); };
 var uid = function(){ return "c" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); };
+var LT = "ABCDEFGHIJ".split("");
 var pick = function(a){ return a[Math.floor(Math.random() * a.length)]; };
 var shuffle = function(a){ a = a.slice(); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
 var P = function(t){ return String(t || "").split(/\n\n+/).map(function(x){ return "<p>" + esc(x).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>") + "</p>"; }).join(""); };
@@ -23,12 +24,12 @@ function blankChar(){ var t = []; for(var i = 0; i < CFG.regeln.themen; i++) t.p
 function need(th){ return {p: CFG.regeln.power + (th.extra ? 1 : 0), w: CFG.regeln.weak + (th.extra ? 1 : 0)}; }
 function ok(th){ var n = need(th); return !!th.book && th.power.filter(function(x){ return x.a; }).length >= n.p && th.weak.filter(function(x){ return x.a; }).length >= n.w; }
 function cur(){ return S.chars.filter(function(c){ return c.id === S.cur; })[0]; }
-function leer(c){ return !c.name && c.themes.every(function(t){ return !t.book; }) && !c.ausr && !c.notiz && !(c.rel || []).length; }
+function leer(c){ return !c.name && !c.spieler && c.themes.every(function(t){ return !t.book && !t.typ; }) && !c.ausr && !c.notiz && (c.rel || []).every(function(r){ return !r.w && !r.t; }) && !(c.load && JSON.stringify(c.load).indexOf('"a":"') > -1 && /"a":"[^"]/.test(JSON.stringify(c.load))); }
 
 /* ---------- Speichern ---------- */
 function load(){
   try{ S = JSON.parse(localStorage.getItem(CFG.key) || "null"); }catch(e){}
-  if(!S || !S.chars) S = {chars: [], cur: "", tab: "fragen", slot: 0};
+  if(!S || !S.chars) S = {chars: [], cur: "", tab: CFG.bogen ? "charaktere" : "fragen", slot: 0};
   S.tab = S.tab || "fragen"; S.slot = S.slot || 0;
 }
 function save(){ try{ localStorage.setItem(CFG.key, JSON.stringify({chars: S.chars, cur: S.cur, tab: S.tab, slot: S.slot, kombi: S.kombi})); }catch(e){} }
@@ -78,7 +79,9 @@ function ic(act, tip, path){ return '<button class="mi-ib" data-act="' + act + '
 function badge(typ){ var t = CFG.typen[typ] || {l: typ}; return '<span class="mi-typ t-' + esc(typ) + '">' + esc(t.l) + '</span>'; }
 
 /* ---------- Auswahl-Popup: Gruppen einklappbar, Suche, „i“ dockt seitlich an ---------- */
-function popClose(){ if(POP){ POP.el.remove(); POP = null; } infoClose(); }
+function popClose(){ if(POP){ var oc = POP.onClose; POP.el.remove(); POP = null; if(oc) oc(); } infoClose(); }
+function lage(el, anchor){ var r = anchor.getBoundingClientRect(), x = Math.min(r.left, window.innerWidth - el.offsetWidth - 12), y = r.bottom + 4; if(y + el.offsetHeight > window.innerHeight - 8 && r.top - el.offsetHeight - 4 > 8) y = r.top - el.offsetHeight - 4; el.style.left = Math.max(8, x) + window.scrollX + "px"; el.style.top = (y + window.scrollY) + "px"; }
+function panel(anchor, html, onClose, cls){ popClose(); var el = document.createElement("div"); el.className = "mi-pop mi-panel " + (cls || ""); el.innerHTML = html; document.body.appendChild(el); lage(el, anchor); POP = {el: el, items: [], cb: null, onClose: onClose}; var f = el.querySelector("input,textarea"); if(f) f.focus(); return el; }
 function infoClose(){ if(INFO){ INFO.remove(); INFO = null; } }
 function popOpen(anchor, items, onPick, opts){
   popClose(); opts = opts || {};
@@ -90,15 +93,14 @@ function popOpen(anchor, items, onPick, opts){
     items.forEach(function(x, i){ if(x.g !== g) return; h += '<div class="mi-pi" data-g="' + gi + '" data-i="' + i + '" style="display:none' + (x.off ? ";opacity:.5" : "") + '"><span>' + esc(x.n) + '</span><small>' + esc(x.s || "") + '</small>' + (x.info ? '<b class="mi-i" data-i="' + i + '">i</b>' : "") + '</div>'; });
   });
   h += '</div>'; el.innerHTML = h; document.body.appendChild(el);
-  var r = anchor.getBoundingClientRect(), x = Math.min(r.left, window.innerWidth - el.offsetWidth - 12);
-  el.style.left = Math.max(8, x) + window.scrollX + "px"; el.style.top = (r.bottom + window.scrollY + 4) + "px";
-  POP = {el: el, items: items, cb: onPick};
+  lage(el, anchor);
+  POP = {el: el, items: items, cb: onPick, onClose: opts.onClose};
   var f = el.querySelector(".mi-pf"); f.focus();
   f.addEventListener("input", function(){ var q = f.value.toLowerCase();
     el.querySelectorAll(".mi-pi").forEach(function(d){ var g = el.querySelector('.mi-pg[data-g="' + d.dataset.g + '"]'); d.style.display = q ? (d.textContent.toLowerCase().indexOf(q) > -1 ? "" : "none") : (g.classList.contains("auf") ? "" : "none"); });
     if(q) el.querySelectorAll(".mi-pg").forEach(function(g){ g.classList.add("auf"); }); });
   f.addEventListener("keydown", function(e){ if(e.key === "Escape") popClose(); });
-  if(opts.offen) el.querySelectorAll(".mi-pg").forEach(function(g){ g.click(); });
+  if(opts.offen) el.querySelectorAll(".mi-pg").forEach(function(g){ g.classList.add("auf"); }); if(opts.offen) el.querySelectorAll(".mi-pi").forEach(function(d){ d.style.display = ""; }); if(opts.auf != null) el.querySelectorAll('.mi-pg').forEach(function(g){ if(g.textContent.indexOf(opts.auf) === 0){ g.classList.add("auf"); el.querySelectorAll('.mi-pi[data-g="' + g.dataset.g + '"]').forEach(function(d){ d.style.display = ""; }); } });
 }
 function infoOpen(i){
   infoClose(); var x = POP && POP.items[i]; if(!x || !x.info) return;
@@ -120,8 +122,8 @@ function vorInfo(v){
 /* ---------- Charakter aus Vorlage / Zufall ---------- */
 function themeAusKit(k, bookId){
   var b = book(bookId || k.book), t = blankTheme(); t.book = b.id; t.kit = k.name; t.name = k.name;
-  t.power = k.power.slice(0, CFG.regeln.power).map(function(a, i){ return {l: String(i + 1), a: a}; });
-  t.weak = [{l: "1", a: k.weak[0]}]; t.motiv = k.motiv || ""; return t;
+  t.power = k.power.slice(0, CFG.regeln.power).map(function(a, i){ return {l: LT[i], a: a}; });
+  t.weak = [{l: "A", a: k.weak[0]}]; t.motiv = k.motiv || ""; return t;
 }
 function themeLeerKit(bookId, name){ var t = blankTheme(); t.book = bookId; t.kit = name; t.name = name; return t; }
 function themeAusRef(x){
@@ -146,8 +148,8 @@ function zufall(){
   c.themes = c.themes.map(function(){
     var cand = CFG.kits.filter(function(k){ return !used[k.book + k.name] && !used[k.book]; }); if(!cand.length) cand = CFG.kits;
     var k = pick(cand); used[k.book] = 1; var t = themeAusKit(k);
-    var rest = shuffle(k.power.slice(1)).slice(0, CFG.regeln.power - 1); t.power = [{l: "1", a: k.power[0]}].concat(rest.map(function(a){ return {l: "k", a: a}; }));
-    t.weak = [{l: "1", a: pick(k.weak)}]; return t;
+    var rest = shuffle(k.power.map(function(a, i){ return i; }).slice(1)).slice(0, CFG.regeln.power - 1).sort(); t.power = [{l: "A", a: k.power[0]}].concat(rest.map(function(i){ return {l: LT[i], a: k.power[i]}; }));
+    var wi = Math.floor(Math.random() * k.weak.length); t.weak = [{l: LT[wi], a: k.weak[wi]}]; return t;
   });
   neuerEintrag(c, true); S.tab = "charaktere"; save(); render();
 }
@@ -158,13 +160,13 @@ function kombiSetzen(){
   if(!a || !b || !st){ toast("Erst Archetypen und Stufe wählen"); return; }
   charMitThemen(a.name + " / " + b.name, a.themes.slice(0, st.n[0]).concat(b.themes.slice(0, st.n[1])), "");
 }
-var TABS = [["fragen", "Fragen"], ["books", "Themenbücher"], ["vorlagen", "Vorlagen"], ["charaktere", "Charakterkarte"]];
+function tabs(){ return CFG.bogen ? [["charaktere", "Bogen"], ["fragen", "Fragen"], ["books", "Themenbücher"], ["vorlagen", "Vorlagen"]] : [["fragen", "Fragen"], ["books", "Themenbücher"], ["vorlagen", "Vorlagen"], ["charaktere", "Charakterkarte"]]; }
 function render(){
   var lk = document.documentElement.classList.contains("lk");
-  var c = cur(), tab = lk ? "charaktere" : S.tab;
-  var h = '<header class="mi-head">' + (lk ? "" : '<a class="mi-back" href="' + esc(CFG.zurueck) + '" data-tip="Zurück zum Tool" aria-label="Zurück">‹</a>') + '<img class="mi-logo" src="' + esc(CFG.logo) + '" alt="' + esc(CFG.titel) + '"><span class="mi-ttl">Charaktererstellung</span><span class="mi-sp"></span></header>';
-  if(!lk) h += '<nav class="mi-tabs">' + TABS.map(function(t){ return '<a class="' + (tab === t[0] ? "on" : "") + '" data-act="tab" data-v="' + t[0] + '">' + t[1] + '</a>'; }).join("") + '</nav>';
-  h += '<main class="mi-main">' + (tab === "fragen" ? vFragen(c) : tab === "books" ? vBooks() : tab === "vorlagen" ? vVorlagen() : vKarte(c, lk)) + '</main>';
+  var c = cur(), tab = lk || CFG.bogen ? "charaktere" : S.tab;
+  var h = '<header class="mi-head">' + (lk ? "" : '<a class="mi-back" href="' + esc(CFG.zurueck) + '" data-tip="Zurück zum Tool" aria-label="Zurück">‹</a>') + '<img class="mi-logo" src="' + esc(CFG.logo) + '" alt="' + esc(CFG.titel) + '">' + (CFG.bogen ? "" : '<span class="mi-ttl">Charaktererstellung</span>') + '<span class="mi-sp"></span></header>';
+  if(!lk && !CFG.bogen) h += '<nav class="mi-tabs">' + tabs().map(function(t){ return '<a class="' + (tab === t[0] ? "on" : "") + '" data-act="tab" data-v="' + t[0] + '">' + t[1] + '</a>'; }).join("") + '</nav>';
+  h += '<main class="mi-main' + (tab === "charaktere" && CFG.bogen ? " mi-wide" : "") + '">' + (tab === "fragen" ? vFragen(c) : tab === "books" ? vBooks() : tab === "vorlagen" ? vVorlagen() : CFG.bogen ? leiste(c, lk) + CFG.bogen.render(c, API) : vKarte(c, lk)) + '</main>';
   $app.innerHTML = h + '<input type="file" id="miFile" accept=".json,application/json" hidden>';
 }
 function leiste(c, lk){
@@ -272,6 +274,7 @@ function click(e){
   if(POP && !(e.target.closest && (e.target.closest(".mi-pop") || e.target.closest(".mi-info")))) popClose();
   var a = e.target.closest && e.target.closest("[data-act]"); if(!a) return;
   var act = a.dataset.act, v = a.dataset.v, c = cur(), th = c && c.themes[S.slot];
+  if(CFG.bogen && CFG.bogen.click && CFG.bogen.click(act, a, c, e)) return;
   if(act === "tab"){ S.tab = v; }
   else if(act === "slot"){ S.slot = +v; }
   else if(act === "edit"){ S.slot = +v; S.tab = "fragen"; }
@@ -297,8 +300,8 @@ function click(e){
   else if(act === "tagEx"){ setze(th, a.dataset.art, a.dataset.l, v); }
   else if(act === "motivEx"){ th.motiv = v; }
   else if(act === "kitP"){ var kk = kitBy(th.book, th.kit), t0 = kk.power[+v], on = th.power.some(function(y){ return y.a === t0; });
-    if(+v === 0) return; if(on) th.power = th.power.filter(function(y){ return y.a !== t0; }); else { if(th.power.length >= need(th).p){ toast("Schon " + need(th).p + " Stärken gewählt"); return; } th.power.push({l: String(+v + 1), a: t0}); } }
-  else if(act === "kitW"){ var kw = kitBy(th.book, th.kit), tw = kw.weak[+v], onw = th.weak.some(function(y){ return y.a === tw; }); if(onw) th.weak = []; else { th.weak = th.weak.slice(-(need(th).w - 1)); if(need(th).w === 1) th.weak = []; th.weak.push({l: String(+v + 1), a: tw}); } }
+    if(+v === 0) return; if(on) th.power = th.power.filter(function(y){ return y.a !== t0; }); else { if(th.power.length >= need(th).p){ toast("Schon " + need(th).p + " Stärken gewählt"); return; } th.power.push({l: LT[+v], a: t0}); } }
+  else if(act === "kitW"){ var kw = kitBy(th.book, th.kit), tw = kw.weak[+v], onw = th.weak.some(function(y){ return y.a === tw; }); if(onw) th.weak = []; else { th.weak = th.weak.slice(-(need(th).w - 1)); if(need(th).w === 1) th.weak = []; th.weak.push({l: LT[+v], a: tw}); } }
   else if(act === "useBook"){ var tt = c.themes.filter(function(t){ return !t.book; })[0]; if(!tt){ toast("Alle Themenplätze belegt"); return; } tt.book = v; S.slot = c.themes.indexOf(tt); S.tab = "fragen"; }
   else if(act === "kA" || act === "kB"){ var tt = act === "kA" ? "a" : "b"; popOpen(a, CFG.kombi.liste.filter(function(x){ return x.teil === tt; }).map(function(x){ return {n: x.name, s: "", g: CFG.kombi[tt] + "en", id: x.id, info: '<h4>' + esc(x.name) + '</h4><p>' + x.themes.map(function(r){ return esc(r.book) + (r.hint ? ' (' + esc(r.hint) + ')' : ""); }).join(" · ") + '</p>'}; }), function(it){ S.kombi = S.kombi || {}; S.kombi[tt] = it.id; save(); render(); }, {offen: 1}); return; }
   else if(act === "kPick"){ S.kombi = S.kombi || {}; S.kombi[a.dataset.t] = v; }
@@ -312,6 +315,7 @@ function click(e){
 }
 function eingabe(e){
   var el = e.target, f = el.dataset && el.dataset.f; if(!f) return; var c = cur(), th = c.themes[S.slot];
+  if(CFG.bogen && CFG.bogen.input && CFG.bogen.input(f, el, c, e)) return;
   if(f === "cname"){ c.name = el.value; var on = document.querySelector(".mi-chips a.on"); if(on) on.textContent = c.name || "Neuer Charakter"; }
   else if(f === "tname") th.name = el.value; else if(f === "konzept") th.konzept = el.value; else if(f === "motiv") th.motiv = el.value;
   else if(f === "ans") setze(th, el.dataset.art, el.dataset.l, el.value);
@@ -332,5 +336,7 @@ function start(cfg){
   document.addEventListener("input", eingabe); document.addEventListener("change", function(e){ if(e.target.id === "miFile"){ if(e.target.files[0]) dateiLaden(e.target.files[0]); e.target.value = ""; } else eingabe(e); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") popClose(); });
 }
-window.MistErsteller = {start: start};
+var API = {esc: esc, book: book, kitsOf: kitsOf, kitBy: kitBy, popOpen: popOpen, popClose: popClose, panel: panel, toast: toast, bookInfo: bookInfo, kitInfo: kitInfo, themeAusKit: themeAusKit, blankTheme: blankTheme,
+  save: function(){ save(); }, render: function(){ render(); }, rerender: function(){ ens(); save(); render(); }, cfg: function(){ return CFG; }, state: function(){ return S; }, cur: function(){ return cur(); }};
+window.MistErsteller = {start: start, api: API};
 })();

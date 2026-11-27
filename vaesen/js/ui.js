@@ -20,7 +20,7 @@ function uiStart(){
     (som ? '<div class="vs-grp" style="flex:4"><div class="vs-gh">Seasons of Mystery<button onclick="uiVorwort()">Vorwort</button></div><div class="vs-row">' + som + '</div></div>' : '');
   /* Bereiche des Grundregelwerks */
   var big = {vaesen:1};
-  var areas = AREAS.filter(function(a){ return a.id !== "tanz"; }).map(function(a){
+  var areas = HEAD.map(function(h){ return area(h[0]); }).map(function(a){
     return '<a class="vs-ar' + (big[a.id] ? ' vs-wide' : '') + '" onclick="go(\'' + a.id + '\')" style="--im:url(' + IMG(a.img) + ');--pos:' + a.pos + '"><b>' + esc(a.t) + '<small>' + esc(a.s) + '</small></b></a>';
   }).join("");
   /* Bücher: hochkant, lückenlos */

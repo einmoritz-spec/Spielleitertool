@@ -10,11 +10,11 @@ function inBook(p, b){ return "BV.open('" + (b || "vae_core") + "'," + p + ")"; 
 
 /* ---------- Bereiche ---------- */
 var AREAS = [
- {id:"regeln", t:"Regeln", s:"Probe, Zustände, Fertigkeiten", img:"charaktere_kapitelbild_fenster", pos:"50% 20%"},
  {id:"charaktere", t:"Charaktere", s:"10 Archetypen", img:"charaktere_archetyp_priester", pos:"50% 18%"},
- {id:"vaesen", t:"Vaesen", s:"20 Wesen des Nordens", img:"vaesen_titel_hirsch", pos:"50% 40%"},
- {id:"norden", t:"Mythischer Norden", s:"Upsala und das Land", img:"norden_titel_reiter", pos:"50% 55%"},
+ {id:"regeln", t:"Regeln", s:"Proben, Talente, Konflikt", img:"charaktere_kapitelbild_fenster", pos:"50% 20%"},
  {id:"gesellschaft", t:"Die Gesellschaft", s:"Hauptquartier, Kampagne", img:"mysterium_dame_mit_laterne", pos:"50% 25%"},
+ {id:"norden", t:"Mythischer Norden", s:"Upsala, Land, Karten", img:"norden_titel_reiter", pos:"50% 55%"},
+ {id:"vaesen", t:"Vaesen", s:"20 Wesen des Nordens", img:"vaesen_titel_hirsch", pos:"50% 40%"},
  {id:"mysterium", t:"Das Mysterium", s:"Aufbau und Technik", img:"einleitung_naeck", pos:"60% 40%"},
  {id:"tanz", t:"Der Tanz der Träume", s:"Einführungsabenteuer", img:"tanz_karte_hexenkater", pos:"50% 30%"},
  {id:"karten", t:"Karten", s:"Karten, Galerie", img:"norden_karte_upsala", pos:"50% 30%"},
@@ -114,14 +114,15 @@ function secImgs(id, sec, secs){
 }
 
 /* ---------- Regeln ---------- */
+function regTabs(){ return VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Talente", "kapitel/talente"], ["Konflikt und Verletzungen", "kapitel/konflikt"]]); }
 function viewRegeln(){
-  var tabs = VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]);
+  var tabs = regTabs();
   var id = sub || VAE_REGELN[0].id, s = VAE_REGELN.filter(function(x){ return x.id === id; })[0] || VAE_REGELN[0];
   return tabsBar(tabs, s.titel) + '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(s.titel) + '</h1>' + bookLink(s.p) + '</div><div style="margin-top:12px">' + twoCol(s.b) + '</div></div>';
 }
 
 /* ---------- Charaktere ---------- */
-var CTABS = [["Archetypen","charaktere"],["Persönlichkeit","charaktere/persoenlichkeit"],["Eigenschaften","charaktere/eigenschaften"],["Fertigkeiten","charaktere/fertigkeiten"],["Talente","charaktere/talente"],["Ausrüstung und Ressourcen","charaktere/ausruestung"],["Charaktererstellung","erstellung"]];
+var CTABS = [["Archetypen","charaktere"],["Persönlichkeit","charaktere/persoenlichkeit"],["Eigenschaften","charaktere/eigenschaften"],["Ausrüstung und Ressourcen","charaktere/ausruestung"],["Charaktererstellung","erstellung"]];
 var RES = [["1","Mittellos","Du bist völlig auf andere angewiesen. Jeder Tag ist ein Kampf ums Essen."],["2","Arm","Du lebst sehr einfach. Meist gibt es etwas zu essen, aber zu wenig."],["3","Zurechtkommend","Bescheidenes Heim, festes Einkommen, aber keine Ersparnisse."],["4","Gesichert","Eigenes Heim und stetiges Einkommen; vermutlich etwas zurückgelegt."],["5","Mittelstand","Haus und Geschäft, vielleicht Angestellte; Ersparnisse und Kredit."],["6","Wohlhabend","Großes Haus, mehrere Einkommensquellen; Geld ist kein knappes Gut."],["7","Reich","Viel geerbtes Geld und Immobilien, Diener, Verbindungen zur Elite."],["8","Steinreich","Du gehörst zu den Reichsten des Landes und kennst die Herrscher persönlich."]];
 function archSide(){ return [{i:VAE_ARCH.map(function(a){ return {id:a.id, go:"charaktere/" + a.id, t:a.name}; })}]; }
 function viewCharaktere(){
@@ -200,7 +201,7 @@ function viewTabbed(id){
   } else {
     var all = []; k.groups.forEach(function(g){ all = all.concat(g.secs); });
     secs = all; selId = p[0];
-    bar = (id === "konflikt" || id === "talente") ? tabsBar(VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]), k.titel) : "";
+    bar = (id === "konflikt" || id === "talente") ? tabsBar(regTabs(), k.titel) : "";
     side = k.groups.map(function(g){ return {h:g.h, i:g.secs.map(function(x){ return {id:x.id, go:base + "/" + x.id, t:x.t}; })}; });
   }
   var sec = secs.filter(function(x){ return x.id === selId; })[0] || secs[0];
@@ -208,7 +209,7 @@ function viewTabbed(id){
   function secBody(){ var q = secImgs(id, sec, secs); return q.head + flow(sec.b, q.fl, cards); }
   if(id === "norden"){
     var sh = function(t){ return t.split(" – ")[0]; }, map = {staedte:"norden_karte_mythischer_norden", upsala:"norden_karte_upsala"}[sec.id];
-    bar = tabsBar(secs.map(function(x){ return [sh(x.t), base + "/" + x.id]; }), sh(sec.t));
+    bar = nordenBar(sh(sec.t));
     var pgl = '<div style="display:flex;justify-content:flex-end;margin:0 0 6px">' + (sec.p ? bookLink(sec.p) : '') + '</div>';
     return bar + (map ? '<div class="vu-m4"><div><div class="vu-map" onclick="Galerie.image(\'vaesen\',\'' + map + '\')"><img src="' + IMG(map) + '" alt=""></div></div><div>' + pgl + secBody() + '</div></div>' : '<div class="page">' + pgl + secBody() + '</div>');
   }
@@ -216,7 +217,7 @@ function viewTabbed(id){
 }
 function viewKapitel(id){
   if(window.VAE_KAP && VAE_KAP[id] && (VAE_KAP[id].tabs || VAE_KAP[id].groups)) return viewTabbed(id);
-  if(window.VAE_KAP && VAE_KAP[id]){ var k = VAE_KAP[id]; var tabs0 = (id === "talente" || id === "konflikt") ? tabsBar(VAE_REGELN.map(function(x){ return [x.titel, "regeln/" + x.id]; }).concat([["Konflikt und Verletzungen", "kapitel/konflikt"], ["Talente", "kapitel/talente"]]), k.titel) : ""; return tabs0 + '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(k.titel) + '</h1>' + bookLink(k.p) + '</div><div style="margin-top:12px">' + flow(k.b) + '</div></div>'; }
+  if(window.VAE_KAP && VAE_KAP[id]){ var k = VAE_KAP[id]; var tabs0 = (id === "talente" || id === "konflikt") ? tabsBar(regTabs(), k.titel) : ""; return tabs0 + '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(k.titel) + '</h1>' + bookLink(k.p) + '</div><div style="margin-top:12px">' + flow(k.b) + '</div></div>'; }
   var t = toc(id); if(!t) return viewStart();
   var imgs = {norden:["norden_titel_reiter","norden_karte_upsala"], gesellschaft:["mysterium_dame_mit_laterne"], mysterium:["einleitung_naeck"], tanz:["tanz_karte_hexenkater","tanz_sami_harjula","tanz_sophia_harjula","tanz_oscar_hjort"], konflikt:[], talente:[]}[id] || [];
   var secs = t.s.length ? t.s : [[t.t, t.p]];
@@ -226,9 +227,10 @@ function viewKapitel(id){
 }
 
 /* ---------- Karten ---------- */
+function nordenBar(on){ var all = []; VAE_KAP.norden.groups.forEach(function(g){ all = all.concat(g.secs); }); return tabsBar(all.map(function(x){ return [x.t.split(" – ")[0], "norden/" + x.id]; }).concat([["Karten", "karten"]]), on); }
 function viewKarten(){
   var maps = [["norden_karte_mythischer_norden","Der Mythische Norden",99],["norden_karte_upsala","Upsala",106],["tanz_karte_hexenkater","Gasthaus „Zum Hexenkater“",200]];
-  return '<div class="page"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>Karten und Bilder</h1></div><div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:14px">' + maps.map(function(m){ return '<div class="box card" onclick="Galerie.image(\'vaesen\',\'' + m[0] + '\')"><div class="im" style="height:260px"><img src="' + IMG(m[0], "thumb") + '"></div><div class="tx"><h3>' + m[1] + '</h3><small>S. ' + m[2] + '</small></div><i></i><b></b></div>'; }).join("") + '</div><p style="margin-top:18px"><button class="btn fill" onclick="Galerie.open(\'vaesen\')">Galerie</button></p></div>';
+  return nordenBar("Karten") + '<div class="page"><div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">' + maps.map(function(m){ return '<div class="box card" onclick="Galerie.image(\'vaesen\',\'' + m[0] + '\')"><div class="im" style="height:260px"><img src="' + IMG(m[0], "thumb") + '"></div><div class="tx"><h3>' + m[1] + ' <span class="pg">S. ' + m[2] + '</span></h3></div><i></i><b></b></div>'; }).join("") + '</div><p style="margin-top:18px"><button class="btn fill" onclick="Galerie.open(\'vaesen\')">Galerie</button></p></div>';
 }
 
 /* ---------- Charaktererstellung ---------- */
@@ -300,10 +302,10 @@ function importCh(){ var c = unb64(sub), a = loadChars(); c.id = "c" + Date.now(
 
 /* ---------- Render ---------- */
 /* Kopfzeile: Bereiche als Reiter; die Unterleiste (.tabs) liefert jeweils der Bereich selbst */
-var HEAD = [["regeln","Regeln"],["charaktere","Charaktere"],["vaesen","Vaesen"],["norden","Mythischer Norden"],["gesellschaft","Die Gesellschaft"],["mysterium","Das Mysterium"],["karten","Karten"]];
+var HEAD = [["charaktere","Charaktere"],["regeln","Regeln"],["gesellschaft","Die Gesellschaft"],["norden","Mythischer Norden"],["vaesen","Vaesen"],["mysterium","Das Mysterium"]];
 function vaeHead(){
   var kt = document.getElementById("ktabs"); if(!kt) return;
-  var k = cur === "kapitel" ? sub.split("/")[0] : cur, m = {konflikt:"regeln", talente:"regeln", erstellung:"charaktere"}, on = m[k] || k;
+  var k = cur === "kapitel" ? sub.split("/")[0] : cur, m = {konflikt:"regeln", talente:"regeln", erstellung:"charaktere", karten:"norden"}, on = m[k] || k;
   var hide = cur === "start" || !cur;
   kt.innerHTML = hide ? "" : HEAD.map(function(h){ return '<a class="' + (h[0] === on ? "on" : "") + '" onclick="go(\'' + h[0] + '\')">' + esc(h[1]) + "</a>"; }).join("");
   document.body.classList.toggle("vnav", !hide);

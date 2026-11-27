@@ -37,7 +37,7 @@ GSuche.add(function(add){
   /* Charaktere */
   (window.VAE_ARCH || []).forEach(function(a){ add(a.name, "Charaktere", "#charaktere/" + a.id, a); });
   if(window.VAE_ALTER) add("Persönlichkeit › Alter", "Charaktere", "#charaktere/persoenlichkeit", window.VAE_ALTER);
-  if(window.VAE_ATTR) add("Fertigkeiten und Attribute", "Charaktere", "#charaktere/fertigkeiten", window.VAE_ATTR);
+  if(window.VAE_ATTR) add("Fertigkeiten und Attribute", "Charaktere", "#regeln/fertigkeiten", window.VAE_ATTR);
   if(window.RES) add("Ressourcen", "Charaktere", "#charaktere/ausruestung", window.RES);
 
   /* Tanz der Träume – Leitstand */

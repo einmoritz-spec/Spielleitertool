@@ -32,10 +32,21 @@ function sbBlk(b, S){
    case "ul": return "<ul>" + b.x.map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul>";
    case "box": return '<div class="sb-box"><h4>' + b.h + (b.p ? ' <span class="pg">S. ' + b.p + '</span>' : '') + '</h4>' + (typeof b.x === "string" ? "<p>" + b.x + "</p>" : b.x.map(function(x){ return "<p>" + x + "</p>"; }).join("")) + '</div>';
    case "tbl": return '<div class="sb-tw"><table class="t"><tr>' + b.head.map(function(h){ return "<th>" + h + "</th>"; }).join("") + "</tr>" + b.rows.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + c + "</td>"; }).join("") + "</tr>"; }).join("") + "</table></div>";
+   case "arch": return sbArch(((SBD[S.id] || {}).arch || []).filter(function(x){ return x.id === b.a; })[0], S);
    case "vers": return '<p><a class="ms-vers" onclick="BV.open(\'' + S.buch + '\',' + b.p + ')">' + esc(b.x) + ' · im Buch ansehen, S. ' + b.p + '</a></p>';
    case "img": return '<figure class="sb-im ' + (b.s || "r") + '" onclick="msZoom(this.querySelector(\'img\').src)"><img src="img/' + b.n + '.webp" alt="" loading="lazy"></figure>';
   }
   return "";
+}
+
+function sbArch(a, S){
+  if(!a) return "";
+  function ul(l){ return "<ul>" + l.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; }
+  function lb(t, v){ return "<p><b>" + t + ":</b> " + v + "</p>"; }
+  return '<section class="sb-ar"><div class="sb-ar-pic"><img src="img/' + a.img + '.webp" alt="" onclick="msZoom(this.src)"></div><div class="sb-ar-tx"><h3>' + esc(a.name) + ' <span class="pg">S. ' + a.p + '</span></h3><p class="sb-q">' + esc(a.quote) + '</p>' +
+   lb("Hauptattribut", esc(a.attr)) + lb("Hauptfertigkeit", esc(a.skill)) + lb("Talente", esc(a.talente.join(", "))) + lb("Ressourcen", esc(a.res)) + lb("Ausrüstung", esc(a.ausr.join(", "))) +
+   (a.extra ? '<div class="sb-box" style="margin-top:8px"><h4>' + esc(a.extra.h) + '</h4><p>' + esc(a.extra.x) + '</p></div>' : '') + '</div>' +
+   '<div class="sb-ar-gx"><div><h5>Name</h5><ul><li>Vorname: ' + esc(a.vor.join(", ")) + '</li><li>Nachname: ' + esc(a.nach.join(", ")) + '</li></ul></div><div><h5>Motivation</h5>' + ul(a.mot) + '</div><div><h5>Trauma</h5>' + ul(a.trauma) + '</div><div><h5>Dunkles Geheimnis</h5>' + ul(a.geheim) + '</div><div><h5>Beziehungen</h5>' + ul(a.beziehung) + '</div></div></section>';
 }
 /* Kästen (box) stehen als Kartenraster nebeneinander, Fließtext darüber/darunter */
 function sbBody(bl, S){

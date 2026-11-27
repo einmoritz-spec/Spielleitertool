@@ -72,7 +72,7 @@ SBD.mbi.welt.push(
   ["Fabrikarbeiter","2","2","2","2","2","1","Beweglichkeit 2, Kraft 2, Wachsamkeit 1"],
   ["Fischer","4","2","2","2","2","1","Beweglichkeit 3, Kraft 2"],
   ["Glücksspieler","2","4","2","3","1","2","Beweglichkeit 2, Manipulation 3, Beobachtung 2"],
-  ["Kräuterweib","2","3","3","3","1","2","Medizin 2, Gelehrsamkeit 2, Beobachtung 2"],
+  ["Kräuterweib","2","3","3","3","1","2","Heilkunde 2, Gelehrsamkeit 2, Beobachtung 2"],
   ["Industrieller","2","4","3","2","1","2","Ermittlung 1, Gelehrsamkeit 2, Manipulation 2"],
   ["Arbeiter","3","2","2","2","2","1","Beweglichkeit 2, Kraft 3, Nahkampf 2"],
   ["Anwalt","2","3","3","4","1","2","Gelehrsamkeit 3, Inspiration 3, Manipulation 2"],

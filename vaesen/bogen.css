@@ -50,3 +50,21 @@
 .bgw-f2{inset:8.5px;border:2.2px solid #3d2a17;border-radius:1px}
 .bgw-rose{position:absolute;width:42px;height:42px;z-index:3;pointer-events:none}
 .bgw-rose.tl{left:2px;top:2px}.bgw-rose.tr{right:2px;top:2px}.bgw-rose.bl{left:2px;bottom:2px}.bgw-rose.br{right:2px;bottom:2px}
+
+.bg-tools .ib{display:inline-flex;align-items:center;justify-content:center;width:42px;height:38px;padding:0;position:relative;cursor:pointer;background:rgba(255,255,255,.35);border:2px solid var(--red);border-radius:3px;color:var(--red)}
+.bg-tools .ib.haupt{background:var(--red);color:#f3ecd9}
+.bg-tools .ib:hover{background:var(--red);color:#f3ecd9}
+.bg-tools [data-tip]::after{content:attr(data-tip);position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;padding:3px 8px;border-radius:3px;background:rgba(40,26,18,.72);color:#f3ecd9;font:italic 13px/1.2 EBG,Georgia,serif;pointer-events:none;opacity:0;transition:opacity .15s .25s;z-index:60}
+.bg-tools [data-tip]:hover::after{opacity:1}
+.bg-i.bg-wahl{cursor:pointer}
+.bg-dd{position:absolute;width:12px;height:13px;padding:0;border:0;border-radius:2px;background:rgba(138,31,23,.08);color:#8a6a4a;font-size:9px;line-height:1;cursor:pointer;opacity:.55}
+.bg-dd:hover{opacity:1;background:var(--red);color:#f3ecd9}
+.bgpop{position:fixed;z-index:400;width:330px;max-height:70vh;overflow:auto;background:#f7f2e6;border:1px solid var(--line);border-radius:6px;box-shadow:0 6px 20px rgba(40,26,18,.35);padding:4px}
+.bgpop .bp-kopf{padding:5px 10px;font:italic 14px EBG,Georgia,serif;color:var(--soft);border-bottom:1px solid var(--tan)}
+.bgpop .bp-z{display:flex;align-items:center;border-bottom:1px solid var(--tan2)}.bgpop .bp-z:last-child{border:0}
+.bgpop .bp-n{flex:1;text-align:left;font:17px/1.25 EBG,Georgia,serif;color:var(--ink);background:none;border:0;padding:7px 10px;cursor:pointer}
+.bgpop .bp-n small{color:var(--soft);margin-left:6px}
+.bgpop .bp-n:hover{background:rgba(138,31,23,.08);color:var(--red)}
+.bgpop .bp-i{flex:none;width:22px;height:22px;margin:0 6px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--soft);font:italic 700 14px EBG,Georgia,serif;cursor:pointer;padding:0}
+.bgpop .bp-i:hover{background:var(--red);color:#f3ecd9;border-color:var(--red)}
+@media print{.bg-dd,.bgpop{display:none!important}}

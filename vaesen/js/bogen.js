@@ -40,8 +40,16 @@ function bgAuto(){ clearTimeout(bgTimer); bgTimer = setTimeout(function(){ var a
 
 /* Bausteine – Koordinaten in Pixeln des Originalbogens (765 × 988) */
 function bgPos(x, y, w, h){ return 'left:' + x + 'px;top:' + y + 'px;width:' + w + 'px;height:' + h + 'px'; }
-function bgIn(c, k, x, y, w, h, cls){ return "\u0001" + '<input class="bg-i ' + (cls || "") + '" style="' + bgPos(x, y, w, h) + '" data-k="' + k + '" value="' + bgE(bgVal(c, k)) + '"' + (BG_RO ? " readonly" : "") + ' oninput="bgSet(this)" spellcheck="false">'; }
-function bgTa(c, k, x, y, w, h, cls){ return "\u0001" + '<textarea class="bg-t ' + (cls || "") + '" style="' + bgPos(x, y, w, h) + '" data-k="' + k + '"' + (BG_RO ? " readonly" : "") + ' oninput="bgSet(this)" spellcheck="false">' + bgE(bgVal(c, k)) + '</textarea>'; }
+var BG_NODD = false, BG_WAHL = {archT:1, alterT:1}, BG_BSP = {name:1, mot:1, trauma:1, geheim:1, bez0:1, bez1:1, bez2:1, bez3:1, talent:1, ausrT:1};
+function bgDd(k, x, y, w, h){ return "\u0001" + '<button class="bg-dd noprint" style="left:' + (x + w - 14) + 'px;top:' + (y + 3) + 'px" data-k="' + k + '" onclick="bgPopup(this,event)" title="Beispiele – du kannst auch frei schreiben" aria-label="Beispiele">▾</button>'; }
+function bgIn(c, k, x, y, w, h, cls){
+  var wahl = !BG_RO && !BG_NODD && BG_WAHL[k], ex = !BG_RO && !BG_NODD && BG_BSP[k], v = String(bgVal(c, k)), cap = (w - 22) / 5.7, fs = (!cls && v.length > cap) ? ";font-size:" + Math.max(9.5, 14 * cap / v.length).toFixed(1) + "px" : "";
+  return "\u0001" + '<input class="bg-i ' + (cls || "") + (wahl ? " bg-wahl" : "") + '" style="' + bgPos(x, y, w, h) + fs + '" data-k="' + k + '" value="' + bgE(bgVal(c, k)) + '"' + (BG_RO || wahl ? " readonly" : "") + (wahl ? ' onclick="bgPopup(this,event)"' : ' oninput="bgSet(this)"') + ' spellcheck="false">' + (ex ? bgDd(k, x, y, w, h) : "");
+}
+function bgTa(c, k, x, y, w, h, cls){
+  var ex = !BG_RO && !BG_NODD && BG_BSP[k];
+  return "\u0001" + '<textarea class="bg-t ' + (cls || "") + '" style="' + bgPos(x, y, w, h) + '" data-k="' + k + '"' + (BG_RO ? " readonly" : "") + ' oninput="bgSet(this)" spellcheck="false">' + bgE(bgVal(c, k)) + '</textarea>' + (ex ? bgDd(k, x, y - 14, w, 0) : "");
+}
 function bgTx(x, y, t, cls, w){ return "\u0001" + '<div class="' + cls + '" style="left:' + x + 'px;top:' + y + 'px' + (w ? ';width:' + w + 'px' : '') + '">' + t + '</div>'; }
 function bgChk(c, k, x, y, d){ var v = bgVal(c, k), on = v === true || v === "true"; return "\u0001" + '<label class="bg-c' + (on ? " bg-an" : "") + '" style="' + bgPos(x, y, d, d) + '"><input class="noprint" type="checkbox" data-k="' + k + '"' + (on ? " checked" : "") + (BG_RO ? " disabled" : "") + ' onchange="this.parentNode.classList.toggle(\'bg-an\',this.checked);bgSet(this)"><b></b></label>'; }
 
@@ -126,7 +134,7 @@ function bgFit(){
 /* Ausfüllbares PDF: immer hochkant wie das Original */
 function bgPdf(knopf){
   if(!window.FillPDF){ var sc = document.createElement("script"); sc.src = "../shared/fillpdf.js"; sc.onload = function(){ bgPdf(knopf); }; document.head.appendChild(sc); return; }
-  var host = document.createElement("div"); host.className = "bg-pdfhost"; host.innerHTML = bgPortrait(CH, false, ""); document.body.appendChild(host);
+  var host = document.createElement("div"); host.className = "bg-pdfhost"; BG_NODD = true; host.innerHTML = bgPortrait(CH, false, ""); BG_NODD = false; document.body.appendChild(host);
   FillPDF.make(host.firstChild, {name:"Vaesen – " + (CH.name || "Charakterbogen"), knopf:knopf, marks:[[".bg-c", "bg-an", "punkt"]]}).then(function(){ host.remove(); }, function(){ host.remove(); });
 }
 window.addEventListener("resize", bgFit);
@@ -135,8 +143,59 @@ function viewBogen(){
   var chars = loadChars(), f = chars.filter(function(x){ return x.id === sub; })[0];
   if(f) CH = f; else if(!CH) CH = newChar();
   BG_RO = false;
-  return tabsBar(CTABS, "Charakterbogen") + '<div class="page bg-page"><div class="bg-tools"><button class="btn" onclick="saveCur2()">Speichern</button><button class="btn alt" onclick="bgPdf(this)">Ausfüllbares PDF</button><button class="btn alt" onclick="printSheet()">Drucken</button><button class="btn alt" onclick="go(\'erstellung/' + CH.id + '\')">Zur Erstellung</button><span class="pg" id="bgMsg"></span></div>' + bogenWrap(CH, false) + '</div>';
+  return tabsBar(CTABS, "Charakterbogen") + '<div class="page bg-page"><div class="bg-tools"><button class="ib" data-tip="Gespeicherte Charaktere" aria-label="Gespeicherte Charaktere" onclick="bgChars(this,event)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M17 14.2c2.6.2 4.5 2.2 4.5 5.3"/></svg></button><button class="ib" data-tip="Zufälligen Charakter erstellen" aria-label="Zufälligen Charakter erstellen" onclick="bgZufall()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/></svg></button><button class="ib" data-tip="Bogen leeren" aria-label="Bogen leeren" onclick="bgLeeren()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4v5h5"/></svg></button><button class="ib" data-tip="Link teilen" aria-label="Link teilen" onclick="shareLink()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button><button class="ib" data-tip="Als Datei sichern" aria-label="Als Datei sichern" onclick="shareFile()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg></button><label class="ib" data-tip="Datei laden" aria-label="Datei laden"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg><input type="file" id="impFile" accept=".json,application/json" multiple hidden onchange="window.IMP_GO=&quot;bogen&quot;;impFiles(this.files)"></label><button class="ib" data-tip="Drucken" aria-label="Drucken" onclick="printSheet()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V3h10v6"/><rect x="4" y="9" width="16" height="8" rx="2"/><rect x="7" y="14" width="10" height="7"/></svg></button><button class="ib" data-tip="Zur Erstellung" aria-label="Zur Erstellung" onclick="go(\'erstellung/\' + CH.id + \'\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 3 0 2 2 0 0 1 0 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg></button><button class="ib haupt" data-tip="Als PDF speichern" aria-label="Als PDF speichern" onclick="bgPdf(this)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M7.5 3v5h8V3"/><rect x="7" y="13" width="10" height="8"/></svg></button><span class="pg" id="bgMsg"></span></div>' + bogenWrap(CH, false) + '</div>';
 }
+/* ---------- Auswahl, Zufall, Leeren ---------- */
+function bgIc(){ return ""; }
+function bgPopWeg(){ document.querySelectorAll(".bgpop").forEach(function(e){ e.remove(); }); }
+document.addEventListener("click", bgPopWeg);
+function bgAusw(k){
+  var c = CH, a = bgArch(c) || VAE_ARCH[0];
+  if(k === "archT") return {wahl:1, items:VAE_ARCH.map(function(x){ return {t:x.name, i:archInfo(x), v:x.id}; }), set:function(it){ setF("arch", it.v); delete CH.archT; }};
+  if(k === "alterT") return {wahl:1, items:VAE_ALTER.map(function(x, i){ return {t:x[0] + " (" + x[1] + ")", i:"<p><b>" + x[0] + "</b> · " + x[1] + " Jahre</p><p>Attributpunkte: <b>" + x[2] + "</b><br>Fertigkeitspunkte: <b>" + x[3] + "</b></p>", v:i}; }), set:function(it){ setF("alter", it.v); delete CH.alterT; }};
+  var lst = {mot:a.mot, trauma:a.trauma, geheim:a.geheim}[k];
+  if(lst) return {items:lst.map(function(t){ return {t:t}; }), set:function(it){ CH[k] = it.t; }};
+  if(/^bez\d$/.test(k)) return {items:a.beziehung.map(function(t){ return {t:t}; }), set:function(it){ bgSet({getAttribute:function(){ return k; }, type:"text", value:it.t}); }};
+  if(k === "name"){ var n = []; a.vor.forEach(function(v){ a.nach.forEach(function(x){ n.push({t:v + " " + x}); }); }); return {items:n, set:function(it){ CH.name = it.t; }};  }
+  if(k === "talent") return {items:a.talente.map(function(t){ return {t:t, i:talInfo(t)}; }), set:function(it){ var cur = String(bgVal(c, "talent") || ""); CH.talent = cur ? cur + "\n" + it.t : it.t; }};
+  if(k === "ausrT") return {items:a.ausr.map(function(t){ return {t:t}; }), set:function(it){ var cur = String(bgVal(c, "ausrT") || ""); CH.ausrT = cur ? cur + "\n" + it.t : it.t; }};
+  return null;
+}
+window.bgPopup = function(el, e){
+  e.stopPropagation(); var k = el.dataset.k, old = document.querySelector(".bgpop"), same = old && old.dataset.k === k; bgPopWeg(); if(same) return;
+  var A = bgAusw(k); if(!A) return; var r = el.getBoundingClientRect(), p = document.createElement("div"); p.className = "bgpop"; p.dataset.k = k;
+  p.style.left = Math.max(8, Math.min(r.left, innerWidth - 340)) + "px"; p.style.top = (r.bottom + 4) + "px";
+  p.innerHTML = (A.wahl ? "" : '<div class="bp-kopf">Beispiele – du kannst auch frei schreiben</div>') + A.items.map(function(it, i){ return '<div class="bp-z"><button class="bp-n" data-i="' + i + '">' + bgE(it.t) + '</button>' + (it.i ? '<button class="bp-i" data-j="' + i + '" title="Info" aria-label="Info">i</button>' : "") + "</div>"; }).join("");
+  p.addEventListener("click", function(ev){
+    ev.stopPropagation(); var b = ev.target.closest("button"); if(!b) return;
+    if(b.dataset.j !== undefined){ var it = A.items[+b.dataset.j]; ddPop(it.t, it.i); return; }
+    A.set(A.items[+b.dataset.i]); bgPopWeg(); saveCur2(); render();
+  });
+  document.body.appendChild(p);
+  var h = p.getBoundingClientRect().height; if(r.bottom + 4 + h > innerHeight) p.style.top = Math.max(8, innerHeight - h - 8) + "px";
+};
+window.bgChars = function(btn, e){
+  e.stopPropagation(); bgPopWeg(); var r = btn.getBoundingClientRect(), p = document.createElement("div"); p.className = "bgpop"; p.dataset.k = "chars";
+  p.style.left = Math.max(8, Math.min(r.left, innerWidth - 340)) + "px"; p.style.top = (r.bottom + 6) + "px";
+  var L = loadChars(); p.innerHTML = L.map(function(x, i){ var ar = VAE_ARCH.filter(function(y){ return y.id === x.arch; })[0]; return '<div class="bp-z"><button class="bp-n" data-c="' + i + '">' + bgE(x.name || "(ohne Name)") + ' <small>' + bgE(ar ? ar.name : "") + '</small></button></div>'; }).join("") + '<div class="bp-z"><button class="bp-n" data-c="neu">+ Neuer Charakter</button></div>';
+  p.addEventListener("click", function(ev){ ev.stopPropagation(); var b = ev.target.closest("button"); if(!b) return; bgPopWeg(); if(b.dataset.c === "neu"){ CH = newChar(); saveCur2(); go("bogen/" + CH.id); } else go("bogen/" + L[+b.dataset.c].id); });
+  document.body.appendChild(p);
+};
+function bgReset(c, neu){ var id = c.id; Object.keys(c).forEach(function(k){ delete c[k]; }); Object.assign(c, neu); c.id = id; }
+window.bgLeeren = function(){ if(!confirm("Alle Einträge dieses Charakters löschen?")) return; bgReset(CH, newChar(CH.arch)); saveCur2(); render(); };
+window.bgZufall = function(){
+  if((CH.name || CH.mot || CH.trauma) && !confirm("Die Einträge dieses Charakters durch einen zufälligen Charakter ersetzen?")) return;
+  var pk = function(L){ return L[Math.floor(Math.random() * L.length)]; }, a = pk(VAE_ARCH), c = newChar(a.id), al, i;
+  c.alter = Math.floor(Math.random() * VAE_ALTER.length); al = VAE_ALTER[c.alter];
+  for(i = al[2] - 8; i > 0; i--){ var o = ATTRS.filter(function(k){ return c.attr[k] < (a.attr === k ? 5 : 4); }); if(!o.length) break; c.attr[pk(o)]++; }
+  for(i = al[3]; i > 0; i--){ var s = SK.filter(function(x){ return (c.skills[x.n] || 0) < (archMain(a, x.n) ? 3 : 2); }); if(!s.length) break; var n = pk(s).n; c.skills[n] = (c.skills[n] || 0) + 1; }
+  c.name = pk(a.vor) + " " + pk(a.nach); c.mot = pk(a.mot); c.trauma = pk(a.trauma); c.geheim = pk(a.geheim); c.talent = pk(a.talente);
+  var b = a.beziehung.slice().sort(function(){ return Math.random() - .5; }); c.bezL = [b[0] || "", b[1] || "", b[2] || "", ""]; c.bez = c.bezL[0];
+  c.ausr = a.ausr.slice(); c.andenken = pk(MEM);
+  var rg = String(a.res).split(/[–-]/).map(function(x){ return parseInt(x, 10); }); c.res = rg.length > 1 && rg[1] ? rg[0] + Math.floor(Math.random() * (rg[1] - rg[0] + 1)) : (rg[0] || 3);
+  bgReset(CH, c); saveCur2(); render(); var m = document.getElementById("bgMsg"); if(m) m.textContent = "Zufälliger Charakter erstellt";
+};
+
 function saveCur2(){ var a = loadChars(), i = a.map(function(x){ return x.id; }).indexOf(CH.id); if(i > -1) a[i] = CH; else a.push(CH); saveChars(a); var m = document.getElementById("bgMsg"); if(m) m.textContent = "Gespeichert."; }
 window.addEventListener("beforeprint", function(){ var s = document.getElementById("bgScale"); if(!s || !BG_STATE) return; BG_STATE.mode = "print"; s.innerHTML = bgPortrait(BG_STATE.c, BG_STATE.ro, BG_STATE.base); s.style.width = "765px"; s.style.height = "988px"; });
 window.addEventListener("afterprint", bgFit);

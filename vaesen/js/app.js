@@ -17,7 +17,7 @@ var AREAS = [
  {id:"gesellschaft", t:"Die Gesellschaft", s:"Hauptquartier, Kampagne", img:"mysterium_dame_mit_laterne", pos:"50% 25%"},
  {id:"mysterium", t:"Das Mysterium", s:"Aufbau und Technik", img:"einleitung_naeck", pos:"60% 40%"},
  {id:"tanz", t:"Der Tanz der Träume", s:"Einführungsabenteuer", img:"tanz_karte_hexenkater", pos:"50% 30%"},
- {id:"karten", t:"Karten & Bilder", s:"Karten, Galerie", img:"norden_karte_upsala", pos:"50% 30%"},
+ {id:"karten", t:"Karten", s:"Karten, Galerie", img:"norden_karte_upsala", pos:"50% 30%"},
  {id:"erstellung", t:"Charaktererstellung", s:"Neue Spielercharaktere", img:"charaktere_archetyp_vagabund", pos:"50% 20%"}
 ];
 var TOC = [
@@ -121,7 +121,7 @@ function viewRegeln(){
 }
 
 /* ---------- Charaktere ---------- */
-var CTABS = [["Archetypen","charaktere"],["Persönlichkeit","charaktere/persoenlichkeit"],["Eigenschaften","charaktere/eigenschaften"],["Fertigkeiten","charaktere/fertigkeiten"],["Talente","charaktere/talente"],["Ausrüstung und Ressourcen","charaktere/ausruestung"]];
+var CTABS = [["Archetypen","charaktere"],["Persönlichkeit","charaktere/persoenlichkeit"],["Eigenschaften","charaktere/eigenschaften"],["Fertigkeiten","charaktere/fertigkeiten"],["Talente","charaktere/talente"],["Ausrüstung und Ressourcen","charaktere/ausruestung"],["Charaktererstellung","erstellung"]];
 var RES = [["1","Mittellos","Du bist völlig auf andere angewiesen. Jeder Tag ist ein Kampf ums Essen."],["2","Arm","Du lebst sehr einfach. Meist gibt es etwas zu essen, aber zu wenig."],["3","Zurechtkommend","Bescheidenes Heim, festes Einkommen, aber keine Ersparnisse."],["4","Gesichert","Eigenes Heim und stetiges Einkommen; vermutlich etwas zurückgelegt."],["5","Mittelstand","Haus und Geschäft, vielleicht Angestellte; Ersparnisse und Kredit."],["6","Wohlhabend","Großes Haus, mehrere Einkommensquellen; Geld ist kein knappes Gut."],["7","Reich","Viel geerbtes Geld und Immobilien, Diener, Verbindungen zur Elite."],["8","Steinreich","Du gehörst zu den Reichsten des Landes und kennst die Herrscher persönlich."]];
 function archSide(){ return [{i:VAE_ARCH.map(function(a){ return {id:a.id, go:"charaktere/" + a.id, t:a.name}; })}]; }
 function viewCharaktere(){
@@ -269,7 +269,7 @@ function viewErstellung(){
    '<div class="box"><h3>Beschreibung</h3><textarea class="gloss-search" rows="3" oninput="setF(\'beschr\',this.value,1)">' + esc(c.beschr) + '</textarea></div>' +
    '<p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" onclick="saveCur()">Speichern</button><button class="btn alt" onclick="printSheet()">Als PDF / Drucken</button><button class="btn alt" onclick="shareLink()">Spieler-Link kopieren</button><button class="btn alt" onclick="shareFile()">Datei teilen</button></p><p class="pg" id="shMsg"></p>';
   var chipsH = '<div class="chips">' + side[0].i.map(function(i){ return '<a class="' + (i.id === CH.id ? "on" : "") + '" onclick="go(\'' + i.go + '\')">' + esc(i.t) + '</a>'; }).join("") + '</div>';
-  return tabsBar(CTABS, "") + '<div class="page">' + chipsH + body + '</div>';
+  return tabsBar(CTABS, "Charaktererstellung") + '<div class="page">' + chipsH + body + '</div>';
 }
 function setSpielt(on){ CH.spielt = on; var all = loadChars(), f = all.filter(function(x){ return x.id === CH.id; })[0]; if(f){ f.spielt = on; saveChars(all); } if(window.grpAfter) grpAfter(); }
 function setF(k, v, quiet){ CH[k] = v; if(k === "arch"){ var a = VAE_ARCH.filter(function(x){ return x.id === v; })[0]; CH.skills = {}; CH.attr = {Physis:2, Präzision:2, Logik:2, Empathie:2}; CH.talent = CH.mot = CH.trauma = CH.geheim = CH.bez = ""; CH.ausr = []; CH.res = parseInt(a.res, 10) || 3; } if(!quiet && k !== "arch" && k !== "alter"){ } }

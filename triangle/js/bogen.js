@@ -461,12 +461,13 @@ function bgBlattHTML(A, b){
 }
 
 /* ---------- Ansichten ---------- */
+if(window.LK) LK.init(function(h){ return /^#ark\/bogen/.test(h); });
 function viewBogen(P){
   vInitTaB();
   P = P || [];
   var a = area("ark"), kopf = unter(a, "bogen");
   if(P[0] === "teilen" && P[1]){
-    if(!BG.gast || BG.gastD !== P[1]){ BG.gastD = P[1]; bgUnpack(P[1]).then(function(A){ BG.gast = Object.assign(bgNeu(), A); BG.gast.log = []; render(); }, function(){ BG.gast = "fehler"; render(); }); return kopf + '<div class="ct bg"><p class="bg-lade">Geteilter Agentenbogen wird geöffnet …</p></div>'; }
+    if(!BG.gast || BG.gastD !== P[1]){ BG.gastD = P[1]; bgUnpack(P[1]).then(function(A){ BG.gast = Object.assign(bgNeu(), A); BG.gast.log = []; if(window.LK) LK.an(); bgUebernehmen(); }, function(){ BG.gast = "fehler"; render(); }); return kopf + '<div class="ct bg"><p class="bg-lade">Geteilter Agentenbogen wird geöffnet …</p></div>'; }
     if(BG.gast === "fehler") return kopf + '<div class="ct bg"><p class="bg-lade">Dieser Link ist unvollständig oder beschädigt.</p></div>';
     BG.akt = BG.gast; return kopf + bgAgent(BG.gast, P[2], true);
   }

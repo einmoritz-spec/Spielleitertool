@@ -85,8 +85,9 @@ function seite(b, n){
   return '<div class="bgs" style="background-image:url(img/bogen/seite-' + n + '.webp)">' +
     L.felder.filter(function(f){ return f.s === n; }).map(function(f){ return feld(b, f); }).join("") + "</div>";
 }
+if(window.LK) LK.init(function(h){ return /^#bogen/.test(h); });
 function view(a){
-  if(a[0] === "teilen" && a[1]){ entpack(a[1]).then(function(d){ var n = {id:neuId(), v:d.v || {}}; boegen().push(n); save(); go("bogen/" + n.id); }, function(){ alert("Dieser Link ist unvollständig oder beschädigt."); go("bogen"); }); return '<div class="bgw"><p style="padding:40px;color:#f2e9da">Geteilter Bogen wird geöffnet …</p></div>'; }
+  if(a[0] === "teilen" && a[1]){ entpack(a[1]).then(function(d){ var n = {id:neuId(), v:d.v || {}}; boegen().push(n); save(); LK.an(); go("bogen/" + n.id); }, function(){ alert("Dieser Link ist unvollständig oder beschädigt."); go("bogen"); }); return '<div class="bgw"><p style="padding:40px;color:#f2e9da">Geteilter Bogen wird geöffnet …</p></div>'; }
   var b = finde(a[0]) || boegen()[0];
   if(!b){ b = {id:neuId(), v:{}}; boegen().push(b); save(); }
   var chips = boegen().map(function(x){ return '<a class="' + (x.id === b.id ? "on" : "") + '" onclick="go(\'bogen/' + x.id + '\')">' + esc(titel(x)) + "</a>"; }).join("");

@@ -361,9 +361,12 @@ function sheetHTML(c){
    '<div class="cols"><div class="box"><h3>Talent</h3><p>' + esc(c.talent || "–") + '</p><h3>Ausrüstung</h3><p>' + esc((c.ausr || []).join(", ") || "–") + '</p><h3>Andenken</h3><p>' + esc(c.andenken || "–") + '</p></div><div class="box"><h3>Motivation</h3><p>' + esc(c.mot || "–") + '</p><h3>Trauma</h3><p>' + esc(c.trauma || "–") + '</p><h3>Dunkles Geheimnis</h3><p>' + esc(c.geheim || "–") + '</p><h3>Beziehung</h3><p>' + esc(c.bez || "–") + '</p></div></div><div class="box"><h3>Beschreibung</h3><p>' + esc(c.beschr || "–") + '</p></div>';
 }
 function printSheet(){ var base = location.href.replace(/[^\/]*$/, "").replace(/#.*$/, ""), w = window.open("", "_blank"); if(!w){ msg("Pop-up blockiert."); return; } w.document.write('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><title>' + esc(CH.name || "Charakter") + '</title><link rel="stylesheet" href="' + base + 'style.css"><link rel="stylesheet" href="' + base + 'bogen.css"></head><body style="background:#fff;margin:0"><div class="bogen-wrap" style="width:612.28pt;height:790.87pt"><div class="bogen-scale" style="transform:scale(1.0672)">' + (function(){ BG_NODD = true; var h = bgPortrait(CH, false, base); BG_NODD = false; return h; })() + '</div></div><script>setTimeout(function(){print()},800)<\/script></body></html>'); w.document.close(); }
+if(window.LK) LK.init(function(h){ return /^#(bogen|spieler)/.test(h); });
 function viewSpieler(){
   var c; try{ c = unb64(sub); }catch(e){ return '<div class="page"><div class="empty">Der Link ist ungültig.</div></div>'; }
-  return '<div class="page">' + bogenWrap(c, true) + '</div>' + '<p><button class="btn" onclick="importCh()">In meine Charaktere übernehmen</button></p>';
+  c.id = "c" + Date.now() + Math.floor(Math.random() * 999);   /* immer als neuer Eintrag */
+  if(importObj(c)){ LK.an(); setTimeout(function(){ go("bogen/" + c.id); }, 0); return '<div class="page"></div>'; }
+  return '<div class="page"><div class="empty">Der Link ist ungültig.</div></div>';
 }
 function importCh(){ var c = unb64(sub); importObj(c); go("erstellung/" + c.id); }
 

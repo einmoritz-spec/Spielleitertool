@@ -329,10 +329,11 @@
       }catch(e){ alert("Diese Datei ist kein Discworld-Bogen."); }
     }; r.readAsText(f); inp.value = "";
   };
+  if(window.LK) LK.init(function(h){ return /^#k\/charaktere\/5/.test(h) || /^#bogen=/.test(h); });
   (function(){
     var m = /^#bogen=([dk][A-Za-z0-9_-]+)$/.exec(location.hash); if(!m) return;
     entpack(m[1]).then(function(d){
-      history.replaceState(null, "", location.href.split("#")[0] + "#k/charaktere/5");
+      LK.an(); history.replaceState(null, "", location.href.split("#")[0] + "#k/charaktere/5");
       if(!Object.keys(D).length || confirm("Geteilten Bogen laden? Deine bisherigen Einträge werden ersetzt.")){ var bilder = {}; Object.keys(D).forEach(function(k){ if(/\.bild$/.test(k)) bilder[k] = D[k]; }); D = Object.assign(bilder, d); sichern(); }
       render();
     }, function(){});

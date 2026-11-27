@@ -224,11 +224,12 @@ function bgBreit(f){
   h += '<div class="bgb-w bgbx"><h3>Freiplätze · Widerstände · Aktueller Stress</h3><div class="bgb-wg">' + wid + '</div><div class="bgges"><b>Gesamtstress:</b><span>' + (zTotal(f) || '') + '</span></div></div>';
   return '<div class="bgbreit">' + h + '</div>';
 }
+if(window.LK) LK.init(function(h){ return /^#bogen/.test(h); });
 SP_VIEW.bogen = function(rest){
   var f;
   if(rest[0] === "s" && rest[1]){
     var d = bgDekodieren(rest[1]);
-    if(d){ f = zNeu(d); f.id = "f" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); f.vf = d.vf || null; zFigs().push(f); save(); history.replaceState(null, "", "#bogen/" + f.id); }
+    if(d){ f = zNeu(d); f.id = "f" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); f.vf = d.vf || null; zFigs().push(f); save(); LK.an(); history.replaceState(null, "", "#bogen/" + f.id); }
   } else if(rest[0]) f = zFig(rest[0]);
   if(!f) f = zFigs()[0];
   if(!f){ f = zNeu(); f.bg = {}; zFigs().push(f); save(); }

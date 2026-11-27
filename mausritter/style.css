@@ -379,3 +379,11 @@ body.hs .side{top:102px;max-height:calc(100vh - 102px)}
 .pick .gh span{flex:1}.pick .gh em{font:400 13px Amiri,serif;color:#777;font-style:normal}.pick .gh i{width:8px;height:8px;border-right:2px solid #777;border-bottom:2px solid #777;transform:rotate(-45deg);transition:transform .15s}.pick .gh.on i{transform:rotate(45deg)}
 .pick .hint{color:#777}
 @media print{.bw-bar{display:none!important}}
+
+.bw-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;margin:0 0 8px}
+.bw-chip{display:inline-flex;align-items:center;border:1.5px solid #1b1b1b;border-radius:16px;overflow:hidden;background:#fff}
+.bw-chip>button{border:0;background:transparent;padding:4px 12px;font:600 13px/1.2 inherit;font-family:inherit;color:#1b1b1b;cursor:pointer}
+.bw-chip.on{background:#1b1b1b}.bw-chip.on>button{color:#fff}
+.bw-chip .x{padding:4px 9px 4px 0!important;opacity:.75;font-size:15px!important}.bw-chip .x:hover{opacity:1}
+.bw-plus{width:28px;height:28px;border-radius:50%;border:1.5px solid #1b1b1b;background:#fff;color:#1b1b1b;font:600 18px/1 inherit;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.bw-plus:hover{background:#1b1b1b;color:#fff}

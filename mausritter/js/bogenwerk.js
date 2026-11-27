@@ -27,13 +27,43 @@
     Object.keys(d.pips || {}).forEach(function(k){ var n = +d.pips[k]; if(pl[k] && n >= 0 && n <= 3) o.pips[k] = n | 0; });
     return gefuellt(o) ? o : null;
   }
+  /* ---------- mehrere Mäuse als Einträge ---------- */
+  var DBL = null;
+  function bid(){ return "c" + Date.now().toString(36) + Math.floor(Math.random() * 999); }
+  function dbl(){
+    if(DBL) return DBL;
+    var d = store("bogenliste"); if(d && d.l && d.l.length) return (DBL = d);
+    var e = {id: bid(), o: store("bogen") || {}}; return (DBL = {l: [e], cur: e.id});
+  }
+  function eintrag(){ var d = dbl(), e = d.l.filter(function(x){ return x.id === d.cur; })[0] || d.l[0]; d.cur = e.id; return e; }
+  function persist(){ store("bogenliste", dbl()); }
+  bgL = function(){ return eintrag().o || {}; };
+  bgS = function(o){ eintrag().o = o; persist(); };
+  function neu(o, erzwingen){
+    var d = dbl(), c = eintrag();
+    if(!erzwingen && !gefuellt(c.o)){ c.o = o || {}; persist(); return; }
+    var e = {id: bid(), o: o || {}}; d.l.push(e); d.cur = e.id; persist();
+  }
+  function chips(){
+    var d = dbl(), cur = eintrag().id;
+    return '<div class="bw-chips noprint">' + d.l.map(function(e){
+      var n = (e.o.name || "").trim() || "Neue Maus", on = e.id === cur;
+      return '<span class="bw-chip' + (on ? " on" : "") + '"><button type="button" onclick="MBW.wahl(\'' + e.id + '\')">' + esc(n) + '</button>' + (on ? '<button type="button" class="x" data-tip="Bogen löschen" aria-label="Bogen löschen" onclick="MBW.del(\'' + e.id + '\')">×</button>' : "") + '</span>';
+    }).join("") + '<button type="button" class="bw-plus" data-tip="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen" onclick="MBW.plus()">+</button></div>';
+  }
   /* ---------- Aktionen ---------- */
   window.MBW = {
     zufall: function(){
-      if(gefuellt(bgL()) && !confirm("Den Bogen durch eine zufällige Spielmaus ersetzen?")) return;
-      var m = MR.maeuse[Math.floor(Math.random() * MR.maeuse.length)]; bogenVon(m.id); toast("Zufällige Spielmaus eingesetzt");
+      neu(); var m = MR.maeuse[Math.floor(Math.random() * MR.maeuse.length)]; bogenVon(m.id); toast("Zufällige Spielmaus eingesetzt");
     },
     leeren: function(){ bogenLeer(); },
+    wahl: function(id){ dbl().cur = id; persist(); render(); },
+    plus: function(){ neu(null, true); render(); },
+    del: function(id){
+      var d = dbl(), e = d.l.filter(function(x){ return x.id === id; })[0]; if(!e) return;
+      if(gefuellt(e.o) && !confirm("Diesen Bogen löschen?")) return;
+      d.l = d.l.filter(function(x){ return x.id !== id; }); if(!d.l.length) d.l.push({id: bid(), o: {}}); d.cur = d.l[d.l.length - 1].id; persist(); render();
+    },
     teilen: function(){
       var u = location.href.split("#")[0] + "#maeuse/bogen/teilen~" + b64u(JSON.stringify(bgL()));
       (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ toast("Link kopiert"); }, function(){ prompt("Link zum Teilen:", u); });
@@ -45,12 +75,12 @@
     },
     laden: function(inp){
       var f = inp.files && inp.files[0]; inp.value = ""; if(!f) return;
-      var r = new FileReader(); r.onload = function(){ try{ var d = JSON.parse(r.result), o = d && d.system === "Mausritter" ? sauber(d.bogen) : null; if(o){ bgS(o); render(); toast("Bogen geladen"); } else toast("Datei passt nicht zu Mausritter."); }catch(e){ toast("Datei ungültig."); } }; r.readAsText(f);
+      var r = new FileReader(); r.onload = function(){ try{ var d = JSON.parse(r.result), o = d && d.system === "Mausritter" ? sauber(d.bogen) : null; if(o){ neu(o); render(); toast("Bogen als neuer Eintrag geladen"); } else toast("Datei passt nicht zu Mausritter."); }catch(e){ toast("Datei ungültig."); } }; r.readAsText(f);
     },
     pdf: function(){ bogenPdf(); },
     vorlage: function(btn, ev){
       ev.stopPropagation(); var cur = bgL().maus;
-      menu(btn, {items: MR.maeuse.map(function(m){ return {t: m.name, s: m.hg, sel: cur === m.id, m: m}; }), pick: function(it){ bogenVon(it.m.id); },
+      menu(btn, {items: MR.maeuse.map(function(m){ return {t: m.name, s: m.hg, sel: cur === m.id, m: m}; }), pick: function(it){ neu(); bogenVon(it.m.id); },
         info: function(it){ var m = it.m; return '<h4>' + esc(m.name) + '</h4><p><b>' + esc(m.hg) + '</b> · Geburtszeichen ' + esc(m.zeichen) + ' (' + esc(m.charakter) + ')</p><p class="s">STÄ ' + m.sta + ' · GES ' + m.ges + ' · WIL ' + m.wil + ' · TP ' + m.tp + ' · ' + m.kerne + ' Kerne</p><p>' + esc(m.aus) + '</p>'; }});
     }
   };
@@ -117,14 +147,14 @@
     var ib = function(ic, tip, on){ return '<button class="bwi" data-tip="' + tip + '" aria-label="' + tip + '" onclick="' + on + '">' + sym(IC[ic]) + '</button>'; };
     var bar = '<div class="bw-bar noprint"><span class="bw-tools">' + ib("zufall", "Zufällige Spielmaus einsetzen", "MBW.zufall()") + ib("vorlage", "Spielmaus wählen", "MBW.vorlage(this,event)") + ib("leeren", "Bogen leeren", "MBW.leeren()") + ib("teilen", "Link teilen", "MBW.teilen()") + ib("sichern", "Als Datei sichern", "MBW.sichern()") +
       '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + sym(IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="MBW.laden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "MBW.pdf()") + '</span></div>';
-    return h.replace('<div class="rp">', '<div class="rp">' + bar).slice(0, h.indexOf('<div class="bbtn">') + bar.length) + "</div>";
+    return h.replace('<div class="rp">', '<div class="rp">' + chips() + bar).slice(0, h.indexOf('<div class="bbtn">') + bar.length) + "</div>";
   };
   if(window.LK) LK.init(function(h){ return h.indexOf("#maeuse/bogen") === 0; });
   var vm = viewMaeuse;
   viewMaeuse = function(sub, id){
     if(sub === "bogen" && id && id.indexOf("teilen~") === 0){
       var msg = "Link ungültig."; try{ var o = sauber(JSON.parse(ub64(id.slice(7))));
-        if(o){ if(gefuellt(bgL()) && !confirm("Deine eigene Spielmaus wird durch die geteilte ersetzt. Fortfahren?")) msg = "Eigene Spielmaus behalten."; else { bgS(o); msg = "Bogen übernommen"; LK.an(); } } }catch(e){}
+        if(o){ neu(o); msg = "Bogen als neuer Eintrag übernommen"; LK.an(); } }catch(e){}
       history.replaceState(null, "", "#maeuse/bogen"); setTimeout(function(){ toast(msg); }, 50); id = "";
     }
     return vm(sub, id);

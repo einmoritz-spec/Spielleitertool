@@ -11,8 +11,39 @@ var BG_IC = {
   pdf: '<path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/>'
 };
 function bgSym(p){ return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>'; }
-function bgLoad(){ try{ return JSON.parse(localStorage.getItem(BG_KEY) || "{}") || {}; }catch(e){ return {}; } }
-function bgStore(o){ try{ localStorage.setItem(BG_KEY, JSON.stringify(o)); }catch(e){ bgToast("Speicher voll."); } }
+/* mehrere Bögen als Einträge: {l: [{id, o}], cur} */
+var BG_KEY2 = "ito_bogen_v2", BG_DB = null;
+function bgId(){ return "c" + Date.now().toString(36) + Math.floor(Math.random() * 999); }
+function bgDb(){
+  if(BG_DB) return BG_DB;
+  try{ var d = JSON.parse(localStorage.getItem(BG_KEY2) || "null"); if(d && d.l && d.l.length) return (BG_DB = d); }catch(e){}
+  var o = {}; try{ o = JSON.parse(localStorage.getItem(BG_KEY) || "{}") || {}; }catch(e){}
+  var e = {id: bgId(), o: o}; return (BG_DB = {l: [e], cur: e.id});
+}
+function bgEintrag(){ var d = bgDb(), e = d.l.filter(function(x){ return x.id === d.cur; })[0] || d.l[0]; d.cur = e.id; return e; }
+function bgPersist(){ try{ localStorage.setItem(BG_KEY2, JSON.stringify(bgDb())); }catch(e){ bgToast("Speicher voll."); } }
+function bgLoad(){ return bgEintrag().o; }
+function bgStore(o){ bgEintrag().o = o; bgPersist(); }
+/* neuer Eintrag (ein leerer aktueller Bogen wird wiederverwendet) */
+function bgNeu(o, erzwingen){
+  var d = bgDb(), c = bgEintrag();
+  if(!erzwingen && !bgFilled(c.o)){ c.o = o || {}; bgPersist(); return; }
+  var e = {id: bgId(), o: o || {}}; d.l.push(e); d.cur = e.id; bgPersist();
+}
+function bgWahl(id){ bgDb().cur = id; bgPersist(); render(); }
+function bgPlus(){ bgNeu(null, true); render(); }
+function bgDel(id){
+  var d = bgDb(), e = d.l.filter(function(x){ return x.id === id; })[0]; if(!e) return;
+  if(bgFilled(e.o) && !confirm("Diesen Bogen löschen?")) return;
+  d.l = d.l.filter(function(x){ return x.id !== id; }); if(!d.l.length) d.l.push({id: bgId(), o: {}}); d.cur = d.l[d.l.length - 1].id; bgPersist(); render();
+}
+function bgChips(){
+  var d = bgDb(), cur = bgEintrag().id;
+  return '<div class="bw-chips noprint">' + d.l.map(function(e){
+    var n = (e.o.name || "").trim() || "Neuer Bogen", on = e.id === cur;
+    return '<span class="bw-chip' + (on ? " on" : "") + '"><button type="button" onclick="bgWahl(\'' + e.id + '\')">' + esc(n) + '</button>' + (on ? '<button type="button" class="x" data-tip="Bogen löschen" aria-label="Bogen löschen" onclick="bgDel(\'' + e.id + '\')">×</button>' : "") + '</span>';
+  }).join("") + '<button type="button" class="bw-plus" data-tip="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen" onclick="bgPlus()">+</button></div>';
+}
 function bgSave(){
   var o = {}; [].forEach.call(document.querySelectorAll(".sheet [data-f]"), function(e){ o[e.dataset.f] = e.value; });
   bgStore(o);
@@ -28,7 +59,7 @@ function bgW(n){ return 1 + Math.floor(Math.random() * n); }
 function bgEinlesen(f){
   if(!f || typeof f !== "object") return false;
   var o = {}; BG_FELDER.forEach(function(k){ if(typeof f[k] === "string") o[k] = f[k].slice(0, 5000); });
-  if(!bgFilled(o)) return false; bgStore(o); return true;
+  if(!bgFilled(o)) return false; bgNeu(o); return true;
 }
 function bgLink(){ bgSave(); var o = bgLoad(), u = location.href.split("#")[0] + "#bogen/teilen~" + bgB64(JSON.stringify(o));
   (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ bgToast("Link kopiert"); }, function(){ prompt("Link zum Teilen:", u); }); }
@@ -39,7 +70,7 @@ function bgLaden(inp){
   var r = new FileReader(); r.onload = function(){ try{ var d = JSON.parse(r.result); if(d && d.system === "Into the Odd" && bgEinlesen(d.felder)){ render(); bgToast("Bogen geladen"); } else bgToast("Datei passt nicht zu Into the Odd."); }catch(e){ bgToast("Datei ungültig."); } }; r.readAsText(f);
 }
 function bgPdf(b){ bgSave(); FillPDF.make(document.querySelector(".sheet"), {name: "Into the Odd – " + ((bgLoad().name) || "Charakterbogen"), knopf: {}, bg: "#fbfaf6"}); }
-function bgClear(){ if(bgFilled(bgLoad()) && !confirm("Alle Felder leeren?")) return; try{ localStorage.removeItem(BG_KEY); }catch(e){} render(); }
+function bgClear(){ if(bgFilled(bgLoad()) && !confirm("Alle Felder leeren?")) return; bgStore({}); render(); }
 
 /* ---------- Startpakete ---------- */
 function bgPakete(){
@@ -64,11 +95,10 @@ function bgSetzen(p){
   bgStore(v); render();
 }
 function bgZufall(){
-  if(bgFilled(bgLoad()) && !confirm("Die Einträge durch einen zufälligen Charakter ersetzen?")) return;
   var v = {}, hoch = 0;
   ["st", "ge", "wi"].forEach(function(k){ var n = bgW(6) + bgW(6) + bgW(6); v[k + "n"] = v[k + "m"] = String(n); hoch = Math.max(hoch, n); });
   var hp = bgW(6), ri = hoch <= 9 ? 0 : hoch - 9, P = bgPakete().filter(function(p){ return p.hp === hp && p.wi === ri; });
-  bgStore(v); if(P.length) bgSetzen(P[0]); else render();
+  bgNeu(v); if(P.length) bgSetzen(P[0]); else render();
   bgToast("Zufälliger Charakter erstellt");
 }
 
@@ -122,8 +152,7 @@ function viewBogen(){
     var msg = "Link ungültig.";
     try{
       var d = JSON.parse(bgUnB64(s.slice(7)));
-      if(bgFilled(bgLoad()) && !confirm("Dein eigener Bogen wird durch den geteilten Bogen ersetzt. Fortfahren?")) msg = "Eigener Bogen behalten.";
-      else if(bgEinlesen(d)){ msg = "Bogen übernommen"; LK.an(); }
+      if(bgEinlesen(d)){ msg = "Bogen als neuer Eintrag übernommen"; LK.an(); }
     }catch(e){}
     setTimeout(function(){ bgToast(msg); }, 50);
     history.replaceState(null, "", "#bogen");
@@ -132,7 +161,7 @@ function viewBogen(){
   function wert(k, t){ return '<div class="bw"><b>' + t + '</b><div class="bwn">' + bgIn(k + "n", v, "big") + '<i>jetzt</i></div><div class="bwm">' + bgIn(k + "m", v, "mid") + '<i>Höchstwert</i></div></div>'; }
   var waf = [0, 1, 2].map(function(i){ return '<div class="bz">' + bgIn("w" + i, v, "", "Waffe") + bgIn("ws" + i, v, "sm", "Schaden") + '</div>'; }).join("");
   var ib = function(ic, tip, on){ return '<button class="bwi" data-tip="' + tip + '" aria-label="' + tip + '" onclick="' + on + '">' + bgSym(BG_IC[ic]) + '</button>'; };
-  return '<div class="rp"><div class="bw-bar noprint"><span class="bw-tools">' + ib("zufall", "Zufälligen Charakter erstellen", "bgZufall()") + ib("leeren", "Bogen leeren", "bgClear()") + ib("teilen", "Link teilen", "bgLink()") + ib("sichern", "Als Datei sichern", "bgSichern()") +
+  return '<div class="rp">' + bgChips() + '<div class="bw-bar noprint"><span class="bw-tools">' + ib("zufall", "Zufälligen Charakter erstellen", "bgZufall()") + ib("leeren", "Bogen leeren", "bgClear()") + ib("teilen", "Link teilen", "bgLink()") + ib("sichern", "Als Datei sichern", "bgSichern()") +
       '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + bgSym(BG_IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="bgLaden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "bgPdf(this)") + '</span></div>' +
     '<div class="sheet"><header><h2>Charakterbogen</h2><span>Into the Odd</span></header>' +
     '<div class="brow"><label>Name' + bgIn("name", v) + '</label><label>Herkunft und Startpaket<span class="bw-h">' + bgIn("her", v) + '<button type="button" class="bw-dd noprint" data-tip="Startpaket wählen" aria-label="Startpaket wählen" onclick="bgPaketWahl(this,event)">▾</button></span></label></div>' +

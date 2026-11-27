@@ -187,22 +187,22 @@ function viewBogen(){
     '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + bgSym(BG_IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="bgLaden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "bgPdf(this)") + '</span></div>';
   /* Seite 1 */
   var p1 = F("name", 165, 94, 395, 34, "name", 36) +
-    F("stm", 174, 206, 96, 54, "z", 46) + F("stn", 174, 274, 96, 54, "z", 46) +
-    F("gem", 244, 388, 96, 54, "z", 46) + F("gen", 244, 454, 96, 54, "z", 46) +
-    F("wim", 174, 555, 96, 54, "z", 46) + F("win", 174, 623, 96, 54, "z", 46) +
-    F("hpm", 430, 166, 96, 64, "z", 52) + F("hpn", 430, 246, 96, 64, "z", 52) +
-    bgMark("kr", v, 452, 434, 56, 56, "kr") +
-    F("rue", 452, 574, 56, 56, "z", 40) +
+    F("stm", 174, 206, 96, 54, "z", 40) + F("stn", 174, 274, 96, 54, "z", 40) +
+    F("gem", 244, 388, 96, 54, "z", 40) + F("gen", 244, 454, 96, 54, "z", 40) +
+    F("wim", 174, 555, 96, 54, "z", 40) + F("win", 174, 623, 96, 54, "z", 40) +
+    F("hpm", 430, 166, 96, 64, "z", 44) + F("hpn", 430, 246, 96, 64, "z", 44) +
+    bgMark("kr", v, 449.6, 431.8, 59.4, 59.4, "kr") +
+    F("rue", 450, 572, 60, 56, "z", 40) +
     F("k", 735, 484, 100, 54, "z", 36) + F("s", 875, 484, 100, 54, "z", 36) + F("g", 1015, 484, 100, 54, "z", 36) +
-    bgArea("aus", v, 722, 135, 430, 293, 7, 30, 41.7) +
+    bgArea("aus", v, 722, 138, 430, 293, 7, 30, 41.7) +
     [0, 1, 2].map(function(i){ var y = [710, 752, 795][i]; return F("w" + i, 748, y - 38, 300, 38, "", 29) + F("ws" + i, 1056, y - 38, 92, 38, "r", 29); }).join("") +
     F("v0", 305, 757 - 38, 365, 38, "", 29) + F("v1", 258, 805 - 38, 412, 38, "", 29);
   /* Seite 2 */
   var lv = ["Neuling", "Profi", "Experte", "Veteran", "Meister", "Übermensch"];
-  var p2 = bgArea("not", v, 108, 119, 494, 677, 16, 30, 42.3) +
-    bgArea("arc", v, 836, 119, 326, 386, 9, 30, 42.9) +
-    bgArea("ges", v, 666, 617, 506, 169, 4, 30, 42.3) +
-    lv.map(function(n, i){ return bgMark("lv" + i, v, 628, 162 + i * 58, 40, 40, "lv", "bgStufe(" + i + ")"); }).join("");
+  var p2 = bgArea("not", v, 108, 122, 494, 677, 16, 30, 42.3) +
+    bgArea("arc", v, 836, 122, 326, 386, 9, 30, 42.9) +
+    bgArea("ges", v, 666, 620, 506, 169, 4, 30, 42.3) +
+    lv.map(function(n, i){ return bgMark("lv" + i, v, 627.5, 159.8 + i * 58.3, 47, 47, "lv", "bgStufe(" + i + ")"); }).join("");
   return '<div class="rp os-rp">' + bar + '<div class="os-bogen">' +
     '<div class="os-pg"><div class="os-seite" style="background-image:url(img/bogen/seite-1.webp)">' + p1 + '</div></div>' +
     '<div class="os-pg"><div class="os-seite" style="background-image:url(img/bogen/seite-2.webp)">' + p2 + '</div></div></div></div>';

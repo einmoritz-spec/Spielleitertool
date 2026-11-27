@@ -55,9 +55,8 @@ body.lm-home .hm-hero:before{content:"";position:absolute;left:0;right:0;top:0;h
 /* Startseite: Logo höher, Kacheln ragen ins Bild, Knöpfe oben rechts besser sichtbar */
 body.lm-home .hm-logo{bottom:clamp(120px,17vw,210px)}
 body.lm-home .hm-grid{margin-top:-120px}
-body.lm-home .topbar .rest-btn,body.lm-home .topbar .tb-burger{color:#fff4dc!important;background:rgba(43,29,18,.62)!important;border:1px solid rgba(255,244,220,.25)!important;border-radius:999px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-body.lm-home .topbar .rest-btn:hover,body.lm-home .topbar .tb-burger:hover{background:rgba(122,35,28,.85)!important}
+body.lm-home .topbar .rest-btn,body.lm-home .topbar .tb-burger,body.lm-home .topbar .tm-info,body.lm-home .topbar .tm-book{color:#1f160e!important;background:transparent!important;border:0!important;box-shadow:none!important;filter:drop-shadow(0 0 4px rgba(250,244,228,.95)) drop-shadow(0 0 10px rgba(250,244,228,.7))}
+body.lm-home .topbar .rest-btn:hover,body.lm-home .topbar .tb-burger:hover,body.lm-home .topbar .tm-info:hover,body.lm-home .topbar .tm-book:hover{background:transparent!important;color:#7a231c!important}
+body.lm-home .topbar .brand img{filter:brightness(0) invert(.96) drop-shadow(0 1px 5px rgba(0,0,0,.75))}
+body.lm-home .topbar .tm-caret{color:#fff4dc!important;filter:drop-shadow(0 1px 4px rgba(0,0,0,.8))}
 @media(max-width:640px){body.lm-home .hm-grid{margin-top:-60px}body.lm-home .hm-logo{bottom:clamp(90px,26vw,140px)}}
-body.lm-home .topbar .tm-info,body.lm-home .topbar .tm-book{color:#fff4dc!important;background:rgba(43,29,18,.62)!important;border:1px solid rgba(255,244,220,.25)!important;border-radius:999px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-body.lm-home .topbar .tm-info:hover,body.lm-home .topbar .tm-book:hover{background:rgba(122,35,28,.85)!important}
-body.lm-home .topbar .tm-info svg,body.lm-home .topbar .tm-book svg{stroke:currentColor}

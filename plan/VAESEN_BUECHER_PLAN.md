@@ -67,7 +67,8 @@ Alle Mysterien haben dieselbe Buchgliederung (Vorspiel › Hintergrund, Konflikt
 - Der Bereich „Mysterien“ wird **eine Reihe pro Buch**: links eine Buch-Kachel (Cover, Art: Einführung/Mysteriensammlung/Kampagne, Ort), rechts lückenlos die Mysterien als Bildstreifen mit Hover-Vergrößerung.
 - Grundregelwerk und Seasons teilen sich die erste Reihe (sonst stünde Tanz der Träume allein).
 - Kampagnen: Mysterien nummeriert (1–4 bzw. 1–5); in der Buch-Kachel ein Link **„Einführung“** zur Kampagnen-Einführung (eigene Leseseite mit Seitenleiste, Karte, Kampagnen-NSC).
-- Bilder: Seasons behalten ihre Vollbilder; alle anderen nutzen das Ouroboros-Eröffnungsbild, **sauber aus dem PDF extrahiert** (nicht von der Seite abfotografiert wie im Entwurf – dort sind die Papierkanten noch sichtbar).
+- Bilder: Seasons behalten ihre Vollbilder; alle anderen nutzen das Ouroboros-Eröffnungsbild, **freigestellt** (Papier transparent, vom Rand her ausgeschnitten, damit helle Stellen im Bild erhalten bleiben – Verfahren wie in den Entwurfsdateien `plan/vaesen/mys/em/*.png`).
+- **Embleme nie ausblenden oder mit Verlauf überdecken:** Das Emblem steht vollständig oben in der Kachel, der Titel darunter auf dem Papier (Freigabe Moritz, 27. Nov. 2026).
 - Hover zeigt Spielstand und „Starten“/„Weiterspielen“ wie heute.
 - Bücherleiste unten bleibt; eingebaute Bücher farbig, nicht eingebaute grau mit PDF.
 
@@ -110,7 +111,10 @@ Alle Mysterien haben dieselbe Buchgliederung (Vorspiel › Hintergrund, Konflikt
 
 Etappen 3–7 sind reine Übersetzungs- und Datenarbeit nach festem Muster und eignen sich für Sonnet/Agents (ein Agent pro Mysterium, Ergebnis gegen das PDF prüfen).
 
-## 8. Offene Fragen an Moritz
+## 8. Entscheidungen
+Am 27. Nov. 2026 freigegeben: Leitstand v2, Startseite mit einer Reihe pro Buch, Untersettings Britain & Ireland und Carpathia, Thursday’s Child nur als PDF, Buchtitel englisch und Mysterientitel deutsch, Reihenfolge wie in Abschnitt 7.
+
+### Ursprünglich offene Fragen
 1. Leitstand v2 so freigeben (Unterleiste mit 5 Punkten + Countdown + Nachschlage-Schublade, Lesetext breit mit schwebenden Elementen)?
 2. Startseite: Mysterien eine Reihe pro Buch?
 3. Britain & Ireland und Carpathia als Untersettings mit eigener Startseite (statt alles im Hauptsetting)?

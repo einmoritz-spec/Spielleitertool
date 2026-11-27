@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1379sq";
+const VERSION = "v1380sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -2407,6 +2407,27 @@ const FILES = [
   "assets/fonts/alegreya-latin-800-normal.woff2",
   "assets/fonts/alegreya-sc-latin-500-normal.woff2",
   "assets/fonts/alegreya-sc-latin-700-normal.woff2",
+  "household/bogen.html",
+  "household/js/bogen.js",
+  "household/js/data/bogen-layout.js",
+  "household/js/data/bogen-daten.js",
+  "household/js/data/bogen-vorlagen.js",
+  "household/bogen/bogen.css",
+  "household/bogen/hintergrund.webp",
+  "household/bogen/abzeichen.png",
+  "household/bogen/hh-titel.woff2",
+  "household/bogen/hh-schrift.woff2",
+  "household/bogen/hh-schrift-fett.woff2",
+  "household/bogen/hh-titel.ttf",
+  "household/bogen/hh-schrift.ttf",
+  "household/bogen/hh-schrift-fett.ttf",
+  "household/bogen/hintergrund.pdf",
+  "household/bogen/vorlagen/tubo.webp",
+  "household/bogen/vorlagen/litha.webp",
+  "household/bogen/vorlagen/pierre.webp",
+  "household/bogen/vorlagen/hannah.webp",
+  "household/bogen/vorlagen/santiago.webp",
+  "household/bogen/vorlagen/sienna.webp",
   "household/index.html",
   "household/sys.js",
   "household/style.css",

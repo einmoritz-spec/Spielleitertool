@@ -1,0 +1,68 @@
+/* Household – Charakterbogen (Nachbau des Original-Bogens) */
+@font-face{font-family:HHTitel;src:url(hh-titel.woff2) format('woff2')}
+@font-face{font-family:HHSchrift;src:url(hh-schrift.woff2) format('woff2')}
+@font-face{font-family:HHSchriftFett;src:url(hh-schrift-fett.woff2) format('woff2')}
+.hbwrap{padding:14px 0 40px;position:relative}
+.hbleiste{display:flex;justify-content:flex-end;gap:8px;max-width:1690px;margin:0 auto 12px;padding:0 24px}
+.hbib{position:relative;display:inline-flex;align-items:center;justify-content:center;width:42px;height:38px;padding:0;background:#fbf7f1;border:1px solid #cdbfd6;border-radius:4px;color:#4a2d55;cursor:pointer}
+.hbib:hover{background:#fff;border-color:#8c6c9c}
+.hbib.haupt{background:#4a2d55;border-color:#4a2d55;color:#f6eef8}
+.hbib svg{display:block}
+.hbleiste [data-tip]::after{content:attr(data-tip);position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;padding:3px 8px;border-radius:3px;background:rgba(40,26,46,.75);color:#f6eef8;font:italic 13px/1.2 Gar,Georgia,serif;pointer-events:none;opacity:0;transition:opacity .15s .25s;z-index:60}
+.hbleiste [data-tip]:hover::after{opacity:1}
+.hbleiste>[data-tip]:last-child::after,.hbleiste>[data-tip]:nth-last-child(2)::after{left:auto;right:0;transform:none}
+.hbleiste>.vorn::after{left:0;transform:none}
+.hbsheet{position:relative;margin:0 auto;box-shadow:0 4px 22px rgba(40,20,50,.28);background:#f7f1e8;overflow:hidden;user-select:none}
+.hbsheet>*{position:absolute}
+.hbbg{left:0;top:0;width:100%;height:100%;pointer-events:none}
+.hbsvg{left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.hbsvg text{font-kerning:normal}
+/* Klickflächen für Symbole und Kästchen */
+.hbk{padding:0;margin:0;border:0;background:transparent;cursor:pointer;border-radius:3px}
+.hbk:hover{background:rgba(120,80,140,.12)}
+/* Einzeilige Felder */
+.hbi{box-sizing:border-box;padding:0 0 0 9.6px;margin:0;border:0;background:transparent;font:16px/1 HHSchrift,Georgia,serif;color:#1d1b1b;outline:0;border-radius:2px}
+.hbi:focus,.hbi:hover{background:rgba(255,255,255,.55)}
+.hbi.fett{font-family:HHSchriftFett,Georgia,serif}
+.hbi.mitte{text-align:center;padding:0}
+.hbi.wahl{cursor:pointer}
+.hbi.muenze{font:24px/1 HHSchriftFett,Georgia,serif;text-align:center;padding:0;border-radius:50%}
+/* Textblöcke: Anzeige im SVG, Bearbeiten im Textfeld */
+.hbb{cursor:text;border-radius:2px}
+.hbb:hover{background:rgba(255,255,255,.28)}
+.hbta{box-sizing:border-box;margin:0;border:0;outline:0;resize:none;overflow:hidden;background:rgba(255,252,246,.94);box-shadow:0 0 0 2px rgba(140,108,156,.55);border-radius:2px;font:16px HHSchrift,Georgia,serif;color:#1d1b1b;z-index:5;user-select:text}
+/* Auswahlpfeile */
+.hbdd{z-index:4;width:22px;height:22px;padding:0;border:1px solid #b9a9c3;border-radius:50%;background:rgba(251,247,241,.9);color:#4a2d55;font:12px/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.hbdd:hover{background:#4a2d55;color:#fff;border-color:#4a2d55}
+/* Porträt */
+.hbbild{cursor:pointer;overflow:hidden;display:block}
+.hbbild:not(.voll):hover{background:rgba(120,80,140,.08)}
+.hbbild img{width:100%;height:100%;object-fit:cover;display:block}
+.hbbild input{display:none}
+.hbbild .weg{position:absolute;right:6px;top:6px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(40,26,46,.7);color:#fff;font:18px/1 sans-serif;cursor:pointer;opacity:0}
+.hbbild:hover .weg{opacity:1}
+/* Popups */
+.hbpop{position:fixed;z-index:400;max-height:70vh;overflow-y:scroll;background:#fbf7f1;border:1px solid #cdbfd6;border-radius:6px;box-shadow:0 6px 20px rgba(40,20,50,.3);padding:4px;text-align:left}
+.hbpop .pz{display:flex;align-items:center;border-bottom:1px solid #ebe1ee}.hbpop .pz:last-child{border:0}
+.hbpop .pn{flex:1;display:flex;align-items:center;gap:10px;text-align:left;font:17px/1.25 Gar,Georgia,serif;color:#2a1c2e;background:none;border:0;padding:7px 10px;cursor:pointer}
+.hbpop .pn img{width:42px;height:34px;object-fit:cover;border-radius:3px;flex:none}
+.hbpop .pn em{margin-left:auto;font-size:13px;color:#8a7d8f;font-style:normal;white-space:nowrap}
+.hbpop .pn:hover{background:rgba(110,70,130,.1)}
+.hbpop .pn.sel{background:rgba(110,70,130,.18);font-weight:600}
+.hbpop .pn.leer{cursor:default;color:#8a7d8f}
+.hbpop .pi{flex:none;width:22px;height:22px;margin:0 6px;border:1px solid #b9a9c3;border-radius:50%;background:none;color:#7d6a85;font:italic 700 14px Gar,Georgia,serif;cursor:pointer;padding:0;line-height:1}
+.hbpop .pi:hover,.hbpop .pi.sel{background:#4a2d55;color:#fff;border-color:#4a2d55}
+.hbpop h4{margin:8px 10px 2px;font:400 15px Fell,serif;color:#7d6a85;letter-spacing:.04em}
+.hbpop .pk{padding:4px 10px;font:italic 14px Gar,Georgia,serif;color:#8a7d8f;border-bottom:1px solid #ebe1ee}
+.hbinfo{position:fixed;z-index:410;width:340px;background:#fbf7f1;border:1px solid #cdbfd6;padding:12px 14px;overflow-y:auto}
+.hbinfo.re{border-radius:0 6px 6px 0;box-shadow:6px 6px 20px rgba(40,20,50,.3)}
+.hbinfo.li{border-radius:6px 0 0 6px;box-shadow:-6px 6px 20px rgba(40,20,50,.3)}
+.hbinfo b{display:block;font:400 19px Fell,serif;color:#4a2d55;margin-bottom:6px}
+.hbinfo p{margin:0 0 6px;font:15px/1.4 Gar,Georgia,serif;color:#2a1c2e}
+.hbpop::-webkit-scrollbar,.hbinfo::-webkit-scrollbar{width:10px}
+.hbpop::-webkit-scrollbar-track,.hbinfo::-webkit-scrollbar-track{background:#efe7f1}
+.hbpop::-webkit-scrollbar-thumb,.hbinfo::-webkit-scrollbar-thumb{background:#b9a9c3;border-radius:5px;border:2px solid #efe7f1}
+@supports not selector(::-webkit-scrollbar){.hbpop,.hbinfo{scrollbar-width:thin;scrollbar-color:#b9a9c3 #efe7f1}}
+.hbtoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#2a1c2e;color:#f6eef8;padding:10px 20px;border-radius:6px;font:16px Gar,Georgia,serif;z-index:500}
+@media print{.hbleiste,.hbdd,.hbpop,.hbinfo,.hbtoast,.hbbild .weg{display:none!important}.hbsheet{box-shadow:none;zoom:1!important}}
+.hbabz{pointer-events:none;z-index:2}

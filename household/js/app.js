@@ -18,6 +18,7 @@ window.HH_INH = window.HH_INH || {};
 /* ---------- Adresse lesen ---------- */
 function parse(){
   var h = (location.hash || "#start").slice(1).split("/").map(decodeURIComponent);
+  if(h[0] === "bogen") return {m: "bogen", id: h[1] || ""};
   if(h[0] === "fp" || h[0] === "lw") return {m: "saga", s: h[0], sub: h[1] || "", rest: h.slice(2)};
   var g = h[0] === "g"; if(g) h = h.slice(1);
   var mode = g ? "garten" : "haus", NAV = HH_NAV[mode], area = null;
@@ -152,11 +153,13 @@ function render(){
   var P = parse(), tabs = "", bar = "", out = "", mode = P.mode || "haus";
   document.body.classList.toggle("garten", mode === "garten" || (P.m === "gstart"));
   document.body.classList.toggle("saga", P.m === "saga");
+  document.body.classList.toggle("bogenseite", P.m === "bogen");
   document.body.classList.toggle("start", P.m === "start" || P.m === "gstart");
   if(P.m === "start") out = viewStart("haus");
   else if(P.m === "gstart"){ tabs = kopfTabs(P, "garten"); out = viewStart("garten"); }
   else if(P.m === "seite"){ tabs = kopfTabs(P, P.mode); bar = unterleiste(P); out = viewSeite(P); }
   else if(P.m === "saga"){ tabs = kopfTabs(P, "haus"); var V = viewSaga(P); bar = V.bar; out = V.body; }
+  else if(P.m === "bogen"){ tabs = kopfTabs(P, "haus"); out = HB.ansicht(P.id); }
   var kt = document.getElementById("ktabs"); if(kt) kt.innerHTML = tabs;
   var same = window.__lh === location.hash, y = scrollY; window.__lh = location.hash;
   APP.innerHTML = bar + out; scrollTo(0, same ? y : 0);
@@ -175,7 +178,7 @@ window.gmBook = function(){
 function karte(){ var P = parse(); go(P.mode === "garten" || P.m === "gstart" ? "g/welt/garten/karte" : "welt/haus/erdgeschoss"); }
 function modal(html){ var m = document.createElement("div"); m.className = "modal"; m.innerHTML = '<div>' + html + '</div>'; m.onclick = function(e){ if(e.target === m) m.remove(); }; document.body.appendChild(m); return m; }
 function buildMenu(){
-  var h = '<h3>Werkzeuge</h3><button onclick="openMenu(false);sucheOpen()">Suche</button><button onclick="openMenu(false);karte()">Karte</button><h3>Bücher</h3>';
+  var h = '<h3>Werkzeuge</h3><button onclick="openMenu(false);sucheOpen()">Suche</button><button onclick="openMenu(false);karte()">Karte</button><button onclick="openMenu(false);go(\'bogen\')">Charakterbogen</button><h3>Bücher</h3>';
   SYS.groups.forEach(function(g){ g.items.forEach(function(b){ h += '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + '</button>'; }); });
   h += '<button onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';
   document.getElementById("mmP").innerHTML = h;

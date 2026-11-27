@@ -97,7 +97,12 @@ Alles, was im Buch Kasten/Karte ist (Gegner, Gegenstände, Verträge, Mysterien,
 `household/` mit `index.html`, `style.css`, `sys.js`, `js/app.js`, `js/data/…` (eine Datei pro Kapitel/Abenteuer); Garten als `household/garten/` bzw. gleiche Struktur mit eigener `sys.js`-Variante; Galerie-Dateien `js/data/galerie-<kürzel>.js` (`Galerie.reg("household", {...})`); Schlüssel in `GALKEY` (`toolmenu.js`) eintragen; `sw.js` `FILES` + `VERSION` bei jedem Push.
 
 ## 5. Charakterbogen
-`Character_Sheet_EN.pdf` (A4 quer, **keine Formularfelder**): Society ♥ (Art, Charm, Eloquence, Etiquette, Grace) · Academia ♦ (Care, Craft, Culture, Insight, Investigation) · War ♣ (Athletics, Authority, Fight, Strength, Will) · Street ♠ (Caution, Dexterity, Elusion, Exploration, Shoot) · Aces up the Sleeve · Decorum-Leiste · Stress · Conditions · Moves · Contracts · TTT-Leiste · Traits · Equipment & Wealth · Memories/Experiences · Porträtfeld. Wird deutsch nachgebaut (`shared/charsheet.js`, `shared/fillpdf.js`). **Ganz zum Schluss.**
+✅ **Gebaut (27. Nov. 2026)**: `#bogen[/vorlage]` in der Tafel (Burger-Menü › Charakterbogen) und eigenständig `household/bogen.html` für Mitspieler.
+- Hintergrund = Original-Bogen ohne Text (`tools/household/hintergrund.py` → `household/bogen/hintergrund.pdf/.webp`); Zierlinien der Feld-Überschriften an die deutschen Wortbreiten angepasst, Zustandslinien werden passend gezogen.
+- Schriften: Original-Teilsätze (LHF Encore Distressed, Sydonia Atramentiqua Regular/Bold) aus den Bogen-PDFs, fehlende Zeichen aus Cinzel Decorative / Cormorant ergänzt (`tools/household/schriften.py` → `household/bogen/hh-*.woff2/.ttf`).
+- Felder und Symbol-Umrisse aus dem ausfüllbaren Original (`tools/household/layout.py` → `js/data/bogen-layout.js`); Auswahldaten aus den Regeltexten (`tools/household/bogen-daten.js` → `js/data/bogen-daten.js`); 6 fertige Charaktere deutsch in `js/data/bogen-vorlagen.js` (Porträts unter `bogen/vorlagen/`).
+- Funktionen wie Discworld: Symbolleiste, Vorlagen, Zufallsbogen (Regeln S. 42–47), Teilen per Link, JSON, ausfüllbares PDF (Vektor-Hintergrund, Formularfelder an den Originalzeilen, Kästchen mit Original-Umriss).
+- Offen: Fettdruck („Name:“) im PDF nur bei ganz fetten Zeilen; Garten-Völker/-Berufe noch nicht in den Auswahllisten.
 
 ## 6. Bilder (Priorität 1)
 

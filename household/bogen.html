@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, viewport-fit=cover">
+<meta name="theme-color" content="#35203b">
+<meta name="robots" content="noindex,nofollow">
+<title>Household – Charakterbogen</title>
+<link rel="icon" type="image/png" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="bogen/bogen.css">
+<style>body{background:#e9e1d6}.solo-kopf{height:58px;display:flex;align-items:center;padding:0 24px;background:#35203b}.solo-kopf img{height:34px}</style>
+</head>
+<body>
+<div class="solo-kopf"><img src="../assets/logos/household.webp" alt="Household"></div>
+<div id="app"></div>
+<script src="../shared/fillpdf.js"></script>
+<script src="js/data/bogen-layout.js"></script>
+<script src="js/data/bogen-daten.js"></script>
+<script src="js/data/bogen-vorlagen.js"></script>
+<script src="js/bogen.js"></script>
+<script>
+/* Eigenständige Bogen-Seite für Mitspieler: nur der Charakterbogen, nichts von der Spielleiter-Tafel */
+(function(){
+  var APP = document.getElementById("app");
+  function render(){ var id = (location.hash.split("/")[1] || ""); APP.innerHTML = HB.ansicht(id); }
+  HB.basis("", "../", function(id){ location.hash = id ? "bogen/" + id : "bogen"; });
+  addEventListener("hashchange", function(){ if(!/^#bogen=/.test(location.hash)) render(); });
+  HB.linkImport().then(render, render);
+})();
+</script>
+</body>
+</html>

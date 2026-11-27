@@ -60,3 +60,4 @@ body.lm-home .topbar .rest-btn:hover,body.lm-home .topbar .tb-burger:hover,body.
 body.lm-home .topbar .brand img{filter:brightness(0) invert(.96) drop-shadow(0 1px 5px rgba(0,0,0,.75))}
 body.lm-home .topbar .tm-caret{color:#fff4dc!important;filter:drop-shadow(0 1px 4px rgba(0,0,0,.8))}
 @media(max-width:640px){body.lm-home .hm-grid{margin-top:-60px}body.lm-home .hm-logo{bottom:clamp(90px,26vw,140px)}}
+.hm-card:nth-child(1) .hm-img img,.hm-card:nth-child(2) .hm-img img{object-position:50% 0}

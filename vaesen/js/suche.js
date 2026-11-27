@@ -58,6 +58,15 @@ GSuche.add(function(add){
     if(m.wesen || m.nock || m.kaesten) put("Figuren", "fg", [m.wesen, m.nock, m.kaesten]);
   });
 
+  /* Settingbücher (Mythic Britain & Ireland …): Welt, Gesellschaft, Wesen, Archetypen */
+  Object.keys(window.SBD || {}).forEach(function(id){
+    var S = (window.SBS || {})[id]; if(!S) return; var D = SBD[id], B = S.titel;
+    ["welt", "gesellschaft"].forEach(function(a){ (D[a] || []).forEach(function(x){ add(B + " › " + (x.t || x.titel), B, "#" + id + "/" + a + "/" + x.id, x.b || x); }); });
+    ((D.wesen || {}).extra || []).forEach(function(x){ add(B + " › " + x.t, B, "#" + id + "/wesen/" + x.id, x.b || x); });
+    ((D.wesen || {}).list || []).forEach(function(w){ add(B + " › " + w.name, B, "#" + id + "/wesen/" + w.id, w); });
+    (D.arch || []).forEach(function(a){ add(B + " › " + a.name, B, "#" + id + "/gesellschaft/" + a.id, a); });
+  });
+
   if(window.VU_INTRO && VU_INTRO.city) add("City of My Nightmares: Einführung (S. 3–9)", "Bücher", function(){ uiEinfuehrung("city"); }, VU_INTRO.city.abschnitte.map(function(a){ return a.h + " " + a.t.join(" ").replace(/<[^>]+>/g, ""); }));
   if(window.VU_INTRO && VU_INTRO.lost) add("The Lost Mountain Saga: Einführung (S. 3–9)", "Bücher", function(){ uiEinfuehrung("lost"); }, VU_INTRO.lost.abschnitte.map(function(a){ return a.h + " " + a.t.join(" ").replace(/<[^>]+>/g, ""); }));
   if(window.VU_VW) add("Vorwort (S. 3)", "Bücher", function(){ if(window.uiVorwort) uiVorwort(); }, window.VU_VW);

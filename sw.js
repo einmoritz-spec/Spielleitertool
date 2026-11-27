@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1320sq";
+const VERSION = "v1321sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4425,6 +4425,8 @@ const FILES = [
   "vaesen/js/data/som-tanz.js",
   "vaesen/js/data/som-teufel.js",
   "vaesen/js/data/som-winter.js",
+  "vaesen/js/data/som-silber.js",
+  "vaesen/js/data/galerie-wicked.js",
   "vaesen/js/data/galerie-som.js",
   "vaesen/img/som/feuer_alfred_haerenstam.webp",
   "vaesen/img/som/feuer_august_haerenstam.webp",
@@ -4455,6 +4457,20 @@ const FILES = [
   "vaesen/img/som/ho_4a.webp",
   "vaesen/img/som/ho_4b.webp",
   "vaesen/img/som/ho_4c.webp",
+  "vaesen/img/wicked/silber_abela.webp",
+  "vaesen/img/wicked/silber_brueder.webp",
+  "vaesen/img/wicked/silber_eroeffnung.webp",
+  "vaesen/img/wicked/silber_ho_1a.webp",
+  "vaesen/img/wicked/silber_justina.webp",
+  "vaesen/img/wicked/silber_karte_archipel.webp",
+  "vaesen/img/wicked/silber_karte_gasthaus.webp",
+  "vaesen/img/wicked/silber_karte_insel.webp",
+  "vaesen/img/wicked/silber_kraken.webp",
+  "vaesen/img/wicked/silber_matrosen.webp",
+  "vaesen/img/wicked/silber_meerjungfrau.webp",
+  "vaesen/img/wicked/silber_orvar.webp",
+  "vaesen/img/wicked/silber_uddgren.webp",
+  "vaesen/img/wicked/silber_zacharias.webp",
   "vaesen/img/som/som_emblem.webp",
   "vaesen/img/som/teufel_eroeffnung.webp",
   "vaesen/img/som/teufel_friedhof.webp",

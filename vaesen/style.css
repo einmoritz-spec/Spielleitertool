@@ -163,3 +163,7 @@ body.vnav .tabs{border-bottom:2px solid var(--red)}
 .dd-row{display:flex;align-items:center;gap:8px;padding:7px 10px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.06)}.dd-row:last-child{border:0}
 .dd-row:hover{background:var(--tan2)}.dd-row.on{color:var(--red)}.dd-t{flex:1;min-width:0}.dd-t small{display:block;font-size:13px;opacity:.65}
 .box h3 .ib{margin-left:4px;position:relative;top:-1px}
+
+/* Herkunft eines Archetyps aus einem Settingbuch */
+.arch-q{font-size:9.5px;letter-spacing:.03em;white-space:nowrap;text-transform:uppercase;color:#8a3b1a;opacity:.85;margin-top:2px;display:block}
+.dt .arch-q{margin:2px 0 0}

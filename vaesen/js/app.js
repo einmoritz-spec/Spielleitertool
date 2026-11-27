@@ -2,7 +2,7 @@
 "use strict";
 var APP = document.getElementById("app");
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
-function IMG(n, k){ return "img/" + (k || "full") + "/" + n + ".webp"; }
+function IMG(n, k){ return n.indexOf("/") > -1 ? "img/" + n + ".webp" : "img/" + (k || "full") + "/" + n + ".webp"; }
 var cur = "start", sub = "", folded = false;
 try{ folded = localStorage.getItem("vae_fold") === "1"; }catch(e){}
 var BOOK = 4; /* PDF-Seite = Buchseite + 4 */
@@ -10,7 +10,7 @@ function inBook(p, b){ return "BV.open('" + (b || "vae_core") + "'," + p + ")"; 
 
 /* ---------- Bereiche ---------- */
 var AREAS = [
- {id:"charaktere", t:"Charaktere", s:"10 Archetypen", img:"charaktere_archetyp_priester", pos:"50% 18%"},
+ {id:"charaktere", t:"Charaktere", s:VAE_ARCH.length + " Archetypen", img:"charaktere_archetyp_priester", pos:"50% 18%"},
  {id:"regeln", t:"Regeln", s:"Proben, Talente, Konflikt", img:"charaktere_kapitelbild_fenster", pos:"50% 20%"},
  {id:"gesellschaft", t:"Die Gesellschaft", s:"Hauptquartier, Kampagne", img:"mysterium_dame_mit_laterne", pos:"50% 25%"},
  {id:"norden", t:"Mythischer Norden", s:"Upsala, Land, Karten", img:"norden_titel_reiter", pos:"50% 55%"},
@@ -134,7 +134,7 @@ function viewCharaktere(){
   if(a) return tabsBar(CTABS, "Archetypen") + main(archSide(), a.id, archDetail(a));
   var tab = {persoenlichkeit:"Persönlichkeit", eigenschaften:"Eigenschaften", fertigkeiten:"Fertigkeiten", talente:"Talente", ausruestung:"Ausrüstung und Ressourcen"}[sub];
   if(tab) return tabsBar(CTABS, tab) + '<div class="page">' + charTab(sub) + '</div>';
-  var cards = VAE_ARCH.map(function(a){ return '<div class="box card" onclick="go(\'charaktere/' + a.id + '\')"><div class="im"><img src="' + IMG(a.img, "thumb") + '" alt="' + esc(a.name) + '"></div><div class="tx"><h3>' + esc(a.name) + '</h3><small>' + esc(a.attr) + ' · ' + esc(a.skill) + '</small></div><i></i><b></b></div>'; }).join("");
+  var cards = VAE_ARCH.map(function(a){ return '<div class="box card" onclick="go(\'charaktere/' + a.id + '\')"><div class="im"><img src="' + IMG(a.img, "thumb") + '" alt="' + esc(a.name) + '"></div><div class="tx"><h3' + (a.name.length > 15 ? ' style="font-size:.82em;letter-spacing:.02em"' : '') + '>' + esc(a.name) + '</h3><small>' + esc(a.attr) + ' · ' + esc(a.skillK || a.skill) + '</small>' + (a.quelle ? '<small class="arch-q">' + esc(a.quelle) + '</small>' : '') + '</div><i></i><b></b></div>'; }).join("");
   return tabsBar(CTABS, "Archetypen") + '<div class="page"><div class="cards a">' + cards + '</div></div>';
 }
 function charTab(k){
@@ -153,7 +153,7 @@ function lab(t){ return '<span class="hd" style="font-size:14px;letter-spacing:.
 function archDetail(a){
   var info = box(lab("Hauptattribut") + esc(a.attr) + ' &nbsp;·&nbsp; ' + lab("Hauptfertigkeit") + esc(a.skill) + '<br>' + lab("Talente") + esc(a.talente.join(", ")) + ' &nbsp;·&nbsp; ' + lab("Ressourcen") + esc(a.res) + '<br>' + lab("Ausrüstung") + esc(a.ausr.join(", ")), "margin-top:16px;font-size:16px;line-height:1.55");
   return '<div class="dt"><div class="pic"><img src="' + IMG(a.img) + '" alt="' + esc(a.name) + '"></div><div class="tx">' +
-   '<div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(a.name) + '</h1>' + bookLink(a.p) + '</div>' +
+   '<div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(a.name) + '</h1>' + bookLink(a.p, a.buch) + '</div>' + (a.quelle ? '<div class="arch-q">' + esc(a.quelle) + '</div>' : '') +
    '<p class="quote" style="margin-top:10px">' + esc(a.quote) + '</p>' + info +
    '<p style="margin-top:14px"><button class="btn fill" onclick="go(\'erstellung/' + a.id + '\')">Mit diesem Archetyp erstellen</button></p></div>' +
    '<div class="gx"><div><h3>Name</h3><ul><li>Vorname: ' + esc(a.vor.join(", ")) + '</li><li>Nachname: ' + esc(a.nach.join(", ")) + '</li></ul></div><div><h3>Motivation</h3>' + list(a.mot) + '</div><div><h3>Trauma</h3>' + list(a.trauma) + '</div><div><h3>Dunkles Geheimnis</h3>' + list(a.geheim) + '</div><div><h3>Beziehungen</h3>' + list(a.beziehung) + '</div></div></div>';
@@ -276,6 +276,7 @@ document.addEventListener("click", function(e){ if(!e.target.closest || !e.targe
 
 /* ---------- Charaktererstellung ---------- */
 var CK = "vae_chars_v1", CH = null;
+function archMain(a, k){ if(a.skill === k) return true; if(!a.skillAttr) return false; return SK.some(function(x){ return x.n === k && x.a === a.skillAttr; }); }
 var ATTRS = ["Physis", "Präzision", "Logik", "Empathie"], SK = [];
 VAE_ATTR.forEach(function(a){ a.s.forEach(function(s){ SK.push({n:s[0], a:a.n}); }); });
 var MEM = ["Getrocknete rote Rose","Foto einer nahestehenden Person","Siegelring mit Geheimfach","Der Stock deines Vaters","Hut mit Geheimfach","Buch in fremder Sprache","Flachmann mit Gravur","Alter Liebesbrief","Eine zerzauste Katze","Ein Affenschädel","Blutbefleckter Schuldschein","Goldschmuck deiner Mutter","Silberkreuz an einer Kette","Schöne Fiedel aus Familienbesitz","Tagebuch (deins oder das eines anderen)","Zeitung von einem bedeutsamen Datum","Zerschlissene Puppe","Zahme Taube","Zerlesener Roman mit Widmung","Pläne für eine Familiengruft","Karte mit Randnotizen","Seltsames Tier im Einmachglas","Spieluhr aus der Kindheit","Sonnenstein (geschliffenes Mineral)","Fläschchen mit Parfüm, das an jemanden erinnert","Gesangbuch aus Familienbesitz","Taschenuhr mit Foto","Ein ungezeichnetes Testament","Goldene Schatulle aus fernem Land","Noten eines vergessenen Meisters","Puderdose mit Schlaftabletten","Kunstvoll verzierte Pfeife","Hasenpfote oder anderer Glücksbringer","Spritze mit Nadel im Etui","Abgenutzte Knochenwürfel","Ein weitergegebenes Manuskript"];
@@ -303,7 +304,7 @@ function viewErstellung(){
   function pick(field, arr, label){ var info = field === "talent" ? talInfo : null; var o = arr.map(function(x){ return {v:x, t:x, i:info ? info(x) : ""}; }); return '<div class="box"><h3>' + label + ' ' + ib("step:" + field) + '</h3>' + dd("f_" + field, o, c[field], function(v){ setF(field, v, 1); }, "— wählen —") + '<input class="gloss-search" style="margin-top:8px" placeholder="…oder eigenes" value="' + (arr.indexOf(c[field]) < 0 ? esc(c[field]) : "") + '" oninput="setF(\'' + field + '\',this.value,1)"></div>'; }
   function srow(l, sm, n, mx, fnA, hint){ return '<div class="srow"><span class="sl">' + l + (sm ? ' <small class="pg">' + sm + '</small>' : '') + ' <small class="pg">· ' + hint + '</small></span><button class="btn alt" onclick="' + fnA + ',-1)">−</button><span class="hand sv">' + n + '</span><button class="btn alt" onclick="' + fnA + ',1)">+</button></div>'; }
   var attrH = ATTRS.map(function(k){ var mx = a.attr === k ? 5 : 4; return srow('<b>' + k + '</b>', "", c.attr[k], mx, "adj('" + k + "'", "2–" + mx + (a.attr === k ? " · Haupt" : "")); }).join("");
-  var skH = SK.map(function(sk){ var v = c.skills[sk.n] || 0, mx = a.skill === sk.n ? 3 : 2; return srow(sk.n, sk.a, v, mx, "adjS('" + sk.n + "'", "max " + mx + (a.skill === sk.n ? " · Haupt" : "")); }).join("");
+  var skH = SK.map(function(sk){ var v = c.skills[sk.n] || 0, hf = archMain(a, sk.n), mx = hf ? 3 : 2; return srow(sk.n, sk.a, v, mx, "adjS('" + sk.n + "'", "max " + mx + (hf ? " · Haupt" : "")); }).join("");
   var arch = dd("f_arch", VAE_ARCH.map(function(x){ return {v:x.id, t:x.name, s:"Haupt: " + x.attr + " · " + x.skill, i:archInfo(x)}; }), c.arch, function(v){ setF("arch", v); render(); });
   var alt = dd("f_alter", VAE_ALTER.map(function(x, i){ return {v:i, t:x[0] + " (" + x[1] + ")", s:x[2] + " Attributpunkte · " + x[3] + " Fertigkeitspunkte", i:"<p><b>" + x[0] + "</b> · " + x[1] + " Jahre</p><p>Attributpunkte: <b>" + x[2] + "</b><br>Fertigkeitspunkte: <b>" + x[3] + "</b></p>"}; }), c.alter, function(v){ setF("alter", +v); render(); });
   var body = '<div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>Charaktererstellung</h1>' + bookLink(17) + '</div>' +
@@ -317,7 +318,7 @@ function viewErstellung(){
 function setSpielt(on){ CH.spielt = on; var all = loadChars(), f = all.filter(function(x){ return x.id === CH.id; })[0]; if(f){ f.spielt = on; saveChars(all); } if(window.grpAfter) grpAfter(); }
 function setF(k, v, quiet){ CH[k] = v; if(k === "arch"){ var a = VAE_ARCH.filter(function(x){ return x.id === v; })[0]; CH.skills = {}; CH.attr = {Physis:2, Präzision:2, Logik:2, Empathie:2}; CH.talent = CH.mot = CH.trauma = CH.geheim = CH.bez = ""; CH.ausr = []; CH.res = parseInt(a.res, 10) || 3; } if(!quiet && k !== "arch" && k !== "alter"){ } }
 function adj(k, d){ var a = VAE_ARCH.filter(function(x){ return x.id === CH.arch; })[0], mx = a.attr === k ? 5 : 4, n = CH.attr[k] + d; if(n < 2 || n > mx) return; if(d > 0 && pts(CH).ap <= 0) return; CH.attr[k] = n; render(); }
-function adjS(k, d){ var a = VAE_ARCH.filter(function(x){ return x.id === CH.arch; })[0], mx = a.skill === k ? 3 : 2, n = (CH.skills[k] || 0) + d; if(n < 0 || n > mx) return; if(d > 0 && pts(CH).sp <= 0) return; CH.skills[k] = n; render(); }
+function adjS(k, d){ var a = VAE_ARCH.filter(function(x){ return x.id === CH.arch; })[0], mx = archMain(a, k) ? 3 : 2, n = (CH.skills[k] || 0) + d; if(n < 0 || n > mx) return; if(d > 0 && pts(CH).sp <= 0) return; CH.skills[k] = n; render(); }
 function adjR(d){ CH.res = Math.max(1, Math.min(8, CH.res + d)); render(); }
 function togA(x, on){ var i = CH.ausr.indexOf(x); if(on && i < 0) CH.ausr.push(x); if(!on && i > -1) CH.ausr.splice(i, 1); }
 function rollMem(){ CH.andenken = MEM[Math.floor(Math.random() * MEM.length)]; document.getElementById("memOut").textContent = CH.andenken; }

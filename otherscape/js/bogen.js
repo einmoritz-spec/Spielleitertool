@@ -63,7 +63,14 @@ var BURN_Y = [66.8, 105.6, 134.4, 163.3, 192, 221, 249.8, 278.6];
 function hexLabels(c){
   var e = essenz(c), s = {}; c.themes.forEach(function(t){ var y = typOf(t); if(y) s[y] = (s[y] || 0) + 1; });
   var L = [["Real", "Real", 110.2, 231.1, 133.2], ["Spiritualist:in", "Spiritualist:in", 149.4, 253.1, 196.6], ["Cyborg", "Cyborg", 39.6, 254.5, 70.2], ["Nexus", "Nexus", 110.5, 276.8, 136.8], ["Singularität", "Singularität", 26.6, 298.4, 70.2], ["Avatar / Medium", "Avatar", 149.4, 298.4, 178.2], ["Avatar / Medium", "Medium", 149.4, 307.8, 181.8], ["Transhumane:r", "Transhumane:r", 110.2, 321.5, 158]];
-  var h = L.map(function(l){ return txt(l[2], l[3], l[4] - l[2], 6.9, "hx" + (e === l[0] ? " on" : ""), l[1]); }).join("");
+  var CX = 110.5, CY = 279.4, R = 44.2, W = 38.3, V = {T: [0, -R], UR: [W, -R / 2], LR: [W, R / 2], B: [0, R], LL: [-W, R / 2], UL: [-W, -R / 2]};
+  var SEG = {Self: ["UL", "T", "UR"], Mythos: ["UR", "LR", "B"], Noise: ["B", "LL", "UL"]}, COL = {Self: "#e0457a", Mythos: "#8f4fe0", Noise: "#1fb8e6"};
+  var sv = Object.keys(SEG).map(function(k){
+    var n = Math.min(s[k] || 0, 4); if(!n) return "";
+    var f = [0, .22, .48, .76, 1][n], pts = [[0, 0]].concat(SEG[k].map(function(q){ return V[q]; })).map(function(q){ return (q[0] * f).toFixed(2) + "," + (q[1] * f).toFixed(2); }).join(" ");
+    return '<polygon points="' + pts + '" fill="' + COL[k] + '" fill-opacity=".62" stroke="' + COL[k] + '" stroke-width=".7" stroke-linejoin="round"/>';
+  }).join("");
+  var h = '<svg class="essv" ' + st(CX - W - 2, CY - R - 2, 2 * W + 4, 2 * R + 4) + ' viewBox="' + (-W - 2) + ' ' + (-R - 2) + ' ' + (2 * W + 4) + ' ' + (2 * R + 4) + '" aria-hidden="true"><g>' + sv + '</g></svg>' + L.map(function(l){ return txt(l[2], l[3], l[4] - l[2], 6.9, "hx" + (e === l[0] ? " on" : ""), l[1]); }).join("");
   h += txt(99, 253.8, 22, 10, "reg self" + (s.Self ? " on" : ""), "Selbst") + txt(117.5, 285.7, 24, 10, "reg myth" + (s.Mythos ? " on" : ""), "Mythos") + txt(81, 285.7, 20, 10, "reg noise" + (s.Noise ? " on" : ""), "Noise");
   return h;
 }

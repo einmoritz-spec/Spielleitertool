@@ -33,7 +33,7 @@ body{background:#d9dde2;min-height:100vh;color:var(--text)}
 .t.hx{font:600 calc(var(--pt)*5.7)/1 "OS Plex",sans-serif;color:#23271f;padding:calc(var(--pt)*.4) 0 0 calc(var(--pt)*2.6);text-transform:uppercase;letter-spacing:.01em}
 .t.hx.on{color:#3f7300;font-weight:700}
 .t.reg{justify-content:center;font:400 calc(var(--pt)*8.6)/1 "OB Bebas",sans-serif;text-transform:uppercase;opacity:.65;letter-spacing:.02em}
-.t.reg.on{opacity:1;font-size:calc(var(--pt)*9.6)}
+.t.reg.on{opacity:1;font-size:calc(var(--pt)*9.6);color:#fff!important;text-shadow:0 0 calc(var(--pt)*1.2) rgba(0,0,0,.55)}
 .t.reg.self{color:#c3567d}.t.reg.myth{color:#965fd0}.t.reg.noise{color:#2f97bd}
 
 /* Eingaben (Handschrift-Ebene) */
@@ -156,3 +156,8 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .ob-mfuss{display:flex;justify-content:flex-end;margin-top:8px}
 .ob-mfuss a{color:#6a7586;cursor:pointer;font-size:14px}
 .ob-mfuss a:hover{color:#1c2330}
+
+/* Essenz-Sechseck: gefüllte Sektoren je Themenart (1–4 Themen = Ebene 1–4) */
+.essv{pointer-events:none;overflow:visible}
+.essv g{filter:drop-shadow(0 0 calc(var(--pt)*1.4) rgba(255,255,255,.7))}
+.essv polygon{transition:fill-opacity .25s}

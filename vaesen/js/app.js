@@ -206,7 +206,7 @@ function viewTabbed(id){
     var all = []; k.groups.forEach(function(g){ all = all.concat(g.secs); });
     secs = all; selId = p[0];
     bar = (id === "konflikt" || id === "talente") ? tabsBar(regTabs(), k.titel) : "";
-    side = k.groups.map(function(g){ return {h:g.h, i:g.secs.map(function(x){ return {id:x.id, go:base + "/" + x.id, t:x.t}; })}; });
+    side = k.groups.map(function(g){ return {i:g.secs.map(function(x){ return {id:x.id, go:base + "/" + x.id, t:x.t}; })}; });
   }
   var sec = secs.filter(function(x){ return x.id === selId; })[0] || secs[0];
   var cards = (id === "norden" || id === "gesellschaft");

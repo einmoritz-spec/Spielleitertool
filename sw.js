@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1386sq";
+const VERSION = "v1387sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -3972,6 +3972,7 @@ const FILES = [
   "shared/info/discworld.js",
   "pico/sys.js",
   "pico/js/bogen.js",
+  "pico/js/bogenwerk.js",
   "pico/bogen.html",
   "pico/js/solo.js",
   "pico/js/data/nach-anhang.js",

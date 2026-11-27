@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1322sq";
+const VERSION = "v1323sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4427,6 +4427,7 @@ const FILES = [
   "vaesen/js/data/som-winter.js",
   "vaesen/js/data/som-silber.js",
   "vaesen/js/data/som-geheimnis.js",
+  "vaesen/js/data/som-nachtsau.js",
   "vaesen/js/data/galerie-wicked.js",
   "vaesen/js/data/galerie-som.js",
   "vaesen/img/som/feuer_alfred_haerenstam.webp",
@@ -4458,6 +4459,22 @@ const FILES = [
   "vaesen/img/som/ho_4a.webp",
   "vaesen/img/som/ho_4b.webp",
   "vaesen/img/som/ho_4c.webp",
+  "vaesen/img/wicked/nacht_algot.webp",
+  "vaesen/img/wicked/nacht_eroeffnung.webp",
+  "vaesen/img/wicked/nacht_ho_3a.webp",
+  "vaesen/img/wicked/nacht_ho_3b.webp",
+  "vaesen/img/wicked/nacht_ho_3c.webp",
+  "vaesen/img/wicked/nacht_ho_3d.webp",
+  "vaesen/img/wicked/nacht_ho_3e.webp",
+  "vaesen/img/wicked/nacht_ho_3f.webp",
+  "vaesen/img/wicked/nacht_karte_hill.webp",
+  "vaesen/img/wicked/nacht_karte_hoehle.webp",
+  "vaesen/img/wicked/nacht_karte_hotel.webp",
+  "vaesen/img/wicked/nacht_karte_leuchtturm.webp",
+  "vaesen/img/wicked/nacht_katarina.webp",
+  "vaesen/img/wicked/nacht_lisa.webp",
+  "vaesen/img/wicked/nacht_magnus.webp",
+  "vaesen/img/wicked/nacht_schwestern.webp",
   "vaesen/img/wicked/silber_abela.webp",
   "vaesen/img/wicked/silber_brueder.webp",
   "vaesen/img/wicked/silber_eroeffnung.webp",

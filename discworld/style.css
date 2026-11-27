@@ -314,7 +314,7 @@ textarea.nt{width:100%;min-height:260px;padding:12px 14px;border:1px solid #c9ae
 /* Gruppenakte und Charakterbögen */
 .bogenwrap{max-width:1400px;margin:0 auto;padding:18px 24px 60px}
 .bogenleiste{display:flex;justify-content:flex-end;gap:10px;margin-bottom:14px}
-.bogenleiste button{font:400 17px FellSC,serif;color:var(--blut);background:rgba(255,251,242,.8);border:1px solid #c9ae80;border-radius:4px;padding:7px 16px;cursor:pointer}
+.bogenleiste button,.bogenleiste .bogenbtn{display:inline-block;font:400 17px FellSC,serif;color:var(--blut);background:rgba(255,251,242,.8);border:1px solid #c9ae80;border-radius:4px;padding:7px 16px;cursor:pointer}
 .bogenleiste button.haupt{background:var(--blut);color:#f6ead3;border-color:var(--blut)}
 .boegen{display:grid;grid-template-columns:repeat(auto-fit,minmax(560px,1fr));gap:26px}
 .dwb{position:relative;container-type:inline-size;aspect-ratio:612/792;box-shadow:2px 4px 14px rgba(40,20,5,.35)}
@@ -344,3 +344,4 @@ body.mitunter .unter{border-top:0}
 .kh>a.pen:hover{opacity:1;color:var(--blut)}
 .kh>a.pen.has{color:var(--lila);opacity:1}
 .kh>a.pen svg{width:19px;height:19px}
+.dw-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#3a1a14;color:#f6ead3;padding:10px 20px;border-radius:6px;font:400 17px FellSC,serif;z-index:99}

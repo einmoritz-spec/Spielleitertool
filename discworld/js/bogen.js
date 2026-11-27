@@ -53,9 +53,55 @@
   window.dwLeeren = function(){ if(!confirm("Alle Einträge auf den Bögen löschen?")) return; D = {}; sichern(); render(); };
 
   window.viewBogen = function(B, gi){
-    return '<div class="bogenwrap"><div class="bogenleiste"><button onclick="dwLeeren()">Leeren</button><button class="haupt" onclick="dwPdf(this)">Als PDF</button></div><div class="boegen">' +
+    return '<div class="bogenwrap"><div class="bogenleiste"><button onclick="dwLeeren()">Leeren</button><button onclick="dwLink(this)" title="Link mit allen Einträgen (ohne Bilder) kopieren">Link teilen</button><button onclick="dwJsonOut()">Als Datei sichern</button><label class="bogenbtn">Datei laden<input type="file" accept=".json,application/json" hidden onchange="dwJsonIn(this)"></label><button class="haupt" onclick="dwPdf(this)">Als PDF</button></div><div class="boegen">' +
       SEITEN.map(function(S){ return '<div class="dwb"><img class="bg" src="' + S.bg + '" alt="">' + S.f.map(feld).join("") + "</div>"; }).join("") + "</div></div>";
   };
+
+
+  /* ---------- Teilen (Link) und Datei (JSON) ---------- */
+  function b64u(buf){ var s = "", a = new Uint8Array(buf); for(var i = 0; i < a.length; i++) s += String.fromCharCode(a[i]); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+  function ub64(t){ t = t.replace(/-/g, "+").replace(/_/g, "/"); while(t.length % 4) t += "="; var b = atob(t), a = new Uint8Array(b.length); for(var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
+  function ohneBilder(){ var o = {}; Object.keys(D).forEach(function(k){ if(!/\.bild$/.test(k) && D[k]) o[k] = D[k]; }); return o; }
+  function pack(){
+    var txt = JSON.stringify(ohneBilder());
+    if(!window.CompressionStream) return Promise.resolve("k" + b64u(new TextEncoder().encode(txt)));
+    return new Response(new Blob([txt]).stream().pipeThrough(new CompressionStream("deflate-raw"))).arrayBuffer().then(function(b){ return "d" + b64u(b); });
+  }
+  function entpack(t){
+    var a = ub64(t.slice(1));
+    var p = t[0] === "k" ? Promise.resolve(new TextDecoder().decode(a)) : new Response(new Blob([a]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).text();
+    return p.then(JSON.parse);
+  }
+  function hinweis(t){ var d = document.createElement("div"); d.className = "dw-toast"; d.textContent = t; document.body.appendChild(d); setTimeout(function(){ d.remove(); }, 2600); }
+  window.dwLink = function(){
+    pack().then(function(c){
+      var u = location.href.split("#")[0] + "#bogen=" + c;
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(function(){ hinweis("Link kopiert – Bilder sind nicht enthalten."); }, function(){ prompt("Link kopieren:", u); });
+      else prompt("Link kopieren:", u);
+    });
+  };
+  window.dwJsonOut = function(){
+    var n = (D["g.name"] || "Gruppenakte").trim() || "Gruppenakte";
+    var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify({spiel:"discworld-boegen", daten:D}, null, 1)], {type:"application/json"}));
+    a.download = "Discworld – " + n + ".json"; a.click();
+  };
+  window.dwJsonIn = function(inp){
+    var f = inp.files && inp.files[0]; if(!f) return;
+    var r = new FileReader(); r.onload = function(){
+      try{ var o = JSON.parse(r.result); var d = o && o.daten ? o.daten : o; if(!d || typeof d !== "object") throw 0;
+        if(!confirm("Aktuelle Einträge durch die Datei ersetzen?")) return;
+        D = d; sichern(); render(); hinweis("Datei geladen.");
+      }catch(e){ alert("Diese Datei ist kein Discworld-Bogen."); }
+    }; r.readAsText(f); inp.value = "";
+  };
+  (function(){
+    var m = /^#bogen=([dk][A-Za-z0-9_-]+)$/.exec(location.hash); if(!m) return;
+    entpack(m[1]).then(function(d){
+      history.replaceState(null, "", location.href.split("#")[0] + "#k/charaktere/5");
+      if(!Object.keys(D).length || confirm("Geteilten Bogen laden? Deine bisherigen Einträge werden ersetzt.")){ var bilder = {}; Object.keys(D).forEach(function(k){ if(/\.bild$/.test(k)) bilder[k] = D[k]; }); D = Object.assign(bilder, d); sichern(); }
+      render();
+    }, function(){});
+  })();
 
   /* ---------- PDF ---------- */
   var ROOT = "../";

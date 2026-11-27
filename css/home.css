@@ -52,3 +52,12 @@ body.lm-home .hm-hero:before{content:"";position:absolute;left:0;right:0;top:0;h
   body.lm-home .topbar:hover .brand{opacity:1}
 }
 @media(max-width:640px){body.lm-home .hm-hero{height:calc(clamp(220px,58vw,320px) + 54px)}}
+/* Startseite: Logo höher, Kacheln ragen ins Bild, Knöpfe oben rechts besser sichtbar */
+body.lm-home .hm-logo{bottom:clamp(120px,17vw,210px)}
+body.lm-home .hm-grid{margin-top:-120px}
+body.lm-home .topbar .rest-btn,body.lm-home .topbar .tb-burger{color:#fff4dc!important;background:rgba(43,29,18,.62)!important;border:1px solid rgba(255,244,220,.25)!important;border-radius:999px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+body.lm-home .topbar .rest-btn:hover,body.lm-home .topbar .tb-burger:hover{background:rgba(122,35,28,.85)!important}
+@media(max-width:640px){body.lm-home .hm-grid{margin-top:-60px}body.lm-home .hm-logo{bottom:clamp(90px,26vw,140px)}}
+body.lm-home .topbar .tm-info,body.lm-home .topbar .tm-book{color:#fff4dc!important;background:rgba(43,29,18,.62)!important;border:1px solid rgba(255,244,220,.25)!important;border-radius:999px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+body.lm-home .topbar .tm-info:hover,body.lm-home .topbar .tm-book:hover{background:rgba(122,35,28,.85)!important}
+body.lm-home .topbar .tm-info svg,body.lm-home .topbar .tm-book svg{stroke:currentColor}

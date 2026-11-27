@@ -166,7 +166,8 @@ function msViewNs(){ var n = MS.ns; return msSec("ns", n.t, msTtl(n.t, n.p) + ms
 
 /* ---------- Rahmen ---------- */
 function msHead(id){ var M = VAE_MYS[id]; return '<span class="mt" onclick="go(\'start\')"><b>' + esc(M.titel) + '</b><small>Seasons of Mystery · ' + esc(M.zeit) + '</small></span>'; }
-function msSide(){ return '<nav class="side ms2s">' + MS_SECS.map(function(s, i){ return '<a data-s="' + s[0] + '" onclick="msJump(\'' + s[0] + '\')"><span>' + esc(s[1]) + '</span></a>'; }).join("") + '</nav>'; }
+function msSide(){ if(MS_SECS.length < 2) return ''; return '<nav class="side ms2s">' + MS_SECS.map(function(s, i){ return '<a data-s="' + s[0] + '" onclick="msJump(\'' + s[0] + '\')"><span>' + esc(s[1]) + '</span></a>'; }).join("") + '</nav>'; }
+function msFoldPos(){ var sd = document.querySelector(".ms2s"), fb = document.querySelector(".fold-b"); if(sd && fb && !fb.classList.contains("f")) fb.style.left = (sd.getBoundingClientRect().width - 18) + "px"; }
 function msJump(id){ var el = document.getElementById("ms-" + id); if(el) window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 112, behavior: "smooth"}); }
 function msSpy(){
   var best = null, y = 130; MS_SECS.forEach(function(s){ var el = document.getElementById("ms-" + s[0]); if(el && el.getBoundingClientRect().top <= y) best = s[0]; }); if(!best && MS_SECS[0]) best = MS_SECS[0][0];
@@ -184,14 +185,14 @@ function viewMys(){
   MS_TAB = tab; MS_SECS = [];
   switch(tab){ case "an": v = msViewAn(); break; case "orte": v = msViewOrte(); break; case "kf": v = msViewKf(); break; case "ns": v = msViewNs(); break; default: v = msViewHg(); }
   var st = msLoad(); if(st.last !== tab){ st.last = tab; msSave(); }
-  return msTabsHtml() + '<div class="main' + (folded ? ' fold' : '') + '">' + msSide() + '<div class="content ms2c">' + v + '</div></div><button class="fold-b' + (folded ? ' f' : '') + '" onclick="toggleFold()" title="Seitenleiste ein-/ausblenden (b)" aria-label="Seitenleiste">' + (folded ? '›' : '‹') + '</button><aside class="ms-dr' + (MS_DR ? ' on' : '') + '" id="msDr">' + msDrawHtml() + '</aside>';
+  return msTabsHtml() + '<div class="main' + (folded ? ' fold' : '') + '">' + msSide() + '<div class="content ms2c">' + v + '</div></div>' + (MS_SECS.length < 2 ? '' : '<button class="fold-b' + (folded ? ' f' : '') + '" onclick="toggleFold()" title="Seitenleiste ein-/ausblenden (b)" aria-label="Seitenleiste">' + (folded ? '›' : '‹') + '</button>') + '<aside class="ms-dr' + (MS_DR ? ' on' : '') + '" id="msDr">' + msDrawHtml() + '</aside>';
 }
 function mysAfter(){
   if(cur === "som") APP.dataset.pgbook = "vae_seasons"; else delete APP.dataset.pgbook;
   document.body.classList.toggle("msdr", cur === "som" && !!MS_DR);
   if(cur !== "som") return; tzPop(); tzShowClose();
   var p = sub.split("/"); if(MS_TAB === "orte" && p[1] === "orte" && p[2]) setTimeout(function(){ msJump("o-" + p[2]); }, 30);
-  msCounts(); msSpy();
+  msFoldPos(); msCounts(); msSpy();
   var d = document.getElementById("msDr"); if(d && MS_DR && MS_DR.a){ var el = document.getElementById("dr-" + MS_DR.a); if(el) el.scrollIntoView({block: "nearest"}); }
 }
 window.addEventListener("scroll", function(){ if(cur === "som") msSpy(); }, {passive: true});

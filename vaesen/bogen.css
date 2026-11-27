@@ -40,7 +40,13 @@
  .bg-i:focus,.bg-t:focus{background:transparent!important}
 }
 .bogen-wide{position:relative}
-.bgw-p{position:absolute;overflow:hidden;border-radius:4px;box-shadow:0 2px 14px rgba(60,40,20,.28),inset 0 0 0 1.5px #5a4630}
-.bgw-p .bogen{position:absolute;box-shadow:none}
 .bg-pdfhost{position:fixed;left:-2000px;top:0;width:765px;height:988px}
 .bg-c b{transition:background .1s}.bg-c.bg-an b{background:#3d2a17}
+.bgw-p{position:absolute;top:0;background:#f7f6f4;box-shadow:0 3px 16px rgba(60,40,20,.22);border-radius:2px}
+.bgw-clip{position:absolute;overflow:hidden}
+.bgw-p .bogen{position:absolute;box-shadow:none}
+.bgw-f1,.bgw-f2{position:absolute;pointer-events:none;z-index:2}
+.bgw-f1{inset:2px;border:1.2px solid #3d2a17}
+.bgw-f2{inset:8.5px;border:2.2px solid #3d2a17;border-radius:1px}
+.bgw-rose{position:absolute;width:42px;height:42px;z-index:3;pointer-events:none}
+.bgw-rose.tl{left:2px;top:2px}.bgw-rose.tr{right:2px;top:2px}.bgw-rose.bl{left:2px;bottom:2px}.bgw-rose.br{right:2px;bottom:2px}

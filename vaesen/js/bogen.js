@@ -89,16 +89,29 @@ function bogenHTML(c, ro, base){
   return h;
 }
 /* Ansichten: hochkant (wie das Original, auch für Druck/PDF) oder breit (vier Teile nebeneinander) */
-var BG_REG = [[26, 26, 472, 461], [26, 488, 472, 474], [500, 26, 239, 486], [500, 510, 239, 452]], BG_GAP = 18, BG_W = 472 * 2 + 239 * 2 + BG_GAP * 3, BG_H = 486;
+/* Breite Ansicht: vier Teile als eigene Karten im Stil des Bogens (Rahmen + Eckrosette), gleich hoch */
+var BG_PAD = 18, BG_GAP = 16;
+/* Ausschnitt [x, y, w, h] im Originalbogen, Innenabstand [oben, rechts, unten, links], Rosette, senkrechte Ausrichtung */
+var BG_REG = [
+ {r:[14, 14, 489, 477], p:[0, BG_PAD, BG_PAD, 0], rose:"tl", v:"top", img:"a"},
+ {r:[14, 484, 489, 490], p:[BG_PAD, BG_PAD, 0, 0], rose:"bl", v:"bottom", img:"b"},
+ {r:[493, 14, 258, 499], p:[0, 0, BG_PAD, BG_PAD], rose:"tr", v:"top", img:"c"},
+ {r:[493, 510, 258, 464], p:[BG_PAD, 0, 0, BG_PAD], rose:"br", v:"bottom", img:"d"}
+];
+var BG_H = Math.max.apply(null, BG_REG.map(function(g){ return g.r[3] + g.p[0] + g.p[2]; }));
+var BG_W = BG_REG.reduce(function(a, g){ return a + g.r[2] + g.p[1] + g.p[3]; }, 0) + BG_GAP * (BG_REG.length - 1);
 var BG_STATE = null;
-function bgRegion(x, y){ for(var i = 0; i < BG_REG.length; i++){ var r = BG_REG[i]; if(x >= r[0] - 2 && x < r[0] + r[2] && y >= r[1] - 2 && y < r[1] + r[3]) return i; } return 0; }
+function bgRegion(x, y){ return x < 497 ? (y < 487.5 ? 0 : 1) : (y < 511 ? 2 : 3); }
 function bgPortrait(c, ro, base){ return '<div class="bogen' + (ro ? " ro" : "") + '">' + bogenHTML(c, ro, base).split("\u0001").join("") + '</div>'; }
 function bgWide(c, ro, base){
   var parts = bogenHTML(c, ro, base).split("\u0001").filter(Boolean), G = [[], [], [], []], x = 0, out = "";
   parts.forEach(function(p){ var m = p.match(/left:([\d.]+)px;top:([\d.]+)px/); G[m ? bgRegion(+m[1], +m[2]) : 0].push(p); });
-  BG_REG.forEach(function(r, i){
-    out += '<div class="bgw-p" style="left:' + x + 'px;top:0;width:' + r[2] + 'px;height:' + r[3] + 'px"><div class="bogen' + (ro ? " ro" : "") + '" style="left:' + (-r[0]) + 'px;top:' + (-r[1]) + 'px">' + G[i].join("") + '</div></div>';
-    x += r[2] + BG_GAP;
+  BG_REG.forEach(function(g, i){
+    var r = g.r, p = g.p, w = r[2] + p[1] + p[3], extra = BG_H - (r[3] + p[0] + p[2]), top = p[0] + (g.v === "bottom" ? extra : 0);
+    out += '<div class="bgw-p" style="left:' + x + 'px;width:' + w + 'px;height:' + BG_H + 'px">' +
+      '<div class="bgw-clip" style="left:' + p[3] + 'px;top:' + top + 'px;width:' + r[2] + 'px;height:' + r[3] + 'px"><div class="bogen' + (ro ? " ro" : "") + '" style="left:' + (-r[0]) + 'px;top:' + (-r[1]) + 'px;background:#f7f6f4 url(' + (base || "") + 'img/bogen_breit_' + g.img + '.webp) ' + r[0] + 'px ' + r[1] + 'px/' + r[2] + 'px ' + r[3] + 'px no-repeat">' + G[i].join("") + '</div></div>' +
+      '<i class="bgw-f1"></i><i class="bgw-f2"></i><img class="bgw-rose ' + g.rose + '" src="' + (base || "") + 'img/bogen_rose.webp" alt=""></div>';
+    x += w + BG_GAP;
   });
   return '<div class="bogen-wide" style="width:' + BG_W + 'px;height:' + BG_H + 'px">' + out + '</div>';
 }

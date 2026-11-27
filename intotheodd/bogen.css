@@ -1,0 +1,34 @@
+/* Charakterbogen Into the Odd: offizieller Bogen (2 Seiten) als Hintergrund, Felder darüber */
+@page{size:A4 landscape;margin:0}
+.os-rp{max-width:1280px}
+.os-rp .bw-bar{max-width:none;margin:0 auto 10px}
+.os-bogen{display:flex;flex-direction:column;gap:22px;align-items:center}
+.os-pg{display:contents}
+.os-seite{container-type:inline-size;position:relative;width:100%;max-width:1200px;aspect-ratio:1239/873;background:#fff center/100% 100% no-repeat;box-shadow:0 2px 16px rgba(0,0,0,.16);color:#1a1a1a;--px:calc(100cqw/1239)}
+.os-seite .f,.os-seite .mk{position:absolute;box-sizing:border-box;margin:0}
+.os-seite .f{background:transparent;border:0;border-radius:0;outline:0;padding:0 calc(var(--px)*4);font:400 calc(var(--px)*var(--fs,30)*var(--sc,1))/1.15 Crimson,serif;color:#1a1a1a;width:auto;display:block;resize:none;text-overflow:clip}
+.os-seite input.f{display:flex;align-items:flex-end;padding-bottom:calc(var(--px)*3)}
+.os-seite .f:focus{background:rgba(226,86,30,.07)}
+.os-seite .f.z{text-align:center;font-family:Anton,sans-serif;letter-spacing:.02em;align-items:center;padding-bottom:0}
+.os-seite .f.name{font-family:Anton,sans-serif;font-weight:400;letter-spacing:.02em}
+.os-seite .f.r{text-align:right}
+.os-seite textarea.ta{line-height:calc(var(--px)*var(--lh));overflow:hidden;padding:0 calc(var(--px)*6);white-space:pre-wrap}
+.os-seite .mk{-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer;border:0}
+.os-seite .mk:before{content:"";position:absolute;inset:0;background:#1a1a1a;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transform:scale(.62);opacity:0;transition:opacity .12s}
+.os-seite .mk:hover:before{opacity:.18}
+.os-seite .mk:checked:before{opacity:1;transform:scale(.7)}
+.os-seite .mk:focus-visible{outline:2px solid #e2561e}
+.os-seite input::placeholder{color:transparent}
+@media(max-width:700px){.os-bogen{gap:12px}}
+@media print{
+  body{background:#fff!important}
+  .topbar,.noprint,.bw-bar,.mm-backdrop,.mm-panel,.sb,.bw-toast,.bw-pop,.bw-info{display:none!important}
+  .sbw,.sbw .rp,.rp.os-rp{display:block!important;max-width:none;padding:0;margin:0;width:auto}
+  .os-bogen{display:block}
+  .os-pg{display:block;height:210mm;overflow:hidden;break-after:page;break-inside:avoid;position:relative}
+  .os-pg:last-child{break-after:auto}
+  .os-seite{width:297mm;max-width:none;height:209.3mm;aspect-ratio:auto;box-shadow:none;margin:0}
+  .os-seite,.os-seite *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .os-seite .f:focus{background:transparent}
+}
+.pdfmode .mk:before{opacity:0!important}

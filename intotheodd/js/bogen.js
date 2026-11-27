@@ -1,14 +1,15 @@
 /* Charakterbogen: im Tool ausfüllen (wird im Browser gespeichert); Symbolleiste mit Zufall, Leeren, Teilen, Datei sichern/laden und ausfüllbarem PDF;
    Startpaket als Auswahlliste (nach Trefferschutz gruppiert, mit Suche und Info). */
 var BG_KEY = "ito_bogen_v1";
-var BG_FELDER = ["name","her","stn","stm","gen","gem","win","wim","hpn","hpm","rue","w0","ws0","w1","ws1","w2","ws2","g","s","k","erf","aus","arc","not"];
+var BG_FELDER = ["name","her","stn","stm","gen","gem","win","wim","hpn","hpm","rue","w0","ws0","w1","ws1","w2","ws2","g","s","k","erf","aus","arc","not","v0","v1","ges","kr","lv0","lv1","lv2","lv3","lv4","lv5"];
 var BG_IC = {
   zufall: '<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/>',
   leeren: '<path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/>',
   teilen: '<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/>',
   sichern: '<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>',
   laden: '<path d="M12 16V5M7 9l5-5 5 5M5 20h14"/>',
-  pdf: '<path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/>'
+  pdf: '<path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/>',
+  paket: '<path d="M6 8h12l1 12H5z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>'
 };
 function bgSym(p){ return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>'; }
 /* mehrere Bögen als Einträge: {l: [{id, o}], cur} */
@@ -45,8 +46,8 @@ function bgChips(){
   }).join("") + '<button type="button" class="bw-plus" data-tip="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen" onclick="bgPlus()">+</button></div>';
 }
 function bgSave(){
-  var o = {}; [].forEach.call(document.querySelectorAll(".sheet [data-f]"), function(e){ o[e.dataset.f] = e.value; });
-  bgStore(o);
+  var o = Object.assign({}, bgLoad()); [].forEach.call(document.querySelectorAll(".os-bogen [data-f]"), function(e){ o[e.dataset.f] = e.type === "checkbox" ? (e.checked ? "1" : "") : e.value; });
+  bgStore(o); bgFit();
 }
 function bgFilled(o){ return BG_FELDER.some(function(k){ return o[k]; }); }
 function bgToast(t){ var d = document.createElement("div"); d.className = "bw-toast"; d.textContent = t; document.body.appendChild(d); setTimeout(function(){ d.remove(); }, 2200); }
@@ -69,7 +70,7 @@ function bgLaden(inp){
   var f = inp.files && inp.files[0]; inp.value = ""; if(!f) return;
   var r = new FileReader(); r.onload = function(){ try{ var d = JSON.parse(r.result); if(d && d.system === "Into the Odd" && bgEinlesen(d.felder)){ render(); bgToast("Bogen geladen"); } else bgToast("Datei passt nicht zu Into the Odd."); }catch(e){ bgToast("Datei ungültig."); } }; r.readAsText(f);
 }
-function bgPdf(b){ bgSave(); FillPDF.make(document.querySelector(".sheet"), {name: "Into the Odd – " + ((bgLoad().name) || "Charakterbogen"), knopf: {}, bg: "#fbfaf6"}); }
+function bgPdf(b){ bgSave(); FillPDF.makeSeiten(document.querySelectorAll(".os-seite"), {name: "Into the Odd – " + ((bgLoad().name) || "Charakterbogen"), knopf: {}, scale: 2.5, bg: "#ffffff"}); }
 function bgClear(){ if(bgFilled(bgLoad()) && !confirm("Alle Felder leeren?")) return; bgStore({}); render(); }
 
 /* ---------- Startpakete ---------- */
@@ -146,6 +147,29 @@ function bgPaketWahl(btn, ev){
     info: function(it){ var p = it.p; return '<h4>Startpaket</h4><p>' + esc(bgTeile(p.t).join(", ")) + '.</p>' + (p.b ? '<p><b>Besonderheit:</b> ' + esc(p.b) + '</p>' : "") + '<p class="s">Trefferschutz: ' + p.hp + ' hp · höchster Wert: ' + esc(p.w) + '</p>'; }});
 }
 
+/* ---------- Bogen im Original-Layout (offizieller Bogen, 2 Seiten) ---------- */
+var BG_W = 1239, BG_H = 873;
+function bgSt(x, y, w, h){ return 'left:' + (x / BG_W * 100).toFixed(3) + '%;top:' + (y / BG_H * 100).toFixed(3) + '%;width:' + (w / BG_W * 100).toFixed(3) + '%;height:' + (h / BG_H * 100).toFixed(3) + '%'; }
+function bgFeld(f, v, x, y, w, h, cls, fs){
+  return '<input class="f ' + (cls || "") + '" data-f="' + f + '" value="' + esc(v[f] || "") + '" style="' + bgSt(x, y, w, h) + (fs ? ';--fs:' + fs : "") + '" oninput="bgSave()" autocomplete="off" spellcheck="false">';
+}
+function bgArea(f, v, x, y, w, h, zl, fs, zh){
+  return '<textarea class="f ta" data-f="' + f + '" style="' + bgSt(x, y, w, h) + ';--fs:' + fs + ';--lh:' + zh + '" oninput="bgSave()" spellcheck="false">' + esc(v[f] || "") + '</textarea>';
+}
+function bgMark(f, v, x, y, w, h, cls, on){
+  return '<input type="checkbox" class="mk ' + cls + '" data-f="' + f + '" ' + (v[f] ? "checked " : "") + 'style="' + bgSt(x, y, w, h) + '" onclick="' + (on || "bgSave()") + '">';
+}
+function bgStufe(i){ for(var k = 0; k < 6; k++){ var c = document.querySelector('[data-f="lv' + k + '"]'); if(c && k !== i) c.checked = false; } bgSave(); }
+/* Schrift nach Länge staffeln: so lange verkleinern, bis nichts mehr überläuft */
+function bgFit(){
+  [].forEach.call(document.querySelectorAll(".os-bogen .f"), function(e){
+    var ta = e.tagName === "TEXTAREA", sz = [1, .86, .74, .64, .55, .46];
+    for(var i = 0; i < sz.length; i++){
+      e.style.setProperty("--sc", sz[i]);
+      if(ta ? e.scrollHeight <= e.clientHeight + 1 : e.scrollWidth <= e.clientWidth + 1) break;
+    }
+  });
+}
 function viewBogen(){
   var s = (location.hash || "").slice(1).split("/")[1] || "";
   if(s.indexOf("teilen~") === 0){
@@ -157,21 +181,35 @@ function viewBogen(){
     setTimeout(function(){ bgToast(msg); }, 50);
     history.replaceState(null, "", "#bogen");
   }
-  var v = bgLoad();
-  function wert(k, t){ return '<div class="bw"><b>' + t + '</b><div class="bwn">' + bgIn(k + "n", v, "big") + '<i>jetzt</i></div><div class="bwm">' + bgIn(k + "m", v, "mid") + '<i>Höchstwert</i></div></div>'; }
-  var waf = [0, 1, 2].map(function(i){ return '<div class="bz">' + bgIn("w" + i, v, "", "Waffe") + bgIn("ws" + i, v, "sm", "Schaden") + '</div>'; }).join("");
+  var v = bgLoad(), F = function(f, x, y, w, h, c, fs){ return bgFeld(f, v, x, y, w, h, c, fs); };
   var ib = function(ic, tip, on){ return '<button class="bwi" data-tip="' + tip + '" aria-label="' + tip + '" onclick="' + on + '">' + bgSym(BG_IC[ic]) + '</button>'; };
-  return '<div class="rp"><div class="bw-bar noprint">' + bgChips() + '<span class="bw-tools">' + ib("zufall", "Zufälligen Charakter erstellen", "bgZufall()") + ib("leeren", "Bogen leeren", "bgClear()") + ib("teilen", "Link teilen", "bgLink()") + ib("sichern", "Als Datei sichern", "bgSichern()") +
-      '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + bgSym(BG_IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="bgLaden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "bgPdf(this)") + '</span></div>' +
-    '<div class="sheet"><header><h2>Charakterbogen</h2><span>Into the Odd</span></header>' +
-    '<div class="brow"><label>Name' + bgIn("name", v) + '</label><label>Herkunft und Startpaket<span class="bw-h">' + bgIn("her", v) + '<button type="button" class="bw-dd noprint" data-tip="Startpaket wählen" aria-label="Startpaket wählen" onclick="bgPaketWahl(this,event)">▾</button></span></label></div>' +
-    '<div class="bws">' + wert("st", "Stärke") + wert("ge", "Geschicklichkeit") + wert("wi", "Willenskraft") + '<div class="bw"><b>Trefferschutz</b><div class="bwn">' + bgIn("hpn", v, "big") + '<i>jetzt</i></div><div class="bwm">' + bgIn("hpm", v, "mid") + '<i>Höchstwert</i></div></div><div class="bw"><b>Rüstung</b><div class="bwn">' + bgIn("rue", v, "big") + '<i>Punkte</i></div></div></div>' +
-    '<div class="bcols"><div><h3>Waffen</h3>' + waf + '<h3>Geld</h3><div class="bz">' + bgIn("g", v, "sm", "Gold") + bgIn("s", v, "sm", "Silber") + bgIn("k", v, "sm", "Kupfer") + '</div><h3>Erfahrung</h3>' + bgIn("erf", v, "", "Expeditionen und Stufe") + '</div>' +
-    '<div><h3>Ausrüstung</h3>' + bgTa("aus", v, "tall") + '</div><div><h3>Arcana</h3>' + bgTa("arc", v, "tall") + '</div></div>' +
-    '<h3>Kritischer Schaden und Notizen</h3>' + bgTa("not", v, "note") + '</div></div>';
+  var bar = '<div class="bw-bar noprint">' + bgChips() + '<span class="bw-tools">' + ib("zufall", "Zufälligen Charakter erstellen", "bgZufall()") + ib("paket", "Startpaket wählen", "bgPaketWahl(this,event)") + ib("leeren", "Bogen leeren", "bgClear()") + ib("teilen", "Link zum Teilen kopieren", "bgLink()") + ib("sichern", "Als Datei sichern", "bgSichern()") +
+    '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + bgSym(BG_IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="bgLaden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "bgPdf(this)") + '</span></div>';
+  /* Seite 1 */
+  var p1 = F("name", 165, 94, 395, 34, "name", 36) +
+    F("stm", 174, 206, 96, 54, "z", 46) + F("stn", 174, 274, 96, 54, "z", 46) +
+    F("gem", 244, 388, 96, 54, "z", 46) + F("gen", 244, 454, 96, 54, "z", 46) +
+    F("wim", 174, 555, 96, 54, "z", 46) + F("win", 174, 623, 96, 54, "z", 46) +
+    F("hpm", 430, 166, 96, 64, "z", 52) + F("hpn", 430, 246, 96, 64, "z", 52) +
+    bgMark("kr", v, 452, 434, 56, 56, "kr") +
+    F("rue", 452, 574, 56, 56, "z", 40) +
+    F("k", 735, 484, 100, 54, "z", 36) + F("s", 875, 484, 100, 54, "z", 36) + F("g", 1015, 484, 100, 54, "z", 36) +
+    bgArea("aus", v, 722, 135, 430, 293, 7, 30, 41.7) +
+    [0, 1, 2].map(function(i){ var y = [710, 752, 795][i]; return F("w" + i, 748, y - 38, 300, 38, "", 29) + F("ws" + i, 1056, y - 38, 92, 38, "r", 29); }).join("") +
+    F("v0", 305, 757 - 38, 365, 38, "", 29) + F("v1", 258, 805 - 38, 412, 38, "", 29);
+  /* Seite 2 */
+  var lv = ["Neuling", "Profi", "Experte", "Veteran", "Meister", "Übermensch"];
+  var p2 = bgArea("not", v, 108, 119, 494, 677, 16, 30, 42.3) +
+    bgArea("arc", v, 836, 119, 326, 386, 9, 30, 42.9) +
+    bgArea("ges", v, 666, 617, 506, 169, 4, 30, 42.3) +
+    lv.map(function(n, i){ return bgMark("lv" + i, v, 628, 162 + i * 58, 40, 40, "lv", "bgStufe(" + i + ")"); }).join("");
+  return '<div class="rp os-rp">' + bar + '<div class="os-bogen">' +
+    '<div class="os-pg"><div class="os-seite" style="background-image:url(img/bogen/seite-1.webp)">' + p1 + '</div></div>' +
+    '<div class="os-pg"><div class="os-seite" style="background-image:url(img/bogen/seite-2.webp)">' + p2 + '</div></div></div></div>';
 }
 document.addEventListener("click", function(e){ if(!e.target.closest(".bw-pop,.bw-info")) bgPopWeg(); });
 document.addEventListener("keydown", function(e){ if(e.key === "Escape" && document.querySelector(".bw-pop,.bw-info")){ e.stopImmediatePropagation(); e.preventDefault(); bgPopWeg(); } }, true);
 window.addEventListener("hashchange", bgPopWeg);
+window.addEventListener("load", function(){ if(document.querySelector(".os-bogen")) bgFit(); });
 
 if(window.LK) LK.init(function(h){ return h.indexOf("#bogen") === 0; });

@@ -34,6 +34,7 @@ function render(){
   ktabs(r);
   APP.innerHTML = r === "start" ? viewStart() : r === "regeln" ? viewRegeln(sub()) : r === "arcana" ? viewArcana(sub()) : r === "sl" ? viewSl(sub()) : r === "abenteuer" ? viewAb(sub()) : r === "oddpendium" ? viewOdd(sub()) : r === "zusatz" ? viewZusatz(sub()) : r === "bogen" ? viewBogen() : viewArea(r);
   if(r === "regeln") startHover();
+  if(r === "bogen" && window.bgFit){ bgFit(); if(document.fonts) document.fonts.ready.then(bgFit); }
   window.scrollTo(0, 0);
   if(r !== "start") sideBar();
 }

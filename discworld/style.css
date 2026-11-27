@@ -345,3 +345,4 @@ body.mitunter .unter{border-top:0}
 .kh>a.pen.has{color:var(--lila);opacity:1}
 .kh>a.pen svg{width:19px;height:19px}
 .dw-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#3a1a14;color:#f6ead3;padding:10px 20px;border-radius:6px;font:400 17px FellSC,serif;z-index:99}
+.bogenleiste .ib{display:inline-flex;align-items:center;justify-content:center;width:42px;height:38px;padding:0}.bogenleiste .ib svg{display:block}

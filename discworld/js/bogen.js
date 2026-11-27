@@ -53,7 +53,7 @@
   window.dwLeeren = function(){ if(!confirm("Alle Einträge auf den Bögen löschen?")) return; D = {}; sichern(); render(); };
 
   window.viewBogen = function(B, gi){
-    return '<div class="bogenwrap"><div class="bogenleiste"><button onclick="dwLeeren()">Leeren</button><button onclick="dwLink(this)" title="Link mit allen Einträgen (ohne Bilder) kopieren">Link teilen</button><button onclick="dwJsonOut()">Als Datei sichern</button><label class="bogenbtn">Datei laden<input type="file" accept=".json,application/json" hidden onchange="dwJsonIn(this)"></label><button class="haupt" onclick="dwPdf(this)">Als PDF</button></div><div class="boegen">' +
+    return '<div class="bogenwrap"><div class="bogenleiste"><button class="ib" onclick="dwLeeren()" title="Leeren" aria-label="Leeren"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4v5h5"/></svg></button><button class="ib" onclick="dwLink(this)" title="Link teilen (ohne Bilder)" aria-label="Link teilen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button><button class="ib" onclick="dwJsonOut()" title="Als Datei sichern" aria-label="Als Datei sichern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg></button><label class="bogenbtn ib" title="Datei laden" aria-label="Datei laden"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg><input type="file" accept=".json,application/json" hidden onchange="dwJsonIn(this)"></label><button class="haupt ib" onclick="dwPdf(this)" title="Als PDF speichern" aria-label="Als PDF speichern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M7.5 3v5h8V3"/><rect x="7" y="13" width="10" height="8"/></svg></button></div><div class="boegen">' +
       SEITEN.map(function(S){ return '<div class="dwb"><img class="bg" src="' + S.bg + '" alt="">' + S.f.map(feld).join("") + "</div>"; }).join("") + "</div></div>";
   };
 
@@ -108,7 +108,7 @@
   function js(src){ return new Promise(function(res, rej){ var s = document.createElement("script"); s.src = ROOT + src; s.onload = res; s.onerror = function(){ rej(new Error(src + " fehlt")); }; document.head.appendChild(s); }); }
   function bytes(u){ return fetch(u).then(function(r){ return r.arrayBuffer(); }); }
   window.dwPdf = function(knopf){
-    var alt = knopf.textContent; knopf.textContent = "PDF wird erstellt …"; knopf.disabled = true;
+    var alt = knopf.innerHTML; knopf.style.opacity = ".5"; knopf.disabled = true;
     (window.PDFLib ? Promise.resolve() : js("shared/lib/pdf-lib.min.js")).then(function(){ return window.fontkit ? 0 : js("shared/lib/fontkit.umd.min.js"); }).then(function(){
       var L = PDFLib;
       return L.PDFDocument.create().then(function(doc){
@@ -141,11 +141,11 @@
         });
       });
     }).then(function(b){
-      knopf.textContent = alt; knopf.disabled = false;
+      knopf.innerHTML = alt; knopf.style.opacity = ""; knopf.disabled = false;
       var n = (D["g.name"] || "Gruppenakte").trim() || "Gruppenakte";
       if(window.FillPDF && FillPDF.ausgeben) FillPDF.ausgeben(b, "Discworld – " + n + ".pdf");
       else { var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([b], {type:"application/pdf"})); a.download = "Discworld – " + n + ".pdf"; a.click(); }
-    }, function(e){ knopf.textContent = alt; knopf.disabled = false; alert("Das PDF konnte nicht erstellt werden: " + (e && e.message || e)); });
+    }, function(e){ knopf.innerHTML = alt; knopf.style.opacity = ""; knopf.disabled = false; alert("Das PDF konnte nicht erstellt werden: " + (e && e.message || e)); });
   };
 })();
 

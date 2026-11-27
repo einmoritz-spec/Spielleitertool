@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1392sq";
+const VERSION = "v1393sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -3662,6 +3662,7 @@ const FILES = [
   "mausritter/js/data/regeln.js",
   "mausritter/js/garten.js",
   "mausritter/js/maeuse.js",
+  "mausritter/js/bogenwerk.js",
   "mausritter/js/suche.js",
   "mausritter/style.css",
   "shared/info/mausritter.js",

@@ -147,7 +147,7 @@ function viewBogen(){
 }
 /* ---------- Auswahl, Zufall, Leeren ---------- */
 function bgIc(){ return ""; }
-function bgPopWeg(){ document.querySelectorAll(".bgpop").forEach(function(e){ e.remove(); }); }
+function bgPopWeg(){ document.querySelectorAll(".bgpop,.bginfo").forEach(function(e){ e.remove(); }); }
 document.addEventListener("click", bgPopWeg);
 function bgAusw(k){
   var c = CH, a = bgArch(c) || VAE_ARCH[0];
@@ -180,6 +180,14 @@ function bgAusw2(k){
   if(k === "ein") return {items:bgEinsMakel(), set:function(it){ var cur = String(bgVal(c, "ein") || ""); CH.ein = cur ? cur + "\n" + it.t : it.t; }};
   return null;
 }
+function bgInfoAn(p, btn, it){
+  var old = document.querySelector(".bginfo"); if(old) old.remove();
+  p.querySelectorAll(".bp-i.sel").forEach(function(x){ x.classList.remove("sel"); }); btn.classList.add("sel");
+  var q = p.getBoundingClientRect(), c = document.createElement("div"); c.className = "bginfo"; c.innerHTML = "<h4>" + bgE(it.t) + "</h4>" + it.i;
+  c.style.top = q.top + "px"; c.style.maxHeight = q.height + "px";
+  var rechts = q.right + 340 + 8 < innerWidth; c.style.left = rechts ? (q.right - 1) + "px" : (q.left - 340 + 1) + "px"; c.classList.add(rechts ? "re" : "li");
+  c.addEventListener("click", function(x){ x.stopPropagation(); }); document.body.appendChild(c);
+}
 window.bgPopup = function(el, e){
   e.stopPropagation(); var k = el.dataset.k, old = document.querySelector(".bgpop"), same = old && old.dataset.k === k; bgPopWeg(); if(same) return;
   var A = bgAusw(k) || bgAusw2(k); if(!A) return; var r = el.getBoundingClientRect(), p = document.createElement("div"); p.className = "bgpop"; p.dataset.k = k;
@@ -187,7 +195,7 @@ window.bgPopup = function(el, e){
   p.innerHTML = (A.wahl ? "" : '<div class="bp-kopf">Beispiele – du kannst auch frei schreiben</div>') + A.items.map(function(it, i){ return '<div class="bp-z"><button class="bp-n" data-i="' + i + '">' + bgE(it.t) + '</button>' + (it.i ? '<button class="bp-i" data-j="' + i + '" title="Info" aria-label="Info">i</button>' : "") + "</div>"; }).join("");
   p.addEventListener("click", function(ev){
     ev.stopPropagation(); var b = ev.target.closest("button"); if(!b) return;
-    if(b.dataset.j !== undefined){ var it = A.items[+b.dataset.j]; ddPop(it.t, it.i); return; }
+    if(b.dataset.j !== undefined){ bgInfoAn(p, b, A.items[+b.dataset.j]); return; }
     A.set(A.items[+b.dataset.i]); bgPopWeg(); saveCur2(); render();
   });
   document.body.appendChild(p);

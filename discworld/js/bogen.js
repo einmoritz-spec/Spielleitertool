@@ -88,10 +88,7 @@
     p.addEventListener("click", function(ev){
       ev.stopPropagation(); var b = ev.target.closest("button"); if(!b) return;
       if(b.dataset.n !== undefined){ D[el.dataset.k] = b.dataset.n; popWeg(); sichern(); render(); return; }
-      var old = document.querySelector(".orginfo"); if(old) old.remove(); var pg = L[+b.dataset.i], q = b.getBoundingClientRect(), c = document.createElement("div");
-      c.className = "orginfo"; c.innerHTML = "<b>" + esc(pg.t) + "</b><p>" + esc(orgInfo(pg)) + "</p>";
-      c.style.left = Math.min(q.right + 8, innerWidth - 340) + "px"; c.style.top = Math.max(8, q.top - 10) + "px";
-      c.addEventListener("click", function(x){ x.stopPropagation(); }); document.body.appendChild(c);
+      infoKarte(b, L[+b.dataset.i].t, orgInfo(L[+b.dataset.i]));
     });
   };
   document.addEventListener("click", popWeg);
@@ -126,11 +123,14 @@
   }
   function infoKarte(btn, titel, text){
     var old = document.querySelector(".orginfo"); if(old) old.remove();
-    var q = btn.getBoundingClientRect(), c = document.createElement("div"); c.className = "orginfo";
+    document.querySelectorAll(".orgpop .op-i.sel").forEach(function(x){ x.classList.remove("sel"); }); btn.classList.add("sel");
+    var pop = btn.closest(".orgpop"), q = pop.getBoundingClientRect(), c = document.createElement("div"); c.className = "orginfo";
     c.innerHTML = "<b>" + esc(titel) + "</b><p>" + esc(kurzText(text)) + "</p>";
-    c.style.left = Math.min(q.right + 8, innerWidth - 350) + "px"; c.style.top = Math.max(8, q.top - 10) + "px";
+    c.style.top = q.top + "px"; c.style.maxHeight = q.height + "px";
+    var rechts = q.right + 330 + 8 < innerWidth; c.style.left = rechts ? (q.right - 1) + "px" : (q.left - 330 + 1) + "px"; c.classList.add(rechts ? "re" : "li");
     c.addEventListener("click", function(x){ x.stopPropagation(); }); document.body.appendChild(c);
   }
+
   var SPEZ = ["Mensch", "Zwerg", "Troll", "Golem", "Wasserspeier", "Igor", "Zombie"];
   function spezInfo(n){ return textNach("uebliche", n) || textNach("ungewoehnliche", n); }
   window.dwHg = function(el, e){

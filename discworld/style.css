@@ -387,3 +387,12 @@ body.mitunter .unter{border-top:0}
 .bogenleiste [data-tip]:hover::after{opacity:1}
 .bogenleiste>[data-tip]:last-child::after,.bogenleiste>[data-tip]:nth-last-child(2)::after{left:auto;right:0;transform:none}
 .bogenleiste>.vorwrap [data-tip]::after{left:0;transform:none}
+
+.orgpop,.vorpop,.orginfo{overflow-y:scroll}
+@supports not selector(::-webkit-scrollbar){.orgpop,.vorpop,.orginfo{scrollbar-width:thin;scrollbar-color:#b9a077 #efe4cc}}
+.orgpop::-webkit-scrollbar,.orginfo::-webkit-scrollbar{width:10px}
+.orgpop::-webkit-scrollbar-track,.orginfo::-webkit-scrollbar-track{background:#efe4cc}
+.orgpop::-webkit-scrollbar-thumb,.orginfo::-webkit-scrollbar-thumb{background:#b9a077;border-radius:5px;border:2px solid #efe4cc}
+.orginfo{overflow-y:auto;border-radius:0 6px 6px 0;box-shadow:6px 6px 20px rgba(60,30,10,.3)}
+.orginfo.li{border-radius:6px 0 0 6px;box-shadow:-6px 6px 20px rgba(60,30,10,.3)}
+.orgpop .op-i.sel{background:var(--blut);color:#f6ead3;border-color:var(--blut)}

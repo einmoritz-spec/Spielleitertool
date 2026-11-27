@@ -68,3 +68,14 @@
 .bgpop .bp-i{flex:none;width:22px;height:22px;margin:0 6px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--soft);font:italic 700 14px EBG,Georgia,serif;cursor:pointer;padding:0}
 .bgpop .bp-i:hover{background:var(--red);color:#f3ecd9;border-color:var(--red)}
 @media print{.bg-dd,.bgpop{display:none!important}}
+
+.bgpop,.bginfo{overflow-y:scroll}
+@supports not selector(::-webkit-scrollbar){.bgpop,.bginfo{scrollbar-width:thin;scrollbar-color:#a8957a #e6dcc6}}
+.bgpop::-webkit-scrollbar,.bginfo::-webkit-scrollbar{width:10px}
+.bgpop::-webkit-scrollbar-track,.bginfo::-webkit-scrollbar-track{background:#e6dcc6}
+.bgpop::-webkit-scrollbar-thumb,.bginfo::-webkit-scrollbar-thumb{background:#a8957a;border-radius:5px;border:2px solid #e6dcc6}
+.bginfo{position:fixed;z-index:410;width:340px;overflow-y:auto;background:#f7f2e6;border:1px solid var(--line);border-radius:0 6px 6px 0;box-shadow:6px 6px 20px rgba(40,26,18,.3);padding:12px 16px;font:16px/1.4 EBG,Georgia,serif;color:var(--ink)}
+.bginfo.li{border-radius:6px 0 0 6px;box-shadow:-6px 6px 20px rgba(40,26,18,.3)}
+.bginfo h4{margin:0 0 6px;font:400 19px Mar,serif;color:var(--red);letter-spacing:.04em}
+.bginfo p{margin:0 0 8px}
+.bgpop .bp-i.sel{background:var(--red);color:#f3ecd9;border-color:var(--red)}

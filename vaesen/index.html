@@ -60,12 +60,14 @@
 <script src="js/data/som-geheimnis.js"></script>
 <script src="js/data/som-nachtsau.js"></script>
 <script src="js/data/som-stern.js"></script>
+<script src="js/data/city-mord.js"></script>
 <script src="js/data/som-tanz.js"></script>
 <script src="../bookviewer/find.js"></script><script src="../bookviewer/bookviewer.js"></script>
 <script src="../shared/galerie.js"></script>
 <script src="js/data/galerie.js"></script>
 <script src="js/data/galerie-som.js"></script>
 <script src="js/data/galerie-wicked.js"></script>
+<script src="js/data/galerie-city.js"></script>
 <script src="js/data/galnames.js"></script>
 <script src="js/mys2.js"></script>
 <script src="js/ui.js"></script>
@@ -73,7 +75,7 @@
 <script src="../shared/gsuche.js"></script>
 <script src="js/app.js"></script>
 <script src="js/suche.js"></script>
-<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"vae_core", books:VAE_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+(b.id==="vae_core"?" (EN)":""), off:(b.id==="vae_core"||b.id==="vae_seasons"||b.id==="vae_wicked"?4:0)}; })); },[]), openSettings:function(){ openMenu(true); } });</script>
+<script>BV.init({ libBase:"../bookviewer/lib/", defaultBook:"vae_core", books:VAE_BUECHER.reduce(function(a,g){ return a.concat(g.items.map(function(b){ return {key:b.id, name:b.name+(b.id==="vae_core"?" (EN)":""), off:(b.id==="vae_core"||b.id==="vae_seasons"||b.id==="vae_wicked"||b.id==="vae_city"?4:0)}; })); },[]), openSettings:function(){ openMenu(true); } });</script>
 <script src="../shared/masonry.js" defer></script>
 <script src="../toolmenu.js"></script>
 <script>window.gmBook=function(){return {name:"Vaesen Grundregelwerk",open:function(){BV.open("vae_core",1);}};};</script>

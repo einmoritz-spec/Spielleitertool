@@ -152,14 +152,14 @@ function msViewHg(){
     msG((h.kaesten || []).map(msKastX)) + (h.mythic ? '<details class="ms-dt"><summary>Im Mythischen Britannien und Irland ' + msPg(msPp("myth", 1)) + '</summary>' + h.mythic + '</details>' : '')) + (MS.net ? msSec("be", "Beziehungen", msTtl("Beziehungen") + '<div class="ms-net">' + MS.net + '</div>') : '');
 }
 function msViewAn(){
-  var a = MS.an, ho = (MS.ho || [])[0], kv = [];
+  var a = MS.an, ho = a.keinHo ? null : (MS.ho || [])[0], kv = [];
   if(a.kultur) kv.push(msKast(a.kultur.t, a.kultur.x.join("<br><br>"), msPp("vorb", 3)));
   (a.kaesten || []).forEach(function(k){ kv.push(msKastX(k)); });
   var einl = msSec("ei", "Einladung", (ho ? msFr2('<div class="ms-hw w-' + ho.id + '"><div onclick="msShowAt(this.firstChild)">' + msHoCard(ho) + '</div><div class="hol">' + esc(ho.t) + '</div></div>') : '') + msTtl("Einladung", msPp("einl", 2)) +
     '<p>' + a.einladung[0].replace(a.hoName || "\u0000", '<a class="lnk" onclick="msDrawer(\'ho\')">' + a.hoName + '</a>') + '</p>' + a.einladung.slice(1).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""));
   var vorb = (a.vorb || kv.length) ? msSec("vo", a.vorbT || "Vorbereitungen", msTtl(a.vorbT || "Vorbereitungen", msPp("vorb", 3)) + msP(a.vorb) + msG(kv)) : "";
-  var reise = msSec("re", "Die Reise", (a.karten || []).slice(0, 1).map(function(k){ return msFr2('<img src="' + msImg(k) + '" alt="" onclick="msZoom(this.src)"><small class="cap">Karte ' + msPg(msPp("karte", 2)) + '</small>'); }).join("") + msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + (a.reiseVl ? '<div class="vl">' + a.reiseVl + '</div>' : '') + (a.hinterhalt ? msG([msKastX(a.hinterhalt)]) : ''));
-  var ank = msSec("ak", "Ankunft", msTtl("Ankunft", msPp("ankunft", 4)) + msP([a.ankunft[0]].concat(a.jennyEin || [])) + (a.jenny ? msG(a.jenny.map(function(t){ return '<div class="clue st">' + t + '</div>'; })) : '') + msP(a.ankunft.slice(1)));
+  var reise = !a.reise ? "" : msSec("re", "Die Reise", (a.karten || []).slice(0, 1).map(function(k){ return msFr2('<img src="' + msImg(k) + '" alt="" onclick="msZoom(this.src)"><small class="cap">Karte ' + msPg(msPp("karte", 2)) + '</small>'); }).join("") + msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + (a.reiseVl ? '<div class="vl">' + a.reiseVl + '</div>' : '') + (a.hinterhalt ? msG([msKastX(a.hinterhalt)]) : ''));
+  var ank = !a.ankunft ? "" : msSec("ak", "Ankunft", msTtl("Ankunft", msPp("ankunft", 4)) + msP([a.ankunft[0]].concat(a.jennyEin || [])) + (a.jenny ? msG(a.jenny.map(function(t){ return '<div class="clue st">' + t + '</div>'; })) : '') + msP(a.ankunft.slice(1)));
   var cd = msSec("cd", MS.cdS || "Countdown", msTtl(MS.cdT || "Countdown und Katastrophe", msPp("cd", 5)) + '<p>' + MS.cdIntro + '</p>' + msG(MS.cd.map(function(s, i){ return '<div class="clue st' + (s.kat ? ' kat' : '') + '"><span class="q">' + (s.kat ? "Katastrophe" : "Schritt " + (i + 1) + (s.n ? " · " + esc(s.n) : "")) + '</span>' + msDec(s.x) + '</div>'; })) +
     (MS.cdX || []).map(function(c){ return '<h3 class="ms-wt" style="margin-top:18px">' + esc(c.t) + ' ' + msPg(c.p) + '</h3><p>' + msDec(c.x) + '</p>' + (c.s ? msG(c.s.map(function(s, i){ return '<div class="clue st"><span class="q">Schritt ' + (i + 1) + ' · ' + esc(s.n) + '</span>' + msDec(s.x) + '</div>'; })) : ''); }).join(""));
   return einl + vorb + reise + ank + cd;

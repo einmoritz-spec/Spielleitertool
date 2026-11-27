@@ -97,6 +97,7 @@
         if(g.dataset.mas !== undefined || g._auto){ pack(g); continue; }
         if(cs.gridTemplateRows !== "none" && /px/.test(cs.gridTemplateRows) && cs.gridTemplateRows.split(" ").length > 1 && !g._auto) { /* explizite Zeilen: nur testen */ }
         if(g.closest(".nomas")) continue;
+        if(cs.gridTemplateAreas && cs.gridTemplateAreas !== "none") continue; /* Raster mit festem Flächenlayout (z. B. Abenteuer-Karten) nie automatisch packen */
         var its = items(g);
         if(g._stack){ g.style.gridTemplateColumns = "minmax(0,1fr)"; continue; }
         if(gappy(g, its)){

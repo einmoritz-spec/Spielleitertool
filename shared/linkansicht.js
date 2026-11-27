@@ -6,7 +6,7 @@
   st.textContent =
     "html.lk .topbar>*:not(.brand):not(.brandw){display:none!important}" +
     "html.lk .topbar .brand,html.lk .topbar .brandw{pointer-events:none;cursor:default}" +
-    "html.lk .ktabs,html.lk .sub,html.lk .unter,html.lk #tabs2,html.lk .tabs,html.lk #tabs,html.lk .rail,html.lk nav.sbu,html.lk .kt>a.chip,html.lk .zleiste,html.lk .mm-backdrop,html.lk .mm-panel{display:none!important}";
+    "html.lk .ktabs,html.lk .sub,html.lk .unter,html.lk #tabs2,html.lk .tabs,html.lk #tabs,html.lk .bartabs>a,html.lk #soloGen,html.lk #bAss,html.lk .rail,html.lk nav.sbu,html.lk .kt>a.chip,html.lk .zleiste,html.lk .mm-backdrop,html.lk .mm-panel{display:none!important}";
   document.head.appendChild(st);
   function wende(){
     var an = false; try{ an = sessionStorage.getItem(KEY) === "1"; }catch(e){}

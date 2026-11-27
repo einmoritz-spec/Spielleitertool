@@ -486,6 +486,7 @@ function bgLinkImport(){
   var m = /^#(bogen|schiff)=([dk][A-Za-z0-9_-]+)$/.exec(location.hash);
   if(!m) return Promise.resolve();
   var ship = m[1] === "schiff", key = ship ? "schiff" : "leer";
+  if(window.LK) LK.an();
   return bgEntpack(m[2]).then(function(d){
     history.replaceState(null, "", location.pathname + location.search + "#" + m[1]);
     var alt = ST.bogen && ST.bogen[key];
@@ -493,3 +494,4 @@ function bgLinkImport(){
     ST.bogen = ST.bogen || {}; ST.bogen[key] = bgClean(d, ship); save();
   }, function(){ history.replaceState(null, "", location.pathname + location.search + "#" + m[1]); });
 }
+if(window.LK) LK.init(function(h){ return /^#(bogen|schiff)/.test(h); });

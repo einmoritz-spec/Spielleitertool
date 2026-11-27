@@ -450,6 +450,7 @@ var HB = (function(){
   /* Geteilten Bogen aus dem Link übernehmen (#bogen=…) */
   function linkImport(){
     var m = /#bogen=([dk][A-Za-z0-9_-]+)$/.exec(location.hash); if(!m) return Promise.resolve();
+    if(window.LK) LK.an();
     return entpacken(m[1]).then(function(d){
       history.replaceState(null, "", location.pathname + location.search + "#bogen");
       laden(); if(ALLE.leer && !confirm("Geteilten Bogen laden? Dein bisheriger Bogen wird ersetzt.")) return;
@@ -536,3 +537,4 @@ var HB = (function(){
     teilen: teilen, anpassen: anpassen, jsonAus: jsonAus, jsonEin: jsonEin, pdf: pdf, linkImport: linkImport, zufallsFigur: zufallsFigur,
     basis: function(b, r, nav){ BASIS = b; ROOT = r; if(nav) NAV = nav; }};
 })();
+if(window.LK) LK.init(function(h){ return /^#bogen/.test(h); });

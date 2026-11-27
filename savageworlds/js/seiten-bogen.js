@@ -1035,6 +1035,7 @@ function packen(c){ var o = JSON.parse(JSON.stringify(c)); delete o.id; var j = 
 function auspacken(t){ var u = unb64(t.slice(1)); return (t[0] === "z" ? strom(u, new DecompressionStream("deflate-raw")) : Promise.resolve(u)).then(function(x){ return JSON.parse(new TextDecoder().decode(x)); }); }
 function linkImport(){
   var m = /[#&]c=([\w-]+)/.exec(location.hash); if(!m) return Promise.resolve(false);
+  if(window.LK) LK.an();
   return auspacken(m[1]).then(function(o){ load(); var c = Object.assign(neu(), o); c.id = uid(); DB.list.push(c); DB.cur = c.id; persist(); history.replaceState(null, "", location.pathname); return true; }).catch(function(){ return false; });
 }
 function istLeer(c){ return !c.name && !c.spieler && !c.volk && !(+c.ep) && !c.ah && ATTR.every(function(a){ return c.a[a[1]] === "W4"; }) && ["ta", "hi", "wa", "ru", "au", "ma"].every(function(k){ return !(c[k] || []).some(function(x){ return x && x.n; }); }) && !(c.sp || []).some(function(x){ return x && x.n; }); }
@@ -1049,3 +1050,4 @@ window.SWBogen = {
 };
 SWP["bogen/"] = bogenPage; window.bogenPage = bogenPage;
 })();
+if(window.LK) LK.init(function(){ return true; });

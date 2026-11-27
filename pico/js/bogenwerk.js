@@ -59,9 +59,11 @@
 
   /* ---------- Router: Link-Import ---------- */
   var vb = window.viewBogen, vs = window.viewStreif;
+  if(window.LK) LK.init(function(h){ return /^#(bogen|streifzug)/.test(h); });
   function importHash(sel){
     var h = seg(), c = (h[0] === "streifzug" ? h[1] : h[2]) || "";
     if(c.indexOf("teilen~") !== 0) return;
+    if(window.LK) LK.an();
     try{ var v = einlesen(JSON.parse(ub64(c.slice(7))), true); if(v) toast("Bogen übernommen"); }catch(e){ toast("Link ungültig."); }
     history.replaceState(null, "", "#" + (h[0] === "streifzug" ? "streifzug" : "bogen/" + (h[1] || "picnic")));
   }

@@ -22,6 +22,7 @@ function bgVorlage(fid){
   f.bg.ausr = v.ausr.join("\n"); save(); render();
 }
 function bgPdf(fid, knopf){
+  if(knopf){ knopf.style.opacity = ".4"; setTimeout(function(){ knopf.style.opacity = ""; }, 2500); }
   var f = zFig(fid); if(!f || !window.FillPDF) return;
   FillPDF.make(document.querySelector(".sheet"), {name:"Spire – " + (f.n || "Charakterbogen"), knopf:knopf, bg:"#dbe3ef", marks:[[".bgz i", "an me"], [".bgfr i", "x"], [".bgbk i", "x"]]});
 }
@@ -36,7 +37,7 @@ function bgDekodieren(s){
 }
 function bgTeilen(fid){
   var f = zFig(fid); if(!f) return; var url = bgKodieren(f);
-  var fertig = function(){ var b = document.getElementById("bgTeil"); if(b){ b.textContent = "Link kopiert"; setTimeout(function(){ b.textContent = "Teilen"; }, 1800); } };
+  var fertig = function(){ bgToast("Link kopiert"); };
   if(navigator.share){ navigator.share({title:"Spire – " + f.n, url:url}).catch(function(){}); return; }
   if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(fertig, function(){ prompt("Link zum Teilen:", url); }); }
   else prompt("Link zum Teilen:", url);
@@ -55,7 +56,7 @@ function bgFreiKlick(fid, r, i){
 }
 function bgFreiWeg(ev, fid, r, i){ ev.preventDefault(); var f = zFig(fid); if(!f) return; f.frei[r] = i; f.freiX = f.freiX || {}; f.freiX[r] = Math.min(f.freiX[r] || 0, i); save(); render(); }
 function bgStress(fid, r, d){ var f = zFig(fid); if(!f) return; f.stress = f.stress || {}; f.stress[r] = Math.max(0, Math.min(10, (f.stress[r] || 0) + d)); save(); render(); }
-function bgBox(f, k, lab, x, y, w, h, inner){ return '<div class="bgbx" style="left:' + x + 'mm;top:' + y + 'mm;width:' + w + 'mm;height:' + h + 'mm"><h3>' + lab + '</h3>' + inner + '</div>'; }
+function bgBox(f, k, lab, x, y, w, h, inner){ var dd = {kniffe:1, ausr:1, auff:1, faehig:1}[k] ? '<button class="bgdd noprint" onclick="spPop(this,event,\'' + f.id + '\',\'' + k + '\')" data-hint="Beispiele – du kannst auch frei schreiben" aria-label="Beispiele">▾</button>' : ''; return '<div class="bgbx" style="left:' + x + 'mm;top:' + y + 'mm;width:' + w + 'mm;height:' + h + 'mm"><h3>' + lab + '</h3>' + dd + inner + '</div>'; }
 function bgTa(f, k, cls){ return '<textarea class="bgt ' + (cls || "") + '" oninput="bgSet(\'' + f.id + '\',\'' + k + '\',this.value)">' + esc(f.bg[k] || "") + '</textarea>'; }
 function bgBogen(f){
   if(f.vf && f.bg.faehig === undefined && f.bg.ausr === undefined && vfDaten(f.vf)){ bgVorlage(f.id); f = zFig(f.id); }
@@ -63,7 +64,8 @@ function bgBogen(f){
   /* Kopfzeilen */
   [["Spielername", "spieler", 0], ["Figurenname", "n", 1], ["Klasse", "klasse", 1], ["Dienstzeit", "dienst", 1]].forEach(function(z, i){
     var v = z[2] ? f[z[1]] : f.bg[z[1]];
-    h += '<div class="bgkz" style="top:' + (T + 13.5 + i * 9.5) + 'mm"><b>' + z[0] + '</b><input value="' + esc(v || "") + '" oninput="' + (z[2] ? 'bgSetF' : 'bgSet') + '(' + q + ',\'' + z[1] + '\',this.value)"></div>';
+    var wahl = z[1] === "klasse" || z[1] === "dienst";
+    h += '<div class="bgkz" style="top:' + (T + 13.5 + i * 9.5) + 'mm"><b>' + z[0] + '</b><input' + (wahl ? ' class="bgwahl" readonly onclick="spPop(this,event,' + q + ',\'' + z[1] + '\')"' : ' oninput="' + (z[2] ? 'bgSetF' : 'bgSet') + '(' + q + ',\'' + z[1] + '\',this.value)"') + ' value="' + esc(v || "") + '">' + (wahl ? '<u class="bgpf noprint">▾</u>' : '') + '</div>';
   });
   /* Fertigkeiten und Domänen */
   h += '<h2 class="bgh" style="left:15mm;top:' + (T + 59.3) + 'mm">Fertigkeiten</h2>';
@@ -99,8 +101,90 @@ function bgBogen(f){
 function bgLeiste(f){
   var chips = zFigs().map(function(x){ return '<a class="' + (f && x.id === f.id ? 'on' : '') + '" onclick="go(\'bogen/' + x.id + '\')">' + esc(x.n) + '</a>'; }).join("");
   return '<div class="bgbar noprint"><div class="bgch">' + chips + '<a class="neu" onclick="bgNeu()">+ Neuer Bogen</a><a class="neu" onclick="zVfAuswahl()">Vorgefertigte Figur</a></div><div class="bga">' +
-    (f && f.vf ? '<button class="knopf b" onclick="bgVorlage(\'' + f.id + '\')">Aus Vorlage füllen</button>' : '') +
-    (f ? '<button class="knopf b" id="bgTeil" onclick="bgTeilen(\'' + f.id + '\')">Teilen</button><button class="knopf" onclick="bgPdf(\'' + f.id + '\', this)">PDF</button><button class="knopf n" onclick="bgWeg(\'' + f.id + '\')">Entfernen</button>' : '') + '</div></div>';
+    (f && f.vf ? '<button class="ib" data-hint="Aus Vorlage füllen" aria-label="Aus Vorlage füllen" onclick="bgVorlage(\'' + f.id + '\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3M4 20v-5h5"/></svg></button>' : '') +
+    (f ? '<button class="ib" data-hint="Zufällige Figur erstellen" aria-label="Zufällige Figur erstellen" onclick="bgZufall(\'' + f.id + '\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/></svg></button><button class="ib" data-hint="Bogen leeren" aria-label="Bogen leeren" onclick="bgLeeren(\'' + f.id + '\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4v5h5"/></svg></button><button class="ib" data-hint="Link teilen" aria-label="Link teilen" onclick="bgTeilen(\'' + f.id + '\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button><button class="ib" data-hint="Als Datei sichern" aria-label="Als Datei sichern" onclick="bgJson(\'' + f.id + '\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg></button><label class="ib" data-hint="Datei laden (JSON)" aria-label="Datei laden"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg><input type="file" accept=".json,application/json" hidden onchange="bgLadeJson(this)"></label><button class="ib" data-hint="Als PDF speichern" aria-label="Als PDF speichern" onclick="bgPdf(\'' + f.id + '\',this)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M7.5 3v5h8V3"/><rect x="7" y="13" width="10" height="8"/></svg></button><button class="ib weg" data-hint="Bogen löschen" aria-label="Bogen löschen" onclick="bgWeg(\'' + f.id + '\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/></svg></button>' : '') + '</div></div>';
+}
+
+/* ---- Auswahl, Zufall, Leeren, Datei ---- */
+function bgToast(t){ var d = document.createElement("div"); d.className = "bgtoast"; d.textContent = t; document.body.appendChild(d); setTimeout(function(){ d.remove(); }, 2400); }
+function bgPlain(t){ return String(t || "").replace(/\*/g, ""); }
+function bgKl(f){ var n = String(f.klasse || "").toLowerCase(); return (window.SP_KLASSE || []).filter(function(k){ return String(k.t).toLowerCase() === n; })[0]; }
+function bgPunkte(K){ var o = []; (K.ausr || []).forEach(function(a){ if(a.k === "pkt") o.push(bgPlain(a.x)); }); return o; }
+function bgAusw(f, k){
+  var K = bgKl(f);
+  if(k === "klasse") return {wahl:1, items:SP_KLASSE.map(function(x){ return {t:x.t, i:bgPlain((x.intro || [])[0])}; }), set:function(it){ f.klasse = it.t; }};
+  if(k === "dienst") return {wahl:1, items:SP_CHARAKTERE.dienst.x.map(function(x){ return {t:x.t, i:bgPlain(x.x) + (x.w ? "\n\nStartwerte: " + x.w : "")}; }), set:function(it){ f.dienst = it.t; }};
+  if(!K) return {items:[], leer:"Wähle zuerst eine Klasse."};
+  if(k === "auff") return {items:[{t:K.kern.auff}], set:function(it){ f.auff = it.t; }};
+  if(k === "ausr") return {items:bgPunkte(K).map(function(t){ return {t:t}; }), set:function(it){ var b = bgF(f.id).bg; b.ausr = b.ausr ? b.ausr + "\n" + it.t : it.t; }};
+  if(k === "kniffe") { var it = (K.kfae || []).map(function(x){ return {t:x.t, i:bgPlain(x.fl) + " " + bgPlain((x.x || []).join(" "))}; }); return {items:it, set:function(i){ f.kniffe = (f.kniffe || []).concat([i.t]); }}; }
+  if(k === "faehig"){ var l = []; ["niedrig", "hoch"].forEach(function(g){ ((K.fort || {})[g] || []).forEach(function(x){ l.push({t:x.t, g:g === "niedrig" ? "Niedrige Fähigkeiten" : "Hohe Fähigkeiten", i:bgPlain(x.fl) + " " + bgPlain((x.x || []).join(" "))}); }); });
+    return {items:l, set:function(i){ var b = bgF(f.id).bg, z = i.t + ": " + i.i; b.faehig = b.faehig ? b.faehig + "\n\n" + z : z; }}; }
+  return null;
+}
+function bgPopWeg(){ document.querySelectorAll(".bgpop,.bginfo").forEach(function(e){ e.remove(); }); }
+document.addEventListener("click", bgPopWeg);
+function bgInfoAn(p, btn, it){
+  var o = document.querySelector(".bginfo"); if(o) o.remove();
+  p.querySelectorAll(".bgi.sel").forEach(function(x){ x.classList.remove("sel"); }); btn.classList.add("sel");
+  var q = p.getBoundingClientRect(), c = document.createElement("div"); c.className = "bginfo";
+  var t = it.i || ""; if(t.length > 520){ var cut = t.slice(0, 520), i = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("! ")); t = i > 120 ? cut.slice(0, i + 1) : cut.replace(/\s+\S*$/, "") + " …"; }
+  c.innerHTML = "<h4>" + esc(it.t) + "</h4><p>" + esc(t).replace(/\n/g, "<br>") + "</p>";
+  c.style.top = q.top + "px"; c.style.maxHeight = q.height + "px";
+  var re = q.right + 340 + 8 < innerWidth; c.style.left = re ? (q.right - 1) + "px" : (q.left - 340 + 1) + "px"; c.classList.add(re ? "re" : "li");
+  c.addEventListener("click", function(x){ x.stopPropagation(); }); document.body.appendChild(c);
+}
+function spPop(el, e, fid, k){
+  e.stopPropagation(); var old = document.querySelector(".bgpop"), same = old && old.dataset.k === k; bgPopWeg(); if(same) return;
+  var f = zFig(fid), A = f && bgAusw(f, k); if(!A) return;
+  var r = (el.closest(".bgkz") || el).getBoundingClientRect(), p = document.createElement("div"); p.className = "bgpop"; p.dataset.k = k;
+  p.style.left = Math.max(8, Math.min(r.left + (el.closest(".bgkz") ? 150 : 0), innerWidth - 360)) + "px"; p.style.top = (el.getBoundingClientRect().bottom + 4) + "px";
+  var gr = "", h = A.wahl ? "" : '<div class="bgkopf">Beispiele – du kannst auch frei schreiben</div>';
+  h += A.items.map(function(it, i){ var g = ""; if(it.g && it.g !== gr){ gr = it.g; g = "<h5>" + esc(it.g) + "</h5>"; } return g + '<div class="bgzl"><button class="bgn" data-i="' + i + '">' + esc(it.t) + '</button>' + (it.i ? '<button class="bgi" data-j="' + i + '" title="Info" aria-label="Info">i</button>' : "") + "</div>"; }).join("");
+  if(!A.items.length) h += '<div class="bgzl"><span class="bgn">' + esc(A.leer || "–") + "</span></div>";
+  p.innerHTML = h;
+  p.addEventListener("click", function(ev){
+    ev.stopPropagation(); var bt = ev.target.closest("button"); if(!bt) return;
+    if(bt.dataset.j !== undefined){ bgInfoAn(p, bt, A.items[+bt.dataset.j]); return; }
+    A.set(A.items[+bt.dataset.i]); bgPopWeg(); save(); render();
+  });
+  document.body.appendChild(p);
+  var hh = p.getBoundingClientRect().height, top = parseFloat(p.style.top); if(top + hh > innerHeight) p.style.top = Math.max(8, innerHeight - hh - 8) + "px";
+}
+var BG_NAMEN = ["Mara Voss","Tobiah Krähe","Ilse Brandt","Corvin Asch","Nadja Dorn","Emeric Salz","Odile Varn","Jorin Falk","Vesna Kuhl","Ansgar Wolff","Liora Quill","Bastian Ried","Thessaly Noor","Kaspar Lenz","Maren Eichwald","Dorian Pell","Yelena Marsch","Hagen Roth","Sibylle Orn","Pim Garrow"];
+function bgToken(txt, liste){
+  var m = txt.search(/entweder|\boder\b/), vor = m < 0 ? txt : txt.slice(0, m), nach = m < 0 ? "" : txt.slice(m), o = [];
+  liste.forEach(function(n){ if(vor.indexOf(n) >= 0) o.push(n); });
+  var w = liste.filter(function(n){ return nach.indexOf(n) >= 0 && o.indexOf(n) < 0; });
+  if(w.length) o.push(w[Math.floor(Math.random() * w.length)]);
+  return o;
+}
+function bgZufall(fid){
+  var f = zFig(fid); if(!f) return;
+  if((f.klasse || f.dienst || (f.fert || []).length) && !confirm("Die Einträge dieses Bogens durch eine zufällige Figur ersetzen?")) return;
+  var pk = function(l){ return l[Math.floor(Math.random() * l.length)]; }, K = pk(SP_KLASSE), D = pk(SP_CHARAKTERE.dienst.x);
+  f.n = pk(BG_NAMEN); f.klasse = K.t; f.dienst = D.t; f.vf = null; f.auff = K.kern.auff || "";
+  f.fert = bgToken((K.kern.fert || "") + " " + (D.w || ""), SP_FERTIGKEITEN); f.dom = bgToken((K.kern.dom || "") + " " + (D.w || ""), SP_DOMAENEN);
+  f.mei = []; f.frei = {blut:0, verstand:0, silber:0, schatten:0, ruf:0, ruest:0}; f.freiX = {}; f.stress = {}; f.fallout = []; f.bind = [];
+  var ap = bgPunkte(K), idx = ap.findIndex(function(t){ return /^Oder:?$/i.test(t); });
+  f.bg = {ausr:ap.join("\n")}; var kf = K.kfae || []; f.kniffe = kf.length ? [pk(kf).t] : [];
+  var nf = ((K.fort || {}).niedrig || []); if(nf.length){ var z = pk(nf); f.bg.faehig = z.t + ": " + bgPlain(z.fl) + " " + bgPlain((z.x || []).join(" ")); }
+  save(); render(); bgToast("Zufällige Figur erstellt");
+}
+function bgLeeren(fid){
+  var f = zFig(fid); if(!f || !confirm("Alle Einträge dieses Bogens löschen?")) return;
+  f.n = "Neue Figur"; f.klasse = ""; f.dienst = ""; f.auff = ""; f.vf = null; f.fert = []; f.dom = []; f.mei = []; f.kniffe = []; f.bg = {}; f.stress = {}; f.fallout = []; f.bind = [];
+  f.frei = {blut:0, verstand:0, silber:0, schatten:0, ruf:0, ruest:0}; f.freiX = {}; save(); render();
+}
+function bgJson(fid){
+  var f = zFig(fid); if(!f) return;
+  var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify({spire:1, figur:f}, null, 1)], {type:"application/json"}));
+  a.download = "Spire – " + String(f.n || "Figur").replace(/[\\/:*?"<>|]/g, "") + ".json"; document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 3000);
+}
+function bgLadeJson(el){
+  var d = el.files[0]; if(!d) return;
+  d.text().then(function(t){ var o = JSON.parse(t); if(!o || !o.figur) throw 0; var f = zNeu(o.figur); f.id = "f" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); zFigs().push(f); save(); go("bogen/" + f.id); }).catch(function(){ alert("Das ist keine Spire-Charakterdatei."); });
+  el.value = "";
 }
 SP_VIEW.bogen = function(rest){
   var f;

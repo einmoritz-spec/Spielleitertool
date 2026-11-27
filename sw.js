@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1343sq";
+const VERSION = "v1344sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4452,6 +4452,23 @@ const FILES = [
   "vaesen/img/mbi/mbi_wesen_hund.webp",
   "vaesen/js/data/mbi-gesellschaft.js",
   "vaesen/js/data/mbi-tabellen.js",
+  "vaesen/img/mbi/mbi_ho_1a.webp",
+  "vaesen/img/mbi/mbi_ho_2a.webp",
+  "vaesen/img/mbi/mbi_ho_2b.webp",
+  "vaesen/img/mbi/mbi_ho_3a.webp",
+  "vaesen/img/mbi/mbi_ho_3b.webp",
+  "vaesen/img/mbi/mbi_ho_3c.webp",
+  "vaesen/img/mbi/mbi_meg_banks.webp",
+  "vaesen/img/mbi/mbi_meg_hopper.webp",
+  "vaesen/img/mbi/mbi_meg_ingham.webp",
+  "vaesen/img/mbi/mbi_meg_karte_brancombe.webp",
+  "vaesen/img/mbi/mbi_meg_karte_hoehle.webp",
+  "vaesen/img/mbi/mbi_meg_karte_region.webp",
+  "vaesen/img/mbi/mbi_meg_longby.webp",
+  "vaesen/img/mbi/mbi_meg_mellors.webp",
+  "vaesen/img/mbi/mbi_meg_pawsey.webp",
+  "vaesen/js/data/mbi-meg.js",
+  "vaesen/js/data/mbi-meg2.js",
   "vaesen/img/mbi/mbi_meg_eroeffnung.webp",
   "vaesen/img/mbi/mbi_w_banshee.webp",
   "vaesen/img/mbi/mbi_w_boggart.webp",

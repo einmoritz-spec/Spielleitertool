@@ -1,0 +1,59 @@
+/* Vaesen – Mysterien-Leitstand v2 */
+.ms2t{overflow:visible;flex-wrap:nowrap;align-items:center}.ms2t>a{padding-left:14px;padding-right:14px}
+.ms2t .sp{flex:1}
+.ms2t .sep{width:1px;align-self:stretch;margin:9px 8px;background:var(--line);opacity:.5}
+.ms2t a.lk{font-size:15.5px;padding:11px 12px 9px;color:var(--soft)}
+.ms2t a.lk.on{color:var(--red);border-bottom-color:var(--red)}
+.cd2{display:flex;align-items:center;gap:0;margin-right:4px}
+.cd2 .lab{font:400 11.5px Mar;letter-spacing:.18em;color:var(--soft);text-transform:uppercase;margin-right:10px}
+.cd2 .st{cursor:pointer;display:flex}
+.cd2 .n{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--red);display:grid;place-items:center;font:600 13px EBG;color:var(--red);background:rgba(255,255,255,.35)}
+.cd2 .st.done .n{background:var(--red);color:#f3ecd9}
+.cd2 .st.kat .n{border-radius:3px;transform:rotate(45deg);width:19px;height:19px;margin:0 3px}.cd2 .st.kat .n svg{transform:rotate(-45deg)}
+.cd2 .ln{width:14px;border-top:1.5px dotted var(--line);margin:0 3px}
+.ktabs .mt{display:flex;align-items:center;height:var(--hd);gap:12px;cursor:pointer;padding-left:6px}
+.ktabs .mt b{font:400 21px Mar;letter-spacing:.08em;color:var(--red);text-transform:uppercase}
+.ktabs .mt small{font:italic 14px EBG;color:var(--soft)}
+.ms2c{max-width:1180px}
+body.msdr .ms2c{margin-right:440px}
+.ms-s{margin:0 0 30px;scroll-margin-top:110px}
+.ms2c p{font-size:17.5px;line-height:1.5;margin:0 0 12px}
+.ms2c p.lead{font-size:19px}.ms2c p.small{font-size:15px;color:var(--soft)}
+.ms-fr{float:right;width:300px;margin:0 0 16px 30px}
+.ms-fr img{width:100%;display:block;cursor:zoom-in;box-shadow:2px 3px 10px rgba(60,40,20,.3)}
+.ms-fr .cap{display:block;margin-top:4px;color:var(--soft)}
+.ms-fr .ms-hw{width:100%!important}
+.ms-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;margin:8px 0 14px;align-items:start}
+.ms-g .kast,.ms-g .clue{font-size:15.5px;line-height:1.4}
+.ms-g .clue.st{cursor:default}.ms-g .clue.kat .q{color:var(--red)}
+.ms-dt{margin:14px 0 0;background:rgba(244,239,226,.6);padding:8px 14px;border-radius:2px}.ms-dt summary{cursor:pointer;font:400 13px Mar;letter-spacing:.12em;color:var(--red);text-transform:uppercase}
+.ms-intro{font-size:15px!important;color:var(--soft);margin:0 0 18px!important}
+.hc{margin-left:8px;color:var(--soft);font:italic 14px EBG;letter-spacing:0;text-transform:none}
+.ms-wt{font:400 24px Mar;letter-spacing:.06em;color:var(--red);margin:0 0 8px;text-transform:uppercase}
+.ms-h5{margin:12px 0 4px;font:600 16px EBG;color:var(--ink)}
+.ms-list p{margin:0 0 9px}
+.ms-gs{background:rgba(255,255,255,.55);border:1px solid rgba(120,90,60,.25)}
+/* Schublade */
+.ms-dr{position:fixed;right:0;top:calc(var(--hd) + 46px);bottom:0;width:440px;z-index:36;background:#ece6d6;border-left:1.5px solid var(--line);box-shadow:-6px 0 18px rgba(50,30,15,.18);display:none;flex-direction:column}
+.ms-dr.on{display:flex}
+.dr-h{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-bottom:1px solid var(--line);font:400 15px Mar;letter-spacing:.16em;color:var(--red);text-transform:uppercase}
+.dr-h a{cursor:pointer;color:var(--soft);font-size:16px}
+.dr-b{overflow:auto;padding:12px 14px 40px;flex:1}
+.fr{margin-bottom:8px}
+.frh{display:flex;align-items:center;gap:10px;background:rgba(247,242,231,.92);padding:5px 12px 5px 6px;box-shadow:0 1px 4px rgba(60,40,20,.16);cursor:pointer}
+.frh img,.frh .ini{width:42px;height:42px;object-fit:cover;object-position:50% 15%;mix-blend-mode:multiply;flex:none;display:grid;place-items:center;background:#e4dccb;font:700 20px Cin}
+.frh div{flex:1;min-width:0}.frh b{display:block;font:400 16.5px Mar;letter-spacing:.04em}.frh small{display:block;font:italic 13.5px EBG;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frh .at4{font:600 15px EBG;color:var(--red);flex:none;letter-spacing:.04em}
+.fr.open .frh{background:#f4eedf}.fr .nc{box-shadow:0 2px 6px rgba(60,40,20,.2)}
+.hg{margin-bottom:14px}.hg h4{display:flex;justify-content:space-between;margin:0 0 5px;font:400 13px Mar;letter-spacing:.14em;color:var(--red);text-transform:uppercase}.hg h4 span{color:var(--soft);font:italic 14px EBG;letter-spacing:0}
+.hg .clue{margin-bottom:6px;font-size:14.5px}
+.hogrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.hogrid .ms-hw{width:100%!important}.hogrid .hol{font-size:12.5px;color:var(--soft);margin-top:3px}
+.kagrid{display:grid;gap:14px}.kagrid figure{margin:0;cursor:zoom-in}.kagrid img{width:100%;display:block;box-shadow:2px 3px 8px rgba(60,40,20,.25)}.kagrid figcaption{font:400 13px Mar;letter-spacing:.1em;color:var(--soft);margin-top:3px;text-transform:uppercase}
+.ms-dr .kast{margin-top:10px;font-size:15px}
+@media(max-width:1100px){body.msdr .ms2c{margin-right:0}.ms-dr{width:min(440px,100vw)}.ms-fr{float:none;width:100%;max-width:420px;margin:0 0 14px}.ms-g{grid-template-columns:1fr}.ms2t .sp{display:none}}
+
+.cd2.many .lab{display:none}.cd2.many .n{width:21px;height:21px;font-size:12px}.cd2.many .ln{width:6px;margin:0 2px}.cd2.many .st.kat .n{width:17px;height:17px}
+.side.ms2s{width:184px;padding:14px 0 14px 18px}
+.ms2s a{font-size:15px;padding:5px 10px 5px 0;line-height:1.25}
+.main:has(.ms2s)~.fold-b:not(.f){left:166px}
+.main.fold:has(.ms2s)~.fold-b{left:0}

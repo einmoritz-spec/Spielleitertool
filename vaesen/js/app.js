@@ -307,6 +307,7 @@ function vaeHead(){
   var kt = document.getElementById("ktabs"); if(!kt) return;
   var k = cur === "kapitel" ? sub.split("/")[0] : cur, m = {konflikt:"regeln", talente:"regeln", erstellung:"charaktere", karten:"norden"}, on = m[k] || k;
   var hide = cur === "start" || !cur;
+  if(cur === "som" && window.VAE_MYS && VAE_MYS[sub.split("/")[0]]){ kt.innerHTML = msHead(sub.split("/")[0]); document.body.classList.add("vnav"); return; }
   kt.innerHTML = hide ? "" : HEAD.map(function(h){ return '<a class="' + (h[0] === on ? "on" : "") + '" onclick="go(\'' + h[0] + '\')">' + esc(h[1]) + "</a>"; }).join("");
   document.body.classList.toggle("vnav", !hide);
 }

@@ -175,7 +175,7 @@
   function set(k, p, v){ var o = k, a = p.split("."); for(var i = 0; i < a.length - 1; i++){ if(o[a[i]] == null) o[a[i]] = {}; o = o[a[i]]; } o[a[a.length - 1]] = v; }
   function chk(k, path){ return '<input type="checkbox" class="bc" data-p="' + path + '"' + (get(k, path) ? ' checked' : '') + '>'; }
   function row(label, inner, alt){ return '<div class="rw r' + (alt % 2) + '"><span>' + label + '</span>' + inner + '</div>'; }
-  window.KIDSHELP = {inp: inp, chk: chk, row: row, esc: esc, get: get, set: set};
+  window.KIDSHELP = {neu: function(){ setup(); return neu(); }, inp: inp, chk: chk, row: row, esc: esc, get: get, set: set};
   function sheet(k){
     if(C.sheet && window[C.sheet]) return window[C.sheet](k, window.KIDSHELP);
     var lbl = function(t, inner, cls){ return '<label class="fd ' + (cls || "") + '"><small>' + t + '</small>' + inner + '</label>'; };

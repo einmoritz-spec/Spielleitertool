@@ -21,7 +21,7 @@ body{background:#d9dde2;min-height:100vh;color:var(--text)}
 .t.bar{font:400 calc(var(--pt)*13.5)/1 "OB Bebas",sans-serif;color:#0d0f0d;letter-spacing:.01em;text-transform:uppercase}
 .t.sub{font:400 calc(var(--pt)*9.5)/1 "OB Bebas",sans-serif;color:#111;text-transform:uppercase}
 .t.tags{font:400 calc(var(--pt)*10.5)/1 "OB Bebas",sans-serif;color:#fff;letter-spacing:.02em;text-transform:uppercase}
-.t.chip{font:400 calc(var(--pt)*7.4)/1 "OB Bebas",sans-serif;color:#426078;letter-spacing:.05em;text-transform:uppercase}
+.t.chip{font:400 calc(var(--pt)*7.4)/1 "OB Bebas",sans-serif;color:#426078;letter-spacing:.05em;text-transform:uppercase;justify-content:center}
 .t.chip.m{justify-content:center;font-size:calc(var(--pt)*6.6)}
 .t.chip.k{font-size:calc(var(--pt)*5.7);letter-spacing:0}
 .t.ml{font:400 calc(var(--pt)*9.5)/1 "OB Bebas",sans-serif;color:#fff;letter-spacing:.02em;text-transform:uppercase}
@@ -79,10 +79,10 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .flaw{cursor:pointer;transform:rotate(45deg) scale(.78);border-radius:calc(var(--pt)*1.5)}
 .flaw:hover{box-shadow:0 0 0 calc(var(--pt)*1.2) #d2416f}
 .flaw.on{background:rgba(210,65,111,.85)}
-.trk{cursor:pointer;border-radius:calc(var(--pt)*2)}
-.trk:hover{background:rgba(40,60,10,.18)}
-.trk.on{background:rgba(38,52,10,.78);box-shadow:inset 0 0 0 calc(var(--pt)*1.5) #d7fb6e}
-.trk.h.on{box-shadow:inset 0 0 0 calc(var(--pt)*1.2) #d7fb6e}
+.trk{cursor:pointer;border-radius:50%}
+.trk:hover{background:radial-gradient(circle,rgba(43,58,18,.35) 0 22%,transparent 26%)}
+.trk.on{background:radial-gradient(circle,#26340c 0 24%,rgba(38,52,12,.25) 28%,transparent 34%)}
+.trk.h.on{background:radial-gradient(circle,#26340c 0 26%,rgba(38,52,12,.25) 30%,transparent 36%)}
 
 /* Charakterkarte */
 .evo a{display:flex;gap:calc(var(--pt)*4);align-items:flex-start;font:400 calc(var(--pt)*9.3)/calc(var(--pt)*11.5) "OS Plex",sans-serif;color:#161a14;cursor:pointer;margin-bottom:calc(var(--pt)*4.3);text-decoration:none}

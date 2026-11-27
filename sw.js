@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1332sq";
+const VERSION = "v1333sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4432,7 +4432,21 @@ const FILES = [
   "vaesen/js/data/city-mord.js",
   "vaesen/js/data/city-lied.js",
   "vaesen/js/data/city-biblio.js",
+  "vaesen/js/data/city-albtraum.js",
   "vaesen/js/data/city-einfuehrung.js",
+  "vaesen/img/city/city4_vilma.webp",
+  "vaesen/img/city/city4_schloss.webp",
+  "vaesen/img/city/city4_salon.webp",
+  "vaesen/img/city/city4_palast.webp",
+  "vaesen/img/city/city4_nebensonnen.webp",
+  "vaesen/img/city/city4_nachtrabe.webp",
+  "vaesen/img/city/city4_muehle.webp",
+  "vaesen/img/city/city4_liebholz.webp",
+  "vaesen/img/city/city4_ho_4c.webp",
+  "vaesen/img/city/city4_ho_4b.webp",
+  "vaesen/img/city/city4_ho_4a.webp",
+  "vaesen/img/city/city4_helena.webp",
+  "vaesen/img/city/city4_eroeffnung.webp",
   "vaesen/img/city/city3_tuer.webp",
   "vaesen/img/city/city3_reuterholm.webp",
   "vaesen/img/city/city3_relief.webp",

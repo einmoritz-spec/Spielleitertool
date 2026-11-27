@@ -45,11 +45,11 @@ table.t td{padding:5px 10px;border:1px solid rgba(122,101,82,.55)}table.t tr:nth
 .stat{display:flex;justify-content:space-around;text-align:center;gap:6px}.stat div{flex:1}
 .stat b{display:block;font-size:28px;font-weight:600;line-height:1.1}.stat span{font-family:Mar;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 /* Seitenleiste */
-.side{width:268px;flex:none;border-right:1px solid var(--line);padding:16px 0 16px 22px;position:sticky;top:calc(var(--hd) + 8px);height:calc(100vh - var(--hd) - 8px);margin-top:-36px;overflow:auto}
+.side{width:268px;flex:none;padding:16px 0 16px 22px;position:sticky;top:calc(var(--hd) + 8px);height:calc(100vh - var(--hd) - 8px);margin-top:-36px;overflow:auto}
 .side a{display:flex;justify-content:space-between;font-family:Mar;letter-spacing:.06em;font-size:17px;padding:6px 14px 6px 0;color:var(--ink);cursor:pointer}
 .side a.on{color:var(--red)}.side a small{color:var(--soft);font-family:EBG;font-size:13px;font-style:italic}
 .side h4{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:12px 0 2px}
-.fold-b{position:fixed;left:250px;top:calc(var(--hd) + 56px);z-index:30;width:20px;height:28px;background:none;border:0;border-radius:0;font-size:15px;color:var(--soft);cursor:pointer;padding:0}
+.fold-b{position:fixed;left:250px;top:calc(var(--hd) + 26px);z-index:30;width:20px;height:28px;background:none;border:0;border-radius:0;font-size:15px;color:var(--soft);cursor:pointer;padding:0}
 .main.fold .side{display:none}.main.fold~.fold-b,.fold-b.f{left:0;border:0;border-radius:0}
 .mob-nav{display:none}
 /* Hero / Startseite */

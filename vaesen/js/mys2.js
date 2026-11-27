@@ -166,7 +166,7 @@ function msViewAn(){
 }
 function msOrt(o){
   var kk = o.karte === false ? null : (o.karte || MS.orte[0].karte), out = (kk ? '<div class="ms-fr"><img src="' + msImg(kk) + '" alt="" onclick="msZoom(this.src)"></div>' : '') + msTtl(o.t, o.p, o.id) + msHier(o.hier) + msP(o.text);
-  if(o.herausf && o.herausf.length) out += msSub("Herausforderungen") + '<div class="ms-list">' + o.herausf.map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join("") + '</div>';
+  if(o.herausf && o.herausf.length) out += msSub("Herausforderungen") + '<div class="ms-list">' + o.herausf.map(function(t){ return /^(@@|\$\$|##|%%)/.test(t) ? msP([t]) : '<p>' + msDec(t) + '</p>'; }).join("") + '</div>';
   if(o.hinw && o.hinw.length) out += msSub('Hinweise <span class="hc" data-oc="' + o.id + '"></span>') + (o.hinwText ? '<p class="small">' + msDec(o.hinwText) + '</p>' : '') + msG(o.hinw.map(msClue));
   var ks = (o.kasten || []).map(msKastX);
   if(o.paranoia) ks.push(msKast(o.paranoia.t, o.paranoia.x.map(function(t, i){ return i ? '<p style="margin:6px 0">· ' + msDec(t) + '</p>' : '<p>' + t + '</p>'; }).join(""), 12));

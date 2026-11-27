@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1424sq";
+const VERSION = "v1425sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -5044,6 +5044,12 @@ const FILES = [
   "cityofmist/ersteller.html",
   "cityofmist/ersteller.css",
   "cityofmist/js/ersteller.js",
+  "cityofmist/bogen.css",
+  "cityofmist/js/bogen.js",
+  "cityofmist/js/bogen-layout.js",
+  "cityofmist/img/bogen/seite-1.webp",
+  "cityofmist/img/bogen/seite-2.webp",
+  "cityofmist/img/bogen/seite-3.webp",
   "cityofmist/style.css",
   "cityofmist/mist.css",
   "cityofmist/js/core.js",

@@ -6,7 +6,7 @@ var cap = function(t){ t = String(t || "").toLowerCase(); return t.charAt(0).toU
 var books = [];
 /* Themenbuch mit {fq}-Einträgen: Konzeptfrage, Stärken-/Schwächenfragen, Mysterium bzw. Identität */
 function parseFq(e, typ, grp, src){
-  var body = e.body || [], intro = [], sec = "", power = [], weak = [], ex = [], note = "", why = null, concept = "", motivName = "";
+  var body = e.body || [], intro = [], sec = "", power = [], weak = [], ex = [], note = "", why = null, concept = "", motivName = "", imp = [];
   body.forEach(function(x, i){
     if(typeof x === "string"){
       if(/^##\s/.test(x)){ sec = x.replace(/^##\s*/, ""); return; }
@@ -21,17 +21,19 @@ function parseFq(e, typ, grp, src){
       var q = {l: x.fq.l, q: strip(x.fq.q), tags: (x.fq.tags || []).map(strip)};
       if(/^Fragen zu den Stärken/.test(sec)) power.push(q); else if(/^Fragen zu den Schwächen/.test(sec)) weak.push(q);
     }
+    if(x.kv && /^Verbesserungen/.test(sec)) x.kv.forEach(function(r){ imp.push([strip(r[0]), strip(r[1])]); });
     if(x.box && x.box.k === "frage" && !why){ why = {q: strip(x.box.t), opts: (x.box.b || []).filter(function(b){ return typeof b === "string"; }).map(function(b){ return strip(b.replace(/^-\s*/, "")); }), flesh: ""}; }
   });
   if(!power.length || !weak.length) return;
-  books.push({id: e.name, name: e.name, typ: typ, grp: grp, src: src, p: e.p, intro: intro.slice(-3), concept: concept, why: why, power: power, weak: weak, motivEx: ex, motivNote: note});
+  books.push({id: e.name, name: e.name, typ: typ, grp: grp, src: src, p: e.p, intro: intro.slice(-3), concept: concept, why: why, power: power, weak: weak, motivEx: ex, motivNote: note, imp: imp});
 }
 /* Shadows & Showdowns: Listen mit „**A – FRAGE** Beispiel, Beispiel“ */
 function parseSS(o){
   var L = o.listen || [], fr = function(list){ return ((list && list.items) || []).map(function(t){ var m = /^\*\*([A-J]) – (.+?)\*\*\s*(.*)$/.exec(t); return m ? {l: m[1], q: cap(m[2]), tags: m[3] ? m[3].split(/,\s+/).map(strip) : []} : null; }).filter(Boolean); };
   var power = fr(L[0]), weak = fr(L[1]); if(!power.length || !weak.length) return;
-  var ex = ((L[3] && L[3].items) || []).map(function(t){ return ["", strip(t)]; });
-  books.push({id: o.name, name: o.name, typ: o.tb, grp: o.tb + " · Shadows & Showdowns", src: "Shadows & Showdowns", p: o.p, intro: (o.text || []).filter(function(t){ return typeof t === "string"; }).slice(0, 2).map(strip), concept: "", why: null, power: power, weak: weak, motivEx: ex, motivNote: ""});
+  var ex = ((L[3] && L[3].items) || []).map(function(t){ return strip(t); }).filter(function(t){ return /^[„"»]/.test(t); }).map(function(t){ return ["", t]; });
+  var IL = L.filter(function(l){ return /^Verbesserungen/.test(l.t); })[0], imp = ((IL && IL.items) || []).map(function(t){ var m = /^\*\*(.+?):?\*\*:?\s*(.*)$/.exec(t); return m ? [strip(m[1]).replace(/:$/, ""), strip(m[2])] : [strip(t), ""]; });
+  books.push({id: o.name, name: o.name, typ: o.tb, grp: o.tb + " · Shadows & Showdowns", src: "Shadows & Showdowns", p: o.p, intro: (o.text || []).filter(function(t){ return typeof t === "string"; }).slice(0, 2).map(strip), concept: "", why: null, power: power, weak: weak, motivEx: ex, motivNote: "", imp: imp});
 }
 (CM_RW["themenbuecher-mythos"] || []).forEach(function(e){ parseFq(e, "Mythos", "Mythos · Grundregelwerk", "Grundregelwerk"); });
 (CM_RW["themenbuecher-logos"] || []).forEach(function(e){ parseFq(e, "Logos", "Logos · Grundregelwerk", "Grundregelwerk"); });
@@ -49,7 +51,7 @@ MistErsteller.start({
   typen: {Mythos: {l: "Mythos", motiv: "Mysterium"}, Logos: {l: "Logos", motiv: "Identität"}, Extra: {l: "Zusatz", motiv: "Mysterium oder Identität", nurWennBenutzt: true}},
   regeln: {themen: 4, power: 3, weak: 1, extra: true, pflicht: "Frage A ist Pflicht, dazu zwei weitere"},
   stufe: function(n){ if((n.Mythos || 0) + (n.Logos || 0) < 4) return ""; return {1: "Berührt", 2: "Grenzgänger:in", 3: "Legende"}[n.Mythos] || ""; },
-  konzept: ["Wähle vier Themen: mindestens ein Mythos- und ein Logos-Thema."], books: books, kits: [], vorlagen: [],
+  zufallTypen: [["Mythos", "Logos", "Logos", "Logos"], ["Mythos", "Mythos", "Logos", "Logos"], ["Mythos", "Mythos", "Mythos", "Logos"]], konzept: ["Wähle vier Themen: mindestens ein Mythos- und ein Logos-Thema."], books: books, kits: [], vorlagen: [], bogen: window.CM_BOGEN,
   kombi: {titel: "Archetypen kombinieren", hinweis: "Grundregelwerk S. 69–73: je ein Mythos- und ein Logos-Archetyp, dann die Stufe", a: "Mythos-Archetyp", b: "Logos-Archetyp", aKurz: "Mythos", bKurz: "Logos", liste: liste,
     stufen: [{l: "Berührt", n: [1, 3]}, {l: "Grenzgänger:in", n: [2, 2]}, {l: "Legende", n: [3, 1]}]}
 });

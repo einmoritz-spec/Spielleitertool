@@ -143,7 +143,25 @@ function vorlageWahl(v, anchor){
   if(v.wahl && v.wahl.length > 1) popOpen(anchor, v.wahl.map(function(w, i){ return {n: w.kit, s: "", g: "Wahl-Kit für " + v.name, i: i}; }), function(it){ vorlageSetzen(v, it.i); }, {offen: 1});
   else vorlageSetzen(v, 0);
 }
+function zufallFragen(){
+  var c = blankChar(), rnd = function(a){ return a[Math.floor(Math.random() * a.length)]; };
+  var verteilung = CFG.zufallTypen ? rnd(CFG.zufallTypen) : Object.keys(CFG.typen).filter(function(k){ return !CFG.typen[k].nurWennBenutzt; });
+  var used = {};
+  c.themes = c.themes.map(function(x, i){
+    var typ = verteilung[i % verteilung.length], cand = CFG.books.filter(function(b){ return b.typ === typ && !used[b.id]; }); if(!cand.length) cand = CFG.books.filter(function(b){ return b.typ === typ; });
+    var b = rnd(cand); used[b.id] = 1; var t = blankTheme(); t.book = b.id; t.typ = b.typ;
+    var tagOf = function(q){ return q.tags && q.tags.length ? rnd(q.tags) : ""; };
+    var qs = shuffle(b.power.slice(1).filter(function(q){ return q.tags && q.tags.length; })).slice(0, CFG.regeln.power - 1);
+    t.power = [{l: b.power[0].l, a: tagOf(b.power[0])}].concat(qs.map(function(q){ return {l: q.l, a: tagOf(q)}; })).filter(function(x){ return x.a; });
+    var wq = rnd(b.weak.filter(function(q){ return q.tags && q.tags.length; }) || b.weak); if(wq) t.weak = [{l: wq.l, a: tagOf(wq)}];
+    if(b.motivEx && b.motivEx.length) t.motiv = rnd(b.motivEx)[1];
+    if(t.power[0]) t.name = t.power[0].a;
+    return t;
+  });
+  neuerEintrag(c, true); S.tab = "charaktere"; save(); render();
+}
 function zufall(){
+  if(!CFG.kits.length){ zufallFragen(); return; }
   var c = blankChar(), typen = Object.keys(CFG.typen), used = {};
   c.themes = c.themes.map(function(){
     var cand = CFG.kits.filter(function(k){ return !used[k.book + k.name] && !used[k.book]; }); if(!cand.length) cand = CFG.kits;
@@ -281,6 +299,10 @@ function click(e){
   else if(act === "chip"){ S.cur = v; }
   else if(act === "neu"){ var n = blankChar(); S.chars.push(n); S.cur = n.id; S.slot = 0; }
   else if(act === "zufall"){ zufall(); return; }
+  else if(act === "vorlage" && CFG.kombi && CFG.bogen){
+    var K = CFG.kombi, liste = function(t){ return K.liste.filter(function(x){ return x.teil === t; }).map(function(x){ return {n: x.name, s: "", g: K[t], id: x.id, info: '<h4>' + esc(x.name) + '</h4><p class="mi-m">' + esc(K[t]) + '</p><p>' + x.themes.map(function(r){ return esc(r.book) + (r.hint ? ' (' + esc(r.hint) + ')' : ""); }).join(" · ") + '</p>'}; }); };
+    var anc = function(){ return document.querySelector('[data-act="vorlage"]') || a; };
+    popOpen(anc(), liste("a"), function(itA){ setTimeout(function(){ popOpen(anc(), liste("b"), function(itB){ setTimeout(function(){ popOpen(anc(), K.stufen.map(function(st, i){ return {n: st.l, s: st.n[0] + " " + K.aKurz + " · " + st.n[1] + " " + K.bKurz, g: "Stufe", id: i}; }), function(itS){ S.kombi = {a: itA.id, b: itB.id, st: itS.id}; kombiSetzen(); }, {offen: 1}); }, 30); }, {offen: 1}); }, 30); }, {offen: 1}); return; }
   else if(act === "vorlage" && CFG.kombi){ S.tab = "vorlagen"; }
   else if(act === "vorlage"){ popOpen(a, CFG.vorlagen.map(function(x){ return {n: x.name, s: "", g: x.gruppe, info: vorInfo(x), id: x.id}; }), function(it){ vorlageWahl(CFG.vorlagen.filter(function(x){ return x.id === it.id; })[0], a); }); return; }
   else if(act === "leeren"){ if(!leer(c) && !confirm("Diesen Charakter leeren?")) return; var id = c.id, nb = blankChar(); nb.id = id; Object.keys(c).forEach(function(k){ delete c[k]; }); Object.assign(c, nb); S.slot = 0; }

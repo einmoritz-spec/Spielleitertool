@@ -9,7 +9,7 @@ function tzSec(id){ var r = null; VAE_KAP.tanz.tabs.forEach(function(t){ (t.secs
 function tzTab(id){ return VAE_KAP.tanz.tabs.filter(function(t){ return t.id === id; })[0]; }
 function tzB(sec, i){ return tzSec(sec).b[i]; }
 function tzBetween(s, a, b){ var i = s.indexOf(a); if(i < 0) return ""; var j = b ? s.indexOf(b, i + a.length) : -1; return (j < 0 ? s.slice(i) : s.slice(i, j)).trim(); }
-var TZ_SK = "WISSEN|UNTERSUCHUNG|EMPATHIE|BEOBACHTUNG|MANIPULATION|HEIMLICHKEIT|KRAFT|FERNKAMPF|NAHKAMPF|MAGIE|WACHSAMKEIT|LOGIK";
+var TZ_SK = "GELEHRSAMKEIT|NACHFORSCHUNG|EMPATHIE|BEOBACHTUNG|MANIPULATION|HEIMLICHKEIT|KRAFT|FERNKAMPF|NAHKAMPF|MAGIE|WACHSAMKEIT|LOGIK";
 var TZ_RE = new RegExp("(?<![A-ZÄÖÜ])(" + TZ_SK + ")(?![A-ZÄÖÜ])", "g");
 function tzDec(s){ return String(s).replace(TZ_RE, '<span class="roll">$1</span>').replace(/gegen Furcht (\d)/g, 'gegen <span class="fear">FURCHT $1</span>'); }
 function tzPg(p){ return '<span class="pg"><a onclick="' + inBook(p) + '">S. ' + p + '</a></span>'; }
@@ -27,9 +27,9 @@ function tzClues(){
   var wissen = probe.x.split("<br>");
   return {
    upsalaIntro: up[0].replace(/<br>$/, ""),
-   upsala: up.slice(1).map(function(t, i){ return {id:"up" + i, q:"Wissen", x:t.replace(/<br>$/, "")}; }),
+   upsala: up.slice(1).map(function(t, i){ return {id:"up" + i, q:"Gelehrsamkeit", x:t.replace(/<br>$/, "")}; }),
    speisesaal: {intro:tzB("speisesaal", 5).x, list:sp.map(function(t, i){ return {id:"sp" + i, q:"", x:t}; })},
-   dachboden: [{id:"da0", q:"Wissen / Untersuchung", x:kons}].concat(ho.map(function(t, i){ return {id:"da" + (i + 1), q:i ? "Sophia" : "Sophia · Empathie", x:t}; })),
+   dachboden: [{id:"da0", q:"Gelehrsamkeit / Nachforschung", x:kons}].concat(ho.map(function(t, i){ return {id:"da" + (i + 1), q:i ? "Sophia" : "Sophia · Empathie", x:t}; })),
    daEmp: emp,
    nora: {tag:tzB("nora", 5).x, probeH:probe.h, probeIntro:wissen[0], probe:wissen.slice(1).map(function(t, i){ return {id:"no" + i, q:t.match(/<b>(.*?)<\/b>/)[1].replace(":", ""), x:t.replace(/<b>.*?<\/b>\s*/, "")}; }), bib:tzB("nora", 7)}
   };
@@ -198,7 +198,7 @@ function tzViewHw(){
    ["Upsala", "Bibliothek, Universität", 199, C.upsala],
    ["Speisesaal", "Jonathan, Pater Klarhed, Personal", 203, C.speisesaal.list],
    ["Dachboden", "Theater, Sophia", 206, C.dachboden],
-   ["Noras Zimmer", "Bibliothek, Wissen", 207, C.nora.probe.map(function(c){ return c; })]
+   ["Noras Zimmer", "Bibliothek, Gelehrsamkeit", 207, C.nora.probe.map(function(c){ return c; })]
   ], s = tzLoad();
   return '<div class="hw">' + grp.map(function(g){ var n = g[3].filter(function(c){ return s.clue[c.id]; }).length; return '<div class="hrow"><div class="src"><h3>' + g[0] + '</h3><small>' + g[1] + ' · ' + tzPg(g[2]) + '</small><div class="ct">' + n + ' / ' + g[3].length + '</div></div><div class="cg">' + g[3].map(function(c){ return tzClue(c.id, c.q, c.x); }).join("") + '</div></div>'; }).join("") + '</div>';
 }

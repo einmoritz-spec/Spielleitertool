@@ -4,7 +4,7 @@ var MS_ID = "", MS = null, MS_ST = null;
 function msKey(){ return "vae_som_" + MS_ID + "_v1"; }
 function msLoad(){ if(!MS_ST){ try{ MS_ST = JSON.parse(localStorage.getItem(msKey()) || "{}"); }catch(e){ MS_ST = {}; } MS_ST.cd = MS_ST.cd || []; MS_ST.clue = MS_ST.clue || {}; MS_ST.trk = MS_ST.trk || {}; MS_ST.note = MS_ST.note || {}; } return MS_ST; }
 function msSave(){ try{ localStorage.setItem(msKey(), JSON.stringify(MS_ST)); }catch(e){} }
-var MS_SK = "WISSEN|UNTERSUCHUNG|EMPATHIE|BEOBACHTUNG|MANIPULATION|HEIMLICHKEIT|BEWEGLICHKEIT|KRAFT|FERNKAMPF|NAHKAMPF|MAGIE|WACHSAMKEIT|LOGIK|INSPIRATION|HEILKUNDE";
+var MS_SK = "GELEHRSAMKEIT|NACHFORSCHUNG|EMPATHIE|BEOBACHTUNG|MANIPULATION|HEIMLICHKEIT|BEWEGLICHKEIT|KRAFT|FERNKAMPF|NAHKAMPF|MAGIE|WACHSAMKEIT|LOGIK|INSPIRATION|HEILKUNDE";
 var MS_RE = new RegExp("(?<![A-ZÄÖÜ])(" + MS_SK + ")(?![A-ZÄÖÜ])", "g");
 function msDec(s){ return String(s).replace(MS_RE, '<span class="roll">$1</span>').replace(/Furchtprobe gegen Furcht (\d)/g, 'Furchtprobe gegen <span class="fear">FURCHT $1</span>'); }
 function msP(a){ return (a || []).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""); }

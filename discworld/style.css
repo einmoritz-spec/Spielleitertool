@@ -319,9 +319,9 @@ textarea.nt{width:100%;min-height:260px;padding:12px 14px;border:1px solid #c9ae
 .boegen{display:grid;grid-template-columns:repeat(auto-fit,minmax(560px,1fr));gap:26px}
 .dwb{position:relative;container-type:inline-size;aspect-ratio:612/792;box-shadow:2px 4px 14px rgba(40,20,5,.35)}
 .dwb .bg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.dwb .bf{position:absolute;box-sizing:border-box;border:0;background:transparent;padding:0 .3cqw;font:400 1.9cqw/1 Hand,cursive;color:#21170f;outline:none}
+.dwb .bf{position:absolute;box-sizing:border-box;border:0;background:transparent;padding:0 .3cqw;font:italic 400 2.55cqw/1 Gara,serif;color:#1d1410;outline:none}
 .dwb .bf:hover{background:rgba(122,36,23,.05)}.dwb .bf:focus{background:rgba(122,36,23,.08)}
-.dwb .bf.mitte{text-align:center}.dwb .bf.glueck{text-align:center;font-size:3.8cqw}
+.dwb .bf.mitte{text-align:center}.dwb .bf.glueck{text-align:center;font-size:4cqw;font-style:normal;font-weight:600}
 .dwb .bf-bild{position:absolute;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .dwb .bf-bild:hover{background:rgba(122,36,23,.05)}
 .dwb .bf-bild input{display:none}
@@ -346,3 +346,19 @@ body.mitunter .unter{border-top:0}
 .kh>a.pen svg{width:19px;height:19px}
 .dw-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#3a1a14;color:#f6ead3;padding:10px 20px;border-radius:6px;font:400 17px FellSC,serif;z-index:99}
 .bogenleiste .ib{display:inline-flex;align-items:center;justify-content:center;width:42px;height:38px;padding:0}.bogenleiste .ib svg{display:block}
+
+.vorwrap{position:relative;display:inline-block}
+.vorpop{position:absolute;right:0;top:46px;z-index:50;min-width:400px;background:#fffbf2;border:1px solid #c9ae80;border-radius:6px;box-shadow:0 6px 20px rgba(60,30,10,.3);padding:8px;text-align:left}
+.vorpop[hidden]{display:none}
+.vorpop button{font:400 16px FellSC,serif;color:var(--blut);background:none;border:1px solid #d8c29a;border-radius:4px;cursor:pointer}
+.vorpop .vp-g{display:block;width:100%;padding:8px 10px;text-align:left;margin-bottom:6px;font-family:Gara,serif;font-size:17px}
+.vorpop .vp-g b{font-family:FellSC,serif;font-weight:400;margin-right:6px}
+.vorpop .vp-c{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:6px 4px;border-top:1px solid #eadcc0;font:17px Gara,serif;color:#2b1d14}
+.vorpop .vp-c em{font:14px FellSC,serif;color:#8a7352;white-space:nowrap;font-style:normal}
+.vorpop .vp-c em button{width:28px;height:28px;margin-left:4px;padding:0}
+.vorpop button:hover{background:var(--blut);color:#f6ead3}
+
+.akte .bogen-cta{display:flex;align-items:center;gap:10px;margin:10px 4px 0;padding:7px 12px;background:var(--blut);color:#f6ead3;border:1px solid #4d130b;border-radius:4px;box-shadow:inset 0 0 0 2px rgba(246,234,211,.18),0 3px 8px rgba(70,20,10,.3);cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.akte .bogen-cta:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 2px rgba(246,234,211,.3),0 6px 14px rgba(70,20,10,.4)}
+.akte .bogen-cta svg{flex:none}
+.akte .bogen-cta b{display:block;font:400 19px/1.1 FellSC,serif;letter-spacing:.02em}

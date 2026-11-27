@@ -74,7 +74,8 @@ function viewStart(){
   kopf("start");
   var akten = BEREICHE.map(function(B){
     return '<section class="akte"><a class="ab-bild" onclick="go(\'k/' + B.id + '/0\')"><img src="img/full/' + B.bild + '.webp" alt="" loading="lazy"></a><h2><a onclick="go(\'k/' + B.id + '/0\')">' + esc(B.t) + "</a></h2>" +
-      (B.g.length > 1 ? '<nav>' + B.g.map(function(g, i){ return '<a onclick="go(\'k/' + B.id + "/" + i + '\')">' + esc(g) + "</a>"; }).join("") + "</nav>" : "") + "</section>";
+      (B.g.length > 1 ? '<nav>' + B.g.map(function(g, i){ return '<a onclick="go(\'k/' + B.id + "/" + i + '\')">' + esc(g) + "</a>"; }).join("") + "</nav>" : "") +
+      (B.id === "charaktere" ? '<a class="bogen-cta" onclick="go(\'k/charaktere/5\')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 3 0l0 0a2 2 0 0 1 0 3L8 19z"/><path d="M14.5 6.5l3 3"/></svg><b>Bogen ausfüllen</b></a>' : "") + "</section>";
   }).join("");
   var ab = ABENTEUER.map(function(A){ var da = !!DW.AB[A.id];
     return '<a class="plakat' + (da ? "" : " spaeter") + '" onclick="' + (da ? "go('a/" + A.id + "')" : "") + '"><span class="pb" style="background-image:url(img/full/' + A.bild + ".webp);background-position:" + A.pos + '"></span><b>' + esc(A.t) + "</b></a>"; }).join("");

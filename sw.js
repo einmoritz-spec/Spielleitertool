@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1364sq";
+const VERSION = "v1365sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -5590,6 +5590,7 @@ const FILES = [
   "shared/lib/pdf-lib.min.js",
   "shared/lib/fontkit.umd.min.js",
   "assets/fonts/pdf/labrada-latin-400-normal.ttf",
+  "assets/fonts/pdf/eb-garamond-latin-400-italic.ttf",
   "assets/fonts/pdf/labrada-latin-700-normal.ttf",
   "assets/fonts/pdf/cinzel-latin-700-normal.ttf",
   "assets/charakterbogen.pdf",

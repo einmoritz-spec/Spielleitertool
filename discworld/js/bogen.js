@@ -53,11 +53,45 @@
   window.dwLeeren = function(){ if(!confirm("Alle Einträge auf den Bögen löschen?")) return; D = {}; sichern(); render(); };
 
   window.viewBogen = function(B, gi){
-    return '<div class="bogenwrap"><div class="bogenleiste"><button class="ib" onclick="dwZufall()" title="Zufällig ausfüllen (Gruppe und 3 Charaktere)" aria-label="Zufällig ausfüllen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/></svg></button><button class="ib" onclick="dwLeeren()" title="Leeren" aria-label="Leeren"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4v5h5"/></svg></button><button class="ib" onclick="dwLink(this)" title="Link teilen (ohne Bilder)" aria-label="Link teilen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button><button class="ib" onclick="dwJsonOut()" title="Als Datei sichern" aria-label="Als Datei sichern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg></button><label class="bogenbtn ib" title="Datei laden" aria-label="Datei laden"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg><input type="file" accept=".json,application/json" hidden onchange="dwJsonIn(this)"></label><button class="haupt ib" onclick="dwPdf(this)" title="Als PDF speichern" aria-label="Als PDF speichern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M7.5 3v5h8V3"/><rect x="7" y="13" width="10" height="8"/></svg></button></div><div class="boegen">' +
+    return '<div class="bogenwrap"><div class="bogenleiste"><span class="vorwrap"><button class="ib" onclick="dwVorPop(event)" title="Vorgefertigte Charaktere einsetzen" aria-label="Vorgefertigte Charaktere"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17.5" cy="9" r="2.4"/><path d="M17 14.2c2.6.2 4.5 2.2 4.5 5.3"/></svg></button><div class="vorpop" hidden></div></span><button class="ib" onclick="dwZufall()" title="Zufällig ausfüllen (Gruppe und 3 Charaktere)" aria-label="Zufällig ausfüllen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/></svg></button><button class="ib" onclick="dwLeeren()" title="Leeren" aria-label="Leeren"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.5 4v5h5"/></svg></button><button class="ib" onclick="dwLink(this)" title="Link teilen (ohne Bilder)" aria-label="Link teilen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button><button class="ib" onclick="dwJsonOut()" title="Als Datei sichern" aria-label="Als Datei sichern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg></button><label class="bogenbtn ib" title="Datei laden" aria-label="Datei laden"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5"/><path d="M7 9l5-5 5 5"/><path d="M5 20h14"/></svg><input type="file" accept=".json,application/json" hidden onchange="dwJsonIn(this)"></label><button class="haupt ib" onclick="dwPdf(this)" title="Als PDF speichern" aria-label="Als PDF speichern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M7.5 3v5h8V3"/><rect x="7" y="13" width="10" height="8"/></svg></button></div><div class="boegen">' +
       SEITEN.map(function(S){ return '<div class="dwb"><img class="bg" src="' + S.bg + '" alt="">' + S.f.map(feld).join("") + "</div>"; }).join("") + "</div></div>";
   };
 
 
+
+  /* ---------- Vorgefertigte Gruppe und Charaktere (S. 94–96) einsetzen ---------- */
+  function vorDaten(){
+    var r = {g:null, c:[]};
+    (function suche(x){ if(!x) return; if(Array.isArray(x)) return x.forEach(suche);
+      if(typeof x === "object"){ if(x.t === "gruppe" && !r.g) r.g = x; if(x.t === "scs" && !r.c.length) r.c = x.x; Object.keys(x).forEach(function(k){ suche(x[k]); }); } })(DW.K.charaktere.filter(function(p){ return p.id === "vorgefertigt"; }));
+    return r;
+  }
+  window.dwVorPop = function(e){
+    e.stopPropagation();
+    var p = e.currentTarget.parentNode.querySelector(".vorpop"), d = vorDaten();
+    if(!p.hidden){ p.hidden = true; return; }
+    p.innerHTML = (d.g ? '<button class="vp-g" onclick="dwVorG()"><b>Gruppe</b> ' + esc(d.g.name) + '</button>' : "") +
+      d.c.map(function(c, i){ return '<div class="vp-c"><span>' + esc(c.name) + '</span><em>Bogen ' + [1, 2, 3].map(function(n){ return '<button onclick="dwVorC(' + i + ',' + (n - 1) + ')">' + n + "</button>"; }).join("") + "</em></div>"; }).join("");
+    p.hidden = false;
+    setTimeout(function(){ document.addEventListener("click", function z(ev){ if(!p.contains(ev.target)){ p.hidden = true; document.removeEventListener("click", z); } }); }, 0);
+  };
+  function vorFertig(){ document.querySelectorAll(".vorpop").forEach(function(p){ p.hidden = true; }); sichern(); render(); }
+  window.dwVorG = function(){
+    var g = vorDaten().g; if(!g) return;
+    D["g.name"] = g.name; D["g.org"] = g.org;
+    umbrechen(g.ziel, 78, 3).concat(["", "", ""]).slice(0, 3).forEach(function(t, i){ D["g.ziel" + i] = t; });
+    umbrechen(g.verg, 36, 3).concat(["", "", ""]).slice(0, 3).forEach(function(t, i){ D["g.verg" + i] = t; });
+    umbrechen(g.gegen, 36, 3).concat(["", "", ""]).slice(0, 3).forEach(function(t, i){ D["g.gegen" + i] = t; });
+    vorFertig();
+  };
+  window.dwVorC = function(i, slot){
+    var c = vorDaten().c[i]; if(!c) return; var p = "c" + slot + ".";
+    var hg = umbrechen(c.hg, 40, 2), pr = c.pron.split("/")[0].toLowerCase();
+    D[p + "name"] = c.name; D[p + "pron"] = pr; D[p + "org"] = c.org; D[p + "hg0"] = hg[0] || ""; D[p + "hg1"] = hg[1] || "";
+    D[p + "nische"] = c.nische; [0, 1, 2].forEach(function(k){ D[p + "mar" + k] = c.marotten[k] || ""; });
+    D[p + "glueck"] = "4"; D[p + "kern"] = ""; [0, 1, 2, 3].forEach(function(k){ D[p + "folgen" + k] = ""; });
+    vorFertig();
+  };
 
   /* ---------- Zufall: Gruppe und drei Charaktere nach den Regeln (S. 50–70) auswürfeln ---------- */
   function wf(n){ return Math.floor(Math.random() * n); }
@@ -187,7 +221,7 @@
       var L = PDFLib;
       return L.PDFDocument.create().then(function(doc){
         doc.setTitle("Discworld – Gruppenakte und Charakterbögen"); doc.setCreator("Spielleitertool"); doc.registerFontkit(fontkit);
-        return Promise.all([bytes(ROOT + "assets/fonts/pdf/cedarville-cursive-latin-400-normal.ttf"), bytes(SEITEN[0].bg), bytes(SEITEN[1].bg)]).then(function(x){
+        return Promise.all([bytes(ROOT + "assets/fonts/pdf/eb-garamond-latin-400-italic.ttf"), bytes(SEITEN[0].bg), bytes(SEITEN[1].bg)]).then(function(x){
           return doc.embedFont(x[0], {subset:false}).then(function(font){
             return Promise.all([doc.embedJpg(x[1]), doc.embedJpg(x[2])]).then(function(bg){
               var form = doc.getForm(), tinte = L.rgb(.13, .09, .07), bilder = [];

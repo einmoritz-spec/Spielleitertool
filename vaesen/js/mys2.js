@@ -152,11 +152,11 @@ function msViewHg(){
     msG((h.kaesten || []).map(msKastX)) + (h.mythic ? '<details class="ms-dt"><summary>Im Mythischen Britannien und Irland ' + msPg(msPp("myth", 1)) + '</summary>' + h.mythic + '</details>' : '')) + (MS.net ? msSec("be", "Beziehungen", msTtl("Beziehungen") + '<div class="ms-net">' + MS.net + '</div>') : '');
 }
 function msViewAn(){
-  var a = MS.an, ho = MS.ho[0], kv = [];
+  var a = MS.an, ho = (MS.ho || [])[0], kv = [];
   if(a.kultur) kv.push(msKast(a.kultur.t, a.kultur.x.join("<br><br>"), msPp("vorb", 3)));
   (a.kaesten || []).forEach(function(k){ kv.push(msKastX(k)); });
-  var einl = msSec("ei", "Einladung", msFr2('<div class="ms-hw w-' + ho.id + '"><div onclick="msShowAt(this.firstChild)">' + msHoCard(ho) + '</div><div class="hol">' + esc(ho.t) + '</div></div>') + msTtl("Einladung", msPp("einl", 2)) +
-    '<p>' + a.einladung[0].replace(a.hoName, '<a class="lnk" onclick="msDrawer(\'ho\')">' + a.hoName + '</a>') + '</p>' + a.einladung.slice(1).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""));
+  var einl = msSec("ei", "Einladung", (ho ? msFr2('<div class="ms-hw w-' + ho.id + '"><div onclick="msShowAt(this.firstChild)">' + msHoCard(ho) + '</div><div class="hol">' + esc(ho.t) + '</div></div>') : '') + msTtl("Einladung", msPp("einl", 2)) +
+    '<p>' + a.einladung[0].replace(a.hoName || "\u0000", '<a class="lnk" onclick="msDrawer(\'ho\')">' + a.hoName + '</a>') + '</p>' + a.einladung.slice(1).map(function(t){ return '<p>' + msDec(t) + '</p>'; }).join(""));
   var vorb = (a.vorb || kv.length) ? msSec("vo", a.vorbT || "Vorbereitungen", msTtl(a.vorbT || "Vorbereitungen", msPp("vorb", 3)) + msP(a.vorb) + msG(kv)) : "";
   var reise = msSec("re", "Die Reise", (a.karten || []).slice(0, 1).map(function(k){ return msFr2('<img src="' + msImg(k) + '" alt="" onclick="msZoom(this.src)"><small class="cap">Karte ' + msPg(msPp("karte", 2)) + '</small>'); }).join("") + msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + (a.reiseVl ? '<div class="vl">' + a.reiseVl + '</div>' : '') + (a.hinterhalt ? msG([msKastX(a.hinterhalt)]) : ''));
   var ank = msSec("ak", "Ankunft", msTtl("Ankunft", msPp("ankunft", 4)) + msP([a.ankunft[0]].concat(a.jennyEin || [])) + (a.jenny ? msG(a.jenny.map(function(t){ return '<div class="clue st">' + t + '</div>'; })) : '') + msP(a.ankunft.slice(1)));
@@ -192,7 +192,7 @@ function msSpy(){
   document.querySelectorAll(".ms2s a").forEach(function(a){ a.classList.toggle("on", a.getAttribute("data-s") === best); });
 }
 function msTabsHtml(){ return '<nav class="tabs ms2t">' + MS_TABS.map(function(t){ return '<a class="' + (t[1] === MS_TAB ? 'on' : '') + '" onclick="go(\'som/' + MS_ID + '/' + t[1] + '\')">' + t[0] + '</a>'; }).join("") + '<span class="sp"></span>' + msCdBar() + '<span class="sep"></span>' +
-  MS_LK.map(function(l){ return '<a class="lk' + (MS_DR && MS_DR.k === l[1] ? ' on' : '') + '" data-k="' + l[1] + '" onclick="msDrawer(\'' + l[1] + '\')">' + l[0] + '</a>'; }).join("") + '</nav>'; }
+  MS_LK.filter(function(l){ return l[1] !== "ho" || (MS.ho && MS.ho.length); }).map(function(l){ return '<a class="lk' + (MS_DR && MS_DR.k === l[1] ? ' on' : '') + '" data-k="' + l[1] + '" onclick="msDrawer(\'' + l[1] + '\')">' + l[0] + '</a>'; }).join("") + '</nav>'; }
 function viewMys(){
   var p = sub.split("/"), id = p[0], tab = p[1] || "hg", v;
   if(!window.VAE_MYS || !VAE_MYS[id]) return '<div class="page"><div class="empty">Dieses Mysterium ist noch nicht eingebaut.</div></div>';

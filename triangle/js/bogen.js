@@ -293,7 +293,7 @@ function bgZufall(){
   BG_FB.forEach(function(q, i){ A.fb[i] = pk(q[1].length ? q[1] : BG_ZFREI[i]); });
   var Kt = TA_TEXT["ark/kompetenz/" + A.arc.k], Sx = Kt ? bgSuch(Kt.r, "selbst", [])[0] : null;
   if(Sx) Sx.x.forEach(function(fr, i){ A.selbst[i] = Math.floor(Math.random() * fr.a.length); });
-  bgSave(); render(); bgToast("Zufälliger Agent erstellt – Name und Antworten sind erfunden, Beziehungen und Notizen bleiben leer.");
+  bgSave(); render(); bgToast("Zufälliger Agent erstellt");
 }
 function bgLaden(inp){
   var f = inp.files && inp.files[0]; if(!f) return;

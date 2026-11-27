@@ -57,7 +57,6 @@ function legende(dx, dy, motivHtml){
     box(32.3 + dx - 25, 421.5 + dy, 130, 12.6, "t ml", motivHtml);
 }
 var ROWS = [[46.8, 42.2], [93.5, 24.55], [122.75, 24.55], [151.5, 24.55], [180.25, 24.55], [209.5, 24.55], [238.25, 24.55], [267, 24.55]], WROWS = [[297.3, 23], [326.3, 23]];
-var FIRE = '<svg viewBox="0 0 341 261" aria-hidden="true"><defs><radialGradient id="osfb" cx="72%" cy="50%" r="62%"><stop offset="0" stop-color="#fff6c8"/><stop offset=".35" stop-color="#ffc247"/><stop offset=".75" stop-color="#ff7a1a"/><stop offset="1" stop-color="#e03a0c"/></radialGradient></defs><path d="M215 67C190 70 175 85 165 100L112 94L150 114L62 130L150 140L108 168L170 160C185 185 210 199 238 199C275 199 300 170 300 132C300 95 275 66 240 66Z" fill="url(#osfb)" stroke="#fff3c4" stroke-width="5" stroke-linejoin="round"/></svg>';
 var BURN_Y = [66.8, 105.6, 134.4, 163.3, 192, 221, 249.8, 278.6];
 
 /* ---------- Seite 1: Charakterkarte + Crew-Theme ---------- */
@@ -118,7 +117,7 @@ function themaVorn(c, t, i){
     var x = !b ? null : s === 0 ? pl.kern : pl.rest[s - 1], q = x && b.power.filter(function(z){ return z.l === x.l; })[0];
     var ph = b && s === 0 && !x ? '<span class="ph">' + esc(b.power[0].q) + '</span>' : "";
     h += lnk(30 + dx, r[0] + 66.7, 128, r[1], "feld" + (s === 0 ? " big" : "") + (x && x.burn ? " burned" : ""), (x ? (x.l.length === 1 ? '<i>' + esc(x.l) + '</i>' : "") + '<span>' + esc(x.a) + '</span>' : ph), 'data-act="obTag" data-i="' + i + '" data-art="power" data-s="' + s + '" data-k="p' + i + '_' + s + '"' + (q ? ' data-tip="' + esc(q.l + ": " + q.q) + '"' : ""));
-    if(x && x.a) h += lnk(179.5 + dx, BURN_Y[s] + 66.7 - 6.5, 13, 13, "burn" + (x.burn ? " on" : ""), x.burn ? FIRE : "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder aktivieren" : "Verbrennen") + '"');
+    if(x && x.a) h += lnk(179.5 + dx, BURN_Y[s] + 66.7 - 6.5, 13, 13, "burn" + (x.burn ? " on" : ""), "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder aktivieren" : "Verbrennen") + '"');
   });
   WROWS.forEach(function(r, w){
     var xw = b && t.weak[w], qw = xw && b.weak.filter(function(z){ return z.l === xw.l; })[0];
@@ -148,7 +147,7 @@ function loadout(c){
       var x = L.tags[r], front = r < 14, top = front ? 112.9 + r * 28.5 : 115.9 + (r - 14) * 28.6, ox = front ? ax : bx + 188, path = "load." + n + ".tags." + r;
       h += inp(30 + ox, top + 2, 122, 20.5, path + ".a", x.a, "hand s" + (x.burn ? " burned" : ""));
       h += lnk(155.5 + ox, top + 5, 13, 13, "flaw" + (x.flaw ? " on" : ""), "", 'data-act="obToggle" data-p="' + path + '.flaw" data-tip="Makel"');
-      if(x.a) h += lnk(175.5 + ox, top + 5.5, 13, 13, "burn" + (x.burn ? " on" : ""), x.burn ? FIRE : "", 'data-act="obToggle" data-p="' + path + '.burn" data-tip="Verbrennen"');
+      if(x.a) h += lnk(175.5 + ox, top + 5.5, 13, 13, "burn" + (x.burn ? " on" : ""), "", 'data-act="obToggle" data-p="' + path + '.burn" data-tip="Verbrennen"');
     }
     h += txt(214.2 + bx, 317.5, 140, 14, "tags", "Loadout-Specials");
     for(var q = 0; q < 6; q++) h += inp(218 + bx, 336 + q * 26.1, 156, 21.5, "load." + n + ".spec." + q, L.spec[q] || "", "hand s");

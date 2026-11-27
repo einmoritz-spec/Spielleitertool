@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1347sq";
+const VERSION = "v1348sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4420,6 +4420,7 @@ const FILES = [
   "vaesen/js/mys2.js",
   "vaesen/js/bogen.js",
   "vaesen/bogen.css",
+  "vaesen/img/bogen_hg.webp",
   "vaesen/mys.css",
   "vaesen/mys2.css",
   "vaesen/js/data/som-tod.js",

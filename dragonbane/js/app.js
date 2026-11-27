@@ -121,6 +121,7 @@ function render(){
 }
 function buildMenu(){
   document.getElementById("mmP").innerHTML = '<button onclick="openMenu(false);go(\'start\')">Startseite</button>' +
+    '<button onclick="openMenu(false);go(\'n/bogen\')">Charakterbogen</button>' +
     '<h3>Nachschlagen</h3>' + DB_KAP.map(function(k){ return '<button onclick="openMenu(false);go(\'' + kapHash(k) + '\')">' + esc((k.n ? k.n + ". " : "") + k.t) + '</button>'; }).join("") + '<button onclick="openMenu(false);go(\'abenteuer\')">Abenteuer</button><button onclick="openMenu(false);gruppe()">Die Gruppe</button>' +
     '<h3>Bücher</h3>' + DB_BUECHER.map(function(g){ return g.items.map(function(b){ return '<button onclick="openMenu(false);openBook(\'' + b.id + '\',1)">' + esc(b.name) + ' (' + b.lang + ')</button>'; }).join(""); }).join("") +
     '<button onclick="openMenu(false);modal(BV.settingsHTML())">PDF hochladen …</button>';

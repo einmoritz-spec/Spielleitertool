@@ -26,7 +26,7 @@ var SBC = (function(){
   function status(){
     var c = crew(), l = SCS(), h = "";
     h += '<div class="ct" style="color:var(--pink)">Crew' + (c.name ? ' · <span class="cname" onclick="SBC.crewEdit()">' + esc(c.name) + '</span>' : ' · <span class="cname leer" onclick="SBC.crewEdit()">Name</span>') + '</div>';
-    h += '<div class="crew"><div class="hd"></div><div class="hd">Trouble · Style</div><div class="hd">Attitude</div><div class="hd">Slams</div>' + l.map(zeile).join("") + '</div>';
+    h += '<div class="crew"><div class="hd"></div><div class="hd">Trouble · Style</div><div class="hd">Haltung</div><div class="hd">Slams</div>' + l.map(zeile).join("") + '</div>';
     h += '<button class="add" onclick="SBC.neu()">+ Slugger</button>';
     var rn = SB_RUHM[c.ruhm || 0].t;
     var hy = (function(){ var o = "", j; for(j = 0; j < c.hb; j++) o += '<button class="ic" onclick="SBC.hype(\'b\',' + j + ')">' + die(j < c.hb - c.hbs ? "#6d4d9f" : "#bcb0d6") + '</button>'; for(j = 0; j < c.hk; j++) o += '<button class="ic" onclick="SBC.hype(\'k\',' + j + ')">' + bolt(j < c.hk - c.hks ? "#6d4d9f" : "#bcb0d6") + '</button>'; return o; })();

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1385sq";
+const VERSION = "v1386sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -2994,25 +2994,14 @@ const FILES = [
   "slugblaster/img/pers/fig-smarts.webp",
   "slugblaster/img/pers/fig-heart.webp",
   "slugblaster/img/pers/fig-chill.webp",
-  "slugblaster/js/data/boegen.js",
-  "slugblaster/boegen/grit.pdf",
-  "slugblaster/boegen/guts.pdf",
-  "slugblaster/boegen/smarts.pdf",
-  "slugblaster/boegen/heart.pdf",
-  "slugblaster/boegen/chill.pdf",
-  "slugblaster/boegen/crew.pdf",
-  "slugblaster/img/boegen/grit.webp",
-  "slugblaster/img/boegen/grit-an.webp",
-  "slugblaster/img/boegen/guts.webp",
-  "slugblaster/img/boegen/guts-an.webp",
-  "slugblaster/img/boegen/smarts.webp",
-  "slugblaster/img/boegen/smarts-an.webp",
-  "slugblaster/img/boegen/heart.webp",
-  "slugblaster/img/boegen/heart-an.webp",
-  "slugblaster/img/boegen/chill.webp",
-  "slugblaster/img/boegen/chill-an.webp",
-  "slugblaster/img/boegen/crew.webp",
-  "slugblaster/img/boegen/crew-an.webp",
+  "slugblaster/js/bogen-de.js",
+  "slugblaster/img/boegen/kopf-grit.webp",
+  "slugblaster/img/boegen/kopf-guts.webp",
+  "slugblaster/img/boegen/kopf-smarts.webp",
+  "slugblaster/img/boegen/kopf-heart.webp",
+  "slugblaster/img/boegen/kopf-chill.webp",
+  "slugblaster/img/boegen/kopf-crew.webp",
+  "slugblaster/img/boegen/crew-karte.webp",
   "slugblaster/js/suche.js",
   "slugblaster/js/data/galerie.js",
   "slugblaster/js/folge.js",

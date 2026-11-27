@@ -1,60 +1,9 @@
-/* SLUGBLASTER – Charakterbogen (#crew/<i>) und Crewbogen (#crew/crew): die Original-Bögen (ausfüllbare PDFs in boegen/).
-   Seite als Bild (img/boegen/<id>.webp), darüber die echten Formularfelder (js/data/boegen.js). Angekreuzte Felder zeigen
-   den Ausschnitt aus der „alles angekreuzt“-Fassung (img/boegen/<id>-an.webp) – sieht also genau wie im PDF aus.
-   Werte im Spielstand (ST.sc[i].ob bzw. ST.crew.ob). PDF-Export füllt das Original-PDF aus (bleibt ausfüllbar).
+/* SLUGBLASTER – Charakterbogen (#crew/<i>) und Crewbogen (#crew/crew): deutsche Bogenblätter (js/bogen-de.js), Werkzeugleiste,
+   Persönlichkeit-Auswahl, Zufall, Teilen, Datei sichern/laden. Werte im Spielstand (ST.sc[i] bzw. ST.crew).
    #crew = Status-Tabelle (crew.js) + Auswahl der Bögen. */
 var SBG = (function(){
   function who(s){ return s === "c" ? SBC.crew() : SBC.sc(+s); }
-  function O(s){ var o = who(s); return o ? (o.ob = o.ob || {}) : {}; }
-  function key(s){ if(s === "c") return "crew"; var p = SBC.sc(+s); return p && SB_BOEGEN[p.pers] ? p.pers : null; }
-  /* Namensfeld = oberstes Textfeld der linken Spalte; leer → Name aus dem Spielstand */
-  function nameFeld(k){ var b = null; SB_BOEGEN[k].forEach(function(f){ if(f[1] !== "c" && f[2] < 240 && (!b || f[3] < b[3])) b = f; }); return b && b[0]; }
-  function wert(s, k, f){ var o = O(s); if(f[0] in o) return o[f[0]]; if(f[0] === nameFeld(k)){ var w = who(s); return (w && w.name) || ""; } return ""; }
-
-  /* Kästchen, die am Spielstand hängen (gleich mit der Status-Tabelle): Gruppen nach Lage auf dem Bogen */
-  var CREW_RUHM = {"Check Box 295":1, "Check Box 292":2, "Check Box 293":3, "Check Box 291":4, "Check Box 294":5};
-  function gruppen(k){
-    var C = SB_BOEGEN[k].filter(function(f){ return f[1] === "c"; }), bx = function(a, b){ return a[2] - b[2]; }, by = function(a, b){ return a[3] - b[3] || a[2] - b[2]; };
-    if(k === "crew") return {
-      hype: C.filter(function(f){ return Math.abs(f[3] - 385) < 3; }).sort(bx),
-      style: C.filter(function(f){ return f[2] < 90 && f[3] > 440; }).sort(by)
-    };
-    return {
-      trouble: C.filter(function(f){ return f[3] > 520 && f[2] < 245 && f[4] < 20; }).sort(bx),
-      extra: C.filter(function(f){ return f[3] > 520 && f[2] < 245 && f[4] >= 20; }),
-      style: C.filter(function(f){ return f[3] > 520 && f[2] >= 245 && f[2] < 450; }).sort(bx),
-      att: C.filter(function(f){ return f[3] < 200 && f[2] > 260 && f[2] < 480; }).sort(bx)
-    };
-  }
-  /* → null (freies Feld) | {on, fn} | "weg" (Doppel-Feld nicht zeigen) */
-  function link(s, k, f){
-    var G = gruppen(k), i;
-    if(s === "c"){
-      var c = SBC.crew();
-      if((i = G.hype.indexOf(f)) >= 0){ var t = i < c.hb ? "b" : "k", j = t === "b" ? i : i - c.hb, n = t === "b" ? c.hb : c.hk, sp = c[t === "b" ? "hbs" : "hks"] || 0; return {on: j >= n - sp, fn: "SBC.hype('" + t + "'," + j + ")"}; }
-      if((i = G.style.indexOf(f)) >= 0) return {on: i < (c.style || 0), fn: "SBG.cst(" + i + ")"};
-      if(CREW_RUHM[f[0]]){ var r = CREW_RUHM[f[0]]; return {on: (c.ruhm || 0) >= r, fn: "SBG.ruhm(" + r + ")"}; }
-      return null;
-    }
-    var p = SBC.sc(+s), h = sbPers(p.pers).haltung;
-    if(G.extra.indexOf(f) >= 0) return "weg";
-    if((i = G.trouble.indexOf(f)) >= 0) return {on: i < (p.aerger || 0), fn: "SBC.trouble(" + s + "," + i + ")"};
-    if((i = G.style.indexOf(f)) >= 0) return {on: i < (p.style || 0), fn: "SBC.style(" + s + "," + i + ")"};
-    if(h.b !== "inf" && G.att.length === h.b + h.k && (i = G.att.indexOf(f)) >= 0){ var tt = i < h.b ? "b" : "k", jj = tt === "b" ? i : i - h.b, nn = tt === "b" ? h.b : h.k, ss = p[tt === "b" ? "bs" : "ks"] || 0; return {on: jj >= nn - ss, fn: "SBC.att(" + s + ",'" + tt + "'," + jj + ")"}; }
-    return null;
-  }
-  function an(s, k, f){ var l = link(s, k, f); return l && l !== "weg" ? l.on : !!O(s)[f[0]]; }
-
-  function bogen(s){
-    var k = key(s); if(!k) return '<div class="fr"><p class="lead">Slugger nicht gefunden.</p></div>';
-    var o = O(s);
-    var h = SB_BOEGEN[k].map(function(f, j){
-      var st = 'left:' + f[2] + 'px;top:' + f[3] + 'px;width:' + f[4] + 'px;height:' + f[5] + 'px';
-      if(f[1] === "c"){ var l = link(s, k, f); if(l === "weg") return ""; return '<i class="ob-c' + (an(s, k, f) ? " on" : "") + '" style="' + st + ';background-position:-' + f[2] + 'px -' + f[3] + 'px" onclick="' + (l ? l.fn : "SBG.tg('" + s + "'," + j + ")") + '"></i>'; }
-      return '<input class="ob-t" style="' + st + ';font-size:' + Math.min(10, f[5] * .62).toFixed(1) + 'px" data-s="' + s + '" data-j="' + j + '" value="' + esc(wert(s, k, f)) + '" autocomplete="off" spellcheck="false">';
-    }).join("");
-    return '<div class="ob" style="--an:url(' + IMG("boegen/" + k + "-an") + ')"><img src="' + IMG("boegen/" + k) + '" alt="" draggable="false">' + h + '</div>';
-  }
+  function bogen(s){ return SBGDE.sheet(s); }
 
   /* ---------- Werkzeuge: Symbolleiste, Persönlichkeit-Auswahl mit Info, Zufall, Teilen, Datei ---------- */
   var IC = {
@@ -66,7 +15,7 @@ var SBG = (function(){
   function sym(p){ return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>'; }
   function werkzeug(c){
     var ib = function(ic, tip, on, cls){ return '<button class="bwi' + (cls || "") + '" data-tip="' + tip + '" aria-label="' + tip + '" onclick="' + on + '">' + sym(IC[ic]) + '</button>'; };
-    var sl = c !== "c";
+    var sl = c !== "c" && c !== "crew";
     return '<span class="bw-tools">' + (sl ? ib("zufall", "Zufälligen Slugger erstellen", "SBG.zufall()") + ib("pers", "Persönlichkeit wählen", "SBG.persWahl(this,event)") : "") + ib("leeren", "Bogen leeren", "SBG.leeren()") +
       (sl ? ib("teilen", "Link teilen", "SBG.teilen()") + ib("sichern", "Als Datei sichern", "SBG.sichern()") + '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + sym(IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="SBG.laden(this)"></label>' : "") +
       ib("pdf", "Als ausfüllbares PDF speichern", "SBG.pdf(this)", " pdfb") + '</span>';
@@ -93,19 +42,12 @@ var SBG = (function(){
   VIEWS.crew = function(a){
     var c = a[0] || "";
     if(c.indexOf("teilen~") === 0){
-      try{ var o = JSON.parse(ub64(c.slice(7))); if(!o || !o.pers || !SB_BOEGEN[o.pers]) throw 0; var ni = neuSlugger(o); toast("Slugger übernommen"); setTimeout(function(){ go("crew/" + ni); }, 0); return chips("") + '<div class="fr"></div>'; }
+      try{ var o = JSON.parse(ub64(c.slice(7))); if(!o || !o.pers || !SB_PTEXT[o.pers]) throw 0; var ni = neuSlugger(o); toast("Slugger übernommen"); setTimeout(function(){ go("crew/" + ni); }, 0); return chips("") + '<div class="fr"></div>'; }
       catch(e){ setTimeout(function(){ go("crew"); }, 0); return chips("") + '<div class="fr"><p class="lead">Link ungültig.</p></div>'; }
     }
     if(c === "") return chips("") + '<div class="fr">' + SBC.status() + '</div>';
     return chips(c) + '<div class="bgw"><div class="bgz">' + bogen(c === "crew" ? "c" : c) + '</div></div>';
   };
-  /* Eingaben speichern (ohne neu zu zeichnen); Namensfeld hält den Namen im Spielstand aktuell */
-  document.addEventListener("input", function(e){
-    var t = e.target; if(!t || !t.classList || !t.classList.contains("ob-t")) return;
-    var s = t.dataset.s, k = key(s), f = SB_BOEGEN[k][+t.dataset.j]; O(s)[f[0]] = t.value;
-    if(f[0] === nameFeld(k) && t.value.trim()) who(s).name = t.value.trim();
-    save();
-  });
   /* Bogen auf Fensterbreite skalieren (Seite = 792 px breit) */
   function fit(){ var z = document.querySelector(".bgz"); if(!z) return; var w = z.parentNode.clientWidth - 16; z.style.zoom = Math.min(1.75, Math.max(.4, w / 792)); }
   window.addEventListener("resize", fit);
@@ -115,13 +57,24 @@ var SBG = (function(){
   var oldAfter = window.afterRender; window.afterRender = function(){ if(oldAfter) oldAfter(); fit(); };
 
   return {
-    zufall: function(){ var s = cur(), p = SBC.sc(+s); if(!p) return; if(!leer(p) && !confirm("Die Einträge dieses Bogens durch einen zufälligen Slugger ersetzen?")) return; p.name = NAMEN[Math.floor(Math.random() * NAMEN.length)]; p.pers = SB_PERS[Math.floor(Math.random() * SB_PERS.length)].id; p.ob = {}; save(); render(); toast("Zufälliger Slugger erstellt"); },
+    zufall: function(){
+      var s = cur(), p = SBC.sc(+s); if(!p) return; if(!leer(p) && !confirm("Die Einträge dieses Bogens durch einen zufälligen Slugger ersetzen?")) return;
+      var r = function(a){ return a[Math.floor(Math.random() * a.length)]; }, fl = function(a){ return [].concat.apply([], a).filter(Boolean); };
+      var ein = function(a, n){ a = a.slice(); var o = []; while(o.length < n && a.length) o.push(a.splice(Math.floor(Math.random() * a.length), 1)[0]); return o; };
+      p.name = r(NAMEN); p.pers = r(SB_PERS).id; var T = SB_PTEXT[p.pers], A = SB_AUSR, o = {};
+      o.look = ein(fl(SB_MACH.look), 3).join(", "); o.fam = ein(fl(SB_MACH.fam), 2).join(", "); o.bond = r(SB_MACH.bond); o.vibes = ein(T.vibes, 2).join(", ");
+      o.brett = r(fl(A.board.deck).filter(function(x){ return x.indexOf("(") < 0; })) + ", Griptape " + r(fl(A.board.grip));
+      o.ray = r(fl(A.ray.a)) + "-" + r(fl(A.ray.b));
+      var tr = T.traits.map(function(t, i){ return i; }).filter(function(i){ return !/_{3,}/.test(T.traits[i][1]); }); o["t" + r(tr)] = true;
+      ein(["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"], 2).forEach(function(k){ o[k] = true; });
+      p.ob = o; save(); render(); toast("Zufälliger Slugger erstellt");
+    },
     leeren: function(){ var s = cur(), o = who(s); if(!o) return; if(Object.keys(o.ob || {}).length && !confirm("Alle Einträge dieses Bogens löschen?")) return; o.ob = {}; save(); render(); },
     teilen: function(){ var p = SBC.sc(+cur()); if(!p) return; var url = location.href.split("#")[0] + "#crew/teilen~" + b64u(JSON.stringify(sauber(p)));
       if(navigator.share){ navigator.share({title: (p.name || "Slugger") + " – Slugblaster", url: url}).catch(function(){}); return; }
       (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function(){ toast("Link kopiert"); }, function(){ prompt("Link zum Teilen:", url); }); },
     sichern: function(){ var p = SBC.sc(+cur()); if(!p) return; var b = new Blob([JSON.stringify(sauber(p), null, 1)], {type: "application/json"}), a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "Slugblaster – " + (p.name || "Slugger") + ".json"; document.body.appendChild(a); a.click(); a.remove(); },
-    laden: function(inp){ var f = inp.files && inp.files[0]; if(!f) return; var r = new FileReader(); r.onload = function(){ try{ var o = JSON.parse(r.result); if(!o || !o.pers || !SB_BOEGEN[o.pers]) throw 0; go("crew/" + neuSlugger(o)); }catch(e){ toast("Das ist keine Slugger-Datei aus diesem Tool."); } }; r.readAsText(f); inp.value = ""; },
+    laden: function(inp){ var f = inp.files && inp.files[0]; if(!f) return; var r = new FileReader(); r.onload = function(){ try{ var o = JSON.parse(r.result); if(!o || !o.pers || !SB_PTEXT[o.pers]) throw 0; go("crew/" + neuSlugger(o)); }catch(e){ toast("Das ist keine Slugger-Datei aus diesem Tool."); } }; r.readAsText(f); inp.value = ""; },
     persWahl: function(btn, ev){
       if(ev) ev.stopPropagation(); var p = SBC.sc(+cur()); if(!p) return; popWeg();
       var pop = document.createElement("div"); pop.className = "bw-pop"; document.body.appendChild(pop);
@@ -137,30 +90,6 @@ var SBG = (function(){
         p.pers = n.id; p.ob = {}; save(); popWeg(); render();
       };
     },
-    cst: function(i){ var c = SBC.crew(); c.style = (c.style === i + 1) ? i : i + 1; save(); render(); },
-    ruhm: function(r){ var c = SBC.crew(); c.ruhm = (c.ruhm || 0) === r ? r - 1 : r; save(); render(); },
-    tg: function(s, j){ var f = SB_BOEGEN[key(s)][j], o = O(s); if(o[f[0]]) delete o[f[0]]; else o[f[0]] = true; save(); render(); },
-    pdf: function(btn){
-      var s = cur(), k = key(s); if(!k || !window.FillPDF) return;
-      var alt = btn.innerHTML; btn.disabled = true; btn.style.opacity = .5;
-      var fertig = function(){ btn.innerHTML = alt; btn.disabled = false; btn.style.opacity = ""; };
-      FillPDF.lib().then(function(){ return fetch("boegen/" + k + ".pdf"); }).then(function(r){ return r.arrayBuffer(); })
-      .then(function(buf){ return PDFLib.PDFDocument.load(buf); }).then(function(doc){
-        return doc.embedFont(PDFLib.StandardFonts.Helvetica).then(function(font){
-          var form = doc.getForm();
-          SB_BOEGEN[k].forEach(function(f){
-            try{
-              if(f[1] === "c"){ var cb = form.getCheckBox(f[0]); if(an(s, k, f)) cb.check(); else cb.uncheck(); }
-              else { var v = wert(s, k, f); if(v) form.getTextField(f[0]).setText(FillPDF.sauber(font, v)); }
-            }catch(e){}
-          });
-          try{ form.updateFieldAppearances(font); }catch(e){}
-          return doc.save();
-        });
-      }).then(function(bytes){
-        var w = who(s), nm = (w && w.name) || (k === "crew" ? "Crew" : k);
-        fertig(); FillPDF.ausgeben(bytes, "Slugblaster – " + nm + ".pdf");
-      }, function(e){ fertig(); alert("Das PDF konnte nicht erstellt werden: " + (e && e.message || e)); });
-    }
+    pdf: function(btn){ SBGDE.pdf(btn); }
   };
 })();

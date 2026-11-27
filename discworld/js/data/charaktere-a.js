@@ -25,7 +25,7 @@ DW.reg("charaktere", [
  {t:"wt", id:"wtorg", h:"Organisation", w:"W10", head:["","Organisation","Wählt sie, wenn euer Abenteuer Folgendes enthalten soll …"], rows:[
   ["1","Die Stadtwache","Rätsel lösen, moralische Entscheidungen und andere beschützen. S. 72"],
   ["2","Unsichtbare Universität","Magischer Wahnsinn und die Metaphysik der Scheibenwelt erkunden. S. 74"],
-  ["3","Assassinengilde, Schüler der","Buchstäbliche Dolchstöße, feine Gesellschaft und politische Verstrickungen. S. 76"],
+  ["3","Schüler der Assassinengilde","Buchstäbliche Dolchstöße, feine Gesellschaft und politische Verstrickungen. S. 76"],
   ["4","Besorgte Bürgerschaft","Kleine Rätsel, Gezänk untereinander und mäandernder Unsinn. S. 78"],
   ["5","Diebesgilde","Raubzüge planen und NSC überlisten. S. 80"],
   ["6","Bettlergilde","Selbstironischer Humor und NSC gegen sich aufbringen. S. 82"],

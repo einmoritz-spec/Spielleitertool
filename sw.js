@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1340sq";
+const VERSION = "v1341sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4440,6 +4440,27 @@ const FILES = [
   "vaesen/js/data/lost-sonne.js",
   "vaesen/js/data/lost-prinz.js",
   "vaesen/js/data/lost-saga.js",
+  "vaesen/sb.css",
+  "vaesen/js/sb.js",
+  "vaesen/js/data/mbi-welt.js",
+  "vaesen/js/data/mbi-welt2.js",
+  "vaesen/img/mbi/banshee.webp",
+  "vaesen/img/mbi/boggart.webp",
+  "vaesen/img/mbi/cover.webp",
+  "vaesen/img/mbi/karte.webp",
+  "vaesen/img/mbi/mbi_anderswelt_elfe.webp",
+  "vaesen/img/mbi/mbi_edinburgh_sarg.webp",
+  "vaesen/img/mbi/mbi_gruppen_triskele.webp",
+  "vaesen/img/mbi/mbi_kelt_maske.webp",
+  "vaesen/img/mbi/mbi_london_karte.webp",
+  "vaesen/img/mbi/mbi_london_paul.webp",
+  "vaesen/img/mbi/mbi_npc_frau.webp",
+  "vaesen/img/mbi/mbi_npc_mann.webp",
+  "vaesen/img/mbi/mbi_orte_kreatur.webp",
+  "vaesen/img/mbi/mbi_stadt_arme.webp",
+  "vaesen/img/mbi/mbi_stadt_mietshaeuser.webp",
+  "vaesen/img/mbi/mbi_stadt_strasse.webp",
+  "vaesen/img/mbi/rose.webp",
   "vaesen/img/city/city4_vilma.webp",
   "vaesen/img/city/city4_schloss.webp",
   "vaesen/img/city/city4_salon.webp",

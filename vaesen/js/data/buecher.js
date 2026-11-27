@@ -8,7 +8,7 @@ var VAE_BUECHER = [
  {grp:"Mysterien & Kampagnen", items:[
   {id:"vae_seasons", cover:"cover_seasons.webp", titel:"titel/titel_seasons.webp", name:"Seasons of Mystery", sub:"Vier Mysterien durchs Jahr", on:1},
   {id:"vae_wicked", cover:"cover_wicked.webp", titel:"titel/titel_wicked.webp", name:"A Wicked Secret and Other Mysteries", sub:"Vier Mysterien", on:1},
-  {id:"vae_lost", cover:"cover_lost.webp", titel:"titel/titel_lost.webp", name:"The Lost Mountain Saga", sub:"Kampagne"},
+  {id:"vae_lost", cover:"cover_lost.webp", titel:"titel/titel_lost.webp", name:"The Lost Mountain Saga", sub:"Fünf Mysterien in Lappland", on:1},
   {id:"vae_city", cover:"cover_city.webp", titel:"titel/titel_city.webp", name:"City of My Nightmares", sub:"Vier Mysterien in Stockholm", on:1}]},
  {grp:"Solo", items:[
   {id:"vae_solo", cover:"cover_solo.webp", titel:"titel/titel_solo.webp", name:"Solo: Thursday’s Child", sub:"Solo-Abenteuer"}]},

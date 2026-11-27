@@ -311,6 +311,8 @@ function vaeHead(){
   var kt = document.getElementById("ktabs"); if(!kt) return;
   var k = cur === "kapitel" ? sub.split("/")[0] : cur, m = {konflikt:"regeln", talente:"regeln", erstellung:"charaktere", karten:"norden"}, on = m[k] || k;
   var hide = cur === "start" || !cur;
+  document.body.classList.remove("sb-mbi", "sb-car");
+  if(window.SBS && SBS[cur]){ document.body.classList.add(SBS[cur].cls); var b = sub.split("/")[0]; kt.innerHTML = b ? sbHead(SBS[cur]) : ""; document.body.classList.toggle("vnav", !!b); return; }
   if(cur === "som" && window.VAE_MYS && VAE_MYS[sub.split("/")[0]]){ kt.innerHTML = msHead(sub.split("/")[0]); document.body.classList.add("vnav"); return; }
   kt.innerHTML = hide ? "" : HEAD.map(function(h){ return '<a class="' + (h[0] === on ? "on" : "") + '" onclick="go(\'' + h[0] + '\')">' + esc(h[1]) + "</a>"; }).join("");
   document.body.classList.toggle("vnav", !hide);
@@ -328,6 +330,7 @@ function render(){
    case "spieler": v = viewSpieler(); break;
    case "kapitel": v = viewKapitel(sub.split("/")[0]); break;
    case "som": v = viewMys(); break;
+   case "mbi": case "car": v = viewSB(cur); break;
    case "norden": case "gesellschaft": case "mysterium": v = viewKapitel(cur); break;
    default: v = viewStart();
   }

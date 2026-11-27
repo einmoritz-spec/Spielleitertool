@@ -310,7 +310,7 @@ function viewErstellung(){
    '<div class="cols2"><div><div class="box"><h3>1–3 · Grundlagen</h3><p><span class="fl">Archetyp ' + ib('step:arch') + '</span>' + arch + '</p><p><span class="fl">Alter ' + ib('step:alter') + '</span>' + alt + '</p><p><label style="cursor:pointer"><input type="checkbox" ' + (c.spielt ? 'checked' : '') + ' onchange="setSpielt(this.checked)"> Spielt in der Gruppe <small class="pg">(zeigt ihn in der Gruppen-Leiste)</small></label></p><p>Name <input class="gloss-search" id="f_name" value="' + esc(c.name) + '" placeholder="' + esc(a.vor[0] + " " + a.nach[0]) + '" oninput="setF(\'name\',this.value,1)"></p><p>Spieler:in <input class="gloss-search" value="' + esc(c.spieler) + '" oninput="setF(\'spieler\',this.value,1)"></p></div>' + '<div class="box"><h3>5 · Fertigkeiten <span class="pg">übrig: ' + p.sp + '</span></h3>' + skH + '</div>' + '</div><div>' + '<div class="box"><h3>4 · Attribute <span class="pg">übrig: ' + p.ap + '</span></h3>' + attrH + '</div>' + '<div class="box"><h3>Ressourcen</h3><div style="display:flex;align-items:center;gap:8px"><button class="btn alt" onclick="adjR(-1)">−</button><span class="hand">' + c.res + '</span><button class="btn alt" onclick="adjR(1)">+</button><span class="pg">Archetyp: ' + a.res + '</span></div></div>' + pick("talent", a.talente, "6 · Talent") + pick("mot", a.mot, "7 · Motivation") + pick("trauma", a.trauma, "8 · Trauma") + pick("geheim", a.geheim, "9 · Dunkles Geheimnis") + '</div></div>' +
    '<div class="cols" style="margin-top:18px">' + pick("bez", a.beziehung, "10 · Beziehung (Vorschläge)") + '<div class="box"><h3>11 · Andenken <button class="btn alt" style="padding:3px 12px" onclick="rollMem()">W66 würfeln</button></h3><p class="hand" id="memOut">' + esc(c.andenken || "–") + '</p></div><div class="box"><h3>12 · Ausrüstung</h3>' + a.ausr.map(function(x){ return '<label style="display:block"><input type="checkbox" ' + (c.ausr.indexOf(x) > -1 ? "checked" : "") + ' onchange="togA(\'' + esc(x).replace(/'/g, "\\'") + '\',this.checked)"> ' + esc(x) + '</label>'; }).join("") + '</div></div>' +
    '<div class="box"><h3>Beschreibung</h3><textarea class="gloss-search" rows="3" oninput="setF(\'beschr\',this.value,1)">' + esc(c.beschr) + '</textarea></div>' +
-   '<p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" onclick="saveCur()">Speichern</button><button class="btn alt" onclick="printSheet()">Als PDF / Drucken</button><button class="btn alt" onclick="shareLink()">Spieler-Link kopieren</button><button class="btn alt" onclick="shareFile()">Datei teilen</button></p><p class="pg" id="shMsg"></p>';
+   '<p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" onclick="saveCur()">Speichern</button><button class="btn alt" onclick="printSheet()">Als PDF / Drucken</button><button class="btn alt" onclick="shareLink()">Charakter-Link kopieren</button><button class="btn alt" onclick="shareFile()">Exportieren (Datei)</button></p><div class="box"><h3>Teilen und Importieren</h3><p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn alt" onclick="shareCreate()">Erstellungs-Link kopieren</button><button class="btn alt" onclick="document.getElementById(\'impFile\').click()">Charakter importieren (Datei)</button><button class="btn alt" onclick="impLink()">Link einfügen</button><input type="file" id="impFile" accept=".json,application/json" multiple style="display:none" onchange="impFiles(this.files)"></p><p class="pg">Der Erstellungs-Link öffnet bei anderen diese Seite mit allen Hilfen. Nach dem Erstellen exportieren sie ihren Charakter (Link oder Datei) und du importierst ihn hier – er wird dann in deinem Browser gespeichert.</p></div><p class="pg" id="shMsg"></p>';
   var chipsH = '<div class="chips">' + side[0].i.map(function(i){ return '<a class="' + (i.id === CH.id ? "on" : "") + '" onclick="go(\'' + i.go + '\')">' + esc(i.t) + '</a>'; }).join("") + '</div>';
   return tabsBar(CTABS, "Charaktererstellung") + '<div class="page">' + chipsH + body + '</div>';
 }
@@ -327,6 +327,26 @@ function b64(o){ var s = unescape(encodeURIComponent(JSON.stringify(o))); return
 function unb64(s){ return JSON.parse(decodeURIComponent(escape(atob(s)))); }
 function shareLink(){ var u = location.href.split("#")[0] + "#spieler/" + b64(CH); (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ msg("Spieler-Link in die Zwischenablage kopiert."); }, function(){ prompt("Spieler-Link:", u); }); }
 function shareFile(){ var f = new File([JSON.stringify(CH, null, 1)], (CH.name || "vaesen-charakter") + ".json", {type:"application/json"}); if(navigator.canShare && navigator.canShare({files:[f]})){ navigator.share({files:[f], title:"Vaesen: " + (CH.name || "Charakter")}).catch(function(){}); } else { var a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; a.click(); } }
+
+function shareCreate(){ var u = location.href.split("#")[0] + "#erstellung/neu"; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ msg("Erstellungs-Link kopiert."); }, function(){ prompt("Erstellungs-Link:", u); }); }
+function importObj(c){
+  if(!c || typeof c !== "object" || !c.arch || !c.attr || !VAE_ARCH.some(function(x){ return x.id === c.arch; })) return false;
+  c.skills = c.skills || {}; c.ausr = c.ausr || []; if(!(c.alter in VAE_ALTER)) c.alter = 0;
+  var all = loadChars(), i = all.map(function(x){ return x.id; }).indexOf(c.id);
+  if(!c.id) c.id = "c" + Date.now() + Math.floor(Math.random() * 999);
+  if(i > -1) all[i] = c; else all.push(c);
+  saveChars(all); CH = c; return true;
+}
+function impFiles(fl){
+  var n = 0, left = fl.length; if(!left) return;
+  Array.prototype.forEach.call(fl, function(f){ var r = new FileReader(); r.onload = function(){ try{ if(importObj(JSON.parse(r.result))) n++; }catch(e){} if(--left === 0){ msg(n ? n + " Charakter(e) importiert und gespeichert." : "Keine gültige Charakterdatei."); if(n) go("erstellung/" + CH.id); } }; r.readAsText(f); });
+  document.getElementById("impFile").value = "";
+}
+function impLink(){
+  var t = prompt("Charakter-Link oder Daten einfügen:"); if(!t) return; var c = null;
+  try{ var m = t.match(/#spieler\/([^\s]+)/); c = m ? unb64(decodeURIComponent(m[1])) : JSON.parse(t); }catch(e){}
+  if(importObj(c)){ msg("Charakter importiert und gespeichert."); go("erstellung/" + CH.id); } else msg("Der Link ist ungültig.");
+}
 function sheetHTML(c){
   var a = VAE_ARCH.filter(function(x){ return x.id === c.arch; })[0], al = VAE_ALTER[c.alter] || VAE_ALTER[0];
   var attrs = ATTRS.map(function(k){ return '<div><span>' + k + '</span><b>' + c.attr[k] + '</b></div>'; }).join("");
@@ -339,7 +359,7 @@ function viewSpieler(){
   var c; try{ c = unb64(sub); }catch(e){ return '<div class="page"><div class="empty">Der Link ist ungültig.</div></div>'; }
   return '<div class="page">' + sheetHTML(c) + '</div>' + '<p><button class="btn" onclick="importCh()">In meine Charaktere übernehmen</button></p>';
 }
-function importCh(){ var c = unb64(sub), a = loadChars(); c.id = "c" + Date.now(); a.push(c); saveChars(a); CH = c; go("erstellung/" + c.id); }
+function importCh(){ var c = unb64(sub); importObj(c); go("erstellung/" + c.id); }
 
 /* ---------- Render ---------- */
 /* Kopfzeile: Bereiche als Reiter; die Unterleiste (.tabs) liefert jeweils der Bereich selbst */

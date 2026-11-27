@@ -59,7 +59,8 @@ function themaVorn(c, t, i, K, L){
   h += lab(L.head, "kw", fs ? "Fellowship<br>Theme Card" : "Theme Card", fs ? "line-height:1.12" : "");
   if(!fs){
     h += lab(L.typ, "klein l", "Typ");
-    ["origin", "adventure", "greatness"].forEach(function(m, k){ h += lnkR(K.icons[k], "ty" + (t.might === m ? " on" : ""), "", 'data-act="obMight" data-i="' + i + '" data-v="' + m + '" data-tip="' + MIGHT[m] + '"'); });
+    ["origin", "adventure", "greatness"].forEach(function(m, k){ var R = K.icons[k], X = R[0] - 2, Y = R[1] - 2, Wd = R[2] + 4, Ht = R[3] + 4;
+    h += lnkR(R, "ty" + (t.might === m ? " on" : ""), "", 'data-act="obMight" data-i="' + i + '" data-v="' + m + '" data-tip="' + MIGHT[m] + '"', "--ms:" + (792 / Wd * 100).toFixed(2) + "% " + (612 / Ht * 100).toFixed(2) + "%;--mp:" + (X / (792 - Wd) * 100).toFixed(3) + "% " + (Y / (612 - Ht) * 100).toFixed(3) + "%"); });
     h += lnkR(K.type, "buch" + (b ? "" : " leer"), '<span>' + esc(b ? b.name : "Themenbuch wählen") + '</span>' + (b ? '<b class="ii" data-act="obBuchInfo" data-i="' + i + '" data-tip="Infos zum Themenbuch">i</b>' : ""), 'data-act="obBuch" data-i="' + i + '" data-k="buch' + i + '"');
   }
   /* Title Tag = erste Zeile (Frage A) */
@@ -208,12 +209,12 @@ function promiseGeben(c, n){
   if(voll) erfuellung(voll - 1);
 }
 function erfuellung(rest){
-  modal("Moment of Fulfillment!", ["Alle fünf Kreise von Promise sind markiert: Die Leiste wird zurückgesetzt, und dein Hero erlebt einen Moment of Fulfillment (S. 193). Wähle eines:"],
+  modal("Moment of Fulfillment", ["Alle fünf Kreise von Promise sind markiert: Die Leiste wird zurückgesetzt, und dein Hero erlebt einen Moment of Fulfillment. Wähle eines:"],
     FULFIL.map(function(f, k){ return {id: "f" + k, l: f[0], s: f[1]}; }), {art: "erf", rest: rest || 0}, true);
 }
 function verbesserungDialog(c, i, zusatz){
   var t = thema(c, i), b = t.book && A.book(t.book), imp = (b && b.imp) || [], hero = i !== "x";
-  modal((zusatz ? "Weitere Verbesserung: " : "Theme verbessert: ") + themaName(t, i), [zusatz ? "Du hast einen Weakness Tag entfernt oder umgeschrieben. Wähle dazu noch eine weitere Verbesserung (S. 187):" : "Das dritte Improve ist markiert (S. 187). Die Leiste wird zurückgesetzt, und du wählst eine Verbesserung für dieses Theme. Zusätzlich darfst du einen deiner Tags umschreiben oder aktualisieren."], [
+  modal(zusatz ? "Weitere Verbesserung" : "Theme verbessert", [zusatz ? "Du hast einen Weakness Tag entfernt oder umgeschrieben. Wähle dazu noch eine weitere Verbesserung:" : "Das dritte Improve ist markiert. Die Leiste wird zurückgesetzt, und du wählst eine Verbesserung für dieses Theme. Zusätzlich darfst du einen deiner Tags umschreiben oder aktualisieren."], [
     {id: "p", l: "Einen neuen Power Tag", s: "Beantworte eine weitere Frage des Themenbuchs.", off: t.power.length >= (i === "x" ? FS.power.length : LY.p2[0].power.length)},
     {id: "wa", l: "Einen Weakness Tag hinzufügen", s: "Mehr Weakness Tags = mehr Möglichkeiten für Improve.", off: t.weak.length >= 2},
     {id: "we", l: "Einen Weakness Tag entfernen", s: "Danach wählst du noch eine Verbesserung.", off: !t.weak.length || zusatz},
@@ -241,13 +242,13 @@ function voll(c, path){
   var i = m[2] != null ? +m[2] : "x", t = thema(c, i), feld = m[3], hero = i !== "x";
   if(feld === "impr"){ verbesserungDialog(c, i, false); return; }
   if(feld === "mile"){
-    modal("Theme entwickelt sich weiter: " + themaName(t, i), ["Der dritte Milestone ist markiert: Das Theme entwickelt sich weiter (Evolve, S. 190).", hero ? "• <b>Promise</b> einmal markieren (dazu je einmal für jeden Power Tag über den dritten, jeden Weakness Tag über den ersten und jede Special Improvement, die du eintauschst)" : "• Das Fellowship-Theme kann dadurch kein Promise markieren.",
+    modal("Theme entwickelt sich weiter", ["Der dritte Milestone ist markiert: Das Theme entwickelt sich weiter (Evolve).", hero ? "• <b>Promise</b> einmal markieren (dazu je einmal für jeden Power Tag über den dritten, jeden Weakness Tag über den ersten und jede Special Improvement, die du eintauschst)" : "• Das Fellowship-Theme kann dadurch kein Promise markieren.",
       "• einen <b>neuen Title Tag</b> wählen, der die Entwicklung widerspiegelt", "• einen <b>neuen Theme-Typ</b> oder eine andere <b>Might</b> wählen (nicht dieselbe wie zuvor)", "• Tags und <b>Quest</b> überarbeiten", "Der alte Title Tag darf als normaler Power Tag bleiben."],
       [{id: "evo", l: "Theme weiterentwickeln", s: "Setzt die Leisten zurück, behält die Tags und leert Title Tag, Quest und Themenbuch.", haupt: 1}], {art: "evo", i: i}); return;
   }
   /* Abandon voll */
   var pts = tauschPunkte(t) + (hero ? 1 : 0);
-  modal("Theme wird ersetzt: " + themaName(t, i), ["Das dritte Abandon ist markiert: Du ersetzt dieses Theme (S. 192).", hero ? "• <b>Promise</b> " + pts + "× markieren (einmal für den Wechsel, dazu für jeden Power Tag über den dritten, jeden Weakness Tag über den ersten und jede Special Improvement)" : "• Die Fellowship erschafft ein neues Theme.",
+  modal("Theme wird ersetzt", ["Das dritte Abandon ist markiert: Du ersetzt dieses Theme.", hero ? "• <b>Promise</b> " + pts + "× markieren (einmal für den Wechsel, dazu für jeden Power Tag über den dritten, jeden Weakness Tag über den ersten und jede Special Improvement)" : "• Die Fellowship erschafft ein neues Theme.",
     "• Die Theme-Karte wird abgelegt, du erschaffst ein <b>neues, noch junges Theme</b> mit nur dem Title Tag, einem Weakness Tag und einer Quest.", "• Die nächsten zwei Male, wenn du Improve markieren würdest, wählst du stattdessen einen neuen Power Tag."],
     [{id: "ersetzen", l: "Theme ersetzen", s: "Leert die Karte; danach neues Themenbuch wählen.", haupt: 1}], {art: "ersetzen", i: i, pts: hero ? pts : 0});
 }
@@ -353,7 +354,7 @@ function weiterTick(c, i, feld, val){
   var t = thema(c, i);
   if(feld === "impr" && t.neu > 0 && val > (t.impr || 0)){
     t.neu--; A.save();
-    modal("Neu entstehendes Theme", ["Bei einem neuen, jungen Theme (S. 192) wählst du statt Improve einen neuen Power Tag. Noch " + t.neu + " Mal."], [{id: "p", l: "Neuen Power Tag wählen", haupt: 1}], {art: "neuP", i: i}, true);
+    modal("Neu entstehendes Theme", ["Bei einem neuen, jungen Theme wählst du statt Improve einen neuen Power Tag. Noch " + t.neu + " Mal."], [{id: "p", l: "Neuen Power Tag wählen", haupt: 1}], {art: "neuP", i: i}, true);
     return true;
   }
   return false;

@@ -231,6 +231,7 @@
   function vorFertig(){ document.querySelectorAll(".vorpop").forEach(function(p){ p.hidden = true; }); sichern(); render(); }
   window.dwVorG = function(){
     var g = vorDaten().g; if(!g) return;
+    neu(null, true); /* vorgefertigte Gruppe = neue Gruppenakte */
     D["g.name"] = g.name; D["g.org"] = g.org;
     umbrechen(g.ziel, 78, 3).concat(["", "", ""]).slice(0, 3).forEach(function(t, i){ D["g.ziel" + i] = t; });
     umbrechen(g.verg, 36, 3).concat(["", "", ""]).slice(0, 3).forEach(function(t, i){ D["g.verg" + i] = t; });

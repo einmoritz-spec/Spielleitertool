@@ -16,7 +16,7 @@ function renderHome(){
   var regeln = LM_NAV.secs.regeln.map(function(s){ return [esc(s.t), s.id==="themenbuecher" ? "TB.filter=\'alle\';goThemen()" : "goBook(\'regeln\',\'"+s.id+"\')"]; }).concat([["Buch (PDF)","BV.open(\'core\',1)"]]);
   var narrator = LM_NAV.secs.narrator.map(function(s){ return [esc(s.t),"goBook(\'narrator\',\'"+s.id+"\')"]; }).concat([["Skunk Glen","goBook(\'skunk\',\'nr-skunk\')"]]);
   var themen = [["Origin","TB.filter=\'origin\';goThemen()"],["Adventure","TB.filter=\'adventure\';goThemen()"],["Greatness","TB.filter=\'greatness\';goThemen()"],["Variable Might","TB.filter=\'variable\';goThemen()"],["Fellowship","goThemen(\'fellowship\')"],["Gemischtwarenladen","goThemen(\'laden\')"]];
-  var helden = [["Charaktererstellung","openCreator()"],["Eigene Charaktere","openCustomChars()"],["Profile","openProfiles()"],["Heldenerschaffung","goBook(\'regeln\',\'erschaffung\')"]];
+  var helden = [["Charakterbogen","openLegendBogen()"],["Charaktererstellung","openCreator()"],["Eigene Charaktere","openCustomChars()"],["Profile","openProfiles()"],["Heldenerschaffung","goBook(\'regeln\',\'erschaffung\')"]];
   var nachschlagen = [["Challenges","openChallenges()"],["Glossar","openRulesGloss()"],["Grimoire","openGrimoire()"],["NPCs","openCharacters()"],["Rasten","openRestRules()"],["Lore","openLore()"],["Shop","openStore()"],["Würfel","openDice()"],["Suche","openSearch()"]];
   app.innerHTML = renderTopbar() + '<div class="hm" data-v="'+hmVar()+'">'+
     '<div class="hm-hero"><img src="assets/litm/home-hero.webp" alt=""><img class="hm-logo" src="assets/logos/legend-in-the-mist.webp" alt="Legend in the Mist"></div>'+
@@ -26,7 +26,7 @@ function renderHome(){
       homeCard("assets/litm/home-narrator.webp","Narrator","goBook(\'narrator\',\'nr-einstieg\')",narrator)+
       homeCard("assets/litm/home-dales.webp","The Dales","goBook(\'orte\')",dales)+
       homeCard("assets/litm/home-themenbuecher.webp","Themenbücher","TB.filter=\'alle\';goThemen()",themen)+
-      homeCard("assets/litm/home-helden.webp","Charaktere","openCreator()",helden)+
+      homeCard("assets/litm/home-helden.webp","Charaktere","openLegendBogen()",helden)+
       homeCard("assets/litm/home-nachschlagen.webp","Nachschlagen","openChallenges()",nachschlagen)+
     '</div></div>';
 }

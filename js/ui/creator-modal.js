@@ -5,7 +5,7 @@
      Profile) übernommen bzw. aktualisiert.
    - Spieler: bekommen nur den Link zu creator/ (Knopf "Link für Spieler") und
      sehen dort ausschließlich die Charaktererstellung, nicht das Spielleitertool. */
-function creatorUrl(){ return new URL("legend/ersteller.html", location.href).href; }
+function creatorUrl(){ return new URL("creator/", location.href).href; }
 
 function openCreator(){
   if(document.getElementById("creatorModal")) return;
@@ -27,7 +27,7 @@ function openCreator(){
         <button class="cm-btn" onclick="shareCreatorLink()" id="cmShare">Teilen …</button>
       </div>
     </div>
-    <iframe class="cm-frame" src="legend/ersteller.html" title="Charaktererstellung"></iframe>
+    <iframe class="cm-frame" src="creator/index.html" title="Charaktererstellung"></iframe>
     <div class="cm-toast" id="cmToast" hidden></div>`;
   document.body.appendChild(m);
   document.body.classList.add("menu-open");
@@ -94,3 +94,6 @@ window.addEventListener("message", ev=>{
   const r = upsertCreatorCharacter(ev.data.character);
   if(r) creatorToast(r.result==="added" ? `✓ „${r.name}“ zu den Profilen hinzugefügt` : `✓ „${r.name}“ aktualisiert`);
 });
+
+/* Charakterbogen im Original-Look (eigene Seite, teilbar) */
+function openLegendBogen(){ location.href = "legend/ersteller.html"; }

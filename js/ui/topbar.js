@@ -13,6 +13,7 @@ const TOPBAR_ITEMS = [
   { id:"gallery",   icon:"🖼", label:"Galerie",       labelDefault:true,  fn:"Galerie.open('wake')", title:"Alle Buchbilder (Hearts of Ravensdale, Core Book) auf einen Blick" },
   { id:"profiles",  icon:"🎴", label:"Profile",       labelDefault:true,  fn:"openProfiles()",     title:"Spielerprofile der Gruppe nachschlagen (Taste P)" },
   { id:"chars",     icon:"🆕", label:"Charakter",     labelDefault:true,  fn:"openCustomChars()",  title:"Eigene Charaktere erstellen &amp; verwalten — gleiche Hero Card, gleicher Druck-Export (Taste X)" },
+  { id:"bogen",     icon:"📜", label:"Bogen",         labelDefault:true,  fn:"openLegendBogen()",  title:"Charakterbogen im Original-Look (Zufall, Vorlagen, PDF, Teilen)" },
   { id:"creator",   icon:"🧙", label:"Erstellung",    labelDefault:true,  fn:"openCreator()",      title:"Charaktererstellung (Fragen, Theme-Kits, Tropes) öffnen — mit Link für Spieler" },
   { id:"npcs",      icon:"🧑", label:"NPCs",          labelDefault:true,  fn:"openCharacters()",   title:"NPC-Verzeichnis aller wichtigen NSCs nachschlagen (Taste N)" },
   { id:"rest",      icon:"🏕", label:"Rasten",        labelDefault:true,  fn:"openRestRules()",    title:"Camping- &amp; Sojourn-Regeln nachschlagen (Taste R)" },

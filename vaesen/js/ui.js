@@ -33,6 +33,7 @@ function uiStart(){
   }).join("");
   return '<div class="vs-hero"><img src="../assets/logos/vaesen-rot.webp" alt="Vaesen"></div><div class="vs">' +
     '<div class="vs-sh">Grundregelwerk</div><div class="vs-strip">' + areas + '</div>' +
+    '<div class="vs-sh">Settingbücher</div><div class="vs-strip">' + ["mbi", "car"].map(function(id){ var S = window.SBS && SBS[id]; return S ? '<a class="vs-ar vs-wide" onclick="go(\'' + id + '\')" style="--im:url(img/' + S.hero + '.webp);--pos:' + (S.pos || "50% 40%") + '"><b>' + esc(S.titel) + '<small>' + esc(S.sh + " · " + S.mys.length + " Mysterien") + '</small></b></a>' : ""; }).join("") + '</div>' +
     '<div class="vs-sh">Mysterien</div><div class="vs-mys">' + grp + '</div>' +
     '<div class="vs-sh">Bücher</div><div class="vs-books">' + shelf + '</div></div>';
 }

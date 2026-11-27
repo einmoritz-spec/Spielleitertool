@@ -167,3 +167,4 @@ body.vnav .tabs{border-bottom:2px solid var(--red)}
 /* Herkunft eines Archetyps aus einem Settingbuch */
 .arch-q{font-size:9.5px;letter-spacing:.03em;white-space:nowrap;text-transform:uppercase;color:#8a3b1a;opacity:.85;margin-top:2px;display:block}
 .dt .arch-q{margin:2px 0 0}
+.vgrp{margin:26px 0 12px;font-size:24px;color:var(--red);letter-spacing:.06em}

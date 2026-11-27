@@ -171,7 +171,12 @@ function viewVaesen(){
   if(v) return tabsBar(VTABS, "Vaesen") + main(vSide(), v.id, vDetail(v));
   var cards = VAE_WESEN.map(function(v){ var has = IMGS[v.img];
     return '<div class="box card" onclick="go(\'vaesen/' + v.id + '\')"><div class="im' + (has ? '' : ' ph') + '">' + (has ? '<img src="' + IMG(v.img, "thumb") + '" alt="' + esc(v.name) + '">' : 'Bild folgt') + '</div><div class="tx"><h3>' + esc(v.name) + '</h3></div><i></i><b></b></div>'; }).join("");
-  return tabsBar(VTABS, "Vaesen") + '<div class="page"><div class="cards v">' + cards + '</div></div>';
+  var more = Object.keys(window.SBS || {}).map(function(id){
+    var S = SBS[id], W = (window.SBD || {})[id] && SBD[id].wesen; if(!W || !W.list.length) return "";
+    return '<h2 class="vgrp">' + esc(S.titel) + '</h2><div class="cards v">' + W.list.map(function(x){
+      return '<div class="box card" onclick="go(\'' + id + '/wesen/' + x.id + '\')"><div class="im"><img src="img/' + x.img + '.webp" alt="' + esc(x.name) + '" loading="lazy"></div><div class="tx"><h3>' + esc(x.name) + '</h3></div><i></i><b></b></div>'; }).join("") + '</div>';
+  }).join("");
+  return tabsBar(VTABS, "Vaesen") + '<div class="page"><h2 class="vgrp" style="margin-top:0">Grundregelwerk</h2><div class="cards v">' + cards + '</div>' + more + '</div>';
 }
 function vDetail(v){
   var d = (window.VAE_DETAIL || {})[v.id] || {}, has = IMGS[v.img];

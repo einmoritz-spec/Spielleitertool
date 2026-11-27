@@ -1,0 +1,8 @@
+@font-face{font-family:"LB Cinzel";font-weight:600;font-display:swap;src:url(../assets/fonts/cinzel-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"LB Cinzel";font-weight:700;font-display:swap;src:url(../assets/fonts/cinzel-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"LB Labrada";font-weight:400;font-display:swap;src:url(../assets/fonts/labrada-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"LB Labrada";font-weight:700;font-display:swap;src:url(../assets/fonts/labrada-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"LB Hand";font-weight:400;font-display:swap;src:url(../assets/fonts/caveat-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"LB Fraktur";font-weight:700;font-display:swap;src:url(../assets/fonts/mb-unifrakturcook-latin-700-normal.woff2) format("woff2")}
+:root{--bg:#e6dac0;--bg2:#efe4cb;--panel:#f6edd9;--panel2:#efe2c4;--line:#cbb68c;--text:#2a1f14;--mute:#7b6648;--tone:#8a4a22;--acc:#6b3a1b;--amber:#9a6a24;--red:#8a2a22;--head:"LB Cinzel",Georgia,serif;--font:"LB Labrada",Georgia,serif}
+body{background:radial-gradient(1100px 700px at 50% -10%,#f3ead6 0,transparent 70%),var(--bg);min-height:100vh}

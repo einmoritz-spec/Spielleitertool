@@ -24,7 +24,7 @@ function blankChar(){ var t = []; for(var i = 0; i < CFG.regeln.themen; i++) t.p
 function need(th){ return {p: CFG.regeln.power + (th.extra ? 1 : 0), w: CFG.regeln.weak + (th.extra ? 1 : 0)}; }
 function ok(th){ var n = need(th); return !!th.book && th.power.filter(function(x){ return x.a; }).length >= n.p && th.weak.filter(function(x){ return x.a; }).length >= n.w; }
 function cur(){ return S.chars.filter(function(c){ return c.id === S.cur; })[0]; }
-function leer(c){ return !c.name && !c.spieler && c.themes.every(function(t){ return !t.book && !t.typ; }) && !c.ausr && !c.notiz && (c.rel || []).every(function(r){ return !r.w && !r.t; }) && !(c.load && JSON.stringify(c.load).indexOf('"a":"') > -1 && /"a":"[^"]/.test(JSON.stringify(c.load))); }
+function leer(c){ return !c.name && !c.spieler && c.themes.every(function(t){ return !t.book && !t.typ; }) && !c.ausr && !c.notiz && (c.rel || []).every(function(r){ return !r.w && !r.t; }) && !(c.load && JSON.stringify(c.load).indexOf('"a":"') > -1 && /"a":"[^"]/.test(JSON.stringify(c.load))) && !(CFG.bogen && CFG.bogen.nichtLeer && CFG.bogen.nichtLeer(c)); }
 
 /* ---------- Speichern ---------- */
 function load(){
@@ -359,6 +359,7 @@ function start(cfg){
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") popClose(); });
 }
 var API = {esc: esc, book: book, kitsOf: kitsOf, kitBy: kitBy, popOpen: popOpen, popClose: popClose, panel: panel, toast: toast, bookInfo: bookInfo, kitInfo: kitInfo, themeAusKit: themeAusKit, blankTheme: blankTheme,
+  neu: function(c, n){ return neuerEintrag(c, n); }, blank: function(){ return blankChar(); },
   save: function(){ save(); }, render: function(){ render(); }, rerender: function(){ ens(); save(); render(); }, cfg: function(){ return CFG; }, state: function(){ return S; }, cur: function(){ return cur(); }};
 window.MistErsteller = {start: start, api: API};
 })();

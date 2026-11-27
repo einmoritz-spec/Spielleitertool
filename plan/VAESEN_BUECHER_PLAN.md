@@ -63,16 +63,14 @@ Alle Mysterien haben dieselbe Buchgliederung (Vorspiel › Hintergrund, Konflikt
 
 ---
 
-## 3. Startseite (Entwurf `start.html`)
-- Der Bereich „Mysterien“ wird **eine Reihe pro Buch**: links eine Buch-Kachel (Cover, Art: Einführung/Mysteriensammlung/Kampagne, Ort), rechts lückenlos die Mysterien als Bildstreifen mit Hover-Vergrößerung.
-- Grundregelwerk und Seasons teilen sich die erste Reihe (sonst stünde Tanz der Träume allein).
-- Kampagnen: Mysterien nummeriert (1–4 bzw. 1–5); in der Buch-Kachel ein Link **„Einführung“** zur Kampagnen-Einführung (eigene Leseseite mit Seitenleiste, Karte, Kampagnen-NSC).
-- Bilder: Seasons behalten ihre Vollbilder; alle anderen nutzen das Ouroboros-Eröffnungsbild, **freigestellt** (Papier transparent, vom Rand her ausgeschnitten, damit helle Stellen im Bild erhalten bleiben – Verfahren wie in den Entwurfsdateien `plan/vaesen/mys/em/*.png`).
-- **Embleme nie ausblenden oder mit Verlauf überdecken:** Das Emblem steht vollständig oben in der Kachel, der Titel darunter auf dem Papier (Freigabe Moritz, 27. Nov. 2026).
-- Hover zeigt Spielstand und „Starten“/„Weiterspielen“ wie heute.
+## 3. Startseite (Entwurf `plan/vaesen/mys/vc.html`, gewählt 27. Nov. 2026)
+- Bereich „Mysterien“ als **Siegel**: Je Buch eine Überschriftzeile (Buchtitel rot in Marcellus, Art klein grau kursiv, rechts ggf. „Vorwort“/„Einführung“). Keine Cover-Kacheln, keine Kästen, keine Verläufe.
+- Darunter die Mysterien als **vollständige Ouroboros-Kreise** (freigestellt, nichts abgeschnitten), ca. 205 px breit.
+- **Titel als Bogenschrift eng unter dem Ring** (SVG `textPath`, Mittelpunkt = Ringmitte, Grundlinie ca. 4 px außerhalb der Ringspitzen; lange Titel automatisch kleiner, nie abgeschnitten). Darunter klein grau kursiv: Jahreszeit · Ort bzw. „Teil n“.
+- Grundregelwerk und Seasons teilen sich die erste Zeile; jede weitere Sammlung/Kampagne eine volle Zeile (bis 5 Kreise).
+- Hover: Kreis leicht größer, Spielstand und „Starten“/„Weiterspielen“ erscheinen dezent.
+- Bilder: Ouroboros-Eröffnungsbilder aus den PDFs freistellen (Papier vom Rand her transparent, Kapitelzeile/Inhaltswarnung entfernen, Ring + Bild als Ganzes; Verfahren siehe `plan/vaesen/mys/em/`). Für Seasons das Original-Emblem aus dem Seasons-PDF nehmen; falls es keins gibt, das Vollbild in den Ring setzen (wie im Entwurf).
 - Bücherleiste unten bleibt; eingebaute Bücher farbig, nicht eingebaute grau mit PDF.
-
----
 
 ## 4. Untersettings Mythic Britain & Ireland und Mythic Carpathia (Entwurf `mbi.html`)
 - Im Setting-Dropdown unter **Vaesen** drei Untersettings (eingeklappt, Aufklappen nach 1,5 s): **Mythischer Norden** (heutiges Tool) · **Mythic Britain & Ireland** · **Mythic Carpathia**. Die heutigen Dropdown-Einträge „Grundregelwerk / Settingbücher / Mysterien & Kampagnen / Solo & Material“ entfallen.

@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1341sq";
+const VERSION = "v1342sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4451,6 +4451,25 @@ const FILES = [
   "vaesen/img/mbi/mbi_arch_gesellschaft.webp",
   "vaesen/img/mbi/mbi_wesen_hund.webp",
   "vaesen/js/data/mbi-gesellschaft.js",
+  "vaesen/img/mbi/mbi_meg_eroeffnung.webp",
+  "vaesen/img/mbi/mbi_w_banshee.webp",
+  "vaesen/img/mbi/mbi_w_boggart.webp",
+  "vaesen/img/mbi/mbi_w_dullahan.webp",
+  "vaesen/img/mbi/mbi_w_glaistig.webp",
+  "vaesen/img/mbi/mbi_w_hund.webp",
+  "vaesen/img/mbi/mbi_w_klopfer.webp",
+  "vaesen/img/mbi/mbi_w_leprechaun.webp",
+  "vaesen/img/mbi/mbi_w_meer.webp",
+  "vaesen/img/mbi/mbi_w_nuckelavee.webp",
+  "vaesen/img/mbi/mbi_w_pixie.webp",
+  "vaesen/img/mbi/mbi_w_pooka.webp",
+  "vaesen/img/mbi/mbi_w_ross.webp",
+  "vaesen/img/mbi/mbi_w_rotkappe.webp",
+  "vaesen/img/mbi/mbi_w_selkie.webp",
+  "vaesen/img/mbi/mbi_w_vettel.webp",
+  "vaesen/js/data/mbi-wesen1.js",
+  "vaesen/js/data/mbi-wesen2.js",
+  "vaesen/js/data/mbi-wesen3.js",
   "vaesen/img/mbi/banshee.webp",
   "vaesen/img/mbi/boggart.webp",
   "vaesen/img/mbi/cover.webp",

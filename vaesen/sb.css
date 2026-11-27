@@ -32,3 +32,14 @@ body.sb-car{--red:#8a3b1a}
 .sb-ar-gx{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:4px 22px;margin-top:8px;font-size:16px}
 .sb-ar-gx h5{margin:6px 0 2px;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}.sb-ar-gx ul{margin:0;padding-left:18px}.sb-ar-gx li{margin:2px 0}
 @media(max-width:700px){.sb-ar{grid-template-columns:1fr}.sb-ar-pic{max-width:200px}}
+
+/* Wesen-Übersicht */
+.sb-wes .cards.v{grid-template-columns:repeat(5,1fr);gap:16px}
+.sb-wes .cards.v .im.sb-wi{height:250px;padding:8px 6px 0}
+.sb-wes .cards.v .im.sb-wi img{max-width:94%}
+.sb-more{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+.sb-more .sb-wx{cursor:pointer;padding:7px 16px;border:1px solid var(--line,#b9a98a);border-radius:3px;font-size:17px;color:var(--ink)}
+.sb-more .sb-wx:hover{color:var(--red)}
+@media(max-width:1100px){.sb-wes .cards.v{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.sb-wes .cards.v{grid-template-columns:repeat(2,1fr)}}
+.sb-mbi .vd .ph img,.sb-car .vd .ph img{max-height:480px;width:auto;max-width:44%;object-fit:contain}

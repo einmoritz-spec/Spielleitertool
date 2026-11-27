@@ -68,3 +68,33 @@ function viewSB(id){
 }
 /* Kopfzeile: Bereiche des Untersettings */
 function sbHead(S){ var on = sub.split("/")[0]; return S.bereiche.map(function(a){ return '<a class="' + (a[0] === on ? "on" : "") + '" onclick="go(\'' + S.id + '/' + a[0] + '\')">' + esc(a[1]) + '</a>'; }).join(""); }
+
+/* ---------- Wesen (Kapitel 3): Bildraster + Karten im Stil der Vaesen-Karten ---------- */
+function sbWesen(S, id){
+  var W = (SBD[S.id] || {}).wesen; if(!W) return '<div class="page"><div class="empty">Dieser Bereich ist noch nicht eingebaut.</div></div>';
+  var all = W.extra.filter(function(x){ return x.id === "einfuehrung"; }).concat(W.extra.filter(function(x){ return x.id !== "einfuehrung"; }));
+  var ex = W.extra.filter(function(x){ return x.id === id; })[0], v = W.list.filter(function(x){ return x.id === id; })[0];
+  var side = [{i:W.extra.map(function(x){ return {id:x.id, go:S.id + "/wesen/" + x.id, t:x.t}; })}, {i:W.list.map(function(x){ return {id:x.id, go:S.id + "/wesen/" + x.id, t:x.name}; })}];
+  function li(a){ return "<ul>" + a.map(function(x){ var m = /^([^:]{2,32}):\s(.+)$/.exec(x); return "<li>" + (m ? "<b>" + m[1] + ":</b> " + m[2] : x) + "</li>"; }).join("") + "</ul>"; }
+  function st(l, x){ return '<div><span>' + l + '</span><b>' + (x == null ? "–" : x) + '</b></div>'; }
+  if(ex) return main(side, ex.id, '<div class="sb-pg"><div class="sb-h"><h1>' + esc(ex.t) + '</h1>' + sbPg(S, ex.p) + '</div>' + sbBody(ex.b, S) + '</div>');
+  if(v){
+    var quote = v.q ? '<p class="hand" style="margin:6px 0 0;max-width:90ch">„' + v.q + '“ <span style="font-size:17px">– ' + v.qa + ', ' + v.qd + '</span></p>' : "";
+    var head = '<div style="grid-column:1/3"><div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(v.name) + '</h1>' + sbPg(S, v.p) + '</div>' + quote + '</div>';
+    var left = '<div class="ph" style="margin-top:0"><img src="img/' + v.img + '.webp" alt="' + esc(v.name) + '"><div>' + v.text.map(function(t){ return '<p style="font-size:17.5px">' + t + '</p>'; }).join("") + '</div></div>' +
+      '<div class="g2" style="margin-top:6px"><div><h3>Magische Kräfte</h3>' + li(v.powers) + '</div>' + (v.cond ? '<div><h3>Zustände</h3>' + li(v.cond) + '</div>' : "") + '</div>';
+    var right = box('<div class="hd" style="text-align:center;letter-spacing:.14em;color:var(--red);font-size:15px">EIGENSCHAFTEN</div><div class="stat" style="margin-top:6px">' + st("Macht", v.might) + st("Körperkontr.", v.body) + st("Magie", v.magic) + st("Manipul.", v.manip) + st("Furcht", v.fear) + '</div>', "font-size:15.5px") +
+      (v.att ? '<h3>Angriffe</h3><table class="t"><tr><th>Angriff</th><th>Schaden</th><th>Reichweite</th></tr>' + v.att.map(function(r){ return "<tr><td>" + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td></tr>"; }).join("") + '</table>' : "") +
+      (v.note ? '<p class="pg" style="white-space:normal">' + v.note + '</p>' : "") +
+      '<h3>Ritual</h3>' + box('<p style="margin:0">' + v.ritual + '</p>', "font-size:16px") +
+      '<h3>Geheimnis</h3>' + box('<p style="margin:0">' + v.secret + '</p>', "font-size:16px") +
+      (v.box ? box('<h4 style="margin:0 0 4px">' + v.box.h + '</h4><p style="margin:0">' + v.box.x + '</p>', "font-size:16px;margin-top:10px") : "");
+    var exs = '<div style="grid-column:1/3"><h3 style="margin-top:0">Beispiele für Konflikte</h3><div class="exg">' + v.ex.map(function(t){ return box(t); }).join("") + '</div></div>' +
+      (v.var ? '<div style="grid-column:1/3"><h3 style="margin-top:6px">Varianten</h3><div class="exg">' + v.var.map(function(t){ return box(t); }).join("") + '</div></div>' : "");
+    return main(side, v.id, '<div class="vd">' + head + '<div>' + left + '</div><div style="font-size:17px">' + right + '</div>' + exs + '</div>');
+  }
+  var einf = W.extra.filter(function(x){ return x.id === "einfuehrung"; })[0];
+  var cards = W.list.map(function(x){ return '<div class="box card" onclick="go(\'' + S.id + '/wesen/' + x.id + '\')"><div class="im sb-wi"><img src="img/' + x.img + '.webp" alt="' + esc(x.name) + '"></div><div class="tx"><h3>' + esc(x.name) + '</h3></div><i></i><b></b></div>'; }).join("");
+  var more = W.extra.filter(function(x){ return x.id !== "einfuehrung"; }).map(function(x){ return '<a class="sb-wx" onclick="go(\'' + S.id + '/wesen/' + x.id + '\')">' + esc(x.t) + '</a>'; }).join("");
+  return '<div class="page sb-wes"><div class="sb-more">' + more + '</div><div class="cards v">' + cards + '</div></div>';
+}

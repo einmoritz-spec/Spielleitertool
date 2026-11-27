@@ -34,7 +34,26 @@ function bgLoad(key){
   }
   return st;
 }
-function bgSave(){ ST.bogen = ST.bogen || {}; ST.bogen[BG.key] = BG.st; save(); }
+/* Mehrere Bögen: jeder Eintrag hat einen eigenen Schlüssel; ST.bogenKeys hält die Reihenfolge (Schiffsbogen ist kein Eintrag). */
+function bgKeys(){
+  ST.bogenKeys = ST.bogenKeys || [];
+  Object.keys(ST.bogen || {}).forEach(function(k){ if(k !== "schiff" && ST.bogenKeys.indexOf(k) < 0) ST.bogenKeys.push(k); });
+  return ST.bogenKeys;
+}
+function bgReg(k){ if(k !== "schiff" && bgKeys().indexOf(k) < 0) ST.bogenKeys.push(k); }
+function bgNeuKey(){ return "b" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); }
+function bgAnlegen(k, st){ ST.bogen = ST.bogen || {}; ST.bogen[k] = st; bgReg(k); save(); return k; }
+function bgNameVon(k){ var st = ST.bogen && ST.bogen[k], n = st && st.f && st.f.name; return (n || "").trim() || "Neuer Bogen"; }
+function bgGo(k){ go("bogen/" + k); }
+function bgNeuLeer(){ bgGo(bgAnlegen(bgNeuKey(), bgNew())); }
+function bgVorNeu(id){ var s = bgPcList().filter(function(x){ return x.id === id; })[0]; if(s) bgGo(bgAnlegen(bgNeuKey(), bgFromPc(s))); }
+function bgChipsHtml(){
+  var keys = bgKeys().slice();
+  if(BG.key && keys.indexOf(BG.key) < 0) keys.push(BG.key);
+  return '<span class="wsch">' + keys.map(function(k){ return '<button class="wsch-c' + (k === BG.key ? ' on' : '') + '" onclick="bgGo(\'' + k + '\')">' + esc(bgNameVon(k)) + '</button>'; }).join("") +
+    '<button class="wsch-p" title="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen" onclick="bgNeuLeer()">+</button></span>';
+}
+function bgSave(){ ST.bogen = ST.bogen || {}; ST.bogen[BG.key] = BG.st; bgReg(BG.key); save(); }
 function bgDots(n, cur, kind, a){
   var o = "";
   for(var i = 1; i <= n; i++) o += '<button class="cr' + (cur >= i ? ' f' : '') + '" onclick="bgClk(\'' + kind + '\',' + a + ',' + i + ')"></button>';
@@ -209,9 +228,10 @@ function viewSchiff(){
 function bgZoom(){ return Math.max(.3, Math.min(1.2, (Math.max(innerWidth, 1280) - 60) / (BG.key === "schiff" ? 1400 : 1460))); }
 function viewBogen(id){
   var pcs = bgPcList(), s = id && pcs.filter(function(x){ return x.id === id; })[0];
-  BG.key = s ? id : "leer"; BG.st = bgLoad(BG.key);
+  if(s && !(ST.bogen && ST.bogen[id])) bgAnlegen(id, bgFromPc(s));
+  BG.key = id && ST.bogen && ST.bogen[id] ? id : "leer"; BG.st = bgLoad(BG.key);
   setTimeout(bgAfterFonts, 0);
-  return '<div class="tabs"><a class="on">Charakterbogen</a><span class="r bbar">' + bgBar(false) + '</span></div>' +
+  return '<div class="tabs"><a class="on">Charakterbogen</a>' + bgChipsHtml() + '<span class="r bbar">' + bgBar(false) + '</span></div>' +
     '<div class="bwrap"><div class="bsheet" id="bsh" style="zoom:' + bgZoom().toFixed(3) + '">' + bgSheet() + '</div></div>';
 }
 function bgFit(){
@@ -226,6 +246,7 @@ function bgSet(path, el){
   var p = path.split("."), o = BG.st;
   for(var i = 0; i < p.length - 1; i++) o = o[p[i]];
   o[p[p.length - 1]] = el.value; bgSave();
+  var wch = document.querySelector('.wsch'); if(wch && BG.key !== 'schiff') wch.outerHTML = bgChipsHtml();
   var fs = parseFloat(el.getAttribute("data-fit")), ta = el.tagName === "TEXTAREA";
   if(fs){ el.style.fontSize = fs + "px"; while(fs > 6.5 && (ta ? el.scrollHeight > el.clientHeight : el.scrollWidth > el.clientWidth)){ fs -= .5; el.style.fontSize = fs + "px"; } }
 }
@@ -244,7 +265,7 @@ function bgRepaint(){
 }
 function bgReset(){
   if(!confirm("Bogen zurücksetzen?")) return;
-  if(ST.bogen) delete ST.bogen[BG.key]; save();
+  if(ST.bogen) delete ST.bogen[BG.key]; bgReg(BG.key); save();
   BG.st = BG.key === "schiff" ? bgShipNew() : bgLoad(BG.key); bgRepaint();
 }
 function bgPrint(){ bgFit(); window.print(); }
@@ -382,8 +403,8 @@ function bgBsp(btn, e, kind){
 /* ---------- Vorgefertigte Charaktere ---------- */
 function bgVorPop(e){
   e.stopPropagation(); var btn = e.currentTarget, p = bgNewPop(btn, "vor", 340); if(!p) return;
-  p.innerHTML = '<div class="pz"><button class="pn" onclick="go(\'bogen\')">Leerer Bogen</button></div>' + bgPcList().map(function(x){
-    var pc = x.pc; return '<div class="pz"><button class="pn' + (x.id === BG.key ? ' sel' : '') + '" onclick="go(\'bogen/' + x.id + '\')">' + esc(x.t) + '<em>' + esc([pc.posten, pc.blut].filter(Boolean).join(" · ")) + '</em></button></div>'; }).join("");
+  p.innerHTML = '<div class="pz"><button class="pn" onclick="bgNeuLeer()">Leerer Bogen</button></div>' + bgPcList().map(function(x){
+    var pc = x.pc; return '<div class="pz"><button class="pn" onclick="bgVorNeu(\'' + x.id + '\')">' + esc(x.t) + '<em>' + esc([pc.posten, pc.blut].filter(Boolean).join(" · ")) + '</em></button></div>'; }).join("");
   bgShowPop(p);
 }
 
@@ -423,10 +444,7 @@ function bgZufallState(){
 function bgHatInhalt(st){ return JSON.stringify(st) !== JSON.stringify(bgNew()); }
 function bgZufall(){
   if(!window.WS_BOGEN) return;
-  var alt = ST.bogen && ST.bogen.leer;
-  if(alt && bgHatInhalt(alt) && !confirm("Den leeren Bogen durch einen zufälligen Charakter ersetzen?")) return;
-  ST.bogen = ST.bogen || {}; ST.bogen.leer = bgZufallState(); save();
-  if(BG.key === "leer") { BG.st = ST.bogen.leer; bgRepaint(); } else go("bogen");
+  bgGo(bgAnlegen(bgNeuKey(), bgZufallState()));
 }
 
 /* ---------- Teilen (Link mit Daten) und Datei (JSON) ---------- */
@@ -473,10 +491,12 @@ function bgJsonIn(inp){
   var r = new FileReader(); r.onload = function(){
     try{
       var o = JSON.parse(r.result); if(!o || o.spiel !== "wildsea-bogen" || !o.daten) throw 0;
-      var ship = o.art === "schiff", key = ship ? "schiff" : "leer", alt = ST.bogen && ST.bogen[key];
-      if(alt && !confirm("Aktuellen " + (ship ? "Schiffsbogen" : "leeren Bogen") + " durch die Datei ersetzen?")) return;
-      ST.bogen = ST.bogen || {}; ST.bogen[key] = bgClean(o.daten, ship); save();
-      if(BG.key === key){ BG.st = ST.bogen[key]; bgRepaint(); } else go(ship ? "schiff" : "bogen");
+      var ship = o.art === "schiff";
+      if(ship){
+        if(ST.bogen && ST.bogen.schiff && !confirm("Aktuellen Schiffsbogen durch die Datei ersetzen?")) return;
+        ST.bogen = ST.bogen || {}; ST.bogen.schiff = bgClean(o.daten, true); save();
+        if(BG.key === "schiff"){ BG.st = ST.bogen.schiff; bgRepaint(); } else go("schiff");
+      } else bgGo(bgAnlegen(bgNeuKey(), bgClean(o.daten, false)));
       bgToast("Datei geladen.");
     }catch(e){ alert("Diese Datei ist kein Wildsea-Bogen."); }
   }; r.readAsText(f); inp.value = "";
@@ -485,13 +505,18 @@ function bgJsonIn(inp){
 function bgLinkImport(){
   var m = /^#(bogen|schiff)=([dk][A-Za-z0-9_-]+)$/.exec(location.hash);
   if(!m) return Promise.resolve();
-  var ship = m[1] === "schiff", key = ship ? "schiff" : "leer";
+  var ship = m[1] === "schiff";
   if(window.LK) LK.an();
   return bgEntpack(m[2]).then(function(d){
-    history.replaceState(null, "", location.pathname + location.search + "#" + m[1]);
-    var alt = ST.bogen && ST.bogen[key];
-    if(alt && !confirm("Geteilten Bogen laden? Dein bisheriger " + (ship ? "Schiffsbogen" : "Bogen") + " wird ersetzt.")) return;
-    ST.bogen = ST.bogen || {}; ST.bogen[key] = bgClean(d, ship); save();
+    if(ship){
+      var alt = ST.bogen && ST.bogen.schiff;
+      if(alt && !confirm("Geteilten Schiffsbogen laden? Dein bisheriger Schiffsbogen wird ersetzt.")) { history.replaceState(null, "", location.pathname + location.search + "#schiff"); return; }
+      ST.bogen = ST.bogen || {}; ST.bogen.schiff = bgClean(d, true); save();
+      history.replaceState(null, "", location.pathname + location.search + "#schiff");
+    } else {
+      var k = bgAnlegen(bgNeuKey(), bgClean(d, false));
+      history.replaceState(null, "", location.pathname + location.search + "#bogen/" + k);
+    }
   }, function(){ history.replaceState(null, "", location.pathname + location.search + "#" + m[1]); });
 }
 if(window.LK) LK.init(function(h){ return /^#(bogen|schiff)/.test(h); });

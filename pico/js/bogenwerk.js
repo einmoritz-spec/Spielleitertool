@@ -46,15 +46,26 @@
   /* ---------- Zustand ---------- */
   function seg(){ return (location.hash || "#bogen/picnic").slice(1).split("/").map(decodeURIComponent); }
   function kind(){ var h = seg(); return h[0] === "streifzug" ? "streifzug" : (h[1] === "odyssey" ? "odyssey" : "picnic"); }
-  function curV(){ var h = seg(); if(h[0] === "streifzug") return "streifzug"; var v = kind(); if(h[2] && h[2].indexOf("teilen~") !== 0) v += ":" + h[2]; return v; }
+  function curV(){ var h = seg(); if(h[0] === "streifzug") return h[1] && h[1].indexOf("teilen~") !== 0 ? "streifzug:" + h[1] : "streifzug"; var v = kind(); if(h[2] && h[2].indexOf("teilen~") !== 0) v += ":" + h[2]; return v; }
+  /* Mehrere Bögen je Art: der erste Eintrag heißt „art“, weitere „art:id“. Nichts wird überschrieben. */
+  function nid(){ return Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); }
+  function newV(k){ return k + ":" + nid(); }
+  function route(v){ var p = v.split(":"); if(p[0] === "streifzug") return p[1] ? "streifzug/" + p[1] : "streifzug"; return "bogen/" + p[0] + (p[1] ? "/" + p[1] : ""); }
+  function goV(v){ var r = route(v); if(location.hash === "#" + r) render(); else location.hash = r; }
+  function artName(k){ return k === "streifzug" ? "Neuer Streifzug" : "Neuer Käfer"; }
+  function chipsHtml(v){
+    var k = v.split(":")[0], keys = Object.keys(ST.bogen || {}).filter(function(x){ return x.split(":")[0] === k && (x.indexOf(":") >= 0 || x === v || hatInhalt(x)); });
+    if(keys.indexOf(v) < 0) keys.push(v);
+    return '<span class="pchips">' + keys.map(function(x){ return '<button class="pchip' + (x === v ? " on" : "") + '" onclick="PBW.gehe(\'' + x + '\')">' + esc(nameVon(x) || artName(k)) + '</button>'; }).join("") +
+      '<button class="pchip pplus" title="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen" onclick="PBW.neu()">+</button></span>';
+  }
   function frisch(){ return {f: {}, h: {}, s: {}, m: -1, o: {}}; }
   function hatInhalt(v){ var b = BG(v), n = 0; ["f", "h", "s", "o"].forEach(function(k){ Object.keys(b[k] || {}).forEach(function(x){ var w = b[k][x]; if(w && (!Array.isArray(w) || w.some(Boolean)) && w !== "") n++; }); }); return n > 0 || b.m >= 0 || !!b.pic; }
   function nameVon(v){ var f = BG(v).f; return f.name || f.tname || ""; }
   function sauber(v){ var o = JSON.parse(JSON.stringify(BG(v))); delete o.pic; return {pico: 1, v: v.split(":")[0], d: o}; }
-  function einlesen(o, ask){
+  function einlesen(o){
     if(!o || !o.pico || !o.d || !/^(picnic|odyssey|streifzug)$/.test(o.v)) return false;
-    var v = o.v; if(ask && hatInhalt(v) && !confirm("Den vorhandenen Bogen durch den geladenen ersetzen?")) return null;
-    ST.bogen = ST.bogen || {}; ST.bogen[v] = Object.assign(frisch(), o.d); save(); return v;
+    var v = newV(o.v); ST.bogen = ST.bogen || {}; ST.bogen[v] = Object.assign(frisch(), o.d); save(); return v;
   }
 
   /* ---------- Router: Link-Import ---------- */
@@ -62,20 +73,22 @@
   if(window.LK) LK.init(function(h){ return /^#(bogen|streifzug)/.test(h); });
   function importHash(sel){
     var h = seg(), c = (h[0] === "streifzug" ? h[1] : h[2]) || "";
-    if(c.indexOf("teilen~") !== 0) return;
+    if(c.indexOf("teilen~") !== 0) return null;
     if(window.LK) LK.an();
-    try{ var v = einlesen(JSON.parse(ub64(c.slice(7))), true); if(v) toast("Bogen übernommen"); }catch(e){ toast("Link ungültig."); }
-    history.replaceState(null, "", "#" + (h[0] === "streifzug" ? "streifzug" : "bogen/" + (h[1] || "picnic")));
+    var v = null;
+    try{ v = einlesen(JSON.parse(ub64(c.slice(7)))); if(v) toast("Bogen als neuer Eintrag übernommen"); else toast("Link ungültig."); }catch(e){ toast("Link ungültig."); }
+    history.replaceState(null, "", "#" + (v ? route(v) : (h[0] === "streifzug" ? "streifzug" : "bogen/" + (h[1] || "picnic"))));
+    return v || null;
   }
   function leiste(v){
     var k = v.split(":")[0], ib = function(ic, tip, on, cls){ return '<button class="bwi' + (cls || "") + '" data-tip="' + tip + '" aria-label="' + tip + '" onclick="' + on + '">' + sym(IC[ic]) + '</button>'; };
-    return '<span class="sp"></span><span class="bw-tools">' + ib("zufall", k === "streifzug" ? "Zufälligen Streifzug erstellen" : "Zufälligen Käfer erstellen", "PBW.zufall()") +
+    return chipsHtml(v) + '<span class="sp"></span><span class="bw-tools">' + ib("zufall", k === "streifzug" ? "Zufälligen Streifzug erstellen" : "Zufälligen Käfer erstellen", "PBW.zufall()") +
       ib("vorlage", k === "streifzug" ? "Picotitan wählen" : "Schnellstart-Käfer wählen", "PBW.vorlage(this,event)") + ib("leeren", "Bogen leeren", "bAll(PBW.v())") + ib("teilen", "Link teilen", "PBW.teilen()") + ib("sichern", "Als Datei sichern", "PBW.sichern()") +
       '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + sym(IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="PBW.laden(this)"></label>' + ib("pdf", "Als ausfüllbares PDF speichern", "PBW.pdf(this)") + '</span>';
   }
   function umbau(h, v){ return h.replace(/<span class="sp"><\/span>[\s\S]*?<\/button><\/div>/, leiste(v) + "</div>").replace(/<div class="noprint tselbar">[\s\S]*?<\/select><\/div>/, ""); }
-  window.viewBogen = function(sel, slot){ importHash(sel); var s = seg(); return umbau(vb(sel, s[2] && s[2].indexOf("teilen~") === 0 ? "" : slot), curV()); };
-  window.viewStreif = function(){ importHash(); return umbau(vs(), "streifzug"); };
+  window.viewBogen = function(sel, slot){ var imp = importHash(sel); if(imp){ sel = imp.split(":")[0]; slot = imp.split(":")[1]; } if(slot && slot.indexOf("teilen~") === 0) slot = ""; var v = imp || curV(); return umbau(vb(sel, slot), v); };
+  window.viewStreif = function(slot){ var imp = importHash("streifzug"); if(imp) slot = imp.split(":")[1]; if(slot && slot.indexOf("teilen~") === 0) slot = ""; var v = slot ? "streifzug:" + slot : "streifzug"; return umbau(vs(slot), v); };
 
   /* ---------- Auswahllisten ---------- */
   function wrap(ev){ if(ev) ev.stopPropagation(); popWeg(); }
@@ -168,23 +181,26 @@
   window.PBW = {
     v: curV,
     zufall: function(){
-      var v = curV(); if(hatInhalt(v) && !confirm("Den Bogen durch einen zufälligen ersetzen?")) return;
-      if(v === "streifzug"){ ST.bogen = ST.bogen || {}; ST.bogen[v] = frisch(); BG(v).f.tname = r(NAMEN); var t = bTitanen(); if(t.length) bTitan(r(t).t); else { save(); render(); } }
+      var k = curV().split(":")[0], v = newV(k);
+      if(k === "streifzug"){ ST.bogen = ST.bogen || {}; ST.bogen[v] = frisch(); BG(v).f.tname = r(NAMEN); var t = bTitanen(); if(t.length) bTitan(r(t).t, v); else save(); }
       else zufallKaefer(v);
-      toast(v === "streifzug" ? "Zufälliger Streifzug erstellt" : "Zufälliger Käfer erstellt");
+      goV(v);
+      toast(k === "streifzug" ? "Zufälliger Streifzug erstellt" : "Zufälliger Käfer erstellt");
     },
+    gehe: function(v){ goV(v); },
+    neu: function(){ var k = curV().split(":")[0], v = newV(k); ST.bogen = ST.bogen || {}; ST.bogen[v] = frisch(); save(); goV(v); },
     vorlage: function(btn, ev){
-      wrap(ev); var v = curV();
-      if(v === "streifzug"){
+      wrap(ev); var v = curV(), k = v.split(":")[0];
+      if(k === "streifzug"){
         var cur = BG(v).f.tier; menu(btn, {items: bTitanen().map(function(t){ return {t: t.t, sel: cur === t.t, c: t}; }),
           info: function(it){ var o = "<h4>" + esc(it.c.t) + "</h4>", sec = ""; (it.c.b || []).forEach(function(b){ if(b && b.t === "h4") sec = b.x; else if(typeof b === "string" && !sec) o += "<p>" + esc(strip(b)) + "</p>"; });
             return o + '<p class="s">Gunst, Aura und Gigafertigkeiten werden eingetragen.</p>'; },
-          pick: function(it){ if(hatInhalt(v) && BG(v).f.tier && BG(v).f.tier !== it.t && !confirm("Titan wechseln? Gunst, Aura und Gigafertigkeiten werden ersetzt.")) return; bTitan(it.t); }});
+          pick: function(it){ var nv = newV("streifzug"); ST.bogen = ST.bogen || {}; ST.bogen[nv] = frisch(); bTitan(it.t, nv); goV(nv); }});
         return;
       }
       menu(btn, {items: katalog().sq.map(function(s){ return {t: s.t, s: s.k, q: s}; }),
         info: function(it){ return "<h4>" + esc(it.q.t) + "</h4><p>" + esc(it.q.x) + '</p><p class="s">' + esc(it.q.k) + "</p><ul>" + it.q.l.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; },
-        pick: function(it){ var b = BG(v); if((b.f.a0n || b.f.a0t) && !confirm("Die Aspekte durch den Schnellstart " + it.q.t + " ersetzen?")) return; schnellstart(b, it.q); save(); render(); toast(it.q.t + " eingesetzt"); }});
+        pick: function(it){ var nv = newV(k); ST.bogen = ST.bogen || {}; ST.bogen[nv] = frisch(); schnellstart(ST.bogen[nv], it.q); save(); goV(nv); toast(it.q.t + " als neuer Eintrag"); }});
     },
     teilen: function(){
       var v = curV(), k = v.split(":")[0], u = new URL("bogen.html", location.href).href.replace(/(bogen\.html).*/, "$1") + "#" + (k === "streifzug" ? "streifzug" : "bogen/" + k) + "/teilen~" + b64u(JSON.stringify(sauber(v)));
@@ -194,7 +210,7 @@
     sichern: function(){ var v = curV(), b = new Blob([JSON.stringify(sauber(v), null, 1)], {type: "application/json"}), a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "Pico – " + (nameVon(v) || (v === "streifzug" ? "Streifzug" : "Käfer")) + ".json"; document.body.appendChild(a); a.click(); a.remove(); },
     laden: function(inp){
       var f = inp.files && inp.files[0]; if(!f) return; var rd = new FileReader();
-      rd.onload = function(){ try{ var o = JSON.parse(rd.result), v = einlesen(o, true); if(v === false) throw 0; if(v === null) return; var h = v === "streifzug" ? "streifzug" : "bogen/" + v; if(location.hash === "#" + h) render(); else location.hash = h; }catch(e){ toast("Das ist keine Pico-Bogendatei aus diesem Tool."); } };
+      rd.onload = function(){ try{ var o = JSON.parse(rd.result), v = einlesen(o); if(!v) throw 0; goV(v); toast("Datei als neuer Eintrag geladen"); }catch(e){ toast("Das ist keine Pico-Bogendatei aus diesem Tool."); } };
       rd.readAsText(f); inp.value = "";
     },
     pdf: function(btn){
@@ -202,6 +218,12 @@
       bPdf(d);
     }
   };
+  /* Eingaben im Bogen speichern (die Felder hatten bisher keinen Speicherweg) */
+  document.addEventListener("input", function(e){
+    var t = e.target; if(!t || !t.classList || !t.classList.contains("bf") || !t.dataset.v) return;
+    BG(t.dataset.v).f[t.dataset.k] = t.value; save();
+    var c = document.querySelector(".pchips"); if(c) c.outerHTML = chipsHtml(curV());
+  });
   document.addEventListener("click", function(e){ if(!e.target.closest(".bw-pop,.bw-info")) popWeg(); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape" && document.querySelector(".bw-pop,.bw-info")){ e.stopImmediatePropagation(); e.preventDefault(); popWeg(); } }, true);
   window.addEventListener("hashchange", popWeg);

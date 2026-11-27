@@ -175,3 +175,10 @@
 .bgpop::-webkit-scrollbar-thumb,.bginfo::-webkit-scrollbar-thumb{background:#a9a896;border-radius:5px;border:2px solid #ecebe0}
 @supports not selector(::-webkit-scrollbar){.bgpop,.bginfo{scrollbar-width:thin;scrollbar-color:#a9a896 #ecebe0}}
 @media print{.bbar,.bgpop,.bginfo,.bgtoast,.bgdd{display:none!important}}
+
+/* Charakter-Chips im Bogen: klein, links neben den Werkzeugen */
+.wsch{display:inline-flex;align-items:center;gap:5px;margin-left:16px;flex-wrap:wrap}
+.wsch-c{font-size:12px;line-height:1.2;font-weight:500;font-family:inherit;border:1px solid var(--line);border-radius:12px;background:#fff;color:inherit;padding:3px 10px;cursor:pointer;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wsch-c:hover{border-color:var(--sage)}
+.wsch-c.on{background:var(--sage3);border-color:var(--sage3);color:#fff}
+.wsch-p{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:#fff;color:inherit;font-size:15px;line-height:1;padding:0;cursor:pointer;font-family:inherit}

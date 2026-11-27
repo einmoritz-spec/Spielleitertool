@@ -66,3 +66,10 @@
 .hbtoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#2a1c2e;color:#f6eef8;padding:10px 20px;border-radius:6px;font:16px Gar,Georgia,serif;z-index:500}
 @media print{.hbleiste,.hbdd,.hbpop,.hbinfo,.hbtoast,.hbbild .weg{display:none!important}.hbsheet{box-shadow:none;zoom:1!important}}
 .hbabz{pointer-events:none;z-index:2}
+
+/* Charakter-Chips: klein, links neben den Werkzeugen */
+.hbchips{display:inline-flex;align-items:center;gap:5px;margin-right:auto;flex-wrap:wrap;align-self:center}
+.hbchip{font:inherit;font-size:12px;line-height:1.2;font-weight:500;border:1px solid #c9b8cf;border-radius:12px;background:#fff;color:#35203b;padding:3px 10px;cursor:pointer;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hbchip:hover{border-color:#35203b}
+.hbchip.on{background:#35203b;border-color:#35203b;color:#fff}
+.hbchip.hbplus{width:24px;height:24px;border-radius:50%;padding:0;font-size:15px;line-height:1}

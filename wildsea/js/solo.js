@@ -9,7 +9,7 @@ function load(){ try{ ST = JSON.parse(localStorage.getItem("ws_state_v1") || "{}
 function save(){ try{ localStorage.setItem("ws_state_v1", JSON.stringify(ST)); }catch(e){} }
 load();
 function go(h){ if(location.hash === "#" + h) render(); else location.hash = h; }
-window.addEventListener("hashchange", function(){ render(); });
+window.addEventListener("hashchange", function(){ bgLinkImport().then(render, render); });
 function render(){
   var h = (location.hash || "#bogen").slice(1).split("/"), ship = h[0] === "schiff";
   var out = ship ? viewSchiff() : viewBogen(h[1]);

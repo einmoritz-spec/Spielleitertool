@@ -160,7 +160,7 @@ function render(){ CARDS = []; window.__nk = ""; window.__pen = "";
   else if(v === "reich"){ ST.last = h.slice(1).join("/"); save(); out = viewReich(h[1], h[2], h[3]); }
   else if(v === "gefahren") out = viewGefahren(h[1], h[2]);
   else if(v === "nach") out = window.viewNach ? viewNach(h[1] || "welt", h[2]) : viewStart();
-  else if(v === "streifzug") out = viewStreif();
+  else if(v === "streifzug") out = viewStreif(h[1]);
   else if(v === "schirm") out = window.viewSchirm ? viewSchirm(h[1]) : viewStart();
   else if(v === "galerie") out = window.viewGalerie ? viewGalerie() : viewStart();
   else if(v === "bogen") out = viewBogen(h[1], h[2]);

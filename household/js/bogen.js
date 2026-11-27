@@ -52,7 +52,16 @@ var HB = (function(){
   /* ---------- Zustand ---------- */
   var ALLE = {}, AKT = "leer", ST = null;
   function laden(){ try{ ALLE = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ ALLE = {}; } }
-  function sichern(){ ALLE[AKT] = ST; try{ localStorage.setItem(KEY, JSON.stringify(ALLE)); }catch(e){ hinweis("Speicher voll – das Bild ist zu groß."); } }
+  function sichern(){ ALLE[AKT] = ST; try{ localStorage.setItem(KEY, JSON.stringify(ALLE)); }catch(e){ hinweis("Speicher voll – das Bild ist zu groß."); } var c = document.querySelector(".hbchips"); if(c) c.outerHTML = chipsHtml(); }
+  /* Mehrere Bögen: jeder Eintrag steht unter eigenem Schlüssel in ALLE (Reihenfolge = Anlegen). Nichts wird überschrieben. */
+  function neuKey(){ return "n" + Date.now().toString(36) + Math.floor(Math.random() * 1296).toString(36); }
+  function anlegen(st){ laden(); var k = neuKey(); ALLE[k] = mischen(leer(), st || leer()); try{ localStorage.setItem(KEY, JSON.stringify(ALLE)); }catch(e){} return k; }
+  function eintragName(k){ var s = ALLE[k], n = s && s.f && s.f.name; return (n || "").trim() || "Neuer Bogen"; }
+  function chipsHtml(){
+    laden(); var keys = Object.keys(ALLE); if(keys.indexOf(AKT) < 0) keys.push(AKT);
+    return '<span class="hbchips">' + keys.map(function(k){ return '<button class="hbchip' + (k === AKT ? ' on' : '') + '" onclick="HB.gehe(\'' + k + '\')">' + esc(eintragName(k)) + '</button>'; }).join("") +
+      '<button class="hbchip hbplus" title="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen" onclick="HB.neu()">+</button></span>';
+  }
   function leer(){
     var o = {f: {name: "", volk: "", herkunft: "", beruf: "", berufung: "", sprachen: ""}, fp: {g: 0, w: 0, k: 0, s: 0}, sk: {}, asse: [0, 0, 0, 0, 0], anstand: 0, stress: 0,
       zf: [0, 0, 0, 0], zk: [0, 0, 0, 0, 0, 0], zx: ["", ""], merkmale: "", man: [], ausr_n: ["", "", "", "", ""], ausr_t: "", wohl: -1, muenzen: "",
@@ -240,14 +249,14 @@ var HB = (function(){
   };
   function leiste(){
     var b = function(ic, tip, on, cls){ return '<button class="hbib' + (cls ? ' ' + cls : '') + '" onclick="' + on + '" data-tip="' + tip + '" aria-label="' + tip + '">' + symbol(IC[ic]) + '</button>'; };
-    return '<div class="hbleiste">' + b("vor", "Vorgefertigte Charaktere", "HB.vorPop(event)", "vorn") + b("zufall", "Zufälligen Charakter erstellen", "HB.zufall()") + b("leeren", "Leeren", "HB.leeren()") +
+    return '<div class="hbleiste">' + chipsHtml() + b("vor", "Vorgefertigte Charaktere", "HB.vorPop(event)", "vorn") + b("zufall", "Zufälligen Charakter erstellen", "HB.zufall()") + b("leeren", "Zurücksetzen", "HB.leeren()") +
       b("teilen", "Link teilen (ohne Bild)", "HB.teilen()") + b("sichern", "Als Datei sichern", "HB.jsonAus()") +
       '<label class="hbib" data-tip="Datei laden" aria-label="Datei laden">' + symbol(IC.laden) + '<input type="file" accept=".json,application/json" hidden onchange="HB.jsonEin(this)"></label>' +
       b("pdf", "Als PDF speichern", "HB.pdf(this)", "haupt") + '</div>';
   }
   function ansicht(id){
     laden();
-    AKT = id && vorlage(id) ? id : "leer"; ST = zustandFuer(AKT); BEARB = null;
+    AKT = id && (vorlage(id) || ALLE[id]) ? id : "leer"; ST = zustandFuer(AKT); BEARB = null;
     setTimeout(function(){ if(document.fonts && document.fonts.load) Promise.all(["10px HHTitel", "10px HHSchrift", "10px HHSchriftFett"].map(function(f){ return document.fonts.load(f); })).then(nachSchrift, nachSchrift); }, 0);
     return '<div class="hbwrap">' + leiste() + '<div class="hbsheet" id="hbs" style="width:' + (L.W * S) + 'px;height:' + (L.H * S) + 'px;zoom:' + zoom().toFixed(3) + '">' +
       '<img class="hbbg" src="' + BASIS + 'bogen/hintergrund.webp" alt="" draggable="false">' +
@@ -351,9 +360,9 @@ var HB = (function(){
   function vertragText(vo){ return vo.v.n.toUpperCase() + "\nZugeständnis: " + vo.v.z.n + ". " + kurzText(vo.v.z.t, 150) + "\nGegenleistung: " + vo.v.g.n + ". " + kurzText(vo.v.g.t, 110); }
   function vorPop(e){
     e.stopPropagation(); var p = neuPop(e.currentTarget, "vor", 330); if(!p) return;
-    p.innerHTML = '<div class="pz"><button class="pn' + (AKT === "leer" ? ' sel' : '') + '" data-id="">Leerer Bogen</button></div>' + V.map(function(v){ return '<div class="pz"><button class="pn' + (AKT === v.id ? ' sel' : '') + '" data-id="' + v.id + '"><img src="' + BASIS + v.bild + '" alt="">' + esc(v.t) + '<em>' + esc(v.f.beruf + " · " + v.f.volk) + '</em></button></div>'; }).join("");
+    p.innerHTML = '<div class="pz"><button class="pn" data-id="">Leerer Bogen</button></div>' + V.map(function(v){ return '<div class="pz"><button class="pn" data-id="' + v.id + '"><img src="' + BASIS + v.bild + '" alt="">' + esc(v.t) + '<em>' + esc(v.f.beruf + " · " + v.f.volk) + '</em></button></div>'; }).join("");
     zeigPop(p);
-    p.addEventListener("click", function(ev){ var b = ev.target.closest("button"); if(!b) return; popWeg(); NAV(b.dataset.id); });
+    p.addEventListener("click", function(ev){ var b = ev.target.closest("button"); if(!b) return; popWeg(); if(b.dataset.id) NAV(anlegen(ausVorlage(vorlage(b.dataset.id)))); else NAV(anlegen(leer())); });
   }
   var NAV = function(id){ if(typeof go === "function") go(id ? "bogen/" + id : "bogen"); };
 
@@ -390,15 +399,12 @@ var HB = (function(){
     o.vertrag1 = vertragText(vo);
     return o;
   }
-  function zufall(){
-    laden(); var alt = ALLE.leer;
-    if(alt && JSON.stringify(mischen(leer(), alt)) !== JSON.stringify(leer()) && !confirm("Den leeren Bogen durch einen zufälligen Charakter ersetzen?")) return;
-    ALLE.leer = zufallsFigur(); try{ localStorage.setItem(KEY, JSON.stringify(ALLE)); }catch(e){}
-    if(AKT === "leer"){ ST = ALLE.leer; neuZeichnen(); } else NAV("");
-  }
+  function zufall(){ NAV(anlegen(zufallsFigur())); }
+  function gehe(k){ NAV(k); }
+  function neu(){ NAV(anlegen(leer())); }
   function leeren(){
-    if(!confirm(AKT === "leer" ? "Alle Einträge löschen?" : "Diesen Bogen auf die Vorlage zurücksetzen?")) return;
-    delete ALLE[AKT]; ST = zustandFuer(AKT); sichern(); if(AKT !== "leer"){ delete ALLE[AKT]; try{ localStorage.setItem(KEY, JSON.stringify(ALLE)); }catch(e){} } neuZeichnen();
+    if(!confirm("Diesen Bogen zurücksetzen?")) return;
+    laden(); delete ALLE[AKT]; ST = zustandFuer(AKT); sichern(); neuZeichnen();
   }
   function bild(file){
     if(!file){ ST.bild = ""; sichern(); neuZeichnen(); return; }
@@ -441,9 +447,7 @@ var HB = (function(){
     var f = inp.files && inp.files[0]; if(!f) return;
     var r = new FileReader(); r.onload = function(){
       try{ var o = JSON.parse(r.result); if(!o || o.spiel !== "household-bogen" || !o.daten) throw 0;
-        laden(); if(ALLE.leer && !confirm("Den leeren Bogen durch die Datei ersetzen?")) return;
-        ALLE.leer = mischen(leer(), o.daten); try{ localStorage.setItem(KEY, JSON.stringify(ALLE)); }catch(e){}
-        if(AKT === "leer"){ ST = ALLE.leer; neuZeichnen(); } else NAV(""); hinweis("Datei geladen.");
+        NAV(anlegen(o.daten)); hinweis("Datei geladen.");
       }catch(e){ alert("Diese Datei ist kein Household-Bogen."); }
     }; r.readAsText(f); inp.value = "";
   }
@@ -452,9 +456,8 @@ var HB = (function(){
     var m = /#bogen=([dk][A-Za-z0-9_-]+)$/.exec(location.hash); if(!m) return Promise.resolve();
     if(window.LK) LK.an();
     return entpacken(m[1]).then(function(d){
-      history.replaceState(null, "", location.pathname + location.search + "#bogen");
-      laden(); if(ALLE.leer && !confirm("Geteilten Bogen laden? Dein bisheriger Bogen wird ersetzt.")) return;
-      ALLE.leer = mischen(leer(), d); try{ localStorage.setItem(KEY, JSON.stringify(ALLE)); }catch(e){}
+      var k = anlegen(d);
+      history.replaceState(null, "", location.pathname + location.search + "#bogen/" + k);
     }, function(){ history.replaceState(null, "", location.pathname + location.search + "#bogen"); });
   }
 
@@ -533,7 +536,7 @@ var HB = (function(){
     return new Promise(function(res){ var im = new Image(); im.onload = function(){ var c = document.createElement("canvas"); c.width = im.naturalWidth; c.height = im.naturalHeight; c.getContext("2d").drawImage(im, 0, 0); res(c.toDataURL("image/jpeg", .9)); }; im.onerror = function(){ res(null); }; im.src = src; });
   }
 
-  return {ansicht: ansicht, klick: klick, setz: setz, bearbeiten: bearbeiten, wahl: wahl, beispiele: beispiele, vorPop: vorPop, zufall: zufall, leeren: leeren, bild: bild,
+  return {gehe: gehe, neu: neu, ansicht: ansicht, klick: klick, setz: setz, bearbeiten: bearbeiten, wahl: wahl, beispiele: beispiele, vorPop: vorPop, zufall: zufall, leeren: leeren, bild: bild,
     teilen: teilen, anpassen: anpassen, jsonAus: jsonAus, jsonEin: jsonEin, pdf: pdf, linkImport: linkImport, zufallsFigur: zufallsFigur,
     basis: function(b, r, nav){ BASIS = b; ROOT = r; if(nav) NAV = nav; }};
 })();

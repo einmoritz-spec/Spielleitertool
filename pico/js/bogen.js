@@ -58,8 +58,8 @@ function viewBogen(sel, slot){
 function bDots(v, k, n, cls){ var cur = BG(v).o[k] || 0, o = ""; for(var i = 0; i < n; i++) o += '<i class="dt ' + (cls || "") + (i < cur ? ' m' : '') + '" onclick="bDot(\'' + v + '\',\'' + k + '\',' + i + ')"></i>'; return o; }
 /* Streifzug: Titan aus den 12 Titanen übernehmen */
 function bTitanen(){ var k = (PI_NACH.titanen || {kapitel:[]}).kapitel.filter(function(x){ return x.id === "auswahl" || /auswahl/.test(x.id); })[0]; var c = k && k.b.filter(function(b){ return b && b.t === "cards"; })[0]; return c ? c.x : []; }
-function bTitan(name){
-  var t = bTitanen().filter(function(x){ return x.t === name; })[0]; if(!t) return; var f = BG("streifzug").f, o = BG("streifzug").o, sec = "", D = {};
+function bTitan(name, vv){
+  var t = bTitanen().filter(function(x){ return x.t === name; })[0]; if(!t) return; var V = vv || "streifzug", f = BG(V).f, o = BG(V).o, sec = "", D = {};
   t.b.forEach(function(b){ if(b && b.t === "h4"){ sec = b.x; D[sec] = []; } else if(sec) D[sec].push(b); });
   function txt(L){ var r = []; (L || []).forEach(function(b){ if(typeof b === "string") r.push(b.replace(/\*/g, "")); else if(b.t === "ul") b.x.forEach(function(x){ r.push("• " + x.replace(/\*/g, "")); }); else if(b.t === "dl") b.x.forEach(function(x){ r.push(x[0] + ": " + x[1].replace(/\*/g, "")); }); }); return r.join("\n"); }
   f.tier = t.t; f.gg = txt(D["Gunst gewinnen"]); f.aura = txt(D["Aura"]); f.vorteil = txt(D["Besondere Vorteile"]);
@@ -67,23 +67,23 @@ function bTitan(name){
   var j2 = 0; (D["Gigafertigkeiten"] || []).forEach(function(b){ if(b.t === "ul") b.x.forEach(function(line){ var m = /Rang (\d):\s*(.*)/.exec(line); if(!m) return; m[2].split(/,\s*/).forEach(function(nm){ if(j2 < 6){ f["gs" + j2] = nm; o["gsd" + j2] = parseInt(m[1], 10); j2++; } }); }); });
   save(); render();
 }
-function bTitanSel(){ return '<select class="tsel" onchange="bTitan(this.value)"><option value="">Titan wählen …</option>' + bTitanen().map(function(t){ return '<option>' + esc(t.t) + '</option>'; }).join("") + '</select>'; }
-function viewStreif(){
-  setTheme(false, "var(--olive)"); var v = "streifzug", S = BG(v), lang = S.f.var === "odyssey", n = lang ? 12 : 8, bauten = lang ? 6 : 4;
+function bTitanSel(v){ return '<select class="tsel" onchange="bTitan(this.value,\'' + (v || 'streifzug') + '\')"><option value="">Titan wählen …</option>' + bTitanen().map(function(t){ return '<option>' + esc(t.t) + '</option>'; }).join("") + '</select>'; }
+function viewStreif(slot){
+  setTheme(false, "var(--olive)"); var v = slot ? "streifzug:" + slot : "streifzug", S = BG(v), lang = S.f.var === "odyssey", n = lang ? 12 : 8, bauten = lang ? 6 : 4;
   var tb = ""; for(var i = 0; i < bauten; i++) tb += '<div class="tb">' + bf(v, "tb" + i + "n", "Merkmal", "pill s") + bf(v, "tb" + i, "", "box", 1) + '<div class="tbd">' + bDots(v, "tbd" + i, 3, "sq") + '</div></div>';
   var gs = ""; for(var j = 0; j < 6; j++) gs += '<div class="gcol">' + bf(v, "gs" + j, "", "box s", 1) + '<div>' + bDots(v, "gsd" + j, 3, "sq") + '</div></div>';
-  var inner = '<div class="btop"><div class="bl"><img src="../assets/logos/pico.webp" alt="Pico"><span>Streifzugbogen</span></div><div class="bv"><label><input type="checkbox" onchange="BG(\'streifzug\').f.var=this.checked?\'odyssey\':\'\';save();render()" ' + (lang ? "checked" : "") + '> Langes Pic-odyssee</label></div></div>' +
+  var inner = '<div class="btop"><div class="bl"><img src="../assets/logos/pico.webp" alt="Pico"><span>Streifzugbogen</span></div><div class="bv"><label><input type="checkbox" onchange="BG(\'' + v + '\').f.var=this.checked?\'odyssey\':\'\';save();render()" ' + (lang ? "checked" : "") + '> Langes Pic-odyssee</label></div></div>' +
    '<div class="sg1"><div class="bx"><h2>Name &amp; Tier</h2>' + bf(v, "tname", "Name", "pill") + bf(v, "tier", "Tier", "pill") + '</div><div class="bx"><h2>Gunst</h2>' + bf(v, "gunst", "", "pill big") + '</div><div class="bx"><h2>Gunst gewinnen</h2>' + bf(v, "gg", "", "box", 1) + '</div></div>' +
    '<div class="sg2"><div class="bx"><h2>Reise</h2><div class="jr' + (lang ? ' dense' : '') + '">' + bDots(v, "reise", n) + '</div><div class="tn"><span>Tag</span><span>Nacht</span></div></div><div class="bx"><h2>Wahrheiten</h2>' + bf(v, "wahr", "", "box", 1) + '</div><div class="bx"><h2>Bröckchen, Krimskrams, Brocken &amp; Notizen</h2>' + bf(v, "notiz", "", "box", 1) + '</div></div>' +
    '<div class="sg3"><div class="bx"><h2>Gigafertigkeiten</h2><small>Höchster Rang: 3</small><div class="gcs">' + gs + '</div></div><div class="bx"><h2>Aura</h2>' + bf(v, "aura", "", "box", 1) + '</div><div class="bx"><h2>Besondere Vorteile</h2>' + bf(v, "vorteil", "", "box", 1) + '</div></div>' +
    '<div class="bx den"><h2>Titanenbau</h2><div class="tbs" style="grid-template-columns:repeat(' + (lang ? 3 : 2) + ',1fr)">' + tb + '</div></div>';
-  return bogenPage(v, inner, "9.5in 7.5in").replace('<style>@page', '<div class="noprint tselbar">' + bTitanSel() + '</div><style>@page');
+  return bogenPage(v, inner, "9.5in 7.5in").replace('<style>@page', '<div class="noprint tselbar">' + bTitanSel(v) + '</div><style>@page');
 }
 
 /* Link für Mitspieler: eigenständige Seite nur mit den Bögen (pico/bogen.html) */
 function bLinkBtn(){ return window.SOLO ? "" : '<button class="chip ink o" id="bLink" onclick="bCopyLink()">Link für Mitspieler</button>'; }
 function bCopyLink(){
-  var h = (location.hash || "").replace(/^#/, "").split("/"), keep = h[0] === "bogen" ? h.slice(0, 2) : h[0] === "streifzug" ? ["streifzug"] : [];
+  var h = (location.hash || "").replace(/^#/, "").split("/"), keep = h[0] === "bogen" ? h.slice(0, 3) : h[0] === "streifzug" ? h.slice(0, 2) : [];
   var u = new URL("bogen.html", location.href).href + (keep.length ? "#" + keep.join("/") : ""), b = document.getElementById("bLink");
   var ok = function(){ if(b){ var t = b.textContent; b.textContent = "Kopiert"; setTimeout(function(){ b.textContent = t; }, 1600); } };
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function(){ prompt("Link:", u); });

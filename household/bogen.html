@@ -27,7 +27,7 @@
   var APP = document.getElementById("app");
   function render(){ var id = (location.hash.split("/")[1] || ""); APP.innerHTML = HB.ansicht(id); }
   HB.basis("", "../", function(id){ location.hash = id ? "bogen/" + id : "bogen"; });
-  addEventListener("hashchange", function(){ if(!/^#bogen=/.test(location.hash)) render(); });
+  addEventListener("hashchange", function(){ if(/^#bogen=/.test(location.hash)) HB.linkImport().then(render, render); else render(); });
   HB.linkImport().then(render, render);
 })();
 </script>

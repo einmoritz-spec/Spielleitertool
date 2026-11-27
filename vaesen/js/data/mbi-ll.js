@@ -207,7 +207,7 @@ VAE_MYS.llantywyll = {
 
  wesen: {n:"Die Coblynau", p:66, img:"mbi/mbi_w_klopfer",
   x:"Die Coblynau können als Klopfer behandelt werden. Sie haben keinen Anführer und sind als einzelnes Wesen zu behandeln. Sie sind von Natur aus unsichtbar und lassen sich nie sehen.",
-  w:[10,8,6,4,0],
+  w:[10,8,4,6,0],
   kraefte:["Verzauberung: Erdbeben – lässt die Grube beben, überschüttet ein Gebiet mit Steinen, wirbelt erstickenden Staub auf oder lässt einen Bereich völlig einstürzen","Fluch: Lahm – ihre geworfenen Steine können Lahmheit verursachen (Grundregelwerk, S. 119)","Kann Grubenbauten zum Einsturz bringen","Kann doppelt so schnell tunneln wie ein menschlicher Bergmann","Kann eine Grube mit Ertraglosigkeit verfluchen","Kann kurz unsichtbar werden"],
   fluch:[],
   zustaende:["Verächtlich","Gereizt +1 (wird unsichtbar und spielt Feinden Streiche)","Benommen −1","Hasserfüllt +2 (kann zur Deckung des Rückzugs einen Einsturz auslösen)","Blutend −2","Panische Wut −2","Gebrochen – versteckt sich 1W6 Stunden und plant schreckliche Rache"],

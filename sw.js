@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1350sq";
+const VERSION = "v1351sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4485,9 +4485,20 @@ const FILES = [
   "vaesen/img/mbi/mbi_ll_jones.webp",
   "vaesen/img/mbi/mbi_ll_karte_dorf.webp",
   "vaesen/img/mbi/mbi_ll_karte_mine.webp",
+  "vaesen/img/mbi/mbi_ham_amelia.webp",
+  "vaesen/img/mbi/mbi_ham_blake.webp",
+  "vaesen/img/mbi/mbi_ham_bland.webp",
+  "vaesen/img/mbi/mbi_ham_eroeffnung.webp",
+  "vaesen/img/mbi/mbi_ham_hall.webp",
+  "vaesen/img/mbi/mbi_ham_karte.webp",
+  "vaesen/img/mbi/mbi_ham_kitty.webp",
+  "vaesen/img/mbi/mbi_ham_molesby.webp",
+  "vaesen/img/mbi/mbi_ham_newford.webp",
   "vaesen/img/mbi/mbi_ll_pugh.webp",
   "vaesen/img/mbi/mbi_ll_thomas.webp",
   "vaesen/js/data/mbi-ll.js",
+  "vaesen/js/data/mbi-ham.js",
+  "vaesen/js/data/mbi-ham2.js",
   "vaesen/img/mbi/mbi_meg_eroeffnung.webp",
   "vaesen/img/mbi/mbi_w_banshee.webp",
   "vaesen/img/mbi/mbi_w_boggart.webp",

@@ -127,7 +127,7 @@ function renderOverview(){
     return ok ? `<button class="ov-card" style="--r:${[-.7,.5,-.3,.8,-.5,.4][i%6]}deg" onclick="goDistrict('${d.id}')" aria-label="${d.title}">${inner}</button>`
               : `<div class="ov-card off">${inner}</div>`;
   }).join("");
-  const bogen = `<a class="ov-bogen" href="../cityofmist/ersteller.html" aria-label="Charakterbogen erstellen"><i class="ov-tape"></i><span class="ovb-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy" draggable="false"></span><span class="ovb-t"><b>Charakterbogen</b></span></a>`;
+  const bogen = `<a class="ov-bogen" href="../cityofmist/ersteller.html" aria-label="Charakterbogen erstellen"><i class="ov-tape"></i><span class="ovb-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy" draggable="false"></span><span class="ovb-t"><b>Charakterbogen</b></span><span class="ovb-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>`;
   return `<div class="ov-grid">${bogen}${tiles}</div>`;
 }
 

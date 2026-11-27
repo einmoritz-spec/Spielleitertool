@@ -59,6 +59,7 @@ GSuche.add(function(add){
   });
 
   if(window.VU_INTRO && VU_INTRO.city) add("City of My Nightmares: Einführung (S. 3–9)", "Bücher", function(){ uiEinfuehrung("city"); }, VU_INTRO.city.abschnitte.map(function(a){ return a.h + " " + a.t.join(" ").replace(/<[^>]+>/g, ""); }));
+  if(window.VU_INTRO && VU_INTRO.lost) add("The Lost Mountain Saga: Einführung (S. 3–9)", "Bücher", function(){ uiEinfuehrung("lost"); }, VU_INTRO.lost.abschnitte.map(function(a){ return a.h + " " + a.t.join(" ").replace(/<[^>]+>/g, ""); }));
   if(window.VU_VW) add("Vorwort (S. 3)", "Bücher", function(){ if(window.uiVorwort) uiVorwort(); }, window.VU_VW);
 
   /* Bücher */

@@ -1,0 +1,51 @@
+/* Charakterbogen (Original-Layout) */
+.bogen-wrap{margin:0 auto;position:relative;overflow:hidden}
+.bogen-scale{width:765px;height:986px;transform-origin:0 0}
+.bogen{position:relative;width:765px;height:986px;background:#f4f0e6 url() ;background-color:#f4f0e6;color:#3a2a1f;font-family:"EB Garamond",Georgia,serif;overflow:hidden;box-shadow:0 2px 14px rgba(60,40,20,.3)}
+.bogen *{box-sizing:border-box}
+.bg-frame{position:absolute;left:15px;top:15px;width:735px;height:957px;border:2px solid #5a4630;border-radius:6px}
+.bg-frame2{position:absolute;left:21px;top:21px;width:723px;height:945px;border:1px solid #8a7660;border-radius:4px}
+.bg-sp{position:absolute;pointer-events:none}
+.bg-logo{position:absolute;left:112px;top:52px;width:280px;height:auto;filter:sepia(.3)}
+.bg-sub{position:absolute;left:0;width:510px;top:112px;text-align:center;font:600 10px Cinzel,serif;letter-spacing:.2em;color:#6b5a4a}
+.bg-b{position:absolute}
+.bg-pan{background:#e7e0d1;border:1.5px solid #8a7660;border-radius:4px}
+.bg-pan2{background:#ebe5d8;border:1.5px solid #8a7660;border-radius:4px}
+.bg-rib{background:#a99989;border:1px solid #7a6552;border-radius:3px;display:flex;align-items:center;padding-left:9px;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.bg-rib span{font:600 13px Cinzel,serif;letter-spacing:.14em;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.bg-tit{position:absolute;font:600 13.5px Cinzel,serif;letter-spacing:.12em;color:#5a4630}
+.bg-lab{position:absolute;font:700 6.5px/1 Arial,sans-serif;letter-spacing:.05em;color:#3a2a1f;white-space:nowrap}
+.bg-lab.sm{font-size:6.2px}.bg-lab.b{font-size:7px}
+.bg-f{background:#fff;border:1.2px solid #8a7660;border-radius:3px;box-shadow:inset 0 1px 3px rgba(90,70,50,.2),0 1px 0 rgba(255,255,255,.7)}
+.bg-dbl{outline:2px solid #fff;outline-offset:-5px;border-width:1.5px}
+.bg-l{position:absolute;left:5px;top:3px;font:700 5.8px/1 Arial,sans-serif;letter-spacing:.04em;color:#3a2a1f;font-style:normal;pointer-events:none}
+.bg-f input{position:absolute;left:0;right:0;bottom:0;top:0;width:100%;height:100%;border:0;background:transparent;font:500 15px "EB Garamond",serif;color:#1f2f6a;padding:9px 6px 0;outline:0}
+.bg-f.bg-bare{box-shadow:none;border:0;background:transparent}.bg-f.bg-bare input{padding:2px 0 0}
+.bg-f input.bg-n,.bg-ctr input,.bg-ctr textarea{text-align:center}
+.bg-f.bg-ctr input{padding:0 2px;font-size:16px}
+.bg-f input.bg-n{padding:0 2px;font-size:17px;font-weight:600}
+.bg-f input:focus,.bg-f textarea:focus{background:rgba(255,240,190,.45)}
+.bg-ta textarea{position:absolute;inset:0;width:100%;height:100%;border:0;resize:none;outline:0;background:repeating-linear-gradient(transparent 0,transparent calc(var(--lh) - 1.5px),#8a7660 calc(var(--lh) - 1.5px),#8a7660 var(--lh));background-position:0 6px;font:500 14px/var(--lh) "EB Garamond",serif;color:#1f2f6a;padding:0 6px;overflow:hidden}
+.bg-ta.bg-ctr textarea{padding:0 1px;font-size:13px}
+.bg-ln{position:absolute;height:1.5px;background:#8a7660}
+.bg-row{background:transparent}.bg-row.alt{background:#ddd2bd}
+.bg-rt{position:absolute;font:500 13px "EB Garamond",serif;color:#2a1d12;white-space:nowrap}
+.bg-rt small{font-size:12px}
+.bg-hr{position:absolute;height:1.5px;background:#3a2a1f}
+.bg-c{position:absolute;display:block;cursor:pointer}.bg-c input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.bg-c b{position:absolute;inset:0;border:1.3px solid #5a4630;border-radius:50%;background:#fff;box-shadow:inset 0 1px 2px rgba(90,70,50,.25)}
+.bg-c input:checked+b{background:radial-gradient(circle,#3a2a1f 0 48%,#fff 52%)}
+.bogen.ro input,.bogen.ro textarea{pointer-events:none}
+.bg-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 12px}
+.bg-page{padding-top:14px}
+@page{size:612.28pt 790.87pt;margin:0}
+@media print{
+ html,body{background:#fff!important}
+ .topbar,.tabs,#ktabs,.bg-tools,.side,.mm-backdrop,.mm-panel{display:none!important}
+ .shell,.page,.bg-page{padding:0!important;margin:0!important;max-width:none!important;display:block!important}
+ .bogen-wrap{width:612.28pt!important;height:790.87pt!important;margin:0;overflow:hidden}
+ .bogen-scale{transform:scale(1.0672)!important;transform-origin:0 0}
+ .bg-f input:focus,.bg-f textarea:focus{background:transparent!important}
+  .bogen{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .bg-f input,.bg-ta textarea{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

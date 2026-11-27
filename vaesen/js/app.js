@@ -126,7 +126,7 @@ function viewRegeln(){
 }
 
 /* ---------- Charaktere ---------- */
-var CTABS = [["Archetypen","charaktere"],["Persönlichkeit","charaktere/persoenlichkeit"],["Eigenschaften","charaktere/eigenschaften"],["Ausrüstung und Ressourcen","charaktere/ausruestung"],["Charaktererstellung","erstellung"]];
+var CTABS = [["Archetypen","charaktere"],["Persönlichkeit","charaktere/persoenlichkeit"],["Eigenschaften","charaktere/eigenschaften"],["Ausrüstung und Ressourcen","charaktere/ausruestung"],["Charaktererstellung","erstellung"],["Charakterbogen","bogen"]];
 var RES = [["1","Mittellos","Du bist völlig auf andere angewiesen. Jeder Tag ist ein Kampf ums Essen."],["2","Arm","Du lebst sehr einfach. Meist gibt es etwas zu essen, aber zu wenig."],["3","Zurechtkommend","Bescheidenes Heim, festes Einkommen, aber keine Ersparnisse."],["4","Gesichert","Eigenes Heim und stetiges Einkommen; vermutlich etwas zurückgelegt."],["5","Mittelstand","Haus und Geschäft, vielleicht Angestellte; Ersparnisse und Kredit."],["6","Wohlhabend","Großes Haus, mehrere Einkommensquellen; Geld ist kein knappes Gut."],["7","Reich","Viel geerbtes Geld und Immobilien, Diener, Verbindungen zur Elite."],["8","Steinreich","Du gehörst zu den Reichsten des Landes und kennst die Herrscher persönlich."]];
 function archSide(){ return [{i:VAE_ARCH.map(function(a){ return {id:a.id, go:"charaktere/" + a.id, t:a.name}; })}]; }
 function viewCharaktere(){
@@ -310,7 +310,7 @@ function viewErstellung(){
    '<div class="cols2"><div><div class="box"><h3>1–3 · Grundlagen</h3><p><span class="fl">Archetyp ' + ib('step:arch') + '</span>' + arch + '</p><p><span class="fl">Alter ' + ib('step:alter') + '</span>' + alt + '</p><p><label style="cursor:pointer"><input type="checkbox" ' + (c.spielt ? 'checked' : '') + ' onchange="setSpielt(this.checked)"> Spielt in der Gruppe <small class="pg">(zeigt ihn in der Gruppen-Leiste)</small></label></p><p>Name <input class="gloss-search" id="f_name" value="' + esc(c.name) + '" placeholder="' + esc(a.vor[0] + " " + a.nach[0]) + '" oninput="setF(\'name\',this.value,1)"></p><p>Spieler:in <input class="gloss-search" value="' + esc(c.spieler) + '" oninput="setF(\'spieler\',this.value,1)"></p></div>' + '<div class="box"><h3>5 · Fertigkeiten <span class="pg">übrig: ' + p.sp + '</span></h3>' + skH + '</div>' + '</div><div>' + '<div class="box"><h3>4 · Attribute <span class="pg">übrig: ' + p.ap + '</span></h3>' + attrH + '</div>' + '<div class="box"><h3>Ressourcen</h3><div style="display:flex;align-items:center;gap:8px"><button class="btn alt" onclick="adjR(-1)">−</button><span class="hand">' + c.res + '</span><button class="btn alt" onclick="adjR(1)">+</button><span class="pg">Archetyp: ' + a.res + '</span></div></div>' + pick("talent", a.talente, "6 · Talent") + pick("mot", a.mot, "7 · Motivation") + pick("trauma", a.trauma, "8 · Trauma") + pick("geheim", a.geheim, "9 · Dunkles Geheimnis") + '</div></div>' +
    '<div class="cols" style="margin-top:18px">' + pick("bez", a.beziehung, "10 · Beziehung (Vorschläge)") + '<div class="box"><h3>11 · Andenken <button class="btn alt" style="padding:3px 12px" onclick="rollMem()">W66 würfeln</button></h3><p class="hand" id="memOut">' + esc(c.andenken || "–") + '</p></div><div class="box"><h3>12 · Ausrüstung</h3>' + a.ausr.map(function(x){ return '<label style="display:block"><input type="checkbox" ' + (c.ausr.indexOf(x) > -1 ? "checked" : "") + ' onchange="togA(\'' + esc(x).replace(/'/g, "\\'") + '\',this.checked)"> ' + esc(x) + '</label>'; }).join("") + '</div></div>' +
    '<div class="box"><h3>Beschreibung</h3><textarea class="gloss-search" rows="3" oninput="setF(\'beschr\',this.value,1)">' + esc(c.beschr) + '</textarea></div>' +
-   '<p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" onclick="saveCur()">Speichern</button><button class="btn alt" onclick="printSheet()">Als PDF / Drucken</button><button class="btn alt" onclick="shareLink()">Charakter-Link kopieren</button><button class="btn alt" onclick="shareFile()">Exportieren (Datei)</button></p><div class="box"><h3>Teilen und Importieren</h3><p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn alt" onclick="shareCreate()">Erstellungs-Link kopieren</button><button class="btn alt" onclick="document.getElementById(\'impFile\').click()">Charakter importieren (Datei)</button><button class="btn alt" onclick="impLink()">Link einfügen</button><input type="file" id="impFile" accept=".json,application/json" multiple style="display:none" onchange="impFiles(this.files)"></p><p class="pg">Der Erstellungs-Link öffnet bei anderen diese Seite mit allen Hilfen. Nach dem Erstellen exportieren sie ihren Charakter (Link oder Datei) und du importierst ihn hier – er wird dann in deinem Browser gespeichert.</p></div><p class="pg" id="shMsg"></p>';
+   '<p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" onclick="saveCur()">Speichern</button><button class="btn fill" onclick="saveCur();go(\'bogen/' + c.id + '\')">Charakterbogen öffnen</button><button class="btn alt" onclick="printSheet()">Als PDF / Drucken</button><button class="btn alt" onclick="shareLink()">Charakter-Link kopieren</button><button class="btn alt" onclick="shareFile()">Exportieren (Datei)</button></p><div class="box"><h3>Teilen und Importieren</h3><p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn alt" onclick="shareCreate()">Erstellungs-Link kopieren</button><button class="btn alt" onclick="document.getElementById(\'impFile\').click()">Charakter importieren (Datei)</button><button class="btn alt" onclick="impLink()">Link einfügen</button><input type="file" id="impFile" accept=".json,application/json" multiple style="display:none" onchange="impFiles(this.files)"></p><p class="pg">Der Erstellungs-Link öffnet bei anderen diese Seite mit allen Hilfen. Nach dem Erstellen exportieren sie ihren Charakter (Link oder Datei) und du importierst ihn hier – er wird dann in deinem Browser gespeichert.</p></div><p class="pg" id="shMsg"></p>';
   var chipsH = '<div class="chips">' + side[0].i.map(function(i){ return '<a class="' + (i.id === CH.id ? "on" : "") + '" onclick="go(\'' + i.go + '\')">' + esc(i.t) + '</a>'; }).join("") + '</div>';
   return tabsBar(CTABS, "Charaktererstellung") + '<div class="page">' + chipsH + body + '</div>';
 }
@@ -354,10 +354,10 @@ function sheetHTML(c){
   return '<div style="display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap"><h1>' + esc(c.name || "Unbenannt") + '</h1><span class="pg">' + esc(a.name) + ' · ' + al[0] + (c.spieler ? ' · Spieler:in ' + esc(c.spieler) : '') + '</span></div>' + box('<div class="stat">' + attrs + '<div><b>' + c.res + '</b><span>Ressourcen</span></div></div>') + '<div class="cols">' + sk + '</div>' +
    '<div class="cols"><div class="box"><h3>Talent</h3><p>' + esc(c.talent || "–") + '</p><h3>Ausrüstung</h3><p>' + esc((c.ausr || []).join(", ") || "–") + '</p><h3>Andenken</h3><p>' + esc(c.andenken || "–") + '</p></div><div class="box"><h3>Motivation</h3><p>' + esc(c.mot || "–") + '</p><h3>Trauma</h3><p>' + esc(c.trauma || "–") + '</p><h3>Dunkles Geheimnis</h3><p>' + esc(c.geheim || "–") + '</p><h3>Beziehung</h3><p>' + esc(c.bez || "–") + '</p></div></div><div class="box"><h3>Beschreibung</h3><p>' + esc(c.beschr || "–") + '</p></div>';
 }
-function printSheet(){ var w = window.open("", "_blank"); if(!w){ msg("Pop-up blockiert."); return; } w.document.write('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><title>' + esc(CH.name || "Charakter") + '</title><link rel="stylesheet" href="' + location.href.replace(/[^\/]*$/, "") + 'style.css"></head><body><div class="shell">' + sheetHTML(CH) + '</div><script>setTimeout(function(){print()},600)<\/script></body></html>'); w.document.close(); }
+function printSheet(){ var base = location.href.replace(/[^\/]*$/, "").replace(/#.*$/, ""), w = window.open("", "_blank"); if(!w){ msg("Pop-up blockiert."); return; } w.document.write('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><title>' + esc(CH.name || "Charakter") + '</title><link rel="stylesheet" href="' + base + 'style.css"><link rel="stylesheet" href="' + base + 'bogen.css"></head><body style="background:#fff;margin:0"><div class="bogen-wrap" style="width:612.28pt;height:790.87pt"><div class="bogen-scale" style="transform:scale(1.0672)">' + bogenHTML(CH, false, base) + '</div></div><script>setTimeout(function(){print()},800)<\/script></body></html>'); w.document.close(); }
 function viewSpieler(){
   var c; try{ c = unb64(sub); }catch(e){ return '<div class="page"><div class="empty">Der Link ist ungültig.</div></div>'; }
-  return '<div class="page">' + sheetHTML(c) + '</div>' + '<p><button class="btn" onclick="importCh()">In meine Charaktere übernehmen</button></p>';
+  return '<div class="page">' + bogenWrap(c, true) + '</div>' + '<p><button class="btn" onclick="importCh()">In meine Charaktere übernehmen</button></p>';
 }
 function importCh(){ var c = unb64(sub); importObj(c); go("erstellung/" + c.id); }
 
@@ -366,7 +366,7 @@ function importCh(){ var c = unb64(sub); importObj(c); go("erstellung/" + c.id);
 var HEAD = [["charaktere","Charaktere"],["regeln","Regeln"],["gesellschaft","Die Gesellschaft"],["norden","Mythischer Norden"],["vaesen","Vaesen"],["mysterium","Das Mysterium"]];
 function vaeHead(){
   var kt = document.getElementById("ktabs"); if(!kt) return;
-  var k = cur === "kapitel" ? sub.split("/")[0] : cur, m = {konflikt:"regeln", talente:"regeln", erstellung:"charaktere", karten:"norden"}, on = m[k] || k;
+  var k = cur === "kapitel" ? sub.split("/")[0] : cur, m = {konflikt:"regeln", talente:"regeln", erstellung:"charaktere", bogen:"charaktere", karten:"norden"}, on = m[k] || k;
   var hide = cur === "start" || !cur;
   document.body.classList.remove("sb-mbi", "sb-car");
   if(window.SBS && SBS[cur]){ document.body.classList.add(SBS[cur].cls); var b = sub.split("/")[0]; kt.innerHTML = b ? sbHead(SBS[cur]) : ""; document.body.classList.toggle("vnav", !!b); return; }
@@ -385,6 +385,7 @@ function render(){
    case "buecher": v = viewBuecher(); break;
    case "erstellung": v = viewErstellung(); break;
    case "spieler": v = viewSpieler(); break;
+   case "bogen": v = viewBogen(); break;
    case "kapitel": v = viewKapitel(sub.split("/")[0]); break;
    case "som": v = viewMys(); break;
    case "mbi": case "car": v = viewSB(cur); break;
@@ -392,7 +393,7 @@ function render(){
    default: v = viewStart();
   }
   vaeHead();
-  APP.innerHTML = v; window.scrollTo(0, 0); if(window.mysAfter) mysAfter(); if(window.grpAfter) grpAfter();
+  APP.innerHTML = v; window.scrollTo(0, 0); if(window.mysAfter) mysAfter(); if(window.grpAfter) grpAfter(); if(window.bgFit) bgFit();
 }
 
 /* ---------- Menü & Suche ---------- */

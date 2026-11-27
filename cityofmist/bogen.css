@@ -68,7 +68,8 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .let{display:flex;align-items:center;justify-content:center;font:700 calc(var(--pt)*9.5)/1 var(--hand);color:#55524a;text-decoration:none;pointer-events:none}
 .burn{border-radius:50%;cursor:pointer}
 .burn:hover{box-shadow:0 0 0 calc(var(--pt)*1.1) #c0581f}
-.burn.on{background:radial-gradient(circle,rgba(230,120,40,.55) 0,rgba(200,85,25,.9) 70%);box-shadow:0 0 calc(var(--pt)*3) #d0671f}
+.burn.on{background:radial-gradient(circle,rgba(255,170,70,.55) 0,rgba(255,120,30,.25) 55%,transparent 72%);display:grid;place-items:center}
+.burn.on svg{width:78%;height:78%;fill:#e8621a;filter:drop-shadow(0 0 calc(var(--pt)*1.6) #ff9a3c) drop-shadow(0 0 calc(var(--pt)*.6) #fff3)}
 .inv{cursor:pointer;border-radius:calc(var(--pt)*1.2)}
 .inv:hover{box-shadow:0 0 0 calc(var(--pt)*1) #4a4842}
 .inv.on{background:radial-gradient(circle,#2a2925 0 30%,transparent 36%)}
@@ -79,8 +80,9 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 
 /* Charakterkarte Rückseite */
 .evo{display:flex;align-items:center;position:absolute;gap:calc(var(--pt)*5.5);font:400 calc(var(--pt)*7)/1 Helvetica,Arial,sans-serif;color:#2f2e2a;text-decoration:none;cursor:pointer;white-space:nowrap}
-.evo i{flex:none;width:calc(var(--pt)*8.8);height:calc(var(--pt)*9);border-radius:calc(var(--pt)*1)}
-.evo.on i{background:radial-gradient(circle,#2a2925 0 30%,transparent 36%)}
+.evok{cursor:pointer;border-radius:calc(var(--pt)*1)}
+.evok:hover{box-shadow:0 0 0 calc(var(--pt)*.8) #4a4842}
+.evok.on{background:radial-gradient(circle,#2a2925 0 30%,transparent 36%)}
 .evo:hover span{text-decoration:underline;text-decoration-color:rgba(0,0,0,.3)}
 .evo em{font-style:italic}
 

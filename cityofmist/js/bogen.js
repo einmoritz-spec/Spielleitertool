@@ -67,7 +67,7 @@ function themaVorn(c, t, i, K, L, extra){
     if(x && x.l.length === 1) h += lnkR(K.plet[s], "let", esc(x.l), "");
     var ph = (b && s === 0 && !x) ? '<span class="ph">' + esc(b.power[0].q) + '</span>' : "";
     h += lnkR([r[0], r[1] - 2, r[2], r[3] + 3], "feld" + (x && x.burn ? " burned" : "") + (x && x.a.length > 20 ? " lang" : ""), x ? '<span>' + esc(x.a) + '</span>' : ph, 'data-act="obTag" data-i="' + i + '" data-art="power" data-s="' + s + '" data-k="p' + i + '_' + s + '"' + (q ? ' data-tip="' + esc(q.l + ": " + q.q) + '"' : ""));
-    if(x && x.a) h += lnkR(K.burn[s], "burn" + (x.burn ? " on" : ""), "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder aktivieren" : "Verbrennen") + '"');
+    if(x && x.a) h += lnkR(K.burn[s], "burn" + (x.burn ? " on" : ""), x.burn ? '<svg viewBox="0 0 24 24"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-4.5 3-6 0 2 1 3 2 3-1-3 0-6 1-9z"/></svg>' : "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder aktivieren" : "Verbrennen") + '"');
   });
   /* Schwächen */
   h += lab(L.weak[0], L.weak[1], L.weak[2] + 10, L.weak[3], "bar", "Schwächen") + lab(L.inv[0] - 8, L.inv[1], L.inv[2], L.inv[3], "klein r", "Angewandt", "justify-content:flex-end");
@@ -112,7 +112,7 @@ function seite1(c){
   /* Rückseite der Charakterkarte */
   h += lab(227.8, 116, 278, 127, "bar", "Aufbau") + punkte(P.build, "build", c.build, "kreis", "Aufbaupunkt");
   h += lab(235.8, 138.5, 360, 146, "fett", "Entwicklungssprünge");
-  P.evo.forEach(function(r, k){ h += '<a class="evo' + (c.evo[k] ? " on" : "") + '" ' + st(r[0] - 1, EVO_Y[k] - 1.5, 168, 10) + ' data-act="obToggle" data-p="evo.' + k + '"><i></i><span>' + esc(EVO[k]).replace("Mega!", "<em>Mega!</em>") + '</span></a>'; });
+  P.evo.forEach(function(r, k){ h += lnkR(r, "evok" + (c.evo[k] ? " on" : ""), "", 'data-act="obToggle" data-p="evo.' + k + '" data-tip="Entwicklungssprung ankreuzen"') + '<a class="evo' + (c.evo[k] ? " on" : "") + '" ' + st(r[0] + 13.5, EVO_Y[k] - 1.5, 156, 10) + ' data-act="obToggle" data-p="evo.' + k + '"><span>' + esc(EVO[k]).replace("Mega!", "<em>Mega!</em>") + '</span></a>'; });
   h += lab(229, 311.5, 300, 323, "bar", "Nemesis") + P.nemesis.map(function(r, k){ return inpR(r, "nemesis." + k, c.nemesis[k], "s"); }).join(""); return h; });
   /* Team-/Zusatzthema */
   h += gruppe(RT[2], function(){ return themaVorn(c, c.extra, "x", P.extra, P1X, true); });

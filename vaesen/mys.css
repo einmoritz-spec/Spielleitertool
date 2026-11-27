@@ -55,3 +55,6 @@
 .ms-kf{grid-template-columns:minmax(0,1fr)}
 .ms-kf>.ms-kfl{max-width:72ch}
 .ms-kf>.ms-wege{align-items:start}
+
+.ms-hw.w-k2a,.ms-hw.w-k2b{width:min(100%,470px)}.ms-hw.w-k2a .ms-let .ms-tx{font-size:4cqw;line-height:1.2;inset:8% 9%}.ms-hw.w-k2c{width:min(100%,420px)}.ms-hw.w-k2c .ms-zet{width:100%}.ms-hw.w-k2c .ms-zet .ms-tx{font-size:4.7cqw;line-height:1.25;inset:9% 9%}.ms-hw.w-k2d{width:min(100%,420px)}.ms-hw.w-k2d .ms-tag .ms-tx{font-size:4.4cqw;line-height:1.5;inset:12% 31% 30% 11%}
+.ms-let.k2a .ms-tx{font-size:4cqw;line-height:1.2;inset:8% 9%}.ms-zet.k2c .ms-tx{font-size:4.7cqw;line-height:1.25;inset:9% 9%}.ms-tag.k2d .ms-tx{font-size:4.4cqw;line-height:1.5;inset:12% 33% 30% 11%}

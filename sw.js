@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1326sq";
+const VERSION = "v1327sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4430,7 +4430,27 @@ const FILES = [
   "vaesen/js/data/som-nachtsau.js",
   "vaesen/js/data/som-stern.js",
   "vaesen/js/data/city-mord.js",
+  "vaesen/js/data/city-lied.js",
   "vaesen/js/data/city-einfuehrung.js",
+  "vaesen/img/city/city2_trygg.webp",
+  "vaesen/img/city/city2_rusalka_skizze.webp",
+  "vaesen/img/city/city2_rusalka.webp",
+  "vaesen/img/city/city2_peter.webp",
+  "vaesen/img/city/city2_nuala.webp",
+  "vaesen/img/city/city2_moa.webp",
+  "vaesen/img/city/city2_lucius.webp",
+  "vaesen/img/city/city2_konstantin.webp",
+  "vaesen/img/city/city2_karte_villa.webp",
+  "vaesen/img/city/city2_karte_insel.webp",
+  "vaesen/img/city/city2_ho_2d.webp",
+  "vaesen/img/city/city2_ho_2c.webp",
+  "vaesen/img/city/city2_ho_2b.webp",
+  "vaesen/img/city/city2_ho_2a.webp",
+  "vaesen/img/city/city2_helga.webp",
+  "vaesen/img/city/city2_hedwig.webp",
+  "vaesen/img/city/city2_florian.webp",
+  "vaesen/img/city/city2_eroeffnung.webp",
+  "vaesen/img/city/city2_aegir.webp",
   "vaesen/js/data/galerie-city.js",
   "vaesen/js/data/galerie-wicked.js",
   "vaesen/js/data/galerie-som.js",

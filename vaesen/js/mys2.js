@@ -91,12 +91,12 @@ function msWesenCard(fid){
 /* ---------- Handouts ---------- */
 function msHoCard(h){
   if(h.form === "raw") return h.html.replace(/^<div class="/, '<div class="ms-raw ');
-  var paper = '<img class="ms-paper" src="' + msImg(h.paper) + '" alt="">';
-  if(h.form === "zettel") return '<div class="ms-ho ms-zet" data-sh="1">' + paper + '<div class="ms-tx">' + h.x + '</div></div>';
+  var cx = h.cls ? " " + h.cls : "", paper = '<img class="ms-paper" src="' + msImg(h.paper) + '" alt="">';
+  if(h.form === "zettel") return '<div class="ms-ho ms-zet' + cx + '" data-sh="1">' + paper + '<div class="ms-tx">' + h.x + '</div></div>';
   if(h.form === "bild") return '<div class="ms-ho ms-bild" data-sh="1">' + paper + '</div>';
-  if(h.form === "tagebuch") return '<div class="ms-ho ms-tag' + (h.klein ? " l1a" : "") + '" data-sh="1">' + paper + '<div class="ms-tx">' + h.x + '</div></div>';
+  if(h.form === "tagebuch") return '<div class="ms-ho ms-tag' + (h.klein ? " l1a" : "") + cx + '" data-sh="1">' + paper + '<div class="ms-tx">' + h.x + '</div></div>';
   var b = MS.an.brief, x = h.x || ('<b>' + b.t1 + '</b><br><br>' + b.x.join("<br><br>") + '<br><br><i>' + b.sig + '</i>');
-  return '<div class="ms-ho ms-let' + (h.klein ? " l1a" : "") + '" data-sh="1">' + paper + '<div class="ms-tx">' + x + '</div></div>';
+  return '<div class="ms-ho ms-let' + (h.klein ? " l1a" : "") + cx + '" data-sh="1">' + paper + '<div class="ms-tx">' + x + '</div></div>';
 }
 function msHoWrap(h){ return '<div class="ms-hw w-' + h.id + '"><div onclick="msShowAt(this.firstChild)">' + msHoCard(h) + '</div><div class="hol">' + esc(h.t) + ' · ' + esc(h.u) + '</div></div>'; }
 function msShowAt(el){ tzShowClose(); TZ_SH = Array.prototype.slice.call(document.querySelectorAll("[data-sh]")); TZ_SI = TZ_SH.indexOf(el); tzShowDraw(); }

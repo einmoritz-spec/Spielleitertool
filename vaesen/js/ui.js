@@ -13,7 +13,7 @@ function uiStart(){
   var som = "";
   ["tod", "feuer", "teufel", "winter"].forEach(function(id){ som += tile(id); });
   var wic = ""; ["silber", "geheimnis", "nachtsau", "stern"].forEach(function(id){ wic += tile(id); });
-  var cit = ""; ["mord"].forEach(function(id){ cit += tile(id); });
+  var cit = ""; ["mord","lied"].forEach(function(id){ cit += tile(id); });
   var grp = '<div class="vs-grp" style="flex:1"><div class="vs-gh">Grundregelwerk</div><div class="vs-row">' + tanz + '</div></div>' +
     (som ? '<div class="vs-grp" style="flex:4"><div class="vs-gh">Seasons of Mystery<button onclick="uiVorwort()">Vorwort</button></div><div class="vs-row">' + som + '</div></div>' : '') +
     (wic ? '<div class="vs-grp" style="flex:2"><div class="vs-gh">A Wicked Secret</div><div class="vs-row">' + wic + '</div></div>' : '') +

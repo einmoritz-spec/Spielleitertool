@@ -81,11 +81,11 @@ function msFigCard(id){
 }
 function msHier(ids){ ids = (ids || []).filter(function(k){ return MS.figs[k]; }); return ids.length ? '<div class="here">' + ids.map(function(k){ var f = MS.figs[k]; return '<a onclick="msDrawer(\'fg\',\'' + k + '\')">' + msFigImg(f) + esc(f.n) + '</a>'; }).join("") + '</div>' : ''; }
 function msWesenCard(fid){
-  var w = MS.wesen, v = w.w, fx = fid ? MS.figs[fid] : null;
+  var fx = fid ? MS.figs[fid] : null, w = (fx && typeof fx.wesen === 'string' && MS.wesen2 && MS.wesen2[fx.wesen]) ? MS.wesen2[fx.wesen] : MS.wesen, wp = (fx && typeof fx.wesen === 'string') ? fid : '', v = w.w;
   return '<div class="nc"><div class="hd2">' + (w.img ? '<img src="' + msImg(w.img) + '" alt="" style="object-position:50% 30%">' : '') + '<div><h3>' + esc(w.n) + msPg(w.p) + '</h3><div class="role">Vaesen</div></div></div><div class="tx">' + msDec(fx ? fx.x : w.x) + '</div>' +
    '<div class="vrow"><div><b>' + v[0] + '</b><span>Macht</span></div><div><b>' + v[1] + '</b><span>Körperk.</span></div><div><b>' + v[2] + '</b><span>Magie</span></div><div><b>' + v[3] + '</b><span>Manip.</span></div><div><b>' + v[4] + '</b><span>Furcht</span></div></div>' +
    '<div class="blk"><h5>' + (w.fluch ? 'VERZAUBERUNGEN' : 'KRÄFTE') + '</h5><div class="mg">' + w.kraefte.map(function(x){ return '<span>' + x + '</span>'; }).join("") + '</div></div>' + (w.fluch ? '<div class="blk"><h5>FLÜCHE</h5><div class="mg">' + w.fluch.map(function(x){ return '<span class="f">' + x + '</span>'; }).join("") + '</div></div>' : '') +
-   '<div class="blk"><h5>ZUSTÄNDE</h5><div class="zs">' + w.zustaende.map(function(c, i){ var k = "wz" + i; return '<div class="' + (msLoad().trk[k] ? 'x' : '') + '" onclick="msTrkTog(this,\'' + k + '\')"><i></i>' + c + '</div>'; }).join("") + '</div></div>' +
+   '<div class="blk"><h5>ZUSTÄNDE</h5><div class="zs">' + w.zustaende.map(function(c, i){ var k = "wz" + wp + i; return '<div class="' + (msLoad().trk[k] ? 'x' : '') + '" onclick="msTrkTog(this,\'' + k + '\')"><i></i>' + c + '</div>'; }).join("") + '</div></div>' +
    '<table class="at"><tr><th>ANGRIFF</th><th>SCHADEN</th><th>REICHW.</th></tr>' + w.att.map(function(a){ return '<tr><td>' + a[0] + '</td><td>' + a[1] + '</td><td>' + a[2] + '</td></tr>'; }).join("") + '</table><div class="eq" style="padding-top:0">' + w.note + '</div>' + (w.ritual ? '<div class="eq"><b>RITUAL</b> ' + w.ritual + '</div>' : '') + '</div>';
 }
 

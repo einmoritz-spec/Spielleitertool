@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1339sq";
+const VERSION = "v1340sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -4439,6 +4439,7 @@ const FILES = [
   "vaesen/js/data/lost-beginn.js",
   "vaesen/js/data/lost-sonne.js",
   "vaesen/js/data/lost-prinz.js",
+  "vaesen/js/data/lost-saga.js",
   "vaesen/img/city/city4_vilma.webp",
   "vaesen/img/city/city4_schloss.webp",
   "vaesen/img/city/city4_salon.webp",
@@ -4495,6 +4496,12 @@ const FILES = [
   "vaesen/img/lost/lost4_lisa.webp",
   "vaesen/img/lost/lost4_mikaela.webp",
   "vaesen/img/lost/lost4_ouroboros.webp",
+  "vaesen/img/lost/lost5_doktoren.webp",
+  "vaesen/img/lost/lost5_eroeffnung.webp",
+  "vaesen/img/lost/lost5_karte_abisko.webp",
+  "vaesen/img/lost/lost5_karte_forschung.webp",
+  "vaesen/img/lost/lost5_karte_lapporten.webp",
+  "vaesen/img/lost/lost5_riese.webp",
   "vaesen/img/city/city4_eroeffnung.webp",
   "vaesen/img/city/city3_tuer.webp",
   "vaesen/img/city/city3_reuterholm.webp",

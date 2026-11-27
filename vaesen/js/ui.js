@@ -14,7 +14,7 @@ function uiStart(){
   ["tod", "feuer", "teufel", "winter"].forEach(function(id){ som += tile(id); });
   var wic = ""; ["silber", "geheimnis", "nachtsau", "stern"].forEach(function(id){ wic += tile(id); });
   var cit = ""; ["mord","lied","biblio","albtraum"].forEach(function(id){ cit += tile(id); });
-  var lst = ["pflicht","beginn","sonne","prinz"], lo = "", ln = 0, lw = 0; lst.forEach(function(id){ var t = tile(id); if(t){ lo += t; ln++; lw = Math.max(ln, 2); } });
+  var lst = ["pflicht","beginn","sonne","prinz","saga"], lo = "", ln = 0, lw = 0; lst.forEach(function(id){ var t = tile(id); if(t){ lo += t; ln++; lw = Math.max(ln, 2); } });
   var grp = '<div class="vs-grp" style="flex:1 1 175px;min-width:175px"><div class="vs-gh">Grundregelwerk</div><div class="vs-row">' + tanz + '</div></div>' +
     (som ? '<div class="vs-grp" style="flex:4 1 700px;min-width:700px"><div class="vs-gh">Seasons of Mystery<button onclick="uiVorwort()">Vorwort</button></div><div class="vs-row">' + som + '</div></div>' : '') +
     (wic ? '<div class="vs-grp" style="flex:4 1 700px;min-width:700px"><div class="vs-gh">A Wicked Secret</div><div class="vs-row">' + wic + '</div></div>' : '') +

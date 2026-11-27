@@ -46,11 +46,12 @@ function st(x, y, w, h, extra){ return 'style="left:' + (x / 7.92).toFixed(3) + 
 function stR(r, extra){ return st(r[0], r[1], r[2], r[3], extra); }
 function box(x, y, w, h, cls, inner, attr, extra){ return '<div class="' + cls + '" ' + st(x, y, w, h, extra) + (attr ? " " + attr : "") + '>' + (inner || "") + '</div>'; }
 function mk(R, d){ var X = R[0] - d, Y = R[1] - d, Wd = R[2] + 2 * d, Ht = R[3] + 2 * d; return "--ms:" + (792 / Wd * 100).toFixed(2) + "% " + (612 / Ht * 100).toFixed(2) + "%;--mp:" + (X / (792 - Wd) * 100).toFixed(3) + "% " + (Y / (612 - Ht) * 100).toFixed(3) + "%"; }
+function mkh(R, dx, dy){ var X = R[0] - dx, Y = R[1] - dy, Wd = R[2] + 2 * dx, Ht = R[3] + 2 * dy; return ";--hs:" + (792 / Wd * 100).toFixed(2) + "% " + (612 / Ht * 100).toFixed(2) + "%;--hp:" + (X / (792 - Wd) * 100).toFixed(3) + "% " + (Y / (612 - Ht) * 100).toFixed(3) + "%"; }
 function lnkR(r, cls, inner, attr, extra){ return '<a class="' + cls + '" ' + stR(r, extra) + (attr ? " " + attr : "") + '>' + (inner || "") + '</a>'; }
 /* Beschriftung mittig in der Ursprungs-Box des Originaltextes [x0,y0,x1,y1] */
 function lab(b, cls, t, extra){ return box(b[0], b[1], b[2] - b[0], b[3] - b[1], "t " + cls, t, "", extra); }
 function inpR(r, path, val, cls, ph, extra){ return '<input class="o-in ' + (cls || "") + '" ' + stR(r, extra) + ' data-f="obP" data-p="' + path + '" value="' + esc(val) + '"' + (ph ? ' placeholder="' + esc(ph) + '"' : "") + ' autocomplete="off" spellcheck="false">'; }
-function seite(n, titel, tb, cb, inhalt){ return '<section class="os-seite" style="background-image:url(img/bogen/seite-' + n + '.webp);--mu:url(img/bogen/mask-' + n + '.png)">' + lab(tb, "titel", esc(titel)) + lab(cb, "copy", "© 2025 Son of Oak Game Studio") + inhalt + '</section>'; }
+function seite(n, titel, tb, cb, inhalt){ return '<section class="os-seite" style="background-image:url(img/bogen/seite-' + n + '.webp);--mu:url(img/bogen/mask-' + n + '.png);--mu2:url(img/bogen/mask-halo-' + n + '.png)">' + lab(tb, "titel", esc(titel)) + lab(cb, "copy", "© 2025 Son of Oak Game Studio") + inhalt + '</section>'; }
 function punkte(rs, path, val, cls, tip){ return rs.map(function(r, k){ return lnkR(r, "trk " + cls + (val >= k + 1 ? " on" : ""), "", 'data-act="obTick" data-p="' + path + '" data-v="' + (k + 1) + '" data-tip="' + tip + ' ' + (k + 1) + '"'); }).join(""); }
 
 /* ---------- Theme Card (vorn) ---------- */
@@ -60,7 +61,7 @@ function themaVorn(c, t, i, K, L){
   h += lab(L.head, "kw", fs ? "Fellowship<br>Theme Card" : "Theme Card", fs ? "line-height:1.12" : "");
   if(!fs){
     h += lab(L.typ, "klein l", "Typ");
-    ["origin", "adventure", "greatness"].forEach(function(m, k){ h += lnkR(K.icons[k], "ty" + (t.might === m ? " on" : ""), "", 'data-act="obMight" data-i="' + i + '" data-v="' + m + '" data-tip="' + MIGHT[m] + '"', mk(K.icons[k], 2)); });
+    ["origin", "adventure", "greatness"].forEach(function(m, k){ h += lnkR(K.icons[k], "ty" + (t.might === m ? " on" : ""), "", 'data-act="obMight" data-i="' + i + '" data-v="' + m + '" data-tip="' + MIGHT[m] + '"', mk(K.icons[k], 2) + mkh(K.icons[k], 3, 6)); });
     h += lnkR(K.type, "buch" + (b ? "" : " leer"), '<span>' + esc(b ? b.name : "Themenbuch wählen") + '</span>' + (b ? '<b class="ii" data-act="obBuchInfo" data-i="' + i + '" data-tip="Infos zum Themenbuch">i</b>' : ""), 'data-act="obBuch" data-i="' + i + '" data-k="buch' + i + '"');
   }
   /* Title Tag = erste Zeile (Frage A) */
@@ -77,7 +78,7 @@ function themaVorn(c, t, i, K, L){
   K.weak.forEach(function(r, w){
     var xw = t.weak[w], qw = xw && b && b.weak.filter(function(z){ return z.l === xw.l; })[0], a = xw ? xw.a : "";
     h += lnkR(r, "feld w" + (a.length > 17 ? " lang" : "") + (a.length > 28 ? " lang2" : ""), a ? '<span>' + esc(a) + '</span>' : "", 'data-act="obTag" data-i="' + i + '" data-art="weak" data-s="' + w + '" data-k="w' + i + '_' + w + '"' + (qw ? ' data-tip="' + esc(qw.l + ": " + qw.q) + '"' : ""));
-    if(a){ var IV = K.inv[w]; h += lnkR([IV[0] - 3, IV[1] - 3, IV[2] + 6, IV[3] + 6], "inv" + (xw.inv ? " on" : ""), "", 'data-act="obInv" data-i="' + i + '" data-s="' + w + '" data-tip="' + (xw.inv ? "Markierung lösen" : "Weakness angewandt: Improve markieren") + '"', mk(IV, 3)); }
+    if(a){ var IV = K.inv[w]; h += lnkR([IV[0] - 3, IV[1] - 3, IV[2] + 6, IV[3] + 6], "inv" + (xw.inv ? " on" : ""), "", 'data-act="obInv" data-i="' + i + '" data-s="' + w + '" data-tip="' + (xw.inv ? "Markierung lösen" : "Weakness angewandt: Improve markieren") + '"', mk(IV, 3) + mkh(IV, 4, 4)); }
   });
   /* Quest */
   var q0 = K.quest[0], q2 = K.quest[K.quest.length - 1], qt = String(t.motiv || "");

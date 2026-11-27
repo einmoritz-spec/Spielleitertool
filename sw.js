@@ -1,6 +1,6 @@
 // Offline-Cache. Bei jeder Änderung an index.html die Version erhöhen,
 // damit installierte Apps die neue Fassung laden.
-const VERSION = "v1416sq";
+const VERSION = "v1417sq";
 // Ein dauerhafter Cache über alle Versionen: Dateien werden nicht bei jeder neuen
 // Version komplett neu geladen, sondern einzeln im Hintergrund abgeglichen.
 const CACHE = "erzaehler-tafel-dateien";
@@ -5345,6 +5345,11 @@ const FILES = [
   "nights/rules.css",
   "nights/js/rules.js",
   "otherscape/index.html",
+  "otherscape/ersteller.html",
+  "otherscape/ersteller.css",
+  "otherscape/js/ersteller.js",
+  "shared/mist-ersteller.js",
+  "shared/mist-ersteller.css",
   "otherscape/style.css",
   "otherscape/fonts/chakra-petch-latin-600-normal.woff2",
   "otherscape/fonts/chakra-petch-latin-700-normal.woff2",

@@ -1,0 +1,2 @@
+:root{--bg:#070b12;--bg2:#0d1420;--panel:#111a29;--panel2:#17233a;--line:#25344f;--text:#e6edf7;--mute:#8fa2c0;--tone:#19e3c1;--acc:#a97bff;--amber:#ffc15a;--red:#ff5d6c;--head:"OS Chakra","Segoe UI",sans-serif;--font:"OS Plex","Segoe UI",system-ui,sans-serif}
+body{background:radial-gradient(1100px 600px at 85% -10%,#1d1446 0%,transparent 60%),radial-gradient(900px 500px at 0% 0%,#06303a 0%,transparent 55%),var(--bg);min-height:100vh}

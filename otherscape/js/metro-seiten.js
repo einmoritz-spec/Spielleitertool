@@ -18,7 +18,7 @@ function renderCharErstellung(){
     s.fragen?`<div class="kit-l">Fragen</div>${mtList(s.fragen)}`:"",
     s.beispiele?`<div class="kit-l">Beispiele</div>${mtList(Array.isArray(s.beispiele)?s.beispiele.map(b=>typeof b==="string"?b:Object.values(b).join(" – ")):[String(s.beispiele)])}`:""
   ].join("");
-  const main = `<p class="kit-intro">${esc(D.intro)}</p><ol class="ce-steps">${D.schritte.map(s=>`<li class="ce-step" id="ce_${esc(s.id)}"><h3>${esc(s.titel.replace(/^Schritt \d+:\s*/,""))}${pgBtn("Metro",s.p,"S. "+s.p)}</h3><p>${esc(s.text)}</p>${extra(s)}</li>`).join("")}</ol>`;
+  const main = `<p class="kit-intro">${esc(D.intro)}</p><p><a class="tb-btn" style="display:inline-block;text-decoration:none;color:var(--tone)" href="ersteller.html">Charakter mit Fragen erstellen</a></p><ol class="ce-steps">${D.schritte.map(s=>`<li class="ce-step" id="ce_${esc(s.id)}"><h3>${esc(s.titel.replace(/^Schritt \d+:\s*/,""))}${pgBtn("Metro",s.p,"S. "+s.p)}</h3><p>${esc(s.text)}</p>${extra(s)}</li>`).join("")}</ol>`;
   $("app").innerHTML = osRail("", [{t:D.titel,on:true,n:D.schritte.length,sub:D.schritte.map(s=>({id:"ce_"+s.id,t:s.titel.replace(/^Schritt \d+:\s*/,"")}))}], main);
 }
 function renderRun(){

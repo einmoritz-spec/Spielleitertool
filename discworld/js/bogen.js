@@ -30,6 +30,7 @@
   var SEITEN = [{bg:"img/bogen/seite1.jpg", f:GR.concat(sc(0, 405.9))}, {bg:"img/bogen/seite2.jpg", f:sc(1, 0).concat(sc(2, 405.9))}];
 
   function pc(v, ges){ return (v / ges * 100).toFixed(3) + "%"; }
+  var BSP = {"c.nische":1, "c.mar0":1, "c.mar1":1, "c.mar2":1, "g.ziel0":1, "g.verg0":1, "g.gegen0":1};
   function feld(f){
     var k = f[0], v = D[k] || "", art = f[4] || "";
     if(art === "bild"){
@@ -38,6 +39,14 @@
         '<input type="file" accept="image/*" onchange="dwBild(\'' + k + '\',this.files[0])"></label>';
     }
     var h = art === "glueck" ? 24 : 14, st2 = "left:" + pc(f[1], 612) + ";top:" + pc(f[2] - h, 792) + ";width:" + pc(f[3], 612) + ";height:" + pc(h, 792);
+    var cap = f[3] / 5.9, fsz = (art !== "glueck" && v.length > cap) ? ";font-size:" + Math.max(1.6, 2.55 * cap / v.length).toFixed(2) + "cqw" : "";
+    st2 += fsz;
+    var bsp = BSP[k.replace(/^c\d\./, "c.")];
+    if(/\.hg[01]$/.test(k)) return '<input class="bf wahl" style="' + st2 + '" value="' + esc(v) + '" data-k="' + k + '" readonly onclick="dwHg(this,event)" title="Hintergrund wählen" autocomplete="off">';
+    if(bsp){
+      var dd = '<button class="bf-dd noprint" style="left:' + pc(f[1] + f[3] - 13, 612) + ';top:' + pc(f[2] - h + 1, 792) + ';width:' + pc(12, 612) + ';height:' + pc(12, 792) + '" data-k="' + k + '" onclick="dwBsp(this,event)" title="Beispiele anzeigen – du kannst auch frei schreiben" aria-label="Beispiele">▾</button>';
+      return '<input class="bf" style="' + st2 + '" value="' + esc(v) + '" data-k="' + k + '" oninput="dwSetze(this)" autocomplete="off" spellcheck="false">' + dd;
+    }
     if(/(^|\.)org$/.test(k)) return '<input class="bf wahl" style="' + st2 + '" value="' + esc(v) + '" data-k="' + k + '" readonly onclick="dwOrgPop(this,event)" title="Organisation wählen" autocomplete="off">';
     return '<input class="bf' + (art ? " " + art : "") + '" style="' + st2 + '" value="' + esc(v) + '" data-k="' + k + '" oninput="dwSetze(this)" autocomplete="off" spellcheck="false">';
   }
@@ -87,6 +96,96 @@
   };
   document.addEventListener("click", popWeg);
 
+  /* ---------- Auswahlhilfen: Hintergrund (feste Auswahl) und Beispiele für Nische, Marotten, Ziel, Vergangenheit, Gegenwart ---------- */
+  function seite(id){ return DW.K.charaktere.filter(function(p){ return p.id === id; })[0]; }
+  function textNach(id, kopf){
+    var pg = seite(id), b = pg ? pg.b : [], go = !kopf, i;
+    for(i = 0; i < b.length; i++){
+      if(!go){ if(b[i] && b[i].t === "h" && b[i].x === kopf) go = true; continue; }
+      if(typeof b[i] === "string") return b[i];
+      if(b[i] && b[i].t === "h") break;
+    }
+    return "";
+  }
+  function kurzText(t){
+    t = String(t).replace(/\*/g, ""); if(t.length <= 420) return t;
+    var cut = t.slice(0, 420), i = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("! "));
+    return i > 120 ? cut.slice(0, i + 1) : cut.replace(/\s+\S*$/, "") + " …";
+  }
+  function neuPop(el, breit){
+    var offen = document.querySelector(".orgpop"), same = offen && offen.dataset.k === el.dataset.k; popWeg(); if(same) return null;
+    var r = el.getBoundingClientRect(), p = document.createElement("div"); p.className = "orgpop"; p.dataset.k = el.dataset.k;
+    if(breit) p.style.width = breit + "px";
+    p.style.left = Math.max(8, Math.min(r.left, innerWidth - (breit || 320) - 10)) + "px"; p.style.top = (r.bottom + 4) + "px";
+    p.addEventListener("click", function(ev){ ev.stopPropagation(); });
+    p._r = r; return p;
+  }
+  function zeigPop(p){
+    document.body.appendChild(p);
+    var h = p.getBoundingClientRect().height; if(p._r.bottom + 4 + h > innerHeight) p.style.top = Math.max(8, innerHeight - h - 8) + "px";
+  }
+  function infoKarte(btn, titel, text){
+    var old = document.querySelector(".orginfo"); if(old) old.remove();
+    var q = btn.getBoundingClientRect(), c = document.createElement("div"); c.className = "orginfo";
+    c.innerHTML = "<b>" + esc(titel) + "</b><p>" + esc(kurzText(text)) + "</p>";
+    c.style.left = Math.min(q.right + 8, innerWidth - 350) + "px"; c.style.top = Math.max(8, q.top - 10) + "px";
+    c.addEventListener("click", function(x){ x.stopPropagation(); }); document.body.appendChild(c);
+  }
+  var SPEZ = ["Mensch", "Zwerg", "Troll", "Golem", "Wasserspeier", "Igor", "Zombie"];
+  function spezInfo(n){ return textNach("uebliche", n) || textNach("ungewoehnliche", n); }
+  window.dwHg = function(el, e){
+    e.stopPropagation(); var p = neuPop(el, 600); if(!p) return;
+    var pre = el.dataset.k.replace(/hg[01]$/, ""), herk = tab("wtherkunft").rows.map(function(x){ return x[1]; }), biz = tab("wtbizarr").rows.map(function(x){ return x[1]; });
+    function it(art, n, info, cur){ return '<div class="op-z"><button class="op-n' + (cur === n ? " sel" : "") + '" data-a="' + art + '" data-n="' + esc(n) + '">' + esc(n) + '</button>' + (info ? '<button class="op-i" data-t="' + esc(n) + '" title="Info" aria-label="Info">i</button>' : "") + "</div>"; }
+    function fuell(){
+      var sp = D[pre + "spez"] || "", hk = D[pre + "herk"] || "";
+      p.innerHTML = '<div class="op-sp"><div><h4>Spezies</h4>' + SPEZ.map(function(n){ return it("s", n, spezInfo(n), sp); }).join("") + '<h4>Ausgesprochen bizarr</h4>' + biz.map(function(n){ return it("s", n, "", sp); }).join("") + '</div><div><h4>Herkunft</h4>' + herk.map(function(n){ return it("h", n, "", hk); }).join("") +
+        '<div class="op-z"><button class="op-n" data-a="x" data-n="">– keine –</button></div></div></div>';
+    }
+    fuell(); zeigPop(p);
+    p.addEventListener("click", function(ev){
+      var b = ev.target.closest("button"); if(!b) return;
+      if(b.dataset.t){ var n = b.dataset.t; infoKarte(b, n, spezInfo(n)); return; }
+      if(b.dataset.a === "x"){ delete D[pre + "spez"]; delete D[pre + "herk"]; }
+      else if(b.dataset.a === "s") D[pre + "spez"] = b.dataset.n; else if(b.dataset.a === "h") D[pre + "herk"] = b.dataset.n;
+      var sp = D[pre + "spez"] || "", hk = D[pre + "herk"] || "", t = sp + (sp && hk ? ", " : "") + hk.charAt(0).toLowerCase() + hk.slice(1);
+      var z = umbrechen(t, 40, 2); D[pre + "hg0"] = z[0] || ""; D[pre + "hg1"] = z[1] || ""; sichern(); render(); fuell();
+    });
+  };
+
+  function bspGruppen(k){
+    var pre = k.replace(/\.[a-z]+\d?$/, "."), f = k.replace(/^c\d\./, "").replace(/^g\./, ""), o = D[pre + "org"] || D["g.org"] || "", pg = DW.K.charaktere.filter(function(x){ return x.t === o && tab("wz-" + x.id); })[0], G = [];
+    function antw(rows){ return rows.map(function(r){ return {kopf:r[1], x:saetze(r[2])}; }); }
+    function einf(rows, kopf){ return {kopf:kopf, x:rows.map(function(r){ return saetze(r[1])[0] || r[1]; })}; }
+    if(/^nische/.test(f)){ if(pg) G.push({kopf:pg.t, x:tab("wn-" + pg.id).rows.map(function(r){ return r[1]; })}); else DW.K.charaktere.forEach(function(x){ if(tab("wn-" + x.id)) G.push({kopf:x.t, x:tab("wn-" + x.id).rows.map(function(r){ return r[1]; })}); }); }
+    else if(/^mar/.test(f)){ if(pg) G.push({gr:"Marotten deiner Organisation", f:antw(tab("wm-" + pg.id).rows)}); G.push({gr:"Allgemeine Marotten", f:antw(tab("wtmarotte").rows)}); }
+    else if(/^ziel/.test(f)){ if(pg) G.push({kopf:pg.t, x:tab("wz-" + pg.id).rows.map(function(r){ return r[1]; })}); else DW.K.charaktere.forEach(function(x){ if(tab("wz-" + x.id)) G.push({kopf:x.t, x:tab("wz-" + x.id).rows.map(function(r){ return r[1]; })}); }); }
+    else if(/^verg/.test(f)) G.push({gr:"Gruppenvergangenheit", f:antw(tab("wtvergangen").rows)});
+    else if(/^gegen/.test(f)) G.push({gr:"Gruppengegenwart", f:antw(tab("wtgegenwart").rows)});
+    return G;
+  }
+  var BSP_INFO = {nische:["Nische", "nische-marotten", "Nische"], mar:["Marotten", "nische-marotten", "Marotten"], ziel:["Gruppenziel", "ziel", ""], verg:["Gruppenvergangenheit", "vergangenheit", ""], gegen:["Gruppengegenwart", "gegenwart", ""]};
+  window.dwBsp = function(btn, e){
+    e.stopPropagation(); var k = btn.dataset.k, p = neuPop(btn, 460); if(!p) return;
+    var f = k.replace(/^c\d\./, "").replace(/^g\./, ""), art = f.replace(/\d$/, ""), inf = BSP_INFO[art], G = bspGruppen(k), n = 0, list = [];
+    var html = '<div class="op-kopf"><span>Beispiele – du kannst auch frei schreiben</span><button class="op-i" data-g="1" title="Info" aria-label="Info">i</button></div>';
+    G.forEach(function(g){
+      if(g.f) g.f.forEach(function(r){ html += '<h4>' + esc(r.kopf) + '</h4>' + r.x.map(function(t){ list.push(t); return '<div class="op-z"><button class="op-n" data-i="' + (list.length - 1) + '">' + esc(t) + '</button></div>'; }).join(""); });
+      else { html += '<h4>' + esc(g.kopf) + '</h4>' + g.x.map(function(t){ list.push(t); return '<div class="op-z"><button class="op-n" data-i="' + (list.length - 1) + '">' + esc(t) + '</button></div>'; }).join(""); }
+    });
+    if(!G.length) html += '<div class="op-z"><span class="op-n">Wähle zuerst eine Organisation.</span></div>';
+    p.innerHTML = html; zeigPop(p);
+    p.addEventListener("click", function(ev){
+      var b = ev.target.closest("button"); if(!b) return;
+      if(b.dataset.g){ infoKarte(b, inf[0], kurzText(textNach(inf[1], inf[2]) || (seite(inf[1]) || {b:[]}).b.filter(function(x){ return typeof x === "string"; })[0] || "")); return; }
+      var t = list[+b.dataset.i]; if(t === undefined) return;
+      var pre = k.replace(/[a-z]+\d?$/, "");
+      if(/^(ziel|verg|gegen)/.test(f)){ var br = art === "ziel" ? 78 : 36; umbrechen(t, br, 3).concat(["", "", ""]).slice(0, 3).forEach(function(x, i){ D[pre + art + i] = x; }); }
+      else D[k] = t;
+      popWeg(); sichern(); render();
+    });
+  };
+
   /* ---------- Vorgefertigte Gruppe und Charaktere (S. 94–96) einsetzen ---------- */
   function vorDaten(){
     var r = {g:null, c:[]};
@@ -117,7 +216,7 @@
     var hg = umbrechen(c.hg, 40, 2), pr = c.pron.split("/")[0].toLowerCase();
     D[p + "name"] = c.name; D[p + "pron"] = pr; D[p + "org"] = c.org; D[p + "hg0"] = hg[0] || ""; D[p + "hg1"] = hg[1] || "";
     D[p + "nische"] = c.nische; [0, 1, 2].forEach(function(k){ D[p + "mar" + k] = c.marotten[k] || ""; });
-    D[p + "glueck"] = "4"; D[p + "kern"] = ""; [0, 1, 2, 3].forEach(function(k){ D[p + "folgen" + k] = ""; });
+    D[p + "glueck"] = "4"; D[p + "kern"] = ""; delete D[p + "spez"]; delete D[p + "herk"]; [0, 1, 2, 3].forEach(function(k){ D[p + "folgen" + k] = ""; });
     vorFertig();
   };
 

@@ -373,3 +373,11 @@ body.mitunter .unter{border-top:0}
 .orginfo{position:fixed;z-index:410;width:330px;background:#fffbf2;border:1px solid #c9ae80;border-radius:6px;box-shadow:0 8px 24px rgba(60,30,10,.4);padding:12px 14px}
 .orginfo b{display:block;font:400 19px FellSC,serif;color:var(--blut);margin-bottom:6px}
 .orginfo p{margin:0;font:16px/1.4 Gara,serif;color:#2b1d14}
+
+.dwb .bf-dd{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:0;border:0;background:rgba(122,36,23,.07);color:#8a6a4a;border-radius:2px;font-size:1.6cqw;line-height:1;cursor:pointer;opacity:.55}
+.dwb .bf-dd:hover{opacity:1;background:var(--blut);color:#f6ead3}
+.orgpop h4{margin:8px 10px 2px;font:400 15px FellSC,serif;color:#8a7352;letter-spacing:.04em}
+.orgpop .op-sp{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+.orgpop .op-n.sel{background:rgba(122,36,23,.12);color:var(--blut);font-weight:600}
+.orgpop .op-kopf{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 4px 10px;font:italic 15px Gara,serif;color:#8a7352;border-bottom:1px solid #eadcc0}
+.orgpop .op-n{font-size:17px;line-height:1.25}

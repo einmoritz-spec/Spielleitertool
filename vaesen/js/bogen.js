@@ -40,17 +40,17 @@ function bgAuto(){ clearTimeout(bgTimer); bgTimer = setTimeout(function(){ var a
 
 /* Bausteine – Koordinaten in Pixeln des Originalbogens (765 × 988) */
 function bgPos(x, y, w, h){ return 'left:' + x + 'px;top:' + y + 'px;width:' + w + 'px;height:' + h + 'px'; }
-function bgIn(c, k, x, y, w, h, cls){ return '<input class="bg-i ' + (cls || "") + '" style="' + bgPos(x, y, w, h) + '" data-k="' + k + '" value="' + bgE(bgVal(c, k)) + '"' + (BG_RO ? " readonly" : "") + ' oninput="bgSet(this)" spellcheck="false">'; }
-function bgTa(c, k, x, y, w, h, cls){ return '<textarea class="bg-t ' + (cls || "") + '" style="' + bgPos(x, y, w, h) + '" data-k="' + k + '"' + (BG_RO ? " readonly" : "") + ' oninput="bgSet(this)" spellcheck="false">' + bgE(bgVal(c, k)) + '</textarea>'; }
-function bgTx(x, y, t, cls, w){ return '<div class="' + cls + '" style="left:' + x + 'px;top:' + y + 'px' + (w ? ';width:' + w + 'px' : '') + '">' + t + '</div>'; }
-function bgChk(c, k, x, y, d){ var v = bgVal(c, k), on = v === true || v === "true"; return '<label class="bg-c" style="' + bgPos(x, y, d, d) + '"><input type="checkbox" data-k="' + k + '"' + (on ? " checked" : "") + (BG_RO ? " disabled" : "") + ' onchange="bgSet(this)"><b></b></label>'; }
+function bgIn(c, k, x, y, w, h, cls){ return "\u0001" + '<input class="bg-i ' + (cls || "") + '" style="' + bgPos(x, y, w, h) + '" data-k="' + k + '" value="' + bgE(bgVal(c, k)) + '"' + (BG_RO ? " readonly" : "") + ' oninput="bgSet(this)" spellcheck="false">'; }
+function bgTa(c, k, x, y, w, h, cls){ return "\u0001" + '<textarea class="bg-t ' + (cls || "") + '" style="' + bgPos(x, y, w, h) + '" data-k="' + k + '"' + (BG_RO ? " readonly" : "") + ' oninput="bgSet(this)" spellcheck="false">' + bgE(bgVal(c, k)) + '</textarea>'; }
+function bgTx(x, y, t, cls, w){ return "\u0001" + '<div class="' + cls + '" style="left:' + x + 'px;top:' + y + 'px' + (w ? ';width:' + w + 'px' : '') + '">' + t + '</div>'; }
+function bgChk(c, k, x, y, d){ var v = bgVal(c, k), on = v === true || v === "true"; return "\u0001" + '<label class="bg-c' + (on ? " bg-an" : "") + '" style="' + bgPos(x, y, d, d) + '"><input class="noprint" type="checkbox" data-k="' + k + '"' + (on ? " checked" : "") + (BG_RO ? " disabled" : "") + ' onchange="this.parentNode.classList.toggle(\'bg-an\',this.checked);bgSet(this)"><b></b></label>'; }
 
 function bogenHTML(c, ro, base){
   BG_RO = !!ro; base = base || "";
   var h = '', i;
   /* Kopf */
-  h += '<img class="bg-logo" src="' + base + '../assets/logos/vaesen-dunkel.webp" alt="Vaesen">';
-  h += '<div class="bg-sub">' + "CHARAKTERBOGEN".split("").map(function(ch){ return "<span>" + ch + "</span>"; }).join("") + '</div>';
+  h += "\u0001" + '<img class="bg-logo" style="left:139px;top:55px" src="' + base + '../assets/logos/vaesen-dunkel.webp" alt="Vaesen">';
+  h += "\u0001" + '<div class="bg-sub" style="left:147px;top:115.5px">' + "CHARAKTERBOGEN".split("").map(function(ch){ return "<span>" + ch + "</span>"; }).join("") + '</div>';
   /* Persönliche Angaben */
   [["name","NAME",48.5,162,435.5],["alterT","ALTER / ALTERSGRUPPE",48.5,197.5,146.5],["archT","ARCHETYP",204,197.5,280],["mot","MOTIVATION",48.5,233,435.5],["trauma","TRAUMA",48.5,268.5,435.5],["geheim","DUNKLES GEHEIMNIS",48.5,304,435.5]].forEach(function(f){
     h += bgTx(f[2] + 6, f[3] + 2, f[1], "bg-lab") + bgIn(c, f[0], f[2] + 4, f[3] + 7, f[4] - 8, 19);
@@ -86,13 +86,35 @@ function bogenHTML(c, ro, base){
   /* Erfahrung */
   h += bgTx(522.5, 915, "ERFAHRUNG", "bg-rib sm");
   [630, 647.5, 665, 683, 700.5].forEach(function(x, n){ h += bgChk(c, "erf" + n, x, 906, 12.5) + bgChk(c, "erf" + (n + 5), x, 924, 12.5); });
-  return '<div class="bogen' + (BG_RO ? " ro" : "") + '">' + h + '</div>';
+  return h;
 }
-function bogenWrap(c, ro, base){ return '<div class="bogen-wrap" id="bgWrap"><div class="bogen-scale" id="bgScale">' + bogenHTML(c, ro, base) + '</div></div>'; }
+/* Ansichten: hochkant (wie das Original, auch für Druck/PDF) oder breit (vier Teile nebeneinander) */
+var BG_REG = [[26, 26, 472, 461], [26, 488, 472, 474], [500, 26, 239, 486], [500, 510, 239, 452]], BG_GAP = 18, BG_W = 472 * 2 + 239 * 2 + BG_GAP * 3, BG_H = 486;
+var BG_STATE = null;
+function bgRegion(x, y){ for(var i = 0; i < BG_REG.length; i++){ var r = BG_REG[i]; if(x >= r[0] - 2 && x < r[0] + r[2] && y >= r[1] - 2 && y < r[1] + r[3]) return i; } return 0; }
+function bgPortrait(c, ro, base){ return '<div class="bogen' + (ro ? " ro" : "") + '">' + bogenHTML(c, ro, base).split("\u0001").join("") + '</div>'; }
+function bgWide(c, ro, base){
+  var parts = bogenHTML(c, ro, base).split("\u0001").filter(Boolean), G = [[], [], [], []], x = 0, out = "";
+  parts.forEach(function(p){ var m = p.match(/left:([\d.]+)px;top:([\d.]+)px/); G[m ? bgRegion(+m[1], +m[2]) : 0].push(p); });
+  BG_REG.forEach(function(r, i){
+    out += '<div class="bgw-p" style="left:' + x + 'px;top:0;width:' + r[2] + 'px;height:' + r[3] + 'px"><div class="bogen' + (ro ? " ro" : "") + '" style="left:' + (-r[0]) + 'px;top:' + (-r[1]) + 'px">' + G[i].join("") + '</div></div>';
+    x += r[2] + BG_GAP;
+  });
+  return '<div class="bogen-wide" style="width:' + BG_W + 'px;height:' + BG_H + 'px">' + out + '</div>';
+}
+function bogenWrap(c, ro, base){ BG_STATE = {c:c, ro:!!ro, base:base || "", mode:""}; return '<div class="bogen-wrap" id="bgWrap"><div class="bogen-scale" id="bgScale">' + bgPortrait(c, ro, base) + '</div></div>'; }
 function bgFit(){
-  var w = document.getElementById("bgWrap"), s = document.getElementById("bgScale"); if(!w || !s) return;
-  var avail = Math.min(w.parentNode.clientWidth, 900), k = Math.min(avail / 765, 1.18);
-  s.style.transform = "scale(" + k + ")"; w.style.width = (765 * k) + "px"; w.style.height = (988 * k) + "px";
+  var w = document.getElementById("bgWrap"), s = document.getElementById("bgScale"); if(!w || !s || !BG_STATE) return;
+  var pcs = getComputedStyle(w.parentNode), avail = w.parentNode.clientWidth - parseFloat(pcs.paddingLeft) - parseFloat(pcs.paddingRight), wide = avail >= 1400 && !w.closest(".bg-print"), mode = wide ? "wide" : "port";
+  if(mode !== BG_STATE.mode){ BG_STATE.mode = mode; s.innerHTML = wide ? bgWide(BG_STATE.c, BG_STATE.ro, BG_STATE.base) : bgPortrait(BG_STATE.c, BG_STATE.ro, BG_STATE.base); }
+  var bw = wide ? BG_W : 765, bh = wide ? BG_H : 988, k = wide ? avail / bw : Math.min(avail / 765, 1.18);
+  s.style.width = bw + "px"; s.style.height = bh + "px"; s.style.transform = "scale(" + k + ")"; w.style.width = (bw * k) + "px"; w.style.height = (bh * k) + "px";
+}
+/* Ausfüllbares PDF: immer hochkant wie das Original */
+function bgPdf(knopf){
+  if(!window.FillPDF){ var sc = document.createElement("script"); sc.src = "../shared/fillpdf.js"; sc.onload = function(){ bgPdf(knopf); }; document.head.appendChild(sc); return; }
+  var host = document.createElement("div"); host.className = "bg-pdfhost"; host.innerHTML = bgPortrait(CH, false, ""); document.body.appendChild(host);
+  FillPDF.make(host.firstChild, {name:"Vaesen – " + (CH.name || "Charakterbogen"), knopf:knopf, marks:[[".bg-c", "bg-an", "punkt"]]}).then(function(){ host.remove(); }, function(){ host.remove(); });
 }
 window.addEventListener("resize", bgFit);
 
@@ -100,6 +122,8 @@ function viewBogen(){
   var chars = loadChars(), f = chars.filter(function(x){ return x.id === sub; })[0];
   if(f) CH = f; else if(!CH) CH = newChar();
   BG_RO = false;
-  return tabsBar(CTABS, "Charakterbogen") + '<div class="page bg-page"><div class="bg-tools"><button class="btn" onclick="saveCur2()">Speichern</button><button class="btn alt" onclick="printSheet()">Drucken / als PDF</button><button class="btn alt" onclick="go(\'erstellung/' + CH.id + '\')">Zur Erstellung</button><span class="pg" id="bgMsg"></span></div>' + bogenWrap(CH, false) + '</div>';
+  return tabsBar(CTABS, "Charakterbogen") + '<div class="page bg-page"><div class="bg-tools"><button class="btn" onclick="saveCur2()">Speichern</button><button class="btn alt" onclick="bgPdf(this)">Ausfüllbares PDF</button><button class="btn alt" onclick="printSheet()">Drucken</button><button class="btn alt" onclick="go(\'erstellung/' + CH.id + '\')">Zur Erstellung</button><span class="pg" id="bgMsg"></span></div>' + bogenWrap(CH, false) + '</div>';
 }
 function saveCur2(){ var a = loadChars(), i = a.map(function(x){ return x.id; }).indexOf(CH.id); if(i > -1) a[i] = CH; else a.push(CH); saveChars(a); var m = document.getElementById("bgMsg"); if(m) m.textContent = "Gespeichert."; }
+window.addEventListener("beforeprint", function(){ var s = document.getElementById("bgScale"); if(!s || !BG_STATE) return; BG_STATE.mode = "print"; s.innerHTML = bgPortrait(BG_STATE.c, BG_STATE.ro, BG_STATE.base); s.style.width = "765px"; s.style.height = "988px"; });
+window.addEventListener("afterprint", bgFit);

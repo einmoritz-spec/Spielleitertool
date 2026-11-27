@@ -136,12 +136,12 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .ob-mfuss a{color:#6a7586;cursor:pointer;font-size:14px}
 .ob-mfuss a:hover{color:#1c2330}
 
+@page{size:A4 landscape;margin:0}
 /* Druck: drei Seiten im Querformat wie das Original */
 @media print{
-  @page{size:11in 8.5in;margin:0}
   body{background:#fff}
   .mi-main,.mi-main.mi-wide{max-width:none;padding:0;margin:0}
-  .os-seite{width:11in;height:8.5in;aspect-ratio:auto;margin:0;box-shadow:none;break-after:page;break-inside:avoid}
+  .os-seite{width:271.76mm;height:210mm;aspect-ratio:auto;margin:0 auto;box-shadow:none;break-after:page;break-inside:avoid}
   .os-seite:last-child{break-after:auto}
   .os-seite,.os-seite *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .feld .ph,.spec.neu,.spec.neu .ph,.ii,.buch.leer{color:transparent!important;border-color:transparent!important}

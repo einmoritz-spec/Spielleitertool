@@ -230,3 +230,8 @@
 @media (max-width:1240px){.bass{top:auto;bottom:12px;right:12px}}
 .lst .r .g .tag.pen{position:absolute;right:3px;top:50%;transform:translateY(-50%);margin:0}
 .lst .tag.pen{font:600 9px Oswald,sans-serif;color:#fff;padding:1px 4px;border-radius:2px;line-height:1.2}
+.bgbar .act .bwi{position:relative;width:36px;height:36px;display:inline-grid;place-items:center;padding:0;border:0;background:none;color:var(--red);border-radius:6px;font-size:0}
+.bgbar .act .bwi:hover{background:rgba(0,0,0,.07);border:0}
+.bgbar .act .bwi svg{pointer-events:none}
+.bgbar .act{flex-wrap:wrap}
+.bgbar .bwi:hover::after{content:attr(data-tip);position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(40,40,40,.88);color:#fff;font:500 11px Oswald,sans-serif;letter-spacing:0;text-transform:none;padding:3px 7px;border-radius:4px;pointer-events:none;z-index:60}

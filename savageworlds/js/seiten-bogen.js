@@ -575,7 +575,40 @@ function sheet(){
 }
 function bar(){
   var chips = DB.list.map(function(c){ return '<a class="' + (c.id === DB.cur ? "on" : "") + '" data-sel="' + c.id + '">' + esc2(c.name || "Neuer Charakter") + "</a>"; }).join("");
-  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu">+ Neu</a></div><div class="act"><button id="bgDup">Kopie</button><button id="bgDel">Löschen</button><button id="bgEx">JSON ↓</button><button id="bgIm">JSON ↑</button><button id="bgPr">Drucken</button><button id="bgPdf">PDF</button><button id="bgAss">Assistent</button><button id="bgShare" title="Diesen Charakter als Link verschicken">Teilen</button><button id="bgLink" title="Link zum leeren Charakterbogen kopieren">Bogen-Link</button></div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
+  var ic = function(id, tip, path){ return '<button id="' + id + '" class="bwi" data-tip="' + tip + '" aria-label="' + tip + '"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + path + '</svg></button>'; };
+  var I = {rnd: '<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/>',
+    dup: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>', del: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+    ex: '<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>', im: '<path d="M12 16V5M7 9l5-5 5 5M5 20h14"/>', pr: '<path d="M7 9V4h10v5M6 17H4v-7h16v7h-2"/><rect x="7" y="14" width="10" height="6"/>', pdf: '<path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/>',
+    ass: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17v.2"/>', share: '<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
+  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu">+ Neu</a></div><div class="act">' + ic("bgRnd", "Zufälligen Charakter erstellen", I.rnd) + ic("bgDup", "Kopie anlegen", I.dup) + ic("bgDel", "Charakter löschen", I.del) + ic("bgShare", "Diesen Charakter als Link teilen", I.share) + ic("bgLink", "Link zum leeren Bogen kopieren", I.link) + ic("bgEx", "Als Datei sichern", I.ex) + ic("bgIm", "Datei laden", I.im) + ic("bgPdf", "Als ausfüllbares PDF speichern", I.pdf) + ic("bgPr", "Drucken", I.pr) + ic("bgAss", "Assistent", I.ass) + '</div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
+}
+/* ---------- Zufälliger Charakter: Volk, Name, Attribute und Fertigkeiten innerhalb des Punktebudgets ---------- */
+var ZV = ["Jo", "Sam", "Robin", "Casey", "Jamie", "Morgan", "Dana", "Quinn", "Riley", "Alex", "Kim", "Lou", "Mara", "Tom", "Ida", "Ben"], ZN = ["Harlan", "Okafor", "Brandt", "Salazar", "Whitcomb", "Reyes", "Novak", "Tate", "Lindqvist", "Moreau", "Kowalski", "Dunn"];
+function zpick(a){ return a[Math.floor(Math.random() * a.length)]; }
+function zufallChar(){
+  if(!istLeer(cur) && !confirm("Die Einträge dieses Charakters durch einen zufälligen Charakter ersetzen?")) return;
+  var id = cur.id, n = neu(); n.id = id; Object.keys(cur).forEach(function(k){ delete cur[k]; }); Object.assign(cur, n);
+  var V = allVoelker().filter(function(v){ return vis(v.s); });
+  if(V.length){ var v = zpick(V), alt = fx(cur); cur.volk = v.n; cur.vw = {}; wechsle(cur, alt, fx(cur)); cur.hg = (v.e || []).map(function(e){ return e[0]; }).join(", "); }
+  cur.name = zpick(ZV) + " " + zpick(ZN);
+  var F = fx(cur), g = 0;
+  while(g++ < 60){
+    var a = zpick(ATTR)[1], i = di(cur.a[a]);
+    if(i >= aMax(F, a)) continue;
+    var old = cur.a[a]; cur.a[a] = DIE[i + 1];
+    if(punkte(cur).at > punkte(cur).A){ cur.a[a] = old; break; }
+  }
+  var neue = SW_SKILLS.filter(function(s){ return !s.g && vis(s.s || ["GRW"]); });
+  g = 0;
+  while(g++ < 120){
+    var P = punkte(cur); if(P.fp >= P.S) break;
+    var sx = Math.random() < .3 && neue.length ? neue[Math.floor(Math.random() * neue.length)] : null, ent;
+    if(sx){ if(cur.sk.some(function(x){ return x.n === sx.n; })) continue; cur.sk.push({n: sx.n, a: sx.a, d: "W4"}); ent = cur.sk[cur.sk.length - 1]; if(punkte(cur).fp > P.S){ cur.sk.pop(); continue; } continue; }
+    ent = zpick(cur.sk); var j = di(ent.d);
+    if(j >= skMax(F, ent.n)) continue;
+    var od = ent.d; ent.d = DIE[j + 1]; if(punkte(cur).fp > P.S){ ent.d = od; if(P.S - P.fp < 2) break; }
+  }
+  persist(); bogenPage();
 }
 function bogenPage(){
   ens();
@@ -925,6 +958,7 @@ function wire(){
     else if(el.id === "bgLink") teilen("bogen.html", el);
     else if(el.id === "bgShare") packen(cur).then(function(d){ teilen("bogen.html#c=" + d, el); });
     else if(el.id === "bgAss") assistent(0);
+    else if(el.id === "bgRnd") zufallChar();
   });
   A.addEventListener("change", function(e){
     if(e.target.id !== "bgFile" || !e.target.files[0]) return;

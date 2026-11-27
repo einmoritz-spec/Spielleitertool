@@ -5,7 +5,7 @@
 "use strict";
 var DBB = (function(){
   var KEY = "db_bogen_v1", PW = 595.276, PH = 841.89, BREIT = 980, K = BREIT / PW;
-  var S = lade();
+  var KEY2 = "db_bogen_v2", DBS = ladeAlle(), S = aktuell();
   var F = {}; DBB_FELDER.forEach(function(f){ F[f[0]] = f; });
 
   /* ---------- Fertigkeiten des Bogens (Reihenfolge wie gedruckt) ---------- */
@@ -37,7 +37,26 @@ var DBB = (function(){
 
   /* ---------- Zustand ---------- */
   function lade(){ try{ var o = JSON.parse(localStorage.getItem(KEY) || "null"); if(o && o.f) return o; }catch(e){} return {f: {}, man: {}, geu: {}}; }
-  function sichere(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ toast("Speicher voll."); } }
+  function nid(){ return "c" + Date.now().toString(36) + Math.floor(Math.random() * 999); }
+  function ladeAlle(){
+    try{ var o = JSON.parse(localStorage.getItem(KEY2) || "null"); if(o && o.l && o.l.length && o.l.every(function(e){ return e && e.s && e.s.f; })) return o; }catch(e){}
+    var e = {id: nid(), s: lade()}; return {l: [e], cur: e.id};
+  }
+  function aktuell(){ var e = DBS.l.filter(function(x){ return x.id === DBS.cur; })[0] || DBS.l[0]; DBS.cur = e.id; return e.s; }
+  /* neuer Eintrag (leer oder mit Inhalt) wird zum aktuellen Bogen */
+  function neu(o, erzwingen){
+    var c = DBS.l.filter(function(x){ return x.id === DBS.cur; })[0];
+    if(c && !erzwingen && !Object.keys(c.s.f).some(function(k){ return c.s.f[k]; })){ c.s = o || leer(); S = c.s; return S; }   /* leerer Bogen wird wiederverwendet */
+    var e = {id: nid(), s: o || leer()}; DBS.l.push(e); DBS.cur = e.id; S = e.s; return S;
+  }
+  function setS(o){ DBS.l.filter(function(x){ return x.id === DBS.cur; })[0].s = o; S = o; }
+  function chipsHtml(){
+    return '<div class="dbb-chips noprint">' + DBS.l.map(function(e, i){
+      var n = (e.s.f.Name || "").trim() || "Neuer Bogen", on = e.id === DBS.cur;
+      return '<span class="dbb-chip' + (on ? " on" : "") + '"><button type="button" data-ch="' + e.id + '">' + esc(n) + '</button>' + (on ? '<button type="button" class="x" data-del="' + e.id + '" data-tip="Bogen löschen" aria-label="Bogen löschen">×</button>' : "") + '</span>';
+    }).join("") + '<button type="button" class="dbb-plus" data-plus="1" data-tip="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen">+</button></div>';
+  }
+  function sichere(){ try{ localStorage.setItem(KEY2, JSON.stringify(DBS)); }catch(e){ toast("Speicher voll."); } }
   function v(n){ var x = S.f[n]; return x == null ? "" : x; }
   function num(n){ var x = parseInt(v(n), 10); return isNaN(x) ? null : x; }
   function gefuellt(){ return Object.keys(S.f).some(function(k){ return S.f[k]; }); }
@@ -125,7 +144,7 @@ var DBB = (function(){
   function feldHtml(f){
     var n = f[0], st = "left:" + (f[2] * K).toFixed(1) + "px;top:" + (f[3] * K).toFixed(1) + "px;width:" + (f[4] * K).toFixed(1) + "px;height:" + (f[5] * K).toFixed(1) + "px";
     if(f[1][0] === "c") return '<i class="dbb-c ' + (f[1] === "co" ? "o" : "d") + (S.f[n] ? " on" : "") + '" data-f="' + esc(n) + '" style="' + st + '"></i>';
-    var cls = "dbb-t" + (ZAHL.test(n) ? " z" : "") + (istAbgeleitet(n) && !S.man[n] ? " auto" : "");
+    var cls = "dbb-t" + (n === "Name" ? " mitte" : "") + (n === "Schwäche 2" ? " schw" : "") + (ZAHL.test(n) ? " z" : "") + (istAbgeleitet(n) && !S.man[n] ? " auto" : "");
     var gr = (fs(f) * K * (f[1] === "m" ? 1 : .98)).toFixed(1);
     if(f[1] === "m") return '<textarea class="' + cls + '" data-f="' + esc(n) + '" style="' + st + ';font-size:' + gr + 'px" spellcheck="false">' + esc(v(n)) + '</textarea>';
     return '<input class="' + cls + '" data-f="' + esc(n) + '" style="' + st + ';--fs:' + gr + 'px" value="' + esc(v(n)) + '" autocomplete="off" spellcheck="false"' + (FEST[n] ? ' readonly' : '') + '>';
@@ -205,7 +224,7 @@ var DBB = (function(){
   }
   function ladenDatei(file){
     if(!file) return; var r = new FileReader();
-    r.onload = function(){ try{ var d = JSON.parse(r.result), o = d && d.system === "Dragonbane" ? pruefen(d.bogen) : null; if(o){ S = o; sichere(); render(); toast("Bogen geladen"); } else toast("Datei passt nicht zu Dragonbane."); }catch(e){ toast("Datei ungültig."); } };
+    r.onload = function(){ try{ var d = JSON.parse(r.result), o = d && d.system === "Dragonbane" ? pruefen(d.bogen) : null; if(o){ neu(o); sichere(); render(); toast("Bogen als neuer Eintrag geladen"); } else toast("Datei passt nicht zu Dragonbane."); }catch(e){ toast("Datei ungültig."); } };
     r.readAsText(file);
   }
 
@@ -430,7 +449,7 @@ var DBB = (function(){
 
   /* ---------- Zufallscharakter (Kap. 2) ---------- */
   function zufall(){
-    var o = leer(); S = o;
+    neu();
     var vt = nachTbl("sc", /^W12\|Volk/), vw = W(12), vn = "Mensch";
     if(vt) vt.rows.forEach(function(r){ var m = r[0].split(/[–-]/).map(Number); if(vw >= m[0] && vw <= (m[1] || m[0])) vn = r[1]; });
     var vk = volk(vn), bf = (window.DB_BERUF || [])[W(10) - 1], at = nachTbl("sc", /^W6\|Alter/), aw = W(6), alter = aw <= 3 ? "Jung" : aw <= 5 ? "Erwachsen" : "Alt";
@@ -471,7 +490,7 @@ var DBB = (function(){
   }
   function zl(f, k){ var z = (f.zl || []).filter(function(x){ return x[0] === k; })[0]; return z ? plain(z[1]) : ""; }
   function vorlageSetzen(f){
-    S = leer();
+    neu();
     var vab = zl(f, "Volk · Alter · Beruf").split(" · "), bt = (vab[2] || "").split(/\s+–\s+/);
     setzen("Name", zl(f, "Name")); setzen("Volk", vab[0] || ""); setzen("Alter", vab[1] || ""); setzen("Beruf", bt[0] || "");
     var at = {}; zl(f, "Attribute").split(" · ").forEach(function(x){ var m = x.match(/^(\S+)\s+(\d+)/); if(m && ATTR[m[1]]) setzen(ATTR[m[1]], m[2]); });
@@ -499,7 +518,7 @@ var DBB = (function(){
   function vorlageWahl(btn){
     menu(btn, {breit: 290, items: vorlagen().map(function(f){ return {t: zl(f, "Name"), s: zl(f, "Volk · Alter · Beruf"), fig: f}; }),
       info: function(it){ var f = it.fig; return info(zl(f, "Name"), '<p class="s">' + esc(zl(f, "Volk · Alter · Beruf")) + " · Der versinkende Turm, S. " + f.p + "</p>" + p(zl(f, "Attribute")) + p("**Talente:** " + zl(f, "Talente")) + (zl(f, "Zauber") ? p("**Zauber:** " + zl(f, "Zauber")) : "") + p("**Waffen:** " + zl(f, "Waffen").split("\n").map(function(x){ return x.replace(/\s*\(.*$/, ""); }).join(", ")) + p("*" + zl(f, "Aussehen") + "*")); },
-      pick: function(it){ if(gefuellt() && !confirm("Den Bogen durch " + it.t + " ersetzen?")) return; vorlageSetzen(it.fig); }});
+      pick: function(it){ vorlageSetzen(it.fig); }});
   }
 
   /* ---------- Eingaben ---------- */
@@ -521,12 +540,16 @@ var DBB = (function(){
     var max = parseFloat(el.style.getPropertyValue("--fs")) || 12; el.style.fontSize = max + "px";
     var g = max; while(g > 6 && el.scrollWidth > el.clientWidth + 1){ g -= .5; el.style.fontSize = g + "px"; }
   }
+  function schwPassen(el){
+    if(!el) return; var g = 6.5 * K; el.style.fontSize = g + "px";
+    while(g > 5 && el.scrollHeight > el.clientHeight + 1){ g -= .4; el.style.fontSize = g + "px"; }
+  }
   function verdrahten(){
     var B = document.getElementById("dbbBlatt"); if(!B || B._ok) return; B._ok = 1;
-    B.querySelectorAll("input").forEach(passe);
+    B.querySelectorAll("input").forEach(passe); schwPassen(B.querySelector("textarea.schw"));
     B.addEventListener("input", function(e){
       var el = e.target, n = el.dataset.f; if(!n) return;
-      S.f[n] = el.value;
+      S.f[n] = el.value; if(n === "Schwäche 2") schwPassen(el);
       if(istAbgeleitet(n)){ if(el.value.trim()) S.man[n] = 1; else delete S.man[n]; }
       angleichen(); passe(el);
     });
@@ -542,11 +565,15 @@ var DBB = (function(){
     B.addEventListener("focusout", function(e){ if(e.target.dataset && e.target.dataset.f){ var n = e.target.dataset.f; if(/^(Volk|STR|KON|GEW|INT|WIL|CHA)$/.test(n) || TAL.indexOf(n) >= 0 || INV.indexOf(n) >= 0) angleichen(); } });
   }
   document.addEventListener("click", function(e){
+    var ch = e.target.closest("[data-ch]"), pl = e.target.closest("[data-plus]"), dl = e.target.closest("[data-del]");
+    if(ch){ DBS.cur = ch.dataset.ch; S = aktuell(); sichere(); render(); return; }
+    if(pl){ neu(null, true); sichere(); render(); return; }
+    if(dl){ if(gefuellt() && !confirm("Diesen Bogen löschen?")) return; DBS.l = DBS.l.filter(function(x){ return x.id !== dl.dataset.del; }); if(!DBS.l.length) DBS.l.push({id: nid(), s: leer()}); DBS.cur = DBS.l[DBS.l.length - 1].id; S = aktuell(); sichere(); render(); return; }
     var b = e.target.closest(".dbb-leiste [data-act]"); if(!b) { if(!e.target.closest(".bw-pop,.bw-info")) popWeg(); return; }
     e.stopPropagation(); var a = b.dataset.act;
-    if(a === "zufall"){ if(gefuellt() && !confirm("Den Bogen durch einen zufälligen Charakter ersetzen?")) return; zufall(); }
+    if(a === "zufall") zufall();
     if(a === "vorlage") vorlageWahl(b);
-    if(a === "leeren"){ if(gefuellt() && !confirm("Alle Einträge löschen?")) return; S = leer(); sichere(); render(); }
+    if(a === "leeren"){ if(gefuellt() && !confirm("Alle Einträge löschen?")) return; setS(leer()); sichere(); render(); }
     if(a === "teilen") teilen();
     if(a === "sichern") sichernDatei();
     if(a === "pdf") pdf(b);
@@ -565,14 +592,11 @@ var DBB = (function(){
     if(c.indexOf("teilen~") === 0){
       var o = null; try{ o = pruefen(JSON.parse(ub64(c.slice(7)))); }catch(e){}
       var msg = "Link ungültig.";
-      if(o){
-        if(gefuellt() && !confirm("Dein eigener Bogen wird durch den geteilten Bogen ersetzt. Fortfahren?")){ msg = "Eigener Bogen behalten."; }
-        else { S = o; sichere(); msg = "Bogen übernommen"; LK.an(); }
-      }
+      if(o){ neu(o); sichere(); msg = "Bogen als neuer Eintrag übernommen"; LK.an(); }
       history.replaceState(null, "", "#n/bogen"); setTimeout(function(){ toast(msg); }, 60);
     }
     ableiten();
-    return (document.documentElement.classList.contains("lk") ? '<div class="dbb-sbar">' + leiste() + "</div>" : "") + '<div class="dbb-wrap">' + bogenHtml() + "</div>";
+    return chipsHtml() + (document.documentElement.classList.contains("lk") ? '<div class="dbb-sbar">' + leiste() + "</div>" : "") + '<div class="dbb-wrap">' + bogenHtml() + "</div>";
   }
   return {view: view, leiste: leiste, zustand: function(){ return S; }};
 })();

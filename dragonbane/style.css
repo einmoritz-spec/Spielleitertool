@@ -1126,3 +1126,12 @@ html.lk #app{padding-top:0!important;margin-top:0!important}
 html.lk .dbb-sbar{display:flex;justify-content:center;padding:14px 0 0}
 html.lk .dbb-sbar .dbb-leiste{margin:0}
 html.lk .dbb-wrap{padding-top:10px}
+.dbb-t.mitte{text-align:center}
+textarea.dbb-t.schw{line-height:1.05;padding:0 2px;white-space:normal}
+.dbb-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;padding:12px 16px 0}
+.dbb-chip{display:inline-flex;align-items:center;border:1.5px solid var(--jade-d,#2f6e5f);border-radius:16px;overflow:hidden;background:#fff}
+.dbb-chip>button{border:0;background:transparent;padding:4px 12px;font:600 13px/1.2 inherit;font-family:inherit;color:#1c2a3a;cursor:pointer}
+.dbb-chip.on{background:var(--jade-d,#2f6e5f)}.dbb-chip.on>button{color:#fff}
+.dbb-chip .x{padding:4px 9px 4px 0!important;opacity:.75;font-size:15px!important}.dbb-chip .x:hover{opacity:1}
+.dbb-plus{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--jade-d,#2f6e5f);background:#fff;color:var(--jade-d,#2f6e5f);font:600 18px/1 inherit;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.dbb-plus:hover{background:var(--jade-d,#2f6e5f);color:#fff}

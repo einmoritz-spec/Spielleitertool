@@ -955,6 +955,6 @@ body.os-start .topbar .brand,body.os-start .topbar .tm-caret{transition:opacity 
 .os-bx-lab span{margin-top:10px;display:inline-flex;align-items:center;gap:6px;font:600 .72rem "OS Chakra",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#b4f06a;transition:gap .3s}
 .os-bx:hover .os-bx-lab span{gap:11px}
 .os-bx-img{position:relative;flex:1;min-width:0;overflow:hidden;background:linear-gradient(90deg,#06100f,#0c1d1c)}
-.os-bx-img img{position:absolute;left:8%;top:-4%;width:min(100%,640px);transform:rotate(-2.5deg);box-shadow:0 10px 30px rgba(0,0,0,.6);border-radius:3px;transition:transform .35s}
+.os-bx-img img{position:absolute;right:6%;top:16%;width:min(78%,560px);transform:rotate(-2.5deg);box-shadow:0 10px 30px rgba(0,0,0,.6);border-radius:3px;transition:transform .35s}
 .os-bx:hover .os-bx-img img{transform:rotate(-1deg) translateY(-5px)}
 @media(max-width:700px){.os-bx{flex-direction:column;height:auto}.os-bx-lab{width:auto;margin:0;clip-path:none;padding:18px 20px}.os-bx-img{height:150px}}

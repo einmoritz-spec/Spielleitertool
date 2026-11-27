@@ -127,7 +127,7 @@ function renderOverview(){
     return ok ? `<button class="ov-card" style="--r:${[-.7,.5,-.3,.8,-.5,.4][i%6]}deg" onclick="goDistrict('${d.id}')" aria-label="${d.title}">${inner}</button>`
               : `<div class="ov-card off">${inner}</div>`;
   }).join("");
-  const bogen = `<a class="ov-bogen" href="../cityofmist/ersteller.html" aria-label="Charakterbogen erstellen"><i class="ov-tape"></i><span class="ovb-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy" draggable="false"></span><span class="ovb-t"><b>Charakterbogen</b><em>Ausfüllbar im Original-Look – mit Zufall, Vorlagen und PDF.</em><u>Bogen öffnen</u></span></a>`;
+  const bogen = `<a class="ov-bogen" href="../cityofmist/ersteller.html" aria-label="Charakterbogen erstellen"><i class="ov-tape"></i><span class="ovb-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy" draggable="false"></span><span class="ovb-t"><b>Charakterbogen</b></span></a>`;
   return `<div class="ov-grid">${bogen}${tiles}</div>`;
 }
 

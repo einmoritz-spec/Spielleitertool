@@ -407,6 +407,7 @@
     var b = bar(); if(!b) return null;
     if(b.querySelector(".ktabs a, #ktabs a")) return null;
     if(document.body.classList.contains("os-start") || document.body.classList.contains("np-start")) return null;
+    var tagged = document.querySelector("[data-tm-hero]"); if(tagged && tagged.getBoundingClientRect().height >= 120) return tagged;
     var on = document.documentElement.hasAttribute("data-tmh"), bb = b.getBoundingClientRect().bottom, tb = on ? 0 : bb;
     var best = null, xs = [innerWidth / 2, 30, innerWidth - 30];
     for(var i = 0; i < xs.length; i++){

@@ -77,7 +77,7 @@ function renderCampaign(){
     const who = String(L.sub||"").replace(/^Antagonist(in)?:\s*/,"");
     return `<section class="np-lv ${L.tone}"><header class="np-lh"><h2>${esc(L.name)}</h2>${who?`<p>${esc(who)}</p>`:""}${intro}</header><div class="np-cases${one?" one":""}">${L.cases.map(n=>card(n, one)).join("")}</div></section>`;
   }).join("");
-  $("app").innerHTML = `<div class="np-home"><header class="np-hero"><div class="np-hero-img"></div><img class="np-logo" src="../assets/logos/nights-of-payne-town.webp" alt="Nights of Payne Town"></header><div class="np-rows"><a class="np-bogen" href="../cityofmist/ersteller.html" aria-label="Charakterbogen erstellen"><span class="npb-t"><b>Charakterbogen</b><small>Ausfüllbar im Original-Look</small><u>Bogen öffnen</u></span><span class="npb-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy"></span></a>${rows}</div></div>`;
+  $("app").innerHTML = `<div class="np-home"><header class="np-hero"><div class="np-hero-img"></div><img class="np-logo" src="../assets/logos/nights-of-payne-town.webp" alt="Nights of Payne Town"></header><div class="np-rows"><a class="np-bogen" href="../cityofmist/ersteller.html" aria-label="Charakterbogen erstellen"><span class="npb-t"><b>Charakterbogen</b><u>Bogen öffnen</u></span><span class="npb-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy"></span></a>${rows}</div></div>`;
 }
 document.addEventListener("click", e => { const a = e.target.closest && e.target.closest(".np-case.off"); if(a) e.preventDefault(); }, true);
 

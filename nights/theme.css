@@ -334,6 +334,6 @@ body.ninav .ni-body>[id]{scroll-margin-top:110px}
 .npb-t u{margin-top:8px;text-decoration:none;align-self:flex-start;font:600 .72rem var(--cond,system-ui);letter-spacing:.18em;text-transform:uppercase;color:#4aa3e0;transition:color .2s}
 .np-bogen:hover .npb-t u{color:#9fd4ff}
 .npb-img{position:relative;flex:1;min-width:0;overflow:hidden}
-.npb-img img{position:absolute;left:6%;top:-6%;width:min(100%,640px);transform:rotate(-2.5deg);box-shadow:0 10px 30px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.1);border-radius:3px;transition:transform .35s}
+.npb-img img{position:absolute;right:6%;top:16%;width:min(78%,560px);transform:rotate(-2.5deg);box-shadow:0 10px 30px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.1);border-radius:3px;transition:transform .35s}
 .np-bogen:hover .npb-img img{transform:rotate(-1deg) translateY(-5px)}
 @media(max-width:700px){.np-bogen{flex-direction:column;height:auto}.npb-t{width:auto;padding:18px 20px}.npb-img{height:150px}}

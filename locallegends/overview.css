@@ -65,7 +65,7 @@
 .ovb-img img{display:block;width:100%;height:auto}
 .ovb-t{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
 .ovb-t b{font:900 italic clamp(1.9rem,3.6vw,3rem)/.95 Impact,"Arial Black",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#6a2bb8;text-shadow:2px 2px 0 #ff3fa4}
-.ovb-t em{font-style:normal;font-size:1rem;line-height:1.4;color:#4a3a5e;max-width:28em}
+.ovb-t em{display:none;font-style:normal;font-size:1rem;line-height:1.4;color:#4a3a5e;max-width:28em}
 .ovb-t u{text-decoration:none;font:700 .95rem/1 inherit;letter-spacing:.1em;text-transform:uppercase;background:#6a2bb8;color:#fff;padding:11px 18px;border-radius:3px;box-shadow:3px 3px 0 #ff3fa4;transition:transform .15s}
 .ov-bogen:hover .ovb-t u{transform:translate(-1px,-1px)}
 @media(max-width:700px){.ov-bogen{flex-direction:column;align-items:flex-start;gap:18px}.ovb-img{width:100%}}

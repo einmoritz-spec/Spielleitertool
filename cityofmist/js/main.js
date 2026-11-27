@@ -11,8 +11,8 @@ function ovCard(img,t,main,links,big){
 function pageHub(){
   var card=function(img,g,extra){ return ovCard(img,g.t,"go(\'"+g.items[0][1]+"\')",g.items.map(function(it){return [it[0],"go(\'"+it[1]+"\')"];}).concat(extra||[])); };
   var G=function(id){ return CM_GRP.filter(function(g){return g.id===id;})[0]; };
-  return '<div class="ovc"><div class="ovc-hero"><img src="../assets/hero/com-header.webp" alt="City of Mist"></div><div class="ovc-grid">'+
-   '<a class="ovc-bogen" href="ersteller.html" aria-label="Charakterbogen erstellen"><span class="ob-t"><b>Charakterbogen</b><em>Ausfüllbar im Original-Look – mit Zufall, Vorlagen und PDF.</em><u>Bogen öffnen</u></span><span class="ob-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy"></span></a>'+
+  return '<div class="ovc"><div class="ovc-hero" data-tm-hero><img src="../assets/hero/com-header.webp" alt="City of Mist"></div><div class="ovc-grid">'+
+   '<a class="ovc-bogen" href="ersteller.html" aria-label="Charakterbogen erstellen"><span class="ob-t"><b>Charakterbogen</b><u>Bogen öffnen</u></span><span class="ob-img"><img src="../assets/bogen-teaser/cityofmist.webp" alt="" loading="lazy"></span></a>'+
    card("../assets/hero/com-art.webp",G("welt"))+
    card("img/tbh_enclave.webp",G("charakter"))+
    card("../assets/hero/com-regeln.webp",G("regeln"))+

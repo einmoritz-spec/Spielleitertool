@@ -26,7 +26,7 @@ BC_PART["1999/ende"] = {
   {
    "t": "prose",
    "p": [
-    "Auf S. 236 folgt ein leerer Abenteurerbogen zum Ausfüllen. Er enthält die Felder „Ich bin“, „Ruf mich, wenn du … brauchst“, „Orte, die ich Heimat nenne“ (Herkunft, Heimatland, Arbeitsort) und „Worte, nach denen ich lebe“, die Felder mit ihren Fertigkeiten, Glück samt Glücksmünze, den Bereich „Ich fühle“ mit den guten und schlechten Gefühlen, Expertise, Waffen & Gerät, Taschen, Beutel und Rucksack samt Magazinen sowie „Narben und Erfahrungen“. Im Tool füllst du ihn mit dem Charakterbogen aus und exportierst ihn als PDF."
+    "Auf S. 236 folgt ein leerer Abenteurerbogen zum Ausfüllen. Er enthält die Felder „Ich bin“, „Ruf mich, wenn du … brauchst“, „Orte, die ich Heimat nenne“ (Herkunft, Heimatland, Arbeitsort) und „Worte, nach denen ich lebe“, die Felder mit ihren Fertigkeiten, Glück samt Glücksmünze, den Bereich „Ich fühle“ mit den guten und schlechten Gefühlen, Expertise, Waffen und Geräte, Taschen, Beutel und Rucksack samt Magazinen sowie „Narben und Erfahrungen“. Im Tool füllst du ihn mit dem Charakterbogen aus und exportierst ihn als PDF."
    ]
   },
   {

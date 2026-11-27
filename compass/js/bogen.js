@@ -130,7 +130,7 @@ var BOGEN = (function(){
     EY.forEach(function(y, i){ o += box(325.3, y, 77.5, 12.1, "exp." + i, "exp"); });
     o += lab("Expertise", 325.3, 331, 77.5, 9, "bcb-h2 mitte");
     /* Waffen & Gerät */
-    o += lab("Waffen &amp; Gerät", 145.1, 358, 150, 12, "bcb-h");
+    o += lab("Waffen und Geräte", 145.1, 358, 150, 12, "bcb-h");
     WY.forEach(function(y, i){ o += box(145.4, y, 95.8, 12.2, "wn." + i, "wg") + box(242.2, y + 1.3, 160.6, 9.7, "wd." + i, null, "klein"); });
     /* Inventar */
     o += lab("Taschen", 167.9, 471.2, 100, 9, "bcb-h2 mitte") + lab("Rucksack", 275.8, 471.2, 100, 9, "bcb-h2 mitte");
@@ -324,7 +324,7 @@ var BOGEN = (function(){
       var tagE = B.tags.map(function(t){ return t.exp; }).filter(function(x, i, a){ return a.indexOf(x) === i; }).sort();
       return menu(anker, {groups: [{g: "Tag-Expertisen", items: tagE.map(function(x){ var inf = B.expInfo[x]; return {t: x, info: inf ? "<h4>" + esc(x) + "</h4><p>" + esc(inf) + "</p>" : null}; })}].concat(B.exp.map(function(g){ return {g: g[0], items: g[1].map(function(x){ return {t: x}; })}; })), pick: function(it){ setzen(it.t); }});
     }
-    if(art === "wg") return menu(anker, {groups: [{g: "Waffen und Gerät", items: B.wg.map(function(w){ return {t: w[0], info: "<h4>" + esc(w[0]) + "</h4><p>" + esc(w[1]) + "</p>", w: w}; })}],
+    if(art === "wg") return menu(anker, {groups: [{g: "Waffen und Geräte", items: B.wg.map(function(w){ return {t: w[0], info: "<h4>" + esc(w[0]) + "</h4><p>" + esc(w[1]) + "</p>", w: w}; })}],
       pick: function(it){ var i = +p.split(".")[1]; D.wn[i] = it.w[0]; D.wd[i] = it.w[1]; speichern(); neuZeichnen(); }});
     if(art === "mag") return menu(anker, {groups: [{g: "Waffen", items: ["Pistole", "Revolver", "Gewehr", "Scharfschützengewehr", "Bogen"].map(function(x){ return {t: x}; })}], pick: function(it){ setzen(it.t); }});
     /* Taschen, Beutel, Rucksack */
@@ -390,7 +390,7 @@ var BOGEN = (function(){
   }
   function vorlagen(btn){
     menu(btn, {breit: 280, groups: [{g: "Fertige Abenteurer", items: B.vor.map(function(v){
-      return {t: v.name, s: v.ruf, v: v, info: "<h4>" + esc(v.name) + '</h4><p class="s">' + esc(v.ruf) + "</p><p>„" + esc(v.motto) + "“</p><p><b>Heimat:</b> " + esc([v.herk, v.heim, v.arb].join(" · ")) + "</p><p><b>Expertisen:</b> " + esc(v.exp.join(", ")) + "</p><p><b>Waffen und Gerät:</b> " + esc(v.wg.map(function(w){ return w[0]; }).join(", ")) + '</p><p class="s">Aus dem Pilot, S. 230–233</p>'};
+      return {t: v.name, s: v.ruf, v: v, info: "<h4>" + esc(v.name) + '</h4><p class="s">' + esc(v.ruf) + "</p><p>„" + esc(v.motto) + "“</p><p><b>Heimat:</b> " + esc([v.herk, v.heim, v.arb].join(" · ")) + "</p><p><b>Expertisen:</b> " + esc(v.exp.join(", ")) + "</p><p><b>Waffen und Geräte:</b> " + esc(v.wg.map(function(w){ return w[0]; }).join(", ")) + '</p><p class="s">Aus dem Pilot, S. 230–233</p>'};
     })}], pick: function(it){ gehe(neu(ausVorlage(it.v))); toast(it.v.name + " als neuer Eintrag"); }});
   }
 

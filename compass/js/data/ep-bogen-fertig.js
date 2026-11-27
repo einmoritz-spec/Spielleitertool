@@ -112,8 +112,8 @@ BC_EP["bogen-fertig"] = {
      ]
     },
     {
-     "k": "Waffen und Ausrüstung",
-     "h": "Waffen und Ausrüstung",
+     "k": "Waffen und Geräte",
+     "h": "Waffen und Geräte",
      "items": [
       "Pistole – Erlaubt dir zu schießen",
       "Enterhaken – Mit angebundenem Seil. Kann zum Klettern oder Schwingen eingehakt werden"
@@ -268,8 +268,8 @@ BC_EP["bogen-fertig"] = {
      ]
     },
     {
-     "k": "Waffen und Ausrüstung",
-     "h": "Waffen und Ausrüstung",
+     "k": "Waffen und Geräte",
+     "h": "Waffen und Geräte",
      "items": [
       "Pistole – Erlaubt dir zu schießen",
       "Strohhut – Schützt vor der Sonne"
@@ -426,8 +426,8 @@ BC_EP["bogen-fertig"] = {
      ]
     },
     {
-     "k": "Waffen und Ausrüstung",
-     "h": "Waffen und Ausrüstung",
+     "k": "Waffen und Geräte",
+     "h": "Waffen und Geräte",
      "items": [
       "Pistole – Erlaubt dir zu schießen"
      ]
@@ -582,8 +582,8 @@ BC_EP["bogen-fertig"] = {
      ]
     },
     {
-     "k": "Waffen und Ausrüstung",
-     "h": "Waffen und Ausrüstung",
+     "k": "Waffen und Geräte",
+     "h": "Waffen und Geräte",
      "items": [
       "Revolver – Erlaubt dir zu schießen",
       "Machete – Schneidet durch die Vegetation"

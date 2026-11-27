@@ -40,10 +40,10 @@ function bgAuto(){ clearTimeout(bgTimer); bgTimer = setTimeout(function(){ var a
 
 /* Bausteine – Koordinaten in Pixeln des Originalbogens (765 × 988) */
 function bgPos(x, y, w, h){ return 'left:' + x + 'px;top:' + y + 'px;width:' + w + 'px;height:' + h + 'px'; }
-var BG_NODD = false, BG_WAHL = {archT:1, alterT:1}, BG_BSP = {name:1, mot:1, trauma:1, geheim:1, bez0:1, bez1:1, bez2:1, bez3:1, talent:1, ausrT:1};
+var BG_NODD = false, BG_WAHL = {archT:1, alterT:1, res:1}, BG_BSP = {ruest:1, waf:1, andenken:1, ein:1, name:1, mot:1, trauma:1, geheim:1, bez0:1, bez1:1, bez2:1, bez3:1, talent:1, ausrT:1};
 function bgDd(k, x, y, w, h){ return "\u0001" + '<button class="bg-dd noprint" style="left:' + (x + w - 14) + 'px;top:' + (y + 3) + 'px" data-k="' + k + '" onclick="bgPopup(this,event)" title="Beispiele – du kannst auch frei schreiben" aria-label="Beispiele">▾</button>'; }
 function bgIn(c, k, x, y, w, h, cls){
-  var wahl = !BG_RO && !BG_NODD && BG_WAHL[k], ex = !BG_RO && !BG_NODD && BG_BSP[k], v = String(bgVal(c, k)), cap = (w - 22) / 5.7, fs = (!cls && v.length > cap) ? ";font-size:" + Math.max(9.5, 14 * cap / v.length).toFixed(1) + "px" : "";
+  var wahl = !BG_RO && !BG_NODD && (BG_WAHL[k] || /^(at|sk)_/.test(k)), ex = !BG_RO && !BG_NODD && BG_BSP[k], v = String(bgVal(c, k)), cap = (w - 22) / 5.7, fs = (!cls && v.length > cap) ? ";font-size:" + Math.max(9.5, 14 * cap / v.length).toFixed(1) + "px" : "";
   return "\u0001" + '<input class="bg-i ' + (cls || "") + (wahl ? " bg-wahl" : "") + '" style="' + bgPos(x, y, w, h) + fs + '" data-k="' + k + '" value="' + bgE(bgVal(c, k)) + '"' + (BG_RO || wahl ? " readonly" : "") + (wahl ? ' onclick="bgPopup(this,event)"' : ' oninput="bgSet(this)"') + ' spellcheck="false">' + (ex ? bgDd(k, x, y, w, h) : "");
 }
 function bgTa(c, k, x, y, w, h, cls){
@@ -161,9 +161,28 @@ function bgAusw(k){
   if(k === "ausrT") return {items:a.ausr.map(function(t){ return {t:t}; }), set:function(it){ var cur = String(bgVal(c, "ausrT") || ""); CH.ausrT = cur ? cur + "\n" + it.t : it.t; }};
   return null;
 }
+
+
+function bgTbl(kopf){ var f = null; (function su(x){ if(f || !x || typeof x !== "object") return; if(Array.isArray(x)) return x.forEach(su); if(x.t === "tbl" && x.head && x.head[0] === kopf){ f = x; return; } Object.keys(x).forEach(function(k){ su(x[k]); }); })(window.VAE_KAP); return f ? f.rows : []; }
+function bgZeilen(k){ return String(bgVal(CH, k) || "").split("\n"); }
+function bgAnh(k, t, n){ var z = bgZeilen(k); while(z.length < n) z.push(""); z[n] = t; CH[k] = z.join("\n"); }
+function bgEinsMakel(){
+  var o = [], seen = {}; (function su(x){ if(!x || typeof x !== "object") return; if(Array.isArray(x)){ if(x.length >= 5 && /^(Makel|Einsicht):/.test(String(x[x.length - 1]))){ var t = String(x[x.length - 1]); if(!seen[t]){ seen[t] = 1; o.push({t:t, i:"<p><b>" + bgE(x[1]) + "</b> (kritische Verletzung " + bgE(x[0]) + ")</p>"}); } return; } x.forEach(su); return; } Object.keys(x).forEach(function(k){ su(x[k]); }); })(window.VAE_KAP);
+  return o;
+}
+function bgAusw2(k){
+  var c = CH, a = bgArch(c) || VAE_ARCH[0], m;
+  if(k === "res") return {wahl:1, items:bgTbl("Ressourcen").map(function(r){ return {t:r[0] + " – " + r[1], i:"<p><b>Ressourcen " + r[0] + "</b> · " + bgE(r[1]) + "</p><p>Bonus: <b>" + bgE(r[2]) + "</b><br>Kapital: <b>" + bgE(r[3]) + "</b></p>", v:+r[0]}; }), set:function(it){ CH.res = it.v; }};
+  if(m = k.match(/^(at|sk)_(.+)$/)){ var mx = m[1] === "at" ? (a.attr === m[2] ? 5 : 4) : (archMain(a, m[2]) ? 3 : 2), lo = m[1] === "at" ? 2 : 0, L = []; for(var i = lo; i <= mx; i++) L.push({t:String(i), v:i}); return {wahl:1, items:L, set:function(it){ bgSet({getAttribute:function(){ return k; }, type:"text", value:String(it.v)}); }}; }
+  if(k === "ruest") return {items:bgTbl("Rüstungsart").map(function(r){ return {t:r[0], i:"<p><b>" + bgE(r[0]) + "</b></p><p>Schutz: <b>" + bgE(r[1]) + "</b><br>Beweglichkeit: <b>" + bgE(r[2]) + "</b><br>Verfügbarkeit: <b>" + bgE(r[3]) + "</b></p>", r:r}; }), set:function(it){ CH.ruest = it.r[0]; CH.ruestS = it.r[1]; CH.ruestB = it.r[2]; }};
+  if(k === "waf") return {items:bgTbl("Nahkampfwaffe").concat(bgTbl("Fernkampfwaffe")).map(function(r){ return {t:r[0], i:"<p><b>" + bgE(r[0]) + "</b></p><p>Schaden: <b>" + bgE(r[1]) + "</b><br>Reichweite: <b>" + bgE(r[2]) + "</b><br>Bonus: <b>" + bgE(r[3]) + "</b><br>Verfügbarkeit: <b>" + bgE(r[4]) + "</b><br>Fertigkeit: <b>" + bgE(r[5]) + "</b></p>", r:r}; }), set:function(it){ var z = bgZeilen("waf"), idx = z.length; while(idx > 0 && !z[idx - 1]) idx--; if(idx > 2) idx = 2; bgAnh("waf", it.r[0], idx); bgAnh("wafS", it.r[1], idx); bgAnh("wafR", it.r[2], idx); bgAnh("wafB", it.r[3], idx); }};
+  if(k === "andenken") return {items:MEM.map(function(t){ return {t:t}; }), set:function(it){ var cur = String(bgVal(c, "andenken") || ""); CH.andenken = cur ? cur + "\n" + it.t : it.t; }};
+  if(k === "ein") return {items:bgEinsMakel(), set:function(it){ var cur = String(bgVal(c, "ein") || ""); CH.ein = cur ? cur + "\n" + it.t : it.t; }};
+  return null;
+}
 window.bgPopup = function(el, e){
   e.stopPropagation(); var k = el.dataset.k, old = document.querySelector(".bgpop"), same = old && old.dataset.k === k; bgPopWeg(); if(same) return;
-  var A = bgAusw(k); if(!A) return; var r = el.getBoundingClientRect(), p = document.createElement("div"); p.className = "bgpop"; p.dataset.k = k;
+  var A = bgAusw(k) || bgAusw2(k); if(!A) return; var r = el.getBoundingClientRect(), p = document.createElement("div"); p.className = "bgpop"; p.dataset.k = k;
   p.style.left = Math.max(8, Math.min(r.left, innerWidth - 340)) + "px"; p.style.top = (r.bottom + 4) + "px";
   p.innerHTML = (A.wahl ? "" : '<div class="bp-kopf">Beispiele – du kannst auch frei schreiben</div>') + A.items.map(function(it, i){ return '<div class="bp-z"><button class="bp-n" data-i="' + i + '">' + bgE(it.t) + '</button>' + (it.i ? '<button class="bp-i" data-j="' + i + '" title="Info" aria-label="Info">i</button>' : "") + "</div>"; }).join("");
   p.addEventListener("click", function(ev){

@@ -21,6 +21,13 @@ var BG_SPUR = {
   r:{t:"Realität", c:"gelb", arc:"realitaet", codes:{1:"C4",4:"L11",8:"E2",10:"O4",14:"T6",16:"V2",20:"X3",22:"H5",26:"E3"}},
   a:{t:"Anomalie", c:"blau", arc:"anomalie", codes:{1:"H4",2:"H3",5:"U2",7:"X2",11:"N1",13:"Q2",17:"L10",19:"G8",23:"A7"}}
 };
+var BG_ZNAMEN = ["Marlene Kowalczyk","Tobias Wendelin","Priya Hartmann","Jonas Ebermann","Linnea Falk","Dario Quast","Henrike Moll","Cem Aydin","Odette Brandt","Fritz Lammers","Yara Steinfeld","Benedikt Alt","Mirja Sonnleitner","Kasimir Roth","Ilka Vogelsang","Theo Nakamura","Rosalind Kuhn","Emil Haverkamp","Soraya Lindqvist","Gustav Pilz"];
+var BG_ZFREI = {
+  2:["Wenn ich wütend werde, flackert das Licht um mich herum und alles riecht nach Pfefferminz.","Ein schwaches blaues Leuchten an den Fingerspitzen, das nur im Dunkeln auffällt.","Nein, aber Kameras zeigen mich manchmal einen Moment zu spät.","Meine Schatten bewegen sich ein kleines Stück vor mir."],
+  4:["Sechs Jahre Kundenservice in einem Callcenter, davon drei Jahre Beschwerdemanagement.","Praktikum in einer Eventagentur, danach Aushilfe in einer Bibliothek.","Selbstständig als Fotograf für Hochzeiten und Betriebsfeiern.","Lagerlogistik, Nachtschicht, viel Gabelstapler."],
+  5:["Sicher in Excel, solide in der Google-Suite, bei Adobe weiß ich, wo der Knopf zum Speichern ist.","Ich habe mal eine Pivot-Tabelle gebaut, die niemand mehr verstanden hat – auch ich nicht.","Gut genug, um für alle anderen die Folien zu bauen.","Adobe kenne ich vom Hörensagen, Excel dafür ziemlich gut."],
+  6:["Ich bringe Ruhe in jede Sitzung und weiß immer, wo es Kaffee gibt.","Ich höre zu und sage meist genau dann etwas, wenn es keiner mehr erwartet.","Struktur: Ich führe Listen und finde jede Datei wieder.","Ich bin der Mensch, der Streit entschärft, bevor er ein Protokoll braucht."]
+};
 var BG_FB = [
   ["Wie bist du mit deiner Anomalie in Kontakt gekommen?", ["Frühere Beziehung zu einer Anomalie, die in der Nähe auftauchte", "Anomalie entstand aus meinen Gedanken", "Versehentlich in einen Einsatz der Agency verwickelt", "Vom Triangle-Academy-Programm für den Außendienst ge-TAP-t"]],
   ["Wie hat die Agency dich gefunden?", ["Durch den Einsatz meiner Anomalie-Kräfte in der Öffentlichkeit", "Versehentlich in einen Einsatz der Agency verwickelt", "Ich habe sie gefunden"]],
@@ -281,10 +288,12 @@ function bgZufall(){
   if((A.name || A.arc.a || A.arc.r || A.arc.k) && !confirm("Die Einträge dieses Agenten durch einen zufälligen Agenten ersetzen?")) return;
   var id = A.id; Object.keys(A).forEach(function(k){ delete A[k]; }); Object.assign(A, bgNeu()); A.id = id;
   ["anomalie", "realitaet", "kompetenz"].forEach(function(kat){ var L = TA_ARK[kat].x; bgArk(kat, L[Math.floor(Math.random() * L.length)][0]); });
-  BG_FB.forEach(function(q, i){ if(q[1].length) A.fb[i] = q[1][Math.floor(Math.random() * q[1].length)]; });
+  var pk = function(L){ return L[Math.floor(Math.random() * L.length)]; };
+  A.name = pk(BG_ZNAMEN); A.pron = pk(["sie/ihr", "er/ihm", "they/them"]);
+  BG_FB.forEach(function(q, i){ A.fb[i] = pk(q[1].length ? q[1] : BG_ZFREI[i]); });
   var Kt = TA_TEXT["ark/kompetenz/" + A.arc.k], Sx = Kt ? bgSuch(Kt.r, "selbst", [])[0] : null;
   if(Sx) Sx.x.forEach(function(fr, i){ A.selbst[i] = Math.floor(Math.random() * fr.a.length); });
-  bgSave(); render(); bgToast("Zufälliger Agent erstellt – Name und freie Antworten sind noch leer.");
+  bgSave(); render(); bgToast("Zufälliger Agent erstellt – Name und Antworten sind erfunden, Beziehungen und Notizen bleiben leer.");
 }
 function bgLaden(inp){
   var f = inp.files && inp.files[0]; if(!f) return;

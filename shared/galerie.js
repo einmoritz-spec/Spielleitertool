@@ -54,9 +54,9 @@ var Galerie = (function(){
     [].forEach.call(ov.querySelectorAll(".gal-tab"), function(t){ t.classList.toggle("on", t.dataset.k === book.key); });
     grid.innerHTML = ""; grid.scrollTop = 0; tiles = [];
     book.items.forEach(function(it, i){
-      var b = el("button", "gal-t"); b.type = "button"; b.setAttribute("aria-label", "Bild " + (i + 1) + (it[3] ? ", " + it[3] : ""));
+      var b = el("button", "gal-t" + (book.flat ? " flat" : "")); b.type = "button"; b.setAttribute("aria-label", "Bild " + (i + 1) + (it[3] ? ", " + it[3] : ""));
       var im = el("img"); im.alt = ""; im.loading = "lazy"; im.decoding = "async"; im.draggable = false;
-      im.src = book.dir + "thumb/" + it[0] + ".webp"; b.appendChild(im);
+      im.src = book.dir + (book.flat ? "" : "thumb/") + it[0] + ".webp"; b.appendChild(im);
       b.onclick = function(){ openLb(i); };
       tiles.push(b);
     });
@@ -117,11 +117,11 @@ var Galerie = (function(){
   }
   function showImg(i){
     var n = cur.items.length; idx = (i + n) % n;
-    var it = cur.items[idx], img = lb.querySelector(".gal-img"), my = idx, full = it[4] || cur.dir + "full/" + it[0] + ".webp";
-    img.src = cur.dir + "thumb/" + it[0] + ".webp"; img.classList.add("loading");
+    var it = cur.items[idx], img = lb.querySelector(".gal-img"), my = idx, full = it[4] || cur.dir + (cur.flat ? "" : "full/") + it[0] + ".webp";
+    img.src = cur.dir + (cur.flat ? "" : "thumb/") + it[0] + ".webp"; img.classList.add("loading");
     var f = new Image(); f.onload = function(){ if(my === idx && lb){ img.src = full; img.classList.remove("loading"); } }; f.src = full;
     lb.querySelector(".gal-cap").textContent = (it[3] ? it[3] + "  ·  " : "") + (idx + 1) + " / " + n;
-    [1, -1].forEach(function(d){ var j = cur.items[(idx + d + n) % n]; (new Image()).src = j[4] || cur.dir + "full/" + j[0] + ".webp"; });
+    [1, -1].forEach(function(d){ var j = cur.items[(idx + d + n) % n]; (new Image()).src = j[4] || cur.dir + (cur.flat ? "" : "full/") + j[0] + ".webp"; });
   }
   function go(d){ if(lb && !lb.hidden) showImg(idx + d); }
   var pushed = false;

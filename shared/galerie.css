@@ -35,3 +35,5 @@ html.gal-open,html.gal-open body{overflow:hidden}
 }
 
 .gal-lb,.gal-stage,.gal-img{touch-action:pan-y pinch-zoom}
+
+.gal-t.flat{background:#e9e1cf}

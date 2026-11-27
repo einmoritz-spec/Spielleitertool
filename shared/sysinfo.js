@@ -5,7 +5,7 @@
 (function(){
   var BASE = window.gmToolBase || "";
   /* Systemkennung (toolmenu) -> Info-Datei. Nur ausgebaute Systeme. */
-  var MAP = {triangle:"triangle", savageworlds:"savageworlds", discworld:"discworld", household:"household", hh_garten:"household", moerkborg:"moerkborg", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", etr:"etr", wildsea:"wildsea", pico:"pico", mausritter:"mausritter", cairn:"cairn", slugblaster:"slugblaster", dragonbane:"dragonbane", heart:"heart", ht_dagger:"heart", spire:"spire", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es", compass:"compass"};
+  var MAP = {triangle:"triangle", savageworlds:"savageworlds", discworld:"discworld", household:"household", hh_garten:"household", moerkborg:"moerkborg", wake:"wake", cityofmist:"cityofmist", cm_rw:"cityofmist", cm_ss:"cityofmist", locallegends:"locallegends", paynetown:"nights", otherscape:"otherscape", vaesen:"vaesen", vae_nord:"vaesen", vae_mbi:"vae_mbi", etr:"etr", wildsea:"wildsea", pico:"pico", mausritter:"mausritter", cairn:"cairn", slugblaster:"slugblaster", dragonbane:"dragonbane", heart:"heart", ht_dagger:"heart", spire:"spire", tftl:"tftl", tftl_flood:"tftl_flood", tftl_es:"tftl_es", compass:"compass"};
   window.GM_INFO = window.GM_INFO || {};
   function key(){ try{ return MAP[window.gmToolCur ? window.gmToolCur() : ""] || null; }catch(e){ return null; } }
 

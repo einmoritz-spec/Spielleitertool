@@ -74,8 +74,8 @@ a.o-mot:hover{background:rgba(255,255,255,.25)}
 .feld.wk span:not(.ph){text-shadow:0 0 calc(var(--pt)*1.5) #f4f6f9,0 0 calc(var(--pt)*1.5) #f4f6f9,0 0 calc(var(--pt)*3) #f4f6f9}
 .feld.burned span{text-decoration:line-through;text-decoration-color:#ff7a1a;color:#5d6778}
 .burn{border-radius:50%;cursor:pointer}
-.burn:hover{box-shadow:0 0 0 calc(var(--pt)*1.3) #ff8a2a}
-.burn.on{background:radial-gradient(circle,rgba(255,138,42,.55) 0,rgba(255,110,20,.9) 70%);box-shadow:0 0 calc(var(--pt)*4) #ff7a1a}
+.burn.on{background:radial-gradient(circle,rgba(255,170,70,.55) 0,rgba(255,120,30,.25) 55%,transparent 72%);display:grid;place-items:center;box-shadow:none}
+.burn.on svg{width:78%;height:78%;fill:#e8621a;filter:drop-shadow(0 0 calc(var(--pt)*1.6) #ff9a3c) drop-shadow(0 0 calc(var(--pt)*.6) #fff3)}
 .flaw{cursor:pointer;transform:rotate(45deg) scale(.78);border-radius:calc(var(--pt)*1.5)}
 .flaw:hover{box-shadow:0 0 0 calc(var(--pt)*1.2) #d2416f}
 .flaw.on{background:rgba(210,65,111,.85)}

@@ -117,7 +117,7 @@ function themaVorn(c, t, i){
     var x = !b ? null : s === 0 ? pl.kern : pl.rest[s - 1], q = x && b.power.filter(function(z){ return z.l === x.l; })[0];
     var ph = b && s === 0 && !x ? '<span class="ph">' + esc(b.power[0].q) + '</span>' : "";
     h += lnk(30 + dx, r[0] + 66.7, 128, r[1], "feld" + (s === 0 ? " big" : "") + (x && x.burn ? " burned" : ""), (x ? (x.l.length === 1 ? '<i>' + esc(x.l) + '</i>' : "") + '<span>' + esc(x.a) + '</span>' : ph), 'data-act="obTag" data-i="' + i + '" data-art="power" data-s="' + s + '" data-k="p' + i + '_' + s + '"' + (q ? ' data-tip="' + esc(q.l + ": " + q.q) + '"' : ""));
-    if(x && x.a) h += lnk(179.5 + dx, BURN_Y[s] + 66.7 - 6.5, 13, 13, "burn" + (x.burn ? " on" : ""), "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder aktivieren" : "Verbrennen") + '"');
+    if(x && x.a) h += lnk(179.5 + dx, BURN_Y[s] + 66.7 - 6.5, 13, 13, "burn" + (x.burn ? " on" : ""), x.burn ? '<svg viewBox="0 0 24 24"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-4.5 3-6 0 2 1 3 2 3-1-3 0-6 1-9z"/></svg>' : "", 'data-act="obBurn" data-i="' + i + '" data-s="' + s + '" data-tip="' + (x.burn ? "Wieder aktivieren" : "Verbrennen") + '"');
   });
   WROWS.forEach(function(r, w){
     var xw = b && t.weak[w], qw = xw && b.weak.filter(function(z){ return z.l === xw.l; })[0];
@@ -147,7 +147,7 @@ function loadout(c){
       var x = L.tags[r], front = r < 14, top = front ? 112.9 + r * 28.5 : 115.9 + (r - 14) * 28.6, ox = front ? ax : bx + 188, path = "load." + n + ".tags." + r;
       h += inp(30 + ox, top + 2, 122, 20.5, path + ".a", x.a, "hand s" + (x.burn ? " burned" : ""));
       h += lnk(155.5 + ox, top + 5, 13, 13, "flaw" + (x.flaw ? " on" : ""), "", 'data-act="obToggle" data-p="' + path + '.flaw" data-tip="Makel"');
-      if(x.a) h += lnk(175.5 + ox, top + 5.5, 13, 13, "burn" + (x.burn ? " on" : ""), "", 'data-act="obToggle" data-p="' + path + '.burn" data-tip="Verbrennen"');
+      if(x.a) h += lnk(175.5 + ox, top + 5.5, 13, 13, "burn" + (x.burn ? " on" : ""), x.burn ? '<svg viewBox="0 0 24 24"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-4.5 3-6 0 2 1 3 2 3-1-3 0-6 1-9z"/></svg>' : "", 'data-act="obToggle" data-p="' + path + '.burn" data-tip="Verbrennen"');
     }
     h += txt(214.2 + bx, 317.5, 140, 14, "tags", "Loadout-Specials");
     for(var q = 0; q < 6; q++) h += inp(218 + bx, 336 + q * 26.1, 156, 21.5, "load." + n + ".spec." + q, L.spec[q] || "", "hand s");

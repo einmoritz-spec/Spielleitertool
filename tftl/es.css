@@ -436,3 +436,9 @@ body.es .shd{background:var(--night)}
 .vpair .vc .tx{flex-direction:column;align-items:flex-start;gap:3px}
 body.es .vpair .vc h3{font-size:19px}
 @media (max-width:1000px){.vpair{grid-template-columns:1fr}}
+
+/* Charakter-Chips: klein und minimal, links; Werkzeuge rechts */
+body.es .rk .tk-chips{margin-right:auto}
+body.es .rk .tk-chip,body.es .rk .tk-plus{border-color:currentColor}
+body.es .rk .tk-chips{color:#33464a}
+body.es .rk .tk-chip.on{background:#33464a;color:#fff}

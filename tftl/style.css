@@ -798,7 +798,7 @@ body.lt #tabs a.on{color:var(--acc);border-bottom-color:var(--acc);background:no
 .bw-w{position:relative;display:block}.bw-w>.bw-dd{top:50%;transform:translateY(-50%)}
 
 /* Charakter-Chips: klein und minimal, links in der Symbolleiste */
-.tk-chips{display:flex;flex-wrap:nowrap;gap:4px;align-items:center;max-width:620px;overflow:hidden;color:var(--acc)}
+.tk-chips{margin-right:auto;display:flex;flex-wrap:nowrap;gap:4px;align-items:center;max-width:620px;overflow:hidden;color:var(--acc)}
 .tk-chip{display:inline-flex;align-items:center;border:1px solid var(--acc);border-radius:12px;opacity:.6;padding:2px 9px;font-weight:500;font-size:11.5px;line-height:1.3;font-family:inherit;color:inherit;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;flex:none}
 .tk-chip.on{opacity:1;background:var(--acc);color:#fff}
 .tk-plus{width:20px;height:20px;border-radius:50%;border:1px solid var(--acc);background:transparent;color:inherit;opacity:.6;font-weight:500;font-size:14px;line-height:1;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;flex:none}

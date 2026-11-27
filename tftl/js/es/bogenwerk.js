@@ -151,6 +151,13 @@
     function mach(el, ic, tip){ if(!el) return; el.className = "bwi"; el.setAttribute("data-tip", tip); el.setAttribute("aria-label", tip); el.innerHTML = sym(IC[ic]); }
     mach(pdf, "pdf", "Als ausfüllbares PDF speichern"); mach(prn, "druck", "Drucken"); mach(del, "weg", "Reisende(n) löschen");
     kt.classList.add("bw-kt");
+    var back = kt.querySelector("a.chip");
+    if(back){
+      var ch = document.createElement("span"); ch.className = "tk-chips noprint";
+      ch.innerHTML = D.map(function(x){ return '<a class="tk-chip' + (x.id === k.id ? " on" : "") + '" href="#es/bogen/' + x.id + '">' + esc((x.name || "").trim() || "Neuer Bogen") + '</a>'; }).join("") + '<button type="button" class="tk-plus" data-tip="Neuen Bogen anlegen" aria-label="Neuen Bogen anlegen">+</button>';
+      back.parentNode.replaceChild(ch, back);
+      ch.querySelector(".tk-plus").onclick = function(){ var D2 = R().load(), n = R().neu(); D2.push(n); R().setD(D2); R().save(); location.hash = "es/bogen/" + n.id; };
+    }
     var tools = document.createElement("span"); tools.className = "bw-tools noprint";
     tools.innerHTML = ib("zufall", "Zufällige(n) Reisende(n) erstellen", "zufall") + ib("vorlage", "Vorgefertigte(n) Reisende(n) einsetzen", "vorlage") + ib("leeren", "Bogen leeren", "leeren") + ib("teilen", "Link teilen", "teilen") + ib("sichern", "Als Datei sichern", "sichern") +
       '<label class="bwi" data-tip="Datei laden" aria-label="Datei laden">' + sym(IC.laden) + '<input type="file" accept=".json,application/json" hidden></label>';

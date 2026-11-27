@@ -43,6 +43,7 @@ function msCounts(){ var s = msLoad(); document.querySelectorAll("[data-oc]").fo
 /* ---------- Countdown ---------- */
 function msCdBar(){
   var done = msLoad().cd;
+  if(!MS.cd.length) return '';
   return '<span class="cd2' + (MS.cd.length > 5 ? ' many' : '') + '"><span class="lab">Countdown</span>' + MS.cd.map(function(s, i){
     return (i ? '<span class="ln"></span>' : '') + '<span class="st' + (done.indexOf(i) > -1 ? ' done' : '') + (s.kat ? ' kat' : '') + '" onclick="msCd(' + i + ',this)" title="' + esc(s.n) + '"><span class="n">' + (s.kat ? TZ_FLAME : i + 1) + '</span></span>';
   }).join("") + '</span>';
@@ -159,7 +160,7 @@ function msViewAn(){
   var vorb = (a.vorb || kv.length) ? msSec("vo", a.vorbT || "Vorbereitungen", msTtl(a.vorbT || "Vorbereitungen", msPp("vorb", 3)) + msP(a.vorb) + msG(kv)) : "";
   var reise = msSec("re", "Die Reise", (a.karten || []).slice(0, 1).map(function(k){ return msFr2('<img src="' + msImg(k) + '" alt="" onclick="msZoom(this.src)"><small class="cap">Karte ' + msPg(msPp("karte", 2)) + '</small>'); }).join("") + msTtl("Die Reise", msPp("reise", 4)) + msP(a.reise) + (a.reiseVl ? '<div class="vl">' + a.reiseVl + '</div>' : '') + (a.hinterhalt ? msG([msKastX(a.hinterhalt)]) : ''));
   var ank = msSec("ak", "Ankunft", msTtl("Ankunft", msPp("ankunft", 4)) + msP([a.ankunft[0]].concat(a.jennyEin || [])) + (a.jenny ? msG(a.jenny.map(function(t){ return '<div class="clue st">' + t + '</div>'; })) : '') + msP(a.ankunft.slice(1)));
-  var cd = msSec("cd", "Countdown", msTtl("Countdown und Katastrophe", msPp("cd", 5)) + '<p>' + MS.cdIntro + '</p>' + msG(MS.cd.map(function(s, i){ return '<div class="clue st' + (s.kat ? ' kat' : '') + '"><span class="q">' + (s.kat ? "Katastrophe" : "Schritt " + (i + 1) + " · " + esc(s.n)) + '</span>' + msDec(s.x) + '</div>'; })) +
+  var cd = msSec("cd", MS.cdS || "Countdown", msTtl(MS.cdT || "Countdown und Katastrophe", msPp("cd", 5)) + '<p>' + MS.cdIntro + '</p>' + msG(MS.cd.map(function(s, i){ return '<div class="clue st' + (s.kat ? ' kat' : '') + '"><span class="q">' + (s.kat ? "Katastrophe" : "Schritt " + (i + 1) + " · " + esc(s.n)) + '</span>' + msDec(s.x) + '</div>'; })) +
     (MS.cdX || []).map(function(c){ return '<h3 class="ms-wt" style="margin-top:18px">' + esc(c.t) + ' ' + msPg(c.p) + '</h3><p>' + msDec(c.x) + '</p>' + (c.s ? msG(c.s.map(function(s, i){ return '<div class="clue st"><span class="q">Schritt ' + (i + 1) + ' · ' + esc(s.n) + '</span>' + msDec(s.x) + '</div>'; })) : ''); }).join(""));
   return einl + vorb + reise + ank + cd;
 }

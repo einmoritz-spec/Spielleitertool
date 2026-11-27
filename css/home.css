@@ -41,3 +41,14 @@
 
 /* ===== Flüssige Animation ===== */
 .hm-card{will-change:transform}.hm-img img{will-change:transform,filter;backface-visibility:hidden}
+
+/* Startseite: Kopfzeile durchsichtig über dem Titelbild, keine rote Linie */
+body.lm-home,body.lm-home.lmsub-on{padding-top:0!important}
+body.lm-home .topbar{background:transparent!important;border-bottom:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.lm-home .hm-hero{height:calc(clamp(200px,25vw,340px) + 92px)}
+body.lm-home .hm-hero:before{content:"";position:absolute;left:0;right:0;top:0;height:110px;background:linear-gradient(180deg,rgba(239,229,207,.62),rgba(239,229,207,0));pointer-events:none;z-index:1}
+@media(hover:hover) and (min-width:900px){
+  body.lm-home .topbar .brand{opacity:0;transition:opacity .25s}
+  body.lm-home .topbar:hover .brand{opacity:1}
+}
+@media(max-width:640px){body.lm-home .hm-hero{height:calc(clamp(220px,58vw,320px) + 54px)}}

@@ -91,6 +91,7 @@ function lmHeadHtml(){
 
 function renderTopbar(){
   const advOpen = state.view==="adventure" && state.advId;
+  document.body.classList.toggle("lm-home", state.view==="home");
   const LH = lmHeadHtml(); document.body.classList.toggle("lmsub-on", !!LH.sub);
   const btns = TOPBAR_ITEMS
     .filter(it => !tbIsHidden(it.id) && (!it.onlyInAdventure || advOpen))

@@ -58,6 +58,7 @@ GSuche.add(function(add){
     if(m.wesen || m.nock || m.kaesten) put("Figuren", "fg", [m.wesen, m.nock, m.kaesten]);
   });
 
+  if(window.VU_INTRO && VU_INTRO.city) add("City of My Nightmares: Einführung (S. 3–9)", "Bücher", function(){ uiEinfuehrung("city"); }, VU_INTRO.city.abschnitte.map(function(a){ return a.h + " " + a.t.join(" ").replace(/<[^>]+>/g, ""); }));
   if(window.VU_VW) add("Vorwort (S. 3)", "Bücher", function(){ if(window.uiVorwort) uiVorwort(); }, window.VU_VW);
 
   /* Bücher */

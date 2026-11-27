@@ -37,7 +37,7 @@ function box(x, y, w, h, cls, inner, attr, extra){ return '<div class="' + cls +
 function lnkR(r, cls, inner, attr, extra){ return '<a class="' + cls + '" ' + stR(r, extra) + (attr ? " " + attr : "") + '>' + (inner || "") + '</a>'; }
 function lab(x0, y0, x1, y1, cls, t, extra){ return box(x0, y0, x1 - x0, y1 - y0, "t " + cls, esc(t), "", extra); }
 function inpR(r, path, val, cls, ph, extra){ return '<input class="o-in ' + (cls || "") + '" ' + stR(r, extra) + ' data-f="obP" data-p="' + path + '" value="' + esc(val) + '"' + (ph ? ' placeholder="' + esc(ph) + '"' : "") + '>'; }
-function seite(n, titel, tRight, tTop, inhalt){ return '<section class="os-seite cm" style="background-image:url(img/bogen/seite-' + n + '.webp)">' + box(tRight - 300, tTop, 300, 25.5, "t titel", esc(titel), "", "justify-content:flex-end") + lab(31.4, 579.5, 260, 591.6, "copy", "© 2019 Son of Oak Game Studio / Amít Moshe") + inhalt + '</section>'; }
+function seite(n, titel, tRight, tTop, inhalt){ return '<div class="os-pg"><section class="os-seite cm" style="background-image:url(img/bogen/seite-' + n + '.webp)">' + box(tRight - 300, tTop, 300, 25.5, "t titel", esc(titel), "", "justify-content:flex-end") + lab(31.4, 579.5, 260, 591.6, "copy", "© 2019 Son of Oak Game Studio / Amít Moshe") + inhalt + '</section></div>'; }
 function punkte(rs, path, val, cls, tip){ return rs.map(function(r, k){ return lnkR(r, "trk " + (cls || "") + (val >= k + 1 ? " on" : ""), "", 'data-act="obTick" data-p="' + path + '" data-v="' + (k + 1) + '" data-tip="' + tip + ' ' + (k + 1) + '"'); }).join(""); }
 
 /* ---------- Themenkarte vorn (auch Team-/Zusatzthema) ---------- */

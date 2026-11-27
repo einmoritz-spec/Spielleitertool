@@ -43,7 +43,7 @@ function txt(x, y, w, h, cls, t, extra){ return box(x, y, w, h, "t " + cls, esc(
 function inp(x, y, w, h, path, val, cls, ph){ return '<input class="o-in ' + (cls || "") + '" ' + st(x, y, w, h) + ' data-f="obP" data-p="' + path + '" value="' + esc(val) + '"' + (ph ? ' placeholder="' + esc(ph) + '"' : "") + '>'; }
 var COPY = function(){ return txt(29.8, 583, 200, 9, "copy", "© 2024 Son of Oak Game Studio LLC"); };
 function titel(x, t, fs){ return '<div class="t titel" ' + st(x, 15.2, 10, 31.3, "width:auto;font-size:calc(var(--pt)*" + (fs || 26) + ")") + '>' + esc(t) + '</div>'; }
-function seite(n, ti, tx, tw, inhalt, fs){ return '<section class="os-seite" style="background-image:url(img/bogen/seite-' + n + '.webp)">' + titel(tx, ti, fs) + inhalt + COPY() + '</section>'; }
+function seite(n, ti, tx, tw, inhalt, fs){ return '<div class="os-pg"><section class="os-seite" style="background-image:url(img/bogen/seite-' + n + '.webp)">' + titel(tx, ti, fs) + inhalt + COPY() + '</section></div>'; }
 /* Upgrade/Decay-Leiste: drei Felder je Richtung */
 function track(dx, dy, path, o){
   var h = "", Y = [371.05, 386.05, 401.3, 416.3, 431.3, 446.3, 461.8], x = 189 + dx;

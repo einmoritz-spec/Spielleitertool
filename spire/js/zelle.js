@@ -283,9 +283,12 @@ function zVfAuswahl(){
   m.querySelector("#zvf").onclick = function(){ m.remove(); render(); };
 }
 function zVfNimm(id){
-  if(zFigs().some(function(f){ return f.vf === id; })) return;
-  zFigs().push(zVon(vfDaten(id))); save();
-  var m = document.querySelector(".modal"); if(m) m.remove(); zVfAuswahl(); render();
+  var imBogen = /^#bogen/.test(location.hash), da = zFigs().filter(function(f){ return f.vf === id; })[0];
+  if(da){ if(imBogen){ var m0 = document.querySelector(".modal"); if(m0) m0.remove(); go("bogen/" + da.id); } return; }
+  var nf = zVon(vfDaten(id)); zFigs().push(nf); save();
+  var m = document.querySelector(".modal"); if(m) m.remove();
+  if(imBogen){ go("bogen/" + nf.id); return; }
+  zVfAuswahl(); render();
 }
 function zVfAlle(){ SP_VORGEFERTIGT.forEach(function(v){ if(!zFigs().some(function(f){ return f.vf === v.id; })) zFigs().push(zVon(v)); }); save(); var m = document.querySelector(".modal"); if(m) m.remove(); render(); }
 function zNeueFigur(){ var f = zNeu(); zFigs().push(f); save(); render(); zEdit(f.id); }

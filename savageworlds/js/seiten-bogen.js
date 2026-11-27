@@ -579,8 +579,8 @@ function bar(){
   var I = {rnd: '<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="8.5" cy="15.5" r=".9" fill="currentColor"/><circle cx="15.5" cy="15.5" r=".9" fill="currentColor"/>',
     dup: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>', del: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
     ex: '<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>', im: '<path d="M12 16V5M7 9l5-5 5 5M5 20h14"/>', pr: '<path d="M7 9V4h10v5M6 17H4v-7h16v7h-2"/><rect x="7" y="14" width="10" height="6"/>', pdf: '<path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/>',
-    ass: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17v.2"/>', share: '<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
-  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu" data-tip="Neuen Charakter anlegen" aria-label="Neuen Charakter anlegen">+</a></div><div class="act">' + ic("bgRnd", "Zufälligen Charakter erstellen", I.rnd) + ic("bgDup", "Kopie anlegen", I.dup) + ic("bgDel", "Charakter löschen", I.del) + ic("bgShare", "Diesen Charakter als Link teilen", I.share) + ic("bgLink", "Link zum leeren Bogen kopieren", I.link) + ic("bgEx", "Als Datei sichern", I.ex) + ic("bgIm", "Datei laden", I.im) + ic("bgPdf", "Als ausfüllbares PDF speichern", I.pdf) + ic("bgPr", "Drucken", I.pr) + ic("bgAss", "Assistent", I.ass) + '</div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
+    vor: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.8 3-6 7-6s7 2.2 7 6"/>', ass: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17v.2"/>', share: '<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
+  return '<div class="bgbar noprint"><div class="ch">' + chips + '<a class="neu" id="bgNeu" data-tip="Neuen Charakter anlegen" aria-label="Neuen Charakter anlegen">+</a></div><div class="act">' + ic("bgRnd", "Zufälligen Charakter erstellen", I.rnd) + ic("bgVor", "Vorlage: Archetyp als neuen Charakter einsetzen", I.vor) + ic("bgDup", "Kopie anlegen", I.dup) + ic("bgDel", "Charakter löschen", I.del) + ic("bgShare", "Diesen Charakter als Link teilen", I.share) + ic("bgLink", "Link zum leeren Bogen kopieren", I.link) + ic("bgEx", "Als Datei sichern", I.ex) + ic("bgIm", "Datei laden", I.im) + ic("bgPdf", "Als ausfüllbares PDF speichern", I.pdf) + ic("bgPr", "Drucken", I.pr) + ic("bgAss", "Assistent", I.ass) + '</div><input type="file" id="bgFile" accept=".json,application/json" hidden></div>';
 }
 /* ---------- Zufälliger Charakter: Volk, Name, Attribute und Fertigkeiten innerhalb des Punktebudgets ---------- */
 var ZV = ["Jo", "Sam", "Robin", "Casey", "Jamie", "Morgan", "Dana", "Quinn", "Riley", "Alex", "Kim", "Lou", "Mara", "Tom", "Ida", "Ben"], ZN = ["Harlan", "Okafor", "Brandt", "Salazar", "Whitcomb", "Reyes", "Novak", "Tate", "Lindqvist", "Moreau", "Kowalski", "Dunn"];
@@ -608,6 +608,32 @@ function zufallChar(){
     if(j >= skMax(F, ent.n)) continue;
     var od = ent.d; ent.d = DIE[j + 1]; if(punkte(cur).fp > P.S){ ent.d = od; if(P.S - P.fp < 2) break; }
   }
+  persist(); bogenPage();
+}
+/* ---------- Vorlagen (Archetypen): immer ein neuer Eintrag ---------- */
+function vorlageListe(){ var o = []; (window.SW_VORLAGEN || []).forEach(function(g){ g.liste.forEach(function(v){ o.push({g: g.kat, v: v}); }); }); return o; }
+function vorlageOpen(el){
+  var L = vorlageListe(), gr = [];
+  L.forEach(function(x, k){ if(gr.indexOf(x.g) < 0) gr.push(x.g); });
+  var h = '<input class="mf" placeholder="Suchen" autocomplete="off">';
+  gr.forEach(function(g, gi){
+    h += '<div class="vkat" data-kat="' + gi + '"><span>' + esc2(g) + '</span><small>' + L.filter(function(x){ return x.g === g; }).length + '</small></div>';
+    L.forEach(function(x, k){ if(x.g !== g) return; h += '<div class="vi" data-vk="' + gi + '" data-mv="' + k + '" style="display:none"><span>' + esc2(x.v.n) + '</span><small>' + esc2(x.v.s || "") + '</small><b class="ii" data-info="vl" data-n="' + esc2(x.v.n) + '">i</b></div>'; });
+  });
+  popAt(el, {html: h, cls: "vpop"}); pop._cb = function(k){ vorlageSetzen(L[k].v); };
+  var mf = pop.querySelector(".mf"); mf.focus();
+  mf.addEventListener("input", function(){ var q = mf.value.toLowerCase();
+    pop.querySelectorAll(".vi").forEach(function(d){ var kat = pop.querySelector('.vkat[data-kat="' + d.dataset.vk + '"]'); d.style.display = q ? (d.textContent.toLowerCase().indexOf(q) > -1 ? "" : "none") : (kat.classList.contains("auf") ? "" : "none"); }); });
+  mf.addEventListener("keydown", function(e){ e.stopPropagation(); if(e.key === "Escape") popClose(); });
+}
+function vorlageSetzen(v){
+  if(!gen("dl")){ ST.gen.dl = 1; save(); if(window.soloGenres) soloGenres(function(){}); }
+  var c = neu(); c.id = uid(); DB.list.push(c); DB.cur = c.id; cur = c;
+  var alt = fx(cur); cur.volk = "Menschen"; cur.vw = {}; wechsle(cur, alt, fx(cur));
+  cur.name = v.n; cur.hg = v.s || "";
+  v.ta.forEach(function(n, i){ cur.ta[i] = {n: n}; });
+  v.hi.forEach(function(h, i){ cur.hi[i] = {n: h[0], w: h[1]}; });
+  if(v.ah) ahSetzen({n: v.ah, ah: ahRec(v.ah)});
   persist(); bogenPage();
 }
 function bogenPage(){
@@ -688,6 +714,7 @@ function infoHtml(k, n){
     h = "<h4>" + esc2(n) + '</h4><p class="im">' + esc2((k === "sup" ? ["Kosten " + m.mp] : [RAENGE[m.r || 0], m.mp ? m.mp + " MP" : "", m.rw, m.wd]).filter(Boolean).join(" · ")) + "</p>" + (m.au ? '<p class="im">Ausprägungen: ' + esc2(m.au) + "</p>" : "") + (m.b || []).map(function(x){ return "<p>" + md(x) + "</p>"; }).join("") +
       ((m.m || []).length ? "<h5>Modifikatoren</h5>" + m.m.map(function(x){ return "<p><b>" + esc2(x[0]) + " (" + esc2(x[1]) + "):</b> " + md(x[2] || "") + "</p>"; }).join("") : ""); }
   else if(k === "ah"){ var a = ahRec(n); if(!a) return ""; h = "<h4>" + esc2(n) + '</h4><p class="im">' + esc2([a.f, a.mp ? a.mp + " Machtpunkte" : "", a.sm ? "Startmächte: " + a.sm : ""].filter(Boolean).join(" · ")) + "</p>" + (a.b || []).map(function(x){ return "<p>" + md(x) + "</p>"; }).join("") + (a.sp || []).map(function(x){ return "<p><b>" + esc2(x[0]) + ":</b> " + md(x[1]) + "</p>"; }).join(""); }
+  else if(k === "vl"){ var q = vorlageListe().filter(function(y){ return y.v.n === n; })[0]; if(!q) return ""; h = "<h4>" + esc2(n) + '</h4><p class="im">' + esc2(q.v.s || "") + "</p>" + (q.v.b || []).map(function(x){ return "<p>" + md(x) + "</p>"; }).join("") + ((q.v.ta.length || q.v.hi.length || q.v.ah) ? '<p class="im">Vorbelegt: ' + esc2(q.v.ta.concat(q.v.hi.map(function(x){ return x[0]; }), q.v.ah ? ["Arkaner Hintergrund (" + q.v.ah + ")"] : []).join(", ")) + "</p>" : ""); }
   else if(k === "volk"){ var v = allVoelker().filter(function(y){ return y.n === n; })[0]; if(!v) return ""; h = "<h4>" + esc2(n) + "</h4>" + (v.e || []).map(function(x){ return "<p><b>" + esc2(x[0]) + ":</b> " + md(x[1] || "") + "</p>"; }).join(""); }
   else if(k === "sk"){ var sd = SW_SKILLS.concat(window.SW_SKILLS_ZUS || []).filter(function(y){ return y.n === n; })[0]; if(!sd || !sd.t) return ""; h = "<h4>" + esc2(n) + '</h4><p class="im">' + esc2(sd.a) + "</p><p>" + md(sd.t) + "</p>"; }
   return h;
@@ -909,6 +936,8 @@ function wire(){
     if(ipop && e.target.closest && e.target.closest(".bipop")){ if(e.target.closest(".ix")) infoClose(); return; }
     infoClose();
     if(!pop) return;
+    var kt = e.target.closest ? e.target.closest(".bpop div[data-kat]") : null;
+    if(kt){ e.preventDefault(); kt.classList.toggle("auf"); pop.querySelectorAll('.vi[data-vk="' + kt.dataset.kat + '"]').forEach(function(d){ d.style.display = kt.classList.contains("auf") ? "" : "none"; }); return; }
     var mv = e.target.closest ? e.target.closest(".bpop div[data-mv]") : null;
     if(mv){ e.preventDefault(); var cb = pop._cb; popClose(); if(cb) cb(+mv.dataset.mv); return; }
     if(e.target.closest && e.target.closest(".bpop .mf")) return;
@@ -959,6 +988,7 @@ function wire(){
     else if(el.id === "bgShare") packen(cur).then(function(d){ teilen("bogen.html#c=" + d, el); });
     else if(el.id === "bgAss") assistent(0);
     else if(el.id === "bgRnd") zufallChar();
+    else if(el.id === "bgVor") vorlageOpen(el);
   });
   A.addEventListener("change", function(e){
     if(e.target.id !== "bgFile" || !e.target.files[0]) return;

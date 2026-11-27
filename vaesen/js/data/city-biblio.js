@@ -192,9 +192,9 @@ VAE_MYS.biblio = {
                 "%%city/city3_linnaeus_lappland"],
   wege: [
    {t:"Linnaeus erscheint", x:[
+    "%%city/city3_geist",
     "Ist Linnaeus’ Geist den Spielercharakteren noch nicht in seiner wahren Gestalt erschienen (siehe den Kasten auf S. 77), tut er es jetzt, ehe sie den Raum und das Buch untersuchen. Eine schimmernde Gestalt erscheint vor ihnen. Es ist ein älterer Mann in Kleidung und Perücke des 18. Jahrhunderts – siehe die Abbildung von Linnaeus’ Geist auf S. 77. Sein Anblick löst eine Furchtprobe gegen Furcht 1 aus (niedriger als üblich, da der Geist nicht versucht, sie zu erschrecken). Haben die Charaktere den Geist schon gesehen (siehe den Kasten auf S. 77), müssen sie diesmal nicht würfeln.",
     "@@„Freunde des Ungesehenen, willkommen! Ihr habt euch meiner Schriften mehr als würdig erwiesen!“",
-    "%%city/city3_geist",
     "Lass die Charaktere reagieren und mit Linnaeus’ Geist sprechen. Er hat jedoch keine Zeit, nützliche Antworten zu geben, ehe die nächste Phase des Dramas beginnt."]},
    {t:"Ärger in der Bibliothek", x:[
     "Plötzlich hören die Spielercharaktere Schritte, die die Treppe herunterkommen. August T. Lysander betritt die Bibliothek mit rätselhafter Miene und den Händen hinter dem Rücken. Sein gequälter Blick erklärt sich bald, als Lysanders Kammerdiener Karl-Axel Trygg mit gezogenem Revolver hinter ihm hergeht, gefolgt von einigen kräftigen Männern mit Gewehren. Ist Linnaeus’ Geist anwesend, verblasst er.",

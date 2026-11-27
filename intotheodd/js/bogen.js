@@ -194,14 +194,14 @@ function viewBogen(){
     bgMark("kr", v, 449.6, 431.8, 59.4, 59.4, "kr") +
     F("rue", 450, 572, 60, 56, "z", 40) +
     F("k", 735, 484, 100, 54, "z", 36) + F("s", 875, 484, 100, 54, "z", 36) + F("g", 1015, 484, 100, 54, "z", 36) +
-    bgArea("aus", v, 722, 140, 430, 293, 7, 30, 41.7) +
+    bgArea("aus", v, 722, 142, 430, 293, 7, 30, 41.7) +
     [0, 1, 2].map(function(i){ var y = [710, 752, 795][i]; return F("w" + i, 748, y - 38, 300, 38, "", 29) + F("ws" + i, 1056, y - 38, 92, 38, "r", 29); }).join("") +
     F("v0", 305, 757 - 38, 365, 38, "", 29) + F("v1", 258, 805 - 38, 412, 38, "", 29);
   /* Seite 2 */
   var lv = ["Neuling", "Profi", "Experte", "Veteran", "Meister", "Übermensch"];
-  var p2 = bgArea("not", v, 108, 124, 494, 677, 16, 30, 42.3) +
-    bgArea("arc", v, 836, 124, 326, 386, 9, 30, 42.9) +
-    bgArea("ges", v, 666, 622, 506, 169, 4, 30, 42.3) +
+  var p2 = bgArea("not", v, 108, 126, 494, 677, 16, 30, 42.3) +
+    bgArea("arc", v, 836, 126, 326, 386, 9, 30, 42.9) +
+    bgArea("ges", v, 666, 624, 506, 169, 4, 30, 42.3) +
     lv.map(function(n, i){ return bgMark("lv" + i, v, 627.5, 159.8 + i * 58.3, 47, 47, "lv", "bgStufe(" + i + ")"); }).join("");
   return '<div class="rp os-rp">' + bar + '<div class="os-bogen">' +
     '<div class="os-pg"><div class="os-seite" style="background-image:url(img/bogen/seite-1.webp)">' + p1 + '</div></div>' +

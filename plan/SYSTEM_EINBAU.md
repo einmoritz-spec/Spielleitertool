@@ -93,3 +93,9 @@ Vorbilder im Repo: **Heart** (`heart/`) und **Tales from the Loop** (`tftl/`, mi
 - [ ] Charakterbogen als ausfüllbares PDF (falls vorhanden)
 - [ ] Screenshots geprüft, auch eingeklappt
 - [ ] `sw.js`-Version, Rebase, Push
+
+## Charakterbogen: Schriftstaffelung und PDF/Druck (für jeden neuen Bogen)
+- Lange Einträge: Schriftgröße nach Länge staffeln (kurz = normal, länger = kleiner, 3–4 Stufen, Klassen `lang/lang2/lang3` oder `--sc` bei Eingabefeldern, live beim Tippen), damit nichts überläuft oder abgeschnitten wird.
+- Ganz oben in der Bogen-CSS (nicht in `@media print`): `@page { size: A4 landscape; margin: 0 }`.
+- Jede Bogenseite in einen Wrapper `.os-pg` (Bildschirm: `display: contents`). Im Druck 210 mm hoch mit `overflow: hidden`, die Seite darin ca. 288,8 × 223,1 mm, mittig. Der Copyright-Streifen unten wird abgeschnitten.
+- Test: Playwright `emulate_media('print')`, `pdf(prefer_css_page_size=True)`, mit pymupdf prüfen (Querformat, 297 × 210 mm, richtige Seitenzahl, nichts abgeschnitten). Pro Bogenseite eine neue Page öffnen.

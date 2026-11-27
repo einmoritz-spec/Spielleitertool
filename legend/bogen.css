@@ -1,3 +1,5 @@
+/* A4 quer */
+@page{size:A4 landscape;margin:0}
 /* Legend-in-the-Mist-Charakterbogen: Original-Seiten (ohne Beschriftung) als Hintergrund, deutsche Beschriftung und Felder exakt darüber */
 .mi-head{background:#f3e9d2;border-bottom:1px solid #d3bf95}
 .mi-head .mi-logo{height:26px}
@@ -22,12 +24,12 @@
 .t.klein{font:700 calc(var(--pt)*5.8)/1 "LB Cinzel",serif;color:#5f4326;text-transform:uppercase;letter-spacing:.07em}
 
 /* Eingaben (Handschrift-Ebene, durchsichtig) */
-.o-in{background:transparent;border:0;outline:0;padding:calc(var(--pt)*3.5) calc(var(--pt)*2) 0;font:400 calc(var(--pt)*12.8)/1 var(--hand);color:var(--ink);text-overflow:ellipsis}
+.o-in{background:transparent;border:0;outline:0;padding:calc(var(--pt)*3.5) calc(var(--pt)*2) 0;font:400 calc(var(--pt)*12.8*var(--sc,1))/1 var(--hand);color:var(--ink);text-overflow:ellipsis}
 .o-in:hover{background:transparent}
 .o-in:focus{background:transparent;box-shadow:inset 0 calc(var(--pt)*-.8) 0 rgba(120,70,30,.55)}
-.o-in.s{font-size:calc(var(--pt)*11.4)}
-.o-in.lbl{font:400 calc(var(--pt)*15)/1 var(--hand);padding:calc(var(--pt)*2) 0 0 calc(var(--pt)*5);text-align:center}
-.o-name{background:none;border:0;outline:0;resize:none;overflow:hidden;padding:calc(var(--pt)*4) calc(var(--pt)*3) 0;font:700 calc(var(--pt)*31)/calc(var(--pt)*36) "LB Fraktur",serif;color:#4a3519;text-align:center}
+.o-in.s{font-size:calc(var(--pt)*11.4*var(--sc,1))}
+.o-in.lbl{font:400 calc(var(--pt)*15*var(--sc,1))/1 var(--hand);padding:calc(var(--pt)*2) 0 0 calc(var(--pt)*5);text-align:center}
+.o-name{background:none;border:0;outline:0;resize:none;overflow:hidden;padding:calc(var(--pt)*4) calc(var(--pt)*3) 0;font:700 calc(var(--pt)*31*var(--sc,1))/calc(var(--pt)*36) "LB Fraktur",serif;color:#4a3519;text-align:center}
 .o-name::placeholder{color:rgba(120,92,52,.3)}
 .o-name:focus{box-shadow:inset 0 calc(var(--pt)*-.8) 0 rgba(120,70,30,.4)}
 
@@ -49,8 +51,8 @@
 .feld:hover{background:rgba(255,255,255,.32)}
 .feld span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;line-height:1.7;margin-bottom:calc(var(--pt)*-3.2);padding-right:calc(var(--pt)*2.5)}
 .feld.titel{font-size:calc(var(--pt)*17)}
-.feld.titel.lang{font-size:calc(var(--pt)*13.5)}.feld.titel.lang2{font-size:calc(var(--pt)*11)}
-.feld.lang{font-size:calc(var(--pt)*10.6)}.feld.lang2{font-size:calc(var(--pt)*8.8)}
+.feld.titel.lang{font-size:calc(var(--pt)*13.5)}.feld.titel.lang2{font-size:calc(var(--pt)*11)}.feld.titel.lang3{font-size:calc(var(--pt)*9)}
+.feld.lang{font-size:calc(var(--pt)*10.6)}.feld.lang2{font-size:calc(var(--pt)*8.8)}.feld.lang3{font-size:calc(var(--pt)*7.4)}
 .feld.w{color:#5e1f14}
 .feld .ph{font:italic 400 calc(var(--pt)*6.8)/1.2 "LB Labrada",serif;color:#9a8666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:100%}
 .feld.burned span{text-decoration:line-through;text-decoration-color:#8d2f1f;text-decoration-thickness:calc(var(--pt)*1.1);color:#7a6a55}
@@ -64,7 +66,7 @@
 .inv.on:before{opacity:1}.inv.on:after{opacity:.85}
 .o-quest{display:block;padding:calc(var(--pt)*2.2) calc(var(--pt)*3) 0;font:400 calc(var(--pt)*12.5)/calc(var(--pt)*25.1) var(--hand);color:var(--ink);text-decoration:none;cursor:pointer;white-space:pre-wrap;overflow:hidden}
 .o-quest:hover{background:rgba(255,255,255,.28)}
-.o-quest.lang{font-size:calc(var(--pt)*11)}.o-quest.lang2{font-size:calc(var(--pt)*9.4)}
+.o-quest.lang{font-size:calc(var(--pt)*11)}.o-quest.lang2{font-size:calc(var(--pt)*9.4)}.o-quest.lang3{font-size:calc(var(--pt)*8)}
 
 /* Leisten (Abandon, Improve, Milestone, Promise) */
 .trk{cursor:pointer;border-radius:50%;--glow:#e8b13a}
@@ -126,12 +128,14 @@
 .ob-mfuss a:hover{color:#2a1f14}
 
 /* Druck: drei Seiten im Querformat wie das Original */
+.os-pg{display:contents}
 @media print{
-  @page{size:11in 8.5in;margin:0}
   body{background:#fff}
   .mi-main,.mi-main.mi-wide{max-width:none;padding:0;margin:0}
-  .os-seite{width:11in;height:8.5in;aspect-ratio:auto;margin:0;box-shadow:none;break-after:page;break-inside:avoid}
-  .os-seite:last-child{break-after:auto}
+  .os-pg{display:block;height:210mm;overflow:hidden;break-after:page;break-inside:avoid;position:relative}
+  .os-pg:last-child{break-after:auto}
+  .os-seite{width:288.8mm;height:223.1mm;aspect-ratio:auto;margin:0 auto;box-shadow:none}
+  .os-seite .t.copy{display:none}
   .os-seite,.os-seite *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .feld .ph,.spec.neu,.spec.neu .ph,.ii,.buch.leer{color:transparent!important;border-color:transparent!important}
   .o-in::placeholder,.o-name::placeholder{color:transparent!important}

@@ -99,7 +99,7 @@ var DX2 = [0, 186.8, 374.2, 561.4], DX3 = [0, 188, 374.9, 562.8];
 function themaVorn(c, t, i){
   var dx = DX2[i], b = t.book && A.book(t.book), y = typOf(t), pl = b ? pListe(t) : null, h = "";
   [["Self", 37.2], ["Mythos", 55], ["Noise", 74.1]].forEach(function(k){ h += lnk(k[1] + dx - 8, 69.6, 16, 16, "ty" + (y === k[0] ? " on t-" + k[0] : ""), "", 'data-act="obTyp" data-i="' + i + '" data-v="' + k[0] + '" data-tip="' + TYP[k[0]].l + '"'); });
-  h += lnk(86 + dx, 69, 104, 15.2, "buch" + (b ? "" : " leer"), b ? esc(t.name && t.name !== b.name ? t.name : b.name) : "Themenbuch wählen", 'data-act="obBuch" data-i="' + i + '" data-k="buch' + i + '"');
+  h += lnk(86 + dx, 69, 104, 18, "buch" + (b ? "" : " leer"), b ? esc(t.name && t.name !== b.name ? t.name : b.name) : "Themenbuch wählen", 'data-act="obBuch" data-i="' + i + '" data-k="buch' + i + '"');
   if(b) h += lnk(191 + dx, 71, 9, 9, "ii", "i", 'data-act="obBuchInfo" data-i="' + i + '" data-k="bi' + i + '" data-tip="Infos zum Themenbuch"');
   h += legende(dx + 25, 0, ["Self", "Mythos", "Noise"].map(function(k){ return '<span class="' + (y === k ? "on" : "") + '">' + TYP[k].m + '</span>'; }).join(" / "));
   ROWS.forEach(function(r, s){
@@ -131,7 +131,7 @@ function loadout(c){
     var L = c.load[n], ax = A0[n] - 18.2, bx = B0[n] - 206.1;
     h += txt(26.4 + ax, 67.9, 80, 18.5, "kopf w", "Loadout-Thema", "font-size:calc(var(--pt)*13)") + txt(117 + ax, 72.5, 36, 11.5, "upg", "Upgrade ›", "justify-content:flex-end") + txt(214.3 + bx, 67.9, 120, 18.5, "kopf w", "Loadout-Thema");
     [[156.4, 168.3], [168.3, 181], [181, 194]].forEach(function(g, k){ h += lnk(g[0] + ax, 72.5, g[1] - g[0], 11.5, "trk h" + (L.upg >= k + 1 ? " on" : ""), "", 'data-act="obTick" data-p="load.' + n + '.upg" data-v="' + (k + 1) + '" data-tip="Upgrade ' + (k + 1) + '"'); });
-    [[25.8 + ax, 124.2 + ax, 157.9 + ax], [213.7 + bx, 312.1 + bx, 345.8 + bx]].forEach(function(p){ h += txt(p[0], 94.5, 30, 14, "tags", "Tags") + txt(p[1] - 5, 96.4, 23.4, 9.8, "chip", "Makel") + txt(p[2] - 3.2, 96.4, 20, 9.8, "chip", "Burn"); });
+    [[25.8 + ax, 124.2 + ax, 157.9 + ax], [213.7 + bx, 312.1 + bx, 345.8 + bx]].forEach(function(p){ h += txt(p[0], 94.5, 30, 14, "tags", "Tags") + txt(p[1] - 3.7, 97.3, 20, 9.6, "chip m", "Makel") + txt(p[2] - 2.3, 97.3, 20, 9.6, "chip m", "Burn"); });
     for(var r = 0; r < 21; r++){
       var x = L.tags[r], front = r < 14, top = front ? 112.9 + r * 28.5 : 115.9 + (r - 14) * 28.6, ox = front ? ax : bx + 188, path = "load." + n + ".tags." + r;
       h += inp(30 + ox, top + 2, 122, 20.5, path + ".a", x.a, "hand s" + (x.burn ? " burned" : ""));

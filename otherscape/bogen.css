@@ -22,6 +22,7 @@ body{background:#d9dde2;min-height:100vh;color:var(--text)}
 .t.sub{font:400 calc(var(--pt)*9.5)/1 "OB Bebas",sans-serif;color:#111;text-transform:uppercase}
 .t.tags{font:400 calc(var(--pt)*10.5)/1 "OB Bebas",sans-serif;color:#fff;letter-spacing:.02em;text-transform:uppercase}
 .t.chip{font:400 calc(var(--pt)*7.4)/1 "OB Bebas",sans-serif;color:#426078;letter-spacing:.05em;text-transform:uppercase}
+.t.chip.m{justify-content:center;font-size:calc(var(--pt)*6.6)}
 .t.chip.k{font-size:calc(var(--pt)*5.7);letter-spacing:0}
 .t.ml{font:400 calc(var(--pt)*9.5)/1 "OB Bebas",sans-serif;color:#fff;letter-spacing:.02em;text-transform:uppercase}
 .t.ml span{opacity:.6;margin:0 .15em}.t.ml span:first-child{margin-left:0}

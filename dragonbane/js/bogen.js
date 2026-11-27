@@ -223,8 +223,8 @@ var DBB = (function(){
             try{
               if(f[1][0] === "c"){ var cb = form.getCheckBox(n); if(S.f[n]) cb.check(); else cb.uncheck(); return; }
               var tf = form.getTextField(n), t = FillPDF.sauber(font, v(n)), g = fs(f);
-              if(f[1] !== "m"){ while(g > 5 && font.widthOfTextAtSize(t, g) > f[4] - 3) g -= .5; }
-              var gr = f[1] === "m" ? 8 : g;
+              if(f[1] !== "m" || n === "Schwäche 2"){ while(g > 4.5 && font.widthOfTextAtSize(t, g) > f[4] - 3) g -= .5; }
+              var gr = f[1] === "m" && n !== "Schwäche 2" ? 8 : g;
               tf.acroField.setDefaultAppearance("/Helv " + gr + " Tf 0 g");
               tf.setText(t); tf.setFontSize(gr);
               if(ZAHL.test(n)) tf.setAlignment(L.TextAlignment.Center);
@@ -542,6 +542,7 @@ var DBB = (function(){
     B.addEventListener("focusout", function(e){ if(e.target.dataset && e.target.dataset.f){ var n = e.target.dataset.f; if(/^(Volk|STR|KON|GEW|INT|WIL|CHA)$/.test(n) || TAL.indexOf(n) >= 0 || INV.indexOf(n) >= 0) angleichen(); } });
   }
   document.addEventListener("click", function(e){
+    if(e.target.closest(".dbb-voll")){ sauberEnde(); render(); return; }
     var b = e.target.closest(".dbb-leiste [data-act]"); if(!b) { if(!e.target.closest(".bw-pop,.bw-info")) popWeg(); return; }
     e.stopPropagation(); var a = b.dataset.act;
     if(a === "zufall"){ if(gefuellt() && !confirm("Den Bogen durch einen zufälligen Charakter ersetzen?")) return; zufall(); }
@@ -557,15 +558,29 @@ var DBB = (function(){
   var prev = window.afterRender;
   window.afterRender = function(){ if(prev) prev(); verdrahten(); };
 
+  /* ---------- Geteilter Link: nur der Bogen ---------- */
+  function sauberSetzen(){
+    var an = false; try{ an = sessionStorage.getItem("dbb_clean") === "1"; }catch(e){}
+    document.body.classList.toggle("dbb-clean", an);
+  }
+  function sauberEnde(){ try{ sessionStorage.removeItem("dbb_clean"); }catch(e){} document.body.classList.remove("dbb-clean"); }
+  window.addEventListener("hashchange", function(){ if((location.hash || "").indexOf("#n/bogen") !== 0) sauberEnde(); });
+
   /* ---------- Ansicht ---------- */
   function view(h){
     var c = h[2] || "";
     if(c.indexOf("teilen~") === 0){
-      var ok = false; try{ var o = pruefen(JSON.parse(ub64(c.slice(7)))); if(o){ S = o; sichere(); ok = true; } }catch(e){}
-      history.replaceState(null, "", "#n/bogen"); setTimeout(function(){ toast(ok ? "Bogen übernommen" : "Link ungültig."); }, 60);
+      var o = null; try{ o = pruefen(JSON.parse(ub64(c.slice(7)))); }catch(e){}
+      var msg = "Link ungültig.";
+      if(o){
+        if(gefuellt() && !confirm("Dein eigener Bogen wird durch den geteilten Bogen ersetzt. Fortfahren?")){ msg = "Eigener Bogen behalten."; }
+        else { S = o; sichere(); msg = "Bogen übernommen"; try{ sessionStorage.setItem("dbb_clean", "1"); }catch(e){} }
+      }
+      history.replaceState(null, "", "#n/bogen"); setTimeout(function(){ toast(msg); }, 60);
     }
+    sauberSetzen();
     ableiten();
-    return '<div class="dbb-wrap">' + bogenHtml() + "</div>";
+    return '<div class="dbb-wrap">' + bogenHtml() + "</div>" + '<button class="dbb-voll noprint" data-act="voll" data-tip="Ganzes Tool öffnen" aria-label="Ganzes Tool öffnen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>';
   }
   return {view: view, leiste: leiste, zustand: function(){ return S; }};
 })();

@@ -499,8 +499,12 @@ body.dark .side .sj{border-left-color:rgba(255,255,255,.15)}
 .bw-info{padding:12px 14px;overflow-y:scroll;font:13px/1.45 system-ui,sans-serif;max-height:420px}.bw-info h4{margin:0 0 6px;font-size:15px}.bw-info p{margin:0 0 8px}.bw-info .s{color:#666;font-size:12px}
 .bw-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#222;color:#fff;font:600 13px system-ui,sans-serif;padding:9px 16px;border-radius:6px;z-index:300}
 .bw-pop .pn{border-left:0;font:600 13px Rubik,system-ui,sans-serif;padding:5px 9px}.bw-pop .pn small{display:block;font-weight:400;font-size:10.5px;color:#777}.bw-pop .pn.sel{background:#d8eeee}
-.bw-pop .hint{font:11.5px/1.38 Rubik,system-ui,sans-serif;color:#777;margin:4px 8px 6px}.bw-pop .gh{position:sticky;top:-4px;background:#fff;font:700 10.5px Rubik,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--c,#277);padding:6px 9px 2px}
+.bw-pop .hint{font:11.5px/1.38 Rubik,system-ui,sans-serif;color:#777;margin:4px 8px 6px}
 .bw-info ul{margin:0 0 8px;padding-left:18px}
 .bartabs .bw-tools{margin-left:8px}.bartabs .bwi{color:var(--fg,#222)}
 .sheet .bw-dd{position:absolute;width:15px;height:15px;padding:0;border:0;border-radius:3px;background:transparent;color:#666;font-size:10px;line-height:15px;cursor:pointer;z-index:3}
 .sheet .bw-dd:hover{background:rgba(0,0,0,.12);color:#222}.sheet .bw-dd:hover::after{display:none}
+.bw-pop .sq{position:sticky;top:-4px;background:#fff;padding:4px 4px 6px;z-index:2}.bw-pop .sq input{width:100%;box-sizing:border-box;border:1.5px solid #bbb;border-radius:6px;padding:6px 9px;font:13px Rubik,system-ui,sans-serif;outline:0;background:#fff;color:#222}.bw-pop .sq input:focus{border-color:var(--c,#277)}
+.bw-pop .gh{display:flex;align-items:center;gap:6px;padding:7px 9px;margin-top:2px;background:#f1f3f2;border-radius:4px;cursor:pointer;font:700 11px Rubik,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--c,#277)}
+.bw-pop .gh span{flex:1}.bw-pop .gh em{font:500 11px Rubik,sans-serif;color:#777;font-style:normal}.bw-pop .gh i{width:7px;height:7px;border-right:2px solid #777;border-bottom:2px solid #777;transform:rotate(-45deg);transition:transform .15s}.bw-pop .gh.on i{transform:rotate(45deg)}
+.bw-pop .gb{padding:2px 0 4px 6px}

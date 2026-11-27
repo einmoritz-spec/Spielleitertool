@@ -79,17 +79,31 @@
   function wrap(ev){ if(ev) ev.stopPropagation(); popWeg(); }
   function menu(btn, o){
     var pop = document.createElement("div"); pop.className = "bw-pop"; document.body.appendChild(pop);
-    var last = null, h = o.hint ? '<p class="hint">' + esc(o.hint) + "</p>" : "";
-    o.items.forEach(function(it, i){
-      if(it.g && it.g !== last){ h += '<div class="gh">' + esc(it.g) + "</div>"; last = it.g; }
-      h += '<div class="pz"><button class="pn' + (it.sel ? " sel" : "") + '" data-i="' + i + '">' + esc(it.t) + (it.s ? "<small>" + esc(it.s) + "</small>" : "") + "</button>" + (o.info ? '<button class="pi" data-t="' + i + '" aria-label="Info">i</button>' : "") + "</div>";
-    });
-    pop.innerHTML = h;
-    var rc = btn.getBoundingClientRect(), br = o.breit || 250; pop.style.cssText = "width:" + br + "px;left:" + Math.max(8, Math.min(rc.left, innerWidth - br - 8)) + "px;top:" + Math.min(rc.bottom + 4, Math.max(8, innerHeight - 380)) + "px";
+    var gr = o.items.some(function(it){ return it.g; }), such = o.items.length > 12, auf = {}, q = "";
+    o.items.forEach(function(it){ if(it.sel && it.g) auf[it.g] = 1; });
+    var low = function(t){ return String(t || "").toLowerCase(); };
+    function zeile(it, i){ return '<div class="pz"><button class="pn' + (it.sel ? " sel" : "") + '" data-i="' + i + '">' + esc(it.t) + (it.s ? "<small>" + esc(it.s) + "</small>" : "") + "</button>" + (o.info ? '<button class="pi" data-t="' + i + '" aria-label="Info">i</button>' : "") + "</div>"; }
+    function liste(){
+      var h = "", last = null, n = 0, ok = function(it){ return !q || low(it.t + " " + (it.s || "") + " " + (it.g || "") + " " + (it.suche || "")).indexOf(q) >= 0; };
+      if(!gr){ o.items.forEach(function(it, i){ if(ok(it)){ h += zeile(it, i); n++; } }); }
+      else {
+        var G = [], M = {}; o.items.forEach(function(it, i){ if(!M[it.g]){ M[it.g] = {g: it.g, l: []}; G.push(M[it.g]); } if(ok(it)) M[it.g].l.push([it, i]); });
+        G.forEach(function(g){ if(q && !g.l.length) return; var offen = q || auf[g.g]; n += g.l.length;
+          h += '<div class="gh' + (offen ? " on" : "") + '" data-g="' + esc(g.g) + '"><span>' + esc(g.g) + "</span><em>" + (q ? g.l.length : M[g.g].l.length) + '</em><i></i></div>';
+          if(offen) h += '<div class="gb">' + g.l.map(function(x){ return zeile(x[0], x[1]); }).join("") + "</div>"; });
+      }
+      return h || '<p class="hint">Nichts gefunden.</p>';
+    }
+    pop.innerHTML = (such ? '<div class="sq"><input type="search" placeholder="Suchen …" autocomplete="off" spellcheck="false"></div>' : "") + (o.hint ? '<p class="hint">' + esc(o.hint) + "</p>" : "") + '<div class="lst">' + liste() + "</div>";
+    var rc = btn.getBoundingClientRect(), br = o.breit || 250; pop.style.cssText = "width:" + br + "px;left:" + Math.max(8, Math.min(rc.left, innerWidth - br - 8)) + "px;top:" + Math.min(rc.bottom + 4, Math.max(8, innerHeight - 440)) + "px";
+    var inp = pop.querySelector("input"), L = pop.querySelector(".lst");
+    if(inp){ inp.oninput = function(){ document.querySelectorAll(".bw-info").forEach(function(x){ x.remove(); }); q = low(inp.value.trim()); L.innerHTML = liste(); }; setTimeout(function(){ inp.focus(); }, 30); }
     pop.onclick = function(e){
-      var b = e.target.closest("button"); if(!b) return; e.stopPropagation();
+      e.stopPropagation(); var g = e.target.closest(".gh");
+      if(g){ var k = g.dataset.g; if(!q){ if(auf[k]) delete auf[k]; else auf[k] = 1; L.innerHTML = liste(); } return; }
+      var b = e.target.closest("button"); if(!b) return;
       if(b.dataset.t != null){
-        document.querySelectorAll(".bw-info").forEach(function(q){ q.remove(); });
+        document.querySelectorAll(".bw-info").forEach(function(x){ x.remove(); });
         var inf = document.createElement("div"); inf.className = "bw-info"; inf.innerHTML = o.info(o.items[+b.dataset.t]); document.body.appendChild(inf);
         var pr = pop.getBoundingClientRect(), w = Math.min(340, innerWidth - pr.right - 12);
         if(w < 220){ inf.style.left = Math.max(8, pr.left - 340) + "px"; inf.style.width = "332px"; } else { inf.style.left = pr.right + "px"; inf.style.width = w + "px"; }
@@ -100,7 +114,7 @@
   }
   function aspektWahl(btn, ev, k){
     wrap(ev); var v = curV(), cur = BG(v).f[k];
-    menu(btn, {hint: "Aspekte aus dem Regelbuch (S. 104–131)", breit: 270, items: katalog().asp.map(function(a){ return {t: a.t, s: a.kind, g: a.g, sel: cur === a.t, a: a}; }),
+    menu(btn, {hint: "Aspekte aus dem Regelbuch (S. 104–131)", breit: 270, items: katalog().asp.map(function(a){ return {t: a.t, s: a.k, g: a.g, sel: cur === a.t, a: a}; }),
       info: function(it){ return "<h4>" + esc(it.a.t) + '</h4><p class="s">' + esc(it.a.g + " · " + it.a.k) + "</p>" + it.a.x.map(function(p){ return "<p>" + esc(p) + "</p>"; }).join(""); },
       pick: function(it){ var f = BG(v).f, t = k.replace(/n$/, "t"); f[k] = it.a.t; if(!f[t]) f[t] = aText(it.a); save(); render(); }});
   }

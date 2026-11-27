@@ -7,33 +7,32 @@ function uiTzProgress(){
   return {cd:s.cd.length, cdTot:4, got:got, tot:tot, last:s.last || "", any:!!(s.cd.length || got)};
 }
 function uiStart(){
-  var pr = uiTzProgress(), lastName = "";
-  TANZ.tabs.forEach(function(t){ if(t[1] === pr.last) lastName = t[0]; });
-  var pct = Math.round(((pr.cd / pr.cdTot) + (pr.got / pr.tot)) / 2 * 100);
-  var advS = '', advO = '';
-  var adv = '<div class="vu-ac vu-big" onclick="go(\'tanz/' + (pr.last || "hg") + '\')"><span class="vu-cont">' + (pr.any ? "Weiterspielen" : "Starten") + '</span><div class="vu-im" style="background-image:url(img/tanz/eroeffnung.webp)"></div><div class="vu-tx"><h3>Tanz der Träume</h3><div class="vu-src">Grundregelwerk · S. 196</div>' +
-    '<div class="vu-prog"><span>Countdown <b>' + pr.cd + ' / ' + pr.cdTot + '</b></span><span>Hinweise <b>' + pr.got + ' / ' + pr.tot + '</b>' + (lastName ? '</span><span><b>' + lastName + '</b>' : '') + '</span></div><div class="vu-bar"><i style="width:' + pct + '%"></i></div></div></div>';
-  var books = [];
-  VAE_BUECHER.forEach(function(g){ g.items.forEach(function(b){ if(b.cover) books.push(b); }); });
-  var sm = window.VAE_MYS && VAE_MYS.tod ? 1 : 0;
+  var pr = uiTzProgress();
+  /* Mysterien: ein gemeinsamer Bildstreifen, gruppiert nach Buch */
+  var tanz = '<a class="vs-my vs-emb" onclick="go(\'tanz/' + (pr.last || "hg") + '\')" style="--im:url(img/tanz/eroeffnung.webp)"><span class="vs-k">Einführung</span><span class="vs-t"><b>Der Tanz der Träume</b><small>Upsala</small><em>Countdown ' + pr.cd + ' / ' + pr.cdTot + ' · Hinweise ' + pr.got + ' / ' + pr.tot + '</em><i>' + (pr.any ? "Weiterspielen" : "Starten") + '</i></span></a>';
+  var som = "";
   ["tod", "feuer", "teufel", "winter"].forEach(function(id){
     var M = window.VAE_MYS && VAE_MYS[id]; if(!M) return;
     var st = JSON.parse(localStorage.getItem("vae_som_" + id + "_v1") || "{}"), scd = (st.cd || []).length, scl = Object.keys(st.clue || {}).length;
-    advS += '<div class="vu-ac" onclick="go(\'som/' + id + '/' + (st.last || "hg") + '\')"><span class="vu-cont">' + (scd || scl ? "Weiterspielen" : "Starten") + '</span><div class="vu-im" style="background-image:url(img/' + M.bild + '.webp)"></div><div class="vu-tx"><h3>' + esc(M.titel) + '</h3><div class="vu-src">Seasons of Mystery · S. ' + M.p + '</div><div class="vu-prog"><span>Countdown <b>' + scd + ' / ' + (M.cd ? M.cd.length : 4) + '</b></span><span>Hinweise <b>' + scl + '</b></span></div></div></div>';
+    som += '<a class="vs-my" onclick="go(\'som/' + id + '/' + (st.last || "hg") + '\')" style="--im:url(img/' + M.bild + '.webp)"><span class="vs-k">' + esc(M.zeit || "") + '</span><span class="vs-t"><b>' + esc(M.titel) + '</b><small>' + esc((M.ort || "").split(" · ")[0]) + '</small><em>Countdown ' + scd + ' / ' + (M.cd ? M.cd.length : 4) + ' · Hinweise ' + scl + '</em><i>' + (scd || scl ? "Weiterspielen" : "Starten") + '</i></span></a>';
   });
-  books.filter(function(b){ return [sm ? "" : "vae_seasons", "vae_wicked", "vae_city"].indexOf(b.id) > -1; }).forEach(function(b){
-    advO += '<div class="vu-ac vu-off" onclick="BV.open(\'' + b.id + '\',1)"><div class="vu-im" style="background-image:url(img/' + b.cover + ')"></div><div class="vu-tx"><h3>' + esc(b.name) + '</h3><div class="vu-src">' + esc(b.sub) + '</div><div class="vu-st">Noch nicht eingebaut</div></div></div>';
-  });
-  var tools = AREAS.filter(function(a){ return a.id !== "tanz"; }).map(function(a){
-    return '<div class="vu-tl" onclick="go(\'' + a.id + '\')"><div class="vu-im" style="background-image:url(' + IMG(a.img, "thumb") + ');background-position:' + a.pos + '"></div><b>' + esc(a.t).replace("Charaktererstellung", "Charakter-<br>erstellung") + '</b></div>';
+  var grp = '<div class="vs-grp" style="flex:1"><div class="vs-gh">Grundregelwerk</div><div class="vs-row">' + tanz + '</div></div>' +
+    (som ? '<div class="vs-grp" style="flex:4"><div class="vs-gh">Seasons of Mystery<button onclick="uiVorwort()">Vorwort</button></div><div class="vs-row">' + som + '</div></div>' : '');
+  /* Bereiche des Grundregelwerks */
+  var big = {vaesen:1};
+  var areas = AREAS.filter(function(a){ return a.id !== "tanz"; }).map(function(a){
+    return '<a class="vs-ar' + (big[a.id] ? ' vs-wide' : '') + '" onclick="go(\'' + a.id + '\')" style="--im:url(' + IMG(a.img) + ');--pos:' + a.pos + '"><b>' + esc(a.t) + '<small>' + esc(a.s) + '</small></b></a>';
   }).join("");
-  var shelf = books.map(function(b){ return '<div class="vu-bk" onclick="BV.open(\'' + b.id + '\',1)"><img src="img/' + b.cover + '" alt=""><div><b>' + esc(b.name) + '</b><small>' + esc(b.sub) + '</small></div></div>'; }).join("");
-  return '<div class="vu-m1hero" style="background-image:url(img/hero_naeck.webp)"><div class="ht"><img src="../assets/logos/vaesen-rot.webp" alt="Vaesen"><p>Mythisches Skandinavien im 19. Jahrhundert. Die Gesellschaft jagt Vaesen – Wesen aus Sagen und Aberglauben.</p></div></div>' +
-   '<div class="vu-m1"><div><div class="vu-sh"><h2>Spielhilfen</h2></div><div class="vu-tools">' + tools + '</div>' +
-   '<div class="vu-sh" style="margin-top:26px"><h2>Grundregelwerk</h2></div><div class="vu-adv">' + adv + '</div>' +
-   '<div class="vu-sea"><div class="vu-seah"><img src="img/cover_seasons.webp" alt=""><div><h2>Seasons of Mystery</h2><small>Vier Mysterien durchs Jahr · Frühling, Sommer, Herbst, Winter</small></div><button class="vu-vwb" onclick="uiVorwort()">Vorwort <span>S. 3</span></button></div><div class="vu-adv">' + advS + '</div></div>' +
-   (advO ? '<div class="vu-sh" style="margin-top:26px"><h2>Weitere Bände</h2></div><div class="vu-adv vu-offrow">' + advO + '</div>' : '') + '</div>' +
-   '<div><div class="vu-sh"><h2>Bücher</h2></div><div class="vu-shelf2">' + shelf + '</div></div></div>';
+  /* Bücher: hochkant, lückenlos */
+  var books = [];
+  VAE_BUECHER.forEach(function(g){ g.items.forEach(function(b){ if(b.cover) books.push(b); }); });
+  var shelf = books.map(function(b){
+    return '<a class="vs-bk' + (b.on ? '' : ' vs-off') + '" onclick="BV.open(\'' + b.id + '\',1)" style="--im:url(img/' + b.cover + ')"><b>' + esc(b.name.replace("Vaesen – ", "")).replace("Grundregelwerk", "Grund&shy;regelwerk") + '<small>' + esc(b.on ? b.sub : "Noch nicht eingebaut") + '</small></b></a>';
+  }).join("");
+  return '<div class="vs-hero"><img src="../assets/logos/vaesen-rot.webp" alt="Vaesen"></div><div class="vs">' +
+    '<div class="vs-sh">Grundregelwerk</div><div class="vs-strip">' + areas + '</div>' +
+    '<div class="vs-sh">Mysterien</div><div class="vs-mys">' + grp + '</div>' +
+    '<div class="vs-sh">Bücher</div><div class="vs-books">' + shelf + '</div></div>';
 }
 
 /* ---------- Ortskarten (Norden, Gesellschaft): Kästen des Buchs als zugeklappte Karten ---------- */

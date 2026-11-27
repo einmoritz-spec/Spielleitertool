@@ -1,0 +1,42 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.hero{padding:62px 56px 4px}.hero img{height:84px;display:block}
+.areas{display:grid;grid-template-columns:repeat(8,1fr);gap:22px;padding:26px 56px 0}
+.areas a{text-align:center}
+.areas span{display:block;aspect-ratio:1;border-radius:50%;background:center/cover;border:1px solid var(--line);box-shadow:inset 0 0 0 4px rgba(240,235,222,.9),0 0 0 1px rgba(122,101,82,.4);transition:transform .2s}
+.areas b{display:block;font-family:Mar;font-weight:400;font-size:16px;letter-spacing:.06em;margin-top:9px;line-height:1.1}
+.nord{display:grid;grid-template-columns:500px minmax(0,1fr);gap:40px;padding:38px 56px 50px}
+.map{position:relative;align-self:start}
+.map img{width:100%;display:block;box-shadow:0 8px 22px rgba(40,25,10,.3)}
+.pin{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:var(--red);color:#f3ecd9;font-family:Mar;font-size:15px;display:grid;place-items:center;box-shadow:0 0 0 3px rgba(243,236,217,.9),0 3px 8px rgba(0,0,0,.4)}
+.list .item{display:grid;grid-template-columns:30px 110px 1fr auto;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(122,101,82,.45)}
+.list .n{width:30px;height:30px;border-radius:50%;background:var(--red);color:#f3ecd9;font-family:Mar;display:grid;place-items:center;font-size:15px}
+.list .im{height:110px;background:center/cover}
+.list .im.c{background-size:contain;background-repeat:no-repeat;mix-blend-mode:multiply}
+.list b{display:block;font-family:Mar;font-weight:400;font-size:23px;letter-spacing:.05em;color:var(--red);line-height:1.1}
+.list .k{font-family:Mar;font-size:12.5px;letter-spacing:.22em;color:var(--soft)}
+.list small{font-style:italic;color:var(--soft);font-size:15.5px}
+.list .go{font-family:Mar;letter-spacing:.16em;font-size:13.5px;color:var(--red)}
+.bk{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;margin-top:30px}.bk img{width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 4px 10px rgba(40,25,10,.25)}.bk .off{filter:grayscale(.85);opacity:.45;box-shadow:none}
+</style><body><div class="top"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><svg viewBox="0 0 24 24"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z M12 6v14"/></svg><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5"/></svg><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 16l5-5 4 4 3-3 4 4"/></svg><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+<div class="hero"><img src="../../../assets/logos/vaesen-rot.webp"></div>
+<div class="areas">
+<a><span style="background-image:url(../../../vaesen/img/full/charaktere_kapitelbild_fenster.webp);background-position:50% 20%"></span><b>Regeln</b></a>
+<a><span style="background-image:url(../../../vaesen/img/full/charaktere_archetyp_priester.webp);background-position:50% 12%"></span><b>Charaktere</b></a>
+<a><span style="background-image:url(../../../vaesen/img/full/vaesen_titel_hirsch.webp);background-position:50% 30%"></span><b>Vaesen</b></a>
+<a><span style="background-image:url(../../../vaesen/img/full/norden_titel_reiter.webp);background-position:40% 50%"></span><b>Der Norden</b></a>
+<a><span style="background-image:url(../../../vaesen/img/full/mysterium_dame_mit_laterne.webp);background-position:50% 15%"></span><b>Gesellschaft</b></a>
+<a><span style="background-image:url(../../../vaesen/img/full/einleitung_naeck.webp);background-position:60% 40%"></span><b>Mysterium</b></a>
+<a><span style="background-image:url(../../../vaesen/img/full/norden_karte_upsala.webp)"></span><b>Karten</b></a>
+<a><span style="background-image:url(../../../vaesen/img/full/charaktere_archetyp_vagabund.webp);background-position:50% 15%"></span><b>Erstellung</b></a>
+</div>
+<div class="nord"><div class="map"><img src="../../../vaesen/img/full/norden_karte_mythischer_norden.webp">
+<span class="pin" style="left:53.2%;top:62.5%">1</span><span class="pin" style="left:44%;top:57%">2</span><span class="pin" style="left:43%;top:78%">3</span><span class="pin" style="left:17%;top:83%">4</span><span class="pin" style="left:95%;top:65%">5</span></div>
+<div><div class="sh">Mysterien im Mythischen Norden</div><div class="list">
+<div class="item"><span class="n">1</span><div class="im c" style="background-image:url(../../../vaesen/img/tanz/eroeffnung.webp)"></div><div><span class="k">Grundregelwerk</span><b>Der Tanz der Träume</b><small>Upsala · Countdown 0 / 4 · Hinweise 0 / 17</small></div><span class="go">Starten</span></div>
+<div class="item"><span class="n">2</span><div class="im" style="background-image:url(../../../vaesen/img/som/tod_eroeffnung.webp)"></div><div><span class="k">Frühling</span><b>Ein Tanz mit dem Tod</b><small>Dalarna · Fudal am Siljan</small></div><span class="go">Starten</span></div>
+<div class="item"><span class="n">3</span><div class="im" style="background-image:url(../../../vaesen/img/som/feuer_eroeffnung.webp)"></div><div><span class="k">Sommer</span><b>Feuerherz</b><small>Småland · Hüttenwerk Häryd</small></div><span class="go">Weiterspielen</span></div>
+<div class="item"><span class="n">4</span><div class="im" style="background-image:url(../../../vaesen/img/som/teufel_eroeffnung.webp)"></div><div><span class="k">Herbst</span><b>Der Teufel im Moor</b><small>Jütland · Grimsted Lyng</small></div><span class="go">Starten</span></div>
+<div class="item"><span class="n">5</span><div class="im" style="background-image:url(../../../vaesen/img/som/winter_eroeffnung.webp)"></div><div><span class="k">Winter</span><b>Ein Wintermärchen</b><small>Ingermanland · Gasthaus Tammsalu</small></div><span class="go">Starten</span></div>
+</div>
+<div class="bk"><img src="../../../vaesen/img/cover_grundregelwerk.webp"><img src="../../../vaesen/img/cover_seasons.webp"><img class="off" src="../../../vaesen/img/cover_mbi.webp"><img class="off" src="../../../vaesen/img/cover_carp.webp"><img class="off" src="../../../vaesen/img/cover_wicked.webp"><img class="off" src="../../../vaesen/img/cover_lost.webp"><img class="off" src="../../../vaesen/img/cover_city.webp"><img class="off" src="../../../vaesen/img/cover_solo.webp"></div>
+</div></div></body></html>

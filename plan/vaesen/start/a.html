@@ -1,0 +1,65 @@
+<!doctype html><html lang="de"><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.hero{position:relative;height:430px;background:url(../../../vaesen/img/hero_naeck.webp) center 40%/cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(238,232,218,1) 0,rgba(238,232,218,.6) 22%,rgba(238,232,218,0) 48%)}
+.hero img{position:absolute;left:50px;bottom:34px;height:96px;z-index:2}
+.wrap{padding:6px 50px 50px}
+.strip{display:flex;height:300px;gap:0}
+.strip a{flex:1;position:relative;background:#cfc6ae center/cover;transition:flex .35s;overflow:hidden;filter:saturate(.85)}
+.strip a:first-child{flex:2.2;filter:none}
+.strip a:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,20,12,.78),rgba(30,20,12,0) 45%)}
+.strip b{position:absolute;left:14px;right:10px;bottom:14px;z-index:2;font-family:Mar;font-weight:400;color:#f3ecd9;font-size:17px;letter-spacing:.08em;line-height:1.1}
+.strip small{display:block;font-family:EBG;font-style:italic;font-size:14px;letter-spacing:0;opacity:.85;margin-top:3px}
+.mys{display:grid;grid-template-columns:1fr 1.55fr;gap:34px;margin-top:40px}
+.tanz{position:relative;display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:center}
+.tanz img{width:200px;mix-blend-mode:multiply}
+.tanz h3{font-size:30px;color:var(--red);line-height:1.05}
+.src{font-style:italic;color:var(--soft);font-size:15px}
+.go{display:inline-block;margin-top:14px;font-family:Mar;letter-spacing:.16em;font-size:14px;color:var(--red);border-bottom:1px solid var(--red);padding-bottom:1px}
+.prog{font-size:15px;color:var(--soft);margin-top:8px}.prog b{color:var(--ink)}
+.year{display:grid;grid-template-columns:repeat(4,1fr);gap:0;height:300px}
+.year a{position:relative;background:center/cover;overflow:hidden}
+.year a:before{content:"";position:absolute;inset:0;mix-blend-mode:color;opacity:.18}
+.year a:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,20,12,.82),rgba(30,20,12,0) 55%)}
+.year .s{position:absolute;top:12px;left:14px;z-index:2;font-family:Mar;font-size:12.5px;letter-spacing:.24em;color:#f3ecd9;background:rgba(138,31,23,.88);padding:2px 8px}
+.year .t{position:absolute;left:14px;right:12px;bottom:12px;z-index:2;color:#f3ecd9}
+.year .t b{display:block;font-family:Mar;font-weight:400;font-size:19px;letter-spacing:.05em;line-height:1.1}
+.year .t small{font-size:14px;opacity:.85}
+.seah{display:flex;align-items:baseline;justify-content:space-between}
+.seah span{font-family:Mar;font-size:13px;letter-spacing:.14em;color:var(--red)}
+.books{display:flex;gap:22px;align-items:flex-start}
+.books div{flex:1;text-align:center}
+.books img{width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 6px 14px rgba(40,25,10,.3)}
+.books .off img{filter:grayscale(.8);opacity:.5;box-shadow:none}
+.books b{display:block;font-family:Mar;font-weight:400;font-size:13.5px;letter-spacing:.04em;margin-top:8px;line-height:1.15}
+</style><body><div class="top"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><svg viewBox="0 0 24 24"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z M12 6v14"/></svg><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5"/></svg><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 16l5-5 4 4 3-3 4 4"/></svg><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+<div class="hero"><img src="../../../assets/logos/vaesen-rot.webp"></div>
+<div class="wrap">
+<div class="sh">Der Mythische Norden</div>
+<div class="strip">
+<a style="background-image:url(../../../vaesen/img/full/vaesen_titel_hirsch.webp);background-position:50% 35%"><b>Vaesen<small>20 Wesen des Nordens</small></b></a>
+<a style="background-image:url(../../../vaesen/img/full/charaktere_kapitelbild_fenster.webp);background-position:50% 20%"><b>Regeln</b></a>
+<a style="background-image:url(../../../vaesen/img/full/charaktere_archetyp_priester.webp);background-position:50% 15%"><b>Charaktere</b></a>
+<a style="background-image:url(../../../vaesen/img/full/norden_titel_reiter.webp);background-position:40% 50%"><b>Der Norden</b></a>
+<a style="background-image:url(../../../vaesen/img/full/mysterium_dame_mit_laterne.webp);background-position:50% 20%"><b>Gesellschaft</b></a>
+<a style="background-image:url(../../../vaesen/img/full/einleitung_naeck.webp);background-position:60% 40%"><b>Mysterium</b></a>
+<a style="background-image:url(../../../vaesen/img/full/norden_karte_upsala.webp)"><b>Karten</b></a>
+</div>
+<div class="mys">
+<div><div class="sh">Grundregelwerk</div><div class="tanz"><img src="../../../vaesen/img/tanz/eroeffnung.webp"><div><h3>Der Tanz<br>der Träume</h3><div class="src">Einführungsmysterium · Upsala</div><div class="prog">Countdown <b>0 / 4</b> · Hinweise <b>0 / 17</b></div><a class="go">Starten</a></div></div></div>
+<div><div class="sh">Seasons of Mystery</div>
+<div class="year">
+<a style="background-image:url(../../../vaesen/img/som/tod_eroeffnung.webp)"><span class="s">Frühling</span><div class="t"><b>Ein Tanz mit dem Tod</b><small>Dalarna</small></div></a>
+<a style="background-image:url(../../../vaesen/img/som/feuer_eroeffnung.webp)"><span class="s">Sommer</span><div class="t"><b>Feuerherz</b><small>Småland</small></div></a>
+<a style="background-image:url(../../../vaesen/img/som/teufel_eroeffnung.webp)"><span class="s">Herbst</span><div class="t"><b>Der Teufel im Moor</b><small>Jütland</small></div></a>
+<a style="background-image:url(../../../vaesen/img/som/winter_eroeffnung.webp)"><span class="s">Winter</span><div class="t"><b>Ein Wintermärchen</b><small>Ingermanland</small></div></a>
+</div></div></div>
+<div class="sh" style="margin-top:44px">Bücher</div><div class="books">
+<div><img src="../../../vaesen/img/cover_grundregelwerk.webp"><b>Grundregelwerk</b></div>
+<div><img src="../../../vaesen/img/cover_seasons.webp"><b>Seasons of Mystery</b></div>
+<div class="off"><img src="../../../vaesen/img/cover_mbi.webp"><b>Mythic Britain &amp; Ireland</b></div>
+<div class="off"><img src="../../../vaesen/img/cover_carp.webp"><b>Mythic Carpathia</b></div>
+<div class="off"><img src="../../../vaesen/img/cover_wicked.webp"><b>A Wicked Secret</b></div>
+<div class="off"><img src="../../../vaesen/img/cover_lost.webp"><b>Lost Mountain Saga</b></div>
+<div class="off"><img src="../../../vaesen/img/cover_city.webp"><b>City of My Nightmares</b></div>
+<div class="off"><img src="../../../vaesen/img/cover_solo.webp"><b>Thursday’s Child</b></div>
+</div></div></body></html>

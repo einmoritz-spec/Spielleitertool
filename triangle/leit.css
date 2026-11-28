@@ -211,3 +211,8 @@ body.ve-vault{background:#17111f}
 .vflt>article>.vre.vband{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:22px;align-items:start;padding:0;margin:8px 0 30px;clear:both}
 .vflt>article>.vre.vband>*{margin:0}
 @media (max-width:800px){.vflt>article>.vre.vband{grid-template-columns:1fr}}
+/* unten: Sonderregel schmaler, Optionale Ziele über die restliche Breite (zweispaltig) */
+.vct.vunten>.vre>.vsonder:not(:only-child){flex:0 1 340px}
+.vct.vunten>.vre>.vsonder+.vziele{flex:1 1 0;min-width:0;column-count:2;column-gap:40px}
+.vct.vunten>.vre>.vsonder+.vziele>h4,.vct.vunten>.vre>.vsonder+.vziele>.ve{column-span:all}
+.vct.vunten>.vre>.vsonder+.vziele p{break-inside:avoid}

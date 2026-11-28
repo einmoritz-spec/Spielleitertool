@@ -256,3 +256,27 @@ body.bogenseite{background:#d9d3c2}
 .eguide .egf .tx small{display:none}
 @media(max-width:900px){.eguide .egl{columns:1}}
 .eguide .egs header{justify-content:flex-start}
+
+/* Übersicht einer Staffel */
+.eguide .egs .cv,.eguide .egs header{cursor:pointer}
+.stv{background:#efe8d8;color:#2a1d10;min-height:100vh;padding:90px max(40px,calc((100% - 1160px)/2)) 90px}
+.stv .stk{display:grid;grid-template-columns:200px minmax(0,1fr);gap:44px;align-items:end;padding-bottom:36px;border-bottom:1px solid rgba(60,40,20,.18)}
+.stv .stk img{width:200px;display:block;box-shadow:0 16px 30px -14px rgba(40,24,8,.6)}
+.stv .stk small{font:800 11px Fut;letter-spacing:.26em;text-transform:uppercase;color:var(--c)}
+.stv .stk h1{font:900 46px/1.02 Fut;text-transform:uppercase;margin:8px 0 6px}
+.stv .stk i{font:italic 20px Cas;color:#6b5c45;display:block}
+.stv .stb{margin-top:22px;font:800 12px Fut;letter-spacing:.16em;text-transform:uppercase;background:none;border:1.5px solid var(--c);color:var(--c);padding:9px 18px;cursor:pointer}
+.stv .stb:hover{background:var(--c);color:#fff}
+.stv h2{font:800 13px Fut;letter-spacing:.32em;text-transform:uppercase;color:#7a6a52;margin:40px 0 18px}
+.stv .stg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.stv .stc{display:grid;grid-template-columns:112px minmax(0,1fr);min-height:96px;background:#f7f2e6;box-shadow:0 8px 18px -12px rgba(40,24,8,.5);cursor:pointer;border-left:4px solid var(--c);transition:transform .15s}
+.stv .stc:hover{transform:translateY(-2px)}
+.stv .stc .th{background:center 28%/cover}.stv .stc .th.w{background-color:#fff;background-size:contain;background-repeat:no-repeat}
+.stv .stc .tx{padding:10px 14px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.stv .stc small{font:800 9.5px Fut;letter-spacing:.2em;text-transform:uppercase;color:var(--c)}
+.stv .stc b{font:700 18px/1.2 Cas;margin-top:2px}
+.stv .stc span{font:12px/1.35 Fut;color:#7a6a52;margin-top:5px}
+.stv .stl{display:flex;flex-wrap:wrap;gap:10px}
+.stv .stl a{font:700 13px Fut;letter-spacing:.06em;text-transform:uppercase;color:#2a1d10;border:1px solid rgba(60,40,20,.3);padding:8px 16px}
+.stv .stl a:hover{border-color:var(--c);color:var(--c)}
+@media(max-width:900px){.stv .stg{grid-template-columns:1fr}.stv .stk{grid-template-columns:120px 1fr;gap:22px}.stv .stk img{width:120px}.stv .stk h1{font-size:30px}}

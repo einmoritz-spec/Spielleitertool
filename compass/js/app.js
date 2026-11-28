@@ -37,6 +37,7 @@ function guide(){
       links: ((Z && Z.areas) || []).map(function(a){ return {t: a.t, h: "#a/" + a.id}; }),
       eps: st.eps.map(function(e, i){ return {id: st.id + (i + 1), nr: "Folge " + (i + 1), s: e[1], img: "start/" + e[2], alt: e[0]}; })});
   });
+  window.BC_BLOCKS = blocks;
   return '<section class="eguide"><div class="sh2">Staffeln und Folgen</div>' + blocks.map(function(B){
     var sz = 0; B.eps.forEach(function(e){ sz += (F[e.id] && F[e.id].n) || 0; });
     var cards = B.eps.map(function(e){
@@ -48,8 +49,8 @@ function guide(){
       return '<a class="egf" onclick="epGo(\'' + e.id + '\',\'' + B.b + '\',' + e.s + ')"><div class="th' + (W[e.id] ? " w" : "") + '" style="background-image:url(img/' + e.img + '.webp)"></div>' +
         '<div class="tx"><small>' + esc(e.nr) + '</small><b>' + esc(t) + '</b>' + alt + (meta.length ? '<span>' + meta.map(esc).join(" · ") + '</span>' : "") + '</div></a>';
     }).join("");
-    return '<div class="egs ' + B.id + '" style="--c:' + B.c + '"><a class="cv ' + B.id + '" onclick="' + (B.links[0] ? "location.hash=\'" + B.links[0].h + "\'" : "openBook(\'" + B.b + "\',1)") + '"><img src="' + IMG + B.cover + '.webp" alt=""></a>' +
-      '<div class="bd"><header><div><small>' + esc(B.lab) + '</small><h3>' + esc(B.t) + '</h3><i>' + esc(B.story) + '</i></div>' +
+    return '<div class="egs ' + B.id + '" style="--c:' + B.c + '"><a class="cv ' + B.id + '" onclick="location.hash=\'#s/' + B.id + '\'"><img src="' + IMG + B.cover + '.webp" alt=""></a>' +
+      '<div class="bd"><header onclick="location.hash=\'#s/' + B.id + '\'"><div><small>' + esc(B.lab) + '</small><h3>' + esc(B.t) + '</h3><i>' + esc(B.story) + '</i></div>' +
       '<div class="mt"><span>' + B.eps.length + ' Folgen' + (sz ? " · " + sz + " Szenen" : "") + '</span>' + (B.links.length ? '<nav>' + B.links.map(function(l){ return '<a href="' + l.h + '">' + esc(l.t) + '</a>'; }).join("") + '</nav>' : "") + '</div></header>' +
       '<div class="egl">' + cards + '</div></div></div>';
   }).join("") + '</section>';
@@ -159,11 +160,38 @@ window.gmBook = function(){
   return {name: "Adventure Journal", open: function(){ openBook("bc_aj", 1); }, books: all};
 };
 
+/* ---------- Übersicht einer Staffel ---------- */
+function renderStaffel(id){
+  if(!window.BC_BLOCKS) guide();
+  var B = (window.BC_BLOCKS || []).filter(function(x){ return x.id === id; })[0]; if(!B) return false;
+  var F = window.BC_FOLGEN || {}, W = window.BC_WEISS || {};
+  var kurz = function(v){ return window.EPI ? EPI.kurz(v) : v; };
+  document.getElementById("tabs").innerHTML = "";
+  document.body.classList.remove("film", "buch"); document.body.classList.add("inh");
+  var bar = document.querySelector(".topbar"); bar.style.height = ""; bar.style.transform = ""; bar.style.removeProperty("--t");
+  clearInterval(HERO.t);
+  var cards = B.eps.map(function(e){
+    var f = F[e.id] || {}, t = f.t || e.alt || e.id, meta = [];
+    if(f.n) meta.push(f.n + " Szenen");
+    var o = kurz(f.ort); if(o) meta.push(o);
+    var r = kurz(f.riv); if(r) meta.push("Rivale: " + r);
+    return '<a class="stc" onclick="epGo(\'' + e.id + '\',\'' + B.b + '\',' + e.s + ')"><div class="th' + (W[e.id] ? " w" : "") + '" style="background-image:url(img/' + e.img + '.webp)"></div>' +
+      '<div class="tx"><small>' + esc(e.nr) + '</small><b>' + esc(t) + '</b>' + (meta.length ? '<span>' + meta.map(esc).join(" · ") + '</span>' : "") + '</div></a>';
+  }).join("");
+  var links = B.links.length ? '<h2>Kapitel</h2><nav class="stl">' + B.links.map(function(l){ return '<a href="' + l.h + '">' + esc(l.t) + '</a>'; }).join("") + '</nav>' : "";
+  APP.innerHTML = '<section class="stv" style="--c:' + B.c + '"><div class="stk"><img src="' + IMG + B.cover + '.webp" alt="">' +
+    '<div><small>' + esc(B.lab) + '</small><h1>' + esc(B.t) + '</h1><i>' + esc(B.story) + '</i><button class="stb" onclick="openBook(\'' + B.b + '\',1)">Buch öffnen</button></div></div>' +
+    '<h2>Folgen</h2><div class="stg">' + cards + '</div>' + links + '</section>';
+  window.scrollTo(0, 0);
+  return true;
+}
+
 /* Router: #start (Standard) · #a/<bereich>[/<unterpunkt>] */
 function route(){
   var h = location.hash.replace(/^#/, "").split("/");
   if(h[0] === "a" && h[1] && INH.render(h[1], h[2])) return;
   if(h[0] === "e" && h[1]){ EPI.render(h[1]); return; }
+  if(h[0] === "s" && h[1] && renderStaffel(h[1])) return;
   if(h[0] === "bogen"){ BOGEN.render(h.slice(1).join("/")); return; }
   renderStart();
 }

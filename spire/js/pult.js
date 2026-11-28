@@ -27,7 +27,7 @@ if(window.name === "spembed"){
 function puOffen(id){ PU.offen[id] = !PU.offen[id]; PU.zeig = !!PU.offen[id]; if(/^g:/.test(id)) puErgebnis(); else puDraw(); }
 function puSuche(v){ PU.q = v; puErgebnis(); }
 function puAdd(id){ bgAdd(id); }
-function puFigNeu(){ var f = zNeu(); zFigs().push(f); save(); render(); }
+function puFigNeu(){ puClose(); bgNeu(); }
 
 function puFiguren(){
   var F = zFigs();

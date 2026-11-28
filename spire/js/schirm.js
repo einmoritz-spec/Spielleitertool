@@ -1,10 +1,23 @@
 /* THE SPIRE – Spielleiterschirm (Overlay, Taste „s“, Burger-Menü, Chip auf der Startseite). Route #schirm öffnet ihn über der Startseite.
    Reiter: Würfeln · Stress · Fallout · Tags · Gegner. Alles Auszüge aus den Regeln S. 9–22 und QS S. 22. */
-var SCH_TAB = "wuerfeln";
-var SCH_TABS = [["wuerfeln", "Würfeln"], ["stress", "Stress"], ["fallout", "Fallout"], ["tags", "Tags"], ["gegner", "Gegner"]];
+var SCH_TAB = "figuren";
+var SCH_VF = false;
+var SCH_TABS = [["figuren", "Figuren"], ["wuerfeln", "Würfeln"], ["stress", "Stress"], ["fallout", "Fallout"], ["tags", "Tags"], ["gegner", "Gegner"]];
 function schTab(t){ SCH_TAB = t; schDraw(); }
 function schChips(L, tipFn){ return L.map(function(e){ return '<span class="chip" data-tn="' + esc(e.t) + '" data-tip="' + esc(e.x) + '">' + esc(e.t) + '</span>'; }).join(""); }
+function schVfTog(){ SCH_VF = !SCH_VF; schDraw(); }
+function schVfNimm(id){ if(!zFigs().some(function(f){ return f.vf === id; })){ zFigs().push(zVon(vfDaten(id))); save(); } schDraw(); }
+function schVfAlle(){ SP_VORGEFERTIGT.forEach(function(v){ if(!zFigs().some(function(f){ return f.vf === v.id; })) zFigs().push(zVon(v)); }); save(); schDraw(); }
+function schFigNeu(){ var f = zNeu(); zFigs().push(f); save(); schDraw(); }
+function schFiguren(){
+  var F = zFigs(), da = {}; F.forEach(function(f){ if(f.vf) da[f.vf] = 1; });
+  var vf = SCH_VF ? '<div class="schvf"><div class="vfr" data-pgbook="sp_qs">' + SP_VORGEFERTIGT.map(function(v){
+    return '<div class="vfk' + (da[v.id] ? ' da' : '') + '" onclick="schVfNimm(\'' + v.id + '\')"><img src="' + IMG(v.bild) + '" alt=""><h4>' + esc(v.n) + '</h4><small>' + esc(v.titel || v.klasse) + '</small></div>'; }).join("") + '</div></div>' : '';
+  return '<div class="pu-bt schfb"><button onclick="schVfTog()">' + (SCH_VF ? 'Auswahl schließen' : 'Vorgefertigte Figur') + '</button>' + (SCH_VF ? '<button onclick="schVfAlle()">Alle sechs</button>' : '') + '<button onclick="schFigNeu()">Neue Figur</button></div>' + vf +
+    (F.length ? '<div class="pu-figs schfig">' + F.map(zKarte).join("") + '</div>' : '<p class="leise">Noch keine Figuren. Vorgefertigte Figuren auswählen oder eine neue anlegen; Figuren aus dem Charakterbogen erscheinen hier automatisch.</p>');
+}
 function schInhalt(){
+  if(SCH_TAB === "figuren") return schFiguren();
   var F = SP_FALLOUT;
   if(SCH_TAB === "wuerfeln"){
     return '<div class="sch2"><div><h3 class="un">Kernmechanik' + pgl(9) + '</h3>' +
@@ -48,3 +61,6 @@ function schirmOpen(){
   var m = modal('<div class="schk"></div>', true); m.id = "schm"; m.classList.add("schirm"); schDraw();
 }
 SP_VIEW.schirm = function(){ setTimeout(schirmOpen, 0); return viewStart(); };
+
+(function(){ function einh(){ var o = window.render; if(o && !o.__sch){ window.render = render = function(){ var r = o.apply(this, arguments); try{ if(document.getElementById("schm")) schDraw(); }catch(e){} return r; }; window.render.__sch = 1; } }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", function(){ setTimeout(einh, 0); }); else setTimeout(einh, 0); })();

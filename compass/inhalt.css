@@ -217,3 +217,29 @@ body.bogenseite{background:#d9d3c2}
 .egs .cv.aj{align-self:start;min-height:0;overflow:visible}
 .egs .cv.aj img{position:static;width:190px;height:auto}
 .egs .cv.aj:hover img{transform:translateY(-3px)}
+
+/* Staffeln und Folgen: ruhig, hell, nur Cover und Liste */
+.eguide{max-width:none;color:#2a1d10;padding:60px max(40px,calc((100% - 1160px)/2)) 90px;background:#efe8d8}
+.eguide .sh2{color:#7a6a52;margin-bottom:8px}
+.eguide .egs{grid-template-columns:140px minmax(0,1fr);gap:40px;padding:36px 0 40px;border-top:1px solid rgba(60,40,20,.16)}
+.eguide .egs .cv{min-height:0;aspect-ratio:2/3;box-shadow:0 12px 24px -12px rgba(40,24,8,.55)}
+.eguide .egs .cv.aj{aspect-ratio:auto}.eguide .egs .cv.aj img{width:140px}
+.eguide .egs header{display:block;margin-bottom:14px;padding:0;border:0}
+.eguide .egs header small{color:var(--c);letter-spacing:.24em}
+.eguide .egs header h3{color:#2a1d10;font-size:28px;margin:4px 0 2px}
+.eguide .egs header i{color:#6b5c45;font-size:17px}
+.eguide .egs .mt{text-align:left;margin-top:10px}
+.eguide .egs .mt span{display:none}
+.eguide .egs .mt nav{justify-content:flex-start;gap:6px 18px;flex-wrap:wrap;margin-top:0}
+.eguide .egs .mt nav a{color:#7a6a52;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.eguide .egs .mt nav a:hover{color:var(--c)}
+.eguide .egl{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.eguide .egf{display:flex;min-height:0;background:none;border:0;border-bottom:1px solid rgba(60,40,20,.13);padding:10px 2px;cursor:pointer}
+.eguide .egf:hover{background:none}
+.eguide .egf .th{display:none}
+.eguide .egf .tx{padding:0;flex-direction:row;align-items:baseline;gap:14px;justify-content:flex-start}
+.eguide .egf small{color:var(--c);min-width:62px;font-size:10px;letter-spacing:.18em}
+.eguide .egf b{color:#2a1d10;font-size:18px;margin:0;font-weight:600}
+.eguide .egf:hover b{color:var(--c)}
+.eguide .egf em,.eguide .egf span{display:none}
+@media(max-width:900px){.eguide .egl{grid-template-columns:1fr}.eguide .egs{grid-template-columns:100px minmax(0,1fr);gap:22px}.eguide .egs .cv.aj img{width:100px}}

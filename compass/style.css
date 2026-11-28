@@ -165,4 +165,3 @@ body.buch .ansicht{opacity:1}
 .sl[style*="--bgi"]:before{width:max(100%,38vw);left:var(--bpx,50%);transform:translate3d(calc(-1 * var(--bpx,50%)),0,0)}
 .pil{will-change:filter}
 
-.tafeln .dp.bgk{grid-column:1/-1;height:150px}

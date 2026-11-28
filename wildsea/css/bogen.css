@@ -182,3 +182,6 @@
 .wsch-c:hover{border-color:var(--sage)}
 .wsch-c.on{background:var(--sage3);border-color:var(--sage3);color:#fff}
 .wsch-p{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:#fff;color:inherit;font-size:15px;line-height:1;padding:0;cursor:pointer;font-family:inherit}
+/* Geisterkreise: die globale Überschrift-Klasse .gh (Rand, Abstand) darf die Kette nicht verschieben */
+.bch .cr.gh,.bsheet .bch .cr.gh{margin:0;border:1.8px solid #dddcd3}
+.bch s.gh,.bsheet .bch s.gh{margin:0;border-top:1.4px solid #dddcd3;border-bottom:1.4px solid #dddcd3}

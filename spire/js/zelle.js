@@ -97,7 +97,7 @@ function zKarte(f){
     var bf = (b.fallout || []).map(function(id, k){ var e = SP_FALLOUT.finde(id); return '<span class="chip w" onclick="zBChip(\'' + f.id + '\',' + bi + ',' + k + ')">' + esc(e ? e.t : id) + '</span>'; }).join("");
     return '<div class="zb"><span class="bn" onclick="zBName(\'' + f.id + '\',' + bi + ')">' + esc(b.n) + '</span><span class="bx">' + zBind(f, bi, b) + '</span>' + (bf ? '<span class="bfo">' + bf + '</span>' : '') + '</div>';
   }).join("");
-  return '<div class="pc' + (ZP && ZP.fid === f.id ? ' sel' : '') + '"><div class="pk">' +
+  return '<div class="pc' + (ZP && ZP.fid === f.id ? ' sel' : '') + '"><div class="pk"><i class="pxw" onclick="event.stopPropagation();zFigWeg(\'' + f.id + '\')" title="Figur entfernen">×</i>' +
     (bild ? '<img src="' + IMG(bild) + '" alt="" onclick="zoom(this.src)">' : '<span class="ini">' + esc(zInit(f.n)) + '</span>') +
     '<div class="pn" onclick="zEdit(\'' + f.id + '\')" title="Figur bearbeiten"><h3>' + esc(f.n) + '</h3><small>' + esc([f.klasse, f.dienst ? "Dienstzeit: " + f.dienst : ""].filter(Boolean).join(" · ")) + '</small></div></div>' +
     '<div class="zres">' + rows + '</div>' + zStreifen(f) +
@@ -291,6 +291,7 @@ function zVfNimm(id){
   zVfAuswahl(); render();
 }
 function zVfAlle(){ SP_VORGEFERTIGT.forEach(function(v){ if(!zFigs().some(function(f){ return f.vf === v.id; })) zFigs().push(zVon(v)); }); save(); var m = document.querySelector(".modal"); if(m) m.remove(); render(); }
+function zFigWeg(fid){ var f = zFig(fid); if(!f || !confirm("Figur „" + f.n + "“ entfernen? Der Bogen dieser Figur geht damit auch verloren.")) return; ST.figuren = zFigs().filter(function(x){ return x.id !== fid; }); if(window.ZP && ZP.fid === fid) ZP = null; save(); render(); }
 function zNeueFigur(){ var f = zNeu(); zFigs().push(f); save(); render(); zEdit(f.id); }
 
 /* Bogen einer vorgefertigten Figur (Bogenlayout, QS S. 25–36); auch für den Leitstand „Snuff Out the Sun“ nutzbar */

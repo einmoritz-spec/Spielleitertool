@@ -22,6 +22,7 @@ function viewFilm(){
     return '<a class="sl" style="--c:' + a.c + ';--bgi:url(' + IMG + a.img + '.webp);--bp:' + a.pos + ';--bpx:' + String(a.pos).split(" ")[0] + '" href="#a/' + a.id + '">' +
       '<div class="tx"><small>Abschnitt ' + (i + 1) + '</small><b>' + esc(a.t) + '</b><ul>' + a.sub.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div><div class="bar"></div></a>';
   }).join("");
+  fan += '<a class="sl" style="--c:#a8701f;--bgi:url(img/aj/abenteurer-sammlung.webp);--bp:50% 50%;--bpx:50%" href="#bogen"><div class="tx"><small>Werkzeug</small><b>Abenteurerbogen</b><ul><li>Ausfüllen</li><li>Zufallsabenteurer</li><li>Teilen und PDF</li></ul></div><div class="bar"></div></a>';
   return '<section class="fan-wrap"><div class="fan">' + fan + '</div></section>' + guide();
 }
 /* Episodenführer: je Staffel Cover, Kapitel-Links und alle Folgen mit Szenenzahl, Ort und Rivale */
@@ -61,6 +62,7 @@ function viewBuch(){
     return '<a class="dp" style="--c:' + a.c + '" href="#a/' + a.id + '"><div class="art" style="background-image:url(' + IMG + a.img + '.webp);background-position:' + a.pos + '"></div>' +
       '<div class="op"><small>Abschnitt ' + (i + 1) + '</small><b>' + esc(a.t) + '</b><span>' + a.sub.map(esc).join(" · ") + '</span></div></a>';
   }).join("");
+  sp += '<a class="dp bgk" style="--c:#a8701f" href="#bogen"><div class="art" style="background-image:url(img/aj/abenteurer-sammlung.webp);background-position:50% 40%"></div><div class="op"><small>Werkzeug</small><b>Abenteurerbogen</b><span>Ausfüllen · Zufallsabenteurer · Teilen · PDF</span></div></a>';
   function zettel(k, lab, t, bild, c, items){
     return '<div class="zt ' + k + '" style="--f:' + c + '"><div class="cv" style="background-image:url(' + IMG + bild + '.webp)"></div><div class="k">' + esc(lab) + '</div><div class="t">' + esc(t) + '</div><ol>' + items + '</ol></div>';
   }

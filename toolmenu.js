@@ -159,6 +159,12 @@
       typeof w.sOpen === "function" ? function(){ w.sOpen(true); } : null;
   }
   window.gmSearchFn = searchFn;
+  /* Charakterbogen-Symbol oben rechts: Ziel je System (Hash oder Seite) */
+  var BOGENZIEL = {household:"#bogen", hh_garten:"#bogen", savageworlds:"#bogen", pico:"#bogen/picnic", mausritter:"#maeuse/bogen", dragonbane:"#n/bogen", db_arkand:"#n/bogen",
+    triangle:"#ark/bogen", wildsea:"#bogen", spire:"#bogen", heart:"#bogen", ht_blackops:"#bogen", ht_doors:"#bogen", ht_dagger:"#bogen", discworld:"#k/charaktere/5",
+    tftl:"#bogen", tftl_flood:"#flood/bogen", tftl_es:"#es/bogen", vaesen:"#bogen", vae_mbi:"#bogen", vae_car:"#bogen", slugblaster:"#crew", sb_oolroob:"#crew",
+    intotheodd:"#bogen", cityofmist:"ersteller.html", cm_rw:"ersteller.html", cm_ss:"ersteller.html", otherscape:"ersteller.html",
+    paynetown:"../cityofmist/ersteller.html", locallegends:"../cityofmist/ersteller.html"};
   function sgBtns(){
     var bar = document.querySelector(".topbar"); if(!bar || bar.querySelector(".topbar-actions")) return;
     var burger = bar.querySelector(".tb-burger") || bar.querySelector('button[aria-label="Menü"]'); if(!burger) return;
@@ -171,6 +177,11 @@
       b.addEventListener("click", function(e){ e.stopPropagation(); fn(); });
       burger.insertAdjacentElement("beforebegin", b);
     }
+    var bz = BOGENZIEL[cur()];
+    if(bz && !document.getElementById("tbBogen") && !bar.querySelector(".tb-bogen")){
+      mk("tbBogen", "Charakterbogen", '<rect x="4.5" y="3.5" width="15" height="17" rx="2"/><circle cx="12" cy="9.5" r="2.2"/><path d="M8.2 16.3c.6-2 2-3 3.8-3s3.2 1 3.8 3"/>', function(){ if(/\.html$/.test(bz)) location.href = bz; else location.hash = bz; });
+      var bb = document.getElementById("tbBogen"); if(bb) bb.classList.add("tm-bogen");
+    }
     if(!document.getElementById("tbSuche") && searchFn()) mk("tbSuche", "Suche", '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/>', function(){ var f = searchFn(); if(f) f(); });
     var gk = GALKEY[cur()], gf = window.gmGalerie || (gk && window.Galerie && Galerie.has && Galerie.has(gk) ? function(){ Galerie.open(gk); } : null);
     if(!document.getElementById("tbGalerie") && gf) mk("tbGalerie", "Galerie", '<rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/>', gf);
@@ -178,7 +189,7 @@
   function ordnen(){
     var bar = document.querySelector(".topbar"); if(!bar) return;
     var burger = bar.querySelector(".tb-burger") || bar.querySelector('button[aria-label="Menü"]'); if(!burger) return;
-    var seq = [].concat([].slice.call(bar.querySelectorAll(".tm-info")), [].slice.call(bar.querySelectorAll(".tm-map")), [].slice.call(bar.querySelectorAll(".tm-book:not(.tm-map)")), [].slice.call(bar.querySelectorAll(".tm-sg")));
+    var seq = [].concat([].slice.call(bar.querySelectorAll(".tm-bogen")), [].slice.call(bar.querySelectorAll(".tm-info")), [].slice.call(bar.querySelectorAll(".tm-map")), [].slice.call(bar.querySelectorAll(".tm-book:not(.tm-map)")), [].slice.call(bar.querySelectorAll(".tm-sg:not(.tm-bogen)")));
     var kids = [].slice.call(bar.children), ok = true, last = -1;
     seq.forEach(function(e){ var i = kids.indexOf(e); if(i < last) ok = false; last = i; });
     if(ok) return;

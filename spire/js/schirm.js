@@ -8,7 +8,7 @@ function schChips(L, tipFn){ return L.map(function(e){ return '<span class="chip
 function schVfTog(){ SCH_VF = !SCH_VF; schDraw(); }
 function schVfNimm(id){ if(!zFigs().some(function(f){ return f.vf === id; })){ zFigs().push(zVon(vfDaten(id))); save(); } schDraw(); }
 function schVfAlle(){ SP_VORGEFERTIGT.forEach(function(v){ if(!zFigs().some(function(f){ return f.vf === v.id; })) zFigs().push(zVon(v)); }); save(); schDraw(); }
-function schFigNeu(){ var f = zNeu(); zFigs().push(f); save(); schDraw(); }
+function schFigNeu(){ schClose(); bgNeu(); }
 function schFiguren(){
   var F = zFigs(), da = {}; F.forEach(function(f){ if(f.vf) da[f.vf] = 1; });
   var vf = SCH_VF ? '<div class="schvf"><div class="vfr" data-pgbook="sp_qs">' + SP_VORGEFERTIGT.map(function(v){

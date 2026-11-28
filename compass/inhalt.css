@@ -243,3 +243,16 @@ body.bogenseite{background:#d9d3c2}
 .eguide .egf:hover b{color:var(--c)}
 .eguide .egf em,.eguide .egf span{display:none}
 @media(max-width:900px){.eguide .egl{grid-template-columns:1fr}.eguide .egs{grid-template-columns:100px minmax(0,1fr);gap:22px}.eguide .egs .cv.aj img{width:100px}}
+/* noch ruhiger: eine Überschrift, keine Zwischenzeilen, nummerierte Liste */
+.eguide .egs .mt{display:none}
+.eguide .egs header{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 16px;margin-bottom:18px}
+.eguide .egs header>div{display:contents}
+.eguide .egs header small{flex:0 0 100%;order:0}
+.eguide .egs header h3{order:1;margin:0;font-size:30px}
+.eguide .egs header i{order:2;font-size:16px;color:#7a6a52}
+.eguide .egl{display:block;columns:2;column-gap:56px;counter-reset:n}
+.eguide .egf{break-inside:avoid;counter-increment:n;align-items:baseline;gap:16px}
+.eguide .egf:before{content:counter(n);flex:0 0 22px;font:800 15px Fut;color:var(--c);text-align:right}
+.eguide .egf .tx small{display:none}
+@media(max-width:900px){.eguide .egl{columns:1}}
+.eguide .egs header{justify-content:flex-start}
